@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldmlSupplemental.dtd">
-<supplementalData version="1.0">
+<!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldmlSupplemental.dtd">
+<supplementalData version="1.3">
     <currencyData>
         <fractions>
             <info iso4217="ADP" digits="0" rounding="0"/>
@@ -774,4 +774,602 @@ Afghanis. -->
             <currency iso4217="ZWD"/>
         </region>
     </currencyData>
+	<languageData> <!-- used for consistency checks and testing; not definitive -->
+		<language type="af" scripts="Latn" territories="ZA"/>
+		<language type="am" scripts="Ethi" territories="ET"/>
+		<language type="ar" scripts="Arab" territories="AE BH DZ EG IN IQ JO KW LB LY MA OM PS QA SA SD SY TN YE YD"/>
+		<language type="as" scripts="Beng" territories="BD"/>
+		<language type="az" scripts="Arab Cyrl Latn" territories="AZ"/>
+		<language type="be" scripts="Cyrl" territories="BY"/>
+		<language type="bg" scripts="Cyrl" territories="BG"/>
+		<language type="bn" scripts="Beng" territories="BD IN"/>
+		<language type="ca" scripts="Latn" territories="ES"/>
+		<language type="cs" scripts="Latn" territories="CS CZ"/>
+		<language type="cy" scripts="Latn" territories="GB"/>
+		<language type="da" scripts="Latn" territories="DK"/>
+		<language type="de" scripts="Latn" territories="AT BE CH DD DE LI LU"/>
+		<language type="el" scripts="Grek" territories="CY GR"/>
+		<language type="en" scripts="Latn" territories="AS AU BM BW BZ CA CM GB GH HK IE IN JM MT NG NZ PH PK PU RH SG TT UG UM US VG VI ZA ZW"/>
+		<language type="eo" scripts="Latn"/>
+		<language type="es" scripts="Latn" territories="AR BO CL CO CR DO EC ES GT HN MX NI PA PE PR PY PZ SV US UY VE"/>
+		<language type="et" scripts="Latn" territories="EE"/>
+		<language type="eu" scripts="Latn" territories="ES"/>
+		<language type="fa" scripts="Arab" territories="AF IR"/>
+		<language type="fi" scripts="Latn" territories="FI"/>
+		<language type="fo" scripts="Latn" territories="FO"/>
+		<language type="fr" scripts="Latn" territories="BE CA CD CH CI FR FX LU MC PF RE"/>
+		<language type="ga" scripts="Latn" territories="IE"/>
+		<language type="gl" scripts="Latn" territories="ES"/>
+		<language type="gu" scripts="Gujr" territories="IN"/>
+		<language type="gv" scripts="Latn" territories="GB"/>
+		<language type="he" scripts="Hebr" territories="IL"/>
+		<language type="hi" scripts="Deva" territories="IN"/>
+		<language type="hr" scripts="Latn" territories="BA HR"/>
+		<language type="hu" scripts="Latn" territories="HU"/>
+		<language type="hy" scripts="Armn" territories="AM"/>
+		<language type="id" scripts="Latn" territories="ID"/>
+		<language type="in" scripts="Latn" territories="ID"/>
+		<language type="is" scripts="Latn" territories="IS"/>
+		<language type="it" scripts="Latn" territories="CH IT VA SM"/>
+		<language type="iw" scripts="Hebr" territories="IL"/>
+		<language type="ja" scripts="Hani Hira Kana" territories="JP"/>
+		<language type="kk" scripts="Cyrl" territories="KZ"/>
+		<language type="kl" scripts="Latn" territories="GL"/>
+		<language type="kn" scripts="Knda" territories="IN"/>
+		<language type="ko" scripts="Hang Hani" territories="KP KR"/>
+		<language type="kok" scripts="Deva" territories="IN"/>
+		<language type="kw" scripts="Latn" territories="GB"/>
+		<language type="lt" scripts="Latn" territories="LT"/>
+		<language type="lv" scripts="Latn" territories="LV"/>
+		<language type="mk" scripts="Cyrl" territories="MK"/>
+		<language type="ml" scripts="Mlym" territories="IN"/>
+		<language type="mr" scripts="Deva" territories="IN"/>
+		<language type="ms" scripts="Latn" territories="BN MY"/>
+		<language type="mt" scripts="Latn" territories="MT"/>
+		<language type="nb" scripts="Latn" territories="NO"/>
+		<language type="ne" territories="NP"/>
+		<language type="nl" scripts="Latn" territories="BE NL"/>
+		<language type="nn" scripts="Latn" territories="NO"/>
+		<language type="om" scripts="Latn" territories="ET KE"/>
+		<language type="or" scripts="Orya" territories="IN"/>
+		<language type="pa" scripts="Guru" territories="IN"/>
+		<language type="pl" scripts="Latn" territories="PL"/>
+		<language type="ps" scripts="Arab" territories="AF"/>
+		<language type="pt" scripts="Latn" territories="AO BR PT TL TP"/>
+		<language type="ro" scripts="Latn" territories="RO"/>
+		<language type="ru" scripts="Cyrl" territories="RU UA SU"/>
+		<language type="si" scripts="Sinh" territories="LK"/>
+		<language type="sk" scripts="Latn" territories="CS SK"/>
+		<language type="sl" scripts="Latn" territories="SI"/>
+		<language type="so" scripts="Latn" territories="DJ ET KE SO"/>
+		<language type="sq" scripts="Latn" territories="AL"/>
+		<language type="sr" scripts="Cyrl Latn" territories="YU"/>
+		<language type="sv" scripts="Latn" territories="FI SE"/>
+		<language type="sw" scripts="Latn" territories="KE TZ"/>
+		<language type="ta" scripts="Taml" territories="IN"/>
+		<language type="te" scripts="Telu" territories="IN"/>
+		<language type="th" scripts="Thai" territories="TH"/>
+		<language type="ti" scripts="Ethi" territories="ER ET"/>
+		<language type="tj" scripts="Arab Cyrl Latn" territories="TJ"/>
+		<language type="tk" scripts="Arab Cyrl Latn" territories="TM"/>
+		<language type="tr" scripts="Latn" territories="TR"/>
+		<language type="uk" scripts="Cyrl" territories="UA"/>
+		<language type="ur" scripts="Arab" territories="PK"/>
+		<language type="uz" scripts="Arab Cyrl Latn" territories="UZ"/>
+		<language type="vi" scripts="Latn" territories="VN VD"/>
+		<language type="zh" scripts="Bopo Hani Hans Hant" territories="CN HK MO SG TW"/>
+	<!-- Just for comparison, languages not mentioned in first pass.
+		aa	Afar
+		ab	Abkhazian
+		ace	Achinese
+		ach	Acoli
+		ada	Adangme
+		ady	Adyghe
+		ae	Avestan
+		afa	Afro-Asiatic (Other)
+		afh	Afrihili
+		ak	Akan
+		akk	Akkadian
+		ale	Aleut
+		alg	Algonquian Languages
+		alt	Southern Altai
+		an	Aragonese
+		ang	English, Old (ca.450-1100)
+		apa	Apache Languages
+		arc	Aramaic
+		arn	Araucanian
+		arp	Arapaho
+		art	Artificial (Other)
+		arw	Arawak
+		ast	Asturian
+		ath	Athapascan Languages
+		aus	Australian Languages
+		av	Avaric
+		awa	Awadhi
+		ay	Aymara
+		ba	Bashkir
+		bad	Banda
+		bai	Bamileke Languages
+		bal	Baluchi
+		ban	Balinese
+		bas	Basa
+		bat	Baltic (Other)
+		bej	Beja
+		bem	Bemba
+		ber	Berber
+		bh	Bihari
+		bho	Bhojpuri
+		bi	Bislama
+		bik	Bikol
+		bin	Bini
+		bla	Siksika
+		bm	Bambara
+		bnt	Bantu
+		bo	Tibetan
+		br	Breton
+		bra	Braj
+		bs	Bosnian
+		btk	Batak
+		bua	Buriat
+		bug	Buginese
+		byn	Blin
+		cad	Caddo
+		cai	Central American Indian (Other)
+		car	Carib
+		cau	Caucasian (Other)
+		ce	Chechen
+		ceb	Cebuano
+		cel	Celtic (Other)
+		ch	Chamorro
+		chb	Chibcha
+		chg	Chagatai
+		chk	Chuukese
+		chm	Mari
+		chn	Chinook Jargon
+		cho	Choctaw
+		chp	Chipewyan
+		chr	Cherokee
+		chy	Cheyenne
+		cmc	Chamic Languages
+		co	Corsican
+		cop	Coptic
+		cpe	Creoles and Pidgins, English-based (Other)
+		cpf	Creoles and Pidgins, French-based (Other)
+		cpp	Creoles and pidgins, Portuguese-based (Other)
+		cr	Cree
+		crh	Crimean Turkish; Crimean Tatar
+		crp	Creoles and Pidgins (Other)
+		csb	Kashubian
+		cu	Church Slavic
+		cus	Cushitic (Other)
+		cv	Chuvash
+		dak	Dakota
+		dar	Dargwa
+		day	Dayak
+		del	Delaware
+		den	Slave
+		dgr	Dogrib
+		din	Dinka
+		doi	Dogri
+		dra	Dravidian (Other)
+		dsb	Lower Sorbian
+		dua	Duala
+		dum	Dutch, Middle (ca. 1050-1350)
+		dv	Divehi
+		dyu	Dyula
+		dz	Dzongkha
+		ee	Ewe
+		efi	Efik
+		egy	Egyptian (Ancient)
+		eka	Ekajuk
+		elx	Elamite
+		enm	English, Middle (1100-1500)
+		ewo	Ewondo
+		fan	Fang
+		fat	Fanti
+		ff	Fulah
+		fil	Filipino
+		fiu	Finno - Ugrian (Other)
+		fj	Fijian
+		fon	Fon
+		frm	French, Middle (ca.1400-1600)
+		fro	French, Old (842-ca.1400)
+		fur	Friulian
+		fy	Frisian
+		gaa	Ga
+		gay	Gayo
+		gba	Gbaya
+		gd	Scottish Gaelic
+		gem	Germanic (Other)
+		gez	Geez
+		gil	Gilbertese
+		gmh	German, Middle High (ca.1050-1500)
+		gn	Guarani
+		goh	German, Old High (ca.750-1050)
+		gon	Gondi
+		gor	Gorontalo
+		got	Gothic
+		grb	Gerbo
+		grc	Greek, Ancient (to 1453)
+		gwi	Gwich?in
+		ha	Hausa
+		hai	Haida
+		haw	Hawaiian
+		hil	Hiligaynon
+		him	Himachali
+		hit	Hittite
+		hmn	Hmong
+		ho	Hiri Motu
+		hsb	Upper Sorbian
+		ht	Haitian
+		hup	Hupa
+		hz	Herero
+		ia	Interlingua
+		iba	Iban
+		ie	Interlingue
+		ig	Igbo
+		ii	Sichuan Yi
+		ijo	Ijo
+		ik	Inupiaq
+		ilo	Iloko
+		inc	Indic (Other)
+		ine	Indo-European (Other)
+		inh	Ingush
+		io	Ido
+		ira	Iranian
+		iro	Iroquoian languages
+		iu	Inuktitut
+		jbo	Lojban
+		ji	Yiddish
+		jpr	Judeo-Persian
+		jrb	Judeo-Arabic
+		jv	Javanese
+		ka	Georgian
+		kaa	Kara-Kalpak
+		kab	Kabyle
+		kac	Kachin
+		kam	Kamba
+		kar	Karen
+		kaw	Kawi
+		kbd	Kabardian
+		kg	Kongo
+		kha	Khasi
+		khi	Khoisan (Other)
+		kho	Khotanese
+		ki	Kikuyu
+		kj	Kuanyama
+		km	Khmer
+		kmb	Kimbundu
+		kos	Kosraean
+		kpe	Kpelle
+		kr	Kanuri
+		krc	Karachay-Balkar
+		kro	Kru
+		kru	Kurukh
+		ks	Kashmiri
+		ku	Kurdish
+		kum	Kumyk
+		kut	Kutenai
+		kv	Komi
+		ky	Kirghiz
+		la	Latin
+		lad	Ladino
+		lah	Lahnda
+		lam	Lamba
+		lb	Luxembourgish
+		lez	Lezghian
+		lg	Ganda
+		li	Limburgish
+		ln	Lingala
+		lo	Lao
+		lol	Mongo
+		loz	Lozi
+		lu	Luba-Katanga
+		lua	Luba-Lulua
+		lui	Luiseno
+		lun	Lunda
+		luo	Luo
+		lus	Lushai
+		mad	Madurese
+		mag	Magahi
+		mai	Maithili
+		mak	Makasar
+		man	Mandingo
+		map	Austronesian
+		mas	Masai
+		mdf	Moksha
+		mdr	Mandar
+		men	Mende
+		mg	Malagasy
+		mga	Irish, Middle (900-1200)
+		mh	Marshallese
+		mi	Maori
+		mic	Micmac
+		min	Minangkabau
+		mis	Miscellaneous Languages
+		mkh	Mon-Khmer (Other)
+		mn	Mongolian
+		mnc	Manchu
+		mni	Manipuri
+		mno	Manobo Languages
+		mo	Moldavian
+		moh	Mohawk
+		mos	Mossi
+		mul	Multiple Languages
+		mun	Munda Languages
+		mus	Creek
+		mwl	Mirandese
+		mwr	Marwari
+		my	Burmese
+		myn	Mayan
+		myv	Erzya
+		na	Nauru
+		nah	Nahuatl
+		nai	North American Indian (Other)
+		nap	Neapolitan
+		nd	Ndebele, North
+		nds	Low German; Low Saxon
+		new	Newari
+		ng	Ndonga
+		nia	Nias
+		nic	Niger - Kordofanian (Other)
+		niu	Niuean
+		no	Norwegian
+		nog	Nogai
+		non	Norse, Old
+		nr	Ndebele, South
+		nso	Sotho, Northern
+		nub	Nubian Languages
+		nv	Navajo
+		nwc	Classical Newari
+		ny	Nyanja; Chichewa; Chewa
+		nym	Nyamwezi
+		nyn	Nyankole
+		nyo	Nyoro
+		nzi	Nzima
+		oc	Occitan (post 1500); Provençal
+		oj	Ojibwa
+		os	Ossetic
+		osa	Osage
+		ota	Turkish, Ottoman (1500-1928)
+		oto	Otomian Languages
+		paa	Papuan (Other)
+		pag	Pangasinan
+		pal	Pahlavi
+		pam	Pampanga
+		pap	Papiamento
+		pau	Palauan
+		peo	Persian Old (ca.600-400 B.C.)
+		phi	Philippine (Other)
+		phn	Phoenician
+		pi	Pali
+		pon	Pohnpeian
+		pra	Prakrit Languages
+		pro	Provençal, Old (to 1500)
+		qaa..qtz	qaa
+		qu	Quechua
+		raj	Rajasthani
+		rap	Rapanui
+		rar	Rarotongan
+		rm	Rhaeto-Romance
+		rn	Rundi
+		roa	Romance (Other)
+		rom	Romany
+		rw	Kinyarwanda
+		sa	Sanskrit
+		sad	Sandawe
+		sah	Yakut
+		sai	South American Indian (Other)
+		sal	Salishan languages
+		sam	Samaritan Aramaic
+		sas	Sasak
+		sat	Santali
+		sc	Sardinian
+		scn	Sicilian
+		sco	Scots
+		sd	Sindhi
+		se	Northern Sami
+		sel	Selkup
+		sem	Semitic (Other)
+		sg	Sango
+		sga	Irish, Old (to 900)
+		sgn	Sign Languages
+		sh	Serbo-Croatian
+		shn	Shan
+		sid	Sidamo
+		sio	Siouan Languages
+		sit	Sino-Tibetan (Other)
+		sla	Slavic (Other)
+		sm	Samoan
+		sma	Southern Sami
+		smi	Sami languages (Other)
+		smj	Lule Sami
+		smn	Inari Sami
+		sms	Skolt Sami
+		sn	Shona
+		snk	Soninke
+		sog	Sogdien
+		son	Songhai
+		srr	Serer
+		ss	Swati
+		ssa	Nilo-Saharam (Other)
+		st	Sotho, Southern
+		su	Sundanese
+		suk	Sukuma
+		sus	Susu
+		sux	Sumerian
+		syr	Syriac
+		tai	Tai (Other)
+		tem	Timne
+		ter	Tereno
+		tet	Tetum
+		tg	Tajik
+		tig	Tigre
+		tiv	Tiv
+		tkl	Tokelau
+		tl	Tagalog
+		tlh	Klingon
+		tli	Tlingit
+		tmh	Tamashek
+		tn	Tswana
+		to	Tonga (Tonga Islands)
+		tog	Tonga (Nyasa)
+		tpi	Tok Pisin
+		ts	Tsonga
+		tsi	Tsimshian
+		tt	Tatar
+		tum	Tumbuka
+		tup	Tupi languages
+		tut	Altaic (Other)
+		tvl	Tuvalu
+		tw	Twi
+		ty	Tahitian
+		tyv	Tuvinian
+		udm	Udmurt
+		ug	Uighur
+		uga	Ugaritic
+		umb	Umbundu
+		und	Undetermined
+		vai	Vai
+		ve	Venda
+		vo	Volapük
+		vot	Votic
+		wa	Walloon
+		wak	Wakashan Languages
+		wal	Walamo
+		war	Waray
+		was	Washo
+		wen	Sorbian Languages
+		wo	Wolof
+		xal	Kalmyk
+		xh	Xhosa
+		yao	Yao
+		yap	Yapese
+		yi	Yiddish
+		yo	Yoruba
+		ypk	Yupik Languages
+		za	Zhuang
+		zap	Zapotec
+		zen	Zenaga
+		znd	Zande
+		zu	Zulu
+		zun	Zuni
+	-->
+	<!-- Just for comparison, Territories not mentioned int the first pass
+		AD	Andorra
+		AG	Antigua and Barbuda
+		AI	Anguilla
+		AN	Netherlands Antilles
+		AQ	Antarctica
+		AW	Aruba
+		AX	Aland Islands
+		BB	Barbados
+		BF	Burkina Faso
+		BI	Burundi
+		BJ	Benin
+		BQ	British Antarctic Territory
+		BS	Bahamas
+		BT	Bhutan
+		BU	Myanmar
+		BV	Bouvet Island
+		CC	Cocos (Keeling) Islands
+		CF	Central African Republic
+		CG	Congo
+		CK	Cook Islands
+		CT	Canton and Enderbury Islands
+		CU	Cuba
+		CV	Cape Verde
+		CX	Christmas Island
+		DM	Dominica
+		DY	Benin
+		EH	Western Sahara
+		FJ	Fiji
+		FK	Falkland Islands
+		FM	Micronesia
+		FQ	French Southern and Antarctic Territories
+		GA	Gabon
+		GD	Grenada
+		GE	Georgia
+		GF	French Guiana
+		GI	Gibraltar
+		GM	Gambia
+		GN	Guinea
+		GP	Guadeloupe
+		GQ	Equatorial Guinea
+		GS	South Georgia and the South Sandwich Islands
+		GU	Guam
+		GW	Guinea-Bissau
+		GY	Guyana
+		HM	Heard Island and McDonald Islands
+		HT	Haiti
+		HV	Burkina Faso
+		IO	British Indian Ocean Territory
+		JT	Johnston Island
+		KG	Kyrgyzstan
+		KH	Cambodia
+		KI	Kiribati
+		KM	Comoros
+		KN	Saint Kitts and Nevis
+		KP	North Korea
+		KY	Cayman Islands
+		LA	Laos
+		LC	Saint Lucia
+		LR	Liberia
+		LS	Lesotho
+		MD	Moldova
+		MG	Madagascar
+		MH	Marshall Islands
+		MI	Midway Islands
+		ML	Mali
+		MM	Myanmar
+		MN	Mongolia
+		MP	Northern Mariana Islands
+		MQ	Martinique
+		MR	Mauritania
+		MS	Montserrat
+		MU	Mauritius
+		MV	Maldives
+		MW	Malawi
+		MZ	Mozambique
+		NA	Namibia
+		NC	New Caledonia
+		NE	Niger
+		NF	Norfolk Island
+		NH	Vanuatu
+		NQ	Dronning Maud Land
+		NR	Nauru
+		NT	Neutral Zone
+		NU	Niue
+		PC	Pacific Islands Trust Territory
+		PG	Papua New Guinea
+		PM	Saint Pierre and Miquelon
+		PN	Pitcairn
+		PW	Palau
+		RW	Rwanda
+		SB	Solomon Islands
+		SC	Seychelles
+		SH	Saint Helena
+		SJ	Svalbard and Jan Mayen
+		SL	Sierra Leone
+		SN	Senegal
+		SR	Suriname
+		ST	Sao Tome and Principe
+		SZ	Swaziland
+		TC	Turks and Caicos Islands
+		TD	Chad
+		TF	French Southern Territories
+		TG	Togo
+		TK	Tokelau
+		TO	Tonga
+		TP	East Timor
+		VC	Saint Vincent and the Grenadines
+		VU	Vanuatu
+		WF	Wallis and Futuna
+		WK	Wake Island
+		WS	Samoa
+		YT	Mayotte
+		ZM	Zambia
+		ZR	The Democratic Republic of the Congo
+	-->
+	</languageData>
 </supplementalData>

@@ -5,6 +5,7 @@
         <property name="build.dir" value="classes"/>
         <property name="jar.file" value="cldr.jar"/>
         <property name="jarSrc.file" value="cldrsrc.jar"/>
+        <!-- Load environment variables -->
         <property environment="env"/>
         <property name="icu4j.binaries" value="${env.ICU4J_CLASSES}"/>
 

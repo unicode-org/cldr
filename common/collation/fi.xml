@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="3.0"/>
-		<generation date="2004-05-14" />
+		<generation date="2004-06-01" />
 		<language type="fi" /> 
 	</identity>
 	<collations>
 		<collation type="standard" >
 			<rules>
 				<reset>D</reset>
-				<s>đ</s>
-				<t>Đ</t>
 				<s>ð</s>
 				<t>Ð</t>
-				<reset>t</reset>
-				<x><p>þ</p><extend>h</extend></x>
+				<s>đ</s>
+				<t>Đ</t>
+				<reset>N</reset>
+				<s>ŋ</s>
+				<t>Ŋ</t>
 				<reset>T</reset>
-				<x><p>Þ</p><extend>H</extend></x>
+				<x><p>þ</p><extend>h</extend></x>
+				<x><p>Þ</p><extend>h</extend></x>
+				<reset>V</reset>
+				<s>w</s>
+				<t>W</t>
 				<reset>Y</reset>
-				<s>ü</s>
-				<t>Ü</t>
-				<s>ű</s>
-				<t>Ű</t>
+				<s>ü</s>
+				<t>Ü</t>
+				<s>ű</s>
+				<t>Ű</t>
 				<reset before="primary">ʒ</reset>
 				<p>å</p>
 				<t>Å</t>
@@ -30,17 +35,15 @@
 				<t>Ä</t>
 				<s>æ</s>
 				<t>Æ</t>
-				<s>ę</s>
-				<t>Ę</t>
 				<p>ö</p>
 				<t>Ö</t>
 				<s>ø</s>
 				<t>Ø</t>
 				<s>ő</s>
 				<t>Ő</t>
+				<s>õ</s>
+				<t>Õ</t>
 				<s>œ</s>
-				<t>Œ</t>
-				<s>ô</s>
 			</rules>
 		</collation  >
 	</collations>

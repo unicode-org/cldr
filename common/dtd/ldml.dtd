@@ -441,7 +441,7 @@
 <!ATTLIST collation draft ( true | false ) #IMPLIED >
 <!ATTLIST collation standard CDATA #IMPLIED >
 
-<!ELEMENT base (#PCDATA) >
+<!ELEMENT base (alias|special) >
 
 <!ELEMENT settings (special*) >
 <!ATTLIST settings strength             ( primary | secondary | tertiary | quaternary | identical ) #IMPLIED >

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/alpha/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.2"/>
@@ -8,8 +8,8 @@
 	</identity>
 		<collations>
 			<collation type="standard" >
-				<suppress_contractions>[Ѐ-џ]</suppress_contractions>
 				<settings normalization="on"  />
+				<suppress_contractions>[Ѐ-џ]</suppress_contractions>
 				<rules>
 					<reset before="primary">ү</reset>
 					<p>ұ</p>

@@ -17,8 +17,7 @@ table        { border-style: solid; border-width: 1px }
 <body style="margin:2em">
 
 <h1 align="center">XML Collation Specification</h1>
-<p align="center"><i><font size="4"><b><font color="#FF0000">Early Draft:</font></b>
-MED 2002-06-17</font></i></p>
+<p align="center"><i><font size="4">MED 2002-08-16</font></i></p>
 <p>This document defines an XML syntax for exchanging tailoring rules, and
 specifying comparison options. It allows any two implementations to exchange a
 specification of collation. Using the same specification, the two
@@ -428,6 +427,15 @@ ordered before or after a logical position rather than a specific character.</p>
 <p>For example, to make a character be a secondary ignorable, one can make it be
 immediately after (at a secondary level) a specific character (like a combining
 dieresis), or one can make it be immediately after the last secondary ignorable.</p>
+<h2>Open Issue:</h2>
+<p>We can either have the elements specified as separators, or as containers.
+Examples of the two styles are:</p>
+<ul>
+  <li><a href="da.xml">da.xml</a></li>
+  <li><a href="da2.xml">da2.xml</a></li>
+</ul>
+<p>This is mostly a matter of style. Please look them over and get us your
+feedback.</p>
 
 </body>
 

@@ -75,7 +75,7 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, variants?, keys?, types?, measurementSystems, special*)) >
+<!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, variants?, keys?, types?, measurementSystems?, special*)) >
 <!ATTLIST localeDisplayNames draft ( true | false ) #IMPLIED >
 
 <!-- Either 1 alias OR any specials, any order, zero or more language -->
@@ -133,12 +133,6 @@
 <!ATTLIST measurementSystems draft ( true | false ) #IMPLIED >
 <!ATTLIST measurementSystems standard CDATA #IMPLIED >
 <!ATTLIST measurementSystems references CDATA #IMPLIED >
-
-<!ELEMENT measurementSystem ( #PCDATA ) >
-<!ATTLIST measurementSystem type NMTOKEN #REQUIRED >
-<!ATTLIST measurementSystem draft ( true | false ) #IMPLIED >
-<!ATTLIST measurementSystem references CDATA #IMPLIED >
-<!ATTLIST measurementSystem alt CDATA #IMPLIED >
 
 <!-- ######################################################### -->
 

@@ -134,21 +134,21 @@ For example, most country locales will inherit the bulk of their data from the l
           -->
           <default type="Gregorian"/>
           <calendar type="Gregorian">
-              <monthNames context="stand-alone" width="wide">
-                  <month type="1">january</month>
-                  <month type="2">february</month>
-                  <month type="3">march</month>
-                  <month type="4">april</month>
-                  <month type="5">may</month>
-                  <month type="6">june</month>
-                  <month type="7">july</month>
-                  <month type="8">august</month>
+              <monthNames context="format" width="wide">
+                  <month type="1">January</month>
+                  <month type="2">February</month>
+                  <month type="3">March</month>
+                  <month type="4">April</month>
+                  <month type="5">May</month>
+                  <month type="6">June</month>
+                  <month type="7">July</month>
+                  <month type="8">August</month>
                   <month type="9">September</month>
                   <month type="10">October</month>
                   <month type="11">November</month>
                   <month type="12">December</month>
               </monthNames>
-              <monthNames context="stand-alone" width="narrow">
+              <monthNames context="format" width="narrow">
                   <month type="1">Jan</month>
                   <month type="2">Feb</month>
                   <month type="3">Mar</month>
@@ -162,8 +162,21 @@ For example, most country locales will inherit the bulk of their data from the l
                   <month type="11">Nov</month>
                   <month type="12">Dec</month>
               </monthNames>
-
-              <dayNames context="stand-alone" width="wide">
+              <monthNames context="format" width="abbreviated">
+                  <month type="1">J</month>
+                  <month type="2">F</month>
+                  <month type="3">M</month>
+                  <month type="4">A</month>
+                  <month type="5">M</month>
+                  <month type="6">J</month>
+                  <month type="7">J</month>
+                  <month type="8">A</month>
+                  <month type="9">S</month>
+                  <month type="10">O</month>
+                  <month type="11">N</month>
+                  <month type="12">D</month>
+              </monthNames>
+              <dayNames context="format" width="wide">
                   <day type="sun">Sunday</day>
                   <day type="mon">Monday</day>
                   <day type="tue">Tuesday</day>
@@ -172,7 +185,7 @@ For example, most country locales will inherit the bulk of their data from the l
                   <day type="fri">Friday</day>
                   <day type="sat">Saturday</day>
               </dayNames>
-              <dayNames context="stand-alone" width="narrow">
+              <dayNames context="format" width="narrow">
                   <day type="sun">Sun</day>
                   <day type="mon">Mon</day>
                   <day type="tue">Tue</day>
@@ -180,6 +193,15 @@ For example, most country locales will inherit the bulk of their data from the l
                   <day type="thu">Thu</day>
                   <day type="fri">Fri</day>
                   <day type="sat">Sat</day>
+              </dayNames>
+              <dayNames context="format" width="abbreviated">
+                  <day type="sun">S</day>
+                  <day type="mon">M</day>
+                  <day type="tue">T</day>
+                  <day type="wed">W</day>
+                  <day type="thu">T</day>
+                  <day type="fri">F</day>
+                  <day type="sat">S</day>
               </dayNames>
               <week>
                   <minDays count="1"/>

@@ -208,7 +208,7 @@
 <!ELEMENT monthNames ( alias | (month*, special*)) >
 <!ATTLIST monthNames draft ( true | false ) #IMPLIED >
 <!ATTLIST monthNames width ( narrow | wide | abbreviated ) "wide" >
-<!ATTLIST monthNames context ( stand-alone | format ) #IMPLIED >
+<!ATTLIST monthNames context ( stand-alone | format ) "format" >
 
 <!ELEMENT month ( #PCDATA | cp )* >
 <!ATTLIST month type ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 ) #REQUIRED >
@@ -219,7 +219,7 @@
 <!ELEMENT dayNames ( alias | (day*, special*)) >
 <!ATTLIST dayNames draft ( true | false ) #IMPLIED >
 <!ATTLIST dayNames width ( narrow | wide | abbreviated ) "wide" >
-<!ATTLIST dayNames context ( stand-alone | format ) #IMPLIED >
+<!ATTLIST dayNames context ( stand-alone | format ) "format" >
 
 <!ELEMENT day ( #PCDATA ) >
 <!ATTLIST day type ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >

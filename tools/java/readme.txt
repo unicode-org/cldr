@@ -17,8 +17,10 @@ When you run any of the tools, you probably want to set up a DTD cache; that wil
 Include the following environment variable to do that.
 
 	-DCLDR_DTD_CACHE=C:\cldrcache\
+Note: The cache directory should exist before running the tools. Please clear out the 
+directory periodically so that the latest DTDs are downloaded to the machine.
 
-===========
+-----------------
 
 The tools may use ICU4J code for testing, but should use none of the data in ICU4J. 
 We'll be using the ICU4J test framework also (we looked at JUnit, but it would be 
@@ -58,7 +60,7 @@ For building utilities.jar and icu4j.jar:
 1. Install Java SDK and Ant build system as explained above.
 2. Check out the release of ICU4J that you are interested in. 
    The instructions on checking out the source are at: 
-   http://www-306.ibm.com/software/globalization/icu/repository.jsp
+   http://www.ibm.com/software/globalization/icu/repository.jsp
 3. Build icu4j.jar with the following command:
    <dir>/bin/ant clean core jar
 4. Build utilities.jar with the following command:

@@ -24,12 +24,27 @@ caption {font-weight:bold; font-size:120%}
 <body>
 
 <h1 align="center"><b><font color="#FF0000">Rough Draft </font></b>CLDR Test Data</h1>
-<h3 align="center">
-<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/test/Attic/readme.html?rev=1.1.2.1">
-This document</a>: <b>2004-07-15, MD</b></h3>
+<h3 align="center"><b>2004-07-15, MD</b></h3>
 <p>The <a href="http://cldr.info">CLDR</a> test files provide the ability for people to check the 
 results of their implementations against the data provided in CLDR. The final format has not yet 
 been approved by the CLDR technical committee, so this is just a working draft; feedback is welcome.</p>
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+  <tr>
+    <td>Current Location:</td>
+    <td><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/test/readme.html">
+    http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/test/readme.html</a></td>
+  </tr>
+  <tr>
+    <td>Test Files:&nbsp; </td>
+    <td><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/test/">
+    http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/test/</a></td>
+  </tr>
+  <tr>
+    <td>DTD: </td>
+    <td><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/test/cldrTest.dtd">
+    http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/test/cldrTest.dtd</a> </td>
+  </tr>
+</table>
 <h2><a name="structure" href="#structure">Structure</a></h2>
 <p>Each file contains number of test areas, indicated by a particular element. The DTD defining the 
 allowable structure is in <a href="cldrTest.dtd">cldrTest.dtd</a>. Currently test areas are provided 
@@ -39,7 +54,7 @@ contains zero or more settings (given by attributes) and a result as the content
 The settings are <i>additive</i> within a test area: for each test area, each setting only needs to 
 be provided if it is different than what is in the previous result. The two rows in <i>Table 1: 
 Additive Settings</i> are equivalent, for example.</p>
-<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
   <caption>Table 1: Additive Settings</caption>
   <tr>
     <td>1.</td>
@@ -205,11 +220,10 @@ lines can simply be copied and used in other circumstances, without having to re
 structure. (In addition, it makes the files much smaller.)</p>
 <h2><a href="#to_do" name="to_do">To Do</a></h2>
 <ul>
-  <li>The current list of files is only partial. May need a mechanism to reduce duplication between 
-  parent and child locale, for the locales with large sets of data -- or perhaps we just cut down on 
-  the collation sample characters.</li>
+  <li>May need a mechanism to reduce duplication between parent and child locale, for the locales 
+  with large sets of data -- or perhaps we just cut down on the collation sample characters.</li>
   <li>The variant collation sequences need to be incorporated (right now they are generated as 
-  separate files, but not checked in.)</li>
+  separate files.)</li>
   <li>Some of the full time formats don&#39;t have days of the week, so that may be in another set of 
   tests. Timezone display also needs to be covered.</li>
   <li>Currencies need to be covered.</li>

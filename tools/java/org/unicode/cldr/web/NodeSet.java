@@ -149,7 +149,8 @@ public class NodeSet {
         }
 
         // Sigh.  May as well do this.
-        for(i=1;i<roots.length;i++) {
+        for(i=(roots.length)-1;i>0;i--) {
+            ctx.println("Loading from: " + ctx.docLocale[i] + "<br/>");
             if(roots[i] != null) for(Node node=roots[i].getFirstChild(); node!=null; node=node.getNextSibling()){
                 if(node.getNodeType()!=Node.ELEMENT_NODE){
                     continue;

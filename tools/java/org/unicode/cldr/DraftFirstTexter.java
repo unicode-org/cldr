@@ -34,12 +34,13 @@ public class DraftFirstTexter implements NodeSet.NodeSetTexter {
         subTexter = aTexter;
     }
     public String text(NodeSet.NodeSetEntry e) {
-        if( ((e.main == null)&&(e.fallbackLocale == null)) ||
-            ((e.main != null)&&LDMLUtilities.isNodeDraft(e.main)) ||
-            (e.proposed != null) ) {
+        if( ((e.main != null)&&LDMLUtilities.isNodeDraft(e.main)) || // draft or
+            (e.proposed != null) ) { // proposed
             return "0" + subTexter.text(e);
-        } else {
+        } else if ((e.main == null)&&(e.fallbackLocale == null)) { // missing
             return "1" + subTexter.text(e);
+        } else {
+            return "2" + subTexter.text(e); // normal
         }
     }
     NodeSet.NodeSetTexter subTexter;

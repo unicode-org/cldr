@@ -25,6 +25,7 @@ public class WebContext {
     Hashtable form_data = null;
     String baseURL = cgi_lib.MyTinyURL();
     String outQuery = null;
+    TreeMap outQueryMap = new TreeMap();
     boolean dontCloseMe = false;
 
     // New constructor
@@ -54,7 +55,7 @@ public class WebContext {
         locale = other.locale;
         localeName = other.localeName;
         session = other.session;
-        
+        outQueryMap = (TreeMap)other.outQueryMap.clone();
         dontCloseMe = true;
     }
     
@@ -62,13 +63,14 @@ public class WebContext {
     String field(String x) {
         String res = (String)form_data.get(x);
          if(res == null) {       
-              System.err.println("[[ empty query string: " + x + "]]");
+//              System.err.println("[[ empty query string: " + x + "]]");
             res = "";   
         }
         return res;
     }
 // query api
     void addQuery(String k, String v) {
+        outQueryMap.put(k,v);
         if(outQuery == null) {
             outQuery = k + "=" + v;
         } else {
@@ -87,6 +89,14 @@ public class WebContext {
     String base() { 
         return baseURL;
     }
+    void printUrlAsHiddenFields() {
+        for(Iterator e = outQueryMap.keySet().iterator();e.hasNext();) {
+            String k = e.next().toString();
+            String v = outQueryMap.get(k).toString();
+            println("<input type='hidden' name='" + k + "' value='" + v + "'/>");
+        }
+    }
+    
 // print api
     final void println(String s) {
         out.println(s);
@@ -122,9 +132,13 @@ public class WebContext {
         Vector docsVector = new Vector();
         parents = l.toString();
         do {
-            Document d = SurveyMain.fetchDoc(this, parents);
-            localesVector.add(parents);
-            docsVector.add(d);
+            try {
+                Document d = SurveyMain.fetchDoc(parents);
+                localesVector.add(parents);
+                docsVector.add(d);
+            } catch(Throwable t) {
+                // error is shown elsewhere.
+            }
             parents = getParent(parents);
         } while(parents != null);
         doc = (Document[])docsVector.toArray(doc);
@@ -176,5 +190,10 @@ public class WebContext {
                      out,
                     encoding),
                 4*1024));       
+    }
+    
+    public void printHelpLink(String what)
+    {
+        println("(<a href=\"http://bugs.icu-project.org/cgibin/cldrwiki.pl?SurveyToolHelp" + what + "\">Help</a>)");
     }
 }

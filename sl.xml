@@ -411,11 +411,13 @@
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>yyyy.M.d</pattern>
+							<pattern draft="true" alt="proposed">d.M.yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>yy.M.d</pattern>
+							<pattern draft="true" alt="proposed">d.M.yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>

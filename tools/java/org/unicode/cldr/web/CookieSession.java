@@ -35,7 +35,8 @@ import com.ibm.icu.lang.UCharacter;
 public class CookieSession {
     public String id;
     public long last;
-    public Hashtable stuff = new Hashtable();
+    public Hashtable stuff = new Hashtable();  // user data
+    public Hashtable prefs = new Hashtable(); // user prefs
     public UserRegistry.User user = null;
     
     private CookieSession(String s) {
@@ -108,6 +109,19 @@ public class CookieSession {
     
     void put(String key, Object value) {
         stuff.put(key,value);
+    }
+
+    boolean prefGetBool(String key) { 
+        Boolean b = (Boolean)prefs.get(key);
+        if(b == null) {
+            return false;
+        } else {
+            return b.booleanValue();
+        }
+    }
+    
+    void prefPut(String key, boolean value) {
+        prefs.put(key,new Boolean(value));
     }
     
     public Hashtable getLocales() {

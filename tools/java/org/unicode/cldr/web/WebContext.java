@@ -60,6 +60,31 @@ public class WebContext {
     }
     
 // More API
+
+    /* 
+     * return true if field y or n.
+     * given default passed in def
+     */
+     
+    boolean fieldBool(String x, boolean def) {
+        if(field(x).length()>0) {
+            if(field(x).charAt(0)=='t') {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return def;
+        }
+    }
+    
+    boolean prefBool(String x)
+    {
+        boolean ret = fieldBool(x, session.prefGetBool(x));
+        session.prefPut(x, ret);
+        return ret;
+    }
+    
     String field(String x) {
         String res = (String)form_data.get(x);
          if(res == null) {       
@@ -98,6 +123,10 @@ public class WebContext {
         } else {
             outQuery = outQuery + "&" + k + "=" + v;
         }
+    }
+    
+    void addQuery(String k, boolean v) {
+        addQuery(k,v?"t":"f");
     }
 
     String url() {

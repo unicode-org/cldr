@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004, International Business Machines Corporation and   *
+ * Copyright (C) 2004-2005, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -45,6 +45,10 @@ class SurveyMain {
     public static final String vetdata = System.getProperty("CLDR_VET_DATA");
     public static final String vetweb = System.getProperty("CLDR_VET_WEB");
     public static final String LOGFILE = "cldr.log";
+    
+    
+    static final String PREF_SHOWCODES = "p_codes";
+    static final String PREF_SORTALPHA = "p_sorta";
     static String fileBase = System.getProperty("CLDR_COMMON") + "/main"; // not static - may change lager
     
     // types of data
@@ -143,7 +147,11 @@ class SurveyMain {
                     ".fallback { background-color: #FFDDDD; } \n" +
                     ".draft { background-color: #88FFAA; } \n" +
                     ".proposed { background-color: #88DDAA; } \n" +
-                    ".sep { height: 5px; background-color: #DDDDDD; } \n" +
+                    ".sep { height: 5px; background-color: #44778C; } \n" +
+                    ".name { background-color: #EEEEFF; } \n" +
+                    ".inputbox { width: 100%; height: 100% } \n" +
+                    ".list { border-collapse: collapse } \n" +
+                    ".list.td .list.th { padding-top: 3px; padding-bottom: 4px; } \n" + 
                     "-->\n" +
                     "</style>\n");
                     
@@ -288,31 +296,201 @@ class SurveyMain {
         }
     }
     
-    void doLocale(WebContext ctx, WebContext baseContext, String which) {
-        String locale = null;
-        if(ctx.locale != null) {
-            locale = ctx.locale.toString();
+    
+    /**
+     * TreeMap of all locales. 
+     *
+     * localeListMap =  TreeMap
+     *     [  (String  langScriptDisplayName)  ,    (String localecode) ]  
+     *  subLocales = Hashtable
+     *       [ localecode, TreeMap ]
+     *         -->   TreeMap [ langScriptDisplayName,   String localeCode ]
+     *  example
+     *  
+     *   localeListMap
+     *     English  -> en
+     *     Serbian  -> sr
+     *     Serbian (Cyrillic) -> sr_Cyrl
+     *    sublocales
+     *       en ->  
+     *           [  "English (US)" -> en_US ],   [ "English (Australia)" -> en_AU ] ...
+     *      sr ->
+     *           "Serbian (Yugoslavia)" -> sr_YU
+     */
+     
+    TreeMap localeListMap = null;
+    Hashtable subLocales = null;
+   
+    private void addLocaleToListMap(String localeName)
+    {
+        ULocale u = new ULocale(localeName);
+            
+        String l = u.getLanguage();
+        if((l!=null)&&(l.length()==0)) {
+            l = null;
         }
-        if((locale==null)||(locale.length()<=0)) {
-            ctx.println("<h1>Locales</h1>");
+        String s = u.getScript();
+        if((s!=null)&&(s.length()==0)) {
+            s = null;
+        }
+        String t = u.getCountry();
+        if((t!=null)&&(t.length()==0)) {
+            t = null;
+        }
+        String v = u.getVariant();
+        if((v!=null)&&(v.length()==0)) {
+            v = null;
+        }
+        
+        if(l==null) {
+            return; // no language?? 
+        }
+        
+        String ls = ((s==null)?l:(l+"_"+s)); // language and script
+        
+        ULocale lsl = new ULocale(ls);
+        localeListMap.put(lsl.getDisplayName(),ls);
+        
+        TreeMap lm = (TreeMap)subLocales.get(ls);
+        if(lm == null) {
+            lm = new TreeMap();
+            subLocales.put(ls, lm); 
+        }
+        
+        if(t != null) {
+            if(v == null) {
+                lm.put(u.getDisplayCountry(), localeName);
+            } else {
+                lm.put(u.getDisplayCountry() + " (" + u.getDisplayVariant() + ")", localeName);
+            }
+        }
+    }
+      
+    private synchronized TreeMap getLocaleListMap()
+    {
+        if(localeListMap == null) {
+            localeListMap = new TreeMap();
+            subLocales = new Hashtable();
             File inFiles[] = getInFiles();
             int nrInFiles = inFiles.length;
+            
             for(int i=0;i<nrInFiles;i++) {
                 String localeName = inFiles[i].getName();
                 int dot = localeName.indexOf('.');
                 if(dot !=  -1) {
                     localeName = localeName.substring(0,dot);
                     if(i != 0) {
-                        ctx.println("<a href=\"" + baseContext.url() 
-                            + "&" + "_=" + localeName + "\">" +
-                            new ULocale(localeName).getDisplayName() +
-                            " - <tt>" + localeName + "</tt>" +                                 
-                            "</a> ");
-                        ctx.println("<br/> ");
+                        addLocaleToListMap(localeName);
                     }
                 }
             }
+        }
+        return localeListMap;
+    }
+
+    void printLocaleLink(WebContext ctx, String localeName, String n) {
+        if(n == null) {
+            n = new ULocale(localeName).getDisplayName() ;
+        }
+        ctx.print("<a title='" + localeName +"' href=\"" + ctx.url() 
+            + "&" + "_=" + localeName + "\">" +
+            n + "</a>");
+    }
+    
+    void doLocaleList(WebContext ctx, WebContext baseContext) {
+        boolean showCodes = ctx.prefBool(PREF_SHOWCODES);
+        
+        ctx.printHelpLink(""); // base help
+        ctx.println("<h1>Locales</h1>");
+        TreeMap lm = getLocaleListMap();
+        {
+            WebContext nuCtx = new WebContext(ctx);
+            nuCtx.addQuery(PREF_SHOWCODES, !showCodes);
+            nuCtx.println("<a href='" + nuCtx.url() + "'>" + ((!showCodes)?"Show":"Hide") + " locale codes</a><br/>");
+        }
+        ctx.println("<table border=1 class='list'>");
+        int n=0;
+        for(Iterator li = lm.keySet().iterator();li.hasNext();) {
+            n++;
+            String ln = (String)li.next();
+            String l = (String)lm.get(ln);
+            ctx.print("<tr " + (((n%2)==0)?"bgcolor='#DDDDDD'":"") + ">");
+            ctx.print(" <td>");
+            printLocaleLink(baseContext, l, ln);
+            ctx.println(" </td>");
+            if(showCodes) {
+                ctx.print(" <td>");
+                ctx.println("<tt>" + l + "</tt>");
+                ctx.println(" </td>");
+            }
             
+            TreeMap sm = (TreeMap)subLocales.get(l);
+            
+            ctx.println("<td>");
+            int j = 0;
+            for(Iterator si = sm.keySet().iterator();si.hasNext();) {
+                if(j>0) { 
+                    ctx.println(", ");
+                }
+                String sn = (String)si.next();
+                String s = (String)sm.get(sn);
+                if(s.length()>0) {
+                    printLocaleLink(baseContext, s, sn);
+                    if(showCodes) {
+                        ctx.println("&nbsp;-&nbsp;<tt>" + s + "</tt>");
+                    }
+                }
+                j++;
+            }
+            ctx.println("</td");
+            ctx.println("</tr>");
+        }
+        ctx.println("</table> ");
+    }
+    
+    /**  old nested-list code
+    
+    {
+        ctx.printHelpLink(""); // base help
+        ctx.println("<h1>Locales</h1>");
+        TreeMap lm = getLocaleListMap();
+        ctx.println("<ul>");
+        for(Iterator li = lm.keySet().iterator();li.hasNext();) {
+            String ln = (String)li.next();
+            String l = (String)lm.get(ln);
+            ctx.print("<li> <b>");
+            printLocaleLink(baseContext, l, ln);
+            ctx.println("</b><br/>");
+            
+            TreeMap sm = (TreeMap)subLocales.get(l);
+            
+            ctx.println("<ul>");
+            for(Iterator si = sm.keySet().iterator();si.hasNext();) {
+                String sn = (String)si.next();
+                String s = (String)sm.get(sn);
+                String sl;
+                ctx.print("<li>");
+                if(s.length()>0) {
+                    sl = l + "_" + s;
+                    ctx.println("<b>");
+                    printLocaleLink(baseContext, s, sn);
+                    ctx.println("</b>");
+                }
+                ctx.println("</li>");
+            }
+            ctx.println("</ul><br/></li>");
+        }
+        ctx.println("</ul><br/> ");
+    }
+    */
+    
+    void doLocale(WebContext ctx, WebContext baseContext, String which) {
+        String locale = null;
+        if(ctx.locale != null) {
+            locale = ctx.locale.toString();
+        }
+        if((locale==null)||(locale.length()<=0)) {
+            doLocaleList(ctx, baseContext);            
             ctx.println("<br/>");
         } else {
             if((ctx.doc == null) || (ctx.doc.length < 1)) {
@@ -483,8 +661,11 @@ class SurveyMain {
                 ctx.println("<i>Not sending mail- SMTP disabled.</i><br/>");
             } else {
                 MailSender.sendMail(u.email, "CLDR: Receipt of your data submission ",
-                        body  + "\n The files submitted are attached below: \n" + fullBody);
-                MailSender.sendMail(System.getProperty("CLDR_NOTIFY"), "CLDR: from " + u.sponsor + "/" + u.email + ": " + changedList,
+                        "Submission from IP: " + WebContext.userIP() + "\n" + body  +
+                            "\n The files submitted are attached below: \n" + fullBody );
+                MailSender.sendMail(System.getProperty("CLDR_NOTIFY"), "CLDR: from " + u.sponsor + 
+                        "/" + u.email + ": " + changedList,
+                        "URL: " + System.getProperty("CLDR_VET_WEB_URL") + u.email + "/" + ctx.session.id + "\n" +
                         body);
                 ctx.println("Thank you..   An email has been sent to the CLDR Vetting List and to you at " + u.email + ".<br/>");
             }
@@ -519,6 +700,11 @@ class SurveyMain {
                 }
                 newxpath=newxpath.substring(1); // remove initial /     
                 if(vet.equals(DRAFT)) {
+                    if((nse.main != null) && LDMLUtilities.isNodeDraft(nse.main)) {
+                        file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.main));
+                    } else {
+                        file.addComment(newxpath, "Can't find draft data! " + type, XPathParts.Comments.POSTBLOCK);
+                    }
                 } else if(vet.equals(CURRENT)) {
                     if(nse.fallback != null)  {
                         file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.fallback));
@@ -627,13 +813,13 @@ class SurveyMain {
     public void showLocale(WebContext ctx, String which)
     {
         int i;
+        ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Go to a different Locale" + "</a></b><br/>");
         ctx.println("<br/>");
         ctx.println("<font size=+1><b>" + ctx.locale + "</b></font> " + ctx.locale.getDisplayName() + "<br/>");
         ctx.println("<i>Switch to: </i> " );
         for(i=1;i<ctx.docLocale.length;i++) {
             ctx.println("<a href=\"" + ctx.url() + "&_=" + ctx.docLocale[i] + "\">" + ctx.docLocale[i] + "</a> ");
         }
-        ctx.println("<a href=\"" + ctx.url() + "\">" + "Other..." + "</a><br/>");
         ctx.println("<hr/>");
         
         if((which == null) ||
@@ -819,7 +1005,8 @@ class SurveyMain {
         int skip = 0;
         NodeSet mySet = NodeSet.loadFromPath(ctx, xpath, fullSet);
         total = mySet.count();
-        Map sortedMap = mySet.getSorted(new DraftFirstTexter(tx));
+        boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
+        Map sortedMap = mySet.getSorted(sortAlpha?tx:new DraftFirstTexter(tx));
         Hashtable changes = (Hashtable)ctx.getByLocale(xpath);
         
         if(tx == null) {
@@ -869,18 +1056,24 @@ class SurveyMain {
         }
         
         // Print navigation
-        ctx.println("Displaying items " + from + " to " + to + " of " + total + "<br/>");
+        ctx.println("Displaying items " + from + " to " + to + " of " + total + "<br/>");        
+        {
+            WebContext nuCtx = new WebContext(ctx);
+            nuCtx.addQuery(PREF_SORTALPHA, !sortAlpha);
+            nuCtx.println("Sorted <a href='" + nuCtx.url() + "'>" + ((sortAlpha)?"Alphabetically":"Draft-first") +
+                    "</a><br/>");
+        }
         
         
         // Form: 
         ctx.println("<form method=POST action='" + ctx.base() + "'>");
         ctx.printUrlAsHiddenFields();
-        ctx.println("<table style='border-collapse: collapse' border=1>");
+        ctx.println("<table class='list' border=1>");
         if(ctx.session.user != null) {
             ctx.println("<input type=submit value=Save>");
         }
         ctx.println("<tr>");
-        ctx.println(" <th class='heading' bgcolor='#DDDDDD' >Name<br/><tt>Code</tt></th>");
+        ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=2>Name<br/><tt>Code</tt></th>");
         ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Best<br/>");
         ctx.printHelpLink("/Best");
         ctx.println("</th>");
@@ -938,20 +1131,20 @@ class SurveyMain {
             
             ctx.println("<tr>");
             // 1. name/code
-            ctx.println("<th class='code' rowspan=" + nRows + ">" + tx.text(f) + "<br/><tt>" + type + "</tt>");
+            ctx.println("<th valign=top align=left class='name' colspan=2 rowspan=" + (nRows-1) + ">" + tx.text(f) + "");
             if(f.key != null) {
-                ctx.println(" <tt>(" + f.key + ")</tt>");
+                ctx.println("<br/><tt>(" + f.key + ")</tt>");
             }
-            ctx.println("<br/><div class='nochange'>");
-            writeRadio(ctx,xpath,type,NOCHANGE,checked);
-            ctx.println("<font size=-2>No change</font>");
-            ctx.println("</div></th>");
+            ctx.println("</th>");
             
             // Now there are a pair of columns for each of the following. 
             // 2. fallback
             if(mainFallback != null) {
                 ctx.println("<td align=right class='fallback'>");
-                ctx.println("from " + new ULocale(mainFallback).getDisplayName(new ULocale("en_US")) + "");
+                ctx.println("from " + 
+                        "<a href=\"" + ctx.base() + "?x=" + ctx.field("x") + "&_=" + mainFallback + "\">" + 
+                        new ULocale(mainFallback).getDisplayName(new ULocale("en_US")) +                        
+                        "</a>");
                 writeRadio(ctx,xpath,type,CURRENT,checked);
                 ctx.println("</td>");
                 ctx.println("<td class='fallback'>");
@@ -976,9 +1169,10 @@ class SurveyMain {
             }
             ctx.println("</tr>");
             
+            ctx.println("<tr>");
+
             // Draft item
             if(mainDraft > 0) {
-                ctx.println("<tr>");
                 ctx.println("<td align=right class='draft'>");
                 ctx.println("draft");
                 writeRadio(ctx,xpath,type,DRAFT,checked);
@@ -987,11 +1181,11 @@ class SurveyMain {
                 ctx.println(main);
                 ctx.println("</td>");
                 ctx.println("</tr>");
+                ctx.println("<tr>");
             }
 
             // Proposed item
             if(prop != null) {
-                ctx.println("<tr>");
                 ctx.println("<td align=right class='proposed'>");
                 ctx.println("proposed");
                 writeRadio(ctx,xpath,type,PROPOSED,checked);
@@ -1000,10 +1194,19 @@ class SurveyMain {
                 ctx.println(prop);
                 ctx.println("</td>");
                 ctx.println("</tr>");
+                ctx.println("<tr>");
             }
             
+            //'nochange' and type
+            ctx.println("<th class='type'>");
+            ctx.println("<tt>" + type + "</tt>");
+            ctx.println("</th");
+            ctx.println("<td class='nochange'>");
+            writeRadio(ctx,xpath,type,NOCHANGE,checked);
+            ctx.println("<font size=-2>No change</font>");
+            ctx.println("</td>");
+
             // edit text
-            ctx.println("<tr>");
             ctx.println("<td align=right class='new'>");
             ctx.println("change");
             writeRadio(ctx,xpath,type,NEW,checked);
@@ -1013,7 +1216,7 @@ class SurveyMain {
             if(changes != null) {
            //     change = (String)changes.get(type + "//n");
             }
-            ctx.print("<input size=50 ");
+            ctx.print("<input size=50 class='inputbox' ");
             ctx.print("onblur=\"if (value == '') {value = '" + UNKNOWNCHANGE + "'}\" onfocus=\"if (value == '" + 
                 UNKNOWNCHANGE + "') {value =''}\" ");
             ctx.print("value=\"" + 
@@ -1023,7 +1226,7 @@ class SurveyMain {
             ctx.println("</tr>");
             
 
-            ctx.println("<tr class='sep'><td class='sep' style='height: 3px; overflow: hidden;' colspan=3 bgcolor=\"#CCCCDD\"></td></tr>");
+            ctx.println("<tr class='sep'><td class='sep' style='height: 3px; overflow: hidden;' colspan=4 bgcolor=\"#CCCCDD\"></td></tr>");
 
             // -----
             
@@ -1044,6 +1247,9 @@ class SurveyMain {
         }
     }
     
+    static String cldrLoad = System.getProperty("CLDR_LOAD_ALL");
+
+    
     public static void main (String args[]) {
         int status = 0;
         appendLog("SurveyTool starting up.");
@@ -1053,7 +1259,6 @@ class SurveyMain {
             System.err.println("Couldn't load user registry - exiting.");
             System.exit(1);
         }
-        String cldrLoad = System.getProperty("CLDR_LOAD_ALL");
         if((cldrLoad != null) && cldrLoad.equals("y")) {
             m.loadAll();
         }
@@ -1179,6 +1384,11 @@ class SurveyMain {
             // add to cache
             docTable.put(locale, doc);
         }
+        collectXpaths(doc, "/");
+        if((cldrLoad != null) && cldrLoad.equals("y")) {
+            System.err.print('x'); 
+            System.err.flush();
+        }
         return doc;
     }
         
@@ -1222,4 +1432,25 @@ class SurveyMain {
           // TODO: log this ... 
         }
     }
+
+    static TreeMap allXpaths = new TreeMap();
+
+    static void collectXpaths(Node root, String xpath) {
+        for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
+            if(node.getNodeType()!=Node.ELEMENT_NODE){
+                continue;
+            }
+            String nodeName = node.getNodeName();
+            String nodeType = LDMLUtilities.getAttributeValue(node,LDMLConstants.TYPE);
+            String newPath = xpath + "/" + nodeName;
+            if((nodeType != null)&&(nodeType.length()>0)) {
+                newPath = newPath + "[@type='" + nodeType + "']";
+            }
+            allXpaths.put(newPath, newPath);
+            collectXpaths(node, newPath);
+        }
+    }
+
+
+
 }

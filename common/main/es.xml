@@ -7,22 +7,29 @@
 >
 <ldml>
 	<identity>
-		<version number="3.0"/>
-		<generation date="2003-11-11" />
+		<version number="1.0"/>
+		<generation date="2003-12-08" />
 		<language type="es" /> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="aa">afar</language>
 			<language type="af">afrikaans</language>
-			<language type="am">amharic</language>
+			<language type="am">amárico</language>
 			<language type="ar">árabe</language>
+			<language type="as">asamés</language>
 			<language type="az">azerbayano</language>
 			<language type="be">bielorruso</language>
 			<language type="bg">búlgaro</language>
 			<language type="bh">bihari</language>
+			<language type="bi">bislama</language>
 			<language type="bn">bengalí</language>
+			<language type="bo">tibetano</language>
+			<language type="br">bretón</language>
 			<language type="ca">catalán</language>
+			<language type="co">corso</language>
 			<language type="cs">checo</language>
+			<language type="cy">galés</language>
 			<language type="da">danés</language>
 			<language type="de">alemán</language>
 			<language type="el">griego</language>
@@ -36,9 +43,11 @@
 			<language type="fo">feroés</language>
 			<language type="fr">francés</language>
 			<language type="ga">irlandés</language>
+			<language type="gd">gaélico escocés</language>
 			<language type="gl">gallego</language>
 			<language type="gu">goujaratí</language>
 			<language type="gv">gaélico manés</language>
+			<language type="ha">hausa</language>
 			<language type="haw">hawaiano</language>
 			<language type="he">hebreo</language>
 			<language type="hi">hindi</language>
@@ -46,6 +55,8 @@
 			<language type="hu">húngaro</language>
 			<language type="hy">armenio</language>
 			<language type="id">indonesio</language>
+			<language type="ie">interlingue</language>
+			<language type="ik">inupiak</language>
 			<language type="is">islandés</language>
 			<language type="it">italiano</language>
 			<language type="iu">inuktitut</language>
@@ -60,46 +71,93 @@
 			<language type="kw">córnico</language>
 			<language type="ky">kirghiz</language>
 			<language type="la">latín</language>
+			<language type="ln">lingala</language>
+			<language type="lo">laosiano</language>
 			<language type="lt">lituano</language>
 			<language type="lv">letonio</language>
+			<language type="mg">malgache</language>
+			<language type="mi">maorí</language>
 			<language type="mk">macedonio</language>
+			<language type="ml">malayalam</language>
 			<language type="mn">mongol</language>
+			<language type="mo">moldavo</language>
 			<language type="mr">marathi</language>
 			<language type="ms">malayo</language>
 			<language type="mt">maltés</language>
 			<language type="my">birmano</language>
+			<language type="na">nauruano</language>
 			<language type="nb">bokmal noruego</language>
+			<language type="ne">nepalí</language>
 			<language type="nl">holandés</language>
 			<language type="nn">nynorsk noruego</language>
 			<language type="no">noruego</language>
 			<language type="om">oromo</language>
+			<language type="or">oriya</language>
 			<language type="pa">punjabí</language>
 			<language type="pl">polaco</language>
+			<language type="ps">pashto</language>
 			<language type="pt">portugués</language>
+			<language type="qu">quechua</language>
 			<language type="ro">rumano</language>
 			<language type="root">raíz</language>
 			<language type="ru">ruso</language>
+			<language type="sa">sánscrito</language>
+			<language type="sg">sango</language>
 			<language type="sh">serbocroata</language>
+			<language type="si">cingalés</language>
 			<language type="sk">eslovaco</language>
 			<language type="sl">esloveno</language>
+			<language type="sm">samoano</language>
 			<language type="so">somalí</language>
 			<language type="sq">albanés</language>
 			<language type="sr">serbio</language>
+			<language type="su">sundanés</language>
 			<language type="sv">sueco</language>
 			<language type="sw">swahili</language>
 			<language type="ta">tamil</language>
 			<language type="te">telugu</language>
 			<language type="th">tailandés</language>
 			<language type="ti">tigrinya</language>
+			<language type="tl">tagalo</language>
 			<language type="tr">turco</language>
+			<language type="ts">tsonga</language>
 			<language type="tt">tátaro</language>
+			<language type="ug">uigur</language>
 			<language type="uk">ucraniano</language>
 			<language type="ur">urdu</language>
 			<language type="uz">uzbeko</language>
 			<language type="vi">vietnamita</language>
+			<language type="vo">volapuk</language>
+			<language type="wo">uolof</language>
+			<language type="xh">xhosa</language>
+			<language type="yo">yoruba</language>
+			<language type="za">zhuang</language>
 			<language type="zh">chino</language>
 			<language type="zu">zulú</language>
 		</languages>
+		<scripts>
+			<script type="Arab">árabe</script>
+			<script type="Armn">armenio</script>
+			<script type="Beng">bengalí</script>
+			<script type="Brai">braille</script>
+			<script type="Cprt">chipriota</script>
+			<script type="Cyrl">cirílico</script>
+			<script type="Geor">georgiano</script>
+			<script type="Goth">gótico</script>
+			<script type="Grek">griego</script>
+			<script type="Gujr">goujaratí</script>
+			<script type="Hebr">hebreo</script>
+			<script type="Khmr">kmer</script>
+			<script type="Knda">canara</script>
+			<script type="Latn">latín</script>
+			<script type="Mong">mongoliano</script>
+			<script type="Mymr">myanmar</script>
+			<script type="Taml">tamil</script>
+			<script type="Telu">telugu</script>
+			<script type="Tglg">tagalo</script>
+			<script type="Thai">tailandés</script>
+			<script type="Tibt">tibetano</script>
+		</scripts>
 		<territories>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Emiratos Árabes Unidos</territory>
@@ -170,7 +228,7 @@
 			<territory type="FI">Finlandia</territory>
 			<territory type="FJ">Fidji</territory>
 			<territory type="FK">Islas Falkland (Malvinas)</territory>
-			<territory type="FM">Micronesia, Estados Federados de</territory>
+			<territory type="FM">Micronesia</territory>
 			<territory type="FO">Islas Feroe</territory>
 			<territory type="FR">Francia</territory>
 			<territory type="Fallback">en</territory>
@@ -192,7 +250,7 @@
 			<territory type="GU">Guam</territory>
 			<territory type="GW">Guinea-Bissau</territory>
 			<territory type="GY">Guyana</territory>
-			<territory type="HK">Hong Kong S.A.R., China</territory>
+			<territory type="HK">Hong Kong, Región administrativa especial de China</territory>
 			<territory type="HM">Islas Heard y McDonald</territory>
 			<territory type="HN">Honduras</territory>
 			<territory type="HR">Croacia</territory>
@@ -234,10 +292,10 @@
 			<territory type="LY">Libia</territory>
 			<territory type="MA">Marruecos</territory>
 			<territory type="MC">Mónaco</territory>
-			<territory type="MD">Moldavia, República de</territory>
+			<territory type="MD">Moldova</territory>
 			<territory type="MG">Madagascar</territory>
 			<territory type="MH">Islas Marshall</territory>
-			<territory type="MK">Macedonia, Antigua República Yugoslava de</territory>
+			<territory type="MK">Macedonia</territory>
 			<territory type="ML">Malí</territory>
 			<territory type="MM">Myanmar</territory>
 			<territory type="MN">Mongolia</territory>
@@ -327,7 +385,7 @@
 			<territory type="US">Estados Unidos</territory>
 			<territory type="UY">Uruguay</territory>
 			<territory type="UZ">Uzbekistán</territory>
-			<territory type="VA">Santa Sede (Ciudad del Vaticano)</territory>
+			<territory type="VA">Ciudad del Vaticano</territory>
 			<territory type="VC">San Vicente y las Granadinas</territory>
 			<territory type="VE">Venezuela</territory>
 			<territory type="VG">Islas Vírgenes Británicas</territory>
@@ -351,7 +409,12 @@
 			<key type="collation">Colación</key>
 		</keys>
 		<types>
-			<type type="traditional" key="calendar">Tradicional</type>
+			<type type="buddhist" key="calendar">Budista</type>
+			<type type="chinese" key="calendar">Chino</type>
+			<type type="gregorian" key="calendar">Gregoriano</type>
+			<type type="hebrew" key="calendar">Hebreo</type>
+			<type type="islamic" key="calendar">Islámico</type>
+			<type type="japanese" key="calendar">Japonés</type>
 			<type type="direct" key="collation">Directo Orden</type>
 			<type type="phonebook" key="collation">Guýa Orden</type>
 			<type type="stroke" key="collation">Pincelada Orden</type>
@@ -1166,7 +1229,7 @@
 			</currency>
 			<currency type="VND">
 				<displayName>Dong de Vietnám</displayName>
-				<symbol>₫</symbol>
+				<symbol>đ</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Vatu de Vanuatu</displayName>

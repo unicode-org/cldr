@@ -8,7 +8,7 @@
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-11-11" />
+		<generation date="2003-12-08" />
 		<language type="fa" /> 
 		<territory type="AF" /> 
 	</identity>
@@ -235,84 +235,36 @@
 		</currencyFormatLength >
 	</currencyFormats>
 </numbers>
-<collations version="3.1.1">
-	<collation  >
-		<settings normalization="on"  />
-		<rules>
-			<reset>َ</reset>
-			<sc>ًٌٍُِ</sc>
-			<reset>آ</reset>
-			<p>ا</p>
-			<sc>أٲٱإٳ</sc>
-			<p>ء</p>
-			<reset>ت</reset>
-			<p>ټ</p>
-			<s>ٹ</s>
-			<reset>ج</reset>
-			<p>ځ</p>
-			<s>حٔ</s>
-			<reset>چ</reset>
-			<p>څ</p>
-			<reset>د</reset>
-			<p>ډ</p>
-			<s>ڈ</s>
-			<reset>ر</reset>
-			<p>ړ</p>
-			<s>ڑ</s>
-			<reset>ژ</reset>
-			<p>ږ</p>
-			<reset>ک</reset>
-			<sc>ڪك</sc>
-			<reset>ګ</reset>
-			<s>گ</s>
-			<reset>ڼ</reset>
-			<s>ڻ</s>
-			<reset>و</reset>
-			<sc>ؤۇۉ</sc>
-			<reset>ه</reset>
-			<t>ۀ</t>
-			<t>هٔ</t>
-			<sc>ەہھةۃ</sc>
-			<reset>ی</reset>
-			<sc>ىےيېۍ</sc>
-			<s>یٔ</s>
-			<tc>ىٔئ</tc>
-			<reset> </reset>
-			<s>‌</s>
-		</rules>
-		<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
-	</collation  >
-</collations >
 <special xmlns:icu="http://oss.software.ibm.com/icu/"  >
 	<icu:ruleBasedNumberFormats>
 		<icu:ruleBasedNumberFormat type="spellout">
 %main:
-    -x: منفی &gt;&gt;;
-    x.x: &lt;&lt; عشاریه &gt;&gt;;
-    صفر; یک; دو; سه; چهار; پنج; شش; هفت; هشت; نه;
-    ده; یازده; دوازده; سیزده; چهارده; پانزده; شانزده;
-        هفده; هجده; نزده;
-    20: بیست[ و &gt;&gt;];
-    30: سی[ و &gt;&gt;];
-    40: چهل[ و &gt;&gt;];
-    50: پنجاه[ و &gt;&gt;];
-    60: شصت[ و &gt;&gt;];
-    70: هفتاد[ و &gt;&gt;];
-    80: هشتاد[ و &gt;&gt;];
-    90: نود[ و &gt;&gt;];
-    100: صد[ و &gt;&gt;];
-    200: دوصد[ و &gt;&gt;];
-    300: سه‌صد[ و &gt;&gt;];
-    400: چهارصد[ و &gt;&gt;];
-    500: پنجصد[ و &gt;&gt;];
-    600: ششصد[ و &gt;&gt;];
-    700: هفتصد[ و &gt;&gt;];
-    800: هشتصد[ و &gt;&gt;];
-    900: نهصد[ و &gt;&gt;];
-    1000: &lt;&lt; هزار[ و &gt;&gt;];
-    1,000,000: &lt;&lt; میلیون[ و &gt;&gt;];
-    1,000,000,000: &lt;&lt; میلیارد[ و &gt;&gt;];
-    1,000,000,000,000: =#,##0=;
+-x: منفی &gt;&gt;;
+x.x: &lt;&lt; عشاریه &gt;&gt;;
+صفر; یک; دو; سه; چهار; پنج; شش; هفت; هشت; نه;
+ده; یازده; دوازده; سیزده; چهارده; پانزده; شانزده;
+    هفده; هجده; نزده;
+20: بیست[ و &gt;&gt;];
+30: سی[ و &gt;&gt;];
+40: چهل[ و &gt;&gt;];
+50: پنجاه[ و &gt;&gt;];
+60: شصت[ و &gt;&gt;];
+70: هفتاد[ و &gt;&gt;];
+80: هشتاد[ و &gt;&gt;];
+90: نود[ و &gt;&gt;];
+100: صد[ و &gt;&gt;];
+200: دوصد[ و &gt;&gt;];
+300: سه‌صد[ و &gt;&gt;];
+400: چهارصد[ و &gt;&gt;];
+500: پنجصد[ و &gt;&gt;];
+600: ششصد[ و &gt;&gt;];
+700: هفتصد[ و &gt;&gt;];
+800: هشتصد[ و &gt;&gt;];
+900: نهصد[ و &gt;&gt;];
+1000: &lt;&lt; هزار[ و &gt;&gt;];
+1,000,000: &lt;&lt; میلیون[ و &gt;&gt;];
+1,000,000,000: &lt;&lt; میلیارد[ و &gt;&gt;];
+1,000,000,000,000: =#,##0=;
 
 		</icu:ruleBasedNumberFormat>
 	</icu:ruleBasedNumberFormats>

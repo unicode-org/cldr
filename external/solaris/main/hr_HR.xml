@@ -13,104 +13,98 @@
 >
 <ldml>
 	<identity>
-		<version number='1.0'>Generated from convertLocaledefToLDML</version>
-		<generation date='2003-10-02'/>
-		<language type='hr'/>
-		<territory type='HR'/>
+		<version number="1.0">Generated from convertLocaledefToLDML</version>
+		<generation date="2003-11-24"/>
+		<language type="hr"/>
+		<territory type="HR"/>
 	</identity>
 	<dates>
 		<calendars>
-			<default type='Gregorian'/>
-			<calendar type='Gregorian'>
+			<default type="gregorian"/>
+			<calendar type="gregorian">
 				<monthNames>
-					<month type='1'>siječanj</month>
-					<month type='2'>veljača</month>
-					<month type='3'>ožujak</month>
-					<month type='4'>travanj</month>
-					<month type='5'>svibanj</month>
-					<month type='6'>lipanj</month>
-					<month type='7'>srpanj</month>
-					<month type='8'>kolovoz</month>
-					<month type='9'>rujan</month>
-					<month type='10'>listopad</month>
-					<month type='11'>studeni</month>
-					<month type='12'>prosinac</month>
+					<month type="1">siječanj</month>
+					<month type="2">veljača</month>
+					<month type="3">ožujak</month>
+					<month type="4">travanj</month>
+					<month type="5">svibanj</month>
+					<month type="6">lipanj</month>
+					<month type="7">srpanj</month>
+					<month type="8">kolovoz</month>
+					<month type="9">rujan</month>
+					<month type="10">listopad</month>
+					<month type="11">studeni</month>
+					<month type="12">prosinac</month>
 				</monthNames>
 				<monthAbbr>
-					<month type='1'>sij</month>
-					<month type='2'>vel</month>
-					<month type='3'>ožu</month>
-					<month type='4'>tre</month>
-					<month type='5'>svi</month>
-					<month type='6'>lip</month>
-					<month type='7'>srp</month>
-					<month type='8'>kol</month>
-					<month type='9'>ruj</month>
-					<month type='10'>lis</month>
-					<month type='11'>stu</month>
-					<month type='12'>pro</month>
+					<month type="1">sij</month>
+					<month type="2">vel</month>
+					<month type="3">ožu</month>
+					<month type="4">tre</month>
+					<month type="5">svi</month>
+					<month type="6">lip</month>
+					<month type="7">srp</month>
+					<month type="8">kol</month>
+					<month type="9">ruj</month>
+					<month type="10">lis</month>
+					<month type="11">stu</month>
+					<month type="12">pro</month>
 				</monthAbbr>
 				<dayNames>
-					<day type='sun'>nedjelja</day>
-					<day type='mon'>ponedjeljak</day>
-					<day type='tue'>utorak</day>
-					<day type='wed'>srijeda</day>
-					<day type='thu'>četvrtak</day>
-					<day type='fri'>petak</day>
-					<day type='sat'>subota</day>
+					<day type="sun">nedjelja</day>
+					<day type="mon">ponedjeljak</day>
+					<day type="tue">utorak</day>
+					<day type="wed">srijeda</day>
+					<day type="thu">četvrtak</day>
+					<day type="fri">petak</day>
+					<day type="sat">subota</day>
 				</dayNames>
 				<dayAbbr>
-					<day type='sun'>ne</day>
-					<day type='mon'>po</day>
-					<day type='tue'>ut</day>
-					<day type='wed'>sr</day>
-					<day type='thu'>če</day>
-					<day type='fri'>pe</day>
-					<day type='sat'>su</day>
+					<day type="sun">ne</day>
+					<day type="mon">po</day>
+					<day type="tue">ut</day>
+					<day type="wed">sr</day>
+					<day type="thu">če</day>
+					<day type="fri">pe</day>
+					<day type="sat">su</day>
 				</dayAbbr>
 				<am>
 				</am>
 				<pm>
 				</pm>
 				<dateFormats>
-					<default type='medium'/>
-					<dateFormatLength type='full'>
-						<default type='full'/>
-						<dateFormat type='full'>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat>
 							<pattern>EEE d MMM HH:mm:ss yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
-					<dateFormatLength type='medium'>
-						<default type='medium'/>
-						<dateFormat type='medium'>
+					<dateFormatLength type="medium">
+						<dateFormat>
 							<pattern>EEE d MMM HH:mm:ss z yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
-					<dateFormatLength type='short'>
-						<default type='short'/>
-						<dateFormat type='short'>
+					<dateFormatLength type="short">
+						<dateFormat>
 							<pattern>yyyy. MM. dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type='medium'/>
-					<timeFormatLength type='medium'>
-						<default type='medium'/>
+					<default type="medium"/>
+					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern>hh:mm:ss aa</pattern>
 						</timeFormat>
 					</timeFormatLength>
-					<timeFormatLength type='short'>
-						<default type='short'/>
+					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<default type='medium'/>
-					<dateTimeFormatLength type='medium'>
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
@@ -125,31 +119,28 @@
 			<group>.</group>
 		</symbols>
 		<decimalFormats>
-			<default type='long'/>
-			<decimalFormatLength type='long'>
+			<decimalFormatLength>
 				<decimalFormat>
 					<pattern>#,##0.##</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<currencyFormats>
-			<default type='long'/>
-			<currencyFormatLength type='long'>
+			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>¤#,##0;-¤#,##0</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
-			<default type='HRK'/>
-			<currency type='HRK'>
+			<default type="HRK"/>
+			<currency type="HRK">
 				<displayName>HRK</displayName>
 				<symbol>kn</symbol>
-				<decimal>,</decimal>
 			</currency>
 		</currencies>
 	</numbers>
-	<special xmlns:posix='http://www.opengroup.org/regproducts/xu.htm'>
+	<special xmlns:posix="http://www.opengroup.org/regproducts/xu.htm">
 		<posix:messages>
 			<posix:yesstr>yes:Yes:YES:y:Y</posix:yesstr>
 			<posix:nostr>no:No:NO:n:N</posix:nostr>

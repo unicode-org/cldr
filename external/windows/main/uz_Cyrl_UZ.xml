@@ -8,80 +8,80 @@
 <ldml>
 	<identity>
 		<version number="Windows XP"/>
-		<generation date="2003-10-02" />
-		<language type="dv" /> 
-		<territory type="MV" /> 
+		<generation date="2003-12-03" />
+		<language type="uz" /> 
+		<territory type="l_" /> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="en">English</language>
+			<language type="uz">Ўзбек</language>
 		</languages>
 		<territories>
-			<territory type="US">United States</territory>
+			<territory type="UZ">Ўзбекистон</territory>
 		</territories>
 </localeDisplayNames>
 <dates>
 	<calendars>
 		<calendar type="gregorian">
 			<monthNames>
-				<month type="1">January</month>
-				<month type="2">February</month>
-				<month type="3">March</month>
-				<month type="4">April</month>
-				<month type="5">May</month>
-				<month type="6">June</month>
-				<month type="7">July</month>
-				<month type="8">August</month>
-				<month type="9">September</month>
-				<month type="10">October</month>
-				<month type="11">November</month>
-				<month type="12">December</month>
+				<month type="1">Январ</month>
+				<month type="2">Феврал</month>
+				<month type="3">Март</month>
+				<month type="4">Апрел</month>
+				<month type="5">Май</month>
+				<month type="6">Июн</month>
+				<month type="7">Июл</month>
+				<month type="8">Август</month>
+				<month type="9">Сентябр</month>
+				<month type="10">Октябр</month>
+				<month type="11">Ноябр</month>
+				<month type="12">Декабр</month>
 				<month type="13"></month>
 			</monthNames>
 			<monthAbbr>
-				<month type="1">Jan</month>
-				<month type="2">Feb</month>
-				<month type="3">Mar</month>
-				<month type="4">Apr</month>
-				<month type="5">May</month>
-				<month type="6">Jun</month>
-				<month type="7">Jul</month>
-				<month type="8">Aug</month>
-				<month type="9">Sep</month>
-				<month type="10">Oct</month>
-				<month type="11">Nov</month>
-				<month type="12">Dec</month>
+				<month type="1">Янв</month>
+				<month type="2">Фев</month>
+				<month type="3">Мар</month>
+				<month type="4">Апр</month>
+				<month type="5">Май</month>
+				<month type="6">Июн</month>
+				<month type="7">Июл</month>
+				<month type="8">Авг</month>
+				<month type="9">Сен</month>
+				<month type="10">Окт</month>
+				<month type="11">Ноя</month>
+				<month type="12">Дек</month>
 				<month type="13"></month>
 			</monthAbbr>
 			<dayNames>
-				<day type="sun">Sunday</day>
-				<day type="mon">Monday</day>
-				<day type="tue">Tuesday</day>
-				<day type="wed">Wednesday</day>
-				<day type="thu">Thursday</day>
-				<day type="fri">Friday</day>
-				<day type="sat">Saturday</day>
+				<day type="sun">якшанба</day>
+				<day type="mon">душанба</day>
+				<day type="tue">сешанба</day>
+				<day type="wed">чоршанба</day>
+				<day type="thu">пайшанба</day>
+				<day type="fri">жума</day>
+				<day type="sat">шанба</day>
 			</dayNames>
 			<dayAbbr>
-				<day type="sun">Sun</day>
-				<day type="mon">Mon</day>
-				<day type="tue">Tue</day>
-				<day type="wed">Wed</day>
-				<day type="thu">Thu</day>
-				<day type="fri">Fri</day>
-				<day type="sat">Sat</day>
+				<day type="sun">якш</day>
+				<day type="mon">дш</day>
+				<day type="tue">сш</day>
+				<day type="wed">чш</day>
+				<day type="thu">пш</day>
+				<day type="fri">ж</day>
+				<day type="sat">ш</day>
 			</dayAbbr>
 			<week>
-				<minDays count="0"/>
-				<firstDay day="fri"/>
+				<minDays count=""/>
+				<firstDay day="mon"/>
 			</week>
-			<am>AM</am>
-			<pm>PM</pm>
+			<am></am>
+			<pm></pm>
 			<dateFormats>
 				<default type="medium"/>
 				<dateFormatLength type="full">
 					<dateFormat >
-						<pattern>dddd, MMMM dd, yyyy</pattern>
+						<pattern>yyyy 'йил' d-MMMM</pattern>
 					</dateFormat>
 				</dateFormatLength >
 				<dateFormatLength type="long">
@@ -96,7 +96,7 @@
 				</dateFormatLength >
 				<dateFormatLength type="short">
 					<dateFormat >
-						<pattern>M/d/yyyy</pattern>
+						<pattern>dd.MM.yyyy</pattern>
 					</dateFormat>
 				</dateFormatLength >
 			</dateFormats>
@@ -114,7 +114,7 @@
 				</timeFormatLength >
 				<timeFormatLength type="medium">
 					<timeFormat >
-						<pattern>h:mm:ss a</pattern>
+						<pattern>HH:mm:ss</pattern>
 					</timeFormat>
 				</timeFormatLength >
 				<timeFormatLength type="short">
@@ -135,9 +135,9 @@
 </dates>
 <numbers>
 	<symbols>
-		<decimal>.</decimal>
-		<group>,</group>
-		<list>,</list>
+		<decimal>,</decimal>
+		<group> </group>
+		<list>;</list>
 		<percentSign>%</percentSign>
 		<nativeZeroDigit>0</nativeZeroDigit>
 		<patternDigit>#</patternDigit>

@@ -1218,8 +1218,13 @@ void GenerateXML::writeWeek(UnicodeString& xmlString){
 		Formattable args[3] = {indentOffset,"",""};
 		xmlString.append(formatString(mStringsBundle.getStringEx("week",mError),args,2,t));
 		indentOffset.append("\t");
+        
 		args[0] = indentOffset;
-		args[1] = vector[1];
+        if(len > 1){
+		    args[1] = vector[1];
+        }else{
+            args[1] = "";
+        }
 		xmlString.append(formatString(mStringsBundle.getStringEx("minDays",mError),args,2,t));
 		args[1] = getDayNameDTE(vector[0]);
 		xmlString.append(formatString(mStringsBundle.getStringEx("firstDay",mError),args,2,t));

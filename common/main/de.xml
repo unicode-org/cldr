@@ -7,8 +7,8 @@
 >
 <ldml>
 	<identity>
-		<version number="3.0"/>
-		<generation date="2003-11-11" />
+		<version number="1.0"/>
+		<generation date="2003-12-08" />
 		<language type="de" /> 
 	</identity>
 	<localeDisplayNames>
@@ -122,6 +122,55 @@
 			<language type="za">Zapotekisch</language>
 			<language type="zh">Chinesisch</language>
 		</languages>
+		<scripts>
+			<script type="Arab">Arabisch</script>
+			<script type="Armn">Armenisch</script>
+			<script type="Beng">Bengalisch</script>
+			<script type="Bopo">Bopomofo</script>
+			<script type="Brai">Blindenschrift</script>
+			<script type="Cher">Cherokee</script>
+			<script type="Cprt">Zypriotisch</script>
+			<script type="Cyrl">Kyrillisch</script>
+			<script type="Deva">Devanagari</script>
+			<script type="Ethi">Äthiopisch</script>
+			<script type="Geor">Georgisch</script>
+			<script type="Goth">Gotisch</script>
+			<script type="Grek">Griechisch</script>
+			<script type="Gujr">Gujarati</script>
+			<script type="Guru">Gurmukhi</script>
+			<script type="Hang">Hangul</script>
+			<script type="Hani">Chinesisch</script>
+			<script type="Hans">Vereinfachte Chinesische Schrift</script>
+			<script type="Hant">Traditionelle Chinesische Schrift</script>
+			<script type="Hebr">Hebräisch</script>
+			<script type="Hira">Hiragana</script>
+			<script type="Ital">Altitalisch</script>
+			<script type="Kana">Katakana</script>
+			<script type="Khmr">Khmer</script>
+			<script type="Knda">Kannada</script>
+			<script type="Laoo">Laotisch</script>
+			<script type="Latn">Lateinisch</script>
+			<script type="Limb">Limbu</script>
+			<script type="Linb">Linear B</script>
+			<script type="Mlym">Malaysisch</script>
+			<script type="Mong">Mongolisch</script>
+			<script type="Mymr">Burmesisch</script>
+			<script type="Ogam">Ogham</script>
+			<script type="Orya">Oriya</script>
+			<script type="Osma">Osmanisch</script>
+			<script type="Qaac">Koptisch</script>
+			<script type="Qaai">Geerbter Schriftwert</script>
+			<script type="Runr">Runenschrift</script>
+			<script type="Sinh">Singhalesisch</script>
+			<script type="Syrc">Syrisch</script>
+			<script type="Taml">Tamilisch</script>
+			<script type="Telu">Telugu</script>
+			<script type="Tglg">Tagalog</script>
+			<script type="Tibt">Tibetisch</script>
+			<script type="Ugar">Ugaritisch</script>
+			<script type="Yiii">Yi</script>
+			<script type="Zyyy">Unbestimmt</script>
+		</scripts>
 		<territories>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Vereinigte Arabische Emirate</territory>
@@ -1310,35 +1359,35 @@
 		<icu:ruleBasedNumberFormats>
 			<icu:ruleBasedNumberFormat type="spellout">
 %alt-ones:
-    -x: minus &gt;&gt;;
-    x.x: &lt;&lt; komma &gt;&gt;;
-    null; eins; =%%main=;
+-x: minus &gt;&gt;;
+x.x: &lt;&lt; komma &gt;&gt;;
+null; eins; =%%main=;
 %%main:
-    null; ein; zwei; drei; vier; fünf; sechs; sieben; acht; neun;
-    zehn; elf; zwölf; &gt;&gt;zehn;
-    20: [&gt;&gt;und]zwanzig;
-    30: [&gt;&gt;und]dreißig;
-    40: [&gt;&gt;und]vierzig;
-    50: [&gt;&gt;und]fünfzig;
-    60: [&gt;&gt;und]sechzig;
-    70: [&gt;&gt;und]siebzig;
-    80: [&gt;&gt;und]achtzig;
-    90: [&gt;&gt;und]neunzig;
-    100: hundert[&gt;%alt-ones&gt;];
-    200: &lt;&lt;hundert[&gt;%alt-ones&gt;];
-    1000: tausend[&gt;%alt-ones&gt;];
-    2000: &lt;&lt;tausend[&gt;%alt-ones&gt;];
-    1,000,000: eine Million[ &gt;%alt-ones&gt;];
-    2,000,000: &lt;&lt; Millionen[ &gt;%alt-ones&gt;];
-    1,000,000,000: eine Milliarde[ &gt;%alt-ones&gt;];
-    2,000,000,000: &lt;&lt; Milliarden[ &gt;%alt-ones&gt;];
-    1,000,000,000,000: eine Billion[ &gt;%alt-ones&gt;];
-    2,000,000,000,000: &lt;&lt; Billionen[ &gt;%alt-ones&gt;];
-    1,000,000,000,000,000: =#,##0=;%%lenient-parse:
-    &amp;<cp hex="0000" /> &lt;&lt; ' ' &lt;&lt; '-'
-    &amp; ae , ä &amp; ae , Ä
-    &amp; oe , ö &amp; oe , Ö
-    &amp; ue , ü &amp; ue , Ü
+null; ein; zwei; drei; vier; fünf; sechs; sieben; acht; neun;
+zehn; elf; zwölf; &gt;&gt;zehn;
+20: [&gt;&gt;und]zwanzig;
+30: [&gt;&gt;und]dreißig;
+40: [&gt;&gt;und]vierzig;
+50: [&gt;&gt;und]fünfzig;
+60: [&gt;&gt;und]sechzig;
+70: [&gt;&gt;und]siebzig;
+80: [&gt;&gt;und]achtzig;
+90: [&gt;&gt;und]neunzig;
+100: hundert[&gt;%alt-ones&gt;];
+200: &lt;&lt;hundert[&gt;%alt-ones&gt;];
+1000: tausend[&gt;%alt-ones&gt;];
+2000: &lt;&lt;tausend[&gt;%alt-ones&gt;];
+1,000,000: eine Million[ &gt;%alt-ones&gt;];
+2,000,000: &lt;&lt; Millionen[ &gt;%alt-ones&gt;];
+1,000,000,000: eine Milliarde[ &gt;%alt-ones&gt;];
+2,000,000,000: &lt;&lt; Milliarden[ &gt;%alt-ones&gt;];
+1,000,000,000,000: eine Billion[ &gt;%alt-ones&gt;];
+2,000,000,000,000: &lt;&lt; Billionen[ &gt;%alt-ones&gt;];
+1,000,000,000,000,000: =#,##0=;%%lenient-parse:
+&amp;<cp hex="0000" /> &lt;&lt; ' ' &lt;&lt; '-'
+&amp; ae , ä &amp; ae , Ä
+&amp; oe , ö &amp; oe , Ö
+&amp; ue , ü &amp; ue , Ü
 
 			</icu:ruleBasedNumberFormat>
 		</icu:ruleBasedNumberFormats>

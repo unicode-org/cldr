@@ -13,104 +13,98 @@
 >
 <ldml>
 	<identity>
-		<version number='1.0'>Generated from convertLocaledefToLDML</version>
-		<generation date='2003-10-02'/>
-		<language type='cs'/>
-		<territory type='CZ'/>
+		<version number="1.0">Generated from convertLocaledefToLDML</version>
+		<generation date="2003-11-24"/>
+		<language type="cs"/>
+		<territory type="CZ"/>
 	</identity>
 	<dates>
 		<calendars>
-			<default type='Gregorian'/>
-			<calendar type='Gregorian'>
+			<default type="gregorian"/>
+			<calendar type="gregorian">
 				<monthNames>
-					<month type='1'>leden</month>
-					<month type='2'>únor</month>
-					<month type='3'>březen</month>
-					<month type='4'>duben</month>
-					<month type='5'>květen</month>
-					<month type='6'>červen</month>
-					<month type='7'>červenec</month>
-					<month type='8'>srpen</month>
-					<month type='9'>září</month>
-					<month type='10'>říjen</month>
-					<month type='11'>listopad</month>
-					<month type='12'>prosinec</month>
+					<month type="1">leden</month>
+					<month type="2">únor</month>
+					<month type="3">březen</month>
+					<month type="4">duben</month>
+					<month type="5">květen</month>
+					<month type="6">červen</month>
+					<month type="7">červenec</month>
+					<month type="8">srpen</month>
+					<month type="9">září</month>
+					<month type="10">říjen</month>
+					<month type="11">listopad</month>
+					<month type="12">prosinec</month>
 				</monthNames>
 				<monthAbbr>
-					<month type='1'>led</month>
-					<month type='2'>úno</month>
-					<month type='3'>bře</month>
-					<month type='4'>dub</month>
-					<month type='5'>kvě</month>
-					<month type='6'>čen</month>
-					<month type='7'>čer</month>
-					<month type='8'>srp</month>
-					<month type='9'>zář</month>
-					<month type='10'>říj</month>
-					<month type='11'>lis</month>
-					<month type='12'>pro</month>
+					<month type="1">led</month>
+					<month type="2">úno</month>
+					<month type="3">bře</month>
+					<month type="4">dub</month>
+					<month type="5">kvě</month>
+					<month type="6">čen</month>
+					<month type="7">čer</month>
+					<month type="8">srp</month>
+					<month type="9">zář</month>
+					<month type="10">říj</month>
+					<month type="11">lis</month>
+					<month type="12">pro</month>
 				</monthAbbr>
 				<dayNames>
-					<day type='sun'>neděle</day>
-					<day type='mon'>pondělí</day>
-					<day type='tue'>úterý</day>
-					<day type='wed'>středa</day>
-					<day type='thu'>čtvrtek</day>
-					<day type='fri'>pátek</day>
-					<day type='sat'>sobota</day>
+					<day type="sun">neděle</day>
+					<day type="mon">pondělí</day>
+					<day type="tue">úterý</day>
+					<day type="wed">středa</day>
+					<day type="thu">čtvrtek</day>
+					<day type="fri">pátek</day>
+					<day type="sat">sobota</day>
 				</dayNames>
 				<dayAbbr>
-					<day type='sun'>ne</day>
-					<day type='mon'>po</day>
-					<day type='tue'>út</day>
-					<day type='wed'>st</day>
-					<day type='thu'>čt</day>
-					<day type='fri'>pá</day>
-					<day type='sat'>so</day>
+					<day type="sun">ne</day>
+					<day type="mon">po</day>
+					<day type="tue">út</day>
+					<day type="wed">st</day>
+					<day type="thu">čt</day>
+					<day type="fri">pá</day>
+					<day type="sat">so</day>
 				</dayAbbr>
 				<am>
 				</am>
 				<pm>
 				</pm>
 				<dateFormats>
-					<default type='medium'/>
-					<dateFormatLength type='full'>
-						<default type='full'/>
-						<dateFormat type='full'>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat>
 							<pattern>EEE d. MMM yyyy, HH:mm:ss z</pattern>
 						</dateFormat>
 					</dateFormatLength>
-					<dateFormatLength type='medium'>
-						<default type='medium'/>
-						<dateFormat type='medium'>
+					<dateFormatLength type="medium">
+						<dateFormat>
 							<pattern>EEE d. MMM yyyy, HH:mm:ss z</pattern>
 						</dateFormat>
 					</dateFormatLength>
-					<dateFormatLength type='short'>
-						<default type='short'/>
-						<dateFormat type='short'>
+					<dateFormatLength type="short">
+						<dateFormat>
 							<pattern>yyyy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type='medium'/>
-					<timeFormatLength type='medium'>
-						<default type='medium'/>
+					<default type="medium"/>
+					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern>hh:mm:ss aa</pattern>
 						</timeFormat>
 					</timeFormatLength>
-					<timeFormatLength type='short'>
-						<default type='short'/>
+					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<default type='medium'/>
-					<dateTimeFormatLength type='medium'>
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
@@ -126,31 +120,28 @@
 			</group>
 		</symbols>
 		<decimalFormats>
-			<default type='long'/>
-			<decimalFormatLength type='long'>
+			<decimalFormatLength>
 				<decimalFormat>
 					<pattern>#,##0.##</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<currencyFormats>
-			<default type='long'/>
-			<currencyFormatLength type='long'>
+			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
-			<default type='KCS'/>
-			<currency type='KCS'>
+			<default type="KCS"/>
+			<currency type="KCS">
 				<displayName>KCS</displayName>
 				<symbol>Kč </symbol>
-				<decimal>,</decimal>
 			</currency>
 		</currencies>
 	</numbers>
-	<special xmlns:posix='http://www.opengroup.org/regproducts/xu.htm'>
+	<special xmlns:posix="http://www.opengroup.org/regproducts/xu.htm">
 		<posix:messages>
 			<posix:yesstr>yes:Yes:YES:y:Y</posix:yesstr>
 			<posix:nostr>no:No:NO:n:N</posix:nostr>

@@ -7,8 +7,8 @@
 >
 <ldml>
 	<identity>
-		<version number="2.0"/>
-		<generation date="2003-11-11" />
+		<version number="1.0"/>
+		<generation date="2003-12-08" />
 		<language type="hu" /> 
 	</identity>
 	<localeDisplayNames>
@@ -436,48 +436,4 @@
 		</currency>
 	</currencies>
 </numbers>
-<collations version="3.1.1">
-	<collation  >
-		<rules>
-			<reset>C</reset>
-			<p>cs</p>
-			<t>cS</t>
-			<t>Cs</t>
-			<t>CS</t>
-			<reset>D</reset>
-			<p>đ</p>
-			<t>Đ</t>
-			<reset>G</reset>
-			<p>gy</p>
-			<t>gY</t>
-			<t>Gy</t>
-			<t>GY</t>
-			<reset>L</reset>
-			<p>ly</p>
-			<t>lY</t>
-			<t>Ly</t>
-			<t>LY</t>
-			<reset>O</reset>
-			<p>ö</p>
-			<t>Ö</t>
-			<p>ő</p>
-			<t>Ő</t>
-			<reset>S</reset>
-			<p>sz</p>
-			<t>sZ</t>
-			<t>Sz</t>
-			<t>SZ</t>
-			<reset>U</reset>
-			<p>ü</p>
-			<t>Ü</t>
-			<p>ű</p>
-			<t>Ű</t>
-			<reset>Z</reset>
-			<p>zs</p>
-			<t>zS</t>
-			<t>Zs</t>
-		</rules>
-		<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
-	</collation  >
-</collations >
 </ldml>

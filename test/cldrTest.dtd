@@ -11,19 +11,24 @@
     All trademarks and registered trademarks mentioned herein are the property of their respective owners.
 -->
 
-<!ELEMENT ldmlTest (version, number*, date*, collation*) >
-
-<!ELEMENT version (#PCDATA) >
+<!ELEMENT cldrTest ((number | date | collation)*) >
+<!ATTLIST cldrTest version CDATA #REQUIRED>
 
 <!ELEMENT number (result*) >
-<!ATTLIST result numberType CDATA #IMPLIED>
 
 <!ELEMENT date (result*) >
-<!ATTLIST result timeType CDATA #IMPLIED>
-<!ATTLIST result dateType CDATA #IMPLIED>
 
 <!ELEMENT collation (result*) >
-<!ATTLIST result locale CDATA #IMPLIED>
+<!ATTLIST collation locales NMTOKENS #IMPLIED>
 
+<!-- common result attributes -->
 <!ATTLIST result input CDATA #IMPLIED>
+
+<!-- number result attributes -->
+<!ATTLIST result numberType (standard | integer | decimal | percent | scientific) #IMPLIED>
+
+<!-- date result attributes -->
+<!ATTLIST result dateType (none | short | medium | long | full) #IMPLIED>
+<!ATTLIST result timeType (none | short | medium | long | full) #IMPLIED>
+
 

@@ -1,8 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE ldml SYSTEM 'cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest>
-  <collation>
+ <cldrTest version='1.2α' base='he'>
+ <!-- Hebrew [עברית] -->
+  <collation 
+locales='he'>
+<!-- Hebrew [עברית] -->
    <result>
 x֑
 x֒
@@ -102,6 +105,12 @@ xֿ
 Xֿ
 xﬞ
 Xﬞ
+x 
+X 
+x x
+x.
+X.
+x.x
 x־
 X־
 x־x
@@ -120,6 +129,15 @@ x״x
 x﬩
 X﬩
 x﬩x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
 x֑x
 x֒x
 x֓x

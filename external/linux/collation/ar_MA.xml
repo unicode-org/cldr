@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-12-18" />
+		<language type="ar" /> 
+		<territory type="MA" /> 
+	</identity>
+	<layout>
+		<orientation lines="top-to-bottom" characters="right-to-left" />
+	</layout>
+	<collations version="3.1.1">
+		<collation type="standard" >
+			<base>
+				<alias source="ar_AE" type="standard" />
+			</base>
+		</collation  >
+	</collations >
+</ldml>

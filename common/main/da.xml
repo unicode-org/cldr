@@ -538,6 +538,7 @@
 			<territory type="CN">Kina</territory>
 			<territory type="CO">Colombia</territory>
 			<territory type="CR">Costa Rica</territory>
+			<territory type="CS" draft="true">Serbien og Montenegro</territory>
 			<territory type="CU">Cuba</territory>
 			<territory type="CV">Kap Verde</territory>
 			<territory type="CX">Juleøen</territory>
@@ -687,7 +688,6 @@
 			<territory type="SM">San Marino</territory>
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somalia</territory>
-			<territory type="CS" draft="true">Serbien og Montenegro</territory>
 			<territory type="SR">Surinam</territory>
 			<territory type="ST">São Tomé og Príncipe</territory>
 			<territory type="SV">El Salvador</territory>
@@ -845,7 +845,7 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE dd MMMM yyyy</pattern>
-							<pattern draft="true" alt="proposed" references="http://www.dsn.dk/oss_faq.htm">EEEE 'den' dd. MMM yyyy</pattern>
+							<pattern alt="proposed" references="http://www.dsn.dk/oss_faq.htm" draft="true">EEEE 'den' dd. MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -856,35 +856,35 @@
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd-MM-yyyy</pattern>
-							<pattern draft="true" alt="proposed" references="http://www.dsn.dk/oss_faq.htm">dd/MM/yyyy</pattern>
+							<pattern alt="proposed" references="http://www.dsn.dk/oss_faq.htm" draft="true">dd/MM/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd-MM-yy</pattern>
-							<pattern draft="true" alt="proposed" references="http://www.dsn.dk/oss_faq.htm">dd/MM/yy</pattern>
+							<pattern alt="proposed" references="http://www.dsn.dk/oss_faq.htm" draft="true">dd/MM/yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="true" references="http://www.dsn.dk/oss_faq.htm">H.mm.ss z</pattern>
+							<pattern references="http://www.dsn.dk/oss_faq.htm" draft="true">H.mm.ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="true" references="http://www.dsn.dk/oss_faq.htm">H.mm.ss z</pattern>
+							<pattern references="http://www.dsn.dk/oss_faq.htm" draft="true">H.mm.ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="true" references="http://www.dsn.dk/oss_faq.htm">H.mm.ss</pattern>
+							<pattern references="http://www.dsn.dk/oss_faq.htm" draft="true">H.mm.ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="true" references="http://www.dsn.dk/oss_faq.htm">H.mm</pattern>
+							<pattern references="http://www.dsn.dk/oss_faq.htm" draft="true">H.mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -1773,7 +1773,7 @@
 				<displayName>Tyrkisk lira</displayName>
 				<symbol>TL</symbol>
 			</currency>
-			<currency draft="true" type="TRY">
+			<currency type="TRY" draft="true">
 				<displayName>Ny tyrkisk lira</displayName>
 			</currency>
 			<currency type="TTD">

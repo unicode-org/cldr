@@ -637,6 +637,7 @@
 			<territory type="CN">Kina</territory>
 			<territory type="CO">Colombia</territory>
 			<territory type="CR">Costa Rica</territory>
+			<territory type="CS" draft="true">Serbien och Montenegro</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Kap Verde</territory>
 			<territory type="CX">Julön</territory>
@@ -786,7 +787,6 @@
 			<territory type="SM">San Marino</territory>
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somalia</territory>
-			<territory type="CS" draft="true">Serbien och Montenegro</territory>
 			<territory type="SR">Surinam</territory>
 			<territory type="ST">São Tomé och Príncipe</territory>
 			<territory type="SV">El Salvador</territory>
@@ -832,7 +832,7 @@
 		</territories>
 		<variants>
 			<variant type="REVISED">Reviderad</variant>
-			<variant draft="true" alt="proposed" type="REVISED">reviderad</variant>
+			<variant type="REVISED" alt="proposed" draft="true">reviderad</variant>
 		</variants>
 		<keys>
 			<key type="calendar">kalender</key>
@@ -849,13 +849,13 @@
 			<type type="islamic-civil" key="calendar">Islamisk civil kalender</type>
 			<type type="japanese" key="calendar">Japansk kalender</type>
 			<type type="phonebook" key="collation">Telefonboksordning</type>
-			<type draft="true" alt="proposed" type="phonebook" key="collation">telefonboksordning</type>
+			<type type="phonebook" key="collation" alt="proposed" draft="true">telefonboksordning</type>
 			<type type="pinyin" key="collation">Pinyinordning</type>
-			<type draft="true" alt="proposed" type="pinyin" key="collation">pinyinordning</type>
+			<type type="pinyin" key="collation" alt="proposed" draft="true">pinyinordning</type>
 			<type type="stroke" key="collation">Raderingsordning</type>
-			<type draft="true" alt="proposed" type="stroke" key="collation">raderingsordning</type>
+			<type type="stroke" key="collation" alt="proposed" draft="true">raderingsordning</type>
 			<type type="traditional" key="collation">Traditionell ordning</type>
-			<type draft="true" alt="proposed" type="traditional" key="collation">traditionell ordning</type>
+			<type type="traditional" key="collation" alt="proposed" draft="true">traditionell ordning</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -914,19 +914,19 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">sö</day>
-							<day draft="true" alt="proposed" type="sun" references="http://www.spraknamnden.se">sön</day>
+							<day type="sun" alt="proposed" references="http://www.spraknamnden.se" draft="true">sön</day>
 							<day type="mon">må</day>
-							<day draft="true" alt="proposed" type="mon" references="http://www.spraknamnden.se">mån</day>
+							<day type="mon" alt="proposed" references="http://www.spraknamnden.se" draft="true">mån</day>
 							<day type="tue">ti</day>
-							<day draft="true" alt="proposed" type="tue" references="http://www.spraknamnden.se">tis</day>
+							<day type="tue" alt="proposed" references="http://www.spraknamnden.se" draft="true">tis</day>
 							<day type="wed">on</day>
-							<day draft="true" alt="proposed" type="wed" references="http://www.spraknamnden.se">ons</day>
+							<day type="wed" alt="proposed" references="http://www.spraknamnden.se" draft="true">ons</day>
 							<day type="thu">to</day>
-							<day draft="true" alt="proposed" type="thu" references="http://www.spraknamnden.se">tors</day>
+							<day type="thu" alt="proposed" references="http://www.spraknamnden.se" draft="true">tors</day>
 							<day type="fri">fr</day>
-							<day draft="true" alt="proposed" type="fri" references="http://www.spraknamnden.se">fre</day>
+							<day type="fri" alt="proposed" references="http://www.spraknamnden.se" draft="true">fre</day>
 							<day type="sat">lö</day>
-							<day draft="true" alt="proposed" type="sat" references="http://www.spraknamnden.se">lör</day>
+							<day type="sat" alt="proposed" references="http://www.spraknamnden.se" draft="true">lör</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">S</day>
@@ -960,19 +960,19 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>'den 'd MMMM yyyy</pattern>
-							<pattern draft="true" alt="proposed" references="Svenska skrivregler (ISBN 47-04974-X)">EEEE d MMMM yyyy</pattern>
+							<pattern alt="proposed" references="Svenska skrivregler (ISBN 47-04974-X)" draft="true">EEEE d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>'den 'd MMM yyyy</pattern>
-							<pattern draft="true" alt="proposed" references="Svenska skrivregler (ISBN 47-04974-X)">EEEE d MMM yyyy</pattern>
+							<pattern alt="proposed" references="Svenska skrivregler (ISBN 47-04974-X)" draft="true">EEEE d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>yyyy-MM-dd</pattern>
-							<pattern draft="true" alt="proposed" references="Svenska skrivregler (ISBN 47-04974-X)">d MMM yyyy</pattern>
+							<pattern alt="proposed" references="Svenska skrivregler (ISBN 47-04974-X)" draft="true">d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1945,7 +1945,7 @@
 				<displayName>Turkisk lira</displayName>
 				<symbol>TL</symbol>
 			</currency>
-			<currency draft="true" type="TRY">
+			<currency type="TRY" draft="true">
 				<displayName>Ny turkisk lira</displayName>
 			</currency>
 			<currency type="TTD">

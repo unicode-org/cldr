@@ -124,6 +124,7 @@ public class POSIXUtilities {
       //  in LDML.  We use these to replace the LDML fields with POSIX field descriptors.
 
       String[][] FieldDescriptors = {
+           { "/",    "<SOLIDUS>" },
            { "DDD",  "%j" },
            { "EEEE", "%A" },
            { "EEE",  "%a" },

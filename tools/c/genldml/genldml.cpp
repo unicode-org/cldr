@@ -704,7 +704,6 @@ void GenerateXML::writeTypeNames(UnicodeString& xmlString){
 		
 	}
 	xmlString.append(tempStr);
-	chopIndent();
 	args[0] = indentOffset;
 	args[1] = "/";
 	xmlString.append(formatString(mStringsBundle.getStringEx("types",mError),args,2,t));
@@ -1957,14 +1956,6 @@ void GenerateXML::writeBoundary(UnicodeString& xmlString){
 	if(!print) xmlString.remove();
 }
 
-// hard code the variant names for now
-static const char* collationVariants[] = {
-								"%%PHONEBOOK",	
-								"%%PINYIN",		
-								"%%TRADITIONAL", 
-								"%%STROKE",		
-								"%%DIRECT",		
-							};
 
 void GenerateXML::writeCollations(){
 	UnicodeString tempStr,xmlString;
@@ -1973,37 +1964,21 @@ void GenerateXML::writeCollations(){
 	UnicodeString t;
 	xmlString.append(formatString(mStringsBundle.getStringEx("collations",mError),args,3,t));
 	indentOffset.append("\t");
-	
-	writeCollation(mSourceBundle,tempStr);
-	if(!tempStr.isEmpty()){
-		xmlString.append(tempStr);
-		print = TRUE;
-	}
-	tempStr.remove();
-	
-	UnicodeString locale = mLocale.getLanguage();
-	locale.append("__");
-	char localeName[256] ;
-	for(int i = 0; i<sizeof(collationVariants)/sizeof(char*);i++){
-		UnicodeString var(collationVariants[i],2,strlen(collationVariants[i]));
-		UnicodeString loc(locale);
-		loc.append(var);
-		loc.extract(0,loc.length(),localeName,sizeof(localeName));
-		ResourceBundle bundle(path,localeName ,mError);
-		if( U_SUCCESS(mError) && 
-			mError != U_USING_FALLBACK_WARNING && 
-			mError != U_USING_DEFAULT_WARNING){
-			writeCollation(bundle,tempStr,&var);
-			if(!tempStr.isEmpty()){
-				xmlString.append(tempStr);
-				print = TRUE;
-			}
-			tempStr.remove();
-		}else{
-			mError = U_ZERO_ERROR;
-		}
-	}
+	  
+    ResourceBundle dBundle = mSourceBundle.get("collations", mError);
 
+    if(U_SUCCESS(mError)){
+
+        while(dBundle.hasNext()){
+            writeCollation(dBundle.getNext(mError), tempStr);
+            if(tempStr.length()!=0){
+                xmlString.append(tempStr);
+                print =TRUE;
+            }
+            tempStr.remove();
+        }
+
+    }
 	/*writeSentBrkRules(tempStr);
 	if(!tempStr.isEmpty()){
 		xmlString.append(tempStr);
@@ -2025,32 +2000,33 @@ void GenerateXML::writeCollations(){
 	
 }
 void GenerateXML::writeCollation(ResourceBundle& bundle,UnicodeString& xmlString, UnicodeString* collKey){
-    char* key="CollationElements";
+
     UnicodeString version;
     UnicodeString overide="FALSE";
     UnicodeString sequence;
     UnicodeString rules;
-    ResourceBundle dBundle=bundle.get(key,mError);
-	UnicodeString t;
+    const char* key = bundle.getKey();
+
+    UnicodeString t;
     if( mError!=U_USING_DEFAULT_WARNING && 
 		U_SUCCESS(mError) && 
 		mError!=U_USING_FALLBACK_WARNING){
         Formattable args[]={indentOffset,"","","",""};
-		if(collKey!=NULL){
-			UnicodeString str = "type=\"";
-			str.append(*collKey);
-			str.append("\"");
-			args[2] = str;
-		}
+
+		UnicodeString str = "type=\"";
+		str.append(key);
+		str.append("\"");
+		args[2] = str;
+
 		xmlString.append(formatString(mStringsBundle.getStringEx("collation",mError),args,3,t));
 
 		indentOffset.append("\t");
 
-		while(dBundle.hasNext()){
-            ResourceBundle dBundle1 = dBundle.getNext(mError);
+		while(bundle.hasNext()){
+            ResourceBundle dBundle1 = bundle.getNext(mError);
             const char* mykey=dBundle1.getKey();
             if(stricmp(mykey,"Version")==0){
-               version = dBundle.getStringEx(mykey,mError);
+               version = bundle.getStringEx(mykey,mError);
 			   UnicodeString temp = UnicodeString("icu:version=\"").append(version);
 			   temp.append("\"");
 			   args[0] = indentOffset;
@@ -2059,12 +2035,12 @@ void GenerateXML::writeCollation(ResourceBundle& bundle,UnicodeString& xmlString
 			   args[3] = UnicodeString(XML_END_SLASH);
 			   xmlString.append(formatString(mStringsBundle.getStringEx("special",mError),args,4,t));
             }else if(stricmp(mykey,"Sequence")==0){
-                sequence = dBundle.getStringEx(mykey,mError);
+                sequence = bundle.getStringEx(mykey,mError);
 				rules = parseRules((UChar*)sequence.getBuffer(),sequence.length(),rules);
 				xmlString.append(rules);
                 sequence.releaseBuffer();
            }else if(stricmp(mykey,"Override")==0){
-                overide =  dBundle.getStringEx(mykey,mError);
+                overide =  bundle.getStringEx(mykey,mError);
             }
         }
         

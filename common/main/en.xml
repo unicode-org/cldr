@@ -939,100 +939,171 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<!-- Note: zones that don't use daylight time need further work -->		
 			<zone type="America/Los_Angeles">
 				<long>
+					<generic>Pacific Time</generic>
 					<standard>Pacific Standard Time</standard>
 					<daylight>Pacific Daylight Time</daylight>
 				</long>
 				<short>
+					<generic>PT</generic>
 					<standard>PST</standard>
 					<daylight>PDT</daylight>
 				</short>
 				<exemplarCity>Los Angeles</exemplarCity>
 			</zone>
+			<zone type="America/Vancouver">
+				<long>
+					<generic>Pacific Time (CA)</generic>
+					<standard>Pacific Standard Time (CA)</standard>
+					<daylight>Pacific Daylight Time (CA)</daylight>
+				</long>
+				<short>
+					<generic>PT (CA)</generic>
+					<standard>PST (CA)</standard>
+					<daylight>PDT (CA)</daylight>
+				</short>
+				<exemplarCity>Vancouver</exemplarCity>
+			</zone>
 			<zone type="America/Denver">
 				<long>
+					<generic>Mountain Time</generic>
 					<standard>Mountain Standard Time</standard>
 					<daylight>Mountain Daylight Time</daylight>
 				</long>
 				<short>
+					<generic>MT</generic>
 					<standard>MST</standard>
 					<daylight>MDT</daylight>
 				</short>
 				<exemplarCity>Denver</exemplarCity>
 			</zone>
-			<zone type="America/Phoenix">
+			<zone type="America/Edmonton">
 				<long>
-					<standard>Mountain Standard Time</standard>
-					<daylight>Mountain Standard Time</daylight>
+					<generic>Mountain Time (CA)</generic>
+					<standard>Mountain Standard Time (CA)</standard>
+					<daylight>Mountain Daylight Time (CA)</daylight>
 				</long>
 				<short>
-					<standard>MST</standard>
-					<daylight>MST</daylight>
+					<generic>MT (CA)</generic>
+					<standard>MST (CA)</standard>
+					<daylight>MDT (CA)</daylight>
+				</short>
+				<exemplarCity>Edmonton</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<long>
+					<generic>Mountain Standard Time</generic>
+					<standard>Mountain Daylight Time</standard>
+					<daylight>Mountain Time</daylight>
+				</long>
+				<short>
+					<generic>MST</generic>
+					<standard>MDT</standard>
+					<daylight>MT</daylight>
 				</short>
 				<exemplarCity>Phoenix</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<long>
+					<generic>Central Time</generic>
 					<standard>Central Standard Time</standard>
 					<daylight>Central Daylight Time</daylight>
 				</long>
 				<short>
+					<generic>CT</generic>
 					<standard>CST</standard>
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>Chicago</exemplarCity>
 			</zone>
+			<zone type="America/Winnipeg">
+				<long>
+					<generic>Central Time (CA)</generic>
+					<standard>Central Standard Time (CA)</standard>
+					<daylight>Central Daylight Time (CA)</daylight>
+				</long>
+				<short>
+					<generic>CT (CA)</generic>
+					<standard>CST (CA)</standard>
+					<daylight>CDT (CA)</daylight>
+				</short>
+				<exemplarCity>Winnipeg</exemplarCity>
+			</zone>
 			<zone type="America/New_York">
 				<long>
+					<generic>Eastern Time</generic>
 					<standard>Eastern Standard Time</standard>
 					<daylight>Eastern Daylight Time</daylight>
 				</long>
 				<short>
+					<generic>ET</generic>
 					<standard>EST</standard>
 					<daylight>EDT</daylight>
 				</short>
 				<exemplarCity>New York</exemplarCity>
 			</zone>
-			<zone type="America/Indianapolis">
+			<zone type="America/Montreal">
 				<long>
-					<standard>Eastern Standard Time</standard>
-					<daylight>Eastern Standard Time</daylight>
+					<generic>Eastern Time (CA)</generic>
+					<standard>Eastern Standard Time (CA)</standard>
+					<daylight>Eastern Daylight Time (CA)</daylight>
 				</long>
 				<short>
-					<standard>EST</standard>
-					<daylight>EST</daylight>
+					<generic>ET (CA)</generic>
+					<standard>EST (CA)</standard>
+					<daylight>EDT (CA)</daylight>
+				</short>
+				<exemplarCity>Montreal</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<long>
+					<generic>Eastern Standard Time</generic>
+					<standard>Eastern Daylight Time</standard>
+					<daylight>Eastern Time</daylight>
+				</long>
+				<short>
+					<generic>EST</generic>
+					<standard>EDT</standard>
+					<daylight>ET</daylight>
 				</short>
 				<exemplarCity>Indianapolis</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
-					<standard>Hawaii Standard Time</standard>
-					<daylight>Hawaii Standard Time</daylight>
+					<generic>Hawaii Standard Time</generic>
+					<standard>Hawaii Daylight Time</standard>
+					<daylight>Hawaii Time</daylight>
 				</long>
 				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
+					<generic>HST</generic>
+					<standard>HDT</standard>
+					<daylight>HT</daylight>
 				</short>
 				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<long>
+					<generic>Alaska Time</generic>
 					<standard>Alaska Standard Time</standard>
 					<daylight>Alaska Daylight Time</daylight>
 				</long>
 				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
+					<generic>AKT</generic>
+					<standard>AKST</standard>
+					<daylight>AKDT</daylight>
 				</short>
 				<exemplarCity>Anchorage</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
+					<generic>Atlantic Time</generic>
 					<standard>Atlantic Standard Time</standard>
 					<daylight>Atlantic Daylight Time</daylight>
 				</long>
 				<short>
+					<generic>AT</generic>
 					<standard>AST</standard>
 					<daylight>ADT</daylight>
 				</short>
@@ -1040,17 +1111,20 @@
 			</zone>
 			<zone type="America/St_Johns">
 				<long>
+					<generic>Newfoundland Time</generic>
 					<standard>Newfoundland Standard Time</standard>
 					<daylight>Newfoundland Daylight Time</daylight>
 				</long>
 				<short>
-					<standard>CNT</standard>
-					<daylight>CDT</daylight>
+					<generic>NT</generic>
+					<standard>NST</standard>
+					<daylight>NDT</daylight>
 				</short>
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
+					<generic>Central European Time</generic>
 					<standard>Central European Standard Time</standard>
 					<daylight>Central European Daylight Time</daylight>
 				</long>
@@ -1062,26 +1136,30 @@
 			</zone>
 			<zone type="Etc/GMT">
 				<long>
+					<generic>Greenwich Mean Time</generic>
 					<standard>Greenwich Mean Time</standard>
 					<daylight>Greenwich Mean Time</daylight>
 				</long>
 				<short>
+					<generic>GMT</generic>
 					<standard>GMT</standard>
 					<daylight>GMT</daylight>
+				</short>
+				<exemplarCity>(GMT)</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<long>
+					<generic>British Time</generic>
+					<standard>British Standard Time</standard>
+					<daylight>British Summer Time</daylight>
+				</long>
+				<short>
+					<standard>BT</standard>
+					<daylight>BST</daylight>
 				</short>
 				<exemplarCity>London</exemplarCity>
 			</zone>
-			<zone type="Africa/Casablanca">
-				<long>
-					<standard>Greenwich Mean Time</standard>
-					<daylight>Greenwich Mean Time</daylight>
-				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
-				</short>
-				<exemplarCity>Casablanca</exemplarCity>
-			</zone>
+<!-- Note: the following is known to be sparse, and needs to be improved in the future -->
 			<zone type="Asia/Jerusalem">
 				<long>
 					<standard>Israel Standard Time</standard>

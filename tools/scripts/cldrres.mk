@@ -15,25 +15,36 @@
 # GENRB_ALIAS_SOURCE = \
 # GENRB_SOURCE = 
 L=../../../locale
--include locales/cldrlist.mk
+#-include locales/cldrlist.mk
 
 CONVOPTS+= -s $(L)/common/main
 CONVOPTS+= -d $(LOCSRCDIR)
 CONVOPTS+= -p $(L)/icu/main
-CONVOPTS+=-w
+#CONVOPTS+=-w
 CONVOPTS+=-f
 ## do we want supp??
 #CONVOPTS+=-l ~/W/locale/common/main
+GENRB_ALIAS_PATHS=$(GENRB_ALIAS_SOURCE:%.txt=$(LOCSRCDIR)/%.txt)
 
-.PRECIOUS: $(GENRB_SOURCE:%.txt=$(LOCSRCDIR)/%.txt) $(LOCSRCDIR)/root.txt
+.PRECIOUS: $(GENRB_SOURCE:%.txt=$(LOCSRCDIR)/%.txt) $(LOCSRCDIR)/root.txt $(GENRB_ALIAS_PATHS)
 
-locales/cldrlist.mk:
-	echo -n 'GENRB_SOURCE=' > $@
-	( cd $L/common/main ; ls *.xml | grep -v root | fgrep -v supplemental | sed -e s%xml%txt% | tr '\012' ' ' ) >> $@
+
+
+#locales/cldrlist.mk:
+#	echo -n 'GENRB_SOURCE=' > $@
+#	( cd $L/common/main ; ls *.xml | grep -v root | fgrep -v supplemental | sed -e s%xml%txt% | tr '\012' ' ' ) >> $@
 
 $(LOCSRCDIR)/%.txt: $(L)/common/main/%.xml
 	LDML2ICUConverter $(CONVOPTS) $(<F) || $(RMV) $@
 
-cldr-relist:
-	-$(RMV) locales/cldrlist.mk
-	$(MAKE) locales/cldrlist.mk
+#cldr-relist:
+#	-$(RMV) locales/cldrlist.mk
+#	$(MAKE) locales/cldrlist.mk
+
+cldr-resfiles:
+	LDML2ICUConverter $(CONVOPTS) -w $(L)/common/main
+
+$(GENRB_ALIAS_PATHS) $(LOCSRCDIR)/resfiles.mk: $(L)/icu/deprecatedList.xml $(L)/common/main $(L)/icu/main
+	LDML2ICUConverter $(CONVOPTS) -w $(L)/common/main
+
+

@@ -166,6 +166,88 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
             <li>paste what you want to convert into <i>Input</i>, and click <i>Transform</i>.</li>
             <li>this will also give the NFC form of the text, which is preferred.</li>
           </ol>
+          <h2><span class="changed">Minimum Recommended Localization Data</span></h2>
+          <p><span class="changed">The following describes the minimal data recommended before we 
+          consider a locale file for a language as a whole to be non-draft. (Of course, we would 
+          encourage more; this is just the minimum level.)</span></p>
+          <p><span class="changed">First define the following:</span></p>
+          <ul>
+            <li><span class="changed">L is the language under consideration.</span></li>
+            <li><span class="changed">S is the list of scripts in which L can be customarily 
+            written.</span></li>
+            <li><span class="changed">T is the list of territories found by looking up L in the &lt;languageData&gt; 
+            elements in <a href="http://unicode.org/cldr/data/common/main/supplementalData.xml">
+            supplementalData.xml</a>, then adding the G6 and BRIC countries (United States, United 
+            Kingdom, Germany, France, Italian, Japanese; China, India, Russia, Brazil)</span></li>
+            <li><span class="changed">C is the list of currencies used in in any of T, found by 
+            looking at the region elements in
+            <a href="http://unicode.org/cldr/data/common/main/supplementalData.xml">
+            supplementalData.xml</a>.</span></li>
+            <li><span class="changed">K is the set of calendars in customary use in any of T, 
+            including Gregorian.</span></li>
+          </ul>
+          <p><span class="changed">The minimal data is then the following.</span></p>
+          <ol>
+            <li><span class="changed">identity</span></li>
+            <li><span class="changed">localeDisplayNames </span>
+            <ol>
+              <li><span class="changed"><i>languages: </i>localized names for L itself, plus 
+              English, German, French, Italian, Portuguese, Spanish, Russian, Chinese, Japanese, 
+              Korean</span></li>
+              <li><span class="changed"><i>scripts:</i> localized names for all scripts in S.</span></li>
+              <li><span class="changed"><i>territories:</i> localized names for all territories in 
+              T.</span></li>
+              <li><span class="changed"><i>variants, keys, types:</i> localized names for any in use 
+              in L; e.g. a translation for PHONEBOOK in a German locale.</span></li>
+            </ol>
+            </li>
+            <li><span class="changed">layout*, orientation*</span></li>
+            <li><span class="changed">exemplarCharacters</span></li>
+            <li><span class="changed">measurementSystem*, paperSize*</span></li>
+            <li><span class="changed">dates: all of the following for each calendar in K.</span><ol>
+              <li><span class="changed">All of the following for Gregorian, plus whatever is needed 
+              for any other calendars in common use in T.</span></li>
+              <li><span class="changed">calendars: localized names</span></li>
+              <li><span class="changed">monthNames &amp; dayNames </span>
+              <ul>
+                <li><span class="changed">context=format + width=narrow, wide, &amp; abbreviated</span></li>
+                <li><span class="changed">plus context=standAlone + width=narrow, wide, &amp; 
+                abbreviated, <i>if the grammatical forms of these are different than for 
+                context=format.</i></span></li>
+              </ul>
+              </li>
+              <li><span class="changed">week: minDays*, firstDay*, weekendStart*, weekendEnd*</span><ul>
+                <li><span class="changed">if these vary by country, include country locales for L</span></li>
+              </ul>
+              </li>
+              <li><span class="changed">am, pm, eraNames, eraAbbr</span></li>
+              <li><span class="changed">dateFormat, timeFormat: full, long, medium, short</span></li>
+            </ol>
+            </li>
+            <li><span class="changed">timeZoneNames:</span><ol>
+              <li><span class="changed">exemplar cities for the timezones in each T that has more 
+              than one timezone*</span></li>
+              <li><span class="changed">hourFormat, hoursFormat, gmtFormat, regionFormat, 
+              fallbackFormat (if not the same as root)</span></li>
+            </ol>
+            </li>
+            <li><span class="changed">numbers: symbols, decimalFormats, scientificFormats, 
+            percentFormats, currencyFormats</span></li>
+            <li><span class="changed">currencies: displayName and symbol for all currencies in C*</span></li>
+            <li><span class="changed">collation sequence*</span></li>
+            <li><span class="changed">yesstr*, yesexpr*, nostr*, noexpr*</span></li>
+          </ol>
+          <p><span class="changed">Starred items are only need to be included if they are not the 
+          same as the default.</span></p>
+          <ul>
+            <li><span class="changed">for currency symbol, this means different than the ISO symbol,</span></li>
+            <li><span class="changed">for timezone IDs, this means different than the final field in 
+            the ID, after replacing _ by space.</span></li>
+            <li><span class="changed">for the collation sequence, if different than UCA (however, in 
+            that case it must be added to the validSubLocale list in
+            <a href="http://unicode.org/cldr/data/common/collation/root.xml">collation/root.xml</a>.)</span></li>
+            <li><span class="changed">otherwise, this means the same as root.</span></li>
+          </ul>
           <h2><a name="Collation">Collation</a> (Sorting Sequence)</h2>
           <blockquote>
             <p>The exact collation sequence for a given language may be difficult to determine. The 

@@ -86,10 +86,11 @@ data more easily.</p>
 <h2>Comments</h2>
 <ol>
   <li>Comments are of the form &lt;!-- <i>stuff</i> --&gt;.</li>
-  <li>They are logically attached to a node. There are 3 kinds:<ol>
+  <li>They are logically attached to a node. There are 4 kinds:<ol>
     <li>Inline always appear after a leaf node, on the same line at the end. These are a single 
     line.</li>
-    <li>Block comments always precede the attachment node, and are indented on the same level.</li>
+    <li>Preblock comments always precede the attachment node, and are indented on the same level.</li>
+    <li>Postblock comments always follow the attachment node, and are indented on the same level.</li>
     <li>Final comment, after &lt;/ldml&gt;</li>
   </ol>
   </li>

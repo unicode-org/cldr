@@ -56,7 +56,11 @@
       <td class="changed">Latest Working Draft</td>
       <td class="changed">
       <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/tr35.html">
-      http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/tr35.html</a> </td>
+      http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/tr35.html</a><br>
+      <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+      http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd</a> <br>
+      <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlSupplemental.dtd">
+      http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlSupplemental.dtd</a> </td>
     </tr>
     <tr>
       <td>Namespace:</td>
@@ -121,7 +125,7 @@
     </tr>
   </table>
   <h2><a name="Contents">Contents</a></h2>
-  <ul>
+  <ol>
     <li><a href="#Introduction">Introduction</a></li>
     <li><a href="#Locale">What is a Locale?</a></li>
     <li><a href="#Locale_IDs">Locale IDs</a></li>
@@ -166,8 +170,10 @@
       </li>
     </ul>
     </li>
+  </ol>
+  <ul>
     <li><a href="#Sample_Special_Elements">Appendix A: Sample Special Elements</a>
-    <ul>
+    <ol>
       <li><a href="#OpenOffice">openoffice.org</a></li>
       <li><a href="#ICU">ICU</a>
       <ul>
@@ -176,12 +182,12 @@
         <li><a href="#&lt;transforms&gt;">&lt;transforms&gt;</a></li>
       </ul>
       </li>
-    </ul>
+    </ol>
     </li>
     <li><a href="#Transmitting_Locale_Information">Appendix B: Transmitting Locale Information</a>
-    <ul>
+    <ol>
       <li><a href="#Message_Formatting_and_Exceptions">Message Formatting and Exceptions</a></li>
-    </ul>
+    </ol>
     </li>
     <li><a href="#Supplemental_Data">Appendix C: Supplemental Data</a></li>
     <li><a href="#Language_and_Locale_IDs">Appendix D: Language and Locale IDs</a></li>
@@ -189,6 +195,9 @@
     <li><a href="#Date_Format_Patterns"><span class="changed">Appendix F: Date Format Patterns</span></a></li>
     <li><a href="#Number_Format_Patterns"><span class="changed">Appendix G: Number Format Patterns</span></a></li>
     <li><a href="#Choice_Patterns"><span class="changed">Appendix H: Choice Patterns</span></a></li>
+    <li><a href="#Inheritance_and_Validity"><span class="changed">Appendix I: Inheritance and 
+    Validity</span></a></li>
+    <li><a href="#Time_Zone_Fallback"><span class="changed">Appendix J: Time Zone Fallback</span></a></li>
     <li><a href="#References">References</a></li>
     <li><a href="#Modifications"><span>Modifications</span></a></li>
   </ul>
@@ -276,6 +285,12 @@
     <p><span><b>Note:</b> The successor to RFC 3066 is being currently developed. Once that standard 
     has been approved, the goal is to update this locale id definition to correspond to that. This 
     would be a correspondence, not necessarily precisely the same syntax.</span></p>
+    <p class="changed">The latest draft for that successor is
+    <a href="http://www.inter-locale.com/ID/draft-phillips-langtags-05.html">
+    http://www.inter-locale.com/ID/draft-phillips-langtags-05.html</a>. The latest draft of the 
+    registry corresponding to that draft is at
+    <a href="http://users.adelphia.net/~dewell/lstreg.txt">
+    http://users.adelphia.net/~dewell/lstreg.txt</a>.</p>
   </blockquote>
   <p>The field values are given in the following table. All field values are case-insensitive, 
   except for the <i>type</i>, which is case-sensitive. However, customarily the language code is 
@@ -513,6 +528,8 @@ root</pre>
   <p>Where this inheritance relationship does not match a target system, such as POSIX, the data 
   logically should be fully resolved in converting to a format for use by that system, by adding <i>
   all</i> inherited data to each locale data set.</p>
+  <p class="changed">For a more complete description of how inheritance applies to data, and the use 
+  of keywords, see <a href="#Inheritance_and_Validity">Inheritance_and_Validity</a>.</p>
   <p>The locale data does not contain general character properties that are derived from the <i>
   Unicode Character Database</i> [<a href="ftp://ftp.unicode.org/Public/UNIDATA/UnicodeCharacterDatabase.html">UCD</a>]. 
   That data being common across locales, it is not duplicated in the bundles. Constructing a POSIX 
@@ -531,8 +548,10 @@ root</pre>
   &quot;root&quot;. If not found there, then it inherits from &lt;calendar type=&quot;<span style="color: blue">gregorian</span>&quot;&gt; 
   in &quot;en_US&quot;, then &quot;en&quot;, then in &quot;root&quot;.</span></p>
   <h2><a name="XML_Format">XML Format</a></h2>
-  <p>The following sections describe the structure of the XML format for locale data. To start with, 
-  the root element is &lt;ldml&gt;. That element contains the following elements:</p>
+  <p>The following sections describe the structure of the XML format for locale data.
+  <span class="changed">The more precise syntax is in the </span><span class="changed">DTD</span><span class="changed">, 
+  listed at the top of this document.</span> To start with, the root element is &lt;ldml&gt;. That element 
+  contains the following elements:</p>
   <ul>
     <li><a href="#&lt;identity&gt;">&lt;identity&gt;</a></li>
     <li><a href="#&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></li>
@@ -700,6 +719,8 @@ root</pre>
     <li><i>true</i> meaning that it is all draft status (provisional data, not verified)</li>
     <li><i>false</i> indicating the reverse.</li>
   </ul>
+  <p class="changed">For a more complete description of how draft applies to data, see
+  <a href="#Inheritance_and_Validity">Inheritance_and_Validity</a>.</p>
   <p class="changed">&lt;... <a name="alt_attribute">alt</a>=&quot;<span style="color: blue">true</span>&quot; 
   ...&gt;</p>
   <p class="changed">This attribute should only be present if draft=&quot;true&quot;. It indicates that the 
@@ -711,19 +732,29 @@ root</pre>
 &lt;month type=&quot;9&quot;&gt;Settembru&lt;/month&gt;
 &lt;month type=&quot;9&quot; draft=&quot;true&quot; alt=&quot;true&quot;&gt;Settembro&lt;/month&gt;
 &lt;month type=&quot;10&quot;&gt;...</pre>
+  <p class="changed">&lt;... legitimateChildren=&quot;de_AT de_CH de_DE&quot; ...&gt;</p>
+  <p><span class="changed">The attribute </span><i><span class="changed">legitimateChildren</span></i><span class="changed"> 
+  allows sublocales in a given tree to be treated as though a file for them were present when there 
+  isn&#39;t one. It can be applied to any element. It only has an effect for locales that inherit from 
+  the current file where a file is missing, and the elements wouldn&#39;t otherwise be draft.</span></p>
+  <p class="reviewnote"><span class="changed">[Editorial Note: we will change the name 
+  legitimateChildren to something less whimsical in before release.]</span></p>
+  <p class="changed">For a more complete description of how draft applies to data, see
+  <a href="#Inheritance_and_Validity">Inheritance_and_Validity</a>.</p>
   <p class="element2">&lt;... standard=&quot;<span style="color: blue">...</span>&quot; ...&gt;</p>
-  <p>The value of this list is a list of strings representing standards: international, national, 
-  organization, or vendor standards. The presence of this attribute indicates that the data in this 
-  element is compliant with the indicated standards. Where possible, for uniqueness, the string 
-  should be a URL that represents that standard. The strings are separated by commas; leading or 
-  trailing spaces on each string are not significant. Examples:</p>
+  <p>The value of this attribute is a list of strings representing standards: international, 
+  national, organization, or vendor standards. The presence of this attribute indicates that the 
+  data in this element is compliant with the indicated standards. Where possible, for uniqueness, 
+  the string should be a URL that represents that standard. The strings are separated by commas; 
+  leading or trailing spaces on each string are not significant. Examples:</p>
   <p><code>&lt;collation standard=&quot;<span style="color: blue">MSA 200:2002</span>&quot;&gt;<br>
   ...<br>
   &lt;dateFormatStyle standard=”<span style="color: blue">http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;ICS1=1&amp;ICS2=140&amp;ICS3=30</span>”&gt;</code></p>
   <p class="changed">&lt;... <a name="references_attribute">references</a>=&quot;<span style="color: blue">...</span>&quot; 
   ...&gt;</p>
-  <p class="changed">The value of this list is a list of strings representing background information 
-  about the element, other than standards.</p>
+  <p class="changed">The value of this attribute is a list of strings representing background 
+  information about the element, other than standards. The strings are separated by commas; leading 
+  or trailing spaces on each string are not significant.</p>
   <hr width="50%">
   <h3><a name="&lt;identity&gt;">&lt;identity&gt;</a></h3>
   <p>The identity element contains information identifying the target locale for this data, and 
@@ -902,7 +933,7 @@ root</pre>
   foreign words, dictionaries, etc. used in the locale.</p>
   <pre class="changed">&lt;characters&gt;
     &lt;exemplarCharacters&gt;[a-zñç]&lt;/exemplarCharacters&gt;
-    &lt;exemplarCharacters type=&quot;foreign&quot;&gt;[ä ö ü ß]&lt;/exemplarCharacters&gt; 
+    &lt;exemplarCharacters type=&quot;auxiliary&quot;&gt;[ä ö ü ß]&lt;/exemplarCharacters&gt; 
 &lt;/characters&gt;</pre>
   <p class="element2">&lt;mapping registry=&quot;<span style="color: blue">iana</span>&quot; type=&quot;<span style="color: blue">windows-1252</span>&quot;/&gt;</p>
   <p>There can be multiple mapping elements. Each indicates the character conversion mapping table 
@@ -1154,17 +1185,17 @@ root</pre>
   <h3 class="changed"><br>
   <a name="Calendar_Fields">Calendar Fields</a></h3>
   <p class="changed">Translations may be supplied for names of calendar fields, and for relative 
-  values of those fields, The only elements currently allowed are for days. </p>
+  values of those fields.</p>
   <pre class="changed">&lt;calendars&gt;
   &lt;fields&gt;
-   &lt;days&gt;
+   &lt;field type=&#39;day&#39;&gt;
     &lt;displayName&gt;Tag&lt;/displayName&gt;
     &lt;relative type=&#39;-2&#39;&gt;Vorgestern&lt;/relative&gt;
     &lt;relative type=&#39;-1&#39;&gt;Gestern&lt;/relative&gt;
     &lt;relative type=&#39;0&#39;&gt;Heute&lt;/relative&gt;
     &lt;relative type=&#39;1&#39;&gt;Morgan&lt;/relative&gt;
     &lt;relative type=&#39;2&#39;&gt;Übermorgan&lt;/relative&gt;
-   &lt;/days&gt;
+   &lt;/field&gt;
   &lt;/fields&gt;
 &lt;/calendars&gt;</pre>
   <p class="element2"><a name="&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></p>
@@ -1226,6 +1257,96 @@ root</pre>
   results are required then both the Olson ID and the Olson data version must be transmitted between 
   the different implementations.</p>
   <p class="note"><span>For more information, see [<a href="#DataFormats">Data Formats</a>].</span></p>
+  <p class="changed">The following subelements of timezoneNames are used to control the fallback 
+  process described in <a href="#Time_Zone_Fallback"><span class="changed">Appendix J: Time Zone 
+  Fallback</span></a>.</p>
+  <table cellSpacing="0" cellPadding="4" border="1">
+    <tr>
+      <th>
+      <p class="changed">Element Name</th>
+      <th>
+      <p class="changed">Data Examples</th>
+      <th>
+      <p class="changed">Results/Comment</th>
+    </tr>
+    <tr>
+      <td rowSpan="2">
+      <p class="changed">hour-format</td>
+      <td rowSpan="2">
+      <p class="changed">&quot;+HHmm;-HHmm&quot;</td>
+      <td>
+      <p class="changed">&quot;+1200&quot;</td>
+    </tr>
+    <tr>
+      <td>
+      <p class="changed">&quot;-1200&quot;</td>
+    </tr>
+    <tr>
+      <td>
+      <p class="changed">hours-format</td>
+      <td>
+      <p class="changed">&quot;{0}/{1}&quot;</td>
+      <td>
+      <p class="changed">&quot;-0800/-0700&quot;</td>
+    </tr>
+    <tr>
+      <td rowSpan="2">
+      <p class="changed">gmt-format</td>
+      <td>
+      <p class="changed">&quot;GMT{0}&quot;</td>
+      <td>
+      <p class="changed">&quot;GMT-0800&quot;</td>
+    </tr>
+    <tr>
+      <td>
+      <p class="changed">&quot;{0}ВпГ&quot;</td>
+      <td>
+      <p class="changed">&quot;-0800ВпГ&quot;</td>
+    </tr>
+    <tr>
+      <td rowSpan="2">
+      <p class="changed">region-format</td>
+      <td>
+      <p class="changed">&quot;{0} Time&quot;</td>
+      <td>
+      <p class="changed">&quot;Japan Time&quot;</td>
+    </tr>
+    <tr>
+      <td>
+      <p class="changed">&quot;Tiempo de {0}&quot;</td>
+      <td>
+      <p class="changed">&quot;Tiempo de Japón&quot;</td>
+    </tr>
+    <tr>
+      <td>
+      <p class="changed">fallback-format</td>
+      <td>
+      <p class="changed">&quot;Tiempo de «{0}»&quot;</td>
+      <td>
+      <p class="changed">&quot;Tiempo de «Tokyo»&quot;</td>
+    </tr>
+    <tr>
+      <td>
+      <p class="changed"><span style="background-color: #ffff00">abbreviationFallback</span></td>
+      <td>
+      <p class="changed"><span style="background-color: #ffff00">type=&quot;GMT&quot;</span></td>
+      <td>
+      <p class="changed"><span style="background-color: #ffff00">causes any &quot;long&quot; match to be 
+      skipped in Timezone fallbacks</span></td>
+    </tr>
+    <tr>
+      <td>
+      <p class="changed"><span style="background-color: #ffff00">preferenceOrdering</span></td>
+      <td>
+      <p class="changed"><span style="background-color: #FFFF00">type=</span><span style="background-color: #ffff00">&quot;America/Mexico_City 
+      America/Chihuahua America/New_York&quot;</span></td>
+      <td>
+      <p class="changed"><span style="background-color: #FFFF00">a preference ordering among modern 
+      zones</span></td>
+    </tr>
+  </table>
+  <p class="changed">[TBD: the exact syntax of preference ordering needs to be worked out so that 
+  inheritance works as expected]</p>
   <h3><a name="&lt;numbers&gt;">&lt;numbers&gt;</a></h3>
   <p>The numbers element supplies information for formatting and parsing numbers and currencies. It 
   has the following sub-elements: &lt;symbols&gt;, &lt;decimalFormats&gt;, &lt;scientificFormats&gt;, &lt;percentFormats&gt;, 
@@ -2504,9 +2625,9 @@ root</pre>
   <p>Unicode property sets are specified by any Unicode property, such as [:Letter:], using the 
   PropertyAlias file and the PropertyValueAlias file. The syntax for specifying the property names 
   is an extension of either POSIX or Perl syntax with the addition of &quot;=value&quot;. For example, you can 
-  match letters by using the POSIX syntax <b>[:Letter:]</b>, or by using the Perl-style syntax <b>
-  \p{Letter}</b>. The type can be omitted for the Category and Script properties, but is required 
-  for other properties.</p>
+  match letters by using the POSIX syntax <b>[:Letter:]</b>, or by using the Perl-style syntax <b>\p{Letter}</b>. 
+  The type can be omitted for the Category and Script properties, but is required for other 
+  properties.</p>
   <p>The table below shows the two kinds of syntax: POSIX and Perl style. Also, the table shows the 
   &quot;Negative&quot;, which is a property that excludes all characters of a given kind. For example, <b>
   [:^Letter:]</b> matches all characters that are not <b>[:Letter:]</b>.</p>
@@ -2580,8 +2701,7 @@ root</pre>
     <tr>
       <td>[:Lu:]&nbsp;</td>
       <td>The set of characters belonging to the given Unicode category, as defined by 
-      Character.getType(); in this case, Unicode uppercase letters. The long form for this is <b>
-      [:UppercaseLetter:]</b>.&nbsp;</td>
+      Character.getType(); in this case, Unicode uppercase letters. The long form for this is <b>[:UppercaseLetter:]</b>.&nbsp;</td>
     </tr>
     <tr>
       <td>[:L:]&nbsp;</td>
@@ -2698,16 +2818,20 @@ root</pre>
   For example, if h is the hour, &#39;h&#39; might produce &#39;5&#39;, but &#39;</span><span class="changed">hh</span><span class="changed">&#39; 
   produces &#39;05&#39;. For some characters, the count specifies whether an abbreviated or full form should 
   be used, but may have other choices, as given below.</span></p>
+  <blockquote>
+    <p><span class="changed">Note: the counter-intuitive use of 5 letters for the narrow form of 
+    weekdays and months is forced by backwards compatibility.</span></p>
+  </blockquote>
   <table cellSpacing="0" cellPadding="2" border="1">
     <tr>
-      <th class="changed">&nbsp;</th>
+      <th class="changed">Field</th>
       <th class="changed" style="text-align: center">Sym.</th>
       <th class="changed" style="text-align: center"><span class="changed">No.</span></th>
       <th class="changed"><span class="changed">Example</span></th>
       <th class="changed"><span class="changed">Description</span></th>
     </tr>
     <tr>
-      <th class="changed">Eras</th>
+      <th class="changed">era</th>
       <td class="changed" style="text-align: center">G</td>
       <td class="changed" style="text-align: center">1</td>
       <td class="changed">AD</td>
@@ -2715,7 +2839,7 @@ root</pre>
       <span class="changed">Era</span></a><span class="changed"> string for the current date.</span></td>
     </tr>
     <tr>
-      <th class="changed" rowspan="3">Years</th>
+      <th class="changed" rowspan="3">year</th>
       <td class="changed" style="text-align: center">y</td>
       <td class="changed" style="text-align: center">1..n</td>
       <td class="changed">1996</td>
@@ -2739,7 +2863,7 @@ root</pre>
       with 1 BCE being year 0.</td>
     </tr>
     <tr>
-      <th class="changed" rowspan="4">Months</th>
+      <th class="changed" rowspan="4">month</th>
       <td class="changed" rowspan="4" style="text-align: center">M</td>
       <td class="changed" style="text-align: center">1..2</td>
       <td class="changed">09<br>
@@ -2760,7 +2884,7 @@ root</pre>
       <td class="changed">S</td>
     </tr>
     <tr>
-      <th class="changed" rowspan="2">Weeks</th>
+      <th class="changed" rowspan="2">week</th>
       <td class="changed" style="text-align: center">w</td>
       <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
       <td class="changed"><span class="changed">27</span></td>
@@ -2773,7 +2897,7 @@ root</pre>
       <td class="changed"><span class="changed">Week of Month</span></td>
     </tr>
     <tr>
-      <th class="changed" rowspan="4">Days</th>
+      <th class="changed" rowspan="4">day</th>
       <td class="changed" style="text-align: center">d</td>
       <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
       <td class="changed"><span class="changed">1</span></td>
@@ -2803,7 +2927,7 @@ root</pre>
       as a single number that encompasses all the date-related fields.</td>
     </tr>
     <tr>
-      <th class="changed" rowspan="8">Weekdays</th>
+      <th class="changed" rowspan="8">weekday</th>
       <td class="changed" rowspan="4" style="text-align: center">E</td>
       <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
       <td class="changed">3</td>
@@ -2826,8 +2950,8 @@ root</pre>
       <td class="changed" rowspan="4" style="text-align: center">e</td>
       <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
       <td class="changed">2</td>
-      <td class="changed" rowspan="4">Local day of week. Same as E except value will depend on the 
-      local starting day of the week. For this example, Monday is the first day of the week.</td>
+      <td class="changed" rowspan="4">Local day of week. Same as E except numeric value will depend 
+      on the local starting day of the week. For this example, Monday is the first day of the week.</td>
     </tr>
     <tr>
       <td class="changed" style="text-align: center"><span class="changed">3</span></td>
@@ -2842,14 +2966,14 @@ root</pre>
       <td class="changed"><span class="changed">T</span></td>
     </tr>
     <tr>
-      <th class="changed">Period</th>
+      <th class="changed">period</th>
       <td class="changed" style="text-align: center">a</td>
       <td class="changed" style="text-align: center"><span class="changed">1</span></td>
       <td class="changed"><span class="changed">AM</span></td>
       <td class="changed"><span class="changed">AM or PM</span></td>
     </tr>
     <tr>
-      <th class="changed" rowspan="4">Hours</th>
+      <th class="changed" rowspan="4">hour</th>
       <td class="changed" style="text-align: center">h</td>
       <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
       <td class="changed"><span class="changed">11</span></td>
@@ -2874,14 +2998,14 @@ root</pre>
       <td class="changed"><span class="changed">Hour [1-24].</span></td>
     </tr>
     <tr>
-      <th class="changed">Minutes</th>
+      <th class="changed">minute</th>
       <td class="changed" style="text-align: center">m</td>
       <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
       <td class="changed"><span class="changed">59</span></td>
       <td class="changed"><span class="changed">Minute. Use one or two for zero padding.</span></td>
     </tr>
     <tr>
-      <th class="changed" rowspan="3">Seconds</th>
+      <th class="changed" rowspan="3">second</th>
       <td class="changed" style="text-align: center">s</td>
       <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
       <td class="changed"><span class="changed">12</span></td>
@@ -2905,7 +3029,7 @@ root</pre>
       be combined with the offset field to obtain a unique local time value.</td>
     </tr>
     <tr>
-      <th class="changed" rowspan="6">Zones</th>
+      <th class="changed" rowspan="6">zone</th>
       <td class="changed" rowspan="4" style="text-align: center">z</td>
       <td class="changed" style="text-align: center">1</td>
       <td class="changed">PT</td>
@@ -2936,19 +3060,6 @@ root</pre>
       <td class="changed" style="text-align: center">2</td>
       <td class="changed">-0800</td>
     </tr>
-    <tr>
-      <th class="changed" rowspan="2">Escapes</th>
-      <td class="changed" style="text-align: center">&#39;</td>
-      <td class="changed" style="text-align: center">&nbsp;</td>
-      <td class="changed">&#39;Date=&#39;</td>
-      <td class="changed">escape for text (Delimiter) </td>
-    </tr>
-    <tr>
-      <td class="changed" style="text-align: center">&#39;&#39;</td>
-      <td class="changed" style="text-align: center">&nbsp;</td>
-      <td class="changed">&#39;o&#39;&#39;clock&#39;</td>
-      <td class="changed">single quote (Literal)</td>
-    </tr>
   </table>
   <p><span class="changed">All non-letter character represent themselves in a pattern, except for 
   the single quote. It is used to &#39;escape&#39; letters. Two single quotes in a row, whether inside or 
@@ -2974,13 +3085,13 @@ root</pre>
   Care should be taken when translating the era names for a specific calendar.</span></p>
   <h3><span class="changed">Week of Year</span></h3>
   <p><span class="changed">Values calculated for the Week of Year field range from 1 to 53. Week 1 
-  for a year is the first week of that year that contains at least the minimum days in a week days. 
-  Weeks between week 1 of one year and week 1 of the following year are numbered sequentially from 2 
-  to 52 or 53 (if needed). For example, January 1, 1998 was a Thursday. If the first day of the week 
-  is MONDAY and the minimum days in a week is 4 (these are the values reflecting ISO 8601 and many 
-  national standards), then week 1 of 1998 starts on December 29, 1997, and ends on January 4, 1998. 
-  However, if the first day of the week is SUNDAY, then week 1 of 1998 starts on January 4, 1998, 
-  and ends on January 10, 1998. The first three days of 1998 are then part of week 53 of 1997.</span></p>
+  for a year is the first week that contains at least the specified minimum number of days from that 
+  year. Weeks between week 1 of one year and week 1 of the following year are numbered sequentially 
+  from 2 to 52 or 53 (if needed). For example, January 1, 1998 was a Thursday. If the first day of 
+  the week is MONDAY and the minimum days in a week is 4 (these are the values reflecting ISO 8601 
+  and many national standards), then week 1 of 1998 starts on December 29, 1997, and ends on January 
+  4, 1998. However, if the first day of the week is SUNDAY, then week 1 of 1998 starts on January 4, 
+  1998, and ends on January 10, 1998. The first three days of 1998 are then part of week 53 of 1997.</span></p>
   <p><span class="changed">Values are similarly calculated for the Week of Month.</span></p>
   <h3><span class="changed">Week Elements</span></h3>
   <dl>
@@ -3003,12 +3114,6 @@ root</pre>
   </dl>
   <h2><span class="changed">Appendix G: <a name="Number_Format_Patterns">Number Format Patterns</a></span></h2>
   <h3><span class="changed">Number Patterns</span></h3>
-  <p><span class="changed">There are different formats for different types of numbers. For example, 
-  here are some patterns (using the </span><span class="changed">unlocalized</span><span class="changed"> 
-  symbols) with the corresponding text. While the format is localized, the </span><i>
-  <span class="changed">characters to specify the format pattern</span></i><span class="changed"> 
-  are not localized. That is, the decimal point always is represented by a &quot;.&quot;, and the grouping 
-  separator (thousands, etc.) is always represented by a &quot;,&quot;.</span></p>
   <p><span class="changed">The </span><a href="#NumberElements"><span class="changed">NumberElements</span></a><span class="changed"> 
   resource affects how these patterns are interpreted in a localized context. Here are some 
   examples, based on the French locale. The &quot;.&quot; shows where the decimal point should go. The &quot;,&quot; 
@@ -3442,9 +3547,30 @@ root</pre>
     </ul>
     <p><strong><span class="changed">Rounding</span></strong><span class="changed"> </span></p>
     <p><span class="changed">Patterns support rounding to a specific increment. For example, 1230 
-    rounded to the nearest 50 is 1250. 1.234 rounded to the nearest 0.65 is 1.3. To specify a 
-    rounding increment in a pattern, include the increment in the pattern itself. &quot;#,#50&quot; specifies 
-    a rounding increment of 50. &quot;#,##0.05&quot; specifies a rounding increment of 0.05. </span></p>
+    rounded to the nearest 50 is 1250. Mathematically, rounding to specific increments is performed 
+    by multiplying by the increment, rounding to an integer, then dividing by the increment. To take 
+    a more bizarre example, 1.234 rounded to the nearest 0.65 is 1.3, as follows:</span></p>
+    <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
+      <tr>
+        <th class="changed">Original:</th>
+        <td class="changed">1.234</td>
+      </tr>
+      <tr>
+        <th class="changed">Divide by increment (0.65):</th>
+        <td class="changed">1.89846...</td>
+      </tr>
+      <tr>
+        <th class="changed">Round:</th>
+        <td class="changed">2</td>
+      </tr>
+      <tr>
+        <th class="changed">Multiply by increment (0.65):</th>
+        <td class="changed">1.3</td>
+      </tr>
+    </table>
+    <p><span class="changed">To specify a rounding increment in a pattern, include the increment in 
+    the pattern itself. &quot;#,#50&quot; specifies a rounding increment of 50. &quot;#,##0.05&quot; specifies a 
+    rounding increment of 0.05. </span></p>
     <ul>
       <li><span class="changed">Rounding only affects the string produced by formatting. It does not 
       affect parsing or change any numerical values. </span></li>
@@ -3491,12 +3617,12 @@ root</pre>
     <dd><span class="changed">- separates the integer and fractional part of the number. </span>
     </dd>
     <dt><b><span class="changed">group</span></b><span class="changed"> </span></dt>
-    <dd><span class="changed">- groups (for example) units of thousands: 10^6 = 1,000,000. The 
-    grouping separator is commonly used for thousands, but in some countries for ten-thousands. The 
-    interval is a constant number of digits between the grouping characters, such as 100,000,000 or 
-    1,0000,0000. If you supply a pattern with multiple grouping characters, the interval between the 
-    last one and the end of the integer is the one that is used. So &quot;#,##,###,####&quot; == &quot;######,####&quot; 
-    == &quot;##,####,####&quot;. </span></dd>
+    <dd><span class="changed">- groups (for example) units of thousands: 10<sup>6</sup> = 1,000,000. 
+    The grouping separator is commonly used for thousands, but in some countries for ten-thousands. 
+    The interval is a constant number of digits between the grouping characters, such as 100,000,000 
+    or 1,0000,0000. If you supply a pattern with multiple grouping characters, the interval between 
+    the last one and the end of the integer is the one that is used. So &quot;#,##,###,####&quot; == 
+    &quot;######,####&quot; == &quot;##,####,####&quot;. </span></dd>
     <dt><b><span class="changed">list</span></b><span class="changed"> </span></dt>
     <dd><span class="changed">- separates lists of numbers </span></dd>
     <dt><b><span class="changed">percentSign</span></b><span class="changed"> </span></dt>
@@ -3547,7 +3673,7 @@ root</pre>
   = &lt;choice&gt; ( &#39;|&#39; &lt;choice&gt; )*<br>
   &lt;choice&gt; = &lt;number&gt;&lt;relation&gt;&lt;string&gt;<br>
   &lt;number&gt; = (&#39;+&#39; | &#39;-&#39;)? (</span><font SIZE="3"><span class="changed">&#39;∞&#39; | [0-9]+ (&#39;.&#39; [0-9]+)?)<br>
-  &lt;relation&gt; = &#39;&lt;&#39; | &#39;</span></font><span style="color: blue; background-color: #FFFF00">≤&#39;</span></p>
+  &lt;relation&gt; = &#39;&lt;&#39; | &#39;</span></font><span class="changed" style="color: blue">≤&#39;</span></p>
   <p><span class="changed">The interpretation of a choice pattern is that given a number N, the 
   pattern is scanned from right to left, for each choice evaluating &lt;number&gt; &lt;relation&gt; N. The first 
   choice that matches results in the corresponding string. If no match is found, then the first 
@@ -3559,8 +3685,7 @@ root</pre>
       <td width="34%"><span class="changed">Result</span></td>
     </tr>
     <tr>
-      <td width="33%" rowspan="4"><span style="color: blue; background-color: #FFFF00">
-      0≤Rf|1≤Ru|1&lt;Re</span></td>
+      <td width="33%" rowspan="4"><span class="changed" style="color: blue">0≤Rf|1≤Ru|1&lt;Re</span></td>
       <td width="33%"><span class="changed">-</span><font SIZE="3"><span class="changed">∞, </span>
       </font><span class="changed">-3, -1, -0.000001</span></td>
       <td width="34%"><span class="changed">Rf (defaulted to first string)</span></td>
@@ -3588,7 +3713,7 @@ root</pre>
   that, since draft=&quot;true&quot; is inherited by </span><span class="changed">subelements</span><span class="changed">, 
   and sublocales. So this section provides a more formal description of how elements are inherited, 
   and what their draft status is.</span></p>
-  <h2><span class="changed">Definitions</span></h2>
+  <h3><span class="changed">Definitions</span></h3>
   <p><span class="changed">For any element in an XML file, </span><i><span class="changed">an 
   element chain</span></i><span class="changed"> is a resolved </span><span class="changed">XPath</span><span class="changed"> 
   leading from the root to an element, with attributes on each element in alphabetical order. So in, 
@@ -3607,16 +3732,16 @@ root</pre>
 ...</span></pre>
   <p><span class="changed">Which gives the following element chains (among others):</span></p>
   <ul>
-    <li><span class="changed">//</span><span class="changed">ldml</span><span class="changed">/identity/version@number=&quot;1.1&quot;</span></li>
-    <li><span class="changed">//</span><span class="changed">ldml</span><span class="changed">/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml@version=&quot;1.1&quot;/identity/version@number=&quot;1.1&quot;</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml@version=&quot;1.1&quot;/localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;</span></li>
   </ul>
   <p><span class="changed">An element chain A is an </span><i><span class="changed">extension</span></i><span class="changed"> 
-  of an element chain B if the initial portion of A is the equivalent to B. For example, #2 below is 
-  an extension of #1. (Equivalent, depending on the tree, may not be &quot;identical to&quot;. See below for 
-  an example.)</span></p>
+  of an element chain B if B is equivalent to an initial portion of A. For example, #2 below is an 
+  extension of #1. (Equivalent, depending on the tree, may not be &quot;identical to&quot;. See below for an 
+  example.)</span></p>
   <ol>
-    <li><span class="changed">//</span><span class="changed">ldml</span><span class="changed">/</span><span class="changed">localeDisplayNames</span></li>
-    <li><span class="changed">//</span><span class="changed">ldml</span><span class="changed">/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml@version=&quot;1.1&quot;/</span><span class="changed">localeDisplayNames</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml@version=&quot;1.1&quot;/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;</span></li>
   </ol>
   <p><span class="changed">An </span><span class="changed">LDML</span><span class="changed"> file 
   can be thought of as an ordered list of </span><i><span class="changed">element pairs</span></i><span class="changed">: 
@@ -3627,9 +3752,9 @@ root</pre>
   <p><span class="changed">For example, some of those pairs would be the following. Notice that the 
   first has the null string as element contents.</span></p>
   <ul>
-    <li><span class="changed">&lt;//</span><span class="changed">ldml</span><span class="changed">/identity/version@number=&quot;1.1&quot;, 
+    <li><span class="changed">&lt;//</span><span class="changed">ldml@version=&quot;1.1&quot;/identity/version@number=&quot;1.1&quot;, 
     &quot;&quot;&gt;</span></li>
-    <li><span class="changed">&lt;//</span><span class="changed">ldml</span><span class="changed">/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;, 
+    <li><span class="changed">&lt;//</span><span class="changed">ldml@version=&quot;1.1&quot;/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;, 
     &quot;</span><span class="changed">Αραβικά</span><span class="changed">&quot;&gt;</span></li>
   </ul>
   <blockquote>
@@ -3644,15 +3769,15 @@ root</pre>
   <span class="changed">type, width, context</span></b><span class="changed">. Thus the following 
   are equivalent:</span></p>
   <ul>
-    <li><span class="changed">//</span><span class="changed">ldml</span><span class="changed">/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;</span></li>
-    <li><span class="changed">//</span><span class="changed">ldml</span><span class="changed">/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;@draft=&quot;true&quot;</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml@version=&quot;1.1&quot;/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml@version=&quot;1.1&quot;/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;@draft=&quot;true&quot;</span></li>
   </ul>
   <p><span class="changed">For any locale ID, an </span><i><span class="changed">locale chain</span></i><span class="changed"> 
   is an ordered list starting with the root and leading down to the ID. For example:</span></p>
   <blockquote>
     <p><span class="changed">&lt;root, de, de-DE, de-DE-xxx&gt;</span></p>
   </blockquote>
-  <h2><span class="changed">Resolved Data File</span></h2>
+  <h3><span class="changed">Resolved Data File</span></h3>
   <p><span class="changed">To produce fully resolved locale data file from CLDR for a locale ID L, 
   you start with root, and replace/add items from the child locales until you get down to L. More 
   formally, this can be expressed as the following procedure.</span></p>
@@ -3672,7 +3797,7 @@ root</pre>
   </ol>
   <p><span class="changed">Note: when adding an element pair to a result, it has to go in the right 
   order for it to be valid according to the </span><span class="changed">DTD</span><span class="changed">.</span></p>
-  <h2><b><span class="changed">Valid Data</span></b></h2>
+  <h3><b><span class="changed">Valid Data</span></b></h3>
   <p><span class="changed">The attribute </span><i><span class="changed">draft=&#39;true&#39;</span></i><span class="changed"> 
   in </span><span class="changed">LDML</span><span class="changed"> means that the data is not known 
   to be valid or not. However, some data that is not explicitly marked as draft may be implicitly 
@@ -3727,18 +3852,18 @@ root</pre>
   </blockquote>
   <p><span class="changed">The attribute </span><i><span class="changed">legitimateChildren</span></i><span class="changed"> 
   allows sublocales in a given tree to be treated as though a file for them were present when there 
-  isn&#39;t one. It only has an effect for locales that inherit from the current file where a file is 
-  missing, and the elements wouldn&#39;t otherwise be draft.</span></p>
+  isn&#39;t one. It can be applied to any element. It only has an effect for locales that inherit from 
+  the current file where a file is missing, and the elements wouldn&#39;t otherwise be draft.</span></p>
   <p class="reviewnote"><span class="changed">[Editorial Note: we will change the name </span>
   <span class="changed">legitimateChildren</span><span class="changed"> to something less whimsical 
   in before release.]</span></p>
   <p><b><span class="changed">Example 1. </span></b><span class="changed">Suppose that in a 
   particular </span><span class="changed">LDML</span><span class="changed"> tree, there are no 
   region locales for German, e.g. there is a </span><span class="changed">de.xml</span><span class="changed"> 
-  file, but no files for de-</span><span class="changed">AT.xml</span><span class="changed">, de-</span><span class="changed">CH.xml</span><span class="changed">, 
-  or de-</span><span class="changed">DE.xml</span><span class="changed">. Then no elements are valid 
-  for any of those region locales. If we want to mark one of those files as having valid elements, 
-  then we introduce an empty file, such as the following.</span></p>
+  file, but no files for de_AT.xml</span><span class="changed">, de_CH.xml</span><span class="changed">, 
+  or de_DE.xml</span><span class="changed">. Then no elements are valid for any of those region 
+  locales. If we want to mark one of those files as having valid elements, then we introduce an 
+  empty file, such as the following.</span></p>
   <p><code><span class="changed">&lt;ldml version=&quot;1.1&quot;&gt;<br>
   &nbsp;&lt;identity&gt;<br>
 &nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
@@ -3748,11 +3873,10 @@ root</pre>
   &nbsp;&lt;/identity&gt;<br>
   &lt;/ldml&gt;</span></code></p>
   <p><span class="changed">With the </span><i><span class="changed">legitimateChildren</span></i><span class="changed"> 
-  attribute, instead of adding the empty files for de-</span><span class="changed">AT.xml</span><span class="changed">, 
-  de-</span><span class="changed">CH.xml</span><span class="changed">, and de-</span><span class="changed">DE.xml</span><span class="changed">, 
-  in the de file we can add to the parent locale a list of the child locales that should behave as 
-  if files were present.</span></p>
-  <p><code><span class="changed">&lt;ldml version=&quot;1.1&quot; legitimateChildren=&quot;de-AT de-CH de-DE&quot;&gt;<br>
+  attribute, instead of adding the empty files for de_AT.xml</span><span class="changed">, de_CH.xml</span><span class="changed">, 
+  and de_DE.xml</span><span class="changed">, in the de file we can add to the parent locale a list 
+  of the child locales that should behave as if files were present.</span></p>
+  <p><code><span class="changed">&lt;ldml version=&quot;1.1&quot; legitimateChildren=&quot;de_AT de_CH de_DE&quot;&gt;<br>
   &nbsp;&lt;identity&gt;<br>
 &nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
 &nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
@@ -3764,7 +3888,7 @@ root</pre>
   E is implicitly or explicitly draft, given a locale L. Sections 1, 2, and 4 are simply 
   formalizations of what is in </span><span class="changed">LDML</span><span class="changed"> 
   already. Item 3 adds the new element.</span></p>
-  <p><span class="changed">Checking for Draft Status:</span></p>
+  <h4><span class="changed">Checking for Draft Status:</span></h4>
   <ol>
     <li><b><span class="changed">Parent Locale Inheritance</span></b><ol>
       <li><span class="changed">Walk through the locale chain until you find a locale ID L&#39; with a 
@@ -3805,6 +3929,196 @@ root</pre>
   <p><span class="changed">The </span><span class="changed">legitimateChildren</span><span class="changed"> 
   in the most specific (farthest from root file) locale file &quot;wins&quot; through the full resolution step 
   (data from more specific files replacing data from less specific ones).</span></p>
+  <h3><span class="changed">Keyword and Default Resolution</span></h3>
+  <p><span class="changed">When accessing data based on keywords, the following process is used. 
+  Consider the following example:<br>
+  <br>
+  The locale &#39;de&#39; has collation types A, B, C, and no &lt;default&gt; element<br>
+  The locale &#39;de_CH&#39; has &lt;default type=&#39;B&#39;&gt;<br>
+  <br>
+  Here are the searches for various combinations.</span></p>
+  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+    <tr>
+      <td rowspan="4"><span class="changed">1.</span></td>
+      <td><span class="changed">de_CH</span></td>
+      <td><span class="changed">not found</span></td>
+    </tr>
+    <tr>
+      <td><span class="changed">de</span></td>
+      <td><span class="changed">not found</span></td>
+    </tr>
+    <tr>
+      <td><span class="changed">root</span></td>
+      <td><span class="changed">not found: so get the default type in de_CH</span></td>
+    </tr>
+    <tr>
+      <td><span class="changed">de@collation=B</span></td>
+      <td><i><span class="changed">found</span></i></td>
+    </tr>
+    <tr>
+      <td rowspan="4"><span class="changed">2.</span></td>
+      <td><span class="changed">de</span></td>
+      <td><span class="changed">not found</span></td>
+    </tr>
+    <tr>
+      <td><span class="changed">root</span></td>
+      <td><span class="changed">not found: so get the default type in de, which itself falls back to 
+      root</span></td>
+    </tr>
+    <tr>
+      <td><span class="changed">de@collation=standard</span></td>
+      <td><span class="changed">not found</span></td>
+    </tr>
+    <tr>
+      <td><span class="changed">root@collation=standard</span></td>
+      <td><i><span class="changed">found</span></i></td>
+    </tr>
+    <tr>
+      <td><span class="changed">3.</span></td>
+      <td><span class="changed">de@collation=A</span></td>
+      <td><i><span class="changed">found</span></i></td>
+    </tr>
+    <tr>
+      <td rowspan="2"><span class="changed">4.</span></td>
+      <td><span class="changed">de@collation=standard</span></td>
+      <td><span class="changed">not found</span></td>
+    </tr>
+    <tr>
+      <td><span class="changed">root@collation=standard</span></td>
+      <td><i><span class="changed">found</span></i></td>
+    </tr>
+  </table>
+  <p><span class="changed"><br>
+  <b>Note: </b>It is an invariant that the default in root for a given element must<br>
+  always be a value that exists in root. So you can&#39;t have the following in root:</span></p>
+  <p><span class="changed">&lt;someElements&gt;<br>
+&nbsp; &lt;default type=&#39;a&#39;/&gt;<br>
+&nbsp; &lt;someElement type=&#39;b&#39;&gt;...&lt;/someElement&gt;<br>
+&nbsp; &lt;someElement type=&#39;c&#39;&gt;...&lt;/someElement&gt;<br>
+  <b>&nbsp; &lt;!-- no &#39;a&#39; --&gt;</b><br>
+  &lt;/someElements&gt;</span></p>
+  <p><span class="changed">It is not necessary, but strongly encouraged, that the default type in 
+  root be<br>
+  &#39;standard&#39;.</span></p>
+  <p><span class="changed">For identifiers, such as language codes, script codes, region codes, 
+  variant codes, types, keywords, currency symbols or curreny display names, the default value is 
+  the identifier itself whenever if no value is found in the root. Thus if there is no display name 
+  for the region code &#39;QA&#39; in root, then the display name is simply &#39;QA&#39;. </span></p>
+  <h2><span class="changed">Appendix J: <a name="Time_Zone_Fallback">Time Zone Fallback</a></span></h2>
+  <p class="changed">When a timezone is to be displayed, the following process is used. The starred 
+  items are skipped if &lt;abbreviationFallback type=&#39;GMT&#39;&gt; is present in the resolved locale data.</p>
+  <ol>
+    <li>
+    <p class="changed">Canonicalize the Olson ID, mapping to one of the 407 &quot;real&quot; IDs.
+    <ul>
+      <li>
+      <p class="changed"><i>America/Atka =&gt; America/Adak</i> </li>
+      <li>
+      <p class="changed">[TBD: point to the exact data used to do this]</li>
+    </ul>
+    </li>
+    <li>
+    <p class="changed">If there is an exact translation in the resolved locale, use it. Note that 
+    this translation may not at all be literal, it would be what is most recognizable for people 
+    using the target language.
+    <ul>
+      <li>
+      <p class="changed"><i>America/Los_Angeles =&gt; &quot;Tampo de Pacifica&quot;</i> </li>
+    </ul>
+    </li>
+    <li>
+    <p class="changed"><span class="changed">Else for non-wall-time, use GMT format</span>
+    <ol>
+      <li>
+      <p class="changed"><i><span class="changed">America/Los_Angeles =&gt; &quot;GMT-08:00&quot;</span></i> </li>
+    </ol>
+    </li>
+    <li>
+    <p class="changed"><span class="changed">* </span>Else if there is an exemplar city, use it with 
+    the region format. The exemplar city may not be the same as the Olson ID city, if another city 
+    is much more recognizable for whatever reason. However, it is very strongly recommended that the 
+    same city be used.
+    <ul>
+      <li>
+      <p class="changed"><i>America/Los_Angeles =&gt; &quot;Tampo de San Fransisko&quot;</i> </li>
+    </ul>
+    </li>
+    <li>
+    <p class="changed"><span class="changed">* </span>Else if there is a country for the time zone, 
+    and a translation in the locale for the country name, and the country only has one (modern) 
+    timezone, use it with the region format :
+    <ul>
+      <li>
+      <p class="changed"><i>Africa/Monrovia =&gt; LR =&gt; &quot;Tampo de Liberja&quot;</i> </li>
+    </ul>
+    </li>
+    <li>
+    <p class="changed">Else if it is a perpetual alias for a &quot;real&quot; ID, and if there is an exact 
+    translation for that, try #1..#4 with that alias.
+    <ul>
+      <li>
+      <p class="changed"><i>Europe/San_Marino =&gt; Europe/Rome =&gt; ... =&gt; &quot;Tampo de Roma&quot;</i> </li>
+    </ul>
+    </li>
+    <li>
+    <p class="changed"><span class="changed">* </span>Else fall back to the raw Olson ID (stripping 
+    off the prefix, and turning _ into space), using the fallback format.&nbsp;
+    <ul>
+      <li>
+      <p class="changed"><i>America/Goose_Bay =&gt; &quot;Tampo de&nbsp; </i>«<i>Goose Bay</i>»&quot; </li>
+    </ul>
+    </li>
+    <li>
+    <p class="changed">Else use the <span class="changed">(possibly multi-offset) </span>GMT format
+    <ul>
+      <li>
+      <p class="changed"><i>America/Nome =&gt; &quot;GMT-0900/-0800&quot;</i> </li>
+    </ul>
+    </li>
+  </ol>
+  <p class="changed">Many time zone IDs only represent differences that are important historically, 
+  but do not make any difference in modern times. The preferenceOrdering element can be used to 
+  select the preferred modern IDs when desired. (The choice of the interval to use when determining 
+  when two time zone IDs are equivalent is left to the implementation.</p>
+  <p class="changed">Whenever two timezone IDs are equivalent in effect and are in the same country, 
+  the preference ordering list is examined according to the following process:</p>
+  <ol>
+    <li>
+    <p class="changed"><span style="BACKGROUND-COLOR: #ffff00">If x, y are in the list, then the 
+    earlier one in the list is preferred.</span> </li>
+    <li>
+    <p class="changed"><span style="BACKGROUND-COLOR: #ffff00">Else if x is in the list and y isn&#39;t, 
+    then x is preferred</span> </li>
+    <li>
+    <p class="changed"><span style="BACKGROUND-COLOR: #ffff00">Else if not in root, repeat #1 and #2 
+    using the parent locale&#39;s list</span> </li>
+    <li>
+    <p class="changed"><span style="BACKGROUND-COLOR: #ffff00">If all else fails, use a 
+    case-insensitive comparison of the timezone IDs.</span> </li>
+  </ol>
+  <p class="changed">For example, the following table lists the modern equivalents for Mexico on 
+  separate rows. If the preference ordering has one element: &quot;America/Mexico_City&quot;, then the bolded 
+  items would be chosen as the preferred timezone IDs.</p>
+  <table cellSpacing="0" cellPadding="3" border="1">
+    <tr>
+      <td bgColor="#ffff00">
+      <p class="changed">America/Merida, <b>America/Mexico_City, </b>America/Monterrey, 
+      America/Cancun</td>
+    </tr>
+    <tr>
+      <td bgColor="#ffff00">
+      <p class="changed"><b>America/Chihuahua, </b>America/Mazatlan</td>
+    </tr>
+    <tr>
+      <td bgColor="#ffff00">
+      <p class="changed"><b>America/Hermosillo</b></td>
+    </tr>
+    <tr>
+      <td bgColor="#ffff00">
+      <p class="changed"><b>America/Tijuana</b></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
   <h2><a name="References">References</a></h2>
   <table style="border-collapse: collapse; border-width: 1; " cellpadding="4" cellspacing="0" class="noborder" border="0">
     <tr>
@@ -4089,20 +4403,33 @@ root</pre>
   <p>The following summarizes modifications from the previous version of this document.</p>
   <table class="noborder">
     <tr>
-      <td class="noborder" class="changed" bgcolor="#FFFF00"><a name="TrackingNumber2">3</a></td>
-      <td class="noborder" class="changed" bgcolor="#FFFF00">
+      <td class="noborder"><a name="TrackingNumber2"><span class="changed">3</span></a></td>
+      <td class="noborder" class="changed">
       <ul>
-        <li>Added <a href="#Date_Format_Patterns">Date_Format_Patterns</a>,
-        <a href="#Number_Format_Patterns">Number_Format_Patterns</a>, <a href="#Choice_Patterns">
-        Choice_Patterns</a></li>
-        <li>Revised <a href="#&lt;characters&gt;">&lt;characters&gt;</a>, especially exemplar characters.</li>
-        <li>Eliminated all references to Java documentation, since their links are unstable.</li>
-        <li>Added <a href="#Calendar_Fields">Calendar Fields</a>, <a href="#alt_attribute">
-        alt_attribute</a>, <a href="#references_attribute">references_attribute</a>,
-        <a href="#Inheritance_and_Validity">Inheritance_and_Validity</a></li>
-        <li><b>TBD: Incorporate the material from
-        <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/formatting/time_zone_localization.html">
-        time_zone_localization.html</a></b></li>
+        <li><span class="changed">8-2</span><ul>
+          <li><span class="changed">Added </span><a href="#Date_Format_Patterns">
+          <span class="changed">Date_Format_Patterns</span></a><span class="changed">, </span>
+          <a href="#Number_Format_Patterns"><span class="changed">Number_Format_Patterns</span></a><span class="changed">,
+          </span><a href="#Choice_Patterns"><span class="changed">Choice_Patterns</span></a></li>
+          <li><span class="changed">Revised </span><a href="#&lt;characters&gt;">
+          <span class="changed">&lt;characters&gt;</span></a><span class="changed">, especially exemplar 
+          characters.</span></li>
+          <li><span class="changed">Eliminated all references to Java documentation, since their 
+          links are unstable.</span></li>
+        </ul>
+        </li>
+        <li><span class="changed">8-12</span><ul>
+          <li><span class="changed">Added </span><a href="#Calendar_Fields"><span class="changed">
+          Calendar Fields</span></a><span class="changed">, </span><a href="#alt_attribute">
+          <span class="changed">alt_attribute</span></a><span class="changed">, </span>
+          <a href="#references_attribute"><span class="changed">references_attribute</span></a><span class="changed">,
+          </span><a href="#Inheritance_and_Validity"><span class="changed">Inheritance_and_Validity</span></a></li>
+          <li><span class="changed"><span class="changed">Added</span></span></li>
+          <li><b><span class="changed">TBD: Incorporate the material from
+          <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/formatting/time_zone_localization.html">
+          time_zone_localization.html</span></a></b></li>
+        </ul>
+        </li>
       </ul>
       </td>
     </tr>

@@ -110,7 +110,10 @@ public class POSIX_LCMonetary {
    int_curr_symbol = LDMLUtilities.getAttributeValue(n,"iso4217");
 
    n = LDMLUtilities.getNode(doc, "//ldml/numbers/currencies/currency[@type='"+int_curr_symbol+"']/symbol");
-   currency_symbol = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+   if ( n != null )
+       currency_symbol = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
+   else
+       currency_symbol = POSIXUtilities.POSIXCharName(int_curr_symbol);
    
    n = LDMLUtilities.getNode(supp, "//supplementalData/currencyData/fractions/info[@iso4217='"+int_curr_symbol+"']");
    if ( n == null )

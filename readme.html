@@ -98,10 +98,6 @@ ul
 </style>
 <meta name=COPYRIGHT
 content="Copyright (c) IBM Corporation and others. All Rights Reserved.">
-<meta name=KEYWORDS
-content="ICU; International Components for Unicode; what's new; readme; read me; introduction; downloads; downloading; building; installation;">
-<meta name=DESCRIPTION
-content="The introduction to the International Components for Unicode with instructions on building, installation, usage and other information about ICU.">
 </head>
 
 <body lang=EN-US link=blue vlink=blue>
@@ -110,7 +106,7 @@ content="The introduction to the International Components for Unicode with instr
 
 <div style='border:solid windowtext 1.5pt;padding:0in 0in 0in 0in'>
 
-<h1>Locale Data Repository <br>
+<h1>Common Locale Data Repository <br>
 ReadMe</h1>
 
 </div>
@@ -155,7 +151,7 @@ transformations (including transliterations), and support for other services. </
 locale data. There are significant differences across repositories in the
 locale-sensitive data used for such formatting, parsing, and analysis. This
 repository contains locale data in XML vocabulary described by the <a
-href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_markup.html">Locale
+href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml-spec.html">Locale
 Data Markup Language</a> and in <a
 href="http://oss.software.ibm.com/icu/userguide/locale.html">ICU Resource
 Bundle format</a>.  </p>
@@ -179,7 +175,7 @@ links.<br><br></p>
   <p class=MsoNormal>Project Homepage</p>
   </td>
   <td width="69%" style='width:69.76%;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
-  <p class=MsoNormal><a href="http://oss.software.ibm.com/icu/locale/">http://oss.software.ibm.com/icu/locale/</a></p>
+  <p class=MsoNormal><a href="http://www.openi18n.org/subgroups/lade/locale/">http://www.openi18n.org/subgroups/lade/locale/</a></p>
   </td>
  </tr>
  <tr>
@@ -188,16 +184,25 @@ links.<br><br></p>
   </td>
   <td width="69%" style='width:69.76%;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
   <p class=MsoNormal><a
-  href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_markup.html">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_markup.html</a></p>
+  href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml-spec.html">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml-spec.html</a></p>
   </td>
- </tr>
+ </tr> 
  <tr>
   <td width="29%" style='width:29.76%;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
   <p class=MsoNormal>Differences between locale data in different repositories</p>
   </td>
   <td width="69%" style='width:69.76%;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
   <p class=MsoNormal><a
-  href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/all_diff_xml/readme.html">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/all_diff_xml/readme.html</a></p>
+  href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/all_diff_xml/comparison_charts.html">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/all_diff_xml/comparison_charts.html</a></p>
+  </td>
+ </tr>
+  <tr>
+  <td width="29%" style='width:29.76%;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal>Index of the comparison charts</p>
+  </td>
+  <td width="69%" style='width:69.76%;padding:2.25pt 2.25pt 2.25pt 2.25pt'>
+  <p class=MsoNormal><a
+  href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/all_diff_xml/index.html">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/all_diff_xml/index.html</a></p>
   </td>
  </tr>
  <tr>
@@ -238,11 +243,11 @@ differences and sources of the locale data. </p>
 
 <h4><span class=SpellE>WinCVS</span></h4>
 
-<p class=first>If you will be doing serious work on ICU, you should probably
+<p class=first>If you will be doing serious work on CLDR, you should probably
 install a CVS client on your own machine so that you can do batch operations
 without going through the <span class=SpellE>WebCVS</span> <span class=GramE>interface.</span>
 On Windows, we suggest the <span class=SpellE>WinCVS</span> client. The
-following is the example instruction on how to download ICU via <span
+following is the example instruction on how to download CLDR via <span
 class=SpellE>WinCVS</span>: </p>
 
 <ol start=1 type=1>
@@ -252,7 +257,7 @@ class=SpellE>WinCVS</span>: </p>
      </li>
  <li class=MsoNormal>In the <span class=SpellE>WinCVS</span>
      preferences, specify your <span class=SpellE>CVSRoot</span> to be &quot;<code><span
-     style='font-size:10.0pt'>:<span class=SpellE>pserver:anoncvs@oss.software.ibm.com:/usr/cvs/icu</span></span></code>
+     style='font-size:10.0pt'>:<span class=SpellE>pserver:anoncvs@oss.software.ibm.com:/usr/cvs/icu/locale</span></span></code>
      <span class=GramE>&quot;  with</span>
      the password &quot;<span class=SpellE><code><span style='font-size:10.0pt'>anoncvs</span></code></span>&quot;.
      To enter the <span class=SpellE>CVSRoot</span> value, select
@@ -261,7 +266,7 @@ class=SpellE>WinCVS</span>: </p>
      class=SpellE>passwd</span>' file on the <span class=SpellE>cvs</span>
      server&quot;.&nbsp; </li>
  <li class=MsoNormal>To &quot;extract&quot; the
-     most recent version of ICU, select &quot;Checkout module&quot; from the
+     most recent version of CLDR, select &quot;Checkout module&quot; from the
      &quot;<span class=SpellE>Cvs</span> Admin&quot; menu.&nbsp; Specify &quot;<code><span
      style='font-size:10.0pt'>locale</span></code>&quot; for the module name.<br>
      If you use &quot;.&quot; as the module name, then you get all related
@@ -271,15 +276,15 @@ class=SpellE>WinCVS</span>: </p>
 <h4>CVS command line</h4>
 
 <p class=first>You can also check out the repository anonymously on UNIX using
-the following commands, after first setting your CVSROOT to point to the ICU
+the following commands, after first setting your CVSROOT to point to the CLDR
 repository: </p>
 
 <pre>  <span class=GramE>export</span> CVSROOT=:<span
-class=SpellE>pserver:anoncvs@oss.software.ibm.com:/usr/cvs/icu</span></pre><pre>&nbsp;</pre><pre>  <span
+class=SpellE>pserver:anoncvs@oss.software.ibm.com:/usr/cvs/icu/locale</span></pre><pre>&nbsp;</pre><pre>  <span
 class=SpellE><span class=GramE>cvs</span></span> login CVS password: <span
 class=SpellE>anoncvs</span></pre><pre>  <span
 class=SpellE><span class=GramE>cvs</span></span> checkout -P <span
-class=SpellE>icu</span></pre><pre>  <span
+class=SpellE>locale</span></pre><pre>  <span
 class=SpellE><span class=GramE>cvs</span></span> logout</pre>
 
 <p>This will extract the absolute latest version of all files from the
@@ -287,7 +292,7 @@ repository. If you want to extract a particular release, say 1.2.3, pass a -r
 TAG option to <span class=SpellE>cvs</span> checkout. For example: </p>
 
 <pre>  <span class=SpellE><span
-class=GramE>cvs</span></span> checkout -P -r release-1-2-3 <span class=SpellE>icu</span></pre>
+class=GramE>cvs</span></span> checkout -P -r release-1-2-3 <span class=SpellE>locale</span></pre>
 
 <p>You should then have a working repository. </p>
 
@@ -298,8 +303,7 @@ class=GramE>cvs</span></span> checkout -P -r release-1-2-3 <span class=SpellE>ic
 top level directory from the distribution archives) in your file system. The
 directories are named to reflect the source platform from which they are
 collected; for e.g. locale data collected from ICU is in the directory named &#8220;<span
-class=SpellE>icu</span>&#8221;. Currently we only have data from ICU&#8217;s
-locale repository. Others will be added in due course.</p>
+class=SpellE>icu</span>&#8221;.</p>
 
 <table class=MsoNormalTable border=1 cellpadding=0 width="100%"
  style='width:100.0%;'>
@@ -341,7 +345,7 @@ locale repository. Others will be added in due course.</p>
  <tr>
   <td width="29%" style='width:29.76%;padding:0in 0in 0in 0in'>
   <p class=MsoNormal><i>&lt;<strong> <span class=SpellE>locale_data</span> </strong>&gt;</i>/<i>&lt;<strong>
-  <span class=SpellE>platform_name</span></strong>&gt;/&lt;<span class=SpellE><b>icu</b></span>&gt;</i></p>
+  <span class=SpellE>platform_name</span></strong>&gt;/&lt;<span class=SpellE><b>icu_format</b></span>&gt;</i></p>
   </td>
   <td width="69%" style='width:69.76%;padding:0in 0in 0in 0in'>
   <p class=MsoNormal>The locale data in ICU&#8217;s Resource Bundle format</p>

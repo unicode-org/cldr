@@ -181,9 +181,20 @@ public class CLDRModify {
 			replacements.add(xpath, value.getFullXPath(), pattern);
 		}
 		
-		// remove bad attributes
-		//Removing SP
+		//Before removing SP, do the following!
 		//http://www.jtcsv.com/cgibin/locale-bugs?findid=351
+		/*
+		<territory type="CS">Czechoslovakia</territory>
+		=>
+		<territory type="200">Czechoslovakia</territory>
+
+		<territory type="SP">Serbia</territory>
+		=>
+		<territory type="CS" draft="true">Serbia</territory> <!-- should be serbia & montegro -->
+		*/
+		
+		//remove bad attributes
+		//		http://www.jtcsv.com/cgibin/locale-bugs?findid=351
 		//Removing invalid currency codes
 		//http://www.jtcsv.com/cgibin/locale-bugs?findid=323
 		

@@ -310,4 +310,46 @@
 <!ELEMENT zone ( city | long | short )* >
 <!ATTLIST zone default NMTOKEN #IMPLIED >
 <!ATTLIST zone id CDATA #REQUIRED >
+<!ELEMENT iso14652:iso14652  ( iso14652:messages| iso14652:AddressFormat| iso14652:NameFormat| iso14652:Identification| iso14652:TelephoneFormat )* >
+
+<!ELEMENT iso14652:messages ( iso14652:no| iso14652:yes| iso14652:shortYes| iso14652:shortNo )* >
+<!ELEMENT iso14652:no ( #PCDATA ) >
+<!ELEMENT iso14652:yes ( #PCDATA ) >
+<!ELEMENT iso14652:shortYes ( #PCDATA ) >
+<!ELEMENT iso14652:shortNo ( #PCDATA ) >
+
+<!ELEMENT iso14652:AddressFormat ( iso14652:PostalPattern ) >
+<!ELEMENT iso14652:PostalPattern ( #PCDATA ) >
+
+<!ELEMENT iso14652:NameFormat ( iso14652:NamePattern| iso14652:GeneralSalutation| iso14652:ShortSalutationMr| iso14652:ShortSalutationMiss|iso14652:ShortSalutationMrs| iso14652:LongSalutationMr| iso14652:LongSalutationMiss| iso14652:LongSalutationMrs )* >
+<!ELEMENT iso14652:NamePattern ( #PCDATA ) >
+<!ELEMENT iso14652:GeneralSalutation ( #PCDATA ) >
+<!ELEMENT iso14652:ShortSalutationMr ( #PCDATA ) >
+<!ELEMENT iso14652:ShortSalutationMiss ( #PCDATA ) >
+<!ELEMENT iso14652:ShortSalutationMrs ( #PCDATA ) >
+<!ELEMENT iso14652:LongSalutationMr ( #PCDATA ) >
+<!ELEMENT iso14652:LongSalutationMiss ( #PCDATA ) >
+<!ELEMENT iso14652:LongSalutationMrs ( #PCDATA ) >
+
+<!ELEMENT iso14652:Identification ( iso14652:Title| iso14652:Source| iso14652:Address| iso14652:Contact| iso14652:Email| iso14652:Telephone| iso14652:Fax| iso14652:Language| iso14652:Territory| iso14652:Audience| iso14652:Application| iso14652:Abbreviation| iso14652:Revision| iso14652:Date )* >
+<!ELEMENT iso14652:Title ( #PCDATA ) >
+<!ELEMENT iso14652:Source ( #PCDATA ) >
+<!ELEMENT iso14652:Address ( #PCDATA ) >
+<!ELEMENT iso14652:Contact ( #PCDATA ) >
+<!ELEMENT iso14652:Email ( #PCDATA ) >
+<!ELEMENT iso14652:Telephone ( #PCDATA ) >
+<!ELEMENT iso14652:Fax ( #PCDATA ) >
+<!ELEMENT iso14652:Language ( #PCDATA ) >
+<!ELEMENT iso14652:Territory ( #PCDATA ) >
+<!ELEMENT iso14652:Audience ( #PCDATA ) >
+<!ELEMENT iso14652:Application ( #PCDATA ) >
+<!ELEMENT iso14652:Abbreviation ( #PCDATA ) >
+<!ELEMENT iso14652:Revision ( #PCDATA ) >
+<!ELEMENT iso14652:Date ( #PCDATA ) >
+
+<!ELEMENT iso14652:TelephoneFormat ( iso14652:InternationalPattern| iso14652:DomesticPattern| iso14652:InternationalDialCode| iso14652:InternationalPrefix )* >
+<!ELEMENT iso14652:InternationalPattern ( #PCDATA ) >
+<!ELEMENT iso14652:DomesticPattern ( #PCDATA ) >
+<!ELEMENT iso14652:InternationalDialCode ( #PCDATA ) >
+<!ELEMENT iso14652:InternationalPrefix ( #PCDATA ) >
 

@@ -7,8 +7,8 @@
 >
 <ldml>
 	<identity>
-		<version number="2.0"/>
-		<generation date="2003-09-30" />
+		<version number="1.0-alpha"/>
+		<generation date="2003-10-02" />
 		<language type="es" /> 
 		<territory type="EC" /> 
 	</identity>
@@ -115,21 +115,4 @@
 		</currencyFormatLength >
 	</currencyFormats>
 </numbers>
-<collations version="3.1.1">
-	<collation type="TRADITIONAL" >
-		<rules>
-			<reset>N</reset>
-			<p>ñ</p>
-			<t>Ñ</t>
-			<reset>C</reset>
-			<p>ch</p>
-			<t>Ch</t>
-			<t>CH</t>
-			<reset>l</reset>
-			<p>ll</p>
-			<t>Ll</t>
-		</rules>
-		<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
-	</collation  >
-</collations >
 </ldml>

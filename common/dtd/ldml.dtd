@@ -211,12 +211,15 @@
 <!ATTLIST months draft ( true | false ) #IMPLIED >
 
 <!ELEMENT monthContext ( alias | (default?, monthWidth?, special*)) >
+<!ATTLIST monthContext type NMTOKEN #REQUIRED >
 <!ATTLIST monthContext draft ( true | false ) #IMPLIED >
 
 <!ELEMENT monthWidth ( alias | (month*, special*)) >
+<!ATTLIST monthWidth type NMTOKEN #REQUIRED >
 <!ATTLIST monthWidth draft ( true | false ) #IMPLIED >
 
 <!ELEMENT monthNames ( alias | (month*, special*)) >
+<!ATTLIST monthNames type NMTOKEN #REQUIRED >
 <!ATTLIST monthNames draft ( true | false ) #IMPLIED >
 
 <!ELEMENT month ( #PCDATA | cp )* >
@@ -230,9 +233,11 @@
 
 <!ELEMENT dayContext ( alias | (default?, dayWidth?, special*)) >
 <!ATTLIST dayContext draft ( true | false ) #IMPLIED >
+<!ATTLIST dayContext type NMTOKEN #REQUIRED >
 
 <!ELEMENT dayWidth ( alias | (month*, special*)) >
 <!ATTLIST dayWidth draft ( true | false ) #IMPLIED >
+<!ATTLIST dayWidth type NMTOKEN #REQUIRED >
 
 <!ELEMENT dayNames ( alias | (day*, special*)) >
 <!ATTLIST dayNames draft ( true | false ) #IMPLIED >

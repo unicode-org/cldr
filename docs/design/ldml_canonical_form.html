@@ -70,9 +70,6 @@ data more easily.</p>
     according to the order in the table. Otherwise if just one is, it goes first.</li>
     <li>If two values are numeric [0-9], compare numerically (2 &lt; 12). Otherwise if just one is 
     numeric, it goes first.</li>
-    <li>Time zone IDs are sorted by GMT order, from smallest to largest. Use the GMT offset as of 
-    Jan 1, 2004 first, then the GMT offset as of July 1, 2004 next, otherwise if both are equal, use 
-    alphabetical order.</li>
     <li>Otherwise values are ordered alphabetically</li>
   </ol>
   </li>
@@ -175,55 +172,66 @@ elements, and thus never be compared.</p>
 <blockquote>
   <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
     <tr>
-      <td width="50%">dateFormatLength </td>
+      <td width="25%">weekendStart</td>
+      <td width="13%" rowspan="2">day</td>
+      <td width="12%" rowspan="3">sun, mon, tue, wed, thu, fri, sat</td>
+    </tr>
+    <tr>
+      <td width="25%">weekendEnd</td>
+    </tr>
+    <tr>
+      <td width="25%">day</td>
+      <td width="25%">type</td>
+    </tr>
+    <tr>
+      <td width="25%">dateFormatLength </td>
+      <td width="25%" rowspan="7">type</td>
       <td width="50%" rowspan="7">full, long, medium, short</td>
     </tr>
     <tr>
-      <td width="50%">timeFormatLength </td>
+      <td width="25%">timeFormatLength </td>
     </tr>
     <tr>
-      <td width="50%">dateTimeFormatLength </td>
+      <td width="25%">dateTimeFormatLength </td>
     </tr>
     <tr>
-      <td width="50%">decimalFormatLength </td>
+      <td width="25%">decimalFormatLength </td>
     </tr>
     <tr>
-      <td width="50%">scientificFormatLength </td>
+      <td width="25%">scientificFormatLength </td>
     </tr>
     <tr>
-      <td width="50%">percentFormatLength </td>
+      <td width="25%">percentFormatLength </td>
     </tr>
     <tr>
-      <td width="50%">currencyFormatLength </td>
+      <td width="25%">currencyFormatLength </td>
     </tr>
     <tr>
-      <td width="50%">monthWidth </td>
+      <td width="25%">monthWidth </td>
+      <td width="25%" rowspan="2">type</td>
       <td width="50%" rowspan="2">wide, abbreviated, narrow</td>
     </tr>
     <tr>
-      <td width="50%">dayWidth </td>
+      <td width="25%">dayWidth </td>
     </tr>
     <tr>
-      <td width="50%">day/type </td>
-      <td width="50%" rowspan="3">sun, mon, tue, wed, thu, fri, sat</td>
-    </tr>
-    <tr>
-      <td width="50%">weekendStart/day </td>
-    </tr>
-    <tr>
-      <td width="50%">weekendEnd/day</td>
-    </tr>
-    <tr>
-      <td width="50%">field/type</td>
+      <td width="25%">field</td>
+      <td width="25%">type</td>
       <td width="50%">era, year, month, week, day, weekday, dayperiod, hour, minute, second, zone</td>
     </tr>
     <tr>
-      <td width="50%"><i>numeric</i></td>
-      <td width="50%">&nbsp;</td>
+      <td width="25%">zone</td>
+      <td width="25%">type</td>
+      <td width="50%"><i>The order for prefixes are: </i>America, Atlantic, Europe, Africa, Asia, 
+      Indian, Australia, Pacific, Arctic, Antarctica, Etc. <i>Within the same prefix, sort first by 
+      longitude, then latitude (both given by the zone.tab file in the Olson database), then by full 
+      tzid.</i></td>
     </tr>
     <tr>
-      <td width="50%"><i>alphabetic</i></td>
-      <td width="50%">&nbsp;</td>
+      <td width="100%" colspan="3"><i>numeric order</i></td>
+    </tr>
+    <tr>
+      <td width="100%" colspan="3"><i>alphabetic order</i></td>
     </tr>
   </table>
 </blockquote>

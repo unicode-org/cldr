@@ -598,7 +598,7 @@
 <!ATTLIST numbers alt CDATA #IMPLIED >
 <!ATTLIST numbers validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT symbols (alias | (decimal?, group?, list?, percentSign?, nativeZeroDigit?, patternDigit?, plusSign?, minusSign?, exponential?, perMille?, infinity?, nan?, special*)) >
+<!ELEMENT symbols (alias | (decimal?, group*, list?, percentSign?, nativeZeroDigit?, patternDigit?, plusSign?, minusSign?, exponential?, perMille?, infinity?, nan?, special*)) >
 <!ATTLIST symbols draft ( true | false ) #IMPLIED >
 <!ATTLIST symbols standard CDATA #IMPLIED >
 <!ATTLIST symbols references CDATA #IMPLIED >

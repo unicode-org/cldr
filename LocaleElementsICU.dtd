@@ -10,7 +10,7 @@
 
 <!-- Either bare data or any number of cp -->
 <!ELEMENT icu:ruleBasedNumberFormat (#PCDATA | cp)* >
-<!ATTLIST icu:ruleBasedNumberFormat type NMTOKEN #REQUIRED >
+<!ATTLIST icu:ruleBasedNumberFormat type NMTOKEN #IMPLIED >
 
 <!-- RBBI data -->
 <!ELEMENT icu:boundaries (alias | (icu:grapheme?, icu:word?, icu:line?, icu:sentence?, special*)) >

@@ -77,7 +77,7 @@
 
 <!ELEMENT mapping (special*) >
 <!ATTLIST mapping registry NMTOKEN #REQUIRED >
-<!ATTLIST mapping type NMTOKEN #REQUIRED >
+<!ATTLIST mapping type NMTOKEN #IMPLIED >
 
 <!-- ######################################################### -->
 
@@ -141,7 +141,7 @@
 <!ELEMENT week   (alias | (minDays?, firstDay?, weekendStart?, weekendEnd?, special*)) >
 
 <!ELEMENT minDays (special*) >
-<!ATTLIST minDays count NMTOKEN #REQUIRED >
+<!ATTLIST minDays count ( 1 | 2 | 3 | 4 | 5 | 6 | 7 ) #REQUIRED >
 
 <!ELEMENT firstDay (special*) >
 <!ATTLIST firstDay day NMTOKEN #REQUIRED >
@@ -152,7 +152,7 @@
 
 <!ELEMENT weekendEnd (special*) >
 <!ATTLIST weekendEnd day NMTOKEN #REQUIRED >
-<!ATTLIST weekendEnd time CDATA "00:00" >
+<!ATTLIST weekendEnd time CDATA "24:00" >
 
 <!ELEMENT am ( #PCDATA ) >
 
@@ -298,45 +298,49 @@
 <!ATTLIST collation type NMTOKEN "standard" >
 
 <!ELEMENT settings (special*) >
-<!ATTLIST settings caseLevel NMTOKEN #IMPLIED >
-<!ATTLIST settings alternate NMTOKEN #IMPLIED >
-<!ATTLIST settings backwards NMTOKEN #IMPLIED >
-<!ATTLIST settings normalization NMTOKEN #IMPLIED >
-<!ATTLIST settings caseFirst NMTOKEN #IMPLIED >
-<!ATTLIST settings hiraganaQuarternary NMTOKEN #IMPLIED >
-<!ATTLIST settings strength NMTOKEN #IMPLIED >
-<!ATTLIST settings numeric NMTOKEN #IMPLIED >
+<!ATTLIST settings strength             ( primary | secondary | tertiary | quaternary | identical ) #IMPLIED >
+<!ATTLIST settings alternate            ( non-ignorable | shifted ) #IMPLIED >
+<!ATTLIST settings backwards            ( on | off ) #IMPLIED >
+<!ATTLIST settings normalization        ( on | off ) #IMPLIED >
+<!ATTLIST settings caseLevel            ( on | off ) #IMPLIED >
+<!ATTLIST settings caseFirst            ( upper | lower | off ) #IMPLIED >
+<!ATTLIST settings hiraganaQuarternary  ( on | off ) #IMPLIED >
+<!ATTLIST settings numeric              ( on | off ) #IMPLIED >
 
 <!ELEMENT suppress_contractions (  #PCDATA | cp )* >
 
 <!ELEMENT optimize ( #PCDATA | cp )* >
 
-<!ELEMENT rules (alias | (( reset | p | pc |  s | sc | t | tc | q | qc | i | ic)*, special*)) >
-
-<!ELEMENT p  ( #PCDATA | context | cp | last_variable | extend )* >
-
-<!ELEMENT pc ( #PCDATA | context | cp | last_variable | extend )*  >
-
-<!ELEMENT s  ( #PCDATA | context | cp | last_variable | extend )*  >
-
-<!ELEMENT sc ( #PCDATA | context | cp | last_variable | extend )*  >
-
-<!ELEMENT t  ( #PCDATA | context | cp | last_variable | extend )*  >
-
-<!ELEMENT tc ( #PCDATA | context | cp | last_variable | extend )*  >
-
-<!ELEMENT q  ( #PCDATA | context | cp | last_variable | extend )*  >
-
-<!ELEMENT qc ( #PCDATA | context | cp | last_variable | extend )*   >
-
-<!ELEMENT i  ( #PCDATA | context | cp | last_variable | extend )*   >
-
-<!ELEMENT ic ( #PCDATA | context | cp | last_variable | extend )*  >
-
- <!ELEMENT extend ( #PCDATA | cp )* >
+<!ELEMENT rules (alias | ( reset, ( reset | p | pc |  s | sc | t | tc | q | qc | i | ic | x)* )) >
 
 <!ELEMENT reset ( #PCDATA | cp  | first_variable| last_variable | first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable | last_secondary_ignorable | first_primary_ignorable | last_primary_ignorable | first_non_ignorable | last_non_ignorable | first_trailing | last_trailing )* >
 <!ATTLIST reset before NMTOKEN #IMPLIED >
+
+<!ELEMENT p  ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT pc ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT s  ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT sc ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT t  ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT tc ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT q  ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT qc ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT i  ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT ic ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT x (context?, (  p | pc |  s | sc | t | tc | q | qc | i | ic )*, extend? )  >
+
+<!ELEMENT extend ( #PCDATA | cp )* >
+
+<!ELEMENT context (  #PCDATA | cp )* >
 
 <!ELEMENT first_variable EMPTY >
 <!ELEMENT last_variable EMPTY >
@@ -350,10 +354,6 @@
 <!ELEMENT last_non_ignorable EMPTY >
 <!ELEMENT first_trailing EMPTY >
 <!ELEMENT last_trailing EMPTY >
-
-<!ELEMENT context (  #PCDATA ) >
-
-
 
 <!-- ######################################################### -->
 

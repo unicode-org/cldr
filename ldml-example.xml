@@ -421,7 +421,7 @@ For example, most country locales will inherit the bulk of their data from the l
                 <tc>&#x00FC;&#x00DC;</tc>
                 <reset><last_non_ignorable/></reset>
                 <reset>c</reset>
-                <p>k<extend>h</extend></p>
+                <x><p>k</p><extend>h</extend></x>
                 <reset><first_tertiary_ignorable/></reset>
                 <s>a</s>
                 <reset before="primary">x</reset>
@@ -429,8 +429,8 @@ For example, most country locales will inherit the bulk of their data from the l
                 <!-- following is equivalent to <p>&#x4E9C;</p><p>&#x5516;</p><p>&#x5A03;</p>... -->
                 <pc>&#x4E9C;&#x5516;&#x5A03;&#x963F;&#x54C0;&#x611B;&#x6328;&#x59F6;&#x9022;&#x8475;&#x831C;&#x7A50;&#x60AA;&#x63E1;&#x6E25;&#x65ED;&#x8466;&#x82A6;</pc>
                 <pc>&#x9BF5;&#x6893;&#x5727;&#x65A1;&#x6271;</pc>
-                <t>?<context>?</context></t>
-                <p>?<context>?</context></p>
+                <x><context>?</context><t>?</t></x>
+                <x><context>?</context><p>?</p></x>
             </rules>
             <special xmlns:icu="http://oss.software.ibm.com/icu/" version="1.2" />
             <special xmlns:openOffice="http://www.openoffice.org">

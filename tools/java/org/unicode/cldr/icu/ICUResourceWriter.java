@@ -47,6 +47,7 @@ public class ICUResourceWriter {
         String comment;
         String name;
         Resource next;
+        boolean noSort = false;
         public StringBuffer escapeSyntaxChars(String val){
             // escape the embedded quotes
             if(val==null) {
@@ -207,6 +208,9 @@ public class ICUResourceWriter {
             write(writer, CLOSEBRACE+LINESEP);
         }
         public void sort(){
+            if(noSort == true){
+                return;
+            }
             Resource current = first;
             while(current!=null){
                 current.sort();
@@ -240,7 +244,7 @@ public class ICUResourceWriter {
             String line =  ((name==null)? EMPTY: name)+COLON+INTS+ OPENBRACE + val +CLOSEBRACE;
             if(bare==true){
                 if(name!=null){
-                    throw new RuntimeException("Bare option is set to true but the resource has a name!");
+                    throw new RuntimeException("Bare option is set to true but the resource has a name: " +name);
                 }
                 write(writer,line); 
             }else{
@@ -374,6 +378,9 @@ public class ICUResourceWriter {
         // insertion sort of the linked list
         // from Algorithms in C++ Sedgewick
         public void sort(){
+            if(noSort == true){
+                return;
+            }
            // System.out.println("Entering sort of table");
             Resource b =new Resource();
             Resource a = first;

@@ -178,6 +178,8 @@ public class LDMLConstants {
     public static final String REGION            = "region";
     public static final String ISO_3166          = "iso3166";
     public static final String VALID_SUBLOCALE   = "validSubLocales";
-    
-    
+    public static final String TERRITORY_CONTAINMENT = "territoryContainment";
+    public static final String LANGUAGE_DATA = "languageData";
+    public static final String TO = "to";
+    public static final String FROM = "from";
 }

@@ -12,6 +12,7 @@ package org.unicode.cldr.icu;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UCharacterIterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -25,6 +26,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 
 import java.io.*;
+import java.text.ParseException;
 import java.util.*;
 
 import javax.xml.transform.TransformerException;
@@ -75,7 +77,7 @@ public class LDML2ICUConverter {
     private Document specialsDoc      = null;
     private String locName            = null;
 
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     HashMap overrideMap = new HashMap(); // list of locales to take regardless of draft status.  Written by writeDeprecated
 
@@ -179,7 +181,8 @@ public class LDML2ICUConverter {
                 // data after parsing
                 // The assumption here is that the top
                 // level resource is always a table in ICU
-                ICUResourceWriter.Resource res = parseSupplemental(doc);
+                ICUResourceWriter.Resource res = parseSupplemental(doc, xmlfileName);
+                res.name = "CurrencyData";
                 if(res!=null && ((ICUResourceWriter.ResourceTable)res).first!=null){
                     // write out the bundle
                     writeResource(res, xmlfileName);
@@ -337,13 +340,12 @@ public class LDML2ICUConverter {
 
         //TODO: "FX",  "RO",  "TP",  "ZR",   /* obsolete country codes */
     }
-    private ICUResourceWriter.Resource parseSupplemental(Node root){
-        ICUResourceWriter.ResourceTable table = null;
+    private ICUResourceWriter.Resource parseSupplemental(Node root, String file){
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.Resource current = null;
         StringBuffer xpath = new StringBuffer();
         xpath.append("//");
         xpath.append(LDMLConstants.SUPPLEMENTAL_DATA);
-        String file = sourceDir+"/"+locName+".xml";
         int savedLength = xpath.length();
         for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
             if(node.getNodeType()!=Node.ELEMENT_NODE){
@@ -371,6 +373,10 @@ public class LDML2ICUConverter {
             }else if(name.indexOf("icu:")>-1|| name.indexOf("openOffice:")>-1){
                 //TODO: these are specials .. ignore for now ... figure out
                 // what to do later
+            }else if(name.equals(LDMLConstants.TERRITORY_CONTAINMENT)){
+                //TODO:
+            }else if(name.equals(LDMLConstants.LANGUAGE_DATA)){
+                //TODO:
             }else{
                 printError(file,"Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);
@@ -405,8 +411,8 @@ public class LDML2ICUConverter {
         getXPath(root, xpath);
         int oldLength = xpath.length();
 
-        table.name = (String) keyNameMap.get(root.getNodeName());
-
+        table.name = "CurrencyMeta";
+        table.noSort = true;
         for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
             if(node.getNodeType()!=Node.ELEMENT_NODE){
                 continue;
@@ -439,6 +445,7 @@ public class LDML2ICUConverter {
                 one.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.ROUNDING);
                 vector.first = zero;
                 zero.next = one;
+                res = vector;
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);
@@ -461,6 +468,65 @@ public class LDML2ICUConverter {
         }
         return null;
     }
+    private int countHyphens(String str){
+       int ret = 0;
+       for(int i=0; i<str.length();i++){
+           if(str.charAt(i)=='-'){
+               ret++;
+           }
+       }
+       return ret;
+    }
+    private long getMilliSeconds(String dateStr){
+        try{
+            if(dateStr != null){
+                int count = countHyphens(dateStr);
+                SimpleDateFormat format = new SimpleDateFormat();
+                Date date = null;
+                if(count==2){
+                    format.applyPattern("yyyy-mm-dd");
+                    date = format.parse(dateStr);
+                }else if(count ==1){
+                    format.applyPattern("yyyy-mm");
+                    date =format.parse(dateStr);
+                }else{
+                    format.applyPattern("yyyy");
+                    date =format.parse(dateStr);
+                }
+                return date.getTime();
+            }
+        }catch(ParseException ex){
+            System.err.println("Could not parse date: "+ dateStr); 
+            System.err.println(ex.getMessage());
+            System.exit(-1);
+        }
+        return -1;
+    }
+    private ICUResourceWriter.ResourceIntVector getSeconds(String dateStr){
+        long millis = getMilliSeconds(dateStr);
+        if(millis==-1){
+            return null;
+        }
+        int top =(int)((millis & 0xFFFFFFFF00000000L)>>>32);
+        int bottom = (int)((millis & 0x00000000FFFFFFFFL));
+        ICUResourceWriter.ResourceIntVector vector = new ICUResourceWriter.ResourceIntVector();
+        ICUResourceWriter.ResourceInt int1 = new ICUResourceWriter.ResourceInt();
+        ICUResourceWriter.ResourceInt int2 = new ICUResourceWriter.ResourceInt();
+        int1.val = Integer.toString(top);
+        int2.val = Integer.toString(bottom);
+        vector.first = int1;
+        int1.next = int2;
+        if(DEBUG){
+            top = Integer.parseInt(int1.val);
+            bottom = Integer.parseInt(int2.val);
+            long full = (((long)top) << 32 )+ bottom;
+            if(full != millis){
+                System.out.println("Did not get the value back.");
+            }
+            
+        }
+        return vector;
+    }
     private ICUResourceWriter.Resource parseCurrencyRegion(Node root, StringBuffer xpath){
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.Resource current = null;
@@ -475,8 +541,7 @@ public class LDML2ICUConverter {
         int savedLength = xpath.length();
         getXPath(root, xpath);
         int oldLength = xpath.length();
-        table.name = (String) keyNameMap.get(root.getNodeName());
-
+        table.name =  LDMLUtilities.getAttributeValue(root, LDMLConstants.ISO_3166);
         for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
             if(node.getNodeType()!=Node.ELEMENT_NODE){
                 continue;
@@ -493,7 +558,7 @@ public class LDML2ICUConverter {
                 str.name = name;
                 str.val = LDMLUtilities.getAttributeValue(node,LDMLConstants.TYPE);
                 res = str;
-            }else if(name.equals(LDMLConstants.REGION)){
+            }else if(name.equals(LDMLConstants.CURRENCY)){
                 if(isDraft(node, xpath)&& !writeDraft){
                     continue;
                 }
@@ -501,14 +566,27 @@ public class LDML2ICUConverter {
                 if(isAlternate(node)){
                     continue;
                 }
-                ICUResourceWriter.ResourceIntVector vector = new ICUResourceWriter.ResourceIntVector();
-                vector.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.ISO_3166);
-                ICUResourceWriter.ResourceInt zero = new ICUResourceWriter.ResourceInt();
-                ICUResourceWriter.ResourceInt one = new ICUResourceWriter.ResourceInt();
-                zero.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.DIGITS);
-                one.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.ROUNDING);
-                vector.first = zero;
-                zero.next = one;
+                ICUResourceWriter.ResourceTable curr = new ICUResourceWriter.ResourceTable();
+                curr.name ="";
+                ICUResourceWriter.ResourceString id = new ICUResourceWriter.ResourceString();
+                id.name="id";
+                id.val = LDMLUtilities.getAttributeValue(node, LDMLConstants.ISO_4217);
+
+                ICUResourceWriter.ResourceIntVector fromRes = getSeconds(LDMLUtilities.getAttributeValue(node, LDMLConstants.FROM));
+                ICUResourceWriter.ResourceIntVector toRes =  getSeconds(LDMLUtilities.getAttributeValue(node, LDMLConstants.TO));
+                if(fromRes == null){
+                    System.err.println("Could not get from attribute for region code: " +table.name+ "iso4127: "+curr.name);
+                    System.exit(-1); 
+                }
+
+                fromRes.name = LDMLConstants.FROM;
+                curr.first = id;
+                id.next = fromRes;
+                if(toRes != null){
+                    toRes.name = LDMLConstants.TO;
+                    fromRes.next = toRes;
+                }
+                res = curr;
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);
@@ -532,9 +610,12 @@ public class LDML2ICUConverter {
         return null;
     }
     private ICUResourceWriter.Resource parseCurrencyData(Node root, StringBuffer xpath){
-        ICUResourceWriter.Resource first = null;
-        ICUResourceWriter.Resource current = null;
-
+        ICUResourceWriter.Resource currencyMeta = null;
+        ICUResourceWriter.ResourceTable currencyMap  = new ICUResourceWriter.ResourceTable();
+        currencyMap.name = "CurrencyMap";
+        currencyMap.noSort = true;
+        ICUResourceWriter.Resource currentMap = null;
+        
         if(isDraft(root, xpath)&& !writeDraft){
             return null;
         }
@@ -553,27 +634,29 @@ public class LDML2ICUConverter {
             ICUResourceWriter.Resource res = null;
             getXPath(node, xpath);
             if(name.equals(LDMLConstants.REGION)){
-               res = parseCurrencyRegion(node, xpath);
+                res = parseCurrencyRegion(node, xpath);
+               if(res!=null){
+                   if(currentMap == null){
+                       currencyMap.first = res;
+                       currentMap = findLast(res);
+                   }else{
+                       currentMap.next = res;
+                       currentMap = findLast(res);
+                   }
+                   res = null;
+               }
             }else if(name.equals(LDMLConstants.FRACTIONS)){
-                res = parseCurrencyFraction(node, xpath);
+                currencyMeta = parseCurrencyFraction(node, xpath);
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);
             }
-            if(res!=null){
-                if(current == null){
-                    first = res;
-                    current = findLast(res);
-                }else{
-                    current.next = res;
-                    current = findLast(res);
-                }
-                res = null;
-            }
+            
             xpath.delete(oldLength, xpath.length());
         }
         xpath.delete(savedLength, xpath.length());
-        return first;
+        currencyMeta.next = currencyMap;
+        return currencyMeta;
     }
     private String ldmlVersion = null;
     private ICUResourceWriter.Resource parseBundle(Node root){

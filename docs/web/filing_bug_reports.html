@@ -122,26 +122,37 @@
         <blockquote>
           <h1>Filing CLDR Bug Reports</h1>
           <p>Locale data bugs are filed at <a href="http://www.jtcsv.com/cgibin/locale-bugs">Locale 
-          Bugs</a>. Bugs may be filed for defects in current data, for submissions of new data, and 
-          for feature requests in CLDR or LDML.</p>
+          Bugs</a>. <span style="background-color: #FFFF00">However, be sure to read the rest of 
+          this page first!</span></p>
+          <p>Bugs may be filed for defects in current data, for submissions of new data, and for 
+          feature requests in CLDR or LDML.</p>
           <blockquote>
             <p><font size="2">The CLDR bug database is currently being hosted by IBM as a service to 
             the Unicode Consortium until it can be moved to the Unicode site. The Unicode Consortium 
             thanks IBM for this support.</font></p>
           </blockquote>
-          <p><i>Before filing a bug report:</i></p>
+          <p><b><i>Before filing a bug report:</i></b></p>
           <ol>
             <li>Review the <a href="data_formats.html">Data Formats</a>, so that you are familiar 
             with the format of the data in question.
             <ul>
               <li>Even for items as simple as the months of the year, there are issues of 
               grammatical form that you should be acquainted with.</li>
+              <li><span style="background-color: #FFFF00">That page also includes a description of 
+              the minimal data requirements, for new submissions.</span></li>
             </ul>
             </li>
             <li>Consult the appropriate
-            <a href="http://www.unicode.org/cldr/data/comparison_charts.html">comparison chart</a>.
-            <ul>
+            <a href="http://www.unicode.org/cldr/data/comparison_charts.html">comparison chart</a>.<ul>
               <li>The purpose is to compare the data against that from other platforms.</li>
+            </ul>
+            </li>
+            <li><span style="background-color: #FFFF00">Consult the </span>
+            <a href="http://www.unicode.org/cldr/data/diff/by_type/index.html">
+            <span style="background-color: #FFFF00">By-Type Charts</span></a><span style="background-color: #FFFF00"> 
+            for specific data items.</span><ul>
+              <li><span style="background-color: #FFFF00">The purpose is to cross-check against how 
+              the data is represented in other languages.</span></li>
             </ul>
             </li>
             <li><i>Do not file bugs against platform data.</i>
@@ -157,25 +168,29 @@
           <p>For defects or submissions of new data, include the following information:</p>
           <ul>
             <li>The specific locale.</li>
-            <li>The date the comparison chart was generated (at the bottom of the chart).</li>
-            <li>The line(s) of data that are incorrect.</li>
             <li>The justification for the change: mention <a href="#Possible_Comparison_Sources">
             Sources</a> if available.</li>
-            <li>If one of the other data sources is correct, then that data source, otherwise the 
-            corrected data to use.</li>
             <li>Wherever possible, include sample test data. <a href="#Collation_Bugs">This is 
             especially important for collation (sorting) rules</a>!</li>
             <li>For bulk submissions, follow the requirements of
             <a href="process.html#bulk_submissions">Bulk Submissions</a></li>
+            <li>If the item is in the comparison chart:<ul>
+              <li>The date the comparison chart was generated (at the bottom of the chart).</li>
+              <li>The line(s) of data that are incorrect.</li>
+              <li>If one of the other data sources is correct, then that data source, otherwise the 
+              corrected data to use.</li>
+            </ul>
+            </li>
           </ul>
-          <p>Please group all bugs for a single locale into a single bug report, wherever possible.</p>
+          <p><i>Please group all bugs for a single locale into a single bug report, wherever 
+          possible.</i></p>
           <p>Bugs may also be filed on the
           <a href="http://www.unicode.org/cldr/data/dtd/supplementalData.xml">supplemental data</a>, 
           which is only available in XML format. Note that the default currency for a given 
           territory is in the supplemental data, not in the locale data. Similarly, the timezones 
-          for different regions are to be derived from <a href="olson_ids.txt">Olson data</a>, and 
-          are not in the locale data. The <i>localized names</i> for currencies and timezones, on 
-          the other hand, will be in the locale data (if available).</p>
+          for different regions are to be derived from Olson data, and are not in the locale data. 
+          The <i>localized names</i> for currencies and timezones, on the other hand, will be in the 
+          locale data (if available).</p>
           <p>We have tried to make the format of the comparison charts as useful as possible. If you 
           have suggestions for improvements, please also file it as a bug report.</p>
           <h2><a name="Collation_Bugs">Collation Bugs</a></h2>
@@ -318,6 +333,9 @@
           <p>&nbsp;</p>
         </blockquote>
         </td>
+      </tr>
+      <tr>
+        <td class="contents" valign="top">&nbsp;</td>
       </tr>
     </table>
     <hr width="50%">

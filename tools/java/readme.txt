@@ -48,3 +48,13 @@ For building utilities.jar and icu4j.jar:
    <dir>/bin/ant clean core jar
 4. Build utilities.jar with the following command:
    <dir>/bin/ant cldrUtil
+
+IMPORTANT:
+If you are using Eclipse for building CLDR tools and ICU4J, make sure that you
+do not make building of CLDR tools dependent on ICU4J project. In Java Perspective
+open Package Explorer view > Select CLDR project > Right click > Properties > 
+Java Build Path > Projects tab > Uncheck ICU4J. Now go to Libraries tab and click
+the Add External Jars button and add the utilities.jar and icu4j.jar that you
+have downloaded from the instructions above. If you do not do this, you may be breaking
+others when you use classes not in utilities.jar or icu4j.jar and check in the files.
+

@@ -923,17 +923,6 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<zone type="PST">
-				<long>
-					<standard>Hora estándar del Pacífico</standard>
-					<daylight>Hora de verano del Pacífico</daylight>
-				</long>
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
-				<exemplarCity>Los Ángeles</exemplarCity>
-			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
 					<standard>Hora estándar del Pacífico</standard>
@@ -944,17 +933,6 @@
 					<daylight>PDT</daylight>
 				</short>
 				<exemplarCity>Los Ángeles</exemplarCity>
-			</zone>
-			<zone type="MST">
-				<long>
-					<standard>Hora estándar de Montaña</standard>
-					<daylight>Hora de verano de Montaña</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-				<exemplarCity>Denver</exemplarCity>
 			</zone>
 			<zone type="America/Denver">
 				<long>
@@ -967,17 +945,6 @@
 				</short>
 				<exemplarCity>Denver</exemplarCity>
 			</zone>
-			<zone type="PNT">
-				<long>
-					<standard>Hora estándar de Montaña</standard>
-					<daylight>Hora estándar de Montaña</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MST</daylight>
-				</short>
-				<exemplarCity>Phoenix</exemplarCity>
-			</zone>
 			<zone type="America/Phoenix">
 				<long>
 					<standard>Hora estándar de Montaña</standard>
@@ -988,17 +955,6 @@
 					<daylight>MST</daylight>
 				</short>
 				<exemplarCity>Phoenix</exemplarCity>
-			</zone>
-			<zone type="CST">
-				<long>
-					<standard>Hora estándar central</standard>
-					<daylight>Hora de verano central</daylight>
-				</long>
-				<short>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
-				</short>
-				<exemplarCity>Chicago</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<long>
@@ -1011,17 +967,6 @@
 				</short>
 				<exemplarCity>Chicago</exemplarCity>
 			</zone>
-			<zone type="EST">
-				<long>
-					<standard>Hora estándar oriental</standard>
-					<daylight>Hora de verano oriental</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
-				<exemplarCity>Nueva York</exemplarCity>
-			</zone>
 			<zone type="America/New_York">
 				<long>
 					<standard>Hora estándar oriental</standard>
@@ -1032,17 +977,6 @@
 					<daylight>EDT</daylight>
 				</short>
 				<exemplarCity>Nueva York</exemplarCity>
-			</zone>
-			<zone type="IET">
-				<long>
-					<standard>Hora estándar oriental</standard>
-					<daylight>Hora estándar oriental</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EST</daylight>
-				</short>
-				<exemplarCity>Indianápolis</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
@@ -1055,17 +989,6 @@
 				</short>
 				<exemplarCity>Indianápolis</exemplarCity>
 			</zone>
-			<zone type="HST">
-				<long>
-					<standard>Hora estándar de Hawai</standard>
-					<daylight>Hora estándar de Hawai</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
-				</short>
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
 					<standard>Hora estándar de Hawai</standard>
@@ -1076,17 +999,6 @@
 					<daylight>HST</daylight>
 				</short>
 				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="AST">
-				<long>
-					<standard>Hora estándar de Alaska</standard>
-					<daylight>Hora de verano de Alaska</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
-				<exemplarCity>Anchorage</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<long>
@@ -1110,17 +1022,6 @@
 				</short>
 				<exemplarCity>Halifax</exemplarCity>
 			</zone>
-			<zone type="CNT">
-				<long>
-					<standard>Hora estándar de Newfoundland</standard>
-					<daylight>Hora de verano de Newfoundland</daylight>
-				</long>
-				<short>
-					<standard>CNT</standard>
-					<daylight>CDT</daylight>
-				</short>
-				<exemplarCity>St. Johns</exemplarCity>
-			</zone>
 			<zone type="America/St_Johns">
 				<long>
 					<standard>Hora estándar de Newfoundland</standard>
@@ -1131,17 +1032,6 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>St. Johns</exemplarCity>
-			</zone>
-			<zone type="ECT">
-				<long>
-					<standard>Hora estándar de Europa Central</standard>
-					<daylight>Hora de verano de Europa Central</daylight>
-				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
-				<exemplarCity>París</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
@@ -1154,7 +1044,7 @@
 				</short>
 				<exemplarCity>París</exemplarCity>
 			</zone>
-			<zone type="GMT">
+			<zone type="Etc/GMT">
 				<long>
 					<standard>Hora media de Greenwich</standard>
 					<daylight>Hora media de Greenwich</daylight>
@@ -1187,17 +1077,6 @@
 				</short>
 				<exemplarCity>Jerusalén</exemplarCity>
 			</zone>
-			<zone type="JST">
-				<long>
-					<standard>Hora estándar de Japón</standard>
-					<daylight>Hora estándar de Japón</daylight>
-				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JST</daylight>
-				</short>
-				<exemplarCity>Tokio</exemplarCity>
-			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>Hora estándar de Japón</standard>
@@ -1219,17 +1098,6 @@
 					<daylight>EEST</daylight>
 				</short>
 				<exemplarCity>Bucarest</exemplarCity>
-			</zone>
-			<zone type="CTT">
-				<long>
-					<standard>Hora estándar de China</standard>
-					<daylight>Hora estándar de China</daylight>
-				</long>
-				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
-				</short>
-				<exemplarCity>Shanghai</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
@@ -2779,9 +2647,7 @@
 		</messages>
 	</posix>
 </ldml>
-
-<!--
- Old Comments. See root.xml for more info.
+<!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/es.txt?only_with_tag=final-update-LDML
 
                 "a.C.",  // Said to be a.C. for antes de Cristo
@@ -2821,6 +2687,5 @@ It can be found in words like multilig\u00fce, ag\u00fcita and Itag\u00fc\u00ed
 ? Qaai { "inherited" } // PUA  Difficult to translate
         Zyyy { "com\u00FAn" } // This may need to become "undetermined script"
 The following should probably be all lowercase.
-
-
 -->
+

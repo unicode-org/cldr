@@ -874,9 +874,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week draft="true">
-					<weekendEnd day="sun" time="24:00"/>
-				</week>
 				<am>上午</am>
 				<pm>下午</pm>
 				<eras>
@@ -888,17 +885,6 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<zone type="PST">
-				<long>
-					<standard>太平洋标准时间</standard>
-					<daylight>太平洋夏令时间</daylight>
-				</long>
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
-				<exemplarCity>洛杉矶</exemplarCity>
-			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
 					<standard>太平洋标准时间</standard>
@@ -909,17 +895,6 @@
 					<daylight>PDT</daylight>
 				</short>
 				<exemplarCity>洛杉矶</exemplarCity>
-			</zone>
-			<zone type="MST">
-				<long>
-					<standard>山区标准时间</standard>
-					<daylight>山区夏令时间</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-				<exemplarCity>丹佛</exemplarCity>
 			</zone>
 			<zone type="America/Denver">
 				<long>
@@ -932,17 +907,6 @@
 				</short>
 				<exemplarCity>丹佛</exemplarCity>
 			</zone>
-			<zone type="PNT">
-				<long>
-					<standard>山区标准时间</standard>
-					<daylight>山区标准时间</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MST</daylight>
-				</short>
-				<exemplarCity>凤凰城</exemplarCity>
-			</zone>
 			<zone type="America/Phoenix">
 				<long>
 					<standard>山区标准时间</standard>
@@ -953,17 +917,6 @@
 					<daylight>MST</daylight>
 				</short>
 				<exemplarCity>凤凰城</exemplarCity>
-			</zone>
-			<zone type="CST">
-				<long>
-					<standard>中央标准时间</standard>
-					<daylight>中央夏令时间</daylight>
-				</long>
-				<short>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
-				</short>
-				<exemplarCity>芝加哥</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<long>
@@ -976,17 +929,6 @@
 				</short>
 				<exemplarCity>芝加哥</exemplarCity>
 			</zone>
-			<zone type="EST">
-				<long>
-					<standard>东部标准时间</standard>
-					<daylight>东部夏令时间</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
-				<exemplarCity>纽约</exemplarCity>
-			</zone>
 			<zone type="America/New_York">
 				<long>
 					<standard>东部标准时间</standard>
@@ -997,17 +939,6 @@
 					<daylight>EDT</daylight>
 				</short>
 				<exemplarCity>纽约</exemplarCity>
-			</zone>
-			<zone type="IET">
-				<long>
-					<standard>东部标准时间</standard>
-					<daylight>东部标准时间</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EST</daylight>
-				</short>
-				<exemplarCity>印地安纳波利斯</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
@@ -1020,17 +951,6 @@
 				</short>
 				<exemplarCity>印地安纳波利斯</exemplarCity>
 			</zone>
-			<zone type="HST">
-				<long>
-					<standard>夏威夷标准时间</standard>
-					<daylight>夏威夷标准时间</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
-				</short>
-				<exemplarCity>檀香山</exemplarCity>
-			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
 					<standard>夏威夷标准时间</standard>
@@ -1041,17 +961,6 @@
 					<daylight>HST</daylight>
 				</short>
 				<exemplarCity>檀香山</exemplarCity>
-			</zone>
-			<zone type="AST">
-				<long>
-					<standard>阿拉斯加标准时间</standard>
-					<daylight>阿拉斯加夏令时间</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
-				<exemplarCity>安克雷奇</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<long>
@@ -1075,17 +984,6 @@
 				</short>
 				<exemplarCity>哈利法克斯</exemplarCity>
 			</zone>
-			<zone type="CNT">
-				<long>
-					<standard>纽芬兰标准时间</standard>
-					<daylight>纽芬兰夏令时间</daylight>
-				</long>
-				<short>
-					<standard>CNT</standard>
-					<daylight>CDT</daylight>
-				</short>
-				<exemplarCity>圣约翰</exemplarCity>
-			</zone>
 			<zone type="America/St_Johns">
 				<long>
 					<standard>纽芬兰标准时间</standard>
@@ -1096,17 +994,6 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>圣约翰</exemplarCity>
-			</zone>
-			<zone type="ECT">
-				<long>
-					<standard>中欧标准时间</standard>
-					<daylight>中欧夏令时间</daylight>
-				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
-				<exemplarCity>巴黎</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
@@ -1119,7 +1006,7 @@
 				</short>
 				<exemplarCity>巴黎</exemplarCity>
 			</zone>
-			<zone type="GMT">
+			<zone type="Etc/GMT">
 				<long>
 					<standard>格林威治标准时间</standard>
 					<daylight>格林威治标准时间</daylight>
@@ -1152,17 +1039,6 @@
 				</short>
 				<exemplarCity>耶路撒冷</exemplarCity>
 			</zone>
-			<zone type="JST">
-				<long>
-					<standard>日本标准时间</standard>
-					<daylight>日本标准时间</daylight>
-				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JST</daylight>
-				</short>
-				<exemplarCity>东京</exemplarCity>
-			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>日本标准时间</standard>
@@ -1184,17 +1060,6 @@
 					<daylight>EEST</daylight>
 				</short>
 				<exemplarCity>布加勒斯特</exemplarCity>
-			</zone>
-			<zone type="CTT">
-				<long>
-					<standard>中国标准时间</standard>
-					<daylight>中国标准时间</daylight>
-				</long>
-				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
-				</short>
-				<exemplarCity>上海</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
@@ -2679,9 +2544,7 @@
 		</messages>
 	</posix>
 </ldml>
-
-<!--
- Old Comments. See root.xml for more info.
+<!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/zh.txt?only_with_tag=final-update-LDML
 
         CN { "\u4E2D\u56FD" }  // From the JDK and translation center
@@ -2697,6 +2560,5 @@ Qaai { "\u7EE7\u627F\u8BED" } // PUA
 Zyyy { "\u672A\u786E\u5B9A\u8BED\u7CFB" } // This may need to become "undetermined script"
 EURO    { "\u6b27\u5143" }
 PREEURO { "\u65e7\u5e01" }
-
-
 -->
+

@@ -855,9 +855,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week draft="true">
-					<weekendEnd day="sun" time="24:00"/>
-				</week>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1812,14 +1809,11 @@
 		</messages>
 	</posix>
 </ldml>
-
-<!--
- Old Comments. See root.xml for more info.
+<!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/is.txt?only_with_tag=final-update-LDML
 
 CS { "Serb\u00eda og Svartfjallaland" } // TODO: if we allow this, then SP must go away
 MM { "B\u00farma" } // Burma? Should be Myanmar?
-        "Latn",  // ISO 15924 Name 
-
-
+        "Latn",  // ISO 15924 Name
 -->
+

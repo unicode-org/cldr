@@ -44,10 +44,7 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-
-<!--
-
-This is a special purpose locale so that a user can request the C or POSIX
+<!-- This is a special purpose locale so that a user can request the C or POSIX
 style formatting. This does not include grouping separators in numbers, nor
 unusual characters for infinity or NaN. Some people have known this to be the
 invariant locale, which is different from the root locale.
@@ -62,6 +59,5 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/en_US_POSIX.txt
 This is an invariant locale.
 This has been also known as the C locale on Unix or the invariant locale in Windows.
 No grouping separators
-
-
 -->
+

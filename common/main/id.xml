@@ -536,7 +536,6 @@
 				</days>
 				<week draft="true">
 					<firstDay day="mon"/>
-					<weekendEnd day="sun" time="24:00"/>
 				</week>
 			</calendar>
 		</calendars>
@@ -569,9 +568,7 @@
 		</messages>
 	</posix>
 </ldml>
-
-<!--
- Old Comments. See root.xml for more info.
+<!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/id.txt?only_with_tag=final-update-LDML
 
 Significant contributions from Mohammad DAMT
@@ -584,6 +581,5 @@ The range qaa-qtz is reserved for local use.
 AmPmMarkers{}
 Eras{}
 localPatternChars{}
-
-
 -->
+

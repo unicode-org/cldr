@@ -10,11 +10,9 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-        <week draft="true">
-          <minDays count="1"/>
+				<week draft="true">
 					<firstDay day="mon"/>
 					<weekendStart draft="true" day="sun" time="00:00"/>
-					<weekendEnd day="sun" time="24:00"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -87,9 +85,7 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-
-<!--
- Old Comments. See root.xml for more info.
+<!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/te_IN.txt?only_with_tag=final-update-LDML
 
 Telugu Locale. Data by Ram [ram@jtcsv.com]
@@ -101,6 +97,5 @@ Width { "210" }
 Units { "mm" }
 }
            weekend:intvector { // Sunday
-
-
 -->
+

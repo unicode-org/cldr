@@ -17,12 +17,6 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-        <week draft="true">
-          <minDays count="1"/>
-					<firstDay day="sun"/>
-					<weekendStart  day="sat" time="00:00"/>
-					<weekendEnd day="sun" time="24:00"/>
-				</week>
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>
@@ -61,9 +55,7 @@
 		</calendars>
 	</dates>
 </ldml>
-
-<!--
- Old Comments. See root.xml for more info.
+<!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/es_US.txt?only_with_tag=final-update-LDML
 
 "\u2030",
@@ -75,6 +67,5 @@ these values are not exact .. they are rounded off
         279, // height
         216  // width 
     MeasurementSystem:int{ 1 } // US system
-
-
 -->
+

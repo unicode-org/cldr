@@ -304,10 +304,10 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="sun"></firstDay>
-					<weekendStart draft="true" day="sat" time="00:00"></weekendStart>
-					<weekendEnd draft="true" day="sun" time="24:00"></weekendEnd>
+					<minDays count="1"/>
+					<firstDay day="sun"/>
+					<weekendStart draft="true" day="sat" time="00:00"/>
+					<weekendEnd draft="true" day="sun" time="24:00"/>
 				</week>
 				<am>AM</am>
 				<pm>PM</pm>
@@ -732,7 +732,7 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<zone type="">
+			<zone type="EMPTY-REMOVE">
 				<long>
 					<standard/>
 					<daylight/>
@@ -816,9 +816,7 @@
 		</currencies>
 	</numbers>
 </ldml>
-
-<!--
- These eras are numbered according to the data used
+<!-- These eras are numbered according to the data used
                                                      by the ICU Japanese Calendar.
                                                      http://oss.software.ibm.com/cvs/icu4j/icu4j/src/com/ibm/icu/util/JapaneseCalendar.java?rev=1.25   search for 'ERAS ='
                                                      
@@ -910,6 +908,5 @@ The values in root must always be capitalized because the signify the values are
 codes not translations
 NY      { "NY" }        // No longer valid variant. Here for backwards compatibility.
 EURO    { "EURO" }      // EURO variant display name
-
-
 -->
+

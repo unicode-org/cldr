@@ -130,7 +130,7 @@
 			<territory type="GU">Guam</territory>
 			<territory type="GW">Gvineja Bissau</territory>
 			<territory type="GY">Gvajana</territory>
-			<territory type="HK" draft="true">Hong Kong S.A.R. Kitajske</territory>
+			<territory type="HK">Hong Kong S.A.R. Kitajske</territory>
 			<territory type="HM">Heardov otok in McDonaldovi otoki</territory>
 			<territory type="HN">Honduras</territory>
 			<territory type="HR">Hrvaška</territory>
@@ -179,7 +179,7 @@
 			<territory type="ML">Mali</territory>
 			<territory type="MM">Myanmar</territory>
 			<territory type="MN">Mongolija</territory>
-			<territory type="MO" draft="true">Makao S.A.R. Kitajske</territory>
+			<territory type="MO">Makao S.A.R. Kitajske</territory>
 			<territory type="MP">Severni Marianski otoki</territory>
 			<territory type="MQ">Martinik</territory>
 			<territory type="MR">Mavretanija</territory>
@@ -245,8 +245,7 @@
 			<territory type="SZ">Svazi</territory>
 			<territory type="TC">Otočji Turks in Caicos</territory>
 			<territory type="TD">Čad</territory>
-			<territory type="TF">Francoski zahodni teritorij</territory>
-			<territory alt="proposed" draft="true" type="TF">Francoski južni teritorij</territory>
+			<territory type="TF">Francoski južni teritorij</territory>
 			<territory type="TG">Togo</territory>
 			<territory type="TH">Tajska</territory>
 			<territory type="TJ">Tadžikistan</territory>
@@ -283,23 +282,23 @@
 			<territory type="ZW">Zimbabve</territory>
 		</territories>
 		<keys>
-			<key draft="true" type="collation">Zlaganje</key>
-			<key draft="true" type="calendar">Kolendar</key>
-			<key draft="true" type="currency">Valuta</key>
+			<key type="collation">Zlaganje</key>
+			<key type="calendar">Kolendar</key>
+			<key type="currency">Valuta</key>
 		</keys>
 		<types>
-			<type draft="true" type="japanese" key="calendar">Japonski kolendar</type>
-			<type draft="true" type="buddhist" key="calendar">Budistični kolendar</type>
-			<type draft="true" type="islamic" key="calendar">Islamski kolendar</type>
-			<type draft="true" type="islamic-civil" key="calendar">Islamski civilni kolendar</type>
-			<type draft="true" type="hebrew" key="calendar">Hebrejski kolendar</type>
-			<type draft="true" type="chinese" key="calendar">Kitajski kolendar</type>
-			<type draft="true" type="gregorian" key="calendar">Gregorijanski kolendar</type>
-			<type draft="true" type="phonebook" key="collation">Zlaganje po abecedi</type>
-			<type draft="true" type="pinyin" key="collation">Pinyin zlaganje</type>
-			<type draft="true" type="traditional" key="collation">Tradicionano zlaganje</type>
-			<type draft="true" type="stroke" key="collation">Stroke order zlaganje</type>
-			<type draft="true" type="direct" key="collation">Direktno zlaganje</type>
+			<type type="japanese" key="calendar">Japonski kolendar</type>
+			<type type="buddhist" key="calendar">Budistični kolendar</type>
+			<type type="islamic" key="calendar">Islamski kolendar</type>
+			<type type="islamic-civil" key="calendar">Islamski civilni kolendar</type>
+			<type type="hebrew" key="calendar">Hebrejski kolendar</type>
+			<type type="chinese" key="calendar">Kitajski kolendar</type>
+			<type type="gregorian" key="calendar">Gregorijanski kolendar</type>
+			<type type="phonebook" key="collation">Zlaganje po abecedi</type>
+			<type type="pinyin" key="collation">Pinyin zlaganje</type>
+			<type type="traditional" key="collation">Tradicionano zlaganje</type>
+			<type type="stroke" key="collation">Stroke order zlaganje</type>
+			<type type="direct" key="collation">Direktno zlaganje</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -325,7 +324,7 @@
 							<month type="11">nov</month>
 							<month type="12">dec</month>
 						</monthWidth>
-						<monthWidth draft="true" type="narrow">
+						<monthWidth type="narrow">
 							<month type="1">j</month>
 							<month type="2">f</month>
 							<month type="3">m</month>
@@ -366,7 +365,7 @@
 							<day type="fri">pet</day>
 							<day type="sat">sob</day>
 						</dayWidth>
-						<dayWidth draft="true" type="narrow">
+						<dayWidth type="narrow">
 							<day type="sun">n</day>
 							<day type="mon">p</day>
 							<day type="tue">t</day>
@@ -454,7 +453,7 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
 			<yesstr>da;ja</yesstr>
 			<nostr>ne</nostr>

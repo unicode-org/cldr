@@ -196,8 +196,8 @@ the same results in comparing strings.</p>
 behind the structure. People do not have to subscribe to this model to use the 
 data, but they do need to understand it so that the data can be correctly 
 translated into whatever model their implementation uses.</p>
-<p>The first issue is basic: what is a locale? In this document, a locale is an 
-id that refers to a set of user preferences that tend to be shared across 
+<p>The first issue is basic: <i>what is a locale?</i> In this document, a locale 
+is an id that refers to a set of user preferences that tend to be shared across 
 significant swathes of the world. Traditionally, the data associated with this 
 id provides support for formatting and parsing of dates, times, numbers, and 
 currencies; for measurement units, for sort-order (collation), plus translated 
@@ -223,7 +223,10 @@ in this document does not attempt to collect together all the data that could
 conceivably be used by all possible services. Instead, it collects together data 
 that is in common use in systems and internationalization libraries for basic 
 services. The main difference among locales is in terms of language; there may 
-also be some differences according to different countries or regions.</p>
+also be some differences according to different countries or regions. However, 
+the line between <i>locales</i> and <i>languages</i>, as commonly used in the 
+industry, are rather fuzzy. For more information, see <a href="#Language_and_Locale_IDs">Appendix 
+D: Language and Locale IDs</a>.</p>
 <p class="note"><b>Note: </b>As far as we are concerned — <i>as a completely 
 practical matter</i> — two languages are different if they require 
 substantially different localized resources. Distinctions according to spoken 
@@ -348,7 +351,7 @@ variants include:</p>
   </tr>
   <tr>
     <td>aaland</td>
-    <td>Åland, variant of Norwegian</td>
+    <td>Åland, variant of Swedish used in Finland</td>
   </tr>
 </table>
 <p class="note"><b>Note: </b>The first two of the above variants are for 
@@ -495,7 +498,7 @@ contains the following elements:</p>
   <li><a href="#&lt;identity&gt;">&lt;identity&gt;</a></li>
   <li><a href="#&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></li>
   <li><a href="#&lt;layout&gt;">&lt;layout&gt;</a></li>
-  <li><a href="#&lt;characters&gt;">&lt;encodings&gt;</a></li>
+  <li><a href="#&lt;characters&gt;">&lt;characters&gt;</a></li>
   <li><a href="#&lt;delimiters&gt;">&lt;delimiters&gt;</a></li>
   <li><a href="#&lt;measurement&gt;">&lt;measurement&gt;</a></li>
   <li><a href="#&lt;dates&gt;">&lt;dates&gt;</a>
@@ -655,7 +658,7 @@ values described above.</p>
 <p class="element2">&lt;territory type=&quot;US&quot;/&gt;</p>
 <p>The territory code is a common part of the specification of the locale id, 
 with values as described above.</p>
-<p>&lt;variant type=&quot;nynorsk&quot;/&gt;</p>
+<p class="element2">&lt;variant type=&quot;nynorsk&quot;/&gt;</p>
 <p>The variant code is the tertiary part of the specification of the locale id, 
 with values as described above.</p>
 <h3><a name="&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></h3>
@@ -663,6 +666,15 @@ with values as described above.</p>
 are supplied by this element. These supply localized names for these items for 
 use in user-interfaces for displaying lists of locales and scripts. Examples are 
 given below:</p>
+<p class="element2">&lt;languages&gt;</p>
+<p>This contains a list of elements that provide the user-translated names for 
+language codes from [<a href="#ISO639">ISO639</a>], as described in <a href="#Locale_IDs">Locale_IDs</a>.</p>
+<blockquote>
+  <p>&lt;language type=&quot;ab&quot;&gt;Abkhazian&lt;/language&gt;<br>
+  &lt;language type=&quot;aa&quot;&gt;Afar&lt;/language&gt;<br>
+  &lt;language type=&quot;af&quot;&gt;Afrikaans&lt;/language&gt;<br>
+  &lt;language type=&quot;sq&quot;&gt;Albanian&lt;/language&gt;</p>
+</blockquote>
 <p class="element2">&lt;scripts&gt;</p>
 <p>This element can contain an number of script elements. Each script element 
 provides the localized name for a script, given by the value of the type 
@@ -675,15 +687,6 @@ would be expressed with the following.</p>
 <blockquote>
   <p>&lt;script type=&quot;Latin&quot;&gt;Romana&lt;/script&gt;<br>
   &lt;script type=&quot;Cyrillic&quot;&gt;Kyrillica&lt;/script&gt;</p>
-</blockquote>
-<p class="element2">&lt;languages&gt;</p>
-<p>This contains a list of elements that provide the user-translated names for 
-language codes from [<a href="#ISO639">ISO639</a>], as described in <a href="#Locale_IDs">Locale_IDs</a>.</p>
-<blockquote>
-  <p>&lt;language type=&quot;ab&quot;&gt;Abkhazian&lt;/language&gt;<br>
-  &lt;language type=&quot;aa&quot;&gt;Afar&lt;/language&gt;<br>
-  &lt;language type=&quot;af&quot;&gt;Afrikaans&lt;/language&gt;<br>
-  &lt;language type=&quot;sq&quot;&gt;Albanian&lt;/language&gt;</p>
 </blockquote>
 <p class="element2">&lt;territories&gt;</p>
 <p>This contains a list of elements that provide the user-translated names for 
@@ -2112,9 +2115,9 @@ format, where the data is solely for illustration:</p>
 <pre>&lt;supplementalData&gt;
   &lt;currencyData&gt;
     &lt;fractions&gt;
-      &lt;currency iso4217=&quot;CHF&quot; rounding=&quot;5&quot;/&gt;
-      &lt;currency iso4217=&quot;ITL&quot; digits=&quot;0&quot;/&gt;
-      &lt;currency iso4217=&quot;FOO&quot; digits=&quot;0&quot; rounding=&quot;5&quot;/&gt;
+      &lt;info iso4217=&quot;CHF&quot; rounding=&quot;5&quot;/&gt;
+      &lt;info iso4217=&quot;ITL&quot; digits=&quot;0&quot;/&gt;
+      &lt;info iso4217=&quot;FOO&quot; digits=&quot;0&quot; rounding=&quot;5&quot;/&gt;
     &lt;/fractions&gt;
     &lt;region iso3166=&quot;IT&quot;&gt; &lt;!-- Italy --&gt;
       &lt;currency iso4217=&quot;EUR&quot;/&gt;
@@ -2146,8 +2149,8 @@ format, where the data is solely for illustration:</p>
 &lt;/supplementalData&gt;</pre>
 <p>The only data currently represented is currency data. Each currencyData 
 element contains one fractions element followed by one or more region elements. 
-The fractions element contains any number of currency elements, with the 
-following attributes:</p>
+The fractions element contains any number of info elements, with the following 
+attributes:</p>
 <ul>
   <li>
     <p><b>iso4217: </b>the ISO 4217 code for the currency in question. If a 
@@ -2183,7 +2186,7 @@ are a list of alternate currencies, in preference order.)</p>
     values are resolved as described below.</li>
 </ul>
 <p>Each <i>before</i> value governs the time up to the previous <i>before</i> 
-value. That is, suppose that we have the following data for the region code <i>R</i>.</p>
+value. That is, suppose that we have the following data for the region code <i>R:</i></p>
 <pre>  &lt;region iso3166=&quot;R&quot;&gt;
     &lt;currency iso4217=&quot;C01&quot; before=&quot;1942&quot;/&gt;
     &lt;currency iso4217=&quot;C02&quot;/&gt;
@@ -2191,9 +2194,9 @@ value. That is, suppose that we have the following data for the region code <i>R
     &lt;currency iso4217=&quot;none&quot; before=&quot;1937-02-13&quot;/&gt;
   &lt;/region&gt;</pre>
 <p>Logically, the currency elements are treated in sorted order, according to 
-the <i>before</i> value. If default value for the before element is logically 
-+∞. This results in the following mapping for region <i>R</i>, using a set of 
-half-open intervals:</p>
+the <i>before</i> value. The default value for the <i>before</i> element is 
+logically +∞. This results in the following mapping for region <i>R</i>, using 
+a set of half-open intervals:</p>
 <div align="center">
   <center>
   <table>
@@ -2264,8 +2267,9 @@ half-open intervals:</p>
   </table>
   </center>
 </div>
-<p class="note"><b>Open issue: </b>We should supply information for mapping 
-locales to a normalized version, thus en_Latin_US would normalize to en_US.</p>
+<p class="note"><b>Open issue:</b> In the future, we should supply information 
+for mapping locales to a normalized version, thus en_Latin_US would normalize to 
+en_US.</p>
 <h2>Appendix D: <a name="Language_and_Locale_IDs">Language and Locale IDs</a></h2>
 <p>People have very slippery notions of what distinguishes a language code vs. a 
 locale code. The problem is that both are somewhat nebulous concepts.</p>
@@ -2283,26 +2287,26 @@ the use of these separators. Notice that Windows, for example, uses
 &quot;-&quot; as a separator in its locale codes. So pragmatically one is forced 
 to treat &quot;-&quot; and &quot;_&quot; as equivalent when interpreting either 
 one on imput.</p>
-<p>Another reason for the conflation of these codes is that very little data in 
-most systems is distinguished by region alone; currency codes and measurement 
-systems being some of the few. Sometimes date or number formats are mentioned as 
-regional, but that really doesn't make much sense. If people see the sentence 
-&quot;You will have to adjust the value to १,२३४.५६७ from ૭૧,૨૩૪.૫૬&quot; 
-(using Indic digits), they would say that sentence is simply not English. Number 
-format is far more closely associated with language than it is with region. The 
-same is true for date formats: people would never expect to see intermixed a 
-date in the format &quot;2003年4月1日&quot; (using Kanji) in text purporting 
-to be purely English. There are regional differences in date and number format 
-— differences which can be important — but those are different in kind than 
-other language differences between regions.</p>
-<p>Notice also that currency <i>codes</i> are different than currency <i>localizations</i>. 
-The currency localizations should normally be in the language-based resource 
-bundles, not in the territory-based resource bundles. Thus, the resource bundle <i>en</i> 
-contains the localized mappings in English for a range of different currency 
-codes: USD =&gt; $, RUR =&gt; Rub, etc. (In protocols, the currency codes should 
-always accompany any currency amounts; otherwise the data is ambiguous, and 
-software is forced to use the user's territory to guess at the currency. For 
-some informal discussion of this, see <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/jit_localization.html">JIT 
+<p>Another reason for the conflation of these codes is that <i>very</i> little 
+data in most systems is distinguished by region alone; currency codes and 
+measurement systems being some of the few. Sometimes date or number formats are 
+mentioned as regional, but that really doesn't make much sense. If people see 
+the sentence &quot;You will have to adjust the value to १,२३४.५६७ 
+from ૭૧,૨૩૪.૫૬&quot; (using Indic digits), they would say that 
+sentence is simply not English. Number format is far more closely associated 
+with language than it is with region. The same is true for date formats: people 
+would never expect to see intermixed a date in the format &quot;2003年4月1日&quot; 
+(using Kanji) in text purporting to be purely English. There are regional 
+differences in date and number format — differences which can be important — 
+but those are different in kind than other language differences between regions.</p>
+<p>Notice also that <i>currency codes</i> are different than <i>currency 
+localizations</i>. The currency localizations should normally be in the 
+language-based resource bundles, not in the territory-based resource bundles. 
+Thus, the resource bundle <i>en</i> contains the localized mappings in English 
+for a range of different currency codes: USD =&gt; $, RUR =&gt; Rub, etc. (In 
+protocols, the currency codes should always accompany any currency amounts; 
+otherwise the data is ambiguous, and software is forced to use the user's 
+territory to guess at the currency. For some informal discussion of this, see <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/jit_localization.html">JIT 
 Localization</a>.)</p>
 <h3><a name="Written_Language">Written Language</a></h3>
 <p>Criteria for what makes a written language should be purely pragmatic; <i>what 

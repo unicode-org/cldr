@@ -1,0 +1,135 @@
+it_IT {
+    AddressFormat { 
+        PostalFormat { "%f%N%a%N%d%N%b%N%s %h %e %r%N%%z %T%N%c%N" }
+    }
+    ///* Discarding duplicate data for tag: AmPmMarkers */
+    ///* Discarding duplicate data for tag: CountryISBNNumber */
+    ///* Discarding duplicate data for tag: CountryNumber */
+    CurrencyElements { 
+            "L.",
+            "ITL ",
+            ",",
+    }
+    DateTimePatterns { 
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "EEE dd MMM yyyy  z",
+            "EEE dd MMM yyyy hh:mm:ss z",
+            "dd/MMMM/yyyy",
+            "dd/MMMM/yyyy",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "dom",
+            "lun",
+            "mar",
+            "mer",
+            "gio",
+            "ven",
+            "sab",
+    }
+    DayNames { 
+            "domenica",
+            "luned\u00EC",
+            "marted\u00EC",
+            "mercoled\u00EC",
+            "gioved\u00EC",
+            "venerd\u00EC",
+            "sabato",
+    }
+    Identification { 
+        Title { "Italian locale for Italy" }
+        Source { "RAP" }
+        Address { "Sankt J\u00F8rgens Alle 8, DK-1615 K\u00F8benhavn V, Danmark" }
+        Contact { "" }
+        Email { "bug-glibc@gnu.org" }
+        Telephone { "" }
+        Fax { "" }
+        Language { "Italian" }
+        Territory { "Italy" }
+        Audience { "" }
+        Application { "" }
+        Abbreviation { "" }
+        Revision { "1.0" }
+        Date { "2000-06-29" }
+    }
+    ///* Discarding duplicate data for tag: LanguageLibraryUse */
+    Measurement { "Metric" }
+    Messages { 
+        YesExpression { "^[sSyY].*" }
+        NoExpression { "^[nN].*" }
+        YesStr { "" }
+        NoStr { "" }
+    }
+    MonthAbbreviations { 
+            "gen",
+            "feb",
+            "mar",
+            "apr",
+            "mag",
+            "giu",
+            "lug",
+            "ago",
+            "set",
+            "ott",
+            "nov",
+            "dic",
+            "",
+    }
+    MonthNames { 
+            "gennaio",
+            "febbraio",
+            "marzo",
+            "aprile",
+            "maggio",
+            "giugno",
+            "luglio",
+            "agosto",
+            "settembre",
+            "ottobre",
+            "novembre",
+            "dicembre",
+            "",
+    }
+    NameFormat { 
+        NamePattern { "%d%t%g%t%m%t%f" }
+        GeneralSalutaion { "" }
+        ShortSalutationMr { "" }
+        ShortSalutationMiss { "" }
+        ShortSalutationMrs { "" }
+        LongSalutationMr { "" }
+        LongSalutationMiss { "" }
+        LongSalutationMrs { "" }
+    }
+    NumberElements { 
+            ",",
+            "",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,#0.##;-#,#0.##",
+            "\u00A4 #,##0.#;-\u00A4 #,##0.#",
+            "#,#0%",
+    }
+    PaperSize { 
+        Hieght { "297" }
+        Width { "210" }
+        Units { "mm" }
+    }
+    TelephoneFormat { 
+        InternationalFormat { "+%c %a %l" }
+        DomesticFormat { "" }
+        InternationalDialCode { "" }
+        InternationalPrefix { "39" }
+    }
+}

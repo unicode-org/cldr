@@ -1,0 +1,119 @@
+tt_RU {
+    ///* Discarding duplicate data for tag: AddressFormat */
+    ///* Discarding duplicate data for tag: AmPmMarkers */
+    ///* Discarding duplicate data for tag: CountryISBNNumber */
+    ///* Discarding duplicate data for tag: CountryNumber */
+    CurrencyElements { 
+            "\u0440\u0443\u0431",
+            "RUR ",
+            ".",
+    }
+    DateTimePatterns { 
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "EEE dd MMM yyyy ",
+            "EEE dd MMM yyyy hh:mm:ss",
+            "dd.MMMM.yyyy",
+            "dd.MMMM.yyyy",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "\u042F\u043A\u0448",
+            "\u0414\u044B\u0448",
+            "\u0421\u0438\u0448",
+            "\u0427\u04D9\u0440\u0448",
+            "\u041F\u04D9\u043D\u0497",
+            "\u0496\u043E\u043C",
+            "\u0428\u0438\u043C",
+    }
+    DayNames { 
+            "\u042F\u043A\u0448\u04D9\u043C\u0431\u0435",
+            "\u0414\u044B\u0448\u04D9\u043C\u0431\u0435",
+            "\u0421\u0438\u0448\u04D9\u043C\u0431\u0435",
+            "\u0427\u04D9\u0440\u0448\u04D9\u04D9\u043C\u0431\u0435",
+            "\u041F\u04D9\u043D\u0497\u0435\u0448\u043C\u0431\u0435",
+            "\u0496\u043E\u043C\u0433\u0430",
+            "\u0428\u0438\u043C\u0431\u04D9",
+    }
+    Identification { 
+        Title { "Tatar language locale for Tatarstan" }
+        Source { "Rinat Norkin" }
+        Address { "" }
+        Contact { "Pablo Saratxaga, Rinat Norkin" }
+        Email { "pablo@mandrakesoft.com, rinat@taif.ru" }
+        Telephone { "" }
+        Fax { "" }
+        Language { "Tatar" }
+        Territory { "Tatarstan" }
+        Audience { "" }
+        Application { "" }
+        Abbreviation { "" }
+        Revision { "0.4" }
+        Date { "2001-01-28" }
+    }
+    ///* Discarding duplicate data for tag: LanguageLibraryUse */
+    Measurement { "Metric" }
+    Messages { 
+        YesExpression { "^[\u0414\u0434Yy].*" }
+        NoExpression { "^[\u041D\u043DNn].*" }
+        YesStr { "\u04D8\u0439\u0435" }
+        NoStr { "\u042E\u043A" }
+    }
+    MonthAbbreviations { 
+            "\u042F\u043D\u0432",
+            "\u0424\u0435\u0432",
+            "\u041C\u0430\u0440",
+            "\u0410\u043F\u0440",
+            "\u041C\u0430\u0439",
+            "\u0418\u044E\u043D",
+            "\u0418\u044E\u043B",
+            "\u0410\u0432\u0433",
+            "\u0421\u0435\u043D",
+            "\u041E\u043A\u0442",
+            "\u041D\u043E\u044F",
+            "\u0414\u0435\u043A",
+            "",
+    }
+    MonthNames { 
+            "\u042F\u043D\u0432\u0430\u0440\u044F",
+            "\u0424\u0435\u0432\u0440\u0430\u043B\u044F",
+            "\u041C\u0430\u0440\u0442\u0430",
+            "\u0410\u043F\u0440\u0435\u043B\u044F",
+            "\u041C\u0430\u044F",
+            "\u0418\u044E\u043D\u044F",
+            "\u0418\u044E\u043B\u044F",
+            "\u0410\u0432\u0433\u0443\u0441\u0442\u0430",
+            "\u0421\u0435\u043D\u0442\u044F\u0431\u0440\u044F",
+            "\u041E\u043A\u0442\u044F\u0431\u0440\u044F",
+            "\u041D\u043E\u044F\u0431\u0440\u044F",
+            "\u0414\u0435\u043A\u0430\u0431\u0440\u044F",
+            "",
+    }
+    ///* Discarding duplicate data for tag: NameFormat */
+    NumberElements { 
+            ",",
+            ".",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "#,##0.00 \u00A4;-#,##0.00 \u00A4",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "297" }
+        Width { "210" }
+        Units { "mm" }
+    }
+    ///* Discarding duplicate data for tag: TelephoneFormat */
+}

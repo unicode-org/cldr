@@ -1,0 +1,135 @@
+fr_CH {
+    AddressFormat { 
+        PostalFormat { "%f%N%a%N%d%N%b%N%s %h %e %r%N%%z %T%N%c%N" }
+    }
+    ///* Discarding duplicate data for tag: AmPmMarkers */
+    ///* Discarding duplicate data for tag: CountryISBNNumber */
+    ///* Discarding duplicate data for tag: CountryNumber */
+    CurrencyElements { 
+            "Fr.",
+            "CHF ",
+            ".",
+    }
+    DateTimePatterns { 
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "EEE dd MMM yyyy  z",
+            "EEE dd MMM yyyy hh:mm:ss z",
+            "dd. MMMM. yy",
+            "dd. MMMM. yy",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "dim",
+            "lun",
+            "mar",
+            "mer",
+            "jeu",
+            "ven",
+            "sam",
+    }
+    DayNames { 
+            "dimanche",
+            "lundi",
+            "mardi",
+            "mercredi",
+            "jeudi",
+            "vendredi",
+            "samedi",
+    }
+    Identification { 
+        Title { "French locale for Switzerland" }
+        Source { "RAP" }
+        Address { "Sankt J\u00F8rgens Alle 8, DK-1615 K\u00F8benhavn V, Danmark" }
+        Contact { "" }
+        Email { "bug-glibc@gnu.org" }
+        Telephone { "" }
+        Fax { "" }
+        Language { "French" }
+        Territory { "Switzerland" }
+        Audience { "" }
+        Application { "" }
+        Abbreviation { "" }
+        Revision { "1.0" }
+        Date { "2000-06-29" }
+    }
+    ///* Discarding duplicate data for tag: LanguageLibraryUse */
+    Measurement { "Metric" }
+    Messages { 
+        YesExpression { "^[OojJsSyY].*" }
+        NoExpression { "^[nN].*" }
+        YesStr { "" }
+        NoStr { "" }
+    }
+    MonthAbbreviations { 
+            "jan",
+            "f\u00E9v",
+            "mar",
+            "avr",
+            "mai",
+            "jun",
+            "jui",
+            "ao\u00FB",
+            "sep",
+            "oct",
+            "nov",
+            "d\u00E9c",
+            "",
+    }
+    MonthNames { 
+            "janvier",
+            "f\u00E9vrier",
+            "mars",
+            "avril",
+            "mai",
+            "juin",
+            "juillet",
+            "ao\u00FBt",
+            "septembre",
+            "octobre",
+            "novembre",
+            "d\u00E9cembre",
+            "",
+    }
+    NameFormat { 
+        NamePattern { "%d%t%g%t%m%t%f" }
+        GeneralSalutaion { "" }
+        ShortSalutationMr { "" }
+        ShortSalutationMiss { "" }
+        ShortSalutationMrs { "" }
+        LongSalutationMr { "" }
+        LongSalutationMiss { "" }
+        LongSalutationMrs { "" }
+    }
+    NumberElements { 
+            ",",
+            "",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,#0.##;-#,#0.##",
+            "\u00A4 #,##0.00;\u00A4- #,##0.00",
+            "#,#0%",
+    }
+    PaperSize { 
+        Hieght { "297" }
+        Width { "210" }
+        Units { "mm" }
+    }
+    TelephoneFormat { 
+        InternationalFormat { "+%c %a %l" }
+        DomesticFormat { "" }
+        InternationalDialCode { "" }
+        InternationalPrefix { "41" }
+    }
+}

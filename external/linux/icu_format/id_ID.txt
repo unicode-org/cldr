@@ -1,0 +1,135 @@
+in_ID {
+    AddressFormat { 
+        PostalFormat { "%f%N%a%N%d%N%b%N%s %h %e %r%N%%z %T%N%c%N" }
+    }
+    ///* Discarding duplicate data for tag: AmPmMarkers */
+    ///* Discarding duplicate data for tag: CountryISBNNumber */
+    ///* Discarding duplicate data for tag: CountryNumber */
+    CurrencyElements { 
+            "Rp",
+            "IDR ",
+            ",",
+    }
+    DateTimePatterns { 
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "dd/MMMM/yy",
+            "EEE dd MMM yyyy hh:mm:ss aa z",
+            "dd/MMMM/yy",
+            "dd/MMMM/yy",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "Min",
+            "Sen",
+            "Sel",
+            "Rab",
+            "Kam",
+            "Jum",
+            "Sab",
+    }
+    DayNames { 
+            "Minggu",
+            "Senin",
+            "Selasa",
+            "Rabu",
+            "Kamis",
+            "Jumat",
+            "Sabtu",
+    }
+    Identification { 
+        Title { "Indonesian locale for Indonesia" }
+        Source { "" }
+        Address { "" }
+        Contact { "" }
+        Email { "bug-glibc@gnu.org" }
+        Telephone { "" }
+        Fax { "" }
+        Language { "Indonesian" }
+        Territory { "Indonesia" }
+        Audience { "" }
+        Application { "" }
+        Abbreviation { "" }
+        Revision { "1.0" }
+        Date { "2000-06-29" }
+    }
+    ///* Discarding duplicate data for tag: LanguageLibraryUse */
+    Measurement { "Metric" }
+    Messages { 
+        YesExpression { "[yY].*" }
+        NoExpression { "[tTnN].*" }
+        YesStr { "" }
+        NoStr { "" }
+    }
+    MonthAbbreviations { 
+            "Jan",
+            "Peb",
+            "Mar",
+            "Apr",
+            "Mei",
+            "Jun",
+            "Jul",
+            "Agu",
+            "Sep",
+            "Okt",
+            "Nov",
+            "Des",
+            "",
+    }
+    MonthNames { 
+            "Januari",
+            "Pebruari",
+            "Maret",
+            "April",
+            "Mei",
+            "Juni",
+            "Juli",
+            "Agustus",
+            "September",
+            "Oktober",
+            "November",
+            "Desember",
+            "",
+    }
+    NameFormat { 
+        NamePattern { "%d%t%g%t%m%t%f" }
+        GeneralSalutaion { "" }
+        ShortSalutationMr { "" }
+        ShortSalutationMiss { "" }
+        ShortSalutationMrs { "" }
+        LongSalutationMr { "" }
+        LongSalutationMiss { "" }
+        LongSalutationMrs { "" }
+    }
+    NumberElements { 
+            ",",
+            ".",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "\u00A4#,##0.00;-\u00A4#,##0.00",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "297" }
+        Width { "210" }
+        Units { "mm" }
+    }
+    TelephoneFormat { 
+        InternationalFormat { "+%c %a %l" }
+        DomesticFormat { "" }
+        InternationalDialCode { "" }
+        InternationalPrefix { "62" }
+    }
+}

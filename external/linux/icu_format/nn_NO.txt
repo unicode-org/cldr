@@ -1,0 +1,135 @@
+nn_NO {
+    AddressFormat { 
+        PostalFormat { "%f%N%a%N%d%N%b%N%s %h %e %r%N%%z %T%N%c%N" }
+    }
+    ///* Discarding duplicate data for tag: AmPmMarkers */
+    ///* Discarding duplicate data for tag: CountryISBNNumber */
+    ///* Discarding duplicate data for tag: CountryNumber */
+    CurrencyElements { 
+            "kr",
+            "NOK ",
+            ",",
+    }
+    DateTimePatterns { 
+            "kl HH.mm z",
+            "kl HH.mm z",
+            "kl HH.mm z",
+            "kl HH.mm z",
+            "dd. MMM yyyy ",
+            "dd. MMM yyyy kl HH.mm z",
+            "dd. MMM yyyy",
+            "dd. MMM yyyy",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "su ",
+            "m\u00E5 ",
+            "ty ",
+            "on ",
+            "to ",
+            "fr ",
+            "lau ",
+    }
+    DayNames { 
+            "sundag ",
+            "m\u00E5ndag ",
+            "tysdag ",
+            "onsdag ",
+            "torsdag ",
+            "fredag ",
+            "laurdag ",
+    }
+    Identification { 
+        Title { "Nynorsk language locale for Norway" }
+        Source { "IBM Globalization Center of Competency, Yamato Software Laboratory" }
+        Address { "1623-14, Shimotsuruma, Yamato-shi, Kanagawa-ken, 242-8502, Japan" }
+        Contact { "" }
+        Email { "bug-glibc@gnu.org" }
+        Telephone { "" }
+        Fax { "" }
+        Language { "Norwegian, Nynorsk" }
+        Territory { "Norway" }
+        Audience { "" }
+        Application { "" }
+        Abbreviation { "" }
+        Revision { "1.0" }
+        Date { "2000-08-31" }
+    }
+    ///* Discarding duplicate data for tag: LanguageLibraryUse */
+    Measurement { "Metric" }
+    Messages { 
+        YesExpression { "^[JjYy].*" }
+        NoExpression { "^[Nn].*" }
+        YesStr { "" }
+        NoStr { "" }
+    }
+    MonthAbbreviations { 
+            "jan",
+            "feb",
+            "mar",
+            "apr",
+            "mai",
+            "jun",
+            "jul",
+            "aug",
+            "sep",
+            "okt",
+            "nov",
+            "des",
+            "",
+    }
+    MonthNames { 
+            "januar",
+            "februar",
+            "mars",
+            "april",
+            "mai",
+            "juni",
+            "juli",
+            "august",
+            "september",
+            "oktober",
+            "november",
+            "desember",
+            "",
+    }
+    NameFormat { 
+        NamePattern { "%d%t%g%t%m%t%f" }
+        GeneralSalutaion { "" }
+        ShortSalutationMr { "" }
+        ShortSalutationMiss { "" }
+        ShortSalutationMrs { "" }
+        LongSalutationMr { "" }
+        LongSalutationMiss { "" }
+        LongSalutationMrs { "" }
+    }
+    NumberElements { 
+            ",",
+            "\u00A0",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "\u00A4 #,##0.00;-\u00A4#,##0.00",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "297" }
+        Width { "210" }
+        Units { "mm" }
+    }
+    TelephoneFormat { 
+        InternationalFormat { "+%c %l" }
+        DomesticFormat { "" }
+        InternationalDialCode { "00" }
+        InternationalPrefix { "47" }
+    }
+}

@@ -1,0 +1,135 @@
+kw_GB {
+    AddressFormat { 
+        PostalFormat { "%f%N%a%N%d%N%b%N%s %h %e %r%N%%z %T%N%c%N" }
+    }
+    ///* Discarding duplicate data for tag: AmPmMarkers */
+    ///* Discarding duplicate data for tag: CountryISBNNumber */
+    ///* Discarding duplicate data for tag: CountryNumber */
+    CurrencyElements { 
+            "\u00A3",
+            "GBP ",
+            ".",
+    }
+    DateTimePatterns { 
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "EEE dd MMM yyyy  z",
+            "EEE dd MMM yyyy hh:mm:ss z",
+            "dd/MMMM/yy",
+            "dd/MMMM/yy",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "Sul",
+            "Lun",
+            "Mth",
+            "Mhr",
+            "Yow",
+            "Gwe",
+            "Sad",
+    }
+    DayNames { 
+            "De Sul",
+            "De Lun",
+            "De Merth",
+            "De Merher",
+            "De Yow",
+            "De Gwener",
+            "De Sadorn",
+    }
+    Identification { 
+        Title { "Cornish locale for Britain" }
+        Source { "Alastair McKinstry" }
+        Address { "Cro\u00ED L\u00E1r, Ballinahalla, Maigh Cuilinn,, Co. Gaillimh, Ireland" }
+        Contact { "" }
+        Email { "bug-glibc@gnu.org" }
+        Telephone { "" }
+        Fax { "" }
+        Language { "Cornish" }
+        Territory { "Britain" }
+        Audience { "" }
+        Application { "" }
+        Abbreviation { "" }
+        Revision { "1.0" }
+        Date { "2000-06-29" }
+    }
+    ///* Discarding duplicate data for tag: LanguageLibraryUse */
+    Measurement { "Metric" }
+    Messages { 
+        YesExpression { "[eE].*" }
+        NoExpression { "[nN].*" }
+        YesStr { "" }
+        NoStr { "" }
+    }
+    MonthAbbreviations { 
+            "Gen",
+            "Whe>",
+            "Mer",
+            "Ebr",
+            "Me",
+            "Evn",
+            "Gor",
+            "Est",
+            "Gwn",
+            "Hed",
+            "Du",
+            "Kev",
+            "",
+    }
+    MonthNames { 
+            "Mys Genver",
+            "Mys Whevrel",
+            "Mys Merth",
+            "Mys Ebrel",
+            "Mys Me",
+            "Mys Evan",
+            "Mys Gortheren",
+            "Mye Est",
+            "Mys Gwyngala",
+            "Mys Hedra",
+            "Mys Du",
+            "Mys Kevardhu",
+            "",
+    }
+    NameFormat { 
+        NamePattern { "%d%t%g%t%m%t%f" }
+        GeneralSalutaion { "" }
+        ShortSalutationMr { "" }
+        ShortSalutationMiss { "" }
+        ShortSalutationMrs { "" }
+        LongSalutationMr { "" }
+        LongSalutationMiss { "" }
+        LongSalutationMrs { "" }
+    }
+    NumberElements { 
+            ".",
+            ",",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "\u00A4#,##0.00;-\u00A4#,##0.00",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "297" }
+        Width { "210" }
+        Units { "mm" }
+    }
+    TelephoneFormat { 
+        InternationalFormat { "+%c %a %l" }
+        DomesticFormat { "" }
+        InternationalDialCode { "" }
+        InternationalPrefix { "44" }
+    }
+}

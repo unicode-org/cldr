@@ -1,0 +1,135 @@
+gd_GB {
+    AddressFormat { 
+        PostalFormat { "%f%N%a%N%d%N%b%N%s %h %e %r%N%%z %T%N%c%N" }
+    }
+    ///* Discarding duplicate data for tag: AmPmMarkers */
+    CountryISBNNumber { "826" }
+    CountryNumber { "826" }
+    CurrencyElements { 
+            "\u00A3",
+            "GBP ",
+            ".",
+    }
+    DateTimePatterns { 
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "EEE dd MMM yyyy  z",
+            "EEE dd MMM yyyy hh:mm:ss z",
+            "dd/MMMM/yy",
+            "dd/MMMM/yy",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "Dido",
+            "Dilu",
+            "Dim",
+            "Dic",
+            "Diar",
+            "Diha",
+            "Disa",
+    }
+    DayNames { 
+            "Did\u00F2mhnaich",
+            "Diluain",
+            "Dim\u00E0irt",
+            "Diciadain",
+            "Diardaoin",
+            "Dihaoine",
+            "Disathairne",
+    }
+    Identification { 
+        Title { "Scots Gaelic language locale for Great Britain" }
+        Source { "Alastair McKinstry" }
+        Address { "Cro\u00ED L\u00E1r, Ballinahalla, Maigh Cuilinn, Co. Gaillimh, Ireland" }
+        Contact { "Alastair McKinstry" }
+        Email { "mckinstry@computer.org" }
+        Telephone { "+353 91 556177" }
+        Fax { "" }
+        Language { "Scots Gaelic" }
+        Territory { "Great Britain" }
+        Audience { "" }
+        Application { "" }
+        Abbreviation { "" }
+        Revision { "1.1" }
+        Date { "2000-06-12" }
+    }
+    LanguageLibraryUse { "gla" }
+    Measurement { "Metric" }
+    Messages { 
+        YesExpression { "[yY].*" }
+        NoExpression { "[nN].*" }
+        YesStr { "" }
+        NoStr { "" }
+    }
+    MonthAbbreviations { 
+            "Fao",
+            "Gea",
+            "M\u00E0r",
+            "Gib",
+            "Mh\u00E0",
+            "OgM",
+            "luc",
+            "L\u00F9n",
+            "Sul",
+            "Dam",
+            "Sam",
+            "D\u00F9b",
+            "",
+    }
+    MonthNames { 
+            "Am Faoilteach",
+            "An Gearran",
+            "Am M\u00E0rt",
+            "An Giblean",
+            "A' Mh\u00E0igh",
+            "An t-Mh\u00ECos",
+            "An t-luchar",
+            "An L\u00F9nasdal",
+            "An t-Sultain",
+            "An Damhair",
+            "An t-Samhain",
+            "An D\u00F9bhlachd",
+            "",
+    }
+    NameFormat { 
+        NamePattern { "%d%t%g%t%m%t%f" }
+        GeneralSalutaion { "" }
+        ShortSalutationMr { "" }
+        ShortSalutationMiss { "" }
+        ShortSalutationMrs { "" }
+        LongSalutationMr { "" }
+        LongSalutationMiss { "" }
+        LongSalutationMrs { "" }
+    }
+    NumberElements { 
+            ".",
+            ",",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "\u00A4#,##0.00;-\u00A4#,##0.00",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "297" }
+        Width { "210" }
+        Units { "mm" }
+    }
+    TelephoneFormat { 
+        InternationalFormat { "+%c %a %l" }
+        DomesticFormat { "" }
+        InternationalDialCode { "00" }
+        InternationalPrefix { "44" }
+    }
+}

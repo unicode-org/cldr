@@ -1,0 +1,138 @@
+zh_HK {
+    AddressFormat { 
+        PostalFormat { "%z%c%T%s%b%e%r" }
+    }
+    AmPmMarkers { 
+            "\u4E0A\u5348",
+            "\u4E0B\u5348",
+    }
+    ///* Discarding duplicate data for tag: CountryISBNNumber */
+    ///* Discarding duplicate data for tag: CountryNumber */
+    CurrencyElements { 
+            "HK$",
+            "HKD ",
+            ".",
+    }
+    DateTimePatterns { 
+            "aa hh:mm:ss",
+            "hh\u6642mm\u5206ss\u79D2 z",
+            "hh\u6642mm\u5206ss\u79D2 z",
+            "hh\u6642mm\u5206ss\u79D2 z",
+            "yyyy\u5E74MMM\u6708dd\u65E5 EEEE",
+            "yyyy\u5E74MMM\u6708dd\u65E5 aa hh:mm:ss",
+            "yyyy\u5E74MMM\u6708dd\u65E5 EEEE",
+            "yyyy\u5E74MMM\u6708dd\u65E5 EEEE",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "\u65E5 ",
+            "\u4E00 ",
+            "\u4E8C ",
+            "\u4E09 ",
+            "\u56DB ",
+            "\u4E94 ",
+            "\u516D ",
+    }
+    DayNames { 
+            "\u661F\u671F\u65E5 ",
+            "\u661F\u671F\u4E00 ",
+            "\u661F\u671F\u4E8C ",
+            "\u661F\u671F\u4E09 ",
+            "\u661F\u671F\u56DB ",
+            "\u661F\u671F\u4E94 ",
+            "\u661F\u671F\u516D ",
+    }
+    Identification { 
+        Title { "Chinese language locale for Hong Kong" }
+        Source { "IBM Globalization Center of Competency, Yamato Software Laboratory" }
+        Address { "1623-14, Shimotsuruma, Yamato-shi, Kanagawa-ken, 242-8502, Japan" }
+        Contact { "" }
+        Email { "bug-glibc@gnu.org" }
+        Telephone { "" }
+        Fax { "" }
+        Language { "Chinese" }
+        Territory { "Hong Kong" }
+        Audience { "" }
+        Application { "" }
+        Abbreviation { "" }
+        Revision { "1.0" }
+        Date { "2000-07-20" }
+    }
+    ///* Discarding duplicate data for tag: LanguageLibraryUse */
+    Measurement { "Metric" }
+    Messages { 
+        YesExpression { "^[yY\u662F]" }
+        NoExpression { "^[nN\u4E0D\u5426]" }
+        YesStr { "" }
+        NoStr { "" }
+    }
+    MonthAbbreviations { 
+            "1\u6708",
+            "2\u6708",
+            "3\u6708",
+            "4\u6708",
+            "5\u6708",
+            "6\u6708",
+            "7\u6708",
+            "8\u6708",
+            "9\u6708",
+            "10\u6708",
+            "11\u6708",
+            "12\u6708",
+            "",
+    }
+    MonthNames { 
+            "\u4E00\u6708",
+            "\u4E8C\u6708",
+            "\u4E09\u6708",
+            "\u56DB\u6708",
+            "\u4E94\u6708",
+            "\u516D\u6708",
+            "\u4E03\u6708",
+            "\u516B\u6708",
+            "\u4E5D\u6708",
+            "\u5341\u6708",
+            "\u5341\u4E00\u6708",
+            "\u5341\u4E8C\u6708",
+            "",
+    }
+    NameFormat { 
+        NamePattern { "%f%t%d1" }
+        GeneralSalutaion { "" }
+        ShortSalutationMr { "\u5148\u751F" }
+        ShortSalutationMiss { "\u5C0F\u59D0" }
+        ShortSalutationMrs { "\u592B\u4EBA." }
+        LongSalutationMr { "" }
+        LongSalutationMiss { "\u5973\u58EB" }
+        LongSalutationMrs { "" }
+    }
+    NumberElements { 
+            ".",
+            ",",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "\u00A4#,##0.00;(\u00A4#,##0.00)",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "297" }
+        Width { "210" }
+        Units { "mm" }
+    }
+    TelephoneFormat { 
+        InternationalFormat { "+%c ;%a ;%l" }
+        DomesticFormat { "" }
+        InternationalDialCode { "" }
+        InternationalPrefix { "852" }
+    }
+}

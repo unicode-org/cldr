@@ -1,0 +1,138 @@
+ar_IN {
+    AddressFormat { 
+        PostalFormat { "%z%c%T%s%b%e%r" }
+    }
+    AmPmMarkers { 
+            "\u0635",
+            "\u0645",
+    }
+    ///* Discarding duplicate data for tag: CountryISBNNumber */
+    ///* Discarding duplicate data for tag: CountryNumber */
+    CurrencyElements { 
+            "\u20A8",
+            "INR ",
+            ".",
+    }
+    DateTimePatterns { 
+            "hh:mm:ss aa z",
+            "hh:mm:ss  z",
+            "hh:mm:ss  z",
+            "hh:mm:ss  z",
+            "EEEE dd MMMM yyyy",
+            "EEEE dd MMMM yyyy hh:mm:ss aa z",
+            "EEEE dd MMMM yyyy",
+            "EEEE dd MMMM yyyy",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "\u062D",
+            "\u0646",
+            "\u062B",
+            "\u0631",
+            "\u062E",
+            "\u062C",
+            "\u0633",
+    }
+    DayNames { 
+            "\u0627\u0644\u0623\u062D\u062F",
+            "\u0627\u0644\u0627\u062B\u0646\u064A\u0646",
+            "\u0627\u0644\u062B\u0644\u0627\u062B\u0627\u0621",
+            "\u0627\u0644\u0623\u0631\u0628\u0639\u0627\u0621",
+            "\u0627\u0644\u062E\u0645\u064A\u0633",
+            "\u0627\u0644\u062C\u0645\u0639\u0629",
+            "\u0627\u0644\u0633\u0628\u062A",
+    }
+    Identification { 
+        Title { "Arabic language locale for India" }
+        Source { "IBM Globalization Center of Competency, Yamato Software Laboratory" }
+        Address { "1623-14, Shimotsuruma, Yamato-shi, Kanagawa-ken, 242-8502, Japan" }
+        Contact { "" }
+        Email { "bug-glibc@gnu.org" }
+        Telephone { "" }
+        Fax { "" }
+        Language { "Arabic" }
+        Territory { "India" }
+        Audience { "" }
+        Application { "" }
+        Abbreviation { "" }
+        Revision { "1.0" }
+        Date { "2000,October,27 (XML source:2000,July,20)" }
+    }
+    ///* Discarding duplicate data for tag: LanguageLibraryUse */
+    Measurement { "Metric" }
+    Messages { 
+        YesExpression { "^[\u0646]" }
+        NoExpression { "^[\u0644]" }
+        YesStr { "\u0646\u0639\u0645" }
+        NoStr { "\u0644\u0627" }
+    }
+    MonthAbbreviations { 
+            "\u064A\u0646\u0627",
+            "\u0641\u0628\u0631",
+            "\u0645\u0627\u0631",
+            "\u0623\u0628\u0631",
+            "\u0645\u0627\u064A",
+            "\u064A\u0648\u0646",
+            "\u064A\u0648\u0644",
+            "\u0623\u063A\u0633",
+            "\u0633\u0628\u062A",
+            "\u0623\u0643\u062A",
+            "\u0646\u0648\u0641",
+            "\u062F\u064A\u0633",
+            "",
+    }
+    MonthNames { 
+            "\u064A\u0646\u0627\u064A\u0631",
+            "\u0641\u0628\u0631\u0627\u064A\u0631",
+            "\u0645\u0627\u0631\u0633",
+            "\u0623\u0628\u0631\u064A\u0644",
+            "\u0645\u0627\u064A\u0648",
+            "\u064A\u0648\u0646\u064A\u0648",
+            "\u064A\u0648\u0644\u064A\u0648",
+            "\u0623\u063A\u0633\u0637\u0633",
+            "\u0633\u0628\u062A\u0645\u0628\u0631",
+            "\u0623\u0643\u062A\u0648\u0628\u0631",
+            "\u0646\u0648\u0641\u0645\u0628\u0631",
+            "\u062F\u064A\u0633\u0645\u0628\u0631",
+            "",
+    }
+    NameFormat { 
+        NamePattern { "%p%t%f%t%g" }
+        GeneralSalutaion { "" }
+        ShortSalutationMr { "Mr." }
+        ShortSalutationMiss { "Miss." }
+        ShortSalutationMrs { "Mrs." }
+        LongSalutationMr { "" }
+        LongSalutationMiss { "Ms." }
+        LongSalutationMrs { "" }
+    }
+    NumberElements { 
+            ".",
+            ",",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "\u00A4 #,##0.00;-\u00A4 #,##0.00",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "297" }
+        Width { "210" }
+        Units { "mm" }
+    }
+    TelephoneFormat { 
+        InternationalFormat { "+%c ;%a ;%l" }
+        DomesticFormat { "" }
+        InternationalDialCode { "" }
+        InternationalPrefix { "" }
+    }
+}

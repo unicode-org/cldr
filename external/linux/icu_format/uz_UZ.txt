@@ -1,0 +1,135 @@
+uz_UZ {
+    AddressFormat { 
+        PostalFormat { "%C%N%T%N%s %h%N%f%N%b%N%d%N%e %r%N%a%N%z" }
+    }
+    ///* Discarding duplicate data for tag: AmPmMarkers */
+    CountryISBNNumber { "860" }
+    CountryNumber { "860" }
+    CurrencyElements { 
+            "so'm",
+            "UZS ",
+            ".",
+    }
+    DateTimePatterns { 
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            ", dd MMMM, yyyy yil, EEEE",
+            "hh:mm:ss, dd MMMM, yyyy yil, EEEE",
+            "dd/MMMM/yy",
+            "dd/MMMM/yy",
+            "{0} {1}",
+    }
+    DayAbbreviations { 
+            "Yak",
+            "Du",
+            "Se",
+            "Cho",
+            "Pay",
+            "Ju",
+            "Sha",
+    }
+    DayNames { 
+            "yakshanba",
+            "dushanba",
+            "seshanba",
+            "chorshanba",
+            "payshanba",
+            "juma",
+            "shanba",
+    }
+    Identification { 
+        Title { "Uzbek locale for Uzbekistan" }
+        Source { "Bobir Ismailov" }
+        Address { "" }
+        Contact { "Bobir Ismailov, Pablo Saratxaga" }
+        Email { "bobir_is@yahoo.com, pablo@mandrakesoft.com" }
+        Telephone { "" }
+        Fax { "" }
+        Language { "Uzbek" }
+        Territory { "Uzbekistan" }
+        Audience { "" }
+        Application { "" }
+        Abbreviation { "" }
+        Revision { "0.1" }
+        Date { "2001-01-27" }
+    }
+    LanguageLibraryUse { "uzb" }
+    Measurement { "Metric" }
+    Messages { 
+        YesExpression { "^[YyHh].*" }
+        NoExpression { "^[JjNn].*" }
+        YesStr { "Ha" }
+        NoStr { "Yo'q" }
+    }
+    MonthAbbreviations { 
+            "Yav",
+            "Fev",
+            "Mar",
+            "Apr",
+            "May",
+            "Iyn",
+            "Iyl",
+            "Avg",
+            "Sen",
+            "Okt",
+            "Noy",
+            "Dek",
+            "",
+    }
+    MonthNames { 
+            "yanvar",
+            "fevral",
+            "mart",
+            "aprel",
+            "may",
+            "iyun",
+            "iyul",
+            "avgust",
+            "senyabr",
+            "oktyabr",
+            "noyabr",
+            "dekabr",
+            "",
+    }
+    NameFormat { 
+        NamePattern { "%d%t%f%t%g%t%m" }
+        GeneralSalutaion { "" }
+        ShortSalutationMr { "Janob" }
+        ShortSalutationMiss { "Xonim" }
+        ShortSalutationMrs { "Aziz" }
+        LongSalutationMr { "" }
+        LongSalutationMiss { "" }
+        LongSalutationMrs { "" }
+    }
+    NumberElements { 
+            ".",
+            ",",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "\u00A4#,##0.00;-\u00A4#,##0.00",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "297" }
+        Width { "210" }
+        Units { "mm" }
+    }
+    TelephoneFormat { 
+        InternationalFormat { "+%c %a %l" }
+        DomesticFormat { "" }
+        InternationalDialCode { "" }
+        InternationalPrefix { "27" }
+    }
+}

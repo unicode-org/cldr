@@ -1,0 +1,138 @@
+tl_PH {
+    AddressFormat { 
+        PostalFormat { "%a%N%f%N%d%N%b%N%h %s %e %r%N%%T %z%N%c%N" }
+    }
+    AmPmMarkers { 
+            "AM",
+            "PM",
+    }
+    CountryISBNNumber { "840" }
+    CountryNumber { "840" }
+    CurrencyElements { 
+            "PhP",
+            "PHP ",
+            ".",
+    }
+    DateTimePatterns { 
+            "hh:mm:ss aa",
+            "hh:mm:ss aa",
+            "hh:mm:ss aa",
+            "hh:mm:ss aa",
+            "EEE dd MMM yyyy  z",
+            "EEE dd MMM yyyy hh:mm:ss aa z",
+            "MMMM/dd/yy",
+            "MMMM/dd/yy",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "Lin",
+            "Lun",
+            "Mar",
+            "Miy",
+            "Huw",
+            "Biy",
+            "Sab",
+    }
+    DayNames { 
+            "Linggo",
+            "Lunes",
+            "Martes",
+            "Miyerkoles",
+            "Huwebes",
+            "Biyernes",
+            "Sabado",
+    }
+    Identification { 
+        Title { "Tagalog language locale for Philipines" }
+        Source { "Rene Torres" }
+        Address { "" }
+        Contact { "Rene Torres, Pablo Saratxaga" }
+        Email { "rgtorre@rocketmail.com, pablo@mandrakesoft.com" }
+        Telephone { "" }
+        Fax { "" }
+        Language { "Tagalog" }
+        Territory { "Philipines" }
+        Audience { "" }
+        Application { "" }
+        Abbreviation { "" }
+        Revision { "0.2" }
+        Date { "2001-01-28" }
+    }
+    LanguageLibraryUse { "eng" }
+    Measurement { "Metric" }
+    Messages { 
+        YesExpression { "^[yY].*" }
+        NoExpression { "^[nN].*" }
+        YesStr { "" }
+        NoStr { "" }
+    }
+    MonthAbbreviations { 
+            "Ene",
+            "Peb",
+            "Mar",
+            "Abr",
+            "May",
+            "Hun",
+            "Hul",
+            "Ago",
+            "Sep",
+            "Okt",
+            "Nob",
+            "Dis",
+            "",
+    }
+    MonthNames { 
+            "Enero",
+            "Pebrero",
+            "Marso",
+            "Abril",
+            "Mayo",
+            "Hunyo",
+            "Hulyo",
+            "Agosto",
+            "Septiyembre",
+            "Oktubre",
+            "Nobiyembre",
+            "Disyembre",
+            "",
+    }
+    NameFormat { 
+        NamePattern { "%d%t%g%t%m%t%f" }
+        GeneralSalutaion { "" }
+        ShortSalutationMr { "Mr." }
+        ShortSalutationMiss { "Miss." }
+        ShortSalutationMrs { "Mrs." }
+        LongSalutationMr { "" }
+        LongSalutationMiss { "Ms." }
+        LongSalutationMrs { "" }
+    }
+    NumberElements { 
+            ".",
+            ",",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "\u00A4#,##0.00;-\u00A4 #,##0.00",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "297" }
+        Width { "210" }
+        Units { "mm" }
+    }
+    TelephoneFormat { 
+        InternationalFormat { "+%c (%a) %l" }
+        DomesticFormat { "" }
+        InternationalDialCode { "11" }
+        InternationalPrefix { "1" }
+    }
+}

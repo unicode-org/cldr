@@ -1,0 +1,138 @@
+mr_IN {
+    AddressFormat { 
+        PostalFormat { "%z%c%T%s%b%e%r" }
+    }
+    AmPmMarkers { 
+            "\u092E.\u092A\u0942.",
+            "\u092E.\u0928\u0902.",
+    }
+    ///* Discarding duplicate data for tag: CountryISBNNumber */
+    ///* Discarding duplicate data for tag: CountryNumber */
+    CurrencyElements { 
+            "\u0930\u0941",
+            "INR ",
+            ".",
+    }
+    DateTimePatterns { 
+            "hh:mm:ss aa z",
+            "hh:mm:ss  z",
+            "hh:mm:ss  z",
+            "hh:mm:ss  z",
+            "EEEE dd MMM yyyy",
+            "EEEE dd MMM yyyy hh:mm:ss aa z",
+            "EEEE dd MMM yyyy",
+            "EEEE dd MMM yyyy",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "\u0930\u0935\u093F",
+            "\u0938\u094B\u092E",
+            "\u092E\u0902\u0917\u0933",
+            "\u092C\u0941\u0927",
+            "\u0917\u0941\u0930\u0941",
+            "\u0936\u0941\u0915\u094D\u0930",
+            "\u0936\u0928\u093F",
+    }
+    DayNames { 
+            "\u0930\u0935\u093F\u0935\u093E\u0930",
+            "\u0938\u094B\u092E\u0935\u093E\u0930",
+            "\u092E\u0902\u0917\u0933\u0935\u093E\u0930",
+            "\u092E\u0902\u0917\u0933\u0935\u093E\u0930",
+            "\u0917\u0941\u0930\u0941\u0935\u093E\u0930",
+            "\u0936\u0941\u0915\u094D\u0930\u0935\u093E\u0930",
+            "\u0936\u0928\u093F\u0935\u093E\u0930",
+    }
+    Identification { 
+        Title { "Marathi language locale for India" }
+        Source { "IBM Globalization Center of Competency, Yamato Software Laboratory" }
+        Address { "1623-14, Shimotsuruma, Yamato-shi, Kanagawa-ken, 242-8502, Japan" }
+        Contact { "" }
+        Email { "bug-glibc@gnu.org" }
+        Telephone { "" }
+        Fax { "" }
+        Language { "Marathi" }
+        Territory { "India" }
+        Audience { "" }
+        Application { "" }
+        Abbreviation { "" }
+        Revision { "1.0" }
+        Date { "2000-07-21" }
+    }
+    ///* Discarding duplicate data for tag: LanguageLibraryUse */
+    Measurement { "Metric" }
+    Messages { 
+        YesExpression { "^(Yes|[yY])" }
+        NoExpression { "^(No|[nN])" }
+        YesStr { "" }
+        NoStr { "" }
+    }
+    MonthAbbreviations { 
+            "\u091C\u093E\u0928\u0947\u0935\u093E\u0930\u0940",
+            "\u092B\u0947\u092C\u0943\u0935\u093E\u0930\u0940",
+            "\u092E\u093E\u0930\u094D\u091A",
+            "\u090F\u092A\u094D\u0930\u093F\u0932",
+            "\u092E\u0947",
+            "\u091C\u0942\u0928",
+            "\u091C\u0941\u0932\u0948",
+            "\u0913\u0917\u0938\u094D\u091F",
+            "\u0938\u0947\u092A\u094D\u091F\u0947\u0902\u092C\u0930",
+            "\u0913\u0915\u094D\u091F\u094B\u092C\u0930",
+            "\u0928\u094B\u0935\u094D\u0939\u0947\u0902\u092C\u0930",
+            "\u0921\u093F\u0938\u0947\u0902\u092C\u0930",
+            "",
+    }
+    MonthNames { 
+            "\u091C\u093E\u0928\u0947\u0935\u093E\u0930\u0940",
+            "\u092B\u0947\u092C\u0943\u0935\u093E\u0930\u0940",
+            "\u092E\u093E\u0930\u094D\u091A",
+            "\u090F\u092A\u094D\u0930\u093F\u0932",
+            "\u092E\u0947",
+            "\u091C\u0942\u0928",
+            "\u091C\u0941\u0932\u0948",
+            "\u0913\u0917\u0938\u094D\u091F",
+            "\u0938\u0947\u092A\u094D\u091F\u0947\u0902\u092C\u0930",
+            "\u0913\u0915\u094D\u091F\u094B\u092C\u0930",
+            "\u0928\u094B\u0935\u094D\u0939\u0947\u0902\u092C\u0930",
+            "\u0921\u093F\u0938\u0947\u0902\u092C\u0930",
+            "",
+    }
+    NameFormat { 
+        NamePattern { "%p%t%f%t%g" }
+        GeneralSalutaion { "" }
+        ShortSalutationMr { "Mr." }
+        ShortSalutationMiss { "Miss." }
+        ShortSalutationMrs { "Mrs." }
+        LongSalutationMr { "" }
+        LongSalutationMiss { "Ms." }
+        LongSalutationMrs { "" }
+    }
+    NumberElements { 
+            ".",
+            ",",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "\u00A4 #,##0.00;-\u00A4 #,##0.00",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "297" }
+        Width { "210" }
+        Units { "mm" }
+    }
+    TelephoneFormat { 
+        InternationalFormat { "+%c ;%a ;%l" }
+        DomesticFormat { "" }
+        InternationalDialCode { "" }
+        InternationalPrefix { "91" }
+    }
+}

@@ -1,0 +1,135 @@
+be_BY {
+    AddressFormat { 
+        PostalFormat { "%f%N%a%N%d%N%b%N%s %h %e %r%N%%z %T%N%c%N" }
+    }
+    ///* Discarding duplicate data for tag: AmPmMarkers */
+    ///* Discarding duplicate data for tag: CountryISBNNumber */
+    ///* Discarding duplicate data for tag: CountryNumber */
+    CurrencyElements { 
+            "\u0440\u0443\u0431",
+            "BYB ",
+            ".",
+    }
+    DateTimePatterns { 
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "hh:mm:ss",
+            "EEE dd MMM yyyy ",
+            "EEE dd MMM yyyy hh:mm:ss",
+            "dd.MMMM.yyyy",
+            "dd.MMMM.yyyy",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "\u041D\u044F\u0434",
+            "\u041F\u0430\u043D",
+            "\u0410\u045E\u0442",
+            "\u0421\u0440\u0434",
+            "\u0427\u0446\u0432",
+            "\u041F\u044F\u0442",
+            "\u0421\u0443\u0431",
+    }
+    DayNames { 
+            "\u041D\u044F\u0434\u0437\u0435\u043B\u044F",
+            "\u041F\u0430\u043D\u044F\u0434\u0437\u0435\u043B\u0430\u043A",
+            "\u0410\u045E\u0442\u043E\u0440\u0430\u043A",
+            "\u0421\u0435\u0440\u0430\u0434\u0430",
+            "\u0427\u0430\u0446\u0432\u0435\u0440",
+            "\u041F\u044F\u0442\u043D\u0456\u0446\u0430",
+            "\u0421\u0443\u0431\u043E\u0442\u0430",
+    }
+    Identification { 
+        Title { "Belarusian locale for Belarus" }
+        Source { "" }
+        Address { "" }
+        Contact { "" }
+        Email { "bug-glibc@gnu.org" }
+        Telephone { "" }
+        Fax { "" }
+        Language { "Belarusian" }
+        Territory { "Belarus" }
+        Audience { "" }
+        Application { "" }
+        Abbreviation { "" }
+        Revision { "1.0" }
+        Date { "2000-06-29" }
+    }
+    ///* Discarding duplicate data for tag: LanguageLibraryUse */
+    Measurement { "Metric" }
+    Messages { 
+        YesExpression { "^[\u0414\u0434Yy].*" }
+        NoExpression { "^[\u041D\u043DNn].*" }
+        YesStr { "" }
+        NoStr { "" }
+    }
+    MonthAbbreviations { 
+            "\u0421\u0442\u0434",
+            "\u041B\u044E\u0442",
+            "\u0421\u0430\u043A",
+            "\u041A\u0440\u0441",
+            "\u0422\u0440\u0430",
+            "\u0427\u044D\u0440",
+            "\u041B\u0456\u043F",
+            "\u0416\u043D\u0432",
+            "\u0412\u0440\u0441",
+            "\u041A\u0441\u0442",
+            "\u041B\u0456\u0441",
+            "\u0421\u043D\u0436",
+            "",
+    }
+    MonthNames { 
+            "\u0421\u0442\u0443\u0434\u0437\u0435\u043D\u044C",
+            "\u041B\u044E\u0442\u044B",
+            "\u0421\u0430\u043A\u0430\u0432\u0456\u043A",
+            "\u041A\u0440\u0430\u0441\u0430\u0432\u0456\u043A",
+            "\u0422\u0440\u0430\u0432\u0435\u043D\u044C",
+            "\u0427\u044D\u0440\u0432\u0435\u043D\u044C",
+            "\u041B\u0456\u043F\u0435\u043D\u044C",
+            "\u0416\u043D\u0456\u0432\u0435\u043D\u044C",
+            "\u0412\u0435\u0440\u0430\u0441\u0435\u043D\u044C",
+            "\u041A\u0430\u0441\u0442\u0440\u044B\u0447\u043D\u0456\u043A",
+            "\u041B\u0456\u0441\u0442\u0430\u043F\u0430\u0434",
+            "\u0421\u043D\u0435\u0436\u0430\u043D\u044C",
+            "",
+    }
+    NameFormat { 
+        NamePattern { "%d%t%g%t%m%t%f" }
+        GeneralSalutaion { "" }
+        ShortSalutationMr { "" }
+        ShortSalutationMiss { "" }
+        ShortSalutationMrs { "" }
+        LongSalutationMr { "" }
+        LongSalutationMiss { "" }
+        LongSalutationMrs { "" }
+    }
+    NumberElements { 
+            ",",
+            ".",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "#,##0.00 \u00A4;-#,##0.00 \u00A4",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "297" }
+        Width { "210" }
+        Units { "mm" }
+    }
+    TelephoneFormat { 
+        InternationalFormat { "+%c %a %l" }
+        DomesticFormat { "" }
+        InternationalDialCode { "" }
+        InternationalPrefix { "375" }
+    }
+}

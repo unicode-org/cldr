@@ -27,7 +27,7 @@
     </target>
 
     <!-- build everything but dist-related stuff -->
-    <target name="all" depends="util,tool,posix,test" description="build all primary targets"/>
+    <target name="all" depends="util,tool,posix,icu,test" description="build all primary targets"/>
 
     <!-- core does not build richedit or tests -->
     <target name="util" depends="init" description="build utility classes">
@@ -53,7 +53,7 @@
             encoding="ascii"/>
     </target>
     <target name="posix" depends="init,util" description="build posix conversion tool">
-        <javac includes="org/unicode/cldr/util/**/*.java"
+        <javac includes="org/unicode/cldr/posix/**/*.java"
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"
@@ -63,6 +63,17 @@
             debug="on" deprecation="off"
             encoding="ascii"/>
     </target>
+	<target name="icu" depends="init,util" description="build posix conversion tool">
+	        <javac includes="org/unicode/cldr/icu/**/*.java"
+	            excludes="**/CVS/**/*"
+	            srcdir="${src.dir}"
+	            destdir="${build.dir}"
+	            classpathref="build.classpath"
+	            classpath="${icu4j.binaries}"
+	            source="1.4"
+	            debug="on" deprecation="off"
+	            encoding="ascii"/>
+	</target>
     <target name="test" depends="init,util,tool" description="build tests">
         <javac includes="org/unicode/cldr/test/**/*.java"
             excludes="**/CVS/**/*"

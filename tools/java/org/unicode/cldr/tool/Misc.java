@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -19,7 +18,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.Utility;
@@ -27,20 +25,14 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Value;
-import org.xml.sax.SAXParseException;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
-import com.ibm.icu.util.Calendar;
-import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 //import com.ibm.icu.impl.Utility;
 

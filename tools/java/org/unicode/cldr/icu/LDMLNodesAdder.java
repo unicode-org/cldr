@@ -9,6 +9,8 @@ package org.unicode.cldr.icu;
 
 import com.ibm.icu.dev.tool.UOption;
 
+import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.XPathTokenizer;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

@@ -15,6 +15,8 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
+import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.XPathTokenizer;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NamedNodeMap;

@@ -373,7 +373,6 @@ For example, most country locales will inherit the bulk of their data from the l
         <collation key="phonebook">
             <alias source="de_DE" type="phonebook"/>
         </collation>
-
     </collations>
     <special owner="http://oss.software.ibm.com/icu/">
         <ruleBasedNumberFormats>
@@ -491,15 +490,10 @@ For example, most country locales will inherit the bulk of their data from the l
             <shortNo>N</shortNo>
         </messages>
     </special>
-    <special owner="http://www.redhat.com">
-        <!-- The following is ISO TR 14652 compatibility data. (14652 is a Type 1 TR:
-             "when the required support cannot be obtained for the publication of an
-             International Standard, despite repeated effort".
-             See the ballot comments on http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n948-J1N6769-14652.pdf
-             for details on how bad 14652 is.)
-             This section is here because TR 14652 data is used in RedHat LINUX.
+    <special owner="http://www.gnu.org/directory/glibc.html">
+        <!-- The following is ISO TR 14652 compatibility data.For details on TR 14652 see http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n972-14652ft.pdf.
          -->
-       <iso14652:iso14652 xmlns:iso14652="http://oss.software.ibm.com/icu/iso14652">
+       <iso14652:iso14652 xmlns:iso14652="http://oss.software.ibm.com/locale/locale.html">
             <iso14652:addressFormat>
                 <iso14652:postalPattern>"%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N"</iso14652:postalPattern>
             </iso14652:addressFormat>

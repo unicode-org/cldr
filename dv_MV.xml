@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
-<ldml draft="true">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-06-04" />
-		<language type="dv" /> 
-		<territory type="MV" /> 
+		<version number="1.2"></version>
+		<generation date="2004-06-04"></generation>
+		<language type="dv"></language> 
+		<territory type="MV"></territory> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
 				<week>
-					<minDays count="1"/>
-					<firstDay day="fri"/>
+					<minDays count="1"></minDays>
+					<firstDay day="fri"></firstDay>
 				</week>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE d MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd-MM-yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d-M-yy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>hh:mm:ss a z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>hh:mm:ss a z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>hh:mm:ss a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>hh:mm a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>

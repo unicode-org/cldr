@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="mk" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="mk"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -357,67 +357,67 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"/>
-					<firstDay day="mon"/>
+					<minDays count="1"></minDays>
+					<firstDay day="mon"></firstDay>
 				</week>
 				<eras>
 					<eraAbbr>
-						<era type="1">пр.н.е.</era>
-						<era type="2">ае.</era>
+						<era type="0">пр.н.е.</era>
+						<era type="1">ае.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE, dd MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd.M.yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd.M.yy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -1495,6 +1495,7 @@
 			<currency draft="true" type="UGS">
 				<displayName>Угандиски шилинг (1966-1987)</displayName>
 				<symbol>UGS</symbol>
+
 			</currency>
 
 			<currency draft="true" type="UGX">
@@ -1643,13 +1644,11 @@
 			</currency>
 		</currencies>
 	</numbers>
-</ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/mk.txt?only_with_tag=final-update-LDML
-
-        "Cyrl",     // ISO 15924 Name 
-Currency display names
-                1, // "Minimal Days in First Week" is unknown. Root value used instead
-
--->
+<posix draft="true">
+    <messages>
+      <yesstr>да</yesstr>
+      <nostr>не</nostr>
+      <yesexpr>д</yesexpr>
+      <noexpr>н</noexpr>
+    </messages>
+  </posix></ldml>

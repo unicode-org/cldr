@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="eu" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="eu"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -212,14 +212,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/eu.txt?only_with_tag=final-update-LDML
-
-Fallback{ "en" }
-CD { "Democratic Errepublika del Congo" }
-CS { "Serbia eta Montenegro" } // TODO: if we allow this, then SP must go away
-TL { "Timor-Leste" }    // This was called East Timor
-        "Latn",  // ISO 15924 Name 
-
--->

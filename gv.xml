@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="gv" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="gv"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -79,19 +79,11 @@
 				<pm>p.m.</pm>
 				<eras>
 					<eraAbbr>
-						<era type="1">RC</era>
-						<era type="2">AD</era>
+						<era type="0">RC</era>
+						<era type="1">AD</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
 		</calendars>
 	</dates>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/gv.txt?only_with_tag=final-update-LDML
-
-                "RC", // BC
-                "AD"  // AD
-
--->

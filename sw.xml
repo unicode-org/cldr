@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="sw" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="sw"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -153,13 +153,13 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"/>
-					<firstDay day="sat"/>
+					<minDays count="1"></minDays>
+					<firstDay day="sat"></firstDay>
 				</week>
 				<eras>
 					<eraAbbr>
-						<era type="1">KK</era>
-						<era type="2">BK</era>
+						<era type="0">KK</era>
+						<era type="1">BK</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -191,22 +191,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/sw.txt?only_with_tag=final-update-LDML
-
-Date        Name        Description
-10/23/2000  grhoten     Initial version (source http://www.yale.edu/swahili/)
-Many of these names came from www.geonames.de
-CS { "Serbiya da Montenegro" }
-        IL { "Uyahudi" } // This could be Israeli instead
-        IR { "Uajemi" } // This could be Iran instead
-MG { "Madagascar" } // Could also be Buki or Malagasi
-            "Saa za Africa Mashariki",  // East African Time
-      "Latn",  // ISO 15924 Name
-NumberElements{}
-AmPmMarkers{}
-localPatternChars{}
-Currency display names
-
--->

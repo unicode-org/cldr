@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
-<ldml draft="true">
-<!--
-Locale Data Format
-Draft: 2004-08-02
-By Pema geyleg <pema_geyleg@druknet.bt>
--->
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<ldml>
+
     <identity>
         <version number="0.1">First available version</version>
-        <generation date="2004-08-09" />
-        <!-- Two letter codes, if available; otherwise 3-letter codes.If both
-exist, a separate database contains the mapping. -->
-        <language type="dz"/>
-        <territory type="BT"/>
+        <generation date="2004-08-09"></generation>
+        
+        <language type="dz"></language>
+        <territory type="BT"></territory>
     </identity>
 
     <localeDisplayNames>
-        <!--
-        Display names for scripts, languages, countries, and variants in this locale
-        -->
+        
      <languages>
 	<language type="ar">ཨེ་ར་སྦིག</language>
 	<language type="art">བཟོ་བཟོཝ (གཞན)</language>
@@ -76,19 +69,19 @@ exist, a separate database contains the mapping. -->
 	<script type="Arab">ཨེ་རེ་སྦིག</script>
 	<script type="Beng">བེངྒ་ལི</script>
 	<script type="Brai">བེརེལ</script>
-	<script type="Cyrl">སིརི་ལིཀ</script><!-- Russian script -->
+	<script type="Cyrl">སིརི་ལིཀ</script>
 	<script type="Deva">དི་ཝ་ན་གརི</script>
 	<script type="Grek">གིརིཀ</script>
 	<script type="Gujr">གུ་ཇ་ར་ཏི</script>
-	<script type="Guru">གུར་མུ་ཁི</script><!-- Punjabi Sikh script -->
+	<script type="Guru">གུར་མུ་ཁི</script>
 	<script type="Hang">ཧང་གུལ</script>
-	<script type="Hani">ཧཱན</script><!-- Han = Chinese script -->
-	<script type="Hans">ལུགས་གསར ཧཱན</script><!-- "Simplified Chinese script" -->
-	<script type="Hant">ལུགས་རྙིང ཧཱན</script><!-- "Traditional Chinese script" -->
-	<script type="Hebr">ཧི་བུརུ</script><!-- Jewish script -->
-	<script type="Hira">ཧི་ར་ག་ན</script><!-- one kind of Japanese script -->
-	<script type="Kana">ཀ་ཏ་ཀ་ན</script><!-- another kind of Japanese script -->
-	<script type="Khmr">ཁེ་མར</script><!-- Cambodian script -->
+	<script type="Hani">ཧཱན</script>
+	<script type="Hans">ལུགས་གསར ཧཱན</script>
+	<script type="Hant">ལུགས་རྙིང ཧཱན</script>
+	<script type="Hebr">ཧི་བུརུ</script>
+	<script type="Hira">ཧི་ར་ག་ན</script>
+	<script type="Kana">ཀ་ཏ་ཀ་ན</script>
+	<script type="Khmr">ཁེ་མར</script>
 	<script type="Knda">ཀ་ན་ཌ</script>
 	<script type="Laoo">ལའོ</script>
 	<script type="Latn">ལེ་ཊིན</script>
@@ -97,8 +90,8 @@ exist, a separate database contains the mapping. -->
 	<script type="Mong">སོག་པོ</script>
 	<script type="Mymr">མི་མར</script>
 	<script type="Orya">ཨོ་རི་ཡ</script>
-	<script type="Qaai">སྔར་རྒྱུན</script><!-- put Dzongkha translation of "inherited" -->
-	<script type="Sinh">སིན་ཧ་ལ</script><!-- Sri Lanka Script -->
+	<script type="Qaai">སྔར་རྒྱུན</script>
+	<script type="Sinh">སིན་ཧ་ལ</script>
 	<script type="Taml">ཏ་མིལ</script>
 	<script type="Telu">ཏེ་ལུ་གུ</script>
 	<script type="Thaa">ཐཱ་ན</script>
@@ -187,11 +180,11 @@ exist, a separate database contains the mapping. -->
         </types>
     </localeDisplayNames>
     <layout>
-        <orientation lines="top-to-bottom" characters="left-to-right" />
+        <orientation lines="top-to-bottom" characters="left-to-right"></orientation>
     </layout>
      <characters>
         <exemplarCharacters>[ཀཁགངཅཆཇཉཏཐདནཔཕབམཙཚཛཝཞཟའཡརལཤསཧཨཱིེོུྐྒྔྕྗྙྟྡྣྤྦྨྩྫྭྱྲླྷ]</exemplarCharacters>
-       <mapping registry="iana" type="utf-8"/>
+       <mapping registry="iana" type="utf-8"></mapping>
      </characters>
     
     <delimiters>
@@ -205,7 +198,7 @@ exist, a separate database contains the mapping. -->
           <calendar type="Gregorian">
               <months>
                <monthContext type="format">
-                       <default type="wide"/>
+                       <default type="wide"></default>
                         <monthWidth type="wide">
                         <month type="1">སྤྱི་ཟླཝ་དངཔ་</month>
                         <month type="2">སྤྱི་ཟླཝ་གཉིས་པ་</month>
@@ -239,7 +232,7 @@ exist, a separate database contains the mapping. -->
               
              <days>
                  <dayContext type="format">
-                    <default type="wide"/>
+                    <default type="wide"></default>
                     <dayWidth type="wide">
                         <day type="sun">གཟའ་ཟླ་བ་</day>
                         <day type="mon">གཟའ་མིག་དམར་</day>
@@ -261,76 +254,67 @@ exist, a separate database contains the mapping. -->
                  </dayContext>
                </days>
               <week>
-                  <minDays count="1"/>
-                  <firstDay day="mon"/>
-                  <weekendStart day="sat" time="00:00"/>
-                  <weekendEnd day="sun" time="24:00"/>
+                  <minDays count="1"></minDays>
+                  <firstDay day="mon"></firstDay>
+                  <weekendStart day="sat" time="00:00"></weekendStart>
+                  <weekendEnd day="sun" time="24:00"></weekendEnd>
               </week>
 		<am>སྔ་ཆ་</am>
 		<pm>ཕྱི་ཆ་</pm>
 
-		<!-- TODO: This data is the wrong translation -->
-		<!-- eras>
-			<eraNames>
-				<era type="0">Before Common Era</era>
-				<era type="1">Common Era</era>
-			</eraNames>
-			<eraAbbr>
-				<era type="0">BCE</era>
-				<era type="1">CE</era>
-			</eraAbbr>
-		</eras-->
+		
+		
 
 		<dateFormats>
-			<default type="long"/>
+			<default type="long"></default>
 			<dateFormatLength type="full">
-				<dateFormat >
+				<dateFormat>
 					<pattern>སྤྱི་ལོ་yyyy ཟླ་ MMMM ཚེས་ dd</pattern>
 				</dateFormat>
-			</dateFormatLength >
+			</dateFormatLength>
 			<dateFormatLength type="long">
-				<dateFormat >
+				<dateFormat>
 					<pattern>སྤྱི་ལོ་yyyy ཟླ་ MMMM ཚེས་ dd</pattern>
 				</dateFormat>
-			</dateFormatLength >
+			</dateFormatLength>
 			<dateFormatLength type="medium">
-				<dateFormat >
+				<dateFormat>
 					<pattern>སྤྱི་ལོ་yyyy ཟླ་ MMM ཚེས་ dd</pattern>
 				</dateFormat>
-			</dateFormatLength >
+			</dateFormatLength>
 			<dateFormatLength type="short">
-				<dateFormat >
+				<dateFormat>
 					<pattern>སྤྱི་ལོ་ yyyy ཟླ་ MMM ཚེས་ dd</pattern>
 				</dateFormat>
-			</dateFormatLength >
+			</dateFormatLength>
 		</dateFormats> 
 
 		<timeFormats>
-			<default type="long"/>
+			<default type="long"></default>
 			<timeFormatLength type="full">
 				<timeFormat>
 					<pattern>ཆུ་ཚོད་ h སྐར་མ་ mm སྐར་ཆཱ་ ss a zzzz</pattern>
 				</timeFormat>
 				</timeFormatLength>
 				<timeFormatLength type="long">
-					<timeFormat >
+					<timeFormat>
 						<pattern>ཆུ་ཚོད་ h སྐར་མ་ mm སྐར་ཆཱ་ ss a zzz</pattern>
 					</timeFormat>
-				</timeFormatLength >
+				</timeFormatLength>
 				<timeFormatLength type="medium">
-					<timeFormat >
+					<timeFormat>
 						<pattern>ཆུ་ཚོད་h:mm:ss a</pattern>
 					</timeFormat>
-				</timeFormatLength >
+				</timeFormatLength>
 				<timeFormatLength type="short">
 					<timeFormat>
 						<pattern>ཆུ་ཚོད་ h སྐར་མ་ mm a</pattern>
 					</timeFormat>
-				</timeFormatLength >
+				</timeFormatLength>
 			</timeFormats>
 			<dateTimeFormats>
-				<default type="long"/>
-					<dateTimeFormatLength type ="full">
+				<default type="long"></default>
+					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
@@ -338,21 +322,20 @@ exist, a separate database contains the mapping. -->
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
-		<!-- Bhutan also has own calendar similar to but not the same as
-        Tibetan lunar calendar -->
+		
 		<timeZoneNames>
 			<zone type="Asia/Thimphu">
-			<!-- Bhutan does not use Daylight Saving Time -->
+			
 			<long>
-				<!-- Bhutanese time is referred to as "BST" in Bhutan -->
-				<generic>Bhutan Standard Time</generic><!--TODO:  This data is in the wrong script -->
-				<standard>Bhutan Standard Time</standard><!-- TODO: This data is in the wrong script -->
-				<daylight>Bhutan Standard Time</daylight><!-- TODO: This data is in the wrong script -->
+				
+				<generic>Bhutan Standard Time</generic>
+				<standard>Bhutan Standard Time</standard>
+				<daylight>Bhutan Standard Time</daylight>
 			</long>
 			<short>
-				<generic>BST</generic><!-- TODO: This data may be in the wrong script -->
-				<standard>BST</standard><!-- TODO: This data may be in the wrong script -->
-				<daylight>BST</daylight><!-- TODO: This data may be in the wrong script -->
+				<generic>BST</generic>
+				<standard>BST</standard>
+				<daylight>BST</daylight>
 			</short>
 			<exemplarCity>ཐིམ་ཕུག</exemplarCity>
 			</zone>

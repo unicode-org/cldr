@@ -1,52 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="mt" /> 
-		<territory type="MT" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="mt"></language> 
+		<territory type="MT"></territory> 
 	</identity>
 		<numbers>
 			<decimalFormats>
-				<decimalFormatLength >
-					<decimalFormat >
+				<decimalFormatLength>
+					<decimalFormat>
 						<pattern>#,##0.###;-#,##0.###</pattern>
 					</decimalFormat>
-				</decimalFormatLength >
+				</decimalFormatLength>
 			</decimalFormats>
 			<scientificFormats>
-				<scientificFormatLength >
-					<scientificFormat >
+				<scientificFormatLength>
+					<scientificFormat>
 						<pattern>#E0</pattern>
 					</scientificFormat>
-				</scientificFormatLength >
+				</scientificFormatLength>
 			</scientificFormats>
 			<percentFormats>
-				<percentFormatLength >
-					<percentFormat >
+				<percentFormatLength>
+					<percentFormat>
 						<pattern>#,##0%</pattern>
 					</percentFormat>
-				</percentFormatLength >
+				</percentFormatLength>
 			</percentFormats>
 			<currencyFormats>
-				<currencyFormatLength >
-					<currencyFormat >
+				<currencyFormatLength>
+					<currencyFormat>
 						<pattern>¤#,##0.00;-¤#,##0.00</pattern>
 					</currencyFormat>
-				</currencyFormatLength >
+				</currencyFormatLength>
 			</currencyFormats>
 		</numbers>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/mt_MT.txt?only_with_tag=final-update-LDML
-
-Maltese, Malta locale
-srl@jtcsv.com
-Note: please see the 'mt.txt' file for more information.
-** Maltese Standardization Authority http://www.msa.org.mt - MSA 200:2003 "Maltese Data and Information Requirements on Information and Communication Technology" is now the normative document for this data file.  [MSA 200:2003]
-    Version { "2.1" } // October, 2003
-        "\u00A4#,##0.00;-\u00A4#,##0.00",  // [MSA 200:2003 4.4]
-
--->

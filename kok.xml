@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="kok" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="kok"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -215,15 +215,15 @@
 					</dayContext>
 				</days>
 				<week>
-					<weekendStart draft="true" day="sun" time="00:00"/>
-					<weekendEnd draft="true" day="mon" time="00:00"/>
+					<weekendStart draft="true" day="sun" time="00:00"></weekendStart>
+					<weekendEnd draft="true" day="mon" time="00:00"></weekendEnd>
 				</week>
 				<am>म.पू.</am>
 				<pm>म.नं.</pm>
 				<eras>
 					<eraAbbr>
-						<era type="1">क्रिस्तपूर्व</era>
-						<era type="2">क्रिस्तशखा</era>
+						<era type="0">क्रिस्तपूर्व</era>
+						<era type="1">क्रिस्तशखा</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -250,17 +250,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/kok.txt?only_with_tag=final-update-LDML
-
-jw { "\u091c\u093e\u0935\u0928\u0940\u0938\u094d" } // Use jv instead
-ki { "\u0915\u094b\u0902\u0915\u0923\u0940" }
-"\u2030",
-"\u221e",
-"\ufffd"
-}
-        "Deva"        // ISO 15924 Name 
-Currency display names
-
--->

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="eo" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="eo"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -438,69 +438,69 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="4"/>
-					<firstDay day="mon"/>
+					<minDays count="4"></minDays>
+					<firstDay day="mon"></firstDay>
 				</week>
 				<am>atm</am>
 				<pm>ptm</pm>
 				<eras>
 					<eraAbbr>
-						<era type="1">aK</era>
-						<era type="2">pK</era>
+						<era type="0">aK</era>
+						<era type="1">pK</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE, d'-a de 'MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy-MMMM-dd</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy-MMM-dd</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yy-MM-dd</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H'-a horo kaj 'm z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -522,24 +522,3 @@
 		</symbols>
 	</numbers>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/eo.txt?only_with_tag=final-update-LDML
-
-or better http://www.jtcsv.com/cgibin/icu-bugs
-data comes from http://www.bertilow.com/lanlin/iso.php and http://www.geonames.de/
-CS { "Serbujo kaj Montenegro" } // TODO: if we allow this, then SP must go away
-        CZ { "\u0108e\u0125ujo" } // Incomplete translation?
-        DO { "Domingo" } // Incomplete translation?
-HK { "Honkongo" } // missing S.A.R. China
-IN { "Barato" } // Alternate spelling
-MO { "Makao" } // missing S.A.R. China
-        TG { "Togolo" } // Just plain Togo?
-        TJ { "Ta\u011dikujo" } // Ta\u011dikistano?
-TL { "Orienta Timoro" }    // This was called East Timor. Now it's Timor-Leste
-        TM { "Turkmenujo" } // Turkmenistano?
-        UZ { "Uzbekujo" } // Uzbekistano?
-Data comes from http://www.bertilow.com/lanlin/iso.php
-        "Latn",  // ISO 15924 Name 
-
--->

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="nb" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="nb"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -610,67 +610,67 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="4"/>
-					<firstDay day="mon"/>
+					<minDays count="4"></minDays>
+					<firstDay day="mon"></firstDay>
 				</week>
 				<eras>
 					<eraAbbr>
-						<era type="1">f.Kr.</era>
-						<era type="2">e.Kr.</era>
+						<era type="0">f.Kr.</era>
+						<era type="1">e.Kr.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE d. MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d. MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d. MMM. yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd.MM.yy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>'kl. 'HH.mm.ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH.mm.ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH.mm.ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH.mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -830,6 +830,7 @@
 			</currency>
 			<currency type="BEC">
 				<displayName>Belgiske franc (konvertible)</displayName>
+
 				<symbol>BEC</symbol>
 			</currency>
 			<currency type="BEF">
@@ -2227,28 +2228,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/nb.txt?only_with_tag=final-update-LDML
-
-        FK { "Falklands\u00F8yene (Malvinas)" }    // alternate name { "Falklands\u00F8yene" }
-        KP { "Nord-Korea" }    // alternate name { "Korea, Den demokratiske republikken" }
-        KR { "S\u00f8r-Korea" }    // alternate name { "Korea, Republikken" }
-LY { "Libya, Den arabiske republikken" }
-SH { "St. Helena" }
-SY { "Syria" }    // alternate name { "Syria, Den arabiske republikken" }
-Currency display names
-        vo  { "volapyk" }   // Yes the iso-639 standard uses the umlaut in the English name
-zh_cn { "kinesisk (forenklet)" }
-zh_tw { "kinesisk (tradisjonell)" }
-        "Latn",  // ISO 15924 Name 
-        Hans { "forenklet han" } // Not a formal part of ISO-15924 yet
-        Hant { "tradisjonell han" } // Not a formal part of ISO-15924 yet
-        Qaac { "koptisk" } // Coptic is not a formal part of ISO-15924 yet
-        Qaai { "nedarvet" } // PUA
-        Thai { "thai" } // Just happens to be a duplicate
-        Zyyy { "generelt" } // This may need to become "undetermined script"
-EURO    { "Europeisk" }
-PREEURO { "F\u00f8r-eruropeisk" }
-
--->

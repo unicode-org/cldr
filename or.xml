@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
-<ldml draft="true">
+<ldml draft="true" version="1.2">
 	<identity>
-		<version number="1.0"/>
-		<generation date="2004-09-14" />
-		<language type="or" /> 
+		<version number="1.0"></version>
+		<generation date="2004-09-14"></generation>
+		<language type="or"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -22,21 +22,8 @@
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
-						<!-- Data is missing -->
-						<!--monthWidth type="abbreviated">
-							<month type="1"></month>
-							<month type="2"></month>
-							<month type="3"></month>
-							<month type="4"></month>
-							<month type="5"></month>
-							<month type="6"></month>
-							<month type="7"></month>
-							<month type="8"></month>
-							<month type="9"></month>
-							<month type="10"></month>
-							<month type="11"></month>
-							<month type="12"></month>
-						</monthWidth-->
+						
+						
 						<monthWidth type="wide">
 							<month type="1">ଜାନୁଆରୀ</month>
 							<month type="2">ଫେବ୍ରୁୟାରୀ</month>
@@ -75,7 +62,13 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-			</calendar>
+			<week draft="true">
+          <minDays count="1"></minDays>
+          <firstDay day="sun"></firstDay>
+          <weekendStart day="sat"></weekendStart>
+          <weekendEnd day="sun"></weekendEnd>
+          
+        </week></calendar>
 		</calendars>
 	</dates>
 	<numbers>
@@ -94,4 +87,11 @@
 			<nan> </nan>
 		</symbols>
 	</numbers>
-</ldml>
+<posix draft="true">
+    <messages>
+      <yesstr>N/A</yesstr>
+      <nostr>N/A</nostr>
+      <yesexpr>N/A</yesexpr>
+      <noexpr>N/A</noexpr>
+    </messages>
+  </posix></ldml>

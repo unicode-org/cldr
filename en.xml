@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="en" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="en"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -887,64 +887,70 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+        <week draft="true">
+          <minDays count="1"></minDays>
+          <firstDay day="sun"></firstDay>
+          <weekendStart day="sat"></weekendStart>
+          <weekendEnd day="sun"></weekendEnd>
+        </week>
 				<eras>
 					<eraAbbr>
-						<era type="1">BC</era>
-						<era type="2">AD</era>
+						<era type="0">BC</era>
+						<era type="1">AD</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE, MMMM d, yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>MMMM d, yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>MMM d, yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>M/d/yy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -1272,32 +1278,32 @@
 	</dates>
 	<numbers>
 		<decimalFormats>
-			<decimalFormatLength >
-				<decimalFormat >
+			<decimalFormatLength>
+				<decimalFormat>
 					<pattern>#,##0.###;-#,##0.###</pattern>
 				</decimalFormat>
-			</decimalFormatLength >
+			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats>
-			<scientificFormatLength >
-				<scientificFormat >
+			<scientificFormatLength>
+				<scientificFormat>
 					<pattern>#E0</pattern>
 				</scientificFormat>
-			</scientificFormatLength >
+			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats>
-			<percentFormatLength >
-				<percentFormat >
+			<percentFormatLength>
+				<percentFormat>
 					<pattern>#,##0%</pattern>
 				</percentFormat>
-			</percentFormatLength >
+			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
-			<currencyFormatLength >
-				<currencyFormat >
+			<currencyFormatLength>
+				<currencyFormat>
 					<pattern>¤#,##0.00;-¤#,##0.00</pattern>
 				</currencyFormat>
-			</currencyFormatLength >
+			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADD">
@@ -2822,37 +2828,12 @@
 			</currency>
 		</currencies>
 	</numbers>
+  <posix draft="true">
+    <messages>
+      <yesstr>Yes</yesstr>
+      <nostr>No</nostr>
+      <yesexpr>Y;y;YES</yesexpr>
+      <noexpr>N;n;NO</noexpr>
+    </messages>
+  </posix>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/en.txt?only_with_tag=final-update-LDML
-
-                "M/d/yy", // Changing this will break binary compatibility.
-CS { "Serbia and Montenegro" } // TODO: if we allow this, then SP must go away
-        TL { "Timor-Leste" }    // This was called East Timor
-Last update: May 2003
-        root{ "Root"}    // The only exception to ISO-639
-        bla { "Siksika" }   // Blackfoot
-div { "Divehi" } // Use dv instead
-        el  { "Greek" } //  Modern (1453-)
-in  { "Indonesian" }  // Use id instead
-iw  { "Hebrew" }  // Use he instead
-ji  { "Yiddish" } // Use yi instead
-jw  { "Javanese" } // Use jv instead
-The range qaa-qtz is reserved for local use.
-        tlh { "Klingon" } // From the Star Trek TV/movie series
-        vo  { "Volap\u00FCk" }   // Yes the iso-639 standard uses the umlaut in the English name
-TODO: This list may be incomplete. Finish it once a formal list appears.
-http://www.unicode.org/iso15924/
-        Qaac { "Coptic" } // Coptic is not a formal part of ISO-15924 yet
-        Qaai { "Inherited" } // PUA
-Thai { "Thai" } // Just happens to be a duplicate
-        Zyyy { "Common" } // This may need to become "undetermined script"
-variants for collation (traditional may also be used for traditional chinese)
-traditional   { "Traditional Calendar" }
-each variant name that occurs in locales should be listed with %% and a display string
-PREEURO { "Pre-Euro" }   // PREEURO variant display name
-EURO    { "Euro" }         // EURO variant display name
-NY      { "Nynorsk" }      // Norwegian variant display name
-
--->

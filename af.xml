@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="af" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="af"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -194,6 +194,7 @@
 							<day type="sat">Sa</day>
 						</dayWidth>
 						<dayWidth type="wide">
+
 							<day type="sun">Sondag</day>
 							<day type="mon">Maandag</day>
 							<day type="tue">Dinsdag</day>
@@ -208,8 +209,8 @@
 				<pm>nm.</pm>
 				<eras>
 					<eraAbbr>
-						<era type="1">v.C.</era>
-						<era type="2">n.C.</era>
+						<era type="0">v.C.</era>
+						<era type="1">n.C.</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -238,15 +239,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/af.txt?only_with_tag=final-update-LDML
-
-Fallback{ "en" }
-Some of the names are the same as en.
-CS { "Serwi\u00eb en Montenegro" } // TODO: if we allow this, then SP must go away
-af { "Afrikaanse" } // adjective form
-        "Latn",  // ISO 15924 Name 
-localPatternChars{}
-
--->

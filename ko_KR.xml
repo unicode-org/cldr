@@ -1,119 +1,100 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="ko" /> 
-		<territory type="KR" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="ko"></language> 
+		<territory type="KR"></territory> 
 	</identity>
 		<dates>
 			<calendars>
 				
 				<calendar type="gregorian">
 					<dateFormats>
-						<default type="medium"/>
+						<default type="medium"></default>
 						<dateFormatLength type="full">
-							<dateFormat >
+							<dateFormat>
 								<pattern>yyyy'년' M'월' d'일' EEEE</pattern>
 							</dateFormat>
-						</dateFormatLength >
+						</dateFormatLength>
 						<dateFormatLength type="long">
-							<dateFormat >
+							<dateFormat>
 								<pattern>yyyy'년' M'월' d'일'</pattern>
 							</dateFormat>
-						</dateFormatLength >
+						</dateFormatLength>
 						<dateFormatLength type="medium">
-							<dateFormat >
+							<dateFormat>
 								<pattern>yyyy. MM. dd</pattern>
 							</dateFormat>
-						</dateFormatLength >
+						</dateFormatLength>
 						<dateFormatLength type="short">
-							<dateFormat >
+							<dateFormat>
 								<pattern>yy. MM. dd</pattern>
 							</dateFormat>
-						</dateFormatLength >
+						</dateFormatLength>
 					</dateFormats>
 					<timeFormats>
-						<default type="medium"/>
+						<default type="medium"></default>
 						<timeFormatLength type="full">
-							<timeFormat >
+							<timeFormat>
 								<pattern>a hh'시' mm'분' ss'초' z</pattern>
 							</timeFormat>
-						</timeFormatLength >
+						</timeFormatLength>
 						<timeFormatLength type="long">
-							<timeFormat >
+							<timeFormat>
 								<pattern>a hh'시' mm'분' ss'초'</pattern>
 							</timeFormat>
-						</timeFormatLength >
+						</timeFormatLength>
 						<timeFormatLength type="medium">
-							<timeFormat >
+							<timeFormat>
 								<pattern>a h:mm:ss</pattern>
 							</timeFormat>
-						</timeFormatLength >
+						</timeFormatLength>
 						<timeFormatLength type="short">
-							<timeFormat >
+							<timeFormat>
 								<pattern>a h:mm</pattern>
 							</timeFormat>
-						</timeFormatLength >
+						</timeFormatLength>
 					</timeFormats>
 					<dateTimeFormats>
-						<dateTimeFormatLength >
+						<dateTimeFormatLength>
 							<dateTimeFormat>
 								<pattern>{1} {0}</pattern>
 							</dateTimeFormat>
-						</dateTimeFormatLength >
+						</dateTimeFormatLength>
 					</dateTimeFormats>
 				</calendar>
 			</calendars>
 		</dates>
 		<numbers>
 			<decimalFormats>
-				<decimalFormatLength >
-					<decimalFormat >
+				<decimalFormatLength>
+					<decimalFormat>
 						<pattern>#,##0.###;-#,##0.###</pattern>
 					</decimalFormat>
-				</decimalFormatLength >
+				</decimalFormatLength>
 			</decimalFormats>
 			<scientificFormats>
-				<scientificFormatLength >
-					<scientificFormat >
+				<scientificFormatLength>
+					<scientificFormat>
 						<pattern>#E0</pattern>
 					</scientificFormat>
-				</scientificFormatLength >
+				</scientificFormatLength>
 			</scientificFormats>
 			<percentFormats>
-				<percentFormatLength >
-					<percentFormat >
+				<percentFormatLength>
+					<percentFormat>
 						<pattern>#,##0%</pattern>
 					</percentFormat>
-				</percentFormatLength >
+				</percentFormatLength>
 			</percentFormats>
 			<currencyFormats>
-				<currencyFormatLength >
-					<currencyFormat >
+				<currencyFormatLength>
+					<currencyFormat>
 						<pattern>¤#,##0.00;-¤#,##0.00</pattern>
 					</currencyFormat>
-				</currencyFormatLength >
+				</currencyFormatLength>
 			</currencyFormats>
 		</numbers>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ko_KR.txt?only_with_tag=final-update-LDML
-
-Countries {
-KR { "\uB300\uD55C\uBBFC\uAD6D" }
-KP { "\uC870\uC120 \uBBFC\uC8FC\uC8FC\uC758 \uC778\uBBFC \uACF5\uD654\uAD6D" }
-US { "\uBBF8\uAD6D" }
-JP { "\uC77C\uBCF8" }
-GB { "\uC601\uAD6D" }
-DE { "\uB3C5\uC77C" }
-FR { "\uD504\uB791\uC2A4" }
-CA { "\uCE90\uB098\uB2E4" }
-}
-Languages {
-ko { "\uD55C\uAD6D\uC5B4" }
-}
-
--->

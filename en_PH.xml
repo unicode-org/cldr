@@ -1,100 +1,100 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="en" /> 
-		<territory type="PH" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="en"></language> 
+		<territory type="PH"></territory> 
 	</identity>
 		<dates>
 			<calendars>
 				
 				<calendar type="gregorian">
 					<dateFormats>
-						<default type="medium"/>
+						<default type="medium"></default>
 						<dateFormatLength type="full">
-							<dateFormat >
+							<dateFormat>
 								<pattern>EEEE, MMMM d, yyyy</pattern>
 							</dateFormat>
-						</dateFormatLength >
+						</dateFormatLength>
 						<dateFormatLength type="long">
-							<dateFormat >
+							<dateFormat>
 								<pattern>MMMM d, yyyy</pattern>
 							</dateFormat>
-						</dateFormatLength >
+						</dateFormatLength>
 						<dateFormatLength type="medium">
-							<dateFormat >
+							<dateFormat>
 								<pattern>MM d, yy</pattern>
 							</dateFormat>
-						</dateFormatLength >
+						</dateFormatLength>
 						<dateFormatLength type="short">
-							<dateFormat >
+							<dateFormat>
 								<pattern>M/d/yy</pattern>
 							</dateFormat>
-						</dateFormatLength >
+						</dateFormatLength>
 					</dateFormats>
 					<timeFormats>
-						<default type="medium"/>
+						<default type="medium"></default>
 						<timeFormatLength type="full">
-							<timeFormat >
+							<timeFormat>
 								<pattern>h:mm:ss a z</pattern>
 							</timeFormat>
-						</timeFormatLength >
+						</timeFormatLength>
 						<timeFormatLength type="long">
-							<timeFormat >
+							<timeFormat>
 								<pattern>h:mm:ss a z</pattern>
 							</timeFormat>
-						</timeFormatLength >
+						</timeFormatLength>
 						<timeFormatLength type="medium">
-							<timeFormat >
+							<timeFormat>
 								<pattern>h:mm:ss a</pattern>
 							</timeFormat>
-						</timeFormatLength >
+						</timeFormatLength>
 						<timeFormatLength type="short">
-							<timeFormat >
+							<timeFormat>
 								<pattern>h:mm a</pattern>
 							</timeFormat>
-						</timeFormatLength >
+						</timeFormatLength>
 					</timeFormats>
 					<dateTimeFormats>
-						<dateTimeFormatLength >
+						<dateTimeFormatLength>
 							<dateTimeFormat>
 								<pattern>{1} {0}</pattern>
 							</dateTimeFormat>
-						</dateTimeFormatLength >
+						</dateTimeFormatLength>
 					</dateTimeFormats>
 				</calendar>
 			</calendars>
 		</dates>
 		<numbers>
 			<decimalFormats>
-				<decimalFormatLength >
-					<decimalFormat >
+				<decimalFormatLength>
+					<decimalFormat>
 						<pattern>#,##0.###;-#,##0.###</pattern>
 					</decimalFormat>
-				</decimalFormatLength >
+				</decimalFormatLength>
 			</decimalFormats>
 			<scientificFormats>
-				<scientificFormatLength >
-					<scientificFormat >
+				<scientificFormatLength>
+					<scientificFormat>
 						<pattern>#E0</pattern>
 					</scientificFormat>
-				</scientificFormatLength >
+				</scientificFormatLength>
 			</scientificFormats>
 			<percentFormats>
-				<percentFormatLength >
-					<percentFormat >
+				<percentFormatLength>
+					<percentFormat>
 						<pattern>#,##0%</pattern>
 					</percentFormat>
-				</percentFormatLength >
+				</percentFormatLength>
 			</percentFormats>
 			<currencyFormats>
-				<currencyFormatLength >
-					<currencyFormat >
+				<currencyFormatLength>
+					<currencyFormat>
 						<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 					</currencyFormat>
-				</currencyFormatLength >
+				</currencyFormatLength>
 			</currencyFormats>
 			<currencies>
 				<currency type="PHP">

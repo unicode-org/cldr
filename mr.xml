@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="mr" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="mr"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -215,6 +215,12 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+        <week draft="true">
+          <minDays count="1"></minDays>
+          <firstDay day="sun"></firstDay>
+          <weekendStart day="sat"></weekendStart>
+          <weekendEnd day="sun"></weekendEnd>
+        </week>
 				<am>म.पू.</am>
 				<pm>म.नं.</pm>
 			</calendar>
@@ -240,21 +246,12 @@
 			</currency>
 		</currencies>
 	</numbers>
+  <posix draft="true">
+    <messages>
+      <yesstr>हां</yesstr>
+      <nostr>ना</nostr>
+      <yesexpr>हां</yesexpr>
+      <noexpr>ना</noexpr>
+    </messages>
+  </posix>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/mr.txt?only_with_tag=final-update-LDML
-
-jw { "\u091c\u093e\u0935\u0928\u0940\u0938\u094d" } // Use jv instead
-Eras {
-"BC",
-"AD",
-}
-"\u2030",
-"\u221e",
-"\ufffd"
-}
-        "Deva"        // ISO 15924 Name 
-Currency display names
-
--->

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="pt" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="pt"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -868,64 +868,70 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+        <week draft="true">
+          <minDays count="1"></minDays>
+          <firstDay day="mon"></firstDay>
+          <weekendStart day="sat"></weekendStart>
+          <weekendEnd day="sun"></weekendEnd>
+        </week>
 				<eras>
 					<eraAbbr>
-						<era type="1">a.C.</era>
-						<era type="2">d.C.</era>
+						<era type="0">a.C.</era>
+						<era type="1">d.C.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE, d' de 'MMMM' de 'yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d' de 'MMMM' de 'yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d/MMM/yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd-MM-yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH'H'mm'm'ss's' z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -2785,33 +2791,11 @@
 			</currency>
 		</currencies>
 	</numbers>
-</ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/pt.txt?only_with_tag=final-update-LDML
-
-The vast majority of this data is based on the pt_BR locale.
-The pt_PT locale should be used when Portugal Portuguese is needed.
-                "a.C.", // antes de Cristo 
-                "d.C.", // depois de Cristo
-BN { "Brunei Darussalam" }
-CN { "China (PRC)" }
-        KP { "Cor\u00E9ia, Norte" }    // alternate name { "Cor\u00E9ia, Rep\u00FAblica Popular Democr\u00E1tica da " }
-        KR { "Cor\u00E9ia, Sul" }    // alternate name { "Cor\u00E9ia, Rep\u00FAblica da" }
-Currency display names
-        AFA { "AFA", "Afegane (1927-2002)" } // 1927- 
-        "Latn",  // ISO 15924 Name 
-        bla { "siksika" }   // Blackfoot
-ijo { "ijo" }
-luo { "luo" }
-tiv { "tiv" }
-vai { "vai" }
-        Hans { "han simplificado" } // Not a formal part of ISO-15924 yet
-        Hant { "han tradicional" } // Not a formal part of ISO-15924 yet
-        Qaac { "c\u00f3ptico" } // Coptic is not a formal part of ISO-15924 yet
-        Qaai { "herdado" } // PUA
-        Thai { "tailand\u00eas" } // Just happens to be a duplicate
-        Zyyy { "comum" } // This may need to become "undetermined script"
-PREEURO { "Pr\u00e9-Euro" }
-
--->
+<posix draft="true">
+    <messages>
+      <yesstr>SIM</yesstr>
+      <nostr>NÃO</nostr>
+      <yesexpr>S</yesexpr>
+      <noexpr>N</noexpr>
+    </messages>
+  </posix></ldml>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="am" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="am"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -346,25 +346,16 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"/>
-					<firstDay day="sat"/>
+					<minDays count="1"></minDays>
+					<firstDay day="sat"></firstDay>
 				</week>
 				<eras>
 					<eraAbbr>
-						<era type="1">ዓ/ዓ</era>
-						<era type="2">ዓ/ም</era>
+						<era type="0">ዓ/ዓ</era>
+						<era type="1">ዓ/ም</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
 		</calendars>
 	</dates>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/am.txt?only_with_tag=final-update-LDML
-
-* Amharic language.
-* Contributed by Daniel Yacob <yacob@geez.org>, Ge'ez Frontier Foundation
-sh { "\u0073\u0068"} // this is an error.. we need translation for this
-
--->

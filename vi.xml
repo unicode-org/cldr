@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="vi" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="vi"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -321,69 +321,69 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"/>
-					<firstDay day="mon"/>
+					<minDays count="1"></minDays>
+					<firstDay day="mon"></firstDay>
 				</week>
 				<am>SA</am>
 				<pm>CH</pm>
 				<eras>
 					<eraAbbr>
-						<era type="1">tr. CN</era>
-						<era type="2">sau CN</era>
+						<era type="0">tr. CN</era>
+						<era type="1">sau CN</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE, 'ngày' dd MMMM 'năm' yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>'Ngày' dd 'tháng' M 'năm' yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd-MM-yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd/MM/yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{0} {1}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -404,32 +404,32 @@
 			<nan>�</nan>
 		</symbols>
 		<decimalFormats>
-			<decimalFormatLength >
-				<decimalFormat >
+			<decimalFormatLength>
+				<decimalFormat>
 					<pattern>#,##0.###;-#,##0.###</pattern>
 				</decimalFormat>
-			</decimalFormatLength >
+			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats>
-			<scientificFormatLength >
-				<scientificFormat >
+			<scientificFormatLength>
+				<scientificFormat>
 					<pattern>#E0</pattern>
 				</scientificFormat>
-			</scientificFormatLength >
+			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats>
-			<percentFormatLength >
-				<percentFormat >
+			<percentFormatLength>
+				<percentFormat>
 					<pattern>#,##0%</pattern>
 				</percentFormat>
-			</percentFormatLength >
+			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
-			<currencyFormatLength >
-				<currencyFormat >
+			<currencyFormatLength>
+				<currencyFormat>
 					<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
 				</currencyFormat>
-			</currencyFormatLength >
+			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
 			<currency type="VND">
@@ -438,28 +438,11 @@
 			</currency>
 		</currencies>
 	</numbers>
-</ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/vi.txt?only_with_tag=final-update-LDML
-
-Note many of the country names have dashes in the name. This seems to be correct.
-Translations that are done poorly seem to remove them. This doesn't mean that all the dashes are correct,
-but care should be taken before removing them.
-        AT { "\u00c1o" } // \u00c1o Qu\u1ed1c ?
-        AU { "\u00dac" } // \u00dac \u0110\u1ea1i L\u1ee3i?
-HK { "H\u1ED3ng K\u00F4ng SAR Trung Qu\u1ed1c" }  // "H\u1ED3ng K\u00F4ng" is original form. SAR needs translation.
-        ID { "Nam D\u01b0\u01a1ng" } // or maybe also In-\u0111\u00f4-n\u00ea-xi-a
-        IT { "\u00DD" } // The less frequent form of this country is "I-ta-li-a"
-        KP { "B\u1eafc Tri\u1ec1u Ti\u00ean" } // Alt name?: C\u1ed9ng h\u00f2a D\u00e2n ch\u1ee7 Nh\u00e2n d\u00e2n Tri\u1ec1u Ti\u00ean
-        US { "Hoa K\u1ef3" } // M\u1ef9 = slang abbreviated form of US; Hoa K\u1ef3 = US; H\u1ee3p ch\u00fang qu\u1ed1c Hoa k\u1ef3 = USA 
-        VND { "\u0111", "\u0111\u1ED3ng" } // Vietnamese Dong. More people use \u0111 rather than \u20AB
-The case of the letters may be wrong for languages because Ti\u1EBFng is used.
-Ti\u1EBFng is used in order to clarify some of the names, and ti\u1EBFng means "language".
-Ti\u1EBFng is used to differentiate similar words like English from England and German from Germany,
-which are frequently the same in Vietnamese.
-It is difficult to decide whether Ti\u1EBFng should precede the translation, but it doesn't hurt to keep it there.
-        it { "Ti\u1EBFng \u00DD" } // Just \u00DD seems okay because Ti\u1EBFng is used. \u00DD is sometimes used to mean Italy too.
-        "Latn",  // ISO 15924 Name 
-
--->
+<posix draft="true">
+    <messages>
+      <yesstr>có;có</yesstr>
+      <nostr>không</nostr>
+      <yesexpr>c</yesexpr>
+      <noexpr>k</noexpr>
+    </messages>
+  </posix></ldml>

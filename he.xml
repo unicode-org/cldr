@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="he" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="he"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -338,7 +338,7 @@
 		</types>
 	</localeDisplayNames>
 	<layout>
-		<orientation lines="top-to-bottom" characters="right-to-left" />
+		<orientation lines="top-to-bottom" characters="right-to-left"></orientation>
 	</layout>
 	<characters>
 		<exemplarCharacters>[[:Hebr:]‏‎]</exemplarCharacters>
@@ -411,71 +411,77 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+        <week draft="true">
+          <minDays count="1"></minDays>
+          <firstDay day="sun"></firstDay>
+          <weekendStart day="fri"></weekendStart>
+          <weekendEnd day="sat"></weekendEnd>
+        </week>
 				<eras>
 					<eraAbbr>
-						<era type="1">לפנה״ס</era>
-						<era type="2">לסה״נ</era>
+						<era type="0">לפנה״ס</era>
+						<era type="1">לסה״נ</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE d MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd/MM/yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd/MM/yy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{0} {1}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="he" path="../monthWidth[@type='wide']"/>
+							<alias source="he" path="../monthWidth[@type='wide']"></alias>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">תשרי</month>
@@ -496,7 +502,7 @@
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="1">לבה"ע</era>
+						<era type="0">לבה"ע</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -504,7 +510,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-              <alias source="he" path="../monthWidth[@type='wide']"/>
+              <alias source="he" path="../monthWidth[@type='wide']"></alias>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">מוחרם</month>
@@ -524,12 +530,12 @@
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="1">שנת היג׳רה</era>
+						<era type="0">שנת היג׳רה</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
-        <alias source="he" path="../calendar[@type='islamic']"/>
+        <alias source="he" path="../calendar[@type='islamic']"></alias>
 			</calendar>
 		</calendars>
 	</dates>
@@ -541,20 +547,12 @@
 			</currency>
 		</currencies>
 	</numbers>
+  <posix draft="true">
+    <messages>
+      <yesstr>כן</yesstr>
+      <nostr>לא</nostr>
+      <yesexpr>כ</yesexpr>
+      <noexpr>ל</noexpr>
+    </messages>
+  </posix>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/he.txt?only_with_tag=final-update-LDML
-
-        KP { "\u05E7\u05D5\u05E8\u05D9\u05D0\u05D4, \u05E6\u05E4\u05D5\u05DF" }    // alternate name { "\u05E7\u05D5\u05E8\u05D9\u05D0\u05D4, \u05D4\u05E8\u05E4\u05D5\u05D1\u05DC\u05D9\u05E7\u05D4 \u05D4\u05D3\u05DE\u05D5\u05E7\u05E8\u05D8\u05D9\u05EA \u05D4\u05E2\u05DE\u05DE\u05D9\u05EA" }
-        KR { "\u05E7\u05D5\u05E8\u05D9\u05D0\u05D4, \u05D3\u05E8\u05D5\u05DD" }    // alternate name { "\u05E7\u05D5\u05E8\u05D9\u05D0\u05D4, \u05D4\u05E8\u05E4\u05D5\u05D1\u05DC\u05D9\u05E7\u05D4" }
-        SY { "\u05D4\u05E8\u05E4\u05D5\u05D1\u05DC\u05D9\u05E7\u05D4 \u05D4\u05E2\u05E8\u05D1\u05D9\u05EA \u05D4\u05E1\u05D5\u05E8\u05D9\u05EA" }    // alternate name { "\u05E1\u05D5\u05E8\u05D9\u05D4" }
-iw { "\u05E2\u05D1\u05E8\u05D9\u05EA" } //Use he instead
-zh_cn { "\u05E1\u05D9\u05E0\u05D9\u05EA (\u05DE\u05E4\u05D5\u05E9\u05D8\u05EA)" }
-zh_tw { "\u05E1\u05D9\u05E0\u05D9\u05EA (\u05DE\u05E1\u05D5\u05E8\u05EA\u05D9\u05EA)" }
-        "Hebr"    // ISO 15924 Name
-Currency display names
-International Calendars Data.
-                        "\u05D6\u05D5 \u05D0\u05DC-QI'DAH",                                             // Dhu al-Qi'dah  (NEED TRANSLATION!!)
-
--->

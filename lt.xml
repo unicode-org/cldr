@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="lt" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="lt"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -345,67 +345,67 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="4"/>
-					<firstDay day="mon"/>
+					<minDays count="4"></minDays>
+					<firstDay day="mon"></firstDay>
 				</week>
 				<eras>
 					<eraAbbr>
-						<era type="1">pr.Kr.</era>
-						<era type="2">po.Kr.</era>
+						<era type="0">pr.Kr.</era>
+						<era type="1">po.Kr.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy 'm.' MMMM d 'd.',EEEE</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy 'm.' MMMM d 'd.'</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy.MM.dd</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy.MM.dd</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -432,21 +432,11 @@
 			</currency>
 		</currencies>
 	</numbers>
-</ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/lt.txt?only_with_tag=final-update-LDML
-
-        FK { "Folklendo salos (Malvinai)" }    // alternate name { "Folklendo salos" }
-        KP { "\u0160iaur\u0117s Kor\u0117ja" }    // alternate name { "Kor\u0117jos Demokratin\u0117 Liaudies Respublika" }
-        KR { "Piet\u0173 Kor\u0117ja" }    // alternate name { "Kor\u0117jos Respublika" }
-        SY { "Sirija" }    // alternate name { "Sirijos Arab\u0173 Respublika" }
-US { "JAV" } // Poor translation. JAV -> United States
-        VI { "JAV Virginijos salos" } // Poor translation? JAV -> United States
-zh_cn { "Kin\u0173 (supaprastinta)" }
-zh_tw { "Kin\u0173 (tadicin\u0117)" }
-        "Latn",  // ISO 15924 Name 
-Currency display names
-                4, // "Minimal Days in First Week"   Lithuania follows ISO 8601 
-
--->
+<posix draft="true">
+    <messages>
+      <yesstr>Taip</yesstr>
+      <nostr>Ne</nostr>
+      <yesexpr>T;t;TAIP</yesexpr>
+      <noexpr>N;n;NE</noexpr>
+    </messages>
+  </posix></ldml>

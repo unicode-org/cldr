@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
-<ldml draft="true">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<ldml>
 	<identity>
-		<version number="0.3"/>
-		<generation date="2004-09-13" />
-		<language type="as" /> 
+		<version number="0.3"></version>
+		<generation date="2004-09-13"></generation>
+		<language type="as"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="as">অসমীয়া</language> <!-- Asamiya / Assamese -->
+			<language type="as">অসমীয়া</language> 
 		</languages>
 		<territories>
-			<territory type="IN">ভাৰত</territory> <!-- Bharat / India -->
+			<territory type="IN">ভাৰত</territory> 
 		</territories>
 	</localeDisplayNames>
 	<characters>
@@ -65,7 +65,7 @@
 							<day type="sat">শনি</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">দেওবাৰ</day> <!-- less common: ৰবিবাৰ -->
+							<day type="sun">দেওবাৰ</day> 
 							<day type="mon">সোমবাৰ</day>
 							<day type="tue">মঙ্গলবাৰ</day>
 							<day type="wed">বুধবাৰ</day>
@@ -75,16 +75,9 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<am>পূৰ্বা</am> <!-- ??? 'Purba' --> <!-- Purbahna পূৰ্বাহ্ণ -->
-				<pm>অপ</pm> <!--Aparahna অপৰাহ্ণ -->
-<!-- NO ERA INFO
-				<eras>
-					<eraAbbr>
-						<era type="1">?</era>
-						<era type="2">?</era>
-					</eraAbbr>
-				</eras>
--->
+				<am>পূৰ্বা</am>  
+				<pm>অপ</pm> 
+
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -98,7 +91,7 @@
 					<daylight>ভা. স.</daylight>
 				</short>
 				<exemplarCity> এলাহাৱাদ</exemplarCity>
-				<!-- Exemplar: Allahabad / Alahawad / এলাহাৱাদ -->
+				
 			</zone>
 		</timeZoneNames>
 	</dates>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="fa" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="fa"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -366,6 +366,7 @@
 			<territory type="KM">کومورو</territory>
 			<territory type="KN">سنت کیتس و نویس</territory>
 			<territory type="KP">کره‌ی شمالی</territory>
+
 			<territory type="KR">کره‌ی جنوبی</territory>
 			<territory type="KW">کویت</territory>
 			<territory type="KY">جزایر کِیمن</territory>
@@ -493,7 +494,7 @@
 		</territories>
 	</localeDisplayNames>
 	<layout>
-		<orientation lines="top-to-bottom" characters="right-to-left" />
+		<orientation lines="top-to-bottom" characters="right-to-left"></orientation>
 	</layout>
 	<characters>
 		<exemplarCharacters>[ء-ؤئ-غفقل-وً-ْٰٔپچژکگی‌‍‏‎]</exemplarCharacters>
@@ -560,62 +561,62 @@
 				<pm>ب.ظ.</pm>
 				<eras>
 					<eraAbbr>
-						<era type="1">ق.م.</era>
-						<era type="2">م.</era>
+						<era type="0">ق.م.</era>
+						<era type="1">م.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE، d MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy/MM/d</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy/MM/d</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss (z)</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss (z)</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -646,13 +647,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/fa.txt?only_with_tag=final-update-LDML
-
-Created by Roozbeh Pournader <roozbeh@sharif.edu>
-Currency display names
-The Afghani symbol doesn't exist in Unicode. So we use the long name
-ZR { "\u0632\u0626\u06cc\u0631" } // Zaire is now the Democratic Republic of Congo (CD)
-
--->

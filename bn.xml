@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="bn" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="bn"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -181,6 +181,12 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+        <week draft="true">
+          <minDays count="1"></minDays>
+          <firstDay day="mon"></firstDay>
+          <weekendStart day="sat"></weekendStart>
+          <weekendEnd day="sun"></weekendEnd>
+        </week>
 				<am>পূর্বাহ্ণ</am>
 				<pm>অপরাহ্ণ</pm>
 			</calendar>
@@ -198,13 +204,12 @@
 			</currency>
 		</currencies>
 	</numbers>
+  <posix draft="true">
+    <messages>
+      <yesstr>হ্য়াঁ</yesstr>
+      <nostr>না</nostr>
+      <yesexpr>হ্য়াঁ</yesexpr>
+      <noexpr>না</noexpr>
+    </messages>
+  </posix>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/bn.txt?only_with_tag=final-update-LDML
-
-*   Original Source - Universal Locales for Linux Project
-MM { "\u09ac\u09cd\u09b0\u09b9\u09cd\u09ae\u09a6\u09c7\u09b6" } // Burma ? Should be Myanmar?
-        BDT { "\u09F3", "BDT" } // Bangladesh Taka
-
--->

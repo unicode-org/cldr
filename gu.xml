@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="gu" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="gu"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -84,6 +84,12 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+        <week draft="true">
+          <minDays count="1"></minDays>
+          <firstDay day="sun"></firstDay>
+          <weekendStart day="sat"></weekendStart>
+          <weekendEnd day="sun"></weekendEnd>
+        </week>
 				<am>પૂર્વ મધ્યાહ્ન</am>
 				<pm>ઉત્તર મધ્યાહ્ન</pm>
 			</calendar>
@@ -111,4 +117,12 @@
 			</currency>
 		</currencies>
 	</numbers>
+  <posix draft="true">
+    <messages>
+      <yesstr>હા</yesstr>
+      <nostr>ના</nostr>
+      <yesexpr>હા</yesexpr>
+      <noexpr>ના</noexpr>
+    </messages>
+  </posix>
 </ldml>

@@ -587,7 +587,7 @@
 		<territories>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Förenade Arabemiraten</territory>
-			<territory type="AF" references="R1">Afghanistan</territory>
+			<territory type="AF" references="Utrikes namnbok">Afghanistan</territory>
 			<territory type="AG">Antigua och Barbuda</territory>
 			<territory type="AI">Anguilla</territory>
 			<territory type="AL">Albanien</territory>
@@ -810,8 +810,8 @@
 			<territory type="TZ">Tanzania</territory>
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
-			<territory type="UM" references="R2">USAs yttre öar</territory>
-			<territory type="US" references="R3">USA</territory>
+			<territory type="UM" references="http://www.ur.se/nyhetsjournalistik/3lan.html">USAs yttre öar</territory>
+			<territory type="US" references="Svenska skrivregler (ISBN 47-04974-X)">USA</territory>
 			<territory type="UY">Uruguay</territory>
 			<territory type="UZ">Uzbekistan</territory>
 			<territory type="VA">Vatikanstaten</territory>
@@ -914,19 +914,19 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">sö</day>
-							<day type="sun" alt="proposed" references="R4" draft="true">sön</day>
+							<day type="sun" alt="proposed" references="http://www.spraknamnden.se" draft="true">sön</day>
 							<day type="mon">må</day>
-							<day type="mon" alt="proposed" references="R4" draft="true">mån</day>
+							<day type="mon" alt="proposed" references="http://www.spraknamnden.se" draft="true">mån</day>
 							<day type="tue">ti</day>
-							<day type="tue" alt="proposed" references="R4" draft="true">tis</day>
+							<day type="tue" alt="proposed" references="http://www.spraknamnden.se" draft="true">tis</day>
 							<day type="wed">on</day>
-							<day type="wed" alt="proposed" references="R4" draft="true">ons</day>
+							<day type="wed" alt="proposed" references="http://www.spraknamnden.se" draft="true">ons</day>
 							<day type="thu">to</day>
-							<day type="thu" alt="proposed" references="R4" draft="true">tors</day>
+							<day type="thu" alt="proposed" references="http://www.spraknamnden.se" draft="true">tors</day>
 							<day type="fri">fr</day>
-							<day type="fri" alt="proposed" references="R4" draft="true">fre</day>
+							<day type="fri" alt="proposed" references="http://www.spraknamnden.se" draft="true">fre</day>
 							<day type="sat">lö</day>
-							<day type="sat" alt="proposed" references="R4" draft="true">lör</day>
+							<day type="sat" alt="proposed" references="http://www.spraknamnden.se" draft="true">lör</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">S</day>
@@ -964,19 +964,19 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>'den 'd MMMM yyyy</pattern>
-							<pattern alt="proposed" references="R3" draft="true">EEEE d MMMM yyyy</pattern>
+							<pattern alt="proposed" references="Svenska skrivregler (ISBN 47-04974-X)" draft="true">EEEE d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>'den 'd MMM yyyy</pattern>
-							<pattern alt="proposed" references="R3" draft="true">EEEE d MMM yyyy</pattern>
+							<pattern alt="proposed" references="Svenska skrivregler (ISBN 47-04974-X)" draft="true">EEEE d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>yyyy-MM-dd</pattern>
-							<pattern alt="proposed" references="R3" draft="true">d MMM yyyy</pattern>
+							<pattern alt="proposed" references="Svenska skrivregler (ISBN 47-04974-X)" draft="true">d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1315,11 +1315,11 @@
 			<currency type="AZM">
 				<displayName>Azerbajdzjansk manat</displayName>
 			</currency>
-			<currency type="BAD" references="R5">
+			<currency type="BAD" references="http://europa.eu.int/comm/translation/currencies/svtable1.htm">
 				<displayName>Bosnisk-hercegovinsk dinar</displayName>
 				<symbol>BAD</symbol>
 			</currency>
-			<currency type="BAM" references="R5">
+			<currency type="BAM" references="http://europa.eu.int/comm/translation/currencies/svtable1.htm">
 				<displayName>Konvertibel bosnisk-hercegovinsk mark</displayName>
 				<symbol>KM</symbol>
 			</currency>
@@ -1657,7 +1657,7 @@
 				<displayName>Kuwaitisk dinar</displayName>
 				<symbol>KD</symbol>
 			</currency>
-			<currency type="KYD" references="R5">
+			<currency type="KYD" references="http://europa.eu.int/comm/translation/currencies/svtable1.htm">
 				<displayName>Cayman-dollar</displayName>
 				<symbol>KYD</symbol>
 			</currency>
@@ -2079,13 +2079,6 @@
 			<noexpr>^[nN]([oO]|[eE][jJ])?</noexpr>
 		</messages>
 	</posix>
-	<references>
-		<reference type="R1">Utrikes namnbok</reference>
-		<reference type="R2" uri="http://www.ur.se/nyhetsjournalistik/3lan.html">Landskoder på Internet</reference>
-		<reference type="R3" uri="URN:ISBN:ISBN 47-04974-X">Svenska skrivregler</reference>
-		<reference type="R4" uri="http://www.spraknamnden.se">Svenska språknämnden</reference>
-		<reference type="R5" uri="http://europa.eu.int/comm/translation/currencies/svtable1.htm">Länder och valutor</reference>
-	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/sv.txt?only_with_tag=final-update-LDML

@@ -37,12 +37,12 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern references="R1">yyyy'年'M'月'd'日' EEEE</pattern>
+							<pattern references="http://www.info.gov.hk/info/holiday_c.htm">yyyy'年'M'月'd'日' EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern references="R1">yyyy'年'M'月'd'日'</pattern>
+							<pattern references="http://www.info.gov.hk/info/holiday_c.htm">yyyy'年'M'月'd'日'</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -80,8 +80,5 @@
 			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
-	<references>
-		<reference type="R1" uri="http://www.info.gov.hk/info/holiday_c.htm">二零零五年公眾假期刊登憲報</reference>
-	</references>
 </ldml>
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.2"/>
-		<generation date="2004-08-17" />
+		<generation date="2004-08-27" />
 		<language type="he" /> 
 	</identity>
 	<localeDisplayNames>
@@ -290,6 +290,7 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
+			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -409,19 +410,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">תשרי</month>
-							<month type="2">חשון</month>
-							<month type="3">כסלו</month>
-							<month type="4">טבת</month>
-							<month type="5">שבט</month>
-							<month type="6">אדר ראשון</month>
-							<month type="7">אדר שני</month>
-							<month type="8">ניסן</month>
-							<month type="9">אייר</month>
-							<month type="10">סיון</month>
-							<month type="11">תמוז</month>
-							<month type="12">אב</month>
-							<month type="13">אלול</month>
+							<alias source="he" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">תשרי</month>
@@ -450,18 +439,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">מוחרם</month>
-							<month type="2">ספר</month>
-							<month type="3">רביע אל-אוואל</month>
-							<month type="4">רביע אל-תני</month>
-							<month type="5">ג׳ומדה אל-אוואל</month>
-							<month type="6">ג׳ומדה אל-תני</month>
-							<month type="7">רג׳אב</month>
-							<month type="8">שעבאן</month>
-							<month type="9">ראמדן</month>
-							<month type="10">שוואל</month>
-							<month type="11">זו אל-QI'DAH</month>
-							<month type="12">זו אל-חיג׳ה</month>
+              <alias source="he" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">מוחרם</month>
@@ -486,43 +464,7 @@
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">מוחרם</month>
-							<month type="2">ספר</month>
-							<month type="3">רביע אל-אוואל</month>
-							<month type="4">רביע אל-תני</month>
-							<month type="5">ג׳ומדה אל-אוואל</month>
-							<month type="6">ג׳ומדה אל-תני</month>
-							<month type="7">רג׳אב</month>
-							<month type="8">שעבאן</month>
-							<month type="9">ראמדן</month>
-							<month type="10">שוואל</month>
-							<month type="11">זו אל-QI'DAH</month>
-							<month type="12">זו אל-חיג׳ה</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">מוחרם</month>
-							<month type="2">ספר</month>
-							<month type="3">רביע אל-אוואל</month>
-							<month type="4">רביע אל-תני</month>
-							<month type="5">ג׳ומדה אל-אוואל</month>
-							<month type="6">ג׳ומדה אל-תני</month>
-							<month type="7">רג׳אב</month>
-							<month type="8">שעבאן</month>
-							<month type="9">ראמדן</month>
-							<month type="10">שוואל</month>
-							<month type="11">זו אל-QI'DAH</month>
-							<month type="12">זו אל-חיג׳ה</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<eras>
-					<eraAbbr>
-						<era type="1">שנת היג׳רה</era>
-					</eraAbbr>
-				</eras>
+        <alias source="he" path="../calendar[@type='islamic']"/>
 			</calendar>
 		</calendars>
 	</dates>

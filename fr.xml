@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.2"/>
-		<generation date="2004-08-17" />
+		<generation date="2004-08-27" />
 		<language type="fr" /> 
 	</identity>
 	<localeDisplayNames>
@@ -532,6 +532,7 @@
 	<dates>
 		<localizedPatternChars>GaMjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
+			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -674,19 +675,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">Tisseri</month>
-							<month type="2">Hesvan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tébeth</month>
-							<month type="5">Schébat</month>
-							<month type="6">Adar</month>
-							<month type="7">Adar II</month>
-							<month type="8">Nissan</month>
-							<month type="9">Iyar</month>
-							<month type="10">Sivan</month>
-							<month type="11">Tamouz</month>
-							<month type="12">Ab</month>
-							<month type="13">Elloul</month>
+              <alias source="fr" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tisseri</month>
@@ -710,18 +699,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">Mouharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻ-oul-Aououal</month>
-							<month type="4">Rabiʻ-out-Tani</month>
-							<month type="5">Djoumada-l-Oula</month>
-							<month type="6">Djoumada-t-Tania</month>
-							<month type="7">Radjab</month>
-							<month type="8">Chaʻban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Chaououal</month>
-							<month type="11">Dou-l-Qaʻda</month>
-							<month type="12">Dou-l-Hidjja</month>
+              <alias source="fr" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Mouharram</month>
@@ -741,38 +719,7 @@
 				</months>
 			</calendar>
 			<calendar type="islamic-civil">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">Mouharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻ-oul-Aououal</month>
-							<month type="4">Rabiʻ-out-Tani</month>
-							<month type="5">Djoumada-l-Oula</month>
-							<month type="6">Djoumada-t-Tania</month>
-							<month type="7">Radjab</month>
-							<month type="8">Chaʻban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Chaououal</month>
-							<month type="11">Dou-l-Qaʻda</month>
-							<month type="12">Dou-l-Hidjja</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Mouharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻ-oul-Aououal</month>
-							<month type="4">Rabiʻ-out-Tani</month>
-							<month type="5">Djoumada-l-Oula</month>
-							<month type="6">Djoumada-t-Tania</month>
-							<month type="7">Radjab</month>
-							<month type="8">Chaʻban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Chaououal</month>
-							<month type="11">Dou-l-Qaʻda</month>
-							<month type="12">Dou-l-Hidjja</month>
-						</monthWidth>
-					</monthContext>
-				</months>
+        <alias source="fr" path="../calendar[@type='islamic']"/>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

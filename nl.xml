@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.2"/>
-		<generation date="2004-08-17" />
+		<generation date="2004-08-27" />
 		<language type="nl" /> 
 	</identity>
 	<localeDisplayNames>
@@ -529,6 +529,7 @@
 	</characters>
 	<dates>
 		<calendars>
+			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -675,19 +676,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">Tisjrie</month>
-							<month type="2">Chesjwan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tevet</month>
-							<month type="5">Sjevat</month>
-							<month type="6">Adar</month>
-							<month type="7">Adar B</month>
-							<month type="8">Nisan</month>
-							<month type="9">Ijar</month>
-							<month type="10">Sivan</month>
-							<month type="11">Tammoez</month>
-							<month type="12">Av</month>
-							<month type="13">Elloel</month>
+							<alias source="nl" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tisjrie</month>
@@ -711,18 +700,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">Moeharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻa al awal</month>
-							<month type="4">Rabiʻa al thani</month>
-							<month type="5">Joemadʻal awal</month>
-							<month type="6">Joemadʻal thani</month>
-							<month type="7">Rajab</month>
-							<month type="8">Sjaʻaban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Sjawal</month>
-							<month type="11">Doe al kaʻaba</month>
-							<month type="12">Doe al hizja</month>
+							<alias source="nl" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Moeharram</month>
@@ -747,43 +725,7 @@
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">Moeharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻa al awal</month>
-							<month type="4">Rabiʻa al thani</month>
-							<month type="5">Joemadʻal awal</month>
-							<month type="6">Joemadʻal thani</month>
-							<month type="7">Rajab</month>
-							<month type="8">Sjaʻaban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Sjawal</month>
-							<month type="11">Doe al kaʻaba</month>
-							<month type="12">Doe al hizja</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Moeharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻa al awal</month>
-							<month type="4">Rabiʻa al thani</month>
-							<month type="5">Joemadʻal awal</month>
-							<month type="6">Joemadʻal thani</month>
-							<month type="7">Rajab</month>
-							<month type="8">Sjaʻaban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Sjawal</month>
-							<month type="11">Doe al kaʻaba</month>
-							<month type="12">Doe al hizja</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<eras>
-					<eraAbbr>
-						<era type="1">Saʻna Hizjria</era>
-					</eraAbbr>
-				</eras>
+        <alias source="nl" path="../calendar[@type='islamic']"/>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

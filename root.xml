@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.2"/>
-		<generation date="2004-08-17" />
+		<generation date="2004-08-27" />
 		<language type="root" /> 
 	</identity>
 	<localeDisplayNames>
@@ -820,6 +820,7 @@
 	<dates>
 		<localizedPatternChars>GyMdkHmsSEDFwWahKzYeugAZ</localizedPatternChars>
 		<calendars>
+			<default type="gregorian"/>
 			<calendar type="buddhist">
 				<eras>
 					<eraAbbr>
@@ -1166,19 +1167,7 @@
 					<monthContext type="format">
 						<default type="wide"/>
 						<monthWidth type="abbreviated">
-							<month type="1">Tishri</month>
-							<month type="2">Heshvan</month>
-							<month type="3">Kislev</month>
-							<month type="4">Tevet</month>
-							<month type="5">Shevat</month>
-							<month type="6">Adar I</month>
-							<month type="7">Adar</month>
-							<month type="8">Nisan</month>
-							<month type="9">Iyar</month>
-							<month type="10">Sivan</month>
-							<month type="11">Tamuz</month>
-							<month type="12">Av</month>
-							<month type="13">Elul</month>
+							<alias source="root" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tishri</month>
@@ -1209,18 +1198,7 @@
 					<monthContext type="format">
 						<default type="wide"/>
 						<monthWidth type="abbreviated">
-							<month type="1">Muharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻ I</month>
-							<month type="4">Rabiʻ II</month>
-							<month type="5">Jumada I</month>
-							<month type="6">Jumada II</month>
-							<month type="7">Rajab</month>
-							<month type="8">Shaʻban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Shawwal</month>
-							<month type="11">Dhuʻl-Qiʻdah</month>
-							<month type="12">Dhuʻl-Hijjah</month>
+							<alias source="root" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Muharram</month>
@@ -1245,45 +1223,7 @@
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
-				<months>
-					<default type="format"/>
-					<monthContext type="format">
-						<default type="wide"/>
-						<monthWidth type="abbreviated">
-							<month type="1">Muharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻ I</month>
-							<month type="4">Rabiʻ II</month>
-							<month type="5">Jumada I</month>
-							<month type="6">Jumada II</month>
-							<month type="7">Rajab</month>
-							<month type="8">Shaʻban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Shawwal</month>
-							<month type="11">Dhuʻl-Qiʻdah</month>
-							<month type="12">Dhuʻl-Hijjah</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Muharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabiʻ I</month>
-							<month type="4">Rabiʻ II</month>
-							<month type="5">Jumada I</month>
-							<month type="6">Jumada II</month>
-							<month type="7">Rajab</month>
-							<month type="8">Shaʻban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Shawwal</month>
-							<month type="11">Dhuʻl-Qiʻdah</month>
-							<month type="12">Dhuʻl-Hijjah</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<eras>
-					<eraAbbr>
-						<era type="1">AH</era>
-					</eraAbbr>
-				</eras>
+				<alias source="root" path="../calendar[@type='islamic']"/>
 			</calendar>
 			<calendar type="japanese">
 				<eras>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.2"/>
-		<generation date="2004-08-17" />
+		<generation date="2004-08-27" />
 		<language type="ar" /> 
 	</identity>
 	<localeDisplayNames>
@@ -389,18 +389,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">محرم</month>
-							<month type="2">صفر</month>
-							<month type="3">ربيع الأول</month>
-							<month type="4">ربيع الآخر</month>
-							<month type="5">جمادى الأولى</month>
-							<month type="6">جمادى الآخرة</month>
-							<month type="7">رجب</month>
-							<month type="8">شعبان</month>
-							<month type="9">رمضان</month>
-							<month type="10">شوال</month>
-							<month type="11">ذو القعدة</month>
-							<month type="12">ذو الحجة</month>
+              <alias source="ar" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">محرم</month>
@@ -426,41 +415,10 @@
 			</calendar>
 			<calendar type="islamic-civil">
 				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">محرم</month>
-							<month type="2">صفر</month>
-							<month type="3">ربيع الأول</month>
-							<month type="4">ربيع الآخر</month>
-							<month type="5">جمادى الأولى</month>
-							<month type="6">جمادى الآخرة</month>
-							<month type="7">رجب</month>
-							<month type="8">شعبان</month>
-							<month type="9">رمضان</month>
-							<month type="10">شوال</month>
-							<month type="11">ذو القعدة</month>
-							<month type="12">ذو الحجة</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">محرم</month>
-							<month type="2">صفر</month>
-							<month type="3">ربيع الأول</month>
-							<month type="4">ربيع الآخر</month>
-							<month type="5">جمادى الأولى</month>
-							<month type="6">جمادى الآخرة</month>
-							<month type="7">رجب</month>
-							<month type="8">شعبان</month>
-							<month type="9">رمضان</month>
-							<month type="10">شوال</month>
-							<month type="11">ذو القعدة</month>
-							<month type="12">ذو الحجة</month>
-						</monthWidth>
-					</monthContext>
+          <alias source="ar" path="../../calendar[@type='islamic']/months"/>
 				</months>
 				<eras>
-					<eraAbbr>
-						<era type="1">ه‍</era>
-					</eraAbbr>
+          <alias source="ar" path="../../calendar[@type='islamic']/eras"/>
 				</eras>
 			</calendar>
 		</calendars>

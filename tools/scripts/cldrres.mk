@@ -17,18 +17,18 @@
 L=../../../locale
 #-include locales/cldrlist.mk
 
-CONVOPTS+= -s $(L)/common/main
-CONVOPTS+= -d $(LOCSRCDIR)
-CONVOPTS+= -p $(L)/icu/main
-#CONVOPTS+=-w
-CONVOPTS+=-f
-## do we want supp??
-#CONVOPTS+=-l ~/W/locale/common/main
+# for deprecates
+CONVDEP=-f
+
+CONVOPTS+=     -s $(L)/common/main -d $(LOCSRCDIR) -p $(L)/icu/main $(CONVDEP)
+CONVOPTS_COL+= -s $(L)/common/collation -d $(COLSRCDIR) -p $(L)/icu/collation $(CONVDEP)
+
 GENRB_ALIAS_PATHS=$(GENRB_ALIAS_SOURCE:%.txt=$(LOCSRCDIR)/%.txt)
+COLLATION_ALIAS_PATHS=$(COLLATION_ALIAS_SOURCE:%.txt=$(COLSRCDIR)/%.txt)
+GENRB_PATHS=$(GENRB_SOURCE:%.txt=$(LOCSRCDIR)/%.txt)
+COLLATION_PATHS=$(COLLATION_SOURCE:%.txt=$(COLSRCDIR)/%.txt)
 
-.PRECIOUS: $(GENRB_SOURCE:%.txt=$(LOCSRCDIR)/%.txt) $(LOCSRCDIR)/root.txt $(GENRB_ALIAS_PATHS)
-
-
+.PRECIOUS: $(GENRB_PATHS) $(LOCSRCDIR)/root.txt $(GENRB_ALIAS_PATHS) $(COLLATION_PATHS) $(COLSRCDIR)/root.txt $(COLLATION_ALIAS_PATHS)
 
 #locales/cldrlist.mk:
 #	echo -n 'GENRB_SOURCE=' > $@
@@ -36,6 +36,9 @@ GENRB_ALIAS_PATHS=$(GENRB_ALIAS_SOURCE:%.txt=$(LOCSRCDIR)/%.txt)
 
 $(LOCSRCDIR)/%.txt: $(L)/common/main/%.xml
 	LDML2ICUConverter $(CONVOPTS) $(<F) || $(RMV) $@
+
+$(COLSRCDIR)/%.txt: $(L)/common/collation/%.xml
+	LDML2ICUConverter $(CONVOPTS_COL) $(<F) || $(RMV) $@
 
 #cldr-relist:
 #	-$(RMV) locales/cldrlist.mk
@@ -46,5 +49,9 @@ cldr-resfiles:
 
 $(GENRB_ALIAS_PATHS) $(LOCSRCDIR)/resfiles.mk: $(L)/icu/deprecatedList.xml $(L)/common/main $(L)/icu/main
 	LDML2ICUConverter $(CONVOPTS) -w $(L)/common/main
+
+
+$(COLLATION_ALIAS_PATHS) $(COLSRCDIR)/colfiles.mk: $(L)/icu/deprecatedList.xml $(L)/common/collation $(L)/icu/collation
+	LDML2ICUConverter $(CONVOPTS_COL) -w $(L)/common/collation
 
 

@@ -91,9 +91,9 @@ nl {
         YE { "Jemen" }
         ZA { "Zuid-Afrika" }
     }
-    DateTimeElements { 
-            "2",
-            "4",
+    DateTimeElements:intvector { 
+            2,
+            4,
     }
     DateTimePatterns { 
             "H:mm:ss' uur' z",
@@ -173,7 +173,6 @@ nl {
         sl { "Sloveens" }
         sq { "Albanees" }
         sr { "Servisch" }
-        //sr { "Servisch" }
         sv { "Zweeds " }
         sw { "Swahili" }
         te { "Telugu" }

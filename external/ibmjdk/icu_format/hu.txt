@@ -3,11 +3,7 @@ hu {
             "DE",
             "DU",
     }
-    CollationElements {
-                                  Version { "1.0" }
-                                  Override { "FALSE" }
-                                  Sequence { "& C < cs , cS , Cs , CS & D < \u0111, \u0110 & G < gy, Gy, gY, GY & L < ly, Ly, lY, LY & O < o\u0308 , O\u0308 < o\u030B , O\u030B & S < sz , sZ , Sz , SZ & U < u\u0308 , U\u0308 < u\u030B , U\u030B & Z < zs , zS , Zs , ZS " }
-    }
+    CollationElements { "& C < cs , cS , Cs , CS & D < \u0111, \u0110 & G < gy, Gy, gY, GY & L < ly, Ly, lY, LY & O < o\u0308 , O\u0308 < o\u030B , O\u030B & S < sz , sZ , Sz , SZ & U < u\u0308 , U\u0308 < u\u030B , U\u030B & Z < zs , zS , Zs , ZS " }
     Countries { 
         AF { "Afganiszt\u00E1n" }
         AL { "Alb\u00E1nia" }
@@ -432,5 +428,5 @@ hu {
             "\uFFFD",
     }
     ShortLanguage { "hun" }
-    localPatternChars { "GanjkHmsSEDFwWxhKzZ" }
+    localPatternChars { "GyMdkHmsSEDFwWahKzZ" }
 }

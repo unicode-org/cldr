@@ -1,9 +1,5 @@
 ca {
-    CollationElements {
-                                  Version { "1.0" }
-                                  Override { "FALSE" }
-                                  Sequence { "@" }
-    }
+    CollationElements { "@" }
     Countries { 
         AF { "Afganistan" }
         AL { "Alb\u00E0nia" }
@@ -437,5 +433,5 @@ ca {
             "\uFFFD",
     }
     ShortLanguage { "cat" }
-    localPatternChars { "GuMtkHmsSEDFwWahKzZ" }
+    localPatternChars { "GyMdkHmsSEDFwWahKzZ" }
 }

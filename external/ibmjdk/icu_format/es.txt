@@ -1,9 +1,5 @@
 es {
-    CollationElements {
-                                  Version { "1.0" }
-                                  Override { "FALSE" }
-                                  Sequence { "& N < n\u0303, N\u0303 " }
-    }
+    CollationElements { "& N < n\u0303, N\u0303 " }
     Countries { 
         AF { "Afganist\u00E1n" }
         AL { "Albania" }
@@ -205,9 +201,9 @@ es {
         ZM { "Zambia" }
         ZW { "Zimbabwe" }
     }
-    DateTimeElements { 
-            "2",
-            "1",
+    DateTimeElements:intvector { 
+            2,
+            1,
     }
     DateTimePatterns { 
             "HH'H'mm'' z",

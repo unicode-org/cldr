@@ -35,7 +35,7 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class Utility {
 	/**
-		 * Used to replace variables in a string. For example<p>
+		 * Very simple class, used to replace variables in a string. For example<p>
 	<pre>static VariableReplacer langTag = new VariableReplacer()
 			.add("$alpha", "[a-zA-Z]")
 			.add("$digit", "[0-9]")

@@ -300,13 +300,16 @@ public class CLDRTest extends TestFmwk {
 					count++;
 					UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
 					localeMissing.addAll(missing);
-					errln(getLocaleAndName(locale) + "\t" + xpath + "\t<" + value + "> contains " + missing + ", not in exemplars");					
+					logln(getLocaleAndName(locale) + "\t" + xpath + "\t<" + value + "> contains " + missing + ", not in exemplars");					
 				}
 			}
 			NumberFormat nf = new DecimalFormat("000");
 			if (count != 0) {
 				totalCount += count;
 				counts.add(nf.format(count) + "\t" + getLocaleAndName(locale) + "\t" + localeMissing);
+			}
+			if (localeMissing.size() != 0) {
+				errln(getLocaleAndName(locale) + "\t uses " + localeMissing + ", not in exemplars");
 			}
 		}
 		for (Iterator it = counts.iterator(); it.hasNext();) {
@@ -323,9 +326,13 @@ public class CLDRTest extends TestFmwk {
 		if (exemplars.size() == 0) {
 			errln(getLocaleAndName(locale) + " has empty exemplar set");
 		}
-		exemplars.addAll(getExemplarSet(cldrfile,"standard"))
-		.addAll(getExemplarSet(cldrfile,"auxiliary"))
-		.addAll(commonAndInherited);
+		exemplars.addAll(getExemplarSet(cldrfile,"standard"));
+		UnicodeSet auxiliary = getExemplarSet(cldrfile,"auxiliary");
+		if (exemplars.containsSome(auxiliary)) {
+			errln("Auxiliary & main exemplars should be disjoint: change auxiliary to " + auxiliary.removeAll(exemplars));
+		}
+		exemplars.addAll(auxiliary);
+		exemplars.addAll(commonAndInherited);
 		return exemplars;
 	}
 
@@ -940,6 +947,7 @@ public class CLDRTest extends TestFmwk {
 			for (Iterator it = extras.iterator(); it.hasNext();) {
 				String code = (String) it.next();
 				List data = sc.getFullData("currency", code);
+				if (data.get(1).equals("ZZ")) continue;
 				String type = data.get(3) + "/" + data.get(1);
 				Set s = (Set) failures.get(type);
 				if (s == null) failures.put(type, s = new TreeSet());

@@ -86,7 +86,7 @@ public class MapComparator implements Comparator, Lockable {
         Comparable aa = (Comparable) ordering.get(a);
         Comparable bb = (Comparable) ordering.get(b);
         if (aa != null && bb != null) return aa.compareTo(bb);
-        if (errorOnMissing) throw new IllegalArgumentException("Missing value(s): " 
+        if (errorOnMissing) throw new IllegalArgumentException("Missing Map Comparator value(s): " 
         		+ (aa == null ? a : "") + "\t"
 				+ (bb == null ? b : "")
 		);

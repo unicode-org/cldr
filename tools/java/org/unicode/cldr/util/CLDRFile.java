@@ -801,6 +801,28 @@ private boolean isSupplemental;
 		 */
 		public Value(String currentFullXPath) {
 	        //this.comment = comment.intern();
+			if (currentFullXPath.indexOf("[@draft") >= 0) {
+				XPathParts parts = new XPathParts(null, null).set(currentFullXPath);
+				boolean onFinal = false;
+				String latestDraft = null;
+				// find the last draft, get its value
+				// remove any other drafts
+				// put on leaf
+				for (int i = parts.size() - 1; i >= 0; --i) {
+					Map attributes = parts.getAttributes(i);
+					String draftValue = (String) attributes.get("draft");
+					if (draftValue == null) continue;
+					if (i == parts.size() - 1) onFinal = true;
+					else {
+						if (latestDraft == null) latestDraft = draftValue;
+						attributes.remove("draft");
+					}
+				}
+				if (!onFinal) {
+					parts.addAttribute("draft", latestDraft);
+				}
+				currentFullXPath = parts.toString();
+			}
 	        this.fullXPath = currentFullXPath.intern();
 		}
 		/**
@@ -1525,11 +1547,13 @@ private boolean isSupplemental;
 			"day", "date",
 			"version", "count",
 			"lines", "characters",
-			"before",
+			"before", "from", "to",
 			"number", "time",
 			"validSubLocales",
-			"standard", "references",
 			"uri",
+			"iso4217", "digits", "rounding",
+			"iso3166",
+			"standard", "references",
 			"draft",
 			}).lock();
 	static MapComparator valueOrdering = (MapComparator) new MapComparator().setErrorOnMissing(false).lock();

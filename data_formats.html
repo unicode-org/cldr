@@ -151,7 +151,7 @@ real characters or back, you can do the following:</p>
       rules on the left:</p>
       <table border="1" cellspacing="0" cellpadding="4">
         <tr>
-          <th width="50%" align="left">Rules</th>
+          <th width="50%" align="left">Rules (Wrong)</th>
           <th width="50%" align="left">Actual Effect</th>
         </tr>
         <tr>
@@ -160,7 +160,7 @@ real characters or back, you can do the following:</p>
             &lt;&lt;&lt; Cscs &lt;&lt;&lt; Ccs<br>
             &lt;&lt;&lt; CSCS &lt;&lt;&lt; CCS</td>
           <td width="50%">&amp; C &lt; cs &lt;&lt;&lt; Cs &lt;&lt;&lt; CS<br>
-            &amp; cscs &lt;&lt;&lt; ccs / cs<br>
+            &amp; cs &lt;&lt;&lt; ccs / cs<br>
             &lt;&lt;&lt; Cscs&nbsp; / cs &lt;&lt;&lt; Ccs&nbsp; / cs<br>
             &lt;&lt;&lt; CSCS&nbsp; / cs &lt;&lt;&lt; CCS / cs</td>
         </tr>
@@ -168,13 +168,13 @@ real characters or back, you can do the following:</p>
       <p>But since the <u>CSCS</u> has not been made a contraction in previous
       rules, this produces an automatic expansion, one that continues through
       the entire sequence of non-primary differences, as shown on the right.
-      This is <i>not</i> what is wanted: <i>each</i> item acts like it expands
-      compared to the previous item. So CCS, for example, will act like it
-      expands to CSCScs!</p>
+      This is <i>not</i> what is wanted: each item acts like it expands compared
+      to the previous item. So CCS, for example, will act like it expands to
+      CSCScs!</p>
       <p>What you actually want is the following:</p>
       <table border="1" cellspacing="0" cellpadding="4">
         <tr>
-          <th width="50%" align="left">Rules</th>
+          <th width="50%" align="left">Rules (Right)</th>
           <th width="50%" align="left">Actual Effect</th>
         </tr>
         <tr>

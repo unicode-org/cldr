@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<ldml draft="true">
+	<identity>
+		<version number="0.1"/>
+		<generation date="2004-09-13" />
+		<language type="as" /> 
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="as">অসমীয়া</language> <!-- Asamiya / Assamese -->
+		</languages>
+		<territories>
+			<territory type="IN">ভাৰত</territory> <!-- Bharat / India -->
+		</territories>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[[:Beng:]‌‍]</exemplarCharacters>
+	</characters>
+	<dates>
+		<calendars>
+			
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">জানুয়াৰী</month>
+							<month type="2">ফেব্ৰুয়াৰী</month>
+							<month type="3">মাৰ্চ</month>
+							<month type="4">এপ্ৰিল</month>
+							<month type="5">মে</month>
+							<month type="6">জুন</month>
+							<month type="7">জুলাই</month>
+							<month type="8">আগষ্ট</month>
+							<month type="9">সেপ্টেম্বৰ</month>
+							<month type="10">অক্টোবৰ</month>
+							<month type="11">নভেম্বৰ</month>
+							<month type="12">ডিসেম্বৰ</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">জানু</month>
+							<month type="2">ফেব্ৰু</month>
+							<month type="3">মাৰ্চ</month>
+							<month type="4">এপ্ৰিল</month>
+							<month type="5">মে</month>
+							<month type="6">জুলাই</month>
+							<month type="7">জুলাই</month>
+							<month type="8">আগ</month>
+							<month type="9">সেপ্ট</month>
+							<month type="10">অক্টো</month>
+							<month type="11">নভে</month>
+							<month type="12">ডিসে</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">ৰবি</day>
+							<day type="mon">সোম</day>
+							<day type="tue">মঙ্গল</day>
+							<day type="wed">বুধ</day>
+							<day type="thu">বৃহষ্পতি</day>
+							<day type="fri">শুক্ৰ</day>
+							<day type="sat">শনি</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">দেওবাৰ</day> <!-- less common: ৰবিবাৰ -->
+							<day type="mon">সোমবাৰ</day>
+							<day type="tue">মঙ্গলবাৰ</day>
+							<day type="wed">বুধবাৰ</day>
+							<day type="thu">বৃহষ্পতিবাৰ</day>
+							<day type="fri">শুক্ৰবাৰ</day>
+							<day type="sat">শনিবাৰ</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<am>পূৰ্</am> <!-- ??? 'Pur' --> <!-- Purbahna পূৰ্বাহ্ণ -->
+				<pm>অপ</pm> <!--Aparahna অপৰাহ্ণ -->
+<!-- NO ERA INFO
+				<eras>
+					<eraAbbr>
+						<era type="1">?</era>
+						<era type="2">?</era>
+					</eraAbbr>
+				</eras>
+-->
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<zone type="Asia/Calcutta">
+				<long>
+				<standard>ভাৰতীয়সময়</standard>
+				<daylight>ভাৰতীয়সময়</daylight>
+				</long>
+				<short>
+					<standard>ভা. স.</standard>
+					<daylight>ভা. স.</daylight>
+				</short>
+				<!-- Exemplar: Allahabad / Alahawad / এলাহাৱাদ -->
+			</zone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<currencies>
+			<currency type="INR">
+				<displayName>INR</displayName>
+				<symbol>Rs.</symbol>
+			</currency>
+		</currencies>
+	</numbers>
+</ldml>

@@ -3,4 +3,360 @@
 <!-- For information, see readme.html -->
  <cldrTest version='1.2' base='iw'>
  <!-- iw [iw] -->
+  <number 
+locales='iw iw_IL'>
+<!-- iw [iw]; iw (Israel) [iw (ישראל)] -->
+   <result input='0.0' numberType='standard'>0</result>
+   <result numberType='integer'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='standard'>0.01</result>
+   <result numberType='integer'>0</result>
+   <result numberType='decimal'>0.01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='standard'>-0.01</result>
+   <result numberType='integer'>-0</result>
+   <result numberType='decimal'>-0.01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='standard'>1</result>
+   <result numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='standard'>-1</result>
+   <result numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='standard'>123.456</result>
+   <result numberType='integer'>123</result>
+   <result numberType='decimal'>123.456</result>
+   <result numberType='percent'>12,346%</result>
+   <result numberType='scientific'>1.23456E2</result>
+   <result input='-123.456' numberType='standard'>-123.456</result>
+   <result numberType='integer'>-123</result>
+   <result numberType='decimal'>-123.456</result>
+   <result numberType='percent'>-12,346%</result>
+   <result numberType='scientific'>-1.23456E2</result>
+   <result input='123456.78' numberType='standard'>123,456.78</result>
+   <result numberType='integer'>123,457</result>
+   <result numberType='decimal'>123,456.78</result>
+   <result numberType='percent'>12,345,678%</result>
+   <result numberType='scientific'>1.2345678E5</result>
+   <result input='-123456.78' numberType='standard'>-123,456.78</result>
+   <result numberType='integer'>-123,457</result>
+   <result numberType='decimal'>-123,456.78</result>
+   <result numberType='percent'>-12,345,678%</result>
+   <result numberType='scientific'>-1.2345678E5</result>
+   <result input='Infinity' numberType='standard'>∞</result>
+   <result numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='standard'>-∞</result>
+   <result numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='standard'>�</result>
+   <result numberType='integer'>�</result>
+   <result numberType='decimal'>�</result>
+   <result numberType='percent'>�</result>
+   <result numberType='scientific'>�</result>
+  </number>
+  <date 
+locales='iw iw_IL'>
+<!-- iw [iw]; iw (Israel) [iw (ישראל)] -->
+   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result timeType='long'>00:00:00 GMT+00:00</result>
+   <result timeType='full'>00:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>31/01/00</result>
+   <result timeType='short'>00:00 31/01/00</result>
+   <result timeType='medium'>00:00:00 31/01/00</result>
+   <result timeType='long'>00:00:00 GMT+00:00 31/01/00</result>
+   <result timeType='full'>00:00:00 GMT+00:00 31/01/00</result>
+   <result dateType='medium' timeType='none'>31/01/1900</result>
+   <result timeType='short'>00:00 31/01/1900</result>
+   <result timeType='medium'>00:00:00 31/01/1900</result>
+   <result timeType='long'>00:00:00 GMT+00:00 31/01/1900</result>
+   <result timeType='full'>00:00:00 GMT+00:00 31/01/1900</result>
+   <result dateType='long' timeType='none'>31 ינואר 1900</result>
+   <result timeType='short'>00:00 31 ינואר 1900</result>
+   <result timeType='medium'>00:00:00 31 ינואר 1900</result>
+   <result timeType='long'>00:00:00 GMT+00:00 31 ינואר 1900</result>
+   <result timeType='full'>00:00:00 GMT+00:00 31 ינואר 1900</result>
+   <result dateType='full' timeType='none'>יום רביעי 31 ינואר 1900</result>
+   <result timeType='short'>00:00 יום רביעי 31 ינואר 1900</result>
+   <result timeType='medium'>00:00:00 יום רביעי 31 ינואר 1900</result>
+   <result timeType='long'>00:00:00 GMT+00:00 יום רביעי 31 ינואר 1900</result>
+   <result timeType='full'>00:00:00 GMT+00:00 יום רביעי 31 ינואר 1900</result>
+   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result timeType='long'>00:00:01 GMT+00:00</result>
+   <result timeType='full'>00:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>28/02/09</result>
+   <result timeType='short'>00:00 28/02/09</result>
+   <result timeType='medium'>00:00:01 28/02/09</result>
+   <result timeType='long'>00:00:01 GMT+00:00 28/02/09</result>
+   <result timeType='full'>00:00:01 GMT+00:00 28/02/09</result>
+   <result dateType='medium' timeType='none'>28/02/1909</result>
+   <result timeType='short'>00:00 28/02/1909</result>
+   <result timeType='medium'>00:00:01 28/02/1909</result>
+   <result timeType='long'>00:00:01 GMT+00:00 28/02/1909</result>
+   <result timeType='full'>00:00:01 GMT+00:00 28/02/1909</result>
+   <result dateType='long' timeType='none'>28 פברואר 1909</result>
+   <result timeType='short'>00:00 28 פברואר 1909</result>
+   <result timeType='medium'>00:00:01 28 פברואר 1909</result>
+   <result timeType='long'>00:00:01 GMT+00:00 28 פברואר 1909</result>
+   <result timeType='full'>00:00:01 GMT+00:00 28 פברואר 1909</result>
+   <result dateType='full' timeType='none'>יום ראשון 28 פברואר 1909</result>
+   <result timeType='short'>00:00 יום ראשון 28 פברואר 1909</result>
+   <result timeType='medium'>00:00:01 יום ראשון 28 פברואר 1909</result>
+   <result timeType='long'>00:00:01 GMT+00:00 יום ראשון 28 פברואר 1909</result>
+   <result timeType='full'>00:00:01 GMT+00:00 יום ראשון 28 פברואר 1909</result>
+   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result timeType='long'>00:59:59 GMT+00:00</result>
+   <result timeType='full'>00:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>26/03/18</result>
+   <result timeType='short'>00:59 26/03/18</result>
+   <result timeType='medium'>00:59:59 26/03/18</result>
+   <result timeType='long'>00:59:59 GMT+00:00 26/03/18</result>
+   <result timeType='full'>00:59:59 GMT+00:00 26/03/18</result>
+   <result dateType='medium' timeType='none'>26/03/1918</result>
+   <result timeType='short'>00:59 26/03/1918</result>
+   <result timeType='medium'>00:59:59 26/03/1918</result>
+   <result timeType='long'>00:59:59 GMT+00:00 26/03/1918</result>
+   <result timeType='full'>00:59:59 GMT+00:00 26/03/1918</result>
+   <result dateType='long' timeType='none'>26 מרץ 1918</result>
+   <result timeType='short'>00:59 26 מרץ 1918</result>
+   <result timeType='medium'>00:59:59 26 מרץ 1918</result>
+   <result timeType='long'>00:59:59 GMT+00:00 26 מרץ 1918</result>
+   <result timeType='full'>00:59:59 GMT+00:00 26 מרץ 1918</result>
+   <result dateType='full' timeType='none'>יום שלישי 26 מרץ 1918</result>
+   <result timeType='short'>00:59 יום שלישי 26 מרץ 1918</result>
+   <result timeType='medium'>00:59:59 יום שלישי 26 מרץ 1918</result>
+   <result timeType='long'>00:59:59 GMT+00:00 יום שלישי 26 מרץ 1918</result>
+   <result timeType='full'>00:59:59 GMT+00:00 יום שלישי 26 מרץ 1918</result>
+   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result timeType='long'>01:00:00 GMT+00:00</result>
+   <result timeType='full'>01:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>24/04/32</result>
+   <result timeType='short'>01:00 24/04/32</result>
+   <result timeType='medium'>01:00:00 24/04/32</result>
+   <result timeType='long'>01:00:00 GMT+00:00 24/04/32</result>
+   <result timeType='full'>01:00:00 GMT+00:00 24/04/32</result>
+   <result dateType='medium' timeType='none'>24/04/1932</result>
+   <result timeType='short'>01:00 24/04/1932</result>
+   <result timeType='medium'>01:00:00 24/04/1932</result>
+   <result timeType='long'>01:00:00 GMT+00:00 24/04/1932</result>
+   <result timeType='full'>01:00:00 GMT+00:00 24/04/1932</result>
+   <result dateType='long' timeType='none'>24 אפריל 1932</result>
+   <result timeType='short'>01:00 24 אפריל 1932</result>
+   <result timeType='medium'>01:00:00 24 אפריל 1932</result>
+   <result timeType='long'>01:00:00 GMT+00:00 24 אפריל 1932</result>
+   <result timeType='full'>01:00:00 GMT+00:00 24 אפריל 1932</result>
+   <result dateType='full' timeType='none'>יום ראשון 24 אפריל 1932</result>
+   <result timeType='short'>01:00 יום ראשון 24 אפריל 1932</result>
+   <result timeType='medium'>01:00:00 יום ראשון 24 אפריל 1932</result>
+   <result timeType='long'>01:00:00 GMT+00:00 יום ראשון 24 אפריל 1932</result>
+   <result timeType='full'>01:00:00 GMT+00:00 יום ראשון 24 אפריל 1932</result>
+   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result timeType='long'>01:00:01 GMT+00:00</result>
+   <result timeType='full'>01:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>20/05/45</result>
+   <result timeType='short'>01:00 20/05/45</result>
+   <result timeType='medium'>01:00:01 20/05/45</result>
+   <result timeType='long'>01:00:01 GMT+00:00 20/05/45</result>
+   <result timeType='full'>01:00:01 GMT+00:00 20/05/45</result>
+   <result dateType='medium' timeType='none'>20/05/1945</result>
+   <result timeType='short'>01:00 20/05/1945</result>
+   <result timeType='medium'>01:00:01 20/05/1945</result>
+   <result timeType='long'>01:00:01 GMT+00:00 20/05/1945</result>
+   <result timeType='full'>01:00:01 GMT+00:00 20/05/1945</result>
+   <result dateType='long' timeType='none'>20 מאי 1945</result>
+   <result timeType='short'>01:00 20 מאי 1945</result>
+   <result timeType='medium'>01:00:01 20 מאי 1945</result>
+   <result timeType='long'>01:00:01 GMT+00:00 20 מאי 1945</result>
+   <result timeType='full'>01:00:01 GMT+00:00 20 מאי 1945</result>
+   <result dateType='full' timeType='none'>יום ראשון 20 מאי 1945</result>
+   <result timeType='short'>01:00 יום ראשון 20 מאי 1945</result>
+   <result timeType='medium'>01:00:01 יום ראשון 20 מאי 1945</result>
+   <result timeType='long'>01:00:01 GMT+00:00 יום ראשון 20 מאי 1945</result>
+   <result timeType='full'>01:00:01 GMT+00:00 יום ראשון 20 מאי 1945</result>
+   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result timeType='long'>11:59:59 GMT+00:00</result>
+   <result timeType='full'>11:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>18/06/52</result>
+   <result timeType='short'>11:59 18/06/52</result>
+   <result timeType='medium'>11:59:59 18/06/52</result>
+   <result timeType='long'>11:59:59 GMT+00:00 18/06/52</result>
+   <result timeType='full'>11:59:59 GMT+00:00 18/06/52</result>
+   <result dateType='medium' timeType='none'>18/06/1952</result>
+   <result timeType='short'>11:59 18/06/1952</result>
+   <result timeType='medium'>11:59:59 18/06/1952</result>
+   <result timeType='long'>11:59:59 GMT+00:00 18/06/1952</result>
+   <result timeType='full'>11:59:59 GMT+00:00 18/06/1952</result>
+   <result dateType='long' timeType='none'>18 יוני 1952</result>
+   <result timeType='short'>11:59 18 יוני 1952</result>
+   <result timeType='medium'>11:59:59 18 יוני 1952</result>
+   <result timeType='long'>11:59:59 GMT+00:00 18 יוני 1952</result>
+   <result timeType='full'>11:59:59 GMT+00:00 18 יוני 1952</result>
+   <result dateType='full' timeType='none'>יום רביעי 18 יוני 1952</result>
+   <result timeType='short'>11:59 יום רביעי 18 יוני 1952</result>
+   <result timeType='medium'>11:59:59 יום רביעי 18 יוני 1952</result>
+   <result timeType='long'>11:59:59 GMT+00:00 יום רביעי 18 יוני 1952</result>
+   <result timeType='full'>11:59:59 GMT+00:00 יום רביעי 18 יוני 1952</result>
+   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result timeType='long'>12:00:00 GMT+00:00</result>
+   <result timeType='full'>12:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>16/07/73</result>
+   <result timeType='short'>12:00 16/07/73</result>
+   <result timeType='medium'>12:00:00 16/07/73</result>
+   <result timeType='long'>12:00:00 GMT+00:00 16/07/73</result>
+   <result timeType='full'>12:00:00 GMT+00:00 16/07/73</result>
+   <result dateType='medium' timeType='none'>16/07/1973</result>
+   <result timeType='short'>12:00 16/07/1973</result>
+   <result timeType='medium'>12:00:00 16/07/1973</result>
+   <result timeType='long'>12:00:00 GMT+00:00 16/07/1973</result>
+   <result timeType='full'>12:00:00 GMT+00:00 16/07/1973</result>
+   <result dateType='long' timeType='none'>16 יולי 1973</result>
+   <result timeType='short'>12:00 16 יולי 1973</result>
+   <result timeType='medium'>12:00:00 16 יולי 1973</result>
+   <result timeType='long'>12:00:00 GMT+00:00 16 יולי 1973</result>
+   <result timeType='full'>12:00:00 GMT+00:00 16 יולי 1973</result>
+   <result dateType='full' timeType='none'>יום שני 16 יולי 1973</result>
+   <result timeType='short'>12:00 יום שני 16 יולי 1973</result>
+   <result timeType='medium'>12:00:00 יום שני 16 יולי 1973</result>
+   <result timeType='long'>12:00:00 GMT+00:00 יום שני 16 יולי 1973</result>
+   <result timeType='full'>12:00:00 GMT+00:00 יום שני 16 יולי 1973</result>
+   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result timeType='long'>12:00:01 GMT+00:00</result>
+   <result timeType='full'>12:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>14/08/99</result>
+   <result timeType='short'>12:00 14/08/99</result>
+   <result timeType='medium'>12:00:01 14/08/99</result>
+   <result timeType='long'>12:00:01 GMT+00:00 14/08/99</result>
+   <result timeType='full'>12:00:01 GMT+00:00 14/08/99</result>
+   <result dateType='medium' timeType='none'>14/08/1999</result>
+   <result timeType='short'>12:00 14/08/1999</result>
+   <result timeType='medium'>12:00:01 14/08/1999</result>
+   <result timeType='long'>12:00:01 GMT+00:00 14/08/1999</result>
+   <result timeType='full'>12:00:01 GMT+00:00 14/08/1999</result>
+   <result dateType='long' timeType='none'>14 אוגוסט 1999</result>
+   <result timeType='short'>12:00 14 אוגוסט 1999</result>
+   <result timeType='medium'>12:00:01 14 אוגוסט 1999</result>
+   <result timeType='long'>12:00:01 GMT+00:00 14 אוגוסט 1999</result>
+   <result timeType='full'>12:00:01 GMT+00:00 14 אוגוסט 1999</result>
+   <result dateType='full' timeType='none'>שבת 14 אוגוסט 1999</result>
+   <result timeType='short'>12:00 שבת 14 אוגוסט 1999</result>
+   <result timeType='medium'>12:00:01 שבת 14 אוגוסט 1999</result>
+   <result timeType='long'>12:00:01 GMT+00:00 שבת 14 אוגוסט 1999</result>
+   <result timeType='full'>12:00:01 GMT+00:00 שבת 14 אוגוסט 1999</result>
+   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result timeType='long'>22:59:59 GMT+00:00</result>
+   <result timeType='full'>22:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>12/09/00</result>
+   <result timeType='short'>22:59 12/09/00</result>
+   <result timeType='medium'>22:59:59 12/09/00</result>
+   <result timeType='long'>22:59:59 GMT+00:00 12/09/00</result>
+   <result timeType='full'>22:59:59 GMT+00:00 12/09/00</result>
+   <result dateType='medium' timeType='none'>12/09/2000</result>
+   <result timeType='short'>22:59 12/09/2000</result>
+   <result timeType='medium'>22:59:59 12/09/2000</result>
+   <result timeType='long'>22:59:59 GMT+00:00 12/09/2000</result>
+   <result timeType='full'>22:59:59 GMT+00:00 12/09/2000</result>
+   <result dateType='long' timeType='none'>12 ספטמבר 2000</result>
+   <result timeType='short'>22:59 12 ספטמבר 2000</result>
+   <result timeType='medium'>22:59:59 12 ספטמבר 2000</result>
+   <result timeType='long'>22:59:59 GMT+00:00 12 ספטמבר 2000</result>
+   <result timeType='full'>22:59:59 GMT+00:00 12 ספטמבר 2000</result>
+   <result dateType='full' timeType='none'>יום שלישי 12 ספטמבר 2000</result>
+   <result timeType='short'>22:59 יום שלישי 12 ספטמבר 2000</result>
+   <result timeType='medium'>22:59:59 יום שלישי 12 ספטמבר 2000</result>
+   <result timeType='long'>22:59:59 GMT+00:00 יום שלישי 12 ספטמבר 2000</result>
+   <result timeType='full'>22:59:59 GMT+00:00 יום שלישי 12 ספטמבר 2000</result>
+   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result timeType='long'>23:00:00 GMT+00:00</result>
+   <result timeType='full'>23:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>08/10/01</result>
+   <result timeType='short'>23:00 08/10/01</result>
+   <result timeType='medium'>23:00:00 08/10/01</result>
+   <result timeType='long'>23:00:00 GMT+00:00 08/10/01</result>
+   <result timeType='full'>23:00:00 GMT+00:00 08/10/01</result>
+   <result dateType='medium' timeType='none'>08/10/2001</result>
+   <result timeType='short'>23:00 08/10/2001</result>
+   <result timeType='medium'>23:00:00 08/10/2001</result>
+   <result timeType='long'>23:00:00 GMT+00:00 08/10/2001</result>
+   <result timeType='full'>23:00:00 GMT+00:00 08/10/2001</result>
+   <result dateType='long' timeType='none'>8 אוקטובר 2001</result>
+   <result timeType='short'>23:00 8 אוקטובר 2001</result>
+   <result timeType='medium'>23:00:00 8 אוקטובר 2001</result>
+   <result timeType='long'>23:00:00 GMT+00:00 8 אוקטובר 2001</result>
+   <result timeType='full'>23:00:00 GMT+00:00 8 אוקטובר 2001</result>
+   <result dateType='full' timeType='none'>יום שני 8 אוקטובר 2001</result>
+   <result timeType='short'>23:00 יום שני 8 אוקטובר 2001</result>
+   <result timeType='medium'>23:00:00 יום שני 8 אוקטובר 2001</result>
+   <result timeType='long'>23:00:00 GMT+00:00 יום שני 8 אוקטובר 2001</result>
+   <result timeType='full'>23:00:00 GMT+00:00 יום שני 8 אוקטובר 2001</result>
+   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result timeType='long'>23:00:01 GMT+00:00</result>
+   <result timeType='full'>23:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>04/11/04</result>
+   <result timeType='short'>23:00 04/11/04</result>
+   <result timeType='medium'>23:00:01 04/11/04</result>
+   <result timeType='long'>23:00:01 GMT+00:00 04/11/04</result>
+   <result timeType='full'>23:00:01 GMT+00:00 04/11/04</result>
+   <result dateType='medium' timeType='none'>04/11/2004</result>
+   <result timeType='short'>23:00 04/11/2004</result>
+   <result timeType='medium'>23:00:01 04/11/2004</result>
+   <result timeType='long'>23:00:01 GMT+00:00 04/11/2004</result>
+   <result timeType='full'>23:00:01 GMT+00:00 04/11/2004</result>
+   <result dateType='long' timeType='none'>4 נובמבר 2004</result>
+   <result timeType='short'>23:00 4 נובמבר 2004</result>
+   <result timeType='medium'>23:00:01 4 נובמבר 2004</result>
+   <result timeType='long'>23:00:01 GMT+00:00 4 נובמבר 2004</result>
+   <result timeType='full'>23:00:01 GMT+00:00 4 נובמבר 2004</result>
+   <result dateType='full' timeType='none'>יום חמישי 4 נובמבר 2004</result>
+   <result timeType='short'>23:00 יום חמישי 4 נובמבר 2004</result>
+   <result timeType='medium'>23:00:01 יום חמישי 4 נובמבר 2004</result>
+   <result timeType='long'>23:00:01 GMT+00:00 יום חמישי 4 נובמבר 2004</result>
+   <result timeType='full'>23:00:01 GMT+00:00 יום חמישי 4 נובמבר 2004</result>
+   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result timeType='long'>23:59:59 GMT+00:00</result>
+   <result timeType='full'>23:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>01/12/10</result>
+   <result timeType='short'>23:59 01/12/10</result>
+   <result timeType='medium'>23:59:59 01/12/10</result>
+   <result timeType='long'>23:59:59 GMT+00:00 01/12/10</result>
+   <result timeType='full'>23:59:59 GMT+00:00 01/12/10</result>
+   <result dateType='medium' timeType='none'>01/12/2010</result>
+   <result timeType='short'>23:59 01/12/2010</result>
+   <result timeType='medium'>23:59:59 01/12/2010</result>
+   <result timeType='long'>23:59:59 GMT+00:00 01/12/2010</result>
+   <result timeType='full'>23:59:59 GMT+00:00 01/12/2010</result>
+   <result dateType='long' timeType='none'>1 דצמבר 2010</result>
+   <result timeType='short'>23:59 1 דצמבר 2010</result>
+   <result timeType='medium'>23:59:59 1 דצמבר 2010</result>
+   <result timeType='long'>23:59:59 GMT+00:00 1 דצמבר 2010</result>
+   <result timeType='full'>23:59:59 GMT+00:00 1 דצמבר 2010</result>
+   <result dateType='full' timeType='none'>יום רביעי 1 דצמבר 2010</result>
+   <result timeType='short'>23:59 יום רביעי 1 דצמבר 2010</result>
+   <result timeType='medium'>23:59:59 יום רביעי 1 דצמבר 2010</result>
+   <result timeType='long'>23:59:59 GMT+00:00 יום רביעי 1 דצמבר 2010</result>
+   <result timeType='full'>23:59:59 GMT+00:00 יום רביעי 1 דצמבר 2010</result>
+  </date>
  </cldrTest>

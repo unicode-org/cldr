@@ -24,15 +24,19 @@ caption {font-weight:bold; font-size:120%}
 <body>
 
 <h1 align="center">CLDR Test Data</h1>
+<p align="center">$Revision$ $Date$</p>
 <p>The <a href="http://cldr.info">CLDR</a> test files provide the ability for people to check the 
-results of their implementations against the data provided in CLDR. Note: in CLDR 1.2 only the 
-collation data is provided.</p>
+results of their implementations against the data provided in CLDR.</p>
+<blockquote>
+  <p>The tests are written in a consistent format, so that even if an XML parser is not available, a 
+  simple script or function can parse out the contents of each line for testing.</p>
+</blockquote>
 <h2><a name="structure" href="#structure">Structure</a></h2>
 <p>The DTD defining the allowable structure for each file is in <a href="cldrTest.dtd">cldrTest.dtd</a>. 
-Each file contains number of test areas, indicated by a particular element. . Currently test areas 
-are provided for <a href="#number">number</a>, <a href="#date">date</a>, and <a href="#collation">
-collation</a>.&nbsp; Each test area also uses an attribute to specify the locales it can be used 
-for, such as:</p>
+Each file contains number of test areas, indicated by a particular element. Currently test areas are 
+provided for <a href="#number">number</a>, <a href="#date">date</a>, and <a href="#collation">
+collation</a>. Each test area also uses an attribute to specify the locales it can be used for, such 
+as:</p>
 <p><font size="2">&lt;<span class="t">number locales</span><span class="m">=&quot;</span>de de_AT de_BE 
 de_DE de_LU<span class="m">&quot;</span>&gt;</font></p>
 <p>That means that this test area can be used to test the following: German; German (Austria); 

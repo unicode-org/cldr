@@ -3,6 +3,362 @@
 <!-- For information, see readme.html -->
  <cldrTest version='1.2' base='vi'>
  <!-- Vietnamese [Tiếng Việt] -->
+  <number 
+locales='vi vi_VN'>
+<!-- Vietnamese [Tiếng Việt]; Vietnamese (Vietnam) [Tiếng Việt (Việt Nam)] -->
+   <result input='0.0' numberType='standard'>0</result>
+   <result numberType='integer'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='standard'>0,01</result>
+   <result numberType='integer'>0</result>
+   <result numberType='decimal'>0,01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='standard'>-0,01</result>
+   <result numberType='integer'>-0</result>
+   <result numberType='decimal'>-0,01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='standard'>1</result>
+   <result numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='standard'>-1</result>
+   <result numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='standard'>123,456</result>
+   <result numberType='integer'>123</result>
+   <result numberType='decimal'>123,456</result>
+   <result numberType='percent'>12.346%</result>
+   <result numberType='scientific'>1,23456E2</result>
+   <result input='-123.456' numberType='standard'>-123,456</result>
+   <result numberType='integer'>-123</result>
+   <result numberType='decimal'>-123,456</result>
+   <result numberType='percent'>-12.346%</result>
+   <result numberType='scientific'>-1,23456E2</result>
+   <result input='123456.78' numberType='standard'>123.456,78</result>
+   <result numberType='integer'>123.457</result>
+   <result numberType='decimal'>123.456,78</result>
+   <result numberType='percent'>12.345.678%</result>
+   <result numberType='scientific'>1,2345678E5</result>
+   <result input='-123456.78' numberType='standard'>-123.456,78</result>
+   <result numberType='integer'>-123.457</result>
+   <result numberType='decimal'>-123.456,78</result>
+   <result numberType='percent'>-12.345.678%</result>
+   <result numberType='scientific'>-1,2345678E5</result>
+   <result input='Infinity' numberType='standard'>∞</result>
+   <result numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='standard'>-∞</result>
+   <result numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='standard'>�</result>
+   <result numberType='integer'>�</result>
+   <result numberType='decimal'>�</result>
+   <result numberType='percent'>�</result>
+   <result numberType='scientific'>�</result>
+  </number>
+  <date 
+locales='vi vi_VN'>
+<!-- Vietnamese [Tiếng Việt]; Vietnamese (Vietnam) [Tiếng Việt (Việt Nam)] -->
+   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result timeType='long'>00:00:00 GMT+00:00</result>
+   <result timeType='full'>00:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>31/01/1900</result>
+   <result timeType='short'>00:00 31/01/1900</result>
+   <result timeType='medium'>00:00:00 31/01/1900</result>
+   <result timeType='long'>00:00:00 GMT+00:00 31/01/1900</result>
+   <result timeType='full'>00:00:00 GMT+00:00 31/01/1900</result>
+   <result dateType='medium' timeType='none'>31-01-1900</result>
+   <result timeType='short'>00:00 31-01-1900</result>
+   <result timeType='medium'>00:00:00 31-01-1900</result>
+   <result timeType='long'>00:00:00 GMT+00:00 31-01-1900</result>
+   <result timeType='full'>00:00:00 GMT+00:00 31-01-1900</result>
+   <result dateType='long' timeType='none'>Ngày 31 tháng 1 năm 1900</result>
+   <result timeType='short'>00:00 Ngày 31 tháng 1 năm 1900</result>
+   <result timeType='medium'>00:00:00 Ngày 31 tháng 1 năm 1900</result>
+   <result timeType='long'>00:00:00 GMT+00:00 Ngày 31 tháng 1 năm 1900</result>
+   <result timeType='full'>00:00:00 GMT+00:00 Ngày 31 tháng 1 năm 1900</result>
+   <result dateType='full' timeType='none'>Thứ tư, ngày 31 tháng một năm 1900</result>
+   <result timeType='short'>00:00 Thứ tư, ngày 31 tháng một năm 1900</result>
+   <result timeType='medium'>00:00:00 Thứ tư, ngày 31 tháng một năm 1900</result>
+   <result timeType='long'>00:00:00 GMT+00:00 Thứ tư, ngày 31 tháng một năm 1900</result>
+   <result timeType='full'>00:00:00 GMT+00:00 Thứ tư, ngày 31 tháng một năm 1900</result>
+   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result timeType='long'>00:00:01 GMT+00:00</result>
+   <result timeType='full'>00:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>28/02/1909</result>
+   <result timeType='short'>00:00 28/02/1909</result>
+   <result timeType='medium'>00:00:01 28/02/1909</result>
+   <result timeType='long'>00:00:01 GMT+00:00 28/02/1909</result>
+   <result timeType='full'>00:00:01 GMT+00:00 28/02/1909</result>
+   <result dateType='medium' timeType='none'>28-02-1909</result>
+   <result timeType='short'>00:00 28-02-1909</result>
+   <result timeType='medium'>00:00:01 28-02-1909</result>
+   <result timeType='long'>00:00:01 GMT+00:00 28-02-1909</result>
+   <result timeType='full'>00:00:01 GMT+00:00 28-02-1909</result>
+   <result dateType='long' timeType='none'>Ngày 28 tháng 2 năm 1909</result>
+   <result timeType='short'>00:00 Ngày 28 tháng 2 năm 1909</result>
+   <result timeType='medium'>00:00:01 Ngày 28 tháng 2 năm 1909</result>
+   <result timeType='long'>00:00:01 GMT+00:00 Ngày 28 tháng 2 năm 1909</result>
+   <result timeType='full'>00:00:01 GMT+00:00 Ngày 28 tháng 2 năm 1909</result>
+   <result dateType='full' timeType='none'>Chủ nhật, ngày 28 tháng hai năm 1909</result>
+   <result timeType='short'>00:00 Chủ nhật, ngày 28 tháng hai năm 1909</result>
+   <result timeType='medium'>00:00:01 Chủ nhật, ngày 28 tháng hai năm 1909</result>
+   <result timeType='long'>00:00:01 GMT+00:00 Chủ nhật, ngày 28 tháng hai năm 1909</result>
+   <result timeType='full'>00:00:01 GMT+00:00 Chủ nhật, ngày 28 tháng hai năm 1909</result>
+   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result timeType='long'>00:59:59 GMT+00:00</result>
+   <result timeType='full'>00:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>26/03/1918</result>
+   <result timeType='short'>00:59 26/03/1918</result>
+   <result timeType='medium'>00:59:59 26/03/1918</result>
+   <result timeType='long'>00:59:59 GMT+00:00 26/03/1918</result>
+   <result timeType='full'>00:59:59 GMT+00:00 26/03/1918</result>
+   <result dateType='medium' timeType='none'>26-03-1918</result>
+   <result timeType='short'>00:59 26-03-1918</result>
+   <result timeType='medium'>00:59:59 26-03-1918</result>
+   <result timeType='long'>00:59:59 GMT+00:00 26-03-1918</result>
+   <result timeType='full'>00:59:59 GMT+00:00 26-03-1918</result>
+   <result dateType='long' timeType='none'>Ngày 26 tháng 3 năm 1918</result>
+   <result timeType='short'>00:59 Ngày 26 tháng 3 năm 1918</result>
+   <result timeType='medium'>00:59:59 Ngày 26 tháng 3 năm 1918</result>
+   <result timeType='long'>00:59:59 GMT+00:00 Ngày 26 tháng 3 năm 1918</result>
+   <result timeType='full'>00:59:59 GMT+00:00 Ngày 26 tháng 3 năm 1918</result>
+   <result dateType='full' timeType='none'>Thứ ba, ngày 26 tháng ba năm 1918</result>
+   <result timeType='short'>00:59 Thứ ba, ngày 26 tháng ba năm 1918</result>
+   <result timeType='medium'>00:59:59 Thứ ba, ngày 26 tháng ba năm 1918</result>
+   <result timeType='long'>00:59:59 GMT+00:00 Thứ ba, ngày 26 tháng ba năm 1918</result>
+   <result timeType='full'>00:59:59 GMT+00:00 Thứ ba, ngày 26 tháng ba năm 1918</result>
+   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result timeType='long'>01:00:00 GMT+00:00</result>
+   <result timeType='full'>01:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>24/04/1932</result>
+   <result timeType='short'>01:00 24/04/1932</result>
+   <result timeType='medium'>01:00:00 24/04/1932</result>
+   <result timeType='long'>01:00:00 GMT+00:00 24/04/1932</result>
+   <result timeType='full'>01:00:00 GMT+00:00 24/04/1932</result>
+   <result dateType='medium' timeType='none'>24-04-1932</result>
+   <result timeType='short'>01:00 24-04-1932</result>
+   <result timeType='medium'>01:00:00 24-04-1932</result>
+   <result timeType='long'>01:00:00 GMT+00:00 24-04-1932</result>
+   <result timeType='full'>01:00:00 GMT+00:00 24-04-1932</result>
+   <result dateType='long' timeType='none'>Ngày 24 tháng 4 năm 1932</result>
+   <result timeType='short'>01:00 Ngày 24 tháng 4 năm 1932</result>
+   <result timeType='medium'>01:00:00 Ngày 24 tháng 4 năm 1932</result>
+   <result timeType='long'>01:00:00 GMT+00:00 Ngày 24 tháng 4 năm 1932</result>
+   <result timeType='full'>01:00:00 GMT+00:00 Ngày 24 tháng 4 năm 1932</result>
+   <result dateType='full' timeType='none'>Chủ nhật, ngày 24 tháng tư năm 1932</result>
+   <result timeType='short'>01:00 Chủ nhật, ngày 24 tháng tư năm 1932</result>
+   <result timeType='medium'>01:00:00 Chủ nhật, ngày 24 tháng tư năm 1932</result>
+   <result timeType='long'>01:00:00 GMT+00:00 Chủ nhật, ngày 24 tháng tư năm 1932</result>
+   <result timeType='full'>01:00:00 GMT+00:00 Chủ nhật, ngày 24 tháng tư năm 1932</result>
+   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result timeType='long'>01:00:01 GMT+00:00</result>
+   <result timeType='full'>01:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>20/05/1945</result>
+   <result timeType='short'>01:00 20/05/1945</result>
+   <result timeType='medium'>01:00:01 20/05/1945</result>
+   <result timeType='long'>01:00:01 GMT+00:00 20/05/1945</result>
+   <result timeType='full'>01:00:01 GMT+00:00 20/05/1945</result>
+   <result dateType='medium' timeType='none'>20-05-1945</result>
+   <result timeType='short'>01:00 20-05-1945</result>
+   <result timeType='medium'>01:00:01 20-05-1945</result>
+   <result timeType='long'>01:00:01 GMT+00:00 20-05-1945</result>
+   <result timeType='full'>01:00:01 GMT+00:00 20-05-1945</result>
+   <result dateType='long' timeType='none'>Ngày 20 tháng 5 năm 1945</result>
+   <result timeType='short'>01:00 Ngày 20 tháng 5 năm 1945</result>
+   <result timeType='medium'>01:00:01 Ngày 20 tháng 5 năm 1945</result>
+   <result timeType='long'>01:00:01 GMT+00:00 Ngày 20 tháng 5 năm 1945</result>
+   <result timeType='full'>01:00:01 GMT+00:00 Ngày 20 tháng 5 năm 1945</result>
+   <result dateType='full' timeType='none'>Chủ nhật, ngày 20 tháng năm năm 1945</result>
+   <result timeType='short'>01:00 Chủ nhật, ngày 20 tháng năm năm 1945</result>
+   <result timeType='medium'>01:00:01 Chủ nhật, ngày 20 tháng năm năm 1945</result>
+   <result timeType='long'>01:00:01 GMT+00:00 Chủ nhật, ngày 20 tháng năm năm 1945</result>
+   <result timeType='full'>01:00:01 GMT+00:00 Chủ nhật, ngày 20 tháng năm năm 1945</result>
+   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result timeType='long'>11:59:59 GMT+00:00</result>
+   <result timeType='full'>11:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>18/06/1952</result>
+   <result timeType='short'>11:59 18/06/1952</result>
+   <result timeType='medium'>11:59:59 18/06/1952</result>
+   <result timeType='long'>11:59:59 GMT+00:00 18/06/1952</result>
+   <result timeType='full'>11:59:59 GMT+00:00 18/06/1952</result>
+   <result dateType='medium' timeType='none'>18-06-1952</result>
+   <result timeType='short'>11:59 18-06-1952</result>
+   <result timeType='medium'>11:59:59 18-06-1952</result>
+   <result timeType='long'>11:59:59 GMT+00:00 18-06-1952</result>
+   <result timeType='full'>11:59:59 GMT+00:00 18-06-1952</result>
+   <result dateType='long' timeType='none'>Ngày 18 tháng 6 năm 1952</result>
+   <result timeType='short'>11:59 Ngày 18 tháng 6 năm 1952</result>
+   <result timeType='medium'>11:59:59 Ngày 18 tháng 6 năm 1952</result>
+   <result timeType='long'>11:59:59 GMT+00:00 Ngày 18 tháng 6 năm 1952</result>
+   <result timeType='full'>11:59:59 GMT+00:00 Ngày 18 tháng 6 năm 1952</result>
+   <result dateType='full' timeType='none'>Thứ tư, ngày 18 tháng sáu năm 1952</result>
+   <result timeType='short'>11:59 Thứ tư, ngày 18 tháng sáu năm 1952</result>
+   <result timeType='medium'>11:59:59 Thứ tư, ngày 18 tháng sáu năm 1952</result>
+   <result timeType='long'>11:59:59 GMT+00:00 Thứ tư, ngày 18 tháng sáu năm 1952</result>
+   <result timeType='full'>11:59:59 GMT+00:00 Thứ tư, ngày 18 tháng sáu năm 1952</result>
+   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result timeType='long'>12:00:00 GMT+00:00</result>
+   <result timeType='full'>12:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>16/07/1973</result>
+   <result timeType='short'>12:00 16/07/1973</result>
+   <result timeType='medium'>12:00:00 16/07/1973</result>
+   <result timeType='long'>12:00:00 GMT+00:00 16/07/1973</result>
+   <result timeType='full'>12:00:00 GMT+00:00 16/07/1973</result>
+   <result dateType='medium' timeType='none'>16-07-1973</result>
+   <result timeType='short'>12:00 16-07-1973</result>
+   <result timeType='medium'>12:00:00 16-07-1973</result>
+   <result timeType='long'>12:00:00 GMT+00:00 16-07-1973</result>
+   <result timeType='full'>12:00:00 GMT+00:00 16-07-1973</result>
+   <result dateType='long' timeType='none'>Ngày 16 tháng 7 năm 1973</result>
+   <result timeType='short'>12:00 Ngày 16 tháng 7 năm 1973</result>
+   <result timeType='medium'>12:00:00 Ngày 16 tháng 7 năm 1973</result>
+   <result timeType='long'>12:00:00 GMT+00:00 Ngày 16 tháng 7 năm 1973</result>
+   <result timeType='full'>12:00:00 GMT+00:00 Ngày 16 tháng 7 năm 1973</result>
+   <result dateType='full' timeType='none'>Thứ hai, ngày 16 tháng bảy năm 1973</result>
+   <result timeType='short'>12:00 Thứ hai, ngày 16 tháng bảy năm 1973</result>
+   <result timeType='medium'>12:00:00 Thứ hai, ngày 16 tháng bảy năm 1973</result>
+   <result timeType='long'>12:00:00 GMT+00:00 Thứ hai, ngày 16 tháng bảy năm 1973</result>
+   <result timeType='full'>12:00:00 GMT+00:00 Thứ hai, ngày 16 tháng bảy năm 1973</result>
+   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result timeType='long'>12:00:01 GMT+00:00</result>
+   <result timeType='full'>12:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>14/08/1999</result>
+   <result timeType='short'>12:00 14/08/1999</result>
+   <result timeType='medium'>12:00:01 14/08/1999</result>
+   <result timeType='long'>12:00:01 GMT+00:00 14/08/1999</result>
+   <result timeType='full'>12:00:01 GMT+00:00 14/08/1999</result>
+   <result dateType='medium' timeType='none'>14-08-1999</result>
+   <result timeType='short'>12:00 14-08-1999</result>
+   <result timeType='medium'>12:00:01 14-08-1999</result>
+   <result timeType='long'>12:00:01 GMT+00:00 14-08-1999</result>
+   <result timeType='full'>12:00:01 GMT+00:00 14-08-1999</result>
+   <result dateType='long' timeType='none'>Ngày 14 tháng 8 năm 1999</result>
+   <result timeType='short'>12:00 Ngày 14 tháng 8 năm 1999</result>
+   <result timeType='medium'>12:00:01 Ngày 14 tháng 8 năm 1999</result>
+   <result timeType='long'>12:00:01 GMT+00:00 Ngày 14 tháng 8 năm 1999</result>
+   <result timeType='full'>12:00:01 GMT+00:00 Ngày 14 tháng 8 năm 1999</result>
+   <result dateType='full' timeType='none'>Thứ bảy, ngày 14 tháng tám năm 1999</result>
+   <result timeType='short'>12:00 Thứ bảy, ngày 14 tháng tám năm 1999</result>
+   <result timeType='medium'>12:00:01 Thứ bảy, ngày 14 tháng tám năm 1999</result>
+   <result timeType='long'>12:00:01 GMT+00:00 Thứ bảy, ngày 14 tháng tám năm 1999</result>
+   <result timeType='full'>12:00:01 GMT+00:00 Thứ bảy, ngày 14 tháng tám năm 1999</result>
+   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result timeType='long'>22:59:59 GMT+00:00</result>
+   <result timeType='full'>22:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>12/09/2000</result>
+   <result timeType='short'>22:59 12/09/2000</result>
+   <result timeType='medium'>22:59:59 12/09/2000</result>
+   <result timeType='long'>22:59:59 GMT+00:00 12/09/2000</result>
+   <result timeType='full'>22:59:59 GMT+00:00 12/09/2000</result>
+   <result dateType='medium' timeType='none'>12-09-2000</result>
+   <result timeType='short'>22:59 12-09-2000</result>
+   <result timeType='medium'>22:59:59 12-09-2000</result>
+   <result timeType='long'>22:59:59 GMT+00:00 12-09-2000</result>
+   <result timeType='full'>22:59:59 GMT+00:00 12-09-2000</result>
+   <result dateType='long' timeType='none'>Ngày 12 tháng 9 năm 2000</result>
+   <result timeType='short'>22:59 Ngày 12 tháng 9 năm 2000</result>
+   <result timeType='medium'>22:59:59 Ngày 12 tháng 9 năm 2000</result>
+   <result timeType='long'>22:59:59 GMT+00:00 Ngày 12 tháng 9 năm 2000</result>
+   <result timeType='full'>22:59:59 GMT+00:00 Ngày 12 tháng 9 năm 2000</result>
+   <result dateType='full' timeType='none'>Thứ ba, ngày 12 tháng chín năm 2000</result>
+   <result timeType='short'>22:59 Thứ ba, ngày 12 tháng chín năm 2000</result>
+   <result timeType='medium'>22:59:59 Thứ ba, ngày 12 tháng chín năm 2000</result>
+   <result timeType='long'>22:59:59 GMT+00:00 Thứ ba, ngày 12 tháng chín năm 2000</result>
+   <result timeType='full'>22:59:59 GMT+00:00 Thứ ba, ngày 12 tháng chín năm 2000</result>
+   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result timeType='long'>23:00:00 GMT+00:00</result>
+   <result timeType='full'>23:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>08/10/2001</result>
+   <result timeType='short'>23:00 08/10/2001</result>
+   <result timeType='medium'>23:00:00 08/10/2001</result>
+   <result timeType='long'>23:00:00 GMT+00:00 08/10/2001</result>
+   <result timeType='full'>23:00:00 GMT+00:00 08/10/2001</result>
+   <result dateType='medium' timeType='none'>08-10-2001</result>
+   <result timeType='short'>23:00 08-10-2001</result>
+   <result timeType='medium'>23:00:00 08-10-2001</result>
+   <result timeType='long'>23:00:00 GMT+00:00 08-10-2001</result>
+   <result timeType='full'>23:00:00 GMT+00:00 08-10-2001</result>
+   <result dateType='long' timeType='none'>Ngày 08 tháng 10 năm 2001</result>
+   <result timeType='short'>23:00 Ngày 08 tháng 10 năm 2001</result>
+   <result timeType='medium'>23:00:00 Ngày 08 tháng 10 năm 2001</result>
+   <result timeType='long'>23:00:00 GMT+00:00 Ngày 08 tháng 10 năm 2001</result>
+   <result timeType='full'>23:00:00 GMT+00:00 Ngày 08 tháng 10 năm 2001</result>
+   <result dateType='full' timeType='none'>Thứ hai, ngày 08 tháng mười năm 2001</result>
+   <result timeType='short'>23:00 Thứ hai, ngày 08 tháng mười năm 2001</result>
+   <result timeType='medium'>23:00:00 Thứ hai, ngày 08 tháng mười năm 2001</result>
+   <result timeType='long'>23:00:00 GMT+00:00 Thứ hai, ngày 08 tháng mười năm 2001</result>
+   <result timeType='full'>23:00:00 GMT+00:00 Thứ hai, ngày 08 tháng mười năm 2001</result>
+   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result timeType='long'>23:00:01 GMT+00:00</result>
+   <result timeType='full'>23:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>04/11/2004</result>
+   <result timeType='short'>23:00 04/11/2004</result>
+   <result timeType='medium'>23:00:01 04/11/2004</result>
+   <result timeType='long'>23:00:01 GMT+00:00 04/11/2004</result>
+   <result timeType='full'>23:00:01 GMT+00:00 04/11/2004</result>
+   <result dateType='medium' timeType='none'>04-11-2004</result>
+   <result timeType='short'>23:00 04-11-2004</result>
+   <result timeType='medium'>23:00:01 04-11-2004</result>
+   <result timeType='long'>23:00:01 GMT+00:00 04-11-2004</result>
+   <result timeType='full'>23:00:01 GMT+00:00 04-11-2004</result>
+   <result dateType='long' timeType='none'>Ngày 04 tháng 11 năm 2004</result>
+   <result timeType='short'>23:00 Ngày 04 tháng 11 năm 2004</result>
+   <result timeType='medium'>23:00:01 Ngày 04 tháng 11 năm 2004</result>
+   <result timeType='long'>23:00:01 GMT+00:00 Ngày 04 tháng 11 năm 2004</result>
+   <result timeType='full'>23:00:01 GMT+00:00 Ngày 04 tháng 11 năm 2004</result>
+   <result dateType='full' timeType='none'>Thứ năm, ngày 04 tháng mười một năm 2004</result>
+   <result timeType='short'>23:00 Thứ năm, ngày 04 tháng mười một năm 2004</result>
+   <result timeType='medium'>23:00:01 Thứ năm, ngày 04 tháng mười một năm 2004</result>
+   <result timeType='long'>23:00:01 GMT+00:00 Thứ năm, ngày 04 tháng mười một năm 2004</result>
+   <result timeType='full'>23:00:01 GMT+00:00 Thứ năm, ngày 04 tháng mười một năm 2004</result>
+   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result timeType='long'>23:59:59 GMT+00:00</result>
+   <result timeType='full'>23:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>01/12/2010</result>
+   <result timeType='short'>23:59 01/12/2010</result>
+   <result timeType='medium'>23:59:59 01/12/2010</result>
+   <result timeType='long'>23:59:59 GMT+00:00 01/12/2010</result>
+   <result timeType='full'>23:59:59 GMT+00:00 01/12/2010</result>
+   <result dateType='medium' timeType='none'>01-12-2010</result>
+   <result timeType='short'>23:59 01-12-2010</result>
+   <result timeType='medium'>23:59:59 01-12-2010</result>
+   <result timeType='long'>23:59:59 GMT+00:00 01-12-2010</result>
+   <result timeType='full'>23:59:59 GMT+00:00 01-12-2010</result>
+   <result dateType='long' timeType='none'>Ngày 01 tháng 12 năm 2010</result>
+   <result timeType='short'>23:59 Ngày 01 tháng 12 năm 2010</result>
+   <result timeType='medium'>23:59:59 Ngày 01 tháng 12 năm 2010</result>
+   <result timeType='long'>23:59:59 GMT+00:00 Ngày 01 tháng 12 năm 2010</result>
+   <result timeType='full'>23:59:59 GMT+00:00 Ngày 01 tháng 12 năm 2010</result>
+   <result dateType='full' timeType='none'>Thứ tư, ngày 01 tháng mười hai năm 2010</result>
+   <result timeType='short'>23:59 Thứ tư, ngày 01 tháng mười hai năm 2010</result>
+   <result timeType='medium'>23:59:59 Thứ tư, ngày 01 tháng mười hai năm 2010</result>
+   <result timeType='long'>23:59:59 GMT+00:00 Thứ tư, ngày 01 tháng mười hai năm 2010</result>
+   <result timeType='full'>23:59:59 GMT+00:00 Thứ tư, ngày 01 tháng mười hai năm 2010</result>
+  </date>
   <collation 
 locales='vi vi_VN'>
 <!-- Vietnamese [Tiếng Việt]; Vietnamese (Vietnam) [Tiếng Việt (Việt Nam)] -->

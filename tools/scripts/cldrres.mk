@@ -10,7 +10,7 @@
 ## 1. make sure LDML2ICUConverter is in your path (see elsewhere)
 ## 
 ## 2. Add a file 'reslocal.mk' in icu/source/data/locales to include this file:
-##      include ../../../locale/tools/cldrres.mk
+##      include ../../../locale/tools/scripts/cldrres.mk
 ##
 ## 3. from icu/source/data  type:  'make cldr-clean-old' to get rid of the non-CLDR files
 ## now just type 'make' and you should be set.
@@ -18,6 +18,7 @@
 
 ## Root of the CLDR directory (contains common, icu, ...)
 CLDR_ROOT=../../../locale
+ICU_XML=$(srcdir)/xml
 
 ## Arguments to the LDML2ICUConverter program
 
@@ -31,8 +32,8 @@ CLDR_ROOT=../../../locale
 LDML_CONVERTER=LDML2ICUConverter
 
 ## command line options to the ldml conversion tool. Shouldn't need to edit from here on down.
-LDML_OPTS_RES += -s $(CLDR_ROOT)/common/main -d $(LOCSRCDIR) -p $(CLDR_ROOT)/icu/main $(LDML_CONVERTER_OPTS)
-LDML_OPTS_COL += -s $(CLDR_ROOT)/common/collation -d $(COLSRCDIR) -p $(CLDR_ROOT)/icu/collation $(LDML_CONVERTER_OPTS)
+LDML_OPTS_RES += -s $(CLDR_ROOT)/common/main -d $(LOCSRCDIR) -p $(ICU_XML)/main $(LDML_CONVERTER_OPTS)
+LDML_OPTS_COL += -s $(CLDR_ROOT)/common/collation -d $(COLSRCDIR) -p $(ICU_XML)/collation $(LDML_CONVERTER_OPTS)
 
 ## some aliases
 GENRB_ALIAS_PATHS=$(GENRB_ALIAS_SOURCE:%.txt=$(LOCSRCDIR)/%.txt)
@@ -73,10 +74,10 @@ cldr-lists:  coll/colfiles.mk locales/resfiles.mk
 #ifneq ($(patsubst %cldr-clean-old,,$(MAKECMDGOALS)),)
 #ifneq ($(patsubst %cldr-clean-lists,,$(MAKECMDGOALS)),)
 
-$(GENRB_SYNTHETIC_PATHS) $(LOCSRCDIR)/resfiles.mk: $(CLDR_ROOT)/icu/deprecatedList.xml 
+$(GENRB_SYNTHETIC_PATHS) $(LOCSRCDIR)/resfiles.mk: $(ICU_XML)/deprecatedList.xml 
 	$(LDML_CONVERTER) $(LDML_OPTS_RES) -w $(CLDR_ROOT)/common/main  || ($(RMV) $@;false)
 
-$(COLLATION_SYNTHETIC_PATHS) $(COLLATION_EMPTY_PATHS) $(COLSRCDIR)/colfiles.mk: $(CLDR_ROOT)/icu/deprecatedList.xml 
+$(COLLATION_SYNTHETIC_PATHS) $(COLLATION_EMPTY_PATHS) $(COLSRCDIR)/colfiles.mk: $(ICU_XML)/deprecatedList.xml 
 	$(LDML_CONVERTER) $(LDML_OPTS_COL) -w $(CLDR_ROOT)/common/collation || ($(RMV) $@;false)
 #endif
 #endif

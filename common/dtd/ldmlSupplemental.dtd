@@ -15,7 +15,7 @@
 
 <!ATTLIST supplementalData version CDATA #FIXED "1.0" >
 
-<!ELEMENT currencyData ( fractions, region+ ) >
+<!ELEMENT currencyData ( fractions*, region+ ) >
 <!ELEMENT fractions ( info+ ) >
 
 <!ELEMENT info EMPTY >

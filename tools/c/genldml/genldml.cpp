@@ -3027,19 +3027,17 @@ void GenerateXML::writeSupplementalData(){
     arguments[0] = suppIndent;
     arguments[1] = "";
 	xmlString.append(formatString(mStringsBundle.getStringEx("currencyData",error),arguments,2,tempStr));
-    
-    tempStr.remove();
-    writeCurrencyMap(tempStr, root, error);
-    if(tempStr.length()!=0){
-        xmlString.append(tempStr);
-    }
 
     tempStr.remove();
     writeCurrencyMeta(tempStr, root, error);
     if(tempStr.length()!=0){
         xmlString.append(tempStr);
     }
-
+    tempStr.remove();
+    writeCurrencyMap(tempStr, root, error);
+    if(tempStr.length()!=0){
+        xmlString.append(tempStr);
+    }
     arguments[0] = suppIndent;
     arguments[1] = UnicodeString(XML_END_SLASH);
     xmlString.append(formatString(mStringsBundle.getStringEx("currencyData",error),arguments,2,tempStr));

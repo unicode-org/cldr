@@ -1,4 +1,4 @@
-#/usr/bin/perl
+#!/usr/bin/perl
 
 ####################################################################################
 # genindex.pl:
@@ -53,7 +53,7 @@ foreach $item (@list){
             or die  "could not open the file $outfile for reading: $! \n";
     $fullName="";
     while(defined ($line=<$inFH>)){
-          if($line =~ /.*?(\(.*\)*Demo)/){
+          if($line =~ /.*?(\(.*\).*Cover Page.*)/){
             $line =~ /.*?(\(.*\))/;
             $fullName =  $1;
             if($fullName eq ""){

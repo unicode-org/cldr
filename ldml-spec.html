@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -1246,8 +1246,8 @@ attribute, if there is one) is used. The default is listed in italics.</p>
         <i>off</i></td>
       <td><code>[backwards on] &nbsp;</code></td>
       <td><code>backwards = &quot;on&quot;</code></td>
-      <td>Sets the comparison to be backwards (&quot;French&quot;), as s 
-        described in UCA</td>
+      <td>Sets the comparison for the second level to be backwards 
+        (&quot;French&quot;), as described in UCA</td>
     </tr>
     <tr>
       <td>normalization</td>
@@ -1869,11 +1869,24 @@ Traditional German are particularly illustrative.</p>
 &nbsp; &lt;/rules&gt;
 &lt;/collation&gt;</pre>
 <h2>Appendix A: <a name="Sample_Special_Elements">Sample Special Elements</a></h2>
-<p>The following are nonstandard elements provided as examples.</p>
+<p>The following are nonstandard elements provided as examples. They use 
+namespaces and the special element. To include one or more, use the following 
+pattern to import the special DTDs that are used in the file:</p>
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE ldml SYSTEM &quot;http://www.openi18n.org/spec/ldml/1.0/ldml.dtd&quot; [
+    &lt;!ENTITY % icu SYSTEM &quot;http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd&quot;&gt;
+    &lt;!ENTITY % openOffice SYSTEM &quot;http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd&quot;&gt;
+    &lt;!ENTITY % iso14652 SYSTEM &quot;http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd&quot;&gt;
+    &lt;!ENTITY % posix SYSTEM &quot;http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd&quot;&gt;
+%icu;
+%openOffice;
+%iso14652;
+%posix;
+]&gt;</pre>
 <h3><a name="ICU">ICU</a></h3>
-<p>There are three main areas where ICU has capabilies that go beyond what is 
+<p>There are three main areas where ICU has capabilities that go beyond what is 
 shown above.</p>
-<p class="element2"><a name="&lt;ruleBasedNumberFormat&gt;">&lt;ruleBasedNumberFormat&gt;</a></p>
+<p class="element2"><a name="&lt;ruleBasedNumberFormat&gt;">&lt;icu:ruleBasedNumberFormat&gt;</a></p>
 <p>The rule-based number format (RBNF) encapsulates a set of rules for mapping 
 binary numbers to and from a readable representation. They are typically used 
 for spelling out numbers, but can also be used for other number systems like 
@@ -1881,54 +1894,57 @@ roman numerals, or for ordinal numbers (1<sup>st</sup>, 2<sup>nd</sup>, 3<sup>rd
 The rules are fairly sophisticated; for details see <i>Rule-Based Number 
 Formatter</i> [<a href="#RBNF">RBNF</a>].</p>
 <p class="example">Example:</p>
-<pre>&lt;special xmlns=&quot;http://oss.software.ibm.com/icu&quot;&gt;
-  &lt;ruleBasedNumberFormats&gt;
-    &lt;ruleBasedNumberFormat type=&quot;spellout&quot;&gt;
+<pre>    &lt;special xmlns:icu=&quot;http://oss.software.ibm.com/icu/&quot;&gt;
+        &lt;icu:ruleBasedNumberFormats&gt;
+            &lt;icu:ruleBasedNumberFormat type=&quot;spellout&quot;&gt;
                 %%and:
                     and =%default=;
                     100: =%default=;
                 %%commas:
                     ' and =%default=;
                     100: , =%default=;
-                    1000: , 
-    &lt;/ruleBasedNumberFormat&gt;
-    &lt;ruleBasedNumberFormat type=&quot;ordinal&quot;&gt;
+                    1000: ,
+            &lt;/icu:ruleBasedNumberFormat&gt;
+            &lt;icu:ruleBasedNumberFormat type=&quot;ordinal&quot;&gt;
                 %main:
                     =#,##0==%%abbrev=;
                 %%abbrev:
                     th; st; nd; rd; th;
                     20: &amp;gt;&amp;gt;;
                     100: &amp;gt;&amp;gt;;
-    &lt;/ruleBasedNumberFormat&gt;
-    &lt;ruleBasedNumberFormat type=&quot;duration&quot;&gt;
+            &lt;/icu:ruleBasedNumberFormat&gt;
+            &lt;icu:ruleBasedNumberFormat type=&quot;duration&quot;&gt;
             %with-words:
                 0 seconds; 1 second; =0= seconds;
-                60/60: 
-    &lt;/ruleBasedNumberFormat&gt;
-  &lt;/special&gt;
-</pre>
-<h3><a name="&lt;boundaries&gt;">&lt;boundaries&gt;</a></h3>
+                60/60:
+            &lt;/icu:ruleBasedNumberFormat&gt;
+        &lt;/icu:ruleBasedNumberFormats&gt;</pre>
+<h3><a name="&lt;boundaries&gt;">&lt;icu:boundaries&gt;</a></h3>
 <p>Boundaries provide rules for grapheme-cluster (&quot;user-character&quot;), 
 word, line, and sentence breaks. This format is the Java/ICU syntax, at the top 
 level. For a description of that, see <i>Rule-Based Break Iterator</i> [<a href="#RBBI">RBBI</a>]. 
 The enclosing special element is a sub-element of &lt;ldml&gt;.</p>
-<pre>&lt;ldml&gt;
-...
-  &lt;special xmlns=&quot;http://oss.software.ibm.com/icu&quot;&gt;
-    &lt;boundaries&gt;
-      &lt;grapheme class=&quot;RuleBased&quot; append=&quot;true&quot;&gt;
-        <span class="comment">&lt;!-- in addition to the normal rules, treat CH and RR as graphemes. --&gt;</span>
-        [cC][hH];[rR][rR];
-      &lt;/grapheme&gt;
-      &lt;word class=&quot;Dictionary&quot; import=&quot;thaiDict.dat&quot; append=&quot;true&quot;&gt;
-<span class="comment">        &lt;!-- When doing Thai word break, check the normal word break rules first. --&gt;
-</span>        digit=[[:Nd:][:No:]];
-        $digit [[:Pd:]­‧&amp;apos;.]
-      &lt;/word&gt;
-    &lt;/boundaries&gt;
-  &lt;/special&gt;
-&lt;/ldml&gt;</pre>
-<h3><a name="&lt;transforms&gt;">&lt;transforms&gt;</a></h3>
+<pre>    &lt;special xmlns:icu=&quot;http://oss.software.ibm.com/icu/&quot;&gt;
+        &lt;icu:boundaries&gt;
+             &lt;!-- Boundary rules.
+            Selected samples are given with no attempt to make them work.
+            This format is the Java/ICU syntax, at the top level.
+            For real data, see http://oss.software.ibm.com/developerworks/opensource/cvs/icu4j
+            in BreakIteratorRules.java
+            displayName attributes removed for now
+            --&gt;
+            &lt;icu:grapheme class=&quot;RuleBased&quot; append=&quot;true&quot;&gt;
+                &lt;!-- in addition to the normal rules, treat CH and RR as graphemes. --&gt;
+                [cC][hH];[rR][rR]
+            &lt;/icu:grapheme&gt;
+            &lt;icu:word class=&quot;Dictionary&quot; import=&quot;thaiDict.dat&quot; &gt;
+                &lt;!-- When doing Thai word break, check the normal word break rules first. --&gt;
+                digit=[[:Nd:][:No:]];
+                $digit [[:Pd:]&amp;#xAD;&amp;#x2027;&amp;apos;.]
+            &lt;/icu:word&gt;
+        &lt;/icu:boundaries&gt;
+    &lt;/special&gt;</pre>
+<h3><a name="&lt;transforms&gt;">&lt;icu:transforms&gt;</a></h3>
 <p>There may be language-specific transformations, typically used in locale data 
 for transliterations. Such transformations require far more than a simple list 
 of matching characters, since the matches are highly context-sensitive. Each 
@@ -1937,61 +1953,67 @@ transform element is a list of rules, as described in the ICU documentation for
 [<a href="#ICUTransforms">ICUTransforms</a>]. The enclosing special element is a 
 sub-element of &lt;ldml&gt;. The target value is either a script (long or short 
 name) or a locale id.</p>
-<p class="note">Note: there is an on-line demonstration of transforms at</p>
+<p class="note">Note: there is an on-line demonstration of transforms at [<a href="#ICUTransforms">ICUTransforms</a>].</p>
 <p class="example">Example: The following is an abbreviated example for Greek to 
 Latin, in a Greek locale. The target value can be a script ID or a locale ID.</p>
 <pre>&lt;ldml&gt;
 ...
-  &lt;special xmlns=&quot;http://oss.software.ibm.com/icu&quot;&gt;
-    &lt;transforms&gt;
-      &lt;transform type=&quot;Latin&quot;&gt;</pre>
-<blockquote>
-  <pre>::NFD (NFC) ; # convert everything to decomposed for simplicity
-...
-α <font size="4">↔</font> a ;  Α <font size="4">↔</font> A ;
-β <font size="4">↔</font> v ;  Β <font size="4">↔</font> V ;
-γ } $gammaLike <font size="4">↔</font> n } $egammaLike ;
-Γ } $gammaLike <font size="4">↔</font> N } $egammaLike ;
-γ <font size="4">↔</font> g ;  Γ <font size="4">↔</font> G ;
-δ <font size="4">↔</font> d ;  Δ <font size="4">↔</font> D ;
-ε <font size="4">↔</font> e ;  Ε <font size="4">↔</font> E ;
-ζ <font size="4">↔</font> z ;  Ζ <font size="4">↔</font> Z ;
-Θ } $beforeLower <font size="4">↔</font> Th ;
-θ <font size="4">↔</font> th ;  Θ <font size="4">↔</font> TH ;
-ι <font size="4">↔</font> i ;  Ι <font size="4">↔</font> I ;
-κ <font size="4">↔</font> k ;  Κ <font size="4">↔</font> K ;
-λ <font size="4">↔</font> l ;  Λ <font size="4">↔</font> L ;
-μ <font size="4">↔</font> m ; Μ <font size="4">↔</font> M ;
-ν } $gammaLike <font size="4">→</font> n\' ;
-Ν } $gammaLike <font size="4">↔</font> N\' ;
-ν <font size="4">↔</font> n ; Ν <font size="4">↔</font> N ;
-...
-::NFC (NFD) ; # convert back to composed</pre>
-</blockquote>
-<pre>      &lt;/transform&gt;
-    &lt;/transforms&gt;
-  &lt;/special&gt;
-&lt;/ldml&gt;</pre>
+    &lt;special xmlns:icu=&quot;http://oss.software.ibm.com/icu/&quot;&gt;
+        &lt;icu:transforms&gt;
+            &lt;icu:transform type=&quot;Latin&quot;&gt;
+                ::NFD (NFC) ; # convert everything to decomposed for simplicity
+                ...
+                α <font size="4">↔</font> a ;   Α <font size="4">↔</font> A ;
+                β <font size="4">↔</font> v ;   Β <font size="4">↔</font> V ;
+                γ } $gammaLike <font size="4">↔</font> n } $egammaLike ;
+                Γ } $gammaLike <font size="4">↔</font> N } $egammaLike ;
+                γ <font size="4">↔</font> g ;   Γ <font size="4">↔</font> G ;
+                δ <font size="4">↔</font> d ;   Δ <font size="4">↔</font> D ;
+                ε <font size="4">↔</font> e ;   Ε <font size="4">↔</font> E ;
+                ζ <font size="4">↔</font> z ;   Ζ <font size="4">↔</font> Z ;
+                Θ } $beforeLower <font size="4">↔</font> Th ;
+                θ <font size="4">↔</font> th ;  Θ <font size="4">↔</font> TH ;
+                ι <font size="4">↔</font> i ;   Ι <font size="4">↔</font> I ;
+                κ <font size="4">↔</font> k ;   Κ <font size="4">↔</font> K ;
+                λ <font size="4">↔</font> l ;   Λ <font size="4">↔</font> L ;
+                μ <font size="4">↔</font> m ;   Μ <font size="4">↔</font> M ;
+                ν } $gammaLike <font size="4">→</font> n\' ;
+                Ν } $gammaLike <font size="4">↔</font> N\' ;
+                ν <font size="4">↔</font> n ;   Ν <font size="4">↔</font> N ;
+                ...
+                ::NFC (NFD) ; # convert back to composed</pre>
+<pre>            &lt;/icu:transform&gt;
+        &lt;/icu:transforms&gt;
+    &lt;/special&gt;</pre>
 <h3><a name="OpenOffice">openoffice.org</a></h3>
 <p>A number of the elements above can have extra information for openoffice.org, 
 such as the following example:</p>
-<pre>&lt;numberFormat type=&quot;currency&quot;&gt;
-  &lt;special xmlns=&quot;http://www.openoffice.org&quot; msgid=&quot;FixedFormatstype9&quot; usage=&quot;FIXED_NUMBER&quot; formatindex=&quot;4&quot; /&gt;
-  &lt;pattern type=&quot;positive&quot;&gt;<font size="4">¤</font> #,##0.00;&lt;/pattern&gt;
-  &lt;pattern type=&quot;negative&quot;&gt;(<font size="4">¤</font> #,##0.00)&lt;/pattern&gt;
-&lt;/numberFormat&gt;</pre>
+<pre>    &lt;special xmlns:openOffice=&quot;http://www.openoffice.org&quot;&gt;
+        &lt;openOffice:search&gt;
+            &lt;openOffice:searchOptions&gt;
+                &lt;openOffice:transliterationModules&gt;IGNORE_CASE&lt;/openOffice:transliterationModules&gt;
+            &lt;/openOffice:searchOptions&gt;
+        &lt;/openOffice:search&gt;
+    &lt;/special&gt;
+</pre>
 <h3><a name="POSIX">POSIX</a></h3>
 <p>This is a sample of old POSIX abbreviations for pre-GUI days:</p>
-<pre>&lt;ldml&gt;
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE ldml SYSTEM &quot;http://www.openi18n.org/spec/ldml/1.0/ldml.dtd&quot; [
+    &lt;!ENTITY % posix SYSTEM &quot;http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd&quot;&gt;
+%icu;
+]&gt;
+&lt;ldml&gt;
 ...
-  &lt;special xmlns=&quot;http://www.opengroup.org/regproducts/xu.htm&quot;&gt;
-    &lt;messages&gt;
-      &lt;no&gt;No&lt;/no&gt;
-      &lt;yes&gt;Yes&lt;/yes&gt;
-      &lt;shortYes&gt;Y&lt;/shortYes&gt;
-      &lt;shortNo&gt;N&lt;/shortNo&gt;
-    &lt;/messages&gt;
-  &lt;/special&gt;
+&lt;special xmlns:posix=&quot;http://www.opengroup.org/regproducts/xu.htm&quot;&gt;
+        &lt;!-- old abbreviations for pre-GUI days --&gt;
+        &lt;posix:messages&gt;
+            &lt;posix:yesstr&gt;Yes&lt;/posix:yesstr&gt;
+            &lt;posix:nostr&gt;No&lt;/posix:nostr&gt;
+            &lt;posix:yesexpr&gt;Y&lt;/posix:yesexpr&gt;
+            &lt;posix:noexpr&gt;N&lt;/posix:noexpr&gt;
+        &lt;/posix:messages&gt;
+    &lt;/special&gt;
 &lt;/ldml&gt;</pre>
 <h3><a name="ISO_TR_14652">ISO TR 14652</a></h3>
 <p>The following is <a href="http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n897-14652w25.pdf">ISO 
@@ -2008,56 +2030,56 @@ OpenOffice.</p>
 <p class="example">Examples:</p>
 <pre>&lt;ldml&gt;
 ...
-  &lt;special xmlns=&quot;http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n897-14652w25.pdf&quot;&gt;
-    &lt;iso14652&gt;
-            &lt;addressFormat&gt;
-                &lt;postalPattern&gt;&quot;%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N&quot;&lt;/postalPattern&gt;
-            &lt;/addressFormat&gt;
+     &lt;special xmlns:iso14652=&quot;http://www.gnu.org/directory/glibc.html&quot;&gt;
+        &lt;!-- The following is ISO TR 14652 compatibility data.For details on TR 14652 see http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n972-14652ft.pdf.
+         --&gt;
+        &lt;iso14652:addressFormat&gt;
+            &lt;iso14652:postalPattern&gt;&quot;%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N&quot;&lt;/iso14652:postalPattern&gt;
+        &lt;/iso14652:addressFormat&gt;
 
-            &lt;nameFormat&gt;
-                &lt;namePattern&gt;%p%t%g%m%t%f&lt;/namePattern&gt;
-                &lt;generalSalutation&gt;&lt;/generalSalutation&gt;
-                &lt;shortSalutationMr&gt; Mr.&lt;/shortSalutationMr&gt;
-                &lt;shortSalutationMiss&gt;Ms.&lt;/shortSalutationMiss&gt;
-                &lt;shortSalutationMrs&gt;Mrs.&lt;/shortSalutationMrs&gt;
-                &lt;longSalutationMr&gt; Mister.&lt;/longSalutationMr&gt;
-                &lt;longSalutationMiss&gt;Miss&lt;/longSalutationMiss&gt;
-                &lt;longSalutationMrs&gt;Mrs.&lt;/longSalutationMrs&gt;
-            &lt;/nameFormat&gt;
+        &lt;iso14652:nameFormat&gt;
+            &lt;iso14652:namePattern&gt;%p%t%g%m%t%f&lt;/iso14652:namePattern&gt;
+            &lt;iso14652:generalSalutation&gt;&lt;/iso14652:generalSalutation&gt;
+            &lt;iso14652:shortSalutationMr&gt; Mr.&lt;/iso14652:shortSalutationMr&gt;
+            &lt;iso14652:shortSalutationMiss&gt;Ms.&lt;/iso14652:shortSalutationMiss&gt;
+            &lt;iso14652:shortSalutationMrs&gt;Mrs.&lt;/iso14652:shortSalutationMrs&gt;
+            &lt;iso14652:longSalutationMr&gt; Mister.&lt;/iso14652:longSalutationMr&gt;
+            &lt;iso14652:longSalutationMiss&gt;Miss&lt;/iso14652:longSalutationMiss&gt;
+            &lt;iso14652:longSalutationMrs&gt;Mrs.&lt;/iso14652:longSalutationMrs&gt;
+        &lt;/iso14652:nameFormat&gt;
 
-            &lt;identification&gt;
-                &lt;!-- Identification of the person who produced the data file. --&gt;
-                &lt;title&gt;&lt;/title&gt;
-                &lt;source&gt;&lt;/source&gt;
-                &lt;address&gt;&lt;/address&gt;
-                &lt;contact&gt;&lt;/contact&gt;
-                &lt;email&gt;&lt;/email&gt;
-                &lt;telephone&gt;&lt;/telephone&gt;
-                &lt;fax&gt;&lt;/fax&gt;
-                &lt;languageUsed&gt;&lt;/languageUsed&gt;
-                &lt;country&gt;&lt;/country&gt;
-                &lt;audience&gt;&lt;/audience&gt;
-                &lt;application&gt;&lt;/application&gt;
-                &lt;abbreviation&gt;&lt;/abbreviation&gt;
-                &lt;revision&gt;&lt;/revision&gt;
-                &lt;date&gt;&lt;/date&gt;
-            &lt;/identification&gt;
+        &lt;iso14652:identification&gt;
+            &lt;!-- Identification of the person who produced the data file. --&gt;
+            &lt;iso14652:title&gt;&lt;/iso14652:title&gt;
+            &lt;iso14652:source&gt;&lt;/iso14652:source&gt;
+            &lt;iso14652:address&gt;&lt;/iso14652:address&gt;
+            &lt;iso14652:contact&gt;&lt;/iso14652:contact&gt;
+            &lt;iso14652:email&gt;&lt;/iso14652:email&gt;
+            &lt;iso14652:telephone&gt;&lt;/iso14652:telephone&gt;
+            &lt;iso14652:fax&gt;&lt;/iso14652:fax&gt;
+            &lt;iso14652:languageUsed&gt;&lt;/iso14652:languageUsed&gt;
+            &lt;iso14652:country&gt;&lt;/iso14652:country&gt;
+            &lt;iso14652:audience&gt;&lt;/iso14652:audience&gt;
+            &lt;iso14652:application&gt;&lt;/iso14652:application&gt;
+            &lt;iso14652:abbreviation&gt;&lt;/iso14652:abbreviation&gt;
+            &lt;iso14652:revision&gt;&lt;/iso14652:revision&gt;
+            &lt;iso14652:date&gt;&lt;/iso14652:date&gt;
+        &lt;/iso14652:identification&gt;
 
-            &lt;telephoneFormat&gt;
-                &lt;internationalPattern&gt;<font face="Courier" size="1">+%c (%a)%t-%l</font>&lt;/internationalPattern&gt;
-                &lt;domesticPattern&gt;<font face="Courier" size="1">(%a)%t-%l</font>&lt;/domesticPattern&gt;
-                &lt;internationalDialCode&gt;001 &lt;/internationalDialCode&gt;
-                &lt;internationalPrefix&gt; &lt;/internationalPrefix&gt;
-            &lt;/telephoneFormat&gt;
+        &lt;iso14652:telephoneFormat&gt;
+            &lt;iso14652:internationalPattern&gt;+%c (%a)%t-%l&lt;/iso14652:internationalPattern&gt;
+            &lt;iso14652:domesticPattern&gt;(%a)%t-%l&lt;/iso14652:domesticPattern&gt;
+            &lt;iso14652:internationalDialCode&gt;001 &lt;/iso14652:internationalDialCode&gt;
+            &lt;iso14652:internationalPrefix&gt; &lt;/iso14652:internationalPrefix&gt;
+        &lt;/iso14652:telephoneFormat&gt;
 
-            &lt;countryInfo&gt;
-              &lt;countryPost&gt;US&lt;/countryPost&gt;
-              &lt;countryCar&gt;US&lt;/countryCar&gt;
-              &lt;countryNumber type=&quot;666&quot;/&gt;
-              &lt;countryISBNNumber type=&quot;666&quot;/&gt;
-            &lt;/countryInfo&gt;
-    &lt;/iso14652&gt;
-  &lt;/special&gt;
+        &lt;iso14652:countryInfo&gt;
+          &lt;iso14652:countryPost&gt;US&lt;/iso14652:countryPost&gt;
+          &lt;iso14652:countryCar&gt;US&lt;/iso14652:countryCar&gt;
+          &lt;iso14652:countryNumber type=&quot;666&quot;/&gt;
+          &lt;iso14652:countryISBNNumber type=&quot;666&quot;/&gt;
+        &lt;/iso14652:countryInfo&gt;
+     &lt;/special&gt;
 &lt;ldml&gt;</pre>
 <h2>Appendix B: <a name="Transmitting_Locale_Information">Transmitting Locale 
 Information</a></h2>

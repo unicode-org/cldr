@@ -17,24 +17,21 @@ For example, most country locales will inherit the bulk of their data from the l
 -->
      <identity>
         <generation date="2002-08-28" />
-        <versioning>
-           <version number="1.1">Various notes and changes in version 1.1</version>
-           <version number="1.0">Various notes and changes in version 1.0</version>
-        </versioning>
-
+        <version number="1.1">Various notes and changes in version 1.1</version>
         <!-- Two letter codes, if available; otherwise 3-letter codes.If both exist, a separate database contains the mapping. -->
-        <language id="en" name="english"/>
-        <country id="US" name="United States"/>
+        <language id="en"/>
+        <country id="US"/>
 
         <!-- Only one variant allowed for now -->
         <variant id="B"/>
-        <!-- correspondsTo vendor="windows" -->
-        <special owner="windows" lcid="0409"/>
+        <correspondsTo type="lcid" value="0409"/>
      </identity>
      <layout>
         <orientation lines="top-to-bottom" characters="left-to-right" />    <!-- both attributes are required -->
      </layout>
-     <encodings requiredLetters="a-z&#xE5;&#xE6;&#xF8;">    <!-- optional attribute -->
+     <encodings>
+        <!-- follows the UnicodeSet syntax -->
+        <exemplarCharacters>[a-z&#x00E5;&#x00E6;&#x00F8;]</exemplarCharacters>"   
         <!--
         List of encodings that are in common use in this locale.
         The order is not significant.
@@ -43,9 +40,9 @@ For example, most country locales will inherit the bulk of their data from the l
         (It is assumed that the largest available version is chosen.)
         The required letters can also be used to select appropriate encodings.
         -->
-       <mapping>windows-1252</mapping>
-       <mapping>iso-8859_1</mapping>
-       <mapping>euc-jp</mapping>
+       <mapping id="windows-1252"/>
+       <mapping id="iso-8859_1"/>
+       <mapping id="euc-jp"/>
      </encodings>
 
     <displayNames>
@@ -79,15 +76,12 @@ For example, most country locales will inherit the bulk of their data from the l
             B, NY, EURO -->
             <variant id="B">Bokm&#x00e5;l</variant>
         </variants>
-
-        <localePatterns>
-            <!--
-                Java/ICU choice format syntax for producing the name of a locale in a particular language.
-             -->
-            <locale>{0,choice,0#|1#{1}|2#{1} ({2})}</locale>
-            <list>{0,choice,0#|1#{1}|2#{1},{2}|3#{1},{2},{3}}</list>
-            <composition>{0},{1}</composition>
-        </localePatterns>
+        <keywords>
+            <keyword id="collation">Sortierung</keyword >
+        </keywords>
+        <options>
+            <option id="phonebook" keyword="collation">Telefonbuch</option >
+        </options>
     </displayNames>
 
     <dates>
@@ -163,35 +157,34 @@ For example, most country locales will inherit the bulk of their data from the l
                 <era id="0">BC</era>
                 <era id="1">AD</era>
             </eras>
-            <patterns>
+            <dateTimeFormat default="true">
                <!--
                         Patterns used for formatting and parsing dates and times for this calendar
                 -->
                 <localizedPatternChars>GyMdkHmsSEDFwWahKz</localizedPatternChars>
-                <patternElement patternid="date" type="medium" default="true">
+                <pattern class="date" type="medium" default="true">
                     <!--  Optional special element for platform/application specific overheads. Paser can
                           choose to ignore if required  -->
-                      <special owner="StarOffice" msgid="DateFormatskey3" usage="DATE" formatindex="20" />
+                      <special owner="http://www.openoffice.org" msgid="DateFormatskey3" usage="DATE" formatindex="20" />
                       <patternCode >MM d, yyyy </patternCode>
                       <patternName>DIN 5008 (EN 28601)</patternName>
-                 </patternElement>
-                 <patternElement patternid="date" type="full" default="true">
+                 </pattern>
+                 <pattern class="date" type="full" default="true">
                     <!--  Optional special element for platform/application specific overheads. Paser can
                           choose to ignore if required  -->
-                      <special owner="StarOffice" msgid="DateFormatskey3" usage="DATE" formatindex="20" />
+                      <special owner="http://www.openoffice.org" msgid="DateFormatskey3" usage="DATE" formatindex="20" />
                       <patternCode>EEEE, MMMM d, yyyy</patternCode>
                       <patternName>DIN 5008 (EN 28601)</patternName>
-                 </patternElement>
-                  <patternElement patternid="time" type="full" default="true">
+                 </pattern>
+                  <pattern class="date" type="full">
                     <!--  Optional special element for platform/application specific overheads. Paser can
                           choose to ignore if required  -->
-                      <special owner="StarOffice" msgid="DateFormatskey3" usage="DATE" formatindex="20" />
+                      <special owner="http://www.openoffice.org" msgid="DateFormatskey3" usage="DATE" formatindex="20" />
                       <patternCode>h:mm:ss a z</patternCode>
                       <patternName>DIN 5008 (EN 28601)</patternName>
-                 </patternElement>
-                <patternElement patternid="dateTime">{0} {1}</patternElement>
-
-            </patterns>
+                 </pattern>
+                <pattern class="dateTime" default="true">{0} {1}</pattern>
+            </dateTimeFormat>
         </calendar>
 
         <!-- The Buddhist calendar inherits month names, etc. (everything but eras) from Gregorian -->
@@ -250,8 +243,8 @@ For example, most country locales will inherit the bulk of their data from the l
    <delimiters>
        <quotationStart>'</quotationStart>
        <quotationEnd>'</quotationEnd>
-       <doubleQuotationStart>&quot;</doubleQuotationStart>
-       <doubleQuotationEnd>&quot;</doubleQuotationEnd>
+       <doubleQuotationStart>&#x201C;</doubleQuotationStart>
+       <doubleQuotationEnd>&#x201D;</doubleQuotationEnd>
    </delimiters>
    <numbers>
        <numberFormat class="decimal" default="true">
@@ -261,110 +254,190 @@ For example, most country locales will inherit the bulk of their data from the l
           -->
           <!--  The class of symbol together with it's identifier "id=", position and value allows for
             -->
-          <patternElement patternid="number" type="decimal" default="false">
-              <special owner="StarOffice" msgid="FixedFormatskey5" usage="FIXED_NUMBER" formatindex="4" />
+          <pattern type="decimal">
+              <special owner="http://www.openoffice.org" msgid="FixedFormatskey5" usage="FIXED_NUMBER" formatindex="4" />
               <patternCode type="positive">#,##0.###</patternCode>
               <patternCode type="negative">-#,##0.###</patternCode>
-          </patternElement>
-          <patternElement patternid="number" type="percent" default="false">
-              <special owner="StarOffice" msgid="FixedFormatskey6" usage="FIXED_NUMBER" formatindex="4" />
+          </pattern>
+          <pattern type="percent">
+              <special owner="http://www.openoffice.org" msgid="FixedFormatskey6" usage="FIXED_NUMBER" formatindex="4" />
               <patternCode type="positive">#,##0%</patternCode>
-          </patternElement>
-          <patternElement patternid="number" type="scientific" default="false">
-              <special owner="StarOffice" msgid="FixedFormatskey7" usage="FIXED_NUMBER" formatindex="4" />
+          </pattern>
+          <pattern type="scientific">
+              <special owner="http://www.openoffice.org" msgid="FixedFormatskey7" usage="FIXED_NUMBER" formatindex="4" />
               <patternCode >#,##0%</patternCode>
-          </patternElement>
-
-          <symbols>
-              <decimal>.</decimal>
-              <group>,</group>
-              <list>;</list>
-              <percentSign>%</percentSign>
-              <nativeZeroDigit>0</nativeZeroDigit>
-              <patternDigit>#</patternDigit>
-              <plusSign>+</plusSign>
-              <minusSign>-</minusSign>
-              <exponential>E</exponential>
-              <perMille>&#x2030;</perMille>
-              <infinity>&#x221e;</infinity>
-              <nan>&#x2639;</nan>
-         </symbols>
+          </pattern>
        </numberFormat>
+       <symbols>
+          <decimal>.</decimal>
+          <group>,</group>
+          <list>;</list>
+          <percentSign>%</percentSign>
+          <nativeZeroDigit>0</nativeZeroDigit>
+          <patternDigit>#</patternDigit>
+          <plusSign>+</plusSign>
+          <minusSign>-</minusSign>
+          <exponential>E</exponential>
+          <perMille>&#x2030;</perMille>
+          <infinity>&#x221e;</infinity>
+          <nan>&#x2639;</nan>
+       </symbols>
+       <ruleBasedNumberFormats>
+            <ruleBasedNumberFormat type="spellout">
+                %simplified:
+                    -x: minus &gt;&gt;;
+                    x.x: &lt;&lt; point &gt;&gt;;
+                    zero; one; two; three; four; five; six; seven; eight; nine;
+                    ten; eleven; twelve; thirteen; fourteen; fifteen; sixteen;
+                        seventeen; eighteen; nineteen;
+                    20: twenty[-&gt;&gt;];
+                    30: thirty[-&gt;&gt;];
+                    40: forty[-&gt;&gt;];
+                    50: fifty[-&gt;&gt;];
+                    60: sixty[-&gt;&gt;];
+                    70: seventy[-&gt;&gt;];
+                    80: eighty[-&gt;&gt;];
+                    90: ninety[-&gt;&gt;];
+                    100: &lt;&lt; hundred[ &gt;&gt;];
+                    1000: &lt;&lt; thousand[ &gt;&gt;];
+                    1,000,000: &lt;&lt; million[ &gt;&gt;];
+                    1,000,000,000: &lt;&lt; billion[ &gt;&gt;];
+                    1,000,000,000,000: &lt;&lt; trillion[ &gt;&gt;];
+                    1,000,000,000,000,000: =#,##0=;
+                %default:
+                    -x: minus &gt;&gt;;
+                    x.x: &lt;&lt; point &gt;&gt;;
+                    =%simplified=;
+                    100: &lt;&lt; hundred[ &gt;%%and&gt;];
+                    1000: &lt;&lt; thousand[ &gt;%%and&gt;];
+                    100,000&gt;&gt;: &lt;&lt; thousand[&gt;%%commas&gt;];
+                    1,000,000: &lt;&lt; million[&gt;%%commas&gt;];
+                    1,000,000,000: &lt;&lt; billion[&gt;%%commas&gt;];
+                    1,000,000,000,000: &lt;&lt; trillion[&gt;%%commas&gt;];
+                    1,000,000,000,000,000: =#,##0=;
+                %%and:
+                    and =%default=;
+                    100: =%default=;
+                %%commas:
+                    ' and =%default=;
+                    100: , =%default=;
+                    1000: , 
+            </ruleBasedNumberFormat>
+            <special owner="http://oss.software.ibm.com/icu/">
+                <ruleBasedNumberFormat type="ordinal">
+                    %main:
+                        =#,##0==%%abbrev=;
+                    %%abbrev:
+                        th; st; nd; rd; th;
+                        20: &gt;&gt;;
+                        100: &gt;&gt;;
+                </ruleBasedNumberFormat>
+                <ruleBasedNumberFormat type="duration">
+                %with-words:
+                    0 seconds; 1 second; =0= seconds;
+                    60/60: 
+                </ruleBasedNumberFormat>
+            </special>
+       </ruleBasedNumberFormats>
+
        <currencies>
-            <currency id="USD" name="dollar" default="true">
+            <currency id="USD"  default="true">
                 <symbol>$</symbol>
                 <decimal>.</decimal>
                 <group>,</group>
-                <patternElement patternid="currency" default="false">
-                    <special owner="StarOffice" msgid="FixedFormatskey9" usage="FIXED_NUMBER" formatindex="4" />
-                    <patternCode type="positive">&#x00a4; #,##0.00;</patternCode>
-                    <patternCode type="negative">(&#x00a4; #,##0.00)</patternCode>
-                </patternElement>
+                <name>US Dollar</name>
+                <currencyFormat>
+                    <pattern>
+                        <special owner="http://www.openoffice.org" msgid="FixedFormatskey9" usage="FIXED_NUMBER" formatindex="4" />
+                        <patternCode type="positive">&#x00a4; #,##0.00;</patternCode>
+                        <patternCode type="negative">(&#x00a4; #,##0.00)</patternCode>
+                    </pattern>
+                </currencyFormat>
             </currency>
-
-            <currency id ="JPY" name="yen">
-                <name>&#x00A5;</name>
-                <patternElement patternid="currency" default="false">
-                    <special owner="StarOffice" msgid="FixedFormatskey9" usage="FIXED_NUMBER" formatindex="4" />
-                    <patternCode type="positive">&#x00a4; #,##0.00;</patternCode>
-                    <patternCode type="negative">(&#x00a4; #,##0.00)</patternCode>
-                </patternElement>
+            <currency id ="JPY" >
+                <symbol>&#x00A5;</symbol>
+                <group>,</group>
                 <decimal>.</decimal>
+                <name>Japanese Yen</name>
+                <currencyFormat default="true">
+                    <pattern>
+                        <special owner="http://www.openoffice.org" msgid="FixedFormatskey9" usage="FIXED_NUMBER" formatindex="4" />
+                        <patternCode type="positive">&#x00a4; #,##0.00;</patternCode>
+                        <patternCode type="negative">(&#x00a4; #,##0.00)</patternCode>
+                    </pattern>
+                </currencyFormat>
+            </currency>
+            <currency id ="perEuro" >
+                <symbol>DM</symbol>
+                <group>,</group>
+                <decimal>.</decimal>
+                <name>Mark</name>
+                <currencyFormat>
+                    <pattern>
+                        <special owner="http://www.openoffice.org" msgid="FixedFormatskey9" usage="FIXED_NUMBER" formatindex="4" />
+                        <patternCode type="positive">&#x00a4; #,##0.00;</patternCode>
+                        <patternCode type="negative">(&#x00a4; #,##0.00)</patternCode>
+                    </pattern>
+                </currencyFormat>
             </currency>
         </currencies>
     </numbers>
+    <collations>
+        <collation version="1.5" keyword="default" accentOrder="reverse" override="true">
 
-    <collation version="1.5" accentOrder="reverse" override="true">
+            <!--
+            This syntax is an XMLized version of the Java/ICU syntax, used to tailor the default table.
+            The main difference is that the &lt; sign is replaced by &#xAB;, and the &amp; is replaced by "&#xA7;",
+            since otherwise the XML is clumsy!
 
-        <!--
-        This syntax is an XMLized version of the Java/ICU syntax, used to tailor the default table.
-        The main difference is that the &lt; sign is replaced by &#xAB;, and the &amp; is replaced by "&#xA7;",
-        since otherwise the XML is clumsy!
+            Note that collation needs its own version, independent of the Locale version.
+            For more information, see
+            http://java.sun.com/products/jdk/1.2/docs/api/java/text/RuleBasedCollator.html
+            and
+            http://www.unicode.org/unicode/reports/tr10/#Comparison to Java.
+            By default, lowercase is before upper in the default.
+            This can be changed with the firstCase="upper" attribute.
+            French accent ordering can be specified with the accentOrder="reverse" attribute.
+            The displayName attribute supplies a message pattern for getDisplayName.
+            -->
+            <!-- this example takes the swedish tailoring plus part of a japanese
+            tailoring, for illustration -->
+            <reset>Z</reset>
+            <p>&#x00E6;</p>
+            <t>&#x00C6;</t>
+            <p>a&#x030A;</p>
+            <t>A&#x030A;</t>
+            <t>aa</t>
+            <t>aA</t>
+            <t>Aa</t>
+            <t>AA</t>
+            <p>a&#x0308;</p>
+            <t>A&#x0308;</t>
+            <p>o&#x0308;</p>
+            <t>O&#x0308;</t>
+            <s>u&#x030B;</s>
+            <t>U&#x030B;</t>
+            <p>o&#x030B;</p>
+            <t>O&#x030B;</t>
+            <s>&#x00F8;</s>
+            <t>&#x00D8;</t>
+            <reset>V</reset>
+            <!-- following is equivalent to <t>w</t><t>W</t><t>u&#x0308;</t><t>U&#x0308;</t> -->
+            <tc>wWu&#x0308;U&#x0308;</tc>
+            <position at="last non ignorable"/>
+            <!-- following is equivalent to <p>&#x4E9C;</p><p>&#x5516;</p><p>&#x5A03;</p>... -->
+            <pc>&#x4E9C;&#x5516;&#x5A03;&#x963F;&#x54C0;&#x611B;&#x6328;&#x59F6;&#x9022;&#x8475;&#x831C;&#x7A50;&#x60AA;&#x63E1;&#x6E25;&#x65ED;&#x8466;&#x82A6;</pc>
+            <pc>&#x9BF5;&#x6893;&#x5727;&#x65A1;&#x6271;</pc>
+            <special owner="http://www.openoffice.org">
+                <collator unoid="alphanumeric" default="true"/>
+                <collator unoid="phonebook" default="false"/>
+            </special>
+        </collation>
+        <collation version="1.5" keyword="phonebook" accentOrder="reverse" override="true">
+            <alias source="http://oss.software.ibm.com/icu/locales/solaris/de_de.xml/?version=2.1&amp;collation=phonebook"/>
+        </collation>
 
-        Note that collation needs its own version, independent of the Locale version.
-        For more information, see
-        http://java.sun.com/products/jdk/1.2/docs/api/java/text/RuleBasedCollator.html
-        and
-        http://www.unicode.org/unicode/reports/tr10/#Comparison to Java.
-        By default, lowercase is before upper in the default.
-        This can be changed with the firstCase="upper" attribute.
-        French accent ordering can be specified with the accentOrder="reverse" attribute.
-        The displayName attribute supplies a message pattern for getDisplayName.
-        -->
-        <!-- this example takes the swedish tailoring plus part of a japanese
-        tailoring, for illustration -->
-        <reset>Z</reset>
-        <p>&#x00E6;</p>
-        <t>&#x00C6;</t>
-        <p>a&#x030A;</p>
-        <t>A&#x030A;</t>
-        <t>aa</t>
-        <t>aA</t>
-        <t>Aa</t>
-        <t>AA</t>
-        <p>a&#x0308;</p>
-        <t>A&#x0308;</t>
-        <p>o&#x0308;</p>
-        <t>O&#x0308;</t>
-        <s>u&#x030B;</s>
-        <t>U&#x030B;</t>
-        <p>o&#x030B;</p>
-        <t>O&#x030B;</t>
-        <s>&#x00F8;</s>
-        <t>&#x00D8;</t>
-        <reset>V</reset>
-        <!-- following is equivalent to <t>w</t><t>W</t><t>u&#x0308;</t><t>U&#x0308;</t> -->
-        <tc>wWu&#x0308;U&#x0308;</tc>
-        <position at="last non ignorable"/>
-        <!-- following is equivalent to <p>&#x4E9C;</p><p>&#x5516;</p><p>&#x5A03;</p>... -->
-        <pc>&#x4E9C;&#x5516;&#x5A03;&#x963F;&#x54C0;&#x611B;&#x6328;&#x59F6;&#x9022;&#x8475;&#x831C;&#x7A50;&#x60AA;&#x63E1;&#x6E25;&#x65ED;&#x8466;&#x82A6;</pc>
-        <pc>&#x9BF5;&#x6893;&#x5727;&#x65A1;&#x6271;</pc>
-        <special owner="http://www.openoffice.org">
-            <collator unoid="alphanumeric" default="true"/>
-            <collator unoid="phonebook" default="false"/>
-        </special>
-    </collation>
-
+    </collations>
     <boundaries>
          <!-- Boundary rules.
         Selected samples are given with no attempt to make them work.
@@ -383,27 +456,6 @@ For example, most country locales will inherit the bulk of their data from the l
             $digit [[:Pd:]&#xAD;&#x2027;&apos;.]
         </word>
     </boundaries>
-    <countryInfo>
-        <!-- CountryPost:
-             The operand is a string with the abbreviation of the country,
-             used for postal addresses, for example by CEPT-MAILCODE. -->
-        <countryPost id="US"/>
-        <!-- CountryNumber :
-             The operand is an integer with the three-digit number of the
-              country, according to ISO 3166. -->
-        <countryNumber id="666"/>
-        <!-- CountryCar:
-             The operand is a string with the abbreviation of the country,
-             used for motor vehicles and traffic, according to the Geneve convention
-             1949:68 -->
-        <countryCar id="US"/>
-        <!-- CountryISBNNumber :
-             The operand is a string with the abbreviation of the country,
-             used for book numbering (ISBN), according to ISO 2108. ISBN numbers are
-             allocated according to country. -->
-        <countryISBNNumber id="666"/>
-
-    </countryInfo>
     <measurement>
         <paperSize>
             <!-- Papersize. The numbers are always in millimeters.

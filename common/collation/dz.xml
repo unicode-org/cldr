@@ -11,7 +11,6 @@ By Pema geyleg <pema_geyleg@druknet.bt>
     <generation date="2004-08-09" />
 <!-- Two letter codes, if available; otherwise 3-letter codes.If bothcexist, a separate database contains the mapping. -->
     <language type="dz" />
-    <script type="Tibt" />
   </identity>
   <collations  version="3.1.1">
         <collation>
@@ -33,9 +32,6 @@ accentOrder="reverse" attribute.
             The displayName attribute supplies a message pattern for
 getDisplayName.
             -->
-            <base>
-                <alias source="dz_BT"/>
-            </base>
             <settings normalization="on"/>
             <rules>
                 	 <reset>ཀ</reset>                       

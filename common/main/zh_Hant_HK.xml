@@ -38,11 +38,13 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>yyyy'年'MM'月'dd'日' EEEE</pattern>
+							<pattern draft="true" alt="proposed" references="http://www.info.gov.hk/info/holiday_c.htm">yyyy'年'M'月'd'日' EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>yyyy'年'MM'月'dd'日'</pattern>
+							<pattern draft="true" alt="proposed" references="http://www.info.gov.hk/info/holiday_c.htm">yyyy'年'M'月'd'日'</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">

@@ -177,6 +177,11 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
           <ul>
             <li><span class="changed"><span style="background-color: #FFFF00"><i>Target-Language</i></span> 
             is the language under consideration.</span></li>
+            <li><span class="changed"><i>Target-Territories</i> is the list of territories found by 
+            looking up <span style="background-color: #FFFF00"><i>Target-Language</i></span> in the 
+            &lt;languageData&gt; elements in
+            <a href="http://unicode.org/cldr/data/common/main/supplementalData.xml">
+            supplementalData.xml</a></span></li>
             <li><span class="changed"><i>Language-List</i> is
             <span style="background-color: #FFFF00"><i>Target-Language</i></span>, plus</span><ul>
               <li><span class="changed">Chinese, English, French, German, Italian, Japanese, 
@@ -192,13 +197,10 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
               <li><span class="changed">&nbsp;Latin (Latn)</span></li>
             </ul>
             </li>
-            <li><span class="changed"><i>Territory-List</i> is the list of territories found by 
-            looking up <span style="background-color: #FFFF00"><i>Target-Language</i></span> in the 
-            &lt;languageData&gt; elements in
-            <a href="http://unicode.org/cldr/data/common/main/supplementalData.xml">
-            supplementalData.xml</a>, then adding the G6 and BRIC countries (Brazil, Russia, India, 
-            and China):</span><ul>
-              <li><span class="changed">China, Brazil, France, Germany, Great Britain , India, 
+            <li><span class="changed"><i>Territory-List</i> is the list of territories formed by 
+            taking the <i>Target-Territories</i> and adding the G6 and BRIC countries (Brazil, 
+            Russia, India, and China):</span><ul>
+              <li><span class="changed">Brazil, China, France, Germany, Great Britain , India, 
               Italy, Japan, Russia, United States (CN, BR, DE, GB, FR, IN, IT, JP, RU, US)</span></li>
             </ul>
             </li>
@@ -208,7 +210,7 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
             <a href="http://unicode.org/cldr/data/common/main/supplementalData.xml">
             supplementalData.xml</a>.</span></li>
             <li><span class="changed"><i>Calendar-List</i> is the set of calendars in customary use 
-            in any of <i>Territory-List</i>, plus Gregorian.</span></li>
+            in any of <i>Target-Territories</i>, plus Gregorian.</span></li>
           </ul>
           <p><span class="changed">The minimal data is then the following.</span></p>
           <ol>
@@ -222,7 +224,7 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
               <li><span class="changed"><i>territories:</i> localized names for all territories in
               <i>Territory-List</i>.</span></li>
               <li><span class="changed"><i>variants, keys, types:</i> localized names for any in use 
-              in <i>Territory-List</i>; e.g. a translation for PHONEBOOK in a German locale.</span></li>
+              in <i>Target-Territories</i>; e.g. a translation for PHONEBOOK in a German locale.</span></li>
             </ol>
             </li>
             <li><span class="changed">layout, orientation</span></li>
@@ -262,8 +264,8 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
             <li><span class="changed">collation sequence</span></li>
             <li><span class="changed">yesstr, yesexpr, nostr, noexpr</span></li>
           </ol>
-          <p><span class="changed">Items should <i>only</i> should be included if they are not the 
-          same as the default, which is:</span></p>
+          <p><span class="changed">Items should <i>only</i> be included if they are not the same as 
+          the default, which is:</span></p>
           <ul>
             <li><span class="changed">what is in root, if there is something defined there.</span></li>
             <li><span class="changed">for timezone IDs:</span><ul>

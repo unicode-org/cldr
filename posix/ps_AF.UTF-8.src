@@ -4904,9 +4904,9 @@ mon     "<ARABIC_LETTER_JEEM><ARABIC_LETTER_NOON><ARABIC_LETTER_WAW><ARABIC_LETT
 
 d_fmt    "%e %B %Y"
 
-t_fmt    "H:%M:%S"
+t_fmt    "%H:%M:%S"
 
-d_t_fmt  "<ARABIC_LETTER_DAL> %Y <ARABIC_LETTER_DAL> %B %e H:%M:%S (%Z)"
+d_t_fmt  "<ARABIC_LETTER_DAL> %Y <ARABIC_LETTER_DAL> %B %e %H:%M:%S (%Z)"
 
 am_pm    "<ARABIC_LETTER_GHAIN><FULL_STOP><ARABIC_LETTER_MEEM><FULL_STOP>";"<ARABIC_LETTER_GHAIN><FULL_STOP><ARABIC_LETTER_WAW><FULL_STOP>"
 
@@ -4918,13 +4918,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "yes:y:Y"
+yesstr   "yes:YES:y:Y"
 
-nostr    "no:n:N"
+nostr    "no:NO:n:N"
 
-yesexpr  "^[yY]"
+yesexpr  "^[yY]([eE][sS])?"
 
-noexpr   "^[nN]"
+noexpr   "^[nN][oO]?"
 
 
 END LC_MESSAGES

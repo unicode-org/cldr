@@ -5633,8 +5633,8 @@ END LC_NUMERIC
 LC_MONETARY
 *************
 
-int_curr_symbol       "<R><U><R><space>"
-currency_symbol       "<CYRILLIC_SMALL_LETTER_ER><FULL_STOP>"
+int_curr_symbol       "<R><U><B><space>"
+currency_symbol       "<R><U><B>"
 mon_decimal_point     "<COMMA>"
 mon_thousands_sep     "<NO-BREAK_SPACE>"
 mon_grouping          3
@@ -5706,9 +5706,9 @@ mon     "<CYRILLIC_SMALL_LETTER_YA><CYRILLIC_SMALL_LETTER_EN><CYRILLIC_SMALL_LET
 
 d_fmt    "%d.%m.%Y"
 
-t_fmt    "H:%M:%S"
+t_fmt    "%H:%M:%S"
 
-d_t_fmt  "%e %B %Y <CYRILLIC_SMALL_LETTER_GHE>. H:%M:%S %Z"
+d_t_fmt  "%e %B %Y <CYRILLIC_SMALL_LETTER_GHE>. %H:%M:%S %Z"
 
 am_pm    "<A><M>";"<P><M>"
 

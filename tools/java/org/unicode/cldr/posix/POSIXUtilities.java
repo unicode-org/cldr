@@ -129,6 +129,7 @@ public class POSIXUtilities {
            { "EEE",  "%a" },
            { "G",    "%N" },
            { "HH",   "%H" },
+           { "H",    "%H" },
            { "MMMM", "%B" },
            { "MMM",  "%b" },
            { "MM",   "%m" },

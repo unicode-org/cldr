@@ -5633,8 +5633,8 @@ END LC_NUMERIC
 LC_MONETARY
 *************
 
-int_curr_symbol       "<R><U><R><space>"
-currency_symbol       "<CYRILLIC_SMALL_LETTER_ER><FULL_STOP>"
+int_curr_symbol       "<R><U><B><space>"
+currency_symbol       "<R><U><B>"
 mon_decimal_point     "<COMMA>"
 mon_thousands_sep     "<NO-BREAK_SPACE>"
 mon_grouping          3
@@ -5706,9 +5706,9 @@ mon     "<one>";/
 
 d_fmt    "%d.%m.%Y"
 
-t_fmt    "H:%M:%S"
+t_fmt    "%H:%M:%S"
 
-d_t_fmt  "%e %B %Y H:%M:%S"
+d_t_fmt  "%e %B %Y %H:%M:%S"
 
 am_pm    "<A><M>";"<P><M>"
 
@@ -5720,13 +5720,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "yes:y:Y"
+yesstr   "yes:YES:y:Y"
 
-nostr    "no:n:N"
+nostr    "no:NO:n:N"
 
-yesexpr  "^[yY]"
+yesexpr  "^[yY]([eE][sS])?"
 
-noexpr   "^[nN]"
+noexpr   "^[nN][oO]?"
 
 
 END LC_MESSAGES

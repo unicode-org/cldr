@@ -3,10 +3,12 @@
 <ldml>
 	<identity>
 		<version number="1.1"/>
-		<generation date="2004-06-04" />
+		<generation date="2004-08-13" />
 		<language type="en" /> 
 		<territory type="BE" /> 
 	</identity>
+	<characters>
+	</characters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -118,7 +120,7 @@
 				<displayName>Belgian Franc</displayName>
 				<symbol>BF</symbol>
 				<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
-				<decimal>#,##0.00 ¤;-#,##0.00 ¤</decimal>
+				<decimal>,</decimal>
 				<group>.</group>
 			</currency>
 		</currencies>

@@ -3,7 +3,7 @@
 <ldml>
 	<identity>
 		<version number="1.1"/>
-		<generation date="2004-06-04" />
+		<generation date="2004-08-13" />
 		<language type="pt" /> 
 		<territory type="PT" /> 
 	</identity>
@@ -81,6 +81,8 @@
 			<territory type="YU">Jugoslávia</territory>
 		</territories>
 	</localeDisplayNames>
+	<characters>
+	</characters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -178,7 +180,7 @@
 				<displayName>Escudo português</displayName>
 				<symbol>Esc.</symbol>
 				<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
-				<decimal>#,##0.00 ¤;-#,##0.00 ¤</decimal>
+				<decimal>$</decimal>
 				<group>,</group>
 			</currency>
 		</currencies>

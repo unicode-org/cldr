@@ -2,37 +2,11 @@
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1.1"/>
-		<generation date="2004-07-12" />
+		<version number="2.0"/>
+		<generation date="2004-08-07" />
 		<language type="sh" /> 
 	</identity>
 	<collations>
-		<collation type="standard" >
-			<rules>
-				<reset>C</reset>
-				<p>č</p>
-				<t>Č</t>
-				<p>ć</p>
-				<t>Ć</t>
-				<reset>D</reset>
-				<p>dž</p>
-				<t>Dž</t>
-				<t>DŽ</t>
-				<reset>L</reset>
-				<p>lj</p>
-				<t>Lj</t>
-				<t>LJ</t>
-				<reset>N</reset>
-				<p>nj</p>
-				<t>Nj</t>
-				<t>NJ</t>
-				<reset>S</reset>
-				<p>š</p>
-				<t>Š</t>
-				<reset>Z</reset>
-				<p>ž</p>
-				<t>Ž</t>
-			</rules>
-		</collation  >
+    <alias source="hr"/>
 	</collations>
 </ldml>

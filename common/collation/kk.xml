@@ -2,13 +2,14 @@
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1.1"/>
-		<generation date="2004-07-12" />
+		<version number="1.0"/>
+		<generation date="2004-08-07" />
 		<language type="kk" /> 
 	</identity>
 	<collations>
 		<collation type="standard" >
-			<suppress_contractions>[suppressContractions [Ѐ-џ]</suppress_contractions>
+			<settings normalization="on"  />
+			<suppress_contractions>[Ѐ-џ]</suppress_contractions>
 			<rules>
 				<reset before="primary">ү</reset>
 				<p>ұ</p>

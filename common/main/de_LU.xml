@@ -3,10 +3,12 @@
 <ldml>
 	<identity>
 		<version number="1.1"/>
-		<generation date="2004-06-04" />
+		<generation date="2004-08-13" />
 		<language type="de" /> 
 		<territory type="LU" /> 
 	</identity>
+	<characters>
+	</characters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -51,7 +53,7 @@
 				<displayName>Luxemburgischer Franc</displayName>
 				<symbol>F</symbol>
 				<pattern>#,##0 ¤;-#,##0 ¤</pattern>
-				<decimal>#,##0 ¤;-#,##0 ¤</decimal>
+				<decimal>.</decimal>
 				<group>,</group>
 			</currency>
 		</currencies>

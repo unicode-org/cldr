@@ -1,21 +1,22 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml draft="true">
+<ldml draft="true" >
 	<identity>
-		<version number="1.0"></version>
-		<generation date="2004-09-14"></generation>
-		<language type="or"></language> 
-		<territory type="IN"></territory> 
+		<version number="1.0"/>
+		<generation date="2004-09-14"/>
+		<language type="or"/>
+		<territory type="IN"/>
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<week>
-					<weekendStart draft="true" day="sun" time="00:00"></weekendStart>
-					<weekendEnd draft="true" day="sun" time="24:00"></weekendEnd>
+				<week draft="true">
+          <minDays count="1"/>
+					<firstDay day="mon"/>
+					<weekendStart draft="true" day="sun" time="00:00"/>
+					<weekendEnd day="sun" time="24:00"/>
 				</week>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE d MMMM yyyy</pattern>
@@ -38,7 +39,6 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
@@ -60,13 +60,6 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -78,13 +71,6 @@
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
-		<scientificFormats>
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
@@ -101,3 +87,4 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
+

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="cs"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="cs"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -411,7 +411,6 @@
 	<dates>
 		<localizedPatternChars>GuMtkHmsSEDFwWahKzUeygAZ</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -526,8 +525,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="mon"></firstDay>
+					<firstDay day="mon"/>
 				</week>
 				<am>dop.</am>
 				<pm>odp.</pm>
@@ -538,7 +536,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d. MMMM yyyy</pattern>
@@ -561,7 +558,6 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>H:mm:ss z</pattern>
@@ -583,20 +579,13 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<zone draft="true" type="PST">
 				<long>
-				<standard>Pacifický standardní čas</standard>
-				<daylight>Pacifický letní čas</daylight>
+					<standard>Pacifický standardní čas</standard>
+					<daylight>Pacifický letní čas</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -606,8 +595,8 @@
 			</zone>
 			<zone draft="true" type="America/Los_Angeles">
 				<long>
-				<standard>Pacifický standardní čas</standard>
-				<daylight>Pacifický letní čas</daylight>
+					<standard>Pacifický standardní čas</standard>
+					<daylight>Pacifický letní čas</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -617,8 +606,8 @@
 			</zone>
 			<zone draft="true" type="MST">
 				<long>
-				<standard>Horský standardní čas</standard>
-				<daylight>Horský letní čas</daylight>
+					<standard>Horský standardní čas</standard>
+					<daylight>Horský letní čas</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -628,8 +617,8 @@
 			</zone>
 			<zone draft="true" type="America/Denver">
 				<long>
-				<standard>Horský standardní čas</standard>
-				<daylight>Horský letní čas</daylight>
+					<standard>Horský standardní čas</standard>
+					<daylight>Horský letní čas</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -639,8 +628,8 @@
 			</zone>
 			<zone draft="true" type="PNT">
 				<long>
-				<standard>Horský standardní čas</standard>
-				<daylight>Horský standardní čas</daylight>
+					<standard>Horský standardní čas</standard>
+					<daylight>Horský standardní čas</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -650,8 +639,8 @@
 			</zone>
 			<zone draft="true" type="America/Phoenix">
 				<long>
-				<standard>Horský standardní čas</standard>
-				<daylight>Horský standardní čas</daylight>
+					<standard>Horský standardní čas</standard>
+					<daylight>Horský standardní čas</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -661,8 +650,8 @@
 			</zone>
 			<zone draft="true" type="CST">
 				<long>
-				<standard>Centrální standardní čas</standard>
-				<daylight>Centrální letní čas</daylight>
+					<standard>Centrální standardní čas</standard>
+					<daylight>Centrální letní čas</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -672,8 +661,8 @@
 			</zone>
 			<zone draft="true" type="America/Chicago">
 				<long>
-				<standard>Centrální standardní čas</standard>
-				<daylight>Centrální letní čas</daylight>
+					<standard>Centrální standardní čas</standard>
+					<daylight>Centrální letní čas</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -683,8 +672,8 @@
 			</zone>
 			<zone draft="true" type="EST">
 				<long>
-				<standard>Východní standardní čas</standard>
-				<daylight>Východní letní čas</daylight>
+					<standard>Východní standardní čas</standard>
+					<daylight>Východní letní čas</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -694,8 +683,8 @@
 			</zone>
 			<zone draft="true" type="America/New_York">
 				<long>
-				<standard>Východní standardní čas</standard>
-				<daylight>Východní letní čas</daylight>
+					<standard>Východní standardní čas</standard>
+					<daylight>Východní letní čas</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -705,8 +694,8 @@
 			</zone>
 			<zone draft="true" type="IET">
 				<long>
-				<standard>Východní standardní čas</standard>
-				<daylight>Východní standardní čas</daylight>
+					<standard>Východní standardní čas</standard>
+					<daylight>Východní standardní čas</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -716,8 +705,8 @@
 			</zone>
 			<zone draft="true" type="America/Indianapolis">
 				<long>
-				<standard>Východní standardní čas</standard>
-				<daylight>Východní standardní čas</daylight>
+					<standard>Východní standardní čas</standard>
+					<daylight>Východní standardní čas</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -727,8 +716,8 @@
 			</zone>
 			<zone draft="true" type="HST">
 				<long>
-				<standard>Havajský standardní čas</standard>
-				<daylight>Havajský standardní čas</daylight>
+					<standard>Havajský standardní čas</standard>
+					<daylight>Havajský standardní čas</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -738,8 +727,8 @@
 			</zone>
 			<zone draft="true" type="Pacific/Honolulu">
 				<long>
-				<standard>Havajský standardní čas</standard>
-				<daylight>Havajský standardní čas</daylight>
+					<standard>Havajský standardní čas</standard>
+					<daylight>Havajský standardní čas</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -749,8 +738,8 @@
 			</zone>
 			<zone draft="true" type="AST">
 				<long>
-				<standard>Aljašský standardní čas</standard>
-				<daylight>Aljašský letní čas</daylight>
+					<standard>Aljašský standardní čas</standard>
+					<daylight>Aljašský letní čas</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -760,8 +749,8 @@
 			</zone>
 			<zone draft="true" type="America/Anchorage">
 				<long>
-				<standard>Aljašský standardní čas</standard>
-				<daylight>Aljašský letní čas</daylight>
+					<standard>Aljašský standardní čas</standard>
+					<daylight>Aljašský letní čas</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -771,8 +760,8 @@
 			</zone>
 			<zone draft="true" type="America/Halifax">
 				<long>
-				<standard>Atlantický standardní čas</standard>
-				<daylight>Atlantický letní čas</daylight>
+					<standard>Atlantický standardní čas</standard>
+					<daylight>Atlantický letní čas</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -782,8 +771,8 @@
 			</zone>
 			<zone draft="true" type="CNT">
 				<long>
-				<standard>Newfoundlandský standardní čas</standard>
-				<daylight>Newfoundlandský letní čas</daylight>
+					<standard>Newfoundlandský standardní čas</standard>
+					<daylight>Newfoundlandský letní čas</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -793,8 +782,8 @@
 			</zone>
 			<zone draft="true" type="America/St_Johns">
 				<long>
-				<standard>Newfoundlandský standardní čas</standard>
-				<daylight>Newfoundlandský letní čas</daylight>
+					<standard>Newfoundlandský standardní čas</standard>
+					<daylight>Newfoundlandský letní čas</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -804,8 +793,8 @@
 			</zone>
 			<zone draft="true" type="ECT">
 				<long>
-				<standard>Středoevropský standardní čas</standard>
-				<daylight>Středoevropský letní čas</daylight>
+					<standard>Středoevropský standardní čas</standard>
+					<daylight>Středoevropský letní čas</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -815,8 +804,8 @@
 			</zone>
 			<zone draft="true" type="Europe/Paris">
 				<long>
-				<standard>Středoevropský standardní čas</standard>
-				<daylight>Středoevropský letní čas</daylight>
+					<standard>Středoevropský standardní čas</standard>
+					<daylight>Středoevropský letní čas</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -826,8 +815,8 @@
 			</zone>
 			<zone draft="true" type="GMT">
 				<long>
-				<standard>Greenwichský střední čas</standard>
-				<daylight>Greenwichský střední čas</daylight>
+					<standard>Greenwichský střední čas</standard>
+					<daylight>Greenwichský střední čas</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -837,8 +826,8 @@
 			</zone>
 			<zone draft="true" type="Africa/Casablanca">
 				<long>
-				<standard>Greenwichský střední čas</standard>
-				<daylight>Greenwichský střední čas</daylight>
+					<standard>Greenwichský střední čas</standard>
+					<daylight>Greenwichský střední čas</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -848,8 +837,8 @@
 			</zone>
 			<zone draft="true" type="Asia/Jerusalem">
 				<long>
-				<standard>Izraelský standardní čas</standard>
-				<daylight>Izraelský letní čas</daylight>
+					<standard>Izraelský standardní čas</standard>
+					<daylight>Izraelský letní čas</daylight>
 				</long>
 				<short>
 					<standard>IST</standard>
@@ -859,8 +848,8 @@
 			</zone>
 			<zone draft="true" type="JST">
 				<long>
-				<standard>Japonský standardní čas</standard>
-				<daylight>Japonský standardní čas</daylight>
+					<standard>Japonský standardní čas</standard>
+					<daylight>Japonský standardní čas</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -870,8 +859,8 @@
 			</zone>
 			<zone draft="true" type="Asia/Tokyo">
 				<long>
-				<standard>Japonský standardní čas</standard>
-				<daylight>Japonský standardní čas</daylight>
+					<standard>Japonský standardní čas</standard>
+					<daylight>Japonský standardní čas</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -881,8 +870,8 @@
 			</zone>
 			<zone draft="true" type="Europe/Bucharest">
 				<long>
-				<standard>Východoevropský standardní čas</standard>
-				<daylight>Východoevropský letní čas</daylight>
+					<standard>Východoevropský standardní čas</standard>
+					<daylight>Východoevropský letní čas</daylight>
 				</long>
 				<short>
 					<standard>EET</standard>
@@ -892,8 +881,8 @@
 			</zone>
 			<zone draft="true" type="CTT">
 				<long>
-				<standard>Čínský standardní čas</standard>
-				<daylight>Čínský standardní čas</daylight>
+					<standard>Čínský standardní čas</standard>
+					<daylight>Čínský standardní čas</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -903,8 +892,8 @@
 			</zone>
 			<zone draft="true" type="Asia/Shanghai">
 				<long>
-				<standard>Čínský standardní čas</standard>
-				<daylight>Čínský standardní čas</daylight>
+					<standard>Čínský standardní čas</standard>
+					<daylight>Čínský standardní čas</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -918,16 +907,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency draft="true" type="ADD">
@@ -1364,7 +1343,6 @@
 			</currency>
 			<currency draft="true" type="EUR">
 				<displayName>Euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency draft="true" type="FIM">
 				<displayName>Markka</displayName>
@@ -1404,7 +1382,6 @@
 			</currency>
 			<currency draft="true" type="GBP">
 				<displayName>Libra šterlinků</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency draft="true" type="GEK">
 				<displayName>Georgian Kupon Larit</displayName>
@@ -1588,7 +1565,6 @@
 			</currency>
 			<currency draft="true" type="ITL">
 				<displayName>Lira italská</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency draft="true" type="JEP">
 				<displayName>Libra šterlinků Jersey</displayName>
@@ -1608,7 +1584,6 @@
 			</currency>
 			<currency draft="true" type="JPY">
 				<displayName>Jen</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency draft="true" type="KES">
 				<displayName>Šilink keňský</displayName>
@@ -2372,15 +2347,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>ANO</yesstr>
-      <nostr>NE</nostr>
-      <yesexpr>A</yesexpr>
-      <noexpr>N</noexpr>
-    </messages>
-  </posix></ldml>
-<!-- Old Comments. See root.xml for more info.
+	<posix draft="true">
+		<messages>
+			<yesstr>ANO</yesstr>
+			<nostr>NE</nostr>
+			<yesexpr>A</yesexpr>
+			<noexpr>N</noexpr>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/cs.txt?only_with_tag=final-update-LDML
 
         KP { "Severn\u00ED Korea" } // alternate name { "Korea, lidov\u011B demokratick\u00E1 republika" }
@@ -2395,5 +2373,6 @@ in { "Indon\u00E9\u0161tina" }
 iw { "Hebrej\u0161tina" }
 ji { "Jidi\u0161" }
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
+
 
 -->

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml draft="true">
+<ldml draft="true" >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-06-04"></generation>
-		<language type="byn"></language> 
+		<version number="1.2"/>
+		<generation date="2004-06-04"/>
+		<language type="byn"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -345,8 +345,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="sat"></firstDay>
+					<firstDay day="sat"/>
 				</week>
 				<am>ፋዱስ ጃብ</am>
 				<pm>ፋዱስ ደምቢ</pm>
@@ -365,10 +364,10 @@
 				<displayName>ERN</displayName>
 				<symbol>$</symbol>
 			</currency>
-      <currency type="USD">
-				<displayName>USD</displayName>
+			<currency type="USD">
 				<symbol>US$</symbol>
 			</currency>
 		</currencies>
 	</numbers>
 </ldml>
+

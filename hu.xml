@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="hu"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="hu"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -450,7 +450,6 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="buddhist">
 				<eras>
 					<eraAbbr>
@@ -537,8 +536,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="mon"></firstDay>
+					<firstDay day="mon"/>
 				</week>
 				<am>DE</am>
 				<pm>DU</pm>
@@ -549,7 +547,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>yyyy. MMMM d.</pattern>
@@ -572,7 +569,6 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>H:mm:ss z</pattern>
@@ -594,19 +590,12 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="hu" path="../monthWidth[@type='wide']"></alias>
+							<alias source="hu" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tisri</month>
@@ -619,9 +608,7 @@
 							<month type="8">Niszán</month>
 							<month type="9">Ijár</month>
 							<month type="10">Sziván</month>
-							<month type="11">Tamuz</month>
 							<month type="12">Áv</month>
-							<month type="13">Elul</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -635,11 +622,10 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="hu" path="../monthWidth[@type='wide']"></alias>
+							<alias source="hu" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Moharrem</month>
-							<month type="2">Safar</month>
 							<month type="3">Rébi el avvel</month>
 							<month type="4">Rébi el accher</month>
 							<month type="5">Dsemádi el avvel</month>
@@ -660,7 +646,7 @@
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
-        <alias source="hu" path="../calendar[@type='islamic']"></alias>
+				<alias source="hu" path="../calendar[@type='islamic']"/>
 			</calendar>
 		</calendars>
 	</dates>
@@ -668,16 +654,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency draft="true" type="ADD">
@@ -1126,7 +1102,6 @@
 			</currency>
 			<currency draft="true" type="EUR">
 				<displayName>Euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency draft="true" type="FIM">
 				<displayName>Finn markka</displayName>
@@ -1166,7 +1141,6 @@
 			</currency>
 			<currency draft="true" type="GBP">
 				<displayName>Brit font sterling</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency draft="true" type="GEK">
 				<displayName>Grúz kupon larit</displayName>
@@ -1346,7 +1320,6 @@
 			</currency>
 			<currency draft="true" type="ITL">
 				<displayName>Olasz líra</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency draft="true" type="JEP">
 				<displayName>Jersey font sterling</displayName>
@@ -1366,7 +1339,6 @@
 			</currency>
 			<currency draft="true" type="JPY">
 				<displayName>Japán jen</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency draft="true" type="KES">
 				<displayName>Kenyai shilling</displayName>
@@ -2194,17 +2166,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-  <posix draft="true">
-    <messages>
-      <yesstr>igen</yesstr>
-      <nostr>nem</nostr>
-      <yesexpr>I</yesexpr>
-      <noexpr>N</noexpr>
-    </messages>
-  </posix>
+	<posix draft="true">
+		<messages>
+			<yesstr>igen</yesstr>
+			<nostr>nem</nostr>
+			<yesexpr>I</yesexpr>
+			<noexpr>N</noexpr>
+		</messages>
+	</posix>
 </ldml>
 
-<!-- Old Comments. See root.xml for more info.
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/hu.txt?only_with_tag=final-update-LDML
 
 HK { "Hong Kong S.A.R. of China" }
@@ -2213,5 +2186,6 @@ HK { "Hong Kong S.A.R. of China" }
 MO { "Macao S.A.R. of China" }
         SY { "Sz\u00EDriai Arab K\u00F6zt\u00E1rsas\u00E1g" }    // alternate name { "Sz\u00EDria" }
         "Latn",  // ISO 15924 Name 
+
 
 -->

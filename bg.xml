@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="bg"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="bg"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -487,7 +487,6 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -567,8 +566,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="mon"></firstDay>
+					<firstDay day="mon"/>
 				</week>
 				<eras>
 					<eraAbbr>
@@ -577,7 +575,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>dd MMMM yyyy, EEEE</pattern>
@@ -600,42 +597,19 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<zone draft="true" type="PST">
 				<long>
-				<standard>Тихоокеанска часова зона</standard>
-				<daylight>Тихоокеанска лятна часова зона</daylight>
+					<standard>Тихоокеанска часова зона</standard>
+					<daylight>Тихоокеанска лятна часова зона</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -645,8 +619,8 @@
 			</zone>
 			<zone draft="true" type="America/Los_Angeles">
 				<long>
-				<standard>Тихоокеанска часова зона</standard>
-				<daylight>Тихоокеанска лятна часова зона</daylight>
+					<standard>Тихоокеанска часова зона</standard>
+					<daylight>Тихоокеанска лятна часова зона</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -656,8 +630,8 @@
 			</zone>
 			<zone draft="true" type="MST">
 				<long>
-				<standard>Американска планинска часова зона</standard>
-				<daylight>Американска планинска лятна часова зона</daylight>
+					<standard>Американска планинска часова зона</standard>
+					<daylight>Американска планинска лятна часова зона</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -667,8 +641,8 @@
 			</zone>
 			<zone draft="true" type="America/Denver">
 				<long>
-				<standard>Американска планинска часова зона</standard>
-				<daylight>Американска планинска лятна часова зона</daylight>
+					<standard>Американска планинска часова зона</standard>
+					<daylight>Американска планинска лятна часова зона</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -678,8 +652,8 @@
 			</zone>
 			<zone draft="true" type="PNT">
 				<long>
-				<standard>Американска планинска часова зона</standard>
-				<daylight>Американска планинска часова зона</daylight>
+					<standard>Американска планинска часова зона</standard>
+					<daylight>Американска планинска часова зона</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -689,8 +663,8 @@
 			</zone>
 			<zone draft="true" type="America/Phoenix">
 				<long>
-				<standard>Американска планинска часова зона</standard>
-				<daylight>Американска планинска часова зона</daylight>
+					<standard>Американска планинска часова зона</standard>
+					<daylight>Американска планинска часова зона</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -700,8 +674,8 @@
 			</zone>
 			<zone draft="true" type="CST">
 				<long>
-				<standard>Американска централна часова зона</standard>
-				<daylight>Американска централна лятна часова зона</daylight>
+					<standard>Американска централна часова зона</standard>
+					<daylight>Американска централна лятна часова зона</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -711,8 +685,8 @@
 			</zone>
 			<zone draft="true" type="America/Chicago">
 				<long>
-				<standard>Американска централна часова зона</standard>
-				<daylight>Американска централна лятна часова зона</daylight>
+					<standard>Американска централна часова зона</standard>
+					<daylight>Американска централна лятна часова зона</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -722,8 +696,8 @@
 			</zone>
 			<zone draft="true" type="EST">
 				<long>
-				<standard>Американска източна часова зона</standard>
-				<daylight>Американска източна лятна часова зона</daylight>
+					<standard>Американска източна часова зона</standard>
+					<daylight>Американска източна лятна часова зона</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -733,8 +707,8 @@
 			</zone>
 			<zone draft="true" type="America/New_York">
 				<long>
-				<standard>Американска източна часова зона</standard>
-				<daylight>Американска източна лятна часова зона</daylight>
+					<standard>Американска източна часова зона</standard>
+					<daylight>Американска източна лятна часова зона</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -744,8 +718,8 @@
 			</zone>
 			<zone draft="true" type="IET">
 				<long>
-				<standard>Американска източна часова зона</standard>
-				<daylight>Американска източна часова зона</daylight>
+					<standard>Американска източна часова зона</standard>
+					<daylight>Американска източна часова зона</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -755,8 +729,8 @@
 			</zone>
 			<zone draft="true" type="America/Indianapolis">
 				<long>
-				<standard>Американска източна часова зона</standard>
-				<daylight>Американска източна часова зона</daylight>
+					<standard>Американска източна часова зона</standard>
+					<daylight>Американска източна часова зона</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -766,8 +740,8 @@
 			</zone>
 			<zone draft="true" type="HST">
 				<long>
-				<standard>Часова зона Хавай</standard>
-				<daylight>Часова зона Хавай</daylight>
+					<standard>Часова зона Хавай</standard>
+					<daylight>Часова зона Хавай</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -777,8 +751,8 @@
 			</zone>
 			<zone draft="true" type="Pacific/Honolulu">
 				<long>
-				<standard>Часова зона Хавай</standard>
-				<daylight>Лятна часова зона Хавай</daylight>
+					<standard>Часова зона Хавай</standard>
+					<daylight>Лятна часова зона Хавай</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -788,8 +762,8 @@
 			</zone>
 			<zone draft="true" type="AST">
 				<long>
-				<standard>Часова зона Аляска</standard>
-				<daylight>Лятна часова зона Аляска</daylight>
+					<standard>Часова зона Аляска</standard>
+					<daylight>Лятна часова зона Аляска</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -799,8 +773,8 @@
 			</zone>
 			<zone draft="true" type="America/Anchorage">
 				<long>
-				<standard>Часова зона Аляска</standard>
-				<daylight>Лятна часова зона Аляска</daylight>
+					<standard>Часова зона Аляска</standard>
+					<daylight>Лятна часова зона Аляска</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -810,8 +784,8 @@
 			</zone>
 			<zone draft="true" type="America/Halifax">
 				<long>
-				<standard>Атлантическа часова зона</standard>
-				<daylight>Атлантическа лятна часова зона</daylight>
+					<standard>Атлантическа часова зона</standard>
+					<daylight>Атлантическа лятна часова зона</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -821,8 +795,8 @@
 			</zone>
 			<zone draft="true" type="CNT">
 				<long>
-				<standard>Часова зона Нюфаундленд</standard>
-				<daylight>Лятна часова зона Нюфаундленд</daylight>
+					<standard>Часова зона Нюфаундленд</standard>
+					<daylight>Лятна часова зона Нюфаундленд</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -832,8 +806,8 @@
 			</zone>
 			<zone draft="true" type="America/St_Johns">
 				<long>
-				<standard>Часова зона Нюфаундленд</standard>
-				<daylight>Лятна часова зона Нюфаундленд</daylight>
+					<standard>Часова зона Нюфаундленд</standard>
+					<daylight>Лятна часова зона Нюфаундленд</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -843,8 +817,8 @@
 			</zone>
 			<zone draft="true" type="ECT">
 				<long>
-				<standard>Централноевропейска часова зона</standard>
-				<daylight>Централноевропеска лятна часова зона</daylight>
+					<standard>Централноевропейска часова зона</standard>
+					<daylight>Централноевропеска лятна часова зона</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -854,8 +828,8 @@
 			</zone>
 			<zone draft="true" type="Europe/Paris">
 				<long>
-				<standard>Централноевропейска часова зона</standard>
-				<daylight>Централноевропеска лятна часова зона</daylight>
+					<standard>Централноевропейска часова зона</standard>
+					<daylight>Централноевропеска лятна часова зона</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -865,8 +839,8 @@
 			</zone>
 			<zone draft="true" type="GMT">
 				<long>
-				<standard>Часова зона Гринуич</standard>
-				<daylight>Часова зона Гринуич</daylight>
+					<standard>Часова зона Гринуич</standard>
+					<daylight>Часова зона Гринуич</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -876,8 +850,8 @@
 			</zone>
 			<zone draft="true" type="Africa/Casablanca">
 				<long>
-				<standard>Часова зона Гринуич</standard>
-				<daylight>Часова зона Гринуич</daylight>
+					<standard>Часова зона Гринуич</standard>
+					<daylight>Часова зона Гринуич</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -887,8 +861,8 @@
 			</zone>
 			<zone draft="true" type="Asia/Jerusalem">
 				<long>
-				<standard>Часова зона Израел</standard>
-				<daylight>Лятна часова зона Израел</daylight>
+					<standard>Часова зона Израел</standard>
+					<daylight>Лятна часова зона Израел</daylight>
 				</long>
 				<short>
 					<standard>IST</standard>
@@ -898,8 +872,8 @@
 			</zone>
 			<zone draft="true" type="JST">
 				<long>
-				<standard>Японска часова зона</standard>
-				<daylight>Японска лятна часова зона</daylight>
+					<standard>Японска часова зона</standard>
+					<daylight>Японска лятна часова зона</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -909,8 +883,8 @@
 			</zone>
 			<zone draft="true" type="Asia/Tokyo">
 				<long>
-				<standard>Японска часова зона</standard>
-				<daylight>Японска часова зона</daylight>
+					<standard>Японска часова зона</standard>
+					<daylight>Японска часова зона</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -920,8 +894,8 @@
 			</zone>
 			<zone draft="true" type="Europe/Bucharest">
 				<long>
-				<standard>Източноевропейска часова зона</standard>
-				<daylight>Източноевропейска лятна часова зона</daylight>
+					<standard>Източноевропейска часова зона</standard>
+					<daylight>Източноевропейска лятна часова зона</daylight>
 				</long>
 				<short>
 					<standard>EET</standard>
@@ -931,8 +905,8 @@
 			</zone>
 			<zone draft="true" type="CTT">
 				<long>
-				<standard>Китайска часова зона</standard>
-				<daylight>Китайска часова зона</daylight>
+					<standard>Китайска часова зона</standard>
+					<daylight>Китайска часова зона</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -942,8 +916,8 @@
 			</zone>
 			<zone draft="true" type="Asia/Shanghai">
 				<long>
-				<standard>Китайска часова зона</standard>
-				<daylight>Китайска часова зона</daylight>
+					<standard>Китайска часова зона</standard>
+					<daylight>Китайска часова зона</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -957,16 +931,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency draft="true" type="ADD">
@@ -1307,7 +1271,6 @@
 			</currency>
 			<currency draft="true" type="EUR">
 				<displayName>Евро</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency draft="true" type="FIM">
 				<displayName>Финландска марка</displayName>
@@ -1339,7 +1302,6 @@
 			</currency>
 			<currency draft="true" type="GBP">
 				<displayName>Британска лира</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency draft="true" type="GEL">
 				<displayName>Грузински лари</displayName>
@@ -1471,7 +1433,6 @@
 			</currency>
 			<currency draft="true" type="ITL">
 				<displayName>Италианска лира</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency draft="true" type="JMD">
 				<displayName>Ямайски долар</displayName>
@@ -1487,7 +1448,6 @@
 			</currency>
 			<currency draft="true" type="JPY">
 				<displayName>Японска йена</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency draft="true" type="KES">
 				<displayName>Кенийски шилинг</displayName>
@@ -2079,15 +2039,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>да</yesstr>
-      <nostr>не</nostr>
-      <yesexpr>д</yesexpr>
-      <noexpr>н</noexpr>
-    </messages>
-  </posix></ldml>
-<!-- Old Comments. See root.xml for more info.
+	<posix draft="true">
+		<messages>
+			<yesstr>да</yesstr>
+			<nostr>не</nostr>
+			<yesexpr>д</yesexpr>
+			<noexpr>н</noexpr>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/bg.txt?only_with_tag=final-update-LDML
 
         SY { "\u0421\u0438\u0440\u0438\u0439\u0441\u043A\u0430 \u0410\u0440\u0430\u0431\u0441\u043A\u0430 \u0420\u0435\u043F\u0443\u0431\u043B\u0438\u043A\u0430" }    // alternate form { "\u0421\u0438\u0440\u0438\u044F" }
@@ -2096,5 +2059,6 @@ bg { "\u0431\u044A\u043B\u0433\u0430\u0440\u0441\u043A\u0438" } // Old value
 zh_cn { "\u041A\u0438\u0442\u0430\u0439\u0441\u043A\u0438 (\u041E\u043F\u0440\u043E\u0441\u0442\u0435\u043D)" }
 zh_tw { "\u041A\u0438\u0442\u0430\u0439\u0441\u043A\u0438 (\u0422\u0440\u0430\u0434\u0438\u0446\u0438\u043E\u043D\u0435\u043D)" }
         "Cyrl",     // Abbreviation 
+
 
 -->

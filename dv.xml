@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml draft="true">
+<ldml draft="true" >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-06-04"></generation>
-		<language type="dv"></language> 
+		<version number="1.2"/>
+		<generation date="2004-06-04"/>
+		<language type="dv"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -19,18 +19,8 @@
 	</characters>
 	<numbers>
 		<symbols>
-			<decimal>.</decimal>
-			<group>,</group>
 			<list>،</list>
-			<percentSign>%</percentSign>
 			<nativeZeroDigit>٠</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -39,13 +29,6 @@
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
-		<scientificFormats>
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
@@ -68,3 +51,4 @@
 		</currencies>
 	</numbers>
 </ldml>
+

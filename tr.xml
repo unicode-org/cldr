@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="tr"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="tr"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -200,9 +200,9 @@
 			<territory type="BT">Bhutan</territory>
 			<territory type="BV">Bouvet Adası</territory>
 			<territory type="BW">Botswana</territory>
-			<territory alt="proposed" draft="true" type="BW">Botsvana</territory>
+			<territory draft="true" type="BW" alt="proposed">Botsvana</territory>
 			<territory type="BY">Belarus</territory>
-			<territory alt="proposed" draft="true" type="BY">Beyaz Rusya</territory>
+			<territory draft="true" type="BY" alt="proposed">Beyaz Rusya</territory>
 			<territory type="BZ">Belize</territory>
 			<territory type="CA">Kanada</territory>
 			<territory type="CC">Cocos (Keeling) Adaları</territory>
@@ -229,7 +229,7 @@
 			<territory type="DO">Dominik Cumhuriyeti</territory>
 			<territory type="DZ">Cezayir</territory>
 			<territory type="EC">Ekvador</territory>
-			<territory alt="proposed" draft="true" type="EC">Ekvator</territory>
+			<territory draft="true" type="EC" alt="proposed">Ekvator</territory>
 			<territory type="EE">Estonya</territory>
 			<territory type="EG">Mısır</territory>
 			<territory type="EH">Batı Sahara</territory>
@@ -247,7 +247,7 @@
 			<territory type="GD">Granada</territory>
 			<territory type="GE">Gürcistan</territory>
 			<territory type="GF">Fransız Ginesi</territory>
-			<territory alt="proposed" draft="true" type="GF">Fransız Guyanası</territory>
+			<territory draft="true" type="GF" alt="proposed">Fransız Guyanası</territory>
 			<territory type="GH">Gana</territory>
 			<territory type="GI">Cebelitarık</territory>
 			<territory type="GL">Grönland</territory>
@@ -286,15 +286,15 @@
 			<territory type="KM">Komorlar</territory>
 			<territory type="KN">Saint Kittler ve Neviler</territory>
 			<territory type="KP">Kore, Kuzey</territory>
-			<territory alt="proposed" draft="true" type="KP">Kuzey Kore</territory>
+			<territory draft="true" type="KP" alt="proposed">Kuzey Kore</territory>
 			<territory type="KR">Kore, Güney</territory>
-			<territory alt="proposed" draft="true" type="KR">Güney Kore</territory>
+			<territory draft="true" type="KR" alt="proposed">Güney Kore</territory>
 			<territory type="KW">Kuveyt</territory>
 			<territory type="KY">Cayman Adaları</territory>
-			<territory alt="proposed" draft="true" type="KY">Kayman Adaları</territory>
+			<territory draft="true" type="KY" alt="proposed">Kayman Adaları</territory>
 			<territory type="KZ">Kazakistan</territory>
 			<territory type="LA">Lao Demokratik Halk Cumhuriyeti</territory>
-			<territory alt="proposed" draft="true" type="LA">Laos</territory>
+			<territory draft="true" type="LA" alt="proposed">Laos</territory>
 			<territory type="LB">Lübnan</territory>
 			<territory type="LC">Saint Lucia</territory>
 			<territory type="LI">Liechtenstein</territory>
@@ -315,7 +315,7 @@
 			<territory type="MM">Myanmar</territory>
 			<territory type="MN">Moğolistan</territory>
 			<territory type="MO">Macao S.A.R. - Çin</territory>
-			<territory alt="proposed" draft="true" type="MO">Makao S.A.R. Çin</territory>
+			<territory draft="true" type="MO" alt="proposed">Makao S.A.R. Çin</territory>
 			<territory type="MP">Kuzey Mariana Adaları</territory>
 			<territory type="MQ">Martinik</territory>
 			<territory type="MR">Moritanya</territory>
@@ -374,13 +374,13 @@
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somali</territory>
 			<territory type="SP">Serbia</territory>
-			<territory alt="proposed" draft="true" type="SP">Sırbistan</territory>
+			<territory draft="true" type="SP" alt="proposed">Sırbistan</territory>
 			<territory type="SR">Surinam</territory>
 			<territory type="ST">Sao Tome ve Principe</territory>
 			<territory type="SV">El Salvador</territory>
 			<territory type="SY">Suriye</territory>
 			<territory type="SZ">Swaziland</territory>
-			<territory alt="proposed" draft="true" type="SZ">Svaziland</territory>
+			<territory draft="true" type="SZ" alt="proposed">Svaziland</territory>
 			<territory type="TC">Turks ve Caicos Adaları</territory>
 			<territory type="TD">Çad</territory>
 			<territory type="TF">Fransız Güney Bölgeleri</territory>
@@ -445,7 +445,6 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -525,8 +524,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="mon"></firstDay>
+					<firstDay day="mon"/>
 				</week>
 				<eras>
 					<eraAbbr>
@@ -535,7 +533,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>dd MMMM yyyy EEEE</pattern>
@@ -557,36 +554,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<default type="medium"></default>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -594,16 +561,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency draft="true" type="ADD">
@@ -1052,7 +1009,6 @@
 			</currency>
 			<currency draft="true" type="EUR">
 				<displayName>Euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency draft="true" type="FIM">
 				<displayName>Fin Markkası</displayName>
@@ -1092,7 +1048,6 @@
 			</currency>
 			<currency draft="true" type="GBP">
 				<displayName>İngiliz Sterlini</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency draft="true" type="GEK">
 				<displayName>Gürcistan Kupon Larisi</displayName>
@@ -1276,7 +1231,6 @@
 			</currency>
 			<currency draft="true" type="ITL">
 				<displayName>İtalyan Lireti</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency draft="true" type="JEP">
 				<displayName>Jersey Sterlini</displayName>
@@ -1296,7 +1250,6 @@
 			</currency>
 			<currency draft="true" type="JPY">
 				<displayName>Japon Yeni</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency draft="true" type="KES">
 				<displayName>Kenya Şilini</displayName>
@@ -2128,15 +2081,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>Evet</yesstr>
-      <nostr>Hayır</nostr>
-      <yesexpr>E</yesexpr>
-      <noexpr>H</noexpr>
-    </messages>
-  </posix></ldml>
-<!-- Old Comments. See root.xml for more info.
+	<posix draft="true">
+		<messages>
+			<yesstr>Evet</yesstr>
+			<nostr>Hayır</nostr>
+			<yesexpr>E</yesexpr>
+			<noexpr>H</noexpr>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/tr.txt?only_with_tag=final-update-LDML
 
 BN { "Brunei Dar\u00FCsselam" }
@@ -2153,5 +2109,6 @@ Currency display names
         ITL { "ITL", "ITL" } // Italian Lira
 TRL { "\u20A4", "TRL" } // Turkish Lira (Rarely used)
         TRL { "TL", "TRL" } // Turkish Lira
+
 
 -->

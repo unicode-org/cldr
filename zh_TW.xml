@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="zh"></language> 
-		<territory type="TW"></territory> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="zh"/>
+		<territory type="TW"/>
 	</identity>
-	<alias source="zh_Hant_TW" path="//ldml/*"></alias>
+	<alias source="zh_Hant_TW" path="//ldml/*"/>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/zh_TW.txt?only_with_tag=final-update-LDML
 
 AF { "\u963F\u5BCC\u6C57" } // Same as zh
@@ -119,5 +121,6 @@ Zyyy { "\u672A\u78BA\u5B9A\u7684\u8A9E\u7CFB" } // This may need to become "unde
             stroke      { "\u7B46\u5283\u987a\u5e8f" }   // Traditional Chinese.
 EURO    { "\u6B50\u5143" }
 PREEURO { "\u820A\u5E63" }
+
 
 -->

@@ -1,40 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="en"></language> 
-		<territory type="VI"></territory> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="en"/>
+		<territory type="VI"/>
 	</identity>
-		<numbers>
-			<decimalFormats>
-				<decimalFormatLength>
-					<decimalFormat>
-						<pattern>#,##0.###;-#,##0.###</pattern>
-					</decimalFormat>
-				</decimalFormatLength>
-			</decimalFormats>
-			<scientificFormats>
-				<scientificFormatLength>
-					<scientificFormat>
-						<pattern>#E0</pattern>
-					</scientificFormat>
-				</scientificFormatLength>
-			</scientificFormats>
-			<percentFormats>
-				<percentFormatLength>
-					<percentFormat>
-						<pattern>#,##0%</pattern>
-					</percentFormat>
-				</percentFormatLength>
-			</percentFormats>
-			<currencyFormats>
-				<currencyFormatLength>
-					<currencyFormat>
-						<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
-					</currencyFormat>
-				</currencyFormatLength>
-			</currencyFormats>
-		</numbers>
+	<numbers>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+	</numbers>
 </ldml>
+

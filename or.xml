@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml draft="true" version="1.2">
+<ldml draft="true" >
 	<identity>
-		<version number="1.0"></version>
-		<generation date="2004-09-14"></generation>
-		<language type="or"></language> 
+		<version number="1.0"/>
+		<generation date="2004-09-14"/>
+		<language type="or"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -22,8 +22,6 @@
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
-						
-						
 						<monthWidth type="wide">
 							<month type="1">ଜାନୁଆରୀ</month>
 							<month type="2">ଫେବ୍ରୁୟାରୀ</month>
@@ -62,38 +60,31 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-    <!-- Same as root.
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<nativeZeroDigit>୦</nativeZeroDigit>
+		</symbols>
+	</numbers>
+	<posix draft="true">
+		<messages>
+			<yesstr>N/A</yesstr>
+			<nostr>N/A</nostr>
+			<yesexpr>N/A</yesexpr>
+			<noexpr>N/A</noexpr>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Same as root.
 	<week draft="true">
           <minDays count="1"></minDays>
           <firstDay day="sun"></firstDay>
           <weekendStart day="sat"></weekendStart>
           <weekendEnd day="sun"></weekendEnd>
         </week>
-    -->
-            </calendar>
-	</calendars>
-	</dates>
-	<numbers>
-		<symbols>
-			<decimal>.</decimal>
-			<group>,</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>୦</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
-		</symbols>
-	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>N/A</yesstr>
-      <nostr>N/A</nostr>
-      <yesexpr>N/A</yesexpr>
-      <noexpr>N/A</noexpr>
-    </messages>
-  </posix></ldml>
+    
+-->

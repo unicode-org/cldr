@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="pt"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="pt"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -789,7 +789,6 @@
 	</characters>
 	<dates>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -868,12 +867,10 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-        <week draft="true">
-          <minDays count="1"></minDays>
-          <firstDay day="mon"></firstDay>
-          <weekendStart day="sat"></weekendStart>
-          <weekendEnd day="sun"></weekendEnd>
-        </week>
+				<week draft="true">
+					<firstDay day="mon"/>
+					<weekendEnd day="sun" time="24:00"/>
+				</week>
 				<eras>
 					<eraAbbr>
 						<era type="0">a.C.</era>
@@ -881,7 +878,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d' de 'MMMM' de 'yyyy</pattern>
@@ -904,42 +900,19 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>HH'H'mm'm'ss's' z</pattern>
 						</timeFormat>
 					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<zone type="PST">
 				<long>
-				<standard>Horário Padrão do Pacífico</standard>
-				<daylight>Horário de Verão do Pacífico</daylight>
+					<standard>Horário Padrão do Pacífico</standard>
+					<daylight>Horário de Verão do Pacífico</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -949,8 +922,8 @@
 			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
-				<standard>Horário Padrão do Pacífico</standard>
-				<daylight>Horário de Verão do Pacífico</daylight>
+					<standard>Horário Padrão do Pacífico</standard>
+					<daylight>Horário de Verão do Pacífico</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -960,8 +933,8 @@
 			</zone>
 			<zone type="MST">
 				<long>
-				<standard>Horário Padrão Montanha</standard>
-				<daylight>Horário de Verão Montanha</daylight>
+					<standard>Horário Padrão Montanha</standard>
+					<daylight>Horário de Verão Montanha</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -971,8 +944,8 @@
 			</zone>
 			<zone type="America/Denver">
 				<long>
-				<standard>Horário Padrão Montanha</standard>
-				<daylight>Horário de Verão Montanha</daylight>
+					<standard>Horário Padrão Montanha</standard>
+					<daylight>Horário de Verão Montanha</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -982,8 +955,8 @@
 			</zone>
 			<zone type="PNT">
 				<long>
-				<standard>Horário Padrão Montanha</standard>
-				<daylight>Horário Padrão Montanha</daylight>
+					<standard>Horário Padrão Montanha</standard>
+					<daylight>Horário Padrão Montanha</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -993,8 +966,8 @@
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
-				<standard>Horário Padrão Montanha</standard>
-				<daylight>Horário Padrão Montanha</daylight>
+					<standard>Horário Padrão Montanha</standard>
+					<daylight>Horário Padrão Montanha</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -1004,8 +977,8 @@
 			</zone>
 			<zone type="CST">
 				<long>
-				<standard>Horário Padrão Central</standard>
-				<daylight>Horário de Verão Central</daylight>
+					<standard>Horário Padrão Central</standard>
+					<daylight>Horário de Verão Central</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -1015,8 +988,8 @@
 			</zone>
 			<zone type="America/Chicago">
 				<long>
-				<standard>Horário Padrão Central</standard>
-				<daylight>Horário de Verão Central</daylight>
+					<standard>Horário Padrão Central</standard>
+					<daylight>Horário de Verão Central</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -1026,8 +999,8 @@
 			</zone>
 			<zone type="EST">
 				<long>
-				<standard>Horário Padrão Oriental</standard>
-				<daylight>Horário de Verão Oriental</daylight>
+					<standard>Horário Padrão Oriental</standard>
+					<daylight>Horário de Verão Oriental</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1037,8 +1010,8 @@
 			</zone>
 			<zone type="America/New_York">
 				<long>
-				<standard>Horário Padrão Oriental</standard>
-				<daylight>Horário de Verão Oriental</daylight>
+					<standard>Horário Padrão Oriental</standard>
+					<daylight>Horário de Verão Oriental</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1048,8 +1021,8 @@
 			</zone>
 			<zone type="IET">
 				<long>
-				<standard>Horário Padrão Oriental</standard>
-				<daylight>Horário Padrão Oriental</daylight>
+					<standard>Horário Padrão Oriental</standard>
+					<daylight>Horário Padrão Oriental</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1059,8 +1032,8 @@
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
-				<standard>Horário Padrão Oriental</standard>
-				<daylight>Horário Padrão Oriental</daylight>
+					<standard>Horário Padrão Oriental</standard>
+					<daylight>Horário Padrão Oriental</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1070,8 +1043,8 @@
 			</zone>
 			<zone type="HST">
 				<long>
-				<standard>Horário Padrão do Havaí</standard>
-				<daylight>Horário Padrão do Havaí</daylight>
+					<standard>Horário Padrão do Havaí</standard>
+					<daylight>Horário Padrão do Havaí</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -1081,8 +1054,8 @@
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
-				<standard>Horário Padrão do Havaí</standard>
-				<daylight>Horário Padrão do Havaí</daylight>
+					<standard>Horário Padrão do Havaí</standard>
+					<daylight>Horário Padrão do Havaí</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -1092,8 +1065,8 @@
 			</zone>
 			<zone type="AST">
 				<long>
-				<standard>Horário Padrão do Alasca</standard>
-				<daylight>Horário de Verão do Alasca</daylight>
+					<standard>Horário Padrão do Alasca</standard>
+					<daylight>Horário de Verão do Alasca</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1103,8 +1076,8 @@
 			</zone>
 			<zone type="America/Anchorage">
 				<long>
-				<standard>Horário Padrão do Alasca</standard>
-				<daylight>Horário de Verão do Alasca</daylight>
+					<standard>Horário Padrão do Alasca</standard>
+					<daylight>Horário de Verão do Alasca</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1114,8 +1087,8 @@
 			</zone>
 			<zone type="America/Halifax">
 				<long>
-				<standard>Horário Padrão Atlântico</standard>
-				<daylight>Horário de Verão Atlântico</daylight>
+					<standard>Horário Padrão Atlântico</standard>
+					<daylight>Horário de Verão Atlântico</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1125,8 +1098,8 @@
 			</zone>
 			<zone type="CNT">
 				<long>
-				<standard>Horário Padrão de Terra Nova</standard>
-				<daylight>Horário de Verão de Terra Nova</daylight>
+					<standard>Horário Padrão de Terra Nova</standard>
+					<daylight>Horário de Verão de Terra Nova</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -1136,8 +1109,8 @@
 			</zone>
 			<zone type="America/St_Johns">
 				<long>
-				<standard>Horário Padrão de Terra Nova</standard>
-				<daylight>Horário de Verão de Terra Nova</daylight>
+					<standard>Horário Padrão de Terra Nova</standard>
+					<daylight>Horário de Verão de Terra Nova</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -1147,8 +1120,8 @@
 			</zone>
 			<zone type="ECT">
 				<long>
-				<standard>Horário Padrão Europa Central</standard>
-				<daylight>Horário de Verão Europa Central</daylight>
+					<standard>Horário Padrão Europa Central</standard>
+					<daylight>Horário de Verão Europa Central</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -1158,8 +1131,8 @@
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
-				<standard>Horário Padrão Europa Central</standard>
-				<daylight>Horário de Verão Europa Central</daylight>
+					<standard>Horário Padrão Europa Central</standard>
+					<daylight>Horário de Verão Europa Central</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -1169,8 +1142,8 @@
 			</zone>
 			<zone type="GMT">
 				<long>
-				<standard>Horário do Meridiano de Greenwich</standard>
-				<daylight>Horário do Meridiano de Greenwich</daylight>
+					<standard>Horário do Meridiano de Greenwich</standard>
+					<daylight>Horário do Meridiano de Greenwich</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -1180,8 +1153,8 @@
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
-				<standard>Horário do Meridiano de Greenwich</standard>
-				<daylight>Horário do Meridiano de Greenwich</daylight>
+					<standard>Horário do Meridiano de Greenwich</standard>
+					<daylight>Horário do Meridiano de Greenwich</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -1191,8 +1164,8 @@
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
-				<standard>Horário Padrão de Israel</standard>
-				<daylight>Horário de Verão de Israel</daylight>
+					<standard>Horário Padrão de Israel</standard>
+					<daylight>Horário de Verão de Israel</daylight>
 				</long>
 				<short>
 					<standard>IST</standard>
@@ -1202,8 +1175,8 @@
 			</zone>
 			<zone type="JST">
 				<long>
-				<standard>Horário Padrão do Japão</standard>
-				<daylight>Horário Padrão do Japão</daylight>
+					<standard>Horário Padrão do Japão</standard>
+					<daylight>Horário Padrão do Japão</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -1213,8 +1186,8 @@
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
-				<standard>Horário Padrão do Japão</standard>
-				<daylight>Horário Padrão do Japão</daylight>
+					<standard>Horário Padrão do Japão</standard>
+					<daylight>Horário Padrão do Japão</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -1224,8 +1197,8 @@
 			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
-				<standard>Horário Padrão da Europa Oriental</standard>
-				<daylight>Horário de Verão da Europa Oriental</daylight>
+					<standard>Horário Padrão da Europa Oriental</standard>
+					<daylight>Horário de Verão da Europa Oriental</daylight>
 				</long>
 				<short>
 					<standard>EET</standard>
@@ -1235,8 +1208,8 @@
 			</zone>
 			<zone type="CTT">
 				<long>
-				<standard>Horário Padrão da China</standard>
-				<daylight>Horário Padrão da China</daylight>
+					<standard>Horário Padrão da China</standard>
+					<daylight>Horário Padrão da China</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -1246,8 +1219,8 @@
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
-				<standard>Horário Padrão da China</standard>
-				<daylight>Horário Padrão da China</daylight>
+					<standard>Horário Padrão da China</standard>
+					<daylight>Horário Padrão da China</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -1261,16 +1234,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency type="ADD">
@@ -1715,7 +1678,6 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Marca finlandesa</displayName>
@@ -1755,7 +1717,6 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>Libra esterlina britânica</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Cupom Lari georgiano</displayName>
@@ -1923,7 +1884,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>Rupia indiana</displayName>
-				<symbol>=0#Rs.|1#Re.|1&lt;Rs.</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Dinar iraquiano</displayName>
@@ -1939,7 +1899,6 @@
 			</currency>
 			<currency type="ITL">
 				<displayName>Lira italiana</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency type="JEP">
 				<displayName>Libra esterlina de Jersey</displayName>
@@ -1959,7 +1918,6 @@
 			</currency>
 			<currency type="JPY">
 				<displayName>Iene japonês</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Xelim queniano</displayName>
@@ -2551,7 +2509,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>Dólar norte-americano</displayName>
-				<symbol>$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>Dólar norte-americano (Dia seguinte)</displayName>
@@ -2791,16 +2748,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>SIM</yesstr>
-      <nostr>NÃO</nostr>
-      <yesexpr>S</yesexpr>
-      <noexpr>N</noexpr>
-    </messages>
-  </posix></ldml>
+	<posix draft="true">
+		<messages>
+			<yesstr>SIM</yesstr>
+			<nostr>NÃO</nostr>
+			<yesexpr>S</yesexpr>
+			<noexpr>N</noexpr>
+		</messages>
+	</posix>
+</ldml>
 
-<!-- Old Comments. See root.xml for more info.
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/pt.txt?only_with_tag=final-update-LDML
 
 The vast majority of this data is based on the pt_BR locale.
@@ -2824,5 +2783,6 @@ vai { "vai" }
         Thai { "tailand\u00eas" } // Just happens to be a duplicate
         Zyyy { "comum" } // This may need to become "undetermined script"
 PREEURO { "Pr\u00e9-Euro" }
+
 
 -->

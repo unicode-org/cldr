@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="he"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="he"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -333,20 +333,19 @@
 			<key draft="true" type="currency">מטבע</key>
 		</keys>
 		<types>
- 			<type draft="true" type="hebrew" key="calendar">לוח שנה עברי</type>
+			<type draft="true" type="hebrew" key="calendar">לוח שנה עברי</type>
 		</types>
 	</localeDisplayNames>
 	<layout>
-		<orientation lines="top-to-bottom" characters="right-to-left"></orientation>
+		<orientation lines="top-to-bottom" characters="right-to-left"/>
 	</layout>
 	<characters>
 		<exemplarCharacters>[[:Hebr:]‏‎]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[ְ-ֹֻ-ֽֿׁ-ׂׄא-ת]</exemplarCharacters>
+		<exemplarCharacters draft="true" alt="proposed">[ְ-ֹֻ-ֽֿׁ-ׂׄא-ת]</exemplarCharacters>
 	</characters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -411,12 +410,10 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-        <week draft="true">
-          <minDays count="1"></minDays>
-          <firstDay day="sun"></firstDay>
-          <weekendStart day="fri"></weekendStart>
-          <weekendEnd day="sat"></weekendEnd>
-        </week>
+				<week draft="true">
+					<weekendStart day="fri" time="00:00"/>
+					<weekendEnd day="sat" time="24:00"/>
+				</week>
 				<eras>
 					<eraAbbr>
 						<era type="0">לפנה״ס</era>
@@ -424,7 +421,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE d MMMM yyyy</pattern>
@@ -446,29 +442,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<default type="medium"></default>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength>
 						<dateTimeFormat>
@@ -481,7 +454,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="he" path="../monthWidth[@type='wide']"></alias>
+							<alias source="he" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">תשרי</month>
@@ -502,7 +475,7 @@
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="0">לבה"ע</era>
+						<era type="0">לבה&quot;ע</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -510,7 +483,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-              <alias source="he" path="../monthWidth[@type='wide']"></alias>
+							<alias source="he" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">מוחרם</month>
@@ -535,29 +508,30 @@
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
-        <alias source="he" path="../calendar[@type='islamic']"></alias>
+				<alias source="he" path="../calendar[@type='islamic']"/>
 			</calendar>
 		</calendars>
 	</dates>
 	<numbers>
 		<currencies>
 			<currency type="ILS">
-				<displayName>ש"ח</displayName>
+				<displayName>ש&quot;ח</displayName>
 				<symbol>₪</symbol>
 			</currency>
 		</currencies>
 	</numbers>
-  <posix draft="true">
-    <messages>
-      <yesstr>כן</yesstr>
-      <nostr>לא</nostr>
-      <yesexpr>כ</yesexpr>
-      <noexpr>ל</noexpr>
-    </messages>
-  </posix>
+	<posix draft="true">
+		<messages>
+			<yesstr>כן</yesstr>
+			<nostr>לא</nostr>
+			<yesexpr>כ</yesexpr>
+			<noexpr>ל</noexpr>
+		</messages>
+	</posix>
 </ldml>
 
-<!-- Old Comments. See root.xml for more info.
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/he.txt?only_with_tag=final-update-LDML
 
         KP { "\u05E7\u05D5\u05E8\u05D9\u05D0\u05D4, \u05E6\u05E4\u05D5\u05DF" }    // alternate name { "\u05E7\u05D5\u05E8\u05D9\u05D0\u05D4, \u05D4\u05E8\u05E4\u05D5\u05D1\u05DC\u05D9\u05E7\u05D4 \u05D4\u05D3\u05DE\u05D5\u05E7\u05E8\u05D8\u05D9\u05EA \u05D4\u05E2\u05DE\u05DE\u05D9\u05EA" }
@@ -570,5 +544,6 @@ zh_tw { "\u05E1\u05D9\u05E0\u05D9\u05EA (\u05DE\u05E1\u05D5\u05E8\u05EA\u05D9\u0
 Currency display names
 International Calendars Data.
                         "\u05D6\u05D5 \u05D0\u05DC-QI'DAH",                                             // Dhu al-Qi'dah  (NEED TRANSLATION!!)
+
 
 -->

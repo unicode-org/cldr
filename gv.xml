@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="gv"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="gv"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -19,7 +19,6 @@
 	</characters>
 	<dates>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -87,10 +86,13 @@
 		</calendars>
 	</dates>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/gv.txt?only_with_tag=final-update-LDML
 
                 "RC", // BC
                 "AD"  // AD
+
 
 -->

@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="ar"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="ar"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -320,11 +320,11 @@
 		</types>
 	</localeDisplayNames>
 	<layout>
-		<orientation lines="top-to-bottom" characters="right-to-left"></orientation>
+		<orientation lines="top-to-bottom" characters="right-to-left"/>
 	</layout>
 	<characters>
 		<exemplarCharacters>[ء-غـ-ٕ٠-٬‌‍‏‎]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[ء-غـ-ْ‌‍‏‎]</exemplarCharacters>
+		<exemplarCharacters draft="true" alt="proposed">[ء-غـ-ْ‌‍‏‎]</exemplarCharacters>
 	</characters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
@@ -429,7 +429,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d MMMM, yyyy</pattern>
@@ -452,7 +451,6 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>z h:mm:ss a</pattern>
@@ -474,19 +472,12 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-              <alias source="ar" path="../monthWidth[@type='wide']"></alias>
+							<alias source="ar" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">محرم</month>
@@ -512,10 +503,10 @@
 			</calendar>
 			<calendar type="islamic-civil">
 				<months>
-          <alias source="ar" path="../../calendar[@type='islamic']/months"></alias>
+					<alias source="ar" path="../../calendar[@type='islamic']/months"/>
 				</months>
 				<eras>
-          <alias source="ar" path="../../calendar[@type='islamic']/eras"></alias>
+					<alias source="ar" path="../../calendar[@type='islamic']/eras"/>
 				</eras>
 			</calendar>
 		</calendars>
@@ -524,16 +515,8 @@
 		<symbols>
 			<decimal>٫</decimal>
 			<group>٬</group>
-			<list>;</list>
 			<percentSign>٪</percentSign>
 			<nativeZeroDigit>٠</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -542,20 +525,6 @@
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
-		<scientificFormats>
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
-		<percentFormats>
-			<percentFormatLength>
-				<percentFormat>
-					<pattern>#,##0%</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -634,15 +603,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>نعم</yesstr>
-      <nostr>لا</nostr>
-      <yesexpr>ن</yesexpr>
-      <noexpr>ل</noexpr>
-    </messages>
-  </posix></ldml>
-<!-- Old Comments. See root.xml for more info.
+	<posix draft="true">
+		<messages>
+			<yesstr>نعم</yesstr>
+			<nostr>لا</nostr>
+			<yesexpr>ن</yesexpr>
+			<noexpr>ل</noexpr>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ar.txt?only_with_tag=final-update-LDML
 
 AE { "\u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062A" }
@@ -654,5 +626,6 @@ TL { "\u062a\u064a\u0645\u0648\u0631 \u0627\u0644\u0634\u0631\u0642\u064a\u0629"
 Note to translator: Sometimes the hamza is optional for these translations.
 "[\u0621 \u0627-\u063A \u0641-\u064A\u0651 \u0653-\u0655 \u0670-\u06B7 \u06BA-\u06BE \u06C1 \u06C3-\u06CE \u06D0-\u06D2]"
 Civil is identical other than in calculations
+
 
 -->

@@ -1,33 +1,27 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="root"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="root"/>
 	</identity>
 	<localeDisplayNames>
-		<languages>
-		</languages>
-		<scripts>
-		</scripts>
-		<territories>
-		</territories>
-		<variants>
-		</variants>
-		<keys>
-		</keys>
-		<types>
-		</types>
+		<languages/>
+		<scripts/>
+		<territories/>
+		<variants/>
+		<keys/>
+		<types/>
 	</localeDisplayNames>
 	<layout>
-		<orientation lines="top-to-bottom" characters="left-to-right"></orientation>
+		<orientation lines="top-to-bottom" characters="left-to-right"/>
 	</layout>
 	<characters>
 		<exemplarCharacters>[]</exemplarCharacters>
 	</characters>
 	<measurement>
-		<measurementSystem type="metric"></measurementSystem>
+		<measurementSystem type="metric"/>
 		<paperSize>
 			<height>297</height>
 			<width>210</width>
@@ -36,7 +30,7 @@
 	<dates>
 		<localizedPatternChars>GyMdkHmsSEDFwWahKzYeugAZ</localizedPatternChars>
 		<calendars>
-			<default type="gregorian"></default>
+			<default type="gregorian"/>
 			<calendar type="buddhist">
 				<eras>
 					<eraAbbr>
@@ -44,7 +38,7 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
+					<default type="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, MMMM d, yyyy G</pattern>
@@ -67,7 +61,7 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
+					<default type="medium"/>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
@@ -99,7 +93,7 @@
 			</calendar>
 			<calendar type="chinese">
 				<dateFormats>
-					<default type="medium"></default>
+					<default type="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE y'x'G-Ml-d</pattern>
@@ -122,7 +116,7 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
+					<default type="medium"/>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
@@ -154,9 +148,9 @@
 			</calendar>
 			<calendar type="gregorian">
 				<months>
-					<default type="format"></default>
+					<default type="format"/>
 					<monthContext type="format">
-						<default type="wide"></default>
+						<default type="wide"/>
 						<monthWidth type="abbreviated">
 							<month type="1">1</month>
 							<month type="2">2</month>
@@ -201,7 +195,7 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<default type="wide"></default>
+						<default type="wide"/>
 						<monthWidth type="abbreviated">
 							<month type="1">1</month>
 							<month type="2">2</month>
@@ -247,9 +241,9 @@
 					</monthContext>
 				</months>
 				<days>
-					<default type="format"></default>
+					<default type="format"/>
 					<dayContext type="format">
-						<default type="wide"></default>
+						<default type="wide"/>
 						<dayWidth type="abbreviated">
 							<day type="sun">1</day>
 							<day type="mon">2</day>
@@ -279,7 +273,7 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
-						<default type="wide"></default>
+						<default type="wide"/>
 						<dayWidth type="abbreviated">
 							<day type="sun">1</day>
 							<day type="mon">2</day>
@@ -324,7 +318,7 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
+					<default type="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, yyyy MMMM dd</pattern>
@@ -347,7 +341,7 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
+					<default type="medium"/>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
@@ -379,11 +373,11 @@
 			</calendar>
 			<calendar type="hebrew">
 				<months>
-					<default type="format"></default>
+					<default type="format"/>
 					<monthContext type="format">
-						<default type="wide"></default>
+						<default type="wide"/>
 						<monthWidth type="abbreviated">
-							<alias source="root" path="../monthWidth[@type='wide']"></alias>
+							<alias source="root" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tishri</month>
@@ -410,11 +404,11 @@
 			</calendar>
 			<calendar type="islamic">
 				<months>
-					<default type="format"></default>
+					<default type="format"/>
 					<monthContext type="format">
-						<default type="wide"></default>
+						<default type="wide"/>
 						<monthWidth type="abbreviated">
-							<alias source="root" path="../monthWidth[@type='wide']"></alias>
+							<alias source="root" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Muharram</month>
@@ -439,15 +433,11 @@
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
-				<alias source="root" path="../calendar[@type='islamic']"></alias>
+				<alias source="root" path="../calendar[@type='islamic']"/>
 			</calendar>
 			<calendar type="japanese">
 				<eras>
 					<eraAbbr>
-                                                <!-- These eras are numbered according to the data used
-                                                     by the ICU Japanese Calendar.
-                                                     http://oss.software.ibm.com/cvs/icu4j/icu4j/src/com/ibm/icu/util/JapaneseCalendar.java?rev=1.25   search for 'ERAS ='
-                                                     -->
 						<era type="0">Taika</era>
 						<era type="1">Hakuchi</era>
 						<era type="2">Hakuhō</era>
@@ -687,7 +677,7 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
+					<default type="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, MMMM d, y G</pattern>
@@ -710,7 +700,7 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
+					<default type="medium"/>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
@@ -744,14 +734,14 @@
 		<timeZoneNames>
 			<zone type="">
 				<long>
-				<standard></standard>
-				<daylight></daylight>
+					<standard/>
+					<daylight/>
 				</long>
 				<short>
-					<standard></standard>
-					<daylight></daylight>
+					<standard/>
+					<daylight/>
 				</short>
-				<exemplarCity></exemplarCity>
+				<exemplarCity/>
 			</zone>
 		</timeZoneNames>
 	</dates>
@@ -827,8 +817,12 @@
 	</numbers>
 </ldml>
 
-
 <!--
+ These eras are numbered according to the data used
+                                                     by the ICU Japanese Calendar.
+                                                     http://oss.software.ibm.com/cvs/icu4j/icu4j/src/com/ibm/icu/util/JapaneseCalendar.java?rev=1.25   search for 'ERAS ='
+                                                     
+
 
   **********************
   * ABOUT THE OLD COMMENTS
@@ -841,9 +835,8 @@ The following comment block, and similar 'Old Comments' blocks in other files, h
  Please do not remove this comment in root.xml until all other 'Old Comments' are gone.
 
  Thank you.
--->
 
-<!-- Old Comments. See root.xml for more info.
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/root.txt?only_with_tag=final-update-LDML
 
 Date        Name        Description
@@ -917,5 +910,6 @@ The values in root must always be capitalized because the signify the values are
 codes not translations
 NY      { "NY" }        // No longer valid variant. Here for backwards compatibility.
 EURO    { "EURO" }      // EURO variant display name
+
 
 -->

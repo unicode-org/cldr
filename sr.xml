@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="sr"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="sr"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -351,7 +351,6 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -475,8 +474,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="mon"></firstDay>
+					<firstDay day="mon"/>
 				</week>
 				<eras>
 					<eraAbbr>
@@ -485,7 +483,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, dd.MMMM.yyyy.</pattern>
@@ -508,7 +505,6 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>HH.mm.ss z</pattern>
@@ -530,20 +526,13 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<zone type="Europe/Belgrade">
 				<long>
-				<standard>Централно Европско Време</standard>
-				<daylight>Централно Европско Време</daylight>
+					<standard>Централно Европско Време</standard>
+					<daylight>Централно Европско Време</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -556,16 +545,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency draft="true" type="ATS">
@@ -606,7 +585,6 @@
 			</currency>
 			<currency draft="true" type="EUR">
 				<displayName>ЕВРО</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency draft="true" type="FIM">
 				<displayName>Финска марка</displayName>
@@ -622,7 +600,6 @@
 			</currency>
 			<currency draft="true" type="GBP">
 				<displayName>Фунта стерлинга</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency draft="true" type="GRD">
 				<displayName>Драхма</displayName>
@@ -642,11 +619,9 @@
 			</currency>
 			<currency draft="true" type="ITL">
 				<displayName>Италијанска лира</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency draft="true" type="JPY">
 				<displayName>Јен</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency draft="true" type="KWD">
 				<displayName>Кувајтски динар</displayName>
@@ -694,20 +669,24 @@
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>Да</yesstr>
-      <nostr>Не</nostr>
-      <yesexpr>Д</yesexpr>
-      <noexpr>Н</noexpr>
-    </messages>
-  </posix></ldml>
-<!-- Old Comments. See root.xml for more info.
+	<posix draft="true">
+		<messages>
+			<yesstr>Да</yesstr>
+			<nostr>Не</nostr>
+			<yesexpr>Д</yesexpr>
+			<noexpr>Н</noexpr>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/sr.txt?only_with_tag=final-update-LDML
 
 HK { "\u0425\u043E\u043D\u0433 \u041A\u043E\u043D\u0433" }
         "Cyrl"      // ISO 15924 Name 
 Currency display names
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
+
 
 -->

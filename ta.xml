@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="ta"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="ta"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -320,11 +320,10 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[[:Taml:]‌‍]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[ஂ-ஃஅ-ஊஎ-ஐஒ-கங-சஜஞ-டண-தந-பம-வஷ-ஹா-ூெ-ைொ-்]</exemplarCharacters>
+		<exemplarCharacters draft="true" alt="proposed">[ஂ-ஃஅ-ஊஎ-ஐஒ-கங-சஜஞ-டண-தந-பம-வஷ-ஹா-ூெ-ைொ-்]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -380,12 +379,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-        <week draft="true">
-          <minDays count="1"></minDays>
-          <firstDay day="mon"></firstDay>
-          <weekendStart day="sat"></weekendStart>
-          <weekendEnd day="sun"></weekendEnd>
-        </week>
 				<am>காலை</am>
 				<pm>மாலை</pm>
 				<eras>
@@ -399,8 +392,8 @@
 		<timeZoneNames>
 			<zone type="Asia/Calcutta">
 				<long>
-				<standard>இந்திய நேரப்படி</standard>
-				<daylight>இந்திய நேரப்படி</daylight>
+					<standard>இந்திய நேரப்படி</standard>
+					<daylight>இந்திய நேரப்படி</daylight>
 				</long>
 				<short>
 					<standard>IST</standard>
@@ -417,13 +410,6 @@
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
-		<scientificFormats>
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
@@ -440,22 +426,22 @@
 		</currencyFormats>
 		<currencies>
 			<currency type="INR">
-				<displayName>INR</displayName>
 				<symbol>ரூ</symbol>
 			</currency>
 		</currencies>
 	</numbers>
-  <posix draft="true">
-    <messages>
-      <yesstr>ஆம்</yesstr>
-      <nostr>இல்லை</nostr>
-      <yesexpr>ஆம்</yesexpr>
-      <noexpr>இல்லை</noexpr>
-    </messages>
-  </posix>
+	<posix draft="true">
+		<messages>
+			<yesstr>ஆம்</yesstr>
+			<nostr>இல்லை</nostr>
+			<yesexpr>ஆம்</yesexpr>
+			<noexpr>இல்லை</noexpr>
+		</messages>
+	</posix>
 </ldml>
 
-<!-- Old Comments. See root.xml for more info.
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ta.txt?only_with_tag=final-update-LDML
 
         IN { "\u0b87\u0ba8\u0bcd\u0ba4\u0bbf\u0baf\u0bbe" } // Could be \u0baa\u0bbe\u0bb0\u0ba4 too
@@ -465,5 +451,6 @@ VC { "\u0bcd\u0b9a\u0bc6\u0ba3\u0bcd\u0b9f\u0bcd \u0bb5\u0bbf\u0ba3\u0bcd\u0b9a\
 Currency display names
 jw { "\u0b9c\u0bbe\u0bb5\u0bbe\u0ba9\u0bc0\u0bb8\u0bcd" } // Use jv instead
         "Taml"   // ISO 15924 Name 
+
 
 -->

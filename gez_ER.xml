@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml draft="true">
+<ldml draft="true" >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-06-04"></generation>
-		<language type="gez"></language> 
-		<territory type="ER"></territory> 
+		<version number="1.2"/>
+		<generation date="2004-06-04"/>
+		<language type="gez"/>
+		<territory type="ER"/>
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE፥ dd MMMM መዓልት yyyy G</pattern>
@@ -34,7 +33,6 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>h:mm:ss a</pattern>
@@ -56,13 +54,6 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -74,13 +65,6 @@
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
-		<scientificFormats>
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
@@ -97,13 +81,12 @@
 		</currencyFormats>
 		<currencies>
 			<currency type="ERN">
-				<displayName>ERN</displayName>
 				<symbol>$</symbol>
 			</currency>
-      <currency type="USD">
-				<displayName>USD</displayName>
+			<currency type="USD">
 				<symbol>US$</symbol>
 			</currency>
 		</currencies>
 	</numbers>
 </ldml>
+

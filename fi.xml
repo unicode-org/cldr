@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="fi"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="fi"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -775,7 +775,6 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -855,8 +854,8 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="4"></minDays>
-					<firstDay day="mon"></firstDay>
+					<minDays count="4"/>
+					<firstDay day="mon"/>
 				</week>
 				<am>ap.</am>
 				<pm>ip.</pm>
@@ -867,7 +866,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>d. MMMM'ta 'yyyy</pattern>
@@ -893,42 +891,31 @@
 					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-							<pattern draft="true" alt="proposed">H.mm.ss z</pattern>
+							<pattern draft="true">H.mm.ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-							<pattern draft="true" alt="proposed">H.mm.ss z</pattern>
+							<pattern draft="true">H.mm.ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-							<pattern draft="true" alt="proposed">H.mm.ss</pattern>
+							<pattern draft="true">H.mm.ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>HH:mm</pattern>
-							<pattern draft="true" alt="proposed">H.mm</pattern>
+							<pattern draft="true">H.mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-              <alias source="fi" path="../monthWidth[@type='wide']"></alias>
+							<alias source="fi" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tišrìkuu</month>
@@ -952,7 +939,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-              <alias source="fi" path="../monthWidth[@type='wide']"></alias>
+							<alias source="fi" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Muhárram</month>
@@ -971,18 +958,17 @@
 					</monthContext>
 				</months>
 			</calendar>
-
 			<calendar type="islamic-civil">
 				<months>
-          <alias source="fi" path="../../calendar[@type='islamic']/months"></alias>
+					<alias source="fi" path="../../calendar[@type='islamic']/months"/>
 				</months>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<zone type="PST">
 				<long>
-				<standard>Tyynenmeren normaaliaika</standard>
-				<daylight>Tyynenmeren kesäaika</daylight>
+					<standard>Tyynenmeren normaaliaika</standard>
+					<daylight>Tyynenmeren kesäaika</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -992,8 +978,8 @@
 			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
-				<standard>Tyynenmeren normaaliaika</standard>
-				<daylight>Tyynenmeren kesäaika</daylight>
+					<standard>Tyynenmeren normaaliaika</standard>
+					<daylight>Tyynenmeren kesäaika</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -1003,8 +989,8 @@
 			</zone>
 			<zone type="MST">
 				<long>
-				<standard>Kalliovuorten normaaliaika</standard>
-				<daylight>Kalliovuorten kesäaika</daylight>
+					<standard>Kalliovuorten normaaliaika</standard>
+					<daylight>Kalliovuorten kesäaika</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -1014,8 +1000,8 @@
 			</zone>
 			<zone type="America/Denver">
 				<long>
-				<standard>Kalliovuorten normaaliaika</standard>
-				<daylight>Kalliovuorten kesäaika</daylight>
+					<standard>Kalliovuorten normaaliaika</standard>
+					<daylight>Kalliovuorten kesäaika</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -1025,8 +1011,8 @@
 			</zone>
 			<zone type="PNT">
 				<long>
-				<standard>Kalliovuorten normaaliaika</standard>
-				<daylight>Kalliovuorten normaaliaika</daylight>
+					<standard>Kalliovuorten normaaliaika</standard>
+					<daylight>Kalliovuorten normaaliaika</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -1036,8 +1022,8 @@
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
-				<standard>Kalliovuorten normaaliaika</standard>
-				<daylight>Kalliovuorten normaaliaika</daylight>
+					<standard>Kalliovuorten normaaliaika</standard>
+					<daylight>Kalliovuorten normaaliaika</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -1047,8 +1033,8 @@
 			</zone>
 			<zone type="CST">
 				<long>
-				<standard>Keskinen normaaliaika</standard>
-				<daylight>Keskinen kesäaika</daylight>
+					<standard>Keskinen normaaliaika</standard>
+					<daylight>Keskinen kesäaika</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -1058,8 +1044,8 @@
 			</zone>
 			<zone type="America/Chicago">
 				<long>
-				<standard>Keskinen normaaliaika</standard>
-				<daylight>Keskinen kesäaika</daylight>
+					<standard>Keskinen normaaliaika</standard>
+					<daylight>Keskinen kesäaika</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -1069,8 +1055,8 @@
 			</zone>
 			<zone type="EST">
 				<long>
-				<standard>Itäinen normaaliaika</standard>
-				<daylight>Itäinen kesäaika</daylight>
+					<standard>Itäinen normaaliaika</standard>
+					<daylight>Itäinen kesäaika</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1080,8 +1066,8 @@
 			</zone>
 			<zone type="America/New_York">
 				<long>
-				<standard>Itäinen normaaliaika</standard>
-				<daylight>Itäinen kesäaika</daylight>
+					<standard>Itäinen normaaliaika</standard>
+					<daylight>Itäinen kesäaika</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1091,8 +1077,8 @@
 			</zone>
 			<zone type="IET">
 				<long>
-				<standard>Itäinen normaaliaika</standard>
-				<daylight>Itäinen normaaliaika</daylight>
+					<standard>Itäinen normaaliaika</standard>
+					<daylight>Itäinen normaaliaika</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1102,8 +1088,8 @@
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
-				<standard>Itäinen normaaliaika</standard>
-				<daylight>Itäinen normaaliaika</daylight>
+					<standard>Itäinen normaaliaika</standard>
+					<daylight>Itäinen normaaliaika</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1113,8 +1099,8 @@
 			</zone>
 			<zone type="HST">
 				<long>
-				<standard>Havaijin normaaliaika</standard>
-				<daylight>Havaijin kesäaika</daylight>
+					<standard>Havaijin normaaliaika</standard>
+					<daylight>Havaijin kesäaika</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -1124,8 +1110,8 @@
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
-				<standard>Havaijin normaaliaika</standard>
-				<daylight>Havaijin normaaliaika</daylight>
+					<standard>Havaijin normaaliaika</standard>
+					<daylight>Havaijin normaaliaika</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -1135,8 +1121,8 @@
 			</zone>
 			<zone type="AST">
 				<long>
-				<standard>Alaskan normaaliaika</standard>
-				<daylight>Alaskan kesäaika</daylight>
+					<standard>Alaskan normaaliaika</standard>
+					<daylight>Alaskan kesäaika</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1146,8 +1132,8 @@
 			</zone>
 			<zone type="America/Anchorage">
 				<long>
-				<standard>Alaskan normaaliaika</standard>
-				<daylight>Alaskan kesäaika</daylight>
+					<standard>Alaskan normaaliaika</standard>
+					<daylight>Alaskan kesäaika</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1157,8 +1143,8 @@
 			</zone>
 			<zone type="America/Halifax">
 				<long>
-				<standard>Atlantin normaaliaika</standard>
-				<daylight>Atlantin kesäaika</daylight>
+					<standard>Atlantin normaaliaika</standard>
+					<daylight>Atlantin kesäaika</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1168,8 +1154,8 @@
 			</zone>
 			<zone type="CNT">
 				<long>
-				<standard>Newfoundlandin normaaliaika</standard>
-				<daylight>Newfoundlandin kesäaika</daylight>
+					<standard>Newfoundlandin normaaliaika</standard>
+					<daylight>Newfoundlandin kesäaika</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -1179,8 +1165,8 @@
 			</zone>
 			<zone type="America/St_Johns">
 				<long>
-				<standard>Newfoundlandin normaaliaika</standard>
-				<daylight>Newfoundlandin kesäaika</daylight>
+					<standard>Newfoundlandin normaaliaika</standard>
+					<daylight>Newfoundlandin kesäaika</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -1190,8 +1176,8 @@
 			</zone>
 			<zone type="ECT">
 				<long>
-				<standard>Keski-Euroopan normaaliaika</standard>
-				<daylight>Keski-Euroopan kesäaika</daylight>
+					<standard>Keski-Euroopan normaaliaika</standard>
+					<daylight>Keski-Euroopan kesäaika</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -1201,8 +1187,8 @@
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
-				<standard>Keski-Euroopan normaaliaika</standard>
-				<daylight>Keski-Euroopan kesäaika</daylight>
+					<standard>Keski-Euroopan normaaliaika</standard>
+					<daylight>Keski-Euroopan kesäaika</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -1212,8 +1198,8 @@
 			</zone>
 			<zone type="GMT">
 				<long>
-				<standard>Greenwichin aika</standard>
-				<daylight>Greenwichin aika</daylight>
+					<standard>Greenwichin aika</standard>
+					<daylight>Greenwichin aika</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -1223,8 +1209,8 @@
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
-				<standard>Greenwichin aika</standard>
-				<daylight>Greenwichin aika</daylight>
+					<standard>Greenwichin aika</standard>
+					<daylight>Greenwichin aika</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -1234,8 +1220,8 @@
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
-				<standard>Israelin normaaliaika</standard>
-				<daylight>Israelin kesäaika</daylight>
+					<standard>Israelin normaaliaika</standard>
+					<daylight>Israelin kesäaika</daylight>
 				</long>
 				<short>
 					<standard>IST</standard>
@@ -1245,8 +1231,8 @@
 			</zone>
 			<zone type="JST">
 				<long>
-				<standard>Japanin normaaliaika</standard>
-				<daylight>Japanin normaaliaika</daylight>
+					<standard>Japanin normaaliaika</standard>
+					<daylight>Japanin normaaliaika</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -1256,8 +1242,8 @@
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
-				<standard>Japanin normaaliaika</standard>
-				<daylight>Japanin normaaliaika</daylight>
+					<standard>Japanin normaaliaika</standard>
+					<daylight>Japanin normaaliaika</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -1267,8 +1253,8 @@
 			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
-				<standard>Itä-Euroopan normaaliaika</standard>
-				<daylight>Itä-Euroopan kesäaika</daylight>
+					<standard>Itä-Euroopan normaaliaika</standard>
+					<daylight>Itä-Euroopan kesäaika</daylight>
 				</long>
 				<short>
 					<standard>EET</standard>
@@ -1278,8 +1264,8 @@
 			</zone>
 			<zone type="CTT">
 				<long>
-				<standard>Kiinan normaaliaika</standard>
-				<daylight>Kiinan normaaliaika</daylight>
+					<standard>Kiinan normaaliaika</standard>
+					<daylight>Kiinan normaaliaika</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -1289,8 +1275,8 @@
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
-				<standard>Kiinan normaaliaika</standard>
-				<daylight>Kiinan normaaliaika</daylight>
+					<standard>Kiinan normaaliaika</standard>
+					<daylight>Kiinan normaaliaika</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -1304,16 +1290,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency type="ADD">
@@ -1762,7 +1738,6 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Suomen markka</displayName>
@@ -1802,7 +1777,6 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>Iso-Britannian sterling-punta</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Georgian kuponkilari</displayName>
@@ -1970,7 +1944,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>Intian rupia</displayName>
-				<symbol>=0#Rs.|1#Re.|1&lt;Rs.</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Irakin dinaari</displayName>
@@ -1986,7 +1959,6 @@
 			</currency>
 			<currency type="ITL">
 				<displayName>Italian liira</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency type="JEP">
 				<displayName>Jerseyn sterling-punta</displayName>
@@ -2006,7 +1978,6 @@
 			</currency>
 			<currency type="JPY">
 				<displayName>Japanin jeni</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Kenian shillinki</displayName>
@@ -2838,15 +2809,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>kyllä</yesstr>
-      <nostr>ei</nostr>
-      <yesexpr>k</yesexpr>
-      <noexpr>e</noexpr>
-    </messages>
-  </posix></ldml>
-<!-- Old Comments. See root.xml for more info.
+	<posix draft="true">
+		<messages>
+			<yesstr>kyllä</yesstr>
+			<nostr>ei</nostr>
+			<yesexpr>k</yesexpr>
+			<noexpr>e</noexpr>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/fi.txt?only_with_tag=final-update-LDML
 
 eras {
@@ -2871,5 +2845,6 @@ vai { "vai" }
         Hans { "Yksinkertainen han" } // Not a formal part of ISO-15924 yet
         Hant { "Perinteinen han" } // Not a formal part of ISO-15924 yet
         Zyyy { "Yleinen" } // This may need to become "undetermined script"
+
 
 -->

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="pa"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="pa"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -16,7 +16,7 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[[:Guru:]‌‍]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[ਂ-ਃਅ-ਊਏ-ਐਓ-ਨਪ-ਰਲ-ਲ਼ਵ-ਸ਼ਸ-ਹ਼ਾ-ੂੇ-ੈੋ-੍ਖ਼-ੜਫ਼ੰ-ੴ]</exemplarCharacters>
+		<exemplarCharacters draft="true" alt="proposed">[ਂ-ਃਅ-ਊਏ-ਐਓ-ਨਪ-ਰਲ-ਲ਼ਵ-ਸ਼ਸ-ਹ਼ਾ-ੂੇ-ੈੋ-੍ਖ਼-ੜਫ਼ੰ-ੴ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -75,12 +75,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-        <week draft="true">
-          <minDays count="1"></minDays>
-          <firstDay day="mon"></firstDay>
-          <weekendStart day="sat"></weekendStart>
-          <weekendEnd day="sun"></weekendEnd>
-        </week>
 				<am>ਸਵੇਰੇ</am>
 				<pm>ਸ਼ਾਮ</pm>
 			</calendar>
@@ -88,18 +82,7 @@
 	</dates>
 	<numbers>
 		<symbols>
-			<decimal>.</decimal>
-			<group>,</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
 			<nativeZeroDigit>੦</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -108,13 +91,6 @@
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
-		<scientificFormats>
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
@@ -136,12 +112,13 @@
 			</currency>
 		</currencies>
 	</numbers>
-  <posix draft="true">
-    <messages>
-      <yesstr>ਹਾਂ</yesstr>
-      <nostr>ਨਹੀਂ</nostr>
-      <yesexpr>ਹਾਂ</yesexpr>
-      <noexpr>ਨਹੀਂ</noexpr>
-    </messages>
-  </posix>
+	<posix draft="true">
+		<messages>
+			<yesstr>ਹਾਂ</yesstr>
+			<nostr>ਨਹੀਂ</nostr>
+			<yesexpr>ਹਾਂ</yesexpr>
+			<noexpr>ਨਹੀਂ</noexpr>
+		</messages>
+	</posix>
 </ldml>
+

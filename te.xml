@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="te"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="te"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -19,7 +19,6 @@
 	</characters>
 	<dates>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -75,12 +74,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-        <week draft="true">
-          <minDays count="1"></minDays>
-          <firstDay day="sun"></firstDay>
-          <weekendStart day="sun"></weekendStart>
-          <weekendEnd day="sun"></weekendEnd>
-        </week>
 				<am>పూర్వాహ్న</am>
 				<pm>అపరాహ్న</pm>
 			</calendar>
@@ -88,37 +81,26 @@
 	</dates>
 	<numbers>
 		<symbols>
-			<decimal>.</decimal>
-			<group>,</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
 			<nativeZeroDigit>౦</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency type="INR">
-				<displayName>INR</displayName>
 				<symbol>రూ.</symbol>
 			</currency>
 		</currencies>
 	</numbers>
-  <posix draft="true">
-    <messages>
-      <yesstr>అ;వ;న;ు</yesstr>
-      <nostr>క;ా;ద;ు</nostr>
-      <yesexpr>అ;వ;న;ు</yesexpr>
-      <noexpr>క;ా;ద;ు</noexpr>
-    </messages>
-  </posix>
+	<posix draft="true">
+		<messages>
+			<yesstr>అ;వ;న;ు</yesstr>
+			<nostr>క;ా;ద;ు</nostr>
+			<yesexpr>అ;వ;న;ు</yesexpr>
+			<noexpr>క;ా;ద;ు</noexpr>
+		</messages>
+	</posix>
 </ldml>
 
-<!-- Old Comments. See root.xml for more info.
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/te.txt?only_with_tag=final-update-LDML
 
 Telugu Locale. Data by Ram [ram@jtcsv.com]
@@ -126,5 +108,6 @@ Currency display names
         "Telu",  // ISO 15924 Name 
 Eras{}
 localPatternChars{}
+
 
 -->

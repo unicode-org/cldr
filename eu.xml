@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="eu"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="eu"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -127,7 +127,6 @@
 	</characters>
 	<dates>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -190,16 +189,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency type="ESP">
@@ -212,7 +201,9 @@
 		</currencies>
 	</numbers>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/eu.txt?only_with_tag=final-update-LDML
 
 Fallback{ "en" }
@@ -220,5 +211,6 @@ CD { "Democratic Errepublika del Congo" }
 CS { "Serbia eta Montenegro" } // TODO: if we allow this, then SP must go away
 TL { "Timor-Leste" }    // This was called East Timor
         "Latn",  // ISO 15924 Name 
+
 
 -->

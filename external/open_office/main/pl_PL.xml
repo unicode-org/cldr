@@ -4,7 +4,7 @@
 	<!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
 	<!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
 	<!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
-	<!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd">
+	<!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0//ldmlPOSIX.dtd">
 		%icu;
 		%openOffice;
 		%iso14652;
@@ -26,31 +26,31 @@
 </territories>
 </localeDisplayNames>
 <delimiters>
-<quotationStart>\u00e2\u0080\u0098</quotationStart>
-<quotationEnd>\u00e2\u0080\u0099</quotationEnd>
-<alternateQuotationStart>\u00e2\u0080\u009c</alternateQuotationStart>
-<alternateQuotationEnd>\u00e2\u0080\u009d</alternateQuotationEnd>
+<quotationStart>‘</quotationStart>
+<quotationEnd>’</quotationEnd>
+<alternateQuotationStart>“</alternateQuotationStart>
+<alternateQuotationEnd>”</alternateQuotationEnd>
 </delimiters>
 <measurement>
 <measurementSystem type="metric"/>
 </measurement>
 <dates>
 <calendars>
-<default type="gregorian"/>
+<default type="true"/>
 <calendar type="gregorian">
 <monthNames>
-<month type="1">stycze\u00c5\u0084</month>
+<month type="1">styczeń</month>
 <month type="2">luty</month>
 <month type="3">marzec</month>
-<month type="4">kwiecie\u00c5\u0084</month>
+<month type="4">kwiecień</month>
 <month type="5">maj</month>
 <month type="6">czerwiec</month>
 <month type="7">lipiec</month>
-<month type="8">sierpie\u00c5\u0084</month>
-<month type="9">wrzesie\u00c5\u0084</month>
-<month type="10">pa\u00c5\u00badziernik</month>
+<month type="8">sierpień</month>
+<month type="9">wrzesień</month>
+<month type="10">październik</month>
 <month type="11">listopad</month>
-<month type="12">grudzie\u00c5\u0084</month>
+<month type="12">grudzień</month>
 </monthNames>
 <monthAbbr>
 <month type="1">sty</month>
@@ -62,24 +62,24 @@
 <month type="7">lip</month>
 <month type="8">sie</month>
 <month type="9">wrz</month>
-<month type="10">pa\u00c5\u00ba</month>
+<month type="10">paź</month>
 <month type="11">lis</month>
 <month type="12">gru</month>
 </monthAbbr>
 <dayNames>
 <day type="sun">niedziela</day>
-<day type="mon">poniedzia\u00c5\u0082ek</day>
+<day type="mon">poniedziałek</day>
 <day type="tue">wtorek</day>
-<day type="wed">\u00c5\u009broda</day>
+<day type="wed">środa</day>
 <day type="thu">czwartek</day>
-<day type="fri">pi\u00c4\u0085tek</day>
+<day type="fri">piątek</day>
 <day type="sat">sobota</day>
 </dayNames>
 <dayAbbr>
 <day type="sun">N</day>
 <day type="mon">Pn</day>
 <day type="tue">Wt</day>
-<day type="wed">\u00c5\u009ar</day>
+<day type="wed">Śr</day>
 <day type="thu">Cz</day>
 <day type="fri">Pt</day>
 <day type="sat">So</day>
@@ -92,12 +92,12 @@
 <pm>PM</pm>
 <eras>
 <eraNames>
-<era type="bc">p.n.e.</era>
-<era type="ad">n.e.</era>
+<era type="0">p.n.e.</era>
+<era type="1">n.e.</era>
 </eraNames>
 <eraAbbr>
-<era type="bc">p.n.e.</era>
-<era type="ad">n.e.</era>
+<era type="0">p.n.e.</era>
+<era type="1">n.e.</era>
 </eraAbbr>
 </eras>
 <dateFormats>
@@ -197,6 +197,8 @@
 </dateFormatLength>
 </dateFormats>
 <timeFormats>
+<timeFormatLength type="long">
+</timeFormatLength>
 <timeFormatLength type="medium">
 <default type="TimeFormatskey2"/>
 <timeFormat type="TimeFormatskey2">
@@ -233,6 +235,8 @@
 </timeFormatLength>
 </timeFormats>
 <dateTimeFormats>
+<dateTimeFormatLength type="long">
+</dateTimeFormatLength>
 <dateTimeFormatLength type="medium">
 <default type="DateTimeFormatskey1"/>
 <dateTimeFormat type="DateTimeFormatskey1">
@@ -243,6 +247,8 @@
 <pattern>MM/DD/YYYY HH:MM:SS</pattern>
 <special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="DateTimeFormatskey2" default="false" type="medium" openOffice:usage="DATE_TIME" openOffice:formatindex="47"/>
 </dateTimeFormat>
+</dateTimeFormatLength>
+<dateTimeFormatLength type="short">
 </dateTimeFormatLength>
 </dateTimeFormats>
 <special xmlns:openOffice="http://www.openoffice.org" type="true"/>
@@ -256,6 +262,8 @@
 <list>;</list>
 </symbols>
 <decimalFormats>
+<decimalFormatLength type="long">
+</decimalFormatLength>
 <decimalFormatLength type="medium">
 <default type="FixedFormatskey1"/>
 <decimalFormat type="FixedFormatskey1">
@@ -287,6 +295,8 @@
 </decimalFormatLength>
 </decimalFormats>
 <scientificFormats>
+<scientificFormatLength type="long">
+</scientificFormatLength>
 <scientificFormatLength type="medium">
 <default type="ScientificFormatskey1"/>
 <scientificFormat type="ScientificFormatskey1">
@@ -298,8 +308,18 @@
 <special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="ScientificFormatskey2" default="false" type="medium" openOffice:usage="SCIENTIFIC_NUMBER" openOffice:formatindex="7"/>
 </scientificFormat>
 </scientificFormatLength>
+<scientificFormatLength type="short">
+</scientificFormatLength>
 </scientificFormats>
 <percentFormats>
+<percentFormatLength type="long">
+<percentFormat type="PercentFormatskey2">
+<pattern>0,00%</pattern>
+<special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="PercentFormatskey2" default="true" type="long" openOffice:usage="PERCENT_NUMBER" openOffice:formatindex="9"/>
+</percentFormat>
+</percentFormatLength>
+<percentFormatLength type="medium">
+</percentFormatLength>
 <percentFormatLength type="short">
 <default type="PercentFormatskey1"/>
 <percentFormat type="PercentFormatskey1">
@@ -307,31 +327,66 @@
 <special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="PercentFormatskey1" default="true" type="short" openOffice:usage="PERCENT_NUMBER" openOffice:formatindex="8"/>
 </percentFormat>
 </percentFormatLength>
-<percentFormatLength type="long">
-<percentFormat type="PercentFormatskey2">
-<pattern>0,00%</pattern>
-<special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="PercentFormatskey2" default="true" type="long" openOffice:usage="PERCENT_NUMBER" openOffice:formatindex="9"/>
-</percentFormat>
-</percentFormatLength>
 </percentFormats>
+<currencyFormats>
+<currencyFormatLength type="long">
+</currencyFormatLength>
+<currencyFormatLength type="medium">
+<default type="CurrencyFormatskey4"/>
+<currencyFormat type="CurrencyFormatskey4">
+<pattern># ##0,00 [$zł-415];[RED]-# ##0,00 [$zł-415]</pattern>
+<special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="CurrencyFormatskey4" default="true" type="medium" openOffice:usage="CURRENCY" openOffice:formatindex="15"/>
+</currencyFormat>
+<currencyFormat type="CurrencyFormatskey2">
+<pattern># ##0,00 [$zł-415];-# ##0,00 [$zł-415]</pattern>
+<special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="CurrencyFormatskey2" default="false" type="medium" openOffice:usage="CURRENCY" openOffice:formatindex="13"/>
+</currencyFormat>
+<currencyFormat type="CurrencyFormatskey3">
+<pattern># ##0 [$zł-415];[RED]-# ##0 [$zł-415]</pattern>
+<special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="CurrencyFormatskey3" default="false" type="medium" openOffice:usage="CURRENCY" openOffice:formatindex="14"/>
+</currencyFormat>
+<currencyFormat type="CurrencyFormatskey5">
+<pattern># ##0,00 CCC</pattern>
+<special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="CurrencyFormatskey5" default="false" type="medium" openOffice:usage="CURRENCY" openOffice:formatindex="16"/>
+</currencyFormat>
+<currencyFormat type="CurrencyFormatskey6">
+<pattern># ##0,-- [$zł-415];[RED]-# ##0,-- [$zł-415]</pattern>
+<special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="CurrencyFormatskey6" default="false" type="medium" openOffice:usage="CURRENCY" openOffice:formatindex="17"/>
+</currencyFormat>
+</currencyFormatLength>
+<currencyFormatLength type="short">
+<default type="CurrencyFormatskey1"/>
+<currencyFormat type="CurrencyFormatskey1">
+<pattern># ##0 [$zł-415];-# ##0 [$zł-415]</pattern>
+<special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="CurrencyFormatskey1" default="true" type="short" openOffice:usage="CURRENCY" openOffice:formatindex="12"/>
+</currencyFormat>
+</currencyFormatLength>
+</currencyFormats>
+<currencies>
+<default type="PLN"/>
+<currency type="PLN">
+<displayName>New Zloty</displayName>
+<symbol>zł</symbol>
+</currency>
+</currencies>
 </numbers>
 <special xmlns:openOffice="http://www.openoffice.org">
 <openOffice:reservedWords>
 <openOffice:trueWord>prawda</openOffice:trueWord>
-<openOffice:falseWord>fa\u00c5\u0082sz</openOffice:falseWord>
-<openOffice:quarter1Word>I kwarta\u00c5\u0082</openOffice:quarter1Word>
-<openOffice:quarter2Word>II kwarta\u00c5\u0082</openOffice:quarter2Word>
-<openOffice:quarter3Word>III kwarta\u00c5\u0082</openOffice:quarter3Word>
-<openOffice:quarter4Word>IV kwarta\u00c5\u0082</openOffice:quarter4Word>
-<openOffice:aboveWord>powy\u00c5\u00bcej</openOffice:aboveWord>
-<openOffice:belowWord>poni\u00c5\u00bcej</openOffice:belowWord>
+<openOffice:falseWord>fałsz</openOffice:falseWord>
+<openOffice:quarter1Word>I kwartał</openOffice:quarter1Word>
+<openOffice:quarter2Word>II kwartał</openOffice:quarter2Word>
+<openOffice:quarter3Word>III kwartał</openOffice:quarter3Word>
+<openOffice:quarter4Word>IV kwartał</openOffice:quarter4Word>
+<openOffice:aboveWord>powyżej</openOffice:aboveWord>
+<openOffice:belowWord>poniżej</openOffice:belowWord>
 <openOffice:quarter1Abbreviation></openOffice:quarter1Abbreviation>
 <openOffice:quarter2Abbreviation></openOffice:quarter2Abbreviation>
 <openOffice:quarter3Abbreviation></openOffice:quarter3Abbreviation>
 <openOffice:quarter4Abbreviation></openOffice:quarter4Abbreviation>
 </openOffice:reservedWords>
 <openOffice:collations>
-<openOffice:collator type="true" openOffice:unoid="pl_PL.alphanumeric"/>
+<openOffice:collator type="true" openOffice:unoid="alphanumeric"/>
 </openOffice:collations>
 </special>
 </ldml>

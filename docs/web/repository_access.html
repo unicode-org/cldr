@@ -116,8 +116,11 @@
                 <li><a href="http://www.unicode.org/Public/cldr/cldr1.1.zip">http://www.unicode.org/Public/cldr/cldr1.1.zip</a></li>
                 <li><a href="ftp://www.unicode.org/Public/cldr/cldr1.1.zip">ftp://www.unicode.org/Public/cldr/cldr1.1.zip</a></li>
               </ul>
-              <p>This contains only the common data. Access to the latest working snapshot of CLDR, and access to data collected for other platforms is available through CVS, as 
-              described below. This data is currently being hosted on the ICU site.</p>
+              <p>This is a stable release and may be used as reference material or cited as a normative reference by other specifications. Although the data will not be changed, 
+              bug reports for changes in future versions filed at <a href="filing_bug_reports.html">Bug Reports</a>. The next version, CLDR 1.2, is planned for mid-October, but any 
+              reports must be filed well ahead of time for consideration.</p>
+              <p>The release data contains only the common data. Access to the latest working snapshot of CLDR, and access to data collected for other platforms is available 
+              through CVS, as described below. (This data is currently being hosted on the ICU site.)</p>
               <h2><a name="WebCVS">WebCVS</a></h2>
               <p class="first">If you want to browse the code and only make occasional downloads, you may want to use <a
               href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/">WebCVS</a>. It provides a convenient, web-based interface for browsing and downloading the latest 
@@ -134,8 +137,7 @@
                   To enter the CVSRoot value, select &quot;Preferences&quot; from the &quot;Cvs Admin&quot; pull-down menu.&nbsp; Authentication should be set to &quot;'passwd' 
                   file on the cvs server&quot;.&nbsp;</li>
                 <li class="MsoNormal">To &quot;extract&quot; the most recent version of CLDR, select &quot;Checkout module&quot; from the &quot;Cvs Admin&quot; menu.&nbsp; Specify 
-                  &quot;<code><span style="font-size:10.0pt">locale</span></code>&quot; for the module name.<br>
-                  If you use &quot;.&quot; as the module name, then you get all related modules — this will be large and slow!</li>
+                  &quot;<code><span style="font-size:10.0pt">locale</span></code>&quot; for the module name.</li>
               </ol>
               <h2><a name="CVS_command_line">CVS command line</a></h2>
               <p>You can also check out the repository anonymously on UNIX using the following commands, after first setting your CVSROOT to point to the CLDR repository:</p>
@@ -154,7 +156,10 @@
               checkout. For example:</p>
               <pre>cvs checkout -P -r release-1-2-3 locale</pre>
               <p>You should then have a working repository.</p>
-              <p><b>The CVS tag for the 1.0 release is &quot;<code>release-1-0</code>&quot;.</b></p>
+              <ul>
+                <li><b>The CVS tag for the 1.1 release is &quot;<code>release-1-1</code>&quot;.</b></li>
+                <li><b>The CVS tag for the 1.0 release is &quot;<code>release-1-0</code>&quot;.</b></li>
+              </ul>
               <h2><a name="Repository_Organization">Repository Organization</a></h2>
               <p>In the descriptions below, <strong><i>&lt;</i></strong><b><i>locale_data</i></b><strong><i> &gt;</i></strong> is the full path name of the locale data root 
               directory (the top level directory from the distribution archives) in your file system. The directories are named to reflect the source platform from which they are 

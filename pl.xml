@@ -335,8 +335,8 @@
 			<type type="direct" key="collation">porządek bezpośredni</type>
 			<type type="gregorian" key="calendar">Kalendarz gregoriański</type>
 			<type type="hebrew" key="calendar">Kalendarz żydowski</type>
-			<type type="islamic" key="calendar" draft="true">Kalendarz muzułmański</type>
-			<type type="islamic-civil" key="calendar" draft="true">Kalendarz muzułmański cywilny</type>
+			<type type="islamic" key="calendar" draft="true">Kalendarz muzułmański (metoda wzrokowa)</type>
+			<type type="islamic-civil" key="calendar" draft="true">Kalendarz muzułmański (metoda obliczeniowa)</type>
 			<type type="japanese" key="calendar">Kalendarz japoński</type>
 			<type type="phonebook" key="collation">porządek książki telefonicznej</type>
 			<type type="pinyin" key="collation">porządek Pinyin</type>
@@ -444,12 +444,19 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">N</day>
+							<day alt="proposed" draft="true" type="sun">niedz.</day>
 							<day type="mon">Pn</day>
+							<day alt="proposed" draft="true" type="mon">pon.</day>
 							<day type="tue">Wt</day>
+							<day alt="proposed" draft="true" type="tue">wt.</day>
 							<day type="wed">Śr</day>
+							<day alt="proposed" draft="true" type="wed">śr.</day>
 							<day type="thu">Cz</day>
+							<day alt="proposed" draft="true" type="thu">czw.</day>
 							<day type="fri">Pt</day>
+							<day alt="proposed" draft="true" type="fri">pt.</day>
 							<day type="sat">So</day>
+							<day alt="proposed" draft="true" type="sat">sob.</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">N</day>
@@ -722,11 +729,11 @@
 				<displayName>frank belgijski (finansowy)</displayName>
 			</currency>
 			<currency type="BGL" draft="true">
-				<displayName>lewa bułgarskie</displayName>
+				<displayName>lew bułgarski</displayName>
 				<symbol>lev</symbol>
 			</currency>
 			<currency type="BGN" draft="true">
-				<displayName>nowe lewa bułgarskie</displayName>
+				<displayName>nowy lew bułgarski</displayName>
 			</currency>
 			<currency type="BHD">
 				<displayName>dinar bahrański</displayName>
@@ -1325,6 +1332,9 @@
 			<currency type="TRL">
 				<displayName>lir turecki</displayName>
 				<symbol>TL</symbol>
+			</currency>
+			<currency draft="true" type="TRY">
+				<displayName>Nowa lira turecka</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>dolar Trynidadu i Tobago</displayName>

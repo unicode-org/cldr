@@ -36,10 +36,10 @@
 <!ELEMENT openOffice:forbiddenCharacters (openOffice:forbiddenLineBeginCharacters, openOffice:forbiddenLineEndCharacters) >
 <!ELEMENT openOffice:forbiddenLineBeginCharacters (#PCDATA) >
 <!ELEMENT openOffice:forbiddenLineEndCharacters (#PCDATA) >
-<!ELEMENT openOffice:transliterations (transliteration+) >
+<!ELEMENT openOffice:transliterations (openOffice:transliteration+) >
 <!ELEMENT openOffice:transliteration EMPTY >
 <!ATTLIST openOffice:transliteration %UNOModule; >
-<!ELEMENT openOffice:reservedWords  (openOffice:trueWord, openOffice:falseWord, openOffice:quarter1Word, openOffice:quarter2Word, openOffice:quarter3Word, openOffice:quarter4Word, openOffice:aboveWord, openOffice:belowWord, openOffice:quarter1Abbreviation, openOffice:quarter2Abbreviation, openOffice:quarter3Abbreviation, openOffice:quarter4Abbreviation)>
+<!ELEMENT openOffice:reservedWords  (openOffice:trueWord, openOffice:falseWord, openOffice:quarter1Word, openOffice:quarter2Word, openOffice:quarter3Word, openOffice:quarter4Word, openOffice:aboveWord, openOffice:belowWord, openOffice:quarter1Abbreviation?, openOffice:quarter2Abbreviation?, openOffice:quarter3Abbreviation?, openOffice:quarter4Abbreviation?)>
 <!-- order is significant! -->
 <!ELEMENT openOffice:trueWord (#PCDATA)>
 <!ELEMENT openOffice:falseWord (#PCDATA)>
@@ -64,16 +64,17 @@
 <!ELEMENT openOffice:transliterationModules (#PCDATA) >
 
 <!ELEMENT openOffice:search (openOffice:searchOptions?) >
-<!ATTLIST search %RefLocale; >
+<!ATTLIST openOffice:search %RefLocale; >
 <!ELEMENT openOffice:searchOptions (openOffice:transliterationModules+) >
 
-<!ELEMENT openOffice:currency ( openOffice:separators?) >
+<!ELEMENT openOffice:currency ( openOffice:separators?, openOffice:currencyId) >
 <!ATTLIST openOffice:currency default CDATA #IMPLIED >
 <!ATTLIST openOffice:currency openOffice:usedInCompatibleFormatCodes CDATA #IMPLIED >
+<!ELEMENT openOffice:currencyId  (#PCDATA)>
 
 <!-- Additional validation elements -->
 
-<!ELEMENT openOffice:separators ( openOffice:dateSeparator, openOffice:thousandSeparator, openOffice:decimalSeparator, openOffice:timeSeparator, openOffice:longDateDayOfWeekSeparator, openOffice:longDateDaySeparator, openOffice:longDateMonthSeparator, openOffice:longDateYearSeparator) >
+<!ELEMENT openOffice:separators ( openOffice:dateSeparator, openOffice:thousandSeparator, openOffice:decimalSeparator, openOffice:timeSeparator, openOffice:longDateDayOfWeekSeparator, openOffice:longDateDaySeparator, openOffice:longDateMonthSeparator, openOffice:longDateYearSeparator, openOffice:time100SecSeparator) >
 <!ELEMENT openOffice:dateSeparator (#PCDATA)>
 <!ELEMENT openOffice:thousandSeparator (#PCDATA)>
 <!ELEMENT openOffice:decimalSeparator (#PCDATA)>
@@ -82,7 +83,7 @@
 <!ELEMENT openOffice:longDateDaySeparator (#PCDATA)>
 <!ELEMENT openOffice:longDateMonthSeparator (#PCDATA)>
 <!ELEMENT openOffice:longDateYearSeparator (#PCDATA)>
-
+<!ELEMENT openOffice:time100SecSeparator (#PCDATA)>
 
 <!--
 the parameter numType can have one of the following values:
@@ -141,5 +142,24 @@ the parameter numType can have one of the following values:
 <!ATTLIST openOffice:outLineNumberingLevel openOffice:firstLineOffset CDATA #IMPLIED >
 <!ATTLIST openOffice:outLineNumberingLevel openOffice:transliteration CDATA #IMPLIED >
 <!ATTLIST openOffice:outLineNumberingLevel openOffice:natNum CDATA #IMPLIED >
+
+<!-- new fields -->
+
+<!ELEMENT openOffice:platformId ( #PCDATA) >
+
+<!ELEMENT openOffice:index    (openOffice:indexKey*, openOffice:unicodeScript*, openOffice:followPageWord*) >
+<!ELEMENT openOffice:indexKey (#PCDATA)>
+<!ATTLIST openOffice:indexKey  %UNOModule;>
+<!ATTLIST openOffice:indexKey  default CDATA #REQUIRED >
+<!ATTLIST openOffice:indexKey  openOffice:phonetic CDATA #REQUIRED >
+<!ELEMENT openOffice:unicodeScript (#PCDATA)>
+<!ELEMENT openOffice:followPageWord (#PCDATA)>
+
+<!ELEMENT openOffice:format (#PCDATA)>
+<!ATTLIST openOffice:format openOffice:replaceFrom CDATA #IMPLIED>
+<!ATTLIST openOffice:format openOffice:replaceTo CDATA #IMPLIED>
+
+<!ELEMENT openOffice:defaultName (#PCDATA)>
+<!ATTLIST openOffice:defaultName type CDATA #IMPLIED>
 
 <!-- ######################################################### -->

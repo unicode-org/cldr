@@ -150,7 +150,7 @@
 			<territory type="GP">Гваделупе</territory>
 			<territory type="GQ">Екваторијална Гвинеја</territory>
 			<territory type="GR">Грчка</territory>
-			<territory draft="true" type="GS">Јужна Ђорђија и Јужна сендвић Острва</territory>
+			<territory draft="true" type="GS">Јужна Џорџија и Јужна Сендвич Острва</territory>
 			<territory type="GT">Гватемала</territory>
 			<territory draft="true" type="GU">Гуам</territory>
 			<territory type="GW">Гвинеја-Бисао</territory>
@@ -290,7 +290,7 @@
 			<territory type="UY">Уругвај</territory>
 			<territory type="UZ">Узбекистан</territory>
 			<territory type="VA">Ватикан</territory>
-			<territory draft="true" type="VC">Сент Винцент и Гренадини</territory>
+			<territory draft="true" type="VC">Сент Винсент и Гренадини</territory>
 			<territory type="VE">Венецуела</territory>
 			<territory type="VG">Британска Девичанска Острва</territory>
 			<territory type="VI">С.А.Д. Девичанска Острва</territory>
@@ -319,11 +319,31 @@
 			<type draft="true" type="chinese" key="calendar">Кинески календар</type>
 			<type draft="true" type="gregorian" key="calendar">Грегоријански календар</type>
 			<type draft="true" type="phonebook" key="collation">Сортирање по азбуци</type>
-			<type draft="true" type="pinyin" key="collation">Pinyin сортирање</type>
+			<type draft="true" type="pinyin" key="collation">Пињин сортирање</type>
 			<type draft="true" type="traditional" key="collation">Традиционално сортирање</type>
-			<type draft="true" type="stroke" key="collation">Stroke оrder сортирање</type>
+			<type draft="true" type="stroke" key="collation">Сортирање по броју удара</type>
 			<type draft="true" type="direct" key="collation">Директно сортирање</type>
 		</types>
+		<scripts>
+			<script draft="true" type="Arab">арапско писмо</script>
+			<script draft="true" type="Armn">јерменско писмо</script>
+			<script draft="true" type="Beng">бенгалско писмо</script>
+			<script draft="true" type="Brai">Брајево писмо</script>
+			<script draft="true" type="Cher">Чероки</script>
+			<script draft="true" type="Copt">коптичко писмо</script>
+			<script draft="true" type="Cyrl">Ћирилица</script>
+			<script draft="true" type="Deva">Деванагари</script>
+			<script draft="true" type="Dsrt">Дезерет</script>
+			<script draft="true" type="Ethi">етиопско писмо</script>
+			<script draft="true" type="Geor">грузијско писмо</script>
+			<script draft="true" type="Goth">Готика</script>
+			<script draft="true" type="Grek">грчко писмо</script>
+			<script draft="true" type="Hebr">хебрејско писмо</script>
+			<script draft="true" type="Hira">Хирагана</script>
+			<script draft="true" type="Hrkt">Катакана или Хирагана</script>
+			<script draft="true" type="Kana">Катакана</script>
+			<script draft="true" type="Latn">Латиница</script>
+		</scripts>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[а-и к-ш ђ ј љ њ ћ џ]</exemplarCharacters>

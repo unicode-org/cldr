@@ -110,6 +110,10 @@ int main (int32_t argc, const char* argv[]) {
 			strcat(path,packageName);
 		}
 	}
+    if(_remainingArgc<0) {
+        fprintf(stderr,usageString);
+        return -1;
+    }
 	for(int i=1; i<_remainingArgc; i++){
 
 		GenerateXML gen(path,argv[i],destDir,err);
@@ -372,9 +376,10 @@ void GenerateXML::writeVersion(UnicodeString& xmlString){
         return;
 	}
 	version=mSourceBundle.getStringEx("Version",mError);
-    if( mError != U_USING_DEFAULT_WARNING && 
-		mError != U_USING_FALLBACK_WARNING && 
-		U_SUCCESS(mError)){
+	// if version is not available provide a default version.
+    if( mError == U_USING_DEFAULT_WARNING ||
+		mError == U_USING_FALLBACK_WARNING || 
+		mError == U_MISSING_RESOURCE_ERROR){
         version="1.0";
         mError = U_ZERO_ERROR;
     }
@@ -1469,7 +1474,9 @@ void GenerateXML::writeNumberPatterns(UnicodeString& xmlString){
 		writeFormat("numberFormatStart","numberFormatEnd","currency",dtPatterns.getStringEx((int32_t)1,mError),xmlString,TRUE);
 		writeFormat("numberFormatStart","numberFormatEnd","percent",dtPatterns.getStringEx((int32_t)2,mError),xmlString,TRUE);
 		writeFormat("numberFormatStart","numberFormatEnd","scientific",dtPatterns.getStringEx((int32_t)3,mError),xmlString,TRUE);
-
+		if(mError == U_MISSING_RESOURCE_ERROR){
+			mError = U_ZERO_ERROR;
+		}
 		chopIndent();
 
 		args[0]=indentOffset;
@@ -2038,11 +2045,13 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 	int32_t count = 0;
 	UBool appendedRules = FALSE;
     UnicodeString t;
+	UBool startOfRules = TRUE;
 	if(src.start != src.end){
 		for(;;){
 			 
-			  uint32_t strength = parseRules(&src);
+			  uint32_t strength = parseRules(&src,startOfRules);
 			  UnicodeString tempStr;
+			  startOfRules = FALSE;
 			  tempStr.append(src.chars,src.charsLen);
 			  escape(tempStr);
 			  if(tempStr.indexOf((UChar)0x7c) >= 0){
@@ -2355,14 +2364,13 @@ void GenerateXML::growBuffer(UChar* src, int32_t len, int32_t size, int32_t requ
  *   start		prevCurrent		current 								end
  */
 
-uint32_t GenerateXML::parseRules(Token* src){
+uint32_t GenerateXML::parseRules(Token* src,UBool startOfRules){
   /* parsing part */
   UBool variableTop = FALSE;
-  UBool top = FALSE;
+  //UBool top = FALSE;
   UBool inChars = TRUE;
   UBool inQuote = FALSE;
   UBool wasInQuote = FALSE;
-  UBool startOfRules = FALSE;
   UChar *optionEnd = NULL;
   uint8_t before = 0;
   UBool isEscaped = FALSE;
@@ -2371,10 +2379,8 @@ uint32_t GenerateXML::parseRules(Token* src){
   uint32_t extensionOffset = 0;
   uint32_t newStrength = UCOL_TOK_UNSET; 
   UBool isSetting = FALSE;
+  const UChar top[] = {0x005b,0x0074,0x006f,0x0070,0x005d};
 
-  if(src->current == src->start){
-	  startOfRules = TRUE;
-  }
   src->prevCurrent = src->current;
   src->charsLen = 0;
 
@@ -2413,6 +2419,8 @@ uint32_t GenerateXML::parseRules(Token* src){
             /* if we start with strength, we'll reset to top */
             if(startOfRules == TRUE) {
               newStrength = UCOL_TOK_RESET;
+			  u_strcpy(src->chars+src->charsLen,top);
+			  src->charsLen+=u_strlen(top);
               goto EndOfLoop;
             }
             newStrength = UCOL_IDENTICAL;
@@ -2426,6 +2434,8 @@ uint32_t GenerateXML::parseRules(Token* src){
             /* if we start with strength, we'll reset to top */
             if(startOfRules == TRUE) {
               newStrength = UCOL_TOK_RESET;
+			  u_strcpy(src->chars+src->charsLen,top);
+			  src->charsLen+=u_strlen(top);
               goto EndOfLoop;
             }
             newStrength = UCOL_TERTIARY;
@@ -2445,7 +2455,8 @@ uint32_t GenerateXML::parseRules(Token* src){
 
             /* if we start with strength, we'll reset to top */
             if(startOfRules == TRUE) {
-
+			  u_strcpy(src->chars+src->charsLen,top);
+			  src->charsLen+=u_strlen(top);
               newStrength = UCOL_TOK_RESET;
               goto EndOfLoop;
             }
@@ -2459,7 +2470,8 @@ uint32_t GenerateXML::parseRules(Token* src){
 
             /* if we start with strength, we'll reset to top */
             if(startOfRules == TRUE) {
-
+			  u_strcpy(src->chars+src->charsLen,top);
+			  src->charsLen+=u_strlen(top);
               newStrength = UCOL_TOK_RESET;
               goto EndOfLoop;
             }
@@ -2547,7 +2559,9 @@ uint32_t GenerateXML::parseRules(Token* src){
 			     growBuffer(src->chars,src->charsLen,U_SIZEOF_UCHAR, src->charsCapacity,&mError);
 			  }
 			  src->chars[src->charsLen++] = ch;
-              inQuote = FALSE;
+			  if(*(src->current+1)!=0x0027){
+				inQuote = FALSE;
+			  }
             }else{
 				--src->current;
 			}

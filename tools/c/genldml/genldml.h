@@ -243,7 +243,7 @@ private:
 
     UnicodeString parseRules(UChar* rules, int32_t ruleLen, UnicodeString& ruleXML);
 
-	uint32_t parseRules(Token* src);
+	uint32_t parseRules(Token* src, UBool startOfRules);
 
     int32_t copyUnicodeStringToChars(const UnicodeString& str, char* buf,int32_t bufCapacity);
 

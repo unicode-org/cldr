@@ -36,7 +36,7 @@ span.attributeValue { font-weight: color: blue}
   <table border="1" cellpadding="2" style="border-collapse: collapse; border-width: 1" cellspacing="0" width="100%">
     <tr>
       <td>Version</td>
-      <td>1<span>.</span><span>2</span></td>
+      <td>1<span>.2<b>R1</b></span></td>
     </tr>
     <tr>
       <td>Authors</td>
@@ -3712,8 +3712,8 @@ root</pre>
   <p><span>For any element in an XML file, </span><i><span>an element chain</span></i><span> is a 
   resolved </span><span>XPath</span><span> leading from the root to an element, with attributes on 
   each element in alphabetical order. So in, say, </span>
-  <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/el.xml"><span>
-  http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/el.xml</span></a><span> we have:</span></p>
+  <a href="http://www.unicode.org/cldr/data/common/main/el.xml"><span>
+  http://www.unicode.org/cldr/data/common/main/el.xml</span></a><span> we have:</span></p>
   <pre><span>&lt;</span><span>ldml</span><span> version=&quot;1.1&quot;&gt;
   &lt;identity&gt;
     &lt;version number=&quot;1.1&quot; /&gt;
@@ -5004,7 +5004,7 @@ root</pre>
     alt_attribute</span></a>, <a href="#references_attribute"><span>references_attribute</span></a>,
     <a href="#Inheritance_and_Validity"><span>Inheritance_and_Validity</span></a></li>
     <li><span>Added the material from
-    <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/formatting/time_zone_localization.html">
+    <a href="http://www.unicode.org/cldr/data/design/formatting/time_zone_localization.html">
     time_zone_localization.html</a></span></li>
     <li>changed provisional element name to validSubLocales</li>
     <li>added description of alias path, and the 2 allowable values for alt.</li>
@@ -5018,6 +5018,12 @@ root</pre>
     <li>Added notes to Appendix K</li>
     <li>Added list of attribute-information elements to Appendix K and I.</li>
     <li>Fixed table of contents</li>
+    <li><b>R1:</b><ul>
+      <li>The dtd&#39;s were incorrectly listed as being 1.1</li>
+      <li>There were some HTML fixes for errors reported by the W3C Validator</li>
+      <li>One link was broken in the references.</li>
+    </ul>
+    </li>
   </ul>
   <hr>
   <p class="copyright">Copyright © 2001-2004 Unicode, Inc. All Rights Reserved. The Unicode 

@@ -2471,7 +2471,7 @@ void GenerateXML::writeCollation(UnicodeString& src, UnicodeString &xmlString, c
        src.remove(index,1); // remove forward slash
        src.insert(index, "</p><extend>");
        src.insert(0,"<x><p>");
-       src.append("</extend>\n");
+       src.append("</extend></x>\n");
        src.insert(0, indentOffset);
        temp.append(src);
     

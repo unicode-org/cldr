@@ -40,7 +40,7 @@
     </tr>
     <tr>
       <td>This Version</td>
-      <td><a href="http://www.unicode.org/reports/tr35/tr35-2.html"><span>http://www.unicode.org/reports/tr35/tr135-2.html</span></a></td>
+      <td><a href="http://www.unicode.org/reports/tr35/tr35-2.html"><span>http://www.unicode.org/reports/tr35/tr35-2.html</span></a></td>
     </tr>
     <tr>
       <td>Previous Version</td>
@@ -490,7 +490,6 @@ root</pre>
   <p>Note that the data in examples given below is purely illustrative, and doesn't match any particular language. For a more detailed example of this format, see [<a href="#LDML">Example</a>]. 
   There is also a DTD for this format, but remember that the DTD alone is not sufficient to understand the semantics, the constraints, nor&nbsp; the interrelationships between the 
   different elements and attributes. You may wish to have copies of each of these to hand as you proceed through the rest of this document.</p>
-  <p class="note">Note: To compare with the ICU locale data format and contents, see [<a href="#ICUData">ICUData</a>].</p>
   <h3><a name="Common_Elements">Common Elements</a></h3>
   <p>At any level in any element, two special elements are allowed.</p>
   <p class="element2">&lt;special xmlns:yyy=&quot;<span style="color: blue">xxx</span>&quot;&gt;</p>
@@ -989,9 +988,9 @@ root</pre>
   and the Olson data version must be transmitted between the different implementations.</p>
   <p class="note"><span>For more information, see [<a href="#DataFormats">Data Formats</a>].</span></p>
   <h3><a name="&lt;numbers&gt;">&lt;numbers&gt;</a></h3>
-  <p>The numbers element supplies information for formatting and parsing numbers and currencies. It has three sub-elements: &lt;symbols&gt;, &lt;numbers&gt;, and 
-  &lt;currencies&gt;. The data is based on the Java/ICU format. The currency IDs are from [<a href="#ISO4217">ISO4217</a>]. For more information, including the pattern structure, 
-  see [<a href="#JavaNumbers">JavaNumbers</a>].</p>
+  <p>The numbers element supplies information for formatting and parsing numbers and currencies. It has the following sub-elements: &lt;symbols&gt;, &lt;decimalFormats&gt;, &lt;scientificFormats&gt;, 
+  &lt;percentFormats&gt;, &lt;currencyFormats&gt;, and &lt;currencies&gt;. The data is based on the Java/ICU format. The currency IDs are from [<a href="#ISO4217">ISO4217</a>]. For 
+  more information, including the pattern structure, see [<a href="#JavaNumbers">JavaNumbers</a>].</p>
   <p class="note"><b>Note: </b>there is an on-line demonstration of number formatting and parsing at [<a href="#LocaleExplorer">LocaleExplorer</a>] (pick the locale and scroll to 
   &quot;Number Patterns&quot;).</p>
   <pre><a name="&lt;symbols&gt;">&lt;symbols&gt;</a>
@@ -1008,14 +1007,14 @@ root</pre>
       &lt;infinity&gt;<span style="color: blue">∞</span>&lt;/infinity&gt;
       &lt;nan&gt;<span style="color: blue">☹</span>&lt;/nan&gt;
 &lt;/symbols&gt;</pre>
-  <pre><a name="&lt;numberFormats&gt;">&lt;decimalFormats&gt;</a>
+  <pre>&lt;decimalFormats&gt;
   &lt;decimalFormatLength type=&quot;<span style="color: blue">long</span>&quot;&gt;
     &lt;decimalFormat&gt;
       &lt;pattern&gt;<span style="color: blue">#,##0.###</span>&lt;/pattern&gt;
     &lt;/decimalFormat&gt;
   &lt;/decimalFormatLength&gt;
 &lt;/decimalFormats&gt;</pre>
-  <pre><a name="&lt;numberFormats&gt;">&lt;scientificFormats&gt;</a>
+  <pre>&lt;scientificFormats&gt;
   &lt;default type=&quot;<span style="color: blue">long</span>&quot;/&gt;
   &lt;scientificFormatLength type=&quot;<span style="color: blue">long</span>&quot;&gt;
     &lt;scientificFormat&gt;
@@ -1028,14 +1027,14 @@ root</pre>
     &lt;/scientificFormat&gt;
   &lt;/scientificFormatLength&gt;
 &lt;/scientificFormats&gt;</pre>
-  <pre><a name="&lt;numberFormats&gt;">&lt;percentFormats&gt;</a>
+  <pre>&lt;percentFormats&gt;
   &lt;percentFormatLength type=&quot;<span style="color: blue">long</span>&quot;&gt;
     &lt;percentFormat&gt;
       &lt;pattern&gt;<span style="color: blue">#,##0%</span>&lt;/pattern&gt;
     &lt;/percentFormat&gt;
   &lt;/percentFormatLength&gt;
 &lt;/percentFormats&gt;</pre>
-  <pre><a name="&lt;numberFormats&gt;">&lt;currencyFormats&gt;</a>
+  <pre>&lt;currencyFormats&gt;
   &lt;currencyFormatLength type=&quot;<span style="color: blue">long</span>&quot;&gt;
     &lt;currencyFormat&gt;
       &lt;pattern&gt;<span style="color: blue">¤ #,##0.00;(¤ #,##0.00)</span>&lt;/pattern&gt;
@@ -1114,7 +1113,7 @@ root</pre>
   <h3><a name="&lt;collation&gt;">&lt;collation</a>&gt;</h3>
   <p>Like the ICU rules, the tailoring syntax is designed to be independent of the actual weights used in any particular UCA table. That way the same rules can be applied to UCA 
   versions over time, even if the underlying weights change. The following describes the overall document structure of a collation:</p>
-  <p><code><a name="&lt;collation&gt;">&lt;collation</a>&gt;<br>
+  <p><code>&lt;collation&gt;<br>
   &nbsp;&lt;settings caseLevel=&quot;<span style="color: blue">on</span>&quot;/&gt;<br>
   &nbsp;&lt;rules&gt;<br>
   <font color="green">&nbsp; &lt;!-- rules go here --&gt;<br>
@@ -1730,7 +1729,7 @@ root</pre>
     <li><code>&lt;p&gt;&lt;last_variable/&gt;<span style="color: blue">a</span>&lt;/p&gt;</code></li>
     <li><code>&lt;p&gt;<span style="color: blue">a</span>&lt;last_variable/&gt;&lt;/p&gt;</code></li>
   </ul>
-  <h3><a name="Logical_Reset_Positions">Special-Purpose Commands</a></h3>
+  <h3><a name="Special_Purpose_Commands">Special-Purpose Commands</a></h3>
   <p>The <i>suppress contractions</i> tailoring command turns off any existing contractions that begin with those characters. It is typically used to turn off the Cyrillic 
   contractions in the UCA, since they are not used in many languages and have a considerable performance penalty. The argument is a <a href="#Unicode_Sets">Unicode Set</a>.</p>
   <p>The <i>optimize</i> tailoring command is purely for performance. It indicates that those characters are sufficiently common in the target language for the tailoring that their 
@@ -2600,15 +2599,10 @@ root</pre>
         <a href="http://oss.software.ibm.com/icu/userguide/Collate_Customization.html">http://oss.software.ibm.com/icu/userguide/Collate_Customization.html</a></span></td>
     </tr>
     <tr>
-      <td class="noborder">[<a name="ICUData">ICUData</a>]</td>
-      <td class="noborder">ICU Locale Data<br>
-        <a href="http://oss.software.ibm.com/cvs/icu/icu/source/dtd/1.1/">http://oss.software.ibm.com/cvs/icu/icu/source/dtd/1.1/</a></td>
-    </tr>
-    <tr>
       <td class="noborder">[<a name="ICUTransforms">ICUTransforms</a>]</td>
       <td class="noborder">Transforms<br>
-        <a href="http://oss.software.ibm.com/icu/userguide/Transliteration.html">http://oss.software.ibm.com/icu/userguide/Transliteration.html<br>
-        </a>Transforms Demo<br>
+        <a href="http://oss.software.ibm.com/icu/userguide/Transformations.html">http://oss.software.ibm.com/icu/userguide/Transformations.html</a> <br>
+        Transforms Demo<br>
         <a href="http://oss.software.ibm.com/cgi-bin/icu/tr">http://oss.software.ibm.com/cgi-bin/icu/tr</a></td>
     </tr>
     <tr>

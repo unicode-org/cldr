@@ -962,7 +962,14 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group> </group>
-		</symbols>
+		</symbols> 
+    <percentFormats draft="true" alt="proposed">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0 %</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<currencies>
 			<currency type="ADD">
 				<displayName>Andorranske dinarer</displayName>

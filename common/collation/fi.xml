@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1.1"/>
-		<generation date="2004-08-07" />
+		<version number="1.2"/>
+		<generation date="2004-08-26" />
 		<language type="fi" /> 
 	</identity>
-	<collations>
-		<collation type="standard" >
-			<rules>
-				<reset>D</reset>
-				<s>ð</s>
-				<t>Ð</t>
-				<s>đ</s>
-				<t>Đ</t>
-				<reset>N</reset>
-				<s>ŋ</s>
-				<t>Ŋ</t>
-				<reset>T</reset>
-				<x><s>þ</s><extend>h</extend></x>
-				<x><t>Þ</t><extend>h</extend></x>
-				<reset>V</reset>
-				<s>w</s>
-				<t>W</t>
-				<reset>Y</reset>
-				<s>ü</s>
-				<t>Ü</t>
-				<s>ű</s>
-				<t>Ű</t>
-				<reset before="primary">ʒ</reset>
-				<p>å</p>
-				<t>Å</t>
-				<p>ä</p>
-				<t>Ä</t>
-				<s>æ</s>
-				<t>Æ</t>
-				<p>ö</p>
-				<t>Ö</t>
-				<s>ø</s>
-				<t>Ø</t>
-				<s>ő</s>
-				<t>Ő</t>
-				<s>õ</s>
-				<t>Õ</t>
-				<s>œ</s>
-				<t>Œ</t>
-			</rules>
-		</collation  >
-	</collations>
+		<collations>
+			<collation type="standard" >
+				<rules>
+					<reset>D</reset>
+					<s>ð</s>
+					<t>Ð</t>
+					<s>đ</s>
+					<t>Đ</t>
+					<reset>N</reset>
+					<s>ŋ</s>
+					<t>Ŋ</t>
+					<reset>T</reset>
+					<x><s>þ</s><extend>h</extend></x>
+					<x><t>Þ</t><extend>h</extend></x>
+					<reset>V</reset>
+					<s>w</s>
+					<t>W</t>
+					<reset>Y</reset>
+					<s>ü</s>
+					<t>Ü</t>
+					<s>ű</s>
+					<t>Ű</t>
+					<reset before="primary">ʒ</reset>
+					<p>å</p>
+					<t>Å</t>
+					<p>ä</p>
+					<t>Ä</t>
+					<s>æ</s>
+					<t>Æ</t>
+					<p>ö</p>
+					<t>Ö</t>
+					<s>ø</s>
+					<t>Ø</t>
+					<s>ő</s>
+					<t>Ő</t>
+					<s>õ</s>
+					<t>Õ</t>
+					<s>œ</s>
+					<t>Œ</t>
+				</rules>
+			</collation  >
+		</collations>
 </ldml>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1.1"/>
-		<generation date="2004-08-07" />
+		<version number="1.2"/>
+		<generation date="2004-08-26" />
 		<language type="kk" /> 
 	</identity>
-	<collations>
-		<collation type="standard" >
-			<settings normalization="on"  />
-			<suppress_contractions>[Ѐ-џ]</suppress_contractions>
-			<rules>
-				<reset before="primary">ү</reset>
-				<p>ұ</p>
-				<t>Ұ</t>
-			</rules>
-		</collation  >
-	</collations>
+		<collations>
+			<collation type="standard" >
+				<suppress_contractions>[Ѐ-џ]</suppress_contractions>
+				<settings normalization="on"  />
+				<rules>
+					<reset before="primary">ү</reset>
+					<p>ұ</p>
+					<t>Ұ</t>
+				</rules>
+			</collation  >
+		</collations>
 </ldml>

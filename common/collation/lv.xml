@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1.1"/>
-		<generation date="2004-08-07" />
+		<version number="1.2"/>
+		<generation date="2004-08-26" />
 		<language type="lv" /> 
 	</identity>
-	<collations>
-		<collation type="standard" >
-			<rules>
-				<reset before="primary">D</reset>
-				<p>č</p>
-				<t>Č</t>
-				<reset before="primary">H</reset>
-				<p>ģ</p>
-				<t>Ģ</t>
-				<reset before="primary">J</reset>
-				<p>y</p>
-				<t>Y</t>
-				<reset before="primary">L</reset>
-				<p>ķ</p>
-				<t>Ķ</t>
-				<reset before="primary">M</reset>
-				<p>ļ</p>
-				<t>Ļ</t>
-				<reset before="primary">O</reset>
-				<p>ņ</p>
-				<t>Ņ</t>
-				<reset before="primary">S</reset>
-				<p>ŗ</p>
-				<t>Ŗ</t>
-				<reset before="primary">T</reset>
-				<p>š</p>
-				<t>Š</t>
-				<reset before="primary">Ʒ</reset>
-				<p>ž</p>
-				<t>Ž</t>
-			</rules>
-		</collation  >
-	</collations>
+		<collations>
+			<collation type="standard" >
+				<rules>
+					<reset before="primary">D</reset>
+					<p>č</p>
+					<t>Č</t>
+					<reset before="primary">H</reset>
+					<p>ģ</p>
+					<t>Ģ</t>
+					<reset before="primary">J</reset>
+					<p>y</p>
+					<t>Y</t>
+					<reset before="primary">L</reset>
+					<p>ķ</p>
+					<t>Ķ</t>
+					<reset before="primary">M</reset>
+					<p>ļ</p>
+					<t>Ļ</t>
+					<reset before="primary">O</reset>
+					<p>ņ</p>
+					<t>Ņ</t>
+					<reset before="primary">S</reset>
+					<p>ŗ</p>
+					<t>Ŗ</t>
+					<reset before="primary">T</reset>
+					<p>š</p>
+					<t>Š</t>
+					<reset before="primary">Ʒ</reset>
+					<p>ž</p>
+					<t>Ž</t>
+				</rules>
+			</collation  >
+		</collations>
 </ldml>

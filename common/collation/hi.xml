@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1.1"/>
-		<generation date="2004-08-07" />
+		<version number="1.2"/>
+		<generation date="2004-08-26" />
 		<language type="hi" /> 
 	</identity>
-	<collations>
-		<collation type="direct" >
-			<rules>
-				<reset><last_non_ignorable/></reset>
-				<pc>ँंःअआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनऩपफबभमयरऱलळऴवशषसह़ऽािीुूृॄॅॆेैॉॊोौ्ॐ॒॑॓॔क़ख़ग़ज़ड़ढ़फ़य़ॠॡॢॣ।॥०१२३४५६७८९॰</pc>
-			</rules>
-		</collation  >
-		<collation type="standard" >
-			<settings normalization="on"  />
-			<rules>
-				<reset before="primary">0</reset>
-				<pc>ॐ।॥॰</pc>
-				<reset>ह</reset>
-				<pc>़ँंः॒॑॓॔</pc>
-				<reset>ऽ</reset>
-				<p>्</p>
-			</rules>
-		</collation  >
-	</collations>
+		<collations>
+			<collation type="direct" >
+				<rules>
+					<reset><last_non_ignorable/></reset>
+					<pc>ँंःअआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनऩपफबभमयरऱलळऴवशषसह़ऽािीुूृॄॅॆेैॉॊोौ्ॐ॒॑॓॔क़ख़ग़ज़ड़ढ़फ़य़ॠॡॢॣ।॥०१२३४५६७८९॰</pc>
+				</rules>
+			</collation  >
+			<collation type="standard" >
+				<settings normalization="on"  />
+				<rules>
+					<reset before="primary">0</reset>
+					<pc>ॐ।॥॰</pc>
+					<reset>ह</reset>
+					<pc>़ँंः॒॑॓॔</pc>
+					<reset>ऽ</reset>
+					<p>्</p>
+				</rules>
+			</collation  >
+		</collations>
 </ldml>

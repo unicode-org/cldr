@@ -8,7 +8,7 @@
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-08" />
+		<generation date="2003-12-12" />
 		<language type="hu" /> 
 	</identity>
 	<localeDisplayNames>
@@ -287,153 +287,153 @@
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
-</localeDisplayNames>
-<characters>
-	<exemplarCharacters>[a-z á é í ó ú ö ü ő ű]</exemplarCharacters>
-	<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
-		<icu:scripts>
-			<icu:script type="1">Latn</icu:script>
-		</icu:scripts>
-	</special>
-</characters>
-<dates>
-	<localizedPatternChars>GanjkHmsSEDFwWxhKzAe</localizedPatternChars>
-	<calendars>
-		<calendar type="gregorian">
-			<monthNames>
-				<month type="1">január</month>
-				<month type="2">február</month>
-				<month type="3">március</month>
-				<month type="4">április</month>
-				<month type="5">május</month>
-				<month type="6">június</month>
-				<month type="7">július</month>
-				<month type="8">augusztus</month>
-				<month type="9">szeptember</month>
-				<month type="10">október</month>
-				<month type="11">november</month>
-				<month type="12">december</month>
-			</monthNames>
-			<monthAbbr>
-				<month type="1">jan.</month>
-				<month type="2">febr.</month>
-				<month type="3">márc.</month>
-				<month type="4">ápr.</month>
-				<month type="5">máj.</month>
-				<month type="6">jún.</month>
-				<month type="7">júl.</month>
-				<month type="8">aug.</month>
-				<month type="9">szept.</month>
-				<month type="10">okt.</month>
-				<month type="11">nov.</month>
-				<month type="12">dec.</month>
-			</monthAbbr>
-			<dayNames>
-				<day type="sun">vasárnap</day>
-				<day type="mon">hétfő</day>
-				<day type="tue">kedd</day>
-				<day type="wed">szerda</day>
-				<day type="thu">csütörtök</day>
-				<day type="fri">péntek</day>
-				<day type="sat">szombat</day>
-			</dayNames>
-			<dayAbbr>
-				<day type="sun">V</day>
-				<day type="mon">H</day>
-				<day type="tue">K</day>
-				<day type="wed">Sze</day>
-				<day type="thu">Cs</day>
-				<day type="fri">P</day>
-				<day type="sat">Szo</day>
-			</dayAbbr>
-			<week>
-				<minDays count="1"/>
-				<firstDay day="mon"/>
-			</week>
-			<am>DE</am>
-			<pm>DU</pm>
-			<eras>
-				<eraAbbr>
-					<era type="1">i.e.</era>
-					<era type="2">i.u.</era>
-				</eraAbbr>
-			</eras>
-			<dateFormats>
-				<default type="medium"/>
-				<dateFormatLength type="full">
-					<dateFormat >
-						<pattern>yyyy. MMMM d.</pattern>
-					</dateFormat>
-				</dateFormatLength >
-				<dateFormatLength type="long">
-					<dateFormat >
-						<pattern>yyyy. MMMM d.</pattern>
-					</dateFormat>
-				</dateFormatLength >
-				<dateFormatLength type="medium">
-					<dateFormat >
-						<pattern>yyyy.MM.dd.</pattern>
-					</dateFormat>
-				</dateFormatLength >
-				<dateFormatLength type="short">
-					<dateFormat >
-						<pattern>yyyy.MM.dd.</pattern>
-					</dateFormat>
-				</dateFormatLength >
-			</dateFormats>
-			<timeFormats>
-				<default type="medium"/>
-				<timeFormatLength type="full">
-					<timeFormat >
-						<pattern>H:mm:ss z</pattern>
-					</timeFormat>
-				</timeFormatLength >
-				<timeFormatLength type="long">
-					<timeFormat >
-						<pattern>H:mm:ss z</pattern>
-					</timeFormat>
-				</timeFormatLength >
-				<timeFormatLength type="medium">
-					<timeFormat >
-						<pattern>H:mm:ss</pattern>
-					</timeFormat>
-				</timeFormatLength >
-				<timeFormatLength type="short">
-					<timeFormat >
-						<pattern>H:mm</pattern>
-					</timeFormat>
-				</timeFormatLength >
-			</timeFormats>
-			<dateTimeFormats>
-				<dateTimeFormatLength >
-					<dateTimeFormat>
-						<pattern>{1} {0}</pattern>
-					</dateTimeFormat>
-				</dateTimeFormatLength >
-			</dateTimeFormats>
-		</calendar>
-	</calendars>
-</dates>
-<numbers>
-	<symbols>
-		<decimal>,</decimal>
-		<group> </group>
-		<list>;</list>
-		<percentSign>%</percentSign>
-		<nativeZeroDigit>0</nativeZeroDigit>
-		<patternDigit>#</patternDigit>
-		<plusSign>+</plusSign>
-		<minusSign>-</minusSign>
-		<exponential>E</exponential>
-		<perMille>‰</perMille>
-		<infinity>∞</infinity>
-		<nan>�</nan>
-	</symbols>
-	<currencies>
-		<currency type="HUF">
-			<displayName>HUF</displayName>
-			<symbol>Ft</symbol>
-		</currency>
-	</currencies>
-</numbers>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[a-z á é í ó ú ö ü ő ű]</exemplarCharacters>
+		<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
+			<icu:scripts>
+				<icu:script type="1">Latn</icu:script>
+			</icu:scripts>
+		</special>
+	</characters>
+	<dates>
+		<localizedPatternChars>GanjkHmsSEDFwWxhKzAe</localizedPatternChars>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">január</month>
+					<month type="2">február</month>
+					<month type="3">március</month>
+					<month type="4">április</month>
+					<month type="5">május</month>
+					<month type="6">június</month>
+					<month type="7">július</month>
+					<month type="8">augusztus</month>
+					<month type="9">szeptember</month>
+					<month type="10">október</month>
+					<month type="11">november</month>
+					<month type="12">december</month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">jan.</month>
+					<month type="2">febr.</month>
+					<month type="3">márc.</month>
+					<month type="4">ápr.</month>
+					<month type="5">máj.</month>
+					<month type="6">jún.</month>
+					<month type="7">júl.</month>
+					<month type="8">aug.</month>
+					<month type="9">szept.</month>
+					<month type="10">okt.</month>
+					<month type="11">nov.</month>
+					<month type="12">dec.</month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">vasárnap</day>
+					<day type="mon">hétfő</day>
+					<day type="tue">kedd</day>
+					<day type="wed">szerda</day>
+					<day type="thu">csütörtök</day>
+					<day type="fri">péntek</day>
+					<day type="sat">szombat</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">V</day>
+					<day type="mon">H</day>
+					<day type="tue">K</day>
+					<day type="wed">Sze</day>
+					<day type="thu">Cs</day>
+					<day type="fri">P</day>
+					<day type="sat">Szo</day>
+				</dayAbbr>
+				<week>
+					<minDays count="1"/>
+					<firstDay day="mon"/>
+				</week>
+				<am>DE</am>
+				<pm>DU</pm>
+				<eras>
+					<eraAbbr>
+						<era type="1">i.e.</era>
+						<era type="2">i.u.</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>yyyy. MMMM d.</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>yyyy. MMMM d.</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>yyyy.MM.dd.</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>yyyy.MM.dd.</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>H:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>H:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>H:mm</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group> </group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<currencies>
+			<currency type="HUF">
+				<displayName>HUF</displayName>
+				<symbol>Ft</symbol>
+			</currency>
+		</currencies>
+	</numbers>
 </ldml>

@@ -8,7 +8,7 @@
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-12" />
+		<generation date="2003-12-17" />
 		<language type="hy" /> 
 	</identity>
 	<localeDisplayNames>
@@ -76,6 +76,10 @@
 					<day type="fri">Ուր</day>
 					<day type="sat">Շաբ</day>
 				</dayAbbr>
+				<week>
+					<minDays count="1"/>
+					<firstDay day="mon"/>
+				</week>
 				<am>Առ․</am>
 				<pm>Եր․</pm>
 				<eras>

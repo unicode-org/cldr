@@ -8,7 +8,7 @@
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-12" />
+		<generation date="2003-12-17" />
 		<language type="en" /> 
 		<territory type="MT" /> 
 	</identity>
@@ -100,5 +100,15 @@
 				</currencyFormat>
 			</currencyFormatLength >
 		</currencyFormats>
+		<currencies>
+			<currency type="GBP">
+				<displayName>British Pound Sterling</displayName>
+				<symbol>GBP</symbol>
+			</currency>
+			<currency type="MTP">
+				<displayName>Maltese Pound</displayName>
+				<symbol>£</symbol>
+			</currency>
+		</currencies>
 	</numbers>
 </ldml>

@@ -8,7 +8,7 @@
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-12" />
+		<generation date="2003-12-17" />
 		<language type="sl" /> 
 	</identity>
 	<localeDisplayNames>
@@ -346,6 +346,10 @@
 					<day type="fri">pet</day>
 					<day type="sat">sob</day>
 				</dayAbbr>
+				<week>
+					<minDays count="1"/>
+					<firstDay day="mon"/>
+				</week>
 				<eras>
 					<eraAbbr>
 						<era type="1">pr.n.š.</era>

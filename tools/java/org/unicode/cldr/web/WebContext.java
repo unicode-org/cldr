@@ -173,6 +173,7 @@ public class WebContext {
                 localesVector.add(parents);
                 docsVector.add(d);
             } catch(Throwable t) {
+                println("Error fetching " + parents + "<br/>");
                 // error is shown elsewhere.
             }
             parents = getParent(parents);

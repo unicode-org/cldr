@@ -35,16 +35,27 @@ import com.ibm.icu.lang.UCharacter;
 class SurveyMain {
     public static final String SUBVETTING = "//v"; // vetting context
     public static final String SUBNEW = "//n"; // new context
+    public static final String NOCHANGE = "nochange";
     public static final String CURRENT = "current";
     public static final String PROPOSED = "proposed";
     public static final String NEW = "new";
     public static final String DRAFT = "draft";
+    public static final String UNKNOWNCHANGE = "Click to suggest replacement";
     public static String vap = System.getProperty("CLDR_VAP");
     public String vetdata = System.getProperty("CLDR_VET_DATA");
     public String vetweb = System.getProperty("CLDR_VET_WEB");
     static String fileBase = System.getProperty("CLDR_COMMON") + "/main";
     
+    // types of data
     static final String LOCALEDISPLAYNAMES = "//ldml/localeDisplayNames/";
+
+    // All of the data items under LOCALEDISPLAYNAMES
+    static final String LOCALEDISPLAYNAMES_ITEMS[] = { 
+        LDMLConstants.LANGUAGES, LDMLConstants.SCRIPTS, LDMLConstants.TERRITORIES,
+        LDMLConstants.VARIANTS, LDMLConstants.KEYS, LDMLConstants.TYPES
+    };
+    
+    public static String xMAIN = "main";
 
     public UserRegistry reg = new UserRegistry(vetdata);
     
@@ -52,15 +63,24 @@ class SurveyMain {
     synchronized int getN() {
         return n++;
     }
+    
     private SurveyMain() {}
     
     
-    private void go(PrintStream out) throws IOException
+    /**
+     * output MIME header, build context, and run code..
+     */
+    private void runSurvey(PrintStream out) throws IOException
     {
         WebContext ctx = new WebContext(out);
         ctx.println("Content-type: text/html; charset=\"utf-8\"\n\n");
-        doGet(ctx);
-  
+        
+        if(ctx.field("vap").equals(vap)) {  // if we have a Vetting Administration Password, special case
+            doVap(ctx);
+        } else {
+            doSession(ctx); // Session-based Survey main
+        }
+
         ctx.close();
     }
  
@@ -97,12 +117,19 @@ class SurveyMain {
         ctx.println("<hr/>"); // </ul>
         ctx.println("<br/>"); // </li>
     }
-
-    public void doGet(WebContext ctx)
+    
+    /**
+     * print the header of the thing
+     */
+    public void printHeader(WebContext ctx, String title)
     {
         ctx.println("<html>");
         ctx.println("<head>");
-        ctx.println("<title>Interim Test Tool - s/n " + getN() + "</title>");
+        ctx.println("<title>CLDR Vetting | ");
+        if(ctx.locale != null) {
+            ctx.print(ctx.locale.getDisplayName() + " | ");
+        }
+        ctx.println(title + "</title>");
         ctx.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
         ctx.println("</head>");
         ctx.println("<body>");
@@ -146,16 +173,38 @@ class SurveyMain {
             "-->\r\n</style>\r\n");
   
         */
-        
-        if(ctx.field("vap").equals(vap)) {
-            doVap(ctx);
-            ctx.println("</body>");
-            ctx.println("</html>");
-            return;
+    }
+
+    public void printFooter(WebContext ctx)
+    {
+        ctx.println("</body>");
+        ctx.println("</html>");
+    }
+    
+    /**
+     * process the '_' parameter, if present, and set the locale.
+     */
+    public void setLocale(WebContext ctx)
+    {
+        String locale = ctx.field("_");
+        if(locale != null) {  // knock out some bad cases
+            if((locale.indexOf('.') != -1) ||
+               (locale.indexOf('/') != -1)) {
+               locale = null;
+            }
         }
-        
+        if(locale != null && (locale.length()>0)) {
+            ctx.setLocale(new ULocale(locale));
+        }
+    }
+    
+    /**
+     * set the session.
+     */
+     
+    String setSession(WebContext ctx) {
+        String message = null;
         // get the context
-        
         CookieSession mySession = null;
         String myNum = ctx.field("s");
         
@@ -168,13 +217,13 @@ class SurveyMain {
         if(user != null) {
             mySession = CookieSession.retrieveUser(user.id);
             if(mySession != null) {
-                ctx.println("<i>Reconnecting you to your previous session, " + myNum + "</i></br>");
+                message = "Reconnecting your session: " + myNum;
             }
-        }        
+        }
         if((mySession == null) && (myNum != null) && (myNum.length()>0)) {
             mySession = CookieSession.retrieve(myNum);
             if(mySession == null) {
-                ctx.println("<i>Warning: ignoring expired session " + myNum + "</i><br/>");
+                message = "ignoring expired session: " + myNum;
             }
         }
         if(mySession == null) {
@@ -185,8 +234,30 @@ class SurveyMain {
         if(user != null) {
             ctx.session.setUser(user); // this will replace any existing session by this user.
         }
+        
+        return message;
+    }
+
+    public void doSession(WebContext ctx)
+    {
+        // which 
+        String which = ctx.field("x");
+
+        setLocale(ctx);
+        
+        String sessionMessage = setSession(ctx);
+        
+        String title = " - " + which;
+        printHeader(ctx, title);
+        
+        
+        // Not doing vetting admin --------
+        
         WebContext baseContext = new WebContext(ctx);
-        ctx.println("<i>using session " + mySession.id + " </i><br/>");
+        if(ctx.field("submit").length()<=0) {
+            // unless we are submitting - process any pending form data.
+            processLocale(ctx, which);
+        }
         
         // print 'shopping cart'
         {
@@ -211,21 +282,18 @@ class SurveyMain {
 
         if(ctx.field("submit").length()>0) {
             doSubmit(ctx);
-            ctx.println("</body>");
-            ctx.println("</html>");
-            return;
+        } else {
+            doLocale(ctx, baseContext, which);
         }
-
-        ctx.println("<h1>Locales</h1>");
-        String locale = ctx.field("_");
-        if(locale != null) {  // knock out some bad cases
-            if((locale.indexOf('.') != -1) ||
-               (locale.indexOf('/') != -1)) {
-               locale = null;
-            }
+    }
+    
+    void doLocale(WebContext ctx, WebContext baseContext, String which) {
+        String locale = null;
+        if(ctx.locale != null) {
+            locale = ctx.locale.toString();
         }
         if((locale==null)||(locale.length()<=0)) {
-            ctx.println("<b>locales: </b> <br/>");
+            ctx.println("<h1>Locales</h1>");
             File inFiles[] = getInFiles();
             int nrInFiles = inFiles.length;
             for(int i=0;i<nrInFiles;i++) {
@@ -246,63 +314,16 @@ class SurveyMain {
             
             ctx.println("<br/>");
         } else {
-            ctx.setLocale(new ULocale(locale));
-            if(ctx.doc[0] != null) {                
-                //ctx.println("Parsed. Huh. " + doc.toString() + "<hr>(");
-                //LDMLUtilities.printDOMTree(doc,out);
-                //ctx.println(")<ul>");
-                /// dumpIt(out, doc, 0);
-                //ctx.println("</ul>");
-                showLocale(ctx);
+            if((ctx.doc == null) || (ctx.doc.length < 1)) {
+                ctx.println("<i>ERR: No docs fetched.</i>");
+            } else if(ctx.doc[0] != null) {                
+                showLocale(ctx, which);
             } else {
                 ctx.println("<i>err, couldn't fetch " + ctx.locale.toString() + "</i><br/>");
             }
         }
-        ctx.println("</body>");
-        ctx.println("</html>");
-     //   out.close();
+        printFooter(ctx);
     }
-    
-    // cache of documents
-    static Hashtable docTable = new Hashtable();
-    static Hashtable docVersions = new Hashtable();
-    
-    public static Document fetchDoc( String locale) {
-     Document doc = null;
-     doc = (Document)docTable.get(locale);
-     if(doc!=null) {
-        return doc;
-      } else {
-    }
-     String fileName = fileBase + File.separator + locale + ".xml";
-     File f = new File(fileName);
-     boolean ex  = f.exists();
-     boolean cr  = f.canRead();
-     String res  = null; /* request.getParameter("res"); */ /* ALWAYS resolve */
-     String ver = LDMLUtilities.getCVSVersion(fileBase, locale + ".xml");
-     if(ver != null) {
-        docVersions.put(locale, ver);
-     }
-     if((res!=null)&&(res.length()>0)) {
-        // throws exception
-        doc= LDMLUtilities.getFullyResolvedLDML(fileBase, locale, 
-                                            false, false, 
-                                                false);
-        } else {
-            doc = LDMLUtilities.parse(fileName, false);
-        }
-        if(doc != null) {
-            // add to cache
-            docTable.put(locale, doc);
-        }
-        return doc;
-    }
-    
-    public static String xMAIN = "main";
-    public static String xLANG = "languages";
-    public static String xSCRP = "scripts";
-    public static String xREGN = "territories";
-    public static String xVARI = "variants";
     
     protected void printMenu(WebContext ctx, String which, String menu) {
         if(menu.equals(which)) {
@@ -320,6 +341,8 @@ class SurveyMain {
         String sponsor = ctx.field("sponsor");
         String email = ctx.field("email");
         String name = ctx.field("name");
+        
+        printHeader(ctx, "Vetting Administration");
         
         UserRegistry.User u = reg.get(email);
         if(u != null) {
@@ -346,6 +369,7 @@ class SurveyMain {
         u = reg.add(email, sponsor, name);
         
         notifyUser(ctx, u);
+        printFooter(ctx);
     }
    
     void notifyUser(WebContext ctx, UserRegistry.User u) {
@@ -357,17 +381,22 @@ class SurveyMain {
             " \n";
         ctx.println("<hr/><pre>" + body + "</pre><hr/>");
     
-        MailSender.sendMail(u.email, "CLDR Registration for " + u.email,
-            body);
-        /* some debugging. */
-         String from = System.getProperty("CLDR_FROM");
          String smtp = System.getProperty("CLDR_SMTP");
-        ctx.println("Mail sent to " + u.email + " from " + from + " via " + smtp + "<br/>\n");
+         if(smtp == null) {
+            ctx.println("<i>Not sending mail- SMTP disabled.</i><br/>");
+        } else {
+            String from = System.getProperty("CLDR_FROM");
+            MailSender.sendMail(u.email, "CLDR Registration for " + u.email,
+                body);
+            ctx.println("Mail sent to " + u.email + " from " + from + " via " + smtp + "<br/>\n");
+        }
+        /* some debugging. */
     }
 
     public void doSubmit(WebContext ctx)
     {
-        if((ctx.session.user) == null) {   
+        if((ctx.session.user == null) ||
+            (ctx.session.user.id == null)) {   
             ctx.println("No Vetting Account found... please see this help link: ");
             ctx.printHelpLink("/NoUser");
             ctx.println("<br/>");
@@ -395,29 +424,31 @@ class SurveyMain {
         String changedList = "";
         Hashtable lh = ctx.session.getLocales();
         Enumeration e = lh.keys();
+        String fullBody = "";
         if(e.hasMoreElements()) { 
             for(;e.hasMoreElements();) {
                 String k = e.nextElement().toString();
+                String displayName = new ULocale(k).getDisplayName();
                 ctx.println("<hr/>");
                 ctx.println("<H3>" + 
-                        new ULocale(k).getDisplayName() + "</h3>");
+                        displayName+ "</h3>");
                 CLDRFile f = createCLDRFile(ctx, k, (Hashtable)lh.get(k));
                 
                 StringWriter sw = new StringWriter();
                 PrintWriter pw = new PrintWriter(sw);
                 f.write(pw);
                 String asString = sw.toString();
+                fullBody = fullBody + "-------------" + "\n" + k + ".xml - " + displayName + "\n" + 
+                    hexXML.transliterate(asString);
                 String asHtml = BagFormatter.toHTML.transliterate(asString);
                 ctx.println("<pre>" + asHtml + "</pre>");
                 File xmlFile = new File(sessDir, k + ".xml");
                 if(post) {
                     try {
                         changedList = changedList + " " + k;
-                        OutputStream out = new FileOutputStream(xmlFile); // Append
-                        PrintWriter pw2 = new PrintWriter(out);
+                        PrintWriter pw2 = BagFormatter.openUTF8Writer(xmlFile);
                         f.write(pw2);
                         pw2.close();
-                        out.close();
                         ctx.println("<b>File Written.</b><br/>");
                     } catch(Throwable t) {
                         // TODO: log??
@@ -437,21 +468,29 @@ class SurveyMain {
             subContext.println("</form>");
         } else {        
             String body = "User:  " + u.real + " <" + u.email + "> for  " + u.sponsor + "\n" +
-             "Submitted data for: " + changedList;
-            MailSender.sendMail(u.email, "CLDR: Receipt of your data submission ",
-                    body);
-            MailSender.sendMail(System.getProperty("CLDR_NOTIFY"), "CLDR: from " + u.sponsor + "/" + u.email + ": " + changedList,
-                    body);
-            ctx.println("Thank you..   An email has been sent to the CLDR Vetting List and to you at " + u.email + ".<br/>");
+             "Submitted data for: " + changedList + "\n" +
+             "Session ID: " + ctx.session.id + "\n";
+            String smtp = System.getProperty("CLDR_SMTP");
+            if(smtp == null) {
+                ctx.println("<i>Not sending mail- SMTP disabled.</i><br/>");
+            } else {
+                MailSender.sendMail(u.email, "CLDR: Receipt of your data submission ",
+                        body  + "\n The files submitted are attached below: \n" + fullBody);
+                MailSender.sendMail(System.getProperty("CLDR_NOTIFY"), "CLDR: from " + u.sponsor + "/" + u.email + ": " + changedList,
+                        body);
+                ctx.println("Thank you..   An email has been sent to the CLDR Vetting List and to you at " + u.email + ".<br/>");
+            }
             // destroy session
-            ctx.session.remove();
             ctx.println("<form method=GET action='" + ctx.base() + "'>");
             ctx.println("<input type=hidden name=uid value='" + ctx.session.user.id + "'> " +
                         "<input type=hidden name=email value='" + ctx.session.user.email + "'>");
             ctx.println("<input type=submit value='Login Again'>");
             ctx.println("</form>");
+            ctx.session.remove();
         }
+        printFooter(ctx);
     }
+    
     private void appendCodeList(WebContext ctx, CLDRFile file, String xpath, String subtype, Hashtable data) {
         if(data == null) {
             return;
@@ -459,18 +498,28 @@ class SurveyMain {
         for(Enumeration e = data.keys();e.hasMoreElements();) {
             String k = e.nextElement().toString();
             if(k.endsWith(SUBVETTING)) { // we ONLY care about SUBVETTING items. (
-                String key = k.substring(0,k.length()-SUBVETTING.length());
+                String type = k.substring(0,k.length()-SUBVETTING.length());
                 String vet = (String)data.get(k);
                 // Now, what's happening? 
-                NodeSet.NodeSetEntry nse = (NodeSet.NodeSetEntry)data.get(key);
-                String newxpath = xpath + "/" + subtype + "[@type='" + key + "']";
+                NodeSet.NodeSetEntry nse = (NodeSet.NodeSetEntry)data.get(type);
+                String newxpath = xpath + subtype + "[@type='" + type + "']";
+                if(nse.key != null) {
+                    newxpath = newxpath + "[@key='" + nse.key + "']";
+                }
                 newxpath=newxpath.substring(1); // remove initial /     
                 if(vet.equals(DRAFT)) {
-                    file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.main));
+                } else if(vet.equals(CURRENT)) {
+                    if(nse.fallback != null)  {
+                        file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.fallback));
+                    } else if(nse.main != null) {
+                        file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.main));
+                    } else {
+                        file.add(newxpath, newxpath, type);
+                    }
                 } else if(vet.equals(PROPOSED)) {
                     file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.proposed));
                 } else if(vet.equals(NEW)) {
-                    String newString = (String)data.get(key + SUBNEW);
+                    String newString = (String)data.get(type + SUBNEW);
                     if(newString == null) {
                         newString = "";
                     }
@@ -480,7 +529,7 @@ class SurveyMain {
                     }
                     file.add(newxpath, newxpath, newString);
                     if(newString.length() ==0) {
-                        file.addComment(newxpath, "empty 'other' submission: " + key, XPathParts.Comments.POSTBLOCK);
+                        file.addComment(newxpath, "empty 'other' submission: " + type, XPathParts.Comments.POSTBLOCK);
                     }
                 } else {
                     // ignored:  current, etc.
@@ -488,6 +537,7 @@ class SurveyMain {
             }
         }
     }
+    
     public static final String typeToSubtype(String type)
     {
         String subtype = type;
@@ -499,15 +549,20 @@ class SurveyMain {
             subtype = LDMLConstants.TERRITORY;
         } else if(type.equals(LDMLConstants.VARIANTS)) {
             subtype = LDMLConstants.VARIANT;
+        } else if(type.equals(LDMLConstants.KEYS)) {
+            subtype = LDMLConstants.KEY;
+        } else if(type.equals(LDMLConstants.TYPES)) {
+            subtype = LDMLConstants.TYPE;
         } /* else if(subtype.endsWith("s")) {
             subtype = subtype.substring(0,subtype.length()-1);
         }
         */
         return subtype;
     }
-    private void appendLocaleCodes(WebContext ctx, CLDRFile file, String type, Hashtable data) {
-        String xpath = LOCALEDISPLAYNAMES + type;
-        Hashtable items = (Hashtable)data.get(xpath);
+    
+    private void appendCodes(WebContext ctx, CLDRFile file, String xpath, String type, Hashtable data) {
+        String fullXpath = xpath + type;
+        Hashtable items = (Hashtable)data.get(fullXpath);
         String subtype = typeToSubtype(type);
         appendCodeList(ctx, file, xpath, subtype, items);
     }
@@ -533,14 +588,32 @@ class SurveyMain {
             return file;
         }
 
-        appendLocaleCodes(ctx, file, xLANG, data);
-        appendLocaleCodes(ctx, file, xSCRP, data);
-        appendLocaleCodes(ctx, file, xREGN, data);
-        appendLocaleCodes(ctx, file, xVARI, data);
+        for(int n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+            appendCodes(ctx, file, LOCALEDISPLAYNAMES, LOCALEDISPLAYNAMES_ITEMS[n], data);
+        }
         return file;
     }
+    
+    /**
+     * process any form items needed.
+     * @param ctx context
+     * @param which value of 'x' parameter.
+     */
+    public void processLocale(WebContext ctx, String which)
+    {
+        for(int n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {
+            if(which.equals(LOCALEDISPLAYNAMES_ITEMS[n])) {
+                processLocaleCodeList(ctx, LOCALEDISPLAYNAMES +LOCALEDISPLAYNAMES_ITEMS[n], null);
+            }
+        }
+    }
 
-    public void showLocale(WebContext ctx)
+    /**
+     * show the actual locale data..
+     * @param ctx context
+     * @param which value of 'x' parameter.
+     */
+    public void showLocale(WebContext ctx, String which)
     {
         int i;
         ctx.println("<br/>");
@@ -552,24 +625,25 @@ class SurveyMain {
         ctx.println("<a href=\"" + ctx.url() + "\">" + "Other..." + "</a><br/>");
         ctx.println("<hr/>");
         
-        String which = ctx.field("x");
         if((which == null) ||
             which.equals("")) {
             which = xMAIN;
         }
+
         WebContext subCtx = new WebContext(ctx);
         subCtx.addQuery("_",ctx.locale.toString());
         printMenu(subCtx, which, xMAIN);
-        printMenu(subCtx, which, xLANG);
-        printMenu(subCtx, which, xSCRP);
-        printMenu(subCtx, which, xREGN);
-        printMenu(subCtx, which, xVARI);
+        subCtx.println("<br/>  Locale Display Names: ");
+        for(int n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+            printMenu(subCtx, which, LOCALEDISPLAYNAMES_ITEMS[n]);
+        }
         
         ctx.println("<br/>");
         subCtx.addQuery("x",which);
         final ULocale inLocale = new ULocale("en_US");
         StandardCodes standardCodes = StandardCodes.make();
-        if(xLANG.equals(which)) {
+        Set defaultSet = standardCodes.getAvailableCodes(typeToSubtype(which));
+        if(LDMLConstants.LANGUAGES.equals(which)) {
             NodeSet.NodeSetTexter texter = new NodeSet.NodeSetTexter() { 
                     public String text(NodeSet.NodeSetEntry e) {
                         return new ULocale(e.type).getDisplayLanguage(inLocale);
@@ -577,7 +651,7 @@ class SurveyMain {
             };
             doLocaleCodeList(subCtx, LOCALEDISPLAYNAMES + which, texter,
                 standardCodes.getAvailableCodes("language"));
-        } else if(xSCRP.equals(which)) {
+        } else if(LDMLConstants.SCRIPTS.equals(which)) {
             NodeSet.NodeSetTexter texter = new NodeSet.NodeSetTexter() { 
                     public String text(NodeSet.NodeSetEntry e) {
                         return new ULocale("_"+e.type).getDisplayScript(inLocale);
@@ -585,22 +659,30 @@ class SurveyMain {
             };
             doLocaleCodeList(subCtx, LOCALEDISPLAYNAMES + which, texter,
                 standardCodes.getAvailableCodes("script"));
-        } else if(xREGN.equals(which)) {
+        } else if(LDMLConstants.TERRITORIES.equals(which)) {
             NodeSet.NodeSetTexter texter = new NodeSet.NodeSetTexter() { 
                     public String text(NodeSet.NodeSetEntry e) {
                         return new ULocale("_"+e.type).getDisplayCountry(inLocale);
                     }
             };
             doLocaleCodeList(subCtx,LOCALEDISPLAYNAMES + which, texter,
-                standardCodes.getAvailableCodes("region"));
-        } else if(xVARI.equals(which)) {
+                defaultSet);
+        } else if(LDMLConstants.VARIANTS.equals(which)) {
              NodeSet.NodeSetTexter texter = new NodeSet.NodeSetTexter() { 
                     public String text(NodeSet.NodeSetEntry e) {
                         return new ULocale("__"+e.type).getDisplayVariant(inLocale);
                     }
             };
            doLocaleCodeList(subCtx, LOCALEDISPLAYNAMES + which, texter,
-                null);  // no default variant list
+                defaultSet);  // no default variant list
+        } else if(LDMLConstants.KEYS.equals(which)) {
+             NodeSet.NodeSetTexter texter = new StandardCodeTexter(which);
+             doLocaleCodeList(subCtx, LOCALEDISPLAYNAMES + which, texter,
+                defaultSet);  // no default  list
+        } else if(LDMLConstants.TYPES.equals(which)) {
+             NodeSet.NodeSetTexter texter = new StandardCodeTexter(which);
+             doLocaleCodeList(subCtx, LOCALEDISPLAYNAMES + which, texter,
+                defaultSet);  // no default  list
         } else {
             doMain(subCtx);
         }
@@ -609,11 +691,109 @@ class SurveyMain {
     public void doMain(WebContext ctx) {
         String ver = (String)docVersions.get(ctx.locale.toString());
         ctx.println("<hr/><p><p>");
+        ctx.println("<h3>Basic information about the Locale</h3>");
+        
         if(ver != null) {
-            ctx.println( LDMLUtilities.getCVSLink(ctx.locale.toString(), ver) + "Locale version #" + ver + "</a><br/>");
+            ctx.println( LDMLUtilities.getCVSLink(ctx.locale.toString(), ver) + "CVS version #" + ver + "</a><br/>");
+        }
+        
+        // print some basic stuff
+        ver = getAttributeValue(ctx.doc[0], "//ldml/identity/version", "number");
+        if(ver != null) {
+            ctx.println("XML Version number: " + ver + "<br/>");
+        }
+        ver = getAttributeValue(ctx.doc[0], "//ldml/identity/generation", "date");
+        if(ver != null) {
+            ctx.println("Generation date: " + ver + "<br/>");
         }
     }
+    
+    public static String getAttributeValue(Document doc, String xpath, String attribute) {
+        if(doc != null) {
+            Node n = LDMLUtilities.getNode(doc, xpath);
+            if(n != null) {
+                return LDMLUtilities.getAttributeValue(n, attribute);
+            }
+        }
+        return null;
+    }
 
+    /**
+     * Parse query fields, update hashes, etc.
+     * later, we'll see if we can generalize this function.
+     */
+    public void processLocaleCodeList(WebContext ctx, String xpath, NodeSet.NodeSetTexter tx) {
+            NodeSet mySet = NodeSet.loadFromPath(ctx, xpath, null);
+            Hashtable changes = (Hashtable)ctx.getByLocale(xpath);
+            // prepare a new hashtable
+            if(changes==null) { 
+                changes = new Hashtable(); 
+            }
+        // process items..
+        for(Iterator e = mySet.iterator();e.hasNext();) {
+            NodeSet.NodeSetEntry f = (NodeSet.NodeSetEntry)e.next();
+            
+            String type = f.type;
+            String main = null;
+            String mainFallback = null;
+            int mainDraft = 0; // count
+            String prop = null;
+            if(f.main != null) {
+                main = LDMLUtilities.getNodeValue(f.main);
+                if(LDMLUtilities.isNodeDraft(f.main)) {
+                    mainDraft = 1; // for now: one draft
+                }
+            }
+            // are we showing a fallback locale in the 'current' slot?
+            if( (f.fallback != null) && // if we have a fallback
+                ( (mainDraft > 0) || (f.main == null) ) ) {
+                mainFallback = f.fallbackLocale;
+            }
+            if(f.proposed != null) {
+                prop = LDMLUtilities.getNodeValue(f.proposed);
+            }
+
+            // Analyze user input.
+            String checked = null;  // What option has the user checked?
+            String newString = null;  // What option has the user checked?
+            if(changes != null) {
+                checked = (String)changes.get(type + SUBVETTING); // fetch VETTING data
+                newString = (String)changes.get(type + SUBNEW); // fetch NEW data
+            }
+            if(checked == null) {
+                checked = NOCHANGE;
+            }
+            
+            String formChecked = ctx.field(xpath + "/" + type);
+            
+            if((formChecked != null) && (formChecked.length()>0)) {   
+                if(!checked.equals(formChecked)) {
+                    checked = formChecked;
+                    if(checked.equals(NOCHANGE)) {
+                        changes.remove(type + SUBVETTING); // remove 'current' 
+                    } else {
+                        changes.put(type + SUBVETTING, checked); // set
+                        changes.put(type, f);
+                    }
+                }
+
+                // Don't consider the 'new text' form, unless we know the 'changes...' checkbox is present.
+                // this is because we can't distinguish between an empty and a missing field.
+                String formNew = ctx.field(xpath + "/" + type + SUBNEW );
+                if((formNew.length()>0) && !formNew.equals(UNKNOWNCHANGE)) {
+                    changes.put(type + SUBNEW, formNew);
+                    changes.put(type, f); // get the NodeSet in for later use
+                    newString = formNew;
+                } else if((newString !=null) && (newString.length()>0)) {
+                    changes.remove(type + SUBNEW);
+                    newString = null;
+                }
+            }            
+        }
+        if((changes!=null) && (!changes.isEmpty())) { 
+            ctx.putByLocale(xpath,changes); 
+        }
+    }
     /**
      * @param ctx the web context
      * @param xpath xpath to the root of the structure
@@ -631,10 +811,13 @@ class SurveyMain {
         Map sortedMap = mySet.getSorted(new DraftFirstTexter(tx));
         Hashtable changes = (Hashtable)ctx.getByLocale(xpath);
         
+        if(tx == null) {
+            tx = new NullTexter();
+        }
         
         // prepare a new hashtable
         if(changes==null) { 
-            changes = new Hashtable(); 
+            changes = new Hashtable();  // ?? TODO: do we need to create a hashtable here?
         }
 
         // NAVIGATION .. calculate skips.. 
@@ -687,7 +870,10 @@ class SurveyMain {
         }
         ctx.println("<tr>");
         ctx.println(" <th class='heading' bgcolor='#DDDDDD' >Name<br/><tt>Code</tt></th>");
-        ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=2>Contents</th>");
+        ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Best<br/>");
+        ctx.printHelpLink("/Best");
+        ctx.println("</th>");
+        ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Contents</th>");
         ctx.println("</tr>");
         
         // process items..
@@ -736,46 +922,25 @@ class SurveyMain {
                 newString = (String)changes.get(type + SUBNEW); // fetch NEW data
             }
             if(checked == null) {
-                checked = CURRENT;
-            }
-            
-            String formChecked = ctx.field(xpath + "/" + type);
-            
-            if((formChecked != null) && (formChecked.length()>0)) {   
-                if(!checked.equals(formChecked)) {
-                    checked = formChecked;
-                    if(checked.equals(CURRENT)) {
-                        changes.remove(type + SUBVETTING); // remove 'current' 
-                    } else {
-                        changes.put(type + SUBVETTING, checked); // set
-                        changes.put(type, f);
-                    }
-                }
-
-                // Don't consider the form, unless we know the checkbox is present.
-                // this is because we can't distinguish between an empty and a missing field.
-                String formNew = ctx.field(xpath + "/" + type + SUBNEW );
-                if(formNew.length()>0) {
-                    changes.put(type + SUBNEW, formNew);
-                    changes.put(type, f); // get the NodeSet in for later use
-                    newString = formNew;
-                } else if((newString !=null) && (newString.length()>0)) {
-                    changes.remove(type + SUBNEW);
-                    newString = null;
-                }
+                checked = NOCHANGE;
             }
             
             ctx.println("<tr>");
             // 1. name/code
             ctx.println("<th class='code' rowspan=" + nRows + ">" + tx.text(f) + "<br/><tt>" + type + "</tt>");
-            ctx.println(" ( " + nRows + " rows )");
-            ctx.println("</th>");
+            if(f.key != null) {
+                ctx.println(" <tt>(" + f.key + ")</tt>");
+            }
+            ctx.println("<br/><div class='nochange'>");
+            writeRadio(ctx,xpath,type,NOCHANGE,checked);
+            ctx.println("<font size=-2>No change</font>");
+            ctx.println("</div></th>");
             
             // Now there are a pair of columns for each of the following. 
             // 2. fallback
             if(mainFallback != null) {
                 ctx.println("<td align=right class='fallback'>");
-                ctx.println("<i>from " + new ULocale(mainFallback).getDisplayName(new ULocale("en_US")) + "</i>");
+                ctx.println("from " + new ULocale(mainFallback).getDisplayName(new ULocale("en_US")) + "");
                 writeRadio(ctx,xpath,type,CURRENT,checked);
                 ctx.println("</td>");
                 ctx.println("<td class='fallback'>");
@@ -791,12 +956,12 @@ class SurveyMain {
                 ctx.println("</td>");
             } else /*  if(main == null) */ {
                 ctx.println("<td align=right class='missing'>");
-                ctx.println("<i>missing</i>");
+                ctx.println("<i>current</i>");
                 writeRadio(ctx,xpath,type,CURRENT,checked);
                 ctx.println("</td>");
-                ctx.println("<td class='missing'>");
-                // nothing
-                ctx.println("</td>");
+                ctx.println("<td title=\"Data missing - raw code shown.\" class='missing'><tt>");
+                ctx.println(type); // in typewriter <tt> to show that it is a code.
+                ctx.println("</tt></td>");
             }
             ctx.println("</tr>");
             
@@ -804,7 +969,7 @@ class SurveyMain {
             if(mainDraft > 0) {
                 ctx.println("<tr>");
                 ctx.println("<td align=right class='draft'>");
-                ctx.println("<i>draft</i>");
+                ctx.println("draft");
                 writeRadio(ctx,xpath,type,DRAFT,checked);
                 ctx.println("</td>");
                 ctx.println("<td class='draft'>");
@@ -817,7 +982,7 @@ class SurveyMain {
             if(prop != null) {
                 ctx.println("<tr>");
                 ctx.println("<td align=right class='proposed'>");
-                ctx.println("<i>proposed</i>");
+                ctx.println("proposed");
                 writeRadio(ctx,xpath,type,PROPOSED,checked);
                 ctx.println("</td>");
                 ctx.println("<td class='proposed'>");
@@ -826,11 +991,10 @@ class SurveyMain {
                 ctx.println("</tr>");
             }
             
-            
             // edit text
             ctx.println("<tr>");
             ctx.println("<td align=right class='new'>");
-            ctx.println("<i>other:</i>");
+            ctx.println("change");
             writeRadio(ctx,xpath,type,NEW,checked);
             ctx.println("</td>");
             ctx.println("<td class='new'>");
@@ -838,14 +1002,17 @@ class SurveyMain {
             if(changes != null) {
            //     change = (String)changes.get(type + "//n");
             }
-            ctx.println("<input size=50 value=\"" + 
-                  (  (newString!=null) ? newString : "" )
+            ctx.print("<input size=50 ");
+            ctx.print("onblur=\"if (value == '') {value = '" + UNKNOWNCHANGE + "'}\" onfocus=\"if (value == '" + 
+                UNKNOWNCHANGE + "') {value =''}\" ");
+            ctx.print("value=\"" + 
+                  (  (newString!=null) ? newString : UNKNOWNCHANGE )
                     + "\" name=\"" + xpath +"/" + type + SUBNEW + "\">");
             ctx.println("</td>");
             ctx.println("</tr>");
             
 
-            ctx.println("<tr class='sep'><td class='sep' colspan=3 bgcolor=\"#EEEEDD\"><font size=-8>&nbsp;</font></td></tr>");
+            ctx.println("<tr class='sep'><td class='sep' style='height: 3px; overflow: hidden;' colspan=3 bgcolor=\"#CCCCDD\"></td></tr>");
 
             // -----
             
@@ -864,14 +1031,6 @@ class SurveyMain {
                         "More..." +
                         "</a> ");
         }
-        
-        if((changes!=null) && (!changes.isEmpty())) { 
-            ctx.println("Putting in locale: " + xpath + ", changes<br/>");
-            ctx.putByLocale(xpath,changes); 
-        }  else {
-            ctx.println("no changes..<br/>"); 
-        }
-
     }
     
     public static void main (String args[]) {
@@ -888,7 +1047,7 @@ class SurveyMain {
         while(new FCGIInterface().FCGIaccept()>= 0) {
             System.setErr(System.out);
             try {
-             m.go(System.out);
+             m.runSurvey(System.out);
             } catch(Throwable t) {
                 System.out.println("Content-type: text/html\n\n\n<pre>");
                 System.out.flush();
@@ -926,8 +1085,6 @@ class SurveyMain {
         endCell(ctx);
     }
 
-    
-    
     // utils
     private Node getVettedNode(Node context, String resToFetch){
         NodeList list = LDMLUtilities.getChildNodes(context, resToFetch);
@@ -949,14 +1106,6 @@ class SurveyMain {
         return null;
     }
     
-    static int qqq = 0;
-    static final String foo[] = { "Jellyfish", "Sucralose", "Henry F. Talbot", 
-                            "Rio Grande", "Zirconium", "Natto", "The Taj Mahal" };
-    static String getSillyText() { 
-        qqq++;
-        return foo[qqq%foo.length];
-    }
-    
     static protected File[] getInFiles() {
         // 1. get the list of input XML files
         FileFilter myFilter = new FileFilter() {
@@ -972,6 +1121,53 @@ class SurveyMain {
         return baseDir.listFiles(myFilter);
     }
     
+
+    void writeRadio(WebContext ctx,String xpath,String type,String value,String checked) {
+        writeRadio(ctx, xpath, type, value, checked.equals(value));        
+    }
+
+    void writeRadio(WebContext ctx,String xpath,String type,String value,boolean checked) {
+        ctx.println("<input type=radio name='" + xpath + "/" + type + "' value='" + value + "' " +
+            (checked?" CHECKED ":"") + "/>");
+    }
+
+
+    public static final com.ibm.icu.text.Transliterator hexXML = com.ibm.icu.text.Transliterator.getInstance(
+        "[^\\u0009\\u000A\\u0020-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");
+        
+    // cache of documents
+    static Hashtable docTable = new Hashtable();
+    static Hashtable docVersions = new Hashtable();
+    
+    public static Document fetchDoc( String locale) {
+        Document doc = null;
+        doc = (Document)docTable.get(locale);
+        if(doc!=null) {
+            return doc;
+        }
+        String fileName = fileBase + File.separator + locale + ".xml";
+        File f = new File(fileName);
+        boolean ex  = f.exists();
+        boolean cr  = f.canRead();
+        String res  = null; /* request.getParameter("res"); */ /* ALWAYS resolve */
+        String ver = LDMLUtilities.getCVSVersion(fileBase, locale + ".xml");
+        if(ver != null) {
+            docVersions.put(locale, ver);
+        }
+        if((res!=null)&&(res.length()>0)) {
+            // throws exception
+            doc = LDMLUtilities.getFullyResolvedLDML(fileBase, locale, 
+                   false, false, false);
+        } else {
+            doc = LDMLUtilities.parse(fileName, false);
+        }
+        if(doc != null) {
+            // add to cache
+            docTable.put(locale, doc);
+        }
+        return doc;
+    }
+        
     void loadAll() {   
         System.err.println("Pre-Loading cache...");
         File[] inFiles = getInFiles();
@@ -996,16 +1192,4 @@ class SurveyMain {
         System.err.println();
         System.err.println("Done. Fetched " + nrInFiles + " files.");
     }
-
-    void writeRadio(WebContext ctx,String xpath,String type,String value,String checked) {
-        writeRadio(ctx, xpath, type, value, checked.equals(value));        
-    }
-
-    void writeRadio(WebContext ctx,String xpath,String type,String value,boolean checked) {
-        ctx.println("<input type=radio name='" + xpath + "/" + type + "' value='" + value + "' " +
-            (checked?" CHECKED ":"") + "/>");
-    }
-
-
-
 }

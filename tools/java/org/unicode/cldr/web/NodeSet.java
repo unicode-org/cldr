@@ -39,6 +39,7 @@ public class NodeSet {
     public class NodeSetEntry {
         public String xpath = null;
         public String type;
+        public String key; // for types
         Vector otherAlts = new Vector();
 
         public Node main = null; // Main node. May be missing or draft.
@@ -51,6 +52,11 @@ public class NodeSet {
         
         public NodeSetEntry(String t) {
             type = t;
+            key = null;
+        }
+        public NodeSetEntry(String t, String k) {
+            type = t;
+            key = k;
         }
         
         public void add(Node node, String locale) {
@@ -70,6 +76,7 @@ public class NodeSet {
         public void add(Node node) {
             String alt = LDMLUtilities.getAttributeValue(node, LDMLConstants.ALT);
             String testType = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+            String testKey = LDMLUtilities.getAttributeValue(node, LDMLConstants.KEY);
             if(!testType.equals(type)) {
                 throw new RuntimeException("Types don't match: " + type + ", " + testType);
             }
@@ -110,9 +117,10 @@ public class NodeSet {
     }
     public void add(Node node, String locale) {
         String type = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+        String key = LDMLUtilities.getAttributeValue(node, LDMLConstants.KEY);
         NodeSetEntry nse = (NodeSetEntry)map.get(type);
         if(nse == null) {
-            nse = new NodeSetEntry(type);
+            nse = new NodeSetEntry(type, key);
             map.put(type,nse);
         }
         nse.add(node, locale);            
@@ -150,7 +158,7 @@ public class NodeSet {
 
         // Sigh.  May as well do this.
         for(i=(roots.length)-1;i>0;i--) {
-            ctx.println("Loading from: " + ctx.docLocale[i] + "<br/>");
+            //ctx.println("Loading from: " + ctx.docLocale[i] + "<br/>");
             if(roots[i] != null) for(Node node=roots[i].getFirstChild(); node!=null; node=node.getNextSibling()){
                 if(node.getNodeType()!=Node.ELEMENT_NODE){
                     continue;
@@ -186,6 +194,9 @@ public class NodeSet {
      * return the elements sorted according to the texter 
      */
     Map getSorted(NodeSetTexter nst) {
+        if(nst == null) {
+            nst = new NullTexter();
+        }
         TreeMap m = new TreeMap();
         for(Iterator e = iterator();e.hasNext();) {
             NodeSet.NodeSetEntry f = (NodeSet.NodeSetEntry)e.next();

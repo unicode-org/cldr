@@ -31,6 +31,9 @@ import com.ibm.icu.lang.UCharacter;
 
 public class DraftFirstTexter implements NodeSet.NodeSetTexter {
     public DraftFirstTexter(NodeSet.NodeSetTexter aTexter) {
+        if(aTexter == null) {
+            aTexter = new NullTexter();
+        }
         subTexter = aTexter;
     }
     public String text(NodeSet.NodeSetEntry e) {

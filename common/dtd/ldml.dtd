@@ -58,7 +58,7 @@
 
 <!ELEMENT alias  (special*) >
 <!ATTLIST alias source NMTOKEN #REQUIRED >
-<!ATTLIST alias type NMTOKEN #IMPLIED >
+<!ATTLIST alias path NMTOKEN #IMPLIED>
 
 <!ELEMENT default (special*) >
 <!ATTLIST default type CDATA #REQUIRED >

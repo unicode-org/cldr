@@ -1581,6 +1581,21 @@
 			</rules>
 			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
 		</collation  >
+		<collation type="TRADITIONAL" >
+			<rules>
+				<reset>N</reset>
+				<p>ñ</p>
+				<t>Ñ</t>
+				<reset>C</reset>
+				<p>ch</p>
+				<t>Ch</t>
+				<t>CH</t>
+				<reset>l</reset>
+				<p>ll</p>
+				<t>Ll</t>
+			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
+		</collation  >
 	</collations >
 	<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
 		<icu:ruleBasedNumberFormats>
@@ -1616,5 +1631,6 @@ veinte; veintiuno; veintidós; veintitrés; veinticuatro;
 2,000,000: &lt;&lt; millón[ &gt;&gt;];
 1,000,000,000: =#,##0= (incomplete data);
 			</icu:ruleBasedNumberFormat>
+		</icu:ruleBasedNumberFormats>
 	</special>
 </ldml>

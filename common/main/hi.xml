@@ -587,5 +587,12 @@
 		</rules>
 		<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="2.0" />
 	</collation  >
+	<collation type="DIRECT" >
+		<rules>
+			<reset><last_non_ignorable/></reset>
+			<pc>ँंःअआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनऩपफबभमयरऱलळऴवशषसह़ऽािीुूृॄॅॆेैॉॊोौ्ॐ॒॑॓॔क़ख़ग़ज़ड़ढ़फ़य़ॠॡॢॣ।॥०१२३४५६७८९</pc>
+		</rules>
+		<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
+	</collation  >
 </collations >
 </ldml>

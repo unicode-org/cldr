@@ -1629,6 +1629,24 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<collations version="3.1.1">
+		<collation type="PHONEBOOK" >
+			<rules>
+				<reset>ae</reset>
+				<t>ä</t>
+				<reset>AE</reset>
+				<t>Ä</t>
+				<reset>oe</reset>
+				<t>ö</t>
+				<reset>OE</reset>
+				<t>Ö</t>
+				<reset>ue</reset>
+				<t>ü</t>
+				<reset>UE</reset>
+			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
+		</collation  >
+	</collations >
 	<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
 		<icu:ruleBasedNumberFormats>
 			<icu:ruleBasedNumberFormat type="spellout">
@@ -1664,5 +1682,6 @@
     &amp; ue , ü &amp; ue , Ü
 
 			</icu:ruleBasedNumberFormat>
+		</icu:ruleBasedNumberFormats>
 	</special>
 </ldml>

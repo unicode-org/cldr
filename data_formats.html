@@ -1,0 +1,262 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Localizer</title>
+</head>
+
+<body>
+
+<h1 align="center">Data Formats</h1>
+<p>This document provides basic information about data formats for fields in the
+Common Locale Data Repository. It is intended to clarify the meaning of some of
+the data in the CLDR for localizers and other people reading the CLDR comparison
+charts.</p>
+<p>The formats are described in the LDML <a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm">specification</a>;
+in addition, there is a link at the top of the page to the ICU locale explorer,
+where the results of different formats can be viewed. Note that some fields are
+expected to be in English, since they indicate internal IDs and <i>not</i>
+translated text, such as the layout orientation, which has the value
+&quot;top-to-bottom&quot;.</p>
+<p>This document is fairly rough at this point, and needs quite a bit of work.
+However, we felt it worth posting to help answer common questions about the
+format.</p>
+<h2>Regions, Languages, Scripts, Currency Names</h2>
+<blockquote>
+  <p>These items are perhaps the simplest to translate. The typically behavior
+  if any particular one is not available is to display the corresponding ISO
+  code (or RFC 3066 code). Thus if there is no localization of FR (France), then
+  the string &quot;FR&quot; will appear.</p>
+  <p>For a list of the kinds of IDs that can be localized, see the <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/all_diff_xml/en_US.html">English-US
+  locale data</a>, which has most regions, languages, scripts and currency names
+  translated. For the possible timezone IDs that can be translated, see <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/olson_ids.txt">Olson
+  IDs</a>.</p>
+  <p>Because these lists are long, it may be more difficult to collect all the
+  data at once. If that is the case, we suggest first providing translations of
+  at least the elements that are most familiar to people with the target
+  language. This might be, for example, the countries, languages, scripts, and
+  (modern) currencies for:</p>
+  <ol>
+    <li>Countries having the target language as an official language</li>
+    <li>G7 + BRIC countries: US, Canada, Japan, UK, France, Germany, Italy;
+      Brazil, Russia, India, China</li>
+    <li>Countries adjacent to the countries in #1</li>
+  </ol>
+</blockquote>
+<h2><a name="CurrencyElements">Currency Elements</a></h2>
+<blockquote>
+  <p>These strings are used in parsing/formatting numbers which are designated
+  as currency values.</p>
+</blockquote>
+<dl>
+  <dt><b>Currency Symbol</b>
+  <dd>This is used whenever a 'currency symbol' (\u00A4) is encountered in a
+    currency number pattern.
+  <dt><b>Int'l Currency Symbol</b>
+  <dd>Three-letter international code for a currency. Used where a doubled
+    currency symbol (\u00A4 \u00A4) is encountered in a number pattern.
+  <dt><b>Currency separator</b>
+  <dd>This is used as the decimal separator in currency formatting/parsing,
+    instead of the DecimalSeparator from the <a href="#NumberElements">NumberElements</a>
+    list.</dd>
+</dl>
+<h2><a name="DateTimeElements">Date &amp; Time Options</a></h2>
+<dl>
+  <dt><b>First day of the week</b>
+  <dd>A number indicating which day of the week is considered the 'first' day,
+    for calendar purposes. It is 1-based, with 1 being Sunday, 2 being Monday,
+    .. 7 being Saturday.
+  <dt><b>Minimal Days in First Week</b>
+  <dd>Minimal days required in the first week of a month or year. For example,
+    if the first week is defined as one that contains the first day of the first
+    month of a year, this value will be 1. If it must be a full seven days
+    before it counts as the first week, then the value would be 7.</dd>
+</dl>
+<h2><a name="DateTimePatterns">Date &amp; Time Patterns</a></h2>
+<blockquote>
+  <p>The first 8 items are different lengths of either date or time patterns.
+  See the <a href="#localPatternChars">localPatternChars</a> (in the locale) for
+  the meanings of special characters.</p>
+</blockquote>
+<p><b>Quoting rules</b></p>
+<blockquote>
+  <p>Single quotes, (<b>'</b>), enclose bits of the pattern that should be
+  treated literally. Inside a quoted string, two single quotes ('') are replaced
+  with a single one ('). For example: <tt><u>'class of '</u>YYYY<u>' at '</u>h<u>'
+  o''clock'</u></tt> -&gt; <b>class of 1939 at 6 o'clock</b> (Literal strings <u>underlined</u>.)</p>
+</blockquote>
+<h2><a name="NumberElements">Number Elements</a></h2>
+<blockquote>
+  <p>Symbols used in number formatting and parsing. Used in <a href="#NumberPatterns">NumberPatterns</a>.</p>
+</blockquote>
+<dl>
+  <dt><b>Decimal Separator</b>
+  <dd>- separates the integer and fractional part of the number.
+  <dt><b>Grouping Separator</b>
+  <dd>- groups (for example) units of thousands: 10^6 = 1,000,000. The grouping
+    separator is commonly used for thousands, but in some countries for
+    ten-thousands. The interval is a constant number of digits between the
+    grouping characters, such as 100,000,000 or 1,0000,0000. If you supply a
+    pattern with multiple grouping characters, the interval between the last one
+    and the end of the integer is the one that is used. So
+    &quot;#,##,###,####&quot; == &quot;######,####&quot; ==
+    &quot;##,####,####&quot;.
+  <dt><b>Pattern Separator</b>
+  <dd>- sets the character used for separating variant expressions. (For
+    example: <u>0.00<b>;</b>(0.00)</u> where the second pattern is the form to
+    use for negative number)
+  <dt><b>Percent</b>
+  <dd>- symbol used to indicate a percentage (1/100th) amount. (If present, the
+    value is also multiplied by 100 before formatting. That way 1.23 =&gt; 123%)
+  <dt><b>ZeroDigit</b>
+  <dd>- Symbol used to indicate a digit in the pattern, or zero if that place
+    would otherwise be empty. For example, with the digit of '0', the pattern
+    &quot;000&quot; would format &quot;34&quot; as &quot;034&quot;, but the
+    pattern &quot;0&quot; would format &quot;34&quot; as just &quot;34&quot;. As
+    well, the digits 1-9 are expected to follow the code point of this specified
+    0 value.
+  <dt><b>Digit</b>
+  <dd>- Symbol used to indicate any digit value. If that digit is zero, then it
+    is not shown.
+  <dt><b>Minus Sign</b>
+  <dd>- Symbol used to denote negative value.
+  <dt><b>Exponential</b>
+  <dd>- Symbol separating the mantissa and exponent values.
+  <dt><b>PerMill</b>
+  <dd>- symbol used to indicate a per-mille (1/1000th) amount. (If present, the
+    value is also multiplied by 1000 before formatting. That way 1.23 =&gt; 1230
+    [1/000])
+  <dt><b>Infinity</b>
+  <dd>- The infinity sign. Corresponds to the IEEE infinity bit pattern.
+  <dt><b>Not a number</b>
+  <dd>- The NaN sign. Corresponds to the IEEE NaN bit pattern.</dd>
+</dl>
+<h2><a name="NumberPatterns">Number Patterns</a></h2>
+<blockquote>
+  <p>Patterns for formatting different types of numbers. Note that the <a href="#NumberElements">NumberElements</a>
+  resource affects how these patterns are interpreted.</p>
+</blockquote>
+<dl>
+  <dt><b>Decimal</b>
+  <dd>The normal locale specific way to write a base 10 number.
+  <dt><b>Currency</b>
+  <dd>Use \u00A4 where the local currency symbol should be. Doubling the
+    currency symbol (\u00A4\u00A4) will output the international currency symbol
+    (a 3-letter code).
+  <dt><b>Percent</b>
+  <dd>Pattern for use with percentage formatting
+  <dt><b>Scientific</b>
+  <dd>Pattern for use with scientific (exponent) formatting.</dd>
+</dl>
+<p><b>Quoting rules:</b></p>
+<blockquote>
+  <p>Single quotes, (<b>'</b>), enclose bits of the pattern that should be
+  treated literally. Inside a quoted string, two single quotes ('') are replaced
+  with a single one ('). For example: <tt><u>'X '</u>#<u>' at '</u>h<u>'
+  o''clock'</u></tt> -&gt; <b>class of 1939 at 6 o'clock</b> (Literal strings <u>underlined</u>.)</p>
+</blockquote>
+<h2>Time Zones</h2>
+<blockquote>
+  <p>A time zone uses the Olson IDs, such as America/Los Angeles. These IDs
+  provide not only the information as to the offset from GMT (UTC), but also the
+  daylight savings information. Thus, for example, America/Phoenix is distinct
+  from America/Denver because they have different daylight savings time
+  behavior. There are many cases where there is no modern difference between two
+  IDs; they are only distinguished in the past. For example, XXX/YYY and ZZZ/WWW
+  are currently the same, but differed in the past.</p>
+  <p>Most countries do not span multiple time zones, and may not have localized
+  names for particular time zones. In that case, probably the best localizations
+  are something of a form like &quot;New York Time&quot;.</p>
+  <p>Localized names for time zones. The fields are:</p>
+  <ul>
+    <li>Display long name for the normal time zone.
+    <li>Abbreviation for the normal time zone.
+    <li>Display long name for the time zone on summer/daylight savings time.
+    <li>Abbreviation for the time zone on summer/daylight savings time.
+    <li>A city in the specified time zone.</li>
+  </ul>
+</blockquote>
+<h2>AM / PM</h2>
+<blockquote>
+  <p>Even for countries where the customary date format only has a 24 hour
+  format, both the am and pm localized strings must be present and must be
+  distinct from one another. However, if the 24 hour format is used, these
+  strings will normally never be used.</p>
+</blockquote>
+<h2><a name="localPatternChars">Localized Date Pattern Chars</a></h2>
+<blockquote>
+  <p>These characters are replaced with the appropriate values when a date or
+  time is being formatted.</p>
+  <p>Characters may be used multiple times. For example, if y is used for the
+  year, 'yy' might produce '99', whereas 'yyyy' produces '1999'.</p>
+  <p>For most numerical characters, the number of characters specifies the field
+  width. For example, if h is the hour, 'h' might produce '5', but 'hh' produces
+  '05'. For some characters, the count specifies whether an abbreviated or full
+  form should be used.</p>
+  <p><b>Note:</b> In the following list, the default (English) form is used as
+  an example, but see the actual locale for the correct characters!</p>
+</blockquote>
+<ul>
+  <li><tt>G</tt> Era - Replaced with the <a href="#Era">Era</a> string for the
+    current date.
+  <li><tt>y</tt> Year - Use two for the short year, or 4 for the full year
+  <li><tt>M</tt> Month - Use one or two for the numerical month, three for the
+    abbreviation, or four for the full name.
+  <li><tt>d</tt> Date - Day of the month. Use one, or two for zero padding.
+  <li><tt>k</tt> Hour of day 1 [Midnight appears as '24']
+  <li><tt>H</tt> Hour of day 0 [0-23]
+  <li><tt>m</tt> Minute - Use one or two
+  <li><tt>s</tt> Second - use one or two
+  <li><tt>S</tt> Millisecond - Use 1,2, or 3.. shows the MOST significant
+    digits.
+  <li><tt>E</tt> Day of week - Use three for the short day, or four for the full
+    name.
+  <li><tt>D</tt> Day of year - Use 1-3
+  <li><tt>F</tt> Day of Week in Month- use one. This is 1 for the first day of
+    the week, etc..
+  <li><tt>w</tt> Week of Year - use 1 or 2.
+    <ul>
+      <font size="-1">&quot;Values calculated for the WEEK_OF_YEAR field range
+      from 1 to 53. Week 1 for a year is the first week that contains at least
+      getMinimalDaysInFirstWeek() days from that year. It depends on the values
+      of getMinimalDaysInFirstWeek(), getFirstDayOfWeek(), and the day of the
+      week of January 1. Weeks between week 1 of one year and week 1 of the
+      following year are numbered sequentially from 2 to 52 or 53 (if needed).
+      For example, January 1, 1998 was a Thursday. If getFirstDayOfWeek() is
+      MONDAY and getMinimalDaysInFirstWeek() is 4 (these are the values
+      reflecting ISO 8601 and many national standards), then week 1 of 1998
+      starts on December 29, 1997, and ends on January 4, 1998. However, if
+      getFirstDayOfWeek() is SUNDAY, then week 1 of 1998 starts on January 4,
+      1998, and ends on January 10, 1998. The first three days of 1998 are then
+      part of week 53 of 1997.&quot; (from <a href="http://oss.software.ibm.com/icu/userguide/dateCalendar.html#cal">ICU
+      User's Guide</a>)</font>
+    </ul>
+  <li><tt>W</tt> Week of month - use 1
+  <li><tt>a</tt> AM or PM
+  <li><tt>h</tt> Hour 1 - Noon and Midnight show up as &quot;12&quot;
+  <li><tt>K</tt> Hour 0 - [0-11]
+  <li><tt>z</tt> Timezone. Use 3 for the short timezone (i.e. PST) or 4 for the
+    full name (Pacific Standard Time). If there's no name for the zone, it'll
+    show up as GMT+/-hh:mm.
+  <li><tt>A</tt> Year (of &quot;Week of Year&quot;). [May differ from Calendar
+    year, see comments under 'Week of Year', above.]
+  <li><tt>e</tt> Timezone. Use 3 for the short timezone (i.e. PST) or 4 for the
+    full name (Pacific Standard Time). If there's no name for the zone, it'll
+    show up as GMT+/-hh:mm.</li>
+</ul>
+<h2>Other Issues:</h2>
+<h3>BIDI Ordering</h3>
+<blockquote>
+  <p>In the comparison charts, the ordering of characters for BIDI languages is
+  up to the browser. The ordering may differ from the typical ordering in
+  context, so may be helpful to copy the text from the charts and paste into
+  typical environments to ensure that the ordering is correct. This is
+  especially the case for date, time and number formats.</p>
+</blockquote>
+
+</body>
+
+</html>

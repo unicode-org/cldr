@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1"/>
-		<generation date="2004-08-13" />
+		<version number="1.2"/>
+		<generation date="2004-08-17" />
 		<language type="ar" /> 
 		<territory type="KW" /> 
 	</identity>
@@ -12,6 +12,16 @@
 	</layout>
 	<characters>
 	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<week>
+					<weekendStart draft="true" day="thu" time="00:00"/>
+					<weekendEnd draft="true" day="sat" time="00:00"/>
+				</week>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
 		<decimalFormats>
 			<decimalFormatLength >

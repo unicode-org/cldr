@@ -2428,16 +2428,15 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 								//xmlString.append(formatString(mStringsBundle.getStringEx(seqKey,mError),args,2,t));
 							    writeCollation(args[1].getString(),xmlString, seqKey);
                             }
-                            
-						    
-                            if(src.current== src.end){
-                                break;
-                            }
+                          
 						}
                         //reset
 						
                         count = 0;
 						collStr.remove();
+                        if(src.current== src.end){
+                            break;
+                        }
 					}
 			  }
 

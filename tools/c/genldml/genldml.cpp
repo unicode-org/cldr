@@ -483,9 +483,9 @@ void GenerateXML::writeIdentity(){
 	tempStr2=mLocale.getLanguage();
     
 	if(! tempStr2.isEmpty()){
-        if(tempStr2 == "root"){
-            tempStr2 ="";
-        }
+        //if(tempStr2 == "root"){
+        //    tempStr2 ="";
+        //}
 		Formattable args1[] = {indentOffset, tempStr2,""};
 		UnicodeString t;
 		xmlString.append(formatString(mStringsBundle.getStringEx("languageElem",mError),args1,3,t));
@@ -2219,9 +2219,7 @@ void GenerateXML::writeCollation(ResourceBundle& bundle,UnicodeString& xmlString
                args[0] = indentOffset;
                args[1] = sequence;
                xmlString.append(formatString(mStringsBundle.getStringEx("default",mError),args,2,t));
-           }
-    else {
-
+    }else {
         if( mError!=U_USING_DEFAULT_WARNING && 
 		    U_SUCCESS(mError) && 
 		    mError!=U_USING_FALLBACK_WARNING){
@@ -2274,6 +2272,74 @@ void GenerateXML::writeCollation(ResourceBundle& bundle,UnicodeString& xmlString
         }
     }
     mError = U_ZERO_ERROR;
+}
+UnicodeString& appendHex(uint32_t number,
+            int32_t digits,
+            UnicodeString& target)
+{
+    static const UChar digitString[] = {
+        0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39,
+        0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0
+    }; /* "0123456789ABCDEF" */
+
+    switch (digits)
+    {
+    case 8:
+        target += digitString[(number >> 28) & 0xF];
+    case 7:
+        target += digitString[(number >> 24) & 0xF];
+    case 6:
+        target += digitString[(number >> 20) & 0xF];
+    case 5:
+        target += digitString[(number >> 16) & 0xF];
+    case 4:
+        target += digitString[(number >> 12) & 0xF];
+    case 3:
+        target += digitString[(number >>  8) & 0xF];
+    case 2:
+        target += digitString[(number >>  4) & 0xF];
+    case 1:
+        target += digitString[(number >>  0) & 0xF];
+        break;
+    default:
+        target += "**";
+    }
+    return target;
+}
+
+
+// Replace nonprintable characters with unicode escapes
+UnicodeString& prettify(const UnicodeString &source,UnicodeString &target)
+{
+    int32_t i;
+
+    target.remove();
+    target += "\"";
+
+    for (i = 0; i < source.length(); )
+    {
+        UChar32 ch = source.char32At(i);
+        i += UTF_CHAR_LENGTH(ch);
+
+        if (ch < 0x09 || (ch > 0x0A && ch < 0x20)|| ch > 0x7E)
+        {
+            if (ch <= 0xFFFF) {
+                target += "\\u";
+                appendHex(ch, 4, target);
+            } else {
+                target += "\\U";
+                appendHex(ch, 8, target);
+            }
+        }
+        else
+        {
+            target += ch;
+        }
+    }
+
+    target += "\"";
+
+    return target;
 }
 
 #define UCOL_TOK_UNSET    0xFFFFFFFF
@@ -2532,19 +2598,12 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 			  UnicodeString tempStr;
 			  startOfRules = FALSE;
 			  tempStr.append(src.chars,src.charsLen);
-
-              int32_t indexOfPipe = tempStr.indexOf((UChar)0x7c);
               if(U_FAILURE(mError)){
                   fprintf(stderr,"parseRules returned NULL for strength!. Error: %s", u_errorName(mError));
                   exit(1);
               }
-              if( indexOfPipe >= 0 && tempStr.length() > 1){
-                    UnicodeString str = mStringsBundle.getStringEx("context",mError);
-                    escape(tempStr);
-                    str.append(tempStr);
-					str.findAndReplace((UChar)0x7C, mStringsBundle.getStringEx("contextEnd",mError));
-	                tempStr = str;
-			  }
+            //  int32_t indexOfPipe = tempStr.indexOf((UChar)0x7c);
+
               if((prevStrength == strength) && (prevStrength == UCOL_TOK_DONE)){
                   if(mSettings.length()!=0 && writtenSettings == FALSE){
                       Formattable args[]={ indentOffset, mSettings} ;
@@ -2563,12 +2622,12 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
                   isTempStrContraction==TRUE/* contraction */ || 
                   isCollStrContraction==TRUE/* contraction */ ||
                   tempStr.indexOf((UChar)UCOL_TOK_EXPANSION_MARKER) >=0 || /* expansion */
-                  collStr.indexOf((UChar)UCOL_TOK_EXPANSION_MARKER) >=0 /* expansion */){
+                  collStr.indexOf((UChar)UCOL_TOK_EXPANSION_MARKER) >=0 ||/* expansion */
+                  tempStr.indexOf((UChar)0x7c) >=0 || /*context */
+                  collStr.indexOf((UChar)0x7c) >=0 /*context*/){
 
 					char* singleKey = NULL;
 					char* seqKey = NULL;
-					
-                    escape(collStr);
 					// assume that settings always preceed rule strings
 
 					Formattable args[] = {indentOffset,collStr,""};
@@ -2590,6 +2649,7 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 								indentOffset.append("\t");
 								appendedRules = TRUE;
 							}
+                            escape(collStr);
 							writeReset(collStr,xmlString);
 						}else if(prevStrength==UCOL_TOK_OVERRIDE){
                             UnicodeString temp("[backwards on]");
@@ -2674,67 +2734,67 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 	free(src.chars);
 	return xmlString;
 }
-void GenerateXML::writeCollation(UnicodeString& src, UnicodeString &xmlString,uint32_t prevStrength, const char* keyName){
-    int i =src.indexOf("</context>");
-    Formattable args[] = { indentOffset ,"" , ""};
-    UnicodeString t,temp;
-    
-    int32_t index = src.indexOf((UChar) UCOL_TOK_EXPANSION_MARKER);
-    if(index>0 && i<0){
-        UnicodeString prepend;
-        UnicodeString append;
-        switch(prevStrength){
-            case UCOL_PRIMARY:
-                 prepend = "<x><p>";
-                 append = "</p><extend>";
-                 break;
-            case UCOL_SECONDARY:
-                 prepend = "<x><s>";
-                 append = "</s><extend>";
-                 break;
-            case UCOL_TERTIARY:
-                 prepend = "<x><t>";
-                 append = "</t><extend>";
-                 break;
-            case UCOL_QUATERNARY:
-                 prepend = "<x><p>";
-                 append = "</p><extend>";
-                 break;
-            default:
-                return;
-        }
-       // & c < k / h
-       // <x><p>k</p> <extend>h</extend></x>
-       //
-       src.remove(index,1); // remove forward slash
-       src.insert(index, append);
-       src.insert(0,prepend);
-       src.append("</extend></x>\n");
-       src.insert(0, indentOffset);
-       temp.append(src);
-    
-    }else if(i>0){
-        UnicodeString temp1,temp2;
-        i += strlen("</context>");
-        src.extract(0,i,temp1);
-        src.extract(i,src.length(),temp2);
-        args[0] = "";
-        args[1] = temp2;
-        temp1.append(formatString(mStringsBundle.getStringEx(keyName,mError),args,2,t));
-        
-        args[0] = indentOffset;
-        args[1] = temp1;
-        temp.append(formatString(mStringsBundle.getStringEx("extension",mError),args,2,t));
-        temp.append("\n");
-    }else{
-        if(src.length() >0){
-            args[1] = src;
-            temp.append(formatString(mStringsBundle.getStringEx(keyName,mError),args,2,t));
-            temp.append("\n");
-        }
-    }
-    xmlString.append(temp);
 
+int32_t findUChar(const UChar* src, int32_t len, UChar c){
+    int32_t i=0;
+    while(i<len){
+        if(src[i]==c){
+            return i;
+        }
+        i++;
+    }
+    return -1;
+}
+void GenerateXML::writeCollation(UnicodeString& src, UnicodeString &xmlString,uint32_t prevStrength, const char* keyName){
+// strength context string extension
+// <<<<  <context> | <string> / <extension>
+    Formattable args[] = {"" , ""};
+    UnicodeString context, string, extension, temp;
+    int32_t index =  src.indexOf((UChar) 0x7C);
+    int32_t contextMarker = (index>-1 && src.length() > 1) ? index : -1 ;
+    if(contextMarker >=0 ){
+        src.extract(0, contextMarker, context);
+        escape(context);
+        args[1] = context;
+        context = formatString(mStringsBundle.getStringEx("context", mError), args, 2, temp);
+    }
+    int32_t extensionMarker = src.indexOf((UChar) UCOL_TOK_EXPANSION_MARKER);
+    if(extensionMarker >= 0){
+        src.extract(extensionMarker+1 /*skip past the extension marker*/,
+                    src.length(), extension);
+        escape(extension);
+        args[1] = extension;
+        extension = formatString(mStringsBundle.getStringEx("extend",mError),args,2,temp);
+    }
+    if(contextMarker >=0 && extensionMarker >=0){
+        src.extract(contextMarker+1, extensionMarker - (contextMarker+1), string);
+    }else if(contextMarker >=0){
+        src.extract(contextMarker+1, src.length()-contextMarker, string);
+    }else if(extensionMarker >=0){
+        src.extract(0,extensionMarker, string);
+    }else{
+        string = src;
+    }
+    escape(string);
+    args[0] = "";
+    args[1] = string;
+    string  = formatString(mStringsBundle.getStringEx(keyName,mError),args,2,temp);
+    temp.remove();
+
+    if(contextMarker>-1){
+        temp.append(context);
+    }
+    temp.append(string);
+    if(extensionMarker>-1){
+        temp.append(extension);
+    }
+    if(contextMarker > -1 || extensionMarker > -1){
+        temp.insert(0,"<x>");
+        temp.append("</x>");
+    }
+    temp.insert(0, indentOffset);
+    temp.append("\n");
+    xmlString.append(temp);
 }
 void GenerateXML::escape(UnicodeString& str){
 	UnicodeString temp;
@@ -2821,74 +2881,6 @@ int32_t u_strncmpNoCase(const UChar     *s1,
         }
     }
     return 0;
-}
-
-UnicodeString& appendHex(uint32_t number,
-            int32_t digits,
-            UnicodeString& target)
-{
-    static const UChar digitString[] = {
-        0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39,
-        0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0
-    }; /* "0123456789ABCDEF" */
-
-    switch (digits)
-    {
-    case 8:
-        target += digitString[(number >> 28) & 0xF];
-    case 7:
-        target += digitString[(number >> 24) & 0xF];
-    case 6:
-        target += digitString[(number >> 20) & 0xF];
-    case 5:
-        target += digitString[(number >> 16) & 0xF];
-    case 4:
-        target += digitString[(number >> 12) & 0xF];
-    case 3:
-        target += digitString[(number >>  8) & 0xF];
-    case 2:
-        target += digitString[(number >>  4) & 0xF];
-    case 1:
-        target += digitString[(number >>  0) & 0xF];
-        break;
-    default:
-        target += "**";
-    }
-    return target;
-}
-
-// Replace nonprintable characters with unicode escapes
-UnicodeString& prettify(const UnicodeString &source,UnicodeString &target)
-{
-    int32_t i;
-
-    target.remove();
-    target += "\"";
-
-    for (i = 0; i < source.length(); )
-    {
-        UChar32 ch = source.char32At(i);
-        i += UTF_CHAR_LENGTH(ch);
-
-        if (ch < 0x09 || (ch > 0x0A && ch < 0x20)|| ch > 0x7E)
-        {
-            if (ch <= 0xFFFF) {
-                target += "\\u";
-                appendHex(ch, 4, target);
-            } else {
-                target += "\\U";
-                appendHex(ch, 8, target);
-            }
-        }
-        else
-        {
-            target += ch;
-        }
-    }
-
-    target += "\"";
-
-    return target;
 }
 
 static inline 

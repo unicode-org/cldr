@@ -475,15 +475,12 @@ root{
 	identicalSeq         {
 							 "{0}<ic>{1}</ic>"
 					     }
-    extension            {
-                             "{0}<x>{1}</x>"
+    extend               {
+                             "{0}<extend>{1}</extend>"
                          }
 
 	context				 {
-							 "<context>"
-						 }
-	contextEnd			 {
-							 "</context>"
+							 "{0}<context>{1}</context>"
 						 }
 
     collator             {

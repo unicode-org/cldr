@@ -467,6 +467,7 @@
 		<scripts>
 			<script type="Arab">Arabisk</script>
 			<script type="Armn">Armensk</script>
+			<script type="Copt">Koptisk</script>
 			<script type="Cprt">Cypriotisk</script>
 			<script type="Cyrl">Kyrillisk</script>
 			<script type="Deva">Devanagarisk</script>
@@ -480,7 +481,6 @@
 			<script type="Ital">Olditalisk</script>
 			<script type="Latn">Latinsk</script>
 			<script type="Mong">Mongolsk</script>
-			<script type="Qaac">Koptisk</script>
 			<script type="Runr">Runer</script>
 			<script type="Sinh">Singalesisk</script>
 			<script type="Syrc">Syrisk</script>
@@ -2655,8 +2655,6 @@ wak { "Wakashan Languages" }
 ypk { "Yupik Languages" }
 zh_cn { "Kinesisk (Forkortet)" }
 zh_tw { "Kinesisk (Uforkortet)" }
-        "Latn",  // ISO 15924 Name 
-        Qaac { "Koptisk" } // Coptic is not a formal part of ISO-15924 yet
 Yiii { "Jiddisch" } // This is wrong. This is Yi, not Yiddish.
         Zyyy { "Ukendt" } // This may need to become "undetermined script"
 variants for collation (traditional may also be used for traditional chinese)

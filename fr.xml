@@ -213,6 +213,7 @@
 			<script type="Buhd">bouhide</script>
 			<script type="Cans">syllabaire autochthone canadien unifié</script>
 			<script type="Cher">tchérokî</script>
+			<script type="Copt">copte</script>
 			<script type="Cprt">chypriote</script>
 			<script type="Cyrl">cyrillique</script>
 			<script type="Deva">dévanâgarî</script>
@@ -244,7 +245,6 @@
 			<script type="Ogam">ogam</script>
 			<script type="Orya">oriyâ</script>
 			<script type="Osma">osmanais</script>
-			<script type="Qaac">copte</script>
 			<script type="Qaai">hérité</script>
 			<script type="Runr">runique</script>
 			<script type="Shaw">shavien</script>
@@ -2622,10 +2622,8 @@ TL { "Timor" }
 DIF { "DIF", "franc de Djibouti" } ( unconfirmed )
 XPS { "XPS", "livre sterling" }
 XSS { "XSS", "shilling sterling" }
-        "Latn",  // ISO 15924 Name 
 http://lcweb.loc.gov/standards/iso639-2/frenchlangn.html
 Fallback { "en" }
-        Qaac { "copte" } // Coptic is not a formal part of ISO-15924 yet
         Qaai { "h\u00E9rit\u00E9" } // PUA
 Zyyy { "commun" } // This could be "\u00E9criture ind\u00E9termin\u00E9e"
 

@@ -22,7 +22,7 @@
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
+						<monthWidth type="wide">
 							<month type="1">জানুয়াৰী</month>
 							<month type="2">ফেব্ৰুয়াৰী</month>
 							<month type="3">মাৰ্চ</month>
@@ -36,7 +36,7 @@
 							<month type="11">নভেম্বৰ</month>
 							<month type="12">ডিসেম্বৰ</month>
 						</monthWidth>
-						<monthWidth type="wide">
+						<monthWidth type="abbreviated">
 							<month type="1">জানু</month>
 							<month type="2">ফেব্ৰু</month>
 							<month type="3">মাৰ্চ</month>
@@ -75,14 +75,11 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<am>পূৰ্বা</am>
-				<!-- Purbahna পূৰ্বাহ্ণ -->
-				<pm>অপ</pm>
+				<am>পূৰ্বা</am> <!-- Purbahna পূৰ্বাহ্ণ -->
+				<pm>অপ</pm> <!-- Aparahna অপৰাহ্ণ -->
 			</calendar>
 		</calendars>
-		<!-- Aparahna অপৰাহ্ণ
-NO ERA INFO
-		-->
+                <!-- NOTE: NO ERA INFO -->
 		<timeZoneNames>
 			<zone type="Asia/Calcutta">
 				<long>

@@ -58,24 +58,27 @@
 		</calendars>
 	</dates>
 	<numbers>
+		<symbols>
+                  <group>ወ</group>
+                </symbols>
 		<decimalFormats>
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern>#ወ##0.###;-#ወ##0.###</pattern>
+					<pattern>#,##0.###;-#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#ወ##0%</pattern>
+					<pattern>#,##0%</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>¤#ወ##0.00;-¤#ወ##0.00</pattern>
+					<pattern>¤#,##0.00;-¤#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

@@ -764,7 +764,7 @@ public class LDML2ICUConverter {
                     }
                     str.comment = "Draft";
                 }
-                str.val= str.val.replaceAll("\\$Revision$1");
+                str.val= str.val.replaceAll("Revision: (.*?) .*", "$1");
                 res = str;
             }else if(name.equals(LDMLConstants.LANGUAGE)||
                     name.equals(LDMLConstants.SCRIPT) ||

@@ -2356,7 +2356,7 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
               if((prevStrength == strength) && (prevStrength == UCOL_TOK_DONE)){
                   break;
               }
-			  if((prevStrength != strength) ){
+			  if((prevStrength != strength) || tempStr.length() >1 /* contraction */ ){
 					char* singleKey = NULL;
 					char* seqKey = NULL;
 					
@@ -2467,7 +2467,7 @@ void GenerateXML::writeCollation(UnicodeString& src, UnicodeString &xmlString, c
     UnicodeString t,temp;
     
     int32_t index = src.indexOf((UChar)0x2F);
-    if(index>0){
+    if(index>0 && i<0){
        // & c < k / h
        // <x><p>k</p> <extend>h</extend></x>
        //

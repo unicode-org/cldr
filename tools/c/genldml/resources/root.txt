@@ -26,6 +26,11 @@ root{
 
                              
                          }
+    supplementalDeclaration{
+                                "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
+                                "<!DOCTYPE supplementalData SYSTEM \"http://www.openi18n.org/spec/ldml/1.0/ldmlSupplemental.dtd\" >\n"
+
+                         }
 	default				 {
 							 "{0}<default type=\"{1}\"/>\n"
 						 }
@@ -592,6 +597,42 @@ root{
                          }
     icu_script           {
                              "{0}<icu:script type=\"{1}\">{2}</icu:script>\n"
+                         }
+    supplementalData     {
+                             "<{0}supplementalData>\n"
+                         }
+    currencyData         {
+                             "{0}<{1}currencyData>\n"
+                         }
+    fractions            {
+                             "{0}<{1}fractions>\n"
+                         }
+    info                 {
+                             "{0}<info iso4217=\"{1}\" {2} {3} />\n"
+                         }
+    rounding             {
+                             "rounding=\"{0}\""
+                         }
+    digits               {
+                             "digits=\"{0}\""
+                         }
+    regionStart          {
+                            "{0}<region iso3166=\"{1}\">\n"
+                         }
+    regionEnd            {                  
+                            "{0}</region>\n"
+                         }
+    suppCurrencyStart    {
+                            "{0}<currency iso4217=\"{1}\" {2}>\n"
+                         }
+    suppCurrencyEnd       {
+                            "{0}</currency>\n"
+                         }
+    before               {
+                            "before=\"{0}\""
+                         }
+    alternate            {
+                            "{0}<alternate iso4217=\"{1}\"/>\n"
                          }
 
 //          <addressFormat>

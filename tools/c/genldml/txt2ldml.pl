@@ -1,10 +1,10 @@
 #/usr/bin/perl
 
 ####################################################################################
-# xml2res.pl:
-# This tool invokes xml2txt and genrb to produce res files from xml files
+# txt2ldml.pl:
+# This tool invokes genldml and genrb to produce res files from xml files
 # Author: Ram Viswanadha
-#        
+#
 ####################################################################################
 use File::Find;
 use File::Basename;
@@ -22,7 +22,7 @@ GetOptions(
            "--icuroot=s" => \$icuRoot,
            "--genldml=s" => \$genldml,
            "--genrb=s" => \$genrb,
-	   "--ldml-only" => \$ldmlOnly
+	       "--ldml-only" => \$ldmlOnly
           );
            
 

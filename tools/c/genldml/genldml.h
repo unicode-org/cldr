@@ -94,14 +94,15 @@ private:
 	UnicodeString formatString(UnicodeString& str,UnicodeString& argument, UnicodeString& result);
 
 	/* get the file handle */
-	FILE* getFileHandle(const char* path, Locale loc);
+	FILE* getFileHandle(const char* path, const char* name);
 	
 	/* print the unicode string */
-	void printString( UnicodeString* uString);
-
+	void printString( UnicodeString* uString, FILE* file);
+    void printString( UnicodeString* uString);   
 	/* chop the indent string*/ 
 	void chopIndent();
-	
+	void chopIndent(UnicodeString& indent);
+    void addIndent(UnicodeString& indent);
 	/**
 	 * writeXMLVersionAndComments()
 	 * Prints version and comments strings in the output xml file
@@ -224,8 +225,13 @@ private:
 
 	void escape(UnicodeString& str);
 
-    void writePosixAdditions();
+    void writeSupplementalData();
 
+    void writeCurrencyMeta(UnicodeString& xmlString, ResourceBundle& root, UErrorCode& error);
+
+    void writeCurrencyMap(UnicodeString& xmlString, ResourceBundle& root, UErrorCode& error);
+
+    void writePosixAdditions();
     void writeMeasurement(UnicodeString& xmlString);
     void writeCountryPost(UnicodeString& xmlString);
     void writeCountryCar(UnicodeString& xmlString);  

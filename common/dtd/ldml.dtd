@@ -235,7 +235,7 @@
 <!ATTLIST dayContext draft ( true | false ) #IMPLIED >
 <!ATTLIST dayContext type NMTOKEN #REQUIRED >
 
-<!ELEMENT dayWidth ( alias | (month*, special*)) >
+<!ELEMENT dayWidth ( alias | (day*, special*)) >
 <!ATTLIST dayWidth draft ( true | false ) #IMPLIED >
 <!ATTLIST dayWidth type NMTOKEN #REQUIRED >
 

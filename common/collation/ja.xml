@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1.1"/>
-		<generation date="2004-06-28" />
+		<version number="2.0"/>
+		<generation date="2004-07-09" />
 		<language type="ja" /> 
 	</identity>
 	<collations>
@@ -655,7 +655,7 @@
 				<ic>　￣</ic>
 				<reset>!</reset>
 				<i>！</i>
-				<reset>&quot;</reset>
+				<reset>&amp;quot;</reset>
 				<i>＂</i>
 				<reset>#</reset>
 				<i>＃</i>
@@ -663,7 +663,7 @@
 				<i>＄</i>
 				<reset>%</reset>
 				<i>％</i>
-				<reset>&amp;</reset>
+				<reset>&amp;amp;</reset>
 				<i>＆</i>
 				<reset>'</reset>
 				<i>＇</i>
@@ -707,11 +707,11 @@
 				<i>：</i>
 				<reset>;</reset>
 				<i>；</i>
-				<reset>&lt;</reset>
+				<reset>&amp;lt;</reset>
 				<i>＜</i>
 				<reset>=</reset>
 				<i>＝</i>
-				<reset>&gt;</reset>
+				<reset>&amp;gt;</reset>
 				<i>＞</i>
 				<reset>?</reset>
 				<i>？</i>

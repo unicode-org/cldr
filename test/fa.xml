@@ -1,0 +1,598 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM 'cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest>
+  <number>
+   <result input='0.0' numberType='standard'>0</result>
+   <result numberType='integer'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result numberType='currency'>0E0</result>
+   <result input='0.01' numberType='standard'>0.01</result>
+   <result numberType='integer'>0</result>
+   <result numberType='decimal'>0.01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result numberType='currency'>1E-2</result>
+   <result input='-0.01' numberType='standard'>-0.01</result>
+   <result numberType='integer'>-0</result>
+   <result numberType='decimal'>-0.01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result numberType='currency'>-1E-2</result>
+   <result input='1.0' numberType='standard'>1</result>
+   <result numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result numberType='currency'>1E0</result>
+   <result input='-1.0' numberType='standard'>-1</result>
+   <result numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result numberType='currency'>-1E0</result>
+   <result input='123.456' numberType='standard'>123.456</result>
+   <result numberType='integer'>123</result>
+   <result numberType='decimal'>123.456</result>
+   <result numberType='percent'>12,346%</result>
+   <result numberType='scientific'>1.23456E2</result>
+   <result numberType='currency'>1.23456E2</result>
+   <result input='-123.456' numberType='standard'>-123.456</result>
+   <result numberType='integer'>-123</result>
+   <result numberType='decimal'>-123.456</result>
+   <result numberType='percent'>-12,346%</result>
+   <result numberType='scientific'>-1.23456E2</result>
+   <result numberType='currency'>-1.23456E2</result>
+   <result input='123456.78' numberType='standard'>123,456.78</result>
+   <result numberType='integer'>123,457</result>
+   <result numberType='decimal'>123,456.78</result>
+   <result numberType='percent'>12,345,678%</result>
+   <result numberType='scientific'>1.2345678E5</result>
+   <result numberType='currency'>1.2345678E5</result>
+   <result input='-123456.78' numberType='standard'>-123,456.78</result>
+   <result numberType='integer'>-123,457</result>
+   <result numberType='decimal'>-123,456.78</result>
+   <result numberType='percent'>-12,345,678%</result>
+   <result numberType='scientific'>-1.2345678E5</result>
+   <result numberType='currency'>-1.2345678E5</result>
+   <result input='Infinity' numberType='standard'>∞</result>
+   <result numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result numberType='currency'>∞</result>
+   <result input='-Infinity' numberType='standard'>-∞</result>
+   <result numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result numberType='currency'>-∞</result>
+   <result input='NaN' numberType='standard'>�</result>
+   <result numberType='integer'>�</result>
+   <result numberType='decimal'>�</result>
+   <result numberType='percent'>�</result>
+   <result numberType='scientific'>�</result>
+   <result numberType='currency'>�</result>
+  </number>
+  <date>
+   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result timeType='long'>00:00:00 (GMT+00:00)</result>
+   <result timeType='full'>00:00:00 (GMT+00:00)</result>
+   <result dateType='short' timeType='none'>1900/01/31</result>
+   <result timeType='short'>1900/01/31 00:00</result>
+   <result timeType='medium'>1900/01/31 00:00:00</result>
+   <result timeType='long'>1900/01/31 00:00:00 (GMT+00:00)</result>
+   <result timeType='full'>1900/01/31 00:00:00 (GMT+00:00)</result>
+   <result dateType='medium' timeType='none'>1900/01/31</result>
+   <result timeType='short'>1900/01/31 00:00</result>
+   <result timeType='medium'>1900/01/31 00:00:00</result>
+   <result timeType='long'>1900/01/31 00:00:00 (GMT+00:00)</result>
+   <result timeType='full'>1900/01/31 00:00:00 (GMT+00:00)</result>
+   <result dateType='long' timeType='none'>31 ژانویه 1900</result>
+   <result timeType='short'>31 ژانویه 1900 00:00</result>
+   <result timeType='medium'>31 ژانویه 1900 00:00:00</result>
+   <result timeType='long'>31 ژانویه 1900 00:00:00 (GMT+00:00)</result>
+   <result timeType='full'>31 ژانویه 1900 00:00:00 (GMT+00:00)</result>
+   <result dateType='full' timeType='none'>چهارشنبه، 31 ژانویه 1900</result>
+   <result timeType='short'>چهارشنبه، 31 ژانویه 1900 00:00</result>
+   <result timeType='medium'>چهارشنبه، 31 ژانویه 1900 00:00:00</result>
+   <result timeType='long'>چهارشنبه، 31 ژانویه 1900 00:00:00 (GMT+00:00)</result>
+   <result timeType='full'>چهارشنبه، 31 ژانویه 1900 00:00:00 (GMT+00:00)</result>
+   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result timeType='long'>00:00:01 (GMT+00:00)</result>
+   <result timeType='full'>00:00:01 (GMT+00:00)</result>
+   <result dateType='short' timeType='none'>1909/02/28</result>
+   <result timeType='short'>1909/02/28 00:00</result>
+   <result timeType='medium'>1909/02/28 00:00:01</result>
+   <result timeType='long'>1909/02/28 00:00:01 (GMT+00:00)</result>
+   <result timeType='full'>1909/02/28 00:00:01 (GMT+00:00)</result>
+   <result dateType='medium' timeType='none'>1909/02/28</result>
+   <result timeType='short'>1909/02/28 00:00</result>
+   <result timeType='medium'>1909/02/28 00:00:01</result>
+   <result timeType='long'>1909/02/28 00:00:01 (GMT+00:00)</result>
+   <result timeType='full'>1909/02/28 00:00:01 (GMT+00:00)</result>
+   <result dateType='long' timeType='none'>28 فوریه 1909</result>
+   <result timeType='short'>28 فوریه 1909 00:00</result>
+   <result timeType='medium'>28 فوریه 1909 00:00:01</result>
+   <result timeType='long'>28 فوریه 1909 00:00:01 (GMT+00:00)</result>
+   <result timeType='full'>28 فوریه 1909 00:00:01 (GMT+00:00)</result>
+   <result dateType='full' timeType='none'>یک‌شنبه، 28 فوریه 1909</result>
+   <result timeType='short'>یک‌شنبه، 28 فوریه 1909 00:00</result>
+   <result timeType='medium'>یک‌شنبه، 28 فوریه 1909 00:00:01</result>
+   <result timeType='long'>یک‌شنبه، 28 فوریه 1909 00:00:01 (GMT+00:00)</result>
+   <result timeType='full'>یک‌شنبه، 28 فوریه 1909 00:00:01 (GMT+00:00)</result>
+   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result timeType='long'>00:59:59 (GMT+00:00)</result>
+   <result timeType='full'>00:59:59 (GMT+00:00)</result>
+   <result dateType='short' timeType='none'>1918/03/26</result>
+   <result timeType='short'>1918/03/26 00:59</result>
+   <result timeType='medium'>1918/03/26 00:59:59</result>
+   <result timeType='long'>1918/03/26 00:59:59 (GMT+00:00)</result>
+   <result timeType='full'>1918/03/26 00:59:59 (GMT+00:00)</result>
+   <result dateType='medium' timeType='none'>1918/03/26</result>
+   <result timeType='short'>1918/03/26 00:59</result>
+   <result timeType='medium'>1918/03/26 00:59:59</result>
+   <result timeType='long'>1918/03/26 00:59:59 (GMT+00:00)</result>
+   <result timeType='full'>1918/03/26 00:59:59 (GMT+00:00)</result>
+   <result dateType='long' timeType='none'>26 مارس 1918</result>
+   <result timeType='short'>26 مارس 1918 00:59</result>
+   <result timeType='medium'>26 مارس 1918 00:59:59</result>
+   <result timeType='long'>26 مارس 1918 00:59:59 (GMT+00:00)</result>
+   <result timeType='full'>26 مارس 1918 00:59:59 (GMT+00:00)</result>
+   <result dateType='full' timeType='none'>سه‌شنبه، 26 مارس 1918</result>
+   <result timeType='short'>سه‌شنبه، 26 مارس 1918 00:59</result>
+   <result timeType='medium'>سه‌شنبه، 26 مارس 1918 00:59:59</result>
+   <result timeType='long'>سه‌شنبه، 26 مارس 1918 00:59:59 (GMT+00:00)</result>
+   <result timeType='full'>سه‌شنبه، 26 مارس 1918 00:59:59 (GMT+00:00)</result>
+   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result timeType='long'>01:00:00 (GMT+00:00)</result>
+   <result timeType='full'>01:00:00 (GMT+00:00)</result>
+   <result dateType='short' timeType='none'>1932/04/24</result>
+   <result timeType='short'>1932/04/24 01:00</result>
+   <result timeType='medium'>1932/04/24 01:00:00</result>
+   <result timeType='long'>1932/04/24 01:00:00 (GMT+00:00)</result>
+   <result timeType='full'>1932/04/24 01:00:00 (GMT+00:00)</result>
+   <result dateType='medium' timeType='none'>1932/04/24</result>
+   <result timeType='short'>1932/04/24 01:00</result>
+   <result timeType='medium'>1932/04/24 01:00:00</result>
+   <result timeType='long'>1932/04/24 01:00:00 (GMT+00:00)</result>
+   <result timeType='full'>1932/04/24 01:00:00 (GMT+00:00)</result>
+   <result dateType='long' timeType='none'>24 آوریل 1932</result>
+   <result timeType='short'>24 آوریل 1932 01:00</result>
+   <result timeType='medium'>24 آوریل 1932 01:00:00</result>
+   <result timeType='long'>24 آوریل 1932 01:00:00 (GMT+00:00)</result>
+   <result timeType='full'>24 آوریل 1932 01:00:00 (GMT+00:00)</result>
+   <result dateType='full' timeType='none'>یک‌شنبه، 24 آوریل 1932</result>
+   <result timeType='short'>یک‌شنبه، 24 آوریل 1932 01:00</result>
+   <result timeType='medium'>یک‌شنبه، 24 آوریل 1932 01:00:00</result>
+   <result timeType='long'>یک‌شنبه، 24 آوریل 1932 01:00:00 (GMT+00:00)</result>
+   <result timeType='full'>یک‌شنبه، 24 آوریل 1932 01:00:00 (GMT+00:00)</result>
+   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result timeType='long'>01:00:01 (GMT+00:00)</result>
+   <result timeType='full'>01:00:01 (GMT+00:00)</result>
+   <result dateType='short' timeType='none'>1945/05/20</result>
+   <result timeType='short'>1945/05/20 01:00</result>
+   <result timeType='medium'>1945/05/20 01:00:01</result>
+   <result timeType='long'>1945/05/20 01:00:01 (GMT+00:00)</result>
+   <result timeType='full'>1945/05/20 01:00:01 (GMT+00:00)</result>
+   <result dateType='medium' timeType='none'>1945/05/20</result>
+   <result timeType='short'>1945/05/20 01:00</result>
+   <result timeType='medium'>1945/05/20 01:00:01</result>
+   <result timeType='long'>1945/05/20 01:00:01 (GMT+00:00)</result>
+   <result timeType='full'>1945/05/20 01:00:01 (GMT+00:00)</result>
+   <result dateType='long' timeType='none'>20 مه 1945</result>
+   <result timeType='short'>20 مه 1945 01:00</result>
+   <result timeType='medium'>20 مه 1945 01:00:01</result>
+   <result timeType='long'>20 مه 1945 01:00:01 (GMT+00:00)</result>
+   <result timeType='full'>20 مه 1945 01:00:01 (GMT+00:00)</result>
+   <result dateType='full' timeType='none'>یک‌شنبه، 20 مه 1945</result>
+   <result timeType='short'>یک‌شنبه، 20 مه 1945 01:00</result>
+   <result timeType='medium'>یک‌شنبه، 20 مه 1945 01:00:01</result>
+   <result timeType='long'>یک‌شنبه، 20 مه 1945 01:00:01 (GMT+00:00)</result>
+   <result timeType='full'>یک‌شنبه، 20 مه 1945 01:00:01 (GMT+00:00)</result>
+   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result timeType='long'>11:59:59 (GMT+00:00)</result>
+   <result timeType='full'>11:59:59 (GMT+00:00)</result>
+   <result dateType='short' timeType='none'>1952/06/18</result>
+   <result timeType='short'>1952/06/18 11:59</result>
+   <result timeType='medium'>1952/06/18 11:59:59</result>
+   <result timeType='long'>1952/06/18 11:59:59 (GMT+00:00)</result>
+   <result timeType='full'>1952/06/18 11:59:59 (GMT+00:00)</result>
+   <result dateType='medium' timeType='none'>1952/06/18</result>
+   <result timeType='short'>1952/06/18 11:59</result>
+   <result timeType='medium'>1952/06/18 11:59:59</result>
+   <result timeType='long'>1952/06/18 11:59:59 (GMT+00:00)</result>
+   <result timeType='full'>1952/06/18 11:59:59 (GMT+00:00)</result>
+   <result dateType='long' timeType='none'>18 ژوئن 1952</result>
+   <result timeType='short'>18 ژوئن 1952 11:59</result>
+   <result timeType='medium'>18 ژوئن 1952 11:59:59</result>
+   <result timeType='long'>18 ژوئن 1952 11:59:59 (GMT+00:00)</result>
+   <result timeType='full'>18 ژوئن 1952 11:59:59 (GMT+00:00)</result>
+   <result dateType='full' timeType='none'>چهارشنبه، 18 ژوئن 1952</result>
+   <result timeType='short'>چهارشنبه، 18 ژوئن 1952 11:59</result>
+   <result timeType='medium'>چهارشنبه، 18 ژوئن 1952 11:59:59</result>
+   <result timeType='long'>چهارشنبه، 18 ژوئن 1952 11:59:59 (GMT+00:00)</result>
+   <result timeType='full'>چهارشنبه، 18 ژوئن 1952 11:59:59 (GMT+00:00)</result>
+   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result timeType='long'>12:00:00 (GMT+00:00)</result>
+   <result timeType='full'>12:00:00 (GMT+00:00)</result>
+   <result dateType='short' timeType='none'>1973/07/16</result>
+   <result timeType='short'>1973/07/16 12:00</result>
+   <result timeType='medium'>1973/07/16 12:00:00</result>
+   <result timeType='long'>1973/07/16 12:00:00 (GMT+00:00)</result>
+   <result timeType='full'>1973/07/16 12:00:00 (GMT+00:00)</result>
+   <result dateType='medium' timeType='none'>1973/07/16</result>
+   <result timeType='short'>1973/07/16 12:00</result>
+   <result timeType='medium'>1973/07/16 12:00:00</result>
+   <result timeType='long'>1973/07/16 12:00:00 (GMT+00:00)</result>
+   <result timeType='full'>1973/07/16 12:00:00 (GMT+00:00)</result>
+   <result dateType='long' timeType='none'>16 ژوئیه 1973</result>
+   <result timeType='short'>16 ژوئیه 1973 12:00</result>
+   <result timeType='medium'>16 ژوئیه 1973 12:00:00</result>
+   <result timeType='long'>16 ژوئیه 1973 12:00:00 (GMT+00:00)</result>
+   <result timeType='full'>16 ژوئیه 1973 12:00:00 (GMT+00:00)</result>
+   <result dateType='full' timeType='none'>دوشنبه، 16 ژوئیه 1973</result>
+   <result timeType='short'>دوشنبه، 16 ژوئیه 1973 12:00</result>
+   <result timeType='medium'>دوشنبه، 16 ژوئیه 1973 12:00:00</result>
+   <result timeType='long'>دوشنبه، 16 ژوئیه 1973 12:00:00 (GMT+00:00)</result>
+   <result timeType='full'>دوشنبه، 16 ژوئیه 1973 12:00:00 (GMT+00:00)</result>
+   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result timeType='long'>12:00:01 (GMT+00:00)</result>
+   <result timeType='full'>12:00:01 (GMT+00:00)</result>
+   <result dateType='short' timeType='none'>1999/08/14</result>
+   <result timeType='short'>1999/08/14 12:00</result>
+   <result timeType='medium'>1999/08/14 12:00:01</result>
+   <result timeType='long'>1999/08/14 12:00:01 (GMT+00:00)</result>
+   <result timeType='full'>1999/08/14 12:00:01 (GMT+00:00)</result>
+   <result dateType='medium' timeType='none'>1999/08/14</result>
+   <result timeType='short'>1999/08/14 12:00</result>
+   <result timeType='medium'>1999/08/14 12:00:01</result>
+   <result timeType='long'>1999/08/14 12:00:01 (GMT+00:00)</result>
+   <result timeType='full'>1999/08/14 12:00:01 (GMT+00:00)</result>
+   <result dateType='long' timeType='none'>14 اوت 1999</result>
+   <result timeType='short'>14 اوت 1999 12:00</result>
+   <result timeType='medium'>14 اوت 1999 12:00:01</result>
+   <result timeType='long'>14 اوت 1999 12:00:01 (GMT+00:00)</result>
+   <result timeType='full'>14 اوت 1999 12:00:01 (GMT+00:00)</result>
+   <result dateType='full' timeType='none'>شنبه، 14 اوت 1999</result>
+   <result timeType='short'>شنبه، 14 اوت 1999 12:00</result>
+   <result timeType='medium'>شنبه، 14 اوت 1999 12:00:01</result>
+   <result timeType='long'>شنبه، 14 اوت 1999 12:00:01 (GMT+00:00)</result>
+   <result timeType='full'>شنبه، 14 اوت 1999 12:00:01 (GMT+00:00)</result>
+   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result timeType='long'>22:59:59 (GMT+00:00)</result>
+   <result timeType='full'>22:59:59 (GMT+00:00)</result>
+   <result dateType='short' timeType='none'>2000/09/12</result>
+   <result timeType='short'>2000/09/12 22:59</result>
+   <result timeType='medium'>2000/09/12 22:59:59</result>
+   <result timeType='long'>2000/09/12 22:59:59 (GMT+00:00)</result>
+   <result timeType='full'>2000/09/12 22:59:59 (GMT+00:00)</result>
+   <result dateType='medium' timeType='none'>2000/09/12</result>
+   <result timeType='short'>2000/09/12 22:59</result>
+   <result timeType='medium'>2000/09/12 22:59:59</result>
+   <result timeType='long'>2000/09/12 22:59:59 (GMT+00:00)</result>
+   <result timeType='full'>2000/09/12 22:59:59 (GMT+00:00)</result>
+   <result dateType='long' timeType='none'>12 سپتامبر 2000</result>
+   <result timeType='short'>12 سپتامبر 2000 22:59</result>
+   <result timeType='medium'>12 سپتامبر 2000 22:59:59</result>
+   <result timeType='long'>12 سپتامبر 2000 22:59:59 (GMT+00:00)</result>
+   <result timeType='full'>12 سپتامبر 2000 22:59:59 (GMT+00:00)</result>
+   <result dateType='full' timeType='none'>سه‌شنبه، 12 سپتامبر 2000</result>
+   <result timeType='short'>سه‌شنبه، 12 سپتامبر 2000 22:59</result>
+   <result timeType='medium'>سه‌شنبه، 12 سپتامبر 2000 22:59:59</result>
+   <result timeType='long'>سه‌شنبه، 12 سپتامبر 2000 22:59:59 (GMT+00:00)</result>
+   <result timeType='full'>سه‌شنبه، 12 سپتامبر 2000 22:59:59 (GMT+00:00)</result>
+   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result timeType='long'>23:00:00 (GMT+00:00)</result>
+   <result timeType='full'>23:00:00 (GMT+00:00)</result>
+   <result dateType='short' timeType='none'>2001/10/8</result>
+   <result timeType='short'>2001/10/8 23:00</result>
+   <result timeType='medium'>2001/10/8 23:00:00</result>
+   <result timeType='long'>2001/10/8 23:00:00 (GMT+00:00)</result>
+   <result timeType='full'>2001/10/8 23:00:00 (GMT+00:00)</result>
+   <result dateType='medium' timeType='none'>2001/10/8</result>
+   <result timeType='short'>2001/10/8 23:00</result>
+   <result timeType='medium'>2001/10/8 23:00:00</result>
+   <result timeType='long'>2001/10/8 23:00:00 (GMT+00:00)</result>
+   <result timeType='full'>2001/10/8 23:00:00 (GMT+00:00)</result>
+   <result dateType='long' timeType='none'>8 اکتبر 2001</result>
+   <result timeType='short'>8 اکتبر 2001 23:00</result>
+   <result timeType='medium'>8 اکتبر 2001 23:00:00</result>
+   <result timeType='long'>8 اکتبر 2001 23:00:00 (GMT+00:00)</result>
+   <result timeType='full'>8 اکتبر 2001 23:00:00 (GMT+00:00)</result>
+   <result dateType='full' timeType='none'>دوشنبه، 8 اکتبر 2001</result>
+   <result timeType='short'>دوشنبه، 8 اکتبر 2001 23:00</result>
+   <result timeType='medium'>دوشنبه، 8 اکتبر 2001 23:00:00</result>
+   <result timeType='long'>دوشنبه، 8 اکتبر 2001 23:00:00 (GMT+00:00)</result>
+   <result timeType='full'>دوشنبه، 8 اکتبر 2001 23:00:00 (GMT+00:00)</result>
+   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result timeType='long'>23:00:01 (GMT+00:00)</result>
+   <result timeType='full'>23:00:01 (GMT+00:00)</result>
+   <result dateType='short' timeType='none'>2004/11/4</result>
+   <result timeType='short'>2004/11/4 23:00</result>
+   <result timeType='medium'>2004/11/4 23:00:01</result>
+   <result timeType='long'>2004/11/4 23:00:01 (GMT+00:00)</result>
+   <result timeType='full'>2004/11/4 23:00:01 (GMT+00:00)</result>
+   <result dateType='medium' timeType='none'>2004/11/4</result>
+   <result timeType='short'>2004/11/4 23:00</result>
+   <result timeType='medium'>2004/11/4 23:00:01</result>
+   <result timeType='long'>2004/11/4 23:00:01 (GMT+00:00)</result>
+   <result timeType='full'>2004/11/4 23:00:01 (GMT+00:00)</result>
+   <result dateType='long' timeType='none'>4 نوامبر 2004</result>
+   <result timeType='short'>4 نوامبر 2004 23:00</result>
+   <result timeType='medium'>4 نوامبر 2004 23:00:01</result>
+   <result timeType='long'>4 نوامبر 2004 23:00:01 (GMT+00:00)</result>
+   <result timeType='full'>4 نوامبر 2004 23:00:01 (GMT+00:00)</result>
+   <result dateType='full' timeType='none'>پنج‌شنبه، 4 نوامبر 2004</result>
+   <result timeType='short'>پنج‌شنبه، 4 نوامبر 2004 23:00</result>
+   <result timeType='medium'>پنج‌شنبه، 4 نوامبر 2004 23:00:01</result>
+   <result timeType='long'>پنج‌شنبه، 4 نوامبر 2004 23:00:01 (GMT+00:00)</result>
+   <result timeType='full'>پنج‌شنبه، 4 نوامبر 2004 23:00:01 (GMT+00:00)</result>
+   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result timeType='long'>23:59:59 (GMT+00:00)</result>
+   <result timeType='full'>23:59:59 (GMT+00:00)</result>
+   <result dateType='short' timeType='none'>2010/12/1</result>
+   <result timeType='short'>2010/12/1 23:59</result>
+   <result timeType='medium'>2010/12/1 23:59:59</result>
+   <result timeType='long'>2010/12/1 23:59:59 (GMT+00:00)</result>
+   <result timeType='full'>2010/12/1 23:59:59 (GMT+00:00)</result>
+   <result dateType='medium' timeType='none'>2010/12/1</result>
+   <result timeType='short'>2010/12/1 23:59</result>
+   <result timeType='medium'>2010/12/1 23:59:59</result>
+   <result timeType='long'>2010/12/1 23:59:59 (GMT+00:00)</result>
+   <result timeType='full'>2010/12/1 23:59:59 (GMT+00:00)</result>
+   <result dateType='long' timeType='none'>1 دسامبر 2010</result>
+   <result timeType='short'>1 دسامبر 2010 23:59</result>
+   <result timeType='medium'>1 دسامبر 2010 23:59:59</result>
+   <result timeType='long'>1 دسامبر 2010 23:59:59 (GMT+00:00)</result>
+   <result timeType='full'>1 دسامبر 2010 23:59:59 (GMT+00:00)</result>
+   <result dateType='full' timeType='none'>چهارشنبه، 1 دسامبر 2010</result>
+   <result timeType='short'>چهارشنبه، 1 دسامبر 2010 23:59</result>
+   <result timeType='medium'>چهارشنبه، 1 دسامبر 2010 23:59:59</result>
+   <result timeType='long'>چهارشنبه، 1 دسامبر 2010 23:59:59 (GMT+00:00)</result>
+   <result timeType='full'>چهارشنبه، 1 دسامبر 2010 23:59:59 (GMT+00:00)</result>
+  </date>
+  <collation>
+   <result>
+x‌
+x‍
+x‌
+X‌
+X‍
+X‌
+xَ
+Xَ
+xِ
+Xِ
+xُ
+Xُ
+xً
+Xً
+xٍ
+Xٍ
+xٌ
+Xٌ
+xّ
+Xّ
+xْ
+Xْ
+xٔ
+Xٔ
+xٰ
+Xٰ
+x‌x
+x‍x
+x‌x
+xَx
+xِx
+xُx
+xًx
+xٍx
+xٌx
+xّx
+xْx
+xٔx
+xٰx
+xآ
+Xآ
+xآx
+xا
+Xا
+xٱ
+Xٱ
+xاx
+xٱx
+xء
+Xء
+xأ
+Xأ
+xٲ
+Xٲ
+xإ
+Xإ
+xٳ
+Xٳ
+xؤ
+Xؤ
+xیٔ
+xىٔ
+xئ
+Xیٔ
+Xىٔ
+Xئ
+xءx
+xأx
+xٲx
+xإx
+xٳx
+xؤx
+xیٔx
+xىٔx
+xئx
+xب
+Xب
+xبx
+xپ
+Xپ
+xپx
+xت
+Xت
+xتx
+xث
+Xث
+xثx
+xج
+Xج
+xجx
+xچ
+Xچ
+xچx
+xح
+Xح
+xحx
+xخ
+Xخ
+xخx
+xد
+Xد
+xدx
+xذ
+Xذ
+xذx
+xر
+Xر
+xرx
+xز
+Xز
+xزx
+xژ
+Xژ
+xژx
+xس
+Xس
+xسx
+xش
+Xش
+xشx
+xص
+Xص
+xصx
+xض
+Xض
+xضx
+xط
+Xط
+xطx
+xظ
+Xظ
+xظx
+xع
+Xع
+xعx
+xغ
+Xغ
+xغx
+xف
+Xف
+xفx
+xق
+Xق
+xقx
+xک
+Xک
+xڪ
+Xڪ
+xګ
+Xګ
+xك
+Xك
+xڬ
+Xڬ
+xڭ
+Xڭ
+xڮ
+Xڮ
+xکx
+xڪx
+xګx
+xكx
+xڬx
+xڭx
+xڮx
+xگ
+Xگ
+xگx
+xل
+Xل
+xلx
+xم
+Xم
+xمx
+xن
+Xن
+xنx
+xو
+Xو
+xوx
+xه
+Xه
+xە
+Xە
+xہ
+Xہ
+xة
+Xة
+xۃ
+Xۃ
+xۀ
+Xۀ
+xھ
+Xھ
+xهx
+xەx
+xہx
+xةx
+xۃx
+xۀx
+xھx
+xی
+Xی
+xى
+Xى
+xے
+Xے
+xي
+Xي
+xې
+Xې
+xۑ
+Xۑ
+xۍ
+Xۍ
+xێ
+Xێ
+xیx
+xىx
+xےx
+xيx
+xېx
+xۑx
+xۍx
+xێx
+   </result>
+  </collation>
+ </cldrTest>

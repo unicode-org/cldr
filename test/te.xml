@@ -1,0 +1,622 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM 'cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest>
+  <number>
+   <result input='0.0' numberType='standard'>౦</result>
+   <result numberType='integer'>౦</result>
+   <result numberType='decimal'>౦</result>
+   <result numberType='percent'>౦%</result>
+   <result numberType='scientific'>౦E౦</result>
+   <result numberType='currency'>౦E౦</result>
+   <result input='0.01' numberType='standard'>౦.౦౧</result>
+   <result numberType='integer'>౦</result>
+   <result numberType='decimal'>౦.౦౧</result>
+   <result numberType='percent'>౧%</result>
+   <result numberType='scientific'>౧E-౨</result>
+   <result numberType='currency'>౧E-౨</result>
+   <result input='-0.01' numberType='standard'>-౦.౦౧</result>
+   <result numberType='integer'>-౦</result>
+   <result numberType='decimal'>-౦.౦౧</result>
+   <result numberType='percent'>-౧%</result>
+   <result numberType='scientific'>-౧E-౨</result>
+   <result numberType='currency'>-౧E-౨</result>
+   <result input='1.0' numberType='standard'>౧</result>
+   <result numberType='integer'>౧</result>
+   <result numberType='decimal'>౧</result>
+   <result numberType='percent'>౧౦౦%</result>
+   <result numberType='scientific'>౧E౦</result>
+   <result numberType='currency'>౧E౦</result>
+   <result input='-1.0' numberType='standard'>-౧</result>
+   <result numberType='integer'>-౧</result>
+   <result numberType='decimal'>-౧</result>
+   <result numberType='percent'>-౧౦౦%</result>
+   <result numberType='scientific'>-౧E౦</result>
+   <result numberType='currency'>-౧E౦</result>
+   <result input='123.456' numberType='standard'>౧౨౩.౪౫౬</result>
+   <result numberType='integer'>౧౨౩</result>
+   <result numberType='decimal'>౧౨౩.౪౫౬</result>
+   <result numberType='percent'>౧౨,౩౪౬%</result>
+   <result numberType='scientific'>౧.౨౩౪౫౬E౨</result>
+   <result numberType='currency'>౧.౨౩౪౫౬E౨</result>
+   <result input='-123.456' numberType='standard'>-౧౨౩.౪౫౬</result>
+   <result numberType='integer'>-౧౨౩</result>
+   <result numberType='decimal'>-౧౨౩.౪౫౬</result>
+   <result numberType='percent'>-౧౨,౩౪౬%</result>
+   <result numberType='scientific'>-౧.౨౩౪౫౬E౨</result>
+   <result numberType='currency'>-౧.౨౩౪౫౬E౨</result>
+   <result input='123456.78' numberType='standard'>౧౨౩,౪౫౬.౭౮</result>
+   <result numberType='integer'>౧౨౩,౪౫౭</result>
+   <result numberType='decimal'>౧౨౩,౪౫౬.౭౮</result>
+   <result numberType='percent'>౧౨,౩౪౫,౬౭౮%</result>
+   <result numberType='scientific'>౧.౨౩౪౫౬౭౮E౫</result>
+   <result numberType='currency'>౧.౨౩౪౫౬౭౮E౫</result>
+   <result input='-123456.78' numberType='standard'>-౧౨౩,౪౫౬.౭౮</result>
+   <result numberType='integer'>-౧౨౩,౪౫౭</result>
+   <result numberType='decimal'>-౧౨౩,౪౫౬.౭౮</result>
+   <result numberType='percent'>-౧౨,౩౪౫,౬౭౮%</result>
+   <result numberType='scientific'>-౧.౨౩౪౫౬౭౮E౫</result>
+   <result numberType='currency'>-౧.౨౩౪౫౬౭౮E౫</result>
+   <result input='Infinity' numberType='standard'>∞</result>
+   <result numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result numberType='currency'>∞</result>
+   <result input='-Infinity' numberType='standard'>-∞</result>
+   <result numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result numberType='currency'>-∞</result>
+   <result input='NaN' numberType='standard'>�</result>
+   <result numberType='integer'>�</result>
+   <result numberType='decimal'>�</result>
+   <result numberType='percent'>�</result>
+   <result numberType='scientific'>�</result>
+   <result numberType='currency'>�</result>
+  </number>
+  <date>
+   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>౦౦:౦౦</result>
+   <result timeType='medium'>౦౦:౦౦:౦౦ </result>
+   <result timeType='long'>౦౦:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౦౦:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='short' timeType='none'>౦౦/౦౧/౩౧</result>
+   <result timeType='short'>౦౦/౦౧/౩౧ ౦౦:౦౦</result>
+   <result timeType='medium'>౦౦/౦౧/౩౧ ౦౦:౦౦:౦౦ </result>
+   <result timeType='long'>౦౦/౦౧/౩౧ ౦౦:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౦౦/౦౧/౩౧ ౦౦:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='medium' timeType='none'>౧౯౦౦ జనవరి ౩౧ </result>
+   <result timeType='short'>౧౯౦౦ జనవరి ౩౧  ౦౦:౦౦</result>
+   <result timeType='medium'>౧౯౦౦ జనవరి ౩౧  ౦౦:౦౦:౦౦ </result>
+   <result timeType='long'>౧౯౦౦ జనవరి ౩౧  ౦౦:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౦౦ జనవరి ౩౧  ౦౦:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='long' timeType='none'>౧౯౦౦ జనవరి ౩౧ </result>
+   <result timeType='short'>౧౯౦౦ జనవరి ౩౧  ౦౦:౦౦</result>
+   <result timeType='medium'>౧౯౦౦ జనవరి ౩౧  ౦౦:౦౦:౦౦ </result>
+   <result timeType='long'>౧౯౦౦ జనవరి ౩౧  ౦౦:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౦౦ జనవరి ౩౧  ౦౦:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='full' timeType='none'>బుధవారం, ౧౯౦౦ జనవరి ౩౧ </result>
+   <result timeType='short'>బుధవారం, ౧౯౦౦ జనవరి ౩౧  ౦౦:౦౦</result>
+   <result timeType='medium'>బుధవారం, ౧౯౦౦ జనవరి ౩౧  ౦౦:౦౦:౦౦ </result>
+   <result timeType='long'>బుధవారం, ౧౯౦౦ జనవరి ౩౧  ౦౦:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>బుధవారం, ౧౯౦౦ జనవరి ౩౧  ౦౦:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>౦౦:౦౦</result>
+   <result timeType='medium'>౦౦:౦౦:౦౧ </result>
+   <result timeType='long'>౦౦:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౦౦:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='short' timeType='none'>౦౯/౦౨/౨౮</result>
+   <result timeType='short'>౦౯/౦౨/౨౮ ౦౦:౦౦</result>
+   <result timeType='medium'>౦౯/౦౨/౨౮ ౦౦:౦౦:౦౧ </result>
+   <result timeType='long'>౦౯/౦౨/౨౮ ౦౦:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౦౯/౦౨/౨౮ ౦౦:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='medium' timeType='none'>౧౯౦౯ ఫిబ్రవరి ౨౮ </result>
+   <result timeType='short'>౧౯౦౯ ఫిబ్రవరి ౨౮  ౦౦:౦౦</result>
+   <result timeType='medium'>౧౯౦౯ ఫిబ్రవరి ౨౮  ౦౦:౦౦:౦౧ </result>
+   <result timeType='long'>౧౯౦౯ ఫిబ్రవరి ౨౮  ౦౦:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౦౯ ఫిబ్రవరి ౨౮  ౦౦:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='long' timeType='none'>౧౯౦౯ ఫిబ్రవరి ౨౮ </result>
+   <result timeType='short'>౧౯౦౯ ఫిబ్రవరి ౨౮  ౦౦:౦౦</result>
+   <result timeType='medium'>౧౯౦౯ ఫిబ్రవరి ౨౮  ౦౦:౦౦:౦౧ </result>
+   <result timeType='long'>౧౯౦౯ ఫిబ్రవరి ౨౮  ౦౦:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౦౯ ఫిబ్రవరి ౨౮  ౦౦:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='full' timeType='none'>ఆదివారం, ౧౯౦౯ ఫిబ్రవరి ౨౮ </result>
+   <result timeType='short'>ఆదివారం, ౧౯౦౯ ఫిబ్రవరి ౨౮  ౦౦:౦౦</result>
+   <result timeType='medium'>ఆదివారం, ౧౯౦౯ ఫిబ్రవరి ౨౮  ౦౦:౦౦:౦౧ </result>
+   <result timeType='long'>ఆదివారం, ౧౯౦౯ ఫిబ్రవరి ౨౮  ౦౦:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>ఆదివారం, ౧౯౦౯ ఫిబ్రవరి ౨౮  ౦౦:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>౦౦:౫౯</result>
+   <result timeType='medium'>౦౦:౫౯:౫౯ </result>
+   <result timeType='long'>౦౦:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౦౦:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='short' timeType='none'>౧౮/౦౩/౨౬</result>
+   <result timeType='short'>౧౮/౦౩/౨౬ ౦౦:౫౯</result>
+   <result timeType='medium'>౧౮/౦౩/౨౬ ౦౦:౫౯:౫౯ </result>
+   <result timeType='long'>౧౮/౦౩/౨౬ ౦౦:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౮/౦౩/౨౬ ౦౦:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='medium' timeType='none'>౧౯౧౮ మార్చి ౨౬ </result>
+   <result timeType='short'>౧౯౧౮ మార్చి ౨౬  ౦౦:౫౯</result>
+   <result timeType='medium'>౧౯౧౮ మార్చి ౨౬  ౦౦:౫౯:౫౯ </result>
+   <result timeType='long'>౧౯౧౮ మార్చి ౨౬  ౦౦:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౧౮ మార్చి ౨౬  ౦౦:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='long' timeType='none'>౧౯౧౮ మార్చి ౨౬ </result>
+   <result timeType='short'>౧౯౧౮ మార్చి ౨౬  ౦౦:౫౯</result>
+   <result timeType='medium'>౧౯౧౮ మార్చి ౨౬  ౦౦:౫౯:౫౯ </result>
+   <result timeType='long'>౧౯౧౮ మార్చి ౨౬  ౦౦:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౧౮ మార్చి ౨౬  ౦౦:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='full' timeType='none'>మంగళవారం, ౧౯౧౮ మార్చి ౨౬ </result>
+   <result timeType='short'>మంగళవారం, ౧౯౧౮ మార్చి ౨౬  ౦౦:౫౯</result>
+   <result timeType='medium'>మంగళవారం, ౧౯౧౮ మార్చి ౨౬  ౦౦:౫౯:౫౯ </result>
+   <result timeType='long'>మంగళవారం, ౧౯౧౮ మార్చి ౨౬  ౦౦:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>మంగళవారం, ౧౯౧౮ మార్చి ౨౬  ౦౦:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>౦౧:౦౦</result>
+   <result timeType='medium'>౦౧:౦౦:౦౦ </result>
+   <result timeType='long'>౦౧:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౦౧:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='short' timeType='none'>౩౨/౦౪/౨౪</result>
+   <result timeType='short'>౩౨/౦౪/౨౪ ౦౧:౦౦</result>
+   <result timeType='medium'>౩౨/౦౪/౨౪ ౦౧:౦౦:౦౦ </result>
+   <result timeType='long'>౩౨/౦౪/౨౪ ౦౧:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౩౨/౦౪/౨౪ ౦౧:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='medium' timeType='none'>౧౯౩౨ ఏప్రిల్ ౨౪ </result>
+   <result timeType='short'>౧౯౩౨ ఏప్రిల్ ౨౪  ౦౧:౦౦</result>
+   <result timeType='medium'>౧౯౩౨ ఏప్రిల్ ౨౪  ౦౧:౦౦:౦౦ </result>
+   <result timeType='long'>౧౯౩౨ ఏప్రిల్ ౨౪  ౦౧:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౩౨ ఏప్రిల్ ౨౪  ౦౧:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='long' timeType='none'>౧౯౩౨ ఏప్రిల్ ౨౪ </result>
+   <result timeType='short'>౧౯౩౨ ఏప్రిల్ ౨౪  ౦౧:౦౦</result>
+   <result timeType='medium'>౧౯౩౨ ఏప్రిల్ ౨౪  ౦౧:౦౦:౦౦ </result>
+   <result timeType='long'>౧౯౩౨ ఏప్రిల్ ౨౪  ౦౧:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౩౨ ఏప్రిల్ ౨౪  ౦౧:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='full' timeType='none'>ఆదివారం, ౧౯౩౨ ఏప్రిల్ ౨౪ </result>
+   <result timeType='short'>ఆదివారం, ౧౯౩౨ ఏప్రిల్ ౨౪  ౦౧:౦౦</result>
+   <result timeType='medium'>ఆదివారం, ౧౯౩౨ ఏప్రిల్ ౨౪  ౦౧:౦౦:౦౦ </result>
+   <result timeType='long'>ఆదివారం, ౧౯౩౨ ఏప్రిల్ ౨౪  ౦౧:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>ఆదివారం, ౧౯౩౨ ఏప్రిల్ ౨౪  ౦౧:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>౦౧:౦౦</result>
+   <result timeType='medium'>౦౧:౦౦:౦౧ </result>
+   <result timeType='long'>౦౧:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౦౧:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='short' timeType='none'>౪౫/౦౫/౨౦</result>
+   <result timeType='short'>౪౫/౦౫/౨౦ ౦౧:౦౦</result>
+   <result timeType='medium'>౪౫/౦౫/౨౦ ౦౧:౦౦:౦౧ </result>
+   <result timeType='long'>౪౫/౦౫/౨౦ ౦౧:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౪౫/౦౫/౨౦ ౦౧:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='medium' timeType='none'>౧౯౪౫ మే ౨౦ </result>
+   <result timeType='short'>౧౯౪౫ మే ౨౦  ౦౧:౦౦</result>
+   <result timeType='medium'>౧౯౪౫ మే ౨౦  ౦౧:౦౦:౦౧ </result>
+   <result timeType='long'>౧౯౪౫ మే ౨౦  ౦౧:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౪౫ మే ౨౦  ౦౧:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='long' timeType='none'>౧౯౪౫ మే ౨౦ </result>
+   <result timeType='short'>౧౯౪౫ మే ౨౦  ౦౧:౦౦</result>
+   <result timeType='medium'>౧౯౪౫ మే ౨౦  ౦౧:౦౦:౦౧ </result>
+   <result timeType='long'>౧౯౪౫ మే ౨౦  ౦౧:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౪౫ మే ౨౦  ౦౧:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='full' timeType='none'>ఆదివారం, ౧౯౪౫ మే ౨౦ </result>
+   <result timeType='short'>ఆదివారం, ౧౯౪౫ మే ౨౦  ౦౧:౦౦</result>
+   <result timeType='medium'>ఆదివారం, ౧౯౪౫ మే ౨౦  ౦౧:౦౦:౦౧ </result>
+   <result timeType='long'>ఆదివారం, ౧౯౪౫ మే ౨౦  ౦౧:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>ఆదివారం, ౧౯౪౫ మే ౨౦  ౦౧:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>౧౧:౫౯</result>
+   <result timeType='medium'>౧౧:౫౯:౫౯ </result>
+   <result timeType='long'>౧౧:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౧:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='short' timeType='none'>౫౨/౦౬/౧౮</result>
+   <result timeType='short'>౫౨/౦౬/౧౮ ౧౧:౫౯</result>
+   <result timeType='medium'>౫౨/౦౬/౧౮ ౧౧:౫౯:౫౯ </result>
+   <result timeType='long'>౫౨/౦౬/౧౮ ౧౧:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౫౨/౦౬/౧౮ ౧౧:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='medium' timeType='none'>౧౯౫౨ జూన్ ౧౮ </result>
+   <result timeType='short'>౧౯౫౨ జూన్ ౧౮  ౧౧:౫౯</result>
+   <result timeType='medium'>౧౯౫౨ జూన్ ౧౮  ౧౧:౫౯:౫౯ </result>
+   <result timeType='long'>౧౯౫౨ జూన్ ౧౮  ౧౧:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౫౨ జూన్ ౧౮  ౧౧:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='long' timeType='none'>౧౯౫౨ జూన్ ౧౮ </result>
+   <result timeType='short'>౧౯౫౨ జూన్ ౧౮  ౧౧:౫౯</result>
+   <result timeType='medium'>౧౯౫౨ జూన్ ౧౮  ౧౧:౫౯:౫౯ </result>
+   <result timeType='long'>౧౯౫౨ జూన్ ౧౮  ౧౧:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౫౨ జూన్ ౧౮  ౧౧:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='full' timeType='none'>బుధవారం, ౧౯౫౨ జూన్ ౧౮ </result>
+   <result timeType='short'>బుధవారం, ౧౯౫౨ జూన్ ౧౮  ౧౧:౫౯</result>
+   <result timeType='medium'>బుధవారం, ౧౯౫౨ జూన్ ౧౮  ౧౧:౫౯:౫౯ </result>
+   <result timeType='long'>బుధవారం, ౧౯౫౨ జూన్ ౧౮  ౧౧:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>బుధవారం, ౧౯౫౨ జూన్ ౧౮  ౧౧:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>౧౨:౦౦</result>
+   <result timeType='medium'>౧౨:౦౦:౦౦ </result>
+   <result timeType='long'>౧౨:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౨:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='short' timeType='none'>౭౩/౦౭/౧౬</result>
+   <result timeType='short'>౭౩/౦౭/౧౬ ౧౨:౦౦</result>
+   <result timeType='medium'>౭౩/౦౭/౧౬ ౧౨:౦౦:౦౦ </result>
+   <result timeType='long'>౭౩/౦౭/౧౬ ౧౨:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౭౩/౦౭/౧౬ ౧౨:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='medium' timeType='none'>౧౯౭౩ జూలై ౧౬ </result>
+   <result timeType='short'>౧౯౭౩ జూలై ౧౬  ౧౨:౦౦</result>
+   <result timeType='medium'>౧౯౭౩ జూలై ౧౬  ౧౨:౦౦:౦౦ </result>
+   <result timeType='long'>౧౯౭౩ జూలై ౧౬  ౧౨:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౭౩ జూలై ౧౬  ౧౨:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='long' timeType='none'>౧౯౭౩ జూలై ౧౬ </result>
+   <result timeType='short'>౧౯౭౩ జూలై ౧౬  ౧౨:౦౦</result>
+   <result timeType='medium'>౧౯౭౩ జూలై ౧౬  ౧౨:౦౦:౦౦ </result>
+   <result timeType='long'>౧౯౭౩ జూలై ౧౬  ౧౨:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౭౩ జూలై ౧౬  ౧౨:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='full' timeType='none'>సోమవారం, ౧౯౭౩ జూలై ౧౬ </result>
+   <result timeType='short'>సోమవారం, ౧౯౭౩ జూలై ౧౬  ౧౨:౦౦</result>
+   <result timeType='medium'>సోమవారం, ౧౯౭౩ జూలై ౧౬  ౧౨:౦౦:౦౦ </result>
+   <result timeType='long'>సోమవారం, ౧౯౭౩ జూలై ౧౬  ౧౨:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>సోమవారం, ౧౯౭౩ జూలై ౧౬  ౧౨:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>౧౨:౦౦</result>
+   <result timeType='medium'>౧౨:౦౦:౦౧ </result>
+   <result timeType='long'>౧౨:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౨:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='short' timeType='none'>౯౯/౦౮/౧౪</result>
+   <result timeType='short'>౯౯/౦౮/౧౪ ౧౨:౦౦</result>
+   <result timeType='medium'>౯౯/౦౮/౧౪ ౧౨:౦౦:౦౧ </result>
+   <result timeType='long'>౯౯/౦౮/౧౪ ౧౨:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౯౯/౦౮/౧౪ ౧౨:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='medium' timeType='none'>౧౯౯౯ ఆగస్టు ౧౪ </result>
+   <result timeType='short'>౧౯౯౯ ఆగస్టు ౧౪  ౧౨:౦౦</result>
+   <result timeType='medium'>౧౯౯౯ ఆగస్టు ౧౪  ౧౨:౦౦:౦౧ </result>
+   <result timeType='long'>౧౯౯౯ ఆగస్టు ౧౪  ౧౨:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౯౯ ఆగస్టు ౧౪  ౧౨:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='long' timeType='none'>౧౯౯౯ ఆగస్టు ౧౪ </result>
+   <result timeType='short'>౧౯౯౯ ఆగస్టు ౧౪  ౧౨:౦౦</result>
+   <result timeType='medium'>౧౯౯౯ ఆగస్టు ౧౪  ౧౨:౦౦:౦౧ </result>
+   <result timeType='long'>౧౯౯౯ ఆగస్టు ౧౪  ౧౨:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౯౯౯ ఆగస్టు ౧౪  ౧౨:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='full' timeType='none'>శనివారం, ౧౯౯౯ ఆగస్టు ౧౪ </result>
+   <result timeType='short'>శనివారం, ౧౯౯౯ ఆగస్టు ౧౪  ౧౨:౦౦</result>
+   <result timeType='medium'>శనివారం, ౧౯౯౯ ఆగస్టు ౧౪  ౧౨:౦౦:౦౧ </result>
+   <result timeType='long'>శనివారం, ౧౯౯౯ ఆగస్టు ౧౪  ౧౨:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>శనివారం, ౧౯౯౯ ఆగస్టు ౧౪  ౧౨:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>౨౨:౫౯</result>
+   <result timeType='medium'>౨౨:౫౯:౫౯ </result>
+   <result timeType='long'>౨౨:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౨౨:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='short' timeType='none'>౦౦/౦౯/౧౨</result>
+   <result timeType='short'>౦౦/౦౯/౧౨ ౨౨:౫౯</result>
+   <result timeType='medium'>౦౦/౦౯/౧౨ ౨౨:౫౯:౫౯ </result>
+   <result timeType='long'>౦౦/౦౯/౧౨ ౨౨:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౦౦/౦౯/౧౨ ౨౨:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='medium' timeType='none'>౨౦౦౦ సెప్టెంబర్ ౧౨ </result>
+   <result timeType='short'>౨౦౦౦ సెప్టెంబర్ ౧౨  ౨౨:౫౯</result>
+   <result timeType='medium'>౨౦౦౦ సెప్టెంబర్ ౧౨  ౨౨:౫౯:౫౯ </result>
+   <result timeType='long'>౨౦౦౦ సెప్టెంబర్ ౧౨  ౨౨:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౨౦౦౦ సెప్టెంబర్ ౧౨  ౨౨:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='long' timeType='none'>౨౦౦౦ సెప్టెంబర్ ౧౨ </result>
+   <result timeType='short'>౨౦౦౦ సెప్టెంబర్ ౧౨  ౨౨:౫౯</result>
+   <result timeType='medium'>౨౦౦౦ సెప్టెంబర్ ౧౨  ౨౨:౫౯:౫౯ </result>
+   <result timeType='long'>౨౦౦౦ సెప్టెంబర్ ౧౨  ౨౨:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౨౦౦౦ సెప్టెంబర్ ౧౨  ౨౨:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='full' timeType='none'>మంగళవారం, ౨౦౦౦ సెప్టెంబర్ ౧౨ </result>
+   <result timeType='short'>మంగళవారం, ౨౦౦౦ సెప్టెంబర్ ౧౨  ౨౨:౫౯</result>
+   <result timeType='medium'>మంగళవారం, ౨౦౦౦ సెప్టెంబర్ ౧౨  ౨౨:౫౯:౫౯ </result>
+   <result timeType='long'>మంగళవారం, ౨౦౦౦ సెప్టెంబర్ ౧౨  ౨౨:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>మంగళవారం, ౨౦౦౦ సెప్టెంబర్ ౧౨  ౨౨:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>౨౩:౦౦</result>
+   <result timeType='medium'>౨౩:౦౦:౦౦ </result>
+   <result timeType='long'>౨౩:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౨౩:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='short' timeType='none'>౦౧/౧౦/౦౮</result>
+   <result timeType='short'>౦౧/౧౦/౦౮ ౨౩:౦౦</result>
+   <result timeType='medium'>౦౧/౧౦/౦౮ ౨౩:౦౦:౦౦ </result>
+   <result timeType='long'>౦౧/౧౦/౦౮ ౨౩:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౦౧/౧౦/౦౮ ౨౩:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='medium' timeType='none'>౨౦౦౧ అక్టోబర్ ౮ </result>
+   <result timeType='short'>౨౦౦౧ అక్టోబర్ ౮  ౨౩:౦౦</result>
+   <result timeType='medium'>౨౦౦౧ అక్టోబర్ ౮  ౨౩:౦౦:౦౦ </result>
+   <result timeType='long'>౨౦౦౧ అక్టోబర్ ౮  ౨౩:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౨౦౦౧ అక్టోబర్ ౮  ౨౩:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='long' timeType='none'>౨౦౦౧ అక్టోబర్ ౮ </result>
+   <result timeType='short'>౨౦౦౧ అక్టోబర్ ౮  ౨౩:౦౦</result>
+   <result timeType='medium'>౨౦౦౧ అక్టోబర్ ౮  ౨౩:౦౦:౦౦ </result>
+   <result timeType='long'>౨౦౦౧ అక్టోబర్ ౮  ౨౩:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౨౦౦౧ అక్టోబర్ ౮  ౨౩:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='full' timeType='none'>సోమవారం, ౨౦౦౧ అక్టోబర్ ౦౮ </result>
+   <result timeType='short'>సోమవారం, ౨౦౦౧ అక్టోబర్ ౦౮  ౨౩:౦౦</result>
+   <result timeType='medium'>సోమవారం, ౨౦౦౧ అక్టోబర్ ౦౮  ౨౩:౦౦:౦౦ </result>
+   <result timeType='long'>సోమవారం, ౨౦౦౧ అక్టోబర్ ౦౮  ౨౩:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result timeType='full'>సోమవారం, ౨౦౦౧ అక్టోబర్ ౦౮  ౨౩:౦౦:౦౦ GMT+౦౦:౦౦</result>
+   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>౨౩:౦౦</result>
+   <result timeType='medium'>౨౩:౦౦:౦౧ </result>
+   <result timeType='long'>౨౩:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౨౩:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='short' timeType='none'>౦౪/౧౧/౦౪</result>
+   <result timeType='short'>౦౪/౧౧/౦౪ ౨౩:౦౦</result>
+   <result timeType='medium'>౦౪/౧౧/౦౪ ౨౩:౦౦:౦౧ </result>
+   <result timeType='long'>౦౪/౧౧/౦౪ ౨౩:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౦౪/౧౧/౦౪ ౨౩:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='medium' timeType='none'>౨౦౦౪ నవంబర్ ౪ </result>
+   <result timeType='short'>౨౦౦౪ నవంబర్ ౪  ౨౩:౦౦</result>
+   <result timeType='medium'>౨౦౦౪ నవంబర్ ౪  ౨౩:౦౦:౦౧ </result>
+   <result timeType='long'>౨౦౦౪ నవంబర్ ౪  ౨౩:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౨౦౦౪ నవంబర్ ౪  ౨౩:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='long' timeType='none'>౨౦౦౪ నవంబర్ ౪ </result>
+   <result timeType='short'>౨౦౦౪ నవంబర్ ౪  ౨౩:౦౦</result>
+   <result timeType='medium'>౨౦౦౪ నవంబర్ ౪  ౨౩:౦౦:౦౧ </result>
+   <result timeType='long'>౨౦౦౪ నవంబర్ ౪  ౨౩:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౨౦౦౪ నవంబర్ ౪  ౨౩:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='full' timeType='none'>గురువారం, ౨౦౦౪ నవంబర్ ౦౪ </result>
+   <result timeType='short'>గురువారం, ౨౦౦౪ నవంబర్ ౦౪  ౨౩:౦౦</result>
+   <result timeType='medium'>గురువారం, ౨౦౦౪ నవంబర్ ౦౪  ౨౩:౦౦:౦౧ </result>
+   <result timeType='long'>గురువారం, ౨౦౦౪ నవంబర్ ౦౪  ౨౩:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result timeType='full'>గురువారం, ౨౦౦౪ నవంబర్ ౦౪  ౨౩:౦౦:౦౧ GMT+౦౦:౦౦</result>
+   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>౨౩:౫౯</result>
+   <result timeType='medium'>౨౩:౫౯:౫౯ </result>
+   <result timeType='long'>౨౩:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౨౩:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='short' timeType='none'>౧౦/౧౨/౦౧</result>
+   <result timeType='short'>౧౦/౧౨/౦౧ ౨౩:౫౯</result>
+   <result timeType='medium'>౧౦/౧౨/౦౧ ౨౩:౫౯:౫౯ </result>
+   <result timeType='long'>౧౦/౧౨/౦౧ ౨౩:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౧౦/౧౨/౦౧ ౨౩:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='medium' timeType='none'>౨౦౧౦ డిసెంబర్ ౧ </result>
+   <result timeType='short'>౨౦౧౦ డిసెంబర్ ౧  ౨౩:౫౯</result>
+   <result timeType='medium'>౨౦౧౦ డిసెంబర్ ౧  ౨౩:౫౯:౫౯ </result>
+   <result timeType='long'>౨౦౧౦ డిసెంబర్ ౧  ౨౩:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౨౦౧౦ డిసెంబర్ ౧  ౨౩:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='long' timeType='none'>౨౦౧౦ డిసెంబర్ ౧ </result>
+   <result timeType='short'>౨౦౧౦ డిసెంబర్ ౧  ౨౩:౫౯</result>
+   <result timeType='medium'>౨౦౧౦ డిసెంబర్ ౧  ౨౩:౫౯:౫౯ </result>
+   <result timeType='long'>౨౦౧౦ డిసెంబర్ ౧  ౨౩:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>౨౦౧౦ డిసెంబర్ ౧  ౨౩:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result dateType='full' timeType='none'>బుధవారం, ౨౦౧౦ డిసెంబర్ ౦౧ </result>
+   <result timeType='short'>బుధవారం, ౨౦౧౦ డిసెంబర్ ౦౧  ౨౩:౫౯</result>
+   <result timeType='medium'>బుధవారం, ౨౦౧౦ డిసెంబర్ ౦౧  ౨౩:౫౯:౫౯ </result>
+   <result timeType='long'>బుధవారం, ౨౦౧౦ డిసెంబర్ ౦౧  ౨౩:౫౯:౫౯ GMT+౦౦:౦౦</result>
+   <result timeType='full'>బుధవారం, ౨౦౧౦ డిసెంబర్ ౦౧  ౨౩:౫౯:౫౯ GMT+౦౦:౦౦</result>
+  </date>
+  <collation>
+   <result>
+x‌
+x‍
+x‌
+X‌
+X‍
+X‌
+x౦
+X౦
+x౦x
+x౧
+X౧
+x౧x
+x౨
+X౨
+x౨x
+x౩
+X౩
+x౩x
+x౪
+X౪
+x౪x
+x౫
+X౫
+x౫x
+x౬
+X౬
+x౬x
+x౭
+X౭
+x౭x
+x౮
+X౮
+x౮x
+x౯
+X౯
+x౯x
+x‌x
+x‍x
+x‌x
+xఅ
+Xఅ
+xఅx
+xఆ
+Xఆ
+xఆx
+xఇ
+Xఇ
+xఇx
+xఈ
+Xఈ
+xఈx
+xఉ
+Xఉ
+xఉx
+xఊ
+Xఊ
+xఊx
+xఋ
+Xఋ
+xఋx
+xౠ
+Xౠ
+xౠx
+xఌ
+Xఌ
+xఌx
+xౡ
+Xౡ
+xౡx
+xఎ
+Xఎ
+xఎx
+xఏ
+Xఏ
+xఏx
+xఐ
+Xఐ
+xఐx
+xఒ
+Xఒ
+xఒx
+xఓ
+Xఓ
+xఓx
+xఔ
+Xఔ
+xఔx
+xక
+Xక
+xకx
+xఖ
+Xఖ
+xఖx
+xగ
+Xగ
+xగx
+xఘ
+Xఘ
+xఘx
+xఙ
+Xఙ
+xఙx
+xచ
+Xచ
+xచx
+xఛ
+Xఛ
+xఛx
+xజ
+Xజ
+xజx
+xఝ
+Xఝ
+xఝx
+xఞ
+Xఞ
+xఞx
+xట
+Xట
+xటx
+xఠ
+Xఠ
+xఠx
+xడ
+Xడ
+xడx
+xఢ
+Xఢ
+xఢx
+xణ
+Xణ
+xణx
+xత
+Xత
+xతx
+xథ
+Xథ
+xథx
+xద
+Xద
+xదx
+xధ
+Xధ
+xధx
+xన
+Xన
+xనx
+xప
+Xప
+xపx
+xఫ
+Xఫ
+xఫx
+xబ
+Xబ
+xబx
+xభ
+Xభ
+xభx
+xమ
+Xమ
+xమx
+xయ
+Xయ
+xయx
+xర
+Xర
+xరx
+xఱ
+Xఱ
+xఱx
+xల
+Xల
+xలx
+xళ
+Xళ
+xళx
+xవ
+Xవ
+xవx
+xశ
+Xశ
+xశx
+xష
+Xష
+xషx
+xస
+Xస
+xసx
+xహ
+Xహ
+xహx
+xఁ
+Xఁ
+xఁx
+xం
+Xం
+xంx
+xః
+Xః
+xఃx
+x్
+X్
+x్x
+xా
+Xా
+xాx
+xి
+Xి
+xిx
+xీ
+Xీ
+xీx
+xు
+Xు
+xుx
+xూ
+Xూ
+xూx
+xృ
+Xృ
+xృx
+xౄ
+Xౄ
+xౄx
+xె
+Xె
+xెx
+xే
+Xే
+xేx
+xై
+Xై
+xైx
+xొ
+Xొ
+xొx
+xో
+Xో
+xోx
+xౌ
+Xౌ
+xౌx
+xౕ
+Xౕ
+xౕx
+xౖ
+Xౖ
+xౖx
+   </result>
+  </collation>
+ </cldrTest>

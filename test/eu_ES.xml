@@ -1,0 +1,369 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM 'cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest>
+  <number>
+   <result input='0.0' numberType='standard'>0</result>
+   <result numberType='integer'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result numberType='currency'>0E0</result>
+   <result input='0.01' numberType='standard'>0,01</result>
+   <result numberType='integer'>0</result>
+   <result numberType='decimal'>0,01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result numberType='currency'>1E-2</result>
+   <result input='-0.01' numberType='standard'>-0,01</result>
+   <result numberType='integer'>-0</result>
+   <result numberType='decimal'>-0,01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result numberType='currency'>-1E-2</result>
+   <result input='1.0' numberType='standard'>1</result>
+   <result numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result numberType='currency'>1E0</result>
+   <result input='-1.0' numberType='standard'>-1</result>
+   <result numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result numberType='currency'>-1E0</result>
+   <result input='123.456' numberType='standard'>123,456</result>
+   <result numberType='integer'>123</result>
+   <result numberType='decimal'>123,456</result>
+   <result numberType='percent'>12.346%</result>
+   <result numberType='scientific'>1,23456E2</result>
+   <result numberType='currency'>1,23456E2</result>
+   <result input='-123.456' numberType='standard'>-123,456</result>
+   <result numberType='integer'>-123</result>
+   <result numberType='decimal'>-123,456</result>
+   <result numberType='percent'>-12.346%</result>
+   <result numberType='scientific'>-1,23456E2</result>
+   <result numberType='currency'>-1,23456E2</result>
+   <result input='123456.78' numberType='standard'>123.456,78</result>
+   <result numberType='integer'>123.457</result>
+   <result numberType='decimal'>123.456,78</result>
+   <result numberType='percent'>12.345.678%</result>
+   <result numberType='scientific'>1,2345678E5</result>
+   <result numberType='currency'>1,2345678E5</result>
+   <result input='-123456.78' numberType='standard'>-123.456,78</result>
+   <result numberType='integer'>-123.457</result>
+   <result numberType='decimal'>-123.456,78</result>
+   <result numberType='percent'>-12.345.678%</result>
+   <result numberType='scientific'>-1,2345678E5</result>
+   <result numberType='currency'>-1,2345678E5</result>
+   <result input='Infinity' numberType='standard'>∞</result>
+   <result numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result numberType='currency'>∞</result>
+   <result input='-Infinity' numberType='standard'>-∞</result>
+   <result numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result numberType='currency'>-∞</result>
+   <result input='NaN' numberType='standard'>�</result>
+   <result numberType='integer'>�</result>
+   <result numberType='decimal'>�</result>
+   <result numberType='percent'>�</result>
+   <result numberType='scientific'>�</result>
+   <result numberType='currency'>�</result>
+  </number>
+  <date>
+   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result timeType='long'>00:00:00 GMT+00:00</result>
+   <result timeType='full'>00:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>00-01-31</result>
+   <result timeType='short'>00-01-31 00:00</result>
+   <result timeType='medium'>00-01-31 00:00:00</result>
+   <result timeType='long'>00-01-31 00:00:00 GMT+00:00</result>
+   <result timeType='full'>00-01-31 00:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>00-urt-31</result>
+   <result timeType='short'>00-urt-31 00:00</result>
+   <result timeType='medium'>00-urt-31 00:00:00</result>
+   <result timeType='long'>00-urt-31 00:00:00 GMT+00:00</result>
+   <result timeType='full'>00-urt-31 00:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none'>az, 1900eko urtren 31a</result>
+   <result timeType='short'>az, 1900eko urtren 31a 00:00</result>
+   <result timeType='medium'>az, 1900eko urtren 31a 00:00:00</result>
+   <result timeType='long'>az, 1900eko urtren 31a 00:00:00 GMT+00:00</result>
+   <result timeType='full'>az, 1900eko urtren 31a 00:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none'>asteazkena, 1900eko urtarrilaren 31a</result>
+   <result timeType='short'>asteazkena, 1900eko urtarrilaren 31a 00:00</result>
+   <result timeType='medium'>asteazkena, 1900eko urtarrilaren 31a 00:00:00</result>
+   <result timeType='long'>asteazkena, 1900eko urtarrilaren 31a 00:00:00 GMT+00:00</result>
+   <result timeType='full'>asteazkena, 1900eko urtarrilaren 31a 00:00:00 GMT+00:00</result>
+   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result timeType='long'>00:00:01 GMT+00:00</result>
+   <result timeType='full'>00:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>09-02-28</result>
+   <result timeType='short'>09-02-28 00:00</result>
+   <result timeType='medium'>09-02-28 00:00:01</result>
+   <result timeType='long'>09-02-28 00:00:01 GMT+00:00</result>
+   <result timeType='full'>09-02-28 00:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>09-ots-28</result>
+   <result timeType='short'>09-ots-28 00:00</result>
+   <result timeType='medium'>09-ots-28 00:00:01</result>
+   <result timeType='long'>09-ots-28 00:00:01 GMT+00:00</result>
+   <result timeType='full'>09-ots-28 00:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none'>ig, 1909eko otsren 28a</result>
+   <result timeType='short'>ig, 1909eko otsren 28a 00:00</result>
+   <result timeType='medium'>ig, 1909eko otsren 28a 00:00:01</result>
+   <result timeType='long'>ig, 1909eko otsren 28a 00:00:01 GMT+00:00</result>
+   <result timeType='full'>ig, 1909eko otsren 28a 00:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none'>igandea, 1909eko otsailaren 28a</result>
+   <result timeType='short'>igandea, 1909eko otsailaren 28a 00:00</result>
+   <result timeType='medium'>igandea, 1909eko otsailaren 28a 00:00:01</result>
+   <result timeType='long'>igandea, 1909eko otsailaren 28a 00:00:01 GMT+00:00</result>
+   <result timeType='full'>igandea, 1909eko otsailaren 28a 00:00:01 GMT+00:00</result>
+   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result timeType='long'>00:59:59 GMT+00:00</result>
+   <result timeType='full'>00:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>18-03-26</result>
+   <result timeType='short'>18-03-26 00:59</result>
+   <result timeType='medium'>18-03-26 00:59:59</result>
+   <result timeType='long'>18-03-26 00:59:59 GMT+00:00</result>
+   <result timeType='full'>18-03-26 00:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>18-mar-26</result>
+   <result timeType='short'>18-mar-26 00:59</result>
+   <result timeType='medium'>18-mar-26 00:59:59</result>
+   <result timeType='long'>18-mar-26 00:59:59 GMT+00:00</result>
+   <result timeType='full'>18-mar-26 00:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none'>as, 1918eko marren 26a</result>
+   <result timeType='short'>as, 1918eko marren 26a 00:59</result>
+   <result timeType='medium'>as, 1918eko marren 26a 00:59:59</result>
+   <result timeType='long'>as, 1918eko marren 26a 00:59:59 GMT+00:00</result>
+   <result timeType='full'>as, 1918eko marren 26a 00:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none'>asteartea, 1918eko martxoaren 26a</result>
+   <result timeType='short'>asteartea, 1918eko martxoaren 26a 00:59</result>
+   <result timeType='medium'>asteartea, 1918eko martxoaren 26a 00:59:59</result>
+   <result timeType='long'>asteartea, 1918eko martxoaren 26a 00:59:59 GMT+00:00</result>
+   <result timeType='full'>asteartea, 1918eko martxoaren 26a 00:59:59 GMT+00:00</result>
+   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result timeType='long'>01:00:00 GMT+00:00</result>
+   <result timeType='full'>01:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>32-04-24</result>
+   <result timeType='short'>32-04-24 01:00</result>
+   <result timeType='medium'>32-04-24 01:00:00</result>
+   <result timeType='long'>32-04-24 01:00:00 GMT+00:00</result>
+   <result timeType='full'>32-04-24 01:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>32-api-24</result>
+   <result timeType='short'>32-api-24 01:00</result>
+   <result timeType='medium'>32-api-24 01:00:00</result>
+   <result timeType='long'>32-api-24 01:00:00 GMT+00:00</result>
+   <result timeType='full'>32-api-24 01:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none'>ig, 1932eko apiren 24a</result>
+   <result timeType='short'>ig, 1932eko apiren 24a 01:00</result>
+   <result timeType='medium'>ig, 1932eko apiren 24a 01:00:00</result>
+   <result timeType='long'>ig, 1932eko apiren 24a 01:00:00 GMT+00:00</result>
+   <result timeType='full'>ig, 1932eko apiren 24a 01:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none'>igandea, 1932eko apirilaren 24a</result>
+   <result timeType='short'>igandea, 1932eko apirilaren 24a 01:00</result>
+   <result timeType='medium'>igandea, 1932eko apirilaren 24a 01:00:00</result>
+   <result timeType='long'>igandea, 1932eko apirilaren 24a 01:00:00 GMT+00:00</result>
+   <result timeType='full'>igandea, 1932eko apirilaren 24a 01:00:00 GMT+00:00</result>
+   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result timeType='long'>01:00:01 GMT+00:00</result>
+   <result timeType='full'>01:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>45-05-20</result>
+   <result timeType='short'>45-05-20 01:00</result>
+   <result timeType='medium'>45-05-20 01:00:01</result>
+   <result timeType='long'>45-05-20 01:00:01 GMT+00:00</result>
+   <result timeType='full'>45-05-20 01:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>45-mai-20</result>
+   <result timeType='short'>45-mai-20 01:00</result>
+   <result timeType='medium'>45-mai-20 01:00:01</result>
+   <result timeType='long'>45-mai-20 01:00:01 GMT+00:00</result>
+   <result timeType='full'>45-mai-20 01:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none'>ig, 1945eko mairen 20a</result>
+   <result timeType='short'>ig, 1945eko mairen 20a 01:00</result>
+   <result timeType='medium'>ig, 1945eko mairen 20a 01:00:01</result>
+   <result timeType='long'>ig, 1945eko mairen 20a 01:00:01 GMT+00:00</result>
+   <result timeType='full'>ig, 1945eko mairen 20a 01:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none'>igandea, 1945eko maiatzaren 20a</result>
+   <result timeType='short'>igandea, 1945eko maiatzaren 20a 01:00</result>
+   <result timeType='medium'>igandea, 1945eko maiatzaren 20a 01:00:01</result>
+   <result timeType='long'>igandea, 1945eko maiatzaren 20a 01:00:01 GMT+00:00</result>
+   <result timeType='full'>igandea, 1945eko maiatzaren 20a 01:00:01 GMT+00:00</result>
+   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result timeType='long'>11:59:59 GMT+00:00</result>
+   <result timeType='full'>11:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>52-06-18</result>
+   <result timeType='short'>52-06-18 11:59</result>
+   <result timeType='medium'>52-06-18 11:59:59</result>
+   <result timeType='long'>52-06-18 11:59:59 GMT+00:00</result>
+   <result timeType='full'>52-06-18 11:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>52-eka-18</result>
+   <result timeType='short'>52-eka-18 11:59</result>
+   <result timeType='medium'>52-eka-18 11:59:59</result>
+   <result timeType='long'>52-eka-18 11:59:59 GMT+00:00</result>
+   <result timeType='full'>52-eka-18 11:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none'>az, 1952eko ekaren 18a</result>
+   <result timeType='short'>az, 1952eko ekaren 18a 11:59</result>
+   <result timeType='medium'>az, 1952eko ekaren 18a 11:59:59</result>
+   <result timeType='long'>az, 1952eko ekaren 18a 11:59:59 GMT+00:00</result>
+   <result timeType='full'>az, 1952eko ekaren 18a 11:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none'>asteazkena, 1952eko ekainaren 18a</result>
+   <result timeType='short'>asteazkena, 1952eko ekainaren 18a 11:59</result>
+   <result timeType='medium'>asteazkena, 1952eko ekainaren 18a 11:59:59</result>
+   <result timeType='long'>asteazkena, 1952eko ekainaren 18a 11:59:59 GMT+00:00</result>
+   <result timeType='full'>asteazkena, 1952eko ekainaren 18a 11:59:59 GMT+00:00</result>
+   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result timeType='long'>12:00:00 GMT+00:00</result>
+   <result timeType='full'>12:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>73-07-16</result>
+   <result timeType='short'>73-07-16 12:00</result>
+   <result timeType='medium'>73-07-16 12:00:00</result>
+   <result timeType='long'>73-07-16 12:00:00 GMT+00:00</result>
+   <result timeType='full'>73-07-16 12:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>73-uzt-16</result>
+   <result timeType='short'>73-uzt-16 12:00</result>
+   <result timeType='medium'>73-uzt-16 12:00:00</result>
+   <result timeType='long'>73-uzt-16 12:00:00 GMT+00:00</result>
+   <result timeType='full'>73-uzt-16 12:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none'>al, 1973eko uztren 16a</result>
+   <result timeType='short'>al, 1973eko uztren 16a 12:00</result>
+   <result timeType='medium'>al, 1973eko uztren 16a 12:00:00</result>
+   <result timeType='long'>al, 1973eko uztren 16a 12:00:00 GMT+00:00</result>
+   <result timeType='full'>al, 1973eko uztren 16a 12:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none'>astelehena, 1973eko uztailaren 16a</result>
+   <result timeType='short'>astelehena, 1973eko uztailaren 16a 12:00</result>
+   <result timeType='medium'>astelehena, 1973eko uztailaren 16a 12:00:00</result>
+   <result timeType='long'>astelehena, 1973eko uztailaren 16a 12:00:00 GMT+00:00</result>
+   <result timeType='full'>astelehena, 1973eko uztailaren 16a 12:00:00 GMT+00:00</result>
+   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result timeType='long'>12:00:01 GMT+00:00</result>
+   <result timeType='full'>12:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>99-08-14</result>
+   <result timeType='short'>99-08-14 12:00</result>
+   <result timeType='medium'>99-08-14 12:00:01</result>
+   <result timeType='long'>99-08-14 12:00:01 GMT+00:00</result>
+   <result timeType='full'>99-08-14 12:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>99-abu-14</result>
+   <result timeType='short'>99-abu-14 12:00</result>
+   <result timeType='medium'>99-abu-14 12:00:01</result>
+   <result timeType='long'>99-abu-14 12:00:01 GMT+00:00</result>
+   <result timeType='full'>99-abu-14 12:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none'>lr, 1999eko aburen 14a</result>
+   <result timeType='short'>lr, 1999eko aburen 14a 12:00</result>
+   <result timeType='medium'>lr, 1999eko aburen 14a 12:00:01</result>
+   <result timeType='long'>lr, 1999eko aburen 14a 12:00:01 GMT+00:00</result>
+   <result timeType='full'>lr, 1999eko aburen 14a 12:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none'>larunbata, 1999eko abuztuaren 14a</result>
+   <result timeType='short'>larunbata, 1999eko abuztuaren 14a 12:00</result>
+   <result timeType='medium'>larunbata, 1999eko abuztuaren 14a 12:00:01</result>
+   <result timeType='long'>larunbata, 1999eko abuztuaren 14a 12:00:01 GMT+00:00</result>
+   <result timeType='full'>larunbata, 1999eko abuztuaren 14a 12:00:01 GMT+00:00</result>
+   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result timeType='long'>22:59:59 GMT+00:00</result>
+   <result timeType='full'>22:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>00-09-12</result>
+   <result timeType='short'>00-09-12 22:59</result>
+   <result timeType='medium'>00-09-12 22:59:59</result>
+   <result timeType='long'>00-09-12 22:59:59 GMT+00:00</result>
+   <result timeType='full'>00-09-12 22:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>00-ira-12</result>
+   <result timeType='short'>00-ira-12 22:59</result>
+   <result timeType='medium'>00-ira-12 22:59:59</result>
+   <result timeType='long'>00-ira-12 22:59:59 GMT+00:00</result>
+   <result timeType='full'>00-ira-12 22:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none'>as, 2000eko iraren 12a</result>
+   <result timeType='short'>as, 2000eko iraren 12a 22:59</result>
+   <result timeType='medium'>as, 2000eko iraren 12a 22:59:59</result>
+   <result timeType='long'>as, 2000eko iraren 12a 22:59:59 GMT+00:00</result>
+   <result timeType='full'>as, 2000eko iraren 12a 22:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none'>asteartea, 2000eko irailaren 12a</result>
+   <result timeType='short'>asteartea, 2000eko irailaren 12a 22:59</result>
+   <result timeType='medium'>asteartea, 2000eko irailaren 12a 22:59:59</result>
+   <result timeType='long'>asteartea, 2000eko irailaren 12a 22:59:59 GMT+00:00</result>
+   <result timeType='full'>asteartea, 2000eko irailaren 12a 22:59:59 GMT+00:00</result>
+   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result timeType='long'>23:00:00 GMT+00:00</result>
+   <result timeType='full'>23:00:00 GMT+00:00</result>
+   <result dateType='short' timeType='none'>01-10-08</result>
+   <result timeType='short'>01-10-08 23:00</result>
+   <result timeType='medium'>01-10-08 23:00:00</result>
+   <result timeType='long'>01-10-08 23:00:00 GMT+00:00</result>
+   <result timeType='full'>01-10-08 23:00:00 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>01-urr-08</result>
+   <result timeType='short'>01-urr-08 23:00</result>
+   <result timeType='medium'>01-urr-08 23:00:00</result>
+   <result timeType='long'>01-urr-08 23:00:00 GMT+00:00</result>
+   <result timeType='full'>01-urr-08 23:00:00 GMT+00:00</result>
+   <result dateType='long' timeType='none'>al, 2001eko urrren 08a</result>
+   <result timeType='short'>al, 2001eko urrren 08a 23:00</result>
+   <result timeType='medium'>al, 2001eko urrren 08a 23:00:00</result>
+   <result timeType='long'>al, 2001eko urrren 08a 23:00:00 GMT+00:00</result>
+   <result timeType='full'>al, 2001eko urrren 08a 23:00:00 GMT+00:00</result>
+   <result dateType='full' timeType='none'>astelehena, 2001eko urriaren 08a</result>
+   <result timeType='short'>astelehena, 2001eko urriaren 08a 23:00</result>
+   <result timeType='medium'>astelehena, 2001eko urriaren 08a 23:00:00</result>
+   <result timeType='long'>astelehena, 2001eko urriaren 08a 23:00:00 GMT+00:00</result>
+   <result timeType='full'>astelehena, 2001eko urriaren 08a 23:00:00 GMT+00:00</result>
+   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result timeType='long'>23:00:01 GMT+00:00</result>
+   <result timeType='full'>23:00:01 GMT+00:00</result>
+   <result dateType='short' timeType='none'>04-11-04</result>
+   <result timeType='short'>04-11-04 23:00</result>
+   <result timeType='medium'>04-11-04 23:00:01</result>
+   <result timeType='long'>04-11-04 23:00:01 GMT+00:00</result>
+   <result timeType='full'>04-11-04 23:00:01 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>04-aza-04</result>
+   <result timeType='short'>04-aza-04 23:00</result>
+   <result timeType='medium'>04-aza-04 23:00:01</result>
+   <result timeType='long'>04-aza-04 23:00:01 GMT+00:00</result>
+   <result timeType='full'>04-aza-04 23:00:01 GMT+00:00</result>
+   <result dateType='long' timeType='none'>og, 2004eko azaren 04a</result>
+   <result timeType='short'>og, 2004eko azaren 04a 23:00</result>
+   <result timeType='medium'>og, 2004eko azaren 04a 23:00:01</result>
+   <result timeType='long'>og, 2004eko azaren 04a 23:00:01 GMT+00:00</result>
+   <result timeType='full'>og, 2004eko azaren 04a 23:00:01 GMT+00:00</result>
+   <result dateType='full' timeType='none'>osteguna, 2004eko azaroaren 04a</result>
+   <result timeType='short'>osteguna, 2004eko azaroaren 04a 23:00</result>
+   <result timeType='medium'>osteguna, 2004eko azaroaren 04a 23:00:01</result>
+   <result timeType='long'>osteguna, 2004eko azaroaren 04a 23:00:01 GMT+00:00</result>
+   <result timeType='full'>osteguna, 2004eko azaroaren 04a 23:00:01 GMT+00:00</result>
+   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result timeType='long'>23:59:59 GMT+00:00</result>
+   <result timeType='full'>23:59:59 GMT+00:00</result>
+   <result dateType='short' timeType='none'>10-12-01</result>
+   <result timeType='short'>10-12-01 23:59</result>
+   <result timeType='medium'>10-12-01 23:59:59</result>
+   <result timeType='long'>10-12-01 23:59:59 GMT+00:00</result>
+   <result timeType='full'>10-12-01 23:59:59 GMT+00:00</result>
+   <result dateType='medium' timeType='none'>10-abe-01</result>
+   <result timeType='short'>10-abe-01 23:59</result>
+   <result timeType='medium'>10-abe-01 23:59:59</result>
+   <result timeType='long'>10-abe-01 23:59:59 GMT+00:00</result>
+   <result timeType='full'>10-abe-01 23:59:59 GMT+00:00</result>
+   <result dateType='long' timeType='none'>az, 2010eko aberen 01a</result>
+   <result timeType='short'>az, 2010eko aberen 01a 23:59</result>
+   <result timeType='medium'>az, 2010eko aberen 01a 23:59:59</result>
+   <result timeType='long'>az, 2010eko aberen 01a 23:59:59 GMT+00:00</result>
+   <result timeType='full'>az, 2010eko aberen 01a 23:59:59 GMT+00:00</result>
+   <result dateType='full' timeType='none'>asteazkena, 2010eko abenduaren 01a</result>
+   <result timeType='short'>asteazkena, 2010eko abenduaren 01a 23:59</result>
+   <result timeType='medium'>asteazkena, 2010eko abenduaren 01a 23:59:59</result>
+   <result timeType='long'>asteazkena, 2010eko abenduaren 01a 23:59:59 GMT+00:00</result>
+   <result timeType='full'>asteazkena, 2010eko abenduaren 01a 23:59:59 GMT+00:00</result>
+  </date>
+ </cldrTest>

@@ -10,6 +10,7 @@
 package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
+import java.util.Locale;
 
 import org.unicode.cldr.util.LDMLUtilities;
 
@@ -24,37 +25,58 @@ public class POSIX_LCMessages {
    String noexpr;
    String SearchLocation;
    Node n;
+   Locale loc;
 
-   public POSIX_LCMessages ( Document doc )
+   public POSIX_LCMessages ( Document doc , String locale_name )
    {
+         int i = locale_name.indexOf('_');
+         if ( i > 0 )
+            loc = new Locale(locale_name.substring(0,i));
+         else
+            loc = Locale.getDefault();
+
          SearchLocation = "//ldml/posix/messages/yesstr";
          String s;
          n = LDMLUtilities.getNode(doc, SearchLocation);
          if ( n != null && (( s = LDMLUtilities.getNodeValue(n)) != null ))
-            yesstr = POSIXUtilities.POSIXCharNameNP(s);
+         {
+            StringBuffer buf = new StringBuffer(s);
+            if ( ! s.equals(s.toUpperCase(loc)))
+              buf.append(":"+s.toUpperCase(loc));
+            if ( ! s.startsWith("yes:"))
+              buf.append(":yes:y:YES:Y");
+            yesstr = POSIXUtilities.POSIXCharNameNP(buf.toString());
+         }
          else
-            yesstr = "yes:y:Y";
+            yesstr = "yes:y:YES:Y";
 
          SearchLocation = "//ldml/posix/messages/nostr";
          n = LDMLUtilities.getNode(doc, SearchLocation);
          if ( n != null && (( s = LDMLUtilities.getNodeValue(n)) != null ))
-            nostr = POSIXUtilities.POSIXCharNameNP(s);
+         {
+            StringBuffer buf = new StringBuffer(s);
+            if ( ! s.equals(s.toUpperCase(loc)))
+              buf.append(":"+s.toUpperCase(loc));
+            if ( ! s.startsWith("no:"))
+              buf.append(":no:n:NO:N");
+            nostr = POSIXUtilities.POSIXCharNameNP(buf.toString());
+         }
          else
-            nostr = "no:n:N";
+            nostr = "no:n:NO:N";
 
          SearchLocation = "//ldml/posix/messages/yesexpr";
          n = LDMLUtilities.getNode(doc, SearchLocation);
          if ( n != null && (( s = LDMLUtilities.getNodeValue(n)) != null ))
             yesexpr = POSIXUtilities.POSIXCharNameNP(s);
          else
-            yesexpr = "^[yY]";
+            yesexpr = "^[yY]([eE][sS])?";
 
          SearchLocation = "//ldml/posix/messages/noexpr";
          n = LDMLUtilities.getNode(doc, SearchLocation);
          if ( n != null && (( s = LDMLUtilities.getNodeValue(n)) != null ))
             noexpr = POSIXUtilities.POSIXCharNameNP(s);
          else
-            noexpr = "^[nN]";
+            noexpr = "^[nN][oO]?";
 
    }
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="3.0"/>
-		<generation date="2004-05-14" />
+		<version number="1.1"/>
+		<generation date="2004-05-27" />
 		<language type="en" /> 
 	</identity>
 	<localeDisplayNames>
@@ -166,7 +166,7 @@
 			<language type="grc">Greek, Ancient (to 1453)</language>
 			<language type="gu">Gujarati</language>
 			<language type="gv">Manx</language>
-			<language type="gwi">Gwich'in</language>
+			<language type="gwi">Gwichʻin</language>
 			<language type="ha">Hausa</language>
 			<language type="hai">Haida</language>
 			<language type="haw">Hawaiian</language>
@@ -578,7 +578,7 @@
 			<territory type="CF">Central African Republic</territory>
 			<territory type="CG">Congo</territory>
 			<territory type="CH">Switzerland</territory>
-			<territory type="CI">Côte d'Ivoire</territory>
+			<territory type="CI">Côte d’Ivoire</territory>
 			<territory type="CK">Cook Islands</territory>
 			<territory type="CL">Chile</territory>
 			<territory type="CM">Cameroon</territory>
@@ -788,12 +788,12 @@
 			<key type="currency">Currency</key>
 		</keys>
 		<types>
-			<type type="arabic" key="calendar">Arabic Calendar</type>
-			<type type="arabic-civil" key="calendar">Arabic-Civil Calendar</type>
 			<type type="buddhist" key="calendar">Buddhist Calendar</type>
 			<type type="chinese" key="calendar">Chinese Calendar</type>
 			<type type="gregorian" key="calendar">Gregorian Calendar</type>
 			<type type="hebrew" key="calendar">Hebrew Calendar</type>
+			<type type="islamic" key="calendar">Islamic Calendar</type>
+			<type type="islamic-civil" key="calendar">Islamic-Civil Calendar</type>
 			<type type="japanese" key="calendar">Japanese Calendar</type>
 			<type type="direct" key="collation">Direct Order</type>
 			<type type="phonebook" key="collation">Phonebook Order</type>
@@ -1992,7 +1992,7 @@
 				<symbol>CF</symbol>
 			</currency>
 			<currency type="KPP">
-				<displayName>North Korean People's Won</displayName>
+				<displayName>North Korean People’s Won</displayName>
 				<symbol>KPP</symbol>
 			</currency>
 			<currency type="KPW">
@@ -2500,7 +2500,7 @@
 				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
-				<displayName>Tonga Pa´anga</displayName>
+				<displayName>Tonga Paʻanga</displayName>
 				<symbol>T$</symbol>
 			</currency>
 			<currency type="TOS">
@@ -2718,10 +2718,6 @@
 			<currency type="XPF">
 				<displayName>CFP Franc</displayName>
 				<symbol>CFPF</symbol>
-			</currency>
-			<currency type="XPS">
-				<displayName>Pound Sterling</displayName>
-				<symbol>XPS</symbol>
 			</currency>
 			<currency type="XSS">
 				<displayName>Shilling Sterling</displayName>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="2.0"/>
-		<generation date="2004-05-14" />
+		<version number="1.1"/>
+		<generation date="2004-05-27" />
 		<language type="mr" /> 
 	</identity>
 	<localeDisplayNames>
@@ -154,6 +154,9 @@
 			<territory type="IN">भारत</territory>
 		</territories>
 	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[[:Deva:]-[क़-य़]‌‍]</exemplarCharacters>
+	</characters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -191,6 +194,15 @@
 				</months>
 				<days>
 					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">रवि</day>
+							<day type="mon">सोम</day>
+							<day type="tue">मंगळ</day>
+							<day type="wed">बुध</day>
+							<day type="thu">गुरु</day>
+							<day type="fri">शुक्र</day>
+							<day type="sat">शनि</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">रविवार</day>
 							<day type="mon">सोमवार</day>
@@ -204,15 +216,27 @@
 				</days>
 				<am>म.पू.</am>
 				<pm>म.नं.</pm>
-				<eras>
-					<eraAbbr>
-						<era type="1"></era>
-						<era type="2">[[:Deva:]-[क़-य़]‌‍]</era>
-						<era type="3"></era>
-						<era type="4"></era>
-					</eraAbbr>
-				</eras>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<zone type="Asia/Calcutta">
+				<long>
+				<standard>भारतीय समय</standard>
+				<daylight>भारतीय समय</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IST</daylight>
+				</short>
+			</zone>
+		</timeZoneNames>
 	</dates>
+	<numbers>
+		<currencies>
+			<currency type="INR">
+				<displayName>INR</displayName>
+				<symbol>रु</symbol>
+			</currency>
+		</currencies>
+	</numbers>
 </ldml>

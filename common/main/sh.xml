@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<version number="2.0"/>
+		<generation date="2004-05-14" />
 		<language type="sh" /> 
 	</identity>
 	<localeDisplayNames>
@@ -208,7 +208,7 @@
 			<territory type="ML">Mali</territory>
 			<territory type="MM">Mijnamar</territory>
 			<territory type="MN">Mongolija</territory>
-			<territory type="MO">Macao S.A.R. China</territory>
+			<territory type="MO">Macao S.A.R., China</territory>
 			<territory type="MP">Northern Mariana Islands</territory>
 			<territory type="MQ">Martinik</territory>
 			<territory type="MR">Mauritanija</territory>
@@ -315,65 +315,63 @@
 		<exemplarCharacters>[a-p r-v z đ ć č ž š {lj} {nj} {dž}]</exemplarCharacters>
 	</characters>
 	<dates>
-		<localizedPatternChars>GanjkHmsSEDFwWxhKzAe</localizedPatternChars>
+		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">januar</month>
-					<month type="2">februar</month>
-					<month type="3">mart</month>
-					<month type="4">april</month>
-					<month type="5">maj</month>
-					<month type="6">juni</month>
-					<month type="7">juli</month>
-					<month type="8">avgust</month>
-					<month type="9">septembar</month>
-					<month type="10">oktobar</month>
-					<month type="11">novembar</month>
-					<month type="12">decembar</month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">jan</month>
-					<month type="2">feb</month>
-					<month type="3">mar</month>
-					<month type="4">apr</month>
-					<month type="5">maj</month>
-					<month type="6">jun</month>
-					<month type="7">jul</month>
-					<month type="8">avg</month>
-					<month type="9">sep</month>
-					<month type="10">okt</month>
-					<month type="11">nov</month>
-					<month type="12">dec</month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">nedelja</day>
-					<day type="mon">ponedeljak</day>
-					<day type="tue">utorak</day>
-					<day type="wed">sreda</day>
-					<day type="thu">četvrtak</day>
-					<day type="fri">petak</day>
-					<day type="sat">subota</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">ned</day>
-					<day type="mon">pon</day>
-					<day type="tue">uto</day>
-					<day type="wed">sre</day>
-					<day type="thu">čet</day>
-					<day type="fri">pet</day>
-					<day type="sat">sub</day>
-				</dayAbbr>
-				<week>
-					<minDays count="1"/>
-					<firstDay day="mon"/>
-				</week>
-				<eras>
-					<eraAbbr>
-						<era type="1">p. n. e.</era>
-						<era type="2">n. e.</era>
-					</eraAbbr>
-				</eras>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">jan</month>
+							<month type="2">feb</month>
+							<month type="3">mar</month>
+							<month type="4">apr</month>
+							<month type="5">maj</month>
+							<month type="6">jun</month>
+							<month type="7">jul</month>
+							<month type="8">avg</month>
+							<month type="9">sep</month>
+							<month type="10">okt</month>
+							<month type="11">nov</month>
+							<month type="12">dec</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">januar</month>
+							<month type="2">februar</month>
+							<month type="3">mart</month>
+							<month type="4">april</month>
+							<month type="5">maj</month>
+							<month type="6">juni</month>
+							<month type="7">juli</month>
+							<month type="8">avgust</month>
+							<month type="9">septembar</month>
+							<month type="10">oktobar</month>
+							<month type="11">novembar</month>
+							<month type="12">decembar</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">ned</day>
+							<day type="mon">pon</day>
+							<day type="tue">uto</day>
+							<day type="wed">sre</day>
+							<day type="thu">čet</day>
+							<day type="fri">pet</day>
+							<day type="sat">sub</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">nedelja</day>
+							<day type="mon">ponedeljak</day>
+							<day type="tue">utorak</day>
+							<day type="wed">sreda</day>
+							<day type="thu">četvrtak</day>
+							<day type="fri">petak</day>
+							<day type="sat">subota</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<version number="2.0"/>
+		<generation date="2004-05-14" />
 		<language type="hu" /> 
 	</identity>
 	<localeDisplayNames>
@@ -289,7 +289,7 @@
 			<territory type="ML">Mali</territory>
 			<territory type="MM">Mianmar</territory>
 			<territory type="MN">Mongólia</territory>
-			<territory type="MO">Macao S.A.R. China</territory>
+			<territory type="MO">Macao S.A.R., China</territory>
 			<territory type="MP">Északi Mariana-szigetek</territory>
 			<territory type="MQ">Martinique (francia)</territory>
 			<territory type="MR">Mauritánia</territory>
@@ -396,67 +396,133 @@
 		<exemplarCharacters>[a-z á é í ó ú ö ü ő ű {cs} {dz} {dzs} {gy} {ly} {ny} {sz} {ty} {zs} {ccs} {ddz} {ddzs} {ggy} {lly} {nny} {ssz} {tty} {zzs}]</exemplarCharacters>
 	</characters>
 	<dates>
-		<localizedPatternChars>GanjkHmsSEDFwWxhKzAe</localizedPatternChars>
+		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
+			<calendar type="arabic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Moharrem</month>
+							<month type="2">Safar</month>
+							<month type="3">Rébi el avvel</month>
+							<month type="4">Rébi el accher</month>
+							<month type="5">Dsemádi el avvel</month>
+							<month type="6">Dsemádi el accher</month>
+							<month type="7">Redseb</month>
+							<month type="8">Sabán</month>
+							<month type="9">Ramadán</month>
+							<month type="10">Sevvál</month>
+							<month type="11">Dsül kade</month>
+							<month type="12">Dsül hedse</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Moharrem</month>
+							<month type="2">Safar</month>
+							<month type="3">Rébi el avvel</month>
+							<month type="4">Rébi el accher</month>
+							<month type="5">Dsemádi el avvel</month>
+							<month type="6">Dsemádi el accher</month>
+							<month type="7">Redseb</month>
+							<month type="8">Sabán</month>
+							<month type="9">Ramadán</month>
+							<month type="10">Sevvál</month>
+							<month type="11">Dsül kade</month>
+							<month type="12">Dsül hedse</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
+			<calendar type="arabic-civil">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Moharrem</month>
+							<month type="2">Safar</month>
+							<month type="3">Rébi el avvel</month>
+							<month type="4">Rébi el accher</month>
+							<month type="5">Dsemádi el avvel</month>
+							<month type="6">Dsemádi el accher</month>
+							<month type="7">Redseb</month>
+							<month type="8">Sabán</month>
+							<month type="9">Ramadán</month>
+							<month type="10">Sevvál</month>
+							<month type="11">Dsül kade</month>
+							<month type="12">Dsül hedse</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Moharrem</month>
+							<month type="2">Safar</month>
+							<month type="3">Rébi el avvel</month>
+							<month type="4">Rébi el accher</month>
+							<month type="5">Dsemádi el avvel</month>
+							<month type="6">Dsemádi el accher</month>
+							<month type="7">Redseb</month>
+							<month type="8">Sabán</month>
+							<month type="9">Ramadán</month>
+							<month type="10">Sevvál</month>
+							<month type="11">Dsül kade</month>
+							<month type="12">Dsül hedse</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">január</month>
-					<month type="2">február</month>
-					<month type="3">március</month>
-					<month type="4">április</month>
-					<month type="5">május</month>
-					<month type="6">június</month>
-					<month type="7">július</month>
-					<month type="8">augusztus</month>
-					<month type="9">szeptember</month>
-					<month type="10">október</month>
-					<month type="11">november</month>
-					<month type="12">december</month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">jan.</month>
-					<month type="2">febr.</month>
-					<month type="3">márc.</month>
-					<month type="4">ápr.</month>
-					<month type="5">máj.</month>
-					<month type="6">jún.</month>
-					<month type="7">júl.</month>
-					<month type="8">aug.</month>
-					<month type="9">szept.</month>
-					<month type="10">okt.</month>
-					<month type="11">nov.</month>
-					<month type="12">dec.</month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">vasárnap</day>
-					<day type="mon">hétfő</day>
-					<day type="tue">kedd</day>
-					<day type="wed">szerda</day>
-					<day type="thu">csütörtök</day>
-					<day type="fri">péntek</day>
-					<day type="sat">szombat</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">V</day>
-					<day type="mon">H</day>
-					<day type="tue">K</day>
-					<day type="wed">Sze</day>
-					<day type="thu">Cs</day>
-					<day type="fri">P</day>
-					<day type="sat">Szo</day>
-				</dayAbbr>
-				<week>
-					<minDays count="1"/>
-					<firstDay day="mon"/>
-				</week>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">jan.</month>
+							<month type="2">febr.</month>
+							<month type="3">márc.</month>
+							<month type="4">ápr.</month>
+							<month type="5">máj.</month>
+							<month type="6">jún.</month>
+							<month type="7">júl.</month>
+							<month type="8">aug.</month>
+							<month type="9">szept.</month>
+							<month type="10">okt.</month>
+							<month type="11">nov.</month>
+							<month type="12">dec.</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">január</month>
+							<month type="2">február</month>
+							<month type="3">március</month>
+							<month type="4">április</month>
+							<month type="5">május</month>
+							<month type="6">június</month>
+							<month type="7">július</month>
+							<month type="8">augusztus</month>
+							<month type="9">szeptember</month>
+							<month type="10">október</month>
+							<month type="11">november</month>
+							<month type="12">december</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">V</day>
+							<day type="mon">H</day>
+							<day type="tue">K</day>
+							<day type="wed">Sze</day>
+							<day type="thu">Cs</day>
+							<day type="fri">P</day>
+							<day type="sat">Szo</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">vasárnap</day>
+							<day type="mon">hétfő</day>
+							<day type="tue">kedd</day>
+							<day type="wed">szerda</day>
+							<day type="thu">csütörtök</day>
+							<day type="fri">péntek</day>
+							<day type="sat">szombat</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<am>DE</am>
 				<pm>DU</pm>
-				<eras>
-					<eraAbbr>
-						<era type="1">i.e.</era>
-						<era type="2">i.u.</era>
-					</eraAbbr>
-				</eras>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">
@@ -510,6 +576,42 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength >
 				</dateTimeFormats>
+			</calendar>
+			<calendar type="hebrew">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Tisri</month>
+							<month type="2">Hesván</month>
+							<month type="3">Kiszlév</month>
+							<month type="4">Tévész</month>
+							<month type="5">Svát</month>
+							<month type="6">Ádár risón</month>
+							<month type="7">Ádár séni</month>
+							<month type="8">Niszán</month>
+							<month type="9">Ijár</month>
+							<month type="10">Sziván</month>
+							<month type="11">Tamuz</month>
+							<month type="12">Áv</month>
+							<month type="13">Elul</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Tisri</month>
+							<month type="2">Hesván</month>
+							<month type="3">Kiszlév</month>
+							<month type="4">Tévész</month>
+							<month type="5">Svát</month>
+							<month type="6">Ádár risón</month>
+							<month type="7">Ádár séni</month>
+							<month type="8">Niszán</month>
+							<month type="9">Ijár</month>
+							<month type="10">Sziván</month>
+							<month type="11">Tamuz</month>
+							<month type="12">Áv</month>
+							<month type="13">Elul</month>
+						</monthWidth>
+					</monthContext>
+				</months>
 			</calendar>
 		</calendars>
 	</dates>

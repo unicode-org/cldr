@@ -994,14 +994,14 @@
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
-					<generic>Mountain Standard Time</generic>
-					<standard>Mountain Daylight Time</standard>
-					<daylight>Mountain Time</daylight>
+					<generic>Mountain Time</generic>
+					<standard>Mountain Standard Time</standard>
+					<daylight>Mountain Daylight Time</daylight>
 				</long>
 				<short>
-					<generic>MST</generic>
-					<standard>MDT</standard>
-					<daylight>MT</daylight>
+					<generic>MT</generic>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
 				</short>
 				<exemplarCity>Phoenix</exemplarCity>
 			</zone>
@@ -1059,27 +1059,27 @@
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
-					<generic>Eastern Standard Time</generic>
-					<standard>Eastern Daylight Time</standard>
-					<daylight>Eastern Time</daylight>
+					<generic>Eastern Time</generic>
+					<standard>Eastern Standard Time</standard>
+					<daylight>Eastern Daylight Time</daylight>
 				</long>
 				<short>
-					<generic>EST</generic>
-					<standard>EDT</standard>
-					<daylight>ET</daylight>
+					<generic>ET</generic>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
 				</short>
 				<exemplarCity>Indianapolis</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
-					<generic>Hawaii Standard Time</generic>
-					<standard>Hawaii Daylight Time</standard>
-					<daylight>Hawaii Time</daylight>
+					<generic>Hawaii Time</generic>
+					<standard>Hawaii Standard Time</standard>
+					<daylight>Hawaii Daylight Time</daylight>
 				</long>
 				<short>
-					<generic>HST</generic>
-					<standard>HDT</standard>
-					<daylight>HT</daylight>
+					<generic>HT</generic>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
 				</short>
 				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
@@ -1129,8 +1129,9 @@
 					<daylight>Central European Daylight Time</daylight>
 				</long>
 				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
+					<generic>CET</generic>
+					<standard>CEST</standard>
+					<daylight>CEDT</daylight>
 				</short>
 				<exemplarCity>Paris</exemplarCity>
 			</zone>
@@ -1151,11 +1152,12 @@
 				<long>
 					<generic>British Time</generic>
 					<standard>British Standard Time</standard>
-					<daylight>British Summer Time</daylight>
+					<daylight>British Daylight Time</daylight>
 				</long>
 				<short>
-					<standard>BT</standard>
-					<daylight>BST</daylight>
+					<generic>BT</generic>
+					<standard>BST</standard>
+					<daylight>BDT</daylight>
 				</short>
 				<exemplarCity>London</exemplarCity>
 			</zone>
@@ -1174,11 +1176,11 @@
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>Japan Standard Time</standard>
-					<daylight>Japan Standard Time</daylight>
+					<daylight>Japan Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
-					<daylight>JST</daylight>
+					<daylight>JDT</daylight>
 				</short>
 				<exemplarCity>Tokyo</exemplarCity>
 			</zone>
@@ -1196,10 +1198,10 @@
 			<zone type="Asia/Shanghai">
 				<long>
 					<standard>China Standard Time</standard>
-					<daylight>China Standard Time</daylight>
-				</long>
+					<daylight>China Daylight Time</daylight>
+				</long>S
 				<short>
-					<standard>CTT</standard>
+					<standard>CST</standard>
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>Shanghai</exemplarCity>

@@ -35,124 +35,9 @@ da_DK{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "s\u00F8ndag",
-  "mandag",
-  "tirsdag",
-  "onsdag",
-  "torsdag",
-  "fredag",
-  "l\u00F8rdag"
- }
-
- DayAbbreviations{
-  "s\u00F8",
-  "ma",
-  "ti",
-  "on",
-  "to",
-  "fr",
-  "l\u00F8"
- }
-
- MonthNames{
-  "januar",
-  "februar",
-  "marts",
-  "april",
-  "maj",
-  "juni",
-  "juli",
-  "august",
-  "september",
-  "oktober",
-  "november",
-  "december",
-  ""
- }
-
- MonthAbbreviation{
-  "jan",
-  "feb",
-  "mar",
-  "apr",
-  "maj",
-  "jun",
-  "jul",
-  "aug",
-  "sep",
-  "okt",
-  "nov",
-  "dec",
-  ""
- }
-
- NumberElements{
-  ",",
-  ".",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-da_DK{
-
- LocaleID{ "0406"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "DNK"
- }
-
- ShortLanguage{
-  "DAN"
- }
-
- Language{
-  "Danish"
- }
-
- CurrencyElements{
-  "kr",
-  "DKK",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "d. MMMM yyyy",
-  "",
-  "",
-  "dd-MM-yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "s\u00F8ndag",
@@ -211,7 +96,7 @@ da_DK{
   ".",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

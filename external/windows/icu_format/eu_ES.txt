@@ -35,124 +35,9 @@ eu_ES{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "igandea",
-  "astelehena",
-  "asteartea",
-  "asteazkena",
-  "osteguna",
-  "ostirala",
-  "larunbata"
- }
-
- DayAbbreviations{
-  "ig.",
-  "al.",
-  "as.",
-  "az.",
-  "og.",
-  "or.",
-  "lr."
- }
-
- MonthNames{
-  "urtarrila",
-  "otsaila",
-  "martxoa",
-  "apirila",
-  "maiatza",
-  "ekaina",
-  "uztaila",
-  "abuztua",
-  "iraila",
-  "urria",
-  "azaroa",
-  "abendua",
-  ""
- }
-
- MonthAbbreviation{
-  "urt.",
-  "ots.",
-  "mar.",
-  "api.",
-  "mai.",
-  "eka.",
-  "uzt.",
-  "abu.",
-  "ira.",
-  "urr.",
-  "aza.",
-  "abe.",
-  ""
- }
-
- NumberElements{
-  ",",
-  ".",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-eu_ES{
-
- LocaleID{ "042D"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "ESP"
- }
-
- ShortLanguage{
-  "EUQ"
- }
-
- Language{
-  "Basque"
- }
-
- CurrencyElements{
-  "pta",
-  "ESP",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "dddd, yyyy.'eko' MMMM'k 'd",
-  "",
-  "",
-  "yyyy/MM/dd",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "igandea",
@@ -211,7 +96,7 @@ eu_ES{
   ".",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

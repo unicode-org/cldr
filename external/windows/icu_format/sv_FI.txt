@@ -35,124 +35,9 @@ sv_FI{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "s\u00F6ndag",
-  "m\u00E5ndag",
-  "tisdag",
-  "onsdag",
-  "torsdag",
-  "fredag",
-  "l\u00F6rdag"
- }
-
- DayAbbreviations{
-  "s\u00F6",
-  "m\u00E5",
-  "ti",
-  "on",
-  "to",
-  "fr",
-  "l\u00F6"
- }
-
- MonthNames{
-  "januari",
-  "februari",
-  "mars",
-  "april",
-  "maj",
-  "juni",
-  "juli",
-  "augusti",
-  "september",
-  "oktober",
-  "november",
-  "december",
-  ""
- }
-
- MonthAbbreviation{
-  "jan",
-  "feb",
-  "mar",
-  "apr",
-  "maj",
-  "jun",
-  "jul",
-  "aug",
-  "sep",
-  "okt",
-  "nov",
-  "dec",
-  ""
- }
-
- NumberElements{
-  ",",
-  "\u00A0",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-sv_FI{
-
- LocaleID{ "081D"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "FIN"
- }
-
- ShortLanguage{
-  "SVF"
- }
-
- Language{
-  "Swedish"
- }
-
- CurrencyElements{
-  "mk",
-  "FIM",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "'den 'd MMMM yyyy",
-  "",
-  "",
-  "d.M.yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "s\u00F6ndag",
@@ -211,7 +96,7 @@ sv_FI{
   "\u00A0",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

@@ -1,110 +1,157 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="sk"></language>
-		<territory type="SVK">SK</territory>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="sk" /> 
+		<territory type="SK" /> 
 	</identity>
-	<localeDisplayNames>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
-	</localeDisplayNames>
-		<dates>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">január</month>
-						<month type="2">február</month>
-						<month type="3">marec</month>
-						<month type="4">apríl</month>
-						<month type="5">máj</month>
-						<month type="6">jún</month>
-						<month type="7">júl</month>
-						<month type="8">august</month>
-						<month type="9">september</month>
-						<month type="10">október</month>
-						<month type="11">november</month>
-						<month type="12">december</month>
-						<month type="13"></month>
-					</monthNames>
-					<dayNames>
-						<day type="sun">nedeľa</day>
-						<day type="mon">pondelok</day>
-						<day type="tue">utorok</day>
-						<day type="wed">streda</day>
-						<day type="thu">štvrtok</day>
-						<day type="fri">piatok</day>
-						<day type="sat">sobota</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">ne</day>
-						<day type="mon">po</day>
-						<day type="tue">ut</day>
-						<day type="wed">st</day>
-						<day type="thu">št</day>
-						<day type="fri">pi</day>
-						<day type="sat">so</day>
-					</dayAbbr>
-					<am></am>
-					<pm></pm>
-					<dateFormats>
-						<default type="medium"/>
-						<dateFormat type="full">
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">január</month>
+					<month type="2">február</month>
+					<month type="3">marec</month>
+					<month type="4">apríl</month>
+					<month type="5">máj</month>
+					<month type="6">jún</month>
+					<month type="7">júl</month>
+					<month type="8">august</month>
+					<month type="9">september</month>
+					<month type="10">október</month>
+					<month type="11">november</month>
+					<month type="12">december</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">I</month>
+					<month type="2">II</month>
+					<month type="3">III</month>
+					<month type="4">IV</month>
+					<month type="5">V</month>
+					<month type="6">VI</month>
+					<month type="7">VII</month>
+					<month type="8">VIII</month>
+					<month type="9">IX</month>
+					<month type="10">X</month>
+					<month type="11">XI</month>
+					<month type="12">XII</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">nedeľa</day>
+					<day type="mon">pondelok</day>
+					<day type="tue">utorok</day>
+					<day type="wed">streda</day>
+					<day type="thu">štvrtok</day>
+					<day type="fri">piatok</day>
+					<day type="sat">sobota</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">ne</day>
+					<day type="mon">po</day>
+					<day type="tue">ut</day>
+					<day type="wed">st</day>
+					<day type="thu">št</day>
+					<day type="fri">pi</day>
+					<day type="sat">so</day>
+				</dayAbbr>
+				<week>
+					<minDays count="0"/>
+					<firstDay day=""/>
+				</week>
+				<am></am>
+				<pm></pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
 							<pattern>d. MMMM yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="long">
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
 							<pattern></pattern>
 						</dateFormat>
-						<dateFormat type="medium">
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
 							<pattern></pattern>
 						</dateFormat>
-						<dateFormat type="short">
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
 							<pattern>d. M. yyyy</pattern>
 						</dateFormat>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"/>
-						<timeFormat type="full">
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
 							<pattern></pattern>
 						</timeFormat>
-						<timeFormat type="long">
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
 							<pattern></pattern>
 						</timeFormat>
-						<timeFormat type="medium">
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
 							<pattern>H:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="short">
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
 							<pattern></pattern>
 						</timeFormat>
-					</timeFormats>
-					<dateTimeFormat>
-						<pattern></pattern>
-					</dateTimeFormat>
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<numberFormats>
-				<default type="decimal"/>
-				<numberFormat type="decimal">
-				</numberFormat>
-				<numberFormat type="currency">
-				</numberFormat>
-				<numberFormat type="percent">
-				</numberFormat>
-			</numberFormats>
-			<currencies>
-				<default type="SKK"/>
-				<currency type="SKK">
-					<symbol>Sk</symbol>
-					<displayName>SKK</displayName>
-					<decimal>,</decimal>
-				</currency>
-			</currencies>
-		</numbers>
-</localeData>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern></pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group> </group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern></pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern></pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

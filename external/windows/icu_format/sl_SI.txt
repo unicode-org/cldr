@@ -35,124 +35,9 @@ sl_SI{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "nedelja",
-  "ponedeljek",
-  "torek",
-  "sreda",
-  "\u010Detrtek",
-  "petek",
-  "sobota"
- }
-
- DayAbbreviations{
-  "ned",
-  "pon",
-  "tor",
-  "sre",
-  "\u010Det",
-  "pet",
-  "sob"
- }
-
- MonthNames{
-  "januar",
-  "februar",
-  "marec",
-  "april",
-  "maj",
-  "junij",
-  "julij",
-  "avgust",
-  "september",
-  "oktober",
-  "november",
-  "december",
-  ""
- }
-
- MonthAbbreviation{
-  "jan",
-  "feb",
-  "mar",
-  "apr",
-  "maj",
-  "jun",
-  "jul",
-  "avg",
-  "sep",
-  "okt",
-  "nov",
-  "dec",
-  ""
- }
-
- NumberElements{
-  ",",
-  ".",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-sl_SI{
-
- LocaleID{ "0424"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "SVN"
- }
-
- ShortLanguage{
-  "SLV"
- }
-
- Language{
-  "Slovenian"
- }
-
- CurrencyElements{
-  "SIT",
-  "SIT",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "H:mm:ss",
-  "",
-  "d. MMMM yyyy",
-  "",
-  "",
-  "d.M.yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "nedelja",
@@ -211,7 +96,7 @@ sl_SI{
   ".",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

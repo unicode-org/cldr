@@ -1,110 +1,157 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="th"></language>
-		<territory type="THA">TH</territory>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="th" /> 
+		<territory type="TH" /> 
 	</identity>
-	<localeDisplayNames>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
-	</localeDisplayNames>
-		<dates>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">มกราคม</month>
-						<month type="2">กุมภาพันธ์</month>
-						<month type="3">มีนาคม</month>
-						<month type="4">เมษายน</month>
-						<month type="5">พฤษภาคม</month>
-						<month type="6">มิถุนายน</month>
-						<month type="7">กรกฎาคม</month>
-						<month type="8">สิงหาคม</month>
-						<month type="9">กันยายน</month>
-						<month type="10">ตุลาคม</month>
-						<month type="11">พฤศจิกายน</month>
-						<month type="12">ธันวาคม</month>
-						<month type="13"></month>
-					</monthNames>
-					<dayNames>
-						<day type="sun">อาทิตย์</day>
-						<day type="mon">จันทร์</day>
-						<day type="tue">อังคาร</day>
-						<day type="wed">พุธ</day>
-						<day type="thu">พฤหัสบดี</day>
-						<day type="fri">ศุกร์</day>
-						<day type="sat">เสาร์</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">อา.</day>
-						<day type="mon">จ.</day>
-						<day type="tue">อ.</day>
-						<day type="wed">พ.</day>
-						<day type="thu">พฤ.</day>
-						<day type="fri">ศ.</day>
-						<day type="sat">ส.</day>
-					</dayAbbr>
-					<am>AM</am>
-					<pm>PM</pm>
-					<dateFormats>
-						<default type="medium"/>
-						<dateFormat type="full">
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">มกราคม</month>
+					<month type="2">กุมภาพันธ์</month>
+					<month type="3">มีนาคม</month>
+					<month type="4">เมษายน</month>
+					<month type="5">พฤษภาคม</month>
+					<month type="6">มิถุนายน</month>
+					<month type="7">กรกฎาคม</month>
+					<month type="8">สิงหาคม</month>
+					<month type="9">กันยายน</month>
+					<month type="10">ตุลาคม</month>
+					<month type="11">พฤศจิกายน</month>
+					<month type="12">ธันวาคม</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">ม.ค.</month>
+					<month type="2">ก.พ.</month>
+					<month type="3">มี.ค.</month>
+					<month type="4">เม.ย.</month>
+					<month type="5">พ.ค.</month>
+					<month type="6">มิ.ย.</month>
+					<month type="7">ก.ค.</month>
+					<month type="8">ส.ค.</month>
+					<month type="9">ก.ย.</month>
+					<month type="10">ต.ค.</month>
+					<month type="11">พ.ย.</month>
+					<month type="12">ธ.ค.</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">อาทิตย์</day>
+					<day type="mon">จันทร์</day>
+					<day type="tue">อังคาร</day>
+					<day type="wed">พุธ</day>
+					<day type="thu">พฤหัสบดี</day>
+					<day type="fri">ศุกร์</day>
+					<day type="sat">เสาร์</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">อา.</day>
+					<day type="mon">จ.</day>
+					<day type="tue">อ.</day>
+					<day type="wed">พ.</day>
+					<day type="thu">พฤ.</day>
+					<day type="fri">ศ.</day>
+					<day type="sat">ส.</day>
+				</dayAbbr>
+				<week>
+					<minDays count="0"/>
+					<firstDay day=""/>
+				</week>
+				<am>AM</am>
+				<pm>PM</pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
 							<pattern>d MMMM yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="long">
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
 							<pattern></pattern>
 						</dateFormat>
-						<dateFormat type="medium">
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
 							<pattern></pattern>
 						</dateFormat>
-						<dateFormat type="short">
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
 							<pattern>d/M/yyyy</pattern>
 						</dateFormat>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"/>
-						<timeFormat type="full">
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
 							<pattern></pattern>
 						</timeFormat>
-						<timeFormat type="long">
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
 							<pattern></pattern>
 						</timeFormat>
-						<timeFormat type="medium">
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
 							<pattern>H:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="short">
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
 							<pattern></pattern>
 						</timeFormat>
-					</timeFormats>
-					<dateTimeFormat>
-						<pattern></pattern>
-					</dateTimeFormat>
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<numberFormats>
-				<default type="decimal"/>
-				<numberFormat type="decimal">
-				</numberFormat>
-				<numberFormat type="currency">
-				</numberFormat>
-				<numberFormat type="percent">
-				</numberFormat>
-			</numberFormats>
-			<currencies>
-				<default type="THB"/>
-				<currency type="THB">
-					<symbol>฿</symbol>
-					<displayName>THB</displayName>
-					<decimal>.</decimal>
-				</currency>
-			</currencies>
-		</numbers>
-</localeData>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern></pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>,</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>๐</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern></pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern></pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

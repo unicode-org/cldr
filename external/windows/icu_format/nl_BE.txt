@@ -35,124 +35,9 @@ nl_BE{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "zondag",
-  "maandag",
-  "dinsdag",
-  "woensdag",
-  "donderdag",
-  "vrijdag",
-  "zaterdag"
- }
-
- DayAbbreviations{
-  "zo",
-  "ma",
-  "di",
-  "wo",
-  "do",
-  "vr",
-  "za"
- }
-
- MonthNames{
-  "januari",
-  "februari",
-  "maart",
-  "april",
-  "mei",
-  "juni",
-  "juli",
-  "augustus",
-  "september",
-  "oktober",
-  "november",
-  "december",
-  ""
- }
-
- MonthAbbreviation{
-  "jan",
-  "feb",
-  "mrt",
-  "apr",
-  "mei",
-  "jun",
-  "jul",
-  "aug",
-  "sep",
-  "okt",
-  "nov",
-  "dec",
-  ""
- }
-
- NumberElements{
-  ",",
-  ".",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-nl_BE{
-
- LocaleID{ "0813"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "BEL"
- }
-
- ShortLanguage{
-  "NLB"
- }
-
- Language{
-  "Dutch"
- }
-
- CurrencyElements{
-  "BF",
-  "BEF",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "H:mm:ss",
-  "",
-  "dddd d MMMM yyyy",
-  "",
-  "",
-  "d/MM/yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "zondag",
@@ -211,7 +96,7 @@ nl_BE{
   ".",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

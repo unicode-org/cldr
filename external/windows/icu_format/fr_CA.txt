@@ -35,124 +35,9 @@ fr_CA{
   "",
  }
 
- DateTimeElements{
-  "6",
-  ""
- }
- DayNames{
-  "dimanche",
-  "lundi",
-  "mardi",
-  "mercredi",
-  "jeudi",
-  "vendredi",
-  "samedi"
- }
-
- DayAbbreviations{
-  "dim.",
-  "lun.",
-  "mar.",
-  "mer.",
-  "jeu.",
-  "ven.",
-  "sam."
- }
-
- MonthNames{
-  "janvier",
-  "f\u00E9vrier",
-  "mars",
-  "avril",
-  "mai",
-  "juin",
-  "juillet",
-  "ao\u00FBt",
-  "septembre",
-  "octobre",
-  "novembre",
-  "d\u00E9cembre",
-  ""
- }
-
- MonthAbbreviation{
-  "janv.",
-  "f\u00E9vr.",
-  "mars",
-  "avr.",
-  "mai",
-  "juin",
-  "juil.",
-  "ao\u00FBt",
-  "sept.",
-  "oct.",
-  "nov.",
-  "d\u00E9c.",
-  ""
- }
-
- NumberElements{
-  ",",
-  "\u00A0",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-fr_CA{
-
- LocaleID{ "0C0C"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "CAN"
- }
-
- ShortLanguage{
-  "FRC"
- }
-
- Language{
-  "French"
- }
-
- CurrencyElements{
-  "$",
-  "CAD",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "d MMMM, yyyy",
-  "",
-  "",
-  "yyyy-MM-dd",
-  "",
- }
-
- DateTimeElements{
-  "6",
-  ""
+ DateTimeElements:intvector{
+  6,
+  
  }
  DayNames{
   "dimanche",
@@ -211,7 +96,7 @@ fr_CA{
   "\u00A0",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

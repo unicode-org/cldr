@@ -35,124 +35,9 @@ ko_KR{
   "",
  }
 
- DateTimeElements{
-  "6",
-  ""
- }
- DayNames{
-  "\uC77C\uC694\uC77C",
-  "\uC6D4\uC694\uC77C",
-  "\uD654\uC694\uC77C",
-  "\uC218\uC694\uC77C",
-  "\uBAA9\uC694\uC77C",
-  "\uAE08\uC694\uC77C",
-  "\uD1A0\uC694\uC77C"
- }
-
- DayAbbreviations{
-  "\uC77C",
-  "\uC6D4",
-  "\uD654",
-  "\uC218",
-  "\uBAA9",
-  "\uAE08",
-  "\uD1A0"
- }
-
- MonthNames{
-  "1\uC6D4",
-  "2\uC6D4",
-  "3\uC6D4",
-  "4\uC6D4",
-  "5\uC6D4",
-  "6\uC6D4",
-  "7\uC6D4",
-  "8\uC6D4",
-  "9\uC6D4",
-  "10\uC6D4",
-  "11\uC6D4",
-  "12\uC6D4",
-  ""
- }
-
- MonthAbbreviation{
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
-  "11",
-  "12",
-  ""
- }
-
- NumberElements{
-  ".",
-  ",",
-  ",",
-  "%",
-  ",",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-ko_KR{
-
- LocaleID{ "0412"}
- AmPmMarkers{
-  "\uC624\uC804",
-  "\uC624\uD6C4"
- }
- ShortCountry{
-  "KOR"
- }
-
- ShortLanguage{
-  "KOR"
- }
-
- Language{
-  "Korean"
- }
-
- CurrencyElements{
-  "\u20A9",
-  "KRW",
-  "."
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "a h:mm:ss",
-  "",
-  "yyyy'\uB144' M'\uC6D4' d'\uC77C' dddd",
-  "",
-  "",
-  "yyyy-MM-dd",
-  "",
- }
-
- DateTimeElements{
-  "6",
-  ""
+ DateTimeElements:intvector{
+  6,
+  
  }
  DayNames{
   "\uC77C\uC694\uC77C",
@@ -211,7 +96,7 @@ ko_KR{
   ",",
   ",",
   "%",
-  ",",
+  "0",
   "#",
   "-",
   "E",

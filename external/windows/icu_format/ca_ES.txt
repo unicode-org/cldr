@@ -35,124 +35,9 @@ ca_ES{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "diumenge",
-  "dilluns",
-  "dimarts",
-  "dimecres",
-  "dijous",
-  "divendres",
-  "dissabte"
- }
-
- DayAbbreviations{
-  "dg.",
-  "dl.",
-  "dt.",
-  "dc.",
-  "dj.",
-  "dv.",
-  "ds."
- }
-
- MonthNames{
-  "gener",
-  "febrer",
-  "mar\u00E7",
-  "abril",
-  "maig",
-  "juny",
-  "juliol",
-  "agost",
-  "setembre",
-  "octubre",
-  "novembre",
-  "desembre",
-  ""
- }
-
- MonthAbbreviation{
-  "gen.",
-  "feb.",
-  "mar\u00E7",
-  "abr.",
-  "maig",
-  "juny",
-  "jul.",
-  "ag.",
-  "set.",
-  "oct.",
-  "nov.",
-  "des.",
-  ""
- }
-
- NumberElements{
-  ",",
-  ".",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-ca_ES{
-
- LocaleID{ "0403"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "ESP"
- }
-
- ShortLanguage{
-  "CAT"
- }
-
- Language{
-  "Catalan"
- }
-
- CurrencyElements{
-  "pta",
-  "ESP",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "dddd, d' / 'MMMM' / 'yyyy",
-  "",
-  "",
-  "dd/MM/yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "diumenge",
@@ -211,7 +96,7 @@ ca_ES{
   ".",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

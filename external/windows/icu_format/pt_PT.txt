@@ -35,124 +35,9 @@ pt_PT{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "domingo",
-  "segunda-feira",
-  "ter\u00E7a-feira",
-  "quarta-feira",
-  "quinta-feira",
-  "sexta-feira",
-  "s\u00E1bado"
- }
-
- DayAbbreviations{
-  "dom",
-  "seg",
-  "ter",
-  "qua",
-  "qui",
-  "sex",
-  "s\u00E1b"
- }
-
- MonthNames{
-  "Janeiro",
-  "Fevereiro",
-  "Mar\u00E7o",
-  "Abril",
-  "Maio",
-  "Junho",
-  "Julho",
-  "Agosto",
-  "Setembro",
-  "Outubro",
-  "Novembro",
-  "Dezembro",
-  ""
- }
-
- MonthAbbreviation{
-  "Jan",
-  "Fev",
-  "Mar",
-  "Abr",
-  "Mai",
-  "Jun",
-  "Jul",
-  "Ago",
-  "Set",
-  "Out",
-  "Nov",
-  "Dez",
-  ""
- }
-
- NumberElements{
-  ",",
-  ".",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-pt_PT{
-
- LocaleID{ "0816"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "PRT"
- }
-
- ShortLanguage{
-  "PTG"
- }
-
- Language{
-  "Portuguese"
- }
-
- CurrencyElements{
-  "Esc.",
-  "PTE",
-  "$"
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "H:mm:ss",
-  "",
-  "dddd, d' de 'MMMM' de 'yyyy",
-  "",
-  "",
-  "dd-MM-yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "domingo",
@@ -211,7 +96,7 @@ pt_PT{
   ".",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

@@ -35,124 +35,9 @@ lt_LT{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "sekmadienis",
-  "pirmadienis",
-  "antradienis",
-  "tre\u010Diadienis",
-  "ketvirtadienis",
-  "penktadienis",
-  "\u0161e\u0161tadienis"
- }
-
- DayAbbreviations{
-  "Sk",
-  "Pr",
-  "An",
-  "Tr",
-  "Kt",
-  "Pn",
-  "\u0160t"
- }
-
- MonthNames{
-  "sausis",
-  "vasaris",
-  "kovas",
-  "balandis",
-  "gegu\u017E\u0117",
-  "bir\u017Eelis",
-  "liepa",
-  "rugpj\u016Btis",
-  "rugs\u0117jis",
-  "spalis",
-  "lapkritis",
-  "gruodis",
-  ""
- }
-
- MonthAbbreviation{
-  "Sau",
-  "Vas",
-  "Kov",
-  "Bal",
-  "Geg",
-  "Bir",
-  "Lie",
-  "Rgp",
-  "Rgs",
-  "Spl",
-  "Lap",
-  "Grd",
-  ""
- }
-
- NumberElements{
-  ",",
-  ".",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-lt_LT{
-
- LocaleID{ "0427"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "LTU"
- }
-
- ShortLanguage{
-  "LTH"
- }
-
- Language{
-  "Lithuanian"
- }
-
- CurrencyElements{
-  "Lt",
-  "LTL",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "yyyy 'm.' MMMM d 'd.'",
-  "",
-  "",
-  "yyyy.MM.dd",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "sekmadienis",
@@ -211,7 +96,7 @@ lt_LT{
   ".",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

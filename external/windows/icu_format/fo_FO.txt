@@ -35,124 +35,9 @@ fo_FO{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "sunnudagur",
-  "m\u00E1nadagur",
-  "t\u00FDsdagur",
-  "mikudagur",
-  "h\u00F3sdagur",
-  "fr\u00EDggjadagur",
-  "leygardagur"
- }
-
- DayAbbreviations{
-  "sun",
-  "m\u00E1n",
-  "t\u00FDs",
-  "mik",
-  "h\u00F3s",
-  "fr\u00ED",
-  "leyg"
- }
-
- MonthNames{
-  "januar",
-  "februar",
-  "mars",
-  "apr\u00EDl",
-  "mai",
-  "juni",
-  "juli",
-  "august",
-  "september",
-  "oktober",
-  "november",
-  "desember",
-  ""
- }
-
- MonthAbbreviation{
-  "jan",
-  "feb",
-  "mar",
-  "apr",
-  "mai",
-  "jun",
-  "jul",
-  "aug",
-  "sep",
-  "okt",
-  "nov",
-  "des",
-  ""
- }
-
- NumberElements{
-  ",",
-  ".",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-fo_FO{
-
- LocaleID{ "0438"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "FRO"
- }
-
- ShortLanguage{
-  "FOS"
- }
-
- Language{
-  "Faeroese"
- }
-
- CurrencyElements{
-  "kr",
-  "DKK",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH.mm.ss",
-  "",
-  "d. MMMM yyyy",
-  "",
-  "",
-  "dd-MM-yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "sunnudagur",
@@ -211,7 +96,7 @@ fo_FO{
   ".",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

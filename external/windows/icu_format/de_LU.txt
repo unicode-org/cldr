@@ -35,124 +35,9 @@ de_LU{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "Sonntag",
-  "Montag",
-  "Dienstag",
-  "Mittwoch",
-  "Donnerstag",
-  "Freitag",
-  "Samstag"
- }
-
- DayAbbreviations{
-  "So",
-  "Mo",
-  "Di",
-  "Mi",
-  "Do",
-  "Fr",
-  "Sa"
- }
-
- MonthNames{
-  "Januar",
-  "Februar",
-  "M\u00E4rz",
-  "April",
-  "Mai",
-  "Juni",
-  "Juli",
-  "August",
-  "September",
-  "Oktober",
-  "November",
-  "Dezember",
-  ""
- }
-
- MonthAbbreviation{
-  "Jan",
-  "Feb",
-  "Mrz",
-  "Apr",
-  "Mai",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Okt",
-  "Nov",
-  "Dez",
-  ""
- }
-
- NumberElements{
-  ",",
-  ".",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-de_LU{
-
- LocaleID{ "1007"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "LUX"
- }
-
- ShortLanguage{
-  "DEL"
- }
-
- Language{
-  "German"
- }
-
- CurrencyElements{
-  "F",
-  "LUF",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "dddd, d. MMMM yyyy",
-  "",
-  "",
-  "dd.MM.yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "Sonntag",
@@ -211,7 +96,7 @@ de_LU{
   ".",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

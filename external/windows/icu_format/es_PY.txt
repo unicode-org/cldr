@@ -35,124 +35,9 @@ es_PY{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "Domingo",
-  "Lunes",
-  "Martes",
-  "Mi\u00E9rcoles",
-  "Jueves",
-  "Viernes",
-  "S\u00E1bado"
- }
-
- DayAbbreviations{
-  "Dom",
-  "Lun",
-  "Mar",
-  "Mi\u00E9",
-  "Jue",
-  "Vie",
-  "S\u00E1b"
- }
-
- MonthNames{
-  "Enero",
-  "Febrero",
-  "Marzo",
-  "Abril",
-  "Mayo",
-  "Junio",
-  "Julio",
-  "Agosto",
-  "Septiembre",
-  "Octubre",
-  "Noviembre",
-  "Diciembre",
-  ""
- }
-
- MonthAbbreviation{
-  "Ene",
-  "Feb",
-  "Mar",
-  "Abr",
-  "May",
-  "Jun",
-  "Jul",
-  "Ago",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dic",
-  ""
- }
-
- NumberElements{
-  ",",
-  ".",
-  ",",
-  "%",
-  ",",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-es_PY{
-
- LocaleID{ "3C0A"}
- AmPmMarkers{
-  "a.m.",
-  "p.m."
- }
- ShortCountry{
-  "PRY"
- }
-
- ShortLanguage{
-  "ESZ"
- }
-
- Language{
-  "Spanish"
- }
-
- CurrencyElements{
-  "Gs",
-  "PYG",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "hh:mm:ss a",
-  "",
-  "dddd, dd' de 'MMMM' de 'yyyy",
-  "",
-  "",
-  "dd/MM/yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "Domingo",
@@ -211,7 +96,7 @@ es_PY{
   ".",
   ",",
   "%",
-  ",",
+  "0",
   "#",
   "-",
   "E",

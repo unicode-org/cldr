@@ -35,124 +35,9 @@ it_CH{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "domenica",
-  "luned\u00EC",
-  "marted\u00EC",
-  "mercoled\u00EC",
-  "gioved\u00EC",
-  "venerd\u00EC",
-  "sabato"
- }
-
- DayAbbreviations{
-  "dom",
-  "lun",
-  "mar",
-  "mer",
-  "gio",
-  "ven",
-  "sab"
- }
-
- MonthNames{
-  "gennaio",
-  "febbraio",
-  "marzo",
-  "aprile",
-  "maggio",
-  "giugno",
-  "luglio",
-  "agosto",
-  "settembre",
-  "ottobre",
-  "novembre",
-  "dicembre",
-  ""
- }
-
- MonthAbbreviation{
-  "gen",
-  "feb",
-  "mar",
-  "apr",
-  "mag",
-  "gio",
-  "lug",
-  "ago",
-  "set",
-  "ott",
-  "nov",
-  "dic",
-  ""
- }
-
- NumberElements{
-  ".",
-  "'",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-it_CH{
-
- LocaleID{ "0810"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "CHE"
- }
-
- ShortLanguage{
-  "ITS"
- }
-
- Language{
-  "Italian"
- }
-
- CurrencyElements{
-  "SFr.",
-  "CHF",
-  "."
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "dddd, d. MMMM yyyy",
-  "",
-  "",
-  "dd.MM.yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "domenica",
@@ -211,7 +96,7 @@ it_CH{
   "'",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

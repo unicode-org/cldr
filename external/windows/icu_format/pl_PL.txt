@@ -35,124 +35,9 @@ pl_PL{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "niedziela",
-  "poniedzia\u0142ek",
-  "wtorek",
-  "\u015Broda",
-  "czwartek",
-  "pi\u0105tek",
-  "sobota"
- }
-
- DayAbbreviations{
-  "N",
-  "Pn",
-  "Wt",
-  "\u015Ar",
-  "Cz",
-  "Pt",
-  "So"
- }
-
- MonthNames{
-  "stycze\u0144",
-  "luty",
-  "marzec",
-  "kwiecie\u0144",
-  "maj",
-  "czerwiec",
-  "lipiec",
-  "sierpie\u0144",
-  "wrzesie\u0144",
-  "pa\u017Adziernik",
-  "listopad",
-  "grudzie\u0144",
-  ""
- }
-
- MonthAbbreviation{
-  "sty",
-  "lut",
-  "mar",
-  "kwi",
-  "maj",
-  "cze",
-  "lip",
-  "sie",
-  "wrz",
-  "pa\u017A",
-  "lis",
-  "gru",
-  ""
- }
-
- NumberElements{
-  ",",
-  "\u00A0",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-pl_PL{
-
- LocaleID{ "0415"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "POL"
- }
-
- ShortLanguage{
-  "PLK"
- }
-
- Language{
-  "Polish"
- }
-
- CurrencyElements{
-  "z\u0142",
-  "PLN",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "d MMMM yyyy",
-  "",
-  "",
-  "yyyy-MM-dd",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "niedziela",
@@ -211,7 +96,7 @@ pl_PL{
   "\u00A0",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

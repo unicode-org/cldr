@@ -35,124 +35,9 @@ fi_FI{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "sunnuntai",
-  "maanantai",
-  "tiistai",
-  "keskiviikko",
-  "torstai",
-  "perjantai",
-  "lauantai"
- }
-
- DayAbbreviations{
-  "su",
-  "ma",
-  "ti",
-  "ke",
-  "to",
-  "pe",
-  "la"
- }
-
- MonthNames{
-  "tammikuu",
-  "helmikuu",
-  "maaliskuu",
-  "huhtikuu",
-  "toukokuu",
-  "kes\u00E4kuu",
-  "hein\u00E4kuu",
-  "elokuu",
-  "syyskuu",
-  "lokakuu",
-  "marraskuu",
-  "joulukuu",
-  ""
- }
-
- MonthAbbreviation{
-  "tammi",
-  "helmi",
-  "maalis",
-  "huhti",
-  "touko",
-  "kes\u00E4",
-  "hein\u00E4",
-  "elo",
-  "syys",
-  "loka",
-  "marras",
-  "joulu",
-  ""
- }
-
- NumberElements{
-  ",",
-  "\u00A0",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-fi_FI{
-
- LocaleID{ "040B"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "FIN"
- }
-
- ShortLanguage{
-  "FIN"
- }
-
- Language{
-  "Finnish"
- }
-
- CurrencyElements{
-  "mk",
-  "FIM",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "H:mm:ss",
-  "",
-  "d. MMMM'ta 'yyyy",
-  "",
-  "",
-  "d.M.yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "sunnuntai",
@@ -211,7 +96,7 @@ fi_FI{
   "\u00A0",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

@@ -35,124 +35,9 @@ ro_RO{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "duminic\u0103",
-  "luni",
-  "mar\u0163i",
-  "miercuri",
-  "joi",
-  "vineri",
-  "s\u00E2mb\u0103t\u0103"
- }
-
- DayAbbreviations{
-  "D",
-  "L",
-  "Ma",
-  "Mi",
-  "J",
-  "V",
-  "S"
- }
-
- MonthNames{
-  "ianuarie",
-  "februarie",
-  "martie",
-  "aprilie",
-  "mai",
-  "iunie",
-  "iulie",
-  "august",
-  "septembrie",
-  "octombrie",
-  "noiembrie",
-  "decembrie",
-  ""
- }
-
- MonthAbbreviation{
-  "ian.",
-  "feb.",
-  "mar.",
-  "apr.",
-  "mai.",
-  "iun.",
-  "iul.",
-  "aug.",
-  "sep.",
-  "oct.",
-  "nov.",
-  "dec.",
-  ""
- }
-
- NumberElements{
-  ",",
-  ".",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-ro_RO{
-
- LocaleID{ "0418"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "ROM"
- }
-
- ShortLanguage{
-  "ROM"
- }
-
- Language{
-  "Romanian"
- }
-
- CurrencyElements{
-  "lei",
-  "ROL",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "d MMMM yyyy",
-  "",
-  "",
-  "dd.MM.yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "duminic\u0103",
@@ -211,7 +96,7 @@ ro_RO{
   ".",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

@@ -35,124 +35,9 @@ fr_LU{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "dimanche",
-  "lundi",
-  "mardi",
-  "mercredi",
-  "jeudi",
-  "vendredi",
-  "samedi"
- }
-
- DayAbbreviations{
-  "dim.",
-  "lun.",
-  "mar.",
-  "mer.",
-  "jeu.",
-  "ven.",
-  "sam."
- }
-
- MonthNames{
-  "janvier",
-  "f\u00E9vrier",
-  "mars",
-  "avril",
-  "mai",
-  "juin",
-  "juillet",
-  "ao\u00FBt",
-  "septembre",
-  "octobre",
-  "novembre",
-  "d\u00E9cembre",
-  ""
- }
-
- MonthAbbreviation{
-  "janv.",
-  "f\u00E9vr.",
-  "mars",
-  "avr.",
-  "mai",
-  "juin",
-  "juil.",
-  "ao\u00FBt",
-  "sept.",
-  "oct.",
-  "nov.",
-  "d\u00E9c.",
-  ""
- }
-
- NumberElements{
-  ",",
-  "\u00A0",
-  ";",
-  "%",
-  ";",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-fr_LU{
-
- LocaleID{ "140C"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "LUX"
- }
-
- ShortLanguage{
-  "FRL"
- }
-
- Language{
-  "French"
- }
-
- CurrencyElements{
-  "F",
-  "LUF",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "dddd d MMMM yyyy",
-  "",
-  "",
-  "dd/MM/yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "dimanche",
@@ -211,7 +96,7 @@ fr_LU{
   "\u00A0",
   ";",
   "%",
-  ";",
+  "0",
   "#",
   "-",
   "E",

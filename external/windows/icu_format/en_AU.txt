@@ -35,124 +35,9 @@ en_AU{
   "",
  }
 
- DateTimeElements{
-  "0",
-  ""
- }
- DayNames{
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
- }
-
- DayAbbreviations{
-  "Sun",
-  "Mon",
-  "Tue",
-  "Wed",
-  "Thu",
-  "Fri",
-  "Sat"
- }
-
- MonthNames{
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-  ""
- }
-
- MonthAbbreviation{
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-  ""
- }
-
- NumberElements{
-  ".",
-  ",",
-  ",",
-  "%",
-  ",",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-en_AU{
-
- LocaleID{ "0C09"}
- AmPmMarkers{
-  "AM",
-  "PM"
- }
- ShortCountry{
-  "AUS"
- }
-
- ShortLanguage{
-  "ENA"
- }
-
- Language{
-  "English"
- }
-
- CurrencyElements{
-  "$",
-  "AUD",
-  "."
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "h:mm:ss a",
-  "",
-  "dddd, d MMMM yyyy",
-  "",
-  "",
-  "d/MM/yyyy",
-  "",
- }
-
- DateTimeElements{
-  "0",
-  ""
+ DateTimeElements:intvector{
+  0,
+  
  }
  DayNames{
   "Sunday",
@@ -211,7 +96,7 @@ en_AU{
   ",",
   ",",
   "%",
-  ",",
+  "0",
   "#",
   "-",
   "E",

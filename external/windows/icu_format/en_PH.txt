@@ -35,124 +35,9 @@ en_PH{
   "",
  }
 
- DateTimeElements{
-  "6",
-  ""
- }
- DayNames{
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
- }
-
- DayAbbreviations{
-  "Sun",
-  "Mon",
-  "Tue",
-  "Wed",
-  "Thu",
-  "Fri",
-  "Sat"
- }
-
- MonthNames{
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-  ""
- }
-
- MonthAbbreviation{
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-  ""
- }
-
- NumberElements{
-  ".",
-  ",",
-  ",",
-  "%",
-  ",",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-en_PH{
-
- LocaleID{ "3409"}
- AmPmMarkers{
-  "AM",
-  "PM"
- }
- ShortCountry{
-  "PHL"
- }
-
- ShortLanguage{
-  "ENP"
- }
-
- Language{
-  "English"
- }
-
- CurrencyElements{
-  "Php",
-  "PHP",
-  "."
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "h:mm:ss a",
-  "",
-  "dddd, MMMM dd, yyyy",
-  "",
-  "",
-  "M/d/yyyy",
-  "",
- }
-
- DateTimeElements{
-  "6",
-  ""
+ DateTimeElements:intvector{
+  6,
+  
  }
  DayNames{
   "Sunday",
@@ -211,7 +96,7 @@ en_PH{
   ",",
   ",",
   "%",
-  ",",
+  "0",
   "#",
   "-",
   "E",

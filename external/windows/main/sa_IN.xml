@@ -1,110 +1,157 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="sa"></language>
-		<territory type="IND">IN</territory>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="sa" /> 
+		<territory type="IN" /> 
 	</identity>
-	<localeDisplayNames>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
-	</localeDisplayNames>
-		<dates>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">जनवरी</month>
-						<month type="2">फरवरी</month>
-						<month type="3">मार्च</month>
-						<month type="4">अप्रैल</month>
-						<month type="5">मई</month>
-						<month type="6">जून</month>
-						<month type="7">जुलाई</month>
-						<month type="8">अगस्त</month>
-						<month type="9">सितम्बर</month>
-						<month type="10">अक्तूबर</month>
-						<month type="11">नवम्बर</month>
-						<month type="12">दिसम्बर</month>
-						<month type="13"></month>
-					</monthNames>
-					<dayNames>
-						<day type="sun">रविवासरः</day>
-						<day type="mon">सोमवासरः</day>
-						<day type="tue">मङ्गलवासरः</day>
-						<day type="wed">बुधवासरः</day>
-						<day type="thu">गुरुवासरः</day>
-						<day type="fri">शुक्रवासरः</day>
-						<day type="sat">शनिवासरः</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">रविवासरः</day>
-						<day type="mon">सोमवासरः</day>
-						<day type="tue">मङ्गलवासरः</day>
-						<day type="wed">बुधवासरः</day>
-						<day type="thu">गुरुवासरः</day>
-						<day type="fri">शुक्रवासरः</day>
-						<day type="sat">शनिवासरः</day>
-					</dayAbbr>
-					<am>पूर्वाह्न</am>
-					<pm>अपराह्न</pm>
-					<dateFormats>
-						<default type="medium"/>
-						<dateFormat type="full">
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">जनवरी</month>
+					<month type="2">फरवरी</month>
+					<month type="3">मार्च</month>
+					<month type="4">अप्रैल</month>
+					<month type="5">मई</month>
+					<month type="6">जून</month>
+					<month type="7">जुलाई</month>
+					<month type="8">अगस्त</month>
+					<month type="9">सितम्बर</month>
+					<month type="10">अक्तूबर</month>
+					<month type="11">नवम्बर</month>
+					<month type="12">दिसम्बर</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">जनवरी</month>
+					<month type="2">फरवरी</month>
+					<month type="3">मार्च</month>
+					<month type="4">अप्रैल</month>
+					<month type="5">मई</month>
+					<month type="6">जून</month>
+					<month type="7">जुलाई</month>
+					<month type="8">अगस्त</month>
+					<month type="9">सितम्बर</month>
+					<month type="10">अक्तूबर</month>
+					<month type="11">नवम्बर</month>
+					<month type="12">दिसम्बर</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">रविवासरः</day>
+					<day type="mon">सोमवासरः</day>
+					<day type="tue">मङ्गलवासरः</day>
+					<day type="wed">बुधवासरः</day>
+					<day type="thu">गुरुवासरः</day>
+					<day type="fri">शुक्रवासरः</day>
+					<day type="sat">शनिवासरः</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">रविवासरः</day>
+					<day type="mon">सोमवासरः</day>
+					<day type="tue">मङ्गलवासरः</day>
+					<day type="wed">बुधवासरः</day>
+					<day type="thu">गुरुवासरः</day>
+					<day type="fri">शुक्रवासरः</day>
+					<day type="sat">शनिवासरः</day>
+				</dayAbbr>
+				<week>
+					<minDays count="0"/>
+					<firstDay day="fri"/>
+				</week>
+				<am>पूर्वाह्न</am>
+				<pm>अपराह्न</pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
 							<pattern>dd MMMM yyyy dddd</pattern>
 						</dateFormat>
-						<dateFormat type="long">
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
 							<pattern></pattern>
 						</dateFormat>
-						<dateFormat type="medium">
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
 							<pattern></pattern>
 						</dateFormat>
-						<dateFormat type="short">
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
 							<pattern>dd-MM-yyyy</pattern>
 						</dateFormat>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"/>
-						<timeFormat type="full">
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
 							<pattern></pattern>
 						</timeFormat>
-						<timeFormat type="long">
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
 							<pattern></pattern>
 						</timeFormat>
-						<timeFormat type="medium">
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="short">
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
 							<pattern></pattern>
 						</timeFormat>
-					</timeFormats>
-					<dateTimeFormat>
-						<pattern></pattern>
-					</dateTimeFormat>
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<numberFormats>
-				<default type="decimal"/>
-				<numberFormat type="decimal">
-				</numberFormat>
-				<numberFormat type="currency">
-				</numberFormat>
-				<numberFormat type="percent">
-				</numberFormat>
-			</numberFormats>
-			<currencies>
-				<default type="INR"/>
-				<currency type="INR">
-					<symbol>रु</symbol>
-					<displayName>INR</displayName>
-					<decimal>.</decimal>
-				</currency>
-			</currencies>
-		</numbers>
-</localeData>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern></pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>,</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>०</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern></pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern></pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

@@ -1,110 +1,157 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="ca"></language>
-		<territory type="ESP">ES</territory>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="ca" /> 
+		<territory type="ES" /> 
 	</identity>
-	<localeDisplayNames>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
-	</localeDisplayNames>
-		<dates>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">gener</month>
-						<month type="2">febrer</month>
-						<month type="3">març</month>
-						<month type="4">abril</month>
-						<month type="5">maig</month>
-						<month type="6">juny</month>
-						<month type="7">juliol</month>
-						<month type="8">agost</month>
-						<month type="9">setembre</month>
-						<month type="10">octubre</month>
-						<month type="11">novembre</month>
-						<month type="12">desembre</month>
-						<month type="13"></month>
-					</monthNames>
-					<dayNames>
-						<day type="sun">diumenge</day>
-						<day type="mon">dilluns</day>
-						<day type="tue">dimarts</day>
-						<day type="wed">dimecres</day>
-						<day type="thu">dijous</day>
-						<day type="fri">divendres</day>
-						<day type="sat">dissabte</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">dg.</day>
-						<day type="mon">dl.</day>
-						<day type="tue">dt.</day>
-						<day type="wed">dc.</day>
-						<day type="thu">dj.</day>
-						<day type="fri">dv.</day>
-						<day type="sat">ds.</day>
-					</dayAbbr>
-					<am></am>
-					<pm></pm>
-					<dateFormats>
-						<default type="medium"/>
-						<dateFormat type="full">
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">gener</month>
+					<month type="2">febrer</month>
+					<month type="3">març</month>
+					<month type="4">abril</month>
+					<month type="5">maig</month>
+					<month type="6">juny</month>
+					<month type="7">juliol</month>
+					<month type="8">agost</month>
+					<month type="9">setembre</month>
+					<month type="10">octubre</month>
+					<month type="11">novembre</month>
+					<month type="12">desembre</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">gen.</month>
+					<month type="2">feb.</month>
+					<month type="3">març</month>
+					<month type="4">abr.</month>
+					<month type="5">maig</month>
+					<month type="6">juny</month>
+					<month type="7">jul.</month>
+					<month type="8">ag.</month>
+					<month type="9">set.</month>
+					<month type="10">oct.</month>
+					<month type="11">nov.</month>
+					<month type="12">des.</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">diumenge</day>
+					<day type="mon">dilluns</day>
+					<day type="tue">dimarts</day>
+					<day type="wed">dimecres</day>
+					<day type="thu">dijous</day>
+					<day type="fri">divendres</day>
+					<day type="sat">dissabte</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">dg.</day>
+					<day type="mon">dl.</day>
+					<day type="tue">dt.</day>
+					<day type="wed">dc.</day>
+					<day type="thu">dj.</day>
+					<day type="fri">dv.</day>
+					<day type="sat">ds.</day>
+				</dayAbbr>
+				<week>
+					<minDays count="0"/>
+					<firstDay day=""/>
+				</week>
+				<am></am>
+				<pm></pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
 							<pattern>dddd, d' / 'MMMM' / 'yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="long">
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
 							<pattern></pattern>
 						</dateFormat>
-						<dateFormat type="medium">
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
 							<pattern></pattern>
 						</dateFormat>
-						<dateFormat type="short">
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
 							<pattern>dd/MM/yyyy</pattern>
 						</dateFormat>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"/>
-						<timeFormat type="full">
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
 							<pattern></pattern>
 						</timeFormat>
-						<timeFormat type="long">
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
 							<pattern></pattern>
 						</timeFormat>
-						<timeFormat type="medium">
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="short">
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
 							<pattern></pattern>
 						</timeFormat>
-					</timeFormats>
-					<dateTimeFormat>
-						<pattern></pattern>
-					</dateTimeFormat>
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<numberFormats>
-				<default type="decimal"/>
-				<numberFormat type="decimal">
-				</numberFormat>
-				<numberFormat type="currency">
-				</numberFormat>
-				<numberFormat type="percent">
-				</numberFormat>
-			</numberFormats>
-			<currencies>
-				<default type="ESP"/>
-				<currency type="ESP">
-					<symbol>pta</symbol>
-					<displayName>ESP</displayName>
-					<decimal>,</decimal>
-				</currency>
-			</currencies>
-		</numbers>
-</localeData>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern></pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern></pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern></pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

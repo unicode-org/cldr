@@ -65,7 +65,7 @@
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">দেওবাৰ</day>
-							<day draft="true" type="sun" alt="variant">ৰবিবাৰ</day>
+							<day alt="variant" draft="true" type="sun">ৰবিবাৰ</day>
 							<day type="mon">সোমবাৰ</day>
 							<day type="tue">মঙ্গলবাৰ</day>
 							<day type="wed">বুধবাৰ</day>
@@ -76,9 +76,13 @@
 					</dayContext>
 				</days>
 				<am>পূৰ্বা</am>
+				<!-- Purbahna পূৰ্বাহ্ণ -->
 				<pm>অপ</pm>
 			</calendar>
 		</calendars>
+		<!-- Aparahna অপৰাহ্ণ
+NO ERA INFO
+		-->
 		<timeZoneNames>
 			<zone type="Asia/Calcutta">
 				<long>
@@ -101,8 +105,4 @@
 		</currencies>
 	</numbers>
 </ldml>
-<!-- Purbahna পূৰ্বাহ্ণ 
- Aparahna অপৰাহ্ণ 
- NO ERA INFO
--->
 

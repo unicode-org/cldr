@@ -438,6 +438,10 @@
 			<calendar type="japanese">
 				<eras>
 					<eraAbbr>
+						<!-- These eras are numbered according to the data used
+                                                     by the ICU Japanese Calendar.
+                                                     http://oss.software.ibm.com/cvs/icu4j/icu4j/src/com/ibm/icu/util/JapaneseCalendar.java?rev=1.25   search for 'ERAS ='
+						-->
 						<era type="0">Taika</era>
 						<era type="1">Hakuchi</era>
 						<era type="2">Hakuhō</era>
@@ -731,19 +735,6 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
-		<timeZoneNames>
-			<zone type="EMPTY-REMOVE">
-				<long>
-					<standard/>
-					<daylight/>
-				</long>
-				<short>
-					<standard/>
-					<daylight/>
-				</short>
-				<exemplarCity/>
-			</zone>
-		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>
@@ -816,13 +807,7 @@
 		</currencies>
 	</numbers>
 </ldml>
-<!-- These eras are numbered according to the data used
-                                                     by the ICU Japanese Calendar.
-                                                     http://oss.software.ibm.com/cvs/icu4j/icu4j/src/com/ibm/icu/util/JapaneseCalendar.java?rev=1.25   search for 'ERAS ='
-                                                     
-
-
-  **********************
+<!-- **********************
   * ABOUT THE OLD COMMENTS
  
 The following comment block, and similar 'Old Comments' blocks in other files, have been extracted from ICU 3.0 prior to about 20-August-2004. At this time CLDR data was extracted, without comments, from the ICU data.
@@ -833,8 +818,7 @@ The following comment block, and similar 'Old Comments' blocks in other files, h
  Please do not remove this comment in root.xml until all other 'Old Comments' are gone.
 
  Thank you.
-
- Old Comments. See root.xml for more info.
+Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/root.txt?only_with_tag=final-update-LDML
 
 Date        Name        Description

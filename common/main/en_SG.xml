@@ -14,25 +14,25 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>dd MMMM yyyy</pattern>
-							<pattern draft="true" alt="proposed">EEEE, dd MMMM yyyy</pattern>
+							<pattern alt="proposed" draft="true">EEEE, dd MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>dd MMM yyyy</pattern>
-							<pattern draft="true" alt="proposed">dd MMMM yyyy</pattern>
+							<pattern alt="proposed" draft="true">dd MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd-MMM-yy</pattern>
-							<pattern draft="true" alt="proposed">dd MMM yyyy</pattern>
+							<pattern alt="proposed" draft="true">dd MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd/MM/yy</pattern>
-							<pattern draft="true" alt="proposed">dd/MM/yyyy</pattern>
+							<pattern alt="proposed" draft="true">dd/MM/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -40,25 +40,25 @@
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>a hh:mm:ss</pattern>
-							<pattern draft="true" alt="proposed">h:mm:ss a z</pattern>
+							<pattern alt="proposed" draft="true">h:mm:ss a z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern>a hh:mm:ss</pattern>
-							<pattern draft="true" alt="proposed">h:mm:ss a z</pattern>
+							<pattern alt="proposed" draft="true">h:mm:ss a z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern>a hh:mm</pattern>
-							<pattern draft="true" alt="proposed">h:mm:ss a</pattern>
+							<pattern alt="proposed" draft="true">h:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern>a hh:mm</pattern>
-							<pattern draft="true" alt="proposed">h:mm a</pattern>
+							<pattern alt="proposed" draft="true">h:mm a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -82,6 +82,9 @@
 		<currencies>
 			<currency type="SGD">
 				<symbol>$</symbol>
+			</currency>
+			<currency type="USD">
+				<displayName>USD</displayName>
 			</currency>
 		</currencies>
 	</numbers>

@@ -16,7 +16,7 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[[:Guru:]‌‍]</exemplarCharacters>
-		<exemplarCharacters draft="true" alt="proposed">[ਂ-ਃਅ-ਊਏ-ਐਓ-ਨਪ-ਰਲ-ਲ਼ਵ-ਸ਼ਸ-ਹ਼ਾ-ੂੇ-ੈੋ-੍ਖ਼-ੜਫ਼ੰ-ੴ]</exemplarCharacters>
+		<exemplarCharacters alt="proposed" draft="true">[ਂ-ਃਅ-ਊਏ-ਐਓ-ਨਪ-ਰਲ-ਲ਼ਵ-ਸ਼ਸ-ਹ਼ਾ-ੂੇ-ੈੋ-੍ਖ਼-ੜਫ਼ੰ-ੴ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -75,6 +75,9 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<week draft="true">
+					<firstDay day="mon"/>
+				</week>
 				<am>ਸਵੇਰੇ</am>
 				<pm>ਸ਼ਾਮ</pm>
 			</calendar>

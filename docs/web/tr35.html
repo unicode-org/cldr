@@ -8,6 +8,11 @@
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <link rel="stylesheet" href="http://www.unicode.org/reports/reports.css" type="text/css">
 <title>UTR #35: Locale Data Markup Language</title>
+<style>
+<!--
+span.dtd         { font-family: monospace; font-size:90%; text-indent:-3em; margin-left:3em; background-color:#CCCCFF }
+-->
+</style>
 </head>
 
 <body bgcolor="#ffffff">
@@ -202,7 +207,7 @@
     <li><a href="#References">References</a></li>
     <li><a href="#Modifications"><span>Modifications</span></a></li>
   </ul>
-  <h2><a name="Introduction">Introduction</a></h2>
+  <h2>1. <a name="Introduction">Introduction</a></h2>
   <p>Not long ago, computer systems were like separate worlds, isolated from one another. The 
   internet and related events have changed all that. A single system can be built of many different 
   components, hardware and software, all needing to work together. Many different technologies have 
@@ -239,7 +244,7 @@
   achieve the same results in comparing strings.</p>
   <p>For more information, see the <a href="http://www.unicode.org/cldr/">Common XML Locale 
   Repository project page</a> [<a href="#localeProject">LocaleProject</a>].</p>
-  <h2><a name="Locale">What is a locale?</a></h2>
+  <h2>2. <a name="Locale">What is a locale?</a></h2>
   <p>Before diving into the XML structure, it is helpful to describe the model behind the structure. 
   People do not have to subscribe to this model to use the data, but they do need to understand it 
   so that the data can be correctly translated into whatever model their implementation uses.</p>
@@ -273,7 +278,7 @@
   collection of data; it is simply shorthand for &quot;the set of data associated with the locale id X&quot;. 
   Each individual piece of data is called a <i>resource</i>, and a tag indicating the key of 
   resource is called a <i>resource tag.</i></p>
-  <h2><a name="Locale_IDs">Locale IDs</a></h2>
+  <h2>3. <a name="Locale_IDs">Locale IDs</a></h2>
   <p>A <span>CLDR</span> locale id consists of the following format:</p>
   <blockquote>
     <p><code><i>locale_id</i> := <i>base_locale_id</i> <i>options</i>?</code></p>
@@ -529,7 +534,7 @@ de_DE@collation=phonebook,currency=<span>DDM</span></pre>
   <p class="note"><span><b>Note:</b> There is no standard system (or rather, there are many standard 
   systems) for defining locale ID syntax. This definition of Locale IDs may not match the locale ID 
   syntax used on a particular system, so some process of ID translation may be required.</span></p>
-  <h2><a name="Locale_Inheritance">Locale Inheritance</a></h2>
+  <h2>4. <a name="Locale_Inheritance">Locale Inheritance</a></h2>
   <p>The XML format relies on an inheritance model, whereby the resources are collected into <i>
   bundles</i>, and the bundles organized into a tree. Data for the many Spanish locales does not 
   need to be duplicated across all of the countries having Spanish as a national language. Instead, 
@@ -581,8 +586,12 @@ root</pre>
   <h2><a name="XML_Format">XML Format</a></h2>
   <p>The following sections describe the structure of the XML format for locale data.
   <span class="changed">The more precise syntax is in the </span><span class="changed">DTD</span><span class="changed">, 
-  listed at the top of this document.</span> To start with, the root element is &lt;ldml&gt;. That element 
-  contains the following elements:</p>
+  listed at the top of this document.</span> To start with, the root element is &lt;ldml&gt;, with the 
+  following DTD entry:</p>
+  <p class="example"><span class="dtd">&lt;!ELEMENT ldml (identity, (alias |(localeDisplayNames?, 
+  layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, 
+  special*))) &gt;</span></p>
+  <p>That element contains the following elements:</p>
   <ul>
     <li><a href="#&lt;identity&gt;">&lt;identity&gt;</a></li>
     <li><a href="#&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></li>
@@ -590,25 +599,10 @@ root</pre>
     <li><a href="#&lt;characters&gt;">&lt;characters&gt;</a></li>
     <li><a href="#&lt;delimiters&gt;">&lt;delimiters&gt;</a></li>
     <li><a href="#&lt;measurement&gt;">&lt;measurement&gt;</a></li>
-    <li><a href="#&lt;dates&gt;">&lt;dates&gt;</a>
-    <ul>
-      <li><a href="#&lt;localizedPatternChars&gt;">&lt;localizedPatternChars&gt;</a></li>
-      <li><a href="#&lt;calendars&gt;">&lt;calendars&gt;</a></li>
-      <li><a href="#&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></li>
-    </ul>
-    </li>
-    <li><a href="#&lt;numbers&gt;">&lt;numbers&gt;</a>
-    <ul>
-      <li><a href="#&lt;symbols&gt;">&lt;symbols&gt;</a></li>
-      <li><a href="#&lt;numberFormats&gt;">&lt;numberFormats&gt;</a></li>
-      <li><a href="#&lt;currencies&gt;">&lt;currencies&gt;</a></li>
-    </ul>
-    </li>
-    <li><a href="#&lt;collations&gt;">&lt;collations&gt;</a>
-    <ul>
-      <li><a href="#&lt;collation&gt;">&lt;collation&gt;</a></li>
-    </ul>
-    </li>
+    <li><a href="#&lt;dates&gt;">&lt;dates&gt;</a> </li>
+    <li><a href="#&lt;numbers&gt;">&lt;numbers&gt;</a> </li>
+    <li><a href="#&lt;collations&gt;">&lt;collations&gt;</a> </li>
+    <li><a href="#&lt;posix&gt;">&lt;posix&gt;</a></li>
   </ul>
   <p>The structure of each of these elements and their contents will be described below. The first 
   few elements have little structure, while dates, numbers, and collations are more involved.</p>
@@ -616,11 +610,24 @@ root</pre>
   reserved for types and non-translated information (such as numbers or dates). The reason that 
   attributes are not used for translatable text is that spaces are not preserved, and we cannot 
   predict where spaces may be significant in translated material.</p>
+  <p><span class="changedspan">There are two kinds of elements in LDML: <i>rule</i> elements and <i>
+  structure</i> elements. For structure elements, there are restrictions to allow for effective 
+  inheritance and processing:</span></p>
+  <ol>
+    <li><span class="changedspan">There is no &quot;mixed&quot; content: if an element has textual content, 
+    then it cannot contain any elements.</span></li>
+    <li><span class="changedspan">The XPath leading to the content is unique; no two different 
+    pieces of textual content have the same XPath.</span></li>
+  </ol>
+  <p><span class="changedspan">Structure elements do not have this restriction, but also do not 
+  inherit, except as an entire block. In this version of LDML, the collation &lt;rules&gt; elements is a 
+  rules element; all others are structure elements. See also <a href="#Inheritance_and_Validity">
+  Appendix I: Inheritance and Validity</a>.</span></p>
   <p>Note that the data in examples given below is purely illustrative, and doesn&#39;t match any 
   particular language. For a more detailed example of this format, see [<a href="#LDML">Example</a>]. 
-  There is also a DTD for this format, but remember that the DTD alone is not sufficient to 
+  There is also a DTD for this format, but <i>remember that the DTD alone is not sufficient to 
   understand the semantics, the constraints, nor&nbsp; the interrelationships between the different 
-  elements and attributes. You may wish to have copies of each of these to hand as you proceed 
+  elements and attributes</i>. You may wish to have copies of each of these to hand as you proceed 
   through the rest of this document.</p>
   <p><span class="changedspan">In particular, all elements allow for draft versions to coexist in 
   the file at the same time. Thus certain elements, which otherwise must only occur once within 
@@ -810,6 +817,8 @@ root</pre>
   or trailing spaces on each string are not significant.</p>
   <hr width="50%">
   <h3><a name="&lt;identity&gt;">&lt;identity&gt;</a></h3>
+  <p><span class="dtd">&lt;!ELEMENT identity (alias | (version, generation, language, script?, 
+  territory?, variant?, special*) ) &gt;</span></p>
   <p>The identity element contains information identifying the target locale for this data, and 
   general information about the version of this data.</p>
   <p class="element2">&lt;version number=&quot;<span style="color: blue">1.1</span>&quot;&gt;</p>
@@ -835,6 +844,8 @@ root</pre>
   <p>The variant code is the tertiary part of the specification of the locale id, with values as 
   described above.</p>
   <h3><a name="&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></h3>
+  <p><span class="dtd">&lt;!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, 
+  variants?, keys?, types?, special*)) &gt;</span></p>
   <p>Display names for scripts, languages, countries, and variants in this locale are supplied by 
   this element. These supply localized names for these items for use in user-interfaces for 
   displaying lists of locales and scripts. Examples are given below.</p>
@@ -893,6 +904,7 @@ root</pre>
     <p>&lt;type type=&quot;<span style="color: blue">phonebook</span>&quot; key=&quot;<span style="color: blue">collation</span>&quot;&gt;<span style="color: blue">Telefonbuch</span>&lt;/type&gt;</p>
   </blockquote>
   <h3><a name="&lt;layout&gt;">&lt;layout&gt;</a></h3>
+  <p><span class="dtd">&lt;!ELEMENT layout ( alias | (orientation?, special*) ) &gt;</span></p>
   <p>This top-level element specifies general layout features. It currently only has one possible 
   element (other than &lt;special&gt;, which is always permitted).</p>
   <p class="element2">&lt;orientation lines=&quot;<span style="color: blue">top-to-bottom</span>&quot; 
@@ -924,6 +936,7 @@ root</pre>
   information, see <a href="http://www.unicode.org/reports/tr9/">UAX #9:&nbsp;The Bidirectional Algorithm</a> 
   [<a href="#BIDI">BIDI</a>]).</p>
   <h3><a name="&lt;characters&gt;">&lt;characters&gt;</a></h3>
+  <p><span class="dtd">&lt;!ELEMENT characters (alias | (exemplarCharacters*, mapping*, special*)) &gt;</span></p>
   <p><span>The &lt;characters&gt; <span class="changed">element provides optional information about 
   characters that are in common use in the locale, and information that can be helpful in picking 
   resources or data appropriate for the locale, such as when choosing among character encodings that 
@@ -1000,6 +1013,8 @@ root</pre>
   Character Mapping Tables</a> [<a href="#CharMapML">CharMapML</a>]), they are sufficient for this 
   purpose.</p>
   <h3><a name="&lt;delimiters&gt;">&lt;delimiters&gt;</a></h3>
+  <p><span class="dtd">&lt;!ELEMENT delimiters (alias | (quotationStart*, quotationEnd*, 
+  alternateQuotationStart*, alternateQuotationEnd*, special*)) &gt;</span></p>
   <p>The delimiters supply common delimiters for bracketing quotations. The quotation marks are used 
   with simple quoted text, such as:</p>
   <blockquote>
@@ -1015,6 +1030,7 @@ root</pre>
   <code>&lt;alternateQuotationStart&gt;</code><span style="color: blue">‘</span><code>&lt;/alternateQuotationStart&gt;</code><br>
   <code>&lt;alternateQuotationEnd&gt;</code><span style="color: blue">’</span><code>&lt;/alternateQuotationEnd&gt;</code></p>
   <h3><a name="&lt;measurement&gt;">&lt;measurement&gt;</a></h3>
+  <p><span class="dtd">&lt;!ELEMENT measurement (alias | (measurementSystem?, paperSize?, special*)) &gt;</span></p>
   <pre>&lt;measurementSystem type=&quot;<span style="color: blue">US</span>&quot;/&gt;</pre>
   <p>The measurement system is the normal measurement system in common everyday use (except for 
   date/time). The values are &quot;metric&quot; (=
@@ -1045,6 +1061,8 @@ root</pre>
   &lt;width&gt;<span style="color: blue">216</span>&lt;/width&gt;
 &lt;/paperSize&gt;</pre>
   <h3><a name="&lt;dates&gt;">&lt;dates&gt;</a></h3>
+  <p><span class="dtd">&lt;!ELEMENT dates (alias | (localizedPatternChars*, calendars?, timeZoneNames?, 
+  special*)) &gt;</span></p>
   <p>This top-level element contains information regarding the format and parsing of dates and 
   times. The data is based on the Java/ICU format. Most of these are fairly self-explanatory, except
   <span class="changed">the</span><i><span class="changed"> week </span></i><span class="changed">
@@ -1053,7 +1071,10 @@ root</pre>
   the pattern characters</span>. For information on this, and more information on other elements and 
   attributes, <span class="changed">see </span><a href="#Date_Format_Patterns">
   <span class="changed">Appendix F: Date Format Patterns</span></a><span class="changed">.</span></p>
-  <pre class="element2"><a name="&lt;calendars&gt;">&lt;calendars&gt;</a></pre>
+  <h4><a name="&lt;calendars&gt;">&lt;calendars&gt;</a></h4>
+  <p><span class="dtd">&lt;!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, days?, 
+  dayNames?, dayAbbr?, week?, am?, pm?, eras?, dateFormats?, timeFormats?, dateTimeFormats?, 
+  fields*, special*))&gt;</span></p>
   <p>This element contains multiple &lt;calendar&gt; elements, each of which specifies the fields used for 
   formatting and parsing dates and times according to the given calendar. The month names are 
   identified numerically, starting at 1. The day names are identified with short strings, since 
@@ -1063,6 +1084,12 @@ root</pre>
   be numbered within that era. All calendar <span>data inherits</span> from the Gregorian calendar 
   in the same locale data <span>(if not present in the chain up to root)</span>, so only the 
   differing data will be present.<span> See <a href="#Multiple_Inheritance">Multiple Inheritance</a>.</span></p>
+  <p><span class="dtd">&lt;!ELEMENT months ( alias | (default?, monthContext*, special*)) &gt;<br>
+  &lt;!ELEMENT monthContext ( alias | (default?, monthWidth*, special*)) &gt;<br>
+  &lt;!ELEMENT monthWidth ( alias | (month*, special*)) &gt;</span></p>
+  <p><span class="dtd">&lt;!ELEMENT days ( alias | (default?, dayContext*, special*)) &gt;<br>
+  &lt;!ELEMENT dayContext ( alias | (default?, dayWidth*, special*)) &gt;<br>
+  &lt;!ELEMENT dayWidth ( alias | (day*, special*)) &gt;</span></p>
   <p>Both month and day names may vary along two axes: the width and the context. The context is 
   either <i>format</i> (the default), the form used within a date format string (such as &quot;Saturday, 
   November 12<sup>th</sup>&quot;, or <i>stand-alone</i>, the form used independently, such as in Calendar 
@@ -1172,6 +1199,11 @@ root</pre>
         &lt;era type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Anno Domini</span>&lt;/era&gt;
        &lt;/eraName&gt;
     &lt;/eras&gt;</pre>
+  <p><span class="changedspan"><a name="dateFormats">&lt;dateFormats&gt;</a></span></p>
+  <p><span class="dtd">&lt;!ELEMENT dateFormats (alias | (default?, dateFormatLength*, special*)) &gt;<br>
+  &lt;!ELEMENT dateFormatLength (alias | (default?, dateFormat*, special*)) &gt;<br>
+  &lt;!ELEMENT dateFormat (alias | (pattern*, displayName?, special*)) &gt;</span></p>
+  <p><span class="changedspan">Date formats have the following form:</span></p>
   <pre>    &lt;dateFormats&gt;
       &lt;default type=”<span style="color: blue">medium</span>”/&gt;
       &lt;dateFormatLength type=”<span style="color: blue">full</span>”&gt;
@@ -1189,6 +1221,12 @@ root</pre>
         &lt;/dateFormat&gt;
       &lt;/dateFormatLength&gt;
     &lt;dateFormats&gt;</pre>
+  <p><span class="changedspan"><a name="timeFormats">&lt;timeFormats&gt;</a></span></p>
+  <p><span class="dtd">&lt;!ELEMENT timeFormats (alias | (default?, timeFormatLength*, special*)) &gt;<br>
+  &lt;!ELEMENT timeFormatLength (alias | (default?, timeFormat*, special*)) &gt;<br>
+  <span style="background-color: #CCCCFF">&lt;!ELEMENT timeFormat (alias | (pattern*, displayName?, 
+  special*)) &gt;</span></span></p>
+  <p><span class="changedspan">Time formats have the following form:</span></p>
   <pre>     &lt;timeFormats&gt;
        &lt;default type=&quot;<span style="color: blue">medium</span>&quot;/&gt;
        &lt;timeFormatLength type=”<span style="color: blue">full</span>”&gt;
@@ -1219,10 +1257,12 @@ root</pre>
         &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span style="color: blue">BE</span>&lt;/era&gt;
     &lt;/eras&gt;
   &lt;/calendar&gt;</pre>
-  <p class="note"><b>Note: </b>the weekendStart time defaults to &quot;00:00:00&quot; (midnight at the start 
-  of the day). The weekendEnd time defaults to &quot;24:00:00&quot; (midnight at the end of the day). <span>
-  (That is, Friday at 24:00:00 is the same time as Saturday at 00:00:00.) Thus the following are 
-  equivalent:</span></p>
+  <p><span class="changedspan"><a name="week">&lt;week&gt;</a></span></p>
+  <p><span class="dtd">&lt;!ELEMENT week (alias | (minDays?, firstDay?, weekendStart?, weekendEnd?, 
+  special*))&gt;</span></p>
+  <p class="note">The weekendStart time defaults to &quot;00:00:00&quot; (midnight at the start of the day). 
+  The weekendEnd time defaults to &quot;24:00:00&quot; (midnight at the end of the day). <span>(That is, 
+  Friday at 24:00:00 is the same time as Saturday at 00:00:00.) Thus the following are equivalent:</span></p>
   <table>
     <tr>
       <td><span>&lt;weekendStart day=&quot;<span style="color: blue">sat</span>&quot;/&gt;<br>
@@ -1237,8 +1277,12 @@ root</pre>
       &lt;weekendEnd day=&quot;<span style="color: blue">mon</span>&quot; time=&quot;<span style="color: blue">00:00</span>&quot;/&gt;</span></td>
     </tr>
   </table>
+  <p class="changed">For information on the other fields, see <span class="changed">
+  <a href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a>.</span></p>
   <h3 class="changed"><br>
   <a name="Calendar_Fields">Calendar Fields</a></h3>
+  <p class="changed"><span class="dtd">&lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
+  &lt;!ELEMENT field ( alias | (displayName?, relative*, special*)) &gt;</span></p>
   <p class="changed">Translations may be supplied for names of calendar fields, and for relative 
   values of those fields.</p>
   <pre class="changed">&lt;calendars&gt;
@@ -1254,6 +1298,10 @@ root</pre>
   &lt;/fields&gt;
 &lt;/calendars&gt;</pre>
   <p class="element2"><a name="&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></p>
+  <p><span class="dtd">&lt;!ELEMENT timeZoneNames (alias | (hourFormat?, hoursFormat?, gmtFormat?, 
+  regionFormat?, fallbackFormat?, abbreviationFallback?, preferenceOrdering?, default?, zone*, 
+  special*)) &gt;<br>
+  &lt;!ELEMENT zone (alias | ( long*, short*, exemplarCity*, special*)) &gt;</span></p>
   <p>The timezone IDs are language-independent, and follow the <i>Olson Data</i> [<a href="#Olson">Olson</a>]. 
   However, the display names for those IDs can vary by locale. The generic time is so-called <i>
   wall-time</i>; what clocks use when they are correctly switched from standard to daylight time at 
@@ -1400,14 +1448,18 @@ root</pre>
       zones</span></td>
     </tr>
   </table>
-  <p class="changed">[TBD: the exact syntax of preference ordering needs to be worked out so that 
-  inheritance works as expected]</p>
-  <h3><a name="&lt;numbers&gt;">&lt;numbers&gt;</a></h3>
+  <h3><br>
+  <a name="&lt;numbers&gt;">&lt;numbers&gt;</a></h3>
+  <p><span class="dtd">&lt;!ELEMENT numbers (alias | (symbols?, decimalFormats?, scientificFormats?, 
+  percentFormats?, currencyFormats?, currencies?, special*)) &gt;</span></p>
   <p>The numbers element supplies information for formatting and parsing numbers and currencies. It 
   has the following sub-elements: &lt;symbols&gt;, &lt;decimalFormats&gt;, &lt;scientificFormats&gt;, &lt;percentFormats&gt;, 
   &lt;currencyFormats&gt;, and &lt;currencies&gt;. The currency IDs are from [<a href="#ISO4217">ISO4217</a>]. 
   For more information, including the pattern structure<span class="changed">, see </span>
   <a href="#Number_Format_Patterns"><span class="changed">Appendix G: Number Pattern Format</span></a><span class="changed">.</span></p>
+  <p><span class="dtd">&lt;!ELEMENT symbols (alias | (decimal?, group?, list?, percentSign?, 
+  nativeZeroDigit?, patternDigit?, plusSign?, minusSign?, exponential?, perMille?, infinity?, nan?, 
+  special*)) &gt;</span></p>
   <pre><a name="&lt;symbols&gt;">&lt;symbols&gt;</a>
       &lt;decimal&gt;<span style="color: blue">.</span>&lt;/decimal&gt;
       &lt;group&gt;<span style="color: blue">,</span>&lt;/group&gt;
@@ -1422,6 +1474,12 @@ root</pre>
       &lt;infinity&gt;<span style="color: blue">∞</span>&lt;/infinity&gt;
       &lt;nan&gt;<span style="color: blue">☹</span>&lt;/nan&gt;
 &lt;/symbols&gt;</pre>
+  <p><span class="dtd">&lt;!ELEMENT decimalFormats (alias | (default?, decimalFormatLength*, 
+  special*))&gt;<br>
+  &lt;!ELEMENT decimalFormatLength (alias | (default?, decimalFormat*, special*))&gt;<br>
+  &lt;!ELEMENT decimalFormat (alias | (pattern*, special*)) &gt;<br>
+  </span><span class="changedspan">(scientificFormats, percentFormats, and currencyFormats have the 
+  same structure)</span></p>
   <pre>&lt;decimalFormats&gt;
   &lt;decimalFormatLength type=&quot;<span style="color: blue">long</span>&quot;&gt;
     &lt;decimalFormat&gt;
@@ -1456,6 +1514,8 @@ root</pre>
     &lt;/currencyFormat&gt;
   &lt;/currencyFormatLength&gt;
 &lt;/currencyFormats&gt;</pre>
+  <p><span class="dtd">&lt;!ELEMENT currency (alias | (displayName?, symbol?, pattern*, decimal?, 
+  group?, special*)) &gt;</span></p>
   <pre><a name="&lt;currencies&gt;">&lt;currencies&gt;</a>
     &lt;currency type=&quot;<span style="color: blue">USD</span>&quot;&gt;
         &lt;displayName&gt;<span style="color: blue">Dollar</span>&lt;/displayName&gt;
@@ -1511,6 +1571,8 @@ root</pre>
   information, see <a href="#Supplemental_Data">Supplemental Data</a>.</p>
   <p>For background information on currency names, see [CurrencyInfo].</p>
   <h3><a name="&lt;posix&gt;">&lt;posix&gt;</a></h3>
+  <p><span class="dtd">&lt;!ELEMENT posix (alias | (messages*, special*)) &gt;<br>
+  &lt;!ELEMENT messages (alias | ( yesstr?, nostr?, yesexpr?, noexpr?)) &gt;</span></p>
   <p>The following are included for compatibility with POSIX.</p>
   <p>&nbsp;&lt;posix&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;posix:messages&gt;<br>
@@ -1521,6 +1583,7 @@ root</pre>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/posix:messages&gt;<br>
   &nbsp;&lt;posix&gt;</p>
   <h3><a name="&lt;collations&gt;">&lt;collations&gt;</a></h3>
+  <p><span class="dtd">&lt;!ELEMENT collations (alias | (default?, collation*, special*)) &gt;</span></p>
   <p>This section contains one or more collation elements, distinguished by type. Each collation 
   contains rules that specify a certain sort-order, as a tailoring of the UCA table defined in
   <a href="http://www.unicode.org/reports/tr10/">UTS #10: Unicode Collation Algorithm</a> [<a href="#UCA">UCA</a>]. 
@@ -1551,6 +1614,8 @@ root</pre>
     longer be necessary as of UCA 4.0. So for 4.0 and beyond, the version just has a single number.</i></p>
   </blockquote>
   <h3><a name="&lt;collation&gt;">&lt;collation</a>&gt;</h3>
+  <p><span class="dtd">&lt;!ELEMENT collation (alias | (base?, settings?, suppress_contractions?, 
+  optimize?, rules?, special*)) &gt;</span></p>
   <p>Like the ICU rules, the tailoring syntax is designed to be independent of the actual weights 
   used in any particular UCA table. That way the same rules can be applied to UCA versions over 
   time, even if the underlying weights change. The following describes the overall document 
@@ -1661,7 +1726,10 @@ root</pre>
       is sorted at a primary level with its numeric value. For example, &quot;A-21&quot; &lt; &quot;A-123&quot;.</td>
     </tr>
   </table>
+  <p>&nbsp;</p>
   <h2><a name="Rules">Collation Rule Syntax</a></h2>
+  <p><span class="dtd">&lt;!ELEMENT rules (alias | ( reset, ( reset | p | pc | s | sc | t | tc | q | qc 
+  | i | ic | x)* )) &gt;</span></p>
   <p>The goal for the collation rule syntax is to have clearly expressed rules with a concise 
   format, that parallels the Basic syntax as much as possible.&nbsp; The rule syntax uses 
   abbreviated element names for primary (level 1), secondary (level 2), tertiary (level 3), and 
@@ -1760,6 +1828,10 @@ root</pre>
   <p><span>In the case of expansion sequence syntax, the equivalent atomic sequence can be derived 
   by first transforming the expansion sequence syntax into normal expansion syntax. (See
   <a href="#Expansions">Expansions</a>.)</span></p>
+  <p><span class="dtd">&lt;!ELEMENT reset ( #PCDATA | cp | ... )* &gt;<br>
+  &lt;!ELEMENT p ( #PCDATA | cp | last_variable )* &gt;<br>
+  </span><span class="changedspan">(Elements pc, s, sc, t, tc, q, qc, i, and ic have the same 
+  structure as p.)</span></p>
   <table>
     <caption>Specifying Collation Ordering</caption>
     <tr>
@@ -1865,6 +1937,8 @@ root</pre>
     </tr>
   </table>
   <h3><a name="Expansions">Expansions</a></h3>
+  <p><span class="dtd">&lt;!ELEMENT x (context?, ( p | pc | s | sc | t | tc | q | qc | i | ic )*, 
+  extend? ) &gt;</span></p>
   <p>There are two ways to handle expansions (where a character sorts as a sequence) with both the 
   basic syntax and the XML syntax. The first method is to reset to the sequence of characters. <span>
   This is called <i>sequence expansion syntax. </i></span>The second is to use the extension 
@@ -2044,6 +2118,10 @@ root</pre>
     </tr>
   </table>
   <h3><a name="Logical_Reset_Positions">Logical Reset Positions</a></h3>
+  <p><span class="dtd">&lt;!ELEMENT reset ( ... | first_variable| last_variable | 
+  first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable | 
+  last_secondary_ignorable | first_primary_ignorable | last_primary_ignorable | first_non_ignorable 
+  | last_non_ignorable | first_trailing | last_trailing )* &gt;</span></p>
   <p>The UCA has the following overall structure for weights, going from low to high.</p>
   <table>
     <caption>Specifying Logical Positions</caption>
@@ -3787,16 +3865,16 @@ root</pre>
 ...</span></pre>
   <p><span class="changed">Which gives the following element chains (among others):</span></p>
   <ul>
-    <li><span class="changed">//</span><span class="changed">ldml@version=&quot;1.1&quot;/identity/version@number=&quot;1.1&quot;</span></li>
-    <li><span class="changed">//</span><span class="changed">ldml@version=&quot;1.1&quot;/localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/identity/version[@number=&quot;1.1&quot;]</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/localeDisplayNames</span><span class="changed">/languages/language[@type=&quot;</span><span class="changed">ar&quot;]</span></li>
   </ul>
   <p><span class="changed">An element chain A is an </span><i><span class="changed">extension</span></i><span class="changed"> 
   of an element chain B if B is equivalent to an initial portion of A. For example, #2 below is an 
   extension of #1. (Equivalent, depending on the tree, may not be &quot;identical to&quot;. See below for an 
   example.)</span></p>
   <ol>
-    <li><span class="changed">//</span><span class="changed">ldml@version=&quot;1.1&quot;/</span><span class="changed">localeDisplayNames</span></li>
-    <li><span class="changed">//</span><span class="changed">ldml@version=&quot;1.1&quot;/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/localeDisplayNames</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/localeDisplayNames</span><span class="changed">/languages/language[@type=&quot;</span><span class="changed">ar&quot;]</span></li>
   </ol>
   <p><span class="changed">An </span><span class="changed">LDML</span><span class="changed"> file 
   can be thought of as an ordered list of </span><i><span class="changed">element pairs</span></i><span class="changed">: 
@@ -3807,25 +3885,24 @@ root</pre>
   <p><span class="changed">For example, some of those pairs would be the following. Notice that the 
   first has the null string as element contents.</span></p>
   <ul>
-    <li><span class="changed">&lt;//</span><span class="changed">ldml@version=&quot;1.1&quot;/identity/version@number=&quot;1.1&quot;, 
+    <li><span class="changed">&lt;//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/identity/version[@number=&quot;1.1&quot;], 
     &quot;&quot;&gt;</span></li>
-    <li><span class="changed">&lt;//</span><span class="changed">ldml@version=&quot;1.1&quot;/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;, 
+    <li><span class="changed">&lt;//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/localeDisplayNames</span><span class="changed">/languages/language[@type=&quot;</span><span class="changed">ar&quot;], 
     &quot;</span><span class="changed">Αραβικά</span><span class="changed">&quot;&gt;</span></li>
   </ul>
   <blockquote>
-    <p><b><span class="changed">Note:</span></b><span class="changed"> Some elements are not 
+    <p><b><span class="changed">Note:</span></b><span class="changed"> Rule elements are not 
     inherited from their parent locales. For example, all of the elements in a &lt;collation&gt; element 
     are part of the structure of the collation data itself. So everything in a &lt;collation&gt; element 
     is treated as a single lump of data, as far as inheritance is concerned.</span></p>
   </blockquote>
   <p><span class="changed">Two </span><span class="changed">LDML</span><span class="changed"> 
   element chains are </span><i><span class="changed">equivalent</span></i><span class="changed"> 
-  when they would be identical if all attributes except the following list were removed: </span><b>
-  <span class="changed">type, width, context</span></b><span class="changed">. Thus the following 
-  are equivalent:</span></p>
+  when they would be identical if the following attributes and their values were removed: <b>draft</b>,
+  <b>standard</b>, <b>references</b>, <b>validSubLocales</b>. Thus the following are equivalent:</span></p>
   <ul>
-    <li><span class="changed">//</span><span class="changed">ldml@version=&quot;1.1&quot;/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;</span></li>
-    <li><span class="changed">//</span><span class="changed">ldml@version=&quot;1.1&quot;/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;@draft=&quot;true&quot;</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/localeDisplayNames</span><span class="changed">/languages/language[@type=&quot;</span><span class="changed">ar&quot;]</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/localeDisplayNames</span><span class="changed">/languages/language[@type=&quot;</span><span class="changed">ar&quot;][@draft=&quot;true&quot;]</span></li>
   </ul>
   <p><span class="changed">For any locale ID, an </span><i><span class="changed">locale chain</span></i><span class="changed"> 
   is an ordered list starting with the root and leading down to the ID. For example:</span></p>
@@ -4173,6 +4250,8 @@ root</pre>
   <h2>&nbsp;</h2>
   <h2><span class="changedspan"><a name="valid_attribute_values"></a>Appendix K: Valid Attribute 
   Values</span></h2>
+  <p><span class="changedspan">The following provides a list of valid tags, for all elements except 
+  collations and its children.</span></p>
   <table>
     <tr>
       <th><span class="changedspan">Element</span></th>
@@ -5118,6 +5197,13 @@ root</pre>
           <li><span class="changedspan"><span style="background-color: #FFFF00">updated contributors</span></span></li>
           <li><span class="changedspan"><span style="background-color: #FFFF00">added appendix K, 
           with allowed values</span></span></li>
+        </ul>
+        </li>
+        <li><span class="changedspan"><span style="background-color: #FFFF00">10-20</span></span><ul>
+          <li><span class="changedspan"><span style="background-color: #FFFF00">Fixed the XPath 
+          syntax in Appendix I. Named the &#39;rule&#39; vs. &#39;structure&#39; elements to clarify inheritance. 
+          Fixed list of attributes that are ignored in comparing element chains.</span></span></li>
+          <li><span class="changedspan"><span style="background-color: #FFFF00">Added DTD fragments</span></span></li>
         </ul>
         </li>
       </ul>

@@ -32,7 +32,7 @@ table        { border-style: solid; border-width: 1px }
   </tr>
   <tr>
     <td class="white"><i>Version:</i></td>
-    <td class="white">Draft 5b, 2002-10-25, MED</td>
+    <td class="white">Draft 6, 2002-10-30, MED</td>
   </tr>
   <tr>
     <td class="white"><i>Location:</i></td>
@@ -365,15 +365,37 @@ determine which platforms, which versions of each platform, and which locales in
 the version are supported. In the future there will be more information,
 accessible at <a href="http://oss.software.ibm.com/icu/locale/">http://oss.software.ibm.com/icu/locale/</a>.</p>
 <h2><a name="XML_Format">XML Format</a></h2>
-<p>The high-level list of the Locale Data elements is given in the <a href="#Contents">Contents</a>.
-The structure of each of these elements and their contents will be described
-below. Note that the data in examples given below is purely illustrative, and
-doesn't match any particular language. In general, all translatable text in this
-format is in element contents. Attributes are reserved for types and
-non-translatable information (such as numbers).</p>
-<p class="note">Note: For a more detailed example of this format, see <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.xml">Example</a>.
-To compare with the ICU locale data format and contents, see <a href="http://oss.software.ibm.com/cvs/icu/icu/source/data/">ICU
-Data</a>.</p>
+<p>The following sections describe the structure of the XML format for locale
+data. To start with, the root element is &lt;localeData&gt;. That element
+contains the following elements:</p>
+<ul>
+  <li><a href="#&lt;identity&gt;">&lt;identity&gt;</a></li>
+  <li><a href="#&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></li>
+  <li><a href="#&lt;layout&gt;">&lt;layout&gt;</a></li>
+  <li><a href="#&lt;encodings&gt;">&lt;encodings&gt;</a></li>
+  <li><a href="#&lt;delimiters&gt;">&lt;delimiters&gt;</a></li>
+  <li><a href="#&lt;measurement&gt;">&lt;measurement&gt;</a></li>
+  <li><a href="#&lt;dates&gt;">&lt;dates&gt;</a></li>
+  <li><a href="#&lt;numbers&gt;">&lt;numbers&gt;</a></li>
+  <li><a href="#&lt;collations&gt;">&lt;collations&gt;</a></li>
+</ul>
+<p>The structure of each of these elements and their contents will be described
+below.</p>
+<p>In general, all translatable text in this format is in element contents,
+while attributes are reserved for types and non-translated information (such as
+numbers or dates). The reason that attributes are not used for translatable text
+is that spaces are not preserved, and we cannot predict where spaces may be
+significant in translated material.</p>
+<p>Note that the data in examples given below is purely illustrative, and
+doesn't match any particular language. For a more detailed example of this
+format, see <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.xml">Example</a>.
+There is also a <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd">DTD</a>
+for this format, but remember that the DTD alone is not sufficient to understand
+the semantics, the constraints, nor&nbsp; the interrelationships between the
+different elements and attributes. You may wish to have copies of each of these
+to hand as you proceed through the rest of this document.</p>
+<p class="note">Note: To compare with the ICU locale data format and contents,
+see <a href="http://oss.software.ibm.com/cvs/icu/icu/source/data/">ICU Data</a>.</p>
 <h3><a name="Common_Elements">Common Elements</a></h3>
 <p>At any level in any element, two special elements are allowed.</p>
 <p class="element2">&lt;special owner=&quot;xxx&quot;&gt;</p>
@@ -600,44 +622,50 @@ name</a>.&nbsp; Note: while IANA names are not precise for conversion (see <a hr
 #22: Character Mapping Tables</a>), they are sufficient for this purpose.</p>
 <h3><a name="&lt;delimiters&gt;">&lt;delimiters&gt;</a></h3>
 <p>The delimiters supply common delimiters for bracketing. The values should be
-self-explanatory.</p>
-<pre>       &lt;quotationStart&gt;‘&lt;/quotationStart&gt;
-       &lt;quotationEnd&gt;’&lt;/quotationEnd&gt;
-       &lt;doubleQuotationStart&gt;“&lt;/doubleQuotationStart&gt;
-       &lt;doubleQuotationEnd&gt;”&lt;/doubleQuotationEnd&gt;</pre>
+self-explanatory, so only some examples are given:</p>
+<pre>&lt;quotationStart&gt;‘&lt;/quotationStart&gt;
+&lt;quotationEnd&gt;’&lt;/quotationEnd&gt;
+&lt;doubleQuotationStart&gt;“&lt;/doubleQuotationStart&gt;
+&lt;doubleQuotationEnd&gt;”&lt;/doubleQuotationEnd&gt;</pre>
 <h3><a name="&lt;measurement&gt;">&lt;measurement&gt;</a></h3>
+<pre>&lt;measurementSystem type=&quot;US&quot;/&gt;</pre>
 <p>The measurement system is the normal measurement system in common everyday
 use (except for date/time). The values are &quot;metric&quot; (= <a href="http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=5448&amp;ICS1=1&amp;ICS2=60&amp;ICS3=">ISO
-1000</a>) or &quot;US&quot;; others will be added over time. The paperSize gives
-the normal business letter size, and customary units. The units for the numbers
-are always in millimeters. The units name is the customary unit for that locale
-for measuring paper, so to display the numbers to the users, one would convert
-from millimeters to the customary units.</p>
-<pre>&lt;measurementSystem type=&quot;US&quot;/&gt;
-&lt;paperSize&gt;
-  &lt;height&gt;279&lt;/height&gt;
-  &lt;width&gt;216&lt;/width&gt;
-  &lt;units&gt;mm&lt;/units&gt;
-&lt;/paperSize&gt;</pre>
+1000</a>) or &quot;US&quot;; others will be added over time.</p>
 <p class="note"><b>Note:</b> in the future, we may need to add display names for
 the particular measurement units (millimeter vs millimetre vs whatever the
 Greek, Russian, etc are), and a message format for position those with respect
 to numbers. E.g. &quot;{number} {unitName}&quot; in some languages, but &quot;{unitName}
 {number}&quot; in others.</p>
+<p>The paperSize element gives the normal business letter size, and customary
+units. The units for the numbers are always in millimeters. The units name is
+the customary unit for that locale for measuring paper, so to display the
+numbers to the users, one would convert from millimeters to the customary units.</p>
+<pre>&lt;paperSize&gt;
+  &lt;height&gt;279&lt;/height&gt;
+  &lt;width&gt;216&lt;/width&gt;
+  &lt;units&gt;mm&lt;/units&gt;
+&lt;/paperSize&gt;</pre>
 <h3><a name="&lt;dates&gt;">&lt;dates&gt;</a></h3>
 <p>This top-level element contains information regarding the format and parsing
-of dates and times. It contains multiple calendar elements, each of which
-specifies the fields used for formatting and parsing dates and times according
-to the given calendar. The data is based on the Java/ICU format. Most of these
-are fairly self-explanatory, except <i>minDays</i> and <i>localizedPatternChars</i>.
+of dates and times. The data is based on the Java/ICU format. Most of these are
+fairly self-explanatory, except <i>minDays</i> and <i>localizedPatternChars</i>.
 For information on this, and more information on other elements and attributes,
 see the Java API: <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DateFormat.html">DateFormat</a>,
 <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DateFormatSymbols.html">DateFormatSymbols</a>,
 <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>.</p>
-<pre>&lt;localizedPatternChars&gt;GyMdkHmsSEDFwWahKz&lt;/localizedPatternChars&gt;
-
-&lt;calendars&gt;
-  &lt;calendar class=&quot;Gregorian&quot;&gt;
+<p class="note"><b>Note: </b>there is an on-line demonstration of date
+formatting and parsing at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale
+Explorer</a> (pick the locale and scroll to &quot;Date Patterns&quot;).</p>
+<p>The &lt;dates&gt; element has three possible sub-elements: &lt;localizedPatternCharacters&gt;,
+&lt;calendars&gt; and &lt;timeZoneNames&gt;</p>
+<pre class="element2">&lt;localizedPatternChars&gt;GyMdkHmsSEDFwWahKz&lt;/localizedPatternChars&gt;</pre>
+<p>The interpretation of this is explained in <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DateFormatSymbols.html">DateFormatSymbols</a>.</p>
+<pre class="element2">&lt;calendars&gt;</pre>
+<p>This element contains multiple &lt;calendar&gt; elements, each of which
+specifies the fields used for formatting and parsing dates and times according
+to the given calendar. For example:</p>
+<pre>  &lt;calendar class=&quot;Gregorian&quot;&gt;
     &lt;monthNames&gt;
         &lt;month type=&quot;1&quot;&gt;january&lt;/month&gt;
         &lt;month type=&quot;2&quot;&gt;february&lt;/month&gt;
@@ -736,10 +764,7 @@ see the Java API: <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/Dat
         &lt;era type=&quot;0&quot;&gt;BE&lt;/era&gt;
     &lt;/eras&gt;
   &lt;/calendar&gt;
-&lt;/calendars&gt;</pre>
-<p class="note"><b>Note: </b>there is an on-line demonstration of date
-formatting and parsing at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale
-Explorer</a> (pick the locale and scroll to &quot;Date Patterns&quot;).</p>
+</pre>
 <p class="element2"><a name="&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></p>
 <p>The timezone IDs are language-independent, and follow the <a href="ftp://elsie.nci.nih.gov/pub/">Olsen
 data</a>. However, the display names for those IDs can vary by locale. The
@@ -769,16 +794,16 @@ switched from standard to daylight time at the mandated time of the year.</p>
 &lt;/zone&gt;</pre>
 <h3><a name="&lt;numbers&gt;">&lt;numbers&gt;</a></h3>
 <p>The numbers element supplies information for formatting and parsing numbers
-and currencies. The data is based on the Java/ICU format. The currency IDs are
-from <a href="http://www.bsi-global.com/Technical+Information/Publications/_Publications/tig90x.doc">ISO
-4217</a>. There can be multiple number formats for the same locale. Only one can
-be marked as &quot;default&quot;. For more information, including the pattern
-structure, see the Java API: <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/NumberFormat.html">NumberFormat</a>,
+and currencies. It has three sub-elements: &lt;symbols&gt;, &lt;numbers&gt;, and
+&lt;currencies&gt;. The data is based on the Java/ICU format. The currency IDs
+are from <a href="http://www.bsi-global.com/Technical+Information/Publications/_Publications/tig90x.doc">ISO
+4217</a>. For more information, including the pattern structure, see the Java
+API: <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/NumberFormat.html">NumberFormat</a>,
 <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DecimalFormat.html">DecimalFormat</a>,
 <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DecimalFormatSymbols.html">DecimalFormatSymbols</a>.</p>
-<p class="note">Note: there is an on-line demonstration of number formatting and
-parsing at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale Explorer</a>
-(pick the locale and scroll to &quot;Number Patterns&quot;).</p>
+<p class="note"><b>Note: </b>there is an on-line demonstration of number
+formatting and parsing at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale
+Explorer</a> (pick the locale and scroll to &quot;Number Patterns&quot;).</p>
 <pre>&lt;symbols&gt;
       &lt;decimal&gt;.&lt;/decimal&gt;
       &lt;group&gt;,&lt;/group&gt;
@@ -1495,17 +1520,18 @@ repeated effort&quot;. See the ballot comments on <a href="http://anubis.dkuug.d
 Comments</a> for details on the 14652 defects. For example, most of these
 patterns make little provision for substantial changes in format when elements
 are empty, so are not particularly useful in practice. Compare, for example, the
-mail-merge capabilities of production software such as Microsoft word.</p>
+mail-merge capabilities of production software such as Microsoft Word or
+OpenOffice.</p>
 <p class="example">Examples:</p>
 <pre>&lt;localeData&gt;
 ...
   &lt;special owner=&quot;http://www.redhat.com&quot;&gt;
-    &lt;iso14652:iso14652 xmlns:iso14652=&quot;http://oss.software.ibm.com/icu/iso14652&quot;&gt;
-            &lt;iso14652:addressFormat&gt;
-                &lt;iso14652:postalPattern&gt;&quot;%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N&quot;&lt;/iso14652:postalPattern&gt;
-            &lt;/iso14652:addressFormat&gt;
+    &lt;iso14652 xmlns:iso14652=&quot;http://oss.software.ibm.com/icu/iso14652&quot;&gt;
+            &lt;addressFormat&gt;
+                &lt;postalPattern&gt;&quot;%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N&quot;&lt;/postalPattern&gt;
+            &lt;/addressFormat&gt;
 
-            &lt;iso14652:nameFormat&gt;
+            &lt;nameFormat&gt;
                 &lt;namePattern&gt;%p%t%g%m%t%f&lt;/namePattern&gt;
                 &lt;generalSalutation&gt;&lt;/generalSalutation&gt;
                 &lt;shortSalutationMr&gt; Mr.&lt;/shortSalutationMr&gt;
@@ -1514,40 +1540,40 @@ mail-merge capabilities of production software such as Microsoft word.</p>
                 &lt;longSalutationMr&gt; Mister.&lt;/longSalutationMr&gt;
                 &lt;longSalutationMiss&gt;Miss&lt;/longSalutationMiss&gt;
                 &lt;longSalutationMrs&gt;Mrs.&lt;/longSalutationMrs&gt;
-            &lt;/iso14652:nameFormat&gt;
+            &lt;/nameFormat&gt;
 
-            &lt;iso14652:identification&gt;
+            &lt;identification&gt;
                 &lt;!-- Identification of the person who produced the data file. --&gt;
-                &lt;iso14652:title&gt;&lt;/iso14652:title&gt;
-                &lt;iso14652:source&gt;&lt;/iso14652:source&gt;
-                &lt;iso14652:address&gt;&lt;/iso14652:address&gt;
-                &lt;iso14652:contact&gt;&lt;/iso14652:contact&gt;
-                &lt;iso14652:email&gt;&lt;/iso14652:email&gt;
-                &lt;iso14652:telephone&gt;&lt;/iso14652:telephone&gt;
-                &lt;iso14652:fax&gt;&lt;/iso14652:fax&gt;
-                &lt;iso14652:language&gt;&lt;/iso14652:language&gt;
-                &lt;iso14652:territory&gt;&lt;/iso14652:territory&gt;
-                &lt;iso14652:audience&gt;&lt;/iso14652:audience&gt;
-                &lt;iso14652:application&gt;&lt;/iso14652:application&gt;
-                &lt;iso14652:abbreviation&gt;&lt;/iso14652:abbreviation&gt;
-                &lt;iso14652:revision&gt;&lt;/iso14652:revision&gt;
-                &lt;iso14652:date&gt;&lt;/iso14652:date&gt;
-            &lt;/iso14652:identification&gt;
+                &lt;title&gt;&lt;/title&gt;
+                &lt;source&gt;&lt;/source&gt;
+                &lt;address&gt;&lt;/address&gt;
+                &lt;contact&gt;&lt;/contact&gt;
+                &lt;email&gt;&lt;/email&gt;
+                &lt;telephone&gt;&lt;/telephone&gt;
+                &lt;fax&gt;&lt;/fax&gt;
+                &lt;language&gt;&lt;/language&gt;
+                &lt;territory&gt;&lt;/territory&gt;
+                &lt;audience&gt;&lt;/audience&gt;
+                &lt;application&gt;&lt;/application&gt;
+                &lt;abbreviation&gt;&lt;/abbreviation&gt;
+                &lt;revision&gt;&lt;/revision&gt;
+                &lt;date&gt;&lt;/date&gt;
+            &lt;/identification&gt;
 
-            &lt;iso14652:telephoneFormat&gt;
-                &lt;iso14652:internationalPattern&gt;<font face="Courier" size="1">+%c (%a)%t-%l</font>&lt;/iso14652:internationalPattern&gt;
-                &lt;iso14652:domesticPattern&gt;<font face="Courier" size="1">(%a)%t-%l</font>&lt;/iso14652:domesticPattern&gt;
-                &lt;iso14652:internationalDialCode&gt;001 &lt;/iso14652:internationalDialCode&gt;
-                &lt;iso14652:internationalPrefix&gt; &lt;/iso14652:internationalPrefix&gt;
-            &lt;/iso14652:telephoneFormat&gt;
+            &lt;telephoneFormat&gt;
+                &lt;internationalPattern&gt;<font face="Courier" size="1">+%c (%a)%t-%l</font>&lt;/internationalPattern&gt;
+                &lt;domesticPattern&gt;<font face="Courier" size="1">(%a)%t-%l</font>&lt;/domesticPattern&gt;
+                &lt;internationalDialCode&gt;001 &lt;/internationalDialCode&gt;
+                &lt;internationalPrefix&gt; &lt;/internationalPrefix&gt;
+            &lt;/telephoneFormat&gt;
 
-            &lt;iso14652:countryInfo&gt;
-              &lt;iso14652:countryPost&gt;US&lt;/iso14652:countryPost&gt;
-              &lt;iso14652:countryCar&gt;US&lt;/iso14652:countryCar&gt;
-              &lt;iso14652:countryNumber type=&quot;666&quot;/&gt;
-              &lt;iso14652:countryISBNNumber type=&quot;666&quot;/&gt;
-            &lt;/iso14652:countryInfo&gt;
-    &lt;/iso14652:iso14652&gt;
+            &lt;countryInfo&gt;
+              &lt;countryPost&gt;US&lt;/countryPost&gt;
+              &lt;countryCar&gt;US&lt;/countryCar&gt;
+              &lt;countryNumber type=&quot;666&quot;/&gt;
+              &lt;countryISBNNumber type=&quot;666&quot;/&gt;
+            &lt;/countryInfo&gt;
+    &lt;/iso14652&gt;
   &lt;/special&gt;
 &lt;localeData&gt;
 </pre>

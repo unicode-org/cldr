@@ -31,12 +31,12 @@ span.attributeValue { font-weight: color: blue}
   </tr>
 </table>
 <div class="body">
-  <h2 align="center">Unicode Technical Standard #35</h2>
+  <h2 align="center"><span class="changedspan">Proposed Update </span>Unicode Technical Standard #35</h2>
   <h1 align="right">Locale Data Markup Language (LDML)</h1>
   <table border="1" cellpadding="2" style="border-collapse: collapse; border-width: 1" cellspacing="0" width="100%">
     <tr>
       <td>Version</td>
-      <td>1<span>.</span><span class="changed">2 (draft 4)</span></td>
+      <td>1<span>.</span><span class="changed">2 (draft 5)</span></td>
     </tr>
     <tr>
       <td>Authors</td>
@@ -44,7 +44,7 @@ span.attributeValue { font-weight: color: blue}
     </tr>
     <tr>
       <td>Date</td>
-      <td><span>2004-<span class="changed">10-15</span></span></td>
+      <td><span>2004-<span class="changed">10-27</span></span></td>
     </tr>
     <tr>
       <td>This Version</td>
@@ -61,7 +61,7 @@ span.attributeValue { font-weight: color: blue}
       <td><a href="http://www.unicode.org/reports/tr35/">http://www.unicode.org/reports/tr35/</a></td>
     </tr>
     <tr>
-      <td class="changed">Latest Working Draft</td>
+      <td class="changed">Latest Draft</td>
       <td class="changed">
       <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/tr35.html">
       http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/tr35.html</a><br>
@@ -82,7 +82,7 @@ span.attributeValue { font-weight: color: blue}
       http://www.unicode.org/cldr/dtd/1.1/ldmlSupplemental.dtd</a></td>
     </tr>
     <tr>
-      <td>Tracking Number</td>
+      <td>Revision</td>
       <td><a href="#TrackingNumber2">3</a></td>
     </tr>
   </table>
@@ -133,69 +133,59 @@ span.attributeValue { font-weight: color: blue}
     </tr>
   </table>
   <h2><a name="Contents">Contents</a></h2>
-  <ol>
-    <li><a href="#Introduction">Introduction</a></li>
-    <li><a href="#Locale">What is a Locale?</a></li>
-    <li><a href="#Locale_IDs">Locale IDs</a></li>
-    <li><a href="#Locale_Inheritance">Locale Inheritance</a>
-    <ul>
-      <li><a href="#Multiple_Inheritance">Multiple Inheritance</a></li>
+  <ul class="toc">
+    <li>1 <a href="#Introduction">Introduction</a></li>
+    <li>2 <a href="#Locale">What is a Locale?</a></li>
+    <li>3 <a href="#Locale_IDs">Locale IDs</a></li>
+    <li>4 <a href="#Locale_Inheritance">Locale Inheritance</a><ul class="toc">
+      <li>4.1 <a href="#Multiple_Inheritance">Multiple Inheritance</a></li>
     </ul>
     </li>
-    <li><a href="#XML_Format">XML Format</a>
-    <ul>
-      <li><a href="#Common_Elements">Common Elements</a>
-      <ul>
-        <li><a href="#Escaping_Characters">Escaping Characters</a></li>
+    <li>5 <a href="#XML_Format">XML Format</a>
+    <ul class="toc">
+      <li>5.1 <a href="#Common_Elements">Common Elements</a>
+      <ul class="toc">
+        <li>5.1.1 <a href="#Escaping_Characters">Escaping Characters</a></li>
       </ul>
       </li>
-      <li><a href="#Common_Attributes">Common Attributes</a></li>
-      <li><a href="#&lt;identity&gt;">&lt;identity&gt;</a></li>
-      <li><a href="#&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></li>
-      <li><a href="#&lt;layout&gt;">&lt;layout&gt;</a></li>
-      <li><a href="#&lt;characters&gt;">&lt;characters&gt;</a></li>
-      <li><a href="#&lt;delimiters&gt;">&lt;delimiters&gt;</a></li>
-      <li><a href="#&lt;measurement&gt;">&lt;measurement&gt;</a></li>
-      <li><a href="#&lt;dates&gt;">&lt;dates&gt;</a>
-      <ul>
-        <li><a href="#&lt;localizedPatternChars&gt;">&lt;localizedPatternChars&gt;</a></li>
-        <li><a href="#&lt;calendars&gt;">&lt;calendars&gt;</a></li>
-        <li><a href="#&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></li>
+      <li>5.2 <a href="#Common_Attributes">Common Attributes</a></li>
+      <li>5.3 <a href="#&lt;identity&gt;">&lt;identity&gt;</a></li>
+      <li>5.4 <a href="#&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></li>
+      <li>5.5 <a href="#&lt;layout&gt;">&lt;layout&gt;</a></li>
+      <li>5.6 <a href="#&lt;characters&gt;">&lt;characters&gt;</a></li>
+      <li>5.7 <a href="#&lt;delimiters&gt;">&lt;delimiters&gt;</a></li>
+      <li>5.8 <a href="#&lt;measurement&gt;">&lt;measurement&gt;</a></li>
+      <li>5.9 <a href="#&lt;dates&gt;">&lt;dates&gt;</a>
+      <ul class="toc">
+        <li>5.9.1 <a href="#&lt;calendars&gt;">&lt;calendars&gt;</a></li>
+        <li>5.9.2 <a href="#&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></li>
       </ul>
       </li>
-      <li><a href="#&lt;numbers&gt;">&lt;numbers&gt;</a>
-      <ul>
-        <li><a href="#&lt;symbols&gt;">&lt;symbols&gt;</a></li>
-        <li><a href="#&lt;numberFormats&gt;">&lt;numberFormats&gt;</a></li>
-        <li><a href="#&lt;currencies&gt;">&lt;currencies&gt;</a></li>
-      </ul>
-      </li>
-      <li><a href="#&lt;posix&gt;">&lt;posix&gt;</a></li>
-      <li><a href="#&lt;collations&gt;">&lt;collations&gt;</a>
-      <ul>
-        <li><a href="#&lt;collation&gt;">&lt;collation&gt;</a></li>
+      <li>5.10 <a href="#&lt;numbers&gt;">&lt;numbers&gt;</a> </li>
+      <li>5.11 <a href="#&lt;posix&gt;">&lt;posix&gt;</a></li>
+      <li>5.12 <a href="#&lt;collations&gt;">&lt;collations&gt;</a>
+      <ul class="toc">
+        <li>5.12.1 <a href="#&lt;collation&gt;">&lt;collation&gt;</a></li>
       </ul>
       </li>
     </ul>
     </li>
-  </ol>
-  <ul>
     <li><a href="#Sample_Special_Elements">Appendix A: Sample Special Elements</a>
-    <ol>
-      <li><a href="#OpenOffice">openoffice.org</a></li>
-      <li><a href="#ICU">ICU</a>
-      <ul>
-        <li><a href="#&lt;ruleBasedNumberFormat&gt;">&lt;ruleBasedNumberFormat&gt;</a></li>
-        <li><a href="#&lt;boundaries&gt;">&lt;boundaries&gt;</a></li>
-        <li><a href="#&lt;transforms&gt;">&lt;transforms&gt;</a></li>
+    <ul class="toc">
+      <li>A.1 <a href="#ICU">ICU</a>
+      <ul class="toc">
+        <li>A1.1 <a href="#&lt;ruleBasedNumberFormat&gt;">&lt;ruleBasedNumberFormat&gt;</a></li>
+        <li>A1.2 <a href="#&lt;boundaries&gt;">&lt;boundaries&gt;</a></li>
+        <li>A1.3 <a href="#&lt;transforms&gt;">&lt;transforms&gt;</a></li>
       </ul>
       </li>
-    </ol>
+      <li>A.2 <a href="#OpenOffice">openoffice.org</a></li>
+    </ul>
     </li>
     <li><a href="#Transmitting_Locale_Information">Appendix B: Transmitting Locale Information</a>
-    <ol>
-      <li><a href="#Message_Formatting_and_Exceptions">Message Formatting and Exceptions</a></li>
-    </ol>
+    <ul class="toc">
+      <li>B.1 <a href="#Message_Formatting_and_Exceptions">Message Formatting and Exceptions</a></li>
+    </ul>
     </li>
     <li><a href="#Supplemental_Data">Appendix C: Supplemental Data</a></li>
     <li><a href="#Language_and_Locale_IDs">Appendix D: Language and Locale IDs</a></li>
@@ -577,7 +567,7 @@ root</pre>
   locale from the following data requires use of <span>UCD</span> data. In addition, POSIX locales 
   may also specify the character encoding, which requires the data to be transformed into that 
   target encoding.</p>
-  <h3><a name="Multiple_Inheritance">Multiple Inheritance</a></h3>
+  <h3>4.1 <a name="Multiple_Inheritance">Multiple Inheritance</a></h3>
   <p>In clearly specified instances, resources may inherit from within the same locale. For example, 
   currency format symbols inherit from the number format symbols; the Buddhist calendar inherits 
   from the Gregorian calendar. This <i>only</i> happens where documented in this specification. In 
@@ -588,7 +578,7 @@ root</pre>
   inherits first from &lt;calendar class=&quot;<span style="color: blue">buddhist</span>&quot;&gt; in &quot;en&quot;, then in 
   &quot;root&quot;. If not found there, then it inherits from &lt;calendar type=&quot;<span style="color: blue">gregorian</span>&quot;&gt; 
   in &quot;en_US&quot;, then &quot;en&quot;, then in &quot;root&quot;.</span></p>
-  <h2><a name="XML_Format">XML Format</a></h2>
+  <h2>5 <a name="XML_Format">XML Format</a></h2>
   <p>The following sections describe the structure of the XML format for locale data.
   <span class="changed">The more precise syntax is in the </span><span class="changed">DTD</span><span class="changed">, 
   listed at the top of this document.</span> To start with, the root element is &lt;ldml&gt;, with the 
@@ -650,7 +640,7 @@ root</pre>
   </ul>
   <p><span class="changedspan"><span style="background-color: #FFFF00">There must be only one 
   instance of these per parent that doesn&#39;t have an alternate attribute.</span></span></p>
-  <h3><a name="Common_Elements">Common Elements</a></h3>
+  <h3>5.1 <a name="Common_Elements">Common Elements</a></h3>
   <p>At any level in any element, two special elements are allowed.</p>
   <p class="element2">&lt;special xmlns:yyy=&quot;<span style="color: blue">xxx</span>&quot;&gt;</p>
   <p>This element is designed to allow for arbitrary additional annotation and data that is 
@@ -676,8 +666,8 @@ root</pre>
   <p class="element2"><b>&lt;alias source=&quot;</b><span style="color: blue">&lt;locale_ID&gt;</span><b>&quot;<span>
   <span class="changedspan">path=&quot;...&quot;</span>/</span>&gt;</b></p>
   <p>The contents of any element can be replaced by an alias, which points to another source for the 
-  data. The resource is to be fetched from the corresponding location in the other source. Normal 
-  resource searching is to be used; take the following example:</p>
+  data. The elements in that source are to be fetched from the corresponding location in the other 
+  source. Normal resource searching is to be used; take the following example:</p>
   <pre>&lt;ldml&gt;
   &lt;collations&gt;
     &lt;collation type=&quot;<span style="color: blue">phonebook</span>&quot;&gt;
@@ -686,15 +676,14 @@ root</pre>
   &lt;/collation<span>s</span>&gt;
 &lt;/ldml&gt;</pre>
   <p>The resource bundle at &quot;de_DE&quot; will be searched for a resource element at the same position in 
-  the the same tree with type &quot;collation&quot;. If not found there, then the resource bundle at &quot;de&quot; will 
-  be searched, etc.</p>
+  the tree with type &quot;collation&quot;. If not found there, then the resource bundle at &quot;de&quot; will be 
+  searched, etc.</p>
   <p><span class="changedspan">If the path attribute is present, then its value is an XPath that 
   points to a different node in the tree. For example:</span></p>
   <pre><span class="changedspan">&lt;alias source=&quot;root&quot; path=&quot;../monthWidth[@type=&#39;wide&#39;]&quot;/&gt;</span></pre>
   <p class="changed"><span>The default value if the path is not present is the same position in the 
-  tree. For more information, see </span><span class="changed"><a href="#Inheritance_and_Validity">
-  Appendix I: Inheritance and Validity</a>. In particular, the only attributes in the XPath are to 
-  be distinguishing attributes.</span></p>
+  tree. For more details, see </span><span class="changed"><a href="#Inheritance_and_Validity">
+  Appendix I: Inheritance and Validity</a>.</span></p>
   <p><span>It is an error to have a circular chain of aliases. That is, a collection of LDML XML 
   documents must not have situations where a sequence of alias lookups (including inheritance and 
   multiple inheritance) can be followed indefinitely without terminating.</span></p>
@@ -747,7 +736,7 @@ root</pre>
 </span></pre>
   <p>In this case, the &lt;default&gt; is inherited from fr, and has the value &quot;<span>medium</span>&quot;. It 
   thus refers to this new &quot;<span>medium</span>&quot; pattern in this resource bundle.</p>
-  <h4><a name="Escaping_Characters">Escaping Characters</a></h4>
+  <h4>5.1.1 <a name="Escaping_Characters">Escaping Characters</a></h4>
   <p>Unfortunately, XML does not have the capability to contain all Unicode code points. Due to 
   this, extra syntax is required to represent those code points that cannot be otherwise represented 
   in element content. This also must be used where spaces are significant (otherwise they can be 
@@ -767,7 +756,7 @@ root</pre>
   typically never used. However, for backwards compatibility with XML 1.0 systems it is best for 
   some time to come to use these special escapes. <span class="changedspan">These escapes are only 
   allowed in certain elements, according to the DTD.</span></p>
-  <h3><a name="Common_Attributes">Common Attributes</a></h3>
+  <h3>5.2 <a name="Common_Attributes">Common Attributes</a></h3>
   <p class="element2">&lt;... type=&quot;<span style="color: blue">stroke</span>&quot; ...&gt;</p>
   <p>The attribute <i>type</i> is also used to indicate an alternate resource that can be selected 
   with a matching type=option in the locale id modifiers, or be referenced by a default element. For 
@@ -831,7 +820,7 @@ root</pre>
   information about the element, other than standards. The strings are separated by commas; leading 
   or trailing spaces on each string are not significant.</p>
   <hr width="50%">
-  <h3><a name="&lt;identity&gt;">&lt;identity&gt;</a></h3>
+  <h3>5.3 <a name="&lt;identity&gt;">&lt;identity&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT identity (alias | (version, generation, language, script?, 
   territory?, variant?, special*) ) &gt;</span></p>
   <p>The identity element contains information identifying the target locale for this data, and 
@@ -858,7 +847,7 @@ root</pre>
   <p class="element2">&lt;variant type=&quot;<span style="color: blue">nynorsk</span>&quot;/&gt;</p>
   <p>The variant code is the tertiary part of the specification of the locale id, with values as 
   described above.</p>
-  <h3><a name="&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></h3>
+  <h3>5.4 <a name="&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, 
   variants?, keys?, types?, special*)) &gt;</span></p>
   <p>Display names for scripts, languages, countries, and variants in this locale are supplied by 
@@ -918,7 +907,7 @@ root</pre>
   <blockquote>
     <p>&lt;type type=&quot;<span style="color: blue">phonebook</span>&quot; key=&quot;<span style="color: blue">collation</span>&quot;&gt;<span style="color: blue">Telefonbuch</span>&lt;/type&gt;</p>
   </blockquote>
-  <h3><a name="&lt;layout&gt;">&lt;layout&gt;</a></h3>
+  <h3>5.5 <a name="&lt;layout&gt;">&lt;layout&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT layout ( alias | (orientation?, special*) ) &gt;</span></p>
   <p>This top-level element specifies general layout features. It currently only has one possible 
   element (other than &lt;special&gt;, which is always permitted).</p>
@@ -950,7 +939,7 @@ root</pre>
   bidirectional text; it does, however, supply the paragraph direction for that text (for more 
   information, see <a href="http://www.unicode.org/reports/tr9/">UAX #9:&nbsp;The Bidirectional Algorithm</a> 
   [<a href="#BIDI">BIDI</a>]).</p>
-  <h3><a name="&lt;characters&gt;">&lt;characters&gt;</a></h3>
+  <h3>5.6 <a name="&lt;characters&gt;">&lt;characters&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT characters (alias | (exemplarCharacters*, mapping*, special*)) &gt;</span></p>
   <p><span>The &lt;characters&gt; <span class="changed">element provides optional information about 
   characters that are in common use in the locale, and information that can be helpful in picking 
@@ -1027,7 +1016,7 @@ root</pre>
   names are not precise for conversion (see <a href="http://www.unicode.org/reports/tr22/">UTR #22: 
   Character Mapping Tables</a> [<a href="#CharMapML">CharMapML</a>]), they are sufficient for this 
   purpose.</p>
-  <h3><a name="&lt;delimiters&gt;">&lt;delimiters&gt;</a></h3>
+  <h3>5.7 <a name="&lt;delimiters&gt;">&lt;delimiters&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT delimiters (alias | (quotationStart*, quotationEnd*, 
   alternateQuotationStart*, alternateQuotationEnd*, special*)) &gt;</span></p>
   <p>The delimiters supply common delimiters for bracketing quotations. The quotation marks are used 
@@ -1044,7 +1033,7 @@ root</pre>
   <code>&lt;quotationEnd&gt;</code><span style="color: blue">”</span><code>&lt;/quotationEnd&gt;</code><br>
   <code>&lt;alternateQuotationStart&gt;</code><span style="color: blue">‘</span><code>&lt;/alternateQuotationStart&gt;</code><br>
   <code>&lt;alternateQuotationEnd&gt;</code><span style="color: blue">’</span><code>&lt;/alternateQuotationEnd&gt;</code></p>
-  <h3><a name="&lt;measurement&gt;">&lt;measurement&gt;</a></h3>
+  <h3>5.8 <a name="&lt;measurement&gt;">&lt;measurement&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT measurement (alias | (measurementSystem?, paperSize?, special*)) &gt;</span></p>
   <pre>&lt;measurementSystem type=&quot;<span style="color: blue">US</span>&quot;/&gt;</pre>
   <p>The measurement system is the normal measurement system in common everyday use (except for 
@@ -1075,7 +1064,7 @@ root</pre>
   &lt;height&gt;<span style="color: blue">279</span>&lt;/height&gt;
   &lt;width&gt;<span style="color: blue">216</span>&lt;/width&gt;
 &lt;/paperSize&gt;</pre>
-  <h3><a name="&lt;dates&gt;">&lt;dates&gt;</a></h3>
+  <h3>5.9 <a name="&lt;dates&gt;">&lt;dates&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT dates (alias | (localizedPatternChars*, calendars?, timeZoneNames?, 
   special*)) &gt;</span></p>
   <p>This top-level element contains information regarding the format and parsing of dates and 
@@ -1086,7 +1075,7 @@ root</pre>
   the pattern characters</span>. For information on this, and more information on other elements and 
   attributes, <span class="changed">see </span><a href="#Date_Format_Patterns">
   <span class="changed">Appendix F: Date Format Patterns</span></a><span class="changed">.</span></p>
-  <h4><a name="&lt;calendars&gt;">&lt;calendars&gt;</a></h4>
+  <h4>5.9.1 <a name="&lt;calendars&gt;">&lt;calendars&gt;</a></h4>
   <p><span class="dtd">&lt;!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, days?, 
   dayNames?, dayAbbr?, week?, am?, pm?, eras?, dateFormats?, timeFormats?, dateTimeFormats?, 
   fields*, special*))&gt;</span></p>
@@ -1294,8 +1283,8 @@ root</pre>
   </table>
   <p class="changed">For information on the other fields, see <span class="changed">
   <a href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a>.</span></p>
-  <h3 class="changed"><br>
-  <a name="Calendar_Fields">Calendar Fields</a></h3>
+  <p><br>
+  <a name="Calendar_Fields"><span class="changedspan">Calendar Fields</span></a></p>
   <p class="changed"><span class="dtd">&lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
   &lt;!ELEMENT field ( alias | (displayName?, relative*, special*)) &gt;</span></p>
   <p class="changed">Translations may be supplied for names of calendar fields, and for relative 
@@ -1312,7 +1301,7 @@ root</pre>
    &lt;/field&gt;
   &lt;/fields&gt;
 &lt;/calendars&gt;</pre>
-  <p class="element2"><a name="&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></p>
+  <h4>5.9.2 <a name="&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></h4>
   <p><span class="dtd">&lt;!ELEMENT timeZoneNames (alias | (hourFormat?, hoursFormat?, gmtFormat?, 
   regionFormat?, fallbackFormat?, abbreviationFallback?, preferenceOrdering?, default?, zone*, 
   special*)) &gt;<br>
@@ -1464,7 +1453,7 @@ root</pre>
     </tr>
   </table>
   <h3><br>
-  <a name="&lt;numbers&gt;">&lt;numbers&gt;</a></h3>
+  5.10 <a name="&lt;numbers&gt;">&lt;numbers&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT numbers (alias | (symbols?, decimalFormats?, scientificFormats?, 
   percentFormats?, currencyFormats?, currencies?, special*)) &gt;</span></p>
   <p>The numbers element supplies information for formatting and parsing numbers and currencies. It 
@@ -1586,7 +1575,7 @@ root</pre>
   format. Those values override whatever is given in the currency numberFormat. For more 
   information, see <a href="#Supplemental_Data">Supplemental Data</a>.</p>
   <p>For background information on currency names, see [CurrencyInfo].</p>
-  <h3><a name="&lt;posix&gt;">&lt;posix&gt;</a></h3>
+  <h3>5.11 <a name="&lt;posix&gt;">&lt;posix&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT posix (alias | (messages*, special*)) &gt;<br>
   &lt;!ELEMENT messages (alias | ( yesstr?, nostr?, yesexpr?, noexpr?)) &gt;</span></p>
   <p>The following are included for compatibility with POSIX.</p>
@@ -1598,7 +1587,7 @@ root</pre>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;posix:noexpr&gt;<span style="color: blue">^[Nn].*</span>&lt;/posix:noexpr&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/posix:messages&gt;<br>
   &nbsp;&lt;posix&gt;</p>
-  <h3><a name="&lt;collations&gt;">&lt;collations&gt;</a></h3>
+  <h3>5.12 <a name="&lt;collations&gt;">&lt;collations&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT collations (alias | (default?, collation*, special*)) &gt;</span></p>
   <p>This section contains one or more collation elements, distinguished by type. Each collation 
   contains rules that specify a certain sort-order, as a tailoring of the UCA table defined in
@@ -1629,7 +1618,7 @@ root</pre>
     for version 3.2 of Unicode. This has been changed by decision of the UTC, so that it will no 
     longer be necessary as of UCA 4.0. So for 4.0 and beyond, the version just has a single number.</i></p>
   </blockquote>
-  <h3><a name="&lt;collation&gt;">&lt;collation</a>&gt;</h3>
+  <h3>5.12.1 <a name="&lt;collation&gt;">&lt;collation</a>&gt;</h3>
   <p><span class="dtd">&lt;!ELEMENT collation (alias | (base?, settings?, suppress_contractions?, 
   optimize?, rules?, special*)) &gt;</span></p>
   <p>Like the ICU rules, the tailoring syntax is designed to be independent of the actual weights 
@@ -2387,9 +2376,9 @@ root</pre>
     practice. Compare, for example, the mail-merge capabilities of production software such as 
     Microsoft Word or OpenOffice.</p>
   </blockquote>
-  <h3><a name="ICU">ICU</a></h3>
+  <h3>A.1 <a name="ICU">ICU</a></h3>
   <p>There are three main areas where ICU has capabilities that go beyond what is shown above.</p>
-  <p class="element2"><a name="&lt;ruleBasedNumberFormat&gt;">&lt;icu:ruleBasedNumberFormat&gt;</a></p>
+  <h4>A.1.1 <a name="&lt;ruleBasedNumberFormat&gt;">&lt;icu:ruleBasedNumberFormat&gt;</a></h4>
   <p>The rule-based number format (RBNF) encapsulates a set of rules for mapping binary numbers to 
   and from a readable representation. They are typically used for spelling out numbers, but can also 
   be used for other number systems like roman numerals, or for ordinal numbers (1<sup>st</sup>, 2<sup>nd</sup>, 
@@ -2421,7 +2410,7 @@ root</pre>
                 60/60:
 </span>            &lt;/icu:ruleBasedNumberFormat&gt;
         &lt;/icu:ruleBasedNumberFormats&gt;</pre>
-  <h3><a name="&lt;boundaries&gt;">&lt;icu:boundaries&gt;</a></h3>
+  <h4>A.1.2 <a name="&lt;boundaries&gt;">&lt;icu:boundaries&gt;</a></h4>
   <p>Boundaries provide rules for grapheme-cluster (&quot;user-character&quot;), word, line, and sentence 
   breaks. This format is the Java/ICU syntax, at the top level. For a description of that, see <i>
   Rule-Based Break Iterator</i> [<a href="#RBBI">RBBI</a>]. The enclosing special element is a 
@@ -2446,7 +2435,7 @@ root</pre>
 </span>            &lt;/icu:word&gt;
         &lt;/icu:boundaries&gt;
     &lt;/special&gt;</pre>
-  <h3><a name="&lt;transforms&gt;">&lt;icu:transforms&gt;</a></h3>
+  <h4>A.1.3 <a name="&lt;transforms&gt;">&lt;icu:transforms&gt;</a></h4>
   <p>There may be language-specific transformations, typically used in locale data for 
   transliterations. Such transformations require far more than a simple list of matching characters, 
   since the matches are highly context-sensitive. Each such transform is supplied in a &lt;transform&gt; 
@@ -2489,7 +2478,7 @@ root</pre>
             &lt;/icu:transform&gt;
         &lt;/icu:transforms&gt;
     &lt;/special&gt;</pre>
-  <h3><a name="OpenOffice">openoffice.org</a></h3>
+  <h3>A.2 <a name="OpenOffice">openoffice.org</a></h3>
   <p>A number of the elements above can have extra information for openoffice.org, such as the 
   following example:</p>
   <pre>    &lt;special xmlns:openOffice=&quot;<span style="color: blue">http://www.openoffice.org</span>&quot;&gt;
@@ -3873,16 +3862,12 @@ root</pre>
   the exact inheritance of elements, and the validity of a given element in </span>
   <span class="changed">LDML</span><span class="changed">.</span></p>
   <p class="changed"><span class="changed">When any of the following definitions are applied, it is 
-  assumed that all aliases are resolved: that is, everything behaves as if each alias element were 
-  replaced by the <i>contents</i> of the element it points to. One exception is the at the very top 
-  level: the </span><span class="element">ldml</span><span class="changed"> element can have both an
-  </span><span class="element">identity</span><span class="changed"> element and an </span>
-  <span class="element">alias</span><span class="changed"> element; the resolution of that </span>
-  <span class="element">alias</span><span class="changed"> element, excludes any </span>
-  <span class="element">identity</span><span class="changed"> element in the contents of the element 
-  it points to. If the </span><span class="attribute">path</span><span class="changed"> attribute of 
-  an </span><span class="element">alias</span><span class="changed"> element is not present, then it 
-  defaults to the XPath of the enclosing element.</span></p>
+  assumed that all aliases are resolved: that is, everything behaves as if the all children of the 
+  alias&#39;s parent element element were replaced by all the children of the element it points to. If 
+  the </span><span class="attribute">path</span><span class="changed"> attribute of an </span>
+  <span class="element">alias</span><span class="changed"> element is not present, then it defaults 
+  to the XPath of the enclosing element. All of the attributes in the XPath must be distinguishing 
+  elements (see below).</span></p>
   <h3><span class="changed">Definitions</span></h3>
   <p class="changed"><span class="changedspan">Attributes that serve to distinguish multiple 
   elements at the same level are called <i>distinguishing</i> attributes. These currently consist of
@@ -5289,15 +5274,17 @@ root</pre>
           with allowed values</span></span></li>
         </ul>
         </li>
-        <li><span class="changedspan"><span style="background-color: #FFFF00">10-20</span></span><ul>
+        <li><span class="changedspan"><span style="background-color: #FFFF00">10-27 (accumulated)</span></span><ul>
           <li><span class="changedspan"><span style="background-color: #FFFF00">Fixed the XPath 
-          syntax in Appendix I. Named the &#39;rule&#39; vs. &#39;structure&#39; elements to clarify inheritance. 
-          Fixed list of attributes that are ignored in comparing element chains.</span></span></li>
+          syntax in Appendix I. Added definitions of elements to clarify inheritance. Fixed list of 
+          attributes that are ignored in comparing element chains.</span></span></li>
           <li><span class="changedspan"><span style="background-color: #FFFF00">Added DTD fragments</span></span></li>
           <li><span class="changedspan"><span style="background-color: #FFFF00">Added notes to 
           Appendix K</span></span></li>
           <li><span class="changedspan"><span style="background-color: #FFFF00">Added list of 
           attribute-information elements to Appendix K and I.</span></span></li>
+          <li><span class="changedspan"><span style="background-color: #FFFF00">Fixed table of 
+          contents</span></span></li>
         </ul>
         </li>
       </ul>

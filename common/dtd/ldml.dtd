@@ -445,7 +445,7 @@
 <!ATTLIST displayName draft ( true | false ) #IMPLIED >
 <!ATTLIST displayName references CDATA #IMPLIED >
 <!ATTLIST displayName alt CDATA #IMPLIED >
-<
+
 <!ELEMENT timeFormats (alias | (default?, timeFormatLength*, special*)) >
 <!ATTLIST timeFormats draft ( true | false ) #IMPLIED >
 <!ATTLIST timeFormats validSubLocales CDATA #IMPLIED >
@@ -548,7 +548,7 @@
 <!ATTLIST field alt CDATA #IMPLIED >
 <!ATTLIST field validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT relative (#CDATA) >
+<!ELEMENT relative (#PCDATA) >
 <!ATTLIST relative type NMTOKEN #IMPLIED >
 
 <!-- ######################################################### -->

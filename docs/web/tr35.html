@@ -28,7 +28,7 @@
   <table border="1" cellpadding="2" style="border-collapse: collapse; border-width: 1" cellspacing="0" width="100%">
     <tr>
       <td>Version</td>
-      <td>1<span>.</span><span class="changed">2 (draft 2)</span></td>
+      <td>1<span>.</span><span class="changed">2 (draft 3)</span></td>
     </tr>
     <tr>
       <td>Authors</td>
@@ -36,7 +36,7 @@
     </tr>
     <tr>
       <td>Date</td>
-      <td><span>2004-</span><span class="changed">08-02</span></td>
+      <td><span>2004-</span><span class="changed">08-12</span></td>
     </tr>
     <tr>
       <td>This Version</td>
@@ -677,9 +677,9 @@ root</pre>
       <td><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
     </tr>
   </table>
-  <p class="note"><b>Note: </b>If XML 1.1 is approved in the current state, then this would not be 
-  necessary — except for NULL (U+0000), which is typically never tailored. However, for backwards 
-  compatibility with 1.0 systems it is best for some time to come to use these special escapes.</p>
+  <p class="note"><b>Note: </b>This is not necessary in XML 1.0 — except for NULL (U+0000), which is 
+  typically never used. However, for backwards compatibility with XML 1.0 systems it is best for 
+  some time to come to use these special escapes.</p>
   <h3><a name="Common_Attributes">Common Attributes</a></h3>
   <p class="element2">&lt;... type=&quot;<span style="color: blue">stroke</span>&quot; ...&gt;</p>
   <p>The attribute <i>type</i> is also used to indicate an alternate resource that can be selected 
@@ -700,6 +700,17 @@ root</pre>
     <li><i>true</i> meaning that it is all draft status (provisional data, not verified)</li>
     <li><i>false</i> indicating the reverse.</li>
   </ul>
+  <p class="changed">&lt;... <a name="alt_attribute">alt</a>=&quot;<span style="color: blue">true</span>&quot; 
+  ...&gt;</p>
+  <p class="changed">This attribute should only be present if draft=&quot;true&quot;. It indicates that the 
+  data is proposed replacement data that has been added provisionally until the differences between 
+  it and the other data can be vetted. For example, suppose that the translation for September for 
+  some language is &quot;Settembru&quot;, and a bug report is filed that that should be &quot;Settembro&quot;. The new 
+  data can be entered in, but marked as <i>alt</i> until it is vetted. </p>
+  <pre class="changed">...
+&lt;month type=&quot;9&quot;&gt;Settembru&lt;/month&gt;
+&lt;month type=&quot;9&quot; draft=&quot;true&quot; alt=&quot;true&quot;&gt;Settembro&lt;/month&gt;
+&lt;month type=&quot;10&quot;&gt;...</pre>
   <p class="element2">&lt;... standard=&quot;<span style="color: blue">...</span>&quot; ...&gt;</p>
   <p>The value of this list is a list of strings representing standards: international, national, 
   organization, or vendor standards. The presence of this attribute indicates that the data in this 
@@ -709,6 +720,10 @@ root</pre>
   <p><code>&lt;collation standard=&quot;<span style="color: blue">MSA 200:2002</span>&quot;&gt;<br>
   ...<br>
   &lt;dateFormatStyle standard=”<span style="color: blue">http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;ICS1=1&amp;ICS2=140&amp;ICS3=30</span>”&gt;</code></p>
+  <p class="changed">&lt;... <a name="references_attribute">references</a>=&quot;<span style="color: blue">...</span>&quot; 
+  ...&gt;</p>
+  <p class="changed">The value of this list is a list of strings representing background information 
+  about the element, other than standards.</p>
   <hr width="50%">
   <h3><a name="&lt;identity&gt;">&lt;identity&gt;</a></h3>
   <p>The identity element contains information identifying the target locale for this data, and 
@@ -882,6 +897,13 @@ root</pre>
   ordering of these characters are irrelevant. For the special case of Turkish, the dotted capital I 
   should be included. </span><span class="changed">For more information, see [<a href="#DataFormats">Data 
   Formats</a>].</span></p>
+  <p class="changed">There can be more than two exemplarCharacters elements, with the second having 
+  the type &quot;auxiliary&quot;. This element can be used for additional characters that are used in common 
+  foreign words, dictionaries, etc. used in the locale.</p>
+  <pre class="changed">&lt;characters&gt;
+    &lt;exemplarCharacters&gt;[a-zñç]&lt;/exemplarCharacters&gt;
+    &lt;exemplarCharacters type=&quot;foreign&quot;&gt;[ä ö ü ß]&lt;/exemplarCharacters&gt; 
+&lt;/characters&gt;</pre>
   <p class="element2">&lt;mapping registry=&quot;<span style="color: blue">iana</span>&quot; type=&quot;<span style="color: blue">windows-1252</span>&quot;/&gt;</p>
   <p>There can be multiple mapping elements. Each indicates the character conversion mapping table 
   name for a character encoding that may be commonly used to encode data in the language of this 
@@ -1129,6 +1151,22 @@ root</pre>
       &lt;weekendEnd day=&quot;<span style="color: blue">mon</span>&quot; time=&quot;<span style="color: blue">00:00</span>&quot;/&gt;</span></td>
     </tr>
   </table>
+  <h3 class="changed"><br>
+  <a name="Calendar_Fields">Calendar Fields</a></h3>
+  <p class="changed">Translations may be supplied for names of calendar fields, and for relative 
+  values of those fields, The only elements currently allowed are for days. </p>
+  <pre class="changed">&lt;calendars&gt;
+  &lt;fields&gt;
+   &lt;days&gt;
+    &lt;displayName&gt;Tag&lt;/displayName&gt;
+    &lt;relative type=&#39;-2&#39;&gt;Vorgestern&lt;/relative&gt;
+    &lt;relative type=&#39;-1&#39;&gt;Gestern&lt;/relative&gt;
+    &lt;relative type=&#39;0&#39;&gt;Heute&lt;/relative&gt;
+    &lt;relative type=&#39;1&#39;&gt;Morgan&lt;/relative&gt;
+    &lt;relative type=&#39;2&#39;&gt;Übermorgan&lt;/relative&gt;
+   &lt;/days&gt;
+  &lt;/fields&gt;
+&lt;/calendars&gt;</pre>
   <p class="element2"><a name="&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></p>
   <p>The timezone IDs are language-independent, and follow the <i>Olson Data</i> [<a href="#Olson">Olson</a>]. 
   However, the display names for those IDs can vary by locale. The generic time is so-called <i>
@@ -3541,6 +3579,261 @@ root</pre>
     </tr>
   </table>
   <p><span class="changed">Quoting is done using &#39; characters, as in date or number formats.</span></p>
+  <h2><span style="background-color: #FFFF00">Appendix I: <a name="Inheritance_and_Validity">
+  Inheritance and Validity</a></span></h2>
+  <p><span style="background-color: #FFFF00">The following describes in more detail how to determine 
+  the exact inheritance of elements, and the validity of a given element in </span>
+  <span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00">. If an 
+  element has draft=&quot;true&quot;, then the data is not known to be valid. (&quot;Not known to be&quot; because it 
+  may actually be valid, but it has not been vetted.). But it is a bit more complicated than that, 
+  since draft=&quot;true&quot; is inherited by </span><span style="background-color: #FFFF00">subelements</span><span style="background-color: #FFFF00">, 
+  and sublocales. So this section provides a more formal description of how elements are inherited, 
+  and what their draft status is.</span></p>
+  <h2><span style="background-color: #FFFF00">Definitions</span></h2>
+  <p><span style="background-color: #FFFF00">For any element in an XML file, </span><i>
+  <span style="background-color: #FFFF00">an element chain</span></i><span style="background-color: #FFFF00"> 
+  is a resolved </span><span style="background-color: #FFFF00">XPath</span><span style="background-color: #FFFF00"> 
+  leading from the root to an element, with attributes on each element in alphabetical order. So in, 
+  say, </span><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/el.xml">
+  <span style="background-color: #FFFF00">
+  http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/el.xml</span></a><span style="background-color: #FFFF00"> 
+  we have:</span></p>
+  <pre><span style="background-color: #FFFF00">&lt;</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00"> version=&quot;1.1&quot;&gt;
+  &lt;identity&gt;
+    &lt;version number=&quot;1.1&quot; /&gt;
+    &lt;generation date=&quot;2004-06-04&quot; /&gt;
+    &lt;language type=&quot;el&quot; /&gt;
+  &lt;/identity&gt;
+  &lt;</span><span style="background-color: #FFFF00">localeDisplayNames</span><span style="background-color: #FFFF00">&gt;
+    &lt;languages&gt;
+      &lt;language type=&quot;</span><span style="background-color: #FFFF00">ar</span><span style="background-color: #FFFF00">&quot;&gt;Αραβικά&lt;/language&gt;
+...</span></pre>
+  <p><span style="background-color: #FFFF00">Which gives the following element chains (among 
+  others):</span></p>
+  <ul>
+    <li><span style="background-color: #FFFF00">//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/identity/version@number=&quot;1.1&quot;</span></li>
+    <li><span style="background-color: #FFFF00">//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/</span><span style="background-color: #FFFF00">localeDisplayNames</span><span style="background-color: #FFFF00">/languages/language@type=&quot;</span><span style="background-color: #FFFF00">ar</span><span style="background-color: #FFFF00">&quot;</span></li>
+  </ul>
+  <p><span style="background-color: #FFFF00">An element chain A is an </span><i>
+  <span style="background-color: #FFFF00">extension</span></i><span style="background-color: #FFFF00"> 
+  of an element chain B if the initial portion of A is the equivalent to B. For example, #2 below is 
+  an extension of #1. (Equivalent, depending on the tree, may not be &quot;identical to&quot;. See below for 
+  an example.)</span></p>
+  <ol>
+    <li><span style="background-color: #FFFF00">//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/</span><span style="background-color: #FFFF00">localeDisplayNames</span></li>
+    <li><span style="background-color: #FFFF00">//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/</span><span style="background-color: #FFFF00">localeDisplayNames</span><span style="background-color: #FFFF00">/languages/language@type=&quot;</span><span style="background-color: #FFFF00">ar</span><span style="background-color: #FFFF00">&quot;</span></li>
+  </ol>
+  <p><span style="background-color: #FFFF00">An </span><span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> 
+  file can be thought of as an ordered list of </span><i><span style="background-color: #FFFF00">
+  element pairs</span></i><span style="background-color: #FFFF00">: &lt;element chain, data&gt;, where the 
+  element chains are all the chains for the end-nodes. (This works because of restrictions on the 
+  structure of </span><span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00">, 
+  including that it doesn&#39;t allow mixed content.) The ordering is the ordering that the element 
+  chains are found in the file, and thus determined by the </span>
+  <span style="background-color: #FFFF00">DTD</span><span style="background-color: #FFFF00">.</span></p>
+  <p><span style="background-color: #FFFF00">For example, some of those pairs would be the 
+  following. Notice that the first has the null string as element contents.</span></p>
+  <ul>
+    <li><span style="background-color: #FFFF00">&lt;//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/identity/version@number=&quot;1.1&quot;, 
+    &quot;&quot;&gt;</span></li>
+    <li><span style="background-color: #FFFF00">&lt;//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/</span><span style="background-color: #FFFF00">localeDisplayNames</span><span style="background-color: #FFFF00">/languages/language@type=&quot;</span><span style="background-color: #FFFF00">ar</span><span style="background-color: #FFFF00">&quot;, 
+    &quot;</span><span style="background-color: #FFFF00">Αραβικά</span><span style="background-color: #FFFF00">&quot;&gt;</span></li>
+  </ul>
+  <blockquote>
+    <p><b><span style="background-color: #FFFF00">Note:</span></b><span style="background-color: #FFFF00"> 
+    Some elements are not inherited from their parent locales. For example, all of the elements in a 
+    &lt;collation&gt; element are part of the structure of the collation data itself. So everything in a 
+    &lt;collation&gt; element is treated as a single lump of data, as far as inheritance is concerned.</span></p>
+  </blockquote>
+  <p><span style="background-color: #FFFF00">Two </span><span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> 
+  element chains are </span><i><span style="background-color: #FFFF00">equivalent</span></i><span style="background-color: #FFFF00"> 
+  when they would be identical if all attributes except the following list were removed: </span><b>
+  <span style="background-color: #FFFF00">type, width, context</span></b><span style="background-color: #FFFF00">. 
+  Thus the following are equivalent:</span></p>
+  <ul>
+    <li><span style="background-color: #FFFF00">//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/</span><span style="background-color: #FFFF00">localeDisplayNames</span><span style="background-color: #FFFF00">/languages/language@type=&quot;</span><span style="background-color: #FFFF00">ar</span><span style="background-color: #FFFF00">&quot;</span></li>
+    <li><span style="background-color: #FFFF00">//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/</span><span style="background-color: #FFFF00">localeDisplayNames</span><span style="background-color: #FFFF00">/languages/language@type=&quot;</span><span style="background-color: #FFFF00">ar</span><span style="background-color: #FFFF00">&quot;@draft=&quot;true&quot;</span></li>
+  </ul>
+  <p><span style="background-color: #FFFF00">For any locale ID, an </span><i>
+  <span style="background-color: #FFFF00">locale chain</span></i><span style="background-color: #FFFF00"> 
+  is an ordered list starting with the root and leading down to the ID. For example:</span></p>
+  <blockquote>
+    <p><span style="background-color: #FFFF00">&lt;root, de, de-DE, de-DE-xxx&gt;</span></p>
+  </blockquote>
+  <h2><span style="background-color: #FFFF00">Resolved Data File</span></h2>
+  <p><span style="background-color: #FFFF00">To produce fully resolved locale data file from CLDR 
+  for a locale ID L, you start with root, and replace/add items from the child locales until you get 
+  down to L. More formally, this can be expressed as the following procedure.</span></p>
+  <ol>
+    <li><span style="background-color: #FFFF00">Let Result be an empty </span>
+    <span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> 
+    file.</span></li>
+    <li><span style="background-color: #FFFF00">For each Li in the locale chain for L</span><ol>
+      <li><span style="background-color: #FFFF00">For each element pair P in the </span>
+      <span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> 
+      file for Li:</span><ol>
+        <li><span style="background-color: #FFFF00">If Result has an element pair Q with an 
+        equivalent element chain, remove Q.</span></li>
+        <li><span style="background-color: #FFFF00">Add P to Result.</span></li>
+      </ol>
+      </li>
+    </ol>
+    </li>
+  </ol>
+  <p><span style="background-color: #FFFF00">Note: when adding an element pair to a result, it has 
+  to go in the right order for it to be valid according to the </span>
+  <span style="background-color: #FFFF00">DTD</span><span style="background-color: #FFFF00">.</span></p>
+  <h2><b><span style="background-color: #FFFF00">Valid Data</span></b></h2>
+  <p><span style="background-color: #FFFF00">The attribute </span><i>
+  <span style="background-color: #FFFF00">draft=&#39;true&#39;</span></i><span style="background-color: #FFFF00"> 
+  in </span><span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> 
+  means that the data is not known to be valid or not. However, some data that is not explicitly 
+  marked as draft may be implicitly draft, either because it inherits it from a parent, or from an 
+  enclosing element. </span></p>
+  <p><b><span style="background-color: #FFFF00">Example 2. </span></b>
+  <span style="background-color: #FFFF00">Suppose that a new locale is added for </span>
+  <span style="background-color: #FFFF00">af</span><span style="background-color: #FFFF00"> (</span><span style="background-color: #FFFF00">Afrikans</span><span style="background-color: #FFFF00">). 
+  To indicate that all of the data is draft, that attribute can be added to the top level.</span></p>
+  <p><code><span style="background-color: #FFFF00">&lt;ldml version=&quot;1.1&quot; draft=&quot;true&quot;&gt;<br>
+  &nbsp;&lt;identity&gt;<br>
+  &nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+  &nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+  &nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
+  &nbsp;&lt;/identity&gt;<br>
+  &lt;/ldml&gt;</span></code></p>
+  <p><span style="background-color: #FFFF00">Any data can be added to that file, and the status will 
+  all be draft. Once an item is vetted -- </span><i><span style="background-color: #FFFF00">whether 
+  it is inherited or explicitly in the file</span></i><span style="background-color: #FFFF00"> -- 
+  then its status can be changed to non-draft. This can be done either by leaving draft=&quot;true&quot; on 
+  the enclosing element and marking the child with draft=&quot;false&quot;, such as:</span></p>
+  <p><code><span style="background-color: #FFFF00">&lt;ldml version=&quot;1.1&quot; draft=&quot;true&quot;&gt;<br>
+  &nbsp;&lt;identity&gt;<br>
+  &nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+  &nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+  &nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
+  &nbsp;&lt;/identity&gt;<br>
+  &nbsp;&lt;characters draft=&quot;false&quot;/&gt;<br>
+  &nbsp;&lt;localeDisplayNames/&gt;<br>
+  &nbsp;&lt;dates/&gt;<br>
+  &nbsp;&lt;numbers/&gt;<br>
+  &nbsp;&lt;collations/&gt;<br>
+  &lt;/ldml&gt;</span></code></p>
+  <p><span style="background-color: #FFFF00">Or it can be done by removing the draft=&quot;false&quot; from 
+  the enclosing element, and marking the</span><i><span style="background-color: #FFFF00"> other</span></i><span style="background-color: #FFFF00"> 
+  children as draft.</span></p>
+  <p><code><span style="background-color: #FFFF00">&lt;ldml version=&quot;1.1&quot;&gt;<br>
+  &nbsp;&lt;identity&gt;<br>
+  &nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+  &nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+  &nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
+  &nbsp;&lt;/identity&gt;<br>
+  &nbsp;&lt;characters/&gt;<br>
+  &nbsp;&lt;localeDisplayNames/&gt;<br>
+  &nbsp;&lt;dates draft=&quot;true&quot;/&gt;<br>
+  &nbsp;&lt;numbers draft=&quot;true&quot;/&gt;<br>
+  &nbsp;&lt;collations draft=&quot;true&quot;/&gt;<br>
+  &lt;/ldml&gt;</span></code></p>
+  <blockquote>
+    <p><b><span style="background-color: #FFFF00">Note: </span></b>
+    <span style="background-color: #FFFF00">A missing draft attribute is </span><i>
+    <span style="background-color: #FFFF00">not</span></i><span style="background-color: #FFFF00"> 
+    the same as either a true or false value. A missing attribute means instead: </span><i>
+    <span style="background-color: #FFFF00">inherit</span></i><span style="background-color: #FFFF00"> 
+    the draft status from enclosing elements and parent locales.</span></p>
+  </blockquote>
+  <p><span style="background-color: #FFFF00">The attribute </span><i>
+  <span style="background-color: #FFFF00">legitimateChildren</span></i><span style="background-color: #FFFF00"> 
+  allows sublocales in a given tree to be treated as though a file for them were present when there 
+  isn&#39;t one. It only has an effect for locales that inherit from the current file where a file is 
+  missing, and the elements wouldn&#39;t otherwise be draft.</span></p>
+  <p class="reviewnote"><span style="background-color: #FFFF00">[Editorial Note: we will change the 
+  name </span><span style="background-color: #FFFF00">legitimateChildren</span><span style="background-color: #FFFF00"> 
+  to something less whimsical in before release.]</span></p>
+  <p><b><span style="background-color: #FFFF00">Example 1. </span></b>
+  <span style="background-color: #FFFF00">Suppose that in a particular </span>
+  <span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> tree, 
+  there are no region locales for German, e.g. there is a </span>
+  <span style="background-color: #FFFF00">de.xml</span><span style="background-color: #FFFF00"> 
+  file, but no files for de-</span><span style="background-color: #FFFF00">AT.xml</span><span style="background-color: #FFFF00">, 
+  de-</span><span style="background-color: #FFFF00">CH.xml</span><span style="background-color: #FFFF00">, 
+  or de-</span><span style="background-color: #FFFF00">DE.xml</span><span style="background-color: #FFFF00">. 
+  Then no elements are valid for any of those region locales. If we want to mark one of those files 
+  as having valid elements, then we introduce an empty file, such as the following.</span></p>
+  <p><code><span style="background-color: #FFFF00">&lt;ldml version=&quot;1.1&quot;&gt;<br>
+  &nbsp;&lt;identity&gt;<br>
+  &nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+  &nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+  &nbsp; &lt;language type=&quot;de&quot; /&gt; <br>
+  &nbsp; &lt;territory type=&quot;AT&quot; /&gt; <br>
+  &nbsp;&lt;/identity&gt;<br>
+  &lt;/ldml&gt;</span></code></p>
+  <p><span style="background-color: #FFFF00">With the </span><i>
+  <span style="background-color: #FFFF00">legitimateChildren</span></i><span style="background-color: #FFFF00"> 
+  attribute, instead of adding the empty files for de-</span><span style="background-color: #FFFF00">AT.xml</span><span style="background-color: #FFFF00">, 
+  de-</span><span style="background-color: #FFFF00">CH.xml</span><span style="background-color: #FFFF00">, 
+  and de-</span><span style="background-color: #FFFF00">DE.xml</span><span style="background-color: #FFFF00">, 
+  in the de file we can add to the parent locale a list of the child locales that should behave as 
+  if files were present.</span></p>
+  <p><code><span style="background-color: #FFFF00">&lt;ldml version=&quot;1.1&quot; legitimateChildren=&quot;de-AT 
+  de-CH de-DE&quot;&gt;<br>
+  &nbsp;&lt;identity&gt;<br>
+  &nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+  &nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+  &nbsp; &lt;language type=&quot;de&quot; /&gt; <br>
+  &nbsp;&lt;/identity&gt;<br>
+  ...<br>
+  &lt;/ldml&gt;</span></code></p>
+  <p><span style="background-color: #FFFF00">More formally, here is how to determine whether data 
+  for an element chain E is implicitly or explicitly draft, given a locale L. Sections 1, 2, and 4 
+  are simply formalizations of what is in </span><span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> 
+  already. Item 3 adds the new element.</span></p>
+  <p><span style="background-color: #FFFF00">Checking for Draft Status:</span></p>
+  <ol>
+    <li><b><span style="background-color: #FFFF00">Parent Locale Inheritance</span></b><ol>
+      <li><span style="background-color: #FFFF00">Walk through the locale chain until you find a 
+      locale ID L&#39; with a data file D. (L&#39; may equal L). </span></li>
+      <li><span style="background-color: #FFFF00">Produce the fully resolved data file D&#39; for D.</span></li>
+      <li><span style="background-color: #FFFF00">In D&#39;, find the first element pair whose element 
+      chain E&#39; is either equivalent to or an extension of E.</span></li>
+      <li><span style="background-color: #FFFF00">If there is no such E&#39;, return </span><i>
+      <span style="background-color: #FFFF00">true</span></i></li>
+      <li><span style="background-color: #FFFF00">If E&#39; is not equivalent to E, truncate E&#39; to the 
+      length of E.</span></li>
+    </ol>
+    </li>
+    <li><b><span style="background-color: #FFFF00">Enclosing Element Inheritance</span></b><ol>
+      <li><span style="background-color: #FFFF00">Walk through the elements in E&#39;, from back to 
+      front.</span><ol>
+        <li><span style="background-color: #FFFF00">If you ever encounter draft=</span><i><span style="background-color: #FFFF00">x</span></i><span style="background-color: #FFFF00">, 
+        return </span><i><span style="background-color: #FFFF00">x</span></i></li>
+      </ol>
+      </li>
+      <li><span style="background-color: #FFFF00">If L&#39; = L, return </span><i>
+      <span style="background-color: #FFFF00">false</span></i></li>
+    </ol>
+    </li>
+    <li><span class="changed"><b>Missing File Inheritance</b></span><ol>
+      <li><span class="changed">Otherwise, walk again through the elements in E&#39;, from back to 
+      front.</span><ol>
+        <li><span class="changed">If you encounter a legitimateChildren attribute:</span><ol>
+          <li><span class="changed">If L is in the attribute value, return <i>false</i></span></li>
+          <li><span class="changed">Otherwise return <i>true</i></span></li>
+        </ol>
+        </li>
+      </ol>
+      </li>
+    </ol>
+    </li>
+    <li><b><span style="background-color: #FFFF00">Otherwise</span></b><ol>
+      <li><span style="background-color: #FFFF00">Return </span><i>
+      <span style="background-color: #FFFF00">true</span></i></li>
+    </ol>
+    </li>
+  </ol>
+  <p><span style="background-color: #FFFF00">The </span><span style="background-color: #FFFF00">
+  legitimateChildren</span><span style="background-color: #FFFF00"> in the most specific (farthest 
+  from root file) locale file &quot;wins&quot; through the full resolution step (data from more specific files 
+  replacing data from less specific ones).</span></p>
   <h2><a name="References">References</a></h2>
   <table style="border-collapse: collapse; border-width: 1; " cellpadding="4" cellspacing="0" class="noborder" border="0">
     <tr>
@@ -3828,8 +4121,17 @@ root</pre>
       <td class="noborder" class="changed" bgcolor="#FFFF00"><a name="TrackingNumber2">3</a></td>
       <td class="noborder" class="changed" bgcolor="#FFFF00">
       <ul>
-        <li>Added Appendix F, G, H</li>
+        <li>Added <a href="#Date_Format_Patterns">Date_Format_Patterns</a>,
+        <a href="#Number_Format_Patterns">Number_Format_Patterns</a>, <a href="#Choice_Patterns">
+        Choice_Patterns</a></li>
+        <li>Revised <a href="#&lt;characters&gt;">&lt;characters&gt;</a>, especially exemplar characters.</li>
         <li>Eliminated all references to Java documentation, since their links are unstable.</li>
+        <li>Added <a href="#Calendar_Fields">Calendar Fields</a>, <a href="#alt_attribute">
+        alt_attribute</a>, <a href="#references_attribute">references_attribute</a>,
+        <a href="#Inheritance_and_Validity">Inheritance_and_Validity</a></li>
+        <li><b>TBD: Incorporate the material from
+        <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/formatting/time_zone_localization.html">
+        time_zone_localization.html</a></b></li>
       </ul>
       </td>
     </tr>

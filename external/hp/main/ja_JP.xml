@@ -1,130 +1,140 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="ja"></language>
-		<territory type="JPN">JP</territory>
+		<version number="1.0"/>
+		<generation date="2003-07-23" />
+		<language type="ja" /> 
+		<territory type="JP" /> 
 	</identity>
-	<localeDisplayNames>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
-	</localeDisplayNames>
-		<dates>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">1月</month>
-						<month type="2">2月</month>
-						<month type="3">3月</month>
-						<month type="4">4月</month>
-						<month type="5">5月</month>
-						<month type="6">6月</month>
-						<month type="7">7月</month>
-						<month type="8">8月</month>
-						<month type="9">9月</month>
-						<month type="10">10月</month>
-						<month type="11">11月</month>
-						<month type="12">12月</month>
-						<month type="13"></month>
-					</monthNames>
-					<monthAbbr>
-						<month type="1"> 1月</month>
-						<month type="2"> 2月</month>
-						<month type="3"> 3月</month>
-						<month type="4"> 4月</month>
-						<month type="5"> 5月</month>
-						<month type="6"> 6月</month>
-						<month type="7"> 7月</month>
-						<month type="8"> 8月</month>
-						<month type="9"> 9月</month>
-						<month type="10">10月</month>
-						<month type="11">11月</month>
-						<month type="12">12月</month>
-						<month type="13"></month>
-					</monthAbbr>
-					<dayNames>
-						<day type="sun">日曜日</day>
-						<day type="mon">月曜日</day>
-						<day type="tue">火曜日</day>
-						<day type="wed">水曜日</day>
-						<day type="thu">木曜日</day>
-						<day type="fri">金曜日</day>
-						<day type="sat">土曜日</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">日</day>
-						<day type="mon">月</day>
-						<day type="tue">火</day>
-						<day type="wed">水</day>
-						<day type="thu">木</day>
-						<day type="fri">金</day>
-						<day type="sat">土</day>
-					</dayAbbr>
-					<am>午前</am>
-					<pm>午後</pm>
-					<dateFormats>
-						<default type="medium"/>
-						<dateFormat type="full">
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">1月</month>
+					<month type="2">2月</month>
+					<month type="3">3月</month>
+					<month type="4">4月</month>
+					<month type="5">5月</month>
+					<month type="6">6月</month>
+					<month type="7">7月</month>
+					<month type="8">8月</month>
+					<month type="9">9月</month>
+					<month type="10">10月</month>
+					<month type="11">11月</month>
+					<month type="12">12月</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1"> 1月</month>
+					<month type="2"> 2月</month>
+					<month type="3"> 3月</month>
+					<month type="4"> 4月</month>
+					<month type="5"> 5月</month>
+					<month type="6"> 6月</month>
+					<month type="7"> 7月</month>
+					<month type="8"> 8月</month>
+					<month type="9"> 9月</month>
+					<month type="10">10月</month>
+					<month type="11">11月</month>
+					<month type="12">12月</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">日曜日</day>
+					<day type="mon">月曜日</day>
+					<day type="tue">火曜日</day>
+					<day type="wed">水曜日</day>
+					<day type="thu">木曜日</day>
+					<day type="fri">金曜日</day>
+					<day type="sat">土曜日</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">日</day>
+					<day type="mon">月</day>
+					<day type="tue">火</day>
+					<day type="wed">水</day>
+					<day type="thu">木</day>
+					<day type="fri">金</day>
+					<day type="sat">土</day>
+				</dayAbbr>
+				<am>午前</am>
+				<pm>午後</pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
 							<pattern>yyyy年MM月dd日 </pattern>
 						</dateFormat>
-						<dateFormat type="long">
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
 							<pattern>yyyy年MM月dd日 HH時mm分ss秒</pattern>
 						</dateFormat>
-						<dateFormat type="medium">
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
 							<pattern>yyyy年MM月dd日</pattern>
 						</dateFormat>
-						<dateFormat type="short">
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
 							<pattern>yyyy年MM月dd日</pattern>
 						</dateFormat>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"/>
-						<timeFormat type="full">
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
 							<pattern>aahh時mm分ss秒</pattern>
 						</timeFormat>
-						<timeFormat type="long">
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
 							<pattern>HH時mm分ss秒</pattern>
 						</timeFormat>
-						<timeFormat type="medium">
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
 							<pattern>HH時mm分ss秒</pattern>
 						</timeFormat>
-						<timeFormat type="short">
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
 							<pattern>HH時mm分ss秒</pattern>
 						</timeFormat>
-					</timeFormats>
-					<dateTimeFormat>
-						<pattern>{1} {0}</pattern>
-					</dateTimeFormat>
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<numberFormats>
-				<default type="decimal"/>
-				<numberFormat type="decimal">
-					<pattern>#,##0.###</pattern>
-					<pattern>-#,##0.###</pattern>
-				</numberFormat>
-				<numberFormat type="currency">
-					<pattern>¤#,##0.#</pattern>
-					<pattern>¤-#,##0.#</pattern>
-				</numberFormat>
-				<numberFormat type="percent">
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
 					<pattern>#,##0%</pattern>
-				</numberFormat>
-			</numberFormats>
-			<currencies>
-				<default type="JPY"/>
-				<currency type="JPY">
-					<symbol>¥</symbol>
-					<displayName>JPY</displayName>
-					<decimal></decimal>
-				</currency>
-			</currencies>
-		</numbers>
-</localeData>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>¤#,##0.#;¤-#,##0.#</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

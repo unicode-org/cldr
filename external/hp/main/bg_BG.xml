@@ -1,281 +1,342 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="bg"></language>
-		<territory type="BGR">BG</territory>
+		<version number="1.0"/>
+		<generation date="2003-07-23" />
+		<language type="bg" /> 
+		<territory type="BG" /> 
 	</identity>
-	<localeDisplayNames>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
-	</localeDisplayNames>
-		<dates>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">ЯНУАРИ</month>
-						<month type="2">ФЕВРУАРИ</month>
-						<month type="3">МАРТ</month>
-						<month type="4">АПРИЛ</month>
-						<month type="5">МАЙ</month>
-						<month type="6">ЮНИ</month>
-						<month type="7">ЮЛИ</month>
-						<month type="8">АВГУСТ</month>
-						<month type="9">СЕПТЕМВРИ</month>
-						<month type="10">ОКТОМВРИ</month>
-						<month type="11">НОЕМВРИ</month>
-						<month type="12">ДЕКЕМВРИ</month>
-						<month type="13"></month>
-					</monthNames>
-					<monthAbbr>
-						<month type="1">ЯНУ</month>
-						<month type="2">ФЕВ</month>
-						<month type="3">МАР</month>
-						<month type="4">АПР</month>
-						<month type="5">МАЙ</month>
-						<month type="6">ЮНИ</month>
-						<month type="7">ЮЛИ</month>
-						<month type="8">АВГ</month>
-						<month type="9">СЕП</month>
-						<month type="10">ОКТ</month>
-						<month type="11">НОЕ</month>
-						<month type="12">ДЕК</month>
-						<month type="13"></month>
-					</monthAbbr>
-					<dayNames>
-						<day type="sun">НЕДЕЛЯ</day>
-						<day type="mon">ПОНЕДЕЛНИК</day>
-						<day type="tue">ВТОРНИК</day>
-						<day type="wed">СРЯДА</day>
-						<day type="thu">ЧЕТВЪРТЪК</day>
-						<day type="fri">ПЕТЪК</day>
-						<day type="sat">СЪБОТА</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">НЕД</day>
-						<day type="mon">ПОН</day>
-						<day type="tue">ВТР</day>
-						<day type="wed">СРД</day>
-						<day type="thu">ЧТВ</day>
-						<day type="fri">ПЕТ</day>
-						<day type="sat">СЪБ</day>
-					</dayAbbr>
-					<dateFormats>
-						<default type="medium"/>
-						<dateFormat type="full">
-							<pattern>EEE, %.1d MMM yyyy</pattern>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">ЯНУАРИ</month>
+					<month type="2">ФЕВРУАРИ</month>
+					<month type="3">МАРТ</month>
+					<month type="4">АПРИЛ</month>
+					<month type="5">МАЙ</month>
+					<month type="6">ЮНИ</month>
+					<month type="7">ЮЛИ</month>
+					<month type="8">АВГУСТ</month>
+					<month type="9">СЕПТЕМВРИ</month>
+					<month type="10">ОКТОМВРИ</month>
+					<month type="11">НОЕМВРИ</month>
+					<month type="12">ДЕКЕМВРИ</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">ЯНУ</month>
+					<month type="2">ФЕВ</month>
+					<month type="3">МАР</month>
+					<month type="4">АПР</month>
+					<month type="5">МАЙ</month>
+					<month type="6">ЮНИ</month>
+					<month type="7">ЮЛИ</month>
+					<month type="8">АВГ</month>
+					<month type="9">СЕП</month>
+					<month type="10">ОКТ</month>
+					<month type="11">НОЕ</month>
+					<month type="12">ДЕК</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">НЕДЕЛЯ</day>
+					<day type="mon">ПОНЕДЕЛНИК</day>
+					<day type="tue">ВТОРНИК</day>
+					<day type="wed">СРЯДА</day>
+					<day type="thu">ЧЕТВЪРТЪК</day>
+					<day type="fri">ПЕТЪК</day>
+					<day type="sat">СЪБОТА</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">НЕД</day>
+					<day type="mon">ПОН</day>
+					<day type="tue">ВТР</day>
+					<day type="wed">СРД</day>
+					<day type="thu">ЧТВ</day>
+					<day type="fri">ПЕТ</day>
+					<day type="sat">СЪБ</day>
+				</dayAbbr>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>EEE,  MMM yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="long">
-							<pattern>EEE, %.1d MMM yyyy HH:mm:ss</pattern>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>EEE,  MMM yyyy HH:mm:ss</pattern>
 						</dateFormat>
-						<dateFormat type="medium">
-							<pattern>EEE, %.1d MMM yyyy</pattern>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>EEE,  MMM yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="short">
-							<pattern>EEE, %.1d MMM yyyy</pattern>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>EEE,  MMM yyyy</pattern>
 						</dateFormat>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"/>
-						<timeFormat type="full">
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
 							<pattern>%.lH:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="long">
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
 							<pattern>%.lH:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="medium">
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
 							<pattern>%.lH:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="short">
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
 							<pattern>%.lH:mm:ss</pattern>
 						</timeFormat>
-					</timeFormats>
-					<dateTimeFormat>
-						<pattern>{1} {0}</pattern>
-					</dateTimeFormat>
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<numberFormats>
-				<default type="decimal"/>
-				<numberFormat type="decimal">
-					<pattern>#,##0.###</pattern>
-					<pattern>-#,##0.###</pattern>
-				</numberFormat>
-				<numberFormat type="currency">
-					<pattern>#,##0.00 ¤</pattern>
-					<pattern>-#,##0.00 ¤</pattern>
-				</numberFormat>
-				<numberFormat type="percent">
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>.</decimal>
+			<group> </group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
 					<pattern>#,##0%</pattern>
-				</numberFormat>
-			</numberFormats>
-			<currencies>
-				<default type="BGL"/>
-				<currency type="BGL">
-					<symbol>ЛВ.</symbol>
-					<displayName>BGL</displayName>
-					<decimal>.</decimal>
-				</currency>
-			</currencies>
-		</numbers>
-		<collations>
-			<collation  >
-				<rules>
-					<reset> </reset>
-					<pc>-­'&quot;.!?,;:()А</pc>
-					<s>а</s>
-					<p>Б</p>
-					<s>б</s>
-					<p>В</p>
-					<s>в</s>
-					<p>Г</p>
-					<s>г</s>
-					<p>Д</p>
-					<s>д</s>
-					<p>Ђ</p>
-					<s>ђ</s>
-					<p>Ѓ</p>
-					<s>ѓ</s>
-					<p>Е</p>
-					<s>е</s>
-					<p>Ё</p>
-					<s>ё</s>
-					<p>Є</p>
-					<s>є</s>
-					<p>Ж</p>
-					<s>ж</s>
-					<p>З</p>
-					<s>з</s>
-					<p>Ѕ</p>
-					<s>ѕ</s>
-					<p>И</p>
-					<s>и</s>
-					<p>І</p>
-					<s>і</s>
-					<p>Ї</p>
-					<s>ї</s>
-					<p>Ј</p>
-					<s>ј</s>
-					<p>Й</p>
-					<s>й</s>
-					<p>К</p>
-					<s>к</s>
-					<p>Л</p>
-					<s>л</s>
-					<p>Љ</p>
-					<s>љ</s>
-					<p>М</p>
-					<s>м</s>
-					<p>Н</p>
-					<s>н</s>
-					<p>Њ</p>
-					<s>њ</s>
-					<p>О</p>
-					<s>о</s>
-					<p>П</p>
-					<s>п</s>
-					<p>Р</p>
-					<s>р</s>
-					<p>С</p>
-					<s>с</s>
-					<p>Т</p>
-					<s>т</s>
-					<p>Ћ</p>
-					<s>ћ</s>
-					<p>Ќ</p>
-					<s>ќ</s>
-					<p>У</p>
-					<s>у</s>
-					<p>Ў</p>
-					<s>ў</s>
-					<p>Ф</p>
-					<s>ф</s>
-					<p>Х</p>
-					<s>х</s>
-					<p>Ц</p>
-					<s>ц</s>
-					<p>Ч</p>
-					<s>ч</s>
-					<p>Џ</p>
-					<s>џ</s>
-					<p>Ш</p>
-					<s>ш</s>
-					<p>Щ</p>
-					<s>щ</s>
-					<p>Ъ</p>
-					<s>ъ</s>
-					<p>Ы</p>
-					<s>ы</s>
-					<p>Ь</p>
-					<s>ь</s>
-					<p>Э</p>
-					<s>э</s>
-					<p>Ю</p>
-					<s>ю</s>
-					<p>Я</p>
-					<s>я</s>
-					<pc>0123456789A</pc>
-					<s>a</s>
-					<p>B</p>
-					<s>b</s>
-					<p>C</p>
-					<s>c</s>
-					<p>D</p>
-					<s>d</s>
-					<p>E</p>
-					<s>e</s>
-					<p>F</p>
-					<s>f</s>
-					<p>G</p>
-					<s>g</s>
-					<p>H</p>
-					<s>h</s>
-					<p>I</p>
-					<s>i</s>
-					<p>J</p>
-					<s>j</s>
-					<p>K</p>
-					<s>k</s>
-					<p>L</p>
-					<s>l</s>
-					<p>M</p>
-					<s>m</s>
-					<p>N</p>
-					<s>n</s>
-					<p>O</p>
-					<s>o</s>
-					<p>P</p>
-					<s>p</s>
-					<p>Q</p>
-					<s>q</s>
-					<p>R</p>
-					<s>r</s>
-					<p>S</p>
-					<s>s</s>
-					<p>T</p>
-					<s>t</s>
-					<p>U</p>
-					<s>u</s>
-					<p>V</p>
-					<s>v</s>
-					<p>W</p>
-					<s>w</s>
-					<p>X</p>
-					<s>x</s>
-					<p>Y</p>
-					<s>y</s>
-					<p>Z</p>
-					<s>z</s>
-					<pc>№[]{}&lt;&gt;=+%*/'<context></context>@&amp;#$¶`^~_<cp hex="0000" /><cp hex="0001" /><cp hex="0002" /><cp hex="0003" /><cp hex="0004" /><cp hex="0005" /><cp hex="0006" /><cp hex="0007" /><cp hex="0008" /><cp hex="0009" /><cp hex="000A" /><cp hex="000B" /><cp hex="000C" /><cp hex="000D" /><cp hex="000E" /><cp hex="000F" /><cp hex="0010" /><cp hex="0011" /><cp hex="0012" /><cp hex="0013" /><cp hex="0014" /><cp hex="0015" /><cp hex="0016" /><cp hex="0017" /><cp hex="0018" /><cp hex="0019" /><cp hex="001A" /><cp hex="001B" /><cp hex="001C" /><cp hex="001D" /><cp hex="001E" /><cp hex="001F" /></pc>
-				</rules>
-				<special owner="http://oss.software.ibm.com/icu/" version="0.0" />
-			</collation  >
-		</collations>
-</localeData>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+	<collations version="3.1.1">
+		<collation  >
+			<rules>
+				<reset> </reset>
+				<pc>-</pc>
+				<pc>'</pc>
+				<pc>&quot;.!?,;:()А</pc>
+				<s>а</s>
+				<p>Б</p>
+				<s>б</s>
+				<p>В</p>
+				<s>в</s>
+				<p>Г</p>
+				<s>г</s>
+				<p>Д</p>
+				<s>д</s>
+				<p>Ђ</p>
+				<s>ђ</s>
+				<p>Ѓ</p>
+				<s>ѓ</s>
+				<p>Е</p>
+				<s>е</s>
+				<p>Ё</p>
+				<s>ё</s>
+				<p>Є</p>
+				<s>є</s>
+				<p>Ж</p>
+				<s>ж</s>
+				<p>З</p>
+				<s>з</s>
+				<p>Ѕ</p>
+				<s>ѕ</s>
+				<p>И</p>
+				<s>и</s>
+				<p>І</p>
+				<s>і</s>
+				<p>Ї</p>
+				<s>ї</s>
+				<p>Ј</p>
+				<s>ј</s>
+				<p>Й</p>
+				<s>й</s>
+				<p>К</p>
+				<s>к</s>
+				<p>Л</p>
+				<s>л</s>
+				<p>Љ</p>
+				<s>љ</s>
+				<p>М</p>
+				<s>м</s>
+				<p>Н</p>
+				<s>н</s>
+				<p>Њ</p>
+				<s>њ</s>
+				<p>О</p>
+				<s>о</s>
+				<p>П</p>
+				<s>п</s>
+				<p>Р</p>
+				<s>р</s>
+				<p>С</p>
+				<s>с</s>
+				<p>Т</p>
+				<s>т</s>
+				<p>Ћ</p>
+				<s>ћ</s>
+				<p>Ќ</p>
+				<s>ќ</s>
+				<p>У</p>
+				<s>у</s>
+				<p>Ў</p>
+				<s>ў</s>
+				<p>Ф</p>
+				<s>ф</s>
+				<p>Х</p>
+				<s>х</s>
+				<p>Ц</p>
+				<s>ц</s>
+				<p>Ч</p>
+				<s>ч</s>
+				<p>Џ</p>
+				<s>џ</s>
+				<p>Ш</p>
+				<s>ш</s>
+				<p>Щ</p>
+				<s>щ</s>
+				<p>Ъ</p>
+				<s>ъ</s>
+				<p>Ы</p>
+				<s>ы</s>
+				<p>Ь</p>
+				<s>ь</s>
+				<p>Э</p>
+				<s>э</s>
+				<p>Ю</p>
+				<s>ю</s>
+				<p>Я</p>
+				<s>я</s>
+				<pc>0123456789A</pc>
+				<s>a</s>
+				<p>B</p>
+				<s>b</s>
+				<p>C</p>
+				<s>c</s>
+				<p>D</p>
+				<s>d</s>
+				<p>E</p>
+				<s>e</s>
+				<p>F</p>
+				<s>f</s>
+				<p>G</p>
+				<s>g</s>
+				<p>H</p>
+				<s>h</s>
+				<p>I</p>
+				<s>i</s>
+				<p>J</p>
+				<s>j</s>
+				<p>K</p>
+				<s>k</s>
+				<p>L</p>
+				<s>l</s>
+				<p>M</p>
+				<s>m</s>
+				<p>N</p>
+				<s>n</s>
+				<p>O</p>
+				<s>o</s>
+				<p>P</p>
+				<s>p</s>
+				<p>Q</p>
+				<s>q</s>
+				<p>R</p>
+				<s>r</s>
+				<p>S</p>
+				<s>s</s>
+				<p>T</p>
+				<s>t</s>
+				<p>U</p>
+				<s>u</s>
+				<p>V</p>
+				<s>v</s>
+				<p>W</p>
+				<s>w</s>
+				<p>X</p>
+				<s>x</s>
+				<p>Y</p>
+				<s>y</s>
+				<p>Z</p>
+				<s>z</s>
+				<pc>№[]{}</pc>
+				<p>&lt;</p>
+				<pc>&gt;=+%*/'|@</pc>
+				<pc>&amp;#$¶`^~_</pc>
+				<p><cp hex="0000" /></p>
+				<p><cp hex="0001" /></p>
+				<p><cp hex="0002" /></p>
+				<p><cp hex="0003" /></p>
+				<p><cp hex="0004" /></p>
+				<p><cp hex="0005" /></p>
+				<p><cp hex="0006" /></p>
+				<p><cp hex="0007" /></p>
+				<p><cp hex="0008" /></p>
+				<pc><cp hex="0009" />
+</pc>
+				<p><cp hex="000B" /></p>
+				<pc><cp hex="000C" />
+</pc>
+				<p><cp hex="000E" /></p>
+				<p><cp hex="000F" /></p>
+				<p><cp hex="0010" /></p>
+				<p><cp hex="0011" /></p>
+				<p><cp hex="0012" /></p>
+				<p><cp hex="0013" /></p>
+				<p><cp hex="0014" /></p>
+				<p><cp hex="0015" /></p>
+				<p><cp hex="0016" /></p>
+				<p><cp hex="0017" /></p>
+				<p><cp hex="0018" /></p>
+				<p><cp hex="0019" /></p>
+				<p><cp hex="001A" /></p>
+				<p><cp hex="001B" /></p>
+				<p><cp hex="001C" /></p>
+				<p><cp hex="001D" /></p>
+				<p><cp hex="001E" /></p>
+				<pc><cp hex="001F" /></pc>
+				<pc></pc>
+			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="0.0" />
+		</collation  >
+	</collations >
+</ldml>

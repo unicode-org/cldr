@@ -1,208 +1,269 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="tr"></language>
-		<territory type="TUR">TR</territory>
+		<version number="1.0"/>
+		<generation date="2003-07-23" />
+		<language type="tr" /> 
+		<territory type="TR" /> 
 	</identity>
-	<localeDisplayNames>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
-	</localeDisplayNames>
-		<dates>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">OCAK</month>
-						<month type="2">ŞUBAT</month>
-						<month type="3">MART</month>
-						<month type="4">NİSAN</month>
-						<month type="5">MAYIS</month>
-						<month type="6">HAZİRAN</month>
-						<month type="7">TEMMUZ</month>
-						<month type="8">AĞUSTOS</month>
-						<month type="9">EYLÜL</month>
-						<month type="10">EKİM</month>
-						<month type="11">KASIM</month>
-						<month type="12">ARALIK</month>
-						<month type="13"></month>
-					</monthNames>
-					<monthAbbr>
-						<month type="1">OCA</month>
-						<month type="2">ŞUB</month>
-						<month type="3">MAR</month>
-						<month type="4">NİS</month>
-						<month type="5">MAY</month>
-						<month type="6">HAZ</month>
-						<month type="7">TEM</month>
-						<month type="8">AĞUS</month>
-						<month type="9">EYL</month>
-						<month type="10">EKİ</month>
-						<month type="11">KAS</month>
-						<month type="12">ARA</month>
-						<month type="13"></month>
-					</monthAbbr>
-					<dayNames>
-						<day type="sun">PAZAR</day>
-						<day type="mon">PAZARTESİ</day>
-						<day type="tue">SALI</day>
-						<day type="wed">ÇARŞAMBA</day>
-						<day type="thu">PERŞEMBE</day>
-						<day type="fri">CUMA</day>
-						<day type="sat">CUMARTESİ</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">Pa</day>
-						<day type="mon">Pt</day>
-						<day type="tue">Sa</day>
-						<day type="wed">Ça</day>
-						<day type="thu">Pe</day>
-						<day type="fri">Cu</day>
-						<day type="sat">Ct</day>
-					</dayAbbr>
-					<dateFormats>
-						<default type="medium"/>
-						<dateFormat type="full">
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">OCAK</month>
+					<month type="2">ŞUBAT</month>
+					<month type="3">MART</month>
+					<month type="4">NİSAN</month>
+					<month type="5">MAYIS</month>
+					<month type="6">HAZİRAN</month>
+					<month type="7">TEMMUZ</month>
+					<month type="8">AĞUSTOS</month>
+					<month type="9">EYLÜL</month>
+					<month type="10">EKİM</month>
+					<month type="11">KASIM</month>
+					<month type="12">ARALIK</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">OCA</month>
+					<month type="2">ŞUB</month>
+					<month type="3">MAR</month>
+					<month type="4">NİS</month>
+					<month type="5">MAY</month>
+					<month type="6">HAZ</month>
+					<month type="7">TEM</month>
+					<month type="8">AĞUS</month>
+					<month type="9">EYL</month>
+					<month type="10">EKİ</month>
+					<month type="11">KAS</month>
+					<month type="12">ARA</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">PAZAR</day>
+					<day type="mon">PAZARTESİ</day>
+					<day type="tue">SALI</day>
+					<day type="wed">ÇARŞAMBA</day>
+					<day type="thu">PERŞEMBE</day>
+					<day type="fri">CUMA</day>
+					<day type="sat">CUMARTESİ</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">Pa</day>
+					<day type="mon">Pt</day>
+					<day type="tue">Sa</day>
+					<day type="wed">Ça</day>
+					<day type="thu">Pe</day>
+					<day type="fri">Cu</day>
+					<day type="sat">Ct</day>
+				</dayAbbr>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
 							<pattern>dd MMM yyyy </pattern>
 						</dateFormat>
-						<dateFormat type="long">
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
 							<pattern>dd MMM yyyy  HH:mm:ss</pattern>
 						</dateFormat>
-						<dateFormat type="medium">
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
 							<pattern>dd MMM yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="short">
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
 							<pattern>dd MMM yyyy</pattern>
 						</dateFormat>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"/>
-						<timeFormat type="full">
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="long">
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="medium">
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="short">
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-					</timeFormats>
-					<dateTimeFormat>
-						<pattern>{1} {0}</pattern>
-					</dateTimeFormat>
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<numberFormats>
-				<default type="decimal"/>
-				<numberFormat type="decimal">
-					<pattern>#,##0.###</pattern>
-					<pattern>-#,##0.###</pattern>
-				</numberFormat>
-				<numberFormat type="currency">
-					<pattern>+#,##0.00 ¤</pattern>
-					<pattern>(-)#,##0.00 ¤</pattern>
-				</numberFormat>
-				<numberFormat type="percent">
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
 					<pattern>#,##0%</pattern>
-				</numberFormat>
-			</numberFormats>
-			<currencies>
-				<default type="TRL"/>
-				<currency type="TRL">
-					<symbol>TL</symbol>
-					<displayName>TRL</displayName>
-					<decimal>,</decimal>
-				</currency>
-			</currencies>
-		</numbers>
-		<collations>
-			<collation  >
-				<rules>
-					<reset> </reset>
-					<pc>0123456789A</pc>
-					<sc>aÁáÀàÂâÄäÅåÃã</sc>
-					<p>B</p>
-					<s>b</s>
-					<p>C</p>
-					<s>c</s>
-					<p>Ç</p>
-					<s>ç</s>
-					<p>D</p>
-					<sc>dÐð</sc>
-					<p>E</p>
-					<sc>eÉéÈèêÊËë</sc>
-					<p>F</p>
-					<s>f</s>
-					<p>G</p>
-					<s>g</s>
-					<p>Ğ</p>
-					<s>ğ</s>
-					<p>H</p>
-					<s>h</s>
-					<p>I</p>
-					<sc>ıÍíÌìÎîÏï</sc>
-					<p>İ</p>
-					<s>i</s>
-					<p>J</p>
-					<s>j</s>
-					<p>K</p>
-					<s>k</s>
-					<p>L</p>
-					<s>l</s>
-					<p>M</p>
-					<s>m</s>
-					<p>N</p>
-					<sc>nÑñ</sc>
-					<p>O</p>
-					<sc>oÓóÒòÔôÕõØø</sc>
-					<p>Ö</p>
-					<s>ö</s>
-					<p>P</p>
-					<s>p</s>
-					<p>Q</p>
-					<s>q</s>
-					<p>R</p>
-					<s>r</s>
-					<p>S</p>
-					<sc>sŠš</sc>
-					<p>Ş</p>
-					<s>ş</s>
-					<p>T</p>
-					<s>t</s>
-					<p>U</p>
-					<sc>uÚúÙùÛû</sc>
-					<p>Ü</p>
-					<s>ü</s>
-					<p>V</p>
-					<s>v</s>
-					<p>W</p>
-					<s>w</s>
-					<p>X</p>
-					<s>x</s>
-					<p>Y</p>
-					<sc>yÝýŸÿ</sc>
-					<p>Z</p>
-					<s>z</s>
-					<p>Þ</p>
-					<s>þ</s>
-					<pc>()[]{}«»&lt;&gt;`'=+-×÷±¬¼½¾*.,;:&quot;¿?¡!/'<context></context>¦¶§@&amp;°%#$¢£¥ƒ¤μ^~´¨¸·¯_­ªº¹²³©®<cp hex="0000" /><cp hex="0001" /><cp hex="0002" /><cp hex="0003" /><cp hex="0004" /><cp hex="0005" /><cp hex="0006" /><cp hex="0007" /><cp hex="0008" /><cp hex="0009" /><cp hex="000A" /><cp hex="000B" /><cp hex="000C" /><cp hex="000D" /><cp hex="000E" /><cp hex="000F" /><cp hex="0010" /><cp hex="0011" /><cp hex="0012" /><cp hex="0013" /><cp hex="0014" /><cp hex="0015" /><cp hex="0016" /><cp hex="0017" /><cp hex="0018" /><cp hex="0019" /><cp hex="001A" /><cp hex="001B" /><cp hex="001C" /><cp hex="001D" /><cp hex="001E" /><cp hex="001F" /></pc>
-					<reset>Aã</reset>
-					<t>Æ</t>
-					<reset>aã</reset>
-					<t>æ</t>
-					<reset>Sš</reset>
-				</rules>
-				<special owner="http://oss.software.ibm.com/icu/" version="0.0" />
-			</collation  >
-		</collations>
-</localeData>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>+#,##0.00 ¤;(-)#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+	<collations version="3.1.1">
+		<collation  >
+			<rules>
+				<reset> </reset>
+				<pc>0123456789A</pc>
+				<sc>aÁáÀàÂâÄäÅåÃã</sc>
+				<p>B</p>
+				<s>b</s>
+				<p>C</p>
+				<s>c</s>
+				<p>Ç</p>
+				<s>ç</s>
+				<p>D</p>
+				<sc>dÐð</sc>
+				<p>E</p>
+				<sc>eÉéÈèêÊËë</sc>
+				<p>F</p>
+				<s>f</s>
+				<p>G</p>
+				<s>g</s>
+				<p>Ğ</p>
+				<s>ğ</s>
+				<p>H</p>
+				<s>h</s>
+				<p>I</p>
+				<sc>ıÍíÌìÎîÏï</sc>
+				<p>İ</p>
+				<s>i</s>
+				<p>J</p>
+				<s>j</s>
+				<p>K</p>
+				<s>k</s>
+				<p>L</p>
+				<s>l</s>
+				<p>M</p>
+				<s>m</s>
+				<p>N</p>
+				<sc>nÑñ</sc>
+				<p>O</p>
+				<sc>oÓóÒòÔôÕõØø</sc>
+				<p>Ö</p>
+				<s>ö</s>
+				<p>P</p>
+				<s>p</s>
+				<p>Q</p>
+				<s>q</s>
+				<p>R</p>
+				<s>r</s>
+				<p>S</p>
+				<sc>sŠš</sc>
+				<p>Ş</p>
+				<s>ş</s>
+				<p>T</p>
+				<s>t</s>
+				<p>U</p>
+				<sc>uÚúÙùÛû</sc>
+				<p>Ü</p>
+				<s>ü</s>
+				<p>V</p>
+				<s>v</s>
+				<p>W</p>
+				<s>w</s>
+				<p>X</p>
+				<s>x</s>
+				<p>Y</p>
+				<sc>yÝýŸÿ</sc>
+				<p>Z</p>
+				<s>z</s>
+				<p>Þ</p>
+				<s>þ</s>
+				<pc>()[]{}«»</pc>
+				<p>&lt;</p>
+				<pc>&gt;`'=+-×÷±¬¼½¾*.,;:</pc>
+				<pc>&quot;¿?¡!/'|¦¶§@</pc>
+				<pc>&amp;°%#$¢£¥ƒ¤μ^~´¨¸·¯_</pc>
+				<pc>ªº¹²³©®</pc>
+				<p><cp hex="0000" /></p>
+				<p><cp hex="0001" /></p>
+				<p><cp hex="0002" /></p>
+				<p><cp hex="0003" /></p>
+				<p><cp hex="0004" /></p>
+				<p><cp hex="0005" /></p>
+				<p><cp hex="0006" /></p>
+				<p><cp hex="0007" /></p>
+				<p><cp hex="0008" /></p>
+				<pc><cp hex="0009" />
+</pc>
+				<p><cp hex="000B" /></p>
+				<pc><cp hex="000C" />
+</pc>
+				<p><cp hex="000E" /></p>
+				<p><cp hex="000F" /></p>
+				<p><cp hex="0010" /></p>
+				<p><cp hex="0011" /></p>
+				<p><cp hex="0012" /></p>
+				<p><cp hex="0013" /></p>
+				<p><cp hex="0014" /></p>
+				<p><cp hex="0015" /></p>
+				<p><cp hex="0016" /></p>
+				<p><cp hex="0017" /></p>
+				<p><cp hex="0018" /></p>
+				<p><cp hex="0019" /></p>
+				<p><cp hex="001A" /></p>
+				<p><cp hex="001B" /></p>
+				<p><cp hex="001C" /></p>
+				<p><cp hex="001D" /></p>
+				<p><cp hex="001E" /></p>
+				<pc><cp hex="001F" /></pc>
+				<pc></pc>
+				<reset>Aã</reset>
+				<t>Æ</t>
+				<reset>aã</reset>
+				<t>æ</t>
+				<reset>Sš</reset>
+			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="0.0" />
+		</collation  >
+	</collations >
+</ldml>

@@ -65,7 +65,7 @@ public class POSIXLocale {
         int PreviousScript = UScript.INVALID_CODE;
         while ( it.next() )
         {
-           if ( it.codepoint != UnicodeSetIterator.IS_STRING )
+           if ( (it.codepoint != UnicodeSetIterator.IS_STRING) && (it.codepoint <= 0x10ffff) )
            {
               int Script = UScript.getScript(it.codepoint);
               if ( Script != UScript.COMMON && 

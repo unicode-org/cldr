@@ -27,7 +27,7 @@ public class POSIX_LCMessages {
    Node n;
    Locale loc;
 
-   public POSIX_LCMessages ( Document doc , String locale_name )
+   public POSIX_LCMessages ( Document doc , String locale_name , POSIXVariant variant )
    {
          int i = locale_name.indexOf('_');
          if ( i > 0 )
@@ -40,13 +40,27 @@ public class POSIX_LCMessages {
          n = LDMLUtilities.getNode(doc, SearchLocation);
          if ( n != null && (( s = LDMLUtilities.getNodeValue(n)) != null ))
          {
-            StringBuffer buf = new StringBuffer(s);
-            if ( ! s.equals(s.toUpperCase(loc)))
-              buf.append(":"+s.toUpperCase(loc));
-            if ( ! s.startsWith("yes:"))
-              buf.append(":yes:y:YES:Y");
+            StringBuffer buf;
+            if ( variant.yesno.equals("short"))
+            {
+               i = s.indexOf(":");
+               if ( i > 0 )
+                  buf = new StringBuffer(s.substring(0,i));
+               else
+                  buf = new StringBuffer(s);
+            }
+            else
+            {
+               buf = new StringBuffer(s);
+               if ( ! s.equals(s.toUpperCase(loc)))
+                 buf.append(":"+s.toUpperCase(loc));
+               if ( ! s.startsWith("yes:"))
+                 buf.append(":yes:y:YES:Y");
+            }
             yesstr = POSIXUtilities.POSIXCharNameNP(buf.toString());
          }
+         else if ( variant.yesno.equals("short"))
+            yesstr = "yes";
          else
             yesstr = "yes:y:YES:Y";
 
@@ -54,13 +68,27 @@ public class POSIX_LCMessages {
          n = LDMLUtilities.getNode(doc, SearchLocation);
          if ( n != null && (( s = LDMLUtilities.getNodeValue(n)) != null ))
          {
-            StringBuffer buf = new StringBuffer(s);
-            if ( ! s.equals(s.toUpperCase(loc)))
-              buf.append(":"+s.toUpperCase(loc));
-            if ( ! s.startsWith("no:"))
-              buf.append(":no:n:NO:N");
+            StringBuffer buf;
+            if ( variant.yesno.equals("short"))
+            {
+               i = s.indexOf(":");
+               if ( i > 0 )
+                  buf = new StringBuffer(s.substring(0,i));
+               else
+                  buf = new StringBuffer(s);
+            }
+            else
+            {
+               buf = new StringBuffer(s);
+               if ( ! s.equals(s.toUpperCase(loc)))
+                 buf.append(":"+s.toUpperCase(loc));
+               if ( ! s.startsWith("no:"))
+                 buf.append(":no:n:NO:N");
+            }
             nostr = POSIXUtilities.POSIXCharNameNP(buf.toString());
          }
+         else if ( variant.yesno.equals("short"))
+            nostr = "no";
          else
             nostr = "no:n:NO:N";
 

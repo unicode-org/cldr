@@ -123,7 +123,7 @@ public class POSIXLocale {
       lc_numeric = new POSIX_LCNumeric( doc );
       lc_monetary = new POSIX_LCMonetary( doc , supp , variant );
       lc_time = new POSIX_LCTime( doc );
-      lc_messages = new POSIX_LCMessages( doc , locale_name );
+      lc_messages = new POSIX_LCMessages( doc , locale_name , variant );
 
    } // end POSIXLocale ( String locale_name, String cldr_data_location );
 

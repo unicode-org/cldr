@@ -12,12 +12,14 @@ public class POSIXVariant {
    public String collation_type;
    public String currency;
    public String platform;
+   public String yesno;
 
    public POSIXVariant ( String variant_string ) {
 
       this.collation_type = "standard";
       this.currency = "default";
       this.platform = "common";
+      this.yesno = "long";
       boolean more_values = true ;
       String buf = new String(variant_string);
       String rest;
@@ -48,6 +50,8 @@ public class POSIXVariant {
                this.currency = field_value;
             if ( field.equals("platform"))
                this.platform= field_value;
+            if ( field.equals("yesno"))
+               this.yesno = field_value;
          }
          buf = rest;
       }
@@ -58,5 +62,6 @@ public class POSIXVariant {
       this.collation_type = "standard";
       this.currency = "default";
       this.platform = "common";
+      this.yesno = "long";
    }   
 };

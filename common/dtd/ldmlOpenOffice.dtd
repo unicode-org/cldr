@@ -13,6 +13,12 @@
 
 <!--  OpenOffice.org Specific elements                         -->
 <!-- ######################################################### -->
+
+<!-- Begin OpenOffice specific elements -->
+
+<!ENTITY % UNOModule 'unoid                     CDATA              #IMPLIED'>
+<!ENTITY % RefLocale 'ref                     CDATA              #IMPLIED'>
+
 <!ATTLIST special xmlns:openOffice CDATA #IMPLIED>
 <!ATTLIST special formatindex NMTOKEN #IMPLIED >
 <!ATTLIST special msgtype NMTOKEN #IMPLIED >
@@ -21,14 +27,8 @@
 <!ATTLIST special default NMTOKEN #IMPLIED>
 <!ATTLIST special type NMTOKEN #IMPLIED>
 <!ATTLIST special unoid NMTOKEN #IMPLIED>
+<!ATTLIST special %RefLocale; >
 
-<!-- Begin OpenOffice specific elements -->
-
-<!ENTITY % UNOModule 'unoid                     CDATA              #IMPLIED'>
-<!ENTITY % RefLocale 'ref                     CDATA              #IMPLIED'>
-
-<!ELEMENT openOffice:ooSpecific (openOffice:forbiddenCharacters?, openOffice:reservedWords?, openOffice:collations?, openOffice:search?, openOffice:oo_currency?, openOffice:separators?, openOffice:numberingLevels?, openOffice:outLineNumberingLevels? ) >
-<!ATTLIST openOffice:ooSpecific %RefLocale; >
 <!ELEMENT openOffice:forbiddenCharacters (openOffice:forbiddenLineBeginCharacters, openOffice:forbiddenLineEndCharacters) >
 <!ELEMENT openOffice:forbiddenLineBeginCharacters (#PCDATA) >
 <!ELEMENT openOffice:forbiddenLineEndCharacters (#PCDATA) >
@@ -63,7 +63,7 @@
 <!ATTLIST search %RefLocale; >
 <!ELEMENT openOffice:searchOptions (openOffice:transliterationModules+) >
 
-<!ELEMENT openOffice:currency ( openOffice:separators?, openOffice:numberingLevels?) >
+<!ELEMENT openOffice:currency ( openOffice:separators?, openOffice:numberingLevels?, openOffice:outLineNumberingLevels?) >
 <!ATTLIST openOffice:currency default CDATA #IMPLIED >
 <!ATTLIST openOffice:currency usedInCompatibleFormatCodes CDATA #IMPLIED >
 

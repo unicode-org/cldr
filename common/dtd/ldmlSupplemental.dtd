@@ -27,10 +27,12 @@
 <!ATTLIST region iso3166 NMTOKEN #REQUIRED >
 
 <!ELEMENT currency ( alternate* ) >
-<!ATTLIST currency before NMTOKEN #IMPLIED >
+<!ATTLIST currency before NMTOKEN #IMPLIED > <!-- This usage is deprecated. Use from and to. -->
+<!ATTLIST currency from NMTOKEN #IMPLIED >
+<!ATTLIST currency to NMTOKEN #IMPLIED >
 <!ATTLIST currency iso4217 NMTOKEN #REQUIRED >
 
-<!ELEMENT alternate EMPTY >
+<!ELEMENT alternate EMPTY > <!-- This usage is deprecated. Use from and to. -->
 <!ATTLIST alternate iso4217 NMTOKEN #REQUIRED >
 
 <!ELEMENT territoryContainment ( group* ) >

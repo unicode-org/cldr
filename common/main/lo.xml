@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd"> 
-<ldml>
+<ldml draft="true">
 	<identity>
 		<version number="1.0"/>
 		<generation date="2004-07-31" />
@@ -473,9 +473,13 @@
 				<am>ກ່ອນທ່ຽງ</am>
 				<pm>ຫລັງທ່ຽງ</pm>
 				<eras>
-					<eraAbbr>
+					<eraNames>
 						<era type="0">ປີກ່ອນຄິດສະການທີ່</era>
-						<era type="1">ຄ.ສ.</era>
+                                                <!-- missing AD -->
+					</eraNames>
+					<eraAbbr>
+						<era type="0">ຄ.ສ.</era>
+                                                <!-- missing AD -->
 					</eraAbbr>
 				</eras>
 				<dateFormats>

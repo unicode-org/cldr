@@ -33,7 +33,7 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   </tr>
   <tr>
     <td class="white" height="27"><i>Version:</i></td>
-    <td class="white" height="27"><font color="#FF0000"><b>0.8 (draft 4)</b></font></td>
+    <td class="white" height="27"><font color="#FF0000"><b>0.8 (draft 5)</b></font></td>
   </tr>
   <tr>
     <td class="white" height="27"><i>Date:</i></td>
@@ -1952,7 +1952,7 @@ uses the following format, where the data is solely for illustration:</p>
     &lt;currency iso4217=&quot;ITL&quot;&gt;
       &lt;fraction digits=&quot;0&quot;/&gt;
       &lt;region iso3166=&quot;IT&quot; before=&quot;2000-01-01&quot;/&gt; &lt;!-- Italy --&gt;
-      &lt;region iso3166=&quot;IT&quot; before=&quot;2002-01-01&quot; alternate=&quot;true&quot;/&gt; &lt;!-- Italy --&gt;
+      &lt;region iso3166=&quot;IT&quot; before=&quot;2002-01-01&quot; alternate=&quot;1&quot;/&gt; &lt;!-- Italy --&gt;
       &lt;region iso3166=&quot;ET&quot; before=&quot;1945-03-01&quot;/&gt; &lt;!-- Ethiopia --&gt;
        ...
     &lt;/currency&gt;
@@ -1999,8 +1999,10 @@ attributes are:</p>
     rounding increment of 5, then numeric values are rounded to the nearest 0.05 
     units in formatting.</li>
   <li>
-    <p class="changed"><b>region alternate:</b> the currency was valid, but was 
-    not the preferred currency.</li>
+    <p class="changed"><b>region alternate:</b> the default is zero, indicating 
+    that the currency is the preferred currency in the region at that time. Any 
+    other numeric value indicates that the currency was valid, but was not the 
+    preferred currency.</li>
   <li>
     <p class="changed"><b>region before: </b>the currency was valid up to the 
     datetime indicated by the value of before. The datetime is defined as in XML 
@@ -2089,6 +2091,8 @@ using a set of half-open intervals:</p>
     </td>
   </tr>
 </table>
+<p class="changed">For the purpose of determining such ranges, each distinct 
+pair &lt;region, alternate_value&gt; results in a different mapping table.</p>
 
 </body>
 

@@ -340,7 +340,9 @@ void GenerateXML::printString(UnicodeString* uString, FILE* file){
 	int32_t destCap =0;
 	const UChar* src = uString->getBuffer();
     int32_t srcLen=uString->length();
-
+    if(U_FAILURE(mError)){
+       fprintf(stderr,"Error on entering the printString fucntion. Error: %s. Returning.", u_errorName(mError));
+    }
 	u_strToUTF8(dest,destCap, &destLen,src,srcLen,&mError);
 	if(mError == U_BUFFER_OVERFLOW_ERROR){
 			destCap = destLen+2;

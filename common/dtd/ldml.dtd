@@ -111,7 +111,7 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT layout ( alias | (orientation, special*) ) >
+<!ELEMENT layout ( alias | (orientation?, special*) ) >
 <!ATTLIST layout draft ( true | false ) #IMPLIED >
 <!ATTLIST layout standard CDATA #IMPLIED >
 
@@ -270,7 +270,7 @@
 <!ATTLIST dateFormatLength type ( full | long | medium | short ) #REQUIRED >
 <!ATTLIST dateFormatLength draft ( true | false ) #IMPLIED >
 
-<!ELEMENT dateFormat (alias | (pattern, displayName?, special*))  >
+<!ELEMENT dateFormat (alias | (pattern?, displayName?, special*))  >
 <!ATTLIST dateFormat type NMTOKEN "standard">
 <!ATTLIST dateFormat draft ( true | false ) #IMPLIED >
 <!ATTLIST dateFormat standard CDATA #IMPLIED >
@@ -285,7 +285,7 @@
 <!ATTLIST timeFormatLength type ( full | long | medium | short ) #REQUIRED >
 <!ATTLIST timeFormatLength draft ( true | false ) #IMPLIED >
 
-<!ELEMENT timeFormat (alias | (pattern, displayName?, special*)) >
+<!ELEMENT timeFormat (alias | (pattern?, displayName?, special*)) >
 <!ATTLIST timeFormat type NMTOKEN "standard" >
 <!ATTLIST timeFormat draft ( true | false ) #IMPLIED >
 <!ATTLIST timeFormat standard CDATA #IMPLIED >
@@ -297,7 +297,7 @@
 <!ATTLIST dateTimeFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST dateTimeFormatLength draft ( true | false ) #IMPLIED >
 
-<!ELEMENT dateTimeFormat (alias | (pattern, displayName?, special*)) >
+<!ELEMENT dateTimeFormat (alias | (pattern?, displayName?, special*)) >
 <!ATTLIST dateTimeFormat type NMTOKEN "standard"  >
 <!ATTLIST dateTimeFormat draft ( true | false ) #IMPLIED >
 <!ATTLIST dateTimeFormat standard CDATA #IMPLIED >
@@ -376,7 +376,7 @@
 <!ATTLIST decimalFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST decimalFormatLength draft ( true | false ) #IMPLIED >
 
-<!ELEMENT decimalFormat (alias | (pattern, special*)) >
+<!ELEMENT decimalFormat (alias | (pattern?, special*)) >
 <!ATTLIST decimalFormat type NMTOKEN "standard" >
 <!ATTLIST decimalFormat draft ( true | false ) #IMPLIED >
 <!ATTLIST decimalFormat standard CDATA #IMPLIED >
@@ -388,7 +388,7 @@
 <!ATTLIST scientificFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST scientificFormatLength draft ( true | false ) #IMPLIED >
 
-<!ELEMENT scientificFormat (alias | (pattern, special*)) >
+<!ELEMENT scientificFormat (alias | (pattern?, special*)) >
 <!ATTLIST scientificFormat type NMTOKEN "standard" >
 <!ATTLIST scientificFormat draft ( true | false ) #IMPLIED >
 <!ATTLIST scientificFormat standard CDATA #IMPLIED >
@@ -400,7 +400,7 @@
 <!ATTLIST percentFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST percentFormatLength draft ( true | false ) #IMPLIED >
 
-<!ELEMENT percentFormat (alias | (pattern, special*)) >
+<!ELEMENT percentFormat (alias | (pattern?, special*)) >
 <!ATTLIST percentFormat type NMTOKEN "standard" >
 <!ATTLIST percentFormat draft ( true | false ) #IMPLIED >
 
@@ -411,7 +411,7 @@
 <!ATTLIST currencyFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST currencyFormatLength draft ( true | false ) #IMPLIED >
 
-<!ELEMENT currencyFormat (alias | (pattern, special*)) >
+<!ELEMENT currencyFormat (alias | (pattern?, special*)) >
 <!ATTLIST currencyFormat type NMTOKEN "standard" >
 <!ATTLIST currencyFormat draft ( true | false ) #IMPLIED >
 <!ATTLIST currencyFormat standard CDATA #IMPLIED >
@@ -419,7 +419,7 @@
 <!ELEMENT currencies (alias | (default?, currency*, special*)) >
 <!ATTLIST currencies draft ( true | false ) #IMPLIED >
 
-<!ELEMENT currency (alias | (displayName, symbol, decimal*, group*, special*)) >
+<!ELEMENT currency (alias | (displayName?, symbol?, decimal*, group*, special*)) >
 <!ATTLIST currency id NMTOKEN #IMPLIED >
 <!ATTLIST currency type NMTOKEN "standard" >
 <!ATTLIST currency draft ( true | false ) #IMPLIED >

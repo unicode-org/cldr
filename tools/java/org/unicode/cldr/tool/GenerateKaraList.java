@@ -12,7 +12,7 @@ import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Value;
@@ -26,7 +26,7 @@ public class GenerateKaraList {
 		cldrFactory = CLDRFile.Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*");
 		english = cldrFactory.make("en", true);
 		PrintWriter log = BagFormatter.openUTF8Writer("C:\\DATA\\GEN\\cldr\\main\\", "karaList.xml");
-		Set locales = LocaleIDParser.getLanguageScript(cldrFactory.getAvailable());
+		Set locales = LanguageTagParser.getLanguageScript(cldrFactory.getAvailable());
 		// hack for now
 		locales.remove("sr");
 		locales.remove("zh");

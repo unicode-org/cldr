@@ -135,7 +135,7 @@ public class StandardCodes {
 					int commentPos = line.indexOf('#');
 					if (commentPos >= 0) line = line.substring(0, commentPos);
 					if (line.length() == 0) continue;
-					List pieces = (List) Utility.split(line, '|', true, new ArrayList());
+					List pieces = (List) Utility.splitList(line, '|', true, new ArrayList());
 					String type = (String) pieces.get(0);
 					pieces.remove(0);
 					if (type.equals("region")) type ="territory";
@@ -157,7 +157,7 @@ public class StandardCodes {
 						add(type, code, name);			
 						continue;
 					}
-					List codes = (List) Utility.split(code, ',', true, new ArrayList());
+					List codes = (List) Utility.splitList(code, ',', true, new ArrayList());
 					String preferred = null;
 					for (int i = 0; i < pieces.size(); ++i) {
 						code = (String) pieces.get(i);
@@ -253,7 +253,7 @@ public class StandardCodes {
                         line = line.substring(0,pos).trim();
                     } 
                     if (line.length() == 0) continue;
-                    List pieces = Utility.split(line,';', true);
+                    List pieces = Utility.splitList(line,';', true);
                     bogusZones.put(pieces.get(0), pieces.get(1));
                 }
                 in.close();
@@ -299,7 +299,7 @@ public class StandardCodes {
                         line = line.substring(0,pos).trim();
                     } 
                     if (line.length() == 0) continue;
-                    List pieces = Utility.split(line,'\t', true);
+                    List pieces = Utility.splitList(line,'\t', true);
                     String country = (String) pieces.get(0);
                     String latLong = (String) pieces.get(1);
                     String tzid = (String) pieces.get(2);
@@ -334,13 +334,79 @@ public class StandardCodes {
                 			+ (i == 0 ? "" : i < 0 ? "" + i : "+" + i),
                 			pieces);
                 }
-                zoneData = Collections.unmodifiableMap(zoneData);
+                zoneData = Collections.unmodifiableMap(zoneData); // protect for later
+                
+                // now get links
+                String lastZone = "";
+                Pattern whitespace = Pattern.compile("\\s+");
+                for (int i = 0; i < TZFiles.length; ++i) {
+                	in = BagFormatter.openUTF8Reader(DATA_DIR, TZFiles[i]);
+                	while (true) {
+                		String line = in.readLine();
+                		if (line == null) break;
+                		if (line.startsWith("#") || line.trim().length() == 0) continue;
+            			String[] items = whitespace.split(line);
+                		if (items[0].equals("Rule")) {
+                			//# Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+							//Rule	Algeria	1916	only	-	Jun	14	23:00s	1:00	S
+                			
+                			String ruleID = items[1];
+                			List ruleList = (List) ruleID_rules.get(ruleID);
+                			if (ruleList == null) {
+                				ruleList = new ArrayList();
+                				ruleID_rules.put(ruleID, ruleList);
+                			}
+                			List l = new ArrayList();
+                			l.addAll(Arrays.asList(items));
+                			l.remove(0);
+                			l.remove(0);
+                			ruleList.add(l);
+                		} else if (items[0].equals("Zone") || line.startsWith("\t")) {
+
+                			// Zone	Africa/Algiers	0:12:12 -	LMT	1891 Mar 15 0:01
+							//				0:09:21	-	PMT	1911 Mar 11    # Paris Mean Time
+                			String zoneID;
+                			if (line.startsWith("\t")) {
+                				zoneID = lastZone;
+                			} else {
+                				zoneID = items[1];
+                			}
+                			List zoneRules = (List) zone_rules.get(zoneID);
+                			if (zoneRules == null) {
+                				zoneRules = new ArrayList();
+                				zone_rules.put(zoneID, zoneRules);
+                			}
+                			List l = new ArrayList();
+                			l.addAll(Arrays.asList(items));
+                			l.remove(0);
+                			l.remove(0);
+                			zoneRules.add(l);
+                			lastZone = zoneID;
+                		} else if (items[0].equals("Link")) {
+                 			String old = items[2];
+                			String newOne = items[1];
+                			String conflict = (String) linkold_new.get(old);
+                			if (conflict != null) {
+                				System.out.println("Conflict with old: " + old + " => " + conflict + ", " + newOne);
+                			}
+                			linkold_new.put(old, newOne);
+                		} else {
+                			System.out.println("Unknown zone line: " + line);
+                		}
+                	}
+                	in.close();
+                }
+                // TODO protect zone info later
             } catch (IOException e) {
-                throw new IllegalArgumentException("Can't find timezone aliases");
+                throw (IllegalArgumentException) new IllegalArgumentException("Can't find timezone aliases").initCause(e);
             }
         }
         return zoneData;
     }
+    
+    Map ruleID_rules = new TreeMap();
+    Map zone_rules = new TreeMap();
+    Map linkold_new = new TreeMap();
     
     public Comparator getTZIDComparator() {
     	return TZIDComparator;
@@ -387,6 +453,11 @@ public class StandardCodes {
 		regionalCompare.add("Antarctica");		
 		regionalCompare.add("Etc");	
 	}
+	
+	private static String[] TZFiles = {
+			"africa", "antarctica", "asia", "australasia", "backward", "etcetera", "europe", 
+			"northamerica", "pacificnew", "southamerica", "systemv"
+	};
     
     private static Map FIX_UNSTABLE_TZIDS = new HashMap();
     static {
@@ -401,6 +472,15 @@ public class StandardCodes {
     		FIX_UNSTABLE_TZIDS.put(FIX_UNSTABLE_TZID_DATA[i][0], FIX_UNSTABLE_TZID_DATA[i][1]);
     	}
     }
+    
+    private List DELETED3166 = Collections.unmodifiableList(Arrays.asList(new String[] {
+    	"BQ", "BU", "CT", "DD", "DY", "FQ", "FX", "HV", "JT", "MI", "NH", "NQ", "NT",
+		"PC", "PU", "PZ", "RH", "SU", "TP", "VD", "WK", "YD", "YU", "ZR"
+    }));
+    
+    public List getOld3166() {
+    	return DELETED3166;
+    }
  
 	/**
 	 * @param m
@@ -411,5 +491,27 @@ public class StandardCodes {
 		if (m.group(startIndex+3) != null) amount += Integer.parseInt(m.group(startIndex+3))/3600.0;
 		if (m.group(startIndex).equals("-")) amount = -amount;
 		return new Double(amount);
+	}
+	
+	/**
+	 * @return Returns the linkold_new.
+	 */
+	public Map getZoneLinkold_new() {
+		getZoneData();
+		return linkold_new;
+	}
+	/**
+	 * @return Returns the ruleID_rules.
+	 */
+	public Map getZoneRuleID_rules() {
+		getZoneData();
+		return ruleID_rules;
+	}
+	/**
+	 * @return Returns the zone_rules.
+	 */
+	public Map getZone_rules() {
+		getZoneData();
+		return zone_rules;
 	}
 }

@@ -545,7 +545,7 @@ public class XPathParts {
 			boolean first = true;
 			int countEmptyLines = 0;
 			// trim the line iff the indent != 0.
-			for (Iterator it = Utility.split(comment, '\n', indent != 0, null).iterator(); it.hasNext();) {
+			for (Iterator it = Utility.splitList(comment, '\n', indent != 0, null).iterator(); it.hasNext();) {
 				String line = (String) it.next();
 				if (line.length() == 0) {
 					++countEmptyLines;

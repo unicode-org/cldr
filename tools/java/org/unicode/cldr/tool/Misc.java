@@ -17,12 +17,13 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Value;
 import org.xml.sax.SAXParseException;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.TimeZone;
 //import com.ibm.icu.impl.Utility;
@@ -30,10 +31,129 @@ import com.ibm.icu.util.TimeZone;
 public class Misc {
 	public static void main(String[] args) throws IOException {
 			//printSupplementalData();
-			getCities();
+			//getCities();
+		testLanguageTags();
+		//getZoneData();
 	}
 	
+	private static void testLanguageTags() {
+		LanguageTagParser ltp = new LanguageTagParser();
+		String[] tests = {
+				"en-US", 
+				"x-12345678-a", 
+				"en-Latn-US-lojban-gaulish",
+				"en-Latn-US-lojban-gaulish-a-12345678-b-ABCDEFGH-x-a-b-c-12345678",
+				"en-Latn-001",
+				"en-GB-oed", // grandfathered
+				"badtagsfromhere",
+				"b-fish",
+		};
+		for (int i = 0; i < tests.length; ++i) {
+			try {
+				System.out.println("Parsing " + tests[i]);
+				ltp.set(tests[i]);
+				if (ltp.getLanguage().length() != 0) System.out.println("\tlang:    \t" + ltp.getLanguage() + (ltp.isGrandfathered() ? " (grandfathered)" : ""));
+				if (ltp.getExtlangs().size() != 0) System.out.println("\textlangs:\t" + ltp.getExtlangs());
+				if (ltp.getScript().length() != 0) System.out.println("\tscript:\t" + ltp.getScript());
+				if (ltp.getRegion().length() != 0) System.out.println("\tregion:\t" + ltp.getRegion());
+				if (ltp.getVariants().size() != 0) System.out.println("\tvariants:\t" + ltp.getVariants());
+				if (ltp.getExtensions().size() != 0) System.out.println("\textensions:\t" + ltp.getExtensions());
+				System.out.println("\tisValid?\t" + ltp.isValid());
+			} catch (Exception e) {
+				System.out.println("\t" + e.getMessage());
+			}
+		}
+	}
 	
+	private static void getZoneData() {
+		StandardCodes sc = StandardCodes.make();
+		System.out.println("Links: Old->New");
+		Map m = sc.getZoneLinkold_new();
+		int count = 0;
+		for (Iterator it = m.keySet().iterator(); it.hasNext();) {
+			String key = (String) it.next();
+			String newOne = (String) m.get(key);
+			System.out.println(++count + "\t" + key + " => " + newOne);
+		}
+		count = 0;
+		System.out.println();
+		System.out.println("Links: Old->New, not final");
+		Set oldIDs = m.keySet();
+		for (Iterator it = oldIDs.iterator(); it.hasNext();) {
+			++count;
+			String key = (String) it.next();
+			String newOne = (String) m.get(key);
+			String further = (String) m.get(newOne);
+			if (further == null) continue;
+			while (true) {
+				String temp = (String) m.get(further);
+				if (temp == null) break;
+				further = temp;
+			}
+			System.out.println(count + "\t" + key + " => " + newOne + " # NOT FINAL => " + further);			
+		}
+		
+		m = sc.getZone_rules();
+		System.out.println();
+		System.out.println("Zones with old IDs");
+		for (Iterator it = m.keySet().iterator(); it.hasNext();) {
+			String key = (String) it.next();
+			if (oldIDs.contains(key)) System.out.println(key);
+		}
+
+		Set modernIDs = sc.getZoneData().keySet();
+		System.out.println();
+		System.out.println("Zones without countries");
+		TreeSet temp = new TreeSet(m.keySet());
+		temp.removeAll(modernIDs);
+		System.out.println(temp);
+
+		Set countries = sc.getAvailableCodes("territory");
+		System.out.println();
+		System.out.println("Countries without zones");
+		temp.clear();
+		temp.addAll(countries);
+		temp.removeAll(sc.getOld3166());
+		for (Iterator it = sc.getZoneData().values().iterator(); it.hasNext();) {
+			Object x = it.next();
+			List list  = (List) x;
+			temp.remove(list.get(2));
+		}
+		for (Iterator it = temp.iterator(); it.hasNext();) {
+			String item = (String) it.next();
+			if (UCharacter.isDigit(item.charAt(0))) it.remove();
+		}
+		System.out.println(temp);
+
+		System.out.println();
+		System.out.println("Zone->RulesIDs");
+		m = sc.getZone_rules();
+		for (Iterator it = m.keySet().iterator(); it.hasNext();) {
+			String key = (String) it.next();
+			System.out.println(key + " => " + XPathParts.NEWLINE + "\t" 
+					+ getSeparated((Collection) m.get(key), XPathParts.NEWLINE + "\t"));
+		}
+		System.out.println();
+		System.out.println("RulesID->Rules");
+		m = sc.getZoneRuleID_rules();
+		for (Iterator it = m.keySet().iterator(); it.hasNext();) {
+			String key = (String) it.next();
+			System.out.println(key + " => " + XPathParts.NEWLINE + "\t" 
+					+ getSeparated((Collection) m.get(key), XPathParts.NEWLINE + "\t"));
+		}
+	}
+	
+	public static String getSeparated(Collection c, String separator) {
+		StringBuffer result = new StringBuffer();
+		boolean first = true;
+		for (Iterator it = c.iterator(); it.hasNext();) {
+			if (first) first = false;
+			else result.append(separator);
+			result.append(it.next());
+		}
+		return result.toString();
+	}
+
 	public static void getCities() throws IOException {
 		StandardCodes sc = StandardCodes.make();
 		Set territories = sc.getAvailableCodes("territory");
@@ -73,7 +193,7 @@ public class Misc {
 			String line = br.readLine();
 			if (line == null) break;
 			if (line.startsWith("place name")) continue;
-			List list = Utility.split(line, '\t', true);
+			List list = Utility.splitList(line, '\t', true);
 			String place = (String)list.get(0);
 			place = t.transliterate(place);
 			String place2 = t2.transliterate(place);
@@ -116,7 +236,7 @@ public class Misc {
 				continue;
 			}
 			
-			List pieces = Utility.split(zone, '/', true);
+			List pieces = Utility.splitList(zone, '/', true);
 			String city = (String) pieces.get(pieces.size() - 1);
 			city = city.replace('_', ' ');
 			String data = (String) city_data.get(city);
@@ -205,7 +325,7 @@ public class Misc {
 			if (m == null) continue;
 			Map attributes = parts.getAttributes(2);
 			String type = (String) attributes.get("type");
-			Collection contents = Utility.split((String)attributes.get("contains"), ' ', true, new ArrayList());
+			Collection contents = Utility.splitList((String)attributes.get("contains"), ' ', true, new ArrayList());
 			groups.put(type, contents);
 			if (false) {
 				System.out.print("\t\t<group type=\"" + fixNumericKey(type)
@@ -274,13 +394,13 @@ public class Misc {
 		//CLDRKey.main(new String[]{"-mde.*"});
 		Set locales = cldrFactory.getAvailable();
 		Set cldr = new TreeSet();
-		LocaleIDParser parser = new LocaleIDParser();
+		LanguageTagParser parser = new LanguageTagParser();
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			// if doesn't have exactly one _, skip
 			String locale = (String)it.next();
 			parser.set(locale);
 			if (parser.getScript().length() == 0 && parser.getRegion().length() == 0) continue;
-			if (parser.getVariants().length > 0) continue;
+			if (parser.getVariants().size() > 0) continue;
 			cldr.add(locale.replace('_', '-'));
 		}
 		

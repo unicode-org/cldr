@@ -191,12 +191,26 @@ public class Utility {
         }
     }
 
-
-	public static List split(String source, char separator, boolean trim) {
-		return split(source, separator, trim, null);
+	public static String[] splitArray(String source, char separator) {
+		return splitArray(source, separator, false);
 	}
 	
-	public static List split(String source, char separator, boolean trim, List output) {
+	public static String[] splitArray(String source, char separator, boolean trim) {
+		List piecesList = splitList(source, separator, trim);
+		String[] pieces = new String[piecesList.size()];
+		piecesList.toArray(pieces);
+		return pieces;
+	}
+
+	public static List splitList(String source, char separator) {
+		return splitList(source, separator, false, null);
+	}
+	
+	public static List splitList(String source, char separator, boolean trim) {
+		return splitList(source, separator, trim, null);
+	}
+	
+	public static List splitList(String source, char separator, boolean trim, List output) {
 		if (output == null) output = new ArrayList();
 		if (source.length() == 0) return output;
 		int pos = 0;

@@ -22,7 +22,7 @@ import org.xml.sax.SAXException;
 import com.ibm.icu.dev.test.TestFmwk;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
@@ -303,7 +303,7 @@ public class CLDRTest extends TestFmwk {
 		String name = (String) localeNameCache.get(locale);
 		if (name != null) return name;
 		if (english == null) english = cldrFactory.make("en", true);
-		Collection c = Utility.split(locale, '_', false, null);
+		Collection c = Utility.splitList(locale, '_', false, null);
 		String[] pieces = new String[c.size()];
 		c.toArray(pieces);
 		int i = 0;
@@ -493,12 +493,12 @@ public class CLDRTest extends TestFmwk {
 			String language = (String) m.get("type");
 			String scripts = (String) m.get("scripts");
 			if (scripts != null) {
-				language_scripts.put(language, new TreeSet(Utility.split(scripts,' ', false)));
+				language_scripts.put(language, new TreeSet(Utility.splitList(scripts,' ', false)));
 				if (SHOW) System.out.println(getIDAndLocalization(language) + "\t\t" + getIDAndLocalization((Set)language_scripts.get(language)));
 			}
 			String territories = (String) m.get("territories");
 			if (territories != null) {
-				language_territories.put(language, new TreeSet(Utility.split(territories,' ', false)));
+				language_territories.put(language, new TreeSet(Utility.splitList(territories,' ', false)));
 				if (SHOW) System.out.println(getIDAndLocalization(language) + "\t\t" + getIDAndLocalization((Set)language_territories.get(language)));
 			}
 		}
@@ -512,7 +512,7 @@ public class CLDRTest extends TestFmwk {
 		Map language_scripts = new HashMap();
 		Map language_territories = new HashMap();
 		getSupplementalData(language_scripts, language_territories);
-		LocaleIDParser localIDParser = new LocaleIDParser();
+		LanguageTagParser localIDParser = new LanguageTagParser();
 		// see http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/design/minimal_requirements.htm
 		Set missing = new TreeSet();
 		for (Iterator it = languageLocales.iterator(); it.hasNext();) {

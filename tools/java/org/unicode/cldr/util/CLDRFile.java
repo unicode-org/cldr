@@ -169,7 +169,6 @@ public class CLDRFile implements Lockable {
 	/**
 	 * Write the corresponding XML file out, with the normal formatting and indentation.
 	 * @param pw
-	 * @param key
 	 */
 	public void write(PrintWriter pw) {
 		pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
@@ -505,7 +504,7 @@ public class CLDRFile implements Lockable {
     				while (true) {
     					// we do it in this order, WITHOUT resolving the parent
     					// so that aliases work right
-    					currentName = LocaleIDParser.getParent(currentName);
+    					currentName = CLDRFile.getParent(currentName);
     					if (currentName == null) break;
     					CLDRFile parent = make(currentName, false);
     					result.putAll(parent, true);
@@ -1073,7 +1072,7 @@ public class CLDRFile implements Lockable {
 		return v.getStringValue();
 	}
 	
-	LocaleIDParser lparser = new LocaleIDParser();
+	LanguageTagParser lparser = new LanguageTagParser();
 	
 	public synchronized String getName(String locale, boolean skipDraft) {
 		lparser.set(locale);
@@ -1086,10 +1085,10 @@ public class CLDRFile implements Lockable {
 			if (extras.length() != 0) extras += ", ";
 			extras += getName(TERRITORY_NAME, sname, skipDraft);
 		}
-		String[] variants = lparser.getVariants();
-		for (int i = 0; i < variants.length; ++i) {
+		List variants = lparser.getVariants();
+		for (int i = 0; i < variants.size(); ++i) {
 			if (extras.length() != 0) extras += ", ";
-			extras += getName(VARIANT_NAME, variants[i], skipDraft);
+			extras += getName(VARIANT_NAME, (String)variants.get(i), skipDraft);
 		}
 		return name + (extras.length() == 0 ? "" : "(" + extras + ")");
 	}
@@ -1108,6 +1107,20 @@ public class CLDRFile implements Lockable {
 		return valueOrdering.getOrder(); // already unmodifiable
 	}
 	
+	/**
+	 * Utility to get the parent of a locale. If the input is "root", then the output is null.
+	 * @param localeName
+	 * @return
+	 */
+	public static String getParent(String localeName) {
+	    int pos = localeName.lastIndexOf('_');
+	    if (pos >= 0) {
+	        return localeName.substring(0,pos);
+	    }
+	    if (localeName.equals("root") || localeName.equals("supplementalData")) return null;
+	    return "root";
+	}
+
 	static MapComparator elementOrdering = (MapComparator) new MapComparator().add(new String[] {
 			"ldml", "identity", "alias",
 			"localeDisplayNames", "layout", "characters", "delimiters",

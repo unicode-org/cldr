@@ -390,31 +390,46 @@ de_DE@collation=phonebook,currency=<span>DDM</span></pre>
   They cannot overlap with script or territory codes, so they must have either one letter or have 
   more than 4 letters. The currently defined variants include:</p>
   <center>
-  <table>
+  <table style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0">
     <caption>Variant Definitions</caption>
     <tr>
       <th>variant</th>
       <th>Description</th>
     </tr>
     <tr>
+      <td><span class="changedspan">&lt;RFC 3066 variants&gt;</span></td>
+      <td><span class="changedspan">As defined in RFC 3066</span></td>
+    </tr>
+    <tr>
       <td>bokmal</td>
-      <td>Bokmål, variant of Norwegian</td>
+      <td>Bokmål, variant of Norwegian <span class="changedspan">(deprecated: use nb)</span></td>
     </tr>
     <tr>
       <td>nynorsk</td>
-      <td>Nynorsk, variant of Norwegian</td>
+      <td>Nynorsk, variant of Norwegian <span class="changedspan">(deprecated: use nn)</span></td>
     </tr>
     <tr>
       <td>aaland</td>
-      <td>Åland, variant of Swedish used in Finland</td>
+      <td>Åland, variant of Swedish used in Finland <span class="changedspan">(deprecated: use AX)
+      </span></td>
+    </tr>
+    <tr>
+      <td><span class="changedspan">POSIX</span></td>
+      <td><span class="changedspan">A POSIX-style invariant locale.</span></td>
+    </tr>
+    <tr>
+      <td><span class="changedspan">REVISED</span></td>
+      <td><span class="changedspan">For revised orthography</span></td>
     </tr>
   </table>
   </center>
   <p><b>Note: </b>The first two of the above variants are for backwards compatibility. Typically the 
   entire contents of these are defined by an &lt;alias&gt; element pointing at nb_NO (Norwegian Bokmål) 
-  and nn_NO(Norwegian Nynorsk) locale IDs.</p>
+  and nn_NO(Norwegian Nynorsk) locale IDs.<span class="changedspan"> See also
+  <a href="#valid_attribute_values">Appendix K: Valid Attribute Values</a>.</span></p>
   <p>The currently defined optional key/type combinations include the following. <span>Additional 
-  type values are defined in the detail sections of this document.</span></p>
+  type values are defined in the detail sections of this document or in </span>
+  <span class="changedspan"><a href="#valid_attribute_values">Appendix K: Valid Attribute Values</a>.</span></p>
   <table>
     <caption>Key/Type Definitions</caption>
     <tr>
@@ -734,7 +749,8 @@ root</pre>
   </table>
   <p class="note"><b>Note: </b>This is not necessary in XML 1.0 — except for NULL (U+0000), which is 
   typically never used. However, for backwards compatibility with XML 1.0 systems it is best for 
-  some time to come to use these special escapes.</p>
+  some time to come to use these special escapes. <span class="changedspan">These escapes are only 
+  allowed in certain elements, according to the DTD.</span></p>
   <h3><a name="Common_Attributes">Common Attributes</a></h3>
   <p class="element2">&lt;... type=&quot;<span style="color: blue">stroke</span>&quot; ...&gt;</p>
   <p>The attribute <i>type</i> is also used to indicate an alternate resource that can be selected 
@@ -747,7 +763,8 @@ root</pre>
     &lt;currency type=&quot;<span style="color: blue">preEuro</span>&quot;&gt;<span style="color: blue">...</span>&lt;/currency&gt;
   &lt;/currencies&gt;
 &lt;/ldml&gt;</pre>
-  <p>If there is no type attribute present, then the value is assumed to be &quot;standard&quot;.</p>
+  <p class="removed">If there is no type attribute present, then the value is assumed to be 
+  &quot;standard&quot;.</p>
   <p class="element2">&lt;... draft=&quot;<span style="color: blue">true</span>&quot; ...&gt;</p>
   <p>If this attribute is present, it indicates the status of all the data in this element and any 
   subelements (unless they have a contrary <i>draft</i> value).</p>
@@ -1002,7 +1019,9 @@ root</pre>
   <p>The measurement system is the normal measurement system in common everyday use (except for 
   date/time). The values are &quot;metric&quot; (=
   <a href="http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=5448&ICS1=1&ICS2=60&ICS3=">
-  ISO 1000</a>), &quot;US&quot;, or &quot;UK&quot;; others may be added over time.</p>
+  ISO 1000</a>), &quot;US&quot;, or &quot;UK&quot;; others may be added over time. <span class="changedspan">The &quot;US&quot; 
+  value indicates the customary feet, inches, pints, quarts, etc. system. The &quot;UK&quot; value is also 
+  called the Imperial system: the pint, quart, etc. are different sizes than in &quot;US&quot;.</span></p>
   <p class="note"><b>Note:</b> In the future, we may need to add display names for the particular 
   measurement units (millimeter vs millimetre vs whatever the Greek, Russian, etc are), and a 
   message format for position those with respect to numbers. E.g. &quot;{number} {unitName}&quot; in some 
@@ -5049,7 +5068,7 @@ root</pre>
   Philips Benjamin, Avery Chan, Alexis Cheng, Helena Shih Chapman, Lee Collins, Simon Dean, Sivaraj 
   Doddannan, <span class="changedspan">Behdad Esfahbod, Michael Everson, Doug Ewell, </span>Doug 
   Felt, Tom Garland, <span class="changedspan">Yun Fang Ge, </span>Deborah Goldsmith, Chris Hansten, 
-  Andy Heninger, Hideki Hiura, Jarkko Hietaniemi, Alexander Kachur, Karlsson Kent, Walter Keutgen, 
+  Andy Heninger, Hideki Hiura, Jarkko Hietaniemi, Alexander Kachur, Kent Karlsson, Walter Keutgen, 
   Akio Kido, Yuri Kirghisov, Rici Lake, Antoine Leca, <span class="changedspan">Peter Linsey, </span>
   Alan Liu, Steven R Loomis, Eric Mader, Sasha Maric, Eric Muller, Kentaroh Noji,
   <span class="changedspan">Peter Nugent, </span>Sandra O&#39;Donnell, Åke Persson, Eike Rathke, George 

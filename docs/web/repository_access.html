@@ -137,52 +137,55 @@ td.item     { background-color:#FFFFFF; border:none; }
           <h1 style="margin-bottom: 1em">Repository Access</h1>
           <div align="center">
             <center>
-            <table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+            <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
               <tr>
                 <th>Release</th>
-                <th>note</th>
-                <th>delta</th>
-                <th>data</th>
-                <th>spec</th>
+                <th>No.</th>
+                <th>Note</th>
+                <th>Delta</th>
+                <th>Data</th>
+                <th>Spec</th>
                 <th>CVS Tag</th>
               </tr>
               <tr>
                 <th align="left">Latest: </th>
-                <td align="center"><a href="version/Version1.2.html">Version1.2</a></td>
-                <td align="center">
-                <a href="http://www.jtcsv.com/cgibin/locale-bugs/closed?expression=target.*1.2">
+                <td>1.2</td>
+                <td><a href="version/Version1.2.html">Version1.2</a></td>
+                <td>
+                <a href="http://bugs.icu-project.org/cgibin/locale-bugs/closed?expression=target.*1.2">
                 Changes1.2</a></td>
-                <td align="center"><a href="http://www.unicode.org/Public/cldr/cldr1.2.zip">CLDR1.2</a></td>
-                <td align="center"><a href="http://www.unicode.org/reports/tr35/tr35-4.html">LDML1.2</a></td>
+                <td><a href="http://www.unicode.org/Public/cldr/cldr1.2.zip">CLDR1.2</a></td>
+                <td><a href="http://www.unicode.org/reports/tr35/tr35-4.html">LDML1.2</a></td>
                 <td><code>release-1-2</code></td>
               </tr>
               <tr>
                 <th align="left">Latest Draft:</th>
+                <td>1.3δ</td>
                 <td align="center">n/a</td>
                 <td align="center">n/a</td>
-                <td align="center"><a href="http://www.unicode.org/cldr/data/common/">CLDR1.3δ</a>
-                </td>
-                <td align="center"><a href="http://unicode.org/cldr/data/docs/web/tr35.html">
-                LDML1.2δ</a></td>
+                <td><a href="http://www.unicode.org/cldr/data/common/">CLDR1.3δ</a> </td>
+                <td><a href="http://unicode.org/cldr/data/docs/web/tr35.html">LDML1.2δ</a></td>
                 <td>HEAD</td>
               </tr>
               <tr>
                 <th align="left" rowspan="3">Previous: </th>
+                <td>1.1.1</td>
                 <td align="center">n/a</td>
-                <td align="center">&nbsp;</td>
-                <td align="center"><a href="http://www.unicode.org/Public/cldr/cldr1.1.1.zip">
-                CLDR1.1.1</a></td>
-                <td align="center"><a href="http://www.unicode.org/reports/tr35/tr35-2.html">LDML1.1</a></td>
+                <td align="center">n/a</td>
+                <td><a href="http://www.unicode.org/Public/cldr/cldr1.1.1.zip">CLDR1.1.1</a></td>
+                <td><a href="http://www.unicode.org/reports/tr35/tr35-2.html">LDML1.1</a></td>
                 <td><code>release-1-1-1</code></td>
               </tr>
               <tr>
+                <td>1.1</td>
                 <td align="center">n/a</td>
-                <td align="center">&nbsp;</td>
-                <td align="center"><a href="http://www.unicode.org/Public/cldr/cldr1.1.zip">CLDR1.1</a></td>
-                <td align="center"><a href="http://www.unicode.org/reports/tr35/tr35-2.html">LDML1.1</a></td>
+                <td align="center">n/a</td>
+                <td><a href="http://www.unicode.org/Public/cldr/cldr1.1.zip">CLDR1.1</a></td>
+                <td><a href="http://www.unicode.org/reports/tr35/tr35-2.html">LDML1.1</a></td>
                 <td><code>release-1-1</code></td>
               </tr>
               <tr>
+                <td>1.0</td>
                 <td colspan="4" align="center">See <a href="#CLDR_1.0_Release">CLDR 1.0 Release</a></td>
                 <td><code>release-1-0</code></td>
               </tr>
@@ -211,10 +214,13 @@ td.item     { background-color:#FFFFFF; border:none; }
           working snapshot of CLDR, and access to data collected for other platforms is available 
           through the web.</p>
           <p class="first"><b>Simple Access. </b>For simple access to particular files, use
-          <a href="http://unicode.org/cldr/data/">http://unicode.org/cldr/data/</a>. Be sure to 
-          include the trailing &quot;/&quot;. For example, you can use that to find the French CLDR file, in
-          <a href="http://unicode.org/cldr/data/common/main/fr.xml">
-          http://unicode.org/cldr/data/common/main/fr.xml</a>.</p>
+          <a href="http://unicode.org/cldr/data/">http://unicode.org/cldr/data/</a>. For example:</p>
+          <ul>
+            <li>
+            <p class="first">go to the French LDML files at<br>
+            <a href="http://unicode.org/cldr/data/common/main/fr.xml">
+            http://unicode.org/cldr/data/common/main/fr.xml</a>.</li>
+          </ul>
           <p class="first"><b>Advanced Access. </b>For more access to the source repository, you can 
           use the following URL: <a href="http://unicode.org/cldr/repository/">
           http://unicode.org/cldr/repository/</a>. It provides access to older versions of files, 
@@ -222,7 +228,7 @@ td.item     { background-color:#FFFFFF; border:none; }
           file to view, or compare, say, version 1.37 against the released 1.2 version:</p>
           <ul>
             <li>
-            <p class="first">go to the French LDML file at
+            <p class="first">go to the French LDML files at
             <a href="http://unicode.org/cldr/repository/common/main/fr.xml">
             http://unicode.org/cldr/repository/common/main/fr.xml</a></li>
             <li>
@@ -244,7 +250,8 @@ td.item     { background-color:#FFFFFF; border:none; }
             example, “cldrcvs”. It will contain a directory CVSROOT andcldr</li>
             <li>
             <p class="first">Pass the “cldrcvs” directory as the repository path to your CVS client.<br>
-            <i>Example:</i> cd somewhere ; cvs –d/tmp/cldrcvs co</li>
+            <i>Example:</i> <code>cd </code><i><code>somewhere</code></i><code> ; cvs -d/tmp/cldrcvs 
+            co.</code></li>
           </ul>
           <h3><a name="Repository_Organization">Repository Organization</a></h3>
           <p>At the top level there are a number of special folders, plus a number of platform 

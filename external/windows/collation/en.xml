@@ -8,12 +8,14 @@
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-15" />
+		<generation date="2003-12-17" />
 		<language type="en" /> 
-		<variant type="DEFAULT_RAW" /> 
 	</identity>
 	<collations version="3.1.1">
 		<collation type="standard" >
+			<base>
+				<alias source="en" type="standard" />
+			</base>
 			<rules>
 				<reset><last_non_ignorable/></reset>
 				<ic>ǶǷȜȝȠȡȢȣȤȥȴȵȶʩʪʫʬʭʮʯ˟˪˫ˬ˭ˮ˯˰˱˲˳˴˵˶˷˸˹˺˻˼˽˾˿͉͍͎͊͋͌͏͓͔͕͖͐͑͒͗ͣͤͥͦͧͨͩͪͫͬͭͮͯ͟͢͝͞͠͡ᴀᴁᴂᴃᴄᴅᴆᴇᴈᴉᴊᴋᴌᴍᴎᴏᴐᴑᴒᴓᴔᴕᴖᴗᴘᴙᴚᴛᴜᴝᴞᴟᴠᴡᴢᴣᴤᴥᴦᴧᴨᴩᴪᴫᴬᴭᴮᴯᴰᴱᴲᴳᴴᴵᴶᴷᴸᴹᴺᴻᴼᴽᴾᴿᵀᵁᵂᵃᵄᵅᵆᵇᵈᵉᵊᵋᵌᵍᵎᵏᵐᵑᵒᵓᵔᵕᵖᵗᵘᵙᵚᵛᵜᵝᵞᵟᵠᵡᵢᵣᵤᵥᵦᵧᵨᵩᵪᵫⁱ</ic>
@@ -46,7 +48,7 @@
 				<sc>̴̲̳̹̺̻̼͇͈̽̾̿͆ʾʿˁ˂˃˄˅ˎˏˑ˒˓˞ˤ˥˦˧˨˩͂ͅ'</sc>
 				<pc>-­  !</pc>
 				<pc>&quot;#$%</pc>
-				<pc>&amp;()*,./:;?@[']^</pc>
+				<x><p>&amp;()*,.</p><extend>:;?@[']^</extend></x>
 				<s>ˆ</s>
 				<pc>_`</pc>
 				<s>ˋ</s>
@@ -68,114 +70,114 @@
 				<pc>45ƽ</pc>
 				<t>Ƽ</t>
 				<pc>6789a</pc>
-				<i>æe</i>
+				<x><p>æ</p><extend>e</extend></x>
 				<tc>ａA</tc>
-				<i>ÆE</i>
+				<x><p>Æ</p><extend>E</extend></x>
 				<t>Ａ</t>
 				<sc>ªẚɐɑɒ</sc>
 				<p>b</p>
-				<i>ƀ̵</i>
-				<i>ɓ̎</i>
+				<x><p>ƀ</p><extend>̵</extend></x>
+				<x><p>ɓ</p><extend>̎</extend></x>
 				<tc>ｂʙB</tc>
-				<i>Ɓ̎</i>
+				<x><p>Ɓ</p><extend>̎</extend></x>
 				<t>Ｂ</t>
 				<s>ƃ</s>
 				<t>Ƃ</t>
 				<s>ƅ</s>
 				<t>Ƅ</t>
 				<p>c</p>
-				<i>ƈ̎</i>
-				<i>ɔˁ</i>
-				<i>ɕ˂</i>
-				<i>ʗ˥</i>
+				<x><p>ƈ</p><extend>̎</extend></x>
+				<x><p>ɔ</p><extend>ˁ</extend></x>
+				<x><p>ɕ</p><extend>˂</extend></x>
+				<x><p>ʗ</p><extend>˥</extend></x>
 				<tc>ｃC</tc>
-				<i>Ƈ̎</i>
-				<i>Ɔ˃</i>
+				<x><p>Ƈ</p><extend>̎</extend></x>
+				<x><p>Ɔ</p><extend>˃</extend></x>
 				<t>Ｃ</t>
 				<p>d</p>
-				<i>đ̵</i>
-				<i>ƌ̵</i>
-				<i>ɗ̎</i>
-				<i>ɖ̤</i>
-				<i>ǳz</i>
-				<i>ǆž</i>
+				<x><p>đ</p><extend>̵</extend></x>
+				<x><p>ƌ</p><extend>̵</extend></x>
+				<x><p>ɗ</p><extend>̎</extend></x>
+				<x><p>ɖ</p><extend>̤</extend></x>
+				<x><p>ǳ</p><extend>z</extend></x>
+				<x><p>ǆ</p><extend>ž</extend></x>
 				<tc>ｄD</tc>
-				<i>Đ̵</i>
-				<i>Ƌ̵</i>
-				<i>Ɗ̎</i>
-				<i>ǲz</i>
-				<i>ǱZ</i>
-				<i>ǅž</i>
-				<i>ǄŽ</i>
+				<x><p>Đ</p><extend>̵</extend></x>
+				<x><p>Ƌ</p><extend>̵</extend></x>
+				<x><p>Ɗ</p><extend>̎</extend></x>
+				<x><p>ǲ</p><extend>z</extend></x>
+				<x><p>Ǳ</p><extend>Z</extend></x>
+				<x><p>ǅ</p><extend>ž</extend></x>
+				<x><p>Ǆ</p><extend>Ž</extend></x>
 				<t>Ｄ</t>
 				<s>ð</s>
-				<i>ʤ̆</i>
+				<x><p>ʤ</p><extend>̆</extend></x>
 				<t>Ð</t>
 				<s>ƍ</s>
 				<pc>Ɖʣ</pc>
 				<s>ʥ</s>
 				<p>e</p>
-				<i>ɛˁ</i>
-				<i>ʃ˂</i>
-				<i>ǝ˃</i>
-				<i>ə˄</i>
-				<i>ɚ˅</i>
-				<i>ɘˎ</i>
-				<i>ɜˏ</i>
+				<x><p>ɛ</p><extend>ˁ</extend></x>
+				<x><p>ʃ</p><extend>˂</extend></x>
+				<x><p>ǝ</p><extend>˃</extend></x>
+				<x><p>ə</p><extend>˄</extend></x>
+				<x><p>ɚ</p><extend>˅</extend></x>
+				<x><p>ɘ</p><extend>ˎ</extend></x>
+				<x><p>ɜ</p><extend>ˏ</extend></x>
 				<tc>ｅE</tc>
-				<i>Ɛˁ</i>
-				<i>Ǝ˃</i>
-				<i>Ə˄</i>
+				<x><p>Ɛ</p><extend>ˁ</extend></x>
+				<x><p>Ǝ</p><extend>˃</extend></x>
+				<x><p>Ə</p><extend>˄</extend></x>
 				<t>Ｅ</t>
 				<sc>ɝɞʅʆʚ</sc>
 				<p>f</p>
-				<i>ƒˁ</i>
-				<i>ﬀf</i>
-				<i>ﬃﬁ</i>
-				<i>ﬄﬂ</i>
-				<i>ﬁi</i>
-				<i>ﬂl</i>
+				<x><p>ƒ</p><extend>ˁ</extend></x>
+				<x><p>ﬀ</p><extend>f</extend></x>
+				<x><p>ﬃ</p><extend>ﬁ</extend></x>
+				<x><p>ﬄ</p><extend>ﬂ</extend></x>
+				<x><p>ﬁ</p><extend>i</extend></x>
+				<x><p>ﬂ</p><extend>l</extend></x>
 				<tc>ｆF</tc>
-				<i>Ƒ̎</i>
+				<x><p>Ƒ</p><extend>̎</extend></x>
 				<t>Ｆ</t>
 				<p>g</p>
-				<i>ǥ̵</i>
-				<i>ɠ̎</i>
-				<i>ɣˁ</i>
-				<i>ɤ˂</i>
-				<i>ɡ˃</i>
-				<i>ˠ˄</i>
+				<x><p>ǥ</p><extend>̵</extend></x>
+				<x><p>ɠ</p><extend>̎</extend></x>
+				<x><p>ɣ</p><extend>ˁ</extend></x>
+				<x><p>ɤ</p><extend>˂</extend></x>
+				<x><p>ɡ</p><extend>˃</extend></x>
+				<x><p>ˠ</p><extend>˄</extend></x>
 				<tc>ｇɢ</tc>
-				<i>ʛ̎</i>
+				<x><p>ʛ</p><extend>̎</extend></x>
 				<t>G</t>
-				<i>Ǥ̵</i>
-				<i>Ɠ̎</i>
-				<i>Ɣˁ</i>
+				<x><p>Ǥ</p><extend>̵</extend></x>
+				<x><p>Ɠ</p><extend>̎</extend></x>
+				<x><p>Ɣ</p><extend>ˁ</extend></x>
 				<t>Ｇ</t>
 				<p>h</p>
-				<i>ħ̵</i>
-				<i>ɦ̎</i>
-				<i>ƕˁ</i>
-				<i>ɥ˂</i>
-				<i>ʰ˄</i>
-				<i>ʱ˅</i>
+				<x><p>ħ</p><extend>̵</extend></x>
+				<x><p>ɦ</p><extend>̎</extend></x>
+				<x><p>ƕ</p><extend>ˁ</extend></x>
+				<x><p>ɥ</p><extend>˂</extend></x>
+				<x><p>ʰ</p><extend>˄</extend></x>
+				<x><p>ʱ</p><extend>˅</extend></x>
 				<tc>ｈʜH</tc>
-				<i>Ħ̵</i>
+				<x><p>Ħ</p><extend>̵</extend></x>
 				<t>Ｈ</t>
 				<pc>ɧi</pc>
-				<i>ĳj</i>
+				<x><p>ĳ</p><extend>j</extend></x>
 				<tc>ｉɪI</tc>
-				<i>ĲJ</i>
+				<x><p>Ĳ</p><extend>J</extend></x>
 				<t>Ｉ</t>
 				<sc>ıɨ</sc>
-				<i>ɩ̬</i>
+				<x><p>ɩ</p><extend>̬</extend></x>
 				<t>Ɨ</t>
-				<i>Ɩ̬</i>
+				<x><p>Ɩ</p><extend>̬</extend></x>
 				<p>j</p>
-				<i>ɟ̵</i>
-				<i>ʄ̎</i>
-				<i>ʝˁ</i>
-				<i>ʲ˄</i>
+				<x><p>ɟ</p><extend>̵</extend></x>
+				<x><p>ʄ</p><extend>̎</extend></x>
+				<x><p>ʝ</p><extend>ˁ</extend></x>
+				<x><p>ʲ</p><extend>˄</extend></x>
 				<tc>ｊJＪ</tc>
 				<p>k</p>
 				<tc>ｋKＫ</tc>
@@ -183,10 +185,10 @@
 				<t>Ƙ</t>
 				<s>ʞ</s>
 				<p>l</p>
-				<i>ǉj</i>
+				<x><p>ǉ</p><extend>j</extend></x>
 				<tc>ｌʟL</tc>
-				<i>ǈj</i>
-				<i>ǇJ</i>
+				<x><p>ǈ</p><extend>j</extend></x>
+				<x><p>Ǉ</p><extend>J</extend></x>
 				<t>Ｌ</t>
 				<s>ŀ</s>
 				<t>Ŀ</t>
@@ -194,109 +196,109 @@
 				<t>Ł</t>
 				<sc>ƛɭɬɮˡ</sc>
 				<p>m</p>
-				<i>ɱ̎</i>
-				<i>ɯˁ</i>
-				<i>ɰ˂</i>
+				<x><p>ɱ</p><extend>̎</extend></x>
+				<x><p>ɯ</p><extend>ˁ</extend></x>
+				<x><p>ɰ</p><extend>˂</extend></x>
 				<tc>ｍM</tc>
-				<i>Ɯˁ</i>
+				<x><p>Ɯ</p><extend>ˁ</extend></x>
 				<t>Ｍ</t>
 				<p>n</p>
-				<i>ɲ̎</i>
-				<i>ŉʼ</i>
-				<i>ɳ̤</i>
-				<i>ƞˁ</i>
-				<i>ǌj</i>
+				<x><p>ɲ</p><extend>̎</extend></x>
+				<x><p>ŉ</p><extend>ʼ</extend></x>
+				<x><p>ɳ</p><extend>̤</extend></x>
+				<x><p>ƞ</p><extend>ˁ</extend></x>
+				<x><p>ǌ</p><extend>j</extend></x>
 				<tc>ｎɴⁿN</tc>
-				<i>Ɲ̎</i>
-				<i>ǋj</i>
-				<i>ǊJ</i>
+				<x><p>Ɲ</p><extend>̎</extend></x>
+				<x><p>ǋ</p><extend>j</extend></x>
+				<x><p>Ǌ</p><extend>J</extend></x>
 				<t>Ｎ</t>
 				<p>ŋ</p>
 				<t>Ŋ</t>
 				<p>o</p>
-				<i>œe</i>
+				<x><p>œ</p><extend>e</extend></x>
 				<tc>ｏO</tc>
-				<i>ŒE</i>
+				<x><p>Œ</p><extend>E</extend></x>
 				<t>Ｏ</t>
 				<sc>ºɵ</sc>
 				<t>Ɵ</t>
 				<s>ø</s>
-				<t>ɶˌ</t>
-				<i>ƣ̪</i>
-				<i>ɷ̬</i>
+				<x><p>ɶ</p><extend>ˌ</extend></x>
+				<x><p>ƣ</p><extend>̪</extend></x>
+				<x><p>ɷ</p><extend>̬</extend></x>
 				<t>Ø</t>
-				<i>Ƣ̪</i>
+				<x><p>Ƣ</p><extend>̪</extend></x>
 				<p>p</p>
-				<i>ƥ̎</i>
-				<i>ɸˁ</i>
+				<x><p>ƥ</p><extend>̎</extend></x>
+				<x><p>ɸ</p><extend>ˁ</extend></x>
 				<tc>ｐP</tc>
-				<i>Ƥ̎</i>
+				<x><p>Ƥ</p><extend>̎</extend></x>
 				<t>Ｐ</t>
 				<p>q</p>
-				<i>ʠ̎</i>
+				<x><p>ʠ</p><extend>̎</extend></x>
 				<tc>ｑQＱ</tc>
 				<p>r</p>
-				<i>ɽ̎</i>
-				<i>ɹˁ</i>
-				<i>ɺ˂</i>
-				<i>ɻ˃</i>
-				<i>ɼ˄</i>
-				<i>ɾ˅</i>
-				<i>ɿˎ</i>
-				<i>ʳˏ</i>
+				<x><p>ɽ</p><extend>̎</extend></x>
+				<x><p>ɹ</p><extend>ˁ</extend></x>
+				<x><p>ɺ</p><extend>˂</extend></x>
+				<x><p>ɻ</p><extend>˃</extend></x>
+				<x><p>ɼ</p><extend>˄</extend></x>
+				<x><p>ɾ</p><extend>˅</extend></x>
+				<x><p>ɿ</p><extend>ˎ</extend></x>
+				<x><p>ʳ</p><extend>ˏ</extend></x>
 				<tc>ｒʀ</tc>
-				<i>ʁˁ</i>
+				<x><p>ʁ</p><extend>ˁ</extend></x>
 				<t>R</t>
-				<i>Ʀˁ</i>
+				<x><p>Ʀ</p><extend>ˁ</extend></x>
 				<t>Ｒ</t>
 				<sc>ʴʵʶ</sc>
 				<p>s</p>
-				<i>ʂ̎</i>
-				<i>ˢ˄</i>
-				<i>ƪ˅</i>
-				<i>ƨˤ</i>
-				<i>ßs</i>
-				<i>ﬆt</i>
+				<x><p>ʂ</p><extend>̎</extend></x>
+				<x><p>ˢ</p><extend>˄</extend></x>
+				<x><p>ƪ</p><extend>˅</extend></x>
+				<x><p>ƨ</p><extend>ˤ</extend></x>
+				<x><p>ß</p><extend>s</extend></x>
+				<x><p>ﬆ</p><extend>t</extend></x>
 				<tc>ｓS</tc>
-				<i>Ʃ˂</i>
-				<i>Ƨˤ</i>
+				<x><p>Ʃ</p><extend>˂</extend></x>
+				<x><p>Ƨ</p><extend>ˤ</extend></x>
 				<t>Ｓ</t>
 				<p>ſ</p>
-				<i>ﬅt</i>
+				<x><p>ﬅ</p><extend>t</extend></x>
 				<p>t</p>
-				<i>ƭ̎</i>
-				<i>ƫ̢</i>
-				<i>ʈ̤</i>
-				<i>ʇˁ</i>
-				<i>ʧ˂</i>
-				<i>ʨ˃</i>
-				<i>þh</i>
+				<x><p>ƭ</p><extend>̎</extend></x>
+				<x><p>ƫ</p><extend>̢</extend></x>
+				<x><p>ʈ</p><extend>̤</extend></x>
+				<x><p>ʇ</p><extend>ˁ</extend></x>
+				<x><p>ʧ</p><extend>˂</extend></x>
+				<x><p>ʨ</p><extend>˃</extend></x>
+				<x><p>þ</p><extend>h</extend></x>
 				<tc>ｔT</tc>
-				<i>Ƭ̎</i>
-				<i>Ʈ̤</i>
-				<i>ÞH</i>
+				<x><p>Ƭ</p><extend>̎</extend></x>
+				<x><p>Ʈ</p><extend>̤</extend></x>
+				<x><p>Þ</p><extend>H</extend></x>
 				<t>Ｔ</t>
 				<pc>ʦŧ</pc>
 				<t>Ŧ</t>
 				<p>u</p>
-				<i>ʉ̵</i>
-				<i>ʊˁ</i>
+				<x><p>ʉ</p><extend>̵</extend></x>
+				<x><p>ʊ</p><extend>ˁ</extend></x>
 				<tc>ｕU</tc>
-				<i>Ʊˁ</i>
+				<x><p>Ʊ</p><extend>ˁ</extend></x>
 				<t>Ｕ</t>
 				<p>v</p>
-				<i>ʋˁ</i>
-				<i>ʌ˂</i>
+				<x><p>ʋ</p><extend>ˁ</extend></x>
+				<x><p>ʌ</p><extend>˂</extend></x>
 				<tc>ｖV</tc>
-				<i>Ʋˁ</i>
+				<x><p>Ʋ</p><extend>ˁ</extend></x>
 				<t>Ｖ</t>
 				<p>w</p>
-				<i>ƿˁ</i>
-				<i>ʍ˂</i>
-				<i>ʷ˄</i>
+				<x><p>ƿ</p><extend>ˁ</extend></x>
+				<x><p>ʍ</p><extend>˂</extend></x>
+				<x><p>ʷ</p><extend>˄</extend></x>
 				<tc>ｗWＷ</tc>
 				<p>x</p>
-				<i>ˣ˄</i>
+				<x><p>ˣ</p><extend>˄</extend></x>
 				<tc>ｘXＸ</tc>
 				<p>y</p>
 				<tc>ｙʏYＹ</tc>
@@ -304,21 +306,21 @@
 				<t>Ƴ</t>
 				<sc>ʎʸ</sc>
 				<p>z</p>
-				<i>ƶ̵</i>
-				<i>ʐ̤</i>
-				<i>ʑ˄</i>
+				<x><p>ƶ</p><extend>̵</extend></x>
+				<x><p>ʐ</p><extend>̤</extend></x>
+				<x><p>ʑ</p><extend>˄</extend></x>
 				<tc>ｚZ</tc>
-				<i>Ƶ̵</i>
+				<x><p>Ƶ</p><extend>̵</extend></x>
 				<t>Ｚ</t>
 				<p>ʒ</p>
-				<i>ƹ˂</i>
-				<i>ƺ˃</i>
-				<i>ʓ˄</i>
+				<x><p>ƹ</p><extend>˂</extend></x>
+				<x><p>ƺ</p><extend>˃</extend></x>
+				<x><p>ʓ</p><extend>˄</extend></x>
 				<t>Ʒ</t>
-				<i>Ƹ˂</i>
+				<x><p>Ƹ</p><extend>˂</extend></x>
 				<p>ƾ</p>
 				<sc>ʔʕʖʡʢ</sc>
-				<pc>ʘβγδμρ</pc>
+				<pc>ʘβγδμρφ</pc>
 			</rules>
 		</collation  >
 	</collations >

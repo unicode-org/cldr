@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-12-17" />
+		<language type="zh" /> 
+		<territory type="HK" /> 
+	</identity>
+	<collations version="3.1.1">
+		<collation type="standard" >
+			<base>
+				<alias source="zh_HK" type="standard" />
+			</base>
+			<rules>
+				<reset><last_non_ignorable/></reset>
+				<ic>͉͍͎͊͋͌͏͓͔͕͖͐͑͒͗ͣͤͥͦͧͨͩͪͫͬͭͮͯ͟͢͝͞͠͡</ic>
+				<sc>̵̨̧̍́̀̇̂̈̌̆̄̃̊̋</sc>
+				<i>̶</i>
+				<sc>̷̸̴̡̢̛̖̗̘̙̜̝̞̟̠̣̤̥̦̩̪̫̬̭̮̯̰̱̲̳̹̺̻̼͇͈̅̉̎̏̐̑̒̓̔̽̾̿͆͂̕̚ͅ'</sc>
+				<pc>- !</pc>
+				<pc>&quot;#$%</pc>
+				<x><p>&amp;()*,.</p><extend>:;?@[']^_`{|}~+</extend></x>
+				<pc>&lt;=</pc>
+				<pc>&gt;≠≮0123456789a</pc>
+				<t>A</t>
+				<p>b</p>
+				<t>B</t>
+				<p>c</p>
+				<t>C</t>
+				<p>d</p>
+				<t>D</t>
+				<p>e</p>
+				<t>E</t>
+				<p>f</p>
+				<t>F</t>
+				<p>g</p>
+				<t>G</t>
+				<p>h</p>
+				<t>H</t>
+				<p>i</p>
+				<t>I</t>
+				<p>j</p>
+				<t>J</t>
+				<p>k</p>
+				<t>K</t>
+				<p>l</p>
+				<t>L</t>
+				<p>m</p>
+				<t>M</t>
+				<p>n</p>
+				<t>N</t>
+				<p>o</p>
+				<t>O</t>
+				<p>p</p>
+				<t>P</t>
+				<p>q</p>
+				<t>Q</t>
+				<p>r</p>
+				<t>R</t>
+				<p>s</p>
+				<t>S</t>
+				<p>t</p>
+				<t>T</t>
+				<p>u</p>
+				<t>U</t>
+				<p>v</p>
+				<t>V</t>
+				<p>w</p>
+				<t>W</t>
+				<p>x</p>
+				<t>X</t>
+				<p>y</p>
+				<t>Y</t>
+			</rules>
+		</collation  >
+	</collations >
+</ldml>

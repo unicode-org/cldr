@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-12-17" />
+		<language type="ro" /> 
+	</identity>
+	<collations version="3.1.1">
+		<collation type="standard" >
+			<base>
+				<alias source="en" type="standard" />
+			</base>
+			<rules>
+				<reset>ɒ</reset>
+				<p>ă</p>
+				<t>Ă</t>
+				<reset>Ɩ</reset>
+				<p>î</p>
+				<t>Î</t>
+				<reset>Ｓ</reset>
+				<sc>ʂƩˢƪƨ</sc>
+				<t>Ƨ</t>
+				<reset>ﬅ</reset>
+				<p>ş</p>
+				<t>Ş</t>
+				<reset>TＴ</reset>
+				<s>ƭ</s>
+				<t>Ƭ</t>
+				<sc>ƫʈ</sc>
+				<t>Ʈ</t>
+				<sc>ʇʧʨ</sc>
+				<reset>ʦ</reset>
+				<p>ţ</p>
+			</rules>
+		</collation  >
+	</collations >
+</ldml>

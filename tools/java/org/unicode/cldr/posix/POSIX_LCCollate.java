@@ -45,24 +45,21 @@ public class POSIX_LCCollate {
    Document collrules;
    int longest_char;
 
-   public POSIX_LCCollate ( Document doc, UnicodeSet repertoire, Charset cs, Document collrules , UnicodeSet CollateSet ) throws Exception
+   public POSIX_LCCollate ( Document doc, UnicodeSet repertoire, Document collrules , UnicodeSet CollateSet , String codeset ) throws Exception
    {
      Node n;
      String rules = "";
      String settings = "";
+     boolean UsingDefaultCollateSet = false;
 
      if ( CollateSet.isEmpty() ) // Generate default collation set from exemplar characters;
      {
-        UnicodeSet CollateFilter = new UnicodeSet();
-        CollateSet = repertoire;
-        CollateFilter.applyIntPropertyValue(UProperty.SCRIPT,UScript.HAN);
-        CollateSet.removeAll(CollateFilter); 
+        CollateSet.addAll(repertoire); 
+        UsingDefaultCollateSet = true;
      }
 
-     if (cs != null ) {
-         UnicodeSet csset = new SimpleConverter(cs).getCharset();
-         chars = new UnicodeSet(repertoire).retainAll(csset).retainAll(CollateSet);
-     }
+     chars = new UnicodeSet(repertoire).retainAll(CollateSet);
+
      this.collrules = collrules;
 
      if ( collrules != null )
@@ -86,6 +83,17 @@ public class POSIX_LCCollate {
      else
         col = (RuleBasedCollator) RuleBasedCollator.getInstance();
 
+     // Add all the tailored characters if we are using the default collation set 
+     if ( codeset.equals("UTF-8") && UsingDefaultCollateSet )
+     {
+        UnicodeSet tailored = col.getTailoredSet();
+        UnicodeSetIterator it = new UnicodeSetIterator(tailored);
+        while ( it.next() )
+        {
+           if ( it.codepoint != UnicodeSetIterator.IS_STRING )
+              chars.add(it.codepoint);
+        }
+     }
      allItems = new SortedBag(col);
      contractions = new SortedBag(col);
 
@@ -189,7 +197,6 @@ public class POSIX_LCCollate {
         }
     }
 
-    IntList needToWritePrimary = new IntList();
     Set nonUniqueWeights = new HashSet();
     Set allWeights = new HashSet();
     Map stringToWeights = new HashMap();

@@ -24,14 +24,10 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 
 public class POSIX_LCCtype {
+
    UnicodeSet chars;
 
-   public POSIX_LCCtype ( Document doc, UnicodeSet us_in, Charset cs ) {
-
-      if (cs != null ) {
-         UnicodeSet csset = new SimpleConverter(cs).getCharset();
-         chars = new UnicodeSet(us_in).retainAll(csset);
-      }
+   public POSIX_LCCtype ( Document doc, UnicodeSet chars ) {
 
       String SearchLocation = "//ldml/characters/exemplarCharacters";
       Node n = LDMLUtilities.getNode(doc,SearchLocation);
@@ -53,6 +49,9 @@ public class POSIX_LCCtype {
          System.out.println("Locale not generated due to exemplar character errors.");
          System.exit(-1);
       }
+
+      this.chars = chars;
+
    }
 
    public void write ( PrintWriter out ) {

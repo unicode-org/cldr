@@ -20,6 +20,7 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 
+import org.unicode.cldr.icu.SimpleConverter;
 import org.unicode.cldr.util.LDMLUtilities;
 
 
@@ -52,14 +53,15 @@ public class POSIXLocale {
       collrules = LDMLUtilities.getFullyResolvedLDML ( cldr_data_location+File.separator+"collation", locale_name, true, true, true );
 
 
-     if ( repertoire.isEmpty() ) // Generate default repertoire set from exemplar characters;
+     if ( repertoire.isEmpty() && codeset.equals("UTF-8")) // Generate default repertoire set from exemplar characters;
      {
         String SearchLocation = "//ldml/characters/exemplarCharacters";
         Node n = LDMLUtilities.getNode(doc,SearchLocation);
         UnicodeSet ExemplarCharacters = new UnicodeSet(LDMLUtilities.getNodeValue(n));
+        repertoire.addAll(ExemplarCharacters);
         UnicodeSet CaseFoldedExemplars = new UnicodeSet(ExemplarCharacters.closeOver(UnicodeSet.CASE));
         repertoire.addAll(CaseFoldedExemplars);
-        UnicodeSetIterator it = new UnicodeSetIterator(CaseFoldedExemplars);
+        UnicodeSetIterator it = new UnicodeSetIterator(repertoire);
         int PreviousScript = UScript.INVALID_CODE;
         while ( it.next() )
         {
@@ -69,6 +71,7 @@ public class POSIXLocale {
               if ( Script != UScript.COMMON && 
                    Script != UScript.INHERITED && 
                    Script != UScript.INVALID_CODE &&
+                   Script != UScript.HAN &&
                    Script != PreviousScript ) // Hopefully this speeds up the process...
               {
                  UnicodeSet ThisScript = new UnicodeSet().applyIntPropertyValue(UProperty.SCRIPT,Script);
@@ -81,33 +84,42 @@ public class POSIXLocale {
         repertoire.add(0x0000,0x007f);        // Always add the ASCII set
         
      }
+     else if ( ! codeset.equals("UTF-8") )
+     {
+        UnicodeSet csset = new SimpleConverter(cs).getCharset();
+        repertoire = new UnicodeSet(UnicodeSet.MIN_VALUE,UnicodeSet.MAX_VALUE).retainAll(csset);
+     }
 
-      lc_collate = new POSIX_LCCollate( doc, repertoire, cs , collrules , collateset );
+      lc_collate = new POSIX_LCCollate( doc, repertoire, collrules , collateset , codeset );
 
-      UnicodeSet tailored = lc_collate.col.getTailoredSet();
-
-      // Add the tailored characters, and close over script
-
-      UnicodeSetIterator it = new UnicodeSetIterator(tailored);
-      int PreviousScript = UScript.INVALID_CODE;
-      while ( it.next() )
+      if ( codeset.equals("UTF-8") )
       {
-         if ( it.codepoint != UnicodeSetIterator.IS_STRING )
+         UnicodeSet tailored = lc_collate.col.getTailoredSet();
+
+         // Add the tailored characters, and close over script
+
+         UnicodeSetIterator it = new UnicodeSetIterator(tailored);
+         int PreviousScript = UScript.INVALID_CODE;
+         while ( it.next() )
          {
-            int Script = UScript.getScript(it.codepoint);
-            if ( Script != UScript.COMMON && 
-                 Script != UScript.INHERITED && 
-                 Script != UScript.INVALID_CODE &&
-                 Script != PreviousScript ) // Hopefully this speeds up the process...
+            if ( it.codepoint != UnicodeSetIterator.IS_STRING )
             {
-               UnicodeSet ThisScript = new UnicodeSet().applyIntPropertyValue(UProperty.SCRIPT,Script);
-               repertoire.addAll(ThisScript);
-               PreviousScript = Script;
-            }
-         } 
-      }
+               int Script = UScript.getScript(it.codepoint);
+               if ( Script != UScript.COMMON && 
+                    Script != UScript.INHERITED && 
+                    Script != UScript.INVALID_CODE &&
+                    Script != UScript.HAN &&
+                    Script != PreviousScript ) // Hopefully this speeds up the process...
+               {
+                  UnicodeSet ThisScript = new UnicodeSet().applyIntPropertyValue(UProperty.SCRIPT,Script);
+                  repertoire.addAll(ThisScript);
+                  PreviousScript = Script;
+               }
+            } 
+         }
+       }
       
-      lc_ctype = new POSIX_LCCtype ( doc, repertoire, cs );
+      lc_ctype = new POSIX_LCCtype ( doc, repertoire );
       lc_numeric = new POSIX_LCNumeric( doc );
       lc_monetary = new POSIX_LCMonetary( doc , supp );
       lc_time = new POSIX_LCTime( doc );

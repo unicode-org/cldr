@@ -1,355 +1,258 @@
-<!ELEMENT Abbreviation ( #PCDATA ) >
+<!ELEMENT localeData ( identity | layout | encodings | displayNames | dates | delimiters | numbers | collation | boundaries | countryInfo | measurement | special )* >
+
+<!ENTITY % CommonAtt 
+	'id 	CDATA 	#REQUIRED' >
+
+
+<!ELEMENT identity ( generation | versioning | language | country | variant+ | special )* >
+
+<!ELEMENT generation ( #PCDATA | special )* >
+<!ATTLIST generation date CDATA #IMPLIED > 
+<!ELEMENT versioning (version | speical )* >
+<!ELEMENT version ( #PCDATA | special )* >
+<!ATTLIST version  number CDATA #REQUIRED >
+<!ELEMENT language ( #PCDATA | special )* >
+<!ATTLIST language %CommonAtt; >
+<!ATTLIST language name CDATA #IMPLIED > 
+<!ELEMENT country ( #PCDATA | special )* >
+<!ATTLIST country %CommonAtt; 
+	  name CDATA #IMPLIED 
+	  iso2 CDATA #IMPLIED 
+	  iso3 CDATA #IMPLIED >
+<!ELEMENT variant ( #PCDATA | special )* >
+<!ATTLIST variant %CommonAtt; >
+<!ELEMENT special ANY >
+<!ATTLIST special
+	owner CDATA #REQUIRED 
+	lcid CDATA #IMPLIED
+	msgid CDATA #IMPLIED
+	usage CDATA #IMPLIED
+	formatindex CDATA #IMPLIED
+	unoid CDATA #IMPLIED
+	default CDATA #IMPLIED >
+
+<!ELEMENT layout ( orientation | special )* >
+<!ELEMENT orientation ( #PCDATA | special )* >
+<!ATTLIST orientation 
+	lines CDATA #REQUIRED 
+	characters CDATA #REQUIRED >
+
+<!ELEMENT encodings ( mapping+ | special )* >
+<!ATTLIST encodings requiredLetters CDATA #REQUIRED >
+<!ELEMENT mapping ( #PCDATA | special )* >
+
+<!ELEMENT displayNames ( scripts | languages | countries | variants | localePatterns | special )* >
+<!ELEMENT scripts ( script+ | special )* >
+<!ELEMENT script ( #PCDATA | special )* >
+<!ATTLIST script %CommonAtt; >
+<!ELEMENT languages ( language+ | special )* >
+<!ATTLIST language %CommonAtt; >
+<!ATTLIST language name CDATA #IMPLIED>
+<!ELEMENT countries ( country+ | speical )* >
+<!ELEMENT variants ( variant | speical )* >
+
+<!ELEMENT localePatterns ( locale | list | composition | special )* >
+<!ELEMENT locale ( #PCDATA | speical )* >
+<!ELEMENT list ( #PCDATA | special )* >
+<!ELEMENT composition ( #PCDATA | special )* >
+
+<!ELEMENT dates ( calendar+ | timeZoneNames | special )* >
+<!ELEMENT calendar ( monthNames | monthAbbr | dayNames | dayAbbr | week | am | pm | eras | patterns | special )* >
+<!ATTLIST calendar class CDATA #REQUIRED >
+<!ATTLIST calendar default CDATA #IMPLIED >
+<!ATTLIST calendar inheritsFrom CDATA #IMPLIED >
+<!ELEMENT monthNames ( month+ | special )* >
+<!ELEMENT month ( #PCDATA | special )* >
+<!ATTLIST month %CommonAtt; >
+<!ELEMENT monthAbbr ( month+ | special )* >
+<!ATTLIST month %CommonAtt; >
+<!ELEMENT dayNames ( day+ | special )* >
+<!ELEMENT day ( #PCDATA | special )* >
+<!ATTLIST day %CommonAtt; >
+<!ELEMENT dayAbbr ( day+ | special )* >
+<!ELEMENT week ( minDays | firstDay | weekendStart | weekendEnd | special )* >
+<!ELEMENT minDays ( #PCDATA | special )* >
+<!ELEMENT firstDay ( #PCDATA | special )* >
+<!ATTLIST firstDay %CommonAtt; >
+<!ELEMENT weekendStart ( day | time | special )* >
+<!ELEMENT time ( #PCDATA | speical )* >
+<!ELEMENT weekendEnd ( day | time | special )* >
+<!ELEMENT am ( #PCDATA | special )* >
+<!ELEMENT pm ( #PCDATA | special )* >
+<!ELEMENT eras ( era+ | special )* >
+<!ELEMENT era ( #PCDATA | special )* >
+<!ATTLIST era %CommonAtt; >
+<!ELEMENT patterns ( localizedPatternChars+ | patternElement | special )* >
+<!ELEMENT localizedPatternChars ( #PCDATA | special )* >
+<!ELEMENT patternElement ( patternCode | patternName | special )* > 
+<!ATTLIST patternElement 
+	patternid CDATA #REQUIRED 
+	type CDATA #IMPLIED
+	default CDATA #IMPLIED >
+<!ELEMENT patternCode ( #PCDATA | special )* >
+<!ATTLIST patternCode type CDATA #IMPLIED >
+<!ELEMENT patternName ( #PCDATA | speical )* >
+
+<!ELEMENT timeZoneNames ( zone+ | special )* >
+<!ELEMENT zone ( long | short | exemplarCity | special )* >
+<!ATTLIST zone 
+	%CommonAtt; 
+	default CDATA #IMPLIED >
+<!ELEMENT long ( generic | standard | daylight | special )* >
+<!ELEMENT generic ( #PCDATA | special )* > 
+<!ELEMENT standard ( #PCDATA | special )* >
+<!ELEMENT daylight ( #PCDATA | special )* >
+<!ELEMENT short ( generic | standard | daylight | special  )* >
+<!ELEMENT exemplarCity ( #PCDATA | special )* >
+
+<!ELEMENT delimiters ( quotationStart | quotationEnd | doubleQuotationStart | doubleQuotationEnd | special )* >
+<!ELEMENT quotationStart ( #PCDATA | special )* >
+<!ELEMENT quotationEnd ( #PCDATA | special )* >
+<!ELEMENT doubleQuotationStart ( #PCDATA | special )* >
+<!ELEMENT doubleQuotationEnd ( #PCDATA | special )* >
+
+<!ELEMENT numbers ( numberFormat+ | currencies+ | special )* >  
+<!ELEMENT numberFormat ( patternElement+ | symbols | special )* > 
+<!ATTLIST numberFormat class CDATA #REQUIRED >
+<!ATTLIST numberFormat default CDATA #REQUIRED >
+<!ELEMENT symbols ( decimal, group, list, percentSign, nativeZeroDigit, patternDigit, plusSign, minusSign, exponential, perMille, infinity, nan , special* )? >
+<!ELEMENT decimal ( #PCDATA | special )* >
+<!ELEMENT group ( #PCDATA | special )* >
+<!ELEMENT percentSign ( #PCDATA | special )* >
+<!ELEMENT nativeZeroDigit ( #PCDATA | special )* >
+<!ELEMENT patternDigit ( #PCDATA | special )* >
+<!ELEMENT plusSign ( #PCDATA | special )* >
+<!ELEMENT minusSign ( #PCDATA | special )* >
+<!ELEMENT exponential ( #PCDATA | special )* >
+<!ELEMENT perMille ( #PCDATA | special )* >
+<!ELEMENT infinity ( #PCDATA | special )* >
+<!ELEMENT nan ( #PCDATA | special )* >
+
+<!ELEMENT currencies ( currency+ | special )* >
+<!ELEMENT currency ( symbol | name | decimal | group | patternElement | special )* >
+<!ATTLIST currency %CommonAtt; >
+<!ATTLIST currency name CDATA #REQUIRED >
+<!ATTLIST currency default CDATA #REQUIRED >
+<!ELEMENT symbol ( #PCDATA | special )* >
+<!ELEMENT name ( #PCDATA | special  )* >
+
+<!ELEMENT collation ( reset | p | t | s | tc | position | pc | special )* >
+<!ATTLIST collation 
+	version CDATA #REQUIRED 
+	accentOrder CDATA #REQUIRED 
+	override CDATA #REQUIRED >
+<!ELEMENT reset ( #PCDATA | special )* >
+<!ELEMENT p ( #PCDATA | special )* >
+<!ELEMENT t ( #PCDATA | special )* >
+<!ELEMENT s ( #PCDATA | special )* >
+<!ELEMENT tc ( #PCDATA | special )* >
+<!ELEMENT position ( #PCDATA | special )* >
+<!ATTLIST position at CDATA #IMPLIED >
+<!ELEMENT pc ( #PCDATA | special )* >
+<!ELEMENT collator ( #PCDATA | special )* >
+<!ATTLIST collator unoid CDATA #REQUIRED >
+<!ATTLIST collator default CDATA #REQUIRED >
+
+
+<!ELEMENT boundaries ( grapheme | word | sentence | line | special )* >
+<!ELEMENT grapheme ( #PCDATA | special )* >
+<!ATTLIST grapheme class CDATA #REQUIRED >
+<!ELEMENT word ( #PCDATA | special )* >
+<!ATTLIST word class CDATA #REQUIRED >
+<!ATTLIST word import CDATA #REQUIRED >
+<!ELEMENT sentence ( #PCDATA | special )* >
+<!ATTLIST sentence class CDATA #REQUIRED >
+<!ELEMENT line ( #PCDATA | special )* >
+<!ATTLIST line class CDATA #REQUIRED >
+
+<!ELEMENT countryInfo ( countryPost | countryNumber | countryCar | countryISBNNumber | special )* >
+<!ELEMENT countryPost ( #PCDATA | special )* >
+<!ATTLIST countryPost %CommonAtt; >
+<!ELEMENT countryNumber ( #PCDATA | special )* >
+<!ATTLIST countryNumber %CommonAtt; >
+<!ELEMENT countryCar ( #PCDATA | special )* >
+<!ATTLIST countryCar %CommonAtt; >
+<!ELEMENT countryISBNNumber ( #PCDATA | special )* >
+<!ATTLIST countryISBNNumber %CommonAtt; >
+
+<!ELEMENT measurement ( paperSize | measurementSystem | special )* >
+<!ELEMENT paperSize ( height | width | units | special )* >
+<!ELEMENT height ( #PCDATA | special )* >
+<!ELEMENT width ( #PCDATA | special )* >
+<!ELEMENT units ( #PCDATA | special )* >
+<!ELEMENT measurementSystem ( #PCDATA | special )* >
+<!ATTLIST measurementSystem %CommonAtt; >
+
+<!ELEMENT numberingLevels ( numberingLevel+ | special )* >
+<!ELEMENT numberingLevel ( #PCDATA | special )* >
+<!ATTLIST numberingLevel Prefix CDATA #REQUIRED >
+<!ATTLIST numberingLevel NumType CDATA #REQUIRED >
+<!ATTLIST numberingLevel Suffix CDATA #REQUIRED >
+
+<!ELEMENT reservedWords  ( trueWord | falseWord | quarter1Word | quarter2Word | quarter3Word | quarter4Word | aboveWord | belowWord | quarter1Abbreviation | quarter2Abbreviation | quarter3Abbreviation | quarter4Abbreviation | special )* >
+<!-- order is significant! -->
+<!ELEMENT trueWord ( #PCDATA | special )* >
+<!ELEMENT falseWord ( #PCDATA | special )* >
+<!ELEMENT quarter1Word ( #PCDATA | special )* >
+<!ELEMENT quarter2Word ( #PCDATA | special )* >
+<!ELEMENT quarter3Word ( #PCDATA | special )* >
+<!ELEMENT quarter4Word ( #PCDATA | special )* >
+<!ELEMENT aboveWord ( #PCDATA | special )* >
+<!ELEMENT belowWord ( #PCDATA | special )* >
+<!ELEMENT quarter1Abbreviation ( #PCDATA | special )* >
+<!ELEMENT quarter2Abbreviation ( #PCDATA | special )* >
+<!ELEMENT quarter3Abbreviation ( #PCDATA | special )* >
+<!ELEMENT quarter4Abbreviation ( #PCDATA | special )* >
+
+<!ELEMENT transliterationModules ( #PCDATA| special )* >
+<!ELEMENT outLineNumberingLevel ( #PCDATA| special )* >
+<!ELEMENT messages ( no | yes | shortYes | shortNo | special )* > 
+<!ELEMENT no ( #PCDATA | special )* >
+<!ELEMENT yes ( #PCDATA | special )* > 
+<!ELEMENT shortYes ( #PCDATA | special )* >
+<!ELEMENT shortNo ( #PCDATA | special )* >
+
+<!ELEMENT iso14652:iso14652  ( iso14652:messages| iso14652:addressFormat| iso14652:nameFormat| iso14652:identification| iso14652:telephoneFormat | special )* >
+<!ATTLIST iso14652:iso14652 xmlns:iso14652 CDATA #REQUIRED >
+<!ELEMENT iso14652:messages ( iso14652:no| iso14652:yes| iso14652:shortYes| iso14652:shortNo | special )* >
+<!ELEMENT iso14652:no ( #PCDATA | special )* >
+<!ELEMENT iso14652:yes ( #PCDATA | special )* >
+<!ELEMENT iso14652:shortYes ( #PCDATA | special )* >
+<!ELEMENT iso14652:shortNo ( #PCDATA | special )* >
+
+<!ELEMENT iso14652:addressFormat ( iso14652:postalPattern | special )* >
+<!ELEMENT iso14652:postalPattern ( #PCDATA | special )* >
+
+<!ELEMENT iso14652:nameFormat ( iso14652:namePattern| iso14652:generalSalutation| iso14652:shortSalutationMr| iso14652:shortSalutationMiss|iso14652:shortSalutationMrs| iso14652:longSalutationMr| iso14652:longSalutationMiss| iso14652:longSalutationMrs | special )* >
+<!ELEMENT iso14652:namePattern ( #PCDATA | special )* >
+<!ELEMENT iso14652:generalSalutation ( #PCDATA | special )* >
+<!ELEMENT iso14652:shortSalutationMr ( #PCDATA | special )* >
+<!ELEMENT iso14652:shortSalutationMiss ( #PCDATA | special )* >
+<!ELEMENT iso14652:shortSalutationMrs ( #PCDATA | special )* >
+<!ELEMENT iso14652:longSalutationMr ( #PCDATA | special )* >
+<!ELEMENT iso14652:longSalutationMiss ( #PCDATA | special )* >
+<!ELEMENT iso14652:longSalutationMrs ( #PCDATA | special )* >
+
+<!ELEMENT iso14652:identification ( iso14652:title| iso14652:source| iso14652:address | iso14652:contact| iso14652:email| iso14652:telephone| iso14652:fax| iso14652:language| iso14652:territory| iso14652:audience| iso14652:application| iso14652:abbreviation| iso14652:revision| iso14652:date | special )* >
+<!ELEMENT iso14652:title ( #PCDATA | special )* >
+<!ELEMENT iso14652:source ( #PCDATA | special )* >
+<!ELEMENT iso14652:address ( #PCDATA | special )* >
+<!ELEMENT iso14652:contact ( #PCDATA | special )* >
+<!ELEMENT iso14652:email ( #PCDATA | special )* >
+<!ELEMENT iso14652:telephone ( #PCDATA | special )* >
+<!ELEMENT iso14652:fax ( #PCDATA | special )* >
+<!ELEMENT iso14652:language ( #PCDATA | special )* >
+<!ELEMENT iso14652:territory ( #PCDATA | special )* >
+<!ELEMENT iso14652:audience ( #PCDATA | special )* >
+<!ELEMENT iso14652:application ( #PCDATA | special )* >
+<!ELEMENT iso14652:abbreviation ( #PCDATA | special )* >
+<!ELEMENT iso14652:revision ( #PCDATA | special )* >
+<!ELEMENT iso14652:date ( #PCDATA | special )* >
+
+<!ELEMENT iso14652:telephoneFormat ( iso14652:internationalPattern| iso14652:domesticPattern| iso14652:internationalDialCode| iso14652:internationalPrefix | special )* >
+<!ELEMENT iso14652:internationalPattern ( #PCDATA | special )* >
+<!ELEMENT iso14652:domesticPattern ( #PCDATA | special )* >
+<!ELEMENT iso14652:internationalDialCode ( #PCDATA | special )* >
+<!ELEMENT iso14652:internationalPrefix ( #PCDATA | special )* >
 
-<!ELEMENT Address ( #PCDATA ) >
-
-<!ELEMENT AddressFormat ( PostalPattern ) >
-
-<!ELEMENT Application ( #PCDATA ) >
-
-<!ELEMENT Audience ( #PCDATA ) >
-
-<!ELEMENT Contact ( #PCDATA ) >
-
-<!ELEMENT CountryCar ( #PCDATA ) >
-
-<!ELEMENT CountryISBNNumber ( #PCDATA ) >
-
-<!ELEMENT CountryNumber ( #PCDATA ) >
-
-<!ELEMENT CountryPost ( #PCDATA ) >
-
-<!ELEMENT Date ( #PCDATA ) >
-
-<!ELEMENT DomesticPattern ( #PCDATA ) >
-
-<!ELEMENT Email ( #PCDATA ) >
-
-<!ELEMENT Fax ( #PCDATA ) >
-
-<!ELEMENT GeneralSalutation ( #PCDATA ) >
-
-<!ELEMENT Height ( #PCDATA ) >
-
-<!ELEMENT Identification ( Title| Source| Address| Contact| Email| Telephone| Fax| Language| Territory| Audience| Application| Abbreviation| Revision| Date )* >
-
-<!ELEMENT InternationalDialCode ( #PCDATA ) >
-
-<!ELEMENT InternationalPattern ( #PCDATA ) >
-
-<!ELEMENT InternationalPrefix ( #PCDATA ) >
-
-<!ELEMENT Language ( #PCDATA ) >
-
-<!ELEMENT LanguageLibraryUse ( #PCDATA ) >
-
-<!ELEMENT LongSalutationMiss ( #PCDATA ) >
-
-<!ELEMENT LongSalutationMr ( #PCDATA ) >
-
-<!ELEMENT LongSalutationMrs ( #PCDATA ) >
-
-<!ELEMENT NameFormat ( NamePattern| GeneralSalutation| ShortSalutationMr| ShortSalutationMiss|ShortSalutationMrs| LongSalutationMr| LongSalutationMiss| LongSalutationMrs )* >
-
-<!ELEMENT NamePattern ( #PCDATA ) >
-
-<!ELEMENT PaperSize ( Height, Width, Units ) >
-
-<!ELEMENT PosixCompatibilityData ( messages| AddressFormat| NameFormat| Identification| TelephoneFormat )* >
-
-<!ELEMENT PostalPattern ( #PCDATA ) >
-
-<!ELEMENT Revision ( #PCDATA ) >
-
-<!ELEMENT ShortSalutationMiss ( #PCDATA ) >
-
-<!ELEMENT ShortSalutationMr ( #PCDATA ) >
-
-<!ELEMENT ShortSalutationMrs ( #PCDATA ) >
-
-<!ELEMENT Source ( #PCDATA ) >
-
-<!ELEMENT Telephone ( #PCDATA ) >
-
-<!ELEMENT TelephoneFormat ( InternationalPattern| DomesticPattern| InternationalDialCode| InternationalPrefix )* >
-
-<!ELEMENT Territory ( #PCDATA ) >
-
-<!ELEMENT Title ( #PCDATA ) >
-
-<!ELEMENT Units ( #PCDATA ) >
-
-<!ELEMENT Width ( #PCDATA ) >
-
-<!ELEMENT after ( #PCDATA ) >
-
-<!ELEMENT normalization ( #PCDATA ) >
-
-<!ELEMENT alternate ( #PCDATA ) >
-
-<!ELEMENT vairableTop ( #PCDATA ) >
-
-<!ELEMENT caseLevel ( #PCDATA ) >
-
-<!ELEMENT caseFirst ( #PCDATA ) >
-
-<!ELEMENT composition ( #PCDATA ) >
-
-<!ELEMENT lt1 ( #PCDATA ) >
-
-<!ELEMENT am ( #PCDATA ) >
-
-<!ELEMENT boundaries ( grapheme| word| Sentence| Line )* >
-
-<!ELEMENT TransliteratorNamePattern ( #PCDATA ) >
-
-<!ELEMENT calendar ( am | dayAbbr | dayNames | eras | monthAbbr | monthNames | patterns | pm | week |firstDay |minDays )* >
-<!ATTLIST calendar class NMTOKEN #REQUIRED >
-<!ATTLIST calendar default NMTOKEN #IMPLIED >
-<!ATTLIST calendar inheritsFrom NMTOKEN #IMPLIED >
-
-<!ELEMENT calendars ( calendar+ ) >
-
-<!ELEMENT chars ( #PCDATA ) >
-
-<!ELEMENT city ( #PCDATA ) >
-
-<!ELEMENT collation ( collationElements ) >
-<!ATTLIST collation accentOrder NMTOKEN #REQUIRED >
-<!ATTLIST collation override NMTOKEN #REQUIRED >
-<!ATTLIST collation version NMTOKEN #REQUIRED >
-
-
-<!ELEMENT collationElements ( after | eq | gt1 | gt2 | gt3 | normalization | alternate | vairableTop | caseLevel | caseFirst | lt1)* >
-
-<!ELEMENT correspondsTo ( #PCDATA ) >
-<!ATTLIST correspondsTo vendor NMTOKEN #REQUIRED >
-
-<!ELEMENT countries ( country+ ) >
-
-<!ELEMENT country ( #PCDATA ) >
-<!ATTLIST country id NMTOKEN #REQUIRED >
-<!ATTLIST country iso2 NMTOKEN #IMPLIED >
-<!ATTLIST country iso3 NMTOKEN #IMPLIED >
-
-<!ELEMENT currencies ( currency+ ) >
-
-<!ELEMENT currency ( symbol| pattern| decimal| name |group )* >
-<!ATTLIST currency default NMTOKEN #IMPLIED >
-<!ATTLIST currency id NMTOKEN #REQUIRED >
-
-<!ELEMENT name ( #PCDATA ) >
-
-<!ELEMENT date ( full| long| medium| short )* >
-
-<!ELEMENT dateTime ( #PCDATA ) >
-
-<!ELEMENT day ( #PCDATA ) >
-<!ATTLIST day id NMTOKEN #IMPLIED >
-
-<!ELEMENT dayAbbr ( day+ ) >
-
-<!ELEMENT dayNames ( day+ ) >
-
-<!ELEMENT daylight ( #PCDATA ) >
-
-<!ELEMENT decimal ( #PCDATA ) >
-
-<!ELEMENT displayNames ( scripts| languages| countries| variants |localePatterns )* >
-
-<!ELEMENT encodings ( mapping+ ) >
-<!ATTLIST encodings requiredLetters NMTOKEN #REQUIRED >
-
-<!ELEMENT eq ( #PCDATA ) >
-
-<!ELEMENT era ( #PCDATA ) >
-<!ATTLIST era id NMTOKEN #REQUIRED >
-
-<!ELEMENT eras ( era+ ) >
-
-<!ELEMENT exponential ( #PCDATA ) >
-
-<!ELEMENT firstDay ( #PCDATA ) >
-
-<!ELEMENT full ( #PCDATA ) >
-
-<!ELEMENT generic ( #PCDATA ) >
-
-<!ELEMENT grapheme ( #PCDATA ) >
-<!ATTLIST grapheme class NMTOKEN #REQUIRED >
-
-<!ELEMENT group ( #PCDATA ) >
-
-<!ELEMENT gt1 ( #PCDATA ) >
-
-<!ELEMENT gt2 ( #PCDATA ) >
-
-<!ELEMENT gt3 ( #PCDATA ) >
-
-<!ELEMENT identity ( language| country| variant| correspondsTo )* >
-
-<!ELEMENT infinity ( #PCDATA ) >
-
-<!ELEMENT language ( #PCDATA ) >
-<!ATTLIST language id NMTOKEN #REQUIRED >
-<!ATTLIST language iso2 NMTOKEN #IMPLIED >
-<!ATTLIST language iso3 NMTOKEN #IMPLIED >
-
-<!ELEMENT languages ( language+ ) >
-
-<!ELEMENT list ( #PCDATA ) >
-
-<!ELEMENT locale ( #PCDATA ) >
-
-<!ELEMENT localeData ( versioning | identity| orientation| encodings| displayNames | calendars | numberFormat | currencies | collation | timeZoneNames | boundaries | measurement | CountryPost | CountryNumber | CountryCar | CountryISBNNumber | LanguageLibraryUse | PaperSize | PosixCompatibilityData|TransliteratorNamePattern )* >
-
-<!ELEMENT localePatterns ( locale, list, composition ) >
-
-<!ELEMENT long ( #PCDATA | daylight | generic | standard )* >
-
-<!ELEMENT mapping ( #PCDATA ) >
-<!ATTLIST mapping name NMTOKEN #REQUIRED >
-
-<!ELEMENT measurement ( #PCDATA ) >
-
-<!ELEMENT medium ( #PCDATA ) >
-
-<!ELEMENT messages ( no| yes| shortYes| shortNo )* >
-
-<!ELEMENT minDays ( #PCDATA ) >
-
-<!ELEMENT minusSign ( #PCDATA ) >
-
-<!ELEMENT month ( #PCDATA ) >
-<!ATTLIST month id NMTOKEN #REQUIRED >
-
-<!ELEMENT monthAbbr ( month+ ) >
-
-<!ELEMENT monthNames ( month+ ) >
-
-<!ELEMENT nan ( #PCDATA ) >
-
-<!ELEMENT nativeZeroDigit ( #PCDATA ) >
-
-<!ELEMENT no ( #PCDATA ) >
-
-<!ELEMENT numberFormat ( patterns| symbols )* >
-<!ATTLIST numberFormat class NMTOKEN #REQUIRED >
-<!ATTLIST numberFormat default NMTOKEN #REQUIRED >
-
-<!ELEMENT orientation ( #PCDATA ) >
-<!ATTLIST orientation characters NMTOKEN #REQUIRED >
-<!ATTLIST orientation lines NMTOKEN #REQUIRED >
-
-<!ELEMENT pattern ( #PCDATA ) >
-
-<!ELEMENT patternDigit ( #PCDATA ) >
-
-<!ELEMENT patterns ( chars| time| date| dateTime?| decimal?| percent?| scientific? )* >
-
-<!ELEMENT perMille ( #PCDATA ) >
-
-<!ELEMENT percent ( #PCDATA ) >
-
-<!ELEMENT percentSign ( #PCDATA ) >
-
-<!ELEMENT plusSign ( #PCDATA ) >
-
-<!ELEMENT pm ( #PCDATA ) >
-
-<!ELEMENT scientific ( #PCDATA ) >
-
-<!ELEMENT script ( #PCDATA ) >
-<!ATTLIST script id NMTOKEN #REQUIRED >
-
-<!ELEMENT scripts ( script+ ) >
-
-<!ELEMENT short ( #PCDATA | daylight | generic | standard )* >
-
-<!ELEMENT shortNo ( #PCDATA ) >
-
-<!ELEMENT shortYes ( #PCDATA ) >
-
-<!ELEMENT standard ( #PCDATA ) >
-
-<!ELEMENT symbol ( #PCDATA ) >
-
-<!ELEMENT symbols ( decimal, group, list, percentSign, nativeZeroDigit, patternDigit, plusSign, minusSign, exponential, perMille, infinity, nan )* >
-
-<!ELEMENT time ( #PCDATA | full | long | medium | short )* >
-
-<!ELEMENT timeZoneNames ( zone+ ) >
-
-<!ELEMENT variant ( #PCDATA ) >
-<!ATTLIST variant id NMTOKEN #REQUIRED >
-
-<!ELEMENT variants ( variant ) >
-
-<!ELEMENT version ( #PCDATA ) >
-<!ATTLIST version date CDATA #IMPLIED>
-<!ATTLIST version number NMTOKEN #REQUIRED >
-
-<!ELEMENT versioning ( version+ ) >
-
-<!ELEMENT week ( minDays, firstDay, weekendStart, weekendEnd ) >
-
-<!ELEMENT weekendEnd ( day, time ) >
-
-<!ELEMENT weekendStart ( day, time ) >
-
-<!ELEMENT word ( #PCDATA ) >
-<!ATTLIST word class NMTOKEN #REQUIRED >
-
-<!ELEMENT Line ( #PCDATA ) >
-<!ATTLIST Line class NMTOKEN #REQUIRED >
-
-<!ELEMENT Sentence ( #PCDATA ) >
-<!ATTLIST Sentence class NMTOKEN #REQUIRED >
-
-<!ELEMENT yes ( #PCDATA ) >
-
-<!ELEMENT zone ( city | long | short )* >
-<!ATTLIST zone default NMTOKEN #IMPLIED >
-<!ATTLIST zone id CDATA #REQUIRED >
-<!ELEMENT iso14652:iso14652  ( iso14652:messages| iso14652:AddressFormat| iso14652:NameFormat| iso14652:Identification| iso14652:TelephoneFormat )* >
-
-<!ELEMENT iso14652:messages ( iso14652:no| iso14652:yes| iso14652:shortYes| iso14652:shortNo )* >
-<!ELEMENT iso14652:no ( #PCDATA ) >
-<!ELEMENT iso14652:yes ( #PCDATA ) >
-<!ELEMENT iso14652:shortYes ( #PCDATA ) >
-<!ELEMENT iso14652:shortNo ( #PCDATA ) >
-
-<!ELEMENT iso14652:AddressFormat ( iso14652:PostalPattern ) >
-<!ELEMENT iso14652:PostalPattern ( #PCDATA ) >
-
-<!ELEMENT iso14652:NameFormat ( iso14652:NamePattern| iso14652:GeneralSalutation| iso14652:ShortSalutationMr| iso14652:ShortSalutationMiss|iso14652:ShortSalutationMrs| iso14652:LongSalutationMr| iso14652:LongSalutationMiss| iso14652:LongSalutationMrs )* >
-<!ELEMENT iso14652:NamePattern ( #PCDATA ) >
-<!ELEMENT iso14652:GeneralSalutation ( #PCDATA ) >
-<!ELEMENT iso14652:ShortSalutationMr ( #PCDATA ) >
-<!ELEMENT iso14652:ShortSalutationMiss ( #PCDATA ) >
-<!ELEMENT iso14652:ShortSalutationMrs ( #PCDATA ) >
-<!ELEMENT iso14652:LongSalutationMr ( #PCDATA ) >
-<!ELEMENT iso14652:LongSalutationMiss ( #PCDATA ) >
-<!ELEMENT iso14652:LongSalutationMrs ( #PCDATA ) >
-
-<!ELEMENT iso14652:Identification ( iso14652:Title| iso14652:Source| iso14652:Address| iso14652:Contact| iso14652:Email| iso14652:Telephone| iso14652:Fax| iso14652:Language| iso14652:Territory| iso14652:Audience| iso14652:Application| iso14652:Abbreviation| iso14652:Revision| iso14652:Date )* >
-<!ELEMENT iso14652:Title ( #PCDATA ) >
-<!ELEMENT iso14652:Source ( #PCDATA ) >
-<!ELEMENT iso14652:Address ( #PCDATA ) >
-<!ELEMENT iso14652:Contact ( #PCDATA ) >
-<!ELEMENT iso14652:Email ( #PCDATA ) >
-<!ELEMENT iso14652:Telephone ( #PCDATA ) >
-<!ELEMENT iso14652:Fax ( #PCDATA ) >
-<!ELEMENT iso14652:Language ( #PCDATA ) >
-<!ELEMENT iso14652:Territory ( #PCDATA ) >
-<!ELEMENT iso14652:Audience ( #PCDATA ) >
-<!ELEMENT iso14652:Application ( #PCDATA ) >
-<!ELEMENT iso14652:Abbreviation ( #PCDATA ) >
-<!ELEMENT iso14652:Revision ( #PCDATA ) >
-<!ELEMENT iso14652:Date ( #PCDATA ) >
-
-<!ELEMENT iso14652:TelephoneFormat ( iso14652:InternationalPattern| iso14652:DomesticPattern| iso14652:InternationalDialCode| iso14652:InternationalPrefix )* >
-<!ELEMENT iso14652:InternationalPattern ( #PCDATA ) >
-<!ELEMENT iso14652:DomesticPattern ( #PCDATA ) >
-<!ELEMENT iso14652:InternationalDialCode ( #PCDATA ) >
-<!ELEMENT iso14652:InternationalPrefix ( #PCDATA ) >
 

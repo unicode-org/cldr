@@ -2353,6 +2353,9 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 					str.findAndReplace((UChar)0x7C, mStringsBundle.getStringEx("contextEnd",mError));
 	                tempStr = str;
 			  }
+              if((prevStrength == strength) && (prevStrength == UCOL_TOK_DONE)){
+                  break;
+              }
 			  if((prevStrength != strength) ){
 					char* singleKey = NULL;
 					char* seqKey = NULL;

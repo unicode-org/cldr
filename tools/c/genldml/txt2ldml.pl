@@ -23,7 +23,7 @@ GetOptions(
            "--genldml=s" => \$genldml,
            "--genrb=s" => \$genrb,
 	       "--ldml-only=s" => \$ldmlOnly,
-           "--ignore-collation=s" => \$ignoreCollation, 
+           "--ignore-collation" => \$ignoreCollation, 
 		   "--base=s" => \$baseFile
           );
            

@@ -8,6 +8,93 @@
 	</identity>
 		<collations validSubLocales="zh_CN zh_SG">
 			<default type="pinyin"/>
+			<collation type="standard" >
+				<rules>
+					<reset before="secondary">a</reset>
+					<s>ā</s>
+					<t>Ā</t>
+					<s>á</s>
+					<t>Á</t>
+					<s>ǎ</s>
+					<t>Ǎ</t>
+					<s>à</s>
+					<t>À</t>
+					<reset before="secondary">e</reset>
+					<s>ē</s>
+					<t>Ē</t>
+					<s>é</s>
+					<t>É</t>
+					<s>ě</s>
+					<t>Ě</t>
+					<s>è</s>
+					<t>È</t>
+					<reset>e</reset>
+					<s>ê̄</s>
+					<t>Ê̄</t>
+					<s>ế</s>
+					<t>Ế</t>
+					<s>ê̌</s>
+					<t>Ê̌</t>
+					<s>ề</s>
+					<t>Ề</t>
+					<reset before="secondary">i</reset>
+					<s>ī</s>
+					<t>Ī</t>
+					<s>í</s>
+					<t>Í</t>
+					<s>ǐ</s>
+					<t>Ǐ</t>
+					<s>ì</s>
+					<t>Ì</t>
+					<reset before="secondary">m</reset>
+					<s>m̄</s>
+					<t>M̄</t>
+					<s>ḿ</s>
+					<t>Ḿ</t>
+					<s>m̌</s>
+					<t>M̌</t>
+					<s>m̀</s>
+					<t>M̀</t>
+					<reset before="secondary">n</reset>
+					<s>n̄</s>
+					<t>N̄</t>
+					<s>ń</s>
+					<t>Ń</t>
+					<s>ň</s>
+					<t>Ň</t>
+					<s>ǹ</s>
+					<t>Ǹ</t>
+					<reset before="secondary">o</reset>
+					<s>ō</s>
+					<t>Ō</t>
+					<s>ó</s>
+					<t>Ó</t>
+					<s>ǒ</s>
+					<t>Ǒ</t>
+					<s>ò</s>
+					<t>Ò</t>
+					<reset before="secondary">u</reset>
+					<s>ū</s>
+					<t>Ū</t>
+					<s>ú</s>
+					<t>Ú</t>
+					<s>ǔ</s>
+					<t>Ǔ</t>
+					<s>ù</s>
+					<t>Ù</t>
+					<reset>U</reset>
+					<s>ǖ</s>
+					<t>Ǖ</t>
+					<s>ǘ</s>
+					<t>Ǘ</t>
+					<s>ǚ</s>
+					<t>Ǚ</t>
+					<s>ǜ</s>
+					<t>Ǜ</t>
+					<s>ü</s>
+					<t>Ü</t>
+				</rules>
+			</collation  >
 			<collation type="pinyin" >
 				<rules>
 					<reset before="secondary">a</reset>

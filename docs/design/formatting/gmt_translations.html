@@ -11,9 +11,8 @@
 <body bgcolor="#FFFFFF">
 
 <h2>Zone Localizations</h2>
-<p><i>2003-07-25, MD<br>
-<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/formatting/gmt_translations.html">http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/formatting/gmt_translations.html</a>
-</i></p>
+<p><i>2003-07-28, MD<br>
+<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/formatting/gmt_translations.html">http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/formatting/gmt_translations.html</a></i></p>
 <h3>Background</h3>
 <p>When ICU formats or parses a date pattern containing a &quot;z&quot;
 parameter (for <i>time-zone</i>), then it uses the Olson IDs to look up a
@@ -82,13 +81,13 @@ pattern might produce:</p>
     <td>3</td>
     <td><font color="#FF0000">ZZZZ</font></td>
     <td><font color="#FF0000">GMT Offset</font></td>
-    <td><font color="#FF0000">GMT+06:30 </font></td>
+    <td><font color="#FF0000">GMT+06:30</font></td>
   </tr>
   <tr>
     <td>4</td>
     <td><font color="#FF0000">ZZZ</font></td>
     <td><font color="#FF0000">City Zone</font></td>
-    <td><font color="#FF0000">New Delhi Time </font></td>
+    <td><font color="#FF0000">New Delhi Time</font></td>
   </tr>
   <tr>
     <td>5</td>
@@ -102,14 +101,16 @@ pattern might produce:</p>
     <td><font color="#FF0000">Short Generic (Wall-time) Zone</font></td>
     <td><font color="#FF0000">PT</font></td>
   </tr>
+  <tr>
+    <td>7</td>
+    <td><font color="#FF0000">zz</font></td>
+    <td><font color="#FF0000">Default (indirect) Zone</font></td>
+    <td><font color="#FF0000">any of above, depending on default format setting.</font></td>
+  </tr>
 </table>
-<blockquote>
-  <p><i><font color="#00FF00"><b>Open Issue: should we allow a default pattern?
-  This would involve adding 'zz' to mean the default, and having a mechanism for
-  specifying the default in the locale. This would allow sublocales to easily
-  change the default from explicit to wall or city time. Possible mechanism for
-  that is indicated below in blue.</b></font></i></p>
-</blockquote>
+<p><i><b>The default zone will allow sublocales to easily change the default
+from explicit to wall or city time. It essentially provides one level of
+indirection.</b></i></p>
 <p>We will be changing our data anyway to upgrade to LDML, adding the generic
 (wall-time), and we want to change the ICU resource to be a tagged array, so we
 use a tool to will change the ICU data to be of the form:</p>
@@ -124,30 +125,38 @@ use a tool to will change the ICU data to be of the form:</p>
 }</pre>
 <p>The reason we will change the ordering is because it corresponds more to the
 data that will be available for localization. That is, it is likely that for
-many locales we will (at first) only have the cities. As a part of this
-generation, we will use the city names from the Olson data for the English city
-names, so all of the Olson IDs will have zone resources in en.txt. In the
-near-term, we will get those cities translated for Group 1.</p>
+many locales we will (at first) only have the cities. We will treat these as
+variable-length lists on lookup, so the most important items will be first. As a
+part of this data generation, we will use the city names from the Olson data for
+the English city names (cleaned up a bit, e.g. replacing underscores), so all of
+the Olson IDs will have zone resources in en.txt. In the near-term, we will get
+those cities translated for Group 1 (English, Japanese, German, Chinese
+(simplified), Chinese (traditional), French, Spanish, Italian, Portuguese
+(Brazilian), Korean).</p>
 <p>We will add the following tags to resource bundles:</p>
 <blockquote>
-  <p>gmtZone: &quot;GMT {0,number,+0;-0}:{1,number,00}&quot; // for support of
-  localized #1 format<br>
-  cityZone: &quot;{0} Time&quot; // for support of localized #2 format<br>
-  <font color="#00FF00">standardZone: &quot;ZZZ&quot; // sets the default to be
-  city zone format</font></p>
+  <p>gmtZoneFormat: &quot;GMT {0,number,+0;-0}:{1,number,00}&quot; // for
+  support of localized #1 format<br>
+  cityZoneFormat: &quot;{0} Time&quot; // for support of localized #2 format<br>
+  defaultZoneFormat: &quot;ZZZ&quot; // sets the default to be city zone format</p>
 </blockquote>
 <p>The first one is a MessageFormat used to format/parse the GMT zone format.
-The second is a message format used to format the city zone format. <font color="#00FF00">The
-third one is what the default zone pattern (a 'zz') maps to.</font></p>
+The second is a message format used to format the city zone format. The third
+one is what the default zone pattern (a 'zz') maps to.</p>
 <p>We will recommend to the Locale Data Markup Language group that elements be
 added to the standard DTD for these as subelements of <a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm#&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a>,
 to wit:</p>
 <blockquote>
-  <pre>&lt;timeZoneNames <font color="#00FF00">standardZone=&quot;ZZZ&quot;</font>&gt;<a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm#&lt;timeZoneNames&gt;">
-</a>  &lt;gmtZone&gt;GMT {0,number,+0;-0}:{1,number,00}&lt;/gmtZone&gt;
-  &lt;cityZone&gt;{0} Time&lt;/cityZone&gt;
+  <pre>&lt;timeZoneNames defaultZoneFormat=&quot;ZZZ&quot;&gt;<a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm#&lt;timeZoneNames&gt;">
+</a>  &lt;gmtZoneFormat&gt;GMT {0,number,+0;-0}:{1,number,00}&lt;/gmtZoneFormat&gt;
+  &lt;cityZoneFormat&gt;{0} Time&lt;/cityZoneFormat&gt;
   ...</pre>
 </blockquote>
+<p>We will also institute multi-level fallback for zone resources. So if a key
+is missing in, say, en_US, then it will be looked up in en. The root will be as
+language neutral as possible, and contain no translated zone strings; that means
+that the raw Olson IDs will be returned if we ever make it all the way up to the
+root.</p>
 
 </body>
 

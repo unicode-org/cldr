@@ -7,8 +7,8 @@
 >
 <ldml>
 	<identity>
-		<version number="1.0-alpha"/>
-		<generation date="2003-10-02" />
+		<version number="2.0"/>
+		<generation date="2003-11-11" />
 		<language type="zh" /> 
 	</identity>
 	<localeDisplayNames>
@@ -53,7 +53,9 @@
 			<language type="gl">加利西亚文</language>
 			<language type="gn">瓜拉尼文</language>
 			<language type="gu">古加拉提文</language>
+			<language type="gv">马恩岛文</language>
 			<language type="ha">豪撒文</language>
+			<language type="haw">夏威夷文</language>
 			<language type="he">希伯来文</language>
 			<language type="hi">印地文</language>
 			<language type="hr">克罗地亚文</language>
@@ -76,6 +78,7 @@
 			<language type="ko">韩文</language>
 			<language type="ks">克什米尔文</language>
 			<language type="ku">库尔德文</language>
+			<language type="kw">凯尔特文</language>
 			<language type="ky">吉尔吉斯文</language>
 			<language type="la">拉丁文</language>
 			<language type="ln">林加拉文</language>
@@ -93,8 +96,10 @@
 			<language type="mt">马耳他文</language>
 			<language type="my">缅甸文</language>
 			<language type="na">瑙鲁文</language>
+			<language type="nb">挪威博克马尔文</language>
 			<language type="ne">尼泊尔文</language>
 			<language type="nl">荷兰文</language>
+			<language type="nn">挪威尼诺斯克文</language>
 			<language type="no">挪威文</language>
 			<language type="oc">奥西坦文</language>
 			<language type="om">阿曼文</language>
@@ -395,9 +400,15 @@
 			<territory type="ZM">赞比亚</territory>
 			<territory type="ZW">津巴布韦</territory>
 		</territories>
+		<variants>
+			<variant type="EURO">欧元</variant>
+			<variant type="REVISED">已修订</variant>
+		</variants>
 		<types>
-			<type type="PINYIN" key="collation">拼音顺序</type>
-			<type type="STROKE" key="collation">笔划顺序</type>
+			<type type="traditional" key="calendar">传统历法</type>
+			<type type="pinyin" key="collation">拼音顺序</type>
+			<type type="stroke" key="collation">笔划顺序</type>
+			<type type="traditional" key="collation">传统历法</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -450,13 +461,13 @@
 					<day type="sat">星期六</day>
 				</dayNames>
 				<dayAbbr>
-					<day type="sun">星期日</day>
-					<day type="mon">星期一</day>
-					<day type="tue">星期二</day>
-					<day type="wed">星期三</day>
-					<day type="thu">星期四</day>
-					<day type="fri">星期五</day>
-					<day type="sat">星期六</day>
+					<day type="sun">日</day>
+					<day type="mon">一</day>
+					<day type="tue">二</day>
+					<day type="wed">三</day>
+					<day type="thu">四</day>
+					<day type="fri">五</day>
+					<day type="sat">六</day>
 				</dayAbbr>
 				<am>上午</am>
 				<pm>下午</pm>
@@ -468,8 +479,6 @@
 				</eras>
 			</calendar>
 		</calendars>
-		<timeZoneNames>
-		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencies>

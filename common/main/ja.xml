@@ -7,8 +7,8 @@
 >
 <ldml>
 	<identity>
-		<version number="1.0-alpha"/>
-		<generation date="2003-10-02" />
+		<version number="2.0"/>
+		<generation date="2003-11-11" />
 		<language type="ja" /> 
 	</identity>
 	<localeDisplayNames>
@@ -402,11 +402,11 @@
 		</territories>
 		<variants>
 			<variant type="EURO">ユーロ</variant>
-			<variant type="PREEURO">旧通貨</variant>
 			<variant type="REVISED">改訂版</variant>
 		</variants>
 		<types>
-			<type type="TRADITIONAL" key="collation">年号</type>
+			<type type="traditional" key="calendar">年号</type>
+			<type type="traditional" key="collation">年号</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -518,8 +518,6 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
-		<timeZoneNames>
-		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencies>

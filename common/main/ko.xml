@@ -7,8 +7,8 @@
 >
 <ldml>
 	<identity>
-		<version number="1.0-alpha"/>
-		<generation date="2003-10-02" />
+		<version number="2.0"/>
+		<generation date="2003-11-11" />
 		<language type="ko" /> 
 	</identity>
 	<localeDisplayNames>
@@ -402,11 +402,11 @@
 		</territories>
 		<variants>
 			<variant type="EURO">유로</variant>
-			<variant type="PREEURO">유로 이전</variant>
 			<variant type="REVISED">개정</variant>
 		</variants>
 		<types>
-			<type type="TRADITIONAL" key="collation">전통 역법</type>
+			<type type="traditional" key="calendar">전통 역법</type>
+			<type type="traditional" key="collation">전통 역법</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -531,8 +531,6 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
-		<timeZoneNames>
-		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencies>

@@ -488,6 +488,7 @@
 			<script type="Buhd">Buhid</script>
 			<script type="Cans">Unified Canadian Aboriginal Symbols</script>
 			<script type="Cher">Cherokee</script>
+			<script type="Copt">Coptic</script>
 			<script type="Cprt">Cypriot</script>
 			<script type="Cyrl">Cyrillic</script>
 			<script type="Deva">Devanagari</script>
@@ -520,7 +521,6 @@
 			<script type="Ogam">Ogham</script>
 			<script type="Orya">Oriya</script>
 			<script type="Osma">Osmanya</script>
-			<script type="Qaac">Coptic</script>
 			<script type="Qaai">Inherited</script>
 			<script type="Runr">Runic</script>
 			<script type="Shaw">Shavian</script>
@@ -2858,7 +2858,6 @@ The range qaa-qtz is reserved for local use.
         vo  { "Volap\u00FCk" }   // Yes the iso-639 standard uses the umlaut in the English name
 TODO: This list may be incomplete. Finish it once a formal list appears.
 http://www.unicode.org/iso15924/
-        Qaac { "Coptic" } // Coptic is not a formal part of ISO-15924 yet
         Qaai { "Inherited" } // PUA
 Thai { "Thai" } // Just happens to be a duplicate
         Zyyy { "Common" } // This may need to become "undetermined script"

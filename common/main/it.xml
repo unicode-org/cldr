@@ -479,6 +479,7 @@
 			<script type="Buhd">buhid</script>
 			<script type="Cans">simboli aborigeni canadesi unificati</script>
 			<script type="Cher">cherokee</script>
+			<script type="Copt">copto</script>
 			<script type="Cprt">cipriota</script>
 			<script type="Cyrl">cirillico</script>
 			<script type="Deva">devanagari</script>
@@ -510,7 +511,6 @@
 			<script type="Ogam">ogham</script>
 			<script type="Orya">oriya</script>
 			<script type="Osma">osmanya</script>
-			<script type="Qaac">copto</script>
 			<script type="Qaai">ereditato</script>
 			<script type="Runr">runico</script>
 			<script type="Shaw">shaviano</script>
@@ -2832,8 +2832,6 @@ vai { "vai" }
         vo  { "volap\u00fck" }   // Yes the iso-639 standard uses the umlaut in the English name
 zh_cn { "Cinese (Semplificato)" }
 zh_tw { "Cinese (Tradizionale)" }
-        "Latn",  // ISO 15924 Name 
-        Qaac { "copto" } // Coptic is not a formal part of ISO-15924 yet
         Qaai { "ereditato" } // PUA
         Zyyy { "comune" } // This may need to become "undetermined script"
 

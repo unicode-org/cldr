@@ -9758,7 +9758,7 @@ LC_COLLATE
 
 collating-symbol <X0001>
 collating-symbol <X0005>
-collating-symbol <X0085>
+collating-symbol <X0086>
 collating-symbol <X0087>
 collating-symbol <X008F>
 collating-symbol <X00C0>
@@ -10108,7 +10108,7 @@ order_start forward;forward;forward;forward
 
 <X0001>
 <X0005>
-<X0085>
+<X0086>
 <X0087>
 <X008F>
 <X00C0>
@@ -10532,7 +10532,7 @@ order_start forward;forward;forward;forward
 <a>                           <X2600>;<X0005>;<X0005>;IGNORE
 <A>                           <X2600>;<X0005>;<X008F>;IGNORE
 <LATIN_SMALL_LETTER_AE>       "<X2600><X2E00>";"<X0087><X0005>";"<X0005><X0005>";IGNORE
-<LATIN_CAPITAL_LETTER_AE>     "<X2600><X2E00>";"<X0087><X0005>";"<X0085><X008F>";IGNORE
+<LATIN_CAPITAL_LETTER_AE>     "<X2600><X2E00>";"<X0087><X0005>";"<X0086><X0005>";IGNORE
 <b>                           <X2800>;<X0005>;<X0005>;IGNORE
 <B>                           <X2800>;<X0005>;<X008F>;IGNORE
 <c>                           <X2A00>;<X0005>;<X0005>;IGNORE
@@ -12693,11 +12693,11 @@ LC_MESSAGES
 
 yesstr   "<CJK_UNIFIED_IDEOGRAPH-78BA><CJK_UNIFIED_IDEOGRAPH-5B9A>"
 
-nostr    "<CJK_UNIFIED_IDEOGRAPH-5426><CJK_UNIFIED_IDEOGRAPH-5B9A>"
+nostr    "<CJK_UNIFIED_IDEOGRAPH-5426>:<CJK_UNIFIED_IDEOGRAPH-5426><CJK_UNIFIED_IDEOGRAPH-5B9A>"
 
-yesexpr  "<CJK_UNIFIED_IDEOGRAPH-662F>"
+yesexpr  "^([yY]([eE][sS])?)|<CJK_UNIFIED_IDEOGRAPH-78BA><CJK_UNIFIED_IDEOGRAPH-5B9A>"
 
-noexpr   "<CJK_UNIFIED_IDEOGRAPH-5426>"
+noexpr   "^([nN][oO]?)|<CJK_UNIFIED_IDEOGRAPH-5426><CJK_UNIFIED_IDEOGRAPH-5B9A>?"
 
 
 END LC_MESSAGES

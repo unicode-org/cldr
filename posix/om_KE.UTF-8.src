@@ -5495,7 +5495,7 @@ mon     "<A><m><a><j><j><i><i>";/
         "<S><a><d><a><a><s><a>";/
         "<M><u><d><d><e><e>"
 
-d_fmt    "%d-%b-%y"
+d_fmt    "%d<SOLIDUS>%m<SOLIDUS>%y"
 
 t_fmt    "%I:%M:%S %p"
 
@@ -5511,13 +5511,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "yes:y:Y"
+yesstr   "yes:y"
 
-nostr    "no:n:N"
+nostr    "no:n"
 
-yesexpr  "^[yY]"
+yesexpr  "^[yY]([eE][sS])?"
 
-noexpr   "^[nN]"
+noexpr   "^[nN][oO]?"
 
 
 END LC_MESSAGES

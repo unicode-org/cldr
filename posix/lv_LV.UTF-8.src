@@ -5465,7 +5465,7 @@ mon     "<j><a><n><v><LATIN_SMALL_LETTER_A_WITH_MACRON><r><i><s>";/
         "<n><o><v><e><m><b><r><i><s>";/
         "<d><e><c><e><m><b><r><i><s>"
 
-d_fmt    "%Y.%e.%m"
+d_fmt    "%y.%e.%m"
 
 t_fmt    "%H:%M:%S"
 
@@ -5481,13 +5481,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "j<LATIN_SMALL_LETTER_A_WITH_MACRON>"
+yesstr   "<LATIN_SMALL_LETTER_A_WITH_MACRON>j<LATIN_SMALL_LETTER_A_WITH_MACRON>:ja:j"
 
-nostr    "n<LATIN_SMALL_LETTER_E_WITH_MACRON>"
+nostr    "n<LATIN_SMALL_LETTER_E_WITH_MACRON>:ne:n"
 
-yesexpr  "j;J"
+yesexpr  "^([yY]([eE][sS])?)|([jJ][<LATIN_SMALL_LETTER_A_WITH_MACRON><LATIN_CAPITAL_LETTER_A_WITH_MACRON>aA]?)"
 
-noexpr   "n;N"
+noexpr   "^[nN][oO<LATIN_SMALL_LETTER_E_WITH_MACRON><LATIN_CAPITAL_LETTER_E_WITH_MACRON>eE]?"
 
 
 END LC_MESSAGES

@@ -5386,15 +5386,15 @@ END LC_NUMERIC
 LC_MONETARY
 *************
 
-int_curr_symbol       "<T><R><L><space>"
-currency_symbol       "<T><L>"
+int_curr_symbol       "<T><R><Y><space>"
+currency_symbol       "<T><R><Y>"
 mon_decimal_point     "<COMMA>"
 mon_thousands_sep     "<FULL_STOP>"
 mon_grouping          3
 positive_sign         ""
 negative_sign         "<HYPHEN-MINUS>"
-int_frac_digits       0
-frac_digits           0
+int_frac_digits       2
+frac_digits           2
 p_cs_precedes         0
 p_sep_by_space        1
 n_cs_precedes         0
@@ -5457,7 +5457,7 @@ mon     "<O><c><a><k>";/
         "<K><a><s><LATIN_SMALL_LETTER_DOTLESS_I><m>";/
         "<A><r><a><l><LATIN_SMALL_LETTER_DOTLESS_I><k>"
 
-d_fmt    "%d.%b.%Y"
+d_fmt    "%d.%m.%Y"
 
 t_fmt    "%H:%M:%S"
 
@@ -5473,13 +5473,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "Evet"
+yesstr   "evet:e"
 
-nostr    "Hay<LATIN_SMALL_LETTER_DOTLESS_I>r"
+nostr    "hay<LATIN_SMALL_LETTER_DOTLESS_I>r:hayir:h"
 
-yesexpr  "E"
+yesexpr  "^([yY]([eE][sS])?)|([eE]([vV][eE][tT])?)"
 
-noexpr   "H"
+noexpr   "^([nN][oO]?)|([hH]([aA][yY][<LATIN_SMALL_LETTER_DOTLESS_I>iI<LATIN_CAPITAL_LETTER_I_WITH_DOT_ABOVE>][rR])?)"
 
 
 END LC_MESSAGES

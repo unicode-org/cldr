@@ -4770,6 +4770,8 @@ LC_COLLATE
 
 collating-symbol <X0001>
 collating-symbol <X0005>
+collating-symbol <X0086>
+collating-symbol <X0087>
 collating-symbol <X008F>
 collating-symbol <X00C0>
 collating-symbol <X00E0>
@@ -5192,6 +5194,8 @@ order_start forward;forward;forward;forward
 
 <X0001>
 <X0005>
+<X0086>
+<X0087>
 <X008F>
 <X00C0>
 <X00E0>
@@ -5715,6 +5719,8 @@ order_start forward;forward;forward;forward
 <ETHIOPIC_DIGIT_NINE>             <X2382>;"<X0005><X00E0><X00FD>";"<X0005><X0005><X00C0>";IGNORE
 <a>                               <X2600>;<X0005>;<X0005>;IGNORE
 <A>                               <X2600>;<X0005>;<X008F>;IGNORE
+<LATIN_SMALL_LETTER_AE>           "<X2600><X2E00>";"<X0087><X0005>";"<X0005><X0005>";IGNORE
+<LATIN_CAPITAL_LETTER_AE>         "<X2600><X2E00>";"<X0087><X0005>";"<X0086><X0005>";IGNORE
 <b>                               <X2800>;<X0005>;<X0005>;IGNORE
 <B>                               <X2800>;<X0005>;<X008F>;IGNORE
 <c>                               <X2A00>;<X0005>;<X0005>;IGNORE
@@ -6173,7 +6179,7 @@ mon     "<ETHIOPIC_SYLLABLE_JAA><ETHIOPIC_SYLLABLE_NE><ETHIOPIC_SYLLABLE_YU><ETH
         "<ETHIOPIC_SYLLABLE_NO><ETHIOPIC_SYLLABLE_VEE><ETHIOPIC_SYLLABLE_ME><ETHIOPIC_SYLLABLE_BA><ETHIOPIC_SYLLABLE_RE>";/
         "<ETHIOPIC_SYLLABLE_DI><ETHIOPIC_SYLLABLE_SEE><ETHIOPIC_SYLLABLE_ME><ETHIOPIC_SYLLABLE_BA><ETHIOPIC_SYLLABLE_RE>"
 
-d_fmt    "%d-%b-%y"
+d_fmt    "%d<SOLIDUS>%m<SOLIDUS>%y"
 
 t_fmt    "%I:%M:%S %p"
 
@@ -6189,13 +6195,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "yes:y:Y"
+yesstr   "yes:y"
 
-nostr    "no:n:N"
+nostr    "no:n"
 
-yesexpr  "^[yY]"
+yesexpr  "^[yY]([eE][sS])?"
 
-noexpr   "^[nN]"
+noexpr   "^[nN][oO]?"
 
 
 END LC_MESSAGES

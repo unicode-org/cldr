@@ -4008,6 +4008,8 @@ collating-symbol <X000D>
 collating-symbol <X001D>
 collating-symbol <X0031>
 collating-symbol <X0041>
+collating-symbol <X0086>
+collating-symbol <X0087>
 collating-symbol <X008F>
 collating-symbol <X00C0>
 collating-symbol <X00D7>
@@ -4170,6 +4172,8 @@ order_start forward;forward;forward;forward
 <X001D>
 <X0031>
 <X0041>
+<X0086>
+<X0087>
 <X008F>
 <X00C0>
 <X00D7>
@@ -4426,6 +4430,8 @@ order_start forward;forward;forward;forward
 <BENGALI_DIGIT_NINE>                                       <X2382>;"<X0005><X00E1><X0031>";"<X0005><X0005><X00C0>";IGNORE
 <a>                                                        <X2600>;<X0005>;<X0005>;IGNORE
 <A>                                                        <X2600>;<X0005>;<X008F>;IGNORE
+<LATIN_SMALL_LETTER_AE>                                    "<X2600><X2E00>";"<X0087><X0005>";"<X0005><X0005>";IGNORE
+<LATIN_CAPITAL_LETTER_AE>                                  "<X2600><X2E00>";"<X0087><X0005>";"<X0086><X0005>";IGNORE
 <b>                                                        <X2800>;<X0005>;<X0005>;IGNORE
 <B>                                                        <X2800>;<X0005>;<X008F>;IGNORE
 <c>                                                        <X2A00>;<X0005>;<X0005>;IGNORE
@@ -4634,7 +4640,7 @@ mon     "<BENGALI_LETTER_JA><BENGALI_VOWEL_SIGN_AA><BENGALI_LETTER_NA><BENGALI_V
         "<BENGALI_LETTER_NA><BENGALI_LETTER_BHA><BENGALI_VOWEL_SIGN_E><BENGALI_LETTER_MA><BENGALI_SIGN_VIRAMA><BENGALI_LETTER_BA><BENGALI_LETTER_RA>";/
         "<BENGALI_LETTER_DDA><BENGALI_VOWEL_SIGN_I><BENGALI_LETTER_SA><BENGALI_VOWEL_SIGN_E><BENGALI_LETTER_MA><BENGALI_SIGN_VIRAMA><BENGALI_LETTER_BA><BENGALI_LETTER_RA>"
 
-d_fmt    "%d-%m-%Y"
+d_fmt    "%e-%m-%y"
 
 t_fmt    "%I:%M:%S %p"
 
@@ -4654,9 +4660,9 @@ yesstr   "<BENGALI_LETTER_HA><BENGALI_SIGN_VIRAMA><BENGALI_LETTER_YYA><BENGALI_V
 
 nostr    "<BENGALI_LETTER_NA><BENGALI_VOWEL_SIGN_AA>"
 
-yesexpr  "<BENGALI_LETTER_HA><BENGALI_SIGN_VIRAMA><BENGALI_LETTER_YYA><BENGALI_VOWEL_SIGN_AA><BENGALI_SIGN_CANDRABINDU>"
+yesexpr  "^([yY]([eE][sS])?)|<BENGALI_LETTER_HA><BENGALI_SIGN_VIRAMA><BENGALI_LETTER_YYA><BENGALI_VOWEL_SIGN_AA><BENGALI_SIGN_CANDRABINDU>"
 
-noexpr   "<BENGALI_LETTER_NA><BENGALI_VOWEL_SIGN_AA>"
+noexpr   "^([nN][oO]?)|<BENGALI_LETTER_NA><BENGALI_VOWEL_SIGN_AA>"
 
 
 END LC_MESSAGES

@@ -4835,7 +4835,7 @@ int_curr_symbol       "<A><F><N><space>"
 currency_symbol       "<A><F><N>"
 mon_decimal_point     "<ARABIC_DECIMAL_SEPARATOR>"
 mon_thousands_sep     "<ARABIC_THOUSANDS_SEPARATOR>"
-mon_grouping          -1
+mon_grouping          3
 positive_sign         ""
 negative_sign         "<MINUS_SIGN>"
 int_frac_digits       2
@@ -4843,15 +4843,15 @@ frac_digits           2
 p_cs_precedes         0
 p_sep_by_space        1
 n_cs_precedes         0
-n_sep_by_space        2
+n_sep_by_space        1
 p_sign_posn           1
-n_sign_posn           3
+n_sign_posn           1
 int_p_cs_precedes     0
 int_p_sep_by_space    1
 int_n_cs_precedes     0
-int_n_sep_by_space    2
+int_n_sep_by_space    1
 int_p_sign_posn       1
-int_n_sign_posn       3
+int_n_sign_posn       1
 
 END LC_MONETARY
 
@@ -4902,7 +4902,7 @@ mon     "<ARABIC_LETTER_JEEM><ARABIC_LETTER_NOON><ARABIC_LETTER_WAW><ARABIC_LETT
         "<ARABIC_LETTER_NOON><ARABIC_LETTER_WAW><ARABIC_LETTER_MEEM><ARABIC_LETTER_BEH><ARABIC_LETTER_REH>";/
         "<ARABIC_LETTER_DAL><ARABIC_LETTER_SEEN><ARABIC_LETTER_MEEM><ARABIC_LETTER_BEH><ARABIC_LETTER_REH>"
 
-d_fmt    "%e %B %Y"
+d_fmt    "%Y<SOLIDUS>%m<SOLIDUS>%e"
 
 t_fmt    "%H:%M:%S"
 
@@ -4918,9 +4918,9 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "yes:YES:y:Y"
+yesstr   "yes:y"
 
-nostr    "no:NO:n:N"
+nostr    "no:n"
 
 yesexpr  "^[yY]([eE][sS])?"
 

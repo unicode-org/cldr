@@ -5473,13 +5473,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "Da"
+yesstr   "da:d"
 
-nostr    "Nu"
+nostr    "nu:n"
 
-yesexpr  "Da"
+yesexpr  "^([yY]([eE][sS])?)|([dD][aA]?)"
 
-noexpr   "Nu"
+noexpr   "^[nN][oOuU]?"
 
 
 END LC_MESSAGES

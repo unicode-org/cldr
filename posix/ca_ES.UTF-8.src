@@ -5469,7 +5469,7 @@ mon     "<g><e><n><e><r>";/
         "<n><o><v><e><m><b><r><e>";/
         "<d><e><s><e><m><b><r><e>"
 
-d_fmt    "%d/%m/%Y"
+d_fmt    "%d<SOLIDUS>%m<SOLIDUS>%y"
 
 t_fmt    "%H:%M:%S"
 
@@ -5485,13 +5485,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "Si<COMBINING_ACUTE_ACCENT>"
+yesstr   "s<LATIN_SMALL_LETTER_I_WITH_ACUTE>:si:s"
 
-nostr    "No"
+nostr    "no:n"
 
-yesexpr  "S"
+yesexpr  "^([yY]([eE][sS])?)|([sS][iI<LATIN_SMALL_LETTER_I_WITH_ACUTE><LATIN_CAPITAL_LETTER_I_WITH_ACUTE>]?)"
 
-noexpr   "N"
+noexpr   "^([nN][oO]?)"
 
 
 END LC_MESSAGES

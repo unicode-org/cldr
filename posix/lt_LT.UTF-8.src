@@ -4378,6 +4378,7 @@ order_start forward;forward;forward;forward
 <END_OF_MEDIUM>                                         IGNORE;IGNORE;IGNORE;<END_OF_MEDIUM>
 <ENQUIRY>                                               IGNORE;IGNORE;IGNORE;<ENQUIRY>
 <NULL>                                                  IGNORE;IGNORE;IGNORE;<NULL>
+<COMBINING_DOT_ABOVE>                                   IGNORE;<X00AA>;<X0005>;IGNORE
 <tab>                                                   <X0507>;<X0005>;<X0005>;IGNORE
 <newline>                                               <X0509>;<X0005>;<X0005>;IGNORE
 <vertical-tab>                                          <X050B>;<X0005>;<X0005>;IGNORE
@@ -5471,13 +5472,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "Taip"
+yesstr   "taip:t"
 
-nostr    "Ne"
+nostr    "ne:n"
 
-yesexpr  "T;t;TAIP"
+yesexpr  "^([yY]([eE][sS])?)|([tT]([aA][iI][pP])?)"
 
-noexpr   "N;n;NE"
+noexpr   "^[nN][oOeE]?"
 
 
 END LC_MESSAGES

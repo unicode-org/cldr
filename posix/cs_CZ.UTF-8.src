@@ -5471,7 +5471,7 @@ mon     "<l><e><d><n><a>";/
         "<l><i><s><t><o><p><a><d><u>";/
         "<p><r><o><s><i><n><c><e>"
 
-d_fmt    "%e.%m.%Y"
+d_fmt    "%e.%m.%y"
 
 t_fmt    "%H:%M:%S"
 
@@ -5487,13 +5487,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "ANO"
+yesstr   "ano:a"
 
-nostr    "NE"
+nostr    "ne:n"
 
-yesexpr  "A"
+yesexpr  "^([yY]([eE][sS])?)|([aA]([nN][oO])?)"
 
-noexpr   "N"
+noexpr   "^([nN][oOeE]?)"
 
 
 END LC_MESSAGES

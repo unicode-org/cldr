@@ -4794,6 +4794,8 @@ collating-symbol <X0005>
 collating-symbol <X0009>
 collating-symbol <X0069>
 collating-symbol <X0079>
+collating-symbol <X0086>
+collating-symbol <X0087>
 collating-symbol <X0089>
 collating-symbol <X008F>
 collating-symbol <X0091>
@@ -5012,6 +5014,8 @@ order_start forward;forward;forward;forward
 <X0009>
 <X0069>
 <X0079>
+<X0086>
+<X0087>
 <X0089>
 <X008F>
 <X0091>
@@ -5307,6 +5311,8 @@ order_start forward;forward;forward;forward
 <nine>                                                     <X2382>;<X0005>;<X0005>;IGNORE
 <a>                                                        <X2600>;<X0005>;<X0005>;IGNORE
 <A>                                                        <X2600>;<X0005>;<X008F>;IGNORE
+<LATIN_SMALL_LETTER_AE>                                    "<X2600><X2E00>";"<X0087><X0005>";"<X0005><X0005>";IGNORE
+<LATIN_CAPITAL_LETTER_AE>                                  "<X2600><X2E00>";"<X0087><X0005>";"<X0086><X0005>";IGNORE
 <b>                                                        <X2800>;<X0005>;<X0005>;IGNORE
 <B>                                                        <X2800>;<X0005>;<X008F>;IGNORE
 <c>                                                        <X2A00>;<X0005>;<X0005>;IGNORE
@@ -5634,7 +5640,7 @@ LC_MONETARY
 *************
 
 int_curr_symbol       "<R><U><B><space>"
-currency_symbol       "<R><U><B>"
+currency_symbol       "<CYRILLIC_SMALL_LETTER_ER><FULL_STOP>"
 mon_decimal_point     "<COMMA>"
 mon_thousands_sep     "<NO-BREAK_SPACE>"
 mon_grouping          3
@@ -5704,7 +5710,7 @@ mon     "<CYRILLIC_SMALL_LETTER_YA><CYRILLIC_SMALL_LETTER_EN><CYRILLIC_SMALL_LET
         "<CYRILLIC_SMALL_LETTER_EN><CYRILLIC_SMALL_LETTER_O><CYRILLIC_SMALL_LETTER_YA><CYRILLIC_SMALL_LETTER_BE><CYRILLIC_SMALL_LETTER_ER><CYRILLIC_SMALL_LETTER_YA>";/
         "<CYRILLIC_SMALL_LETTER_DE><CYRILLIC_SMALL_LETTER_IE><CYRILLIC_SMALL_LETTER_KA><CYRILLIC_SMALL_LETTER_A><CYRILLIC_SMALL_LETTER_BE><CYRILLIC_SMALL_LETTER_ER><CYRILLIC_SMALL_LETTER_YA>"
 
-d_fmt    "%d.%m.%Y"
+d_fmt    "%d.%m.%y"
 
 t_fmt    "%H:%M:%S"
 
@@ -5720,13 +5726,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "<CYRILLIC_SMALL_LETTER_DE><CYRILLIC_SMALL_LETTER_A>"
+yesstr   "<CYRILLIC_SMALL_LETTER_DE><CYRILLIC_SMALL_LETTER_A>:<CYRILLIC_SMALL_LETTER_DE>"
 
-nostr    "<CYRILLIC_SMALL_LETTER_EN><CYRILLIC_SMALL_LETTER_IE><CYRILLIC_SMALL_LETTER_TE>"
+nostr    "<CYRILLIC_SMALL_LETTER_EN><CYRILLIC_SMALL_LETTER_IE><CYRILLIC_SMALL_LETTER_TE>:<CYRILLIC_SMALL_LETTER_EN>"
 
-yesexpr  "^[yY]"
+yesexpr  "^([yY]([eE][sS])?)|([<CYRILLIC_SMALL_LETTER_DE><CYRILLIC_CAPITAL_LETTER_DE>][<CYRILLIC_SMALL_LETTER_A><CYRILLIC_CAPITAL_LETTER_A>]?)"
 
-noexpr   "^[nN]"
+noexpr   "^([nN][oO]?)|([<CYRILLIC_SMALL_LETTER_EN><CYRILLIC_CAPITAL_LETTER_EN>]([<CYRILLIC_SMALL_LETTER_IE><CYRILLIC_CAPITAL_LETTER_IE>][<CYRILLIC_SMALL_LETTER_TE><CYRILLIC_CAPITAL_LETTER_TE>])?)"
 
 
 END LC_MESSAGES

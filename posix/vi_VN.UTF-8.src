@@ -4380,6 +4380,11 @@ order_start forward;forward;forward;forward
 <END_OF_MEDIUM>                                         IGNORE;IGNORE;IGNORE;<END_OF_MEDIUM>
 <ENQUIRY>                                               IGNORE;IGNORE;IGNORE;<ENQUIRY>
 <NULL>                                                  IGNORE;IGNORE;IGNORE;<NULL>
+<COMBINING_HOOK_ABOVE>                                  IGNORE;"<X0090><X0004>";"<X0005><X00C0>";IGNORE
+<COMBINING_TILDE>                                       IGNORE;"<X0090><X0005>";"<X0005><X00C0>";IGNORE
+<COMBINING_ACUTE_ACCENT>                                IGNORE;"<X0090><X0006>";"<X0005><X00C0>";<COMBINING_ACUTE_ACCENT>
+<COMBINING_ACUTE_TONE_MARK>                             IGNORE;"<X0090><X0006>";"<X0005><X00C0>";<COMBINING_ACUTE_ACCENT>
+<COMBINING_DOT_BELOW>                                   IGNORE;"<X0090><X0007>";"<X0005><X00C0>";IGNORE
 <tab>                                                   <X0507>;<X0005>;<X0005>;IGNORE
 <newline>                                               <X0509>;<X0005>;<X0005>;IGNORE
 <vertical-tab>                                          <X050B>;<X0005>;<X0005>;IGNORE
@@ -5457,7 +5462,7 @@ mon     "<t><h><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><g><space><m><LATIN_SMALL_LET
         "<t><h><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><g><space><m><LATIN_SMALL_LETTER_U_WITH_HORN><LATIN_SMALL_LETTER_O_WITH_HORN_AND_GRAVE><i><space><m><LATIN_SMALL_LETTER_O_WITH_CIRCUMFLEX_AND_DOT_BELOW><t>";/
         "<t><h><LATIN_SMALL_LETTER_A_WITH_ACUTE><n><g><space><m><LATIN_SMALL_LETTER_U_WITH_HORN><LATIN_SMALL_LETTER_O_WITH_HORN_AND_GRAVE><i><space><h><a><i>"
 
-d_fmt    "%d-%m-%Y"
+d_fmt    "%d<SOLIDUS>%m<SOLIDUS>%Y"
 
 t_fmt    "%H:%M:%S"
 
@@ -5473,13 +5478,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "c<LATIN_SMALL_LETTER_O_WITH_ACUTE>;co<COMBINING_ACUTE_ACCENT>"
+yesstr   "<CYRILLIC_SMALL_LETTER_ES><LATIN_SMALL_LETTER_O_WITH_ACUTE>:co:c"
 
-nostr    "kh<LATIN_SMALL_LETTER_O_WITH_CIRCUMFLEX>ng"
+nostr    "kh<LATIN_SMALL_LETTER_O_WITH_CIRCUMFLEX>ng:khong:k"
 
-yesexpr  "c"
+yesexpr  "^([yY]([eE][sS])?)|([cC][<LATIN_SMALL_LETTER_O_WITH_ACUTE><LATIN_CAPITAL_LETTER_O_WITH_ACUTE>oO]?)"
 
-noexpr   "k"
+noexpr   "^([nN][oO]?)|([kK]([hH][<LATIN_SMALL_LETTER_O_WITH_CIRCUMFLEX><LATIN_CAPITAL_LETTER_O_WITH_CIRCUMFLEX>oO][nN][gG])?)"
 
 
 END LC_MESSAGES

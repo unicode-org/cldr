@@ -5096,6 +5096,7 @@ order_start forward;forward;forward;forward
 <LATIN_CAPITAL_LETTER_S_WITH_COMMA_BELOW>               <X4A00>;"<X0005><X00D0><X007D>";"<X008F><X0005><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_LONG_S>                             <X4A00>;"<X0005><X00E0><X009D>";"<X0009><X0009><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_LONG_S_WITH_DOT_ABOVE>              <X4A00>;"<X0005><X00E0><X009D><X00A3>";"<X0009><X0009><X00C0><X0005>";IGNORE
+<s-s>                                                   "<X4A00><X4A00>";"<X0005><X0005>";"<X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_SHARP_S>                            "<X4A00><X4A00>";"<X0005><X00E0><X008D><X0005>";"<X0009><X0009><X00C0><X003D>";IGNORE
 <LATIN_SMALL_LIGATURE_ST>                               "<X4A00><X4C00>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_SMALL_LIGATURE_LONG_S_T>                         "<X4A00><X4C00>";"<X0005><X00E0><X009D><X0005>";"<X0009><X0009><X00C0><X003D>";IGNORE
@@ -5449,7 +5450,7 @@ mon     "<J><a><n><u><a><r>";/
         "<N><o><v><e><m><b><e><r>";/
         "<D><e><z><e><m><b><e><r>"
 
-d_fmt    "%e-%b-%y"
+d_fmt    "%e<SOLIDUS>%m<SOLIDUS>%y"
 
 t_fmt    "%H:%M:%S"
 
@@ -5465,13 +5466,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "Ja"
+yesstr   "ja:j"
 
-nostr    "Nein"
+nostr    "nein:n"
 
-yesexpr  "J"
+yesexpr  "^([yY]([eE][sS])?)|([jJ][aA]?)"
 
-noexpr   "N"
+noexpr   "^([nN]([oO]|([eE][iI][nN]))?)"
 
 
 END LC_MESSAGES

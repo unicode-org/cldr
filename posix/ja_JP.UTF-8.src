@@ -66353,23 +66353,23 @@ int_curr_symbol       "<J><P><Y><space>"
 currency_symbol       "<FULLWIDTH_YEN_SIGN>"
 mon_decimal_point     "<FULL_STOP>"
 mon_thousands_sep     "<COMMA>"
-mon_grouping          -1
+mon_grouping          3
 positive_sign         ""
 negative_sign         "<HYPHEN-MINUS>"
 int_frac_digits       0
 frac_digits           0
-p_cs_precedes         0
-p_sep_by_space        1
-n_cs_precedes         0
+p_cs_precedes         1
+p_sep_by_space        0
+n_cs_precedes         1
 n_sep_by_space        0
 p_sign_posn           1
-n_sign_posn           3
-int_p_cs_precedes     0
-int_p_sep_by_space    1
-int_n_cs_precedes     0
+n_sign_posn           1
+int_p_cs_precedes     1
+int_p_sep_by_space    0
+int_n_cs_precedes     1
 int_n_sep_by_space    0
 int_p_sign_posn       1
-int_n_sign_posn       3
+int_n_sign_posn       1
 
 END LC_MONETARY
 
@@ -66394,18 +66394,18 @@ day     "<CJK_UNIFIED_IDEOGRAPH-65E5><CJK_UNIFIED_IDEOGRAPH-66DC><CJK_UNIFIED_ID
         "<CJK_UNIFIED_IDEOGRAPH-91D1><CJK_UNIFIED_IDEOGRAPH-66DC><CJK_UNIFIED_IDEOGRAPH-65E5>";/
         "<CJK_UNIFIED_IDEOGRAPH-571F><CJK_UNIFIED_IDEOGRAPH-66DC><CJK_UNIFIED_IDEOGRAPH-65E5>"
 
-abmon   "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>";/
-        "<eight>";/
-        "<nine>";/
-        "<one><zero>";/
-        "<one><one>";/
-        "<one><two>"
+abmon   "<one><space><CJK_UNIFIED_IDEOGRAPH-6708>";/
+        "<two><space><CJK_UNIFIED_IDEOGRAPH-6708>";/
+        "<three><space><CJK_UNIFIED_IDEOGRAPH-6708>";/
+        "<four><space><CJK_UNIFIED_IDEOGRAPH-6708>";/
+        "<five><space><CJK_UNIFIED_IDEOGRAPH-6708>";/
+        "<six><space><CJK_UNIFIED_IDEOGRAPH-6708>";/
+        "<seven><space><CJK_UNIFIED_IDEOGRAPH-6708>";/
+        "<eight><space><CJK_UNIFIED_IDEOGRAPH-6708>";/
+        "<nine><space><CJK_UNIFIED_IDEOGRAPH-6708>";/
+        "<one><zero><space><CJK_UNIFIED_IDEOGRAPH-6708>";/
+        "<one><one><space><CJK_UNIFIED_IDEOGRAPH-6708>";/
+        "<one><two><space><CJK_UNIFIED_IDEOGRAPH-6708>"
 
 mon     "<one><CJK_UNIFIED_IDEOGRAPH-6708>";/
         "<two><CJK_UNIFIED_IDEOGRAPH-6708>";/
@@ -66420,7 +66420,7 @@ mon     "<one><CJK_UNIFIED_IDEOGRAPH-6708>";/
         "<one><one><CJK_UNIFIED_IDEOGRAPH-6708>";/
         "<one><two><CJK_UNIFIED_IDEOGRAPH-6708>"
 
-d_fmt    "%Y<SOLIDUS>%m<SOLIDUS>%d"
+d_fmt    "%y<SOLIDUS>%m<SOLIDUS>%d"
 
 t_fmt    "%H:%M:%S"
 
@@ -66436,13 +66436,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "<HIRAGANA_LETTER_HA><HIRAGANA_LETTER_I>"
+yesstr   "<HIRAGANA_LETTER_HA><HIRAGANA_LETTER_I>:<KATAKANA_LETTER_HA><KATAKANA_LETTER_I>"
 
-nostr    "<HIRAGANA_LETTER_I><HIRAGANA_LETTER_I><HIRAGANA_LETTER_E>"
+nostr    "<HIRAGANA_LETTER_I><HIRAGANA_LETTER_I><HIRAGANA_LETTER_E>:<KATAKANA_LETTER_I><KATAKANA_LETTER_I><KATAKANA_LETTER_E>"
 
-yesexpr  "^[yY]"
+yesexpr  "^([yY]([eE][sS])?)|([<FULLWIDTH_LATIN_SMALL_LETTER_Y><FULLWIDTH_LATIN_CAPITAL_LETTER_Y>]([<FULLWIDTH_LATIN_SMALL_LETTER_E><FULLWIDTH_LATIN_CAPITAL_LETTER_E>][<FULLWIDTH_LATIN_SMALL_LETTER_S><FULLWIDTH_LATIN_CAPITAL_LETTER_S>])?)|<HIRAGANA_LETTER_HA><HIRAGANA_LETTER_I>|<KATAKANA_LETTER_HA><KATAKANA_LETTER_I>"
 
-noexpr   "^[nN]"
+noexpr   "^([nN][oO]?)|([<FULLWIDTH_LATIN_SMALL_LETTER_N><FULLWIDTH_LATIN_CAPITAL_LETTER_N>][<FULLWIDTH_LATIN_SMALL_LETTER_O><FULLWIDTH_LATIN_CAPITAL_LETTER_O>]?)|<HIRAGANA_LETTER_I><HIRAGANA_LETTER_I><HIRAGANA_LETTER_E>|<KATAKANA_LETTER_I><KATAKANA_LETTER_I><KATAKANA_LETTER_E>"
 
 
 END LC_MESSAGES

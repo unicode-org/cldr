@@ -5461,11 +5461,11 @@ mon     "<j><a><n><u><a><r>";/
         "<n><o><v><e><m><b><e><r>";/
         "<d><e><c><e><m><b><e><r>"
 
-d_fmt    "%d-%m-%Y"
+d_fmt    "%d-%m-%y"
 
-t_fmt    "%H:%M:%S"
+t_fmt    "%H.%M.%S"
 
-d_t_fmt  "%e. %b %Y %H:%M:%S %Z"
+d_t_fmt  "%e. %b %Y %H.%M.%S %Z"
 
 am_pm    "<A><M>";"<P><M>"
 
@@ -5477,13 +5477,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "Ja"
+yesstr   "ja:j"
 
-nostr    "Nej"
+nostr    "nej:n"
 
-yesexpr  "J"
+yesexpr  "^([yY]([eE][sS])?)|([jJ][aA]?)"
 
-noexpr   "N"
+noexpr   "^([nN]([oO]|([eE][jJ]))?)"
 
 
 END LC_MESSAGES

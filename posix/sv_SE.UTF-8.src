@@ -5474,13 +5474,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "ja"
+yesstr   "ja:j"
 
-nostr    "nej"
+nostr    "nej:n"
 
-yesexpr  "ja"
+yesexpr  "^([yY]([eE][sS])?)|([jJ][aA]?)"
 
-noexpr   "nej"
+noexpr   "^[nN]([oO]|[eE][jJ])?"
 
 
 END LC_MESSAGES

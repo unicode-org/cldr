@@ -5393,15 +5393,15 @@ positive_sign         ""
 negative_sign         "<HYPHEN-MINUS>"
 int_frac_digits       2
 frac_digits           2
-p_cs_precedes         1
+p_cs_precedes         0
 p_sep_by_space        1
-n_cs_precedes         1
+n_cs_precedes         0
 n_sep_by_space        1
 p_sign_posn           1
 n_sign_posn           1
-int_p_cs_precedes     1
+int_p_cs_precedes     0
 int_p_sep_by_space    1
-int_n_cs_precedes     1
+int_n_cs_precedes     0
 int_n_sep_by_space    1
 int_p_sign_posn       1
 int_n_sign_posn       1
@@ -5455,13 +5455,13 @@ mon     "<j><a><n><u><a><r>";/
         "<n><o><v><e><m><b><e><r>";/
         "<d><e><c><e><m><b><e><r>"
 
-d_fmt    "%Y.%m.%e"
+d_fmt    "%y.%m.%e"
 
 t_fmt    "%H:%M:%S"
 
 d_t_fmt  "%d. %B %Y %H:%M:%S %Z"
 
-am_pm    "<A><M>";"<P><M>"
+am_pm    "<d><o><p><FULL_STOP>";"<p><o><p><FULL_STOP>"
 
 t_fmt_ampm  ""
 
@@ -5471,13 +5471,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "da;ja"
+yesstr   "da:d:ja:j"
 
-nostr    "ne"
+nostr    "no:NO:n:N:ne:NE"
 
-yesexpr  "j;J;1;y;Y"
+yesexpr  "^([yY]([eE][sS])?)|([dDjJ][aA]?)"
 
-noexpr   "n;N;0"
+noexpr   "^[nN][oOeE]?"
 
 
 END LC_MESSAGES

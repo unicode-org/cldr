@@ -5467,13 +5467,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "kyll<LATIN_SMALL_LETTER_A_WITH_DIAERESIS>"
+yesstr   "kyll<LATIN_SMALL_LETTER_A_WITH_DIAERESIS>:kylla:k"
 
-nostr    "ei"
+nostr    "ei:e"
 
-yesexpr  "k"
+yesexpr  "^([yY]([eE][sS])?)|([kK]([yY][lL][lL][aA<LATIN_SMALL_LETTER_A_WITH_DIAERESIS><LATIN_CAPITAL_LETTER_A_WITH_DIAERESIS>])?)"
 
-noexpr   "e"
+noexpr   "^([nN][oO]?)|([eE][iI]?)"
 
 
 END LC_MESSAGES

@@ -4797,6 +4797,8 @@ collating-symbol <X0005>
 collating-symbol <X0009>
 collating-symbol <X0069>
 collating-symbol <X0079>
+collating-symbol <X0086>
+collating-symbol <X0087>
 collating-symbol <X0089>
 collating-symbol <X008F>
 collating-symbol <X0091>
@@ -5016,6 +5018,8 @@ order_start forward;forward;forward;forward
 <X0009>
 <X0069>
 <X0079>
+<X0086>
+<X0087>
 <X0089>
 <X008F>
 <X0091>
@@ -5313,6 +5317,8 @@ order_start forward;forward;forward;forward
 <nine>                                                     <X2382>;<X0005>;<X0005>;IGNORE
 <a>                                                        <X2600>;<X0005>;<X0005>;IGNORE
 <A>                                                        <X2600>;<X0005>;<X008F>;IGNORE
+<LATIN_SMALL_LETTER_AE>                                    "<X2600><X2E00>";"<X0087><X0005>";"<X0005><X0005>";IGNORE
+<LATIN_CAPITAL_LETTER_AE>                                  "<X2600><X2E00>";"<X0087><X0005>";"<X0086><X0005>";IGNORE
 <b>                                                        <X2800>;<X0005>;<X0005>;IGNORE
 <B>                                                        <X2800>;<X0005>;<X008F>;IGNORE
 <c>                                                        <X2A00>;<X0005>;<X0005>;IGNORE
@@ -5389,6 +5395,8 @@ order_start forward;forward;forward;forward
 <CYRILLIC_CAPITAL_LETTER_GHE_WITH_MIDDLE_HOOK>             <X5B34>;<X0005>;<X008F>;IGNORE
 <CYRILLIC_SMALL_LETTER_DE>                                 <X5B36>;<X0005>;<X0005>;IGNORE
 <CYRILLIC_CAPITAL_LETTER_DE>                               <X5B36>;<X0005>;<X008F>;IGNORE
+<CYRILLIC_SMALL_LETTER_DE-CYRILLIC_SMALL_LETTER_ZHE>       "<X5B36><X5B48>";"<X0005><X0005>";"<X0005><X0005>";IGNORE
+<CYRILLIC_SMALL_LETTER_DE-CYRILLIC_SMALL_LETTER_ZE>        "<X5B36><X5B4E>";"<X0005><X0005>";"<X0005><X0005>";IGNORE
 <CYRILLIC_SMALL_LETTER_KOMI_DE>                            <X5B38>;<X0005>;<X0005>;IGNORE
 <CYRILLIC_CAPITAL_LETTER_KOMI_DE>                          <X5B38>;<X0005>;<X008F>;IGNORE
 <CYRILLIC_SMALL_LETTER_DJE>                                <X5B3A>;<X0005>;<X0005>;IGNORE
@@ -5643,23 +5651,23 @@ int_curr_symbol       "<B><Y><R><space>"
 currency_symbol       "<B><Y><R>"
 mon_decimal_point     "<COMMA>"
 mon_thousands_sep     "<NO-BREAK_SPACE>"
-mon_grouping          -1
+mon_grouping          3
 positive_sign         ""
 negative_sign         "<HYPHEN-MINUS>"
 int_frac_digits       0
 frac_digits           0
-p_cs_precedes         0
-p_sep_by_space        1
-n_cs_precedes         0
+p_cs_precedes         1
+p_sep_by_space        0
+n_cs_precedes         1
 n_sep_by_space        0
 p_sign_posn           1
-n_sign_posn           3
-int_p_cs_precedes     0
-int_p_sep_by_space    1
-int_n_cs_precedes     0
+n_sign_posn           1
+int_p_cs_precedes     1
+int_p_sep_by_space    0
+int_n_cs_precedes     1
 int_n_sep_by_space    0
 int_p_sign_posn       1
-int_n_sign_posn       3
+int_n_sign_posn       1
 
 END LC_MONETARY
 
@@ -5710,7 +5718,7 @@ mon     "<CYRILLIC_SMALL_LETTER_ES><CYRILLIC_SMALL_LETTER_TE><CYRILLIC_SMALL_LET
         "<CYRILLIC_SMALL_LETTER_EL><CYRILLIC_SMALL_LETTER_BYELORUSSIAN-UKRAINIAN_I><CYRILLIC_SMALL_LETTER_ES><CYRILLIC_SMALL_LETTER_TE><CYRILLIC_SMALL_LETTER_A><CYRILLIC_SMALL_LETTER_PE><CYRILLIC_SMALL_LETTER_A><CYRILLIC_SMALL_LETTER_DE>";/
         "<CYRILLIC_SMALL_LETTER_ES><CYRILLIC_SMALL_LETTER_EN><CYRILLIC_SMALL_LETTER_IE><CYRILLIC_SMALL_LETTER_ZHE><CYRILLIC_SMALL_LETTER_A><CYRILLIC_SMALL_LETTER_EN><CYRILLIC_SMALL_LETTER_SOFT_SIGN>"
 
-d_fmt    "%e.%m.%Y"
+d_fmt    "%e.%m.%y"
 
 t_fmt    "%H.%M.%S"
 
@@ -5726,13 +5734,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "<CYRILLIC_CAPITAL_LETTER_TE><CYRILLIC_SMALL_LETTER_A><CYRILLIC_SMALL_LETTER_KA>"
+yesstr   "<CYRILLIC_SMALL_LETTER_TE><CYRILLIC_SMALL_LETTER_A><CYRILLIC_SMALL_LETTER_KA>:<CYRILLIC_SMALL_LETTER_TE>"
 
-nostr    "<CYRILLIC_CAPITAL_LETTER_EN><CYRILLIC_SMALL_LETTER_IE>"
+nostr    "<CYRILLIC_SMALL_LETTER_EN><CYRILLIC_SMALL_LETTER_IE>:<CYRILLIC_SMALL_LETTER_EN>"
 
-yesexpr  "<CYRILLIC_CAPITAL_LETTER_TE>"
+yesexpr  "^([yY]([eE][sS])?)|([<CYRILLIC_SMALL_LETTER_TE><CYRILLIC_CAPITAL_LETTER_TE>]([<CYRILLIC_SMALL_LETTER_A><CYRILLIC_CAPITAL_LETTER_A>][<CYRILLIC_SMALL_LETTER_KA><CYRILLIC_CAPITAL_LETTER_KA>])?)"
 
-noexpr   "<CYRILLIC_CAPITAL_LETTER_EN>"
+noexpr   "^([nN][oO]?)|([<CYRILLIC_SMALL_LETTER_EN><CYRILLIC_CAPITAL_LETTER_EN>][<CYRILLIC_SMALL_LETTER_IE><CYRILLIC_CAPITAL_LETTER_IE>]?)"
 
 
 END LC_MESSAGES

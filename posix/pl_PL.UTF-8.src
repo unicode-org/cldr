@@ -5463,7 +5463,7 @@ mon     "<s><t><y><c><z><n><i><a>";/
         "<l><i><s><t><o><p><a><d><a>";/
         "<g><r><u><d><n><i><a>"
 
-d_fmt    "%Y-%m-%d"
+d_fmt    "%y-%m-%d"
 
 t_fmt    "%H:%M:%S"
 
@@ -5479,13 +5479,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "TAK"
+yesstr   "tak:t"
 
-nostr    "NIE"
+nostr    "nie:n"
 
-yesexpr  "T"
+yesexpr  "^([yY]([eE][sS])?)|([tT]([aA][kK])?)"
 
-noexpr   "N"
+noexpr   "^[nN]([oO]|[iI][eE])?"
 
 
 END LC_MESSAGES

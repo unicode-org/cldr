@@ -4825,11 +4825,11 @@ int_curr_symbol       "<I><R><R><space>"
 currency_symbol       "<RIAL_SIGN>"
 mon_decimal_point     "<ARABIC_DECIMAL_SEPARATOR>"
 mon_thousands_sep     "<ARABIC_THOUSANDS_SEPARATOR>"
-mon_grouping          -1
+mon_grouping          3
 positive_sign         ""
 negative_sign         ""
-int_frac_digits       2
-frac_digits           2
+int_frac_digits       0
+frac_digits           0
 p_cs_precedes         0
 p_sep_by_space        1
 n_cs_precedes         0
@@ -4892,7 +4892,7 @@ mon     "<ARABIC_LETTER_JEH><ARABIC_LETTER_ALEF><ARABIC_LETTER_NOON><ARABIC_LETT
         "<ARABIC_LETTER_NOON><ARABIC_LETTER_WAW><ARABIC_LETTER_ALEF><ARABIC_LETTER_MEEM><ARABIC_LETTER_BEH><ARABIC_LETTER_REH>";/
         "<ARABIC_LETTER_DAL><ARABIC_LETTER_SEEN><ARABIC_LETTER_ALEF><ARABIC_LETTER_MEEM><ARABIC_LETTER_BEH><ARABIC_LETTER_REH>"
 
-d_fmt    "%Y/%m/%e"
+d_fmt    "%Y<SOLIDUS>%m<SOLIDUS>%e"
 
 t_fmt    "%H:%M:%S"
 
@@ -4908,13 +4908,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "yes:y:Y"
+yesstr   "yes:y"
 
-nostr    "no:n:N"
+nostr    "no:n"
 
-yesexpr  "^[yY]"
+yesexpr  "^[yY]([eE][sS])?"
 
-noexpr   "^[nN]"
+noexpr   "^[nN][oO]?"
 
 
 END LC_MESSAGES

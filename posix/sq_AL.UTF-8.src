@@ -5529,7 +5529,7 @@ mon     "<j><a><n><a><r>";/
         "<n><LATIN_SMALL_LETTER_E_WITH_DIAERESIS><n><t><o><r>";/
         "<d><h><j><e><t><o><r>"
 
-d_fmt    "%Y-%m-%d"
+d_fmt    "%y-%m-%d"
 
 t_fmt    "%I:%M:%S.%p"
 
@@ -5545,13 +5545,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "PO"
+yesstr   "po:p"
 
-nostr    "JO"
+nostr    "jo:j"
 
-yesexpr  "PO"
+yesexpr  "^([yY]([eE][sS])?)|([pP][oO]?)"
 
-noexpr   "JO"
+noexpr   "^[nNjJ][oO]?"
 
 
 END LC_MESSAGES

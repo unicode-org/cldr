@@ -5381,7 +5381,7 @@ LC_MONETARY
 *************
 
 int_curr_symbol       "<N><I><O><space>"
-currency_symbol       "<N><I><O>"
+currency_symbol       "<C><DOLLAR_SIGN>"
 mon_decimal_point     "<FULL_STOP>"
 mon_thousands_sep     "<COMMA>"
 mon_grouping          3
@@ -5451,7 +5451,7 @@ mon     "<e><n><e><r><o>";/
         "<n><o><v><i><e><m><b><r><e>";/
         "<d><i><c><i><e><m><b><r><e>"
 
-d_fmt    "%d/%m/%Y"
+d_fmt    "%d<SOLIDUS>%m<SOLIDUS>%y"
 
 t_fmt    "%I:%M:%S %p"
 
@@ -5467,13 +5467,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "S<LATIN_SMALL_LETTER_I_WITH_ACUTE>"
+yesstr   "si:s<LATIN_SMALL_LETTER_I_WITH_ACUTE>:s"
 
-nostr    "No"
+nostr    "no:n"
 
-yesexpr  "s;S"
+yesexpr  "^([yY]([eE][sS])?)|([sS][iI<LATIN_SMALL_LETTER_I_WITH_ACUTE><LATIN_CAPITAL_LETTER_I_WITH_ACUTE>]?)"
 
-noexpr   "n;N"
+noexpr   "^[nN][oO]?"
 
 
 END LC_MESSAGES

@@ -3765,7 +3765,7 @@ collating-symbol <X004D>
 collating-symbol <X005D>
 collating-symbol <X006D>
 collating-symbol <X007D>
-collating-symbol <X0085>
+collating-symbol <X0086>
 collating-symbol <X0087>
 collating-symbol <X008D>
 collating-symbol <X008F>
@@ -4062,7 +4062,7 @@ order_start forward;forward;forward;forward
 <X005D>
 <X006D>
 <X007D>
-<X0085>
+<X0086>
 <X0087>
 <X008D>
 <X008F>
@@ -4487,11 +4487,11 @@ order_start forward;forward;forward;forward
 <LATIN_SMALL_LETTER_A_WITH_RING_BELOW>                  <X2600>;"<X0005><X00D0><X006D>";"<X0005><X0005><X00C0>";IGNORE
 <LATIN_CAPITAL_LETTER_A_WITH_RING_BELOW>                <X2600>;"<X0005><X00D0><X006D>";"<X008F><X0005><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_AE>                                 "<X2600><X2E00>";"<X0087><X0005>";"<X0005><X0005>";IGNORE
-<LATIN_CAPITAL_LETTER_AE>                               "<X2600><X2E00>";"<X0087><X0005>";"<X0085><X008F>";IGNORE
+<LATIN_CAPITAL_LETTER_AE>                               "<X2600><X2E00>";"<X0087><X0005>";"<X0086><X0005>";IGNORE
 <LATIN_SMALL_LETTER_AE_WITH_ACUTE>                      "<X2600><X2E00>";"<X0087><X0005><X008D>";"<X0005><X0005><X0005>";IGNORE
-<LATIN_CAPITAL_LETTER_AE_WITH_ACUTE>                    "<X2600><X2E00>";"<X0087><X0005><X008D>";"<X0085><X008F><X0005>";IGNORE
+<LATIN_CAPITAL_LETTER_AE_WITH_ACUTE>                    "<X2600><X2E00>";"<X0087><X0005><X008D>";"<X0086><X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_AE_WITH_MACRON>                     "<X2600><X2E00>";"<X0087><X0005><X00AB>";"<X0005><X0005><X0005>";IGNORE
-<LATIN_CAPITAL_LETTER_AE_WITH_MACRON>                   "<X2600><X2E00>";"<X0087><X0005><X00AB>";"<X0085><X008F><X0005>";IGNORE
+<LATIN_CAPITAL_LETTER_AE_WITH_MACRON>                   "<X2600><X2E00>";"<X0087><X0005><X00AB>";"<X0086><X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_A_WITH_RIGHT_HALF_RING>             "<X2600><X598A>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_LETTER_SMALL_CAPITAL_A>                          <X2760>;<X0005>;<X0005>;IGNORE
 <MODIFIER_LETTER_CAPITAL_AE>                            <X2762>;<X0005>;<X0027>;IGNORE
@@ -5449,7 +5449,7 @@ mon     "<j><a><n><u><a><r><i>";/
         "<n><o><v><e><m><b><e><r>";/
         "<d><e><c><e><m><b><e><r>"
 
-d_fmt    "%e-%b-%y"
+d_fmt    "%e<SOLIDUS>%m<SOLIDUS>%y"
 
 t_fmt    "%H:%M:%S"
 
@@ -5465,13 +5465,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "Ja"
+yesstr   "ja:j"
 
-nostr    "Nee"
+nostr    "nee:n"
 
-yesexpr  "J"
+yesexpr  "^([yY]([eE][sS])?)|([jJ][aA]?)"
 
-noexpr   "N"
+noexpr   "^[nN]([oO]|[eE][eE])?"
 
 
 END LC_MESSAGES

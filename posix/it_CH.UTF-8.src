@@ -5449,7 +5449,7 @@ mon     "<g><e><n><n><a><i><o>";/
         "<n><o><v><e><m><b><r><e>";/
         "<d><i><c><e><m><b><r><e>"
 
-d_fmt    "%e-%b-%y"
+d_fmt    "%d.%m.%y"
 
 t_fmt    "%H:%M:%S"
 
@@ -5465,13 +5465,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "S<LATIN_SMALL_LETTER_I_WITH_GRAVE>"
+yesstr   "s<LATIN_SMALL_LETTER_I_WITH_GRAVE>:si:s"
 
-nostr    "No"
+nostr    "no:n"
 
-yesexpr  "S"
+yesexpr  "^([yY]([eE][sS])?)|([sS][<LATIN_SMALL_LETTER_I_WITH_GRAVE><LATIN_CAPITAL_LETTER_I_WITH_GRAVE>iI]?)"
 
-noexpr   "N"
+noexpr   "^[nN][oO]?"
 
 
 END LC_MESSAGES

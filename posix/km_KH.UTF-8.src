@@ -1710,7 +1710,7 @@ mon     "<KHMER_LETTER_MO><KHMER_LETTER_KA><KHMER_LETTER_RO><KHMER_VOWEL_SIGN_AA
         "<KHMER_LETTER_VO><KHMER_VOWEL_SIGN_I><KHMER_LETTER_CA><KHMER_SIGN_COENG><KHMER_LETTER_CHA><KHMER_VOWEL_SIGN_I><KHMER_LETTER_KA><KHMER_VOWEL_SIGN_AA>";/
         "<KHMER_LETTER_THO><KHMER_SIGN_COENG><KHMER_LETTER_NO><KHMER_VOWEL_SIGN_UU>"
 
-d_fmt    "%e %B %Y"
+d_fmt    "%e<SOLIDUS>%m<SOLIDUS>%Y"
 
 t_fmt    "%H:%M:%S"
 
@@ -1726,9 +1726,9 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "yes:YES:y:Y"
+yesstr   "yes:y"
 
-nostr    "no:NO:n:N"
+nostr    "no:n"
 
 yesexpr  "^[yY]([eE][sS])?"
 

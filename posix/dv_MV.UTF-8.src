@@ -3905,6 +3905,8 @@ LC_COLLATE
 
 collating-symbol <X0001>
 collating-symbol <X0005>
+collating-symbol <X0086>
+collating-symbol <X0087>
 collating-symbol <X008F>
 collating-symbol <X0507>
 collating-symbol <X0509>
@@ -4038,6 +4040,8 @@ order_start forward;forward;forward;forward
 
 <X0001>
 <X0005>
+<X0086>
+<X0087>
 <X008F>
 <X0507>
 <X0509>
@@ -4246,6 +4250,8 @@ order_start forward;forward;forward;forward
 <nine>                        <X2382>;<X0005>;<X0005>;IGNORE
 <a>                           <X2600>;<X0005>;<X0005>;IGNORE
 <A>                           <X2600>;<X0005>;<X008F>;IGNORE
+<LATIN_SMALL_LETTER_AE>       "<X2600><X2E00>";"<X0087><X0005>";"<X0005><X0005>";IGNORE
+<LATIN_CAPITAL_LETTER_AE>     "<X2600><X2E00>";"<X0087><X0005>";"<X0086><X0005>";IGNORE
 <b>                           <X2800>;<X0005>;<X0005>;IGNORE
 <B>                           <X2800>;<X0005>;<X008F>;IGNORE
 <c>                           <X2A00>;<X0005>;<X0005>;IGNORE
@@ -4437,7 +4443,7 @@ mon     "<one>";/
         "<one><one>";/
         "<one><two>"
 
-d_fmt    "%d-%m-%Y"
+d_fmt    "%e-%m-%y"
 
 t_fmt    "%I:%M:%S %p"
 
@@ -4453,13 +4459,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "yes:y:Y"
+yesstr   "yes:y"
 
-nostr    "no:n:N"
+nostr    "no:n"
 
-yesexpr  "^[yY]"
+yesexpr  "^[yY]([eE][sS])?"
 
-noexpr   "^[nN]"
+noexpr   "^[nN][oO]?"
 
 
 END LC_MESSAGES

@@ -5463,7 +5463,7 @@ mon     "<j><a><a><n><u><a><r>";/
         "<n><o><v><e><m><b><e><r>";/
         "<d><e><t><s><e><m><b><e><r>"
 
-d_fmt    "%d.%m.%Y"
+d_fmt    "%d.%m.%y"
 
 t_fmt    "%H:%M:%S"
 
@@ -5479,13 +5479,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "jah"
+yesstr   "jah:j"
 
-nostr    "ei"
+nostr    "ei:e"
 
-yesexpr  "^[yY]"
+yesexpr  "^([yY]([eE][sS])?)|([jJ]([<CYRILLIC_SMALL_LETTER_A><CYRILLIC_CAPITAL_LETTER_A>][hH])?)"
 
-noexpr   "^[nN]"
+noexpr   "^([nN][oO]?)|([eE][iI]?)"
 
 
 END LC_MESSAGES

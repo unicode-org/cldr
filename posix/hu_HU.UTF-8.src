@@ -5613,13 +5613,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "igen"
+yesstr   "igen:i"
 
-nostr    "nem"
+nostr    "nem:n"
 
-yesexpr  "I"
+yesexpr  "^([yY]([eE][sS])?)|([iI]([gG][eE][nN])?)"
 
-noexpr   "N"
+noexpr   "^[nN]([oO]|([eE][mM]))?"
 
 
 END LC_MESSAGES

@@ -5465,13 +5465,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "oui"
+yesstr   "oui:o"
 
-nostr    "non"
+nostr    "non:n"
 
-yesexpr  "o;O"
+yesexpr  "^([yY]([eE][sS])?)|([oO]([uU][iI])?)"
 
-noexpr   "n;N"
+noexpr   "^[nN]([oO][nN]?)?"
 
 
 END LC_MESSAGES

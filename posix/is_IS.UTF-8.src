@@ -5479,13 +5479,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "j<LATIN_SMALL_LETTER_A_WITH_ACUTE>"
+yesstr   "j<LATIN_SMALL_LETTER_A_WITH_ACUTE>:ja:j"
 
-nostr    "nei"
+nostr    "nei:n"
 
-yesexpr  "j<LATIN_SMALL_LETTER_A_WITH_ACUTE>"
+yesexpr  "^([yY]([eE][sS])?)|([jJ][<LATIN_SMALL_LETTER_A_WITH_ACUTE><LATIN_CAPITAL_LETTER_A_WITH_ACUTE>aA]?)"
 
-noexpr   "nei"
+noexpr   "^[nN]([oO]|([eE][iI]))?"
 
 
 END LC_MESSAGES

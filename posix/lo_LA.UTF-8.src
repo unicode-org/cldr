@@ -3940,6 +3940,8 @@ collating-symbol <X0015>
 collating-symbol <X0025>
 collating-symbol <X0035>
 collating-symbol <X0045>
+collating-symbol <X0086>
+collating-symbol <X0087>
 collating-symbol <X008F>
 collating-symbol <X00C0>
 collating-symbol <X00DA>
@@ -4080,6 +4082,8 @@ order_start forward;forward;forward;forward
 <X0025>
 <X0035>
 <X0045>
+<X0086>
+<X0087>
 <X008F>
 <X00C0>
 <X00DA>
@@ -4303,6 +4307,8 @@ order_start forward;forward;forward;forward
 <LAO_DIGIT_NINE>              <X2382>;"<X0005><X00E1><X00E1>";"<X0005><X0005><X00C0>";IGNORE
 <a>                           <X2600>;<X0005>;<X0005>;IGNORE
 <A>                           <X2600>;<X0005>;<X008F>;IGNORE
+<LATIN_SMALL_LETTER_AE>       "<X2600><X2E00>";"<X0087><X0005>";"<X0005><X0005>";IGNORE
+<LATIN_CAPITAL_LETTER_AE>     "<X2600><X2E00>";"<X0087><X0005>";"<X0086><X0005>";IGNORE
 <b>                           <X2800>;<X0005>;<X0005>;IGNORE
 <B>                           <X2800>;<X0005>;<X008F>;IGNORE
 <c>                           <X2A00>;<X0005>;<X0005>;IGNORE
@@ -4494,7 +4500,7 @@ mon     "<LAO_LETTER_MO><LAO_VOWEL_SIGN_MAI_KAN><LAO_LETTER_NGO><LAO_LETTER_KO><
         "<LAO_LETTER_PHO_TAM><LAO_VOWEL_SIGN_A><LAO_LETTER_CO><LAO_VOWEL_SIGN_I><LAO_LETTER_KO>";/
         "<LAO_LETTER_THO_TAM><LAO_VOWEL_SIGN_MAI_KAN><LAO_LETTER_NO><LAO_LETTER_WO><LAO_VOWEL_SIGN_AA>"
 
-d_fmt    "%e %b %Y"
+d_fmt    "%e<SOLIDUS>%m<SOLIDUS>%Y"
 
 t_fmt    "%H:%M:%S"
 
@@ -4510,9 +4516,9 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "yes:YES:y:Y"
+yesstr   "yes:y"
 
-nostr    "no:NO:n:N"
+nostr    "no:n"
 
 yesexpr  "^[yY]([eE][sS])?"
 

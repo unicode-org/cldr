@@ -2386,6 +2386,12 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 	                tempStr = str;
 			  }
               if((prevStrength == strength) && (prevStrength == UCOL_TOK_DONE)){
+                  if(mSettings.length()!=0 && writtenSettings == FALSE){
+                      Formattable args[]={ indentOffset, mSettings} ;
+                        xmlString.append(formatString(mStringsBundle.getStringEx("settings",mError),args,2,t));
+                        writtenSettings = TRUE;
+                        mSettings.truncate(0);
+                  }
                   break;
               }
 
@@ -2393,16 +2399,12 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
               /* verify that tempStr is a contraction */
               isTempStrContraction = tempStr.length()>1;
               
-
-              if(U_FAILURE(mError)){
-                  fprintf(stderr,"Normalizer:;compose failed!. Error: %s", u_errorName(mError));
-                  exit(1);
-              }
 			  if((prevStrength != strength) || 
                   isTempStrContraction==TRUE/* contraction */ || 
                   isCollStrContraction==TRUE/* contraction */ ||
                   tempStr.indexOf((UChar)UCOL_TOK_EXPANSION_MARKER) >=0 || /* expansion */
                   collStr.indexOf((UChar)UCOL_TOK_EXPANSION_MARKER) >=0 /* expansion */){
+
 					char* singleKey = NULL;
 					char* seqKey = NULL;
 					

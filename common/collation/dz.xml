@@ -36,8 +36,7 @@ getDisplayName.
             <base>
                 <alias source="dz_BT"/>
             </base>
-            <settings caseLevel="off" backwards="off" normalization="on"
-hiraganaQuarternary="off" numeric="off"/>
+            <settings normalization="on"/>
             <rules>
                 	 <reset>ཀ</reset>                       
                
@@ -342,20 +341,20 @@ hiraganaQuarternary="off" numeric="off"/>
        				<p>འཛ</p>
        				<p>རྫ</p>
       				<p>བརྫ</p>
-			<reset>ཝ</reset>
+			<!-- <reset>ཝ</reset> -->
 			<reset>ཞ</reset>
        				<p>གཞ</p>
        				<p>བཞ</p>
 			<reset>ཟ</reset>
       				<p>གཟ</p>
        				<p>བཟ</p>
-			<reset>འ</reset>
+			<!-- <reset>འ</reset> -->
 			<reset>ཡ</reset>
        				<p>གཡ</p>
 			<reset>ར</reset>
 							<t>ཪ</t>
        				<p>བརླ</p>
-			<reset>ལ</reset>
+			<!-- <reset>ལ</reset> -->
 			<reset>ཤ</reset>
 							<t>ཥ</t>
        				<p>གཤ</p>
@@ -391,11 +390,11 @@ hiraganaQuarternary="off" numeric="off"/>
        				<p>བསླ</p>
 			<reset>ཧ</reset>
        				<p>ལྷ</p>
-			<reset>ཨ</reset>
+			<!-- <reset>ཨ</reset> -->
 <!-- Explicit vowels-->
 			<reset>ི</reset>
 							<t>ྀ</t>
-			<reset>ུ</reset>
+			<!-- <reset>ུ</reset> -->
 			<reset>ེ</reset>
 							<t>ཻ</t>
 			<reset>ོ</reset>

@@ -58,6 +58,11 @@
 <!ELEMENT icu:sentence ( #PCDATA ) >
 <!ATTLIST icu:sentence icu:class NMTOKEN #REQUIRED >
 
+<!ELEMENT icu:breakDictionaryData (alias|(icu:import)) >
+
+<!ELEMENT icu:import ( #PCDATA ) >
+<!ATTLIST icu:import icu:path NMTOKEN #REQUIRED >
+
 <!-- RBT data  -->
 <!ELEMENT icu:transforms ( alias | (default?, icu:transform*)) >
 <!ELEMENT icu:transform ( #PCDATA |cp )* >

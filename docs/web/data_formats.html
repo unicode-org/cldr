@@ -10,6 +10,13 @@
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>Common Locale Data Repository - Data Formats</title>
 <link rel="stylesheet" type="text/css" href="http://www.unicode.org/webscripts/standard_styles.css">
+<style>
+<!--
+span.changed { border-style: dotted; border-width: 1; background-color: #FFFF00 }
+.e{margin-left:1em;text-indent:-1em;margin-right:1em}
+.tx{font-weight:bold}
+-->
+</style>
 </head>
 
 <body text="#330000">
@@ -59,7 +66,7 @@
         <td class="navColCell" valign="top"><a href="#Dates">Dates</a></td>
       </tr>
       <tr>
-        <td class="navColCell" valign="top"><a href="#BIDI">BIDI</a></td>
+        <td class="navColCell" valign="top"><a href="#Special_Considerations">Special Considerations</a></td>
       </tr>
       <tr>
         <td class="navColTitle">CLDR</td>
@@ -152,8 +159,6 @@
           results of different formats can be viewed. Note that some fields are expected to be in 
           English, since they indicate internal IDs and <i>not</i> translated text, such as the 
           layout orientation, which has the value &quot;top-to-bottom&quot;.</p>
-          <p>This document is fairly rough at this point, and needs quite a bit of work. However, we 
-          felt it worth posting to help answer common questions about the format.</p>
           <p><b>Note: </b>If you ever need to convert text from hex format (\uXXXX) to real 
           characters or back, you can do the following:</p>
           <ol>
@@ -301,6 +306,19 @@
             <a href="http://www.unicode.org/reports/tr35/#&lt;characters&gt;">Exemplar Characters</a> 
             in Section 5.6 and Appendix E:
             <a href="http://www.unicode.org/reports/tr35/#Unicode_Sets">Unicode Sets</a>. </p>
+            <p><span class="changed">The auxiliary exemplar set is designed to encompass those 
+            non-native characters that could normally occur in common publications. So, for example, 
+            if Irish newspapers and magazines would commonly have Danish names using å, for example, 
+            then it would be appropriate to include å in the auxiliary exemplar characters; just not 
+            in the <i>main</i> exemplar set.</span></p>
+            <p><span class="changed">All of the translated data in an LDML file must be in the union 
+            of the following sets:</span></p>
+            <ul>
+              <li><span class="changed">The main exemplar characters</span></li>
+              <li><span class="changed">The auxiliary exemplar characters</span></li>
+              <li><span class="changed">Non-alphabetic characters (Unicode properties 
+              Alphabetic=false, Script=Inherited, Script=Common).</span></li>
+            </ul>
           </blockquote>
           <h2><a name="Display_Names">Display Names</a>: Languages, Scripts, Territories, 
           Currencies, Time Zones</h2>
@@ -414,7 +432,6 @@
             Fallback</span></a></p>
           </blockquote>
           <h2 align="left"><a name="Numbers">Numbers</a></h2>
-          <h3>Number Patterns</h3>
           <blockquote>
             <p>There are different formats for different types of numbers. For example, here are 
             some patterns (using the unlocalized symbols) with the corresponding text. While the 
@@ -464,23 +481,17 @@
           <a href="http://www.unicode.org/reports/tr35/#Number_Format_Patterns"><span>Number Format 
           Patterns</span></a></p>
           <h2><a name="Dates">Dates</a></h2>
-          <h3><a name="DayMonth">Day &amp; Month Names</a></h3>
-          <p>All of the following should have the appropriate grammatical form for appearing in a 
-          date format.</p>
-          <dl>
-            <dt><b>monthNames (Long Names)</b></dt>
-            <dd>These are the full month names, like &quot;September&quot;.</dd>
-            <dt><b>monthAbbr (Short Names)</b></dt>
-            <dd>These are the abbreviated month names, like &quot;Sep&quot;.</dd>
-            <dt><b>dayNames (Long Names)</b></dt>
-            <dd>These are the full Gregorian day names, like &quot;Monday&quot;</dd>
-            <dt>dayAbbr<b> (Short Names)</b></dt>
-            <dd>These are the abbreviated day names, like &quot;Mon&quot;</dd>
-          </dl>
-          <h3><a name="DateTimeElements">Date &amp; Time Options</a></h3>
           <p>The main source of information is see Appendix F: <span>
-          <a href="http://www.unicode.org/reports/tr35/#Date_Format_Patterns">Date Format Patterns</a>. 
-          There are a couple of troublesome areas:</span></p>
+          <a href="http://www.unicode.org/reports/tr35/#Date_Format_Patterns">Date Format Patterns</a>, 
+          so be sure to read through that information. There are a couple of troublesome areas:</span></p>
+          <h3><span class="changed">Narrow Month / Day Names</span></h3>
+          <blockquote>
+            <p><span class="changed">They are the shortest possible names (in terms of width in 
+            common fonts), and are not guaranteed to be unique. Think of what you might find on a 
+            credit-card-sized wallet or checkbook calendar, such as in English: <i>S M T W T F S</i></span></p>
+            <p><span class="changed"><span style="background-color: #FFFF00">It is probably an error 
+            if a narrow field includes more than one Unicode base character.</span></span></p>
+          </blockquote>
           <h3>AM / PM</h3>
           <blockquote>
             <p>Even for territories where the customary date format only has a 24 hour format, both 
@@ -509,12 +520,30 @@
             January 10, 1998. The first three days of 1998 are then part of week 53 of 1997.</p>
             <p>Values are similarly calculated for the Week of Month.</p>
           </blockquote>
-          <h2><a name="BIDI">BIDI Ordering</a></h2>
+          <h2><a name="Special_Considerations">Special Considerations</a></h2>
+          <h3><a name="BIDI">BIDI Ordering</a></h3>
           <blockquote>
             <p>In the comparison charts, the ordering of characters for BIDI languages is up to the 
             browser. The ordering may differ from the typical ordering in context, so may be helpful 
             to copy the text from the charts and paste into typical environments to ensure that the 
             ordering is correct. This is especially the case for date, time and number formats.</p>
+          </blockquote>
+          <h3><span class="changed"><a name="Character_Repertoire">Character Repertoire</a></span></h3>
+          <blockquote>
+            <p><span class="changed">The data in the locale repository should contain the most 
+            appropriate choice of characters for the representation of the text. It may thus include 
+            Unicode characters that are not included in a given legacy character set. In particular, 
+            the data may contain curly quotes and apostrophes (such as in “can’t”), and similar 
+            characters such as the letter modifiers in ʻōlelo Hawaiʻi.</span></p>
+            <p><span class="changed">These characters provide more distinctions than are available 
+            with the generic ASCII repertoire. They may be “downcast” to the best available 
+            characters when the data is imported into systems with a more limited repertoire of 
+            supported characters.</span></p>
+          </blockquote>
+          <h3><span class="changed">Hong Kong, Macau</span></h3>
+          <blockquote>
+            <p><span class="changed">The territory codes HK and MO are to be translated with the 
+            native equivalent of “Hong Kong S.A.R. China” and “Macao S.A.R. China”, respectively.</span></p>
           </blockquote>
         </blockquote>
         </td>

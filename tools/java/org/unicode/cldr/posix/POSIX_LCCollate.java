@@ -329,7 +329,7 @@ public class POSIX_LCCollate {
     }
 
 	private class WeightList {
-        char[] weights = new char[5];
+        char[] weights = new char[100];
         // TODO lengthen on demand
         int count = 0;
         public void append(int i) {

@@ -207,7 +207,7 @@
 
 <!ELEMENT monthNames ( alias | (month*, special*)) >
 <!ATTLIST monthNames draft ( true | false ) #IMPLIED >
-<!ATTLIST monthNames width ( narrow | wide | abbreviated ) #IMPLIED >
+<!ATTLIST monthNames width ( narrow | wide | abbreviated ) "wide" >
 <!ATTLIST monthNames context ( stand-alone | format ) #IMPLIED >
 
 <!ELEMENT month ( #PCDATA | cp )* >
@@ -218,7 +218,7 @@
 
 <!ELEMENT dayNames ( alias | (day*, special*)) >
 <!ATTLIST dayNames draft ( true | false ) #IMPLIED >
-<!ATTLIST dayNames width ( narrow | wide | abbreviated ) #IMPLIED >
+<!ATTLIST dayNames width ( narrow | wide | abbreviated ) "wide" >
 <!ATTLIST dayNames context ( stand-alone | format ) #IMPLIED >
 
 <!ELEMENT day ( #PCDATA ) >

@@ -661,13 +661,13 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat>+HHmm;-HHmm</hourFormat>
-			<hoursFormat>{0}/{1}</hoursFormat>
-			<gmtFormat>GMT{0}</gmtFormat>
-			<regionFormat>{0}</regionFormat>
-			<fallbackFormat>{0} ({1})</fallbackFormat>
-			<abbreviationFallback type="standard"/>
-			<preferenceOrdering type="America/Mexico_City America/Chihuahua America/New_York"/>
+			<hourFormat draft="true">+HH:mm;-HH:mm</hourFormat>
+			<hoursFormat draft="true">{0}/{1}</hoursFormat>
+			<gmtFormat draft="true">GMT{0}</gmtFormat>
+			<regionFormat draft="true">{0}</regionFormat>
+			<fallbackFormat draft="true">{0} ({1})</fallbackFormat>
+			<abbreviationFallback type="standard" draft="true"/>
+			<preferenceOrdering type="" draft="true"/>
 		</timeZoneNames>
 	</dates>
 	<numbers>

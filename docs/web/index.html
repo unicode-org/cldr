@@ -48,13 +48,6 @@
         <td valign="top" class="navColCell"><a href="#Introduction">Introduction</a></td>
       </tr>
       <tr>
-        <td valign="top" class="navColCell"><a href="#Known_Issues">Known Issues</a></td>
-      </tr>
-      <tr>
-        <td valign="top" class="navColCell"><a href="#Data_Collection_Process">Data Collection 
-        Process</a></td>
-      </tr>
-      <tr>
         <td valign="top" class="navColCell"><a href="#History">History</a></td>
       </tr>
       <tr>
@@ -186,8 +179,10 @@
             data, see <a href="repository_access.html">Repository Access</a>.</li>
             <li>The <a href="comparison_charts.html">Comparison Charts</a> provide a side-by-side 
             comparison of the XML data from various sources.</li>
-            <li>The <a href="http://www.jtcsv.com/cgibin/cldrwiki.pl?ByType">By-Type Charts</a> 
-            provide a side-by-side comparison of the common data from different locales.</li>
+            <li>The
+            <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/diff/by_type/index.html">
+            By-Type Charts</a> provide a side-by-side comparison of the common data from different 
+            locales.</li>
             <li>The
             <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/data_formats.html">Data 
             Formats</a> page provides background information on the way that locale information is 
@@ -200,58 +195,26 @@
           normal process for changing locale repository data is described in <a href="process.html">
           CLDR Process</a>. For information about joining the Unicode Consortium, see
           <a href="http://www.unicode.org/consortium/consort.html">Unicode Consortium</a>.</p>
-          <h2 align="left"><b><a name="Known_Issues">Known Issues</a></b></h2>
-          <ul>
-            <li>
-            <p align="left">The XML and HTML files generated as part of this work appear to stress 
-            the common browsers. Most of them will fail on at least some of the XML files, even 
-            though we have verified the formats with the Xerxes parser. If that happens, try opening 
-            with the menu <i>View &gt; Source</i>, or its equivalent.</li>
-            <li>
-            <p align="left">The generated XML files are not minimal. That is, elements might be 
-            repeated that would be inherited from the parent.</li>
-            <li>
-            <p align="left">The comparison collation data is only generated for a few data sources 
-            at present.</li>
-          </ul>
         </blockquote>
         <blockquote>
-          <h2><a name="Data_Collection_Process">Data Collection Process</a></h2>
-          <ul>
-            <li>The platform-specific culture information used for comparison was generated 
-            programmatically by requesting through the native APIs on the platform. The results are 
-            then converted to be compliant to the <a href="http://www.unicode.org/reports/tr35/">
-            &quot;Locale Data Markup Language Specification&quot;</a>.</li>
-            <li>Platform-specific locale information is grouped into a platform folder. For example, 
-            the <tt>windows/</tt> folder contains all the locale data on Windows platform in XML 
-            format.</li>
-            <li>The locale information from these various sources is used to create the comparison 
-            charts outlining the differences of any data elements in a locale/culture information 
-            data repertoire.</li>
-            <li><span class="GramE">The data for all but <code>common</code> is provided for 
-            comparison only, and is <u>not</u> to be viewed as authoritative or referenceable.</span></li>
-            <li>For more details on the locale data collection process, please see the
-            <a href="process.html">CLDR process</a> for more details. </li>
-          </ul>
           <h2><a name="History">History</a></h2>
-          <p>The Common Locale Data Repository project was originally developed under the 
-          sponsorship of the Linux Application Development Environment (aka LADE) Workgroup of the
+          <p>The first CLDR version under the sponsorship of the Unicode Consortium was version 1.1. 
+          The CLDR project was originally developed under the sponsorship of the Linux Application 
+          Development Environment (aka LADE) Workgroup of the
           <a href="http://www.freestandards.org/">Free Standards Group</a>&#39;s
           <a href="http://www.openi18n.org/">OpenI18N</a> (formerly known as Linux 
-          Internationalization Initiative or Li18nux) team. The founding members of the workgroup 
-          were <a href="http://www.ibm.com/">IBM</a>, <a href="http://www.sun.com/">Sun</a> and
-          <a href="http://www.openoffice.org/">OpenOffice.org</a>.</p>
-          <p>On 2003.12.19, the CLDR Version 1.0 Final Candidate was made available. This version 
-          was approved on 2004.01.16 by the OpenI18N steering committee as CLDR 1.0. This is a 
-          stable release, and may be used as reference material or cited as a normative reference by 
-          other specifications or products.</p>
+          Internationalization Initiative or Li18nux) team. CLDR 1.0 was approved on 2004.01.16 by 
+          the OpenI18N steering committee. The founding members of the workgroup were
+          <a href="http://www.ibm.com/">IBM</a>, <a href="http://www.sun.com/">Sun</a> and
+          <a href="http://www.openoffice.org/">OpenOffice.org</a>. Version</p>
           <p>Thanks to the following people for their contributions to the CLDR 1.0 and LDML 1.0: 
           Helena Shih Chapman, Mark Davis, Simon Dean, Deborah Goldsmith, Steven R Loomis, Kentaroh 
           Noji, George Rhoten, Baldev Soor, Michael Twomey, Ram Viswanadha and Vladimir Weinstein. 
           Special thanks to Akio Kido, Hideki Hiura, Tom Garland, and the OpenI18N organization for 
           the sponsorship of this activity, and to the ICU team for hosting the CVS repository and 
-          collecting and managing the data for the project. (Acknowledgements for later versions are 
-          in <a href="http://www.unicode.org/reports/tr35/">UTS #35: LDML</a>.)</p>
+          collecting and managing the data for the project. </p>
+          <p>(Acknowledgements for later versions are in
+          <a href="http://www.unicode.org/reports/tr35/">UTS #35: LDML</a>.)</p>
         </blockquote>
         </td>
       </tr>

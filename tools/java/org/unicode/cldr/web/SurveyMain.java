@@ -154,6 +154,13 @@ class SurveyMain {
         
         CookieSession mySession = null;
         String myNum = ctx.field("s");
+        
+        // get the uid
+        String uid = ctx.field("uid");
+        String email = ctx.field("email");
+        UserRegistry.User user;
+        user = reg.get(uid,email);
+        
         if(myNum != null) {
             mySession = CookieSession.retrieve(myNum);
             if(mySession == null) {
@@ -165,11 +172,17 @@ class SurveyMain {
         }
         ctx.session = mySession;
         ctx.addQuery("s", mySession.id);
+        if(user != null) {
+            ctx.session.setUser(user); // this will replace any existing session by this user.
+        }
         WebContext baseContext = new WebContext(ctx);
 //        ctx.println("<i>using session " + mySession.id + " </i><br/>");
         
         // print 'shopping cart'
         {
+            if(ctx.session.user != null) {
+                ctx.println("<b>Welcome " + ctx.session.user.real + "!</b> <a href=\"" + ctx.base() + "\">[Sign Out]</a><br/>");
+            }
             Hashtable lh = ctx.session.getLocales();
             Enumeration e = lh.keys();
             if(e.hasMoreElements()) { 
@@ -293,7 +306,7 @@ class SurveyMain {
         
         UserRegistry.User u = reg.get(email);
         if(u != null) {
-            ctx.println("User exists!   " + name + " <" + email + ">  (" + sponsor + ") -  ID: " + u.id + "<br/>");
+            ctx.println("User exists!   " + u.real + " <" + u.email + ">  (" + u.sponsor + ") -  ID: " + u.id + "<br/>");
             if(ctx.field("resend").length()>0) {
                 notifyUser(ctx, u);
             } else {
@@ -326,9 +339,9 @@ class SurveyMain {
             " Please keep this link to yourself. Thanks.\n" +
             " \n";
         ctx.println("<hr/><pre>" + body + "</pre><hr/>");
-        /*
-        MailSender.sendMail(email, "CLDR Registration for " + email,
-            body);*/
+    
+        MailSender.sendMail(u.email, "CLDR Registration for " + u.email,
+            body);
         /* some debugging. */
          String from = System.getProperty("CLDR_FROM");
          String smtp = System.getProperty("CLDR_SMTP");

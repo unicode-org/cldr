@@ -31,21 +31,19 @@ import org.unicode.cldr.icu.*;
 import com.fastcgi.FCGIInterface;
 import com.fastcgi.FCGIGlobalDefs;
 import com.ibm.icu.lang.UCharacter;
-import org.html.*;
-import org.html.utility.*;
-import org.html.table.*;
-
 
 public class CookieSession {
     public String id;
     public long last;
     public Hashtable stuff = new Hashtable();
+    public UserRegistry.User user = null;
     
     private CookieSession(String s) {
         id = s;
     }
     
     static Hashtable gHash = new Hashtable();
+    static Hashtable uHash = new Hashtable();
     
     public static CookieSession retrieve(String s) {
         CookieSession c = (CookieSession)gHash.get(s);
@@ -53,6 +51,19 @@ public class CookieSession {
             c.touch();
         }
         return c;
+    }
+    
+    public static CookieSession retrieveUser(String id) {
+        CookieSession c = (CookieSession)uHash.get(id);
+        if(c != null) {
+            c.touch();
+        }
+        return c;
+    }
+    
+    public void setUser(UserRegistry.User u) {
+        user = u;
+        uHash.put(user.id, this); // replaces any existing session by this user.
     }
     
     public CookieSession() {

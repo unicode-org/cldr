@@ -57,7 +57,15 @@ public class POSIX_LCMonetary {
 
    n = LDMLUtilities.getNode(doc, "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat/pattern");
    String grouping_pattern = LDMLUtilities.getNodeValue(n);
-   String[] monetary_formats = grouping_pattern.split(";",2);
+
+   String [] monetary_formats = new String[2];
+   if ( grouping_pattern.indexOf(";") > 0 )
+      monetary_formats = grouping_pattern.split(";",2);
+   else
+   {
+      monetary_formats[POSITIVE] = grouping_pattern;
+      monetary_formats[NEGATIVE] = "-" + grouping_pattern;
+   }
 
    mon_grouping = POSIXUtilities.POSIXGrouping( monetary_formats[POSITIVE] );
 

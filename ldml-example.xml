@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd"
+[
+    <!ENTITY % icu SYSTEM "./LocaleElementsICU.dtd">
+    <!ENTITY % openOffice SYSTEM "./LocaleElementsOpenOffice.dtd">
+    <!ENTITY % iso14652 SYSTEM "./LocaleElements14652.dtd">
+    <!ENTITY % posix SYSTEM "./LocaleElementsPOSIX.dtd">
+%icu;
+%openOffice;
+%iso14652;
+%posix;
+]
+>
 <localeData>
 <!--
 Locale Data Format
@@ -190,7 +201,7 @@ For example, most country locales will inherit the bulk of their data from the l
                           <displayName>DIN 5008 (EN 28601)</displayName>
                           <!--  Optional special element for platform/application specific overheads. Paser can
                               choose to ignore if required . Special elements should always be the last children of the parent.-->
-                          <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
+                          <special xmlns:openOffice="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
                      </dateFormat>
                      <dateFormat type="DateFormatsKey3">
                           <pattern>MMM dd, yyyy</pattern>
@@ -202,7 +213,7 @@ For example, most country locales will inherit the bulk of their data from the l
                           <displayName>DIN 5008 (EN 28601)</displayName>
                           <!--  Optional special element for platform/application specific overheads. Paser can
                               choose to ignore if required. Special elements should always be the last children of the parent. -->
-                          <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
+                          <special xmlns:openOffice="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
                      </dateFormat>
                 </dateFormatLength>
               </dateFormats>
@@ -214,7 +225,7 @@ For example, most country locales will inherit the bulk of their data from the l
                           <displayName>DIN 5008 (EN 28601)</displayName>
                            <!--  Optional special element for platform/application specific overheads. Paser can
                               choose to ignore if required  -->
-                          <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
+                          <special xmlns:openOffice="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
                       </timeFormat>
                  </timeFormatLength>
                  <timeFormatLength type="medium">
@@ -421,20 +432,20 @@ For example, most country locales will inherit the bulk of their data from the l
                 <t>?<context>?</context></t>
                 <p>?<context>?</context></p>
             </rules>
-            <special owner="http://oss.software.ibm.com/icu/" version="1.2" />
-            <special owner="http://www.openoffice.org">
+            <special xmlns:icu="http://oss.software.ibm.com/icu/" version="1.2" />
+            <special xmlns:openOffice="http://www.openoffice.org">
                 <default type="alphanumeric"/>
-                <collator type="alphanumeric" />
-                <collator type="phonebook"/>
+                <openOffice:collator type="alphanumeric" />
+                <openOffice:collator type="phonebook"/>
             </special>
         </collation>
         <collation type="phonebook">
             <alias source="de_DE" type="phonebook"/>
         </collation>
     </collations>
-    <special owner="http://oss.software.ibm.com/icu/">
-        <ruleBasedNumberFormats>
-            <ruleBasedNumberFormat type="spellout">
+    <special xmlns:icu="http://oss.software.ibm.com/icu/">
+        <icu:ruleBasedNumberFormats>
+            <icu:ruleBasedNumberFormat type="spellout">
                 %%and:
                     and =%default=;
                     100: =%default=;
@@ -442,22 +453,22 @@ For example, most country locales will inherit the bulk of their data from the l
                     ' and =%default=;
                     100: , =%default=;
                     1000: ,
-            </ruleBasedNumberFormat>
-            <ruleBasedNumberFormat type="ordinal">
+            </icu:ruleBasedNumberFormat>
+            <icu:ruleBasedNumberFormat type="ordinal">
                 %main:
                     =#,##0==%%abbrev=;
                 %%abbrev:
                     th; st; nd; rd; th;
                     20: &gt;&gt;;
                     100: &gt;&gt;;
-            </ruleBasedNumberFormat>
-            <ruleBasedNumberFormat type="duration">
+            </icu:ruleBasedNumberFormat>
+            <icu:ruleBasedNumberFormat type="duration">
             %with-words:
                 0 seconds; 1 second; =0= seconds;
                 60/60:
-            </ruleBasedNumberFormat>
-        </ruleBasedNumberFormats>
-        <boundaries>
+            </icu:ruleBasedNumberFormat>
+        </icu:ruleBasedNumberFormats>
+        <icu:boundaries>
              <!-- Boundary rules.
             Selected samples are given with no attempt to make them work.
             This format is the Java/ICU syntax, at the top level.
@@ -465,18 +476,18 @@ For example, most country locales will inherit the bulk of their data from the l
             in BreakIteratorRules.java
             displayName attributes removed for now
             -->
-            <grapheme class="RuleBased" append="true">
+            <icu:grapheme class="RuleBased" append="true">
                 <!-- in addition to the normal rules, treat CH and RR as graphemes. -->
                 [cC][hH];[rR][rR]
-            </grapheme>
-            <word class="Dictionary" import="thaiDict.dat" >
+            </icu:grapheme>
+            <icu:word class="Dictionary" import="thaiDict.dat" >
                 <!-- When doing Thai word break, check the normal word break rules first. -->
                 digit=[[:Nd:][:No:]];
                 $digit [[:Pd:]&#xAD;&#x2027;&apos;.]
-            </word>
-        </boundaries>
-        <transforms>
-            <transform type="Latin">
+            </icu:word>
+        </icu:boundaries>
+        <icu:transforms>
+            <icu:transform type="Latin">
                 ::NFD (NFC) ; # convert everything to decomposed for simplicity
                 ...
                 &#x03B1; &lt;> a ;  &#x0391; &lt;> A ;
@@ -498,104 +509,115 @@ For example, most country locales will inherit the bulk of their data from the l
                 &#x03BD; &lt;> n ; &#x039D; &lt;> N ;
                 ...
                 ::NFC (NFD) ; # convert back to composed
-            </transform>
-        </transforms>
+            </icu:transform>
+        </icu:transforms>
     </special>
-    <special owner="http://www.openoffice.org">
-        <numberingLevels>
-            <!--
-            the parameter NumType can have one of the following values:
-            0 = CHARS_UPPER_LETTER   EX: A, B, C, ....
-            1 = CHARS_LOWER_LETTER   EX: a, b, c, ....
-            2 = ROMAN_UPPER          EX: I, II, III, ....
-            3 = ROMAN_LOWER          EX: i, ii, iii, ....
-            4 = ARABIC               EX: 1, 2, 3, 4, .....
-            5 = NUMBER_ONE     numbering is invisible
-            6 = CHAR_SPECIAL   use a character from specified font
-            7 = PAGE_DESCRIPTOR  numbering is specified in page style
-            8 = BITMAP                numbering is displayed in bitmap graphic
-            9 = CHARS_UPPER_LETTER_N  EX: A, B, ...., AA, BB
-            10 = CHARS_LOWER_LETTER_N EX: a, b, ..., aa, bb, cc
-           -->
-          <numberingLevel prefix="" numType="4" suffix=")" />
-          <numberingLevel prefix="" numType="4" suffix="." />
-          <numberingLevel prefix="(" numType="4" suffix=")" />
-          <numberingLevel prefix="" numType="2" suffix="." />
-          <numberingLevel prefix="" numType="0" suffix=")" />
-          <numberingLevel prefix="" numType="1" suffix=")" />
-          <numberingLevel prefix="(" numType="1" suffix=")" />
-          <numberingLevel prefix="" numType="3" suffix="." />
-        </numberingLevels>
-        <reservedWords>
-            <trueWord>true</trueWord>
-            <falseWord>false</falseWord>
-            <quarter1Word>1st quarter</quarter1Word>
-            <quarter2Word>2nd quarter</quarter2Word>
-            <quarter3Word>3rd quarter</quarter3Word>
-            <quarter4Word>4th quarter</quarter4Word>
-            <aboveWord>above</aboveWord>
-            <belowWord>below</belowWord>
-        </reservedWords>
-        <transliterationModules>IGNORE_CASE</transliterationModules>
-        <outLineNumberingLevel></outLineNumberingLevel>
+    <special xmlns:openOffice="http://www.openoffice.org">
+        <openOffice:reservedWords>
+            <openOffice:trueWord>true</openOffice:trueWord>
+            <openOffice:falseWord>false</openOffice:falseWord>
+            <openOffice:quarter1Word>1st quarter</openOffice:quarter1Word>
+            <openOffice:quarter2Word>2nd quarter</openOffice:quarter2Word>
+            <openOffice:quarter3Word>3rd quarter</openOffice:quarter3Word>
+            <openOffice:quarter4Word>4th quarter</openOffice:quarter4Word>
+            <openOffice:aboveWord>above</openOffice:aboveWord>
+            <openOffice:belowWord>below</openOffice:belowWord>
+            <openOffice:quarter1Abbreviation>Q1</openOffice:quarter1Abbreviation>
+            <openOffice:quarter2Abbreviation>Q2</openOffice:quarter2Abbreviation>
+            <openOffice:quarter3Abbreviation>Q3</openOffice:quarter3Abbreviation>
+            <openOffice:quarter4Abbreviation>Q4</openOffice:quarter4Abbreviation>
+        </openOffice:reservedWords>
+        <openOffice:collations>
+            <openOffice:collator unoid="alphanumeric" default="true"/>
+            <openOffice:collationOptions>
+                <openOffice:transliterationModules>IGNORE_CASE</openOffice:transliterationModules>
+            </openOffice:collationOptions>
+        </openOffice:collations>
+        <openOffice:search>
+            <openOffice:searchOptions>
+                <openOffice:transliterationModules>IGNORE_CASE</openOffice:transliterationModules>
+            </openOffice:searchOptions>
+        </openOffice:search>
+        <openOffice:currency default="true" usedInCompatibleFormatCodes="true">
+            <openOffice:separators>
+                <openOffice:dateSeparator>/</openOffice:dateSeparator>
+                <openOffice:thousandSeparator>,</openOffice:thousandSeparator>
+                <openOffice:decimalSeparator>.</openOffice:decimalSeparator>
+                <openOffice:timeSeparator>:</openOffice:timeSeparator>
+                <openOffice:longDateDayOfWeekSeparator>, </openOffice:longDateDayOfWeekSeparator>
+                <openOffice:longDateDaySeparator>, </openOffice:longDateDaySeparator>
+                <openOffice:longDateMonthSeparator> </openOffice:longDateMonthSeparator>
+                <openOffice:longDateYearSeparator> </openOffice:longDateYearSeparator>
+            </openOffice:separators>
+            <openOffice:numberingLevels>
+                <openOffice:numberingLevel prefix=" " numType="4" suffix=")" />
+                <openOffice:numberingLevel prefix=" " numType="4" suffix="." />
+                <openOffice:numberingLevel prefix="(" numType="4" suffix="." />
+                <openOffice:numberingLevel prefix=" " numType="2" suffix="." />
+                <openOffice:numberingLevel prefix=" " numType="0" suffix=")" />
+                <openOffice:numberingLevel prefix=" " numType="1" suffix=")" />
+                <openOffice:numberingLevel prefix="(" numType="1" suffix=")" />
+                <openOffice:numberingLevel prefix=" " numType="3" suffix="." />
+            </openOffice:numberingLevels>
+        </openOffice:currency>
     </special>
-    <special owner="http://www.opengroup.org/regproducts/xu.htm">
+    <special xmlns:posix="http://www.opengroup.org/regproducts/xu.htm">
         <!-- old abbreviations for pre-GUI days -->
-        <messages>
-            <no>No</no>
-            <yes>Yes</yes>
-            <shortYes>Y</shortYes>
-            <shortNo>N</shortNo>
-        </messages>
+        <posix:messages>
+            <posix:no>No</posix:no>
+            <posix:yes>Yes</posix:yes>
+            <posix:shortYes>Y</posix:shortYes>
+            <posix:shortNo>N</posix:shortNo>
+        </posix:messages>
     </special>
-    <special owner="http://www.gnu.org/directory/glibc.html">
+    <special xmlns:iso14652="http://www.gnu.org/directory/glibc.html">
         <!-- The following is ISO TR 14652 compatibility data.For details on TR 14652 see http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n972-14652ft.pdf.
          -->
-        <addressFormat>
-            <postalPattern>"%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N"</postalPattern>
-        </addressFormat>
+        <iso14652:addressFormat>
+            <iso14652:postalPattern>"%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N"</iso14652:postalPattern>
+        </iso14652:addressFormat>
 
-        <nameFormat>
-            <namePattern>%p%t%g%m%t%f</namePattern>
-            <generalSalutation></generalSalutation>
-            <shortSalutationMr> Mr.</shortSalutationMr>
-            <shortSalutationMiss>Ms.</shortSalutationMiss>
-            <shortSalutationMrs>Mrs.</shortSalutationMrs>
-            <longSalutationMr> Mister.</longSalutationMr>
-            <longSalutationMiss>Miss</longSalutationMiss>
-            <longSalutationMrs>Mrs.</longSalutationMrs>
-        </nameFormat>
+        <iso14652:nameFormat>
+            <iso14652:namePattern>%p%t%g%m%t%f</iso14652:namePattern>
+            <iso14652:generalSalutation></iso14652:generalSalutation>
+            <iso14652:shortSalutationMr> Mr.</iso14652:shortSalutationMr>
+            <iso14652:shortSalutationMiss>Ms.</iso14652:shortSalutationMiss>
+            <iso14652:shortSalutationMrs>Mrs.</iso14652:shortSalutationMrs>
+            <iso14652:longSalutationMr> Mister.</iso14652:longSalutationMr>
+            <iso14652:longSalutationMiss>Miss</iso14652:longSalutationMiss>
+            <iso14652:longSalutationMrs>Mrs.</iso14652:longSalutationMrs>
+        </iso14652:nameFormat>
 
-        <identification>
+        <iso14652:identification>
             <!-- Identification of the person who produced the data file. -->
-            <title></title>
-            <source></source>
-            <address></address>
-            <contact></contact>
-            <email></email>
-            <telephone></telephone>
-            <fax></fax>
-            <languageUsed></languageUsed>
-            <country></country>
-            <audience></audience>
-            <application></application>
-            <abbreviation></abbreviation>
-            <revision></revision>
-            <date></date>
-        </identification>
+            <iso14652:title></iso14652:title>
+            <iso14652:source></iso14652:source>
+            <iso14652:address></iso14652:address>
+            <iso14652:contact></iso14652:contact>
+            <iso14652:email></iso14652:email>
+            <iso14652:telephone></iso14652:telephone>
+            <iso14652:fax></iso14652:fax>
+            <iso14652:languageUsed></iso14652:languageUsed>
+            <iso14652:country></iso14652:country>
+            <iso14652:audience></iso14652:audience>
+            <iso14652:application></iso14652:application>
+            <iso14652:abbreviation></iso14652:abbreviation>
+            <iso14652:revision></iso14652:revision>
+            <iso14652:date></iso14652:date>
+        </iso14652:identification>
 
-        <telephoneFormat>
-            <internationalPattern>+%c (%a)%t-%l</internationalPattern>
-            <domesticPattern>(%a)%t-%l</domesticPattern>
-            <internationalDialCode>001 </internationalDialCode>
-            <internationalPrefix> </internationalPrefix>
-        </telephoneFormat>
+        <iso14652:telephoneFormat>
+            <iso14652:internationalPattern>+%c (%a)%t-%l</iso14652:internationalPattern>
+            <iso14652:domesticPattern>(%a)%t-%l</iso14652:domesticPattern>
+            <iso14652:internationalDialCode>001 </iso14652:internationalDialCode>
+            <iso14652:internationalPrefix> </iso14652:internationalPrefix>
+        </iso14652:telephoneFormat>
 
-        <countryInfo>
-          <countryPost>US</countryPost>
-          <countryCar>US</countryCar>
-          <countryNumber type="666"/>
-          <countryISBNNumber type="666"/>
-        </countryInfo>
+        <iso14652:countryInfo>
+          <iso14652:countryPost>US</iso14652:countryPost>
+          <iso14652:countryCar>US</iso14652:countryCar>
+          <iso14652:countryNumber type="666"/>
+          <iso14652:countryISBNNumber type="666"/>
+        </iso14652:countryInfo>
      </special>
 </localeData>

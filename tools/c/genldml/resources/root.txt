@@ -402,9 +402,12 @@ root{
     collation            {
                              "{0}<{1}collation {2} >\n"
                          }
-	uca					 {		
-							 "{0}<uca version=\"{1}\"/>\n"
+	baseStart		     {		
+							 "{0}<base>\n"
 						 }
+    baseEnd              {
+                             "{0}</base>\n"
+                         }   
 	settings			 {
 							 "{0}<settings {1} />\n"
 						 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27"/>
+		<version number="1.3"/>
+		<generation date="2005-01-28T21:55:56Z"/>
 		<language type="ar"/>
 	</identity>
 	<localeDisplayNames>
@@ -508,6 +508,569 @@
 				</eras>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<!-- Antarctica -->
+			<zone type="Antarctica/Rothera">
+				<exemplarCity draft="true">روثيرا</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity draft="true">بالميرا</exemplarCity>
+			</zone>
+			<zone type="Antarctica/South_Pole">
+				<exemplarCity draft="true">القطب الجنوبي</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity draft="true">سايووا</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity draft="true">ماوسون</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity draft="true">دافيز</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity draft="true">فوستوك</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity draft="true">كاساي</exemplarCity>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity draft="true">دي مونت دو روفيل</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity draft="true">ماك موردو</exemplarCity>
+			</zone>
+			<!-- Argentina -->
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity draft="true">ريو جالييوس</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity draft="true">ميندوزا</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity draft="true">سان جوان</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity draft="true">أشوا</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/ComodRivadavia">
+				<exemplarCity draft="true">كومودريفادافيا</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity draft="true">لا ريوجا</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity draft="true">كاتاماركا</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity draft="true">جوجو</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity draft="true">تاكمان</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity draft="true">كوردوبا</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity draft="true">بوينوس أيرس</exemplarCity>
+			</zone>
+			<!-- Australia -->
+			<zone type="Australia/Perth">
+				<exemplarCity draft="true">برثا</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity draft="true">دارون</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity draft="true">أدليادا</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity draft="true">بروكن هيل</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity draft="true">ميلبورن</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity draft="true">هوبارت</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity draft="true">ليندمان</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity draft="true">سيدني</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity draft="true">برسيبان</exemplarCity>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity draft="true">لورد هاو</exemplarCity>
+			</zone>
+			<!-- Brazil -->
+			<zone type="America/Eirunepe">
+				<exemplarCity draft="true">ايرونبي</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity draft="true">ريوبرانكو</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity draft="true">بورتو فيلو</exemplarCity>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<exemplarCity draft="true">باو فيستا</exemplarCity>
+			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity draft="true">ماناوس</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity draft="true">كيابا</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity draft="true">كومبو جراند</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity draft="true">بلم</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity draft="true">أروجوانيا</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity draft="true">ساو باولو</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity draft="true">باهيا</exemplarCity>
+			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity draft="true">فورتاليزا</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity draft="true">ماشيو</exemplarCity>
+			</zone>
+			<zone type="America/Recife">
+				<exemplarCity draft="true">ريسيف</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity draft="true">نوروناه</exemplarCity>
+			</zone>
+			<!-- Canada -->
+			<zone type="America/Dawson">
+				<exemplarCity draft="true">داوسان</exemplarCity>
+			</zone>
+			<zone type="America/Whitehorse">
+				<exemplarCity draft="true">هوايت هورس</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity draft="true">فانكوفر</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity draft="true">داوسن كريك</exemplarCity>
+			</zone>
+			<zone type="America/Yellowknife">
+				<exemplarCity draft="true">يلونيف</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity draft="true">اينوفيك</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity draft="true">ايدمونتون</exemplarCity>
+			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity draft="true">سوفت كارنت</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity draft="true">كامبرديج باي</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity draft="true">ريجينا</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity draft="true">وينيبيج</exemplarCity>
+			</zone>
+			<zone type="America/Rainy_River">
+				<exemplarCity draft="true">راني ريفر</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity draft="true">رانكن انلت</exemplarCity>
+			</zone>
+			<zone type="America/Thunder_Bay">
+				<exemplarCity draft="true">ثندر باي</exemplarCity>
+			</zone>
+			<zone type="America/Nipigon">
+				<exemplarCity draft="true">نيبيجون</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity draft="true">تورونتو</exemplarCity>
+			</zone>
+			<zone type="America/Montreal">
+				<exemplarCity draft="true">مونتريال</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity draft="true">اكويلت</exemplarCity>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<exemplarCity draft="true">بانجينتينج</exemplarCity>
+			</zone>
+			<zone type="America/Halifax">
+				<exemplarCity draft="true">هاليفاكس</exemplarCity>
+			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity draft="true">جوس باي</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity draft="true">جلاس باي</exemplarCity>
+			</zone>
+			<zone type="America/St_Johns">
+				<exemplarCity draft="true">عيد سانت جونس</exemplarCity>
+			</zone>
+			<!-- Democratic Republic of the Congo -->
+			<zone type="Africa/Kinshasa">
+				<exemplarCity draft="true">كينشاسا</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity draft="true">لومبباشا</exemplarCity>
+			</zone>
+			<!-- Chile -->
+			<zone type="Pacific/Easter">
+				<exemplarCity draft="true">استر</exemplarCity>
+			</zone>
+			<zone type="America/Santiago">
+				<exemplarCity draft="true">سانتيجو</exemplarCity>
+			</zone>
+			<!-- China -->
+			<zone type="Asia/Kashgar">
+				<exemplarCity draft="true">كاشجار</exemplarCity>
+			</zone>
+			<zone type="Asia/Urumqi">
+				<exemplarCity draft="true">أرومكي</exemplarCity>
+			</zone>
+			<zone type="Asia/Chongqing">
+				<exemplarCity draft="true">تشونجكينج</exemplarCity>
+			</zone>
+			<zone type="Asia/Shanghai">
+				<exemplarCity draft="true">العالمية</exemplarCity>
+			</zone>
+			<zone type="Asia/Harbin">
+				<exemplarCity draft="true">هاربين</exemplarCity>
+			</zone>
+			<!-- Ecuador -->
+			<zone type="Pacific/Galapagos">
+				<exemplarCity draft="true">جلاباجوس</exemplarCity>
+			</zone>
+			<zone type="America/Guayaquil">
+				<exemplarCity draft="true">جواياكيل</exemplarCity>
+			</zone>
+			<!-- Spain -->
+			<zone type="Atlantic/Canary">
+				<exemplarCity draft="true">كناري</exemplarCity>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity draft="true">سيتا</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity draft="true">مدريد</exemplarCity>
+			</zone>
+			<!-- Micronesia -->
+			<zone type="Pacific/Yap">
+				<exemplarCity draft="true">ياب</exemplarCity>
+			</zone>
+			<zone type="Pacific/Truk">
+				<exemplarCity draft="true">ترك</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity draft="true">باناب</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity draft="true">كوسرا</exemplarCity>
+			</zone>
+			<!-- United Kingdom -->
+			<zone type="Europe/Belfast">
+				<exemplarCity draft="true">بلفاست</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<exemplarCity draft="true">لندن</exemplarCity>
+			</zone>
+			<!-- Greenland -->
+			<zone type="America/Thule">
+				<exemplarCity draft="true">ثيل</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity draft="true">جودثاب</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity draft="true">سكورسبيسند</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity draft="true">دانمرك شافن</exemplarCity>
+			</zone>
+			<!-- Indonesia -->
+			<zone type="Asia/Jakarta">
+				<exemplarCity draft="true">جاكرتا</exemplarCity>
+			</zone>
+			<zone type="Asia/Pontianak">
+				<exemplarCity draft="true">بونتيانك</exemplarCity>
+			</zone>
+			<zone type="Asia/Makassar">
+				<exemplarCity draft="true">ماكسار</exemplarCity>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<exemplarCity draft="true">جايابيورا</exemplarCity>
+			</zone>
+			<!-- Kiribati -->
+			<zone type="Pacific/Enderbury">
+				<exemplarCity draft="true">اندربيرج</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity draft="true">كيريتي ماتي</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity draft="true">تاراوا</exemplarCity>
+			</zone>
+			<!-- Kazakhstan -->
+			<zone type="Asia/Aqtau">
+				<exemplarCity draft="true">أكتاو</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity draft="true">أورال</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity draft="true">أكتوب</exemplarCity>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity draft="true">كيزيلوردا</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity draft="true">ألماتي</exemplarCity>
+			</zone>
+			<!-- Marshall Islands -->
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity draft="true">كواجالين</exemplarCity>
+			</zone>
+			<zone type="Pacific/Majuro">
+				<exemplarCity draft="true">ماجورو</exemplarCity>
+			</zone>
+			<!-- Mali -->
+			<zone type="Africa/Bamako">
+				<exemplarCity draft="true">باماكو</exemplarCity>
+			</zone>
+			<zone type="Africa/Timbuktu">
+				<exemplarCity draft="true">تيمبيوكتو</exemplarCity>
+			</zone>
+			<!-- Mongolia -->
+			<zone type="Asia/Hovd">
+				<exemplarCity draft="true">هوفد</exemplarCity>
+			</zone>
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity draft="true">آلانباتار</exemplarCity>
+			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity draft="true">تشوبالسان</exemplarCity>
+			</zone>
+			<!-- Mexico -->
+			<zone type="America/Tijuana">
+				<exemplarCity draft="true">تيجوانا</exemplarCity>
+			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity draft="true">هيرموسيلو</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity draft="true">مازاتلان</exemplarCity>
+			</zone>
+			<zone type="America/Chihuahua">
+				<exemplarCity draft="true">تشيواوا</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity draft="true">مونتيري</exemplarCity>
+			</zone>
+			<zone type="America/Mexico_City">
+				<exemplarCity draft="true">مدينة المكسيك</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity draft="true">ميريدا</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity draft="true">كانكن</exemplarCity>
+			</zone>
+			<!-- Malaysia -->
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity draft="true">كوالالمبور</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuching">
+				<exemplarCity draft="true">كيشينج</exemplarCity>
+			</zone>
+			<!-- New Zealand -->
+			<zone type="Pacific/Chatham">
+				<exemplarCity draft="true">تشاثام</exemplarCity>
+			</zone>
+			<zone type="Pacific/Auckland">
+				<exemplarCity draft="true">أوكلاند</exemplarCity>
+			</zone>
+			<!-- French Polynesia -->
+			<zone type="Pacific/Tahiti">
+				<exemplarCity draft="true">تاهيتي</exemplarCity>
+			</zone>
+			<zone type="Pacific/Marquesas">
+				<exemplarCity draft="true">ماركيساس</exemplarCity>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<exemplarCity draft="true">جامبير</exemplarCity>
+			</zone>
+			<!-- Portugal -->
+			<zone type="Atlantic/Azores">
+				<exemplarCity draft="true">أزورس</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity draft="true">ماديرا</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity draft="true">ليسبون</exemplarCity>
+			</zone>
+			<!-- Russia -->
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity draft="true">كالينجراد</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="true">موسكو</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity draft="true">سمراء</exemplarCity>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<exemplarCity draft="true">يكاترنبيرج</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity draft="true">أومسك</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity draft="true">نوفوسبيرسك</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity draft="true">كراسنويارسك</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity draft="true">ايركيتسك</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity draft="true">ياكتسك</exemplarCity>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity draft="true">فلاديفوستك</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity draft="true">سكالين</exemplarCity>
+			</zone>
+			<zone type="Asia/Magadan">
+				<exemplarCity draft="true">مجادن</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity draft="true">كامتشاتكا</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity draft="true">أندير</exemplarCity>
+			</zone>
+			<!-- Svalbard and Jan Mayen -->
+			<zone type="Atlantic/Jan_Mayen">
+				<exemplarCity draft="true">جان ماين</exemplarCity>
+			</zone>
+			<zone type="Arctic/Longyearbyen">
+				<exemplarCity draft="true">لونجيربن</exemplarCity>
+			</zone>
+			<!-- Ukraine -->
+			<zone type="Europe/Uzhgorod">
+				<exemplarCity draft="true">أوزجرود</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="true">كيف</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity draft="true">سيمفروبول</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity draft="true">زابوروزي</exemplarCity>
+			</zone>
+			<!-- United States Minor Outlying Islands -->
+			<zone type="Pacific/Midway">
+				<exemplarCity draft="true">ميدواي</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity draft="true">جونستون</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity draft="true">واك</exemplarCity>
+			</zone>
+			<!-- United States -->
+			<zone type="America/Adak">
+				<exemplarCity draft="true">أداك</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity draft="true">نوم</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity draft="true">هونولولو</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity draft="true">أنشوراج</exemplarCity>
+			</zone>
+			<zone type="America/Yakutat">
+				<exemplarCity draft="true">ياكوتات</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity draft="true">جوني</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity draft="true">لوس انجلوس</exemplarCity>
+			</zone>
+			<zone type="America/Boise">
+				<exemplarCity draft="true">بويس</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity draft="true">فونكس</exemplarCity>
+			</zone>
+			<zone type="America/Shiprock">
+				<exemplarCity draft="true">شيبروك</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity draft="true">دنفر</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity draft="true">سنتر</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity draft="true">شيكاجو</exemplarCity>
+			</zone>
+			<zone type="America/Menominee">
+				<exemplarCity draft="true">مينوميني</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<exemplarCity draft="true">كونكس</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<exemplarCity draft="true">مارنجو</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity draft="true">انديانانابوليس</exemplarCity>
+			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity draft="true">لويس فيل</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<exemplarCity draft="true">فيفاي</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<exemplarCity draft="true">مونتيسيلو</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity draft="true">ديترويت</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity draft="true">نيويورك</exemplarCity>
+			</zone>
+			<!-- Uzbekistan -->
+			<zone type="Asia/Samarkand">
+				<exemplarCity draft="true">سمرقند</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity draft="true">طشقند</exemplarCity>
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>

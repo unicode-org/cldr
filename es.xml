@@ -2559,3 +2559,46 @@
       <noexpr>n;N</noexpr>
     </messages>
   </posix></ldml>
+<!-- Old Comments. See root.xml for more info.
+URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/es.txt?only_with_tag=final-update-LDML
+
+                "a.C.",  // Said to be a.C. for antes de Cristo
+                "d.C.",  // Said to be d.C. for despu\u00E9s de Cristo
+CZ { "Chequia" } // Old value
+        FK { "Islas Falkland (Malvinas)" }    // alternate name { "Islas Malvinas" }
+FM { "Micronesia, Estados Federados de" }
+        KP { "Corea del Norte" }    // alternate name { "Corea, Rep\u00FAblica Popular Democr\u00E1tica de" }
+        KR { "Corea del Sur" }    // alternate name { "Corea, Rep\u00FAblica de " }
+LA { "Rep\u00FAblica Democr\u00E1tica Popular Lao" } // From translation center
+LC { "Santa Lucia" }
+MD { "Moldavia, Rep\u00FAblica de" }
+MK { "Macedonia, Antigua Rep\u00FAblica Yugoslava de" }    // alternate name { "Macedonia, Rep\u00FAblica de" }
+PH { "Islas Filipinas" }  // Original value
+RE { "Reuni\u00F3n" }
+RU { "Federaci\u00F3n Rusa" } // From translation center
+        SH { "Santa Elena" } // From translation center
+SR { "Surinam" }
+UM { "Islas Perif\u00E9ricas Menores de los Estados Unidos" } // Old value
+VA { "Santa Sede (Ciudad del Vaticano)" }
+Currency display names
+You may find this source useful too: http://publications.eu.int/code/es/es-5000500.htm
+XPS { "XPS", "libra esterlina" }
+XSS { "XSS", "chel\u00EDn esterlino" }
+Spanish does not capitalize the language names like English
+        root{"ra\u00EDz" }    // The only exception to ISO-639
+        gu  { "gujarati" } // If this changes, then change Gujr in Scripts too.
+        km  { "jemer" } // If this changes, then change Khmr in Scripts too.
+        kn  { "canar\u00e9s" } // If this changes, then change Knda in Scripts too.
+lv { "let\u00F3n" } // Old value
+        "Latn",  // ISO 15924 Name 
+u umlaut \u00fc is a rare character.
+It can be found in words like multilig\u00fce, ag\u00fcita and Itag\u00fc\u00ed
+        Cprt { "chipriota" } // grecochipriota?
+        Hans { "han simplificado" } // Not a formal part of ISO-15924 yet
+        Hant { "han tradicional" } // Not a formal part of ISO-15924 yet
+        Qaac { "copto" } // Coptic is not a formal part of ISO-15924 yet
+? Qaai { "inherited" } // PUA  Difficult to translate
+        Zyyy { "com\u00FAn" } // This may need to become "undetermined script"
+The following should probably be all lowercase.
+
+-->

@@ -17,9 +17,9 @@ root{
                            //  "%icu;\n"
                            // "]\n"
                            //  ">\n"
-                             "<!DOCTYPE ldml SYSTEM \" 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd\" \n"
+                             "<!DOCTYPE ldml SYSTEM \" 	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd\" \n"
                              "[\n"
-                             "      <!ENTITY % icu SYSTEM \" 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd\"> \n"
+                             "      <!ENTITY % icu SYSTEM \" http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlICU.dtd\"> \n"
                              "%icu;\n"
                              "]\n"
                              ">\n"
@@ -28,11 +28,11 @@ root{
                          }
     declarationNoSpecials{
                              "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
-                             "<!DOCTYPE ldml SYSTEM \"http://www.openi18n.org/spec/ldml/1.0/ldml.dtd\">\n"
+                             "<!DOCTYPE ldml SYSTEM \"http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd\">\n"
                          }
     supplementalDeclaration{
                                 "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
-                                "<!DOCTYPE supplementalData SYSTEM \"http://www.openi18n.org/spec/ldml/1.0/ldmlSupplemental.dtd\" >\n"
+                                "<!DOCTYPE supplementalData SYSTEM \"http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlSupplemental.dtd\" >\n"
 
                          }
 	default				 {
@@ -48,7 +48,7 @@ root{
 							 "{0}<alias source=\"{1}\" type=\"{2}\" />\n"
 					     }
 	localeData           { 
-                             "<{0}ldml>\n"
+                             "<{0}ldml{1}>\n"
                          }                    
     identity             {
                              "{0}<{1}identity>\n"
@@ -61,6 +61,9 @@ root{
                          }
     languageElem         {  
                              "{0}<language type=\"{1}\" /> \n"
+                         }
+    scriptElem           {
+                            "{0}<script type=\"{1}\" /> \n"
                          }
     territoryElem        {  
                              "{0}<territory type=\"{1}\" /> \n"
@@ -177,23 +180,44 @@ root{
 	calendarEnd          {	
 							 "{0}</calendar>\n"
                          }
-    monthNames           {
-                             "{0}<{1}monthNames>\n"
+    months               {
+                             "{0}<{1}months>\n"
+                         }
+    monthContext         {
+                             "{0}<monthContext type=\"{1}\">\n"
+                         }
+    monthContextEnd      {
+                             "{0}</monthContext>\n"  
+                         }
+    monthWidth           {
+                             "{0}<monthWidth type=\"{1}\">\n"
+                         }
+    monthWidthEnd        {
+                            "{0}</monthWidth>\n"
                          }
     month                {   
                              "{0}<month type=\"{1}\">{2}</month>\n"
                          }
-    monthAbbr            {
-                            "{0}<{1}monthAbbr>\n"
+    days                 {
+                             "{0}<{1}days>\n"
                          }
-    dayNames             {
-                             "{0}<{1}dayNames>\n"
+    dayContext           {
+                             "{0}<dayContext type=\"{1}\">\n"
+                         }
+    dayContextEnd        {
+                             "{0}</dayContext>\n" 
+                         }
+    dayWidth             {
+                             "{0}<dayWidth type=\"{1}\">\n"
+                         }
+    dayWidthEnd          {
+                            "{0}</dayWidth>\n"
                          }
     day                  {
                              "{0}<day type=\"{1}\">{2}</day>\n"
                          }
-    dayAbbr              {         
-                              "{0}<{1}dayAbbr>\n"
+    dayNamesEnd          {         
+                              "{0}</dayNames>\n"
                          }
     week                 {
                               "{0}<{1}week>\n"

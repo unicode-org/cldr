@@ -59,9 +59,13 @@
 <!ELEMENT alias  (special*) >
 <!ATTLIST alias source NMTOKEN #REQUIRED >
 <!ATTLIST alias path CDATA #IMPLIED>
+<!ATTLIST alias draft ( true | false ) #IMPLIED >
+<!ATTLIST alias alt CDATA #IMPLIED >
 
 <!ELEMENT default (special*) >
 <!ATTLIST default type NMTOKEN #REQUIRED >
+<!ATTLIST default draft ( true | false ) #IMPLIED >
+<!ATTLIST default alt CDATA #IMPLIED >
 
 <!ELEMENT special ANY >
 
@@ -308,11 +312,9 @@
 <!-- START_DEPRECATED -->
 <!ELEMENT monthNames ( alias | (month*, special*)) >
 <!ATTLIST monthNames draft ( true | false ) #IMPLIED >
-<!ATTLIST monthNames deprecated CDATA #FIXED true >
 
 <!ELEMENT monthAbbr ( alias | (month*, special*)) >
 <!ATTLIST monthAbbr draft ( true | false ) #IMPLIED >
-<!ATTLIST monthAbbr deprecated CDATA #FIXED true >
 <!-- END_DEPRECATED-->
 
 <!ELEMENT days ( alias | (default?, dayContext*, special*)) >
@@ -849,27 +851,26 @@
 <!ELEMENT posix (alias | (messages*, special*)) >
 <!ATTLIST posix draft ( true | false ) #IMPLIED >
 
-<!ELEMENT messages (alias | ( yesstr?, nostr?, yesexpr?, noexpr?)) >
+<!ELEMENT messages (alias | ( yesstr*, nostr*, yesexpr*, noexpr*)) >
 
 <!ELEMENT yesstr ( #PCDATA ) >
+<!ATTLIST yesstr draft ( true | false ) #IMPLIED >
+<!ATTLIST yesstr alt CDATA #IMPLIED >
 
 <!ELEMENT nostr ( #PCDATA ) >
+<!ATTLIST nostr draft ( true | false ) #IMPLIED >
+<!ATTLIST nostr alt CDATA #IMPLIED >
 
 <!ELEMENT yesexpr ( #PCDATA ) >
+<!ATTLIST yesexpr draft ( true | false ) #IMPLIED >
+<!ATTLIST yesexpr alt CDATA #IMPLIED >
 
 <!ELEMENT noexpr ( #PCDATA ) >
+<!ATTLIST noexpr draft ( true | false ) #IMPLIED >
+<!ATTLIST noexpr alt CDATA #IMPLIED >
 
 <!ELEMENT references ( reference* ) >
 <!ELEMENT reference ( #PCDATA ) >
 <!ATTLIST reference type NMTOKEN #REQUIRED>
 <!ATTLIST reference standard ( true | false ) #IMPLIED >
 <!ATTLIST reference uri CDATA #IMPLIED >
-
-
-
-
-
-
-
-
-

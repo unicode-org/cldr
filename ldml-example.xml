@@ -31,7 +31,7 @@ For example, most country locales will inherit the bulk of their data from the l
         Display names for scripts, languages, countries, and variants in this locale
         -->
         <scripts>
-            <!-- IDs come from the Unicode Tech Report on scripts -->
+            <!-- types come from the Unicode Tech Report on scripts -->
             <script type="Latin">Romana</script>
             <script type="Cyrillic">Kyrillica</script>
          </scripts>
@@ -53,7 +53,7 @@ For example, most country locales will inherit the bulk of their data from the l
         </territories>
 
         <variants>
-            <!-- Variant IDs must be unique across ALL locales. Currently they include
+            <!-- Variant types must be unique across ALL locales. Currently they include
             B, NY, EURO -->
             <variant type="B">Bokm&#x00e5;l</variant>
         </variants>
@@ -217,7 +217,7 @@ For example, most country locales will inherit the bulk of their data from the l
 
         <timeZoneNames>
                 <!--
-                The zone id's are language-independent.
+                The zone types are language-independent.
                 Their values and data (default offset from GMT, daylight savings rules)
                 are stored elsewhere
                 Here we just have the localized names for them.
@@ -302,11 +302,11 @@ For example, most country locales will inherit the bulk of their data from the l
                 <displayName>dollar</displayName>
                 <symbol>$</symbol>
             </currency>
-            <currency id ="JPY">
+            <currency type="JPY">
                 <displayName>yen</displayName>
                 <symbol>&#x00A5;</symbol>
             </currency>
-            <currency id ="PTE">
+            <currency type="PTE">
                 <displayName>escudo</displayName>
                 <symbol>Esc.</symbol>
                 <decimal>$</decimal>
@@ -329,6 +329,8 @@ For example, most country locales will inherit the bulk of their data from the l
             French accent ordering can be specified with the accentOrder="reverse" attribute.
             The displayName attribute supplies a message pattern for getDisplayName.
             -->
+            <special owner="http://oss.software.ibm.com/icu/" version="1.2" />
+
             <base UCA="3.1.1"/>
             <settings caseLevel="on"/>
             <rules>
@@ -457,14 +459,14 @@ For example, most country locales will inherit the bulk of their data from the l
             9 = CHARS_UPPER_LETTER_N  EX: A, B, ...., AA, BB
             10 = CHARS_LOWER_LETTER_N EX: a, b, ..., aa, bb, cc
            -->
-          <numberingLevel Prefix="" NumType="4" Suffix=")" />
-          <numberingLevel Prefix="" NumType="4" Suffix="." />
-          <numberingLevel Prefix="(" NumType="4" Suffix=")" />
-          <numberingLevel Prefix="" NumType="2" Suffix="." />
-          <numberingLevel Prefix="" NumType="0" Suffix=")" />
-          <numberingLevel Prefix="" NumType="1" Suffix=")" />
-          <numberingLevel Prefix="(" NumType="1" Suffix=")" />
-          <numberingLevel Prefix="" NumType="3" Suffix="." />
+          <numberingLevel prefix="" numType="4" suffix=")" />
+          <numberingLevel prefix="" numType="4" suffix="." />
+          <numberingLevel prefix="(" numType="4" suffix=")" />
+          <numberingLevel prefix="" numType="2" suffix="." />
+          <numberingLevel prefix="" numType="0" suffix=")" />
+          <numberingLevel prefix="" numType="1" suffix=")" />
+          <numberingLevel prefix="(" numType="1" suffix=")" />
+          <numberingLevel prefix="" numType="3" suffix="." />
         </numberingLevels>
         <reservedWords>
             <trueWord>true</trueWord>
@@ -491,53 +493,51 @@ For example, most country locales will inherit the bulk of their data from the l
     <special owner="http://www.gnu.org/directory/glibc.html">
         <!-- The following is ISO TR 14652 compatibility data.For details on TR 14652 see http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n972-14652ft.pdf.
          -->
-       <iso14652:iso14652 xmlns:iso14652="http://oss.software.ibm.com/locale/locale.html">
-            <iso14652:addressFormat>
-                <iso14652:postalPattern>"%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N"</iso14652:postalPattern>
-            </iso14652:addressFormat>
+        <addressFormat>
+            <postalPattern>"%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N"</postalPattern>
+        </addressFormat>
 
-            <iso14652:nameFormat>
-                <namePattern>%p%t%g%m%t%f</namePattern>
-                <generalSalutation></generalSalutation>
-                <shortSalutationMr> Mr.</shortSalutationMr>
-                <shortSalutationMiss>Ms.</shortSalutationMiss>
-                <shortSalutationMrs>Mrs.</shortSalutationMrs>
-                <longSalutationMr> Mister.</longSalutationMr>
-                <longSalutationMiss>Miss</longSalutationMiss>
-                <longSalutationMrs>Mrs.</longSalutationMrs>
-            </iso14652:nameFormat>
+        <nameFormat>
+            <namePattern>%p%t%g%m%t%f</namePattern>
+            <generalSalutation></generalSalutation>
+            <shortSalutationMr> Mr.</shortSalutationMr>
+            <shortSalutationMiss>Ms.</shortSalutationMiss>
+            <shortSalutationMrs>Mrs.</shortSalutationMrs>
+            <longSalutationMr> Mister.</longSalutationMr>
+            <longSalutationMiss>Miss</longSalutationMiss>
+            <longSalutationMrs>Mrs.</longSalutationMrs>
+        </nameFormat>
 
-            <iso14652:identification>
-                <!-- Identification of the person who produced the data file. -->
-                <iso14652:title></iso14652:title>
-                <iso14652:source></iso14652:source>
-                <iso14652:address></iso14652:address>
-                <iso14652:contact></iso14652:contact>
-                <iso14652:email></iso14652:email>
-                <iso14652:telephone></iso14652:telephone>
-                <iso14652:fax></iso14652:fax>
-                <iso14652:language></iso14652:language>
-                <iso14652:territory></iso14652:territory>
-                <iso14652:audience></iso14652:audience>
-                <iso14652:application></iso14652:application>
-                <iso14652:abbreviation></iso14652:abbreviation>
-                <iso14652:revision></iso14652:revision>
-                <iso14652:date></iso14652:date>
-            </iso14652:identification>
+        <identification>
+            <!-- Identification of the person who produced the data file. -->
+            <title></title>
+            <source></source>
+            <address></address>
+            <contact></contact>
+            <email></email>
+            <telephone></telephone>
+            <fax></fax>
+            <language></language>
+            <territory></territory>
+            <audience></audience>
+            <application></application>
+            <abbreviation></abbreviation>
+            <revision></revision>
+            <date></date>
+        </identification>
 
-            <iso14652:telephoneFormat>
-                <iso14652:internationalPattern>+%c (%a)%t-%l</iso14652:internationalPattern>
-                <iso14652:domesticPattern>(%a)%t-%l</iso14652:domesticPattern>
-                <iso14652:internationalDialCode>001 </iso14652:internationalDialCode>
-                <iso14652:internationalPrefix> </iso14652:internationalPrefix>
-            </iso14652:telephoneFormat>
+        <telephoneFormat>
+            <internationalPattern>+%c (%a)%t-%l</internationalPattern>
+            <domesticPattern>(%a)%t-%l</domesticPattern>
+            <internationalDialCode>001 </internationalDialCode>
+            <internationalPrefix> </internationalPrefix>
+        </telephoneFormat>
 
-            <iso14652:countryInfo>
-              <iso14652:countryPost>US</iso14652:countryPost>
-              <iso14652:countryCar>US</iso14652:countryCar>
-              <iso14652:countryNumber type="666"/>
-              <iso14652:countryISBNNumber type="666"/>
-            </iso14652:countryInfo>
-         </iso14652:iso14652>
+        <countryInfo>
+          <countryPost>US</countryPost>
+          <countryCar>US</countryCar>
+          <countryNumber type="666"/>
+          <countryISBNNumber type="666"/>
+        </countryInfo>
      </special>
 </localeData>

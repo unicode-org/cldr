@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd"
 [
-	<!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
-	<!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
-	<!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
-	<!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0//ldmlPOSIX.dtd">
+	<!ENTITY % icu SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
+	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
 		%icu;
 		%openOffice;
-		%iso14652;
-		%posix;
 ]
 >
 <ldml>
@@ -38,7 +34,9 @@
 <calendars>
 <default type="true"/>
 <calendar type="gregorian">
-<monthNames>
+<months>
+<monthContext type="format">
+<monthWidth type="wide">
 <month type="1">มกราคม</month>
 <month type="2">กุมภาพันธ์</month>
 <month type="3">มีนาคม</month>
@@ -51,8 +49,8 @@
 <month type="10">ตุลาคม</month>
 <month type="11">พฤศจิกายน</month>
 <month type="12">ธันวาคม</month>
-</monthNames>
-<monthAbbr>
+</monthWidth>
+<monthWidth type="abbreviated">
 <month type="1">ม.ค.</month>
 <month type="2">ก.พ.</month>
 <month type="3">มี.ค.</month>
@@ -65,8 +63,12 @@
 <month type="10">ต.ค.</month>
 <month type="11">พ.ย.</month>
 <month type="12">ธ.ค.</month>
-</monthAbbr>
-<dayNames>
+</monthWidth>
+</monthContext>
+</months>
+<days>
+<dayContext type="format">
+<dayWidth type="wide">
 <day type="sun">วันอาทิตย์</day>
 <day type="mon">วันจันทร์</day>
 <day type="tue">วันอังคาร</day>
@@ -74,8 +76,8 @@
 <day type="thu">วันพฤหัสบดี</day>
 <day type="fri">วันศุกร์</day>
 <day type="sat">วันเสาร์</day>
-</dayNames>
-<dayAbbr>
+</dayWidth>
+<dayWidth type="abbreviated">
 <day type="sun">อา.</day>
 <day type="mon">จ.</day>
 <day type="tue">อ.</day>
@@ -83,7 +85,9 @@
 <day type="thu">พฤ.</day>
 <day type="fri">ศ.</day>
 <day type="sat">ส.</day>
-</dayAbbr>
+</dayWidth>
+</dayContext>
+</days>
 <week>
 <minDays count="1"/>
 <firstDay day="sun"/>

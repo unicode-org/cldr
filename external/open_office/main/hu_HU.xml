@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd"
 [
-	<!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
-	<!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
-	<!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
-	<!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0//ldmlPOSIX.dtd">
+	<!ENTITY % icu SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
+	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
 		%icu;
 		%openOffice;
-		%iso14652;
-		%posix;
 ]
 >
 <ldml>
@@ -38,7 +34,9 @@
 <calendars>
 <default type="true"/>
 <calendar type="gregorian">
-<monthNames>
+<months>
+<monthContext type="format">
+<monthWidth type="wide">
 <month type="1">január</month>
 <month type="2">február</month>
 <month type="3">március</month>
@@ -51,8 +49,8 @@
 <month type="10">október</month>
 <month type="11">november</month>
 <month type="12">december</month>
-</monthNames>
-<monthAbbr>
+</monthWidth>
+<monthWidth type="abbreviated">
 <month type="1">jan.</month>
 <month type="2">febr.</month>
 <month type="3">márc.</month>
@@ -65,8 +63,12 @@
 <month type="10">okt.</month>
 <month type="11">nov.</month>
 <month type="12">dec.</month>
-</monthAbbr>
-<dayNames>
+</monthWidth>
+</monthContext>
+</months>
+<days>
+<dayContext type="format">
+<dayWidth type="wide">
 <day type="sun">vasárnap</day>
 <day type="mon">hétfő</day>
 <day type="tue">kedd</day>
@@ -74,8 +76,8 @@
 <day type="thu">csütörtök</day>
 <day type="fri">péntek</day>
 <day type="sat">szombat</day>
-</dayNames>
-<dayAbbr>
+</dayWidth>
+<dayWidth type="abbreviated">
 <day type="sun">V</day>
 <day type="mon">H</day>
 <day type="tue">K</day>
@@ -83,7 +85,9 @@
 <day type="thu">Cs</day>
 <day type="fri">P</day>
 <day type="sat">Szo</day>
-</dayAbbr>
+</dayWidth>
+</dayContext>
+</days>
 <week>
 <minDays count="1"/>
 <firstDay day="sun"/>

@@ -1,14 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd"
 [
-    <!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
-    <!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
-    <!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
-    <!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd">
+    <!ENTITY % icu SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
+    <!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
 %icu;
 %openOffice;
-%iso14652;
-%posix;
 ]
 >
 <ldml>
@@ -22,7 +18,9 @@
 		<calendars>
 			<default type="gregorian"/>
 			<calendar type="gregorian">
-				<monthNames>
+<months>
+<monthContext type="format">
+<monthWidth type="wide">
 					<month type="1">janúar</month>
 					<month type="2">febrúar</month>
 					<month type="3">mars</month>
@@ -35,8 +33,8 @@
 					<month type="10">október</month>
 					<month type="11">nóvember</month>
 					<month type="12">desember</month>
-				</monthNames>
-				<monthAbbr>
+</monthWidth>
+<monthWidth type="abbreviated">
 					<month type="1">jan</month>
 					<month type="2">febr</month>
 					<month type="3">mars</month>
@@ -49,8 +47,12 @@
 					<month type="10">okt</month>
 					<month type="11">nóv</month>
 					<month type="12">des</month>
-				</monthAbbr>
-				<dayNames>
+</monthWidth>
+</monthContext>
+</months>
+<days>
+<dayContext type="format">
+<dayWidth type="wide">
 					<day type="sun">sunndagur</day>
 					<day type="mon">mánudagur</day>
 					<day type="tue">þriðjudagur</day>
@@ -58,8 +60,8 @@
 					<day type="thu">fimmtudagur</day>
 					<day type="fri">föstudagur</day>
 					<day type="sat">laugardagur</day>
-				</dayNames>
-				<dayAbbr>
+</dayWidth>
+<dayWidth type="abbreviated">
 					<day type="sun">sunnud</day>
 					<day type="mon">mánud</day>
 					<day type="tue">þriðjud</day>
@@ -67,7 +69,9 @@
 					<day type="thu">fimmtud</day>
 					<day type="fri">föstud</day>
 					<day type="sat">laugard</day>
-				</dayAbbr>
+</dayWidth>
+</dayContext>
+</days>
 				<am>AM</am>
 				<pm>PM</pm>
 				<dateFormats>
@@ -138,12 +142,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<special xmlns:posix="http://www.opengroup.org/regproducts/xu.htm">
-		<posix:messages>
-			<posix:yesstr>yes</posix:yesstr>
-			<posix:nostr>no</posix:nostr>
-			<posix:yesexpr>[jJyY][[:alpha:]]*</posix:yesexpr>
-			<posix:noexpr>[nN][[:alpha:]]*</posix:noexpr>
-		</posix:messages>
-	</special>
+<posix>
+		<messages>
+			<yesstr>yes</yesstr>
+			<nostr>no</nostr>
+			<yesexpr>[jJyY][[:alpha:]]*</yesexpr>
+			<noexpr>[nN][[:alpha:]]*</noexpr>
+		</messages>
+</posix>
 </ldml>

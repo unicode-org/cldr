@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd"
 [
-	<!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
-	<!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
-	<!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
-	<!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0//ldmlPOSIX.dtd">
+	<!ENTITY % icu SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
+	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
 		%icu;
 		%openOffice;
-		%iso14652;
-		%posix;
 ]
 >
 <ldml>
@@ -38,7 +34,9 @@
 <calendars>
 <default type="true"/>
 <calendar type="gregorian">
-<monthNames>
+<months>
+<monthContext type="format">
+<monthWidth type="wide">
 <month type="1">يناير</month>
 <month type="2">فبراير</month>
 <month type="3">مارس</month>
@@ -51,8 +49,8 @@
 <month type="10">أكتوبر</month>
 <month type="11">نوفمبر</month>
 <month type="12">ديسمبر</month>
-</monthNames>
-<monthAbbr>
+</monthWidth>
+<monthWidth type="abbreviated">
 <month type="1">يناير</month>
 <month type="2">فبراير</month>
 <month type="3">مارس</month>
@@ -65,8 +63,12 @@
 <month type="10">أكتوبر</month>
 <month type="11">نوفمبر</month>
 <month type="12">ديسمبر</month>
-</monthAbbr>
-<dayNames>
+</monthWidth>
+</monthContext>
+</months>
+<days>
+<dayContext type="format">
+<dayWidth type="wide">
 <day type="sun">الأحد</day>
 <day type="mon">الاثنين</day>
 <day type="tue">الثلاثاء</day>
@@ -74,8 +76,8 @@
 <day type="thu">الخميس</day>
 <day type="fri">الجمعة</day>
 <day type="sat">السبت</day>
-</dayNames>
-<dayAbbr>
+</dayWidth>
+<dayWidth type="abbreviated">
 <day type="sun">الأحد</day>
 <day type="mon">الاثنين</day>
 <day type="tue">الثلاثاء</day>
@@ -83,7 +85,9 @@
 <day type="thu">الخميس</day>
 <day type="fri">الجمعة</day>
 <day type="sat">السبت</day>
-</dayAbbr>
+</dayWidth>
+</dayContext>
+</days>
 <week>
 <minDays count="7"/>
 <firstDay day="sat"/>

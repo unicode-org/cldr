@@ -1,14 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd"
 [
-    <!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
-    <!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
-    <!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
-    <!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd">
+    <!ENTITY % icu SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
+    <!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
 %icu;
 %openOffice;
-%iso14652;
-%posix;
 ]
 >
 <ldml>
@@ -22,7 +18,9 @@
 		<calendars>
 			<default type="gregorian"/>
 			<calendar type="gregorian">
-				<monthNames>
+<months>
+<monthContext type="format">
+<monthWidth type="wide">
 					<month type="1">Ιανουάριοσ</month>
 					<month type="2">Φεβρουάριοσ</month>
 					<month type="3">Μάρτιοσ</month>
@@ -35,8 +33,8 @@
 					<month type="10">Οκτώβριοσ</month>
 					<month type="11">Νοέμβριοσ</month>
 					<month type="12">Δεκέμβριοσ</month>
-				</monthNames>
-				<monthAbbr>
+</monthWidth>
+<monthWidth type="abbreviated">
 					<month type="1">Ιαν </month>
 					<month type="2">Φεβ </month>
 					<month type="3">Μάρ </month>
@@ -49,8 +47,12 @@
 					<month type="10">Οκτ </month>
 					<month type="11">Νοέ </month>
 					<month type="12">Δεκ </month>
-				</monthAbbr>
-				<dayNames>
+</monthWidth>
+</monthContext>
+</months>
+<days>
+<dayContext type="format">
+<dayWidth type="wide">
 					<day type="sun">Κυριακή</day>
 					<day type="mon">Δευτέρα</day>
 					<day type="tue">Τρίτη</day>
@@ -58,8 +60,8 @@
 					<day type="thu">Πέμπτη</day>
 					<day type="fri">Παραςκευή</day>
 					<day type="sat">Σάββατο</day>
-				</dayNames>
-				<dayAbbr>
+</dayWidth>
+<dayWidth type="abbreviated">
 					<day type="sun">Κυρ</day>
 					<day type="mon">Δευ</day>
 					<day type="tue">Τρι</day>
@@ -67,7 +69,9 @@
 					<day type="thu">Πεμ</day>
 					<day type="fri">Παρ</day>
 					<day type="sat">Σαβ</day>
-				</dayAbbr>
+</dayWidth>
+</dayContext>
+</days>
 				<am>
 				</am>
 				<pm>
@@ -140,12 +144,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<special xmlns:posix="http://www.opengroup.org/regproducts/xu.htm">
-		<posix:messages>
-			<posix:yesstr>yes:Yes:YES:y:Y</posix:yesstr>
-			<posix:nostr>no:No:NO:n:N</posix:nostr>
-			<posix:yesexpr>[yY][[:alpha:]]*</posix:yesexpr>
-			<posix:noexpr>[nN][[:alpha:]]*</posix:noexpr>
-		</posix:messages>
-	</special>
+<posix>
+		<messages>
+			<yesstr>yes:Yes:YES:y:Y</yesstr>
+			<nostr>no:No:NO:n:N</nostr>
+			<yesexpr>[yY][[:alpha:]]*</yesexpr>
+			<noexpr>[nN][[:alpha:]]*</noexpr>
+		</messages>
+</posix>
 </ldml>

@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd"
 [
-	<!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
-	<!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
-	<!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
-	<!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0//ldmlPOSIX.dtd">
+	<!ENTITY % icu SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
+	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
 		%icu;
 		%openOffice;
-		%iso14652;
-		%posix;
 ]
 >
 <ldml>
@@ -38,7 +34,9 @@
 <calendars>
 <default type="true"/>
 <calendar type="gregorian">
-<monthNames>
+<months>
+<monthContext type="format">
+<monthWidth type="wide">
 <month type="1">Januari</month>
 <month type="2">Pebruari</month>
 <month type="3">Maret</month>
@@ -51,8 +49,8 @@
 <month type="10">Oktober</month>
 <month type="11">November</month>
 <month type="12">Desember</month>
-</monthNames>
-<monthAbbr>
+</monthWidth>
+<monthWidth type="abbreviated">
 <month type="1">Jan</month>
 <month type="2">Peb</month>
 <month type="3">Mar</month>
@@ -65,8 +63,12 @@
 <month type="10">Okt</month>
 <month type="11">Nov</month>
 <month type="12">Des</month>
-</monthAbbr>
-<dayNames>
+</monthWidth>
+</monthContext>
+</months>
+<days>
+<dayContext type="format">
+<dayWidth type="wide">
 <day type="sun">Minggu</day>
 <day type="mon">Senin</day>
 <day type="tue">Selasa</day>
@@ -74,8 +76,8 @@
 <day type="thu">Kamis</day>
 <day type="fri">Jumat</day>
 <day type="sat">Sabtu</day>
-</dayNames>
-<dayAbbr>
+</dayWidth>
+<dayWidth type="abbreviated">
 <day type="sun">Min</day>
 <day type="mon">Sen</day>
 <day type="tue">Sel</day>
@@ -83,7 +85,9 @@
 <day type="thu">Kam</day>
 <day type="fri">Jum</day>
 <day type="sat">Sab</day>
-</dayAbbr>
+</dayWidth>
+</dayContext>
+</days>
 <week>
 <minDays count="1"/>
 <firstDay day="sun"/>

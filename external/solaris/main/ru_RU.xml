@@ -1,14 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd"
 [
-    <!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
-    <!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
-    <!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
-    <!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd">
+    <!ENTITY % icu SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
+    <!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
 %icu;
 %openOffice;
-%iso14652;
-%posix;
 ]
 >
 <ldml>
@@ -22,7 +18,9 @@
 		<calendars>
 			<default type="gregorian"/>
 			<calendar type="gregorian">
-				<monthNames>
+<months>
+<monthContext type="format">
+<monthWidth type="wide">
 					<month type="1">Январь</month>
 					<month type="2">Февраль</month>
 					<month type="3">Март</month>
@@ -35,8 +33,8 @@
 					<month type="10">Октябрь</month>
 					<month type="11">Ноябрь</month>
 					<month type="12">Декабрь</month>
-				</monthNames>
-				<monthAbbr>
+</monthWidth>
+<monthWidth type="abbreviated">
 					<month type="1">Янв</month>
 					<month type="2">Фев</month>
 					<month type="3">Мар</month>
@@ -49,8 +47,12 @@
 					<month type="10">Окт</month>
 					<month type="11">Ноя</month>
 					<month type="12">Дек</month>
-				</monthAbbr>
-				<dayNames>
+</monthWidth>
+</monthContext>
+</months>
+<days>
+<dayContext type="format">
+<dayWidth type="wide">
 					<day type="sun">Воскресенье</day>
 					<day type="mon">Понедельник</day>
 					<day type="tue">Вторник</day>
@@ -58,8 +60,8 @@
 					<day type="thu">Четверг</day>
 					<day type="fri">Пятница</day>
 					<day type="sat">Суббота</day>
-				</dayNames>
-				<dayAbbr>
+</dayWidth>
+<dayWidth type="abbreviated">
 					<day type="sun">Вск</day>
 					<day type="mon">Пнд</day>
 					<day type="tue">Втр</day>
@@ -67,7 +69,9 @@
 					<day type="thu">Чтв</day>
 					<day type="fri">Птн</day>
 					<day type="sat">Сбт</day>
-				</dayAbbr>
+</dayWidth>
+</dayContext>
+</days>
 				<am>
 				</am>
 				<pm>
@@ -141,12 +145,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<special xmlns:posix="http://www.opengroup.org/regproducts/xu.htm">
-		<posix:messages>
-			<posix:yesstr>yes:Yes:YES:y:Y</posix:yesstr>
-			<posix:nostr>no:No:NO:n:N</posix:nostr>
-			<posix:yesexpr>[yY][[:alpha:]]*</posix:yesexpr>
-			<posix:noexpr>[nN][[:alpha:]]*</posix:noexpr>
-		</posix:messages>
-	</special>
+<posix>
+		<messages>
+			<yesstr>yes:Yes:YES:y:Y</yesstr>
+			<nostr>no:No:NO:n:N</nostr>
+			<yesexpr>[yY][[:alpha:]]*</yesexpr>
+			<noexpr>[nN][[:alpha:]]*</noexpr>
+		</messages>
+</posix>
 </ldml>

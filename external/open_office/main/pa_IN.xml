@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd"
 [
-	<!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
-	<!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
-	<!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
-	<!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0//ldmlPOSIX.dtd">
+	<!ENTITY % icu SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
+	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
 		%icu;
 		%openOffice;
-		%iso14652;
-		%posix;
 ]
 >
 <ldml>
@@ -38,7 +34,9 @@
 <calendars>
 <default type="true"/>
 <calendar type="gregorian">
-<monthNames>
+<months>
+<monthContext type="format">
+<monthWidth type="wide">
 <month type="1">ਜਨਵਰੀ</month>
 <month type="2">ਫਰਵਰੀ</month>
 <month type="3">ਮਾਰ੍ਚ</month>
@@ -51,8 +49,8 @@
 <month type="10">ਅਕ੍ਤੋਬਰ</month>
 <month type="11">ਨਵਂਬਰ</month>
 <month type="12">ਦਿਸਂਬਰ</month>
-</monthNames>
-<monthAbbr>
+</monthWidth>
+<monthWidth type="abbreviated">
 <month type="1">ਜਨਵਰੀ.</month>
 <month type="2">ਫਰਵਰੀ.</month>
 <month type="3">ਮਾਰ੍ਚ.</month>
@@ -65,8 +63,12 @@
 <month type="10">ਅਕ੍ਤੋਬਰ.</month>
 <month type="11">ਨਵਂਬਰ.</month>
 <month type="12">ਦਿਸੇਂਬਰ.</month>
-</monthAbbr>
-<dayNames>
+</monthWidth>
+</monthContext>
+</months>
+<days>
+<dayContext type="format">
+<dayWidth type="wide">
 <day type="sun">ਰਵਿਵਾਰ</day>
 <day type="mon">ਸੋਮਵਾਰ੍</day>
 <day type="tue">ਮਂਗਲਵਾਰ</day>
@@ -74,8 +76,8 @@
 <day type="thu">ਗੁਰੁਵਾਰ</day>
 <day type="fri">ਸ਼ੁਕ੍ਰਵਾਰ</day>
 <day type="sat">ਸ਼ਨਿਵਾਰ</day>
-</dayNames>
-<dayAbbr>
+</dayWidth>
+<dayWidth type="abbreviated">
 <day type="sun">ਰਵਿ.</day>
 <day type="mon">ਸੋਮ.</day>
 <day type="tue">ਮਂਗਲ.</day>
@@ -83,7 +85,9 @@
 <day type="thu">ਗੁਰੁ.</day>
 <day type="fri">ਸ਼ੁਕ੍ਰ.</day>
 <day type="sat">ਸ਼ਨਿ.</day>
-</dayAbbr>
+</dayWidth>
+</dayContext>
+</days>
 <week>
 <minDays count="1"/>
 <firstDay day="sun"/>

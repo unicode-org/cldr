@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd"
 [
-	<!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
-	<!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
-	<!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
-	<!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0//ldmlPOSIX.dtd">
+	<!ENTITY % icu SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
+	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
 		%icu;
 		%openOffice;
-		%iso14652;
-		%posix;
 ]
 >
 <ldml>
@@ -38,7 +34,9 @@
 <calendars>
 <default type="true"/>
 <calendar type="gregorian">
-<monthNames>
+<months>
+<monthContext type="format">
+<monthWidth type="wide">
 <month type="1">ינואר</month>
 <month type="2">פברואר</month>
 <month type="3">מרץ</month>
@@ -51,8 +49,8 @@
 <month type="10">אוקטובר</month>
 <month type="11">נובמבר</month>
 <month type="12">דצמבר</month>
-</monthNames>
-<monthAbbr>
+</monthWidth>
+<monthWidth type="abbreviated">
 <month type="1">ינו</month>
 <month type="2">פבר</month>
 <month type="3">מרץ</month>
@@ -65,8 +63,12 @@
 <month type="10">אוק</month>
 <month type="11">נוב</month>
 <month type="12">דצמ</month>
-</monthAbbr>
-<dayNames>
+</monthWidth>
+</monthContext>
+</months>
+<days>
+<dayContext type="format">
+<dayWidth type="wide">
 <day type="sun">ראשון</day>
 <day type="mon">שני</day>
 <day type="tue">שלישי</day>
@@ -74,8 +76,8 @@
 <day type="thu">חמישי</day>
 <day type="fri">שישי</day>
 <day type="sat">שבת</day>
-</dayNames>
-<dayAbbr>
+</dayWidth>
+<dayWidth type="abbreviated">
 <day type="sun">א</day>
 <day type="mon">ב</day>
 <day type="tue">ג</day>
@@ -83,7 +85,9 @@
 <day type="thu">ה</day>
 <day type="fri">ו</day>
 <day type="sat">ש</day>
-</dayAbbr>
+</dayWidth>
+</dayContext>
+</days>
 <week>
 <minDays count="1"/>
 <firstDay day="sun"/>

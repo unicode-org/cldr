@@ -17,9 +17,9 @@ root{
                            //  "%icu;\n"
                            // "]\n"
                            //  ">\n"
-                             "<!DOCTYPE ldml SYSTEM \" 	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd\" \n"
+                             "<!DOCTYPE ldml SYSTEM \" 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd\" \n"
                              "[\n"
-                             "      <!ENTITY % icu SYSTEM \" http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlICU.dtd\"> \n"
+                             "      <!ENTITY % icu SYSTEM \" http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd\"> \n"
                              "%icu;\n"
                              "]\n"
                              ">\n"
@@ -28,11 +28,11 @@ root{
                          }
     declarationNoSpecials{
                              "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
-                             "<!DOCTYPE ldml SYSTEM \"http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd\">\n"
+                             "<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.1/ldml.dtd\">\n"
                          }
     supplementalDeclaration{
                                 "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
-                                "<!DOCTYPE supplementalData SYSTEM \"http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlSupplemental.dtd\" >\n"
+                                "<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/dtd/1.1/ldmlSupplemental.dtd\" >\n"
 
                          }
 	default				 {

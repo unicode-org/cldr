@@ -642,8 +642,11 @@ void GenerateXML::writeTable(const char* key, const char* resMain, const char* r
 			while(dBundle.hasNext()){
 				ResourceBundle dBundle1 = dBundle.getNext(mError);
 				const char* mykey=dBundle1.getKey();
-				
+                if(strcmp(mykey, "Fallback")==0){
+                    continue;
+                }
 				UnicodeString string = dBundle.getStringEx(mykey,mError);
+                
 				Formattable args1[]={indentOffset,mykey,string};
 				xmlString.append(formatString(mStringsBundle.getStringEx(resElement,mError),args1,3,t));
 				mError=U_ZERO_ERROR;
@@ -748,11 +751,16 @@ void GenerateXML::writeTypeNames(UnicodeString& xmlString){
 		while(dBundle.hasNext()){
 			ResourceBundle dBundle1 = dBundle.getNext(mError);
 			const char* key=dBundle1.getKey();
-			
+            if(strcmp(key, "Fallback")==0){
+                continue;
+            }
 			ResourceBundle dBundle2 = dBundle.get(key,mError);
             while(dBundle2.hasNext()){
                 ResourceBundle dBundle3 = dBundle2.getNext(mError);
                 const char* type = dBundle3.getKey();
+                if(strcmp(type, "Fallback")==0){
+                    continue;
+                }
                 UnicodeString value = dBundle3.getString(mError);
 			    Formattable args1[]={indentOffset,type, key, value};
 
@@ -1805,34 +1813,6 @@ void GenerateXML::writeCurrency(UnicodeString& xmlString){
 	ResourceBundle currency =mSourceBundle.get("Currencies", mError);
     UnicodeString t;
 
-    // the only currency with different decimal separtor for currency is pt_PT
-    // hard code the values for now
-    if(mLocale == (Locale("pt_PT")) || mLocale == (Locale("pt_PT_PREEURO"))){
-        mError=U_ZERO_ERROR;
-        Formattable args[] = {indentOffset,"",""};
-        
-        NumberFormat* format = NumberFormat::createCurrencyInstance(mLocale, mError);
-        
-
-        args[0] = indentOffset;
-        args[1] = UnicodeString(format->getCurrency());
-
-        xmlString.append(formatString(mStringsBundle.getStringEx("default",mError),args,2,t));
-		xmlString.append(formatString(mStringsBundle.getStringEx("currencyStart",mError),args,2,t));
-
-        indentOffset.append("\t");
-        args[0] = indentOffset;
-		args[1] = "$";
-		xmlString.append(formatString(mStringsBundle.getStringEx("decimal",mError),args,2,t));
-
-        chopIndent();
-        args[0] = indentOffset;
-        args[1] = "";
-        xmlString.append(formatString(mStringsBundle.getStringEx("currencyEnd",mError),args,2,t));
-
-        delete format;
-        return;
-    }
     if( U_SUCCESS(mError)  && 
         mError != U_USING_FALLBACK_WARNING && 
         mError != U_USING_DEFAULT_WARNING){  
@@ -1857,11 +1837,36 @@ void GenerateXML::writeCurrency(UnicodeString& xmlString){
             escape(symbol);
             args[1] = symbol;
 		    xmlString.append(formatString(mStringsBundle.getStringEx("symbol",mError),args,2,t));
+            
+            int32_t size = dBundle1.getSize();
+            if(size>2){
+                ResourceBundle elements = dBundle1.get((int32_t)2, mError);
+                UnicodeString key = elements.getKey();
+                if(elements.getType()!= URES_ARRAY){
+                    fprintf(stderr,"Did not get the expected type for Elements\n");
+                    exit(-1);
+                }
+                if(U_SUCCESS(mError)){
+                    UnicodeString pattern = elements.getStringEx((int32_t)0, mError);
+                    UnicodeString decimalSep = elements.getStringEx((int32_t)1, mError);
+                    UnicodeString groupSep = elements.getStringEx((int32_t)2, mError);
+                    
+                    args[1] = pattern;
+                    xmlString.append(formatString(mStringsBundle.getStringEx("pattern",mError),args,2,t));
 
+                    args[2] = decimalSep;
+                    xmlString.append(formatString(mStringsBundle.getStringEx("decimal",mError),args,2,t));
+
+                    args[1] = groupSep;
+                    xmlString.append(formatString(mStringsBundle.getStringEx("group",mError),args,2,t));
+
+                }
+            }
             chopIndent();
             args[0] = indentOffset;
             args[1] = "";
             xmlString.append(formatString(mStringsBundle.getStringEx("currencyEnd",mError),args,2,t));
+           
 
 	    }
 		return;

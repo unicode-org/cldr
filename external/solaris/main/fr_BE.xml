@@ -1,14 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd"
 [
-    <!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
-    <!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
-    <!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
-    <!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd">
+    <!ENTITY % icu SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
+    <!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
 %icu;
 %openOffice;
-%iso14652;
-%posix;
 ]
 >
 <ldml>
@@ -22,7 +18,9 @@
 		<calendars>
 			<default type="gregorian"/>
 			<calendar type="gregorian">
-				<monthNames>
+<months>
+<monthContext type="format">
+<monthWidth type="wide">
 					<month type="1">janvier</month>
 					<month type="2">février</month>
 					<month type="3">mars</month>
@@ -35,8 +33,8 @@
 					<month type="10">octobre</month>
 					<month type="11">novembre</month>
 					<month type="12">décembre</month>
-				</monthNames>
-				<monthAbbr>
+</monthWidth>
+<monthWidth type="abbreviated">
 					<month type="1">janv</month>
 					<month type="2">févr</month>
 					<month type="3">mars</month>
@@ -49,8 +47,12 @@
 					<month type="10">oct </month>
 					<month type="11">nov </month>
 					<month type="12">déc </month>
-				</monthAbbr>
-				<dayNames>
+</monthWidth>
+</monthContext>
+</months>
+<days>
+<dayContext type="format">
+<dayWidth type="wide">
 					<day type="sun">dimanche</day>
 					<day type="mon">lundi</day>
 					<day type="tue">mardi</day>
@@ -58,8 +60,8 @@
 					<day type="thu">jeudi</day>
 					<day type="fri">vendredi</day>
 					<day type="sat">samedi</day>
-				</dayNames>
-				<dayAbbr>
+</dayWidth>
+<dayWidth type="abbreviated">
 					<day type="sun">dim</day>
 					<day type="mon">lun</day>
 					<day type="tue">mar</day>
@@ -67,7 +69,9 @@
 					<day type="thu">jeu</day>
 					<day type="fri">ven</day>
 					<day type="sat">sam</day>
-				</dayAbbr>
+</dayWidth>
+</dayContext>
+</days>
 				<am>AM</am>
 				<pm>PM</pm>
 				<dateFormats>
@@ -138,12 +142,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<special xmlns:posix="http://www.opengroup.org/regproducts/xu.htm">
-		<posix:messages>
-			<posix:yesstr>yes</posix:yesstr>
-			<posix:nostr>no</posix:nostr>
-			<posix:yesexpr>[oOyY1]*</posix:yesexpr>
-			<posix:noexpr>[nN0]*</posix:noexpr>
-		</posix:messages>
-	</special>
+<posix>
+		<messages>
+			<yesstr>yes</yesstr>
+			<nostr>no</nostr>
+			<yesexpr>[oOyY1]*</yesexpr>
+			<noexpr>[nN0]*</noexpr>
+		</messages>
+</posix>
 </ldml>

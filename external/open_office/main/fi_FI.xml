@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd"
 [
-	<!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
-	<!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
-	<!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
-	<!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0//ldmlPOSIX.dtd">
+	<!ENTITY % icu SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
+	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
 		%icu;
 		%openOffice;
-		%iso14652;
-		%posix;
 ]
 >
 <ldml>
@@ -38,7 +34,9 @@
 <calendars>
 <default type="true"/>
 <calendar type="gregorian">
-<monthNames>
+<months>
+<monthContext type="format">
+<monthWidth type="wide">
 <month type="1">tammikuu</month>
 <month type="2">helmikuu</month>
 <month type="3">maaliskuu</month>
@@ -51,8 +49,8 @@
 <month type="10">lokakuu</month>
 <month type="11">marraskuu</month>
 <month type="12">joulukuu</month>
-</monthNames>
-<monthAbbr>
+</monthWidth>
+<monthWidth type="abbreviated">
 <month type="1">tammi</month>
 <month type="2">helmi</month>
 <month type="3">maalis</month>
@@ -65,8 +63,12 @@
 <month type="10">loka</month>
 <month type="11">marras</month>
 <month type="12">joulu</month>
-</monthAbbr>
-<dayNames>
+</monthWidth>
+</monthContext>
+</months>
+<days>
+<dayContext type="format">
+<dayWidth type="wide">
 <day type="sun">sunnuntai</day>
 <day type="mon">maanantai</day>
 <day type="tue">tiistai</day>
@@ -74,8 +76,8 @@
 <day type="thu">torstai</day>
 <day type="fri">perjantai</day>
 <day type="sat">lauantai</day>
-</dayNames>
-<dayAbbr>
+</dayWidth>
+<dayWidth type="abbreviated">
 <day type="sun">su</day>
 <day type="mon">ma</day>
 <day type="tue">ti</day>
@@ -83,7 +85,9 @@
 <day type="thu">to</day>
 <day type="fri">pe</day>
 <day type="sat">la</day>
-</dayAbbr>
+</dayWidth>
+</dayContext>
+</days>
 <week>
 <minDays count="4"/>
 <firstDay day="mon"/>

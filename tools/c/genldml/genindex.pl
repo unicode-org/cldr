@@ -46,7 +46,7 @@ print $outFH "\t<body bgcolor=\"#FFFFFF\">\n";
 print $outFH "\t\t<ul>\n";
 # now convert
 foreach $item (@list){
-    next if($item eq "." || $item eq "..");
+    next if($item eq "." || $item eq ".." || $item eq "index.html");
     ($s1, $s2) = split(/\./,$item);
     #grab the english translation
     $inFH = IO::File->new($item,"r")

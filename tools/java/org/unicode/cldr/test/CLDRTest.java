@@ -7,6 +7,7 @@
 package org.unicode.cldr.test;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -20,14 +21,26 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Utility;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.StringValue;
 import org.unicode.cldr.util.CLDRFile.Value;
-import org.unicode.cldr.util.CLDRFile.XPathParts;
 import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 
+/**
+ * Initial version of CLDR tests
+ */
 public class CLDRTest extends TestFmwk {
+	private boolean skipDraft = true;
+	private Set locales;
+	private Set languageLocales;
+	private CLDRFile.Factory cldrFactory;
 	
+	/**
+	 * TestFmwk boilerplate
+	 */
 	public static void main(String[] args) throws Exception {
 		double deltaTime = System.currentTimeMillis();
         new CLDRTest().run(args);
@@ -35,11 +48,9 @@ public class CLDRTest extends TestFmwk {
         System.out.println("Seconds: " + deltaTime/1000);
     }
 	
-	boolean skipDraft = true;
-	Set locales;
-	Set languageLocales;
-	CLDRFile.Factory cldrFactory;
-	
+	/**
+	 * TestFmwk boilerplate
+	 */
 	public CLDRTest() throws SAXException, IOException {
 		// TODO parameterize the directory and filter
 		cldrFactory = CLDRFile.Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*", null);
@@ -48,6 +59,9 @@ public class CLDRTest extends TestFmwk {
 		languageLocales = cldrFactory.getAvailableLanguages();
 	}
 	
+	/**
+	 * Check to make sure that the currency formats are kosher.
+	 */
 	public void TestCurrencyFormats() {
 	    //String decimal = "/ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"standard\"]/";
 	    //String currency = "/ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/";
@@ -83,7 +97,7 @@ public class CLDRTest extends TestFmwk {
 				if (!pattern.equals(value.getStringValue())) {
 					String draft = "";
 					if (value.getFullXPath().indexOf("[@draft=\"true\"]") >= 0) draft = " [draft]";
-					assertEquals(locale + draft + " " + TYPE_NAME[type] + " pattern incorrect", pattern, value.getStringValue());
+					assertEquals(getLocaleAndName(locale) + draft + " " + TYPE_NAME[type] + " pattern incorrect", pattern, value.getStringValue());
 				}
 			}
 		}
@@ -172,7 +186,7 @@ public class CLDRTest extends TestFmwk {
 						if (p.containsAttributeValue("draft","true")) draft = " [draft]";
 					}
 					String count = (vc.count == size ? "" : vc.count + "/") + size;
-					errln(parent + draft +
+					errln(getLocaleAndName(parent) + draft +
 							", all children (" + count + ") have same value for:\t"
 							+ xpath + ";\t" + vc.value.getStringValue());
 				}
@@ -180,19 +194,28 @@ public class CLDRTest extends TestFmwk {
 		}
 	}
 	
+	/**
+	 * Check that the exemplars include all characters in the data.
+	 */
 	public void TestThatExemplarsContainAll() {
-		UnicodeSet commonAndInherited = new UnicodeSet("[[:script=common:][:script=inherited:]]");
+		UnicodeSet commonAndInherited = new UnicodeSet("[[:script=common:][:script=inherited:][:alphabetic=false:]]"); // 
 		Set counts = new TreeSet();
+		int totalCount = 0;
+		UnicodeSet localeMissing = new UnicodeSet();
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String locale = (String)it.next();
 			if (locale.equals("root")) continue; 
 			CLDRFile resolved = cldrFactory.make(locale, true);
-			UnicodeSet exemplars = getExemplarSet(resolved,"")
-			.addAll(getExemplarSet(resolved,"standard"))
+			UnicodeSet exemplars = getExemplarSet(resolved,"");
+			if (exemplars.size() == 0) {
+				errln(getLocaleAndName(locale) + " has empty exemplar set");
+			}
+			exemplars.addAll(getExemplarSet(resolved,"standard"))
 			.addAll(getExemplarSet(resolved,"auxiliary"))
 			.addAll(commonAndInherited);
 			CLDRFile plain = cldrFactory.make(locale, false);
 			int count = 0;
+			localeMissing.clear();
 			for (Iterator it2 = plain.keySet().iterator(); it2.hasNext();) {
 				String xpath = (String) it2.next();
 				if (xpath.indexOf("/exemplarCharacters") > 0
@@ -203,14 +226,20 @@ public class CLDRTest extends TestFmwk {
 				if (!exemplars.containsAll(value)) {
 					count++;
 					UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
-					errln(locale + " (" + getLocaleName(locale) + ")\t" + xpath + "/" + value + " contains " + missing + ", not in exemplars");					
+					localeMissing.addAll(missing);
+					errln(getLocaleAndName(locale) + "\t" + xpath + "/" + value + " contains " + missing + ", not in exemplars");					
 				}
 			}
-			if (count != 0) counts.add(locale + " (" + getLocaleName(locale) + ")\t" + count);
+			NumberFormat nf = new DecimalFormat("000");
+			if (count != 0) {
+				totalCount += count;
+				counts.add(nf.format(count) + "\t" + getLocaleAndName(locale) + "\t" + localeMissing);
+			}
 		}
 		for (Iterator it = counts.iterator(); it.hasNext();) {
 			logln(it.next().toString());
 		}
+		logln("Total Count: " + totalCount);
 	}
 
 	/**
@@ -221,6 +250,10 @@ public class CLDRTest extends TestFmwk {
 		if (type.length() != 0) type = "[@type=\"" + type + "\"]";
 		Value v = resolved.getValue("/ldml/characters/exemplarCharacters" + type);
 		if (v == null) return new UnicodeSet();
+		String pattern = v.getStringValue();
+		if (pattern.indexOf("[:") >= 0 || pattern.indexOf("\\p{") > 0) {
+			errln(getLocaleName(resolved.getKey()) + " exemplar pattern contains property: " + pattern);
+		}
 		UnicodeSet result = new UnicodeSet(v.getStringValue(), UnicodeSet.CASE);
 		if (type.length() != 0) System.out.println("fetched set for " + type);
 		return result;
@@ -228,11 +261,15 @@ public class CLDRTest extends TestFmwk {
 	
 	Map localeNameCache = new HashMap();
 	CLDRFile english = null;
-	
+
+	public String getLocaleAndName(String locale) {
+		return locale + " (" + getLocaleName(locale) + ")";
+	}
+
 	public String getLocaleName(String locale) {
 		String name = (String) localeNameCache.get(locale);
 		if (name != null) return name;
-		if (english == null) english = cldrFactory.make("en", false);
+		if (english == null) english = cldrFactory.make("en", true);
 		String[] pieces = new String[10];
 		Utility.split(locale, '_', pieces);
 		int i = 0;
@@ -259,6 +296,143 @@ public class CLDRTest extends TestFmwk {
 		Value v = english.getValue("/ldml/localeDisplayNames/" + kind + "[@type=\"" + type + "\"]");
 		if (v == null) return "<" + type + ">";
 		return v.getStringValue();
+	}
+	
+	/**
+	 * Make sure we are only using attribute values that are in RFC3066, the Olson database (with aliases removed)
+	 * or ISO 4217
+	 * @throws IOException
+	 */
+	public void TestForIllegalAttributeValues()  {
+		// check for illegal attribute values that are not in the DTD
+		XPathParts parts = new XPathParts();
+		Map result = new TreeMap();
+		for (Iterator it = locales.iterator(); it.hasNext();) {
+			String locale = (String)it.next();
+			logln("Testing: " + locale);
+			CLDRFile item = cldrFactory.make(locale, false);
+			result.clear();
+			for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
+				String xpath = (String) it2.next();
+				CLDRFile.StringValue value = (StringValue) item.getValue(xpath);
+				parts.set(value.getFullXPath());
+				for (int i = 0; i < parts.size(); ++i) {
+					String element = parts.getElement(i);
+					Map attributes = parts.getAttributes(i);
+					if (attributes == null) continue;
+					for (Iterator it3 = attributes.keySet().iterator(); it3.hasNext();) {
+						String attribute = (String) it3.next();
+						String avalue = (String) attributes.get(attribute);
+						checkValidity(element, attribute, avalue, result);
+					}
+				}
+			}
+			String localeName = getLocaleAndName(locale);
+			for (Iterator it3 = result.keySet().iterator(); it3.hasNext();) {
+				String code = (String) it3.next();
+				Set avalues = (Set) result.get(code);
+				errln(getLocaleAndName(locale) + "\tillegal attribute Value for " + code + ", value:\t" + show(avalues));
+			}
+		}
+	}
+	
+	/**
+	 * @param avalues
+	 * @return
+	 */
+	private String show(Collection avalues) {
+		StringBuffer result = new StringBuffer("{");
+		boolean first = true;
+		for (Iterator it3 = avalues.iterator(); it3.hasNext();) {
+			if (first) first = false;
+			else result.append(", ");
+			result.append(it3.next().toString());
+		}
+		result.append("}");
+		return result.toString();
+	}
+
+	/**
+	 * @param element
+	 * @param attribute
+	 * @param avalue
+	 * @throws IOException
+	 */
+	private void checkValidity(String element, String attribute, String avalue, Map results)  {
+		StandardCodes codes = StandardCodes.make();
+		if (attribute.equals("type")) {
+			if (element.equals("currency")) checkCodes("currency", avalue, codes, results);
+			else if (element.equals("script")) checkCodes("script", avalue, codes, results);
+			else if (element.equals("territory")) checkCodes("region", avalue, codes, results);
+			else if (element.equals("language")) checkCodes("language", avalue, codes, results);
+			else if (element.equals("zone")) checkCodes("tzid", avalue, codes, results);
+		}
+	}
+
+	/**
+	 * @param locale
+	 * @param avalue
+	 * @param codes
+	 */
+	private void checkCodes(String code, String avalue, StandardCodes codes, Map results) {
+		if (codes.getData(code, avalue) == null) {
+			Set s = (Set) results.get(code);
+			if (s == null) {
+				s = new TreeSet();
+				results.put(code, s);
+			}
+			s.add(avalue);
+		}
+	}
+
+	/**
+	 * Verify that English has everything translated.
+	 * @throws IOException
+	 */
+	public void TestTranslatedCodes() {
+		// just test English for now
+		if (english == null) english = cldrFactory.make("en", true);		
+		checkTranslatedCodes(english);
+	}
+
+	/**
+	 * @throws IOException
+	 */
+	private void checkTranslatedCodes(CLDRFile cldrfile)  {
+		StandardCodes codes = StandardCodes.make();
+		checkTranslatedCode(cldrfile, codes, "currency", "/ldml/numbers/currencies/currency");
+		checkTranslatedCode(cldrfile, codes, "tzid", "/ldml/dates/timeZoneNames/zone");
+		checkTranslatedCode(cldrfile, codes, "language", "/ldml/localeDisplayNames/languages/language");
+		checkTranslatedCode(cldrfile, codes, "script", "/ldml/localeDisplayNames/scripts/script");
+		checkTranslatedCode(cldrfile, codes, "region", "/ldml/localeDisplayNames/territories/territory");
+		checkTranslatedCode(cldrfile, codes, "variant", "/ldml/localeDisplayNames/variants/variant");
+	}
+
+	/**
+	 * @param codes
+	 * @param type
+	 * @param fragment
+	 */
+	private void checkTranslatedCode(CLDRFile cldrfile, StandardCodes codes, String type, String fragment) {
+		Set codeItems = codes.getAvailableCodes(type);
+		int count = 0;
+		for (Iterator it = codeItems.iterator(); it.hasNext();) {
+			String code = (String) it.next();
+			String rfcname = codes.getData(type, code);
+			if (rfcname.equals("ZZ")) continue;
+			++count;
+			String fullFragment = fragment + "[@type=\"" + code + "\"]";
+			Value v = cldrfile.getValue(fullFragment);
+			if (v == null) {
+				errln(type + " missing English translation for: "  + code + "\t(" + rfcname + ")");
+				continue;
+			}
+			String translation = v.getStringValue();
+			if (!translation.equalsIgnoreCase(rfcname)) {
+				logln(type + " translation differs from RFC, check: " + code + "\trfc: " + rfcname + "\tcldr: " + translation);
+			}
+		}
+		logln("Total " + type + ":\t" + count);
 	}
 }
 

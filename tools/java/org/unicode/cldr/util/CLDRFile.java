@@ -10,8 +10,12 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +31,8 @@ import org.xml.sax.ContentHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
+import org.xml.sax.SAXNotRecognizedException;
+import org.xml.sax.SAXNotSupportedException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 import org.xml.sax.ext.LexicalHandler;
@@ -51,86 +57,93 @@ http://developers.sun.com/dev/coolstuff/xml/readme.html
 http://lists.xml.org/archives/xml-dev/200007/msg00284.html
 http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
-public class CLDRFile {
-	static boolean DEBUG_LOGGING = false;
-	
-	public static class Factory {
-		String sourceDirectory;
-		String matchString;
-		PrintWriter log;
-		
-		public static Factory make(String sourceDirectory, String matchString, PrintWriter optionalLog) {
-			Factory result = new Factory();
-			result.sourceDirectory = sourceDirectory;
-			result.log = optionalLog;
-			result.matchString = matchString;
-			result.localeList = getMatchingXMLFiles(sourceDirectory, matchString);
-			return result;
-		}
-		
-		private Factory() {}
-		
-		Set localeList = new TreeSet();
-		Map mainCache = new TreeMap();
-		Map resolvedCache = new TreeMap();  
-		Map supplementalCache = new TreeMap();
-
-	    public Set getAvailable() {
-	    	return localeList;
-	    }
-	    
-	    public Set getAvailableLanguages() {
-	    	Set result = new TreeSet();
-	    	for (Iterator it = localeList.iterator(); it.hasNext();) {
-	    		String s = (String) it.next();
-	    		if (isLanguage(s)) result.add(s);
-	    	}
-	    	return result;
-	    }
-	    
-	    public Set getAvailableWithParent(String parent, boolean isProper) {
-	    	Set result = new TreeSet();
-	    	for (Iterator it = localeList.iterator(); it.hasNext();) {
-	    		String s = (String) it.next();
-	    		int relation = isSubLocale(parent, s);
-	    		if (relation >= 0 && !(isProper && relation == 0)) result.add(s);
-	    	}
-	    	return result;
-	    }
-	    
-		public CLDRFile make(String localeName, boolean resolved) {
-	    	Map cache = resolved ? resolvedCache : mainCache;
-	    	CLDRFile result = (CLDRFile) cache.get(localeName);
-	    	if (result == null) {
-	    		if (!resolved) {
-	    			result = new CLDRFile(sourceDirectory, localeName, this);
-	    		} else {
-	    			// get resolved version
-	    			// get parent first if possible
-	        		result = new CLDRFile();
-	    			String parentName = getParent(localeName);
-	    			if (parentName != null) {
-	    				CLDRFile parent = make(parentName, true); // will recurse!
-	    				result.map.putAll(parent.map);
-	    			}
-	        		CLDRFile other = make(localeName, false);
-	        		result.map.putAll(other.map);
-	    		}
-	    		cache.put(localeName, result);
-	    	}
-	    	return result;
-	    }
-	}
-	
+public class CLDRFile implements Lockable {
+	private static boolean DEBUG_LOGGING = false;	
 	private static final String NEWLINE = "\n";
-	static MapComparator LDMLComparator = new MapComparator();
-	static MapComparator AttributeComparator = new MapComparator().add("alt").add("draft").add("type");
+	private static MapComparator LDMLComparator = new MapComparator();
     
-    Map map = new TreeMap(LDMLComparator);
-    Factory factory;
-    String finalComment = "";
-
+    private Map map = new TreeMap(LDMLComparator);
+    private String finalComment = "";
+    private String key;
+    private CLDRFile(){}
+	
     /**
+     * Create a CLDRFile for the given localename. (Normally a Factory is used to create CLDRFiles.)
+     * @param localeName
+     */
+    public static CLDRFile make(String localeName) {
+    	CLDRFile result = new CLDRFile();
+		result.key = localeName;
+		return result;
+    }
+    
+    /**
+     * Produce a CLDRFile from a localeName, given a directory. (Normally a Factory is used to create CLDRFiles.)
+     * @param localeName
+     * @param dir directory 
+     * @throws SAXNotSupportedException
+     * @throws SAXNotRecognizedException
+     * @throws IOException
+     */
+    // TODO make the directory a URL
+    public static CLDRFile make(String localeName, String dir) {
+        File f = new File(dir + localeName + ".xml");
+        /* if (DEBUG_LOGGING) {
+         	System.out.println("Parsing: " + f.getCanonicalPath());
+         	if (log != null) log.println("Parsing: " + f.getCanonicalPath());
+	    }
+	    */
+        try {
+			FileInputStream fis = new FileInputStream(f);
+	    	CLDRFile result = make(localeName, fis);
+			fis.close();
+			return result;
+		} catch (IOException e) {
+			throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + localeName).initCause(e);
+		}
+    }
+    
+    /**
+     * Produce a CLDRFile from a file input stream. (Normally a Factory is used to create CLDRFiles.)
+     * @param localeName
+     * @param fis
+     * @throws IOException
+     * @throws SAXException
+     */
+    public static CLDRFile make(String localeName, FileInputStream fis) {
+    	try {
+    		CLDRFile result = make(localeName);
+			MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(result);
+			XMLReader xmlReader = createXMLReader(true);
+			xmlReader.setContentHandler(DEFAULT_DECLHANDLER);
+			xmlReader.setProperty("http://xml.org/sax/properties/lexical-handler", DEFAULT_DECLHANDLER);
+			xmlReader.setProperty("http://xml.org/sax/properties/declaration-handler", DEFAULT_DECLHANDLER);
+			xmlReader.parse(new InputSource(fis));
+			return result;
+		} catch (SAXException e) {
+			throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + localeName).initCause(e);
+		} catch (IOException e) {
+			throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + localeName).initCause(e);
+		}    	 
+    }
+    
+    /**
+     * Clone the object. Produces unlocked version (see Lockable).
+     */
+    public Object clone() {
+    	try {
+			CLDRFile result = (CLDRFile) super.clone();
+			result.locked = false;
+			result.map = (Map)((TreeMap)map).clone();
+			return result;
+		} catch (CloneNotSupportedException e) {
+			throw new InternalError("should never happen");
+		}
+    }
+	
+
+	/**
+	 * Write the corresponding XML file out, with the normal formatting and indentation.
 	 * @param pw
 	 * @param key
 	 */
@@ -152,8 +165,97 @@ public class CLDRFile {
 		current.clear().writeDifference(pw, last, null);
 		writeComment(pw, 0, finalComment);
 	}
+
+	/**
+	 * Get a value from an xpath.
+	 */
+    public Value getValue(String xpath) {
+    	return (Value) map.get(xpath);
+    }
+    
+    /**
+     * Add a new element to a CLDRFile.
+     * @param xpath
+     * @param comment
+     * @param currentFullXPath
+     * @param value
+     */
+    public void add(String xpath, String comment, String currentFullXPath, String value) {
+    	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+    	StringValue v = new StringValue(value, comment, currentFullXPath);
+    	xpath = xpath.intern();
+    	LDMLComparator.add(xpath);
+        map.put(xpath, v);
+    }
+    
+    /**
+     * Merges elements from another CLDR file. Note: when both have the same xpath key, 
+     * the keepMine determines whether "my" values are kept
+     * or the other files values are kept.
+     * @param other
+     * @param keepMine if true, keep my values in case of conflict; otherwise keep the other's values.
+     */
+    public void addAll(CLDRFile other, boolean keepMine) {
+    	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+    	if (keepMine) {
+    		Map temp = new TreeMap(LDMLComparator);
+    		temp.putAll(other.map);
+    		temp.putAll(map);
+    		map = temp;
+    	} else {
+    		map.putAll(other.map);
+    	}
+    }
+    
+    /**
+     * Removes an element from a CLDRFile.
+     * @param xpath
+     */
+    public void remove(String xpath) {
+    	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+    	map.remove(xpath);
+    }
+    
+	/**
+	 * @return Returns the finalComment.
+	 */
+	public String getFinalComment() {
+		return finalComment;
+	}
+	/**
+	 * @return Returns the key.
+	 */
+	public String getKey() {
+		return key;
+	}
+
+	private boolean locked;
+	
+	/* (non-Javadoc)
+	 * @see org.unicode.cldr.util.Lockable#isLocked()
+	 */
+	public synchronized boolean isLocked() {
+		return locked;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.unicode.cldr.util.Lockable#lock()
+	 */
+	public synchronized void lock() {
+		locked = true;
+	}
+	/**
+	 * @param finalComment The finalComment to set.
+	 */
+	public void setFinalComment(String finalComment) {
+    	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+		this.finalComment = finalComment;
+	}
+	
+	// ========== STATIC UTILITIES ==========
 	
     /**
+     * Utility to write a comment.
 	 * @param pw
 	 * @param v
 	 */
@@ -172,21 +274,24 @@ public class CLDRFile {
 		}
 	}
 	
+	/**
+	 * Utility to indent by a certain number of tabs.
+	 * @param out
+	 * @param count
+	 */
 	static void indent(PrintWriter out, int count) {
         for (int i = 0; i < count; ++i) {
             out.print('\t');
         }
     }
 	
-	private static void writeTrailing(String lastXPath, String fullXPath) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	private static void writeLeading(String lastXPath, String fullXPath) {
-		
-	}
-
+	/**
+	 * Utility to restrict to files matching a given regular expression. The expression does not contain ".xml".
+	 * Note that supplementalData is always skipped, and root is always included.
+	 * @param sourceDir
+	 * @param localeRegex
+	 * @return
+	 */
     public static Set getMatchingXMLFiles(String sourceDir, String localeRegex) {
         Matcher m = Pattern.compile(localeRegex).matcher("");
         Set s = new TreeSet();
@@ -202,6 +307,11 @@ public class CLDRFile {
         return s;
     }
 
+    /**
+     * Utility to get the parent of a locale. If the input is "root", then the output is null.
+     * @param localeName
+     * @return
+     */
     public static String getParent(String localeName) {
         int pos = localeName.lastIndexOf('_');
         if (pos >= 0) {
@@ -211,354 +321,12 @@ public class CLDRFile {
         return "root";
     }
     
-    public static class XPathParts {
-    	// a piece is an element: '/'....('[' | '/')
-    	// or an attribute/value: '[@'...'="'...'"]'
-    	/*static class Attribute {
-    		String attribute;
-    		String value;
-    		public Attribute(String attribute, String value) {
-    			this.attribute = attribute;
-    			this.value = value;
-    		}
-    		public String toString() {
-    			return "[@" + attribute + "=\"" + value + "\"]"; // TODO quote any " in value
-    		}
-    		public boolean equals(Object other) {
-    			if (other == null || !getClass().equals(other.getClass())) return false;
-    			Attribute that = (Attribute)other;
-    			return attribute.equals(that.attribute) && value.equals(that.value);
-    		}
-    		public int hashCode() {
-    			return attribute.hashCode()*37 + value.hashCode();
-    		}
-    	}
-    	*/
-    	private static class Element {
-    		private String element;
-    		private Map attributes = new TreeMap(AttributeComparator);
-    		public Element(String element) {
-    			this.element = element;
-    		}
-    		static final int XPATH_STYLE = 0, XML_OPEN = 1, XML_CLOSE = 2, XML_NO_VALUE = 3;
-    		public String toString() {
-    			throw new IllegalArgumentException("Don't use");
-    		}
-    		public String toString(int style) {
-    			StringBuffer result = new StringBuffer();
-				switch (style) {
-				case XPATH_STYLE:
-					result.append('/').append(element);
-					for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-						String attribute = (String) it.next();
-						String value = (String) attributes.get(attribute);
-						if (attribute.equals("type") && value.equals("standard")) continue; // HACK
-						if (attribute.equals("version") && value.equals("1.2")) continue; // HACK
-						result.append("[@").append(attribute).append("=\"")
-								.append(value).append("\"]");
-					}
-					break;
-				case XML_OPEN:
-				case XML_NO_VALUE:
-					result.append('<').append(element);
-					for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-						String attribute = (String) it.next();
-						String value = (String) attributes.get(attribute);
-						if (attribute.equals("type") && value.equals("standard")) continue; // HACK
-						if (attribute.equals("version") && value.equals("1.2")) continue; // HACK
-						result.append(' ').append(attribute).append("=\"")
-								.append(value).append('\"');
-					}
-					if (style == XML_NO_VALUE) result.append('/');
-					result.append('>');
-					break;
-				case XML_CLOSE:
-					result.append("</").append(element).append('>');
-					break;
-				}
-    			return result.toString();
-    		}
-    		public boolean equals(Object other) {
-    			if (other == null || !getClass().equals(other.getClass())) return false;
-    			Element that = (Element)other;
-    			return element.equals(that.element) && attributes.equals(that.attributes);
-    		}
-    		public int hashCode() {
-    			return element.hashCode()*37 + attributes.hashCode();
-    		}
-    	}
-
-    	List elements = new ArrayList();
-    	
-    	public boolean containsElement(String element) {
-    		for (int i = 0; i < elements.size(); ++i) {
-    			if (((Element)elements.get(i)).element.equals(element)) return true;
-    		}
-    		return false;
-    	}
-    	/**
-		 * @return
-		 */
-		public XPathParts clear() {
-			elements.clear();
-			return this;
-		}
-		/**
-		 * @param pw
-		 * @param last
-		 */
-		public void writeDifference(PrintWriter pw, XPathParts last, Value v) {
-			int limit = findFirstDifference(last);
-			// write the end of the last one
-			for (int i = last.size()-2; i >= limit; --i) {
-				indent(pw, i);
-				pw.println(((Element)last.elements.get(i)).toString(Element.XML_CLOSE));
-			}
-			if (v == null) return; // end
-			// now write the start of the current
-			for (int i = limit; i < size()-1; ++i) {
-				indent(pw, i);
-				pw.println(((Element)elements.get(i)).toString(Element.XML_OPEN));
-			}
-			writeComment(pw, size()-1, v.comment);
-			// now write element itself
-			indent(pw, size()-1);
-			Element e = (Element)elements.get(size()-1);
-			String eValue = ((StringValue)v).stringValue;
-			if (eValue.length() == 0) {
-				pw.println(e.toString(Element.XML_NO_VALUE));
-			} else {
-				pw.print(e.toString(Element.XML_OPEN));
-				pw.print(eValue);
-				pw.println(e.toString(Element.XML_CLOSE));
-			}
-			//if (v.)
-			pw.flush();
-		}
-		
-		public int findFirstDifference(XPathParts last) {
-			int min = elements.size();
-			if (last.elements.size() < min) min = last.elements.size();
-			for (int i = 0; i < min; ++i) {
-				Element e1 = (Element) elements.get(i);
-				Element e2 = (Element) last.elements.get(i);
-				if (!e1.equals(e2)) return i;
-			}
-			return min;
-		}
-		public boolean containsAttribute(String attribute) {
-    		for (int i = 0; i < elements.size(); ++i) {
-    			Element element = (Element) elements.get(i);
-    			if (element.attributes.keySet().contains(attribute)) return true;
-    		}
-    		return false;
-    	}
-    	public boolean containsAttributeValue(String attribute, String value) {
-    		for (int i = 0; i < elements.size(); ++i) {
-    			Map attributes = ((Element)elements.get(i)).attributes;
-    			for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-    				String a = (String) it.next();
-    				if (a.equals(attribute)) {
-    					String v = (String)attributes.get(a);
-    					if (v.equals(value)) return true;
-    				}
-    			}
-    		}
-    		return false;
-    	}
-    	
-    	public void addElement(String element) {
-    		elements.add(new Element(element));
-    	}
-    	public void addAttribute(String attribute, String value) {
-    		Element e = (Element)elements.get(elements.size()-1);
-    		attribute = attribute.intern();
-    		AttributeComparator.add(attribute);
-    		e.attributes.put(attribute, value);
-    	}
-
-    	public boolean set(String xPath) {
-        	elements.clear();
-        	String lastAttributeName = "";
-    		if (xPath.length() == 0 || xPath.charAt(0) != '/') return parseError(xPath, 0);
-    		int stringStart = 1;
-    		char state = 'p';
-    		// since only ascii chars are relevant, use char
-    		for (int i = 1; i < xPath.length(); ++i) {
-    			char cp = xPath.charAt(i);
-				if (cp != state && (state == '\"' || state == '\'')) continue; // stay in quotation
-    			switch(cp) {
-    			case '/':
-    				if (state != 'p' || stringStart >= i) return parseError(xPath,i);
-	    			if (stringStart > 0) addElement(xPath.substring(stringStart, i));
-    				stringStart = i+1;
-    				break;
-    			case '[':
-    				if (state != 'p' || stringStart >= i) return parseError(xPath,i);
-    				if (stringStart > 0) addElement(xPath.substring(stringStart, i));
-    				state = cp;
-    				break;
-    			case '@': 
-    				if (state != '[') return parseError(xPath,i);
-    				stringStart = i+1;
-    				state = cp;
-    				break;
-    			case '=': 
-    				if (state != '@' || stringStart >= i) return parseError(xPath,i);
-    				lastAttributeName = xPath.substring(stringStart, i);
-    				state = cp;
-    				break;
-    			case '\"':
-    			case '\'':
-    				if (state == cp) { // finished
-    					if (stringStart >= i) return parseError(xPath,i);
-    					addAttribute(lastAttributeName, xPath.substring(stringStart, i));
-    					state = 'e';
-    					break;
-    				}
-    				if (state != '=') return parseError(xPath,i);
-    				stringStart = i+1;
-    				state = cp;
-    				break;
-    			case ']': 
-    				if (state != 'e') return parseError(xPath,i);
-    				state = 'p';
-    				stringStart = -1;
-    				break;
-    			}
-    		}
-    		// check to make sure terminated
-			if (state != 'p' || stringStart >= xPath.length()) return parseError(xPath,xPath.length());
-			if (stringStart > 0) addElement(xPath.substring(stringStart, xPath.length()));
-    		return true;
-    	}
-    	boolean parseError(String s, int i) {
-    		throw new IllegalArgumentException("Malformed xPath " + s + " at " + i);
-    	}
-    	int size() {
-    		return elements.size();
-    	}
-    	String getElement(int elementIndex) {
-    		return ((Element)elements.get(elementIndex)).element;
-    	}
-    	Map getAttributes(int elementIndex) {
-    		return ((Element)elements.get(elementIndex)).attributes;
-    	}
-    	public String toString() {
-    		String result = "";
-    		for (int i = 0; i < elements.size(); ++i) {
-    			result += elements.get(i);
-    		}
-    		return result + "/";
-    	}
-		public boolean equals(Object other) {
-			if (other == null || !getClass().equals(other.getClass())) return false;
-			XPathParts that = (XPathParts)other;
-			if (elements.size() != that.elements.size()) return false;
-			for (int i = 0; i < elements.size(); ++i) {
-				if (!elements.get(i).equals(that.elements.get(i))) return false;
-			}
-			return true;
-		}
-		public int hashCode() {
-			int result = elements.size();
-			for (int i = 0; i < elements.size(); ++i) {
-				result = result*37 + elements.get(i).hashCode();
-			}
-			return result;
-		}
-    }
-    
-    static public abstract class Value {
-		/**
-		 * @param value
-		 * @param comment2
-		 */
-		public Value(String comment, String currentFullXPath) {
-	        this.comment = comment.intern();
-	        this.fullXPath = currentFullXPath.intern();
-		}
-		/**
-		 * @return Returns the comment.
-		 */
-		public String getComment() {
-			return comment;
-		}
-		/**
-		 * @return Returns the fullXPath.
-		 */
-		public String getFullXPath() {
-			return fullXPath;
-		}
-    	private String comment;
-    	private String fullXPath;
-    	public boolean equals(Object other) {
-			if (other == null || !getClass().equals(other.getClass())) return false;
-    		Value that = (Value)other;
-    		return comment.equals(that.comment) && fullXPath.equals(that.fullXPath);
-    	}
-    	public abstract String getStringValue();
-    	public String toString() {
-    		return fullXPath + ";\t" + getStringValue() + ";\t" + comment; 
-    	}
-    	/*
-    	void write(PrintWriter pw, Value last) {
-    		// write the closing values, all but the last element in the xpath
-    		String[] pair = new String[2];
-    		getDifference(fullXPath, last.fullXPath, pair);
-    		showTrailing(pair[0]);
-    		showLeading(pair[1]);
-    		writeValue(pw);
-    	}
-    	void getDifference(String path1, String path2, String[] result) {
-    		
-    	}
-    	*/
-    }
-    static public class StringValue extends Value {
-    	private String stringValue;
-    	/**
-		 * @param value
-		 * @param comment
-		 * @param currentFullXPath
-		 */
-		public StringValue(String value, String comment, String currentFullXPath) {
-			super(comment, currentFullXPath);
-	        this.stringValue = value.intern();
-		}
-		public boolean equals(Object other) {
-    		if (!super.equals(other)) return false;
-    		return stringValue.equals(((StringValue)other).stringValue);
-    	}
-		public String getStringValue() {
-			return stringValue;
-		}
-    }
-    static public class NodeValue extends Value {
-		public NodeValue(Node value, String comment, String currentFullXPath) {
-			super(comment, currentFullXPath);
-	        this.nodeValue = value;
-		}
-    	private Node nodeValue;
-    	public boolean equals(Object other) {
-    		if (super.equals(other)) return false;
-    		return nodeValue.equals(((NodeValue)other).nodeValue);
-    	}
-		public String getStringValue() {
-			return nodeValue.toString();
-		}
-    }
-    public Value getValue(String xpath) {
-    	return (Value) map.get(xpath);
-    }
-    
-    private void add(String xpath, String comment, String currentFullXPath, String value) {
-    	StringValue v = new StringValue(value, comment, currentFullXPath);
-    	xpath = xpath.intern();
-    	LDMLComparator.add(xpath);
-        map.put(xpath, v);
-    }
-    
+    /**
+     * Utility to determine if this a language locale? 
+     * Note: a script is included with the language, if there is one.
+     * @param in
+     * @return
+     */
     public static boolean isLanguage(String in) {
     	int pos = in.indexOf('_');
     	if (pos < 0) return true;
@@ -566,6 +334,7 @@ public class CLDRFile {
     	if (in.length() != pos + 5) return false; // second must be 4 in length
     	return true;
     }
+    
     /**
      * Returns -1 if parent isn't really a parent, 0 if they are identical, and 1 if parent is a proper parent
      * @param parent
@@ -581,264 +350,30 @@ public class CLDRFile {
     }
     
     public Set keySet() {
-    	return map.keySet();
-    }
-    
-    private CLDRFile() {}
-
-    private CLDRFile(String dir, String localeName, Factory factory) {
-    	try {
-    		this.factory = factory;
-    		MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler();
-			XMLReader xmlReader = createXMLReader(true);
-			xmlReader.setContentHandler(DEFAULT_DECLHANDLER);
-			xmlReader.setProperty("http://xml.org/sax/properties/lexical-handler", DEFAULT_DECLHANDLER);
-			xmlReader.setProperty("http://xml.org/sax/properties/declaration-handler", DEFAULT_DECLHANDLER);
-	        File f = new File(dir + localeName + ".xml");
-	        if (DEBUG_LOGGING) {
-	        	System.out.println("Parsing: " + f.getCanonicalPath());
-		        if (factory.log != null) factory.log.println("Parsing: " + f.getCanonicalPath());
-	        }
-	        FileInputStream fis = new FileInputStream(f);
-	        xmlReader.parse(new InputSource(fis));
-	        fis.close();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	return Collections.unmodifiableSet(map.keySet());
     }
     
 	/**
-	 * @param name
+	 * Determine if an attribute is a distinguishing attribute.
+	 * @param elementName
 	 * @param attribute
 	 * @return
 	 */
-	private static boolean isDistinguishing(String name, String attribute) {
+	private static boolean isDistinguishing(String elementName, String attribute) {
 		return attribute.equals("key") 
 		|| attribute.equals("registry") 
 		|| attribute.equals("alt")
 		|| attribute.equals("iso4217")
 		|| attribute.equals("iso3166")
-		|| (attribute.equals("type") && !name.equals("default") && !name.equals("mapping"));
-	}
-
-	public static String stripAfter(String input, String qName) {
-		int pos = findLastSlash(input);
-		if (qName != null) assert input.substring(pos+1).startsWith(qName);
-		return input.substring(0,pos);
+		|| (attribute.equals("type") && !elementName.equals("default") && !elementName.equals("mapping"));
 	}
 	
-	private static int findLastSlash(String input) {
-		int braceStack = 0;
-		for (int i = input.length()-1; i >= 0; --i) {
-			char ch = input.charAt(i);
-			switch(ch) {
-			case '/': if (braceStack == 0) return i; break;
-			case '[': --braceStack; break;
-			case ']': ++braceStack; break;
-			}
-		}
-		return -1;
-	}
-	
-    class MyDeclHandler implements DeclHandler, ContentHandler, LexicalHandler {
-    	static final boolean SHOW_ALL = true;
-    	static final boolean SHOW_START_END = false;
-    	int commentStack;
-    	boolean justPopped = false;
-    	String lastChars = "";
-    	String currentXPath = "";
-    	String currentFullXPath = "";
-    	String comment = "";
-    	
-    	Map attributeOrder = new TreeMap();
-    	
-    	private String show(Attributes attributes) {
-    		if (attributes == null) return "null";
-    		String result = "";
-    		for (int i = 0; i < attributes.getLength(); ++i) {    			
-    			String attribute = attributes.getQName(i);
-    			String value = attributes.getValue(i);
-     			result += "[@" + attribute + "=\"" + value + "\"]"; // TODO quote the value??
-    		}
-    		return result;
-    	}
-    	
-    	private void push(String qName, Attributes attributes) {
-    		if (SHOW_ALL && factory.log != null) factory.log.println("Attribute\t" + qName + "\t" + show(attributes));
-    		currentXPath += "/" + qName;
-    		currentFullXPath += "/" + qName;
-    		if (attributes.getLength() > 0) {
-    			attributeOrder.clear();
-	    		for (int i = 0; i < attributes.getLength(); ++i) {    			
-	    			String attribute = attributes.getQName(i);
-	    			String value = attributes.getValue(i);
-	    			attributeOrder.put(attribute, value);
-	    		}
-	    		for (Iterator it = attributeOrder.keySet().iterator(); it.hasNext();) {
-	    			String attribute = (String)it.next();
-	    			String value = (String)attributeOrder.get(attribute);
-	    			String both = "[@" + attribute + "=\"" + value + "\"]"; // TODO quote the value??
-	    			currentFullXPath += both;
-	    			// distinguishing = key, registry, alt, and type (except for the type attribute on the elements default and mapping).
-	    			if (isDistinguishing(qName, attribute)) {
-	    				currentXPath += both;
-	    			}
-	    		}
-    		}
-            justPopped = false;
-    		if (SHOW_ALL && factory.log != null) factory.log.println("currentXPath\t" + currentXPath + "\tcurrentFullXPath\t" + currentFullXPath);
-    	}
-    	
-		private void pop(String qName) {
-            currentXPath = stripAfter(currentXPath, qName);
-    		currentFullXPath = stripAfter(currentFullXPath, qName);    
-            justPopped = true;
-    	}
-    	
-        public void elementDecl(String name, String model) throws SAXException {
-        	if (SHOW_ALL && factory.log != null) factory.log.println("Attribute\t" + name + "\t" + model);
-        }
-        public void attributeDecl(String eName, String aName, String type, String mode, String value) throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value);
-        }
-        public void internalEntityDecl(String name, String value) throws SAXException {
-        	if (SHOW_ALL && factory.log != null) factory.log.println("Internal Entity\t" + name + "\t" + value);
-        }
-        public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
-        	if (SHOW_ALL && factory.log != null) factory.log.println("Internal Entity\t" + name + "\t" + publicId + "\t" + systemId);
-        }
-
-        public void startElement(
-            String uri,
-            String localName,
-            String qName,
-            Attributes attributes)
-            throws SAXException {
-        		if ((SHOW_ALL || SHOW_START_END) && factory.log != null) factory.log.println("startElement uri\t" + uri
-        				+ "\tlocalName " + localName
-        				+ "\tqName " + qName
-        				+ "\tattributes " + show(attributes)
-						);
-                try {
-                	assert lastChars.length() == 0;
-                    push(qName, attributes);
-                } catch (RuntimeException e) {
-                    e.printStackTrace();
-                    throw e;
-                }
-        }
-        public void endElement(String uri, String localName, String qName)
-            throws SAXException {
-    			if ((SHOW_ALL || SHOW_START_END) && factory.log != null) factory.log.println("endElement uri\t" + uri + "\tlocalName " + localName
-    				+ "\tqName " + qName);
-                try {
-                    if (lastChars.length() != 0 || justPopped == false) {
-                        add(currentXPath, comment, currentFullXPath, lastChars);
-                        lastChars = "";
-                        comment="";
-                    }
-                    pop(qName);
-                } catch (RuntimeException e) {
-                    e.printStackTrace();
-                    throw e;
-                }
-            }
-        public void characters(char[] ch, int start, int length)
-            throws SAXException {
-                try {
-                    String value = new String(ch,start,length);
-                    if (SHOW_ALL && factory.log != null) factory.log.println("characters:\t" + value);
-                    lastChars += value;
-                    justPopped = false;
-                } catch (RuntimeException e) {
-                    e.printStackTrace();
-                    throw e;
-                }
-            }
-
-        // just for debugging
-
-        public void notationDecl (String name, String publicId, String systemId)
-        throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("notationDecl: " + name
-            + ", " + publicId
-            + ", " + systemId
-            );
-        }
-
-        public void processingInstruction (String target, String data)
-        throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("processingInstruction: " + target + ", " + data);
-        }
-
-        public void skippedEntity (String name)
-        throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("skippedEntity: " + name);
-        }
-
-        public void unparsedEntityDecl (String name, String publicId,
-                        String systemId, String notationName) {
-            if (SHOW_ALL && factory.log != null) factory.log.println("unparsedEntityDecl: " + name
-            + ", " + publicId
-            + ", " + systemId
-            + ", " + notationName
-            );
-        }
-        public void setDocumentLocator(Locator locator) {
-            if (SHOW_ALL && factory.log != null) factory.log.println("setDocumentLocator Locator " + locator);
-        }
-        public void startDocument() throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("startDocument");
-            commentStack = 0; // initialize
-        }
-        public void endDocument() throws SAXException {
-        	finalComment = comment;
-            if (SHOW_ALL && factory.log != null) factory.log.println("endDocument");
-        }
-        public void startPrefixMapping(String prefix, String uri) throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("startPrefixMapping prefix: " + prefix +
-                    ", uri: " + uri);
-        }
-        public void endPrefixMapping(String prefix) throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("endPrefixMapping prefix: " + prefix);
-        }
-        public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("ignorableWhitespace length: " + length);
-        }
-        public void startDTD(String name, String publicId, String systemId) throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("startDTD name: " + name
-                    + ", publicId: " + publicId
-                    + ", systemId: " + systemId
-            );
-            commentStack++;
-        }
-        public void endDTD() throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("endDTD");
-            commentStack--;
-        }
-        public void startEntity(String name) throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("startEntity name: " + name);
-        }
-        public void endEntity(String name) throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("endEntity name: " + name);
-        }
-        public void startCDATA() throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("startCDATA");
-        }
-        public void endCDATA() throws SAXException {
-            if (SHOW_ALL && factory.log != null) factory.log.println("endCDATA");
-        }
-        public void comment(char[] ch, int start, int length) throws SAXException {
-            if ((SHOW_ALL || SHOW_START_END) && factory.log != null) factory.log.println(commentStack + " comment " + new String(ch, start,length));
-            if (commentStack != 0) return;
-            String comment0 = new String(ch, start,length).trim();
-            if (comment.length() == 0) comment = comment0;
-            else comment += NEWLINE + comment0;
-        }
-    };
-
-    public XMLReader createXMLReader(boolean validating) {
+	/**
+	 * Utility to create a validating XML reader.
+	 * @param validating
+	 * @return
+	 */
+    public static XMLReader createXMLReader(boolean validating) {
     	String[] testList = {
     			"org.apache.xerces.parsers.SAXParser",
 				"org.apache.crimson.parser.XMLReaderImpl",
@@ -868,25 +403,435 @@ public class CLDRFile {
         }
         return result;
     }
-    
-	/*
-	XPathParser p = new XPathParser();
-	p.set("/ldml/id[@foo='bar']/a[@b=\"c'd\"][@e='f']/");
-	System.out.println(p);
-	for (int i = 0; i < p.size(); ++i) {
-		System.out.println("element: " + p.getElement(i));
-		for (int j = 0; j < p.getAttributeCount(i); ++j) {
-			System.out.println("\tattribute: " + p.getAttribute(i, j));
-			System.out.println("\tvalue: " + p.getValue(i,j));
-		}
-	}
-	System.out.println(p.containsElement("id"));
-	System.out.println(p.containsElement("id2"));
-	System.out.println(p.containsAttribute("foo"));
-	System.out.println(p.containsAttribute("foo2"));
-	System.out.println(p.containsAttributeValue("foo", "bar"));
-	System.out.println(p.containsAttributeValue("foo", "bar2"));
-	if (true) return;
-	*/
 
+    /**
+     * A factory is the normal method to produce a set of CLDRFiles from a directory of XML files.
+     */
+	public static class Factory {
+		private String sourceDirectory;
+		private String matchString;
+		private PrintWriter log;
+		private Set localeList = new TreeSet();
+		private Map mainCache = new TreeMap();
+		private Map resolvedCache = new TreeMap();  
+		private Map supplementalCache = new TreeMap();
+		private Factory() {}		
+		/**
+		 * Create a factory from a source directory, matchingString, and an optional log file.
+		 * For the matchString meaning, see getMatchingXMLFiles
+		 * @param sourceDirectory
+		 * @param matchString
+		 * @param optionalLog
+		 * @return
+		 */
+		public static Factory make(String sourceDirectory, String matchString, PrintWriter optionalLog) {
+			Factory result = new Factory();
+			result.sourceDirectory = sourceDirectory;
+			result.log = optionalLog;
+			result.matchString = matchString;
+			result.localeList = getMatchingXMLFiles(sourceDirectory, matchString);
+			return result;
+		}
+
+		/**
+		 * Get a set of the available locales for the factory.
+		 * @return
+		 */
+	    public Set getAvailable() {
+	    	return Collections.unmodifiableSet(localeList);
+	    }
+	    
+	    /**
+	     * Get a set of the available language locales (according to isLanguage).
+	     * @return
+	     */
+	    public Set getAvailableLanguages() {
+	    	Set result = new TreeSet();
+	    	for (Iterator it = localeList.iterator(); it.hasNext();) {
+	    		String s = (String) it.next();
+	    		if (isLanguage(s)) result.add(s);
+	    	}
+	    	return result;
+	    }
+	    
+	    /**
+	     * Get a set of the locales that have the given parent (according to isSubLocale())
+	     * @param parent
+	     * @param isProper if false, then parent itself will match
+	     * @return
+	     */
+	    public Set getAvailableWithParent(String parent, boolean isProper) {
+	    	Set result = new TreeSet();
+	    	for (Iterator it = localeList.iterator(); it.hasNext();) {
+	    		String s = (String) it.next();
+	    		int relation = isSubLocale(parent, s);
+	    		if (relation >= 0 && !(isProper && relation == 0)) result.add(s);
+	    	}
+	    	return result;
+	    }
+	    
+	    /**
+	     * Make a CLDR file. The result is a locked file, so that it can be cached. If you want to modify it,
+	     * use clone().
+	     * @param localeName
+	     * @param resolved if true, produces a resolved version.
+	     * @return
+	     * @throws SAXException
+	     * @throws IOException
+	     */
+	    // TODO resolve aliases
+		public CLDRFile make(String localeName, boolean resolved) {
+	    	Map cache = resolved ? resolvedCache : mainCache;
+	    	CLDRFile result = (CLDRFile) cache.get(localeName);
+	    	if (result == null) {
+	    		if (!resolved) {
+	    			result = CLDRFile.make(localeName, sourceDirectory);
+	    		} else {
+	    			// get resolved version
+	    			// get parent first if possible
+	    			String parentName = getParent(localeName);
+	    			if (parentName == null) {
+	    				// is root, so just get unresolved file.
+	    				result = make(localeName, false);
+	    			} else {
+	    				CLDRFile parent = make(parentName, true); // will recurse!
+	    				result = (CLDRFile) make(localeName, false).clone();
+	    				result.addAll(parent, true);
+	    			}
+	    		}
+	    		result.lock();
+	    		cache.put(localeName, result);
+	    	}
+	    	return result;
+	    }
+	}
+
+    /**
+     * Immutable class that defines the value at a particular xpath.
+     * Normally a string, unless the item does not inherit (like collation).
+     */
+    static public abstract class Value {
+    	private String comment;
+    	private String fullXPath;
+		/**
+		 * Create a value.
+		 * @param value
+		 * @param comment2
+		 */
+		public Value(String comment, String currentFullXPath) {
+	        this.comment = comment.intern();
+	        this.fullXPath = currentFullXPath.intern();
+		}
+		/**
+		 * @return Returns the comment.
+		 */
+		public String getComment() {
+			return comment;
+		}
+		/**
+		 * @return Returns the fullXPath.
+		 */
+		public String getFullXPath() {
+			return fullXPath;
+		}
+		/**
+		 * boilerplate
+		 */
+    	public boolean equals(Object other) {
+			if (other == null || !getClass().equals(other.getClass())) return false;
+    		Value that = (Value)other;
+    		return comment.equals(that.comment) && fullXPath.equals(that.fullXPath);
+    	}
+    	/**
+    	 * Must be overridden.
+    	 * @return
+    	 */
+    	public abstract String getStringValue();
+		/**
+		 * boilerplate
+		 */
+    	public String toString() {
+    		return fullXPath + ";\t" + getStringValue() + ";\t" + comment; 
+    	}
+    }
+    
+    /**
+     * Value that contains a single string
+     */
+    static public class StringValue extends Value {
+    	private String stringValue;
+    	/**
+		 * @param value
+		 * @param comment
+		 * @param currentFullXPath
+		 */
+		public StringValue(String value, String comment, String currentFullXPath) {
+			super(comment, currentFullXPath);
+	        this.stringValue = value.intern();
+		}
+		/**
+		 * boilerplate
+		 */
+		public boolean equals(Object other) {
+    		if (!super.equals(other)) return false;
+    		return stringValue.equals(((StringValue)other).stringValue);
+    	}
+		/**
+		 * boilerplate
+		 */
+		public String getStringValue() {
+			return stringValue;
+		}
+    }
+    /**
+     * Value that contains a node. WARNING: this is not done yet, and may change.
+     * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
+     */
+    static public class NodeValue extends Value {
+    	private Node nodeValue;
+    	/**
+    	 * Creation. WARNING, may change.
+    	 * @param value
+    	 * @param comment
+    	 * @param currentFullXPath
+    	 */
+		public NodeValue(Node value, String comment, String currentFullXPath) {
+			super(comment, currentFullXPath);
+	        this.nodeValue = value;
+		}
+		/**
+		 * boilerplate
+		 */
+    	public boolean equals(Object other) {
+    		if (super.equals(other)) return false;
+    		return nodeValue.equals(((NodeValue)other).nodeValue);
+    	}
+		/**
+		 * boilerplate
+		 */
+		public String getStringValue() {
+			return nodeValue.toString();
+		}
+    }
+
+    private static class MyDeclHandler implements DeclHandler, ContentHandler, LexicalHandler {
+    	private static final boolean SHOW_ALL = true;
+    	private static final boolean SHOW_START_END = false;
+    	private PrintWriter log = null; // set to non-null if you want logging
+    	private int commentStack;
+    	private boolean justPopped = false;
+    	private String lastChars = "";
+    	private String currentXPath = "";
+    	private String currentFullXPath = "";
+    	private String comment = "";
+    	private Map attributeOrder = new TreeMap();
+    	private CLDRFile target;
+    	
+    	MyDeclHandler(CLDRFile target) {
+    		this.target = target;
+    	}
+    		
+    	private String show(Attributes attributes) {
+    		if (attributes == null) return "null";
+    		String result = "";
+    		for (int i = 0; i < attributes.getLength(); ++i) {    			
+    			String attribute = attributes.getQName(i);
+    			String value = attributes.getValue(i);
+     			result += "[@" + attribute + "=\"" + value + "\"]"; // TODO quote the value??
+    		}
+    		return result;
+    	}
+    	
+    	private void push(String qName, Attributes attributes) {
+    		if (SHOW_ALL && log != null) log.println("Attribute\t" + qName + "\t" + show(attributes));
+    		currentXPath += "/" + qName;
+    		currentFullXPath += "/" + qName;
+    		if (attributes.getLength() > 0) {
+    			attributeOrder.clear();
+	    		for (int i = 0; i < attributes.getLength(); ++i) {    			
+	    			String attribute = attributes.getQName(i);
+	    			String value = attributes.getValue(i);
+	    			attributeOrder.put(attribute, value);
+	    		}
+	    		for (Iterator it = attributeOrder.keySet().iterator(); it.hasNext();) {
+	    			String attribute = (String)it.next();
+	    			String value = (String)attributeOrder.get(attribute);
+	    			String both = "[@" + attribute + "=\"" + value + "\"]"; // TODO quote the value??
+	    			currentFullXPath += both;
+	    			// distinguishing = key, registry, alt, and type (except for the type attribute on the elements default and mapping).
+	    			if (isDistinguishing(qName, attribute)) {
+	    				currentXPath += both;
+	    			}
+	    		}
+    		}
+            justPopped = false;
+    		if (SHOW_ALL && log != null) log.println("currentXPath\t" + currentXPath + "\tcurrentFullXPath\t" + currentFullXPath);
+    	}
+    	
+		private void pop(String qName) {
+            currentXPath = stripAfter(currentXPath, qName);
+    		currentFullXPath = stripAfter(currentFullXPath, qName);    
+            justPopped = true;
+    	}
+    	
+		private static String stripAfter(String input, String qName) {
+			int pos = findLastSlash(input);
+			if (qName != null) assert input.substring(pos+1).startsWith(qName);
+			return input.substring(0,pos);
+		}
+		
+		private static int findLastSlash(String input) {
+			int braceStack = 0;
+			for (int i = input.length()-1; i >= 0; --i) {
+				char ch = input.charAt(i);
+				switch(ch) {
+				case '/': if (braceStack == 0) return i; break;
+				case '[': --braceStack; break;
+				case ']': ++braceStack; break;
+				}
+			}
+			return -1;
+		}
+
+		public void elementDecl(String name, String model) throws SAXException {
+        	if (SHOW_ALL && log != null) log.println("Attribute\t" + name + "\t" + model);
+        }
+        public void attributeDecl(String eName, String aName, String type, String mode, String value) throws SAXException {
+            if (SHOW_ALL && log != null) log.println("Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value);
+        }
+        public void internalEntityDecl(String name, String value) throws SAXException {
+        	if (SHOW_ALL && log != null) log.println("Internal Entity\t" + name + "\t" + value);
+        }
+        public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
+        	if (SHOW_ALL && log != null) log.println("Internal Entity\t" + name + "\t" + publicId + "\t" + systemId);
+        }
+
+        public void startElement(
+            String uri,
+            String localName,
+            String qName,
+            Attributes attributes)
+            throws SAXException {
+        		if ((SHOW_ALL || SHOW_START_END) && log != null) log.println("startElement uri\t" + uri
+        				+ "\tlocalName " + localName
+        				+ "\tqName " + qName
+        				+ "\tattributes " + show(attributes)
+						);
+                try {
+                	assert lastChars.length() == 0;
+                    push(qName, attributes);
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
+                    throw e;
+                }
+        }
+        public void endElement(String uri, String localName, String qName)
+            throws SAXException {
+    			if ((SHOW_ALL || SHOW_START_END) && log != null) log.println("endElement uri\t" + uri + "\tlocalName " + localName
+    				+ "\tqName " + qName);
+                try {
+                    if (lastChars.length() != 0 || justPopped == false) {
+                        target.add(currentXPath, comment, currentFullXPath, lastChars);
+                        lastChars = "";
+                        comment="";
+                    }
+                    pop(qName);
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
+                    throw e;
+                }
+            }
+        public void characters(char[] ch, int start, int length)
+            throws SAXException {
+                try {
+                    String value = new String(ch,start,length);
+                    if (SHOW_ALL && log != null) log.println("characters:\t" + value);
+                    lastChars += value;
+                    justPopped = false;
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
+                    throw e;
+                }
+            }
+
+        // just for debugging
+
+        public void notationDecl (String name, String publicId, String systemId)
+        throws SAXException {
+            if (SHOW_ALL && log != null) log.println("notationDecl: " + name
+            + ", " + publicId
+            + ", " + systemId
+            );
+        }
+
+        public void processingInstruction (String target, String data)
+        throws SAXException {
+            if (SHOW_ALL && log != null) log.println("processingInstruction: " + target + ", " + data);
+        }
+
+        public void skippedEntity (String name)
+        throws SAXException {
+            if (SHOW_ALL && log != null) log.println("skippedEntity: " + name);
+        }
+
+        public void unparsedEntityDecl (String name, String publicId,
+                        String systemId, String notationName) {
+            if (SHOW_ALL && log != null) log.println("unparsedEntityDecl: " + name
+            + ", " + publicId
+            + ", " + systemId
+            + ", " + notationName
+            );
+        }
+        public void setDocumentLocator(Locator locator) {
+            if (SHOW_ALL && log != null) log.println("setDocumentLocator Locator " + locator);
+        }
+        public void startDocument() throws SAXException {
+            if (SHOW_ALL && log != null) log.println("startDocument");
+            commentStack = 0; // initialize
+        }
+        public void endDocument() throws SAXException {
+        	target.setFinalComment(comment);
+            if (SHOW_ALL && log != null) log.println("endDocument");
+        }
+        public void startPrefixMapping(String prefix, String uri) throws SAXException {
+            if (SHOW_ALL && log != null) log.println("startPrefixMapping prefix: " + prefix +
+                    ", uri: " + uri);
+        }
+        public void endPrefixMapping(String prefix) throws SAXException {
+            if (SHOW_ALL && log != null) log.println("endPrefixMapping prefix: " + prefix);
+        }
+        public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
+            if (SHOW_ALL && log != null) log.println("ignorableWhitespace length: " + length);
+        }
+        public void startDTD(String name, String publicId, String systemId) throws SAXException {
+            if (SHOW_ALL && log != null) log.println("startDTD name: " + name
+                    + ", publicId: " + publicId
+                    + ", systemId: " + systemId
+            );
+            commentStack++;
+        }
+        public void endDTD() throws SAXException {
+            if (SHOW_ALL && log != null) log.println("endDTD");
+            commentStack--;
+        }
+        public void startEntity(String name) throws SAXException {
+            if (SHOW_ALL && log != null) log.println("startEntity name: " + name);
+        }
+        public void endEntity(String name) throws SAXException {
+            if (SHOW_ALL && log != null) log.println("endEntity name: " + name);
+        }
+        public void startCDATA() throws SAXException {
+            if (SHOW_ALL && log != null) log.println("startCDATA");
+        }
+        public void endCDATA() throws SAXException {
+            if (SHOW_ALL && log != null) log.println("endCDATA");
+        }
+        public void comment(char[] ch, int start, int length) throws SAXException {
+            if ((SHOW_ALL || SHOW_START_END) && log != null) log.println(commentStack + " comment " + new String(ch, start,length));
+            if (commentStack != 0) return;
+            String comment0 = new String(ch, start,length).trim();
+            if (comment.length() == 0) comment = comment0;
+            else comment += NEWLINE + comment0;
+        }
+    }
 }

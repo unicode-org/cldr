@@ -15,7 +15,7 @@
 			<language type="fr" draft="true">ఫ్రెంచ్</language>
 			<language type="hi" draft="true">హిందీ</language>
 			<language type="it" draft="true">ఇటాలియన్ భాష</language>
-			<language type="ja" draft="true">జపాసు భాష</language>
+			<language type="ja" draft="true">జపాను భాష</language>
 			<language type="pt" draft="true">పొర్చుగల్ భాష</language>
 			<language type="ru" draft="true">రష్యన్ భాష</language>
 			<language type="te">తెలుగు</language>
@@ -30,9 +30,9 @@
 			<territory type="CN" draft="true">చైనా</territory>
 			<territory type="DE" draft="true">ఙర్మని</territory>
 			<territory type="FR" draft="true">ఫ్రాన్స్‌</territory>
-			<territory type="GB" draft="true">బిటన్</territory>
-			<territory type="IN">భారత దేళం</territory>
-			<territory type="IN" alt="proposed0">భారత దేళ౦</territory>
+			<territory type="GB" draft="true">బ్రిటన్</territory>
+			<territory type="IN">భారత దేళ౦</territory>
+			<territory type="IN" alt="proposed" draft="true">భారత దేళం</territory>
 			<territory type="IT" draft="true">ఇటలి</territory>
 			<territory type="JP" draft="true">జపాసు</territory>
 			<territory type="RU" draft="true">రష్య</territory>
@@ -122,7 +122,9 @@
 					</dayContext>
 				</days>
 				<am>పూర్వాహ్న</am>
+				<am alt="proposed" draft="true">పూర్వాహ్నం</am>
 				<pm>అపరాహ్న</pm>
+				<pm alt="proposed" draft="true">అపరాహ్నం</pm>
 			</calendar>
 		</calendars>
 	</dates>
@@ -150,7 +152,7 @@
 				<symbol>రూ.</symbol>
 			</currency>
 			<currency type="JPY">
-				<displayName draft="true">జపాసు దేశ యెస్</displayName>
+				<displayName draft="true">జపాను దేశ యెస్</displayName>
 			</currency>
 			<currency type="RUB">
 				<displayName draft="true">రష్య దేశ రూబల్</displayName>

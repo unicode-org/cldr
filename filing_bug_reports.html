@@ -82,9 +82,12 @@ Bugs</a>.</p>
   <li>The specific locale.</li>
   <li>The date the comparison chart was generated (at the bottom of the chart).</li>
   <li>The line(s) of data that are incorrect.</li>
+  <li>The justification for the change: mention a standard or other sources if 
+    there are any.</li>
   <li>If one of the other data sources is correct, then that data source, 
-    otherwise the corrected to use.</li>
-  <li>The justification for the change.</li>
+    otherwise the corrected data to use.</li>
+  <li>Wherever possible, include sample test data. <a href="#Collation_Bugs">This 
+    is especially important for collation (sorting) rules</a>!</li>
 </ul>
 <p>Please group all bugs for a single locale into a single bug report, wherever 
 possible.</p>
@@ -98,6 +101,39 @@ available).</p>
 <p>We have tried to make the format of the comparison charts as useful as 
 possible. If you have suggestions for improvements, please also file it as a bug 
 report.</p>
+<h2><a name="Collation_Bugs">Collation Bugs</a></h2>
+<p>Please supply some short test cases that illustrate the correct sorting 
+behavior as a list of lines in sorted order. Try to include cases that show the 
+boundary behavior by including high suffixes, such as the following:</p>
+<ul>
+  <li><i>Rules:</i>
+    <ul>
+      <li><i>&amp; c &lt; cs</i></li>
+      <li>&amp; cs &lt;&lt;&lt; ccs / cs</li>
+    </ul>
+  </li>
+  <li><i>Test Data:</i>
+    <ul>
+      <li><i>c<br>
+        cy<br>
+        cs<br>
+        cscs<br>
+        ccs<br>
+        cscsy<br>
+        ccsy<br>
+        csy<br>
+        d</i></li>
+    </ul>
+  </li>
+</ul>
+<p>Test out any suggested rules before filing a bug, using Locale Explorer:</p>
+<ol>
+  <li>Go to <a href="http://oss.software.ibm.com/cgi-bin/icu/lx/en/utf-8/?_=root&amp;EXPLORE_CollationElements=">http://oss.software.ibm.com/cgi-bin/icu/lx/en/utf-8/?_=root&amp;EXPLORE_CollationElements=</a></li>
+  <li>Pick the appropriate locale</li>
+  <li>Follow the instructions at the bottom to use your suggested rules on your 
+    suggested test data.</li>
+  <li>Verify that the proper order results.</li>
+</ol>
 
 </body>
 

@@ -159,19 +159,36 @@ For example, most country locales will inherit the bulk of their data from the l
             -->
             <patterns>
                 <chars>GyMdkHmsSEDFwWahKz</chars>
-                <time>
-                    <full>h:mm:ss a z</full>
-                    <long>h:mm:ss a z</long>
-                    <medium>h:mm:ss a</medium>
-                    <short>h:mm a</short>
-                </time>
-                <date>
-                    <full>EEEE, MMMM d, yyyy</full>
-                    <long>MMMM d, yyyy</long>
-                    <medium>MMM d, yyyy</medium>
-                    <short>M/d/yy</short>
-                </date>
-                <dateTime>{0} {1}</dateTime>
+                <patternElement patternid="date" type="medium" default="true">
+                    <!--  Optional special element for platform/application specific overheads. Paser can
+                          choose to ignore if required  -->
+                      <special owner="StarOffice" msgid="DateFormatskey3" usage="DATE" formatindex="20" />
+                      <patternCode >MM d, yyyy </patternCode>
+                      <patternName>DIN 5008 (EN 28601)</patternName>
+                 </patternElement>
+                 <patternElement patternid="date" type="full" default="true">
+                    <!--  Optional special element for platform/application specific overheads. Paser can
+                          choose to ignore if required  -->
+                      <special owner="StarOffice" msgid="DateFormatskey3" usage="DATE" formatindex="20" />
+                      <patternCode>EEEE, MMMM d, yyyy</patternCode>
+                      <patternName>DIN 5008 (EN 28601)</patternName>
+                 </patternElement>
+                 <!--  patternElement containing decomposed pattern string
+                  -->
+                 <!--  The class of symbol together with it's identifier "id=", position and value allows for
+                  -->
+                  <patternElement patternid="number" type="decimal" default="false">
+                    <special owner="StarOffice" msgid="FixedFormatskey5" usage="FIXED_NUMBER" formatindex="4" />
+                    <patternCode type="positive">x #,##0.00</patternCode>
+                  </patternElement>
+                  <patternElement patternid="time" type="full" default="true">
+                    <!--  Optional special element for platform/application specific overheads. Paser can
+                          choose to ignore if required  -->
+                      <special owner="StarOffice" msgid="DateFormatskey3" usage="DATE" formatindex="20" />
+                      <patternCode>h:mm:ss a z</patternCode>
+                      <patternName>DIN 5008 (EN 28601)</patternName>
+                 </patternElement>
+                <patternElement patternid="dateTime">{0} {1}</patternElement>
             </patterns>
         </calendar>
 
@@ -245,9 +262,21 @@ For example, most country locales will inherit the bulk of their data from the l
     French accent ordering can be specified with the accentOrder="reverse" attribute.
     The displayName attribute supplies a message pattern for getDisplayName.
     -->
+    <!--
+             Define <pc>abc</pc> to be equivalent to the sequence of primary
+        relations <p>a</p><p>b</p><p>c</p>. That is, every code point within the
+        span of <pc> is interpreted as though it was surrounded by <p>. Do the same
+        for the secondaries <sc>a...</sc>  (turning into <s>a</s>...), and so on.
+    -->
     <collation version="1.5" accentOrder="reverse" override="true">
-        a,A &#xAB; b,B &#xAB; sc,C
-        &#xA7; C &#xAB; ch &#xAB; D
+        <pc>aA</pc>
+        <sc>bB</sc>
+        <tc>sc</tc>
+        <p>k</p>
+        <t>y</t>
+        <s>C</s>
+        <p>ss</p>
+        <s>ch</s>
     </collation>
 
     <timeZoneNames>
@@ -387,114 +416,117 @@ For example, most country locales will inherit the bulk of their data from the l
          It is here only to allow us to have the RedHat LINUX data in the same XML file.
          -->
 
-    <posixCompatibilityData>
-        <!-- old abbreviations for pre-GUI days -->
-        <messages>
-            <no>No</no>
-            <yes>Yes</yes>
-            <shortYes>Y</shortYes>
-            <shortNo>N</shortNo>
-        </messages>
-        <!--
-        Postal format:
-        POSIX   ICU Description
-        %a         {0}  C/O address.
-        %f         {1}  Firm name.
-        %d         {2}  department name.
-        %b         {3}  Building name.
-        %s         {4}  street or block (eg. Japanese) name.
-        %h         {5}  house number or designation.
-        %N         {6}  if any graphical characters have been specified then an
-                end of line is made.
-        %t         {13} if the preceding escape sequence resulted in an empty
-                string, then the empty string, else a <space>.
-        %r         {7}  room number, door designation.
-        %e         {8}  floor number.
-        %C         {9}  country designation.
-        %z         {10} zip number, postal code.
-        %T         {11} town, city.
-        %c         {12} country.
-        Example:
-        POSIX : postal_fmt "<%><a><%><N><%><f><%><N><%><d><%><N><%><b><%><N>/
-                     <%><s><SP><%><h><SP><%><e><SP><%><r><%><N>/
-                     <%><C><-><%><z><SP><%><T><%><N><%><c><%><N>"
-
-        ICU   : "{0}{6}{1}{6}{2}{6}{3}{6}{4}\s{5}\s{8}\s{7}{6}{9}-{10}\s{11}{6}{12}{6}"
-        -->
-        <addressFormat>
-            <postalPattern>{10}{9}{11}{4}{3}{8}{7}</postalPattern>
-        </addressFormat>
-        <nameFormat>
-            <!-- Grab-bag name format from 14652
-            %f         {0}  Family names.
-            %F         {1}  Family names in uppercase.
-            %g         {2}  First given name.
-            %G         {3}  First given initial.
-            %l         {4}  First given name with latin letters.
-            %o         {5}  Other shorter name, eg. "Bill".
-            %m         {6}  Middle names.
-            %M         {7}  Middle initial.
-            %p         {8}  Profession.
-            %s         {9}  Salutation, such as "Doctor"
-            %S         {10} Abbreviated salutation, such as "Mr." or "Dr."
-            %d         {11} Salutation, using the FDCC-sets conventions, with 1 for
-                    the name_gen, 2 for name_mr, 3 for name_mrs, 4 for
-                    name_miss, 5 for name_ms.
-            %t         {12} If the preceding escape sequence resulted in an empty
-                    string, then the
-                    empty string, else a <space>.
+    <special owner="Redhat">
+       <iso14652:iso14652 xmlns:iso14652="http://www.icu.org/iso14652">
+            <!-- old abbreviations for pre-GUI days -->
+            <iso14652:messages>
+                <iso14652:no>No</iso14652:no>
+                <iso14652:yes>Yes</iso14652:yes>
+                <iso14652:shortYes>Y</iso14652:shortYes>
+                <iso14652:shortNo>N</iso14652:shortNo>
+            </iso14652:messages>
+            <!--
+            Postal format:
+            POSIX   ICU Description
+            %a         {0}  C/O address.
+            %f         {1}  Firm name.
+            %d         {2}  department name.
+            %b         {3}  Building name.
+            %s         {4}  street or block (eg. Japanese) name.
+            %h         {5}  house number or designation.
+            %N         {6}  if any graphical characters have been specified then an
+                    end of line is made.
+            %t         {13} if the preceding escape sequence resulted in an empty
+                    string, then the empty string, else a <space>.
+            %r         {7}  room number, door designation.
+            %e         {8}  floor number.
+            %C         {9}  country designation.
+            %z         {10} zip number, postal code.
+            %T         {11} town, city.
+            %c         {12} country.
             Example:
-            POSIX    : name_fmt "<%><p><%><t><%><g><%><t><%><m><%><t><%><f>"
-            ICU  : NameFormat "{8}\s{2}\s{6}\s{0}"
-            -->
-            <namePattern> {8} {2} {6} {0}</namePattern>
-            <generalSalutation></generalSalutation>
-            <shortSalutationMr> Mr.</shortSalutationMr>
-            <shortSalutationMiss>Ms.</shortSalutationMiss>
-            <shortSalutationMrs>Mrs.</shortSalutationMrs>
-            <longSalutationMr> Mister.</longSalutationMr>
-            <longSalutationMiss>Miss</longSalutationMiss>
-            <longSalutationMrs>Mrs.</longSalutationMrs>
-        </nameFormat>
-        <!-- Identification of the person who produced the data file. -->
-        <identification>
-            <title></title>
-            <source></source>
-            <address></address>
-            <contact></contact>
-            <email></email>
-            <telephone></telephone>
-            <fax></fax>
-            <language></language>
-            <territory></territory>
-            <audience></audience>
-            <application></application>
-            <abbreviation></abbreviation>
-            <revision></revision>
-            <date></date>
-        </identification>
-        <!--
-        Telephone format:
-        POSIX   ICU Description
-        %a         {0}  area code without prefix (prefix is often <0>).
-        %A         {1}  area code including prefix (prefix is often <0>).
-        %l         {2}  local number.
-        %c         {3}  country code.
-        %C         {4}  alternative carrier service code used for dialling
-                abroad
-        %c         {5}  country.
+            POSIX : postal_fmt "<%><a><%><N><%><f><%><N><%><d><%><N><%><b><%><N>/
+                         <%><s><SP><%><h><SP><%><e><SP><%><r><%><N>/
+                         <%><C><-><%><z><SP><%><T><%><N><%><c><%><N>"
 
-        Example:
-        POSIX  :  tel_int_fmt "<+><%><c><SP><%><a><SP><%><l>"
-        ICU    :  "+{3}\s{0}\s{2}"
-        -->
-        <telephoneFormat>
-            <internationalPattern> +{3} {0}-{2}</internationalPattern>
-            <domesticPattern>({0}) {2}</domesticPattern>
-            <internationalDialCode>001 </internationalDialCode>
-            <internationalPrefix> </internationalPrefix>
-        </telephoneFormat>
-     </posixCompatibilityData>
+            ICU   : "{0}{6}{1}{6}{2}{6}{3}{6}{4}\s{5}\s{8}\s{7}{6}{9}-{10}\s{11}{6}{12}{6}"
+            -->
+            <iso14652:addressFormat>
+                <iso14652:postalPattern>{10}{9}{11}{4}{3}{8}{7}</iso14652:postalPattern>
+            </iso14652:addressFormat>
+            <iso14652:nameFormat>
+                <!-- Grab-bag name format from 14652
+                %f         {0}  Family names.
+                %F         {1}  Family names in uppercase.
+                %g         {2}  First given name.
+                %G         {3}  First given initial.
+                %l         {4}  First given name with latin letters.
+                %o         {5}  Other shorter name, eg. "Bill".
+                %m         {6}  Middle names.
+                %M         {7}  Middle initial.
+                %p         {8}  Profession.
+                %s         {9}  Salutation, such as "Doctor"
+                %S         {10} Abbreviated salutation, such as "Mr." or "Dr."
+                %d         {11} Salutation, using the FDCC-sets conventions, with 1 for
+                        the name_gen, 2 for name_mr, 3 for name_mrs, 4 for
+                        name_miss, 5 for name_ms.
+                %t         {12} If the preceding escape sequence resulted in an empty
+                        string, then the
+                        empty string, else a <space>.
+                Example:
+                POSIX    : name_fmt "<%><p><%><t><%><g><%><t><%><m><%><t><%><f>"
+                ICU  : NameFormat "{8}\s{2}\s{6}\s{0}"
+                -->
+                <namePattern> {8} {2} {6} {0}</namePattern>
+                <generalSalutation></generalSalutation>
+                <shortSalutationMr> Mr.</shortSalutationMr>
+                <shortSalutationMiss>Ms.</shortSalutationMiss>
+                <shortSalutationMrs>Mrs.</shortSalutationMrs>
+                <longSalutationMr> Mister.</longSalutationMr>
+                <longSalutationMiss>Miss</longSalutationMiss>
+                <longSalutationMrs>Mrs.</longSalutationMrs>
+            </iso14652:nameFormat>
+            <!-- Identification of the person who produced the data file. -->
+            <iso14652:identification>
+                <iso14652:title></iso14652:title>
+                <iso14652:source></iso14652:source>
+                <iso14652:address></iso14652:address>
+                <iso14652:contact></iso14652:contact>
+                <iso14652:email></iso14652:email>
+                <iso14652:telephone></iso14652:telephone>
+                <iso14652:fax></iso14652:fax>
+                <iso14652:language></iso14652:language>
+                <iso14652:territory></iso14652:territory>
+                <iso14652:audience></iso14652:audience>
+                <iso14652:application></iso14652:application>
+                <iso14652:abbreviation></iso14652:abbreviation>
+                <iso14652:revision></iso14652:revision>
+                <iso14652:date></iso14652:date>
+            </iso14652:identification>
+            <!--
+            Telephone format:
+            POSIX   ICU Description
+            %a         {0}  area code without prefix (prefix is often <0>).
+            %A         {1}  area code including prefix (prefix is often <0>).
+            %l         {2}  local number.
+            %c         {3}  country code.
+            %C         {4}  alternative carrier service code used for dialling
+                    abroad
+            %c         {5}  country.
+
+            Example:
+            POSIX  :  tel_int_fmt "<+><%><c><SP><%><a><SP><%><l>"
+            ICU    :  "+{3}\s{0}\s{2}"
+            -->
+            <iso14652:telephoneFormat>
+                <iso14652:internationalPattern> +{3} {0}-{2}</iso14652:internationalPattern>
+                <iso14652:domesticPattern>({0}) {2}</iso14652:domesticPattern>
+                <iso14652:internationalDialCode>001 </iso14652:internationalDialCode>
+                <iso14652:internationalPrefix> </iso14652:internationalPrefix>
+            </iso14652:telephoneFormat>
+        </iso14652:iso14652>
+
+     </special>
 
 
 

@@ -34,12 +34,7 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   <tr>
     <td width="20%"><i>Summary:</i></td>
     <td>This document contains corrigenda for errata found in the 1.0 version of 
-      the Locale Data Markup Language specification (<a href="http://www.openi18n.org/spec/ldml/1.0/ldml-spec.html">http://www.openi18n.org/spec/ldml/1.0/ldml-spec.html</a>). 
-      These are errata that are too small to warrant generation of a new version 
-      of the specification, but which may be confusing to the reader.
-      <p>This is a living document, and will be added to over time. In this 
-      header, only the date will reflect that changes have been made.</p>
-    </td>
+      the Locale Data Markup Language specification (<a href="http://www.openi18n.org/spec/ldml/1.0/ldml-spec.html">http://www.openi18n.org/spec/ldml/1.0/ldml-spec.html</a>).</td>
   </tr>
   <tr>
     <td><i>Date:</i></td>
@@ -49,39 +44,111 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
     <td><i>Author:</i></td>
     <td>Mark Davis</td>
   </tr>
+  <tr>
+    <td><i>This Document:</i></td>
+    <td><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml_errata.html">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml_errata.html</a><b><i><font color="#FF0000"> 
+      (to be changed!)</font></i></b></td>
+  </tr>
 </table>
-<ol>
-  <li>&quot;Locale IDs&quot;
-    <ul>
-      <li>the &quot;currency=pre-euro&quot; should be struck. &nbsp;This is no 
-        longer a valid example.</li>
-    </ul>
-  </li>
-  <li>in &nbsp;&quot;XML Format, Common Elements : special&quot;
-    <ul>
-      <li>%icu &nbsp;should be %posix</li>
-    </ul>
-  </li>
-  <li>under &quot;alias&quot;
-    <ul>
-      <li>&nbsp;there should be a closing &nbsp;slash on the alias tag: &nbsp; 
-        &lt;alias .......... /&gt;</li>
-    </ul>
-  </li>
-  <li>Escaping Characters:
-    <ul>
-      <li>explain that '\u0000' is just a comparison to ICU format. &nbsp; 
-        &nbsp;Compare to the &amp;#x0000; &nbsp;format.</li>
-    </ul>
-  </li>
-  <li>Page title (which shows up as the window title in the browser)
-    <ul>
-      <li>Should be &quot;Locale Data Markup Language&quot; instead of &quot;Locale 
-        Data Interchange Format&quot;</li>
-    </ul>
-  </li>
-</ol>
-<hr width="33%">
+&nbsp;
+<h2>Structure</h2>
+<p>This is a living document, and will be added to over time. In this header, 
+the date for the latest changes will be recorded. Each corrigendum will be 
+numbered and dated for reference. If necessary, the Locale Data Markup Language 
+specification may be referenced including errata as of a given date.</p>
+<table border="1" width="100%">
+  <tr>
+    <th>1.</th>
+    <th>&quot;Locale IDs&quot;</th>
+    <th>2003-08-03</th>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>The &quot;currency=pre-euro&quot; should be struck. &nbsp;This is no 
+      longer a valid example.</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th>2.</th>
+    <th>in &nbsp;&quot;XML Format, Common Elements : special&quot;</th>
+    <th>2003-08-03</th>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>%icu &nbsp;should be %posix</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th>3.</th>
+    <th>under &quot;alias&quot;</th>
+    <th>2003-08-03</th>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>There should be a closing &nbsp;slash on the alias tag: &nbsp; &lt;alias 
+      .......... /&gt;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th>4.</th>
+    <th>Escaping Characters</th>
+    <th>2003-08-03</th>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>It should explain that '\u0000' is just a comparison to ICU format, and 
+      compared to the &amp;#x0000; &nbsp;format.</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th>5.</th>
+    <th>Page title (which shows up as the window title in the browser)</th>
+    <th>2003-08-03</th>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>Should be &quot;Locale Data Markup Language&quot; instead of 
+      &quot;Locale Data Interchange Format&quot;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th>6.</th>
+    <th>In <a href="http://www.openi18n.org/spec/ldml/1.0/ldml-spec.html#Expansions">http://www.openi18n.org/spec/ldml/1.0/ldml-spec.html#Expansions</a></th>
+    <th>2003-08-13</th>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>
+      <ol type="a">
+        <li>In the two basic examples, change <code>&lt;</code> to <code>&lt;&lt;</code>, 
+          and in the XML examples change from <code>&lt;p&gt;<span style="color: blue">...</span>&lt;/p&gt;</code> 
+          to <code>&lt;s&gt;<span style="color: blue">...</span>&lt;/s&gt;.</code></li>
+        <li>Add the following text at the end of the section:</li>
+      </ol>
+      <blockquote>
+        <p>With the syntax <code>&lt;reset&gt;<span style="COLOR: blue">ch</span>&lt;/reset&gt;</code> 
+        there are two things to watch for.</p>
+        <ul>
+          <li>The expansion is <i>only</i> in effect up to and not including the 
+            first primary rule. Thus <code>&lt;reset&gt;<span style="COLOR: blue">ch</span>&lt;/reset&gt;<br>
+            &lt;s&gt;<span style="color: blue">x</span>&lt;/x&gt;<br>
+            &lt;t&gt;<span style="color: blue">y</span>&lt;/t&gt;<br>
+            &lt;p&gt;<span style="color: blue">z</span>&lt;/p&gt;<br>
+            </code>is the same as <code>&lt;reset&gt;<span style="COLOR: blue">ch</span>&lt;/reset&gt;<br>
+            &lt;x&gt;&lt;s&gt;<span style="color: blue">x</span>&lt;/s&gt;&lt;extend&gt;<span style="COLOR: blue">h</span>&lt;/extend&gt;&lt;/x&gt;<br>
+            &lt;x&gt;&lt;t&gt;<span style="color: blue">y</span>&lt;/t&gt;&lt;extend&gt;<span style="COLOR: blue">h</span>&lt;/extend&gt;&lt;/x&gt;<br>
+            &lt;p&gt;<span style="color: blue">z</span>&lt;/p&gt;</code></li>
+          <li>In accordance with UCA, all strings are interpreted as being in 
+            NFD form. In other rules, this has no effect, but syntax such as <code>&lt;reset&gt;</code>ä<code>&lt;/reset&gt;</code> 
+            will be treated as two characters a +&nbsp; ¨ <i>unless</i> the ä 
+            has previously been used as a contraction. Thus the ¨ will be used 
+            as an expansion for following characters (up to the next primary).</li>
+        </ul>
+      </blockquote>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
 <h2><a name="Copyright_and_Permission_Notice">Copyright and Permission Notice</a></h2>
 <blockquote>
   <p>Copyright (c) 2002-2003 International Business Machines Corporation and 

@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
-[
-      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
-%icu;
-]
->
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-07-24" />
+		<generation date="2003-12-19" />
 		<language type="ca" /> 
 	</identity>
 	<localeDisplayNames>
@@ -376,19 +371,6 @@
 					<month type="11">novembre</month>
 					<month type="12">desembre</month>
 					<month type="13"></month>
-					<month type="14">de gener</month>
-					<month type="15">de febrer</month>
-					<month type="16">de març</month>
-					<month type="17">d'abril</month>
-					<month type="18">de maig</month>
-					<month type="19">de juny</month>
-					<month type="20">de juliol</month>
-					<month type="21">d'agost</month>
-					<month type="22">de setembre</month>
-					<month type="23">d'octubre</month>
-					<month type="24">de novembre</month>
-					<month type="25">de desembre</month>
-					<month type="26"></month>
 				</monthNames>
 				<monthAbbr>
 					<month type="1">gen.</month>
@@ -494,8 +476,4 @@
 			<nan>�</nan>
 		</symbols>
 	</numbers>
-	<collations version="3.1.1">
-		<collation  >
-		</collation  >
-	</collations >
 </ldml>

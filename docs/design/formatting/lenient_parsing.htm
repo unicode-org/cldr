@@ -49,9 +49,9 @@ body         { font-family: serif; background-color: #FFFFFF }
     <td width="50%"><b>abbreviated month</b></td>
   </tr>
   <tr>
-    <td width="50%">&quot;2004-Jan-1&quot; <br>
-      &quot;2004- january-1&quot; 
-      <p>&quot;2004-01-01&quot; </td>
+    <td width="50%">&quot;2004-Jan-1&quot;<br>
+      &quot;2004- january-1&quot;
+      <p>&quot;2004-01-01&quot;</td>
     <td width="50%">abbreviated month<br>
       full month, lowercase, extra space
       <p><font color="#FF0000"><b>fails</b></font>: numeric</p>
@@ -63,23 +63,28 @@ with this.</p>
 <h2>Non-CLDR</h2>
 <ol>
   <li>We should be consistent about allowing extra or missing spaces both after fields and before.</li>
-  <li>If we fail a parse, try other formats: e.g. when parsing for the month, first try what is in the pattern; if that fails try the others among: numeric; narrow, short, long;
-    stand-alone narrow, short, long</li>
+  <li>If we fail a parse, try other data for that field: e.g. when parsing for the month, first try what is in the pattern; if that fails try the others among: numeric; narrow,
+    short, long; stand-alone narrow, short, long</li>
   <li>Accept common alternatives. Internally have our own cross-language equivalency sets: {whitespaces}, {apostrophes}, {periods}, etc. If a parse fails, try the other items in
     the equivalency sets.
-    <ol>
+    <ul>
       <li><b>Note:</b> this may also need to go into CLDR, if we don't want to duplicate the information across languages.</li>
-    </ol>
+    </ul>
   </li>
-  <li>If a datetime format fails, try the other datetime formats to see if any of them work.</li>
+  <li>If a datetime format fails, try the other complete formats to see if any of them work. E.g.
+    <ul>
+      <li>For date, try full, long, medium, short; date, time, and datetime.</li>
+      <li>For number try plain, number, integer, and scientific</li>
+    </ul>
+  </li>
   <li>To control this, add Format.set/getLeniency(). Probably 3 states:
     <ol>
       <li>roundtrip (only parse exactly what formats)</li>
-      <li>normal (flexible on the characters)</li>
+      <li>normal (as above: flexible on the characters, trying other formats,)</li>
       <li>loose (allow out-of-range values: e.g. Jan 35 = Feb 4)</li>
     </ol>
     <p>We currently combine #2 and #3 together for dates (see <a href="http://oss.software.ibm.com/icu4j/doc/com/ibm/icu/text/DateFormat.html#setLenient(boolean)">setLenient</a>),
-    but I think we want to separate them, and we want to be able to control leniency on numbers too, so moving it up to the Format superclass makes sense (to me at least!) </li>
+    but I think we want to separate them, and we want to be able to control leniency on numbers too, so moving it up to the Format superclass makes sense (to me at least!)</li>
 </ol>
 <p>Most of these had no real performance issues for currently acceptable input, since we only try alternatives if the parse fails.</p>
 <h2>CLDR</h2>
@@ -121,7 +126,7 @@ with this.</p>
       <li><span class="m">Common alternatives. We would add something like the following, which </span><font size="3">would allow any of the alternatives any time a ' appeared in
         any time pattern.</font>
         <p><span class="m">&nbsp; &lt;input&gt;&lt;for&gt;'&lt;/for&gt;&lt;accept&gt;</span><span class="m">[</span><font size="3">’ :]&lt;/accept&gt;<br>
-        &nbsp; </font></li>
+        &nbsp;</font></li>
       <li><font size="3">Modified patterns. Add some syntax that would be specific to each pattern, e.g.</font>
         <p><span class="m">&lt;pattern type=&quot;standard&quot;&gt;HH'</span><span class="m">[</span><font size="3">’ :]</font><span class="m"> h '</span><span class="m">[</span><font
         size="3">’ :]</font><span class="m">mm z&lt;/pattern&gt;</span></li>

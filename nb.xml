@@ -855,10 +855,6 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<week>
-					<minDays count="4"/>
-					<firstDay day="mon"/>
-				</week>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -897,6 +893,10 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<week>
+					<minDays count="4"/>
+					<firstDay day="mon"/>
+				</week>
 				<am draft="true">a.m.</am>
 				<pm draft="true">p.m.</pm>
 				<eras>

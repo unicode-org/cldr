@@ -41,10 +41,11 @@ class SurveyMain {
     public static final String NEW = "new";
     public static final String DRAFT = "draft";
     public static final String UNKNOWNCHANGE = "Click to suggest replacement";
-    public static String vap = System.getProperty("CLDR_VAP");
-    public String vetdata = System.getProperty("CLDR_VET_DATA");
-    public String vetweb = System.getProperty("CLDR_VET_WEB");
-    static String fileBase = System.getProperty("CLDR_COMMON") + "/main";
+    public static final String vap = System.getProperty("CLDR_VAP");
+    public static final String vetdata = System.getProperty("CLDR_VET_DATA");
+    public static final String vetweb = System.getProperty("CLDR_VET_WEB");
+    public static final String LOGFILE = "cldr.log";
+    static String fileBase = System.getProperty("CLDR_COMMON") + "/main"; // not static - may change lager
     
     // types of data
     static final String LOCALEDISPLAYNAMES = "//ldml/localeDisplayNames/";
@@ -339,41 +340,46 @@ class SurveyMain {
     public void doVap(WebContext ctx)
     {
         String sponsor = ctx.field("sponsor");
+        String requester = ctx.field("requester");
         String email = ctx.field("email");
         String name = ctx.field("name");
         
         printHeader(ctx, "Vetting Administration");
         
+        if(requester.indexOf('@')==-1) {
+            ctx.println("Please supply a valid requester email. Click Back and try again.");
+            printFooter(ctx);
+            return;
+        }
+        
         UserRegistry.User u = reg.get(email);
         if(u != null) {
             ctx.println("User exists!   " + u.real + " <" + u.email + ">  (" + u.sponsor + ") -  ID: " + u.id + "<br/>");
             if(ctx.field("resend").length()>0) {
-                notifyUser(ctx, u);
+                notifyUser(ctx, u, requester);
             } else {
                 WebContext my = new WebContext(ctx);
                 my.addQuery("vap",vap);
                 my.addQuery("email",email);
+                my.addQuery("requester",requester);
                 my.addQuery("resend","y");
                 ctx.println("<a href=\"" + my.url() + "\">Resend their password email</a>");
             }
-            return;
-        }
-
-        if( (sponsor.length()<=0) ||
-            (email.length()<=0) ||
+        } else if( (sponsor.length()<=0) ||
+            (email.indexOf('@')==-1) ||
             (name.length()<=0) ) {
             ctx.println("One or more of the Sponsor, Email, Name fields aren't filled out.  Please hit Back and try again.");
-            return;
+        } else {
+            u = reg.add(email, sponsor, name, requester);
+            appendLog("User added: " + name + " <" + email + ">, Sponsor: " + sponsor + " <" + requester + ">" + 
+                " (user ID " + u.id + " )" );
+            notifyUser(ctx, u, requester);
         }
-        
-        u = reg.add(email, sponsor, name);
-        
-        notifyUser(ctx, u);
         printFooter(ctx);
     }
    
-    void notifyUser(WebContext ctx, UserRegistry.User u) {
-        String body = "Someone at " + u.sponsor + " has created a CLDR vetting account for you.\n" +
+    void notifyUser(WebContext ctx, UserRegistry.User u, String requester) {
+        String body = requester + " at " + u.sponsor + " has created a CLDR vetting account for you.\n" +
             "To access it, visit: \n" +
             "   http://" + ctx.serverName() + ctx.base() + "?uid=" + u.id + "&email=" + u.email + "\n" +
             "\n" +
@@ -381,15 +387,17 @@ class SurveyMain {
             " \n";
         ctx.println("<hr/><pre>" + body + "</pre><hr/>");
     
-         String smtp = System.getProperty("CLDR_SMTP");
+        String from = System.getProperty("CLDR_FROM");
+        String smtp = System.getProperty("CLDR_SMTP");
          if(smtp == null) {
             ctx.println("<i>Not sending mail- SMTP disabled.</i><br/>");
+            smtp = "NONE";
         } else {
-            String from = System.getProperty("CLDR_FROM");
             MailSender.sendMail(u.email, "CLDR Registration for " + u.email,
                 body);
             ctx.println("Mail sent to " + u.email + " from " + from + " via " + smtp + "<br/>\n");
         }
+        appendLog("Login URL sent to " + u.email + " (#" + u.id + ") from " + from + " via " + smtp);
         /* some debugging. */
     }
 
@@ -480,6 +488,9 @@ class SurveyMain {
                         body);
                 ctx.println("Thank you..   An email has been sent to the CLDR Vetting List and to you at " + u.email + ".<br/>");
             }
+            appendLog("Data submitted: " + u.real + " <" + u.email + "> Sponsor: " + u.sponsor + ": " +
+                changedList + " " + 
+                " (user ID " + u.id + ", session " + ctx.session.id + " )" );
             // destroy session
             ctx.println("<form method=GET action='" + ctx.base() + "'>");
             ctx.println("<input type=hidden name=uid value='" + ctx.session.user.id + "'> " +
@@ -529,7 +540,7 @@ class SurveyMain {
                     }
                     file.add(newxpath, newxpath, newString);
                     if(newString.length() ==0) {
-                        file.addComment(newxpath, "empty 'other' submission: " + type, XPathParts.Comments.POSTBLOCK);
+                        file.addComment(newxpath, "Item marked as wrong:  " + type, XPathParts.Comments.POSTBLOCK);
                     }
                 } else {
                     // ignored:  current, etc.
@@ -578,7 +589,7 @@ class SurveyMain {
                                 "From: " + ctx.session.user.real + "\n" +
                                 "Email: " + ctx.session.user.email + "\n" +
                                 "Sponsor: " + ctx.session.user.sponsor + "\n" +
-                                "IP: " + /* ctx. */WebContext.userIP() + "\n" + 
+                            /*    "IP: " + WebContext.userIP() + "\n" + */
                                 "Locale: " + locale +"\n" +
                                 "CVS Version: " + cvsVer + "\n"
                                 );
@@ -1035,8 +1046,10 @@ class SurveyMain {
     
     public static void main (String args[]) {
         int status = 0;
+        appendLog("SurveyTool starting up.");
         SurveyMain m = new SurveyMain();
         if(!m.reg.read()) {
+            appendLog("Couldn't load user registry - exiting");
             System.err.println("Couldn't load user registry - exiting.");
             System.exit(1);
         }
@@ -1044,6 +1057,7 @@ class SurveyMain {
         if((cldrLoad != null) && cldrLoad.equals("y")) {
             m.loadAll();
         }
+        appendLog("SurveyTool ready for connections.");
         while(new FCGIInterface().FCGIaccept()>= 0) {
             System.setErr(System.out);
             try {
@@ -1191,5 +1205,21 @@ class SurveyMain {
         }
         System.err.println();
         System.err.println("Done. Fetched " + nrInFiles + " files.");
+    }
+    
+    private static synchronized void appendLog(String what) {
+        try {
+          OutputStream file = new FileOutputStream(new File(vetdata,LOGFILE), true); // Append
+          PrintWriter pw = new PrintWriter(file);
+          pw.println(new Date().toString()  + '\t' +
+                     WebContext.userIP() + '\t' + 
+                     what);
+         pw.close();
+         file.close();
+        }
+        catch(IOException exception){
+          System.err.println(exception);
+          // TODO: log this ... 
+        }
     }
 }

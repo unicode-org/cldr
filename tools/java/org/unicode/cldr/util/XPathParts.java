@@ -125,7 +125,7 @@ public class XPathParts {
 				for (Iterator it = comments[i].keySet().iterator(); it.hasNext();) {
 					Object key = (String) it.next();
 					Object value = comments[i].get(key);
-					result.add(key + NEWLINE + value);
+					result.add(value + "\t - was on: " + key);
 					it.remove();
 				}
 			}
@@ -542,7 +542,7 @@ public class XPathParts {
 		} else {
 			while(path.startsWith("../")) {
 				path = path.substring(3);
-				trim();
+				trimLast();
 			}
 			if (!path.startsWith("/")) path = "/" + path;
 		}
@@ -550,7 +550,7 @@ public class XPathParts {
 	}
 	/**
 	 */
-	public void trim() {
+	public void trimLast() {
 		elements.remove(elements.size()-1);
 	}
 	/**

@@ -7,6 +7,7 @@
 package org.unicode.cldr.tool;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
@@ -14,10 +15,13 @@ import java.util.TreeSet;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.tool.UOption;
 
+import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRFile.StringValue;
+
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ULocale;
 
@@ -32,7 +36,8 @@ public class CLDRModify {
 	    DESTDIR = 3,
 	    MATCH = 4,
 	    JOIN = 5,
-		MINIMIZE = 6
+		MINIMIZE = 6,
+		FIX = 7
 		;
 	
 	private static final UOption[] options = {
@@ -43,6 +48,7 @@ public class CLDRModify {
 	    UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
 	    UOption.create("join", 'j', UOption.OPTIONAL_ARG),
 	    UOption.create("minimize", 'r', UOption.NO_ARG),
+	    UOption.create("fix", 'f', UOption.NO_ARG),
 	};
 	
 	public static void main(String[] args) throws Exception {
@@ -106,12 +112,15 @@ public class CLDRModify {
 				// special fix
 				k.removeComment(" The following are strings that are not found in the locale (currently), but need valid translations for localizing timezones. ");
 			}
+			if (options[FIX].doesOccur) {
+				fix(k);
+			}
 			if (options[MINIMIZE].doesOccur) {
 				// TODO, fix identity
 				String parent = CLDRFile.getParent(test);
 				if (parent != null) {
 					CLDRFile toRemove = cldrFactory.make(parent, true);
-					k.removeDuplicates(toRemove);
+					k.removeDuplicates(toRemove, true);
 				}
 			}
 			//System.out.println(CLDRFile.getAttributeOrder());
@@ -147,6 +156,64 @@ public class CLDRModify {
 		System.out.println("Done");
 	}
 	
+	/**
+	 * @param k
+	 */
+	private static void fix(CLDRFile k) {
+		
+		// TODO before modifying, make sure that it is fully resolved.
+		// then minimize against the NEW parents
+		
+		Set removal = new TreeSet(CLDRFile.ldmlComparator);
+		CLDRFile replacements = CLDRFile.make("temp");
+		
+		// Fix number problems across locales
+		// http://www.jtcsv.com/cgibin/locale-bugs?findid=180
+		boolean isPOSIX = k.getKey().indexOf("POSIX") >= 0;
+		for (Iterator it2 = k.keySet().iterator(); it2.hasNext();) {
+			String xpath = (String) it2.next();
+			byte type = CLDRTest.getNumericType(xpath);
+			if (type == CLDRTest.NOT_NUMERIC_TYPE) continue;
+			CLDRFile.StringValue value = (StringValue) k.getValue(xpath);
+			// at this point, we only have currency formats
+			String pattern = CLDRTest.getCanonicalPattern(value.getStringValue(), type, isPOSIX);
+			if (pattern.equals(value.getStringValue())) continue;
+			replacements.add(xpath, value.getFullXPath(), pattern);
+		}
+		
+		// remove bad attributes
+		//Removing SP
+		//http://www.jtcsv.com/cgibin/locale-bugs?findid=351
+		//Removing invalid currency codes
+		//http://www.jtcsv.com/cgibin/locale-bugs?findid=323
+		
+		CLDRTest.checkAttributeValidity(k, null, removal);
+		
+		//Give best default for each language
+		//http://www.jtcsv.com/cgibin/locale-bugs?findid=282
+		
+		// Fix number problems across locales
+		// http://www.jtcsv.com/cgibin/locale-bugs?findid=180
+		
+		// It appears that all of the current "narrow" data that we have was intended to be
+		// stand-alone instead of format, and should be changed to be so in a mechanical
+		// sweep.
+		
+		// move references
+		// http://www.jtcsv.com/cgibin/cldr/locale-bugs-private/data?id=445
+		// My recommendation would be: collect all
+		// contents of standard and references. Number the standards S001, S002,... and the
+		// references R001, R002, etc. Emit
+		
+		// now do the actions we collected
+		
+		k.putAll(replacements, false);
+		if (removal.size() != 0) {
+			k.appendFinalComment("Illegal attributes removed:");
+			k.removeAll(removal, true);
+		}
+	}
+
 	/**
 	 * @param cldrFactory
 	 */

@@ -26,6 +26,8 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Value;
 
+import sun.java2d.loops.ScaledBlit;
+
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.lang.UCharacter;
@@ -51,7 +53,9 @@ public class Misc {
 	    TO_LOCALIZE = 5,
 	    CURRENT = 6,
 		WINDOWS = 7,
-		OBSOLETES = 8;
+		OBSOLETES = 8,
+		ALIASES = 9
+		;
 	
 	private static final UOption[] options = {
 	    UOption.HELP_H(),
@@ -63,10 +67,13 @@ public class Misc {
 	    UOption.create("current", 'c', UOption.NO_ARG),
 	    UOption.create("windows", 'w', UOption.NO_ARG),
 	    UOption.create("obsoletes", 'o', UOption.NO_ARG),
+	    UOption.create("aliases", 'a', UOption.NO_ARG),
 	};
 	
 	public static void main(String[] args) throws IOException {
 		try {
+			showLanguageTagCount();
+			if (true) return;
 	        UOption.parseArgs(args, options);
 			cldrFactory = Factory.make(options[SOURCEDIR].value + "main\\", ".*");
 			english = cldrFactory.make("en", false);
@@ -94,6 +101,11 @@ public class Misc {
 			if (options[OBSOLETES].doesOccur) {
 				listObsoletes();
 			}
+
+			if (options[ALIASES].doesOccur) {
+				printZoneAliases();
+			}
+
 			// add options for these later
 			//getCities();
 			//testLanguageTags();
@@ -103,6 +115,19 @@ public class Misc {
 		}
 	}
 	
+	/**
+	 * 
+	 */
+	private static void showLanguageTagCount() {
+		StandardCodes sc = StandardCodes.make();
+		int languageCount = sc.getAvailableCodes("language").size();
+		int countryCount = sc.getAvailableCodes("territory").size();
+		for (Iterator it = sc.getAvailableCodes("territory").iterator(); it.hasNext();) {
+			System.out.print("fr-" + it.next() + ", ");
+		}
+		System.out.println(languageCount + ", " + countryCount + ", " + (23 + languageCount * countryCount));
+	}
+
 	private static void listObsoletes() {
 		java.util.TimeZone t;
 		StandardCodes sc = StandardCodes.make();
@@ -130,12 +155,23 @@ public class Misc {
 	 * @throws IOException
 	 */
 	private static void printCurrentTimezoneLocalizations(Set languages) throws IOException {
+		Set rtlLanguages = new TreeSet();
 		for (Iterator it = languages.iterator(); it.hasNext();) {
 			String language = (String)it.next();
+			CLDRFile desiredLocaleFile = cldrFactory.make(language, true);
+			Value orientation = desiredLocaleFile.getValue("/ldml/layout/orientation");
+			boolean rtl = orientation == null ? false
+					: orientation.getFullXPath().indexOf("[@characters=\"right-to-left\"]") >= 0;
+			// <orientation characters="right-to-left"/>
 			PrintWriter log = BagFormatter.openUTF8Writer(options[DESTDIR].value + "", language + "_current.html");
 			log.println("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
-			log.println("<style><!--");
+			log.println("<style type=\"text/css\"><!--");
 			log.println("td { text-align: center }");
+			if (rtl) {
+				System.out.println("Setting RTL for " + language);
+				rtlLanguages.add(language);
+				log.println("body { direction:rtl }");
+			}
 			log.println("--></style>");
 			log.println("<title>Time Zone Localizations for " + language + "</title><head><body>");
 			log.println("<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse: collapse\">");
@@ -143,6 +179,50 @@ public class Misc {
 			//printSupplementalData(group1[i]);
 			log.println("</table></body></html>");
 			log.close();
+		}
+		System.out.println("RTL languages: " + rtlLanguages);
+	}
+	
+	static void printZoneAliases() {
+		RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+		col.setNumericCollation(true);
+		StandardCodes sc = StandardCodes.make();
+		Map zone_countries = sc.getZoneToCounty();
+		Map old_new = sc.getZoneLinkold_new();
+		Map new_old = new TreeMap(col);
+		Map country_zones = new TreeMap(col);
+		for (Iterator it = zone_countries.keySet().iterator(); it.hasNext();) {
+			String zone = (String)it.next();
+			new_old.put(zone, new TreeSet(col));
+			String country = (String) zone_countries.get(zone);
+			String name = english.getName("territory", country, false) + " (" + country + ")";
+			Set oldSet = (Set) country_zones.get(name);
+			if (oldSet == null) country_zones.put(name, oldSet = new TreeSet(col));
+			oldSet.add(zone);
+		}
+		for (Iterator it = old_new.keySet().iterator(); it.hasNext();) {
+			String oldOne = (String) it.next();
+			String newOne = (String) old_new.get(oldOne);
+			Set oldSet = (Set) new_old.get(newOne);
+			if (false && oldSet == null) {
+				System.out.println("Warning: missing zone: " + newOne);
+				new_old.put(newOne, oldSet = new TreeSet(col));
+			}
+			oldSet.add(oldOne);
+		}
+		for (Iterator it3 = country_zones.keySet().iterator(); it3.hasNext();) {
+			String country = (String) it3.next();
+			System.out.println(country);
+			Set zones = (Set)country_zones.get(country);
+			for (Iterator it = zones.iterator(); it.hasNext();) {
+				String newOne = (String) it.next();
+				System.out.println("    tzid:\t" + newOne);
+				Set oldSet = (Set) new_old.get(newOne);
+				for (Iterator it2 = oldSet.iterator(); it2.hasNext();) {
+					String oldOne = (String) it2.next();
+					System.out.println("        alias:\t" + oldOne);
+				}
+			}
 		}
 	}
 
@@ -708,7 +788,7 @@ public class Misc {
 		
 		PrintWriter log = null; // BagFormatter.openUTF8Writer(options[DESTDIR].value + "", locale + "_timezonelist.xml");
 		CLDRFile desiredLocaleFile = (CLDRFile) cldrFactory.make(locale, true).clone();
-		desiredLocaleFile.removeDuplicates(resolvedRoot);
+		desiredLocaleFile.removeDuplicates(resolvedRoot, false);
 		
 		CLDRFile english = cldrFactory.make("en", true);
 		Collator col = Collator.getInstance(new ULocale(locale));
@@ -792,7 +872,7 @@ public class Misc {
 			for (Iterator it = missing[0].iterator(); it.hasNext();) {
 				String key = (String)it.next();
 				log2.println("\t<territory type=\"" + key + "\" draft=\"true\">"+ 
-						BagFormatter.toXML.transliterate(english.getName(CLDRFile.TERRITORY_NAME, key, false))
+						BagFormatter.toXML.transliterate("TODO " + english.getName(CLDRFile.TERRITORY_NAME, key, false))
 						+ "</territory>");
 			}
 			log2.println("</territories></localeDisplayNames>");
@@ -800,11 +880,11 @@ public class Misc {
 		if (true) {
 			String lastCountry = "";
 			log2.println("<dates><timeZoneNames>");
-			log2.println("\t<hourFormat>+HHmm;-HHmm</hourFormat>");
-			log2.println("\t<hoursFormat>{0}/{1}</hoursFormat>");
-			log2.println("\t<gmtFormat>GMT{0}</gmtFormat>");
-			log2.println("\t<regionFormat>{0}</regionFormat>");
-			log2.println("\t<fallbackFormat>{0} ({1})</fallbackFormat>");
+			log2.println("\t<hourFormat>TODO +HHmm;-HHmm</hourFormat>");
+			log2.println("\t<hoursFormat>TODO {0}/{1}</hoursFormat>");
+			log2.println("\t<gmtFormat>TODO GMT{0}</gmtFormat>");
+			log2.println("\t<regionFormat>TODO {0}</regionFormat>");
+			log2.println("\t<fallbackFormat>TODO {0} ({1})</fallbackFormat>");
 			for (Iterator it = missing[1].iterator(); it.hasNext();) {
 				String key = (String)it.next();
 				List data = (List) StandardCodes.make().getZoneData().get(key);
@@ -815,7 +895,7 @@ public class Misc {
 					log2.println("\t<!-- " + country + "-->");
 				}
 				log2.println("\t<zone type=\"" + key + "\"><exemplarCity draft=\"true\">"
-						+ BagFormatter.toXML.transliterate(getName(english,key,null))
+						+ BagFormatter.toXML.transliterate("TODO " + getName(english,key,null))
 						+ "</exemplarCity></zone>");
 			}
 			log2.println("</timeZoneNames></dates>");

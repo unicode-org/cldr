@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -36,11 +37,13 @@ public class Utility {
 	public static final String COMMON_DIRECTORY = BASE_DIRECTORY + "common/";
 	public static final String MAIN_DIRECTORY = COMMON_DIRECTORY + "main/";
 	public static final String GEN_DIRECTORY = COMMON_DIRECTORY + "gen/";
+    public static final String TEST_DIR = Utility.COMMON_DIRECTORY + "test/";
+
 	
 	/** If the generated BAT files are to work, this needs to be set right */
 	public static final String COMPARE_PROGRAM = "\"C:\\Program Files\\Compare It!\\wincmp3.exe\"";
 	
-	public static final List MINIMUM_LANGUAGES = Arrays.asList(new String[] {"en", "de", "fr", "it", "es", "pt", "ru", "zh", "ja"}); // plus language itself
+	public static final List MINIMUM_LANGUAGES = Arrays.asList(new String[] {"ar", "en", "de", "fr", "hi", "it", "es", "pt", "ru", "zh", "ja"}); // plus language itself
 	public static final List MINIMUM_TERRITORIES = Arrays.asList(new String[] {"US", "GB", "DE", "FR", "IT", "JP", "CN", "IN", "RU", "BR"});
 	
 	public interface LineComparer {
@@ -333,6 +336,40 @@ public class Utility {
 			a.put(key, bvalue);
 		}
 		return a;
+	}
+	
+	/**
+	 * Utility like Arrays.asList()
+	 * @param source
+	 * @return
+	 */
+	public static Map asMap(Object[][] source, Map target, boolean reverse) {
+		int from = 0, to = 1;
+		if (reverse) {
+			from = 1; to = 0;
+		}
+    	for (int i = 0; i < source.length; ++i) {
+    		target.put(source[i][from], source[i][to]);
+    	}
+    	return target;
+	}
+	
+	public static Map asMap(Object[][] source) {
+    	return asMap(source, new HashMap(), false);
+	}
+	
+	/**
+	 * Utility that ought to be on Map
+	 * @param m
+	 * @param itemsToRemove
+	 * @return
+	 */
+	public static Map removeAll(Map m, Collection itemsToRemove) {
+	    for (Iterator it = itemsToRemove.iterator(); it.hasNext();) {
+	    	Object item = it.next();
+	    	m.remove(item);
+	    }
+	    return m;
 	}
 	
 	public static abstract class Transform {

@@ -67,6 +67,8 @@ http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
 public class CLDRFile implements Lockable {
 	public static boolean HACK_ORDER = false;
 	private static boolean DEBUG_LOGGING = true;
+	private static boolean SHOW_ALIAS_FIXES = false;
+	
 	public static final String SUPPLEMENTAL_NAME = "supplementalData";
 	public static final String GEN_VERSION = "1.3";
     
@@ -254,13 +256,20 @@ public class CLDRFile implements Lockable {
 			lastFiltered = temp;
 		}
 		current.clear().writeDifference(pw, null, last, lastFiltered, null, tempComments);
-		XPathParts.writeComment(pw, 0, xpath_comments.getFinalComment(), true);
+		String finalComment = xpath_comments.getFinalComment();
 		
-		for (Iterator it = tempComments.removeFinal().iterator(); it.hasNext();) {
-			String key = (String) it.next();
-			Log.logln("Writing extra comment: " + key);
-			XPathParts.writeComment(pw, 0, key, false);
+		// write comments that no longer have a base
+		List x = tempComments.removeFinal();
+		if (x.size() != 0) {
+			String extras = "Comments without bases" + XPathParts.NEWLINE;
+			for (Iterator it = x.iterator(); it.hasNext();) {
+				String key = (String) it.next();
+				//Log.logln("Writing extra comment: " + key);
+				extras += XPathParts.NEWLINE + key;
+			}
+			finalComment += XPathParts.NEWLINE + extras;
 		}
+		XPathParts.writeComment(pw, 0, finalComment, true);
 	}
 
 	/**
@@ -276,6 +285,15 @@ public class CLDRFile implements Lockable {
 	 */
     public Value getValue(String xpath) {
     	return (Value) xpath_value.get(xpath);
+    }
+    
+	/**
+	 * Get a string value from an xpath.
+	 */
+    public String getStringValue(String xpath) {
+    	Value v = (Value) xpath_value.get(xpath);
+    	if (v == null) return null;
+    	return v.getStringValue();
     }
     
     /**
@@ -348,23 +366,43 @@ private boolean isSupplemental;
      * @param xpath
      */
     public void remove(String xpath) {
+    	remove(xpath, false);
+    }
+    public void remove(String xpath, boolean butComment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+    	if (butComment) {
+    		CLDRFile.Value v = getValue(xpath);
+    		appendFinalComment(v.getFullXPath()+ "::<" + v.getStringValue() + ">");
+    	}
     	xpath_value.remove(xpath);
     }
+    
+   public void removeAll(Set xpaths, boolean butComment) {
+    	for (Iterator it = xpaths.iterator(); it.hasNext();) {
+    		remove((String) it.next(), butComment);
+    	}
+	}
+
     
     /**
      * Removes all items with same value
      * @param other
+     * @param butComment TODO
      */
-    public void removeDuplicates(CLDRFile other) {
+    public void removeDuplicates(CLDRFile other, boolean butComment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+    	boolean first = true;
     	for (Iterator it = other.xpath_value.keySet().iterator(); it.hasNext();) {
     		String xpath = (String)it.next();
     		Value currentValue = (Value) xpath_value.get(xpath);
     		if (currentValue == null) continue;
     		Value otherValue = (Value) other.xpath_value.get(xpath);
     		if (!currentValue.getStringValue().equals(otherValue.getStringValue())) continue;
-    		xpath_value.remove(xpath);
+    		if (first) {
+    			first = false;
+    			appendFinalComment("Duplicates removed:");
+    		}
+    		remove(xpath, butComment);
     	}
     }
     
@@ -415,6 +453,11 @@ private boolean isSupplemental;
 	public void setFinalComment(String comment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
 		xpath_comments.setFinalComment(comment);
+	}
+
+	public void appendFinalComment(String comment) {
+    	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+		xpath_comments.setFinalComment(Utility.joinWithSeparation(xpath_comments.getFinalComment(), XPathParts.NEWLINE, comment));
 	}
 
 	/**
@@ -615,16 +658,16 @@ private boolean isSupplemental;
     					Map countries_zoneSet = sc.getCountryToZoneSet();
     					Map zone_countries = sc.getZoneToCounty();
 
-    					Set types = sc.getAvailableTypes();
-    					for (Iterator typeIt = types.iterator(); typeIt.hasNext(); ) {
-    						String type = (String)typeIt.next();
-    						int typeNo = typeNameToCode(type);
-    						if (typeNo < 0) continue;
-    						if (typeNo == CURRENCY_NAME) typeNo = CURRENCY_SYMBOL;
-    						Set codes = sc.getAvailableCodes(type);
+    					//Set types = sc.getAvailableTypes();
+    					for (int typeNo = 0; typeNo < LIMIT_TYPES; ++typeNo ) {
+    						String type = TYPE_NAME[typeNo];
+    						//int typeNo = typeNameToCode(type);
+    						//if (typeNo < 0) continue;
+    						String type2 = (typeNo == CURRENCY_SYMBOL) ? TYPE_NAME[CURRENCY_NAME] : type;
+    						Set codes = sc.getAvailableCodes(type2);
     						String prefix = NameTable[typeNo][0];
     						String postfix = NameTable[typeNo][1];
-    						String prefix2 = "/ldml[@version=\"" + GEN_VERSION + "\"]" + prefix.substring(5);
+    						String prefix2 = "/ldml" + prefix.substring(5); // [@version=\"" + GEN_VERSION + "\"]
         					for (Iterator codeIt = codes.iterator(); codeIt.hasNext(); ) {
         						String code = (String)codeIt.next();
         						String value = code;
@@ -650,6 +693,12 @@ private boolean isSupplemental;
 	    	return result;
 	    }
 	}
+	
+	static String[] keys = {"calendar", "collation", "currency"};
+	
+	static String[] calendar_keys = {"buddhist", "chinese", "gregorian", "hebrew", "islamic", "islamic-civil", "japanese"};
+	static String[] collation_keys = {"phonebook", "traditional", "direct", "pinyin", "stroke", "posix", "big5han", "gb2312han"};
+	
 	
 	static CLDRFile constructedItems = null;
 
@@ -1115,17 +1164,18 @@ private boolean isSupplemental;
 		XPathParts otherParts = new XPathParts(attributeOrdering, defaultSuppressionMap);
 		for (Iterator it = aliases.iterator(); it.hasNext();) {
 			String xpathKey = (String) it.next();
+			if (SHOW_ALIAS_FIXES) System.out.println("Doing Alias for: " + xpathKey);
 			Value v = (Value) xpath_value.get(xpathKey);
 			parts.set(xpathKey);
 			int index = parts.findElement("alias"); // can have no children
 			if (index < 0) continue;
-			parts.trim();
+			parts.trimLast();
 			fullParts.set(v.getFullXPath());
 			Map attributes = fullParts.getAttributes(index);
-			fullParts.trim();
+			fullParts.trimLast();
 			// <alias source="<locale_ID>" path="..."/>
 			String source = (String) attributes.get("source");
-			if (source == null) source = key;
+			if (source == null || source.equals("locale")) source = key;
 			otherParts.set(parts);
 			String otherPath = (String) attributes.get("path");
 			if (otherPath != null) {
@@ -1162,7 +1212,7 @@ private boolean isSupplemental;
 				fullTemp.replace(otherParts.size(), fullParts);
 				String newPath = temp.toString();
 				value = value.changePath(fullTemp.toString());
-				if (false) System.out.println("Adding*: " + path + ";\r\n\t" + newPath + ";\r\n\t" + value);
+				if (SHOW_ALIAS_FIXES) System.out.println("Adding*: " + path + ";\r\n\t" + newPath + ";\r\n\t" + value);
 				tempMap.put(newPath, value);
 				// to do, fix path
 			}
@@ -1192,6 +1242,21 @@ private boolean isSupplemental;
 		return item.indexOf("[@draft=\"true\"]") >= 0;
 	}
 	
+	public static int getNameType(String xpath) {
+		for (int i = 0; i < NameTable.length; ++i) {
+			if (xpath.startsWith(NameTable[i][0]) && xpath.endsWith(NameTable[i][1])) return i;
+		}
+		return -1;
+	}
+	
+	public static String getNameTypeName(int index) {
+		try {
+			return TYPE_NAME[index];
+		} catch (Exception e) {
+			return "Illegal Type Name: " + index;
+		}
+	}
+	
 	private static final String[][] NameTable = {
 			{"/ldml/localeDisplayNames/languages/language[@type=\"", "\"]", "language"},
 			{"/ldml/localeDisplayNames/scripts/script[@type=\"", "\"]", "script"},
@@ -1202,9 +1267,9 @@ private boolean isSupplemental;
 			{"/ldml/dates/timeZoneNames/zone[@type=\"", "\"]/exemplarCity", "tzid"},
 	};
 
-	public static final int LANGUAGE_NAME = 0, SCRIPT_NAME = 1, TERRITORY_NAME = 2, VARIANT_NAME = 3,
-		CURRENCY_NAME = 4, CURRENCY_SYMBOL = 5, TZID = 6;
-	private static final String[] TYPE_NAME = {"LANGUAGE", "SCRIPT", "TERRITORY", "VARIANT", "CURRENCY", "CURRENCY_SYMBOL", "TZID"};
+	public static final int NO_NAME = -1, LANGUAGE_NAME = 0, SCRIPT_NAME = 1, TERRITORY_NAME = 2, VARIANT_NAME = 3,
+		CURRENCY_NAME = 4, CURRENCY_SYMBOL = 5, TZID = 6, LIMIT_TYPES = 7;
+	private static final String[] TYPE_NAME = {"language", "script", "territory", "variant", "currency", "currency-symbol", "tzid"};
 	
 	/**
 	 * @param type
@@ -1389,11 +1454,11 @@ private boolean isSupplemental;
     static MapComparator lengthOrder = (MapComparator) new MapComparator().add(new String[] {
     		"full", "long", "medium", "short"}).lock();
     static MapComparator dateFieldOrder = (MapComparator) new MapComparator().add(new String[] {
-    		"era", "year", "month", "week", "day", " weekday", "dayperiod",
+    		"era", "year", "month", "week", "day", "weekday", "dayperiod",
 			"hour", "minute", "second", "zone"}).lock();
     static Comparator zoneOrder = StandardCodes.make().getTZIDComparator();
     
-	private static LDMLComparator ldmlComparator = new LDMLComparator();
+	public static Comparator ldmlComparator = new LDMLComparator();
 
 	static class LDMLComparator implements Comparator {
 

@@ -13,6 +13,7 @@ package org.unicode.cldr.test;
  * Window - Preferences - Java - Code Style - Code Templates
  */
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.Collator;
 import java.text.ParseException;
@@ -38,12 +39,12 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 
 public class TestCLDRTests extends TestFmwk {
-    static final String DIR = Utility.COMMON_DIRECTORY + "test/";
     static final boolean DEBUG = false;
     
     ULocale uLocale = ULocale.ENGLISH;
@@ -53,10 +54,24 @@ public class TestCLDRTests extends TestFmwk {
     TreeMap results = new TreeMap();
 
     public static void main(String[] args) throws Exception {
-		double deltaTime = System.currentTimeMillis();
-        new TestCLDRTests().run(args);
+		double deltaTime = System.currentTimeMillis();		
+		TestCLDRTests me = new TestCLDRTests();
+		me.run(args);
+		me.closeLog();
         deltaTime = System.currentTimeMillis() - deltaTime;
         System.out.println("Seconds: " + deltaTime/1000);
+    }
+    
+    /**
+	 * 
+	 */
+	private void closeLog() {
+		log.close();
+	}
+
+	TestCLDRTests () throws IOException {
+    	log = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,"collationTestLog.txt");
+    	log.write(0xFEFF);
     }
     
     Set languagesToTest;
@@ -74,7 +89,7 @@ public class TestCLDRTests extends TestFmwk {
     	languagesToTest.remove("th"); // JDK endless loop in collation
 
 //        test("hu");
-        File[] list = new File(DIR).listFiles();
+        File[] list = new File(Utility.TEST_DIR).listFiles();
         for (int i = 0; i < list.length; ++i) {
         	String name = list[i].getName();
             if (!name.endsWith(".xml")) continue;
@@ -95,7 +110,7 @@ public class TestCLDRTests extends TestFmwk {
         uLocale = new ULocale(localeName);
         oLocale = uLocale.toLocale();
         
-        File f = new File(DIR + localeName + ".xml");
+        File f = new File(Utility.TEST_DIR + localeName + ".xml");
         SAX.parse(f, DEFAULT_HANDLER);
     }
     
@@ -104,6 +119,8 @@ public class TestCLDRTests extends TestFmwk {
     abstract public class Handler {
         Map settings = new TreeMap();
         String name;
+        String attributes;
+
         void setName(String name) {
         	this.name = name;
         }
@@ -127,7 +144,9 @@ public class TestCLDRTests extends TestFmwk {
                 String attributeValue = (String) settings.get(attributeName);
                 temp += " " + attributeName + "=<" + attributeValue + ">";
             }
-            errln(temp + "]");
+            temp += "]";
+            errln(temp);
+            if (log != null) log.println(temp);
             MutableInteger foo  = (MutableInteger) results.get(uLocale.getDisplayName());
             if (foo == null) results.put(uLocale.getDisplayName(), foo = new MutableInteger());
             foo.value++;
@@ -148,6 +167,15 @@ public class TestCLDRTests extends TestFmwk {
     		return String.valueOf(value);
     	}
     }
+    
+
+	private static String show(Attributes attributes) {
+		String result = "{";
+		for (int i = 0; i < attributes.getLength(); ++i) {
+			result += attributes.getQName(i) + "=\"" + attributes.getValue(i) + ";";
+		}
+		return result + "}";
+	}
        
     public Handler getHandler(String name) {
         if (DEBUG) System.out.println("Creating Handler: " + name);
@@ -179,6 +207,7 @@ public class TestCLDRTests extends TestFmwk {
 		addHandler("collation", new Handler() {
 			public void handleResult(String value) {
 				Collator col = Collator.getInstance(uLocale.toLocale());
+				boolean showedAttributes = false;
 				String lastLine = "";
 				for (int pos = 0; pos < value.length();) {
 					int nextPos = value.indexOf('\n', pos);
@@ -188,9 +217,12 @@ public class TestCLDRTests extends TestFmwk {
                     if (line.length() != 0) {  // HACK for SAX
     					int comp = col.compare(lastLine, line);
     					if (comp > 0) {
-    						myerrln("<" + lastLine + "> should be leq <" + line + ">");
+    						myerrln("<" + lastLine + "> should be leq <" + line + ">" + 
+    								(showedAttributes ? "" : " " + attributes));
+    						showedAttributes = true;
     					} else if (DEBUG) {
-    						System.out.println("OK: " + line);
+    						logln("OK: " + line);
+    						log.println("OK: " + line);
     					}
                     }
 					pos = nextPos + 1;
@@ -303,6 +335,7 @@ public class TestCLDRTests extends TestFmwk {
                         }
                     } else {
                     	handler = getHandler(qName);
+                    	handler.attributes = show(attributes);
                         //handler.set("locale", uLocale.toString());
                     }
                     //if (DEBUG) System.out.println("startElement:\t" + contextStack);

@@ -109,7 +109,7 @@ public class LocaleIDParser {
 	    if (pos >= 0) {
 	        return localeName.substring(0,pos);
 	    }
-	    if (localeName.equals("root") || localeName.equals("supplementalData")) return null;
+	    if (localeName.equals("root") || localeName.equals(CLDRFile.SUPPLEMENTAL_NAME)) return null;
 	    return "root";
 	}
 }

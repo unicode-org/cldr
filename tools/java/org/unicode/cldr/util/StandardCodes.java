@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -156,15 +157,19 @@ public class StandardCodes {
 		add("script", "Qaai", "Inherited");
 		add("script", "Zyyy", "Common");
 		add("language", "root", "Root");
-		String line = null;
+		String originalLine = null;
 		for (int fileIndex = 0; fileIndex < files.length; ++fileIndex) {
 			try {
 				BufferedReader lstreg = BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR, files[fileIndex]);
 				while (true) {
-					line = lstreg.readLine();
+					String line = originalLine = lstreg.readLine();
 					if (line == null) break;
 					int commentPos = line.indexOf('#');
-					if (commentPos >= 0) line = line.substring(0, commentPos);
+					String comment = "";
+					if (commentPos >= 0) {
+						comment = line.substring(commentPos+1).trim();
+						line = line.substring(0, commentPos);
+					}
 					if (line.length() == 0) continue;
 					List pieces = (List) Utility.splitList(line, '|', true, new ArrayList());
 					String type = (String) pieces.get(0);
@@ -185,28 +190,34 @@ public class StandardCodes {
 						pieces.set(0,oldName);
 					}
 					
-					List name = pieces;
+					List data = pieces;
+					if (comment.indexOf("deprecated") >= 0) {
+						//System.out.println(originalLine);
+						if (data.get(2).toString().length() == 0) {
+							data.set(2, "--");
+						}
+					}
 					if (oldName.equalsIgnoreCase("PRIVATE USE")) {
 						int separatorPos = code.indexOf("..");
 						if (separatorPos < 0) {
-							add(type, code, name);
+							add(type, code, data);
 						} else {
 							String current = code.substring(0,separatorPos);
 							String end = code.substring(separatorPos + 2);
 							//System.out.println(">>" + code + "\t" + current + "\t" + end);
 							for (; current.compareTo(end) <= 0; current = nextAlpha(current)) {
 								//System.out.println(">" + current);
-								add(type, current, name);
+								add(type, current, data);
 							};
 						}
 						continue;
 					}
 					if (!type.equals("tzid")) {
-						add(type, code, name);
+						add(type, code, data);
 						if (type.equals("currency")) {
 							// currency	|	TPE	|	Timor Escudo	|	TP	|	EAST TIMOR	|	O
-							if (name.get(3).equals("C")) {
-								String country = (String) name.get(1);
+							if (data.get(3).equals("C")) {
+								String country = (String) data.get(1);
 								Set codes = (Set) country_modernCurrency.get(country);
 								if (codes == null) {
 									country_modernCurrency.put(country, codes = new TreeSet());
@@ -221,7 +232,7 @@ public class StandardCodes {
 					String preferred = null;
 					for (int i = 0; i < pieces.size(); ++i) {
 						code = (String) pieces.get(i);
-						add(type, code, name);
+						add(type, code, data);
 						if (preferred == null) preferred = code;
 						else {
 							Map code_preferred = (Map) type_code_preferred.get(type);
@@ -231,7 +242,7 @@ public class StandardCodes {
 				}
 				lstreg.close();
 			} catch (Exception e) {
-				throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + files[fileIndex] + "\t" + line).initCause(e);
+				throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + files[fileIndex] + "\t" + originalLine).initCause(e);
 			}
 			Utility.protectCollection(country_modernCurrency);
 		}
@@ -486,7 +497,7 @@ public class StandardCodes {
 		    			+ (i == 0 ? "" : i < 0 ? "" + i : "+" + i),
 		    			pieces);
 		    }
-		    zoneData = Collections.unmodifiableMap(zoneData); // protect for later
+		    zoneData = (Map) Utility.protectCollection(zoneData); // protect for later
 		    
 		    // now get links
 		    String lastZone = "";
@@ -522,6 +533,8 @@ public class StandardCodes {
 		    				zoneID = lastZone;
 		    			} else {
 		    				zoneID = items[1];
+		    				String ntzid = (String) FIX_UNSTABLE_TZIDS.get(zoneID);
+		    		        if (ntzid != null) zoneID = ntzid;
 		    			}
 		    			List zoneRules = (List) zone_rules.get(zoneID);
 		    			if (zoneRules == null) {
@@ -548,6 +561,51 @@ public class StandardCodes {
 		    	}
 		    	in.close();
 		    }
+		    // add in stuff that should be links
+		    linkold_new.put("Etc/UTC", "Etc/GMT");
+		    linkold_new.put("Etc/UCT", "Etc/GMT");
+
+		    // fix the links from old to new, to remove chains
+		    for (Iterator it = linkold_new.keySet().iterator(); it.hasNext();) {
+		    	Object oldItem = it.next();
+		    	Object newItem = linkold_new.get(oldItem);
+		    	while (true) {
+		    		Object linkItem = linkold_new.get(newItem);
+		    		if (linkItem == null) break;
+		    		if (false) System.out.println("Connecting link chain: " + oldItem + "\t=> " + newItem + "\t=> " + linkItem);
+		    		newItem = linkItem;
+		    		linkold_new.put(oldItem, newItem);
+		    	}
+		    }
+		    // fix unstable TZIDs
+		    Set itemsToRemove = new HashSet();
+		    Map itemsToAdd = new HashMap();
+		    for (Iterator it = linkold_new.keySet().iterator(); it.hasNext();) {
+		    	Object oldItem = it.next();
+		    	Object newItem = linkold_new.get(oldItem);
+		    	Object modOldItem = RESTORE_UNSTABLE_TZIDS.get(oldItem);
+		    	Object modNewItem = FIX_UNSTABLE_TZIDS.get(newItem);
+		    	if (modOldItem == null && modNewItem == null) continue;
+		    	if (modOldItem == null) { // just fix old entry
+		    		itemsToAdd.put(oldItem, modNewItem);
+		    		continue; 
+		    	}
+		    	// otherwise have to nuke and redo
+		    	itemsToRemove.add(oldItem);
+		    	if (modNewItem == null) modNewItem = newItem;
+		    	itemsToAdd.put(modOldItem, modNewItem);
+		    }
+		    // now make fixes (we couldn't earlier because we were iterating
+		    Utility.removeAll(linkold_new, itemsToRemove);
+		    linkold_new.putAll(itemsToAdd);
+		    
+		    // now remove all links that are from canonical zones
+		    Utility.removeAll(linkold_new, zoneData.keySet());
+		    
+		    // PROTECT EVERYTHING
+	    	linkold_new = (Map) Utility.protectCollection(linkold_new);
+	    	ruleID_rules = (Map) Utility.protectCollection(ruleID_rules);
+	    	zone_rules = (Map) Utility.protectCollection(zone_rules);
 		    // TODO protect zone info later
 		} catch (IOException e) {
 		    throw (IllegalArgumentException) new IllegalArgumentException("Can't find timezone aliases").initCause(e);
@@ -613,7 +671,8 @@ public class StandardCodes {
 			"northamerica", "pacificnew", "southamerica", "systemv"
 	};
     
-    private static Map FIX_UNSTABLE_TZIDS = new HashMap();
+    private static Map FIX_UNSTABLE_TZIDS;
+    private static Map RESTORE_UNSTABLE_TZIDS;
     static {
     	String[][] FIX_UNSTABLE_TZID_DATA = new String[][] {
     			{"America/Argentina/Buenos_Aires", "America/Buenos_Aires"},
@@ -622,9 +681,8 @@ public class StandardCodes {
     			{"America/Argentina/Jujuy", "America/Jujuy"},
     			{"America/Argentina/Mendoza", "America/Mendoza"}
     	};
-    	for (int i = 0; i < FIX_UNSTABLE_TZID_DATA.length; ++i) {
-    		FIX_UNSTABLE_TZIDS.put(FIX_UNSTABLE_TZID_DATA[i][0], FIX_UNSTABLE_TZID_DATA[i][1]);
-    	}
+    	FIX_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA);
+    	RESTORE_UNSTABLE_TZIDS = Utility.asMap(FIX_UNSTABLE_TZID_DATA, new HashMap(), true);
     }
     
     private List DELETED3166 = Collections.unmodifiableList(Arrays.asList(new String[] {

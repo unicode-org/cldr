@@ -13,7 +13,7 @@
 
 <!ELEMENT ldml (identity, (alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, special*))) >
 <!ATTLIST ldml
-   version          CDATA              #FIXED "1.1"
+   version          CDATA              #FIXED "1.2"
 >
 <!ATTLIST ldml draft ( true | false ) #IMPLIED >
 
@@ -58,6 +58,7 @@
 
 <!ELEMENT alias  (special*) >
 <!ATTLIST alias source NMTOKEN #REQUIRED >
+<!ATTLIST alias type CDATA #IMPLIED>
 <!ATTLIST alias path CDATA #IMPLIED>
 
 <!ELEMENT default (special*) >
@@ -74,7 +75,7 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, variants?, keys?, types?, special*)) >
+<!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, variants?, keys?, types?, measurementSystems, special*)) >
 <!ATTLIST localeDisplayNames draft ( true | false ) #IMPLIED >
 
 <!-- Either 1 alias OR any specials, any order, zero or more language -->
@@ -126,6 +127,18 @@
 <!ATTLIST type draft ( true | false ) #IMPLIED >
 <!ATTLIST type references CDATA #IMPLIED >
 <!ATTLIST type alt CDATA #IMPLIED >
+
+<!-- Either 1 alias OR any specials, any order, zero or more type -->
+<!ELEMENT measurementSystems ( alias | (type | special)* ) >
+<!ATTLIST measurementSystems draft ( true | false ) #IMPLIED >
+<!ATTLIST measurementSystems standard CDATA #IMPLIED >
+<!ATTLIST measurementSystems references CDATA #IMPLIED >
+
+<!ELEMENT measurementSystem ( #PCDATA ) >
+<!ATTLIST measurementSystem type NMTOKEN #REQUIRED >
+<!ATTLIST measurementSystem draft ( true | false ) #IMPLIED >
+<!ATTLIST measurementSystem references CDATA #IMPLIED >
+<!ATTLIST measurementSystem alt CDATA #IMPLIED >
 
 <!-- ######################################################### -->
 
@@ -346,15 +359,15 @@
 <!ATTLIST firstDay alt CDATA #IMPLIED >
 
 <!ELEMENT weekendStart (special*) >
-<!ATTLIST weekendStart day NMTOKEN #REQUIRED >
+<!ATTLIST weekendStart day ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
 <!ATTLIST weekendStart time CDATA "00:00" >
 <!ATTLIST weekendStart draft ( true | false ) #IMPLIED >
 <!ATTLIST weekendStart references CDATA #IMPLIED >
 <!ATTLIST weekendStart alt CDATA #IMPLIED >
 
 <!ELEMENT weekendEnd (special*) >
-<!ATTLIST weekendEnd day NMTOKEN #REQUIRED >
-<!ATTLIST weekendEnd time CDATA "24:00" >
+<!ATTLIST weekendEnd day ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
+<!ATTLIST weekendEnd time CDATA "00:00" >
 <!ATTLIST weekendEnd draft ( true | false ) #IMPLIED >
 <!ATTLIST weekendEnd references CDATA #IMPLIED >
 <!ATTLIST weekendEnd alt CDATA #IMPLIED >

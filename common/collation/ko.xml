@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
-[
-      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
-%icu;
-]
->
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-18" />
+		<generation date="2003-12-19" />
 		<language type="ko" /> 
 	</identity>
-	<collations version="3.1.1">
+	<collations>
 		<collation type="standard" >
 			<optimize>[가-각간갇-갊감-갗같-객갠갤갬-갭갯-갱갸-갹갼걀걋걍걔걘걜거-걱건걷-걸걺검-겁것-겆겉-게겐겔겜-겝겟-겡겨-겪견겯-결겸-겹겻-경곁계곈곌곕곗고-곡곤곧-골곪곬곯-곱곳공-곶과-곽관괄괆괌-괍괏광괘괜괠괩괬-괭괴-괵괸괼굄-굅굇굉교굔굘굡굣구-국군굳-굶굻-굽굿궁-궂궈-궉권궐궜-궝궤궷귀-귁귄귈귐-귑귓규균귤그-극근귿-긁금-급긋긍긔기-긱긴긷-길긺김-깁깃깅-깆깊까-깎깐깔깖깜-깝깟-깡깥깨-깩깬깰깸-깹깻-깽꺄-꺅꺌꺼-꺾껀껄껌-껍껏-껑께-껙껜껨껫껭껴껸껼꼇-꼈꼍꼐꼬-꼭꼰꼲꼴꼼-꼽꼿꽁-꽃꽈-꽉꽐꽜-꽝꽤-꽥꽹꾀꾄꾈꾐-꾑꾕꾜꾸-</optimize>
 			<rules>
@@ -970,7 +965,6 @@
 				<reset>힐</reset>
 				<sc>詰犵纈襭頡黠</sc>
 			</rules>
-			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="2.1" />
 		</collation  >
-	</collations >
+	</collations>
 </ldml>

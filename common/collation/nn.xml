@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
-[
-      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
-%icu;
-]
->
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-18" />
+		<generation date="2003-12-19" />
 		<language type="nn" /> 
 	</identity>
-	<collations version="3.1.1">
+	<collations>
 		<collation type="standard" >
 			<rules>
 				<reset>D</reset>
@@ -45,7 +40,6 @@
 				<t>Œ</t>
 				<p>å</p>
 			</rules>
-			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="2.0" />
 		</collation  >
-	</collations >
+	</collations>
 </ldml>

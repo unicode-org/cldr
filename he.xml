@@ -87,6 +87,34 @@
 			<script type="Hebr">עברית</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">עולם</territory>
+			<territory type="002" draft="true">אפריקה</territory>
+			<territory type="005" draft="true">דרום אמריקה</territory>
+			<territory type="009" draft="true">אויניה</territory>
+			<territory type="011" draft="true">מערב אפריקה</territory>
+			<territory type="013" draft="true">מרכז אמריקה</territory>
+			<territory type="014" draft="true">מזרח אפריקה</territory>
+			<territory type="015" draft="true">צפון אפריקה</territory>
+			<territory type="017" draft="true">מרכז אפריקה</territory>
+			<territory type="018" draft="true">דרום אפריקה</territory>
+			<territory type="019" draft="true">אמריקות</territory>
+			<territory type="021" draft="true">צפון אמריקה</territory>
+			<territory type="029" draft="true">קריביים</territory>
+			<territory type="030" draft="true">מזרח אסיה</territory>
+			<territory type="035" draft="true">דרום-מזרח אסיה</territory>
+			<territory type="039" draft="true">דרום אירופה</territory>
+			<territory type="053" draft="true">אוסטרליה וניו-זילנד</territory>
+			<territory type="054" draft="true">מלנסיה</territory>
+			<territory type="057" draft="true">מקרונזיה</territory>
+			<territory type="061" draft="true">פולינזיה</territory>
+			<territory type="062" draft="true">דרום-מרכז אסיה</territory>
+			<territory type="142" draft="true">אסיה</territory>
+			<territory type="145" draft="true">מזרח אסיה</territory>
+			<territory type="150" draft="true">אירופה</territory>
+			<territory type="151" draft="true">מזרח אירופה</territory>
+			<territory type="154" draft="true">צפון אירופה</territory>
+			<territory type="155" draft="true">מערב אירופה</territory>
+			<territory type="830" draft="true">איי קנל</territory>
 			<territory type="AD">אנדורה</territory>
 			<territory type="AE">איחוד האמירויות הערביות</territory>
 			<territory type="AF">אפגניסטן</territory>
@@ -102,6 +130,7 @@
 			<territory type="AT">אוסטריה</territory>
 			<territory type="AU">אוסטרליה</territory>
 			<territory type="AW">ארובה</territory>
+			<territory type="AX" draft="true">איי אלנד</territory>
 			<territory type="AZ">אזרבייג׳ן</territory>
 			<territory type="BA">בוסניה הרצגובינה</territory>
 			<territory type="BB">ברבדוס</territory>
@@ -507,15 +536,259 @@
 				<alias source="he" path="../calendar[@type='islamic']"/>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<hourFormat>TODO +HHmm;-HHmm</hourFormat>
+			<hoursFormat>TODO {0}/{1}</hoursFormat>
+			<gmtFormat>TODO GMT{0}</gmtFormat>
+			<regionFormat>TODO {0}</regionFormat>
+			<fallbackFormat>TODO {0} ({1})</fallbackFormat>
+			<!-- Antarctica -->
+			<zone type="Antarctica/Palmer">
+				<exemplarCity draft="true">פאלמר</exemplarCity>
+			</zone>
+			<!-- Argentina -->
+			<zone type="America/Mendoza">
+				<exemplarCity draft="true">מנדוזה</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity draft="true">סאן-חואן</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity draft="true">קורדובה</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity draft="true">בואנס איירס</exemplarCity>
+			</zone>
+			<!-- Australia -->
+			<zone type="Australia/Perth">
+				<exemplarCity draft="true">פרת'</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity draft="true">דרווין</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity draft="true">אדלייד</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity draft="true">ברוקן-היל</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity draft="true">מלבורן</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity draft="true">הוברט</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity draft="true">סידני</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity draft="true">בריסבן</exemplarCity>
+			</zone>
+			<!-- Brazil -->
+			<zone type="America/Sao_Paulo">
+				<exemplarCity draft="true">סאו-פאולו</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity draft="true">בהיאה</exemplarCity>
+			</zone>
+			<!-- Canada -->
+			<zone type="America/Vancouver">
+				<exemplarCity draft="true">ונקובר</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity draft="true">דוסון קריק</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity draft="true">אדמונטון</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity draft="true">וויניפיג</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity draft="true">טורונטו</exemplarCity>
+			</zone>
+			<zone type="America/Montreal">
+				<exemplarCity draft="true">מונטריאול</exemplarCity>
+			</zone>
+			<zone type="America/Halifax">
+				<exemplarCity draft="true">הליפקס</exemplarCity>
+			</zone>
+			<!-- Democratic Republic of the Congo
+				 Chile
+			-->
+			<zone type="America/Santiago">
+				<exemplarCity draft="true">סנטיאגו</exemplarCity>
+			</zone>
+			<!-- China -->
+			<zone type="Asia/Shanghai">
+				<exemplarCity draft="true">שנחאי</exemplarCity>
+			</zone>
+			<!-- Ecuador -->
+			<zone type="Pacific/Galapagos">
+				<exemplarCity draft="true">גלאפגוס</exemplarCity>
+			</zone>
+			<!-- Spain -->
+			<zone type="Atlantic/Canary">
+				<exemplarCity draft="true">קנרי</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity draft="true">מדריד</exemplarCity>
+			</zone>
+			<!-- Micronesia
+				 United Kingdom
+			-->
+			<zone type="Europe/Belfast">
+				<exemplarCity draft="true">בלפסט</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<exemplarCity draft="true">לונדון</exemplarCity>
+			</zone>
+			<!-- Greenland
+				 Indonesia
+			-->
+			<zone type="Asia/Jakarta">
+				<exemplarCity draft="true">ג'קרטה</exemplarCity>
+			</zone>
+			<!-- Kiribati
+				 Kazakhstan
+			-->
+			<zone type="Asia/Oral">
+				<exemplarCity draft="true">אורל</exemplarCity>
+			</zone>
+			<!-- Marshall Islands
+				 Mali
+			-->
+			<zone type="Africa/Timbuktu">
+				<exemplarCity draft="true">טימבקטו</exemplarCity>
+			</zone>
+			<!-- Mongolia
+				 Mexico
+			-->
+			<zone type="America/Mazatlan">
+				<exemplarCity draft="true">מזטלן</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity draft="true">מונטריי</exemplarCity>
+			</zone>
+			<zone type="America/Mexico_City">
+				<exemplarCity draft="true">מקסיקו סיטי</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity draft="true">קנקון</exemplarCity>
+			</zone>
+			<!-- Malaysia -->
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity draft="true">קואלה למפור</exemplarCity>
+			</zone>
+			<!-- New Zealand -->
+			<zone type="Pacific/Auckland">
+				<exemplarCity draft="true">אוקלנד</exemplarCity>
+			</zone>
+			<!-- French Polynesia -->
+			<zone type="Pacific/Tahiti">
+				<exemplarCity draft="true">טהיטי</exemplarCity>
+			</zone>
+			<!-- Portugal -->
+			<zone type="Europe/Lisbon">
+				<exemplarCity draft="true">ליסבון</exemplarCity>
+			</zone>
+			<!-- Russia -->
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="true">מוסקווה</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity draft="true">סמרה</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity draft="true">אומסק</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity draft="true">נובוסיבירסק</exemplarCity>
+			</zone>
+			<!-- Svalbard and Jan Mayen
+				 Ukraine
+			-->
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="true">קייב</exemplarCity>
+			</zone>
+			<!-- United States Minor Outlying Islands
+				 United States
+			-->
+			<zone type="Pacific/Honolulu">
+				<exemplarCity draft="true">הונולולו</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity draft="true">לוס-אנג'לס</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity draft="true">פיניקס</exemplarCity>
+			</zone>
+			<zone type="America/Shiprock">
+				<exemplarCity draft="true">שיפרוק</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity draft="true">דנוור</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity draft="true">מרכז</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity draft="true">שיקגו</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity draft="true">אינדאנפוליס</exemplarCity>
+			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity draft="true">לואיסוויל</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity draft="true">דטרויוט</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity draft="true">ניו-יורק</exemplarCity>
+			</zone>
+			<!-- Uzbekistan -->
+			<zone type="Asia/Samarkand">
+				<exemplarCity draft="true">סמרקנד</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity draft="true">טשקנט</exemplarCity>
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencies>
+			<currency type="BRL">
+				<displayName draft="true">ריאל ברזילאי</displayName>
+			</currency>
+			<currency type="CNY">
+				<displayName draft="true">יואן</displayName>
+			</currency>
+			<currency type="EUR">
+				<displayName draft="true">יורו</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName draft="true">לירה שטרלינג</displayName>
+			</currency>
 			<currency type="ILS">
 				<displayName>ש&quot;ח</displayName>
 				<symbol>₪</symbol>
 			</currency>
+			<currency type="INR">
+				<displayName draft="true">רופי</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName draft="true">ין</displayName>
+			</currency>
+			<currency type="RUB">
+				<displayName draft="true">רובל</displayName>
+				<symbol draft="true">TODO RUB</symbol>
+			</currency>
 			<currency type="TRY" draft="true">
 				<displayName>לירה טורקית חדשה</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName draft="true">דולר אמריקאי</displayName>
 			</currency>
 		</currencies>
 	</numbers>

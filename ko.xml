@@ -530,6 +530,35 @@
 			<script type="Yiii">이어</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">세계</territory>
+			<territory type="002" draft="true">아프리카</territory>
+			<territory type="005" draft="true">남아메리카</territory>
+			<territory type="009" draft="true">오세아니아</territory>
+			<territory type="011" draft="true">서아프리카</territory>
+			<territory type="013" draft="true">중앙아메리카</territory>
+			<territory type="014" draft="true">동아프리카</territory>
+			<territory type="015" draft="true">북아프리카</territory>
+			<territory type="017" draft="true">중앙아프리카</territory>
+			<territory type="018" draft="true">남아프리카</territory>
+			<territory type="019" draft="true">아메리카</territory>
+			<territory type="021" draft="true">북아메리카</territory>
+			<territory type="029" draft="true">카리브 해</territory>
+			<territory type="030" draft="true">동아시아</territory>
+			<territory type="035" draft="true">서남아시아</territory>
+			<territory type="039" draft="true">남유럽</territory>
+			<territory type="053" draft="true">오스트레일리아와 뉴질랜드</territory>
+			<territory type="054" draft="true">멜라네시아</territory>
+			<territory type="057" draft="true">미크로네시아</territory>
+			<territory type="061" draft="true">폴리네시아</territory>
+			<territory type="062" draft="true">남중앙아시아</territory>
+			<territory type="142" draft="true">아시아</territory>
+			<territory type="145" draft="true">서아시아</territory>
+			<territory type="150" draft="true">유럽</territory>
+			<territory type="151" draft="true">동유럽</territory>
+			<territory type="154" draft="true">북유럽</territory>
+			<territory type="155" draft="true">서유럽</territory>
+			<territory type="830" draft="true">채널 아일랜드</territory>
+			<territory type="833" draft="true">맨섬</territory>
 			<territory type="AD">안도라</territory>
 			<territory type="AE">아랍에미리트</territory>
 			<territory type="AF">아프가니스탄</territory>
@@ -545,6 +574,7 @@
 			<territory type="AT">오스트리아</territory>
 			<territory type="AU">오스트레일리아</territory>
 			<territory type="AW">아루바</territory>
+			<territory type="AX" draft="true">앨란드 제도</territory>
 			<territory type="AZ">아제르바이잔</territory>
 			<territory type="BA">보스니아 헤르체고비나</territory>
 			<territory type="BB">바베이도스</territory>
@@ -770,6 +800,7 @@
 			<territory type="ZA">남아프리카</territory>
 			<territory type="ZM">잠비아</territory>
 			<territory type="ZW">짐바브웨</territory>
+			<territory type="ZZ" draft="true">기타 오세아니아 지역</territory>
 		</territories>
 		<variants>
 			<variant type="REVISED">개정</variant>
@@ -934,6 +965,11 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
 			<zone type="Etc/GMT">
 				<long>
 					<standard>그리니치 표준시</standard>
@@ -944,6 +980,206 @@
 					<daylight>GMT</daylight>
 				</short>
 				<exemplarCity>런던</exemplarCity>
+			</zone>
+			<!-- Antarctica -->
+			<zone type="Antarctica/Rothera">
+				<exemplarCity draft="true">로제라(Rothera)</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity draft="true">팔머(Palmer)</exemplarCity>
+			</zone>
+			<zone type="Antarctica/South_Pole">
+				<exemplarCity draft="true">사우스 폴(South Pole)</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity draft="true">스요와(Syowa)</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity draft="true">모슨(Mawson)</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity draft="true">데이비스(Davis)</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity draft="true">보스토크(Vostok)</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity draft="true">케이시(Casey)</exemplarCity>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity draft="true">뒤몽 뒤르빌(DumontDUrville)</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity draft="true">맥무르도(McMurdo)</exemplarCity>
+			</zone>
+			<!-- Argentina -->
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity draft="true">리오 갈레고스(Rio Gallegos)</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity draft="true">멘도자(Mendoza)</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity draft="true">산 주안(San Juan)</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity draft="true">우슈아이아(Ushuaia)</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/ComodRivadavia">
+				<exemplarCity draft="true">코몽트리바다비아(ComodRivadavia)</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity draft="true">라 리오하(La Rioja)</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity draft="true">카타마르카(Catamarca)</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity draft="true">후후이(Jujuy)</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity draft="true">뚜꾸만(Tucuman)</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity draft="true">코르도바(Cordoba)</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity draft="true">부에노스 아이레스(Buenos Aires)</exemplarCity>
+			</zone>
+			<!-- Australia -->
+			<zone type="Australia/Perth">
+				<exemplarCity draft="true">퍼스(Perth)</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity draft="true">다윈(Darwin)</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity draft="true">애들레이드(Adelaide)</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity draft="true">브로컨 힐(Broken Hill)</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity draft="true">멜버른(Melbourne)</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity draft="true">호바트(Hobart)</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity draft="true">린드만(Lindeman)</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity draft="true">시드니(Sydney)</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity draft="true">브리즈번(Brisbane)</exemplarCity>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity draft="true">로드하우(Lord Howe)</exemplarCity>
+			</zone>
+			<!-- Brazil -->
+			<zone type="America/Eirunepe">
+				<exemplarCity draft="true">에루노페(Eirunepe)</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity draft="true">리오 브랑코(Rio Branco)</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity draft="true">포르토 벨호(Porto Velho)</exemplarCity>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<exemplarCity draft="true">보아 비스타(Boa Vista)</exemplarCity>
+			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity draft="true">마나우스(Manaus)</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity draft="true">쿠이아바(Cuiaba)</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity draft="true">캄포 그란데(Campo Grande)</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity draft="true">벨렘(Belem)</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity draft="true">아라구아이아(Araguaina)</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity draft="true">사오 파울로(Sao Paulo)</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity draft="true">바히아(Bahia)</exemplarCity>
+			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity draft="true">포르탈레자(Fortaleza)</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity draft="true">마세이오(Maceio)</exemplarCity>
+			</zone>
+			<zone type="America/Recife">
+				<exemplarCity draft="true">레시페(Recife)</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity draft="true">노론하(Noronha)</exemplarCity>
+			</zone>
+			<!-- Canada -->
+			<zone type="America/Dawson">
+				<exemplarCity draft="true">도슨(Dawson)</exemplarCity>
+			</zone>
+			<zone type="America/Whitehorse">
+				<exemplarCity draft="true">화이트호스(Whitehorse)</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity draft="true">밴쿠버(Vancouver)</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity draft="true">도슨 크릭(Dawson Creek)</exemplarCity>
+			</zone>
+			<zone type="America/Yellowknife">
+				<exemplarCity draft="true">옐로우나이프(Yellowknife)</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity draft="true">아누비크(Inuvik)</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity draft="true">에드몬튼(Edmonton)</exemplarCity>
+			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity draft="true">스위프트 커런트(Swift Current)</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity draft="true">캠브리지 베이(Cambridge Bay)</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity draft="true">레지나(Regina)</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity draft="true">위니페그(Winnipeg)</exemplarCity>
+			</zone>
+			<zone type="America/Rainy_River">
+				<exemplarCity draft="true">레이니 리버(Rainy River)</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity draft="true">랜킨 인렛(Rankin Inlet)</exemplarCity>
+			</zone>
+			<zone type="America/Thunder_Bay">
+				<exemplarCity draft="true">썬더 베이(Thunder Bay)</exemplarCity>
+			</zone>
+			<zone type="America/Nipigon">
+				<exemplarCity draft="true">니피곤(Nipigon)</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity draft="true">토론토(Toronto)</exemplarCity>
+			</zone>
+			<zone type="America/Montreal">
+				<exemplarCity draft="true">몬트리올(Montreal)</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity draft="true">이칼루이트(Iqaluit)</exemplarCity>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<exemplarCity draft="true">팡니르퉁(Pangnirtung)</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -956,6 +1192,12 @@
 				</short>
 				<exemplarCity>핼리팩스</exemplarCity>
 			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity draft="true">구스 베이(Goose Bay)</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity draft="true">글레이스 베이(Glace Bay)</exemplarCity>
+			</zone>
 			<zone type="America/St_Johns">
 				<long>
 					<standard>뉴펀들랜드 표준시</standard>
@@ -966,6 +1208,30 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>St. Johns</exemplarCity>
+			</zone>
+			<!-- Democratic Republic of the Congo -->
+			<zone type="Africa/Kinshasa">
+				<exemplarCity draft="true">킨샤사(Kinshasa)</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity draft="true">루붐바쉬(Lubumbashi)</exemplarCity>
+			</zone>
+			<!-- Chile -->
+			<zone type="Pacific/Easter">
+				<exemplarCity draft="true">이스터(Easter)</exemplarCity>
+			</zone>
+			<zone type="America/Santiago">
+				<exemplarCity draft="true">산티아고(Santiago)</exemplarCity>
+			</zone>
+			<!-- China -->
+			<zone type="Asia/Kashgar">
+				<exemplarCity draft="true">카슈가르(Kashgar)</exemplarCity>
+			</zone>
+			<zone type="Asia/Urumqi">
+				<exemplarCity draft="true">우루무치(Urumqi)</exemplarCity>
+			</zone>
+			<zone type="Asia/Chongqing">
+				<exemplarCity draft="true">충칭(Chongqing)</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
@@ -978,6 +1244,39 @@
 				</short>
 				<exemplarCity>상하이</exemplarCity>
 			</zone>
+			<zone type="Asia/Harbin">
+				<exemplarCity draft="true">하얼빈(Harbin)</exemplarCity>
+			</zone>
+			<!-- Ecuador -->
+			<zone type="Pacific/Galapagos">
+				<exemplarCity draft="true">갈라파고스(Galapagos)</exemplarCity>
+			</zone>
+			<zone type="America/Guayaquil">
+				<exemplarCity draft="true">과야킬(Guayaquil)</exemplarCity>
+			</zone>
+			<!-- Spain -->
+			<zone type="Atlantic/Canary">
+				<exemplarCity draft="true">카나리(Canary)</exemplarCity>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity draft="true">세우타(Ceuta)</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity draft="true">마드리드(Madrid)</exemplarCity>
+			</zone>
+			<!-- Micronesia -->
+			<zone type="Pacific/Yap">
+				<exemplarCity draft="true">얍(Yap)</exemplarCity>
+			</zone>
+			<zone type="Pacific/Truk">
+				<exemplarCity draft="true">트루크(Truk)</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity draft="true">포나프(Ponape)</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity draft="true">코스래(Kosrae)</exemplarCity>
+			</zone>
 			<zone type="Europe/Paris">
 				<long>
 					<standard>중부유럽 표준시</standard>
@@ -988,6 +1287,39 @@
 					<daylight>CEST</daylight>
 				</short>
 				<exemplarCity>파리</exemplarCity>
+			</zone>
+			<!-- United Kingdom -->
+			<zone type="Europe/Belfast">
+				<exemplarCity draft="true">벨파스트(Belfast)</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<exemplarCity draft="true">런던(London)</exemplarCity>
+			</zone>
+			<!-- Greenland -->
+			<zone type="America/Thule">
+				<exemplarCity draft="true">툴레(Thule)</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity draft="true">고드호프(Godthab)</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity draft="true">스코레스비순드(Scoresbysund)</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity draft="true">덴마크샤븐(Danmarkshavn)</exemplarCity>
+			</zone>
+			<!-- Indonesia -->
+			<zone type="Asia/Jakarta">
+				<exemplarCity draft="true">자카르타(Jakarta)</exemplarCity>
+			</zone>
+			<zone type="Asia/Pontianak">
+				<exemplarCity draft="true">폰티아낙(Pontianak)</exemplarCity>
+			</zone>
+			<zone type="Asia/Makassar">
+				<exemplarCity draft="true">마카사르(Makassar)</exemplarCity>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<exemplarCity draft="true">자야푸라(Jayapura)</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
@@ -1011,6 +1343,16 @@
 				</short>
 				<exemplarCity>도쿄</exemplarCity>
 			</zone>
+			<!-- Kiribati -->
+			<zone type="Pacific/Enderbury">
+				<exemplarCity draft="true">엔더베리(Enderbury)</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity draft="true">키르티마티(Kiritimati)</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity draft="true">타라와(Tarawa)</exemplarCity>
+			</zone>
 			<zone type="Asia/Seoul">
 				<long>
 					<standard>한국표준시</standard>
@@ -1021,6 +1363,22 @@
 					<daylight>KST</daylight>
 				</short>
 				<exemplarCity>서울</exemplarCity>
+			</zone>
+			<!-- Kazakhstan -->
+			<zone type="Asia/Aqtau">
+				<exemplarCity draft="true">악타우(Aqtau)</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity draft="true">오랄(Oral)</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity draft="true">악토브(Aqtobe)</exemplarCity>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity draft="true">키질로르다(Qyzylorda)</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity draft="true">알마아타(Almaty)</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
@@ -1033,6 +1391,89 @@
 				</short>
 				<exemplarCity>카사블랑카</exemplarCity>
 			</zone>
+			<!-- Marshall Islands -->
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity draft="true">크와잘란(Kwajalein)</exemplarCity>
+			</zone>
+			<zone type="Pacific/Majuro">
+				<exemplarCity draft="true">마유로(Majuro)</exemplarCity>
+			</zone>
+			<!-- Mali -->
+			<zone type="Africa/Bamako">
+				<exemplarCity draft="true">바마코(Bamako)</exemplarCity>
+			</zone>
+			<zone type="Africa/Timbuktu">
+				<exemplarCity draft="true">팀북투(Timbuktu)</exemplarCity>
+			</zone>
+			<!-- Mongolia -->
+			<zone type="Asia/Hovd">
+				<exemplarCity draft="true">호브트(Hovd)</exemplarCity>
+			</zone>
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity draft="true">울란바타르(Ulaanbaatar)</exemplarCity>
+			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity draft="true">초이발산(Choibalsan)</exemplarCity>
+			</zone>
+			<!-- Mexico -->
+			<zone type="America/Tijuana">
+				<exemplarCity draft="true">티후아나(Tijuana)</exemplarCity>
+			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity draft="true">에르모시요(Hermosillo)</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity draft="true">마사틀란(Mazatlan)</exemplarCity>
+			</zone>
+			<zone type="America/Chihuahua">
+				<exemplarCity draft="true">치와와주(Chihuahua)</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity draft="true">몬테레이(Monterrey)</exemplarCity>
+			</zone>
+			<zone type="America/Mexico_City">
+				<exemplarCity draft="true">멕시코시티(Mexico City)</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity draft="true">메리다(Merida)</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity draft="true">칸쿤(Cancun)</exemplarCity>
+			</zone>
+			<!-- Malaysia -->
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity draft="true">쿠알라룸푸르(Kuala Lumpur)</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuching">
+				<exemplarCity draft="true">쿠칭(Kuching)</exemplarCity>
+			</zone>
+			<!-- New Zealand -->
+			<zone type="Pacific/Chatham">
+				<exemplarCity draft="true">채텀(Chatham)</exemplarCity>
+			</zone>
+			<zone type="Pacific/Auckland">
+				<exemplarCity draft="true">오클랜드(Auckland)</exemplarCity>
+			</zone>
+			<!-- French Polynesia -->
+			<zone type="Pacific/Tahiti">
+				<exemplarCity draft="true">타히티(Tahiti)</exemplarCity>
+			</zone>
+			<zone type="Pacific/Marquesas">
+				<exemplarCity draft="true">마르케사스(Marquesas)</exemplarCity>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<exemplarCity draft="true">감비아(Gambier)</exemplarCity>
+			</zone>
+			<!-- Portugal -->
+			<zone type="Atlantic/Azores">
+				<exemplarCity draft="true">아조레스(Azores)</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity draft="true">마데이라(Madeira)</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity draft="true">리스본(Lisbon)</exemplarCity>
+			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
 					<standard>동부유럽 표준시</standard>
@@ -1043,6 +1484,86 @@
 					<daylight>EEST</daylight>
 				</short>
 				<exemplarCity>부쿠레슈티</exemplarCity>
+			</zone>
+			<!-- Russia -->
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity draft="true">칼리린그라드(Kaliningrad)</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="true">모스크바(Moscow)</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity draft="true">사마라(Samara)</exemplarCity>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<exemplarCity draft="true">예카테린버그(Yekaterinburg)</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity draft="true">옴스크(Omsk)</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity draft="true">노브시빌리스크(Novosibirsk)</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity draft="true">크라스노야르스크(Krasnoyarsk)</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity draft="true">이르쿠츠크(Irkutsk)</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity draft="true">야츠크(Yakutsk)</exemplarCity>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity draft="true">블라디보스톡(Vladivostok)</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity draft="true">사할린(Sakhalin)</exemplarCity>
+			</zone>
+			<zone type="Asia/Magadan">
+				<exemplarCity draft="true">마가단(Magadan)</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity draft="true">캄차스키(Kamchatka)</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity draft="true">아나디르(Anadyr)</exemplarCity>
+			</zone>
+			<!-- Svalbard and Jan Mayen -->
+			<zone type="Atlantic/Jan_Mayen">
+				<exemplarCity draft="true">얀 마웬(Jan Mayen)</exemplarCity>
+			</zone>
+			<zone type="Arctic/Longyearbyen">
+				<exemplarCity draft="true">롱이어빈(Longyearbyen)</exemplarCity>
+			</zone>
+			<!-- Ukraine -->
+			<zone type="Europe/Uzhgorod">
+				<exemplarCity draft="true">우주고로트(Uzhgorod)</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="true">키에브(Kiev)</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity draft="true">심페로폴(Simferopol)</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity draft="true">자포로제(Zaporozhye)</exemplarCity>
+			</zone>
+			<!-- United States Minor Outlying Islands -->
+			<zone type="Pacific/Midway">
+				<exemplarCity draft="true">미드웨이(Midway)</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity draft="true">존스톤(Johnston)</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity draft="true">웨이크(Wake)</exemplarCity>
+			</zone>
+			<!-- United States -->
+			<zone type="America/Adak">
+				<exemplarCity draft="true">아다크(Adak)</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity draft="true">놈(Nome)</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
@@ -1066,6 +1587,12 @@
 				</short>
 				<exemplarCity>앵커리지</exemplarCity>
 			</zone>
+			<zone type="America/Yakutat">
+				<exemplarCity draft="true">야쿠타트(Yakutat)</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity draft="true">주노(Juneau)</exemplarCity>
+			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
 					<standard>태평양 표준시</standard>
@@ -1076,6 +1603,9 @@
 					<daylight>PDT</daylight>
 				</short>
 				<exemplarCity>로스앤젤레스</exemplarCity>
+			</zone>
+			<zone type="America/Boise">
+				<exemplarCity draft="true">보이시(Boise)</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
@@ -1088,6 +1618,9 @@
 				</short>
 				<exemplarCity>피닉스</exemplarCity>
 			</zone>
+			<zone type="America/Shiprock">
+				<exemplarCity draft="true">쉽록(Shiprock)</exemplarCity>
+			</zone>
 			<zone type="America/Denver">
 				<long>
 					<standard>산악 표준시</standard>
@@ -1098,6 +1631,9 @@
 					<daylight>MDT</daylight>
 				</short>
 				<exemplarCity>덴버</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity draft="true">센터(Center)</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<long>
@@ -1110,6 +1646,15 @@
 				</short>
 				<exemplarCity>시카고</exemplarCity>
 			</zone>
+			<zone type="America/Menominee">
+				<exemplarCity draft="true">메노미니(Menominee)</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<exemplarCity draft="true">녹스(Knox)</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<exemplarCity draft="true">마렝고(Marengo)</exemplarCity>
+			</zone>
 			<zone type="America/Indianapolis">
 				<long>
 					<standard>동부 표준시</standard>
@@ -1121,6 +1666,18 @@
 				</short>
 				<exemplarCity>인디애나폴리스</exemplarCity>
 			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity draft="true">루이스빌(Louisville)</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<exemplarCity draft="true">베베(Vevay)</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<exemplarCity draft="true">몬티첼로(Monticello)</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity draft="true">디트로이트(Detroit)</exemplarCity>
+			</zone>
 			<zone type="America/New_York">
 				<long>
 					<standard>동부 표준시</standard>
@@ -1131,6 +1688,13 @@
 					<daylight>EDT</daylight>
 				</short>
 				<exemplarCity>뉴욕</exemplarCity>
+			</zone>
+			<!-- Uzbekistan -->
+			<zone type="Asia/Samarkand">
+				<exemplarCity draft="true">사마르칸트(Samarkand)</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity draft="true">타슈켄트(Tashkent)</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
@@ -1291,6 +1855,7 @@
 			</currency>
 			<currency type="CNY">
 				<displayName>중국 위안 인민폐</displayName>
+				<symbol draft="true">￥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>콜롬비아 페소</displayName>
@@ -1474,6 +2039,7 @@
 			</currency>
 			<currency type="KPW">
 				<displayName>조선 민주주의 인민 공화국 원</displayName>
+				<symbol draft="true">￦</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>대한민국 원</displayName>
@@ -1653,6 +2219,7 @@
 			</currency>
 			<currency type="RUB">
 				<displayName>러시아 루블</displayName>
+				<symbol draft="true">Rub</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>러시아 루블 (1991-1998)</displayName>

@@ -533,6 +533,35 @@
 			<script type="Zyyy">Algemeen</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">Wereld</territory>
+			<territory type="002" draft="true">Afrika</territory>
+			<territory type="005" draft="true">Zuid-Amerika</territory>
+			<territory type="009" draft="true">Oceanië</territory>
+			<territory type="011" draft="true">West-Afrika</territory>
+			<territory type="013" draft="true">Midden-Amerika</territory>
+			<territory type="014" draft="true">Oost-Afrika</territory>
+			<territory type="015" draft="true">Noord-Afrika</territory>
+			<territory type="017" draft="true">Centraal-Afrika</territory>
+			<territory type="018" draft="true">Zuidelijk Afrika</territory>
+			<territory type="019" draft="true">Amerika</territory>
+			<territory type="021" draft="true">Noord-Amerika</territory>
+			<territory type="029" draft="true">Caribisch gebied</territory>
+			<territory type="030" draft="true">Oost-Azië</territory>
+			<territory type="035" draft="true">Zuidoost-Azië</territory>
+			<territory type="039" draft="true">Zuid-Europa</territory>
+			<territory type="053" draft="true">Australië en Nieuw-Zeeland</territory>
+			<territory type="054" draft="true">Melanesië</territory>
+			<territory type="057" draft="true">Micronesië</territory>
+			<territory type="061" draft="true">Polynesië</territory>
+			<territory type="062" draft="true">Zuidelijk Centraal-Azië</territory>
+			<territory type="142" draft="true">Azië</territory>
+			<territory type="145" draft="true">West-Azië</territory>
+			<territory type="150" draft="true">Europa</territory>
+			<territory type="151" draft="true">Oost-Europa</territory>
+			<territory type="154" draft="true">Noord-Europa</territory>
+			<territory type="155" draft="true">West-Europa</territory>
+			<territory type="830" draft="true">Kanaaleilanden</territory>
+			<territory type="833" draft="true">Isle of Man</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Verenigde Arabische Emiraten</territory>
 			<territory type="AF">Afghanistan</territory>
@@ -548,6 +577,7 @@
 			<territory type="AT">Oostenrijk</territory>
 			<territory type="AU">Australië</territory>
 			<territory type="AW">Aruba</territory>
+			<territory type="AX" draft="true">Alandeilanden</territory>
 			<territory type="AZ">Azerbeidzjan</territory>
 			<territory type="BA">Bosnië Herzegovina</territory>
 			<territory type="BB">Barbados</territory>
@@ -773,6 +803,7 @@
 			<territory type="ZA">Zuid-Afrika</territory>
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabwe</territory>
+			<territory type="ZZ" draft="true">Oceanië (overige)</territory>
 		</territories>
 		<variants>
 			<variant type="REVISED">Gewijzigd</variant>
@@ -981,6 +1012,11 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
 			<zone type="Etc/GMT">
 				<long>
 					<standard>Greenwich Mean Time</standard>
@@ -997,6 +1033,43 @@
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity draft="true">Dumont Durville</exemplarCity>
+			</zone>
+			<!-- Antarctica
+				 Argentina
+			-->
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity draft="true">Río Gallegos</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/ComodRivadavia">
+				<exemplarCity draft="true">Comodora Rivadavia</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity draft="true">Córdoba</exemplarCity>
+			</zone>
+			<!-- Australia
+				 Brazil
+			-->
+			<zone type="America/Porto_Velho">
+				<exemplarCity draft="true">Pôrto Velho</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity draft="true">Cuiabá</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity draft="true">Belém</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity draft="true">São Paulo</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity draft="true">Bahia</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity draft="true">Maceió</exemplarCity>
+			</zone>
+			<!-- Canada -->
+			<zone type="America/Montreal">
+				<exemplarCity draft="true">Montréal</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -1084,8 +1157,37 @@
 				</short>
 				<exemplarCity>Casablanca</exemplarCity>
 			</zone>
+			<!-- Mali -->
+			<zone type="Africa/Timbuktu">
+				<exemplarCity draft="true">Timboektoe</exemplarCity>
+			</zone>
+			<!-- Mongolia -->
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity draft="true">Ulaanbaator</exemplarCity>
+			</zone>
+			<!-- Mexico -->
+			<zone type="America/Mazatlan">
+				<exemplarCity draft="true">Mazatlán</exemplarCity>
+			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity draft="true">Mexico Stad</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity draft="true">Mérida</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity draft="true">Cancún</exemplarCity>
+				<!-- Malaysia
+					 New Zealand
+					 French Polynesia
+					 Portugal
+					 Russia
+					 Svalbard and Jan Mayen
+					 Ukraine
+					 United States Minor Outlying Islands
+					 United States
+					 Uzbekistan
+				-->
 			</zone>
 			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
@@ -1855,6 +1957,9 @@
 			<currency type="SOS">
 				<displayName>Somalische shilling</displayName>
 				<symbol>So. Sh.</symbol>
+			</currency>
+			<currency type="SRD">
+				<displayName draft="true">Surinaamse dollar</displayName>
 			</currency>
 			<currency type="SRG">
 				<displayName>Surinaamse gulden</displayName>

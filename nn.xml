@@ -8,11 +8,53 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="ar" draft="true">Arabisk</language>
+			<language type="de" draft="true">Tysk</language>
+			<language type="en" draft="true">Engelsk</language>
+			<language type="es" draft="true">Spansk</language>
+			<language type="fr" draft="true">Fransk</language>
+			<language type="it" draft="true">Italiensk</language>
+			<language type="ja" draft="true">Japansk</language>
 			<language type="nb">norsk bokmål</language>
 			<language type="nn">norsk nynorsk</language>
 			<language type="no">norsk</language>
+			<language type="pt" draft="true">Portugisisk</language>
+			<language type="ru" draft="true">Russisk</language>
+			<language type="zh" draft="true">Kinesisk</language>
 		</languages>
+		<scripts>
+			<script type="Latn" draft="true">Latinsk</script>
+		</scripts>
 		<territories>
+			<territory type="001" draft="true">Verden</territory>
+			<territory type="002" draft="true">Afrika</territory>
+			<territory type="005" draft="true">Sør-Amerika</territory>
+			<territory type="009" draft="true">Oseania</territory>
+			<territory type="011" draft="true">Vest-Afrika</territory>
+			<territory type="013" draft="true">Sentral-Amerika</territory>
+			<territory type="014" draft="true">Aust-Afrika</territory>
+			<territory type="015" draft="true">Nord-Afrika</territory>
+			<territory type="017" draft="true">Sentral-Afrika</territory>
+			<territory type="018" draft="true">Sørlege Afrika</territory>
+			<territory type="019" draft="true">Amerika</territory>
+			<territory type="021" draft="true">Nord-Amerika</territory>
+			<territory type="029" draft="true">Karibiske hav</territory>
+			<territory type="030" draft="true">Aust-Asia</territory>
+			<territory type="035" draft="true">Søraust-Asia</territory>
+			<territory type="039" draft="true">Sør-Europa</territory>
+			<territory type="053" draft="true">Australia og New Zealand</territory>
+			<territory type="054" draft="true">Melanesia</territory>
+			<territory type="057" draft="true">Mikronesia</territory>
+			<territory type="061" draft="true">Polynesia</territory>
+			<territory type="062" draft="true">Sørlege Sentral-Asia</territory>
+			<territory type="142" draft="true">Asia</territory>
+			<territory type="145" draft="true">Vest-Asia</territory>
+			<territory type="150" draft="true">Europa</territory>
+			<territory type="151" draft="true">Aust-Europa</territory>
+			<territory type="154" draft="true">Nord-Europa</territory>
+			<territory type="155" draft="true">Vest-Europa</territory>
+			<territory type="830" draft="true">Kanaløyene</territory>
+			<territory type="833" draft="true">Man</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">De forente arabiske emiratene</territory>
 			<territory type="AF">Afghanistan</territory>
@@ -28,6 +70,7 @@
 			<territory type="AT">Østerrike</territory>
 			<territory type="AU">Australia</territory>
 			<territory type="AW">Aruba</territory>
+			<territory type="AX" draft="true">Åland</territory>
 			<territory type="AZ">Aserbajdsjan</territory>
 			<territory type="BA">Bosnia og Hercegovina</territory>
 			<territory type="BB">Barbados</territory>
@@ -253,6 +296,7 @@
 			<territory type="ZA">Sør-Afrika</territory>
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabwe</territory>
+			<territory type="ZZ" draft="true">Ytre Oseania</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
@@ -322,6 +366,15 @@
 							<day type="sat">la</day>
 							<day type="sat" alt="proposed" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" draft="true">la.</day>
 						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="true">S</day>
+							<day type="mon" draft="true">M</day>
+							<day type="tue" draft="true">T</day>
+							<day type="wed" draft="true">O</day>
+							<day type="thu" draft="true">T</day>
+							<day type="fri" draft="true">F</day>
+							<day type="sat" draft="true">L</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">sundag</day>
 							<day type="mon">måndag</day>
@@ -387,6 +440,79 @@
 				</timeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<hourFormat>+HH.mm;-HH.mm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
+			<!-- Antarktis -->
+			<zone type="Antarctica/South_Pole">
+				<exemplarCity draft="true">Sørpolen</exemplarCity>
+			</zone>
+			<!-- Argentina
+				 Australia
+				 Brazil
+				 Canada
+				 Kongo, Den demokratiske republikken
+				 Chile
+			-->
+			<zone type="Pacific/Easter">
+				<exemplarCity draft="true">Påskeøya</exemplarCity>
+			</zone>
+			<!-- China
+				 Ecuador
+				 Spain
+			-->
+			<zone type="Atlantic/Canary">
+				<exemplarCity draft="true">Kanariøyene</exemplarCity>
+			</zone>
+			<!-- Micronesia
+				 United Kingdom
+				 Greenland
+			-->
+			<zone type="America/Godthab">
+				<exemplarCity draft="true">Godthåb</exemplarCity>
+			</zone>
+			<!-- Indonesia
+				 Kiribati
+				 Kasakhstan
+				 Marshall Islands
+				 Mali
+				 Mongolia
+			-->
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity draft="true">Ulan Bator</exemplarCity>
+			</zone>
+			<!-- Mexico -->
+			<zone type="America/Mexico_City">
+				<exemplarCity draft="true">Mexico by</exemplarCity>
+			</zone>
+			<!-- Malaysia
+				 New Zealand
+				 French Polynesia
+				 Portugal
+			-->
+			<zone type="Atlantic/Azores">
+				<exemplarCity draft="true">Azorene</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity draft="true">Lisboa</exemplarCity>
+			</zone>
+			<!-- Russia -->
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="true">Moskva</exemplarCity>
+			</zone>
+			<!-- Svalbard and Jan Mayen
+				 Ukraine
+				 United States Minor Outlying Islands
+				 United States
+				 Usbekistan
+			-->
+			<zone type="Asia/Tashkent">
+				<exemplarCity draft="true">Tasjkent</exemplarCity>
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>
@@ -394,11 +520,29 @@
 			<group> </group>
 		</symbols>
 		<currencies>
+			<currency type="BRL">
+				<displayName draft="true">Brasilianske real</displayName>
+			</currency>
+			<currency type="CNY">
+				<displayName draft="true">Kinesiske yuan renminbi</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName draft="true">Britiske pund</displayName>
+			</currency>
+			<currency type="INR">
+				<displayName draft="true">Indiske rupi</displayName>
+			</currency>
 			<currency type="NOK">
 				<symbol>kr</symbol>
 			</currency>
 			<currency type="NOK" alt="proposed" draft="true">
 				<displayName>Norske kroner</displayName>
+			</currency>
+			<currency type="RUB">
+				<displayName draft="true">Russiske rubler</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName draft="true">Amerikanske dollar</displayName>
 			</currency>
 		</currencies>
 	</numbers>

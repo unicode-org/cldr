@@ -148,7 +148,11 @@
 			<language type="zh">Čínština</language>
 			<language type="zu">Zulu</language>
 		</languages>
+		<scripts>
+			<script type="Latn" draft="true">Latinka</script>
+		</scripts>
 		<territories>
+			<territory type="200" draft="true">Česká republika</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Spojené arabské emiráty</territory>
 			<territory type="AF">Afghánistán</territory>
@@ -512,6 +516,15 @@
 							<day type="thu">čt</day>
 							<day type="fri">pá</day>
 							<day type="sat">so</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="true">N</day>
+							<day type="mon" draft="true">P</day>
+							<day type="tue" draft="true">Ú</day>
+							<day type="wed" draft="true">S</day>
+							<day type="thu" draft="true">Č</day>
+							<day type="fri" draft="true">P</day>
+							<day type="sat" draft="true">S</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">neděle</day>

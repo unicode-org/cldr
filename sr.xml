@@ -29,6 +29,7 @@
 			<language type="fr">Француски</language>
 			<language type="ga">Ирски</language>
 			<language type="he">Хебрејски</language>
+			<language type="hi" draft="true">Хинди</language>
 			<language type="hr">Хрватски</language>
 			<language type="hu">Мађарски</language>
 			<language type="hy">Арменски</language>
@@ -90,6 +91,35 @@
 			<script type="Latn">Латиница</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">Свет</territory>
+			<territory type="002" draft="true">Африка</territory>
+			<territory type="005" draft="true">Јужна Америка</territory>
+			<territory type="009" draft="true">Океанија</territory>
+			<territory type="011" draft="true">Западна Африка</territory>
+			<territory type="013" draft="true">Централна Америка</territory>
+			<territory type="014" draft="true">Источна Африка</territory>
+			<territory type="015" draft="true">Северна Африка</territory>
+			<territory type="017" draft="true">Централна Африка</territory>
+			<territory type="018" draft="true">Јужна Африка</territory>
+			<territory type="019" draft="true">Америке</territory>
+			<territory type="021" draft="true">Северна Америка</territory>
+			<territory type="029" draft="true">Кариби</territory>
+			<territory type="030" draft="true">Источна Азија</territory>
+			<territory type="035" draft="true">Југоисточна Азија</territory>
+			<territory type="039" draft="true">Јужна Европа</territory>
+			<territory type="053" draft="true">Аустралија и Нови Зеланд</territory>
+			<territory type="054" draft="true">Меланезија</territory>
+			<territory type="057" draft="true">Микронезија</territory>
+			<territory type="061" draft="true">Полинезија</territory>
+			<territory type="062" draft="true">Јужно-централна Азија</territory>
+			<territory type="142" draft="true">Азија</territory>
+			<territory type="145" draft="true">Западна Азија</territory>
+			<territory type="150" draft="true">Европа</territory>
+			<territory type="151" draft="true">Источна Европа</territory>
+			<territory type="154" draft="true">Северна Европа</territory>
+			<territory type="155" draft="true">Западна Европа</territory>
+			<territory type="830" draft="true">Каналска острва</territory>
+			<territory type="833" draft="true">Острво Ман</territory>
 			<territory type="AD">Андора</territory>
 			<territory type="AE">Уједињени Арапски Емирати</territory>
 			<territory type="AF">Авганистан</territory>
@@ -101,6 +131,7 @@
 			<territory type="AT">Аустрија</territory>
 			<territory type="AU">Аустралија</territory>
 			<territory type="AW">Аруба</territory>
+			<territory type="AX" draft="true">Аландска острва</territory>
 			<territory type="AZ">Азербејџан</territory>
 			<territory type="BA">Босна и Херцеговина</territory>
 			<territory type="BB">Барбадос</territory>
@@ -133,7 +164,7 @@
 			<territory type="CN">Кина</territory>
 			<territory type="CO">Колумбија</territory>
 			<territory type="CR">Костарика</territory>
-			<territory type="CS" draft="true">Србија и Црна Гора</territory>
+			<territory type="CS" draft="true">Чехословачка</territory>
 			<territory type="CU">Куба</territory>
 			<territory type="CV">Капе Верде</territory>
 			<territory type="CX">Божићно Острво</territory>
@@ -324,6 +355,7 @@
 			<territory type="ZA">Јужна Африка</territory>
 			<territory type="ZM">Замбија</territory>
 			<territory type="ZW">Зимбабве</territory>
+			<territory type="ZZ" draft="true">Остала океанија</territory>
 		</territories>
 		<keys>
 			<key type="calendar">Календар</key>
@@ -482,6 +514,26 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
+			<!-- Antarctica -->
+			<zone type="Antarctica/South_Pole">
+				<exemplarCity draft="true">Јужни пол</exemplarCity>
+			</zone>
+			<!-- Democratic Republic of the Congo -->
+			<zone type="Africa/Kinshasa">
+				<exemplarCity draft="true">Киншаса</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity draft="true">Lubumbaši</exemplarCity>
+			</zone>
+			<!-- China -->
+			<zone type="Asia/Shanghai">
+				<exemplarCity draft="true">Шангај</exemplarCity>
+			</zone>
 			<zone type="Europe/Belgrade">
 				<long>
 					<standard>Централно Европско Време</standard>
@@ -491,6 +543,33 @@
 					<standard>CET</standard>
 					<daylight>CET</daylight>
 				</short>
+			</zone>
+			<!-- Russia -->
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="true">Москва</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity draft="true">Краснојарск</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity draft="true">Камчатка</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity draft="true">Анадир</exemplarCity>
+			</zone>
+			<!-- Ukraine -->
+			<zone type="Europe/Uzhgorod">
+				<exemplarCity draft="true">Узгород</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="true">Кијев</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity draft="true">Запорожје</exemplarCity>
+			</zone>
+			<!-- Uzbekistan -->
+			<zone type="Asia/Tashkent">
+				<exemplarCity draft="true">Ташкент</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
@@ -515,6 +594,10 @@
 				<displayName>Белгијски франак</displayName>
 				<symbol>BF</symbol>
 			</currency>
+			<currency type="BRL">
+				<displayName draft="true">Бразилски Реал</displayName>
+				<symbol draft="true">BRL</symbol>
+			</currency>
 			<currency type="CAD">
 				<displayName>Канадски долар</displayName>
 				<symbol>Can$</symbol>
@@ -522,6 +605,14 @@
 			<currency type="CHF">
 				<displayName>Швајцарски франак</displayName>
 				<symbol>SwF</symbol>
+			</currency>
+			<currency type="CNY">
+				<displayName draft="true">Кинески Јуан Ренминби</displayName>
+				<symbol draft="true">У</symbol>
+			</currency>
+			<currency type="CSD">
+				<displayName draft="true">Српски Динар</displayName>
+				<symbol draft="true">YUN</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Немачка марка</displayName>
@@ -557,6 +648,10 @@
 			<currency type="IEP">
 				<displayName>Ирска фунта</displayName>
 				<symbol>IR£</symbol>
+			</currency>
+			<currency type="INR">
+				<displayName draft="true">Индијски Рупи</displayName>
+				<symbol draft="true">INR</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Италијанска лира</displayName>

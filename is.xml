@@ -475,7 +475,39 @@
 			<language type="zu">Súlú</language>
 			<language type="zun">Súní</language>
 		</languages>
+		<scripts>
+			<script type="Latn" draft="true">Latneskt</script>
+		</scripts>
 		<territories>
+			<territory type="001" draft="true">Heimur</territory>
+			<territory type="002" draft="true">Afríka</territory>
+			<territory type="005" draft="true">Suður-Ameríka</territory>
+			<territory type="009" draft="true">Eyjaálfa</territory>
+			<territory type="011" draft="true">Vestur-Afríka</territory>
+			<territory type="013" draft="true">Mið-Ameríka</territory>
+			<territory type="014" draft="true">Austur-Afríka</territory>
+			<territory type="015" draft="true">Norður-Afríka</territory>
+			<territory type="017" draft="true">Mið-Afríka</territory>
+			<territory type="018" draft="true">Suður-Afríka</territory>
+			<territory type="019" draft="true">Ameríka</territory>
+			<territory type="021" draft="true">Norður-Ameríka</territory>
+			<territory type="029" draft="true">Karíbahaf</territory>
+			<territory type="030" draft="true">Austur-Asía</territory>
+			<territory type="035" draft="true">Suðaustur-Asía</territory>
+			<territory type="039" draft="true">Suður-Evrópa</territory>
+			<territory type="053" draft="true">Ástralía og Nýja-Sjáland</territory>
+			<territory type="054" draft="true">Melanesía</territory>
+			<territory type="057" draft="true">Míkrónesía</territory>
+			<territory type="061" draft="true">Pólýnesía</territory>
+			<territory type="062" draft="true">Syðri mið-Asía</territory>
+			<territory type="142" draft="true">Asía</territory>
+			<territory type="145" draft="true">Vestur-Asía</territory>
+			<territory type="150" draft="true">Evrópa</territory>
+			<territory type="151" draft="true">Austur-Evrópa</territory>
+			<territory type="154" draft="true">Norður-Evrópa</territory>
+			<territory type="155" draft="true">Vestur-Evrópa</territory>
+			<territory type="830" draft="true">Ermasundseyjar</territory>
+			<territory type="833" draft="true">Mön</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Sameinuðu arabísku furstadæmin</territory>
 			<territory type="AF">Afganistan</territory>
@@ -491,6 +523,7 @@
 			<territory type="AT">Austurríki</territory>
 			<territory type="AU">Ástralía</territory>
 			<territory type="AW">Arúba</territory>
+			<territory type="AX" draft="true">Álandseyjar</territory>
 			<territory type="AZ">Aserbaídsjan</territory>
 			<territory type="BA">Bosnía og Hersegóvína</territory>
 			<territory type="BB">Barbados</territory>
@@ -519,6 +552,7 @@
 			<territory type="CH">Sviss</territory>
 			<territory type="CI">Fílabeinsströndin</territory>
 			<territory type="CK">Cookseyjar</territory>
+			<territory type="CL" draft="true">Chile</territory>
 			<territory type="CM">Kamerún</territory>
 			<territory type="CN">Kína</territory>
 			<territory type="CO">Kólumbía</territory>
@@ -640,6 +674,7 @@
 			<territory type="NU">Niue</territory>
 			<territory type="NZ">Nýja-Sjáland</territory>
 			<territory type="OM">Óman</territory>
+			<territory type="PA" draft="true">Panama</territory>
 			<territory type="PE">Perú</territory>
 			<territory type="PF">Franska Pólýnesía</territory>
 			<territory type="PG">Papúa Nýja-Gínea</territory>
@@ -713,6 +748,8 @@
 			<territory type="YU">Júgóslavía</territory>
 			<territory type="ZA">Suður-Afríka</territory>
 			<territory type="ZM">Sambía</territory>
+			<territory type="ZW" draft="true">Simbabve</territory>
+			<territory type="ZZ" draft="true">Ytri Eyjaálfa</territory>
 		</territories>
 		<keys>
 			<key type="calendar">Dagatal</key>
@@ -841,6 +878,88 @@
 				</dateFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
+			<!-- Antarctica -->
+			<zone type="Antarctica/South_Pole">
+				<exemplarCity draft="true">Suðurpóll</exemplarCity>
+			</zone>
+			<!-- Argentina -->
+			<zone type="America/Buenos_Aires">
+				<exemplarCity draft="true">Búenos Aíres</exemplarCity>
+			</zone>
+			<!-- Australia
+				 Brazil
+				 Canada
+			-->
+			<zone type="America/Regina">
+				<exemplarCity draft="true">Regína</exemplarCity>
+			</zone>
+			<!-- Democratic Republic of the Congo
+				 Chile
+			-->
+			<zone type="America/Santiago">
+				<exemplarCity draft="true">Santíagó</exemplarCity>
+			</zone>
+			<!-- China
+				 Ecuador
+				 Spain
+			-->
+			<zone type="Atlantic/Canary">
+				<exemplarCity draft="true">Kanarí</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity draft="true">Madríd</exemplarCity>
+			</zone>
+			<!-- Micronesia
+				 United Kingdom
+				 Greenland
+				 Indonesia
+				 Kiribati
+				 Kazakhstan
+				 Marshall Islands
+				 Mali
+				 Mongolia
+				 Mexico
+			-->
+			<zone type="America/Mexico_City">
+				<exemplarCity draft="true">Mexíkóborg</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity draft="true">Kankún</exemplarCity>
+			</zone>
+			<!-- Malaysia -->
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity draft="true">Kúala Lúmpúr</exemplarCity>
+			</zone>
+			<!-- New Zealand
+				 French Polynesia
+			-->
+			<zone type="Pacific/Tahiti">
+				<exemplarCity draft="true">Tahítí</exemplarCity>
+			</zone>
+			<!-- Portugal -->
+			<zone type="Atlantic/Azores">
+				<exemplarCity draft="true">Asoreyjar</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity draft="true">Lissabon</exemplarCity>
+			</zone>
+			<!-- Russia -->
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="true">Moskva</exemplarCity>
+				<!-- Svalbard and Jan Mayen
+					 Ukraine
+					 United States Minor Outlying Islands
+					 United States
+					 Uzbekistan
+				-->
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>
@@ -1246,6 +1365,9 @@
 			<currency type="ROL">
 				<displayName>Rúmenskt lei</displayName>
 				<symbol>leu</symbol>
+			</currency>
+			<currency type="RUB">
+				<displayName draft="true">Rússnesk rúbla</displayName>
 			</currency>
 			<currency type="RUR">
 				<displayName>Rússnesk rúbla</displayName>

@@ -100,6 +100,35 @@
 			<script type="Zyyy">Κοινό</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">Κόσμος</territory>
+			<territory type="002" draft="true">Αφρική</territory>
+			<territory type="005" draft="true">Νότια Αμερική</territory>
+			<territory type="009" draft="true">Ωκεανία</territory>
+			<territory type="011" draft="true">Δυτική Αφρική</territory>
+			<territory type="013" draft="true">Κεντρική Αμερική</territory>
+			<territory type="014" draft="true">Ανατολική Αφρική</territory>
+			<territory type="015" draft="true">Βόρεια Αφρική</territory>
+			<territory type="017" draft="true">Μέση Αφρική</territory>
+			<territory type="018" draft="true">Νότια Αφρική</territory>
+			<territory type="019" draft="true">Αμερική</territory>
+			<territory type="021" draft="true">Βόρεια Αμερική</territory>
+			<territory type="029" draft="true">Καραϊβική</territory>
+			<territory type="030" draft="true">Ανατολική Ασία</territory>
+			<territory type="035" draft="true">Νοτιοανατολική Ασία</territory>
+			<territory type="039" draft="true">Βόρεια Ευρώπη</territory>
+			<territory type="053" draft="true">Αυστραλία και Νέα Ζηλανδία</territory>
+			<territory type="054" draft="true">Μελανησία</territory>
+			<territory type="057" draft="true">Μικρονησία</territory>
+			<territory type="061" draft="true">Πολυνησία</territory>
+			<territory type="062" draft="true">Νότια Κεντρική Ασία</territory>
+			<territory type="142" draft="true">Ασία</territory>
+			<territory type="145" draft="true">Δυτική Ασία</territory>
+			<territory type="150" draft="true">Ευρώπη</territory>
+			<territory type="151" draft="true">Ανατολική Ευρώπη</territory>
+			<territory type="154" draft="true">Βόρεια Ευρώπη</territory>
+			<territory type="155" draft="true">Δυτική Ευρώπη</territory>
+			<territory type="830" draft="true">Νήσοι Καναλιού</territory>
+			<territory type="833" draft="true">Νήσος Man</territory>
 			<territory type="AD">Ανδόρα</territory>
 			<territory type="AE">Ηνωμένα Αραβικά Εμιράτα</territory>
 			<territory type="AF">Αφγανιστάν</territory>
@@ -115,6 +144,7 @@
 			<territory type="AT">Αυστρία</territory>
 			<territory type="AU">Αυστραλία</territory>
 			<territory type="AW">Αρούμπα</territory>
+			<territory type="AX" draft="true">Νήσοι Aland</territory>
 			<territory type="AZ">Αζερμπαϊτζάν</territory>
 			<territory type="BA">Βοσνία - Ερζεγοβίνη</territory>
 			<territory type="BB">Μπαρμπάντος</territory>
@@ -230,6 +260,7 @@
 			<territory type="LT">Λιθουανία</territory>
 			<territory type="LU">Λουξεμβούργο</territory>
 			<territory type="LV">Λετονία</territory>
+			<territory type="LY" draft="true">Λιβύη</territory>
 			<territory type="MA">Μαρόκο</territory>
 			<territory type="MC">Μονακό</territory>
 			<territory type="MD">Μολδαβία, Δημοκρατία της</territory>
@@ -339,6 +370,7 @@
 			<territory type="ZA">Νότια Αφρική</territory>
 			<territory type="ZM">Ζάμπια</territory>
 			<territory type="ZW">Ζιμπάμπουε</territory>
+			<territory type="ZZ" draft="true">Περιφερειακή Ωκεανία</territory>
 		</territories>
 		<keys>
 			<key type="calendar">Ημερολόγιο</key>
@@ -542,6 +574,193 @@
 				</timeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
+			<!-- Antarctica
+				 Argentina
+			-->
+			<zone type="America/Buenos_Aires">
+				<exemplarCity draft="true">Μπουένος Άιρες</exemplarCity>
+			</zone>
+			<!-- Australia -->
+			<zone type="Australia/Adelaide">
+				<exemplarCity draft="true">Αδελαΐδα</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity draft="true">Μελβούρνη</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity draft="true">Σύδνεϊ</exemplarCity>
+			</zone>
+			<!-- Brazil -->
+			<zone type="America/Manaus">
+				<exemplarCity draft="true">Μανάος</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity draft="true">Σάο Πάολο</exemplarCity>
+			</zone>
+			<!-- Canada -->
+			<zone type="America/Vancouver">
+				<exemplarCity draft="true">Βανκούβερ</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity draft="true">Τορόντο</exemplarCity>
+			</zone>
+			<zone type="America/Montreal">
+				<exemplarCity draft="true">Μόντρεαλ</exemplarCity>
+			</zone>
+			<!-- Democratic Republic of the Congo -->
+			<zone type="Africa/Kinshasa">
+				<exemplarCity draft="true">Κινσάσα</exemplarCity>
+			</zone>
+			<!-- Chile -->
+			<zone type="America/Santiago">
+				<exemplarCity draft="true">Σαντιάγκο</exemplarCity>
+			</zone>
+			<!-- China -->
+			<zone type="Asia/Shanghai">
+				<exemplarCity draft="true">Σανγκάη</exemplarCity>
+			</zone>
+			<!-- Ecuador -->
+			<zone type="Pacific/Galapagos">
+				<exemplarCity draft="true">Γκαλαπάγκος</exemplarCity>
+			</zone>
+			<!-- Spain -->
+			<zone type="Atlantic/Canary">
+				<exemplarCity draft="true">Κανάρια</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity draft="true">Μαδρίτη</exemplarCity>
+			</zone>
+			<!-- Micronesia
+				 United Kingdom
+			-->
+			<zone type="Europe/Belfast">
+				<exemplarCity draft="true">Μπέλφαστ</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<exemplarCity draft="true">Λονδίνο</exemplarCity>
+			</zone>
+			<!-- Greenland
+				 Indonesia
+			-->
+			<zone type="Asia/Jakarta">
+				<exemplarCity draft="true">Τζακάρτα</exemplarCity>
+			</zone>
+			<!-- Kiribati
+				 Kazakhstan
+				 Marshall Islands
+				 Mali
+			-->
+			<zone type="Africa/Bamako">
+				<exemplarCity draft="true">Μπαμάκο</exemplarCity>
+			</zone>
+			<zone type="Africa/Timbuktu">
+				<exemplarCity draft="true">Τιμπουκτού</exemplarCity>
+			</zone>
+			<!-- Mongolia -->
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity draft="true">Ουλάν Μπατόρ</exemplarCity>
+			</zone>
+			<!-- Mexico -->
+			<zone type="America/Tijuana">
+				<exemplarCity draft="true">Τιχουάνα</exemplarCity>
+			</zone>
+			<zone type="America/Mexico_City">
+				<exemplarCity draft="true">Πόλη του Μεξικού</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity draft="true">Κανκούν</exemplarCity>
+			</zone>
+			<!-- Malaysia -->
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity draft="true">Κουάλα Λουμπούρ</exemplarCity>
+			</zone>
+			<!-- New Zealand -->
+			<zone type="Pacific/Auckland">
+				<exemplarCity draft="true">Όκλαντ</exemplarCity>
+			</zone>
+			<!-- French Polynesia -->
+			<zone type="Pacific/Tahiti">
+				<exemplarCity draft="true">Αϊτή</exemplarCity>
+			</zone>
+			<!-- Portugal -->
+			<zone type="Atlantic/Azores">
+				<exemplarCity draft="true">Αζόρες</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity draft="true">Μαδέρα</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity draft="true">Λισσαβώνα</exemplarCity>
+			</zone>
+			<!-- Russia -->
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity draft="true">Καλλίπολη</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="true">Μόσχα</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity draft="true">Σαμάρα</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity draft="true">Ομσκ</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity draft="true">Νοβοσιμπίρσκ</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity draft="true">Ιρκούτσκ</exemplarCity>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity draft="true">Βλαδιβοστόκ</exemplarCity>
+			</zone>
+			<!-- Svalbard and Jan Mayen
+				 Ukraine
+			-->
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="true">Κίεβο</exemplarCity>
+			</zone>
+			<!-- United States Minor Outlying Islands
+				 United States
+			-->
+			<zone type="Pacific/Honolulu">
+				<exemplarCity draft="true">Χονολουλού</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity draft="true">Άνκορατζ</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity draft="true">Λος Άντζελες</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity draft="true">Φοίνιξ</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity draft="true">Ντένβερ</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity draft="true">Σικάγο</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity draft="true">Ινδιανάπολη</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity draft="true">Ντητρόιτ</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity draft="true">Νέα Υόρκη</exemplarCity>
+			</zone>
+			<!-- Uzbekistan -->
+			<zone type="Asia/Samarkand">
+				<exemplarCity draft="true">Σαμαρκάνδη</exemplarCity>
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>

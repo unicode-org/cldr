@@ -83,6 +83,35 @@
 			<script type="Zyyy">Wspólny</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">Świat</territory>
+			<territory type="002" draft="true">Afryka</territory>
+			<territory type="005" draft="true">Ameryka Południowa</territory>
+			<territory type="009" draft="true">Oceania</territory>
+			<territory type="011" draft="true">Afryka Zachodnia</territory>
+			<territory type="013" draft="true">Ameryka Środkowa</territory>
+			<territory type="014" draft="true">Afryka Wschodnia</territory>
+			<territory type="015" draft="true">Afryka Północna</territory>
+			<territory type="017" draft="true">Afryka Środkowa</territory>
+			<territory type="018" draft="true">Afryka Południowa</territory>
+			<territory type="019" draft="true">Ameryka</territory>
+			<territory type="021" draft="true">Ameryka Północna</territory>
+			<territory type="029" draft="true">Morze Karaibskie</territory>
+			<territory type="030" draft="true">Azja Wschodnia</territory>
+			<territory type="035" draft="true">Azja Południowo-Wschodnia </territory>
+			<territory type="039" draft="true">Europa Południowa </territory>
+			<territory type="053" draft="true">Australia i Nowa Zelandia</territory>
+			<territory type="054" draft="true">Melanezja</territory>
+			<territory type="057" draft="true">Mikronezja</territory>
+			<territory type="061" draft="true">Polinezja</territory>
+			<territory type="062" draft="true">Azja Południowo-Środkowa</territory>
+			<territory type="142" draft="true">Azja</territory>
+			<territory type="145" draft="true">Azja Zachodnia</territory>
+			<territory type="150" draft="true">Europa</territory>
+			<territory type="151" draft="true">Europa Wschodnia</territory>
+			<territory type="154" draft="true">Europa Północna</territory>
+			<territory type="155" draft="true">Europa Zachodnia</territory>
+			<territory type="830" draft="true">Wyspy Normandzkie</territory>
+			<territory type="833" draft="true">Wyspa Man</territory>
 			<territory type="AD">Andora</territory>
 			<territory type="AE">Zjednoczone Emiraty Arabskie</territory>
 			<territory type="AF">Afganistan</territory>
@@ -98,6 +127,7 @@
 			<territory type="AT">Austria</territory>
 			<territory type="AU">Australia</territory>
 			<territory type="AW">Aruba</territory>
+			<territory type="AX" draft="true">Wyspy Alandzkie</territory>
 			<territory type="AZ">Azerbejdżan</territory>
 			<territory type="BA">Bośnia i Hercegowina</territory>
 			<territory type="BB">Barbados</territory>
@@ -323,6 +353,7 @@
 			<territory type="ZA">Afryka Południowa</territory>
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabwe</territory>
+			<territory type="ZZ" draft="true">Oceania inne</territory>
 		</territories>
 		<keys>
 			<key type="calendar">Kalendarz</key>
@@ -509,8 +540,26 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
+			<!-- Antarctica -->
+			<zone type="Antarctica/Rothera">
+				<exemplarCity draft="true">Stacja Naukowa Rothera</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity draft="true">Archipelag Palmera</exemplarCity>
+			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity draft="true">Biegun południowy</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity draft="true">Stacja Syowa</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity draft="true">Wybrzeże Mawsona</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Vostok">
 				<exemplarCity draft="true">Wostok</exemplarCity>
@@ -523,6 +572,12 @@
 			</zone>
 			<zone type="America/Argentina/ComodRivadavia">
 				<exemplarCity draft="true">Comodoro Rivadavia</exemplarCity>
+			</zone>
+			<!-- Argentina
+				 Australia
+			-->
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity draft="true">Wyspa Lord Howe</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity draft="true">St. John's</exemplarCity>
@@ -541,6 +596,14 @@
 			<!-- China -->
 			<zone type="Asia/Kashgar">
 				<exemplarCity draft="true">Kaszgar</exemplarCity>
+			</zone>
+			<!-- Brazil
+				 Canada
+				 Chile
+				 China
+			-->
+			<zone type="Asia/Urumqi">
+				<exemplarCity draft="true">Urumczi</exemplarCity>
 			</zone>
 			<zone type="Asia/Chongqing">
 				<exemplarCity draft="true">Czunking</exemplarCity>
@@ -562,12 +625,55 @@
 			<zone type="Asia/Jakarta">
 				<exemplarCity draft="true">Dżakarta</exemplarCity>
 			</zone>
+			<!-- Ecuador
+				 Spain
+				 Micronesia
+				 United Kingdom
+				 Greenland
+				 Indonesia
+				 Kiribati
+				 Kazakhstan
+			-->
+			<zone type="Asia/Aqtau">
+				<exemplarCity draft="true">Aktau</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity draft="true">Uralsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity draft="true">Aktiubińsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity draft="true">Kyzył Orda</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity draft="true">Ałma Ata</exemplarCity>
+			</zone>
 			<!-- Mongolia -->
 			<zone type="Asia/Hovd">
 				<exemplarCity draft="true">Howd</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity draft="true">Ułan Bator</exemplarCity>
+			</zone>
+			<!-- Marshall Islands
+				 Mali
+				 Mongolia
+			-->
+			<zone type="Asia/Choibalsan">
+				<exemplarCity draft="true">Czojbalsan</exemplarCity>
+			</zone>
+			<!-- Mexico -->
+			<zone type="America/Mexico_City">
+				<exemplarCity draft="true">Meksyk</exemplarCity>
+				<!-- Malaysia
+					 New Zealand
+					 French Polynesia
+					 Russia
+					 Svalbard and Jan Mayen
+					 United States Minor Outlying Islands
+					 United States
+				-->
 			</zone>
 			<zone type="Asia/Kuching">
 				<exemplarCity draft="true">Kuczing</exemplarCity>

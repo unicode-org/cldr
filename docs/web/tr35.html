@@ -678,7 +678,7 @@ root</pre>
     </tr>
   </table>
   <p class="note"><b>Note: </b>If XML 1.1 is approved in the current state, then this would not be 
-  necessary -- except for NULL (U+0000), which is typically never tailored. However, for backwards 
+  necessary — except for NULL (U+0000), which is typically never tailored. However, for backwards 
   compatibility with 1.0 systems it is best for some time to come to use these special escapes.</p>
   <h3><a name="Common_Attributes">Common Attributes</a></h3>
   <p class="element2">&lt;... type=&quot;<span style="color: blue">stroke</span>&quot; ...&gt;</p>
@@ -1019,14 +1019,14 @@ root</pre>
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">Friday</span>&lt;/day&gt;
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">Saturday</span>&lt;/day&gt;
     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/dayWidth&gt;
-    &nbsp;&nbsp;&nbsp;&nbsp;&lt;dayWidth width=&quot;<span style="color: blue">abbreviated</span>&quot;&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;dayWidth type=&quot;<span style="color: blue">abbreviated</span>&quot;&gt;
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">Sun</span>&lt;/day&gt;
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">Mon</span>&lt;/day&gt;
 ...
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">Fri</span>&lt;/day&gt;
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">Sat</span>&lt;/day&gt;
     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/dayWidth&gt;
-    &nbsp;&nbsp;&nbsp;&nbsp;&lt;dayWidth width=&quot;<span style="color: blue">narrow</span>&quot;&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;dayWidth type=&quot;<span style="color: blue">narrow</span>&quot;&gt;
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">Su</span>&lt;/day&gt;
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">M</span>&lt;/day&gt;
 ...
@@ -1035,7 +1035,7 @@ root</pre>
     &nbsp;&nbsp;&nbsp;&nbsp;&lt;/dayWidth&gt;
   &nbsp;&nbsp;&nbsp;&nbsp;&lt;/dayContext&gt;
   &nbsp;&nbsp;&nbsp;&nbsp;&lt;dayContext type=&quot;<span style="color: blue">stand-alone</span>&quot;&gt;
-    &nbsp;&nbsp;&nbsp;&nbsp;&lt;dayWidth width=&quot;<span style="color: blue">narrow</span>&quot;&gt;
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;dayWidth type=&quot;<span style="color: blue">narrow</span>&quot;&gt;
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">S</span>&lt;/day&gt;
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">M</span>&lt;/day&gt;
 ...
@@ -1253,7 +1253,7 @@ root</pre>
     &lt;/currency&gt;
     &lt;currency type =&quot;<span style="color: blue">INR</span>&quot;&gt;
         &lt;displayName&gt;<span style="color: blue">Rupee</span>&lt;/displayName&gt;
-        &lt;symbol choice=&quot;<span style="color: blue">true</span>&quot;&gt;<span style="color: blue">0≤Rf|1≤Ru|1&lt;Rf</span>&lt;/symbol&gt;
+        &lt;symbol choice=&quot;<span style="color: blue">true</span>&quot;&gt;<span style="color: blue">0≤Rf|1≤Ru|1&amp;lt;Rf</span>&lt;/symbol&gt;
     &lt;/currency&gt;
     &lt;currency type=&quot;PTE&quot;&gt;
         &lt;displayName&gt;<span style="color: blue">Escudo</span>&lt;/displayName&gt;
@@ -1458,8 +1458,8 @@ root</pre>
     <p><b><i>Note: </i></b>The rules are stated in terms of actions that cause characters to change 
     their ordering relative to other characters. This is for stability; assigning characters 
     specific weights would not work, since the exact weight assignment in UCA (or ISO 14651) is not 
-    required for conformance -- only the relative ordering of the weights. In addition, stating 
-    rules in terms of relative order is much less sensitive to changes over time in the UCA itself.</p>
+    required for conformance — only the relative ordering of the weights. In addition, stating rules 
+    in terms of relative order is much less sensitive to changes over time in the UCA itself.</p>
   </blockquote>
   <h3><a name="Orderings">Orderings</a></h3>
   <p>The following are the normal ordering actions used for the bulk of characters. Each rule 
@@ -1587,7 +1587,7 @@ root</pre>
       <td><code>&lt;t&gt;</code></td>
       <td><code>&lt;reset&gt;<span style="color: blue">a</span>&lt;reset&gt;<br>
       &lt;t&gt;<span style="color: blue">A</span>&lt;/t&gt;</code></td>
-      <td>Make &#39;A&#39; sort after &#39;a&#39; as a <i>secondary</i> (accent) difference</td>
+      <td>Make &#39;A&#39; sort after &#39;a&#39; as a <i>tertiary</i> (case/variant) difference</td>
     </tr>
     <tr>
       <td><code>= &nbsp;</code></td>
@@ -1688,8 +1688,8 @@ root</pre>
   <p><span>The sequence expansion syntax can be quite tricky, so it should be avoided where 
   possible. In particular:</span></p>
   <ul>
-    <li><span>The expansion is <i>only</i> in effect up to and not including the first primary rule. 
-    Thus<br>
+    <li><span>The expansion is <i>only</i> in effect up to — but not including — the first primary 
+    rule. Thus<br>
     <code>&nbsp; &lt;reset&gt;<span style="COLOR: blue">ch</span>&lt;/reset&gt;<br>
 &nbsp; &lt;s&gt;<span style="color: blue">x</span>&lt;/x&gt;<br>
 &nbsp; &lt;t&gt;<span style="color: blue">y</span>&lt;/t&gt;<br>
@@ -1705,6 +1705,33 @@ root</pre>
     has previously been used as a contraction. Thus the <b>¨</b> will be used as an expansion for 
     following characters (up to the next primary).</span></li>
   </ul>
+  <p class="changed">Each extension replaces the one before it; it does not append to it. So </p>
+  <p class="changed">&amp; ab &lt;&lt; c<br>
+  &amp; cd &lt;&lt; e</p>
+  <p class="changed">is equivalent to:</p>
+  <p class="changed">&amp; a &lt;&lt; c / b &lt;&lt; e / d</p>
+  <p class="changed">and produces the following weights (where <i>p(x)</i> is the primary weight and
+  <i>s(a)</i> is the secondary weight):</p>
+  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+    <tr>
+      <td>
+      <p class="changed">Character</td>
+      <td>
+      <p class="changed">Weights</td>
+    </tr>
+    <tr>
+      <td>
+      <p class="changed">c</td>
+      <td>
+      <p class="changed">p(a), p(b); s(a)+1, s(b); ...</td>
+    </tr>
+    <tr>
+      <td>
+      <p class="changed">e</td>
+      <td>
+      <p class="changed">p(a), p(d); s(a)+2, s(d); ...</td>
+    </tr>
+  </table>
   <p><span>When expressing rules as atomic rules, the sequences must first be transformed into 
   normal expansion syntax:</span></p>
   <table>
@@ -2352,8 +2379,6 @@ root</pre>
     </table>
     </center>
   </div>
-  <p class="note"><b>Open issue:</b> In the future, we should supply information for mapping locales 
-  to a normalized version, thus en_Latin_US would normalize to en_US.</p>
   <h2>Appendix D: <a name="Language_and_Locale_IDs">Language and Locale IDs</a></h2>
   <p>People have very slippery notions of what distinguishes a language code vs. a locale code. The 
   problem is that both are somewhat nebulous concepts.</p>
@@ -2428,23 +2453,25 @@ root</pre>
   orthography. And so on. However, just as clearly, there limits on what is acceptable English, and 
   &quot;2003年3月20日&quot;, for example, is <i>not</i>.</p>
   <h2>Appendix E: <a name="Unicode_Sets">Unicode Sets</a></h2>
-  <p>A UnicodeSet is a set of Unicode characters determined by a pattern, following (proposed)
-  <a href="http://www.unicode.org/reports/tr18/tr18-7.html">UTS #18: Unicode Regular Expressions</a> 
-  [<a href="#URegex">URegex</a>]. For a concrete implementation of this, see [<a href="#ICUUnicodeSet">ICUUnicodeSet</a>].</p>
+  <p>A UnicodeSet is a set of Unicode characters (and possibly strings) determined by a pattern, 
+  following <a href="http://www.unicode.org/reports/tr18/tr18-7.html">UTS #18: Unicode Regular 
+  Expressions</a> [<a href="#URegex">URegex</a>]. For an example of a concrete implementation of 
+  this, see [<a href="#ICUUnicodeSet">ICUUnicodeSet</a>].</p>
   <p>Patterns are a series of characters bounded by square brackets that contain lists of characters 
   and Unicode property sets. Lists are a sequence of characters that may have ranges indicated by a 
   &#39;-&#39; between two characters, as in &quot;a-z&quot;. The sequence specifies the range of all characters from 
-  the left to the right, in Unicode order. For example, [a c d-f m] is equivalent to [a c d e f m]. 
-  Whitespace can be freely used for clarity as [a c d-f m] means the same as [acd-fm].</p>
+  the left to the right, in Unicode order. For example, <b>[a c d-f m]</b> is equivalent to <b>[a c 
+  d e f m]</b>. Whitespace can be freely used for clarity, as <b>[a c d-f m]</b> means the same as
+  <b>[acd-fm]</b>.</p>
   <p>Unicode property sets are specified by any Unicode property, such as [:Letter:], using the 
   PropertyAlias file and the PropertyValueAlias file. The syntax for specifying the property names 
   is an extension of either POSIX or Perl syntax with the addition of &quot;=value&quot;. For example, you can 
-  match letters by using the POSIX syntax [:Letter:], or by using the Perl-style syntax 
-  \u005cp{Letter}. The type can be omitted for the Category and Script properties, but is required 
-  for other properties.</p>
+  match letters by using the POSIX syntax <b>[:Letter:]</b>, or by using the Perl-style syntax <b>\p{Letter}</b>. 
+  The type can be omitted for the Category and Script properties, but is required for other 
+  properties.</p>
   <p>The table below shows the two kinds of syntax: POSIX and Perl style. Also, the table shows the 
-  &quot;Negative&quot;, which is a property that excludes all characters of a given kind. For example, 
-  [:^Letter:] matches all characters that are not [:Letter:].</p>
+  &quot;Negative&quot;, which is a property that excludes all characters of a given kind. For example, <b>
+  [:^Letter:]</b> matches all characters that are not <b>[:Letter:]</b>.</p>
   <table>
     <tr>
       <th>&nbsp;</th>
@@ -2465,22 +2492,23 @@ root</pre>
   <p>These following low-level lists or properties then can be freely combined with the normal set 
   operations (union, inverse, difference, and intersection):</p>
   <ul>
-    <li>To union two sets, simply concatenate them. For example, [[:letter:] [:number:]] </li>
-    <li>To intersect two sets, use the &#39;&amp;&#39; operator. For example, [[:letter:] &amp; [a-z]] </li>
-    <li>To take the set-difference of two sets, use the &#39;-&#39; operator. For example, [[:letter:] - 
-    [a-z]] </li>
-    <li>To invert a set, place a &#39;^&#39; immediately after the opening &#39;[&#39;. For example, [^a-z]. In any 
-    other location, the &#39;^&#39; does not have a special meaning.</li>
+    <li>To union two sets, simply concatenate them. For example, <b>[[:letter:] [:number:]]</b> </li>
+    <li>To intersect two sets, use the &#39;&amp;&#39; operator. For example, <b>[[:letter:] &amp; [a-z]] </b></li>
+    <li>To take the set-difference of two sets, use the &#39;-&#39; operator. For example, <b>[[:letter:] - 
+    [a-z]]</b> </li>
+    <li>To invert a set, place a &#39;^&#39; immediately after the opening &#39;[&#39;. For example, <b>[^a-z]</b>. 
+    In any other location, the &#39;^&#39; does not have a special meaning.</li>
   </ul>
-  <p>The binary operators &#39;&amp;&#39; and &#39;-&#39; have equal precedence and bind left-to-right. Thus 
-  [[:letter:]-[a-z]-[\u0100-\u01FF]] is equivalent to [[[:letter:]-[a-z]]-[\u0100-\u01FF]]. Another 
-  example is the set [[ace][bdf] - [abc][def]] is not the empty set, but instead the set [def].</p>
+  <p>The binary operators &#39;&amp;&#39; and &#39;-&#39; have equal precedence and bind left-to-right. Thus <b>
+  [[:letter:]-[a-z]-[\u0100-\u01FF]]</b> is equivalent to <b>[[[:letter:]-[a-z]]-[\u0100-\u01FF]]</b>. 
+  Another example is the set <b>[[ace][bdf] - [abc][def]]</b>, which is not the empty set, but 
+  instead the set <b>[def]</b>.</p>
   <p>Another caveat with the &#39;&amp;&#39; and &#39;-&#39; operators is that they operate between sets. That is, they 
-  must be immediately preceded and immediately followed by a set. For example, the pattern 
-  [[:Lu:]-A] is illegal, since it is interpreted as the set [:Lu:] followed by the incomplete range 
-  -A. To specify the set of uppercase letters except for &#39;A&#39;, enclose the &#39;A&#39; in a set: 
-  [[:Lu:]-[A]]. A multicharacter string can be in a Unicode set, to represent a tailored grapheme 
-  for a particular language. The syntax uses curly braces for that case.</p>
+  must be immediately preceded and immediately followed by a set. For example, the pattern <b>
+  [[:Lu:]-A]</b> is illegal, since it is interpreted as the set <b>[:Lu:]</b> followed by the 
+  incomplete range <b>-A</b>. To specify the set of uppercase letters except for &#39;A&#39;, enclose the 
+  &#39;A&#39; in a set: <b>[[:Lu:]-[A]]</b>. A multicharacter string can be in a Unicode set, to represent a 
+  tailored grapheme cluster for a particular language. The syntax uses curly braces for that case.</p>
   <table>
     <tr>
       <td>[a]&nbsp;</td>
@@ -2508,18 +2536,18 @@ root</pre>
       <td>The asymmetric difference of sets specified by pat1 and pat2&nbsp;</td>
     </tr>
     <tr>
-      <td><code>[a{ab}{ac}]</code></td>
+      <td>[a{ab}{ac}]</td>
       <td>The character &#39;a&#39; and the multicharacter strings &quot;ab&quot; and &quot;ac&quot;</td>
     </tr>
     <tr>
       <td>[:Lu:]&nbsp;</td>
       <td>The set of characters belonging to the given Unicode category, as defined by 
-      Character.getType(); in this case, Unicode uppercase letters. The long form for this is [:UppercaseLetter:].&nbsp;</td>
+      Character.getType(); in this case, Unicode uppercase letters. The long form for this is <b>[:UppercaseLetter:]</b>.&nbsp;</td>
     </tr>
     <tr>
       <td>[:L:]&nbsp;</td>
-      <td>The set of characters belonging to all Unicode categories starting with &#39;L&#39;, that is, 
-      [[:Lu:][:Ll:][:Lt:][:Lm:][:Lo:]]. The long form for this is [:Letter:].&nbsp;</td>
+      <td>The set of characters belonging to all Unicode categories starting with &#39;L&#39;, that is, <b>
+      [[:Lu:][:Ll:][:Lt:][:Lm:][:Lo:]]</b>. The long form for this is <b>[:Letter:]</b>.&nbsp;</td>
     </tr>
   </table>
   <p>In Unicode Sets, there are two ways to quote syntax characters and whitespace:</p>
@@ -2584,12 +2612,12 @@ root</pre>
     </tr>
   </table>
   <p>Anything else following a backslash is mapped to itself, except in an environment where it is 
-  defined to have some special meaning. For example, \p{uppercase} is the set of uppercase letters 
-  in Unicode.</p>
+  defined to have some special meaning. For example, <b>\p{uppercase}</b> is the set of uppercase 
+  letters in Unicode.</p>
   <p>Any character formed as the result of a backslash escape loses any special meaning and is 
   treated as a literal. In particular, note that \u and \U escapes create literal characters. (In 
-  contrast, for example, javac treats Unicode escapes as just a way to represent arbitrary 
-  characters in an ASCII source file, and any resulting characters are _not_ tagged as literals.)</p>
+  contrast, Java treats Unicode escapes as just a way to represent arbitrary characters in an ASCII 
+  source file, and any resulting characters are <i><b>not</b></i> tagged as literals.)</p>
   <h2><span class="changed">Appendix F: <a name="Date_Format_Patterns">Date Format Patterns</a></span></h2>
   <p><span class="changed">A date pattern is a string of characters, where specific strings of 
   characters are replaced with date and time data from a calendar when formatting or used to 
@@ -2999,7 +3027,7 @@ root</pre>
     since no limit is placed on the maximum number of digits. There should, however, be at least one 
     zero someplace in the pattern. In currency formats, the number of digits after the decimal also 
     do not matter, since the information in the <a href="#Supplemental_Data">Appendix C: 
-    Supplemental Data</a> is used to override the number of decimal places -- and the rounding -- 
+    Supplemental Data</a> is used to override the number of decimal places — and the rounding — 
     according to the currency that is being formatted. That can be seen in the above chart, with the 
     difference between Yen and Euro formatting.</p>
     <p class="changed">Thus for consistency in the CLDR data, the following conventions should be 

@@ -24,6 +24,32 @@ value &quot;top-to-bottom&quot;.</p>
 <p>This document is fairly rough at this point, and needs quite a bit of work.
 However, we felt it worth posting to help answer common questions about the
 format.</p>
+<h2><a name="Collation">Collation</a> (Sorting Sequence)</h2>
+<blockquote>
+  <p>The exact collation sequence for a given language may be difficult to
+  determine. The base ordering of characters can be fairly straightforward, but
+  there are quite a few other complications involved. For more information, see <a href="http://www.unicode.org/reports/tr10/#Introduction">UTS
+  #10: Unicode Collation Algorithm</a> (UCA).</p>
+  <p>For readability, the rules are presented here in Java/ICU rule format,
+  rather than XML. The rules are gathered programmatically; dathering the data
+  for the rules is complicated by a number of factors, including:</p>
+  <ul>
+    <li>Different data sources use a different &quot;base&quot; for tailoring
+      (the Common rules use the UCA as a base).</li>
+    <li>Sometimes special features are handled programmatically, such as having
+      an SHADDA mark apply to all Unicode characters instead of just Arabic
+      letters.</li>
+    <li>Sometimes characters out of the repertoire are simply ignored, thus
+      having a<font size="3">&#380; &lt; ab, since &#380; (z with over-dot) is
+      ignored.</font></li>
+    <li><font size="3">Sometimes orderings will not abide by the UCA well-formedness
+      critera, so there may be cases where for characters X and Y, X &lt; Y, XY
+      and YX are not contractions, but XY = YX.</font></li>
+  </ul>
+  <p>At the moment there are a number of known problems with the gathering
+  mechanism that may result in spurious rules. For more information, see <a href="http://www.openi18n.org/locale-bugs/public?findid=18">known
+  errors and omissions</a>.</p>
+</blockquote>
 <h2>Regions, Languages, Scripts, Currency Names</h2>
 <blockquote>
   <p>These items are perhaps the simplest to translate. The typically behavior
@@ -209,83 +235,83 @@ format.</p>
         date.</td>
     </tr>
     <tr>
-      <td><tt>y</tt> </td>
+      <td><tt>y</tt></td>
       <td>Year - Use two for the short year, or 4 for the full year</td>
     </tr>
     <tr>
-      <td><tt>M</tt> </td>
+      <td><tt>M</tt></td>
       <td>Month - Use one or two for the numerical month, three for the
         abbreviation, or four for the full name.</td>
     </tr>
     <tr>
-      <td><tt>d</tt> </td>
+      <td><tt>d</tt></td>
       <td>Date - Day of the month. Use one or two for zero padding.</td>
     </tr>
     <tr>
-      <td><tt>h</tt> </td>
+      <td><tt>h</tt></td>
       <td>Hour [1-12]. Use one or two for zero padding.</td>
     </tr>
     <tr>
-      <td><tt>H</tt> </td>
+      <td><tt>H</tt></td>
       <td>Hour [0-23]. Use one or two for zero padding.</td>
     </tr>
     <tr>
-      <td><tt>K</tt> </td>
+      <td><tt>K</tt></td>
       <td>Hour [0-11]. Use one or two for zero padding.</td>
     </tr>
     <tr>
-      <td><tt>k</tt> </td>
+      <td><tt>k</tt></td>
       <td>Hour [1-24]. Use one or two for zero padding.</td>
     </tr>
     <tr>
-      <td><tt>m</tt> </td>
+      <td><tt>m</tt></td>
       <td>Minute. Use one or two for zero padding.</td>
     </tr>
     <tr>
-      <td><tt>s</tt> </td>
+      <td><tt>s</tt></td>
       <td>Second. Use one or two for zero padding.</td>
     </tr>
     <tr>
-      <td><tt>S</tt> </td>
+      <td><tt>S</tt></td>
       <td>Millisecond - Use 1,2, or 3. shows the most significant digits.</td>
     </tr>
     <tr>
-      <td><tt>a</tt> </td>
+      <td><tt>a</tt></td>
       <td>AM or PM</td>
     </tr>
     <tr>
-      <td><tt>E</tt> </td>
+      <td><tt>E</tt></td>
       <td>Day of week - Use three for the short day, or four for the full name.</td>
     </tr>
     <tr>
-      <td><tt>D</tt> </td>
+      <td><tt>D</tt></td>
       <td>Day of year - Use 1-3</td>
     </tr>
     <tr>
-      <td><tt>F</tt> </td>
+      <td><tt>F</tt></td>
       <td>Day of Week in Month- use one.</td>
     </tr>
     <tr>
-      <td><tt>w</tt> </td>
+      <td><tt>w</tt></td>
       <td>Week of Year. Use one or two for zero padding.</td>
     </tr>
     <tr>
-      <td><tt>W</tt> </td>
+      <td><tt>W</tt></td>
       <td>Week of Month - use 1</td>
     </tr>
     <tr>
-      <td><tt>z</tt> </td>
+      <td><tt>z</tt></td>
       <td>Timezone. Use 3 for the short timezone (i.e. PST) or 4 for the full
         name (Pacific Standard Time). If there's no name for the zone, it'll
         show up as GMT+/-hh:mm.</td>
     </tr>
     <tr>
-      <td><tt>A</tt> </td>
+      <td><tt>A</tt></td>
       <td>Year (of &quot;Week of Year&quot;). [May differ from Calendar year,
         see comments under 'Week of Year', above.]</td>
     </tr>
     <tr>
-      <td><tt>e</tt> </td>
+      <td><tt>e</tt></td>
       <td>Timezone. Use 3 for the short timezone (i.e. PST) or 4 for the full
         name (Pacific Standard Time). If there's no name for the zone, it'll
         show up as GMT+/-hh:mm.</td>

@@ -19,6 +19,7 @@ table        { border-style: solid; border-width: 1px }
 .white       { background-color: #FFFFFF }
 caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
 .changed     { background-color: #FFFF00; border-style: dotted; border-width: 1px }
+.noStyle     {  }
 </style>
 </head>
 
@@ -33,11 +34,11 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   </tr>
   <tr>
     <td class="white" height="27"><i>Version:</i></td>
-    <td class="white" height="27"><font color="#FF0000"><b>0.8 (draft 6)</b></font></td>
+    <td class="white" height="27"><font color="#FF0000"><b>0.8 (draft 7)</b></font></td>
   </tr>
   <tr>
     <td class="white" height="27"><i>Date:</i></td>
-    <td class="white" height="27">2003-04-11</td>
+    <td class="white" height="27">2003-05-06</td>
   </tr>
   <tr>
     <td class="white" height="25"><i>Author:</i></td>
@@ -117,6 +118,9 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
     </ul>
   </li>
   <li><a href="#Supplemental_Data">Appendix C: Supplemental Data</a></li>
+  <li>
+    <p class="changed"><a href="#Language_and_Locale_IDs">Appendix D: Language 
+    and Locale IDs</a></li>
 </ul>
 <h2><a name="Introduction">Introduction</a></h2>
 <p>Not long ago, computer systems were like separate worlds, isolated from one 
@@ -220,6 +224,23 @@ in LDML. These include:</p>
         List</a> (may not work in the future, since BSI wants £205 for the 
         list).</li>
     </ul>
+  <li>
+    <p class="changed"><a href="http://www.evertype.com/standards/iso15924/">ISO 
+    15924</a> (script codes)
+    <ul>
+      <li>
+        <p class="changed"><a href="http://www.evertype.com/standards/iso15924/document/dis15924.pdf">Older 
+        version with Actual List</a></li>
+    </ul>
+  </li>
+</ul>
+<p class="changed">Other sources that may be useful for comparison include:</p>
+<ul>
+  <li>
+    <p class="changed">Windows <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemGlobalizationCultureInfoClassTopic.asp">Culture 
+    Info</a> (with&nbsp; mappings from RFC 3066-style codes to LCIDs)</li>
+  <li>
+    <p class="changed">Java <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/util/Locale.html" target="classFrame">Locale</a></li>
 </ul>
 <h2><a name="Locale">What is a locale?</a></h2>
 <p>Before diving into the XML structure, it is helpful to describe the model 
@@ -267,12 +288,6 @@ but in many cases this is not true. For example, both simplified and traditional
 Chinese are used in Hong Kong S.A.R.; both Cyrillic and Latin are used in 
 Serbia, Azerbaijan, and Uzbekistan; Indic languages are customarily written in 
 different scripts, etc.</p>
-<p class="note"><b>Open issue: </b>We are considering changing the language_code 
-to <a href="http://www.ietf.org/rfc/rfc3066.txt">RFC 3066</a> instead of <a href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_639.html">ISO-639</a>. 
-However, we must resolve some issues with it first. For the ongoing discussion 
-of the issues, see <a href="http://www.alvestrand.no/mailman/listinfo/ietf-languages">ietf-languages</a> 
-and <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/language_code_issues.html">Language 
-Code Issues</a>.</p>
 <p>We will speak of data as being &quot;in locale X&quot;. That does not imply 
 that a locale <i>is</i> a collection of data; it is simply shorthand for 
 &quot;the set of data associated with the locale id X&quot;. Each individual 
@@ -282,11 +297,16 @@ resource is called a <i>resource tag.</i></p>
 <p>A locale id consists of the following format:</p>
 <blockquote>
   <pre><i>locale_id</i> := <i>base_locale_id</i> <i>options</i>?</pre>
-  <pre><i>base_locale_id</i> := <i>language_code</i>(&quot;_&quot; <i>territory_code </i>(&quot;_&quot; <i>variant_code</i>)?)?</pre>
+  <pre><i>base_locale_id</i> := <i>language_code </i>(&quot;_&quot; <i>script_code)? </i>(&quot;_&quot; <i>territory_code)? </i>(&quot;_&quot; <i>variant_code</i>)?</pre>
   <pre><i>options</i> := &quot;@&quot; <i>key</i> &quot;=&quot; <i>type</i> (&quot;,&quot; <i>key</i> &quot;=&quot; <i>type</i> )*</pre>
 </blockquote>
-<p>The field values are given in the following table. All field values are 
-case-sensitive.</p>
+<p class="changed">As usual x? means that x is optional; x* means that x occurs 
+zero or more times.</p>
+<p class="changed">The field values are given in the following table. All field 
+values are case-insensitive, except for the key and type, which are 
+case-sensitive. However, customarily the language code is lowercase, the 
+territory and variant codes are uppercase, and the script code is titlecase 
+(that is, first character uppercase and other characters lowercase).</p>
 <table border="1">
   <caption>Locale Field Definitions</caption>
   <tr>
@@ -296,30 +316,39 @@ case-sensitive.</p>
   </tr>
   <tr>
     <td><i>language_code</i></td>
-    <td>lowercase ASCII letters</td>
-    <td><a href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_639.html">ISO-639</a> 
+    <td>ASCII letters</td>
+    <td class="changed"><a href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_639.html">ISO-639</a> 
       2-letter codes where they exist; otherwise 3-letter codes (the mapping 
-      between 2-letter codes and 3-letter codes is not part of this format.)</td>
+      between 2-letter codes and 3-letter codes is not part of this format.), <i>or</i> 
+      <a href="http://www.ietf.org/rfc/rfc3066.txt">RFC 3066</a> codes that do 
+      not contain script or territory codes.</td>
+  </tr>
+  <tr>
+    <td class="changed"><i>script_code</i></td>
+    <td class="changed">ASCII letters</td>
+    <td class="changed"><a href="http://www.evertype.com/standards/iso15924/">ISO 
+      15924</a> 4-letter codes. In most cases the script is implicit, since the 
+      language is only customarily written in a single script.</td>
   </tr>
   <tr>
     <td><i>territory_code</i></td>
-    <td>uppercase ASCII letters</td>
+    <td>ASCII letters</td>
     <td><a href="http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html">ISO-3166</a> 
       2-letter codes. Also known as a country_code, although the territories may 
       not be countries.</td>
   </tr>
   <tr>
     <td><i>variant_code</i></td>
-    <td>lowercase ASCII letters</td>
+    <td>ASCII letters</td>
     <td rowspan="3"><i>described below</i></td>
   </tr>
   <tr>
     <td><i>key</i></td>
-    <td>lowercase ASCII letter and digits</td>
+    <td>ASCII letters and digits</td>
   </tr>
   <tr>
     <td><i>type</i></td>
-    <td>lowercase ASCII letters, digits, and &quot;-&quot;</td>
+    <td>ASCII letters, digits, and &quot;-&quot;</td>
   </tr>
 </table>
 <p><i>Examples:</i></p>
@@ -329,15 +358,30 @@ fr_BE
 de_DE@collation=phonebook,currency=pre-euro</pre>
 </blockquote>
 <p>The locale id format generally follows the description in the <a href="http://www.li18nux.org/docs/text/LocNameGuide-V10.txt">OpenI18N 
-Locale Naming Guideline</a>. The main differences from the those guidelines are 
-that (a) the locale id does not include a charset (since the data in the locale 
-is always in Unicode), and (b) the locale id adds the ability to have a variant, 
-as in Java.</p>
-<p>A locale that only has a language code is called a <i>language locale</i>; 
-one with both language and territory codes is called a <i>territory locale</i> 
-(or <i>country locale</i>).</p>
-<p>The variant codes specify particular variants of the locale, typically with 
-special options. The currently defined variants include:</p>
+Locale Naming Guideline</a>, with some enhancments. The main differences from 
+the those guidelines are that the locale id:</p>
+<ol type="a">
+  <li>does not include a charset (since the data in the locale is always in 
+    Unicode),</li>
+  <li>adds the ability to have a variant, as in Java</li>
+  <li>
+    <p class="changed">adds the ability to discriminate the written language by 
+    script (or script variant).</li>
+  <li>
+    <p class="changed">is a superset of <a href="http://www.ietf.org/rfc/rfc3066.txt">RFC 
+    3066</a> codes.</li>
+</ol>
+<p class="note"><span class="changed"><b>Note:</b> The language + script + 
+territory code combination can itself be considered simply a language code: For 
+more information, see <a href="#Language_and_Locale_IDs">Appendix D: Language 
+and Locale IDs</a>.</span></p>
+<p>A locale that only has a language code (and possibly a script code) is called 
+a <i>language locale</i>; one with both language and territory codes is called a 
+<i>territory locale</i> (or <i>country locale</i>).</p>
+<p class="changed">The variant codes specify particular variants of the locale, 
+typically with special options. They cannot overlap with script or territory 
+codes, so they must have either one letter or have more than 4 letters. The 
+currently defined variants include:</p>
 <table>
   <caption>Variant Definitions</caption>
   <tr>
@@ -345,11 +389,11 @@ special options. The currently defined variants include:</p>
     <th align="left">Description</th>
   </tr>
   <tr>
-    <td>bo</td>
+    <td class="changed">bokmal</td>
     <td>Bokmål, variant of Norwegian</td>
   </tr>
   <tr>
-    <td>ny</td>
+    <td class="changed">nynorsk</td>
     <td>Nynorsk, variant of Norwegian</td>
   </tr>
   <tr>
@@ -357,10 +401,10 @@ special options. The currently defined variants include:</p>
     <td>Åland, variant of Norwegian</td>
   </tr>
 </table>
-<p class="note"><b>Note: </b>two of the above variants are for backwards 
-compatibility. Typically the entire contents of these are defined by an 
-&lt;alias&gt; element pointing at nb_NO (Norwegian Bokmål) and nn_NO(Norwegian 
-Nynorsk) locale IDs.</p>
+<p class="note"><b>Note: </b>The first two of the above variants are for 
+backwards compatibility. Typically the entire contents of these are defined by 
+an &lt;alias&gt; element pointing at nb_NO (Norwegian Bokmål) and 
+nn_NO(Norwegian Nynorsk) locale IDs.</p>
 <p>The currently defined optional key/type combinations include:</p>
 <table>
   <caption>Key/Type Definitions</caption>
@@ -657,11 +701,11 @@ is in XML Schema format (yyyy-mm-dd).</p>
 <p>The language code is the primary part of the specification of the locale id, 
 with values as described above.</p>
 <p class="element2">&lt;script type=&quot;Latn&quot; /&gt;</p>
-<p>The script field may be used in the identification of locales, once we 
-resolve issues around the use of 3066.</p>
+<p>The script field may be used in the identification of written languages, with 
+values described above.</p>
 <p class="element2">&lt;territory type=&quot;US&quot;/&gt;</p>
-<p>The territory code is the secondary part of the specification of the locale 
-id, with values as described above.</p>
+<p>The territory code is a common part of the specification of the locale id, 
+with values as described above.</p>
 <p class="element2">&lt;variant type=&quot;BU&quot;/&gt;</p>
 <p>The variant code is the tertiary part of the specification of the locale id, 
 with values as described above.</p>
@@ -989,7 +1033,7 @@ Windows<i> Control Panels&gt;Date/Time&gt;Time Zone</i>).</p>
 <p class="note">Unfortunately, laws change over time, and will continue to 
 change in the future, both for the boundaries of timezone regions and the rules 
 for daylight savings. Thus the Olson data is continually being augmented. Any 
-two implementations using the same version of the Olsen data will get the same 
+two implementations using the same version of the Olson data will get the same 
 results for the same IDs (assuming a correct implementation). However, if 
 implementations use different versions of the data they may get different 
 results. So if precise results are required then both the Olson ID and the Olson 
@@ -1093,8 +1137,8 @@ based on the user's locale.</p>
 <p class="note"><b>Note: </b>The number of decimal places <b>and</b> the 
 rounding for each currency is not locale-specific data, and is not contained in 
 the localeData format. Those values override whatever is given in the currency 
-numberFormat. <span class="changed">For more information, see <a href="#Supplemental_Data">Supplemental 
-Data</a></span>.</p>
+numberFormat. For more information, see <a href="#Supplemental_Data">Supplemental 
+Data</a>.</p>
 <p>For background information on currency names, see <a href="http://nsdsa.phdnswc.navy.mil/mspecs/docs/styleman2000/chapter_txt-17.html#17t6">Currency 
 Names</a>.</p>
 <h3><a name="&lt;collations&gt;">&lt;collations&gt;</a></h3>
@@ -1945,12 +1989,12 @@ throw site, it the cost of doing formatting, when that formatting is not really
 necessary. In fact, in many running programs most of the exceptions that are 
 thrown at a low level never end up being presented to an end-user, so this can 
 have considerable performance benefits.</p>
-<h2 class="changed">Appendix C: <a name="Supplemental_Data">Supplemental Data</a></h2>
-<p class="changed">The following represents the format for supplemental 
+<h2 class="noStyle">Appendix C: <a name="Supplemental_Data">Supplemental Data</a></h2>
+<p class="noStyle">The following represents the format for supplemental 
 information. This is information that is important for proper formatting, but is 
 not contained in the locale hierarchy, and is not overridden by locale data. It 
 uses the following format, where the data is solely for illustration:</p>
-<pre class="changed">&lt;supplementalData&gt;
+<pre class="noStyle">&lt;supplementalData&gt;
   &lt;currencyData&gt;
     &lt;fractions&gt;
       &lt;currency iso4217=&quot;CHF&quot; rounding=&quot;5&quot;/&gt;
@@ -1985,124 +2029,210 @@ uses the following format, where the data is solely for illustration:</p>
     &lt;/region&gt;
   &lt;/currencyData&gt;
 &lt;/supplementalData&gt;</pre>
-<p class="changed">The only data currently represented is currency data. Each 
+<p class="noStyle">The only data currently represented is currency data. Each 
 currencyData element contains one fractions element followed by one or more 
 region elements. The fractions element contains any number of currency elements, 
 with the following attributes:</p>
 <ul>
   <li>
-    <p class="changed"><b>iso4217: </b>the ISO 4217 code for the currency in 
+    <p class="noStyle"><b>iso4217: </b>the ISO 4217 code for the currency in 
     question. If a particular currency does not occur in the fractions list, 
     then it is given the defaults listed for the next two attributes.</li>
   <li>
-    <p class="changed"><b>digits: </b>the number of decimal digits normally 
+    <p class="noStyle"><b>digits: </b>the number of decimal digits normally 
     formatted. The default is 2.</li>
   <li>
-    <p class="changed"><b>rounding: </b>the rounding increment, in units of 10<sup>-digits</sup>. 
+    <p class="noStyle"><b>rounding: </b>the rounding increment, in units of 10<sup>-digits</sup>. 
     The default is 1. Thus with fraction digits of 2 and rounding increment of 
     5, numeric values are rounded to the nearest 0.05 units in formatting. With 
     fraction digits of 0 and rounding increment of 50, numeric values are 
     rounded to the nearest 50.</li>
 </ul>
-<p class="changed">Each region element contains one attribute:</p>
+<p class="noStyle">Each region element contains one attribute:</p>
 <ul>
   <li>
-    <p class="changed"><b>iso3166:</b> the ISO 3166 code for the region in 
+    <p class="noStyle"><b>iso3166:</b> the ISO 3166 code for the region in 
     question. The special value <i>XXX</i> can be used to indicate that the 
     region has no valid currency or that the circumstances are unknown (usually 
     used in conjunction with <i>before</i>, as described below).</li>
 </ul>
-<p class="changed">And can have any number of currency elements, with the 
+<p class="noStyle">And can have any number of currency elements, with the 
 following attributes. (Each currency element can also contain zero or more 
 alternate elements. These are a list of alternate currencies, in preference 
 order.)</p>
 <ul>
   <li>
-    <p class="changed"><b>iso4217: </b>the ISO 4217 code for the currency in 
+    <p class="noStyle"><b>iso4217: </b>the ISO 4217 code for the currency in 
     question</li>
   <li>
-    <p class="changed"><b>before: </b>the currency was valid up to the datetime 
+    <p class="noStyle"><b>before: </b>the currency was valid up to the datetime 
     indicated by the value of <i>before</i>. The datetime is defined as in XML 
     Schema. The before values are resolved as described below.</li>
 </ul>
-<p class="changed">Each <i>before</i> value governs the time up to the previous <i>before</i> 
+<p class="noStyle">Each <i>before</i> value governs the time up to the previous <i>before</i> 
 value. That is, suppose that we have the following data for the region code <i>R</i>.</p>
-<pre class="changed">  &lt;region iso3166=&quot;R&quot;&gt;
+<pre class="noStyle">  &lt;region iso3166=&quot;R&quot;&gt;
     &lt;currency iso4217=&quot;C01&quot; before=&quot;1942&quot;/&gt;
     &lt;currency iso4217=&quot;C02&quot;/&gt;
     &lt;currency iso4217=&quot;C03&quot; before=&quot;1927&quot;/&gt;
     &lt;currency iso4217=&quot;none&quot; before=&quot;1937-02-13&quot;/&gt;
   &lt;/region&gt;</pre>
-<p class="changed">Logically, the currency elements are treated in sorted order, 
+<p class="noStyle">Logically, the currency elements are treated in sorted order, 
 according to the <i>before</i> value. If default value for the before element is 
 logically +∞. This results in the following mapping for region <i>R</i>, using 
 a set of half-open intervals:</p>
-<table border="1">
-  <tr>
-    <th>
-      <p class="changed">Currency</p>
-    </th>
-    <th colspan="3">
-      <p class="changed">Condition (based on time <i>t</i>)</p>
-    </th>
-  </tr>
-  <tr>
-    <td align="center">
-      <p class="changed">C02</p>
-    </td>
-    <td align="right">
-      <p class="changed">1942-01-01 00:00:00 GMT</p>
-    </td>
-    <td>
-      <p class="changed">≤ t ≤</p>
-    </td>
-    <td>
-      <p class="changed">+∞</p>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <p class="changed">C01</p>
-    </td>
-    <td align="right">
-      <p class="changed">1937-02-13 00:00:00 GMT</p>
-    </td>
-    <td>
-      <p class="changed">≤ <i>t</i> &lt;</p>
-    </td>
-    <td>
-      <p class="changed">1942-01-01 00:00:00 GMT</p>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <p class="changed">C03</p>
-    </td>
-    <td align="right">
-      <p class="changed">1927-01-01 00:00:00 GMT</p>
-    </td>
-    <td>
-      <p class="changed">≤ <i>t</i> &lt;</p>
-    </td>
-    <td>
-      <p class="changed">1937-02-13 00:00:00 GMT</p>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <p class="changed"><i>XXX</i></p>
-    </td>
-    <td align="right">
-      <p class="changed">-∞</p>
-    </td>
-    <td>
-      <p class="changed">≤ <i>t</i> &lt;</p>
-    </td>
-    <td>
-      <p class="changed">1927-01-01 00:00:00 GMT</p>
-    </td>
-  </tr>
-</table>
+<div align="center">
+  <center>
+  <table border="1">
+    <tr>
+      <th>
+        <p class="noStyle">Currency</p>
+      </th>
+      <th colspan="3">
+        <p class="noStyle">Condition (based on time <i>t</i>)</p>
+      </th>
+    </tr>
+    <tr>
+      <td align="center">
+        <p class="noStyle">C02</p>
+      </td>
+      <td align="right">
+        <p class="noStyle">1942-01-01 00:00:00 GMT</p>
+      </td>
+      <td>
+        <p class="noStyle">≤ t ≤</p>
+      </td>
+      <td>
+        <p class="noStyle">+∞</p>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <p class="noStyle">C01</p>
+      </td>
+      <td align="right">
+        <p class="noStyle">1937-02-13 00:00:00 GMT</p>
+      </td>
+      <td>
+        <p class="noStyle">≤ <i>t</i> &lt;</p>
+      </td>
+      <td>
+        <p class="noStyle">1942-01-01 00:00:00 GMT</p>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <p class="noStyle">C03</p>
+      </td>
+      <td align="right">
+        <p class="noStyle">1927-01-01 00:00:00 GMT</p>
+      </td>
+      <td>
+        <p class="noStyle">≤ <i>t</i> &lt;</p>
+      </td>
+      <td>
+        <p class="noStyle">1937-02-13 00:00:00 GMT</p>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <p class="noStyle"><i>XXX</i></p>
+      </td>
+      <td align="right">
+        <p class="noStyle">-∞</p>
+      </td>
+      <td>
+        <p class="noStyle">≤ <i>t</i> &lt;</p>
+      </td>
+      <td>
+        <p class="noStyle">1927-01-01 00:00:00 GMT</p>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p class="note"><span class="changed"><b>Open issue: </b>We should supply 
+information for mapping locales to a normalized version, thus en_Latin_US would 
+normalize to en_US.</span></p>
+<h2 class="changed">Appendix D: <a name="Language_and_Locale_IDs">Language and 
+Locale IDs</a></h2>
+<p class="changed">People have very slippery notions of what distinguishes a 
+language code vs. a locale code. The problem is that both are somewhat nebulous 
+concepts.</p>
+<p class="changed">In practice, many people use RFC 3066 codes to mean locale 
+codes instead of strictly language codes. It is easy to see why this came about; 
+because RFC 3066 includes an explicit region (territory) code, for most people 
+it was sufficient for use as a locale code as well. For example, when typical 
+web software receives an RFC 3066 code, it will use it as a locale code. Other 
+typical software will do the same: in practice, language codes and locale codes 
+are treated interchangeably. Some people recommend distinguishing on the basis 
+of &quot;-&quot; vs &quot;_&quot; (e.g. <i>zh-TW</i> for language code, <i>zh_TW</i> 
+for locale code), but in practice that does not work because of the free 
+variation out in the world in the use of these separators. Notice that Windows, 
+for example, uses &quot;-&quot; as a separator in its locale codes. So 
+pragmatically one is forced to treat &quot;-&quot; and &quot;_&quot; as 
+equivalent when interpreting either one on imput.</p>
+<p class="changed">Another reason for the conflation of these codes is that very 
+little data in most systems is distinguished by region alone; currency codes and 
+measurement systems being some of the few. Sometimes date or number formats are 
+mentioned as regional, but that really doesn't make much sense. If people see 
+the sentence &quot;You will have to adjust the value to १,२३४.५६७ 
+from ૭૧,૨૩૪.૫૬&quot; (using Indic digits), they would say that 
+sentence is simply not English. Number format is far more closely associated 
+with language than it is with region. The same is true for date formats: people 
+would never expect to see intermixed a date in the format &quot;2003年4月1日&quot; 
+(using Kanji) in text purporting to be purely English. There are regional 
+differences in date and number format — differences which can be important — 
+but those are different in kind than other language differences between regions.</p>
+<p class="changed">Notice also that currency <i>codes</i> are different than 
+currency <i>localizations</i>. The currency localizations should normally be in 
+the language-based resource bundles, not in the territory-based resource 
+bundles. Thus, the resource bundle <i>en</i> contains the localized mappings in 
+English for a range of different currency codes: USD =&gt; $, RUR =&gt; Rub, 
+etc. (In protocols, the currency codes should always accompany any currency 
+amounts; otherwise the data is ambiguous, and software is forced to use the 
+user's territory to guess at the currency. For some informal discussion of this, 
+see <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/jit_localization.html">JIT 
+Localization</a>.)</p>
+<h3 class="changed"><a name="Written_Language">Written Language</a></h3>
+<p class="changed">Criteria for what makes a written language should be purely 
+pragmatic; <i>what would copy-editors say? </i>If one gave them text like the 
+following, they would respond that is far from acceptable English for 
+publication, and ask for it to be redone:</p>
+<ol>
+  <li type="A">
+    <p class="changed">&quot;Theatre Center News: The date of the last version 
+    of this document was 2003年3月20日. A copy can be obtained for $50,0 or 
+    1.234,57 грн. We would like to acknowledge contributions by the following 
+    authors (in alphabetical order): Alaa Ghoneim, Behdad Esfahbod, Ahmed Talaat, 
+    Eric Mader, Asmus Freytag, Avery Bishop, and Doug Felt.&quot;</p>
+  </li>
+</ol>
+<p class="changed">So one would change it to either B or C below, depending on 
+which orthographic variant of English was the target for the publication:</p>
+<ol type="A" start="2">
+  <li>
+    <p class="changed">&quot;Theater Center News: The date of the last version 
+    of this document was 3/20/2003. A copy can be obtained for $50.00 or 
+    1,234.57 Ukrainian Hryvni. We would like to acknowledge contributions by the 
+    following authors (in alphabetical order): Alaa Ghoneim, Ahmed Talaat, Asmus 
+    Freytag, Avery Bishop, Behdad Esfahbod, Doug Felt, Eric Mader.&quot;</p>
+  <li>
+    <p class="changed">&quot;Theatre Centre News: The date of the last version 
+    of this document was 20/3/2003. A copy can be obtained for $50.00 or 
+    1,234.57 Ukrainian Hryvni. We would like to acknowledge contributions by the 
+    following authors (in alphabetical order): Alaa Ghoneim, Ahmed Talaat, Asmus 
+    Freytag, Avery Bishop, Behdad Esfahbod, Doug Felt, Eric Mader.&quot;</p>
+  </li>
+</ol>
+<p class="changed">Clearly there are many acceptable variations on this text. 
+For example, copy editors might still quibble with the use of first vs. last 
+name sorting in the list, but clearly the first list was <i>not</i> acceptable 
+English alphabetical order. And in quoting a name, like &quot;Theatre Centre 
+News&quot;, one may leave it in the source orthography even if it differs from 
+the publication target orthography. And so on. However, just as clearly, there 
+limits on what is acceptable English, and &quot;2003年3月20日&quot;, for 
+example, is not.</p>
 
 </body>
 

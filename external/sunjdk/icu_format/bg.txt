@@ -3,74 +3,11 @@ bg {
     Countries { 
         BG { "\u0411\u044A\u043B\u0433\u0430\u0440\u0438\u044F" }
     }
-    DateTimePatterns { 
-            "HH:mm:ss z",
-            "HH:mm:ss z",
-            "H:mm:ss",
-            "H:mm",
-            "EEEE, yyyy, MMMM d",
-            "EEEE, yyyy, MMMM d",
-            "yyyy-M-d",
-            "yy-M-d",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u041D\u0434",
-            "\u041F\u043D",
-            "\u0412\u0442",
-            "\u0421\u0440",
-            "\u0427\u0442",
-            "\u041F\u0442",
-            "\u0421\u0431",
-    }
-    DayNames { 
-            "\u041D\u0435\u0434\u0435\u043B\u044F",
-            "\u041F\u043E\u043D\u0435\u0434\u0435\u043B\u043D\u0438\u043A",
-            "\u0412\u0442\u043E\u0440\u043D\u0438\u043A",
-            "\u0421\u0440\u044F\u0434\u0430",
-            "\u0427\u0435\u0442\u0432\u044A\u0432\u0442\u044A\u043A",
-            "\u041F\u0435\u0442\u044A\u043A",
-            "\u0421\u044A\u0431\u043E\u0442\u0430",
-    }
-    Eras { 
-            "\u043F\u0440.\u043D.\u0435.",
-            "\u043D.\u0435.",
-    }
     Languages { 
         bg { "\u0431\u044A\u043B\u0433\u0430\u0440\u0441\u043A\u0438" }
     }
     LocaleID { "0402" }
     LocaleString { "bg" }
-    MonthAbbreviations { 
-            "I",
-            "II",
-            "III",
-            "IV",
-            "V",
-            "VI",
-            "VII",
-            "VIII",
-            "IX",
-            "X",
-            "XI",
-            "XII",
-            "",
-    }
-    MonthNames { 
-            "\u042F\u043D\u0443\u0430\u0440\u0438",
-            "\u0424\u0435\u0432\u0440\u0443\u0430\u0440\u0438",
-            "\u041C\u0430\u0440\u0442",
-            "\u0410\u043F\u0440\u0438\u043B",
-            "\u041C\u0430\u0439",
-            "\u042E\u043D\u0438",
-            "\u042E\u043B\u0438",
-            "\u0410\u0432\u0433\u0443\u0441\u0442",
-            "\u0421\u0435\u043F\u0442\u0435\u043C\u0432\u0440\u0438",
-            "\u041E\u043A\u0442\u043E\u043C\u0432\u0440\u0438",
-            "\u041D\u043E\u0435\u043C\u0432\u0440\u0438",
-            "\u0414\u0435\u043A\u0435\u043C\u0432\u0440\u0438",
-            "",
-    }
     NumberElements { 
             ",",
             "\u00A0",
@@ -86,4 +23,79 @@ bg {
     }
     ShortLanguage { "bul" }
     localPatternChars { "GanjkHmsSEDFwWxhKzZ" }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss z",
+                    "HH:mm:ss z",
+                    "H:mm:ss",
+                    "H:mm",
+                    "EEEE, yyyy, MMMM d",
+                    "EEEE, yyyy, MMMM d",
+                    "yyyy-M-d",
+                    "yy-M-d",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u041D\u0434",
+                            "\u041F\u043D",
+                            "\u0412\u0442",
+                            "\u0421\u0440",
+                            "\u0427\u0442",
+                            "\u041F\u0442",
+                            "\u0421\u0431",
+                    }
+                    wide{
+                            "\u041D\u0435\u0434\u0435\u043B\u044F",
+                            "\u041F\u043E\u043D\u0435\u0434\u0435\u043B\u043D\u0438\u043A",
+                            "\u0412\u0442\u043E\u0440\u043D\u0438\u043A",
+                            "\u0421\u0440\u044F\u0434\u0430",
+                            "\u0427\u0435\u0442\u0432\u044A\u0432\u0442\u044A\u043A",
+                            "\u041F\u0435\u0442\u044A\u043A",
+                            "\u0421\u044A\u0431\u043E\u0442\u0430",
+                    }
+                }
+            }
+            eras{
+                    "\u043F\u0440.\u043D.\u0435.",
+                    "\u043D.\u0435.",
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "I",
+                            "II",
+                            "III",
+                            "IV",
+                            "V",
+                            "VI",
+                            "VII",
+                            "VIII",
+                            "IX",
+                            "X",
+                            "XI",
+                            "XII",
+                            "",
+                    }
+                    wide{
+                            "\u042F\u043D\u0443\u0430\u0440\u0438",
+                            "\u0424\u0435\u0432\u0440\u0443\u0430\u0440\u0438",
+                            "\u041C\u0430\u0440\u0442",
+                            "\u0410\u043F\u0440\u0438\u043B",
+                            "\u041C\u0430\u0439",
+                            "\u042E\u043D\u0438",
+                            "\u042E\u043B\u0438",
+                            "\u0410\u0432\u0433\u0443\u0441\u0442",
+                            "\u0421\u0435\u043F\u0442\u0435\u043C\u0432\u0440\u0438",
+                            "\u041E\u043A\u0442\u043E\u043C\u0432\u0440\u0438",
+                            "\u041D\u043E\u0435\u043C\u0432\u0440\u0438",
+                            "\u0414\u0435\u043A\u0435\u043C\u0432\u0440\u0438",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

@@ -2,10 +2,6 @@ es_MX{
 
  Version{"Windows XP"}
  LocaleID{ "080A"}
- AmPmMarkers{
-  "a.m.",
-  "p.m."
- }
  ShortCountry{
   "MEX"
  }
@@ -28,73 +24,10 @@ es_MX{
   "."
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "hh:mm:ss a",
-  "",
-  "EEEE, dd' de 'MMMM' de 'yyyy",
-  "",
-  "",
-  "dd/MM/yyyy",
-  "",
- }
 
- DateTimeElements:intvector{
-  1,
-  
- }
- DayNames{
-  "Domingo",
-  "Lunes",
-  "Martes",
-  "Mi\u00E9rcoles",
-  "Jueves",
-  "Viernes",
-  "S\u00E1bado"
- }
 
- DayAbbreviations{
-  "Dom",
-  "Lun",
-  "Mar",
-  "Mi\u00E9",
-  "Jue",
-  "Vie",
-  "S\u00E1b"
- }
 
- MonthNames{
-  "Enero",
-  "Febrero",
-  "Marzo",
-  "Abril",
-  "Mayo",
-  "Junio",
-  "Julio",
-  "Agosto",
-  "Septiembre",
-  "Octubre",
-  "Noviembre",
-  "Diciembre",
-  ""
- }
 
- MonthAbbreviations{
-  "Ene",
-  "Feb",
-  "Mar",
-  "Abr",
-  "May",
-  "Jun",
-  "Jul",
-  "Ago",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dic",
-  ""
- }
 
  NumberElements{
   ".",
@@ -116,5 +49,83 @@ es_MX{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "a.m.",
+          "p.m."
+            }
+            DateTimeElements:intvector{
+          1,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "hh:mm:ss a",
+          "",
+          "EEEE, dd' de 'MMMM' de 'yyyy",
+          "",
+          "",
+          "dd/MM/yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "Dom",
+                  "Lun",
+                  "Mar",
+                  "Mi\u00E9",
+                  "Jue",
+                  "Vie",
+                  "S\u00E1b"
+                    }
+                    wide{
+                  "Domingo",
+                  "Lunes",
+                  "Martes",
+                  "Mi\u00E9rcoles",
+                  "Jueves",
+                  "Viernes",
+                  "S\u00E1bado"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "Ene",
+                  "Feb",
+                  "Mar",
+                  "Abr",
+                  "May",
+                  "Jun",
+                  "Jul",
+                  "Ago",
+                  "Sep",
+                  "Oct",
+                  "Nov",
+                  "Dic",
+                  ""
+                    }
+                    wide{
+                  "Enero",
+                  "Febrero",
+                  "Marzo",
+                  "Abril",
+                  "Mayo",
+                  "Junio",
+                  "Julio",
+                  "Agosto",
+                  "Septiembre",
+                  "Octubre",
+                  "Noviembre",
+                  "Diciembre",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

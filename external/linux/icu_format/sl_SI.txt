@@ -1794,35 +1794,6 @@ sl_SI {
             "SIT ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE dd MMM yyyy  z",
-            "EEE dd MMM yyyy hh:mm:ss z",
-            "dd.MMMM.yyyy",
-            "dd.MMMM.yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "ned",
-            "pon",
-            "tor",
-            "sre",
-            "\u010Det",
-            "pet",
-            "sob",
-    }
-    DayNames { 
-            "nedelja",
-            "ponedeljek",
-            "torek",
-            "sreda",
-            "\u010Detrtek",
-            "petek",
-            "sobota",
-    }
     Identification { 
         Title { "Slovenian locale for Slovenia" }
         Source { "USMMZT" }
@@ -1846,36 +1817,6 @@ sl_SI {
         NoExpression { "^[Nn].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "jan",
-            "feb",
-            "mar",
-            "apr",
-            "maj",
-            "jun",
-            "jul",
-            "avg",
-            "sep",
-            "okt",
-            "nov",
-            "dec",
-            "",
-    }
-    MonthNames { 
-            "januar",
-            "februar",
-            "marec",
-            "april",
-            "maj",
-            "junij",
-            "julij",
-            "avgust",
-            "september",
-            "oktober",
-            "november",
-            "december",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -1905,15 +1846,81 @@ sl_SI {
             "#,##0.00\u00A4;#,##0.00\u00A4 -",
             "#,#0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "386" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE dd MMM yyyy  z",
+                    "EEE dd MMM yyyy hh:mm:ss z",
+                    "dd.MMMM.yyyy",
+                    "dd.MMMM.yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "ned",
+                            "pon",
+                            "tor",
+                            "sre",
+                            "\u010Det",
+                            "pet",
+                            "sob",
+                    }
+                    wide{
+                            "nedelja",
+                            "ponedeljek",
+                            "torek",
+                            "sreda",
+                            "\u010Detrtek",
+                            "petek",
+                            "sobota",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jan",
+                            "feb",
+                            "mar",
+                            "apr",
+                            "maj",
+                            "jun",
+                            "jul",
+                            "avg",
+                            "sep",
+                            "okt",
+                            "nov",
+                            "dec",
+                            "",
+                    }
+                    wide{
+                            "januar",
+                            "februar",
+                            "marec",
+                            "april",
+                            "maj",
+                            "junij",
+                            "julij",
+                            "avgust",
+                            "september",
+                            "oktober",
+                            "november",
+                            "december",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,9 +1,131 @@
-da_DK {
-    LocaleString { "da_DK" }
-    NumberPatterns { 
-            "#,##0.###;-#,##0.###",
-            "\u00A4 #,##0.00;\u00A4 -#,##0.00",
-            "#,##0%",
+da_DK{
+
+ Version{"Windows XP"}
+ LocaleID{ "0406"}
+ ShortCountry{
+  "DNK"
+ }
+
+ ShortLanguage{
+  "DAN"
+ }
+
+ Languages{
+  da {  "dansk"  }
+ }
+
+ Countries{
+  DK {  "Danmark"  }
+ }
+
+ CurrencyElements{
+  "kr",
+  "DKK",
+  ","
+ }
+
+
+
+
+
+
+ NumberElements{
+  ",",
+  ".",
+  ";",
+  "%",
+  "0",
+  "#",
+  "-",
+  "E",
+  "\u2030",
+  "\u221e",
+  "\ufffd",
+ }
+
+ NumberPatterns{
+  "",
+  "",
+  ""
+ }
+
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "HH:mm:ss",
+          "",
+          "d. MMMM yyyy",
+          "",
+          "",
+          "dd-MM-yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "s\u00F8",
+                  "ma",
+                  "ti",
+                  "on",
+                  "to",
+                  "fr",
+                  "l\u00F8"
+                    }
+                    wide{
+                  "s\u00F8ndag",
+                  "mandag",
+                  "tirsdag",
+                  "onsdag",
+                  "torsdag",
+                  "fredag",
+                  "l\u00F8rdag"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "jan",
+                  "feb",
+                  "mar",
+                  "apr",
+                  "maj",
+                  "jun",
+                  "jul",
+                  "aug",
+                  "sep",
+                  "okt",
+                  "nov",
+                  "dec",
+                  ""
+                    }
+                    wide{
+                  "januar",
+                  "februar",
+                  "marts",
+                  "april",
+                  "maj",
+                  "juni",
+                  "juli",
+                  "august",
+                  "september",
+                  "oktober",
+                  "november",
+                  "december",
+                  ""
+                    }
+                }
+            }
+        }
     }
-    ShortCountry { "DNK" }
 }

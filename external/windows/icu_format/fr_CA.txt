@@ -2,10 +2,6 @@ fr_CA{
 
  Version{"Windows XP"}
  LocaleID{ "0C0C"}
- AmPmMarkers{
-  "",
-  ""
- }
  ShortCountry{
   "CAN"
  }
@@ -28,73 +24,10 @@ fr_CA{
   ","
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "d MMMM yyyy",
-  "",
-  "",
-  "yyyy-MM-dd",
-  "",
- }
 
- DateTimeElements:intvector{
-  1,
-  
- }
- DayNames{
-  "dimanche",
-  "lundi",
-  "mardi",
-  "mercredi",
-  "jeudi",
-  "vendredi",
-  "samedi"
- }
 
- DayAbbreviations{
-  "dim.",
-  "lun.",
-  "mar.",
-  "mer.",
-  "jeu.",
-  "ven.",
-  "sam."
- }
 
- MonthNames{
-  "janvier",
-  "f\u00E9vrier",
-  "mars",
-  "avril",
-  "mai",
-  "juin",
-  "juillet",
-  "ao\u00FBt",
-  "septembre",
-  "octobre",
-  "novembre",
-  "d\u00E9cembre",
-  ""
- }
 
- MonthAbbreviations{
-  "janv.",
-  "f\u00E9vr.",
-  "mars",
-  "avr.",
-  "mai",
-  "juin",
-  "juil.",
-  "ao\u00FBt",
-  "sept.",
-  "oct.",
-  "nov.",
-  "d\u00E9c.",
-  ""
- }
 
  NumberElements{
   ",",
@@ -116,5 +49,83 @@ fr_CA{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          1,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "HH:mm:ss",
+          "",
+          "d MMMM yyyy",
+          "",
+          "",
+          "yyyy-MM-dd",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "dim.",
+                  "lun.",
+                  "mar.",
+                  "mer.",
+                  "jeu.",
+                  "ven.",
+                  "sam."
+                    }
+                    wide{
+                  "dimanche",
+                  "lundi",
+                  "mardi",
+                  "mercredi",
+                  "jeudi",
+                  "vendredi",
+                  "samedi"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "janv.",
+                  "f\u00E9vr.",
+                  "mars",
+                  "avr.",
+                  "mai",
+                  "juin",
+                  "juil.",
+                  "ao\u00FBt",
+                  "sept.",
+                  "oct.",
+                  "nov.",
+                  "d\u00E9c.",
+                  ""
+                    }
+                    wide{
+                  "janvier",
+                  "f\u00E9vrier",
+                  "mars",
+                  "avril",
+                  "mai",
+                  "juin",
+                  "juillet",
+                  "ao\u00FBt",
+                  "septembre",
+                  "octobre",
+                  "novembre",
+                  "d\u00E9cembre",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

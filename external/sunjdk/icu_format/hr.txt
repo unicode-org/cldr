@@ -3,70 +3,11 @@ hr {
     Countries { 
         HR { "Hrvatska" }
     }
-    DateTimePatterns { 
-            "HH:mm:ss z",
-            "HH:mm:ss z",
-            "HH:mm:ss",
-            "HH:mm",
-            "yyyy. MMMM dd",
-            "yyyy. MMMM dd",
-            "yyyy.MM.dd",
-            "yyyy.MM.dd",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "ned",
-            "pon",
-            "uto",
-            "sri",
-            "\u010Det",
-            "pet",
-            "sub",
-    }
-    DayNames { 
-            "nedjelja",
-            "ponedjeljak",
-            "utorak",
-            "srijeda",
-            "\u010Detvrtak",
-            "petak",
-            "subota",
-    }
     Languages { 
         hr { "hrvatski" }
     }
     LocaleID { "041a" }
     LocaleString { "hr" }
-    MonthAbbreviations { 
-            "sij",
-            "vel",
-            "o\u017Eu",
-            "tra",
-            "svi",
-            "lip",
-            "srp",
-            "kol",
-            "ruj",
-            "lis",
-            "stu",
-            "pro",
-            "",
-    }
-    MonthNames { 
-            "sije\u010Danj",
-            "velja\u010Da",
-            "o\u017Eujak",
-            "travanj",
-            "svibanj",
-            "lipanj",
-            "srpanj",
-            "kolovoz",
-            "rujan",
-            "listopad",
-            "studeni",
-            "prosinac",
-            "",
-    }
     NumberElements { 
             ",",
             ".",
@@ -82,4 +23,75 @@ hr {
     }
     ShortLanguage { "hrv" }
     localPatternChars { "GanjkHmsSEDFwWxhKzZ" }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss z",
+                    "HH:mm:ss z",
+                    "HH:mm:ss",
+                    "HH:mm",
+                    "yyyy. MMMM dd",
+                    "yyyy. MMMM dd",
+                    "yyyy.MM.dd",
+                    "yyyy.MM.dd",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "ned",
+                            "pon",
+                            "uto",
+                            "sri",
+                            "\u010Det",
+                            "pet",
+                            "sub",
+                    }
+                    wide{
+                            "nedjelja",
+                            "ponedjeljak",
+                            "utorak",
+                            "srijeda",
+                            "\u010Detvrtak",
+                            "petak",
+                            "subota",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "sij",
+                            "vel",
+                            "o\u017Eu",
+                            "tra",
+                            "svi",
+                            "lip",
+                            "srp",
+                            "kol",
+                            "ruj",
+                            "lis",
+                            "stu",
+                            "pro",
+                            "",
+                    }
+                    wide{
+                            "sije\u010Danj",
+                            "velja\u010Da",
+                            "o\u017Eujak",
+                            "travanj",
+                            "svibanj",
+                            "lipanj",
+                            "srpanj",
+                            "kolovoz",
+                            "rujan",
+                            "listopad",
+                            "studeni",
+                            "prosinac",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

@@ -200,35 +200,6 @@ ca {
         ZM { "Z\u00E0mbia" }
         ZW { "Zimbabwe" }
     }
-    DateTimePatterns { 
-            "HH:mm:ss z",
-            "HH:mm:ss z",
-            "HH:mm:ss",
-            "HH:mm",
-            "EEEE, d' / 'MMMM' / 'yyyy",
-            "d' / 'MMMM' / 'yyyy",
-            "dd/MM/yyyy",
-            "dd/MM/yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "dg.",
-            "dl.",
-            "dt.",
-            "dc.",
-            "dj.",
-            "dv.",
-            "ds.",
-    }
-    DayNames { 
-            "diumenge",
-            "dilluns",
-            "dimarts",
-            "dimecres",
-            "dijous",
-            "divendres",
-            "dissabte",
-    }
     Languages { 
         ab { "abkhaz" }
         aa { "\u00E0far" }
@@ -375,36 +346,6 @@ ca {
     }
     LocaleID { "0403" }
     LocaleString { "ca" }
-    MonthAbbreviations { 
-            "gen.",
-            "feb.",
-            "mar\u00E7",
-            "abr.",
-            "maig",
-            "juny",
-            "jul.",
-            "ag.",
-            "set.",
-            "oct.",
-            "nov.",
-            "des.",
-            "",
-    }
-    MonthNames { 
-            "gener",
-            "febrer",
-            "mar\u00E7",
-            "abril",
-            "maig",
-            "juny",
-            "juliol",
-            "agost",
-            "setembre",
-            "octubre",
-            "novembre",
-            "desembre",
-            "",
-    }
     NumberElements { 
             ",",
             ".",
@@ -420,4 +361,75 @@ ca {
     }
     ShortLanguage { "cat" }
     localPatternChars { "GuMtkHmsSEDFwWahKzZ" }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss z",
+                    "HH:mm:ss z",
+                    "HH:mm:ss",
+                    "HH:mm",
+                    "EEEE, d' / 'MMMM' / 'yyyy",
+                    "d' / 'MMMM' / 'yyyy",
+                    "dd/MM/yyyy",
+                    "dd/MM/yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "dg.",
+                            "dl.",
+                            "dt.",
+                            "dc.",
+                            "dj.",
+                            "dv.",
+                            "ds.",
+                    }
+                    wide{
+                            "diumenge",
+                            "dilluns",
+                            "dimarts",
+                            "dimecres",
+                            "dijous",
+                            "divendres",
+                            "dissabte",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "gen.",
+                            "feb.",
+                            "mar\u00E7",
+                            "abr.",
+                            "maig",
+                            "juny",
+                            "jul.",
+                            "ag.",
+                            "set.",
+                            "oct.",
+                            "nov.",
+                            "des.",
+                            "",
+                    }
+                    wide{
+                            "gener",
+                            "febrer",
+                            "mar\u00E7",
+                            "abril",
+                            "maig",
+                            "juny",
+                            "juliol",
+                            "agost",
+                            "setembre",
+                            "octubre",
+                            "novembre",
+                            "desembre",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="cy" /> 
 		<territory type="GB" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">Ionawr</month>
-					<month type="2">Chwefror</month>
-					<month type="3">Mawrth</month>
-					<month type="4">Ebrill</month>
-					<month type="5">Mai</month>
-					<month type="6">Mehefin</month>
-					<month type="7">Gorffennaf</month>
-					<month type="8">Awst</month>
-					<month type="9">Medi</month>
-					<month type="10">Hydref</month>
-					<month type="11">Tachwedd</month>
-					<month type="12">Rhagfyr</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">Ion</month>
-					<month type="2">Chw</month>
-					<month type="3">Maw</month>
-					<month type="4">Ebr</month>
-					<month type="5">Mai</month>
-					<month type="6">Meh</month>
-					<month type="7">Gor</month>
-					<month type="8">Aws</month>
-					<month type="9">Med</month>
-					<month type="10">Hyd</month>
-					<month type="11">Tach</month>
-					<month type="12">Rha</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">Sul</day>
-					<day type="mon">Llun</day>
-					<day type="tue">Mawrth</day>
-					<day type="wed">Mercher</day>
-					<day type="thu">Iau</day>
-					<day type="fri">Gwener</day>
-					<day type="sat">Sadwrn</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">Sul</day>
-					<day type="mon">Llu</day>
-					<day type="tue">Maw</day>
-					<day type="wed">Mer</day>
-					<day type="thu">Iau</day>
-					<day type="fri">Gwe</day>
-					<day type="sat">Sad</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Ion</month>
+							<month type="2">Chw</month>
+							<month type="3">Maw</month>
+							<month type="4">Ebr</month>
+							<month type="5">Mai</month>
+							<month type="6">Meh</month>
+							<month type="7">Gor</month>
+							<month type="8">Aws</month>
+							<month type="9">Med</month>
+							<month type="10">Hyd</month>
+							<month type="11">Tach</month>
+							<month type="12">Rha</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Ionawr</month>
+							<month type="2">Chwefror</month>
+							<month type="3">Mawrth</month>
+							<month type="4">Ebrill</month>
+							<month type="5">Mai</month>
+							<month type="6">Mehefin</month>
+							<month type="7">Gorffennaf</month>
+							<month type="8">Awst</month>
+							<month type="9">Medi</month>
+							<month type="10">Hydref</month>
+							<month type="11">Tachwedd</month>
+							<month type="12">Rhagfyr</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Sul</day>
+							<day type="mon">Llu</day>
+							<day type="tue">Maw</day>
+							<day type="wed">Mer</day>
+							<day type="thu">Iau</day>
+							<day type="fri">Gwe</day>
+							<day type="sat">Sad</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Sul</day>
+							<day type="mon">Llun</day>
+							<day type="tue">Mawrth</day>
+							<day type="wed">Mercher</day>
+							<day type="thu">Iau</day>
+							<day type="fri">Gwener</day>
+							<day type="sat">Sadwrn</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">

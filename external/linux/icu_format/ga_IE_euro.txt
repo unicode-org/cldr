@@ -10,35 +10,6 @@ ga_IE_euro {
             "EUR ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE dd MMM yyyy  z",
-            "EEE dd MMM yyyy hh:mm:ss z",
-            "dd.MMMM.yy",
-            "dd.MMMM.yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Domh",
-            "Luan",
-            "M\u00E1irt",
-            "C\u00E9ad",
-            "D\u00E9ar",
-            "Aoine",
-            "Sath",
-    }
-    DayNames { 
-            "D\u00E9 Domhnaigh",
-            "D\u00E9 Luain",
-            "D\u00E9 M\u00E1irt",
-            "D\u00E9 C\u00E9adaoin",
-            "D\u00E9ardaoin",
-            "D\u00E9 hAoine",
-            "D\u00E9 Sathairn",
-    }
     Identification { 
         Title { "Irish locale for Ireland with Euro" }
         Source { "Free Software Foundation, Inc." }
@@ -62,36 +33,6 @@ ga_IE_euro {
         NoExpression { "^[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "Ean",
-            "Feabh",
-            "M\u00E1rta",
-            "Aib",
-            "Beal",
-            "Meith",
-            "I\u00FAil",
-            "L\u00FAn",
-            "MF\u00F3mh",
-            "DF\u00F3mh",
-            "Samh",
-            "Noll",
-            "",
-    }
-    MonthNames { 
-            "Ean\u00E1ir",
-            "Feabhra",
-            "M\u00E1rta",
-            "Aibre\u00E1n",
-            "M\u00ED na Bealtaine",
-            "Meith",
-            "I\u00FAil",
-            "L\u00FAnasa",
-            "Me\u00E1n F\u00F3mhair",
-            "Deireadh F\u00F3mhair",
-            "M\u00ED na Samhna",
-            "M\u00ED na Nollag",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -121,15 +62,81 @@ ga_IE_euro {
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "353" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE dd MMM yyyy  z",
+                    "EEE dd MMM yyyy hh:mm:ss z",
+                    "dd.MMMM.yy",
+                    "dd.MMMM.yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Domh",
+                            "Luan",
+                            "M\u00E1irt",
+                            "C\u00E9ad",
+                            "D\u00E9ar",
+                            "Aoine",
+                            "Sath",
+                    }
+                    wide{
+                            "D\u00E9 Domhnaigh",
+                            "D\u00E9 Luain",
+                            "D\u00E9 M\u00E1irt",
+                            "D\u00E9 C\u00E9adaoin",
+                            "D\u00E9ardaoin",
+                            "D\u00E9 hAoine",
+                            "D\u00E9 Sathairn",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Ean",
+                            "Feabh",
+                            "M\u00E1rta",
+                            "Aib",
+                            "Beal",
+                            "Meith",
+                            "I\u00FAil",
+                            "L\u00FAn",
+                            "MF\u00F3mh",
+                            "DF\u00F3mh",
+                            "Samh",
+                            "Noll",
+                            "",
+                    }
+                    wide{
+                            "Ean\u00E1ir",
+                            "Feabhra",
+                            "M\u00E1rta",
+                            "Aibre\u00E1n",
+                            "M\u00ED na Bealtaine",
+                            "Meith",
+                            "I\u00FAil",
+                            "L\u00FAnasa",
+                            "Me\u00E1n F\u00F3mhair",
+                            "Deireadh F\u00F3mhair",
+                            "M\u00ED na Samhna",
+                            "M\u00ED na Nollag",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

@@ -1794,35 +1794,6 @@ pl_PL {
             "PLZ ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE dd MMM yyyy  z",
-            "EEE dd MMM yyyy hh:mm:ss z",
-            "yyyy-MMMM-dd",
-            "yyyy-MMMM-dd",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "nie",
-            "pon",
-            "wto",
-            "\u015Bro",
-            "czw",
-            "pi\u0105",
-            "sob",
-    }
-    DayNames { 
-            "niedziela",
-            "poniedzia\u0142ek",
-            "wtorek",
-            "\u015Broda",
-            "czwartek",
-            "pi\u0105tek",
-            "sobota",
-    }
     Identification { 
         Title { "Polish locale for Poland" }
         Source { "RAP" }
@@ -1846,36 +1817,6 @@ pl_PL {
         NoExpression { "^[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "sty",
-            "lut",
-            "mar",
-            "kwi",
-            "maj",
-            "cze",
-            "lip",
-            "sie",
-            "wrz",
-            "pa\u017A",
-            "lis",
-            "gru",
-            "",
-    }
-    MonthNames { 
-            "stycze\u0144",
-            "luty",
-            "marzec",
-            "kwiecie\u0144",
-            "maj",
-            "czerwiec",
-            "lipiec",
-            "sierpie\u0144",
-            "wrzesie\u0144",
-            "pa\u017Adziernik",
-            "listopad",
-            "grudzie\u0144",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -1905,15 +1846,81 @@ pl_PL {
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,#0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "48" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE dd MMM yyyy  z",
+                    "EEE dd MMM yyyy hh:mm:ss z",
+                    "yyyy-MMMM-dd",
+                    "yyyy-MMMM-dd",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "nie",
+                            "pon",
+                            "wto",
+                            "\u015Bro",
+                            "czw",
+                            "pi\u0105",
+                            "sob",
+                    }
+                    wide{
+                            "niedziela",
+                            "poniedzia\u0142ek",
+                            "wtorek",
+                            "\u015Broda",
+                            "czwartek",
+                            "pi\u0105tek",
+                            "sobota",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "sty",
+                            "lut",
+                            "mar",
+                            "kwi",
+                            "maj",
+                            "cze",
+                            "lip",
+                            "sie",
+                            "wrz",
+                            "pa\u017A",
+                            "lis",
+                            "gru",
+                            "",
+                    }
+                    wide{
+                            "stycze\u0144",
+                            "luty",
+                            "marzec",
+                            "kwiecie\u0144",
+                            "maj",
+                            "czerwiec",
+                            "lipiec",
+                            "sierpie\u0144",
+                            "wrzesie\u0144",
+                            "pa\u017Adziernik",
+                            "listopad",
+                            "grudzie\u0144",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

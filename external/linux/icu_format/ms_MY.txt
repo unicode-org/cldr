@@ -10,35 +10,6 @@ ms_MY {
             "MYR ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss aa z",
-            "hh:mm:ss  z",
-            "hh:mm:ss  z",
-            "hh:mm:ss  z",
-            "EEEE dd MMM yyyy",
-            "EEEE dd MMM yyyy hh:mm:ss aa z",
-            "EEEE dd MMM yyyy",
-            "EEEE dd MMM yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Aha",
-            "Isn",
-            "Sel",
-            "Rab",
-            "Kha",
-            "Jum",
-            "Sab",
-    }
-    DayNames { 
-            "Ahad",
-            "Isnin",
-            "Selasa",
-            "Rahb",
-            "Khamis",
-            "Jumaat",
-            "Sabtu",
-    }
     Identification { 
         Title { "Malay language locale for Malaysia" }
         Source { "IBM Globalization Center of Competency, Yamato Software Laboratory" }
@@ -62,36 +33,6 @@ ms_MY {
         NoExpression { "^[nN]" }
         YesStr { "Yes" }
         NoStr { "No" }
-    }
-    MonthAbbreviations { 
-            "Jan",
-            "Feb",
-            "Mac",
-            "Apr",
-            "Mei",
-            "Jun",
-            "Jul",
-            "Ogos",
-            "Sep",
-            "Okt",
-            "Nov",
-            "Dis",
-            "",
-    }
-    MonthNames { 
-            "Januari",
-            "Februari",
-            "Mac",
-            "April",
-            "Mei",
-            "Jun",
-            "Julai",
-            "Ogos",
-            "September",
-            "Oktober",
-            "November",
-            "Disember",
-            "",
     }
     NameFormat { 
         NamePattern { "%p%t%f%t%g" }
@@ -121,15 +62,81 @@ ms_MY {
             "\u00A4#,##0.00;(\u00A4#,##0.00)",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c ;%a ;%l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss aa z",
+                    "hh:mm:ss  z",
+                    "hh:mm:ss  z",
+                    "hh:mm:ss  z",
+                    "EEEE dd MMM yyyy",
+                    "EEEE dd MMM yyyy hh:mm:ss aa z",
+                    "EEEE dd MMM yyyy",
+                    "EEEE dd MMM yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Aha",
+                            "Isn",
+                            "Sel",
+                            "Rab",
+                            "Kha",
+                            "Jum",
+                            "Sab",
+                    }
+                    wide{
+                            "Ahad",
+                            "Isnin",
+                            "Selasa",
+                            "Rahb",
+                            "Khamis",
+                            "Jumaat",
+                            "Sabtu",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Feb",
+                            "Mac",
+                            "Apr",
+                            "Mei",
+                            "Jun",
+                            "Jul",
+                            "Ogos",
+                            "Sep",
+                            "Okt",
+                            "Nov",
+                            "Dis",
+                            "",
+                    }
+                    wide{
+                            "Januari",
+                            "Februari",
+                            "Mac",
+                            "April",
+                            "Mei",
+                            "Jun",
+                            "Julai",
+                            "Ogos",
+                            "September",
+                            "Oktober",
+                            "November",
+                            "Disember",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

@@ -2,10 +2,6 @@ lt_LT{
 
  Version{"Windows XP"}
  LocaleID{ "0427"}
- AmPmMarkers{
-  "",
-  ""
- }
  ShortCountry{
   "LTU"
  }
@@ -28,73 +24,10 @@ lt_LT{
   ","
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "yyyy 'm.' MMMM d 'd.'",
-  "",
-  "",
-  "yyyy.MM.dd",
-  "",
- }
 
- DateTimeElements:intvector{
-  2,
-  
- }
- DayNames{
-  "sekmadienis",
-  "pirmadienis",
-  "antradienis",
-  "tre\u010Diadienis",
-  "ketvirtadienis",
-  "penktadienis",
-  "\u0161e\u0161tadienis"
- }
 
- DayAbbreviations{
-  "Sk",
-  "Pr",
-  "An",
-  "Tr",
-  "Kt",
-  "Pn",
-  "\u0160t"
- }
 
- MonthNames{
-  "sausis",
-  "vasaris",
-  "kovas",
-  "balandis",
-  "gegu\u017E\u0117",
-  "bir\u017Eelis",
-  "liepa",
-  "rugpj\u016Btis",
-  "rugs\u0117jis",
-  "spalis",
-  "lapkritis",
-  "gruodis",
-  ""
- }
 
- MonthAbbreviations{
-  "Sau",
-  "Vas",
-  "Kov",
-  "Bal",
-  "Geg",
-  "Bir",
-  "Lie",
-  "Rgp",
-  "Rgs",
-  "Spl",
-  "Lap",
-  "Grd",
-  ""
- }
 
  NumberElements{
   ",",
@@ -116,5 +49,83 @@ lt_LT{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "HH:mm:ss",
+          "",
+          "yyyy 'm.' MMMM d 'd.'",
+          "",
+          "",
+          "yyyy.MM.dd",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "Sk",
+                  "Pr",
+                  "An",
+                  "Tr",
+                  "Kt",
+                  "Pn",
+                  "\u0160t"
+                    }
+                    wide{
+                  "sekmadienis",
+                  "pirmadienis",
+                  "antradienis",
+                  "tre\u010Diadienis",
+                  "ketvirtadienis",
+                  "penktadienis",
+                  "\u0161e\u0161tadienis"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "Sau",
+                  "Vas",
+                  "Kov",
+                  "Bal",
+                  "Geg",
+                  "Bir",
+                  "Lie",
+                  "Rgp",
+                  "Rgs",
+                  "Spl",
+                  "Lap",
+                  "Grd",
+                  ""
+                    }
+                    wide{
+                  "sausis",
+                  "vasaris",
+                  "kovas",
+                  "balandis",
+                  "gegu\u017E\u0117",
+                  "bir\u017Eelis",
+                  "liepa",
+                  "rugpj\u016Btis",
+                  "rugs\u0117jis",
+                  "spalis",
+                  "lapkritis",
+                  "gruodis",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

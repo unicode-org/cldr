@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="ro" /> 
 		<territory type="RO" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">Ianuarie</month>
-					<month type="2">Februarie</month>
-					<month type="3">Martie</month>
-					<month type="4">Aprilie</month>
-					<month type="5">Mai</month>
-					<month type="6">Iunie</month>
-					<month type="7">Iulie</month>
-					<month type="8">August</month>
-					<month type="9">Septembrie</month>
-					<month type="10">Octombrie</month>
-					<month type="11">Noiembrie</month>
-					<month type="12">Decembrie</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">ian</month>
-					<month type="2">feb</month>
-					<month type="3">mar</month>
-					<month type="4">apr</month>
-					<month type="5">mai</month>
-					<month type="6">iun</month>
-					<month type="7">iul</month>
-					<month type="8">aug</month>
-					<month type="9">sep</month>
-					<month type="10">oct</month>
-					<month type="11">nov</month>
-					<month type="12">dec</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">DuminicĂ</day>
-					<day type="mon">Luni</day>
-					<day type="tue">Marţi</day>
-					<day type="wed">Miercuri</day>
-					<day type="thu">Joi</day>
-					<day type="fri">Vineri</day>
-					<day type="sat">SîmbĂtĂ</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">Du</day>
-					<day type="mon">Lu</day>
-					<day type="tue">Ma</day>
-					<day type="wed">Mi</day>
-					<day type="thu">Jo</day>
-					<day type="fri">Vi</day>
-					<day type="sat">Sî</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">ian</month>
+							<month type="2">feb</month>
+							<month type="3">mar</month>
+							<month type="4">apr</month>
+							<month type="5">mai</month>
+							<month type="6">iun</month>
+							<month type="7">iul</month>
+							<month type="8">aug</month>
+							<month type="9">sep</month>
+							<month type="10">oct</month>
+							<month type="11">nov</month>
+							<month type="12">dec</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Ianuarie</month>
+							<month type="2">Februarie</month>
+							<month type="3">Martie</month>
+							<month type="4">Aprilie</month>
+							<month type="5">Mai</month>
+							<month type="6">Iunie</month>
+							<month type="7">Iulie</month>
+							<month type="8">August</month>
+							<month type="9">Septembrie</month>
+							<month type="10">Octombrie</month>
+							<month type="11">Noiembrie</month>
+							<month type="12">Decembrie</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Du</day>
+							<day type="mon">Lu</day>
+							<day type="tue">Ma</day>
+							<day type="wed">Mi</day>
+							<day type="thu">Jo</day>
+							<day type="fri">Vi</day>
+							<day type="sat">Sî</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">DuminicĂ</day>
+							<day type="mon">Luni</day>
+							<day type="tue">Marţi</day>
+							<day type="wed">Miercuri</day>
+							<day type="thu">Joi</day>
+							<day type="fri">Vineri</day>
+							<day type="sat">SîmbĂtĂ</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">

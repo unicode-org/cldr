@@ -2,45 +2,12 @@ hi_IN {
     AddressFormat { 
         PostalFormat { "%z%c%T%s%b%e%r" }
     }
-    AmPmMarkers { 
-            "\u092A\u0942\u0930\u094D\u0935\u093E\u0939\u094D\u0928",
-            "\u0905\u092A\u0930\u093E\u0939\u094D\u0928",
-    }
     ///* Discarding duplicate data for tag: CountryISBNNumber */
     ///* Discarding duplicate data for tag: CountryNumber */
     CurrencyElements { 
             "\u0930\u0942",
             "INR ",
             ".",
-    }
-    DateTimePatterns { 
-            "hh:mm:ss aa z",
-            "hh:mm:ss  z",
-            "hh:mm:ss  z",
-            "hh:mm:ss  z",
-            "EEEE dd MMM yyyy",
-            "EEEE dd MMM yyyy hh:mm:ss aa z",
-            "EEEE dd MMM yyyy",
-            "EEEE dd MMM yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u0930\u0935\u093F ",
-            "\u0938\u094B\u092E ",
-            "\u092E\u0902\u0917\u0932 ",
-            "\u092C\u0941\u0927 ",
-            "\u0917\u0941\u0930\u0941 ",
-            "\u0936\u0941\u0915\u094D\u0930 ",
-            "\u0936\u0928\u093F ",
-    }
-    DayNames { 
-            "\u0930\u0935\u093F\u0935\u093E\u0930 ",
-            "\u0938\u094B\u092E\u0935\u093E\u0930 ",
-            "\u092E\u0902\u0917\u0932\u0935\u093E\u0930 ",
-            "\u092C\u0941\u0927\u0935\u093E\u0930 ",
-            "\u0917\u0941\u0930\u0941\u0935\u093E\u0930 ",
-            "\u0936\u0941\u0915\u094D\u0930\u0935\u093E\u0930 ",
-            "\u0936\u0928\u093F\u0935\u093E\u0930 ",
     }
     Identification { 
         Title { "Hindi language locale for India" }
@@ -65,36 +32,6 @@ hi_IN {
         NoExpression { "^[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "\u091C\u0928\u0935\u0930\u0940",
-            "\u092B\u093C\u0930\u0935\u0930\u0940",
-            "\u092E\u093E\u0930\u094D\u091A",
-            "\u0905\u092A\u094D\u0930\u0947\u0932",
-            "\u092E\u0908",
-            "\u091C\u0942\u0928",
-            "\u091C\u0941\u0932\u093E\u0908",
-            "\u0905\u0917\u0938\u094D\u0924",
-            "\u0938\u093F\u0924\u092E\u094D\u092C\u0930",
-            "\u0905\u0915\u094D\u091F\u0942\u092C\u0930",
-            "\u0928\u0935\u092E\u094D\u092C\u0930",
-            "\u0926\u093F\u0938\u092E\u094D\u092C\u0930",
-            "",
-    }
-    MonthNames { 
-            "\u091C\u0928\u0935\u0930\u0940",
-            "\u092B\u093C\u0930\u0935\u0930\u0940",
-            "\u092E\u093E\u0930\u094D\u091A",
-            "\u0905\u092A\u094D\u0930\u0947\u0932",
-            "\u092E\u0908",
-            "\u091C\u0942\u0928",
-            "\u091C\u0941\u0932\u093E\u0908",
-            "\u0905\u0917\u0938\u094D\u0924",
-            "\u0938\u093F\u0924\u092E\u094D\u092C\u0930",
-            "\u0905\u0915\u094D\u091F\u0942\u092C\u0930",
-            "\u0928\u0935\u092E\u094D\u092C\u0930",
-            "\u0926\u093F\u0938\u092E\u094D\u092C\u0930",
-            "",
     }
     NameFormat { 
         NamePattern { "%p%t%f%t%g" }
@@ -124,15 +61,85 @@ hi_IN {
             "\u00A4 #,##0.00;-\u00A4 #,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c ;%a ;%l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "91" }
+    }
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    "\u092A\u0942\u0930\u094D\u0935\u093E\u0939\u094D\u0928",
+                    "\u0905\u092A\u0930\u093E\u0939\u094D\u0928",
+            }
+            DateTimePatterns{
+                    "hh:mm:ss aa z",
+                    "hh:mm:ss  z",
+                    "hh:mm:ss  z",
+                    "hh:mm:ss  z",
+                    "EEEE dd MMM yyyy",
+                    "EEEE dd MMM yyyy hh:mm:ss aa z",
+                    "EEEE dd MMM yyyy",
+                    "EEEE dd MMM yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u0930\u0935\u093F ",
+                            "\u0938\u094B\u092E ",
+                            "\u092E\u0902\u0917\u0932 ",
+                            "\u092C\u0941\u0927 ",
+                            "\u0917\u0941\u0930\u0941 ",
+                            "\u0936\u0941\u0915\u094D\u0930 ",
+                            "\u0936\u0928\u093F ",
+                    }
+                    wide{
+                            "\u0930\u0935\u093F\u0935\u093E\u0930 ",
+                            "\u0938\u094B\u092E\u0935\u093E\u0930 ",
+                            "\u092E\u0902\u0917\u0932\u0935\u093E\u0930 ",
+                            "\u092C\u0941\u0927\u0935\u093E\u0930 ",
+                            "\u0917\u0941\u0930\u0941\u0935\u093E\u0930 ",
+                            "\u0936\u0941\u0915\u094D\u0930\u0935\u093E\u0930 ",
+                            "\u0936\u0928\u093F\u0935\u093E\u0930 ",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u091C\u0928\u0935\u0930\u0940",
+                            "\u092B\u093C\u0930\u0935\u0930\u0940",
+                            "\u092E\u093E\u0930\u094D\u091A",
+                            "\u0905\u092A\u094D\u0930\u0947\u0932",
+                            "\u092E\u0908",
+                            "\u091C\u0942\u0928",
+                            "\u091C\u0941\u0932\u093E\u0908",
+                            "\u0905\u0917\u0938\u094D\u0924",
+                            "\u0938\u093F\u0924\u092E\u094D\u092C\u0930",
+                            "\u0905\u0915\u094D\u091F\u0942\u092C\u0930",
+                            "\u0928\u0935\u092E\u094D\u092C\u0930",
+                            "\u0926\u093F\u0938\u092E\u094D\u092C\u0930",
+                            "",
+                    }
+                    wide{
+                            "\u091C\u0928\u0935\u0930\u0940",
+                            "\u092B\u093C\u0930\u0935\u0930\u0940",
+                            "\u092E\u093E\u0930\u094D\u091A",
+                            "\u0905\u092A\u094D\u0930\u0947\u0932",
+                            "\u092E\u0908",
+                            "\u091C\u0942\u0928",
+                            "\u091C\u0941\u0932\u093E\u0908",
+                            "\u0905\u0917\u0938\u094D\u0924",
+                            "\u0938\u093F\u0924\u092E\u094D\u092C\u0930",
+                            "\u0905\u0915\u094D\u091F\u0942\u092C\u0930",
+                            "\u0928\u0935\u092E\u094D\u092C\u0930",
+                            "\u0926\u093F\u0938\u092E\u094D\u092C\u0930",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="oc" /> 
 		<territory type="FR" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">genièr</month>
-					<month type="2">febrièr</month>
-					<month type="3">març</month>
-					<month type="4">abrial</month>
-					<month type="5">mai</month>
-					<month type="6">junh</month>
-					<month type="7">julhet</month>
-					<month type="8">agóst</month>
-					<month type="9">setembre</month>
-					<month type="10">octobre</month>
-					<month type="11">novembre</month>
-					<month type="12">decembre</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">gen</month>
-					<month type="2">feb</month>
-					<month type="3">mar</month>
-					<month type="4">abr</month>
-					<month type="5">mai</month>
-					<month type="6">jun</month>
-					<month type="7">jul</month>
-					<month type="8">agó</month>
-					<month type="9">set</month>
-					<month type="10">oct</month>
-					<month type="11">nov</month>
-					<month type="12">dec</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">dimenge</day>
-					<day type="mon">diluns</day>
-					<day type="tue">dimars</day>
-					<day type="wed">dimecres</day>
-					<day type="thu">dijóus</day>
-					<day type="fri">divendres</day>
-					<day type="sat">disabte</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">dim</day>
-					<day type="mon">lun</day>
-					<day type="tue">mar</day>
-					<day type="wed">mec</day>
-					<day type="thu">jóu</day>
-					<day type="fri">ven</day>
-					<day type="sat">sab</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">gen</month>
+							<month type="2">feb</month>
+							<month type="3">mar</month>
+							<month type="4">abr</month>
+							<month type="5">mai</month>
+							<month type="6">jun</month>
+							<month type="7">jul</month>
+							<month type="8">agó</month>
+							<month type="9">set</month>
+							<month type="10">oct</month>
+							<month type="11">nov</month>
+							<month type="12">dec</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">genièr</month>
+							<month type="2">febrièr</month>
+							<month type="3">març</month>
+							<month type="4">abrial</month>
+							<month type="5">mai</month>
+							<month type="6">junh</month>
+							<month type="7">julhet</month>
+							<month type="8">agóst</month>
+							<month type="9">setembre</month>
+							<month type="10">octobre</month>
+							<month type="11">novembre</month>
+							<month type="12">decembre</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">dim</day>
+							<day type="mon">lun</day>
+							<day type="tue">mar</day>
+							<day type="wed">mec</day>
+							<day type="thu">jóu</day>
+							<day type="fri">ven</day>
+							<day type="sat">sab</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">dimenge</day>
+							<day type="mon">diluns</day>
+							<day type="tue">dimars</day>
+							<day type="wed">dimecres</day>
+							<day type="thu">dijóus</day>
+							<day type="fri">divendres</day>
+							<day type="sat">disabte</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">

@@ -2,10 +2,6 @@ tr_TR {
     AddressFormat { 
         PostalFormat { "%f%N%a%N%d%N%b%N%s %h %e %r%N%%z %T%N%c%N" }
     }
-    AmPmMarkers { 
-            "\u00D6\u00D6",
-            "\u00D6S",
-    }
     CollationElements { 
         Version { "1.0" }
         Overide { "true" }
@@ -1797,35 +1793,6 @@ tr_TR {
             "TRL ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss aa",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE dd MMM yyyy  z",
-            "EEE dd MMM yyyy hh:mm:ss z",
-            "dd-MMMM-yyyy",
-            "dd-MMMM-yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Paz",
-            "Pzt",
-            "Sal",
-            "\u00C7r\u015F",
-            "Pr\u015F",
-            "Cum",
-            "Cts",
-    }
-    DayNames { 
-            "Pazar",
-            "Pazartesi",
-            "Sal\u0131",
-            "\u00C7ar\u015Famba",
-            "Per\u015Fembe",
-            "Cuma",
-            "Cumartesi",
-    }
     Identification { 
         Title { "Turkish locale for Turkey" }
         Source { "RAP" }
@@ -1849,36 +1816,6 @@ tr_TR {
         NoExpression { "^[hH].*" }
         YesStr { "evet" }
         NoStr { "hay\u0131r" }
-    }
-    MonthAbbreviations { 
-            "Oca",
-            "\u015Eub",
-            "Mar",
-            "Nis",
-            "May",
-            "Haz",
-            "Tem",
-            "A\u011Fu",
-            "Eyl",
-            "Eki",
-            "Kas",
-            "Ara",
-            "",
-    }
-    MonthNames { 
-            "Ocak",
-            "\u015Eubat",
-            "Mart",
-            "Nisan",
-            "May\u0131s",
-            "Haziran",
-            "Temmuz",
-            "A\u011Fustos",
-            "Eyl\u00FCl",
-            "Ekim",
-            "Kas\u0131m",
-            "Aral\u0131k",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -1908,15 +1845,85 @@ tr_TR {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,#0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "00" }
         InternationalPrefix { "90" }
+    }
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    "\u00D6\u00D6",
+                    "\u00D6S",
+            }
+            DateTimePatterns{
+                    "hh:mm:ss aa",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE dd MMM yyyy  z",
+                    "EEE dd MMM yyyy hh:mm:ss z",
+                    "dd-MMMM-yyyy",
+                    "dd-MMMM-yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Paz",
+                            "Pzt",
+                            "Sal",
+                            "\u00C7r\u015F",
+                            "Pr\u015F",
+                            "Cum",
+                            "Cts",
+                    }
+                    wide{
+                            "Pazar",
+                            "Pazartesi",
+                            "Sal\u0131",
+                            "\u00C7ar\u015Famba",
+                            "Per\u015Fembe",
+                            "Cuma",
+                            "Cumartesi",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Oca",
+                            "\u015Eub",
+                            "Mar",
+                            "Nis",
+                            "May",
+                            "Haz",
+                            "Tem",
+                            "A\u011Fu",
+                            "Eyl",
+                            "Eki",
+                            "Kas",
+                            "Ara",
+                            "",
+                    }
+                    wide{
+                            "Ocak",
+                            "\u015Eubat",
+                            "Mart",
+                            "Nisan",
+                            "May\u0131s",
+                            "Haziran",
+                            "Temmuz",
+                            "A\u011Fustos",
+                            "Eyl\u00FCl",
+                            "Ekim",
+                            "Kas\u0131m",
+                            "Aral\u0131k",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

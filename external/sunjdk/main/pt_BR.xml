@@ -1,15 +1,84 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<version number="Windows XP"/>
+		<generation date="2004-05-14" />
 		<language type="pt" /> 
 		<territory type="BR" /> 
 	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="pt">Português</language>
+		</languages>
+		<territories>
+			<territory type="BR">Brasil</territory>
+		</territories>
+	</localeDisplayNames>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">jan</month>
+							<month type="2">fev</month>
+							<month type="3">mar</month>
+							<month type="4">abr</month>
+							<month type="5">mai</month>
+							<month type="6">jun</month>
+							<month type="7">jul</month>
+							<month type="8">ago</month>
+							<month type="9">set</month>
+							<month type="10">out</month>
+							<month type="11">nov</month>
+							<month type="12">dez</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">janeiro</month>
+							<month type="2">fevereiro</month>
+							<month type="3">março</month>
+							<month type="4">abril</month>
+							<month type="5">maio</month>
+							<month type="6">junho</month>
+							<month type="7">julho</month>
+							<month type="8">agosto</month>
+							<month type="9">setembro</month>
+							<month type="10">outubro</month>
+							<month type="11">novembro</month>
+							<month type="12">dezembro</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">dom</day>
+							<day type="mon">seg</day>
+							<day type="tue">ter</day>
+							<day type="wed">qua</day>
+							<day type="thu">qui</day>
+							<day type="fri">sex</day>
+							<day type="sat">sáb</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">domingo</day>
+							<day type="mon">segunda-feira</day>
+							<day type="tue">terça-feira</day>
+							<day type="wed">quarta-feira</day>
+							<day type="thu">quinta-feira</day>
+							<day type="fri">sexta-feira</day>
+							<day type="sat">sábado</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<week>
+					<firstDay day="sun"/>
+				</week>
+				<am></am>
+				<pm></pm>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">
@@ -19,17 +88,17 @@
 					</dateFormatLength >
 					<dateFormatLength type="long">
 						<dateFormat >
-							<pattern>d' de 'MMMM' de 'yyyy</pattern>
+							<pattern></pattern>
 						</dateFormat>
 					</dateFormatLength >
 					<dateFormatLength type="medium">
 						<dateFormat >
-							<pattern>dd/MM/yyyy</pattern>
+							<pattern></pattern>
 						</dateFormat>
 					</dateFormatLength >
 					<dateFormatLength type="short">
 						<dateFormat >
-							<pattern>dd/MM/yy</pattern>
+							<pattern>d/M/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength >
 				</dateFormats>
@@ -37,12 +106,12 @@
 					<default type="medium"/>
 					<timeFormatLength type="full">
 						<timeFormat >
-							<pattern>HH'h'mm'min'ss's' z</pattern>
+							<pattern></pattern>
 						</timeFormat>
 					</timeFormatLength >
 					<timeFormatLength type="long">
 						<timeFormat >
-							<pattern>H'h'm'min's's' z</pattern>
+							<pattern></pattern>
 						</timeFormat>
 					</timeFormatLength >
 					<timeFormatLength type="medium">
@@ -52,14 +121,14 @@
 					</timeFormatLength >
 					<timeFormatLength type="short">
 						<timeFormat >
-							<pattern>HH:mm</pattern>
+							<pattern></pattern>
 						</timeFormat>
 					</timeFormatLength >
 				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength >
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern></pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength >
 				</dateTimeFormats>
@@ -67,17 +136,30 @@
 		</calendars>
 	</dates>
 	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
 		<percentFormats>
 			<percentFormatLength >
 				<percentFormat >
-					<pattern>#,##0%</pattern>
+					<pattern></pattern>
 				</percentFormat>
 			</percentFormatLength >
 		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength >
 				<currencyFormat >
-					<pattern>¤ #,##0.##;-¤ #,##0.##</pattern>
+					<pattern></pattern>
 				</currencyFormat>
 			</currencyFormatLength >
 		</currencyFormats>

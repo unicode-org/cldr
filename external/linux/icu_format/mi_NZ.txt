@@ -10,35 +10,6 @@ mi_NZ {
             "NZD ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "Te EEEE, te dd o MMMM, yyyy  z",
-            "Te EEEE, te dd o MMMM, yyyy hh:mm:ss z",
-            "dd/MMMM/yy",
-            "dd/MMMM/yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Ta",
-            "Ma",
-            "T\u016B",
-            "We",
-            "T\u0101i",
-            "Pa",
-            "H\u0101",
-    }
-    DayNames { 
-            "R\u0101tapu",
-            "Mane",
-            "T\u016Brei",
-            "Wenerei",
-            "T\u0101ite",
-            "Paraire",
-            "H\u0101tarei",
-    }
     Identification { 
         Title { "Maori language locale for New Zealand" }
         Source { "James Gasson" }
@@ -62,36 +33,6 @@ mi_NZ {
         NoExpression { "^[0nNkK].*" }
         YesStr { "\u0101e" }
         NoStr { "k\u0101ore" }
-    }
-    MonthAbbreviations { 
-            "Kohi",
-            "Hui",
-            "Pou",
-            "Pae",
-            "Hara",
-            "Pipi",
-            "H\u014Dngoi",
-            "Here",
-            "Mahu",
-            "Whi-nu",
-            "Whi-ra",
-            "Haki",
-            "",
-    }
-    MonthNames { 
-            "Kohi-t\u0101tea",
-            "Hui-tanguru",
-            "Pout\u016B-te-rangi",
-            "Paenga-wh\u0101wh\u0101",
-            "Haratua",
-            "Pipiri",
-            "H\u014Dngoingoi",
-            "Here-turi-k\u014Dk\u0101",
-            "Mahuru",
-            "Whiringa-\u0101-nuku",
-            "Whiringa-\u0101-rangi",
-            "Hakihea",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -121,15 +62,81 @@ mi_NZ {
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "64" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "Te EEEE, te dd o MMMM, yyyy  z",
+                    "Te EEEE, te dd o MMMM, yyyy hh:mm:ss z",
+                    "dd/MMMM/yy",
+                    "dd/MMMM/yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Ta",
+                            "Ma",
+                            "T\u016B",
+                            "We",
+                            "T\u0101i",
+                            "Pa",
+                            "H\u0101",
+                    }
+                    wide{
+                            "R\u0101tapu",
+                            "Mane",
+                            "T\u016Brei",
+                            "Wenerei",
+                            "T\u0101ite",
+                            "Paraire",
+                            "H\u0101tarei",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Kohi",
+                            "Hui",
+                            "Pou",
+                            "Pae",
+                            "Hara",
+                            "Pipi",
+                            "H\u014Dngoi",
+                            "Here",
+                            "Mahu",
+                            "Whi-nu",
+                            "Whi-ra",
+                            "Haki",
+                            "",
+                    }
+                    wide{
+                            "Kohi-t\u0101tea",
+                            "Hui-tanguru",
+                            "Pout\u016B-te-rangi",
+                            "Paenga-wh\u0101wh\u0101",
+                            "Haratua",
+                            "Pipiri",
+                            "H\u014Dngoingoi",
+                            "Here-turi-k\u014Dk\u0101",
+                            "Mahuru",
+                            "Whiringa-\u0101-nuku",
+                            "Whiringa-\u0101-rangi",
+                            "Hakihea",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

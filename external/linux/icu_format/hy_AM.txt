@@ -10,35 +10,6 @@ hy_AM {
             "AMD ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss aa",
-            "hh:mm:ss aa",
-            "hh:mm:ss aa",
-            "hh:mm:ss aa",
-            "EEE dd MMM yyyy  z",
-            "EEE dd MMM yyyy hh:mm:ss aa z",
-            "MMMM/dd/yy",
-            "MMMM/dd/yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u053F\u0580\u056F",
-            "\u0535\u0580\u056F",
-            "\u0535\u0580\u0584",
-            "\u0549\u0580\u0584",
-            "\u0540\u0576\u0563",
-            "\u0548\u0582\u0580",
-            "\u0547\u0562\u0569",
-    }
-    DayNames { 
-            "\u053F\u056B\u0580\u0561\u056F\u056B",
-            "\u0535\u0580\u056F\u0578\u0582\u0577\u0561\u0562\u0569\u056B",
-            "\u0535\u0580\u0565\u0584\u0577\u0561\u0562\u0569\u056B",
-            "\u0549\u0578\u0580\u0565\u0584\u0577\u0561\u0562\u0569\u056B",
-            "\u0540\u056B\u0576\u0563\u0577\u0561\u0562\u0569\u056B",
-            "\u0548\u0582\u0580\u0562\u0561\u0569",
-            "\u0547\u0561\u0562\u0561\u0569",
-    }
     Identification { 
         Title { "Armenian language locale for Armenia" }
         Source { "http:/moon.yerphi.am~hovikArmSCIIArmCS-005.html" }
@@ -63,36 +34,6 @@ hy_AM {
         YesStr { "\u0561\u0575\u0578" }
         NoStr { "\u0578\u0579" }
     }
-    MonthAbbreviations { 
-            "\u0540\u0576\u057E",
-            "\u0553\u057F\u0580",
-            "\u0544\u0561\u0580",
-            "\u0531\u057A\u0580",
-            "\u0544\u0561\u0575",
-            "\u0540\u0576\u057D",
-            "\u0540\u056C\u057D",
-            "\u0555\u0563\u057D",
-            "\u054D\u0565\u057A",
-            "\u0540\u0578\u056F",
-            "\u0546\u0574\u0562",
-            "\u0534\u0565\u056F",
-            "",
-    }
-    MonthNames { 
-            "\u0540\u0578\u0582\u0576\u057E\u0561\u0580\u056B",
-            "\u0553\u0565\u057F\u0580\u057E\u0561\u0580\u056B",
-            "\u0544\u0561\u0580\u057F\u056B",
-            "\u0531\u057A\u0580\u056B\u056C\u056B",
-            "\u0544\u0561\u0575\u056B\u057D\u056B",
-            "\u0540\u0578\u0582\u0576\u056B\u057D\u056B",
-            "\u0540\u0578\u0582\u056C\u056B\u057D\u056B",
-            "\u0555\u0563\u0578\u057D\u057F\u0578\u057D\u056B",
-            "\u054D\u0565\u057A\u057F\u0565\u0574\u0562\u0565\u0580\u056B",
-            "\u0540\u0578\u056F\u057F\u0565\u0574\u0562\u0565\u0580\u056B",
-            "\u0546\u0578\u0575\u0565\u0574\u0562\u0565\u0580\u056B",
-            "\u0534\u0565\u056F\u057F\u0565\u0574\u0562\u0565\u0580\u056B",
-            "",
-    }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
             ".",
@@ -112,15 +53,81 @@ hy_AM {
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "00" }
         InternationalPrefix { "374" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss aa",
+                    "hh:mm:ss aa",
+                    "hh:mm:ss aa",
+                    "hh:mm:ss aa",
+                    "EEE dd MMM yyyy  z",
+                    "EEE dd MMM yyyy hh:mm:ss aa z",
+                    "MMMM/dd/yy",
+                    "MMMM/dd/yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u053F\u0580\u056F",
+                            "\u0535\u0580\u056F",
+                            "\u0535\u0580\u0584",
+                            "\u0549\u0580\u0584",
+                            "\u0540\u0576\u0563",
+                            "\u0548\u0582\u0580",
+                            "\u0547\u0562\u0569",
+                    }
+                    wide{
+                            "\u053F\u056B\u0580\u0561\u056F\u056B",
+                            "\u0535\u0580\u056F\u0578\u0582\u0577\u0561\u0562\u0569\u056B",
+                            "\u0535\u0580\u0565\u0584\u0577\u0561\u0562\u0569\u056B",
+                            "\u0549\u0578\u0580\u0565\u0584\u0577\u0561\u0562\u0569\u056B",
+                            "\u0540\u056B\u0576\u0563\u0577\u0561\u0562\u0569\u056B",
+                            "\u0548\u0582\u0580\u0562\u0561\u0569",
+                            "\u0547\u0561\u0562\u0561\u0569",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u0540\u0576\u057E",
+                            "\u0553\u057F\u0580",
+                            "\u0544\u0561\u0580",
+                            "\u0531\u057A\u0580",
+                            "\u0544\u0561\u0575",
+                            "\u0540\u0576\u057D",
+                            "\u0540\u056C\u057D",
+                            "\u0555\u0563\u057D",
+                            "\u054D\u0565\u057A",
+                            "\u0540\u0578\u056F",
+                            "\u0546\u0574\u0562",
+                            "\u0534\u0565\u056F",
+                            "",
+                    }
+                    wide{
+                            "\u0540\u0578\u0582\u0576\u057E\u0561\u0580\u056B",
+                            "\u0553\u0565\u057F\u0580\u057E\u0561\u0580\u056B",
+                            "\u0544\u0561\u0580\u057F\u056B",
+                            "\u0531\u057A\u0580\u056B\u056C\u056B",
+                            "\u0544\u0561\u0575\u056B\u057D\u056B",
+                            "\u0540\u0578\u0582\u0576\u056B\u057D\u056B",
+                            "\u0540\u0578\u0582\u056C\u056B\u057D\u056B",
+                            "\u0555\u0563\u0578\u057D\u057F\u0578\u057D\u056B",
+                            "\u054D\u0565\u057A\u057F\u0565\u0574\u0562\u0565\u0580\u056B",
+                            "\u0540\u0578\u056F\u057F\u0565\u0574\u0562\u0565\u0580\u056B",
+                            "\u0546\u0578\u0575\u0565\u0574\u0562\u0565\u0580\u056B",
+                            "\u0534\u0565\u056F\u057F\u0565\u0574\u0562\u0565\u0580\u056B",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

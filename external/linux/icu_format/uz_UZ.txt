@@ -10,35 +10,6 @@ uz_UZ {
             "UZS ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            ", dd MMMM, yyyy yil, EEEE",
-            "hh:mm:ss, dd MMMM, yyyy yil, EEEE",
-            "dd/MMMM/yy",
-            "dd/MMMM/yy",
-            "{0} {1}",
-    }
-    DayAbbreviations { 
-            "Yak",
-            "Du",
-            "Se",
-            "Cho",
-            "Pay",
-            "Ju",
-            "Sha",
-    }
-    DayNames { 
-            "yakshanba",
-            "dushanba",
-            "seshanba",
-            "chorshanba",
-            "payshanba",
-            "juma",
-            "shanba",
-    }
     Identification { 
         Title { "Uzbek locale for Uzbekistan" }
         Source { "Bobir Ismailov" }
@@ -62,36 +33,6 @@ uz_UZ {
         NoExpression { "^[JjNn].*" }
         YesStr { "Ha" }
         NoStr { "Yo'q" }
-    }
-    MonthAbbreviations { 
-            "Yav",
-            "Fev",
-            "Mar",
-            "Apr",
-            "May",
-            "Iyn",
-            "Iyl",
-            "Avg",
-            "Sen",
-            "Okt",
-            "Noy",
-            "Dek",
-            "",
-    }
-    MonthNames { 
-            "yanvar",
-            "fevral",
-            "mart",
-            "aprel",
-            "may",
-            "iyun",
-            "iyul",
-            "avgust",
-            "senyabr",
-            "oktyabr",
-            "noyabr",
-            "dekabr",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%f%t%g%t%m" }
@@ -121,15 +62,81 @@ uz_UZ {
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "27" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    ", dd MMMM, yyyy yil, EEEE",
+                    "hh:mm:ss, dd MMMM, yyyy yil, EEEE",
+                    "dd/MMMM/yy",
+                    "dd/MMMM/yy",
+                    "{0} {1}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Yak",
+                            "Du",
+                            "Se",
+                            "Cho",
+                            "Pay",
+                            "Ju",
+                            "Sha",
+                    }
+                    wide{
+                            "yakshanba",
+                            "dushanba",
+                            "seshanba",
+                            "chorshanba",
+                            "payshanba",
+                            "juma",
+                            "shanba",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Yav",
+                            "Fev",
+                            "Mar",
+                            "Apr",
+                            "May",
+                            "Iyn",
+                            "Iyl",
+                            "Avg",
+                            "Sen",
+                            "Okt",
+                            "Noy",
+                            "Dek",
+                            "",
+                    }
+                    wide{
+                            "yanvar",
+                            "fevral",
+                            "mart",
+                            "aprel",
+                            "may",
+                            "iyun",
+                            "iyul",
+                            "avgust",
+                            "senyabr",
+                            "oktyabr",
+                            "noyabr",
+                            "dekabr",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

@@ -200,43 +200,6 @@ fr {
         ZM { "Zambie" }
         ZW { "Zimbabwe" }
     }
-    DateTimeElements:intvector { 
-            2,
-            1,
-    }
-    DateTimePatterns { 
-            "HH' h 'mm z",
-            "HH:mm:ss z",
-            "HH:mm:ss",
-            "HH:mm",
-            "EEEE d MMMM yyyy",
-            "d MMMM yyyy",
-            "d MMM yyyy",
-            "dd/MM/yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "dim.",
-            "lun.",
-            "mar.",
-            "mer.",
-            "jeu.",
-            "ven.",
-            "sam.",
-    }
-    DayNames { 
-            "dimanche",
-            "lundi",
-            "mardi",
-            "mercredi",
-            "jeudi",
-            "vendredi",
-            "samedi",
-    }
-    Eras { 
-            "BC",
-            "ap. J.-C.",
-    }
     Languages { 
         ab { "abkhaze" }
         aa { "afar" }
@@ -383,36 +346,6 @@ fr {
     }
     LocaleID { "040c" }
     LocaleString { "fr" }
-    MonthAbbreviations { 
-            "janv.",
-            "f\u00E9vr.",
-            "mars",
-            "avr.",
-            "mai",
-            "juin",
-            "juil.",
-            "ao\u00FBt",
-            "sept.",
-            "oct.",
-            "nov.",
-            "d\u00E9c.",
-            "",
-    }
-    MonthNames { 
-            "janvier",
-            "f\u00E9vrier",
-            "mars",
-            "avril",
-            "mai",
-            "juin",
-            "juillet",
-            "ao\u00FBt",
-            "septembre",
-            "octobre",
-            "novembre",
-            "d\u00E9cembre",
-            "",
-    }
     NumberElements { 
             ",",
             "\u00A0",
@@ -433,4 +366,83 @@ fr {
     }
     ShortLanguage { "fra" }
     localPatternChars { "GyMdkHmsSEDFwWahKzZ" }
+    calendar{
+        gregorian{
+            DateTimeElements:intvector{
+                    2,
+                    1,
+            }
+            DateTimePatterns{
+                    "HH' h 'mm z",
+                    "HH:mm:ss z",
+                    "HH:mm:ss",
+                    "HH:mm",
+                    "EEEE d MMMM yyyy",
+                    "d MMMM yyyy",
+                    "d MMM yyyy",
+                    "dd/MM/yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "dim.",
+                            "lun.",
+                            "mar.",
+                            "mer.",
+                            "jeu.",
+                            "ven.",
+                            "sam.",
+                    }
+                    wide{
+                            "dimanche",
+                            "lundi",
+                            "mardi",
+                            "mercredi",
+                            "jeudi",
+                            "vendredi",
+                            "samedi",
+                    }
+                }
+            }
+            eras{
+                    "BC",
+                    "ap. J.-C.",
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "janv.",
+                            "f\u00E9vr.",
+                            "mars",
+                            "avr.",
+                            "mai",
+                            "juin",
+                            "juil.",
+                            "ao\u00FBt",
+                            "sept.",
+                            "oct.",
+                            "nov.",
+                            "d\u00E9c.",
+                            "",
+                    }
+                    wide{
+                            "janvier",
+                            "f\u00E9vrier",
+                            "mars",
+                            "avril",
+                            "mai",
+                            "juin",
+                            "juillet",
+                            "ao\u00FBt",
+                            "septembre",
+                            "octobre",
+                            "novembre",
+                            "d\u00E9cembre",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

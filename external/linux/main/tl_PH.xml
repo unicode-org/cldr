@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="tl" /> 
 		<territory type="PH" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">Enero</month>
-					<month type="2">Pebrero</month>
-					<month type="3">Marso</month>
-					<month type="4">Abril</month>
-					<month type="5">Mayo</month>
-					<month type="6">Hunyo</month>
-					<month type="7">Hulyo</month>
-					<month type="8">Agosto</month>
-					<month type="9">Septiyembre</month>
-					<month type="10">Oktubre</month>
-					<month type="11">Nobiyembre</month>
-					<month type="12">Disyembre</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">Ene</month>
-					<month type="2">Peb</month>
-					<month type="3">Mar</month>
-					<month type="4">Abr</month>
-					<month type="5">May</month>
-					<month type="6">Hun</month>
-					<month type="7">Hul</month>
-					<month type="8">Ago</month>
-					<month type="9">Sep</month>
-					<month type="10">Okt</month>
-					<month type="11">Nob</month>
-					<month type="12">Dis</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">Linggo</day>
-					<day type="mon">Lunes</day>
-					<day type="tue">Martes</day>
-					<day type="wed">Miyerkoles</day>
-					<day type="thu">Huwebes</day>
-					<day type="fri">Biyernes</day>
-					<day type="sat">Sabado</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">Lin</day>
-					<day type="mon">Lun</day>
-					<day type="tue">Mar</day>
-					<day type="wed">Miy</day>
-					<day type="thu">Huw</day>
-					<day type="fri">Biy</day>
-					<day type="sat">Sab</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Ene</month>
+							<month type="2">Peb</month>
+							<month type="3">Mar</month>
+							<month type="4">Abr</month>
+							<month type="5">May</month>
+							<month type="6">Hun</month>
+							<month type="7">Hul</month>
+							<month type="8">Ago</month>
+							<month type="9">Sep</month>
+							<month type="10">Okt</month>
+							<month type="11">Nob</month>
+							<month type="12">Dis</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Enero</month>
+							<month type="2">Pebrero</month>
+							<month type="3">Marso</month>
+							<month type="4">Abril</month>
+							<month type="5">Mayo</month>
+							<month type="6">Hunyo</month>
+							<month type="7">Hulyo</month>
+							<month type="8">Agosto</month>
+							<month type="9">Septiyembre</month>
+							<month type="10">Oktubre</month>
+							<month type="11">Nobiyembre</month>
+							<month type="12">Disyembre</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Lin</day>
+							<day type="mon">Lun</day>
+							<day type="tue">Mar</day>
+							<day type="wed">Miy</day>
+							<day type="thu">Huw</day>
+							<day type="fri">Biy</day>
+							<day type="sat">Sab</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Linggo</day>
+							<day type="mon">Lunes</day>
+							<day type="tue">Martes</day>
+							<day type="wed">Miyerkoles</day>
+							<day type="thu">Huwebes</day>
+							<day type="fri">Biyernes</day>
+							<day type="sat">Sabado</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<am>AM</am>
 				<pm>PM</pm>
 				<dateFormats>

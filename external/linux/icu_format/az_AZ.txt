@@ -8,35 +8,6 @@ az_AZ {
             "AZM ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEEE, dd MMMM yyyy ",
-            "EEEE, dd MMMM yyyy hh:mm:ss",
-            "dd.MMMM.yyyy",
-            "dd.MMMM.yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "baz",
-            "bir",
-            "iki",
-            "\u00FC\u00E7\u00FC",
-            "d\u00F6r",
-            "be\u015F",
-            "alt",
-    }
-    DayNames { 
-            "bazar g\u00FCn\u00FC",
-            "birinci g\u00FCn",
-            "ikinci g\u00FCn",
-            "\u00FC\u00E7\u00FCnc\u00FC g\u00FCn",
-            "d\u00F6rd\u00FCnc\u00FC g\u00FCn",
-            "be\u015Finci g\u00FCn",
-            "alt\u0131nc\u0131 g\u00FCn",
-    }
     Identification { 
         Title { "Azeri language locale for Azerbaijan (latin)" }
         Source { "" }
@@ -61,36 +32,6 @@ az_AZ {
         YesStr { "b\u0259li" }
         NoStr { "yox" }
     }
-    MonthAbbreviations { 
-            "Yan",
-            "Fev",
-            "Mar",
-            "Apr",
-            "May",
-            "\u0130yn",
-            "\u0130yl",
-            "Avq",
-            "Sen",
-            "Okt",
-            "Noy",
-            "Dek",
-            "",
-    }
-    MonthNames { 
-            "yanvar",
-            "fevral",
-            "mart",
-            "aprel",
-            "may",
-            "iyun",
-            "iyul",
-            "avqust",
-            "sentyabr",
-            "oktyabr",
-            "noyabr",
-            "dekabr",
-            "",
-    }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
             ",",
@@ -110,10 +51,76 @@ az_AZ {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEEE, dd MMMM yyyy ",
+                    "EEEE, dd MMMM yyyy hh:mm:ss",
+                    "dd.MMMM.yyyy",
+                    "dd.MMMM.yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "baz",
+                            "bir",
+                            "iki",
+                            "\u00FC\u00E7\u00FC",
+                            "d\u00F6r",
+                            "be\u015F",
+                            "alt",
+                    }
+                    wide{
+                            "bazar g\u00FCn\u00FC",
+                            "birinci g\u00FCn",
+                            "ikinci g\u00FCn",
+                            "\u00FC\u00E7\u00FCnc\u00FC g\u00FCn",
+                            "d\u00F6rd\u00FCnc\u00FC g\u00FCn",
+                            "be\u015Finci g\u00FCn",
+                            "alt\u0131nc\u0131 g\u00FCn",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Yan",
+                            "Fev",
+                            "Mar",
+                            "Apr",
+                            "May",
+                            "\u0130yn",
+                            "\u0130yl",
+                            "Avq",
+                            "Sen",
+                            "Okt",
+                            "Noy",
+                            "Dek",
+                            "",
+                    }
+                    wide{
+                            "yanvar",
+                            "fevral",
+                            "mart",
+                            "aprel",
+                            "may",
+                            "iyun",
+                            "iyul",
+                            "avqust",
+                            "sentyabr",
+                            "oktyabr",
+                            "noyabr",
+                            "dekabr",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1798,35 +1798,6 @@ sk_SK {
             "SKK ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE\u00A0dd.\u00A0MMMM\u00A0yyyy,\u00A0\u00A0z",
-            "EEE\u00A0dd.\u00A0MMMM\u00A0yyyy,\u00A0HH:mm:ss\u00A0z",
-            "dd.MMMM.yyyy",
-            "dd.MMMM.yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Ne",
-            "Po",
-            "Ut",
-            "St",
-            "\u0160t",
-            "Pi",
-            "So",
-    }
-    DayNames { 
-            "Nede\u013Ea",
-            "Pondelok",
-            "Utorok",
-            "Streda",
-            "\u0160tvrtok",
-            "Piatok",
-            "Sobota",
-    }
     Identification { 
         Title { "Slovak locale for Slovak" }
         Source { "" }
@@ -1850,36 +1821,6 @@ sk_SK {
         NoExpression { "[nN].*" }
         YesStr { "\u00E1no" }
         NoStr { "nie" }
-    }
-    MonthAbbreviations { 
-            "jan",
-            "feb",
-            "mar",
-            "apr",
-            "m\u00E1j",
-            "j\u00FAn",
-            "j\u00FAl",
-            "aug",
-            "sep",
-            "okt",
-            "nov",
-            "dec",
-            "",
-    }
-    MonthNames { 
-            "janu\u00E1r",
-            "febru\u00E1r",
-            "marec",
-            "apr\u00EDl",
-            "m\u00E1j",
-            "j\u00FAn",
-            "j\u00FAl",
-            "august",
-            "september",
-            "okt\u00F3ber",
-            "november",
-            "december",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -1909,15 +1850,81 @@ sk_SK {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "421" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE\u00A0dd.\u00A0MMMM\u00A0yyyy,\u00A0\u00A0z",
+                    "EEE\u00A0dd.\u00A0MMMM\u00A0yyyy,\u00A0HH:mm:ss\u00A0z",
+                    "dd.MMMM.yyyy",
+                    "dd.MMMM.yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Ne",
+                            "Po",
+                            "Ut",
+                            "St",
+                            "\u0160t",
+                            "Pi",
+                            "So",
+                    }
+                    wide{
+                            "Nede\u013Ea",
+                            "Pondelok",
+                            "Utorok",
+                            "Streda",
+                            "\u0160tvrtok",
+                            "Piatok",
+                            "Sobota",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jan",
+                            "feb",
+                            "mar",
+                            "apr",
+                            "m\u00E1j",
+                            "j\u00FAn",
+                            "j\u00FAl",
+                            "aug",
+                            "sep",
+                            "okt",
+                            "nov",
+                            "dec",
+                            "",
+                    }
+                    wide{
+                            "janu\u00E1r",
+                            "febru\u00E1r",
+                            "marec",
+                            "apr\u00EDl",
+                            "m\u00E1j",
+                            "j\u00FAn",
+                            "j\u00FAl",
+                            "august",
+                            "september",
+                            "okt\u00F3ber",
+                            "november",
+                            "december",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

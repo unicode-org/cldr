@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="az" /> 
 		<territory type="AZ" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">yanvar</month>
-					<month type="2">fevral</month>
-					<month type="3">mart</month>
-					<month type="4">aprel</month>
-					<month type="5">may</month>
-					<month type="6">iyun</month>
-					<month type="7">iyul</month>
-					<month type="8">avqust</month>
-					<month type="9">sentyabr</month>
-					<month type="10">oktyabr</month>
-					<month type="11">noyabr</month>
-					<month type="12">dekabr</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">Yan</month>
-					<month type="2">Fev</month>
-					<month type="3">Mar</month>
-					<month type="4">Apr</month>
-					<month type="5">May</month>
-					<month type="6">İyn</month>
-					<month type="7">İyl</month>
-					<month type="8">Avq</month>
-					<month type="9">Sen</month>
-					<month type="10">Okt</month>
-					<month type="11">Noy</month>
-					<month type="12">Dek</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">bazar günü</day>
-					<day type="mon">birinci gün</day>
-					<day type="tue">ikinci gün</day>
-					<day type="wed">üçüncü gün</day>
-					<day type="thu">dördüncü gün</day>
-					<day type="fri">beşinci gün</day>
-					<day type="sat">altıncı gün</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">baz</day>
-					<day type="mon">bir</day>
-					<day type="tue">iki</day>
-					<day type="wed">üçü</day>
-					<day type="thu">dör</day>
-					<day type="fri">beş</day>
-					<day type="sat">alt</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Yan</month>
+							<month type="2">Fev</month>
+							<month type="3">Mar</month>
+							<month type="4">Apr</month>
+							<month type="5">May</month>
+							<month type="6">İyn</month>
+							<month type="7">İyl</month>
+							<month type="8">Avq</month>
+							<month type="9">Sen</month>
+							<month type="10">Okt</month>
+							<month type="11">Noy</month>
+							<month type="12">Dek</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">yanvar</month>
+							<month type="2">fevral</month>
+							<month type="3">mart</month>
+							<month type="4">aprel</month>
+							<month type="5">may</month>
+							<month type="6">iyun</month>
+							<month type="7">iyul</month>
+							<month type="8">avqust</month>
+							<month type="9">sentyabr</month>
+							<month type="10">oktyabr</month>
+							<month type="11">noyabr</month>
+							<month type="12">dekabr</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">baz</day>
+							<day type="mon">bir</day>
+							<day type="tue">iki</day>
+							<day type="wed">üçü</day>
+							<day type="thu">dör</day>
+							<day type="fri">beş</day>
+							<day type="sat">alt</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">bazar günü</day>
+							<day type="mon">birinci gün</day>
+							<day type="tue">ikinci gün</day>
+							<day type="wed">üçüncü gün</day>
+							<day type="thu">dördüncü gün</day>
+							<day type="fri">beşinci gün</day>
+							<day type="sat">altıncı gün</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">

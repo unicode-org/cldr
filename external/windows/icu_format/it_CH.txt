@@ -2,10 +2,6 @@ it_CH{
 
  Version{"Windows XP"}
  LocaleID{ "0810"}
- AmPmMarkers{
-  "",
-  ""
- }
  ShortCountry{
   "CHE"
  }
@@ -28,73 +24,10 @@ it_CH{
   "."
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "EEEE, d. MMMM yyyy",
-  "",
-  "",
-  "dd.MM.yyyy",
-  "",
- }
 
- DateTimeElements:intvector{
-  2,
-  
- }
- DayNames{
-  "domenica",
-  "luned\u00EC",
-  "marted\u00EC",
-  "mercoled\u00EC",
-  "gioved\u00EC",
-  "venerd\u00EC",
-  "sabato"
- }
 
- DayAbbreviations{
-  "dom",
-  "lun",
-  "mar",
-  "mer",
-  "gio",
-  "ven",
-  "sab"
- }
 
- MonthNames{
-  "gennaio",
-  "febbraio",
-  "marzo",
-  "aprile",
-  "maggio",
-  "giugno",
-  "luglio",
-  "agosto",
-  "settembre",
-  "ottobre",
-  "novembre",
-  "dicembre",
-  ""
- }
 
- MonthAbbreviations{
-  "gen",
-  "feb",
-  "mar",
-  "apr",
-  "mag",
-  "gio",
-  "lug",
-  "ago",
-  "set",
-  "ott",
-  "nov",
-  "dic",
-  ""
- }
 
  NumberElements{
   ".",
@@ -116,5 +49,83 @@ it_CH{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "HH:mm:ss",
+          "",
+          "EEEE, d. MMMM yyyy",
+          "",
+          "",
+          "dd.MM.yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "dom",
+                  "lun",
+                  "mar",
+                  "mer",
+                  "gio",
+                  "ven",
+                  "sab"
+                    }
+                    wide{
+                  "domenica",
+                  "luned\u00EC",
+                  "marted\u00EC",
+                  "mercoled\u00EC",
+                  "gioved\u00EC",
+                  "venerd\u00EC",
+                  "sabato"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "gen",
+                  "feb",
+                  "mar",
+                  "apr",
+                  "mag",
+                  "gio",
+                  "lug",
+                  "ago",
+                  "set",
+                  "ott",
+                  "nov",
+                  "dic",
+                  ""
+                    }
+                    wide{
+                  "gennaio",
+                  "febbraio",
+                  "marzo",
+                  "aprile",
+                  "maggio",
+                  "giugno",
+                  "luglio",
+                  "agosto",
+                  "settembre",
+                  "ottobre",
+                  "novembre",
+                  "dicembre",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

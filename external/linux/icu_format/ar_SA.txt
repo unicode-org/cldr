@@ -227,35 +227,6 @@ ar_SA {
             "SAR ",
             ".",
     }
-    DateTimePatterns { 
-            "H:mm:ss",
-            "H:mm:ss",
-            "H:mm:ss",
-            "H:mm:ss",
-            "EEEE d MMMM yyyy  ",
-            "EEEE d MMMM yyyy  H:mm:ss",
-            "EEEE d MMMM yyyy",
-            "EEEE d MMMM yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Sun",
-            "Mon",
-            "Tue",
-            "Wed",
-            "Thu",
-            "Fri",
-            "Sat",
-    }
-    DayNames { 
-            "\u0627\u0644\u0623\u062D\u062F",
-            "\u0627\u0644\u0625\u062B\u0646\u064A\u0646",
-            "\u0627\u0644\u062B\u0644\u0627\u062B\u0627\u0621",
-            "\u0627\u0644\u0623\u0631\u0628\u0639\u0627\u0621",
-            "\u0627\u0644\u062E\u0645\u064A\u0633",
-            "\u0627\u0644\u062C\u0645\u0639\u0640\u0629",
-            "\u0627\u0644\u0633\u0628\u062A",
-    }
     Identification { 
         Title { "Arabic locale for Saudi Arabia" }
         Source { "" }
@@ -279,36 +250,6 @@ ar_SA {
         NoExpression { "^(\u0644|\u0644\u0627)" }
         YesStr { "\u0646\u0639\u0645" }
         NoStr { "\u0644\u0627" }
-    }
-    MonthAbbreviations { 
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-            "",
-    }
-    MonthNames { 
-            "\u0643\u0627\u0646\u0648\u0646 \u0627\u0644\u062B\u0627\u0646\u064A",
-            "\u0634\u0628\u0627\u0637",
-            "\u0622\u0630\u0627\u0631",
-            "\u0646\u064A\u0633\u0640\u0627\u0646",
-            "\u0623\u064A\u0627\u0631",
-            "\u062D\u0632\u064A\u0631\u0627\u0646",
-            "\u062A\u0640\u0645\u0640\u0648\u0632",
-            "\u0622\u0628",
-            "\u0623\u064A\u0644\u0648\u0644",
-            "\u062A\u0634\u0631\u064A\u0646 \u0627\u0644\u0623\u0648\u0644",
-            "\u062A\u0634\u0631\u064A\u0646 \u0627\u0644\u062B\u0627\u0646\u064A",
-            "\u0643\u0627\u0646\u0648\u0646 \u0627\u0644\u0623\u0648\u0644",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -338,15 +279,81 @@ ar_SA {
             "#0.00 \u00A4;-#0.00 \u00A4",
             "#,#0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "966" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "H:mm:ss",
+                    "H:mm:ss",
+                    "H:mm:ss",
+                    "H:mm:ss",
+                    "EEEE d MMMM yyyy  ",
+                    "EEEE d MMMM yyyy  H:mm:ss",
+                    "EEEE d MMMM yyyy",
+                    "EEEE d MMMM yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Sun",
+                            "Mon",
+                            "Tue",
+                            "Wed",
+                            "Thu",
+                            "Fri",
+                            "Sat",
+                    }
+                    wide{
+                            "\u0627\u0644\u0623\u062D\u062F",
+                            "\u0627\u0644\u0625\u062B\u0646\u064A\u0646",
+                            "\u0627\u0644\u062B\u0644\u0627\u062B\u0627\u0621",
+                            "\u0627\u0644\u0623\u0631\u0628\u0639\u0627\u0621",
+                            "\u0627\u0644\u062E\u0645\u064A\u0633",
+                            "\u0627\u0644\u062C\u0645\u0639\u0640\u0629",
+                            "\u0627\u0644\u0633\u0628\u062A",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Feb",
+                            "Mar",
+                            "Apr",
+                            "May",
+                            "Jun",
+                            "Jul",
+                            "Aug",
+                            "Sep",
+                            "Oct",
+                            "Nov",
+                            "Dec",
+                            "",
+                    }
+                    wide{
+                            "\u0643\u0627\u0646\u0648\u0646 \u0627\u0644\u062B\u0627\u0646\u064A",
+                            "\u0634\u0628\u0627\u0637",
+                            "\u0622\u0630\u0627\u0631",
+                            "\u0646\u064A\u0633\u0640\u0627\u0646",
+                            "\u0623\u064A\u0627\u0631",
+                            "\u062D\u0632\u064A\u0631\u0627\u0646",
+                            "\u062A\u0640\u0645\u0640\u0648\u0632",
+                            "\u0622\u0628",
+                            "\u0623\u064A\u0644\u0648\u0644",
+                            "\u062A\u0634\u0631\u064A\u0646 \u0627\u0644\u0623\u0648\u0644",
+                            "\u062A\u0634\u0631\u064A\u0646 \u0627\u0644\u062B\u0627\u0646\u064A",
+                            "\u0643\u0627\u0646\u0648\u0646 \u0627\u0644\u0623\u0648\u0644",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

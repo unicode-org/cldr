@@ -2,45 +2,12 @@ br_FR {
     AddressFormat { 
         PostalFormat { "%f%N%a%N%d%N%b%N%s %h %e %r%N%%z %T%N%c%N" }
     }
-    AmPmMarkers { 
-            " ",
-            " ",
-    }
     ///* Discarding duplicate data for tag: CountryISBNNumber */
     ///* Discarding duplicate data for tag: CountryNumber */
     CurrencyElements { 
             "F",
             "FRF ",
             ",",
-    }
-    DateTimePatterns { 
-            "hhemm:ss aa",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "dd.MMMM.yyyy",
-            "D'ar EEEE dd a viz MMMM yyyy",
-            "dd.MMMM.yyyy",
-            "dd.MMMM.yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "sul",
-            "lun",
-            "meu",
-            "mer",
-            "yao",
-            "gwe",
-            "sad",
-    }
-    DayNames { 
-            "sul",
-            "lun",
-            "meurzh",
-            "merc'her",
-            "yaou",
-            "gwener",
-            "sadorn",
     }
     Identification { 
         Title { "Breton language locale for France" }
@@ -65,36 +32,6 @@ br_FR {
         NoExpression { "[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "Gen ",
-            "C'hw",
-            "Meu ",
-            "Ebr ",
-            "Mae ",
-            "Eve ",
-            "Gou ",
-            "Eos ",
-            "Gwe ",
-            "Her ",
-            "Du  ",
-            "Ker ",
-            "",
-    }
-    MonthNames { 
-            "Genver",
-            "C'hwevrer",
-            "Meurzh",
-            "Ebrel",
-            "Mae",
-            "Mezheven",
-            "Gouere",
-            "Eost",
-            "Gwengolo",
-            "Here",
-            "Du",
-            "Kerzu",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -124,15 +61,85 @@ br_FR {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,#0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "33" }
+    }
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    " ",
+                    " ",
+            }
+            DateTimePatterns{
+                    "hhemm:ss aa",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "dd.MMMM.yyyy",
+                    "D'ar EEEE dd a viz MMMM yyyy",
+                    "dd.MMMM.yyyy",
+                    "dd.MMMM.yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "sul",
+                            "lun",
+                            "meu",
+                            "mer",
+                            "yao",
+                            "gwe",
+                            "sad",
+                    }
+                    wide{
+                            "sul",
+                            "lun",
+                            "meurzh",
+                            "merc'her",
+                            "yaou",
+                            "gwener",
+                            "sadorn",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Gen ",
+                            "C'hw",
+                            "Meu ",
+                            "Ebr ",
+                            "Mae ",
+                            "Eve ",
+                            "Gou ",
+                            "Eos ",
+                            "Gwe ",
+                            "Her ",
+                            "Du  ",
+                            "Ker ",
+                            "",
+                    }
+                    wide{
+                            "Genver",
+                            "C'hwevrer",
+                            "Meurzh",
+                            "Ebrel",
+                            "Mae",
+                            "Mezheven",
+                            "Gouere",
+                            "Eost",
+                            "Gwengolo",
+                            "Here",
+                            "Du",
+                            "Kerzu",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

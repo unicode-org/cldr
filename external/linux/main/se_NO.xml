@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="se" /> 
 		<territory type="NO" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">ođđajagemánu</month>
-					<month type="2">guovvamánu</month>
-					<month type="3">njukčamánu</month>
-					<month type="4">cuoŋománu</month>
-					<month type="5">miessemánu</month>
-					<month type="6">geassemánu</month>
-					<month type="7">suoidnemánu</month>
-					<month type="8">borgemánu</month>
-					<month type="9">čakčamánu</month>
-					<month type="10">golggotmánu</month>
-					<month type="11">skábmamánu</month>
-					<month type="12">juovlamánu</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">ođđj</month>
-					<month type="2">guov</month>
-					<month type="3">njuk</month>
-					<month type="4">cuoŋ</month>
-					<month type="5">mies</month>
-					<month type="6">geas</month>
-					<month type="7">suoi</month>
-					<month type="8">borg</month>
-					<month type="9">čakč</month>
-					<month type="10">golg</month>
-					<month type="11">skáb</month>
-					<month type="12">juov</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">sotnabeaivi</day>
-					<day type="mon">vuossárga</day>
-					<day type="tue">maŋŋebarga</day>
-					<day type="wed">gaskavahkku</day>
-					<day type="thu">duorasdat</day>
-					<day type="fri">bearjadat</day>
-					<day type="sat">lávvardat</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">sotn</day>
-					<day type="mon">vuos</day>
-					<day type="tue">maŋ</day>
-					<day type="wed">gask</day>
-					<day type="thu">duor</day>
-					<day type="fri">bear</day>
-					<day type="sat">láv</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">ođđj</month>
+							<month type="2">guov</month>
+							<month type="3">njuk</month>
+							<month type="4">cuoŋ</month>
+							<month type="5">mies</month>
+							<month type="6">geas</month>
+							<month type="7">suoi</month>
+							<month type="8">borg</month>
+							<month type="9">čakč</month>
+							<month type="10">golg</month>
+							<month type="11">skáb</month>
+							<month type="12">juov</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ođđajagemánu</month>
+							<month type="2">guovvamánu</month>
+							<month type="3">njukčamánu</month>
+							<month type="4">cuoŋománu</month>
+							<month type="5">miessemánu</month>
+							<month type="6">geassemánu</month>
+							<month type="7">suoidnemánu</month>
+							<month type="8">borgemánu</month>
+							<month type="9">čakčamánu</month>
+							<month type="10">golggotmánu</month>
+							<month type="11">skábmamánu</month>
+							<month type="12">juovlamánu</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">sotn</day>
+							<day type="mon">vuos</day>
+							<day type="tue">maŋ</day>
+							<day type="wed">gask</day>
+							<day type="thu">duor</day>
+							<day type="fri">bear</day>
+							<day type="sat">láv</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">sotnabeaivi</day>
+							<day type="mon">vuossárga</day>
+							<day type="tue">maŋŋebarga</day>
+							<day type="wed">gaskavahkku</day>
+							<day type="thu">duorasdat</day>
+							<day type="fri">bearjadat</day>
+							<day type="sat">lávvardat</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">

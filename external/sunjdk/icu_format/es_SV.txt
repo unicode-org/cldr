@@ -1,17 +1,131 @@
-es_SV {
-    DateTimePatterns { 
-            "hh:mm:ss a z",
-            "hh:mm:ss a z",
-            "hh:mm:ss a",
-            "hh:mm a",
-            "EEEE d' de 'MMMM' de 'yyyy",
-            "d' de 'MMMM' de 'yyyy",
-            "MM-dd-yyyy",
-            "MM-dd-yy",
-            "{1} {0}",
+es_SV{
+
+ Version{"Windows XP"}
+ LocaleID{ "440A"}
+ ShortCountry{
+  "SLV"
+ }
+
+ ShortLanguage{
+  "ESE"
+ }
+
+ Languages{
+  es {  "Espa\u00F1ol"  }
+ }
+
+ Countries{
+  SV {  "El Salvador"  }
+ }
+
+ CurrencyElements{
+  "$",
+  "USD",
+  "."
+ }
+
+
+
+
+
+
+ NumberElements{
+  ".",
+  ",",
+  ",",
+  "%",
+  "0",
+  "#",
+  "-",
+  "E",
+  "\u2030",
+  "\u221e",
+  "\ufffd",
+ }
+
+ NumberPatterns{
+  "",
+  "",
+  ""
+ }
+
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "a.m.",
+          "p.m."
+            }
+            DateTimeElements:intvector{
+          1,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "hh:mm:ss a",
+          "",
+          "EEEE, dd' de 'MMMM' de 'yyyy",
+          "",
+          "",
+          "dd/MM/yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "Dom",
+                  "Lun",
+                  "Mar",
+                  "Mi\u00E9",
+                  "Jue",
+                  "Vie",
+                  "S\u00E1b"
+                    }
+                    wide{
+                  "Domingo",
+                  "Lunes",
+                  "Martes",
+                  "Mi\u00E9rcoles",
+                  "Jueves",
+                  "Viernes",
+                  "S\u00E1bado"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "Ene",
+                  "Feb",
+                  "Mar",
+                  "Abr",
+                  "May",
+                  "Jun",
+                  "Jul",
+                  "Ago",
+                  "Sep",
+                  "Oct",
+                  "Nov",
+                  "Dic",
+                  ""
+                    }
+                    wide{
+                  "Enero",
+                  "Febrero",
+                  "Marzo",
+                  "Abril",
+                  "Mayo",
+                  "Junio",
+                  "Julio",
+                  "Agosto",
+                  "Septiembre",
+                  "Octubre",
+                  "Noviembre",
+                  "Diciembre",
+                  ""
+                    }
+                }
+            }
+        }
     }
-    LocaleID { "" }
-    LocaleString { "es_SV" }
-    ///* Discarding duplicate data for tag: NumberElements */
-    ShortCountry { "SLV" }
 }

@@ -1,9 +1,131 @@
-fi_FI {
-    LocaleString { "fi_FI" }
-    NumberPatterns { 
-            "#,##0.###;-#,##0.###",
-            "#,##0.00 \u00A4;-#,##0.00 \u00A4",
-            "#,##0%",
+fi_FI{
+
+ Version{"Windows XP"}
+ LocaleID{ "040B"}
+ ShortCountry{
+  "FIN"
+ }
+
+ ShortLanguage{
+  "FIN"
+ }
+
+ Languages{
+  fi {  "suomi"  }
+ }
+
+ Countries{
+  FI {  "Suomi"  }
+ }
+
+ CurrencyElements{
+  "\u20AC",
+  "EUR",
+  ","
+ }
+
+
+
+
+
+
+ NumberElements{
+  ",",
+  "\u00A0",
+  ";",
+  "%",
+  "0",
+  "#",
+  "-",
+  "E",
+  "\u2030",
+  "\u221e",
+  "\ufffd",
+ }
+
+ NumberPatterns{
+  "",
+  "",
+  ""
+ }
+
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "H:mm:ss",
+          "",
+          "d. MMMM'ta 'yyyy",
+          "",
+          "",
+          "d.M.yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "su",
+                  "ma",
+                  "ti",
+                  "ke",
+                  "to",
+                  "pe",
+                  "la"
+                    }
+                    wide{
+                  "sunnuntai",
+                  "maanantai",
+                  "tiistai",
+                  "keskiviikko",
+                  "torstai",
+                  "perjantai",
+                  "lauantai"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "tammi",
+                  "helmi",
+                  "maalis",
+                  "huhti",
+                  "touko",
+                  "kes\u00E4",
+                  "hein\u00E4",
+                  "elo",
+                  "syys",
+                  "loka",
+                  "marras",
+                  "joulu",
+                  ""
+                    }
+                    wide{
+                  "tammikuu",
+                  "helmikuu",
+                  "maaliskuu",
+                  "huhtikuu",
+                  "toukokuu",
+                  "kes\u00E4kuu",
+                  "hein\u00E4kuu",
+                  "elokuu",
+                  "syyskuu",
+                  "lokakuu",
+                  "marraskuu",
+                  "joulukuu",
+                  ""
+                    }
+                }
+            }
+        }
     }
-    ShortCountry { "FIN" }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="Windows_XP"/>
-		<generation date="2003-12-19" />
+		<version number="Windows XP"/>
+		<generation date="2004-05-14" />
 		<language type="it" /> 
 		<territory type="CH" /> 
 	</identity>
@@ -18,54 +18,62 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">gennaio</month>
-					<month type="2">febbraio</month>
-					<month type="3">marzo</month>
-					<month type="4">aprile</month>
-					<month type="5">maggio</month>
-					<month type="6">giugno</month>
-					<month type="7">luglio</month>
-					<month type="8">agosto</month>
-					<month type="9">settembre</month>
-					<month type="10">ottobre</month>
-					<month type="11">novembre</month>
-					<month type="12">dicembre</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">gen</month>
-					<month type="2">feb</month>
-					<month type="3">mar</month>
-					<month type="4">apr</month>
-					<month type="5">mag</month>
-					<month type="6">gio</month>
-					<month type="7">lug</month>
-					<month type="8">ago</month>
-					<month type="9">set</month>
-					<month type="10">ott</month>
-					<month type="11">nov</month>
-					<month type="12">dic</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">domenica</day>
-					<day type="mon">lunedì</day>
-					<day type="tue">martedì</day>
-					<day type="wed">mercoledì</day>
-					<day type="thu">giovedì</day>
-					<day type="fri">venerdì</day>
-					<day type="sat">sabato</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">dom</day>
-					<day type="mon">lun</day>
-					<day type="tue">mar</day>
-					<day type="wed">mer</day>
-					<day type="thu">gio</day>
-					<day type="fri">ven</day>
-					<day type="sat">sab</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">gen</month>
+							<month type="2">feb</month>
+							<month type="3">mar</month>
+							<month type="4">apr</month>
+							<month type="5">mag</month>
+							<month type="6">gio</month>
+							<month type="7">lug</month>
+							<month type="8">ago</month>
+							<month type="9">set</month>
+							<month type="10">ott</month>
+							<month type="11">nov</month>
+							<month type="12">dic</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">gennaio</month>
+							<month type="2">febbraio</month>
+							<month type="3">marzo</month>
+							<month type="4">aprile</month>
+							<month type="5">maggio</month>
+							<month type="6">giugno</month>
+							<month type="7">luglio</month>
+							<month type="8">agosto</month>
+							<month type="9">settembre</month>
+							<month type="10">ottobre</month>
+							<month type="11">novembre</month>
+							<month type="12">dicembre</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">dom</day>
+							<day type="mon">lun</day>
+							<day type="tue">mar</day>
+							<day type="wed">mer</day>
+							<day type="thu">gio</day>
+							<day type="fri">ven</day>
+							<day type="sat">sab</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">domenica</day>
+							<day type="mon">lunedì</day>
+							<day type="tue">martedì</day>
+							<day type="wed">mercoledì</day>
+							<day type="thu">giovedì</day>
+							<day type="fri">venerdì</day>
+							<day type="sat">sabato</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<week>
 					<firstDay day="mon"/>
 				</week>

@@ -2,10 +2,6 @@ is_IS {
     AddressFormat { 
         PostalFormat { "%f%N%a%N%d%N%b%N%s %h %e %r%N%%z %T%N%c%N" }
     }
-    AmPmMarkers { 
-            "fh",
-            "eh",
-    }
     CollationElements { 
         Version { "1.0" }
         Overide { "false" }
@@ -1835,35 +1831,6 @@ is_IS {
             "ISK ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE dd.MMM yyyy,  z",
-            "EEE dd.MMM yyyy, hh:mm:ss z",
-            "EEE dd.MMM yyyy",
-            "EEE dd.MMM yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Sun",
-            "M\u00E1n",
-            "\u00DEri",
-            "Mi\u00F0",
-            "Fim",
-            "F\u00F6s",
-            "Lau",
-    }
-    DayNames { 
-            "Sunnudagur",
-            "M\u00E1nudagur",
-            "\u00DEri\u00F0judagur",
-            "Mi\u00F0vikudagur",
-            "Fimmtudagur",
-            "F\u00F6studagur",
-            "Laugardagur",
-    }
     Identification { 
         Title { "Icelandic locale for Iceland" }
         Source { "Stadlarad I'slands" }
@@ -1887,36 +1854,6 @@ is_IS {
         NoExpression { "^[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "Ma\u00ED",
-            "J\u00FAn",
-            "J\u00FAl",
-            "\u00C1g\u00FA",
-            "Sep",
-            "Okt",
-            "N\u00F3v",
-            "Des",
-            "",
-    }
-    MonthNames { 
-            "Jan\u00FAar",
-            "Febr\u00FAar",
-            "Mars",
-            "Apr\u00EDl",
-            "Ma\u00ED",
-            "J\u00FAn\u00ED",
-            "J\u00FAl\u00ED",
-            "\u00C1g\u00FAst",
-            "September",
-            "Okt\u00F3ber",
-            "N\u00F3vember",
-            "Desember",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -1946,15 +1883,85 @@ is_IS {
             "#,##0.# \u00A4;-#,##0.# \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "354" }
+    }
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    "fh",
+                    "eh",
+            }
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE dd.MMM yyyy,  z",
+                    "EEE dd.MMM yyyy, hh:mm:ss z",
+                    "EEE dd.MMM yyyy",
+                    "EEE dd.MMM yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Sun",
+                            "M\u00E1n",
+                            "\u00DEri",
+                            "Mi\u00F0",
+                            "Fim",
+                            "F\u00F6s",
+                            "Lau",
+                    }
+                    wide{
+                            "Sunnudagur",
+                            "M\u00E1nudagur",
+                            "\u00DEri\u00F0judagur",
+                            "Mi\u00F0vikudagur",
+                            "Fimmtudagur",
+                            "F\u00F6studagur",
+                            "Laugardagur",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Feb",
+                            "Mar",
+                            "Apr",
+                            "Ma\u00ED",
+                            "J\u00FAn",
+                            "J\u00FAl",
+                            "\u00C1g\u00FA",
+                            "Sep",
+                            "Okt",
+                            "N\u00F3v",
+                            "Des",
+                            "",
+                    }
+                    wide{
+                            "Jan\u00FAar",
+                            "Febr\u00FAar",
+                            "Mars",
+                            "Apr\u00EDl",
+                            "Ma\u00ED",
+                            "J\u00FAn\u00ED",
+                            "J\u00FAl\u00ED",
+                            "\u00C1g\u00FAst",
+                            "September",
+                            "Okt\u00F3ber",
+                            "N\u00F3vember",
+                            "Desember",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

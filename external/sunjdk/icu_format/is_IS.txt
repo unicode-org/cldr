@@ -1,9 +1,131 @@
-is_IS {
-    LocaleString { "is_IS" }
-    NumberPatterns { 
-            "#,##0.###;-#,##0.###",
-            "#,##0.## \u00A4;-#,##0.## \u00A4",
-            "#,##0%",
+is_IS{
+
+ Version{"Windows XP"}
+ LocaleID{ "040F"}
+ ShortCountry{
+  "ISL"
+ }
+
+ ShortLanguage{
+  "ISL"
+ }
+
+ Languages{
+  is {  "\u00EDslenska"  }
+ }
+
+ Countries{
+  IS {  "\u00CDsland"  }
+ }
+
+ CurrencyElements{
+  "kr.",
+  "ISK",
+  ","
+ }
+
+
+
+
+
+
+ NumberElements{
+  ",",
+  ".",
+  ";",
+  "%",
+  "0",
+  "#",
+  "-",
+  "E",
+  "\u2030",
+  "\u221e",
+  "\ufffd",
+ }
+
+ NumberPatterns{
+  "",
+  "",
+  ""
+ }
+
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "HH:mm:ss",
+          "",
+          "d. MMMM yyyy",
+          "",
+          "",
+          "d.M.yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "sun.",
+                  "m\u00E1n.",
+                  "\u00FEri.",
+                  "mi\u00F0.",
+                  "fim.",
+                  "f\u00F6s.",
+                  "lau."
+                    }
+                    wide{
+                  "sunnudagur",
+                  "m\u00E1nudagur",
+                  "\u00FEri\u00F0judagur",
+                  "mi\u00F0vikudagur",
+                  "fimmtudagur",
+                  "f\u00F6studagur",
+                  "laugardagur"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "jan.",
+                  "feb.",
+                  "mar.",
+                  "apr.",
+                  "ma\u00ED",
+                  "j\u00FAn.",
+                  "j\u00FAl.",
+                  "\u00E1g\u00FA.",
+                  "sep.",
+                  "okt.",
+                  "n\u00F3v.",
+                  "des.",
+                  ""
+                    }
+                    wide{
+                  "jan\u00FAar",
+                  "febr\u00FAar",
+                  "mars",
+                  "apr\u00EDl",
+                  "ma\u00ED",
+                  "j\u00FAn\u00ED",
+                  "j\u00FAl\u00ED",
+                  "\u00E1g\u00FAst",
+                  "september",
+                  "okt\u00F3ber",
+                  "n\u00F3vember",
+                  "desember",
+                  ""
+                    }
+                }
+            }
+        }
     }
-    ShortCountry { "ISL" }
 }

@@ -1794,35 +1794,6 @@ lv_LV {
             "LVL ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "yyyy.MMMM.dd.",
-            "EEEE, yyyy. gada dd. MMMM, plkst. HH un mm",
-            "yyyy.MMMM.dd.",
-            "yyyy.MMMM.dd.",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Sv",
-            "P\u00A0",
-            "O\u00A0",
-            "T\u00A0",
-            "C\u00A0",
-            "Pk",
-            "S\u00A0",
-    }
-    DayNames { 
-            "sv\u0113tdiena",
-            "pirmdiena",
-            "otrdiena",
-            "tre\u0161diena",
-            "ceturtdiena",
-            "piektdiena",
-            "sestdiena",
-    }
     Identification { 
         Title { "Latvian locale for Latvia" }
         Source { "Latvian Standard LVS 24-93" }
@@ -1846,36 +1817,6 @@ lv_LV {
         NoExpression { "^[Nn].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "jan",
-            "feb",
-            "mar",
-            "apr",
-            "mai",
-            "j\u016Bn",
-            "j\u016Bl",
-            "aug",
-            "sep",
-            "okt",
-            "nov",
-            "dec",
-            "",
-    }
-    MonthNames { 
-            "janv\u0101ris",
-            "febru\u0101ris",
-            "marts",
-            "apr\u012Blis",
-            "maijs",
-            "j\u016Bnijs",
-            "j\u016Blijs",
-            "augusts",
-            "septembris",
-            "oktobris",
-            "novembris",
-            "decembris",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -1905,15 +1846,81 @@ lv_LV {
             "\u00A4 #,##0.00;-\u00A4 #,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "371" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "yyyy.MMMM.dd.",
+                    "EEEE, yyyy. gada dd. MMMM, plkst. HH un mm",
+                    "yyyy.MMMM.dd.",
+                    "yyyy.MMMM.dd.",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Sv",
+                            "P\u00A0",
+                            "O\u00A0",
+                            "T\u00A0",
+                            "C\u00A0",
+                            "Pk",
+                            "S\u00A0",
+                    }
+                    wide{
+                            "sv\u0113tdiena",
+                            "pirmdiena",
+                            "otrdiena",
+                            "tre\u0161diena",
+                            "ceturtdiena",
+                            "piektdiena",
+                            "sestdiena",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jan",
+                            "feb",
+                            "mar",
+                            "apr",
+                            "mai",
+                            "j\u016Bn",
+                            "j\u016Bl",
+                            "aug",
+                            "sep",
+                            "okt",
+                            "nov",
+                            "dec",
+                            "",
+                    }
+                    wide{
+                            "janv\u0101ris",
+                            "febru\u0101ris",
+                            "marts",
+                            "apr\u012Blis",
+                            "maijs",
+                            "j\u016Bnijs",
+                            "j\u016Blijs",
+                            "augusts",
+                            "septembris",
+                            "oktobris",
+                            "novembris",
+                            "decembris",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

@@ -2,10 +2,6 @@ et_EE{
 
  Version{"Windows XP"}
  LocaleID{ "0425"}
- AmPmMarkers{
-  "EL",
-  "PL"
- }
  ShortCountry{
   "EST"
  }
@@ -28,73 +24,10 @@ et_EE{
   "."
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "H:mm:ss",
-  "",
-  "d. MMMM yyyy'. a.'",
-  "",
-  "",
-  "d.MM.yyyy",
-  "",
- }
 
- DateTimeElements:intvector{
-  2,
-  
- }
- DayNames{
-  "p\u00FChap\u00E4ev",
-  "esmasp\u00E4ev",
-  "teisip\u00E4ev",
-  "kolmap\u00E4ev",
-  "neljap\u00E4ev",
-  "reede",
-  "laup\u00E4ev"
- }
 
- DayAbbreviations{
-  "P",
-  "E",
-  "T",
-  "K",
-  "N",
-  "R",
-  "L"
- }
 
- MonthNames{
-  "jaanuar",
-  "veebruar",
-  "m\u00E4rts",
-  "aprill",
-  "mai",
-  "juuni",
-  "juuli",
-  "august",
-  "september",
-  "oktoober",
-  "november",
-  "detsember",
-  ""
- }
 
- MonthAbbreviations{
-  "jaan",
-  "veebr",
-  "m\u00E4rts",
-  "apr",
-  "mai",
-  "juuni",
-  "juuli",
-  "aug",
-  "sept",
-  "okt",
-  "nov",
-  "dets",
-  ""
- }
 
  NumberElements{
   ",",
@@ -116,5 +49,83 @@ et_EE{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "EL",
+          "PL"
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "H:mm:ss",
+          "",
+          "d. MMMM yyyy'. a.'",
+          "",
+          "",
+          "d.MM.yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "P",
+                  "E",
+                  "T",
+                  "K",
+                  "N",
+                  "R",
+                  "L"
+                    }
+                    wide{
+                  "p\u00FChap\u00E4ev",
+                  "esmasp\u00E4ev",
+                  "teisip\u00E4ev",
+                  "kolmap\u00E4ev",
+                  "neljap\u00E4ev",
+                  "reede",
+                  "laup\u00E4ev"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "jaan",
+                  "veebr",
+                  "m\u00E4rts",
+                  "apr",
+                  "mai",
+                  "juuni",
+                  "juuli",
+                  "aug",
+                  "sept",
+                  "okt",
+                  "nov",
+                  "dets",
+                  ""
+                    }
+                    wide{
+                  "jaanuar",
+                  "veebruar",
+                  "m\u00E4rts",
+                  "aprill",
+                  "mai",
+                  "juuni",
+                  "juuli",
+                  "august",
+                  "september",
+                  "oktoober",
+                  "november",
+                  "detsember",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

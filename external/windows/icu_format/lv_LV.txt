@@ -2,10 +2,6 @@ lv_LV{
 
  Version{"Windows XP"}
  LocaleID{ "0426"}
- AmPmMarkers{
-  "",
-  ""
- }
  ShortCountry{
   "LVA"
  }
@@ -28,73 +24,10 @@ lv_LV{
   ","
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "H:mm:ss",
-  "",
-  "EEEE, yyyy'. gada 'd. MMMM",
-  "",
-  "",
-  "yyyy.MM.dd.",
-  "",
- }
 
- DateTimeElements:intvector{
-  2,
-  
- }
- DayNames{
-  "sv\u0113tdiena",
-  "pirmdiena",
-  "otrdiena",
-  "tre\u0161diena",
-  "ceturtdiena",
-  "piektdiena",
-  "sestdiena"
- }
 
- DayAbbreviations{
-  "Sv",
-  "Pr",
-  "Ot",
-  "Tr",
-  "Ce",
-  "Pk",
-  "Se"
- }
 
- MonthNames{
-  "janv\u0101ris",
-  "febru\u0101ris",
-  "marts",
-  "apr\u012Blis",
-  "maijs",
-  "j\u016Bnijs",
-  "j\u016Blijs",
-  "augusts",
-  "septembris",
-  "oktobris",
-  "novembris",
-  "decembris",
-  ""
- }
 
- MonthAbbreviations{
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "Mai",
-  "J\u016Bn",
-  "J\u016Bl",
-  "Aug",
-  "Sep",
-  "Okt",
-  "Nov",
-  "Dec",
-  ""
- }
 
  NumberElements{
   ",",
@@ -116,5 +49,83 @@ lv_LV{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "H:mm:ss",
+          "",
+          "EEEE, yyyy'. gada 'd. MMMM",
+          "",
+          "",
+          "yyyy.MM.dd.",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "Sv",
+                  "Pr",
+                  "Ot",
+                  "Tr",
+                  "Ce",
+                  "Pk",
+                  "Se"
+                    }
+                    wide{
+                  "sv\u0113tdiena",
+                  "pirmdiena",
+                  "otrdiena",
+                  "tre\u0161diena",
+                  "ceturtdiena",
+                  "piektdiena",
+                  "sestdiena"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "Jan",
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "Mai",
+                  "J\u016Bn",
+                  "J\u016Bl",
+                  "Aug",
+                  "Sep",
+                  "Okt",
+                  "Nov",
+                  "Dec",
+                  ""
+                    }
+                    wide{
+                  "janv\u0101ris",
+                  "febru\u0101ris",
+                  "marts",
+                  "apr\u012Blis",
+                  "maijs",
+                  "j\u016Bnijs",
+                  "j\u016Blijs",
+                  "augusts",
+                  "septembris",
+                  "oktobris",
+                  "novembris",
+                  "decembris",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

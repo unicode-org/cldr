@@ -3,74 +3,11 @@ lv {
     Countries { 
         LV { "Latvija" }
     }
-    DateTimePatterns { 
-            "HH:mm:ss z",
-            "HH:mm:ss z",
-            "HH:mm:ss",
-            "HH:mm",
-            "EEEE, yyyy, d MMMM",
-            "EEEE, yyyy, d MMMM",
-            "yyyy.d.M",
-            "yy.d.M",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Sv",
-            "P",
-            "O",
-            "T",
-            "C",
-            "Pk",
-            "S",
-    }
-    DayNames { 
-            "sv\u0113tdiena",
-            "pirmdiena",
-            "otrdiena",
-            "tre\u0161diena",
-            "ceturtdiena",
-            "piektdiena",
-            "sestdiena",
-    }
-    Eras { 
-            "pm\u0113",
-            "m\u0113",
-    }
     Languages { 
         lv { "Latvie\u0161u" }
     }
     LocaleID { "0426" }
     LocaleString { "lv" }
-    MonthAbbreviations { 
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "Maijs",
-            "J\u016Bn",
-            "J\u016Bl",
-            "Aug",
-            "Sep",
-            "Okt",
-            "Nov",
-            "Dec",
-            "",
-    }
-    MonthNames { 
-            "janv\u0101ris",
-            "febru\u0101ris",
-            "marts",
-            "apr\u012Blis",
-            "maijs",
-            "j\u016Bnijs",
-            "j\u016Blijs",
-            "augusts",
-            "septembris",
-            "oktobris",
-            "novembris",
-            "decembris",
-            "",
-    }
     NumberElements { 
             ",",
             "\u00A0",
@@ -86,4 +23,79 @@ lv {
     }
     ShortLanguage { "lav" }
     localPatternChars { "GanjkHmsSEDFwWxhKzZ" }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss z",
+                    "HH:mm:ss z",
+                    "HH:mm:ss",
+                    "HH:mm",
+                    "EEEE, yyyy, d MMMM",
+                    "EEEE, yyyy, d MMMM",
+                    "yyyy.d.M",
+                    "yy.d.M",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Sv",
+                            "P",
+                            "O",
+                            "T",
+                            "C",
+                            "Pk",
+                            "S",
+                    }
+                    wide{
+                            "sv\u0113tdiena",
+                            "pirmdiena",
+                            "otrdiena",
+                            "tre\u0161diena",
+                            "ceturtdiena",
+                            "piektdiena",
+                            "sestdiena",
+                    }
+                }
+            }
+            eras{
+                    "pm\u0113",
+                    "m\u0113",
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Feb",
+                            "Mar",
+                            "Apr",
+                            "Maijs",
+                            "J\u016Bn",
+                            "J\u016Bl",
+                            "Aug",
+                            "Sep",
+                            "Okt",
+                            "Nov",
+                            "Dec",
+                            "",
+                    }
+                    wide{
+                            "janv\u0101ris",
+                            "febru\u0101ris",
+                            "marts",
+                            "apr\u012Blis",
+                            "maijs",
+                            "j\u016Bnijs",
+                            "j\u016Blijs",
+                            "augusts",
+                            "septembris",
+                            "oktobris",
+                            "novembris",
+                            "decembris",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

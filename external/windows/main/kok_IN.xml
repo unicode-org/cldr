@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="Windows_XP"/>
-		<generation date="2003-12-19" />
+		<version number="Windows XP"/>
+		<generation date="2004-05-14" />
 		<language type="kok" /> 
 		<territory type="IN" /> 
 	</identity>
@@ -18,54 +18,62 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">जानेवारी</month>
-					<month type="2">फेब्रुवारी</month>
-					<month type="3">मार्च</month>
-					<month type="4">एप्रिल</month>
-					<month type="5">मे</month>
-					<month type="6">जून</month>
-					<month type="7">जुलै</month>
-					<month type="8">ऑगस्ट</month>
-					<month type="9">सप्टेंबर</month>
-					<month type="10">ऑक्टोबर</month>
-					<month type="11">नोवेम्बर</month>
-					<month type="12">डिसेंबर</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">जानेवारी</month>
-					<month type="2">फेब्रुवारी</month>
-					<month type="3">मार्च</month>
-					<month type="4">एप्रिल</month>
-					<month type="5">मे</month>
-					<month type="6">जून</month>
-					<month type="7">जुलै</month>
-					<month type="8">ऑगस्ट</month>
-					<month type="9">सप्टेंबर</month>
-					<month type="10">ऑक्टोबर</month>
-					<month type="11">नोवेम्बर</month>
-					<month type="12">डिसेंबर</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">आयतार</day>
-					<day type="mon">सोमार</day>
-					<day type="tue">मंगळार</day>
-					<day type="wed">बुधवार</day>
-					<day type="thu">बिरेस्तार</day>
-					<day type="fri">सुक्रार</day>
-					<day type="sat">शेनवार</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">आय.</day>
-					<day type="mon">सोम.</day>
-					<day type="tue">मंगळ.</day>
-					<day type="wed">बुध.</day>
-					<day type="thu">बिरे.</day>
-					<day type="fri">सुक्र.</day>
-					<day type="sat">शेन.</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">जानेवारी</month>
+							<month type="2">फेब्रुवारी</month>
+							<month type="3">मार्च</month>
+							<month type="4">एप्रिल</month>
+							<month type="5">मे</month>
+							<month type="6">जून</month>
+							<month type="7">जुलै</month>
+							<month type="8">ऑगस्ट</month>
+							<month type="9">सप्टेंबर</month>
+							<month type="10">ऑक्टोबर</month>
+							<month type="11">नोवेम्बर</month>
+							<month type="12">डिसेंबर</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">जानेवारी</month>
+							<month type="2">फेब्रुवारी</month>
+							<month type="3">मार्च</month>
+							<month type="4">एप्रिल</month>
+							<month type="5">मे</month>
+							<month type="6">जून</month>
+							<month type="7">जुलै</month>
+							<month type="8">ऑगस्ट</month>
+							<month type="9">सप्टेंबर</month>
+							<month type="10">ऑक्टोबर</month>
+							<month type="11">नोवेम्बर</month>
+							<month type="12">डिसेंबर</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">आय.</day>
+							<day type="mon">सोम.</day>
+							<day type="tue">मंगळ.</day>
+							<day type="wed">बुध.</day>
+							<day type="thu">बिरे.</day>
+							<day type="fri">सुक्र.</day>
+							<day type="sat">शेन.</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">आयतार</day>
+							<day type="mon">सोमार</day>
+							<day type="tue">मंगळार</day>
+							<day type="wed">बुधवार</day>
+							<day type="thu">बिरेस्तार</day>
+							<day type="fri">सुक्रार</day>
+							<day type="sat">शेनवार</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<week>
 					<firstDay day="mon"/>
 				</week>

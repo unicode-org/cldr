@@ -10,35 +10,6 @@ bg_BG {
             "BGL ",
             ",",
     }
-    DateTimePatterns { 
-            "%l,mm,ss",
-            "%k,mm,ss",
-            "%k,mm,ss",
-            "%k,mm,ss",
-            "dd.MMMM.yyyy",
-            "M/d/yy (EEE) h:mm a z",
-            "dd.MMMM.yyyy",
-            "dd.MMMM.yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u043D\u0434",
-            "\u043F\u043D",
-            "\u0432\u0442",
-            "\u0441\u0440",
-            "\u0447\u0442",
-            "\u043F\u0442",
-            "\u0441\u0431",
-    }
-    DayNames { 
-            "\u043D\u0435\u0434\u0435\u043B\u044F",
-            "\u043F\u043E\u043D\u0435\u0434\u0435\u043B\u043D\u0438\u043A",
-            "\u0432\u0442\u043E\u0440\u043D\u0438\u043A",
-            "\u0441\u0440\u044F\u0434\u0430",
-            "\u0447\u0435\u0442\u0432\u044A\u0440\u0442\u044A\u043A",
-            "\u043F\u0435\u0442\u044A\u043A",
-            "\u0441\u044A\u0431\u043E\u0442\u0430",
-    }
     Identification { 
         Title { "Bulgarian locale for Bulgaria" }
         Source { "Linux Society Bulgaria" }
@@ -62,36 +33,6 @@ bg_BG {
         NoExpression { "^[-0\u041D\u043DNnKk].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "\u044F\u043D\u0443",
-            "\u0444\u0435\u0432",
-            "\u043C\u0430\u0440",
-            "\u0430\u043F\u0440",
-            "\u043C\u0430\u0439",
-            "\u044E\u043D\u0438",
-            "\u044E\u043B\u0438",
-            "\u0430\u0432\u0433",
-            "\u0441\u0435\u043F",
-            "\u043E\u043A\u0442",
-            "\u043D\u043E\u0435",
-            "\u0434\u0435\u043A",
-            "",
-    }
-    MonthNames { 
-            "\u044F\u043D\u0443\u0430\u0440\u0438",
-            "\u0444\u0435\u0432\u0440\u0443\u0430\u0440\u0438",
-            "\u043C\u0430\u0440\u0442",
-            "\u0430\u043F\u0440\u0438\u043B",
-            "\u043C\u0430\u0439",
-            "\u044E\u043D\u0438",
-            "\u044E\u043B\u0438",
-            "\u0430\u0432\u0433\u0443\u0441\u0442",
-            "\u0441\u0435\u043F\u0442\u0435\u043C\u0432\u0440\u0438",
-            "\u043E\u043A\u0442\u043E\u043C\u0432\u0440\u0438",
-            "\u043D\u043E\u0435\u043C\u0432\u0440\u0438",
-            "\u0434\u0435\u043A\u0435\u043C\u0432\u0440\u0438",
-            "",
     }
     NameFormat { 
         NamePattern { "%s%t%g%t%m%t%f" }
@@ -121,15 +62,81 @@ bg_BG {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "(+%c %a) %l" }
         DomesticFormat { "" }
         InternationalDialCode { "00" }
         InternationalPrefix { "359" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "%l,mm,ss",
+                    "%k,mm,ss",
+                    "%k,mm,ss",
+                    "%k,mm,ss",
+                    "dd.MMMM.yyyy",
+                    "M/d/yy (EEE) h:mm a z",
+                    "dd.MMMM.yyyy",
+                    "dd.MMMM.yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u043D\u0434",
+                            "\u043F\u043D",
+                            "\u0432\u0442",
+                            "\u0441\u0440",
+                            "\u0447\u0442",
+                            "\u043F\u0442",
+                            "\u0441\u0431",
+                    }
+                    wide{
+                            "\u043D\u0435\u0434\u0435\u043B\u044F",
+                            "\u043F\u043E\u043D\u0435\u0434\u0435\u043B\u043D\u0438\u043A",
+                            "\u0432\u0442\u043E\u0440\u043D\u0438\u043A",
+                            "\u0441\u0440\u044F\u0434\u0430",
+                            "\u0447\u0435\u0442\u0432\u044A\u0440\u0442\u044A\u043A",
+                            "\u043F\u0435\u0442\u044A\u043A",
+                            "\u0441\u044A\u0431\u043E\u0442\u0430",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u044F\u043D\u0443",
+                            "\u0444\u0435\u0432",
+                            "\u043C\u0430\u0440",
+                            "\u0430\u043F\u0440",
+                            "\u043C\u0430\u0439",
+                            "\u044E\u043D\u0438",
+                            "\u044E\u043B\u0438",
+                            "\u0430\u0432\u0433",
+                            "\u0441\u0435\u043F",
+                            "\u043E\u043A\u0442",
+                            "\u043D\u043E\u0435",
+                            "\u0434\u0435\u043A",
+                            "",
+                    }
+                    wide{
+                            "\u044F\u043D\u0443\u0430\u0440\u0438",
+                            "\u0444\u0435\u0432\u0440\u0443\u0430\u0440\u0438",
+                            "\u043C\u0430\u0440\u0442",
+                            "\u0430\u043F\u0440\u0438\u043B",
+                            "\u043C\u0430\u0439",
+                            "\u044E\u043D\u0438",
+                            "\u044E\u043B\u0438",
+                            "\u0430\u0432\u0433\u0443\u0441\u0442",
+                            "\u0441\u0435\u043F\u0442\u0435\u043C\u0432\u0440\u0438",
+                            "\u043E\u043A\u0442\u043E\u043C\u0432\u0440\u0438",
+                            "\u043D\u043E\u0435\u043C\u0432\u0440\u0438",
+                            "\u0434\u0435\u043A\u0435\u043C\u0432\u0440\u0438",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

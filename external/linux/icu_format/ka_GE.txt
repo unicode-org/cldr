@@ -10,35 +10,6 @@ ka_GE {
             "GEL ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "yyyy \u10EC\u10DA\u10D8\u10E1 dd MMMM,  z",
-            "yyyy \u10EC\u10DA\u10D8\u10E1 dd MMMM, hh:mm:ss z",
-            "MMMM/dd/yyyy",
-            "MMMM/dd/yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u10D9\u10D5\u10D8",
-            "\u10DD\u10E0\u10E8",
-            "\u10E1\u10D0\u10DB",
-            "\u10DD\u10D7\u10EE",
-            "\u10EE\u10E3\u10D7",
-            "\u10DE\u10D0\u10E0",
-            "\u10E8\u10D0\u10D1",
-    }
-    DayNames { 
-            "\u10D9\u10D5\u10D8\u10E0\u10D0",
-            "\u10DD\u10E0\u10E8\u10D0\u10D1\u10D0\u10D7\u10D8",
-            "\u10E1\u10D0\u10DB\u10E8\u10D0\u10D1\u10D0\u10D7\u10D8",
-            "\u10DD\u10D7\u10EE\u10E8\u10D0\u10D1\u10D0\u10D7\u10D8",
-            "\u10EE\u10E3\u10D7\u10E8\u10D0\u10D1\u10D0\u10D7\u10D8",
-            "\u10DE\u10D0\u10E0\u10D0\u10E1\u10D9\u10D4\u10D5\u10D8",
-            "\u10E8\u10D0\u10D1\u10D0\u10D7\u10D8",
-    }
     Identification { 
         Title { "Georgian language locale for Georgia" }
         Source { "" }
@@ -62,36 +33,6 @@ ka_GE {
         NoExpression { "[0nNaA\u10D0].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "\u10D8\u10D0\u10DC",
-            "\u10D7\u10D4\u10D1",
-            "\u10DB\u10D0\u10E0",
-            "\u10D0\u10DE\u10E0",
-            "\u10DB\u10D0\u10D8",
-            "\u10D8\u10D5\u10DC",
-            "\u10D8\u10D5\u10DA",
-            "\u10D0\u10D2\u10D5",
-            "\u10E1\u10D4\u10E5",
-            "\u10DD\u10E5\u10E2",
-            "\u10DC\u10DD\u10D4",
-            "\u10D3\u10D4\u10D9",
-            "",
-    }
-    MonthNames { 
-            "\u10D8\u10D0\u10DC\u10D5\u10D0\u10E0\u10D8",
-            "\u10D7\u10D4\u10D1\u10D4\u10E0\u10D5\u10D0\u10DA\u10D8",
-            "\u10DB\u10D0\u10E0\u10E2\u10D8",
-            "\u10D0\u10DE\u10E0\u10D8\u10DA\u10D8",
-            "\u10DB\u10D0\u10D8\u10E1\u10D8",
-            "\u10D8\u10D5\u10DC\u10D8\u10E1\u10D8",
-            "\u10D8\u10D5\u10DA\u10D8\u10E1\u10D8",
-            "\u10D0\u10D2\u10D5\u10D8\u10E1\u10E2\u10DD",
-            "\u10E1\u10D4\u10E5\u10E2\u10D4\u10DB\u10D1\u10D4\u10E0\u10D8",
-            "\u10DD\u10E5\u10E2\u10DD\u10DB\u10D1\u10D4\u10E0\u10D8",
-            "\u10DC\u10DD\u10D4\u10DB\u10D1\u10D4\u10E0\u10D8",
-            "\u10D3\u10D4\u10D9\u10D4\u10DB\u10D1\u10D4\u10E0\u10D8",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -121,15 +62,81 @@ ka_GE {
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "8~10" }
         InternationalPrefix { "995" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "yyyy \u10EC\u10DA\u10D8\u10E1 dd MMMM,  z",
+                    "yyyy \u10EC\u10DA\u10D8\u10E1 dd MMMM, hh:mm:ss z",
+                    "MMMM/dd/yyyy",
+                    "MMMM/dd/yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u10D9\u10D5\u10D8",
+                            "\u10DD\u10E0\u10E8",
+                            "\u10E1\u10D0\u10DB",
+                            "\u10DD\u10D7\u10EE",
+                            "\u10EE\u10E3\u10D7",
+                            "\u10DE\u10D0\u10E0",
+                            "\u10E8\u10D0\u10D1",
+                    }
+                    wide{
+                            "\u10D9\u10D5\u10D8\u10E0\u10D0",
+                            "\u10DD\u10E0\u10E8\u10D0\u10D1\u10D0\u10D7\u10D8",
+                            "\u10E1\u10D0\u10DB\u10E8\u10D0\u10D1\u10D0\u10D7\u10D8",
+                            "\u10DD\u10D7\u10EE\u10E8\u10D0\u10D1\u10D0\u10D7\u10D8",
+                            "\u10EE\u10E3\u10D7\u10E8\u10D0\u10D1\u10D0\u10D7\u10D8",
+                            "\u10DE\u10D0\u10E0\u10D0\u10E1\u10D9\u10D4\u10D5\u10D8",
+                            "\u10E8\u10D0\u10D1\u10D0\u10D7\u10D8",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u10D8\u10D0\u10DC",
+                            "\u10D7\u10D4\u10D1",
+                            "\u10DB\u10D0\u10E0",
+                            "\u10D0\u10DE\u10E0",
+                            "\u10DB\u10D0\u10D8",
+                            "\u10D8\u10D5\u10DC",
+                            "\u10D8\u10D5\u10DA",
+                            "\u10D0\u10D2\u10D5",
+                            "\u10E1\u10D4\u10E5",
+                            "\u10DD\u10E5\u10E2",
+                            "\u10DC\u10DD\u10D4",
+                            "\u10D3\u10D4\u10D9",
+                            "",
+                    }
+                    wide{
+                            "\u10D8\u10D0\u10DC\u10D5\u10D0\u10E0\u10D8",
+                            "\u10D7\u10D4\u10D1\u10D4\u10E0\u10D5\u10D0\u10DA\u10D8",
+                            "\u10DB\u10D0\u10E0\u10E2\u10D8",
+                            "\u10D0\u10DE\u10E0\u10D8\u10DA\u10D8",
+                            "\u10DB\u10D0\u10D8\u10E1\u10D8",
+                            "\u10D8\u10D5\u10DC\u10D8\u10E1\u10D8",
+                            "\u10D8\u10D5\u10DA\u10D8\u10E1\u10D8",
+                            "\u10D0\u10D2\u10D5\u10D8\u10E1\u10E2\u10DD",
+                            "\u10E1\u10D4\u10E5\u10E2\u10D4\u10DB\u10D1\u10D4\u10E0\u10D8",
+                            "\u10DD\u10E5\u10E2\u10DD\u10DB\u10D1\u10D4\u10E0\u10D8",
+                            "\u10DC\u10DD\u10D4\u10DB\u10D1\u10D4\u10E0\u10D8",
+                            "\u10D3\u10D4\u10D9\u10D4\u10DB\u10D1\u10D4\u10E0\u10D8",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

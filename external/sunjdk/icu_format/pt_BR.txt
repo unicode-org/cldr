@@ -1,21 +1,131 @@
-pt_BR {
-    DateTimePatterns { 
-            "HH'h'mm'min'ss's' z",
-            "H'h'm'min's's' z",
-            "HH:mm:ss",
-            "HH:mm",
-            "EEEE, d' de 'MMMM' de 'yyyy",
-            "d' de 'MMMM' de 'yyyy",
-            "dd/MM/yyyy",
-            "dd/MM/yy",
-            "{1} {0}",
+pt_BR{
+
+ Version{"Windows XP"}
+ LocaleID{ "0416"}
+ ShortCountry{
+  "BRA"
+ }
+
+ ShortLanguage{
+  "PTB"
+ }
+
+ Languages{
+  pt {  "Portugu\u00EAs"  }
+ }
+
+ Countries{
+  BR {  "Brasil"  }
+ }
+
+ CurrencyElements{
+  "R$",
+  "BRL",
+  ","
+ }
+
+
+
+
+
+
+ NumberElements{
+  ",",
+  ".",
+  ";",
+  "%",
+  "0",
+  "#",
+  "-",
+  "E",
+  "\u2030",
+  "\u221e",
+  "\ufffd",
+ }
+
+ NumberPatterns{
+  "",
+  "",
+  ""
+ }
+
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          1,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "HH:mm:ss",
+          "",
+          "EEEE, d' de 'MMMM' de 'yyyy",
+          "",
+          "",
+          "d/M/yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "dom",
+                  "seg",
+                  "ter",
+                  "qua",
+                  "qui",
+                  "sex",
+                  "s\u00E1b"
+                    }
+                    wide{
+                  "domingo",
+                  "segunda-feira",
+                  "ter\u00E7a-feira",
+                  "quarta-feira",
+                  "quinta-feira",
+                  "sexta-feira",
+                  "s\u00E1bado"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "jan",
+                  "fev",
+                  "mar",
+                  "abr",
+                  "mai",
+                  "jun",
+                  "jul",
+                  "ago",
+                  "set",
+                  "out",
+                  "nov",
+                  "dez",
+                  ""
+                    }
+                    wide{
+                  "janeiro",
+                  "fevereiro",
+                  "mar\u00E7o",
+                  "abril",
+                  "maio",
+                  "junho",
+                  "julho",
+                  "agosto",
+                  "setembro",
+                  "outubro",
+                  "novembro",
+                  "dezembro",
+                  ""
+                    }
+                }
+            }
+        }
     }
-    LocaleID { "0416" }
-    LocaleString { "pt_BR" }
-    NumberPatterns { 
-            "#,##0.###;-#,##0.###",
-            "\u00A4 #,##0.##;-\u00A4 #,##0.##",
-            "#,##0%",
-    }
-    ShortCountry { "BRA" }
 }

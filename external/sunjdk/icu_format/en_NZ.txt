@@ -1,27 +1,131 @@
-en_NZ {
-    Countries { 
-        US { "United States" }
-        GB { "United Kingdom" }
-        CA { "Canada" }
-        IE { "Ireland" }
-        AU { "Australia" }
-        NZ { "New Zealand" }
+en_NZ{
+
+ Version{"Windows XP"}
+ LocaleID{ "1409"}
+ ShortCountry{
+  "NZL"
+ }
+
+ ShortLanguage{
+  "ENZ"
+ }
+
+ Languages{
+  en {  "English"  }
+ }
+
+ Countries{
+  NZ {  "New Zealand"  }
+ }
+
+ CurrencyElements{
+  "$",
+  "NZD",
+  "."
+ }
+
+
+
+
+
+
+ NumberElements{
+  ".",
+  ",",
+  ",",
+  "%",
+  "0",
+  "#",
+  "-",
+  "E",
+  "\u2030",
+  "\u221e",
+  "\ufffd",
+ }
+
+ NumberPatterns{
+  "",
+  "",
+  ""
+ }
+
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "a.m.",
+          "p.m."
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "h:mm:ss a",
+          "",
+          "EEEE, d MMMM yyyy",
+          "",
+          "",
+          "d/MM/yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "Sun",
+                  "Mon",
+                  "Tue",
+                  "Wed",
+                  "Thu",
+                  "Fri",
+                  "Sat"
+                    }
+                    wide{
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "Jan",
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "May",
+                  "Jun",
+                  "Jul",
+                  "Aug",
+                  "Sep",
+                  "Oct",
+                  "Nov",
+                  "Dec",
+                  ""
+                    }
+                    wide{
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                  ""
+                    }
+                }
+            }
+        }
     }
-    DateTimePatterns { 
-            "hh:mm:ss a z",
-            "H:mm:ss",
-            "HH:mm:ss",
-            "HH:mm",
-            "EEEE, d MMMM yyyy",
-            "d MMMM yyyy",
-            "d/MM/yyyy",
-            "d/MM/yy",
-            "{1} {0}",
-    }
-    Languages { 
-        en { "English" }
-    }
-    LocaleID { "1409" }
-    LocaleString { "en_NZ" }
-    ShortCountry { "NZL" }
 }

@@ -10,35 +10,6 @@ eu_ES {
             "ESP ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEEE, yyyyko MMMMren dda  z",
-            "EEEE, yyyyko MMMMren dda hh:mm:ss z",
-            "yy-MMMM-dd",
-            "yy-MMMM-dd",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "iga",
-            "leh",
-            "art",
-            "azk",
-            "teg",
-            "tir",
-            "lar",
-    }
-    DayNames { 
-            "igandea",
-            "astelehena",
-            "asteartea",
-            "asteazkena",
-            "osteguna",
-            "ostirala",
-            "larunbata",
-    }
     Identification { 
         Title { "Basque locale for Spain" }
         Source { "RAP" }
@@ -62,36 +33,6 @@ eu_ES {
         NoExpression { "^[eEnN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "urt",
-            "ots",
-            "mar",
-            "api",
-            "mai",
-            "eka",
-            "uzt",
-            "abu",
-            "ira",
-            "urr",
-            "aza",
-            "abe",
-            "",
-    }
-    MonthNames { 
-            "urtarrila",
-            "otsaila",
-            "martxoa",
-            "apirila",
-            "maiatza",
-            "ekaina",
-            "uztaila",
-            "abuztua",
-            "iraila",
-            "urria",
-            "azaroa",
-            "abendua",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -121,15 +62,81 @@ eu_ES {
             "\u00A4 #,##0.#;-\u00A4 #,##0.#",
             "#,#0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "34" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEEE, yyyyko MMMMren dda  z",
+                    "EEEE, yyyyko MMMMren dda hh:mm:ss z",
+                    "yy-MMMM-dd",
+                    "yy-MMMM-dd",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "iga",
+                            "leh",
+                            "art",
+                            "azk",
+                            "teg",
+                            "tir",
+                            "lar",
+                    }
+                    wide{
+                            "igandea",
+                            "astelehena",
+                            "asteartea",
+                            "asteazkena",
+                            "osteguna",
+                            "ostirala",
+                            "larunbata",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "urt",
+                            "ots",
+                            "mar",
+                            "api",
+                            "mai",
+                            "eka",
+                            "uzt",
+                            "abu",
+                            "ira",
+                            "urr",
+                            "aza",
+                            "abe",
+                            "",
+                    }
+                    wide{
+                            "urtarrila",
+                            "otsaila",
+                            "martxoa",
+                            "apirila",
+                            "maiatza",
+                            "ekaina",
+                            "uztaila",
+                            "abuztua",
+                            "iraila",
+                            "urria",
+                            "azaroa",
+                            "abendua",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="gd" /> 
 		<territory type="GB" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">Am Faoilteach</month>
-					<month type="2">An Gearran</month>
-					<month type="3">Am Màrt</month>
-					<month type="4">An Giblean</month>
-					<month type="5">A' Mhàigh</month>
-					<month type="6">An t-Mhìos</month>
-					<month type="7">An t-luchar</month>
-					<month type="8">An Lùnasdal</month>
-					<month type="9">An t-Sultain</month>
-					<month type="10">An Damhair</month>
-					<month type="11">An t-Samhain</month>
-					<month type="12">An Dùbhlachd</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">Fao</month>
-					<month type="2">Gea</month>
-					<month type="3">Màr</month>
-					<month type="4">Gib</month>
-					<month type="5">Mhà</month>
-					<month type="6">OgM</month>
-					<month type="7">luc</month>
-					<month type="8">Lùn</month>
-					<month type="9">Sul</month>
-					<month type="10">Dam</month>
-					<month type="11">Sam</month>
-					<month type="12">Dùb</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">Didòmhnaich</day>
-					<day type="mon">Diluain</day>
-					<day type="tue">Dimàirt</day>
-					<day type="wed">Diciadain</day>
-					<day type="thu">Diardaoin</day>
-					<day type="fri">Dihaoine</day>
-					<day type="sat">Disathairne</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">Dido</day>
-					<day type="mon">Dilu</day>
-					<day type="tue">Dim</day>
-					<day type="wed">Dic</day>
-					<day type="thu">Diar</day>
-					<day type="fri">Diha</day>
-					<day type="sat">Disa</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Fao</month>
+							<month type="2">Gea</month>
+							<month type="3">Màr</month>
+							<month type="4">Gib</month>
+							<month type="5">Mhà</month>
+							<month type="6">OgM</month>
+							<month type="7">luc</month>
+							<month type="8">Lùn</month>
+							<month type="9">Sul</month>
+							<month type="10">Dam</month>
+							<month type="11">Sam</month>
+							<month type="12">Dùb</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Am Faoilteach</month>
+							<month type="2">An Gearran</month>
+							<month type="3">Am Màrt</month>
+							<month type="4">An Giblean</month>
+							<month type="5">A' Mhàigh</month>
+							<month type="6">An t-Mhìos</month>
+							<month type="7">An t-luchar</month>
+							<month type="8">An Lùnasdal</month>
+							<month type="9">An t-Sultain</month>
+							<month type="10">An Damhair</month>
+							<month type="11">An t-Samhain</month>
+							<month type="12">An Dùbhlachd</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Dido</day>
+							<day type="mon">Dilu</day>
+							<day type="tue">Dim</day>
+							<day type="wed">Dic</day>
+							<day type="thu">Diar</day>
+							<day type="fri">Diha</day>
+							<day type="sat">Disa</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Didòmhnaich</day>
+							<day type="mon">Diluain</day>
+							<day type="tue">Dimàirt</day>
+							<day type="wed">Diciadain</day>
+							<day type="thu">Diardaoin</day>
+							<day type="fri">Dihaoine</day>
+							<day type="sat">Disathairne</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">

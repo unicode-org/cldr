@@ -1,31 +1,131 @@
-en_ZA {
-    Countries { 
-        US { "United States" }
-        GB { "United Kingdom" }
-        CA { "Canada" }
-        IE { "Ireland" }
-        ZA { "South Africa" }
+en_ZA{
+
+ Version{"Windows XP"}
+ LocaleID{ "1C09"}
+ ShortCountry{
+  "ZAF"
+ }
+
+ ShortLanguage{
+  "ENS"
+ }
+
+ Languages{
+  en {  "English"  }
+ }
+
+ Countries{
+  ZA {  "South Africa"  }
+ }
+
+ CurrencyElements{
+  "R",
+  "ZAR",
+  "."
+ }
+
+
+
+
+
+
+ NumberElements{
+  ".",
+  ",",
+  ",",
+  "%",
+  "0",
+  "#",
+  "-",
+  "E",
+  "\u2030",
+  "\u221e",
+  "\ufffd",
+ }
+
+ NumberPatterns{
+  "",
+  "",
+  ""
+ }
+
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "AM",
+          "PM"
+            }
+            DateTimeElements:intvector{
+          1,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "hh:mm:ss a",
+          "",
+          "dd MMMM yyyy",
+          "",
+          "",
+          "yyyy/MM/dd",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "Sun",
+                  "Mon",
+                  "Tue",
+                  "Wed",
+                  "Thu",
+                  "Fri",
+                  "Sat"
+                    }
+                    wide{
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "Jan",
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "May",
+                  "Jun",
+                  "Jul",
+                  "Aug",
+                  "Sep",
+                  "Oct",
+                  "Nov",
+                  "Dec",
+                  ""
+                    }
+                    wide{
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                  ""
+                    }
+                }
+            }
+        }
     }
-    DateTimePatterns { 
-            "hh:mm:ss a",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm",
-            "dd MMMM yyyy",
-            "dd MMMM yyyy",
-            "yyyy/MM/dd",
-            "yy/MM/dd",
-            "{1} {0}",
-    }
-    Languages { 
-        en { "English" }
-    }
-    LocaleID { "1c09" }
-    LocaleString { "en_ZA" }
-    NumberPatterns { 
-            "#,##0.###;-#,##0.###",
-            "\u00A4 #,##0.00;\u00A4-#,##0.00",
-            "#,##0%",
-    }
-    ShortCountry { "ZAF" }
 }

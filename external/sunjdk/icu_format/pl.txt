@@ -200,43 +200,6 @@ pl {
         ZM { "Zambia" }
         ZW { "Zimbabwe" }
     }
-    DateTimeElements:intvector { 
-            2,
-            1,
-    }
-    DateTimePatterns { 
-            "HH:mm:ss z",
-            "HH:mm:ss z",
-            "HH:mm:ss",
-            "HH:mm",
-            "EEEE, d MMMM yyyy",
-            "d MMMM yyyy",
-            "yyyy-MM-dd",
-            "yy-MM-dd",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "N",
-            "Pn",
-            "Wt",
-            "\u015Ar",
-            "Cz",
-            "Pt",
-            "So",
-    }
-    DayNames { 
-            "niedziela",
-            "poniedzia\u0142ek",
-            "wtorek",
-            "\u015Broda",
-            "czwartek",
-            "pi\u0105tek",
-            "sobota",
-    }
-    Eras { 
-            "p.n.e.",
-            "n.e.",
-    }
     Languages { 
         ab { "abchaski" }
         aa { "afar" }
@@ -383,36 +346,6 @@ pl {
     }
     LocaleID { "0415" }
     LocaleString { "pl" }
-    MonthAbbreviations { 
-            "sty",
-            "lut",
-            "mar",
-            "kwi",
-            "maj",
-            "cze",
-            "lip",
-            "sie",
-            "wrz",
-            "pa\u017A",
-            "lis",
-            "gru",
-            "",
-    }
-    MonthNames { 
-            "stycze\u0144",
-            "luty",
-            "marzec",
-            "kwiecie\u0144",
-            "maj",
-            "czerwiec",
-            "lipiec",
-            "sierpie\u0144",
-            "wrzesie\u0144",
-            "pa\u017Adziernik",
-            "listopad",
-            "grudzie\u0144",
-            "",
-    }
     NumberElements { 
             ",",
             "\u00A0",
@@ -428,4 +361,83 @@ pl {
     }
     ShortLanguage { "pol" }
     localPatternChars { "GyMdkHmsSEDFwWahKzZ" }
+    calendar{
+        gregorian{
+            DateTimeElements:intvector{
+                    2,
+                    1,
+            }
+            DateTimePatterns{
+                    "HH:mm:ss z",
+                    "HH:mm:ss z",
+                    "HH:mm:ss",
+                    "HH:mm",
+                    "EEEE, d MMMM yyyy",
+                    "d MMMM yyyy",
+                    "yyyy-MM-dd",
+                    "yy-MM-dd",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "N",
+                            "Pn",
+                            "Wt",
+                            "\u015Ar",
+                            "Cz",
+                            "Pt",
+                            "So",
+                    }
+                    wide{
+                            "niedziela",
+                            "poniedzia\u0142ek",
+                            "wtorek",
+                            "\u015Broda",
+                            "czwartek",
+                            "pi\u0105tek",
+                            "sobota",
+                    }
+                }
+            }
+            eras{
+                    "p.n.e.",
+                    "n.e.",
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "sty",
+                            "lut",
+                            "mar",
+                            "kwi",
+                            "maj",
+                            "cze",
+                            "lip",
+                            "sie",
+                            "wrz",
+                            "pa\u017A",
+                            "lis",
+                            "gru",
+                            "",
+                    }
+                    wide{
+                            "stycze\u0144",
+                            "luty",
+                            "marzec",
+                            "kwiecie\u0144",
+                            "maj",
+                            "czerwiec",
+                            "lipiec",
+                            "sierpie\u0144",
+                            "wrzesie\u0144",
+                            "pa\u017Adziernik",
+                            "listopad",
+                            "grudzie\u0144",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

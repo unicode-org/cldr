@@ -2,10 +2,6 @@ sr_SP{
 
  Version{"Windows XP"}
  LocaleID{ "081A"}
- AmPmMarkers{
-  "",
-  ""
- }
  ShortCountry{
   "SPB"
  }
@@ -28,73 +24,10 @@ sr_SP{
   ","
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "H:mm:ss",
-  "",
-  "d. MMMM yyyy",
-  "",
-  "",
-  "d.M.yyyy",
-  "",
- }
 
- DateTimeElements:intvector{
-  2,
-  
- }
- DayNames{
-  "nedelja",
-  "ponedeljak",
-  "utorak",
-  "sreda",
-  "\u010Detvrtak",
-  "petak",
-  "subota"
- }
 
- DayAbbreviations{
-  "ned",
-  "pon",
-  "uto",
-  "sre",
-  "\u010Det",
-  "pet",
-  "sub"
- }
 
- MonthNames{
-  "januar",
-  "februar",
-  "mart",
-  "april",
-  "maj",
-  "jun",
-  "jul",
-  "avgust",
-  "septembar",
-  "oktobar",
-  "novembar",
-  "decembar",
-  ""
- }
 
- MonthAbbreviations{
-  "jan",
-  "feb",
-  "mar",
-  "apr",
-  "maj",
-  "jun",
-  "jul",
-  "avg",
-  "sep",
-  "okt",
-  "nov",
-  "dec",
-  ""
- }
 
  NumberElements{
   ",",
@@ -116,4 +49,83 @@ sr_SP{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "H:mm:ss",
+          "",
+          "d. MMMM yyyy",
+          "",
+          "",
+          "d.M.yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "ned",
+                  "pon",
+                  "uto",
+                  "sre",
+                  "\u010Det",
+                  "pet",
+                  "sub"
+                    }
+                    wide{
+                  "nedelja",
+                  "ponedeljak",
+                  "utorak",
+                  "sreda",
+                  "\u010Detvrtak",
+                  "petak",
+                  "subota"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "jan",
+                  "feb",
+                  "mar",
+                  "apr",
+                  "maj",
+                  "jun",
+                  "jul",
+                  "avg",
+                  "sep",
+                  "okt",
+                  "nov",
+                  "dec",
+                  ""
+                    }
+                    wide{
+                  "januar",
+                  "februar",
+                  "mart",
+                  "april",
+                  "maj",
+                  "jun",
+                  "jul",
+                  "avgust",
+                  "septembar",
+                  "oktobar",
+                  "novembar",
+                  "decembar",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }

@@ -2,45 +2,12 @@ af_ZA {
     AddressFormat { 
         PostalFormat { "%f%N%a%N%d%N%b%N%s %h %e %r%N%%z %T%N%c%N" }
     }
-    AmPmMarkers { 
-            "VM",
-            "NM",
-    }
     ///* Discarding duplicate data for tag: CountryISBNNumber */
     ///* Discarding duplicate data for tag: CountryNumber */
     CurrencyElements { 
             "R",
             "ZAR ",
             ",",
-    }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE dd MMM yyyy  z",
-            "EEE dd MMM yyyy hh:mm:ss z",
-            "dd/MMMM/yy",
-            "dd/MMMM/yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "So",
-            "Ma",
-            "Di",
-            "Wo",
-            "Do",
-            "Vr",
-            "Sa",
-    }
-    DayNames { 
-            "Sondag",
-            "Maandag",
-            "Dinsdag",
-            "Woensdag",
-            "Donderdag",
-            "Vrydag",
-            "Saterdag",
     }
     Identification { 
         Title { "Afrikaans locale for South Africa" }
@@ -65,36 +32,6 @@ af_ZA {
         NoExpression { "[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "Mei",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Okt",
-            "Nov",
-            "Des",
-            "",
-    }
-    MonthNames { 
-            "Januarie",
-            "Februarie",
-            "Maart",
-            "April",
-            "Mei",
-            "Junie",
-            "Julie",
-            "Augustus",
-            "September",
-            "Oktober",
-            "November",
-            "Desember",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -124,15 +61,85 @@ af_ZA {
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "27" }
+    }
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    "VM",
+                    "NM",
+            }
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE dd MMM yyyy  z",
+                    "EEE dd MMM yyyy hh:mm:ss z",
+                    "dd/MMMM/yy",
+                    "dd/MMMM/yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "So",
+                            "Ma",
+                            "Di",
+                            "Wo",
+                            "Do",
+                            "Vr",
+                            "Sa",
+                    }
+                    wide{
+                            "Sondag",
+                            "Maandag",
+                            "Dinsdag",
+                            "Woensdag",
+                            "Donderdag",
+                            "Vrydag",
+                            "Saterdag",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Feb",
+                            "Mar",
+                            "Apr",
+                            "Mei",
+                            "Jun",
+                            "Jul",
+                            "Aug",
+                            "Sep",
+                            "Okt",
+                            "Nov",
+                            "Des",
+                            "",
+                    }
+                    wide{
+                            "Januarie",
+                            "Februarie",
+                            "Maart",
+                            "April",
+                            "Mei",
+                            "Junie",
+                            "Julie",
+                            "Augustus",
+                            "September",
+                            "Oktober",
+                            "November",
+                            "Desember",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

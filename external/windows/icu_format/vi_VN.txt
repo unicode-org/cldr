@@ -2,10 +2,6 @@ vi_VN{
 
  Version{"Windows XP"}
  LocaleID{ "042A"}
- AmPmMarkers{
-  "SA",
-  "CH"
- }
  ShortCountry{
   "VNM"
  }
@@ -28,73 +24,10 @@ vi_VN{
   ","
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "h:mm:ss a",
-  "",
-  "dd MMMM yyyy",
-  "",
-  "",
-  "dd/MM/yyyy",
-  "",
- }
 
- DateTimeElements:intvector{
-  2,
-  
- }
- DayNames{
-  "chu\u0309 nh\u00E2\u0323t",
-  "th\u01B0\u0301 hai",
-  "th\u01B0\u0301 ba",
-  "th\u01B0\u0301 t\u01B0",
-  "th\u01B0\u0301 n\u0103m",
-  "th\u01B0\u0301 sa\u0301u",
-  "th\u01B0\u0301 ba\u0309y"
- }
 
- DayAbbreviations{
-  "cn",
-  "hai",
-  "ba",
-  "t\u01B0",
-  "n\u0103m",
-  "sa\u0301u",
-  "ba\u0309y"
- }
 
- MonthNames{
-  "tha\u0301ng m\u00F4\u0323t",
-  "tha\u0301ng hai",
-  "tha\u0301ng ba",
-  "tha\u0301ng t\u01B0",
-  "tha\u0301ng n\u0103m",
-  "tha\u0301ng sa\u0301u",
-  "tha\u0301ng ba\u0309y",
-  "tha\u0301ng ta\u0301m",
-  "tha\u0301ng chi\u0301n",
-  "tha\u0301ng m\u01B0\u01A1\u0300i",
-  "tha\u0301ng m\u01B0\u01A1\u0300i m\u00F4\u0323t",
-  "tha\u0301ng m\u01B0\u01A1\u0300i hai",
-  ""
- }
 
- MonthAbbreviations{
-  "th1",
-  "th2",
-  "th3",
-  "th4",
-  "th5",
-  "th6",
-  "th7",
-  "th8",
-  "th9",
-  "th10",
-  "th11",
-  "th12",
-  ""
- }
 
  NumberElements{
   ",",
@@ -116,5 +49,83 @@ vi_VN{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "SA",
+          "CH"
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "h:mm:ss a",
+          "",
+          "dd MMMM yyyy",
+          "",
+          "",
+          "dd/MM/yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "cn",
+                  "hai",
+                  "ba",
+                  "t\u01B0",
+                  "n\u0103m",
+                  "sa\u0301u",
+                  "ba\u0309y"
+                    }
+                    wide{
+                  "chu\u0309 nh\u00E2\u0323t",
+                  "th\u01B0\u0301 hai",
+                  "th\u01B0\u0301 ba",
+                  "th\u01B0\u0301 t\u01B0",
+                  "th\u01B0\u0301 n\u0103m",
+                  "th\u01B0\u0301 sa\u0301u",
+                  "th\u01B0\u0301 ba\u0309y"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "th1",
+                  "th2",
+                  "th3",
+                  "th4",
+                  "th5",
+                  "th6",
+                  "th7",
+                  "th8",
+                  "th9",
+                  "th10",
+                  "th11",
+                  "th12",
+                  ""
+                    }
+                    wide{
+                  "tha\u0301ng m\u00F4\u0323t",
+                  "tha\u0301ng hai",
+                  "tha\u0301ng ba",
+                  "tha\u0301ng t\u01B0",
+                  "tha\u0301ng n\u0103m",
+                  "tha\u0301ng sa\u0301u",
+                  "tha\u0301ng ba\u0309y",
+                  "tha\u0301ng ta\u0301m",
+                  "tha\u0301ng chi\u0301n",
+                  "tha\u0301ng m\u01B0\u01A1\u0300i",
+                  "tha\u0301ng m\u01B0\u01A1\u0300i m\u00F4\u0323t",
+                  "tha\u0301ng m\u01B0\u01A1\u0300i hai",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

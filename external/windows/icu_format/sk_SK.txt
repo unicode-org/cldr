@@ -2,10 +2,6 @@ sk_SK{
 
  Version{"Windows XP"}
  LocaleID{ "041B"}
- AmPmMarkers{
-  "",
-  ""
- }
  ShortCountry{
   "SVK"
  }
@@ -28,73 +24,10 @@ sk_SK{
   ","
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "H:mm:ss",
-  "",
-  "d. MMMM yyyy",
-  "",
-  "",
-  "d. M. yyyy",
-  "",
- }
 
- DateTimeElements:intvector{
-  2,
-  
- }
- DayNames{
-  "nede\u013Ea",
-  "pondelok",
-  "utorok",
-  "streda",
-  "\u0161tvrtok",
-  "piatok",
-  "sobota"
- }
 
- DayAbbreviations{
-  "ne",
-  "po",
-  "ut",
-  "st",
-  "\u0161t",
-  "pi",
-  "so"
- }
 
- MonthNames{
-  "janu\u00E1r",
-  "febru\u00E1r",
-  "marec",
-  "apr\u00EDl",
-  "m\u00E1j",
-  "j\u00FAn",
-  "j\u00FAl",
-  "august",
-  "september",
-  "okt\u00F3ber",
-  "november",
-  "december",
-  ""
- }
 
- MonthAbbreviations{
-  "I",
-  "II",
-  "III",
-  "IV",
-  "V",
-  "VI",
-  "VII",
-  "VIII",
-  "IX",
-  "X",
-  "XI",
-  "XII",
-  ""
- }
 
  NumberElements{
   ",",
@@ -116,5 +49,83 @@ sk_SK{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "H:mm:ss",
+          "",
+          "d. MMMM yyyy",
+          "",
+          "",
+          "d. M. yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "ne",
+                  "po",
+                  "ut",
+                  "st",
+                  "\u0161t",
+                  "pi",
+                  "so"
+                    }
+                    wide{
+                  "nede\u013Ea",
+                  "pondelok",
+                  "utorok",
+                  "streda",
+                  "\u0161tvrtok",
+                  "piatok",
+                  "sobota"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "I",
+                  "II",
+                  "III",
+                  "IV",
+                  "V",
+                  "VI",
+                  "VII",
+                  "VIII",
+                  "IX",
+                  "X",
+                  "XI",
+                  "XII",
+                  ""
+                    }
+                    wide{
+                  "janu\u00E1r",
+                  "febru\u00E1r",
+                  "marec",
+                  "apr\u00EDl",
+                  "m\u00E1j",
+                  "j\u00FAn",
+                  "j\u00FAl",
+                  "august",
+                  "september",
+                  "okt\u00F3ber",
+                  "november",
+                  "december",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

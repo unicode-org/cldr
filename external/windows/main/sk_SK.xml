@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="Windows_XP"/>
-		<generation date="2003-12-19" />
+		<version number="Windows XP"/>
+		<generation date="2004-05-14" />
 		<language type="sk" /> 
 		<territory type="SK" /> 
 	</identity>
@@ -18,54 +18,62 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">január</month>
-					<month type="2">február</month>
-					<month type="3">marec</month>
-					<month type="4">apríl</month>
-					<month type="5">máj</month>
-					<month type="6">jún</month>
-					<month type="7">júl</month>
-					<month type="8">august</month>
-					<month type="9">september</month>
-					<month type="10">október</month>
-					<month type="11">november</month>
-					<month type="12">december</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">I</month>
-					<month type="2">II</month>
-					<month type="3">III</month>
-					<month type="4">IV</month>
-					<month type="5">V</month>
-					<month type="6">VI</month>
-					<month type="7">VII</month>
-					<month type="8">VIII</month>
-					<month type="9">IX</month>
-					<month type="10">X</month>
-					<month type="11">XI</month>
-					<month type="12">XII</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">nedeľa</day>
-					<day type="mon">pondelok</day>
-					<day type="tue">utorok</day>
-					<day type="wed">streda</day>
-					<day type="thu">štvrtok</day>
-					<day type="fri">piatok</day>
-					<day type="sat">sobota</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">ne</day>
-					<day type="mon">po</day>
-					<day type="tue">ut</day>
-					<day type="wed">st</day>
-					<day type="thu">št</day>
-					<day type="fri">pi</day>
-					<day type="sat">so</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">I</month>
+							<month type="2">II</month>
+							<month type="3">III</month>
+							<month type="4">IV</month>
+							<month type="5">V</month>
+							<month type="6">VI</month>
+							<month type="7">VII</month>
+							<month type="8">VIII</month>
+							<month type="9">IX</month>
+							<month type="10">X</month>
+							<month type="11">XI</month>
+							<month type="12">XII</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">január</month>
+							<month type="2">február</month>
+							<month type="3">marec</month>
+							<month type="4">apríl</month>
+							<month type="5">máj</month>
+							<month type="6">jún</month>
+							<month type="7">júl</month>
+							<month type="8">august</month>
+							<month type="9">september</month>
+							<month type="10">október</month>
+							<month type="11">november</month>
+							<month type="12">december</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">ne</day>
+							<day type="mon">po</day>
+							<day type="tue">ut</day>
+							<day type="wed">st</day>
+							<day type="thu">št</day>
+							<day type="fri">pi</day>
+							<day type="sat">so</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">nedeľa</day>
+							<day type="mon">pondelok</day>
+							<day type="tue">utorok</day>
+							<day type="wed">streda</day>
+							<day type="thu">štvrtok</day>
+							<day type="fri">piatok</day>
+							<day type="sat">sobota</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<week>
 					<firstDay day="mon"/>
 				</week>

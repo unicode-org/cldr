@@ -10,35 +10,6 @@ it_IT_euro {
             "EUR ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE dd MMM yyyy  z",
-            "EEE dd MMM yyyy hh:mm:ss z",
-            "dd/MMMM/yyyy",
-            "dd/MMMM/yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "dom",
-            "lun",
-            "mar",
-            "mer",
-            "gio",
-            "ven",
-            "sab",
-    }
-    DayNames { 
-            "domenica",
-            "luned\u00EC",
-            "marted\u00EC",
-            "mercoled\u00EC",
-            "gioved\u00EC",
-            "venerd\u00EC",
-            "sabato",
-    }
     Identification { 
         Title { "Italian locale for Italy with Euro" }
         Source { "Free Software Foundation, Inc." }
@@ -62,36 +33,6 @@ it_IT_euro {
         NoExpression { "^[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "gen",
-            "feb",
-            "mar",
-            "apr",
-            "mag",
-            "giu",
-            "lug",
-            "ago",
-            "set",
-            "ott",
-            "nov",
-            "dic",
-            "",
-    }
-    MonthNames { 
-            "gennaio",
-            "febbraio",
-            "marzo",
-            "aprile",
-            "maggio",
-            "giugno",
-            "luglio",
-            "agosto",
-            "settembre",
-            "ottobre",
-            "novembre",
-            "dicembre",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -121,15 +62,81 @@ it_IT_euro {
             "\u00A4 #,##0.#;-\u00A4 #,##0.#",
             "#,#0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "39" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE dd MMM yyyy  z",
+                    "EEE dd MMM yyyy hh:mm:ss z",
+                    "dd/MMMM/yyyy",
+                    "dd/MMMM/yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "dom",
+                            "lun",
+                            "mar",
+                            "mer",
+                            "gio",
+                            "ven",
+                            "sab",
+                    }
+                    wide{
+                            "domenica",
+                            "luned\u00EC",
+                            "marted\u00EC",
+                            "mercoled\u00EC",
+                            "gioved\u00EC",
+                            "venerd\u00EC",
+                            "sabato",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "gen",
+                            "feb",
+                            "mar",
+                            "apr",
+                            "mag",
+                            "giu",
+                            "lug",
+                            "ago",
+                            "set",
+                            "ott",
+                            "nov",
+                            "dic",
+                            "",
+                    }
+                    wide{
+                            "gennaio",
+                            "febbraio",
+                            "marzo",
+                            "aprile",
+                            "maggio",
+                            "giugno",
+                            "luglio",
+                            "agosto",
+                            "settembre",
+                            "ottobre",
+                            "novembre",
+                            "dicembre",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

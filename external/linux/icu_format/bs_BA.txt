@@ -10,35 +10,6 @@ bs_BA {
             "BAK ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE dd MMM yyyy ",
-            "EEE dd MMM yyyy hh:mm:ss",
-            "dd.MMMM.yyyy",
-            "dd.MMMM.yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Ned",
-            "Pon",
-            "Uto",
-            "Sri",
-            "\u010Cet",
-            "Pet",
-            "Sub",
-    }
-    DayNames { 
-            "Nedjelja",
-            "Ponedjeljak",
-            "Utorak",
-            "Srijeda",
-            "\u010Cetvrtak",
-            "Petak",
-            "Subota",
-    }
     Identification { 
         Title { "Bosnian language locale for Bosnia and Herzegowina" }
         Source { "adapted from Croatian locale" }
@@ -62,36 +33,6 @@ bs_BA {
         NoExpression { "^[nN]*." }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "Maj",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Okt",
-            "Nov",
-            "Dec",
-            "",
-    }
-    MonthNames { 
-            "Januar",
-            "Februar",
-            "Mart",
-            "April",
-            "Maj",
-            "Juni",
-            "Juli",
-            "August",
-            "Septembar",
-            "Oktobar",
-            "Novembar",
-            "Decembar",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -121,15 +62,81 @@ bs_BA {
             "\u00A4 #,##0.00;-\u00A4 #,##0.00",
             "#,#0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "45" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE dd MMM yyyy ",
+                    "EEE dd MMM yyyy hh:mm:ss",
+                    "dd.MMMM.yyyy",
+                    "dd.MMMM.yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Ned",
+                            "Pon",
+                            "Uto",
+                            "Sri",
+                            "\u010Cet",
+                            "Pet",
+                            "Sub",
+                    }
+                    wide{
+                            "Nedjelja",
+                            "Ponedjeljak",
+                            "Utorak",
+                            "Srijeda",
+                            "\u010Cetvrtak",
+                            "Petak",
+                            "Subota",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Feb",
+                            "Mar",
+                            "Apr",
+                            "Maj",
+                            "Jun",
+                            "Jul",
+                            "Aug",
+                            "Sep",
+                            "Okt",
+                            "Nov",
+                            "Dec",
+                            "",
+                    }
+                    wide{
+                            "Januar",
+                            "Februar",
+                            "Mart",
+                            "April",
+                            "Maj",
+                            "Juni",
+                            "Juli",
+                            "August",
+                            "Septembar",
+                            "Oktobar",
+                            "Novembar",
+                            "Decembar",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

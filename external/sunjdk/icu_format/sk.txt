@@ -3,74 +3,11 @@ sk {
     Countries { 
         SK { "Slovensk\u00E1 republika" }
     }
-    DateTimePatterns { 
-            "H:mm:ss z",
-            "H:mm:ss z",
-            "H:mm:ss",
-            "H:mm",
-            "EEEE, yyyy, MMMM d",
-            "EEEE, yyyy, MMMM d",
-            "d.M.yyyy",
-            "d.M.yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Ne",
-            "Po",
-            "Ut",
-            "St",
-            "\u0160t",
-            "Pa",
-            "So",
-    }
-    DayNames { 
-            "Nede\u013Ee",
-            "Pondelok",
-            "Utorok",
-            "Streda",
-            "\u0160tvrtok",
-            "Piatok",
-            "Sobota",
-    }
-    Eras { 
-            "pred n.l.",
-            "n.l.",
-    }
     Languages { 
         sk { "Sloven\u010Dina" }
     }
     LocaleID { "041b" }
     LocaleString { "sk" }
-    MonthAbbreviations { 
-            "jan",
-            "feb",
-            "mar",
-            "apr",
-            "m\u00E1j",
-            "j\u00FAn",
-            "j\u00FAl",
-            "aug",
-            "sep",
-            "okt",
-            "nov",
-            "dec",
-            "",
-    }
-    MonthNames { 
-            "janu\u00E1r",
-            "febru\u00E1r",
-            "marec",
-            "apr\u00EDl",
-            "m\u00E1j",
-            "j\u00FAn",
-            "j\u00FAl",
-            "august",
-            "september",
-            "okt\u00F3ber",
-            "november",
-            "december",
-            "",
-    }
     NumberElements { 
             ",",
             "\u00A0",
@@ -86,4 +23,79 @@ sk {
     }
     ShortLanguage { "slk" }
     localPatternChars { "GanjkHmsSEDFwWxhKzZ" }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "H:mm:ss z",
+                    "H:mm:ss z",
+                    "H:mm:ss",
+                    "H:mm",
+                    "EEEE, yyyy, MMMM d",
+                    "EEEE, yyyy, MMMM d",
+                    "d.M.yyyy",
+                    "d.M.yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Ne",
+                            "Po",
+                            "Ut",
+                            "St",
+                            "\u0160t",
+                            "Pa",
+                            "So",
+                    }
+                    wide{
+                            "Nede\u013Ee",
+                            "Pondelok",
+                            "Utorok",
+                            "Streda",
+                            "\u0160tvrtok",
+                            "Piatok",
+                            "Sobota",
+                    }
+                }
+            }
+            eras{
+                    "pred n.l.",
+                    "n.l.",
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jan",
+                            "feb",
+                            "mar",
+                            "apr",
+                            "m\u00E1j",
+                            "j\u00FAn",
+                            "j\u00FAl",
+                            "aug",
+                            "sep",
+                            "okt",
+                            "nov",
+                            "dec",
+                            "",
+                    }
+                    wide{
+                            "janu\u00E1r",
+                            "febru\u00E1r",
+                            "marec",
+                            "apr\u00EDl",
+                            "m\u00E1j",
+                            "j\u00FAn",
+                            "j\u00FAl",
+                            "august",
+                            "september",
+                            "okt\u00F3ber",
+                            "november",
+                            "december",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

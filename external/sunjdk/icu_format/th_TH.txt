@@ -1,13 +1,131 @@
-th_TH {
-    Eras { 
-            "\u0E1B\u0E35\u0E01\u0E48\u0E2D\u0E19\u0E04\u0E23\u0E34\u0E2A\u0E15\u0E4C\u0E01\u0E32\u0E25\u0E17\u0E35\u0E48",
-            "\u0E1E.\u0E28.",
+th_TH{
+
+ Version{"Windows XP"}
+ LocaleID{ "041E"}
+ ShortCountry{
+  "THA"
+ }
+
+ ShortLanguage{
+  "THA"
+ }
+
+ Languages{
+  th {  "\u0E44\u0E17\u0E22"  }
+ }
+
+ Countries{
+  TH {  "\u0E44\u0E17\u0E22"  }
+ }
+
+ CurrencyElements{
+  "\u0E3F",
+  "THB",
+  "."
+ }
+
+
+
+
+
+
+ NumberElements{
+  ".",
+  ",",
+  ",",
+  "%",
+  "\u0E50",
+  "#",
+  "-",
+  "E",
+  "\u2030",
+  "\u221e",
+  "\ufffd",
+ }
+
+ NumberPatterns{
+  "",
+  "",
+  ""
+ }
+
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "AM",
+          "PM"
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "H:mm:ss",
+          "",
+          "d MMMM yyyy",
+          "",
+          "",
+          "d/M/yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "\u0E2D\u0E32.",
+                  "\u0E08.",
+                  "\u0E2D.",
+                  "\u0E1E.",
+                  "\u0E1E\u0E24.",
+                  "\u0E28.",
+                  "\u0E2A."
+                    }
+                    wide{
+                  "\u0E2D\u0E32\u0E17\u0E34\u0E15\u0E22\u0E4C",
+                  "\u0E08\u0E31\u0E19\u0E17\u0E23\u0E4C",
+                  "\u0E2D\u0E31\u0E07\u0E04\u0E32\u0E23",
+                  "\u0E1E\u0E38\u0E18",
+                  "\u0E1E\u0E24\u0E2B\u0E31\u0E2A\u0E1A\u0E14\u0E35",
+                  "\u0E28\u0E38\u0E01\u0E23\u0E4C",
+                  "\u0E40\u0E2A\u0E32\u0E23\u0E4C"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "\u0E21.\u0E04.",
+                  "\u0E01.\u0E1E.",
+                  "\u0E21\u0E35.\u0E04.",
+                  "\u0E40\u0E21.\u0E22.",
+                  "\u0E1E.\u0E04.",
+                  "\u0E21\u0E34.\u0E22.",
+                  "\u0E01.\u0E04.",
+                  "\u0E2A.\u0E04.",
+                  "\u0E01.\u0E22.",
+                  "\u0E15.\u0E04.",
+                  "\u0E1E.\u0E22.",
+                  "\u0E18.\u0E04.",
+                  ""
+                    }
+                    wide{
+                  "\u0E21\u0E01\u0E23\u0E32\u0E04\u0E21",
+                  "\u0E01\u0E38\u0E21\u0E20\u0E32\u0E1E\u0E31\u0E19\u0E18\u0E4C",
+                  "\u0E21\u0E35\u0E19\u0E32\u0E04\u0E21",
+                  "\u0E40\u0E21\u0E29\u0E32\u0E22\u0E19",
+                  "\u0E1E\u0E24\u0E29\u0E20\u0E32\u0E04\u0E21",
+                  "\u0E21\u0E34\u0E16\u0E38\u0E19\u0E32\u0E22\u0E19",
+                  "\u0E01\u0E23\u0E01\u0E0E\u0E32\u0E04\u0E21",
+                  "\u0E2A\u0E34\u0E07\u0E2B\u0E32\u0E04\u0E21",
+                  "\u0E01\u0E31\u0E19\u0E22\u0E32\u0E22\u0E19",
+                  "\u0E15\u0E38\u0E25\u0E32\u0E04\u0E21",
+                  "\u0E1E\u0E24\u0E28\u0E08\u0E34\u0E01\u0E32\u0E22\u0E19",
+                  "\u0E18\u0E31\u0E19\u0E27\u0E32\u0E04\u0E21",
+                  ""
+                    }
+                }
+            }
+        }
     }
-    LocaleString { "th_TH" }
-    NumberPatterns { 
-            "#,##0.###;-#,##0.###",
-            "\u00A4#,##0.00;\u00A4-#,##0.00",
-            "#,##0%",
-    }
-    ShortCountry { "THA" }
 }

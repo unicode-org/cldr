@@ -2,45 +2,12 @@ sq_AL {
     AddressFormat { 
         PostalFormat { "%z%c%T%s%b%e%r" }
     }
-    AmPmMarkers { 
-            "PD",
-            "MD",
-    }
     ///* Discarding duplicate data for tag: CountryISBNNumber */
     ///* Discarding duplicate data for tag: CountryNumber */
     CurrencyElements { 
             "Lek",
             "ALL ",
             ",",
-    }
-    DateTimePatterns { 
-            "hh.mm.ss.aa z",
-            "hh.mm.ss. z",
-            "hh.mm.ss. z",
-            "hh.mm.ss. z",
-            "yyyy-MMM-dd",
-            "yyyy-MMM-dd hh.mm.ss.aa z",
-            "yyyy-MMM-dd",
-            "yyyy-MMM-dd",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Die ",
-            "H\u00EBn ",
-            "Mar ",
-            "M\u00EBr ",
-            "Enj ",
-            "Pre ",
-            "Sht ",
-    }
-    DayNames { 
-            "e diel ",
-            "e h\u00EBn\u00EB ",
-            "e mart\u00EB ",
-            "e m\u00EBrkur\u00EB ",
-            "e enjte ",
-            "e premte ",
-            "e shtun\u00EB ",
     }
     Identification { 
         Title { "Albanian language locale for Albania" }
@@ -65,36 +32,6 @@ sq_AL {
         NoExpression { "^[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "Jan",
-            "Shk",
-            "Mar",
-            "Pri",
-            "Maj",
-            "Qer",
-            "Kor",
-            "Gsh",
-            "Sht",
-            "Tet",
-            "N\u00EBn",
-            "Dhj",
-            "",
-    }
-    MonthNames { 
-            "janar",
-            "shkurt",
-            "mars",
-            "prill",
-            "maj",
-            "qershor",
-            "korrik",
-            "gusht",
-            "shtator",
-            "tetor",
-            "n\u00EBntor",
-            "dhjetor",
-            "",
     }
     NameFormat { 
         NamePattern { "%p%t%f%t%g" }
@@ -124,15 +61,85 @@ sq_AL {
             "\u00A4#,##0.000;-\u00A4#,##0.000",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c ;%a ;%l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "355" }
+    }
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    "PD",
+                    "MD",
+            }
+            DateTimePatterns{
+                    "hh.mm.ss.aa z",
+                    "hh.mm.ss. z",
+                    "hh.mm.ss. z",
+                    "hh.mm.ss. z",
+                    "yyyy-MMM-dd",
+                    "yyyy-MMM-dd hh.mm.ss.aa z",
+                    "yyyy-MMM-dd",
+                    "yyyy-MMM-dd",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Die ",
+                            "H\u00EBn ",
+                            "Mar ",
+                            "M\u00EBr ",
+                            "Enj ",
+                            "Pre ",
+                            "Sht ",
+                    }
+                    wide{
+                            "e diel ",
+                            "e h\u00EBn\u00EB ",
+                            "e mart\u00EB ",
+                            "e m\u00EBrkur\u00EB ",
+                            "e enjte ",
+                            "e premte ",
+                            "e shtun\u00EB ",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Shk",
+                            "Mar",
+                            "Pri",
+                            "Maj",
+                            "Qer",
+                            "Kor",
+                            "Gsh",
+                            "Sht",
+                            "Tet",
+                            "N\u00EBn",
+                            "Dhj",
+                            "",
+                    }
+                    wide{
+                            "janar",
+                            "shkurt",
+                            "mars",
+                            "prill",
+                            "maj",
+                            "qershor",
+                            "korrik",
+                            "gusht",
+                            "shtator",
+                            "tetor",
+                            "n\u00EBntor",
+                            "dhjetor",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

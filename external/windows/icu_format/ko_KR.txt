@@ -2,10 +2,6 @@ ko_KR{
 
  Version{"Windows XP"}
  LocaleID{ "0412"}
- AmPmMarkers{
-  "\uC624\uC804",
-  "\uC624\uD6C4"
- }
  ShortCountry{
   "KOR"
  }
@@ -28,73 +24,10 @@ ko_KR{
   "."
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "a h:mm:ss",
-  "",
-  "yyyy'\uB144' M'\uC6D4' d'\uC77C' EEEE",
-  "",
-  "",
-  "yyyy-MM-dd",
-  "",
- }
 
- DateTimeElements:intvector{
-  1,
-  
- }
- DayNames{
-  "\uC77C\uC694\uC77C",
-  "\uC6D4\uC694\uC77C",
-  "\uD654\uC694\uC77C",
-  "\uC218\uC694\uC77C",
-  "\uBAA9\uC694\uC77C",
-  "\uAE08\uC694\uC77C",
-  "\uD1A0\uC694\uC77C"
- }
 
- DayAbbreviations{
-  "\uC77C",
-  "\uC6D4",
-  "\uD654",
-  "\uC218",
-  "\uBAA9",
-  "\uAE08",
-  "\uD1A0"
- }
 
- MonthNames{
-  "1\uC6D4",
-  "2\uC6D4",
-  "3\uC6D4",
-  "4\uC6D4",
-  "5\uC6D4",
-  "6\uC6D4",
-  "7\uC6D4",
-  "8\uC6D4",
-  "9\uC6D4",
-  "10\uC6D4",
-  "11\uC6D4",
-  "12\uC6D4",
-  ""
- }
 
- MonthAbbreviations{
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
-  "11",
-  "12",
-  ""
- }
 
  NumberElements{
   ".",
@@ -116,5 +49,83 @@ ko_KR{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "\uC624\uC804",
+          "\uC624\uD6C4"
+            }
+            DateTimeElements:intvector{
+          1,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "a h:mm:ss",
+          "",
+          "yyyy'\uB144' M'\uC6D4' d'\uC77C' EEEE",
+          "",
+          "",
+          "yyyy-MM-dd",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "\uC77C",
+                  "\uC6D4",
+                  "\uD654",
+                  "\uC218",
+                  "\uBAA9",
+                  "\uAE08",
+                  "\uD1A0"
+                    }
+                    wide{
+                  "\uC77C\uC694\uC77C",
+                  "\uC6D4\uC694\uC77C",
+                  "\uD654\uC694\uC77C",
+                  "\uC218\uC694\uC77C",
+                  "\uBAA9\uC694\uC77C",
+                  "\uAE08\uC694\uC77C",
+                  "\uD1A0\uC694\uC77C"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9",
+                  "10",
+                  "11",
+                  "12",
+                  ""
+                    }
+                    wide{
+                  "1\uC6D4",
+                  "2\uC6D4",
+                  "3\uC6D4",
+                  "4\uC6D4",
+                  "5\uC6D4",
+                  "6\uC6D4",
+                  "7\uC6D4",
+                  "8\uC6D4",
+                  "9\uC6D4",
+                  "10\uC6D4",
+                  "11\uC6D4",
+                  "12\uC6D4",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

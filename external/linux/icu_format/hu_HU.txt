@@ -10,35 +10,6 @@ hu_HU {
             "HUF ",
             ",",
     }
-    DateTimePatterns { 
-            "HH.mm.ss",
-            "HH.mm.ss",
-            "HH.mm.ss",
-            "HH.mm.ss",
-            "yyyy. MMM. dd., EEEE,  z",
-            "yyyy. MMM. dd., EEEE, HH.mm.ss z",
-            "yyyy-MMMM-dd",
-            "yyyy-MMMM-dd",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "v",
-            "h",
-            "k",
-            "sze",
-            "cs",
-            "p",
-            "szo",
-    }
-    DayNames { 
-            "vas\u00E1rnap",
-            "h\u00E9tf\u0151",
-            "kedd",
-            "szerda",
-            "cs\u00FCt\u00F6rt\u00F6k",
-            "p\u00E9ntek",
-            "szombat",
-    }
     Identification { 
         Title { "Hungarian locale for Hungary" }
         Source { "RAP" }
@@ -62,36 +33,6 @@ hu_HU {
         NoExpression { "^[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "jan",
-            "feb",
-            "m\u00E1r",
-            "\u00E1pr",
-            "m\u00E1j",
-            "j\u00FAn",
-            "j\u00FAl",
-            "aug",
-            "sze",
-            "okt",
-            "nov",
-            "dec",
-            "",
-    }
-    MonthNames { 
-            "janu\u00E1r",
-            "febru\u00E1r",
-            "m\u00E1rcius",
-            "\u00E1prilis",
-            "m\u00E1jus",
-            "j\u00FAnius",
-            "j\u00FAlius",
-            "augusztus",
-            "szeptember",
-            "okt\u00F3ber",
-            "november",
-            "december",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -121,15 +62,81 @@ hu_HU {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "36" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH.mm.ss",
+                    "HH.mm.ss",
+                    "HH.mm.ss",
+                    "HH.mm.ss",
+                    "yyyy. MMM. dd., EEEE,  z",
+                    "yyyy. MMM. dd., EEEE, HH.mm.ss z",
+                    "yyyy-MMMM-dd",
+                    "yyyy-MMMM-dd",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "v",
+                            "h",
+                            "k",
+                            "sze",
+                            "cs",
+                            "p",
+                            "szo",
+                    }
+                    wide{
+                            "vas\u00E1rnap",
+                            "h\u00E9tf\u0151",
+                            "kedd",
+                            "szerda",
+                            "cs\u00FCt\u00F6rt\u00F6k",
+                            "p\u00E9ntek",
+                            "szombat",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jan",
+                            "feb",
+                            "m\u00E1r",
+                            "\u00E1pr",
+                            "m\u00E1j",
+                            "j\u00FAn",
+                            "j\u00FAl",
+                            "aug",
+                            "sze",
+                            "okt",
+                            "nov",
+                            "dec",
+                            "",
+                    }
+                    wide{
+                            "janu\u00E1r",
+                            "febru\u00E1r",
+                            "m\u00E1rcius",
+                            "\u00E1prilis",
+                            "m\u00E1jus",
+                            "j\u00FAnius",
+                            "j\u00FAlius",
+                            "augusztus",
+                            "szeptember",
+                            "okt\u00F3ber",
+                            "november",
+                            "december",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

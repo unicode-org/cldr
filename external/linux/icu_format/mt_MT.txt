@@ -10,35 +10,6 @@ mt_MT {
             "MTL ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss aa z",
-            "hh:mm:ss  z",
-            "hh:mm:ss  z",
-            "hh:mm:ss  z",
-            "EEEE, dd ta MMM, yyyy",
-            "EEEE, dd ta MMM, yyyy hh:mm:ss aa z",
-            "EEEE, dd ta MMM, yyyy",
-            "EEEE, dd ta MMM, yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u0126ad",
-            "Tne",
-            "Tli",
-            "Erb",
-            "\u0126am",
-            "\u0120im",
-            "Sib",
-    }
-    DayNames { 
-            "il-\u0126add",
-            "it-Tnejn",
-            "it-Tlieta",
-            "l-Erbg\u0127a",
-            "il-\u0126amis",
-            "il-\u0120img\u0127a",
-            "is-Sibt",
-    }
     Identification { 
         Title { "Maltese language locale for Malta" }
         Source { "IBM Globalization Center of Competency, Yamato Software Laboratory" }
@@ -62,36 +33,6 @@ mt_MT {
         NoExpression { "^(No|[nN])" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "Jan",
-            "Fra",
-            "Mar",
-            "Apr",
-            "Mej",
-            "\u0120un",
-            "Lul",
-            "Awi",
-            "Set",
-            "Ott",
-            "Nov",
-            "Di\u010B",
-            "",
-    }
-    MonthNames { 
-            "Jannar",
-            "Frar",
-            "Marzu",
-            "April",
-            "Mejju",
-            "\u0120unju",
-            "Lulju",
-            "Awissu",
-            "Settembru",
-            "Ottubru",
-            "Novembru",
-            "Di\u010Bembru ",
-            "",
     }
     NameFormat { 
         NamePattern { "%p%t%f%t%g" }
@@ -121,15 +62,81 @@ mt_MT {
             "\u00A4#,##0.00;(\u00A4#,##0.00)",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c ;%a ;%l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss aa z",
+                    "hh:mm:ss  z",
+                    "hh:mm:ss  z",
+                    "hh:mm:ss  z",
+                    "EEEE, dd ta MMM, yyyy",
+                    "EEEE, dd ta MMM, yyyy hh:mm:ss aa z",
+                    "EEEE, dd ta MMM, yyyy",
+                    "EEEE, dd ta MMM, yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u0126ad",
+                            "Tne",
+                            "Tli",
+                            "Erb",
+                            "\u0126am",
+                            "\u0120im",
+                            "Sib",
+                    }
+                    wide{
+                            "il-\u0126add",
+                            "it-Tnejn",
+                            "it-Tlieta",
+                            "l-Erbg\u0127a",
+                            "il-\u0126amis",
+                            "il-\u0120img\u0127a",
+                            "is-Sibt",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Fra",
+                            "Mar",
+                            "Apr",
+                            "Mej",
+                            "\u0120un",
+                            "Lul",
+                            "Awi",
+                            "Set",
+                            "Ott",
+                            "Nov",
+                            "Di\u010B",
+                            "",
+                    }
+                    wide{
+                            "Jannar",
+                            "Frar",
+                            "Marzu",
+                            "April",
+                            "Mejju",
+                            "\u0120unju",
+                            "Lulju",
+                            "Awissu",
+                            "Settembru",
+                            "Ottubru",
+                            "Novembru",
+                            "Di\u010Bembru ",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

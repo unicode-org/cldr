@@ -2,10 +2,6 @@ hr_HR{
 
  Version{"Windows XP"}
  LocaleID{ "041A"}
- AmPmMarkers{
-  "",
-  ""
- }
  ShortCountry{
   "HRV"
  }
@@ -28,73 +24,10 @@ hr_HR{
   ","
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "H:mm:ss",
-  "",
-  "d. MMMM yyyy",
-  "",
-  "",
-  "d.M.yyyy",
-  "",
- }
 
- DateTimeElements:intvector{
-  2,
-  
- }
- DayNames{
-  "nedjelja",
-  "ponedjeljak",
-  "utorak",
-  "srijeda",
-  "\u010Detvrtak",
-  "petak",
-  "subota"
- }
 
- DayAbbreviations{
-  "ned",
-  "pon",
-  "uto",
-  "sri",
-  "\u010Det",
-  "pet",
-  "sub"
- }
 
- MonthNames{
-  "sije\u010Danj",
-  "velja\u010Da",
-  "o\u017Eujak",
-  "travanj",
-  "svibanj",
-  "lipanj",
-  "srpanj",
-  "kolovoz",
-  "rujan",
-  "listopad",
-  "studeni",
-  "prosinac",
-  ""
- }
 
- MonthAbbreviations{
-  "sij",
-  "vlj",
-  "o\u017Eu",
-  "tra",
-  "svi",
-  "lip",
-  "srp",
-  "kol",
-  "ruj",
-  "lis",
-  "stu",
-  "pro",
-  ""
- }
 
  NumberElements{
   ",",
@@ -116,5 +49,83 @@ hr_HR{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "H:mm:ss",
+          "",
+          "d. MMMM yyyy",
+          "",
+          "",
+          "d.M.yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "ned",
+                  "pon",
+                  "uto",
+                  "sri",
+                  "\u010Det",
+                  "pet",
+                  "sub"
+                    }
+                    wide{
+                  "nedjelja",
+                  "ponedjeljak",
+                  "utorak",
+                  "srijeda",
+                  "\u010Detvrtak",
+                  "petak",
+                  "subota"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "sij",
+                  "vlj",
+                  "o\u017Eu",
+                  "tra",
+                  "svi",
+                  "lip",
+                  "srp",
+                  "kol",
+                  "ruj",
+                  "lis",
+                  "stu",
+                  "pro",
+                  ""
+                    }
+                    wide{
+                  "sije\u010Danj",
+                  "velja\u010Da",
+                  "o\u017Eujak",
+                  "travanj",
+                  "svibanj",
+                  "lipanj",
+                  "srpanj",
+                  "kolovoz",
+                  "rujan",
+                  "listopad",
+                  "studeni",
+                  "prosinac",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

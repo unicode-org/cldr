@@ -1798,35 +1798,6 @@ cs_CZ {
             "CZK ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE\u00A0dd.\u00A0MMMM\u00A0yyyy,\u00A0\u00A0z",
-            "EEE\u00A0dd.\u00A0MMMM\u00A0yyyy,\u00A0HH:mm:ss\u00A0z",
-            "dd.MMMM.yyyy",
-            "dd.MMMM.yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Ne",
-            "Po",
-            "\u00DAt",
-            "St",
-            "\u010Ct",
-            "P\u00E1",
-            "So",
-    }
-    DayNames { 
-            "Ned\u011Ble",
-            "Pond\u011Bl\u00ED",
-            "\u00DAter\u00FD",
-            "St\u0159eda",
-            "\u010Ctvrtek",
-            "P\u00E1tek",
-            "Sobota",
-    }
     Identification { 
         Title { "Czech locale for the Czech Republic" }
         Source { "Free Software Foundation, Inc." }
@@ -1850,36 +1821,6 @@ cs_CZ {
         NoExpression { "^[nN].*" }
         YesStr { "ano" }
         NoStr { "ne" }
-    }
-    MonthAbbreviations { 
-            "led",
-            "\u00FAno",
-            "b\u0159e",
-            "dub",
-            "kv\u011B",
-            "\u010Den",
-            "\u010Dec",
-            "srp",
-            "z\u00E1\u0159",
-            "\u0159\u00EDj",
-            "lis",
-            "pro",
-            "",
-    }
-    MonthNames { 
-            "leden",
-            "\u00FAnor",
-            "b\u0159ezen",
-            "duben",
-            "kv\u011Bten",
-            "\u010Derven",
-            "\u010Dervenec",
-            "srpen",
-            "z\u00E1\u0159\u00ED",
-            "\u0159\u00EDjen",
-            "listopad",
-            "prosinec",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -1909,15 +1850,81 @@ cs_CZ {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "00" }
         InternationalPrefix { "420" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE\u00A0dd.\u00A0MMMM\u00A0yyyy,\u00A0\u00A0z",
+                    "EEE\u00A0dd.\u00A0MMMM\u00A0yyyy,\u00A0HH:mm:ss\u00A0z",
+                    "dd.MMMM.yyyy",
+                    "dd.MMMM.yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Ne",
+                            "Po",
+                            "\u00DAt",
+                            "St",
+                            "\u010Ct",
+                            "P\u00E1",
+                            "So",
+                    }
+                    wide{
+                            "Ned\u011Ble",
+                            "Pond\u011Bl\u00ED",
+                            "\u00DAter\u00FD",
+                            "St\u0159eda",
+                            "\u010Ctvrtek",
+                            "P\u00E1tek",
+                            "Sobota",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "led",
+                            "\u00FAno",
+                            "b\u0159e",
+                            "dub",
+                            "kv\u011B",
+                            "\u010Den",
+                            "\u010Dec",
+                            "srp",
+                            "z\u00E1\u0159",
+                            "\u0159\u00EDj",
+                            "lis",
+                            "pro",
+                            "",
+                    }
+                    wide{
+                            "leden",
+                            "\u00FAnor",
+                            "b\u0159ezen",
+                            "duben",
+                            "kv\u011Bten",
+                            "\u010Derven",
+                            "\u010Dervenec",
+                            "srpen",
+                            "z\u00E1\u0159\u00ED",
+                            "\u0159\u00EDjen",
+                            "listopad",
+                            "prosinec",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

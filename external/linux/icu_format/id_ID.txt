@@ -10,35 +10,6 @@ in_ID {
             "IDR ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "dd/MMMM/yy",
-            "EEE dd MMM yyyy hh:mm:ss aa z",
-            "dd/MMMM/yy",
-            "dd/MMMM/yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Min",
-            "Sen",
-            "Sel",
-            "Rab",
-            "Kam",
-            "Jum",
-            "Sab",
-    }
-    DayNames { 
-            "Minggu",
-            "Senin",
-            "Selasa",
-            "Rabu",
-            "Kamis",
-            "Jumat",
-            "Sabtu",
-    }
     Identification { 
         Title { "Indonesian locale for Indonesia" }
         Source { "" }
@@ -62,36 +33,6 @@ in_ID {
         NoExpression { "[tTnN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "Jan",
-            "Peb",
-            "Mar",
-            "Apr",
-            "Mei",
-            "Jun",
-            "Jul",
-            "Agu",
-            "Sep",
-            "Okt",
-            "Nov",
-            "Des",
-            "",
-    }
-    MonthNames { 
-            "Januari",
-            "Pebruari",
-            "Maret",
-            "April",
-            "Mei",
-            "Juni",
-            "Juli",
-            "Agustus",
-            "September",
-            "Oktober",
-            "November",
-            "Desember",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -121,15 +62,81 @@ in_ID {
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "62" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "dd/MMMM/yy",
+                    "EEE dd MMM yyyy hh:mm:ss aa z",
+                    "dd/MMMM/yy",
+                    "dd/MMMM/yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Min",
+                            "Sen",
+                            "Sel",
+                            "Rab",
+                            "Kam",
+                            "Jum",
+                            "Sab",
+                    }
+                    wide{
+                            "Minggu",
+                            "Senin",
+                            "Selasa",
+                            "Rabu",
+                            "Kamis",
+                            "Jumat",
+                            "Sabtu",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Peb",
+                            "Mar",
+                            "Apr",
+                            "Mei",
+                            "Jun",
+                            "Jul",
+                            "Agu",
+                            "Sep",
+                            "Okt",
+                            "Nov",
+                            "Des",
+                            "",
+                    }
+                    wide{
+                            "Januari",
+                            "Pebruari",
+                            "Maret",
+                            "April",
+                            "Mei",
+                            "Juni",
+                            "Juli",
+                            "Agustus",
+                            "September",
+                            "Oktober",
+                            "November",
+                            "Desember",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

@@ -1794,35 +1794,6 @@ gl_ES {
             "ESP ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE dd MMM yyyy  z",
-            "EEE dd MMM yyyy hh:mm:ss z",
-            "dd/MMMM/yy",
-            "dd/MMMM/yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Dom",
-            "Lun",
-            "Mar",
-            "M\u00E9r",
-            "Xov",
-            "Ven",
-            "S\u00E1b",
-    }
-    DayNames { 
-            "Domingo",
-            "Luns",
-            "Martes",
-            "M\u00E9rcores",
-            "Xoves",
-            "Venres",
-            "S\u00E1bado",
-    }
     Identification { 
         Title { "Galician locale for Spain" }
         Source { "GPUL" }
@@ -1846,36 +1817,6 @@ gl_ES {
         NoExpression { "^[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "Xan",
-            "Feb",
-            "Mar",
-            "Abr",
-            "Mai",
-            "Xu\u00F1",
-            "Xul",
-            "Ago",
-            "Set",
-            "Out",
-            "Nov",
-            "Dec",
-            "",
-    }
-    MonthNames { 
-            "Xaneiro",
-            "Febreiro",
-            "Marzo",
-            "Abril",
-            "Maio",
-            "Xu\u00F1o",
-            "Xullo",
-            "Agosto",
-            "Setembro",
-            "Outubro",
-            "Novembro",
-            "Decembro",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -1905,15 +1846,81 @@ gl_ES {
             "\u00A4 #,##0.#;-\u00A4 #,##0.#",
             "#,#0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "34" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE dd MMM yyyy  z",
+                    "EEE dd MMM yyyy hh:mm:ss z",
+                    "dd/MMMM/yy",
+                    "dd/MMMM/yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Dom",
+                            "Lun",
+                            "Mar",
+                            "M\u00E9r",
+                            "Xov",
+                            "Ven",
+                            "S\u00E1b",
+                    }
+                    wide{
+                            "Domingo",
+                            "Luns",
+                            "Martes",
+                            "M\u00E9rcores",
+                            "Xoves",
+                            "Venres",
+                            "S\u00E1bado",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Xan",
+                            "Feb",
+                            "Mar",
+                            "Abr",
+                            "Mai",
+                            "Xu\u00F1",
+                            "Xul",
+                            "Ago",
+                            "Set",
+                            "Out",
+                            "Nov",
+                            "Dec",
+                            "",
+                    }
+                    wide{
+                            "Xaneiro",
+                            "Febreiro",
+                            "Marzo",
+                            "Abril",
+                            "Maio",
+                            "Xu\u00F1o",
+                            "Xullo",
+                            "Agosto",
+                            "Setembro",
+                            "Outubro",
+                            "Novembro",
+                            "Decembro",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

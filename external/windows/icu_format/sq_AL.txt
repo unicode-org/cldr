@@ -2,10 +2,6 @@ sq_AL{
 
  Version{"Windows XP"}
  LocaleID{ "041C"}
- AmPmMarkers{
-  "PD",
-  "MD"
- }
  ShortCountry{
   "ALB"
  }
@@ -28,73 +24,10 @@ sq_AL{
   ","
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "h:mm:ss.a",
-  "",
-  "yyyy-MM-dd",
-  "",
-  "",
-  "yyyy-MM-dd",
-  "",
- }
 
- DateTimeElements:intvector{
-  2,
-  
- }
- DayNames{
-  "e diel",
-  "e h\u00EBn\u00EB",
-  "e mart\u00EB",
-  "e m\u00EBrkur\u00EB",
-  "e enjte",
-  "e premte",
-  "e shtun\u00EB"
- }
 
- DayAbbreviations{
-  "Die",
-  "H\u00EBn",
-  "Mar",
-  "M\u00EBr",
-  "Enj",
-  "Pre",
-  "Sht"
- }
 
- MonthNames{
-  "janar",
-  "shkurt",
-  "mars",
-  "prill",
-  "maj",
-  "qershor",
-  "korrik",
-  "gusht",
-  "shtator",
-  "tetor",
-  "n\u00EBntor",
-  "dhjetor",
-  ""
- }
 
- MonthAbbreviations{
-  "Jan",
-  "Shk",
-  "Mar",
-  "Pri",
-  "Maj",
-  "Qer",
-  "Kor",
-  "Gsh",
-  "Sht",
-  "Tet",
-  "N\u00EBn",
-  "Dhj",
-  ""
- }
 
  NumberElements{
   ",",
@@ -116,5 +49,83 @@ sq_AL{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "PD",
+          "MD"
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "h:mm:ss.a",
+          "",
+          "yyyy-MM-dd",
+          "",
+          "",
+          "yyyy-MM-dd",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "Die",
+                  "H\u00EBn",
+                  "Mar",
+                  "M\u00EBr",
+                  "Enj",
+                  "Pre",
+                  "Sht"
+                    }
+                    wide{
+                  "e diel",
+                  "e h\u00EBn\u00EB",
+                  "e mart\u00EB",
+                  "e m\u00EBrkur\u00EB",
+                  "e enjte",
+                  "e premte",
+                  "e shtun\u00EB"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "Jan",
+                  "Shk",
+                  "Mar",
+                  "Pri",
+                  "Maj",
+                  "Qer",
+                  "Kor",
+                  "Gsh",
+                  "Sht",
+                  "Tet",
+                  "N\u00EBn",
+                  "Dhj",
+                  ""
+                    }
+                    wide{
+                  "janar",
+                  "shkurt",
+                  "mars",
+                  "prill",
+                  "maj",
+                  "qershor",
+                  "korrik",
+                  "gusht",
+                  "shtator",
+                  "tetor",
+                  "n\u00EBntor",
+                  "dhjetor",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

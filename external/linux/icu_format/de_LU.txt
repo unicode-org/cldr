@@ -10,35 +10,6 @@ de_LU {
             "LUF ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE dd MMM yyyy  z",
-            "EEE dd MMM yyyy hh:mm:ss z",
-            "yyyy-MMMM-dd",
-            "yyyy-MMMM-dd",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Son",
-            "Mon",
-            "Die",
-            "Mit",
-            "Don",
-            "Fre",
-            "Sam",
-    }
-    DayNames { 
-            "Sonntag",
-            "Montag",
-            "Dienstag",
-            "Mittwoch",
-            "Donnerstag",
-            "Freitag",
-            "Samstag",
-    }
     Identification { 
         Title { "German locale for Luxemburg" }
         Source { "RAP" }
@@ -62,36 +33,6 @@ de_LU {
         NoExpression { "^[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "Jan",
-            "Feb",
-            "M\u00E4r",
-            "Apr",
-            "Mai",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Okt",
-            "Nov",
-            "Dez",
-            "",
-    }
-    MonthNames { 
-            "Januar",
-            "Februar",
-            "M\u00E4rz",
-            "April",
-            "Mai",
-            "Juni",
-            "Juli",
-            "August",
-            "September",
-            "Oktober",
-            "November",
-            "Dezember",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -121,15 +62,81 @@ de_LU {
             "\u00A4 #,##0.00;\u00A4- #,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "352" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE dd MMM yyyy  z",
+                    "EEE dd MMM yyyy hh:mm:ss z",
+                    "yyyy-MMMM-dd",
+                    "yyyy-MMMM-dd",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Son",
+                            "Mon",
+                            "Die",
+                            "Mit",
+                            "Don",
+                            "Fre",
+                            "Sam",
+                    }
+                    wide{
+                            "Sonntag",
+                            "Montag",
+                            "Dienstag",
+                            "Mittwoch",
+                            "Donnerstag",
+                            "Freitag",
+                            "Samstag",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Feb",
+                            "M\u00E4r",
+                            "Apr",
+                            "Mai",
+                            "Jun",
+                            "Jul",
+                            "Aug",
+                            "Sep",
+                            "Okt",
+                            "Nov",
+                            "Dez",
+                            "",
+                    }
+                    wide{
+                            "Januar",
+                            "Februar",
+                            "M\u00E4rz",
+                            "April",
+                            "Mai",
+                            "Juni",
+                            "Juli",
+                            "August",
+                            "September",
+                            "Oktober",
+                            "November",
+                            "Dezember",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="Windows_XP"/>
-		<generation date="2003-12-19" />
+		<version number="Windows XP"/>
+		<generation date="2004-05-14" />
 		<language type="fa" /> 
 		<territory type="IR" /> 
 	</identity>
@@ -21,54 +21,62 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">ژانويه</month>
-					<month type="2">فوريه</month>
-					<month type="3">مارس</month>
-					<month type="4">آوريل</month>
-					<month type="5">مى</month>
-					<month type="6">ژوئن</month>
-					<month type="7">ژوئيه</month>
-					<month type="8">اوت</month>
-					<month type="9">سپتامبر</month>
-					<month type="10">اُكتبر</month>
-					<month type="11">نوامبر</month>
-					<month type="12">دسامبر</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">ژانويه</month>
-					<month type="2">فوريه</month>
-					<month type="3">مارس</month>
-					<month type="4">آوريل</month>
-					<month type="5">مى</month>
-					<month type="6">ژوئن</month>
-					<month type="7">ژوئيه</month>
-					<month type="8">اوت</month>
-					<month type="9">سپتامبر</month>
-					<month type="10">اُكتبر</month>
-					<month type="11">نوامبر</month>
-					<month type="12">دسامبر</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">يكشنبه</day>
-					<day type="mon">دوشنبه</day>
-					<day type="tue">سه شنبه</day>
-					<day type="wed">چهارشنبه</day>
-					<day type="thu">پنجشنبه</day>
-					<day type="fri">جمعه</day>
-					<day type="sat">شنبه</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">يكشنبه</day>
-					<day type="mon">دوشنبه</day>
-					<day type="tue">سه شنبه</day>
-					<day type="wed">چهارشنبه</day>
-					<day type="thu">پنجشنبه</day>
-					<day type="fri">جمعه</day>
-					<day type="sat">شنبه</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">ژانويه</month>
+							<month type="2">فوريه</month>
+							<month type="3">مارس</month>
+							<month type="4">آوريل</month>
+							<month type="5">مى</month>
+							<month type="6">ژوئن</month>
+							<month type="7">ژوئيه</month>
+							<month type="8">اوت</month>
+							<month type="9">سپتامبر</month>
+							<month type="10">اُكتبر</month>
+							<month type="11">نوامبر</month>
+							<month type="12">دسامبر</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ژانويه</month>
+							<month type="2">فوريه</month>
+							<month type="3">مارس</month>
+							<month type="4">آوريل</month>
+							<month type="5">مى</month>
+							<month type="6">ژوئن</month>
+							<month type="7">ژوئيه</month>
+							<month type="8">اوت</month>
+							<month type="9">سپتامبر</month>
+							<month type="10">اُكتبر</month>
+							<month type="11">نوامبر</month>
+							<month type="12">دسامبر</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">يكشنبه</day>
+							<day type="mon">دوشنبه</day>
+							<day type="tue">سه شنبه</day>
+							<day type="wed">چهارشنبه</day>
+							<day type="thu">پنجشنبه</day>
+							<day type="fri">جمعه</day>
+							<day type="sat">شنبه</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">يكشنبه</day>
+							<day type="mon">دوشنبه</day>
+							<day type="tue">سه شنبه</day>
+							<day type="wed">چهارشنبه</day>
+							<day type="thu">پنجشنبه</day>
+							<day type="fri">جمعه</day>
+							<day type="sat">شنبه</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<week>
 					<firstDay day="sun"/>
 				</week>

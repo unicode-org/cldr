@@ -2,10 +2,6 @@ af_ZA{
 
  Version{"Windows XP"}
  LocaleID{ "0436"}
- AmPmMarkers{
-  "",
-  "nm"
- }
  ShortCountry{
   "ZAF"
  }
@@ -28,73 +24,10 @@ af_ZA{
   "."
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "hh:mm:ss a",
-  "",
-  "dd MMMM yyyy",
-  "",
-  "",
-  "yyyy/MM/dd",
-  "",
- }
 
- DateTimeElements:intvector{
-  1,
-  
- }
- DayNames{
-  "Sondag",
-  "Maandag",
-  "Dinsdag",
-  "Woensdag",
-  "Donderdag",
-  "Vrydag",
-  "Saterdag"
- }
 
- DayAbbreviations{
-  "Son",
-  "Maan",
-  "Dins",
-  "Woen",
-  "Dond",
-  "Vry",
-  "Sat"
- }
 
- MonthNames{
-  "Januarie",
-  "Februarie",
-  "Maart",
-  "April",
-  "Mei",
-  "Junie",
-  "Julie",
-  "Augustus",
-  "September",
-  "Oktober",
-  "November",
-  "Desember",
-  ""
- }
 
- MonthAbbreviations{
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "Mei",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Okt",
-  "Nov",
-  "Des",
-  ""
- }
 
  NumberElements{
   ".",
@@ -116,5 +49,83 @@ af_ZA{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          "nm"
+            }
+            DateTimeElements:intvector{
+          1,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "hh:mm:ss a",
+          "",
+          "dd MMMM yyyy",
+          "",
+          "",
+          "yyyy/MM/dd",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "Son",
+                  "Maan",
+                  "Dins",
+                  "Woen",
+                  "Dond",
+                  "Vry",
+                  "Sat"
+                    }
+                    wide{
+                  "Sondag",
+                  "Maandag",
+                  "Dinsdag",
+                  "Woensdag",
+                  "Donderdag",
+                  "Vrydag",
+                  "Saterdag"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "Jan",
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "Mei",
+                  "Jun",
+                  "Jul",
+                  "Aug",
+                  "Sep",
+                  "Okt",
+                  "Nov",
+                  "Des",
+                  ""
+                    }
+                    wide{
+                  "Januarie",
+                  "Februarie",
+                  "Maart",
+                  "April",
+                  "Mei",
+                  "Junie",
+                  "Julie",
+                  "Augustus",
+                  "September",
+                  "Oktober",
+                  "November",
+                  "Desember",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

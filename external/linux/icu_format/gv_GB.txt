@@ -10,35 +10,6 @@ gv_GB {
             "GBP ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE dd MMM yyyy  z",
-            "EEE dd MMM yyyy hh:mm:ss z",
-            "dd/MMMM/yy",
-            "dd/MMMM/yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Jed",
-            "Jel",
-            "Jem",
-            "Jerc",
-            "Jerd",
-            "Jeh",
-            "Jes",
-    }
-    DayNames { 
-            "Jedoonee",
-            "Jelhein",
-            "Jemayrt",
-            "Jercean",
-            "Jerdein",
-            "Jeheiney",
-            "Jesarn",
-    }
     Identification { 
         Title { "Manx Gaelic locale for Britain" }
         Source { "Alastair McKinstry" }
@@ -62,36 +33,6 @@ gv_GB {
         NoExpression { "[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "J-guer",
-            "T-arree",
-            "Mayrnt",
-            "Avrril",
-            "Boaldyn",
-            "M-souree",
-            "J-souree",
-            "Luanistyn",
-            "M-fouyir",
-            "J-fouyir",
-            "M.Houney",
-            "M.Nollick",
-            "",
-    }
-    MonthNames { 
-            "Jerrey-geuree",
-            "Toshiaght-arree",
-            "Mayrnt",
-            "Averil",
-            "Boaldyn",
-            "Mean-souree",
-            "Jerrey-souree",
-            "Luanistyn",
-            "Mean-fouyir",
-            "Jerrey-fouyir",
-            "Mee Houney",
-            "Mee ny Nollick",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -121,15 +62,81 @@ gv_GB {
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "44" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE dd MMM yyyy  z",
+                    "EEE dd MMM yyyy hh:mm:ss z",
+                    "dd/MMMM/yy",
+                    "dd/MMMM/yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Jed",
+                            "Jel",
+                            "Jem",
+                            "Jerc",
+                            "Jerd",
+                            "Jeh",
+                            "Jes",
+                    }
+                    wide{
+                            "Jedoonee",
+                            "Jelhein",
+                            "Jemayrt",
+                            "Jercean",
+                            "Jerdein",
+                            "Jeheiney",
+                            "Jesarn",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "J-guer",
+                            "T-arree",
+                            "Mayrnt",
+                            "Avrril",
+                            "Boaldyn",
+                            "M-souree",
+                            "J-souree",
+                            "Luanistyn",
+                            "M-fouyir",
+                            "J-fouyir",
+                            "M.Houney",
+                            "M.Nollick",
+                            "",
+                    }
+                    wide{
+                            "Jerrey-geuree",
+                            "Toshiaght-arree",
+                            "Mayrnt",
+                            "Averil",
+                            "Boaldyn",
+                            "Mean-souree",
+                            "Jerrey-souree",
+                            "Luanistyn",
+                            "Mean-fouyir",
+                            "Jerrey-fouyir",
+                            "Mee Houney",
+                            "Mee ny Nollick",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

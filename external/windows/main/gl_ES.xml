@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="Windows_XP"/>
-		<generation date="2003-12-19" />
+		<version number="Windows XP"/>
+		<generation date="2004-05-14" />
 		<language type="gl" /> 
 		<territory type="ES" /> 
 	</identity>
@@ -18,54 +18,62 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">xaneiro</month>
-					<month type="2">febreiro</month>
-					<month type="3">marzo</month>
-					<month type="4">abril</month>
-					<month type="5">maio</month>
-					<month type="6">xuño</month>
-					<month type="7">xullo</month>
-					<month type="8">agosto</month>
-					<month type="9">setembro</month>
-					<month type="10">outubro</month>
-					<month type="11">novembro</month>
-					<month type="12">decembro</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">xan</month>
-					<month type="2">feb</month>
-					<month type="3">mar</month>
-					<month type="4">abr</month>
-					<month type="5">maio</month>
-					<month type="6">xuñ</month>
-					<month type="7">xull</month>
-					<month type="8">ago</month>
-					<month type="9">set</month>
-					<month type="10">out</month>
-					<month type="11">nov</month>
-					<month type="12">dec</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">domingo</day>
-					<day type="mon">luns</day>
-					<day type="tue">martes</day>
-					<day type="wed">mércores</day>
-					<day type="thu">xoves</day>
-					<day type="fri">venres</day>
-					<day type="sat">sábado</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">dom</day>
-					<day type="mon">luns</day>
-					<day type="tue">mar</day>
-					<day type="wed">mér</day>
-					<day type="thu">xov</day>
-					<day type="fri">ven</day>
-					<day type="sat">sab</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">xan</month>
+							<month type="2">feb</month>
+							<month type="3">mar</month>
+							<month type="4">abr</month>
+							<month type="5">maio</month>
+							<month type="6">xuñ</month>
+							<month type="7">xull</month>
+							<month type="8">ago</month>
+							<month type="9">set</month>
+							<month type="10">out</month>
+							<month type="11">nov</month>
+							<month type="12">dec</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">xaneiro</month>
+							<month type="2">febreiro</month>
+							<month type="3">marzo</month>
+							<month type="4">abril</month>
+							<month type="5">maio</month>
+							<month type="6">xuño</month>
+							<month type="7">xullo</month>
+							<month type="8">agosto</month>
+							<month type="9">setembro</month>
+							<month type="10">outubro</month>
+							<month type="11">novembro</month>
+							<month type="12">decembro</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">dom</day>
+							<day type="mon">luns</day>
+							<day type="tue">mar</day>
+							<day type="wed">mér</day>
+							<day type="thu">xov</day>
+							<day type="fri">ven</day>
+							<day type="sat">sab</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">domingo</day>
+							<day type="mon">luns</day>
+							<day type="tue">martes</day>
+							<day type="wed">mércores</day>
+							<day type="thu">xoves</day>
+							<day type="fri">venres</day>
+							<day type="sat">sábado</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<week>
 					<firstDay day="mon"/>
 				</week>

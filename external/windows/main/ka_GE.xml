@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="Windows_XP"/>
-		<generation date="2003-12-19" />
+		<version number="Windows XP"/>
+		<generation date="2004-05-14" />
 		<language type="ka" /> 
 		<territory type="GE" /> 
 	</identity>
@@ -18,54 +18,62 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">იანვარი</month>
-					<month type="2">თებერვალი</month>
-					<month type="3">მარტი</month>
-					<month type="4">აპრილი</month>
-					<month type="5">მაისი</month>
-					<month type="6">ივნისი</month>
-					<month type="7">ივლისი</month>
-					<month type="8">აგვისტო</month>
-					<month type="9">სექტემბერი</month>
-					<month type="10">ოქტომბერი</month>
-					<month type="11">ნოემბერი</month>
-					<month type="12">დეკემბერი</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">იან</month>
-					<month type="2">თებ</month>
-					<month type="3">მარ</month>
-					<month type="4">აპრ</month>
-					<month type="5">მაის</month>
-					<month type="6">ივნ</month>
-					<month type="7">ივლ</month>
-					<month type="8">აგვ</month>
-					<month type="9">სექ</month>
-					<month type="10">ოქტ</month>
-					<month type="11">ნოემ</month>
-					<month type="12">დეკ</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">კვირა</day>
-					<day type="mon">ორშაბათი</day>
-					<day type="tue">სამშაბათი</day>
-					<day type="wed">ოთხშაბათი</day>
-					<day type="thu">ხუთშაბათი</day>
-					<day type="fri">პარასკევი</day>
-					<day type="sat">შაბათი</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">კვირა</day>
-					<day type="mon">ორშაბათი</day>
-					<day type="tue">სამშაბათი</day>
-					<day type="wed">ოთხშაბათი</day>
-					<day type="thu">ხუთშაბათი</day>
-					<day type="fri">პარასკევი</day>
-					<day type="sat">შაბათი</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">იან</month>
+							<month type="2">თებ</month>
+							<month type="3">მარ</month>
+							<month type="4">აპრ</month>
+							<month type="5">მაის</month>
+							<month type="6">ივნ</month>
+							<month type="7">ივლ</month>
+							<month type="8">აგვ</month>
+							<month type="9">სექ</month>
+							<month type="10">ოქტ</month>
+							<month type="11">ნოემ</month>
+							<month type="12">დეკ</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">იანვარი</month>
+							<month type="2">თებერვალი</month>
+							<month type="3">მარტი</month>
+							<month type="4">აპრილი</month>
+							<month type="5">მაისი</month>
+							<month type="6">ივნისი</month>
+							<month type="7">ივლისი</month>
+							<month type="8">აგვისტო</month>
+							<month type="9">სექტემბერი</month>
+							<month type="10">ოქტომბერი</month>
+							<month type="11">ნოემბერი</month>
+							<month type="12">დეკემბერი</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">კვირა</day>
+							<day type="mon">ორშაბათი</day>
+							<day type="tue">სამშაბათი</day>
+							<day type="wed">ოთხშაბათი</day>
+							<day type="thu">ხუთშაბათი</day>
+							<day type="fri">პარასკევი</day>
+							<day type="sat">შაბათი</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">კვირა</day>
+							<day type="mon">ორშაბათი</day>
+							<day type="tue">სამშაბათი</day>
+							<day type="wed">ოთხშაბათი</day>
+							<day type="thu">ხუთშაბათი</day>
+							<day type="fri">პარასკევი</day>
+							<day type="sat">შაბათი</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<week>
 					<firstDay day="mon"/>
 				</week>

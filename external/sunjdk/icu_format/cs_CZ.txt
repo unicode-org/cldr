@@ -1,9 +1,131 @@
-cs_CZ {
-    LocaleString { "cs_CZ" }
-    NumberPatterns { 
-            "#,##0.##;-#,##0.##",
-            "#,##0.## \u00A4;-#,##0.## \u00A4",
-            "#,##0%",
+cs_CZ{
+
+ Version{"Windows XP"}
+ LocaleID{ "0405"}
+ ShortCountry{
+  "CZE"
+ }
+
+ ShortLanguage{
+  "CSY"
+ }
+
+ Languages{
+  cs {  "\u010De\u0161tina"  }
+ }
+
+ Countries{
+  CZ {  "\u010Cesk\u00E1\u00A0republika"  }
+ }
+
+ CurrencyElements{
+  "K\u010D",
+  "CZK",
+  ","
+ }
+
+
+
+
+
+
+ NumberElements{
+  ",",
+  "\u00A0",
+  ";",
+  "%",
+  "0",
+  "#",
+  "-",
+  "E",
+  "\u2030",
+  "\u221e",
+  "\ufffd",
+ }
+
+ NumberPatterns{
+  "",
+  "",
+  ""
+ }
+
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "dop.",
+          "odp."
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "H:mm:ss",
+          "",
+          "d. MMMM yyyy",
+          "",
+          "",
+          "d.M.yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "ne",
+                  "po",
+                  "\u00FAt",
+                  "st",
+                  "\u010Dt",
+                  "p\u00E1",
+                  "so"
+                    }
+                    wide{
+                  "ned\u011Ble",
+                  "pond\u011Bl\u00ED",
+                  "\u00FAter\u00FD",
+                  "st\u0159eda",
+                  "\u010Dtvrtek",
+                  "p\u00E1tek",
+                  "sobota"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "I",
+                  "II",
+                  "III",
+                  "IV",
+                  "V",
+                  "VI",
+                  "VII",
+                  "VIII",
+                  "IX",
+                  "X",
+                  "XI",
+                  "XII",
+                  ""
+                    }
+                    wide{
+                  "leden",
+                  "\u00FAnor",
+                  "b\u0159ezen",
+                  "duben",
+                  "kv\u011Bten",
+                  "\u010Derven",
+                  "\u010Dervenec",
+                  "srpen",
+                  "z\u00E1\u0159\u00ED",
+                  "\u0159\u00EDjen",
+                  "listopad",
+                  "prosinec",
+                  ""
+                    }
+                }
+            }
+        }
     }
-    ShortCountry { "CZE" }
 }

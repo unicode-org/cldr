@@ -10,35 +10,6 @@ mk_MK {
             "MKD ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE, dd MMM yyyy  z",
-            "EEE, dd MMM yyyy hh:mm:ss z",
-            "dd.MMMM.yyyy",
-            "dd.MMMM.yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u043D\u0435\u0434",
-            "\u043F\u043E\u043D",
-            "\u0432\u0442\u043E",
-            "\u0441\u0440\u0435",
-            "\u0447\u0435\u0442",
-            "\u043F\u0435\u0442",
-            "\u0441\u0430\u0431",
-    }
-    DayNames { 
-            "\u043D\u0435\u0434\u0435\u043B\u0430",
-            "\u043F\u043E\u043D\u0435\u0434\u0435\u043B\u043D\u0438\u043A",
-            "\u0432\u0442\u043E\u0440\u043D\u0438\u043A",
-            "\u0441\u0440\u0435\u0434\u0430",
-            "\u0447\u0435\u0442\u0432\u0440\u0442\u043E\u043A",
-            "\u043F\u0435\u0442\u043E\u043A",
-            "\u0441\u0430\u0431\u043E\u0442\u0430",
-    }
     Identification { 
         Title { "Macedonian locale for Macedonia" }
         Source { "" }
@@ -62,36 +33,6 @@ mk_MK {
         NoExpression { "[\u041D\u043DNn0].*" }
         YesStr { "\u0434\u0430" }
         NoStr { "\u043D\u0435" }
-    }
-    MonthAbbreviations { 
-            "\u0458\u0430\u043D",
-            "\u0444\u0435\u0432",
-            "\u043C\u0430\u0440",
-            "\u0430\u043F\u0440",
-            "\u043C\u0430\u0458",
-            "\u0458\u0443\u043D",
-            "\u0458\u0443\u043B",
-            "\u0430\u0432\u0433",
-            "\u0441\u0435\u043F",
-            "\u043E\u043A\u0442",
-            "\u043D\u043E\u0435",
-            "\u0434\u0435\u043A",
-            "",
-    }
-    MonthNames { 
-            "\u0458\u0430\u043D\u0443\u0430\u0440\u0438",
-            "\u0444\u0435\u0432\u0440\u0443\u0430\u0440\u0438",
-            "\u043C\u0430\u0440\u0442",
-            "\u0430\u043F\u0440\u0438\u043B",
-            "\u043C\u0430\u0458",
-            "\u0458\u0443\u043D\u0438",
-            "\u0458\u0443\u043B\u0438",
-            "\u0430\u0432\u0433\u0443\u0441\u0442",
-            "\u0441\u0435\u043F\u0442\u0435\u043C\u0432\u0440\u0438",
-            "\u043E\u043A\u0442\u043E\u043C\u0432\u0440\u0438",
-            "\u043D\u043E\u0435\u043C\u0432\u0440\u0438",
-            "\u0434\u0435\u043A\u0435\u043C\u0432\u0440\u0438",
-            "",
     }
     NameFormat { 
         NamePattern { "%g%t%f" }
@@ -121,15 +62,81 @@ mk_MK {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "00" }
         InternationalPrefix { "389" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE, dd MMM yyyy  z",
+                    "EEE, dd MMM yyyy hh:mm:ss z",
+                    "dd.MMMM.yyyy",
+                    "dd.MMMM.yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u043D\u0435\u0434",
+                            "\u043F\u043E\u043D",
+                            "\u0432\u0442\u043E",
+                            "\u0441\u0440\u0435",
+                            "\u0447\u0435\u0442",
+                            "\u043F\u0435\u0442",
+                            "\u0441\u0430\u0431",
+                    }
+                    wide{
+                            "\u043D\u0435\u0434\u0435\u043B\u0430",
+                            "\u043F\u043E\u043D\u0435\u0434\u0435\u043B\u043D\u0438\u043A",
+                            "\u0432\u0442\u043E\u0440\u043D\u0438\u043A",
+                            "\u0441\u0440\u0435\u0434\u0430",
+                            "\u0447\u0435\u0442\u0432\u0440\u0442\u043E\u043A",
+                            "\u043F\u0435\u0442\u043E\u043A",
+                            "\u0441\u0430\u0431\u043E\u0442\u0430",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u0458\u0430\u043D",
+                            "\u0444\u0435\u0432",
+                            "\u043C\u0430\u0440",
+                            "\u0430\u043F\u0440",
+                            "\u043C\u0430\u0458",
+                            "\u0458\u0443\u043D",
+                            "\u0458\u0443\u043B",
+                            "\u0430\u0432\u0433",
+                            "\u0441\u0435\u043F",
+                            "\u043E\u043A\u0442",
+                            "\u043D\u043E\u0435",
+                            "\u0434\u0435\u043A",
+                            "",
+                    }
+                    wide{
+                            "\u0458\u0430\u043D\u0443\u0430\u0440\u0438",
+                            "\u0444\u0435\u0432\u0440\u0443\u0430\u0440\u0438",
+                            "\u043C\u0430\u0440\u0442",
+                            "\u0430\u043F\u0440\u0438\u043B",
+                            "\u043C\u0430\u0458",
+                            "\u0458\u0443\u043D\u0438",
+                            "\u0458\u0443\u043B\u0438",
+                            "\u0430\u0432\u0433\u0443\u0441\u0442",
+                            "\u0441\u0435\u043F\u0442\u0435\u043C\u0432\u0440\u0438",
+                            "\u043E\u043A\u0442\u043E\u043C\u0432\u0440\u0438",
+                            "\u043D\u043E\u0435\u043C\u0432\u0440\u0438",
+                            "\u0434\u0435\u043A\u0435\u043C\u0432\u0440\u0438",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

@@ -1806,35 +1806,6 @@ hr_HR {
             "HRK ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE dd MMM yyyy ",
-            "EEE dd MMM yyyy hh:mm:ss",
-            "dd.MMMM.yyyy",
-            "dd.MMMM.yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Ned",
-            "Pon",
-            "Uto",
-            "Sri",
-            "\u010Cet",
-            "Pet",
-            "Sub",
-    }
-    DayNames { 
-            "Nedjelja",
-            "Ponedjeljak",
-            "Utorak",
-            "Srijeda",
-            "\u010Cetvrtak",
-            "Petak",
-            "Subota",
-    }
     Identification { 
         Title { "Croatian locale for Croatia" }
         Source { "CARNetMZT" }
@@ -1858,36 +1829,6 @@ hr_HR {
         NoExpression { "^[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "Sij",
-            "Vel",
-            "O\u017Eu",
-            "Tra",
-            "Svi",
-            "Lip",
-            "Srp",
-            "Kol",
-            "Ruj",
-            "Lis",
-            "Stu",
-            "Pro",
-            "",
-    }
-    MonthNames { 
-            "Sije\u010Danj",
-            "Velja\u010Da",
-            "O\u017Eujak",
-            "Travanj",
-            "Svibanj",
-            "Lipanj",
-            "Srpanj",
-            "Kolovoz",
-            "Rujan",
-            "Listopad",
-            "Studeni",
-            "Prosinac",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -1917,15 +1858,81 @@ hr_HR {
             "\u00A4 #,##0.00;-\u00A4 #,##0.00",
             "#,#0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "385" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE dd MMM yyyy ",
+                    "EEE dd MMM yyyy hh:mm:ss",
+                    "dd.MMMM.yyyy",
+                    "dd.MMMM.yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Ned",
+                            "Pon",
+                            "Uto",
+                            "Sri",
+                            "\u010Cet",
+                            "Pet",
+                            "Sub",
+                    }
+                    wide{
+                            "Nedjelja",
+                            "Ponedjeljak",
+                            "Utorak",
+                            "Srijeda",
+                            "\u010Cetvrtak",
+                            "Petak",
+                            "Subota",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Sij",
+                            "Vel",
+                            "O\u017Eu",
+                            "Tra",
+                            "Svi",
+                            "Lip",
+                            "Srp",
+                            "Kol",
+                            "Ruj",
+                            "Lis",
+                            "Stu",
+                            "Pro",
+                            "",
+                    }
+                    wide{
+                            "Sije\u010Danj",
+                            "Velja\u010Da",
+                            "O\u017Eujak",
+                            "Travanj",
+                            "Svibanj",
+                            "Lipanj",
+                            "Srpanj",
+                            "Kolovoz",
+                            "Rujan",
+                            "Listopad",
+                            "Studeni",
+                            "Prosinac",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

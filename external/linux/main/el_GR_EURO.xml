@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="el" /> 
 		<territory type="GR" /> 
 		<variant type="EURO" /> 
@@ -11,54 +11,62 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">Ιανοάριος</month>
-					<month type="2">Φεβροάριος</month>
-					<month type="3">Μάρτιος</month>
-					<month type="4">Απρίλιος</month>
-					<month type="5">Μάιος</month>
-					<month type="6">Ιούνιος</month>
-					<month type="7">Ιούλιος</month>
-					<month type="8">Αύγουστος</month>
-					<month type="9">Σεπτέμβριος</month>
-					<month type="10">Οκτώβριος</month>
-					<month type="11">Νοέμβριος</month>
-					<month type="12">Δεκέμβριος</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">Ιαν</month>
-					<month type="2">Φεβ</month>
-					<month type="3">Μάρ</month>
-					<month type="4">Απρ</month>
-					<month type="5">Μάι</month>
-					<month type="6">Ιούν</month>
-					<month type="7">Ιούλ</month>
-					<month type="8">Αύγ</month>
-					<month type="9">Σεπ</month>
-					<month type="10">Οκτ</month>
-					<month type="11">Νοέ</month>
-					<month type="12">Δεκ</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">Κυριακη</day>
-					<day type="mon">Δευτέρα</day>
-					<day type="tue">Τρίτη</day>
-					<day type="wed">Τετάρτη</day>
-					<day type="thu">Πέμπτη</day>
-					<day type="fri">Παρασκευή</day>
-					<day type="sat">Σαββάτο</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">Κυρ</day>
-					<day type="mon">Δευ</day>
-					<day type="tue">Τρι</day>
-					<day type="wed">Τετ</day>
-					<day type="thu">Πεμ</day>
-					<day type="fri">Παρ</day>
-					<day type="sat">Σαβ</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Ιαν</month>
+							<month type="2">Φεβ</month>
+							<month type="3">Μάρ</month>
+							<month type="4">Απρ</month>
+							<month type="5">Μάι</month>
+							<month type="6">Ιούν</month>
+							<month type="7">Ιούλ</month>
+							<month type="8">Αύγ</month>
+							<month type="9">Σεπ</month>
+							<month type="10">Οκτ</month>
+							<month type="11">Νοέ</month>
+							<month type="12">Δεκ</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Ιανοάριος</month>
+							<month type="2">Φεβροάριος</month>
+							<month type="3">Μάρτιος</month>
+							<month type="4">Απρίλιος</month>
+							<month type="5">Μάιος</month>
+							<month type="6">Ιούνιος</month>
+							<month type="7">Ιούλιος</month>
+							<month type="8">Αύγουστος</month>
+							<month type="9">Σεπτέμβριος</month>
+							<month type="10">Οκτώβριος</month>
+							<month type="11">Νοέμβριος</month>
+							<month type="12">Δεκέμβριος</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Κυρ</day>
+							<day type="mon">Δευ</day>
+							<day type="tue">Τρι</day>
+							<day type="wed">Τετ</day>
+							<day type="thu">Πεμ</day>
+							<day type="fri">Παρ</day>
+							<day type="sat">Σαβ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Κυριακη</day>
+							<day type="mon">Δευτέρα</day>
+							<day type="tue">Τρίτη</day>
+							<day type="wed">Τετάρτη</day>
+							<day type="thu">Πέμπτη</day>
+							<day type="fri">Παρασκευή</day>
+							<day type="sat">Σαββάτο</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="Windows_XP"/>
-		<generation date="2003-12-19" />
+		<version number="Windows XP"/>
+		<generation date="2004-05-14" />
 		<language type="be" /> 
 		<territory type="BY" /> 
 	</identity>
@@ -18,54 +18,62 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">Студзень</month>
-					<month type="2">Люты</month>
-					<month type="3">Сакавік</month>
-					<month type="4">Красавік</month>
-					<month type="5">Май</month>
-					<month type="6">Чэрвень</month>
-					<month type="7">Ліпень</month>
-					<month type="8">Жнівень</month>
-					<month type="9">Верасень</month>
-					<month type="10">Кастрычнік</month>
-					<month type="11">Лістапад</month>
-					<month type="12">Снежань</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">Сту</month>
-					<month type="2">Лют</month>
-					<month type="3">Сак</month>
-					<month type="4">Кра</month>
-					<month type="5">Май</month>
-					<month type="6">Чэр</month>
-					<month type="7">Ліп</month>
-					<month type="8">Жні</month>
-					<month type="9">Вер</month>
-					<month type="10">Кас</month>
-					<month type="11">Ліс</month>
-					<month type="12">Сне</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">нядзеля</day>
-					<day type="mon">панядзелак</day>
-					<day type="tue">аўторак</day>
-					<day type="wed">серада</day>
-					<day type="thu">чацвер</day>
-					<day type="fri">пятніца</day>
-					<day type="sat">субота</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">нд</day>
-					<day type="mon">пн</day>
-					<day type="tue">аў</day>
-					<day type="wed">ср</day>
-					<day type="thu">чц</day>
-					<day type="fri">пт</day>
-					<day type="sat">сб</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Сту</month>
+							<month type="2">Лют</month>
+							<month type="3">Сак</month>
+							<month type="4">Кра</month>
+							<month type="5">Май</month>
+							<month type="6">Чэр</month>
+							<month type="7">Ліп</month>
+							<month type="8">Жні</month>
+							<month type="9">Вер</month>
+							<month type="10">Кас</month>
+							<month type="11">Ліс</month>
+							<month type="12">Сне</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Студзень</month>
+							<month type="2">Люты</month>
+							<month type="3">Сакавік</month>
+							<month type="4">Красавік</month>
+							<month type="5">Май</month>
+							<month type="6">Чэрвень</month>
+							<month type="7">Ліпень</month>
+							<month type="8">Жнівень</month>
+							<month type="9">Верасень</month>
+							<month type="10">Кастрычнік</month>
+							<month type="11">Лістапад</month>
+							<month type="12">Снежань</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">нд</day>
+							<day type="mon">пн</day>
+							<day type="tue">аў</day>
+							<day type="wed">ср</day>
+							<day type="thu">чц</day>
+							<day type="fri">пт</day>
+							<day type="sat">сб</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">нядзеля</day>
+							<day type="mon">панядзелак</day>
+							<day type="tue">аўторак</day>
+							<day type="wed">серада</day>
+							<day type="thu">чацвер</day>
+							<day type="fri">пятніца</day>
+							<day type="sat">субота</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<week>
 					<firstDay day="mon"/>
 				</week>

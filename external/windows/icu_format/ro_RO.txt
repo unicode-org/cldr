@@ -2,10 +2,6 @@ ro_RO{
 
  Version{"Windows XP"}
  LocaleID{ "0418"}
- AmPmMarkers{
-  "",
-  ""
- }
  ShortCountry{
   "ROM"
  }
@@ -28,73 +24,10 @@ ro_RO{
   ","
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "d MMMM yyyy",
-  "",
-  "",
-  "dd.MM.yyyy",
-  "",
- }
 
- DateTimeElements:intvector{
-  2,
-  
- }
- DayNames{
-  "duminic\u0103",
-  "luni",
-  "mar\u0163i",
-  "miercuri",
-  "joi",
-  "vineri",
-  "s\u00E2mb\u0103t\u0103"
- }
 
- DayAbbreviations{
-  "D",
-  "L",
-  "Ma",
-  "Mi",
-  "J",
-  "V",
-  "S"
- }
 
- MonthNames{
-  "ianuarie",
-  "februarie",
-  "martie",
-  "aprilie",
-  "mai",
-  "iunie",
-  "iulie",
-  "august",
-  "septembrie",
-  "octombrie",
-  "noiembrie",
-  "decembrie",
-  ""
- }
 
- MonthAbbreviations{
-  "ian.",
-  "feb.",
-  "mar.",
-  "apr.",
-  "mai.",
-  "iun.",
-  "iul.",
-  "aug.",
-  "sep.",
-  "oct.",
-  "nov.",
-  "dec.",
-  ""
- }
 
  NumberElements{
   ",",
@@ -116,5 +49,83 @@ ro_RO{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "HH:mm:ss",
+          "",
+          "d MMMM yyyy",
+          "",
+          "",
+          "dd.MM.yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "D",
+                  "L",
+                  "Ma",
+                  "Mi",
+                  "J",
+                  "V",
+                  "S"
+                    }
+                    wide{
+                  "duminic\u0103",
+                  "luni",
+                  "mar\u0163i",
+                  "miercuri",
+                  "joi",
+                  "vineri",
+                  "s\u00E2mb\u0103t\u0103"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "ian.",
+                  "feb.",
+                  "mar.",
+                  "apr.",
+                  "mai.",
+                  "iun.",
+                  "iul.",
+                  "aug.",
+                  "sep.",
+                  "oct.",
+                  "nov.",
+                  "dec.",
+                  ""
+                    }
+                    wide{
+                  "ianuarie",
+                  "februarie",
+                  "martie",
+                  "aprilie",
+                  "mai",
+                  "iunie",
+                  "iulie",
+                  "august",
+                  "septembrie",
+                  "octombrie",
+                  "noiembrie",
+                  "decembrie",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

@@ -2,10 +2,6 @@ en_TT{
 
  Version{"Windows XP"}
  LocaleID{ "2C09"}
- AmPmMarkers{
-  "AM",
-  "PM"
- }
  ShortCountry{
   "TTO"
  }
@@ -28,73 +24,10 @@ en_TT{
   "."
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "hh:mm:ss a",
-  "",
-  "EEEE, dd MMMM yyyy",
-  "",
-  "",
-  "dd/MM/yyyy",
-  "",
- }
 
- DateTimeElements:intvector{
-  1,
-  
- }
- DayNames{
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
- }
 
- DayAbbreviations{
-  "Sun",
-  "Mon",
-  "Tue",
-  "Wed",
-  "Thu",
-  "Fri",
-  "Sat"
- }
 
- MonthNames{
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-  ""
- }
 
- MonthAbbreviations{
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-  ""
- }
 
  NumberElements{
   ".",
@@ -116,5 +49,83 @@ en_TT{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "AM",
+          "PM"
+            }
+            DateTimeElements:intvector{
+          1,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "hh:mm:ss a",
+          "",
+          "EEEE, dd MMMM yyyy",
+          "",
+          "",
+          "dd/MM/yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "Sun",
+                  "Mon",
+                  "Tue",
+                  "Wed",
+                  "Thu",
+                  "Fri",
+                  "Sat"
+                    }
+                    wide{
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "Jan",
+                  "Feb",
+                  "Mar",
+                  "Apr",
+                  "May",
+                  "Jun",
+                  "Jul",
+                  "Aug",
+                  "Sep",
+                  "Oct",
+                  "Nov",
+                  "Dec",
+                  ""
+                    }
+                    wide{
+                  "January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

@@ -1,9 +1,131 @@
-sl_SI {
-    LocaleString { "sl_SI" }
-    NumberPatterns { 
-            "#,##0.###;-#,##0.###",
-            "\u00A4 #,##0.##;-\u00A4 #,##0.##",
-            "#,##0%",
+sl_SI{
+
+ Version{"Windows XP"}
+ LocaleID{ "0424"}
+ ShortCountry{
+  "SVN"
+ }
+
+ ShortLanguage{
+  "SLV"
+ }
+
+ Languages{
+  sl {  "slovenski"  }
+ }
+
+ Countries{
+  SI {  "Slovenija"  }
+ }
+
+ CurrencyElements{
+  "SIT",
+  "SIT",
+  ","
+ }
+
+
+
+
+
+
+ NumberElements{
+  ",",
+  ".",
+  ";",
+  "%",
+  "0",
+  "#",
+  "-",
+  "E",
+  "\u2030",
+  "\u221e",
+  "\ufffd",
+ }
+
+ NumberPatterns{
+  "",
+  "",
+  ""
+ }
+
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "H:mm:ss",
+          "",
+          "d. MMMM yyyy",
+          "",
+          "",
+          "d.M.yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "ned",
+                  "pon",
+                  "tor",
+                  "sre",
+                  "\u010Det",
+                  "pet",
+                  "sob"
+                    }
+                    wide{
+                  "nedelja",
+                  "ponedeljek",
+                  "torek",
+                  "sreda",
+                  "\u010Detrtek",
+                  "petek",
+                  "sobota"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "jan",
+                  "feb",
+                  "mar",
+                  "apr",
+                  "maj",
+                  "jun",
+                  "jul",
+                  "avg",
+                  "sep",
+                  "okt",
+                  "nov",
+                  "dec",
+                  ""
+                    }
+                    wide{
+                  "januar",
+                  "februar",
+                  "marec",
+                  "april",
+                  "maj",
+                  "junij",
+                  "julij",
+                  "avgust",
+                  "september",
+                  "oktober",
+                  "november",
+                  "december",
+                  ""
+                    }
+                }
+            }
+        }
     }
-    ShortCountry { "SVN" }
 }

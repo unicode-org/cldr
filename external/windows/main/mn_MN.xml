@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="Windows_XP"/>
-		<generation date="2003-12-19" />
+		<version number="Windows XP"/>
+		<generation date="2004-05-14" />
 		<language type="mn" /> 
 		<territory type="MN" /> 
 	</identity>
@@ -18,54 +18,62 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">1 дүгээр сар</month>
-					<month type="2">2 дугаар сар</month>
-					<month type="3">3 дугаар сар</month>
-					<month type="4">4 дүгээр сар</month>
-					<month type="5">5 дугаар сар</month>
-					<month type="6">6 дугаар сар</month>
-					<month type="7">7 дугаар сар</month>
-					<month type="8">8 дугаар сар</month>
-					<month type="9">9 дүгээр сар</month>
-					<month type="10">10 дугаар сар</month>
-					<month type="11">11 дүгээр сар</month>
-					<month type="12">12 дугаар сар</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">I</month>
-					<month type="2">II</month>
-					<month type="3">III</month>
-					<month type="4">IV</month>
-					<month type="5">V</month>
-					<month type="6">VI</month>
-					<month type="7">VII</month>
-					<month type="8">VШ</month>
-					<month type="9">IX</month>
-					<month type="10">X</month>
-					<month type="11">XI</month>
-					<month type="12">XII</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">Ням</day>
-					<day type="mon">Даваа</day>
-					<day type="tue">Мягмар</day>
-					<day type="wed">Лхагва</day>
-					<day type="thu">Пүрэв</day>
-					<day type="fri">Баасан</day>
-					<day type="sat">Бямба</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">Ня</day>
-					<day type="mon">Да</day>
-					<day type="tue">Мя</day>
-					<day type="wed">Лх</day>
-					<day type="thu">Пү</day>
-					<day type="fri">Ба</day>
-					<day type="sat">Бя</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">I</month>
+							<month type="2">II</month>
+							<month type="3">III</month>
+							<month type="4">IV</month>
+							<month type="5">V</month>
+							<month type="6">VI</month>
+							<month type="7">VII</month>
+							<month type="8">VШ</month>
+							<month type="9">IX</month>
+							<month type="10">X</month>
+							<month type="11">XI</month>
+							<month type="12">XII</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">1 дүгээр сар</month>
+							<month type="2">2 дугаар сар</month>
+							<month type="3">3 дугаар сар</month>
+							<month type="4">4 дүгээр сар</month>
+							<month type="5">5 дугаар сар</month>
+							<month type="6">6 дугаар сар</month>
+							<month type="7">7 дугаар сар</month>
+							<month type="8">8 дугаар сар</month>
+							<month type="9">9 дүгээр сар</month>
+							<month type="10">10 дугаар сар</month>
+							<month type="11">11 дүгээр сар</month>
+							<month type="12">12 дугаар сар</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Ня</day>
+							<day type="mon">Да</day>
+							<day type="tue">Мя</day>
+							<day type="wed">Лх</day>
+							<day type="thu">Пү</day>
+							<day type="fri">Ба</day>
+							<day type="sat">Бя</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Ням</day>
+							<day type="mon">Даваа</day>
+							<day type="tue">Мягмар</day>
+							<day type="wed">Лхагва</day>
+							<day type="thu">Пүрэв</day>
+							<day type="fri">Баасан</day>
+							<day type="sat">Бямба</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<week>
 					<firstDay day="mon"/>
 				</week>

@@ -2,10 +2,6 @@ ja_JP {
     AddressFormat { 
         PostalFormat { "%z%c%T%s%b%e%r" }
     }
-    AmPmMarkers { 
-            "\u5348\u524D",
-            "\u5348\u5F8C",
-    }
     CollationElements { 
         Version { "1.0" }
         Overide { "false" }
@@ -13186,35 +13182,6 @@ ja_JP {
             "JPY ",
             ".",
     }
-    DateTimePatterns { 
-            "aahh\u6642mm\u5206ss\u79D2",
-            "HH\u6642mm\u5206ss\u79D2",
-            "HH\u6642mm\u5206ss\u79D2",
-            "HH\u6642mm\u5206ss\u79D2",
-            "yyyy\u5E74MMMM\u6708dd\u65E5 ",
-            "yyyy\u5E74MMMM\u6708dd\u65E5 HH\u6642mm\u5206ss\u79D2",
-            "yyyy\u5E74MMMM\u6708dd\u65E5",
-            "yyyy\u5E74MMMM\u6708dd\u65E5",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u65E5",
-            "\u6708",
-            "\u706B",
-            "\u6C34",
-            "\u6728",
-            "\u91D1",
-            "\u571F",
-    }
-    DayNames { 
-            "\u65E5\u66DC\u65E5",
-            "\u6708\u66DC\u65E5",
-            "\u706B\u66DC\u65E5",
-            "\u6C34\u66DC\u65E5",
-            "\u6728\u66DC\u65E5",
-            "\u91D1\u66DC\u65E5",
-            "\u571F\u66DC\u65E5",
-    }
     Identification { 
         Title { "Japanese language locale for Japan" }
         Source { "HANATAKA, Shinya, hanataka@abyss.rim.or.jp" }
@@ -13238,36 +13205,6 @@ ja_JP {
         NoExpression { "^([nN\uFF4E\uFF2E]|\u3044\u3044\u3048|\u30A4\u30A4\u30A8)" }
         YesStr { "\u306F\u3044" }
         NoStr { "\u3044\u3044\u3048" }
-    }
-    MonthAbbreviations { 
-            " 1\u6708",
-            " 2\u6708",
-            " 3\u6708",
-            " 4\u6708",
-            " 5\u6708",
-            " 6\u6708",
-            " 7\u6708",
-            " 8\u6708",
-            " 9\u6708",
-            "10\u6708",
-            "11\u6708",
-            "12\u6708",
-            "",
-    }
-    MonthNames { 
-            "1\u6708",
-            "2\u6708",
-            "3\u6708",
-            "4\u6708",
-            "5\u6708",
-            "6\u6708",
-            "7\u6708",
-            "8\u6708",
-            "9\u6708",
-            "10\u6708",
-            "11\u6708",
-            "12\u6708",
-            "",
     }
     NameFormat { 
         NamePattern { "%p%t%f%t%g" }
@@ -13297,15 +13234,85 @@ ja_JP {
             "\u00A4#,##0.#;\u00A4-#,##0.#",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c ;%a ;%l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "81" }
+    }
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    "\u5348\u524D",
+                    "\u5348\u5F8C",
+            }
+            DateTimePatterns{
+                    "aahh\u6642mm\u5206ss\u79D2",
+                    "HH\u6642mm\u5206ss\u79D2",
+                    "HH\u6642mm\u5206ss\u79D2",
+                    "HH\u6642mm\u5206ss\u79D2",
+                    "yyyy\u5E74MMMM\u6708dd\u65E5 ",
+                    "yyyy\u5E74MMMM\u6708dd\u65E5 HH\u6642mm\u5206ss\u79D2",
+                    "yyyy\u5E74MMMM\u6708dd\u65E5",
+                    "yyyy\u5E74MMMM\u6708dd\u65E5",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u65E5",
+                            "\u6708",
+                            "\u706B",
+                            "\u6C34",
+                            "\u6728",
+                            "\u91D1",
+                            "\u571F",
+                    }
+                    wide{
+                            "\u65E5\u66DC\u65E5",
+                            "\u6708\u66DC\u65E5",
+                            "\u706B\u66DC\u65E5",
+                            "\u6C34\u66DC\u65E5",
+                            "\u6728\u66DC\u65E5",
+                            "\u91D1\u66DC\u65E5",
+                            "\u571F\u66DC\u65E5",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            " 1\u6708",
+                            " 2\u6708",
+                            " 3\u6708",
+                            " 4\u6708",
+                            " 5\u6708",
+                            " 6\u6708",
+                            " 7\u6708",
+                            " 8\u6708",
+                            " 9\u6708",
+                            "10\u6708",
+                            "11\u6708",
+                            "12\u6708",
+                            "",
+                    }
+                    wide{
+                            "1\u6708",
+                            "2\u6708",
+                            "3\u6708",
+                            "4\u6708",
+                            "5\u6708",
+                            "6\u6708",
+                            "7\u6708",
+                            "8\u6708",
+                            "9\u6708",
+                            "10\u6708",
+                            "11\u6708",
+                            "12\u6708",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

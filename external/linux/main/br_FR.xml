@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="br" /> 
 		<territory type="FR" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">Genver</month>
-					<month type="2">C'hwevrer</month>
-					<month type="3">Meurzh</month>
-					<month type="4">Ebrel</month>
-					<month type="5">Mae</month>
-					<month type="6">Mezheven</month>
-					<month type="7">Gouere</month>
-					<month type="8">Eost</month>
-					<month type="9">Gwengolo</month>
-					<month type="10">Here</month>
-					<month type="11">Du</month>
-					<month type="12">Kerzu</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">Gen </month>
-					<month type="2">C'hw</month>
-					<month type="3">Meu </month>
-					<month type="4">Ebr </month>
-					<month type="5">Mae </month>
-					<month type="6">Eve </month>
-					<month type="7">Gou </month>
-					<month type="8">Eos </month>
-					<month type="9">Gwe </month>
-					<month type="10">Her </month>
-					<month type="11">Du  </month>
-					<month type="12">Ker </month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">sul</day>
-					<day type="mon">lun</day>
-					<day type="tue">meurzh</day>
-					<day type="wed">merc'her</day>
-					<day type="thu">yaou</day>
-					<day type="fri">gwener</day>
-					<day type="sat">sadorn</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">sul</day>
-					<day type="mon">lun</day>
-					<day type="tue">meu</day>
-					<day type="wed">mer</day>
-					<day type="thu">yao</day>
-					<day type="fri">gwe</day>
-					<day type="sat">sad</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Gen </month>
+							<month type="2">C'hw</month>
+							<month type="3">Meu </month>
+							<month type="4">Ebr </month>
+							<month type="5">Mae </month>
+							<month type="6">Eve </month>
+							<month type="7">Gou </month>
+							<month type="8">Eos </month>
+							<month type="9">Gwe </month>
+							<month type="10">Her </month>
+							<month type="11">Du  </month>
+							<month type="12">Ker </month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Genver</month>
+							<month type="2">C'hwevrer</month>
+							<month type="3">Meurzh</month>
+							<month type="4">Ebrel</month>
+							<month type="5">Mae</month>
+							<month type="6">Mezheven</month>
+							<month type="7">Gouere</month>
+							<month type="8">Eost</month>
+							<month type="9">Gwengolo</month>
+							<month type="10">Here</month>
+							<month type="11">Du</month>
+							<month type="12">Kerzu</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">sul</day>
+							<day type="mon">lun</day>
+							<day type="tue">meu</day>
+							<day type="wed">mer</day>
+							<day type="thu">yao</day>
+							<day type="fri">gwe</day>
+							<day type="sat">sad</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">sul</day>
+							<day type="mon">lun</day>
+							<day type="tue">meurzh</day>
+							<day type="wed">merc'her</day>
+							<day type="thu">yaou</day>
+							<day type="fri">gwener</day>
+							<day type="sat">sadorn</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<am> </am>
 				<pm> </pm>
 				<dateFormats>

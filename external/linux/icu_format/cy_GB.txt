@@ -10,35 +10,6 @@ cy_GB {
             "GBP ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "Dydd EEEE dd a viz MMMM yyyy  z",
-            "Dydd EEEE dd a viz MMMM yyyy hh:mm:ss z",
-            "dd.MMMM.yy",
-            "dd.MMMM.yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Sul",
-            "Llu",
-            "Maw",
-            "Mer",
-            "Iau",
-            "Gwe",
-            "Sad",
-    }
-    DayNames { 
-            "Sul",
-            "Llun",
-            "Mawrth",
-            "Mercher",
-            "Iau",
-            "Gwener",
-            "Sadwrn",
-    }
     Identification { 
         Title { "Welsh language locale for Great Britain" }
         Source { "thanks to Dafydd Tomos (dafydd@imaginet.co.uk)" }
@@ -62,36 +33,6 @@ cy_GB {
         NoExpression { "[nN].*" }
         YesStr { "ie" }
         NoStr { "na" }
-    }
-    MonthAbbreviations { 
-            "Ion",
-            "Chw",
-            "Maw",
-            "Ebr",
-            "Mai",
-            "Meh",
-            "Gor",
-            "Aws",
-            "Med",
-            "Hyd",
-            "Tach",
-            "Rha",
-            "",
-    }
-    MonthNames { 
-            "Ionawr",
-            "Chwefror",
-            "Mawrth",
-            "Ebrill",
-            "Mai",
-            "Mehefin",
-            "Gorffennaf",
-            "Awst",
-            "Medi",
-            "Hydref",
-            "Tachwedd",
-            "Rhagfyr",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -121,15 +62,81 @@ cy_GB {
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "00" }
         InternationalPrefix { "44" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "Dydd EEEE dd a viz MMMM yyyy  z",
+                    "Dydd EEEE dd a viz MMMM yyyy hh:mm:ss z",
+                    "dd.MMMM.yy",
+                    "dd.MMMM.yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Sul",
+                            "Llu",
+                            "Maw",
+                            "Mer",
+                            "Iau",
+                            "Gwe",
+                            "Sad",
+                    }
+                    wide{
+                            "Sul",
+                            "Llun",
+                            "Mawrth",
+                            "Mercher",
+                            "Iau",
+                            "Gwener",
+                            "Sadwrn",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Ion",
+                            "Chw",
+                            "Maw",
+                            "Ebr",
+                            "Mai",
+                            "Meh",
+                            "Gor",
+                            "Aws",
+                            "Med",
+                            "Hyd",
+                            "Tach",
+                            "Rha",
+                            "",
+                    }
+                    wide{
+                            "Ionawr",
+                            "Chwefror",
+                            "Mawrth",
+                            "Ebrill",
+                            "Mai",
+                            "Mehefin",
+                            "Gorffennaf",
+                            "Awst",
+                            "Medi",
+                            "Hydref",
+                            "Tachwedd",
+                            "Rhagfyr",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

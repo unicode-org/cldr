@@ -1,9 +1,131 @@
-nl_NL {
-    LocaleString { "nl_NL" }
-    NumberPatterns { 
-            "#,##0.###;-#,##0.###",
-            "\u00A4 #,##0.00;\u00A4 #,##0.00-",
-            "#,##0%",
+nl_NL{
+
+ Version{"Windows XP"}
+ LocaleID{ "0413"}
+ ShortCountry{
+  "NLD"
+ }
+
+ ShortLanguage{
+  "NLD"
+ }
+
+ Languages{
+  nl {  "Nederlands"  }
+ }
+
+ Countries{
+  NL {  "Nederland"  }
+ }
+
+ CurrencyElements{
+  "\u20AC",
+  "EUR",
+  ","
+ }
+
+
+
+
+
+
+ NumberElements{
+  ",",
+  ".",
+  ";",
+  "%",
+  "0",
+  "#",
+  "-",
+  "E",
+  "\u2030",
+  "\u221e",
+  "\ufffd",
+ }
+
+ NumberPatterns{
+  "",
+  "",
+  ""
+ }
+
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "H:mm:ss",
+          "",
+          "EEEE d MMMM yyyy",
+          "",
+          "",
+          "d-M-yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "zo",
+                  "ma",
+                  "di",
+                  "wo",
+                  "do",
+                  "vr",
+                  "za"
+                    }
+                    wide{
+                  "zondag",
+                  "maandag",
+                  "dinsdag",
+                  "woensdag",
+                  "donderdag",
+                  "vrijdag",
+                  "zaterdag"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "jan",
+                  "feb",
+                  "mrt",
+                  "apr",
+                  "mei",
+                  "jun",
+                  "jul",
+                  "aug",
+                  "sep",
+                  "okt",
+                  "nov",
+                  "dec",
+                  ""
+                    }
+                    wide{
+                  "januari",
+                  "februari",
+                  "maart",
+                  "april",
+                  "mei",
+                  "juni",
+                  "juli",
+                  "augustus",
+                  "september",
+                  "oktober",
+                  "november",
+                  "december",
+                  ""
+                    }
+                }
+            }
+        }
     }
-    ShortCountry { "NLD" }
 }

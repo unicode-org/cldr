@@ -10,35 +10,6 @@ nn_NO {
             "NOK ",
             ",",
     }
-    DateTimePatterns { 
-            "kl HH.mm z",
-            "kl HH.mm z",
-            "kl HH.mm z",
-            "kl HH.mm z",
-            "dd. MMM yyyy ",
-            "dd. MMM yyyy kl HH.mm z",
-            "dd. MMM yyyy",
-            "dd. MMM yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "su ",
-            "m\u00E5 ",
-            "ty ",
-            "on ",
-            "to ",
-            "fr ",
-            "lau ",
-    }
-    DayNames { 
-            "sundag ",
-            "m\u00E5ndag ",
-            "tysdag ",
-            "onsdag ",
-            "torsdag ",
-            "fredag ",
-            "laurdag ",
-    }
     Identification { 
         Title { "Nynorsk language locale for Norway" }
         Source { "IBM Globalization Center of Competency, Yamato Software Laboratory" }
@@ -62,36 +33,6 @@ nn_NO {
         NoExpression { "^[Nn].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "jan",
-            "feb",
-            "mar",
-            "apr",
-            "mai",
-            "jun",
-            "jul",
-            "aug",
-            "sep",
-            "okt",
-            "nov",
-            "des",
-            "",
-    }
-    MonthNames { 
-            "januar",
-            "februar",
-            "mars",
-            "april",
-            "mai",
-            "juni",
-            "juli",
-            "august",
-            "september",
-            "oktober",
-            "november",
-            "desember",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -121,15 +62,81 @@ nn_NO {
             "\u00A4 #,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %l" }
         DomesticFormat { "" }
         InternationalDialCode { "00" }
         InternationalPrefix { "47" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "kl HH.mm z",
+                    "kl HH.mm z",
+                    "kl HH.mm z",
+                    "kl HH.mm z",
+                    "dd. MMM yyyy ",
+                    "dd. MMM yyyy kl HH.mm z",
+                    "dd. MMM yyyy",
+                    "dd. MMM yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "su ",
+                            "m\u00E5 ",
+                            "ty ",
+                            "on ",
+                            "to ",
+                            "fr ",
+                            "lau ",
+                    }
+                    wide{
+                            "sundag ",
+                            "m\u00E5ndag ",
+                            "tysdag ",
+                            "onsdag ",
+                            "torsdag ",
+                            "fredag ",
+                            "laurdag ",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jan",
+                            "feb",
+                            "mar",
+                            "apr",
+                            "mai",
+                            "jun",
+                            "jul",
+                            "aug",
+                            "sep",
+                            "okt",
+                            "nov",
+                            "des",
+                            "",
+                    }
+                    wide{
+                            "januar",
+                            "februar",
+                            "mars",
+                            "april",
+                            "mai",
+                            "juni",
+                            "juli",
+                            "august",
+                            "september",
+                            "oktober",
+                            "november",
+                            "desember",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

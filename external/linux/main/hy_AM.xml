@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="hy" /> 
 		<territory type="AM" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">Հունվարի</month>
-					<month type="2">Փետրվարի</month>
-					<month type="3">Մարտի</month>
-					<month type="4">Ապրիլի</month>
-					<month type="5">Մայիսի</month>
-					<month type="6">Հունիսի</month>
-					<month type="7">Հուլիսի</month>
-					<month type="8">Օգոստոսի</month>
-					<month type="9">Սեպտեմբերի</month>
-					<month type="10">Հոկտեմբերի</month>
-					<month type="11">Նոյեմբերի</month>
-					<month type="12">Դեկտեմբերի</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">Հնվ</month>
-					<month type="2">Փտր</month>
-					<month type="3">Մար</month>
-					<month type="4">Ապր</month>
-					<month type="5">Մայ</month>
-					<month type="6">Հնս</month>
-					<month type="7">Հլս</month>
-					<month type="8">Օգս</month>
-					<month type="9">Սեպ</month>
-					<month type="10">Հոկ</month>
-					<month type="11">Նմբ</month>
-					<month type="12">Դեկ</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">Կիրակի</day>
-					<day type="mon">Երկուշաբթի</day>
-					<day type="tue">Երեքշաբթի</day>
-					<day type="wed">Չորեքշաբթի</day>
-					<day type="thu">Հինգշաբթի</day>
-					<day type="fri">Ուրբաթ</day>
-					<day type="sat">Շաբաթ</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">Կրկ</day>
-					<day type="mon">Երկ</day>
-					<day type="tue">Երք</day>
-					<day type="wed">Չրք</day>
-					<day type="thu">Հնգ</day>
-					<day type="fri">Ուր</day>
-					<day type="sat">Շբթ</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Հնվ</month>
+							<month type="2">Փտր</month>
+							<month type="3">Մար</month>
+							<month type="4">Ապր</month>
+							<month type="5">Մայ</month>
+							<month type="6">Հնս</month>
+							<month type="7">Հլս</month>
+							<month type="8">Օգս</month>
+							<month type="9">Սեպ</month>
+							<month type="10">Հոկ</month>
+							<month type="11">Նմբ</month>
+							<month type="12">Դեկ</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Հունվարի</month>
+							<month type="2">Փետրվարի</month>
+							<month type="3">Մարտի</month>
+							<month type="4">Ապրիլի</month>
+							<month type="5">Մայիսի</month>
+							<month type="6">Հունիսի</month>
+							<month type="7">Հուլիսի</month>
+							<month type="8">Օգոստոսի</month>
+							<month type="9">Սեպտեմբերի</month>
+							<month type="10">Հոկտեմբերի</month>
+							<month type="11">Նոյեմբերի</month>
+							<month type="12">Դեկտեմբերի</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Կրկ</day>
+							<day type="mon">Երկ</day>
+							<day type="tue">Երք</day>
+							<day type="wed">Չրք</day>
+							<day type="thu">Հնգ</day>
+							<day type="fri">Ուր</day>
+							<day type="sat">Շբթ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Կիրակի</day>
+							<day type="mon">Երկուշաբթի</day>
+							<day type="tue">Երեքշաբթի</day>
+							<day type="wed">Չորեքշաբթի</day>
+							<day type="thu">Հինգշաբթի</day>
+							<day type="fri">Ուրբաթ</day>
+							<day type="sat">Շաբաթ</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">

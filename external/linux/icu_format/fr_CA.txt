@@ -1794,35 +1794,6 @@ fr_CA {
             "CAD ",
             ",",
     }
-    DateTimePatterns { 
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "EEE dd MMM yyyy  z",
-            "EEE dd MMM yyyy hh:mm:ss z",
-            "yyyy-MMMM-dd",
-            "yyyy-MMMM-dd",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "dim",
-            "lun",
-            "mar",
-            "mer",
-            "jeu",
-            "ven",
-            "sam",
-    }
-    DayNames { 
-            "dimanche",
-            "lundi",
-            "mardi",
-            "mercredi",
-            "jeudi",
-            "vendredi",
-            "samedi",
-    }
     Identification { 
         Title { "French locale for Canada" }
         Source { "RAP" }
@@ -1846,36 +1817,6 @@ fr_CA {
         NoExpression { "^[nN].*" }
         YesStr { "" }
         NoStr { "" }
-    }
-    MonthAbbreviations { 
-            "jan",
-            "f\u00E9v",
-            "mar",
-            "avr",
-            "mai",
-            "jun",
-            "jui",
-            "ao\u00FB",
-            "sep",
-            "oct",
-            "nov",
-            "d\u00E9c",
-            "",
-    }
-    MonthNames { 
-            "janvier",
-            "f\u00E9vrier",
-            "mars",
-            "avril",
-            "mai",
-            "juin",
-            "juillet",
-            "ao\u00FBt",
-            "septembre",
-            "octobre",
-            "novembre",
-            "d\u00E9cembre",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -1905,15 +1846,81 @@ fr_CA {
             "#,##0.00 \u00A4;(#,##0.00 \u00A4)",
             "#,#0%",
     }
-    PaperSize { 
-        Hieght { "279" }
-        Width { "216" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "" }
         InternationalPrefix { "1" }
+    }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "EEE dd MMM yyyy  z",
+                    "EEE dd MMM yyyy hh:mm:ss z",
+                    "yyyy-MMMM-dd",
+                    "yyyy-MMMM-dd",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "dim",
+                            "lun",
+                            "mar",
+                            "mer",
+                            "jeu",
+                            "ven",
+                            "sam",
+                    }
+                    wide{
+                            "dimanche",
+                            "lundi",
+                            "mardi",
+                            "mercredi",
+                            "jeudi",
+                            "vendredi",
+                            "samedi",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jan",
+                            "f\u00E9v",
+                            "mar",
+                            "avr",
+                            "mai",
+                            "jun",
+                            "jui",
+                            "ao\u00FB",
+                            "sep",
+                            "oct",
+                            "nov",
+                            "d\u00E9c",
+                            "",
+                    }
+                    wide{
+                            "janvier",
+                            "f\u00E9vrier",
+                            "mars",
+                            "avril",
+                            "mai",
+                            "juin",
+                            "juillet",
+                            "ao\u00FBt",
+                            "septembre",
+                            "octobre",
+                            "novembre",
+                            "d\u00E9cembre",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

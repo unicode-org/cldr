@@ -2,10 +2,6 @@ th_TH {
     AddressFormat { 
         PostalFormat { "%f%N%a%N%d%N%r%t%e%t%b%N%h%t%s%N%T%N%S%N%z%c%N" }
     }
-    AmPmMarkers { 
-            "AM",
-            "PM",
-    }
     CollationElements { 
         Version { "1.0" }
         Overide { "false" }
@@ -421,35 +417,6 @@ th_TH {
             "THB ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss aa",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE dd MMM %Ey, ",
-            "EEE dd MMM %Ey, HH:mm:ss",
-            "dd/MMMM/%Ey",
-            "dd/MMMM/%Ey",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u0E2D\u0E32.",
-            "\u0E08.",
-            "\u0E2D.",
-            "\u0E1E.",
-            "\u0E1E\u0E24.",
-            "\u0E28.",
-            "\u0E2A.",
-    }
-    DayNames { 
-            "\u0E2D\u0E32\u0E17\u0E34\u0E15\u0E22\u0E4C",
-            "\u0E08\u0E31\u0E19\u0E17\u0E23\u0E4C",
-            "\u0E2D\u0E31\u0E07\u0E04\u0E32\u0E23",
-            "\u0E1E\u0E38\u0E18",
-            "\u0E1E\u0E24\u0E2B\u0E31\u0E2A\u0E1A\u0E14\u0E35",
-            "\u0E28\u0E38\u0E01\u0E23\u0E4C",
-            "\u0E40\u0E2A\u0E32\u0E23\u0E4C",
-    }
     Identification { 
         Title { "Thai locale for Thailand" }
         Source { "" }
@@ -473,36 +440,6 @@ th_TH {
         NoExpression { "^[nN\u0E21]" }
         YesStr { "\u0E43\u0E0A\u0E48" }
         NoStr { "\u0E44\u0E21\u0E48\u0E43\u0E0A\u0E48" }
-    }
-    MonthAbbreviations { 
-            "\u0E21.\u0E04.",
-            "\u0E01.\u0E1E.",
-            "\u0E21\u0E35.\u0E04.",
-            "\u0E40\u0E21.\u0E22.",
-            "\u0E1E.\u0E04.",
-            "\u0E21\u0E34.\u0E22.",
-            "\u0E01.\u0E04.",
-            "\u0E2A.\u0E04.",
-            "\u0E01.\u0E22.",
-            "\u0E15.\u0E04.",
-            "\u0E1E.\u0E22.",
-            "\u0E18.\u0E04.",
-            "",
-    }
-    MonthNames { 
-            "\u0E21\u0E01\u0E23\u0E32\u0E04\u0E21",
-            "\u0E01\u0E38\u0E21\u0E20\u0E32\u0E1E\u0E31\u0E19\u0E18\u0E4C",
-            "\u0E21\u0E35\u0E19\u0E32\u0E04\u0E21",
-            "\u0E40\u0E21\u0E29\u0E32\u0E22\u0E19",
-            "\u0E1E\u0E24\u0E29\u0E20\u0E32\u0E04\u0E21",
-            "\u0E21\u0E34\u0E16\u0E38\u0E19\u0E32\u0E22\u0E19",
-            "\u0E01\u0E23\u0E01\u0E0E\u0E32\u0E04\u0E21",
-            "\u0E2A\u0E34\u0E07\u0E2B\u0E32\u0E04\u0E21",
-            "\u0E01\u0E31\u0E19\u0E22\u0E32\u0E22\u0E19",
-            "\u0E15\u0E38\u0E25\u0E32\u0E04\u0E21",
-            "\u0E1E\u0E24\u0E28\u0E08\u0E34\u0E01\u0E32\u0E22\u0E19",
-            "\u0E18\u0E31\u0E19\u0E27\u0E32\u0E04\u0E21",
-            "",
     }
     NameFormat { 
         NamePattern { "%d%t%g%t%m%t%f" }
@@ -532,15 +469,85 @@ th_TH {
             "\u00A4#,##0.00;\u00A4 -#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "297" }
-        Width { "210" }
-        Units { "mm" }
-    }
     TelephoneFormat { 
         InternationalFormat { "+%c %a %l" }
         DomesticFormat { "" }
         InternationalDialCode { "001" }
         InternationalPrefix { "66" }
+    }
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    "AM",
+                    "PM",
+            }
+            DateTimePatterns{
+                    "hh:mm:ss aa",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE dd MMM %Ey, ",
+                    "EEE dd MMM %Ey, HH:mm:ss",
+                    "dd/MMMM/%Ey",
+                    "dd/MMMM/%Ey",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u0E2D\u0E32.",
+                            "\u0E08.",
+                            "\u0E2D.",
+                            "\u0E1E.",
+                            "\u0E1E\u0E24.",
+                            "\u0E28.",
+                            "\u0E2A.",
+                    }
+                    wide{
+                            "\u0E2D\u0E32\u0E17\u0E34\u0E15\u0E22\u0E4C",
+                            "\u0E08\u0E31\u0E19\u0E17\u0E23\u0E4C",
+                            "\u0E2D\u0E31\u0E07\u0E04\u0E32\u0E23",
+                            "\u0E1E\u0E38\u0E18",
+                            "\u0E1E\u0E24\u0E2B\u0E31\u0E2A\u0E1A\u0E14\u0E35",
+                            "\u0E28\u0E38\u0E01\u0E23\u0E4C",
+                            "\u0E40\u0E2A\u0E32\u0E23\u0E4C",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u0E21.\u0E04.",
+                            "\u0E01.\u0E1E.",
+                            "\u0E21\u0E35.\u0E04.",
+                            "\u0E40\u0E21.\u0E22.",
+                            "\u0E1E.\u0E04.",
+                            "\u0E21\u0E34.\u0E22.",
+                            "\u0E01.\u0E04.",
+                            "\u0E2A.\u0E04.",
+                            "\u0E01.\u0E22.",
+                            "\u0E15.\u0E04.",
+                            "\u0E1E.\u0E22.",
+                            "\u0E18.\u0E04.",
+                            "",
+                    }
+                    wide{
+                            "\u0E21\u0E01\u0E23\u0E32\u0E04\u0E21",
+                            "\u0E01\u0E38\u0E21\u0E20\u0E32\u0E1E\u0E31\u0E19\u0E18\u0E4C",
+                            "\u0E21\u0E35\u0E19\u0E32\u0E04\u0E21",
+                            "\u0E40\u0E21\u0E29\u0E32\u0E22\u0E19",
+                            "\u0E1E\u0E24\u0E29\u0E20\u0E32\u0E04\u0E21",
+                            "\u0E21\u0E34\u0E16\u0E38\u0E19\u0E32\u0E22\u0E19",
+                            "\u0E01\u0E23\u0E01\u0E0E\u0E32\u0E04\u0E21",
+                            "\u0E2A\u0E34\u0E07\u0E2B\u0E32\u0E04\u0E21",
+                            "\u0E01\u0E31\u0E19\u0E22\u0E32\u0E22\u0E19",
+                            "\u0E15\u0E38\u0E25\u0E32\u0E04\u0E21",
+                            "\u0E1E\u0E24\u0E28\u0E08\u0E34\u0E01\u0E32\u0E22\u0E19",
+                            "\u0E18\u0E31\u0E19\u0E27\u0E32\u0E04\u0E21",
+                            "",
+                    }
+                }
+            }
+        }
     }
 }

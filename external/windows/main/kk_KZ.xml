@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="Windows_XP"/>
-		<generation date="2003-12-19" />
+		<version number="Windows XP"/>
+		<generation date="2004-05-14" />
 		<language type="kk" /> 
 		<territory type="KZ" /> 
 	</identity>
@@ -18,54 +18,62 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">қаңтар</month>
-					<month type="2">ақпан</month>
-					<month type="3">наурыз</month>
-					<month type="4">сәуір</month>
-					<month type="5">мамыр</month>
-					<month type="6">маусым</month>
-					<month type="7">шілде</month>
-					<month type="8">тамыз</month>
-					<month type="9">қыркүйек</month>
-					<month type="10">қазан</month>
-					<month type="11">қараша</month>
-					<month type="12">желтоқсан</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">Қаң</month>
-					<month type="2">Ақп</month>
-					<month type="3">Нау</month>
-					<month type="4">Сәу</month>
-					<month type="5">Мам</month>
-					<month type="6">Мау</month>
-					<month type="7">Шіл</month>
-					<month type="8">Там</month>
-					<month type="9">Қыр</month>
-					<month type="10">Қаз</month>
-					<month type="11">Қар</month>
-					<month type="12">Жел</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">Жексенбі</day>
-					<day type="mon">Дүйсенбі</day>
-					<day type="tue">Сейсенбі</day>
-					<day type="wed">Сәрсенбі</day>
-					<day type="thu">Бейсенбі</day>
-					<day type="fri">Жұма</day>
-					<day type="sat">Сенбі</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">Жк</day>
-					<day type="mon">Дс</day>
-					<day type="tue">Сс</day>
-					<day type="wed">Ср</day>
-					<day type="thu">Бс</day>
-					<day type="fri">Жм</day>
-					<day type="sat">Сн</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Қаң</month>
+							<month type="2">Ақп</month>
+							<month type="3">Нау</month>
+							<month type="4">Сәу</month>
+							<month type="5">Мам</month>
+							<month type="6">Мау</month>
+							<month type="7">Шіл</month>
+							<month type="8">Там</month>
+							<month type="9">Қыр</month>
+							<month type="10">Қаз</month>
+							<month type="11">Қар</month>
+							<month type="12">Жел</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">қаңтар</month>
+							<month type="2">ақпан</month>
+							<month type="3">наурыз</month>
+							<month type="4">сәуір</month>
+							<month type="5">мамыр</month>
+							<month type="6">маусым</month>
+							<month type="7">шілде</month>
+							<month type="8">тамыз</month>
+							<month type="9">қыркүйек</month>
+							<month type="10">қазан</month>
+							<month type="11">қараша</month>
+							<month type="12">желтоқсан</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Жк</day>
+							<day type="mon">Дс</day>
+							<day type="tue">Сс</day>
+							<day type="wed">Ср</day>
+							<day type="thu">Бс</day>
+							<day type="fri">Жм</day>
+							<day type="sat">Сн</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Жексенбі</day>
+							<day type="mon">Дүйсенбі</day>
+							<day type="tue">Сейсенбі</day>
+							<day type="wed">Сәрсенбі</day>
+							<day type="thu">Бейсенбі</day>
+							<day type="fri">Жұма</day>
+							<day type="sat">Сенбі</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<week>
 					<firstDay day="mon"/>
 				</week>

@@ -2,10 +2,6 @@ fo_FO{
 
  Version{"Windows XP"}
  LocaleID{ "0438"}
- AmPmMarkers{
-  "",
-  ""
- }
  ShortCountry{
   "FRO"
  }
@@ -28,73 +24,10 @@ fo_FO{
   ","
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "HH.mm.ss",
-  "",
-  "d. MMMM yyyy",
-  "",
-  "",
-  "dd-MM-yyyy",
-  "",
- }
 
- DateTimeElements:intvector{
-  2,
-  
- }
- DayNames{
-  "sunnudagur",
-  "m\u00E1nadagur",
-  "t\u00FDsdagur",
-  "mikudagur",
-  "h\u00F3sdagur",
-  "fr\u00EDggjadagur",
-  "leygardagur"
- }
 
- DayAbbreviations{
-  "sun",
-  "m\u00E1n",
-  "t\u00FDs",
-  "mik",
-  "h\u00F3s",
-  "fr\u00ED",
-  "leyg"
- }
 
- MonthNames{
-  "januar",
-  "februar",
-  "mars",
-  "apr\u00EDl",
-  "mai",
-  "juni",
-  "juli",
-  "august",
-  "september",
-  "oktober",
-  "november",
-  "desember",
-  ""
- }
 
- MonthAbbreviations{
-  "jan",
-  "feb",
-  "mar",
-  "apr",
-  "mai",
-  "jun",
-  "jul",
-  "aug",
-  "sep",
-  "okt",
-  "nov",
-  "des",
-  ""
- }
 
  NumberElements{
   ",",
@@ -116,5 +49,83 @@ fo_FO{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "HH.mm.ss",
+          "",
+          "d. MMMM yyyy",
+          "",
+          "",
+          "dd-MM-yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "sun",
+                  "m\u00E1n",
+                  "t\u00FDs",
+                  "mik",
+                  "h\u00F3s",
+                  "fr\u00ED",
+                  "leyg"
+                    }
+                    wide{
+                  "sunnudagur",
+                  "m\u00E1nadagur",
+                  "t\u00FDsdagur",
+                  "mikudagur",
+                  "h\u00F3sdagur",
+                  "fr\u00EDggjadagur",
+                  "leygardagur"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "jan",
+                  "feb",
+                  "mar",
+                  "apr",
+                  "mai",
+                  "jun",
+                  "jul",
+                  "aug",
+                  "sep",
+                  "okt",
+                  "nov",
+                  "des",
+                  ""
+                    }
+                    wide{
+                  "januar",
+                  "februar",
+                  "mars",
+                  "apr\u00EDl",
+                  "mai",
+                  "juni",
+                  "juli",
+                  "august",
+                  "september",
+                  "oktober",
+                  "november",
+                  "desember",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-

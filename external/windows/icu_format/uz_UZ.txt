@@ -2,10 +2,6 @@ uz_UZ{
 
  Version{"Windows XP"}
  LocaleID{ "0443"}
- AmPmMarkers{
-  "",
-  ""
- }
  ShortCountry{
   "UZB"
  }
@@ -28,73 +24,10 @@ uz_UZ{
   ","
  }
 
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "yyyy 'yil' d-MMMM",
-  "",
-  "",
-  "dd/MM yyyy",
-  "",
- }
 
- DateTimeElements:intvector{
-  2,
-  
- }
- DayNames{
-  "yakshanba",
-  "dushanba",
-  "seshanba",
-  "chorshanba",
-  "payshanba",
-  "juma",
-  "shanba"
- }
 
- DayAbbreviations{
-  "yak.",
-  "dsh.",
-  "sesh.",
-  "chr.",
-  "psh.",
-  "jm.",
-  "sh."
- }
 
- MonthNames{
-  "yanvar",
-  "fevral",
-  "mart",
-  "aprel",
-  "may",
-  "iyun",
-  "iyul",
-  "avgust",
-  "sentyabr",
-  "oktyabr",
-  "noyabr",
-  "dekabr",
-  ""
- }
 
- MonthAbbreviations{
-  "yanvar",
-  "fevral",
-  "mart",
-  "aprel",
-  "may",
-  "iyun",
-  "iyul",
-  "avgust",
-  "sentyabr",
-  "oktyabr",
-  "noyabr",
-  "dekabr",
-  ""
- }
 
  NumberElements{
   ",",
@@ -116,6 +49,83 @@ uz_UZ{
   ""
  }
 
+    calendar{
+        gregorian{
+            AmPmMarkers{
+          "",
+          ""
+            }
+            DateTimeElements:intvector{
+          2,
+          
+            }
+            DateTimePatterns{
+          "",
+          "",
+          "HH:mm:ss",
+          "",
+          "yyyy 'yil' d-MMMM",
+          "",
+          "",
+          "dd/MM yyyy",
+          "",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                  "yak.",
+                  "dsh.",
+                  "sesh.",
+                  "chr.",
+                  "psh.",
+                  "jm.",
+                  "sh."
+                    }
+                    wide{
+                  "yakshanba",
+                  "dushanba",
+                  "seshanba",
+                  "chorshanba",
+                  "payshanba",
+                  "juma",
+                  "shanba"
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                  "yanvar",
+                  "fevral",
+                  "mart",
+                  "aprel",
+                  "may",
+                  "iyun",
+                  "iyul",
+                  "avgust",
+                  "sentyabr",
+                  "oktyabr",
+                  "noyabr",
+                  "dekabr",
+                  ""
+                    }
+                    wide{
+                  "yanvar",
+                  "fevral",
+                  "mart",
+                  "aprel",
+                  "may",
+                  "iyun",
+                  "iyul",
+                  "avgust",
+                  "sentyabr",
+                  "oktyabr",
+                  "noyabr",
+                  "dekabr",
+                  ""
+                    }
+                }
+            }
+        }
+    }
 }
-
-

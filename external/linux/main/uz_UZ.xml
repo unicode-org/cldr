@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="uz" /> 
 		<territory type="UZ" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">yanvar</month>
-					<month type="2">fevral</month>
-					<month type="3">mart</month>
-					<month type="4">aprel</month>
-					<month type="5">may</month>
-					<month type="6">iyun</month>
-					<month type="7">iyul</month>
-					<month type="8">avgust</month>
-					<month type="9">senyabr</month>
-					<month type="10">oktyabr</month>
-					<month type="11">noyabr</month>
-					<month type="12">dekabr</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">Yav</month>
-					<month type="2">Fev</month>
-					<month type="3">Mar</month>
-					<month type="4">Apr</month>
-					<month type="5">May</month>
-					<month type="6">Iyn</month>
-					<month type="7">Iyl</month>
-					<month type="8">Avg</month>
-					<month type="9">Sen</month>
-					<month type="10">Okt</month>
-					<month type="11">Noy</month>
-					<month type="12">Dek</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">yakshanba</day>
-					<day type="mon">dushanba</day>
-					<day type="tue">seshanba</day>
-					<day type="wed">chorshanba</day>
-					<day type="thu">payshanba</day>
-					<day type="fri">juma</day>
-					<day type="sat">shanba</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">Yak</day>
-					<day type="mon">Du</day>
-					<day type="tue">Se</day>
-					<day type="wed">Cho</day>
-					<day type="thu">Pay</day>
-					<day type="fri">Ju</day>
-					<day type="sat">Sha</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Yav</month>
+							<month type="2">Fev</month>
+							<month type="3">Mar</month>
+							<month type="4">Apr</month>
+							<month type="5">May</month>
+							<month type="6">Iyn</month>
+							<month type="7">Iyl</month>
+							<month type="8">Avg</month>
+							<month type="9">Sen</month>
+							<month type="10">Okt</month>
+							<month type="11">Noy</month>
+							<month type="12">Dek</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">yanvar</month>
+							<month type="2">fevral</month>
+							<month type="3">mart</month>
+							<month type="4">aprel</month>
+							<month type="5">may</month>
+							<month type="6">iyun</month>
+							<month type="7">iyul</month>
+							<month type="8">avgust</month>
+							<month type="9">senyabr</month>
+							<month type="10">oktyabr</month>
+							<month type="11">noyabr</month>
+							<month type="12">dekabr</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Yak</day>
+							<day type="mon">Du</day>
+							<day type="tue">Se</day>
+							<day type="wed">Cho</day>
+							<day type="thu">Pay</day>
+							<day type="fri">Ju</day>
+							<day type="sat">Sha</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">yakshanba</day>
+							<day type="mon">dushanba</day>
+							<day type="tue">seshanba</day>
+							<day type="wed">chorshanba</day>
+							<day type="thu">payshanba</day>
+							<day type="fri">juma</day>
+							<day type="sat">shanba</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">

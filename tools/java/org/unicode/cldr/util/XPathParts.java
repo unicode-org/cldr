@@ -291,6 +291,13 @@ public class XPathParts {
 		if (index == -1) return null;
 		return getAttributes(index);
 	}
+	
+	public String findAttribute(String elementName, String attributeName) {
+		Map attributes = findAttributes(elementName);
+		if (attributes == null) return null;
+		return (String)attributes.get(attributeName);
+	}
+
 
 	/**
 	 * Add an element
@@ -651,5 +658,15 @@ public class XPathParts {
 		if (parent.length() == possibleSublocale.length()) return 0;
 		if (possibleSublocale.charAt(parent.length()) != '_') return -1; // last subtag too long
 		return 1;
+	}
+
+	/**
+	 * @param string
+	 * @param string2
+	 * @param string3
+	 */
+	public void setAttribute(String elementName, String attributeName, String attributeValue) {
+		Map m = findAttributes(elementName);
+		m.put(attributeName, attributeValue);
 	}
 }

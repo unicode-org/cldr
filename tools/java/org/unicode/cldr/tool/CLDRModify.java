@@ -5,10 +5,12 @@
  ******************************************************************************
 */
 package org.unicode.cldr.tool;
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -19,15 +21,22 @@ import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.StringValue;
+import org.unicode.cldr.util.CLDRFile.Value;
 
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ULocale;
 
 import org.unicode.cldr.util.Utility.*;
 
+/**
+ * Tool for applying modifications to the CLDR files. Use -h to see the options.
+ */
 public class CLDRModify {
+	static final boolean COMMENT_REMOVALS = false; // append removals as comments
+	// TODO make this into input option.
 	
 	private static final int
 	    HELP1 = 0,
@@ -51,8 +60,27 @@ public class CLDRModify {
 	    UOption.create("fix", 'f', UOption.NO_ARG),
 	};
 	
+	static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
+	+ "-h or -?\tfor this message" + XPathParts.NEWLINE
+	+ "-m<regex>\tto restrict the locales to what matches <regex>" + XPathParts.NEWLINE
+		+ "-j<prefix>\tto merge two sets of files together (from <source_dir>/X and <source_dir>/../to_merge/<prefix>X)" + XPathParts.NEWLINE
+		+ "-r\tto minimize the results (removing items that inherit from parent)." + XPathParts.NEWLINE
+		+ "-f\tto perform various fixes on the files (TBD: add argument to specify which ones)" + XPathParts.NEWLINE;
+	
+	/**
+	 * Picks options and executes.
+	 */
 	public static void main(String[] args) throws Exception {
         UOption.parseArgs(args, options);
+        if (options[HELP1].doesOccur || options[HELP1].doesOccur) {
+        	System.out.println(HELP_TEXT
+        			+ "-"+options[SOURCEDIR].shortName + "\tsource directory. Default = " 
+						+ new File(Utility.MAIN_DIRECTORY).getCanonicalPath() + XPathParts.NEWLINE
+        			+ "-"+options[DESTDIR].shortName + "\tdestination directory. Default = "
+						+ new File(Utility.GEN_DIRECTORY + "main/").getCanonicalPath() + XPathParts.NEWLINE
+        			);
+        	return;
+        }
 		//String sourceDir = "C:\\ICU4C\\locale\\common\\main\\";
 		String mergeDir = options[SOURCEDIR].value + "../to_merge/";	// Utility.COMMON_DIRECTORY + "main/";
 		String sourceDir = options[SOURCEDIR].value;	// Utility.COMMON_DIRECTORY + "main/";
@@ -120,7 +148,7 @@ public class CLDRModify {
 				String parent = CLDRFile.getParent(test);
 				if (parent != null) {
 					CLDRFile toRemove = cldrFactory.make(parent, true);
-					k.removeDuplicates(toRemove, true);
+					k.removeDuplicates(toRemove, COMMENT_REMOVALS);
 				}
 			}
 			//System.out.println(CLDRFile.getAttributeOrder());
@@ -156,8 +184,75 @@ public class CLDRModify {
 		System.out.println("Done");
 	}
 	
+	abstract static class CLDRFilter {
+		protected XPathParts parts = new XPathParts(null, null);
+		protected XPathParts fullparts = new XPathParts(null, null);
+		public abstract void handle(CLDRFile k, String xpath, Set removal, CLDRFile additions);
+	}
+	
+	static CLDRFilter fixCS = new CLDRFilter() {
+		public void handle(CLDRFile k, String xpath, Set removal, CLDRFile replacements) {
+			if (!xpath.startsWith("/ldml/localeDisplayNames/territories/territory")) return;
+			String type = parts.set(xpath).findAttribute("territory", "type");
+			if ("CS".equals(type) || "SP".equals(type)) {
+				Value v = k.getValue(xpath);
+				String fullXPath = v.getFullXPath();
+				fullparts.set(fullXPath);
+				if (type.equals("CS")) {
+					parts.setAttribute("territory", "type", "200");
+					fullparts.setAttribute("territory", "type", "200");
+				} else {
+					parts.setAttribute("territory", "type", "CS");
+					fullparts.setAttribute("territory", "type", "CS");
+					parts.setAttribute("territory", "draft", "true");
+					fullparts.setAttribute("territory", "draft", "true");
+				}
+				replacements.add(parts.toString(), fullparts.toString(), v.getStringValue());
+				removal.add(xpath);
+			}
+		}		
+	};
+	
+	static CLDRFilter fixNarrow = new CLDRFilter() {
+		public void handle(CLDRFile k, String xpath, Set removal, CLDRFile replacements) {
+			if (xpath.indexOf("[@type=\"narrow\"]") < 0) return;
+			parts.set(xpath);
+			String element = "";
+			if (parts.findElement("dayContext") >= 0) {
+				element = "dayContext";
+			} else if (parts.findElement("monthContext") >= 0) {
+				element = "monthContext";				
+			} else return;
+			
+			// change the element type UNLESS it conflicts
+			parts.setAttribute(element, "type", "stand-alone");
+			if (k.getValue(parts.toString()) != null) return;
+			
+			Value v = k.getValue(xpath);
+			String fullXPath = v.getFullXPath();
+			fullparts.set(fullXPath);
+			fullparts.setAttribute(element, "type", "stand-alone");
+			replacements.add(parts.toString(), fullparts.toString(), v.getStringValue());
+			removal.add(xpath);
+		}		
+	};
+	
+	static CLDRFilter fixNumbers = new CLDRFilter() {
+		public void handle(CLDRFile k, String xpath, Set removal, CLDRFile replacements) {
+			byte type = CLDRTest.getNumericType(xpath);
+			if (type == CLDRTest.NOT_NUMERIC_TYPE) return;
+			CLDRFile.StringValue value = (StringValue) k.getValue(xpath);
+			// at this point, we only have currency formats
+			boolean isPOSIX = k.getKey().indexOf("POSIX") >= 0;
+			String pattern = CLDRTest.getCanonicalPattern(value.getStringValue(), type, isPOSIX);
+			if (pattern.equals(value.getStringValue())) return;
+			replacements.add(xpath, value.getFullXPath(), pattern);
+		}
+	};
+	
 	/**
-	 * @param k
+	 * Perform various fixes
+	 * TODO add options to pick which one.
 	 */
 	private static void fix(CLDRFile k) {
 		
@@ -167,31 +262,40 @@ public class CLDRModify {
 		Set removal = new TreeSet(CLDRFile.ldmlComparator);
 		CLDRFile replacements = CLDRFile.make("temp");
 		
-		// Fix number problems across locales
-		// http://www.jtcsv.com/cgibin/locale-bugs?findid=180
-		boolean isPOSIX = k.getKey().indexOf("POSIX") >= 0;
 		for (Iterator it2 = k.keySet().iterator(); it2.hasNext();) {
 			String xpath = (String) it2.next();
-			byte type = CLDRTest.getNumericType(xpath);
-			if (type == CLDRTest.NOT_NUMERIC_TYPE) continue;
-			CLDRFile.StringValue value = (StringValue) k.getValue(xpath);
-			// at this point, we only have currency formats
-			String pattern = CLDRTest.getCanonicalPattern(value.getStringValue(), type, isPOSIX);
-			if (pattern.equals(value.getStringValue())) continue;
-			replacements.add(xpath, value.getFullXPath(), pattern);
-		}
-		
-		//Before removing SP, do the following!
-		//http://www.jtcsv.com/cgibin/locale-bugs?findid=351
-		/*
-		<territory type="CS">Czechoslovakia</territory>
-		=>
-		<territory type="200">Czechoslovakia</territory>
 
-		<territory type="SP">Serbia</territory>
-		=>
-		<territory type="CS" draft="true">Serbia</territory> <!-- should be serbia & montegro -->
-		*/
+			// Fix number problems across locales
+			// http://www.jtcsv.com/cgibin/locale-bugs?findid=180
+			//fixNumbers.handle(k, xpath, removal, replacements);
+		
+			//Before removing SP, do the following!
+			//http://www.jtcsv.com/cgibin/locale-bugs?findid=351, 353
+			/*
+			<territory type="CS">Czechoslovakia</territory>
+			=>
+			<territory type="200">Czechoslovakia</territory>
+	
+			<territory type="SP">Serbia</territory>
+			=>
+			<territory type="CS" draft="true">Serbia</territory> <!-- should be serbia & montegro -->
+			*/
+			fixCS.handle(k, xpath, removal, replacements);
+			
+			//Give best default for each language
+			//http://www.jtcsv.com/cgibin/locale-bugs?findid=282
+			
+			// It appears that all of the current "narrow" data that we have was intended to be
+			// stand-alone instead of format, and should be changed to be so in a mechanical
+			// sweep.
+			//fixNarrow.handle(k, xpath, removal, replacements);
+			
+			// move references
+			// http://www.jtcsv.com/cgibin/cldr/locale-bugs-private/data?id=445
+			// My recommendation would be: collect all
+			// contents of standard and references. Number the standards S001, S002,... and the
+			// references R001, R002, etc. Emit
+		}
 		
 		//remove bad attributes
 		//		http://www.jtcsv.com/cgibin/locale-bugs?findid=351
@@ -200,33 +304,17 @@ public class CLDRModify {
 		
 		CLDRTest.checkAttributeValidity(k, null, removal);
 		
-		//Give best default for each language
-		//http://www.jtcsv.com/cgibin/locale-bugs?findid=282
-		
-		// Fix number problems across locales
-		// http://www.jtcsv.com/cgibin/locale-bugs?findid=180
-		
-		// It appears that all of the current "narrow" data that we have was intended to be
-		// stand-alone instead of format, and should be changed to be so in a mechanical
-		// sweep.
-		
-		// move references
-		// http://www.jtcsv.com/cgibin/cldr/locale-bugs-private/data?id=445
-		// My recommendation would be: collect all
-		// contents of standard and references. Number the standards S001, S002,... and the
-		// references R001, R002, etc. Emit
 		
 		// now do the actions we collected
 		
-		k.putAll(replacements, false);
 		if (removal.size() != 0) {
-			k.appendFinalComment("Illegal attributes removed:");
-			k.removeAll(removal, true);
+			k.removeAll(removal, COMMENT_REMOVALS);
 		}
+		k.putAll(replacements, false);
 	}
 
 	/**
-	 * @param cldrFactory
+	 * Internal
 	 */
 	private static void testMinimize(Factory cldrFactory) {
 		// quick test of following
@@ -247,9 +335,7 @@ public class CLDRModify {
 	}
 
 	/**
-	 * @param sourceDir
-	 * @param targetDir
-	 * @return
+	 * Internal
 	 */
 	private static SimpleLineComparator testLineComparator(String sourceDir, String targetDir) {
 		SimpleLineComparator lineComparer = new SimpleLineComparator(
@@ -268,6 +354,9 @@ public class CLDRModify {
 		return lineComparer;
 	}
 
+	/**
+	 * Internal
+	 */
 	public static void testJavaSemantics() {
 		Collator caseInsensitive = Collator.getInstance(ULocale.ROOT);
 		caseInsensitive.setStrength(Collator.SECONDARY);

@@ -40,24 +40,48 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 
 /**
- * Initial version of CLDR tests
+ * Initial version of CLDR tests. Each test is named TextXXX. To run all the tests, use the options
+ * <blockquote>-nothrow</blockquote>
+ * To run a particular set of tests, include their names, like 
+ * <blockquote>-nothrow TestForIllegalAttributeValues TestMinimalLocalization</blockquote>
+ * To show more information (logln), add -verbose
+ * <p>There are some environment variables that can be used with the test.
+ * <br>-DXML_MATCH=<regular expression> skips all locales that don't match the regular expression
+ * <br>-DMAIN_DIR=<filesystem directory> resets to a different main directory (eg not cldr/common/main.
+ * For example, some of the tools generate in cldr/common/gen/main, so this can be used to check that directory.
+ * <br>-DSKIP_DRAFT=<boolean> skips draft locales if <boolean> is a string starting with T or t 
  */
 public class CLDRTest extends TestFmwk {
-	
-	private static String MATCH; // = ".*"; // "fr" ".*";
-	private boolean skipDraft = true;
+	/**
+	 * privates
+	 */
+	private static String MATCH;
+	private static String MAIN_DIR;
+	private static boolean SKIP_DRAFT;
 	private Set locales;
 	private Set languageLocales;
 	private CLDRFile.Factory cldrFactory;
 	private CLDRFile resolvedRoot;
 	private CLDRFile resolvedEnglish;
-	
+	private final UnicodeSet commonAndInherited = new UnicodeSet("[[:script=common:][:script=inherited:][:alphabetic=false:]]");
+	private static int[][] DIGIT_COUNT = {{1,2,2}, {1,0,3}, {1,0,0}, {0,0,0}};
+	private static int[][] POSIX_DIGIT_COUNT = {{1,2,2}, {1,0,6}, {1,0,0}, {1,6,6}};
+	private static final String[] WIDTHS = {"narrow", "wide", "abbreviated"};
+	private static final String[] MONTHORDAYS = {"day", "month"};
+	private Map localeNameCache = new HashMap();
+	private CLDRFile english = null;
+		
 	/**
 	 * TestFmwk boilerplate
 	 */
 	public static void main(String[] args) throws Exception {
         MATCH = System.getProperty("XML_MATCH");
         if (MATCH == null) MATCH = ".*";
+        MAIN_DIR = System.getProperty("XML_MAIN_DIR");
+        if (MAIN_DIR == null) MAIN_DIR = Utility.MAIN_DIRECTORY;
+        String skipDraftValue = System.getProperty("XML_SKIP_DRAFT");
+        if (skipDraftValue != null) skipDraftValue = skipDraftValue.toLowerCase();
+        SKIP_DRAFT = skipDraftValue != null && skipDraftValue.startsWith("t");
 
         double deltaTime = System.currentTimeMillis();
         new CLDRTest().run(args);
@@ -70,7 +94,7 @@ public class CLDRTest extends TestFmwk {
 	 */
 	public CLDRTest() throws SAXException, IOException {
 		// TODO parameterize the directory and filter
-		cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, MATCH);
+		cldrFactory = CLDRFile.Factory.make(MAIN_DIR, MATCH);
 		//CLDRKey.main(new String[]{"-mde.*"});
 		locales = cldrFactory.getAvailable();
 		languageLocales = cldrFactory.getAvailableLanguages();
@@ -112,7 +136,7 @@ public class CLDRTest extends TestFmwk {
 	}
 	
 	/**
-	 * @return
+	 * @return the numeric type, for use by getCanonicalPattern
 	 */
 	public static byte getNumericType(String xpath) {
 		if (!xpath.startsWith("/ldml/numbers/")) {
@@ -134,11 +158,15 @@ public class CLDRTest extends TestFmwk {
 		}
 	}
 
+	/**
+	 * Numeric pattern type, for use in getCanonicalPattern
+	 */
 	public static final byte NOT_NUMERIC_TYPE = -1, CURRENCY_TYPE = 0, DECIMAL_TYPE = 1, PERCENT_TYPE = 2, SCIENTIFIC_TYPE = 3;
 	public static final String[] TYPE_NAME = {"currency", "decimal", "percent", "scientific"};
-	static int[][] DIGIT_COUNT = {{1,2,2}, {1,0,3}, {1,0,0}, {0,0,0}};
-	static int[][] POSIX_DIGIT_COUNT = {{1,2,2}, {1,0,6}, {1,0,0}, {1,6,6}};
 	
+	/**
+	 * @return a canonical numeric pattern, based on the type, and the isPOSIX flag. The latter is set for en_US_POSIX.
+	 */
 	public static String getCanonicalPattern(String inpattern, byte type, boolean isPOSIX) {
 		// TODO fix later to properly handle quoted ;
 		DecimalFormat df = new DecimalFormat(inpattern);
@@ -154,7 +182,10 @@ public class CLDRTest extends TestFmwk {
 		return pattern;
 	}
 	
-	static class ValueCount {
+	/**
+	 * Internal class
+	 */
+	private static class ValueCount {
 		int count = 1;
 		Value value;
 	}
@@ -217,7 +248,7 @@ public class CLDRTest extends TestFmwk {
 						if (p.containsAttributeValue("draft","true")) draft = " [draft]";
 					}
 					String count = (vc.count == size ? "" : vc.count + "/") + size;
-					errln(getLocaleAndName(parent) + draft +
+					errln(getLocaleAndName(parent) + "\t" + draft +
 							", all children (" + count + ") have same value for:\t"
 							+ xpath + ";\t" + vc.value.getStringValue());
 				}
@@ -225,7 +256,7 @@ public class CLDRTest extends TestFmwk {
 		}
 	}
 	
-	final UnicodeSet commonAndInherited = new UnicodeSet("[[:script=common:][:script=inherited:][:alphabetic=false:]]");
+	static String[] EXEMPLAR_SKIPS = {"/hourFormat", "/exemplarCharacters", "/pattern", "/localizedPatternChars"};
 	
 	/**
 	 * Check that the exemplars include all characters in the data.
@@ -242,18 +273,20 @@ public class CLDRTest extends TestFmwk {
 			CLDRFile plain = cldrFactory.make(locale, false);
 			int count = 0;
 			localeMissing.clear();
+			file:
 			for (Iterator it2 = plain.keySet().iterator(); it2.hasNext();) {
 				String xpath = (String) it2.next();
-				if (xpath.indexOf("/exemplarCharacters") > 0
-						|| xpath.indexOf("/pattern") > 0) continue; // skip some items.
+				for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
+					if (xpath.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) continue file; // skip some items.
+				}
 				Value pvalue = plain.getValue(xpath);
-				if (skipDraft && pvalue.getFullXPath().indexOf("[@draft=\"true\"") > 0) continue;
+				if (SKIP_DRAFT && pvalue.getFullXPath().indexOf("[@draft=\"true\"") > 0) continue;
 				String value = pvalue.getStringValue();
 				if (!exemplars.containsAll(value)) {
 					count++;
 					UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
 					localeMissing.addAll(missing);
-					errln(getLocaleAndName(locale) + "\t" + xpath + "/" + value + " contains " + missing + ", not in exemplars");					
+					errln(getLocaleAndName(locale) + "\t" + xpath + "\t<" + value + "> contains " + missing + ", not in exemplars");					
 				}
 			}
 			NumberFormat nf = new DecimalFormat("000");
@@ -269,9 +302,7 @@ public class CLDRTest extends TestFmwk {
 	}
 
 	/**
-	 * @param locale
-	 * @param cldrfile
-	 * @return
+	 * Internal
 	 */
 	private UnicodeSet getFixedExemplarSet(String locale, CLDRFile cldrfile) {
 		UnicodeSet exemplars = getExemplarSet(cldrfile,"");
@@ -285,8 +316,7 @@ public class CLDRTest extends TestFmwk {
 	}
 
 	/**
-	 * @param cldrfile
-	 * @return
+	 * @return Gets an exemplar set. Also verifies that the set contains no properties.
 	 */
 	public UnicodeSet getExemplarSet(CLDRFile cldrfile, String type) {
 		if (type.length() != 0) type = "[@type=\"" + type + "\"]";
@@ -301,17 +331,20 @@ public class CLDRTest extends TestFmwk {
 		return result;
 	}
 	
-	Map localeNameCache = new HashMap();
-	CLDRFile english = null;
-
 	public String getLocaleAndName(String locale) {
 		return locale + " (" + getLocaleName(locale) + ")";
 	}
 	
+	/**
+	 * @return the ID plus its localization (for language, script, and territory IDs only)
+	 */
 	public String getIDAndLocalization(String id) {
 		return id + " " + getLocalization(id);
 	}
 
+	/**
+	 * @return the localization (for language, script, and territory IDs only)
+	 */
 	public String getLocalization(String id) {
 		if (english == null) english = cldrFactory.make("en", true);
 		if (id.length() == 0) return "?";
@@ -323,8 +356,7 @@ public class CLDRTest extends TestFmwk {
 	}
 
 	/**
-	 * @param missing
-	 * @return
+	 * Internal
 	 */
 	private String getIDAndLocalization(Set missing) {
 		StringBuffer buffer = new StringBuffer();
@@ -362,10 +394,7 @@ public class CLDRTest extends TestFmwk {
 	}
 
 	/**
-	 * @param english
-	 * @param pieces
-	 * @param i
-	 * @return
+	 * Internal
 	 */
 	private String getName(CLDRFile english, String kind, String type) {
 		Value v = english.getValue("/ldml/localeDisplayNames/" + kind + "[@type=\"" + type + "\"]");
@@ -374,7 +403,7 @@ public class CLDRTest extends TestFmwk {
 	}
 	
 	/**
-	 * Make sure we are only using attribute values that are in RFC3066, the Olson database (with aliases removed)
+	 * Make sure we are only using attribute values that are in RFC3066bis, the Olson database (with aliases removed)
 	 * or ISO 4217
 	 * @throws IOException
 	 */
@@ -418,13 +447,12 @@ public class CLDRTest extends TestFmwk {
 	 * locale $ is used for both USD and UAD.
 	 *
 	 */
-	public void testDisplayNameCollisions() {
+	public void TestDisplayNameCollisions() {
 		Map[] maps = new HashMap[CLDRFile.LIMIT_TYPES];
 		for (int i = 0; i < maps.length; ++i) maps[i] = new HashMap();
 		Set collisions = new TreeSet();
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String locale = (String)it.next();
-			logln("Testing: " + locale);
 			CLDRFile item = cldrFactory.make(locale, true);
 			for (int i = 0; i < maps.length; ++i) maps[i].clear();
 			collisions.clear();
@@ -441,14 +469,16 @@ public class CLDRTest extends TestFmwk {
 				}
 				collisions.add(CLDRFile.getNameTypeName(nameType) + "\t" + value + "\t" + xpath + "\t" + xpath2);
 			}
-			
+			String name = getLocaleAndName(locale) + "\t";
 			for (Iterator it2 = collisions.iterator(); it2.hasNext();) {
-				errln((String)it2.next());
+				errln(name + (String)it2.next());
 			}
 		}		
 	}
 
 	/**
+	 * Checks the validity of attributes, based on StandardCodes.
+	 * The invalid codes are added to badCodes, and the failing xpaths are added to xpathFailures.
 	 * @param item
 	 * @param badCodes
 	 * @param xpathFailures
@@ -473,8 +503,7 @@ public class CLDRTest extends TestFmwk {
 	}
 
 	/**
-	 * @param avalues
-	 * @return
+	 * Internal
 	 */
 	private String show(Collection avalues) {
 		StringBuffer result = new StringBuffer("{");
@@ -489,12 +518,7 @@ public class CLDRTest extends TestFmwk {
 	}
 
 	/**
-	 * @param xpath TODO
-	 * @param element
-	 * @param attribute
-	 * @param avalue
-	 * @param xpathsFailing TODO
-	 * @throws IOException
+	 * Internal function
 	 */
 	private static void checkValidity(String xpath, String element, String attribute, String avalue, Map results, Set xpathsFailing)  {
 		StandardCodes codes = StandardCodes.make();
@@ -508,11 +532,7 @@ public class CLDRTest extends TestFmwk {
 	}
 
 	/**
-	 * @param xpath TODO
-	 * @param avalue
-	 * @param codes
-	 * @param xpathFailures TODO
-	 * @param locale
+	 * Internal function
 	 */
 	private static void checkCodes(String xpath, String code, String avalue, StandardCodes codes, Map results, Set xpathFailures) {
 		if (codes.getData(code, avalue) == null) {
@@ -528,22 +548,23 @@ public class CLDRTest extends TestFmwk {
 	}
 
 	/**
-	 * Verify that English has everything translated.
+	 * Verify that a small set of locales (currently just English) has everything translated.
 	 * @throws IOException
 	 */
-	public void TestTranslatedCodes() {
+	public void TestCompleteLocales() {
 		// just test English for now
 		if (english == null) english = cldrFactory.make("en", true);		
 		checkTranslatedCodes(english);
 	}
 
 	/**
-	 * @throws IOException
+	 * Tests that the file contains codes for all main display name ids: language, script, territory, tzid, currency.
 	 */
 	private void checkTranslatedCodes(CLDRFile cldrfile)  {
 		StandardCodes codes = StandardCodes.make();
 		checkTranslatedCode(cldrfile, codes, "currency", "/ldml/numbers/currencies/currency", "/displayName");
-		checkTranslatedCode(cldrfile, codes, "tzid", "/ldml/dates/timeZoneNames/zone", "");
+		// can't check timezones for English.
+		// checkTranslatedCode(cldrfile, codes, "tzid", "/ldml/dates/timeZoneNames/zone", "");
 		checkTranslatedCode(cldrfile, codes, "language", "/ldml/localeDisplayNames/languages/language", "");
 		checkTranslatedCode(cldrfile, codes, "script", "/ldml/localeDisplayNames/scripts/script", "");
 		checkTranslatedCode(cldrfile, codes, "territory", "/ldml/localeDisplayNames/territories/territory", "");
@@ -564,10 +585,11 @@ public class CLDRTest extends TestFmwk {
 			String rfcname = codes.getData(type, code);
 			//if (rfcname.equals("ZZ")) continue;
 			++count;
+			if (rfcname.equals("PRIVATE USE")) continue;
 			String fullFragment = prefix + "[@type=\"" + code + "\"]" + postfix;
 			Value v = cldrfile.getValue(fullFragment);
 			if (v == null) {
-				errln(" Missing English translation for:\t<" + type + " type=\""  + code + "\">" + rfcname + "</" + type + ">");
+				errln("Missing translation for:\t<" + type + " type=\""  + code + "\">" + rfcname + "</" + type + ">");
 				continue;
 			}
 			String translation = v.getStringValue();
@@ -635,6 +657,9 @@ public class CLDRTest extends TestFmwk {
 		}
 	}
 
+	/**
+	 * Verify that the minimal localizations are present.
+	 */
 	public void TestMinimalLocalization() throws IOException {
 		boolean testDraft = false;
 		Map language_scripts = new HashMap();
@@ -721,6 +746,9 @@ public class CLDRTest extends TestFmwk {
 		}
 	}
 	
+	/**
+	 * Internal
+	 */
 	private String getDateKey(String monthOrDay, String width, String code) {
 		// String context = width.equals("narrow") ? "format" : "stand-alone";
 		return "/ldml/dates/calendars/calendar[@type=\"gregorian\"]/"
@@ -729,13 +757,13 @@ public class CLDRTest extends TestFmwk {
 				+ "[@type=\"" + code + "\"]";
 	}
 
+	/**
+	 * Internal
+	 */
 	private String getDateKey(int type, String code) {
 		return getDateKey(MONTHORDAYS[type / 3], WIDTHS[type % 3], code);
 	}
 	
-	static final String[] WIDTHS = {"narrow", "wide", "abbreviated"};
-	static final String[] MONTHORDAYS = {"day", "month"};
-
 	/**
 	 * @param item
 	 * @param codes
@@ -801,7 +829,11 @@ public class CLDRTest extends TestFmwk {
 		}		
 	};
 	
-	public void testSupplemental() {
+	/**
+	 * Tests that the supplemental data is well-formed.
+	 *
+	 */
+	public void TestSupplementalData() {
 		Map language_scripts = new TreeMap();
 		Map language_territories = new TreeMap();
 		Map groups = new TreeMap();
@@ -904,7 +936,11 @@ public class CLDRTest extends TestFmwk {
 		
 	}
 	
-	public void testZones() {
+	/**
+	 * Test that the zone ids are well-formed.
+	 *
+	 */
+	public void TestZones() {
 		StandardCodes sc = StandardCodes.make();
 		
 		Map defaultNames = new TreeMap();
@@ -940,14 +976,14 @@ public class CLDRTest extends TestFmwk {
 		s.clear();
 		s.addAll(zonesWithRules);
 		s.removeAll(core);
-		if (s.size() != 0) errln("Zones with rules that are not canonical: " + s);
+		if (s.size() != 0) logln("Zones with rules that are not canonical: " + s);
 		
 		logln("Checking that the rule data are all canonical"); 
 		s.clear();
 		s.addAll(core);
 		s.removeAll(zonesWithRules);
 		s.removeAll(old_new.keySet());
-		if (s.size() != 0) errln("Canonical zones that don't have rules or links: " + s);
+		if (s.size() != 0) logln("Canonical zones that don't have rules or links: " + s);
 		
 		for (Iterator it = old_new.keySet().iterator(); it.hasNext(); ) {
 			String oldItem = (String) it.next();

@@ -66,7 +66,7 @@ http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
 public class CLDRFile implements Lockable {
 	public static boolean HACK_ORDER = false;
-	private static boolean DEBUG_LOGGING = true;
+	private static boolean DEBUG_LOGGING = false;
 	private static boolean SHOW_ALIAS_FIXES = false;
 	
 	public static final String SUPPLEMENTAL_NAME = "supplementalData";
@@ -211,21 +211,34 @@ public class CLDRFile implements Lockable {
 <generation date="2004-08-27"/>
 <language type="en"/>
 		 */
+		// if ldml has any attributes, get them.		
+		String ldml_identity = "/ldml/identity";
+		if (xpath_value.size() > 0) {
+			String firstPath = (String) xpath_value.keySet().iterator().next();
+			Value firstValue = (Value) xpath_value.get(firstPath);
+			String firstFullPath = firstValue.getFullXPath();
+			XPathParts parts = new XPathParts(null,null).set(firstFullPath);
+			if (firstFullPath.indexOf("/identity") >= 0) {
+				ldml_identity = parts.toString(2);
+			} else {
+				ldml_identity = parts.toString(1) + "/identity";			
+			}
+		}
 		
-		add("/ldml/identity/version","/ldml/identity/version[@number=\"1.3\"]","");
-		add("/ldml/identity/generation","/ldml/identity/generation[@date=\"" + myDateFormat.format(new Date()) + "\"]","");
+		add(ldml_identity + "/version[@number=\"$Revision$\"]","");
+		add(ldml_identity + "/generation[@date=\"$Date$\"]","");
 		LocaleIDParser lip = new LocaleIDParser();
 		lip.set(key);
-		add("/ldml/identity/language[@type=\"" + lip.getLanguage() + "\"]","");
+		add(ldml_identity + "/language[@type=\"" + lip.getLanguage() + "\"]","");
 		if (lip.getScript().length() != 0) {
-			add("/ldml/identity/script[@type=\"" + lip.getScript() + "\"]","");
+			add(ldml_identity + "/script[@type=\"" + lip.getScript() + "\"]","");
 		}
 		if (lip.getRegion().length() != 0) {
-			add("/ldml/identity/territory[@type=\"" + lip.getRegion() + "\"]","");
+			add(ldml_identity + "/territory[@type=\"" + lip.getRegion() + "\"]","");
 		}
 		String[] variants = lip.getVariants();
 		for (int i = 0; i < variants.length; ++i) {
-			add("/ldml/identity/variant[@type=\"" + variants[i] + "\"]","");
+			add(ldml_identity + "/variant[@type=\"" + variants[i] + "\"]","");
 		}
 		// now do the rest
 		
@@ -273,11 +286,11 @@ public class CLDRFile implements Lockable {
 	}
 
 	/**
-	 * @param xpath
+	 * @param fullxpath
 	 * @param value
 	 */
-	private void add(String xpath, String value) {
-		add(xpath, xpath, value);
+	private void add(String fullxpath, String value) {
+		add(getDistinguishingXPath(fullxpath), fullxpath, value);
 	}
 
 	/**
@@ -378,6 +391,7 @@ private boolean isSupplemental;
     }
     
    public void removeAll(Set xpaths, boolean butComment) {
+   		if (butComment) appendFinalComment("Illegal attributes removed:");
     	for (Iterator it = xpaths.iterator(); it.hasNext();) {
     		remove((String) it.next(), butComment);
     	}
@@ -400,7 +414,7 @@ private boolean isSupplemental;
     		if (!currentValue.getStringValue().equals(otherValue.getStringValue())) continue;
     		if (first) {
     			first = false;
-    			appendFinalComment("Duplicates removed:");
+    			if (butComment) appendFinalComment("Duplicates removed:");
     		}
     		remove(xpath, butComment);
     	}
@@ -494,6 +508,21 @@ private boolean isSupplemental;
 
     public Set keySet() {
     	return Collections.unmodifiableSet(xpath_value.keySet());
+    }
+    
+    private String getDistinguishingXPath(String xpath) {
+    	XPathParts parts = new XPathParts(null,null).set(xpath);
+    	for (int i = 0; i < parts.size(); ++i) {
+    		String element = parts.getElement(i);
+    		Map attributes = parts.getAttributes(i);
+    		for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
+    			String attribute = (String) it.next();
+    			if (!isDistinguishing(element, attribute)) {
+    				it.remove();
+    			}
+    		}
+    	}
+    	return parts.toString();
     }
     
 	/**

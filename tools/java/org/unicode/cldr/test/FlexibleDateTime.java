@@ -20,6 +20,11 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRFile.Value;
+
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -28,9 +33,129 @@ import com.ibm.icu.text.SimpleDateFormat;
  * Test class for trying different approaches to flexible date/time
  */
 public class FlexibleDateTime {
-	static final boolean SHOW = false;
+	static final boolean SHOW = true;
 	List rules = new ArrayList();
 	Map currentVariables = new LinkedHashMap();
+
+	public static String convertOODate(String source, String locale) {
+		if (source.length() == 0) return "";
+		source = source.replace('"', '\''); // fix quoting convention
+		StringBuffer buffer = new StringBuffer();
+		int start = 1;
+		int lastPos = 0;
+		boolean inQuote = false;
+		char last = source.charAt(lastPos);
+		for (int i = 1; i < source.length(); ++i) {
+			char c = source.charAt(i);
+			if (c == last) continue;
+			String part = source.substring(lastPos, i);
+			if (!inQuote) part = handleOOPart(part, locale);
+			buffer.append(part);
+			if (c == '\'') {
+				inQuote = !inQuote;
+			}
+			lastPos = i;
+			last = c;			
+		}
+		buffer.append(handleOOPart(source.substring(lastPos, source.length()), locale));
+		return buffer.toString();
+	}
+
+	private static String handleOOPart(String string, String locale) {
+		// preprocess for *localized* strings
+		if (locale.startsWith("de")) {
+			if (string.startsWith("T")) string = string.replace('T','D');
+			if (string.startsWith("J")) string = string.replace('J','Y');
+		} else if (locale.startsWith("nl")) {
+			if (string.startsWith("J")) string = string.replace('J','Y');
+		} else if (locale.startsWith("fi")) {
+			if (string.startsWith("K")) string = string.replace('K','M');
+			if (string.startsWith("V")) string = string.replace('V','Y');
+			if (string.startsWith("P")) string = string.replace('P','D');
+		} else if (locale.startsWith("fr")) {
+			if (string.startsWith("J")) string = string.replace('J','D');
+			if (string.startsWith("A")) string = string.replace('A','Y');
+		} else if (locale.startsWith("es") || locale.startsWith("pt")) {
+			if (string.startsWith("A")) string = string.replace('A','Y');
+		} else if (locale.startsWith("it")) {
+			if (string.startsWith("A")) string = string.replace('A','Y');
+			if (string.startsWith("G")) string = string.replace('G','D');
+		}
+		if (string.startsWith("M")) return string;
+		if (string.startsWith("Y") || string.startsWith("W") || 
+				string.equals("D") || string.equals("DD")) return string.toLowerCase();
+		if (string.equals("DDD") || string.equals("NN")) return "EEE";
+		if (string.equals("DDDD") || string.equals("NNN")) return "EEEE";
+		if (string.equals("NNNN")) return "EEEE, ";
+		if (string.equals("GG")) return "G";
+		if (string.equals("GGG")) return "G"; // best we can do for now
+		if (string.equals("E")) return "y";
+		if (string.equals("EE") || string.equals("R")) return "yy";
+		if (string.equals("RR")) return "Gyy";
+		if (string.startsWith("Q")) return '\'' + string + '\'';
+		if (string.equals("\"")) return "'";
+		char c = string.charAt(0);
+		if (c < 0x80 && UCharacter.isLetter(c)) return "x";
+		return string;
+	}
+
+	public static String convertOOTime(String source, String locale) {
+		// don't have to worry about supplementaries
+		if (source.length() == 0) return "";
+		StringBuffer buffer = new StringBuffer();
+
+		int isAM = source.indexOf("AM/PM");
+		if (isAM >= 0) {
+			source = source.substring(0,isAM) + "a" + source.substring(isAM+5);
+		}
+
+		for (int i = 0; i < source.length(); ++i) {
+			char c = source.charAt(i);
+			switch (c) {
+			case 'h': case 'H': case 't': case 'T': case 'u': case 'U':
+				if (isAM < 0) c = 'H'; else c = 'h'; break;
+			case 'M': c = 'm'; break;
+			case 'S': c = 's'; break;
+			case '0': c = 'S'; break; // ought to be more sophisticated, but this should work for normal stuff.
+			case 'a': break; // ok
+			default: if (c < 0x80 && UCharacter.isLetter(c)) c = 'x'; break; // cause error
+			}
+			buffer.append(c);
+		}
+		return buffer.toString();
+	}
+	
+	static Date TEST_DATE = new Date(104,8,13,23,58,59);
+	
+	static void getOOData() {
+		Factory cldrFactory = Factory.make("C:\\ICU4C\\locale\\open_office\\main\\", ".*", null);
+		Set locales = cldrFactory.getAvailable();
+		for (Iterator it = locales.iterator(); it.hasNext();) {
+			String locale = (String)it.next();
+			System.out.println(locale);
+			CLDRFile item = cldrFactory.make(locale, false);
+			for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
+				String xpath = (String) it2.next();
+				if (xpath.indexOf("/special") >= 0) continue;
+				boolean isDate = xpath.indexOf("/dateFormat/") >= 0 || xpath.indexOf("/dateFormat[@") >= 0;
+				boolean isTime = xpath.indexOf("/timeFormat/") >= 0 || xpath.indexOf("/timeFormat[@") >= 0;
+				if (isDate || isTime) {
+					Value value = item.getValue(xpath);
+					String pattern = value.getStringValue();
+					String oldPattern = pattern;
+					pattern = isDate ? convertOODate(pattern, locale) : convertOOTime(pattern, locale);
+					System.out.print("\t" + (isDate ? "Date" : "Time") + ": " + oldPattern + "\t" + pattern + "\t");
+					try {
+						DateFormat d = new SimpleDateFormat(pattern);
+						System.out.print(d.format(TEST_DATE));
+					} catch (Exception e) {
+						System.out.print(e.getLocalizedMessage());
+					}
+					System.out.println();
+				}
+			}
+		}
+	}
 	
 	private static class Variable {
 		String variable;
@@ -44,15 +169,17 @@ public class FlexibleDateTime {
 
 	private class Rule {
 		String name;
+		String original;
 		List matchSet = new ArrayList();
 		List format = new ArrayList();
 		//boolean hasVariables;
 		
 		public String toString() {
-			return name + " <= {" + matchSet + "} " + format;
+			return "{" + matchSet + "} in rule: " + name + " <= " + format + " (" + original + ")";
 		}
 		
 		private Rule(String rule) {
+			original = rule;
 			int eqPos = rule.indexOf('=');
 			name = rule.substring(0, eqPos).trim();
 			rule = rule.substring(eqPos+1);
@@ -107,11 +234,9 @@ public class FlexibleDateTime {
 				if (foundSoFar.size() != currentVariables.size()) return false;
 			}
 			
+			Map old;
 			if (SHOW) {
-				LinkedHashSet s = new LinkedHashSet(currentVariables.keySet());
-				LinkedHashSet f = new LinkedHashSet(foundSoFar.values());
-				s.removeAll(f);
-				System.out.println("Matched " + this + " \tWith: " + f + " \tRemainder: " + s);
+				old = new LinkedHashMap(currentVariables);
 			}
 			
 			// we have a complete match. So substitute in the format, remove from pieces, and set the variable
@@ -121,6 +246,14 @@ public class FlexibleDateTime {
 				currentVariables.remove(it.next());
 			}
 			addVariable(name, format2);
+
+			if (SHOW) {
+				//LinkedHashSet s = new LinkedHashSet(currentVariables.keySet());
+				//LinkedHashSet f = new LinkedHashSet(foundSoFar.values());
+				//s.removeAll(f);
+				System.out.println(old + ", \t" + foundSoFar.values() + " matched " + this + " \tResults: " + currentVariables);
+			}
+
 			return true;
 		}
 		
@@ -226,12 +359,13 @@ k 1..2 24 Hour [1-24].
 	 */
 	
 	public static void main(String[] args) {
+		getOOData();
 		String[] data = {
-				"yyyy={y+}",
+				"yyyy={*y+}yyyy", // force all years to be 4 letters
 				"time={s+}.{S+}",
 				"time={m+}:{time}",
 				"time={*H+}hh:{time} a",
-				"date={*d+}{*y+}dd-{MM}-yyyy",
+				"date={*d+}dd-{MM}-{y+}",
 				"date={d+}. {MMM}",
 				"date={d+} {M+}",
 				"date={d+} [{H+}]",

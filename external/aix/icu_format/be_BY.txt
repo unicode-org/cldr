@@ -1,0 +1,370 @@
+be_BY {
+    ///* Discarding duplicate data for tag: AddressFormat */
+    ///* Discarding duplicate data for tag: AmPmMarkers */
+    CollationElements { 
+        Version { "1.0" }
+        Overide { "false" }
+        Sequence { 
+            "&\u0000"         //<NULL>		IGNORE;IGNORE;<NULL>
+            ",\u0001"         //<START_OF_HEADING>		IGNORE;IGNORE;<START_OF_HEADING>
+            ",\u0002"         //<START_OF_TEXT>		IGNORE;IGNORE;<START_OF_TEXT>
+            ",\u0003"         //<END_OF_TEXT>		IGNORE;IGNORE;<END_OF_TEXT>
+            ",\u0004"         //<END_OF_TRANSMISSION>		IGNORE;IGNORE;<END_OF_TRANSMISSION>
+            ",\u0005"         //<ENQUIRY>		IGNORE;IGNORE;<ENQUIRY>
+            ",\u0006"         //<ACKNOWLEDGE>		IGNORE;IGNORE;<ACKNOWLEDGE>
+            ",\u0007"         //<BELL>		IGNORE;IGNORE;<BELL>
+            ",\u0008"         //<BACKSPACE>		IGNORE;IGNORE;<BACKSPACE>
+            ",\\u0009"        //<HORIZONTAL_TABULATION>		IGNORE;IGNORE;<HORIZONTAL_TABULATION>
+            ",\\u000A"        //<LINE_FEED>		IGNORE;IGNORE;<LINE_FEED>
+            ",\\u000B"        //<vertical-tab>		IGNORE;IGNORE;<vertical-tab>
+            ",\\u000C"        //<form-feed>		IGNORE;IGNORE;<form-feed>
+            ",\\u000D"        //<CARRIAGE_RETURN>		IGNORE;IGNORE;<CARRIAGE_RETURN>
+            ",\u000E"         //<SHIFT_OUT>		IGNORE;IGNORE;<SHIFT_OUT>
+            ",\u000F"         //<SHIFT_IN>		IGNORE;IGNORE;<SHIFT_IN>
+            ",\u0010"         //<DATA_LINK_ESCAPE>		IGNORE;IGNORE;<DATA_LINK_ESCAPE>
+            ",\u0011"         //<DEVICE_CONTROL_ONE>		IGNORE;IGNORE;<DEVICE_CONTROL_ONE>
+            ",\u0012"         //<DEVICE_CONTROL_TWO>		IGNORE;IGNORE;<DEVICE_CONTROL_TWO>
+            ",\u0013"         //<DEVICE_CONTROL_THREE>		IGNORE;IGNORE;<DEVICE_CONTROL_THREE>
+            ",\u0014"         //<DEVICE_CONTROL_FOUR>		IGNORE;IGNORE;<DEVICE_CONTROL_FOUR>
+            ",\u0015"         //<NEGATIVE_ACKNOWLEDGE>		IGNORE;IGNORE;<NEGATIVE_ACKNOWLEDGE>
+            ",\u0016"         //<SYNCHRONOUS_IDLE>		IGNORE;IGNORE;<SYNCHRONOUS_IDLE>
+            ",\u0017"         //<END_OF_TRANSMISSION_BLOCK>		IGNORE;IGNORE;<END_OF_TRANSMISSION_BLOCK>
+            ",\u0018"         //<CANCEL>		IGNORE;IGNORE;<CANCEL>
+            ",\u0019"         //<END_OF_MEDIUM>		IGNORE;IGNORE;<END_OF_MEDIUM>
+            ",\u001A"         //<SUBSTITUTE>		IGNORE;IGNORE;<SUBSTITUTE>
+            ",\u001B"         //<ESCAPE>		IGNORE;IGNORE;<ESCAPE>
+            ",\u001C"         //<FILE_SEPARATOR>		IGNORE;IGNORE;<FILE_SEPARATOR>
+            ",\u001D"         //<GROUP_SEPARATOR>		IGNORE;IGNORE;<GROUP_SEPARATOR>
+            ",\u001E"         //<RECORD_SEPARATOR>		IGNORE;IGNORE;<RECORD_SEPARATOR>
+            ",\u001F"         //<UNIT_SEPARATOR>		IGNORE;IGNORE;<UNIT_SEPARATOR>
+            ",\u007F"         //<DELETE>		IGNORE;IGNORE;<DELETE>
+            ",\u0080"         //<PAD>		IGNORE;IGNORE;<PAD>
+            ",\u0081"         //<HOP>		IGNORE;IGNORE;<HOP>
+            ",\u0082"         //<BPH>		IGNORE;IGNORE;<BPH>
+            ",\u0083"         //<NBH>		IGNORE;IGNORE;<NBH>
+            ",\u0084"         //<IND>		IGNORE;IGNORE;<IND>
+            ",\\u0085"        //<NEL>		IGNORE;IGNORE;<NEL>
+            ",\u0086"         //<SSA>		IGNORE;IGNORE;<SSA>
+            ",\u0087"         //<ESA>		IGNORE;IGNORE;<ESA>
+            ",\u0088"         //<HTS>		IGNORE;IGNORE;<HTS>
+            ",\u0089"         //<HTJ>		IGNORE;IGNORE;<HTJ>
+            ",\u008A"         //<VTS>		IGNORE;IGNORE;<VTS>
+            ",\u008B"         //<PLD>		IGNORE;IGNORE;<PLD>
+            ",\u008C"         //<PLU>		IGNORE;IGNORE;<PLU>
+            ",\u008D"         //<RI>		IGNORE;IGNORE;<RI>
+            ",\u008E"         //<SS2>		IGNORE;IGNORE;<SS2>
+            ",\u008F"         //<SS3>		IGNORE;IGNORE;<SS3>
+            ",\u0090"         //<DCS>		IGNORE;IGNORE;<DCS>
+            ",\u0091"         //<PU1>		IGNORE;IGNORE;<PU1>
+            ",\u0092"         //<PU2>		IGNORE;IGNORE;<PU2>
+            ",\u0093"         //<STS>		IGNORE;IGNORE;<STS>
+            ",\u0094"         //<CCH>		IGNORE;IGNORE;<CCH>
+            ",\u0095"         //<MW>		IGNORE;IGNORE;<MW>
+            ",\u0096"         //<SPS>		IGNORE;IGNORE;<SPS>
+            ",\u0097"         //<EPA>		IGNORE;IGNORE;<EPA>
+            ",\u0098"         //<SOS>		IGNORE;IGNORE;<SOS>
+            ",\u0099"         //<SGCI>		IGNORE;IGNORE;<SGCI>
+            ",\u009A"         //<SCI>		IGNORE;IGNORE;<SCI>
+            ",\u009B"         //<CSI>		IGNORE;IGNORE;<CSI>
+            ",\u009C"         //<ST>		IGNORE;IGNORE;<ST>
+            ",\u009D"         //<OSC>		IGNORE;IGNORE;<OSC>
+            ",\u009E"         //<PM>		IGNORE;IGNORE;<PM>
+            ",\u009F"         //<APC>		IGNORE;IGNORE;<APC>
+            ",\\\ "           //<SPACE>		IGNORE;IGNORE;<SPACE>
+            ",\\\_"           //<LOW_LINE>		IGNORE;IGNORE;<LOW_LINE>
+            ",\u00AD"         //<SOFT_HYPHEN>		IGNORE;IGNORE;<SOFT_HYPHEN>
+            ",\\\-"           //<HYPHEN-MINUS>		IGNORE;IGNORE;<HYPHEN-MINUS>
+            ",\\\,"           //<COMMA>		IGNORE;IGNORE;<COMMA>
+            ",\\\;"           //<SEMICOLON>		IGNORE;IGNORE;<SEMICOLON>
+            ",\\\:"           //<COLON>		IGNORE;IGNORE;<COLON>
+            ",\\\!"           //<EXCLAMATION_MARK>		IGNORE;IGNORE;<EXCLAMATION_MARK>
+            ",\\\?"           //<QUESTION_MARK>		IGNORE;IGNORE;<QUESTION_MARK>
+            ",\\\/"           //<SOLIDUS>		IGNORE;IGNORE;<SOLIDUS>
+            ",\\\."           //<FULL_STOP>		IGNORE;IGNORE;<FULL_STOP>
+            ",\\\`"           //<GRAVE_ACCENT>		IGNORE;IGNORE;<GRAVE_ACCENT>
+            ",\\\^"           //<CIRCUMFLEX_ACCENT>		IGNORE;IGNORE;<CIRCUMFLEX_ACCENT>
+            ",\\\~"           //<TILDE>		IGNORE;IGNORE;<TILDE>
+            ",\\\'"           //<APOSTROPHE>		IGNORE;IGNORE;<APOSTROPHE>
+            ",\\\""           //<QUOTATION_MARK>		IGNORE;IGNORE;<QUOTATION_MARK>
+            ",\\\("           //<LEFT_PARENTHESIS>		IGNORE;IGNORE;<LEFT_PARENTHESIS>
+            ",\\\)"           //<RIGHT_PARENTHESIS>		IGNORE;IGNORE;<RIGHT_PARENTHESIS>
+            ",\\\["           //<LEFT_SQUARE_BRACKET>		IGNORE;IGNORE;<LEFT_SQUARE_BRACKET>
+            ",\\\]"           //<RIGHT_SQUARE_BRACKET>		IGNORE;IGNORE;<RIGHT_SQUARE_BRACKET>
+            ",\\\{"           //<LEFT_CURLY_BRACKET>		IGNORE;IGNORE;<LEFT_CURLY_BRACKET>
+            ",\\\}"           //<RIGHT_CURLY_BRACKET>		IGNORE;IGNORE;<RIGHT_CURLY_BRACKET>
+            ",\u00A7"         //<SECTION_SIGN>		IGNORE;IGNORE;<SECTION_SIGN>
+            ",\@"             //<COMMERCIAL_AT>		IGNORE;IGNORE;<COMMERCIAL_AT>
+            ",\\\$"           //<DOLLAR_SIGN>		IGNORE;IGNORE;<DOLLAR_SIGN>
+            ",\\\*"           //<ASTERISK>		IGNORE;IGNORE;<ASTERISK>
+            ",\\\\"           //<REVERSE_SOLIDUS>		IGNORE;IGNORE;<REVERSE_SOLIDUS>
+            ",\\\&"           //<AMPERSAND>		IGNORE;IGNORE;<AMPERSAND>
+            ",\u2116"         //<NUMERO_SIGN>		IGNORE;IGNORE;<NUMERO_SIGN>
+            ",\\\#"           //<NUMBER_SIGN>		IGNORE;IGNORE;<NUMBER_SIGN>
+            ",\\\%"           //<PERCENT_SIGN>		IGNORE;IGNORE;<PERCENT_SIGN>
+            ",\\\+"           //<PLUS_SIGN>		IGNORE;IGNORE;<PLUS_SIGN>
+            ",\\\<"           //<LESS-THAN_SIGN>		IGNORE;IGNORE;<LESS-THAN_SIGN>
+            ",\\\="           //<EQUALS_SIGN>		IGNORE;IGNORE;<EQUALS_SIGN>
+            ",\\\>"           //<GREATER-THAN_SIGN>		IGNORE;IGNORE;<GREATER-THAN_SIGN>
+            ",\|"             //<VERTICAL_LINE>		IGNORE;IGNORE;<VERTICAL_LINE>
+            "<\\u00A0"        //<NO-BREAK_SPACE>		<SPACE>;<lower-case>;IGNORE
+            "<0"              //<DIGIT_ZERO>		<DIGIT_ZERO>;<lower-case>;IGNORE
+            "<1"              //<one>		<one>;<lower-case>;IGNORE
+            "<2"              //<two>		<two>;<lower-case>;IGNORE
+            "<3"              //<three>		<three>;<lower-case>;IGNORE
+            "<4"              //<four>		<four>;<lower-case>;IGNORE
+            "<5"              //<five>		<five>;<lower-case>;IGNORE
+            "<6"              //<DIGIT_SIX>		<DIGIT_SIX>;<lower-case>;IGNORE
+            "<7"              //<DIGIT_SEVEN>		<DIGIT_SEVEN>;<lower-case>;IGNORE
+            "<8"              //<DIGIT_EIGHT>		<DIGIT_EIGHT>;<lower-case>;IGNORE
+            "<9"              //<DIGIT_NINE>		<DIGIT_NINE>;<lower-case>;IGNORE
+            "<a"              //<a>		<a>;<lower-case>;IGNORE
+            ";A"              //<A>		<a>;<upper-case>;IGNORE
+            "<b"              //<b>		<b>;<lower-case>;IGNORE
+            ";B"              //<B>		<b>;<upper-case>;IGNORE
+            "<c"              //<c>		<c>;<lower-case>;IGNORE
+            ";C"              //<C>		<c>;<upper-case>;IGNORE
+            "<d"              //<d>		<d>;<lower-case>;IGNORE
+            ";D"              //<D>		<d>;<upper-case>;IGNORE
+            "<e"              //<e>		<e>;<lower-case>;IGNORE
+            ";E"              //<E>		<e>;<upper-case>;IGNORE
+            "<f"              //<f>		<f>;<lower-case>;IGNORE
+            ";F"              //<F>		<f>;<upper-case>;IGNORE
+            "<g"              //<g>		<g>;<lower-case>;IGNORE
+            ";G"              //<G>		<g>;<upper-case>;IGNORE
+            "<h"              //<h>		<h>;<lower-case>;IGNORE
+            ";H"              //<H>		<h>;<upper-case>;IGNORE
+            "<i"              //<i>		<i>;<lower-case>;IGNORE
+            ";I"              //<I>		<i>;<upper-case>;IGNORE
+            "<j"              //<j>		<j>;<lower-case>;IGNORE
+            ";J"              //<J>		<j>;<upper-case>;IGNORE
+            "<k"              //<k>		<k>;<lower-case>;IGNORE
+            ";K"              //<K>		<k>;<upper-case>;IGNORE
+            "<l"              //<l>		<l>;<lower-case>;IGNORE
+            ";L"              //<L>		<l>;<upper-case>;IGNORE
+            "<m"              //<m>		<m>;<lower-case>;IGNORE
+            ";M"              //<M>		<m>;<upper-case>;IGNORE
+            "<n"              //<n>		<n>;<lower-case>;IGNORE
+            ";N"              //<N>		<n>;<upper-case>;IGNORE
+            "<o"              //<o>		<o>;<lower-case>;IGNORE
+            ";O"              //<O>		<o>;<upper-case>;IGNORE
+            "<p"              //<p>		<p>;<lower-case>;IGNORE
+            ";P"              //<P>		<p>;<upper-case>;IGNORE
+            "<q"              //<q>		<q>;<lower-case>;IGNORE
+            ";Q"              //<Q>		<q>;<upper-case>;IGNORE
+            "<r"              //<r>		<r>;<lower-case>;IGNORE
+            ";R"              //<R>		<r>;<upper-case>;IGNORE
+            "<s"              //<s>		<s>;<lower-case>;IGNORE
+            ";S"              //<S>		<s>;<upper-case>;IGNORE
+            "<t"              //<t>		<t>;<lower-case>;IGNORE
+            ";T"              //<T>		<t>;<upper-case>;IGNORE
+            "<u"              //<u>		<u>;<lower-case>;IGNORE
+            ";U"              //<U>		<u>;<upper-case>;IGNORE
+            "<v"              //<v>		<v>;<lower-case>;IGNORE
+            ";V"              //<V>		<v>;<upper-case>;IGNORE
+            "<w"              //<w>		<w>;<lower-case>;IGNORE
+            ";W"              //<W>		<w>;<upper-case>;IGNORE
+            "<x"              //<x>		<x>;<lower-case>;IGNORE
+            ";X"              //<X>		<x>;<upper-case>;IGNORE
+            "<y"              //<y>		<y>;<lower-case>;IGNORE
+            ";Y"              //<Y>		<y>;<upper-case>;IGNORE
+            "<z"              //<z>		<z>;<lower-case>;IGNORE
+            ";Z"              //<Z>		<z>;<upper-case>;IGNORE
+            "<\u0430"         //<CYRILLIC_SMALL_LETTER_A>		<CYRILLIC_SMALL_LETTER_A>;<lower-case>;IGNORE
+            ";\u0410"         //<CYRILLIC_CAPITAL_LETTER_A>		<CYRILLIC_SMALL_LETTER_A>;<upper-case>;IGNORE
+            "<\u0431"         //<CYRILLIC_SMALL_LETTER_BE>		<CYRILLIC_SMALL_LETTER_BE>;<lower-case>;IGNORE
+            ";\u0411"         //<CYRILLIC_CAPITAL_LETTER_BE>		<CYRILLIC_SMALL_LETTER_BE>;<upper-case>;IGNORE
+            "<\u0432"         //<CYRILLIC_SMALL_LETTER_VE>		<CYRILLIC_SMALL_LETTER_VE>;<lower-case>;IGNORE
+            ";\u0412"         //<CYRILLIC_CAPITAL_LETTER_VE>		<CYRILLIC_SMALL_LETTER_VE>;<upper-case>;IGNORE
+            "<\u0433"         //<CYRILLIC_SMALL_LETTER_GHE>		<CYRILLIC_SMALL_LETTER_GHE>;<lower-case>;IGNORE
+            ";\u0413"         //<CYRILLIC_CAPITAL_LETTER_GHE>		<CYRILLIC_SMALL_LETTER_GHE>;<upper-case>;IGNORE
+            "<\u0434"         //<CYRILLIC_SMALL_LETTER_DE>		<CYRILLIC_SMALL_LETTER_DE>;<lower-case>;IGNORE
+            ";\u0414"         //<CYRILLIC_CAPITAL_LETTER_DE>		<CYRILLIC_SMALL_LETTER_DE>;<upper-case>;IGNORE
+            "<\u0434\u0436"   //<de-zhe>		<de-zhe>;<lower-case>;IGNORE
+            ";\u0414\u0436"   //<DE-zhe>		<de-zhe>;<upper-case>;IGNORE
+            "<\u0434\u0437"   //<de-ze>		<de-ze>;<lower-case>;IGNORE
+            ";\u0414\u0437"   //<DE-ze>		<de-ze>;<upper-case>;IGNORE
+            "<\u0453"         //<CYRILLIC_SMALL_LETTER_GJE>		<CYRILLIC_SMALL_LETTER_GJE>;<lower-case>;IGNORE
+            ";\u0403"         //<CYRILLIC_CAPITAL_LETTER_GJE>		<CYRILLIC_SMALL_LETTER_GJE>;<upper-case>;IGNORE
+            "<\u0452"         //<CYRILLIC_SMALL_LETTER_DJE>		<CYRILLIC_SMALL_LETTER_DJE>;<lower-case>;IGNORE
+            ";\u0402"         //<CYRILLIC_CAPITAL_LETTER_DJE>		<CYRILLIC_SMALL_LETTER_DJE>;<upper-case>;IGNORE
+            "<\u0435"         //<CYRILLIC_SMALL_LETTER_IE>		<CYRILLIC_SMALL_LETTER_IE>;<lower-case>;IGNORE
+            ";\u0415"         //<CYRILLIC_CAPITAL_LETTER_IE>		<CYRILLIC_SMALL_LETTER_IE>;<upper-case>;IGNORE
+            "<\u0454"         //<CYRILLIC_SMALL_LETTER_UKRAINIAN_IE>		<CYRILLIC_SMALL_LETTER_UKRAINIAN_IE>;<lower-case>;IGNORE
+            ";\u0404"         //<CYRILLIC_CAPITAL_LETTER_UKRAINIAN_IE>		<CYRILLIC_SMALL_LETTER_UKRAINIAN_IE>;<upper-case>;IGNORE
+            "<\u0451"         //<CYRILLIC_SMALL_LETTER_IO>		<CYRILLIC_SMALL_LETTER_IO>;<lower-case>;IGNORE
+            ";\u0401"         //<CYRILLIC_CAPITAL_LETTER_IO>		<CYRILLIC_SMALL_LETTER_IO>;<upper-case>;IGNORE
+            "<\u0436"         //<CYRILLIC_SMALL_LETTER_ZHE>		<CYRILLIC_SMALL_LETTER_ZHE>;<lower-case>;IGNORE
+            ";\u0416"         //<CYRILLIC_CAPITAL_LETTER_ZHE>		<CYRILLIC_SMALL_LETTER_ZHE>;<upper-case>;IGNORE
+            "<\u0437"         //<CYRILLIC_SMALL_LETTER_ZE>		<CYRILLIC_SMALL_LETTER_ZE>;<lower-case>;IGNORE
+            ";\u0417"         //<CYRILLIC_CAPITAL_LETTER_ZE>		<CYRILLIC_SMALL_LETTER_ZE>;<upper-case>;IGNORE
+            "<\u0455"         //<CYRILLIC_SMALL_LETTER_DZE>		<CYRILLIC_SMALL_LETTER_DZE>;<lower-case>;IGNORE
+            ";\u0405"         //<CYRILLIC_CAPITAL_LETTER_DZE>		<CYRILLIC_SMALL_LETTER_DZE>;<upper-case>;IGNORE
+            "<\u0438"         //<CYRILLIC_SMALL_LETTER_I>		<CYRILLIC_SMALL_LETTER_I>;<lower-case>;IGNORE
+            ";\u0418"         //<CYRILLIC_CAPITAL_LETTER_I>		<CYRILLIC_SMALL_LETTER_I>;<upper-case>;IGNORE
+            "<\u0456"         //<CYRILLIC_SMALL_LETTER_BYELORUSSIAN-UKRAINIAN_I>		<CYRILLIC_SMALL_LETTER_BYELORUSSIAN-UKRAINIAN_I>;<lower-case>;IGNORE
+            ";\u0406"         //<CYRILLIC_CAPITAL_LETTER_BYELORUSSIAN-UKRAINIAN_I>		<CYRILLIC_SMALL_LETTER_BYELORUSSIAN-UKRAINIAN_I>;<upper-case>;IGNORE
+            "<\u0457"         //<CYRILLIC_SMALL_LETTER_YI>		<CYRILLIC_SMALL_LETTER_YI>;<lower-case>;IGNORE
+            ";\u0407"         //<CYRILLIC_CAPITAL_LETTER_YI>		<CYRILLIC_SMALL_LETTER_YI>;<upper-case>;IGNORE
+            "<\u0439"         //<CYRILLIC_SMALL_LETTER_SHORT_I>		<CYRILLIC_SMALL_LETTER_SHORT_I>;<lower-case>;IGNORE
+            ";\u0419"         //<CYRILLIC_CAPITAL_LETTER_SHORT_I>		<CYRILLIC_SMALL_LETTER_SHORT_I>;<upper-case>;IGNORE
+            "<\u0458"         //<CYRILLIC_SMALL_LETTER_JE>		<CYRILLIC_SMALL_LETTER_JE>;<lower-case>;IGNORE
+            ";\u0408"         //<CYRILLIC_CAPITAL_LETTER_JE>		<CYRILLIC_SMALL_LETTER_JE>;<upper-case>;IGNORE
+            "<\u043A"         //<CYRILLIC_SMALL_LETTER_KA>		<CYRILLIC_SMALL_LETTER_KA>;<lower-case>;IGNORE
+            ";\u041A"         //<CYRILLIC_CAPITAL_LETTER_KA>		<CYRILLIC_SMALL_LETTER_KA>;<upper-case>;IGNORE
+            "<\u043B"         //<CYRILLIC_SMALL_LETTER_EL>		<CYRILLIC_SMALL_LETTER_EL>;<lower-case>;IGNORE
+            ";\u041B"         //<CYRILLIC_CAPITAL_LETTER_EL>		<CYRILLIC_SMALL_LETTER_EL>;<upper-case>;IGNORE
+            "<\u0459"         //<CYRILLIC_SMALL_LETTER_LJE>		<CYRILLIC_SMALL_LETTER_LJE>;<lower-case>;IGNORE
+            ";\u0409"         //<CYRILLIC_CAPITAL_LETTER_LJE>		<CYRILLIC_SMALL_LETTER_LJE>;<upper-case>;IGNORE
+            "<\u043C"         //<CYRILLIC_SMALL_LETTER_EM>		<CYRILLIC_SMALL_LETTER_EM>;<lower-case>;IGNORE
+            ";\u041C"         //<CYRILLIC_CAPITAL_LETTER_EM>		<CYRILLIC_SMALL_LETTER_EM>;<upper-case>;IGNORE
+            "<\u043D"         //<CYRILLIC_SMALL_LETTER_EN>		<CYRILLIC_SMALL_LETTER_EN>;<lower-case>;IGNORE
+            ";\u041D"         //<CYRILLIC_CAPITAL_LETTER_EN>		<CYRILLIC_SMALL_LETTER_EN>;<upper-case>;IGNORE
+            "<\u045A"         //<CYRILLIC_SMALL_LETTER_NJE>		<CYRILLIC_SMALL_LETTER_NJE>;<lower-case>;IGNORE
+            ";\u040A"         //<CYRILLIC_CAPITAL_LETTER_NJE>		<CYRILLIC_SMALL_LETTER_NJE>;<upper-case>;IGNORE
+            "<\u043E"         //<CYRILLIC_SMALL_LETTER_O>		<CYRILLIC_SMALL_LETTER_O>;<lower-case>;IGNORE
+            ";\u041E"         //<CYRILLIC_CAPITAL_LETTER_O>		<CYRILLIC_SMALL_LETTER_O>;<upper-case>;IGNORE
+            "<\u043F"         //<CYRILLIC_SMALL_LETTER_PE>		<CYRILLIC_SMALL_LETTER_PE>;<lower-case>;IGNORE
+            ";\u041F"         //<CYRILLIC_CAPITAL_LETTER_PE>		<CYRILLIC_SMALL_LETTER_PE>;<upper-case>;IGNORE
+            "<\u0440"         //<CYRILLIC_SMALL_LETTER_ER>		<CYRILLIC_SMALL_LETTER_ER>;<lower-case>;IGNORE
+            ";\u0420"         //<CYRILLIC_CAPITAL_LETTER_ER>		<CYRILLIC_SMALL_LETTER_ER>;<upper-case>;IGNORE
+            "<\u0441"         //<CYRILLIC_SMALL_LETTER_ES>		<CYRILLIC_SMALL_LETTER_ES>;<lower-case>;IGNORE
+            ";\u0421"         //<CYRILLIC_CAPITAL_LETTER_ES>		<CYRILLIC_SMALL_LETTER_ES>;<upper-case>;IGNORE
+            "<\u0442"         //<CYRILLIC_SMALL_LETTER_TE>		<CYRILLIC_SMALL_LETTER_TE>;<lower-case>;IGNORE
+            ";\u0422"         //<CYRILLIC_CAPITAL_LETTER_TE>		<CYRILLIC_SMALL_LETTER_TE>;<upper-case>;IGNORE
+            "<\u045C"         //<CYRILLIC_SMALL_LETTER_KJE>		<CYRILLIC_SMALL_LETTER_KJE>;<lower-case>;IGNORE
+            ";\u040C"         //<CYRILLIC_CAPITAL_LETTER_KJE>		<CYRILLIC_SMALL_LETTER_KJE>;<upper-case>;IGNORE
+            "<\u045B"         //<CYRILLIC_SMALL_LETTER_TSHE>		<CYRILLIC_SMALL_LETTER_TSHE>;<lower-case>;IGNORE
+            ";\u040B"         //<CYRILLIC_CAPITAL_LETTER_TSHE>		<CYRILLIC_SMALL_LETTER_TSHE>;<upper-case>;IGNORE
+            "<\u0443"         //<CYRILLIC_SMALL_LETTER_U>		<CYRILLIC_SMALL_LETTER_U>;<lower-case>;IGNORE
+            ";\u0423"         //<CYRILLIC_CAPITAL_LETTER_U>		<CYRILLIC_SMALL_LETTER_U>;<upper-case>;IGNORE
+            "<\u045E"         //<CYRILLIC_SMALL_LETTER_SHORT_U>		<CYRILLIC_SMALL_LETTER_SHORT_U>;<lower-case>;IGNORE
+            ";\u040E"         //<CYRILLIC_CAPITAL_LETTER_SHORT_U>		<CYRILLIC_SMALL_LETTER_SHORT_U>;<upper-case>;IGNORE
+            "<\u0444"         //<CYRILLIC_SMALL_LETTER_EF>		<CYRILLIC_SMALL_LETTER_EF>;<lower-case>;IGNORE
+            ";\u0424"         //<CYRILLIC_CAPITAL_LETTER_EF>		<CYRILLIC_SMALL_LETTER_EF>;<upper-case>;IGNORE
+            "<\u0445"         //<CYRILLIC_SMALL_LETTER_HA>		<CYRILLIC_SMALL_LETTER_HA>;<lower-case>;IGNORE
+            ";\u0425"         //<CYRILLIC_CAPITAL_LETTER_HA>		<CYRILLIC_SMALL_LETTER_HA>;<upper-case>;IGNORE
+            "<\u0446"         //<CYRILLIC_SMALL_LETTER_TSE>		<CYRILLIC_SMALL_LETTER_TSE>;<lower-case>;IGNORE
+            ";\u0426"         //<CYRILLIC_CAPITAL_LETTER_TSE>		<CYRILLIC_SMALL_LETTER_TSE>;<upper-case>;IGNORE
+            "<\u0447"         //<CYRILLIC_SMALL_LETTER_CHE>		<CYRILLIC_SMALL_LETTER_CHE>;<lower-case>;IGNORE
+            ";\u0427"         //<CYRILLIC_CAPITAL_LETTER_CHE>		<CYRILLIC_SMALL_LETTER_CHE>;<upper-case>;IGNORE
+            "<\u045F"         //<CYRILLIC_SMALL_LETTER_DZHE>		<CYRILLIC_SMALL_LETTER_DZHE>;<lower-case>;IGNORE
+            ";\u040F"         //<CYRILLIC_CAPITAL_LETTER_DZHE>		<CYRILLIC_SMALL_LETTER_DZHE>;<upper-case>;IGNORE
+            "<\u0448"         //<CYRILLIC_SMALL_LETTER_SHA>		<CYRILLIC_SMALL_LETTER_SHA>;<lower-case>;IGNORE
+            ";\u0428"         //<CYRILLIC_CAPITAL_LETTER_SHA>		<CYRILLIC_SMALL_LETTER_SHA>;<upper-case>;IGNORE
+            "<\u0449"         //<CYRILLIC_SMALL_LETTER_SHCHA>		<CYRILLIC_SMALL_LETTER_SHCHA>;<lower-case>;IGNORE
+            ";\u0429"         //<CYRILLIC_CAPITAL_LETTER_SHCHA>		<CYRILLIC_SMALL_LETTER_SHCHA>;<upper-case>;IGNORE
+            "<\u044A"         //<CYRILLIC_SMALL_LETTER_HARD_SIGN>		<CYRILLIC_SMALL_LETTER_HARD_SIGN>;<lower-case>;IGNORE
+            ";\u042A"         //<CYRILLIC_CAPITAL_LETTER_HARD_SIGN>		<CYRILLIC_SMALL_LETTER_HARD_SIGN>;<upper-case>;IGNORE
+            "<\u044B"         //<CYRILLIC_SMALL_LETTER_YERU>		<CYRILLIC_SMALL_LETTER_YERU>;<lower-case>;IGNORE
+            ";\u042B"         //<CYRILLIC_CAPITAL_LETTER_YERU>		<CYRILLIC_SMALL_LETTER_YERU>;<upper-case>;IGNORE
+            "<\u044C"         //<CYRILLIC_SMALL_LETTER_SOFT_SIGN>		<CYRILLIC_SMALL_LETTER_SOFT_SIGN>;<lower-case>;IGNORE
+            ";\u042C"         //<CYRILLIC_CAPITAL_LETTER_SOFT_SIGN>		<CYRILLIC_SMALL_LETTER_SOFT_SIGN>;<upper-case>;IGNORE
+            "<\u044D"         //<CYRILLIC_SMALL_LETTER_E>		<CYRILLIC_SMALL_LETTER_E>;<lower-case>;IGNORE
+            ";\u042D"         //<CYRILLIC_CAPITAL_LETTER_E>		<CYRILLIC_SMALL_LETTER_E>;<upper-case>;IGNORE
+            "<\u044E"         //<CYRILLIC_SMALL_LETTER_YU>		<CYRILLIC_SMALL_LETTER_YU>;<lower-case>;IGNORE
+            ";\u042E"         //<CYRILLIC_CAPITAL_LETTER_YU>		<CYRILLIC_SMALL_LETTER_YU>;<upper-case>;IGNORE
+            "<\u044F"         //<CYRILLIC_SMALL_LETTER_YA>		<CYRILLIC_SMALL_LETTER_YA>;<lower-case>;IGNORE
+            ";\u042F"         //<CYRILLIC_CAPITAL_LETTER_YA>		<CYRILLIC_SMALL_LETTER_YA>;<upper-case>;IGNORE
+        }
+    }
+    ///* Discarding duplicate data for tag: CountryISBNNumber */
+    ///* Discarding duplicate data for tag: CountryNumber */
+    CurrencyElements { 
+            "\u0420\u0443\u0431",
+            "BYB ",
+            ",",
+    }
+    DateTimePatterns { 
+            "HH.mm.ss",
+            "HH.mm.ss",
+            "HH.mm.ss",
+            "HH.mm.ss",
+            "dd MMMM yyyy \u0440. ",
+            "dd MMMM yyyy \u0440. HH.mm.ss",
+            "dd MMMM yyyy",
+            "dd.MMMM.yy",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "\u043D\u0434",
+            "\u043F\u043D",
+            "\u0430\u0442",
+            "\u0441\u0440",
+            "\u0447\u0446",
+            "\u043F\u0442",
+            "\u0441\u0431",
+    }
+    DayNames { 
+            "\u043D\u044F\u0434\u0437\u0435\u043B\u044F",
+            "\u043F\u0430\u043D\u044F\u0434\u0437\u0435\u043B\u0430\u043A",
+            "\u0430\u045E\u0442\u043E\u0440\u0430\u043A",
+            "\u0441\u0435\u0440\u0430\u0434\u0430",
+            "\u0447\u0430\u0446\u0432\u0435\u0440",
+            "\u043F\u044F\u0442\u043D\u0456\u0446\u0430",
+            "\u0441\u0443\u0431\u043E\u0442\u0430",
+    }
+    ///* Discarding duplicate data for tag: Identification */
+    ///* Discarding duplicate data for tag: LanguageLibraryUse */
+    ///* Discarding duplicate data for tag: Measurement */
+    Messages { 
+        YesExpression { "^([\u0442\u0422]|[\u0442\u0422][\u0430\u0410][\u043A\u041A]|[yY]|[yY][eE][sS])" }
+        NoExpression { "^([\u043D\u041D]|[\u043D\u041D][\u0435\u0415]|[nN]|[nN][oO])" }
+        YesStr { "\u0442\u0430\u043A:\u0422\u0410\u041A:\u0442:\u0422:yes:y:Y" }
+        NoStr { "\u043D\u0435:\u041D\u0415:\u043D:\u041D:no:n:N" }
+    }
+    MonthAbbreviations { 
+            "\u0441\u0442\u0434",
+            "\u043B\u044E\u0442",
+            "\u0441\u043A\u0432",
+            "\u043A\u0440\u0441",
+            "\u043C\u0430\u0439",
+            "\u0447\u0440\u0432",
+            "\u043B\u043F\u043D",
+            "\u0436\u043D\u0432",
+            "\u0432\u0440\u0441",
+            "\u043A\u0441\u0442",
+            "\u043B\u0441\u0442",
+            "\u0441\u043D\u0436",
+            "",
+    }
+    MonthNames { 
+            "\u0441\u0442\u0443\u0434\u0437\u0435\u043D\u044F",
+            "\u043B\u044E\u0442\u0430\u0433\u0430",
+            "\u0441\u0430\u043A\u0430\u0432\u0456\u043A\u0430",
+            "\u043A\u0440\u0430\u0441\u0430\u0432\u0456\u043A\u0430",
+            "\u043C\u0430\u044F",
+            "\u0447\u044D\u0440\u0432\u0435\u043D\u044F",
+            "\u043B\u0456\u043F\u0435\u043D\u044F",
+            "\u0436\u043D\u0456\u045E\u043D\u044F",
+            "\u0432\u0435\u0440\u0430\u0441\u043D\u044F",
+            "\u043A\u0430\u0441\u0442\u0440\u044B\u0447\u043D\u0456\u043A\u0430",
+            "\u043B\u0438\u0441\u0442\u0430\u043F\u0430\u0434\u0430",
+            "\u0441\u043D\u0435\u0436\u043D\u044F",
+            "",
+    }
+    ///* Discarding duplicate data for tag: NameFormat */
+    NumberElements { 
+            ",",
+            " ",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "\u00A4#,##0.00;-\u00A4#,##0.00",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "" }
+        Width { "" }
+        Units { "mm" }
+    }
+    ///* Discarding duplicate data for tag: TelephoneFormat */
+}

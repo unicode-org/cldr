@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-09-08" />
+		<language type="lv" /> 
+		<territory type="LV" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">janvāris</month>
+					<month type="2">februāris</month>
+					<month type="3">marts</month>
+					<month type="4">aprīlis</month>
+					<month type="5">maijs</month>
+					<month type="6">jūnijs</month>
+					<month type="7">jūlijs</month>
+					<month type="8">augusts</month>
+					<month type="9">septembris</month>
+					<month type="10">oktobris</month>
+					<month type="11">novembris</month>
+					<month type="12">decembris</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">jan</month>
+					<month type="2">feb</month>
+					<month type="3">mar</month>
+					<month type="4">apr</month>
+					<month type="5">maijs</month>
+					<month type="6">jūn</month>
+					<month type="7">jūl</month>
+					<month type="8">aug</month>
+					<month type="9">sep</month>
+					<month type="10">okt</month>
+					<month type="11">nov</month>
+					<month type="12">dec</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">svētdiena</day>
+					<day type="mon">pirmdiena</day>
+					<day type="tue">otrdiena</day>
+					<day type="wed">trešdiena</day>
+					<day type="thu">ceturdien</day>
+					<day type="fri">piektdiena</day>
+					<day type="sat">sestdiena</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">Sv</day>
+					<day type="mon">P </day>
+					<day type="tue">O </day>
+					<day type="wed">T </day>
+					<day type="thu">C </day>
+					<day type="fri">Pk</day>
+					<day type="sat">S </day>
+				</dayAbbr>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>yyyy.MMMM.dd</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>EEEE, yyyy. gada dd. MMMM, plkst. HH un mm</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>yyyy.MMMM.dd</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>yyyy.MMMM.dd</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group> </group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+	<collations version="3.1.1">
+		<collation  >
+			<rules>
+				<reset><cp hex="0000" /></reset>
+				<t><cp hex="0001" /></t>
+				<t><cp hex="0002" /></t>
+				<t><cp hex="0003" /></t>
+				<t><cp hex="0004" /></t>
+				<t><cp hex="0005" /></t>
+				<t><cp hex="0006" /></t>
+				<t><cp hex="0007" /></t>
+				<t><cp hex="0008" /></t>
+				<t>0009</t>
+				<t>000A</t>
+				<t>000B</t>
+				<t>000C</t>
+				<t>000D</t>
+				<t><cp hex="000E" /></t>
+				<t><cp hex="000F" /></t>
+				<t><cp hex="0010" /></t>
+				<t><cp hex="0011" /></t>
+				<t><cp hex="0012" /></t>
+				<t><cp hex="0013" /></t>
+				<t><cp hex="0014" /></t>
+				<t><cp hex="0015" /></t>
+				<t><cp hex="0016" /></t>
+				<t><cp hex="0017" /></t>
+				<t><cp hex="0018" /></t>
+				<t><cp hex="0019" /></t>
+				<t><cp hex="001A" /></t>
+				<t><cp hex="001B" /></t>
+				<t><cp hex="001C" /></t>
+				<t><cp hex="001D" /></t>
+				<t><cp hex="001E" /></t>
+				<tc><cp hex="001F" /></tc>
+				<tc>0085</tc>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<tc>·</tc>
+				<t></t>
+				<tc>”„“’«»</tc>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<tc>§¶©®@¤¢</tc>
+				<tc>£</tc>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<tc>±÷×</tc>
+				<t></t>
+				<t></t>
+				<tc>¬|¦°µ</tc>
+				<pc>00A00</pc>
+				<sc>¼½¾</sc>
+				<p>¹</p>
+				<t>1</t>
+				<p>²</p>
+				<t>2</t>
+				<p>³</p>
+				<t>3</t>
+				<pc>456789A</pc>
+				<t>a</t>
+				<s>Ā</s>
+				<t>ā</t>
+				<p>B</p>
+				<t>b</t>
+				<p>C</p>
+				<t>c</t>
+				<s>Č</s>
+				<t>č</t>
+				<p>D</p>
+				<t>d</t>
+				<p>E</p>
+				<t>e</t>
+				<s>Ē</s>
+				<t>ē</t>
+				<p>F</p>
+				<t>f</t>
+				<p>G</p>
+				<t>g</t>
+				<s>Ģ</s>
+				<t>ģ</t>
+				<p>H</p>
+				<t>h</t>
+				<p>I</p>
+				<t>i</t>
+				<s>Y</s>
+				<t>y</t>
+				<s>Ī</s>
+				<t>ī</t>
+				<p>J</p>
+				<t>j</t>
+				<p>K</p>
+				<t>k</t>
+				<s>Ķ</s>
+				<t>ķ</t>
+				<p>L</p>
+				<t>l</t>
+				<s>Ļ</s>
+				<t>ļ</t>
+				<p>M</p>
+				<t>m</t>
+				<p>N</p>
+				<t>n</t>
+				<s>Ņ</s>
+				<t>ņ</t>
+				<p>O</p>
+				<t>o</t>
+				<s>Ō</s>
+				<t>ō</t>
+				<p>P</p>
+				<t>p</t>
+				<p>Q</p>
+				<t>q</t>
+				<p>R</p>
+				<t>r</t>
+				<s>Ŗ</s>
+				<t>ŗ</t>
+				<p>S</p>
+				<t>s</t>
+				<p>Š</p>
+				<t>š</t>
+				<p>T</p>
+				<t>t</t>
+				<p>U</p>
+				<t>u</t>
+				<s>Ū</s>
+				<t>ū</t>
+				<p>V</p>
+				<t>v</t>
+				<p>W</p>
+				<t>w</t>
+				<p>X</p>
+				<t>x</t>
+				<p>Z</p>
+				<t>z</t>
+				<s>Ž</s>
+				<t>ž</t>
+				<reset>ss</reset>
+			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
+		</collation  >
+	</collations >
+</ldml>

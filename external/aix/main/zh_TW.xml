@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-09-08" />
+		<language type="zh" /> 
+		<territory type="TW" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">1月</month>
+					<month type="2">2月</month>
+					<month type="3">3月</month>
+					<month type="4">4月</month>
+					<month type="5">5月</month>
+					<month type="6">6月</month>
+					<month type="7">7月</month>
+					<month type="8">8月</month>
+					<month type="9">9月</month>
+					<month type="10">10月</month>
+					<month type="11">11月</month>
+					<month type="12">12月</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1"> 1月</month>
+					<month type="2"> 2月</month>
+					<month type="3"> 3月</month>
+					<month type="4"> 4月</month>
+					<month type="5"> 5月</month>
+					<month type="6"> 6月</month>
+					<month type="7"> 7月</month>
+					<month type="8"> 8月</month>
+					<month type="9"> 9月</month>
+					<month type="10">10月</month>
+					<month type="11">11月</month>
+					<month type="12">12月</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">星期日</day>
+					<day type="mon">星期一</day>
+					<day type="tue">星期二</day>
+					<day type="wed">星期三</day>
+					<day type="thu">星期四</day>
+					<day type="fri">星期五</day>
+					<day type="sat">星期六</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">日</day>
+					<day type="mon">一</day>
+					<day type="tue">二</day>
+					<day type="wed">三</day>
+					<day type="thu">四</day>
+					<day type="fri">五</day>
+					<day type="sat">六</day>
+				</dayAbbr>
+				<am>上午</am>
+				<pm>下午</pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>MMM dd yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>%EYMMMM月dd日  EEEE  HH時mm分ss秒</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>MMM dd yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>MMMM/dd/yy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>¤#,##0.00;¤-#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

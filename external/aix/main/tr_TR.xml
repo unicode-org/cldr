@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-09-08" />
+		<language type="tr" /> 
+		<territory type="TR" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<am>a.m.</am>
+				<pm>p.m.</pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>EEE dd MMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>EEE dd MMM HH:mm:ss yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>dd MMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>dd/MMMM/yy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>+#,##0.00¤;-#,##0.00¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+	<collations version="3.1.1">
+		<collation  >
+			<rules>
+				<reset><cp hex="0000" /></reset>
+				<p><cp hex="0001" /></p>
+				<p><cp hex="0002" /></p>
+				<p><cp hex="0003" /></p>
+				<p><cp hex="0004" /></p>
+				<p><cp hex="0005" /></p>
+				<p><cp hex="0006" /></p>
+				<p><cp hex="0007" /></p>
+				<p><cp hex="0008" /></p>
+				<p>0009</p>
+				<p>000A</p>
+				<p>000B</p>
+				<p>000C</p>
+				<p>000D</p>
+				<p><cp hex="000E" /></p>
+				<p><cp hex="000F" /></p>
+				<p><cp hex="0010" /></p>
+				<p><cp hex="0011" /></p>
+				<p><cp hex="0012" /></p>
+				<p><cp hex="0013" /></p>
+				<p><cp hex="0014" /></p>
+				<p><cp hex="0015" /></p>
+				<p><cp hex="0016" /></p>
+				<p><cp hex="0017" /></p>
+				<p><cp hex="0018" /></p>
+				<p><cp hex="0019" /></p>
+				<p><cp hex="001A" /></p>
+				<p><cp hex="001B" /></p>
+				<p><cp hex="001C" /></p>
+				<p><cp hex="001D" /></p>
+				<p><cp hex="001E" /></p>
+				<p><cp hex="001F" /></p>
+				<p></p>
+				<pc>¯</pc>
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+				<pc>¡</pc>
+				<pc>¿</pc>
+				<p></p>
+				<pc>´</pc>
+				<p></p>
+				<pc>¨</pc>
+				<pc>·¸</pc>
+				<p></p>
+				<pc>«»</pc>
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+				<pc>§¶©®@¤¢</pc>
+				<pc>£¥</pc>
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+				<p></p>
+				<pc>±÷×</pc>
+				<p></p>
+				<p></p>
+				<pc>¬|¦°µ</pc>
+				<pc>00A00¼½¾1¹2²3³456789a</pc>
+				<s>A</s>
+				<p>á</p>
+				<s>Á</s>
+				<p>à</p>
+				<s>À</s>
+				<p>â</p>
+				<s>Â</s>
+				<p>å</p>
+				<s>Å</s>
+				<p>ä</p>
+				<s>Ä</s>
+				<p>ã</p>
+				<s>Ã</s>
+				<p>æ</p>
+				<s>Æ</s>
+				<p>b</p>
+				<s>B</s>
+				<p>c</p>
+				<s>C</s>
+				<p>ç</p>
+				<s>Ç</s>
+				<p>d</p>
+				<s>D</s>
+				<p>e</p>
+				<s>E</s>
+				<p>é</p>
+				<s>É</s>
+				<p>è</p>
+				<s>È</s>
+				<p>ê</p>
+				<s>Ê</s>
+				<p>ë</p>
+				<s>Ë</s>
+				<p>f</p>
+				<s>F</s>
+				<p>g</p>
+				<s>G</s>
+				<p>ğ</p>
+				<s>Ğ</s>
+				<p>h</p>
+				<s>H</s>
+				<p>ı</p>
+				<s>I</s>
+				<p>i</p>
+				<s>İ</s>
+				<p>í</p>
+				<s>Í</s>
+				<p>ì</p>
+				<s>Ì</s>
+				<p>î</p>
+				<s>Î</s>
+				<p>ï</p>
+				<s>Ï</s>
+				<p>j</p>
+				<s>J</s>
+				<p>k</p>
+				<s>K</s>
+				<p>l</p>
+				<s>L</s>
+				<p>m</p>
+				<s>M</s>
+				<p>n</p>
+				<s>N</s>
+				<p>ñ</p>
+				<s>Ñ</s>
+				<p>o</p>
+				<s>O</s>
+				<p>ó</p>
+				<s>Ó</s>
+				<p>ò</p>
+				<s>Ò</s>
+				<p>ô</p>
+				<s>Ô</s>
+				<p>õ</p>
+				<s>Õ</s>
+				<p>ø</p>
+				<s>Ø</s>
+				<p>ö</p>
+				<s>Ö</s>
+				<p>p</p>
+				<s>P</s>
+				<p>q</p>
+				<s>Q</s>
+				<p>r</p>
+				<s>R</s>
+				<p>s</p>
+				<sc>ßS</sc>
+				<p>ş</p>
+				<s>Ş</s>
+				<p>t</p>
+				<s>T</s>
+				<p>u</p>
+				<s>U</s>
+				<p>ú</p>
+				<s>Ú</s>
+				<p>ù</p>
+				<s>Ù</s>
+				<p>û</p>
+				<s>Û</s>
+				<p>ü</p>
+				<s>Ü</s>
+				<p>v</p>
+				<s>V</s>
+				<p>w</p>
+				<s>W</s>
+				<p>x</p>
+				<s>X</s>
+				<p>y</p>
+				<s>Y</s>
+				<pc>ÿz</pc>
+				<s>Z</s>
+				<pc></pc>
+				<pc>0085ª</pc>
+			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
+		</collation  >
+	</collations >
+</ldml>

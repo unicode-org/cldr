@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-09-08" />
+		<language type="ta" /> 
+		<territory type="IN" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">ஜனவரி</month>
+					<month type="2">பிப்ரவரி</month>
+					<month type="3">மார்ச்</month>
+					<month type="4">ஏப்ரல்</month>
+					<month type="5">மே</month>
+					<month type="6">ஜீன்</month>
+					<month type="7">ஜீலை</month>
+					<month type="8">ஆகஸ்ட்</month>
+					<month type="9">செப்டம்பர்</month>
+					<month type="10">அக்டோபர்</month>
+					<month type="11">நவம்பர்</month>
+					<month type="12">டிசெம்பர்</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">ஜன</month>
+					<month type="2">பிப்</month>
+					<month type="3">மார்</month>
+					<month type="4">ஏப்</month>
+					<month type="5">மே</month>
+					<month type="6">ஜீன்</month>
+					<month type="7">ஜீலை</month>
+					<month type="8">ஆக</month>
+					<month type="9">செப்</month>
+					<month type="10">அக்</month>
+					<month type="11">நவ</month>
+					<month type="12">டிசெ</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">ஞாயிறு</day>
+					<day type="mon">திங்கள்</day>
+					<day type="tue">செவ்வாய்</day>
+					<day type="wed">புதன்</day>
+					<day type="thu">வியாழன்</day>
+					<day type="fri">வெள்ள</day>
+					<day type="sat">சனி</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">ஞா</day>
+					<day type="mon">தி</day>
+					<day type="tue">செ</day>
+					<day type="wed">பு</day>
+					<day type="thu">வி</day>
+					<day type="fri">வெ</day>
+					<day type="sat">ச</day>
+				</dayAbbr>
+				<am>காைல</am>
+				<pm>மாைல</pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>dd MMMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>EEEE dd MMMM yyyy hh:mm:ss aa z</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>dd MMMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>dd-MMMM-yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>¤#,##0.00;-¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+	<collations version="3.1.1">
+		<collation  >
+			<rules>
+				<reset><cp hex="0000" /></reset>
+				<t><cp hex="0001" /></t>
+				<t><cp hex="0002" /></t>
+				<t><cp hex="0003" /></t>
+				<t><cp hex="0004" /></t>
+				<t><cp hex="0005" /></t>
+				<t><cp hex="0006" /></t>
+				<t><cp hex="0007" /></t>
+				<t><cp hex="0008" /></t>
+				<t>0009</t>
+				<t>000A</t>
+				<t>000B</t>
+				<t>000C</t>
+				<t>000D</t>
+				<t><cp hex="000E" /></t>
+				<t><cp hex="000F" /></t>
+				<t><cp hex="0010" /></t>
+				<t><cp hex="0011" /></t>
+				<t><cp hex="0012" /></t>
+				<t><cp hex="0013" /></t>
+				<t><cp hex="0014" /></t>
+				<t><cp hex="0015" /></t>
+				<t><cp hex="0016" /></t>
+				<t><cp hex="0017" /></t>
+				<t><cp hex="0018" /></t>
+				<t><cp hex="0019" /></t>
+				<t><cp hex="001A" /></t>
+				<t><cp hex="001B" /></t>
+				<t><cp hex="001C" /></t>
+				<t><cp hex="001D" /></t>
+				<t><cp hex="001E" /></t>
+				<tc><cp hex="001F" /></tc>
+				<tc>0085</tc>
+				<t></t>
+				<tc>¯</tc>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<tc>¡</tc>
+				<tc>¿</tc>
+				<t></t>
+				<tc>´</tc>
+				<t></t>
+				<tc>¨</tc>
+				<tc>·¸</tc>
+				<t></t>
+				<tc>«»</tc>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<tc>§¶©®@¤¢</tc>
+				<tc>€£¥</tc>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<t></t>
+				<tc>±÷×</tc>
+				<t></t>
+				<t></t>
+				<tc>¬|¦°µ</tc>
+				<pc>00A01</pc>
+				<t>¹</t>
+				<p>2</p>
+				<t>²</t>
+				<p>3</p>
+				<t>³</t>
+				<pc>456789a</pc>
+				<t>A</t>
+				<sc>ªá</sc>
+				<t>Á</t>
+				<s>à</s>
+				<t>À</t>
+				<s>â</s>
+				<t>Â</t>
+				<s>å</s>
+				<t>Å</t>
+				<s>ä</s>
+				<t>Ä</t>
+				<s>ã</s>
+				<t>Ã</t>
+				<p>b</p>
+				<t>B</t>
+				<p>c</p>
+				<t>C</t>
+				<s>ç</s>
+				<t>Ç</t>
+				<p>d</p>
+				<t>D</t>
+				<s>ð</s>
+				<t>Ð</t>
+				<p>e</p>
+				<t>E</t>
+				<s>é</s>
+				<t>É</t>
+				<s>è</s>
+				<t>È</t>
+				<s>ê</s>
+				<t>Ê</t>
+				<s>ë</s>
+				<t>Ë</t>
+				<p>f</p>
+				<t>F</t>
+				<p>g</p>
+				<t>G</t>
+				<p>h</p>
+				<t>H</t>
+				<p>i</p>
+				<t>I</t>
+				<s>í</s>
+				<t>Í</t>
+				<s>ì</s>
+				<t>Ì</t>
+				<s>î</s>
+				<t>Î</t>
+				<s>ï</s>
+				<t>Ï</t>
+				<p>j</p>
+				<t>J</t>
+				<p>k</p>
+				<t>K</t>
+				<p>l</p>
+				<t>L</t>
+				<p>m</p>
+				<t>M</t>
+				<p>n</p>
+				<t>N</t>
+				<s>ñ</s>
+				<t>Ñ</t>
+				<p>o</p>
+				<t>O</t>
+				<sc>ºó</sc>
+				<t>Ó</t>
+				<s>ò</s>
+				<t>Ò</t>
+				<s>ô</s>
+				<t>Ô</t>
+				<s>ö</s>
+				<t>Ö</t>
+				<s>õ</s>
+				<t>Õ</t>
+				<s>ø</s>
+				<t>Ø</t>
+				<p>p</p>
+				<t>P</t>
+				<p>q</p>
+				<t>Q</t>
+				<p>r</p>
+				<t>R</t>
+				<p>s</p>
+				<t>S</t>
+				<s>š</s>
+				<t>Š</t>
+				<p>t</p>
+				<t>T</t>
+				<p>u</p>
+				<t>U</t>
+				<s>ú</s>
+				<t>Ú</t>
+				<s>ù</s>
+				<t>Ù</t>
+				<s>û</s>
+				<t>Û</t>
+				<s>ü</s>
+				<t>Ü</t>
+				<p>v</p>
+				<t>V</t>
+				<p>w</p>
+				<t>W</t>
+				<p>x</p>
+				<t>X</t>
+				<p>y</p>
+				<t>Y</t>
+				<s>ý</s>
+				<t>Ý</t>
+				<s>ÿ</s>
+				<t>Ÿ</t>
+				<p>z</p>
+				<t>Z</t>
+				<s>ž</s>
+				<t>Ž</t>
+				<p>0</p>
+				<s>¼</s>
+				<tc>½¾</tc>
+				<pc>௧௨௩௪௫௬௭௮௯௰௱௲அ</pc>
+				<p>அஂ</p>
+				<pc>அஃஆ</pc>
+				<p>ஆஂ</p>
+				<pc>ஆஃஇ</pc>
+				<p>இஂ</p>
+				<pc>இஃஈ</pc>
+				<p>ஈஂ</p>
+				<pc>ஈஃஉ</pc>
+				<p>உஂ</p>
+				<pc>உஃஊ</pc>
+				<p>ஊஂ</p>
+				<pc>ஊஃஎ</pc>
+				<p>எஂ</p>
+				<pc>எஃஏ</pc>
+				<p>ஏஂ</p>
+				<pc>ஏஃஐ</pc>
+				<p>ஐஂ</p>
+				<pc>ஐஃஒ</pc>
+				<p>ஒஂ</p>
+				<pc>ஒஃஓ</pc>
+				<p>ஓஂ</p>
+				<pc>ஓஃஔ</pc>
+				<p>ஔஂ</p>
+				<pc>ஔஃக</pc>
+				<p>கஂ</p>
+				<p>கஃ</p>
+				<p>கா</p>
+				<p>கி</p>
+				<p>கீ</p>
+				<p>கு</p>
+				<p>கூ</p>
+				<p>கெ</p>
+				<p>கே</p>
+				<p>கை</p>
+				<p>கொ</p>
+				<p>கோ</p>
+				<p>கௌ</p>
+				<p>கௗ</p>
+				<pc>க்ங</pc>
+				<p>ஙஂ</p>
+				<p>ஙஃ</p>
+				<p>ஙா</p>
+				<p>ஙி</p>
+				<p>ஙீ</p>
+				<p>ஙு</p>
+				<p>ஙூ</p>
+				<p>ஙெ</p>
+				<p>ஙே</p>
+				<p>ஙை</p>
+				<p>ஙொ</p>
+				<p>ஙோ</p>
+				<p>ஙௌ</p>
+				<p>ஙௗ</p>
+				<pc>ங்ச</pc>
+				<p>சஂ</p>
+				<p>சஃ</p>
+				<p>சா</p>
+				<p>சி</p>
+				<p>சீ</p>
+				<p>சு</p>
+				<p>சூ</p>
+				<p>செ</p>
+				<p>சே</p>
+				<p>சை</p>
+				<p>சொ</p>
+				<p>சோ</p>
+				<p>சௌ</p>
+				<p>சௗ</p>
+				<pc>ச்ஜ</pc>
+				<p>ஜஂ</p>
+				<p>ஜஃ</p>
+				<p>ஜா</p>
+				<p>ஜி</p>
+				<p>ஜீ</p>
+				<p>ஜு</p>
+				<p>ஜூ</p>
+				<p>ஜெ</p>
+				<p>ஜே</p>
+				<p>ஜை</p>
+				<p>ஜொ</p>
+				<p>ஜோ</p>
+				<p>ஜௌ</p>
+				<p>ஜௗ</p>
+				<pc>ஜ்ஸ</pc>
+				<p>ஸஂ</p>
+				<p>ஸஃ</p>
+				<p>ஸா</p>
+				<p>ஸி</p>
+				<p>ஸீ</p>
+				<p>ஸு</p>
+				<p>ஸூ</p>
+				<p>ஸெ</p>
+				<p>ஸே</p>
+				<p>ஸை</p>
+				<p>ஸொ</p>
+				<p>ஸோ</p>
+				<p>ஸௌ</p>
+				<p>ஸௗ</p>
+				<pc>ஸ்ஷ</pc>
+				<p>ஷஂ</p>
+				<p>ஷஃ</p>
+				<p>ஷா</p>
+				<p>ஷி</p>
+				<p>ஷீ</p>
+				<p>ஷு</p>
+				<p>ஷூ</p>
+				<p>ஷெ</p>
+				<p>ஷே</p>
+				<p>ஷை</p>
+				<p>ஷொ</p>
+				<p>ஷோ</p>
+				<p>ஷௌ</p>
+				<p>ஷௗ</p>
+				<pc>ஷ்ஞ</pc>
+				<p>ஞஂ</p>
+				<p>ஞஃ</p>
+				<p>ஞா</p>
+				<p>ஞி</p>
+				<p>ஞீ</p>
+				<p>ஞு</p>
+				<p>ஞூ</p>
+				<p>ஞெ</p>
+				<p>ஞே</p>
+				<p>ஞை</p>
+				<p>ஞொ</p>
+				<p>ஞோ</p>
+				<p>ஞௌ</p>
+				<p>ஞௗ</p>
+				<pc>ஞ்ட</pc>
+				<p>டஂ</p>
+				<p>டஃ</p>
+				<p>டா</p>
+				<p>டி</p>
+				<p>டீ</p>
+				<p>டு</p>
+				<p>டூ</p>
+				<p>டெ</p>
+				<p>டே</p>
+				<p>டை</p>
+				<p>டொ</p>
+				<p>டோ</p>
+				<p>டௌ</p>
+				<p>டௗ</p>
+				<pc>ட்ண</pc>
+				<p>ணஂ</p>
+				<p>ணஃ</p>
+				<p>ணா</p>
+				<p>ணி</p>
+				<p>ணீ</p>
+				<p>ணு</p>
+				<p>ணூ</p>
+				<p>ணெ</p>
+				<p>ணே</p>
+				<p>ணை</p>
+				<p>ணொ</p>
+				<p>ணோ</p>
+				<p>ணௌ</p>
+				<p>ணௗ</p>
+				<pc>ண்த</pc>
+				<p>தஂ</p>
+				<p>தஃ</p>
+				<p>தா</p>
+				<p>தி</p>
+				<p>தீ</p>
+				<p>து</p>
+				<p>தூ</p>
+				<p>தெ</p>
+				<p>தே</p>
+				<p>தை</p>
+				<p>தொ</p>
+				<p>தோ</p>
+				<p>தௌ</p>
+				<p>தௗ</p>
+				<pc>த்ந</pc>
+				<p>நஂ</p>
+				<p>நஃ</p>
+				<p>நா</p>
+				<p>நி</p>
+				<p>நீ</p>
+				<p>நு</p>
+				<p>நூ</p>
+				<p>நெ</p>
+				<p>நே</p>
+				<p>நை</p>
+				<p>நொ</p>
+				<p>நோ</p>
+				<p>நௌ</p>
+				<p>நௗ</p>
+				<pc>ந்ப</pc>
+				<p>பஂ</p>
+				<p>பஃ</p>
+				<p>பா</p>
+				<p>பி</p>
+				<p>பீ</p>
+				<p>பு</p>
+				<p>பூ</p>
+				<p>பெ</p>
+				<p>பே</p>
+				<p>பை</p>
+				<p>பொ</p>
+				<p>போ</p>
+				<p>பௌ</p>
+				<p>பௗ</p>
+				<pc>ப்ம</pc>
+				<p>மஂ</p>
+				<p>மஃ</p>
+				<p>மா</p>
+				<p>மி</p>
+				<p>மீ</p>
+				<p>மு</p>
+				<p>மூ</p>
+				<p>மெ</p>
+				<p>மே</p>
+				<p>மை</p>
+				<p>மொ</p>
+				<p>மோ</p>
+				<p>மௌ</p>
+				<p>மௗ</p>
+				<pc>ம்ய</pc>
+				<p>யஂ</p>
+				<p>யஃ</p>
+				<p>யா</p>
+				<p>யி</p>
+				<p>யீ</p>
+				<p>யு</p>
+				<p>யூ</p>
+				<p>யெ</p>
+				<p>யே</p>
+				<p>யை</p>
+				<p>யொ</p>
+				<p>யோ</p>
+				<p>யௌ</p>
+				<p>யௗ</p>
+				<pc>ய்ர</pc>
+				<p>ரஂ</p>
+				<p>ரஃ</p>
+				<p>ரா</p>
+				<p>ரி</p>
+				<p>ரீ</p>
+				<p>ரு</p>
+				<p>ரூ</p>
+				<p>ரெ</p>
+				<p>ரே</p>
+				<p>ரை</p>
+				<p>ரொ</p>
+				<p>ரோ</p>
+				<p>ரௌ</p>
+				<p>ரௗ</p>
+				<pc>ர்ல</pc>
+				<p>லஂ</p>
+				<p>லஃ</p>
+				<p>லா</p>
+				<p>லி</p>
+				<p>லீ</p>
+				<p>லு</p>
+				<p>லூ</p>
+				<p>லெ</p>
+				<p>லே</p>
+				<p>லை</p>
+				<p>லொ</p>
+				<p>லோ</p>
+				<p>லௌ</p>
+				<p>லௗ</p>
+				<pc>ல்வ</pc>
+				<p>வஂ</p>
+				<p>வஃ</p>
+				<p>வா</p>
+				<p>வி</p>
+				<p>வீ</p>
+				<p>வு</p>
+				<p>வூ</p>
+				<p>வெ</p>
+				<p>வே</p>
+				<p>வை</p>
+				<p>வொ</p>
+				<p>வோ</p>
+				<p>வௌ</p>
+				<p>வௗ</p>
+				<pc>வ்ழ</pc>
+				<p>ழஂ</p>
+				<p>ழஃ</p>
+				<p>ழா</p>
+				<p>ழி</p>
+				<p>ழீ</p>
+				<p>ழு</p>
+				<p>ழூ</p>
+				<p>ழெ</p>
+				<p>ழே</p>
+				<p>ழை</p>
+				<p>ழொ</p>
+				<p>ழோ</p>
+				<p>ழௌ</p>
+				<p>ழௗ</p>
+				<pc>ழ்ள</pc>
+				<p>ளஂ</p>
+				<p>ளஃ</p>
+				<p>ளா</p>
+				<p>ளி</p>
+				<p>ளீ</p>
+				<p>ளு</p>
+				<p>ளூ</p>
+				<p>ளெ</p>
+				<p>ளே</p>
+				<p>ளை</p>
+				<p>ளொ</p>
+				<p>ளோ</p>
+				<p>ளௌ</p>
+				<p>ளௗ</p>
+				<pc>ள்ற</pc>
+				<p>றஂ</p>
+				<p>றஃ</p>
+				<p>றா</p>
+				<p>றி</p>
+				<p>றீ</p>
+				<p>று</p>
+				<p>றூ</p>
+				<p>றெ</p>
+				<p>றே</p>
+				<p>றை</p>
+				<p>றொ</p>
+				<p>றோ</p>
+				<p>றௌ</p>
+				<p>றௗ</p>
+				<pc>ற்ன</pc>
+				<p>னஂ</p>
+				<p>னஃ</p>
+				<p>னா</p>
+				<p>னி</p>
+				<p>னீ</p>
+				<p>னு</p>
+				<p>னூ</p>
+				<p>னெ</p>
+				<p>னே</p>
+				<p>னை</p>
+				<p>னொ</p>
+				<p>னோ</p>
+				<p>னௌ</p>
+				<p>னௗ</p>
+				<pc>ன்ஹ</pc>
+				<p>ஹஂ</p>
+				<p>ஹஃ</p>
+				<p>ஹா</p>
+				<p>ஹி</p>
+				<p>ஹீ</p>
+				<p>ஹு</p>
+				<p>ஹூ</p>
+				<p>ஹெ</p>
+				<p>ஹே</p>
+				<p>ஹை</p>
+				<p>ஹொ</p>
+				<p>ஹோ</p>
+				<p>ஹௌ</p>
+				<p>ஹௗ</p>
+				<p>ஹ்</p>
+				<reset>ªe</reset>
+				<s>æ</s>
+				<reset>ªE</reset>
+				<s>Æ</s>
+				<reset>ºe</reset>
+				<s>œ</s>
+				<reset>ºE</reset>
+				<s>Œ</s>
+				<reset>Ss</reset>
+				<s>ß</s>
+				<reset>Th</reset>
+				<s>þ</s>
+				<reset>TH</reset>
+			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
+		</collation  >
+	</collations >
+</ldml>

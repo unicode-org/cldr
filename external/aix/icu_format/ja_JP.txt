@@ -1,0 +1,48 @@
+ja_JP {
+    ///* Discarding duplicate data for tag: AddressFormat */
+    ///* Discarding duplicate data for tag: AmPmMarkers */
+    ///* Discarding duplicate data for tag: CountryISBNNumber */
+    ///* Discarding duplicate data for tag: CountryNumber */
+    CurrencyElements { 
+            "\u00A5",
+            "JPY ",
+            ".",
+    }
+    DateTimePatterns { 
+            "hh:mm:ss aa",
+            "HH:mm:ss",
+            "HH:mm:ss",
+            "HH:mm:ss",
+            "EEE MMM dd yyyy",
+            "EEE MMM dd HH:mm:ss z yyyy",
+            "MMM dd yyyy",
+            "yy/MMMM/dd",
+            "{1} {0}",
+    }
+    ///* Discarding duplicate data for tag: DayAbbreviations */
+    ///* Discarding duplicate data for tag: DayNames */
+    ///* Discarding duplicate data for tag: Identification */
+    ///* Discarding duplicate data for tag: LanguageLibraryUse */
+    ///* Discarding duplicate data for tag: Measurement */
+    Messages { 
+        YesExpression { "^([yY]|\u306F\u3044)" }
+        NoExpression { "^([nN]|\u3044\u3044\u3048)" }
+        YesStr { "yes:y:Y:\u306F\u3044" }
+        NoStr { "no:n:N:\u3044\u3044\u3048" }
+    }
+    ///* Discarding duplicate data for tag: MonthAbbreviations */
+    ///* Discarding duplicate data for tag: MonthNames */
+    ///* Discarding duplicate data for tag: NameFormat */
+    ///* Discarding duplicate data for tag: NumberElements */
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "\u00A4#,##0.#;\u00A4-#,##0.#",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "" }
+        Width { "" }
+        Units { "mm" }
+    }
+    ///* Discarding duplicate data for tag: TelephoneFormat */
+}

@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
+[
+    <!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
+    <!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
+    <!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
+    <!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd">
+%icu;
+%openOffice;
+%iso14652;
+%posix;
+]
+>
+<ldml>
+	<identity>
+		<version number='1.0'>Generated from convertLocaledefToLDML</version>
+		<generation date='2003-10-02'/>
+		<language type='en'/>
+		<territory type='GB'/>
+	</identity>
+	<dates>
+		<calendars>
+			<default type='Gregorian'/>
+			<calendar type='Gregorian'>
+				<monthNames>
+					<month type='1'>January</month>
+					<month type='2'>February</month>
+					<month type='3'>March</month>
+					<month type='4'>April</month>
+					<month type='5'>May</month>
+					<month type='6'>June</month>
+					<month type='7'>July</month>
+					<month type='8'>August</month>
+					<month type='9'>September</month>
+					<month type='10'>October</month>
+					<month type='11'>November</month>
+					<month type='12'>December</month>
+				</monthNames>
+				<monthAbbr>
+					<month type='1'>Jan</month>
+					<month type='2'>Feb</month>
+					<month type='3'>Mar</month>
+					<month type='4'>Apr</month>
+					<month type='5'>May</month>
+					<month type='6'>Jun</month>
+					<month type='7'>Jul</month>
+					<month type='8'>Aug</month>
+					<month type='9'>Sep</month>
+					<month type='10'>Oct</month>
+					<month type='11'>Nov</month>
+					<month type='12'>Dec</month>
+				</monthAbbr>
+				<dayNames>
+					<day type='sun'>Sunday</day>
+					<day type='mon'>Monday</day>
+					<day type='tue'>Tuesday</day>
+					<day type='wed'>Wednesday</day>
+					<day type='thu'>Thursday</day>
+					<day type='fri'>Friday</day>
+					<day type='sat'>Saturday</day>
+				</dayNames>
+				<dayAbbr>
+					<day type='sun'>Sun</day>
+					<day type='mon'>Mon</day>
+					<day type='tue'>Tue</day>
+					<day type='wed'>Wed</day>
+					<day type='thu'>Thu</day>
+					<day type='fri'>Fri</day>
+					<day type='sat'>Sat</day>
+				</dayAbbr>
+				<am>AM</am>
+				<pm>PM</pm>
+				<dateFormats>
+					<default type='medium'/>
+					<dateFormatLength type='full'>
+						<default type='full'/>
+						<dateFormat type='full'>
+							<pattern>EEEE MMMM d HH:mm:ss z yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type='medium'>
+						<default type='medium'/>
+						<dateFormat type='medium'>
+							<pattern>EEE dd MMM yyyy HH:mm:ss z</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type='short'>
+						<default type='short'/>
+						<dateFormat type='short'>
+							<pattern>dd/MM/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<default type='medium'/>
+					<timeFormatLength type='medium'>
+						<default type='medium'/>
+						<timeFormat type='medium'>
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type='short'>
+						<default type='short'/>
+						<timeFormat type='short'>
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<default type='medium'/>
+					<dateTimeFormatLength type='medium'>
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+		</symbols>
+		<decimalFormats>
+			<default type='long'/>
+			<decimalFormatLength type='long'>
+				<decimalFormat>
+					<pattern>#,##0.##</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<currencyFormats>
+			<default type='long'/>
+			<currencyFormatLength type='long'>
+				<currencyFormat>
+					<pattern>¤#,##0.00;-¤ #,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencies>
+			<default type='GBP'/>
+			<currency type='GBP'>
+				<displayName>GBP</displayName>
+				<symbol>£</symbol>
+				<decimal>.</decimal>
+			</currency>
+		</currencies>
+	</numbers>
+	<special xmlns:posix='http://www.opengroup.org/regproducts/xu.htm'>
+		<posix:messages>
+			<posix:yesstr>yes</posix:yesstr>
+			<posix:nostr>no</posix:nostr>
+			<posix:yesexpr>[yY][[:alpha:]]*</posix:yesexpr>
+			<posix:noexpr>[nN][[:alpha:]]*</posix:noexpr>
+		</posix:messages>
+	</special>
+</ldml>

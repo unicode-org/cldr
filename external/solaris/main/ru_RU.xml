@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
+[
+    <!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
+    <!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
+    <!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
+    <!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd">
+%icu;
+%openOffice;
+%iso14652;
+%posix;
+]
+>
+<ldml>
+	<identity>
+		<version number='1.0'>Generated from convertLocaledefToLDML</version>
+		<generation date='2003-10-02'/>
+		<language type='ru'/>
+		<territory type='RU'/>
+	</identity>
+	<dates>
+		<calendars>
+			<default type='Gregorian'/>
+			<calendar type='Gregorian'>
+				<monthNames>
+					<month type='1'>Январь</month>
+					<month type='2'>Февраль</month>
+					<month type='3'>Март</month>
+					<month type='4'>Апрель</month>
+					<month type='5'>Май</month>
+					<month type='6'>Июнь</month>
+					<month type='7'>Июль</month>
+					<month type='8'>Август</month>
+					<month type='9'>Сентябрь</month>
+					<month type='10'>Октябрь</month>
+					<month type='11'>Ноябрь</month>
+					<month type='12'>Декабрь</month>
+				</monthNames>
+				<monthAbbr>
+					<month type='1'>Янв</month>
+					<month type='2'>Фев</month>
+					<month type='3'>Мар</month>
+					<month type='4'>Апр</month>
+					<month type='5'>Май</month>
+					<month type='6'>Июн</month>
+					<month type='7'>Июл</month>
+					<month type='8'>Авг</month>
+					<month type='9'>Сен</month>
+					<month type='10'>Окт</month>
+					<month type='11'>Ноя</month>
+					<month type='12'>Дек</month>
+				</monthAbbr>
+				<dayNames>
+					<day type='sun'>Воскресенье</day>
+					<day type='mon'>Понедельник</day>
+					<day type='tue'>Вторник</day>
+					<day type='wed'>Среда</day>
+					<day type='thu'>Четверг</day>
+					<day type='fri'>Пятница</day>
+					<day type='sat'>Суббота</day>
+				</dayNames>
+				<dayAbbr>
+					<day type='sun'>Вск</day>
+					<day type='mon'>Пнд</day>
+					<day type='tue'>Втр</day>
+					<day type='wed'>Срд</day>
+					<day type='thu'>Чтв</day>
+					<day type='fri'>Птн</day>
+					<day type='sat'>Сбт</day>
+				</dayAbbr>
+				<am>
+				</am>
+				<pm>
+				</pm>
+				<dateFormats>
+					<default type='medium'/>
+					<dateFormatLength type='full'>
+						<default type='full'/>
+						<dateFormat type='full'>
+							<pattern>EEE dd MMM yyyy HH:mm:ss</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type='medium'>
+						<default type='medium'/>
+						<dateFormat type='medium'>
+							<pattern>EEE dd MMM yyyy HH:mm:ss</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type='short'>
+						<default type='short'/>
+						<dateFormat type='short'>
+							<pattern>dd MMM. yyyy г</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<default type='medium'/>
+					<timeFormatLength type='medium'>
+						<default type='medium'/>
+						<timeFormat type='medium'>
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type='short'>
+						<default type='short'/>
+						<timeFormat type='short'>
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<default type='medium'/>
+					<dateTimeFormatLength type='medium'>
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>
+			</group>
+		</symbols>
+		<decimalFormats>
+			<default type='long'/>
+			<decimalFormatLength type='long'>
+				<decimalFormat>
+					<pattern>#,##0.##</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<currencyFormats>
+			<default type='long'/>
+			<currencyFormatLength type='long'>
+				<currencyFormat>
+					<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencies>
+			<default type='RUR'/>
+			<currency type='RUR'>
+				<displayName>RUR</displayName>
+				<symbol>руб</symbol>
+				<decimal>,</decimal>
+			</currency>
+		</currencies>
+	</numbers>
+	<special xmlns:posix='http://www.opengroup.org/regproducts/xu.htm'>
+		<posix:messages>
+			<posix:yesstr>yes:Yes:YES:y:Y</posix:yesstr>
+			<posix:nostr>no:No:NO:n:N</posix:nostr>
+			<posix:yesexpr>[yY][[:alpha:]]*</posix:yesexpr>
+			<posix:noexpr>[nN][[:alpha:]]*</posix:noexpr>
+		</posix:messages>
+	</special>
+</ldml>

@@ -1,52 +1,48 @@
-<!ELEMENT localeData ( identity, localeDisplayNames, layout, encodings, delimiters, measurement, dates, numbers, collations, special+ ) >
+<!ELEMENT localeData ( identity, ( localeDisplayNames | layout | encodings | delimiters | measurement | dates | numbers | collations  | special*)* ) >
 
 <!-- ######################################################### -->
 
-<!ELEMENT identity ( generation, version, language, country, variant, correspondsTo ) >
-
-<!ELEMENT generation EMPTY >
-<!ATTLIST generation date NMTOKEN #REQUIRED >
+<!ELEMENT identity ( (version, generation, language, (territory? | variant? | special*)*) | alias) >
 
 <!ELEMENT version ( #PCDATA ) >
 <!ATTLIST version number NMTOKEN #REQUIRED >
 
+<!ELEMENT generation EMPTY >
+<!ATTLIST generation date NMTOKEN #REQUIRED >
+
 <!ELEMENT language ( #PCDATA ) >
 <!ATTLIST language type NMTOKEN #REQUIRED >
 
-<!ELEMENT territory EMPTY >
+<!ELEMENT territory ( #PCDATA ) >
 <!ATTLIST territory type NMTOKEN #REQUIRED >
 
 <!ELEMENT variant ( #PCDATA ) >
 <!ATTLIST variant type NMTOKEN #REQUIRED >
 
-<!ELEMENT correspondsTo EMPTY >
-<!ATTLIST correspondsTo type NMTOKEN #REQUIRED >
-<!ATTLIST correspondsTo value NMTOKEN #REQUIRED >
-
 <!-- ######################################################### -->
 
 
 <!-- ######################################################### -->
 
-<!ELEMENT localeDisplayNames ( scripts, languages, countries, variants, keys, types ) >
+<!ELEMENT localeDisplayNames ( ((scripts| languages| territories | variants  | keys | types | special*))* | alias ) >
 
-<!ELEMENT scripts ( script+ ) >
+<!ELEMENT scripts ( (script+ | special* )*   | alias ) >
 
 <!ELEMENT script ( #PCDATA ) >
 <!ATTLIST script type NMTOKEN #REQUIRED >
 
-<!ELEMENT languages ( language+ ) >
+<!ELEMENT languages ( (language+ | special*)* | alias ) >
 
-<!ELEMENT territories ( territory+ ) >
+<!ELEMENT territories ( (territory+ | special*)* | alias ) >
 
-<!ELEMENT variants ( variant ) >
+<!ELEMENT variants ( (variant+ | special*)* | alias ) >
 
-<!ELEMENT keys ( key ) >
+<!ELEMENT keys ( (key+ | special*) | alias ) >
 
 <!ELEMENT key ( #PCDATA ) >
 <!ATTLIST key type NMTOKEN #REQUIRED >
 
-<!ELEMENT types ( type ) >
+<!ELEMENT types ( (type+| special*)*| alias ) >
 
 <!ELEMENT type ( #PCDATA ) >
 <!ATTLIST type key NMTOKEN #REQUIRED >
@@ -57,7 +53,7 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT layout ( orientation ) >
+<!ELEMENT layout ( (orientation| special*)* | alias ) >
 
 <!ELEMENT orientation EMPTY >
 <!ATTLIST orientation characters NMTOKEN #REQUIRED >
@@ -67,7 +63,7 @@
 
 
 <!-- ######################################################### -->
-<!ELEMENT encodings ( exemplarCharacters, mapping+ ) >
+<!ELEMENT encodings ( (exemplarCharacters| mapping+| special*)*| alias ) >
 
 <!ELEMENT exemplarCharacters ( #PCDATA ) >
 
@@ -80,7 +76,7 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT delimiters ( quotationStart, quotationEnd, doubleQuotationStart, doubleQuotationEnd ) >
+<!ELEMENT delimiters ( (quotationStart| quotationEnd | doubleQuotationStart | doubleQuotationEnd | special*)* | alias ) >
 
 <!ELEMENT quotationStart ( #PCDATA ) >
 
@@ -95,48 +91,49 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT measurement ( paperSize, measurementSystem ) >
+<!ELEMENT measurement ( (measurementSystem | paperSize | special*)* | alias ) >
 
-<!ELEMENT paperSize ( height, width, units ) >
+<!ELEMENT paperSize ( (height | width | units | special* )* | alias ) >
 
 <!ELEMENT height ( #PCDATA ) >
 
 <!ELEMENT width ( #PCDATA ) >
 
+<!ELEMENT units ( #PCDATA ) >
+
+
 <!ELEMENT measurementSystem EMPTY >
 <!ATTLIST measurementSystem type NMTOKEN #REQUIRED >
 
-<!ELEMENT units ( #PCDATA ) >
-
 <!-- ######################################################### -->
 
 
 <!-- ######################################################### -->
 
-<!ELEMENT dates ( localizedPatternChars, calendars, timeZoneNames ) >
+<!ELEMENT dates ( (localizedPatternChars | calendars | timeZoneNames | special*)* | alias ) >
 
 <!ELEMENT localizedPatternChars ( #PCDATA ) >
 
-<!ELEMENT calendars ( default, calendar+ ) >
+<!ELEMENT calendars ( (default | calendar+ | special*)* | alias ) >
 
-<!ELEMENT calendar ( am | dateFormats | dateTimeFormat | dayAbbr | dayNames | eras | monthAbbr | monthNames | pm | timeFormats | week )* >
+<!ELEMENT calendar ( (am | dateFormats | dateTimeFormat | dayAbbr | dayNames | eras | monthAbbr | monthNames | pm | timeFormats | week | special*)* | alias) >
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
 
-<!ELEMENT monthNames ( month+ ) >
+<!ELEMENT monthNames ( (month+ | special*)* | alias) >
 
 <!ELEMENT month ( #PCDATA ) >
 <!ATTLIST month type NMTOKEN #REQUIRED >
 
-<!ELEMENT monthAbbr ( month+ ) >
+<!ELEMENT monthAbbr ( (month+ | special*)* | alias) >
 
-<!ELEMENT dayNames ( day+ ) >
+<!ELEMENT dayNames ( (day+ | special*)* | alias ) >
 
 <!ELEMENT day ( #PCDATA ) >
 <!ATTLIST day type NMTOKEN #REQUIRED >
 
-<!ELEMENT dayAbbr ( day+ ) >
+<!ELEMENT dayAbbr ( (day+ | special*)* | alias ) >
 
-<!ELEMENT week ( minDays, firstDay, weekendStart, weekendEnd ) >
+<!ELEMENT week ( (minDays | firstDay | weekendStart | weekendEnd | special* )* | alias ) >
 
 <!ELEMENT minDays EMPTY >
 <!ATTLIST minDays count NMTOKEN #REQUIRED >
@@ -161,32 +158,32 @@
 <!ELEMENT era ( #PCDATA ) >
 <!ATTLIST era type NMTOKEN #REQUIRED >
 
-<!ELEMENT dateFormats ( default, dateFormat+ ) >
+<!ELEMENT dateFormats ( (default | dateFormat+ | special*)* | alias ) >
 
-<!ELEMENT dateFormat ( special, pattern, displayName ) >
+<!ELEMENT dateFormat ( (pattern | displayName | special*)* | alias ) >
 <!ATTLIST dateFormat type NMTOKEN #REQUIRED >
 
 <!ELEMENT displayName ( #PCDATA ) >
 
-<!ELEMENT timeFormats ( default, timeFormat+ ) >
+<!ELEMENT timeFormats ( (default | timeFormat+ | special*)* | alias ) >
 
-<!ELEMENT timeFormat ( displayName | pattern | special )* >
+<!ELEMENT timeFormat ( ( displayName | pattern | special* )* | alias) >
 <!ATTLIST timeFormat type NMTOKEN #REQUIRED >
 
-<!ELEMENT dateTimeFormat ( pattern ) >
+<!ELEMENT dateTimeFormat ( (pattern | alias) ) >
 
-<!ELEMENT timeZoneNames ( default, zone+ ) >
+<!ELEMENT timeZoneNames ( (default | zone+ | special*)* | alias ) >
 
-<!ELEMENT zone ( exemplarCity | long | short )* >
+<!ELEMENT zone ( (exemplarCity | long | short | special*)* | alias) >
 <!ATTLIST zone type CDATA #REQUIRED >
 
-<!ELEMENT long ( generic, standard, daylight ) >
+<!ELEMENT long ( (generic | standard | daylight | special*)* | alias ) >
 
 <!ELEMENT generic ( #PCDATA ) >
 
 <!ELEMENT standard ( #PCDATA ) >
 
-<!ELEMENT short ( generic, standard, daylight ) >
+<!ELEMENT short ( (generic | standard | daylight | special*)* | alias) >
 
 <!ELEMENT daylight ( #PCDATA ) >
 
@@ -197,9 +194,9 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT numbers ( symbols, numberFormats, currencies ) >
+<!ELEMENT numbers ( (symbols | numberFormats | currencies | special*)* | alias ) >
 
-<!ELEMENT symbols ( decimal, group, list, percentSign, nativeZeroDigit, patternDigit, plusSign, minusSign, exponential, perMille, infinity, nan ) >
+<!ELEMENT symbols ( (decimal | group | list | percentSign | nativeZeroDigit | patternDigit | plusSign | minusSign | exponential | perMille | infinity | nan | special*)* | alias ) >
 
 <!ELEMENT decimal ( #PCDATA ) >
 
@@ -225,17 +222,17 @@
 
 <!ELEMENT nan ( #PCDATA ) >
 
-<!ELEMENT numberFormats ( default, numberFormat+ ) >
+<!ELEMENT numberFormats ( (default | numberFormat+ | special*)* | alias) >
 
-<!ELEMENT numberFormat ( pattern+ ) >
+<!ELEMENT numberFormat ( (pattern+ | special*)* | alias ) >
 <!ATTLIST numberFormat type NMTOKEN #REQUIRED >
 
 <!ELEMENT pattern ( #PCDATA ) >
 <!ATTLIST pattern type NMTOKEN #IMPLIED >
 
-<!ELEMENT currencies ( default, currency+ ) >
+<!ELEMENT currencies ( (default | currency+ | special*)* | alias ) >
 
-<!ELEMENT currency ( displayName, symbol, decimal?, group? ) >
+<!ELEMENT currency ( (displayName | symbol | decimal? | group? | special*)* | alias ) >
 <!ATTLIST currency id NMTOKEN #IMPLIED >
 <!ATTLIST currency type NMTOKEN #IMPLIED >
 
@@ -246,13 +243,13 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT collations ( collation+ ) >
+<!ELEMENT collations ( (collation+ | special*)* | alias ) >
 
-<!ELEMENT collation ( base, settings?, rules?, special?, alias? ) >
+<!ELEMENT collation ( ( special* | uca? | settings? | rules? )* | alias ) >
 <!ATTLIST collation key NMTOKEN #IMPLIED >
 
-<!ELEMENT base EMPTY >
-<!ATTLIST base UCA NMTOKEN #REQUIRED >
+<!ELEMENT uca EMPTY >
+<!ATTLIST uca version NMTOKEN #REQUIRED >
 
 <!ELEMENT settings EMPTY >
 <!ATTLIST settings caseLevel NMTOKEN #IMPLIED >
@@ -263,7 +260,7 @@
 <!ATTLIST settings hiraganaQuarternary NMTOKEN #IMPLIED >
 <!ATTLIST settings strength NMTOKEN #IMPLIED >
 
-<!ELEMENT rules ( p | pc | position | reset | s | sc | t | tc )* >
+<!ELEMENT rules ( (special* | p | pc | position | reset | s | sc | t | tc | i | ic)* | alias) >
 
 <!ELEMENT p ( #PCDATA ) >
 
@@ -276,6 +273,10 @@
 <!ELEMENT t ( #PCDATA ) >
 
 <!ELEMENT tc ( #PCDATA ) >
+
+<!ELEMENT i ( #PCDATA ) >
+
+<!ELEMENT ic ( #PCDATA ) >
 
 <!ELEMENT reset ( #PCDATA ) >
 
@@ -295,11 +296,12 @@
 <!ELEMENT default EMPTY >
 <!ATTLIST default type CDATA #REQUIRED >
 
-<!ELEMENT special ( default?, collator*, ruleBasedNumberFormats?, boundaries?, transforms?, numberingLevels?, reservedWords?, transliterationModules?, outLineNumberingLevel?, messages?, iso14652?) >
+<!ELEMENT special ANY >
 <!ATTLIST special formatindex NMTOKEN #IMPLIED >
 <!ATTLIST special msgtype NMTOKEN #IMPLIED >
 <!ATTLIST special owner CDATA #REQUIRED >
 <!ATTLIST special usage NMTOKEN #IMPLIED >
+<!ATTLIST special version NMTOKEN #IMPLIED >
 
 <!-- ######################################################### -->
 
@@ -311,12 +313,13 @@
 <!ELEMENT ruleBasedNumberFormat ( #PCDATA ) >
 <!ATTLIST ruleBasedNumberFormat type NMTOKEN #REQUIRED >
 
-<!ELEMENT ruleBasedNumberFormats ( ruleBasedNumberFormat+ ) >
+<!ELEMENT ruleBasedNumberFormats ( ruleBasedNumberFormat+ |alias ) >
 
 <!-- RBBI data -->
-<!ELEMENT boundaries ( grapheme?, word?, line?, sentence? ) >
+<!ELEMENT boundaries ( (grapheme? | word? | line? | sentence? | special*)* | alias ) >
 <!ELEMENT grapheme ( #PCDATA ) >
 <!ATTLIST grapheme class NMTOKEN #REQUIRED >
+<!ATTLIST grapheme append NMTOKEN #REQUIRED >
 
 <!ELEMENT word ( #PCDATA ) >
 <!ATTLIST word class NMTOKEN #REQUIRED >
@@ -330,9 +333,9 @@
 <!ATTLIST sentence class NMTOKEN #REQUIRED >
 
 <!-- RBT data  -->
-<!ELEMENT transforms ( transform ) >
+<!ELEMENT transforms ( (transform | special*)* | alias ) >
 <!ELEMENT transform ( #PCDATA ) >
-<!ATTLIST transform target NMTOKEN #REQUIRED >
+<!ATTLIST transform type NMTOKEN #REQUIRED >
 
 <!-- ######################################################### -->
 
@@ -341,14 +344,14 @@
 <!--  OpenOffice.org Specific elements                         -->
 <!-- ######################################################### -->
 
-<!ELEMENT numberingLevels ( numberingLevel+ ) >
+<!ELEMENT numberingLevels ( (numberingLevel+ | special*)* | alias ) >
 
 <!ELEMENT numberingLevel EMPTY >
 <!ATTLIST numberingLevel numType NMTOKEN #REQUIRED >
 <!ATTLIST numberingLevel prefix CDATA #REQUIRED >
 <!ATTLIST numberingLevel suffix CDATA #REQUIRED >
 
-<!ELEMENT reservedWords ( trueWord, falseWord, quarter1Word, quarter2Word, quarter3Word, quarter4Word, aboveWord, belowWord ) >
+<!ELEMENT reservedWords ( (trueWord | falseWord | quarter1Word | quarter2Word | quarter3Word | quarter4Word | aboveWord | belowWord | special*)* | alias ) >
 
 <!ELEMENT trueWord ( #PCDATA ) >
 
@@ -380,7 +383,7 @@
 <!--  POSIX/XPG4 Specific elements                             -->
 <!-- ######################################################### -->
 
-<!ELEMENT messages ( no, yes, shortYes, shortNo ) >
+<!ELEMENT messages ( (no | yes | shortYes | shortNo | special*)* | alias ) >
 
 <!ELEMENT yes ( #PCDATA ) >
 
@@ -396,11 +399,11 @@
 <!--  TR-14652/GLIBC Specific elements                         -->
 <!-- ######################################################### -->
 
-<!ELEMENT addressFormat ( postalPattern ) >
+<!ELEMENT addressFormat ( (postalPattern | special*)* | alias ) >
 
 <!ELEMENT postalPattern ( #PCDATA ) >
 
-<!ELEMENT nameFormat ( namePattern, generalSalutation, shortSalutationMr, shortSalutationMiss, shortSalutationMrs, longSalutationMr, longSalutationMiss, longSalutationMrs ) >
+<!ELEMENT nameFormat ( (namePattern | generalSalutation | shortSalutationMr | shortSalutationMiss | shortSalutationMrs | longSalutationMr | longSalutationMiss | longSalutationMrs | special*)* | alias ) >
 
 <!ELEMENT namePattern ( #PCDATA ) >
 
@@ -418,7 +421,7 @@
 
 <!ELEMENT longSalutationMrs ( #PCDATA ) >
 
-<!ELEMENT identification ( title, source, address, contact, email, telephone, fax, language, territory, audience, application, abbreviation, revision, date ) >
+<!ELEMENT identification ( (title | source | address | contact | email | telephone | fax | languageUsed | country | audience | application | abbreviation | revision | date | special*)* | alias ) >
 
 <!ELEMENT title ( #PCDATA ) >
 
@@ -434,9 +437,9 @@
 
 <!ELEMENT fax ( #PCDATA ) >
 
-<!ELEMENT language ( #PCDATA ) >
+<!ELEMENT languageUsed ( #PCDATA ) >
 
-<!ELEMENT territory ( #PCDATA ) >
+<!ELEMENT country ( #PCDATA ) >
 
 <!ELEMENT audience ( #PCDATA ) >
 
@@ -448,7 +451,7 @@
 
 <!ELEMENT date ( #PCDATA ) >
 
-<!ELEMENT telephoneFormat ( internationalPattern, domesticPattern, internationalDialCode, internationalPrefix ) >
+<!ELEMENT telephoneFormat ( (internationalPattern | domesticPattern | internationalDialCode | internationalPrefix | special*)* | alias ) >
 
 <!ELEMENT internationalPattern ( #PCDATA ) >
 
@@ -458,7 +461,7 @@
 
 <!ELEMENT internationalPrefix ( #PCDATA ) >
 
-<!ELEMENT countryInfo ( countryPost, countryCar, countryNumber, countryISBNNumber ) >
+<!ELEMENT countryInfo ( (countryPost | countryCar | countryNumber | countryISBNNumber | special*)* | alias ) >
 
 <!ELEMENT countryPost ( #PCDATA ) >
 

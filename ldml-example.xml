@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE LocaleElements SYSTEM "./LocaleElements.dtd" >
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
 <localeData>
 <!--
 Locale Data Format
@@ -16,15 +16,14 @@ For example, most country locales will inherit the bulk of their data from the l
 "en" will contain the bulk of the data: en_US will only contain a few items like currency.
 -->
     <identity>
-        <generation date="2002-10-24" />
         <version number="1.1">Various notes and changes in version 1.1</version>
-        <!-- Two letter codes, if available; otherwise 3-letter codes.If both exist, a separate database contains the mapping. -->
+        <generation date="2002-10-24" />
+		<!-- Two letter codes, if available; otherwise 3-letter codes.If both exist, a separate database contains the mapping. -->
         <language type="en"/>
         <territory type="US"/>
 
         <!-- Only one variant allowed for now -->
         <variant type="B"/>
-        <correspondsTo type="lcid" value="0409"/>
     </identity>
     <localeDisplayNames>
         <!--
@@ -89,6 +88,8 @@ For example, most country locales will inherit the bulk of their data from the l
        <doubleQuotationEnd>&#x201D;</doubleQuotationEnd>
     </delimiters>
     <measurement>
+	    <!-- Measurement system: US/ISO 1000/Other -->
+        <measurementSystem type="US"/>
         <paperSize>
             <!-- Papersize. The numbers are always in millimeters.
              The units name is the customary unit for that locale for measuring paper. -->
@@ -96,8 +97,6 @@ For example, most country locales will inherit the bulk of their data from the l
             <width>216</width>
             <units>mm</units>
         </paperSize>
-        <!-- Measurement system: US/ISO 1000/Other -->
-        <measurementSystem type="US"/>
     </measurement>
     <dates>
         <!--
@@ -331,7 +330,7 @@ For example, most country locales will inherit the bulk of their data from the l
             -->
             <special owner="http://oss.software.ibm.com/icu/" version="1.2" />
 
-            <base UCA="3.1.1"/>
+            <uca version="3.1.1"/>
             <settings caseLevel="on"/>
             <rules>
                 <!-- this example takes the swedish tailoring plus part of a japanese tailoring,
@@ -407,7 +406,7 @@ For example, most country locales will inherit the bulk of their data from the l
             in BreakIteratorRules.java
             displayName attributes removed for now
             -->
-            <grapheme class="RuleBased">
+            <grapheme class="RuleBased" append="true">
                 <!-- in addition to the normal rules, treat CH and RR as graphemes. -->
                 [cC][hH];[rR][rR]
             </grapheme>
@@ -418,7 +417,7 @@ For example, most country locales will inherit the bulk of their data from the l
             </word>
         </boundaries>
         <transforms>
-            <transform target="Latin">
+            <transform type="Latin">
                 ::NFD (NFC) ; # convert everything to decomposed for simplicity
                 ...
                 &#x03B1; &lt;> a ;  &#x0391; &lt;> A ;
@@ -517,8 +516,8 @@ For example, most country locales will inherit the bulk of their data from the l
             <email></email>
             <telephone></telephone>
             <fax></fax>
-            <language></language>
-            <territory></territory>
+            <languageUsed></languageUsed>
+            <country></country>
             <audience></audience>
             <application></application>
             <abbreviation></abbreviation>

@@ -148,6 +148,9 @@
 			<language type="zh">xinés</language>
 			<language type="zu">zulu</language>
 		</languages>
+		<scripts>
+			<script type="Latn" draft="true">Latin</script>
+		</scripts>
 		<territories>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Unió dels Emirats Àrabs</territory>
@@ -471,11 +474,35 @@
 			<group>.</group>
 		</symbols>
 		<currencies>
+			<currency type="BRL">
+				<displayName draft="true">Real brasiler</displayName>
+			</currency>
+			<currency type="CNY">
+				<displayName draft="true">Iuan Renminbi xinès</displayName>
+			</currency>
 			<currency type="ESP">
 				<pattern>¤ #,##0;-¤ #,##0</pattern>
 				<symbol>₧</symbol>
 				<decimal>,</decimal>
 				<group>.</group>
+			</currency>
+			<currency type="EUR">
+				<displayName draft="true">Euro</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName draft="true">Lliura esterlina britànica</displayName>
+			</currency>
+			<currency type="INR">
+				<displayName draft="true">Rupia índia</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName draft="true">Ien japonès</displayName>
+			</currency>
+			<currency type="RUB">
+				<displayName draft="true">Ruble rus</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName draft="true">Dòlar USA</displayName>
 			</currency>
 		</currencies>
 	</numbers>

@@ -1012,11 +1012,6 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat>+HH:mm;-HH:mm</hourFormat>
-			<hoursFormat>{0}/{1}</hoursFormat>
-			<gmtFormat>GMT{0}</gmtFormat>
-			<regionFormat>{0}</regionFormat>
-			<fallbackFormat>{0} ({1})</fallbackFormat>
 			<zone type="Etc/GMT">
 				<long>
 					<standard>Greenwich Mean Time</standard>
@@ -1060,9 +1055,6 @@
 			</zone>
 			<zone type="America/Sao_Paulo">
 				<exemplarCity draft="true">São Paulo</exemplarCity>
-			</zone>
-			<zone type="America/Bahia">
-				<exemplarCity draft="true">Bahia</exemplarCity>
 			</zone>
 			<zone type="America/Maceio">
 				<exemplarCity draft="true">Maceió</exemplarCity>

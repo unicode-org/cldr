@@ -1,61 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.2"/>
-		<generation date="2004-08-17" />
+		<generation date="2004-08-27" />
 		<language type="de" /> 
 		<territory type="LU" /> 
 	</identity>
-	<characters>
-	</characters>
-	<dates>
-		<calendars>
-			<calendar type="gregorian">
-				<week>
-					<minDays count="1"/>
-					<firstDay day="mon"/>
-				</week>
-			</calendar>
-		</calendars>
-	</dates>
-	<numbers>
-		<decimalFormats>
-			<decimalFormatLength >
-				<decimalFormat >
-					<pattern>#,##0.###;-#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength >
-		</decimalFormats>
-		<scientificFormats>
-			<scientificFormatLength >
-				<scientificFormat >
-					<pattern>#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength >
-		</scientificFormats>
-		<percentFormats>
-			<percentFormatLength >
-				<percentFormat >
-					<pattern>#,##0%</pattern>
-				</percentFormat>
-			</percentFormatLength >
-		</percentFormats>
-		<currencyFormats>
-			<currencyFormatLength >
-				<currencyFormat >
-					<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
-				</currencyFormat>
-			</currencyFormatLength >
-		</currencyFormats>
-		<currencies>
-			<currency type="LUF">
-				<displayName>Luxemburgischer Franc</displayName>
-				<symbol>F</symbol>
-				<pattern>#,##0 ¤;-#,##0 ¤</pattern>
-				<decimal>.</decimal>
-				<group>,</group>
-			</currency>
-		</currencies>
-	</numbers>
+		<dates>
+			<calendars>
+				
+				<calendar type="gregorian">
+					<week>
+						<minDays count="1"/>
+						<firstDay day="mon"/>
+					</week>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<decimalFormats>
+				<decimalFormatLength >
+					<decimalFormat >
+						<pattern>#,##0.###;-#,##0.###</pattern>
+					</decimalFormat>
+				</decimalFormatLength >
+			</decimalFormats>
+			<scientificFormats>
+				<scientificFormatLength >
+					<scientificFormat >
+						<pattern>#E0</pattern>
+					</scientificFormat>
+				</scientificFormatLength >
+			</scientificFormats>
+			<percentFormats>
+				<percentFormatLength >
+					<percentFormat >
+						<pattern>#,##0%</pattern>
+					</percentFormat>
+				</percentFormatLength >
+			</percentFormats>
+			<currencyFormats>
+				<currencyFormatLength >
+					<currencyFormat >
+						<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
+					</currencyFormat>
+				</currencyFormatLength >
+			</currencyFormats>
+			<currencies>
+				<currency type="LUF">
+					<displayName>Luxemburgischer Franc</displayName>
+					<symbol>F</symbol>
+					<pattern>#,##0 ¤;-#,##0 ¤</pattern>
+					<decimal>.</decimal>
+					<group>,</group>
+				</currency>
+			</currencies>
+		</numbers>
 </ldml>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.2"/>
-		<generation date="2004-08-17" />
+		<generation date="2004-08-27" />
 		<language type="fi" /> 
 	</identity>
 	<localeDisplayNames>
@@ -762,6 +762,7 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
+			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -910,19 +911,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">Tišrìkuu</month>
-							<month type="2">Hešvánkuu</month>
-							<month type="3">Kislévkuu</month>
-							<month type="4">Tevétkuu</month>
-							<month type="5">Ševatkuu</month>
-							<month type="6">Adárkuu</month>
-							<month type="7">Adárkuu II</month>
-							<month type="8">Nisánkuu</month>
-							<month type="9">Ijjárkuu</month>
-							<month type="10">Sivánkuu</month>
-							<month type="11">Tammúzkuu</month>
-							<month type="12">Abkuu</month>
-							<month type="13">Elúlkuu</month>
+              <alias source="fi" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tišrìkuu</month>
@@ -946,18 +935,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">Muhárram</month>
-							<month type="2">Sáfar</month>
-							<month type="3">Rabíʻ al-áwwal</month>
-							<month type="4">Rabíʻ al-ákhir</month>
-							<month type="5">Džumada-l-úla</month>
-							<month type="6">Džumada-l-ákhira</month>
-							<month type="7">Radžab</month>
-							<month type="8">Šaʻbán</month>
-							<month type="9">Ramadán</month>
-							<month type="10">Šawwal</month>
-							<month type="11">Dhu-l-qada</month>
-							<month type="12">Dhu-l-hiddža</month>
+              <alias source="fi" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Muhárram</month>
@@ -978,36 +956,7 @@
 			</calendar>
 			<calendar type="islamic-civil">
 				<months>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">Muhárram</month>
-							<month type="2">Sáfar</month>
-							<month type="3">Rabíʻ al-áwwal</month>
-							<month type="4">Rabíʻ al-ákhir</month>
-							<month type="5">Džumada-l-úla</month>
-							<month type="6">Džumada-l-ákhira</month>
-							<month type="7">Radžab</month>
-							<month type="8">Šaʻbán</month>
-							<month type="9">Ramadán</month>
-							<month type="10">Šawwal</month>
-							<month type="11">Dhu-l-qada</month>
-							<month type="12">Dhu-l-hiddža</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Muhárram</month>
-							<month type="2">Sáfar</month>
-							<month type="3">Rabíʻ al-áwwal</month>
-							<month type="4">Rabíʻ al-ákhir</month>
-							<month type="5">Džumada-l-úla</month>
-							<month type="6">Džumada-l-ákhira</month>
-							<month type="7">Radžab</month>
-							<month type="8">Šaʻbán</month>
-							<month type="9">Ramadán</month>
-							<month type="10">Šawwal</month>
-							<month type="11">Dhu-l-qada</month>
-							<month type="12">Dhu-l-hiddža</month>
-						</monthWidth>
-					</monthContext>
+          <alias source="fi" path="../../calendar[@type='islamic']/months"/>
 				</months>
 			</calendar>
 		</calendars>

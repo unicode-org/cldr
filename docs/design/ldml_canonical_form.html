@@ -76,8 +76,8 @@ data more easily.</p>
   <li>An attribute-value pair is ordered first by attribute name, and then if the attribute names 
   are identical, by the value.</li>
   <li>An element is ordered first by the element name, and then if the element names are identical, 
-  by the sorted set of attribute-value pairs. For the latter, compare the first pair in each (in 
-  sorted order by attribute pair). If not identical, go to the second pair, etc.</li>
+  by the sorted set of attribute-value pairs (sorted by #4). For the latter, compare the first pair 
+  in each (in sorted order by attribute pair). If not identical, go to the second pair, etc.</li>
   <li>Any future additions to the DTD must be structured so as to allow compatibility with this 
   ordering.</li>
   <li>See also Appendix K: <a href="http://www.unicode.org/reports/tr35/#valid_attribute_values">
@@ -118,8 +118,8 @@ permitted, such as the following.</p>
 <p>In those cases, the comment will be made into a block comment on the last previous leaf node, if 
 it is at that level or deeper. (If there is one already, it will be appended, with a line-break 
 between.) If there is no place to attach the node (for example, as a result of processing that 
-removes the attachment node), the comment and its node's xpath will be appended to the final 
-comment.</p>
+removes the attachment node), the comment and its node's xpath will be appended to the final comment 
+in the document.</p>
 <p>Multiline comments will have leading tabs stripped, so any indentation should be done with 
 spaces.</p>
 <hr>
@@ -170,68 +170,64 @@ elements, and thus never be compared.</p>
 </ul>
 <h3><a name="Value_Order_Table">Value Order Table</a></h3>
 <blockquote>
-  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2" width="690">
     <tr>
-      <td width="25%">weekendStart</td>
-      <td width="13%" rowspan="2">day</td>
-      <td width="12%" rowspan="3">sun, mon, tue, wed, thu, fri, sat</td>
+      <td>weekendStart</td>
+      <td rowspan="2">day</td>
+      <td rowspan="3">sun, mon, tue, wed, thu, fri, sat</td>
     </tr>
     <tr>
-      <td width="25%">weekendEnd</td>
+      <td>weekendEnd</td>
     </tr>
     <tr>
-      <td width="25%">day</td>
-      <td width="25%">type</td>
+      <td>day</td>
+      <td rowspan="12">type</td>
     </tr>
     <tr>
-      <td width="25%">dateFormatLength </td>
-      <td width="25%" rowspan="7">type</td>
-      <td width="50%" rowspan="7">full, long, medium, short</td>
+      <td>dateFormatLength </td>
+      <td rowspan="7">full, long, medium, short</td>
     </tr>
     <tr>
-      <td width="25%">timeFormatLength </td>
+      <td>timeFormatLength </td>
     </tr>
     <tr>
-      <td width="25%">dateTimeFormatLength </td>
+      <td>dateTimeFormatLength </td>
     </tr>
     <tr>
-      <td width="25%">decimalFormatLength </td>
+      <td>decimalFormatLength </td>
     </tr>
     <tr>
-      <td width="25%">scientificFormatLength </td>
+      <td>scientificFormatLength </td>
     </tr>
     <tr>
-      <td width="25%">percentFormatLength </td>
+      <td>percentFormatLength </td>
     </tr>
     <tr>
-      <td width="25%">currencyFormatLength </td>
+      <td>currencyFormatLength </td>
     </tr>
     <tr>
-      <td width="25%">monthWidth </td>
-      <td width="25%" rowspan="2">type</td>
-      <td width="50%" rowspan="2">wide, abbreviated, narrow</td>
+      <td>monthWidth </td>
+      <td rowspan="2">wide, abbreviated, narrow</td>
     </tr>
     <tr>
-      <td width="25%">dayWidth </td>
+      <td>dayWidth </td>
     </tr>
     <tr>
-      <td width="25%">field</td>
-      <td width="25%">type</td>
-      <td width="50%">era, year, month, week, day, weekday, dayperiod, hour, minute, second, zone</td>
+      <td>field</td>
+      <td>era, year, month, week, day, weekday, dayperiod, hour, minute, second, zone</td>
     </tr>
     <tr>
-      <td width="25%">zone</td>
-      <td width="25%">type</td>
-      <td width="50%"><i>The order for prefixes are: </i>America, Atlantic, Europe, Africa, Asia, 
-      Indian, Australia, Pacific, Arctic, Antarctica, Etc. <i>Within the same prefix, sort first by 
+      <td>zone</td>
+      <td><i>The order for prefixes are: </i>America, Atlantic, Europe, Africa, Asia, Indian, 
+      Australia, Pacific, Arctic, Antarctica, Etc. <i>Within the same prefix, sort first by 
       longitude, then latitude (both given by the zone.tab file in the Olson database), then by full 
       tzid.</i></td>
     </tr>
     <tr>
-      <td width="100%" colspan="3"><i>numeric order</i></td>
+      <td colspan="3"><i>numeric order</i></td>
     </tr>
     <tr>
-      <td width="100%" colspan="3"><i>alphabetic order</i></td>
+      <td colspan="3"><i>alphabetic order</i></td>
     </tr>
   </table>
 </blockquote>
@@ -244,13 +240,13 @@ elements, and thus never be compared.</p>
       <td width="33%">&quot;1.2&quot;</td>
     </tr>
     <tr>
-      <td rowspan="2" width="33%">orientation </td>
-      <td width="33%">characters </td>
-      <td width="33%">&quot;left-to-right&quot;</td>
+      <td rowspan="2" width="33%"><i>orientation </i></td>
+      <td width="33%"><i>characters </i></td>
+      <td width="33%"><i>&quot;left-to-right&quot;</i></td>
     </tr>
     <tr>
-      <td width="33%">lines </td>
-      <td width="33%">&quot;top-to-bottom&quot;</td>
+      <td width="33%"><i>lines </i></td>
+      <td width="33%"><i>&quot;top-to-bottom&quot;</i></td>
     </tr>
     <tr>
       <td width="33%">weekendStart </td>
@@ -273,9 +269,6 @@ elements, and thus never be compared.</p>
       <td width="33%">dateTimeFormat </td>
     </tr>
     <tr>
-      <td width="33%">pattern </td>
-    </tr>
-    <tr>
       <td width="33%">decimalFormat </td>
     </tr>
     <tr>
@@ -286,6 +279,9 @@ elements, and thus never be compared.</p>
     </tr>
     <tr>
       <td width="33%">currencyFormat </td>
+    </tr>
+    <tr>
+      <td width="33%">pattern </td>
     </tr>
     <tr>
       <td width="33%">currency </td>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27"/>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
 		<language type="eu"/>
 	</identity>
 	<localeDisplayNames>
@@ -104,7 +104,7 @@
 			<territory type="SI">Eslovenia</territory>
 			<territory type="SK">Eslovakia</territory>
 			<territory type="SL">Sierra Leona</territory>
-			<!--<territory type="SP">Serbia</territory>-->
+			<!-- <territory type="SP">Serbia</territory> -->
 			<territory type="SR">Surinam</territory>
 			<territory type="ST">Sao Tomé eta Principe</territory>
 			<territory type="SY">Siria</territory>
@@ -194,7 +194,6 @@
 		<currencies>
 			<currency type="ESP">
 				<pattern>¤ #,##0;-¤ #,##0</pattern>
-				<displayName>ESP</displayName>
 				<symbol>₧</symbol>
 				<decimal>,</decimal>
 				<group>.</group>

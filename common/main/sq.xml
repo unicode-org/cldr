@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27"/>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
 		<language type="sq"/>
 	</identity>
 	<localeDisplayNames>
@@ -140,7 +140,7 @@
 			<territory type="SK">Sllovaki</territory>
 			<territory type="SL">Siera Leone</territory>
 			<territory type="SO">Somali</territory>
-			<!--<territory type="SP">Serbië</territory>-->
+			<!-- <territory type="SP">Serbië</territory> -->
 			<territory type="ST">Sao Tome e Prinsipe</territory>
 			<territory type="SY">Siri</territory>
 			<territory type="SZ">Svazilandë</territory>
@@ -227,9 +227,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week>
-					<firstDay day="mon"/>
-				</week>
 				<am>PD</am>
 				<pm>MD</pm>
 				<eras>
@@ -292,7 +289,6 @@
 		</symbols>
 		<currencies>
 			<currency type="ALL">
-				<displayName>ALL</displayName>
 				<symbol>Lek</symbol>
 			</currency>
 		</currencies>

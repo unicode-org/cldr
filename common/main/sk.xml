@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27"/>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
 		<language type="sk"/>
 	</identity>
 	<localeDisplayNames>
@@ -244,7 +244,7 @@
 			<territory type="SM">San Maríno</territory>
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somálsko</territory>
-			<!--<territory type="SP">Serbia</territory>-->
+			<!-- <territory type="SP">Serbia</territory> -->
 			<territory type="SR">Surinam</territory>
 			<territory type="ST">Svätý Tomáš a Princove ostrovy</territory>
 			<territory type="SV">Salvador</territory>
@@ -392,10 +392,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week>
-					<minDays count="4"/>
-					<firstDay day="mon"/>
-				</week>
 				<eras>
 					<eraAbbr>
 						<era type="0">pred n.l.</era>
@@ -455,37 +451,18 @@
 			<group> </group>
 		</symbols>
 		<currencies>
-			<currency type="ADD">
-				<displayName>Andorský diner</displayName>
-				<symbol>ADD</symbol>
-			</currency>
 			<currency type="ADP">
 				<displayName>Andorská peseta</displayName>
-				<symbol>ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>UAE dirham</displayName>
-				<symbol>AED</symbol>
-			</currency>
-			<currency type="AIF">
-				<displayName>Affars a Issas frank</displayName>
-				<symbol>AIF</symbol>
 			</currency>
 			<currency type="ALK">
 				<displayName>Albánsky lek (1946-1961)</displayName>
-				<symbol>ALK</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Albánsky lek</displayName>
 				<symbol>lek</symbol>
-			</currency>
-			<currency type="ALV">
-				<displayName>Albánsky valutový lek</displayName>
-				<symbol>ALV</symbol>
-			</currency>
-			<currency type="ALX">
-				<displayName>Albánske dolárové certifikáty</displayName>
-				<symbol>ALX</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Armenský dram</displayName>
@@ -497,35 +474,21 @@
 			</currency>
 			<currency type="AOA">
 				<displayName>Angolská kwanza</displayName>
-				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Angolská kwanza (1977-1990)</displayName>
-				<symbol>AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>Angolská nová kwanza (1990-2000)</displayName>
-				<symbol>AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>Angolská kwanza Reajustado (1995-1999)</displayName>
-				<symbol>AOR</symbol>
-			</currency>
-			<currency type="AOS">
-				<displayName>Angolské eskudo</displayName>
-				<symbol>AOS</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>Argentinský austral</displayName>
-				<symbol>ARA</symbol>
-			</currency>
-			<currency type="ARM">
-				<displayName>Argentinské peso Moneda Nacional</displayName>
-				<symbol>ARM</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>Argentinské peso (1983-1985)</displayName>
-				<symbol>ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Argentinské peso</displayName>
@@ -533,35 +496,23 @@
 			</currency>
 			<currency type="ATS">
 				<displayName>Rakúsky šiling</displayName>
-				<symbol>ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>Austrálsky dolár</displayName>
 				<symbol>$A</symbol>
 			</currency>
-			<currency type="AUP">
-				<displayName>Austrálska libra</displayName>
-				<symbol>AUP</symbol>
-			</currency>
 			<currency type="AWG">
 				<displayName>Arubský guilder</displayName>
-				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Azerbaidžanský manat</displayName>
-				<symbol>AZM</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>Bosnianský dinár</displayName>
-				<symbol>BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Bosnianský konvertibilná marka</displayName>
 				<symbol>KM</symbol>
-			</currency>
-			<currency type="BAN">
-				<displayName>Bosnianský nový dinár</displayName>
-				<symbol>BAN</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbadoský dolár</displayName>
@@ -573,7 +524,6 @@
 			</currency>
 			<currency type="BEC">
 				<displayName>Belgický frank (konvertibilný)</displayName>
-				<symbol>BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>Belgický frank</displayName>
@@ -581,27 +531,13 @@
 			</currency>
 			<currency type="BEL">
 				<displayName>Belgický frank (finančný)</displayName>
-				<symbol>BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>Bulharský leva</displayName>
 				<symbol>lev</symbol>
 			</currency>
-			<currency type="BGM">
-				<displayName>Bulharský socialistický leva</displayName>
-				<symbol>BGM</symbol>
-			</currency>
 			<currency type="BGN">
 				<displayName>Bulharský leva nový</displayName>
-				<symbol>BGN</symbol>
-			</currency>
-			<currency type="BGO">
-				<displayName>Bulharský leva (1879-1952)</displayName>
-				<symbol>BGO</symbol>
-			</currency>
-			<currency type="BGX">
-				<displayName>Bulharské certifikáty v leva</displayName>
-				<symbol>BGX</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Bahraiský dinár</displayName>
@@ -615,33 +551,23 @@
 				<displayName>Bermudský dolár</displayName>
 				<symbol>Ber$</symbol>
 			</currency>
-			<currency type="BMP">
-				<displayName>Bermudská libra</displayName>
-				<symbol>BMP</symbol>
-			</currency>
 			<currency type="BND">
 				<displayName>Bruneiský dolár</displayName>
-				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>Bolivíjske peso</displayName>
-				<symbol>BOP</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>Bolivíjske mvdol</displayName>
-				<symbol>BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>Bolivíjske Cruzeiro Novo (1967-1986)</displayName>
-				<symbol>BRB</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>Bolivíjske cruzado</displayName>
-				<symbol>BRC</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>Bolivíjske cruzeiro (1990-1993)</displayName>
-				<symbol>BRE</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Bolivíjsky real</displayName>
@@ -649,51 +575,25 @@
 			</currency>
 			<currency type="BRN">
 				<displayName>Brazílske Cruzado Novo</displayName>
-				<symbol>BRN</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>Brazílske cruzeiro</displayName>
-				<symbol>BRR</symbol>
-			</currency>
-			<currency type="BRZ">
-				<displayName>Brazílske cruzeiro (1942-1967)</displayName>
-				<symbol>BRZ</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Bahamský dolár</displayName>
-				<symbol>BSD</symbol>
-			</currency>
-			<currency type="BSP">
-				<displayName>Bahamská libra</displayName>
-				<symbol>BSP</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Bhutansky ngultrum</displayName>
 				<symbol>Nu</symbol>
 			</currency>
-			<currency type="BTR">
-				<displayName>Bhutan rupia</displayName>
-				<symbol>BTR</symbol>
-			</currency>
 			<currency type="BUK">
 				<displayName>Burmese Kyat</displayName>
-				<symbol>BUK</symbol>
-			</currency>
-			<currency type="BUR">
-				<displayName>Burmese rupia</displayName>
-				<symbol>BUR</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Botswanan Pula</displayName>
-				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Belarussian nový rubeľ (1994-1999)</displayName>
-				<symbol>BYB</symbol>
-			</currency>
-			<currency type="BYL">
-				<displayName>Belarussian rubeľ (1992-1994)</displayName>
-				<symbol>BYL</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>Belarussian rubeľ</displayName>
@@ -703,77 +603,30 @@
 				<displayName>Belize dolár</displayName>
 				<symbol>BZ$</symbol>
 			</currency>
-			<currency type="BZH">
-				<displayName>Britiský Honduraský dolár</displayName>
-				<symbol>BZH</symbol>
-			</currency>
 			<currency type="CAD">
 				<displayName>Kanadský dolár</displayName>
 				<symbol>Can$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>Konžský frank Congolais</displayName>
-				<symbol>CDF</symbol>
-			</currency>
-			<currency type="CDG">
-				<displayName>Konžský frank</displayName>
-				<symbol>CDG</symbol>
-			</currency>
-			<currency type="CDL">
-				<displayName>Konžský zaire</displayName>
-				<symbol>CDL</symbol>
-			</currency>
-			<currency type="CFF">
-				<displayName>CAR CFA frank</displayName>
-				<symbol>CFF</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Švajčiarský frank</displayName>
 				<symbol>SwF</symbol>
 			</currency>
-			<currency type="CKD">
-				<displayName>Cook Islands dolár</displayName>
-				<symbol>CKD</symbol>
-			</currency>
-			<currency type="CLC">
-				<displayName>Čílsky condor</displayName>
-				<symbol>CLC</symbol>
-			</currency>
-			<currency type="CLE">
-				<displayName>Čílske eskudo</displayName>
-				<symbol>CLE</symbol>
-			</currency>
 			<currency type="CLF">
 				<displayName>Čílske Unidades de Fomento</displayName>
-				<symbol>CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Čílske peso</displayName>
 				<symbol>Ch$</symbol>
 			</currency>
-			<currency type="CMF">
-				<displayName>Camerunský CFA frank</displayName>
-				<symbol>CMF</symbol>
-			</currency>
-			<currency type="CNP">
-				<displayName>Čínsky Jen Min Piao Yuan</displayName>
-				<symbol>CNP</symbol>
-			</currency>
 			<currency type="CNX">
 				<displayName>Čínsky certifikáty v US dolároch</displayName>
-				<symbol>CNX</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Čínsky Yuan Renminbi</displayName>
 				<symbol>Y</symbol>
-			</currency>
-			<currency type="COB">
-				<displayName>Colombijské papierové peso</displayName>
-				<symbol>COB</symbol>
-			</currency>
-			<currency type="COF">
-				<displayName>Konžský CFA frank</displayName>
-				<symbol>COF</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Colombijské peso</displayName>
@@ -783,29 +636,15 @@
 				<displayName>Kostarikský colon</displayName>
 				<symbol>C</symbol>
 			</currency>
-			<currency type="CSC">
-				<displayName>Československá koruna</displayName>
-				<symbol>CSC</symbol>
-			</currency>
 			<currency type="CSK">
 				<displayName>Československá koruna</displayName>
-				<symbol>CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Kubánske peso</displayName>
-				<symbol>CUP</symbol>
-			</currency>
-			<currency type="CUX">
-				<displayName>Kubánske certifikáty</displayName>
-				<symbol>CUX</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Cape Verde eskudo</displayName>
 				<symbol>CVEsc</symbol>
-			</currency>
-			<currency type="CWG">
-				<displayName>Curacao guilder</displayName>
-				<symbol>CWG</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>Cypruská libra</displayName>
@@ -813,19 +652,12 @@
 			</currency>
 			<currency type="CZK">
 				<displayName>Česká koruna</displayName>
-				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Východonemecká marka</displayName>
-				<symbol>DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Nemecká marka</displayName>
-				<symbol>DEM</symbol>
-			</currency>
-			<currency type="DES">
-				<displayName>Nemecká sperrmarka</displayName>
-				<symbol>DES</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Džibutský frank</displayName>
@@ -843,91 +675,49 @@
 				<displayName>Alžírsky dinár</displayName>
 				<symbol>DA</symbol>
 			</currency>
-			<currency type="DZF">
-				<displayName>Alžírsky nový frank</displayName>
-				<symbol>DZF</symbol>
-			</currency>
-			<currency type="DZG">
-				<displayName>Alžírsky frank Germinal</displayName>
-				<symbol>DZG</symbol>
-			</currency>
 			<currency type="ECS">
 				<displayName>Ekuadorský sucre</displayName>
-				<symbol>ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>Ekuadorský Unidad de Valor Constante (UVC)</displayName>
-				<symbol>ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>Estónska kroon</displayName>
-				<symbol>EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Egyptská libra</displayName>
-				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Eritrejská nakfa</displayName>
-				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>Španielská peseta</displayName>
-				<symbol>ESP</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>Ethiopský birr</displayName>
 				<symbol>Br</symbol>
-			</currency>
-			<currency type="ETD">
-				<displayName>Ethiopský dolár</displayName>
-				<symbol>ETD</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finská marka</displayName>
-				<symbol>FIM</symbol>
-			</currency>
-			<currency type="FIN">
-				<displayName>Finská marka (1860-1962)</displayName>
-				<symbol>FIN</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>Fiji dolár</displayName>
 				<symbol>F$</symbol>
 			</currency>
-			<currency type="FJP">
-				<displayName>Fiji libra</displayName>
-				<symbol>FJP</symbol>
-			</currency>
 			<currency type="FKP">
 				<displayName>Falklandská libra</displayName>
-				<symbol>FKP</symbol>
-			</currency>
-			<currency type="FOK">
-				<displayName>Faeroe Islands Kronur</displayName>
-				<symbol>FOK</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Francúzsky frank</displayName>
-				<symbol>FRF</symbol>
-			</currency>
-			<currency type="FRG">
-				<displayName>Francúzsky frank Germinal/frank Poincare</displayName>
-				<symbol>FRG</symbol>
-			</currency>
-			<currency type="GAF">
-				<displayName>Gabúnsky CFA frank</displayName>
-				<symbol>GAF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Britská libra</displayName>
 			</currency>
 			<currency type="GEK">
 				<displayName>Gruzínsky Kupon Larit</displayName>
-				<symbol>GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>Gruzínsky lari</displayName>
@@ -935,91 +725,35 @@
 			</currency>
 			<currency type="GHC">
 				<displayName>Ghanský cedi</displayName>
-				<symbol>GHC</symbol>
-			</currency>
-			<currency type="GHO">
-				<displayName>Ghanský starý cedi</displayName>
-				<symbol>GHO</symbol>
-			</currency>
-			<currency type="GHP">
-				<displayName>Ghanská libra</displayName>
-				<symbol>GHP</symbol>
-			</currency>
-			<currency type="GHR">
-				<displayName>Ghanský prehodnotený cedi</displayName>
-				<symbol>GHR</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Gibraltarská libra</displayName>
-				<symbol>GIP</symbol>
-			</currency>
-			<currency type="GLK">
-				<displayName>Grónsky krone</displayName>
-				<symbol>GLK</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Gambský dalasi</displayName>
-				<symbol>GMD</symbol>
-			</currency>
-			<currency type="GMP">
-				<displayName>Gambská libra</displayName>
-				<symbol>GMP</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Guinejský frank</displayName>
 				<symbol>GF</symbol>
 			</currency>
-			<currency type="GNI">
-				<displayName>Guinejský frank (1960-1972)</displayName>
-				<symbol>GNI</symbol>
-			</currency>
 			<currency type="GNS">
 				<displayName>Guinejský syli</displayName>
-				<symbol>GNS</symbol>
-			</currency>
-			<currency type="GPF">
-				<displayName>Guadeloupský frank</displayName>
-				<symbol>GPF</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>Rovníková Guinea Ekwele Guineana</displayName>
-				<symbol>GQE</symbol>
-			</currency>
-			<currency type="GQF">
-				<displayName>Rovníková Guinea franko</displayName>
-				<symbol>GQF</symbol>
-			</currency>
-			<currency type="GQP">
-				<displayName>Rovníková Guinea Peseta Guineana</displayName>
-				<symbol>GQP</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>Grécka drachma</displayName>
-				<symbol>GRD</symbol>
-			</currency>
-			<currency type="GRN">
-				<displayName>Grécka nová drachma</displayName>
-				<symbol>GRN</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Guatemalský quetzal</displayName>
 				<symbol>Q</symbol>
 			</currency>
-			<currency type="GUF">
-				<displayName>Francúzska Guyana frank Guiana</displayName>
-				<symbol>GUF</symbol>
-			</currency>
 			<currency type="GWE">
 				<displayName>Portugalská Guinea eskudo</displayName>
-				<symbol>GWE</symbol>
-			</currency>
-			<currency type="GWM">
-				<displayName>Portugalské Guinea Mil Reis</displayName>
-				<symbol>GWM</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName>Guinea-Bissau peso</displayName>
-				<symbol>GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Guyanský dolár</displayName>
@@ -1035,35 +769,16 @@
 			</currency>
 			<currency type="HRD">
 				<displayName>Chorvátsky dinár</displayName>
-				<symbol>HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Chorvátska kuna</displayName>
-				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Haitské gourde</displayName>
-				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Maďarský forint</displayName>
 				<symbol>Ft</symbol>
-			</currency>
-			<currency type="IBP">
-				<displayName>Severoírska libra</displayName>
-				<symbol>IBP</symbol>
-			</currency>
-			<currency type="IDG">
-				<displayName>Indonézsky nica guilder</displayName>
-				<symbol>IDG</symbol>
-			</currency>
-			<currency type="IDJ">
-				<displayName>Indonézska Java rupia</displayName>
-				<symbol>IDJ</symbol>
-			</currency>
-			<currency type="IDN">
-				<displayName>Indonézska nová rupia</displayName>
-				<symbol>IDN</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Indonézska rupia</displayName>
@@ -1073,21 +788,11 @@
 				<displayName>Írska libra</displayName>
 				<symbol>IR£</symbol>
 			</currency>
-			<currency type="ILL">
-				<displayName>Izraelský šekel</displayName>
-				<symbol>ILL</symbol>
-			</currency>
 			<currency type="ILP">
 				<displayName>Izraelská libra</displayName>
-				<symbol>ILP</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>Izraelský šekel</displayName>
-				<symbol>ILS</symbol>
-			</currency>
-			<currency type="IMP">
-				<displayName>Libra Isle of Man</displayName>
-				<symbol>IMP</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Indijská rupia</displayName>
@@ -1103,22 +808,13 @@
 			</currency>
 			<currency type="ISK">
 				<displayName>Islandská krona</displayName>
-				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Talianská lira</displayName>
 			</currency>
-			<currency type="JEP">
-				<displayName>Jersey libra</displayName>
-				<symbol>JEP</symbol>
-			</currency>
 			<currency type="JMD">
 				<displayName>Jamajský dolár</displayName>
 				<symbol>J$</symbol>
-			</currency>
-			<currency type="JMP">
-				<displayName>Jamajská libra</displayName>
-				<symbol>JMP</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Jordánsky dinár</displayName>
@@ -1135,41 +831,19 @@
 				<displayName>Kyrgyský som</displayName>
 				<symbol>som</symbol>
 			</currency>
-			<currency type="KHO">
-				<displayName>Kambodžský starý riel</displayName>
-				<symbol>KHO</symbol>
-			</currency>
 			<currency type="KHR">
 				<displayName>Kambodžský riel</displayName>
 				<symbol>CR</symbol>
-			</currency>
-			<currency type="KID">
-				<displayName>Kiribati dolár</displayName>
-				<symbol>KID</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Comoro frank</displayName>
 				<symbol>CF</symbol>
 			</currency>
-			<currency type="KPP">
-				<displayName>Severokórejský won</displayName>
-				<symbol>KPP</symbol>
-			</currency>
 			<currency type="KPW">
 				<displayName>Severokórejský won</displayName>
-				<symbol>KPW</symbol>
-			</currency>
-			<currency type="KRH">
-				<displayName>Juhokórejský hwan</displayName>
-				<symbol>KRH</symbol>
-			</currency>
-			<currency type="KRO">
-				<displayName>Juhokórejský starý won</displayName>
-				<symbol>KRO</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Juhokórejský won</displayName>
-				<symbol>KRW</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Kuvaitský dinár</displayName>
@@ -1177,11 +851,6 @@
 			</currency>
 			<currency type="KYD">
 				<displayName>Kajmanský dolár</displayName>
-				<symbol>KYD</symbol>
-			</currency>
-			<currency type="KZR">
-				<displayName>Kazažský rubeľ</displayName>
-				<symbol>KZR</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Kazažský tenge</displayName>
@@ -1189,27 +858,17 @@
 			</currency>
 			<currency type="LAK">
 				<displayName>Laoský kip</displayName>
-				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Libanonská libra</displayName>
 				<symbol>LL</symbol>
 			</currency>
-			<currency type="LIF">
-				<displayName>Lichtenšteinský frank</displayName>
-				<symbol>LIF</symbol>
-			</currency>
 			<currency type="LKR">
 				<displayName>Šrilanská rupia</displayName>
 				<symbol>SL Re</symbol>
 			</currency>
-			<currency type="LNR">
-				<displayName>Ceylonská rupia</displayName>
-				<symbol>LNR</symbol>
-			</currency>
 			<currency type="LRD">
 				<displayName>Libérský dolár</displayName>
-				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Lesothský loti</displayName>
@@ -1217,95 +876,47 @@
 			</currency>
 			<currency type="LTL">
 				<displayName>Litevská lita</displayName>
-				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Litevský talonas</displayName>
-				<symbol>LTT</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>Luxemburský frank</displayName>
-				<symbol>LUF</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>Lotyšský lats</displayName>
-				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Lotyšský rubeľ</displayName>
-				<symbol>LVR</symbol>
-			</currency>
-			<currency type="LYB">
-				<displayName>Libyjská BMA lira</displayName>
-				<symbol>LYB</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Libyjský dinár</displayName>
 				<symbol>LD</symbol>
 			</currency>
-			<currency type="LYP">
-				<displayName>Libyjská libra</displayName>
-				<symbol>LYP</symbol>
-			</currency>
 			<currency type="MAD">
 				<displayName>Marocký dirham</displayName>
-				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Marocký frank</displayName>
-				<symbol>MAF</symbol>
-			</currency>
-			<currency type="MCF">
-				<displayName>Monacký frank Nouveau</displayName>
-				<symbol>MCF</symbol>
-			</currency>
-			<currency type="MCG">
-				<displayName>Monacký frank Germinal</displayName>
-				<symbol>MCG</symbol>
-			</currency>
-			<currency type="MDC">
-				<displayName>Moldavský Leu Cupon</displayName>
-				<symbol>MDC</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>Moldavský leu</displayName>
-				<symbol>MDL</symbol>
-			</currency>
-			<currency type="MDR">
-				<displayName>Moldavský rubeľ</displayName>
-				<symbol>MDR</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Madagaskarský ariary</displayName>
-				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Madagaskarský frank</displayName>
-				<symbol>MGF</symbol>
-			</currency>
-			<currency type="MHD">
-				<displayName>Marshall Islands dolár</displayName>
-				<symbol>MHD</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>Macedónsky denár</displayName>
 				<symbol>MDen</symbol>
 			</currency>
-			<currency type="MKN">
-				<displayName>Macedónsky denár (1992-1993)</displayName>
-				<symbol>MKN</symbol>
-			</currency>
 			<currency type="MLF">
 				<displayName>Malský frank</displayName>
-				<symbol>MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>Myanmarský kyat</displayName>
-				<symbol>MMK</symbol>
-			</currency>
-			<currency type="MMX">
-				<displayName>Myanmarské dolárové certifikáty</displayName>
-				<symbol>MMX</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Mongolský tugrik</displayName>
@@ -1313,11 +924,6 @@
 			</currency>
 			<currency type="MOP">
 				<displayName>Macao Pataca</displayName>
-				<symbol>MOP</symbol>
-			</currency>
-			<currency type="MQF">
-				<displayName>Martinique frank</displayName>
-				<symbol>MQF</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Mauritania Ouguiya</displayName>
@@ -1329,27 +935,16 @@
 			</currency>
 			<currency type="MTP">
 				<displayName>Maltská libra</displayName>
-				<symbol>MTP</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Mauritská rupia</displayName>
-				<symbol>MUR</symbol>
-			</currency>
-			<currency type="MVP">
-				<displayName>Maldivská rupia</displayName>
-				<symbol>MVP</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Maldivská rufiyaa</displayName>
-				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Malavská kwacha</displayName>
 				<symbol>MK</symbol>
-			</currency>
-			<currency type="MWP">
-				<displayName>Malavská libra</displayName>
-				<symbol>MWP</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Mexické peso</displayName>
@@ -1357,11 +952,9 @@
 			</currency>
 			<currency type="MXP">
 				<displayName>Mexické striborné peso (1861-1992)</displayName>
-				<symbol>MXP</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>Mexické Unidad de Inversion (UDI)</displayName>
-				<symbol>MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>Malajský ringgit</displayName>
@@ -1369,7 +962,6 @@
 			</currency>
 			<currency type="MZE">
 				<displayName>Mozambijské eskudo</displayName>
-				<symbol>MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>Mozambijské metical</displayName>
@@ -1379,37 +971,17 @@
 				<displayName>Namibský dolár</displayName>
 				<symbol>N$</symbol>
 			</currency>
-			<currency type="NCF">
-				<displayName>New Caledonia frank Germinal</displayName>
-				<symbol>NCF</symbol>
-			</currency>
 			<currency type="NGN">
 				<displayName>Nigerská naira</displayName>
-				<symbol>NGN</symbol>
-			</currency>
-			<currency type="NGP">
-				<displayName>Nigerská libra</displayName>
-				<symbol>NGP</symbol>
-			</currency>
-			<currency type="NHF">
-				<displayName>New Hebrides CFP frank</displayName>
-				<symbol>NHF</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>Nikaragujská cordoba</displayName>
-				<symbol>NIC</symbol>
-			</currency>
-			<currency type="NIG">
-				<displayName>Nikaragujská zlatá Cordoba</displayName>
-				<symbol>NIG</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>Nikaragujská Cordoba Oro</displayName>
-				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Nizozemský guilder</displayName>
-				<symbol>NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Nórksy krone</displayName>
@@ -1423,53 +995,27 @@
 				<displayName>Novozélandský dolár</displayName>
 				<symbol>$NZ</symbol>
 			</currency>
-			<currency type="NZP">
-				<displayName>Nikaragujská libra</displayName>
-				<symbol>NZP</symbol>
-			</currency>
 			<currency type="OMR">
 				<displayName>Ománský rial</displayName>
 				<symbol>RO</symbol>
 			</currency>
-			<currency type="OMS">
-				<displayName>Ománský rial Saidi</displayName>
-				<symbol>OMS</symbol>
-			</currency>
 			<currency type="PAB">
 				<displayName>Panamská balboa</displayName>
-				<symbol>PAB</symbol>
-			</currency>
-			<currency type="PDK">
-				<displayName>Transdniestria rubeľ Kupon</displayName>
-				<symbol>PDK</symbol>
-			</currency>
-			<currency type="PDN">
-				<displayName>Transdniestria nový rubeľ</displayName>
-				<symbol>PDN</symbol>
-			</currency>
-			<currency type="PDR">
-				<displayName>Transdniestria rubeľ</displayName>
-				<symbol>PDR</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Peruvský inti</displayName>
-				<symbol>PEI</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Peruvský sol Nuevo</displayName>
-				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>Peruvský sol</displayName>
-				<symbol>PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>Papua Nová Guinea kina</displayName>
-				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Filipínske peso</displayName>
-				<symbol>PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Pakistanská rupia</displayName>
@@ -1479,65 +1025,35 @@
 				<displayName>Polský zloty</displayName>
 				<symbol>Zl</symbol>
 			</currency>
-			<currency type="PLX">
-				<displayName>Polské certifikáty v  US dolároch</displayName>
-				<symbol>PLX</symbol>
-			</currency>
 			<currency type="PLZ">
 				<displayName>Polský zloty (1950-1995)</displayName>
-				<symbol>PLZ</symbol>
-			</currency>
-			<currency type="PSP">
-				<displayName>Palestínska libra</displayName>
-				<symbol>PSP</symbol>
-			</currency>
-			<currency type="PTC">
-				<displayName>Portugalské conto</displayName>
-				<symbol>PTC</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>Portugalské eskudo</displayName>
-				<symbol>PTE</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>Paraguayské guarani</displayName>
-				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Qatarský rial</displayName>
 				<symbol>QR</symbol>
 			</currency>
-			<currency type="REF">
-				<displayName>Reunion frank</displayName>
-				<symbol>REF</symbol>
-			</currency>
 			<currency type="ROL">
 				<displayName>Rumunský leu</displayName>
 				<symbol>leu</symbol>
 			</currency>
-			<currency type="RON">
-				<displayName>Rumunský nový leu</displayName>
-				<symbol>RON</symbol>
-			</currency>
 			<currency type="RUB">
 				<displayName>Ruský rubeľ</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Ruský rubeľ (1991-1998)</displayName>
-				<symbol>RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Rwandský frank</displayName>
-				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Saudský riyal</displayName>
 				<symbol>SRl</symbol>
-			</currency>
-			<currency type="SAS">
-				<displayName>Saudský Riyal</displayName>
-				<symbol>SAS</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Solomon Islands dolár</displayName>
@@ -1549,11 +1065,9 @@
 			</currency>
 			<currency type="SDD">
 				<displayName>Sudánsky dinár</displayName>
-				<symbol>SDD</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Sudánska libra</displayName>
-				<symbol>SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Švédska krona</displayName>
@@ -1565,15 +1079,9 @@
 			</currency>
 			<currency type="SHP">
 				<displayName>Libra</displayName>
-				<symbol>SHP</symbol>
-			</currency>
-			<currency type="SIB">
-				<displayName>Slovinský tolar Bons</displayName>
-				<symbol>SIB</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Slovinský Tolar</displayName>
-				<symbol>SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>Slovenská koruna</displayName>
@@ -1581,47 +1089,24 @@
 			</currency>
 			<currency type="SLL">
 				<displayName>Sierra Leone Leone</displayName>
-				<symbol>SLL</symbol>
-			</currency>
-			<currency type="SML">
-				<displayName>San Marino lira</displayName>
-				<symbol>SML</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Somálsky šiling</displayName>
 				<symbol>So. Sh.</symbol>
 			</currency>
-			<currency type="SQS">
-				<displayName>Somálsky šiling</displayName>
-				<symbol>SQS</symbol>
-			</currency>
 			<currency type="SRG">
 				<displayName>Surinamský guilder</displayName>
 				<symbol>Sf</symbol>
-			</currency>
-			<currency type="SSP">
-				<displayName>Škótska libra</displayName>
-				<symbol>SSP</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Sao Tome a Principe dobra</displayName>
 				<symbol>Db</symbol>
 			</currency>
-			<currency type="STE">
-				<displayName>Sao Tome a Principe eskudo</displayName>
-				<symbol>STE</symbol>
-			</currency>
-			<currency type="SUN">
-				<displayName>Sovietský nový rubeľ</displayName>
-				<symbol>SUN</symbol>
-			</currency>
 			<currency type="SUR">
 				<displayName>Sovietský rubeľ</displayName>
-				<symbol>SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>El Salvadorský colon</displayName>
-				<symbol>SVC</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Syrská libra</displayName>
@@ -1631,49 +1116,27 @@
 				<displayName>Swaziland lilangeni</displayName>
 				<symbol>E</symbol>
 			</currency>
-			<currency type="TCC">
-				<displayName>Turks a Caicos Crown</displayName>
-				<symbol>TCC</symbol>
-			</currency>
-			<currency type="TDF">
-				<displayName>Chadský CFA frank</displayName>
-				<symbol>TDF</symbol>
-			</currency>
 			<currency type="THB">
 				<displayName>Thajský bát</displayName>
-				<symbol>THB</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Tadžikistanský rubeľ</displayName>
-				<symbol>TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Tadžikistanský somoni</displayName>
-				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Turkménsky manat</displayName>
-				<symbol>TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Tuniský dinár</displayName>
-				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Tonga Paʻanga</displayName>
 				<symbol>T$</symbol>
 			</currency>
-			<currency type="TOS">
-				<displayName>Tonga libra</displayName>
-				<symbol>TOS</symbol>
-			</currency>
 			<currency type="TPE">
 				<displayName>Timorské eskudo</displayName>
-				<symbol>TPE</symbol>
-			</currency>
-			<currency type="TPP">
-				<displayName>Timorská pataca</displayName>
-				<symbol>TPP</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>Turecká lira</displayName>
@@ -1682,14 +1145,6 @@
 			<currency type="TTD">
 				<displayName>Trinidad a Tobago dolár</displayName>
 				<symbol>TT$</symbol>
-			</currency>
-			<currency type="TTO">
-				<displayName>Trinidad a Tobago starý dolár</displayName>
-				<symbol>TTO</symbol>
-			</currency>
-			<currency type="TVD">
-				<displayName>Tuvalu dolár</displayName>
-				<symbol>TVD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Taiwanský nový dolár</displayName>
@@ -1701,15 +1156,12 @@
 			</currency>
 			<currency type="UAH">
 				<displayName>Ukrainská hrivna</displayName>
-				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>Ukrainský karbovanetz</displayName>
-				<symbol>UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>Ugandan šiling (1966-1987)</displayName>
-				<symbol>UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Ugandský šiling</displayName>
@@ -1721,147 +1173,62 @@
 			</currency>
 			<currency type="USN">
 				<displayName>US dolár (Next day)</displayName>
-				<symbol>USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>US dolár (Same day)</displayName>
-				<symbol>USS</symbol>
-			</currency>
-			<currency type="UYF">
-				<displayName>Uruguajské peso Fuerte</displayName>
-				<symbol>UYF</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>Uruguajské peso (1975-1993)</displayName>
-				<symbol>UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>Uruguajské peso Uruguayo</displayName>
 				<symbol>Ur$</symbol>
 			</currency>
-			<currency type="UZC">
-				<displayName>Uzbekistanský Coupon Som</displayName>
-				<symbol>UZC</symbol>
-			</currency>
 			<currency type="UZS">
 				<displayName>Uzbekistanský sum</displayName>
-				<symbol>UZS</symbol>
-			</currency>
-			<currency type="VAL">
-				<displayName>Vatikánska lira</displayName>
-				<symbol>VAL</symbol>
-			</currency>
-			<currency type="VDD">
-				<displayName>Severovietnamský Piastre Dong Viet</displayName>
-				<symbol>VDD</symbol>
-			</currency>
-			<currency type="VDN">
-				<displayName>Severovietnamský nový Dong</displayName>
-				<symbol>VDN</symbol>
-			</currency>
-			<currency type="VDP">
-				<displayName>Severovietnamský Viet Minh Piastre Dong Viet</displayName>
-				<symbol>VDP</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Venezuelský bolivar</displayName>
 				<symbol>Be</symbol>
 			</currency>
-			<currency type="VGD">
-				<displayName>British Virgin Islands dolár</displayName>
-				<symbol>VGD</symbol>
-			</currency>
 			<currency type="VND">
 				<displayName>Vietnamský dong</displayName>
-				<symbol>VND</symbol>
-			</currency>
-			<currency type="VNN">
-				<displayName>Vietnamský nový dong</displayName>
-				<symbol>VNN</symbol>
-			</currency>
-			<currency type="VNR">
-				<displayName>Vietnamský dong</displayName>
-				<symbol>VNR</symbol>
-			</currency>
-			<currency type="VNS">
-				<displayName>Vietnamský národný dong</displayName>
-				<symbol>VNS</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Vanuatu vatu</displayName>
 				<symbol>VT</symbol>
 			</currency>
-			<currency type="WSP">
-				<displayName>Západná Samoa libra</displayName>
-				<symbol>WSP</symbol>
-			</currency>
 			<currency type="WST">
 				<displayName>Západná Samoa tala</displayName>
-				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>CFA frank BEAC</displayName>
-				<symbol>XAF</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>Zlato</displayName>
-				<symbol>XAU</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>East Caribbean dolár</displayName>
 				<symbol>EC$</symbol>
 			</currency>
-			<currency type="XCF">
-				<displayName>CFA Nouveau frank</displayName>
-				<symbol>XCF</symbol>
-			</currency>
 			<currency type="XDR">
 				<displayName>Špeciálne práva čerpania</displayName>
-				<symbol>XDR</symbol>
-			</currency>
-			<currency type="XEF">
-				<displayName>CFA frank BCEAEC</displayName>
-				<symbol>XEF</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>Francúzsky zlatý frank</displayName>
-				<symbol>XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>Francúzsky UIC-frank</displayName>
-				<symbol>XFU</symbol>
-			</currency>
-			<currency type="XID">
-				<displayName>Islamský dinár</displayName>
-				<symbol>XID</symbol>
-			</currency>
-			<currency type="XMF">
-				<displayName>Francúzsky Metropolitan Nouveau frank</displayName>
-				<symbol>XMF</symbol>
-			</currency>
-			<currency type="XNF">
-				<displayName>Francúzske Antilly CFA frank</displayName>
-				<symbol>XNF</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA frank BCEAO</displayName>
-				<symbol>XOF</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP frank</displayName>
 				<symbol>CFPF</symbol>
 			</currency>
-			<currency type="XTR">
-				<displayName>COMECON rubeľ</displayName>
-				<symbol>XTR</symbol>
-			</currency>
 			<currency type="YDD">
 				<displayName>Jemenský dinár</displayName>
-				<symbol>YDD</symbol>
-			</currency>
-			<currency type="YEI">
-				<displayName>Jemenský Imadi Riyal</displayName>
-				<symbol>YEI</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>Jemenský rial</displayName>
@@ -1869,39 +1236,15 @@
 			</currency>
 			<currency type="YUD">
 				<displayName>Juhoslávsky dinár</displayName>
-				<symbol>YUD</symbol>
-			</currency>
-			<currency type="YUF">
-				<displayName>Juhoslávsky dinár</displayName>
-				<symbol>YUF</symbol>
-			</currency>
-			<currency type="YUG">
-				<displayName>Juhoslávsky dinár</displayName>
-				<symbol>YUG</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>Juhoslávsky Noviy dinár</displayName>
-				<symbol>YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>Juhoslávsky dinár</displayName>
-				<symbol>YUN</symbol>
-			</currency>
-			<currency type="YUO">
-				<displayName>Juhoslávsky októbrový dinár</displayName>
-				<symbol>YUO</symbol>
-			</currency>
-			<currency type="YUR">
-				<displayName>Juhoslávsky dinár</displayName>
-				<symbol>YUR</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>Juhoafrický rand (financial)</displayName>
-				<symbol>ZAL</symbol>
-			</currency>
-			<currency type="ZAP">
-				<displayName>Juhoafrická libra</displayName>
-				<symbol>ZAP</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Juhoafrický rand</displayName>
@@ -1909,19 +1252,12 @@
 			</currency>
 			<currency type="ZMK">
 				<displayName>Zambská kwacha</displayName>
-				<symbol>ZMK</symbol>
-			</currency>
-			<currency type="ZMP">
-				<displayName>Zambská libra</displayName>
-				<symbol>ZMP</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Zairský nový zaire</displayName>
-				<symbol>ZRN</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>Zairský Zaire</displayName>
-				<symbol>ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Zimbabský dolár</displayName>

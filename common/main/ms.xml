@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27"/>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
 		<language type="ms"/>
 	</identity>
 	<localeDisplayNames>
@@ -208,7 +208,7 @@
 			<territory type="SM">San Marino</territory>
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somalia</territory>
-			<!--<territory type="SP">Serbia</territory>-->
+			<!-- <territory type="SP">Serbia</territory> -->
 			<territory type="SR">Surinam</territory>
 			<territory type="ST">Sao Tome dan Principe</territory>
 			<territory type="SV">El Salvador</territory>
@@ -313,9 +313,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week draft="true">
-					<firstDay day="mon"/>
-				</week>
 				<eras draft="true">
 					<eraAbbr>
 						<era type="0">S.M.</era>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml draft="true">
 	<identity>
-		<version number="1.0"/>
-		<generation date="2004-07-31"/>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
 		<language type="lo"/>
 	</identity>
 	<localeDisplayNames>
@@ -311,7 +311,7 @@
 			<territory type="SL">ເຊຍລາສິອອນ</territory>
 			<territory type="SN">ຊິນີກັນ</territory>
 			<territory type="SO">ໂຊມາເລຍ</territory>
-			<!--<territory type="SP">ເຊີເບຍ</territory>-->
+			<!-- <territory type="SP">ເຊີເບຍ</territory> -->
 			<territory type="SR">ຊູລິນາມິ</territory>
 			<territory type="SV">ເອຊາວາດໍ</territory>
 			<territory type="SY">ຊິເລຍ</territory>
@@ -362,7 +362,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE'ທີ່ 'd MMMM G yyyy</pattern>
@@ -385,7 +384,6 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>H' ໂມງ 'm'ນາທີ 'ss' ວິນາທີ'</pattern>
@@ -483,7 +481,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE'ທີ  'd MMMM G yyyy</pattern>
@@ -506,7 +503,6 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>H'ໂມງ 'm'ນາທີ 'ss' ວິນາທີ</pattern>
@@ -548,5 +544,6 @@
 	</numbers>
 </ldml>
 <!-- Locale Data Format
-By Anousak Souphavanh (Anousak at muanglao dot com) -->
+By Anousak Souphavanh (Anousak at muanglao dot com) 
+-->
 

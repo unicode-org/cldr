@@ -12,10 +12,10 @@
 
 <h1>Flexible Datetime</h1>
 <p>MED, 2004-12-10</p>
-<p>I've done some investigating on this issue, and here is my current recommendation. The goal is to 
-have a more flexible set of patterns available to developers, so that calendaring software, for 
-example, can retrieve the best pattern for say, year and numeric month, that is available for a 
-given locale.</p>
+<p>I've done some investigating on this issue, and here is my current recommendation for how to 
+handle flexible datetime formatting. The goal is to have a more flexible set of patterns available 
+to developers, so that calendaring software, for example, can retrieve the best pattern for say, 
+year and numeric month, that is available for a given locale.</p>
 <p>1. Make part of the patterns variable; in particular, '/' and ':'. They can be used to change 
 formats without having to duplicate information.</p>
 <pre>&lt;dateSymbols&gt;
@@ -29,7 +29,8 @@ formats without having to duplicate information.</p>
     &lt;/input&gt;</pre>
 <p>This is a &quot;atomic&quot; element, so it is treated as a single item vis-a-vis inheritance: its children 
 do not inherit. That means also that the items do not need to be distinguished by a type.</p>
-<p>3. Add a list of formats (this is a sample set taken from OpenOffice).</p>
+<p>3. Add a list of formats (this is a sample set taken from OpenOffice). The list is of arbitrary 
+length.</p>
 <pre>    &lt;flexibleFormats&gt;
 	&lt;pattern&gt;EEEE, d MMMM yyyy&lt;/pattern&gt;
 	&lt;pattern&gt;EEE d MMMM yyyy&lt;/pattern&gt;
@@ -55,8 +56,18 @@ do not inherit. That means also that the items do not need to be distinguished b
 <p>This provides a set of formats that can be used to produce a variety of different patterns. The 
 field letters are based on the table in
 <a href="http://www.unicode.org/reports/tr35/#Date_Format_Patterns">Date_Format_Patterns</a>, with 
-some restrictions. The Survey tools doesn't have to present this raw list; it can have more 
-localizer-friendly methods of composing it!</p>
+some restrictions listed below.</p>
+<p>A key feature is that localizers don't need to know any more than they currently do; all they 
+have to do is supply more formats for whatever is acceptable for their language.&nbsp; (The Survey 
+tools can make this even easier by not presenting this raw list; it can have more 
+translator-friendly methods of composing it.)</p>
+<p>The way this would work is that an API would take as a key the list of fields the the programmer 
+wants to display, such as &quot;HHmm&quot;. The list is searched for a match, and if an exact match is not 
+available, then the best match is used (or constructed). So the best match for the key &quot;HHmm&quot; might 
+be &quot;KK.mm&quot; for one locale, and &quot;hh:mm a&quot; for another. The resulting value can then be used as the 
+format string.</p>
+<hr>
+<h2>The Ugly Details</h2>
 <p>Before looking at the restrictions on the patterns and defining the interpretation of the list, 
 we first have some definitions.</p>
 <p>The <i>match set</i> for any pattern is the set of all fields in the pattern, excluding 'a' 
@@ -70,7 +81,7 @@ doesn't matter: in examples, we'll use alphabetical. Examples:</p>
 </ul>
 <p>To <i>fix</i> a pattern means to replace all unquoted instances of / and : by the 
 shortDateSeparator and shortTimeSeparator, respectively.</p>
-<h3>Restrictions</h3>
+<h3>Restrictions on the list of patterns</h3>
 <ol>
   <li>You cannot have multiple fields with the same letter in the pattern,<ul>
     <li>e.g. &quot;MM-dd-MMM&quot; is illegal.</li>
@@ -94,7 +105,7 @@ shortDateSeparator and shortTimeSeparator, respectively.</p>
   <li>The characters { and } also have special meaning, and must be quoted if they are to have fixed 
   values.</li>
 </ol>
-<h3>Interpretation</h3>
+<h3>Generating the best match</h3>
 <p>The following is the interpretation given to the patterns. The set of patterns provides a way to 
 generate a date time format as described in
 <a href="http://www.unicode.org/reports/tr35/#Date_Format_Patterns">Date_Format_Patterns</a>, that 
@@ -235,8 +246,8 @@ probably be cached so that subsequent accesses would be fast).</p>
   <li>total: 100,005</li>
 </ul>
 <h3>Existing Formats</h3>
-<p>This supplements the existing formats.</p>
-<p><b>Option: </b>for the existing full, long, medium, short formats, we could have an alternative 
+<p>This supplements the existing formats that are already in CLDR.</p>
+<p><b>Option: </b>For the existing full, long, medium, short formats, we could have an alternative 
 fallback. If a type doesn't have a value, and the flexibleFormats do exist, then use the following 
 keys to get a pattern.</p>
 <table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">

@@ -970,120 +970,192 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<zone type="America/Los_Angeles">
+			<zone type="America/Vancouver">
 				<long>
-					<standard>Heure Normale du Pacifique</standard>
-					<daylight>Heure Avancée du Pacifique</daylight>
+					<generic>Heure du Pacifique</generic>
+					<standard>Heure normale du Pacifique</standard>
+					<daylight>Heure avancée du Pacifique</daylight>
 				</long>
 				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
+					<generic>HP</generic>
+					<standard>HNP</standard>
+					<daylight>HAP</daylight>
+				</short>
+				<exemplarCity>Vancouver</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<long>
+					<generic>Heure du Pacifique (ÉUA)</generic>
+					<standard>Heure normale du Pacifique (ÉUA)</standard>
+					<daylight>Heure avancée du Pacifique (ÉUA)</daylight>
+				</long>
+				<short>
+					<generic>HP (ÉUA)</generic>
+					<standard>HNP (ÉUA)</standard>
+					<daylight>HAP (ÉUA)</daylight>
 				</short>
 				<exemplarCity>Los Angeles</exemplarCity>
 			</zone>
-			<zone type="America/Denver">
+			<zone type="America/Edmonton">
 				<long>
-					<standard>Heure Normale des Rocheuses</standard>
-					<daylight>Heure Avancée des Rocheuses</daylight>
+					<generic>Heure des Rocheuses</generic>
+					<standard>Heure normale des Rocheuses</standard>
+					<daylight>Heure avancée des Rocheuses</daylight>
 				</long>
 				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
+					<generic>HR</generic>
+					<standard>HNR</standard>
+					<daylight>HAR</daylight>
+				</short>
+				<exemplarCity>Edmonton</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<long>
+					<generic>Heure des Rocheuses (ÉUA)</generic>
+					<standard>Heure normale des Rocheuses (ÉUA)</standard>
+					<daylight>Heure avancée des Rocheuses (ÉUA)</daylight>
+				</long>
+				<short>
+					<generic>HR (ÉUA)</generic>
+					<standard>HNR (ÉUA)</standard>
+					<daylight>HAR (ÉUA)</daylight>
 				</short>
 				<exemplarCity>Denver</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
-					<standard>Heure Normale des Rocheuses</standard>
-					<daylight>Heure Normale des Rocheuses</daylight>
+					<generic>Heure des Rocheuses (ÉUA)</generic>
+					<standard>Heure normale des Rocheuses (ÉUA)</standard>
+					<daylight>Heure avancée des Rocheuses (ÉUA)</daylight>
 				</long>
 				<short>
-					<standard>MST</standard>
-					<daylight>MST</daylight>
+					<generic>HR (ÉUA)</generic>
+					<standard>HNR (ÉUA)</standard>
+					<daylight>HAR (ÉUA)</daylight>
 				</short>
 				<exemplarCity>Phoenix</exemplarCity>
 			</zone>
-			<zone type="America/Chicago">
+			<zone type="America/Winnipeg">
 				<long>
-					<standard>Heure Normale du Centre</standard>
-					<daylight>Heure Avancée du Centre</daylight>
+					<generic>Heure du Centre</generic>
+					<standard>Heure normale du Centre</standard>
+					<daylight>Heure avancée du Centre</daylight>
 				</long>
 				<short>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
+					<generic>HC</generic>
+					<standard>HNC</standard>
+					<daylight>HAC</daylight>
+				</short>
+				<exemplarCity>Winnipeg</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<long>
+					<generic>Heure du Centre (ÉUA)</generic>
+					<standard>Heure normale du Centre (ÉUA)</standard>
+					<daylight>Heure avancée du Centre (ÉUA)</daylight>
+				</long>
+				<short>
+					<generic>HC (ÉUA)</generic>
+					<standard>HNC (ÉUA)</standard>
+					<daylight>HAC (ÉUA)</daylight>
 				</short>
 				<exemplarCity>Chicago</exemplarCity>
 			</zone>
-			<zone type="America/New_York">
+			<zone type="America/Montreal">
 				<long>
-					<standard>Heure Normale de l’Est</standard>
-					<daylight>Heure Avancée de l’Est</daylight>
+					<generic>Heure de l’Est</generic>
+					<standard>Heure normale de l’Est</standard>
+					<daylight>Heure avancée de l’Est</daylight>
 				</long>
 				<short>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
+					<generic>HE</generic>
+					<standard>HNE</standard>
+					<daylight>HAE</daylight>
+				</short>
+				<exemplarCity>Montréal</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<long>
+					<generic>Heure de l’Est (ÉUA)</generic>
+					<standard>Heure normale de l’Est (ÉUA)</standard>
+					<daylight>Heure avancée de l’Est (ÉUA)</daylight>
+				</long>
+				<short>
+					<generic>HE (ÉUA)</generic>
+					<standard>HNE (ÉUA)</standard>
+					<daylight>HAE (ÉUA)</daylight>
 				</short>
 				<exemplarCity>New York</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
-					<standard>Heure Normale de l’Est</standard>
-					<daylight>Heure Normale de l’Est</daylight>
+					<generic>Heure de l’Est (ÉUA)</generic>
+					<standard>Heure normale de l’Est (ÉUA)</standard>
+					<daylight>Heure avancée de l’Est (ÉUA)</daylight>
 				</long>
 				<short>
-					<standard>EST</standard>
-					<daylight>EST</daylight>
+					<generic>HE (ÉUA)</generic>
+					<standard>HNE (ÉUA)</standard>
+					<daylight>HAE (ÉUA)</daylight>
 				</short>
 				<exemplarCity>Indianapolis</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
-					<standard>Heure Normale de Hawaï</standard>
-					<daylight>Heure Normale de Hawaï</daylight>
+					<generic>Heure de Hawaï</generic>
+					<standard>Heure normale de Hawaï</standard>
+					<daylight>Heure avancée de Hawaï</daylight>
 				</long>
 				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
+					<generic>HH</generic>
+					<standard>HNH</standard>
+					<daylight>HAH</daylight>
 				</short>
 				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<long>
-					<standard>Heure Normale de l’Alaska</standard>
-					<daylight>Heure Avancée de l’Alaska</daylight>
+					<generic>Heure de l’Alaska</generic>
+					<standard>Heure normale de l’Alaska</standard>
+					<daylight>Heure avancée de l’Alaska</daylight>
 				</long>
 				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
+					<generic>HAK</generic>
+					<standard>HNAK</standard>
+					<daylight>HAAK</daylight>
 				</short>
 				<exemplarCity>Anchorage</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
-					<standard>Heure Normale de l’Atlantique</standard>
-					<daylight>Heure Avancée de l’Atlantique</daylight>
+					<generic>Heure de l’Atlantique</generic>
+					<standard>Heure normale de l’Atlantique</standard>
+					<daylight>Heure avancée de l’Atlantique</daylight>
 				</long>
 				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
+					<generic>HA</generic>
+					<standard>HNA</standard>
+					<daylight>HAA</daylight>
 				</short>
 				<exemplarCity>Halifax</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
 				<long>
-					<standard>Heure Normale de Terre-Neuve</standard>
-					<daylight>Heure Avancée de Terre-Neuve</daylight>
+					<generic>Heure de Terre-Neuve</generic>
+					<standard>Heure normale de Terre-Neuve</standard>
+					<daylight>Heure avancée de Terre-Neuve</daylight>
 				</long>
 				<short>
-					<standard>CNT</standard>
-					<daylight>CDT</daylight>
+					<generic>HT</generic>
+					<standard>HNT</standard>
+					<daylight>HAT</daylight>
 				</short>
 				<exemplarCity>St. Johns</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
-					<standard>Heure Normale de l’Europe Centrale</standard>
-					<daylight>Heure Avancée de l’Europe Centrale</daylight>
+					<standard>Heure normale de l’Europe Centrale</standard>
+					<daylight>Heure avancée de l’Europe Centrale</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -1093,17 +1165,6 @@
 			</zone>
 			<zone type="Etc/GMT">
 				<long>
-					<standard>Greenwich Mean Time</standard>
-					<daylight>Greenwich Mean Time</daylight>
-				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
-				</short>
-				<exemplarCity>London</exemplarCity>
-			</zone>
-			<zone type="Africa/Casablanca">
-				<long>
 					<standard>Temps Moyen de Greenwich</standard>
 					<daylight>Temps Moyen de Greenwich</daylight>
 				</long>
@@ -1111,12 +1172,12 @@
 					<standard>GMT</standard>
 					<daylight>GMT</daylight>
 				</short>
-				<exemplarCity>Casablanca</exemplarCity>
+				<exemplarCity>(GMT)</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
-					<standard>Heure Normale d’Israël</standard>
-					<daylight>Heure Avancée d’Israël</daylight>
+					<standard>Heure normale d’Israël</standard>
+					<daylight>Heure avancée d’Israël</daylight>
 				</long>
 				<short>
 					<standard>IST</standard>
@@ -1126,8 +1187,8 @@
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
-					<standard>Heure Normale du Japon</standard>
-					<daylight>Heure Normale du Japon</daylight>
+					<standard>Heure normale du Japon</standard>
+					<daylight>Heure normale du Japon</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -1137,8 +1198,8 @@
 			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
-					<standard>Heure Normale de l’Europe de l’Est</standard>
-					<daylight>Heure Avancée de l’Europe de l’Est</daylight>
+					<standard>Heure normale de l’Europe de l’Est</standard>
+					<daylight>Heure avancée de l’Europe de l’Est</daylight>
 				</long>
 				<short>
 					<standard>EET</standard>
@@ -1148,8 +1209,8 @@
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
-					<standard>Heure Normale de Chine</standard>
-					<daylight>Heure Normale de Chine</daylight>
+					<standard>Heure normale de Chine</standard>
+					<daylight>Heure normale de Chine</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>

@@ -29,7 +29,10 @@
 <!-- ######################################################### -->
 
 <!-- Timezones section   -->
-<!ELEMENT icir:exemplarCityEnglish ( #PCDATA )>
+<!ELEMENT icir:representativeCity ( latinScript?, nativeLanguage? )>
+<!ELEMENT latinScript ( #PCDATA )>
+<!ELEMENT nativeLanguage ( #PCDATA )>
+
 <!ELEMENT icir:gmtOffset ( #PCDATA )>
 <!ELEMENT icir:dstOffsetFromStandardTime ( #PCDATA )>
 
@@ -71,8 +74,6 @@
 <!ELEMENT icir:currencyFullName (single?, plural?)>
 
 <!ELEMENT single (latinScript?, nativeLanguage?)>
-<!ELEMENT latinScript ( #PCDATA )>
-<!ELEMENT nativeLanguage ( #PCDATA )>
 
 <!ELEMENT plural (latinScript?, nativeLanguage?)>
 

@@ -25,7 +25,7 @@ import com.ibm.icu.util.ULocale;
 public class CountItems {
 	static Set keys = new HashSet();
 	public static void main(String[] args) {
-		Factory cldrFactory = CLDRFile.Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*", null);
+		Factory cldrFactory = CLDRFile.Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*");
 		//CLDRKey.main(new String[]{"-mde.*"});
 		int count = countItems(cldrFactory, false);
 		System.out.println("Count (core): " + count);

@@ -8,7 +8,10 @@ package org.unicode.cldr.util;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +21,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile.StringValue;
 import org.unicode.cldr.util.CLDRFile.Value;
+import org.unicode.cldr.util.Utility.StringIterator;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 
@@ -27,9 +31,11 @@ import com.ibm.icu.dev.test.util.BagFormatter;
 public class XPathParts {
 	private List elements = new ArrayList();
 	Comparator attributeComparator;
+	Map suppressionMap;
 	
-	public XPathParts(Comparator attributeComparator) {
+	public XPathParts(Comparator attributeComparator, Map suppressionMap) {
 		this.attributeComparator = attributeComparator;
+		this.suppressionMap = suppressionMap;
 	}
 	
 	//private static MapComparator AttributeComparator = new MapComparator().add("alt").add("draft").add("type");
@@ -50,42 +56,115 @@ public class XPathParts {
 		elements.clear();
 		return this;
 	}
+	
 	/**
 	 * Write out the difference form this xpath and the last, putting the value in the right place. Closes up the elements
 	 * that were not closed, and opens up the new.
 	 * @param pw
-	 * @param last
+	 * @param filteredXPath TODO
+	 * @param lastFullXPath
+	 * @param filteredLastXPath TODO
 	 * @param attributeComparator TODO
 	 */
-	public void writeDifference(PrintWriter pw, XPathParts last, Value v, Comparator attributeComparator) {
-		int limit = findFirstDifference(last);
+	public void writeDifference(PrintWriter pw, XPathParts filteredXPath, XPathParts lastFullXPath,
+			XPathParts filteredLastXPath, Value v, Comments xpath_comments) {
+		int limit = findFirstDifference(lastFullXPath);
 		// write the end of the last one
-		for (int i = last.size()-2; i >= limit; --i) {
-			CLDRFile.indent(pw, i);
-			pw.println(((Element)last.elements.get(i)).toString(XML_CLOSE, attributeComparator));
+		for (int i = lastFullXPath.size()-2; i >= limit; --i) {
+			Utility.indent(pw, i);
+			pw.println(((Element)lastFullXPath.elements.get(i)).toString(XML_CLOSE));
 		}
 		if (v == null) return; // end
 		// now write the start of the current
 		for (int i = limit; i < size()-1; ++i) {
-			CLDRFile.indent(pw, i);
-			pw.println(((Element)elements.get(i)).toString(XML_OPEN, attributeComparator));
+			filteredXPath.writeComment(pw, xpath_comments, i+1, Comments.PREBLOCK);
+			Utility.indent(pw, i);
+			pw.println(((Element)elements.get(i)).toString(XML_OPEN));
 		}
-		CLDRFile.writeComment(pw, size()-1, v.getComment());
+		filteredXPath.writeComment(pw, xpath_comments, size(), Comments.PREBLOCK);
+
 		// now write element itself
-		CLDRFile.indent(pw, size()-1);
+		Utility.indent(pw, size()-1);
 		Element e = (Element)elements.get(size()-1);
 		String eValue = ((StringValue)v).getStringValue();
 		if (eValue.length() == 0) {
-			pw.println(e.toString(XML_NO_VALUE, attributeComparator));
+			pw.print(e.toString(XML_NO_VALUE));
 		} else {
-			pw.print(e.toString(XML_OPEN, attributeComparator));
+			pw.print(e.toString(XML_OPEN));
 			pw.print(BagFormatter.toHTML.transliterate(eValue));
-			pw.println(e.toString(XML_CLOSE, attributeComparator));
+			pw.print(e.toString(XML_CLOSE));
 		}
-		//if (v.)
+		filteredXPath.writeComment(pw, xpath_comments, size(), Comments.LINE);
+		pw.println();
+		filteredXPath.writeComment(pw, xpath_comments, size(), Comments.POSTBLOCK);
 		pw.flush();
 	}
 	
+	//public static final char BLOCK_PREFIX = 'B', LINE_PREFIX = 'L';
+	
+	public static class Comments implements Cloneable {
+		public static final int LINE = 0, PREBLOCK = 1, POSTBLOCK = 2;
+		private HashMap[] comments = new HashMap[3];
+		public Comments () {
+			comments[LINE] = new HashMap();
+			comments[PREBLOCK] = new HashMap();
+			comments[POSTBLOCK] = new HashMap();
+		}
+		public Comments add(int style, String xpath, String comment) {
+			String existing = (String) comments[style].get(xpath);
+	        if (existing != null) {
+	        	comment = existing + XPathParts.NEWLINE + comment;
+	        }
+			comments[style].put(xpath, comment);
+			return this;
+		}
+		public String remove(int style, String xPath) {
+			String result = (String) comments[style].get(xPath);
+			if (result != null) comments[style].remove(xPath);
+			return result;
+		}
+		public List removeFinal() {
+			List result = new ArrayList();
+			for (int i = 0; i < 3; ++i) {
+				for (Iterator it = comments[i].keySet().iterator(); it.hasNext();) {
+					Object key = (String) it.next();
+					Object value = comments[i].get(key);
+					result.add(key + NEWLINE + value);
+					it.remove();
+				}
+			}
+			return result;
+		}
+		
+		public Object clone() {
+	    	try {
+	    		Comments result = (Comments) super.clone();
+	    		result.comments = new HashMap[3];
+				result.comments[LINE] = (HashMap) comments[LINE].clone();
+				result.comments[PREBLOCK] = (HashMap) comments[PREBLOCK].clone();
+				result.comments[POSTBLOCK] = (HashMap) comments[POSTBLOCK].clone();
+				return result;
+			} catch (CloneNotSupportedException e) {
+				throw new InternalError("should never happen");
+			}			
+		}
+	}
+	
+	/**
+	 * @param pw
+	 * @param xpath_comments
+	 * @param index TODO
+	 */
+	private void writeComment(PrintWriter pw, Comments xpath_comments, int index, int style) {
+		if (index == 0) return;
+		String xpath = toString(index);
+		Log.logln("Checking for: " + xpath);
+		String comment = (String) xpath_comments.remove(style, xpath);
+		if (comment != null) {
+			XPathParts.writeComment(pw, index-1, comment, style != Comments.LINE);
+		}
+	}
+
 	/**
 	 * Finds the first place where the xpaths differ.
 	 * @param last
@@ -199,7 +278,8 @@ public class XPathParts {
 	
 	private XPathParts setInternal(String xPath) {
     	String lastAttributeName = "";
-		if (xPath.length() == 0 || xPath.charAt(0) != '/') return parseError(xPath, 0);
+    	if (xPath.length() == 0) return this;
+		if (xPath.charAt(0) != '/') return parseError(xPath, 0);
 		int stringStart = 1;
 		char state = 'p';
 		// since only ascii chars are relevant, use char
@@ -256,13 +336,13 @@ public class XPathParts {
 	 * boilerplate
 	 */
 	public String toString() {
-		return toString(elements.size(), null);
+		return toString(elements.size());
 	}
 	
-	public String toString(int limit, Comparator attributeComparator) {
+	public String toString(int limit) {
 		String result = "";
 		for (int i = 0; i < limit; ++i) {
-			result += ((Element)elements.get(i)).toString(XPATH_STYLE, attributeComparator);
+			result += ((Element)elements.get(i)).toString(XPATH_STYLE);
 		}
 		return result;
 	}
@@ -296,6 +376,7 @@ public class XPathParts {
 	}
 
 	public static final int XPATH_STYLE = 0, XML_OPEN = 1, XML_CLOSE = 2, XML_NO_VALUE = 3;
+	public static final String NEWLINE = "\n";
 	
 	private class Element {
 		private String element;
@@ -313,13 +394,13 @@ public class XPathParts {
 		 * @param attributeComparator TODO
 		 * @return
 		 */
-		public String toString(int style, Comparator attributeComparator) {
+		public String toString(int style) {
 			StringBuffer result = new StringBuffer();
 			Set keys;
 			switch (style) {
 			case XPathParts.XPATH_STYLE:
 				result.append('/').append(element);
-				writeAttributes("[@", "\"]", attributeComparator, result);
+				writeAttributes(element, "[@", "\"]", false, result);
 				break;
 			case XPathParts.XML_OPEN:
 			case XPathParts.XML_NO_VALUE:
@@ -327,7 +408,7 @@ public class XPathParts {
 				if (false && element.equals("orientation")) {
 					System.out.println();
 				}
-				writeAttributes(" ", "\"", attributeComparator, result);
+				writeAttributes(element, " ", "\"", true, result);
 				/*
 				keys = attributes.keySet();
 				if (attributeComparator != null) {
@@ -355,12 +436,14 @@ public class XPathParts {
 			return result.toString();
 		}
 		/**
+		 * @param element TODO
 		 * @param prefix TODO
 		 * @param postfix TODO
-		 * @param attributeComparator
+		 * @param removeLDMLExtras TODO
 		 * @param result
 		 */
-		private void writeAttributes(String prefix, String postfix, Comparator attributeComparator, StringBuffer result) {
+		private void writeAttributes(String element, String prefix, String postfix,
+				boolean removeLDMLExtras, StringBuffer result) {
 			Set keys = attributes.keySet();
 			if (attributeComparator != null) {
 				Set temp = new TreeSet(attributeComparator);
@@ -370,8 +453,13 @@ public class XPathParts {
 			for (Iterator it = keys.iterator(); it.hasNext();) {
 				String attribute = (String) it.next();
 				String value = (String) attributes.get(attribute);
-				if (attribute.equals("type") && value.equals("standard")) continue; // HACK
-				if (attribute.equals("version") && value.equals("1.2")) continue; // HACK
+				if (removeLDMLExtras && suppressionMap != null) {
+					Map attribute_value = (Map) suppressionMap.get(element);
+					if (attribute_value != null) {
+						Object suppressValue = attribute_value.get(attribute);
+						if (suppressValue != null && value.equals(suppressValue)) continue;
+					}
+				}
 				result.append(prefix).append(attribute).append("=\"")
 						.append(value).append(postfix);
 			}
@@ -436,5 +524,84 @@ public class XPathParts {
 		for (;i < temp.size(); ++i) {
 			elements.add(temp.get(i));
 		}
+	}
+
+	/**
+	 * Utility to write a comment.
+	 * @param pw
+	 * @param blockComment TODO
+	 * @param v
+	 */
+	static void writeComment(PrintWriter pw, int indent, String comment, boolean blockComment) {
+		// now write the comment
+		if (comment.length() == 0) return;
+		if (blockComment) {
+			Utility.indent(pw, indent);
+		} else {
+			pw.print(" ");
+		}
+		pw.print("<!--");
+		if (comment.indexOf(NEWLINE) > 0) {
+			boolean first = true;
+			int countEmptyLines = 0;
+			// trim the line iff the indent != 0.
+			for (Iterator it = Utility.split(comment, '\n', indent != 0, null).iterator(); it.hasNext();) {
+				String line = (String) it.next();
+				if (line.length() == 0) {
+					++countEmptyLines;
+					continue;
+				}
+				if (countEmptyLines != 0) {
+					for (int i = 0; i < countEmptyLines; ++i) pw.println();
+					countEmptyLines = 0;
+				}
+				if (first) {
+					first = false;
+					line = line.trim();
+					pw.print(" ");
+				} else if (indent != 0) {
+					Utility.indent(pw, indent+1);
+					pw.print(" ");
+				}
+				pw.println(line);
+			}
+			Utility.indent(pw, indent);
+		} else {
+			pw.print(" ");
+			pw.print(comment.trim());
+			pw.print(" ");
+		}
+		pw.print("-->");
+		if (blockComment) {
+			pw.println();
+		}
+	}
+
+	/**
+	 * Utility to determine if this a language locale? 
+	 * Note: a script is included with the language, if there is one.
+	 * @param in
+	 * @return
+	 */
+	public static boolean isLanguage(String in) {
+		int pos = in.indexOf('_');
+		if (pos < 0) return true;
+		if (in.indexOf('_', pos+1) >= 0) return false; // no more than 2 subtags
+		if (in.length() != pos + 5) return false; // second must be 4 in length
+		return true;
+	}
+
+	/**
+	 * Returns -1 if parent isn't really a parent, 0 if they are identical, and 1 if parent is a proper parent
+	 * @param parent
+	 * @param possibleSublocale
+	 * @return
+	 */
+	public static int isSubLocale(String parent, String possibleSublocale) {
+		if (parent.length() > possibleSublocale.length()) return -1;
+		if (!possibleSublocale.startsWith(parent)) return -1;
+		if (parent.length() == possibleSublocale.length()) return 0;
+		if (possibleSublocale.charAt(parent.length()) != '_') return -1; // last subtag too long
+		return 1;
 	}
 }

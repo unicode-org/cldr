@@ -23,7 +23,7 @@ import com.ibm.icu.util.ULocale;
 
 public class GenerateKaraList {
 	public static void main(String[] args) throws IOException {
-		cldrFactory = CLDRFile.Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*", null);
+		cldrFactory = CLDRFile.Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*");
 		english = cldrFactory.make("en", true);
 		PrintWriter log = BagFormatter.openUTF8Writer("C:\\DATA\\GEN\\cldr\\main\\", "karaList.xml");
 		Set locales = LocaleIDParser.getLanguageScript(cldrFactory.getAvailable());

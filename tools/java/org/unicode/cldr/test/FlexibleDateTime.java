@@ -190,7 +190,7 @@ public class FlexibleDateTime {
 	
 	static void getOOData() {
 		OOConverter ooConverter = new OOConverter();
-		Factory cldrFactory = Factory.make("C:\\ICU4C\\locale\\open_office\\main\\", ".*", null);
+		Factory cldrFactory = Factory.make("C:\\ICU4C\\locale\\open_office\\main\\", ".*");
 		Set locales = cldrFactory.getAvailable();
 		Map dateList = new TreeMap(VariableFieldComparator);
 		Map timeList = new TreeMap(VariableFieldComparator);

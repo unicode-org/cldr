@@ -66,27 +66,30 @@ http://lists.xml.org/archives/xml-dev/200007/msg00284.html
 http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
 public class CLDRFile implements Lockable {
-	public static boolean HACK_ORDER = true;
-	private static boolean DEBUG_LOGGING = true;	
-	private static final String NEWLINE = "\n";
-	private PrintWriter log;
+	public static boolean HACK_ORDER = false;
+	private static boolean DEBUG_LOGGING = true;
+	public static final String SUPPLEMENTAL_NAME = "supplementalData";
     
-    private Map xpath_value = new TreeMap(ldmlComparator);
+    private Map xpath_value;
+    private String initialComment = "";
     private String finalComment = "";
     private String key;
-    private Map xpath_comments = new HashMap(); // map from paths to comments.
+    private XPathParts.Comments xpath_comments = new XPathParts.Comments(); // map from paths to comments.
+    private boolean isSupplemental;
     
-    private CLDRFile(){}
+    private CLDRFile(boolean isSupplemental){
+    	this.isSupplemental = isSupplemental;
+    	xpath_value = isSupplemental ? new TreeMap() : new TreeMap(ldmlComparator);
+    }
 	
     /**
      * Create a CLDRFile for the given localename. (Normally a Factory is used to create CLDRFiles.)
      * @param localeName
      * @param optionalLog TODO
      */
-    public static CLDRFile make(String localeName, PrintWriter optionalLog) {
-    	CLDRFile result = new CLDRFile();
+    public static CLDRFile make(String localeName) {
+    	CLDRFile result = new CLDRFile(localeName.equals(SUPPLEMENTAL_NAME));
 		result.key = localeName;
-		result.log = optionalLog;
 		return result;
     }
     
@@ -100,17 +103,17 @@ public class CLDRFile implements Lockable {
      * @throws IOException
      */
     // TODO make the directory a URL
-    public static CLDRFile make(String localeName, String dir, PrintWriter optionalLog) {
+    public static CLDRFile make(String localeName, String dir) {
         String name = dir + localeName + ".xml";
         File f = new File(name);
         try {
         	name = f.getCanonicalPath();
             if (DEBUG_LOGGING) {
              	System.out.println("Parsing: " + name);
-             	//if (log != null) log.println("Parsing: " + f.getCanonicalPath());
+             	Log.logln("Parsing: " + f.getCanonicalPath());
     	    }
 			FileInputStream fis = new FileInputStream(f);
-	    	CLDRFile result = make(localeName, fis, optionalLog);
+	    	CLDRFile result = make(localeName, fis);
 			fis.close();
 			return result;
 		} catch (IOException e) {
@@ -126,11 +129,10 @@ public class CLDRFile implements Lockable {
      * @throws IOException
      * @throws SAXException
      */
-    public static CLDRFile make(String localeName, FileInputStream fis, PrintWriter log) {
+    public static CLDRFile make(String localeName, FileInputStream fis) {
     	try {
-    		CLDRFile result = make(localeName, log);
-			result.log = log;
-			MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(result, log);
+    		CLDRFile result = make(localeName);
+			MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(result);
 			XMLReader xmlReader = createXMLReader(true);
 			xmlReader.setContentHandler(DEFAULT_DECLHANDLER);
 			xmlReader.setErrorHandler(DEFAULT_DECLHANDLER);
@@ -156,7 +158,7 @@ public class CLDRFile implements Lockable {
 			CLDRFile result = (CLDRFile) super.clone();
 			result.locked = false;
 			result.xpath_value = (Map)((TreeMap)xpath_value).clone();
-			result.xpath_comments = (Map)((HashMap)xpath_comments).clone();
+			result.xpath_comments = (XPathParts.Comments)xpath_comments.clone();
 			return result;
 		} catch (CloneNotSupportedException e) {
 			throw new InternalError("should never happen");
@@ -172,24 +174,40 @@ public class CLDRFile implements Lockable {
 	public void write(PrintWriter pw) {
 		pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
 		pw.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.2/ldml.dtd\">");
+		XPathParts.writeComment(pw, 0, initialComment, false);
+		
+		XPathParts.Comments tempComments = (XPathParts.Comments) xpath_comments.clone();
 		
 		MapComparator modAttComp = attributeOrdering;
 		if (HACK_ORDER) modAttComp = new MapComparator()
 			.add("alt").add("draft").add(modAttComp.getOrder());
 
-		XPathParts last = new XPathParts(attributeOrdering);
-		XPathParts current = new XPathParts(attributeOrdering);
+		XPathParts last = new XPathParts(attributeOrdering, defaultSuppressionMap);
+		XPathParts current = new XPathParts(attributeOrdering, defaultSuppressionMap);
+		XPathParts lastFiltered = new XPathParts(attributeOrdering, defaultSuppressionMap);
+		XPathParts currentFiltered = new XPathParts(attributeOrdering, defaultSuppressionMap);
 		for (Iterator it2 = xpath_value.keySet().iterator(); it2.hasNext();) {
 			String xpath = (String)it2.next();
 			Value v = (Value) xpath_value.get(xpath);
+			currentFiltered.set(xpath);
 			current.set(v.fullXPath);
-			current.writeDifference(pw, last, v, modAttComp);
+			current.writeDifference(pw, currentFiltered, last, lastFiltered, v, tempComments);
+			// exchange pairs of parts
 			XPathParts temp = current;
 			current = last;
 			last = temp;
+			temp = currentFiltered;
+			currentFiltered = lastFiltered;
+			lastFiltered = temp;
 		}
-		current.clear().writeDifference(pw, last, null, modAttComp);
-		writeComment(pw, 0, finalComment);
+		current.clear().writeDifference(pw, null, last, lastFiltered, null, tempComments);
+		XPathParts.writeComment(pw, 0, finalComment, true);
+		
+		for (Iterator it = tempComments.removeFinal().iterator(); it.hasNext();) {
+			String key = (String) it.next();
+			Log.logln("Writing extra comment: " + key);
+			XPathParts.writeComment(pw, 0, key, false);
+		}
 	}
 
 	/**
@@ -206,14 +224,25 @@ public class CLDRFile implements Lockable {
      * @param currentFullXPath
      * @param value
      */
-    public void add(String xpath, String comment, String currentFullXPath, String value) {
+    public void add(String xpath, String currentFullXPath, String value) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-    	StringValue v = new StringValue(value, comment, currentFullXPath);
-       	log.println("ADDING: \t" + xpath + " \t" + v);
+    	StringValue v = new StringValue(value, currentFullXPath);
+    	Log.logln("ADDING: \t" + xpath + " \t" + v);
     	xpath = xpath.intern();
-//    	ldmlComparator.add(xpath);
         xpath_value.put(xpath, v);
     }
+    
+    public void addComment(String xpath, String comment, int type) {
+    	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+    	// System.out.println("Adding comment: <" + xpath + "> '" + comment + "'");
+    	Log.logln("ADDING Comment: \t" + type + "\t" + xpath + " \t" + comment);
+    	if (xpath == null || xpath.length() == 0) {
+    		finalComment = (finalComment.length() == 0 ? "" : finalComment + XPathParts.NEWLINE) + comment;
+    	} else {
+	        xpath_comments.add(type, xpath, comment);
+    	}
+    }
+
     
     /**
      * Merges elements from another CLDR file. Note: when both have the same xpath key, 
@@ -225,7 +254,7 @@ public class CLDRFile implements Lockable {
     public void putAll(CLDRFile other, boolean keepMine) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	if (keepMine) {
-    		Map temp = new TreeMap(ldmlComparator);
+    		Map temp = isSupplemental ? new TreeMap() : new TreeMap(ldmlComparator);
     		temp.putAll(other.xpath_value);
     		temp.putAll(xpath_value);
     		xpath_value = temp;
@@ -250,6 +279,18 @@ public class CLDRFile implements Lockable {
 		return finalComment;
 	}
 	/**
+	 * @return Returns the finalComment.
+	 */
+	public String getInitialComment() {
+		return initialComment;
+	}
+	/**
+	 * @return Returns the xpath_comments.
+	 */
+	public XPathParts.Comments getXpath_comments() {
+		return (XPathParts.Comments) xpath_comments.clone();
+	}
+	/**
 	 * @return Returns the key.
 	 */
 	public String getKey() {
@@ -268,51 +309,29 @@ public class CLDRFile implements Lockable {
 	/* (non-Javadoc)
 	 * @see org.unicode.cldr.util.Lockable#lock()
 	 */
-	public synchronized void lock() {
+	public synchronized Object lock() {
 		locked = true;
+		return this;
 	}
 	/**
 	 * @param finalComment The finalComment to set.
 	 */
-	public void setFinalComment(String finalComment) {
+	public void setFinalComment(String comment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-		this.finalComment = finalComment;
+		this.finalComment = comment;
 	}
-	
+
+	/**
+	 * @param finalComment The finalComment to set.
+	 */
+	public void setInitialComment(String comment) {
+    	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+		this.initialComment = comment;
+	}
+
 	// ========== STATIC UTILITIES ==========
 	
     /**
-     * Utility to write a comment.
-	 * @param pw
-	 * @param v
-	 */
-	static void writeComment(PrintWriter pw, int indent, String comment) {
-		// now write the comment
-		if (comment.length() != 0) {
-			indent(pw, indent);
-			pw.print("<!-- ");
-			if (comment.indexOf(NEWLINE) > 0) {
-				pw.println(comment);
-				indent(pw, indent);
-			} else {
-				pw.print(comment);
-			}
-			pw.println(" -->");
-		}
-	}
-	
-	/**
-	 * Utility to indent by a certain number of tabs.
-	 * @param out
-	 * @param count
-	 */
-	static void indent(PrintWriter out, int count) {
-        for (int i = 0; i < count; ++i) {
-            out.print('\t');
-        }
-    }
-	
-	/**
 	 * Utility to restrict to files matching a given regular expression. The expression does not contain ".xml".
 	 * Note that supplementalData is always skipped, and root is always included.
 	 * @param sourceDir
@@ -326,7 +345,7 @@ public class CLDRFile implements Lockable {
         for (int i = 0; i < files.length; ++i) {
             String name = files[i].getName();
             if (!name.endsWith(".xml")) continue;
-            if (name.startsWith("supplementalData")) continue;
+            if (name.startsWith(SUPPLEMENTAL_NAME)) continue;
             String locale = name.substring(0,name.length()-4); // drop .xml
             if (!locale.equals("root") && !m.reset(locale).matches()) continue;
             s.add(locale);
@@ -334,34 +353,6 @@ public class CLDRFile implements Lockable {
         return s;
     }
 
-    /**
-     * Utility to determine if this a language locale? 
-     * Note: a script is included with the language, if there is one.
-     * @param in
-     * @return
-     */
-    public static boolean isLanguage(String in) {
-    	int pos = in.indexOf('_');
-    	if (pos < 0) return true;
-    	if (in.indexOf('_', pos+1) >= 0) return false; // no more than 2 subtags
-    	if (in.length() != pos + 5) return false; // second must be 4 in length
-    	return true;
-    }
-    
-    /**
-     * Returns -1 if parent isn't really a parent, 0 if they are identical, and 1 if parent is a proper parent
-     * @param parent
-     * @param possibleSublocale
-     * @return
-     */
-    public static int isSubLocale(String parent, String possibleSublocale) {
-    	if (parent.length() > possibleSublocale.length()) return -1;
-    	if (!possibleSublocale.startsWith(parent)) return -1;
-    	if (parent.length() == possibleSublocale.length()) return 0;
-    	if (possibleSublocale.charAt(parent.length()) != '_') return -1; // last subtag too long
-    	return 1;
-    }
-    
     public Set keySet() {
     	return Collections.unmodifiableSet(xpath_value.keySet());
     }
@@ -423,7 +414,6 @@ public class CLDRFile implements Lockable {
 	public static class Factory {
 		private String sourceDirectory;
 		private String matchString;
-		private PrintWriter log;
 		private Set localeList = new TreeSet();
 		private Map mainCache = new TreeMap();
 		private Map resolvedCache = new TreeMap();  
@@ -437,10 +427,9 @@ public class CLDRFile implements Lockable {
 		 * @param optionalLog
 		 * @return
 		 */
-		public static Factory make(String sourceDirectory, String matchString, PrintWriter optionalLog) {
+		public static Factory make(String sourceDirectory, String matchString) {
 			Factory result = new Factory();
 			result.sourceDirectory = sourceDirectory;
-			result.log = optionalLog;
 			result.matchString = matchString;
 			result.localeList = getMatchingXMLFiles(sourceDirectory, matchString);
 			return result;
@@ -462,7 +451,7 @@ public class CLDRFile implements Lockable {
 	    	Set result = new TreeSet();
 	    	for (Iterator it = localeList.iterator(); it.hasNext();) {
 	    		String s = (String) it.next();
-	    		if (isLanguage(s)) result.add(s);
+	    		if (XPathParts.isLanguage(s)) result.add(s);
 	    	}
 	    	return result;
 	    }
@@ -477,7 +466,7 @@ public class CLDRFile implements Lockable {
 	    	Set result = new TreeSet();
 	    	for (Iterator it = localeList.iterator(); it.hasNext();) {
 	    		String s = (String) it.next();
-	    		int relation = isSubLocale(parent, s);
+	    		int relation = XPathParts.isSubLocale(parent, s);
 	    		if (relation >= 0 && !(isProper && relation == 0)) result.add(s);
 	    	}
 	    	return result;
@@ -498,16 +487,16 @@ public class CLDRFile implements Lockable {
 		public CLDRFile make(String localeName, boolean resolved) {
 			// TODO fix hack: 
 			// read root first so that we get the ordering right.
-			if (needToReadRoot) {
+/*			if (needToReadRoot) {
 				if (!localeName.equals("root")) make("root", false);
 				needToReadRoot = false;
 			}
-			// end of hack
+*/			// end of hack
 	    	Map cache = resolved ? resolvedCache : mainCache;
 	    	CLDRFile result = (CLDRFile) cache.get(localeName);
 	    	if (result == null) {
 	    		if (!resolved) {
-	    			result = CLDRFile.make(localeName, sourceDirectory, log);
+	    			result = CLDRFile.make(localeName, sourceDirectory);
 	    		} else {
     				// this is a bit tricky because of aliases
     				result = (CLDRFile) make(localeName, false).clone();
@@ -535,24 +524,24 @@ public class CLDRFile implements Lockable {
      * Normally a string, unless the item does not inherit (like collation).
      */
     static public abstract class Value {
-    	private String comment;
+    	//private String comment;
     	private String fullXPath;
 		/**
 		 * Create a value.
 		 * @param value
 		 * @param comment2
 		 */
-		public Value(String comment, String currentFullXPath) {
-	        this.comment = comment.intern();
+		public Value(String currentFullXPath) {
+	        //this.comment = comment.intern();
 	        this.fullXPath = currentFullXPath.intern();
 		}
 		/**
 		 * @return Returns the comment.
 		 */
-		public String getComment() {
+/*		public String getComment() {
 			return comment;
 		}
-		/**
+*/		/**
 		 * @return Returns the fullXPath.
 		 */
 		public String getFullXPath() {
@@ -564,7 +553,7 @@ public class CLDRFile implements Lockable {
     	public boolean equals(Object other) {
 			if (other == null || !getClass().equals(other.getClass())) return false;
     		Value that = (Value)other;
-    		return comment.equals(that.comment) && fullXPath.equals(that.fullXPath);
+    		return fullXPath.equals(that.fullXPath);
     	}
     	/**
     	 * Must be overridden.
@@ -575,7 +564,7 @@ public class CLDRFile implements Lockable {
 		 * boilerplate
 		 */
     	public String toString() {
-    		return fullXPath + ";\t" + getStringValue() + ";\t" + comment; 
+    		return fullXPath + ";\t" + getStringValue(); 
     	}
 		/**
 		 * @return
@@ -601,8 +590,8 @@ public class CLDRFile implements Lockable {
 		 * @param comment
 		 * @param currentFullXPath
 		 */
-		public StringValue(String value, String comment, String currentFullXPath) {
-			super(comment, currentFullXPath);
+		public StringValue(String value, String currentFullXPath) {
+			super(currentFullXPath);
 	        this.stringValue = value.intern();
 		}
 		/**
@@ -623,7 +612,7 @@ public class CLDRFile implements Lockable {
 		 */
 		public Value changePath(String string) {
 			// TODO Auto-generated method stub
-			return new StringValue(stringValue, getComment(), string);
+			return new StringValue(stringValue, string);
 		}
     }
     /**
@@ -638,8 +627,8 @@ public class CLDRFile implements Lockable {
     	 * @param comment
     	 * @param currentFullXPath
     	 */
-		public NodeValue(Node value, String comment, String currentFullXPath) {
-			super(comment, currentFullXPath);
+		public NodeValue(Node value, String currentFullXPath) {
+			super(currentFullXPath);
 	        this.nodeValue = value;
 		}
 		/**
@@ -659,27 +648,31 @@ public class CLDRFile implements Lockable {
 		 * @see org.unicode.cldr.util.CLDRFile.Value#changePath(java.lang.String)
 		 */
 		public Value changePath(String string) {
-			return new NodeValue(nodeValue, getComment(), string);
+			return new NodeValue(nodeValue, string);
 		}
     }
 
     private static class MyDeclHandler implements DeclHandler, ContentHandler, LexicalHandler, ErrorHandler {
     	private static final boolean SHOW_ALL = false;
     	private static final boolean SHOW_START_END = true;
-    	private PrintWriter log = null;
     	private int commentStack;
     	private boolean justPopped = false;
     	private String lastChars = "";
     	private String currentXPath = "";
     	private String currentFullXPath = "";
-    	private String comment = "";
+        private String comment = null;
     	private Map attributeOrder = new TreeMap(attributeOrdering);
     	private CLDRFile target;
+    	private String lastActiveLeafNode;
+    	private String lastLeafNode;
+    	private boolean isSupplemental;
     	
-    	MyDeclHandler(CLDRFile target, PrintWriter log) {
+    	MyDeclHandler(CLDRFile target) {
     		this.target = target;
-    		this.log = log;
-    	}
+    		isSupplemental = target.key.equals(SUPPLEMENTAL_NAME);
+    		if (!isSupplemental) attributeOrder = new TreeMap(attributeOrdering);
+    		else attributeOrder = new TreeMap();
+     	}
     		
     	private String show(Attributes attributes) {
     		if (attributes == null) return "null";
@@ -694,16 +687,17 @@ public class CLDRFile implements Lockable {
     	
     	private void push(String qName, Attributes attributes) {
     		//SHOW_ALL && 
-    		if (log != null) log.println("push\t" + qName + "\t" + show(attributes));
+    		Log.logln("push\t" + qName + "\t" + show(attributes));
+        	if (lastChars.length() != 0) throw new IllegalArgumentException("Internal Error");
     		currentXPath += "/" + qName;
     		currentFullXPath += "/" + qName;
-    		ldmlComparator.addElement(qName);
+    		//if (!isSupplemental) ldmlComparator.addElement(qName);
     		if (attributes.getLength() > 0) {
     			attributeOrder.clear();
 	    		for (int i = 0; i < attributes.getLength(); ++i) {    			
 	    			String attribute = attributes.getQName(i);
 	    			String value = attributes.getValue(i);
-	    			ldmlComparator.addAttribute(attribute); // must do BEFORE put
+	    			//if (!isSupplemental) ldmlComparator.addAttribute(attribute); // must do BEFORE put
 	    			//ldmlComparator.addValue(value);
 	    			attributeOrder.put(attribute, value);
 	    		}
@@ -718,12 +712,29 @@ public class CLDRFile implements Lockable {
 	    			}
 	    		}
     		}
+    		if (comment != null) {
+    			target.addComment(currentXPath, comment, XPathParts.Comments.PREBLOCK);
+    			comment = null;
+    		}
             justPopped = false;
-    		if (SHOW_ALL && log != null) log.println("currentXPath\t" + currentXPath + "\tcurrentFullXPath\t" + currentFullXPath);
+            lastActiveLeafNode = null;
+    		Log.logln(SHOW_ALL, "currentXPath\t" + currentXPath + "\tcurrentFullXPath\t" + currentFullXPath);
     	}
     	
 		private void pop(String qName) {
-			if (log != null) log.println("pop\t" + qName);
+			Log.logln("pop\t" + qName);
+            if (lastChars.length() != 0 || justPopped == false) {
+                target.add(currentXPath, currentFullXPath, lastChars);
+                lastChars = "";
+                lastLeafNode = lastActiveLeafNode = currentXPath;
+            } else {
+            	Log.logln(lastActiveLeafNode != null, "pop: zeroing last leafNode: " + lastActiveLeafNode);
+            	lastActiveLeafNode = null;
+        		if (comment != null) {
+        			target.addComment(lastLeafNode, comment, XPathParts.Comments.POSTBLOCK);
+        			comment = null;
+        		}
+            }
 			currentXPath = stripAfter(currentXPath, qName);
     		currentFullXPath = stripAfter(currentFullXPath, qName);    
             justPopped = true;
@@ -748,33 +759,21 @@ public class CLDRFile implements Lockable {
 			return -1;
 		}
 
-		public void elementDecl(String name, String model) throws SAXException {
-        	if (SHOW_ALL && log != null) log.println("Attribute\t" + name + "\t" + model);
-        }
-        public void attributeDecl(String eName, String aName, String type, String mode, String value) throws SAXException {
-            if (SHOW_ALL && log != null) log.println("Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value);
-        }
-        public void internalEntityDecl(String name, String value) throws SAXException {
-        	if (SHOW_ALL && log != null) log.println("Internal Entity\t" + name + "\t" + value);
-        }
-        public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
-        	if (SHOW_ALL && log != null) log.println("Internal Entity\t" + name + "\t" + publicId + "\t" + systemId);
-        }
-
+		// SAX items we need to catch
+		
         public void startElement(
             String uri,
             String localName,
             String qName,
             Attributes attributes)
             throws SAXException {
-        		if ((SHOW_ALL || SHOW_START_END) && log != null) log.println("startElement uri\t" + uri
+        		Log.logln(SHOW_ALL || SHOW_START_END, "startElement uri\t" + uri
         				+ "\tlocalName " + localName
         				+ "\tqName " + qName
         				+ "\tattributes " + show(attributes)
 						);
-                try {
-                	assert lastChars.length() == 0;
-                    push(qName, attributes);
+        		try {
+            		push(qName, attributes);                    
                 } catch (RuntimeException e) {
                     e.printStackTrace();
                     throw e;
@@ -782,14 +781,9 @@ public class CLDRFile implements Lockable {
         }
         public void endElement(String uri, String localName, String qName)
             throws SAXException {
-    			if ((SHOW_ALL || SHOW_START_END) && log != null) log.println("endElement uri\t" + uri + "\tlocalName " + localName
+    			Log.logln(SHOW_ALL || SHOW_START_END, "endElement uri\t" + uri + "\tlocalName " + localName
     				+ "\tqName " + qName);
                 try {
-                    if (lastChars.length() != 0 || justPopped == false) {
-                        target.add(currentXPath, comment, currentFullXPath, lastChars);
-                        lastChars = "";
-                        comment="";
-                    }
                     pop(qName);
                 } catch (RuntimeException e) {
                     e.printStackTrace();
@@ -800,7 +794,7 @@ public class CLDRFile implements Lockable {
             throws SAXException {
                 try {
                     String value = new String(ch,start,length);
-                    if (SHOW_ALL && log != null) log.println("characters:\t" + value);
+                    Log.logln(SHOW_ALL, "characters:\t" + value);
                     lastChars += value;
                     justPopped = false;
                 } catch (RuntimeException e) {
@@ -809,11 +803,76 @@ public class CLDRFile implements Lockable {
                 }
             }
 
-        // just for debugging
+        public void startDTD(String name, String publicId, String systemId) throws SAXException {
+            Log.logln(SHOW_ALL, "startDTD name: " + name
+                    + ", publicId: " + publicId
+                    + ", systemId: " + systemId
+            );
+            commentStack++;
+        }
+        public void endDTD() throws SAXException {
+            Log.logln(SHOW_ALL, "endDTD");
+            commentStack--;
+        }
+        
+        public void comment(char[] ch, int start, int length) throws SAXException {
+            Log.logln(SHOW_ALL, commentStack + " comment " + new String(ch, start,length));
+            try {
+				if (commentStack != 0) return;
+				String comment0 = new String(ch, start,length);
+				if (lastActiveLeafNode != null) {
+					target.addComment(lastActiveLeafNode, comment0, XPathParts.Comments.LINE);
+				} else {
+					comment = (comment == null ? comment0 : comment + XPathParts.NEWLINE + comment0);
+				}
+			} catch (RuntimeException e) {
+                e.printStackTrace();
+                throw e;
+			}
+        }
+        
+        public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
+            Log.logln(SHOW_ALL, "ignorableWhitespace length: " + length);
+            for (int i = 0; i < ch.length; ++i) {
+            	if (ch[i] == '\n') {
+            		Log.logln(lastActiveLeafNode != null, "\\n: zeroing last leafNode: " + lastActiveLeafNode);
+            		lastActiveLeafNode = null;
+            	}
+            }
+        }
+        public void startDocument() throws SAXException {
+            Log.logln(SHOW_ALL, "startDocument");
+            commentStack = 0; // initialize
+        }
+
+        public void endDocument() throws SAXException {
+            Log.logln(SHOW_ALL, "endDocument");
+            try {
+				if (comment != null) target.addComment(null, comment, XPathParts.Comments.LINE);
+			} catch (RuntimeException e) {
+                e.printStackTrace();
+                throw e;
+			}
+        }
+
+        // ==== The following are just for debuggin =====
+
+		public void elementDecl(String name, String model) throws SAXException {
+        	Log.logln(SHOW_ALL, "Attribute\t" + name + "\t" + model);
+        }
+        public void attributeDecl(String eName, String aName, String type, String mode, String value) throws SAXException {
+            Log.logln(SHOW_ALL, "Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value);
+        }
+        public void internalEntityDecl(String name, String value) throws SAXException {
+        	Log.logln(SHOW_ALL, "Internal Entity\t" + name + "\t" + value);
+        }
+        public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
+        	Log.logln(SHOW_ALL, "Internal Entity\t" + name + "\t" + publicId + "\t" + systemId);
+        }
 
         public void notationDecl (String name, String publicId, String systemId)
         throws SAXException {
-            if (SHOW_ALL && log != null) log.println("notationDecl: " + name
+            Log.logln(SHOW_ALL, "notationDecl: " + name
             + ", " + publicId
             + ", " + systemId
             );
@@ -821,79 +880,51 @@ public class CLDRFile implements Lockable {
 
         public void processingInstruction (String target, String data)
         throws SAXException {
-            if (SHOW_ALL && log != null) log.println("processingInstruction: " + target + ", " + data);
+            Log.logln(SHOW_ALL, "processingInstruction: " + target + ", " + data);
         }
 
         public void skippedEntity (String name)
         throws SAXException {
-            if (SHOW_ALL && log != null) log.println("skippedEntity: " + name);
+            Log.logln(SHOW_ALL, "skippedEntity: " + name);
         }
 
         public void unparsedEntityDecl (String name, String publicId,
                         String systemId, String notationName) {
-            if (SHOW_ALL && log != null) log.println("unparsedEntityDecl: " + name
+            Log.logln(SHOW_ALL, "unparsedEntityDecl: " + name
             + ", " + publicId
             + ", " + systemId
             + ", " + notationName
             );
         }
+        
         public void setDocumentLocator(Locator locator) {
-            if (SHOW_ALL && log != null) log.println("setDocumentLocator Locator " + locator);
-        }
-        public void startDocument() throws SAXException {
-            if (SHOW_ALL && log != null) log.println("startDocument");
-            commentStack = 0; // initialize
-        }
-        public void endDocument() throws SAXException {
-        	target.setFinalComment(comment);
-            if (SHOW_ALL && log != null) log.println("endDocument");
+            Log.logln(SHOW_ALL, "setDocumentLocator Locator " + locator);
         }
         public void startPrefixMapping(String prefix, String uri) throws SAXException {
-            if (SHOW_ALL && log != null) log.println("startPrefixMapping prefix: " + prefix +
+            Log.logln(SHOW_ALL, "startPrefixMapping prefix: " + prefix +
                     ", uri: " + uri);
         }
         public void endPrefixMapping(String prefix) throws SAXException {
-            if (SHOW_ALL && log != null) log.println("endPrefixMapping prefix: " + prefix);
-        }
-        public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
-            if (SHOW_ALL && log != null) log.println("ignorableWhitespace length: " + length);
-        }
-        public void startDTD(String name, String publicId, String systemId) throws SAXException {
-            if (SHOW_ALL && log != null) log.println("startDTD name: " + name
-                    + ", publicId: " + publicId
-                    + ", systemId: " + systemId
-            );
-            commentStack++;
-        }
-        public void endDTD() throws SAXException {
-            if (SHOW_ALL && log != null) log.println("endDTD");
-            commentStack--;
+            Log.logln(SHOW_ALL, "endPrefixMapping prefix: " + prefix);
         }
         public void startEntity(String name) throws SAXException {
-            if (SHOW_ALL && log != null) log.println("startEntity name: " + name);
+            Log.logln(SHOW_ALL, "startEntity name: " + name);
         }
         public void endEntity(String name) throws SAXException {
-            if (SHOW_ALL && log != null) log.println("endEntity name: " + name);
+            Log.logln(SHOW_ALL, "endEntity name: " + name);
         }
         public void startCDATA() throws SAXException {
-            if (SHOW_ALL && log != null) log.println("startCDATA");
+            Log.logln(SHOW_ALL, "startCDATA");
         }
         public void endCDATA() throws SAXException {
-            if (SHOW_ALL && log != null) log.println("endCDATA");
-        }
-        public void comment(char[] ch, int start, int length) throws SAXException {
-            if ((SHOW_ALL) && log != null) log.println(commentStack + " comment " + new String(ch, start,length));
-            if (commentStack != 0) return;
-            String comment0 = new String(ch, start,length).trim();
-            if (comment.length() == 0) comment = comment0;
-            else comment += NEWLINE + comment0;
+            Log.logln(SHOW_ALL, "endCDATA");
         }
 
 		/* (non-Javadoc)
 		 * @see org.xml.sax.ErrorHandler#error(org.xml.sax.SAXParseException)
 		 */
 		public void error(SAXParseException exception) throws SAXException {
-			if (SHOW_ALL && log != null) log.println("error: " + showSAX(exception));
+			Log.logln(SHOW_ALL, "error: " + showSAX(exception));
 			throw exception;
 		}
 
@@ -901,7 +932,7 @@ public class CLDRFile implements Lockable {
 		 * @see org.xml.sax.ErrorHandler#fatalError(org.xml.sax.SAXParseException)
 		 */
 		public void fatalError(SAXParseException exception) throws SAXException {
-			if (SHOW_ALL && log != null) log.println("fatalError: " + showSAX(exception));
+			Log.logln(SHOW_ALL, "fatalError: " + showSAX(exception));
 			throw exception;
 		}
 
@@ -909,7 +940,7 @@ public class CLDRFile implements Lockable {
 		 * @see org.xml.sax.ErrorHandler#warning(org.xml.sax.SAXParseException)
 		 */
 		public void warning(SAXParseException exception) throws SAXException {
-			if (SHOW_ALL && log != null) log.println("warning: " + showSAX(exception));
+			Log.logln(SHOW_ALL, "warning: " + showSAX(exception));
 			throw exception;
 		}
     }
@@ -942,9 +973,9 @@ public class CLDRFile implements Lockable {
 			}
 		}
 		if (aliases.size() == 0) return;
-		XPathParts parts = new XPathParts(attributeOrdering);
-		XPathParts fullParts = new XPathParts(attributeOrdering);
-		XPathParts otherParts = new XPathParts(attributeOrdering);
+		XPathParts parts = new XPathParts(attributeOrdering, defaultSuppressionMap);
+		XPathParts fullParts = new XPathParts(attributeOrdering, defaultSuppressionMap);
+		XPathParts otherParts = new XPathParts(attributeOrdering, defaultSuppressionMap);
 		for (Iterator it = aliases.iterator(); it.hasNext();) {
 			String xpathKey = (String) it.next();
 			Value v = (Value) xpath_value.get(xpathKey);
@@ -981,8 +1012,8 @@ public class CLDRFile implements Lockable {
 	 */
 	private void addChildren(XPathParts parts, XPathParts fullParts, CLDRFile other, XPathParts otherParts) {
 		String otherPath = otherParts + "/";
-		XPathParts temp = new XPathParts(attributeOrdering);
-		XPathParts fullTemp = new XPathParts(attributeOrdering);
+		XPathParts temp = new XPathParts(attributeOrdering, defaultSuppressionMap);
+		XPathParts fullTemp = new XPathParts(attributeOrdering, defaultSuppressionMap);
 		Map tempMap = new HashMap();
 		for (Iterator it = other.xpath_value.keySet().iterator(); it.hasNext();) {
 			String path = (String)it.next();
@@ -1077,77 +1108,69 @@ public class CLDRFile implements Lockable {
 		return valueOrdering.getOrder(); // already unmodifiable
 	}
 	
-	static MapComparator elementOrdering = new MapComparator();
-	static MapComparator attributeOrdering = new MapComparator();
-	static MapComparator valueOrdering = new MapComparator().setErrorOnMissing(false);
+	static MapComparator elementOrdering = (MapComparator) new MapComparator().add(new String[] {
+			"ldml", "identity", "alias",
+			"localeDisplayNames", "layout", "characters", "delimiters",
+			"measurement", "dates", "numbers", "collations", "posix",
+			"version", "generation", "language", "script", "territory",
+			"variant", "languages", "scripts", "territories", "variants",
+			"keys", "types", "key", "type", "orientation",
+			"exemplarCharacters", "mapping", "cp", "quotationStart",
+			"quotationEnd", "alternateQuotationStart",
+			"alternateQuotationEnd", "measurementSystem", "paperSize",
+			"height", "width", "localizedPatternChars", "calendars",
+			"timeZoneNames", "months", "monthNames", "monthAbbr", "days",
+			"dayNames", "dayAbbr", "week", "am", "pm", "eras",
+			"dateFormats", "timeFormats", "dateTimeFormats", "fields",
+			"month", "day", "minDays", "firstDay", "weekendStart",
+			"weekendEnd", "eraNames", "eraAbbr", "era", "pattern",
+			"displayName", "hourFormat", "hoursFormat", "gmtFormat",
+			"regionFormat", "fallbackFormat", "abbreviationFallback",
+			"preferenceOrdering", "default", "calendar", "monthContext",
+			"monthWidth", "dayContext", "dayWidth", "dateFormatLength",
+			"dateFormat", "timeFormatLength", "timeFormat",
+			"dateTimeFormatLength", "dateTimeFormat", "zone", "long",
+			"short", "exemplarCity", "generic", "standard", "daylight",
+			"field", "relative", "symbols", "decimalFormats",
+			"scientificFormats", "percentFormats", "currencyFormats",
+			"currencies", "decimalFormatLength", "decimalFormat",
+			"scientificFormatLength", "scientificFormat",
+			"percentFormatLength", "percentFormat", "currencyFormatLength",
+			"currencyFormat", "currency", "symbol", "decimal", "group",
+			"list", "percentSign", "nativeZeroDigit", "patternDigit",
+			"plusSign", "minusSign", "exponential", "perMille", "infinity",
+			"nan", "collation", "messages", "yesstr", "nostr",
+			"yesexpr", "noexpr",
+			"special", }).lock();
+	
+	static MapComparator attributeOrdering = (MapComparator) new MapComparator().add(new String[] {
+			"type", "key", "registry", "alt",
+			"source", "path",
+			"day", "date",
+			"version", "count",
+			"lines", "characters",
+			"before",
+			"number", "time",
+			"validSubLocales",
+			"standard", "references",				
+			"draft",
+			}).lock();
+	static MapComparator valueOrdering = (MapComparator) new MapComparator().setErrorOnMissing(false).lock();
+	/*
 	
 	//RuleBasedCollator valueOrdering = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
     static {
-    	String[] elementOrder = { "ldml", "identity", "alias",
-				"localeDisplayNames", "layout", "characters", "delimiters",
-				"measurement", "dates", "numbers", "collations", "posix",
-				"version", "generation", "language", "script", "territory",
-				"variant", "languages", "scripts", "territories", "variants",
-				"keys", "types", "key", "type", "orientation",
-				"exemplarCharacters", "mapping", "cp", "quotationStart",
-				"quotationEnd", "alternateQuotationStart",
-				"alternateQuotationEnd", "measurementSystem", "paperSize",
-				"height", "width", "localizedPatternChars", "calendars",
-				"timeZoneNames", "months", "monthNames", "monthAbbr", "days",
-				"dayNames", "dayAbbr", "week", "am", "pm", "eras",
-				"dateFormats", "timeFormats", "dateTimeFormats", "fields",
-				"month", "day", "minDays", "firstDay", "weekendStart",
-				"weekendEnd", "eraNames", "eraAbbr", "era", "pattern",
-				"displayName", "hourFormat", "hoursFormat", "gmtFormat",
-				"regionFormat", "fallbackFormat", "abbreviationFallback",
-				"preferenceOrdering", "default", "calendar", "monthContext",
-				"monthWidth", "dayContext", "dayWidth", "dateFormatLength",
-				"dateFormat", "timeFormatLength", "timeFormat",
-				"dateTimeFormatLength", "dateTimeFormat", "zone", "long",
-				"short", "exemplarCity", "generic", "standard", "daylight",
-				"field", "relative", "symbols", "decimalFormats",
-				"scientificFormats", "percentFormats", "currencyFormats",
-				"currencies", "decimalFormatLength", "decimalFormat",
-				"scientificFormatLength", "scientificFormat",
-				"percentFormatLength", "percentFormat", "currencyFormatLength",
-				"currencyFormat", "currency", "symbol", "decimal", "group",
-				"list", "percentSign", "nativeZeroDigit", "patternDigit",
-				"plusSign", "minusSign", "exponential", "perMille", "infinity",
-				"nan", "collation", "messages", "special", "yesstr", "nostr",
-				"yesexpr", "noexpr" };
-    	for (int i = 0; i < elementOrder.length; ++i) elementOrdering.add(elementOrder[i]);
-    	elementOrdering.lock();
-    	/*{"months", "monthNames", "monthAbbr", "days", "dayNames", "dayAbbr", 
-		"week", "am", "pm", "eras", "dateFormats", "timeFormats", "dateTimeFormats", "fields",
-		"generic", "standard", "daylight"};
-		*/
-    	
-    	String[] attributeOrder = {
-    			"type", "key", 
-    			"source", "path",
-				"day",
-				"date",
-				"version", "registry",
-				"count",
-				"lines", "characters",
-				"before",
-				"number", "time",
-				"references", "standard",
-				"validSubLocales",
-				"alt",
-				"draft", 
-		};
-    	for (int i = 0; i < attributeOrder.length; ++i) attributeOrdering.add(attributeOrder[i]);
-    	attributeOrdering.lock();
+
     	
     	// others are alphabetical
-       	String[] valueOrder = {"full", "long", "medium", "short",
+       	String[] valueOrder = {
+       			"full", "long", "medium", "short",
        			"abbreviated", "narrow", "wide",
-    			"collation", "calendar", "currency",
+    			//"collation", "calendar", "currency",
 				"buddhist", "chinese", "gregorian", "hebrew", "islamic", "islamic-civil", "japanese", "direct",				
 				//"japanese", "buddhist", "islamic", "islamic-civil", "hebrew", "chinese", "gregorian", "phonebook", "traditional", "direct",
 
-				"sun", "mon", "tue", "wed", "thu", "fri", // "sat" removed, since it is a language tag
+				"sun", "mon", "tue", "wed", "thu", "fri", "sat", // removed, since it is a language tag
 				"America/Vancouver",
 				"America/Los_Angeles",
 				"America/Edmonton",
@@ -1172,16 +1195,27 @@ public class CLDRFile implements Lockable {
 				"Europe/Bucharest",
 				"Asia/Shanghai",
 				};       	
-    	for (int i = 0; i < valueOrder.length; ++i) valueOrdering.add(valueOrder[i]);
-    	valueOrdering.lock();
+    	valueOrdering.add(valueOrder).lock();
     	//StandardCodes sc = StandardCodes.make();
     }
+    */
+    static MapComparator dayValueOrder = (MapComparator) new MapComparator().add(new String[] {
+    		"sun", "mon", "tue", "wed", "thu", "fri", "sat"}).lock();
+    static MapComparator widthOrder = (MapComparator) new MapComparator().add(new String[] {
+    		"abbreviated", "narrow", "wide"}).lock();
+    static MapComparator lengthOrder = (MapComparator) new MapComparator().add(new String[] {
+    		"full", "long", "medium", "short"}).lock();
+    static MapComparator dateFieldOrder = (MapComparator) new MapComparator().add(new String[] {
+    		"era", "year", "month", "week", "day", " weekday", "dayperiod",
+			"hour", "minute", "second", "zone"}).lock();
+    static Comparator zoneOrder = StandardCodes.make().getTZIDComparator();
+    
 	private static LDMLComparator ldmlComparator = new LDMLComparator();
 
 	static class LDMLComparator implements Comparator {
 
-		transient XPathParts a = new XPathParts(attributeOrdering);
-		transient XPathParts b = new XPathParts(attributeOrdering);
+		transient XPathParts a = new XPathParts(attributeOrdering, null);
+		transient XPathParts b = new XPathParts(attributeOrdering, null);
 		
 		public void addElement(String a) {
 			//elementOrdering.add(a);
@@ -1223,7 +1257,17 @@ public class CLDRFile implements Lockable {
 						if (0 != (result = attributeOrdering.compare(akey, bkey))) return result;
 						String avalue = (String) am.get(akey);
 						String bvalue = (String) bm.get(bkey);
-						if (0 != (result = valueOrdering.compare(avalue, bvalue))) return result;
+						Comparator comp = valueOrdering;
+						if (akey.equals("day") && aname.startsWith("weekend")) {
+							comp = dayValueOrder;
+						} else if (akey.equals("type")) {
+							if (aname.endsWith("FormatLength ")) comp = lengthOrder;
+							else if (aname.endsWith("Width")) comp = widthOrder;
+							else if (aname.equals("day")) comp = dayValueOrder;
+							else if (aname.equals("field")) comp = dateFieldOrder;
+							else if (aname.equals("zone")) comp = zoneOrder;
+						}
+						if (0 != (result = comp.compare(avalue, bvalue))) return result;
 					}
 				}
 				if (am.size() < bm.size()) return -1;
@@ -1233,5 +1277,36 @@ public class CLDRFile implements Lockable {
 			if (a.size() > b.size()) return 1;
 			return 0;
 		}		
+	}
+	
+	public final static Map defaultSuppressionMap; 
+	static {
+		String[][] data = {
+				{"ldml", "version", "1.2"},
+				{"orientation", "characters", "left-to-right"},
+				{"orientation", "lines", "top-to-bottom"},
+				{"weekendStart", "time", "00:00"},
+				{"weekendEnd", "time", "24:00"},
+				{"dateFormat", "type", "standard"},
+				{"timeFormat", "type", "standard"},
+				{"dateTimeFormat", "type", "standard"},
+				{"decimalFormat", "type", "standard"},
+				{"scientificFormat", "type", "standard"},
+				{"percentFormat", "type", "standard"},
+				{"currencyFormat", "type", "standard"},
+				{"pattern", "type", "standard"},
+				{"currency", "type", "standard"},
+				{"collation", "type", "standard"},
+		};
+		Map tempmain = new HashMap();
+		for (int i = 0; i < data.length; ++i) {
+			Map temp = (Map) tempmain.get(data[i][0]);
+			if (temp == null) {
+				temp = new HashMap();
+				tempmain.put(data[i][0], temp);
+			}
+			temp.put(data[i][1], data[i][2]);
+		}
+		defaultSuppressionMap = Collections.unmodifiableMap(tempmain);
 	}
 }

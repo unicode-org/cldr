@@ -14,6 +14,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 
@@ -32,7 +35,7 @@ public class Utility {
 	}
 	
 	public static class SimpleLineComparator implements LineComparer {
-	    public static final int TRIM = 1, SKIP_SPACES = 2, SKIP_EMPTY = 3;
+	    public static final int TRIM = 1, SKIP_SPACES = 2, SKIP_EMPTY = 4;
 	    StringIterator si1 = new StringIterator();
         StringIterator si2 = new StringIterator();
         int flags;
@@ -40,6 +43,7 @@ public class Utility {
 			this.flags = flags;
 		}
 		public int compare(String line1, String line2) {
+			// first, see if we want to skip one or the other lines
 			int skipper = 0;
 			if (line1 == null) {
 				skipper = SKIP_FIRST;
@@ -57,14 +61,18 @@ public class Utility {
             	if (skipper == SKIP_FIRST + SKIP_SECOND) return LINES_SAME; // ok, don't skip both
             	return skipper;
             }
+            
+            // check for null
             if (line1 == null) {
             	if (line2 == null) return LINES_SAME;
             	return LINES_DIFFERENT;          	
             }
             if (line2 == null) return LINES_DIFFERENT;
             
+            // now check equality
 			if (line1.equals(line2)) return LINES_SAME;
-
+			
+			// if not equal, see if we are skipping spaces
 			if ((flags & SKIP_SPACES) != 0 && si1.set(line1).matches(si2.set(line2))) return LINES_SAME;
 			return LINES_DIFFERENT;
 		}
@@ -120,7 +128,7 @@ public class Utility {
     }
     */
     
-    final static class StringIterator {
+    public final static class StringIterator {
     	String string;
     	int position = 0;
     	char next() {
@@ -147,6 +155,12 @@ public class Utility {
     			if (c1 == '\uFFFF') return true;
     		}
     	}
+		/**
+		 * @return Returns the position.
+		 */
+		public int getPosition() {
+			return position;
+		}
     }
     
     static public void generateBat(String sourceDir, String sourceFile, String targetDir, String targetFile, LineComparer lineComparer) {
@@ -176,4 +190,48 @@ public class Utility {
             e.printStackTrace();
         }
     }
+
+
+	public static List split(String source, char separator, boolean trim) {
+		return split(source, separator, trim, null);
+	}
+	
+	public static List split(String source, char separator, boolean trim, List output) {
+		if (output == null) output = new ArrayList();
+		if (source.length() == 0) return output;
+		int pos = 0;
+		do {
+			int npos = source.indexOf(separator, pos);
+			if (npos < 0) npos = source.length();
+			String piece = source.substring(pos, npos);
+			if (trim) piece = piece.trim();
+			output.add(piece);
+			pos = npos+1;
+		} while (pos < source.length());
+		return output;
+	}
+
+	/**
+	 * Utility to indent by a certain number of tabs.
+	 * @param out
+	 * @param count
+	 */
+	static void indent(PrintWriter out, int count) {
+		out.print(repeat("\t", count));
+	}
+	
+	/**
+	 * Utility to indent by a certain number of tabs.
+	 * @param out
+	 * @param count
+	 */
+	public static String repeat(String s, int count) {
+		if (count == 0) return "";
+		if (count == 1) return s;
+		StringBuffer result = new StringBuffer();
+	    for (int i = 0; i < count; ++i) {
+	        result.append(s);
+	    }
+	    return result.toString();
+	}
 }

@@ -7,7 +7,6 @@
 package org.unicode.cldr.test;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
@@ -21,11 +20,11 @@ import java.util.TreeSet;
 import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.Utility;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.StringValue;
@@ -58,7 +57,7 @@ public class CLDRTest extends TestFmwk {
 	 */
 	public CLDRTest() throws SAXException, IOException {
 		// TODO parameterize the directory and filter
-		cldrFactory = CLDRFile.Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*", null);
+		cldrFactory = CLDRFile.Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*");
 		//CLDRKey.main(new String[]{"-mde.*"});
 		locales = cldrFactory.getAvailable();
 		languageLocales = cldrFactory.getAvailableLanguages();
@@ -178,7 +177,7 @@ public class CLDRTest extends TestFmwk {
 			if (currentValues.size() == 0) continue;
 			int size = availableWithParent.size();
 			CLDRFile parentCLDR = cldrFactory.make(parent, true);
-			XPathParts p = new XPathParts(null);
+			XPathParts p = new XPathParts(null, null);
 			for (Iterator it2 = currentValues.keySet().iterator(); it2.hasNext();) {
 				String xpath = (String) it2.next();
 				ValueCount vc = (ValueCount) currentValues.get(xpath);
@@ -304,8 +303,9 @@ public class CLDRTest extends TestFmwk {
 		String name = (String) localeNameCache.get(locale);
 		if (name != null) return name;
 		if (english == null) english = cldrFactory.make("en", true);
-		String[] pieces = new String[10];
-		Utility.split(locale, '_', pieces);
+		Collection c = Utility.split(locale, '_', false, null);
+		String[] pieces = new String[c.size()];
+		c.toArray(pieces);
 		int i = 0;
 		String result = getName(english, "languages/language", pieces[i++]);
 		if (pieces[i].length() == 0) return result;
@@ -339,7 +339,7 @@ public class CLDRTest extends TestFmwk {
 	 */
 	public void TestForIllegalAttributeValues()  {
 		// check for illegal attribute values that are not in the DTD
-		XPathParts parts = new XPathParts(null);
+		XPathParts parts = new XPathParts(null, null);
 		Map result = new TreeMap();
 		Map totalResult = new TreeMap();
 		for (Iterator it = locales.iterator(); it.hasNext();) {
@@ -481,9 +481,9 @@ public class CLDRTest extends TestFmwk {
 	
 	void getSupplementalData(Map language_scripts, Map language_territories) {
 		boolean SHOW = true;
-		Factory cldrFactory = Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*", null);
+		Factory cldrFactory = Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*");
 		CLDRFile supp = cldrFactory.make("supplementalData", false);
-		XPathParts parts = new XPathParts(null);
+		XPathParts parts = new XPathParts(null, null);
 		for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
 			String path = (String) it.next();
 			Value v = supp.getValue(path);
@@ -493,30 +493,15 @@ public class CLDRTest extends TestFmwk {
 			String language = (String) m.get("type");
 			String scripts = (String) m.get("scripts");
 			if (scripts != null) {
-				language_scripts.put(language, split(scripts,' ', false, new TreeSet()));
+				language_scripts.put(language, new TreeSet(Utility.split(scripts,' ', false)));
 				if (SHOW) System.out.println(getIDAndLocalization(language) + "\t\t" + getIDAndLocalization((Set)language_scripts.get(language)));
 			}
 			String territories = (String) m.get("territories");
 			if (territories != null) {
-				language_territories.put(language, split(territories,' ', false, new TreeSet()));
+				language_territories.put(language, new TreeSet(Utility.split(territories,' ', false)));
 				if (SHOW) System.out.println(getIDAndLocalization(language) + "\t\t" + getIDAndLocalization((Set)language_territories.get(language)));
 			}
 		}
-	}
-
-	static Collection split(String source, char separator, boolean trim, Collection output) {
-		if (output == null) output = new ArrayList();
-		if (source.length() == 0) return output;
-		int pos = 0;
-		do {
-			int npos = source.indexOf(separator, pos);
-			if (npos < 0) npos = source.length();
-			String piece = source.substring(pos, npos);
-			if (trim) piece = piece.trim();
-			output.add(piece);
-			pos = npos+1;
-		} while (pos < source.length());
-		return output;
 	}
 
 	static final String[] minimumLanguages = {"en", "de", "fr", "it", "es", "pt", "ru", "zh", "ja"}; // plus language itself

@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -17,6 +18,7 @@ import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import com.ibm.icu.text.Collator;
@@ -25,7 +27,6 @@ import com.ibm.icu.util.ULocale;
 import org.unicode.cldr.util.Utility.*;
 
 public class CLDRModify {
-	static PrintWriter log;
 	
 	public static void main(String[] args) throws Exception {
 		String sourceDir = "C:\\ICU4C\\locale\\common\\main\\";
@@ -39,18 +40,24 @@ public class CLDRModify {
 			x = lineComparer.compare("", "b");
 			x = lineComparer.compare("a", "");
 			x = lineComparer.compare("", "");
+			x = lineComparer.compare("ab", "a b");
 			
 			Utility.generateBat(sourceDir, "ar_AE.xml", targetDir, "ar.xml", lineComparer);
 		}
 		
-		PrintWriter log = BagFormatter.openUTF8Writer(targetDir, "log.txt");
+		Log.setLog(targetDir + "log.txt");
 		String[] failureLines = new String[2];
-		Factory cldrFactory = Factory.make(sourceDir, ".*", log);
-		/*String[] tests = {"de", "root", "en", "fr", "ar"
-		};
-		for (int i = 0; i < tests.length; ++i) 
-		*/
-		for (Iterator it = cldrFactory.getAvailable().iterator(); it.hasNext();)
+		Factory cldrFactory = Factory.make(sourceDir, ".*");
+		Set testSet = cldrFactory.getAvailable();
+		String[] quicktest = new String[] {
+				//"ar", "dz_BT",
+				// "sv", "en", "de"
+			};
+		if (quicktest.length > 0) {
+			testSet = new TreeSet(Arrays.asList(quicktest));
+		}
+		
+		for (Iterator it = testSet.iterator(); it.hasNext();)
 		try {
 			String test = (String) it.next();
 			//testJavaSemantics();
@@ -61,6 +68,18 @@ public class CLDRModify {
 			CLDRFile k = cldrFactory.make(test, false);
 			PrintWriter pw = BagFormatter.openUTF8Writer(targetDir, test + ".xml");
 			//System.out.println(CLDRFile.getAttributeOrder());
+			
+			/*if (false) {
+				Map tempComments = k.getXpath_comments();
+
+				for (Iterator it2 = tempComments.keySet().iterator(); it2.hasNext();) {
+					String key = (String) it2.next();
+					String comment = (String) tempComments.get(key);
+					Log.logln("Writing extra comment: " + key);
+					System.out.println(key + "\t comment: " + comment);
+				}
+			}*/
+
 			k.write(pw);
 			pw.println();
 			pw.close();
@@ -75,7 +94,7 @@ public class CLDRModify {
 			}
 			*/
 		} finally {
-			log.close();
+			Log.close();
 		}
 		System.out.println("Done");
 	}

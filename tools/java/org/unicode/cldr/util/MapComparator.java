@@ -131,8 +131,9 @@ public class MapComparator implements Comparator, Lockable {
 	/* (non-Javadoc)
 	 * @see org.unicode.cldr.util.Lockable#lock()
 	 */
-	public void lock() {
+	public Object lock() {
 		locked = true;	
+		return this;
 	}
 	/* (non-Javadoc)
 	 * @see org.unicode.cldr.util.Lockable#clone()

@@ -24,9 +24,10 @@ public interface Lockable extends Cloneable {
 	 */
 	public boolean isLocked();
 	/**
-	 * Locks the object. 
+	 * Locks the object.
+	 * @return the object itself.
 	 */
-	public void lock();
+	public Object lock();
 	/**
 	 * Provides for the clone operation. Any clone is initially unlocked.
 	 */

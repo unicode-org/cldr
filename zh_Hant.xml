@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.2"/>
@@ -710,52 +710,212 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<zone type="America/Anchorage">
+			<zone type="Etc/GMT">
 				<long>
-					<standard>阿拉斯加標準時間</standard>
-					<daylight>阿拉斯加日光節約時間</daylight>
+					<standard>格林威治標準時間</standard>
+					<daylight>格林威治標準時間</daylight>
 				</long>
-				<exemplarCity>安克里治</exemplarCity>
+				<exemplarCity>倫敦</exemplarCity>
 			</zone>
-			<zone type="America/Los_Angeles">
-				<long>
-					<standard>太平洋標準時間</standard>
-					<daylight>太平洋日光節約時間</daylight>
-				</long>
-				<exemplarCity>洛杉磯</exemplarCity>
+			<!-- Antarctica -->
+			<zone type="Antarctica/Rothera">
+				<exemplarCity draft="true">羅瑟拉</exemplarCity>
 			</zone>
-			<zone type="America/Phoenix">
-				<long>
-					<standard>山區標準時間</standard>
-					<daylight>山區標準時間</daylight>
-				</long>
-				<exemplarCity>鳳凰城</exemplarCity>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity draft="true">帕麥</exemplarCity>
 			</zone>
-			<zone type="America/Denver">
-				<long>
-					<standard>山區標準時間</standard>
-					<daylight>山區日光節約時間</daylight>
-				</long>
+			<zone type="Antarctica/South_Pole">
+				<exemplarCity draft="true">南極</exemplarCity>
 			</zone>
-			<zone type="America/Chicago">
-				<long>
-					<standard>中部標準時間</standard>
-					<daylight>中部日光節約時間</daylight>
-				</long>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity draft="true">昭和</exemplarCity>
 			</zone>
-			<zone type="America/Indianapolis">
-				<long>
-					<standard>東部標準時間</standard>
-					<daylight>東部標準時間</daylight>
-				</long>
-				<exemplarCity>印第安那波里斯</exemplarCity>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity draft="true">莫森</exemplarCity>
 			</zone>
-			<zone type="America/New_York">
-				<long>
-					<standard>東部標準時間</standard>
-					<daylight>東部日光節約時間</daylight>
-				</long>
-				<exemplarCity>紐約</exemplarCity>
+			<zone type="Antarctica/Davis">
+				<exemplarCity draft="true">戴維斯</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity draft="true">莫斯托克</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity draft="true">凱西</exemplarCity>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity draft="true">杜蒙杜爾維爾</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity draft="true">麥克馬多</exemplarCity>
+			</zone>
+			<!-- Argentina -->
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity draft="true">加拉哥斯</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity draft="true">門多薩</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity draft="true">聖胡安</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity draft="true">烏斯懷亞</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/ComodRivadavia">
+				<exemplarCity draft="true">科木多洛</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity draft="true">拉略哈</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity draft="true">卡塔馬卡</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity draft="true">胡韋</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity draft="true">吐庫曼</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity draft="true">哥多華</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity draft="true">布宜諾斯艾利斯</exemplarCity>
+			</zone>
+			<!-- Australia -->
+			<zone type="Australia/Perth">
+				<exemplarCity draft="true">伯斯</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity draft="true">達爾文</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity draft="true">阿得雷德</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity draft="true">斷丘市</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity draft="true">墨爾本</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity draft="true">荷巴特</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity draft="true">林德曼</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity draft="true">雪梨</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity draft="true">布利斯班</exemplarCity>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity draft="true">羅豪島</exemplarCity>
+			</zone>
+			<!-- Brazil -->
+			<zone type="America/Eirunepe">
+				<exemplarCity draft="true">艾魯內佩</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity draft="true">布蘭科</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity draft="true">維留港</exemplarCity>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<exemplarCity draft="true">保維斯塔</exemplarCity>
+			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity draft="true">瑪瑙斯</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity draft="true">古雅巴</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity draft="true">格蘭場</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity draft="true">貝倫</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity draft="true">阿拉圭那</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity draft="true">聖保羅</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity draft="true">巴伊阿</exemplarCity>
+			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity draft="true">福塔力莎</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity draft="true">馬瑟歐</exemplarCity>
+			</zone>
+			<zone type="America/Recife">
+				<exemplarCity draft="true">雷西非</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity draft="true">諾倫哈</exemplarCity>
+			</zone>
+			<!-- Canada -->
+			<zone type="America/Dawson">
+				<exemplarCity draft="true">道生河</exemplarCity>
+			</zone>
+			<zone type="America/Whitehorse">
+				<exemplarCity draft="true">懷特霍斯</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity draft="true">溫哥華</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity draft="true">道生灣</exemplarCity>
+			</zone>
+			<zone type="America/Yellowknife">
+				<exemplarCity draft="true">耐羅耐佛</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity draft="true">伊奴維克</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity draft="true">艾德蒙吞</exemplarCity>
+			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity draft="true">瑞夫卡倫特</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity draft="true">劍橋灣</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity draft="true">利宅那</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity draft="true">溫尼伯</exemplarCity>
+			</zone>
+			<zone type="America/Rainy_River">
+				<exemplarCity draft="true">雨河鎮</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity draft="true">蘭今灣</exemplarCity>
+			</zone>
+			<zone type="America/Thunder_Bay">
+				<exemplarCity draft="true">珊德灣</exemplarCity>
+			</zone>
+			<zone type="America/Nipigon">
+				<exemplarCity draft="true">尼皮岡</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity draft="true">多倫多</exemplarCity>
+			</zone>
+			<zone type="America/Montreal">
+				<exemplarCity draft="true">蒙特婁</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity draft="true">伊魁特</exemplarCity>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<exemplarCity draft="true">潘尼爾東</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -764,6 +924,12 @@
 				</long>
 				<exemplarCity>哈里法克斯</exemplarCity>
 			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity draft="true">鵝灣</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity draft="true">格雷斯貝</exemplarCity>
+			</zone>
 			<zone type="America/St_Johns">
 				<long>
 					<standard>紐芬蘭標準時間</standard>
@@ -771,35 +937,112 @@
 				</long>
 				<exemplarCity>聖約翰</exemplarCity>
 			</zone>
+			<!-- Democratic Republic of the Congo -->
+			<zone type="Africa/Kinshasa">
+				<exemplarCity draft="true">金夏沙</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity draft="true">蘆佈巴西</exemplarCity>
+			</zone>
+			<!-- Chile -->
+			<zone type="Pacific/Easter">
+				<exemplarCity draft="true">復活島</exemplarCity>
+			</zone>
+			<zone type="America/Santiago">
+				<exemplarCity draft="true">聖地牙哥</exemplarCity>
+			</zone>
+			<!-- China -->
+			<zone type="Asia/Kashgar">
+				<exemplarCity draft="true">喀什米爾</exemplarCity>
+			</zone>
+			<zone type="Asia/Urumqi">
+				<exemplarCity draft="true">烏魯木齊</exemplarCity>
+			</zone>
+			<zone type="Asia/Chongqing">
+				<exemplarCity draft="true">重慶</exemplarCity>
+			</zone>
+			<zone type="Asia/Shanghai">
+				<long>
+					<standard>中國標準時間</standard>
+					<daylight>中國標準時間</daylight>
+				</long>
+			</zone>
+			<zone type="Asia/Harbin">
+				<exemplarCity draft="true">哈爾濱</exemplarCity>
+			</zone>
+			<!-- Ecuador -->
+			<zone type="Pacific/Galapagos">
+				<exemplarCity draft="true">加拉巴哥群島</exemplarCity>
+			</zone>
+			<zone type="America/Guayaquil">
+				<exemplarCity draft="true">瓜亞基爾</exemplarCity>
+			</zone>
+			<!-- Spain -->
+			<zone type="Atlantic/Canary">
+				<exemplarCity draft="true">加納利</exemplarCity>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity draft="true">休達</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity draft="true">馬德里</exemplarCity>
+			</zone>
+			<!-- Micronesia -->
+			<zone type="Pacific/Yap">
+				<exemplarCity draft="true">雅浦島</exemplarCity>
+			</zone>
+			<zone type="Pacific/Truk">
+				<exemplarCity draft="true">土魯克群島</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity draft="true">波納佩</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity draft="true">科斯里</exemplarCity>
+			</zone>
 			<zone type="Europe/Paris">
 				<long>
 					<standard>中歐標準時間</standard>
 					<daylight>中歐日光節約時間</daylight>
 				</long>
 			</zone>
-			<zone type="Europe/Bucharest">
-				<long>
-					<standard>東歐標準時間</standard>
-					<daylight>東歐日光節約時間</daylight>
-				</long>
+			<!-- United Kingdom -->
+			<zone type="Europe/Belfast">
+				<exemplarCity draft="true">貝爾費斯特</exemplarCity>
 			</zone>
-			<zone type="Africa/Casablanca">
-				<long>
-					<standard>格林威治標準時間</standard>
-					<daylight>格林威治標準時間</daylight>
-				</long>
-				<exemplarCity>卡薩布蘭卡</exemplarCity>
+			<zone type="Europe/London">
+				<exemplarCity draft="true">倫敦</exemplarCity>
+			</zone>
+			<!-- Greenland -->
+			<zone type="America/Thule">
+				<exemplarCity draft="true">杜里</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity draft="true">高特哈市</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity draft="true">斯可比海峽</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity draft="true">丹馬沙文</exemplarCity>
+			</zone>
+			<!-- Indonesia -->
+			<zone type="Asia/Jakarta">
+				<exemplarCity draft="true">雅加達</exemplarCity>
+			</zone>
+			<zone type="Asia/Pontianak">
+				<exemplarCity draft="true">坤甸</exemplarCity>
+			</zone>
+			<zone type="Asia/Makassar">
+				<exemplarCity draft="true">馬卡沙爾</exemplarCity>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<exemplarCity draft="true">加亞布拉</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
 					<standard>以色列標準時間</standard>
 					<daylight>以色列日光節約時間</daylight>
-				</long>
-			</zone>
-			<zone type="Asia/Shanghai">
-				<long>
-					<standard>中國標準時間</standard>
-					<daylight>中國標準時間</daylight>
 				</long>
 			</zone>
 			<zone type="Asia/Tokyo">
@@ -809,18 +1052,303 @@
 				</long>
 				<exemplarCity>東京</exemplarCity>
 			</zone>
+			<!-- Kiribati -->
+			<zone type="Pacific/Enderbury">
+				<exemplarCity draft="true">恩得伯理島</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity draft="true">聖誕島</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity draft="true">塔拉瓦</exemplarCity>
+			</zone>
+			<!-- Kazakhstan -->
+			<zone type="Asia/Aqtau">
+				<exemplarCity draft="true">艾克陶</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity draft="true">奧拉爾</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity draft="true">阿克糾賓</exemplarCity>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity draft="true">奎茲羅答</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity draft="true">阿拉木圖</exemplarCity>
+			</zone>
+			<zone type="Africa/Casablanca">
+				<long>
+					<standard>格林威治標準時間</standard>
+					<daylight>格林威治標準時間</daylight>
+				</long>
+				<exemplarCity>卡薩布蘭卡</exemplarCity>
+			</zone>
+			<!-- Marshall Islands -->
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity draft="true">瓜加林島</exemplarCity>
+			</zone>
+			<zone type="Pacific/Majuro">
+				<exemplarCity draft="true">馬朱諾</exemplarCity>
+			</zone>
+			<!-- Mali -->
+			<zone type="Africa/Bamako">
+				<exemplarCity draft="true">巴馬科</exemplarCity>
+			</zone>
+			<zone type="Africa/Timbuktu">
+				<exemplarCity draft="true">廷巴克圖</exemplarCity>
+			</zone>
+			<!-- Mongolia -->
+			<zone type="Asia/Hovd">
+				<exemplarCity draft="true">科布多</exemplarCity>
+			</zone>
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity draft="true">烏蘭巴托</exemplarCity>
+			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity draft="true">卓巴爾塞</exemplarCity>
+			</zone>
+			<!-- Mexico -->
+			<zone type="America/Tijuana">
+				<exemplarCity draft="true">提華納</exemplarCity>
+			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity draft="true">厄莫休</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity draft="true">馬薩特蘭</exemplarCity>
+			</zone>
+			<zone type="America/Chihuahua">
+				<exemplarCity draft="true">奇華華</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity draft="true">蒙特瑞</exemplarCity>
+			</zone>
+			<zone type="America/Mexico_City">
+				<exemplarCity draft="true">墨西哥市</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity draft="true">美里達</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity draft="true">康庫</exemplarCity>
+			</zone>
+			<!-- Malaysia -->
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity draft="true">吉隆坡</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuching">
+				<exemplarCity draft="true">古晉</exemplarCity>
+			</zone>
+			<!-- New Zealand -->
+			<zone type="Pacific/Chatham">
+				<exemplarCity draft="true">查坦</exemplarCity>
+			</zone>
+			<zone type="Pacific/Auckland">
+				<exemplarCity draft="true">奧克蘭</exemplarCity>
+			</zone>
+			<!-- French Polynesia -->
+			<zone type="Pacific/Tahiti">
+				<exemplarCity draft="true">大溪地</exemplarCity>
+			</zone>
+			<zone type="Pacific/Marquesas">
+				<exemplarCity draft="true">馬可薩斯島</exemplarCity>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<exemplarCity draft="true">岡必爾群島</exemplarCity>
+			</zone>
+			<!-- Portugal -->
+			<zone type="Atlantic/Azores">
+				<exemplarCity draft="true">亞速爾群島</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity draft="true">馬得拉群島</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity draft="true">里斯本</exemplarCity>
+			</zone>
+			<zone type="Europe/Bucharest">
+				<long>
+					<standard>東歐標準時間</standard>
+					<daylight>東歐日光節約時間</daylight>
+				</long>
+			</zone>
+			<!-- Russia -->
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity draft="true">加里寧格勒</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="true">莫斯科</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity draft="true">沙馬拉</exemplarCity>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<exemplarCity draft="true">葉卡捷林堡</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity draft="true">鄂木斯克</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity draft="true">新西伯利亞</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity draft="true">克拉斯諾雅斯克</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity draft="true">伊爾庫次克</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity draft="true">雅庫次克</exemplarCity>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity draft="true">海參崴</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity draft="true">庫頁島</exemplarCity>
+			</zone>
+			<zone type="Asia/Magadan">
+				<exemplarCity draft="true">馬加丹</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity draft="true">堪查加</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity draft="true">阿那底河</exemplarCity>
+			</zone>
+			<!-- Svalbard and Jan Mayen -->
+			<zone type="Atlantic/Jan_Mayen">
+				<exemplarCity draft="true">央麥恩島</exemplarCity>
+			</zone>
+			<zone type="Arctic/Longyearbyen">
+				<exemplarCity draft="true">隆意耳拜恩</exemplarCity>
+			</zone>
+			<!-- Ukraine -->
+			<zone type="Europe/Uzhgorod">
+				<exemplarCity draft="true">烏茲哥洛</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="true">基輔</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity draft="true">辛非洛浦</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity draft="true">札波羅結</exemplarCity>
+			</zone>
+			<!-- United States Minor Outlying Islands -->
+			<zone type="Pacific/Midway">
+				<exemplarCity draft="true">中途島</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity draft="true">強斯頓</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity draft="true">威克</exemplarCity>
+			</zone>
+			<!-- United States -->
+			<zone type="America/Adak">
+				<exemplarCity draft="true">艾達克</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity draft="true">諾姆</exemplarCity>
+			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
 					<standard>夏威夷標準時間</standard>
 					<daylight>夏威夷標準時間</daylight>
 				</long>
 			</zone>
-			<zone type="Etc/GMT">
+			<zone type="America/Anchorage">
 				<long>
-					<standard>格林威治標準時間</standard>
-					<daylight>格林威治標準時間</daylight>
+					<standard>阿拉斯加標準時間</standard>
+					<daylight>阿拉斯加日光節約時間</daylight>
 				</long>
-				<exemplarCity>倫敦</exemplarCity>
+				<exemplarCity>安克里治</exemplarCity>
+			</zone>
+			<zone type="America/Yakutat">
+				<exemplarCity draft="true">雅庫塔</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity draft="true">朱諾</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<long>
+					<standard>太平洋標準時間</standard>
+					<daylight>太平洋日光節約時間</daylight>
+				</long>
+				<exemplarCity>洛杉磯</exemplarCity>
+			</zone>
+			<zone type="America/Boise">
+				<exemplarCity draft="true">波伊斯</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<long>
+					<standard>山區標準時間</standard>
+					<daylight>山區標準時間</daylight>
+				</long>
+				<exemplarCity>鳳凰城</exemplarCity>
+			</zone>
+			<zone type="America/Shiprock">
+				<exemplarCity draft="true">船岩峰</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<long>
+					<standard>山區標準時間</standard>
+					<daylight>山區日光節約時間</daylight>
+				</long>
+			</zone>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity draft="true">申特城</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<long>
+					<standard>中部標準時間</standard>
+					<daylight>中部日光節約時間</daylight>
+				</long>
+			</zone>
+			<zone type="America/Menominee">
+				<exemplarCity draft="true">美諾米克</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<exemplarCity draft="true">諾克斯</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<exemplarCity draft="true">馬倫哥</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<long>
+					<standard>東部標準時間</standard>
+					<daylight>東部標準時間</daylight>
+				</long>
+				<exemplarCity>印第安那波里斯</exemplarCity>
+			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity draft="true">路易斯維</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<exemplarCity draft="true">維威</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<exemplarCity draft="true">蒙提瑟洛</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity draft="true">底特律</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<long>
+					<standard>東部標準時間</standard>
+					<daylight>東部日光節約時間</daylight>
+				</long>
+				<exemplarCity>紐約</exemplarCity>
+			</zone>
+			<!-- Uzbekistan -->
+			<zone type="Asia/Samarkand">
+				<exemplarCity draft="true">撒馬爾罕</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity draft="true">塔什干</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>

@@ -2504,9 +2504,9 @@ root</pre>
   <p>Unicode property sets are specified by any Unicode property, such as [:Letter:], using the 
   PropertyAlias file and the PropertyValueAlias file. The syntax for specifying the property names 
   is an extension of either POSIX or Perl syntax with the addition of &quot;=value&quot;. For example, you can 
-  match letters by using the POSIX syntax <b>[:Letter:]</b>, or by using the Perl-style syntax <b>\p{Letter}</b>. 
-  The type can be omitted for the Category and Script properties, but is required for other 
-  properties.</p>
+  match letters by using the POSIX syntax <b>[:Letter:]</b>, or by using the Perl-style syntax <b>
+  \p{Letter}</b>. The type can be omitted for the Category and Script properties, but is required 
+  for other properties.</p>
   <p>The table below shows the two kinds of syntax: POSIX and Perl style. Also, the table shows the 
   &quot;Negative&quot;, which is a property that excludes all characters of a given kind. For example, <b>
   [:^Letter:]</b> matches all characters that are not <b>[:Letter:]</b>.</p>
@@ -2580,7 +2580,8 @@ root</pre>
     <tr>
       <td>[:Lu:]&nbsp;</td>
       <td>The set of characters belonging to the given Unicode category, as defined by 
-      Character.getType(); in this case, Unicode uppercase letters. The long form for this is <b>[:UppercaseLetter:]</b>.&nbsp;</td>
+      Character.getType(); in this case, Unicode uppercase letters. The long form for this is <b>
+      [:UppercaseLetter:]</b>.&nbsp;</td>
     </tr>
     <tr>
       <td>[:L:]&nbsp;</td>
@@ -3579,138 +3580,123 @@ root</pre>
     </tr>
   </table>
   <p><span class="changed">Quoting is done using &#39; characters, as in date or number formats.</span></p>
-  <h2><span style="background-color: #FFFF00">Appendix I: <a name="Inheritance_and_Validity">
-  Inheritance and Validity</a></span></h2>
-  <p><span style="background-color: #FFFF00">The following describes in more detail how to determine 
-  the exact inheritance of elements, and the validity of a given element in </span>
-  <span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00">. If an 
-  element has draft=&quot;true&quot;, then the data is not known to be valid. (&quot;Not known to be&quot; because it 
-  may actually be valid, but it has not been vetted.). But it is a bit more complicated than that, 
-  since draft=&quot;true&quot; is inherited by </span><span style="background-color: #FFFF00">subelements</span><span style="background-color: #FFFF00">, 
+  <h2><span class="changed">Appendix I: <a name="Inheritance_and_Validity">Inheritance and Validity</a></span></h2>
+  <p><span class="changed">The following describes in more detail how to determine the exact 
+  inheritance of elements, and the validity of a given element in </span><span class="changed">LDML</span><span class="changed">. 
+  If an element has draft=&quot;true&quot;, then the data is not known to be valid. (&quot;Not known to be&quot; because 
+  it may actually be valid, but it has not been vetted.). But it is a bit more complicated than 
+  that, since draft=&quot;true&quot; is inherited by </span><span class="changed">subelements</span><span class="changed">, 
   and sublocales. So this section provides a more formal description of how elements are inherited, 
   and what their draft status is.</span></p>
-  <h2><span style="background-color: #FFFF00">Definitions</span></h2>
-  <p><span style="background-color: #FFFF00">For any element in an XML file, </span><i>
-  <span style="background-color: #FFFF00">an element chain</span></i><span style="background-color: #FFFF00"> 
-  is a resolved </span><span style="background-color: #FFFF00">XPath</span><span style="background-color: #FFFF00"> 
+  <h2><span class="changed">Definitions</span></h2>
+  <p><span class="changed">For any element in an XML file, </span><i><span class="changed">an 
+  element chain</span></i><span class="changed"> is a resolved </span><span class="changed">XPath</span><span class="changed"> 
   leading from the root to an element, with attributes on each element in alphabetical order. So in, 
   say, </span><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/el.xml">
-  <span style="background-color: #FFFF00">
-  http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/el.xml</span></a><span style="background-color: #FFFF00"> 
+  <span class="changed">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/el.xml</span></a><span class="changed"> 
   we have:</span></p>
-  <pre><span style="background-color: #FFFF00">&lt;</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00"> version=&quot;1.1&quot;&gt;
+  <pre><span class="changed">&lt;</span><span class="changed">ldml</span><span class="changed"> version=&quot;1.1&quot;&gt;
   &lt;identity&gt;
     &lt;version number=&quot;1.1&quot; /&gt;
     &lt;generation date=&quot;2004-06-04&quot; /&gt;
     &lt;language type=&quot;el&quot; /&gt;
   &lt;/identity&gt;
-  &lt;</span><span style="background-color: #FFFF00">localeDisplayNames</span><span style="background-color: #FFFF00">&gt;
+  &lt;</span><span class="changed">localeDisplayNames</span><span class="changed">&gt;
     &lt;languages&gt;
-      &lt;language type=&quot;</span><span style="background-color: #FFFF00">ar</span><span style="background-color: #FFFF00">&quot;&gt;Αραβικά&lt;/language&gt;
+      &lt;language type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;&gt;Αραβικά&lt;/language&gt;
 ...</span></pre>
-  <p><span style="background-color: #FFFF00">Which gives the following element chains (among 
-  others):</span></p>
+  <p><span class="changed">Which gives the following element chains (among others):</span></p>
   <ul>
-    <li><span style="background-color: #FFFF00">//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/identity/version@number=&quot;1.1&quot;</span></li>
-    <li><span style="background-color: #FFFF00">//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/</span><span style="background-color: #FFFF00">localeDisplayNames</span><span style="background-color: #FFFF00">/languages/language@type=&quot;</span><span style="background-color: #FFFF00">ar</span><span style="background-color: #FFFF00">&quot;</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml</span><span class="changed">/identity/version@number=&quot;1.1&quot;</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml</span><span class="changed">/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;</span></li>
   </ul>
-  <p><span style="background-color: #FFFF00">An element chain A is an </span><i>
-  <span style="background-color: #FFFF00">extension</span></i><span style="background-color: #FFFF00"> 
+  <p><span class="changed">An element chain A is an </span><i><span class="changed">extension</span></i><span class="changed"> 
   of an element chain B if the initial portion of A is the equivalent to B. For example, #2 below is 
   an extension of #1. (Equivalent, depending on the tree, may not be &quot;identical to&quot;. See below for 
   an example.)</span></p>
   <ol>
-    <li><span style="background-color: #FFFF00">//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/</span><span style="background-color: #FFFF00">localeDisplayNames</span></li>
-    <li><span style="background-color: #FFFF00">//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/</span><span style="background-color: #FFFF00">localeDisplayNames</span><span style="background-color: #FFFF00">/languages/language@type=&quot;</span><span style="background-color: #FFFF00">ar</span><span style="background-color: #FFFF00">&quot;</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml</span><span class="changed">/</span><span class="changed">localeDisplayNames</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml</span><span class="changed">/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;</span></li>
   </ol>
-  <p><span style="background-color: #FFFF00">An </span><span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> 
-  file can be thought of as an ordered list of </span><i><span style="background-color: #FFFF00">
-  element pairs</span></i><span style="background-color: #FFFF00">: &lt;element chain, data&gt;, where the 
-  element chains are all the chains for the end-nodes. (This works because of restrictions on the 
-  structure of </span><span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00">, 
+  <p><span class="changed">An </span><span class="changed">LDML</span><span class="changed"> file 
+  can be thought of as an ordered list of </span><i><span class="changed">element pairs</span></i><span class="changed">: 
+  &lt;element chain, data&gt;, where the element chains are all the chains for the end-nodes. (This works 
+  because of restrictions on the structure of </span><span class="changed">LDML</span><span class="changed">, 
   including that it doesn&#39;t allow mixed content.) The ordering is the ordering that the element 
-  chains are found in the file, and thus determined by the </span>
-  <span style="background-color: #FFFF00">DTD</span><span style="background-color: #FFFF00">.</span></p>
-  <p><span style="background-color: #FFFF00">For example, some of those pairs would be the 
-  following. Notice that the first has the null string as element contents.</span></p>
+  chains are found in the file, and thus determined by the </span><span class="changed">DTD</span><span class="changed">.</span></p>
+  <p><span class="changed">For example, some of those pairs would be the following. Notice that the 
+  first has the null string as element contents.</span></p>
   <ul>
-    <li><span style="background-color: #FFFF00">&lt;//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/identity/version@number=&quot;1.1&quot;, 
+    <li><span class="changed">&lt;//</span><span class="changed">ldml</span><span class="changed">/identity/version@number=&quot;1.1&quot;, 
     &quot;&quot;&gt;</span></li>
-    <li><span style="background-color: #FFFF00">&lt;//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/</span><span style="background-color: #FFFF00">localeDisplayNames</span><span style="background-color: #FFFF00">/languages/language@type=&quot;</span><span style="background-color: #FFFF00">ar</span><span style="background-color: #FFFF00">&quot;, 
-    &quot;</span><span style="background-color: #FFFF00">Αραβικά</span><span style="background-color: #FFFF00">&quot;&gt;</span></li>
+    <li><span class="changed">&lt;//</span><span class="changed">ldml</span><span class="changed">/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;, 
+    &quot;</span><span class="changed">Αραβικά</span><span class="changed">&quot;&gt;</span></li>
   </ul>
   <blockquote>
-    <p><b><span style="background-color: #FFFF00">Note:</span></b><span style="background-color: #FFFF00"> 
-    Some elements are not inherited from their parent locales. For example, all of the elements in a 
-    &lt;collation&gt; element are part of the structure of the collation data itself. So everything in a 
-    &lt;collation&gt; element is treated as a single lump of data, as far as inheritance is concerned.</span></p>
+    <p><b><span class="changed">Note:</span></b><span class="changed"> Some elements are not 
+    inherited from their parent locales. For example, all of the elements in a &lt;collation&gt; element 
+    are part of the structure of the collation data itself. So everything in a &lt;collation&gt; element 
+    is treated as a single lump of data, as far as inheritance is concerned.</span></p>
   </blockquote>
-  <p><span style="background-color: #FFFF00">Two </span><span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> 
-  element chains are </span><i><span style="background-color: #FFFF00">equivalent</span></i><span style="background-color: #FFFF00"> 
+  <p><span class="changed">Two </span><span class="changed">LDML</span><span class="changed"> 
+  element chains are </span><i><span class="changed">equivalent</span></i><span class="changed"> 
   when they would be identical if all attributes except the following list were removed: </span><b>
-  <span style="background-color: #FFFF00">type, width, context</span></b><span style="background-color: #FFFF00">. 
-  Thus the following are equivalent:</span></p>
+  <span class="changed">type, width, context</span></b><span class="changed">. Thus the following 
+  are equivalent:</span></p>
   <ul>
-    <li><span style="background-color: #FFFF00">//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/</span><span style="background-color: #FFFF00">localeDisplayNames</span><span style="background-color: #FFFF00">/languages/language@type=&quot;</span><span style="background-color: #FFFF00">ar</span><span style="background-color: #FFFF00">&quot;</span></li>
-    <li><span style="background-color: #FFFF00">//</span><span style="background-color: #FFFF00">ldml</span><span style="background-color: #FFFF00">/</span><span style="background-color: #FFFF00">localeDisplayNames</span><span style="background-color: #FFFF00">/languages/language@type=&quot;</span><span style="background-color: #FFFF00">ar</span><span style="background-color: #FFFF00">&quot;@draft=&quot;true&quot;</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml</span><span class="changed">/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;</span></li>
+    <li><span class="changed">//</span><span class="changed">ldml</span><span class="changed">/</span><span class="changed">localeDisplayNames</span><span class="changed">/languages/language@type=&quot;</span><span class="changed">ar</span><span class="changed">&quot;@draft=&quot;true&quot;</span></li>
   </ul>
-  <p><span style="background-color: #FFFF00">For any locale ID, an </span><i>
-  <span style="background-color: #FFFF00">locale chain</span></i><span style="background-color: #FFFF00"> 
+  <p><span class="changed">For any locale ID, an </span><i><span class="changed">locale chain</span></i><span class="changed"> 
   is an ordered list starting with the root and leading down to the ID. For example:</span></p>
   <blockquote>
-    <p><span style="background-color: #FFFF00">&lt;root, de, de-DE, de-DE-xxx&gt;</span></p>
+    <p><span class="changed">&lt;root, de, de-DE, de-DE-xxx&gt;</span></p>
   </blockquote>
-  <h2><span style="background-color: #FFFF00">Resolved Data File</span></h2>
-  <p><span style="background-color: #FFFF00">To produce fully resolved locale data file from CLDR 
-  for a locale ID L, you start with root, and replace/add items from the child locales until you get 
-  down to L. More formally, this can be expressed as the following procedure.</span></p>
+  <h2><span class="changed">Resolved Data File</span></h2>
+  <p><span class="changed">To produce fully resolved locale data file from CLDR for a locale ID L, 
+  you start with root, and replace/add items from the child locales until you get down to L. More 
+  formally, this can be expressed as the following procedure.</span></p>
   <ol>
-    <li><span style="background-color: #FFFF00">Let Result be an empty </span>
-    <span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> 
+    <li><span class="changed">Let Result be an empty </span><span class="changed">LDML</span><span class="changed"> 
     file.</span></li>
-    <li><span style="background-color: #FFFF00">For each Li in the locale chain for L</span><ol>
-      <li><span style="background-color: #FFFF00">For each element pair P in the </span>
-      <span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> 
+    <li><span class="changed">For each Li in the locale chain for L</span><ol>
+      <li><span class="changed">For each element pair P in the </span><span class="changed">LDML</span><span class="changed"> 
       file for Li:</span><ol>
-        <li><span style="background-color: #FFFF00">If Result has an element pair Q with an 
-        equivalent element chain, remove Q.</span></li>
-        <li><span style="background-color: #FFFF00">Add P to Result.</span></li>
+        <li><span class="changed">If Result has an element pair Q with an equivalent element chain, 
+        remove Q.</span></li>
+        <li><span class="changed">Add P to Result.</span></li>
       </ol>
       </li>
     </ol>
     </li>
   </ol>
-  <p><span style="background-color: #FFFF00">Note: when adding an element pair to a result, it has 
-  to go in the right order for it to be valid according to the </span>
-  <span style="background-color: #FFFF00">DTD</span><span style="background-color: #FFFF00">.</span></p>
-  <h2><b><span style="background-color: #FFFF00">Valid Data</span></b></h2>
-  <p><span style="background-color: #FFFF00">The attribute </span><i>
-  <span style="background-color: #FFFF00">draft=&#39;true&#39;</span></i><span style="background-color: #FFFF00"> 
-  in </span><span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> 
-  means that the data is not known to be valid or not. However, some data that is not explicitly 
-  marked as draft may be implicitly draft, either because it inherits it from a parent, or from an 
-  enclosing element. </span></p>
-  <p><b><span style="background-color: #FFFF00">Example 2. </span></b>
-  <span style="background-color: #FFFF00">Suppose that a new locale is added for </span>
-  <span style="background-color: #FFFF00">af</span><span style="background-color: #FFFF00"> (</span><span style="background-color: #FFFF00">Afrikans</span><span style="background-color: #FFFF00">). 
+  <p><span class="changed">Note: when adding an element pair to a result, it has to go in the right 
+  order for it to be valid according to the </span><span class="changed">DTD</span><span class="changed">.</span></p>
+  <h2><b><span class="changed">Valid Data</span></b></h2>
+  <p><span class="changed">The attribute </span><i><span class="changed">draft=&#39;true&#39;</span></i><span class="changed"> 
+  in </span><span class="changed">LDML</span><span class="changed"> means that the data is not known 
+  to be valid or not. However, some data that is not explicitly marked as draft may be implicitly 
+  draft, either because it inherits it from a parent, or from an enclosing element. </span></p>
+  <p><b><span class="changed">Example 2. </span></b><span class="changed">Suppose that a new locale 
+  is added for </span><span class="changed">af</span><span class="changed"> (</span><span class="changed">Afrikans</span><span class="changed">). 
   To indicate that all of the data is draft, that attribute can be added to the top level.</span></p>
-  <p><code><span style="background-color: #FFFF00">&lt;ldml version=&quot;1.1&quot; draft=&quot;true&quot;&gt;<br>
+  <p><code><span class="changed">&lt;ldml version=&quot;1.1&quot; draft=&quot;true&quot;&gt;<br>
   &nbsp;&lt;identity&gt;<br>
-  &nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
-  &nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
-  &nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
+&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+&nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+&nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
   &nbsp;&lt;/identity&gt;<br>
   &lt;/ldml&gt;</span></code></p>
-  <p><span style="background-color: #FFFF00">Any data can be added to that file, and the status will 
-  all be draft. Once an item is vetted -- </span><i><span style="background-color: #FFFF00">whether 
-  it is inherited or explicitly in the file</span></i><span style="background-color: #FFFF00"> -- 
-  then its status can be changed to non-draft. This can be done either by leaving draft=&quot;true&quot; on 
-  the enclosing element and marking the child with draft=&quot;false&quot;, such as:</span></p>
-  <p><code><span style="background-color: #FFFF00">&lt;ldml version=&quot;1.1&quot; draft=&quot;true&quot;&gt;<br>
+  <p><span class="changed">Any data can be added to that file, and the status will all be draft. 
+  Once an item is vetted -- </span><i><span class="changed">whether it is inherited or explicitly in 
+  the file</span></i><span class="changed"> -- then its status can be changed to non-draft. This can 
+  be done either by leaving draft=&quot;true&quot; on the enclosing element and marking the child with 
+  draft=&quot;false&quot;, such as:</span></p>
+  <p><code><span class="changed">&lt;ldml version=&quot;1.1&quot; draft=&quot;true&quot;&gt;<br>
   &nbsp;&lt;identity&gt;<br>
-  &nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
-  &nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
-  &nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
+&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+&nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+&nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
   &nbsp;&lt;/identity&gt;<br>
   &nbsp;&lt;characters draft=&quot;false&quot;/&gt;<br>
   &nbsp;&lt;localeDisplayNames/&gt;<br>
@@ -3718,14 +3704,14 @@ root</pre>
   &nbsp;&lt;numbers/&gt;<br>
   &nbsp;&lt;collations/&gt;<br>
   &lt;/ldml&gt;</span></code></p>
-  <p><span style="background-color: #FFFF00">Or it can be done by removing the draft=&quot;false&quot; from 
-  the enclosing element, and marking the</span><i><span style="background-color: #FFFF00"> other</span></i><span style="background-color: #FFFF00"> 
+  <p><span class="changed">Or it can be done by removing the draft=&quot;false&quot; from the enclosing 
+  element, and marking the</span><i><span class="changed"> other</span></i><span class="changed"> 
   children as draft.</span></p>
-  <p><code><span style="background-color: #FFFF00">&lt;ldml version=&quot;1.1&quot;&gt;<br>
+  <p><code><span class="changed">&lt;ldml version=&quot;1.1&quot;&gt;<br>
   &nbsp;&lt;identity&gt;<br>
-  &nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
-  &nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
-  &nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
+&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+&nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+&nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
   &nbsp;&lt;/identity&gt;<br>
   &nbsp;&lt;characters/&gt;<br>
   &nbsp;&lt;localeDisplayNames/&gt;<br>
@@ -3734,82 +3720,69 @@ root</pre>
   &nbsp;&lt;collations draft=&quot;true&quot;/&gt;<br>
   &lt;/ldml&gt;</span></code></p>
   <blockquote>
-    <p><b><span style="background-color: #FFFF00">Note: </span></b>
-    <span style="background-color: #FFFF00">A missing draft attribute is </span><i>
-    <span style="background-color: #FFFF00">not</span></i><span style="background-color: #FFFF00"> 
-    the same as either a true or false value. A missing attribute means instead: </span><i>
-    <span style="background-color: #FFFF00">inherit</span></i><span style="background-color: #FFFF00"> 
+    <p><b><span class="changed">Note: </span></b><span class="changed">A missing draft attribute is
+    </span><i><span class="changed">not</span></i><span class="changed"> the same as either a true 
+    or false value. A missing attribute means instead: </span><i><span class="changed">inherit</span></i><span class="changed"> 
     the draft status from enclosing elements and parent locales.</span></p>
   </blockquote>
-  <p><span style="background-color: #FFFF00">The attribute </span><i>
-  <span style="background-color: #FFFF00">legitimateChildren</span></i><span style="background-color: #FFFF00"> 
+  <p><span class="changed">The attribute </span><i><span class="changed">legitimateChildren</span></i><span class="changed"> 
   allows sublocales in a given tree to be treated as though a file for them were present when there 
   isn&#39;t one. It only has an effect for locales that inherit from the current file where a file is 
   missing, and the elements wouldn&#39;t otherwise be draft.</span></p>
-  <p class="reviewnote"><span style="background-color: #FFFF00">[Editorial Note: we will change the 
-  name </span><span style="background-color: #FFFF00">legitimateChildren</span><span style="background-color: #FFFF00"> 
-  to something less whimsical in before release.]</span></p>
-  <p><b><span style="background-color: #FFFF00">Example 1. </span></b>
-  <span style="background-color: #FFFF00">Suppose that in a particular </span>
-  <span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> tree, 
-  there are no region locales for German, e.g. there is a </span>
-  <span style="background-color: #FFFF00">de.xml</span><span style="background-color: #FFFF00"> 
-  file, but no files for de-</span><span style="background-color: #FFFF00">AT.xml</span><span style="background-color: #FFFF00">, 
-  de-</span><span style="background-color: #FFFF00">CH.xml</span><span style="background-color: #FFFF00">, 
-  or de-</span><span style="background-color: #FFFF00">DE.xml</span><span style="background-color: #FFFF00">. 
-  Then no elements are valid for any of those region locales. If we want to mark one of those files 
-  as having valid elements, then we introduce an empty file, such as the following.</span></p>
-  <p><code><span style="background-color: #FFFF00">&lt;ldml version=&quot;1.1&quot;&gt;<br>
+  <p class="reviewnote"><span class="changed">[Editorial Note: we will change the name </span>
+  <span class="changed">legitimateChildren</span><span class="changed"> to something less whimsical 
+  in before release.]</span></p>
+  <p><b><span class="changed">Example 1. </span></b><span class="changed">Suppose that in a 
+  particular </span><span class="changed">LDML</span><span class="changed"> tree, there are no 
+  region locales for German, e.g. there is a </span><span class="changed">de.xml</span><span class="changed"> 
+  file, but no files for de-</span><span class="changed">AT.xml</span><span class="changed">, de-</span><span class="changed">CH.xml</span><span class="changed">, 
+  or de-</span><span class="changed">DE.xml</span><span class="changed">. Then no elements are valid 
+  for any of those region locales. If we want to mark one of those files as having valid elements, 
+  then we introduce an empty file, such as the following.</span></p>
+  <p><code><span class="changed">&lt;ldml version=&quot;1.1&quot;&gt;<br>
   &nbsp;&lt;identity&gt;<br>
-  &nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
-  &nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
-  &nbsp; &lt;language type=&quot;de&quot; /&gt; <br>
-  &nbsp; &lt;territory type=&quot;AT&quot; /&gt; <br>
+&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+&nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+&nbsp; &lt;language type=&quot;de&quot; /&gt; <br>
+&nbsp; &lt;territory type=&quot;AT&quot; /&gt; <br>
   &nbsp;&lt;/identity&gt;<br>
   &lt;/ldml&gt;</span></code></p>
-  <p><span style="background-color: #FFFF00">With the </span><i>
-  <span style="background-color: #FFFF00">legitimateChildren</span></i><span style="background-color: #FFFF00"> 
-  attribute, instead of adding the empty files for de-</span><span style="background-color: #FFFF00">AT.xml</span><span style="background-color: #FFFF00">, 
-  de-</span><span style="background-color: #FFFF00">CH.xml</span><span style="background-color: #FFFF00">, 
-  and de-</span><span style="background-color: #FFFF00">DE.xml</span><span style="background-color: #FFFF00">, 
+  <p><span class="changed">With the </span><i><span class="changed">legitimateChildren</span></i><span class="changed"> 
+  attribute, instead of adding the empty files for de-</span><span class="changed">AT.xml</span><span class="changed">, 
+  de-</span><span class="changed">CH.xml</span><span class="changed">, and de-</span><span class="changed">DE.xml</span><span class="changed">, 
   in the de file we can add to the parent locale a list of the child locales that should behave as 
   if files were present.</span></p>
-  <p><code><span style="background-color: #FFFF00">&lt;ldml version=&quot;1.1&quot; legitimateChildren=&quot;de-AT 
-  de-CH de-DE&quot;&gt;<br>
+  <p><code><span class="changed">&lt;ldml version=&quot;1.1&quot; legitimateChildren=&quot;de-AT de-CH de-DE&quot;&gt;<br>
   &nbsp;&lt;identity&gt;<br>
-  &nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
-  &nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
-  &nbsp; &lt;language type=&quot;de&quot; /&gt; <br>
+&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+&nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+&nbsp; &lt;language type=&quot;de&quot; /&gt; <br>
   &nbsp;&lt;/identity&gt;<br>
   ...<br>
   &lt;/ldml&gt;</span></code></p>
-  <p><span style="background-color: #FFFF00">More formally, here is how to determine whether data 
-  for an element chain E is implicitly or explicitly draft, given a locale L. Sections 1, 2, and 4 
-  are simply formalizations of what is in </span><span style="background-color: #FFFF00">LDML</span><span style="background-color: #FFFF00"> 
+  <p><span class="changed">More formally, here is how to determine whether data for an element chain 
+  E is implicitly or explicitly draft, given a locale L. Sections 1, 2, and 4 are simply 
+  formalizations of what is in </span><span class="changed">LDML</span><span class="changed"> 
   already. Item 3 adds the new element.</span></p>
-  <p><span style="background-color: #FFFF00">Checking for Draft Status:</span></p>
+  <p><span class="changed">Checking for Draft Status:</span></p>
   <ol>
-    <li><b><span style="background-color: #FFFF00">Parent Locale Inheritance</span></b><ol>
-      <li><span style="background-color: #FFFF00">Walk through the locale chain until you find a 
-      locale ID L&#39; with a data file D. (L&#39; may equal L). </span></li>
-      <li><span style="background-color: #FFFF00">Produce the fully resolved data file D&#39; for D.</span></li>
-      <li><span style="background-color: #FFFF00">In D&#39;, find the first element pair whose element 
-      chain E&#39; is either equivalent to or an extension of E.</span></li>
-      <li><span style="background-color: #FFFF00">If there is no such E&#39;, return </span><i>
-      <span style="background-color: #FFFF00">true</span></i></li>
-      <li><span style="background-color: #FFFF00">If E&#39; is not equivalent to E, truncate E&#39; to the 
-      length of E.</span></li>
+    <li><b><span class="changed">Parent Locale Inheritance</span></b><ol>
+      <li><span class="changed">Walk through the locale chain until you find a locale ID L&#39; with a 
+      data file D. (L&#39; may equal L). </span></li>
+      <li><span class="changed">Produce the fully resolved data file D&#39; for D.</span></li>
+      <li><span class="changed">In D&#39;, find the first element pair whose element chain E&#39; is either 
+      equivalent to or an extension of E.</span></li>
+      <li><span class="changed">If there is no such E&#39;, return </span><i><span class="changed">true</span></i></li>
+      <li><span class="changed">If E&#39; is not equivalent to E, truncate E&#39; to the length of E.</span></li>
     </ol>
     </li>
-    <li><b><span style="background-color: #FFFF00">Enclosing Element Inheritance</span></b><ol>
-      <li><span style="background-color: #FFFF00">Walk through the elements in E&#39;, from back to 
-      front.</span><ol>
-        <li><span style="background-color: #FFFF00">If you ever encounter draft=</span><i><span style="background-color: #FFFF00">x</span></i><span style="background-color: #FFFF00">, 
-        return </span><i><span style="background-color: #FFFF00">x</span></i></li>
+    <li><b><span class="changed">Enclosing Element Inheritance</span></b><ol>
+      <li><span class="changed">Walk through the elements in E&#39;, from back to front.</span><ol>
+        <li><span class="changed">If you ever encounter draft=</span><i><span class="changed">x</span></i><span class="changed">, 
+        return </span><i><span class="changed">x</span></i></li>
       </ol>
       </li>
-      <li><span style="background-color: #FFFF00">If L&#39; = L, return </span><i>
-      <span style="background-color: #FFFF00">false</span></i></li>
+      <li><span class="changed">If L&#39; = L, return </span><i><span class="changed">false</span></i></li>
     </ol>
     </li>
     <li><span class="changed"><b>Missing File Inheritance</b></span><ol>
@@ -3824,16 +3797,14 @@ root</pre>
       </li>
     </ol>
     </li>
-    <li><b><span style="background-color: #FFFF00">Otherwise</span></b><ol>
-      <li><span style="background-color: #FFFF00">Return </span><i>
-      <span style="background-color: #FFFF00">true</span></i></li>
+    <li><b><span class="changed">Otherwise</span></b><ol>
+      <li><span class="changed">Return </span><i><span class="changed">true</span></i></li>
     </ol>
     </li>
   </ol>
-  <p><span style="background-color: #FFFF00">The </span><span style="background-color: #FFFF00">
-  legitimateChildren</span><span style="background-color: #FFFF00"> in the most specific (farthest 
-  from root file) locale file &quot;wins&quot; through the full resolution step (data from more specific files 
-  replacing data from less specific ones).</span></p>
+  <p><span class="changed">The </span><span class="changed">legitimateChildren</span><span class="changed"> 
+  in the most specific (farthest from root file) locale file &quot;wins&quot; through the full resolution step 
+  (data from more specific files replacing data from less specific ones).</span></p>
   <h2><a name="References">References</a></h2>
   <table style="border-collapse: collapse; border-width: 1; " cellpadding="4" cellspacing="0" class="noborder" border="0">
     <tr>

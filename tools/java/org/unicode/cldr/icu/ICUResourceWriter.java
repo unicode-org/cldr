@@ -4,22 +4,21 @@
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
+/**
+ * @author Ram Viswanadha
+ */
 package org.unicode.cldr.icu;
 
 import java.io.OutputStream;
 
 import com.ibm.icu.text.UTF16;
 
-/**
- * @author ram
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
- */
 public class ICUResourceWriter {
     private static final String CHARSET         = "UTF-8";
     private static final String OPENBRACE       = "{";
     private static final String CLOSEBRACE      = "}";
+    private static final String OPENPAREN       = "(";
+    private static final String CLOSEPAREN      = ")";
     private static final String COLON           = ":";
     private static final String COMMA           = ",";
     private static final String QUOTE           = "\"";
@@ -35,6 +34,7 @@ public class ICUResourceWriter {
     private static final String TABLE           = "table";
     private static final String IMPORT          = "import";
     private static final String INCLUDE         = "include";
+    private static final String PROCESS         = "process";
     private static final String ALIAS           = "alias";
     private static final String INTVECTOR       = "intvector";
     //private static final String ARRAYS          = "array";
@@ -136,6 +136,24 @@ public class ICUResourceWriter {
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
             String line =  ((name==null)? EMPTY: name)+COLON+INCLUDE+ OPENBRACE+QUOTE+escapeSyntaxChars(val)+QUOTE+CLOSEBRACE;
+            if(bare==true){
+                if(name!=null){
+                    throw new RuntimeException("Bare option is set to true but the resource has a name!");
+                }
+                write(writer,line); 
+            }else{
+                write(writer, line+LINESEP);
+            }
+        }
+    }
+    public static class  ResourceProcess extends Resource{
+        String val;
+        String ext;
+        public void write(OutputStream writer, int numIndent, boolean bare){
+            writeComments(writer, numIndent);
+            writeIndent(writer, numIndent);
+            String line =  ((name==null)? EMPTY: name)+COLON+PROCESS+
+                             OPENPAREN + ext + CLOSEPAREN + OPENBRACE+QUOTE+escapeSyntaxChars(val)+QUOTE+CLOSEBRACE;
             if(bare==true){
                 if(name!=null){
                     throw new RuntimeException("Bare option is set to true but the resource has a name!");

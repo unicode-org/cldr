@@ -4,11 +4,12 @@
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
-package org.unicode.cldr.util;
-
 /**
- * @author ram
+ * @author Ram Viswanadha
+ *
+ * This tool validates xml against DTD ... IE 6 does not do a good job
  */
+package org.unicode.cldr.util;
 
 public class XPathTokenizer{
     char[] xpath;

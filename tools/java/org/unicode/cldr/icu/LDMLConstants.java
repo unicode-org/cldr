@@ -4,11 +4,11 @@
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
+/**
+ * @author Ram Viswanadha
+ */
 package org.unicode.cldr.icu;
 
-/**
- * @author ram
- */
 public class LDMLConstants {
     public static final String LDML            = "ldml";
     public static final String IDENTITY        = "identity";
@@ -63,6 +63,13 @@ public class LDMLConstants {
     public static final String DAYS            = "days";
     public static final String TZN             = "timeZoneNames";
     public static final String CALENDAR        = "calendar";
+    public static final String HOUR_FORMAT           = "hourFormat";
+    public static final String HOURS_FORMAT          = "hoursFormat";
+    public static final String GMT_FORMAT            = "gmtFormat";
+    public static final String REGION_FORMAT         = "regionFormat";
+    public static final String FALLBACK_FORMAT       = "fallbackFormat";
+    public static final String ABBREVIATION_FALLBACK = "abbreviationFallback";
+    public static final String PREFERENCE_ORDERING   = "preferenceOrdering";
     public static final String ZONE            = "zone";
     public static final String EXEMPLAR_CITY   = "exemplarCity";
     public static final String LONG            = "long";
@@ -159,6 +166,7 @@ public class LDMLConstants {
     public static final String BEFORE          = "before";
     public static final String CONTEXT         = "context";
     public static final String EXTEND          = "extend";
+    public static final String FIELDS          = "fields";
     // supplemental data
     public static final String SUPPLEMENTAL_DATA = "supplementalData";
     public static final String CURRENCY_DATA     = "currencyData";

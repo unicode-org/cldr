@@ -5,6 +5,9 @@
  *******************************************************************************
  *
  */
+/**
+ * @author Ram Viswanadha
+ */
 package org.unicode.cldr.icu;
 
 import com.ibm.icu.dev.tool.UOption;
@@ -19,12 +22,6 @@ import org.w3c.dom.Node;
 
 import java.io.*;
 
-/**
- * @author ram
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
- */
 public class LDMLNodesAdder {
     /**
      * These must be kept in sync with getOptions().

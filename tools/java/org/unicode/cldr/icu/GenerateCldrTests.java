@@ -48,7 +48,6 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.Currency;
-import com.ibm.icu.util.LocaleData;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
@@ -56,7 +55,6 @@ import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.dev.test.util.SortedBag;
 import com.ibm.icu.dev.tool.UOption;
 import org.unicode.cldr.icu.ICUResourceWriter.Resource;
-import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
 import org.unicode.cldr.util.LDMLUtilities;
 
 /**

@@ -4,7 +4,9 @@
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
-
+/**
+ * @author Ram Viswanadha
+ */
 package org.unicode.cldr.icu;
 
 import com.ibm.icu.dev.tool.UOption;
@@ -27,11 +29,6 @@ import java.util.*;
 
 import javax.xml.transform.TransformerException;
 
-/**
- * @author ram
- *
- * Preferences - Java - Code Generation - Code and Comments
- */
 public class LDML2ICUConverter {
     /**
      * These must be kept in sync with getOptions().
@@ -647,11 +644,12 @@ public class LDML2ICUConverter {
                 res = parseNumbers(node, xpath);
             }else if(name.equals(LDMLConstants.COLLATIONS)){
                 if(locName.equals("root")){
-                    ICUResourceWriter.ResourceInclude include = new ICUResourceWriter.ResourceInclude();
-                    include.name="\"%%UCARULES\"";
-                    include.val = "../unidata/UCARules.txt";
-                    res = include;
-                    include.next = parseCollations(node, xpath);
+                    ICUResourceWriter.ResourceProcess process = new ICUResourceWriter.ResourceProcess();
+                    process.name="UCARules";
+                    process.ext="uca_rules";
+                    process.val = "../unidata/UCARules.txt";
+                    res = process;
+                    process.next = parseCollations(node, xpath);
                 }else{
                     res = parseCollations(node, xpath);
                 }
@@ -766,6 +764,7 @@ public class LDML2ICUConverter {
                     }
                     str.comment = "Draft";
                 }
+                str.val= str.val.replaceAll("\\$Revision$1");
                 res = str;
             }else if(name.equals(LDMLConstants.LANGUAGE)||
                     name.equals(LDMLConstants.SCRIPT) ||
@@ -1438,6 +1437,20 @@ public class LDML2ICUConverter {
                 res = str;
             }else if(name.equals(LDMLConstants.ZONE)){
                 res = parseZone(node, xpath);
+            }else if(name.equals(LDMLConstants.HOUR_FORMAT)){
+//              TODO
+            }else if(name.equals(LDMLConstants.HOURS_FORMAT)){
+//              TODO
+            }else if(name.equals(LDMLConstants.GMT_FORMAT)){
+//              TODO 
+            }else if(name.equals(LDMLConstants.REGION_FORMAT)){
+//              TODO
+            }else if(name.equals(LDMLConstants.FALLBACK_FORMAT)){
+//              TODO
+            }else if(name.equals(LDMLConstants.ABBREVIATION_FALLBACK)){
+//              TODO
+            }else if(name.equals(LDMLConstants.PREFERENCE_ORDERING)){
+//              TODO
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);
@@ -1521,19 +1534,21 @@ public class LDML2ICUConverter {
                 /* get information about long */
                 Node lsn = getVettedNode(node, LDMLConstants.STANDARD, xpath);
                 Node ldn = getVettedNode(node, LDMLConstants.DAYLIGHT, xpath);
-                if(lsn==null||ldn==null){
+                if((lsn == null && ldn != null) || (lsn != null && ldn ==null)){
                     System.err.println("ERROR: Could not get timeZone string for " + xpath.toString());
                     System.exit(-1);
                 }
-                ls.val = LDMLUtilities.getNodeValue(lsn);
-                ld.val = LDMLUtilities.getNodeValue(ldn);
-                // ok the nodes are availble but
-                // the values are null .. so just set the values to empty strings
-                if(ls.val==null){
-                    ls.val = "";
-                }
-                if(ld.val==null){
-                    ld.val = "";
+                if(lsn != null && ldn !=null){
+                    ls.val = LDMLUtilities.getNodeValue(lsn);
+                    ld.val = LDMLUtilities.getNodeValue(ldn);
+                    // ok the nodes are availble but
+                    // the values are null .. so just set the values to empty strings
+                    if(ls.val==null){
+                        ls.val = "";
+                    }
+                    if(ld.val==null){
+                        ld.val = "";
+                    }
                 }
             }else if(name.equals(LDMLConstants.EXEMPLAR_CITY)){
                 if(isDraft(node, xpath)&& !writeDraft){
@@ -1550,19 +1565,21 @@ public class LDML2ICUConverter {
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);
             }
+            
             xpath.delete(oldLength, xpath.length());
+        }
+        type.val = LDMLUtilities.getAttributeValue(root, LDMLConstants.TYPE);
+        if(type.val==null){
+            type.val="";
         }
         if(exemplarCity.val==null){
             Node ecn = LDMLUtilities.getNode(root, LDMLConstants.EXEMPLAR_CITY, fullyResolvedDoc, xpath.toString());
             //TODO: Fix this when zoneStrings format c
             if(ecn!=null){
                 exemplarCity.val = LDMLUtilities.getNodeValue(ecn);
+            }else{
+                exemplarCity.val = type.val.replaceAll(".*?/(.*)", "$1").replaceAll("_","\\s");
             }
-        }
-
-        type.val = LDMLUtilities.getAttributeValue(root, LDMLConstants.TYPE);
-        if(type.val==null){
-            type.val="";
         }
         /* assemble the array */
         if(type.val!=null && ls.val!=null && ss.val!=null && ld.val!=null && sd.val!=null){
@@ -1576,6 +1593,7 @@ public class LDML2ICUConverter {
                 sd.next = exemplarCity; /* [5] == exemplarCity */
             }
         }
+        
         xpath.delete(savedLength, xpath.length());
         if(array.first!=null){
             return array;
@@ -1703,6 +1721,8 @@ public class LDML2ICUConverter {
                 }
             }else if(name.equals(LDMLConstants.SPECIAL)){
                 res = parseSpecialElements(node, xpath);
+            }else if(name.equals(LDMLConstants.FIELDS)){
+                //TODO write a method to parse fields
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);
@@ -2583,13 +2603,14 @@ public class LDML2ICUConverter {
         Node displayNameNode = LDMLUtilities.getNode(root, LDMLConstants.DISPLAY_NAME , fullyResolvedDoc, xpath.toString());
         ICUResourceWriter.ResourceArray arr = new ICUResourceWriter.ResourceArray();
         arr.name = LDMLUtilities.getAttributeValue(root, LDMLConstants.TYPE);
-        if(symbolNode==null||displayNameNode==null){
-            throw new RuntimeException("Could not get display name and symbol from currency resource!!");
-        }
+      //  if(displayNameNode==null){
+      //     throw new RuntimeException("Could not get display name for currency resource with type "+arr.name);
+      //  }
+
         ICUResourceWriter.ResourceString symbol = new ICUResourceWriter.ResourceString();
-        symbol.val = LDMLUtilities.getNodeValue(symbolNode);
+        symbol.val = symbolNode!=null ? LDMLUtilities.getNodeValue(symbolNode): arr.name;
         ICUResourceWriter.ResourceString displayName = new ICUResourceWriter.ResourceString();
-        displayName.val = LDMLUtilities.getNodeValue(displayNameNode);
+        displayName.val = displayNameNode!=null ? LDMLUtilities.getNodeValue(displayNameNode): arr.name;
 
         arr.first = symbol;
         symbol.next = displayName;
@@ -2598,20 +2619,43 @@ public class LDML2ICUConverter {
         Node decimalNode = LDMLUtilities.getNode(root, LDMLConstants.DECIMAL , fullyResolvedDoc, xpath.toString());
         Node groupNode   = LDMLUtilities.getNode(root, LDMLConstants.GROUP , fullyResolvedDoc, xpath.toString());
         if(patternNode!=null || decimalNode!=null || groupNode!=null){
-            if(patternNode==null || decimalNode==null || groupNode==null){
-                throw new RuntimeException("Could not get pattern or decimal or group currency resource!!");
+            boolean isPatternDup = false;
+            boolean isDecimalDup = false;
+            boolean isGroupDup = false;
+            if(patternNode==null ){
+                patternNode = LDMLUtilities.getNode(fullyResolvedDoc,"//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat/pattern");
+                isPatternDup = true;
+                if(patternNode==null){
+                    throw new RuntimeException("Could not get pattern currency resource!!");
+                }
+            }
+            if(decimalNode==null ){
+                decimalNode = LDMLUtilities.getNode(fullyResolvedDoc,"//ldml/numbers/symbols/decimal");
+                isDecimalDup = true;
+                if(decimalNode==null){
+                    throw new RuntimeException("Could not get decimal currency resource!!");
+                }
+            }
+            if(groupNode==null ){
+                groupNode = LDMLUtilities.getNode(fullyResolvedDoc,"//ldml/numbers/symbols/group");
+                isGroupDup = true;
+                if(groupNode==null){
+                    throw new RuntimeException("Could not get group currency resource!!");
+                }
             }
             ICUResourceWriter.ResourceArray elementsArr = new ICUResourceWriter.ResourceArray();
 
             ICUResourceWriter.ResourceString pattern = new ICUResourceWriter.ResourceString();
             pattern.val = LDMLUtilities.getNodeValue(patternNode);
-
+            pattern.comment = isPatternDup ? "Duplicated from NumberPatterns resource" : null;
+            
             ICUResourceWriter.ResourceString decimal = new ICUResourceWriter.ResourceString();
             decimal.val = LDMLUtilities.getNodeValue(decimalNode);
-
+            decimal.comment = isDecimalDup ? "Duplicated from NumberElements resource" : null;
+            
             ICUResourceWriter.ResourceString group = new ICUResourceWriter.ResourceString();
             group.val = LDMLUtilities.getNodeValue(groupNode);
-
+            group.comment = isGroupDup ? "Duplicated from NumberElements resource" : null;
             elementsArr.first = pattern;
             pattern.next = decimal;
             decimal.next = group;
@@ -3929,7 +3973,8 @@ public class LDML2ICUConverter {
         try {
             printInfo("Writing ICU build file: " + resfiles_mk_name);
             PrintStream resfiles_mk = new PrintStream(new  FileOutputStream(resfiles_mk_name) );
-            resfiles_mk.println( "# *   Copyright (C) 1997-2004, International Business Machines" );
+            Calendar c = Calendar.getInstance();
+            resfiles_mk.println( "# *   Copyright (C) 1998-" +c.get(Calendar.YEAR) +", International Business Machines" );
             resfiles_mk.println( "# *   Corporation and others.  All Rights Reserved." );
             resfiles_mk.println( "# A list of txt's to build" );
             resfiles_mk.println( "# Note: " );

@@ -4,14 +4,13 @@
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
-
-package org.unicode.cldr.util;
-
 /**
- * @author ram
- * 
+ * @author Ram Viswanadha
+ *
  * This tool validates xml against DTD ... IE 6 does not do a good job
  */
+package org.unicode.cldr.util;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;

@@ -17,7 +17,7 @@
 package org.unicode.cldr.util;
 
 /**
- * @author srl
+ * @author Steven R Loomis
  * 
  * Caching entity resolver
  */

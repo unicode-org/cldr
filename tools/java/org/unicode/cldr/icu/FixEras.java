@@ -2,10 +2,9 @@
  * Copyright (c) 2004, International Business Machines
  * Corporation and others.  All Rights Reserved.
  *
- * Created on Sep 17, 2004
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Generation - Code and Comments
+ */
+/**
+ * @author Ram Viswanadha
  */
 package org.unicode.cldr.icu;
 
@@ -19,12 +18,6 @@ import org.w3c.dom.Node;
 import org.unicode.cldr.util.LDMLUtilities;
 import com.ibm.icu.dev.tool.UOption;
 
-/**
- * @author ram
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
- */
 public class FixEras {
     /**
      * These must be kept in sync with getOptions().

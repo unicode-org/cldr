@@ -1276,10 +1276,11 @@ void GenerateXML::writeWeek(UnicodeString& xmlString){
 		args[0] = indentOffset;
         if(len > 1){
 		    args[1] = vector[1];
+            		xmlString.append(formatString(mStringsBundle.getStringEx("minDays",mError),args,2,t));
         }else{
             args[1] = "";
         }
-		xmlString.append(formatString(mStringsBundle.getStringEx("minDays",mError),args,2,t));
+
 		args[1] = getDayNameDTE(vector[0]);
 		xmlString.append(formatString(mStringsBundle.getStringEx("firstDay",mError),args,2,t));
 		
@@ -1834,7 +1835,7 @@ void GenerateXML::writeSpecial(){
 }
 
 void GenerateXML::writeRuleBasedNumberFormat(UnicodeString& xmlString){
-    if(ignoreSpecials == TRUE){
+    if(ignoreSpecials == FALSE){
 	    UnicodeString tempStr;
 	    Formattable args[] = {indentOffset,"","",""};
 	    UBool print = FALSE;
@@ -2038,6 +2039,14 @@ void GenerateXML::writeCollations(){
         }
 
     }
+    if(strcmp(locName, "root")==0){
+        UnicodeString sequence = mSourceBundle.getStringEx("%%UCARULES",mError);
+        UnicodeString temp;
+        writeUCARules(sequence, temp);
+        if(U_SUCCESS(mError) && temp.length()!=0){
+            xmlString.append(temp);
+        }
+    }
 	/*writeSentBrkRules(tempStr);
 	if(!tempStr.isEmpty()){
 		xmlString.append(tempStr);
@@ -2082,6 +2091,47 @@ void GenerateXML::writeBase(UnicodeString& xmlString){
         xmlString.remove();
     }
 }
+
+void GenerateXML::writeUCARules(UnicodeString& sequence,UnicodeString& xmlString){
+
+    UnicodeString rules;
+    const char* key = "UCA";
+
+    UnicodeString t;
+    if( mError!=U_USING_DEFAULT_WARNING && 
+		U_SUCCESS(mError) && 
+		mError!=U_USING_FALLBACK_WARNING){
+        Formattable args[]={indentOffset,"","","",""};
+
+		UnicodeString str = "type=\"";
+		str.append(key);
+		str.append("\"");
+		args[2] = str;
+
+		xmlString.append(formatString(mStringsBundle.getStringEx("collation",mError),args,3,t));
+
+		indentOffset.append("\t");
+        
+        // wirte the base element
+        writeBase(t.remove());
+        if(t.length() != 0){
+            xmlString.append(t);
+        }
+        
+		rules = parseRules((UChar*)sequence.getBuffer(),sequence.length(),rules);
+		xmlString.append(rules);
+        sequence.releaseBuffer();
+		
+        chopIndent();
+		args[0] = indentOffset;
+		args[1] = "/";
+		args[2] ="";
+		xmlString.append(formatString(mStringsBundle.getStringEx("collation",mError),args,3,t));
+        //printString(&xmlString);
+    }
+    mError = U_ZERO_ERROR;
+}
+
 void GenerateXML::writeCollation(ResourceBundle& bundle,UnicodeString& xmlString, UnicodeString* collKey){
 
     UnicodeString version;
@@ -2128,6 +2178,7 @@ void GenerateXML::writeCollation(ResourceBundle& bundle,UnicodeString& xmlString
 				rules = parseRules((UChar*)sequence.getBuffer(),sequence.length(),rules);
 				xmlString.append(rules);
                 sequence.releaseBuffer();
+
            }else if(stricmp(mykey,"Override")==0){
                 overide =  bundle.getStringEx(mykey,mError);
             }
@@ -2299,7 +2350,7 @@ void GenerateXML::writeReset(UnicodeString& src, UnicodeString& xmlString){
 	char* target;
 	int32_t valueLen=0,settingLen =0, charsLen=0;
 	UBool isValue = FALSE, isChars=FALSE;
-	if(src.indexOf("top")>=0){
+	if(src.indexOf("top")>=0 || src.indexOf("last regular")>=0){
 		Formattable args[] = {indentOffset, mStringsBundle.getStringEx("lastNonIgnorable",mError)};
 		xmlString.append(formatString(mStringsBundle.getStringEx("reset",mError),args,2,t));
 
@@ -2325,8 +2376,7 @@ void GenerateXML::writeReset(UnicodeString& src, UnicodeString& xmlString){
     
     }else if(src.indexOf("last tertiary ignorable")>=0){
 		Formattable args[] = {indentOffset, mStringsBundle.getStringEx("lastTIgnorable",mError)};
-		xmlString.append(formatString(mStringsBundle.getStringEx("reset",mError),args,2,t));
-        
+		xmlString.append(formatString(mStringsBundle.getStringEx("reset",mError),args,2,t));  
     }else if(src.indexOf("[")>=0 && src.length() > 1){
 		while(start < limit ){
 			UChar ch = *start++;
@@ -2425,7 +2475,7 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 
 
               /* verify that tempStr is a contraction */
-              isTempStrContraction = tempStr.length()>1;
+              isTempStrContraction = tempStr.countChar32()>1;
               
 			  if((prevStrength != strength) || 
                   isTempStrContraction==TRUE/* contraction */ || 
@@ -2588,7 +2638,10 @@ void GenerateXML::escape(UnicodeString& str){
 	Formattable args[] = {indentOffset,""};
 	UnicodeString t;
 	for(int i=0;i<str.length();i++){
-        UChar c = str.charAt(i);
+        UChar32 c = str.char32At(i);
+        if(c >0xFFFF){
+            i++;
+        }
         switch(c){
         case '<':
 			temp.append("&lt;");
@@ -2639,7 +2692,7 @@ void GenerateXML::escape(UnicodeString& str){
             temp.append(formatString(mStringsBundle.getStringEx("cp",mError),args,2,t));
             break;
         default:
-			temp.append(str.charAt(i));
+			temp.append(c);
         }
         
 	}

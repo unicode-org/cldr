@@ -272,7 +272,8 @@ private:
 	void writeReset(UnicodeString& src, UnicodeString& xmlString);
 
 	void growBuffer(UChar* src, int32_t len, int32_t size, int32_t requiredCapacity, UErrorCode* status);
-	
+
+    void writeUCARules(UnicodeString& sequence,UnicodeString& xmlString);	
 
 public:
 	

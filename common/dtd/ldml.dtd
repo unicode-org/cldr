@@ -607,50 +607,62 @@
 
 <!ELEMENT decimal ( #PCDATA ) >
 <!ATTLIST decimal references CDATA #IMPLIED >
+<!ATTLIST decimal draft ( true | false ) #IMPLIED >
 <!ATTLIST decimal alt CDATA #IMPLIED >
 
 <!ELEMENT group ( #PCDATA ) >
 <!ATTLIST group references CDATA #IMPLIED >
+<!ATTLIST group draft ( true | false ) #IMPLIED >
 <!ATTLIST group alt CDATA #IMPLIED >
 
 <!ELEMENT list ( #PCDATA ) >
 <!ATTLIST list references CDATA #IMPLIED >
+<!ATTLIST list draft ( true | false ) #IMPLIED >
 <!ATTLIST list alt CDATA #IMPLIED >
 
 <!ELEMENT percentSign ( #PCDATA ) >
 <!ATTLIST percentSign references CDATA #IMPLIED >
+<!ATTLIST percentSign draft ( true | false ) #IMPLIED >
 <!ATTLIST percentSign alt CDATA #IMPLIED >
 
 <!ELEMENT nativeZeroDigit ( #PCDATA ) >
 <!ATTLIST nativeZeroDigit references CDATA #IMPLIED >
+<!ATTLIST nativeZeroDigit draft ( true | false ) #IMPLIED >
 <!ATTLIST nativeZeroDigit alt CDATA #IMPLIED >
 
 <!ELEMENT patternDigit ( #PCDATA ) >
 <!ATTLIST patternDigit references CDATA #IMPLIED >
+<!ATTLIST patternDigit draft ( true | false ) #IMPLIED >
 <!ATTLIST patternDigit alt CDATA #IMPLIED >
 
 <!ELEMENT plusSign ( #PCDATA ) >
 <!ATTLIST plusSign references CDATA #IMPLIED >
+<!ATTLIST plusSign draft ( true | false ) #IMPLIED >
 <!ATTLIST plusSign alt CDATA #IMPLIED >
 
 <!ELEMENT minusSign ( #PCDATA ) >
 <!ATTLIST minusSign references CDATA #IMPLIED >
+<!ATTLIST minusSign draft ( true | false ) #IMPLIED >
 <!ATTLIST minusSign alt CDATA #IMPLIED >
 
 <!ELEMENT exponential ( #PCDATA ) >
 <!ATTLIST exponential references CDATA #IMPLIED >
+<!ATTLIST exponential draft ( true | false ) #IMPLIED >
 <!ATTLIST exponential alt CDATA #IMPLIED >
 
 <!ELEMENT perMille ( #PCDATA ) >
 <!ATTLIST perMille references CDATA #IMPLIED >
+<!ATTLIST perMille draft ( true | false ) #IMPLIED >
 <!ATTLIST perMille alt CDATA #IMPLIED >
 
 <!ELEMENT infinity ( #PCDATA ) >
 <!ATTLIST infinity references CDATA #IMPLIED >
+<!ATTLIST infinity draft ( true | false ) #IMPLIED >
 <!ATTLIST infinity alt CDATA #IMPLIED >
 
 <!ELEMENT nan ( #PCDATA ) >
 <!ATTLIST nan references CDATA #IMPLIED >
+<!ATTLIST nan draft ( true | false ) #IMPLIED >
 <!ATTLIST nan alt CDATA #IMPLIED >
 
 <!ELEMENT pattern ( #PCDATA ) >
@@ -743,7 +755,7 @@
 <!ATTLIST currencies draft ( true | false ) #IMPLIED >
 <!ATTLIST currencies validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT currency (alias | (pattern*, displayName?, symbol?, pattern*, decimal?, group?, special*)) >
+<!ELEMENT currency (alias | (pattern*, displayName*, symbol*, pattern*, decimal*, group*, special*)) >
 <!ATTLIST currency type NMTOKEN "standard" >
 <!ATTLIST currency draft ( true | false ) #IMPLIED >
 <!ATTLIST currency references CDATA #IMPLIED >

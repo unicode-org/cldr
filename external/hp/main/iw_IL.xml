@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="iw" /> 
 		<territory type="IL" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">ינوאר</month>
-					<month type="2">פברوאר</month>
-					<month type="3">מרץ</month>
-					<month type="4">אפריל</month>
-					<month type="5">מאי</month>
-					<month type="6">יوני</month>
-					<month type="7">יوלי</month>
-					<month type="8">אوגوסט</month>
-					<month type="9">ספטמבר</month>
-					<month type="10">אوקטوבר</month>
-					<month type="11">נوבמבר</month>
-					<month type="12">דצמבר</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">ינو'</month>
-					<month type="2">פבר'</month>
-					<month type="3">מרץ</month>
-					<month type="4">אפר'</month>
-					<month type="5">מאי</month>
-					<month type="6">יوני</month>
-					<month type="7">יوלי</month>
-					<month type="8">אوג'</month>
-					<month type="9">ספט'</month>
-					<month type="10">אوק'</month>
-					<month type="11">נوב'</month>
-					<month type="12">דצמ'</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">יوם ראשوן</day>
-					<day type="mon">יوם שני</day>
-					<day type="tue">יوם שלישי</day>
-					<day type="wed">יوם רביעי</day>
-					<day type="thu">יوם חמישי</day>
-					<day type="fri">יوם שישי</day>
-					<day type="sat">יوם שבת</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">א'</day>
-					<day type="mon">ב'</day>
-					<day type="tue">ג'</day>
-					<day type="wed">ד'</day>
-					<day type="thu">ה'</day>
-					<day type="fri">و'</day>
-					<day type="sat">שבת</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">ינو'</month>
+							<month type="2">פבר'</month>
+							<month type="3">מרץ</month>
+							<month type="4">אפר'</month>
+							<month type="5">מאי</month>
+							<month type="6">יوני</month>
+							<month type="7">יوלי</month>
+							<month type="8">אوג'</month>
+							<month type="9">ספט'</month>
+							<month type="10">אوק'</month>
+							<month type="11">נوב'</month>
+							<month type="12">דצמ'</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ינوאר</month>
+							<month type="2">פברوאר</month>
+							<month type="3">מרץ</month>
+							<month type="4">אפריל</month>
+							<month type="5">מאי</month>
+							<month type="6">יوני</month>
+							<month type="7">יوלי</month>
+							<month type="8">אوגوסט</month>
+							<month type="9">ספטמבר</month>
+							<month type="10">אوקטوבר</month>
+							<month type="11">נوבמבר</month>
+							<month type="12">דצמבר</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">א'</day>
+							<day type="mon">ב'</day>
+							<day type="tue">ג'</day>
+							<day type="wed">ד'</day>
+							<day type="thu">ה'</day>
+							<day type="fri">و'</day>
+							<day type="sat">שבת</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">יوם ראשوן</day>
+							<day type="mon">יوם שני</day>
+							<day type="tue">יوם שלישי</day>
+							<day type="wed">יوם רביעי</day>
+							<day type="thu">יوם חמישי</day>
+							<day type="fri">יوם שישי</day>
+							<day type="sat">יوם שבת</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">

@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="is" /> 
 		<territory type="IS" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">Janúar</month>
-					<month type="2">Febrúar</month>
-					<month type="3">Mars</month>
-					<month type="4">Apríl</month>
-					<month type="5">Maí</month>
-					<month type="6">Júní</month>
-					<month type="7">Júlí</month>
-					<month type="8">Ágúst</month>
-					<month type="9">September</month>
-					<month type="10">Október</month>
-					<month type="11">Nóvember</month>
-					<month type="12">Desember</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">Jan</month>
-					<month type="2">Feb</month>
-					<month type="3">Mar</month>
-					<month type="4">Apr</month>
-					<month type="5">Maí</month>
-					<month type="6">Jún</month>
-					<month type="7">Júl</month>
-					<month type="8">Ágú</month>
-					<month type="9">Sep</month>
-					<month type="10">Okt</month>
-					<month type="11">Nóv</month>
-					<month type="12">Des</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">Sunnudagur</day>
-					<day type="mon">Mánudagur</day>
-					<day type="tue">Þriðjudagur</day>
-					<day type="wed">Miðvikudagur</day>
-					<day type="thu">Fimmtudagur</day>
-					<day type="fri">Föstudagur</day>
-					<day type="sat">Laugardagur</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">Sun</day>
-					<day type="mon">Mán</day>
-					<day type="tue">öri</day>
-					<day type="wed">Mið</day>
-					<day type="thu">Fim</day>
-					<day type="fri">Fös</day>
-					<day type="sat">Lau</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Jan</month>
+							<month type="2">Feb</month>
+							<month type="3">Mar</month>
+							<month type="4">Apr</month>
+							<month type="5">Maí</month>
+							<month type="6">Jún</month>
+							<month type="7">Júl</month>
+							<month type="8">Ágú</month>
+							<month type="9">Sep</month>
+							<month type="10">Okt</month>
+							<month type="11">Nóv</month>
+							<month type="12">Des</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Janúar</month>
+							<month type="2">Febrúar</month>
+							<month type="3">Mars</month>
+							<month type="4">Apríl</month>
+							<month type="5">Maí</month>
+							<month type="6">Júní</month>
+							<month type="7">Júlí</month>
+							<month type="8">Ágúst</month>
+							<month type="9">September</month>
+							<month type="10">Október</month>
+							<month type="11">Nóvember</month>
+							<month type="12">Desember</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Sun</day>
+							<day type="mon">Mán</day>
+							<day type="tue">öri</day>
+							<day type="wed">Mið</day>
+							<day type="thu">Fim</day>
+							<day type="fri">Fös</day>
+							<day type="sat">Lau</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Sunnudagur</day>
+							<day type="mon">Mánudagur</day>
+							<day type="tue">Þriðjudagur</day>
+							<day type="wed">Miðvikudagur</day>
+							<day type="thu">Fimmtudagur</day>
+							<day type="fri">Föstudagur</day>
+							<day type="sat">Laugardagur</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">

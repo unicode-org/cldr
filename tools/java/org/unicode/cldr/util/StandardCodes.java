@@ -121,6 +121,7 @@ public class StandardCodes {
 					if (line.length() == 0) continue;
 					Utility.split(line, '|', pieces);
 					String type = pieces[0].trim();
+					if (type.equals("region")) type ="territory";
 					String code = pieces[1].trim();
 					String name = pieces[2].trim();
 					if (name.equalsIgnoreCase("PRIVATE USE")) continue;

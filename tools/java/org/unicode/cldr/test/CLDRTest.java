@@ -7,9 +7,12 @@
 package org.unicode.cldr.test;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -21,8 +24,10 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Utility;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.StringValue;
 import org.unicode.cldr.util.CLDRFile.Value;
 import com.ibm.icu.text.DecimalFormat;
@@ -173,7 +178,7 @@ public class CLDRTest extends TestFmwk {
 			if (currentValues.size() == 0) continue;
 			int size = availableWithParent.size();
 			CLDRFile parentCLDR = cldrFactory.make(parent, true);
-			XPathParts p = new XPathParts();
+			XPathParts p = new XPathParts(null);
 			for (Iterator it2 = currentValues.keySet().iterator(); it2.hasNext();) {
 				String xpath = (String) it2.next();
 				ValueCount vc = (ValueCount) currentValues.get(xpath);
@@ -265,6 +270,35 @@ public class CLDRTest extends TestFmwk {
 	public String getLocaleAndName(String locale) {
 		return locale + " (" + getLocaleName(locale) + ")";
 	}
+	
+	public String getIDAndLocalization(String id) {
+		return id + " " + getLocalization(id);
+	}
+
+	public String getLocalization(String id) {
+		if (english == null) english = cldrFactory.make("en", true);
+		if (id.length() == 0) return "?";
+		// pick on basis of case
+		char ch = id.charAt(0);
+		if ('a' <= ch && ch <= 'z') return getName(english, "languages/language", id);
+		if (id.length() == 4 && 'A' <= ch && ch <= 'Z') return getName(english, "scripts/script", id);
+		return getName(english, "territories/territory", id);
+	}
+
+	/**
+	 * @param missing
+	 * @return
+	 */
+	private String getIDAndLocalization(Set missing) {
+		StringBuffer buffer = new StringBuffer();
+		for (Iterator it3 = missing.iterator(); it3.hasNext();) {
+			if (buffer.length() != 0) buffer.append("; ");
+			buffer.append(getIDAndLocalization((String)it3.next()));
+		}
+		String s = buffer.toString();
+		return s;
+	}
+
 
 	public String getLocaleName(String locale) {
 		String name = (String) localeNameCache.get(locale);
@@ -305,8 +339,9 @@ public class CLDRTest extends TestFmwk {
 	 */
 	public void TestForIllegalAttributeValues()  {
 		// check for illegal attribute values that are not in the DTD
-		XPathParts parts = new XPathParts();
+		XPathParts parts = new XPathParts(null);
 		Map result = new TreeMap();
+		Map totalResult = new TreeMap();
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String locale = (String)it.next();
 			logln("Testing: " + locale);
@@ -331,8 +366,16 @@ public class CLDRTest extends TestFmwk {
 			for (Iterator it3 = result.keySet().iterator(); it3.hasNext();) {
 				String code = (String) it3.next();
 				Set avalues = (Set) result.get(code);
-				errln(getLocaleAndName(locale) + "\tillegal attribute Value for " + code + ", value:\t" + show(avalues));
+				errln(getLocaleAndName(locale) + "\tillegal attribute value for " + code + ", value:\t" + show(avalues));
+				Set totalvalues = (Set)totalResult.get(code);
+				if (totalvalues == null) totalResult.put(code, totalvalues = new TreeSet());
+				totalvalues.addAll(avalues);
 			}
+		}
+		for (Iterator it3 = totalResult.keySet().iterator(); it3.hasNext();) {
+			String code = (String) it3.next();
+			Set avalues = (Set) totalResult.get(code);
+			errln("All illegal attribute values for " + code + ", value:\t" + show(avalues));
 		}
 	}
 	
@@ -363,7 +406,7 @@ public class CLDRTest extends TestFmwk {
 		if (attribute.equals("type")) {
 			if (element.equals("currency")) checkCodes("currency", avalue, codes, results);
 			else if (element.equals("script")) checkCodes("script", avalue, codes, results);
-			else if (element.equals("territory")) checkCodes("region", avalue, codes, results);
+			else if (element.equals("territory")) checkCodes("territory", avalue, codes, results);
 			else if (element.equals("language")) checkCodes("language", avalue, codes, results);
 			else if (element.equals("zone")) checkCodes("tzid", avalue, codes, results);
 		}
@@ -400,31 +443,32 @@ public class CLDRTest extends TestFmwk {
 	 */
 	private void checkTranslatedCodes(CLDRFile cldrfile)  {
 		StandardCodes codes = StandardCodes.make();
-		checkTranslatedCode(cldrfile, codes, "currency", "/ldml/numbers/currencies/currency");
-		checkTranslatedCode(cldrfile, codes, "tzid", "/ldml/dates/timeZoneNames/zone");
-		checkTranslatedCode(cldrfile, codes, "language", "/ldml/localeDisplayNames/languages/language");
-		checkTranslatedCode(cldrfile, codes, "script", "/ldml/localeDisplayNames/scripts/script");
-		checkTranslatedCode(cldrfile, codes, "region", "/ldml/localeDisplayNames/territories/territory");
-		checkTranslatedCode(cldrfile, codes, "variant", "/ldml/localeDisplayNames/variants/variant");
+		checkTranslatedCode(cldrfile, codes, "currency", "/ldml/numbers/currencies/currency", "/displayName");
+		checkTranslatedCode(cldrfile, codes, "tzid", "/ldml/dates/timeZoneNames/zone", "");
+		checkTranslatedCode(cldrfile, codes, "language", "/ldml/localeDisplayNames/languages/language", "");
+		checkTranslatedCode(cldrfile, codes, "script", "/ldml/localeDisplayNames/scripts/script", "");
+		checkTranslatedCode(cldrfile, codes, "territory", "/ldml/localeDisplayNames/territories/territory", "");
+		checkTranslatedCode(cldrfile, codes, "variant", "/ldml/localeDisplayNames/variants/variant", "");
 	}
 
 	/**
 	 * @param codes
 	 * @param type
-	 * @param fragment
+	 * @param prefix
+	 * @param postfix TODO
 	 */
-	private void checkTranslatedCode(CLDRFile cldrfile, StandardCodes codes, String type, String fragment) {
+	private void checkTranslatedCode(CLDRFile cldrfile, StandardCodes codes, String type, String prefix, String postfix) {
 		Set codeItems = codes.getAvailableCodes(type);
 		int count = 0;
 		for (Iterator it = codeItems.iterator(); it.hasNext();) {
 			String code = (String) it.next();
 			String rfcname = codes.getData(type, code);
-			if (rfcname.equals("ZZ")) continue;
+			//if (rfcname.equals("ZZ")) continue;
 			++count;
-			String fullFragment = fragment + "[@type=\"" + code + "\"]";
+			String fullFragment = prefix + "[@type=\"" + code + "\"]" + postfix;
 			Value v = cldrfile.getValue(fullFragment);
 			if (v == null) {
-				errln(type + " missing English translation for: "  + code + "\t(" + rfcname + ")");
+				errln(" Missing English translation for:\t<" + type + " type=\""  + code + "\">" + rfcname + "</" + type + ">");
 				continue;
 			}
 			String translation = v.getStringValue();
@@ -434,7 +478,132 @@ public class CLDRTest extends TestFmwk {
 		}
 		logln("Total " + type + ":\t" + count);
 	}
+	
+	void getSupplementalData(Map language_scripts, Map language_territories) {
+		boolean SHOW = true;
+		Factory cldrFactory = Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*", null);
+		CLDRFile supp = cldrFactory.make("supplementalData", false);
+		XPathParts parts = new XPathParts(null);
+		for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
+			String path = (String) it.next();
+			Value v = supp.getValue(path);
+			parts.set(v.getFullXPath());
+			Map m = parts.findAttributes("language");
+			if (m == null) continue;
+			String language = (String) m.get("type");
+			String scripts = (String) m.get("scripts");
+			if (scripts != null) {
+				language_scripts.put(language, split(scripts,' ', false, new TreeSet()));
+				if (SHOW) System.out.println(getIDAndLocalization(language) + "\t\t" + getIDAndLocalization((Set)language_scripts.get(language)));
+			}
+			String territories = (String) m.get("territories");
+			if (territories != null) {
+				language_territories.put(language, split(territories,' ', false, new TreeSet()));
+				if (SHOW) System.out.println(getIDAndLocalization(language) + "\t\t" + getIDAndLocalization((Set)language_territories.get(language)));
+			}
+		}
+	}
+
+	static Collection split(String source, char separator, boolean trim, Collection output) {
+		if (output == null) output = new ArrayList();
+		if (source.length() == 0) return output;
+		int pos = 0;
+		do {
+			int npos = source.indexOf(separator, pos);
+			if (npos < 0) npos = source.length();
+			String piece = source.substring(pos, npos);
+			if (trim) piece = piece.trim();
+			output.add(piece);
+			pos = npos+1;
+		} while (pos < source.length());
+		return output;
+	}
+
+	static final String[] minimumLanguages = {"en", "de", "fr", "it", "es", "pt", "ru", "zh", "ja"}; // plus language itself
+	static final String[] minimumCountries = {"US", "GB", "DE", "FR", "IT", "JP", "CN", "IN", "RU", "BR"};
+	
+	public void TestMinimalLocalization() {
+		boolean testDraft = false;
+		Map language_scripts = new HashMap();
+		Map language_territories = new HashMap();
+		getSupplementalData(language_scripts, language_territories);
+		LocaleIDParser localIDParser = new LocaleIDParser();
+		// see http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/design/minimal_requirements.htm
+		Set missing = new TreeSet();
+		for (Iterator it = languageLocales.iterator(); it.hasNext();) {
+			String locale = (String)it.next();
+			CLDRFile item = cldrFactory.make(locale, true);
+			if (!testDraft && item.isDraft()) {
+				logln(getLocaleAndName(locale) + "\tskipping draft");
+				continue;
+			}
+			localIDParser.set(locale);
+			String language = localIDParser.getLanguage();
+			logln("Testing: " + locale);
+			missing.clear();
+			// languages
+			Set languages = new TreeSet(Arrays.asList(minimumLanguages));
+			languages.add(language);
+			checkForItems(item, languages, "/ldml/localeDisplayNames/languages/language", missing);
+			
+/*			checkTranslatedCode(cldrfile, codes, "currency", "/ldml/numbers/currencies/currency");
+			checkTranslatedCode(cldrfile, codes, "tzid", "/ldml/dates/timeZoneNames/zone");
+			checkTranslatedCode(cldrfile, codes, "variant", "/ldml/localeDisplayNames/variants/variant");
+*/
+			
+			Set countries = new TreeSet(Arrays.asList(minimumCountries));
+			Set others = (Set) language_territories.get(language);
+			if (others != null) countries.addAll(others);
+			checkForItems(item, countries, "/ldml/localeDisplayNames/territories/territory", missing);
+			
+			Set scripts = new TreeSet();
+			others = (Set) language_scripts.get(language);
+			if (others != null && others.size() > 1) {
+				scripts.addAll(others);
+				checkForItems(item, scripts, "/ldml/localeDisplayNames/scripts/script", missing);
+			}
+
+			if (missing.size() > 0) {
+				String s = getIDAndLocalization(missing);
+				errln(getLocaleAndName(locale) + "\tmissing localizations: " + s);
+			}
+		}
+	}
+
+	/**
+	 * @param item
+	 * @param languages
+	 * @param fragment TODO
+	 * @param missing
+	 */
+	private void checkForItems(CLDRFile item, Set languages, String fragment, Set missing) {
+		// check languages
+		for (Iterator it2 = languages.iterator(); it2.hasNext();) {
+			String lang = (String)it2.next();
+			Value v = item.getValue(fragment + "[@type=\"" + lang + "\"]");
+			if (v == null) {
+				missing.add(lang);
+			} else {
+				logln("\t" + lang + "\t" + v.getStringValue());
+			}
+		}
+	}
+	/*
+	void showTestStr() {
+		LocaleIDParser lparser = new LocaleIDParser();
+		Collection s = split(teststr,',', true, new ArrayList());
+		for (Iterator it = s.iterator(); it.hasNext();) {
+			String item = (String)it.next();
+			lparser.set(item.replace('?', '_'));
+			String region = lparser.getRegion();
+			System.out.print(item.replace('?', '-') + " (" + getLocalization(region) + "), ");
+			//System.out.print(getLocalization(region) + ", ");
+		}
+	}
+	static String teststr = "en?AG, en?AI, en?AS, en?AU, en?IN, en?BB, en?BE, en?BM, en?BN, en?BS, en?BW, en?BZ, en?CA, en?CK, en?CM, en?DM, en?ER, en?ET, en?FJ, en?FK, en?FM, en?GB, en?GD, en?GH, en?GI, en?GM, en?GU, en?GY, en?HK, en?IE, en?IL, en?IO, en?JM, en?KE, en?KI, en?KN, en?KY, en?LC, en?LR, en?LS, en?MH, en?MP, en?MS, en?MT, en?MU, en?MW, en?NA, en?NF, en?NG, en?NR, en?NU, en?NZ, en?PG, en?PH, en?PK, en?PN, en?PR, en?PW, en?RW, en?SB, en?SC, en?SG, en?SH, en?SL, en?SO, en?SZ, en?TC, en?TK, en?TO, en?TT, en?UG, en?UM, en?US, en?VC, en?VG, en?VI, en?VU, en?WS, en?ZA, en?ZM, en?ZW";
+	*/
 }
+
 
 /*    private static final int
 HELP1 = 0,
@@ -486,4 +655,141 @@ public static void main(String[] args) throws SAXException, IOException {
     	log.close();
     	System.out.println("Done");
     }
+    
+
+			<language type="in">Indonesian</language>
+			<language type="iw">Hebrew</language>
+			<script type="Bali">Balinese</script>
+			<script type="Batk">Batak</script>
+			<script type="Blis">Blissymbols</script>
+			<script type="Brah">Brahmi</script>
+			<script type="Bugi">Buginese</script>
+			<script type="Cham">Cham</script>
+			<script type="Cirt">Cirth</script>
+			<script type="Cyrs">Cyrillic (Old Church Slavonic variant)</script>
+			<script type="Egyd">Egyptian demotic</script>
+			<script type="Egyh">Egyptian hieratic</script>
+			<script type="Egyp">Egyptian hieroglyphs</script>
+			<script type="Glag">Glagolitic</script>
+			<script type="Hmng">Pahawh Hmong</script>
+			<script type="Hung">Old Hungarian</script>
+			<script type="Inds">Indus (Harappan)</script>
+			<script type="Java">Javanese</script>
+			<script type="Kali">Kayah Li</script>
+			<script type="Khar">Kharoshthi</script>
+			<script type="Latf">Latin (Fraktur variant)</script>
+			<script type="Latg">Latin (Gaelic variant)</script>
+			<script type="Lepc">Lepcha (Rong)</script>
+			<script type="Lina">Linear A</script>
+			<script type="Mand">Mandaean</script>
+			<script type="Maya">Mayan hieroglyphs</script>
+			<script type="Mero">Meroitic</script>
+			<script type="Orkh">Orkhon</script>
+			<script type="Perm">Old Permic</script>
+			<script type="Phag">Phags-pa</script>
+			<script type="Phnx">Phoenician</script>
+			<script type="Plrd">Pollard Phonetic</script>
+			<script type="Roro">Rongorongo</script>
+			<script type="Sara">Sarati</script>
+			<script type="Sylo">Syloti Nagri</script>
+			<script type="Syre">Syriac (Estrangelo variant)</script>
+			<script type="Syrj">Syriac (Western variant)</script>
+			<script type="Syrn">Syriac (Eastern variant)</script>
+			<script type="Talu">Tai Lue</script>
+			<script type="Teng">Tengwar</script>
+			<script type="Tfng">Tifinagh (Berber)</script>
+			<script type="Thai">Thai</script>
+			<script type="Vaii">Vai</script>
+			<script type="Visp">Visible Speech</script>
+			<script type="Xpeo">Old Persian</script>
+			<script type="Xsux">Cuneiform, Sumero-Akkadian</script>
+			<script type="Zxxx">Code for unwritten languages</script>
+			<script type="Zzzz">Code for uncoded script</script>
+			<territory type="001">World</territory>
+			<territory type="002">Africa</territory>
+			<territory type="003">North America</territory>
+			<territory type="005">South America</territory>
+			<territory type="009">Oceania</territory>
+			<territory type="011">Western Africa</territory>
+			<territory type="013">Central America</territory>
+			<territory type="014">Eastern Africa</territory>
+			<territory type="015">Northern Africa</territory>
+			<territory type="017">Middle Africa</territory>
+			<territory type="018">Southern Africa</territory>
+			<territory type="019">Americas</territory>
+			<territory type="021">Northern America</territory>
+			<territory type="029">Caribbean</territory>
+			<territory type="030">Eastern Asia</territory>
+			<territory type="035">South-eastern Asia</territory>
+			<territory type="039">Southern Europe</territory>
+			<territory type="053">Australia and New Zealand</territory>
+			<territory type="054">Melanesia</territory>
+			<territory type="057">Micronesia</territory>
+			<territory type="061">Polynesia</territory>
+			<territory type="062">South-central Asia</territory>
+			<territory type="AX">Aland Islands</territory>
+			<territory type="BQ">British Antarctic Territory</territory>
+			<territory type="BU">Myanmar</territory>
+			<territory type="CS">Czechoslovakia</territory>
+			<territory type="CT">Canton and Enderbury Islands</territory>
+			<territory type="DD">East Germany</territory>
+			<territory type="DY">Benin</territory>
+			<territory type="FQ">French Southern and Antarctic Territories</territory>
+			<territory type="FX">Metropolitan France</territory>
+			<territory type="HV">Burkina Faso</territory>
+			<territory type="JT">Johnston Island</territory>
+			<territory type="MI">Midway Islands</territory>
+			<territory type="NH">Vanuatu</territory>
+			<territory type="NQ">Dronning Maud Land</territory>
+			<territory type="NT">Neutral Zone</territory>
+			<territory type="PC">Pacific Islands Trust Territory</territory>
+			<territory type="PU">U.S. Miscellaneous Pacific Islands</territory>
+			<territory type="PZ">Panama Canal Zone</territory>
+			<territory type="RH">Zimbabwe</territory>
+			<territory type="SU">Union of Soviet Socialist Republics</territory>
+			<territory type="TP">Timor-Leste</territory>
+			<territory type="VD">North Vietnam</territory>
+			<territory type="WK">Wake Island</territory>
+			<territory type="YD">People's Democratic Republic of Yemen</territory>
+			<territory type="ZR">Congo, The Democratic Republic of the</territory>
+			<variant type="1901">Traditional German orthography</variant>
+			<variant type="1996">German orthography of 1996</variant>
+			<variant type="boont">Boontling</variant>
+			<variant type="gaulish">Gaulish</variant>
+			<variant type="guoyu">Mandarin or Standard Chinese</variant>
+			<variant type="hakka">Hakka</variant>
+			<variant type="lojban">Lojban</variant>
+			<variant type="nedis">Natisone dialect</variant>
+			<variant type="rozaj">Resian</variant>
+			<variant type="scouse">Scouse</variant>
+			<variant type="xiang">Xiang or Hunanese</variant>
+
+			
+			<currency type="CFP"><displayName>???</displayName></currency>
+			<currency type="DDR"><displayName>???</displayName></currency>
+			<currency type="EQE"><displayName>???</displayName></currency>
+			<currency type="ESA"><displayName>???</displayName></currency>
+			<currency type="ESB"><displayName>???</displayName></currency>
+			<currency type="JAN"><displayName>???</displayName></currency>
+			<currency type="LSM"><displayName>???</displayName></currency>
+			<currency type="LUC"><displayName>???</displayName></currency>
+			<currency type="LUL"><displayName>???</displayName></currency>
+			<currency type="NAM"><displayName>???</displayName></currency>
+			<currency type="NEW"><displayName>???</displayName></currency>
+			<currency type="RHD"><displayName>???</displayName></currency>
+			<currency type="SAN"><displayName>???</displayName></currency>
+			<currency type="SDR"><displayName>???</displayName></currency>
+			<currency type="SEE"><displayName>???</displayName></currency>
+			<currency type="SRI"><displayName>???</displayName></currency>
+			<currency type="UAE"><displayName>???</displayName></currency>
+			<currency type="UDI"><displayName>???</displayName></currency>
+			<currency type="UIC"><displayName>???</displayName></currency>
+			<currency type="XAG"><displayName>???</displayName></currency>
+			<currency type="XPD"><displayName>???</displayName></currency>
+			<currency type="XPT"><displayName>???</displayName></currency>
+			<currency type="XRE"><displayName>???</displayName></currency>
+			<currency type="XTS"><displayName>???</displayName></currency>
+			<currency type="XXX"><displayName>???</displayName></currency>
+
+
     */

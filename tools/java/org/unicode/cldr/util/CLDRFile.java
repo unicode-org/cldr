@@ -16,6 +16,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -28,15 +30,21 @@ import java.util.regex.Pattern;
 import org.w3c.dom.Node;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
+import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXNotRecognizedException;
 import org.xml.sax.SAXNotSupportedException;
+import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
+
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.util.ULocale;
 
 //import javax.xml.parsers.*;
 
@@ -58,22 +66,27 @@ http://lists.xml.org/archives/xml-dev/200007/msg00284.html
 http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
 public class CLDRFile implements Lockable {
-	private static boolean DEBUG_LOGGING = false;	
+	public static boolean HACK_ORDER = true;
+	private static boolean DEBUG_LOGGING = true;	
 	private static final String NEWLINE = "\n";
-	private static MapComparator LDMLComparator = new MapComparator();
+	private PrintWriter log;
     
-    private Map map = new TreeMap(LDMLComparator);
+    private Map xpath_value = new TreeMap(ldmlComparator);
     private String finalComment = "";
     private String key;
+    private Map xpath_comments = new HashMap(); // map from paths to comments.
+    
     private CLDRFile(){}
 	
     /**
      * Create a CLDRFile for the given localename. (Normally a Factory is used to create CLDRFiles.)
      * @param localeName
+     * @param optionalLog TODO
      */
-    public static CLDRFile make(String localeName) {
+    public static CLDRFile make(String localeName, PrintWriter optionalLog) {
     	CLDRFile result = new CLDRFile();
 		result.key = localeName;
+		result.log = optionalLog;
 		return result;
     }
     
@@ -81,25 +94,27 @@ public class CLDRFile implements Lockable {
      * Produce a CLDRFile from a localeName, given a directory. (Normally a Factory is used to create CLDRFiles.)
      * @param localeName
      * @param dir directory 
+     * @param optionalLog TODO
      * @throws SAXNotSupportedException
      * @throws SAXNotRecognizedException
      * @throws IOException
      */
     // TODO make the directory a URL
-    public static CLDRFile make(String localeName, String dir) {
-        File f = new File(dir + localeName + ".xml");
-        /* if (DEBUG_LOGGING) {
-         	System.out.println("Parsing: " + f.getCanonicalPath());
-         	if (log != null) log.println("Parsing: " + f.getCanonicalPath());
-	    }
-	    */
+    public static CLDRFile make(String localeName, String dir, PrintWriter optionalLog) {
+        String name = dir + localeName + ".xml";
+        File f = new File(name);
         try {
+        	name = f.getCanonicalPath();
+            if (DEBUG_LOGGING) {
+             	System.out.println("Parsing: " + name);
+             	//if (log != null) log.println("Parsing: " + f.getCanonicalPath());
+    	    }
 			FileInputStream fis = new FileInputStream(f);
-	    	CLDRFile result = make(localeName, fis);
+	    	CLDRFile result = make(localeName, fis, optionalLog);
 			fis.close();
 			return result;
 		} catch (IOException e) {
-			throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + localeName).initCause(e);
+			throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + name).initCause(e);
 		}
     }
     
@@ -107,19 +122,25 @@ public class CLDRFile implements Lockable {
      * Produce a CLDRFile from a file input stream. (Normally a Factory is used to create CLDRFiles.)
      * @param localeName
      * @param fis
+     * @param log TODO
      * @throws IOException
      * @throws SAXException
      */
-    public static CLDRFile make(String localeName, FileInputStream fis) {
+    public static CLDRFile make(String localeName, FileInputStream fis, PrintWriter log) {
     	try {
-    		CLDRFile result = make(localeName);
-			MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(result);
+    		CLDRFile result = make(localeName, log);
+			result.log = log;
+			MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(result, log);
 			XMLReader xmlReader = createXMLReader(true);
 			xmlReader.setContentHandler(DEFAULT_DECLHANDLER);
+			xmlReader.setErrorHandler(DEFAULT_DECLHANDLER);
 			xmlReader.setProperty("http://xml.org/sax/properties/lexical-handler", DEFAULT_DECLHANDLER);
 			xmlReader.setProperty("http://xml.org/sax/properties/declaration-handler", DEFAULT_DECLHANDLER);
 			xmlReader.parse(new InputSource(fis));
 			return result;
+    	} catch (SAXParseException e) {
+    		System.out.println(CLDRFile.showSAX(e));
+    		throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + localeName).initCause(e);
 		} catch (SAXException e) {
 			throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + localeName).initCause(e);
 		} catch (IOException e) {
@@ -134,7 +155,8 @@ public class CLDRFile implements Lockable {
     	try {
 			CLDRFile result = (CLDRFile) super.clone();
 			result.locked = false;
-			result.map = (Map)((TreeMap)map).clone();
+			result.xpath_value = (Map)((TreeMap)xpath_value).clone();
+			result.xpath_comments = (Map)((HashMap)xpath_comments).clone();
 			return result;
 		} catch (CloneNotSupportedException e) {
 			throw new InternalError("should never happen");
@@ -150,19 +172,23 @@ public class CLDRFile implements Lockable {
 	public void write(PrintWriter pw) {
 		pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
 		pw.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.2/ldml.dtd\">");
+		
+		MapComparator modAttComp = attributeOrdering;
+		if (HACK_ORDER) modAttComp = new MapComparator()
+			.add("alt").add("draft").add(modAttComp.getOrder());
 
-		XPathParts last = new XPathParts();
-		XPathParts current = new XPathParts();
-		for (Iterator it2 = map.keySet().iterator(); it2.hasNext();) {
+		XPathParts last = new XPathParts(attributeOrdering);
+		XPathParts current = new XPathParts(attributeOrdering);
+		for (Iterator it2 = xpath_value.keySet().iterator(); it2.hasNext();) {
 			String xpath = (String)it2.next();
-			Value v = (Value) map.get(xpath);
+			Value v = (Value) xpath_value.get(xpath);
 			current.set(v.fullXPath);
-			current.writeDifference(pw, last, v);
+			current.writeDifference(pw, last, v, modAttComp);
 			XPathParts temp = current;
 			current = last;
 			last = temp;
 		}
-		current.clear().writeDifference(pw, last, null);
+		current.clear().writeDifference(pw, last, null, modAttComp);
 		writeComment(pw, 0, finalComment);
 	}
 
@@ -170,7 +196,7 @@ public class CLDRFile implements Lockable {
 	 * Get a value from an xpath.
 	 */
     public Value getValue(String xpath) {
-    	return (Value) map.get(xpath);
+    	return (Value) xpath_value.get(xpath);
     }
     
     /**
@@ -183,9 +209,10 @@ public class CLDRFile implements Lockable {
     public void add(String xpath, String comment, String currentFullXPath, String value) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	StringValue v = new StringValue(value, comment, currentFullXPath);
+       	log.println("ADDING: \t" + xpath + " \t" + v);
     	xpath = xpath.intern();
-    	LDMLComparator.add(xpath);
-        map.put(xpath, v);
+//    	ldmlComparator.add(xpath);
+        xpath_value.put(xpath, v);
     }
     
     /**
@@ -195,15 +222,15 @@ public class CLDRFile implements Lockable {
      * @param other
      * @param keepMine if true, keep my values in case of conflict; otherwise keep the other's values.
      */
-    public void addAll(CLDRFile other, boolean keepMine) {
+    public void putAll(CLDRFile other, boolean keepMine) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	if (keepMine) {
-    		Map temp = new TreeMap(LDMLComparator);
-    		temp.putAll(other.map);
-    		temp.putAll(map);
-    		map = temp;
+    		Map temp = new TreeMap(ldmlComparator);
+    		temp.putAll(other.xpath_value);
+    		temp.putAll(xpath_value);
+    		xpath_value = temp;
     	} else {
-    		map.putAll(other.map);
+    		xpath_value.putAll(other.xpath_value);
     	}
     }
     
@@ -213,7 +240,7 @@ public class CLDRFile implements Lockable {
      */
     public void remove(String xpath) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-    	map.remove(xpath);
+    	xpath_value.remove(xpath);
     }
     
 	/**
@@ -270,7 +297,7 @@ public class CLDRFile implements Lockable {
 			} else {
 				pw.print(comment);
 			}
-			pw.println("-->");
+			pw.println(" -->");
 		}
 	}
 	
@@ -308,20 +335,6 @@ public class CLDRFile implements Lockable {
     }
 
     /**
-     * Utility to get the parent of a locale. If the input is "root", then the output is null.
-     * @param localeName
-     * @return
-     */
-    public static String getParent(String localeName) {
-        int pos = localeName.lastIndexOf('_');
-        if (pos >= 0) {
-            return localeName.substring(0,pos);
-        }
-        if (localeName.equals("root")) return null;
-        return "root";
-    }
-    
-    /**
      * Utility to determine if this a language locale? 
      * Note: a script is included with the language, if there is one.
      * @param in
@@ -350,7 +363,7 @@ public class CLDRFile implements Lockable {
     }
     
     public Set keySet() {
-    	return Collections.unmodifiableSet(map.keySet());
+    	return Collections.unmodifiableSet(xpath_value.keySet());
     }
     
 	/**
@@ -470,6 +483,8 @@ public class CLDRFile implements Lockable {
 	    	return result;
 	    }
 	    
+	    private boolean needToReadRoot = true;
+	    
 	    /**
 	     * Make a CLDR file. The result is a locked file, so that it can be cached. If you want to modify it,
 	     * use clone().
@@ -481,23 +496,32 @@ public class CLDRFile implements Lockable {
 	     */
 	    // TODO resolve aliases
 		public CLDRFile make(String localeName, boolean resolved) {
+			// TODO fix hack: 
+			// read root first so that we get the ordering right.
+			if (needToReadRoot) {
+				if (!localeName.equals("root")) make("root", false);
+				needToReadRoot = false;
+			}
+			// end of hack
 	    	Map cache = resolved ? resolvedCache : mainCache;
 	    	CLDRFile result = (CLDRFile) cache.get(localeName);
 	    	if (result == null) {
 	    		if (!resolved) {
-	    			result = CLDRFile.make(localeName, sourceDirectory);
+	    			result = CLDRFile.make(localeName, sourceDirectory, log);
 	    		} else {
-	    			// get resolved version
-	    			// get parent first if possible
-	    			String parentName = getParent(localeName);
-	    			if (parentName == null) {
-	    				// is root, so just get unresolved file.
-	    				result = make(localeName, false);
-	    			} else {
-	    				CLDRFile parent = make(parentName, true); // will recurse!
-	    				result = (CLDRFile) make(localeName, false).clone();
-	    				result.addAll(parent, true);
-	    			}
+    				// this is a bit tricky because of aliases
+    				result = (CLDRFile) make(localeName, false).clone();
+    				result.fixAliases(this);
+    				String currentName = localeName;
+    				while (true) {
+    					// we do it in this order, WITHOUT resolving the parent
+    					// so that aliases work right
+    					currentName = LocaleIDParser.getParent(currentName);
+    					if (currentName == null) break;
+    					CLDRFile parent = make(currentName, false);
+    					result.putAll(parent, true);
+    					result.fixAliases(this);	    					
+    				}
 	    		}
 	    		result.lock();
 	    		cache.put(localeName, result);
@@ -553,6 +577,18 @@ public class CLDRFile implements Lockable {
     	public String toString() {
     		return fullXPath + ";\t" + getStringValue() + ";\t" + comment; 
     	}
+		/**
+		 * @return
+		 */
+		public boolean isDraft() {
+			return fullXPath.indexOf("[@draft=\"true\"]") >= 0;
+		}
+		/**
+		 * clone, but change the path.
+		 * @param string
+		 * @return
+		 */
+		abstract public Value changePath(String string);
     }
     
     /**
@@ -581,6 +617,13 @@ public class CLDRFile implements Lockable {
 		 */
 		public String getStringValue() {
 			return stringValue;
+		}
+		/* (non-Javadoc)
+		 * @see org.unicode.cldr.util.CLDRFile.Value#changePath(java.lang.String)
+		 */
+		public Value changePath(String string) {
+			// TODO Auto-generated method stub
+			return new StringValue(stringValue, getComment(), string);
 		}
     }
     /**
@@ -612,23 +655,30 @@ public class CLDRFile implements Lockable {
 		public String getStringValue() {
 			return nodeValue.toString();
 		}
+		/* (non-Javadoc)
+		 * @see org.unicode.cldr.util.CLDRFile.Value#changePath(java.lang.String)
+		 */
+		public Value changePath(String string) {
+			return new NodeValue(nodeValue, getComment(), string);
+		}
     }
 
-    private static class MyDeclHandler implements DeclHandler, ContentHandler, LexicalHandler {
-    	private static final boolean SHOW_ALL = true;
-    	private static final boolean SHOW_START_END = false;
-    	private PrintWriter log = null; // set to non-null if you want logging
+    private static class MyDeclHandler implements DeclHandler, ContentHandler, LexicalHandler, ErrorHandler {
+    	private static final boolean SHOW_ALL = false;
+    	private static final boolean SHOW_START_END = true;
+    	private PrintWriter log = null;
     	private int commentStack;
     	private boolean justPopped = false;
     	private String lastChars = "";
     	private String currentXPath = "";
     	private String currentFullXPath = "";
     	private String comment = "";
-    	private Map attributeOrder = new TreeMap();
+    	private Map attributeOrder = new TreeMap(attributeOrdering);
     	private CLDRFile target;
     	
-    	MyDeclHandler(CLDRFile target) {
+    	MyDeclHandler(CLDRFile target, PrintWriter log) {
     		this.target = target;
+    		this.log = log;
     	}
     		
     	private String show(Attributes attributes) {
@@ -643,14 +693,18 @@ public class CLDRFile implements Lockable {
     	}
     	
     	private void push(String qName, Attributes attributes) {
-    		if (SHOW_ALL && log != null) log.println("Attribute\t" + qName + "\t" + show(attributes));
+    		//SHOW_ALL && 
+    		if (log != null) log.println("push\t" + qName + "\t" + show(attributes));
     		currentXPath += "/" + qName;
     		currentFullXPath += "/" + qName;
+    		ldmlComparator.addElement(qName);
     		if (attributes.getLength() > 0) {
     			attributeOrder.clear();
 	    		for (int i = 0; i < attributes.getLength(); ++i) {    			
 	    			String attribute = attributes.getQName(i);
 	    			String value = attributes.getValue(i);
+	    			ldmlComparator.addAttribute(attribute); // must do BEFORE put
+	    			//ldmlComparator.addValue(value);
 	    			attributeOrder.put(attribute, value);
 	    		}
 	    		for (Iterator it = attributeOrder.keySet().iterator(); it.hasNext();) {
@@ -669,7 +723,8 @@ public class CLDRFile implements Lockable {
     	}
     	
 		private void pop(String qName) {
-            currentXPath = stripAfter(currentXPath, qName);
+			if (log != null) log.println("pop\t" + qName);
+			currentXPath = stripAfter(currentXPath, qName);
     		currentFullXPath = stripAfter(currentFullXPath, qName);    
             justPopped = true;
     	}
@@ -827,11 +882,356 @@ public class CLDRFile implements Lockable {
             if (SHOW_ALL && log != null) log.println("endCDATA");
         }
         public void comment(char[] ch, int start, int length) throws SAXException {
-            if ((SHOW_ALL || SHOW_START_END) && log != null) log.println(commentStack + " comment " + new String(ch, start,length));
+            if ((SHOW_ALL) && log != null) log.println(commentStack + " comment " + new String(ch, start,length));
             if (commentStack != 0) return;
             String comment0 = new String(ch, start,length).trim();
             if (comment.length() == 0) comment = comment0;
             else comment += NEWLINE + comment0;
         }
+
+		/* (non-Javadoc)
+		 * @see org.xml.sax.ErrorHandler#error(org.xml.sax.SAXParseException)
+		 */
+		public void error(SAXParseException exception) throws SAXException {
+			if (SHOW_ALL && log != null) log.println("error: " + showSAX(exception));
+			throw exception;
+		}
+
+		/* (non-Javadoc)
+		 * @see org.xml.sax.ErrorHandler#fatalError(org.xml.sax.SAXParseException)
+		 */
+		public void fatalError(SAXParseException exception) throws SAXException {
+			if (SHOW_ALL && log != null) log.println("fatalError: " + showSAX(exception));
+			throw exception;
+		}
+
+		/* (non-Javadoc)
+		 * @see org.xml.sax.ErrorHandler#warning(org.xml.sax.SAXParseException)
+		 */
+		public void warning(SAXParseException exception) throws SAXException {
+			if (SHOW_ALL && log != null) log.println("warning: " + showSAX(exception));
+			throw exception;
+		}
     }
+
+	/**
+	 * @param exception
+	 * @return
+	 */
+	public static String showSAX(SAXParseException exception) {
+		return exception.getMessage() 
+		+ ";\t SystemID: " + exception.getSystemId() 
+		+ ";\t PublicID: " + exception.getPublicId() 
+		+ ";\t LineNumber: " + exception.getLineNumber() 
+		+ ";\t ColumnNumber: " + exception.getColumnNumber() 
+		;
+	}
+
+	/**
+	 * Only gets called on (mostly) resolved stuff
+	 */
+	private void fixAliases(Factory factory) {
+		// walk through the entire tree. If we ever find an alias, 
+		// remove every peer of that alias,
+		// then add everything from the resolved source of the alias.
+		List aliases = new ArrayList();
+		for (Iterator it = xpath_value.keySet().iterator(); it.hasNext();) {
+			String xpath = (String) it.next();
+			if (xpath.indexOf("/alias") >= 0) { // quick check; have more rigorous one later.
+				aliases.add(xpath);
+			}
+		}
+		if (aliases.size() == 0) return;
+		XPathParts parts = new XPathParts(attributeOrdering);
+		XPathParts fullParts = new XPathParts(attributeOrdering);
+		XPathParts otherParts = new XPathParts(attributeOrdering);
+		for (Iterator it = aliases.iterator(); it.hasNext();) {
+			String xpathKey = (String) it.next();
+			Value v = (Value) xpath_value.get(xpathKey);
+			parts.set(xpathKey);
+			int index = parts.findElement("alias"); // can have no children
+			if (index < 0) continue;
+			parts.trim();
+			fullParts.set(v.getFullXPath());
+			Map attributes = fullParts.getAttributes(index);
+			fullParts.trim();
+			// <alias source="<locale_ID>" path="..."/>
+			String source = (String) attributes.get("source");
+			if (source == null) source = key;
+			otherParts.set(parts);
+			String otherPath = (String) attributes.get("path");
+			if (otherPath != null) {
+				otherParts.addRelative(otherPath);
+			}
+			removeChildren(parts); 
+			CLDRFile other;
+			if (source.equals(key)) {
+				other = this; 
+			} else {
+				other = factory.make(source,true);
+			}
+			addChildren(parts, fullParts, other, otherParts);
+		}		
+	}
+
+	/**
+	 * @param parts
+	 * @param other
+	 * @param otherParts
+	 */
+	private void addChildren(XPathParts parts, XPathParts fullParts, CLDRFile other, XPathParts otherParts) {
+		String otherPath = otherParts + "/";
+		XPathParts temp = new XPathParts(attributeOrdering);
+		XPathParts fullTemp = new XPathParts(attributeOrdering);
+		Map tempMap = new HashMap();
+		for (Iterator it = other.xpath_value.keySet().iterator(); it.hasNext();) {
+			String path = (String)it.next();
+			if (path.startsWith(otherPath)) {
+				Value value = (Value) other.xpath_value.get(path);
+				temp.set(path);
+				temp.replace(otherParts.size(), parts);
+				fullTemp.set(value.getFullXPath());
+				fullTemp.replace(otherParts.size(), fullParts);
+				String newPath = temp.toString();
+				value = value.changePath(fullTemp.toString());
+				System.out.println("Adding*: " + path + ";\r\n\t" + newPath + ";\r\n\t" + value);
+				tempMap.put(newPath, value);
+				// to do, fix path
+			}
+		}
+		xpath_value.putAll(tempMap);
+	}
+
+	/**
+	 * @param parts
+	 */
+	private void removeChildren(XPathParts parts) {
+		String mypath = parts + "/";
+		for (Iterator it = xpath_value.keySet().iterator(); it.hasNext();) {
+			String path = (String)it.next();
+			if (path.startsWith(mypath)) {
+				System.out.println("Removing: " + xpath_value.get(path));
+				it.remove();
+			}
+		}
+	}
+
+	/**
+	 * @return
+	 */
+	public boolean isDraft() {
+		String item = (String) xpath_value.keySet().iterator().next();
+		return item.indexOf("[@draft=\"true\"]") >= 0;
+	}
+	
+	private static final String[][] NameTable = {
+			{"/ldml/localeDisplayNames/languages/language[@type=\"", "\"]", "language"},
+			{"/ldml/localeDisplayNames/scripts/script[@type=\"", "\"]", "script"},
+			{"/ldml/localeDisplayNames/territories/territory[@type=\"", "\"]", "territory"},
+			{"/ldml/localeDisplayNames/variants/variant[@type=\"", "\"]", "variant"},
+			{"/ldml/numbers/currencies/currency[@type=\"", "\"]/displayName", "currency"},
+			{"/ldml/numbers/currencies/currency[@type=\"", "\"]/symbol", "currency-symbol"}
+	};
+
+	public static final int LANGUAGE_NAME = 0, SCRIPT_NAME = 1, TERRITORY_NAME = 2, VARIANT_NAME = 3,
+		CURRENCY_NAME = 4, CURRENCY_SYMBOL = 5;
+	
+	public String getName(int choice, String type, boolean skipDraft) {
+		Value v = getValue(NameTable[choice][0] + type + NameTable[choice][1]);
+		if (v == null || skipDraft && v.isDraft()) return null;
+		return v.getStringValue();
+	}
+	
+	LocaleIDParser lparser = new LocaleIDParser();
+	
+	public synchronized String getName(String locale, boolean skipDraft) {
+		lparser.set(locale);
+		String name = getName(LANGUAGE_NAME, lparser.getLanguage(), skipDraft);
+		String sname = lparser.getScript();
+		if (sname.length() != 0) name += " - " + getName(SCRIPT_NAME, sname, skipDraft);
+		String extras = "";
+		sname = lparser.getRegion();
+		if (sname.length() != 0) {
+			if (extras.length() != 0) extras += ", ";
+			extras += getName(TERRITORY_NAME, sname, skipDraft);
+		}
+		String[] variants = lparser.getVariants();
+		for (int i = 0; i < variants.length; ++i) {
+			if (extras.length() != 0) extras += ", ";
+			extras += getName(VARIANT_NAME, variants[i], skipDraft);
+		}
+		return name + (extras.length() == 0 ? "" : "(" + extras + ")");
+	}
+	
+	public String getNameName(int choice) {
+		return NameTable[choice][2];
+	}
+	
+	public static Collection getElementOrder() {
+		return elementOrdering.getOrder(); // already unmodifiable
+	}
+	public static Collection getAttributeOrder() {
+		return attributeOrdering.getOrder(); // already unmodifiable
+	}
+	public static Collection getValueOrder() {
+		return valueOrdering.getOrder(); // already unmodifiable
+	}
+	
+	static MapComparator elementOrdering = new MapComparator();
+	static MapComparator attributeOrdering = new MapComparator();
+	static MapComparator valueOrdering = new MapComparator().setErrorOnMissing(false);
+	
+	//RuleBasedCollator valueOrdering = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+    static {
+    	String[] elementOrder = { "ldml", "identity", "alias",
+				"localeDisplayNames", "layout", "characters", "delimiters",
+				"measurement", "dates", "numbers", "collations", "posix",
+				"version", "generation", "language", "script", "territory",
+				"variant", "languages", "scripts", "territories", "variants",
+				"keys", "types", "key", "type", "orientation",
+				"exemplarCharacters", "mapping", "cp", "quotationStart",
+				"quotationEnd", "alternateQuotationStart",
+				"alternateQuotationEnd", "measurementSystem", "paperSize",
+				"height", "width", "localizedPatternChars", "calendars",
+				"timeZoneNames", "months", "monthNames", "monthAbbr", "days",
+				"dayNames", "dayAbbr", "week", "am", "pm", "eras",
+				"dateFormats", "timeFormats", "dateTimeFormats", "fields",
+				"month", "day", "minDays", "firstDay", "weekendStart",
+				"weekendEnd", "eraNames", "eraAbbr", "era", "pattern",
+				"displayName", "hourFormat", "hoursFormat", "gmtFormat",
+				"regionFormat", "fallbackFormat", "abbreviationFallback",
+				"preferenceOrdering", "default", "calendar", "monthContext",
+				"monthWidth", "dayContext", "dayWidth", "dateFormatLength",
+				"dateFormat", "timeFormatLength", "timeFormat",
+				"dateTimeFormatLength", "dateTimeFormat", "zone", "long",
+				"short", "exemplarCity", "generic", "standard", "daylight",
+				"field", "relative", "symbols", "decimalFormats",
+				"scientificFormats", "percentFormats", "currencyFormats",
+				"currencies", "decimalFormatLength", "decimalFormat",
+				"scientificFormatLength", "scientificFormat",
+				"percentFormatLength", "percentFormat", "currencyFormatLength",
+				"currencyFormat", "currency", "symbol", "decimal", "group",
+				"list", "percentSign", "nativeZeroDigit", "patternDigit",
+				"plusSign", "minusSign", "exponential", "perMille", "infinity",
+				"nan", "collation", "messages", "special", "yesstr", "nostr",
+				"yesexpr", "noexpr" };
+    	for (int i = 0; i < elementOrder.length; ++i) elementOrdering.add(elementOrder[i]);
+    	elementOrdering.lock();
+    	/*{"months", "monthNames", "monthAbbr", "days", "dayNames", "dayAbbr", 
+		"week", "am", "pm", "eras", "dateFormats", "timeFormats", "dateTimeFormats", "fields",
+		"generic", "standard", "daylight"};
+		*/
+    	
+    	String[] attributeOrder = {
+    			"type", "key", 
+    			"source", "path",
+				"day",
+				"date",
+				"version", "registry",
+				"count",
+				"lines", "characters",
+				"before",
+				"number", "time",
+				"references", "standard",
+				"validSubLocales",
+				"alt",
+				"draft", 
+		};
+    	for (int i = 0; i < attributeOrder.length; ++i) attributeOrdering.add(attributeOrder[i]);
+    	attributeOrdering.lock();
+    	
+    	// others are alphabetical
+       	String[] valueOrder = {"full", "long", "medium", "short",
+       			"abbreviated", "narrow", "wide",
+    			"collation", "calendar", "currency",
+				"buddhist", "chinese", "gregorian", "hebrew", "islamic", "islamic-civil", "japanese", "direct",				
+				//"japanese", "buddhist", "islamic", "islamic-civil", "hebrew", "chinese", "gregorian", "phonebook", "traditional", "direct",
+
+				"sun", "mon", "tue", "wed", "thu", "fri", // "sat" removed, since it is a language tag
+				"America/Vancouver",
+				"America/Los_Angeles",
+				"America/Edmonton",
+				"America/Denver",
+				"America/Phoenix",
+				"America/Winnipeg",
+				"America/Chicago",
+				"America/Montreal",
+				"America/New_York",
+				"America/Indianapolis",
+				"Pacific/Honolulu",
+				"America/Anchorage",
+				"America/Halifax",
+				"America/St_Johns",
+				"Europe/Paris",
+				"Europe/Belfast",
+				"Europe/Dublin",
+				"Etc/GMT",
+				"Africa/Casablanca",
+				"Asia/Jerusalem",
+				"Asia/Tokyo",
+				"Europe/Bucharest",
+				"Asia/Shanghai",
+				};       	
+    	for (int i = 0; i < valueOrder.length; ++i) valueOrdering.add(valueOrder[i]);
+    	valueOrdering.lock();
+    	//StandardCodes sc = StandardCodes.make();
+    }
+	private static LDMLComparator ldmlComparator = new LDMLComparator();
+
+	static class LDMLComparator implements Comparator {
+
+		transient XPathParts a = new XPathParts(attributeOrdering);
+		transient XPathParts b = new XPathParts(attributeOrdering);
+		
+		public void addElement(String a) {
+			//elementOrdering.add(a);
+		}
+		public void addAttribute(String a) {
+			if ( false && (a.equals("buddhist") ||
+					a.equals("gregorian"))) {
+				System.out.println("here2");
+			}
+			//attributeOrdering.add(a);
+		}
+		public void addValue(String a) {
+			//valueOrdering.add(a);
+		}
+		public int compare(Object o1, Object o2) {
+			int result;
+			if (false && (o1.toString().indexOf("alt") >= 0 ||
+					o2.toString().indexOf("alt") >= 0)) {
+				System.out.println("here");
+			}
+			a.set((String)o1);
+			b.set((String)o2);
+			int minSize = a.size();
+			if (b.size() < minSize) minSize = b.size();
+			for (int i = 0; i < minSize; ++i) {
+				String aname = a.getElement(i);
+				String bname = b.getElement(i);
+				if (0 != (result = elementOrdering.compare(aname, bname))) return result;
+				Map am = a.getAttributes(i);
+				Map bm = b.getAttributes(i);
+				int minMapSize = am.size();
+				if (bm.size() < minMapSize) minMapSize = bm.size();
+				if (minMapSize != 0) {
+					Iterator ait = am.keySet().iterator();
+					Iterator bit = bm.keySet().iterator();
+					for (int j = 0; j < minMapSize; ++j) {
+						String akey = (String) ait.next();
+						String bkey = (String) bit.next();
+						if (0 != (result = attributeOrdering.compare(akey, bkey))) return result;
+						String avalue = (String) am.get(akey);
+						String bvalue = (String) bm.get(bkey);
+						if (0 != (result = valueOrdering.compare(avalue, bvalue))) return result;
+					}
+				}
+				if (am.size() < bm.size()) return -1;
+				if (am.size() > bm.size()) return 1;				
+			}
+			if (a.size() < b.size()) return -1;
+			if (a.size() > b.size()) return 1;
+			return 0;
+		}		
+	}
 }

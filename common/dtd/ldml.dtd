@@ -423,7 +423,7 @@
 <!ELEMENT currencies (alias | (default?, currency*, special*)) >
 <!ATTLIST currencies draft ( true | false ) #IMPLIED >
 
-<!ELEMENT currency (alias | (displayName?, symbol?, decimal*, group*, special*)) >
+<!ELEMENT currency (alias | (displayName?, symbol?, pattern?, decimal?, group?, special*)) >
 <!ATTLIST currency id NMTOKEN #IMPLIED >
 <!ATTLIST currency type NMTOKEN "standard" >
 <!ATTLIST currency draft ( true | false ) #IMPLIED >

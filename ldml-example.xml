@@ -367,7 +367,6 @@ For example, most country locales will inherit the bulk of their data from the l
             </currencyFormat>
           </currencyFormatLength>
         </currencyFormats>
-
         <currencies>
             <default type="USD"/>
             <!-- If no decimal and group seperators are specified that implies
@@ -383,7 +382,9 @@ For example, most country locales will inherit the bulk of their data from the l
             <currency type="PTE">
                 <displayName>escudo</displayName>
                 <symbol>Esc.</symbol>
+                <pattern>&#x00A5; #,##0.00;(&#x00A5; #,##0.00)</pattern>
                 <decimal>$</decimal>
+                <group>.</group>
             </currency>
         </currencies>
     </numbers>

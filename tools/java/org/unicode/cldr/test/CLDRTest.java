@@ -7,6 +7,7 @@
 package org.unicode.cldr.test;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -16,11 +17,14 @@ import java.util.TreeSet;
 import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Utility;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.StringValue;
 import org.unicode.cldr.util.CLDRFile.Value;
 import org.unicode.cldr.util.CLDRFile.XPathParts;
 import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.UnicodeSet;
 
 public class CLDRTest extends TestFmwk {
 	
@@ -31,6 +35,7 @@ public class CLDRTest extends TestFmwk {
         System.out.println("Seconds: " + deltaTime/1000);
     }
 	
+	boolean skipDraft = true;
 	Set locales;
 	Set languageLocales;
 	CLDRFile.Factory cldrFactory;
@@ -173,7 +178,87 @@ public class CLDRTest extends TestFmwk {
 				}
 			}
 		}
+	}
+	
+	public void TestThatExemplarsContainAll() {
+		UnicodeSet commonAndInherited = new UnicodeSet("[[:script=common:][:script=inherited:]]");
+		Set counts = new TreeSet();
+		for (Iterator it = locales.iterator(); it.hasNext();) {
+			String locale = (String)it.next();
+			if (locale.equals("root")) continue; 
+			CLDRFile resolved = cldrFactory.make(locale, true);
+			UnicodeSet exemplars = getExemplarSet(resolved,"")
+			.addAll(getExemplarSet(resolved,"standard"))
+			.addAll(getExemplarSet(resolved,"auxiliary"))
+			.addAll(commonAndInherited);
+			CLDRFile plain = cldrFactory.make(locale, false);
+			int count = 0;
+			for (Iterator it2 = plain.keySet().iterator(); it2.hasNext();) {
+				String xpath = (String) it2.next();
+				if (xpath.indexOf("/exemplarCharacters") > 0
+						|| xpath.indexOf("/pattern") > 0) continue; // skip some items.
+				Value pvalue = plain.getValue(xpath);
+				if (skipDraft && pvalue.getFullXPath().indexOf("[@draft=\"true\"") > 0) continue;
+				String value = pvalue.getStringValue();
+				if (!exemplars.containsAll(value)) {
+					count++;
+					UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
+					errln(locale + " (" + getLocaleName(locale) + ")\t" + xpath + "/" + value + " contains " + missing + ", not in exemplars");					
+				}
+			}
+			if (count != 0) counts.add(locale + " (" + getLocaleName(locale) + ")\t" + count);
+		}
+		for (Iterator it = counts.iterator(); it.hasNext();) {
+			logln(it.next().toString());
+		}
+	}
 
+	/**
+	 * @param resolved
+	 * @return
+	 */
+	public UnicodeSet getExemplarSet(CLDRFile resolved, String type) {
+		if (type.length() != 0) type = "[@type=\"" + type + "\"]";
+		Value v = resolved.getValue("/ldml/characters/exemplarCharacters" + type);
+		if (v == null) return new UnicodeSet();
+		UnicodeSet result = new UnicodeSet(v.getStringValue(), UnicodeSet.CASE);
+		if (type.length() != 0) System.out.println("fetched set for " + type);
+		return result;
+	}
+	
+	Map localeNameCache = new HashMap();
+	CLDRFile english = null;
+	
+	public String getLocaleName(String locale) {
+		String name = (String) localeNameCache.get(locale);
+		if (name != null) return name;
+		if (english == null) english = cldrFactory.make("en", false);
+		String[] pieces = new String[10];
+		Utility.split(locale, '_', pieces);
+		int i = 0;
+		String result = getName(english, "languages/language", pieces[i++]);
+		if (pieces[i].length() == 0) return result;
+		if (pieces[i].length() == 4) {
+			result += " " + getName(english, "scripts/script", pieces[i++]);
+		}
+		if (pieces[i].length() == 0) return result;
+		result += " " + getName(english, "territories/territory", pieces[i++]);
+		if (pieces[i].length() == 0) return result;
+		result += " " + getName(english, "variant/variants", pieces[i++]);
+		localeNameCache.put(locale, result);
+		return result;
+	}
+
+	/**
+	 * @param english
+	 * @param pieces
+	 * @param i
+	 * @return
+	 */
+	private String getName(CLDRFile english, String kind, String type) {
+		Value v = english.getValue("/ldml/localeDisplayNames/" + kind + "[@type=\"" + type + "\"]");
+		if (v == null) return "<" + type + ">";
+		return v.getStringValue();
 	}
 }
 

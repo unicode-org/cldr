@@ -135,6 +135,9 @@ public class CLDRFile {
 	 * @param key
 	 */
 	public void write(PrintWriter pw) {
+		pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+		pw.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.2/ldml.dtd\">");
+
 		XPathParts last = new XPathParts();
 		XPathParts current = new XPathParts();
 		for (Iterator it2 = map.keySet().iterator(); it2.hasNext();) {
@@ -835,7 +838,7 @@ public class CLDRFile {
         }
     };
 
-    XMLReader createXMLReader(boolean validating) {
+    public XMLReader createXMLReader(boolean validating) {
     	String[] testList = {
     			"org.apache.xerces.parsers.SAXParser",
 				"org.apache.crimson.parser.XMLReaderImpl",

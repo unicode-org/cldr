@@ -8,7 +8,7 @@
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-08" />
+		<generation date="2003-12-12" />
 		<language type="ps" /> 
 	</identity>
 	<localeDisplayNames>
@@ -112,152 +112,150 @@
 			<territory type="UY">یوروګوای</territory>
 			<territory type="YE">یمن</territory>
 		</territories>
-</localeDisplayNames>
-<layout>
-	<orientation lines="top-to-bottom" characters="right-to-left" />
-</layout>
-<characters>
-	<exemplarCharacters>[ء-ؤئ-غفقل-وي-ْٰٔټپځڅ-چډړږژښکګڼی-ۍې ‌‍‏‎]</exemplarCharacters>
-	<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
-		<icu:scripts>
-			<icu:script type="1">Arab</icu:script>
-		</icu:scripts>
-	</special>
-</characters>
-<dates>
-	<calendars>
-		<calendar type="gregorian">
-			<monthNames>
-				<month type="1">جنوري</month>
-				<month type="2">فبروري</month>
-				<month type="3">مارچ</month>
-				<month type="4">اپریل</month>
-				<month type="5">می</month>
-				<month type="6">جون</month>
-				<month type="7">جولای</month>
-				<month type="8">اګست</month>
-				<month type="9">سپتمبر</month>
-				<month type="10">اکتوبر</month>
-				<month type="11">نومبر</month>
-				<month type="12">دسمبر</month>
-			</monthNames>
-			<monthAbbr>
-				<month type="1">جنو</month>
-				<month type="2">فبر</month>
-				<month type="3">مار</month>
-				<month type="4">اپر</month>
-				<month type="5">مـی</month>
-				<month type="6">جون</month>
-				<month type="7">جول</month>
-				<month type="8">اګس</month>
-				<month type="9">سپت</month>
-				<month type="10">اکت</month>
-				<month type="11">نوم</month>
-				<month type="12">دسم</month>
-			</monthAbbr>
-			<dayNames>
-				<day type="sun">یکشنبه</day>
-				<day type="mon">دوشنبه</day>
-				<day type="tue">سه‌شنبه</day>
-				<day type="wed">چهارشنبه</day>
-				<day type="thu">پنجشنبه</day>
-				<day type="fri">جمعه</day>
-				<day type="sat">شنبه</day>
-			</dayNames>
-			<dayAbbr>
-				<day type="sun">ی.</day>
-				<day type="mon">د.</day>
-				<day type="tue">س.</day>
-				<day type="wed">چ.</day>
-				<day type="thu">پ.</day>
-				<day type="fri">ج.</day>
-				<day type="sat">ش.</day>
-			</dayAbbr>
-			<am>غ.م.</am>
-			<pm>غ.و.</pm>
-			<eras>
-				<eraAbbr>
-					<era type="1">ق.م.</era>
-					<era type="2">م.</era>
-				</eraAbbr>
-			</eras>
-			<dateFormats>
-				<default type="medium"/>
-				<dateFormatLength type="full">
-					<dateFormat >
-						<pattern>EEEE د yyyy د MMMM d</pattern>
-					</dateFormat>
-				</dateFormatLength >
-				<dateFormatLength type="long">
-					<dateFormat >
-						<pattern>د yyyy د MMMM d</pattern>
-					</dateFormat>
-				</dateFormatLength >
-				<dateFormatLength type="medium">
-					<dateFormat >
-						<pattern>d MMMM yyyy</pattern>
-					</dateFormat>
-				</dateFormatLength >
-				<dateFormatLength type="short">
-					<dateFormat >
-						<pattern>yyyy/M/d</pattern>
-					</dateFormat>
-				</dateFormatLength >
-			</dateFormats>
-			<timeFormats>
-				<default type="medium"/>
-				<timeFormatLength type="full">
-					<timeFormat >
-						<pattern>H:mm:ss (z)</pattern>
-					</timeFormat>
-				</timeFormatLength >
-				<timeFormatLength type="long">
-					<timeFormat >
-						<pattern>H:mm:ss (z)</pattern>
-					</timeFormat>
-				</timeFormatLength >
-				<timeFormatLength type="medium">
-					<timeFormat >
-						<pattern>H:mm:ss</pattern>
-					</timeFormat>
-				</timeFormatLength >
-				<timeFormatLength type="short">
-					<timeFormat >
-						<pattern>H:mm</pattern>
-					</timeFormat>
-				</timeFormatLength >
-			</timeFormats>
-			<dateTimeFormats>
-				<dateTimeFormatLength >
-					<dateTimeFormat>
-						<pattern>{1} {0}</pattern>
-					</dateTimeFormat>
-				</dateTimeFormatLength >
-			</dateTimeFormats>
-		</calendar>
-	</calendars>
-	<timeZoneNames>
-		<zone type="کابل">
-			<long>
-				<generic>د افغانستان په وخت</generic>
+	</localeDisplayNames>
+	<layout>
+		<orientation lines="top-to-bottom" characters="right-to-left" />
+	</layout>
+	<characters>
+		<exemplarCharacters>[ء-ؤئ-غفقل-وي-ْٰٔټپځڅ-چډړږژښکګڼی-ۍې ‌‍‏‎]</exemplarCharacters>
+		<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
+			<icu:scripts>
+				<icu:script type="1">Arab</icu:script>
+			</icu:scripts>
+		</special>
+	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">جنوري</month>
+					<month type="2">فبروري</month>
+					<month type="3">مارچ</month>
+					<month type="4">اپریل</month>
+					<month type="5">می</month>
+					<month type="6">جون</month>
+					<month type="7">جولای</month>
+					<month type="8">اګست</month>
+					<month type="9">سپتمبر</month>
+					<month type="10">اکتوبر</month>
+					<month type="11">نومبر</month>
+					<month type="12">دسمبر</month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">جنو</month>
+					<month type="2">فبر</month>
+					<month type="3">مار</month>
+					<month type="4">اپر</month>
+					<month type="5">مـی</month>
+					<month type="6">جون</month>
+					<month type="7">جول</month>
+					<month type="8">اګس</month>
+					<month type="9">سپت</month>
+					<month type="10">اکت</month>
+					<month type="11">نوم</month>
+					<month type="12">دسم</month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">یکشنبه</day>
+					<day type="mon">دوشنبه</day>
+					<day type="tue">سه‌شنبه</day>
+					<day type="wed">چهارشنبه</day>
+					<day type="thu">پنجشنبه</day>
+					<day type="fri">جمعه</day>
+					<day type="sat">شنبه</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">ی.</day>
+					<day type="mon">د.</day>
+					<day type="tue">س.</day>
+					<day type="wed">چ.</day>
+					<day type="thu">پ.</day>
+					<day type="fri">ج.</day>
+					<day type="sat">ش.</day>
+				</dayAbbr>
+				<am>غ.م.</am>
+				<pm>غ.و.</pm>
+				<eras>
+					<eraAbbr>
+						<era type="1">ق.م.</era>
+						<era type="2">م.</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>EEEE د yyyy د MMMM d</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>د yyyy د MMMM d</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>d MMMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>yyyy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>H:mm:ss (z)</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>H:mm:ss (z)</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>H:mm</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<zone type="Asia/Kabul">
+				<long>
 				<standard>د افغانستان په وخت</standard>
 				<daylight>د افغانستان په وخت</daylight>
-			</long>
-			<short>
-				<generic>Asia/Kabul</generic>
-				<standard>AFT</standard>
-				<daylight>AFT</daylight>
-			</short>
-			<exemplarCity>کابل</exemplarCity>
-		</zone>
-	</timeZoneNames>
-</dates>
-<numbers>
-	<currencies>
-		<currency type="AFA">
-			<displayName>افغانۍ</displayName>
-			<symbol>افغانۍ</symbol>
-		</currency>
-	</currencies>
-</numbers>
+				</long>
+				<short>
+					<standard>AFT</standard>
+					<daylight>AFT</daylight>
+				</short>
+				<exemplarCity>کابل</exemplarCity>
+			</zone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<currencies>
+			<currency type="AFA">
+				<displayName>افغانۍ</displayName>
+				<symbol>افغانۍ</symbol>
+			</currency>
+		</currencies>
+	</numbers>
 </ldml>

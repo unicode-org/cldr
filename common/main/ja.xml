@@ -8,7 +8,7 @@
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-08" />
+		<generation date="2003-12-12" />
 		<language type="ja" /> 
 	</identity>
 	<localeDisplayNames>
@@ -401,7 +401,6 @@
 			<territory type="ZW">ジンバブエ</territory>
 		</territories>
 		<variants>
-			<variant type="EURO">ユーロ</variant>
 			<variant type="REVISED">改訂版</variant>
 		</variants>
 		<types>
@@ -518,6 +517,18 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<zone type="Asia/Tokyo">
+				<long>
+				<standard>日本標準時</standard>
+				<daylight>日本標準時</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JST</daylight>
+				</short>
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencies>

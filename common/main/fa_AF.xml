@@ -8,7 +8,7 @@
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-08" />
+		<generation date="2003-12-12" />
 		<language type="fa" /> 
 		<territory type="AF" /> 
 	</identity>
@@ -134,110 +134,108 @@
 			<territory type="ZA">افریقای جنوبی</territory>
 			<territory type="ZW">زیمبابوی</territory>
 		</territories>
-</localeDisplayNames>
-<layout>
-	<orientation lines="top-to-bottom" characters="right-to-left" />
-</layout>
-<dates>
-	<calendars>
-		<calendar type="gregorian">
-			<monthNames>
-				<month type="1">جنوری</month>
-				<month type="2">فبروری</month>
-				<month type="3">مارچ</month>
-				<month type="4">اپریل</month>
-				<month type="5">می</month>
-				<month type="6">جون</month>
-				<month type="7">جولای</month>
-				<month type="8">اگست</month>
-				<month type="9">سپتمبر</month>
-				<month type="10">اکتوبر</month>
-				<month type="11">نومبر</month>
-				<month type="12">دسمبر</month>
-			</monthNames>
-			<monthAbbr>
-				<month type="1">جنو</month>
-				<month type="2">فبر</month>
-				<month type="3">مار</month>
-				<month type="4">اپر</month>
-				<month type="5">مـی</month>
-				<month type="6">جون</month>
-				<month type="7">جول</month>
-				<month type="8">اگس</month>
-				<month type="9">سپت</month>
-				<month type="10">اکت</month>
-				<month type="11">نوم</month>
-				<month type="12">دسم</month>
-			</monthAbbr>
-			<week>
-				<minDays count="1"/>
-				<firstDay day="sat"/>
-			</week>
-		</calendar>
-	</calendars>
-	<timeZoneNames>
-		<zone type="کابل">
-			<long>
-				<generic>وقت افغانستان</generic>
+	</localeDisplayNames>
+	<layout>
+		<orientation lines="top-to-bottom" characters="right-to-left" />
+	</layout>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">جنوری</month>
+					<month type="2">فبروری</month>
+					<month type="3">مارچ</month>
+					<month type="4">اپریل</month>
+					<month type="5">می</month>
+					<month type="6">جون</month>
+					<month type="7">جولای</month>
+					<month type="8">اگست</month>
+					<month type="9">سپتمبر</month>
+					<month type="10">اکتوبر</month>
+					<month type="11">نومبر</month>
+					<month type="12">دسمبر</month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">جنو</month>
+					<month type="2">فبر</month>
+					<month type="3">مار</month>
+					<month type="4">اپر</month>
+					<month type="5">مـی</month>
+					<month type="6">جون</month>
+					<month type="7">جول</month>
+					<month type="8">اگس</month>
+					<month type="9">سپت</month>
+					<month type="10">اکت</month>
+					<month type="11">نوم</month>
+					<month type="12">دسم</month>
+				</monthAbbr>
+				<week>
+					<minDays count="1"/>
+					<firstDay day="sat"/>
+				</week>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<zone type="Asia/Kabul">
+				<long>
 				<standard>وقت افغانستان</standard>
 				<daylight>وقت افغانستان</daylight>
-			</long>
-			<short>
-				<generic>Asia/Kabul</generic>
-				<standard>AFT</standard>
-				<daylight>AFT</daylight>
-			</short>
-			<exemplarCity>کابل</exemplarCity>
-		</zone>
-	</timeZoneNames>
-</dates>
-<numbers>
-	<symbols>
-		<decimal>٫</decimal>
-		<group>٬</group>
-		<list>;</list>
-		<percentSign>٪</percentSign>
-		<nativeZeroDigit>۰</nativeZeroDigit>
-		<patternDigit>#</patternDigit>
-		<plusSign>+</plusSign>
-		<minusSign>−</minusSign>
-		<exponential>×۱۰^</exponential>
-		<perMille>‰</perMille>
-		<infinity>∞</infinity>
-		<nan>�</nan>
-	</symbols>
-	<decimalFormats>
-		<decimalFormatLength >
-			<decimalFormat >
-				<pattern>#,##0.###;-#,##0.###</pattern>
-			</decimalFormat>
-		</decimalFormatLength >
-	</decimalFormats>
-	<scientificFormats>
-		<scientificFormatLength >
-			<scientificFormat >
-				<pattern>#E0</pattern>
-			</scientificFormat>
-		</scientificFormatLength >
-	</scientificFormats>
-	<percentFormats>
-		<percentFormatLength >
-			<percentFormat >
-				<pattern>#,##0%</pattern>
-			</percentFormat>
-		</percentFormatLength >
-	</percentFormats>
-	<currencyFormats>
-		<currencyFormatLength >
-			<currencyFormat >
-				<pattern>#,##0 ¤;-#,##0 ¤</pattern>
-			</currencyFormat>
-		</currencyFormatLength >
-	</currencyFormats>
-</numbers>
-<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
-	<icu:ruleBasedNumberFormats>
-		<icu:ruleBasedNumberFormat type="spellout">
+				</long>
+				<short>
+					<standard>AFT</standard>
+					<daylight>AFT</daylight>
+				</short>
+				<exemplarCity>کابل</exemplarCity>
+			</zone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>٫</decimal>
+			<group>٬</group>
+			<list>;</list>
+			<percentSign>٪</percentSign>
+			<nativeZeroDigit>۰</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<plusSign>+</plusSign>
+			<minusSign>−</minusSign>
+			<exponential>×۱۰^</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<decimalFormats>
+			<decimalFormatLength >
+				<decimalFormat >
+					<pattern>#,##0.###;-#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength >
+		</decimalFormats>
+		<scientificFormats>
+			<scientificFormatLength >
+				<scientificFormat >
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength >
+		</scientificFormats>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>#,##0 ¤;-#,##0 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+	<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
+		<icu:ruleBasedNumberFormats>
+			<icu:ruleBasedNumberFormat type="spellout">
 %main:
 -x: منفی &gt;&gt;;
 x.x: &lt;&lt; عشاریه &gt;&gt;;
@@ -266,7 +264,7 @@ x.x: &lt;&lt; عشاریه &gt;&gt;;
 1,000,000,000: &lt;&lt; میلیارد[ و &gt;&gt;];
 1,000,000,000,000: =#,##0=;
 
-		</icu:ruleBasedNumberFormat>
-	</icu:ruleBasedNumberFormats>
-</special>
+			</icu:ruleBasedNumberFormat>
+		</icu:ruleBasedNumberFormats>
+	</special>
 </ldml>

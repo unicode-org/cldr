@@ -9,8 +9,8 @@
 	<identity>
 		<version number="1.0"/>
 		<generation date="2003-12-12" />
-		<language type="es" /> 
-		<territory type="MX" /> 
+		<language type="ms" /> 
+		<territory type="BN" /> 
 	</identity>
 	<dates>
 		<calendars>
@@ -19,12 +19,12 @@
 					<default type="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat >
-							<pattern>EEEE d' de 'MMMM' de 'yyyy</pattern>
+							<pattern>dd MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength >
 					<dateFormatLength type="long">
 						<dateFormat >
-							<pattern>d' de 'MMMM' de 'yyyy</pattern>
+							<pattern>dd MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength >
 					<dateFormatLength type="medium">
@@ -34,7 +34,7 @@
 					</dateFormatLength >
 					<dateFormatLength type="short">
 						<dateFormat >
-							<pattern>dd/MM/yy</pattern>
+							<pattern>dd/MM/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength >
 				</dateFormats>
@@ -42,22 +42,22 @@
 					<default type="medium"/>
 					<timeFormatLength type="full">
 						<timeFormat >
-							<pattern>hh:mm:ss a z</pattern>
+							<pattern>h:mm:ss aa</pattern>
 						</timeFormat>
 					</timeFormatLength >
 					<timeFormatLength type="long">
 						<timeFormat >
-							<pattern>hh:mm:ss a z</pattern>
+							<pattern>H:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength >
 					<timeFormatLength type="medium">
 						<timeFormat >
-							<pattern>hh:mm:ss a</pattern>
+							<pattern>H:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength >
 					<timeFormatLength type="short">
 						<timeFormat >
-							<pattern>hh:mm a</pattern>
+							<pattern>H:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength >
 				</timeFormats>
@@ -72,13 +72,27 @@
 		</calendars>
 	</dates>
 	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
 		<currencies>
-			<currency type="MXN">
-				<displayName>MXN</displayName>
+			<currency type="BND">
+				<displayName>BND</displayName>
 				<symbol>$</symbol>
 			</currency>
 			<currency type="USD">
-				<displayName>Dólar Americano</displayName>
+				<displayName>USD</displayName>
 				<symbol>US$</symbol>
 			</currency>
 		</currencies>

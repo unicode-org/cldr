@@ -58,7 +58,6 @@
 
 <!ELEMENT alias  (special*) >
 <!ATTLIST alias source NMTOKEN #REQUIRED >
-<!ATTLIST alias type NMTOKEN #IMPLIED>
 <!ATTLIST alias path CDATA #IMPLIED>
 
 <!ELEMENT default (special*) >
@@ -161,7 +160,7 @@
 <!ATTLIST characters draft ( true | false ) #IMPLIED >
 
 <!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
-<!ATTLIST exemplarCharacters type ( auxillary ) #IMPLIED >
+<!ATTLIST exemplarCharacters type ( auxiliary | standard ) #IMPLIED >
 <!ATTLIST exemplarCharacters draft ( true | false ) #IMPLIED >
 <!ATTLIST exemplarCharacters standard CDATA #IMPLIED >
 <!ATTLIST exemplarCharacters references CDATA #IMPLIED >
@@ -285,7 +284,7 @@
 <!ATTLIST months validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT monthContext ( alias | (default?, monthWidth*, special*)) >
-<!ATTLIST monthContext type NMTOKEN #REQUIRED >
+<!ATTLIST monthContext type ( format | stand-alone ) #REQUIRED >
 <!ATTLIST monthContext draft ( true | false ) #IMPLIED >
 <!ATTLIST monthContext standard CDATA #IMPLIED >
 <!ATTLIST monthContext references CDATA #IMPLIED >
@@ -293,7 +292,7 @@
 <!ATTLIST monthContext validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT monthWidth ( alias | (month*, special*)) >
-<!ATTLIST monthWidth type NMTOKEN #REQUIRED >
+<!ATTLIST monthWidth type ( abbreviated| narrow | wide) #REQUIRED >
 <!ATTLIST monthWidth draft ( true | false ) #IMPLIED >
 <!ATTLIST monthWidth standard CDATA #IMPLIED >
 <!ATTLIST monthWidth references CDATA #IMPLIED >
@@ -323,7 +322,7 @@
 
 <!ELEMENT dayContext ( alias | (default?, dayWidth*, special*)) >
 <!ATTLIST dayContext draft ( true | false ) #IMPLIED >
-<!ATTLIST dayContext type NMTOKEN #REQUIRED >
+<!ATTLIST dayContext type ( format | stand-alone ) #REQUIRED >
 <!ATTLIST dayContext standard CDATA #IMPLIED >
 <!ATTLIST dayContext references CDATA #IMPLIED >
 <!ATTLIST dayContext alt CDATA #IMPLIED >
@@ -499,7 +498,7 @@
 <!ELEMENT fallbackFormat ( #PCDATA ) >
 
 <!ELEMENT abbreviationFallback (special) >
-<!ATTLIST abbreviationFallback type NMTOKEN #REQUIRED >
+<!ATTLIST abbreviationFallback type ( GMT | standard ) #REQUIRED >
 
 <!ELEMENT preferenceOrdering (special) >
 <!ATTLIST preferenceOrdering type NMTOKEN #REQUIRED >
@@ -552,7 +551,7 @@
 <!ATTLIST fields validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT field ( alias | (displayName?, relative*, special*)) >
-<!ATTLIST field type NMTOKEN #IMPLIED >
+<!ATTLIST field type ( era | year | month | week | day | weekday | dayperiod | hour | minute | second | zone ) #IMPLIED >
 <!ATTLIST field draft ( true | false ) #IMPLIED >
 <!ATTLIST field standard CDATA #IMPLIED >
 <!ATTLIST field references CDATA #IMPLIED >
@@ -720,7 +719,6 @@
 <!ATTLIST currencies validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT currency (alias | (displayName?, symbol?, pattern*, decimal?, group?, special*)) >
-<!ATTLIST currency id NMTOKEN #IMPLIED >
 <!ATTLIST currency type NMTOKEN "standard" >
 <!ATTLIST currency draft ( true | false ) #IMPLIED >
 <!ATTLIST currency references CDATA #IMPLIED >

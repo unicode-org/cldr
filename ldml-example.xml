@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "./ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd"
 [
-    <!ENTITY % icu SYSTEM "./ldmlICU.dtd">
-    <!ENTITY % openOffice SYSTEM "./ldmlOpenOffice.dtd">
-    <!ENTITY % iso14652 SYSTEM "./ldmlISO14652.dtd">
-    <!ENTITY % posix SYSTEM "./ldmlPOSIX.dtd">
+    <!ENTITY % icu SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">
+    <!ENTITY % openOffice SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">
+    <!ENTITY % iso14652 SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">
+    <!ENTITY % posix SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd">
 %icu;
 %openOffice;
 %iso14652;

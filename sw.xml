@@ -103,6 +103,7 @@
 							<month type="1">Jan</month>
 							<month type="2">Feb</month>
 							<month type="3">Mar</month>
+							<month type="3" draft="true" alt="proposed">Mac</month>
 							<month type="4">Apr</month>
 							<month type="5">Mei</month>
 							<month type="6">Jun</month>
@@ -133,12 +134,15 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">Jpi</day>
+							<day type="sun" alt="proposed" draft="true">Jpl</day>
 							<day type="mon">Jtt</day>
 							<day type="tue">Jnn</day>
 							<day type="wed">Jtn</day>
 							<day type="thu">Alh</day>
 							<day type="fri">Iju</day>
+							<day type="fri" alt="proposed" draft="true">Ijm</day>
 							<day type="sat">Jmo</day>
+							<day type="sat" alt="proposed" draft="true">Jms</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Jumapili</day>
@@ -152,7 +156,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<firstDay day="sat"/>
+					<firstDay draft="true" day="mon"/>
 				</week>
 				<eras>
 					<eraAbbr>
@@ -182,6 +186,7 @@
 				<symbol>KSh</symbol>
 			</currency>
 			<currency type="TZS">
+				<displayName draft="true">Shilingi ya Tanzania</displayName>
 				<symbol>TSh</symbol>
 			</currency>
 		</currencies>

@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
-[
-      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
-%icu;
-]
->
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-07-23" />
+		<generation date="2003-12-19" />
 		<language type="cs" /> 
 		<territory type="CZ" /> 
 	</identity>
@@ -148,114 +143,4 @@
 			</currencyFormatLength >
 		</currencyFormats>
 	</numbers>
-	<collations version="3.1.1">
-		<collation  >
-			<rules>
-				<reset> </reset>
-				<pc>0123456789a</pc>
-				<sc>AáÁâÂăĂäÄąĄ</sc>
-				<p>b</p>
-				<s>B</s>
-				<p>c</p>
-				<s>C</s>
-				<p>č</p>
-				<sc>ČćĆçÇ</sc>
-				<p>d</p>
-				<sc>DđĐďĎ</sc>
-				<p>e</p>
-				<sc>EéÉěĚëËęĘ</sc>
-				<p>f</p>
-				<s>F</s>
-				<p>g</p>
-				<s>G</s>
-				<p>h</p>
-				<s>H</s>
-				<p>ch</p>
-				<s>CH</s>
-				<s>Ch</s>
-				<p>i</p>
-				<sc>IíÍîÎ</sc>
-				<p>j</p>
-				<s>J</s>
-				<p>k</p>
-				<s>K</s>
-				<p>l</p>
-				<sc>LĺĹǐĽɨŁ</sc>
-				<p>m</p>
-				<s>M</s>
-				<p>n</p>
-				<sc>NńŃňŇ</sc>
-				<p>o</p>
-				<sc>OóÓôÔöÖőŐ</sc>
-				<p>p</p>
-				<s>P</s>
-				<p>q</p>
-				<s>Q</s>
-				<p>r</p>
-				<s>R</s>
-				<p>ř</p>
-				<sc>ŘŕŔ</sc>
-				<p>s</p>
-				<s>S</s>
-				<p>š</p>
-				<sc>ŠśŚşŞ</sc>
-				<p>t</p>
-				<sc>TťŤţŢ</sc>
-				<p>u</p>
-				<sc>UúÚůŮüÜűŰ</sc>
-				<p>v</p>
-				<s>V</s>
-				<p>w</p>
-				<s>W</s>
-				<p>x</p>
-				<s>X</s>
-				<p>y</p>
-				<sc>YýÝ</sc>
-				<p>z</p>
-				<s>Z</s>
-				<p>ž</p>
-				<sc>ŽżŻźŹ</sc>
-				<pc>.,;?!:</pc>
-				<pc>&quot;`'°_|/'()[]{}</pc>
-				<pc>&amp;¶%$@</pc>
-				<p>&lt;</p>
-				<pc>&gt;=+×-÷*#¤^~´¨˘˛ˇ¸˝˙</pc>
-				<p><cp hex="0000" /></p>
-				<p><cp hex="0001" /></p>
-				<p><cp hex="0002" /></p>
-				<p><cp hex="0003" /></p>
-				<p><cp hex="0004" /></p>
-				<p><cp hex="0005" /></p>
-				<p><cp hex="0006" /></p>
-				<p><cp hex="0007" /></p>
-				<p><cp hex="0008" /></p>
-				<pc><cp hex="0009" />
-</pc>
-				<p><cp hex="000B" /></p>
-				<pc><cp hex="000C" />
-</pc>
-				<p><cp hex="000E" /></p>
-				<p><cp hex="000F" /></p>
-				<p><cp hex="0010" /></p>
-				<p><cp hex="0011" /></p>
-				<p><cp hex="0012" /></p>
-				<p><cp hex="0013" /></p>
-				<p><cp hex="0014" /></p>
-				<p><cp hex="0015" /></p>
-				<p><cp hex="0016" /></p>
-				<p><cp hex="0017" /></p>
-				<p><cp hex="0018" /></p>
-				<p><cp hex="0019" /></p>
-				<p><cp hex="001A" /></p>
-				<p><cp hex="001B" /></p>
-				<p><cp hex="001C" /></p>
-				<p><cp hex="001D" /></p>
-				<p><cp hex="001E" /></p>
-				<pc><cp hex="001F" /></pc>
-				<pc></pc>
-				<reset>sS</reset>
-			</rules>
-			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="0.0" />
-		</collation  >
-	</collations >
 </ldml>

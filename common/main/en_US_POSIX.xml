@@ -10,7 +10,7 @@ invariant locale, which is different from the root locale.
 This locale should not be modified to create some sort of custom collation to
 represent a specific codepage. Many users complained when the C locale was
 being used, and multi-level UCA collation was expected.
---->
+-->
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27" />
@@ -63,3 +63,12 @@ being used, and multi-level UCA collation was expected.
 		</currencyFormats>
 	</numbers>
 </ldml>
+
+<!-- Old Comments. See root.xml for more info.
+URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/en_US_POSIX.txt?only_with_tag=final-update-LDML
+
+This is an invariant locale.
+This has been also known as the C locale on Unix or the invariant locale in Windows.
+No grouping separators
+
+-->

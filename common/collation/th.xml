@@ -8,7 +8,7 @@
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-17" />
+		<generation date="2003-12-18" />
 		<language type="th" /> 
 	</identity>
 	<collations version="3.1.1">
@@ -25,9 +25,10 @@
 				<s>๎</s>
 				<reset>๋</reset>
 				<sc>์ํ</sc>
-				<reset last="unknown"></reset>
+				<reset><last_secondary_ignorable/></reset>
 				<tc> -.</tc>
-				<tc>...ฯๆ๏๚๛</tc>
+				<t>...</t>
+				<tc>ฯๆ๏๚๛</tc>
 			</rules>
 			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="3.0" />
 		</collation  >

@@ -170,9 +170,13 @@ public class POSIXUtilities {
          {
             if  ( s.charAt(pos) == '\'' )
             {
-               inquotes = !inquotes;
-               if  ( pos > 0 && s.charAt(pos-1) == '\'' )
-                  result.append('\'');
+               if  ( pos < ( s.length() - 1) && s.charAt(pos+1) == '\'' )
+               {
+                    result.append('\'');
+                    pos++;
+               }
+               else
+                  inquotes = !inquotes;
             }
             else
                result.append(s.charAt(pos));

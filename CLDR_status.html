@@ -16,64 +16,78 @@
     <td width="100%"><b><i><font size="4"><u>Links</u></font></i></b>
       <dl>
         <dt><a href="CLDR_status.html">release status</a></dt>
-        <dt><a href="comparison_charts.html">comparison charts</a>, <a href="diff/main/index.html">main</a>, <a href="diff/collation/index.html">collation </a></dt>
+        <dt><a href="comparison_charts.html">comparison charts</a>, <a href="diff/main/index.html">main</a>, <a href="diff/collation/index.html">collation</a></dt>
         <dt><a href="filing_bug_reports.html">filing bug reports</a></dt>
         <dt><a href="data_formats.html">data formats</a></dt>
-        <dt><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/">LDML
-          data</a></dt>
-        <dt><a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm">LDML
-          specification</a></dt>
-        <dt><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/supplementalData.xml">supplemental
-          data</a></dt>
-        <dt><a href="http://www.openi18n.org/subgroups/lade/locale/index.htm">project
-          description</a></dt>
+        <dt><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/">LDML data</a></dt>
+        <dt><a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm">LDML specification</a></dt>
+        <dt><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/supplementalData.xml">supplemental data</a></dt>
+        <dt><a href="http://www.openi18n.org/subgroups/lade/locale/index.htm">project description</a></dt>
         <dt><a href="news://www.openi18n.org">newsgroups<br>
           </a></dt>
         <hr>
       </dl>
-      <p align="left"><b><font color="#FF0000" size="5"><i>Beta - 2003.10.31</i></font></b></p>
+      <p align="left"><b><font color="#FF0000" size="5"><i>Final Candidate - 2003.10.31</i></font></b></p>
       <p align="left"><i><b><font size="4"><u>Main New Features</u></font></b></i></p>
       <ul>
         <li>Improved comparison charts.</li>
-        <li>Initial version of collation comparison tables</li>
+        <li>Almost all reported bugs integrated.</li>
         <li>General improvements to data</li>
-        <li>Corrected inheritance from English</li>
+        <li>Collation XML generated.</li>
       </ul>
-      <p><i><b><font size="4"><u>Caveats</u></font></b></i></p>
-      <p align="left">This is a beta version of the data, so there are <a href="http://www.openi18n.org/locale-bugs/public?findid=18">known
-      errors and omissions</a>.</p>
-      <p><b><i><font size="4"><u>Updates</u></font></i></b></p>
-      <p align="left">During the Beta period, the data will be updated as fixes
-      are incorporated. Older data can be accessed through the CVS repository.</td>
+    </td>
   </tr>
 </table>
 <p align="left">The purpose of the Common Locale Data Repository project is to:</p>
 <ol>
   <li>
-    <p align="left">devise a general XML format for the exchange of culturally
-    sensitive (locale) information for use in application and system development</li>
+    <p align="left">devise a general XML format for the exchange of culturally sensitive (locale) information for use in application and system development</li>
   <li>
-    <p align="left">gather, store, and make available data generated in that
-    format</li>
+    <p align="left">gather, store, and make available data generated in that format</li>
 </ol>
-<p align="left">On 2003.07.02, the <a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm">specification</a>
-for the XML format was released. As of 2003.10.31, the beta version of the
-locale data was made available for public review and feedback.</p>
-<p align="left"><i>We request that people review the data for languages and
-countries that they are familiar with, and <a href="filing_bug_reports.html">file
-bug reports</a> where they see problems.</i></p>
-<p align="left"><b>Comparison Charts. </b>Perhaps the easiest way to provide
-feedback is to view the <a href="comparison_charts.html">comparison charts</a>,
-which provide an HTML view of data from different sources. There is also
-locale-insensitive supplementary data which is only available in <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/supplementalData.xml">XML
-format</a>. That data tells which country uses which currency, how many digits
-each currency takes, and any special rounding behavior.</p>
-<p align="left"><b>XML Source. </b>The locale data XML specification and locale
-data XML files are checked into a <a href>CVS repository</a>, currently hosted
-on the <a href="http://oss.software.ibm.com/icu/">ICU site</a>, and available
-via the web or by using CVS clients. The CVS tag is
-&quot;release-1-0-alpha&quot;. For information on using CVS clients to access
-the repository, see <a href="readme.html">readme.html</a>.</p>
+<p align="left">On 2003.07.02, the <a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm">specification</a> for the XML format was released. As of 2003.10.31, the Version
+1.0 Beta of the locale data was made available for public review and feedback. On 2003.12.18, the Version 1.0 Final Candidate was made available. The CLDR Version 1.0 final release
+is pending approval by the OpenI18N steering committee.</p>
+<p align="left">CLDR 1.0 is just the first step. It provides a version of the data that can be referenced, but enhancements and fixes will come in future versions. We request that
+people continue to review the data for languages and countries that they are familiar with for the next version of CLDR, and <a href="filing_bug_reports.html">file bug reports</a>
+where they see problems.</p>
+<p align="left"><b>Comparison Charts. </b>Perhaps the easiest way to provide feedback is to view the <a href="comparison_charts.html">comparison charts</a>, which provide an HTML
+view of data from different sources. There is also locale-insensitive supplementary data which is only available in <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/supplementalData.xml">XML
+format</a>. That data tells which country uses which currency, how many digits each currency takes, and any special rounding behavior.</p>
+<p align="left"><b>XML Source. </b>The locale data XML specification and locale data XML files are checked into a <a href>CVS repository</a>, currently hosted on the <a href="http://oss.software.ibm.com/icu/">ICU
+site</a>, and available via the web or by using CVS clients. The CVS tag is &quot;release-1-0-alpha&quot;. For information on using CVS clients to access the repository, see <a href="readme.html">readme.html</a>.</p>
+<p align="left">The XML source data is organized in the following directories. Within those directories, ignore the folders icu_format/; those are just for production. The xml
+files can be divided into main/ and collation/.</p>
+<blockquote>
+  <p align="left">aix/<br>
+  common/<br>
+  hp/<br>
+  ibmjdk/<br>
+  icu/<br>
+  linux/<br>
+  open_office/<br>
+  solaris/<br>
+  sunjdk/<br>
+  windows/</p>
+</blockquote>
+<p align="left"><i><b>Note:</b> the data for all but common is provided for comparison only, and is not to be viewed as authoritative or referenceable.</i></p>
+<hr>
+<p>COPYRIGHT AND PERMISSION NOTICE<br>
+<br>
+Copyright (c) 2002-2003 International Business Machines Corporation and others<br>
+All rights reserved.<br>
+<br>
+Permission is hereby granted, free of charge, to any person obtaining a copy of the Common Locale data and associated documentation files (the &quot;Data&quot;), to deal in the
+Data without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Data, and to permit persons to whom
+the Data is furnished to do so, provided both the above copyright notice(s) and this permission notice appear in supporting documentation.</p>
+<p>THE DATA IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL
+INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,
+ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS DATA.</p>
+<p>Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Data without
+prior written authorization of the copyright holder. </p>
+<hr>
+<p>All trademarks and registered trademarks mentioned herein are the property of their respective owners.</p>
 
 </body>
 

@@ -249,6 +249,7 @@
 			<territory type="PH">الفيلبين</territory>
 			<territory type="PK">الباكستان</territory>
 			<territory type="PL">بولندا</territory>
+			<territory type="PS" draft="true">فلسطين</territory>
 			<territory type="PT">البرتغال</territory>
 			<territory type="PW">بالاو</territory>
 			<territory type="PY">باراغواي</territory>
@@ -1095,17 +1096,42 @@
 			<currency type="BHD">
 				<symbol>د.ب.‏</symbol>
 			</currency>
+			<currency type="BRL">
+				<displayName draft="true">ريال برازيلي</displayName>
+				<symbol draft="true">.‏ر.ب</symbol>
+			</currency>
+			<currency type="CNY">
+				<displayName draft="true">يوان صيني</displayName>
+				<symbol draft="true">.‏ي.ص</symbol>
+			</currency>
 			<currency type="DZD">
 				<symbol>د.ج.‏</symbol>
 			</currency>
 			<currency type="EGP">
 				<symbol>ج.م.‏</symbol>
 			</currency>
+			<currency type="EUR">
+				<displayName draft="true">يورو</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName draft="true">جنيه سترليني</displayName>
+			</currency>
+			<currency type="INR">
+				<displayName draft="true">روبيه هندي</displayName>
+				<symbol draft="true">.‏ر.ه</symbol>
+			</currency>
 			<currency type="IQD">
 				<symbol>د.ع.‏</symbol>
 			</currency>
 			<currency type="JOD">
 				<symbol>د.أ.‏</symbol>
+			</currency>
+			<currency type="JPY">
+				<displayName draft="true">ين ياباني</displayName>
+			</currency>
+			<currency type="KMF">
+				<displayName draft="true">فرنك جزر القمر</displayName>
+				<symbol draft="true">.‏ف.ج.ق</symbol>
 			</currency>
 			<currency type="KWD">
 				<symbol>د.ك.‏</symbol>
@@ -1119,17 +1145,31 @@
 			<currency type="MAD">
 				<symbol>د.م.‏</symbol>
 			</currency>
+			<currency type="MRO">
+				<displayName draft="true">أوقية موريتانية</displayName>
+				<symbol draft="true">.‏أ.م</symbol>
+			</currency>
 			<currency type="OMR">
 				<symbol>ر.ع.‏</symbol>
 			</currency>
 			<currency type="QAR">
 				<symbol>ر.ق.‏</symbol>
 			</currency>
+			<currency type="RUB">
+				<displayName draft="true">روبل روسي</displayName>
+				<symbol draft="true">ر.ر.‏</symbol>
+			</currency>
 			<currency type="SAR">
 				<symbol>ر.س.‏</symbol>
 			</currency>
+			<currency type="SDD">
+				<displayName draft="true">دينار سوداني</displayName>
+			</currency>
 			<currency type="SDD" draft="true">
 				<symbol>ج.س.‏</symbol>
+			</currency>
+			<currency type="SDD">
+				<symbol alt="proposed0" draft="true">.‏د.س</symbol>
 			</currency>
 			<currency type="SDP">
 				<symbol>ج.س.‏</symbol>
@@ -1142,6 +1182,17 @@
 			</currency>
 			<currency type="TRY" draft="true">
 				<displayName>ليرة تركية جديدة</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName draft="true">دولار أمريكي</displayName>
+			</currency>
+			<currency type="XAF">
+				<displayName draft="true">فرنك افريقي</displayName>
+				<symbol draft="true">.‏ف.ا</symbol>
+			</currency>
+			<currency type="XXX">
+				<displayName draft="true">بدون عملة</displayName>
+				<symbol draft="true">XXX‏</symbol>
 			</currency>
 			<currency type="YER">
 				<symbol>ر.ي.‏</symbol>

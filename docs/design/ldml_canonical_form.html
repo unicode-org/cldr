@@ -1,0 +1,95 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>LDML Canonical Form</title>
+</head>
+
+<body>
+
+<h1>LDML Canonical Form</h1>
+<p>MED, 2004-12-21</p>
+<p>To allow for simple comparison of LDML files, especially for vetting mechanical changes, we 
+should have a canonical form for those files. Here is a proposal. [TBD, add examples.]</p>
+<ol>
+  <li>All start elements are on their own line, indented by <i>depth</i> tabs. Any leaf node with 
+  empty content is in the form &lt;foo/&gt;. All end elements (except for leaf nodes) are on their own 
+  line, indented by <i>depth</i> tabs. There are no blank lines except within comments.</li>
+  <li>All attribute values use &quot;, not '. There are no CDATA sections, no NCRs, and minimal other 
+  forms (eg no &amp;apos; since it is not necessary.</li>
+  <li>Elements are ordered by the Element Order Table</li>
+  <li>Attributes are ordered by the Attribute Order Table</li>
+  <li>Values are a bit more complicated, and may depend on the attribute. Compare two values by 
+  using the following steps.<ol>
+    <li>If two values are in the table, compare according to the order in the table. Otherwise if 
+    one is, it is first.</li>
+    <li>If two values are numeric [0-9], compare numerically (&quot;2&quot; &lt; &quot;12&quot;). Otherwise if one is 
+    numeric, it is first.</li>
+    <li>Time zone IDs are sorted by GMT order, from smallest to largest. Use the GMT offset as of 
+    Jan 1, 2004 first, then the GMT offset as of July 1, 2004 next, otherwise if both are equal, use 
+    alphabetical order.</li>
+  </ol>
+  </li>
+  <li>Comments are logically attached to a node. Their contents is indented one further level. There 
+  are three kinds:<ol>
+    <li>Inline always appear after the leaf node, starting on the same line.</li>
+    <li>Block comments always precede the node, and are indented on the same level.</li>
+    <li>Multiline comments, whether inline or block, have '--&gt;' on a separate line,</li>
+  </ol>
+  </li>
+</ol>
+<h3>Element Order Table</h3>
+<blockquote>
+  <p>&quot;ldml&quot;, &quot;identity&quot;, &quot;alias&quot;, &quot;localeDisplayNames&quot;, &quot;layout&quot;, &quot;characters&quot;, &quot;delimiters&quot;, 
+  &quot;measurement&quot;, &quot;dates&quot;, &quot;numbers&quot;, &quot;collations&quot;, &quot;posix&quot;, &quot;version&quot;, &quot;generation&quot;, &quot;language&quot;, 
+  &quot;script&quot;, &quot;territory&quot;, &quot;variant&quot;, &quot;languages&quot;, &quot;scripts&quot;, &quot;territories&quot;, &quot;variants&quot;, &quot;keys&quot;, 
+  &quot;types&quot;, &quot;key&quot;, &quot;type&quot;, &quot;orientation&quot;, &quot;exemplarCharacters&quot;, &quot;mapping&quot;, &quot;cp&quot;, &quot;quotationStart&quot;, &quot;quotationEnd&quot;, 
+  &quot;alternateQuotationStart&quot;, &quot;alternateQuotationEnd&quot;, &quot;measurementSystem&quot;, &quot;paperSize&quot;, &quot;height&quot;, 
+  &quot;width&quot;, &quot;localizedPatternChars&quot;, &quot;calendars&quot;, &quot;timeZoneNames&quot;, &quot;months&quot;, &quot;monthNames&quot;, &quot;monthAbbr&quot;, 
+  &quot;days&quot;, &quot;dayNames&quot;, &quot;dayAbbr&quot;, &quot;week&quot;, &quot;am&quot;, &quot;pm&quot;, &quot;eras&quot;, &quot;dateFormats&quot;, &quot;timeFormats&quot;, &quot;dateTimeFormats&quot;, 
+  &quot;fields&quot;, &quot;month&quot;, &quot;day&quot;, &quot;minDays&quot;, &quot;firstDay&quot;, &quot;weekendStart&quot;, &quot;weekendEnd&quot;, &quot;eraNames&quot;, &quot;eraAbbr&quot;, 
+  &quot;era&quot;, &quot;pattern&quot;, &quot;displayName&quot;, &quot;hourFormat&quot;, &quot;hoursFormat&quot;, &quot;gmtFormat&quot;, &quot;regionFormat&quot;, &quot;fallbackFormat&quot;, 
+  &quot;abbreviationFallback&quot;, &quot;preferenceOrdering&quot;, &quot;default&quot;, &quot;calendar&quot;, &quot;monthContext&quot;, &quot;monthWidth&quot;, 
+  &quot;dayContext&quot;, &quot;dayWidth&quot;, &quot;dateFormatLength&quot;, &quot;dateFormat&quot;, &quot;timeFormatLength&quot;, &quot;timeFormat&quot;, &quot;dateTimeFormatLength&quot;, 
+  &quot;dateTimeFormat&quot;, &quot;zone&quot;, &quot;long&quot;, &quot;short&quot;, &quot;exemplarCity&quot;, &quot;generic&quot;, &quot;standard&quot;, &quot;daylight&quot;, 
+  &quot;field&quot;, &quot;relative&quot;, &quot;symbols&quot;, &quot;decimalFormats&quot;, &quot;scientificFormats&quot;, &quot;percentFormats&quot;, &quot;currencyFormats&quot;, 
+  &quot;currencies&quot;, &quot;decimalFormatLength&quot;, &quot;decimalFormat&quot;, &quot;scientificFormatLength&quot;, &quot;scientificFormat&quot;, 
+  &quot;percentFormatLength&quot;, &quot;percentFormat&quot;, &quot;currencyFormatLength&quot;, &quot;currencyFormat&quot;, &quot;currency&quot;, 
+  &quot;symbol&quot;, &quot;decimal&quot;, &quot;group&quot;, &quot;list&quot;, &quot;percentSign&quot;, &quot;nativeZeroDigit&quot;, &quot;patternDigit&quot;, &quot;plusSign&quot;, 
+  &quot;minusSign&quot;, &quot;exponential&quot;, &quot;perMille&quot;, &quot;infinity&quot;, &quot;nan&quot;, &quot;collation&quot;, &quot;messages&quot;, &quot;special&quot;, &quot;yesstr&quot;, 
+  &quot;nostr&quot;, &quot;yesexpr&quot;, &quot;noexpr&quot;</p>
+</blockquote>
+<h3>Attribute Order Table</h3>
+<blockquote>
+  <p>&nbsp;&quot;type&quot;, &quot;key&quot;, <br>
+  &quot;source&quot;, &quot;path&quot;,<br>
+  &quot;day&quot;,<br>
+  &quot;date&quot;,<br>
+  &quot;version&quot;, &quot;registry&quot;,<br>
+  &quot;count&quot;,<br>
+  &quot;lines&quot;, &quot;characters&quot;,<br>
+  &quot;before&quot;,<br>
+  &quot;number&quot;, &quot;time&quot;,<br>
+  &quot;references&quot;, &quot;standard&quot;,<br>
+  &quot;validSubLocales&quot;,<br>
+  &quot;alt&quot;,<br>
+  &quot;draft&quot;</p>
+</blockquote>
+<h3>Value Order Table</h3>
+<blockquote>
+  <p><b>lengths: </b>&quot;full&quot;, &quot;long&quot;, &quot;medium&quot;, &quot;short&quot;,<b><br>
+  widths: </b>&quot;wide&quot;, &quot;abbreviated&quot;, &quot;narrow&quot;, <br>
+  <b>days: </b>&quot;sun&quot;, &quot;mon&quot;, &quot;tue&quot;, &quot;wed&quot;, &quot;thu&quot;, &quot;fri&quot;, &quot;sat&quot;<br>
+  <b>fields: </b>&quot;era&quot;, &quot;year&quot;, &quot;month&quot;, &quot;week&quot;, &quot;day&quot;, &quot;weekday&quot;, &quot;dayperiod&quot;, &quot;hour&quot;, &quot;minute&quot;, 
+  &quot;second&quot;, &quot;zone&quot;<b><br>
+  </b><br>
+&nbsp;</p>
+  <p>&nbsp;</p>
+</blockquote>
+
+</body>
+
+</html>

@@ -1,9 +1,22 @@
 #currency	|	code	|	name	|	country-code	|	country-name	|	status
 # status as of 2005-01-26, from http://www.iso.org/iso/en/prods-services/popstds/currencycodeslist.html
-# = C for current
+# = C for current (normal)
+# = F for current (fund)
 # = I for intermediate (introduced and obsoleted after ISO 4217:2001(E/F))
 # = O for obsolete in 2001 (Table A.3 of ISO 4217:2001(E/F))
 # = X for non-ISO in 2001 (Table A.3 of ISO 4217:2001(E/F), with *)
+currency	|	XAG	|	Silver	|	ZZ	|	(no country)	|	C
+currency	|	XAU	|	Gold	|	ZZ	|	(no country)	|	C
+currency	|	XBA	|	Bond Markets Units European Composite Unit (EURCO)	|	ZZ	|	(no country)	|	C
+currency	|	XBB	|	European Monetary Unit (E.M.U.-6) 	|	ZZ	|	(no country)	|	C
+currency	|	XBC	|	European Unit of Account 9(E.U.A.-9)	|	ZZ	|	(no country)	|	C
+currency	|	XBD	|	European Unit of Account 17(E.U.A.-17)	|	ZZ	|	(no country)	|	C
+currency	|	XFO	|	Gold-Franc	|	ZZ	|	(no country)	|	C
+currency	|	XFU	|	UIC-Franc	|	ZZ	|	(no country)	|	C
+currency	|	XPD	|	Palladium	|	ZZ	|	(no country)	|	C
+currency	|	XPT	|	Platinum	|	ZZ	|	(no country)	|	C
+currency	|	XTS	|	Codes specifically reserved for testing purposes	|	ZZ	|	(no country)	|	C
+currency	|	XXX	|	The codes assigned for transactions where no currency is involved	|	ZZ	|	(no country)	|	C
 currency	|	AFN	|	Afghani	|	AF	|	AFGHANISTAN	|	C
 currency	|	ALL	|	Lek	|	AL	|	ALBANIA	|	C
 currency	|	DZD	|	Algerian Dinar	|	DZ	|	ALGERIA	|	C
@@ -11,7 +24,7 @@ currency	|	USD	|	US Dollar	|	AS	|	AMERICAN SAMOA	|	C
 currency	|	EUR	|	Euro	|	AD	|	ANDORRA	|	C
 currency	|	AOA	|	Kwanza	|	AO	|	ANGOLA	|	C
 currency	|	XCD	|	East Caribbean Dollar	|	AI	|	ANGUILLA	|	C
-currency	|	--	|	No universal currency	|	AQ	|	ANTARCTICA	|	C
+currency	|	XXX	|	No universal currency	|	AQ	|	ANTARCTICA	|	C
 currency	|	XCD	|	East Caribbean Dollar	|	AG	|	ANTIGUA AND BARBUDA	|	C
 currency	|	ARS	|	Argentine Peso	|	AR	|	ARGENTINA	|	C
 currency	|	AMD	|	Armenian Dram	|	AM	|	ARMENIA	|	C
@@ -48,13 +61,11 @@ currency	|	CVE	|	Cape Verde Escudo	|	CV	|	CAPE VERDE	|	C
 currency	|	KYD	|	Cayman Islands Dollar	|	KY	|	CAYMAN ISLANDS	|	C
 currency	|	XAF	|	CFA Franc BEAC ‡	|	CF	|	CENTRAL AFRICAN REPUBLIC	|	C
 currency	|	XAF	|	CFA Franc BEAC ‡	|	TD	|	CHAD	|	C
-currency	|	CLF	|	Unidades de formento	|	CL	|	CHILE	|	C
 currency	|	CLP	|	Chilean Peso	|	CL	|	CHILE	|	C
 currency	|	CNY	|	Yuan Renminbi	|	CN	|	CHINA	|	C
 currency	|	AUD	|	Australian Dollar	|	CX	|	CHRISTMAS ISLAND	|	C
 currency	|	AUD	|	Australian Dollar	|	CC	|	COCOS (KEELING) ISLANDS	|	C
 currency	|	COP	|	Colombian Peso	|	CO	|	COLOMBIA	|	C
-currency	|	COU	|	Unidad de Valor Real	|	CO	|	COLOMBIA	|	C
 currency	|	KMF	|	Comoro Franc	|	KM	|	COMOROS	|	C
 currency	|	XAF	|	CFA Franc BEAC ‡	|	CG	|	CONGO	|	C
 currency	|	CDF	|	Franc Congolais	|	CD	|	CONGO, THE DEMOCRATIC REPUBLIC OF	|	C
@@ -152,7 +163,6 @@ currency	|	MRO	|	Ouguiya	|	MR	|	MAURITANIA	|	C
 currency	|	MUR	|	Mauritius Rupee	|	MU	|	MAURITIUS	|	C
 currency	|	EUR	|	Euro	|	YT	|	MAYOTTE	|	C
 currency	|	MXN	|	Mexican Peso	|	MX	|	MEXICO	|	C
-currency	|	MXV	|	Mexican Unidad de Inversion (UID)	|	MX	|	MEXICO	|	C
 currency	|	USD	|	US Dollar	|	FM	|	MICRONESIA (FEDERATED STATES OF)	|	C
 currency	|	MDL	|	Moldovan Leu	|	MD	|	MOLDOVA, REPUBLIC OF	|	C
 currency	|	EUR	|	Euro	|	MC	|	MONACO	|	C
@@ -221,9 +231,7 @@ currency	|	SRD	|	Surinam Dollar	|	SR	|	SURINAME	|	C
 currency	|	NOK	|	Norwegian Krone	|	SJ	|	SVALBARD AND JAN MAYEN	|	C
 currency	|	SZL	|	Lilangeni	|	SZ	|	SWAZILAND	|	C
 currency	|	SEK	|	Swedish Krona	|	SE	|	SWEDEN	|	C
-currency	|	CHE	|	WIR Euro	|	CH	|	SWITZERLAND	|	C
 currency	|	CHF	|	Swiss Franc	|	CH	|	SWITZERLAND	|	C
-currency	|	CHW	|	WIR Franc	|	CH	|	SWITZERLAND	|	C
 currency	|	SYP	|	Syrian Pound	|	SY	|	SYRIAN ARAB REPUBLIC	|	C
 currency	|	TWD	|	New Taiwan Dollar	|	TW	|	TAIWAN, PROVINCE OF CHINA	|	C
 currency	|	TJS	|	Somoni	|	TJ	|	TAJIKISTAN	|	C
@@ -235,7 +243,6 @@ currency	|	NZD	|	New Zealand Dollar	|	TK	|	TOKELAU	|	C
 currency	|	TOP	|	Pa'anga	|	TO	|	TONGA	|	C
 currency	|	TTD	|	Trinidad and Tobago Dollar	|	TT	|	TRINIDAD AND TOBAGO	|	C
 currency	|	TND	|	Tunisian Dinar	|	TN	|	TUNISIA	|	C
-currency	|	TRL	|	old Turkish Lira	|	TR	|	TURKEY	|	C
 currency	|	TRY	|	new Turkish Lira	|	TR	|	TURKEY	|	C
 currency	|	TMM	|	Manat	|	TM	|	TURKMENISTAN	|	C
 currency	|	USD	|	US Dollar	|	TC	|	TURKS AND CAICOS ISLANDS	|	C
@@ -245,8 +252,6 @@ currency	|	UAH	|	Hryvnia	|	UA	|	UKRAINE	|	C
 currency	|	AED	|	UAE Dirham	|	AE	|	UNITED ARAB EMIRATES	|	C
 currency	|	GBP	|	Pound Sterling	|	GB	|	UNITED KINGDOM	|	C
 currency	|	USD	|	US Dollar	|	US	|	UNITED STATES	|	C
-currency	|	USN	|	(Next day)	|	US	|	UNITED STATES	|	C
-currency	|	USS	|	(Same day)	|	US	|	UNITED STATES	|	C
 currency	|	USD	|	US Dollar	|	UM	|	UNITED STATES MINOR OUTLYING ISLANDS	|	C
 currency	|	UYU	|	Peso Uruguayo	|	UY	|	URUGUAY	|	C
 currency	|	UZS	|	Uzbekistan Sum	|	UZ	|	UZBEKISTAN	|	C
@@ -260,23 +265,19 @@ currency	|	MAD	|	Moroccan Dirham	|	EH	|	WESTERN SAHARA	|	C
 currency	|	YER	|	Yemeni Rial	|	YE	|	YEMEN	|	C
 currency	|	ZMK	|	Kwacha	|	ZM	|	ZAMBIA	|	C
 currency	|	ZWD	|	Zimbabwe Dollar	|	ZW	|	ZIMBABWE	|	C
-currency	|	XAG	|	Silver	|	ZZ	|	? - no country	|	C
-currency	|	XAU	|	Gold	|	ZZ	|	? - no country	|	C
-currency	|	XBA	|	Bond Markets Units European Composite Unit (EURCO)	|	ZZ	|	? - no country	|	C
-currency	|	XBB	|	European Monetary Unit (E.M.U.-6) 	|	ZZ	|	? - no country	|	C
-currency	|	XBC	|	European Unit of Account 9(E.U.A.-9)	|	ZZ	|	? - no country	|	C
-currency	|	XBD	|	European Unit of Account 17(E.U.A.-17)	|	ZZ	|	? - no country	|	C
-currency	|	XFO	|	Gold-Franc	|	ZZ	|	? - no country	|	C
-currency	|	XFU	|	UIC-Franc	|	ZZ	|	? - no country	|	C
-currency	|	XPD	|	Palladium	|	ZZ	|	? - no country	|	C
-currency	|	XPT	|	Platinum	|	ZZ	|	? - no country	|	C
-currency	|	XTS	|	Codes specifically reserved for testing purposes	|	ZZ	|	? - no country	|	C
-currency	|	XXX	|	The codes assigned for transactions where no currency is involved	|	ZZ	|	? - no country	|	C
+currency	|	CLF	|	Unidades de formento	|	CL	|	CHILE	|	F
+currency	|	COU	|	Unidad de Valor Real	|	CO	|	COLOMBIA	|	F
+currency	|	MXV	|	Mexican Unidad de Inversion (UID)	|	MX	|	MEXICO	|	F
+currency	|	CHE	|	WIR Euro	|	CH	|	SWITZERLAND	|	F
+currency	|	CHW	|	WIR Franc	|	CH	|	SWITZERLAND	|	F
+currency	|	TRL	|	old Turkish Lira	|	TR	|	TURKEY	|	F
+currency	|	USN	|	(Next day)	|	US	|	UNITED STATES	|	F
+currency	|	USS	|	(Same day)	|	US	|	UNITED STATES	|	F
 currency	|	BYB	|	Belarus Ruble	|	BY	|	BELARUS	|	I
 currency	|	ECS	|	Sucre	|	EC	|	ECUADOR	|	I
 currency	|	MAF	|	Mali Franc	|	ML	|	MALI	|	I
 currency	|	TJR	|	Tajik Ruble	|	TJ	|	TAJIKISTAN	|	I
-currency	|	XRE	|	RINET Funds Code	|	--	|	? - no country	|	O
+currency	|	XRE	|	RINET Funds Code	|	ZZ	|	(no country)	|	O
 currency	|	AFA	|	Afghani	|	AF	|	AFGHANISTAN	|	O
 currency	|	ADP	|	Andorran Peseta	|	AD	|	ANDORRA	|	O
 currency	|	AOK	|	Kwanza	|	AO	|	ANGOLA	|	O
@@ -303,7 +304,7 @@ currency	|	TPE	|	Timor Escudo	|	TP	|	EAST TIMOR	|	O
 currency	|	ECV	|	Ecuadoran Constant Value Unit	|	EC	|	ECUADOR	|	O
 currency	|	EQE	|	Ekwele	|	GQ	|	EQUATORIAL GUINEA	|	O
 currency	|	GQE	|	Ekwele	|	GQ	|	EQUATORIAL GUINEA	|	O
-currency	|	XEU	|	European Currency Unit (E.C.U)	|	--	|	EUROPEAN MONETARY CO-OPERATION FUND (EMCF)	|	O
+currency	|	XEU	|	European Currency Unit (E.C.U)	|	ZZ	|	EUROPEAN MONETARY CO-OPERATION FUND (EMCF)	|	O
 currency	|	FIM	|	Markka	|	FI	|	FINLAND	|	O
 currency	|	FRF	|	French Franc	|	FR	|	FRANCE	|	O
 currency	|	GEK	|	Georgian Coupon	|	GE	|	GEORGIA	|	O

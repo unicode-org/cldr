@@ -1,0 +1,81 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Chinese Ordering</title>
+<style>
+<!--
+body         { background-color: #FFFFFF; font-family: serif }
+.sans        { font-family: sans-serif }
+-->
+</style>
+</head>
+
+<body>
+
+<h1>Proposed CLDR 1.1 changes for Chinese sorting</h1>
+<p>The following are recommended changes to the Chinese collators.</p>
+<p>Here is the list of collators that are currently in CLDR 1.0. The names are a bit different (see #1 below), but there are 4 different distinct orderings for Chinese.</p>
+<ul>
+  <li><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/diff/collation/zh_CN.html">zh</a> (= zh = zh_CN = zh_SG)</li>
+  <li><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/diff/collation/zh_HK.html">zh_Hant</a> (= zh_HK,&nbsp; zh_MO = zh_TW)</li>
+  <li><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/diff/collation/zh_TW_STROKE.html">zh_Hant@collation=stroke</a> (= zh_TW_STROKE)</li>
+  <li><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/diff/collation/zh__PINYIN.html">zh@collation=pinyin</a> (= zh__PINYIN)
+    <p>The <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/diff/collation/zh_TW_STROKE.html">zh_Hant@collation=stroke</a> and <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/diff/collation/zh__PINYIN.html">zh@collation=pinyin</a> 
+    are based on data supplied some time ago from Lotus</li>
+</ul>
+<p>1. Add aliases so that:</p>
+<ul>
+  <li>zh_TW, zh_HK,&nbsp; zh_MO (and any subsequent variants of these) are all aliases for zh_Hant_TW, zh_Hant_HK, zh_Hant_MO, so traditional resources will go into zh_Hant.</li>
+  <li>zh_CN, zh_SG (and any subsequent variants of these) are all aliases for zh_Hans_CN, zh_Hans_SG. Simplified resources will continue to go into zh.</li>
+  <li>(This is not just restricted to sorting, but is most important for that.)</li>
+</ul>
+<p>2. Fix the Latin Pinyin ordering in all of the Chinese collators (including the new ones below) according to GB/T 13418-92, Section 5.1.1 Chinese Pinyin Collation Rules: (<a href="http://www.moe.edu.cn/moe-dept/yuxin/content/gfbz/scanning/gfhbz/gfbz18.htm">http://www.moe.edu.cn/moe-dept/yuxin/content/gfbz/scanning/gfhbz/gfbz18.htm</a>)</p>
+<table border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <td>CLDR 1.0</td>
+    <td>Proposed CLDR 1.1</td>
+  </tr>
+  <tr>
+    <td class="sans"><span title="0304 {COMBINING MACRON} ">&amp;&nbsp;̄</span><br>
+      <span title="0301 {COMBINING ACUTE ACCENT} ">&nbsp;&nbsp;&lt;&lt;&nbsp;́</span><br>
+      <span title="030C {COMBINING CARON} ">&nbsp;&nbsp;&lt;&lt;&nbsp;̌</span><br>
+      <span title="0300 {COMBINING GRAVE ACCENT} ">&nbsp;&nbsp;&lt;&lt;&nbsp;̀</span><br>
+      <span title="0308 {COMBINING DIAERESIS} ">&nbsp;&nbsp;&lt;&lt;&nbsp;̈</span></td>
+    <td class="sans">&amp;[before 2] a &lt;&lt; ā &lt;&lt;&lt; Ā &lt;&lt; á &lt;&lt;&lt; Á &lt;&lt; ǎ &lt;&lt;&lt; Ǎ &lt;&lt; à &lt;&lt;&lt; À<br>
+      &amp;[before 2] e &lt;&lt; ē &lt;&lt;&lt; Ē &lt;&lt; é &lt;&lt;&lt; É &lt;&lt; ě &lt;&lt;&lt; Ě &lt;&lt; è &lt;&lt;&lt; È<br>
+      &amp;[before 2] i &lt;&lt; ī &lt;&lt;&lt; Ī &lt;&lt; í &lt;&lt;&lt; Í &lt;&lt; ǐ &lt;&lt;&lt; Ǐ &lt;&lt; ì &lt;&lt;&lt; Ì<br>
+      &amp;[before 2] o &lt;&lt; ō &lt;&lt;&lt; Ō &lt;&lt; ó &lt;&lt;&lt; Ó &lt;&lt; ǒ &lt;&lt;&lt; Ǒ &lt;&lt; ò &lt;&lt;&lt; Ò<br>
+      &amp;[before 2] u &lt;&lt; ū &lt;&lt;&lt; Ū &lt;&lt; ú &lt;&lt;&lt; Ú &lt;&lt; ǔ &lt;&lt;&lt; Ǔ &lt;&lt; ù &lt;&lt;&lt; Ù<br>
+      &amp; U &lt;&lt; ǖ &lt;&lt;&lt; Ǖ &lt;&lt; ǘ &lt;&lt;&lt; Ǘ &lt;&lt; ǚ &lt;&lt;&lt; Ǚ &lt;&lt; ǜ &lt;&lt;&lt; Ǜ &lt;&lt; ü</td>
+  </tr>
+</table>
+<p><i>Notes:</i></p>
+<ul>
+  <li><i>in other words, sort vowels in the following order: (macron, acute, caron, grave, plain).</i></li>
+  <li><i>in particular, note that <b>ü</b> is not treated as a primary difference from <b>u</b>. We want to make sure this is verified.</i></li>
+  <li><i>(it is unfortunate that they chose to sort the accented letters before the unaccented ones; that is slightly less efficient.)</i></li>
+  <li><i>remember that the syntax:<br>
+    </i><b><font face="sans-serif"><font color="#FF0000">&amp;[before 2] i &lt;&lt;</font> ī &lt;&lt;&lt; Ī &lt;&lt; í &lt;&lt;&lt; Í &lt;&lt; ǐ &lt;&lt;&lt; Ǐ &lt;&lt; ì 
+    &lt;&lt;&lt; Ì</font></b><br>
+    <i>will result in the ordering:<br>
+    </i><b><font face="sans-serif">ī &lt;&lt;&lt; Ī &lt;&lt; í &lt;&lt;&lt; Í &lt;&lt; ǐ &lt;&lt;&lt; Ǐ &lt;&lt; ì &lt;&lt;&lt; Ì <font color="#FF0000">&lt;&lt; i</font></font></b></li>
+</ul>
+<p>3. The zh and zh_Hant use legacy code point order for Han characters (GB 2312 and Big5 respectively); no change to that planned. The <a href="mailto:zh_Hant@collation=stroke">zh_Hant@collation=stroke</a> 
+will also be left alone.</p>
+<p>4. A new <a href="mailto:zh@collation=stroke">zh@collation=stroke</a> will be introduced based on GF 3003 - 1999 GB13000.1 Character set Hanzi Stroke Order. (<a href="http://www.moe.edu.cn/moe-dept/yuxin/content/gfbz/scanning/zfjhzzx/gfbz30.htm">http://www.moe.edu.cn/moe-dept/yuxin/content/gfbz/scanning/zfjhzzx/gfbz30.htm</a>)</p>
+<p>5. <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/diff/collation/zh__PINYIN.html">zh@collation=pinyin</a> will be regenerated in the following way.</p>
+<ol>
+  <li>Produce a mapping from Han characters to pinyin. It is based on the first (highest frequency) value in the Unihan kHanyuPinlu field; if unavailable there, on the first 
+    (highest frequency) value in the Unihan kMandarin field. There may be overrides if the IBM Shanghai office believes there are errors. If so, a separate file of overrides will 
+    be produced and available for review.</li>
+  <li>The Han characters will be sorted on the basis of the pinyin mapping (according to the sorting rules in #2 above); characters that have the same pinyin mapping will be sorted 
+    on the basis of GF 3003 order (see #4 above).</li>
+</ol>
+<p>6. Note: we will be using the same pinyin file to update the ICU pinyin transliterator.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Minimal Locale Requirements</title>
+<style>
+<!--
+body         { font-family: serif; background-color: #FFFFFF }
+-->
+</style>
+</head>
+
+<body>
+
+<h1>Minimal Locale Requirements</h1>
+<p>We need to have a mechanism for indicating that the most important locale data in an ldml element is at a satisfactory level, and some criteria for determining that. Only items
+#1 and #2, plus the yes/noExpr are for the LDML/CLDR 1.1 release. The rest could follow later.</p>
+<p>1. Right now we can indicate that individual pieces of data are draft, but not the status of the whole. We propose adding to the DTD the following:</p>
+<p>&lt;!ATTLIST ldml draft ( true | false ) #IMPLIED &gt;</p>
+<p>2. In the normal course of events, we would expect data for new locales to be draft (and perhaps incomplete) at first, then once sufficiently vetted, the draft=true can be taken
+off the top level.</p>
+<blockquote>
+  <p>We should generate a template that has every possible item in it, with every item marked draft and aliasing to root. Localizers can then take and modify this, removing the
+  aliases once the data has been validated; either replacing them with real data, or having it inherit from the parent.</p>
+</blockquote>
+<p>3. The following is a proposed list of minimal data that we would expect to have in non-draft form for a locale X before we took draft off of &lt;ldml...&gt;. Of course, we
+would encourage more; this is just the minimum level. The goal is to role this into <a href="http://www.unicode.org/cldr/data_formats.html">http://www.unicode.org/cldr/data_formats.html</a>.</p>
+<ul>
+  <li>identity</li>
+  <li>localeDisplayNames
+    <ul>
+      <li>languages: localized names for X + English, German, French, Italian, Portuguese, Spanish, Russian, Chinese, Japanese, Korean</li>
+      <li>scripts: localized names for none, unless the language for X is customarily written in more than one script; in which case, those script names.</li>
+      <li>territories: localized names for G6 + BRIC (United States, United Kingdom, Germany, France, Italian, Japanese; China, India, Russia, Brazil), plus X if X is a territory
+        locale</li>
+      <li>variants, keys, types: localized names for those in use in locale; e.g. translation for PHONEBOOK in a German locale.</li>
+    </ul>
+  </li>
+  <li>layout, orientation</li>
+  <li>exemplarCharacters</li>
+  <li>measurementSystem, paperSize</li>
+  <li>dates
+    <ul>
+      <li>All of the following for Gregorian, plus whatever is needed for another calendar <b><i>if</i></b> there is another calendar in common use in X.</li>
+      <li>calendars: localized names for none, unless more than one calendar is in common use</li>
+      <li>monthNames &amp; dayNames
+        <ul>
+          <li>context=format + width=narrow, wide, &amp; abbreviated</li>
+          <li>plus context=format+width=narrow, wide, &amp; abbreviated, if required in X</li>
+        </ul>
+      </li>
+      <li>week: minDays, firstDay, weekendStart, weekendEnd (only req. for territory locales)</li>
+      <li>am/pm/eraNames/eraAbbr</li>
+      <li>dateFormat, timeFormat: full, long, medium, short</li>
+    </ul>
+  </li>
+  <li>timeZoneNames: localized names for &quot;GMT&quot;, plus if country has multiple time zones as defined by Olson, then those time zone names. For each, that includes:
+    <ul>
+      <li>generic (long, short), standard (long, short), daylight (long, short)</li>
+      <li>exemplarCity</li>
+    </ul>
+  </li>
+  <li>numbers: symbols, decimalFormats, scientificFormats, percentFormats, currencyFormats</li>
+  <li>currencies: localized names for G6 currencies (USD, JPY, EUR, GBP), plus the currency for X if X is a territory locale</li>
+  <li>collation</li>
+  <li>yesExpr, noExpr
+    <ul>
+      <li>This is the one piece of information we can't generate in the POSIX locale from the CLDR and UCD, so we should consider moving these from the POSIX DTD to the regular
+        one. See <a href="http://www.opengroup.org/onlinepubs/007904975/basedefs/xbd_chap07.html">http://www.opengroup.org/onlinepubs/007904975/basedefs/xbd_chap07.html</a> </li>
+    </ul>
+  </li>
+</ul>
+<p><b>Notes:</b></p>
+<ol>
+  <li>The data may be absent (e.g. inherited from the parent) <b><i>if</i></b> such inheritance would result in correct data.</li>
+  <li>Even if X is a territory locale, most of the data will go into the language locale that X is a descendent of. Thus if X were Spanish Guyana, then the localized name for X and
+    X's currency would go into the Spanish locale (unless they differ from 'standard' Spanish).</li>
+</ol>
+
+</body>
+
+</html>

@@ -186,11 +186,11 @@ For example, most country locales will inherit the bulk of their data from the l
                 <dateFormatLength type="medium">
                      <default type="DateFormatsKey2"/>
                      <dateFormat type="DateFormatsKey2">
-                        <!--  Optional special element for platform/application specific overheads. Paser can
-                              choose to ignore if required  -->
-                          <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
                           <pattern>MM d, yyyy </pattern>
                           <displayName>DIN 5008 (EN 28601)</displayName>
+                          <!--  Optional special element for platform/application specific overheads. Paser can
+                              choose to ignore if required . Special elements should always be the last children of the parent.-->
+                          <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
                      </dateFormat>
                      <dateFormat type="DateFormatsKey3">
                           <pattern>MMM dd, yyyy</pattern>
@@ -198,11 +198,11 @@ For example, most country locales will inherit the bulk of their data from the l
                 </dateFormatLength>
                 <dateFormatLength type="full">
                     <dateFormat type="DateFormatsKey2">
-                          <!--  Optional special element for platform/application specific overheads. Paser can
-                              choose to ignore if required  -->
-                          <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
                           <pattern>EEEE, MMMM d, yyyy</pattern>
                           <displayName>DIN 5008 (EN 28601)</displayName>
+                          <!--  Optional special element for platform/application specific overheads. Paser can
+                              choose to ignore if required. Special elements should always be the last children of the parent. -->
+                          <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
                      </dateFormat>
                 </dateFormatLength>
               </dateFormats>
@@ -210,11 +210,11 @@ For example, most country locales will inherit the bulk of their data from the l
                   <default type="medium"/>
                   <timeFormatLength type="full">
                       <timeFormat >
-                          <!--  Optional special element for platform/application specific overheads. Paser can
-                              choose to ignore if required  -->
-                          <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
                           <pattern>h:mm:ss a z</pattern>
                           <displayName>DIN 5008 (EN 28601)</displayName>
+                           <!--  Optional special element for platform/application specific overheads. Paser can
+                              choose to ignore if required  -->
+                          <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
                       </timeFormat>
                  </timeFormatLength>
                  <timeFormatLength type="medium">
@@ -379,7 +379,6 @@ For example, most country locales will inherit the bulk of their data from the l
             French accent ordering can be specified with the accentOrder="reverse" attribute.
             The displayName attribute supplies a message pattern for getDisplayName.
             -->
-            <special owner="http://oss.software.ibm.com/icu/" version="1.2" />
 
             <uca version="3.1.1"/>
             <settings caseLevel="on"/>
@@ -417,6 +416,7 @@ For example, most country locales will inherit the bulk of their data from the l
                 <t>?<context>?</context></t>
                 <p>?<context>?</context></p>
             </rules>
+            <special owner="http://oss.software.ibm.com/icu/" version="1.2" />
             <special owner="http://www.openoffice.org">
                 <default type="alphanumeric"/>
                 <collator type="alphanumeric" />

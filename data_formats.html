@@ -1,10 +1,12 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
 <head>
 <meta http-equiv="Content-Language" content="en-us">
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Style-Type" content="text/css">
 <title>Localizer</title>
 </head>
 
@@ -31,7 +33,7 @@ format.</p>
   there are quite a few other complications involved. For more information, see <a href="http://www.unicode.org/reports/tr10/#Introduction">UTS
   #10: Unicode Collation Algorithm</a> (UCA).</p>
   <p>For readability, the rules are presented here in Java/ICU rule format,
-  rather than XML. The rules are gathered programmatically; dathering the data
+  rather than XML. The rules are gathered programmatically; gathering the data
   for the rules is complicated by a number of factors, including:</p>
   <ul>
     <li>Different data sources use a different &quot;base&quot; for tailoring
@@ -42,24 +44,23 @@ format.</p>
     <li>Sometimes characters out of the repertoire are simply ignored, thus
       having a<font size="3">&#380; &lt; ab, since &#380; (z with over-dot) is
       ignored.</font></li>
-    <li><font size="3">Sometimes orderings will not abide by the UCA well-formedness
-      critera, so there may be cases where for characters X and Y, X &lt; Y, XY
-      and YX are not contractions, but XY = YX.</font></li>
+    <li><font size="3">Sometimes orderings will not abide by the UCA
+      well-formedness criteria, so there may be cases where for characters X and
+      Y, X &lt; Y, XY and YX are not contractions, but XY = YX.</font></li>
   </ul>
   <p>At the moment there are a number of known problems with the gathering
   mechanism that may result in spurious rules. For more information, see <a href="http://www.openi18n.org/locale-bugs/public?findid=18">known
   errors and omissions</a>.</p>
 </blockquote>
-<h2>Regions, Languages, Scripts, Currency Names</h2>
+<h2>Display Names for Languages, Scripts, Territories, Currencies, Time Zones</h2>
 <blockquote>
   <p>These items are perhaps the simplest to translate. The typically behavior
   if any particular one is not available is to display the corresponding ISO
-  code (or RFC 3066 code). Thus if there is no localization of FR (France), then
+  code (or RFC 3166 code). Thus if there is no localization of FR (France), then
   the string &quot;FR&quot; will appear.</p>
   <p>For a list of the kinds of IDs that can be localized, see the <a href="all_diff_xml/en_US.html">English-US
-  locale data</a>, which has most regions, languages, scripts and currency names
-  translated. For the possible timezone IDs that can be translated, see <a href="olson_ids.txt">Olson
-  IDs</a>.</p>
+  locale data</a>, which has all territories, languages, scripts and currency
+  names that can be translated.</p>
   <p>Because these lists are long, it may be more difficult to collect all the
   data at once. If that is the case, we suggest first providing translations of
   at least the elements that are most familiar to people with the target
@@ -72,44 +73,138 @@ format.</p>
     <li>Countries adjacent to the countries in #1</li>
   </ol>
 </blockquote>
+<h3>Languages</h3>
+<blockquote>
+  The language codes are based on <a href="http://lcweb.loc.gov/standards/iso639-2/">ISO-639</a>.
+  The translations for the names of the other languages in the current given
+  language should be cased according to how the language name would appear in
+  the middle of a sentence. If the user of this data is going to use the name at
+  the beginning of a sentence, the developer (not the translator) will title
+  case the word. For example, English will translate fr to be
+  &quot;French&quot;, but Spanish will translate fr to be &quot;francés&quot;.
+</blockquote>
+<h3>Scripts</h3>
+<blockquote>
+  The script codes are based on <a href="http://www.evertype.com/standards/iso15924/">ISO-15924</a>.
+  A script is the set of characters used to display a language. For example,
+  English is written with the Latin script, and the ISO-15924 code for Latin is
+  &quot;Latn&quot;.
+</blockquote>
+<blockquote>
+  Some language can be written in more than one script. For example, the Serbian
+  language can be written in the Latin or Cyrillic scripts, and Uzbek can be
+  written with Cyrillic, Latin or Arabic scripts.
+</blockquote>
+<h3>Territories</h3>
+<blockquote>
+  The region codes are based on <a href="http://www.iso.org/iso/en/prods-services/iso3166ma/">ISO-3166</a>.
+  These region codes include countries, territories and some other places of
+  interest around the world.
+</blockquote>
+<h3>Currencies</h3>
+<blockquote>
+  The currency codes are based on <a href="http://www.bsi-global.com/Technical+Information/Publications/_Publications/tig90.xalter">ISO-4217</a>.
+  A similar list can be found <a href="http://www.bsi-global.com/Portfolio+of+Products+and+Services/Books+Guides/Consumer/th42090.xalter">here</a>.
+  There are two things can be translated here. One part is the display currency
+  symbol (e.g. the $ for the US dollar), and the other part is the display name
+  (e.g. the &quot;US Dollar&quot; for $). The ISO-4217 code is used as the key
+  for these translations.
+</blockquote>
+<h3>Time Zones</h3>
+<blockquote>
+  <p>A time zone uses the Olson IDs, such as America/Los Angeles. These IDs
+  provide not only the information as to the offset from GMT (UTC), but also the
+  daylight savings information. Thus, for example, America/Phoenix is distinct
+  from America/Denver because they have different daylight savings time
+  behavior. There are many cases where there is no modern difference between two
+  IDs; they are only distinguished in the past. For example, America/Chicago and
+  America/Indianapolis are currently the same, but differed in the past. For the
+  possible timezone IDs that can be translated, see <a href="olson_ids.txt">Olson
+  IDs</a>.</p>
+  <p>Most countries do not span multiple time zones, and may not have localized
+  names for particular time zones. In that case, probably the best localizations
+  are something of a form like &quot;New York Time&quot;.</p>
+  <p>The fields are long and short (abbreviated) versions of:</p>
+  <ul>
+    <li>generic time zone name, e.g. <span style="COLOR: blue">Pacific Time</span></li>
+    <li>summer/daylight savings time, e.g. <span style="COLOR: blue">Pacific
+      Standard Time</span></li>
+    <li>standard time, e.g. <span style="COLOR: blue">Pacific Daylight Time</span></li>
+  </ul>
+</blockquote>
+<h2><a name="ExemplarCharacters">Exemplar Characters</a></h2>
+<blockquote>
+  The exemplar character set contains the commonly used for a given language,
+  which can be for testing and for determining the appropriate repertoire of
+  characters for charset conversion or collation. It is not a complete set of
+  characters for a language, nor should it be considered to apply to multiple
+  languages in a particular country. In general, the test to see whether or not
+  a character belongs in the set is based on whether it is acceptable in that
+  language to always use spellings that avoid that character. For example, the
+  exemplar character set for en (English) is the set [a-z]. This set does not
+  contain the accented characters that are sometimes seen in words like
+  &quot;résumé&quot; or &quot;naïve&quot;, because it is acceptable in common
+  practice to spell those words without the accents. The exemplar character set
+  for fr (French), on the other hand, must contain those characters.<br>
+  <br>
+  The exemplar character set for Han characters is composed somewhat
+  differently. It is even harder to draw a clear line for Han characters, since
+  usage is more more like a frequency curve that slowly trails off to the right.
+  So for this case, the exemplar characters simply contain a set of reasonably
+  frequent characters for the language, based on presence in character set
+  standards.
+</blockquote>
+<blockquote>
+  This set is case insensitive. This means it does not need both upper and lower
+  case characters. The ordering of these characters are irrelevant. If the sort
+  order or collation order is needed, then please refer to the <a href="#Collation">collation
+  section</a> of this guide.
+</blockquote>
 <h2><a name="NumberPatterns">Number Patterns</a></h2>
 <blockquote>
-  <p>Patterns for formatting different types of numbers. For example, here are
-  some patterns (using the US symbols) with the corresponding text.</p>
-  <table border="1">
+  <p>There are different formats for different types of numbers. For example,
+  here are some patterns (using the unlocalized symbols) with the corresponding
+  text. While the format is localized, the <i>characters to specify the format
+  pattern</i> are not localized. That is, the decimal point al</p>
+  <p>The <a href="#NumberElements">NumberElements</a> resource affects how these
+  patterns are interpreted in a localized context. Here are some examples, based
+  on the French locale. The &quot;.&quot; shows where the decimal point should
+  go. The &quot;,&quot; shows where the thousands separator should go. A
+  &quot;0&quot; indicates zero-padding: if the number is too short, a zero (in
+  the locale's numeric set) will go there. A &quot;#&quot; indicates no padding:
+  if the number is too short, nothing goes there. A &quot;¤&quot; shows where
+  the currency sign will go. The following illustrates the effects of different
+  patterns for the French locale, with the number &quot;1234.567&quot;</p>
+  <table border="1" cellspacing="0" cellpadding="4">
     <tr>
       <th width="33%">Pattern</th>
-      <th width="34%">Binary</th>
       <th width="33%">Text</th>
     </tr>
     <tr>
       <td width="33%">#,###.##</td>
-      <td width="34%">1234.567</td>
-      <td width="33%">1,234.57</td>
+      <td width="33%">1&nbsp;234,57</td>
     </tr>
     <tr>
       <td width="33%">#,###.###</td>
-      <td width="34%">1234.567</td>
-      <td width="33%">1,234.567</td>
+      <td width="33%">1&nbsp;234,567</td>
     </tr>
     <tr>
-      <td width="33%">####.###</td>
-      <td width="34%">1234.5</td>
-      <td width="33%">1234.5</td>
+      <td width="33%">####.#####</td>
+      <td width="33%">1234,567</td>
     </tr>
     <tr>
-      <td width="33%">####.00#</td>
-      <td width="34%">1234.5</td>
-      <td width="33%">1234.50</td>
+      <td width="33%">####.0000#</td>
+      <td width="33%">1234,5670</td>
     </tr>
     <tr>
-      <td width="33%">00000.000</td>
-      <td width="34%">1234.5</td>
-      <td width="33%">01234.500</td>
+      <td width="33%">00000.0000</td>
+      <td width="33%">01234,5670</td>
+    </tr>
+    <tr>
+      <td width="33%">#&nbsp;##0,00 ¤</td>
+      <td width="33%">1&nbsp;234,57 €</td>
     </tr>
   </table>
-  <p>Note that the <a href="#NumberElements">NumberElements</a> resource affects
-  how these patterns are interpreted.</p>
 </blockquote>
 <dl>
   <dt><b>decimalFormats</b>
@@ -127,12 +222,12 @@ format.</p>
 <blockquote>
   <p>Single quotes, (<b>'</b>), enclose bits of the pattern that should be
   treated literally. Inside a quoted string, two single quotes ('') are replaced
-  with a single one ('). For example: <tt><u>'X '</u>#<u>' at '</u>h<u>'
-  o''clock'</u></tt> -&gt; <b>class of 1939 at 6 o'clock</b> (Literal strings <u>underlined</u>.)</p>
+  with a single one ('). For example: <tt><u>'X '</u>#<u>' Q '</u></tt> -&gt; <b>X
+  1939 Q </b>(Literal strings <u>underlined</u>.)</p>
 </blockquote>
 <h2><a name="NumberElements">Number Elements</a></h2>
 <blockquote>
-  <p>Localized symbols used in number formatting and parsing. </p>
+  <p>Localized symbols used in number formatting and parsing.</p>
 </blockquote>
 <dl>
   <dt><b>decimal</b>
@@ -175,63 +270,56 @@ format.</p>
   <dd>- The infinity sign. Corresponds to the IEEE infinity bit pattern.
   <dt><b>nan - Not a number</b>
   <dd>- The NaN sign. Corresponds to the IEEE NaN bit pattern.</dd>
-</dl>
-<h2><a name="CurrencyElements">Currency Elements</a></h2>
-<blockquote>
-  <p>These strings are used in parsing/formatting numbers which are designated
-  as currency values.</p>
-</blockquote>
-<dl>
-  <dt><b>Currency Symbol</b>
-  <dd>This is used whenever a 'currency symbol' (\u00A4) is encountered in a
-    currency number pattern.
-  <dt><b>Int'l Currency Symbol</b>
-  <dd>Three-letter international code for a currency. Used where a doubled
-    currency symbol (\u00A4 \u00A4) is encountered in a number pattern.
-  <dt><b>Currency separator</b>
+  <dt><b>currencySeparator</b>
   <dd>This is used as the decimal separator in currency formatting/parsing,
     instead of the DecimalSeparator from the <a href="#NumberElements">NumberElements</a>
-    list.</dd>
+    list. This item is optional in the CLDR.</dd>
+  <dt><b>currencyGroup</b>
+  <dd>This is used as the grouping separator in currency formatting/parsing,
+    instead of the DecimalSeparator from the <a href="#NumberElements">NumberElements</a>
+    list. This item is optional in the CLDR.</dd>
+</dl>
+<h2><a name="DayMonth">Day &amp; Month Names</a></h2>
+<p>All of the following should have the appropriate grammatical form for
+appearing in a date format.</p>
+<dl>
+  <dt><b>monthNames</b><b> (Long Names)</b></dt>
+  <dd>These are the full month names, like &quot;September&quot;.</dd>
+  <dt><b>monthAbbr (Short Names)</b></dt>
+  <dd>These are the abbreviated month names, like &quot;Sep&quot;.</dd>
+  <dt><b>dayNames (Long Names)</b></dt>
+  <dd>These are the full Gregorian day names, like &quot;Monday&quot;</dd>
+  <dt>dayAbbr<b> (Short Names)</b></dt>
+  <dd>These are the abbreviated day names, like &quot;Mon&quot;</dd>
 </dl>
 <h2><a name="DateTimeElements">Date &amp; Time Options</a></h2>
 <dl>
-  <dt><b>First day of the week</b>
+  <dt><b>firstDay</b>
   <dd>A number indicating which day of the week is considered the 'first' day,
-    for calendar purposes. It is 1-based, with 1 being Sunday, 2 being Monday,
-    .. 7 being Saturday.
-  <dt>&nbsp;</dt>
-  <dt><b>Minimal Days in First Week</b></dt>
+    for calendar purposes. Because the ordering of days may vary between
+    calendar, keywords are used for this value, such as sun, mon,... These
+    values will be replaced by the localized name when they are actually used.
+  <dt><b>minDays (Minimal Days in First Week)</b></dt>
   <dd>Minimal days required in the first week of a month or year. For example,
-    if the first week is defined as one that contains the first day of the first
-    month of a year, this value will be 1. If it must be a full seven days
-    before it counts as the first week, then the value would be 7.</dd>
+    if the first week is defined as one that contains at least one day, this
+    value will be 1. If it must contain a full seven days before it counts as
+    the first week, then the value would be 7.</dd>
+  <dt><b>weekendStart, weekendEnd</b></dt>
+  <dd>Indicates the day and time that the weekend starts or ends. As with
+    firstDay, keywords are used instead of numbers.</dd>
 </dl>
 <h2><a name="DateTimePatterns">Date &amp; Time Patterns</a></h2>
 <blockquote>
-  <p>The first 8 items are different lengths of either date or time patterns.
-  See the <a href="#localPatternChars">localPatternChars</a> (in the locale) for
-  the meanings of special characters.</p>
-</blockquote>
-<p><b>Quoting rules</b></p>
-<blockquote>
-  <p>Single quotes, (<b>'</b>), enclose bits of the pattern that should be
-  treated literally. Inside a quoted string, two single quotes ('') are replaced
-  with a single one ('). For example: <tt><u>'class of '</u>YYYY<u>' at '</u>h<u>'
-  o''clock'</u></tt> -&gt; <b>class of 1939 at 6 o'clock</b> (Literal strings <u>underlined</u>.)</p>
-</blockquote>
-<h2><a name="localPatternChars">Localized Date Pattern Chars</a></h2>
-<blockquote>
-  <p>These characters are replaced with the appropriate values when a date or
-  time is being formatted.</p>
+  <p>The following are characters used in patterns to show the appropriate
+  formats for a given locale. These characters are replaced with the appropriate
+  values when a date or time is being formatted.</p>
   <p>Characters may be used multiple times. For example, if y is used for the
   year, 'yy' might produce '99', whereas 'yyyy' produces '1999'. For most
   numerical characters, the number of characters specifies the field width. For
   example, if h is the hour, 'h' might produce '5', but 'hh' produces '05'. For
   some characters, the count specifies whether an abbreviated or full form
   should be used.</p>
-  <p><b>Note:</b> In the following list, the default (English) form is used as
-  an example, but see the actual locale for the correct characters!</p>
-  <table border="1" width="100%" cellspacing="0" cellpadding="2">
+  <table border="1" cellspacing="0" cellpadding="2">
     <tr>
       <td>Sym.</td>
       <td>Description</td>
@@ -317,25 +405,42 @@ format.</p>
       <td>Year (of &quot;Week of Year&quot;). [May differ from Calendar year,
         see comments under 'Week of Year', above.]</td>
     </tr>
-    <tr>
-      <td><tt>e</tt></td>
-      <td>Timezone. Use 3 for the short timezone (i.e. PST) or 4 for the full
-        name (Pacific Standard Time). If there's no name for the zone, it'll
-        show up as GMT+/-hh:mm.</td>
-    </tr>
   </table>
   <p>For more information, see <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>.</p>
+</blockquote>
+<h3><a name="&lt;localizedPatternChars&gt;">localizedPatternChars</a></h3>
+<p>These are characters that can be used when displaying a date pattern to an
+end user. This can occur, for example, when a spreadsheet allows users to
+specify date patterns. Whatever is in the string is substituted one-for-one with
+the characters &quot;<span class="tx">GyMdkHmsSEDFwWahKzYe&quot;, with the above
+meanings</span>. Thus, for example, if &quot;J&quot; is to be used instead of
+&quot;Y&quot; to mean Year, then the string would be: &quot;<span class="tx">GyMdkHmsSEDFwWahKz<u>J</u>e&quot;.</span></p>
+<h3><b>Quoting rules</b></h3>
+<blockquote>
+  <p>Single quotes, (<b>'</b>), enclose bits of the pattern that should be
+  treated literally. Inside a quoted string, two single quotes ('') are replaced
+  with a single one ('). For example: <tt><u>'class of '</u>YYYY<u>' at '</u>h<u>'
+  o''clock'</u></tt> -&gt; <b>class of 1939 at 6 o'clock</b> (Literal strings <u>underlined</u>.)</p>
 </blockquote>
 <h3>AM / PM</h3>
 <blockquote>
   <p>Even for countries where the customary date format only has a 24 hour
   format, both the am and pm localized strings must be present and must be
   distinct from one another. Note that as long as the 24 hour format is used,
-  these strings will normally never be used; but for testing and unusual
+  these strings will normally never be used, but for testing and unusual
   circumstances they must be present.</p>
 </blockquote>
+<h3>Eras</h3>
+<blockquote>
+  <p>There are only two values for an era in a Gregorian calendar,
+  &quot;BC&quot; and &quot;AD&quot;. These values can be translated into other
+  languages, like &quot;a.C.&quot; and and &quot;d.C.&quot; for Spanish, but
+  there are no other eras in the Gregorian calendar. Other calendars have a
+  different numbers of eras. Care should be taken when translating the era names
+  for a specific calendar.</p>
+</blockquote>
 <h3>Week of Year</h3>
-<ul>
+<blockquote>
   Values calculated for the Week of Year field range from 1 to 53. Week 1 for a
   year is the first week of that year that contains at least the minimum days in
   a week days. Weeks between week 1 of one year and week 1 of the following year
@@ -347,27 +452,6 @@ format.</p>
   1 of 1998 starts on January 4, 1998, and ends on January 10, 1998. The first
   three days of 1998 are then part of week 53 of 1997.
   <p>Values are similarly calculated for the Week of Month.</p>
-</ul>
-<h2><a name="Time_Zones">Time Zones</a></h2>
-<blockquote>
-  <p>A time zone uses the Olson IDs, such as America/Los Angeles. These IDs
-  provide not only the information as to the offset from GMT (UTC), but also the
-  daylight savings information. Thus, for example, America/Phoenix is distinct
-  from America/Denver because they have different daylight savings time
-  behavior. There are many cases where there is no modern difference between two
-  IDs; they are only distinguished in the past. For example, XXX/YYY and ZZZ/WWW
-  are currently the same, but differed in the past.</p>
-  <p>Most countries do not span multiple time zones, and may not have localized
-  names for particular time zones. In that case, probably the best localizations
-  are something of a form like &quot;New York Time&quot;.</p>
-  <p>Localized names for time zones. The fields are:</p>
-  <ul>
-    <li>Display long name for the normal time zone.
-    <li>Abbreviation for the normal time zone.
-    <li>Display long name for the time zone on summer/daylight savings time.
-    <li>Abbreviation for the time zone on summer/daylight savings time.
-    <li>A city in the specified time zone.</li>
-  </ul>
 </blockquote>
 <h2><a name="BIDI_Ordering">BIDI Ordering</a></h2>
 <blockquote>

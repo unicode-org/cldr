@@ -68,7 +68,7 @@
 <!ATTLIST icu:title icu:append NMTOKEN #IMPLIED >
 <!ATTLIST icu:title icu:import NMTOKEN #REQUIRED >
 
-<!ELEMENT icu:breakDictionaryData (#EMPTY) >
+<!ELEMENT icu:breakDictionaryData EMPTY >
 <!ATTLIST icu:title icu:class NMTOKEN #REQUIRED >
 <!ATTLIST icu:title icu:import NMTOKEN #REQUIRED >
 

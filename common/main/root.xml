@@ -729,6 +729,14 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<posix draft="true">
+		<messages>
+			<yesstr>yes:YES:y:Y</yesstr>
+			<nostr>no:NO:n:N</nostr>
+			<yesexpr>^[yY]([eE][sS])?</yesexpr>
+			<noexpr>^[nN][oO]?</noexpr>
+		</messages>
+	</posix>
 </ldml>
 <!-- **********************
   * ABOUT THE OLD COMMENTS

@@ -3,9 +3,9 @@
 <supplementalData>
   <currencyData>
     <fractions>
-      <currency iso4217="CHF" rounding="5"/>
-      <currency iso4217="ITL" digits="0"/>
-      <currency iso4217="FOO" digits="0" rounding="5"/>
+      <info iso4217="CHF" rounding="5"/>
+      <info iso4217="ITL" digits="0"/>
+      <info iso4217="FOO" digits="0" rounding="5"/>
     </fractions>
     <region iso3166="IT"> <!-- Italy -->
       <currency iso4217="EUR"/>
@@ -15,7 +15,7 @@
       <currency iso4217="ITL" before="2000-01-01"/>
     </region>
     <region iso3166="ET"> <!-- Ethiopia -->
-      <currency iso4217="ITL" before="1945-03-01"/> 
+      <currency iso4217="ITL" before="1945-03-01"/>
     </region>
     <region iso3166="DE"> <!-- Germany -->
       <currency iso4217="EUR"/>

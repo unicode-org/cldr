@@ -1,20 +1,22 @@
 <!ELEMENT supplementalData ( currencyData ) >
 
-<!ELEMENT alternate EMPTY >
-<!ATTLIST alternate iso4217 NMTOKEN #REQUIRED >
-
-<!ELEMENT currency ( alternate? ) >
-<!ATTLIST currency before NMTOKEN #IMPLIED >
-<!ATTLIST currency digits NMTOKEN #IMPLIED >
-<!ATTLIST currency iso4217 NMTOKEN #REQUIRED >
-<!ATTLIST currency rounding NMTOKEN #IMPLIED >
-
 <!ELEMENT currencyData ( fractions, region+ ) >
+<!ELEMENT fractions ( info+ ) >
 
-<!ELEMENT fractions ( currency+ ) >
+<!ELEMENT info EMPTY >
+<!ATTLIST info iso4217 NMTOKEN #REQUIRED >
+<!ATTLIST info digits NMTOKEN #IMPLIED >
+<!ATTLIST info rounding NMTOKEN #IMPLIED >
 
 <!ELEMENT region ( currency*, region? ) >
 <!ATTLIST region before NMTOKEN #IMPLIED >
 <!ATTLIST region iso3166 NMTOKEN #REQUIRED >
+<!ATTLIST region iso4217 NMTOKEN #IMPLIED >
 
+<!ELEMENT currency ( alternate* ) >
+<!ATTLIST currency before NMTOKEN #IMPLIED >
+<!ATTLIST currency iso4217 NMTOKEN #REQUIRED >
+
+<!ELEMENT alternate EMPTY >
+<!ATTLIST alternate iso4217 NMTOKEN #REQUIRED >
 

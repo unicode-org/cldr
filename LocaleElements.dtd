@@ -1,10 +1,18 @@
-<!ELEMENT localeData ( identity, ( localeDisplayNames | layout | encodings | delimiters | measurement | dates | numbers | collations  | special*)* ) >
+<!--
+NOTE: With a DTD it is very difficult to allow for any order of elements, and special elements anywhere.
+But LDML has quite a few other constraints that cannot be tested by DTDs in any event. So what is done
+here is to use looser rules for the DTD, and put a comments indicating what each rule should be, were
+it not for the specials and ordering.
+-->
+
+<!-- should be: (identity,(alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?))) except for ordering and specials -->
+<!ELEMENT localeData ( identity, ( alias | (localeDisplayNames | layout | characters | delimiters | measurement | dates | numbers | collations  | special)*) ) >
 <!ATTLIST localeData
    version          CDATA              #FIXED "1.0"
 >
 <!-- ######################################################### -->
-
-<!ELEMENT identity ( (version, generation, language, (territory? | variant? | script? | special*)*) | alias) >
+<!-- should be: (version, generation, language, script?, territory?, variant?) except for ordering and specials -->
+<!ELEMENT identity ( alias | (version | generation | language | script | territory | variant | special)*) >
 
 <!ELEMENT version ( #PCDATA ) >
 <!ATTLIST version number NMTOKEN #REQUIRED >
@@ -26,25 +34,32 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT localeDisplayNames ( ((scripts| languages| territories | variants  | keys | types | special*))* | alias ) >
+<!-- should be : (alias | (scripts?, languages?, territories?, variants?, keys?, types?)) except for ordering and specials -->
+<!ELEMENT localeDisplayNames (alias | (scripts| languages| territories | variants  | keys | types | special)*) >
 
-<!ELEMENT scripts ( (script+ | special* )*   | alias ) >
+<!-- Either 1 alias OR any specials, any order, zero or more script -->
+<!ELEMENT scripts (alias |(script | special)* ) >
 
 <!ELEMENT script ( #PCDATA ) >
 <!ATTLIST script type NMTOKEN #REQUIRED >
 
-<!ELEMENT languages ( (language+ | special*)* | alias ) >
+<!-- Either 1 alias OR any specials, any order, zero or more language -->
+<!ELEMENT languages ( alias | (language | special)* ) >
 
-<!ELEMENT territories ( (territory+ | special*)* | alias ) >
+<!-- Either 1 alias OR any specials, any order, zero or more territory -->
+<!ELEMENT territories ( alias | (territory | special)*) >
 
-<!ELEMENT variants ( (variant+ | special*)* | alias ) >
+<!-- Either 1 alias OR any specials, any order, zero or more variant -->
+<!ELEMENT variants ( alias |(variant | special)*  ) >
 
-<!ELEMENT keys ( (key+ | special*) | alias ) >
+<!-- Either 1 alias OR any specials, any order, zero or more key -->
+<!ELEMENT keys ( alias | (key | special)*) >
 
 <!ELEMENT key ( #PCDATA ) >
 <!ATTLIST key type NMTOKEN #REQUIRED >
 
-<!ELEMENT types ( (type+| special*)*| alias ) >
+<!-- Either 1 alias OR any specials, any order, zero or more type -->
+<!ELEMENT types ( alias | (type | special)* ) >
 
 <!ELEMENT type ( #PCDATA ) >
 <!ATTLIST type key NMTOKEN #REQUIRED >
@@ -54,8 +69,8 @@
 
 
 <!-- ######################################################### -->
-
-<!ELEMENT layout ( (orientation| special*)* | alias ) >
+<!-- Either 1 alias OR any specials, any order, exactly one orientation -->
+<!ELEMENT layout ( alias | (special*, orientation, special*) ) >
 
 <!ELEMENT orientation EMPTY >
 <!ATTLIST orientation characters NMTOKEN #REQUIRED >
@@ -65,7 +80,8 @@
 
 
 <!-- ######################################################### -->
-<!ELEMENT encodings ( (exemplarCharacters| mapping*| special*)*| alias ) >
+<!-- should be : (alias | (exemplarCharacters?, mapping*)) except for ordering and specials -->
+<!ELEMENT characters ( alias | (exemplarCharacters | mapping | special)* ) >
 
 <!ELEMENT exemplarCharacters ( #PCDATA ) >
 
@@ -78,7 +94,8 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT delimiters ( (quotationStart| quotationEnd | alternateQuotationStart | alternateQuotationEnd | special*)* | alias ) >
+<!-- should be : (alias | (quotationStart?, quotationEnd?, alternateQuotationStart?, alternateQuotationEnd?)) except for ordering and specials -->
+<!ELEMENT delimiters ( alias | (quotationStart| quotationEnd | alternateQuotationStart | alternateQuotationEnd | special)* ) >
 
 <!ELEMENT quotationStart ( #PCDATA ) >
 
@@ -93,16 +110,15 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT measurement ( (measurementSystem | paperSize | special*)* | alias ) >
+<!-- should be : (alias | (measurementSystem?, paperSize?)) except for ordering and specials -->
+<!ELEMENT measurement ( alias | (measurementSystem | paperSize | special)* ) >
 
-<!ELEMENT paperSize ( (height | width | units | special* )* | alias ) >
+<!-- should be : (alias | (height?, width?)) except for ordering and specials -->
+<!ELEMENT paperSize ( alias | (height | width | special)* ) >
 
 <!ELEMENT height ( #PCDATA ) >
 
 <!ELEMENT width ( #PCDATA ) >
-
-<!ELEMENT units ( #PCDATA ) >
-
 
 <!ELEMENT measurementSystem EMPTY >
 <!ATTLIST measurementSystem type NMTOKEN #REQUIRED >
@@ -112,30 +128,38 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT dates ( (localizedPatternChars | calendars | timeZoneNames | special*)* | alias ) >
+<!-- should be : (alias | (localizedPatternChars?, calendars?, timeZoneNames?)) except for ordering and specials -->
+<!ELEMENT dates ( alias | (localizedPatternChars | calendars | timeZoneNames | special)* ) >
 
 <!ELEMENT localizedPatternChars ( #PCDATA ) >
 
-<!ELEMENT calendars ( (default | calendar+ | special*)* | alias ) >
+<!-- should be : (alias | (default?, calendar*)) except for ordering and specials -->
+<!ELEMENT calendars ( alias | (default | calendar | special)* ) >
 
-<!ELEMENT calendar ( (am | dateFormats | dateTimeFormats | dayAbbr | dayNames | eras | monthAbbr | monthNames | pm | timeFormats | week | special*)* | alias) >
+<!-- should be : (alias | (am?, pm?, dateFormats?, dayAbbr?, dayNames?, era?, monthAbbr?, monthNames?, pm?, timeFomats?, week?)) except for ordering and specials -->
+<!ELEMENT calendar ( alias | (am | dateFormats | dateTimeFormats | dayAbbr | dayNames | eras | monthAbbr | monthNames | pm | timeFormats | week | special)*) >
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
 
-<!ELEMENT monthNames ( (month+ | special*)* | alias) >
+<!-- Either 1 alias OR any specials, any order, zero or more month -->
+<!ELEMENT monthNames ( alias | (month | special)*) >
 
 <!ELEMENT month ( #PCDATA ) >
 <!ATTLIST month type NMTOKEN #REQUIRED >
 
-<!ELEMENT monthAbbr ( (month+ | special*)* | alias) >
+<!-- Either 1 alias OR any specials, any order, zero or more month -->
+<!ELEMENT monthAbbr ( alias | (month | special)*) >
 
-<!ELEMENT dayNames ( (day+ | special*)* | alias ) >
+<!-- Either 1 alias OR any specials, any order, zero or more day -->
+<!ELEMENT dayNames ( alias | (day | special)*) >
 
 <!ELEMENT day ( #PCDATA ) >
 <!ATTLIST day type NMTOKEN #REQUIRED >
 
-<!ELEMENT dayAbbr ( (day+ | special*)* | alias ) >
+<!-- Either 1 alias OR any specials, any order, zero or more day -->
+<!ELEMENT dayAbbr ( alias | (day | special)*) >
 
-<!ELEMENT week ( (minDays | firstDay | weekendStart | weekendEnd | special* )* | alias ) >
+<!-- should be : (alias | (minDays?, firstDay?, weekendStart?, weekendEnd?)) except for ordering and specials -->
+<!ELEMENT week   (alias | (minDays | firstDay | weekendStart | weekendEnd | special)*) >
 
 <!ELEMENT minDays EMPTY >
 <!ATTLIST minDays count NMTOKEN #REQUIRED >
@@ -155,53 +179,69 @@
 
 <!ELEMENT pm ( #PCDATA ) >
 
-<!ELEMENT eras ( (eraNames | eraAbbr | special*)* | alias ) >
+<!-- should be : (alias | (eraNames?, eraAbbr?)) except for ordering and specials -->
+<!ELEMENT eras   (alias | (eraNames | eraAbbr | special)*) >
 
-<!ELEMENT eraNames ( (era+ | special*)* | alias ) >
+<!-- Either 1 alias OR any specials, any order, zero or more era -->
+<!ELEMENT eraNames ( alias | (era | special)* ) >
 
-<!ELEMENT eraAbbr ( (era+ | special*)* | alias ) >
+<!-- Either 1 alias OR any specials, any order, zero or more era -->
+<!ELEMENT eraAbbr ( alias | (era | special)* ) >
 
 <!ELEMENT era (#PCDATA) >
 <!ATTLIST era type NMTOKEN #REQUIRED >
 
-<!ELEMENT dateFormats ( (default | dateFormatLength+ | special*)* | alias ) >
+<!-- should be : (alias | (default?, dateFormatLength*)) except for ordering and specials -->
+<!ELEMENT dateFormats ( alias | (default | dateFormatLength | special)* ) >
 
-<!ELEMENT dateFormatLength ( (default | dateFormat+ | special*)* | alias ) >
+<!-- should be : (alias | (default?, dateFormat*)) except for ordering and specials -->
+<!ELEMENT dateFormatLength ( alias | (default | dateFormat | special)* ) >
 <!ATTLIST dateFormatLength type NMTOKEN #REQUIRED >
 
-<!ELEMENT dateFormat ( (pattern | displayName | special*)* | alias ) >
+<!-- should be : (alias | (pattern?, displayName?)) except for ordering and specials -->
+<!ELEMENT dateFormat ( alias | (pattern | displayName | special*)* ) >
 <!ATTLIST dateFormat type NMTOKEN #IMPLIED >
 
 <!ELEMENT displayName ( #PCDATA ) >
 
-<!ELEMENT timeFormats ( (default | timeFormatLength+ | special*)* | alias ) >
+<!-- should be : (alias | (default?, timeFormatLength*)) except for ordering and specials -->
+<!ELEMENT timeFormats ( alias | (default | timeFormatLength | special)*) >
 
-<!ELEMENT timeFormatLength ( ( default | timeFormat | special* )* | alias) >
+<!-- should be : (alias | (default?, timeFormat*)) except for ordering and specials -->
+<!ELEMENT timeFormatLength ( alias | ( default | timeFormat | special)*) >
 <!ATTLIST timeFormatLength type NMTOKEN #REQUIRED >
 
-<!ELEMENT timeFormat ( (pattern | displayName | special*)* | alias ) >
+<!-- should be : (alias | (pattern?, displayName?)) except for ordering and specials -->
+<!ELEMENT timeFormat ( alias | (pattern | displayName | special*)* ) >
 <!ATTLIST timeFormat type NMTOKEN #IMPLIED >
 
-<!ELEMENT dateTimeFormats ( (default | dateTimeFormatLength+ | special*)* | alias ) >
+<!-- should be : (alias | (default?, dateTimeFormatLength*)) except for ordering and specials -->
+<!ELEMENT dateTimeFormats ( alias | (default | dateTimeFormatLength+ | special)*) >
 
-<!ELEMENT dateTimeFormatLength ( (default | dateTimeFormat+ | special*)* | alias ) >
+<!-- should be : (alias | (default?, dateTimeFormat*)) except for ordering and specials -->
+<!ELEMENT dateTimeFormatLength ( alias | (default | dateTimeFormat+ | special)*) >
 <!ATTLIST dateTimeFormatLength type NMTOKEN #REQUIRED >
 
-<!ELEMENT dateTimeFormat ( (pattern | displayName | special*)* | alias ) >
+<!-- should be : (alias | (pattern?, displayName?)) except for ordering and specials -->
+<!ELEMENT dateTimeFormat ( alias | (pattern | displayName | special*)*) >
 <!ATTLIST dateTimeFormat type NMTOKEN #IMPLIED >
 
-<!ELEMENT timeZoneNames ( (default | zone+ | special*)* | alias ) >
+<!-- should be : (alias | (default?, zone*)) except for ordering and specials -->
+<!ELEMENT timeZoneNames ( alias | (default | zone| special)*) >
 
-<!ELEMENT zone ( (exemplarCity | long | short | special*)* | alias) >
+<!-- should be : (alias | (exemplarCity?, long?, short?)) except for ordering and specials -->
+<!ELEMENT zone ( alias | (exemplarCity | long | short | special)*) >
 <!ATTLIST zone type CDATA #REQUIRED >
 
-<!ELEMENT long ( (generic | standard | daylight | special*)* | alias ) >
+<!-- should be : (alias | (generic?, standard?, daylight?)) except for ordering and specials -->
+<!ELEMENT long ( alias | (generic | standard | daylight | special)*  ) >
 
 <!ELEMENT generic ( #PCDATA ) >
 
 <!ELEMENT standard ( #PCDATA ) >
 
-<!ELEMENT short ( (generic | standard | daylight | special*)* | alias) >
+<!-- should be : (alias | (generic?, standard?, daylight?)) except for ordering and specials -->
+<!ELEMENT short ( alias | (generic | standard | daylight | special)* ) >
 
 <!ELEMENT daylight ( #PCDATA ) >
 
@@ -212,9 +252,11 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT numbers ( (symbols | currencyFormats | decimalFormats | percentFormats | scientificFormats | currencies | special*)* | alias ) >
+<!-- should be : (alias | (symbols?, currencyFormats?, decimalFormats?, percentFormats?, scientificFormats?, currencies?)) except for ordering and specials -->
+<!ELEMENT numbers ( alias | (symbols | currencyFormats | decimalFormats | percentFormats | scientificFormats | currencies | special)*) >
 
-<!ELEMENT symbols ( (decimal | group | list | percentSign | nativeZeroDigit | patternDigit | plusSign | minusSign | exponential | perMille | infinity | nan | special*)* | alias ) >
+<!-- should be : (alias | (decimal?, group?, list?, percentSign?, nativeZeroDigit?, patternDigit?, plusSign?, minusSign?, exponential?, perMille?, infinity?, nan?)) except for ordering and specials -->
+<!ELEMENT symbols ( alias | (decimal | group | list | percentSign | nativeZeroDigit | patternDigit | plusSign | minusSign | exponential | perMille | infinity | nan | special)*) >
 
 <!ELEMENT decimal ( #PCDATA ) >
 
@@ -243,33 +285,55 @@
 <!ELEMENT pattern ( #PCDATA ) >
 <!ATTLIST pattern type NMTOKEN #IMPLIED >
 
-<!ELEMENT decimalFormats ( (default | decimalFormatLength+ | special*)* | alias) >
-<!ELEMENT decimalFormatLength ( (default+ | decimalFormat+ | special*)* | alias ) >
+<!-- should be : (alias | (default?,decimalFormatLength*)) except for ordering and specials -->
+<!ELEMENT decimalFormats (alias | (default | decimalFormatLength | special)*) >
+
+<!-- should be : (alias | (default?, decimalFormat*)) except for ordering and specials -->
+<!ELEMENT decimalFormatLength (alias | (default | decimalFormat | special)* ) >
 <!ATTLIST decimalFormatLength type NMTOKEN #REQUIRED >
-<!ELEMENT decimalFormat (pattern) >
+
+<!-- Either 1 alias OR any specials, any order, zero or more pattern -->
+<!ELEMENT decimalFormat (alias | (pattern | special)*) >
 <!ATTLIST decimalFormat type NMTOKEN #IMPLIED >
 
-<!ELEMENT scientificFormats ( (default | scientificFormatLength+ | special*)* | alias) >
-<!ELEMENT scientificFormatLength ( (default+ | scientificFormat+ | special*)* | alias ) >
+<!-- should be : (alias | (default?, scientificFormatLength*)) except for ordering and specials -->
+<!ELEMENT scientificFormats ( alias | (default | scientificFormatLength | special)*) >
+
+<!-- should be : (alias | (default?, scientificFormat*)) except for ordering and specials -->
+<!ELEMENT scientificFormatLength (alias | (default | scientificFormat | special)*) >
 <!ATTLIST scientificFormatLength type NMTOKEN #REQUIRED >
-<!ELEMENT scientificFormat ((pattern | special*)* | alias) >
+
+<!-- Either 1 alias OR any specials, any order, zero or more pattern -->
+<!ELEMENT scientificFormat (alias | (pattern | special)*) >
 <!ATTLIST scientificFormat type NMTOKEN #IMPLIED >
 
-<!ELEMENT percentFormats ( (default | percentFormatLength+ | special*)* | alias) >
-<!ELEMENT percentFormatLength ( (default+ | percentFormat+ | special*)* | alias ) >
+<!-- should be : (alias | (default?, percentFormatLength*)) except for ordering and specials -->
+<!ELEMENT percentFormats ( alias | (default | percentFormatLength | special)*) >
+
+<!-- should be : (alias | (default?, percentFormat*)) except for ordering and specials -->
+<!ELEMENT percentFormatLength ( alias | (default | percentFormat | special)*) >
 <!ATTLIST percentFormatLength type NMTOKEN #REQUIRED >
-<!ELEMENT percentFormat ((pattern | special*)* | alias) >
+
+<!-- Either 1 alias OR any specials, any order, zero or more pattern -->
+<!ELEMENT percentFormat (alias | (pattern | special)*) >
 <!ATTLIST percentFormat type NMTOKEN #IMPLIED >
 
-<!ELEMENT currencyFormats ( (default | currencyFormatLength+ | special*)* | alias) >
-<!ELEMENT currencyFormatLength ( (default+ | currencyFormat+ | special*)* | alias ) >
+<!-- should be : (alias | (default?, currencyFormatLength*)) except for ordering and specials -->
+<!ELEMENT currencyFormats ( alias | (default | currencyFormatLength | special)*) >
+
+<!-- should be : (alias | (default?, currencyFormat*)) except for ordering and specials -->
+<!ELEMENT currencyFormatLength (alias | (default | currencyFormat | special)*) >
 <!ATTLIST currencyFormatLength type NMTOKEN #REQUIRED >
-<!ELEMENT currencyFormat ((pattern|  special*)* | alias) >
+
+<!-- Either 1 alias OR any specials, any order, zero or more pattern -->
+<!ELEMENT currencyFormat (alias | (pattern|  special*)*) >
 <!ATTLIST currencyFormat type NMTOKEN #IMPLIED >
 
-<!ELEMENT currencies ( (default | currency+ | special*)* | alias ) >
+<!-- should be : (alias | (default?, currency*)) except for ordering and specials -->
+<!ELEMENT currencies (alias |  (default | currency | special*)*) >
 
-<!ELEMENT currency ( (displayName | symbol | decimal? | group? | special*)* | alias ) >
+<!-- should be : (alias | (displayName, symbol, decimal, group)) except for ordering and specials -->
+<!ELEMENT currency ( alias | (displayName | symbol | decimal | group | special)* ) >
 <!ATTLIST currency id NMTOKEN #IMPLIED >
 <!ATTLIST currency type NMTOKEN #IMPLIED >
 
@@ -280,10 +344,11 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT collations ( (default+ | collation+ | special*)* | alias ) >
+<!-- should be : (alias | (default?, collation*)) except for ordering and specials -->
+<!ELEMENT collations ( alias | (default | collation | special)* ) >
 
-<!ELEMENT collation ( ( special* | uca? | settings? | suppress_contractions? | optimize?   | rules? )* | alias ) >
-
+<!-- should be : (alias | (uca?, settings?, suppressContractions?, optimize?, rules?)) except for ordering and specials -->
+<!ELEMENT collation ( alias | ( special | uca | settings | suppressContractions | optimize   | rules )* ) >
 <!ATTLIST collation type NMTOKEN #IMPLIED >
 
 <!ELEMENT uca EMPTY >
@@ -299,11 +364,12 @@
 <!ATTLIST settings strength NMTOKEN #IMPLIED >
 <!ATTLIST settings numeric NMTOKEN #IMPLIED >
 
-<!ELEMENT suppress_contractions (  #PCDATA ) >
+<!ELEMENT suppressContractions (  #PCDATA ) >
 
 <!ELEMENT optimize ( #PCDATA ) >
 
-<!ELEMENT rules ( (special* | p | pc | position | reset | s | sc | t | tc | q | qc | i | ic)* | alias) >
+<!-- should be : (alias | (p*, pc*, position*, reset*, s*, sc*, t*, tc*, q*, qc*, i*, ic*)) except for ordering and specials -->
+<!ELEMENT rules ( alias | (special | p | pc | position | reset | s | sc | t | tc | q | qc | i | ic)*) >
 
 <!ELEMENT p ( #PCDATA | context | cp)* >
 
@@ -368,13 +434,17 @@
 <!-- ######################################################### -->
 
 <!-- RBNF data -->
+<!-- Either 1 alias OR any specials, any order, zero or more ruleBasedNumberFormat -->
+<!ELEMENT ruleBasedNumberFormats ( alias | (ruleBasedNumberFormat | special)*) >
+
+<!-- Either bare data or any number of cp -->
 <!ELEMENT ruleBasedNumberFormat (#PCDATA | cp)* >
 <!ATTLIST ruleBasedNumberFormat type NMTOKEN #REQUIRED >
 
-<!ELEMENT ruleBasedNumberFormats ( ruleBasedNumberFormat+ | alias ) >
-
 <!-- RBBI data -->
-<!ELEMENT boundaries ( (grapheme? | word? | line? | sentence? | special*)* | alias ) >
+<!-- should be : (alias | (grapheme?, word?, line?, sentence?)) except for ordering and specials -->
+<!ELEMENT boundaries (alias | (grapheme | word | line | sentence | special)*) >
+
 <!ELEMENT grapheme ( #PCDATA ) >
 <!ATTLIST grapheme class NMTOKEN #REQUIRED >
 <!ATTLIST grapheme append NMTOKEN #REQUIRED >
@@ -391,7 +461,8 @@
 <!ATTLIST sentence class NMTOKEN #REQUIRED >
 
 <!-- RBT data  -->
-<!ELEMENT transforms ( (transform | special*)* | alias ) >
+<!-- Either 1 alias OR any specials, any order, zero or more transform -->
+<!ELEMENT transforms ( alias | (transform | special)*) >
 <!ELEMENT transform ( #PCDATA ) >
 <!ATTLIST transform type NMTOKEN #REQUIRED >
 
@@ -402,14 +473,16 @@
 <!--  OpenOffice.org Specific elements                         -->
 <!-- ######################################################### -->
 
-<!ELEMENT numberingLevels ( (numberingLevel+ | special*)* | alias ) >
+<!-- Either 1 alias OR any specials, any order, zero or more numberingLevel -->
+<!ELEMENT numberingLevels (alias | (numberingLevel | special)* ) >
 
 <!ELEMENT numberingLevel EMPTY >
 <!ATTLIST numberingLevel numType NMTOKEN #REQUIRED >
 <!ATTLIST numberingLevel prefix CDATA #REQUIRED >
 <!ATTLIST numberingLevel suffix CDATA #REQUIRED >
 
-<!ELEMENT reservedWords ( (trueWord | falseWord | quarter1Word | quarter2Word | quarter3Word | quarter4Word | aboveWord | belowWord | special*)* | alias ) >
+<!-- should be : (alias | (trueWord?, falseWord?, quater1Word?, quarter2Word?, quarter3Word?, quarter4Word?, aboveWord?, belowWord? )) except for ordering and specials -->
+<!ELEMENT reservedWords ( alias | (trueWord | falseWord | quarter1Word | quarter2Word | quarter3Word | quarter4Word | aboveWord | belowWord | special)* ) >
 
 <!ELEMENT trueWord ( #PCDATA ) >
 
@@ -437,11 +510,11 @@
 <!-- ######################################################### -->
 
 
-
 <!--  POSIX/XPG4 Specific elements                             -->
 <!-- ######################################################### -->
 
-<!ELEMENT messages ( (no | yes | shortYes | shortNo | special*)* | alias ) >
+<!-- should be : (alias | (no?, yes?, shortYes?, shortNo?)) except for ordering and specials -->
+<!ELEMENT messages ( alias | (no | yes | shortYes | shortNo | special)* ) >
 
 <!ELEMENT yes ( #PCDATA ) >
 
@@ -458,12 +531,13 @@
 
 <!--  TR-14652/GLIBC Specific elements                         -->
 <!-- ######################################################### -->
-
-<!ELEMENT addressFormat ( (postalPattern | special*)* | alias ) >
+<!-- should be: (alias | (postalPattern?)) except for ordering and special -->
+<!ELEMENT addressFormat ( alias | (special*, postalPattern, special*) ) >
 
 <!ELEMENT postalPattern ( #PCDATA ) >
 
-<!ELEMENT nameFormat ( (namePattern | generalSalutation | shortSalutationMr | shortSalutationMiss | shortSalutationMrs | longSalutationMr | longSalutationMiss | longSalutationMrs | special*)* | alias ) >
+<!-- should be : (alias | (namePattern?, generalSalutation?, shortSalutationMr?, shortSalutationMiss?, shortSalutationMrs?, longSalutationMr?, longSalutationMiss?, longSalutationMrs?)) except for ordering and specials -->
+<!ELEMENT nameFormat ( alias | (namePattern | generalSalutation | shortSalutationMr | shortSalutationMiss | shortSalutationMrs | longSalutationMr | longSalutationMiss | longSalutationMrs | special)*) >
 
 <!ELEMENT namePattern ( #PCDATA ) >
 
@@ -481,7 +555,8 @@
 
 <!ELEMENT longSalutationMrs ( #PCDATA ) >
 
-<!ELEMENT identification ( (title | source | address | contact | email | telephone | fax | languageUsed | country | audience | application | abbreviation | revision | date | special*)* | alias ) >
+<!-- should be : (alias | (title?, source?, address?, contact?, email?, telephone?, fax?, languageUsed?, country?, audience?, application?, abbreviation?, revision?, date?)) except for ordering and specials -->
+<!ELEMENT identification ( alias | (title | source | address | contact | email | telephone | fax | languageUsed | country | audience | application | abbreviation | revision | date | special)*) >
 
 <!ELEMENT title ( #PCDATA ) >
 
@@ -511,7 +586,8 @@
 
 <!ELEMENT date ( #PCDATA ) >
 
-<!ELEMENT telephoneFormat ( (internationalPattern | domesticPattern | internationalDialCode | internationalPrefix | special*)* | alias ) >
+<!-- should be : (alias | (internationalPattern?, domesticPattern?, internationalDialCode?, internationalPrefix?)) except for ordering and specials -->
+<!ELEMENT telephoneFormat ( alias | (internationalPattern | domesticPattern | internationalDialCode | internationalPrefix | special)*) >
 
 <!ELEMENT internationalPattern ( #PCDATA ) >
 
@@ -521,7 +597,8 @@
 
 <!ELEMENT internationalPrefix ( #PCDATA ) >
 
-<!ELEMENT countryInfo ( (countryPost | countryCar | countryNumber | countryISBNNumber | special*)* | alias ) >
+<!-- should be : (alias | (countryPost?, countryCar?, countryNumber?, countryISBNNumber?)) except for ordering and specials -->
+<!ELEMENT countryInfo ( alias | (countryPost | countryCar | countryNumber | countryISBNNumber | special)*) >
 
 <!ELEMENT countryPost ( #PCDATA ) >
 

@@ -67,7 +67,7 @@ For example, most country locales will inherit the bulk of their data from the l
     <layout>
         <orientation lines="top-to-bottom" characters="left-to-right" />    <!-- both attributes are required -->
     </layout>
-    <encodings>
+    <characters>
         <!-- follows the UnicodeSet syntax -->
         <exemplarCharacters>[a-z&#x00E5;&#x00E6;&#x00F8;]</exemplarCharacters>
         <!--
@@ -81,7 +81,7 @@ For example, most country locales will inherit the bulk of their data from the l
        <mapping registry="iana" type="windows-1252"/>
        <mapping registry="iana" type="iso-8859_1"/>
        <mapping registry="iana" type="euc-jp"/>
-    </encodings>
+    </characters>
     <delimiters>
        <quotationStart>&#x201C;</quotationStart>
        <quotationEnd>&#x201D;</quotationEnd>
@@ -383,7 +383,7 @@ For example, most country locales will inherit the bulk of their data from the l
 
             <uca version="3.1.1"/>
             <settings caseLevel="on"/>
-            <suppress_contractions>[?-?]</suppress_contractions>
+            <suppressContractions>[?-?]</suppressContractions>
             <rules>
                 <!-- this example takes the swedish tailoring plus part of a japanese tailoring,
                 for illustration -->
@@ -423,7 +423,7 @@ For example, most country locales will inherit the bulk of their data from the l
                 <collator type="phonebook"/>
             </special>
         </collation>
-        <collation key="phonebook">
+        <collation type="phonebook">
             <alias source="de_DE" type="phonebook"/>
         </collation>
     </collations>

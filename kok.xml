@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1"/>
-		<generation date="2004-08-13" />
+		<version number="1.2"/>
+		<generation date="2004-08-17" />
 		<language type="kok" /> 
 	</identity>
 	<localeDisplayNames>
@@ -213,6 +213,10 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<week>
+					<weekendStart draft="true" day="sun" time="00:00"/>
+					<weekendEnd draft="true" day="mon" time="00:00"/>
+				</week>
 				<am>म.पू.</am>
 				<pm>म.नं.</pm>
 				<eras>

@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1"/>
-		<generation date="2004-08-13" />
+		<version number="1.2"/>
+		<generation date="2004-08-17" />
 		<language type="ar" /> 
 		<territory type="SY" /> 
 	</identity>
@@ -63,6 +63,8 @@
 				<week>
 					<minDays count="1"/>
 					<firstDay day="thu"/>
+					<weekendStart draft="true" day="fri" time="00:00"/>
+					<weekendEnd draft="true" day="sun" time="00:00"/>
 				</week>
 			</calendar>
 		</calendars>

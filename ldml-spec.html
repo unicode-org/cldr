@@ -9,8 +9,9 @@
 <style>
 <!--
 .element2    { font-family: monospace; font-size: 95%; font-weight: bold }
+.comment     { color: #00CC00 }
 .example     { font-style: italic }
-.note        { font-style: italic; font-weight: bold; margin-left: 2em; margin-right: 2em }
+.note        { font-style: italic; margin-left: 2em; margin-right: 2em }
 th           { background-color: #9999CC; border-style: solid; border-width: 1px; padding: 4 }
 td           { background-color: #CCCCFF; border-style: solid; border-width: 1px; padding: 4 }
 table        { border-style: solid; border-width: 1px }
@@ -36,10 +37,13 @@ structured locale data.</p>
     <ul>
       <li><a href="#Common_Elements">Common Elements</a></li>
       <li><a href="#Common_Attributes">Common Attributes</a></li>
-      <li><a href="#&lt;identity&gt;">&lt;identity&gt;</a></li>
+      <li><a href="#&lt;identity&gt;">&lt;identity&gt;</a>
+        <ul>
+          <li><a href="#&lt;idDisplayNames&gt;">&lt;displayNames&gt;</a></li>
+        </ul>
+      </li>
       <li><a href="#&lt;layout&gt;">&lt;layout&gt;</a></li>
       <li><a href="#&lt;encodings&gt;">&lt;encodings&gt;</a></li>
-      <li><a href="#&lt;idDisplayNames&gt;">&lt;idDisplayNames&gt;</a></li>
       <li><a href="#&lt;delimiters&gt;">&lt;delimiters&gt;</a></li>
       <li><a href="#&lt;measurement&gt;">&lt;measurement&gt;</a></li>
       <li><a href="#&lt;dates&gt;">&lt;dates&gt;</a>
@@ -53,7 +57,13 @@ structured locale data.</p>
       <li><a href="#&lt;collations&gt;">&lt;collations&gt;</a></li>
     </ul>
   </li>
-  <li><a href="#Sample_Special_Elements">Appendix A: Sample Special Elements</a></li>
+  <li><a href="#Sample_Special_Elements">Appendix A: Sample Special Elements</a>
+    <ul>
+      <li><a href="#OpenOffice">OpenOffice</a></li>
+      <li><a href="#POSIX">POSIX</a></li>
+      <li><a href="#ISO_TR_14652">ISO TR 14652</a></li>
+    </ul>
+  </li>
 </ul>
 <h2><a name="Introduction">Introduction</a></h2>
 <p>Not long ago, computer systems were like separate worlds, isolated from one
@@ -83,10 +93,11 @@ will be returned.</p>
 <p>There are a number of steps that can be taken to improve the situation. The
 first is to provide an XML format for locale data interchange. This provides a
 common format for systems to interchange data so that they can get the same
-results. The second is to gather up locale data from different systems, to
-provide an online repository for such data. And the third is to try to reconcile
-differences between the locale data used on different systems to come up with a
-useful, common base of locale data.</p>
+results. The second is to gather up locale data from different systems, and
+compare that data to find any differences. The third is to provide an online
+repository for such data. The fourth is to have an open process for reconciling
+differences between the locale data used on different systems and validating the
+data, to come up with a useful, common base of locale data.</p>
 <p>This document describes one of those pieces, an XML format for the
 communication of locale data. With it, for example, collation rules can be
 exchanged, allowing two implementations to exchange a specification of
@@ -104,7 +115,8 @@ id provides support for formatting and parsing of dates, times, numbers, and
 currencies; for the default units of currency; for measurement units, for
 sort-order (collation), plus translated names for timezones, languages,
 countries, and scripts. They can also include text boundaries (character, word,
-line, and sentence), transliterations, and support for other services.</p>
+line, and sentence), text transformations (including transliterations), and
+support for other services.</p>
 <p>Locale data is not cast in stone: the data used on someone's machine
 generally may reflect the US format, but preferences can typically set to
 override particular items, such as setting the data format for 2002.03.15, or
@@ -154,8 +166,8 @@ section.</p>
 fr_BE
 de_DE@collation=phonebook,currency=pre-euro</pre>
 </blockquote>
-<p>The locale id format generally follows the description in the <a href="http://www.li18nux.org/docs/text/LocNameGuide-V10.txt">LI18NUX
-Locale Name Guideline</a>. The differences from the those guidelines are that
+<p>The locale id format generally follows the description in the <a href="http://www.li18nux.org/docs/text/LocNameGuide-V10.txt">OpenI18N
+Locale Naming Guideline</a>. The differences from the those guidelines are that
 (a) the locale id does not include a charset since the data in the locale is
 always in Unicode, and (b) the locale id adds the ability to have a variant, as
 in Java.</p>
@@ -204,20 +216,21 @@ requires the data to be transformed into that target encoding.</p>
 <p>Data can be accessed by means of a URL. A locale URL has the following
 structure:</p>
 <pre>&lt;base&gt; &quot;/&quot; &lt;platform&gt; &quot;/&quot; &lt;base_locale_id&gt; &quot;.xml&quot; (&quot;/?&quot; (&quot;version=&quot; &lt;version&gt; | &lt;transformed_options&gt;)</pre>
-<p>The version has the format &lt;major&gt;.&lt;minor&gt;(.&lt;update&gt;)?. The
-version is the version of the entire tree, not of a particular resource bundle,
-or resource within a bundle. The transformed options are the &lt;options&gt;
-from the <a href="#Locale_IDs">Locale ID</a> with the &quot;@&quot; removed, and
-&quot;,&quot; converted to &quot;&amp;&quot;. For example, for <i>openoffice</i>
-the current version (at the time of this writing) would be 1.2, and for <i>icu</i>
-the current version at the time of this writing would be 2.2.</p>
+<p>The version is the version of the entire tree, not of a particular resource
+bundle, or resource within a bundle. The format for the version depends on the
+source of the data. For example, for <i>openoffice</i> the current version (at
+the time of this writing) would be 1.2, and for <i>icu</i> the current version
+at the time of this writing would be 2.2. The transformed options are the
+&lt;options&gt; from the <a href="#Locale_IDs">Locale ID</a> with the
+&quot;@&quot; removed, and &quot;,&quot; converted to &quot;&amp;&quot;. </p>
 <p><i>Example:</i></p>
 <blockquote>
-  <p><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/solaris/de_DE.xml/?version=2.1&amp;collation=phonebook&amp;currency=pre-euro">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/solaris/de_DE.xml/?version=2.1&amp;collation=phonebook&amp;currency=pre-euro</a></p>
+  <p><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/icu/de_DE.xml/?version=2.2&amp;collation=phonebook&amp;currency=pre-euro">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/icu/de_DE.xml/?version=2.2&amp;collation=phonebook&amp;currency=pre-euro</a></p>
 </blockquote>
 <p>At this point in time, there is not a mechanism for querying the base to
 determine which platforms, which versions of each platform, and which locales in
-the version are supported. For more information, see <a href="http://oss.software.ibm.com/icu/locale/">http://oss.software.ibm.com/icu/locale/</a>.</p>
+the version are supported. In the future there will be more information,
+accessible at <a href="http://oss.software.ibm.com/icu/locale/">http://oss.software.ibm.com/icu/locale/</a>.</p>
 <h2><a name="XML_Format">XML Format</a></h2>
 <p>The high-level of the Locale Data element are:</p>
 <p class="element2">&lt;identity&gt;<br>
@@ -355,8 +368,14 @@ modifiers. For example:</p>
     <td>&nbsp;</td>
   </tr>
 </table>
-<p><i><b><br>
-Note: For information on the process for adding additional keywords, see <a href="http://oss.software.ibm.com/icu/locale/">http://oss.software.ibm.com/icu/locale/</a>.</b></i></p>
+<p class="note"><i><b><br>
+</b></i>Note: For information on the process for adding additional keywords, see
+<a href="http://oss.software.ibm.com/icu/locale/">http://oss.software.ibm.com/icu/locale/</a>.</p>
+<p class="element2">&lt;...append=&quot;true&quot;...&gt;</p>
+<p>This attribute is use for elements that consist of a sequence of rules. If
+the append attribute is true, then the rules will be <i>appended</i> to the
+parent locale's rules instead of overriding them. This attribute cannot be used
+in the root resource bundle.</p>
 <hr width="50%">
 <h3><a name="&lt;identity&gt;">&lt;identity&gt;</a></h3>
 <p>The identity element contains information identifying the target locale for
@@ -393,6 +412,61 @@ include: (for norwegian: bo = Bokmål, al = Åland, ny = Nynorsk.</p>
 <p class="note">Note: if additional variants are needed, then look on the
 website (<a href="http://oss.software.ibm.com/icu/locale/">http://oss.software.ibm.com/icu/locale/</a>)
 for the process.</p>
+<p class="element2"><a name="&lt;idDisplayNames&gt;">&lt;displayNames&gt;</a></p>
+<p>Display names for scripts, languages, countries, and variants in this locale
+are supplied by this element. These supply localized names for these items for
+use in user-interfaces for displaying lists of locales and scripts. Examples are
+given below:</p>
+<p class="element2">&lt;scripts&gt;</p>
+<p>This element can contain an number of script elements. Each script element
+provides the localized name for a script, given by ID. The script IDs can be
+either the long or short forms from Scripts.txt in the UCD. (See <a href="http://www.unicode.org/unicode/reports/tr24/">UTR
+#24: Script Names</a> for more information.) For example, in the language of
+this locale, the name for the Latin script might be &quot;Romana&quot;, and for
+the Cyrillic script is &quot;Kyrillica&quot;. That would be expressed with the
+following.</p>
+<blockquote>
+  <p>&lt;script id=&quot;Latin&quot;&gt;Romana&lt;/script&gt;<br>
+  &lt;script id=&quot;Cyrillic&quot;&gt;Kyrillica&lt;/script&gt;</p>
+</blockquote>
+<p class="element2">&lt;languages&gt;</p>
+<p>The id is from <a href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_639.html">ISO-639</a>,
+as above.</p>
+<blockquote>
+  <p>&lt;language id=&quot;ab&quot;&gt;Abkhazian&lt;/language&gt;<br>
+  &lt;language id=&quot;aa&quot;&gt;Afar&lt;/language&gt;<br>
+  &lt;language id=&quot;af&quot;&gt;Afrikaans&lt;/language&gt;<br>
+  &lt;language id=&quot;sq&quot;&gt;Albanian&lt;/language&gt;</p>
+</blockquote>
+<p class="element2">&lt;countries&gt;</p>
+<p>The id is from <a href="http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html">ISO-3166</a>,
+as above.</p>
+<blockquote>
+  <p>&lt;country id=&quot;AF&quot;&gt;Afghanistan&lt;/country&gt;<br>
+  &lt;country id=&quot;AL&quot;&gt;Albania&lt;/country&gt;<br>
+  &lt;country id=&quot;DZ&quot;&gt;Algeria&lt;/country&gt;<br>
+  &lt;country id=&quot;AD&quot;&gt;Andorra&lt;/country&gt;<br>
+  &lt;country id=&quot;AO&quot;&gt;Angola&lt;/country&gt;<br>
+  &lt;country id=&quot;US&quot;&gt;United States&lt;/country&gt;</p>
+</blockquote>
+<p class="element2">&lt;variants&gt;</p>
+<p>The id is of the same type as the variant above, as above.</p>
+<blockquote>
+  <p>&lt;variant id=&quot;NY&quot;&gt;Nynorsk&lt;/country&gt;</p>
+</blockquote>
+<p class="element2">&lt;keywords&gt;</p>
+<p>The id is of the same type as the keyword described above.</p>
+<blockquote>
+  <p>&lt;keyword id=&quot;collation&quot;&gt;Sortierung&lt;/keyword &gt;</p>
+</blockquote>
+<p class="element2">&lt;options&gt;</p>
+<p>The id is of the same type as the keyword option described above. Since the
+translation of an option name may depend on the keyword it is used with, the
+latter is optionally supplied.</p>
+<blockquote>
+  <p>&lt;option id=&quot;phonebook&quot; keyword=&quot;collation&quot;&gt;Telefonbuch&lt;/option
+  &gt;</p>
+</blockquote>
 <h3><a name="&lt;layout&gt;">&lt;layout&gt;</a></h3>
 <p>This top-level element specifies general layout features. It currently only
 has one possible element (other than &lt;special&gt;, which is always
@@ -445,66 +519,13 @@ characters that are considered to be a single letter in the alphabet, such as
 [w]])</p>
 <p class="element2">&lt;mapping id=&quot;windows-1252&quot;/&gt;</p>
 <p>There can be multiple mapping elements. Each indicates the character
-conversion mapping table name (in <a href="http://www.unicode.org/unicode/reports/tr22/">UTR
-#22</a> format) for a character encoding that is commonly used to encode data in
-the language of this locale. The version field of the mapping table is omitted.
-The ordering among the mapping elements is not significant. The mapping elements
-themselves are not inherited from parents.</p>
-<h3><a name="&lt;idDisplayNames&gt;">&lt;idDisplayNames&gt;</a></h3>
-<p>Display names for scripts, languages, countries, and variants in this locale
-are supplied by this element. These supply localized names for these items for
-use in user-interfaces. Examples are given below.</p>
-<p class="element2">&lt;scripts&gt;</p>
-<p>This element can contain an number of script elements. Each script element
-provides the localized name for a script, given by ID. The script IDs can be
-either the long or short forms from Scripts.txt in the UCD. (See <a href="http://www.unicode.org/unicode/reports/tr24/">UTR
-#24: Script Names</a> for more information.) For example, in the language of
-this locale, the name for the Latin script might be &quot;Romana&quot;, and for
-the Cyrillic script is &quot;Kyrillica&quot;. That would be expressed with the
-following.</p>
-<blockquote>
-  <p>&lt;script id=&quot;Latin&quot;&gt;Romana&lt;/script&gt;<br>
-  &lt;script id=&quot;Cyrillic&quot;&gt;Kyrillica&lt;/script&gt;</p>
-</blockquote>
-<p class="element2">&lt;languages&gt;</p>
-<blockquote>
-  <p>&lt;language id=&quot;ab&quot;&gt;Abkhazian&lt;/language&gt;<br>
-  &lt;language id=&quot;aa&quot;&gt;Afar&lt;/language&gt;<br>
-  &lt;language id=&quot;af&quot;&gt;Afrikaans&lt;/language&gt;<br>
-  &lt;language id=&quot;sq&quot;&gt;Albanian&lt;/language&gt;</p>
-</blockquote>
-<p class="element2">&lt;countries&gt;</p>
-<blockquote>
-  <p>&lt;country id=&quot;AF&quot;&gt;Afghanistan&lt;/country&gt;<br>
-  &lt;country id=&quot;AL&quot;&gt;Albania&lt;/country&gt;<br>
-  &lt;country id=&quot;DZ&quot;&gt;Algeria&lt;/country&gt;<br>
-  &lt;country id=&quot;AD&quot;&gt;Andorra&lt;/country&gt;<br>
-  &lt;country id=&quot;AO&quot;&gt;Angola&lt;/country&gt;<br>
-  &lt;country id=&quot;US&quot;&gt;United States&lt;/country&gt;</p>
-</blockquote>
-<p class="element2">&lt;variants&gt;</p>
-<blockquote>
-  <p>&lt;variant id=&quot;NY&quot;&gt;Nynorsk&lt;/country&gt;</p>
-</blockquote>
-<p class="element2">&lt;keywords&gt;</p>
-<blockquote>
-  <p>&lt;keyword id=&quot;collation&quot;&gt;Sortierung&lt;/keyword &gt;</p>
-</blockquote>
-<p class="element2">&lt;options&gt;</p>
-<p>Since the translation of an option name may depend on the keyword it is used
-with, the latter is optionally supplied.</p>
-<blockquote>
-  <p>&lt;option id=&quot;phonebook&quot; keyword=&quot;collation&quot;&gt;Telefonbuch&lt;/option
-  &gt;</p>
-</blockquote>
-<p class="element2">&lt;localePatterns&gt;</p>
-<p>This consists of a Java/ICU choice format syntax for producing the name of a
-locale in a particular language.</p>
-<blockquote>
-  <pre>&lt;locale&gt;{0,choice,0#|1#{1}|2#{1} ({2})}&lt;/locale&gt;
-&lt;list&gt;{0,choice,0#|1#{1}|2#{1},{2}|3#{1},{2},{3}}&lt;/list&gt;
-&lt;composition&gt;{0},{1}&lt;/composition&gt;</pre>
-</blockquote>
+conversion mapping table name (with an IANA name*) for a character encoding that
+is commonly used to encode data in the language of this locale. The version
+field of the mapping table is omitted. The ordering among the mapping elements
+is not significant. The mapping elements themselves are not inherited from
+parents.</p>
+<p class="note">Note: While IANA names are not precise, they are sufficient for
+this purpose.</p>
 <h3><a name="&lt;delimiters&gt;">&lt;delimiters&gt;</a></h3>
 <p>The delimiters supply common delimiters for bracketing. The values should be
 self-explanatory.</p>
@@ -527,9 +548,10 @@ from millimeters to the customary units.</p>
   &lt;units&gt;mm&lt;/units&gt;
 &lt;/paperSize&gt;</pre>
 <p class="note">Open Issue: in the future, we may need to add display names for
-the various measurement units, and a message format for position those with
-respect to numbers. E.g. &quot;{number} {unitName}&quot; in some languages, but
-&quot;{unitName} {number}&quot; in others.</p>
+the particular measurement units (millimeter vs millimetre vs whatever the
+Greek, Russian, etc are), and a message format for position those with respect
+to numbers. E.g. &quot;{number} {unitName}&quot; in some languages, but &quot;{unitName}
+{number}&quot; in others.</p>
 <h3><a name="&lt;dates&gt;">&lt;dates&gt;</a></h3>
 <p>This top-level element contains information regarding the format/parsing of
 dates and times. It contains multiple calendar elements, each of which specifies
@@ -590,6 +612,7 @@ for a given locale.</i></p>
                 &lt;day id=&quot;fri&quot;&gt;Fri&lt;/day&gt;
                 &lt;day id=&quot;sat&quot;&gt;Sat&lt;/day&gt;
             &lt;/dayAbbr&gt;
+
             &lt;week&gt;
                 &lt;minDays&gt;1&lt;/minDays&gt;
                 &lt;firstDay id=&quot;sun&quot;/&gt;
@@ -602,29 +625,31 @@ for a given locale.</i></p>
                     &lt;time&gt;18:00&lt;/time&gt;
                 &lt;/weekendEnd&gt;
             &lt;/week&gt;
+
             &lt;am&gt;AM&lt;/am&gt;
             &lt;pm&gt;PM&lt;/pm&gt;
+
             &lt;eras&gt;    &lt;!-- Non-gregorians may have many more eras --&gt;
                 &lt;era id=&quot;0&quot;&gt;BC&lt;/era&gt;
                 &lt;era id=&quot;1&quot;&gt;AD&lt;/era&gt;
             &lt;/eras&gt;
 
-            &lt;patterns&gt;
+            &lt;dateFormats&gt;
                 &lt;localizedPatternChars&gt;GyMdkHmsSEDFwWahKz&lt;/localizedPatternChars&gt;
-                &lt;patternElement patternId=&quot;date&quot; type=&quot;medium&quot; default=&quot;true&quot;&gt;
+                &lt;pattern type=&quot;medium&quot; default=&quot;true&quot;&gt;
                       &lt;patternCode &gt;MM d, yyyy &lt;/patternCode&gt;
                       &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
-                 &lt;/patternElement&gt;
-                 &lt;patternElement patternId=&quot;date&quot; type=&quot;full&quot; default=&quot;true&quot;&gt;
+                 &lt;/pattern&gt;
+                 &lt;pattern type=&quot;full&quot; default=&quot;true&quot;&gt;
                       &lt;patternCode&gt;EEEE, MMMM d, yyyy&lt;/patternCode&gt;
                       &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
-                 &lt;/patternElement&gt;
-                  &lt;patternElement patternId=&quot;time&quot; type=&quot;full&quot; default=&quot;true&quot;&gt;
+                 &lt;/pattern&gt;
+                 &lt;pattern patternId=&quot;time&quot; type=&quot;full&quot; default=&quot;true&quot;&gt;
                       &lt;patternCode&gt;h:mm:ss a z&lt;/patternCode&gt;
                       &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
-                 &lt;/patternElement&gt;
-                &lt;patternElement patternId=&quot;dateTime&quot;&gt;{0} {1}&lt;/patternElement&gt;
-            &lt;/patterns&gt;
+                 &lt;/pattern&gt;
+                &lt;pattern patternId=&quot;dateTime&quot;&gt;{0} {1}&lt;/pattern&gt;
+            &lt;/dateFormats&gt;
         &lt;/calendar&gt;
 
         &lt;!-- The Buddhist calendar inherits month names, etc. (everything but eras) from Gregorian --&gt;
@@ -688,6 +713,8 @@ be marked as &quot;default&quot;. For more information, including the pattern
 structure, see the Java API: <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/NumberFormat.html">NumberFormat</a>,
 <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DecimalFormat.html">DecimalFormat</a>,
 <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DecimalFormatSymbols.html">DecimalFormatSymbols</a>.</p>
+<p>In currency formats, only the symbols that are different need to be included.
+All others are inherited from the default number formats.</p>
 <p class="note">Note: there is an on-line demonstration of number formatting and
 parsing at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale Explorer</a>
 (pick the locale and scroll to &quot;Number Patterns&quot;).</p>
@@ -705,17 +732,17 @@ parsing at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale Explorer<
               &lt;infinity&gt;&#8734;&lt;/infinity&gt;
               &lt;nan&gt;&#9785;&lt;/nan&gt;
        &lt;/symbols&gt;</pre>
-<pre>        &lt;numberFormat class=&quot;decimal&quot; default=&quot;true&quot;&gt;
-          &lt;patternElement patternId=&quot;number&quot; type=&quot;decimal&quot; default=&quot;false&quot;&gt;
+<pre>        &lt;numberFormat class=&quot;decimal&quot;&gt;
+          &lt;pattern type=&quot;decimal&quot; default=&quot;false&quot;&gt;
               &lt;patternCode type=&quot;positive&quot;&gt;#,##0.###&lt;/patternCode&gt;
               &lt;patternCode type=&quot;negative&quot;&gt;-#,##0.###&lt;/patternCode&gt;
-          &lt;/patternElement&gt;
-          &lt;patternElement patternId=&quot;number&quot; type=&quot;percent&quot; default=&quot;false&quot;&gt;
+          &lt;/pattern&gt;
+          &lt;pattern type=&quot;percent&quot;&gt;
               &lt;patternCode type=&quot;positive&quot;&gt;#,##0%&lt;/patternCode&gt;
-          &lt;/patternElement&gt;
-          &lt;patternElement patternId=&quot;number&quot; type=&quot;scientific&quot; default=&quot;false&quot;&gt;
+          &lt;/pattern&gt;
+          &lt;pattern type=&quot;scientific&quot;&gt;
               &lt;patternCode &gt;#,##0%&lt;/patternCode&gt;
-          &lt;/patternElement&gt;
+          &lt;/pattern&gt;
        &lt;/numberFormat&gt;</pre>
 <pre>       &lt;currencies&gt;
             &lt;currency id=&quot;USD&quot; default=&quot;true&quot;&gt;
@@ -723,20 +750,20 @@ parsing at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale Explorer<
                 &lt;symbol&gt;$&lt;/symbol&gt;
                 &lt;decimal&gt;.&lt;/decimal&gt;
                 &lt;group&gt;,&lt;/group&gt;
-                &lt;patternElement patternId=&quot;currency&quot; default=&quot;false&quot;&gt;
+                &lt;pattern default=&quot;false&quot;&gt;
                     &lt;patternCode type=&quot;positive&quot;&gt;¤ #,##0.00;&lt;/patternCode&gt;
                     &lt;patternCode type=&quot;negative&quot;&gt;(¤ #,##0.00)&lt;/patternCode&gt;
-                &lt;/patternElement&gt;
+                &lt;/pattern&gt;
             &lt;/currency&gt;
 
             &lt;currency id =&quot;JPY&quot;&gt;
                 &lt;displayName&gt;yen&lt;/displayName&gt;
                 &lt;symbol&gt;¥&lt;/symbol&gt;
-                &lt;patternElement patternId=&quot;currency&quot; default=&quot;false&quot;&gt;
+                &lt;pattern default=&quot;false&quot;&gt;
                     &lt;special owner=&quot;StarOffice&quot; msgid=&quot;FixedFormatskey9&quot; usage=&quot;FIXED_NUMBER&quot; formatindex=&quot;4&quot; /&gt;
                     &lt;patternCode type=&quot;positive&quot;&gt;¤ #,##0.00;&lt;/patternCode&gt;
                     &lt;patternCode type=&quot;negative&quot;&gt;(¤ #,##0.00)&lt;/patternCode&gt;
-                &lt;/patternElement&gt;
+                &lt;/pattern&gt;
                 &lt;decimal&gt;.&lt;/decimal&gt;
             &lt;/currency&gt;
         &lt;/currencies&gt;
@@ -745,9 +772,9 @@ parsing at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale Explorer<
 <p>The rule-based number format encapsulates a set of rules for mapping binary
 numbers to and from a readable representation, typically used for spelling out
 numbers. The rules are fairly sophisticated; for details see <a href="http://oss.software.ibm.com/icu/apiref/classRuleBasedNumberFormat.html#_details">Rule-Based
-Number Format</a>.</p>
-<p>The following provides an example for Italian.</p>
-<pre>&lt;ruleBasedNumberFormat&gt;%main:
+Number Format</a>. These can be sub-elements of &lt;numberFormat&gt;.</p>
+<p class="example">Example: The following provides an example for Italian.</p>
+<pre>&lt;ruleBasedNumberFormat type=X&gt;%main:
     -x: meno &gt;&gt;;
     x.x: &lt;&lt; virgola &gt;&gt;;
     zero; uno; due; tre; quattro; cinque; sei; sette; otto;
@@ -789,15 +816,15 @@ Number Format</a>.</p>
 &lt;/ruleBasedNumberFormat&gt;</pre>
 <h3><a name="&lt;boundaries&gt;">&lt;boundaries&gt;</a></h3>
 <p>Selected samples are given below with no attempt to make them work. This
-format is the Java/ICU syntax, at the top level. For real data, see <a href="http://oss.software.ibm.com/developerworks/opensource/cvs/icu4j">http://oss.software.ibm.com/developerworks/opensource/cvs/icu4j</a>
-in BreakIteratorRules.java <b>[Ed note: add more explicit]</b></p>
-<pre>        &lt;grapheme class=&quot;RuleBased&quot;&gt;
-            &lt;!-- in addition to the normal rules, treat CH and RR as graphemes. --&gt;
-            [cC][hH];[rR][rR]
+format is the Java/ICU syntax, at the top level. For a description of that, see <a href="http://oss.software.ibm.com/icu/docs/papers/RBBI-rule-syntax.html">RBBI
+Rule Syntax</a>. (The format will be moved into the ICU User Guide soon.)</p>
+<pre>        &lt;grapheme class=&quot;RuleBased&quot; append=&quot;true&quot;&gt;
+            <span class="comment">&lt;!-- in addition to the normal rules, treat CH and RR as graphemes. --&gt;</span>
+            [cC][hH];[rR][rR];
         &lt;/grapheme&gt;
         &lt;word class=&quot;Dictionary&quot; import=&quot;thaiDict.dat&quot; &gt;
-            &lt;!-- When doing Thai word break, check the normal word break rules first. --&gt;
-            digit=[[:Nd:][:No:]];
+<span class="comment">            &lt;!-- When doing Thai word break, check the normal word break rules first. --&gt;
+</span>            digit=[[:Nd:][:No:]];
             $digit [[:Pd:]­&#8231;&amp;apos;.]
         &lt;/word&gt;</pre>
 <h3><a name="&lt;transforms&gt;">&lt;transforms&gt;</a></h3>
@@ -1052,23 +1079,19 @@ tailoring of the UCA table. This syntax is an XMLized version of the Java/ICU
 syntax. While a summary of the effect of different rules are given here, the
 specifics of the rules are defined by correspondence with the <i>basic</i> <a href="http://oss.software.ibm.com/icu/userguide/Collate_Customization.html">ICU
 rule syntax</a> (used in ICU and Java) and/or the ICU parameterizations.</p>
-<blockquote>
-  <p><b>Note: </b>ICU provides a concise format for specifying orderings, based
-  on tailorings to the UCA. For example, to specify that k and q follow 'c', one
-  can use the rule: &quot;&amp; c &lt; k &lt; q&quot;. The rules also allow
-  people to set default general parameter values, such as whether uppercase is
-  before lowercase or not.</p>
-  <p>Java contains an earlier version of ICU, and has not been updated recently.
-  It does not support any of the basic syntax marked with [...], and its default
-  table is not the UCA.</p>
-  <p><i><b>It is not necessary for ICU to be used in the underlying
-  implementation. The features are simply described here in terms of the ICU
-  capabilities, since that is easier than duplicating the text. In a final
-  version of the specification, the details of the semantics will be copied
-  here.</b></i></p>
-  <p class="note">Note: there is an on-line demonstration of collation at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale
-  Explorer</a> (pick the locale and scroll to &quot;Collation Rules&quot;). </p>
-</blockquote>
+<p class="note"><b>Note: </b>ICU provides a concise format for specifying
+orderings, based on tailorings to the UCA. For example, to specify that k and q
+follow 'c', one can use the rule: &quot;&amp; c &lt; k &lt; q&quot;. The rules
+also allow people to set default general parameter values, such as whether
+uppercase is before lowercase or not. (Java contains an earlier version of ICU,
+and has not been updated recently. It does not support any of the basic syntax
+marked with [...], and its default table is not the UCA.) It is <i>not</i>
+necessary for ICU to be used in the underlying implementation. The features are
+simply described here in terms of the ICU capabilities, since that is easier
+than duplicating the text. In a final version of the specification, the details
+of the semantics will be copied here.</p>
+<p class="note"><b>Note: </b>there is an on-line demonstration of collation at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale
+Explorer</a> (pick the locale and scroll to &quot;Collation Rules&quot;).</p>
 <p>Like the ICU rules, the tailoring syntax is designed to be independent of the
 actual weights used in any particular UCA table. That way the same rules can be
 applied to UCA versions over time, even if the underlying weights change. The
@@ -1092,7 +1115,7 @@ strength=&quot;secondary&quot;&gt; will only compare strings based on their
 primary and secondary weights.</p>
 <p>If the attribute is not present, the default (or for the base url's
 attribute, if there is one) is used. The default is listed in italics. The
-effect of these are defined by reference to the effect of the <a href="http://oss.software.ibm.com/icu/apiref/ucol_8h.html#a69">setAttributes</a>
+effect of these are defined by reference to the <i>effect</i> of the <a href="http://oss.software.ibm.com/icu/apiref/ucol_8h.html#a69">setAttributes</a>
 API (except for variableTop, which corresponds to the <a href="http://oss.software.ibm.com/icu/apiref/classCollator.html#a21">setVariableTop</a>
 API). The basic example is given where the setting can also be given with rules
 in the basic syntax.</p>
@@ -1180,10 +1203,10 @@ separate element.</p>
       below for the layout.</li>
   </ol>
 </blockquote>
-<h2><a name="Rules">Rules</a></h2>
-<p>The goal for the rule syntax is to have clearly expressed rules, with a
-concise format, that parallels the Basic syntax as much as possible.&nbsp; The
-rule syntax uses elements as <i>delimiters</i> rather than <i>containers</i>.
+<h2><a name="Rules">Collation Rule Syntax</a></h2>
+<p>The goal for the collation rule syntax is to have clearly expressed rules,
+with a concise format, that parallels the Basic syntax as much as
+possible.&nbsp; The rule syntax uses elements as <i>delimiters</i> rather than <i>containers</i>.
 The reason for this is because the tailorings for CJK characters are quite large
 (tens of thousands of elements), and the extra overhead of the element
 termination would have been considerable. For the same reason, the element names
@@ -1268,6 +1291,9 @@ used in the basic syntax. This also must be used where spaces are significant
     </tr>
   </tbody>
 </table>
+<p class="note"><b>Note: </b>If XML 1.1 is approved in the current state, then
+this would not be necessary -- except for NULL (U+0000), which is typically
+never tailored.</p>
 <h3><a name="Contractions">Contractions</a></h3>
 <p>To sort a sequence as a single item (contraction), just use the sequence,
 e.g.</p>
@@ -1483,6 +1509,30 @@ character.</p>
 <p>For example, to make a character be a secondary ignorable, one can make it be
 immediately after (at a secondary level) a specific character (like a combining
 dieresis), or one can make it be immediately after the last secondary ignorable.</p>
+<h3><a name="Logical_Reset_Positions">Special-Purpose Commands</a></h3>
+<table>
+  <tbody>
+    <tr>
+      <th>Basic</th>
+      <th>XML</th>
+    </tr>
+    <tr>
+      <td>[suppressContractions [&#1033;-&#1169;]]</td>
+      <td>&lt;suppressContractions&gt;[&#1033;-&#1169;]&lt;/suppressContractions</td>
+    </tr>
+    <tr>
+      <td>[optimize [&#902;-&#974;]]</td>
+      <td>&lt;optimize&gt;[&#902;-&#974;]&lt;/optimize&gt;</td>
+    </tr>
+  </tbody>
+</table>
+<p>The suppressContractions tailoring command turns off any previous
+contractions that begin with those characters. It is typically used to turn off
+the Cyrillic contractions in the UCA, since they are not used in many languages,
+and have a considerable performance penalty. The argument is a UnicodeSet.</p>
+<p>The optimized tailoring command is purely for performance. It indicates that
+those characters are sufficiently common in the target language for the
+tailoring that their performance should be enhanced.</p>
 <p class="example">Example:</p>
 <pre>   &lt;collation version=&quot;1.5&quot; accentOrder=&quot;reverse&quot; override=&quot;true&quot;&gt;
 <font color="#00FF00">        &lt;!-- this example takes the swedish tailoring plus part of a japanese tailoring, 
@@ -1515,34 +1565,26 @@ dieresis), or one can make it be immediately after the last secondary ignorable.
         &lt;pc&gt;&#39925;&#26771;&#22311;&#26017;&#25201;&lt;/pc&gt;</pre>
 <h2>Appendix A: <a name="Sample_Special_Elements">Sample Special Elements</a></h2>
 <p>The following are nonstandard elements provided as examples.</p>
-<h3>OpenOffice</h3>
+<h3><a name="OpenOffice">OpenOffice</a></h3>
 <p>A number of the elements above can have extra information for OpenOffice,
 such as the following example:</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&lt;patternElement patternId=&quot;currency&quot; default=&quot;false&quot;&gt;<br>
-<font color="#0000FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&lt;special owner=&quot;<a href="http://www.openoffice.org">http://www.openoffice.org</a>&quot;
-msgid=&quot;FixedFormatskey9&quot; usage=&quot;FIXED_NUMBER&quot; formatindex=&quot;4&quot;
-/&gt;<br>
-</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&lt;patternCode type=&quot;positive&quot;&gt;¤ #,##0.00;&lt;/patternCode&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&lt;patternCode type=&quot;negative&quot;&gt;(¤ #,##0.00)&lt;/patternCode&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&lt;/patternElement&gt;<br>
-</p>
-<h3>POSIX</h3>
+<pre>&lt;pattern patternId=&quot;currency&quot; default=&quot;false&quot;&gt;
+<font color="#0000FF">  &lt;special owner=&quot;<a href="http://www.openoffice.org">http://www.openoffice.org</a>&quot; msgid=&quot;FixedFormatskey9&quot; usage=&quot;FIXED_NUMBER&quot; formatindex=&quot;4&quot; /&gt;
+</font>  &lt;patternCode type=&quot;positive&quot;&gt;¤ #,##0.00;&lt;/patternCode&gt;
+  &lt;patternCode type=&quot;negative&quot;&gt;(¤ #,##0.00)&lt;/patternCode&gt;
+&lt;/pattern&gt;</pre>
+<h3><a name="POSIX">POSIX</a></h3>
 <p>There are some old abbreviations for pre-GUI days for POSIX that can be
 added.</p>
-<pre>    &lt;special owner=&quot;http://www.opengroup.org/regproducts/xu.htm&quot;&gt;
-        &lt;messages&gt;
-            &lt;no&gt;No&lt;/no&gt;
-            &lt;yes&gt;Yes&lt;/yes&gt;
-            &lt;shortYes&gt;Y&lt;/shortYes&gt;
-            &lt;shortNo&gt;N&lt;/shortNo&gt;
-        &lt;/messages&gt;
-    &lt;/special&gt;</pre>
-<h3>ISO TR 14652</h3>
+<pre>&lt;special owner=&quot;http://www.opengroup.org/regproducts/xu.htm&quot;&gt;
+  &lt;messages&gt;
+    &lt;no&gt;No&lt;/no&gt;
+    &lt;yes&gt;Yes&lt;/yes&gt;
+    &lt;shortYes&gt;Y&lt;/shortYes&gt;
+    &lt;shortNo&gt;N&lt;/shortNo&gt;
+  &lt;/messages&gt;
+&lt;/special&gt;</pre>
+<h3><a name="ISO_TR_14652">ISO TR 14652</a></h3>
 <p>The following is ISO TR 14652 compatibility data. () This section is here
 because TR 14652 data is used in RedHat LINUX, otherwise we wouldn't bother with
 it.</p>
@@ -1554,6 +1596,8 @@ patterns make little provision for substantial changes in format when elements
 are empty, so are not particularly useful in practice. Compare, for example, the
 capabilities of a product like Microsoft word in doing mail-merge.</p>
 <p class="example">Examples</p>
+<p class="example"><b>[Ed. Note: I think we ought to revert to the unreadable %x
+notation, since we simply want to pass this gorp through.]</b></p>
 <pre>   &lt;special owner=&quot;http://www.redhat.com&quot;&gt;
        &lt;iso14652:iso14652 xmlns:iso14652=&quot;http://oss.software.ibm.com/icu/iso14652&quot;&gt;
             &lt;iso14652:addressFormat&gt;

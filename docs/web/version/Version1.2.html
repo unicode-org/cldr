@@ -1,0 +1,338 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="VI60_defaultClientScript" content="JavaScript">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="keywords" content="Unicode, common locale data repository">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Common Locale Data - Repository Access</title>
+<link rel="stylesheet" type="text/css" href="http://www.unicode.org/webscripts/standard_styles.css">
+<style>
+<!--
+.panel		{ background-color:#FFFFFF; }
+table.list  { border-color: #C0C0C0; border:none}
+td.item     { background-color:#FFFFFF; border:none; }
+-->
+</style>
+</head>
+
+<body text="#330000">
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td colspan="2">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="icon"><a href="http://www.unicode.org/">
+        <img border="0" src="http://www.unicode.org/webscripts/logo60s2.gif" align="middle" alt="[Unicode]" width="34" height="33"></a>&nbsp;&nbsp;
+        <a class="bar" href="index.html"><font size="3">Common Locale Data Repository</font></a></td>
+        <td class="bar"><a href="http://www.unicode.org" class="bar">Home</a> |
+        <a href="http://www.unicode.org/sitemap/" class="bar">Site Map</a> |
+        <a href="http://www.unicode.org/search/" class="bar">Search</a></td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="gray">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%" class="navCol">
+    <table class="navColTable" border="0" width="100%" cellspacing="4" cellpadding="0">
+      <tr>
+        <td class="navColTitle">CLDR</td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="index.html">CLDR Project</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="process.html">CLDR Technical Committee</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="procedures.html">CLDR-TC Procedures</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell">Repository Access</td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="data_formats.html">Data Formats</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="filing_bug_reports.html">Filing Bug Reports</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="comparison_charts.html">Comparison Charts</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/tr35/">UTS #35: 
+        LDML</a></td>
+      </tr>
+      <tr>
+        <td class="navColTitle">Related Links</td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell">Join the
+        <a href="http://www.unicode.org/consortium/consort.html">Unicode Consortium</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/">Unicode 
+        Technical Reports</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell">
+        <a href="http://www.unicode.org/faq/reports_process.html">Technical Reports Development and 
+        Maintenance Process</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="http://www.unicode.org/consortium/utc.html">
+        Unicode Technical Committee</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="http://www.unicode.org/versions/">Versions of 
+        the Unicode Standard</a></td>
+      </tr>
+      <tr>
+        <td class="navColTitle">Other Publications</td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="http://www.unicode.org/standard/standard.html">
+        The Unicode Standard</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="http://www.unicode.org/notes/">Unicode 
+        Technical Notes</a></td>
+      </tr>
+    </table>
+    <!-- BEGIN CONTENTS --></td>
+    <td>
+    <table>
+      <tr>
+        <td class="contents" valign="top">
+        <div style="margin:1em">
+          <h1 style="margin-bottom: 1em">CLDR 1.2 Release Note</h1>
+          <div align="center">
+            <center>
+            <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+              <tr>
+                <th align="left">http</th>
+                <th align="left">&nbsp;</th>
+                <th align="left">ftp</th>
+                <th align="left">CVS Tag</th>
+              </tr>
+              <tr>
+                <td><a href="http://www.unicode.org/Public/cldr/cldr1.2.zip">CLDR 1.2</a></td>
+                <td>&nbsp;</td>
+                <td><a href="ftp://www.unicode.org/Public/cldr/cldr1.2.zip">CLDR 1.2</a></td>
+                <td><code>release-1-2</code></td>
+              </tr>
+            </table>
+            </center>
+          </div>
+          <p>CLDR Version 1.2 contains data for 232 locales, <a href="#Languages_and_Territories">
+          covering</a> 72 languages and 108 territories. There are also 63 draft locales in the 
+          process of being developed, covering an additional 27 languages and 28 territories.</p>
+          <p>This is a stable release and may be used as reference material or cited as a normative 
+          reference by other specifications. Although the data in this release will not be changed, 
+          bug reports for changes in future versions filed at <a href="filing_bug_reports.html">Bug 
+          Reports</a>. The freeze date for the next version of CLDR is January 15, 2005. <i>All new 
+          data or defect reports for CLDR 1.3 must be submitted by then.</i></p>
+          <p>In this release, the major additions to CLDR are: </p>
+          <ul>
+            <li><font color="#330000"><b>Data</b>: Many names for languages, territories, and 
+            scripts have been added, as well as for time zones, calendars, and other named items 
+            such as collation</font>; the data has been compacted by removal of inherited or aliased 
+            data; plus other fixes and additions.</li>
+            <li><b>Structure</b>: The LDML specification has been enhanced substantially. It now has 
+            self-contained descriptions of date / number / choice format patterns, inheritance and 
+            validity, time zone fallbacks, and provides lists of all valid attribute values. The XML 
+            format adds structure to assist in vetting, to allow for multiple sets of exemplar 
+            characters (indicating characters in use in particular locales), to represent relative 
+            dates and times, to provide better support for time zone names, and to strengthen the 
+            alias mechanism.</li>
+            <li><b>Implementation</b>: The new collation tests allow implementations to verify 
+            correct use of locale data. For comparison of data, by-type charts and vetting charts 
+            were added. The CLDR source now does not require ICU for generation.</li>
+          </ul>
+          <p>The release is in the form of a zip file. It contains three directories, for common 
+          data, for collation data, and for tests. The format of the tests is explained in a 
+          readMe.html in the test folder.</p>
+          <p>To see the list of all bugs fixes and additions for this release, go to
+          <a href="http://www.jtcsv.com/cgibin/locale-bugs/closed?expression=target.*1.2">Release 
+          Changes</a>. This is a view into the feature/bug database that presents only those closed 
+          in this release. To see individual changes, go to the bug diff viewer, at
+          <a href="http://unicode.org/cgi-bin/bugdiffs.pl">BugDiffs</a>. For example, using bug 
+          number 399 shows changes for that bug. Note: not all bugs will have recorded changes in
+          <a href="http://unicode.org/cgi-bin/bugdiffs.pl">BugDiffs</a>.</p>
+          <h3><a name="Languages_and_Territories">Languages and Territories</a></h3>
+          <p><b>Languages:</b> <span title="af, Afrikaans">Afrikaans</span>,
+          <span title="id, Indonesian">Bahasa Indonesia</span>, <span title="ms, Malay">Bahasa 
+          Melayu</span>, <span title="ca, Catalan">Català</span>, <span title="cs, Czech">Čeština</span>,
+          <span title="cy, Welsh">Cymraeg</span>, <span title="da, Danish">Dansk</span>,
+          <span title="de, German">Deutsch</span>, <span title="et, Estonian">Eesti</span>,
+          <span title="en, English">English</span>, <span title="es, Spanish">Español</span>,
+          <span title="eo, Esperanto">Esperanto</span>, <span title="eu, Basque">Euskara</span>,
+          <span title="fo, Faroese">Føroyskt</span>, <span title="fr, French">Français</span>,
+          <span title="ga, Irish">Gaeilge</span>, <span title="gv, Manx">Gaelg</span>,
+          <span title="gl, Gallegan">Galego</span>, <span title="hr, Croatian">Hrvatski</span>,
+          <span title="is, Icelandic">Íslenska</span>, <span title="it, Italian">Italiano</span>,
+          <span title="kl, Kalaallisut">Kalaallisut</span>, <span title="kw, Cornish">Kernewek</span>,
+          <span title="sw, Swahili">Kiswahili</span>, <span title="lv, Latvian">Latviešu</span>,
+          <span title="lt, Lithuanian">Lietuvių</span>, <span title="hu, Hungarian">Magyar</span>,
+          <span title="mt, Maltese">Malti</span>, <span title="nl, Dutch">Nederlands</span>,
+          <span title="nb, Norwegian Bokmål">Norsk Bokmål</span>,
+          <span title="nn, Norwegian Nynorsk">Norsk Nynorsk</span>, <span title="om, Oromo">Oromoo</span>,
+          <span title="pl, Polish">Polski</span>, <span title="pt, Portuguese">Português</span>,
+          <span title="ro, Romanian">Română</span>, <span title="sq, Albanian">Shqipe</span>,
+          <span title="sl, Slovenian">Slovenščina</span>, <span title="sk, Slovak">Slovenský</span>,
+          <span title="so, Somali">Soomaali</span>, <span title="sr_Latn, Serbian">Srpski</span>,
+          <span title="sh, Serbo-Croatian">Srpsko-Hrvatski</span>, <span title="fi, Finnish">Suomi</span>,
+          <span title="sv, Swedish">Svenska</span>, <span title="vi, Vietnamese">Tiếng Việt</span>,
+          <span title="tr, Turkish">Türkçe</span>, <span title="el, Greek, Ellēniká">Ελληνικά</span>,
+          <span title="be, Belarusian, Belaruskí">Беларускі</span>,
+          <span title="bg, Bulgarian, Bʺlgarski">Български</span>, <span title="kk, Kazakh, Kˌazakˌ">
+          Қазақ</span>, <span title="mk, Macedonian, Makedonski">Македонски</span>,
+          <span title="ru, Russian, Russkij">Русский</span>, <span title="sr, Serbian, Srpski">
+          Српски</span>, <span title="uk, Ukrainian, Ukraí̈nsʹka">Українська</span>,
+          <span title="hy_AM_REVISED, Armenian, Hayerēn">Հայերէն</span>, ‎<span title="he, Hebrew, ʻbryţ">עברית</span>‎, 
+          ‎<span title="ar, Arabic, Ạlʿrbyẗ">العربية</span>‎, ‎<span title="ps, Pashto (Pushto), Psˌtw">پښتو</span>‎, 
+          ‎<span title="fa, Persian, Dry̰">دری</span>‎, ‎<span title="fa, Persian, Fạrsy̰">فارسی</span>‎,
+          <span title="ti, Tigrinya, Tīgīrīnya">ትግርኛ</span>, <span title="am, Amharic, ʿēmarīnya">
+          አማርኛ</span>, <span title="kok, Konkani, Kōṅkaṇī">कोंकणी</span>,
+          <span title="mr, Marathi, Marāṭhī">मराठी</span>, <span title="hi, Hindi, Hindī">हिंदी</span>,
+          <span title="bn, Bengali, Bānlā">বাংলা</span>, <span title="pa, Punjabi, Pajābī">ਪੰਜਾਬੀ</span>,
+          <span title="gu, Gujarati, Gujarātī">ગુજરાતી</span>, <span title="ta, Tamil, Tamiḻ">தமிழ்</span>,
+          <span title="te, Telugu, Telugu">తెలుగు</span>, <span title="kn, Kannada, Kannaḍa">ಕನ್ನಡ</span>,
+          <span title="th, Thai, Thịy">ไทย</span>, <span title="ko, Korean, Hangug" eo'>한국어</span>,
+          <span title="zh, Chinese, Zhōng Wén">中文</span>, <span title="ja, Japanese">日本語</span> </p>
+          <p><b>Countries:</b> <span title="AR, Argentina">Argentina</span>,
+          <span title="AU, Australia">Australia</span>, <span title="BE, Belgium">België</span>,
+          <span title="BE, Belgium">Belgien</span>, <span title="BE, Belgium">Belgique</span>,
+          <span title="BE, Belgium">Belgium</span>, <span title="BO, Bolivia">Bolivia</span>,
+          <span title="BW, Botswana">Botswana</span>, <span title="BR, Brazil">Brasil</span>,
+          <span title="BN, Brunei">Brunei</span>, <span title="CA, Canada">Canada</span>,
+          <span title="CZ, Czech Republic">Česká Republika</span>, <span title="CL, Chile">Chile</span>,
+          <span title="CO, Colombia">Colombia</span>, <span title="CR, Costa Rica">Costa Rica</span>,
+          <span title="DK, Denmark">Danmark</span>, <span title="DE, Germany">Deutschland</span>,
+          <span title="EC, Ecuador">Ecuador</span>, <span title="EE, Estonia">Eesti</span>,
+          <span title="IE, Ireland">Éire</span>, <span title="SV, El Salvador">El Salvador</span>,
+          <span title="ES, Spain">Espainia</span>, <span title="ES, Spain">España</span>,
+          <span title="ES, Spain">Espanya</span>, <span title="US, United States">Estados Unidos</span>,
+          <span title="FI, Finland">Finland</span>, <span title="FO, Faroe Islands">Føroyar</span>,
+          <span title="FR, France">France</span>, <span title="GT, Guatemala">Guatemala</span>,
+          <span title="HN, Honduras">Honduras</span>, <span title="HK, Hong Kong S.A.R., China">Hong 
+          Kong S.A.R., China</span>, <span title="HR, Croatia">Hrvatska</span>,
+          <span title="IN, India">India</span>, <span title="ID, Indonesia">Indonesia</span>,
+          <span title="IE, Ireland">Ireland</span>, <span title="IS, Iceland">Ísland</span>,
+          <span title="IT, Italy">Italia</span>, <span title="ET, Ethiopia">Itoobiya</span>,
+          <span title="ET, Ethiopia">Itoophiyaa</span>, <span title="DJ, Djibouti">Jabuuti</span>,
+          <span title="GL, Greenland">Kalaallit Nunaat</span>, <span title="KE, Kenya">Keeniyaa</span>,
+          <span title="KE, Kenya">Kenya</span>, <span title="KE, Kenya">Kiiniya</span>,
+          <span title="LV, Latvia">Latvija</span>, <span title="LT, Lithuania">Lietuva</span>,
+          <span title="LU, Luxembourg">Luxembourg</span>, <span title="LU, Luxembourg">Luxemburg</span>,
+          <span title="HU, Hungary">Magyarország</span>, <span title="MY, Malaysia">Malaysia</span>,
+          <span title="MT, Malta">Malta</span>, <span title="MX, Mexico">México</span>,
+          <span title="NL, Netherlands">Nederland</span>, <span title="NZ, New Zealand">New Zealand</span>,
+          <span title="NI, Nicaragua">Nicaragua</span>, <span title="NO, Norway">Noreg</span>,
+          <span title="NO, Norway">Norge</span>, <span title="AT, Austria">Österreich</span>,
+          <span title="PA, Panama">Panamá</span>, <span title="PY, Paraguay">Paraguay</span>,
+          <span title="PE, Peru">Perú</span>, <span title="PH, Philippines">Philippines</span>,
+          <span title="PL, Poland">Polska</span>, <span title="PT, Portugal">Portugal</span>,
+          <span title="GB, United Kingdom">Prydain Fawr</span>, <span title="PR, Puerto Rico">Puerto 
+          Rico</span>, <span title="DO, Dominican Republic">República Dominicana</span>,
+          <span title="RO, Romania">România</span>, <span title="GB, United Kingdom">Rywvaneth Unys</span>,
+          <span title="CH, Switzerland">Schweiz</span>, <span title="AL, Albania">Shqipëria</span>,
+          <span title="SG, Singapore">Singapore</span>, <span title="SI, Slovenia">Slovenija</span>,
+          <span title="SK, Slovakia">Slovenská Republika</span>, <span title="SO, Somalia">
+          Soomaaliya</span>, <span title="ZA, South Africa">South Africa</span>,
+          <span title="YU, Serbia and Montenegro">Srbija I Crna Gora</span>,
+          <span title="ZA, South Africa">Suid-Afrika</span>, <span title="CH, Switzerland">Suisse</span>,
+          <span title="FI, Finland">Suomi</span>, <span title="SE, Sweden">Sverige</span>,
+          <span title="CH, Switzerland">Svizzera</span>, <span title="TZ, Tanzania">Tanzania</span>,
+          <span title="TR, Turkey">Türkiye</span>, <span title="VI, U.S. Virgin Islands">U.S. Virgin 
+          Islands</span>, <span title="GB, United Kingdom">United Kingdom</span>,
+          <span title="US, United States">United States</span>, <span title="UY, Uruguay">Uruguay</span>,
+          <span title="VE, Venezuela">Venezuela</span>, <span title="VN, Vietnam">Việt Nam</span>,
+          <span title="ZW, Zimbabwe">Zimbabwe</span>, <span title="GR, Greece, Elláda">Ελλάδα</span>,
+          <span title="BY, Belarus, Belarusʹ">Беларусь</span>, <span title="BG, Bulgaria, Bʺlgariâ">
+          България</span>, <span title="KZ, Kazakhstan, Kˌazakˌstan">Қазақстан</span>,
+          <span title="MK, Macedonia, Makedoniǰa">Македонија</span>,
+          <span title="RU, Russia, Rossiâ">Россия</span>,
+          <span title="YU, Serbia and Montenegro, Srbiǰa I Crna Gora">Србија И Црна Гора</span>,
+          <span title="UA, Ukraine, Ukraina">Украина</span>, <span title="UA, Ukraine, Ukraí̈na">
+          Україна</span>, <span title="AM, Armenia, Hayastani Hanrapetutʻiwn">Հայաստանի 
+          Հանրապետութիւն</span>, ‎<span title="IL, Israel, Yşrʼl">ישראל</span>‎, ‎<span title="AF, Afghanistan, Ạfgẖạnstạn">افغانستان</span>‎, 
+          ‎<span title="JO, Jordan, Ạlạrdn">الاردن</span>‎, ‎<span title="AE, United Arab Emirates, Ạlạmạrạt Ạlʿrbyẗ Ạlmtḥdẗ">الامارات 
+          العربية المتحدة</span>‎, ‎<span title="BH, Bahrain, Ạlbḥryn">البحرين</span>‎, ‎<span title="DZ, Algeria, Ạljzạỷr">الجزائر</span>‎, 
+          ‎<span title="SD, Sudan, Ạlswdạn">السودان</span>‎, ‎<span title="IQ, Iraq, Ạlʿrạq">العراق</span>‎, 
+          ‎<span title="SA, Saudi Arabia, Ạlʿrbyẗ Ạlsʿwdyẗ">العربية السعودية</span>‎, ‎<span title="KW, Kuwait, Ạlkwyt">الكويت</span>‎, 
+          ‎<span title="MA, Morocco, Ạlmgẖrb">المغرب</span>‎, ‎<span title="IN, India, Ạlhnd">الهند</span>‎, 
+          ‎<span title="YE, Yemen, Ạlymn">اليمن</span>‎, ‎<span title="IR, Iran, Ạy̰rạn">ایران</span>‎, 
+          ‎<span title="TN, Tunisia, Twns">تونس</span>‎, ‎<span title="SY, Syria, Swryẗ">سورية</span>‎, 
+          ‎<span title="OM, Oman, ʿmạn">عمان</span>‎, ‎<span title="QA, Qatar, Qṭr">قطر</span>‎, ‎<span title="LB, Lebanon, Lbnạn">لبنان</span>‎, 
+          ‎<span title="LY, Libya, Lybyạ">ليبيا</span>‎, ‎<span title="EG, Egypt, Mṣr">مصر</span>‎,
+          <span title="ET, Ethiopia, ʿitīyophīya">ኢትዮጵያ</span>, <span title="ER, Eritrea, ʿerītīra">
+          ኤርትራ</span>, <span title="IN, India, Bhārata">भारत</span>,
+          <span title="IN, India, Bhārata">ভারত</span>, <span title="IN, India, Bhārata">ਭਾਰਤ</span>,
+          <span title="IN, India, Bhārata">ભારત</span>, <span title="IN, India, Intiyā">இந்தியா</span>,
+          <span title="IN, India, Bhārata Dēḷa0">భారత దేళ౦</span>, <span title="IN, India, Bhārata">
+          ಭಾರತ</span>, <span title="TH, Thailand, Pratheṣ̄thịy">ประเทศไทย</span>,
+          <span title="KR, South Korea, Daehanmingug">대한민국</span>,
+          <span title="CN, China, Zhōng Guó">中国</span>,
+          <span title="HK, Hong Kong S.A.R., China, Zhōng Huá Rén Mín Gòng Hé Guó Xiāng Gǎng Tè Bié Xíng Zhèng Qū">
+          中華人民共和國香港特別行政區</span>, <span title="SG, Singapore, Xīn Jiā Pō">新加坡</span>,
+          <span title="JP, Japan">日本</span>,
+          <span title="MO, Macao S.A.R., China, Ào Mén Tè Bié Xíng Zhèng Qū">澳門特別行政區</span>,
+          <span title="TW, Taiwan, Tái Wān">臺灣</span> </p>
+          <p><b>Draft languages:</b> <span title="aa, Afar">Afar</span>, <span title="as, Assamese">
+          Assamese</span>, <span title="az, Azerbaijani">Azerbaijani</span>, <span title="byn, Blin">
+          Blin</span>, <span title="dv, Divehi">Divehi</span>, <span title="dz, Dzongkha">Dzongkha</span>,
+          <span title="gez, Geez">Geez</span>, <span title="ka, Georgian">Georgian</span>,
+          <span title="haw, Hawaiian">Hawaiian</span>, <span title="iu, Inuktitut">Inuktitut</span>,
+          <span title="km, Khmer">Khmer</span>, <span title="ky, Kirghiz">Kirghiz</span>,
+          <span title="lo, Lao">Lao</span>, <span title="mn, Mongolian">Mongolian</span>,
+          <span title="sa, Sanskrit">Sanskrit</span>, <span title="sid, Sidamo">Sidamo</span>,
+          <span title="syr, Syriac">Syriac</span>, <span title="tt, Tatar">Tatar</span>,
+          <span title="tig, Tigre">Tigre</span>, <span title="ur, Urdu">Urdu</span>,
+          <span title="uz, Uzbek">Uzbek</span>, <span title="wal, Walamo">Walamo</span>,
+          <span title="or, Oriya, Ōṛi" ā'>ଓଡ଼ିଆ</span>, <span title="ml, Malayalam, Malayāḷaṁ">മലയാളം</span>
+          </p>
+          <p><font style="font-size: 90%"><b>Notes: </b></font></p>
+          <ul>
+            <li><font style="font-size: 90%">Territories with multiple locales may appear more than 
+            once.</font></li>
+            <li><font style="font-size: 90%">Tooltips will show the language/territory code, English 
+            name, and Latin transliteration. (To set your tooltip font, right click on the desktop, 
+            pick Properties&gt;Appearance&gt;Advanced&gt;Item: ToolTip, then set the font to Arial Unicode MS 
+            or other large font.)</font></li>
+            <li><font style="font-size: 90%">If the above doesn&#39;t display in your browser, see
+            <a href="http://www.unicode.org/help/display_problems.html">Display Problems?</a></font></li>
+          </ul>
+          <blockquote>
+          </blockquote>
+        </div>
+        </td>
+      </tr>
+    </table>
+    <hr width="50%">
+    <div align="center">
+      <center>
+      <table cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td><a href="http://www.unicode.org/copyright.html">
+          <img src="http://www.unicode.org/img/hb_notice.gif" border="0" alt="Access to Copyright and terms of use" width="216" height="50"></a></td>
+        </tr>
+      </table>
+      <script language="Javascript" type="text/javascript" src="http://www.unicode.org/webscripts/lastModified.js">
+      </script>
+      </center>
+    </div>
+    </td>
+  </tr>
+</table>
+
+</body>
+
+</html>

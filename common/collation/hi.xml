@@ -22,8 +22,12 @@
 		<collation type="standard" >
 			<settings normalization="on"  />
 			<rules>
-				<reset><last_non_ignorable/></reset>
-				<pc>ॐ।॥॰०१२३४५६७८९अआइईउऊऋॠऌॡऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलळवशषसह़ँंः॒॑॓॔ऽ्ािीुूृॄॢॣॅॆेैॉॊोौ</pc>
+				<reset before="primary">0</reset>
+				<pc>ॐ।॥॰</pc>
+				<reset>ह</reset>
+				<pc>़ँंः॒॑॓॔</pc>
+				<reset>ऽ</reset>
+				<p>्</p>
 			</rules>
 			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="2.0" />
 		</collation  >

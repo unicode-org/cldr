@@ -8,7 +8,7 @@
 <ldml>
 	<identity>
 		<version number="Windows XP"/>
-		<generation date="2003-10-02" />
+		<generation date="2003-10-31" />
 		<language type="sa" /> 
 		<territory type="IN" /> 
 	</identity>
@@ -73,7 +73,7 @@
 			</dayAbbr>
 			<week>
 				<minDays count="0"/>
-				<firstDay day="fri"/>
+				<firstDay day="sun"/>
 			</week>
 			<am>पूर्वाह्न</am>
 			<pm>अपराह्न</pm>
@@ -81,7 +81,7 @@
 				<default type="medium"/>
 				<dateFormatLength type="full">
 					<dateFormat >
-						<pattern>dd MMMM yyyy dddd</pattern>
+						<pattern>dd MMMM yyyy EEEE</pattern>
 					</dateFormat>
 				</dateFormatLength >
 				<dateFormatLength type="long">

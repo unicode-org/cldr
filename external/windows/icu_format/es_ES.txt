@@ -33,7 +33,7 @@ es_ES{
   "",
   "H:mm:ss",
   "",
-  "dddd, dd' de 'MMMM' de 'yyyy",
+  "EEEE, dd' de 'MMMM' de 'yyyy",
   "",
   "",
   "dd/MM/yyyy",
@@ -41,7 +41,7 @@ es_ES{
  }
 
  DateTimeElements:intvector{
-  0,
+  2,
   
  }
  DayNames{
@@ -117,3 +117,124 @@ es_ES{
  }
 
 }
+
+es_ES{
+
+ Version{"Windows XP"}
+ LocaleID{ "0C0A"}
+ AmPmMarkers{
+  "",
+  ""
+ }
+ ShortCountry{
+  "ESP"
+ }
+
+ ShortLanguage{
+  "ESN"
+ }
+
+ Languages{
+  es {  "espa\u00F1ol"  }
+ }
+
+ Countries{
+  ES {  "Espa\u00F1a"  }
+ }
+
+ CurrencyElements{
+  "\u20AC",
+  "EUR",
+  ","
+ }
+
+ DateTimePatterns{
+  "",
+  "",
+  "H:mm:ss",
+  "",
+  "EEEE, dd' de 'MMMM' de 'yyyy",
+  "",
+  "",
+  "dd/MM/yyyy",
+  "",
+ }
+
+ DateTimeElements:intvector{
+  2,
+  
+ }
+ DayNames{
+  "domingo",
+  "lunes",
+  "martes",
+  "mi\u00E9rcoles",
+  "jueves",
+  "viernes",
+  "s\u00E1bado"
+ }
+
+ DayAbbreviations{
+  "dom",
+  "lun",
+  "mar",
+  "mi\u00E9",
+  "jue",
+  "vie",
+  "s\u00E1b"
+ }
+
+ MonthNames{
+  "enero",
+  "febrero",
+  "marzo",
+  "abril",
+  "mayo",
+  "junio",
+  "julio",
+  "agosto",
+  "septiembre",
+  "octubre",
+  "noviembre",
+  "diciembre",
+  ""
+ }
+
+ MonthAbbreviations{
+  "ene",
+  "feb",
+  "mar",
+  "abr",
+  "may",
+  "jun",
+  "jul",
+  "ago",
+  "sep",
+  "oct",
+  "nov",
+  "dic",
+  ""
+ }
+
+ NumberElements{
+  ",",
+  ".",
+  ";",
+  "%",
+  "0",
+  "#",
+  "-",
+  "E",
+  "\u2030",
+  "\u221e",
+  "\ufffd",
+ }
+
+ NumberPatterns{
+  "",
+  "",
+  ""
+ }
+
+}
+

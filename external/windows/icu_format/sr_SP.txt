@@ -1,6 +1,126 @@
 sr_SP{
 
  Version{"Windows XP"}
+ LocaleID{ "081A"}
+ AmPmMarkers{
+  "",
+  ""
+ }
+ ShortCountry{
+  "SPB"
+ }
+
+ ShortLanguage{
+  "SRL"
+ }
+
+ Languages{
+  sr {  "srpski"  }
+ }
+
+ Countries{
+  SP {  "Srbija"  }
+ }
+
+ CurrencyElements{
+  "Din.",
+  "YUN",
+  ","
+ }
+
+ DateTimePatterns{
+  "",
+  "",
+  "H:mm:ss",
+  "",
+  "d. MMMM yyyy",
+  "",
+  "",
+  "d.M.yyyy",
+  "",
+ }
+
+ DateTimeElements:intvector{
+  2,
+  
+ }
+ DayNames{
+  "nedelja",
+  "ponedeljak",
+  "utorak",
+  "sreda",
+  "\u010Detvrtak",
+  "petak",
+  "subota"
+ }
+
+ DayAbbreviations{
+  "ned",
+  "pon",
+  "uto",
+  "sre",
+  "\u010Det",
+  "pet",
+  "sub"
+ }
+
+ MonthNames{
+  "januar",
+  "februar",
+  "mart",
+  "april",
+  "maj",
+  "jun",
+  "jul",
+  "avgust",
+  "septembar",
+  "oktobar",
+  "novembar",
+  "decembar",
+  ""
+ }
+
+ MonthAbbreviations{
+  "jan",
+  "feb",
+  "mar",
+  "apr",
+  "maj",
+  "jun",
+  "jul",
+  "avg",
+  "sep",
+  "okt",
+  "nov",
+  "dec",
+  ""
+ }
+
+ NumberElements{
+  ",",
+  ".",
+  ";",
+  "%",
+  "0",
+  "#",
+  "-",
+  "E",
+  "\u2030",
+  "\u221e",
+  "\ufffd",
+ }
+
+ NumberPatterns{
+  "",
+  "",
+  ""
+ }
+
+}
+
+sr_SP{
+
+ Version{"Windows XP"}
  LocaleID{ "0C1A"}
  AmPmMarkers{
   "",
@@ -41,7 +161,7 @@ sr_SP{
  }
 
  DateTimeElements:intvector{
-  0,
+  2,
   
  }
  DayNames{

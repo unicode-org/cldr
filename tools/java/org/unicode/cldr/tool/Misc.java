@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -38,6 +36,9 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.ULocale;
 //import com.ibm.icu.impl.Utility;
 
+/**
+ * Grab-bag set of tools that needs to be rationalized.
+ */
 public class Misc {
 	static Factory cldrFactory;
 	static CLDRFile english;
@@ -70,11 +71,30 @@ public class Misc {
 	    UOption.create("aliases", 'a', UOption.NO_ARG),
 	};
 	
+	private static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
+	+ "-h or -?\tfor this message" + XPathParts.NEWLINE
+	+ "-"+options[SOURCEDIR].shortName + "\tsource directory. Default = " 
+	+ Utility.getCanonicalName(Utility.MAIN_DIRECTORY) + XPathParts.NEWLINE
+	+ "-"+options[DESTDIR].shortName + "\tdestination directory. Default = "
+	+ Utility.getCanonicalName(Utility.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
+	+ "-m<regex>\tto restrict the locales to what matches <regex>" + XPathParts.NEWLINE
+	+ "-t\tgenerates files that contain items missing localizations" + XPathParts.NEWLINE
+	+ "-c\tgenerates missing timezone localizations" + XPathParts.NEWLINE
+	+ "-w\tgenerates Windows timezone IDs" + XPathParts.NEWLINE
+	+ "-o\tlist display codes that are obsolete" + XPathParts.NEWLINE
+	+ "-o\tshows timezone aliases"
+	;
+
+	/**
+	 * Picks options and executes. Use -h to see options.
+	 */
 	public static void main(String[] args) throws IOException {
 		try {
-			showLanguageTagCount();
-			if (true) return;
 	        UOption.parseArgs(args, options);
+	        if (options[HELP1].doesOccur || options[HELP1].doesOccur) {
+	        	System.out.println(HELP_TEXT);
+	        	return;
+	        }
 			cldrFactory = Factory.make(options[SOURCEDIR].value + "main\\", ".*");
 			english = cldrFactory.make("en", false);
 			resolvedRoot = cldrFactory.make("root", true);
@@ -106,10 +126,12 @@ public class Misc {
 				printZoneAliases();
 			}
 
-			// add options for these later
+			// TODO add options for these later
 			//getCities();
 			//testLanguageTags();
 			//getZoneData();
+			//showLanguageTagCount();
+
 		} finally {
 			System.out.println("DONE");
 		}
@@ -432,36 +454,7 @@ public class Misc {
 		String world = sc.getData("territory", "001");
 	}
 	
-	public static class VariableReplacer {
-		// simple implementation for now
-		Comparator c;
-		private Map m = new TreeMap(Collections.reverseOrder());
-		public VariableReplacer add(String variable, String value) {
-			m.put(variable, value);
-			return this;
-		}
-		public String replace(String source) {
-			String oldSource;
-			do {
-				oldSource = source;
-				for (Iterator it = m.keySet().iterator(); it.hasNext();) {
-					String variable = (String) it.next();
-					String value = (String) m.get(variable);
-					source = replaceAll(source, variable, value);
-				}
-			} while (!source.equals(oldSource));
-			return source;
-		}
-		public String replaceAll(String source, String key, String value) {
-			while (true) {
-				int pos = source.indexOf(key);
-				if (pos < 0) return source;
-				source = source.substring(0,pos) + value + source.substring(pos+key.length());
-			}
-		}
-	}
-	
-	static VariableReplacer langTag = new VariableReplacer()
+	static Utility.VariableReplacer langTag = new Utility.VariableReplacer()
 		.add("$alpha", "[a-zA-Z]")
 		.add("$digit", "[0-9]")
 		.add("$alphanum", "[a-zA-Z0-9]")
@@ -627,7 +620,7 @@ public class Misc {
 		}
 	}
 	
-	public static String getSeparated(Collection c, String separator) {
+	private static String getSeparated(Collection c, String separator) {
 		StringBuffer result = new StringBuffer();
 		boolean first = true;
 		for (Iterator it = c.iterator(); it.hasNext();) {
@@ -638,7 +631,7 @@ public class Misc {
 		return result.toString();
 	}
 
-	public static void getCities() throws IOException {
+	private static void getCities() throws IOException {
 		StandardCodes sc = StandardCodes.make();
 		Set territories = sc.getAvailableCodes("territory");
 		Map zoneData = sc.getZoneData();

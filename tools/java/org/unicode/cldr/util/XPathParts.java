@@ -212,8 +212,6 @@ public class XPathParts {
 
 	/**
 	 * Finds the first place where the xpaths differ.
-	 * @param last
-	 * @return
 	 */
 	public int findFirstDifference(XPathParts last) {
 		int min = elements.size();
@@ -227,8 +225,6 @@ public class XPathParts {
 	}
 	/**
 	 * Does this xpath contain the attribute at all?
-	 * @param attribute
-	 * @return
 	 */
 	public boolean containsAttribute(String attribute) {
 		for (int i = 0; i < elements.size(); ++i) {
@@ -239,9 +235,6 @@ public class XPathParts {
 	}
 	/**
 	 * Does it contain the attribute/value pair?
-	 * @param attribute
-	 * @param value
-	 * @return
 	 */
 	public boolean containsAttributeValue(String attribute, String value) {
 		for (int i = 0; i < elements.size(); ++i) {
@@ -259,23 +252,20 @@ public class XPathParts {
 	
 	/**
 	 * How many elements are in this xpath?
-	 * @return
 	 */
 	public int size() {
 		return elements.size();
 	}
+	
 	/**
 	 * Get the nth element
-	 * @param elementIndex
-	 * @return
 	 */
 	public String getElement(int elementIndex) {
 		return ((Element)elements.get(elementIndex)).element;
 	}
+	
 	/**
 	 * Get the attributes for the nth element. Returns null or an empty map if there's nothing.
-	 * @param elementIndex
-	 * @return
 	 */
 	public Map getAttributes(int elementIndex) {
 		return ((Element)elements.get(elementIndex)).attributes;
@@ -283,8 +273,6 @@ public class XPathParts {
 	
 	/**
 	 * Get the attributes for the nth element. Returns null or an empty map if there's nothing.
-	 * @param elementName
-	 * @return
 	 */
 	public Map findAttributes(String elementName) {
 		int index = findElement(elementName);
@@ -292,7 +280,10 @@ public class XPathParts {
 		return getAttributes(index);
 	}
 	
-	public String findAttribute(String elementName, String attributeName) {
+	/**
+	 * Find the attribute value
+	 */
+	public String findAttributeValue(String elementName, String attributeName) {
 		Map attributes = findAttributes(elementName);
 		if (attributes == null) return null;
 		return (String)attributes.get(attributeName);
@@ -301,15 +292,12 @@ public class XPathParts {
 
 	/**
 	 * Add an element
-	 * @param element
 	 */
 	public void addElement(String element) {
 		elements.add(new Element(element));
 	}
 	/**
 	 * Add an attribute/value pair to the current last element.
-	 * @param attribute
-	 * @param value
 	 */
 	public void addAttribute(String attribute, String value) {
 		Element e = (Element)elements.get(elements.size()-1);
@@ -539,8 +527,7 @@ public class XPathParts {
 		return -1;
 	}
 	/**
-	 * @param path
-	 * @return
+	 * add a relative path to this XPathParts.
 	 */
 	public XPathParts addRelative(String path) {
 		if (path.startsWith("//")) {
@@ -648,9 +635,6 @@ public class XPathParts {
 
 	/**
 	 * Returns -1 if parent isn't really a parent, 0 if they are identical, and 1 if parent is a proper parent
-	 * @param parent
-	 * @param possibleSublocale
-	 * @return
 	 */
 	public static int isSubLocale(String parent, String possibleSublocale) {
 		if (parent.length() > possibleSublocale.length()) return -1;
@@ -661,9 +645,7 @@ public class XPathParts {
 	}
 
 	/**
-	 * @param string
-	 * @param string2
-	 * @param string3
+	 * Sets an attribute/value on the first matching element.
 	 */
 	public void setAttribute(String elementName, String attributeName, String attributeValue) {
 		Map m = findAttributes(elementName);

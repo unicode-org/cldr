@@ -6,12 +6,6 @@
  */
 package org.unicode.cldr.test;
 
-/**
- * @author davis
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -44,6 +38,9 @@ import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 
+/**
+ * Test the tests themselves. Internal use.
+ */
 public class TestCLDRTests extends TestFmwk {
     static final boolean DEBUG = false;
     

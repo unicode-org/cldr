@@ -5,6 +5,21 @@ The tools folder will contain tools, tests, and utilities for dealing with CLDR 
 The code is very preliminary, so don't expect stability from the APIs (or documentation!), 
 since we still have to work out how we want to do the architecture.
 
+The directory structure is:
+icu	Tools for generating ICU-format data from CLDR
+posix	Tools for generating POSIX-format data from CLDR
+test	Test tools for CLDR
+tool	Tools for manipulating CLDR files
+util	Utilities for handling CLDR files
+Each one of these should have a readme.txt
+
+When you run any of the tools, you probably want to set up a DTD cache; that will speed things up.
+Include the following environment variable to do that.
+
+	-DCLDR_DTD_CACHE=C:\cldrcache\
+
+===========
+
 The tools may use ICU4J code for testing, but should use none of the data in ICU4J. 
 We'll be using the ICU4J test framework also (we looked at JUnit, but it would be 
 really clumsy for the ways in which we'd have to test).

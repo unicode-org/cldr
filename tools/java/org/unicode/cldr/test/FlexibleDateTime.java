@@ -36,7 +36,8 @@ import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 
 /**
- * Test class for trying different approaches to flexible date/time
+ * Test class for trying different approaches to flexible date/time.
+ * Internal Use.
  */
 public class FlexibleDateTime {
 	static boolean SHOW_MATCHING = false;
@@ -504,6 +505,10 @@ k 1..2 24 Hour [1-24].
 
 	 */
 	
+	/**
+	 * Test different ways of doing flexible date/times.
+	 * Internal Use.
+	 */
 	public static void main(String[] args) {
 		getOOData();
 		String[] data = {

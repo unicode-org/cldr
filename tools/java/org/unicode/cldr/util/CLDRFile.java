@@ -184,6 +184,10 @@ public class CLDRFile implements Lockable {
 		}
     }
 	
+    /**
+     * Prints the contents of the file (the xpaths/values) to the console.
+     *
+     */
     public void show() {
 		for (Iterator it2 = xpath_value.keySet().iterator(); it2.hasNext();) {
 			String xpath = (String)it2.next();
@@ -200,7 +204,6 @@ public class CLDRFile implements Lockable {
 	/**
 	 * Write the corresponding XML file out, with the normal formatting and indentation.
 	 * Will update the identity element, including generation, version, and other items.
-	 * @param pw
 	 */
 	public void write(PrintWriter pw) {
 		pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
@@ -376,11 +379,14 @@ private boolean isSupplemental;
     
 	/**
      * Removes an element from a CLDRFile.
-     * @param xpath
      */
     public void remove(String xpath) {
     	remove(xpath, false);
     }
+
+	/**
+     * Removes an element from a CLDRFile.
+     */
     public void remove(String xpath, boolean butComment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	if (butComment) {
@@ -390,6 +396,9 @@ private boolean isSupplemental;
     	xpath_value.remove(xpath);
     }
     
+	/**
+     * Removes all xpaths from a CLDRFile.
+     */
    public void removeAll(Set xpaths, boolean butComment) {
    		if (butComment) appendFinalComment("Illegal attributes removed:");
     	for (Iterator it = xpaths.iterator(); it.hasNext();) {
@@ -400,8 +409,6 @@ private boolean isSupplemental;
     
     /**
      * Removes all items with same value
-     * @param other
-     * @param butComment TODO
      */
     public void removeDuplicates(CLDRFile other, boolean butComment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
@@ -433,7 +440,7 @@ private boolean isSupplemental;
 		return xpath_comments.getInitialComment();
 	}
 	/**
-	 * @return Returns the xpath_comments.
+	 * @return Returns the xpath_comments. Cloned for safety.
 	 */
 	public XPathParts.Comments getXpath_comments() {
 		return (XPathParts.Comments) xpath_comments.clone();
@@ -447,14 +454,14 @@ private boolean isSupplemental;
 
 	private boolean locked;
 	
-	/* (non-Javadoc)
+	/**
 	 * @see org.unicode.cldr.util.Lockable#isLocked()
 	 */
 	public synchronized boolean isLocked() {
 		return locked;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see org.unicode.cldr.util.Lockable#lock()
 	 */
 	public synchronized Object lock() {
@@ -462,20 +469,23 @@ private boolean isSupplemental;
 		return this;
 	}
 	/**
-	 * @param comment The finalComment to set.
+	 * Sets a final comment, replacing everything that was there.
 	 */
 	public void setFinalComment(String comment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
 		xpath_comments.setFinalComment(comment);
 	}
 
+	/**
+	 * Adds a comment to the final list of comments.
+	 */
 	public void appendFinalComment(String comment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
 		xpath_comments.setFinalComment(Utility.joinWithSeparation(xpath_comments.getFinalComment(), XPathParts.NEWLINE, comment));
 	}
 
 	/**
-	 * @param comment The finalComment to set.
+	 * Sets the initial comment, replacing everything that was there.
 	 */
 	public void setInitialComment(String comment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
@@ -506,6 +516,10 @@ private boolean isSupplemental;
         return s;
     }
 
+    /**
+     * Returns a collection containing the keys for this file.
+     * @return
+     */
     public Set keySet() {
     	return Collections.unmodifiableSet(xpath_value.keySet());
     }
@@ -1161,8 +1175,7 @@ private boolean isSupplemental;
     }
 
 	/**
-	 * @param exception
-	 * @return
+	 * Show a SAX exception in a readable form.
 	 */
 	public static String showSAX(SAXParseException exception) {
 		return exception.getMessage() 
@@ -1264,13 +1277,19 @@ private boolean isSupplemental;
 	}
 
 	/**
-	 * @return
+	 * Says whether the whole file is draft
 	 */
 	public boolean isDraft() {
 		String item = (String) xpath_value.keySet().iterator().next();
 		return item.indexOf("[@draft=\"true\"]") >= 0;
 	}
 	
+	/**
+	 * Gets the type of a given xpath, eg script, territory, ...
+	 * TODO move to separate class
+	 * @param xpath
+	 * @return
+	 */
 	public static int getNameType(String xpath) {
 		for (int i = 0; i < NameTable.length; ++i) {
 			if (xpath.startsWith(NameTable[i][0]) && xpath.endsWith(NameTable[i][1])) return i;
@@ -1278,6 +1297,9 @@ private boolean isSupplemental;
 		return -1;
 	}
 	
+	/**
+	 * Gets the display name for a type
+	 */
 	public static String getNameTypeName(int index) {
 		try {
 			return TYPE_NAME[index];
@@ -1301,9 +1323,7 @@ private boolean isSupplemental;
 	private static final String[] TYPE_NAME = {"language", "script", "territory", "variant", "currency", "currency-symbol", "tzid"};
 	
 	/**
-	 * @param type
-	 * @param code
-	 * @return the key used to access the data
+	 * @return the key used to access  data of a given type
 	 */
 	public static String getKey(int type, String code) {
 		return NameTable[type][0] + code + NameTable[type][1];
@@ -1321,6 +1341,9 @@ private boolean isSupplemental;
 		return v.getStringValue();
 	}
 	
+	/**
+	 * Utility for getting a name, given a type and code.
+	 */
 	public String getName(String type, String code, boolean skipDraft) {
 		return getName(typeNameToCode(type), code, skipDraft);
 	}
@@ -1357,16 +1380,33 @@ private boolean isSupplemental;
 		return name + (extras.length() == 0 ? "" : "(" + extras + ")");
 	}
 	
+	/**
+	 * Returns the name of a type.
+	 */
 	public String getNameName(int choice) {
 		return NameTable[choice][2];
 	}
 	
+	/**
+	 * Get standard ordering for elements.
+	 * @return ordered collection with items.
+	 */
 	public static Collection getElementOrder() {
 		return elementOrdering.getOrder(); // already unmodifiable
 	}
+
+	/**
+	 * Get standard ordering for attributes.
+	 * @return ordered collection with items.
+	 */
 	public static Collection getAttributeOrder() {
 		return attributeOrdering.getOrder(); // already unmodifiable
 	}
+
+	/**
+	 * Get standard ordering for attribute values.
+	 * @return ordered collection with items.
+	 */
 	public static Collection getValueOrder() {
 		return valueOrdering.getOrder(); // already unmodifiable
 	}
@@ -1487,6 +1527,9 @@ private boolean isSupplemental;
 			"hour", "minute", "second", "zone"}).lock();
     static Comparator zoneOrder = StandardCodes.make().getTZIDComparator();
     
+    /**
+     * Comparator for attributes in CLDR files
+     */
 	public static Comparator ldmlComparator = new LDMLComparator();
 
 	static class LDMLComparator implements Comparator {
@@ -1556,7 +1599,7 @@ private boolean isSupplemental;
 		}		
 	}
 	
-	public final static Map defaultSuppressionMap; 
+	private final static Map defaultSuppressionMap; 
 	static {
 		String[][] data = {
 				{"ldml", "version", GEN_VERSION},
@@ -1587,7 +1630,7 @@ private boolean isSupplemental;
 		defaultSuppressionMap = Collections.unmodifiableMap(tempmain);
 	}
 	/**
-	 * @param string
+	 * Removes a comment.
 	 */
 	public void removeComment(String string) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");

@@ -5,7 +5,6 @@
  ******************************************************************************
 */
 package org.unicode.cldr.tool;
-import java.io.File;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -61,24 +60,24 @@ public class CLDRModify {
 	};
 	
 	static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
-	+ "-h or -?\tfor this message" + XPathParts.NEWLINE
-	+ "-m<regex>\tto restrict the locales to what matches <regex>" + XPathParts.NEWLINE
+		+ "-h or -?\tfor this message" + XPathParts.NEWLINE
+		+ "-"+options[SOURCEDIR].shortName + "\tsource directory. Default = " 
+		+ Utility.getCanonicalName(Utility.MAIN_DIRECTORY) + XPathParts.NEWLINE
+		+ "-"+options[DESTDIR].shortName + "\tdestination directory. Default = "
+		+ Utility.getCanonicalName(Utility.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
+		+ "-m<regex>\tto restrict the locales to what matches <regex>" + XPathParts.NEWLINE
 		+ "-j<prefix>\tto merge two sets of files together (from <source_dir>/X and <source_dir>/../to_merge/<prefix>X)" + XPathParts.NEWLINE
 		+ "-r\tto minimize the results (removing items that inherit from parent)." + XPathParts.NEWLINE
-		+ "-f\tto perform various fixes on the files (TBD: add argument to specify which ones)" + XPathParts.NEWLINE;
+		+ "-f\tto perform various fixes on the files (TBD: add argument to specify which ones)" + XPathParts.NEWLINE
+		+ "A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results.";
 	
 	/**
-	 * Picks options and executes.
+	 * Picks options and executes. Use -h to see options.
 	 */
 	public static void main(String[] args) throws Exception {
         UOption.parseArgs(args, options);
         if (options[HELP1].doesOccur || options[HELP1].doesOccur) {
-        	System.out.println(HELP_TEXT
-        			+ "-"+options[SOURCEDIR].shortName + "\tsource directory. Default = " 
-						+ new File(Utility.MAIN_DIRECTORY).getCanonicalPath() + XPathParts.NEWLINE
-        			+ "-"+options[DESTDIR].shortName + "\tdestination directory. Default = "
-						+ new File(Utility.GEN_DIRECTORY + "main/").getCanonicalPath() + XPathParts.NEWLINE
-        			);
+        	System.out.println(HELP_TEXT);
         	return;
         }
 		//String sourceDir = "C:\\ICU4C\\locale\\common\\main\\";
@@ -193,7 +192,7 @@ public class CLDRModify {
 	static CLDRFilter fixCS = new CLDRFilter() {
 		public void handle(CLDRFile k, String xpath, Set removal, CLDRFile replacements) {
 			if (!xpath.startsWith("/ldml/localeDisplayNames/territories/territory")) return;
-			String type = parts.set(xpath).findAttribute("territory", "type");
+			String type = parts.set(xpath).findAttributeValue("territory", "type");
 			if ("CS".equals(type) || "SP".equals(type)) {
 				Value v = k.getValue(xpath);
 				String fullXPath = v.getFullXPath();

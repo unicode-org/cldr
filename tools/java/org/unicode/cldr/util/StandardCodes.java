@@ -42,7 +42,6 @@ public class StandardCodes {
 	
 	/**
 	 * Get the singleton copy of the standard codes.
-	 * @return
 	 */
 	static public synchronized StandardCodes make() {
 		if (singleton == null) singleton = new StandardCodes();
@@ -52,9 +51,6 @@ public class StandardCodes {
 	/**
 	 * The data is the name in the case of RFC3066 codes, and the country code in the case of TZIDs and ISO currency codes.
 	 * If the country code is missing, uses ZZ.
-	 * @param type
-	 * @param code
-	 * @return
 	 */
 	public String getData(String type, String code) {
 		Map code_data = (Map) type_code_data.get(type);
@@ -91,9 +87,6 @@ public class StandardCodes {
 
 	/**
 	 * Where there is a preferred code, return it.
-	 * @param type
-	 * @param code
-	 * @return
 	 */
 	public String getPreferred(String type, String code) {
 		Map code_preferred = (Map) type_code_preferred.get(type);
@@ -105,7 +98,6 @@ public class StandardCodes {
 
 	/**
 	 * Get all the available types
-	 * @return
 	 */
 	public Set getAvailableTypes() {
 		return Collections.unmodifiableSet(type_code_data.keySet());
@@ -122,11 +114,14 @@ public class StandardCodes {
 		return Collections.unmodifiableSet(code_name.keySet());
 	}
 	
+	/**
+	 * Gets the modern currency.
+	 */
 	public Set getMainCurrencies(String countryCode) {
 		return (Set) country_modernCurrency.get(countryCode);
 	}
 	
-	Map platform_locale_status = null;
+	private Map platform_locale_status = null;
 	
 	public Map getLocaleTypes() throws IOException {
 		if (platform_locale_status == null) {

@@ -13,8 +13,13 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
-
+/**
+ * Generates information used for some internal formats. Internal Use.
+ */
 public class GenerateKaraList {
+	/**
+	 * Generates information used for some internal formats. Internal Use.
+	 */
 	public static void main(String[] args) throws IOException {
 		cldrFactory = CLDRFile.Factory.make(Utility.COMMON_DIRECTORY, ".*");
 		english = cldrFactory.make("en", true);

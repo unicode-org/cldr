@@ -150,8 +150,7 @@ public class TimezoneFormatter {
 	}
 
 	/**
-	 * @param zoneid
-	 * @return
+	 * Returns the name for a timezone id that will be returned as a fallback.
 	 */
 	public static String getFallbackName(String zoneid) {
 		String result;

@@ -14,8 +14,14 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
+/**
+ * Simple program to count the amount of data in CLDR. Internal Use.
+ */
 public class CountItems {
-	static Set keys = new HashSet();
+	private static Set keys = new HashSet();
+	/**
+	 * Count the data.
+	 */
 	public static void main(String[] args) {
 		Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
 		//CLDRKey.main(new String[]{"-mde.*"});

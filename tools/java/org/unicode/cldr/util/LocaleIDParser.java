@@ -99,10 +99,9 @@ public class LocaleIDParser {
 		al.toArray(variants);
 		return this;
 	}
+	
 	/**
 	 * Utility to get the parent of a locale. If the input is "root", then the output is null.
-	 * @param localeName
-	 * @return
 	 */
 	public static String getParent(String localeName) {
 	    int pos = localeName.lastIndexOf('_');

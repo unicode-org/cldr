@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -24,12 +25,53 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 
 public class Utility {
+	/**
+		 * Used to replace variables in a string. For example<p>
+	<pre>static VariableReplacer langTag = new VariableReplacer()
+			.add("$alpha", "[a-zA-Z]")
+			.add("$digit", "[0-9]")
+			.add("$alphanum", "[a-zA-Z0-9]")
+			.add("$x", "[xX]");
+			...
+			String langTagPattern = langTag.replace(...);
+	</pre>
+		 */
+		public static class VariableReplacer {
+			// simple implementation for now
+			Comparator c;
+			private Map m = new TreeMap(Collections.reverseOrder());
+			public VariableReplacer add(String variable, String value) {
+				m.put(variable, value);
+				return this;
+			}
+			public String replace(String source) {
+				String oldSource;
+				do {
+					oldSource = source;
+					for (Iterator it = m.keySet().iterator(); it.hasNext();) {
+						String variable = (String) it.next();
+						String value = (String) m.get(variable);
+						source = replaceAll(source, variable, value);
+					}
+				} while (!source.equals(oldSource));
+				return source;
+			}
+			public String replaceAll(String source, String key, String value) {
+				while (true) {
+					int pos = source.indexOf(key);
+					if (pos < 0) return source;
+					source = source.substring(0,pos) + value + source.substring(pos+key.length());
+				}
+			}
+		}
+
 	static final boolean DEBUG_SHOW_BAT = false;
 	/** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
 	public static final String BASE_DIRECTORY = "../../";	// get up to <CLDR>
@@ -274,8 +316,6 @@ public class Utility {
 	
 	/**
 	 * Protect a collection (as much as Java lets us!) from modification.
-	 * @param source
-	 * @return
 	 */
 	public static Object protectCollection(Object source) {
 		// TODO - exclude UnmodifiableMap, Set, ...
@@ -340,8 +380,6 @@ public class Utility {
 	
 	/**
 	 * Utility like Arrays.asList()
-	 * @param source
-	 * @return
 	 */
 	public static Map asMap(Object[][] source, Map target, boolean reverse) {
 		int from = 0, to = 1;
@@ -360,9 +398,6 @@ public class Utility {
 	
 	/**
 	 * Utility that ought to be on Map
-	 * @param m
-	 * @param itemsToRemove
-	 * @return
 	 */
 	public static Map removeAll(Map m, Collection itemsToRemove) {
 	    for (Iterator it = itemsToRemove.iterator(); it.hasNext();) {
@@ -372,6 +407,17 @@ public class Utility {
 	    return m;
 	}
 	
+	/**
+	 * Returns the canonical name for a file.
+	 */
+	public static String getCanonicalName(String file) {
+		try {
+			return new File(file).getCanonicalPath();
+		} catch (IOException e) {
+			return file;
+		}
+	}
+
 	public static abstract class Transform {
 		public abstract Object transform(Object source);
 		public Collection transform(Collection input, Collection output) {

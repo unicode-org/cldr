@@ -33,7 +33,9 @@ import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 
 
-
+/**
+ * Use this class to cache DTDs, speeding up tools.
+ */
 public class CachingEntityResolver implements EntityResolver {
     static final String CLDR_DTD_CACHE = "CLDR_DTD_CACHE";
     private static String gCacheDir = null;

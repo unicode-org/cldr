@@ -431,6 +431,23 @@
 			<script type="Yiii">彞文</script>
 		</scripts>
 		<territories>
+			<territory type="014" draft="true">東非</territory>
+			<territory type="030" draft="true">東亞</territory>
+			<territory type="035" draft="true">東南亞</territory>
+			<territory type="039" draft="true">南歐</territory>
+			<territory type="053" draft="true">澳洲與紐西蘭</territory>
+			<territory type="054" draft="true">美拉尼西亞</territory>
+			<territory type="057" draft="true">密克羅尼西亞</territory>
+			<territory type="061" draft="true">玻里尼西亞</territory>
+			<territory type="062" draft="true">中南亞</territory>
+			<territory type="142" draft="true">亞洲</territory>
+			<territory type="145" draft="true">西亞</territory>
+			<territory type="150" draft="true">歐洲</territory>
+			<territory type="151" draft="true">東歐</territory>
+			<territory type="154" draft="true">北歐</territory>
+			<territory type="155" draft="true">西歐</territory>
+			<territory type="830" draft="true">海峽群島</territory>
+			<territory type="833" draft="true">曼島</territory>
 			<territory type="AD">安道爾</territory>
 			<territory type="AE">阿拉伯聯合大公國</territory>
 			<territory type="AG">安地卡及巴布達</territory>
@@ -443,6 +460,7 @@
 			<territory type="AT">奧地利</territory>
 			<territory type="AU">澳洲</territory>
 			<territory type="AW">阿路巴</territory>
+			<territory type="AX" draft="true">亞蘭群島</territory>
 			<territory type="AZ">亞塞拜然</territory>
 			<territory type="BA">波士尼亞與赫塞格維納</territory>
 			<territory type="BB">巴貝多</territory>
@@ -634,6 +652,7 @@
 			<territory type="YU">塞爾維亞</territory>
 			<territory type="ZM">尚比亞</territory>
 			<territory type="ZW">辛巴威</territory>
+			<territory type="ZZ" draft="true">大洋洲邊疆群島</territory>
 		</territories>
 		<variants>
 			<variant type="REVISED">已修訂</variant>
@@ -711,6 +730,7 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<zone type="Etc/GMT">
 				<long>
 					<standard>格林威治標準時間</standard>
@@ -1469,7 +1489,7 @@
 			</currency>
 			<currency type="CNY">
 				<displayName>人民幣</displayName>
-				<symbol>CNY</symbol>
+				<symbol draft="true">￥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>哥倫比亞披索</displayName>

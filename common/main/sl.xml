@@ -20,6 +20,7 @@
 			<language type="fi">Finščina</language>
 			<language type="fr">Francoščina</language>
 			<language type="he">Hebrejščina</language>
+			<language type="hi" draft="true">Hindujščina</language>
 			<language type="hr">Hrvaščina</language>
 			<language type="hu">Madžarščina</language>
 			<language type="it">Italijanščina</language>
@@ -39,7 +40,39 @@
 			<language type="tr">Turščina</language>
 			<language type="zh">Kitajščina</language>
 		</languages>
+		<scripts>
+			<script type="Latn" draft="true">Latinski</script>
+		</scripts>
 		<territories>
+			<territory type="001" draft="true">Svet</territory>
+			<territory type="002" draft="true">Afrika</territory>
+			<territory type="005" draft="true">Južna Amerika</territory>
+			<territory type="009" draft="true">Oceanija</territory>
+			<territory type="011" draft="true">Zahodna Afrika</territory>
+			<territory type="013" draft="true">Centralna Amerika</territory>
+			<territory type="014" draft="true">Vzhodna Afrika</territory>
+			<territory type="015" draft="true">Severna Afrika</territory>
+			<territory type="017" draft="true">Centralna Afrika</territory>
+			<territory type="018" draft="true">Južna Afrika</territory>
+			<territory type="019" draft="true">Amerike</territory>
+			<territory type="021" draft="true">Severna Amerika</territory>
+			<territory type="029" draft="true">Karibi</territory>
+			<territory type="030" draft="true">Vzhodna Azija</territory>
+			<territory type="035" draft="true">Jugovzhodna Azija</territory>
+			<territory type="039" draft="true">Južna Evropa</territory>
+			<territory type="053" draft="true">Avstralija i Nova Zelandija</territory>
+			<territory type="054" draft="true">Melanezija</territory>
+			<territory type="057" draft="true">Micronezija</territory>
+			<territory type="061" draft="true">Polinezija</territory>
+			<territory type="062" draft="true">Južno-centralna Azija</territory>
+			<territory type="142" draft="true">Azija</territory>
+			<territory type="145" draft="true">Zahodna Azija</territory>
+			<territory type="150" draft="true">Evropa</territory>
+			<territory type="151" draft="true">Vzhodna Evropa</territory>
+			<territory type="154" draft="true">Severna Evropa</territory>
+			<territory type="155" draft="true">Zapadna Evropa</territory>
+			<territory type="830" draft="true">Kanalski otoki</territory>
+			<territory type="833" draft="true">Otok Man</territory>
 			<territory type="AD">Andora</territory>
 			<territory type="AE">Združeni arabski emirati</territory>
 			<territory type="AF">Afganistan</territory>
@@ -55,6 +88,7 @@
 			<territory type="AT">Avstrija</territory>
 			<territory type="AU">Avstralija</territory>
 			<territory type="AW">Aruba</territory>
+			<territory type="AX" draft="true">Alandski otoki</territory>
 			<territory type="AZ">Azerbajdžan</territory>
 			<territory type="BA">Bosna in Hercegovina</territory>
 			<territory type="BB">Barbados</territory>
@@ -280,6 +314,7 @@
 			<territory type="ZA">Južna Afrika</territory>
 			<territory type="ZM">Zambija</territory>
 			<territory type="ZW">Zimbabve</territory>
+			<territory type="ZZ" draft="true">Ostala oceanija</territory>
 		</territories>
 		<keys>
 			<key type="calendar">Kolendar</key>
@@ -442,6 +477,55 @@
 				</timeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
+			<!-- Antarctica -->
+			<zone type="Antarctica/South_Pole">
+				<exemplarCity draft="true">Južni pol</exemplarCity>
+			</zone>
+			<!-- Democratic Republic of the Congo -->
+			<zone type="Africa/Kinshasa">
+				<exemplarCity draft="true">Kinšasa</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity draft="true">Lubumbaši</exemplarCity>
+			</zone>
+			<!-- China -->
+			<zone type="Asia/Shanghai">
+				<exemplarCity draft="true">Šangaj</exemplarCity>
+			</zone>
+			<!-- Russia -->
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="true">Moskva</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity draft="true">Krasnojarsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity draft="true">Kamčatka</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity draft="true">Anadir</exemplarCity>
+			</zone>
+			<!-- Ukraine -->
+			<zone type="Europe/Uzhgorod">
+				<exemplarCity draft="true">Uzgorod</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="true">Kijev</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity draft="true">Zaporožje</exemplarCity>
+			</zone>
+			<!-- Uzbekistan -->
+			<zone type="Asia/Tashkent">
+				<exemplarCity draft="true">Taškent</exemplarCity>
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>
@@ -449,8 +533,32 @@
 			<group>.</group>
 		</symbols>
 		<currencies>
+			<currency type="BRL">
+				<displayName draft="true">Brazilski Real</displayName>
+			</currency>
+			<currency type="CNY">
+				<displayName draft="true">Kitajski Yuan Renminbi</displayName>
+			</currency>
+			<currency type="EUR">
+				<displayName draft="true">Evro</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName draft="true">Britanski Funt Sterling</displayName>
+			</currency>
+			<currency type="INR">
+				<displayName draft="true">Indijski Rupi</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName draft="true">Japonski Jen</displayName>
+			</currency>
+			<currency type="RUB">
+				<displayName draft="true">Ruska Rublja</displayName>
+			</currency>
 			<currency type="SIT">
 				<displayName>Slovenski tolar</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName draft="true">Ameriški Dolar</displayName>
 			</currency>
 		</currencies>
 	</numbers>

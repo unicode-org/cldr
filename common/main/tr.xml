@@ -292,6 +292,35 @@
 			<script type="Zyyy">Ortak</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">Dünya</territory>
+			<territory type="002" draft="true">Afrika</territory>
+			<territory type="005" draft="true">Güney Amerika</territory>
+			<territory type="009" draft="true">Okyanusya</territory>
+			<territory type="011" draft="true">Batı Afrika</territory>
+			<territory type="013" draft="true">Orta Amerika</territory>
+			<territory type="014" draft="true">Doğu Afrika</territory>
+			<territory type="015" draft="true">Kuzey Afrika</territory>
+			<territory type="017" draft="true">Orta Afrika</territory>
+			<territory type="018" draft="true">Güney Afrika</territory>
+			<territory type="019" draft="true">Amerika</territory>
+			<territory type="021" draft="true">Kuzey Amerika</territory>
+			<territory type="029" draft="true">Karayipler</territory>
+			<territory type="030" draft="true">Doğu Asya</territory>
+			<territory type="035" draft="true">Güney Doğu Asya</territory>
+			<territory type="039" draft="true">Güney Avrupa</territory>
+			<territory type="053" draft="true">Avustralya ve Yeni Zelanda</territory>
+			<territory type="054" draft="true">Melanezya</territory>
+			<territory type="057" draft="true">Mikronezya</territory>
+			<territory type="061" draft="true">Polinezya</territory>
+			<territory type="062" draft="true">Güney Orta Asya</territory>
+			<territory type="142" draft="true">Asya</territory>
+			<territory type="145" draft="true">Batı Asya</territory>
+			<territory type="150" draft="true">Avrupa</territory>
+			<territory type="151" draft="true">Doğu Avrupa</territory>
+			<territory type="154" draft="true">Kuzey Avrupa</territory>
+			<territory type="155" draft="true">Batı Avrupa</territory>
+			<territory type="830" draft="true">Kanal Adaları</territory>
+			<territory type="833" draft="true">Man Adası</territory>
 			<territory type="AD">Andora</territory>
 			<territory type="AE">Birleşik Arap Emirlikleri</territory>
 			<territory type="AF">Afganistan</territory>
@@ -307,6 +336,7 @@
 			<territory type="AT">Avusturya</territory>
 			<territory type="AU">Avustralya</territory>
 			<territory type="AW">Aruba</territory>
+			<territory type="AX" draft="true">Aland Adaları</territory>
 			<territory type="AZ">Azerbaycan</territory>
 			<territory type="BA">Bosna Hersek</territory>
 			<territory type="BB">Barbados</territory>
@@ -532,6 +562,7 @@
 			<territory type="ZA">Güney Afrika</territory>
 			<territory type="ZM">Zambiya</territory>
 			<territory type="ZW">Zimbabwe</territory>
+			<territory type="ZZ" draft="true">Uzak Okyanusya</territory>
 		</territories>
 		<keys>
 			<key type="calendar">Takvim</key>
@@ -668,6 +699,11 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity draft="true">Güney Kutbu</exemplarCity>
 			</zone>
@@ -706,6 +742,17 @@
 			<zone type="Asia/Urumqi">
 				<exemplarCity draft="true">Urumçi</exemplarCity>
 			</zone>
+			<!-- Antarctica
+				 Argentina
+				 Australia
+				 Brazil
+				 Canada
+				 Chile
+				 China
+			-->
+			<zone type="Asia/Chongqing">
+				<exemplarCity draft="true">Çunking</exemplarCity>
+			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
 					<standard draft="true">Çin Standart Saati</standard>
@@ -717,20 +764,78 @@
 			<zone type="Atlantic/Canary">
 				<exemplarCity draft="true">Kanarya</exemplarCity>
 			</zone>
+			<!-- Ecuador
+				 Spain
+			-->
+			<zone type="Africa/Ceuta">
+				<exemplarCity draft="true">Septe</exemplarCity>
+			</zone>
 			<zone type="Europe/London">
 				<exemplarCity draft="true">Londra</exemplarCity>
+			</zone>
+			<!-- Micronesia
+				 United Kingdom
+				 Greenland
+				 Indonesia
+			-->
+			<zone type="Asia/Jakarta">
+				<exemplarCity draft="true">Cakarta</exemplarCity>
+			</zone>
+			<!-- Kiribati
+				 Kazakhstan
+			-->
+			<zone type="Asia/Aqtau">
+				<exemplarCity draft="true">Şevçenko</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity draft="true">Uralsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity draft="true">Aktyubinsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity draft="true">Kızıl-Orda</exemplarCity>
 			</zone>
 			<zone type="Asia/Almaty">
 				<exemplarCity draft="true">Almatı</exemplarCity>
 			</zone>
+			<!-- Marshall Islands
+				 Mali
+				 Mongolia
+			-->
+			<zone type="Asia/Hovd">
+				<exemplarCity draft="true">Kobdo</exemplarCity>
+			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity draft="true">Ulanbator</exemplarCity>
+			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity draft="true">Çoybalsan</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity draft="true">Meksiko City</exemplarCity>
 			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity draft="true">Kankun</exemplarCity>
+			</zone>
+			<!-- Mexico
+				 Malaysia
+			-->
+			<zone type="Asia/Kuching">
+				<exemplarCity draft="true">Kuçing</exemplarCity>
+			</zone>
+			<!-- New Zealand
+				 French Polynesia
+			-->
+			<zone type="Pacific/Marquesas">
+				<exemplarCity draft="true">Markiz</exemplarCity>
+				<!-- Portugal
+					 Russia
+					 Svalbard and Jan Mayen
+					 Ukraine
+					 United States Minor Outlying Islands
+					 United States
+				-->
 			</zone>
 			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
@@ -1511,8 +1616,8 @@
 				<displayName>Türk Lirası</displayName>
 				<symbol>TL</symbol>
 			</currency>
-			<currency type="TRY" draft="true">
-				<displayName>Yeni Türk Lirası</displayName>
+			<currency type="TRY">
+				<displayName draft="true">Yeni Türk Lirası</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad ve Tobago Doları</displayName>

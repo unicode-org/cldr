@@ -526,6 +526,35 @@
 			<script type="Yiii">彝语</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">世界</territory>
+			<territory type="002" draft="true">非洲</territory>
+			<territory type="005" draft="true">南美洲</territory>
+			<territory type="009" draft="true">大洋洲</territory>
+			<territory type="011" draft="true">西非</territory>
+			<territory type="013" draft="true">中美洲</territory>
+			<territory type="014" draft="true">东非</territory>
+			<territory type="015" draft="true">北非</territory>
+			<territory type="017" draft="true">中非</territory>
+			<territory type="018" draft="true">南非</territory>
+			<territory type="019" draft="true">美洲</territory>
+			<territory type="021" draft="true">北美洲</territory>
+			<territory type="029" draft="true">加勒比海</territory>
+			<territory type="030" draft="true">东亚</territory>
+			<territory type="035" draft="true">东南亚</territory>
+			<territory type="039" draft="true">南欧</territory>
+			<territory type="053" draft="true">澳大利亚和新西兰</territory>
+			<territory type="054" draft="true">美拉尼西亚</territory>
+			<territory type="057" draft="true">密克罗尼西亚</territory>
+			<territory type="061" draft="true">玻里尼西亚</territory>
+			<territory type="062" draft="true">中南亚</territory>
+			<territory type="142" draft="true">亚洲</territory>
+			<territory type="145" draft="true">西亚</territory>
+			<territory type="150" draft="true">欧洲</territory>
+			<territory type="151" draft="true">东欧</territory>
+			<territory type="154" draft="true">北欧</territory>
+			<territory type="155" draft="true">西欧</territory>
+			<territory type="830" draft="true">海峡群岛</territory>
+			<territory type="833" draft="true">曼岛</territory>
 			<territory type="AD">安道尔</territory>
 			<territory type="AE">阿拉伯联合酋长国</territory>
 			<territory type="AF">阿富汗</territory>
@@ -541,6 +570,7 @@
 			<territory type="AT">奥地利</territory>
 			<territory type="AU">澳大利亚</territory>
 			<territory type="AW">阿鲁巴</territory>
+			<territory type="AX" draft="true">奥兰群岛</territory>
 			<territory type="AZ">阿塞拜疆</territory>
 			<territory type="BA">波斯尼亚和黑山共和国</territory>
 			<territory type="BB">巴巴多斯</territory>
@@ -766,6 +796,7 @@
 			<territory type="ZA">南非</territory>
 			<territory type="ZM">赞比亚</territory>
 			<territory type="ZW">津巴布韦</territory>
+			<territory type="ZZ" draft="true">大洋洲边远群岛</territory>
 		</territories>
 		<variants>
 			<variant type="REVISED">已修订</variant>
@@ -885,6 +916,11 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
 			<zone type="Etc/GMT">
 				<long>
 					<standard>格林威治标准时间</standard>

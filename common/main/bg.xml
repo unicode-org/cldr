@@ -221,6 +221,35 @@
 			<script type="Zyyy">Обща</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">Земята</territory>
+			<territory type="002" draft="true">Африка</territory>
+			<territory type="005" draft="true">Южна Америка</territory>
+			<territory type="009" draft="true">Океания</territory>
+			<territory type="011" draft="true">Западна Афирка</territory>
+			<territory type="013" draft="true">Централна Америка</territory>
+			<territory type="014" draft="true">Източна Африка</territory>
+			<territory type="015" draft="true">Северна Африка</territory>
+			<territory type="017" draft="true">Централна Африка</territory>
+			<territory type="018" draft="true">Южна Африка</territory>
+			<territory type="019" draft="true">Америка</territory>
+			<territory type="021" draft="true">Северна Америка</territory>
+			<territory type="029" draft="true">Карибски о-ви</territory>
+			<territory type="030" draft="true">Източна Азия</territory>
+			<territory type="035" draft="true">Югоизточна Азия</territory>
+			<territory type="039" draft="true">Южна Европа</territory>
+			<territory type="053" draft="true">Австралия и Нова Зеландия</territory>
+			<territory type="054" draft="true">Меланезия</territory>
+			<territory type="057" draft="true">Микронезия</territory>
+			<territory type="061" draft="true">Полинезия</territory>
+			<territory type="062" draft="true">Южна Азия</territory>
+			<territory type="142" draft="true">Азия</territory>
+			<territory type="145" draft="true">Западна Азия</territory>
+			<territory type="150" draft="true">Европа</territory>
+			<territory type="151" draft="true">Източна Европа</territory>
+			<territory type="154" draft="true">Северна Европа</territory>
+			<territory type="155" draft="true">Западна Европа</territory>
+			<territory type="830" draft="true">Нормандски о-ви</territory>
+			<territory type="833" draft="true">о.Ман</territory>
 			<territory type="AD">Андора</territory>
 			<territory type="AE">Обединени Арабски Емирства</territory>
 			<territory type="AF">Афганистан</territory>
@@ -236,6 +265,7 @@
 			<territory type="AT">Австрия</territory>
 			<territory type="AU">Австралия</territory>
 			<territory type="AW">Аруба</territory>
+			<territory type="AX" draft="true">Аландски о-ви</territory>
 			<territory type="AZ">Азербайджан</territory>
 			<territory type="BA">Босна и Херцеговина</territory>
 			<territory type="BB">Барбадос</territory>
@@ -460,6 +490,7 @@
 			<territory type="ZA">Южна Африка</territory>
 			<territory type="ZM">Замбия</territory>
 			<territory type="ZW">Зимбабве</territory>
+			<territory type="ZZ" draft="true">Океания</territory>
 		</territories>
 		<keys>
 			<key type="calendar">Календар</key>
@@ -623,6 +654,11 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>Гриинуич{0}</gmtFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
 			<zone type="Etc/GMT">
 				<long>
 					<standard>Часова зона Гринуич</standard>
@@ -633,6 +669,206 @@
 					<daylight>GMT</daylight>
 				</short>
 				<exemplarCity>Лондон</exemplarCity>
+			</zone>
+			<!-- Antarctica -->
+			<zone type="Antarctica/Rothera">
+				<exemplarCity draft="true">Ротера</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity draft="true">Палмър</exemplarCity>
+			</zone>
+			<zone type="Antarctica/South_Pole">
+				<exemplarCity draft="true">Южен полюс</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity draft="true">Суова</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity draft="true">Моусън</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity draft="true">База Дейвис</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity draft="true">Восток</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity draft="true">Кейси</exemplarCity>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity draft="true">Дюмон Дюрвил</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity draft="true">Мак Мърдоу</exemplarCity>
+			</zone>
+			<!-- Argentina -->
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity draft="true">Рио Галегос</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity draft="true">Мендоса</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity draft="true">Сан Хуан</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity draft="true">Ушуая</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/ComodRivadavia">
+				<exemplarCity draft="true">Комодоро Ривадавия</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity draft="true">Ла Риоха</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity draft="true">Катамарка</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity draft="true">Джуджую</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity draft="true">Тукуман</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity draft="true">Кордоба</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity draft="true">Буенос Айрес</exemplarCity>
+			</zone>
+			<!-- Australia -->
+			<zone type="Australia/Perth">
+				<exemplarCity draft="true">Пърт</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity draft="true">Даруин</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity draft="true">Адълид</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity draft="true">Броукън Хил</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity draft="true">Мелбърн</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity draft="true">Хоубарт</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity draft="true">Линдеман</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity draft="true">Сидни</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity draft="true">Бризбейн</exemplarCity>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity draft="true">Лорд Хов</exemplarCity>
+			</zone>
+			<!-- Brazil -->
+			<zone type="America/Eirunepe">
+				<exemplarCity draft="true">Ейрунепе</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity draft="true">Рио Бранко</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity draft="true">Порту Вельо</exemplarCity>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<exemplarCity draft="true">Буа Виста</exemplarCity>
+			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity draft="true">Мануас</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity draft="true">Чуяба</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity draft="true">Кампо Гранде</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity draft="true">Белем</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity draft="true">Арагуайна</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity draft="true">Сао Пауло</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity draft="true">Бахиа</exemplarCity>
+			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity draft="true">Фортацела</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity draft="true">Масейо</exemplarCity>
+			</zone>
+			<zone type="America/Recife">
+				<exemplarCity draft="true">Ресифе</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity draft="true">Норонха</exemplarCity>
+			</zone>
+			<!-- Canada -->
+			<zone type="America/Dawson">
+				<exemplarCity draft="true">Доусън</exemplarCity>
+			</zone>
+			<zone type="America/Whitehorse">
+				<exemplarCity draft="true">Уайтхорс</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity draft="true">Ванкувър</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity draft="true">Доусън Крийк</exemplarCity>
+			</zone>
+			<zone type="America/Yellowknife">
+				<exemplarCity draft="true">Йелоунайф</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity draft="true">Инувик</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity draft="true">Едмънтън</exemplarCity>
+			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity draft="true">Суифт Кърент</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity draft="true">Кеймбридж Бей</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity draft="true">Регина</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity draft="true">Уинипег</exemplarCity>
+			</zone>
+			<zone type="America/Rainy_River">
+				<exemplarCity draft="true">Рейни Ривър</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity draft="true">Ранкин Инлет</exemplarCity>
+			</zone>
+			<zone type="America/Thunder_Bay">
+				<exemplarCity draft="true">Тъндър Бей</exemplarCity>
+			</zone>
+			<zone type="America/Nipigon">
+				<exemplarCity draft="true">Нипигон</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity draft="true">Торонто</exemplarCity>
+			</zone>
+			<zone type="America/Montreal">
+				<exemplarCity draft="true">Монреал</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity draft="true">Иквалуит</exemplarCity>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<exemplarCity draft="true">Пангниртунг</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -645,6 +881,12 @@
 				</short>
 				<exemplarCity>Халифакс</exemplarCity>
 			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity draft="true">Гус Бей</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity draft="true">Глейс Бей</exemplarCity>
+			</zone>
 			<zone type="America/St_Johns">
 				<long>
 					<standard>Часова зона Нюфаундленд</standard>
@@ -655,6 +897,30 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>Сейнт Джоунс</exemplarCity>
+			</zone>
+			<!-- Democratic Republic of the Congo -->
+			<zone type="Africa/Kinshasa">
+				<exemplarCity draft="true">Киншаса</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity draft="true">Лубумбаши</exemplarCity>
+			</zone>
+			<!-- Chile -->
+			<zone type="Pacific/Easter">
+				<exemplarCity draft="true">Великденски о-ви</exemplarCity>
+			</zone>
+			<zone type="America/Santiago">
+				<exemplarCity draft="true">Сантиаго</exemplarCity>
+			</zone>
+			<!-- China -->
+			<zone type="Asia/Kashgar">
+				<exemplarCity draft="true">Кашгар</exemplarCity>
+			</zone>
+			<zone type="Asia/Urumqi">
+				<exemplarCity draft="true">Урумчи</exemplarCity>
+			</zone>
+			<zone type="Asia/Chongqing">
+				<exemplarCity draft="true">Чунцин</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
@@ -667,6 +933,39 @@
 				</short>
 				<exemplarCity>Шанхай</exemplarCity>
 			</zone>
+			<zone type="Asia/Harbin">
+				<exemplarCity draft="true">Харбин</exemplarCity>
+			</zone>
+			<!-- Ecuador -->
+			<zone type="Pacific/Galapagos">
+				<exemplarCity draft="true">о-ви Галапагос</exemplarCity>
+			</zone>
+			<zone type="America/Guayaquil">
+				<exemplarCity draft="true">Гуаякил</exemplarCity>
+			</zone>
+			<!-- Spain -->
+			<zone type="Atlantic/Canary">
+				<exemplarCity draft="true">Канарски о-ви</exemplarCity>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity draft="true">Сеута</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity draft="true">Мадрид</exemplarCity>
+			</zone>
+			<!-- Micronesia -->
+			<zone type="Pacific/Yap">
+				<exemplarCity draft="true">о. Яп</exemplarCity>
+			</zone>
+			<zone type="Pacific/Truk">
+				<exemplarCity draft="true">о-ви Трук</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity draft="true">о. Понапе</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity draft="true">о. Косрае</exemplarCity>
+			</zone>
 			<zone type="Europe/Paris">
 				<long>
 					<standard>Централноевропейска часова зона</standard>
@@ -677,6 +976,39 @@
 					<daylight>CEST</daylight>
 				</short>
 				<exemplarCity>Париж</exemplarCity>
+			</zone>
+			<!-- United Kingdom -->
+			<zone type="Europe/Belfast">
+				<exemplarCity draft="true">Белфастt</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<exemplarCity draft="true">Лондон</exemplarCity>
+			</zone>
+			<!-- Greenland -->
+			<zone type="America/Thule">
+				<exemplarCity draft="true">Туле</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity draft="true">Готхоб</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity draft="true">Сгорсбисон</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity draft="true">Данмаркшавн</exemplarCity>
+			</zone>
+			<!-- Indonesia -->
+			<zone type="Asia/Jakarta">
+				<exemplarCity draft="true">Джакарта</exemplarCity>
+			</zone>
+			<zone type="Asia/Pontianak">
+				<exemplarCity draft="true">Понтианак</exemplarCity>
+			</zone>
+			<zone type="Asia/Makassar">
+				<exemplarCity draft="true">Макасарски проток</exemplarCity>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<exemplarCity draft="true">Джаяпура</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
@@ -700,6 +1032,32 @@
 				</short>
 				<exemplarCity>Токио</exemplarCity>
 			</zone>
+			<!-- Kiribati -->
+			<zone type="Pacific/Enderbury">
+				<exemplarCity draft="true">о. Ендърбъри</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity draft="true">о. Рождество</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity draft="true">о. Тарава</exemplarCity>
+			</zone>
+			<!-- Kazakhstan -->
+			<zone type="Asia/Aqtau">
+				<exemplarCity draft="true">Аятау</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity draft="true">Арал</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity draft="true">Аятобе</exemplarCity>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity draft="true">Язилорда</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity draft="true">Алма Ата</exemplarCity>
+			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
 					<standard>Часова зона Гринуич</standard>
@@ -711,6 +1069,89 @@
 				</short>
 				<exemplarCity>Казабланка</exemplarCity>
 			</zone>
+			<!-- Marshall Islands -->
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity draft="true">Квайджален</exemplarCity>
+			</zone>
+			<zone type="Pacific/Majuro">
+				<exemplarCity draft="true">Мажуро</exemplarCity>
+			</zone>
+			<!-- Mali -->
+			<zone type="Africa/Bamako">
+				<exemplarCity draft="true">Бамако</exemplarCity>
+			</zone>
+			<zone type="Africa/Timbuktu">
+				<exemplarCity draft="true">Тимбукту</exemplarCity>
+			</zone>
+			<!-- Mongolia -->
+			<zone type="Asia/Hovd">
+				<exemplarCity draft="true">Кобдо</exemplarCity>
+			</zone>
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity draft="true">Уланбатор</exemplarCity>
+			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity draft="true">Чойбалсан</exemplarCity>
+			</zone>
+			<!-- Mexico -->
+			<zone type="America/Tijuana">
+				<exemplarCity draft="true">Тихуана</exemplarCity>
+			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity draft="true">Хермосило</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity draft="true">Мацатлан</exemplarCity>
+			</zone>
+			<zone type="America/Chihuahua">
+				<exemplarCity draft="true">Чиуауа</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity draft="true">Монтерей</exemplarCity>
+			</zone>
+			<zone type="America/Mexico_City">
+				<exemplarCity draft="true">Мексико</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity draft="true">Мерида</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity draft="true">Канкун</exemplarCity>
+			</zone>
+			<!-- Malaysia -->
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity draft="true">Куала Лумпур</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuching">
+				<exemplarCity draft="true">Кучин</exemplarCity>
+			</zone>
+			<!-- New Zealand -->
+			<zone type="Pacific/Chatham">
+				<exemplarCity draft="true">о-ви Чатам</exemplarCity>
+			</zone>
+			<zone type="Pacific/Auckland">
+				<exemplarCity draft="true">Окланд</exemplarCity>
+			</zone>
+			<!-- French Polynesia -->
+			<zone type="Pacific/Tahiti">
+				<exemplarCity draft="true">Таити</exemplarCity>
+			</zone>
+			<zone type="Pacific/Marquesas">
+				<exemplarCity draft="true">Маркизки о-ви</exemplarCity>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<exemplarCity draft="true">Гамбиер</exemplarCity>
+			</zone>
+			<!-- Portugal -->
+			<zone type="Atlantic/Azores">
+				<exemplarCity draft="true">Азорски о-ви</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity draft="true">Мадейра</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity draft="true">Лисабон</exemplarCity>
+			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
 					<standard>Източноевропейска часова зона</standard>
@@ -721,6 +1162,86 @@
 					<daylight>EEST</daylight>
 				</short>
 				<exemplarCity>Букурещ</exemplarCity>
+			</zone>
+			<!-- Russia -->
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity draft="true">Калининград</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="true">Москва</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity draft="true">Самара</exemplarCity>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<exemplarCity draft="true">Екатерининбург</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity draft="true">Омск</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity draft="true">Новосибирск</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity draft="true">Красноярск</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity draft="true">Иркутск</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity draft="true">Якутск</exemplarCity>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity draft="true">Владивосток</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity draft="true">Сахалин</exemplarCity>
+			</zone>
+			<zone type="Asia/Magadan">
+				<exemplarCity draft="true">Магадан</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity draft="true">п-в Камчатка</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity draft="true">Анадир</exemplarCity>
+			</zone>
+			<!-- Svalbard and Jan Mayen -->
+			<zone type="Atlantic/Jan_Mayen">
+				<exemplarCity draft="true">Ян Майен</exemplarCity>
+			</zone>
+			<zone type="Arctic/Longyearbyen">
+				<exemplarCity draft="true">Лонгирбюен</exemplarCity>
+			</zone>
+			<!-- Ukraine -->
+			<zone type="Europe/Uzhgorod">
+				<exemplarCity draft="true">Ужгород</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="true">Киев</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity draft="true">Севастопол</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity draft="true">Запорожие</exemplarCity>
+			</zone>
+			<!-- United States Minor Outlying Islands -->
+			<zone type="Pacific/Midway">
+				<exemplarCity draft="true">о. Мидуей</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity draft="true">о. Джонсън</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity draft="true">о. Уейк</exemplarCity>
+			</zone>
+			<!-- United States -->
+			<zone type="America/Adak">
+				<exemplarCity draft="true">Адак</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity draft="true">Ноум</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
@@ -742,6 +1263,13 @@
 					<standard>AST</standard>
 					<daylight>ADT</daylight>
 				</short>
+				<exemplarCity draft="true">Анкоридж</exemplarCity>
+			</zone>
+			<zone type="America/Yakutat">
+				<exemplarCity draft="true">Якутат</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity draft="true">Джуно</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
@@ -754,6 +1282,9 @@
 				</short>
 				<exemplarCity>Лос Анжелис</exemplarCity>
 			</zone>
+			<zone type="America/Boise">
+				<exemplarCity draft="true">Буаз</exemplarCity>
+			</zone>
 			<zone type="America/Phoenix">
 				<long>
 					<standard>Американска планинска часова зона</standard>
@@ -764,6 +1295,9 @@
 					<daylight>MST</daylight>
 				</short>
 				<exemplarCity>Финикс</exemplarCity>
+			</zone>
+			<zone type="America/Shiprock">
+				<exemplarCity draft="true">Шипрок</exemplarCity>
 			</zone>
 			<zone type="America/Denver">
 				<long>
@@ -776,6 +1310,9 @@
 				</short>
 				<exemplarCity>Денвър</exemplarCity>
 			</zone>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity draft="true">Сентър</exemplarCity>
+			</zone>
 			<zone type="America/Chicago">
 				<long>
 					<standard>Американска централна часова зона</standard>
@@ -786,6 +1323,15 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>Чикаго</exemplarCity>
+			</zone>
+			<zone type="America/Menominee">
+				<exemplarCity draft="true">Меномнии</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<exemplarCity draft="true">Нокс</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<exemplarCity draft="true">Маренго</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
@@ -798,6 +1344,18 @@
 				</short>
 				<exemplarCity>Индианополис</exemplarCity>
 			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity draft="true">Луизвил</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<exemplarCity draft="true">Веве</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<exemplarCity draft="true">Монтичело</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity draft="true">Детройт</exemplarCity>
+			</zone>
 			<zone type="America/New_York">
 				<long>
 					<standard>Американска източна часова зона</standard>
@@ -808,6 +1366,13 @@
 					<daylight>EDT</daylight>
 				</short>
 				<exemplarCity>Ню Йорк</exemplarCity>
+			</zone>
+			<!-- Uzbekistan -->
+			<zone type="Asia/Samarkand">
+				<exemplarCity draft="true">Самарканд</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity draft="true">Ташкент</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
@@ -1352,6 +1917,7 @@
 			</currency>
 			<currency type="RUB">
 				<displayName>Руска рубла</displayName>
+				<symbol draft="true">Руб.</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Руска рубла (1991-1998)</displayName>

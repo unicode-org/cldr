@@ -534,6 +534,35 @@
 			<script type="Yiii">イ文字</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">世界</territory>
+			<territory type="002" draft="true">アフリカ</territory>
+			<territory type="005" draft="true">南アメリカ</territory>
+			<territory type="009" draft="true">オセアニア</territory>
+			<territory type="011" draft="true">西アフリカ</territory>
+			<territory type="013" draft="true">中央アメリカ</territory>
+			<territory type="014" draft="true">東アフリカ</territory>
+			<territory type="015" draft="true">北アフリカ</territory>
+			<territory type="017" draft="true">中部アフリカ</territory>
+			<territory type="018" draft="true">南アフリカ</territory>
+			<territory type="019" draft="true">アメリカ大陸</territory>
+			<territory type="021" draft="true">北アメリカ</territory>
+			<territory type="029" draft="true">カリブ海</territory>
+			<territory type="030" draft="true">東アジア</territory>
+			<territory type="035" draft="true">東南アジア</territory>
+			<territory type="039" draft="true">南ヨーロッパ</territory>
+			<territory type="053" draft="true">オーストラリアおよびニュージーランド</territory>
+			<territory type="054" draft="true">メラネシア</territory>
+			<territory type="057" draft="true">ミクロネシア</territory>
+			<territory type="061" draft="true">ポリネシア</territory>
+			<territory type="062" draft="true">南中央アジア</territory>
+			<territory type="142" draft="true">アジア</territory>
+			<territory type="145" draft="true">西アジア</territory>
+			<territory type="150" draft="true">ヨーロッパ</territory>
+			<territory type="151" draft="true">東ヨーロッパ</territory>
+			<territory type="154" draft="true">北ヨーロッパ</territory>
+			<territory type="155" draft="true">西ヨーロッパ</territory>
+			<territory type="830" draft="true">チャネル島</territory>
+			<territory type="833" draft="true">マン島</territory>
 			<territory type="AD">アンドラ</territory>
 			<territory type="AE">アラブ首長国連邦</territory>
 			<territory type="AF">アフガニスタン</territory>
@@ -549,6 +578,7 @@
 			<territory type="AT">オーストリア</territory>
 			<territory type="AU">オーストラリア</territory>
 			<territory type="AW">アルバ島</territory>
+			<territory type="AX" draft="true">オーランド諸島</territory>
 			<territory type="AZ">アゼルバイジャン</territory>
 			<territory type="BA">ボスニア・ヘルツェゴビナ</territory>
 			<territory type="BB">バルバドス</territory>
@@ -775,6 +805,7 @@
 			<territory type="ZA">南アフリカ</territory>
 			<territory type="ZM">ザンビア</territory>
 			<territory type="ZW">ジンバブエ</territory>
+			<territory type="ZZ" draft="true">その他のオセアニア</territory>
 		</territories>
 		<variants>
 			<variant type="POSIX" draft="true">コンピューター</variant>
@@ -809,6 +840,34 @@
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="true">1 月</month>
+							<month type="2" draft="true">2 月</month>
+							<month type="3" draft="true">3 月</month>
+							<month type="4" draft="true">4 月</month>
+							<month type="5" draft="true">5 月</month>
+							<month type="6" draft="true">6 月</month>
+							<month type="7" draft="true">7 月</month>
+							<month type="8" draft="true">8 月</month>
+							<month type="9" draft="true">9 月</month>
+							<month type="10" draft="true">10 月</month>
+							<month type="11" draft="true">11 月</month>
+							<month type="12" draft="true">12 月</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="true">1</month>
+							<month type="2" draft="true">2</month>
+							<month type="3" draft="true">3</month>
+							<month type="4" draft="true">4</month>
+							<month type="5" draft="true">5</month>
+							<month type="6" draft="true">6</month>
+							<month type="7" draft="true">7</month>
+							<month type="8" draft="true">8</month>
+							<month type="9" draft="true">9</month>
+							<month type="10" draft="true">10</month>
+							<month type="11" draft="true">11</month>
+							<month type="12" draft="true">12</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">1月</month>
 							<month type="2">2月</month>
@@ -1193,6 +1252,11 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0}時間</regionFormat>
+			<fallbackFormat>{0} ({1})時間</fallbackFormat>
 			<zone type="Etc/GMT">
 				<long>
 					<standard>グリニッジ標準時</standard>
@@ -2074,6 +2138,7 @@
 			</currency>
 			<currency type="CNY">
 				<displayName>中国人民元</displayName>
+				<symbol draft="true">¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>コロンビア ペソ</displayName>
@@ -2224,6 +2289,7 @@
 			</currency>
 			<currency type="INR">
 				<displayName>インド ルピー</displayName>
+				<symbol draft="true">₨</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>イラク ディナール</displayName>
@@ -2440,6 +2506,9 @@
 			</currency>
 			<currency type="ROL">
 				<displayName>ルーマニア レイ</displayName>
+			</currency>
+			<currency type="RUB">
+				<displayName draft="true">ロシア ルーブル</displayName>
 			</currency>
 			<currency type="RUR">
 				<displayName>ロシア ルーブル (1991-1998)</displayName>

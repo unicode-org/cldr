@@ -187,14 +187,23 @@ root{
     eras                 {
                              "{0}<{1}eras>\n"
                          }
+	eraAbbr				 {
+							 "{0}<{1}eraAbbr>\n"
+					     }
+	eraNames			 {
+							 "{0}<{1}eraNames>\n"
+						 }
     era                  {
                              "{0}<era type=\"{1}\">{2}</era>\n"
                          }
 	dateFormats          {
 							 "{0}<{1}dateFormats>\n"
 						 }
+	dateFormatStyle		 {
+							 "{0}<{1}dateFormatStyle {2}>\n"
+					     }
 	dateFormatStart		 {
-							 "{0}<dateFormat type=\"{1}\">\n"
+							 "{0}<dateFormat {1}>\n"
 						 }
 	dateFormatEnd        {
 							 "{0}</dateFormat>\n"
@@ -209,7 +218,7 @@ root{
 							 "{0}<{1}timeFormats>\n"
 						 }
 	timeFormatStart  	 {
-							 "{0}<timeFormat type=\"{1}\">\n"
+							 "{0}<timeFormat {1}>\n"
 					     }
 	timeFormatEnd        {
 							 "{0}</timeFormat>\n"
@@ -293,8 +302,11 @@ root{
 	numberFormats        {
 							 "{0}<{1}numberFormats>\n"
 						 }
+	numberFormatStyle    {
+							 "{0}<{1}numberFormatStyle {2} >\n"
+						 }
 	numberFormatStart    {   
-                             "{0}<numberFormat type=\"{1}\">\n"
+                             "{0}<numberFormat {1}>\n"
 						 }
 	numberFormatEnd  	 {
 							 "{0}</numberFormat>\n"

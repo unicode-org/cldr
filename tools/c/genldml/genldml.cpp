@@ -1168,6 +1168,10 @@ void GenerateXML::writeEra(UnicodeString& xmlString){
 		xmlString.append(formatString(mStringsBundle.getStringEx("eras",mError),args,2,t));
 		indentOffset.append("\t");
 		
+        args[0] = indentOffset;
+        xmlString.append(formatString(mStringsBundle.getStringEx("eraAbbr",mError),args,2,t));
+
+        indentOffset.append("\t");
 		args[0] = indentOffset;
         for(int i=0;eras.hasNext();i++){
 			char c;
@@ -1177,6 +1181,11 @@ void GenerateXML::writeEra(UnicodeString& xmlString){
 			xmlString.append(formatString(mStringsBundle.getStringEx("era",mError),args,3,t));
 		}
 		chopIndent();
+		args[0] = indentOffset;
+		args[1] = UnicodeString(XML_END_SLASH);
+		xmlString.append(formatString(mStringsBundle.getStringEx("eraAbbr",mError),args,2,t));
+
+        chopIndent();
 		args[0] = indentOffset;
 		args[1] = UnicodeString(XML_END_SLASH);
 		xmlString.append(formatString(mStringsBundle.getStringEx("eras",mError),args,2,t));
@@ -1206,12 +1215,24 @@ void GenerateXML::writeAMPMmarkers(UnicodeString& xmlString){
 
 }
 
-void GenerateXML::writeFormat(const char* start, const char* end, const char* type,UnicodeString& pattern,
+void GenerateXML::writeFormat(const char* style, const char* start, const char* end, const char* typeName,UnicodeString& pattern,
 						      UnicodeString& xmlString, UBool split){
 	UnicodeString t;
+    UnicodeString type("type=\"");
+    type.append(typeName);
+    type.append("\"");
 	if(!split){
-		Formattable args[2]={indentOffset,type};
 
+		Formattable args[4]={indentOffset,"",type,""};
+        if(*style!=0){
+            xmlString.append(formatString(mStringsBundle.getStringEx(style,mError),args,3,t));
+
+
+	        indentOffset.append("\t");
+		    args[0]= indentOffset;
+        }else{
+            args[1] = type;
+        }
 		xmlString.append(formatString(mStringsBundle.getStringEx(start,mError),args,2,t));
 		
 		indentOffset.append("\t");
@@ -1222,9 +1243,25 @@ void GenerateXML::writeFormat(const char* start, const char* end, const char* ty
 
 		chopIndent();
 		xmlString.append(formatString(mStringsBundle.getStringEx(end, mError), indentOffset,t));
-	}else{
-		Formattable args[2]={indentOffset,type};
+        
+        if(*style!=0){
+            chopIndent();
+            args[0]=indentOffset;
+            args[1]=UnicodeString(XML_END_SLASH);
+            args[2]="";
+            xmlString.append(formatString(mStringsBundle.getStringEx(style,mError),args,3,t));
+        }
 
+	}else{
+		Formattable args[4]={indentOffset,"",type,""};
+        if(*style!=0){
+            xmlString.append(formatString(mStringsBundle.getStringEx(style,mError),args,3,t));
+
+	        indentOffset.append("\t");
+		    args[0]= indentOffset;
+        }else{
+            args[1]=type;
+        }
 		xmlString.append(formatString(mStringsBundle.getStringEx(start,mError),args,2,t));
 		UnicodeString positive;
 		UnicodeString negative;
@@ -1242,7 +1279,16 @@ void GenerateXML::writeFormat(const char* start, const char* end, const char* ty
 		}
 		chopIndent();
 		xmlString.append(formatString(mStringsBundle.getStringEx(end, mError), indentOffset,t));
-	}
+        
+        if(*style!=0){
+            chopIndent();
+            args[0]=indentOffset;
+            args[1]=UnicodeString(XML_END_SLASH);
+            args[2]="";
+            xmlString.append(formatString(mStringsBundle.getStringEx(style,mError),args,3,t));
+        }
+
+    }
 	
 }
 
@@ -1256,8 +1302,9 @@ void GenerateXML::writeDateFormat(UnicodeString& xmlString){
 		
 		// hard code default to medium pattern for ICU
 		Formattable args[4]= {indentOffset,"","",""};
+
 		xmlString.append(formatString(mStringsBundle.getStringEx("dateFormats",mError),args,2,t));
-		
+
 		indentOffset.append("\t");
 		args[0]= indentOffset;
 		args[1] = "medium";
@@ -1265,17 +1312,18 @@ void GenerateXML::writeDateFormat(UnicodeString& xmlString){
 		
 		UnicodeString tempStr;
 		
-		writeFormat("dateFormatStart","dateFormatEnd","full",dtPatterns.getStringEx((int32_t)4,mError),xmlString);
-		writeFormat("dateFormatStart","dateFormatEnd","long",dtPatterns.getStringEx((int32_t)5,mError),xmlString);
-		writeFormat("dateFormatStart","dateFormatEnd","medium",dtPatterns.getStringEx((int32_t)6,mError),xmlString);
-		writeFormat("dateFormatStart","dateFormatEnd","short",dtPatterns.getStringEx((int32_t)7,mError),xmlString);
+		writeFormat("dateFormatStyle","dateFormatStart","dateFormatEnd","full",dtPatterns.getStringEx((int32_t)4,mError),xmlString);
+		writeFormat("dateFormatStyle","dateFormatStart","dateFormatEnd","long",dtPatterns.getStringEx((int32_t)5,mError),xmlString);
+		writeFormat("dateFormatStyle","dateFormatStart","dateFormatEnd","medium",dtPatterns.getStringEx((int32_t)6,mError),xmlString);
+		writeFormat("dateFormatStyle","dateFormatStart","dateFormatEnd","short",dtPatterns.getStringEx((int32_t)7,mError),xmlString);
 
 		chopIndent();
 
 		args[0]=indentOffset;
 		args[1]=UnicodeString(XML_END_SLASH);
 		xmlString.append(formatString(mStringsBundle.getStringEx("dateFormats",mError),args,2,t));
-	}
+
+  	}
 
 	mError= U_ZERO_ERROR;
 //	if(!print) xmlString.remove();	
@@ -1299,16 +1347,17 @@ void GenerateXML::writeTimeFormat(UnicodeString& xmlString){
 		
 		UnicodeString tempStr;
 		
-		writeFormat("timeFormatStart","timeFormatEnd","full",dtPatterns.getStringEx((int32_t)0,mError),xmlString);
-		writeFormat("timeFormatStart","timeFormatEnd","long",dtPatterns.getStringEx((int32_t)1,mError),xmlString);
-		writeFormat("timeFormatStart","timeFormatEnd","medium",dtPatterns.getStringEx((int32_t)2,mError),xmlString);
-		writeFormat("timeFormatStart","timeFormatEnd","short",dtPatterns.getStringEx((int32_t)3,mError),xmlString);
+		writeFormat("","timeFormatStart","timeFormatEnd","full",dtPatterns.getStringEx((int32_t)0,mError),xmlString);
+		writeFormat("","timeFormatStart","timeFormatEnd","long",dtPatterns.getStringEx((int32_t)1,mError),xmlString);
+		writeFormat("","timeFormatStart","timeFormatEnd","medium",dtPatterns.getStringEx((int32_t)2,mError),xmlString);
+		writeFormat("","timeFormatStart","timeFormatEnd","short",dtPatterns.getStringEx((int32_t)3,mError),xmlString);
 
 		chopIndent();
 
 		args[0]=indentOffset;
 		args[1]=UnicodeString(XML_END_SLASH);
 		xmlString.append(formatString(mStringsBundle.getStringEx("timeFormats",mError),args,2,t));
+
 	}
 
 	mError= U_ZERO_ERROR;
@@ -1322,7 +1371,7 @@ void GenerateXML::writeDateTimeFormat(UnicodeString& xmlString){
 		mError!=U_USING_FALLBACK_WARNING && 
         U_SUCCESS(mError)){
 		
-		writeFormat("dateTimeFormatStart","dateTimeFormatEnd","full",dtPatterns.getStringEx((int32_t)8,mError),xmlString);
+		writeFormat("","dateTimeFormatStart","dateTimeFormatEnd","full",dtPatterns.getStringEx((int32_t)8,mError),xmlString);
 
 	}
 
@@ -1385,6 +1434,7 @@ void GenerateXML::writeNumberElements(UnicodeString& xmlString){
 
 	DecimalFormatSymbols mySymbols(mLocale,mError);
 	UnicodeString symbol;
+	mError = U_ZERO_ERROR;
 	ResourceBundle numFormats = mSourceBundle.get("NumberElements", mError);
 	UnicodeString t;
 	if( mError!=U_USING_DEFAULT_WARNING && 
@@ -1462,18 +1512,17 @@ void GenerateXML::writeNumberPatterns(UnicodeString& xmlString){
 		// hard code default to medium pattern for ICU
 		Formattable args[4]= {indentOffset,"","",""};
 		xmlString.append(formatString(mStringsBundle.getStringEx("numberFormats",mError),args,2,t));
-		
 		indentOffset.append("\t");
 		args[0]= indentOffset;
 		args[1]="decimal";
 		xmlString.append(formatString(mStringsBundle.getStringEx( "default",mError),args,2,t));
-		
+
 		UnicodeString tempStr;
 		
-		writeFormat("numberFormatStart","numberFormatEnd","decimal",dtPatterns.getStringEx((int32_t)0,mError),xmlString,TRUE);
-		writeFormat("numberFormatStart","numberFormatEnd","currency",dtPatterns.getStringEx((int32_t)1,mError),xmlString,TRUE);
-		writeFormat("numberFormatStart","numberFormatEnd","percent",dtPatterns.getStringEx((int32_t)2,mError),xmlString,TRUE);
-		writeFormat("numberFormatStart","numberFormatEnd","scientific",dtPatterns.getStringEx((int32_t)3,mError),xmlString,TRUE);
+		writeFormat("numberFormatStyle","numberFormatStart","numberFormatEnd","decimal",dtPatterns.getStringEx((int32_t)0,mError),xmlString,TRUE);
+		writeFormat("numberFormatStyle","numberFormatStart","numberFormatEnd","currency",dtPatterns.getStringEx((int32_t)1,mError),xmlString,TRUE);
+		writeFormat("numberFormatStyle","numberFormatStart","numberFormatEnd","percent",dtPatterns.getStringEx((int32_t)2,mError),xmlString,TRUE);
+		writeFormat("numberFormatStyle","numberFormatStart","numberFormatEnd","scientific",dtPatterns.getStringEx((int32_t)3,mError),xmlString,TRUE);
 		if(mError == U_MISSING_RESOURCE_ERROR){
 			mError = U_ZERO_ERROR;
 		}
@@ -1482,6 +1531,7 @@ void GenerateXML::writeNumberPatterns(UnicodeString& xmlString){
 		args[0]=indentOffset;
 		args[1]=UnicodeString(XML_END_SLASH);
 		xmlString.append(formatString(mStringsBundle.getStringEx("numberFormats",mError),args,2,t));
+        
 	}
 
 	mError= U_ZERO_ERROR;

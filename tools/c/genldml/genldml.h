@@ -167,7 +167,7 @@ private:
 	void writeEra(UnicodeString& xmlString);
 
 	void writeFormats(UnicodeString& xmlString);
-	void writeFormat(const char* start, const char* end, const char* type,UnicodeString& pattern, UnicodeString& xmlString, UBool split=FALSE);
+	void writeFormat(const char* style, const char* start, const char* end, const char* type,UnicodeString& pattern, UnicodeString& xmlString, UBool split=FALSE);
 
 	void writeLocalePatternChars(UnicodeString& xmlString);
 

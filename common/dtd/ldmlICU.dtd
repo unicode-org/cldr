@@ -22,7 +22,7 @@
 <!ELEMENT icu:ruleBasedNumberFormats ( alias | (default?, icu:ruleBasedNumberFormat*)) >
 
 <!-- Either bare data or any number of cp -->
-<!ELEMENT icu:ruleBasedNumberFormat (#PCDATA)* >
+<!ELEMENT icu:ruleBasedNumberFormat (#PCDATA | cp)* >
 <!ATTLIST icu:ruleBasedNumberFormat type NMTOKEN #IMPLIED >
 
 <!-- RBBI data -->
@@ -45,7 +45,7 @@
 
 <!-- RBT data  -->
 <!ELEMENT icu:transforms ( alias | (default?, icu:transform*)) >
-<!ELEMENT icu:transform ( #PCDATA ) >
+<!ELEMENT icu:transform ( #PCDATA |cp )* >
 <!ATTLIST icu:transform type NMTOKEN #REQUIRED >
 
 <!-- ######################################################### -->

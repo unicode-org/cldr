@@ -45,23 +45,32 @@
 
 <!ELEMENT icu:grapheme ( #PCDATA ) >
 <!ATTLIST icu:grapheme icu:class NMTOKEN #REQUIRED >
-<!ATTLIST icu:grapheme icu:append NMTOKEN #REQUIRED >
+<!ATTLIST icu:grapheme icu:append NMTOKEN #IMPLIED >
+<!ATTLIST icu:grapheme icu:import NMTOKEN #REQUIRED >
 
 <!ELEMENT icu:word ( #PCDATA ) >
 <!ATTLIST icu:word icu:class NMTOKEN #REQUIRED >
+<!ATTLIST icu:word icu:append NMTOKEN #IMPLIED >
 <!ATTLIST icu:word icu:import NMTOKEN #REQUIRED >
 
 <!ELEMENT icu:line ( #PCDATA ) >
 <!ATTLIST icu:line icu:class NMTOKEN #REQUIRED >
-
+<!ATTLIST icu:line icu:append NMTOKEN #IMPLIED >
+<!ATTLIST icu:line icu:import NMTOKEN #REQUIRED >
 
 <!ELEMENT icu:sentence ( #PCDATA ) >
 <!ATTLIST icu:sentence icu:class NMTOKEN #REQUIRED >
+<!ATTLIST icu:sentence icu:append NMTOKEN #IMPLIED >
+<!ATTLIST icu:sentence icu:import NMTOKEN #REQUIRED >
 
-<!ELEMENT icu:breakDictionaryData (alias|(icu:import)) >
+<!ELEMENT icu:title ( #PCDATA ) >
+<!ATTLIST icu:title icu:class NMTOKEN #REQUIRED >
+<!ATTLIST icu:title icu:append NMTOKEN #IMPLIED >
+<!ATTLIST icu:title icu:import NMTOKEN #REQUIRED >
 
-<!ELEMENT icu:import ( #PCDATA ) >
-<!ATTLIST icu:import icu:path CDATA #REQUIRED >
+<!ELEMENT icu:breakDictionaryData (#EMPTY) >
+<!ATTLIST icu:title icu:class NMTOKEN #REQUIRED >
+<!ATTLIST icu:title icu:import NMTOKEN #REQUIRED >
 
 <!-- RBT data  -->
 <!ELEMENT icu:transforms ( alias | (default?, icu:transform*)) >

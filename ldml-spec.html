@@ -803,7 +803,7 @@ quotation marks are used with simple quoted text, such as:</p>
 <pre>&lt;measurementSystem type=&quot;US&quot;/&gt;</pre>
 <p>The measurement system is the normal measurement system in common everyday 
 use (except for date/time). The values are &quot;metric&quot; (= <a href="http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=5448&amp;ICS1=1&amp;ICS2=60&amp;ICS3=">ISO 
-1000</a>) or &quot;US&quot;; others will be added over time.</p>
+1000</a>), &quot;US&quot;, or &quot;UK&quot;; others may be added over time.</p>
 <p class="note"><b>Note:</b> In the future, we may need to add display names for 
 the particular measurement units (millimeter vs millimetre vs whatever the 
 Greek, Russian, etc are), and a message format for position those with respect 
@@ -843,7 +843,7 @@ universally-accepted numeric designation.</p>
 <p>Many calendars will only differ from the Gregorian Calendar in the year and 
 era values. For example, the Japanese calendar will have many more eras (one for 
 each Emperor), and the years will be numbered within that era. All other 
-calendars inherit from the Gregorian calendar (which must be present), so only 
+calendars inherit from the Gregorian calendar in the same locale data, so only 
 the differing data will be present.</p>
 <p class="example">Example:</p>
 <pre>  &lt;calendar type=&quot;gregorian&quot;&gt;
@@ -943,8 +943,10 @@ the differing data will be present.</p>
     &lt;eras&gt;
         &lt;era type=&quot;0&quot;&gt;BE&lt;/era&gt;
     &lt;/eras&gt;
-  &lt;/calendar&gt;
-</pre>
+  &lt;/calendar&gt;</pre>
+<p class="note"><b>Note: </b>the weekendStart time defaults to 
+&quot;00:00:00&quot; (midnight at the start of the day). The weekendEnd time 
+defaults to &quot;24:00:00&quot; (midnight at the end of the day).</p>
 <p class="element2"><a name="&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></p>
 <p>The timezone IDs are language-independent, and follow the <i>Olson Data</i> [<a href="#Olson">Olson</a>]. 
 However, the display names for those IDs can vary by locale. The generic time is 
@@ -1084,6 +1086,9 @@ appropriate symbol from &lt;currencies&gt;, according to the currency code. The
 such as PTE. The choice attribute can be used to indicate that the value uses a 
 pattern which is to be interpreted as a Java ChoiceFormat [<a href="#JavaChoice">JavaChoice</a>], 
 with the 0 parameter being the numeric value.</p>
+<p>Currencies can also contain grouping and decimal data. This data is inherited 
+from the &lt;symbols&gt; in the same locale data, so only the differing data 
+will be present.</p>
 <p class="note"><b>Note: </b><i>Currency values should <b>never</b> be 
 interchanged without a known currency code. You never want the number 3.5 
 interpreted as $3.5 by one user and ¥3.5 by another. </i>Locale data contains 
@@ -1115,7 +1120,7 @@ rounding for each currency is not locale-specific data, and is not contained in
 the localeData format. Those values override whatever is given in the currency 
 numberFormat. For more information, see <a href="#Supplemental_Data">Supplemental 
 Data</a>.</p>
-<p>For background information on currency names, see [CurrencyInfo]. </p>
+<p>For background information on currency names, see [CurrencyInfo].</p>
 <h3><a name="&lt;collations&gt;">&lt;collations&gt;</a></h3>
 <p>This section contains one or more collation elements, distinguished by type. 
 Each collation contains rules that specify a certain sort-order, as a tailoring 
@@ -1141,9 +1146,9 @@ is an on-line demonstration of collation at [<a href="#LocaleExplorer">LocaleExp
 (pick the locale and scroll to &quot;Collation Rules&quot;).</p>
 <h3><a name="Collation_Version">Version</a></h3>
 <p>The version attribute is used in case a specific version of the UCA is to be 
-specified. It must be specified if the results are to be identical on different 
-systems. If it is not supplied, then the version is assumed to be the same as 
-the Unicode version for the system as a whole.</p>
+specified. It is optional, and is specified if the results are to be identical 
+on different systems. If it is not supplied, then the version is assumed to be 
+the same as the Unicode version for the system as a whole.</p>
 <blockquote>
   <p><i><b>Note: </b>For version 3.1.1 of the UCA, the version of Unicode must 
   also be specified with any versioning information; an example would be 
@@ -1579,9 +1584,9 @@ different, but the resulting string comparisons are the same.)</p>
         = ｧ |ー<br>
         = ぁ|ー</code></td>
       <td><code>&lt;reset before=&quot;tertiary&quot;&gt;ァ&lt;/reset&gt;<br>
-        &lt;s&gt;ァ&lt;context&gt;ー&lt;/context&gt;&lt;/s&gt;<br>
-        &lt;i&gt;ｧ&lt;context&gt;ー&lt;/context&gt;&lt;/i&gt;<br>
-        &lt;i&gt;ぁ&lt;context&gt;ー&lt;/context&gt;&lt;/i&gt;</code></td>
+        &lt;s&gt;&lt;context&gt;ァ&lt;/context&gt;ー&lt;/s&gt;<br>
+        &lt;i&gt;&lt;context&gt;ｧ&lt;/context&gt;ー&lt;/i&gt;<br>
+        &lt;i&gt;&lt;context&gt;ぁ&lt;/context&gt;ー&lt;/i&gt;</code></td>
     </tr>
   </tbody>
 </table>
@@ -1778,7 +1783,7 @@ tailoring that their performance should be enhanced.</p>
     </tr>
     <tr>
       <td>[suppress contractions [Љ-ґ]]</td>
-      <td>&lt;suppress_contractions&gt;[Љ-ґ]&lt;/suppressContractions</td>
+      <td>&lt;suppress_contractions&gt;[Љ-ґ]&lt;/suppress_contractions&gt;</td>
     </tr>
     <tr>
       <td>[optimize [Ά-ώ]]</td>
@@ -1897,7 +1902,7 @@ transform element is a list of rules, as described in the ICU documentation for
 [<a href="#ICUTransforms">ICUTransforms</a>]. The enclosing special element is a 
 sub-element of &lt;localeData&gt;. The target value is either a script (long or 
 short name) or a locale id.</p>
-<p class="note">Note: there is an on-line demonstration of transforms at </p>
+<p class="note">Note: there is an on-line demonstration of transforms at</p>
 <p class="example">Example: The following is an abbreviated example for Greek to 
 Latin, in a Greek locale. The target value can be a script ID or a locale ID.</p>
 <pre>&lt;localeData&gt;
@@ -2652,36 +2657,31 @@ and any resulting characters are _not_ tagged as literals.)</p>
     <td>The Default Unicode Collation Element Table (DUCET)<br>
       For the base-level collation, of which all the collation tables in this 
       document are tailorings.<br>
-      <a href="http://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table">http://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table</a> 
-    </td>
+      <a href="http://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table">http://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table</a></td>
   </tr>
   <tr>
     <td>[<a name="FCD">FCD</a>]</td>
     <td>As defined in UTN #5 Canonical Equivalences in Applications<br>
-      <a href="http://www.unicode.org/notes/tn5/">http://www.unicode.org/notes/tn5/</a> 
-    </td>
+      <a href="http://www.unicode.org/notes/tn5/">http://www.unicode.org/notes/tn5/</a></td>
   </tr>
   <tr>
     <td>[<a name="JavaDates">JavaDates</a>]</td>
     <td>Java DateFormat, DateFormatSymbols, SimpleDateFormat:<br>
       <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DateFormat.html">http://java.sun.com/j2se/1.4.1/docs/api/java/text/DateFormat.html<br>
       </a><a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DateFormatSymbols.html">http://java.sun.com/j2se/1.4.1/docs/api/java/text/DateFormatSymbols.html<br>
-      </a><a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/SimpleDateFormat.html">http://java.sun.com/j2se/1.4.1/docs/api/java/text/SimpleDateFormat.html</a> 
-    </td>
+      </a><a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/SimpleDateFormat.html">http://java.sun.com/j2se/1.4.1/docs/api/java/text/SimpleDateFormat.html</a></td>
   </tr>
   <tr>
     <td>[<a name="JavaNumbers">JavaNumbers</a>]</td>
     <td>Java NumberFormat, DecimalFormat, DecimalFormatSymbols:<br>
       <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/NumberFormat.html">http://java.sun.com/j2se/1.4.1/docs/api/java/text/NumberFormat.html<br>
       </a><a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DecimalFormat.html">http://java.sun.com/j2se/1.4.1/docs/api/java/text/DecimalFormat.html<br>
-      </a><a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DecimalFormatSymbols.html">http://java.sun.com/j2se/1.4.1/docs/api/java/text/DecimalFormatSymbols.html</a> 
-    </td>
+      </a><a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DecimalFormatSymbols.html">http://java.sun.com/j2se/1.4.1/docs/api/java/text/DecimalFormatSymbols.html</a></td>
   </tr>
   <tr>
     <td>[<a name="JavaChoice">JavaChoice</a>]</td>
     <td>Java ChoiceFormat<br>
-      <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/ChoiceFormat.html">http://java.sun.com/j2se/1.4.1/docs/api/java/text/ChoiceFormat.html</a> 
-    </td>
+      <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/ChoiceFormat.html">http://java.sun.com/j2se/1.4.1/docs/api/java/text/ChoiceFormat.html</a></td>
   </tr>
   <tr>
     <td>[<a name="Olson">Olson</a>]</td>
@@ -2691,15 +2691,15 @@ and any resulting characters are _not_ tagged as literals.)</p>
   </tr>
   <tr>
     <td>[<a name="UCA">UCA</a>]</td>
-    <td>UTS #10: Unicode Collation Algorithm <a href="http://www.unicode.org/reports/tr10/"><br>
-      http://www.unicode.org/reports/tr10/</a> </td>
+    <td>UTS #10: Unicode Collation Algorithm<a href="http://www.unicode.org/reports/tr10/"><br>
+      http://www.unicode.org/reports/tr10/</a></td>
   </tr>
   <tr>
     <td>[<a name="UCD">UCD</a>]</td>
     <td>The Unicode Character Database (UCD)<br>
       For character properties, casing behavior, default line-, word-, 
       clusterbreaking behavior, etc.<br>
-      <a href="http://www.unicode.org/ucd/">http://www.unicode.org/ucd/</a> </td>
+      <a href="http://www.unicode.org/ucd/">http://www.unicode.org/ucd/</a></td>
   </tr>
   <tr>
     <th>Other Standards</th>
@@ -2709,49 +2709,39 @@ and any resulting characters are _not_ tagged as literals.)</p>
   <tr>
     <td>[<a name="RFC3066">RFC3066</a>]</td>
     <td>IETF Language Codes<br>
-      <a href="http://www.ietf.org/rfc/rfc3066.txt">http://www.ietf.org/rfc/rfc3066.txt</a> 
-      <br>
+      <a href="http://www.ietf.org/rfc/rfc3066.txt">http://www.ietf.org/rfc/rfc3066.txt</a><br>
       Registered Exception List (those not of the form language + region)<br>
-      <a href="http://www.evertype.com/standards/iso639/iana-lang-assignments.html">http://www.evertype.com/standards/iso639/iana-lang-assignments.html</a> 
-    </td>
+      <a href="http://www.evertype.com/standards/iso639/iana-lang-assignments.html">http://www.evertype.com/standards/iso639/iana-lang-assignments.html</a></td>
   </tr>
   <tr>
     <td>[<a name="ISO639">ISO639</a>]</td>
     <td>ISO Language Codes<br>
-      <a href="http://lcweb.loc.gov/standards/iso639-2/">http://lcweb.loc.gov/standards/iso639-2/</a> 
-      <br>
+      <a href="http://lcweb.loc.gov/standards/iso639-2/">http://lcweb.loc.gov/standards/iso639-2/</a><br>
       Actual List:<br>
-      <a href="http://www.loc.gov/standards/iso639-2/langcodes.html">http://www.loc.gov/standards/iso639-2/langcodes.html</a> 
-    </td>
+      <a href="http://www.loc.gov/standards/iso639-2/langcodes.html">http://www.loc.gov/standards/iso639-2/langcodes.html</a></td>
   </tr>
   <tr>
     <td>[<a name="ISO3166">ISO3166</a>]</td>
     <td>ISO Region Codes<br>
-      <a href="http://www.iso.org/iso/en/prods-services/iso3166ma/index.html">http://www.iso.org/iso/en/prods-services/iso3166ma/index.html</a> 
-      <br>
+      <a href="http://www.iso.org/iso/en/prods-services/iso3166ma/index.html">http://www.iso.org/iso/en/prods-services/iso3166ma/index.html</a><br>
       Actual List<br>
-      <a href="http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html">http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html</a> 
-    </td>
+      <a href="http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html">http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html</a></td>
   </tr>
   <tr>
     <td>[<a name="ISO4217">ISO4217</a>]</td>
     <td>ISO Currency Codes<br>
-      <a href="http://www.bsi-global.com/Portfolio+of+Products+and+Services/Books+Guides/Consumer/th42090.xalter">http://www.bsi-global.com/Portfolio+of+Products+and+Services/Books+Guides/Consumer/th42090.xalter</a> 
-      <br>
+      <a href="http://www.bsi-global.com/Portfolio+of+Products+and+Services/Books+Guides/Consumer/th42090.xalter">http://www.bsi-global.com/Portfolio+of+Products+and+Services/Books+Guides/Consumer/th42090.xalter</a><br>
       Actual List (may not work in the future, since BSI wants £205 for the 
       list)<br>
-      <a href="http://www.bsi-global.com/Technical+Information/Publications/_Publications/tig90x.doc">http://www.bsi-global.com/Technical+Information/Publications/_Publications/tig90x.doc</a> 
-    </td>
+      <a href="http://www.bsi-global.com/Technical+Information/Publications/_Publications/tig90x.doc">http://www.bsi-global.com/Technical+Information/Publications/_Publications/tig90x.doc</a></td>
   </tr>
   <tr>
     <td>[<a name="ISO15924">ISO15924</a>]</td>
     <td>
       <p>ISO Script Codes<br>
-      &nbsp;<a href="http://www.evertype.com/standards/iso15924/">http://www.evertype.com/standards/iso15924/</a> 
-      <br>
+      &nbsp;<a href="http://www.evertype.com/standards/iso15924/">http://www.evertype.com/standards/iso15924/</a><br>
       Older version with Actual List:<br>
-      <a href="http://www.evertype.com/standards/iso15924/document/dis15924.pdf">http://www.evertype.com/standards/iso15924/document/dis15924.pdf</a> 
-    </td>
+      <a href="http://www.evertype.com/standards/iso15924/document/dis15924.pdf">http://www.evertype.com/standards/iso15924/document/dis15924.pdf</a></td>
   </tr>
   <tr>
     <th>General</th>
@@ -2782,21 +2772,18 @@ and any resulting characters are _not_ tagged as literals.)</p>
     <td>
       <p>Windows Culture Info (with&nbsp; mappings from [<a href="#RFC3066">RFC3066</a>]-style 
       codes to LCIDs)<br>
-      <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemGlobalizationCultureInfoClassTopic.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemGlobalizationCultureInfoClassTopic.asp</a> 
-    </td>
+      <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemGlobalizationCultureInfoClassTopic.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemGlobalizationCultureInfoClassTopic.asp</a></td>
   </tr>
   <tr>
     <td>[<a name="JavaLocale">JavaLocale</a>]</td>
     <td>
       <p>Java Locale<br>
-      <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/util/Locale.html">http://java.sun.com/j2se/1.4.1/docs/api/java/util/Locale.html</a> 
-    </td>
+      <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/util/Locale.html">http://java.sun.com/j2se/1.4.1/docs/api/java/util/Locale.html</a></td>
   </tr>
   <tr>
     <td>[<a name="NamingGuideline">NamingGuideline</a>]</td>
     <td>OpenI18N Locale Naming Guideline<br>
-      <a href="http://www.li18nux.org/docs/text/LocNameGuide-V10.txt">http://www.li18nux.org/docs/text/LocNameGuide-V10.txt</a> 
-    </td>
+      <a href="http://www.li18nux.org/docs/text/LocNameGuide-V10.txt">http://www.li18nux.org/docs/text/LocNameGuide-V10.txt</a></td>
   </tr>
   <tr>
     <td>[<a name="Scripts">Scripts</a>]</td>
@@ -2806,27 +2793,24 @@ and any resulting characters are _not_ tagged as literals.)</p>
   <tr>
     <td>[<a name="BIDI">BIDI</a>]</td>
     <td>UAX #9:&nbsp;The Bidirectional Algorithm<br>
-      <a href="http://www.unicode.org/unicode/reports/tr9/">http://www.unicode.org/unicode/reports/tr9/</a> 
-    </td>
+      <a href="http://www.unicode.org/unicode/reports/tr9/">http://www.unicode.org/unicode/reports/tr9/</a></td>
   </tr>
   <tr>
     <td>[<a name="CharMapML">CharMapML</a>]</td>
-    <td>UTR #22: Character Mapping Tables <a href="http://www.unicode.org/unicode/reports/tr22/"><br>
-      http://www.unicode.org/unicode/reports/tr22/</a> </td>
+    <td>UTR #22: Character Mapping Tables<a href="http://www.unicode.org/unicode/reports/tr22/"><br>
+      http://www.unicode.org/unicode/reports/tr22/</a></td>
   </tr>
   <tr>
     <td>[<a name="LocaleExplorer">LocaleExplorer</a>]</td>
     <td>ICU Locale Explorer<br>
-      <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">http://oss.software.ibm.com/cgi-bin/icu/lx</a> 
-    </td>
+      <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">http://oss.software.ibm.com/cgi-bin/icu/lx</a></td>
   </tr>
   <tr>
     <td>[<a name="UTCInfo">UTCInfo</a>]</td>
     <td>NIST Time and Frequency Division Home Page<br>
       <a href="http://www.boulder.nist.gov/timefreq/">http://www.boulder.nist.gov/timefreq/<br>
       </a>U.S. Naval Observatory: What is Universal Time?<br>
-      <a href="http://aa.usno.navy.mil/AA/faq/docs/UT.html">http://aa.usno.navy.mil/AA/faq/docs/UT.html</a> 
-    </td>
+      <a href="http://aa.usno.navy.mil/AA/faq/docs/UT.html">http://aa.usno.navy.mil/AA/faq/docs/UT.html</a></td>
   </tr>
   <tr>
     <td>[<a name="CurrencyInfo">CurrencyInfo</a>]</td>
@@ -2837,26 +2821,24 @@ and any resulting characters are _not_ tagged as literals.)</p>
   </tr>
   <tr>
     <td>[<a name="ICUCollation">ICUCollation</a>]</td>
-    <td><span>ICU rule syntax: <br>
-      <a href="http://oss.software.ibm.com/icu/userguide/Collate_Customization.html">http://oss.software.ibm.com/icu/userguide/Collate_Customization.html</a> 
-      </span></td>
+    <td><span>ICU rule syntax:<br>
+      <a href="http://oss.software.ibm.com/icu/userguide/Collate_Customization.html">http://oss.software.ibm.com/icu/userguide/Collate_Customization.html</a></span></td>
   </tr>
   <tr>
     <td>[<a name="UCAChart">UCAChart</a>]</td>
-    <td>Collation Chart <a href="http://www.unicode.org/charts/collation/"><br>
-      http://www.unicode.org/charts/collation/</a> </td>
+    <td>Collation Chart<a href="http://www.unicode.org/charts/collation/"><br>
+      http://www.unicode.org/charts/collation/</a></td>
   </tr>
   <tr>
     <td>[<a name="RBNF">RBNF</a>]</td>
     <td>Rule-Based Number Format<br>
-      <a href="http://oss.software.ibm.com/icu/apiref/classRuleBasedNumberFormat.html#_details">http://oss.software.ibm.com/icu/apiref/classRuleBasedNumberFormat.html#_details</a> 
-    </td>
+      <a href="http://oss.software.ibm.com/icu/apiref/classRuleBasedNumberFormat.html#_details">http://oss.software.ibm.com/icu/apiref/classRuleBasedNumberFormat.html#_details</a></td>
   </tr>
   <tr>
     <td>[<a name="RBBI">RBBI</a>]</td>
     <td>Rule-Based Break Iterator<br>
       <a href="http://oss.software.ibm.com/icu/docs/papers/RBBI-rule-syntax.html">http://oss.software.ibm.com/icu/docs/papers/RBBI-rule-syntax.html<br>
-      </a>(The format will be moved into the ICU User Guide soon.) </td>
+      </a>(The format will be moved into the ICU User Guide soon.)</td>
   </tr>
   <tr>
     <td>[<a name="ICUTransforms">ICUTransforms</a>]<a href="http://oss.software.ibm.com/icu/userguide/Transliteration.html"></a></td>
@@ -2877,11 +2859,10 @@ and any resulting characters are _not_ tagged as literals.)</p>
     <td>ICU UnicodeSet<br>
       <a href="http://oss.software.ibm.com/icu/userguide/unicodeSet.html">http://oss.software.ibm.com/icu/userguide/unicodeSet.html<br>
       </a>API:<br>
-      <a href="http://oss.software.ibm.com/icu4j/doc/com/ibm/icu/text/UnicodeSet.html">http://oss.software.ibm.com/icu4j/doc/com/ibm/icu/text/UnicodeSet.html</a> 
-    </td>
+      <a href="http://oss.software.ibm.com/icu4j/doc/com/ibm/icu/text/UnicodeSet.html">http://oss.software.ibm.com/icu4j/doc/com/ibm/icu/text/UnicodeSet.html</a></td>
   </tr>
 </table>
-<p></p>
+<p>&nbsp;</p>
 <hr width="33%">
 <h2><a name="Copyright_and_Permission_Notice">Copyright and Permission Notice</a></h2>
 <blockquote>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="ga"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="ga"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -378,7 +378,6 @@
 	<dates>
 		<localizedPatternChars>RbMLkUnsSElFtTauKcBeyrAC</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -447,8 +446,8 @@
 		<timeZoneNames>
 			<zone type="Europe/Dublin">
 				<long>
-				<standard>Meán-Am Greenwich</standard>
-				<daylight>Am Samhraidh na hÉireann</daylight>
+					<standard>Meán-Am Greenwich</standard>
+					<daylight>Am Samhraidh na hÉireann</daylight>
 				</long>
 				<short>
 					<standard>MAG</standard>
@@ -458,8 +457,8 @@
 			</zone>
 			<zone type="Europe/London">
 				<long>
-				<standard>Meán-Am Greenwich</standard>
-				<daylight>Am Samhraidh na Breataine</daylight>
+					<standard>Meán-Am Greenwich</standard>
+					<daylight>Am Samhraidh na Breataine</daylight>
 				</long>
 				<short>
 					<standard>MAG</standard>
@@ -469,8 +468,8 @@
 			</zone>
 			<zone type="Europe/Belfast">
 				<long>
-				<standard>Meán-Am Greenwich</standard>
-				<daylight>Am Samhraidh na Breataine</daylight>
+					<standard>Meán-Am Greenwich</standard>
+					<daylight>Am Samhraidh na Breataine</daylight>
 				</long>
 				<short>
 					<standard>MAG</standard>
@@ -480,8 +479,8 @@
 			</zone>
 			<zone type="GMT">
 				<long>
-				<standard>Meán-Am Greenwich</standard>
-				<daylight>Meán-Am Greenwich</daylight>
+					<standard>Meán-Am Greenwich</standard>
+					<daylight>Meán-Am Greenwich</daylight>
 				</long>
 				<short>
 					<standard>MAG</standard>
@@ -935,7 +934,6 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Markka Fionnlannach</displayName>
@@ -975,7 +973,6 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>Punt Steirling</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Kupon Larit na Grúise</displayName>
@@ -1143,7 +1140,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>Rúipí India</displayName>
-				<symbol>=0#Rs.|1#Re.|1&lt;Rs.</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Dínear Irácach</displayName>
@@ -1159,7 +1155,6 @@
 			</currency>
 			<currency type="ITL">
 				<displayName>Lira Iodálach</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency type="JEP">
 				<displayName>Punt Steirling Gheirsí</displayName>
@@ -1179,7 +1174,6 @@
 			</currency>
 			<currency type="JPY">
 				<displayName>Yen Seapánach</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Scilling Céiniach</displayName>
@@ -1759,7 +1753,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>Dollar S.A.M.</displayName>
-				<symbol>$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>Dollar S.A.M. (an chéad lá eile)</displayName>
@@ -2000,7 +1993,9 @@
 		</currencies>
 	</numbers>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ga.txt?only_with_tag=final-update-LDML
 
 A lot of data contributed from Séamus Ó Ciardhuáin, seoc [at] cnds.ucd.ie
@@ -2082,5 +2077,6 @@ The range qaa-qtz is reserved for local use.
         uz  { "Úisbéicis" } //??
         zu  { "Súlúis" } //??
 many others could go in here if desired
+
 
 -->

@@ -1,70 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="es"></language> 
-		<territory type="DO"></territory> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="es"/>
+		<territory type="DO"/>
 	</identity>
-		<dates>
-			<calendars>
-				
-				<calendar type="gregorian">
-					<dateFormats>
-						<default type="medium"></default>
-						<dateFormatLength type="full">
-							<dateFormat>
-								<pattern>EEEE d' de 'MMMM' de 'yyyy</pattern>
-							</dateFormat>
-						</dateFormatLength>
-						<dateFormatLength type="long">
-							<dateFormat>
-								<pattern>d' de 'MMMM' de 'yyyy</pattern>
-							</dateFormat>
-						</dateFormatLength>
-						<dateFormatLength type="medium">
-							<dateFormat>
-								<pattern>dd/MM/yyyy</pattern>
-							</dateFormat>
-						</dateFormatLength>
-						<dateFormatLength type="short">
-							<dateFormat>
-								<pattern>dd/MM/yy</pattern>
-							</dateFormat>
-						</dateFormatLength>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"></default>
-						<timeFormatLength type="full">
-							<timeFormat>
-								<pattern>hh:mm:ss a z</pattern>
-							</timeFormat>
-						</timeFormatLength>
-						<timeFormatLength type="long">
-							<timeFormat>
-								<pattern>hh:mm:ss a z</pattern>
-							</timeFormat>
-						</timeFormatLength>
-						<timeFormatLength type="medium">
-							<timeFormat>
-								<pattern>hh:mm:ss a</pattern>
-							</timeFormat>
-						</timeFormatLength>
-						<timeFormatLength type="short">
-							<timeFormat>
-								<pattern>hh:mm a</pattern>
-							</timeFormat>
-						</timeFormatLength>
-					</timeFormats>
-					<dateTimeFormats>
-						<dateTimeFormatLength>
-							<dateTimeFormat>
-								<pattern>{1} {0}</pattern>
-							</dateTimeFormat>
-						</dateTimeFormatLength>
-					</dateTimeFormats>
-				</calendar>
-			</calendars>
-		</dates>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<dateFormats>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>dd/MM/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>hh:mm:ss a z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>hh:mm:ss a z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>hh:mm:ss a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>hh:mm a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+			</calendar>
+		</calendars>
+	</dates>
 </ldml>
+

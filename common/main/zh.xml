@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="zh"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="zh"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -796,7 +796,6 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -875,12 +874,9 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-        <week draft="true">
-          <minDays count="1"></minDays>
-          <firstDay day="sun"></firstDay>
-          <weekendStart day="sat"></weekendStart>
-          <weekendEnd day="sun"></weekendEnd>
-        </week>
+				<week draft="true">
+					<weekendEnd day="sun" time="24:00"/>
+				</week>
 				<am>上午</am>
 				<pm>下午</pm>
 				<eras>
@@ -894,8 +890,8 @@
 		<timeZoneNames>
 			<zone type="PST">
 				<long>
-				<standard>太平洋标准时间</standard>
-				<daylight>太平洋夏令时间</daylight>
+					<standard>太平洋标准时间</standard>
+					<daylight>太平洋夏令时间</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -905,8 +901,8 @@
 			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
-				<standard>太平洋标准时间</standard>
-				<daylight>太平洋夏令时间</daylight>
+					<standard>太平洋标准时间</standard>
+					<daylight>太平洋夏令时间</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -916,8 +912,8 @@
 			</zone>
 			<zone type="MST">
 				<long>
-				<standard>山区标准时间</standard>
-				<daylight>山区夏令时间</daylight>
+					<standard>山区标准时间</standard>
+					<daylight>山区夏令时间</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -927,8 +923,8 @@
 			</zone>
 			<zone type="America/Denver">
 				<long>
-				<standard>山区标准时间</standard>
-				<daylight>山区夏令时间</daylight>
+					<standard>山区标准时间</standard>
+					<daylight>山区夏令时间</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -938,8 +934,8 @@
 			</zone>
 			<zone type="PNT">
 				<long>
-				<standard>山区标准时间</standard>
-				<daylight>山区标准时间</daylight>
+					<standard>山区标准时间</standard>
+					<daylight>山区标准时间</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -949,8 +945,8 @@
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
-				<standard>山区标准时间</standard>
-				<daylight>山区标准时间</daylight>
+					<standard>山区标准时间</standard>
+					<daylight>山区标准时间</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -960,8 +956,8 @@
 			</zone>
 			<zone type="CST">
 				<long>
-				<standard>中央标准时间</standard>
-				<daylight>中央夏令时间</daylight>
+					<standard>中央标准时间</standard>
+					<daylight>中央夏令时间</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -971,8 +967,8 @@
 			</zone>
 			<zone type="America/Chicago">
 				<long>
-				<standard>中央标准时间</standard>
-				<daylight>中央夏令时间</daylight>
+					<standard>中央标准时间</standard>
+					<daylight>中央夏令时间</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -982,8 +978,8 @@
 			</zone>
 			<zone type="EST">
 				<long>
-				<standard>东部标准时间</standard>
-				<daylight>东部夏令时间</daylight>
+					<standard>东部标准时间</standard>
+					<daylight>东部夏令时间</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -993,8 +989,8 @@
 			</zone>
 			<zone type="America/New_York">
 				<long>
-				<standard>东部标准时间</standard>
-				<daylight>东部夏令时间</daylight>
+					<standard>东部标准时间</standard>
+					<daylight>东部夏令时间</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1004,8 +1000,8 @@
 			</zone>
 			<zone type="IET">
 				<long>
-				<standard>东部标准时间</standard>
-				<daylight>东部标准时间</daylight>
+					<standard>东部标准时间</standard>
+					<daylight>东部标准时间</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1015,8 +1011,8 @@
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
-				<standard>东部标准时间</standard>
-				<daylight>东部标准时间</daylight>
+					<standard>东部标准时间</standard>
+					<daylight>东部标准时间</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1026,8 +1022,8 @@
 			</zone>
 			<zone type="HST">
 				<long>
-				<standard>夏威夷标准时间</standard>
-				<daylight>夏威夷标准时间</daylight>
+					<standard>夏威夷标准时间</standard>
+					<daylight>夏威夷标准时间</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -1037,8 +1033,8 @@
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
-				<standard>夏威夷标准时间</standard>
-				<daylight>夏威夷标准时间</daylight>
+					<standard>夏威夷标准时间</standard>
+					<daylight>夏威夷标准时间</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -1048,8 +1044,8 @@
 			</zone>
 			<zone type="AST">
 				<long>
-				<standard>阿拉斯加标准时间</standard>
-				<daylight>阿拉斯加夏令时间</daylight>
+					<standard>阿拉斯加标准时间</standard>
+					<daylight>阿拉斯加夏令时间</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1059,8 +1055,8 @@
 			</zone>
 			<zone type="America/Anchorage">
 				<long>
-				<standard>阿拉斯加标准时间</standard>
-				<daylight>阿拉斯加夏令时间</daylight>
+					<standard>阿拉斯加标准时间</standard>
+					<daylight>阿拉斯加夏令时间</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1070,8 +1066,8 @@
 			</zone>
 			<zone type="America/Halifax">
 				<long>
-				<standard>大西洋标准时间</standard>
-				<daylight>大西洋夏令时间</daylight>
+					<standard>大西洋标准时间</standard>
+					<daylight>大西洋夏令时间</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1081,8 +1077,8 @@
 			</zone>
 			<zone type="CNT">
 				<long>
-				<standard>纽芬兰标准时间</standard>
-				<daylight>纽芬兰夏令时间</daylight>
+					<standard>纽芬兰标准时间</standard>
+					<daylight>纽芬兰夏令时间</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -1092,8 +1088,8 @@
 			</zone>
 			<zone type="America/St_Johns">
 				<long>
-				<standard>纽芬兰标准时间</standard>
-				<daylight>纽芬兰夏令时间</daylight>
+					<standard>纽芬兰标准时间</standard>
+					<daylight>纽芬兰夏令时间</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -1103,8 +1099,8 @@
 			</zone>
 			<zone type="ECT">
 				<long>
-				<standard>中欧标准时间</standard>
-				<daylight>中欧夏令时间</daylight>
+					<standard>中欧标准时间</standard>
+					<daylight>中欧夏令时间</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -1114,8 +1110,8 @@
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
-				<standard>中欧标准时间</standard>
-				<daylight>中欧夏令时间</daylight>
+					<standard>中欧标准时间</standard>
+					<daylight>中欧夏令时间</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -1125,8 +1121,8 @@
 			</zone>
 			<zone type="GMT">
 				<long>
-				<standard>格林威治标准时间</standard>
-				<daylight>格林威治标准时间</daylight>
+					<standard>格林威治标准时间</standard>
+					<daylight>格林威治标准时间</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -1136,8 +1132,8 @@
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
-				<standard>格林威治标准时间</standard>
-				<daylight>格林威治标准时间</daylight>
+					<standard>格林威治标准时间</standard>
+					<daylight>格林威治标准时间</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -1147,8 +1143,8 @@
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
-				<standard>以色列标准时间</standard>
-				<daylight>以色列夏令时间</daylight>
+					<standard>以色列标准时间</standard>
+					<daylight>以色列夏令时间</daylight>
 				</long>
 				<short>
 					<standard>IST</standard>
@@ -1158,8 +1154,8 @@
 			</zone>
 			<zone type="JST">
 				<long>
-				<standard>日本标准时间</standard>
-				<daylight>日本标准时间</daylight>
+					<standard>日本标准时间</standard>
+					<daylight>日本标准时间</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -1169,8 +1165,8 @@
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
-				<standard>日本标准时间</standard>
-				<daylight>日本标准时间</daylight>
+					<standard>日本标准时间</standard>
+					<daylight>日本标准时间</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -1180,8 +1176,8 @@
 			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
-				<standard>东欧标准时间</standard>
-				<daylight>东欧夏令时间</daylight>
+					<standard>东欧标准时间</standard>
+					<daylight>东欧夏令时间</daylight>
 				</long>
 				<short>
 					<standard>EET</standard>
@@ -1191,8 +1187,8 @@
 			</zone>
 			<zone type="CTT">
 				<long>
-				<standard>中国标准时间</standard>
-				<daylight>中国标准时间</daylight>
+					<standard>中国标准时间</standard>
+					<daylight>中国标准时间</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -1202,8 +1198,8 @@
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
-				<standard>中国标准时间</standard>
-				<daylight>中国标准时间</daylight>
+					<standard>中国标准时间</standard>
+					<daylight>中国标准时间</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -1649,7 +1645,6 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>欧元</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>芬兰玛卡</displayName>
@@ -1685,7 +1680,6 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>英磅</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>乔治亚库蓬拉瑞特</displayName>
@@ -1853,7 +1847,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>印度卢比</displayName>
-				<symbol>=0#Rs.|1#Re.|1&lt;Rs.</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>伊拉克第纳尔元</displayName>
@@ -2677,17 +2670,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-  <posix draft="true">
-    <messages>
-      <yesstr>確定</yesstr>
-      <nostr>否定</nostr>
-      <yesexpr>是</yesexpr>
-      <noexpr>否</noexpr>
-    </messages>
-  </posix>
+	<posix draft="true">
+		<messages>
+			<yesstr>確定</yesstr>
+			<nostr>否定</nostr>
+			<yesexpr>是</yesexpr>
+			<noexpr>否</noexpr>
+		</messages>
+	</posix>
 </ldml>
 
-<!-- Old Comments. See root.xml for more info.
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/zh.txt?only_with_tag=final-update-LDML
 
         CN { "\u4E2D\u56FD" }  // From the JDK and translation center
@@ -2703,5 +2697,6 @@ Qaai { "\u7EE7\u627F\u8BED" } // PUA
 Zyyy { "\u672A\u786E\u5B9A\u8BED\u7CFB" } // This may need to become "undetermined script"
 EURO    { "\u6b27\u5143" }
 PREEURO { "\u65e7\u5e01" }
+
 
 -->

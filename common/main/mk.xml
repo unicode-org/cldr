@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="mk"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="mk"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -249,7 +249,7 @@
 			<territory draft="true" type="YU">Југославија</territory>
 			<territory draft="true" type="ZA">Јужна Африка</territory>
 			<territory draft="true" type="ZM">Замбија</territory>
-			<territory draft="true" type="ZW">Зимбабве</territory>		
+			<territory draft="true" type="ZW">Зимбабве</territory>
 		</territories>
 		<keys>
 			<key draft="true" type="collation">Сортирање</key>
@@ -277,7 +277,6 @@
 	<dates>
 		<localizedPatternChars>GuMtkHmsSEDFwWahKzUeygAZ</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -357,8 +356,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="mon"></firstDay>
+					<firstDay day="mon"/>
 				</week>
 				<eras>
 					<eraAbbr>
@@ -367,7 +365,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, dd MMMM yyyy</pattern>
@@ -389,36 +386,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<default type="medium"></default>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -426,1237 +393,987 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency draft="true" type="ADD">
 				<displayName>Андорски Динер</displayName>
 				<symbol>ADD</symbol>
 			</currency>
-
 			<currency draft="true" type="ADP">
 				<displayName>Андорска Пезета</displayName>
 				<symbol>ADP</symbol>
 			</currency>
-
 			<currency draft="true" type="AED">
 				<displayName>Дирхам</displayName>
 				<symbol>AED</symbol>
 			</currency>
-
 			<currency draft="true" type="AFA">
 				<displayName>Авгани (1927-2002)</displayName>
 				<symbol>AFA</symbol>
 			</currency>
-
 			<currency draft="true" type="AFN">
 				<displayName>Авгани</displayName>
 				<symbol>Af</symbol>
 			</currency>
-
 			<currency draft="true" type="ALK">
 				<displayName>Албански лек (1946-1961)</displayName>
 				<symbol>ALK</symbol>
 			</currency>
-
 			<currency draft="true" type="ALL">
 				<displayName>Албански Лек</displayName>
 				<symbol>lek</symbol>
 			</currency>
-
 			<currency draft="true" type="ALV">
 				<displayName>Албанска Лек Валута</displayName>
 				<symbol>ALV</symbol>
 			</currency>
-
 			<currency draft="true" type="AMD">
 				<displayName>Ермениски Драм</displayName>
 				<symbol>dram</symbol>
 			</currency>
-
 			<currency draft="true" type="AOA">
 				<displayName>Анголска Кванза</displayName>
 				<symbol>AOA</symbol>
 			</currency>
-
 			<currency draft="true" type="AOK">
 				<displayName>Анголска Кванза (1977-1990)</displayName>
 				<symbol>AOK</symbol>
 			</currency>
-
 			<currency draft="true" type="AON">
 				<displayName>Анголска нова Кванза (1990-2000)</displayName>
 				<symbol>AON</symbol>
 			</currency>
-
 			<currency draft="true" type="AOS">
 				<displayName>Анголско ескудо</displayName>
 				<symbol>AOS</symbol>
 			</currency>
-
 			<currency draft="true" type="ARP">
 				<displayName>Аргентински Пезос (1983-1985)</displayName>
 				<symbol>ARP</symbol>
 			</currency>
-
 			<currency draft="true" type="ARS">
 				<displayName>Аргентински Пезос</displayName>
 				<symbol>Arg$</symbol>
 			</currency>
-
 			<currency draft="true" type="ATS">
 				<displayName>Австралиски Шилинг</displayName>
 				<symbol>ATS</symbol>
 			</currency>
-
 			<currency draft="true" type="AUD">
 				<displayName>Австралиски Долар</displayName>
 				<symbol>$A</symbol>
 			</currency>
-
 			<currency draft="true" type="AUP">
 				<displayName>Австралиска Фунта</displayName>
 				<symbol>AUP</symbol>
 			</currency>
-
 			<currency draft="true" type="BAD">
 				<displayName>Босанско-Херцеговски Динар</displayName>
 				<symbol>BAD</symbol>
 			</currency>
-
 			<currency draft="true" type="BAM">
 				<displayName>Босанско-Херцеговски Динар конвертабилна марка</displayName>
 				<symbol>KM</symbol>
 			</currency>
-
 			<currency draft="true" type="BAN">
 				<displayName>Босанско-Херцеговски нов Динар</displayName>
 				<symbol>BAN</symbol>
 			</currency>
-
 			<currency draft="true" type="BBD">
 				<displayName>Барбадоски Долар</displayName>
 				<symbol>BDS$</symbol>
 			</currency>
-
 			<currency draft="true" type="BEC">
 				<displayName>Белгиски Франк (конвертибилен)</displayName>
 				<symbol>BEC</symbol>
 			</currency>
-
 			<currency draft="true" type="BEF">
 				<displayName>Белгиски Франк</displayName>
 				<symbol>BF</symbol>
 			</currency>
-
 			<currency draft="true" type="BEL">
 				<displayName>Белгиски Франк (финансиски)</displayName>
 				<symbol>BEL</symbol>
 			</currency>
-
 			<currency draft="true" type="BGL">
 				<displayName>Бугарски цврст лев</displayName>
 				<symbol>lev</symbol>
 			</currency>
-
 			<currency draft="true" type="BGM">
 				<displayName>Бугарски социјалистички лев</displayName>
 				<symbol>BGM</symbol>
 			</currency>
-
 			<currency draft="true" type="BGN">
 				<displayName>Бугарски нов лев</displayName>
 				<symbol>BGN</symbol>
 			</currency>
-
 			<currency draft="true" type="BGO">
 				<displayName>Бугарски лев(1879-1952)</displayName>
 				<symbol>BGO</symbol>
 			</currency>
-
 			<currency draft="true" type="BHD">
 				<displayName>Бахраински Динар</displayName>
 				<symbol>BD</symbol>
 			</currency>
-
 			<currency draft="true" type="BIF">
 				<displayName>Буриндиски Франк</displayName>
 				<symbol>Fbu</symbol>
 			</currency>
-
 			<currency draft="true" type="BMD">
 				<displayName>Бермудски Долар</displayName>
 				<symbol>Ber$</symbol>
 			</currency>
-
 			<currency draft="true" type="BMP">
 				<displayName>Бермудски фунта</displayName>
 				<symbol>BMP</symbol>
 			</currency>
-
 			<currency draft="true" type="BND">
 				<displayName>Брунејски долар</displayName>
 				<symbol>BND</symbol>
 			</currency>
-
 			<currency draft="true" type="BSD">
 				<displayName>Бахамски Долар</displayName>
 				<symbol>BSD</symbol>
 			</currency>
-
 			<currency draft="true" type="BSP">
 				<displayName>Бахамска Фунта</displayName>
 				<symbol>BSP</symbol>
 			</currency>
-
 			<currency draft="true" type="BTR">
 				<displayName>Бутански Рупии</displayName>
 				<symbol>BTR</symbol>
 			</currency>
-
 			<currency draft="true" type="BUR">
 				<displayName>Бурмезиски рупии</displayName>
 				<symbol>BUR</symbol>
 			</currency>
-
 			<currency draft="true" type="BWP">
 				<displayName>Боцвантска Пула</displayName>
 				<symbol>BWP</symbol>
 			</currency>
-
 			<currency draft="true" type="BYB">
 				<displayName>Белоруска нова рубља (1994-1999)</displayName>
 				<symbol>BYB</symbol>
 			</currency>
-
 			<currency draft="true" type="BYL">
 				<displayName>Белоруска Рубља (1992-1994)</displayName>
 				<symbol>BYL</symbol>
 			</currency>
-
 			<currency draft="true" type="BYR">
 				<displayName>Белоруска Рубља</displayName>
 				<symbol>Rbl</symbol>
 			</currency>
-
 			<currency draft="true" type="BZD">
 				<displayName>Белизиски Долар</displayName>
 				<symbol>BZ$</symbol>
 			</currency>
-
 			<currency draft="true" type="BZH">
 				<displayName>Британско Хондурски Долар</displayName>
 				<symbol>BZH</symbol>
 			</currency>
-
 			<currency draft="true" type="CAD">
 				<displayName>Канадски Долар</displayName>
 				<symbol>Can$</symbol>
 			</currency>
-
 			<currency draft="true" type="CHF">
 				<displayName>Швајцарски Франк</displayName>
 				<symbol>SwF</symbol>
 			</currency>
-
 			<currency draft="true" type="COP">
 				<displayName>Колумбиски Пезос</displayName>
 				<symbol>Col$</symbol>
 			</currency>
-
 			<currency draft="true" type="CRC">
 				<displayName>Костарикански Колон</displayName>
 				<symbol>C</symbol>
 			</currency>
-
 			<currency draft="true" type="CSC">
 				<displayName>Чехословачка корона</displayName>
 				<symbol>CSC</symbol>
 			</currency>
-
 			<currency draft="true" type="CSK">
 				<displayName>Чехословачка цврста корона</displayName>
 				<symbol>CSK</symbol>
 			</currency>
-
 			<currency draft="true" type="CUP">
 				<displayName>Кубански пезос</displayName>
 				<symbol>CUP</symbol>
 			</currency>
-
 			<currency draft="true" type="CYP">
 				<displayName>Кипарска фунта</displayName>
 				<symbol>£C</symbol>
 			</currency>
-
 			<currency draft="true" type="CZK">
 				<displayName>Чешка корона</displayName>
 				<symbol>CZK</symbol>
 			</currency>
-
 			<currency draft="true" type="DEM">
 				<displayName>Германска Марка</displayName>
 				<symbol>DEM</symbol>
 			</currency>
-
 			<currency draft="true" type="DOP">
 				<displayName>Доминикански Пезос</displayName>
 				<symbol>RD$</symbol>
 			</currency>
-
 			<currency draft="true" type="DZD">
 				<displayName>Алгериски Динар</displayName>
 				<symbol>DA</symbol>
 			</currency>
-
 			<currency draft="true" type="DZF">
 				<displayName>Алгериски нов Франк</displayName>
 				<symbol>DZF</symbol>
 			</currency>
-
 			<currency draft="true" type="EGP">
 				<displayName>Египетска Фунта</displayName>
 				<symbol>EGP</symbol>
 			</currency>
-
 			<currency draft="true" type="ESP">
 				<displayName>Шпанска Пезета</displayName>
 				<symbol>ESP</symbol>
 			</currency>
-
 			<currency draft="true" type="ETB">
 				<displayName>Етиописки Бир</displayName>
 				<symbol>Br</symbol>
 			</currency>
-
 			<currency draft="true" type="ETD">
 				<displayName>Етиописки Долар</displayName>
 				<symbol>ETD</symbol>
 			</currency>
-
 			<currency draft="true" type="EUR">
 				<displayName>Евро</displayName>
-				<symbol>€</symbol>
 			</currency>
-
 			<currency draft="true" type="FIM">
 				<displayName>Финска марка</displayName>
 				<symbol>FIM</symbol>
 			</currency>
-
 			<currency draft="true" type="FIN">
 				<displayName>Финска Марка (1860-1962)</displayName>
 				<symbol>FIN</symbol>
 			</currency>
-
 			<currency draft="true" type="FJD">
 				<displayName>Фиџи долар</displayName>
 				<symbol>F$</symbol>
 			</currency>
-
 			<currency draft="true" type="FJP">
 				<displayName>Фиџи фунта</displayName>
 				<symbol>FJP</symbol>
 			</currency>
-
 			<currency draft="true" type="FKP">
 				<displayName>Факландска фунта</displayName>
 				<symbol>FKP</symbol>
 			</currency>
-
 			<currency draft="true" type="FRF">
 				<displayName>Француски франк</displayName>
 				<symbol>FRF</symbol>
 			</currency>
-
 			<currency draft="true" type="GAF">
 				<displayName>Габон CFA Франк</displayName>
 				<symbol>GAF</symbol>
 			</currency>
-
 			<currency draft="true" type="GBP">
 				<displayName>Британска Фунта</displayName>
-				<symbol>£</symbol>
 			</currency>
-
 			<currency draft="true" type="GEL">
 				<displayName>Грузиски лари</displayName>
 				<symbol>lari</symbol>
 			</currency>
-
 			<currency draft="true" type="GHC">
 				<displayName>Ганајски Седи</displayName>
 				<symbol>GHC</symbol>
 			</currency>
-
 			<currency draft="true" type="GHO">
 				<displayName>Ганајски стари Седи</displayName>
 				<symbol>GHO</symbol>
 			</currency>
-
 			<currency draft="true" type="GHP">
 				<displayName>Ганајски фунта</displayName>
 				<symbol>GHP</symbol>
 			</currency>
-
 			<currency draft="true" type="GIP">
 				<displayName>Гибралтарска фунта</displayName>
 				<symbol>GIP</symbol>
 			</currency>
-
 			<currency draft="true" type="GLK">
 				<displayName>Гренландск круна</displayName>
 				<symbol>GLK</symbol>
 			</currency>
-
 			<currency draft="true" type="GMD">
 				<displayName>Гамбиски Даласи</displayName>
 				<symbol>GMD</symbol>
 			</currency>
-
 			<currency draft="true" type="GMP">
 				<displayName>Гамбиска Фунта</displayName>
 				<symbol>GMP</symbol>
 			</currency>
-
 			<currency draft="true" type="GNF">
 				<displayName>Гвинејски франк</displayName>
 				<symbol>GF</symbol>
 			</currency>
-
 			<currency draft="true" type="GNI">
 				<displayName>Гвинејски франк (1960-1972)</displayName>
 				<symbol>GNI</symbol>
 			</currency>
-
 			<currency draft="true" type="GRD">
 				<displayName>Грчка драхма</displayName>
 				<symbol>GRD</symbol>
 			</currency>
-
 			<currency draft="true" type="GRN">
 				<displayName>Грчка драхма</displayName>
 				<symbol>GRN</symbol>
 			</currency>
-
 			<currency draft="true" type="GTQ">
 				<displayName>Гватемалски кветцал</displayName>
 				<symbol>Q</symbol>
 			</currency>
-
 			<currency draft="true" type="GWP">
 				<displayName>Гвинејски Бисау пезос</displayName>
 				<symbol>GWP</symbol>
 			</currency>
-
 			<currency draft="true" type="GYD">
 				<displayName>Гвијански Долар</displayName>
 				<symbol>G$</symbol>
 			</currency>
-
 			<currency draft="true" type="HKD">
 				<displayName>Хонгкошки долар</displayName>
 				<symbol>HK$</symbol>
 			</currency>
-
 			<currency draft="true" type="HNL">
 				<displayName>Хондурска лемпира</displayName>
 				<symbol>L</symbol>
 			</currency>
-
 			<currency draft="true" type="HRD">
 				<displayName>Хрватски динар</displayName>
 				<symbol>HRD</symbol>
 			</currency>
-
 			<currency draft="true" type="HRK">
 				<displayName>Хрватска Куна</displayName>
 				<symbol>HRK</symbol>
 			</currency>
-
 			<currency draft="true" type="HTG">
 				<displayName>Хаитски гурд</displayName>
 				<symbol>HTG</symbol>
 			</currency>
-
 			<currency draft="true" type="HUF">
 				<displayName>Унгарска форинта</displayName>
 				<symbol>Ft</symbol>
 			</currency>
-
 			<currency draft="true" type="IBP">
 				<displayName>Северноирска фунта</displayName>
 				<symbol>IBP</symbol>
 			</currency>
-
 			<currency draft="true" type="IEP">
 				<displayName>Ирска фунта</displayName>
 				<symbol>IR£</symbol>
 			</currency>
-
 			<currency draft="true" type="ILL">
 				<displayName>Израелски шекел</displayName>
 				<symbol>ILL</symbol>
 			</currency>
-
 			<currency draft="true" type="ILP">
 				<displayName>Изрелска фунта</displayName>
 				<symbol>ILP</symbol>
 			</currency>
-
 			<currency draft="true" type="ILS">
 				<displayName>Израелски нов шекел</displayName>
 				<symbol>ILS</symbol>
 			</currency>
-
 			<currency draft="true" type="INR">
 				<displayName>Индиска рупија</displayName>
 				<symbol>INR</symbol>
 			</currency>
-
 			<currency draft="true" type="IQD">
 				<displayName>Ирачки динар</displayName>
 				<symbol>ID</symbol>
 			</currency>
-
 			<currency draft="true" type="IRR">
 				<displayName>Ирански риал</displayName>
 				<symbol>RI</symbol>
 			</currency>
-
 			<currency draft="true" type="ISK">
 				<displayName>Исландска крона</displayName>
 				<symbol>ISK</symbol>
 			</currency>
-
 			<currency draft="true" type="ITL">
 				<displayName>Италијанкса лира</displayName>
-				<symbol>₤</symbol>
 			</currency>
-
 			<currency draft="true" type="JMD">
 				<displayName>Јамајкански долар</displayName>
 				<symbol>J$</symbol>
 			</currency>
-
 			<currency draft="true" type="JMP">
 				<displayName>Јамајканска фунта</displayName>
 				<symbol>JMP</symbol>
 			</currency>
-
 			<currency draft="true" type="JOD">
 				<displayName>Јордански динар</displayName>
 				<symbol>JD</symbol>
 			</currency>
-
 			<currency draft="true" type="JPY">
 				<displayName>Јапонски јен</displayName>
-				<symbol>¥</symbol>
 			</currency>
-
 			<currency draft="true" type="KES">
 				<displayName>Кениски шилинг</displayName>
 				<symbol>K Sh</symbol>
 			</currency>
-
 			<currency draft="true" type="KGS">
 				<displayName>Киргистански сом</displayName>
 				<symbol>som</symbol>
 			</currency>
-
 			<currency draft="true" type="KHO">
 				<displayName>Камбоџиски стар рел</displayName>
 				<symbol>KHO</symbol>
 			</currency>
-
 			<currency draft="true" type="KHR">
 				<displayName>Камбоџиски рел</displayName>
 				<symbol>CR</symbol>
 			</currency>
-
 			<currency draft="true" type="KID">
 				<displayName>Кирбатски долар</displayName>
 				<symbol>KID</symbol>
 			</currency>
-
 			<currency draft="true" type="KMF">
 				<displayName>Коморски долар</displayName>
 				<symbol>CF</symbol>
 			</currency>
-
 			<currency draft="true" type="KPW">
 				<displayName>Северно корејски вон</displayName>
 				<symbol>KPW</symbol>
 			</currency>
-
 			<currency draft="true" type="KRH">
 				<displayName>Јужно корески хван</displayName>
 				<symbol>KRH</symbol>
 			</currency>
-
 			<currency draft="true" type="KRO">
 				<displayName>Јужно корејски стар вон</displayName>
 				<symbol>KRO</symbol>
 			</currency>
-
 			<currency draft="true" type="KRW">
 				<displayName>Јужно корејски вон</displayName>
 				<symbol>KRW</symbol>
 			</currency>
-
 			<currency draft="true" type="KWD">
 				<displayName>Кувајтски динар</displayName>
 				<symbol>KD</symbol>
 			</currency>
-
 			<currency draft="true" type="KZR">
 				<displayName>Казакстанска рубља</displayName>
 				<symbol>KZR</symbol>
 			</currency>
-
 			<currency draft="true" type="KZT">
 				<displayName>Казакстантска тенга</displayName>
 				<symbol>T</symbol>
 			</currency>
-
 			<currency draft="true" type="LAK">
 				<displayName>Лаоски кип</displayName>
 				<symbol>LAK</symbol>
 			</currency>
-
 			<currency draft="true" type="LBP">
 				<displayName>Либиска фунта</displayName>
 				<symbol>LL</symbol>
 			</currency>
-
 			<currency draft="true" type="LIF">
 				<displayName>Лихнтенштајнски франк</displayName>
 				<symbol>LIF</symbol>
 			</currency>
-
 			<currency draft="true" type="LKR">
 				<displayName>Шриланканска рупија</displayName>
 				<symbol>SL Re</symbol>
 			</currency>
-
 			<currency draft="true" type="LNR">
 				<displayName>Цејлонска рупија</displayName>
 				<symbol>LNR</symbol>
 			</currency>
-
 			<currency draft="true" type="LRD">
 				<displayName>Либериски долар</displayName>
 				<symbol>LRD</symbol>
 			</currency>
-
 			<currency draft="true" type="LSL">
 				<displayName>Лесотско лоти</displayName>
 				<symbol>M</symbol>
 			</currency>
-
 			<currency draft="true" type="LTL">
 				<displayName>Литваниска лита</displayName>
 				<symbol>LTL</symbol>
 			</currency>
-
 			<currency draft="true" type="LTT">
 				<displayName>Литваниски литаз</displayName>
 				<symbol>LTT</symbol>
 			</currency>
-
 			<currency draft="true" type="LUF">
 				<displayName>Луксембуршки франк</displayName>
 				<symbol>LUF</symbol>
 			</currency>
-
 			<currency draft="true" type="LVL">
 				<displayName>Латвијски лат</displayName>
 				<symbol>LVL</symbol>
 			</currency>
-
 			<currency draft="true" type="LVR">
 				<displayName>Латвијска рубља</displayName>
 				<symbol>LVR</symbol>
 			</currency>
-
 			<currency draft="true" type="LYD">
 				<displayName>Либијски динар</displayName>
 				<symbol>LD</symbol>
 			</currency>
-
 			<currency draft="true" type="LYP">
 				<displayName>Либијска фунта</displayName>
 				<symbol>LYP</symbol>
 			</currency>
-
 			<currency draft="true" type="MAD">
 				<displayName>Марокански Дирхам</displayName>
 				<symbol>MAD</symbol>
 			</currency>
-
 			<currency draft="true" type="MAF">
 				<displayName>Марконски франк</displayName>
 				<symbol>MAF</symbol>
 			</currency>
-
 			<currency draft="true" type="MDL">
 				<displayName>Молдавски леу</displayName>
 				<symbol>MDL</symbol>
 			</currency>
-
 			<currency type="MKD">
 				<displayName>MKD</displayName>
 				<symbol>Den</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="MKD">
+			<currency draft="true" type="MKD" alt="proposed">
 				<displayName>Македонски денар</displayName>
 				<symbol>MDen</symbol>
 			</currency>
-
 			<currency draft="true" type="MKN">
 				<displayName>Македонски денар (1992-1993)</displayName>
 				<symbol>MKN</symbol>
 			</currency>
-
 			<currency draft="true" type="MLF">
 				<displayName>Малски франк</displayName>
 				<symbol>MLF</symbol>
 			</currency>
-
 			<currency draft="true" type="MNT">
 				<displayName>Монголиски тугрик</displayName>
 				<symbol>Tug</symbol>
 			</currency>
-
 			<currency draft="true" type="MOP">
 				<displayName>Макао патака</displayName>
 				<symbol>MOP</symbol>
 			</currency>
-
 			<currency draft="true" type="MTL">
 				<displayName>Малтиска лира</displayName>
 				<symbol>Lm</symbol>
 			</currency>
-
 			<currency draft="true" type="MTP">
 				<displayName>Малтиска финта</displayName>
 				<symbol>MTP</symbol>
 			</currency>
-
 			<currency draft="true" type="MWP">
 				<displayName>Малависка фунта</displayName>
 				<symbol>MWP</symbol>
 			</currency>
-
 			<currency draft="true" type="MXN">
 				<displayName>Мексикански пезос</displayName>
 				<symbol>MEX$</symbol>
 			</currency>
-
 			<currency draft="true" type="MXP">
 				<displayName>Мексикански сребрен пезос (1861-1992)</displayName>
 				<symbol>MXP</symbol>
 			</currency>
-
 			<currency draft="true" type="MYR">
 				<displayName>Малазиски рингит</displayName>
 				<symbol>RM</symbol>
 			</currency>
-
 			<currency draft="true" type="MZE">
 				<displayName>Мозамбиско ескудо</displayName>
 				<symbol>MZE</symbol>
 			</currency>
-
 			<currency draft="true" type="MZM">
 				<displayName>Мозамбиски метикал</displayName>
 				<symbol>Mt</symbol>
 			</currency>
-
 			<currency draft="true" type="NAD">
 				<displayName>Намибиски долар</displayName>
 				<symbol>N$</symbol>
 			</currency>
-
 			<currency draft="true" type="NGN">
 				<displayName>Нигериска наира</displayName>
 				<symbol>NGN</symbol>
 			</currency>
-
 			<currency draft="true" type="NGP">
 				<displayName>Нигериска фунта</displayName>
 				<symbol>NGP</symbol>
 			</currency>
-
 			<currency draft="true" type="NIC">
 				<displayName>Никарагванска кордоба</displayName>
 				<symbol>NIC</symbol>
 			</currency>
-
 			<currency draft="true" type="NIG">
 				<displayName>Никарагванска златна кордоба</displayName>
 				<symbol>NIG</symbol>
 			</currency>
-
 			<currency draft="true" type="NLG">
 				<displayName>Холандски гилдер</displayName>
 				<symbol>NLG</symbol>
 			</currency>
-
 			<currency draft="true" type="NOK">
 				<displayName>Норвешка круна</displayName>
 				<symbol>NKr</symbol>
 			</currency>
-
 			<currency draft="true" type="NPR">
 				<displayName>Непалска рупија</displayName>
 				<symbol>Nrs</symbol>
 			</currency>
-
 			<currency draft="true" type="NZD">
 				<displayName>Новозелански долар</displayName>
 				<symbol>$NZ</symbol>
 			</currency>
-
 			<currency draft="true" type="NZP">
 				<displayName>Новозеландка фунта</displayName>
 				<symbol>NZP</symbol>
 			</currency>
-
 			<currency draft="true" type="OMR">
 				<displayName>Омански Риал</displayName>
 				<symbol>RO</symbol>
 			</currency>
-
 			<currency draft="true" type="PAB">
 				<displayName>Панамска балбоа</displayName>
 				<symbol>PAB</symbol>
 			</currency>
-
 			<currency draft="true" type="PEN">
 				<displayName>Перуански нов сол</displayName>
 				<symbol>PEN</symbol>
 			</currency>
-
 			<currency draft="true" type="PES">
 				<displayName>Перуански сол</displayName>
 				<symbol>PES</symbol>
 			</currency>
-
 			<currency draft="true" type="PGK">
 				<displayName>Папуа новогвинејскиа кина</displayName>
 				<symbol>PGK</symbol>
 			</currency>
-
 			<currency draft="true" type="PHP">
 				<displayName>Филипински пезос</displayName>
 				<symbol>PHP</symbol>
 			</currency>
-
 			<currency draft="true" type="PKR">
 				<displayName>Пакистанска рупија</displayName>
 				<symbol>Pra</symbol>
 			</currency>
-
 			<currency draft="true" type="PLN">
 				<displayName>Полска злота</displayName>
 				<symbol>Zl</symbol>
 			</currency>
-
 			<currency draft="true" type="PLZ">
 				<displayName>Полска злота (1950-1995)</displayName>
 				<symbol>PLZ</symbol>
 			</currency>
-
 			<currency draft="true" type="PSP">
 				<displayName>Палестинска фунта</displayName>
 				<symbol>PSP</symbol>
 			</currency>
-
 			<currency draft="true" type="PTC">
 				<displayName>Португалско конто</displayName>
 				<symbol>PTC</symbol>
 			</currency>
-
 			<currency draft="true" type="PTE">
 				<displayName>Португалско ескудо</displayName>
 				<symbol>PTE</symbol>
 			</currency>
-
 			<currency draft="true" type="PYG">
 				<displayName>Парагвајска гуарана</displayName>
 				<symbol>PYG</symbol>
 			</currency>
-
 			<currency draft="true" type="QAR">
 				<displayName>Кватарски риал</displayName>
 				<symbol>QR</symbol>
 			</currency>
-
 			<currency draft="true" type="ROL">
 				<displayName>Романска леа</displayName>
 				<symbol>leu</symbol>
 			</currency>
-
 			<currency draft="true" type="RON">
 				<displayName>Романска нова леа</displayName>
 				<symbol>RON</symbol>
 			</currency>
-
 			<currency draft="true" type="RUB">
 				<displayName>Руска рубља</displayName>
 				<symbol>RUB</symbol>
 			</currency>
-
 			<currency draft="true" type="RUR">
 				<displayName>Руска рубља (1991-1998)</displayName>
 				<symbol>RUR</symbol>
 			</currency>
-
 			<currency draft="true" type="RWF">
 				<displayName>Руандски франк</displayName>
 				<symbol>RWF</symbol>
 			</currency>
-
 			<currency draft="true" type="SAR">
 				<displayName>Саудиски риал</displayName>
 				<symbol>SRl</symbol>
 			</currency>
-
 			<currency draft="true" type="SBD">
 				<displayName>Соломонски долар</displayName>
 				<symbol>SI$</symbol>
 			</currency>
-
 			<currency draft="true" type="SCR">
 				<displayName>Сејшелска рупија</displayName>
 				<symbol>SR</symbol>
 			</currency>
-
 			<currency draft="true" type="SDD">
 				<displayName>Судански динар</displayName>
 				<symbol>SDD</symbol>
 			</currency>
-
 			<currency draft="true" type="SDP">
 				<displayName>Суданска фунта</displayName>
 				<symbol>SDP</symbol>
 			</currency>
-
 			<currency draft="true" type="SEK">
 				<displayName>Шведска круна</displayName>
 				<symbol>SKr</symbol>
 			</currency>
-
 			<currency draft="true" type="SGD">
 				<displayName>Сингапурски доалр</displayName>
 				<symbol>S$</symbol>
 			</currency>
-
 			<currency draft="true" type="SIB">
 				<displayName>Словенски толар бон</displayName>
 				<symbol>SIB</symbol>
 			</currency>
-
 			<currency draft="true" type="SIT">
 				<displayName>Словенски толар</displayName>
 				<symbol>SIT</symbol>
 			</currency>
-
 			<currency draft="true" type="SKK">
 				<displayName>Словачка круна</displayName>
 				<symbol>Sk</symbol>
 			</currency>
-
 			<currency draft="true" type="SLL">
 				<displayName>Сиералеонско леоне</displayName>
 				<symbol>SLL</symbol>
 			</currency>
-
 			<currency draft="true" type="SML">
 				<displayName>Санмаринска лира</displayName>
 				<symbol>SML</symbol>
 			</currency>
-
 			<currency draft="true" type="SOS">
 				<displayName>Сомалијски шилинг</displayName>
 				<symbol>So. Sh.</symbol>
 			</currency>
-
 			<currency draft="true" type="SRG">
 				<displayName>Суринамски гилдер</displayName>
 				<symbol>Sf</symbol>
 			</currency>
-
 			<currency draft="true" type="SSP">
 				<displayName>Шкотска фунта</displayName>
 				<symbol>SSP</symbol>
 			</currency>
-
 			<currency draft="true" type="SUN">
 				<displayName>Советска нова рубља</displayName>
 				<symbol>SUN</symbol>
 			</currency>
-
 			<currency draft="true" type="SUR">
 				<displayName>Советска рубља</displayName>
 				<symbol>SUR</symbol>
 			</currency>
-
 			<currency draft="true" type="SVC">
 				<displayName>Елсавадорски колон</displayName>
 				<symbol>SVC</symbol>
 			</currency>
-
 			<currency draft="true" type="SYP">
 				<displayName>Сириска фунта</displayName>
 				<symbol>LS</symbol>
 			</currency>
-
 			<currency draft="true" type="SZL">
 				<displayName>Свазилендски лилаген</displayName>
 				<symbol>E</symbol>
 			</currency>
-
 			<currency draft="true" type="TDF">
 				<displayName>‘адски франк</displayName>
 				<symbol>TDF</symbol>
 			</currency>
-
 			<currency draft="true" type="THB">
 				<displayName>Таи бат</displayName>
 				<symbol>THB</symbol>
 			</currency>
-
 			<currency draft="true" type="TJR">
 				<displayName>таџикистанска рубља</displayName>
 				<symbol>TJR</symbol>
 			</currency>
-
 			<currency draft="true" type="TJS">
 				<displayName>Таџикистантски сомони</displayName>
 				<symbol>TJS</symbol>
 			</currency>
-
 			<currency draft="true" type="TMM">
 				<displayName>Турментистантски матат</displayName>
 				<symbol>TMM</symbol>
 			</currency>
-
 			<currency draft="true" type="TND">
 				<displayName>Тунезиски динар</displayName>
 				<symbol>TND</symbol>
 			</currency>
-
 			<currency draft="true" type="TPE">
 				<displayName>Тиморски ескудо</displayName>
 				<symbol>TPE</symbol>
 			</currency>
-
 			<currency draft="true" type="TPP">
 				<displayName>Тиморска патака</displayName>
 				<symbol>TPP</symbol>
 			</currency>
-
 			<currency draft="true" type="TRL">
 				<displayName>Турска лира</displayName>
 				<symbol>TL</symbol>
 			</currency>
-
 			<currency draft="true" type="TVD">
 				<displayName>Тувалски долар</displayName>
 				<symbol>TVD</symbol>
 			</currency>
-
 			<currency draft="true" type="TWD">
 				<displayName>Тајвански нов долар</displayName>
 				<symbol>NT$</symbol>
 			</currency>
-
 			<currency draft="true" type="TZS">
 				<displayName>Танзаниски шилинг</displayName>
 				<symbol>T Sh</symbol>
 			</currency>
-
 			<currency draft="true" type="UAH">
 				<displayName>Украинска хривнија</displayName>
 				<symbol>UAH</symbol>
 			</currency>
-
 			<currency draft="true" type="UGS">
 				<displayName>Угандиски шилинг (1966-1987)</displayName>
 				<symbol>UGS</symbol>
-
 			</currency>
-
 			<currency draft="true" type="UGX">
 				<displayName>Угандиски шилинг</displayName>
 				<symbol>U Sh</symbol>
 			</currency>
-
 			<currency draft="true" type="USD">
 				<displayName>САД долар</displayName>
 				<symbol>US$</symbol>
 			</currency>
-
 			<currency draft="true" type="USN">
 				<displayName>САД долар (Next day)</displayName>
 				<symbol>USN</symbol>
 			</currency>
-
 			<currency draft="true" type="USS">
 				<displayName>САД долар (Same day)</displayName>
 				<symbol>USS</symbol>
 			</currency>
-
 			<currency draft="true" type="UYP">
 				<displayName>Уругвајско песо (1975-1993)</displayName>
 				<symbol>UYP</symbol>
 			</currency>
-
 			<currency draft="true" type="UZS">
 				<displayName>УЗбекистански Сум</displayName>
 				<symbol>UZS</symbol>
 			</currency>
-
 			<currency draft="true" type="VAL">
 				<displayName>Ватиканска лира</displayName>
 				<symbol>VAL</symbol>
 			</currency>
-
 			<currency draft="true" type="VEB">
 				<displayName>Венецуелски боливар</displayName>
 				<symbol>Be</symbol>
 			</currency>
-
 			<currency draft="true" type="VND">
 				<displayName>Виетнамски донг</displayName>
 				<symbol>VND</symbol>
 			</currency>
-
 			<currency draft="true" type="VNN">
 				<displayName>Виетнамски нов донг</displayName>
 				<symbol>VNN</symbol>
 			</currency>
-
 			<currency draft="true" type="VNR">
 				<displayName>Виетнамски републички донг</displayName>
 				<symbol>VNR</symbol>
 			</currency>
-
 			<currency draft="true" type="VNS">
 				<displayName>Виетнамски национален донг</displayName>
 				<symbol>VNS</symbol>
 			</currency>
-
 			<currency draft="true" type="VUV">
 				<displayName>Ванатски вату</displayName>
 				<symbol>VT</symbol>
 			</currency>
-
 			<currency draft="true" type="WSP">
 				<displayName>Самоа фунта</displayName>
 				<symbol>WSP</symbol>
 			</currency>
-
 			<currency draft="true" type="WST">
 				<displayName>Самоа тала</displayName>
 				<symbol>WST</symbol>
 			</currency>
-
 			<currency draft="true" type="XCD">
 				<displayName>Источно карибиски долар</displayName>
 				<symbol>EC$</symbol>
 			</currency>
-
 			<currency draft="true" type="XID">
 				<displayName>Исламски динар</displayName>
 				<symbol>XID</symbol>
 			</currency>
-
 			<currency draft="true" type="YDD">
 				<displayName>Јеменски дианр</displayName>
 				<symbol>YDD</symbol>
 			</currency>
-
 			<currency draft="true" type="YER">
 				<displayName>Јеменски риал</displayName>
 				<symbol>YRl</symbol>
 			</currency>
-
 			<currency draft="true" type="YUD">
 				<displayName>Југословенски динар</displayName>
 				<symbol>YUD</symbol>
 			</currency>
-
 			<currency draft="true" type="YUN">
 				<displayName>Југословенски конвертибилен динар</displayName>
 				<symbol>YUN</symbol>
 			</currency>
-
 			<currency draft="true" type="ZAL">
 				<displayName>Јужно афрички ранд(финансиски)</displayName>
 				<symbol>ZAL</symbol>
 			</currency>
-
 			<currency draft="true" type="ZAP">
 				<displayName>Јужно африча фунта</displayName>
 				<symbol>ZAP</symbol>
 			</currency>
-
 			<currency draft="true" type="ZAR">
 				<displayName>Јужно афрички ранд</displayName>
 				<symbol>R</symbol>
 			</currency>
-
 			<currency draft="true" type="ZMK">
 				<displayName>Замбиска кванча</displayName>
 				<symbol>ZMK</symbol>
 			</currency>
-
 			<currency draft="true" type="ZMP">
 				<displayName>Замбиска фунта</displayName>
 				<symbol>ZMP</symbol>
 			</currency>
-
 			<currency draft="true" type="ZRN">
 				<displayName>Заирско новозаире</displayName>
 				<symbol>ZRN</symbol>
 			</currency>
-
 			<currency draft="true" type="ZRZ">
 				<displayName>Зирско заире</displayName>
 				<symbol>ZRZ</symbol>
 			</currency>
-
 			<currency draft="true" type="ZWD">
 				<displayName>Зимбабвиски долар</displayName>
 				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>да</yesstr>
-      <nostr>не</nostr>
-      <yesexpr>д</yesexpr>
-      <noexpr>н</noexpr>
-    </messages>
-  </posix></ldml>
-<!-- Old Comments. See root.xml for more info.
+	<posix draft="true">
+		<messages>
+			<yesstr>да</yesstr>
+			<nostr>не</nostr>
+			<yesexpr>д</yesexpr>
+			<noexpr>н</noexpr>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/mk.txt?only_with_tag=final-update-LDML
 
         "Cyrl",     // ISO 15924 Name 
 Currency display names
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
+
 
 -->

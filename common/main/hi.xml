@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="hi"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="hi"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -324,11 +324,10 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[[:Deva:]‌‍]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[ँ-ह़-्ॐॠ-ॣ]</exemplarCharacters>
+		<exemplarCharacters draft="true" alt="proposed">[ँ-ह़-्ॐॠ-ॣ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -384,12 +383,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-        <week draft="true">
-          <minDays count="1"></minDays>
-          <firstDay day="sun"></firstDay>
-          <weekendStart day="sat"></weekendStart>
-          <weekendEnd day="sun"></weekendEnd>
-        </week>
 				<am>पूर्वाह्न</am>
 				<pm>अपराह्न</pm>
 				<eras>
@@ -403,8 +396,8 @@
 		<timeZoneNames>
 			<zone type="Asia/Calcutta">
 				<long>
-				<standard>भारतीय समय</standard>
-				<daylight>भारतीय समय</daylight>
+					<standard>भारतीय समय</standard>
+					<daylight>भारतीय समय</daylight>
 				</long>
 				<short>
 					<standard>IST</standard>
@@ -415,37 +408,26 @@
 	</dates>
 	<numbers>
 		<symbols>
-			<decimal>.</decimal>
-			<group>,</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
 			<nativeZeroDigit>०</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency type="INR">
-				<displayName>INR</displayName>
 				<symbol>रु</symbol>
 			</currency>
 		</currencies>
 	</numbers>
-  <posix draft="true">
-    <messages>
-      <yesstr>हाँ</yesstr>
-      <nostr>नहीं</nostr>
-      <yesexpr>हाँ</yesexpr>
-      <noexpr>नहीं</noexpr>
-    </messages>
-  </posix>
+	<posix draft="true">
+		<messages>
+			<yesstr>हाँ</yesstr>
+			<nostr>नहीं</nostr>
+			<yesexpr>हाँ</yesexpr>
+			<noexpr>नहीं</noexpr>
+		</messages>
+	</posix>
 </ldml>
 
-<!-- Old Comments. See root.xml for more info.
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/hi.txt?only_with_tag=final-update-LDML
 
 Thanks to:
@@ -475,5 +457,6 @@ TM { "\u0924\u0941\u0915\u094d\u0930\u092e\u0947\u0928\u093f\u0938\u094d\u0924\u
 UY { "\u0909\u0930\u0942\u0917\u0941\u090F" }
 VA { "\u0935\u093e\u0945\u091f\u093f\u0915\u0928" }
 VU { "\u0938\u093e\u0928\u0941\u0905\u0924\u0941" }  // CHECK - #12
+
 
 -->

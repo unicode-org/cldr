@@ -1,75 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="fa"></language> 
-		<territory type="IR"></territory> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="fa"/>
+		<territory type="IR"/>
 	</identity>
-	<layout>
-		<orientation lines="top-to-bottom" characters="right-to-left"></orientation>
-	</layout>
-		<dates>
-			<calendars>
-				
-				<calendar type="gregorian">
-					<week>
-						<minDays count="1"></minDays>
-						<firstDay day="sat"></firstDay>
-					</week>
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<symbols>
-				<decimal>٫</decimal>
-				<group>٬</group>
-				<list>;</list>
-				<percentSign>٪</percentSign>
-				<nativeZeroDigit>۰</nativeZeroDigit>
-				<patternDigit>#</patternDigit>
-				<plusSign>+</plusSign>
-				<minusSign>-</minusSign>
-				<exponential>×۱۰^</exponential>
-				<perMille>‰</perMille>
-				<infinity>∞</infinity>
-				<nan>�</nan>
-			</symbols>
-			<decimalFormats>
-				<decimalFormatLength>
-					<decimalFormat>
-						<pattern>#,##0.###;−#,##0.###</pattern>
-					</decimalFormat>
-				</decimalFormatLength>
-			</decimalFormats>
-			<scientificFormats>
-				<scientificFormatLength>
-					<scientificFormat>
-						<pattern>#E0</pattern>
-					</scientificFormat>
-				</scientificFormatLength>
-			</scientificFormats>
-			<percentFormats>
-				<percentFormatLength>
-					<percentFormat>
-						<pattern>%#,##0</pattern>
-					</percentFormat>
-				</percentFormatLength>
-			</percentFormats>
-			<currencyFormats>
-				<currencyFormatLength>
-					<currencyFormat>
-						<pattern>#,##0 ¤;−#,##0 ¤</pattern>
-					</currencyFormat>
-				</currencyFormatLength>
-			</currencyFormats>
-		</numbers>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<week>
+					<firstDay day="sat"/>
+				</week>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>٫</decimal>
+			<group>٬</group>
+			<percentSign>٪</percentSign>
+			<nativeZeroDigit>۰</nativeZeroDigit>
+			<exponential>×۱۰^</exponential>
+		</symbols>
+		<decimalFormats>
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>#,##0.###;−#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<percentFormats>
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>%#,##0</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>#,##0 ¤;−#,##0 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+	</numbers>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/fa_IR.txt?only_with_tag=final-update-LDML
 
 Created by Roozbeh Pournader <roozbeh@sharif.edu>
                 7,      // Saturday
+
 
 -->

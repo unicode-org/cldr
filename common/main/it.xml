@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="it"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="it"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -798,7 +798,6 @@
 	</characters>
 	<dates>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -878,8 +877,8 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="4"></minDays>
-					<firstDay day="mon"></firstDay>
+					<minDays count="4"/>
+					<firstDay day="mon"/>
 				</week>
 				<am>m.</am>
 				<pm>p.</pm>
@@ -890,7 +889,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE d MMMM yyyy</pattern>
@@ -912,43 +910,13 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<default type="medium"></default>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<zone type="PST">
 				<long>
-				<standard>Ora Standard Pacifico</standard>
-				<daylight>Ora Legale Pacifico</daylight>
+					<standard>Ora Standard Pacifico</standard>
+					<daylight>Ora Legale Pacifico</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -958,8 +926,8 @@
 			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
-				<standard>Ora Standard Pacifico</standard>
-				<daylight>Ora Legale Pacifico</daylight>
+					<standard>Ora Standard Pacifico</standard>
+					<daylight>Ora Legale Pacifico</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -969,8 +937,8 @@
 			</zone>
 			<zone type="MST">
 				<long>
-				<standard>Ora Standard Mountain</standard>
-				<daylight>Ora Legale Mountain</daylight>
+					<standard>Ora Standard Mountain</standard>
+					<daylight>Ora Legale Mountain</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -980,8 +948,8 @@
 			</zone>
 			<zone type="America/Denver">
 				<long>
-				<standard>Ora Standard Mountain</standard>
-				<daylight>Ora Legale Mountain</daylight>
+					<standard>Ora Standard Mountain</standard>
+					<daylight>Ora Legale Mountain</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -991,8 +959,8 @@
 			</zone>
 			<zone type="PNT">
 				<long>
-				<standard>Ora Standard Mountain</standard>
-				<daylight>Ora Standard Mountain</daylight>
+					<standard>Ora Standard Mountain</standard>
+					<daylight>Ora Standard Mountain</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -1002,8 +970,8 @@
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
-				<standard>Ora Standard Mountain</standard>
-				<daylight>Ora Standard Mountain</daylight>
+					<standard>Ora Standard Mountain</standard>
+					<daylight>Ora Standard Mountain</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -1013,8 +981,8 @@
 			</zone>
 			<zone type="CST">
 				<long>
-				<standard>Ora Standard Centrale</standard>
-				<daylight>Ora Legale Centrale</daylight>
+					<standard>Ora Standard Centrale</standard>
+					<daylight>Ora Legale Centrale</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -1024,8 +992,8 @@
 			</zone>
 			<zone type="America/Chicago">
 				<long>
-				<standard>Ora Standard Centrale</standard>
-				<daylight>Ora Legale Centrale</daylight>
+					<standard>Ora Standard Centrale</standard>
+					<daylight>Ora Legale Centrale</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -1035,8 +1003,8 @@
 			</zone>
 			<zone type="EST">
 				<long>
-				<standard>Ora Standard Orientale</standard>
-				<daylight>Ora Legale Orientale</daylight>
+					<standard>Ora Standard Orientale</standard>
+					<daylight>Ora Legale Orientale</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1046,8 +1014,8 @@
 			</zone>
 			<zone type="America/New_York">
 				<long>
-				<standard>Ora Standard Orientale</standard>
-				<daylight>Ora Legale Orientale</daylight>
+					<standard>Ora Standard Orientale</standard>
+					<daylight>Ora Legale Orientale</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1057,8 +1025,8 @@
 			</zone>
 			<zone type="IET">
 				<long>
-				<standard>Ora Standard Orientale</standard>
-				<daylight>Ora Standard Orientale</daylight>
+					<standard>Ora Standard Orientale</standard>
+					<daylight>Ora Standard Orientale</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1068,8 +1036,8 @@
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
-				<standard>Ora Standard Orientale</standard>
-				<daylight>Ora Standard Orientale</daylight>
+					<standard>Ora Standard Orientale</standard>
+					<daylight>Ora Standard Orientale</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1079,8 +1047,8 @@
 			</zone>
 			<zone type="HST">
 				<long>
-				<standard>Ora Standard Hawaii</standard>
-				<daylight>Ora Standard Hawaii</daylight>
+					<standard>Ora Standard Hawaii</standard>
+					<daylight>Ora Standard Hawaii</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -1090,8 +1058,8 @@
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
-				<standard>Ora Standard Hawaii</standard>
-				<daylight>Ora Standard Hawaii</daylight>
+					<standard>Ora Standard Hawaii</standard>
+					<daylight>Ora Standard Hawaii</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -1101,8 +1069,8 @@
 			</zone>
 			<zone type="AST">
 				<long>
-				<standard>Ora Standard Alaska</standard>
-				<daylight>Ora Legale Alaska</daylight>
+					<standard>Ora Standard Alaska</standard>
+					<daylight>Ora Legale Alaska</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1112,8 +1080,8 @@
 			</zone>
 			<zone type="America/Anchorage">
 				<long>
-				<standard>Ora Standard Alaska</standard>
-				<daylight>Ora Legale Alaska</daylight>
+					<standard>Ora Standard Alaska</standard>
+					<daylight>Ora Legale Alaska</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1123,8 +1091,8 @@
 			</zone>
 			<zone type="America/Halifax">
 				<long>
-				<standard>Ora Standard Atlantico</standard>
-				<daylight>Ora Legale Atlantico</daylight>
+					<standard>Ora Standard Atlantico</standard>
+					<daylight>Ora Legale Atlantico</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1134,8 +1102,8 @@
 			</zone>
 			<zone type="CNT">
 				<long>
-				<standard>Ora Standard Newfoundland</standard>
-				<daylight>Ora Legale Newfoundland</daylight>
+					<standard>Ora Standard Newfoundland</standard>
+					<daylight>Ora Legale Newfoundland</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -1145,8 +1113,8 @@
 			</zone>
 			<zone type="America/St_Johns">
 				<long>
-				<standard>Ora Standard Newfoundland</standard>
-				<daylight>Ora Legale Newfoundland</daylight>
+					<standard>Ora Standard Newfoundland</standard>
+					<daylight>Ora Legale Newfoundland</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -1156,8 +1124,8 @@
 			</zone>
 			<zone type="ECT">
 				<long>
-				<standard>Ora Standard Centrale Europeo</standard>
-				<daylight>Ora Legale Centrale Europeo</daylight>
+					<standard>Ora Standard Centrale Europeo</standard>
+					<daylight>Ora Legale Centrale Europeo</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -1167,8 +1135,8 @@
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
-				<standard>Ora Standard Centrale Europeo</standard>
-				<daylight>Ora Legale Centrale Europeo</daylight>
+					<standard>Ora Standard Centrale Europeo</standard>
+					<daylight>Ora Legale Centrale Europeo</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -1178,8 +1146,8 @@
 			</zone>
 			<zone type="GMT">
 				<long>
-				<standard>Ora Meridiano Greenwich</standard>
-				<daylight>Ora Meridiano Greenwich</daylight>
+					<standard>Ora Meridiano Greenwich</standard>
+					<daylight>Ora Meridiano Greenwich</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -1189,8 +1157,8 @@
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
-				<standard>Ora Meridiano Greenwich</standard>
-				<daylight>Ora Meridiano Greenwich</daylight>
+					<standard>Ora Meridiano Greenwich</standard>
+					<daylight>Ora Meridiano Greenwich</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -1200,8 +1168,8 @@
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
-				<standard>Ora Standard Israele</standard>
-				<daylight>Ora Legale Israele</daylight>
+					<standard>Ora Standard Israele</standard>
+					<daylight>Ora Legale Israele</daylight>
 				</long>
 				<short>
 					<standard>IST</standard>
@@ -1211,8 +1179,8 @@
 			</zone>
 			<zone type="JST">
 				<long>
-				<standard>Ora Standard Giappone</standard>
-				<daylight>Ora Standard Giappone</daylight>
+					<standard>Ora Standard Giappone</standard>
+					<daylight>Ora Standard Giappone</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -1222,8 +1190,8 @@
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
-				<standard>Ora Standard Giappone</standard>
-				<daylight>Ora Standard Giappone</daylight>
+					<standard>Ora Standard Giappone</standard>
+					<daylight>Ora Standard Giappone</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -1233,8 +1201,8 @@
 			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
-				<standard>Ora Standard Europa Orientale</standard>
-				<daylight>Ora Legale Europa Orientale</daylight>
+					<standard>Ora Standard Europa Orientale</standard>
+					<daylight>Ora Legale Europa Orientale</daylight>
 				</long>
 				<short>
 					<standard>EET</standard>
@@ -1244,8 +1212,8 @@
 			</zone>
 			<zone type="CTT">
 				<long>
-				<standard>Ora Standard Cina</standard>
-				<daylight>Ora Standard Cina</daylight>
+					<standard>Ora Standard Cina</standard>
+					<daylight>Ora Standard Cina</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -1255,8 +1223,8 @@
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
-				<standard>Ora Standard Cina</standard>
-				<daylight>Ora Standard Cina</daylight>
+					<standard>Ora Standard Cina</standard>
+					<daylight>Ora Standard Cina</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -1270,16 +1238,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency type="ADD">
@@ -1728,7 +1686,6 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Markka Finlandese</displayName>
@@ -1768,7 +1725,6 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>Sterlina Inglese</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Kupon Larit Georgiano</displayName>
@@ -1936,7 +1892,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>Rupia Indiana</displayName>
-				<symbol>=0#Rs.|1#Re.|1&lt;Rs.</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Dinaro Iracheno</displayName>
@@ -1952,7 +1907,6 @@
 			</currency>
 			<currency type="ITL">
 				<displayName>Lira Italiana</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency type="JEP">
 				<displayName>Lira Sterlina di Jersey</displayName>
@@ -1972,7 +1926,6 @@
 			</currency>
 			<currency type="JPY">
 				<displayName>Yen Giapponese</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Scellino Keniota</displayName>
@@ -2564,7 +2517,6 @@
 			</currency>
 			<currency type="USD">
 				<displayName>Dollaro Statunitense</displayName>
-				<symbol>$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>Dollaro Statunitense (Next day)</displayName>
@@ -2804,15 +2756,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>Sì</yesstr>
-      <nostr>No</nostr>
-      <yesexpr>S</yesexpr>
-      <noexpr>N</noexpr>
-    </messages>
-  </posix></ldml>
-<!-- Old Comments. See root.xml for more info.
+	<posix draft="true">
+		<messages>
+			<yesstr>Sì</yesstr>
+			<nostr>No</nostr>
+			<yesexpr>S</yesexpr>
+			<noexpr>N</noexpr>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/it.txt?only_with_tag=final-update-LDML
 
         KP { "Corea del Nord" }    // alternate name { "Corea, Repubblica Popolare Democratica" }
@@ -2834,5 +2789,6 @@ zh_cn { "Cinese (Semplificato)" }
 zh_tw { "Cinese (Tradizionale)" }
         Qaai { "ereditato" } // PUA
         Zyyy { "comune" } // This may need to become "undetermined script"
+
 
 -->

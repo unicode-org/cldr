@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="ru"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="ru"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -680,7 +680,6 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -804,8 +803,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="mon"></firstDay>
+					<firstDay day="mon"/>
 				</week>
 				<eras>
 					<eraAbbr>
@@ -814,7 +812,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>d MMMM yyyy 'г.'</pattern>
@@ -837,7 +834,6 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>H:mm:ss z</pattern>
@@ -859,13 +855,6 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -1081,7 +1070,6 @@
 			</currency>
 			<currency draft="true" type="EUR">
 				<displayName>Евро</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency draft="true" type="FIM">
 				<displayName>Марка</displayName>
@@ -1101,7 +1089,6 @@
 			</currency>
 			<currency draft="true" type="GBP">
 				<displayName>Фунт стерлингов</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency draft="true" type="GEK">
 				<displayName>Грузинский купон</displayName>
@@ -1197,7 +1184,6 @@
 			</currency>
 			<currency draft="true" type="ITL">
 				<displayName>Итальянская лира</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency draft="true" type="JMD">
 				<displayName>Ямайский доллар</displayName>
@@ -1209,7 +1195,6 @@
 			</currency>
 			<currency draft="true" type="JPY">
 				<displayName>Йена</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency draft="true" type="KES">
 				<displayName>Кенийский шиллинг</displayName>
@@ -1625,15 +1610,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>да</yesstr>
-      <nostr>нет</nostr>
-      <yesexpr></yesexpr>
-      <noexpr></noexpr>
-    </messages>
-  </posix></ldml>
-<!-- Old Comments. See root.xml for more info.
+	<posix draft="true">
+		<messages>
+			<yesstr>да</yesstr>
+			<nostr>нет</nostr>
+			<yesexpr/>
+			<noexpr/>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ru.txt?only_with_tag=final-update-LDML
 
 BA { "\u0411\u043E\u0441\u043D\u0438\u044F \u0438 \u0413\u0435\u0440\u0446\u0435\u0433\u043E\u0432\u0438\u043D\u0430" } // From translation center
@@ -1653,5 +1641,6 @@ jw { "\u042f\u0432\u0430\u043d\u0441\u043a\u0438\u0439" } // Use jv instead
 lv { "\u041B\u0430\u0442\u0432\u0438\u0439\u0441\u043A\u0438\u0439" } // Old value
         "Cyrl"      // ISO 15924 Name 
 Currency display names
+
 
 -->

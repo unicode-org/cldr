@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="hy"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="hy"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -210,7 +210,6 @@
 	</characters>
 	<dates>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -267,8 +266,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="mon"></firstDay>
+					<firstDay day="mon"/>
 				</week>
 				<am>Առ․</am>
 				<pm>Եր․</pm>
@@ -279,7 +277,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, MMMM d, yyyy</pattern>
@@ -301,36 +298,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<default type="medium"></default>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -338,16 +305,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -356,13 +313,6 @@
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
-		<scientificFormats>
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
@@ -379,7 +329,9 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/hy.txt?only_with_tag=final-update-LDML
 
 *   Data by :
@@ -395,5 +347,6 @@ currencies
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
                 "\u0545\u2024\u054F\u2024",            // 3.D.
                 "\u0546\u2024\u0554\u2024"             // N.K.
+
 
 -->

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="kn"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="kn"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -26,7 +26,6 @@
 	</characters>
 	<dates>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -82,12 +81,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-        <week draft="true">
-          <minDays count="1"></minDays>
-          <firstDay day="mon"></firstDay>
-          <weekendStart day="sat"></weekendStart>
-          <weekendEnd day="sun"></weekendEnd>
-        </week>
 				<am>ಪೂರ್ವಾಹ್ನ</am>
 				<pm>ಅಪರಾಹ್ನ</pm>
 			</calendar>
@@ -96,17 +89,17 @@
 	<numbers>
 		<currencies>
 			<currency type="INR">
-				<displayName>INR</displayName>
 				<symbol>रु</symbol>
 			</currency>
 		</currencies>
 	</numbers>
-  <posix draft="true">
-    <messages>
-      <yesstr>ಹೌದು</yesstr>
-      <nostr>Verb-forms:ಇಲ್ಲ;Noun-Forms:ಅಲ್ಲ</nostr>
-      <yesexpr></yesexpr>
-      <noexpr></noexpr>
-    </messages>
-  </posix>
+	<posix draft="true">
+		<messages>
+			<yesstr>ಹೌದು</yesstr>
+			<nostr>Verb-forms:ಇಲ್ಲ;Noun-Forms:ಅಲ್ಲ</nostr>
+			<yesexpr/>
+			<noexpr/>
+		</messages>
+	</posix>
 </ldml>
+

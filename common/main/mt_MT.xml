@@ -1,44 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="mt"></language> 
-		<territory type="MT"></territory> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="mt"/>
+		<territory type="MT"/>
 	</identity>
-		<numbers>
-			<decimalFormats>
-				<decimalFormatLength>
-					<decimalFormat>
-						<pattern>#,##0.###;-#,##0.###</pattern>
-					</decimalFormat>
-				</decimalFormatLength>
-			</decimalFormats>
-			<scientificFormats>
-				<scientificFormatLength>
-					<scientificFormat>
-						<pattern>#E0</pattern>
-					</scientificFormat>
-				</scientificFormatLength>
-			</scientificFormats>
-			<percentFormats>
-				<percentFormatLength>
-					<percentFormat>
-						<pattern>#,##0%</pattern>
-					</percentFormat>
-				</percentFormatLength>
-			</percentFormats>
-			<currencyFormats>
-				<currencyFormatLength>
-					<currencyFormat>
-						<pattern>¤#,##0.00;-¤#,##0.00</pattern>
-					</currencyFormat>
-				</currencyFormatLength>
-			</currencyFormats>
-		</numbers>
+	<numbers>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>¤#,##0.00;-¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+	</numbers>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/mt_MT.txt?only_with_tag=final-update-LDML
 
 Maltese, Malta locale
@@ -47,5 +28,6 @@ Note: please see the 'mt.txt' file for more information.
 ** Maltese Standardization Authority http://www.msa.org.mt - MSA 200:2003 "Maltese Data and Information Requirements on Information and Communication Technology" is now the normative document for this data file.  [MSA 200:2003]
     Version { "2.1" } // October, 2003
         "\u00A4#,##0.00;-\u00A4#,##0.00",  // [MSA 200:2003 4.4]
+
 
 -->

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="hr"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="hr"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -348,7 +348,6 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -472,11 +471,9 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="mon"></firstDay>
+					<firstDay day="mon"/>
 				</week>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>yyyy. MMMM dd</pattern>
@@ -498,36 +495,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<default type="medium"></default>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -535,16 +502,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency draft="true" type="ALK">
@@ -745,7 +702,6 @@
 			</currency>
 			<currency draft="true" type="EUR">
 				<displayName>Euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency draft="true" type="FIM">
 				<displayName>Finska marka</displayName>
@@ -781,7 +737,6 @@
 			</currency>
 			<currency draft="true" type="GBP">
 				<displayName>Britanska funta</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency draft="true" type="GEK">
 				<displayName>Georgian Kupon Larit</displayName>
@@ -925,7 +880,6 @@
 			</currency>
 			<currency draft="true" type="ITL">
 				<displayName>Talijanska lira</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency draft="true" type="JMD">
 				<displayName>Jamaičanski dolar</displayName>
@@ -941,7 +895,6 @@
 			</currency>
 			<currency draft="true" type="JPY">
 				<displayName>Japanski jen</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency draft="true" type="KES">
 				<displayName>Kenijski šiling</displayName>
@@ -1465,15 +1418,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>Da</yesstr>
-      <nostr>Ne</nostr>
-      <yesexpr>D</yesexpr>
-      <noexpr>N</noexpr>
-    </messages>
-  </posix></ldml>
-<!-- Old Comments. See root.xml for more info.
+	<posix draft="true">
+		<messages>
+			<yesstr>Da</yesstr>
+			<nostr>Ne</nostr>
+			<yesexpr>D</yesexpr>
+			<noexpr>N</noexpr>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/hr.txt?only_with_tag=final-update-LDML
 
         KP { "Koreja, Sjeverna" } // alternate name { "Koreja, Demokratska Narodna Republika" }
@@ -1484,5 +1440,6 @@ zh_tw { "kineski (tradicionalni)" }
         "Latn"  // ISO 15924 Name 
 Currency display names
                 1, // "Minimal Days in First Week" is unknown. Root value used instead
+
 
 -->

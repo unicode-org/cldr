@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml draft="true">
+<ldml draft="true" >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-06-04"></generation>
-		<language type="sid"></language> 
+		<version number="1.2"/>
+		<generation date="2004-06-04"/>
+		<language type="sid"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -75,8 +75,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="sat"></firstDay>
+					<firstDay day="sat"/>
 				</week>
 				<am>soodo</am>
 				<pm>hawwaro</pm>
@@ -87,7 +86,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, MMMM dd, yyyy</pattern>
@@ -110,7 +108,6 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>h:mm:ss a</pattern>
@@ -132,13 +129,6 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -148,10 +138,10 @@
 				<displayName>ETB</displayName>
 				<symbol>$</symbol>
 			</currency>
-      <currency type="USD">
-				<displayName>USD</displayName>
+			<currency type="USD">
 				<symbol>US$</symbol>
 			</currency>
 		</currencies>
 	</numbers>
 </ldml>
+

@@ -1,74 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="pt"></language> 
-		<territory type="BR"></territory> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="pt"/>
+		<territory type="BR"/>
 	</identity>
-		<dates>
-			<calendars>
-				
-				<calendar type="gregorian">
-					<dateFormats>
-						<default type="medium"></default>
-						<dateFormatLength type="full">
-							<dateFormat>
-								<pattern>EEEE, d' de 'MMMM' de 'yyyy</pattern>
-							</dateFormat>
-						</dateFormatLength>
-						<dateFormatLength type="long">
-							<dateFormat>
-								<pattern>d' de 'MMMM' de 'yyyy</pattern>
-							</dateFormat>
-						</dateFormatLength>
-						<dateFormatLength type="medium">
-							<dateFormat>
-								<pattern>dd/MM/yyyy</pattern>
-							</dateFormat>
-						</dateFormatLength>
-						<dateFormatLength type="short">
-							<dateFormat>
-								<pattern>dd/MM/yy</pattern>
-							</dateFormat>
-						</dateFormatLength>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"></default>
-						<timeFormatLength type="full">
-							<timeFormat>
-								<pattern>HH'h'mm'min'ss's' z</pattern>
-							</timeFormat>
-						</timeFormatLength>
-						<timeFormatLength type="long">
-							<timeFormat>
-								<pattern>H'h'm'min's's' z</pattern>
-							</timeFormat>
-						</timeFormatLength>
-						<timeFormatLength type="medium">
-							<timeFormat>
-								<pattern>HH:mm:ss</pattern>
-							</timeFormat>
-						</timeFormatLength>
-						<timeFormatLength type="short">
-							<timeFormat>
-								<pattern>HH:mm</pattern>
-							</timeFormat>
-						</timeFormatLength>
-					</timeFormats>
-					<dateTimeFormats>
-						<dateTimeFormatLength>
-							<dateTimeFormat>
-								<pattern>{1} {0}</pattern>
-							</dateTimeFormat>
-						</dateTimeFormatLength>
-					</dateTimeFormats>
-				</calendar>
-			</calendars>
-		</dates>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<dateFormats>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>dd/MM/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>HH'h'mm'min'ss's' z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>H'h'm'min's's' z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+			</calendar>
+		</calendars>
+	</dates>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/pt_BR.txt?only_with_tag=final-update-LDML
 
 NumberPatterns { 
@@ -77,5 +49,6 @@ NumberPatterns {
 "#,##0%",
 "#E0",
 }
+
 
 -->

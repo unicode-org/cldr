@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml draft="true">
+<ldml draft="true" >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-06-04"></generation>
-		<language type="aa"></language> 
-		<territory type="ET"></territory> 
+		<version number="1.2"/>
+		<generation date="2004-06-04"/>
+		<language type="aa"/>
+		<territory type="ET"/>
 	</identity>
 	<dates>
 		<calendars>
@@ -13,18 +13,9 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="wide">
-							<month type="1">Qunxa Garablu</month>
 							<month type="2">Kudo</month>
-							<month type="3">Ciggilta Kudo</month>
 							<month type="4">Agda Baxis</month>
-							<month type="5">Caxah Alsa</month>
-							<month type="6">Qasa Dirri</month>
-							<month type="7">Qado Dirri</month>
 							<month type="8">Liiqen</month>
-							<month type="9">Waysu</month>
-							<month type="10">Diteli</month>
-							<month type="11">Ximoli</month>
-							<month type="12">Kaxxa Garablu</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -32,27 +23,6 @@
 		</calendars>
 	</dates>
 	<numbers>
-		<decimalFormats>
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>#,##0.###;-#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<scientificFormats>
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
-		<percentFormats>
-			<percentFormatLength>
-				<percentFormat>
-					<pattern>#,##0%</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -65,10 +35,7 @@
 				<displayName>ETB</displayName>
 				<symbol>$</symbol>
 			</currency>
-      <currency type="USD">
-				<displayName>USD</displayName>
-				<symbol>US$</symbol>
-			</currency>
 		</currencies>
 	</numbers>
 </ldml>
+

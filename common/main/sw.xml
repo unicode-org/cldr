@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="sw"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="sw"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -96,7 +96,6 @@
 	</characters>
 	<dates>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -153,8 +152,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="sat"></firstDay>
+					<firstDay day="sat"/>
 				</week>
 				<eras>
 					<eraAbbr>
@@ -167,8 +165,8 @@
 		<timeZoneNames>
 			<zone type="Africa/Nairobi">
 				<long>
-				<standard>Saa za Africa Mashariki</standard>
-				<daylight>Saa za Africa Mashariki</daylight>
+					<standard>Saa za Africa Mashariki</standard>
+					<daylight>Saa za Africa Mashariki</daylight>
 				</long>
 				<short>
 					<standard>EAT</standard>
@@ -191,7 +189,9 @@
 		</currencies>
 	</numbers>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/sw.txt?only_with_tag=final-update-LDML
 
 Date        Name        Description
@@ -207,5 +207,6 @@ NumberElements{}
 AmPmMarkers{}
 localPatternChars{}
 Currency display names
+
 
 -->

@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<!--
-Locale Data Format
-Draft: 2004-08-24
-By Anousak Souphavanh (Anousak at muanglao dot com)
--->
-<ldml draft="true">
+<ldml draft="true" >
 	<identity>
-		<version number="1.0"></version>
-		<generation date="2004-07-31"></generation>
-		<language type="lo"></language> 
+		<version number="1.0"/>
+		<generation date="2004-07-31"/>
+		<language type="lo"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -367,7 +362,6 @@ By Anousak Souphavanh (Anousak at muanglao dot com)
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE'ທີ່ 'd MMMM G yyyy</pattern>
@@ -390,7 +384,6 @@ By Anousak Souphavanh (Anousak at muanglao dot com)
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>H' ໂມງ 'm'ນາທີ 'ss' ວິນາທີ'</pattern>
@@ -484,7 +477,6 @@ By Anousak Souphavanh (Anousak at muanglao dot com)
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE'ທີ  'd MMMM yyyy</pattern>
@@ -507,7 +499,6 @@ By Anousak Souphavanh (Anousak at muanglao dot com)
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>H'ໂມງ 'm'ນາທີ 'ss' ວິນາທີ</pattern>
@@ -548,3 +539,11 @@ By Anousak Souphavanh (Anousak at muanglao dot com)
 		</currencies>
 	</numbers>
 </ldml>
+
+<!--
+
+Locale Data Format
+Draft: 2004-08-24
+By Anousak Souphavanh (Anousak at muanglao dot com)
+
+-->

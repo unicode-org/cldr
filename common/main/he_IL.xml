@@ -1,54 +1,29 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="he"></language> 
-		<territory type="IL"></territory> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="he"/>
+		<territory type="IL"/>
 	</identity>
-	<layout>
-		<orientation lines="top-to-bottom" characters="right-to-left"></orientation>
-	</layout>
-		<dates>
-			<calendars>
-				
-				<calendar type="gregorian">
-					<week>
-						<weekendStart draft="true" day="fri" time="00:00"></weekendStart>
-						<weekendEnd draft="true" day="sat" time="24:00"></weekendEnd>
-					</week>
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<decimalFormats>
-				<decimalFormatLength>
-					<decimalFormat>
-						<pattern>#,##0.###;-#,##0.###</pattern>
-					</decimalFormat>
-				</decimalFormatLength>
-			</decimalFormats>
-			<scientificFormats>
-				<scientificFormatLength>
-					<scientificFormat>
-						<pattern>#E0</pattern>
-					</scientificFormat>
-				</scientificFormatLength>
-			</scientificFormats>
-			<percentFormats>
-				<percentFormatLength>
-					<percentFormat>
-						<pattern>#,##0%</pattern>
-					</percentFormat>
-				</percentFormatLength>
-			</percentFormats>
-			<currencyFormats>
-				<currencyFormatLength>
-					<currencyFormat>
-						<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
-					</currencyFormat>
-				</currencyFormatLength>
-			</currencyFormats>
-		</numbers>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<week>
+					<weekendEnd draft="true" day="sun" time="00:00"/>
+				</week>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+	</numbers>
 </ldml>
+

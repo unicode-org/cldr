@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml draft="true">
+<ldml draft="true" >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-07-31"></generation>
-		<language type="km"></language> 
+		<version number="1.2"/>
+		<generation date="2004-07-31"/>
+		<language type="km"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -169,7 +169,6 @@
 			<territory type="FM">មិក្រូនេស៊ី</territory>
 			<territory type="FR">បារាំង</territory>
 			<territory type="GA">ហ្គាបុង</territory>
-			<!-- territory type="GB">អង់គ្លេស</territory --><!-- This was listed as UK, which is not a valid ISO-3066 code. This is the probable translation. -->
 			<territory type="GE">ហ្សកហ្ស៉ី</territory>
 			<territory type="GH">ហ្កាណា</territory>
 			<territory type="GM">ហ្គាំប៊ី</territory>
@@ -179,7 +178,7 @@
 			<territory type="GT">ហ្គាតេម៉ាឡា</territory>
 			<territory type="GW">ហ្គីណេប៊ីសូ</territory>
 			<territory type="GY">ហ្គីយ៉ាណា</territory>
-			<territory type="HK">ហុងកុង</territory><!-- This is probably incomplete. It needs the SAR China -->
+			<territory type="HK">ហុងកុង</territory>
 			<territory type="HN">ហុងឌួរ៉ាស់</territory>
 			<territory type="HR">ក្រូអាស៊ី</territory>
 			<territory type="HT">ហៃទី</territory>
@@ -306,7 +305,7 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="long"></default>
+					<default type="long"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE' ថ្ងៃ 'd' ខែ 'MMMM' ឆ្នាំ ' yyyy</pattern>
@@ -329,10 +328,9 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
-						<pattern>H' ម៉ោង 'm' នាទី 'ss' វិនាទី​'</pattern>
+							<pattern>H' ម៉ោង 'm' នាទី 'ss' វិនាទី​'</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
@@ -416,14 +414,7 @@
 				</days>
 				<am>ព្រឹក</am>
 				<pm>ល្ងាច</pm>
- 				<!-- The following eras are incomplete -->
-				<!--eras>
-					<eraAbbr>
-						<era type="1">គ.ស.</era>
-					</eraAbbr>
-				</eras-->
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE' ថ្ងៃ 'd' ខែ 'MMMM' ឆ្នាំ ' yyyy</pattern>
@@ -446,7 +437,6 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>H' ម៉ោង 'm' នាទី 'ss' វិនាទី​' z</pattern>
@@ -482,16 +472,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency type="KHR">
@@ -501,3 +481,15 @@
 		</currencies>
 	</numbers>
 </ldml>
+
+<!--
+ territory type="GB">អង់គ្លេស</territory 
+ This was listed as UK, which is not a valid ISO-3066 code. This is the probable translation. 
+ This is probably incomplete. It needs the SAR China 
+ The following eras are incomplete 
+eras>
+					<eraAbbr>
+						<era type="1">គ.ស.</era>
+					</eraAbbr>
+				</eras
+-->

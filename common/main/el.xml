@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="el"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="el"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -366,7 +366,6 @@
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -490,8 +489,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="mon"></firstDay>
+					<firstDay day="mon"/>
 				</week>
 				<am>ΠΜ</am>
 				<pm>ΜΜ</pm>
@@ -502,7 +500,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, dd MMMM yyyy</pattern>
@@ -525,7 +522,6 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
@@ -547,13 +543,6 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>
@@ -561,16 +550,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency draft="true" type="ADD">
@@ -657,7 +636,7 @@
 				<displayName>ΔΟΛΑΡΙΟ ΑΥΣΤΡΑΛΙΑΣ</displayName>
 				<symbol>AUD</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="AUD">
+			<currency draft="true" type="AUD" alt="proposed">
 				<displayName>Δολάριο Αυστραλίας</displayName>
 				<symbol>$A</symbol>
 			</currency>
@@ -833,7 +812,7 @@
 				<displayName>ΔΟΛΑΡΙΟ ΚΑΝΑΔΑ</displayName>
 				<symbol>CAD</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="CAD">
+			<currency draft="true" type="CAD" alt="proposed">
 				<displayName>Δολάριο Καναδά</displayName>
 				<symbol>Can$</symbol>
 			</currency>
@@ -857,7 +836,7 @@
 				<displayName>ΦΡΑΓΚΟ ΕΛΒΕΤΙΑΣ</displayName>
 				<symbol>CHF</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="CHF">
+			<currency draft="true" type="CHF" alt="proposed">
 				<displayName>Φράγκο Ελβετίας</displayName>
 				<symbol>SwF</symbol>
 			</currency>
@@ -941,7 +920,7 @@
 				<displayName>ΛΙΡΑ ΚΥΠΡΟΥ</displayName>
 				<symbol>CYP</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="CYP">
+			<currency draft="true" type="CYP" alt="proposed">
 				<displayName>Λίρα Κύπρου</displayName>
 				<symbol>£</symbol>
 			</currency>
@@ -969,7 +948,7 @@
 				<displayName>ΚΟΡΟΝΑ ΔΑΝΙΑΣ</displayName>
 				<symbol>DKK</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="DKK">
+			<currency draft="true" type="DKK" alt="proposed">
 				<displayName>Κορόνα Δανίας</displayName>
 				<symbol>DKr</symbol>
 			</currency>
@@ -1023,9 +1002,8 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>ΕΥΡΩ</displayName>
-				<symbol>€</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="EUR">
+			<currency draft="true" type="EUR" alt="proposed">
 				<displayName>Ευρώ</displayName>
 				<symbol>€</symbol>
 			</currency>
@@ -1067,9 +1045,8 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>ΛΙΡΑ ΑΓΓΛΙΑΣ</displayName>
-				<symbol>£</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="GBP">
+			<currency draft="true" type="GBP" alt="proposed">
 				<displayName>Λίρα Στερλίνα Βρετανίας</displayName>
 				<symbol>£</symbol>
 			</currency>
@@ -1145,7 +1122,7 @@
 				<displayName>Δρχ</displayName>
 				<symbol>Δρχ</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="GRD">
+			<currency draft="true" type="GRD" alt="proposed">
 				<displayName>Δραχμή Ελλάδας</displayName>
 				<symbol>GRD</symbol>
 			</currency>
@@ -1255,7 +1232,6 @@
 			</currency>
 			<currency draft="true" type="ITL">
 				<displayName>Λιρέτα Ιταλίας</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency draft="true" type="JEP">
 				<displayName>Λίρα Στερλίνα Υερσέης</displayName>
@@ -1275,9 +1251,8 @@
 			</currency>
 			<currency type="JPY">
 				<displayName>ΓΙΕΝ ΙΑΠΩΝΙΑΣ</displayName>
-				<symbol>¥</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="JPY">
+			<currency draft="true" type="JPY" alt="proposed">
 				<displayName>Γιεν Ιαπωνίας</displayName>
 				<symbol>¥</symbol>
 			</currency>
@@ -1561,7 +1536,7 @@
 				<displayName>ΚΟΡΟΝΑ ΝΟΡΒΗΓΙΑΣ</displayName>
 				<symbol>NOK</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="NOK">
+			<currency draft="true" type="NOK" alt="proposed">
 				<displayName>Κορόνα Νορβηγίας</displayName>
 				<symbol>NKr</symbol>
 			</currency>
@@ -1689,7 +1664,7 @@
 				<displayName>ΚΟΡΟΝΑ ΣΟΥΗΔΙΑΣ</displayName>
 				<symbol>SEK</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="SEK">
+			<currency draft="true" type="SEK" alt="proposed">
 				<displayName>Κορόνα Σουηδίας</displayName>
 				<symbol>SKr</symbol>
 			</currency>
@@ -1841,7 +1816,7 @@
 				<displayName>ΔΟΛΑΡΙΟ ΗΠΑ</displayName>
 				<symbol>USD</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="USD">
+			<currency draft="true" type="USD" alt="proposed">
 				<displayName>Δολάριο ΗΠΑ</displayName>
 				<symbol>US$</symbol>
 			</currency>
@@ -2079,15 +2054,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>Ναι</yesstr>
-      <nostr>Όχι</nostr>
-      <yesexpr>Ν</yesexpr>
-      <noexpr>Ο</noexpr>
-    </messages>
-  </posix></ldml>
-<!-- Old Comments. See root.xml for more info.
+	<posix draft="true">
+		<messages>
+			<yesstr>Ναι</yesstr>
+			<nostr>Όχι</nostr>
+			<yesexpr>Ν</yesexpr>
+			<noexpr>Ο</noexpr>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/el.txt?only_with_tag=final-update-LDML
 
 AS { "\u0391\u03c3\u03af\u03b1 (\u0391\u03b3\u03b3\u03bb\u03b9\u03ba\u03ac)" } // Old Value
@@ -2123,5 +2101,6 @@ zh_tw { "\u039A\u03B9\u03BD\u03B5\u03B6\u03B9\u03BA\u03AC (\u03A0\u03B1\u03C1\u0
                 "\u03A0\u039C", // The lowercase form is "\u03C0\u03BC". Both are valid. It's also been seen as mixed case too.
                 "\u039C\u039C", // The lowercase form is "\u03BC\u03BC". Both are valid. It's also been seen as mixed case too.
                 "h:mm a",   // While Greece uses both 12 and 24 hour formats, we use one for consistency due to limitations of current ICU API.
+
 
 -->

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="en"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="en"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -775,6 +775,7 @@
 			<territory type="YE">Yemen</territory>
 			<territory type="YT">Mayotte</territory>
 			<territory type="YU">Yugoslavia</territory>
+      <territory type="YU" alt="proposed" draft="true">Serbia and Montenegro</territory>
 			<territory type="ZA">South Africa</territory>
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabwe</territory>
@@ -808,7 +809,6 @@
 	</characters>
 	<dates>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -887,12 +887,9 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-        <week draft="true">
-          <minDays count="1"></minDays>
-          <firstDay day="sun"></firstDay>
-          <weekendStart day="sat"></weekendStart>
-          <weekendEnd day="sun"></weekendEnd>
-        </week>
+				<week draft="true">
+					<weekendEnd day="sun" time="24:00"/>
+				</week>
 				<eras>
 					<eraAbbr>
 						<era type="0">BC</era>
@@ -900,7 +897,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, MMMM d, yyyy</pattern>
@@ -923,7 +919,6 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"></default>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
@@ -945,20 +940,13 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<zone type="PST">
 				<long>
-				<standard>Pacific Standard Time</standard>
-				<daylight>Pacific Daylight Time</daylight>
+					<standard>Pacific Standard Time</standard>
+					<daylight>Pacific Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -968,8 +956,8 @@
 			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
-				<standard>Pacific Standard Time</standard>
-				<daylight>Pacific Daylight Time</daylight>
+					<standard>Pacific Standard Time</standard>
+					<daylight>Pacific Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -979,8 +967,8 @@
 			</zone>
 			<zone type="MST">
 				<long>
-				<standard>Mountain Standard Time</standard>
-				<daylight>Mountain Daylight Time</daylight>
+					<standard>Mountain Standard Time</standard>
+					<daylight>Mountain Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -990,8 +978,8 @@
 			</zone>
 			<zone type="America/Denver">
 				<long>
-				<standard>Mountain Standard Time</standard>
-				<daylight>Mountain Daylight Time</daylight>
+					<standard>Mountain Standard Time</standard>
+					<daylight>Mountain Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -1001,8 +989,8 @@
 			</zone>
 			<zone type="PNT">
 				<long>
-				<standard>Mountain Standard Time</standard>
-				<daylight>Mountain Standard Time</daylight>
+					<standard>Mountain Standard Time</standard>
+					<daylight>Mountain Standard Time</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -1012,8 +1000,8 @@
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
-				<standard>Mountain Standard Time</standard>
-				<daylight>Mountain Standard Time</daylight>
+					<standard>Mountain Standard Time</standard>
+					<daylight>Mountain Standard Time</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -1023,8 +1011,8 @@
 			</zone>
 			<zone type="CST">
 				<long>
-				<standard>Central Standard Time</standard>
-				<daylight>Central Daylight Time</daylight>
+					<standard>Central Standard Time</standard>
+					<daylight>Central Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -1034,8 +1022,8 @@
 			</zone>
 			<zone type="America/Chicago">
 				<long>
-				<standard>Central Standard Time</standard>
-				<daylight>Central Daylight Time</daylight>
+					<standard>Central Standard Time</standard>
+					<daylight>Central Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -1045,8 +1033,8 @@
 			</zone>
 			<zone type="EST">
 				<long>
-				<standard>Eastern Standard Time</standard>
-				<daylight>Eastern Daylight Time</daylight>
+					<standard>Eastern Standard Time</standard>
+					<daylight>Eastern Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1056,8 +1044,8 @@
 			</zone>
 			<zone type="America/New_York">
 				<long>
-				<standard>Eastern Standard Time</standard>
-				<daylight>Eastern Daylight Time</daylight>
+					<standard>Eastern Standard Time</standard>
+					<daylight>Eastern Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1067,8 +1055,8 @@
 			</zone>
 			<zone type="IET">
 				<long>
-				<standard>Eastern Standard Time</standard>
-				<daylight>Eastern Standard Time</daylight>
+					<standard>Eastern Standard Time</standard>
+					<daylight>Eastern Standard Time</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1078,8 +1066,8 @@
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
-				<standard>Eastern Standard Time</standard>
-				<daylight>Eastern Standard Time</daylight>
+					<standard>Eastern Standard Time</standard>
+					<daylight>Eastern Standard Time</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1089,8 +1077,8 @@
 			</zone>
 			<zone type="HST">
 				<long>
-				<standard>Hawaii Standard Time</standard>
-				<daylight>Hawaii Standard Time</daylight>
+					<standard>Hawaii Standard Time</standard>
+					<daylight>Hawaii Standard Time</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -1100,8 +1088,8 @@
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
-				<standard>Hawaii Standard Time</standard>
-				<daylight>Hawaii Standard Time</daylight>
+					<standard>Hawaii Standard Time</standard>
+					<daylight>Hawaii Standard Time</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -1111,8 +1099,8 @@
 			</zone>
 			<zone type="AST">
 				<long>
-				<standard>Alaska Standard Time</standard>
-				<daylight>Alaska Daylight Time</daylight>
+					<standard>Alaska Standard Time</standard>
+					<daylight>Alaska Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1122,8 +1110,8 @@
 			</zone>
 			<zone type="America/Anchorage">
 				<long>
-				<standard>Alaska Standard Time</standard>
-				<daylight>Alaska Daylight Time</daylight>
+					<standard>Alaska Standard Time</standard>
+					<daylight>Alaska Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1133,8 +1121,8 @@
 			</zone>
 			<zone type="America/Halifax">
 				<long>
-				<standard>Atlantic Standard Time</standard>
-				<daylight>Atlantic Daylight Time</daylight>
+					<standard>Atlantic Standard Time</standard>
+					<daylight>Atlantic Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1144,8 +1132,8 @@
 			</zone>
 			<zone type="CNT">
 				<long>
-				<standard>Newfoundland Standard Time</standard>
-				<daylight>Newfoundland Daylight Time</daylight>
+					<standard>Newfoundland Standard Time</standard>
+					<daylight>Newfoundland Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -1155,8 +1143,8 @@
 			</zone>
 			<zone type="America/St_Johns">
 				<long>
-				<standard>Newfoundland Standard Time</standard>
-				<daylight>Newfoundland Daylight Time</daylight>
+					<standard>Newfoundland Standard Time</standard>
+					<daylight>Newfoundland Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -1166,8 +1154,8 @@
 			</zone>
 			<zone type="ECT">
 				<long>
-				<standard>Central European Standard Time</standard>
-				<daylight>Central European Daylight Time</daylight>
+					<standard>Central European Standard Time</standard>
+					<daylight>Central European Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -1177,8 +1165,8 @@
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
-				<standard>Central European Standard Time</standard>
-				<daylight>Central European Daylight Time</daylight>
+					<standard>Central European Standard Time</standard>
+					<daylight>Central European Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -1188,8 +1176,8 @@
 			</zone>
 			<zone type="GMT">
 				<long>
-				<standard>Greenwich Mean Time</standard>
-				<daylight>Greenwich Mean Time</daylight>
+					<standard>Greenwich Mean Time</standard>
+					<daylight>Greenwich Mean Time</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -1199,8 +1187,8 @@
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
-				<standard>Greenwich Mean Time</standard>
-				<daylight>Greenwich Mean Time</daylight>
+					<standard>Greenwich Mean Time</standard>
+					<daylight>Greenwich Mean Time</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -1210,8 +1198,8 @@
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
-				<standard>Israel Standard Time</standard>
-				<daylight>Israel Daylight Time</daylight>
+					<standard>Israel Standard Time</standard>
+					<daylight>Israel Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>IST</standard>
@@ -1221,8 +1209,8 @@
 			</zone>
 			<zone type="JST">
 				<long>
-				<standard>Japan Standard Time</standard>
-				<daylight>Japan Standard Time</daylight>
+					<standard>Japan Standard Time</standard>
+					<daylight>Japan Standard Time</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -1232,8 +1220,8 @@
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
-				<standard>Japan Standard Time</standard>
-				<daylight>Japan Standard Time</daylight>
+					<standard>Japan Standard Time</standard>
+					<daylight>Japan Standard Time</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -1243,8 +1231,8 @@
 			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
-				<standard>Eastern European Standard Time</standard>
-				<daylight>Eastern European Daylight Time</daylight>
+					<standard>Eastern European Standard Time</standard>
+					<daylight>Eastern European Daylight Time</daylight>
 				</long>
 				<short>
 					<standard>EET</standard>
@@ -1254,8 +1242,8 @@
 			</zone>
 			<zone type="CTT">
 				<long>
-				<standard>China Standard Time</standard>
-				<daylight>China Standard Time</daylight>
+					<standard>China Standard Time</standard>
+					<daylight>China Standard Time</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -1265,8 +1253,8 @@
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
-				<standard>China Standard Time</standard>
-				<daylight>China Standard Time</daylight>
+					<standard>China Standard Time</standard>
+					<daylight>China Standard Time</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -1277,27 +1265,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<decimalFormats>
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>#,##0.###;-#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<scientificFormats>
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
-		<percentFormats>
-			<percentFormatLength>
-				<percentFormat>
-					<pattern>#,##0%</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -1752,7 +1719,6 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finnish Markka</displayName>
@@ -1792,7 +1758,6 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>British Pound Sterling</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Georgian Kupon Larit</displayName>
@@ -1960,7 +1925,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>Indian Rupee</displayName>
-				<symbol>=0#Rs.|1#Re.|1&lt;Rs.</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Iraqi Dinar</displayName>
@@ -1976,7 +1940,6 @@
 			</currency>
 			<currency type="ITL">
 				<displayName>Italian Lira</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency type="JEP">
 				<displayName>Jersey Pound Sterling</displayName>
@@ -1996,7 +1959,6 @@
 			</currency>
 			<currency type="JPY">
 				<displayName>Japanese Yen</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Kenyan Shilling</displayName>
@@ -2828,17 +2790,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-  <posix draft="true">
-    <messages>
-      <yesstr>Yes</yesstr>
-      <nostr>No</nostr>
-      <yesexpr>Y;y;YES</yesexpr>
-      <noexpr>N;n;NO</noexpr>
-    </messages>
-  </posix>
+	<posix draft="true">
+		<messages>
+			<yesstr>Yes</yesstr>
+			<nostr>No</nostr>
+			<yesexpr>Y;y;YES</yesexpr>
+			<noexpr>N;n;NO</noexpr>
+		</messages>
+	</posix>
 </ldml>
 
-<!-- Old Comments. See root.xml for more info.
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/en.txt?only_with_tag=final-update-LDML
 
                 "M/d/yy", // Changing this will break binary compatibility.
@@ -2867,5 +2830,6 @@ each variant name that occurs in locales should be listed with %% and a display 
 PREEURO { "Pre-Euro" }   // PREEURO variant display name
 EURO    { "Euro" }         // EURO variant display name
 NY      { "Nynorsk" }      // Norwegian variant display name
+
 
 -->

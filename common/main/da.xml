@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="da"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="da"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -757,7 +757,6 @@
 	<dates>
 		<localizedPatternChars>GuMtkHmsSEDFwWahKzUeygAZ</localizedPatternChars>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -837,8 +836,8 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="4"></minDays>
-					<firstDay day="mon"></firstDay>
+					<minDays count="4"/>
+					<firstDay day="mon"/>
 				</week>
 				<eras>
 					<eraAbbr>
@@ -847,7 +846,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE dd MMMM yyyy</pattern>
@@ -869,43 +867,13 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<default type="medium"></default>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength>
-						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<zone type="PST">
 				<long>
-				<standard>Pacific-normaltid</standard>
-				<daylight>Pacific-sommertid</daylight>
+					<standard>Pacific-normaltid</standard>
+					<daylight>Pacific-sommertid</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -915,8 +883,8 @@
 			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
-				<standard>Pacific-normaltid</standard>
-				<daylight>Pacific-sommertid</daylight>
+					<standard>Pacific-normaltid</standard>
+					<daylight>Pacific-sommertid</daylight>
 				</long>
 				<short>
 					<standard>PST</standard>
@@ -926,8 +894,8 @@
 			</zone>
 			<zone type="MST">
 				<long>
-				<standard>Mountain-normaltid</standard>
-				<daylight>Mountain-sommertid</daylight>
+					<standard>Mountain-normaltid</standard>
+					<daylight>Mountain-sommertid</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -937,8 +905,8 @@
 			</zone>
 			<zone type="America/Denver">
 				<long>
-				<standard>Mountain-normaltid</standard>
-				<daylight>Mountain-sommertid</daylight>
+					<standard>Mountain-normaltid</standard>
+					<daylight>Mountain-sommertid</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -948,8 +916,8 @@
 			</zone>
 			<zone type="PNT">
 				<long>
-				<standard>Mountain-normaltid</standard>
-				<daylight>Mountain-normaltid</daylight>
+					<standard>Mountain-normaltid</standard>
+					<daylight>Mountain-normaltid</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -959,8 +927,8 @@
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
-				<standard>Mountain-normaltid</standard>
-				<daylight>Mountain-normaltid</daylight>
+					<standard>Mountain-normaltid</standard>
+					<daylight>Mountain-normaltid</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -970,8 +938,8 @@
 			</zone>
 			<zone type="CST">
 				<long>
-				<standard>Central-normaltid</standard>
-				<daylight>Central-sommertid</daylight>
+					<standard>Central-normaltid</standard>
+					<daylight>Central-sommertid</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -981,8 +949,8 @@
 			</zone>
 			<zone type="America/Chicago">
 				<long>
-				<standard>Central-normaltid</standard>
-				<daylight>Central-sommertid</daylight>
+					<standard>Central-normaltid</standard>
+					<daylight>Central-sommertid</daylight>
 				</long>
 				<short>
 					<standard>CST</standard>
@@ -992,8 +960,8 @@
 			</zone>
 			<zone type="EST">
 				<long>
-				<standard>Eastern-normaltid</standard>
-				<daylight>Eastern-sommertid</daylight>
+					<standard>Eastern-normaltid</standard>
+					<daylight>Eastern-sommertid</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1003,8 +971,8 @@
 			</zone>
 			<zone type="America/New_York">
 				<long>
-				<standard>Eastern-normaltid</standard>
-				<daylight>Eastern-sommertid</daylight>
+					<standard>Eastern-normaltid</standard>
+					<daylight>Eastern-sommertid</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1014,8 +982,8 @@
 			</zone>
 			<zone type="IET">
 				<long>
-				<standard>Eastern-normaltid</standard>
-				<daylight>Eastern-normaltid</daylight>
+					<standard>Eastern-normaltid</standard>
+					<daylight>Eastern-normaltid</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1025,8 +993,8 @@
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
-				<standard>Eastern-normaltid</standard>
-				<daylight>Eastern-normaltid</daylight>
+					<standard>Eastern-normaltid</standard>
+					<daylight>Eastern-normaltid</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>
@@ -1036,8 +1004,8 @@
 			</zone>
 			<zone type="HST">
 				<long>
-				<standard>Hawaii-normaltid</standard>
-				<daylight>Hawaii--normaltid</daylight>
+					<standard>Hawaii-normaltid</standard>
+					<daylight>Hawaii--normaltid</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -1047,8 +1015,8 @@
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
-				<standard>Hawaii-normaltid</standard>
-				<daylight>Hawaii-normaltid</daylight>
+					<standard>Hawaii-normaltid</standard>
+					<daylight>Hawaii-normaltid</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -1058,8 +1026,8 @@
 			</zone>
 			<zone type="AST">
 				<long>
-				<standard>Alaska-normaltid</standard>
-				<daylight>Alaska-sommertid</daylight>
+					<standard>Alaska-normaltid</standard>
+					<daylight>Alaska-sommertid</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1069,8 +1037,8 @@
 			</zone>
 			<zone type="America/Anchorage">
 				<long>
-				<standard>Alaska-normaltid</standard>
-				<daylight>Alaska-sommertid</daylight>
+					<standard>Alaska-normaltid</standard>
+					<daylight>Alaska-sommertid</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1080,8 +1048,8 @@
 			</zone>
 			<zone type="America/Halifax">
 				<long>
-				<standard>Atlantic-normaltid</standard>
-				<daylight>Atlantic-sommertid</daylight>
+					<standard>Atlantic-normaltid</standard>
+					<daylight>Atlantic-sommertid</daylight>
 				</long>
 				<short>
 					<standard>AST</standard>
@@ -1091,8 +1059,8 @@
 			</zone>
 			<zone type="CNT">
 				<long>
-				<standard>Newfoundland-normaltid</standard>
-				<daylight>Newfoundland-sommertid</daylight>
+					<standard>Newfoundland-normaltid</standard>
+					<daylight>Newfoundland-sommertid</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -1102,8 +1070,8 @@
 			</zone>
 			<zone type="America/St_Johns">
 				<long>
-				<standard>Newfoundland-normaltid</standard>
-				<daylight>Newfoundland-sommertid</daylight>
+					<standard>Newfoundland-normaltid</standard>
+					<daylight>Newfoundland-sommertid</daylight>
 				</long>
 				<short>
 					<standard>CNT</standard>
@@ -1113,8 +1081,8 @@
 			</zone>
 			<zone type="ECT">
 				<long>
-				<standard>Mellemeuropæisk normaltid</standard>
-				<daylight>Mellemeuropæisk sommertid</daylight>
+					<standard>Mellemeuropæisk normaltid</standard>
+					<daylight>Mellemeuropæisk sommertid</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -1124,8 +1092,8 @@
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
-				<standard>Mellemeuropæisk normaltid</standard>
-				<daylight>Mellemeuropæisk sommertid</daylight>
+					<standard>Mellemeuropæisk normaltid</standard>
+					<daylight>Mellemeuropæisk sommertid</daylight>
 				</long>
 				<short>
 					<standard>CET</standard>
@@ -1135,8 +1103,8 @@
 			</zone>
 			<zone type="GMT">
 				<long>
-				<standard>Verdenstid</standard>
-				<daylight>Verdenstid</daylight>
+					<standard>Verdenstid</standard>
+					<daylight>Verdenstid</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -1146,8 +1114,8 @@
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
-				<standard>Verdenstid</standard>
-				<daylight>Verdenstid</daylight>
+					<standard>Verdenstid</standard>
+					<daylight>Verdenstid</daylight>
 				</long>
 				<short>
 					<standard>GMT</standard>
@@ -1157,8 +1125,8 @@
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
-				<standard>Israelsk normaltid</standard>
-				<daylight>Israelsk sommertid</daylight>
+					<standard>Israelsk normaltid</standard>
+					<daylight>Israelsk sommertid</daylight>
 				</long>
 				<short>
 					<standard>IST</standard>
@@ -1168,8 +1136,8 @@
 			</zone>
 			<zone type="JST">
 				<long>
-				<standard>Japansk normaltid</standard>
-				<daylight>Japansk normaltid</daylight>
+					<standard>Japansk normaltid</standard>
+					<daylight>Japansk normaltid</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -1179,8 +1147,8 @@
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
-				<standard>Japansk normaltid</standard>
-				<daylight>Japansk normaltid</daylight>
+					<standard>Japansk normaltid</standard>
+					<daylight>Japansk normaltid</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -1190,8 +1158,8 @@
 			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
-				<standard>Østeuropæisk normaltid</standard>
-				<daylight>Østeuropæisk sommertid</daylight>
+					<standard>Østeuropæisk normaltid</standard>
+					<daylight>Østeuropæisk sommertid</daylight>
 				</long>
 				<short>
 					<standard>EET</standard>
@@ -1201,8 +1169,8 @@
 			</zone>
 			<zone type="CTT">
 				<long>
-				<standard>Kinesisk normaltid</standard>
-				<daylight>Kinesisk normaltid</daylight>
+					<standard>Kinesisk normaltid</standard>
+					<daylight>Kinesisk normaltid</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -1212,8 +1180,8 @@
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
-				<standard>Kinesisk normaltid</standard>
-				<daylight>Kinesisk normaltid</daylight>
+					<standard>Kinesisk normaltid</standard>
+					<daylight>Kinesisk normaltid</daylight>
 				</long>
 				<short>
 					<standard>CTT</standard>
@@ -1227,16 +1195,6 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
 		<currencies>
 			<currency type="ADD">
@@ -1649,7 +1607,6 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finsk mark</displayName>
@@ -1685,7 +1642,6 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>Britisk pund</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Georgisk kupon larit</displayName>
@@ -1845,7 +1801,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>Indisk rupee</displayName>
-				<symbol>=0#Rs.|1#Re.|1&lt;Rs.</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Irakisk dinar</displayName>
@@ -1861,7 +1816,6 @@
 			</currency>
 			<currency type="ITL">
 				<displayName>Italiensk lira</displayName>
-				<symbol>₤</symbol>
 			</currency>
 			<currency type="JEP">
 				<displayName>Pund fra Jersey</displayName>
@@ -1881,7 +1835,6 @@
 			</currency>
 			<currency type="JPY">
 				<displayName>Japansk yen</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Kenyansk shilling</displayName>
@@ -2625,15 +2578,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>Ja</yesstr>
-      <nostr>Nej</nostr>
-      <yesexpr>J</yesexpr>
-      <noexpr>N</noexpr>
-    </messages>
-  </posix></ldml>
-<!-- Old Comments. See root.xml for more info.
+	<posix draft="true">
+		<messages>
+			<yesstr>Ja</yesstr>
+			<nostr>Nej</nostr>
+			<yesexpr>J</yesexpr>
+			<noexpr>N</noexpr>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/da.txt?only_with_tag=final-update-LDML
 
 IR { "Den Islamiske Republik Iran" }
@@ -2658,5 +2614,6 @@ zh_tw { "Kinesisk (Uforkortet)" }
 Yiii { "Jiddisch" } // This is wrong. This is Yi, not Yiddish.
         Zyyy { "Ukendt" } // This may need to become "undetermined script"
 variants for collation (traditional may also be used for traditional chinese)
+
 
 -->

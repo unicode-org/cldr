@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="hy"></language> 
-		<territory type="AM"></territory> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="hy"/>
+		<territory type="AM"/>
 	</identity>
-		<dates>
-			<calendars>
-				
-				<calendar type="gregorian">
-					<eras>
-						<eraAbbr>
-							<era type="0">Ք․Ա․</era>
-							<era type="1">Ք․Ե․</era>
-						</eraAbbr>
-					</eras>
-				</calendar>
-			</calendars>
-		</dates>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<eras>
+					<eraAbbr>
+						<era type="0">Ք․Ա․</era>
+						<era type="1">Ք․Ե․</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
+		</calendars>
+	</dates>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/hy_AM.txt?only_with_tag=final-update-LDML
 
 *   Data by :
@@ -32,5 +33,6 @@ URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/hy_AM.txt?only_
 *         Richard Youatt
                 "\u0554\u2024\u0531\u2024",      // K.A.
                 "\u0554\u2024\u0535\u2024"       // K.E.
+
 
 -->

@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="pt"></language> 
-		<territory type="PT"></territory> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="pt"/>
+		<territory type="PT"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="ar">árabe</language>
 			<language type="cs">checo</language>
 			<language type="et">estónio</language>
-			<language type="lv">letão</language>
 			<language type="pl">polaco</language>
 			<language type="sl">esloveno</language>
 		</languages>
 		<territories>
 			<territory type="AE">Emiratos Árabes Unidos</territory>
-			<territory type="AG">Antígua e Barbuda</territory>
 			<territory type="AM">Arménia</territory>
 			<territory type="AQ">Antárctica</territory>
 			<territory type="AZ">Azerbeijão</territory>
@@ -39,7 +36,6 @@
 			<territory type="HK">Hong Kong - Região Administrativa Especial da China</territory>
 			<territory type="KE">Quénia</territory>
 			<territory type="KG">Quirguizistão</territory>
-			<territory type="KH">Camboja</territory>
 			<territory type="KN">Saint Kitts e Nevis</territory>
 			<territory type="KP">Coreia do Norte</territory>
 			<territory type="KR">Coreia do Sul</territory>
@@ -81,111 +77,39 @@
 			<territory type="YU">Jugoslávia</territory>
 		</territories>
 	</localeDisplayNames>
-		<dates>
-			<calendars>
-				
-				<calendar type="gregorian">
-					<week>
-						<minDays count="1"></minDays>
-						<firstDay day="mon"></firstDay>
-					</week>
-					<dateFormats>
-						<default type="medium"></default>
-						<dateFormatLength type="full">
-							<dateFormat>
-								<pattern>EEEE, d' de 'MMMM' de 'yyyy</pattern>
-							</dateFormat>
-						</dateFormatLength>
-						<dateFormatLength type="long">
-							<dateFormat>
-								<pattern>d' de 'MMMM' de 'yyyy</pattern>
-							</dateFormat>
-						</dateFormatLength>
-						<dateFormatLength type="medium">
-							<dateFormat>
-								<pattern>yyyy/MM/dd</pattern>
-							</dateFormat>
-						</dateFormatLength>
-						<dateFormatLength type="short">
-							<dateFormat>
-								<pattern>yy/MM/dd</pattern>
-							</dateFormat>
-						</dateFormatLength>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"></default>
-						<timeFormatLength type="full">
-							<timeFormat>
-								<pattern>HH'H'mm'm'ss's' z</pattern>
-							</timeFormat>
-						</timeFormatLength>
-						<timeFormatLength type="long">
-							<timeFormat>
-								<pattern>HH:mm:ss z</pattern>
-							</timeFormat>
-						</timeFormatLength>
-						<timeFormatLength type="medium">
-							<timeFormat>
-								<pattern>HH:mm:ss</pattern>
-							</timeFormat>
-						</timeFormatLength>
-						<timeFormatLength type="short">
-							<timeFormat>
-								<pattern>HH:mm</pattern>
-							</timeFormat>
-						</timeFormatLength>
-					</timeFormats>
-					<dateTimeFormats>
-						<dateTimeFormatLength>
-							<dateTimeFormat>
-								<pattern>{1} {0}</pattern>
-							</dateTimeFormat>
-						</dateTimeFormatLength>
-					</dateTimeFormats>
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<decimalFormats>
-				<decimalFormatLength>
-					<decimalFormat>
-						<pattern>#,##0.###;-#,##0.###</pattern>
-					</decimalFormat>
-				</decimalFormatLength>
-			</decimalFormats>
-			<scientificFormats>
-				<scientificFormatLength>
-					<scientificFormat>
-						<pattern>#E0</pattern>
-					</scientificFormat>
-				</scientificFormatLength>
-			</scientificFormats>
-			<percentFormats>
-				<percentFormatLength>
-					<percentFormat>
-						<pattern>#,##0%</pattern>
-					</percentFormat>
-				</percentFormatLength>
-			</percentFormats>
-			<currencyFormats>
-				<currencyFormatLength>
-					<currencyFormat>
-						<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
-					</currencyFormat>
-				</currencyFormatLength>
-			</currencyFormats>
-			<currencies>
-				<currency type="PTE">
-					<displayName>Escudo português</displayName>
-					<symbol>Esc.</symbol>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<dateFormats>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>yyyy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
 					<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
-					<decimal>$</decimal>
-					<group>,</group>
-				</currency>
-			</currencies>
-		</numbers>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencies>
+			<currency type="PTE">
+				<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
+				<decimal>$</decimal>
+				<group>,</group>
+			</currency>
+		</currencies>
+	</numbers>
 </ldml>
-<!-- Old Comments. See root.xml for more info.
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/pt_PT.txt?only_with_tag=final-update-LDML
 
 Only contains differences from pt.
@@ -197,5 +121,6 @@ Fallback to pt
 "\u221E",
 "\uFFFD",
 }
+
 
 -->

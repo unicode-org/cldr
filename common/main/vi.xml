@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
-<ldml>
+<ldml >
 	<identity>
-		<version number="1.2"></version>
-		<generation date="2004-08-27"></generation>
-		<language type="vi"></language> 
+		<version number="1.2"/>
+		<generation date="2004-08-27"/>
+		<language type="vi"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -264,7 +264,6 @@
 	</characters>
 	<dates>
 		<calendars>
-			
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -321,8 +320,7 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"></minDays>
-					<firstDay day="mon"></firstDay>
+					<firstDay day="mon"/>
 				</week>
 				<am>SA</am>
 				<pm>CH</pm>
@@ -333,7 +331,6 @@
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"></default>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, 'ngày' dd MMMM 'năm' yyyy</pattern>
@@ -355,29 +352,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<default type="medium"></default>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength>
 						<dateTimeFormat>
@@ -392,38 +366,7 @@
 		<symbols>
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
 		</symbols>
-		<decimalFormats>
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>#,##0.###;-#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<scientificFormats>
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>#E0</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
-		<percentFormats>
-			<percentFormatLength>
-				<percentFormat>
-					<pattern>#,##0%</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -438,15 +381,18 @@
 			</currency>
 		</currencies>
 	</numbers>
-<posix draft="true">
-    <messages>
-      <yesstr>có;có</yesstr>
-      <nostr>không</nostr>
-      <yesexpr>c</yesexpr>
-      <noexpr>k</noexpr>
-    </messages>
-  </posix></ldml>
-<!-- Old Comments. See root.xml for more info.
+	<posix draft="true">
+		<messages>
+			<yesstr>có;có</yesstr>
+			<nostr>không</nostr>
+			<yesexpr>c</yesexpr>
+			<noexpr>k</noexpr>
+		</messages>
+	</posix>
+</ldml>
+
+<!--
+ Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/vi.txt?only_with_tag=final-update-LDML
 
 Note many of the country names have dashes in the name. This seems to be correct.
@@ -467,5 +413,6 @@ which are frequently the same in Vietnamese.
 It is difficult to decide whether Ti\u1EBFng should precede the translation, but it doesn't hurt to keep it there.
         it { "Ti\u1EBFng \u00DD" } // Just \u00DD seems okay because Ti\u1EBFng is used. \u00DD is sometimes used to mean Italy too.
         "Latn",  // ISO 15924 Name 
+
 
 -->

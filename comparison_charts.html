@@ -30,8 +30,9 @@
   </tr>
 </table>
 <p>The Common Locale Data Repository comparison charts (<a href="diff/main/index.html">main</a>, <a href="diff/collation/index.html">collation</a>) provide comparisons between
-locale data from different sources. The files are organized by locale. In each file, the first three columns identify the data item, while the subsequent columns contain data. The
-Common data is in the first data column, with other data sources following (where available). The latter sources are generated with public APIs.</p>
+locale data from different sources. The files are organized by locale. In each file, the first three columns identify the data item, while the subsequent columns contain data.
+There may be different numbers of columns per locale, based on the available comparison data. The Common data is in the first data column, with other data sources following (where
+available). The latter sources are generated with public APIs.</p>
 <h3>Field Formats</h3>
 <p>The format of many of the fields in the comparison chart will be clear from the Name and ID, such as the months of the year. The format for others, such as the date or time
 formats, is structured and requires more interpretation. If you have any questions about the format, consult the overview in <a href="data_formats.html">Data Formats</a>. See
@@ -39,64 +40,85 @@ especially the notes on <a href="data_formats.html#Collation">Collation</a>.</p>
 <h3>Bug Reports</h3>
 <p>For information on filing bug reports on the data, see <a href="filing_bug_reports.html">Filing Bug Reports</a>.</p>
 <h3>Columns</h3>
-<p>The columns are color-coded, such as:</p>
+<p>The links within the top header cells point to the XML data files, either for this locale or for a related locale (the parent or root). Each column is marked with a color at the
+top. The successive rows provide a comparison of the data, with the following color coding:</p>
+<ul>
+  <li>Missing data is indicated by a white cell.</li>
+  <li>Data that is the same as some column to the left uses the same color (with an equals sign in the cell).</li>
+  <li>Data that is identical except for a case change is indicated with a dagger (†).</li>
+  <li>Data that is different than any column to the left has the column's normal color.</li>
+</ul>
+<p><i>Examples from different locales:</i></p>
 <table>
   <tr>
     <th>N.</th>
     <th>ParentNode</th>
     <th>Name</th>
     <th>ID</th>
-    <th bgcolor="#ad989d">COMMON (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/af_ZA.xml">af_ZA</a>, <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/af.xml">af</a>,
+    <th bgcolor="#ad989d">COMMON (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/nl_NL.xml">nl_NL</a>, <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/nl.xml">nl</a>,
       <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/root.xml">root</a>)</th>
-    <th bgcolor="#98fb98">WINDOWS (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/windows/main/af_ZA.xml">af_ZA</a>)</th>
-    <th bgcolor="#ffff33">OPEN_OFFICE (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/open_office/main/af_ZA.xml">af_ZA</a>)</th>
-    <th bgcolor="#1191f1">LINUX (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/linux/main/af_ZA.xml">af_ZA</a>)</th>
-</table>
-<p>The links within the top cells point to the xml data files, either for this locale or for a related locale (the parent or root).</p>
-<p>The successive rows provide a comparison of the data, with the following color coding:</p>
-<ul>
-  <li>Missing data is indicated by a white cell</li>
-  <li>Data that is the same as some column to the left uses the same color (with an equals sign in the cell)</li>
-  <li>Data that is identical except for a case change is indicated with a dagger</li>
-  <li>Data that is different than any column to the left has the column's normal color.</li>
-</ul>
-<p>For example:</p>
-<table>
+    <th bgcolor="#98fb98">WINDOWS (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/windows/main/nl_NL.xml">nl_NL</a>)</th>
+    <th bgcolor="#ff6633">SUNJDK (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/sunjdk/main/nl_NL.xml">nl_NL</a>, <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/sunjdk/main/nl.xml">nl</a>,
+      <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/sunjdk/main/root.xml">root</a>)</th>
+    <th bgcolor="#ccffff">IBMJDK (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ibmjdk/main/nl_NL.xml">nl_NL</a>, <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ibmjdk/main/nl.xml">nl</a>,
+      <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ibmjdk/main/root.xml">root</a>)</th>
+    <th bgcolor="#cc9966">SOLARIS (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/solaris/main/nl_NL.xml">nl_NL</a>)</th>
+    <th bgcolor="#ffff33">OPEN_OFFICE (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/open_office/main/nl_NL.xml">nl_NL</a>)</th>
+    <th bgcolor="#eb97fe">AIX (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/aix/main/nl_NL.xml">nl_NL</a>)</th>
+    <th bgcolor="#1191f1">LINUX (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/linux/main/nl_NL.xml">nl_NL</a>)</th>
+    <th bgcolor="#ffe4b5">HP (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/hp/main/nl_NL.xml">nl_NL</a></th>
   <tr>
-    <td><a href="#16" name="16">16</a></td>
-    <td>monthNames</td>
-    <td>month</td>
-    <td>6</td>
-    <td bgcolor="#ad989d">Junie</td>
-    <td bgcolor="#ad989d">=</td>
-    <td bgcolor="#ad989d">=</td>
-    <td bgcolor="#ad989d">=</td>
-</table>
-<p>&nbsp;</p>
-<table>
-  <tr>
-    <td><a href="#77" name="77">77</a></td>
-    <td>languages</td>
-    <td>language</td>
-    <td>af</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td bgcolor="#ffff33">Afrikaans</td>
-    <td bgcolor="#ffff33">=</td>
+    <td colspan="13">...</td>
   </tr>
   <tr>
-    <td><a href="#78" name="78">78</a></td>
+    <td><a href="#56" name="56">56</a></td>
+    <td>dayNames</td>
+    <td>day</td>
+    <td>sat</td>
+    <td bgcolor="#ad989d">zaterdag</td>
+    <td bgcolor="#ad989d">=</td>
+    <td bgcolor="#ad989d">=</td>
+    <td bgcolor="#ad989d">=</td>
+    <td bgcolor="#ad989d">=</td>
+    <td bgcolor="#ad989d">=</td>
+    <td bgcolor="#ad989d">=</td>
+    <td bgcolor="#ad989d">=</td>
+    <td bgcolor="#ad989d">=</td>
+  <tr>
+    <td colspan="13">...</td>
+  </tr>
+  <tr>
+    <td><a href="#5" name="5">5</a></td>
+    <td>dateFormat</td>
+    <td>pattern</td>
+    <td>full</td>
+    <td bgcolor="#ad989d">yyyy 'm.' MMMM d 'd.',EEEE</td>
+    <td bgcolor="#98fb98">yyyy 'm.' MMMM d 'd.'</td>
+    <td bgcolor="#ff6633">EEEE, yyyy, MMMM d</td>
+    <td bgcolor="#ff6633">=</td>
+    <td bgcolor="#cc9966">yyyy MMMM dd HH:mm:ss</td>
+    <td></td>
+    <td bgcolor="#eb97fe">yyyy m. MMMM dd d.</td>
+    <td bgcolor="#eb97fe">&nbsp;</td>
+    <td bgcolor="#eb97fe">=</td>
+  </tr>
+  <tr>
+    <td colspan="13">...</td>
+  <tr>
+    <td><a href="#120" name="120">120</a></td>
     <td>territories</td>
     <td>territory</td>
     <td>ZA</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td bgcolor="#ffff33">South Africa</td>
+    <td bgcolor="#ad989d">Suid-Afrika</td>
     <td bgcolor="#98fb98">Suid Afrika</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td bgcolor="#ffff33">South Africa</td>
+    <td colspan="3">...</td>
+  <tr>
+    <td colspan="13">...</td>
   </tr>
-</table>
-<p>&nbsp;</p>
-<table>
   <tr>
     <td><a href="#77" name="77">79</a></td>
     <td>languages</td>
@@ -106,7 +128,35 @@ especially the notes on <a href="data_formats.html#Collation">Collation</a>.</p>
     <td bgcolor="#ad989d">&#1073;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1082;&#1110;†</td>
     <td>&nbsp;</td>
     <td bgcolor="#ad989d">&#1073;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1082;&#1110;†</td>
-    <td>&nbsp;</td>
+    <td colspan="5">...</td>
+  </tr>
+  <tr>
+    <td colspan="13">...</td>
+  <tr>
+    <td><a href="#35" name="35">35</a></td>
+    <td>currency</td>
+    <td>displayName</td>
+    <td>EUR</td>
+    <td bgcolor="#ad989d">&#12518;&#12540;&#12525;</td>
+    <td colspan="8">...</td>
+  <tr>
+    <td colspan="13">...</td>
+  <tr>
+    <td><a href="#2" name="2">2</a></td>
+    <td>characters</td>
+    <td>exemplarC</td>
+    <td></td>
+    <td bgcolor="#ad989d">[a-z &#261; &#281; &#303; &#371; &#279; &#363; &#269; š ž]</td>
+    <td colspan="8">...</td>
+  <tr>
+    <td colspan="13">...</td>
+  <tr>
+    <td><a href="#723" name="723">723</a></td>
+    <td>types</td>
+    <td>type</td>
+    <td>phonebook</td>
+    <td bgcolor="#ad989d">Telefonbuch-Sortierregeln</td>
+    <td colspan="8">...</td>
 </table>
 <h2>Collation</h2>
 <p>The collation pages are separated off for easier viewing. There are only currently three comparison columns for collation.</p>
@@ -118,8 +168,8 @@ especially the notes on <a href="data_formats.html#Collation">Collation</a>.</p>
     <th bgcolor="#98fb98">WINDOWS (<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/windows/collation/da.xml">xml</a> <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/windows/collation/en.xml">base
       (en)</a>)</th>
 </table>
-<p>The xml link points to the data file. The base for the Common collation rules is the UCA. For the other data sources, the base is chosen to be an ordering for one of the locales
-sharing the same script. That permits the rules to only contain differences.</p>
+<p>The XML link points to the data file, while the base link points to the collation base. The base for the Common collation rules is the UCA. For the other data sources, the base
+is chosen to be an ordering for one of the locales sharing the same script. That permits the rules to only contain differences.</p>
 
 </body>
 

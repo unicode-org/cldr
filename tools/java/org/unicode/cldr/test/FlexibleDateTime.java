@@ -8,6 +8,7 @@ package org.unicode.cldr.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -33,107 +34,131 @@ import com.ibm.icu.text.SimpleDateFormat;
  * Test class for trying different approaches to flexible date/time
  */
 public class FlexibleDateTime {
-	static final boolean SHOW = true;
+	static final boolean SHOW = false;
+	static final boolean SHOW2 = false;
+
 	List rules = new ArrayList();
 	Map currentVariables = new LinkedHashMap();
+	
+	public String toString() {
+		return rules.toString();
+	}
 
-	public static String convertOODate(String source, String locale) {
-		if (source.length() == 0) return "";
-		source = source.replace('"', '\''); // fix quoting convention
-		StringBuffer buffer = new StringBuffer();
-		int start = 1;
-		int lastPos = 0;
-		boolean inQuote = false;
-		char last = source.charAt(lastPos);
-		for (int i = 1; i < source.length(); ++i) {
-			char c = source.charAt(i);
-			if (c == last) continue;
-			String part = source.substring(lastPos, i);
-			if (!inQuote) part = handleOOPart(part, locale);
-			buffer.append(part);
-			if (c == '\'') {
-				inQuote = !inQuote;
+	static class OOConverter {
+		FormatParser fp = new FormatParser();
+		
+		public String convertOODate(String source, String locale) {
+			if (source.length() == 0) return "";
+			source = source.replace('"', '\''); // fix quoting convention
+			StringBuffer buffer = new StringBuffer();
+			fp.set(source);
+			for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
+				Object item = it.next();
+				if (item instanceof VariableField) {
+					buffer.append(handleOODate(item.toString(), locale));
+				} else {
+					buffer.append(item);
+				}
 			}
-			lastPos = i;
-			last = c;			
+			return buffer.toString();
 		}
-		buffer.append(handleOOPart(source.substring(lastPos, source.length()), locale));
-		return buffer.toString();
-	}
-
-	private static String handleOOPart(String string, String locale) {
-		// preprocess for *localized* strings
-		if (locale.startsWith("de")) {
-			if (string.startsWith("T")) string = string.replace('T','D');
-			if (string.startsWith("J")) string = string.replace('J','Y');
-		} else if (locale.startsWith("nl")) {
-			if (string.startsWith("J")) string = string.replace('J','Y');
-		} else if (locale.startsWith("fi")) {
-			if (string.startsWith("K")) string = string.replace('K','M');
-			if (string.startsWith("V")) string = string.replace('V','Y');
-			if (string.startsWith("P")) string = string.replace('P','D');
-		} else if (locale.startsWith("fr")) {
-			if (string.startsWith("J")) string = string.replace('J','D');
-			if (string.startsWith("A")) string = string.replace('A','Y');
-		} else if (locale.startsWith("es") || locale.startsWith("pt")) {
-			if (string.startsWith("A")) string = string.replace('A','Y');
-		} else if (locale.startsWith("it")) {
-			if (string.startsWith("A")) string = string.replace('A','Y');
-			if (string.startsWith("G")) string = string.replace('G','D');
+	
+		private String handleOODate(String string, String locale) {
+			// preprocess hack for *localized* strings
+			if (locale.startsWith("de")) {
+				if (string.startsWith("T")) string = string.replace('T','D');
+				if (string.startsWith("J")) string = string.replace('J','Y');
+			} else if (locale.startsWith("nl")) {
+				if (string.startsWith("J")) string = string.replace('J','Y');
+			} else if (locale.startsWith("fi")) {
+				if (string.startsWith("K")) string = string.replace('K','M');
+				if (string.startsWith("V")) string = string.replace('V','Y');
+				if (string.startsWith("P")) string = string.replace('P','D');
+			} else if (locale.startsWith("fr")) {
+				if (string.startsWith("J")) string = string.replace('J','D');
+				if (string.startsWith("A")) string = string.replace('A','Y');
+			} else if (locale.startsWith("es") || locale.startsWith("pt")) {
+				if (string.startsWith("A")) string = string.replace('A','Y');
+			} else if (locale.startsWith("it")) {
+				if (string.startsWith("A")) string = string.replace('A','Y');
+				if (string.startsWith("G")) string = string.replace('G','D');
+			}
+			if (string.startsWith("M")) return string;
+			if (string.startsWith("Y") || string.startsWith("W") || 
+					string.equals("D") || string.equals("DD")) return string.toLowerCase();
+			if (string.equals("DDD") || string.equals("NN")) return "EEE";
+			if (string.equals("DDDD") || string.equals("NNN")) return "EEEE";
+			if (string.equals("NNNN")) return "EEEE, ";
+			if (string.equals("G")) return "G"; // best we can do for now
+			if (string.equals("GG")) return "G";
+			if (string.equals("GGG")) return "G"; // best we can do for now
+			if (string.equals("E")) return "y";
+			if (string.equals("EE") || string.equals("R")) return "yy";
+			if (string.equals("RR")) return "Gyy";
+			if (string.startsWith("Q")) return '\'' + string + '\'';
+			if (string.equals("\"")) return "'";
+			char c = string.charAt(0);
+			if (c < 0x80 && UCharacter.isLetter(c)) return string.replace(c,'x');
+			return string;
 		}
-		if (string.startsWith("M")) return string;
-		if (string.startsWith("Y") || string.startsWith("W") || 
-				string.equals("D") || string.equals("DD")) return string.toLowerCase();
-		if (string.equals("DDD") || string.equals("NN")) return "EEE";
-		if (string.equals("DDDD") || string.equals("NNN")) return "EEEE";
-		if (string.equals("NNNN")) return "EEEE, ";
-		if (string.equals("GG")) return "G";
-		if (string.equals("GGG")) return "G"; // best we can do for now
-		if (string.equals("E")) return "y";
-		if (string.equals("EE") || string.equals("R")) return "yy";
-		if (string.equals("RR")) return "Gyy";
-		if (string.startsWith("Q")) return '\'' + string + '\'';
-		if (string.equals("\"")) return "'";
-		char c = string.charAt(0);
-		if (c < 0x80 && UCharacter.isLetter(c)) return "x";
-		return string;
-	}
-
-	public static String convertOOTime(String source, String locale) {
-		// don't have to worry about supplementaries
-		if (source.length() == 0) return "";
-		StringBuffer buffer = new StringBuffer();
-
-		int isAM = source.indexOf("AM/PM");
-		if (isAM >= 0) {
-			source = source.substring(0,isAM) + "a" + source.substring(isAM+5);
+	
+		public String convertOOTime(String source, String locale) {
+			if (source.length() == 0) return "";
+			source = source.replace('"', '\''); // fix quoting convention
+			int isAM = source.indexOf("AM/PM");
+			if (isAM >= 0) {
+				source = source.substring(0,isAM) + "a" + source.substring(isAM+5);
+			}
+			StringBuffer buffer = new StringBuffer();
+			fp.set(source);
+			for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
+				Object item = it.next();
+				if (item instanceof VariableField) {
+					buffer.append(handleOOTime(item.toString(), locale, isAM >= 0));
+				} else {
+					buffer.append(item);
+				}
+			}
+			return buffer.toString();
 		}
-
-		for (int i = 0; i < source.length(); ++i) {
-			char c = source.charAt(i);
+		
+		private String handleOOTime(String string, String locale, boolean isAM) {
+			char c = string.charAt(0);
 			switch (c) {
 			case 'h': case 'H': case 't': case 'T': case 'u': case 'U':
-				if (isAM < 0) c = 'H'; else c = 'h'; break;
-			case 'M': c = 'm'; break;
-			case 'S': c = 's'; break;
-			case '0': c = 'S'; break; // ought to be more sophisticated, but this should work for normal stuff.
-			case 'a': break; // ok
-			default: if (c < 0x80 && UCharacter.isLetter(c)) c = 'x'; break; // cause error
+				return string.replace(c, isAM ? 'h' : 'H');
+			case 'M': case 'S': return string.toLowerCase();
+			case '0': return string.replace('0','S'); // ought to be more sophisticated, but this should work for normal stuff.
+			case 'a': case 's': case 'm': return string; // ok as is
+			default: return "x"; // cause error
 			}
-			buffer.append(c);
 		}
-		return buffer.toString();
+		private String convertToRule(String string) {
+			fp.set(string);
+			StringBuffer buffer = new StringBuffer();
+			for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
+				Object item = it.next();
+				if (item instanceof VariableField) {
+					buffer.append('{' + item.toString() + '}');
+				} else {
+					buffer.append(item);
+				}
+			}
+			return buffer.toString();
+		}
 	}
-	
 	static Date TEST_DATE = new Date(104,8,13,23,58,59);
 	
 	static void getOOData() {
+		OOConverter ooConverter = new OOConverter();
 		Factory cldrFactory = Factory.make("C:\\ICU4C\\locale\\open_office\\main\\", ".*", null);
 		Set locales = cldrFactory.getAvailable();
+		List ruleList = new ArrayList();
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String locale = (String)it.next();
 			System.out.println(locale);
 			CLDRFile item = cldrFactory.make(locale, false);
+			ruleList.clear();
 			for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
 				String xpath = (String) it2.next();
 				if (xpath.indexOf("/special") >= 0) continue;
@@ -143,19 +168,33 @@ public class FlexibleDateTime {
 					Value value = item.getValue(xpath);
 					String pattern = value.getStringValue();
 					String oldPattern = pattern;
-					pattern = isDate ? convertOODate(pattern, locale) : convertOOTime(pattern, locale);
-					System.out.print("\t" + (isDate ? "Date" : "Time") + ": " + oldPattern + "\t" + pattern + "\t");
+					pattern = isDate ? ooConverter.convertOODate(pattern, locale) 
+							: ooConverter.convertOOTime(pattern, locale);
+					if (SHOW2) System.out.print("\t" + (isDate ? "Date" : "Time") + ": " + oldPattern + "\t" + pattern + "\t");
 					try {
 						DateFormat d = new SimpleDateFormat(pattern);
-						System.out.print(d.format(TEST_DATE));
+						if (SHOW2) System.out.print(d.format(TEST_DATE));
+						ruleList.add("datetime=" + ooConverter.convertToRule(pattern));
 					} catch (Exception e) {
-						System.out.print(e.getLocalizedMessage());
+						if (SHOW2) System.out.print(e.getLocalizedMessage());
 					}
-					System.out.println();
+					if (SHOW2) System.out.println();
 				}
 			}
+			String[] data = new String[ruleList.size()];
+			ruleList.toArray(data);
+			FlexibleDateTime fdt = FlexibleDateTime.make(data);
+			for (int i = 0; i < testData.length; ++i) {
+				String p = testData[i];
+				System.out.println("testing: " + p + "\t=>\t" + fdt.getDateFormatPattern(p));
+			}
+				
 		}
 	}
+	
+	static String[] testData = {
+			"yyyyMMdd", "ddMMM"
+	};
 	
 	private static class Variable {
 		String variable;
@@ -419,6 +458,66 @@ k 1..2 24 Hour [1-24].
 		if (currentVariables.size() != 1) throw new IllegalArgumentException("Failed generation");
 		
 		return (String) currentVariables.get("datetime");
+	}
+	
+	static class VariableField {
+		private String string;
+		VariableField(String string) {
+			this.string = string;
+		}
+		public String toString() {
+			return string;
+		}
+	}
+	static class FormatParser {
+		private List items = new ArrayList();
+		private char quoteChar = '\'';
+		
+		void set(String string) {
+			items.clear();
+			if (string.length() == 0) return;
+			int start = 1;
+			int lastPos = 0;
+			char last = string.charAt(lastPos);
+			boolean lastIsVar = isVariableField(last);
+			boolean inQuote = false;
+			// accumulate any sequence of unquoted ASCII letters as a variable
+			// anything else as a string (with quotes retained)
+			for (int i = 1; i < string.length(); ++i) {
+				char ch = string.charAt(i);
+				if (ch == quoteChar) {
+					inQuote = !inQuote;
+				}
+				boolean chIsVar = !inQuote && isVariableField(ch);
+				// break between ASCII letter and any non-equal letter
+				if (ch == last && lastIsVar == chIsVar) continue;
+				String part = string.substring(lastPos, i);
+				if (lastIsVar) {
+					items.add(new VariableField(part));
+				} else {
+					items.add(part);
+				}
+				lastPos = i;
+				last = ch;
+				lastIsVar = chIsVar;
+			}
+			String part = string.substring(lastPos, string.length());
+			if (lastIsVar) {
+				items.add(new VariableField(part));
+			} else {
+				items.add(part);
+			}
+		}
+		/**
+		 * @param last
+		 * @return
+		 */
+		private boolean isVariableField(char last) {
+			return last <= 'z' && last >= '0' && (last <= '9' || last >= 'a' || (last >= 'A' && last <= 'Z'));
+		}
+		public List getItems() {
+			return Collections.unmodifiableList(items);
+		}
 	}
 	
 	/**

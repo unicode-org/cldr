@@ -28,7 +28,7 @@
   <table border="1" cellpadding="2" width="95%" style="border-collapse: collapse; border-width: 1" cellspacing="0">
     <tr>
       <td>Version</td>
-      <td>1<span class="changed">.1 (draft</span><span class="changed2">2</span><span class="changed">)</span></td>
+      <td>1<span class="changed">.1 (draft</span><span class="changed2">3</span><span class="changed">)</span></td>
     </tr>
     <tr>
       <td>Authors</td>
@@ -36,7 +36,7 @@
     </tr>
     <tr>
       <td>Date</td>
-      <td><span class="changed2">2004-05-21</span></td>
+      <td><span class="changed2">2004-05-28</span></td>
     </tr>
     <tr>
       <td>This Version</td>
@@ -60,8 +60,8 @@
     </tr>
     <tr>
       <td><i>DTDs:</i></td>
-      <td class="changed2"><a href="http://www.unicode.org/cldr/data/ldml.dtd">http://www.unicode.org/cldr/data/ldml.dtd</a><br>
-        <a href="http://www.unicode.org/cldr/data/ldmlSupplemental.dtd">http://www.unicode.org/cldr/data/ldmlSupplemental.dtd</a></td>
+      <td class="changed2"><a href="http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">http://www.unicode.org/cldr/dtd/1.1/ldml.dtd</a><br>
+        <a href="http://www.unicode.org/cldr/dtd/1.1/ldmlSupplemental.dtd">http://www.unicode.org/cldr/dtd/1.1/ldmlSupplemental.dtd</a></td>
     </tr>
     <tr>
       <td>Tracking Number</td>
@@ -85,7 +85,7 @@
   of current Unicode Technical Reports see [<a href="#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="#Versions">Versions</a>]. 
   For possible errata for this document, see [<a href="http://www.unicode.org/errata/">Errata</a>].</span></i></p>
   <h3><i><span class="changed"><a name="Previous_Version">Previous Version</a></span></i></h3>
-  <p><i><span class="changed">The 1.0 version of this document was hosted on the OpenI18N site, as follows:</span></i></p>
+  <p><i><span class="changed">The 1.0 version of this document was hosted on the OpenI18N site:</span></i></p>
   <table border="1" cellpadding="2" width="95%" style="border-collapse: collapse; border-width: 1" cellspacing="0">
     <tr>
       <td><i><span class="changed">1.0 Version:</span></i></td>
@@ -99,6 +99,10 @@
       <td><i><span class="changed">1.0 DTDs:</span></i></td>
       <td><span class="changed"><a href="http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">http://www.openi18n.org/spec/ldml/1.0/ldml.dtd</a><br>
         <a href="http://www.openi18n.org/spec/ldml/1.0/ldmlSupplemental.dtd">http://www.openi18n.org/spec/ldml/1.0/ldmlSupplemental.dtd</a></span></td>
+    </tr>
+    <tr>
+      <td><span class="changed">Mirror</span></td>
+      <td><span class="changed"><a href="http://www.unicode.org/cldr/dtd/1.0/">http://www.unicode.org/cldr/dtd/1.0/</a></span></td>
     </tr>
   </table>
   <h2><a name="Contents">Contents</a></h2>
@@ -511,8 +515,8 @@ root</pre>
   <p class="element2">&lt;special xmlns:yyy=&quot;<span style="color: blue">xxx</span>&quot;&gt;</p>
   <p>This element is designed to allow for arbitrary additional annotation and data that is product-specific. It has one required attribute, which specifies the XML <a
   href="http://www.w3.org/TR/REC-xml-names/">namespace</a> of the special data. For example:</p>
-  <pre>&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/data/ldml.dtd</span>&quot; [
-    &lt;!ENTITY % posix SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/data/ldmlPOSIX.dtd</span>&quot;&gt;
+  <pre>&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldml.dtd</span>&quot; [
+    &lt;!ENTITY % posix SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlPOSIX.dtd</span>&quot;&gt;
 <span style="color: blue">%<span class="changed">posix</span>;</span>
 ]&gt;
 &lt;ldml&gt;
@@ -1816,20 +1820,20 @@ root</pre>
   data to be stored in the Common Locale Repository. <span class="changed2">They may change or be removed future versions of this document, and are present her more as examples of 
   how to extend the format.</span> (Some of these items may move into a future version of the Locale Data Markup Language specification.)</p>
   <ul>
-    <li><a href="http://www.unicode.org/cldr/data/ldmlICU.dtd">http://www.unicode.org/cldr/data/ldmlICU.dtd</a></li>
+    <li><a href="http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd</a></li>
     <li>
-      <p class="removed"><a href="http://www.unicode.org/cldr/data/ldmlPOSIX.dtd">http://www.unicode.org/cldr/data/ldmlPOSIX.dtd</a></li>
-    <li><a href="http://www.unicode.org/cldr/data/ldmlOpenOffice.dtd">http://www.unicode.org/cldr/data/ldmlOpenOffice.dtd</a></li>
+      <p class="removed"><a href="http://www.unicode.org/cldr/dtd/1.1/ldmlPOSIX.dtd">http://www.unicode.org/cldr/dtd/1.1/ldmlPOSIX.dtd</a></li>
+    <li><a href="http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd</a></li>
     <li>
-      <p class="removed"><a href="http://www.unicode.org/cldr/data/ldmlISO14652.dtd">http://www.unicode.org/cldr/data/ldmlISO14652.dtd</a></li>
+      <p class="removed"><a href="http://www.unicode.org/cldr/dtd/1.1/ldmlISO14652.dtd">http://www.unicode.org/cldr/dtd/1.1/ldmlISO14652.dtd</a></li>
   </ul>
   <p>These DTDs use namespaces and the special element. To include one or more, use the following pattern to import the special DTDs that are used in the file:</p>
   <pre>&lt;?xml version=&quot;<span style="color: blue">1.0</span>&quot; encoding=&quot;<span style="color: blue">UTF-8</span>&quot; ?&gt;
-&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/data/ldml.dtd</span>&quot; [
-    &lt;!ENTITY % <span style="color: blue">icu</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/data/ldmlICU.dtd</span>&quot;&gt;
-    &lt;!ENTITY % <span style="color: blue">openOffice</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/data/ldmlOpenOffice.dtd</span>&quot;&gt;
-<span class="removed2">    &lt;!ENTITY % <span style="color: blue">iso14652</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/data/ldmlISO14652.dtd</span>&quot;&gt;
-    &lt;!ENTITY % <span style="color: blue">posix</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/data/ldmlPOSIX.dtd</span>&quot;&gt;
+&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldml.dtd</span>&quot; [
+    &lt;!ENTITY % <span style="color: blue">icu</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd</span>&quot;&gt;
+    &lt;!ENTITY % <span style="color: blue">openOffice</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd</span>&quot;&gt;
+<span class="removed2">    &lt;!ENTITY % <span style="color: blue">iso14652</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlISO14652.dtd</span>&quot;&gt;
+    &lt;!ENTITY % <span style="color: blue">posix</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlPOSIX.dtd</span>&quot;&gt;
 </span><span style="color: blue">%icu;
 %openOffice;
 <span class="removed2">%iso14652;
@@ -1837,9 +1841,9 @@ root</pre>
 </span></span>]&gt;</pre>
   <p>Thus to include just the ICU<span class="removed2"> and POSIX </span>DTD<span class="removed2">s</span>, one uses:</p>
   <pre>&lt;?xml version=&quot;<span style="color: blue">1.0</span>&quot; encoding=&quot;<span style="color: blue">UTF-8</span>&quot; ?&gt;
-&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/data/ldml.dtd</span>&quot; [
-    &lt;!ENTITY % icu SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/data/ldmlICU.dtd</span>&quot;&gt;
-<span class="removed2">    &lt;!ENTITY % posix SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/data/ldmlPOSIX.dtd</span>&quot;&gt;
+&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldml.dtd</span>&quot; [
+    &lt;!ENTITY % icu SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd</span>&quot;&gt;
+<span class="removed2">    &lt;!ENTITY % posix SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlPOSIX.dtd</span>&quot;&gt;
 </span><span style="color: blue">%icu;
 <span class="removed2">%posix;
 </span></span>]&gt;</pre>
@@ -2186,12 +2190,10 @@ root</pre>
   <ol type="A" start="2">
     <li>
       <p>&quot;Theater Center News: The date of the last version of this document was 3/20/2003. A copy can be obtained for $50.00 or 1,234.57 Ukrainian Hryvni. We would like to 
-      acknowledge contributions by the following authors (in alphabetical order): Alaa Ghoneim, Ahmed Talaat, Asmus Freytag, Avery Bishop, Behdad Esfahbod, Doug Felt, Eric 
-      Mader.&quot;</p>
+      acknowledge contributions by the following authors (in alphabetical order): Alaa Ghoneim, Ahmed Talaat, Asmus Freytag, Avery Bishop, Behdad Esfahbod, Doug Felt, Eric Mader.&quot;</p>
     <li>
       <p>&quot;Theatre Centre News: The date of the last version of this document was 20/3/2003. A copy can be obtained for $50.00 or 1,234.57 Ukrainian Hryvni. We would like to 
-      acknowledge contributions by the following authors (in alphabetical order): Alaa Ghoneim, Ahmed Talaat, Asmus Freytag, Avery Bishop, Behdad Esfahbod, Doug Felt, Eric 
-      Mader.&quot;</p>
+      acknowledge contributions by the following authors (in alphabetical order): Alaa Ghoneim, Ahmed Talaat, Asmus Freytag, Avery Bishop, Behdad Esfahbod, Doug Felt, Eric Mader.&quot;</p>
     </li>
   </ol>
   <p>Clearly there are many acceptable variations on this text. For example, copy editors might still quibble with the use of first vs. last name sorting in the list, but clearly 
@@ -2322,8 +2324,7 @@ root</pre>
           <p>[:Lu:]&nbsp;</p>
         </td>
         <td>
-          <p>The set of characters belonging to the given Unicode category, as defined by Character.getType(); in this case, Unicode uppercase letters. The long form for this is 
-          [:UppercaseLetter:].&nbsp;</p>
+          <p>The set of characters belonging to the given Unicode category, as defined by Character.getType(); in this case, Unicode uppercase letters. The long form for this is [:UppercaseLetter:].&nbsp;</p>
         </td>
       </tr>
       <tr>
@@ -2632,7 +2633,7 @@ root</pre>
     <tr>
       <td class="noborder">[<a name="LDML">Example</a>]</td>
       <td class="noborder">A sample in Locale Data Markup Language<br>
-        <a href="http://www.unicode.org/cldr/data/ldml-example.xml">http://www.unicode.org/cldr/data/ldml-example.xml</a></td>
+        <a href="http://www.unicode.org/cldr/dtd/1.1/ldml-example.xml">http://www.unicode.org/cldr/dtd/1.1/ldml-example.xml</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="ICUCollation">ICUCollation</a>]</td>
@@ -2642,7 +2643,7 @@ root</pre>
     <tr>
       <td class="noborder">[<a name="ICUData">ICUData</a>]</td>
       <td class="noborder">ICU Locale Data<br>
-        <a href="http://oss.software.ibm.com/cvs/icu/icu/source/data/">http://oss.software.ibm.com/cvs/icu/icu/source/data/</a></td>
+        <a href="http://oss.software.ibm.com/cvs/icu/icu/source/dtd/1.1/">http://oss.software.ibm.com/cvs/icu/icu/source/dtd/1.1/</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="ICUTransforms">ICUTransforms</a>]</td>
@@ -2738,8 +2739,9 @@ root</pre>
           <li><span class="changed">Removed Data Access, pending resolution</span></li>
           <li><span class="changed">Added width and context to dayNames and monthNames, changing element structure</span></li>
           <li><span class="changed">Added optional pattern for currencies</span></li>
-          <li><span class="changed">Clarified restriction on before attribute in collation, and order of rules (introducing new term &quot;atomic&quot;.</span></li>
+          <li><span class="changed">Clarified restriction on before attribute in collation, and order of rules (introducing new term &quot;atomic&quot;)</span></li>
           <li><span class="changed">Clarified multiple inheritance</span></li>
+          <li><span class="changed">Moved POSIX items into specification (from special)</span></li>
           <li><span class="changed">Misc. other edits</span></li>
         </ul>
       </td>

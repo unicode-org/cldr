@@ -1,9 +1,4 @@
 it_CH {
-    CurrencyElements { 
-            "SFr.",
-            "CHF",
-            ".",
-    }
     DateTimePatterns { 
             "H.mm' h' z",
             "HH:mm:ss z",
@@ -11,7 +6,7 @@ it_CH {
             "HH:mm",
             "EEEE, d. MMMM yyyy",
             "d. MMMM yyyy",
-            "d-MMM-yy",
+            "d-MMM-yyyy",
             "dd.MM.yy",
             "{1} {0}",
     }
@@ -36,14 +31,5 @@ it_CH {
             "#,##0%",
     }
     ShortCountry { "CHE" }
-    localPatternChars { "GuMtkHmsSEDFwWahKz" }
-    zoneStrings { 
-        {
-                "Africa/Casablanca",
-                "GMT",
-                "GMT",
-                "GMT",
-                "GMT",
-        }
-    }
+    localPatternChars { "GuMtkHmsSEDFwWahKzZ" }
 }

@@ -1,12 +1,7 @@
 de_AT {
-    CurrencyElements { 
-            "\u00F6S",
-            "ATS",
-            ",",
-    }
-    DateTimeElements { 
-            "2",
-            "1",
+    DateTimeElements:intvector { 
+            2,
+            1,
     }
     DateTimePatterns { 
             "HH:mm' Uhr 'z",
@@ -57,14 +52,5 @@ de_AT {
             "#,##0%",
     }
     ShortCountry { "AUT" }
-    localPatternChars { "GuMtkHmsSEDFwWahKz" }
-    zoneStrings { 
-        {
-                "Africa/Casablanca",
-                "GMT",
-                "GMT",
-                "GMT",
-                "GMT",
-        }
-    }
+    localPatternChars { "GuMtkHmsSEDFwWahKzZ" }
 }

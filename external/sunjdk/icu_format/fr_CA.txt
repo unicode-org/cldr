@@ -1,9 +1,4 @@
 fr_CA {
-    CurrencyElements { 
-            "$",
-            "CAD",
-            ",",
-    }
     ///* Discarding duplicate data for tag: DateTimeElements */
     DateTimePatterns { 
             "H' h 'mm z",
@@ -12,7 +7,7 @@ fr_CA {
             "HH:mm",
             "EEEE d MMMM yyyy",
             "d MMMM yyyy",
-            "yy-MM-dd",
+            "yyyy-MM-dd",
             "yy-MM-dd",
             "{1} {0}",
     }
@@ -24,14 +19,5 @@ fr_CA {
             "#,##0%",
     }
     ShortCountry { "CAN" }
-    localPatternChars { "GanjkHmsSEDFwWxhKz" }
-    zoneStrings { 
-        {
-                "Africa/Casablanca",
-                "GMT",
-                "GMT",
-                "GMT",
-                "GMT",
-        }
-    }
+    localPatternChars { "GanjkHmsSEDFwWxhKzZ" }
 }

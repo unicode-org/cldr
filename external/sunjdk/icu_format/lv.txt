@@ -1,9 +1,5 @@
 lv {
-    CollationElements { 
-        Version { "0.0" }
-        Override { "FALSE" }
-        Sequence { "@& C < c\u030C , C\u030C & G < g\u0327 , G\u0327 & I < y, Y& K < k\u0327 , K\u0327 & L < l\u0327 , L\u0327 & N < n\u0327 , N\u0327 & S < s\u030C , S\u030C & Z < z\u030C , Z\u030C " }
-     }
+    CollationElements { "@& C < c\u030C , C\u030C & G < g\u0327 , G\u0327 & I < y, Y& K < k\u0327 , K\u0327 & L < l\u0327 , L\u0327 & N < n\u0327 , N\u0327 & S < s\u030C , S\u030C & Z < z\u030C , Z\u030C " }
     Countries { 
         LV { "Latvija" }
     }
@@ -32,7 +28,7 @@ lv {
             "pirmdiena",
             "otrdiena",
             "tre\u0161diena",
-            "ceturdien",
+            "ceturtdiena",
             "piektdiena",
             "sestdiena",
     }
@@ -89,14 +85,5 @@ lv {
             "\uFFFD",
     }
     ShortLanguage { "lav" }
-    localPatternChars { "GanjkHmsSEDFwWxhKz" }
-    zoneStrings { 
-        {
-                "Africa/Casablanca",
-                "GMT",
-                "GMT",
-                "GMT",
-                "GMT",
-        }
-    }
+    localPatternChars { "GanjkHmsSEDFwWxhKzZ" }
 }

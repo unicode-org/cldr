@@ -1,307 +1,155 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="mk"></language>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="mk" /> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="mk">македо͍ски</language>
+			<language type="mk">македонски</language>
 		</languages>
 		<territories>
 			<territory type="MK">Македонија</territory>
 		</territories>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
 	</localeDisplayNames>
-	<layout>
-		<orientation lines="top-to-bottom" characters="left-to-right" />
-	</layout>
-		<dates>
-			<localizedPatternChars>GuMtkHmsSEDFwWahKz</localizedPatternChars>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">јануари</month>
-						<month type="2">февруари</month>
-						<month type="3">март</month>
-						<month type="4">април</month>
-						<month type="5">мај</month>
-						<month type="6">јуни</month>
-						<month type="7">јули</month>
-						<month type="8">август</month>
-						<month type="9">септември</month>
-						<month type="10">октомври</month>
-						<month type="11">ноември</month>
-						<month type="12">декември</month>
-						<month type="13"></month>
-					</monthNames>
-					<monthAbbr>
-						<month type="1">јан.</month>
-						<month type="2">фев.</month>
-						<month type="3">мар.</month>
-						<month type="4">апр.</month>
-						<month type="5">мај.</month>
-						<month type="6">јун.</month>
-						<month type="7">јул.</month>
-						<month type="8">авг.</month>
-						<month type="9">септ.</month>
-						<month type="10">окт.</month>
-						<month type="11">ноем.</month>
-						<month type="12">декем.</month>
-						<month type="13"></month>
-					</monthAbbr>
-					<dayNames>
-						<day type="sun">недела</day>
-						<day type="mon">понеделник</day>
-						<day type="tue">вторник</day>
-						<day type="wed">среда</day>
-						<day type="thu">четврток</day>
-						<day type="fri">петок</day>
-						<day type="sat">сабота</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">нед.</day>
-						<day type="mon">пон.</day>
-						<day type="tue">вт.</day>
-						<day type="wed">сре.</day>
-						<day type="thu">чет.</day>
-						<day type="fri">пет.</day>
-						<day type="sat">саб.</day>
-					</dayAbbr>
-					<eras>
+	<dates>
+		<localizedPatternChars>GuMtkHmsSEDFwWahKzZ</localizedPatternChars>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">јануари</month>
+					<month type="2">февруари</month>
+					<month type="3">март</month>
+					<month type="4">април</month>
+					<month type="5">мај</month>
+					<month type="6">јуни</month>
+					<month type="7">јули</month>
+					<month type="8">август</month>
+					<month type="9">септември</month>
+					<month type="10">октомври</month>
+					<month type="11">ноември</month>
+					<month type="12">декември</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">јан.</month>
+					<month type="2">фев.</month>
+					<month type="3">мар.</month>
+					<month type="4">апр.</month>
+					<month type="5">мај.</month>
+					<month type="6">јун.</month>
+					<month type="7">јул.</month>
+					<month type="8">авг.</month>
+					<month type="9">септ.</month>
+					<month type="10">окт.</month>
+					<month type="11">ноем.</month>
+					<month type="12">декем.</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">недела</day>
+					<day type="mon">понеделник</day>
+					<day type="tue">вторник</day>
+					<day type="wed">среда</day>
+					<day type="thu">четврток</day>
+					<day type="fri">петок</day>
+					<day type="sat">сабота</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">нед.</day>
+					<day type="mon">пон.</day>
+					<day type="tue">вт.</day>
+					<day type="wed">сре.</day>
+					<day type="thu">чет.</day>
+					<day type="fri">пет.</day>
+					<day type="sat">саб.</day>
+				</dayAbbr>
+				<eras>
+					<eraAbbr>
 						<era type="1">пр.н.е.</era>
 						<era type="2">ае.</era>
-					</eras>
-					<dateFormats>
-						<default type="medium"/>
-						<dateFormat type="full">
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
 							<pattern>EEEE, d, MMMM yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="long">
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
 							<pattern>d, MMMM yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="medium">
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
 							<pattern>d.M.yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="short">
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
 							<pattern>d.M.yy</pattern>
 						</dateFormat>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"/>
-						<timeFormat type="full">
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-						<timeFormat type="long">
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-						<timeFormat type="medium">
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
 							<pattern>HH:mm:</pattern>
 						</timeFormat>
-						<timeFormat type="short">
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
 							<pattern>HH:mm</pattern>
 						</timeFormat>
-					</timeFormats>
-					<dateTimeFormat>
-						<pattern>{1} {0}</pattern>
-					</dateTimeFormat>
-				</calendar>
-			</calendars>
-			<timeZoneNames>
-			</timeZoneNames>
-		</dates>
-			<collations>
-				<collation  >
-					<rules>
-						<reset>9</reset>
-						<p>҂</p>
-						<reset>Z</reset>
-						<p>а</p>
-						<t>А</t>
-						<p>б</p>
-						<t>Б</t>
-						<p>в</p>
-						<t>В</t>
-						<p>г</p>
-						<t>Г</t>
-						<s>ґ</s>
-						<t>Ґ</t>
-						<s>ҕ</s>
-						<t>Ҕ</t>
-						<s>ѓ</s>
-						<t>Ѓ</t>
-						<s>ғ</s>
-						<t>Ғ</t>
-						<p>д</p>
-						<t>Д</t>
-						<p>ђ</p>
-						<t>Ђ</t>
-						<p>е</p>
-						<t>Е</t>
-						<s>ҽ</s>
-						<t>Ҽ</t>
-						<s>ё</s>
-						<t>Ё</t>
-						<s>ҿ</s>
-						<t>Ҿ</t>
-						<p>є</p>
-						<t>Є</t>
-						<p>ж</p>
-						<t>Ж</t>
-						<s>җ</s>
-						<t>Җ</t>
-						<s>ӂ</s>
-						<t>Ӂ</t>
-						<p>з</p>
-						<t>З</t>
-						<s>ҙ</s>
-						<t>Ҙ</t>
-						<p>ѕ</p>
-						<t>Ѕ</t>
-						<p>и</p>
-						<t>И</t>
-						<p>і</p>
-						<t>І</t>
-						<s>Ӏ</s>
-						<p>ї</p>
-						<t>Ї</t>
-						<p>й</p>
-						<t>Й</t>
-						<p>ј</p>
-						<t>Ј</t>
-						<p>к</p>
-						<t>К</t>
-						<s>ҟ</s>
-						<t>Ҟ</t>
-						<s>ӄ</s>
-						<t>Ӄ</t>
-						<s>ҝ</s>
-						<t>Ҝ</t>
-						<s>ҡ</s>
-						<t>Ҡ</t>
-						<s>ќ</s>
-						<t>Ќ</t>
-						<s>қ</s>
-						<t>Қ</t>
-						<p>л</p>
-						<t>Л</t>
-						<p>љ</p>
-						<t>Љ</t>
-						<p>м</p>
-						<t>М</t>
-						<p>н</p>
-						<t>Н</t>
-						<sc>ѣң</sc>
-						<t>Ң</t>
-						<s>ҥ</s>
-						<t>Ҥ</t>
-						<s>һ</s>
-						<t>Һ</t>
-						<s>ӈ</s>
-						<t>Ӈ</t>
-						<p>њ</p>
-						<t>Њ</t>
-						<p>о</p>
-						<t>О</t>
-						<s>ҩ</s>
-						<t>Ҩ</t>
-						<p>п</p>
-						<t>П</t>
-						<s>ҧ</s>
-						<t>Ҧ</t>
-						<p>р</p>
-						<t>Р</t>
-						<p>с</p>
-						<t>С</t>
-						<s>ҫ</s>
-						<t>Ҫ</t>
-						<p>т</p>
-						<t>Т</t>
-						<s>ҭ</s>
-						<t>Ҭ</t>
-						<p>ћ</p>
-						<t>Ћ</t>
-						<p>у</p>
-						<t>У</t>
-						<s>ү</s>
-						<t>Ү</t>
-						<p>ў</p>
-						<t>Ў</t>
-						<p>ұ</p>
-						<t>Ұ</t>
-						<p>ф</p>
-						<t>Ф</t>
-						<p>х</p>
-						<t>Х</t>
-						<s>ҳ</s>
-						<t>Ҳ</t>
-						<p>ц</p>
-						<t>Ц</t>
-						<s>ҵ</s>
-						<t>Ҵ</t>
-						<p>ч</p>
-						<t>Ч</t>
-						<sc>ҷҶҹ</sc>
-						<t>Ҹ</t>
-						<s>ӌ</s>
-						<t>Ӌ</t>
-						<p>џ</p>
-						<t>Џ</t>
-						<p>ш</p>
-						<t>Ш</t>
-						<p>щ</p>
-						<t>Щ</t>
-						<p>ъ</p>
-						<t>Ъ</t>
-						<p>ы</p>
-						<t>Ы</t>
-						<p>ь</p>
-						<t>Ь</t>
-						<p>э</p>
-						<t>Э</t>
-						<p>ю</p>
-						<t>Ю</t>
-						<p>я</p>
-						<t>Я</t>
-						<p>ѡ</p>
-						<t>Ѡ</t>
-						<pc>Ѣѥ</pc>
-						<t>Ѥ</t>
-						<p>ѧ</p>
-						<t>Ѧ</t>
-						<p>ѩ</p>
-						<t>Ѩ</t>
-						<p>ѫ</p>
-						<t>Ѫ</t>
-						<p>ѭ</p>
-						<t>Ѭ</t>
-						<p>ѯ</p>
-						<t>Ѯ</t>
-						<p>ѱ</p>
-						<t>Ѱ</t>
-						<p>ѳ</p>
-						<t>Ѳ</t>
-						<p>ѵ</p>
-						<t>Ѵ</t>
-						<s>ѷ</s>
-						<t>Ѷ</t>
-						<p>ѹ</p>
-						<t>Ѹ</t>
-						<p>ѻ</p>
-						<t>Ѻ</t>
-						<p>ѽ</p>
-						<t>Ѽ</t>
-						<p>ѿ</p>
-						<t>Ѿ</t>
-						<p>ҁ</p>
-					</rules>
-					<special owner="http://oss.software.ibm.com/icu/" version="0.0" />
-				</collation  >
-			</collations>
-</localeData>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+	</numbers>
+	<collations version="3.1.1">
+		<collation  >
+		</collation  >
+	</collations >
+</ldml>

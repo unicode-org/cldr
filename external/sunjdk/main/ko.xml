@@ -1,126 +1,474 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="ko"></language>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="ko" /> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="aa">아파르어</language>
+			<language type="ab">압카즈어</language>
+			<language type="af">남아공 공용어</language>
+			<language type="am">암하라어</language>
+			<language type="ar">아랍어</language>
+			<language type="as">아샘어</language>
+			<language type="ay">아이마라어</language>
+			<language type="az">아제르바이잔어</language>
+			<language type="ba">바슈키르어</language>
+			<language type="be">벨로루시어</language>
+			<language type="bg">불가리아어</language>
+			<language type="bh">비하르어</language>
+			<language type="bi">비슬라마어</language>
+			<language type="bn">벵골어</language>
+			<language type="bo">티베트어</language>
+			<language type="br">브르타뉴어</language>
+			<language type="ca">카탈로니아어</language>
+			<language type="co">코르시카어</language>
+			<language type="cs">체코어</language>
+			<language type="cy">웨일스어</language>
+			<language type="da">덴마크어</language>
+			<language type="de">독일어</language>
+			<language type="dz">부탄어</language>
+			<language type="el">그리스어</language>
+			<language type="en">영어</language>
+			<language type="eo">에스페란토어</language>
+			<language type="es">스페인어</language>
+			<language type="et">에스토니아어</language>
+			<language type="eu">바스크어</language>
+			<language type="fa">이란어</language>
+			<language type="fi">핀란드어</language>
+			<language type="fj">피지어</language>
+			<language type="fo">페로스어</language>
+			<language type="fr">프랑스어</language>
+			<language type="fy">프리지아어</language>
+			<language type="ga">아일랜드어</language>
+			<language type="gd">스코갤릭어</language>
+			<language type="gl">갈리시아어</language>
+			<language type="gn">구아라니어</language>
+			<language type="gu">구자라트어</language>
+			<language type="ha">하우자어</language>
+			<language type="he">히브리어</language>
+			<language type="hi">힌디어</language>
+			<language type="hr">크로아티아어</language>
+			<language type="hu">헝가리어</language>
+			<language type="hy">아르메니아어</language>
+			<language type="ia">인터링거</language>
+			<language type="id">인도네시아어</language>
+			<language type="ie">인터링게어</language>
+			<language type="ik">이누피아크어</language>
+			<language type="in">인도네시아어</language>
+			<language type="is">아이슬란드어</language>
+			<language type="it">이탈리아어</language>
+			<language type="iu">이눅티투트어</language>
+			<language type="iw">히브리어</language>
+			<language type="ja">일본어</language>
+			<language type="ji">이디시어</language>
+			<language type="jw">자바어</language>
+			<language type="ka">그루지야어</language>
+			<language type="kk">카자흐어</language>
+			<language type="kl">그린랜드어</language>
+			<language type="km">캄보디아어</language>
+			<language type="kn">카나다어</language>
 			<language type="ko">한국어</language>
+			<language type="ks">카슈미르어</language>
+			<language type="ku">크르드어</language>
+			<language type="ky">키르기스어</language>
+			<language type="la">라틴어</language>
+			<language type="ln">링갈라어</language>
+			<language type="lo">라오어</language>
+			<language type="lt">리투아니아어</language>
+			<language type="lv">라트비아어 (레트어)</language>
+			<language type="mg">마다가스카르어</language>
+			<language type="mi">마오리어</language>
+			<language type="mk">마케도니아어</language>
+			<language type="ml">말라얄람어</language>
+			<language type="mn">몽골어</language>
+			<language type="mo">몰다비아어</language>
+			<language type="mr">마라티어</language>
+			<language type="ms">말레이어</language>
+			<language type="mt">몰타어</language>
+			<language type="my">버마어</language>
+			<language type="na">나우루어</language>
+			<language type="ne">네팔어</language>
+			<language type="nl">네덜란드어</language>
+			<language type="no">노르웨이어</language>
+			<language type="oc">옥시트어</language>
+			<language type="om">오로모어 (아판)</language>
+			<language type="or">오리야어</language>
+			<language type="pa">펀잡어</language>
+			<language type="pl">폴란드어</language>
+			<language type="ps">파시토어 (푸시토)</language>
+			<language type="pt">포르투칼어</language>
+			<language type="qu">케추아어</language>
+			<language type="rm">레토로만어</language>
+			<language type="rn">반투어(부룬디)</language>
+			<language type="ro">루마니아어</language>
+			<language type="ru">러시아어</language>
+			<language type="rw">반투어(루완다)</language>
+			<language type="sa">산스크리트어</language>
+			<language type="sd">신디어</language>
+			<language type="sg">산고어</language>
+			<language type="sh">세르보크로아티아어</language>
+			<language type="si">스리랑카어</language>
+			<language type="sk">슬로바키아어</language>
+			<language type="sl">슬로베니아어</language>
+			<language type="sm">사모아어</language>
+			<language type="sn">쇼나어</language>
+			<language type="so">소말리아어</language>
+			<language type="sq">알바니아어</language>
+			<language type="sr">세르비아어</language>
+			<language type="ss">시스와티어</language>
+			<language type="st">세소토어</language>
+			<language type="su">순단어</language>
+			<language type="sv">스웨덴어</language>
+			<language type="sw">스와힐리어</language>
+			<language type="ta">타밀어</language>
+			<language type="te">텔루구어</language>
+			<language type="tg">타지키스탄어</language>
+			<language type="th">태국어</language>
+			<language type="ti">티그리냐어</language>
+			<language type="tk">투르크멘어</language>
+			<language type="tl">타갈로그어</language>
+			<language type="tn">세츠와나어</language>
+			<language type="to">통가어</language>
+			<language type="tr">터키어</language>
+			<language type="ts">통가어</language>
+			<language type="tt">타타르어</language>
+			<language type="tw">트위어</language>
+			<language type="ug">위구르어</language>
+			<language type="uk">우크라이나어</language>
+			<language type="ur">우르두어</language>
+			<language type="uz">우즈베크어</language>
+			<language type="vi">베트남어</language>
+			<language type="vo">볼라퓌크어</language>
+			<language type="wo">올로프어</language>
+			<language type="xh">반투어(남아프리카)</language>
+			<language type="yi">이디시어</language>
+			<language type="yo">요루바어</language>
+			<language type="za">주앙어</language>
+			<language type="zh">중국어</language>
+			<language type="zu">줄루어</language>
 		</languages>
 		<territories>
+			<territory type="AD">안도라</territory>
+			<territory type="AE">아랍에미리트</territory>
+			<territory type="AF">아프가니스탄</territory>
+			<territory type="AI">안길라</territory>
+			<territory type="AL">알바니아</territory>
+			<territory type="AM">아르메니아</territory>
+			<territory type="AN">네덜란드령 안틸레스</territory>
+			<territory type="AO">앙골라</territory>
+			<territory type="AR">아르헨티나</territory>
+			<territory type="AT">오스트리아</territory>
+			<territory type="AU">오스트레일리아</territory>
+			<territory type="AW">아루바</territory>
+			<territory type="AZ">아제르바이잔</territory>
+			<territory type="BA">보스니아 헤르체고비나</territory>
+			<territory type="BB">바베이도스</territory>
+			<territory type="BD">방글라데시</territory>
+			<territory type="BE">벨기에</territory>
+			<territory type="BF">부르키나파소</territory>
+			<territory type="BG">불가리아</territory>
+			<territory type="BH">바레인</territory>
+			<territory type="BI">부룬디</territory>
+			<territory type="BJ">베넹</territory>
+			<territory type="BM">버뮤다</territory>
+			<territory type="BN">브루나이</territory>
+			<territory type="BO">볼리비아</territory>
+			<territory type="BR">브라질</territory>
+			<territory type="BS">바하마</territory>
+			<territory type="BT">부탄</territory>
+			<territory type="BW">보츠와나</territory>
+			<territory type="BY">벨라루스</territory>
+			<territory type="BZ">벨리즈</territory>
+			<territory type="CA">캐나다</territory>
+			<territory type="CF">중앙 아프리카</territory>
+			<territory type="CG">콩고</territory>
+			<territory type="CH">스위스</territory>
+			<territory type="CI">코트디부와르</territory>
+			<territory type="CL">칠레</territory>
+			<territory type="CM">카메룬</territory>
+			<territory type="CN">중국</territory>
+			<territory type="CO">콜롬비아</territory>
+			<territory type="CR">코스타리카</territory>
+			<territory type="CU">쿠바</territory>
+			<territory type="CV">까뽀베르데</territory>
+			<territory type="CY">사이프러스</territory>
+			<territory type="CZ">체코</territory>
+			<territory type="DE">독일</territory>
+			<territory type="DJ">지부티</territory>
+			<territory type="DK">덴마크</territory>
+			<territory type="DM">도미니카</territory>
+			<territory type="DO">도미니카 공화국</territory>
+			<territory type="DZ">알제리</territory>
+			<territory type="EC">에쿠아도르</territory>
+			<territory type="EE">에스토니아</territory>
+			<territory type="EG">이집트</territory>
+			<territory type="EH">서사하라</territory>
+			<territory type="ER">에리트리아</territory>
+			<territory type="ES">스페인</territory>
+			<territory type="ET">이디오피아</territory>
+			<territory type="FI">핀란드</territory>
+			<territory type="FJ">피지</territory>
+			<territory type="FM">마이크로네시아</territory>
+			<territory type="FR">프랑스</territory>
+			<territory type="GA">가봉</territory>
+			<territory type="GB">영국</territory>
+			<territory type="GE">그루지야</territory>
+			<territory type="GF">프랑스령 기아나</territory>
+			<territory type="GH">가나</territory>
+			<territory type="GM">감비아</territory>
+			<territory type="GN">기니</territory>
+			<territory type="GP">과달로프</territory>
+			<territory type="GQ">적도 기니</territory>
+			<territory type="GR">그리스</territory>
+			<territory type="GT">과테말라</territory>
+			<territory type="GW">기네비쏘</territory>
+			<territory type="GY">가이아나</territory>
+			<territory type="HK">홍콩</territory>
+			<territory type="HN">온두라스</territory>
+			<territory type="HR">크로아티아</territory>
+			<territory type="HT">하이티</territory>
+			<territory type="HU">헝가리</territory>
+			<territory type="ID">인도네시아</territory>
+			<territory type="IE">아일랜드</territory>
+			<territory type="IL">이스라엘</territory>
+			<territory type="IN">인도</territory>
+			<territory type="IQ">이라크</territory>
+			<territory type="IR">이란</territory>
+			<territory type="IS">아이슬란드</territory>
+			<territory type="IT">이탈리아</territory>
+			<territory type="JM">자메이카</territory>
+			<territory type="JO">요르단</territory>
+			<territory type="JP">일본</territory>
+			<territory type="KE">케냐</territory>
+			<territory type="KG">키르기스스탄</territory>
+			<territory type="KH">캄보디아</territory>
+			<territory type="KI">키리바시</territory>
+			<territory type="KM">코모르</territory>
+			<territory type="KP">북한</territory>
 			<territory type="KR">대한민국</territory>
+			<territory type="KW">쿠웨이트</territory>
+			<territory type="KZ">카자흐스탄</territory>
+			<territory type="LA">라오스</territory>
+			<territory type="LB">레바논</territory>
+			<territory type="LI">리히텐슈타인</territory>
+			<territory type="LK">스리랑카</territory>
+			<territory type="LR">라이베리아</territory>
+			<territory type="LS">레소토</territory>
+			<territory type="LT">리투아니아</territory>
+			<territory type="LU">룩셈부르크</territory>
+			<territory type="LV">라트비아</territory>
+			<territory type="LY">리비아</territory>
+			<territory type="MA">모로코</territory>
+			<territory type="MC">모나코</territory>
+			<territory type="MD">몰도바</territory>
+			<territory type="MG">마다가스카르</territory>
+			<territory type="MK">마케도니아어</territory>
+			<territory type="ML">말리</territory>
+			<territory type="MM">미얀마</territory>
+			<territory type="MN">몽골</territory>
+			<territory type="MQ">말티니크</territory>
+			<territory type="MR">모리타니</territory>
+			<territory type="MS">몬트세라트</territory>
+			<territory type="MT">몰타</territory>
+			<territory type="MU">모리셔스</territory>
+			<territory type="MX">멕시코</territory>
+			<territory type="MY">말레이지아</territory>
+			<territory type="MZ">모잠비크</territory>
+			<territory type="NA">나미비아</territory>
+			<territory type="NC">뉴 칼레도니아</territory>
+			<territory type="NE">니제르</territory>
+			<territory type="NG">나이지리아</territory>
+			<territory type="NI">니카라과</territory>
+			<territory type="NL">네덜란드</territory>
+			<territory type="NO">노르웨이</territory>
+			<territory type="NP">네팔</territory>
+			<territory type="NU">니우에</territory>
+			<territory type="NZ">뉴질랜드</territory>
+			<territory type="OM">오만</territory>
+			<territory type="PA">파나마</territory>
+			<territory type="PE">페루</territory>
+			<territory type="PF">프랑스령 폴리네시아</territory>
+			<territory type="PG">파푸아뉴기니</territory>
+			<territory type="PH">필리핀</territory>
+			<territory type="PK">파키스탄</territory>
+			<territory type="PL">폴란드</territory>
+			<territory type="PR">푸에르토리코</territory>
+			<territory type="PT">포르트칼</territory>
+			<territory type="PY">파라과이</territory>
+			<territory type="QA">카타르</territory>
+			<territory type="RO">루마니아</territory>
+			<territory type="RU">러시아</territory>
+			<territory type="RW">르완다</territory>
+			<territory type="SA">사우디아라비아</territory>
+			<territory type="SC">쉐이쉘</territory>
+			<territory type="SD">수단</territory>
+			<territory type="SE">스웨덴</territory>
+			<territory type="SG">싱가포르</territory>
+			<territory type="SI">슬로베니아</territory>
+			<territory type="SK">슬로바키아</territory>
+			<territory type="SL">시에라리온</territory>
+			<territory type="SN">세네갈</territory>
+			<territory type="SO">소말리아</territory>
+			<territory type="SP">세르비아</territory>
+			<territory type="SR">수리남</territory>
+			<territory type="SV">엘살바도르</territory>
+			<territory type="SY">시리아</territory>
+			<territory type="SZ">스와질랜드</territory>
+			<territory type="TD">차드</territory>
+			<territory type="TF">프랑스 남부 지방</territory>
+			<territory type="TG">토고</territory>
+			<territory type="TH">태국</territory>
+			<territory type="TJ">타지키스탄</territory>
+			<territory type="TK">토켈라우</territory>
+			<territory type="TM">투르크메니스탄</territory>
+			<territory type="TN">튀니지</territory>
+			<territory type="TO">통가</territory>
+			<territory type="TP">동티모르</territory>
+			<territory type="TR">터키</territory>
+			<territory type="TT">트리니다드 토바고</territory>
+			<territory type="TW">대만</territory>
+			<territory type="TZ">탄자니아</territory>
+			<territory type="UA">우크라이나</territory>
+			<territory type="UG">우간다</territory>
+			<territory type="US">미국</territory>
+			<territory type="UY">우루과이</territory>
+			<territory type="UZ">우즈베키스탄</territory>
+			<territory type="VA">바티칸</territory>
+			<territory type="VE">베네수엘라</territory>
+			<territory type="VG">영국령 버진 아일랜드</territory>
+			<territory type="VI">미국령 버진 아일랜드</territory>
+			<territory type="VN">베트남</territory>
+			<territory type="VU">바누아투</territory>
+			<territory type="YE">예멘</territory>
+			<territory type="YT">마요티</territory>
+			<territory type="YU">유고슬라비아</territory>
+			<territory type="ZA">남아프리카</territory>
+			<territory type="ZM">잠비아</territory>
+			<territory type="ZR">자이르</territory>
+			<territory type="ZW">짐바브웨</territory>
 		</territories>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
 	</localeDisplayNames>
-	<layout>
-		<orientation lines="top-to-bottom" characters="left-to-right" />
-	</layout>
-		<dates>
-			<localizedPatternChars>GanjkHmsSEDFwWxhKz</localizedPatternChars>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">1월</month>
-						<month type="2">2월</month>
-						<month type="3">3월</month>
-						<month type="4">4월</month>
-						<month type="5">5월</month>
-						<month type="6">6월</month>
-						<month type="7">7월</month>
-						<month type="8">8월</month>
-						<month type="9">9월</month>
-						<month type="10">10월</month>
-						<month type="11">11월</month>
-						<month type="12">12월</month>
-						<month type="13"></month>
-					</monthNames>
-					<monthAbbr>
-						<month type="1">1월</month>
-						<month type="2">2월</month>
-						<month type="3">3월</month>
-						<month type="4">4월</month>
-						<month type="5">5월</month>
-						<month type="6">6월</month>
-						<month type="7">7월</month>
-						<month type="8">8월</month>
-						<month type="9">9월</month>
-						<month type="10">10월</month>
-						<month type="11">11월</month>
-						<month type="12">12월</month>
-						<month type="13"></month>
-					</monthAbbr>
-					<dayNames>
-						<day type="sun">일요일</day>
-						<day type="mon">월요일</day>
-						<day type="tue">화요일</day>
-						<day type="wed">수요일</day>
-						<day type="thu">목요일</day>
-						<day type="fri">금요일</day>
-						<day type="sat">토요일</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">일</day>
-						<day type="mon">월</day>
-						<day type="tue">화</day>
-						<day type="wed">수</day>
-						<day type="thu">목</day>
-						<day type="fri">금</day>
-						<day type="sat">토</day>
-					</dayAbbr>
-					<am>오전</am>
-					<pm>오후</pm>
-					<dateFormats>
-						<default type="medium"/>
-						<dateFormat type="full">
+	<dates>
+		<localizedPatternChars>GyMdkHmsSEDFwWahKzZ</localizedPatternChars>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">1월</month>
+					<month type="2">2월</month>
+					<month type="3">3월</month>
+					<month type="4">4월</month>
+					<month type="5">5월</month>
+					<month type="6">6월</month>
+					<month type="7">7월</month>
+					<month type="8">8월</month>
+					<month type="9">9월</month>
+					<month type="10">10월</month>
+					<month type="11">11월</month>
+					<month type="12">12월</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">1월</month>
+					<month type="2">2월</month>
+					<month type="3">3월</month>
+					<month type="4">4월</month>
+					<month type="5">5월</month>
+					<month type="6">6월</month>
+					<month type="7">7월</month>
+					<month type="8">8월</month>
+					<month type="9">9월</month>
+					<month type="10">10월</month>
+					<month type="11">11월</month>
+					<month type="12">12월</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">일요일</day>
+					<day type="mon">월요일</day>
+					<day type="tue">화요일</day>
+					<day type="wed">수요일</day>
+					<day type="thu">목요일</day>
+					<day type="fri">금요일</day>
+					<day type="sat">토요일</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">일</day>
+					<day type="mon">월</day>
+					<day type="tue">화</day>
+					<day type="wed">수</day>
+					<day type="thu">목</day>
+					<day type="fri">금</day>
+					<day type="sat">토</day>
+				</dayAbbr>
+				<am>오전</am>
+				<pm>오후</pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
 							<pattern>yyyy'년' M'월' d'일' EEEE</pattern>
 						</dateFormat>
-						<dateFormat type="long">
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
 							<pattern>yyyy'년' M'월' d'일' EE</pattern>
 						</dateFormat>
-						<dateFormat type="medium">
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
 							<pattern>yyyy-MM-dd</pattern>
 						</dateFormat>
-						<dateFormat type="short">
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
 							<pattern>yy-MM-dd</pattern>
 						</dateFormat>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"/>
-						<timeFormat type="full">
-							<pattern>hh'시'mm'분'ss'초' a z</pattern>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>a hh'시'mm'분'ss'초' z</pattern>
 						</timeFormat>
-						<timeFormat type="long">
-							<pattern>hh'시'mm'분'ss'초' a</pattern>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>a hh'시'mm'분'ss'초'</pattern>
 						</timeFormat>
-						<timeFormat type="medium">
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
 							<pattern>a h:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="short">
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
 							<pattern>a h:mm</pattern>
 						</timeFormat>
-					</timeFormats>
-					<dateTimeFormat>
-						<pattern>{1} {0}</pattern>
-					</dateTimeFormat>
-				</calendar>
-			</calendars>
-			<timeZoneNames>
-			</timeZoneNames>
-		</dates>
-			<collations>
-				<collation  >
-					<rules>
-						<reset>Z</reset>
-						<pc>、。・‥…¨〃‐—∥＼〜‘’“”〔〕〈〉《》「」『』【】±×÷≠≤≥∞∴°′″℃Å￠￡￥♂♀∠⊥⌒∂∇≡≒§※☆★○●◎◇◆□■△▲▽▼→←↑↓↔〓≪≫√∽∝∵∫∬∈∋⊆⊇⊂⊃∪∩∧∨￢⇒⇔∀∃´˜ˇ˘˝˚˙¸˛¡¿ː∮∑∏¤℉‰◁◀▷▶♤♠♡♥♧♣◉◈▣◐◑▒▤▥▨▧▦▩♨☏☎☜☞¶†‡↕↗↙↖↘♭♩♪♬㉿㈜№㏇™㏂㏘℡！＂＃＄％＆＇（）＊＋，－．／０１２３４５６７８９：；＜＝＞？＠ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ［￦］＾＿｀ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ｛｜｝￣ㄱㄲㄳㄴㄵㄶㄷㄸㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅃㅄㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣㅤㅥㅦㅧㅨㅩㅪㅫㅬㅭㅮㅯㅰㅱㅲㅳㅴㅵㅶㅷㅸㅹㅺㅻㅼㅽㅾㅿㆀㆁㆂㆃㆄㆅㆆㆇㆈㆉㆊㆋㆌㆍㆎⅰⅱⅲⅳⅴⅵⅶⅷⅸⅹⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω─│┌┐┘└├┬┤┴┼━┃┏┓┛┗┣┳┫┻╋┠┯┨┷┿┝┰┥┸╂┒┑┚┙┖┕┎┍┞┟┡┢┦┧┩┪┭┮┱┲┵┶┹┺┽┾╀╁╃╄╅╆╇╈╉╊㎕㎖㎗ℓ㎘㏄㎣㎤㎥㎦㎙㎚㎛㎜㎝㎞㎟㎠㎡㎢㏊㎍㎎㎏㏏㎈㎉㏈㎧㎨㎰㎱㎲㎳㎴㎵㎶㎷㎸㎹㎀㎁㎂㎃㎄㎺㎻㎼㎽㎾㎿㎐㎑㎒㎓㎔Ω㏀㏁㎊㎋㎌㏖㏅㎭㎮㎯㏛㎩㎪㎫㎬㏝㏐㏓㏃㏉㏜㏆ÆÐªĦĲĿŁØŒºÞŦŊ㉠㉡㉢㉣㉤㉥㉦㉧㉨㉩㉪㉫㉬㉭㉮㉯㉰㉱㉲㉳㉴㉵㉶㉷㉸㉹㉺㉻ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮½⅓⅔¼¾⅛⅜⅝⅞æđðħıĳĸŀłøœßþŧŋŉ㈀㈁㈂㈃㈄㈅㈆㈇㈈㈉㈊㈋㈌㈍㈎㈏㈐㈑㈒㈓㈔㈕㈖㈗㈘㈙㈚㈛⒜⒝⒞⒟⒠⒡⒢⒣⒤⒥⒦⒧⒨⒩⒪⒫⒬⒭⒮⒯⒰⒱⒲⒳⒴⒵⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂¹²³⁴ⁿ₁₂₃₄ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя가각간갇갈갉갊감갑값갓갔강갖갗같갚갛개객갠갤갬갭갯갰갱갸갹갼걀걋걍걔걘걜거걱건걷걸걺검겁것겄겅겆겉겊겋게겐겔겜겝겟겠겡겨격겪견겯결겸겹겻겼경곁계곈곌곕곗고곡곤곧골곪곬곯곰곱곳공곶과곽관괄괆괌괍괏광괘괜괠괩괬괭괴괵괸괼굄굅굇굉교굔굘굡굣구국군굳굴굵굶굻굼굽굿궁궂궈궉권궐궜궝궤궷귀귁귄귈귐귑귓규균귤그극근귿글긁금급긋긍긔기긱긴긷길긺김깁깃깅깆깊까깍깎깐깔깖깜깝깟깠깡깥깨깩깬깰깸깹깻깼깽꺄꺅꺌꺼꺽꺾껀껄껌껍껏껐껑께껙껜껨껫껭껴껸껼꼇꼈꼍꼐꼬꼭꼰꼲꼴꼼꼽꼿꽁꽂꽃꽈꽉꽐꽜꽝꽤꽥꽹꾀꾄꾈꾐꾑꾕꾜꾸꾹꾼꿀꿇꿈꿉꿋꿍꿎꿔꿜꿨꿩꿰꿱꿴꿸뀀뀁뀄뀌뀐뀔뀜뀝뀨끄끅끈끊끌끎끓끔끕끗끙끝끼끽낀낄낌낍낏낑나낙낚난낟날낡낢남납낫났낭낮낯낱낳내낵낸낼냄냅냇냈냉냐냑냔냘냠냥너넉넋넌널넒넓넘넙넛넜넝넣네넥넨넬넴넵넷넸넹녀녁년녈념녑녔녕녘녜녠노녹논놀놂놈놉놋농높놓놔놘놜놨뇌뇐뇔뇜뇝뇟뇨뇩뇬뇰뇹뇻뇽누눅눈눋눌눔눕눗눙눠눴눼뉘뉜뉠뉨뉩뉴뉵뉼늄늅늉느늑는늘늙늚늠늡늣능늦늪늬늰늴니닉닌닐닒님닙닛닝닢다닥닦단닫달닭닮닯닳담답닷닸당닺닻닿대댁댄댈댐댑댓댔댕댜더덕덖던덛덜덞덟덤덥덧덩덫덮데덱덴델뎀뎁뎃뎄뎅뎌뎐뎔뎠뎡뎨뎬도독돈돋돌돎돐돔돕돗동돛돝돠돤돨돼됐되된될됨됩됫됴두둑둔둘둠둡둣둥둬뒀뒈뒝뒤뒨뒬뒵뒷뒹듀듄듈듐듕드득든듣들듦듬듭듯등듸디딕딘딛딜딤딥딧딨딩딪따딱딴딸땀땁땃땄땅땋때땍땐땔땜땝땟땠땡떠떡떤떨떪떫떰떱떳떴떵떻떼떽뗀뗄뗌뗍뗏뗐뗑뗘뗬또똑똔똘똥똬똴뙈뙤뙨뚜뚝뚠뚤뚫뚬뚱뛔뛰뛴뛸뜀뜁뜅뜨뜩뜬뜯뜰뜸뜹뜻띄띈띌띔띕띠띤띨띰띱띳띵라락란랄람랍랏랐랑랒랖랗래랙랜랠램랩랫랬랭랴략랸럇량러럭런럴럼럽럿렀렁렇레렉렌렐렘렙렛렝려력련렬렴렵렷렸령례롄롑롓로록론롤롬롭롯롱롸롼뢍뢨뢰뢴뢸룀룁룃룅료룐룔룝룟룡루룩룬룰룸룹룻룽뤄뤘뤠뤼뤽륀륄륌륏륑류륙륜률륨륩륫륭르륵른를름릅릇릉릊릍릎리릭린릴림립릿링마막만많맏말맑맒맘맙맛망맞맡맣매맥맨맬맴맵맷맸맹맺먀먁먈먕머먹먼멀멂멈멉멋멍멎멓메멕멘멜멤멥멧멨멩며멱면멸몃몄명몇몌모목몫몬몰몲몸몹못몽뫄뫈뫘뫙뫼묀묄묍묏묑묘묜묠묩묫무묵묶문묻물묽묾뭄뭅뭇뭉뭍뭏뭐뭔뭘뭡뭣뭬뮈뮌뮐뮤뮨뮬뮴뮷므믄믈믐믓미믹민믿밀밂밈밉밋밌밍및밑바박밖밗반받발밝밞밟밤밥밧방밭배백밴밸뱀뱁뱃뱄뱅뱉뱌뱍뱐뱝버벅번벋벌벎범법벗벙벚베벡벤벧벨벰벱벳벴벵벼벽변별볍볏볐병볕볘볜보복볶본볼봄봅봇봉봐봔봤봬뵀뵈뵉뵌뵐뵘뵙뵤뵨부북분붇불붉붊붐붑붓붕붙붚붜붤붰붸뷔뷕뷘뷜뷩뷰뷴뷸븀븃븅브븍븐블븜븝븟비빅빈빌빎빔빕빗빙빚빛빠빡빤빨빪빰빱빳빴빵빻빼빽뺀뺄뺌뺍뺏뺐뺑뺘뺙뺨뻐뻑뻔뻗뻘뻠뻣뻤뻥뻬뼁뼈뼉뼘뼙뼛뼜뼝뽀뽁뽄뽈뽐뽑뽕뾔뾰뿅뿌뿍뿐뿔뿜뿟뿡쀼쁑쁘쁜쁠쁨쁩삐삑삔삘삠삡삣삥사삭삯산삳살삵삶삼삽삿샀상샅새색샌샐샘샙샛샜생샤샥샨샬샴샵샷샹섀섄섈섐섕서석섞섟선섣설섦섧섬섭섯섰성섶세섹센셀셈셉셋셌셍셔셕션셜셤셥셧셨셩셰셴셸솅소속솎손솔솖솜솝솟송솥솨솩솬솰솽쇄쇈쇌쇔쇗쇘쇠쇤쇨쇰쇱쇳쇼쇽숀숄숌숍숏숑수숙순숟술숨숩숫숭숯숱숲숴쉈쉐쉑쉔쉘쉠쉥쉬쉭쉰쉴쉼쉽쉿슁슈슉슐슘슛슝스슥슨슬슭슴습슷승시식신싣실싫심십싯싱싶싸싹싻싼쌀쌈쌉쌌쌍쌓쌔쌕쌘쌜쌤쌥쌨쌩썅써썩썬썰썲썸썹썼썽쎄쎈쎌쏀쏘쏙쏜쏟쏠쏢쏨쏩쏭쏴쏵쏸쐈쐐쐤쐬쐰쐴쐼쐽쑈쑤쑥쑨쑬쑴쑵쑹쒀쒔쒜쒸쒼쓩쓰쓱쓴쓸쓺쓿씀씁씌씐씔씜씨씩씬씰씸씹씻씽아악안앉않알앍앎앓암압앗았앙앝앞애액앤앨앰앱앳앴앵야약얀얄얇얌얍얏양얕얗얘얜얠얩어억언얹얻얼얽얾엄업없엇었엉엊엌엎에엑엔엘엠엡엣엥여역엮연열엶엷염엽엾엿였영옅옆옇예옌옐옘옙옛옜오옥온올옭옮옰옳옴옵옷옹옻와왁완왈왐왑왓왔왕왜왝왠왬왯왱외왹왼욀욈욉욋욍요욕욘욜욤욥욧용우욱운울욹욺움웁웃웅워웍원월웜웝웠웡웨웩웬웰웸웹웽위윅윈윌윔윕윗윙유육윤율윰윱윳융윷으윽은을읊음읍읏응읒읓읔읕읖읗의읜읠읨읫이익인일읽읾잃임입잇있잉잊잎자작잔잖잗잘잚잠잡잣잤장잦재잭잰잴잼잽잿쟀쟁쟈쟉쟌쟎쟐쟘쟝쟤쟨쟬저적전절젊점접젓정젖제젝젠젤젬젭젯젱져젼졀졈졉졌졍졔조족존졸졺좀좁좃종좆좇좋좌좍좔좝좟좡좨좼좽죄죈죌죔죕죗죙죠죡죤죵주죽준줄줅줆줌줍줏중줘줬줴쥐쥑쥔쥘쥠쥡쥣쥬쥰쥴쥼즈즉즌즐즘즙즛증지직진짇질짊짐집짓징짖짙짚짜짝짠짢짤짧짬짭짯짰짱째짹짼쨀쨈쨉쨋쨌쨍쨔쨘쨩쩌쩍쩐쩔쩜쩝쩟쩠쩡쩨쩽쪄쪘쪼쪽쫀쫄쫌쫍쫏쫑쫓쫘쫙쫠쫬쫴쬈쬐쬔쬘쬠쬡쭁쭈쭉쭌쭐쭘쭙쭝쭤쭸쭹쮜쮸쯔쯤쯧쯩찌찍찐찔찜찝찡찢찧차착찬찮찰참찹찻찼창찾채책챈챌챔챕챗챘챙챠챤챦챨챰챵처척천철첨첩첫첬청체첵첸첼쳄쳅쳇쳉쳐쳔쳤쳬쳰촁초촉촌촐촘촙촛총촤촨촬촹최쵠쵤쵬쵭쵯쵱쵸춈추축춘출춤춥춧충춰췄췌췐취췬췰췸췹췻췽츄츈츌츔츙츠측츤츨츰츱츳층치칙친칟칠칡침칩칫칭카칵칸칼캄캅캇캉캐캑캔캘캠캡캣캤캥캬캭컁커컥컨컫컬컴컵컷컸컹케켁켄켈켐켑켓켕켜켠켤켬켭켯켰켱켸코콕콘콜콤콥콧콩콰콱콴콸쾀쾅쾌쾡쾨쾰쿄쿠쿡쿤쿨쿰쿱쿳쿵쿼퀀퀄퀑퀘퀭퀴퀵퀸퀼큄큅큇큉큐큔큘큠크큭큰클큼큽킁키킥킨킬킴킵킷킹타탁탄탈탉탐탑탓탔탕태택탠탤탬탭탯탰탱탸턍터턱턴털턺텀텁텃텄텅테텍텐텔템텝텟텡텨텬텼톄톈토톡톤톨톰톱톳통톺톼퇀퇘퇴퇸툇툉툐투툭툰툴툼툽툿퉁퉈퉜퉤튀튁튄튈튐튑튕튜튠튤튬튱트특튼튿틀틂틈틉틋틔틘틜틤틥티틱틴틸팀팁팃팅파팍팎판팔팖팜팝팟팠팡팥패팩팬팰팸팹팻팼팽퍄퍅퍼퍽펀펄펌펍펏펐펑페펙펜펠펨펩펫펭펴편펼폄폅폈평폐폘폡폣포폭폰폴폼폽폿퐁퐈퐝푀푄표푠푤푭푯푸푹푼푿풀풂품풉풋풍풔풩퓌퓐퓔퓜퓟퓨퓬퓰퓸퓻퓽프픈플픔픕픗피픽핀필핌핍핏핑하학한할핥함합핫항해핵핸핼햄햅햇했행햐향허헉헌헐헒험헙헛헝헤헥헨헬헴헵헷헹혀혁현혈혐협혓혔형혜혠혤혭호혹혼홀홅홈홉홋홍홑화확환활홧황홰홱홴횃횅회획횐횔횝횟횡효횬횰횹횻후훅훈훌훑훔훗훙훠훤훨훰훵훼훽휀휄휑휘휙휜휠휨휩휫휭휴휵휸휼흄흇흉흐흑흔흖흗흘흙흠흡흣흥흩희흰흴흼흽힁히힉힌힐힘힙힛힝伽佳假價加可呵哥嘉嫁家暇架枷柯歌珂痂稼苛茄街袈訶賈跏軻迦駕刻却各恪慤殼珏脚覺角閣侃刊墾奸姦干幹懇揀杆柬桿澗癎看磵稈竿簡肝艮艱諫間乫喝曷渴碣竭葛褐蝎鞨勘坎堪嵌感憾戡敢柑橄減甘疳監瞰紺邯鑑鑒龕匣岬甲胛鉀閘剛堈姜岡崗康强彊慷江畺疆糠絳綱羌腔舡薑襁講鋼降鱇介价個凱塏愷愾慨改槪漑疥皆盖箇芥蓋豈鎧開喀客坑更粳羹醵倨去居巨拒据據擧渠炬祛距踞車遽鉅鋸乾件健巾建愆楗腱虔蹇鍵騫乞傑杰桀儉劍劒檢瞼鈐黔劫怯迲偈憩揭擊格檄激膈覡隔堅牽犬甄絹繭肩見譴遣鵑抉決潔結缺訣兼慊箝謙鉗鎌京俓倞傾儆勁勍卿坰境庚徑慶憬擎敬景暻更梗涇炅烱璟璥瓊痙硬磬竟競絅經耕耿脛莖警輕逕鏡頃頸驚鯨係啓堺契季屆悸戒桂械棨溪界癸磎稽系繫繼計誡谿階鷄古叩告呱固姑孤尻庫拷攷故敲暠枯槁沽痼皐睾稿羔考股膏苦苽菰藁蠱袴誥賈辜錮雇顧高鼓哭斛曲梏穀谷鵠困坤崑昆梱棍滾琨袞鯤汨滑骨供公共功孔工恐恭拱控攻珙空蚣貢鞏串寡戈果瓜科菓誇課跨過鍋顆廓槨藿郭串冠官寬慣棺款灌琯瓘管罐菅觀貫關館刮恝括适侊光匡壙廣曠洸炚狂珖筐胱鑛卦掛罫乖傀塊壞怪愧拐槐魁宏紘肱轟交僑咬喬嬌嶠巧攪敎校橋狡皎矯絞翹膠蕎蛟較轎郊餃驕鮫丘久九仇俱具勾區口句咎嘔坵垢寇嶇廐懼拘救枸柩構歐毆毬求溝灸狗玖球瞿矩究絿耉臼舅舊苟衢謳購軀逑邱鉤銶駒驅鳩鷗龜國局菊鞠鞫麴君窘群裙軍郡堀屈掘窟宮弓穹窮芎躬倦券勸卷圈拳捲權淃眷厥獗蕨蹶闕机櫃潰詭軌饋句晷歸貴鬼龜叫圭奎揆槻珪硅窺竅糾葵規赳逵閨勻均畇筠菌鈞龜橘克剋劇戟棘極隙僅劤勤懃斤根槿瑾筋芹菫覲謹近饉契今妗擒昑檎琴禁禽芩衾衿襟金錦伋及急扱汲級給亘兢矜肯企伎其冀嗜器圻基埼夔奇妓寄岐崎己幾忌技旗旣朞期杞棋棄機欺氣汽沂淇玘琦琪璂璣畸畿碁磯祁祇祈祺箕紀綺羈耆耭肌記譏豈起錡錤飢饑騎騏驥麒緊佶吉拮桔金喫儺喇奈娜懦懶拏拿癩羅蘿螺裸邏那樂洛烙珞落諾酪駱亂卵暖欄煖爛蘭難鸞捏捺南嵐枏楠湳濫男藍襤拉納臘蠟衲囊娘廊朗浪狼郎乃來內奈柰耐冷女年撚秊念恬拈捻寧寗努勞奴弩怒擄櫓爐瑙盧老蘆虜路露駑魯鷺碌祿綠菉錄鹿論壟弄濃籠聾膿農惱牢磊腦賂雷尿壘屢樓淚漏累縷陋嫩訥杻紐勒肋凜凌稜綾能菱陵尼泥匿溺多茶丹亶但單團壇彖斷旦檀段湍短端簞緞蛋袒鄲鍛撻澾獺疸達啖坍憺擔曇淡湛潭澹痰聃膽蕁覃談譚錟沓畓答踏遝唐堂塘幢戇撞棠當糖螳黨代垈坮大對岱帶待戴擡玳臺袋貸隊黛宅德悳倒刀到圖堵塗導屠島嶋度徒悼挑掉搗桃棹櫂淘渡滔濤燾盜睹禱稻萄覩賭跳蹈逃途道都鍍陶韜毒瀆牘犢獨督禿篤纛讀墩惇敦旽暾沌焞燉豚頓乭突仝冬凍動同憧東桐棟洞潼疼瞳童胴董銅兜斗杜枓痘竇荳讀豆逗頭屯臀芚遁遯鈍得嶝橙燈登等藤謄鄧騰喇懶拏癩羅蘿螺裸邏樂洛烙珞絡落諾酪駱丹亂卵欄欒瀾爛蘭鸞剌辣嵐擥攬欖濫籃纜藍襤覽拉臘蠟廊朗浪狼琅瑯螂郞來崍徠萊冷掠略亮倆兩凉梁樑粮粱糧良諒輛量侶儷勵呂廬慮戾旅櫚濾礪藜蠣閭驢驪麗黎力曆歷瀝礫轢靂憐戀攣漣煉璉練聯蓮輦連鍊冽列劣洌烈裂廉斂殮濂簾獵令伶囹寧岺嶺怜玲笭羚翎聆逞鈴零靈領齡例澧禮醴隷勞怒撈擄櫓潞瀘爐盧老蘆虜路輅露魯鷺鹵碌祿綠菉錄鹿麓論壟弄朧瀧瓏籠聾儡瀨牢磊賂賚賴雷了僚寮廖料燎療瞭聊蓼遼鬧龍壘婁屢樓淚漏瘻累縷蔞褸鏤陋劉旒柳榴流溜瀏琉瑠留瘤硫謬類六戮陸侖倫崙淪綸輪律慄栗率隆勒肋凜凌楞稜綾菱陵俚利厘吏唎履悧李梨浬犁狸理璃異痢籬罹羸莉裏裡里釐離鯉吝潾燐璘藺躪隣鱗麟林淋琳臨霖砬立笠粒摩瑪痲碼磨馬魔麻寞幕漠膜莫邈万卍娩巒彎慢挽晩曼滿漫灣瞞萬蔓蠻輓饅鰻唜抹末沫茉襪靺亡妄忘忙望網罔芒茫莽輞邙埋妹媒寐昧枚梅每煤罵買賣邁魅脈貊陌驀麥孟氓猛盲盟萌冪覓免冕勉棉沔眄眠綿緬面麵滅蔑冥名命明暝椧溟皿瞑茗蓂螟酩銘鳴袂侮冒募姆帽慕摸摹暮某模母毛牟牡瑁眸矛耗芼茅謀謨貌木沐牧目睦穆鶩歿沒夢朦蒙卯墓妙廟描昴杳渺猫竗苗錨務巫憮懋戊拇撫无楙武毋無珷畝繆舞茂蕪誣貿霧鵡墨默們刎吻問文汶紊紋聞蚊門雯勿沕物味媚尾嵋彌微未梶楣渼湄眉米美薇謎迷靡黴岷悶愍憫敏旻旼民泯玟珉緡閔密蜜謐剝博拍搏撲朴樸泊珀璞箔粕縛膊舶薄迫雹駁伴半反叛拌搬攀斑槃泮潘班畔瘢盤盼磐磻礬絆般蟠返頒飯勃拔撥渤潑發跋醱鉢髮魃倣傍坊妨尨幇彷房放方旁昉枋榜滂磅紡肪膀舫芳蒡蚌訪謗邦防龐倍俳北培徘拜排杯湃焙盃背胚裴裵褙賠輩配陪伯佰帛柏栢白百魄幡樊煩燔番磻繁蕃藩飜伐筏罰閥凡帆梵氾汎泛犯範范法琺僻劈壁擘檗璧癖碧蘗闢霹便卞弁變辨辯邊別瞥鱉鼈丙倂兵屛幷昞昺柄棅炳甁病秉竝輧餠騈保堡報寶普步洑湺潽珤甫菩補褓譜輔伏僕匐卜宓復服福腹茯蔔複覆輹輻馥鰒本乶俸奉封峯峰捧棒烽熢琫縫蓬蜂逢鋒鳳不付俯傅剖副否咐埠夫婦孚孵富府復扶敷斧浮溥父符簿缶腐腑膚艀芙莩訃負賦賻赴趺部釜阜附駙鳧北分吩噴墳奔奮忿憤扮昐汾焚盆粉糞紛芬賁雰不佛弗彿拂崩朋棚硼繃鵬丕備匕匪卑妃婢庇悲憊扉批斐枇榧比毖毗毘沸泌琵痺砒碑秕秘粃緋翡肥脾臂菲蜚裨誹譬費鄙非飛鼻嚬嬪彬斌檳殯浜濱瀕牝玭貧賓頻憑氷聘騁乍事些仕伺似使俟僿史司唆嗣四士奢娑寫寺射巳師徙思捨斜斯柶査梭死沙泗渣瀉獅砂社祀祠私篩紗絲肆舍莎蓑蛇裟詐詞謝賜赦辭邪飼駟麝削數朔索傘刪山散汕珊産疝算蒜酸霰乷撒殺煞薩三參杉森渗芟蔘衫揷澁鈒颯上傷像償商喪嘗孀尙峠常床庠廂想桑橡湘爽牀狀相祥箱翔裳觴詳象賞霜塞璽賽嗇塞穡索色牲生甥省笙墅壻嶼序庶徐恕抒捿敍暑曙書栖棲犀瑞筮絮緖署胥舒薯西誓逝鋤黍鼠夕奭席惜昔晳析汐淅潟石碩蓆釋錫仙僊先善嬋宣扇敾旋渲煽琁瑄璇璿癬禪線繕羨腺膳船蘚蟬詵跣選銑鐥饍鮮卨屑楔泄洩渫舌薛褻設說雪齧剡暹殲纖蟾贍閃陝攝涉燮葉城姓宬性惺成星晟猩珹盛省筬聖聲腥誠醒世勢歲洗稅笹細說貰召嘯塑宵小少巢所掃搔昭梳沼消溯瀟炤燒甦疏疎瘙笑篠簫素紹蔬蕭蘇訴逍遡邵銷韶騷俗屬束涑粟續謖贖速孫巽損蓀遜飡率宋悚松淞訟誦送頌刷殺灑碎鎖衰釗修受嗽囚垂壽嫂守岫峀帥愁戍手授搜收數樹殊水洙漱燧狩獸琇璲瘦睡秀穗竪粹綏綬繡羞脩茱蒐蓚藪袖誰讐輸遂邃酬銖銹隋隧隨雖需須首髓鬚叔塾夙孰宿淑潚熟琡璹肅菽巡徇循恂旬栒楯橓殉洵淳珣盾瞬筍純脣舜荀蓴蕣詢諄醇錞順馴戌術述鉥崇崧嵩瑟膝蝨濕拾習褶襲丞乘僧勝升承昇繩蠅陞侍匙嘶始媤尸屎屍市弑恃施是時枾柴猜矢示翅蒔蓍視試詩諡豕豺埴寔式息拭植殖湜熄篒蝕識軾食飾伸侁信呻娠宸愼新晨燼申神紳腎臣莘薪藎蜃訊身辛辰迅失室實悉審尋心沁沈深瀋甚芯諶什十拾雙氏亞俄兒啞娥峨我牙芽莪蛾衙訝阿雅餓鴉鵝堊岳嶽幄惡愕握樂渥鄂鍔顎鰐齷安岸按晏案眼雁鞍顔鮟斡謁軋閼唵岩巖庵暗癌菴闇壓押狎鴨仰央怏昻殃秧鴦厓哀埃崖愛曖涯碍艾隘靄厄扼掖液縊腋額櫻罌鶯鸚也倻冶夜惹揶椰爺耶若野弱掠略約若葯蒻藥躍亮佯兩凉壤孃恙揚攘敭暘梁楊樣洋瀁煬痒瘍禳穰糧羊良襄諒讓釀陽量養圄御於漁瘀禦語馭魚齬億憶抑檍臆偃堰彦焉言諺孼蘖俺儼嚴奄掩淹嶪業円予余勵呂女如廬旅歟汝濾璵礖礪與艅茹輿轝閭餘驪麗黎亦力域役易曆歷疫繹譯轢逆驛嚥堧姸娟宴年延憐戀捐挻撚椽沇沿涎涓淵演漣烟然煙煉燃燕璉硏硯秊筵緣練縯聯衍軟輦蓮連鉛鍊鳶列劣咽悅涅烈熱裂說閱厭廉念捻染殮炎焰琰艶苒簾閻髥鹽曄獵燁葉令囹塋寧嶺嶸影怜映暎楹榮永泳渶潁濚瀛瀯煐營獰玲瑛瑩瓔盈穎纓羚聆英詠迎鈴鍈零霙靈領乂倪例刈叡曳汭濊猊睿穢芮藝蘂禮裔詣譽豫醴銳隸霓預五伍俉傲午吾吳嗚塢墺奧娛寤悟惡懊敖旿晤梧汚澳烏熬獒筽蜈誤鰲鼇屋沃獄玉鈺溫瑥瘟穩縕蘊兀壅擁瓮甕癰翁邕雍饔渦瓦窩窪臥蛙蝸訛婉完宛梡椀浣玩琓琬碗緩翫脘腕莞豌阮頑曰往旺枉汪王倭娃歪矮外嵬巍猥畏了僚僥凹堯夭妖姚寥寮尿嶢拗搖撓擾料曜樂橈燎燿瑤療窈窯繇繞耀腰蓼蟯要謠遙遼邀饒慾欲浴縟褥辱俑傭冗勇埇墉容庸慂榕涌湧溶熔瑢用甬聳茸蓉踊鎔鏞龍于佑偶優又友右宇寓尤愚憂旴牛玗瑀盂祐禑禹紆羽芋藕虞迂遇郵釪隅雨雩勖彧旭昱栯煜稶郁頊云暈橒殞澐熉耘芸蕓運隕雲韻蔚鬱亐熊雄元原員圓園垣媛嫄寃怨愿援沅洹湲源爰猿瑗苑袁轅遠阮院願鴛月越鉞位偉僞危圍委威尉慰暐渭爲瑋緯胃萎葦蔿蝟衛褘謂違韋魏乳侑儒兪劉唯喩孺宥幼幽庾悠惟愈愉揄攸有杻柔柚柳楡楢油洧流游溜濡猶猷琉瑜由留癒硫紐維臾萸裕誘諛諭踰蹂遊逾遺酉釉鍮類六堉戮毓肉育陸倫允奫尹崙淪潤玧胤贇輪鈗閏律慄栗率聿戎瀜絨融隆垠恩慇殷誾銀隱乙吟淫蔭陰音飮揖泣邑凝應膺鷹依倚儀宜意懿擬椅毅疑矣義艤薏蟻衣誼議醫二以伊利吏夷姨履已弛彛怡易李梨泥爾珥理異痍痢移罹而耳肄苡荑裏裡貽貳邇里離飴餌匿溺瀷益翊翌翼謚人仁刃印吝咽因姻寅引忍湮燐璘絪茵藺蚓認隣靭靷鱗麟一佚佾壹日溢逸鎰馹任壬妊姙恁林淋稔臨荏賃入卄立笠粒仍剩孕芿仔刺咨姉姿子字孜恣慈滋炙煮玆瓷疵磁紫者自茨蔗藉諮資雌作勺嚼斫昨灼炸爵綽芍酌雀鵲孱棧殘潺盞岑暫潛箴簪蠶雜丈仗匠場墻壯奬將帳庄張掌暲杖樟檣欌漿牆狀獐璋章粧腸臟臧莊葬蔣薔藏裝贓醬長障再哉在宰才材栽梓渽滓災縡裁財載齋齎爭箏諍錚佇低儲咀姐底抵杵楮樗沮渚狙猪疽箸紵苧菹著藷詛貯躇這邸雎齟勣吊嫡寂摘敵滴狄炙的積笛籍績翟荻謫賊赤跡蹟迪迹適鏑佃佺傳全典前剪塡塼奠專展廛悛戰栓殿氈澱煎琠田甸畑癲筌箋箭篆纏詮輾轉鈿銓錢鐫電顚顫餞切截折浙癤竊節絶占岾店漸点粘霑鮎點接摺蝶丁井亭停偵呈姃定幀庭廷征情挺政整旌晶晸柾楨檉正汀淀淨渟湞瀞炡玎珽町睛碇禎程穽精綎艇訂諪貞鄭酊釘鉦鋌錠霆靖靜頂鼎制劑啼堤帝弟悌提梯濟祭第臍薺製諸蹄醍除際霽題齊俎兆凋助嘲弔彫措操早晁曺曹朝條棗槽漕潮照燥爪璪眺祖祚租稠窕粗糟組繰肇藻蚤詔調趙躁造遭釣阻雕鳥族簇足鏃存尊卒拙猝倧宗從悰慫棕淙琮種終綜縱腫踪踵鍾鐘佐坐左座挫罪主住侏做姝胄呪周嗾奏宙州廚晝朱柱株注洲湊澍炷珠疇籌紂紬綢舟蛛註誅走躊輳週酎酒鑄駐竹粥俊儁准埈寯峻晙樽浚準濬焌畯竣蠢逡遵雋駿茁中仲衆重卽櫛楫汁葺增憎曾拯烝甑症繒蒸證贈之只咫地址志持指摯支旨智枝枳止池沚漬知砥祉祗紙肢脂至芝芷蜘誌識贄趾遲直稙稷織職唇嗔塵振搢晉晋桭榛殄津溱珍瑨璡畛疹盡眞瞋秦縉縝臻蔯袗診賑軫辰進鎭陣陳震侄叱姪嫉帙桎瓆疾秩窒膣蛭質跌迭斟朕什執潗緝輯鏶集徵懲澄且侘借叉嗟嵯差次此磋箚茶蹉車遮捉搾着窄錯鑿齪撰澯燦璨瓚竄簒纂粲纘讚贊鑽餐饌刹察擦札紮僭參塹慘慙懺斬站讒讖倉倡創唱娼廠彰愴敞昌昶暢槍滄漲猖瘡窓脹艙菖蒼債埰寀寨彩採砦綵菜蔡采釵冊柵策責凄妻悽處倜刺剔尺慽戚拓擲斥滌瘠脊蹠陟隻仟千喘天川擅泉淺玔穿舛薦賤踐遷釧闡阡韆凸哲喆徹撤澈綴輟轍鐵僉尖沾添甛瞻簽籤詹諂堞妾帖捷牒疊睫諜貼輒廳晴淸聽菁請靑鯖切剃替涕滯締諦逮遞體初剿哨憔抄招梢椒楚樵炒焦硝礁礎秒稍肖艸苕草蕉貂超酢醋醮促囑燭矗蜀觸寸忖村邨叢塚寵悤憁摠總聰蔥銃撮催崔最墜抽推椎楸樞湫皺秋芻萩諏趨追鄒酋醜錐錘鎚雛騶鰍丑畜祝竺筑築縮蓄蹙蹴軸逐春椿瑃出朮黜充忠沖蟲衝衷悴膵萃贅取吹嘴娶就炊翠聚脆臭趣醉驟鷲側仄厠惻測層侈値嗤峙幟恥梔治淄熾痔痴癡稚穉緇緻置致蚩輜雉馳齒則勅飭親七柒漆侵寢枕沈浸琛砧針鍼蟄秤稱快他咤唾墮妥惰打拖朶楕舵陀馱駝倬卓啄坼度托拓擢晫柝濁濯琢琸託鐸呑嘆坦彈憚歎灘炭綻誕奪脫探眈耽貪塔搭榻宕帑湯糖蕩兌台太怠態殆汰泰笞胎苔跆邰颱宅擇澤撑攄兎吐土討慟桶洞痛筒統通堆槌腿褪退頹偸套妬投透鬪慝特闖坡婆巴把播擺杷波派爬琶破罷芭跛頗判坂板版瓣販辦鈑阪八叭捌佩唄悖敗沛浿牌狽稗覇貝彭澎烹膨愎便偏扁片篇編翩遍鞭騙貶坪平枰萍評吠嬖幣廢弊斃肺蔽閉陛佈包匍匏咆哺圃布怖抛抱捕暴泡浦疱砲胞脯苞葡蒲袍褒逋鋪飽鮑幅暴曝瀑爆輻俵剽彪慓杓標漂瓢票表豹飇飄驃品稟楓諷豊風馮彼披疲皮被避陂匹弼必泌珌畢疋筆苾馝乏逼下何厦夏廈昰河瑕荷蝦賀遐霞鰕壑學虐謔鶴寒恨悍旱汗漢澣瀚罕翰閑閒限韓割轄函含咸啣喊檻涵緘艦銜陷鹹合哈盒蛤閤闔陜亢伉姮嫦巷恒抗杭桁沆港缸肛航行降項亥偕咳垓奚孩害懈楷海瀣蟹解該諧邂駭骸劾核倖幸杏荇行享向嚮珦鄕響餉饗香噓墟虛許憲櫶獻軒歇險驗奕爀赫革俔峴弦懸晛泫炫玄玹現眩睍絃絢縣舷衒見賢鉉顯孑穴血頁嫌俠協夾峽挾浹狹脅脇莢鋏頰亨兄刑型形泂滎瀅灐炯熒珩瑩荊螢衡逈邢鎣馨兮彗惠慧暳蕙蹊醯鞋乎互呼壕壺好岵弧戶扈昊晧毫浩淏湖滸澔濠濩灝狐琥瑚瓠皓祜糊縞胡芦葫蒿虎號蝴護豪鎬頀顥惑或酷婚昏混渾琿魂忽惚笏哄弘汞泓洪烘紅虹訌鴻化和嬅樺火畵禍禾花華話譁貨靴廓擴攫確碻穫丸喚奐宦幻患換歡晥桓渙煥環紈還驩鰥活滑猾豁闊凰幌徨恍惶愰慌晃晄榥況湟滉潢煌璜皇篁簧荒蝗遑隍黃匯回廻徊恢悔懷晦會檜淮澮灰獪繪膾茴蛔誨賄劃獲宖橫鐄哮嚆孝效斅曉梟涍淆爻肴酵驍侯候厚后吼喉嗅帿後朽煦珝逅勛勳塤壎焄熏燻薰訓暈薨喧暄煊萱卉喙毁彙徽揮暉煇諱輝麾休携烋畦虧恤譎鷸兇凶匈洶胸黑昕欣炘痕吃屹紇訖欠欽歆吸恰洽翕興僖凞喜噫囍姬嬉希憙憘戱晞曦熙熹熺犧禧稀羲</pc>
-					</rules>
-					<special owner="http://oss.software.ibm.com/icu/" version="0.0" />
-				</collation  >
-			</collations>
-</localeData>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<collations version="3.1.1">
+		<collation  >
+		</collation  >
+	</collations >
+</ldml>

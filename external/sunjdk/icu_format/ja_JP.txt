@@ -1,13 +1,8 @@
 ja_JP {
-    CurrencyElements { 
-            "\uFFE5",
-            "JPY",
-            ".",
-    }
     LocaleString { "ja_JP" }
     NumberPatterns { 
             "#,##0.###;-#,##0.###",
-            "\u00A4#,##0.00",
+            "\u00A4#,##0;-\u00A4#,##0",
             "#,##0%",
     }
     ShortCountry { "JPN" }

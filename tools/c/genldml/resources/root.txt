@@ -1,0 +1,528 @@
+//*
+//*******************************************************************************
+//*
+//*   Copyright (C) 2003, International Business Machines
+//*   Corporation and others.  All Rights Reserved.
+//*
+//*******************************************************************************
+//*   file name:  root.txt
+//*                      
+root{                   
+                        
+    declaration          { 
+                             "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
+                             "<!DOCTYPE localeData SYSTEM \"http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd\" >\n"
+
+                             //"<!DOCTYPE localeData SYSTEM \"../../LocaleElements.dtd\" >\n"
+                         }
+	default				 {
+							 "{0}<default type=\"{1}\"/>\n"
+						 }
+    special              {
+                             "{0}<special owner=\"{1}\" {2} {3}>\n"
+                         }
+	specialEnd			 {
+							 "{0}</special>\n"
+						 }
+    alias                {
+							 "{0}<alias source=\"{1}\" type=\"{2}\" />\n"
+					     }
+	localeData           { 
+                             "<{0}localeData>\n"
+                         }                    
+    identity             {
+                             "{0}<{1}identity>\n"
+                         }  
+    version              {   
+                             "{0}<version number=\"{1}\">Various notes and changes in version {1}</version>\n"
+                         }
+    generationDate       {
+                             "{0}<generation date=\"{1}\" />\n"
+                         }
+    language             {
+                             "{0}<language type=\"{1}\">{2}</language>\n"
+                         }
+    territory            {
+                             "{0}<territory type=\"{1}\">{2}</territory>\n"
+                         }
+    variant              {
+                             "{0}<variant type=\"{1}\">{2}</variant>\n"
+                         }                     
+    localeDisplayNames   {
+                             "{0}<{1}localeDisplayNames>\n"
+                         }
+    scripts              {
+                             "{0}<{1}scripts>\n"
+                         }
+    script               {
+                             "{0}<script type=\"{1}\">{2}</script>\n"
+                         }
+    languages            {    
+                             "{0}<{1}languages>\n"
+                         }
+    territories          {
+                             "{0}<{1}territories>\n"
+                         }
+    variants             {
+                             "{0}<{1}variants>\n"
+                         }
+	keys                 {
+                             "{0}<{1}keys>\n"
+                         }
+    key                  {
+                             "{0}<key type=\"{1}\">{2}</key>\n"
+                         }
+	types                {
+                             "{0}<{1}types>\n"
+                         }
+    type                 {
+                             "{0}<type type=\"{1}\" key=\"{2}\">{3}</type>\n"
+                         }
+    layout               {
+                             "{0}<{1}layout>\n"
+                         }
+    orientation          {
+                             "{0}<orientation lines=\"{1}\" characters=\"{2}\" />\n"
+                         }   
+    encodings            { 
+                             "{0}<{1}encodings>\n"
+                         }
+	exemplarCharacters   {
+							 "{0}<exemplarCharacters>{1}</exemplarCharacters>\n"
+						 }
+						    
+    mapping              {   
+                             "{0}<mapping registry=\"{1}\" type=\"{2}\"/>\n"
+                         }
+    encodingsEnd         {
+                             "{0}</encodings>\n"
+                         }
+    delimiters           {
+                             "{0}<{1}delimiters>\n"
+                         }
+    quotationStart       {
+                             "{0}<quotationStart>{1}</quotationStart>\n"
+                         }
+    quotationEnd         {
+                             "{0}<quotationEnd>{1}</quotationEnd>\n"
+                         }
+    doubleQuotStart      {   
+                             "{0}<doubleQuotationStart>{1}</doubleQuotationStart>\n"
+                         }
+    doubleQuotEnd        {
+                             "{0}<doubleQuotationEnd>{1}</doubleQuotationEnd>\n"
+                         }
+    measurement          {  
+                             "{0}<{1}measurement>\n"
+                         }
+    measurementSystem    {
+                             "{0}<measurementSystem type=\"{1}\"/>\n"
+                         }
+    paperSize            {    
+                             "{0}<{1}paperSize>\n"
+                         }
+    height               {
+                             "{0}<height>{1}</height>\n"
+                         }
+    width                {   
+                             "{0}<width>{1}</width>\n"
+                         }
+    units                {        
+                             "{0}<units>{1}</units>\n"
+                         }                       
+    dates                {
+                             "{0}<{1}dates>\n"
+                         }
+	localizedChars       {
+							 "{0}<localizedPatternChars>{1}</localizedPatternChars>\n"
+						 }
+	calendars            {
+							 "{0}<{1}calendars>\n"
+					     }			
+    calendarStart        {   
+                             "{0}<calendar type=\"{1}\">\n"
+						 }
+	calendarEnd          {	
+							 "{0}</calendar>\n"
+                         }
+    monthNames           {
+                             "{0}<{1}monthNames>\n"
+                         }
+    month                {   
+                             "{0}<month type=\"{1}\">{2}</month>\n"
+                         }
+    monthAbbr            {
+                            "{0}<{1}monthAbbr>\n"
+                         }
+    dayNames             {
+                             "{0}<{1}dayNames>\n"
+                         }
+    day                  {
+                             "{0}<day type=\"{1}\">{2}</day>\n"
+                         }
+    dayAbbr              {         
+                              "{0}<{1}dayAbbr>\n"
+                         }
+    week                 {
+                              "{0}<{1}week>\n"
+                         }
+    minDays              {
+                             "{0}<minDays count=\"{1}\"/>\n"
+                         }
+    firstDay             {
+                             "{0}<firstDay day=\"{1}\"/>\n"
+                         }
+    weekendStart         {
+                             "{0}<{1}weekendStart day=\"{2}\" time=\"{3}\"/>\n"
+                         }
+    weekendEnd           {
+                             "{0}<{1}weekendEnd day=\"{2}\" time=\"{3}\"/>\n"
+                         }
+    am                   {
+                             "{0}<am>{1}</am>\n"
+                         }
+    pm                   {
+                             "{0}<pm>{1}</pm>\n"
+                         }
+    eras                 {
+                             "{0}<{1}eras>\n"
+                         }
+    era                  {
+                             "{0}<era type=\"{1}\">{2}</era>\n"
+                         }
+	dateFormats          {
+							 "{0}<{1}dateFormats>\n"
+						 }
+	dateFormatStart		 {
+							 "{0}<dateFormat type=\"{1}\">\n"
+						 }
+	dateFormatEnd        {
+							 "{0}</dateFormat>\n"
+						 }
+    pattern              {
+                             "{0}<pattern>{1}</pattern>\n"
+                         }
+    displayName          {
+                              "{0}<displayName>{1}</displayName>\n"
+                         }
+	timeFormats          {
+							 "{0}<{1}timeFormats>\n"
+						 }
+	timeFormatStart  	 {
+							 "{0}<timeFormat type=\"{1}\">\n"
+					     }
+	timeFormatEnd        {
+							 "{0}</timeFormat>\n"
+						 }
+	dateTimeFormatStart	 {
+							 "{0}<dateTimeFormat>\n"
+						 }
+	dateTimeFormatEnd	 {
+							 "{0}</dateTimeFormat>\n"
+					     }
+    timeZone             {
+                              "{0}<{1}timeZoneNames>\n"
+                         }
+    zoneStart            {
+                              "{0}<zone type=\"{1}\">\n"
+						 }
+	zoneEnd				 {
+							  "{0}</zone>\n"
+                         }
+    long                 {    
+                             "{0}<{1}long>\n"
+                         }
+    generic              {    
+                             "{0}<generic>{1}</generic>\n"
+                         }
+    standard             {
+                             "{0}<standard>{1}</standard>\n"
+                         }
+    daylight             {
+                             "{0}<daylight>{1}</daylight>\n"
+                         }
+    short                {
+                             "{0}<{1}short>\n"
+                         }
+    exemplarCity         {
+                             "{0}<exemplarCity>{1}</exemplarCity>\n"
+                         }                      
+    numbers              {
+                             "{0}<{1}numbers>\n"
+                         }
+                        
+    symbols              {
+                             "{0}<{1}symbols>\n"
+                         }
+    decimal              {
+                             "{0}<decimal>{1}</decimal>\n"
+                         }
+    group                {
+                             "{0}<group>{1}</group>\n"
+                         }
+    list                 {
+                             "{0}<list>{1}</list>\n"
+                         }
+    percentSign          {
+                             "{0}<percentSign>{1}</percentSign>\n"
+                         }
+    negativeZero         {
+                             "{0}<nativeZeroDigit>{1}</nativeZeroDigit>\n"
+                         }
+    patternDigit         {
+                             "{0}<patternDigit>{1}</patternDigit>\n"
+                         }
+    plusSign             {
+                             "{0}<plusSign>{1}</plusSign>\n"
+                         }
+    minusSign            {
+                             "{0}<minusSign>{1}</minusSign>\n"
+                         }
+    exponential          {
+                             "{0}<exponential>{1}</exponential>\n"
+                         }
+    perMille             {
+                             "{0}<perMille>{1}</perMille>\n"
+                         }
+    infinity             {
+                             "{0}<infinity>{1}</infinity>\n"
+                         }
+    nan                  {   
+                             "{0}<nan>{1}</nan>\n"
+                         }
+	numberFormats        {
+							 "{0}<{1}numberFormats>\n"
+						 }
+	numberFormatStart    {   
+                             "{0}<numberFormat type=\"{1}\">\n"
+						 }
+	numberFormatEnd  	 {
+							 "{0}</numberFormat>\n"
+                         }
+	patternAttrib		 {
+							 "{0}<pattern type=\"{1}\">{2}</pattern>\n"
+					     }
+    currencies           {
+                             "{0}<{1}currencies>\n"
+                         }
+    currencyStart        {
+                             "{0}<currency type=\"{1}\">\n"
+						 }
+	currencyEnd			 {
+							 "{0}</currency>\n"
+                         }
+    symbol               {
+                             "{0}<symbol>{1}</symbol>\n"
+                         }
+	collations		     {
+							 "{0}<{1}collations>\n"
+						 }
+    collation            {
+                             "{0}<{1}collation {2} >\n"
+                         }
+	uca					 {		
+							 "{0}<uca version=\"{1}\"/>\n"
+						 }
+	settings			 {
+							 "{0}<settings {1}=\"{2}\"/>\n"
+						 }
+	rules				 {
+							 "{0}<{1}rules>\n"
+						 }
+    reset                {
+                             "{0}<reset>{1}</reset>\n"
+                         }
+    primary              {
+                             "{0}<p>{1}</p>\n"
+                         }
+    secondary            {
+                             "{0}<s>{1}</s>\n"
+                         }
+    tertiary             {
+                             "{0}<t>{1}</t>\n"
+                         }
+	quaternary           {
+                             "{0}<q>{1}</q>\n"
+                         }
+	identical			 {
+							 "{0}<i>{1}</i>\n"
+						 }
+    primarySeq           {
+                             "{0}<pc>{1}</pc>\n"
+                         }
+    secondarySeq         {
+                             "{0}<sc>{1}</sc>\n"
+                         }
+    tertiarySeq          {
+                             "{0}<tc>{1}</tc>\n"
+                         }
+	quarternarySeq       {
+                             "{0}<qc>{1}</qc>\n"
+                         }
+	identicalSeq         {
+							 "{0}<ic>{1}</ic>\n"
+					     }
+	context				 {
+							 "<context>"
+						 }
+	contextEnd			 {
+							 "</context>"
+						 }
+
+    collator             {
+                             "{0}<collator type=\"{1}\"/>\n"
+                         }
+                        
+    collatorEnd          {
+                             "{0}</collator>\n"
+                         }
+                        
+    boundaries           {  
+                             "{0}<{1}boundaries>\n"
+                         }
+    graphemeStart        {
+                             "{0}<grapheme class=\"{1}\">\n"
+						 }
+	graphemeEnd  		 {
+							 "{0}</grapheme>\n"
+                         }
+    wordStart            {
+                             "{0}<word class=\"{1}\" import=\"{2}\" >\n"
+					     }
+	wordEnd				 {
+							 "{0}</word>\n"
+                         }
+    sentenceStart        {
+                             "{0}<sentence class=\"{1}\">\n"
+						 }
+	sentenceEnd  		 {
+							 "{0}</sentence>\n"
+                         }
+    lineStart            {
+                             "{0}<line class=\"{1}\">\n"
+						 }
+	lineEnd     		 {
+							 "{0}</line>\n"
+                         }
+    numberingLevel       {      
+                             "{0}<numberingLevel Prefix=\"{1}\" NumType=\"{2}\" Suffix=\"{3}\" />\n"
+                         }
+    reservedWords        {
+                             "{0}<{1}reservedWords>\n"
+                         }
+    trueWord             {        
+                             "{0}<trueWord>{1}</trueWord>\n"
+                         }
+    falseWord            {
+                             "{0}<falseWord>{1}</falseWord>\n"
+                         }
+    quarterWord          {
+                             "{0}<quarter{1}Word>{2}</quarter{1}Word>\n"
+                         }
+    aboveWord            {
+                             "{0}<aboveWord>{1}</aboveWord>\n"
+                         }
+    belowWord            {
+                             "{0}<belowWord>{1}</belowWord>\n"
+                         }
+    transliterationMod   {   
+                             "{0}<transliterationModules>{1}</transliterationModules>\n"
+                         }
+    outLineNumberingLevel{   
+                             "{1}<outLineNumberingLevel>{0}</outLineNumberingLevel>\n"
+                         }
+    messages             {
+                             "{0}<{1}messages>\n"
+                         }
+    no                   {
+                             "{0}<no>{1}</no>\n"
+                         }
+    yes                  {
+                             "{0}<yes>{1}</yes>\n"
+                         }
+    shortYes             {
+                             "{0}<shortYes>{1}</shortYes>\n"
+                         }
+    shortNo              {
+                             "{0}<shortNo>{1}</shortNo>\n"
+                         }
+	cp					 {
+							 "<cp hex=\"{1}\" />"
+					     }
+	suppressContractions {
+							 "{0}<suppress_contractions>{1}</suppress_contractions>\n"
+						 }
+	optimize			 {
+							 "{0}<optimize>{1}</optimize>\n"
+						 }
+	lastVariable		 {    
+							 "<last_variable/>"
+						 }
+	firstTIgnorable		 {
+							 "<first_tertiary_ignorable/>"
+					     }
+	resetWithValue		 {
+							 "{0}<reset {1}=\"{2}\">{3}</reset>\n"
+					     }
+    top					 {
+							 "<top/>"
+						 }
+	ruleBasedNFS		 {
+							 "{0}<{1}ruleBasedNumberFormats>\n"
+						 }
+	ruleBasedNF			 {
+							 "{0}<ruleBasedNumberFormat type=\"{1}\">{2}</ruleBasedNumberFormat>\n"
+					     }
+
+
+
+//          <addressFormat>
+//              <postalPattern>"%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N"</postalPattern>
+//          </addressFormat>
+//   
+//          <nameFormat>
+//              <namePattern>%p%t%g%m%t%f</namePattern>
+//              <generalSalutation></generalSalutation>
+//              <shortSalutationMr> Mr.</shortSalutationMr>
+//              <shortSalutationMiss>Ms.</shortSalutationMiss>
+//              <shortSalutationMrs>Mrs.</shortSalutationMrs>
+//              <longSalutationMr> Mister.</longSalutationMr>
+//              <longSalutationMiss>Miss</longSalutationMiss>
+//              <longSalutationMrs>Mrs.</longSalutationMrs>
+//          </nameFormat>
+//   
+//          <identification>
+//              <!-- Identification of the person who produced the data file. -->
+//              <title></title>
+//              <source></source>
+//              <address></address>
+//           <contact></contact>
+//              <email></email>
+//              <telephone></telephone>
+//              <fax></fax>
+//              <languageUsed></languageUsed>
+//              <country></country>
+//              <audience></audience>
+//              <application></application>
+//              <abbreviation></abbreviation>
+//              <revision></revision>
+//              <date></date>
+//          </identification>
+//   
+//          <telephoneFormat>
+//              <internationalPattern>+%c (%a)%t-%l</internationalPattern>
+//              <domesticPattern>(%a)%t-%l</domesticPattern>
+//              <internationalDialCode>001 </internationalDialCode>
+//              <internationalPrefix> </internationalPrefix>
+//       </telephoneFormat>
+//   
+//          <countryInfo>
+//            <countryPost>US</countryPost>
+//            <countryCar>US</countryCar>
+//            <countryNumber type="666"/>
+//            <countryISBNNumber type="666"/>
+//          </countryInfo>
+//
+//   
+//
+}

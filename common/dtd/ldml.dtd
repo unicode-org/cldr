@@ -491,7 +491,7 @@
 <!ATTLIST timeZoneNames validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT zone (alias | ( long*, short*, exemplarCity*, abbreviationFallback?,special*)) >
-<!ATTLIST zone type NMTOKEN #REQUIRED >
+<!ATTLIST zone type CDATA #REQUIRED >
 <!ATTLIST zone draft ( true | false ) #IMPLIED >
 <!ATTLIST zone standard CDATA #IMPLIED >
 <!ATTLIST zone references CDATA #IMPLIED >

@@ -3,10 +3,8 @@
 [
     <!ENTITY % icu SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlICU.dtd">
     <!ENTITY % openOffice SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlOpenOffice.dtd">
-    <!ENTITY % posix SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlPOSIX.dtd">
 %icu;
 %openOffice;
-%posix;
 ]
 >
 <!--
@@ -243,9 +241,9 @@ For example, most country locales will inherit the bulk of their data from the l
                         <era type="3">CE</era>
                   </eraAbbr>
               </eras>
-              <dateFormats>
+              <dateFormats >
                 <default type="medium"/>
-                <dateFormatLength type="medium">
+                <dateFormatLength type="medium" standard="iso472,US2345">
                      <default type="DateFormatsKey2"/>
                      <dateFormat type="DateFormatsKey2">
                           <pattern>MM d, yyyy </pattern>
@@ -682,9 +680,5 @@ For example, most country locales will inherit the bulk of their data from the l
                 <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix=" " openOffice:bulletChar="2022"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="200" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
             </openOffice:outlineStyle>
         </openOffice:outLineNumberingLevels>
-    </special>
-    
-    <special xmlns:posix="http://www.opengroup.org/regproducts/xu.htm">
-        <posix:version />
     </special>
 </ldml>

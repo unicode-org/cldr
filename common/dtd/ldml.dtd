@@ -22,10 +22,10 @@
 <!ELEMENT identity (alias | (version, generation, language, script?, territory?, variant?, special*) ) >
 
 <!ELEMENT version ( #PCDATA ) >
-<!ATTLIST version number NMTOKEN #REQUIRED >
+<!ATTLIST version number CDATA #REQUIRED >
 
 <!ELEMENT generation EMPTY >
-<!ATTLIST generation date NMTOKEN #REQUIRED >
+<!ATTLIST generation date CDATA #REQUIRED >
 
 <!ELEMENT language ( #PCDATA ) >
 <!ATTLIST language type NMTOKEN #REQUIRED >

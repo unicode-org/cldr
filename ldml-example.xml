@@ -63,8 +63,8 @@ For example, most country locales will inherit the bulk of their data from the l
         
         <scripts>
             <!-- types come from the Unicode Tech Report on scripts -->
-            <script type="Latin">Romana</script>
-            <script type="Cyrillic">Kyrillica</script>
+            <script type="Latn">Romana</script>
+            <script type="Cyrl">Kyrillica</script>
         </scripts>
 
         <territories>
@@ -214,7 +214,7 @@ For example, most country locales will inherit the bulk of their data from the l
                           <displayName>DIN 5008 (EN 28601)</displayName>
                           <!--  Optional special element for platform/application specific overheads. Paser can
                               choose to ignore if required . Special elements should always be the last children of the parent.-->
-                          <special xmlns:openOffice="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
+                          <special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="DateFormatskey3" openOffice:usage="DATE" openOffice:formatindex="20" />
                      </dateFormat>
                      <dateFormat type="DateFormatsKey3">
                           <pattern>MMM dd, yyyy</pattern>
@@ -226,7 +226,7 @@ For example, most country locales will inherit the bulk of their data from the l
                           <displayName>DIN 5008 (EN 28601)</displayName>
                           <!--  Optional special element for platform/application specific overheads. Paser can
                               choose to ignore if required. Special elements should always be the last children of the parent. -->
-                          <special xmlns:openOffice="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
+                          <special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="DateFormatskey3" openOffice:usage="DATE" openOffice:formatindex="20" />
                      </dateFormat>
                 </dateFormatLength>
               </dateFormats>
@@ -238,7 +238,7 @@ For example, most country locales will inherit the bulk of their data from the l
                           <displayName>DIN 5008 (EN 28601)</displayName>
                            <!--  Optional special element for platform/application specific overheads. Paser can
                               choose to ignore if required  -->
-                          <special xmlns:openOffice="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
+                          <special xmlns:openOffice="http://www.openoffice.org" openOffice:msgtype="DateFormatskey3" openOffice:usage="DATE" openOffice:formatindex="20" />
                       </timeFormat>
                  </timeFormatLength>
                  <timeFormatLength type="medium">
@@ -445,8 +445,9 @@ For example, most country locales will inherit the bulk of their data from the l
                 <x><context>?</context><t>?</t></x>
                 <x><context>?</context><p>?</p></x>
             </rules>
-            <special xmlns:icu="http://oss.software.ibm.com/icu/" version="1.2" />
+            <special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.2" />
             <special xmlns:openOffice="http://www.openoffice.org">
+                <openOffice:version/>
                 <default type="alphanumeric"/>
                 <openOffice:collator type="alphanumeric" />
                 <openOffice:collator type="phonebook"/>
@@ -457,6 +458,7 @@ For example, most country locales will inherit the bulk of their data from the l
         </collation>
     </collations>
     <special xmlns:icu="http://oss.software.ibm.com/icu/">
+        <icu:version />
         <icu:ruleBasedNumberFormats>
             <icu:ruleBasedNumberFormat type="spellout">
                 %%and:
@@ -489,11 +491,11 @@ For example, most country locales will inherit the bulk of their data from the l
             in BreakIteratorRules.java
             displayName attributes removed for now
             -->
-            <icu:grapheme class="RuleBased" append="true">
+            <icu:grapheme icu:class="RuleBased" icu:append="true">
                 <!-- in addition to the normal rules, treat CH and RR as graphemes. -->
                 [cC][hH];[rR][rR]
             </icu:grapheme>
-            <icu:word class="Dictionary" import="thaiDict.dat" >
+            <icu:word icu:class="Dictionary" icu:import="thaiDict.dat" >
                 <!-- When doing Thai word break, check the normal word break rules first. -->
                 digit=[[:Nd:][:No:]];
                 $digit [[:Pd:]&#xAD;&#x2027;&apos;.]
@@ -632,6 +634,7 @@ For example, most country locales will inherit the bulk of their data from the l
         </openOffice:outLineNumberingLevels>
     </special>
     <special xmlns:posix="http://www.opengroup.org/regproducts/xu.htm">
+        <posix:version />
         <!-- old abbreviations for pre-GUI days -->
         <posix:messages>
             <posix:yesstr>Yes</posix:yesstr>
@@ -643,6 +646,7 @@ For example, most country locales will inherit the bulk of their data from the l
     <special xmlns:iso14652="http://www.gnu.org/directory/glibc.html">
         <!-- The following is ISO TR 14652 compatibility data.For details on TR 14652 see http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n972-14652ft.pdf.
          -->
+        <iso14652:version />
         <iso14652:addressFormat>
             <iso14652:postalPattern>"%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N"</iso14652:postalPattern>
         </iso14652:addressFormat>

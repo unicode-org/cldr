@@ -19,6 +19,10 @@
 <!ATTLIST special xmlns:icu CDATA #IMPLIED>
 <!ATTLIST special icu:version CDATA #IMPLIED>
 
+<!ELEMENT icu:version EMPTY>
+<!ATTLIST icu:version icu:specialVersion  CDATA #FIXED "1.0" >
+<!ATTLIST icu:version icu:requiredLDMLVersion CDATA #FIXED "1.0" >
+
 <!-- ICU Scripts -->
 
 <!ELEMENT icu:scripts (alias | icu:script* ) >
@@ -40,19 +44,19 @@
 <!ELEMENT icu:boundaries (alias | (icu:grapheme?, icu:word?, icu:line?, icu:sentence?)) >
 
 <!ELEMENT icu:grapheme ( #PCDATA ) >
-<!ATTLIST icu:grapheme class NMTOKEN #REQUIRED >
-<!ATTLIST icu:grapheme append NMTOKEN #REQUIRED >
+<!ATTLIST icu:grapheme icu:class NMTOKEN #REQUIRED >
+<!ATTLIST icu:grapheme icu:append NMTOKEN #REQUIRED >
 
 <!ELEMENT icu:word ( #PCDATA ) >
-<!ATTLIST icu:word class NMTOKEN #REQUIRED >
-<!ATTLIST icu:word import NMTOKEN #REQUIRED >
+<!ATTLIST icu:word icu:class NMTOKEN #REQUIRED >
+<!ATTLIST icu:word icu:import NMTOKEN #REQUIRED >
 
 <!ELEMENT icu:line ( #PCDATA ) >
-<!ATTLIST icu:line class NMTOKEN #REQUIRED >
+<!ATTLIST icu:line icu:class NMTOKEN #REQUIRED >
 
 
 <!ELEMENT icu:sentence ( #PCDATA ) >
-<!ATTLIST icu:sentence class NMTOKEN #REQUIRED >
+<!ATTLIST icu:sentence icu:class NMTOKEN #REQUIRED >
 
 <!-- RBT data  -->
 <!ELEMENT icu:transforms ( alias | (default?, icu:transform*)) >

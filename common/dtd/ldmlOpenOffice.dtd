@@ -20,14 +20,18 @@
 <!ENTITY % RefLocale 'openOffice:ref                     CDATA              #IMPLIED'>
 
 <!ATTLIST special xmlns:openOffice CDATA #IMPLIED>
-<!ATTLIST special formatindex NMTOKEN #IMPLIED >
-<!ATTLIST special msgtype NMTOKEN #IMPLIED >
-<!ATTLIST special usage NMTOKEN #IMPLIED >
-<!ATTLIST special version NMTOKEN #IMPLIED >
+<!ATTLIST special openOffice:formatindex NMTOKEN #IMPLIED >
+<!ATTLIST special openOffice:msgtype NMTOKEN #IMPLIED >
+<!ATTLIST special openOffice:usage NMTOKEN #IMPLIED >
+<!ATTLIST special openOffice:version NMTOKEN #IMPLIED >
 <!ATTLIST special default NMTOKEN #IMPLIED>
 <!ATTLIST special type NMTOKEN #IMPLIED>
-<!ATTLIST special unoid NMTOKEN #IMPLIED>
+<!ATTLIST special openOffice:unoid NMTOKEN #IMPLIED>
 <!ATTLIST special %RefLocale; >
+
+<!ELEMENT openOffice:version EMPTY>
+<!ATTLIST openOffice:version openOffice:specialVersion  CDATA #FIXED "1.0" >
+<!ATTLIST openOffice:version openOffice:requiredLDMLVersion CDATA #FIXED "1.0" >
 
 <!ELEMENT openOffice:forbiddenCharacters (openOffice:forbiddenLineBeginCharacters, openOffice:forbiddenLineEndCharacters) >
 <!ELEMENT openOffice:forbiddenLineBeginCharacters (#PCDATA) >

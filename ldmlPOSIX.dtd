@@ -16,6 +16,10 @@
 
 <!ATTLIST special xmlns:posix CDATA #IMPLIED>
 
+<!ELEMENT posix:version EMPTY>
+<!ATTLIST posix:version posix:specialVersion  CDATA #FIXED "1.0" >
+<!ATTLIST posix:version posix:requiredLDMLVersion CDATA #FIXED "1.0" >
+
 <!ELEMENT posix:messages (alias | ( posix:yesstr?, posix:nostr?, posix:yesexpr?, posix:noexpr?)) >
 
 <!ELEMENT posix:yesstr ( #PCDATA ) >

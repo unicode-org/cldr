@@ -16,6 +16,10 @@
 
 <!ATTLIST special xmlns:iso14652 CDATA #IMPLIED>
 
+<!ELEMENT iso14652:version EMPTY>
+<!ATTLIST iso14652:version iso14652:specialVersion  CDATA #FIXED "1.0" >
+<!ATTLIST iso14652:version iso14652:requiredLDMLVersion CDATA #FIXED "1.0" >
+
 <!ELEMENT iso14652:addressFormat (alias | (iso14652:postalPattern?)) >
 
 <!ELEMENT iso14652:postalPattern ( #PCDATA ) >

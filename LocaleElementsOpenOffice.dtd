@@ -15,7 +15,7 @@
 <!ENTITY % UNOModule 'unoid                     CDATA              #IMPLIED'>
 <!ENTITY % RefLocale 'ref                     CDATA              #IMPLIED'>
 
-<!ELEMENT openOffice:ooSpecific (openOffice:forbiddenCharacters?, openOffice:reservedWords?, openOffice:collations?, openOffice:openOffice:search?, openOffice:oo_currency?, openOffice:separators?, openOffice:numberingLevels?, openOffice:outLineNumberingLevels? ) >
+<!ELEMENT openOffice:ooSpecific (openOffice:forbiddenCharacters?, openOffice:reservedWords?, openOffice:collations?, openOffice:search?, openOffice:oo_currency?, openOffice:separators?, openOffice:numberingLevels?, openOffice:outLineNumberingLevels? ) >
 <!ATTLIST openOffice:ooSpecific %RefLocale; >
 <!ELEMENT openOffice:forbiddenCharacters (openOffice:forbiddenLineBeginCharacters, openOffice:forbiddenLineEndCharacters) >
 <!ELEMENT openOffice:forbiddenLineBeginCharacters (#PCDATA) >

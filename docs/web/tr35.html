@@ -28,7 +28,7 @@
   <table border="1" cellpadding="2" style="border-collapse: collapse; border-width: 1" cellspacing="0" width="100%">
     <tr>
       <td>Version</td>
-      <td>1<span>.</span><span style="background-color: #FFFF00">2 (draft 1)</span></td>
+      <td>1<span>.</span><span class="changed">2 (draft 1)</span></td>
     </tr>
     <tr>
       <td>Authors</td>
@@ -36,7 +36,7 @@
     </tr>
     <tr>
       <td>Date</td>
-      <td><span>2004-</span><span style="background-color: #FFFF00">07-25</span></td>
+      <td><span>2004-</span><span class="changed">07-25</span></td>
     </tr>
     <tr>
       <td>This Version</td>
@@ -53,8 +53,8 @@
       <td><a href="http://www.unicode.org/reports/tr35/">http://www.unicode.org/reports/tr35/</a></td>
     </tr>
     <tr>
-      <td bgcolor="#FFFF00">Latest Working Draft</td>
-      <td bgcolor="#FFFF00">
+      <td class="changed">Latest Working Draft</td>
+      <td class="changed">
       <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/tr35.html">
       http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/tr35.html</a> </td>
     </tr>
@@ -186,6 +186,9 @@
     <li><a href="#Supplemental_Data">Appendix C: Supplemental Data</a></li>
     <li><a href="#Language_and_Locale_IDs">Appendix D: Language and Locale IDs</a></li>
     <li><a href="#Unicode_Sets">Appendix E: Unicode Sets</a></li>
+    <li><a href="#Date_Format_Patterns"><span class="changed">Appendix F: Date Format Patterns</span></a></li>
+    <li><a href="#Number_Format_Patterns"><span class="changed">Appendix G: Number Format Patterns</span></a></li>
+    <li><a href="#Choice_Patterns"><span class="changed">Appendix H: Choice Patterns</span></a></li>
     <li><a href="#References">References</a></li>
     <li><a href="#Modifications"><span>Modifications</span></a></li>
   </ul>
@@ -670,7 +673,7 @@ root</pre>
       <th>XML Example</th>
     </tr>
     <tr>
-      <td bgcolor="#FFFF00"><code>U+0000</code></td>
+      <td bgcolor="#FFFF66"><code>U+0000</code></td>
       <td><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
     </tr>
   </table>
@@ -822,26 +825,62 @@ root</pre>
   information, see <a href="http://www.unicode.org/reports/tr9/">UAX #9:&nbsp;The Bidirectional Algorithm</a> 
   [<a href="#BIDI">BIDI</a>]).</p>
   <h3><a name="&lt;characters&gt;">&lt;characters&gt;</a></h3>
-  <p><span>The &lt;characters&gt; element provides optional information about characters are in common use 
-  in the locale, and information that can be helpful in picking among character encodings that are 
-  typically used to transmit data in the language of the locale. </span>It typically only occurs in 
-  a language locale, not in a language/territory locale.</p>
+  <p><span>The &lt;characters&gt; <span class="changed">element provides optional information about 
+  characters that are in common use in the locale, and information that can be helpful in picking 
+  resources or data appropriate for the locale, such as when choosing among character encodings that 
+  are typically used to transmit data in the language of the locale. </span></span>It typically only 
+  occurs in a language locale, not in a language/territory locale.</p>
   <p class="element2">&lt;exemplarCharacters&gt;<span style="color: blue">[a-zåæø]</span>&lt;/exemplarCharacters&gt;</p>
-  <p>This element indicates that normal usage of the language of this locale requires these letters.
-  <span>(&quot;Letter is interpreted broadly, as in the Unicode General Category, and also includes 
-  syllabaries and ideographs.) </span>An encoding that cannot encompass at least these letters is 
-  inappropriate for encoding data in the language of this locale. The list of characters is in the
-  <a href="#Unicode_Sets">Unicode Set</a> format, which allows boolean combinations of sets of 
-  letters, including those specified by Unicode properties.</p>
-  <p><span>The list should not include non-letters: punctuation marks, digits, etc., although this 
-  policy may be changed in future versions of this standard.</span></p>
-  <p>The letters do not necessarily form a complete set (especially for languages using large 
-  character sets, such as CJK). Nor does the list necessarily include letters that are used in 
-  common foreign words used in that language. The letters are only the lowercase alternatives, but 
-  implicitly include the normal &quot;case-closure&quot;: all uppercase and titlecase variants. For the 
-  special case of Turkish, the dotted capital I should be included. Sequences of characters that are 
-  considered to be a single letter in the alphabet, such as &quot;ch&quot; can be included, using curly braces 
-  (e.g., [[a-z{ch}{ll}{rr}] - [w]]). <span>For more information, see [<a href="#DataFormats">Data 
+  <p><span class="changed">The exemplar character set contains the commonly used letters for a given 
+  modern form of a language, which can be for testing and for determining the appropriate repertoire 
+  of letters for </span><span class="changed">charset</span><span class="changed"> conversion or 
+  collation. </span><span class="changed">(&quot;Letter is interpreted broadly, as in the Unicode General 
+  Category, and also includes syllabaries and ideographs.) It is not a complete set of letters used 
+  for a language, nor should it be considered to apply to multiple languages in a particular 
+  country. In general, the test to see whether or not a letter belongs in the set is based on 
+  whether it is acceptable in that language to always use spellings that avoid that character. For 
+  example, the exemplar character set for en (English) is the set [a-z]. This set does not contain 
+  the accented letters that are sometimes seen in words like &quot;résumé&quot; or &quot;naïve&quot;, because it is 
+  acceptable in common practice to spell those words without the accents. The exemplar character set 
+  for </span><span class="changed">fr</span><span class="changed"> (French), on the other hand, must 
+  contain those characters: [a-z </span><span class="changed">é</span><span class="changed"> </span>
+  <span class="changed">è</span><span class="changed"> ù </span><span class="changed">ç</span><span class="changed">
+  </span><span class="changed">à</span><span class="changed"> </span><span class="changed">â</span><span class="changed">
+  </span><span class="changed">ê</span><span class="changed"> î ô û æ œ </span>
+  <span class="changed">ë</span><span class="changed"> ï ÿ]. </span></p>
+  <p><span class="changed">The list of characters is in the </span><a href="#Unicode_Sets">
+  <span class="changed">Unicode Set</span></a><span class="changed"> format, which allows </span>
+  <span class="changed">boolean</span><span class="changed"> combinations of sets of letters, 
+  including those specified by Unicode properties.</span></p>
+  <p><span class="changed">Punctuation and other symbols should not be included. Sequences of 
+  characters that act like a single letter in the language — especially in collation — are included 
+  within braces, such as [a-z </span><span class="changed">á</span><span class="changed"> </span>
+  <span class="changed">é</span><span class="changed"> í ó ú ö ü ő ű {</span><span class="changed">cs</span><span class="changed">} 
+  {</span><span class="changed">dz</span><span class="changed">} {</span><span class="changed">dzs</span><span class="changed">} 
+  {</span><span class="changed">gy</span><span class="changed">} ...]. Where combining marks are 
+  used generatively, and apply to a large number of base characters (such as in Indic scripts), the 
+  individual combining marks should be included. Where they are used with only a few base 
+  characters, the specific combinations should be included. Wherever there is not a </span>
+  <span class="changed">precomposed</span><span class="changed"> character (e.g. single </span>
+  <span class="changed">codepoint</span><span class="changed">) for a given combination, that must 
+  be included within braces. For example, to include sequences from the </span>
+  <a href="http://www.unicode.org/standard/where/"><span class="changed">Where is my Character?</span></a><span class="changed"> 
+  page on the Unicode site, one would write: [{ch} {tʰ} {x̣} {ƛ̓} {ą́} {i̇́} {ト゚}], but for French 
+  one would just write [a-z </span><span class="changed">é</span><span class="changed"> </span>
+  <span class="changed">è</span><span class="changed"> ù ...]. When in doubt use braces, since it 
+  does no harm to included them around single code points: e.g. [a-z {</span><span class="changed">é</span><span class="changed">} 
+  {</span><span class="changed">è</span><span class="changed">} {ù} ...].</span></p>
+  <p><span class="changed">The exemplar character set for Han characters is composed somewhat 
+  differently. It is even harder to draw a clear line for Han characters, since usage is more like a 
+  frequency curve that slowly trails off to the right in terms of decreasing frequency. So for this 
+  case, the exemplar characters simply contain a set of reasonably frequent characters for the 
+  language, based on presence in character set standards.</span></p>
+  <p><span class="changed">The letters do not necessarily form a complete set (especially for 
+  languages using large character sets, such as </span><span class="changed">CJK</span><span class="changed">). 
+  Nor does the list necessarily include letters that are used in common foreign words used in that 
+  language. This set is case insensitive; this means it only needs lower case characters. The 
+  ordering of these characters are irrelevant. For the special case of Turkish, the dotted capital I 
+  should be included. </span><span class="changed">For more information, see [<a href="#DataFormats">Data 
   Formats</a>].</span></p>
   <p class="element2">&lt;mapping registry=&quot;<span style="color: blue">iana</span>&quot; type=&quot;<span style="color: blue">windows-1252</span>&quot;/&gt;</p>
   <p>There can be multiple mapping elements. Each indicates the character conversion mapping table 
@@ -900,14 +939,12 @@ root</pre>
   <h3><a name="&lt;dates&gt;">&lt;dates&gt;</a></h3>
   <p>This top-level element contains information regarding the format and parsing of dates and 
   times. The data is based on the Java/ICU format. Most of these are fairly self-explanatory, except
-  <i>minDays</i> and <i>localizedPatternChars</i>. For information on this, and more information on 
-  other elements and attributes, see [<a href="#JavaDates">JavaDates</a>].</p>
-  <p class="note"><b>Note: </b>there is an on-line demonstration of date formatting and parsing at [<a href="#LocaleExplorer">LocaleExplorer</a>] 
-  (pick the locale and scroll to &quot;Date Patterns&quot;).</p>
-  <p>The &lt;dates&gt; element has three possible sub-elements: &lt;localizedPatternCharacters&gt;, &lt;calendars&gt; 
-  and &lt;timeZoneNames&gt;</p>
-  <pre class="element2"><a name="&lt;localizedPatternChars&gt;">&lt;localizedPatternChars&gt;</a><span style="color: blue">GyMdkHmsSEDFwWahKz</span>&lt;/localizedPatternChars&gt;</pre>
-  <p>The interpretation of this is explained in [<a href="#JavaDates">JavaDates</a>].</p>
+  <span class="changed">the</span><i><span class="changed"> week </span></i><span class="changed">
+  elements</span><i><span class="changed">,</span></i><span class="changed"> </span><i>
+  <span class="changed">localizedPatternChars</span></i><span class="changed">, and the meaning of 
+  the pattern characters</span>. For information on this, and more information on other elements and 
+  attributes, <span class="changed">see </span><a href="#Date_Format_Patterns">
+  <span class="changed">Appendix F: Date Format Patterns</span></a><span class="changed">.</span></p>
   <pre class="element2"><a name="&lt;calendars&gt;">&lt;calendars&gt;</a></pre>
   <p>This element contains multiple &lt;calendar&gt; elements, each of which specifies the fields used for 
   formatting and parsing dates and times according to the given calendar. The month names are 
@@ -1154,11 +1191,9 @@ root</pre>
   <h3><a name="&lt;numbers&gt;">&lt;numbers&gt;</a></h3>
   <p>The numbers element supplies information for formatting and parsing numbers and currencies. It 
   has the following sub-elements: &lt;symbols&gt;, &lt;decimalFormats&gt;, &lt;scientificFormats&gt;, &lt;percentFormats&gt;, 
-  &lt;currencyFormats&gt;, and &lt;currencies&gt;. The data is based on the Java/ICU format. The currency IDs 
-  are from [<a href="#ISO4217">ISO4217</a>]. For more information, including the pattern structure, 
-  see [<a href="#JavaNumbers">JavaNumbers</a>].</p>
-  <p class="note"><b>Note: </b>there is an on-line demonstration of number formatting and parsing at 
-  [<a href="#LocaleExplorer">LocaleExplorer</a>] (pick the locale and scroll to &quot;Number Patterns&quot;).</p>
+  &lt;currencyFormats&gt;, and &lt;currencies&gt;. The currency IDs are from [<a href="#ISO4217">ISO4217</a>]. 
+  For more information, including the pattern structure<span class="changed">, see </span>
+  <a href="#Number_Format_Patterns"><span class="changed">Appendix G: Number Pattern Format</span></a><span class="changed">.</span></p>
   <pre><a name="&lt;symbols&gt;">&lt;symbols&gt;</a>
       &lt;decimal&gt;<span style="color: blue">.</span>&lt;/decimal&gt;
       &lt;group&gt;<span style="color: blue">,</span>&lt;/group&gt;
@@ -1227,9 +1262,9 @@ root</pre>
 &lt;/currencies&gt;</pre>
   <p>In formatting currencies, the currency number format is used with the appropriate symbol from 
   &lt;currencies&gt;, according to the currency code. The &lt;currencies&gt; list can contain codes that are no 
-  longer in current use, such as PTE. The choice attribute can be used to indicate that the value 
-  uses a pattern which is to be interpreted as a Java ChoiceFormat [<a href="#JavaChoice">JavaChoice</a>], 
-  with the 0 parameter being the numeric value.</p>
+  longer in current use, such as PTE. The choice attribute can be used to indicate that the
+  <span class="changed">value uses a pattern interpreted as in </span><a href="#Choice_Patterns">
+  <span class="changed">Appendix H: Choice Patterns</span></a><span class="changed">.</span></p>
   <p>Currencies can also contain <span>optional</span> grouping, decimal data<span>, and pattern 
   elements</span>. This data is inherited from the &lt;symbols&gt; in the same locale data<span> (if not 
   present in the chain up to root)</span>, so only the <i>differing</i> data will be present. <span>
@@ -2555,201 +2590,896 @@ root</pre>
   treated as a literal. In particular, note that \u and \U escapes create literal characters. (In 
   contrast, for example, javac treats Unicode escapes as just a way to represent arbitrary 
   characters in an ASCII source file, and any resulting characters are _not_ tagged as literals.)</p>
-  <h2><span style="background-color: #FFFF00">Annex F: </span><a name="Date_Format_Patterns">
-  <span style="background-color: #FFFF00">Date Format Patterns</span></a></h2>
+  <h2><span class="changed">Appendix F: </span><a name="Date_Format_Patterns"><span class="changed">
+  Date Format Patterns</span></a></h2>
+  <p><span class="changed">A date pattern is a string of characters, where specific strings of 
+  characters are replaced with date and time data from a calendar when formatting or used to 
+  generate data for a calendar when parsing. The following are the characters used in patterns to 
+  show the appropriate formats for a given locale. The following are examples:</span></p>
+  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+    <tr>
+      <th width="50%"><span class="changed">Pattern</span></th>
+      <th width="50%"><span class="changed">Result (in a particular locale)</span></th>
+    </tr>
+    <tr>
+      <td width="50%"><span class="changed">yyyy.MM.dd G &#39;at&#39; HH:mm:ss zzz</span></td>
+      <td width="50%"><span class="changed">1996.07.10 AD at 15:08:56 PDT</span></td>
+    </tr>
+    <tr>
+      <td width="50%"><span class="changed">EEE, MMM d, &#39;&#39;yy</span></td>
+      <td width="50%"><span class="changed">Wed, July 10, &#39;96</span></td>
+    </tr>
+    <tr>
+      <td width="50%"><span class="changed">h:mm a</span></td>
+      <td width="50%"><span class="changed">12:08 PM</span></td>
+    </tr>
+    <tr>
+      <td width="50%"><span class="changed">hh &#39;o&#39;&#39;clock&#39; a, zzzz</span></td>
+      <td width="50%"><span class="changed">12 o&#39;clock PM, Pacific Daylight Time</span></td>
+    </tr>
+    <tr>
+      <td width="50%"><span class="changed">K:mm a, z</span></td>
+      <td width="50%"><span class="changed">0:00 PM, PST</span></td>
+    </tr>
+    <tr>
+      <td width="50%"><span class="changed">yyyyy.MMMM.dd GGG hh:mm aaa</span></td>
+      <td width="50%"><span class="changed">01996.July.10 AD 12:08 PM</span></td>
+    </tr>
+  </table>
+  <p><span class="changed">Characters may be used multiple times. For example, if y is used for the 
+  year, &#39;</span><span class="changed">yy</span><span class="changed">&#39; might produce &#39;99&#39;, whereas &#39;</span><span class="changed">yyyy</span><span class="changed">&#39; 
+  produces &#39;1999&#39;. For most numerical fields, the number of characters specifies the field width. 
+  For example, if h is the hour, &#39;h&#39; might produce &#39;5&#39;, but &#39;</span><span class="changed">hh</span><span class="changed">&#39; 
+  produces &#39;05&#39;. For some characters, the count specifies whether an abbreviated or full form should 
+  be used, but may have other choices, as given below.</span></p>
+  <table cellSpacing="0" cellPadding="2" border="1">
+    <tr>
+      <th class="changed">&nbsp;</th>
+      <th class="changed" style="text-align: center">Sym.</th>
+      <th class="changed" style="text-align: center"><span class="changed">No.</span></th>
+      <th class="changed"><span class="changed">Example</span></th>
+      <th class="changed"><span class="changed">Description</span></th>
+    </tr>
+    <tr>
+      <th class="changed">Eras</th>
+      <td class="changed" style="text-align: center">G</td>
+      <td class="changed" style="text-align: center">1</td>
+      <td class="changed">AD</td>
+      <td class="changed"><span class="changed">Era - Replaced with the </span><a href="#Era">
+      <span class="changed">Era</span></a><span class="changed"> string for the current date.</span></td>
+    </tr>
+    <tr>
+      <th class="changed" rowspan="3">Years</th>
+      <td class="changed" style="text-align: center">y</td>
+      <td class="changed" style="text-align: center">1..n</td>
+      <td class="changed">1996</td>
+      <td class="changed"><span class="changed">Year</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">Y</td>
+      <td class="changed" style="text-align: center">1..n</td>
+      <td class="changed">1997</td>
+      <td class="changed"><span class="changed">Year (of &quot;Week of Year&quot;), used in ISO year-week 
+      calendar. May differ from calendar year.</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">u</td>
+      <td class="changed" style="text-align: center">1..n</td>
+      <td class="changed">4601</td>
+      <td class="changed">Extended year. This is a single number designating the year of this 
+      calendar system, encompassing all supra-year fields. For example, for the Julian calendar 
+      system, year numbers are positive, with an era of BCE or CE. An extended year value for the 
+      Julian calendar system assigns positive values to CE years and negative values to BCE years, 
+      with 1 BCE being year 0.</td>
+    </tr>
+    <tr>
+      <th class="changed" rowspan="4">Months</th>
+      <td class="changed" rowspan="4" style="text-align: center">M</td>
+      <td class="changed" style="text-align: center">1..2</td>
+      <td class="changed">09<br>
+&nbsp;</td>
+      <td class="changed" rowspan="4"><span class="changed">Month - Use one or two for the numerical 
+      month, three for the abbreviation, or four for the full name, or 5 for the narrow name.</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">3</td>
+      <td class="changed">Sept</td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">4</td>
+      <td class="changed">September</td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">5</td>
+      <td class="changed">S</td>
+    </tr>
+    <tr>
+      <th class="changed" rowspan="2">Weeks</th>
+      <td class="changed" style="text-align: center">w</td>
+      <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
+      <td class="changed"><span class="changed">27</span></td>
+      <td class="changed"><span class="changed">Week of Year.</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">W</td>
+      <td class="changed" style="text-align: center"><span class="changed">1</span></td>
+      <td class="changed"><span class="changed">3</span></td>
+      <td class="changed"><span class="changed">Week of Month</span></td>
+    </tr>
+    <tr>
+      <th class="changed" rowspan="4">Days</th>
+      <td class="changed" style="text-align: center">d</td>
+      <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
+      <td class="changed"><span class="changed">1</span></td>
+      <td class="changed"><span class="changed">Date - Day of the month</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">D</td>
+      <td class="changed" style="text-align: center"><span class="changed">1..3</span></td>
+      <td class="changed"><span class="changed">345</span></td>
+      <td class="changed"><span class="changed">Day of year</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">F</td>
+      <td class="changed" style="text-align: center">1</td>
+      <td class="changed">2<br>
+&nbsp;</td>
+      <td class="changed"><span class="changed">Day of Week in Month. The example is for the 2nd Wed 
+      in July</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">g</td>
+      <td class="changed" style="text-align: center">1..n</td>
+      <td class="changed">2451334</td>
+      <td class="changed">Modified Julian day. This is different from the conventional Julian day 
+      number in two regards. First, it demarcates days at local zone midnight, rather than noon GMT. 
+      Second, it is a local number; that is, it depends on the local time zone. It can be thought of 
+      as a single number that encompasses all the date-related fields.</td>
+    </tr>
+    <tr>
+      <th class="changed" rowspan="8">Weekdays</th>
+      <td class="changed" rowspan="4" style="text-align: center">E</td>
+      <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
+      <td class="changed">3</td>
+      <td class="changed" rowspan="4"><span class="changed">Day of week - Use three for the short 
+      day, or four for the full name, or 5 for the narrow name. Sunday is always day 1</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center"><span class="changed">3</span></td>
+      <td class="changed"><span class="changed">Tues</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center"><span class="changed">4</span></td>
+      <td class="changed"><span class="changed">Tuesday</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center"><span class="changed">5</span></td>
+      <td class="changed"><span class="changed">T</span></td>
+    </tr>
+    <tr>
+      <td class="changed" rowspan="4" style="text-align: center">e</td>
+      <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
+      <td class="changed">2</td>
+      <td class="changed" rowspan="4">Local day of week. Same as E except value will depend on the 
+      local starting day of the week. For this example, Monday is the first day of the week.</td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center"><span class="changed">3</span></td>
+      <td class="changed"><span class="changed">Tues</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center"><span class="changed">4</span></td>
+      <td class="changed"><span class="changed">Tuesday</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center"><span class="changed">5</span></td>
+      <td class="changed"><span class="changed">T</span></td>
+    </tr>
+    <tr>
+      <th class="changed">Period</th>
+      <td class="changed" style="text-align: center">a</td>
+      <td class="changed" style="text-align: center"><span class="changed">1</span></td>
+      <td class="changed"><span class="changed">AM</span></td>
+      <td class="changed"><span class="changed">AM or PM</span></td>
+    </tr>
+    <tr>
+      <th class="changed" rowspan="4">Hours</th>
+      <td class="changed" style="text-align: center">h</td>
+      <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
+      <td class="changed"><span class="changed">11</span></td>
+      <td class="changed"><span class="changed">Hour [1-12]. </span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">H</td>
+      <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
+      <td class="changed"><span class="changed">13</span></td>
+      <td class="changed"><span class="changed">Hour [0-23].</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">K</td>
+      <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
+      <td class="changed"><span class="changed">0</span></td>
+      <td class="changed"><span class="changed">Hour [0-11].</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">k</td>
+      <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
+      <td class="changed"><span class="changed">24</span></td>
+      <td class="changed"><span class="changed">Hour [1-24].</span></td>
+    </tr>
+    <tr>
+      <th class="changed">Minutes</th>
+      <td class="changed" style="text-align: center">m</td>
+      <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
+      <td class="changed"><span class="changed">59</span></td>
+      <td class="changed"><span class="changed">Minute. Use one or two for zero padding.</span></td>
+    </tr>
+    <tr>
+      <th class="changed" rowspan="3">Seconds</th>
+      <td class="changed" style="text-align: center">s</td>
+      <td class="changed" style="text-align: center"><span class="changed">1..2</span></td>
+      <td class="changed"><span class="changed">12</span></td>
+      <td class="changed"><span class="changed">Second. Use one or two for zero padding.</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">S</td>
+      <td class="changed" style="text-align: center"><span class="changed">1..n</span></td>
+      <td class="changed"><span class="changed">3456</span></td>
+      <td class="changed"><span class="changed">Fractional Second - rounds to the count of letters. 
+      (example is for 12.34567)</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">A</td>
+      <td class="changed" style="text-align: center"><span class="changed">1..n</span></td>
+      <td class="changed">69540000</td>
+      <td class="changed">Milliseconds in day. This field behaves <i>exactly</i> like a composite of 
+      all time-related fields, not including the zone fields. As such, it also reflects 
+      discontinuities of those fields on DST transition days. On a day of DST onset, it will jump 
+      forward. On a day of DST cessation, it will jump backward. This reflects the fact that is must 
+      be combined with the offset field to obtain a unique local time value.</td>
+    </tr>
+    <tr>
+      <th class="changed" rowspan="6">Zones</th>
+      <td class="changed" rowspan="4" style="text-align: center">z</td>
+      <td class="changed" style="text-align: center">1</td>
+      <td class="changed">PT</td>
+      <td class="changed" rowspan="4"><span class="changed">Timezone. Use 1 for short wall (generic) 
+      time, 2 for long wall time, 3 for the short timezone (i.e. PST) or 4 for the full name 
+      (Pacific Standard Time). If there&#39;s no name for the zone, fallbacks may be used, depending on 
+      available data.</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">2</td>
+      <td class="changed">Pacific Time</td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">3</td>
+      <td class="changed">PDT</td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">4</td>
+      <td class="changed">Pacific Daylight Time</td>
+    </tr>
+    <tr>
+      <td class="changed" rowspan="2" style="text-align: center">Z</td>
+      <td class="changed" style="text-align: center">1</td>
+      <td class="changed">GMT-08:00</td>
+      <td class="changed" rowspan="2"><span class="changed">Use 1 for GMT format, 2 for RFC 822</span></td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">2</td>
+      <td class="changed">-0800</td>
+    </tr>
+    <tr>
+      <th class="changed" rowspan="2">Escapes</th>
+      <td class="changed" style="text-align: center">&#39;</td>
+      <td class="changed" style="text-align: center">&nbsp;</td>
+      <td class="changed">&#39;Date=&#39;</td>
+      <td class="changed">escape for text (Delimiter) </td>
+    </tr>
+    <tr>
+      <td class="changed" style="text-align: center">&#39;&#39;</td>
+      <td class="changed" style="text-align: center">&nbsp;</td>
+      <td class="changed">&#39;o&#39;&#39;clock&#39;</td>
+      <td class="changed">single quote (Literal)</td>
+    </tr>
+  </table>
+  <p><span class="changed">All non-letter character represent themselves in a pattern, except for 
+  the single quote. It is used to &#39;escape&#39; letters. Two single quotes in a row, whether inside or 
+  outside a quoted sequence, represent a &#39;real&#39; single quote.</span></p>
+  <h3><a name="&lt;localizedPatternChars&gt;"><span class="changed">localizedPatternChars</span></a></h3>
+  <p><span class="changed">These are characters that can be used when displaying a date pattern to 
+  an end user. This can occur, for example, when a spreadsheet allows users to specify date 
+  patterns. Whatever is in the string is substituted one-for-one with the characters &quot;</span><span class="tx"><span class="changed">GyMdkHmsSEDFwWahKzYe&quot;, 
+  with the above meanings</span></span><span class="changed">. Thus, for example, if &quot;J&quot; is to be 
+  used instead of &quot;Y&quot; to mean Year, then the string would be: &quot;</span><span class="tx"><span class="changed">GyMdkHmsSEDFwWahKz<u>J</u>e&quot;.</span></span></p>
+  <p><span class="tx"><span class="changed">[TBD: fix list. Consider changing to be more 
+  structured.]</span></span></p>
+  <h3><span class="changed">AM / PM</span></h3>
+  <p><span class="changed">Even for countries where the customary date format only has a 24 hour 
+  format, both the am and pm localized strings must be present and must be distinct from one 
+  another. Note that as long as the 24 hour format is used, these strings will normally never be 
+  used, but for testing and unusual circumstances they must be present.</span></p>
+  <h3><span class="changed">Eras</span></h3>
+  <p><span class="changed">There are only two values for an era in a Gregorian calendar, &quot;BC&quot; and 
+  &quot;AD&quot;. These values can be translated into other languages, like &quot;</span><span class="changed">a.C</span><span class="changed">.&quot; 
+  and and &quot;</span><span class="changed">d.C</span><span class="changed">.&quot; for Spanish, but there 
+  are no other eras in the Gregorian calendar. Other calendars have a different numbers of eras. 
+  Care should be taken when translating the era names for a specific calendar.</span></p>
+  <h3><span class="changed">Week of Year</span></h3>
+  <p><span class="changed">Values calculated for the Week of Year field range from 1 to 53. Week 1 
+  for a year is the first week of that year that contains at least the minimum days in a week days. 
+  Weeks between week 1 of one year and week 1 of the following year are numbered sequentially from 2 
+  to 52 or 53 (if needed). For example, January 1, 1998 was a Thursday. If the first day of the week 
+  is MONDAY and the minimum days in a week is 4 (these are the values reflecting ISO 8601 and many 
+  national standards), then week 1 of 1998 starts on December 29, 1997, and ends on January 4, 1998. 
+  However, if the first day of the week is SUNDAY, then week 1 of 1998 starts on January 4, 1998, 
+  and ends on January 10, 1998. The first three days of 1998 are then part of week 53 of 1997.</span></p>
+  <p><span class="changed">Values are similarly calculated for the Week of Month.</span></p>
+  <h3><span class="changed">Week Elements</span></h3>
+  <dl>
+    <dt><b><span class="changed">firstDay</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">A number indicating which day of the week is considered the &#39;first&#39; 
+    day, for calendar purposes. Because the ordering of days may vary between calendar, keywords are 
+    used for this value, such as sun, </span><span class="changed">mon</span><span class="changed">,... 
+    These values will be replaced by the localized name when they are actually used. </span></dd>
+    <dt><b><span class="changed">minDays (Minimal Days in First Week)</span></b><span class="changed">
+    </span></dt>
+    <dd><span class="changed">Minimal days required in the first week of a month or year. For 
+    example, if the first week is defined as one that contains at least one day, this value will be 
+    1. If it must contain a full seven days before it counts as the first week, then the value would 
+    be 7. </span></dd>
+    <dt><b><span class="changed">weekendStart, weekendEnd</span></b><span class="changed"> </span>
+    </dt>
+    <dd><span class="changed">Indicates the day and time that the weekend starts or ends. As with
+    </span><span class="changed">firstDay</span><span class="changed">, keywords are used instead of 
+    numbers. </span></dd>
+  </dl>
+  <h2><span class="changed">Appendix G: <a name="Number_Format_Patterns">Number Format Patterns</a></span></h2>
+  <h3><span class="changed">Number Patterns</span></h3>
   <blockquote>
-    <p><span style="background-color: #FFFF00">A date pattern is a string of characters, where 
-    specific strings of characters are replaced with The following are characters used in patterns 
-    to show the appropriate formats for a given locale. These characters are replaced with the 
-    appropriate values when a date or time is being formatted.</span></p>
-    <p><span style="background-color: #FFFF00">Characters may be used multiple times. For example, 
-    if y is used for the year, &#39;</span><span style="background-color: #FFFF00">yy</span><span style="background-color: #FFFF00">&#39; 
-    might produce &#39;99&#39;, whereas &#39;</span><span style="background-color: #FFFF00">yyyy</span><span style="background-color: #FFFF00">&#39; 
-    produces &#39;1999&#39;. For most numerical characters, the number of characters specifies the field 
-    width. For example, if h is the hour, &#39;h&#39; might produce &#39;5&#39;, but &#39;</span><span style="background-color: #FFFF00">hh</span><span style="background-color: #FFFF00">&#39; 
-    produces &#39;05&#39;. For some characters, the count specifies whether an abbreviated or full form 
-    should be used, but may have other choices given below.</span></p>
-    <table cellSpacing="0" cellPadding="2" border="1">
+    <p><span class="changed">There are different formats for different types of numbers. For 
+    example, here are some patterns (using the </span><span class="changed">unlocalized</span><span class="changed"> 
+    symbols) with the corresponding text. While the format is localized, the </span><i>
+    <span class="changed">characters to specify the format pattern</span></i><span class="changed"> 
+    are not localized. That is, the decimal point always is represented by a &quot;.&quot;, and the grouping 
+    separator (thousands, etc.) is always represented by a &quot;,&quot;.</span></p>
+    <p><span class="changed">The </span><a href="#NumberElements"><span class="changed">
+    NumberElements</span></a><span class="changed"> resource affects how these patterns are 
+    interpreted in a localized context. Here are some examples, based on the French locale. The &quot;.&quot; 
+    shows where the decimal point should go. The &quot;,&quot; shows where the thousands separator should go. 
+    A &quot;0&quot; indicates zero-padding: if the number is too short, a zero (in the locale&#39;s numeric set) 
+    will go there. A &quot;#&quot; indicates no padding: if the number is too short, nothing goes there. A &quot;¤&quot; 
+    shows where the currency sign will go. The following illustrates the effects of different 
+    patterns for the French locale, with the number &quot;1234.567&quot;</span></p>
+    <table cellSpacing="0" cellPadding="4" border="1">
       <tr>
-        <th bgcolor="#FFFF00">Sym.</th>
-        <th bgcolor="#FFFF00"><span style="background-color: #FFFF00">Example</span></th>
-        <th bgcolor="#FFFF00"><span style="background-color: #FFFF00">Description</span></th>
+        <th width="33%"><span class="changed">Pattern</span></th>
+        <th width="33%"><span class="changed">Text</span></th>
       </tr>
       <tr>
-        <td bgcolor="#FFFF00">G</td>
-        <td bgcolor="#FFFF00">AD</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Era - Replaced with the </span>
-        <a href="#Era"><span style="background-color: #FFFF00">Era</span></a><span style="background-color: #FFFF00"> 
-        string for the current date.</span></td>
+        <td width="33%"><span class="changed">#,###.##</span></td>
+        <td width="33%"><span class="changed">1&nbsp;234,57</span></td>
       </tr>
       <tr>
-        <td bgcolor="#FFFF00">y</td>
-        <td bgcolor="#FFFF00">1996</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Year - Use two for the short 
-        year, or 4 for the full year</span></td>
+        <td width="33%"><span class="changed">#,###.###</span></td>
+        <td width="33%"><span class="changed">1&nbsp;234,567</span></td>
       </tr>
       <tr>
-        <td bgcolor="#FFFF00">Y</td>
-        <td bgcolor="#FFFF00">1997</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Year (of &quot;Week of Year&quot;). [May 
-        differ from Calendar year, see comments under &#39;Week of Year&#39;, above.]</span></td>
+        <td width="33%"><span class="changed">####.#####</span></td>
+        <td width="33%"><span class="changed">1234,567</span></td>
       </tr>
       <tr>
-        <td bgcolor="#FFFF00">u</td>
-        <td bgcolor="#FFFF00">4601</td>
-        <td bgcolor="#FFFF00">extended year</td>
+        <td width="33%"><span class="changed">####.0000#</span></td>
+        <td width="33%"><span class="changed">1234,5670</span></td>
       </tr>
       <tr>
-        <td bgcolor="#FFFF00">M</td>
-        <td bgcolor="#FFFF00">07, July<br>
-&nbsp;</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Month - Use one or two for the 
-        numerical month, three for the abbreviation, or four for the full name, or 5 for the narrow 
-        name.</span></td>
+        <td width="33%"><span class="changed">00000.0000</span></td>
+        <td width="33%"><span class="changed">01234,5670</span></td>
       </tr>
       <tr>
-        <td bgcolor="#FFFF00">d</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">1</span></td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Date - Day of the month. Use 
-        one or two for zero padding.</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">h</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">11</span></td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Hour [1-12]. Use one or two 
-        for zero padding.</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">H</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">13</span></td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Hour [0-23]. Use one or two 
-        for zero padding.</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">K</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">0</span></td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Hour [0-11]. Use one or two 
-        for zero padding.</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">k</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">24</span></td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Hour [1-24]. Use one or two 
-        for zero padding.</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">m</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">59</span></td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Minute. Use one or two for 
-        zero padding.</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">s</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">12</span></td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Second. Use one or two for 
-        zero padding.</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">S</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">3456</span></td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Fractional Second - Rounds to 
-        the number given. (example is for 12.34567)</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">A</td>
-        <td bgcolor="#FFFF00">69540000</td>
-        <td bgcolor="#FFFF00">milliseconds in day </td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">a</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">AM</span></td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">AM or PM</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">E</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Tuesday</span></td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Day of week - Use three for 
-        the short day, or four for the full name, or 5 for the narrow name.</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">e</td>
-        <td bgcolor="#FFFF00">2</td>
-        <td bgcolor="#FFFF00">day of week (local 1~7). Same as E except value will depend on the 
-        local starting day of the week.</td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">D</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">345</span></td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Day of year - Use 1-3</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">F</td>
-        <td bgcolor="#FFFF00">2<br>
-&nbsp;</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Day of Week in Month- use one. 
-        Example is 2nd Wed in July</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">w</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">27</span></td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Week of Year. Use one or two 
-        for zero padding.</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">W</td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">2</span></td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Week of Month - use 1</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">g</td>
-        <td bgcolor="#FFFF00">2451334</td>
-        <td bgcolor="#FFFF00">Julian day</td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">z</td>
-        <td bgcolor="#FFFF00">
-        <ol>
-          <li>PT</li>
-          <li>Pacific Time </li>
-          <li>PST, PDT</li>
-          <li>Pacific Standard Time</li>
-        </ol>
-        </td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Timezone. Use 1 for short wall 
-        (generic) time, 2 for long wall time, 3 for the short timezone (i.e. PST) or 4 for the full 
-        name (Pacific Standard Time). If there&#39;s no name for the zone, it&#39;ll show up as GMT+/-hh:mm.</span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">Z</td>
-        <td bgcolor="#FFFF00">
-        <ol>
-          <li>GMT-0800</li>
-          <li>-0800</li>
-        </ol>
-        </td>
-        <td bgcolor="#FFFF00"><span style="background-color: #FFFF00">Use 1 for standard GMT format, 
-        2 for time zone (RFC 822)&nbsp; </span></td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">&#39;</td>
-        <td bgcolor="#FFFF00">&#39;Date=&#39;</td>
-        <td bgcolor="#FFFF00">escape for text (Delimiter) </td>
-      </tr>
-      <tr>
-        <td bgcolor="#FFFF00">&#39;&#39;</td>
-        <td bgcolor="#FFFF00">&#39;o&#39;&#39;clock&#39;</td>
-        <td bgcolor="#FFFF00">single quote (Literal)</td>
+        <td width="33%"><span class="changed">#&nbsp;##0,00 ¤</span></td>
+        <td width="33%"><span class="changed">1&nbsp;234,57 €</span></td>
       </tr>
     </table>
   </blockquote>
-  <h3>&nbsp;</h3>
-  <h3><a name="&lt;localizedPatternChars&gt;"><span style="background-color: #FFFF00">
-  localizedPatternChars</span></a></h3>
-  <p><span style="background-color: #FFFF00">These are characters that can be used when displaying a 
-  date pattern to an end user. This can occur, for example, when a spreadsheet allows users to 
-  specify date patterns. Whatever is in the string is substituted one-for-one with the characters &quot;</span><span class="tx"><span style="background-color: #FFFF00">GyMdkHmsSEDFwWahKzYe&quot;, 
-  with the above meanings</span></span><span style="background-color: #FFFF00">. Thus, for example, 
-  if &quot;J&quot; is to be used instead of &quot;Y&quot; to mean Year, then the string would be: &quot;</span><span class="tx"><span style="background-color: #FFFF00">GyMdkHmsSEDFwWahKz<u>J</u>e&quot;.</span></span></p>
+  <dl>
+    <h3><span class="changed">Special Pattern Characters</span></h3>
+    <p><span class="changed">Many characters in a pattern are taken literally; they are matched 
+    during parsing and output unchanged during formatting. Special characters, on the other hand, 
+    stand for other characters, strings, or classes of characters. For example, the &#39;#&#39; character is 
+    replaced by a localized digit. Often the replacement character is the same as the pattern 
+    character; in the U.S. locale, the &#39;,&#39; grouping character is replaced by &#39;,&#39;. However, the 
+    replacement is still happening, and if the symbols are modified, the grouping character changes. 
+    Some special characters affect the behavior of the formatter by their presence; for example, if 
+    the percent character is seen, then the value is multiplied by 100 before being displayed.
+    </span></p>
+    <p><span class="changed">To insert a special character in a pattern as a literal, that is, 
+    without any special meaning, the character must be quoted. There are some exceptions to this 
+    which are noted below. </span></p>
+    <blockquote>
+      <table cellSpacing="3" cellPadding="0" summary="Chart showing symbol,
+  location, localized, and meaning." border="0">
+        <tr bgColor="#ccccff">
+          <th align="left"><span class="changed">Symbol </span></th>
+          <th align="left"><span class="changed">Location </span></th>
+          <th align="left"><span class="changed">Localized? </span></th>
+          <th align="left"><span class="changed">Meaning </span></th>
+        </tr>
+        <tr vAlign="top">
+          <td><code><span class="changed">0</span></code><span class="changed"> </span></td>
+          <td><span class="changed">Number </span></td>
+          <td><span class="changed">Yes </span></td>
+          <td><span class="changed">Digit </span></td>
+        </tr>
+        <tr vAlign="top" bgColor="#eeeeff">
+          <td><code><span class="changed">1-9</span></code><span class="changed"> </span></td>
+          <td><span class="changed">Number </span></td>
+          <td><span class="changed">Yes </span></td>
+          <td><span class="changed">&#39;1&#39; through &#39;9&#39; indicate rounding. </span></td>
+        </tr>
+        <tr vAlign="top">
+          <td><code><span class="changed">@</span></code><span class="changed"> </span></td>
+          <td><span class="changed">Number </span></td>
+          <td><span class="changed">No </span></td>
+          <td><span class="changed">Significant digit </span></td>
+        </tr>
+        <tr vAlign="top" bgColor="#eeeeff">
+          <td><code><span class="changed">#</span></code><span class="changed"> </span></td>
+          <td><span class="changed">Number </span></td>
+          <td><span class="changed">Yes </span></td>
+          <td><span class="changed">Digit, zero shows as absent </span></td>
+        </tr>
+        <tr vAlign="top">
+          <td><code><span class="changed">.</span></code><span class="changed"> </span></td>
+          <td><span class="changed">Number </span></td>
+          <td><span class="changed">Yes </span></td>
+          <td><span class="changed">Decimal separator or monetary decimal separator </span></td>
+        </tr>
+        <tr vAlign="top" bgColor="#eeeeff">
+          <td><code><span class="changed">-</span></code><span class="changed"> </span></td>
+          <td><span class="changed">Number </span></td>
+          <td><span class="changed">Yes </span></td>
+          <td><span class="changed">Minus sign </span></td>
+        </tr>
+        <tr vAlign="top">
+          <td><code><span class="changed">,</span></code><span class="changed"> </span></td>
+          <td><span class="changed">Number </span></td>
+          <td><span class="changed">Yes </span></td>
+          <td><span class="changed">Grouping separator </span></td>
+        </tr>
+        <tr vAlign="top" bgColor="#eeeeff">
+          <td><code><span class="changed">E</span></code><span class="changed"> </span></td>
+          <td><span class="changed">Number </span></td>
+          <td><span class="changed">Yes </span></td>
+          <td><span class="changed">Separates mantissa and exponent in scientific notation. </span>
+          <em><span class="changed">Need not be quoted in prefix or suffix.</span></em><span class="changed">
+          </span></td>
+        </tr>
+        <tr vAlign="top">
+          <td><code><span class="changed">+</span></code><span class="changed"> </span></td>
+          <td><span class="changed">Exponent </span></td>
+          <td><span class="changed">Yes </span></td>
+          <td><span class="changed">Prefix positive exponents with localized plus sign. </span><em>
+          <span class="changed">Need not be quoted in prefix or suffix.</span></em><span class="changed">
+          </span></td>
+        </tr>
+        <tr vAlign="top" bgColor="#eeeeff">
+          <td><code><span class="changed">;</span></code><span class="changed"> </span></td>
+          <td><span class="changed">Subpattern</span><span class="changed"> boundary </span></td>
+          <td><span class="changed">Yes </span></td>
+          <td><span class="changed">Separates positive and negative </span><span class="changed">
+          subpatterns</span><span class="changed"> </span></td>
+        </tr>
+        <tr vAlign="top">
+          <td><code><span class="changed">%</span></code><span class="changed"> </span></td>
+          <td><span class="changed">Prefix or suffix </span></td>
+          <td><span class="changed">Yes </span></td>
+          <td><span class="changed">Multiply by 100 and show as percentage </span></td>
+        </tr>
+        <tr vAlign="top" bgColor="#eeeeff">
+          <td><font SIZE="3"><span class="changed">‰<br>
+          (</span></font><code><span class="changed">\u2030</span></code><span class="changed">)</span></td>
+          <td><span class="changed">Prefix or suffix </span></td>
+          <td><span class="changed">Yes </span></td>
+          <td><span class="changed">Multiply by 1000 and show as per mille </span></td>
+        </tr>
+        <tr vAlign="top">
+          <td><code><span class="changed">¤</span></code><span class="changed"> (</span><code><span class="changed">\u00A4</span></code><span class="changed">)
+          </span></td>
+          <td><span class="changed">Prefix or suffix </span></td>
+          <td><span class="changed">No </span></td>
+          <td><span class="changed">Currency sign, replaced by currency symbol. If doubled, replaced 
+          by international currency symbol. If present in a pattern, the monetary decimal separator 
+          and grouping separators are used instead of the numeric ones. </span></td>
+        </tr>
+        <tr vAlign="top" bgColor="#eeeeff">
+          <td><code><span class="changed">&#39;</span></code><span class="changed"> </span></td>
+          <td><span class="changed">Prefix or suffix </span></td>
+          <td><span class="changed">No </span></td>
+          <td><span class="changed">Used to quote special characters in a prefix or suffix, for 
+          example, </span><code><span class="changed">&quot;&#39;#&#39;#&quot;</span></code><span class="changed"> 
+          formats 123 to </span><code><span class="changed">&quot;#123&quot;</span></code><span class="changed">. 
+          To create a single quote itself, use two in a row: </span><code><span class="changed">&quot;# 
+          o&#39;&#39;clock&quot;</span></code><span class="changed">. </span></td>
+        </tr>
+        <tr vAlign="top">
+          <td><code><span class="changed">*</span></code><span class="changed"> </span></td>
+          <td><span class="changed">Prefix or suffix boundary </span></td>
+          <td><span class="changed">Yes </span></td>
+          <td><span class="changed">Pad escape, precedes pad character </span></td>
+        </tr>
+      </table>
+    </blockquote>
+    <p><span class="changed">A pattern contains a </span><span class="changed">postive</span><span class="changed"> 
+    and negative </span><span class="changed">subpattern</span><span class="changed">, for example, 
+    &quot;#,##0.00;(#,##0.00)&quot;. Each </span><span class="changed">subpattern</span><span class="changed"> 
+    has a prefix, a numeric part, and a suffix. If there is no explicit negative </span>
+    <span class="changed">subpattern</span><span class="changed">, the negative </span>
+    <span class="changed">subpattern</span><span class="changed"> is the localized minus sign 
+    prefixed to the positive </span><span class="changed">subpattern</span><span class="changed">. 
+    That is, &quot;0.00&quot; alone is equivalent to &quot;0.00;-0.00&quot;. If there is an explicit negative </span>
+    <span class="changed">subpattern</span><span class="changed">, it serves only to specify the 
+    negative prefix and suffix; the number of digits, minimal digits, and other characteristics are 
+    ignored in the negative </span><span class="changed">subpattern</span><span class="changed">. 
+    That means that &quot;#,##0.0#;(#)&quot; has precisely the same result as &quot;#,##0.0#;(#,##0.0#)&quot;. </span>
+    </p>
+    <p><span class="changed">The prefixes, suffixes, and various symbols used for infinity, digits, 
+    thousands separators, decimal separators, etc. may be set to arbitrary values, and they will 
+    appear properly during formatting. </span><i><span class="changed">However, care must be taken 
+    that the symbols and strings do not conflict, or parsing will be unreliable. </span></i>
+    <span class="changed">For example, either the positive and negative prefixes or the suffixes 
+    must be distinct for any parser using this data to be able to distinguish positive from negative 
+    values. Another example is that the decimal separator and thousands separator should be distinct 
+    characters, or parsing will be impossible. </span></p>
+    <p><span class="changed">The </span><em><span class="changed">grouping separator</span></em><span class="changed"> 
+    is a character that separates clusters of integer digits to make large numbers more legible. It 
+    commonly used for thousands, but in some locales it separates ten-thousands. The </span><em>
+    <span class="changed">grouping size</span></em><span class="changed"> is the number of digits 
+    between the grouping separators, such as 3 for &quot;100,000,000&quot; or 4 for &quot;1 0000 0000&quot;. There are 
+    actually two different grouping sizes: One used for the least significant integer digits, the
+    </span><em><span class="changed">primary grouping size</span></em><span class="changed">, and 
+    one used for all others, the </span><em><span class="changed">secondary grouping size</span></em><span class="changed">. 
+    In most locales these are the same, but sometimes they are different. For example, if the 
+    primary grouping interval is 3, and the secondary is 2, then this corresponds to the pattern 
+    &quot;#,##,##0&quot;, and the number 123456789 is formatted as &quot;12,34,56,789&quot;. If a pattern contains 
+    multiple grouping separators, the interval between the last one and the end of the integer 
+    defines the primary grouping size, and the interval between the last two defines the secondary 
+    grouping size. All others are ignored, so &quot;#,##,###,####&quot; == &quot;###,###,####&quot; == &quot;##,#,###,####&quot;.
+    </span></p>
+    <h4><span class="changed">Formatting</span></h4>
+    <p><span class="changed">Formatting is guided by several parameters, all of which can be 
+    specified either using a pattern or using the API. The following description applies to formats 
+    that do not use </span><a href="#sci"><span class="changed">scientific notation</span></a><span class="changed"> 
+    or </span><a href="#sigdig"><span class="changed">significant digits</span></a><span class="changed">.
+    </span></p>
+    <ul>
+      <li><span class="changed">If the number of actual integer digits exceeds the </span><em>
+      <span class="changed">maximum integer digits</span></em><span class="changed">, then only the 
+      least significant digits are shown. For example, 1997 is formatted as &quot;97&quot; if the maximum 
+      integer digits is set to 2. </span></li>
+      <li><span class="changed">If the number of actual integer digits is less than the </span><em>
+      <span class="changed">minimum integer digits</span></em><span class="changed">, then leading 
+      zeros are added. For example, 1997 is formatted as &quot;01997&quot; if the minimum integer digits is 
+      set to 5. </span></li>
+      <li><span class="changed">If the number of actual fraction digits exceeds the </span><em>
+      <span class="changed">maximum fraction digits</span></em><span class="changed">, then 
+      half-even rounding it performed to the maximum fraction digits. For example, 0.125 is 
+      formatted as &quot;0.12&quot; if the maximum fraction digits is 2. This behavior can be changed by 
+      specifying a rounding increment and a rounding mode. </span></li>
+      <li><span class="changed">If the number of actual fraction digits is less than the </span><em>
+      <span class="changed">minimum fraction digits</span></em><span class="changed">, then trailing 
+      zeros are added. For example, 0.125 is formatted as &quot;0.1250&quot; if the </span>
+      <span class="changed">mimimum</span><span class="changed"> fraction digits is set to 4. </span>
+      </li>
+      <li><span class="changed">Trailing fractional zeros are not displayed if they occur </span>
+      <em><span class="changed">j</span></em><span class="changed"> positions after the decimal, 
+      where </span><em><span class="changed">j</span></em><span class="changed"> is less than the 
+      maximum fraction digits. For example, 0.10004 is formatted as &quot;0.1&quot; if the maximum fraction 
+      digits is four or less. </span></li>
+    </ul>
+    <p><strong><span class="changed">Special Values</span></strong><span class="changed"> </span>
+    </p>
+    <p><code><span class="changed">NaN</span></code><span class="changed"> is represented as a 
+    single character, typically </span><font SIZE="3"><span class="changed"></span></font><code>
+    <span class="changed">(\uFFFD)</span></code><span class="changed">. This character is determined 
+    by the localized number symbols. This is the only value for which the prefixes and suffixes are 
+    not used. </span></p>
+    <p><span class="changed">Infinity is represented as a single character, typically </span>
+    <font SIZE="3"><span class="changed">∞ </span></font><code><span class="changed">(\u221E)</span></code><span class="changed">, 
+    with the positive or negative prefixes and suffixes applied. The infinity character is 
+    determined by the localized number symbols. </span><a name="sci"></p>
+    <h4><span class="changed">Scientific Notation</span></h4>
+    </a>
+    <p><span class="changed">Numbers in scientific notation are expressed as the product of a 
+    mantissa and a power of ten, for example, 1234 can be expressed as 1.234 x 10</span><sup><span class="changed">3</span></sup><span class="changed">. 
+    The mantissa is typically in the half-open interval [1.0, 10.0) or sometimes [0.0, 1.0), but it 
+    need not be. In a pattern, the exponent character immediately followed by one or more digit 
+    characters indicates scientific notation. Example: &quot;0.###E0&quot; formats the number 1234 as 
+    &quot;1.234E3&quot;. </span></p>
+    <ul>
+      <li><span class="changed">The number of digit characters after the exponent character gives 
+      the minimum exponent digit count. There is no maximum. Negative exponents are formatted using 
+      the localized minus sign, </span><em><span class="changed">not</span></em><span class="changed"> 
+      the prefix and suffix from the pattern. This allows patterns such as &quot;0.###E0 m/s&quot;. To prefix 
+      positive exponents with a localized plus sign, specify &#39;+&#39; between the exponent and the 
+      digits: &quot;0.###E+0&quot; will produce formats &quot;1E+1&quot;, &quot;1E+0&quot;, &quot;1E-1&quot;, etc. (In localized patterns, 
+      use the localized plus sign rather than &#39;+&#39;.) </span></li>
+      <li><span class="changed">The minimum number of integer digits is achieved by adjusting the 
+      exponent. Example: 0.00123 formatted with &quot;00.###E0&quot; yields &quot;12.3E-4&quot;. This only happens if 
+      there is no maximum number of integer digits. If there is a maximum, then the minimum number 
+      of integer digits is fixed at one. </span></li>
+      <li><span class="changed">The maximum number of integer digits, if present, specifies the 
+      exponent grouping. The most common use of this is to generate </span><em>
+      <span class="changed">engineering notation</span></em><span class="changed">, in which the 
+      exponent is a multiple of three, e.g., &quot;##0.###E0&quot;. The number 12345 is formatted using 
+      &quot;##0.####E0&quot; as &quot;12.345E3&quot;. </span></li>
+      <li><span class="changed">When using scientific notation, the formatter controls the digit 
+      counts using significant digits logic. The maximum number of significant digits limits the 
+      total number of integer and fraction digits that will be shown in the mantissa; it does not 
+      affect parsing. For example, 12345 formatted with &quot;##0.##E0&quot; is &quot;12.3E3&quot;. See the section on 
+      significant digits for more details. </span></li>
+      <li><span class="changed">Exponential patterns may not contain grouping separators. </span>
+      </li>
+    </ul>
+    <a name="sigdig">
+    <h4><span class="changed">Significant Digits</span></h4>
+    </a>
+    <p><span class="changed">There are two ways of controlling how many digits are shows: (a) 
+    significant digits counts, or (b) integer and fraction digit counts. Integer and fraction digit 
+    counts are described above. When a formatter is using significant digits counts, the number of 
+    integer and fraction digits is not specified directly, and the formatter settings for these 
+    counts are ignored. Instead, the formatter uses however many integer and fraction digits are 
+    required to display the specified number of significant digits. Examples: </span></p>
+    <blockquote>
+      <table cellSpacing="3" cellPadding="0" border="0">
+        <tr bgColor="#ccccff">
+          <th align="left"><span class="changed">Pattern </span></th>
+          <th align="left"><span class="changed">Minimum significant digits </span></th>
+          <th align="left"><span class="changed">Maximum significant digits </span></th>
+          <th align="left"><span class="changed">Number </span></th>
+          <th align="left"><span class="changed">Output</span></th>
+        </tr>
+        <tr vAlign="top">
+          <td><code><span class="changed">@@@</span></code><span class="changed"> </span></td>
+          <td><span class="changed">3 </span></td>
+          <td><span class="changed">3 </span></td>
+          <td><span class="changed">12345 </span></td>
+          <td><code><span class="changed">12300</span></code><span class="changed"> </span></td>
+        </tr>
+        <tr vAlign="top" bgColor="#eeeeff">
+          <td><code><span class="changed">@@@</span></code><span class="changed"> </span></td>
+          <td><span class="changed">3 </span></td>
+          <td><span class="changed">3 </span></td>
+          <td><span class="changed">0.12345 </span></td>
+          <td><code><span class="changed">0.123</span></code><span class="changed"> </span></td>
+        </tr>
+        <tr vAlign="top">
+          <td><code><span class="changed">@@##</span></code><span class="changed"> </span></td>
+          <td><span class="changed">2 </span></td>
+          <td><span class="changed">4 </span></td>
+          <td><span class="changed">3.14159 </span></td>
+          <td><code><span class="changed">3.142</span></code><span class="changed"> </span></td>
+        </tr>
+        <tr vAlign="top" bgColor="#eeeeff">
+          <td><code><span class="changed">@@##</span></code><span class="changed"> </span></td>
+          <td><span class="changed">2 </span></td>
+          <td><span class="changed">4 </span></td>
+          <td><span class="changed">1.23004 </span></td>
+          <td><code><span class="changed">1.23</span></code><span class="changed"> </span></td>
+        </tr>
+      </table>
+    </blockquote>
+    <ul>
+      <li><span class="changed">In order to enable significant digits formatting, use a pattern 
+      containing the </span><code><span class="changed">&#39;@&#39;</span></code><span class="changed"> 
+      pattern character. In order to disable significant digits formatting, use a pattern that does 
+      not contain the </span><code><span class="changed">&#39;@&#39;</span></code><span class="changed"> 
+      pattern character.</span></li>
+      <li><span class="changed">Significant digit counts may be expressed using patterns that 
+      specify a minimum and maximum number of significant digits. These are indicated by the </span>
+      <code><span class="changed">&#39;@&#39;</span></code><span class="changed"> and </span><code>
+      <span class="changed">&#39;#&#39;</span></code><span class="changed"> characters. The minimum number 
+      of significant digits is the number of </span><code><span class="changed">&#39;@&#39;</span></code><span class="changed"> 
+      characters. The maximum number of significant digits is the number of </span><code>
+      <span class="changed">&#39;@&#39;</span></code><span class="changed"> characters plus the number of
+      </span><code><span class="changed">&#39;#&#39;</span></code><span class="changed"> characters 
+      following on the right. For example, the pattern </span><code><span class="changed">&quot;@@@&quot;</span></code><span class="changed"> 
+      indicates exactly 3 significant digits. The pattern </span><code><span class="changed">&quot;@##&quot;</span></code><span class="changed"> 
+      indicates from 1 to 3 significant digits. Trailing zero digits to the right of the decimal 
+      separator are suppressed after the minimum number of significant digits have been shown. For 
+      example, the pattern </span><code><span class="changed">&quot;@##&quot;</span></code><span class="changed"> 
+      formats the number 0.1203 as </span><code><span class="changed">&quot;0.12&quot;</span></code><span class="changed">.
+      </span></li>
+      <li><span class="changed">If a pattern uses significant digits, it may not contain a decimal 
+      separator, nor the </span><code><span class="changed">&#39;0&#39;</span></code><span class="changed"> 
+      pattern character. Patterns such as </span><code><span class="changed">&quot;@00&quot;</span></code><span class="changed"> 
+      or </span><code><span class="changed">&quot;@.###&quot;</span></code><span class="changed"> are 
+      disallowed. </span></li>
+      <li><span class="changed">Any number of </span><code><span class="changed">&#39;#&#39;</span></code><span class="changed"> 
+      characters may be </span><span class="changed">prepended</span><span class="changed"> to the 
+      left of the leftmost </span><code><span class="changed">&#39;@&#39;</span></code><span class="changed"> 
+      character. These have no effect on the minimum and maximum significant digits counts, but may 
+      be used to position grouping separators. For example, </span><code><span class="changed">
+      &quot;#,#@#&quot;</span></code><span class="changed"> indicates a minimum of one significant digits, a 
+      maximum of two significant digits, and a grouping size of three. </span></li>
+      <li><span class="changed">The number of significant digits has no effect on parsing. </span>
+      </li>
+      <li><span class="changed">Significant digits may be used together with exponential notation. 
+      Such patterns are equivalent to a normal exponential pattern with a minimum and maximum 
+      integer digit count of one, a minimum fraction digit count of </span><code>
+      <span class="changed">Minimum Significant Digits - 1</span></code><span class="changed">, and 
+      a maximum fraction digit count of </span><code><span class="changed">Maximum Significant 
+      Digits - 1</span></code><span class="changed">. For example, the pattern </span><code>
+      <span class="changed">&quot;@@###E0&quot;</span></code><span class="changed"> is equivalent to </span>
+      <code><span class="changed">&quot;0.0###E0&quot;</span></code><span class="changed">. </span></li>
+    </ul>
+    <h4><span class="changed">Padding</span></h4>
+    <p><span class="changed">Patterns support padding the result to a specific width. In a pattern 
+    the pad escape character, followed by a single pad character, causes padding to be parsed and 
+    formatted. The pad escape character is &#39;*&#39;. For example, </span><code><span class="changed">
+    &quot;$*x#,##0.00&quot;</span></code><span class="changed"> formats 123 to </span><code>
+    <span class="changed">&quot;$xx123.00&quot;</span></code><span class="changed">, and 1234 to </span><code>
+    <span class="changed">&quot;$1,234.00&quot;</span></code><span class="changed">. </span></p>
+    <ul>
+      <li><span class="changed">When padding is in effect, the width of the positive </span>
+      <span class="changed">subpattern</span><span class="changed">, including prefix and suffix, 
+      determines the format width. For example, in the pattern </span><code><span class="changed">&quot;* 
+      #0 o&#39;&#39;clock&quot;</span></code><span class="changed">, the format width is 10. </span></li>
+      <li><span class="changed">Some parameters which usually do not matter have meaning when 
+      padding is used, because the pattern width is significant with padding. In the pattern &quot;*</span><font face="Lucida Sans Unicode"><span class="changed">&nbsp;</span></font><span class="changed">##,##,#,##0.##&quot;, 
+      the format width is 14. The initial characters &quot;##,##,&quot; do not affect the grouping size or 
+      maximum integer digits, but they do affect the format width. </span></li>
+      <li><span class="changed">Padding may be inserted at one of four locations: before the prefix, 
+      after the prefix, before the suffix, or after the suffix. No padding can be specified in any 
+      other location. If there is no prefix, before the prefix and after the prefix are equivalent, 
+      likewise for the suffix. </span></li>
+      <li><span class="changed">When specified in a pattern, the code point immediately following 
+      the pad escape is the pad character. This may be any character, including a special pattern 
+      character. That is, the pad escape </span><em><span class="changed">escapes</span></em><span class="changed"> 
+      the following character. If there is no character after the pad escape, then the pattern is 
+      illegal. </span></li>
+    </ul>
+    <p><strong><span class="changed">Rounding</span></strong><span class="changed"> </span></p>
+    <p><span class="changed">Patterns support rounding to a specific increment. For example, 1230 
+    rounded to the nearest 50 is 1250. 1.234 rounded to the nearest 0.65 is 1.3. To specify a 
+    rounding increment in a pattern, include the increment in the pattern itself. &quot;#,#50&quot; specifies 
+    a rounding increment of 50. &quot;#,##0.05&quot; specifies a rounding increment of 0.05. </span></p>
+    <ul>
+      <li><span class="changed">Rounding only affects the string produced by formatting. It does not 
+      affect parsing or change any numerical values. </span></li>
+      <li><span class="changed">An implementation may allow the specification of a </span><em>
+      <span class="changed">rounding mode</span></em><span class="changed"> to determine how values 
+      are rounded. In the absence of such choices, the default is to round &quot;half-even&quot;, as described 
+      in IEEE arithmetic. That is, it rounds towards the &quot;nearest neighbor&quot; unless both neighbors 
+      are equidistant, in which case, it rounds towards the even neighbor. Behaves as for round 
+      &quot;half-up&quot; if the digit to the left of the discarded fraction is odd; behaves as for round 
+      &quot;half-down&quot; if it&#39;s even. Note that this is the rounding mode that minimizes cumulative error 
+      when applied repeatedly over a sequence of calculations.</span></li>
+      <li><span class="changed">Some locales use rounding in their currency formats to reflect the 
+      smallest currency denomination. </span></li>
+      <li><span class="changed">In a pattern, digits &#39;1&#39; through &#39;9&#39; specify rounding, but otherwise 
+      behave identically to digit &#39;0&#39;. </span></li>
+    </ul>
+    <dt>&nbsp;</dt>
+    <dt><b><span class="changed">decimalFormats</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">The normal locale specific way to write a base 10 number. </span></dd>
+    <dt><b><span class="changed">currencyFormats</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">Use \u00A4 where the local currency symbol should be. Doubling the 
+    currency symbol (\u00A4\u00A4) will output the international currency symbol (a 3-letter code).
+    </span></dd>
+    <dt><b><span class="changed">percentFormats</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">Pattern for use with percentage formatting </span></dd>
+    <dt><b><span class="changed">scientificFormats</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">Pattern for use with scientific (exponent) formatting. </span></dd>
+  </dl>
+  <h3><b><span class="changed">Quoting rules</span></b></h3>
+  <blockquote>
+    <p><span class="changed">Single quotes, (</span><b><span class="changed">&#39;</span></b><span class="changed">), 
+    enclose bits of the pattern that should be treated literally. Inside a quoted string, two single 
+    quotes (&#39;&#39;) are replaced with a single one (&#39;). For example: </span><tt><u>
+    <span class="changed">&#39;X &#39;</span></u><span class="changed">#</span><u><span class="changed">&#39; Q 
+    &#39;</span></u></tt><span class="changed"> -&gt; </span><b><span class="changed">X 1939 Q </span></b>
+    <span class="changed">(Literal strings </span><u><span class="changed">underlined</span></u><span class="changed">.)</span></p>
+  </blockquote>
+  <h3><a name="NumberElements"><span class="changed">Number Elements</span></a></h3>
+  <blockquote>
+    <p><span class="changed">Localized symbols used in number formatting and parsing.</span></p>
+  </blockquote>
+  <dl>
+    <dt><b><span class="changed">decimal</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">- separates the integer and fractional part of the number. </span>
+    </dd>
+    <dt><b><span class="changed">group</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">- groups (for example) units of thousands: 10^6 = 1,000,000. The 
+    grouping separator is commonly used for thousands, but in some countries for ten-thousands. The 
+    interval is a constant number of digits between the grouping characters, such as 100,000,000 or 
+    1,0000,0000. If you supply a pattern with multiple grouping characters, the interval between the 
+    last one and the end of the integer is the one that is used. So &quot;#,##,###,####&quot; == &quot;######,####&quot; 
+    == &quot;##,####,####&quot;. </span></dd>
+    <dt><b><span class="changed">list</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">- separates lists of numbers </span></dd>
+    <dt><b><span class="changed">percentSign</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">- symbol used to indicate a percentage (1/100th) amount. (If present, 
+    the value is also multiplied by 100 before formatting. That way 1.23 =&gt; 123%) </span></dd>
+    <dt><b><span class="changed">nativeZeroDigit</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">- Symbol used to indicate a digit in the pattern, or zero if that 
+    place would otherwise be empty. For example, with the digit of &#39;0&#39;, the pattern &quot;000&quot; would 
+    format &quot;34&quot; as &quot;034&quot;, but the pattern &quot;0&quot; would format &quot;34&quot; as just &quot;34&quot;. As well, the digits 
+    1-9 are expected to follow the code point of this specified 0 value. </span></dd>
+    <dt><b><span class="changed">patternDigit</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">- Symbol used to indicate any digit value, typically #. When that 
+    digit is zero, then it is not shown. </span></dd>
+    <dt><b><span class="changed">minusSign</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">- Symbol used to denote negative value. </span></dd>
+    <dt><b><span class="changed">plusSign</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">- Symbol used to denote negative value. </span></dd>
+    <dt><b><span class="changed">exponential</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">- Symbol separating the mantissa and exponent values. </span></dd>
+    <dt><b><span class="changed">perMille</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">- symbol used to indicate a per-mille (1/1000th) amount. (If present, 
+    the value is also multiplied by 1000 before formatting. That way 1.23 =&gt; 1230 [1/000]) </span>
+    </dd>
+    <dt><b><span class="changed">infinity</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">- The infinity sign. Corresponds to the IEEE infinity bit pattern.
+    </span></dd>
+    <dt><b><span class="changed">nan - Not a number</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">- The </span><span class="changed">NaN</span><span class="changed"> 
+    sign. Corresponds to the IEEE </span><span class="changed">NaN</span><span class="changed"> bit 
+    pattern. </span></dd>
+    <dt><b><span class="changed">currencySeparator</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">This is used as the decimal separator in currency formatting/parsing, 
+    instead of the </span><span class="changed">DecimalSeparator</span><span class="changed"> from 
+    the </span><a href="#NumberElements"><span class="changed">NumberElements</span></a><span class="changed"> 
+    list. This item is optional in the </span><span class="changed">CLDR</span><span class="changed">.
+    </span></dd>
+    <dt><b><span class="changed">currencyGroup</span></b><span class="changed"> </span></dt>
+    <dd><span class="changed">This is used as the grouping separator in currency formatting/parsing, 
+    instead of the </span><span class="changed">DecimalSeparator</span><span class="changed"> from 
+    the </span><a href="#NumberElements"><span class="changed">NumberElements</span></a><span class="changed"> 
+    list. This item is optional in the </span><span class="changed">CLDR</span><span class="changed">.
+    </span></dd>
+  </dl>
+  <h2><span class="changed">Appendix H: <a name="Choice_Patterns">Choice Patterns</a></span></h2>
+  <p><span class="changed">A choice pattern is a string that chooses among a number of strings, 
+  based on numeric value. It has the following form:</span></p>
+  <p><span class="changed">&lt;</span><span class="changed">choice_pattern</span><span class="changed">&gt; 
+  = &lt;choice&gt; ( &#39;|&#39; &lt;choice&gt; )*<br>
+  &lt;choice&gt; = &lt;number&gt;&lt;relation&gt;&lt;string&gt;<br>
+  &lt;number&gt; = (&#39;+&#39; | &#39;-&#39;)? (</span><font SIZE="3"><span class="changed">&#39;∞&#39; | [0-9]+ (&#39;.&#39; [0-9]+)?)<br>
+  &lt;relation&gt; = &#39;&lt;&#39; | &#39;</span></font><span style="color: blue; background-color: #FFFF00">≤&#39;</span></p>
+  <p><span class="changed">The interpretation of a choice pattern is that given a number N, the 
+  pattern is scanned from right to left, for each choice evaluating &lt;number&gt; &lt;relation&gt; N. The first 
+  choice that matches results in the corresponding string. If no match is found, then the first 
+  string is used. For example:</span></p>
+  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+    <tr>
+      <td width="33%"><span class="changed">Pattern</span></td>
+      <td width="33%"><span class="changed">N</span></td>
+      <td width="34%"><span class="changed">Result</span></td>
+    </tr>
+    <tr>
+      <td width="33%" rowspan="4"><span style="color: blue; background-color: #FFFF00">
+      0≤Rf|1≤Ru|1&lt;Re</span></td>
+      <td width="33%"><span class="changed">-</span><font SIZE="3"><span class="changed">∞, </span>
+      </font><span class="changed">-3, -1, -0.000001</span></td>
+      <td width="34%"><span class="changed">Rf (defaulted to first string)</span></td>
+    </tr>
+    <tr>
+      <td width="33%"><span class="changed">0, 0.01, 0.9999</span></td>
+      <td width="34%"><span class="changed">Rf</span></td>
+    </tr>
+    <tr>
+      <td width="33%"><span class="changed">1</span></td>
+      <td width="34%"><span class="changed">Ru</span></td>
+    </tr>
+    <tr>
+      <td width="33%"><span class="changed">1.00001, 5, 99, </span><font SIZE="3">
+      <span class="changed">∞</span></font></td>
+      <td width="34%"><span class="changed">Re</span></td>
+    </tr>
+  </table>
+  <p><span class="changed">Quoting is done using &#39; characters, as in date or number formats.</span></p>
   <h2><a name="References">References</a></h2>
   <table style="border-collapse: collapse; border-width: 1; " cellpadding="4" cellspacing="0" class="noborder" border="0">
     <tr>
@@ -2797,26 +3527,6 @@ root</pre>
       <td class="noborder">Unicode Glossary<a href="http://www.unicode.org/glossary/"><br>
       http://www.unicode.org/glossary/<br>
       </a><i>For explanations of terminology used in this and other documents.</i></td>
-    </tr>
-    <tr>
-      <td class="noborder">[<a name="JavaDates">JavaDates</a>]</td>
-      <td class="noborder">Java DateFormat, DateFormatSymbols, SimpleDateFormat:<br>
-      <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DateFormat.html">
-      http://java.sun.com/j2se/1.4.2/docs/api/java/text/DateFormat.html<br>
-      </a><a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DateFormatSymbols.html">
-      http://java.sun.com/j2se/1.4.2/docs/api/java/text/DateFormatSymbols.html<br>
-      </a><a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html">
-      http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html</a></td>
-    </tr>
-    <tr>
-      <td class="noborder">[<a name="JavaNumbers">JavaNumbers</a>]</td>
-      <td class="noborder">Java NumberFormat, DecimalFormat, DecimalFormatSymbols:<br>
-      <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/NumberFormat.html">
-      http://java.sun.com/j2se/1.4.2/docs/api/java/text/NumberFormat.html<br>
-      </a><a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DecimalFormat.html">
-      http://java.sun.com/j2se/1.4.2/docs/api/java/text/DecimalFormat.html<br>
-      </a><a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/DecimalFormatSymbols.html">
-      http://java.sun.com/j2se/1.4.2/docs/api/java/text/DecimalFormatSymbols.html</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="JavaChoice">JavaChoice</a>]</td>
@@ -2979,12 +3689,6 @@ root</pre>
       http://oss.software.ibm.com/icu4j/doc/com/ibm/icu/text/UnicodeSet.html</a></td>
     </tr>
     <tr>
-      <td class="noborder">[<a name="JavaLocale">JavaLocale</a>]</td>
-      <td class="noborder">Java Locale<br>
-      <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Locale.html">
-      http://java.sun.com/j2se/1.4.2/docs/api/java/util/Locale.html</a></td>
-    </tr>
-    <tr>
       <td class="noborder">[<a name="LocaleExplorer">LocaleExplorer</a>]</td>
       <td class="noborder">ICU Locale Explorer<br>
       <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">
@@ -3060,10 +3764,11 @@ root</pre>
   <p>The following summarizes modifications from the previous version of this document.</p>
   <table class="noborder">
     <tr>
-      <td class="noborder"><a name="TrackingNumber2">3</a></td>
-      <td class="noborder">
+      <td class="noborder" class="changed" bgcolor="#FFFF00"><a name="TrackingNumber2">3</a></td>
+      <td class="noborder" class="changed" bgcolor="#FFFF00">
       <ul>
-        <li>Added Annex F</li>
+        <li>Added Appendix F, G, H</li>
+        <li>Eliminated all references to Java documentation, since their links are stable.</li>
       </ul>
       </td>
     </tr>

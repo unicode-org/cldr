@@ -4,31 +4,15 @@
     <identity>
         <version number="1.2">Generated from ConvertJavaLocale</version>
         <generation date="2004-10-12"/>
-        <language type = "ar"/>
-        <territory type = "SD"/>
+        <language type = "iw"/>
+        <territory type = "IL"/>
     </identity>
     <localeDisplayNames>
         <languages>
-            <language type="ar">العربية</language>
+            <language type="iw">עברית</language>
         </languages>
         <territories>
-            <territory type="EG">مصر</territory>
-            <territory type="DZ">الجزائر</territory>
-            <territory type="BH">البحرين</territory>
-            <territory type="IQ">العراق</territory>
-            <territory type="JO">الأردن</territory>
-            <territory type="KW">الكويت</territory>
-            <territory type="LB">لبنان</territory>
-            <territory type="LY">ليبيا</territory>
-            <territory type="MA">المغرب</territory>
-            <territory type="OM">سلطنة عمان</territory>
-            <territory type="QA">قطر</territory>
-            <territory type="SA">السعودية</territory>
-            <territory type="SD">السودان</territory>
-            <territory type="SY">سوريا</territory>
-            <territory type="TN">تونس</territory>
-            <territory type="AE">الإمارات</territory>
-            <territory type="YE">اليمن</territory>
+            <territory type="IL">ישראל</territory>
         </territories>
     </localeDisplayNames>
     <dates>
@@ -38,33 +22,33 @@
                 <months>
                     <monthContext type = "stand-alone">
                         <monthWidth type ="wide">
-                            <month type="1">يناير</month>
-                            <month type="2">فبراير</month>
-                            <month type="3">مارس</month>
-                            <month type="4">أبريل</month>
-                            <month type="5">مايو</month>
-                            <month type="6">يونيو</month>
-                            <month type="7">يوليو</month>
-                            <month type="8">أغسطس</month>
-                            <month type="9">سبتمبر</month>
-                            <month type="10">أكتوبر</month>
-                            <month type="11">نوفمبر</month>
-                            <month type="12">ديسمبر</month>
+                            <month type="1">ינואר</month>
+                            <month type="2">פברואר</month>
+                            <month type="3">מרץ</month>
+                            <month type="4">אפריל</month>
+                            <month type="5">מאי</month>
+                            <month type="6">יוני</month>
+                            <month type="7">יולי</month>
+                            <month type="8">אוגוסט</month>
+                            <month type="9">ספטמבר</month>
+                            <month type="10">אוקטובר</month>
+                            <month type="11">נובמבר</month>
+                            <month type="12">דצמבר</month>
                             <month type="13"></month>
                         </monthWidth>
                         <monthWidth type ="abbreviated">
-                            <month type="1">ينا</month>
-                            <month type="2">فبر</month>
-                            <month type="3">مار</month>
-                            <month type="4">أبر</month>
-                            <month type="5">ماي</month>
-                            <month type="6">يون</month>
-                            <month type="7">يول</month>
-                            <month type="8">أغس</month>
-                            <month type="9">سبت</month>
-                            <month type="10">أكت</month>
-                            <month type="11">نوف</month>
-                            <month type="12">ديس</month>
+                            <month type="1">ינו</month>
+                            <month type="2">פבר</month>
+                            <month type="3">מרץ</month>
+                            <month type="4">אפר</month>
+                            <month type="5">מאי</month>
+                            <month type="6">יונ</month>
+                            <month type="7">יול</month>
+                            <month type="8">אוג</month>
+                            <month type="9">ספט</month>
+                            <month type="10">אוק</month>
+                            <month type="11">נוב</month>
+                            <month type="12">דצמ</month>
                             <month type="13"></month>
                         </monthWidth>
                     </monthContext>
@@ -72,46 +56,46 @@
                 <days>
                     <dayContext type = "stand-alone">
                         <dayWidth type ="wide">
-                            <day type="sun">الأحد</day>
-                            <day type="mon">الاثنين</day>
-                            <day type="tue">الثلاثاء</day>
-                            <day type="wed">الأربعاء</day>
-                            <day type="thu">الخميس</day>
-                            <day type="fri">الجمعة</day>
-                            <day type="sat">السبت</day>
+                            <day type="sun">יום ראשון</day>
+                            <day type="mon">יום שני</day>
+                            <day type="tue">יום שלישי</day>
+                            <day type="wed">יום רביעי</day>
+                            <day type="thu">יום חמישי</day>
+                            <day type="fri">יום שישי</day>
+                            <day type="sat">שבת</day>
                         </dayWidth>
                         <dayWidth type ="abbreviated">
-                            <day type="sun">ح</day>
-                            <day type="mon">ن</day>
-                            <day type="tue">ث</day>
-                            <day type="wed">ر</day>
-                            <day type="thu">خ</day>
-                            <day type="fri">ج</day>
-                            <day type="sat">س</day>
+                            <day type="sun">א</day>
+                            <day type="mon">ב</day>
+                            <day type="tue">ג</day>
+                            <day type="wed">ד</day>
+                            <day type="thu">ה</day>
+                            <day type="fri">ו</day>
+                            <day type="sat">ש</day>
                         </dayWidth>
                     </dayContext>
                 </days>
                 <week>
                     <minDays count="1"/>
-                    <firstDay day="sat"/>
+                    <firstDay day="sun"/>
                 </week>
-                <am>ص</am>
-                <pm>م</pm>
+                <am>AM</am>
+                <pm>PM</pm>
                 <eras>
                     <eraAbbr>
-                        <era type="1">م</era>
-                        <era type="0">ق.م</era>
+                        <era type="1">לפסה"נ</era>
+                        <era type="0">לסה"נ</era>
                     </eraAbbr>
                 </eras>
                 <dateFormats>
                     <dateFormatLength type = "full">
                         <dateFormat>
-                            <pattern>dd MMMM, yyyy</pattern>
+                            <pattern>EEEE d MMMM yyyy</pattern>
                         </dateFormat>
                     </dateFormatLength>
                     <dateFormatLength type = "long">
                         <dateFormat>
-                            <pattern>dd MMMM, yyyy</pattern>
+                            <pattern>d MMMM yyyy</pattern>
                         </dateFormat>
                     </dateFormatLength>
                     <dateFormatLength type = "medium">
@@ -128,29 +112,29 @@
                 <timeFormats>
                     <timeFormatLength type = "full">
                         <timeFormat>
-                            <pattern>z hh:mm:ss a</pattern>
+                            <pattern>HH:mm:ss z</pattern>
                         </timeFormat>
                     </timeFormatLength>
                     <timeFormatLength type = "long">
                         <timeFormat>
-                            <pattern>z hh:mm:ss a</pattern>
+                            <pattern>HH:mm:ss z</pattern>
                         </timeFormat>
                     </timeFormatLength>
                     <timeFormatLength type = "medium">
                         <timeFormat>
-                            <pattern>hh:mm:ss a</pattern>
+                            <pattern>HH:mm:ss</pattern>
                         </timeFormat>
                     </timeFormatLength>
                     <timeFormatLength type = "short">
                         <timeFormat>
-                            <pattern>hh:mm a</pattern>
+                            <pattern>HH:mm</pattern>
                         </timeFormat>
                     </timeFormatLength>
                 </timeFormats>
                 <dateTimeFormats>
                     <dateTimeFormatLength>
                         <dateTimeFormat>
-                            <pattern>{1} {0}</pattern>
+                            <pattern>{0} {1}</pattern>
                         </dateTimeFormat>
                     </dateTimeFormatLength>
                 </dateTimeFormats>
@@ -5416,7 +5400,7 @@
         <decimalFormats>
             <decimalFormatLength>
                 <decimalFormat>
-                    <pattern>#,##0.###;#,##0.###-</pattern>
+                    <pattern>#,##0.###;-#,##0.###</pattern>
                 </decimalFormat>
             </decimalFormatLength>
         </decimalFormats>
@@ -5430,13 +5414,13 @@
         <currencyFormats>
             <currencyFormatLength>
                 <currencyFormat>
-                    <pattern>¤ #,##0.###;¤ #,##0.###-</pattern>
+                    <pattern>#,##0.## ¤;-#,##0.## ¤</pattern>
                 </currencyFormat>
             </currencyFormatLength>
         </currencyFormats>
         <currencies>
-            <currency type="SDD">
-                <symbol>ج.س.‏</symbol>
+            <currency type="ILS">
+                <symbol>ש"ח</symbol>
             </currency>
         </currencies>
     </numbers>

@@ -4,67 +4,51 @@
     <identity>
         <version number="1.2">Generated from ConvertJavaLocale</version>
         <generation date="2004-10-12"/>
-        <language type = "ar"/>
-        <territory type = "SD"/>
+        <language type = "no"/>
+        <territory type = "NO"/>
     </identity>
     <localeDisplayNames>
         <languages>
-            <language type="ar">العربية</language>
+            <language type="no">norsk</language>
         </languages>
         <territories>
-            <territory type="EG">مصر</territory>
-            <territory type="DZ">الجزائر</territory>
-            <territory type="BH">البحرين</territory>
-            <territory type="IQ">العراق</territory>
-            <territory type="JO">الأردن</territory>
-            <territory type="KW">الكويت</territory>
-            <territory type="LB">لبنان</territory>
-            <territory type="LY">ليبيا</territory>
-            <territory type="MA">المغرب</territory>
-            <territory type="OM">سلطنة عمان</territory>
-            <territory type="QA">قطر</territory>
-            <territory type="SA">السعودية</territory>
-            <territory type="SD">السودان</territory>
-            <territory type="SY">سوريا</territory>
-            <territory type="TN">تونس</territory>
-            <territory type="AE">الإمارات</territory>
-            <territory type="YE">اليمن</territory>
+            <territory type="NO">Norge</territory>
         </territories>
     </localeDisplayNames>
     <dates>
-        <localizedPatternChars>GanjkHmsSEDFwWxhKzZ</localizedPatternChars>
+        <localizedPatternChars>GyMdkHmsSEDFwWahKzZ</localizedPatternChars>
         <calendars>
             <calendar type = "gregorian">
                 <months>
                     <monthContext type = "stand-alone">
                         <monthWidth type ="wide">
-                            <month type="1">يناير</month>
-                            <month type="2">فبراير</month>
-                            <month type="3">مارس</month>
-                            <month type="4">أبريل</month>
-                            <month type="5">مايو</month>
-                            <month type="6">يونيو</month>
-                            <month type="7">يوليو</month>
-                            <month type="8">أغسطس</month>
-                            <month type="9">سبتمبر</month>
-                            <month type="10">أكتوبر</month>
-                            <month type="11">نوفمبر</month>
-                            <month type="12">ديسمبر</month>
+                            <month type="1">januar</month>
+                            <month type="2">februar</month>
+                            <month type="3">mars</month>
+                            <month type="4">april</month>
+                            <month type="5">mai</month>
+                            <month type="6">juni</month>
+                            <month type="7">juli</month>
+                            <month type="8">august</month>
+                            <month type="9">september</month>
+                            <month type="10">oktober</month>
+                            <month type="11">november</month>
+                            <month type="12">desember</month>
                             <month type="13"></month>
                         </monthWidth>
                         <monthWidth type ="abbreviated">
-                            <month type="1">ينا</month>
-                            <month type="2">فبر</month>
-                            <month type="3">مار</month>
-                            <month type="4">أبر</month>
-                            <month type="5">ماي</month>
-                            <month type="6">يون</month>
-                            <month type="7">يول</month>
-                            <month type="8">أغس</month>
-                            <month type="9">سبت</month>
-                            <month type="10">أكت</month>
-                            <month type="11">نوف</month>
-                            <month type="12">ديس</month>
+                            <month type="1">jan</month>
+                            <month type="2">feb</month>
+                            <month type="3">mar</month>
+                            <month type="4">apr</month>
+                            <month type="5">mai</month>
+                            <month type="6">jun</month>
+                            <month type="7">jul</month>
+                            <month type="8">aug</month>
+                            <month type="9">sep</month>
+                            <month type="10">okt</month>
+                            <month type="11">nov</month>
+                            <month type="12">des</month>
                             <month type="13"></month>
                         </monthWidth>
                     </monthContext>
@@ -72,78 +56,78 @@
                 <days>
                     <dayContext type = "stand-alone">
                         <dayWidth type ="wide">
-                            <day type="sun">الأحد</day>
-                            <day type="mon">الاثنين</day>
-                            <day type="tue">الثلاثاء</day>
-                            <day type="wed">الأربعاء</day>
-                            <day type="thu">الخميس</day>
-                            <day type="fri">الجمعة</day>
-                            <day type="sat">السبت</day>
+                            <day type="sun">søndag</day>
+                            <day type="mon">mandag</day>
+                            <day type="tue">tirsdag</day>
+                            <day type="wed">onsdag</day>
+                            <day type="thu">torsdag</day>
+                            <day type="fri">fredag</day>
+                            <day type="sat">lørdag</day>
                         </dayWidth>
                         <dayWidth type ="abbreviated">
-                            <day type="sun">ح</day>
-                            <day type="mon">ن</day>
-                            <day type="tue">ث</day>
-                            <day type="wed">ر</day>
-                            <day type="thu">خ</day>
-                            <day type="fri">ج</day>
-                            <day type="sat">س</day>
+                            <day type="sun">sø</day>
+                            <day type="mon">ma</day>
+                            <day type="tue">ti</day>
+                            <day type="wed">on</day>
+                            <day type="thu">to</day>
+                            <day type="fri">fr</day>
+                            <day type="sat">lø</day>
                         </dayWidth>
                     </dayContext>
                 </days>
                 <week>
-                    <minDays count="1"/>
-                    <firstDay day="sat"/>
+                    <minDays count="4"/>
+                    <firstDay day="mon"/>
                 </week>
-                <am>ص</am>
-                <pm>م</pm>
+                <am>AM</am>
+                <pm>PM</pm>
                 <eras>
                     <eraAbbr>
-                        <era type="1">م</era>
-                        <era type="0">ق.م</era>
+                        <era type="1">AD</era>
+                        <era type="0">BC</era>
                     </eraAbbr>
                 </eras>
                 <dateFormats>
                     <dateFormatLength type = "full">
                         <dateFormat>
-                            <pattern>dd MMMM, yyyy</pattern>
+                            <pattern>d. MMMM yyyy</pattern>
                         </dateFormat>
                     </dateFormatLength>
                     <dateFormatLength type = "long">
                         <dateFormat>
-                            <pattern>dd MMMM, yyyy</pattern>
+                            <pattern>d. MMMM yyyy</pattern>
                         </dateFormat>
                     </dateFormatLength>
                     <dateFormatLength type = "medium">
                         <dateFormat>
-                            <pattern>dd/MM/yyyy</pattern>
+                            <pattern>dd.MMM.yyyy</pattern>
                         </dateFormat>
                     </dateFormatLength>
                     <dateFormatLength type = "short">
                         <dateFormat>
-                            <pattern>dd/MM/yy</pattern>
+                            <pattern>dd.MM.yy</pattern>
                         </dateFormat>
                     </dateFormatLength>
                 </dateFormats>
                 <timeFormats>
                     <timeFormatLength type = "full">
                         <timeFormat>
-                            <pattern>z hh:mm:ss a</pattern>
+                            <pattern>'kl 'HH.mm z</pattern>
                         </timeFormat>
                     </timeFormatLength>
                     <timeFormatLength type = "long">
                         <timeFormat>
-                            <pattern>z hh:mm:ss a</pattern>
+                            <pattern>HH:mm:ss z</pattern>
                         </timeFormat>
                     </timeFormatLength>
                     <timeFormatLength type = "medium">
                         <timeFormat>
-                            <pattern>hh:mm:ss a</pattern>
+                            <pattern>HH:mm:ss</pattern>
                         </timeFormat>
                     </timeFormatLength>
                     <timeFormatLength type = "short">
                         <timeFormat>
-                            <pattern>hh:mm a</pattern>
+                            <pattern>HH:mm</pattern>
                         </timeFormat>
                     </timeFormatLength>
                 </timeFormats>
@@ -5401,8 +5385,8 @@
     </dates>
     <numbers>
         <symbols>
-            <decimal>.</decimal>
-            <group>,</group>
+            <decimal>,</decimal>
+            <group> </group>
             <list>;</list>
             <percentSign>%</percentSign>
             <nativeZeroDigit>0</nativeZeroDigit>
@@ -5416,7 +5400,7 @@
         <decimalFormats>
             <decimalFormatLength>
                 <decimalFormat>
-                    <pattern>#,##0.###;#,##0.###-</pattern>
+                    <pattern>#,##0.###;-#,##0.###</pattern>
                 </decimalFormat>
             </decimalFormatLength>
         </decimalFormats>
@@ -5430,13 +5414,13 @@
         <currencyFormats>
             <currencyFormatLength>
                 <currencyFormat>
-                    <pattern>¤ #,##0.###;¤ #,##0.###-</pattern>
+                    <pattern>¤ #,##0.00;¤ -#,##0.00</pattern>
                 </currencyFormat>
             </currencyFormatLength>
         </currencyFormats>
         <currencies>
-            <currency type="SDD">
-                <symbol>ج.س.‏</symbol>
+            <currency type="NOK">
+                <symbol>kr</symbol>
             </currency>
         </currencies>
     </numbers>

@@ -2,7 +2,7 @@
 <!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml draft="true">
 	<identity>
-		<version number="0.2"/>
+		<version number="0.3"/>
 		<generation date="2004-09-13" />
 		<language type="as" /> 
 	</identity>
@@ -15,7 +15,7 @@
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[[:Beng:]‌‍]</exemplarCharacters>
+		<exemplarCharacters>[[[[:Beng:]‌‍]-[র৳৺]]-[[:N:]]]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -43,7 +43,7 @@
 							<month type="3">মাৰ্চ</month>
 							<month type="4">এপ্ৰিল</month>
 							<month type="5">মে</month>
-							<month type="6">জুলাই</month>
+							<month type="6">জুন</month>
 							<month type="7">জুলাই</month>
 							<month type="8">আগ</month>
 							<month type="9">সেপ্ট</month>
@@ -90,13 +90,14 @@
 		<timeZoneNames>
 			<zone type="Asia/Calcutta">
 				<long>
-				<standard>ভাৰতীয়সময়</standard>
-				<daylight>ভাৰতীয়সময়</daylight>
+				<standard>ভাৰতীয় সময়</standard>
+				<daylight>ভাৰতীয় সময়</daylight>
 				</long>
 				<short>
 					<standard>ভা. স.</standard>
 					<daylight>ভা. স.</daylight>
 				</short>
+				<exemplarCity> এলাহাৱাদ</exemplarCity>
 				<!-- Exemplar: Allahabad / Alahawad / এলাহাৱাদ -->
 			</zone>
 		</timeZoneNames>

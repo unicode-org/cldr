@@ -7,5 +7,15 @@
 		<language type="ar"/>
 		<territory type="EG"/>
 	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<week>
+					<weekendStart day="fri" draft="true"/>
+					<weekendEnd day="sat" draft="true"/>
+				</week>
+			</calendar>
+		</calendars>
+	</dates>
 </ldml>
 

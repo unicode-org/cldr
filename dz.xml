@@ -242,9 +242,13 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<week>
+					<firstDay day="mon"/>
+				</week>
 				<am>སྔ་ཆ་</am>
 				<pm>ཕྱི་ཆ་</pm>
 				<dateFormats>
+					<default type="long"/>
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>སྤྱི་ལོ་yyyy ཟླ་ MMMM ཚེས་ dd</pattern>
@@ -267,6 +271,7 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
+					<default type="long"/>
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>ཆུ་ཚོད་ h སྐར་མ་ mm སྐར་ཆཱ་ ss a zzzz</pattern>

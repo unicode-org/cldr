@@ -367,7 +367,9 @@
 			<type type="gregorian" key="calendar">Kalendarz gregoriański</type>
 			<type type="hebrew" key="calendar">Kalendarz żydowski</type>
 			<type type="islamic" key="calendar" draft="true">Kalendarz muzułmański (metoda wzrokowa)</type>
+			<type type="islamic" key="calendar" alt="proposed" draft="true">Kalendarz muzułmański</type>
 			<type type="islamic-civil" key="calendar" draft="true">Kalendarz muzułmański (metoda obliczeniowa)</type>
+			<type type="islamic-civil" key="calendar" alt="proposed" draft="true">Kalendarz muzułmański cywilny</type>
 			<type type="japanese" key="calendar">Kalendarz japoński</type>
 			<type type="phonebook" key="collation">porządek książki telefonicznej</type>
 			<type type="pinyin" key="collation">porządek Pinyin</type>
@@ -509,6 +511,9 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<week>
+					<firstDay day="mon"/>
+				</week>
 				<eras>
 					<eraAbbr>
 						<era type="0">p.n.e.</era>
@@ -831,10 +836,12 @@
 			</currency>
 			<currency type="BGL" draft="true">
 				<displayName>lew bułgarski</displayName>
+				<displayName alt="proposed">lewa bułgarskie</displayName>
 				<symbol>lev</symbol>
 			</currency>
 			<currency type="BGN" draft="true">
 				<displayName>nowy lew bułgarski</displayName>
+				<displayName alt="proposed">nowe lewa bułgarskie</displayName>
 			</currency>
 			<currency type="BHD">
 				<displayName>dinar bahrański</displayName>

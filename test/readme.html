@@ -23,28 +23,10 @@ caption {font-weight:bold; font-size:120%}
 
 <body>
 
-<h1 align="center"><b><font color="#FF0000">Draft </font></b>CLDR Test Data</h1>
-<h3 align="center"><b>2004-07-18, MD</b></h3>
+<h1 align="center">CLDR Test Data</h1>
 <p>The <a href="http://cldr.info">CLDR</a> test files provide the ability for people to check the 
-results of their implementations against the data provided in CLDR. The final format has not yet 
-been approved by the CLDR technical committee, so this is just a working draft; feedback is welcome.</p>
-<table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
-  <tr>
-    <td>Current Location:</td>
-    <td><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/test/readme.html">
-    http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/test/readme.html</a></td>
-  </tr>
-  <tr>
-    <td>Test Files:&nbsp; </td>
-    <td><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/test/">
-    http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/test/</a></td>
-  </tr>
-  <tr>
-    <td>DTD: </td>
-    <td><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/test/cldrTest.dtd">
-    http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/test/cldrTest.dtd</a> </td>
-  </tr>
-</table>
+results of their implementations against the data provided in CLDR. Note: in CLDR 1.2 only the 
+collation data is provided.</p>
 <h2><a name="structure" href="#structure">Structure</a></h2>
 <p>The DTD defining the allowable structure for each file is in <a href="cldrTest.dtd">cldrTest.dtd</a>. 
 Each file contains number of test areas, indicated by a particular element. . Currently test areas 
@@ -248,15 +230,6 @@ ordering, since a testing program will have xة ≤ xت ≤ xة, which can only 
 <p>The data is presented simply as successive lines rather than multiple elements, so that multiple 
 lines can simply be copied and used in other circumstances, without having to remove the element 
 structure. (In addition, it makes the files much smaller.)</p>
-<h2><a href="#to_do" name="to_do">To Do</a></h2>
-<ul>
-  <li>Some of the full time formats don&#39;t have days of the week, so that may be in another set of 
-  tests.</li>
-  <li>Timezone display also needs to be covered.</li>
-  <li>Currencies need to be covered.</li>
-  <li>We may end up providing a schema instead of a DTD, since that can describe the structure more 
-  precisely.</li>
-</ul>
 
 </body>
 

@@ -2429,18 +2429,35 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 							    writeCollation(args[1].getString(),xmlString, seqKey);
                             }
 						}
-						if(src.current == src.end){
-							break;
-						}
+
 						//reset
 
 						count = 0;
 						collStr.remove();
 					}
 			  }
+              int32_t index = tempStr.indexOf((UChar)0x2F);
+              if(index>0){
+                   // & c < k / h
+                   // <x><p>k</p> <extend>h</extend></x>
+                   //
+                   tempStr.remove(index,1); // remove forward slash
+                   tempStr.insert(index, "</p><extend>");
+                   tempStr.insert(0,"<x><p>");
+                   tempStr.append("</extend>\n");
+                   tempStr.insert(0, indentOffset);
+                   xmlString.append(tempStr); 
+                   tempStr.remove();
+              }
+
 			  collStr.append(tempStr);
+             
 			  count++;
 			  prevStrength = strength;		
+              if(src.current == src.end){
+                  xmlString.append(tempStr);
+		 		  break;
+              }
 		}
 	}
 	if(appendedRules==TRUE){
@@ -2468,12 +2485,16 @@ void GenerateXML::writeCollation(UnicodeString& src, UnicodeString &xmlString, c
         args[0] = indentOffset;
         args[1] = temp1;
         temp.append(formatString(mStringsBundle.getStringEx("extension",mError),args,2,t));
+        temp.append("\n");
     }else{
-        args[1] = src;
-        temp.append(formatString(mStringsBundle.getStringEx(keyName,mError),args,2,t));
+        if(src.length() >0){
+            args[1] = src;
+            temp.append(formatString(mStringsBundle.getStringEx(keyName,mError),args,2,t));
+            temp.append("\n");
+        }
     }
     xmlString.append(temp);
-    xmlString.append("\n");
+
 }
 void GenerateXML::escape(UnicodeString& str){
 	UnicodeString temp;
@@ -2861,6 +2882,8 @@ uint32_t GenerateXML::parseRules(Token* src,UBool startOfRules){
 			  break; 
           case 0x002F/*'/'*/:
             wasInQuote = FALSE; /* if we were copying source characters, we want to stop now */
+            /* RAM: expansion just add the character back */
+            src->chars[src->charsLen++] =ch;
             inChars = FALSE; /* we're now processing expansion */
             break;
           case 0x005C /* back slash for escaped chars */:

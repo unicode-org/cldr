@@ -26,6 +26,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Value;
 
@@ -190,7 +191,7 @@ public class FlexibleDateTime {
 	
 	static void getOOData() {
 		OOConverter ooConverter = new OOConverter();
-		Factory cldrFactory = Factory.make("C:\\ICU4C\\locale\\open_office\\main\\", ".*");
+		Factory cldrFactory = Factory.make(Utility.BASE_DIRECTORY + "open_office/main/", ".*");
 		Set locales = cldrFactory.getAvailable();
 		Map dateList = new TreeMap(VariableFieldComparator);
 		Map timeList = new TreeMap(VariableFieldComparator);

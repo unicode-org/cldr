@@ -18,11 +18,12 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import org.unicode.cldr.util.Utility;
+
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.SortedBag;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.tool.cldr.SimpleConverter;
-import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.CollationElementIterator;
 import com.ibm.icu.text.Collator;
@@ -55,8 +56,8 @@ public class GeneratePOSIX {
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
-        UOption.SOURCEDIR().setDefault("C:\\ICU4C\\locale\\common\\"),
-        UOption.DESTDIR().setDefault("C:\\DATA\\GEN\\"),
+        UOption.SOURCEDIR().setDefault(Utility.COMMON_DIRECTORY),
+        UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY),
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault("hu"),
         UOption.create("unicodeset", 'u', UOption.REQUIRES_ARG).setDefault("[\\u0000-\\U0010FFFF]"),
         UOption.create("charset", 'c', UOption.REQUIRES_ARG).setDefault("iso8859-2"),
@@ -87,7 +88,7 @@ public class GeneratePOSIX {
         foo.add("\u0001");
         foo.add("\u0002");
         for (Iterator it = foo.iterator(); it.hasNext();) {
-            System.out.println(Utility.hex(((String)it.next()).charAt(0),4));
+            System.out.println(com.ibm.icu.impl.Utility.hex(((String)it.next()).charAt(0),4));
         }
     }
 
@@ -363,7 +364,7 @@ toupper (<a>,<A>);(<b>,<B>);(<c>,<C>);(<d>,<D>);(<e>,<E>);\
      * @return
      */
     private static String getID(char leadChar, int i) {
-        return "<" + leadChar + Utility.hex(i,4)+ ">";
+        return "<" + leadChar + com.ibm.icu.impl.Utility.hex(i,4)+ ">";
     }
 
     /**
@@ -468,7 +469,7 @@ toupper (<a>,<A>);(<b>,<B>);(<c>,<C>);(<d>,<D>);(<e>,<E>);\
 
     private StringBuffer appendID(int cp, StringBuffer result, boolean nakedID) {
         if (!nakedID) result.append('<');
-        result.append('U').append(Utility.hex(cp,4));
+        result.append('U').append(com.ibm.icu.impl.Utility.hex(cp,4));
         if (!nakedID) result.append('>');
         return result;
     }

@@ -18,6 +18,7 @@ import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -25,7 +26,7 @@ import com.ibm.icu.util.ULocale;
 public class CountItems {
 	static Set keys = new HashSet();
 	public static void main(String[] args) {
-		Factory cldrFactory = CLDRFile.Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*");
+		Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
 		//CLDRKey.main(new String[]{"-mde.*"});
 		int count = countItems(cldrFactory, false);
 		System.out.println("Count (core): " + count);

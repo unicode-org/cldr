@@ -6,7 +6,9 @@
 */
 package org.unicode.cldr.test;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
@@ -20,6 +22,7 @@ import java.util.TreeSet;
 import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.util.BagFormatter;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -41,6 +44,8 @@ public class CLDRTest extends TestFmwk {
 	private Set locales;
 	private Set languageLocales;
 	private CLDRFile.Factory cldrFactory;
+	private CLDRFile resolvedRoot;
+	private CLDRFile resolvedEnglish;
 	
 	/**
 	 * TestFmwk boilerplate
@@ -57,10 +62,12 @@ public class CLDRTest extends TestFmwk {
 	 */
 	public CLDRTest() throws SAXException, IOException {
 		// TODO parameterize the directory and filter
-		cldrFactory = CLDRFile.Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*");
+		cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
 		//CLDRKey.main(new String[]{"-mde.*"});
 		locales = cldrFactory.getAvailable();
 		languageLocales = cldrFactory.getAvailableLanguages();
+		resolvedRoot = cldrFactory.make("root", true);
+		resolvedEnglish = cldrFactory.make("en", true);
 	}
 	
 	/**
@@ -303,6 +310,8 @@ public class CLDRTest extends TestFmwk {
 		String name = (String) localeNameCache.get(locale);
 		if (name != null) return name;
 		if (english == null) english = cldrFactory.make("en", true);
+		String result = english.getName(locale, false);
+		/*
 		Collection c = Utility.splitList(locale, '_', false, null);
 		String[] pieces = new String[c.size()];
 		c.toArray(pieces);
@@ -316,6 +325,7 @@ public class CLDRTest extends TestFmwk {
 		result += " " + getName(english, "territories/territory", pieces[i++]);
 		if (pieces[i].length() == 0) return result;
 		result += " " + getName(english, "variant/variants", pieces[i++]);
+		*/
 		localeNameCache.put(locale, result);
 		return result;
 	}
@@ -480,8 +490,8 @@ public class CLDRTest extends TestFmwk {
 	}
 	
 	void getSupplementalData(Map language_scripts, Map language_territories) {
-		boolean SHOW = true;
-		Factory cldrFactory = Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*");
+		boolean SHOW = false;
+		Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
 		CLDRFile supp = cldrFactory.make("supplementalData", false);
 		XPathParts parts = new XPathParts(null, null);
 		for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
@@ -504,72 +514,137 @@ public class CLDRTest extends TestFmwk {
 		}
 	}
 
-	static final String[] minimumLanguages = {"en", "de", "fr", "it", "es", "pt", "ru", "zh", "ja"}; // plus language itself
-	static final String[] minimumCountries = {"US", "GB", "DE", "FR", "IT", "JP", "CN", "IN", "RU", "BR"};
-	
-	public void TestMinimalLocalization() {
+	public void TestMinimalLocalization() throws IOException {
 		boolean testDraft = false;
 		Map language_scripts = new HashMap();
 		Map language_territories = new HashMap();
 		getSupplementalData(language_scripts, language_territories);
 		LanguageTagParser localIDParser = new LanguageTagParser();
 		// see http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/design/minimal_requirements.htm
-		Set missing = new TreeSet();
+		int[] failureCount = new int[1];
+		int[] warningCount = new int[1];
 		for (Iterator it = languageLocales.iterator(); it.hasNext();) {
 			String locale = (String)it.next();
+			if (locale.equals("root")) continue;
+			//if (!locale.equals("zh_Hant")) continue;
+			
 			CLDRFile item = cldrFactory.make(locale, true);
 			if (!testDraft && item.isDraft()) {
 				logln(getLocaleAndName(locale) + "\tskipping draft");
 				continue;
 			}
+			CLDRFile missing = CLDRFile.make(locale);
+			failureCount[0] = 0;
+			warningCount[0] = 0;
 			localIDParser.set(locale);
 			String language = localIDParser.getLanguage();
 			logln("Testing: " + locale);
-			missing.clear();
 			// languages
-			Set languages = new TreeSet(Arrays.asList(minimumLanguages));
+			Set languages = new TreeSet(Utility.MINIMUM_LANGUAGES);
 			languages.add(language);
-			checkForItems(item, languages, "/ldml/localeDisplayNames/languages/language", missing);
+			// LANGUAGE_NAME = 0, SCRIPT_NAME = 1, TERRITORY_NAME = 2, VARIANT_NAME = 3,
+			// CURRENCY_NAME = 4, CURRENCY_SYMBOL = 5, TZID = 6
+			
+			checkForItems(item, languages, CLDRFile.LANGUAGE_NAME, missing, failureCount);
 			
 /*			checkTranslatedCode(cldrfile, codes, "currency", "/ldml/numbers/currencies/currency");
 			checkTranslatedCode(cldrfile, codes, "tzid", "/ldml/dates/timeZoneNames/zone");
 			checkTranslatedCode(cldrfile, codes, "variant", "/ldml/localeDisplayNames/variants/variant");
 */
 			
-			Set countries = new TreeSet(Arrays.asList(minimumCountries));
-			Set others = (Set) language_territories.get(language);
-			if (others != null) countries.addAll(others);
-			checkForItems(item, countries, "/ldml/localeDisplayNames/territories/territory", missing);
-			
 			Set scripts = new TreeSet();
-			others = (Set) language_scripts.get(language);
-			if (others != null && others.size() > 1) {
-				scripts.addAll(others);
-				checkForItems(item, scripts, "/ldml/localeDisplayNames/scripts/script", missing);
-			}
+			scripts.add("Latn");
+			Set others = (Set) language_scripts.get(language);
+			if (others != null) scripts.addAll(others);
+			checkForItems(item, scripts, CLDRFile.SCRIPT_NAME, missing, failureCount);
 
-			if (missing.size() > 0) {
-				String s = getIDAndLocalization(missing);
-				errln(getLocaleAndName(locale) + "\tmissing localizations: " + s);
+			Set countries = new TreeSet(Utility.MINIMUM_TERRITORIES);
+			others = (Set) language_territories.get(language);
+			if (others != null) countries.addAll(others);
+			checkForItems(item, countries, CLDRFile.TERRITORY_NAME, missing, failureCount);
+			
+			Set currencies = new TreeSet();
+			StandardCodes sc = StandardCodes.make();
+			for (Iterator it2 = countries.iterator(); it2.hasNext(); ) {
+				String country = (String) it2.next();
+				Set countryCurrencies = sc.getMainCurrencies(country);
+				if (countryCurrencies == null) {
+					errln("Internal Error: no currencies for " + country + ", locale: " + locale);
+				} else {
+					currencies.addAll(countryCurrencies);
+				}
+			}
+			checkForItems(item, currencies, CLDRFile.CURRENCY_NAME, missing, failureCount);
+			//checkForItems(item, currencies, CLDRFile.CURRENCY_SYMBOL, missing, warningCount);
+			
+			//context=format and width=narrow, wide, & abbreviated
+			Set months = new TreeSet();
+			for (int i = 1; i <= 12; ++i) months.add(i+"");
+			Set days = new TreeSet(Arrays.asList(new String[] {"sun", "mon", "tue", "wed", "thu", "fri", "sat"}));
+			for (int i = -6; i < 0; ++i) {
+				checkForItems(item, i < -3 ? months : days, i, missing, failureCount);
+			}
+			
+			String filename = "missing_" + locale + ".xml";
+			if (failureCount[0] > 0 || warningCount[0] > 0) {
+				PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "missing/", filename);
+				missing.write(out);
+				out.close();
+				//String s = getIDAndLocalization(missing);
+				if (failureCount[0] > 0) errln(getLocaleAndName(locale) + "\tmissing localizations, creating file");
+				else logln(getLocaleAndName(locale) + "\tpossibly missing localizations, creating file");
+			} else {
+				new File(Utility.GEN_DIRECTORY + "missing/" + filename).delete();
 			}
 		}
 	}
+	
+	private String getDateKey(String monthOrDay, String width, String code) {
+		return "/ldml/dates/calendars/calendar[@type=\"gregorian\"]/"
+				+ monthOrDay + "s/" + monthOrDay + "Context[@type=\"format\"]/"
+				+ monthOrDay + "Width[@type=\"" + width + "\"]/" + monthOrDay
+				+ "[@type=\"" + code + "\"]";
+	}
+
+	private String getDateKey(int type, String code) {
+		return getDateKey(MONTHORDAYS[type / 3], WIDTHS[type % 3], code);
+	}
+	
+	static final String[] WIDTHS = {"narrow", "wide", "abbreviated"};
+	static final String[] MONTHORDAYS = {"day", "month"};
 
 	/**
 	 * @param item
-	 * @param languages
-	 * @param fragment TODO
+	 * @param codes
+	 * @param fragment
+	 *            TODO
 	 * @param missing
 	 */
-	private void checkForItems(CLDRFile item, Set languages, String fragment, Set missing) {
-		// check languages
-		for (Iterator it2 = languages.iterator(); it2.hasNext();) {
-			String lang = (String)it2.next();
-			Value v = item.getValue(fragment + "[@type=\"" + lang + "\"]");
-			if (v == null) {
-				missing.add(lang);
+	private void checkForItems(CLDRFile item, Set codes, int type, CLDRFile missing, int failureCount[]) {
+		// check codes
+		for (Iterator it2 = codes.iterator(); it2.hasNext();) {
+			String code = (String)it2.next();
+			String key;
+			if (type >= 0) {
+				key = CLDRFile.getKey(type, code);
 			} else {
-				logln("\t" + lang + "\t" + v.getStringValue());
+				key = getDateKey(-type-1, code);
+				System.out.println(key);
+			}
+			Value v = item.getValue(key);
+			Value rootValue = resolvedRoot.getValue(key);
+			if (v == null || v.hasSameValue(rootValue)) {
+				Value englishValue = resolvedEnglish.getValue(key);
+				String transValue;
+				if (englishValue != null) {
+					transValue = englishValue.getStringValue();
+				} else {
+					transValue = code;
+				}
+				missing.add(key, key, transValue);
+				failureCount[0]++;
+			} else {
+				logln("\t" + code + "\t" + v.getStringValue());
 			}
 		}
 	}

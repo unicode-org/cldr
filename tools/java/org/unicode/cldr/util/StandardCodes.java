@@ -29,6 +29,7 @@ import java.util.regex.Pattern;
 import javax.print.attribute.UnmodifiableSetException;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
@@ -39,11 +40,11 @@ import com.ibm.icu.util.ULocale;
 public class StandardCodes {
 	public static final String NO_COUNTRY = "001";
 
-	private static String DATA_DIR = "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
 	private static StandardCodes singleton;
 	private Map type_code_data = new TreeMap();
-	private Map type_data_codes = new TreeMap();
+	private Map type_name_codes = new TreeMap();
 	private Map type_code_preferred = new TreeMap();
+	private Map country_modernCurrency = new TreeMap();
 	private String date;
 	
 	/**
@@ -67,11 +68,14 @@ public class StandardCodes {
 		Map code_data = (Map) type_code_data.get(type);
 		if (code_data == null) return null;
 		List list = (List)code_data.get(code);
+		if (list == null) return null;
 		return (String)list.get(0);
 	}
 	
 	/**
 	 * @return the full data for the type and code
+	 * For the data in lstreg, it is
+	 * description | date | canonical_value | recommended_prefix # comments
 	 */
 	public List getFullData(String type, String code) {
 		Map code_data = (Map) type_code_data.get(type);
@@ -88,7 +92,7 @@ public class StandardCodes {
 	 * @return
 	 */
 	public List getCodes(String type, String data) {
-		Map data_codes = (Map) type_data_codes.get(type);
+		Map data_codes = (Map) type_name_codes.get(type);
 		if (data_codes == null) return null;
 		return Collections.unmodifiableList((List)data_codes.get(data));
 	}
@@ -127,18 +131,45 @@ public class StandardCodes {
 		return Collections.unmodifiableSet(code_name.keySet());
 	}
 	
+	public Set getMainCurrencies(String countryCode) {
+		return (Set) country_modernCurrency.get(countryCode);
+	}
+	
+	Map platform_locale_status = null;
+	
+	public Map getLocaleTypes() throws IOException {
+		if (platform_locale_status == null) {
+			platform_locale_status = new TreeMap();
+			String line;
+			BufferedReader lstreg = BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR, "Locales.txt");
+			while (true) {
+				line = lstreg.readLine();
+				if (line == null) break;
+				int commentPos = line.indexOf('#');
+				if (commentPos >= 0) line = line.substring(0, commentPos);
+				if (line.length() == 0) continue;
+				List stuff = Utility.splitList(line, ';', true);
+				Map locale_status = (Map) platform_locale_status.get(stuff.get(0));
+				if (locale_status == null)  platform_locale_status.put(stuff.get(0), locale_status = new TreeMap());
+				locale_status.put(stuff.get(1), stuff.get(2));
+			}
+			Utility.protectCollection(platform_locale_status);
+		}
+		return platform_locale_status;
+	}
+	
 	// ========== PRIVATES ==========
 
 	private StandardCodes() {
-		String[] files = {"lstreg.txt", "ISO4217.txt", "TZID.txt"};
+		String[] files = {"lstreg.txt", "ISO4217.txt"}; // , "TZID.txt"
 		type_code_preferred.put("tzid", new TreeMap());
 		add("script", "Qaai", "Inherited");
 		add("script", "Zyyy", "Common");
 		add("language", "root", "Root");
 		String line = null;
-		for (int j = 0; j < files.length; ++j) {
+		for (int fileIndex = 0; fileIndex < files.length; ++fileIndex) {
 			try {
-				BufferedReader lstreg = BagFormatter.openUTF8Reader(DATA_DIR, files[j]);
+				BufferedReader lstreg = BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR, files[fileIndex]);
 				while (true) {
 					line = lstreg.readLine();
 					if (line == null) break;
@@ -149,24 +180,53 @@ public class StandardCodes {
 					String type = (String) pieces.get(0);
 					pieces.remove(0);
 					if (type.equals("region")) type ="territory";
+					
 					String code = (String) pieces.get(0);
 					pieces.remove(0);
 					if (type.equals("date")) {
 						date = code;
 						continue;
 					}
+					
 					String oldName = (String) pieces.get(0);
 					int pos = oldName.indexOf(';');
 					if (pos >= 0) {
 						oldName = oldName.substring(0,pos).trim();
 						pieces.set(0,oldName);
 					}
+					
 					List name = pieces;
-					if (oldName.equalsIgnoreCase("PRIVATE USE")) continue;
-					if (!type.equals("tzid")) {
-						add(type, code, name);			
+					if (oldName.equalsIgnoreCase("PRIVATE USE")) {
+						int separatorPos = code.indexOf("..");
+						if (separatorPos < 0) {
+							add(type, code, name);
+						} else {
+							String current = code.substring(0,separatorPos);
+							String end = code.substring(separatorPos + 2);
+							//System.out.println(">>" + code + "\t" + current + "\t" + end);
+							for (; current.compareTo(end) <= 0; current = nextAlpha(current)) {
+								//System.out.println(">" + current);
+								add(type, current, name);
+							};
+						}
 						continue;
 					}
+					if (!type.equals("tzid")) {
+						add(type, code, name);
+						if (type.equals("currency")) {
+							// currency	|	TPE	|	Timor Escudo	|	TP	|	EAST TIMOR	|	O
+							if (name.get(3).equals("C")) {
+								String country = (String) name.get(1);
+								Set codes = (Set) country_modernCurrency.get(country);
+								if (codes == null) {
+									country_modernCurrency.put(country, codes = new TreeSet());
+								}
+								codes.add(code);
+							}
+						}
+						continue;
+					}
+					// type = tzid
 					List codes = (List) Utility.splitList(code, ',', true, new ArrayList());
 					String preferred = null;
 					for (int i = 0; i < pieces.size(); ++i) {
@@ -181,11 +241,45 @@ public class StandardCodes {
 				}
 				lstreg.close();
 			} catch (Exception e) {
-				throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + files[j] + "\t" + line).initCause(e);
+				throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + files[fileIndex] + "\t" + line).initCause(e);
 			}
+			Utility.protectCollection(country_modernCurrency);
+		}
+		Map m = getZoneData();
+		for (Iterator it = m.keySet().iterator(); it.hasNext();) {
+			String code = (String) it.next();
+			add("tzid", code, m.get(code).toString());
 		}
 	}
 	
+	/**
+	 * @param current
+	 * @return
+	 */
+	private String nextAlpha(String current) {
+		// Don't care that this is inefficient
+		int value = 0;
+		for (int i = 0; i < current.length(); ++i) {
+			char c = current.charAt(i);
+			c -= c < 'a' ? 'A' : 'a';
+			value = value * 26 + c;			
+		}
+		value += 1;
+		String result = "";
+		for (int i = 0; i < current.length(); ++i) {
+			result = (char)((value % 26) + 'A') + result;
+			value = value / 26;
+		}
+		if (UCharacter.toLowerCase(current).equals(current)) {
+			result = UCharacter.toLowerCase(result);
+		} else if (UCharacter.toUpperCase(current).equals(current)) {
+			// do nothing
+		} else {
+			result = UCharacter.toTitleCase(result,null);
+		}
+		return result;
+	}
+
 	/**
 	 * @param string
 	 * @param string2
@@ -198,22 +292,32 @@ public class StandardCodes {
 	}
 
 	private void add(String type, String code, List otherData) {
+		// assume name is the first item
+		String name = (String) otherData.get(0);
+
+		// add to main list
 		Map code_data = (Map) type_code_data.get(type);
 		if (code_data == null) {
 			code_data = new TreeMap();
 			type_code_data.put(type, code_data);
 		}
-		code_data.put(code, otherData);
-		Map data_codes = (Map) type_data_codes.get(type);
-		if (data_codes == null) {
-			data_codes = new TreeMap();
-			type_data_codes.put(type, data_codes);
+		List lastData = (List) code_data.get(code);
+		if (lastData != null) {
+			lastData.addAll(otherData);
+		} else {
+			code_data.put(code, otherData);
 		}
-		String name = (String) otherData.get(0);
-		List codes = (List) data_codes.get(name);
+		
+		// now add mapping from name to codes
+		Map name_codes = (Map) type_name_codes.get(type);
+		if (name_codes == null) {
+			name_codes = new TreeMap();
+			type_name_codes.put(type, name_codes);
+		}
+		List codes = (List) name_codes.get(name);
 		if (codes == null) {
 			codes = new ArrayList();
-			data_codes.put(name, codes);
+			name_codes.put(name, codes);
 		}
 		codes.add(code);
 	}
@@ -346,7 +450,7 @@ public class StandardCodes {
 			String deg = "([+-])([0-9][0-9][0-9]?)([0-9][0-9])([0-9][0-9])?";//
 			Matcher m = Pattern.compile(deg+deg).matcher("");
 			zoneData = new TreeMap();
-		    BufferedReader in = BagFormatter.openUTF8Reader(DATA_DIR, "zone.tab");
+		    BufferedReader in = BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR, "zone.tab");
 		    while (true) {
 		        String line = in.readLine();
 		        if (line == null) break;
@@ -398,7 +502,7 @@ public class StandardCodes {
 		    String lastZone = "";
 		    Pattern whitespace = Pattern.compile("\\s+");
 		    for (int i = 0; i < TZFiles.length; ++i) {
-		    	in = BagFormatter.openUTF8Reader(DATA_DIR, TZFiles[i]);
+		    	in = BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR, TZFiles[i]);
 		    	while (true) {
 		    		String line = in.readLine();
 		    		if (line == null) break;

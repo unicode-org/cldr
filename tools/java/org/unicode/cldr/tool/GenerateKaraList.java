@@ -14,6 +14,7 @@ import com.ibm.icu.dev.test.util.BagFormatter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Value;
 
@@ -23,9 +24,9 @@ import com.ibm.icu.util.ULocale;
 
 public class GenerateKaraList {
 	public static void main(String[] args) throws IOException {
-		cldrFactory = CLDRFile.Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*");
+		cldrFactory = CLDRFile.Factory.make(Utility.COMMON_DIRECTORY, ".*");
 		english = cldrFactory.make("en", true);
-		PrintWriter log = BagFormatter.openUTF8Writer("C:\\DATA\\GEN\\cldr\\main\\", "karaList.xml");
+		PrintWriter log = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "main/", "karaList.xml");
 		Set locales = LanguageTagParser.getLanguageScript(cldrFactory.getAvailable());
 		// hack for now
 		locales.remove("sr");

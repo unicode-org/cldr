@@ -125,7 +125,7 @@ public class XPathParts {
 		}
 		public List removeFinal() {
 			List result = new ArrayList();
-			for (int i = 0; i < 3; ++i) {
+			for (int i = 0; i < comments.length; ++i) {
 				for (Iterator it = comments[i].keySet().iterator(); it.hasNext();) {
 					Object key = (String) it.next();
 					Object value = comments[i].get(key);
@@ -147,6 +147,56 @@ public class XPathParts {
 			} catch (CloneNotSupportedException e) {
 				throw new InternalError("should never happen");
 			}			
+		}
+		/**
+		 * @param xpath_comments
+		 * @param keepMine
+		 */
+		public void joinAll(Comments other) {
+			Utility.joinWithSeparation(comments[LINE], XPathParts.NEWLINE, other.comments[LINE]);
+			Utility.joinWithSeparation(comments[PREBLOCK], XPathParts.NEWLINE, other.comments[PREBLOCK]);
+			Utility.joinWithSeparation(comments[POSTBLOCK], XPathParts.NEWLINE, other.comments[POSTBLOCK]);
+		}
+		/**
+		 * @param string
+		 */
+		public void removeComment(String string) {
+			if (initialComment.equals(string)) initialComment = "";
+			if (finalComment.equals(string)) finalComment = "";
+			for (int i = 0; i < comments.length; ++i) {
+				for (Iterator it = comments[i].keySet().iterator(); it.hasNext();) {
+					Object key = (String) it.next();
+					Object value = comments[i].get(key);
+					if (!value.equals(string)) continue;
+					it.remove();
+				}
+			}
+		}
+		private String initialComment = "";
+		private String finalComment = "";
+		/**
+		 * @return Returns the finalComment.
+		 */
+		public String getFinalComment() {
+			return finalComment;
+		}
+		/**
+		 * @param finalComment The finalComment to set.
+		 */
+		public void setFinalComment(String finalComment) {
+			this.finalComment = finalComment;
+		}
+		/**
+		 * @return Returns the initialComment.
+		 */
+		public String getInitialComment() {
+			return initialComment;
+		}
+		/**
+		 * @param initialComment The initialComment to set.
+		 */
+		public void setInitialComment(String initialComment) {
+			this.initialComment = initialComment;
 		}
 	}
 	
@@ -310,7 +360,7 @@ public class XPathParts {
 			case '\"':
 			case '\'':
 				if (state == cp) { // finished
-					if (stringStart >= i) return parseError(xPath,i);
+					if (stringStart > i) return parseError(xPath,i);
 					addAttribute(lastAttributeName, xPath.substring(stringStart, i));
 					state = 'e';
 					break;
@@ -492,11 +542,16 @@ public class XPathParts {
 	 * @return
 	 */
 	public XPathParts addRelative(String path) {
-		while(path.startsWith("../")) {
-			path = path.substring(3);
-			trim();
+		if (path.startsWith("//")) {
+			elements.clear();
+			path = path.substring(1); // strip one
+		} else {
+			while(path.startsWith("../")) {
+				path = path.substring(3);
+				trim();
+			}
+			if (!path.startsWith("/")) path = "/" + path;
 		}
-		if (!path.startsWith("/")) path = "/" + path;
 		return setInternal(path);
 	}
 	/**

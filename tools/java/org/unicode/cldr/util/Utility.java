@@ -15,6 +15,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
@@ -23,11 +24,25 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 
 public class Utility {
 	static final boolean DEBUG_SHOW_BAT = false;
+	/** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
+	public static final String BASE_DIRECTORY = "../../";	// get up to <CLDR>
+	public static final String UTIL_DATA_DIR = 	"./org/unicode/cldr/util/";		// "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
+	public static final String COMMON_DIRECTORY = BASE_DIRECTORY + "common/";
+	public static final String MAIN_DIRECTORY = COMMON_DIRECTORY + "main/";
+	public static final String GEN_DIRECTORY = COMMON_DIRECTORY + "gen/";
+	
+	/** If the generated BAT files are to work, this needs to be set right */
+	public static final String COMPARE_PROGRAM = "\"C:\\Program Files\\Compare It!\\wincmp3.exe\"";
+	
+	public static final List MINIMUM_LANGUAGES = Arrays.asList(new String[] {"en", "de", "fr", "it", "es", "pt", "ru", "zh", "ja"}); // plus language itself
+	public static final List MINIMUM_TERRITORIES = Arrays.asList(new String[] {"US", "GB", "DE", "FR", "IT", "JP", "CN", "IN", "RU", "BR"});
 	
 	public interface LineComparer {
 		static final int LINES_DIFFERENT = -1, LINES_SAME = 0, SKIP_FIRST = 1, SKIP_SECOND = 2;
@@ -178,7 +193,7 @@ public class Utility {
             if (!areFileIdentical(sourceDir + sourceFile, targetDir + targetFile, failureLines, lineComparer)) {
                 PrintWriter bat = BagFormatter.openUTF8Writer(batDir, batName);
                 try {
-                	bat.println("\"C:\\Program Files\\Compare It!\\wincmp3.exe\" " +
+                	bat.println(COMPARE_PROGRAM + " " +
                         new File(sourceDir + sourceFile).getCanonicalPath() + " " +
                         new File(targetDir + targetFile).getCanonicalPath());               
                 } finally {
@@ -296,4 +311,72 @@ public class Utility {
 			return source; // can't protect
 		}
 	}
+	
+    /** Appends two strings, inserting separator if either is empty
+	 */
+	public static String joinWithSeparation(String a, String separator, String b) {
+		if (a.length() == 0) return b;
+		if (b.length() == 0) return a;
+		return a + separator + b;
+	}
+	
+    /** Appends two strings, inserting separator if either is empty. Modifies first map
+	 */
+	public static Map joinWithSeparation(Map a, String separator, Map b) {
+		for (Iterator it = b.keySet().iterator(); it.hasNext();) {
+			Object key = it.next();
+			String bvalue = (String) b.get(key);
+			String avalue = (String) a.get(key);
+			if (avalue != null) {
+				if (avalue.trim().equals(bvalue.trim())) continue;
+				bvalue = joinWithSeparation(avalue, separator, bvalue);
+			}
+			a.put(key, bvalue);
+		}
+		return a;
+	}
+	
+	public static abstract class Transform {
+		public abstract Object transform(Object source);
+		public Collection transform(Collection input, Collection output) {
+			for (Iterator it = input.iterator(); it.hasNext();) {
+				Object result = transform(it.next());
+				if (result != null) output.add(result);
+			}
+			return output;
+		}
+		public Collection transform(Collection input) {
+			return transform(input, new ArrayList());
+		}
+	}
+	
+	public static abstract class Filter {
+		public abstract boolean contains(Object o);
+		public Collection retainAll(Collection c) {
+			for (Iterator it = c.iterator(); it.hasNext();) {
+				if (!contains(it.next())) it.remove();
+			}
+			return c;
+		}
+		public Collection removeAll(Collection c) {
+			for (Iterator it = c.iterator(); it.hasNext();) {
+				if (contains(it.next())) it.remove();
+			}
+			return c;
+		}
+	}
+	
+	public static class MatcherFilter extends Filter {
+		private Matcher matcher;
+		public MatcherFilter(String pattern) {
+			this.matcher = Pattern.compile(pattern).matcher("");
+		}
+		public MatcherFilter(Matcher matcher) {
+			this.matcher = matcher;
+		}
+		public boolean contains(Object o) {
+			return matcher.reset(o.toString()).matches();
+		}		
+	}
+	
 }

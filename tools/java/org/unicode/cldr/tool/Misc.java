@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -29,6 +30,7 @@ import org.unicode.cldr.util.CLDRFile.Value;
 import org.xml.sax.SAXParseException;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
@@ -44,53 +46,256 @@ import com.ibm.icu.util.ULocale;
 
 public class Misc {
 	static Factory cldrFactory;
+	static CLDRFile english;
+	static CLDRFile resolvedRoot;
 	// WARNING: this file needs a serious cleanup
 	
+    private static final int
+	    HELP1 = 0,
+	    HELP2 = 1,
+	    SOURCEDIR = 2,
+	    DESTDIR = 3,
+	    MATCH = 4,
+	    TO_LOCALIZE = 5,
+	    CURRENT = 6,
+		WINDOWS = 7,
+		OBSOLETES = 8;
+	
+	private static final UOption[] options = {
+	    UOption.HELP_H(),
+	    UOption.HELP_QUESTION_MARK(),
+	    UOption.SOURCEDIR().setDefault(Utility.COMMON_DIRECTORY),
+	    UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "timezones/"),
+	    UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
+	    UOption.create("to_localize", 't', UOption.NO_ARG),
+	    UOption.create("current", 'c', UOption.NO_ARG),
+	    UOption.create("windows", 'w', UOption.NO_ARG),
+	    UOption.create("obsoletes", 'o', UOption.NO_ARG),
+	};
+	
 	public static void main(String[] args) throws IOException {
-		cldrFactory = Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*");
-		String[] group1 = {
-				//"en", "zh", "ja", "ko",
-				//"fr", 
-				"de", 
-				//"it", "es", "pt"
-				};
-		
-		//group1 = (String[]) cldrFactory.getAvailableLanguages().toArray(group1);
-		if (false) for (int i = 0; i < group1.length; ++i) {
-			if (!XPathParts.isLanguage(group1[i])) continue;
-			if (group1[i].compareTo("sh") == 0) continue;
-			PrintWriter log = BagFormatter.openUTF8Writer("C:\\DATA\\GEN\\cldr\\timezones\\", group1[i] + "_current.html");
+		try {
+	        UOption.parseArgs(args, options);
+			cldrFactory = Factory.make(options[SOURCEDIR].value + "main\\", ".*");
+			english = cldrFactory.make("en", false);
+			resolvedRoot = cldrFactory.make("root", true);
+			if (options[MATCH].value.equals("group1")) options[MATCH].value = "(en|fr|de|it|es|pt|ja|ko|zh)";
+			Set languages = new TreeSet(cldrFactory.getAvailableLanguages());
+			new Utility.MatcherFilter(options[MATCH].value).retainAll(languages);
+			new Utility.MatcherFilter("(sh|zh_Hans|sr_Cyrl)").removeAll(languages);
+			
+			if (options[CURRENT].doesOccur) {
+				printCurrentTimezoneLocalizations(languages);
+			}
+	
+			if (options[TO_LOCALIZE].doesOccur) {
+				for (Iterator it = languages.iterator(); it.hasNext();) {
+					String language = (String)it.next();
+					printSupplementalData(language);
+				}
+			}
+			
+			if (options[WINDOWS].doesOccur) {
+				printWindowsZones();
+			}
+			
+			if (options[OBSOLETES].doesOccur) {
+				listObsoletes();
+			}
+			// add options for these later
+			//getCities();
+			//testLanguageTags();
+			//getZoneData();
+		} finally {
+			System.out.println("DONE");
+		}
+	}
+	
+	private static void listObsoletes() {
+		java.util.TimeZone t;
+		StandardCodes sc = StandardCodes.make();
+		for (Iterator typeIt = sc.getAvailableTypes().iterator(); typeIt.hasNext();) {
+			String type = (String) typeIt.next();
+			System.out.println(type);
+			for (Iterator codeIt = sc.getAvailableCodes(type).iterator(); codeIt.hasNext();) {
+				String code = (String) codeIt.next();
+				List list = sc.getFullData(type, code);
+				if (list.size() < 3) continue;
+				String replacementCode = (String) list.get(2);
+				if (replacementCode.length() == 0) continue;
+				System.out.println(code + " => " + replacementCode + "; " 
+						+ english.getName(type, replacementCode, true));
+			}
+		}
+	}
+	
+    // Windows info: http://msdn.microsoft.com/library/default.asp?url=/library/en-us/e2k3/e2k3/_cdoex_time_zone_to_cdotimezoneid_map.asp
+    // ICU info: http://oss.software.ibm.com/cvs/icu/~checkout~/icu/source/common/putil.c
+    // search for "Mapping between Windows zone IDs"
+	
+	/**
+	 * @param languages
+	 * @throws IOException
+	 */
+	private static void printCurrentTimezoneLocalizations(Set languages) throws IOException {
+		for (Iterator it = languages.iterator(); it.hasNext();) {
+			String language = (String)it.next();
+			PrintWriter log = BagFormatter.openUTF8Writer(options[DESTDIR].value + "", language + "_current.html");
 			log.println("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
 			log.println("<style><!--");
 			log.println("td { text-align: center }");
 			log.println("--></style>");
-			log.println("<title>Time Zone Localizations for " + group1[i] + "</title><head><body>");
+			log.println("<title>Time Zone Localizations for " + language + "</title><head><body>");
 			log.println("<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse: collapse\">");
-			printTimeZones(log, group1[i]);
+			printCurrentTimezoneLocalizations(log, language);
 			//printSupplementalData(group1[i]);
 			log.println("</table></body></html>");
 			log.close();
 		}
-
-		for (int i = 0; i < group1.length; ++i) {
-			if (!XPathParts.isLanguage(group1[i])) continue;
-			if (group1[i].compareTo("sh") == 0) continue;
-			printSupplementalData(group1[i]);
-		}
-		System.out.println("DONE");
-//getCities();
-		//testLanguageTags();
-		//getZoneData();
 	}
+
+	static void printWindowsZones() {
+		System.out.println("\t<timezoneInfo>");
+		System.out.println("\t\t<mapTimezones type=\"windows\">");
+		for (int i = 0; i < ZONE_MAP.length; i += 3) {
+			System.out.println("\t\t\t<mapZone other=\"" + ZONE_MAP[i+1] 
+				+ "\" type=\"" + ZONE_MAP[i] 
+				+ "\"> <!-- " + ZONE_MAP[i+2] + "-->");
+		}
+		System.out.println("\t\t</mapTimezones>");
+		System.out.println("\t</timezoneInfo>");
+		
+		for (int i = 0; i < ZONE_MAP.length; i += 3) {
+			int p1 = ZONE_MAP[i+2].indexOf('(');
+			int p2 = ZONE_MAP[i+2].indexOf(')');
+			System.out.println(
+					ZONE_MAP[i] 
+							 + "\t" + 	ZONE_MAP[i+1] 
+													+ "\t" + ZONE_MAP[i+2].substring(0,p1)
+													+ "\t" + ZONE_MAP[i+2].substring(p1+1,p2)
+													+ "\t" + ZONE_MAP[i+2].substring(p2+1)
+				);
+		}
+
+	}
+    
+    static String[] ZONE_MAP = {
+        "Etc/GMT+12",           "Dateline", "S (GMT-12:00) International Date Line West",
+
+        "Pacific/Apia",         "Samoa", "S (GMT-11:00) Midway Island, Samoa",
+
+        "Pacific/Honolulu",     "Hawaiian", "S (GMT-10:00) Hawaii",
+
+        "America/Anchorage",    "Alaskan", "D (GMT-09:00) Alaska",
+
+        "America/Los_Angeles",  "Pacific", "D (GMT-08:00) Pacific Time (US & Canada); Tijuana",
+
+        "America/Phoenix",      "US Mountain", "S (GMT-07:00) Arizona",
+        "America/Denver",       "Mountain", "D (GMT-07:00) Mountain Time (US & Canada)",
+        "America/Chihuahua",    "Mexico Standard Time 2", "D (GMT-07:00) Chihuahua, La Paz, Mazatlan",
+
+        "America/Managua",      "Central America", "S (GMT-06:00) Central America",
+        "America/Regina",       "Canada Central", "S (GMT-06:00) Saskatchewan",
+        "America/Mexico_City",  "Mexico", "D (GMT-06:00) Guadalajara, Mexico City, Monterrey",
+        "America/Chicago",      "Central", "D (GMT-06:00) Central Time (US & Canada)",
+
+        "America/Indianapolis", "US Eastern", "S (GMT-05:00) Indiana (East)",
+        "America/Bogota",       "SA Pacific", "S (GMT-05:00) Bogota, Lima, Quito",
+        "America/New_York",     "Eastern", "D (GMT-05:00) Eastern Time (US & Canada)",
+
+        "America/Caracas",      "SA Western", "S (GMT-04:00) Caracas, La Paz",
+        "America/Santiago",     "Pacific SA", "D (GMT-04:00) Santiago",
+        "America/Halifax",      "Atlantic", "D (GMT-04:00) Atlantic Time (Canada)",
+
+        "America/St_Johns",     "Newfoundland", "D (GMT-03:30) Newfoundland",
+
+        "America/Buenos_Aires", "SA Eastern", "S (GMT-03:00) Buenos Aires, Georgetown",
+        "America/Godthab",      "Greenland", "D (GMT-03:00) Greenland",
+        "America/Sao_Paulo",    "E. South America", "D (GMT-03:00) Brasilia",
+
+        "America/Noronha",      "Mid-Atlantic", "D (GMT-02:00) Mid-Atlantic",
+
+        "Atlantic/Cape_Verde",  "Cape Verde", "S (GMT-01:00) Cape Verde Is.",
+        "Atlantic/Azores",      "Azores", "D (GMT-01:00) Azores",
+
+        "Africa/Casablanca",    "Greenwich", "S (GMT) Casablanca, Monrovia",
+        "Europe/London",        "GMT", "D (GMT) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London",
+
+        "Africa/Lagos",         "W. Central Africa", "S (GMT+01:00) West Central Africa",
+        "Europe/Berlin",        "W. Europe", "D (GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
+        "Europe/Paris",         "Romance", "D (GMT+01:00) Brussels, Copenhagen, Madrid, Paris",
+        "Europe/Sarajevo",      "Central European", "D (GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb",
+        "Europe/Belgrade",      "Central Europe", "D (GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague",
+
+        "Africa/Johannesburg",  "South Africa", "S (GMT+02:00) Harare, Pretoria",
+        "Asia/Jerusalem",       "Israel", "S (GMT+02:00) Jerusalem",
+        "Europe/Istanbul",      "GTB", "D (GMT+02:00) Athens, Istanbul, Minsk",
+        "Europe/Helsinki",      "FLE", "D (GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius",
+        "Africa/Cairo",         "Egypt", "D (GMT+02:00) Cairo",
+        "Europe/Bucharest",     "E. Europe", "D (GMT+02:00) Bucharest",
+
+        "Africa/Nairobi",       "E. Africa", "S (GMT+03:00) Nairobi",
+        "Asia/Riyadh",          "Arab", "S (GMT+03:00) Kuwait, Riyadh",
+        "Europe/Moscow",        "Russian", "D (GMT+03:00) Moscow, St. Petersburg, Volgograd",
+        "Asia/Baghdad",         "Arabic", "D (GMT+03:00) Baghdad",
+
+        "Asia/Tehran",          "Iran", "D (GMT+03:30) Tehran",
+
+        "Asia/Muscat",          "Arabian", "S (GMT+04:00) Abu Dhabi, Muscat",
+        "Asia/Tbilisi",         "Caucasus", "D (GMT+04:00) Baku, Tbilisi, Yerevan",
+
+        "Asia/Kabul",           "Afghanistan", "S (GMT+04:30) Kabul",
+
+        "Asia/Karachi",         "West Asia", "S (GMT+05:00) Islamabad, Karachi, Tashkent",
+        "Asia/Yekaterinburg",   "Ekaterinburg", "D (GMT+05:00) Ekaterinburg",
+
+        "Asia/Calcutta",        "India", "S (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+
+        "Asia/Katmandu",        "Nepal", "S (GMT+05:45) Kathmandu",
+
+        "Asia/Colombo",         "Sri Lanka", "S (GMT+06:00) Sri Jayawardenepura",
+        "Asia/Dhaka",           "Central Asia", "S (GMT+06:00) Astana, Dhaka",
+        "Asia/Novosibirsk",     "N. Central Asia", "D (GMT+06:00) Almaty, Novosibirsk",
+
+        "Asia/Rangoon",         "Myanmar", "S (GMT+06:30) Rangoon",
+
+        "Asia/Bangkok",         "SE Asia", "S (GMT+07:00) Bangkok, Hanoi, Jakarta",
+        "Asia/Krasnoyarsk",     "North Asia", "D (GMT+07:00) Krasnoyarsk",
+
+        "Australia/Perth",      "W. Australia", "S (GMT+08:00) Perth",
+        "Asia/Taipei",          "Taipei", "S (GMT+08:00) Taipei",
+        "Asia/Singapore",       "Singapore", "S (GMT+08:00) Kuala Lumpur, Singapore",
+        "Asia/Hong_Kong",       "China", "S (GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi",
+        "Asia/Irkutsk",         "North Asia East", "D (GMT+08:00) Irkutsk, Ulaan Bataar",
+
+        "Asia/Tokyo",           "Tokyo", "S (GMT+09:00) Osaka, Sapporo, Tokyo",
+        "Asia/Seoul",           "Korea", "S (GMT+09:00) Seoul",
+        "Asia/Yakutsk",         "Yakutsk", "D (GMT+09:00) Yakutsk",
+
+        "Australia/Darwin",     "AUS Central", "S (GMT+09:30) Darwin",
+        "Australia/Adelaide",   "Cen. Australia", "D (GMT+09:30) Adelaide",
+
+        "Pacific/Guam",         "West Pacific", "S (GMT+10:00) Guam, Port Moresby",
+        "Australia/Brisbane",   "E. Australia", "S (GMT+10:00) Brisbane",
+        "Asia/Vladivostok",     "Vladivostok", "D (GMT+10:00) Vladivostok",
+        "Australia/Hobart",     "Tasmania", "D (GMT+10:00) Hobart",
+        "Australia/Sydney",     "AUS Eastern", "D (GMT+10:00) Canberra, Melbourne, Sydney",
+
+        "Asia/Magadan",         "Central Pacific", "S (GMT+11:00) Magadan, Solomon Is., New Caledonia",
+
+        "Pacific/Fiji",         "Fiji", "S (GMT+12:00) Fiji, Kamchatka, Marshall Is.",
+        "Pacific/Auckland",     "New Zealand", "D (GMT+12:00) Auckland, Wellington",
+
+        "Pacific/Tongatapu",    "Tonga", "S (GMT+13:00) Nuku'alofa",
+    };
 	
 	/**
 	 * @throws IOException
 	 * 
 	 */
-	private static void printTimeZones(PrintWriter log, String locale) throws IOException {
+	private static void printCurrentTimezoneLocalizations(PrintWriter log, String locale) throws IOException {
 
 		CLDRFile desiredLocaleFile = cldrFactory.make(locale, true);
-		CLDRFile english = cldrFactory.make("en", false);
 		TimezoneFormatter tzf = new TimezoneFormatter(desiredLocaleFile);
 		/*
 		<hourFormat>+HHmm;-HHmm</hourFormat>
@@ -103,10 +308,13 @@ public class Misc {
 		*/
 		RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(new ULocale(locale));
 		col.setNumericCollation(true);
+		Map zone_countries = StandardCodes.make().getZoneToCounty();
+		Map countries_zoneSet = StandardCodes.make().getCountryToZoneSet();
+
 		Map reordered = new TreeMap(col);
-		for (Iterator it = tzf.zone_countries.keySet().iterator(); it.hasNext();) {
+		for (Iterator it = zone_countries.keySet().iterator(); it.hasNext();) {
 			String zoneID = (String) it.next();
-			String country = (String) tzf.zone_countries.get(zoneID);
+			String country = (String) zone_countries.get(zoneID);
 			String countryName = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, false);
 			if (countryName == null) countryName = UTF16.valueOf(0x10FFFD) + country;
 			reordered.put(countryName + "0" + zoneID, zoneID);
@@ -118,11 +326,11 @@ public class Misc {
 		for (Iterator it = reordered.keySet().iterator(); it.hasNext();) {
 			String key = (String) it.next();
 			String zoneID = (String) reordered.get(key);
-			String country = (String) tzf.zone_countries.get(zoneID);
+			String country = (String) zone_countries.get(zoneID);
 			String countryName = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, false);
 			if (countryName == null) countryName = country;
 			log.println("<tr><th bgcolor=\"silver\" colspan=\"4\" align=\"left\"><font color=\"#0000FF\">"
-					+ (++count) + ". " + countryName + ": " + zoneID 
+					+ BagFormatter.toHTML.transliterate((++count) + ". " + countryName + ": " + zoneID)
 					+ "</font></th></tr>");
 			if (first) {
 				first = false;
@@ -131,9 +339,9 @@ public class Misc {
 				log.println("<tr><th>&nbsp;</th><th>generic</th><th>standard</th><th>daylight</th></tr>");
 			}
 			for (int i = 0; i < tzf.LENGTH_LIMIT; ++i) {
-				log.println("<tr><th>" + tzf.LENGTH[i] + "</th>");
+				log.println("<tr><th>" + tzf.LENGTH.get(i) + "</th>");
 				for (int j = 0; j < tzf.TYPE_LIMIT; ++j) {
-					field[j] = tzf.getFormattedZone(zoneID, i, j);
+					field[j] = BagFormatter.toHTML.transliterate(tzf.getFormattedZone(zoneID, i, j));
 				}
 				if (field[0].equals(field[1]) && field[1].equals(field[2])) {
 					log.println("<td colspan=\"3\">" + field[0] + "</td>");
@@ -144,128 +352,6 @@ public class Misc {
 				}
 				log.println("</tr>");
 			}
-		}
-	}
-	
-	private static class TimezoneFormatter {
-		DateFormat[] hourFormat = new DateFormat[2];
-		MessageFormat hoursFormat, gmtFormat, regionFormat,
-				fallbackFormat;
-		String abbreviationFallback, preferenceOrdering;
-		CLDRFile desiredLocaleFile;
-		Map zone_countries = StandardCodes.make().getZoneToCounty();
-		Map countries_zoneSet = StandardCodes.make().getCountryToZoneSet();
-		Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
-
-		TimezoneFormatter(CLDRFile desiredLocaleFile) {
-			this.desiredLocaleFile = desiredLocaleFile;
-			String hourFormatString = desiredLocaleFile.getValue("/ldml/dates/timeZoneNames/hourFormat").getStringValue();
-			String[] hourFormatStrings = Utility.splitArray(hourFormatString,';');
-			hourFormat[0] = new SimpleDateFormat(hourFormatStrings[0]);
-			hourFormat[1] = new SimpleDateFormat(hourFormatStrings[1]);
-			hoursFormat = new MessageFormat(desiredLocaleFile.getValue(
-					"/ldml/dates/timeZoneNames/hoursFormat").getStringValue());
-			gmtFormat = new MessageFormat(desiredLocaleFile.getValue(
-					"/ldml/dates/timeZoneNames/gmtFormat").getStringValue());
-			regionFormat = new MessageFormat(desiredLocaleFile.getValue(
-					"/ldml/dates/timeZoneNames/regionFormat").getStringValue());
-			fallbackFormat = new MessageFormat(desiredLocaleFile.getValue(
-					"/ldml/dates/timeZoneNames/fallbackFormat")
-					.getStringValue());
-			abbreviationFallback = (String) new XPathParts(null, null).set(
-					desiredLocaleFile.getValue(
-							"/ldml/dates/timeZoneNames/abbreviationFallback")
-							.getFullXPath()).findAttributes(
-					"abbreviationFallback").get("type");
-			Value temp = desiredLocaleFile.getValue("/ldml/dates/timeZoneNames/preferenceOrdering");
-			preferenceOrdering = (String) new XPathParts(null, null).set(
-					temp.getFullXPath()).findAttributes(
-					"preferenceOrdering").get("type");
-		}
-		static final int GMT = 0, SHORT = 1, LONG = 2, LENGTH_LIMIT = 3;
-		static final String[] LENGTH = {"gmt", "short", "long"};
-		static final int GENERIC = 0, STANDARD = 1, DAYLIGHT = 2, TYPE_LIMIT = 3;
-		static final String[] TYPE = {"generic", "standard", "daylight"};
-		static final long D2005_01_02 = new Date(2005-1900,0,1).getTime();
-		static final long D2005_06_02 = new Date(2005-1900,7,1).getTime();
-		
-		String getFormattedZone(String zoneid, int length, int type) {
-			String result;
-/*
-<long>
-	<generic>Alaska Time</generic>
-	<standard>Alaska Standard Time</standard>
-	<daylight>Alaska Daylight Time</daylight>
-</long>
-<short>
-	<generic>AKT</generic>
-	<standard>AKST</standard>
-	<daylight>AKDT</daylight>
-</short>
-*/
-			String prefix = "/ldml/dates/timeZoneNames/zone[@type=\"" + zoneid + "\"]/";
-			// 1. If non-GMT format, and we have an explicit translation, use it
-			if (length != GMT) {
-				Value formatValue = desiredLocaleFile.getValue(prefix + LENGTH[length] + "/" + TYPE[type]);
-				if (formatValue != null) return formatValue.getStringValue();
-			}
-			
-			String country = (String) zone_countries.get(zoneid);
-			// 2. if GMT format or no country, use it
-			if (length == GMT || country.equals(StandardCodes.NO_COUNTRY)) {
-				TimeZone tz = TimeZone.getTimeZone(zoneid);
-				long gmtOffset1 = tz.getOffset(D2005_01_02);
-				tz = TimeZone.getTimeZone(zoneid);
-				long gmtOffset2 = tz.getOffset(D2005_06_02);
-				DateFormat format = hourFormat[gmtOffset1 >= 0 ? 0 : 1];
-				if (type == GENERIC && gmtOffset1 != gmtOffset2) {
-					calendar.setTimeInMillis(Math.abs(gmtOffset1));
-					String first = format.format(calendar);
-					calendar.setTimeInMillis(Math.abs(gmtOffset2));
-					String second = format.format(calendar);
-					result = hoursFormat.format(new Object[]{first, second});
-				} else {
-					gmtOffset1 = type == STANDARD ? Math.min(gmtOffset1, gmtOffset2) : Math.max(gmtOffset1, gmtOffset2);
-					calendar.setTimeInMillis(Math.abs(gmtOffset1));
-					result = format.format(calendar);
-				}
-				return gmtFormat.format(new Object[]{result});
-			}
-			// 3. Else for non-wall-time, use GMT format
-			//	America/Los_Angeles => "GMT-08:00"
-
-			// 4. *Else if there is an exemplar city, use it with the region format. The exemplar city may not be the same as the Olson ID city, if another city is much more recognizable for whatever reason. 
-			// However, it is very strongly recommended that the same city be used.
-			//	America/Los_Angeles => "Tampo de San Fransisko"
-			Value exemplarValue = desiredLocaleFile.getValue(prefix + "exemplarCity");
-			if (exemplarValue != null) {
-				return regionFormat.format(new Object[]{exemplarValue.getStringValue()});
-			}
-			// 5. *Else if there is a country for the time zone, and a translation in the locale for the country name, and the country only has one (modern) timezone, use it with the region format :
-			//	Africa/Monrovia => LR => "Tampo de Liberja"
-			Set s = (Set) countries_zoneSet.get(country);
-			if (s != null && s.size() == 1) {
-				result = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, false);
-				if (result != null) return result;
-			}
-			// 6. Else if it is a perpetual alias for a "real" ID, and if there is an exact translation for that, try #1..#4 with that alias.
-			//	Europe/San_Marino => Europe/Rome => ... => "Tampo de Roma"
-			
-			// TODO
-			
-			// 7. Else fall back to the raw Olson ID (stripping off the prefix, and turning _ into space), using the fallback format. 
-			//	America/Goose_Bay => "Tampo de  «Goose Bay»"
-			int pos = zoneid.lastIndexOf('/');
-			result = pos < 0 ? zoneid : zoneid.substring(pos+1);
-			result = result.replace('_', ' ');
-			String countryTranslation = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, false);
-			if (countryTranslation == null) countryTranslation = country;
-			return fallbackFormat.format(new Object[]{result, countryTranslation});
-			// 8. Else use the (possibly multi-offset) GMT format
-			//	America/Nome => "GMT-0900/-0800"
-
-			// TODO 
-			
 		}
 	}
 
@@ -628,8 +714,10 @@ public class Misc {
 	
 	private static void printSupplementalData(String locale) throws IOException {
 		
-		PrintWriter log = null; // BagFormatter.openUTF8Writer("C:\\DATA\\GEN\\cldr\\timezones\\", locale + "_timezonelist.xml");
-		CLDRFile desiredLocaleFile = cldrFactory.make(locale, true);
+		PrintWriter log = null; // BagFormatter.openUTF8Writer(options[DESTDIR].value + "", locale + "_timezonelist.xml");
+		CLDRFile desiredLocaleFile = (CLDRFile) cldrFactory.make(locale, true).clone();
+		desiredLocaleFile.removeDuplicates(resolvedRoot);
+		
 		CLDRFile english = cldrFactory.make("en", true);
 		Collator col = Collator.getInstance(new ULocale(locale));
 		CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
@@ -671,7 +759,7 @@ public class Misc {
 			}
 		}
 		Set seen = new TreeSet();
-		show(log, desiredLocaleFile, groups, seen, col, false, english);
+		printTimezonesToLocalize(log, desiredLocaleFile, groups, seen, col, false, english);
 		StandardCodes sc = StandardCodes.make();
 		Set codes = sc.getAvailableCodes("territory");
 		Set missing = new TreeSet(codes);
@@ -692,19 +780,19 @@ public class Misc {
 	// <ldml><dates><timeZoneNames>
 	//		<zone type="America/Anchorage" draft="true"><exemplarCity draft="true">Anchorage</exemplarCity></zone>
 	
-	private static void show(PrintWriter log, CLDRFile localization, Map groups, Set seen, Collator col, boolean showCode, 
+	private static void printTimezonesToLocalize(PrintWriter log, CLDRFile localization, Map groups, Set seen, Collator col, boolean showCode, 
 			CLDRFile english) throws IOException {
 		Set[] missing = new Set[2];
 		missing[0] = new TreeSet();
 		missing[1] = new TreeSet(StandardCodes.make().getTZIDComparator());
-		show2(log, localization, groups, "001", 0, seen, col, showCode, zones_countrySet(), missing);
+		printWorldTimezoneCategorization(log, localization, groups, "001", 0, seen, col, showCode, zones_countrySet(), missing);
 		if (missing[0].size() == 0 && missing[1].size() == 0) return;
-		PrintWriter log2 = BagFormatter.openUTF8Writer("C:\\DATA\\GEN\\cldr\\timezones\\", 
+		PrintWriter log2 = BagFormatter.openUTF8Writer(options[DESTDIR].value + "", 
 				localization.getKey() + "_to_localize.xml");
 		log2.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-		log2.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd\">");
-		log2.println("<ldml><identity><version number=\"1.3\"/><generation date=\"2005-01-01\"/><language type=\""
-				+ localization.getKey()+"\"/></identity>");
+		log2.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/" + CLDRFile.GEN_VERSION + "/ldml.dtd\">");
+		log2.println("<ldml><identity><version number=\"" + CLDRFile.GEN_VERSION + "\"/><generation date=\"2005-01-01\"/><language type=\""
+				+ BagFormatter.toXML.transliterate(localization.getKey())+"\"/></identity>");
 		log2.println("<!-- The following are strings that are not found in the locale (currently), " +
 				"but need valid translations for localizing timezones. -->");
 		if (missing[0].size() != 0) {
@@ -712,7 +800,7 @@ public class Misc {
 			for (Iterator it = missing[0].iterator(); it.hasNext();) {
 				String key = (String)it.next();
 				log2.println("\t<territory type=\"" + key + "\" draft=\"true\">"+ 
-						english.getName(CLDRFile.TERRITORY_NAME, key, false)
+						BagFormatter.toXML.transliterate(english.getName(CLDRFile.TERRITORY_NAME, key, false))
 						+ "</territory>");
 			}
 			log2.println("</territories></localeDisplayNames>");
@@ -735,7 +823,7 @@ public class Misc {
 					log2.println("\t<!-- " + country + "-->");
 				}
 				log2.println("\t<zone type=\"" + key + "\"><exemplarCity draft=\"true\">"
-						+ getName(english,key,null)
+						+ BagFormatter.toXML.transliterate(getName(english,key,null))
 						+ "</exemplarCity></zone>");
 			}
 			log2.println("</timeZoneNames></dates>");
@@ -746,7 +834,8 @@ public class Misc {
 	
 	static String[] levelNames = {"world", "continent", "subcontinent", "country", "subzone"};
 	
-	private static void show2(PrintWriter log, CLDRFile localization, Map groups, String key, int indent, Set seen, Collator col, boolean showCode, 
+	private static void printWorldTimezoneCategorization(PrintWriter log, CLDRFile localization, 
+			Map groups, String key, int indent, Set seen, Collator col, boolean showCode, 
 			Map zone_countrySet, Set[] missing) {
 		//String fixedKey = fixNumericKey(key);
 		seen.add(key);
@@ -780,7 +869,7 @@ public class Misc {
 		for (Iterator it = reorder.keySet().iterator(); it.hasNext();) {
 			key = (String) it.next();
 			String value = (String) reorder.get(key);
-			show2(log, localization, groups, value, indent + 1, seen, col, showCode, zone_countrySet, missing);
+			printWorldTimezoneCategorization(log, localization, groups, value, indent + 1, seen, col, showCode, zone_countrySet, missing);
 		}
 		if (log != null) log.println(Utility.repeat("\t", indent) + "</" + element + ">");
 	}
@@ -847,7 +936,7 @@ public class Misc {
 	private static void compareLists() throws IOException {
 		BufferedReader in = BagFormatter.openUTF8Reader("", "language_list.txt");
 		String[] pieces = new String[4];
-		Factory cldrFactory = Factory.make("C:\\ICU4C\\locale\\common\\main\\", ".*");
+		Factory cldrFactory = Factory.make(options[SOURCEDIR].value + "main\\", ".*");
 		//CLDRKey.main(new String[]{"-mde.*"});
 		Set locales = cldrFactory.getAvailable();
 		Set cldr = new TreeSet();

@@ -36,7 +36,7 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
          	//StringBufferInputStream fis = new StringBufferInputStream(
         		//"<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.2/ldml.dtd\"><ldml></ldml>");
         	try {
-				FileInputStream fis = new FileInputStream("C:\\ICU4C\\locale\\common\\main\\en.xml");
+				FileInputStream fis = new FileInputStream(Utility.COMMON_DIRECTORY + "main/en.xml");
 				InputSource is = new InputSource(fis);
 				FindDTDOrder me = new FindDTDOrder();
 				XMLReader xmlReader = CLDRFile.createXMLReader(true);

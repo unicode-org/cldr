@@ -1,7 +1,7 @@
 #currency	|	code	|	name	|	country-code	|	country-name	|	status
 # status as of 2005-01-26, from http://www.iso.org/iso/en/prods-services/popstds/currencycodeslist.html
-# = C for current (normal)
-# = F for current (fund)
+# = C for current, customary use
+# = F for current fund and other specialized use
 # = I for intermediate (introduced and obsoleted after ISO 4217:2001(E/F))
 # = O for obsolete in 2001 (Table A.3 of ISO 4217:2001(E/F))
 # = X for non-ISO in 2001 (Table A.3 of ISO 4217:2001(E/F), with *)
@@ -44,7 +44,7 @@ currency	|	BMD	|	Bermudian Dollar (customarily known as Bermuda Dollar)	|	BM	|	B
 currency	|	BTN	|	Ngultrum	|	BT	|	BHUTAN	|	C
 currency	|	INR	|	Indian Rupee	|	BT	|	BHUTAN	|	C
 currency	|	BOB	|	Boliviano	|	BO	|	BOLIVIA	|	C
-currency	|	BOV	|	Mvdol	|	BO	|	BOLIVIA	|	C
+currency	|	BOV	|	Mvdol	|	BO	|	BOLIVIA	|	F
 currency	|	BAM	|	Convertible Marks	|	BA	|	BOSNIA & HERZEGOVINA	|	C
 currency	|	BWP	|	Pula	|	BW	|	BOTSWANA	|	C
 currency	|	NOK	|	Norwegian Krone	|	BV	|	BOUVET ISLAND	|	C
@@ -109,7 +109,7 @@ currency	|	EUR	|	Euro	|	GP	|	GUADELOUPE	|	C
 currency	|	USD	|	US Dollar	|	GU	|	GUAM	|	C
 currency	|	GTQ	|	Quetzal	|	GT	|	GUATEMALA	|	C
 currency	|	GNF	|	Guinea Franc	|	GN	|	GUINEA	|	C
-currency	|	GWP	|	Guinea-Bissau Peso	|	GW	|	GUINEA-BISSAU	|	C
+currency	|	GWP	|	Guinea-Bissau Peso	|	GW	|	GUINEA-BISSAU	|	O
 currency	|	XOF	|	CFA Franc BCEAO †	|	GW	|	GUINEA-BISSAU	|	C
 currency	|	GYD	|	Guyana Dollar	|	GY	|	GUYANA	|	C
 currency	|	HTG	|	Gourde	|	HT	|	HAITI	|	C
@@ -151,7 +151,7 @@ currency	|	EUR	|	Euro	|	LU	|	LUXEMBOURG	|	C
 currency	|	MOP	|	Pataca	|	MO	|	MACAO	|	C
 currency	|	MKD	|	Denar	|	MK	|	MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF	|	C
 currency	|	MGA	|	Malagasy Ariary	|	MG	|	MADAGASCAR	|	C
-currency	|	MGF	|	Malagasy Franc	|	MG	|	MADAGASCAR	|	C
+currency	|	MGF	|	Malagasy Franc	|	MG	|	MADAGASCAR	|	O
 currency	|	MWK	|	Kwacha	|	MW	|	MALAWI	|	C
 currency	|	MYR	|	Malaysian Ringgit	|	MY	|	MALAYSIA	|	C
 currency	|	MVR	|	Rufiyaa	|	MV	|	MALDIVES	|	C
@@ -270,7 +270,7 @@ currency	|	COU	|	Unidad de Valor Real	|	CO	|	COLOMBIA	|	F
 currency	|	MXV	|	Mexican Unidad de Inversion (UID)	|	MX	|	MEXICO	|	F
 currency	|	CHE	|	WIR Euro	|	CH	|	SWITZERLAND	|	F
 currency	|	CHW	|	WIR Franc	|	CH	|	SWITZERLAND	|	F
-currency	|	TRL	|	old Turkish Lira	|	TR	|	TURKEY	|	F
+currency	|	TRL	|	old Turkish Lira	|	TR	|	TURKEY	|	O
 currency	|	USN	|	(Next day)	|	US	|	UNITED STATES	|	F
 currency	|	USS	|	(Same day)	|	US	|	UNITED STATES	|	F
 currency	|	BYB	|	Belarus Ruble	|	BY	|	BELARUS	|	I
@@ -368,3 +368,7 @@ currency	|	ROK	|	Leu A/52	|	RO	|	ROMANIA	|	X
 currency	|	UGW	|	Old Shilling	|	UG	|	UGANDA	|	X
 currency	|	UYN	|	Old Urugay Peso	|	UY	|	URUGUAY	|	X
 currency	|	VNC	|	Old Dong	|	VN	|	VIETNAM	|	X
+# the following three are not in ISO 4217, so these are guesses
+currency	|	XXX	|	No universal currency	|	GS	|	SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS	|	C
+currency	|	XXX	|	No universal currency	|	PS	|	PALESTINIAN TERRITORY, OCCUPIED	|	C
+currency	|	EUR	|	Euro	|	AX	|	ÅLAND ISLANDS	|	C

@@ -12,16 +12,21 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TimeZone;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -69,10 +74,9 @@ public class CLDRFile implements Lockable {
 	public static boolean HACK_ORDER = false;
 	private static boolean DEBUG_LOGGING = true;
 	public static final String SUPPLEMENTAL_NAME = "supplementalData";
+	public static final String GEN_VERSION = "1.3";
     
     private Map xpath_value;
-    private String initialComment = "";
-    private String finalComment = "";
     private String key;
     private XPathParts.Comments xpath_comments = new XPathParts.Comments(); // map from paths to comments.
     private boolean isSupplemental;
@@ -110,10 +114,10 @@ public class CLDRFile implements Lockable {
         	name = f.getCanonicalPath();
             if (DEBUG_LOGGING) {
              	System.out.println("Parsing: " + name);
-             	Log.logln("Parsing: " + f.getCanonicalPath());
+             	Log.logln("Parsing: " + name);
     	    }
 			FileInputStream fis = new FileInputStream(f);
-	    	CLDRFile result = make(localeName, fis);
+	    	CLDRFile result = make(name, localeName, fis);
 			fis.close();
 			return result;
 		} catch (IOException e) {
@@ -123,14 +127,16 @@ public class CLDRFile implements Lockable {
     
     /**
      * Produce a CLDRFile from a file input stream. (Normally a Factory is used to create CLDRFiles.)
+     * @param directory TODO
      * @param localeName
      * @param fis
      * @param log TODO
      * @throws IOException
      * @throws SAXException
      */
-    public static CLDRFile make(String localeName, FileInputStream fis) {
+    public static CLDRFile make(String fileName, String localeName, InputStream fis) {
     	try {
+    		fis = new StripUTF8BOMInputStream(fis);
     		CLDRFile result = make(localeName);
 			MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(result);
 			XMLReader xmlReader = createXMLReader(true);
@@ -138,7 +144,9 @@ public class CLDRFile implements Lockable {
 			xmlReader.setErrorHandler(DEFAULT_DECLHANDLER);
 			xmlReader.setProperty("http://xml.org/sax/properties/lexical-handler", DEFAULT_DECLHANDLER);
 			xmlReader.setProperty("http://xml.org/sax/properties/declaration-handler", DEFAULT_DECLHANDLER);
-			xmlReader.parse(new InputSource(fis));
+			InputSource is = new InputSource(fis);
+			is.setSystemId(fileName);
+			xmlReader.parse(is);
 			return result;
     	} catch (SAXParseException e) {
     		System.out.println(CLDRFile.showSAX(e));
@@ -148,6 +156,30 @@ public class CLDRFile implements Lockable {
 		} catch (IOException e) {
 			throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + localeName).initCause(e);
 		}    	 
+    }
+    
+    static class StripUTF8BOMInputStream extends InputStream {
+    	InputStream base;
+    	StripUTF8BOMInputStream(InputStream base) {
+    		this.base = base;
+    	}
+    	boolean checkForUTF8BOM = true;
+		/* (non-Javadoc)
+		 * @see java.io.InputStream#read()
+		 */
+		public int read() throws IOException {
+			int result = base.read();
+			if (!checkForUTF8BOM) return result;
+			// complicated by still wanting to do one delegate read per read
+			// so we just skip first char if it starts with EF, assuming valid UTF-8
+			checkForUTF8BOM = false;
+			if (result != 0xEF) return result;
+			result = base.read();
+			result = base.read();
+			result = base.read();
+			return result;
+		}
+    	
     }
     
     /**
@@ -165,15 +197,52 @@ public class CLDRFile implements Lockable {
 		}
     }
 	
+    public void show() {
+		for (Iterator it2 = xpath_value.keySet().iterator(); it2.hasNext();) {
+			String xpath = (String)it2.next();
+			Value v = (Value) xpath_value.get(xpath);
+			System.out.println(v.getFullXPath() + " =>\t" + v.getStringValue());
+		}
+    }
+
+    static DateFormat myDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");  
+    static {
+        myDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+    }
 
 	/**
 	 * Write the corresponding XML file out, with the normal formatting and indentation.
+	 * Will update the identity element, including generation, version, and other items.
 	 * @param pw
 	 */
 	public void write(PrintWriter pw) {
 		pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-		pw.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd\">");
-		XPathParts.writeComment(pw, 0, initialComment, false);
+		pw.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/" + GEN_VERSION + "/ldml.dtd\">");
+		/*
+<identity>
+<version number="1.2"/>
+<generation date="2004-08-27"/>
+<language type="en"/>
+		 */
+		
+		add("/ldml/identity/version","/ldml/identity/version[@number=\"1.3\"]","");
+		add("/ldml/identity/generation","/ldml/identity/generation[@date=\"" + myDateFormat.format(new Date()) + "\"]","");
+		LocaleIDParser lip = new LocaleIDParser();
+		lip.set(key);
+		add("/ldml/identity/language[@type=\"" + lip.getLanguage() + "\"]","");
+		if (lip.getScript().length() != 0) {
+			add("/ldml/identity/script[@type=\"" + lip.getScript() + "\"]","");
+		}
+		if (lip.getRegion().length() != 0) {
+			add("/ldml/identity/territory[@type=\"" + lip.getRegion() + "\"]","");
+		}
+		String[] variants = lip.getVariants();
+		for (int i = 0; i < variants.length; ++i) {
+			add("/ldml/identity/variant[@type=\"" + variants[i] + "\"]","");
+		}
+		// now do the rest
+		
+		XPathParts.writeComment(pw, 0, xpath_comments.getInitialComment(), false);
 		
 		XPathParts.Comments tempComments = (XPathParts.Comments) xpath_comments.clone();
 		
@@ -200,13 +269,21 @@ public class CLDRFile implements Lockable {
 			lastFiltered = temp;
 		}
 		current.clear().writeDifference(pw, null, last, lastFiltered, null, tempComments);
-		XPathParts.writeComment(pw, 0, finalComment, true);
+		XPathParts.writeComment(pw, 0, xpath_comments.getFinalComment(), true);
 		
 		for (Iterator it = tempComments.removeFinal().iterator(); it.hasNext();) {
 			String key = (String) it.next();
 			Log.logln("Writing extra comment: " + key);
 			XPathParts.writeComment(pw, 0, key, false);
 		}
+	}
+
+	/**
+	 * @param string
+	 * @param string2
+	 */
+	private void add(String xpath, String value) {
+		add(xpath, xpath, value);
 	}
 
 	/**
@@ -236,7 +313,8 @@ public class CLDRFile implements Lockable {
     	// System.out.println("Adding comment: <" + xpath + "> '" + comment + "'");
     	Log.logln("ADDING Comment: \t" + type + "\t" + xpath + " \t" + comment);
     	if (xpath == null || xpath.length() == 0) {
-    		finalComment = (finalComment.length() == 0 ? "" : finalComment + XPathParts.NEWLINE) + comment;
+    		xpath_comments.setFinalComment(
+    				Utility.joinWithSeparation(xpath_comments.getFinalComment(), XPathParts.NEWLINE, comment));
     	} else {
 	        xpath_comments.add(type, xpath, comment);
     	}
@@ -257,12 +335,31 @@ public class CLDRFile implements Lockable {
     		temp.putAll(other.xpath_value);
     		temp.putAll(xpath_value);
     		xpath_value = temp;
+    		
     	} else {
     		xpath_value.putAll(other.xpath_value);
     	}
+    	xpath_comments.setInitialComment(
+    			Utility.joinWithSeparation(xpath_comments.getInitialComment(),
+    					XPathParts.NEWLINE, 
+						other.xpath_comments.getInitialComment()));
+    	xpath_comments.setFinalComment(
+    			Utility.joinWithSeparation(xpath_comments.getFinalComment(), 
+    					XPathParts.NEWLINE, 
+						other.xpath_comments.getFinalComment()));
+    	xpath_comments.joinAll(other.xpath_comments);
+		/*
+		 *     private Map xpath_value;
+private String initialComment = "";
+private String finalComment = "";
+private String key;
+private XPathParts.Comments xpath_comments = new XPathParts.Comments(); // map from paths to comments.
+private boolean isSupplemental;
+
+		 */
     }
     
-    /**
+	/**
      * Removes an element from a CLDRFile.
      * @param xpath
      */
@@ -271,17 +368,33 @@ public class CLDRFile implements Lockable {
     	xpath_value.remove(xpath);
     }
     
+    /**
+     * Removes all items with same value
+     * @param other
+     */
+    public void removeDuplicates(CLDRFile other) {
+    	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+    	for (Iterator it = other.xpath_value.keySet().iterator(); it.hasNext();) {
+    		String xpath = (String)it.next();
+    		Value currentValue = (Value) xpath_value.get(xpath);
+    		if (currentValue == null) continue;
+    		Value otherValue = (Value) other.xpath_value.get(xpath);
+    		if (!currentValue.getStringValue().equals(otherValue.getStringValue())) continue;
+    		xpath_value.remove(xpath);
+    	}
+    }
+    
 	/**
 	 * @return Returns the finalComment.
 	 */
 	public String getFinalComment() {
-		return finalComment;
+		return xpath_comments.getFinalComment();
 	}
 	/**
 	 * @return Returns the finalComment.
 	 */
 	public String getInitialComment() {
-		return initialComment;
+		return xpath_comments.getInitialComment();
 	}
 	/**
 	 * @return Returns the xpath_comments.
@@ -317,7 +430,7 @@ public class CLDRFile implements Lockable {
 	 */
 	public void setFinalComment(String comment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-		this.finalComment = comment;
+		xpath_comments.setFinalComment(comment);
 	}
 
 	/**
@@ -325,7 +438,7 @@ public class CLDRFile implements Lockable {
 	 */
 	public void setInitialComment(String comment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-		this.initialComment = comment;
+    	xpath_comments.setInitialComment(comment);
 	}
 
 	// ========== STATIC UTILITIES ==========
@@ -514,13 +627,50 @@ public class CLDRFile implements Lockable {
     					result.putAll(parent, true);
     					result.fixAliases(this);	    					
     				}
-	    		}
+    				// now add "constructed" items
+    				if (constructedItems == null) {   					
+    					constructedItems = new CLDRFile(false);
+    					StandardCodes sc = StandardCodes.make();
+    					Map countries_zoneSet = sc.getCountryToZoneSet();
+    					Map zone_countries = sc.getZoneToCounty();
+
+    					Set types = sc.getAvailableTypes();
+    					for (Iterator typeIt = types.iterator(); typeIt.hasNext(); ) {
+    						String type = (String)typeIt.next();
+    						int typeNo = typeNameToCode(type);
+    						if (typeNo < 0) continue;
+    						if (typeNo == CURRENCY_NAME) typeNo = CURRENCY_SYMBOL;
+    						Set codes = sc.getAvailableCodes(type);
+    						String prefix = NameTable[typeNo][0];
+    						String postfix = NameTable[typeNo][1];
+    						String prefix2 = "/ldml[@version=\"" + GEN_VERSION + "\"]" + prefix.substring(5);
+        					for (Iterator codeIt = codes.iterator(); codeIt.hasNext(); ) {
+        						String code = (String)codeIt.next();
+        						String value = code;
+        						if (typeNo == TZID) { // skip single-zone countries
+        	    					String country = (String) zone_countries.get(code);
+        							Set s = (Set) countries_zoneSet.get(country);
+        							if (s != null && s.size() == 1) continue;
+        							value = TimezoneFormatter.getFallbackName(value);
+        						}
+        						String path = prefix + code + postfix;
+        						String fullpath = prefix2 + code + postfix;
+        						//System.out.println(fullpath + "\t=> " + code);
+        						constructedItems.add(path, fullpath, value);
+        					}
+    					}
+    					constructedItems.lock();
+    				}
+    				result.putAll(constructedItems, true);
+ 	    		}
 	    		result.lock();
 	    		cache.put(localeName, result);
 	    	}
 	    	return result;
 	    }
 	}
+	
+	static CLDRFile constructedItems = null;
 
     /**
      * Immutable class that defines the value at a particular xpath.
@@ -553,10 +703,13 @@ public class CLDRFile implements Lockable {
 		/**
 		 * boilerplate
 		 */
-    	public boolean equals(Object other) {
-			if (other == null || !getClass().equals(other.getClass())) return false;
-    		Value that = (Value)other;
-    		return fullXPath.equals(that.fullXPath);
+    	final public boolean equals(Object other) {
+    		if (!hasSameValue(other)) return false;
+			return fullXPath.equals(((Value)other).fullXPath);
+    	}
+    	
+    	public boolean hasSameValue(Object other) {
+			return other != null && getClass().equals(other.getClass());
     	}
     	/**
     	 * Must be overridden.
@@ -600,8 +753,8 @@ public class CLDRFile implements Lockable {
 		/**
 		 * boilerplate
 		 */
-		public boolean equals(Object other) {
-    		if (!super.equals(other)) return false;
+		public boolean hasSameValue(Object other) {
+    		if (!super.hasSameValue(other)) return false;
     		return stringValue.equals(((StringValue)other).stringValue);
     	}
 		/**
@@ -637,8 +790,8 @@ public class CLDRFile implements Lockable {
 		/**
 		 * boilerplate
 		 */
-    	public boolean equals(Object other) {
-    		if (super.equals(other)) return false;
+    	public boolean hasSameValue(Object other) {
+    		if (super.hasSameValue(other)) return false;
     		return nodeValue.equals(((NodeValue)other).nodeValue);
     	}
 		/**
@@ -657,7 +810,7 @@ public class CLDRFile implements Lockable {
 
     private static class MyDeclHandler implements DeclHandler, ContentHandler, LexicalHandler, ErrorHandler {
     	private static final boolean SHOW_ALL = false;
-    	private static final boolean SHOW_START_END = true;
+    	private static final boolean SHOW_START_END = false;
     	private int commentStack;
     	private boolean justPopped = false;
     	private String lastChars = "";
@@ -702,7 +855,12 @@ public class CLDRFile implements Lockable {
 	    			String value = attributes.getValue(i);
 	    			//if (!isSupplemental) ldmlComparator.addAttribute(attribute); // must do BEFORE put
 	    			//ldmlComparator.addValue(value);
-	    			attributeOrder.put(attribute, value);
+	    			// special fix to remove version
+	    			if (qName.equals("ldml") && attribute.equals("version")) {
+	    				// do nothing!
+	    			} else {
+	    				attributeOrder.put(attribute, value);
+	    			}
 	    		}
 	    		for (Iterator it = attributeOrder.keySet().iterator(); it.hasNext();) {
 	    			String attribute = (String)it.next();
@@ -1064,18 +1222,50 @@ public class CLDRFile implements Lockable {
 			{"/ldml/localeDisplayNames/territories/territory[@type=\"", "\"]", "territory"},
 			{"/ldml/localeDisplayNames/variants/variant[@type=\"", "\"]", "variant"},
 			{"/ldml/numbers/currencies/currency[@type=\"", "\"]/displayName", "currency"},
-			{"/ldml/numbers/currencies/currency[@type=\"", "\"]/symbol", "currency-symbol"}
+			{"/ldml/numbers/currencies/currency[@type=\"", "\"]/symbol", "currency-symbol"},
+			{"/ldml/dates/timeZoneNames/zone[@type=\"", "\"]/exemplarCity", "tzid"},
 	};
 
 	public static final int LANGUAGE_NAME = 0, SCRIPT_NAME = 1, TERRITORY_NAME = 2, VARIANT_NAME = 3,
-		CURRENCY_NAME = 4, CURRENCY_SYMBOL = 5;
+		CURRENCY_NAME = 4, CURRENCY_SYMBOL = 5, TZID = 6;
+	private static final String[] TYPE_NAME = {"LANGUAGE", "SCRIPT", "TERRITORY", "VARIANT", "CURRENCY", "CURRENCY_SYMBOL", "TZID"};
 	
-	public String getName(int choice, String type, boolean skipDraft) {
-		Value v = getValue(NameTable[choice][0] + type + NameTable[choice][1]);
+	/**
+	 * @param type
+	 * @param code
+	 * @return the key used to access the data
+	 */
+	public static String getKey(int type, String code) {
+		return NameTable[type][0] + code + NameTable[type][1];
+	}
+	/**
+	 * Utility for getting the name, given a code.
+	 * @param choice
+	 * @param code
+	 * @param skipDraft
+	 * @return
+	 */
+	public String getName(int type, String code, boolean skipDraft) {
+		Value v = getValue(getKey(type, code));
 		if (v == null || skipDraft && v.isDraft()) return null;
 		return v.getStringValue();
 	}
 	
+	public String getName(String type, String code, boolean skipDraft) {
+		return getName(typeNameToCode(type), code, skipDraft);
+	}
+	
+	/**
+	 * @param type
+	 * @return
+	 */
+	private static int typeNameToCode(String type) {
+		for (int i = 0; i < TYPE_NAME.length; ++i) {
+			if (type.equalsIgnoreCase(TYPE_NAME[i])) return i;
+		}
+		return -1;
+	}
+
 	LanguageTagParser lparser = new LanguageTagParser();
 	
 	public synchronized String getName(String locale, boolean skipDraft) {
@@ -1299,7 +1489,7 @@ public class CLDRFile implements Lockable {
 	public final static Map defaultSuppressionMap; 
 	static {
 		String[][] data = {
-				{"ldml", "version", "1.2"},
+				{"ldml", "version", GEN_VERSION},
 				{"orientation", "characters", "left-to-right"},
 				{"orientation", "lines", "top-to-bottom"},
 				{"weekendStart", "time", "00:00"},
@@ -1325,5 +1515,13 @@ public class CLDRFile implements Lockable {
 			temp.put(data[i][1], data[i][2]);
 		}
 		defaultSuppressionMap = Collections.unmodifiableMap(tempmain);
+	}
+	/**
+	 * @param string
+	 */
+	public void removeComment(String string) {
+    	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+		// TODO Auto-generated method stub
+    	xpath_comments.removeComment(string);
 	}
 }

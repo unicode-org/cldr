@@ -684,12 +684,17 @@ void GenerateXML::writeTypeNames(UnicodeString& xmlString){
 		indentOffset.append("\t");
 		while(dBundle.hasNext()){
 			ResourceBundle dBundle1 = dBundle.getNext(mError);
-			const char* mykey=dBundle1.getKey();
+			const char* key=dBundle1.getKey();
 			
-			UnicodeString string = dBundle.getStringEx(mykey,mError);
-			Formattable args1[]={indentOffset,mykey,"collation", string};// hard code this value for now
+			ResourceBundle dBundle2 = dBundle.get(key,mError);
+            while(dBundle2.hasNext()){
+                ResourceBundle dBundle3 = dBundle2.getNext(mError);
+                const char* type = dBundle3.getKey();
+                UnicodeString value = dBundle3.getString(mError);
+			    Formattable args1[]={indentOffset,type, key, value};
 
-			xmlString.append(formatString(mStringsBundle.getStringEx("type",mError),args1,4,t));
+			    xmlString.append(formatString(mStringsBundle.getStringEx("type",mError),args1,4,t));
+            }
 			mError=U_ZERO_ERROR;
 		}
 		chopIndent();
@@ -718,7 +723,7 @@ void GenerateXML::writeLayout(){
 	UnicodeString country = mLocale.getCountry();
 	indentOffset.append("\t");
     UBool rightToLeft = FALSE;
-	if(lang=="ar" || lang=="he" || lang=="il" ){
+	if(lang=="ar" || lang=="he" || lang=="il" || lang=="ps" || lang=="fa" ){
 		args[0] = indentOffset;
 		args[1] = "top-to-bottom";
 		args[2] = "right-to-left";
@@ -831,6 +836,8 @@ void GenerateXML::writeTimeZoneNames(UnicodeString& xmlString){
 	UnicodeString t;
 
     ResourceBundle dBundle = mSourceBundle.get("zoneStrings", mError);
+    UBool remove = TRUE;
+
 	if(mError!=U_USING_DEFAULT_WARNING && U_SUCCESS(mError) && mError!=U_USING_FALLBACK_WARNING){
         
 		xmlString.append(formatString(mStringsBundle.getStringEx("timeZone",mError),args,2,t));
@@ -840,9 +847,12 @@ void GenerateXML::writeTimeZoneNames(UnicodeString& xmlString){
             ResourceBundle dBundle1 = dBundle.getNext(mError);
 
             if(U_SUCCESS(mError)){
+            
                 int i = 0;
+
                 UnicodeString data =dBundle1.getStringEx((int32_t)5,mError);
                 if(U_SUCCESS(mError)){
+                     remove = FALSE;
              	     args[0] =indentOffset;
 					 args[1] = data;
 					 args[2] = "";
@@ -924,6 +934,10 @@ void GenerateXML::writeTimeZoneNames(UnicodeString& xmlString){
 		args[1]=UnicodeString(XML_END_SLASH);
 		xmlString.append(formatString(mStringsBundle.getStringEx("timeZone",mError),args,2,t));
 		//printString(&xmlString);
+        if(remove==TRUE){
+            xmlString.remove();
+        }
+        mError=U_ZERO_ERROR;
 		return;
     }
 	mError=U_ZERO_ERROR;

@@ -71,6 +71,7 @@
 <!ELEMENT icu:breakDictionaryData EMPTY >
 <!ATTLIST icu:breakDictionaryData icu:class NMTOKEN #REQUIRED >
 <!ATTLIST icu:breakDictionaryData icu:import NMTOKEN #REQUIRED >
+<!ATTLIST icu:breakDictionaryData icu:importFile NMTOKEN #REQUIRED >
 
 <!-- RBT data  -->
 <!ELEMENT icu:transforms ( alias | (default?, icu:transform*)) >

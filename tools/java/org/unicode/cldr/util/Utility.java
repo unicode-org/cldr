@@ -16,7 +16,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.SortedSet;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 
@@ -247,5 +253,47 @@ public class Utility {
 	        result.append(s);
 	    }
 	    return result.toString();
+	}
+	
+	/**
+	 * Protect a collection (as much as Java lets us!) from modification.
+	 * @param source
+	 * @return
+	 */
+	public static Object protectCollection(Object source) {
+		// TODO - exclude UnmodifiableMap, Set, ...
+		if (source instanceof Map) {
+			Map map = (Map)source;
+			Set keySet = map.keySet();
+			int size = keySet.size();
+			ArrayList keys = new ArrayList(size); // do this so it doesn't change
+			ArrayList values = new ArrayList(size); // do this so it doesn't change
+			for (Iterator it = keySet.iterator(); it.hasNext();) {
+				Object key = it.next();
+				keys.add(protectCollection(key));
+				values.add(protectCollection(map.get(key)));
+			}
+			map.clear();
+			for (int i = 0; i < size; ++i) {
+				map.put(keys.get(i), values.get(i));
+			}
+			return map instanceof SortedMap ? Collections.unmodifiableSortedMap((SortedMap)map)
+					: Collections.unmodifiableMap(map);
+		} else if (source instanceof Collection) {
+			Collection collection = (Collection) source;
+			ArrayList contents = new ArrayList();
+			contents.addAll(collection);
+			for (Iterator it = collection.iterator(); it.hasNext();) {
+				contents.add(protectCollection(it.next()));
+			}
+			collection.clear();
+			collection.addAll(contents);
+			return collection instanceof List ? Collections.unmodifiableList((List)collection)
+				: collection instanceof SortedSet ? Collections.unmodifiableSortedSet((SortedSet)collection)
+				: collection instanceof Set ? Collections.unmodifiableSet((Set)collection)
+				: Collections.unmodifiableCollection(collection);
+		} else {
+			return source; // can't protect
+		}
 	}
 }

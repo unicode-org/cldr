@@ -34,7 +34,7 @@ public class CLDRModify {
 		SimpleLineComparator lineComparer = new SimpleLineComparator(
 				SimpleLineComparator.SKIP_SPACES + SimpleLineComparator.SKIP_EMPTY);
 
-		if (true) {
+		if (false) {
 			int x = lineComparer.compare("a", "b");
 			x = lineComparer.compare("a", " a");
 			x = lineComparer.compare("", "b");
@@ -50,6 +50,7 @@ public class CLDRModify {
 		Factory cldrFactory = Factory.make(sourceDir, ".*");
 		Set testSet = cldrFactory.getAvailable();
 		String[] quicktest = new String[] {
+				"de"
 				//"ar", "dz_BT",
 				// "sv", "en", "de"
 			};

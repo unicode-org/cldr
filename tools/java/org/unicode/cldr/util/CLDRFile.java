@@ -172,7 +172,7 @@ public class CLDRFile implements Lockable {
 	 */
 	public void write(PrintWriter pw) {
 		pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-		pw.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.2/ldml.dtd\">");
+		pw.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd\">");
 		XPathParts.writeComment(pw, 0, initialComment, false);
 		
 		XPathParts.Comments tempComments = (XPathParts.Comments) xpath_comments.clone();
@@ -368,7 +368,11 @@ public class CLDRFile implements Lockable {
 		|| attribute.equals("alt")
 		|| attribute.equals("iso4217")
 		|| attribute.equals("iso3166")
-		|| (attribute.equals("type") && !elementName.equals("default") && !elementName.equals("mapping"));
+		|| (attribute.equals("type") 
+				&& !elementName.equals("default") 
+				&& !elementName.equals("mapping")
+				&& !elementName.equals("abbreviationFallback")
+				&& !elementName.equals("preferenceOrdering"));
 	}
 	
 	/**
@@ -1024,7 +1028,7 @@ public class CLDRFile implements Lockable {
 				fullTemp.replace(otherParts.size(), fullParts);
 				String newPath = temp.toString();
 				value = value.changePath(fullTemp.toString());
-				System.out.println("Adding*: " + path + ";\r\n\t" + newPath + ";\r\n\t" + value);
+				if (false) System.out.println("Adding*: " + path + ";\r\n\t" + newPath + ";\r\n\t" + value);
 				tempMap.put(newPath, value);
 				// to do, fix path
 			}
@@ -1040,7 +1044,7 @@ public class CLDRFile implements Lockable {
 		for (Iterator it = xpath_value.keySet().iterator(); it.hasNext();) {
 			String path = (String)it.next();
 			if (path.startsWith(mypath)) {
-				System.out.println("Removing: " + xpath_value.get(path));
+				if (false) System.out.println("Removing: " + xpath_value.get(path));
 				it.remove();
 			}
 		}

@@ -65,7 +65,7 @@
 
 
 <!-- ######################################################### -->
-<!ELEMENT encodings ( (exemplarCharacters| mapping+| special*)*| alias ) >
+<!ELEMENT encodings ( (exemplarCharacters| mapping*| special*)*| alias ) >
 
 <!ELEMENT exemplarCharacters ( #PCDATA ) >
 
@@ -284,8 +284,6 @@
 
 <!ELEMENT collation ( ( special* | uca? | settings? | suppress_contractions? | optimize?   | rules? )* | alias ) >
 
-<!ATTLIST collation key NMTOKEN #IMPLIED >
-
 <!ATTLIST collation type NMTOKEN #IMPLIED >
 
 <!ELEMENT uca EMPTY >
@@ -299,6 +297,7 @@
 <!ATTLIST settings caseFirst NMTOKEN #IMPLIED >
 <!ATTLIST settings hiraganaQuarternary NMTOKEN #IMPLIED >
 <!ATTLIST settings strength NMTOKEN #IMPLIED >
+<!ATTLIST settings numeric NMTOKEN #IMPLIED >
 
 <!ELEMENT suppress_contractions (  #PCDATA ) >
 

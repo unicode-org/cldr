@@ -102,8 +102,8 @@
 		<messages>
 			<yesstr>હા</yesstr>
 			<nostr>ના</nostr>
-			<yesexpr>હા</yesexpr>
-			<noexpr>ના</noexpr>
+			<yesexpr>^([yY]([eE][sS])?)|હા</yesexpr>
+			<noexpr>^([nN][oO]?)|ના</noexpr>
 		</messages>
 	</posix>
 </ldml>

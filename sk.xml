@@ -1929,12 +1929,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
-			<yesstr>Ano</yesstr>
-			<nostr>Nie</nostr>
-			<yesexpr>A</yesexpr>
-			<noexpr>N</noexpr>
+			<yesstr>ano:a</yesstr>
+			<nostr>nie:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([aA]([nN][oO])?)</yesexpr>
+			<noexpr>^[nN]([oO]|[iI][eE])?</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -1762,12 +1762,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
-			<yesstr>já</yesstr>
-			<nostr>nei</nostr>
-			<yesexpr>já</yesexpr>
-			<noexpr>nei</noexpr>
+			<yesstr>já:ja:j</yesstr>
+			<nostr>nei:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([jJ][áÁaA]?)</yesexpr>
+			<noexpr>^[nN]([oO]|([eE][iI]))?</noexpr>
 		</messages>
 	</posix>
 </ldml>

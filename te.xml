@@ -91,10 +91,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>అ;వ;న;ు</yesstr>
-			<nostr>క;ా;ద;ు</nostr>
-			<yesexpr>అ;వ;న;ు</yesexpr>
-			<noexpr>క;ా;ద;ు</noexpr>
+			<yesstr>అవను</yesstr>
+			<nostr>కాదు</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|అవను</yesexpr>
+			<noexpr>^([nN][oO]?)|కాదు</noexpr>
 		</messages>
 	</posix>
 </ldml>

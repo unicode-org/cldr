@@ -2956,10 +2956,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>Yes</yesstr>
-			<nostr>No</nostr>
-			<yesexpr>Y;y;YES</yesexpr>
-			<noexpr>N;n;NO</noexpr>
+			<yesstr>yes:y</yesstr>
+			<nostr>no:n</nostr>
+			<yesexpr>^[yY]([eE][sS])?</yesexpr>
+			<noexpr>^[nN][oO]?</noexpr>
 		</messages>
 	</posix>
 </ldml>

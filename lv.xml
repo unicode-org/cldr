@@ -391,10 +391,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>jā</yesstr>
-			<nostr>nē</nostr>
-			<yesexpr>j;J</yesexpr>
-			<noexpr>n;N</noexpr>
+			<yesstr>ājā:ja:j</yesstr>
+			<nostr>nē:ne:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([jJ][āĀaA]?)</yesexpr>
+			<noexpr>^[nN][oOēĒeE]?</noexpr>
 		</messages>
 	</posix>
 </ldml>

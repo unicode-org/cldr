@@ -3223,10 +3223,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>Ja</yesstr>
-			<nostr>Nee</nostr>
-			<yesexpr>J</yesexpr>
-			<noexpr>N</noexpr>
+			<yesstr>ja:j</yesstr>
+			<nostr>nee:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([jJ][aA]?)</yesexpr>
+			<noexpr>^[nN]([oO]|[eE][eE])?</noexpr>
 		</messages>
 	</posix>
 </ldml>

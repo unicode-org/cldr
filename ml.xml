@@ -84,12 +84,12 @@
 			<nativeZeroDigit>൦</nativeZeroDigit>
 		</symbols>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
 			<yesstr>അതെ</yesstr>
 			<nostr>അല്ല</nostr>
-			<yesexpr>അതെ</yesexpr>
-			<noexpr>അല്ല</noexpr>
+			<yesexpr>^([yY]([eE][sS])?)|അതെ</yesexpr>
+			<noexpr>^([nN][oO]?)|അല്ല</noexpr>
 		</messages>
 	</posix>
 </ldml>

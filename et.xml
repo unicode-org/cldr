@@ -414,10 +414,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>jah</yesstr>
-			<nostr>ei</nostr>
-			<yesexpr/>
-			<noexpr/>
+			<yesstr>jah:j</yesstr>
+			<nostr>ei:e</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([jJ]([аА][hH])?)</yesexpr>
+			<noexpr>^([nN][oO]?)|([eE][iI]?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -3063,12 +3063,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
-			<yesstr>确定</yesstr>
-			<nostr>否定</nostr>
-			<yesexpr>是</yesexpr>
-			<noexpr>否</noexpr>
+			<yesstr>是:确定</yesstr>
+			<nostr>否:否定</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|是|确定</yesexpr>
+			<noexpr>^([nN][oO]?)|否定?</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -3417,10 +3417,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>はい</yesstr>
-			<nostr>いいえ</nostr>
-			<yesexpr/>
-			<noexpr/>
+			<yesstr>はい:ハイ</yesstr>
+			<nostr>いいえ:イイエ</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([ｙＹ]([ｅＥ][ｓＳ])?)|はい|ハイ</yesexpr>
+			<noexpr>^([nN][oO]?)|([ｎＮ][ｏＯ]?)|いいえ|イイエ</noexpr>
 		</messages>
 	</posix>
 </ldml>

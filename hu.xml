@@ -2731,12 +2731,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
-			<yesstr>igen</yesstr>
-			<nostr>nem</nostr>
-			<yesexpr>I</yesexpr>
-			<noexpr>N</noexpr>
+			<yesstr>igen:i</yesstr>
+			<nostr>nem:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([iI]([gG][eE][nN])?)</yesexpr>
+			<noexpr>^[nN]([oO]|([eE][mM]))?</noexpr>
 		</messages>
 	</posix>
 </ldml>

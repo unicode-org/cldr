@@ -299,10 +299,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>PO</yesstr>
-			<nostr>JO</nostr>
-			<yesexpr>PO</yesexpr>
-			<noexpr>JO</noexpr>
+			<yesstr>po:p</yesstr>
+			<nostr>jo:j</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([pP][oO]?)</yesexpr>
+			<noexpr>^[nNjJ][oO]?</noexpr>
 		</messages>
 	</posix>
 </ldml>

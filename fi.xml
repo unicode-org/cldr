@@ -3206,10 +3206,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>kyllä</yesstr>
-			<nostr>ei</nostr>
-			<yesexpr>k</yesexpr>
-			<noexpr>e</noexpr>
+			<yesstr>kyllä:kylla:k</yesstr>
+			<nostr>ei:e</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([kK]([yY][lL][lL][aAäÄ])?)</yesexpr>
+			<noexpr>^([nN][oO]?)|([eE][iI]?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

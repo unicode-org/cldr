@@ -3145,10 +3145,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>SIM</yesstr>
-			<nostr>NÃO</nostr>
-			<yesexpr>S</yesexpr>
-			<noexpr>N</noexpr>
+			<yesstr>sim:s</yesstr>
+			<nostr>não:nao:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([sS]([iI][mM])?)</yesexpr>
+			<noexpr>^[nN]([ãÃaA]?[oO])?</noexpr>
 		</messages>
 	</posix>
 </ldml>

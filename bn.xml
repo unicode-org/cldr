@@ -200,8 +200,8 @@
 		<messages>
 			<yesstr>হ্য়াঁ</yesstr>
 			<nostr>না</nostr>
-			<yesexpr>হ্য়াঁ</yesexpr>
-			<noexpr>না</noexpr>
+			<yesexpr>^([yY]([eE][sS])?)|হ্য়াঁ</yesexpr>
+			<noexpr>^([nN][oO]?)|না</noexpr>
 		</messages>
 	</posix>
 </ldml>

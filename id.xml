@@ -561,10 +561,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>Ya</yesstr>
-			<nostr>Tidak</nostr>
-			<yesexpr>Y</yesexpr>
-			<noexpr>T</noexpr>
+			<yesstr>ya:y</yesstr>
+			<nostr>tidak:t</nostr>
+			<yesexpr>^[yY](([eE][sS])|[aA])?</yesexpr>
+			<noexpr>^([nN][oO]?)|([tT]([iI][dD][aA][kK])?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

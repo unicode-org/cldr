@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/alpha/ldml.dtd">
-<ldml>
+<ldml draft="true">
 	<identity>
 		<version number="0.3"></version>
 		<generation date="2004-09-13"></generation>
@@ -66,6 +66,7 @@
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">দেওবাৰ</day> 
+                                                        <day alt="1" type="sun">ৰবিবাৰ</day>
 							<day type="mon">সোমবাৰ</day>
 							<day type="tue">মঙ্গলবাৰ</day>
 							<day type="wed">বুধবাৰ</day>
@@ -75,9 +76,9 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<am>পূৰ্বা</am>  
-				<pm>অপ</pm> 
-
+				<am>পূৰ্বা</am>   <!-- Purbahna পূৰ্বাহ্ণ -->
+				<pm>অপ</pm>  <!-- Aparahna অপৰাহ্ণ -->
+                                <!-- NO ERA INFO -->
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -90,7 +91,7 @@
 					<standard>ভা. স.</standard>
 					<daylight>ভা. স.</daylight>
 				</short>
-				<exemplarCity> এলাহাৱাদ</exemplarCity>
+				<exemplarCity>এলাহাৱাদ</exemplarCity>
 				
 			</zone>
 		</timeZoneNames>

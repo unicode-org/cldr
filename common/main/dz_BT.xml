@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/alpha/ldml.dtd">
-<ldml>
-
+<ldml draft="true">
+<!--
+Locale Data Format
+Draft: 2004-08-02
+By Pema geyleg <pema_geyleg@druknet.bt>
+-->
   <identity>
     <version number="1.2">First available version</version>
     <generation date="2004-08-09"></generation>
@@ -29,7 +33,7 @@
         <decimalFormats>
           <decimalFormatLength type="long">
             <decimalFormat>
-             
+             <!-- number grouping same as India (thousands, lakhs, crores, etc.) -->             
               <pattern>#,##,##0.###;-#,##,##0.###</pattern>
             </decimalFormat>
           </decimalFormatLength>

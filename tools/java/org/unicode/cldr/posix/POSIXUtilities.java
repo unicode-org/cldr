@@ -119,8 +119,6 @@ public class POSIXUtilities {
 
    public static String POSIXDateTimeFormat ( String s )
    {
-      //int start;
-      //int end;
 
       //  This is an array of the POSIX date / time field descriptors and their corresponding representations
       //  in LDML.  We use these to replace the LDML fields with POSIX field descriptors.
@@ -405,13 +403,29 @@ public class POSIXUtilities {
                    "last_non_ignorable" };
 
                s = child.getNodeName();
-               boolean found = false;
-               for ( int i = 0 ; i < LogicalPositions.length && !found; i++ )
-                  if ( s.equals(LogicalPositions[i]))
+
+               
+               if ( s.equals("cp")) // Explicit codepoint definition
+               {
+                  String Codepoint = LDMLUtilities.getAttributeValue(child,"hex");
+                  char CodepointValue = 0;
+                  for ( int i = 0 ; i< Codepoint.length(); i++ )
                   {
-                     result.append("["+s.replaceAll("non_ignorable","regular").replaceAll("_"," ")+"]");
-                     found = true;
+                     CodepointValue *= 16;
+                     CodepointValue += Character.digit(Codepoint.charAt(i),16);
                   }
+                  result.append(CodepointValue);
+               }
+               else
+               {
+                  boolean found = false;
+                  for ( int i = 0 ; i < LogicalPositions.length && !found; i++ )
+                     if ( s.equals(LogicalPositions[i]))
+                     {
+                        result.append("["+s.replaceAll("non_ignorable","regular").replaceAll("_"," ")+"]");
+                        found = true;
+                     }
+               }
              }
        }
        

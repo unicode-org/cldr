@@ -10,11 +10,9 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-        <week draft="true">
-          <minDays count="1"/>
+				<week draft="true">
 					<firstDay day="mon"/>
 					<weekendStart day="sun" time="00:00"/>
-          <weekendEnd day="sun" time="24:00"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="full">

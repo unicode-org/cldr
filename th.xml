@@ -554,9 +554,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week draft="true">
-					<weekendEnd day="sun" time="24:00"/>
-				</week>
 				<am>ก่อนเที่ยง</am>
 				<pm>หลังเที่ยง</pm>
 				<eras>
@@ -636,15 +633,12 @@
 		</messages>
 	</posix>
 </ldml>
-
-<!--
- This uses spaces 
+<!-- This uses spaces 
  Shouldn't this say something about SAR China? 
  Shouldn't this say something about SAR China? 
  Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/th.txt?only_with_tag=final-update-LDML
 
 jw { "\u0e0a\u0e27\u0e32" } // Use jv instead
-
-
 -->
+

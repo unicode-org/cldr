@@ -11,10 +11,8 @@
 		<calendars>
 			<calendar type="gregorian">
 				<week draft="true">
-          <minDays count="1"/>
 					<firstDay day="mon"/>
 					<weekendStart day="sun" time="00:00"/>
-          <weekendEnd day="sun" time="24:00"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -87,12 +85,9 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-
-<!--
- Old Comments. See root.xml for more info.
+<!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/kok_IN.txt?only_with_tag=final-update-LDML
 
 Konkani locale
-
-
 -->
+

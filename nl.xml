@@ -984,17 +984,6 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<zone type="PST">
-				<long>
-					<standard>Pacific-standaardtijd</standard>
-					<daylight>Pacific-zomertijd</daylight>
-				</long>
-				<short>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
-				</short>
-				<exemplarCity>Los Angeles</exemplarCity>
-			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
 					<standard>Pacific-standaardtijd</standard>
@@ -1005,17 +994,6 @@
 					<daylight>PDT</daylight>
 				</short>
 				<exemplarCity>Los Angeles</exemplarCity>
-			</zone>
-			<zone type="MST">
-				<long>
-					<standard>Mountain-standaardtijd</standard>
-					<daylight>Mountain-zomertijd</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-				<exemplarCity>Denver</exemplarCity>
 			</zone>
 			<zone type="America/Denver">
 				<long>
@@ -1028,17 +1006,6 @@
 				</short>
 				<exemplarCity>Denver</exemplarCity>
 			</zone>
-			<zone type="PNT">
-				<long>
-					<standard>Mountain-standaardtijd</standard>
-					<daylight>Mountain-standaardtijd</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MST</daylight>
-				</short>
-				<exemplarCity>Phoenix</exemplarCity>
-			</zone>
 			<zone type="America/Phoenix">
 				<long>
 					<standard>Mountain-standaardtijd</standard>
@@ -1049,17 +1016,6 @@
 					<daylight>MST</daylight>
 				</short>
 				<exemplarCity>Phoenix</exemplarCity>
-			</zone>
-			<zone type="CST">
-				<long>
-					<standard>Central-standaardtijd</standard>
-					<daylight>Central-zomertijd</daylight>
-				</long>
-				<short>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
-				</short>
-				<exemplarCity>Chicago</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<long>
@@ -1072,17 +1028,6 @@
 				</short>
 				<exemplarCity>Chicago</exemplarCity>
 			</zone>
-			<zone type="EST">
-				<long>
-					<standard>Eastern-standaardtijd</standard>
-					<daylight>Eastern-zomertijd</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
-				<exemplarCity>New York</exemplarCity>
-			</zone>
 			<zone type="America/New_York">
 				<long>
 					<standard>Eastern-standaardtijd</standard>
@@ -1093,17 +1038,6 @@
 					<daylight>EDT</daylight>
 				</short>
 				<exemplarCity>New York</exemplarCity>
-			</zone>
-			<zone type="IET">
-				<long>
-					<standard>Eastern-standaardtijd</standard>
-					<daylight>Eastern-standaardtijd</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EST</daylight>
-				</short>
-				<exemplarCity>Indianapolis</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
@@ -1116,17 +1050,6 @@
 				</short>
 				<exemplarCity>Indianapolis</exemplarCity>
 			</zone>
-			<zone type="HST">
-				<long>
-					<standard>Hawaï-standaardtijd</standard>
-					<daylight>Hawaï-standaardtijd</daylight>
-				</long>
-				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
-				</short>
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
 					<standard>Hawaï-standaardtijd</standard>
@@ -1137,17 +1060,6 @@
 					<daylight>HST</daylight>
 				</short>
 				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="AST">
-				<long>
-					<standard>Alaska-standaardtijd</standard>
-					<daylight>Alaska-zomertijd</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
-				<exemplarCity>Anchorage</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<long>
@@ -1171,17 +1083,6 @@
 				</short>
 				<exemplarCity>Halifax</exemplarCity>
 			</zone>
-			<zone type="CNT">
-				<long>
-					<standard>Newfoundland-standaardtijd</standard>
-					<daylight>Newfoundland-zomertijd</daylight>
-				</long>
-				<short>
-					<standard>CNT</standard>
-					<daylight>CDT</daylight>
-				</short>
-				<exemplarCity>St. Johns</exemplarCity>
-			</zone>
 			<zone type="America/St_Johns">
 				<long>
 					<standard>Newfoundland-standaardtijd</standard>
@@ -1192,17 +1093,6 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>St. Johns</exemplarCity>
-			</zone>
-			<zone type="ECT">
-				<long>
-					<standard>Midden-Europese standaardtijd</standard>
-					<daylight>Midden-Europese zomertijd</daylight>
-				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
-				</short>
-				<exemplarCity>Paris</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
@@ -1215,7 +1105,7 @@
 				</short>
 				<exemplarCity>Parijs</exemplarCity>
 			</zone>
-			<zone type="GMT">
+			<zone type="Etc/GMT">
 				<long>
 					<standard>Greenwich Mean Time</standard>
 					<daylight>Greenwich Mean Time</daylight>
@@ -1248,17 +1138,6 @@
 				</short>
 				<exemplarCity>Jeruzalem</exemplarCity>
 			</zone>
-			<zone type="JST">
-				<long>
-					<standard>Japanse standaardtijd</standard>
-					<daylight>Japanse standaardtijd</daylight>
-				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JST</daylight>
-				</short>
-				<exemplarCity>Tokyo</exemplarCity>
-			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>Japanse standaardtijd</standard>
@@ -1280,17 +1159,6 @@
 					<daylight>EEST</daylight>
 				</short>
 				<exemplarCity>Boekarest</exemplarCity>
-			</zone>
-			<zone type="CTT">
-				<long>
-					<standard>Chinese standaardtijd</standard>
-					<daylight>Chinese standaardtijd</daylight>
-				</long>
-				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
-				</short>
-				<exemplarCity>Shanghai</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
@@ -2837,9 +2705,7 @@
 		</messages>
 	</posix>
 </ldml>
-
-<!--
- Old Comments. See root.xml for more info.
+<!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/nl.txt?only_with_tag=final-update-LDML
 
 Islamic calendar
@@ -2881,6 +2747,5 @@ zh_tw { "Chinees (Traditioneel)" }
 Qaai { "Inherited" } // PUA
 Thai { "Thai" } // Just happens to be a duplicate
         Zyyy { "Algemeen" } // This may need to become "undetermined script"
-
-
 -->
+

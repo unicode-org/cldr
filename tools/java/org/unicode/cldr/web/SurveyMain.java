@@ -607,6 +607,11 @@ class SurveyMain {
     }
  
     public void doMain(WebContext ctx) {
+        String ver = (String)docVersions.get(ctx.locale.toString());
+        ctx.println("<hr/><p><p>");
+        if(ver != null) {
+            ctx.println( LDMLUtilities.getCVSLink(ctx.locale.toString(), ver) + "Locale version #" + ver + "</a><br/>");
+        }
     }
 
     /**

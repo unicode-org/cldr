@@ -8,7 +8,7 @@
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <link rel="stylesheet" href="http://www.unicode.org/reports/reports.css" type="text/css">
 <title>UTR #35: Locale Data Markup Language</title>
-<style>
+<style type="text/css">
 <!--
 span.dtd         { font-family: monospace; font-size:90%; text-indent:-3em; margin-left:3em; background-color:#CCCCFF }
 span.element { font-weight: bold; color: red }
@@ -71,10 +71,10 @@ span.attributeValue { font-weight: color: blue}
     </tr>
     <tr>
       <td>DTDs:</td>
-      <td><a href="http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
-      http://www.unicode.org/cldr/dtd/1.1/ldml.dtd</a><br>
-      <a href="http://www.unicode.org/cldr/dtd/1.1/ldmlSupplemental.dtd">
-      http://www.unicode.org/cldr/dtd/1.1/ldmlSupplemental.dtd</a></td>
+      <td><a href="http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+      http://www.unicode.org/cldr/dtd/1.2/ldml.dtd</a><br>
+      <a href="http://www.unicode.org/cldr/dtd/1.2/ldmlSupplemental.dtd">
+      http://www.unicode.org/cldr/dtd/1.2/ldmlSupplemental.dtd</a></td>
     </tr>
     <tr>
       <td>Revision</td>
@@ -359,7 +359,7 @@ de_DE@collation=phonebook,currency=<span>DDM</span></pre>
   They cannot overlap with script or territory codes, so they must have either one letter or have 
   more than 4 letters. The currently defined variants include:</p>
   <center>
-  <table style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0">
+  <table style="border-collapse: collapse" cellpadding="0" cellspacing="0">
     <caption>Variant Definitions</caption>
     <tr>
       <th>variant</th>
@@ -432,13 +432,12 @@ de_DE@collation=phonebook,currency=<span>DDM</span></pre>
       <td>A &quot;C&quot;-based locale.</td>
     </tr>
     <tr>
-      <td><span><a name="themesg" a <>big5han</a></span></td>
+      <td><span>big5han</span></td>
       <td><span>Pinyin ordering for Latin, big5 charset ordering for CJK characters.</span></td>
     </tr>
     <tr>
-      <td><span><a name="themesg" a <>gb2312han</a></span></td>
-      <td><span>Pinyin ordering for Latin, <a name="themesg" a <>gb2312han</a> charset ordering for 
-      CJK characters.</span></td>
+      <td><span>gb2312han</span></td>
+      <td><span>Pinyin ordering for Latin, gb2312han charset ordering for CJK characters.</span></td>
     </tr>
     <tr>
       <td rowspan="8">calendar*</td>
@@ -593,11 +592,9 @@ root</pre>
   time. Thus certain elements, which otherwise must only occur once within their parent, are marked 
   in the DTD as allowing multiple instances. These are:</span></p>
   <ul>
-    <li><span><a name="themesg" a <>exemplarCharacters</a> (can occur twice), with two different 
-    type values)</span></li>
-    <li><span><a name="themesg" a <>quotationStart, quotationEnd, alternateQuotationStart, 
-    alternateQuotationEnd,</a></span></li>
-    <li><span><a name="themesg" a <>am, pm</a></span></li>
+    <li><span>exemplarCharacters (can occur twice), with two different type values)</span></li>
+    <li><span>quotationStart, quotationEnd, alternateQuotationStart, alternateQuotationEnd,</span></li>
+    <li><span>am, pm</span></li>
     <li><span>measurementSystem, paperSize</span></li>
     <li><span>localizedPatternChars</span></li>
     <li><span>pattern</span></li>
@@ -772,7 +769,7 @@ root</pre>
   leading or trailing spaces on each string are not significant. Examples:</p>
   <p><code>&lt;collation standard=&quot;<span style="color: blue">MSA 200:2002</span>&quot;&gt;<br>
   ...<br>
-  &lt;dateFormatStyle standard=”<span style="color: blue">http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;ICS1=1&amp;ICS2=140&amp;ICS3=30</span>”&gt;</code></p>
+  &lt;dateFormatStyle standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;ICS1=1&amp;ICS2=140&amp;ICS3=30”&gt;</code></p>
   <p>&lt;... <a name="references_attribute">references</a>=&quot;<span style="color: blue">...</span>&quot; ...&gt;</p>
   <p>The value of this attribute is a list of strings representing background information about the 
   element, other than standards. The strings are separated by commas; leading or trailing spaces on 
@@ -986,11 +983,9 @@ root</pre>
   <p><span class="dtd">&lt;!ELEMENT measurement (alias | (measurementSystem?, paperSize?, special*)) &gt;</span></p>
   <pre>&lt;measurementSystem type=&quot;<span style="color: blue">US</span>&quot;/&gt;</pre>
   <p>The measurement system is the normal measurement system in common everyday use (except for 
-  date/time). The values are &quot;metric&quot; (=
-  <a href="http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=5448&ICS1=1&ICS2=60&ICS3=">
-  ISO 1000</a>), &quot;US&quot;, or &quot;UK&quot;; others may be added over time. <span>The &quot;US&quot; value indicates the 
-  customary feet, inches, pints, quarts, etc. system. The &quot;UK&quot; value is also called the Imperial 
-  system: the pint, quart, etc. are different sizes than in &quot;US&quot;.</span></p>
+  date/time). The values are &quot;metric&quot; (= ISO 1000), &quot;US&quot;, or &quot;UK&quot;; others may be added over time.
+  <span>The &quot;US&quot; value indicates the customary feet, inches, pints, quarts, etc. system. The &quot;UK&quot; 
+  value is also called the Imperial system: the pint, quart, etc. are different sizes than in &quot;US&quot;.</span></p>
   <p class="note"><b>Note:</b> In the future, we may need to add display names for the particular 
   measurement units (millimeter vs millimetre vs whatever the Greek, Russian, etc are), and a 
   message format for position those with respect to numbers. E.g. &quot;{number} {unitName}&quot; in some 
@@ -1917,7 +1912,7 @@ root</pre>
   <p>&amp; a &lt;&lt; c / b &lt;&lt; e / d</p>
   <p>and produces the following weights (where <i>p(x)</i> is the primary weight and <i>s(a)</i> is 
   the secondary weight):</p>
-  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
     <tr>
       <td>Character</td>
       <td>Weights</td>
@@ -2826,7 +2821,7 @@ root</pre>
   replaced with date and time data from a calendar when formatting or used to generate data for a 
   calendar when parsing. The following are the characters used in patterns to show the appropriate 
   formats for a given locale. The following are examples:</span></p>
-  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
     <tr>
       <th width="50%"><span>Pattern</span></th>
       <th width="50%"><span>Result (in a particular locale)</span></th>
@@ -2879,8 +2874,7 @@ root</pre>
       <td style="text-align: center">G</td>
       <td style="text-align: center">1</td>
       <td>AD</td>
-      <td><span>Era - Replaced with the </span><a href="#Era"><span>Era</span></a><span> string for 
-      the current date.</span></td>
+      <td><span>Era - Replaced with the Era string for the current date.</span></td>
     </tr>
     <tr>
       <th rowspan="3">year</th>
@@ -3200,16 +3194,14 @@ root</pre>
       </tr>
     </table>
   </blockquote>
-  <dl>
-    <p>The number of # placeholder characters before the decimal do not matter, since no limit is 
-    placed on the maximum number of digits. There should, however, be at least one zero someplace in 
-    the pattern. In currency formats, the number of digits after the decimal also do not matter, 
-    since the information in the <a href="#Supplemental_Data">Appendix C: Supplemental Data</a> is 
-    used to override the number of decimal places — and the rounding — according to the currency 
-    that is being formatted. That can be seen in the above chart, with the difference between Yen 
-    and Euro formatting.</p>
-    <p>Thus for consistency in the CLDR data, the following conventions should be observed:</p>
-  </dl>
+  <p>The number of # placeholder characters before the decimal do not matter, since no limit is 
+  placed on the maximum number of digits. There should, however, be at least one zero someplace in 
+  the pattern. In currency formats, the number of digits after the decimal also do not matter, since 
+  the information in the <a href="#Supplemental_Data">Appendix C: Supplemental Data</a> is used to 
+  override the number of decimal places — and the rounding — according to the currency that is being 
+  formatted. That can be seen in the above chart, with the difference between Yen and Euro 
+  formatting.</p>
+  <p>Thus for consistency in the CLDR data, the following conventions should be observed:</p>
   <ul>
     <li>All number patterns should be minimal: there should be no leading # marks except to specify 
     the position of the grouping separators (e.g. avoid&nbsp; ##,##0.###).</li>
@@ -3217,385 +3209,379 @@ root</pre>
     <li>Decimal formats should have three hash marks in the fractional position (e.g. #,##0.###).</li>
     <li>Currency formats should have two zeros in the fractional position (e.g. ¤ #,##0.00).</li>
   </ul>
-  <dl>
-    <h3><span>Special Pattern Characters</span></h3>
-    <p><span>Many characters in a pattern are taken literally; they are matched during parsing and 
-    output unchanged during formatting. Special characters, on the other hand, stand for other 
-    characters, strings, or classes of characters. For example, the &#39;#&#39; character is replaced by a 
-    localized digit. Often the replacement character is the same as the pattern character; in the 
-    U.S. locale, the &#39;,&#39; grouping character is replaced by &#39;,&#39;. However, the replacement is still 
-    happening, and if the symbols are modified, the grouping character changes. Some special 
-    characters affect the behavior of the formatter by their presence; for example, if the percent 
-    character is seen, then the value is multiplied by 100 before being displayed. </span></p>
-    <p><span>To insert a special character in a pattern as a literal, that is, without any special 
-    meaning, the character must be quoted. There are some exceptions to this which are noted below.
-    </span></p>
-    <blockquote>
-      <table cellSpacing="3" cellPadding="0" summary="Chart showing symbol,
+  <h3><span>Special Pattern Characters</span></h3>
+  <p><span>Many characters in a pattern are taken literally; they are matched during parsing and 
+  output unchanged during formatting. Special characters, on the other hand, stand for other 
+  characters, strings, or classes of characters. For example, the &#39;#&#39; character is replaced by a 
+  localized digit. Often the replacement character is the same as the pattern character; in the U.S. 
+  locale, the &#39;,&#39; grouping character is replaced by &#39;,&#39;. However, the replacement is still 
+  happening, and if the symbols are modified, the grouping character changes. Some special 
+  characters affect the behavior of the formatter by their presence; for example, if the percent 
+  character is seen, then the value is multiplied by 100 before being displayed. </span></p>
+  <p><span>To insert a special character in a pattern as a literal, that is, without any special 
+  meaning, the character must be quoted. There are some exceptions to this which are noted below.
+  </span></p>
+  <blockquote>
+    <table cellSpacing="3" cellPadding="0" summary="Chart showing symbol,
   location, localized, and meaning." border="0">
-        <tr bgColor="#ccccff">
-          <th align="left">Symbol </th>
-          <th align="left"><span>Location </span></th>
-          <th align="left"><span>Localized? </span></th>
-          <th align="left"><span>Meaning </span></th>
-        </tr>
-        <tr vAlign="top">
-          <td>0 </td>
-          <td><span>Number </span></td>
-          <td><span>Yes </span></td>
-          <td><span>Digit </span></td>
-        </tr>
-        <tr vAlign="top" bgColor="#eeeeff">
-          <td>1-9 </td>
-          <td><span>Number </span></td>
-          <td><span>Yes </span></td>
-          <td><span>&#39;1&#39; through &#39;9&#39; indicate rounding. </span></td>
-        </tr>
-        <tr vAlign="top">
-          <td>@ </td>
-          <td><span>Number </span></td>
-          <td><span>No </span></td>
-          <td><span>Significant digit </span></td>
-        </tr>
-        <tr vAlign="top" bgColor="#eeeeff">
-          <td># </td>
-          <td><span>Number </span></td>
-          <td><span>Yes </span></td>
-          <td><span>Digit, zero shows as absent </span></td>
-        </tr>
-        <tr vAlign="top">
-          <td>. </td>
-          <td><span>Number </span></td>
-          <td><span>Yes </span></td>
-          <td><span>Decimal separator or monetary decimal separator </span></td>
-        </tr>
-        <tr vAlign="top" bgColor="#eeeeff">
-          <td>- </td>
-          <td><span>Number </span></td>
-          <td><span>Yes </span></td>
-          <td><span>Minus sign </span></td>
-        </tr>
-        <tr vAlign="top">
-          <td>, </td>
-          <td><span>Number </span></td>
-          <td><span>Yes </span></td>
-          <td><span>Grouping separator </span></td>
-        </tr>
-        <tr vAlign="top" bgColor="#eeeeff">
-          <td>E </td>
-          <td><span>Number </span></td>
-          <td><span>Yes </span></td>
-          <td><span>Separates mantissa and exponent in scientific notation. </span><em><span>Need 
-          not be quoted in prefix or suffix.</span></em><span> </span></td>
-        </tr>
-        <tr vAlign="top">
-          <td>+ </td>
-          <td><span>Exponent </span></td>
-          <td><span>Yes </span></td>
-          <td><span>Prefix positive exponents with localized plus sign. </span><em><span>Need not be 
-          quoted in prefix or suffix.</span></em><span> </span></td>
-        </tr>
-        <tr vAlign="top" bgColor="#eeeeff">
-          <td>; </td>
-          <td><span>Subpattern boundary </span></td>
-          <td><span>Yes </span></td>
-          <td><span>Separates positive and negative subpatterns </span></td>
-        </tr>
-        <tr vAlign="top">
-          <td>% </td>
-          <td><span>Prefix or suffix </span></td>
-          <td><span>Yes </span></td>
-          <td><span>Multiply by 100 and show as percentage </span></td>
-        </tr>
-        <tr vAlign="top" bgColor="#eeeeff">
-          <td>‰<br>
-          (\u2030)</td>
-          <td><span>Prefix or suffix </span></td>
-          <td><span>Yes </span></td>
-          <td><span>Multiply by 1000 and show as per mille </span></td>
-        </tr>
-        <tr vAlign="top">
-          <td>¤ (\u00A4) </td>
-          <td><span>Prefix or suffix </span></td>
-          <td><span>No </span></td>
-          <td><span>Currency sign, replaced by currency symbol. If doubled, replaced by 
-          international currency symbol. If present in a pattern, the monetary decimal separator and 
-          grouping separators are used instead of the numeric ones. </span></td>
-        </tr>
-        <tr vAlign="top" bgColor="#eeeeff">
-          <td>&#39; </td>
-          <td><span>Prefix or suffix </span></td>
-          <td><span>No </span></td>
-          <td><span>Used to quote special characters in a prefix or suffix, for example, </span>
-          <code><span>&quot;&#39;#&#39;#&quot;</span></code><span> formats 123 to </span><code><span>&quot;#123&quot;</span></code><span>. 
-          To create a single quote itself, use two in a row: </span><code><span>&quot;# o&#39;&#39;clock&quot;</span></code><span>.
-          </span></td>
-        </tr>
-        <tr vAlign="top">
-          <td>* </td>
-          <td><span>Prefix or suffix boundary </span></td>
-          <td><span>Yes </span></td>
-          <td><span>Pad escape, precedes pad character </span></td>
-        </tr>
-      </table>
-    </blockquote>
-    <p><span>A pattern contains a </span><span>postive</span><span> and negative </span><span>
-    subpattern</span><span>, for example, &quot;#,##0.00;(#,##0.00)&quot;. Each </span><span>subpattern</span><span> 
-    has a prefix, a numeric part, and a suffix. If there is no explicit negative </span><span>
-    subpattern</span><span>, the negative </span><span>subpattern</span><span> is the localized 
-    minus sign prefixed to the positive </span><span>subpattern</span><span>. That is, &quot;0.00&quot; alone 
-    is equivalent to &quot;0.00;-0.00&quot;. If there is an explicit negative </span><span>subpattern</span><span>, 
-    it serves only to specify the negative prefix and suffix; the number of digits, minimal digits, 
-    and other characteristics are ignored in the negative </span><span>subpattern</span><span>. That 
-    means that &quot;#,##0.0#;(#)&quot; has precisely the same result as &quot;#,##0.0#;(#,##0.0#)&quot;. </span></p>
-    <p><span>The prefixes, suffixes, and various symbols used for infinity, digits, thousands 
-    separators, decimal separators, etc. may be set to arbitrary values, and they will appear 
-    properly during formatting. </span><i><span>However, care must be taken that the symbols and 
-    strings do not conflict, or parsing will be unreliable. </span></i><span>For example, either the 
-    positive and negative prefixes or the suffixes must be distinct for any parser using this data 
-    to be able to distinguish positive from negative values. Another example is that the decimal 
-    separator and thousands separator should be distinct characters, or parsing will be impossible.
-    </span></p>
-    <p><span>The </span><em><span>grouping separator</span></em><span> is a character that separates 
-    clusters of integer digits to make large numbers more legible. It commonly used for thousands, 
-    but in some locales it separates ten-thousands. The </span><em><span>grouping size</span></em><span> 
-    is the number of digits between the grouping separators, such as 3 for &quot;100,000,000&quot; or 4 for &quot;1 
-    0000 0000&quot;. There are actually two different grouping sizes: One used for the least significant 
-    integer digits, the </span><em><span>primary grouping size</span></em><span>, and one used for 
-    all others, the </span><em><span>secondary grouping size</span></em><span>. In most locales 
-    these are the same, but sometimes they are different. For example, if the primary grouping 
-    interval is 3, and the secondary is 2, then this corresponds to the pattern &quot;#,##,##0&quot;, and the 
-    number 123456789 is formatted as &quot;12,34,56,789&quot;. If a pattern contains multiple grouping 
-    separators, the interval between the last one and the end of the integer defines the primary 
-    grouping size, and the interval between the last two defines the secondary grouping size. All 
-    others are ignored, so &quot;#,##,###,####&quot; == &quot;###,###,####&quot; == &quot;##,#,###,####&quot;.</span></p>
-    <p><span>When parsing using a number format, a more lenient parse should be used where possible. 
-    In particular, it should implement at least the following rules.</span></p>
-    <blockquote>
-      <ul type="disc">
-        <li><span>if the separator is a NO BREAK SPACE, all input whitespace is treated as<br>
-        matching</span></li>
-        <li><span>if the separator is an apostrophe (curly or straight), all input apostrophes<br>
-        are treated as matching</span></li>
-        <li><span>if the separator has a fullwidth or halfwidth equivalent, that is treated as<br>
-        matching.</span></li>
-      </ul>
-    </blockquote>
-    <h4><span>Formatting</span></h4>
-    <p><span>Formatting is guided by several parameters, all of which can be specified either using 
-    a pattern or using the API. The following description applies to formats that do not use </span>
-    <a href="#sci"><span>scientific notation</span></a><span> or </span><a href="#sigdig"><span>
-    significant digits</span></a><span>. </span></p>
-    <ul>
-      <li><span>If the number of actual integer digits exceeds the </span><em><span>maximum integer 
-      digits</span></em><span>, then only the least significant digits are shown. For example, 1997 
-      is formatted as &quot;97&quot; if the maximum integer digits is set to 2. </span></li>
-      <li><span>If the number of actual integer digits is less than the </span><em><span>minimum 
-      integer digits</span></em><span>, then leading zeros are added. For example, 1997 is formatted 
-      as &quot;01997&quot; if the minimum integer digits is set to 5. </span></li>
-      <li><span>If the number of actual fraction digits exceeds the </span><em><span>maximum 
-      fraction digits</span></em><span>, then half-even rounding it performed to the maximum 
-      fraction digits. For example, 0.125 is formatted as &quot;0.12&quot; if the maximum fraction digits is 
-      2. This behavior can be changed by specifying a rounding increment and a rounding mode. </span>
-      </li>
-      <li><span>If the number of actual fraction digits is less than the </span><em><span>minimum 
-      fraction digits</span></em><span>, then trailing zeros are added. For example, 0.125 is 
-      formatted as &quot;0.1250&quot; if the </span>mimimum<span> fraction digits is set to 4. </span></li>
-      <li><span>Trailing fractional zeros are not displayed if they occur </span><em><span>j</span></em><span> 
-      positions after the decimal, where </span><em><span>j</span></em><span> is less than the 
-      maximum fraction digits. For example, 0.10004 is formatted as &quot;0.1&quot; if the maximum fraction 
-      digits is four or less. </span></li>
-    </ul>
-    <p><strong><span>Special Values</span></strong><span> </span></p>
-    <p><code><span>NaN</span></code><span> is represented as a single character, typically </span>
-    <font SIZE="3"><span></span></font><code><span>(\uFFFD)</span></code><span>. This character is 
-    determined by the localized number symbols. This is the only value for which the prefixes and 
-    suffixes are not used. </span></p>
-    <p><span>Infinity is represented as a single character, typically </span><font SIZE="3"><span>∞
-    </span></font><code><span>(\u221E)</span></code><span>, with the positive or negative prefixes 
-    and suffixes applied. The infinity character is determined by the localized number symbols.
-    </span><a name="sci"></p>
-    <h4><span>Scientific Notation</span></h4>
-    </a>
-    <p><span>Numbers in scientific notation are expressed as the product of a mantissa and a power 
-    of ten, for example, 1234 can be expressed as 1.234 x 10</span><sup><span>3</span></sup><span>. 
-    The mantissa is typically in the half-open interval [1.0, 10.0) or sometimes [0.0, 1.0), but it 
-    need not be. In a pattern, the exponent character immediately followed by one or more digit 
-    characters indicates scientific notation. Example: &quot;0.###E0&quot; formats the number 1234 as 
-    &quot;1.234E3&quot;. </span></p>
-    <ul>
-      <li><span>The number of digit characters after the exponent character gives the minimum 
-      exponent digit count. There is no maximum. Negative exponents are formatted using the 
-      localized minus sign, </span><em><span>not</span></em><span> the prefix and suffix from the 
-      pattern. This allows patterns such as &quot;0.###E0 m/s&quot;. To prefix positive exponents with a 
-      localized plus sign, specify &#39;+&#39; between the exponent and the digits: &quot;0.###E+0&quot; will produce 
-      formats &quot;1E+1&quot;, &quot;1E+0&quot;, &quot;1E-1&quot;, etc. (In localized patterns, use the localized plus sign 
-      rather than &#39;+&#39;.) </span></li>
-      <li><span>The minimum number of integer digits is achieved by adjusting the exponent. Example: 
-      0.00123 formatted with &quot;00.###E0&quot; yields &quot;12.3E-4&quot;. This only happens if there is no maximum 
-      number of integer digits. If there is a maximum, then the minimum number of integer digits is 
-      fixed at one. </span></li>
-      <li><span>The maximum number of integer digits, if present, specifies the exponent grouping. 
-      The most common use of this is to generate </span><em><span>engineering notation</span></em><span>, 
-      in which the exponent is a multiple of three, e.g., &quot;##0.###E0&quot;. The number 12345 is formatted 
-      using &quot;##0.####E0&quot; as &quot;12.345E3&quot;. </span></li>
-      <li><span>When using scientific notation, the formatter controls the digit counts using 
-      significant digits logic. The maximum number of significant digits limits the total number of 
-      integer and fraction digits that will be shown in the mantissa; it does not affect parsing. 
-      For example, 12345 formatted with &quot;##0.##E0&quot; is &quot;12.3E3&quot;. See the section on significant 
-      digits for more details. </span></li>
-      <li><span>Exponential patterns may not contain grouping separators. </span></li>
-    </ul>
-    <a name="sigdig">
-    <h4><span>Significant Digits</span></h4>
-    </a>
-    <p><span>There are two ways of controlling how many digits are shows: (a) significant digits 
-    counts, or (b) integer and fraction digit counts. Integer and fraction digit counts are 
-    described above. When a formatter is using significant digits counts, the number of integer and 
-    fraction digits is not specified directly, and the formatter settings for these counts are 
-    ignored. Instead, the formatter uses however many integer and fraction digits are required to 
-    display the specified number of significant digits. Examples: </span></p>
-    <blockquote>
-      <table cellSpacing="3" cellPadding="0" border="0">
-        <tr bgColor="#ccccff">
-          <th align="left"><span>Pattern </span></th>
-          <th align="left"><span>Minimum significant digits </span></th>
-          <th align="left"><span>Maximum significant digits </span></th>
-          <th align="left"><span>Number </span></th>
-          <th align="left"><span>Output</span></th>
-        </tr>
-        <tr vAlign="top">
-          <td><code><span>@@@</span></code><span> </span></td>
-          <td><span>3 </span></td>
-          <td><span>3 </span></td>
-          <td><span>12345 </span></td>
-          <td><code><span>12300</span></code><span> </span></td>
-        </tr>
-        <tr vAlign="top" bgColor="#eeeeff">
-          <td><code><span>@@@</span></code><span> </span></td>
-          <td><span>3 </span></td>
-          <td><span>3 </span></td>
-          <td><span>0.12345 </span></td>
-          <td><code><span>0.123</span></code><span> </span></td>
-        </tr>
-        <tr vAlign="top">
-          <td><code><span>@@##</span></code><span> </span></td>
-          <td><span>2 </span></td>
-          <td><span>4 </span></td>
-          <td><span>3.14159 </span></td>
-          <td><code><span>3.142</span></code><span> </span></td>
-        </tr>
-        <tr vAlign="top" bgColor="#eeeeff">
-          <td><code><span>@@##</span></code><span> </span></td>
-          <td><span>2 </span></td>
-          <td><span>4 </span></td>
-          <td><span>1.23004 </span></td>
-          <td><code><span>1.23</span></code><span> </span></td>
-        </tr>
-      </table>
-    </blockquote>
-    <ul>
-      <li><span>In order to enable significant digits formatting, use a pattern containing the
-      </span><code><span>&#39;@&#39;</span></code><span> pattern character. In order to disable significant 
-      digits formatting, use a pattern that does not contain the </span><code><span>&#39;@&#39;</span></code><span> 
-      pattern character.</span></li>
-      <li><span>Significant digit counts may be expressed using patterns that specify a minimum and 
-      maximum number of significant digits. These are indicated by the </span><code><span>&#39;@&#39;</span></code><span> 
-      and </span><code><span>&#39;#&#39;</span></code><span> characters. The minimum number of significant 
-      digits is the number of </span><code><span>&#39;@&#39;</span></code><span> characters. The maximum 
-      number of significant digits is the number of </span><code><span>&#39;@&#39;</span></code><span> 
-      characters plus the number of </span><code><span>&#39;#&#39;</span></code><span> characters following 
-      on the right. For example, the pattern </span><code><span>&quot;@@@&quot;</span></code><span> indicates 
-      exactly 3 significant digits. The pattern </span><code><span>&quot;@##&quot;</span></code><span> 
-      indicates from 1 to 3 significant digits. Trailing zero digits to the right of the decimal 
-      separator are suppressed after the minimum number of significant digits have been shown. For 
-      example, the pattern </span><code><span>&quot;@##&quot;</span></code><span> formats the number 0.1203 as
-      </span><code><span>&quot;0.12&quot;</span></code><span>. </span></li>
-      <li><span>If a pattern uses significant digits, it may not contain a decimal separator, nor 
-      the </span><code><span>&#39;0&#39;</span></code><span> pattern character. Patterns such as </span>
-      <code><span>&quot;@00&quot;</span></code><span> or </span><code><span>&quot;@.###&quot;</span></code><span> are 
-      disallowed. </span></li>
-      <li><span>Any number of </span><code><span>&#39;#&#39;</span></code><span> characters may be </span>
-      <span>prepended</span><span> to the left of the leftmost </span><code><span>&#39;@&#39;</span></code><span> 
-      character. These have no effect on the minimum and maximum significant digits counts, but may 
-      be used to position grouping separators. For example, </span><code><span>&quot;#,#@#&quot;</span></code><span> 
-      indicates a minimum of one significant digits, a maximum of two significant digits, and a 
-      grouping size of three. </span></li>
-      <li><span>The number of significant digits has no effect on parsing. </span></li>
-      <li><span>Significant digits may be used together with exponential notation. Such patterns are 
-      equivalent to a normal exponential pattern with a minimum and maximum integer digit count of 
-      one, a minimum fraction digit count of </span><code><span>Minimum Significant Digits - 1</span></code><span>, 
-      and a maximum fraction digit count of </span><code><span>Maximum Significant Digits - 1</span></code><span>. 
-      For example, the pattern </span><code><span>&quot;@@###E0&quot;</span></code><span> is equivalent to
-      </span><code><span>&quot;0.0###E0&quot;</span></code><span>. </span></li>
-    </ul>
-    <h4><span>Padding</span></h4>
-    <p><span>Patterns support padding the result to a specific width. In a pattern the pad escape 
-    character, followed by a single pad character, causes padding to be parsed and formatted. The 
-    pad escape character is &#39;*&#39;. For example, </span><code><span>&quot;$*x#,##0.00&quot;</span></code><span> 
-    formats 123 to </span><code><span>&quot;$xx123.00&quot;</span></code><span>, and 1234 to </span><code>
-    <span>&quot;$1,234.00&quot;</span></code><span>. </span></p>
-    <ul>
-      <li><span>When padding is in effect, the width of the positive </span><span>subpattern</span><span>, 
-      including prefix and suffix, determines the format width. For example, in the pattern </span>
-      <code><span>&quot;* #0 o&#39;&#39;clock&quot;</span></code><span>, the format width is 10. </span></li>
-      <li><span>Some parameters which usually do not matter have meaning when padding is used, 
-      because the pattern width is significant with padding. In the pattern &quot;*</span><font face="Lucida Sans Unicode"><span>&nbsp;</span></font><span>##,##,#,##0.##&quot;, 
-      the format width is 14. The initial characters &quot;##,##,&quot; do not affect the grouping size or 
-      maximum integer digits, but they do affect the format width. </span></li>
-      <li><span>Padding may be inserted at one of four locations: before the prefix, after the 
-      prefix, before the suffix, or after the suffix. No padding can be specified in any other 
-      location. If there is no prefix, before the prefix and after the prefix are equivalent, 
-      likewise for the suffix. </span></li>
-      <li><span>When specified in a pattern, the code point immediately following the pad escape is 
-      the pad character. This may be any character, including a special pattern character. That is, 
-      the pad escape </span><em><span>escapes</span></em><span> the following character. If there is 
-      no character after the pad escape, then the pattern is illegal. </span></li>
-    </ul>
-    <p><strong><span>Rounding</span></strong><span> </span></p>
-    <p><span>Patterns support rounding to a specific increment. For example, 1230 rounded to the 
-    nearest 50 is 1250. Mathematically, rounding to specific increments is performed by multiplying 
-    by the increment, rounding to an integer, then dividing by the increment. To take a more bizarre 
-    example, 1.234 rounded to the nearest 0.65 is 1.3, as follows:</span></p>
-    <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber5">
-      <tr>
-        <th>Original:</th>
-        <td>1.234</td>
+      <tr bgColor="#ccccff">
+        <th align="left">Symbol </th>
+        <th align="left"><span>Location </span></th>
+        <th align="left"><span>Localized? </span></th>
+        <th align="left"><span>Meaning </span></th>
       </tr>
-      <tr>
-        <th>Divide by increment (0.65):</th>
-        <td>1.89846...</td>
+      <tr vAlign="top">
+        <td>0 </td>
+        <td><span>Number </span></td>
+        <td><span>Yes </span></td>
+        <td><span>Digit </span></td>
       </tr>
-      <tr>
-        <th>Round:</th>
-        <td>2</td>
+      <tr vAlign="top" bgColor="#eeeeff">
+        <td>1-9 </td>
+        <td><span>Number </span></td>
+        <td><span>Yes </span></td>
+        <td><span>&#39;1&#39; through &#39;9&#39; indicate rounding. </span></td>
       </tr>
-      <tr>
-        <th>Multiply by increment (0.65):</th>
-        <td>1.3</td>
+      <tr vAlign="top">
+        <td>@ </td>
+        <td><span>Number </span></td>
+        <td><span>No </span></td>
+        <td><span>Significant digit </span></td>
+      </tr>
+      <tr vAlign="top" bgColor="#eeeeff">
+        <td># </td>
+        <td><span>Number </span></td>
+        <td><span>Yes </span></td>
+        <td><span>Digit, zero shows as absent </span></td>
+      </tr>
+      <tr vAlign="top">
+        <td>. </td>
+        <td><span>Number </span></td>
+        <td><span>Yes </span></td>
+        <td><span>Decimal separator or monetary decimal separator </span></td>
+      </tr>
+      <tr vAlign="top" bgColor="#eeeeff">
+        <td>- </td>
+        <td><span>Number </span></td>
+        <td><span>Yes </span></td>
+        <td><span>Minus sign </span></td>
+      </tr>
+      <tr vAlign="top">
+        <td>, </td>
+        <td><span>Number </span></td>
+        <td><span>Yes </span></td>
+        <td><span>Grouping separator </span></td>
+      </tr>
+      <tr vAlign="top" bgColor="#eeeeff">
+        <td>E </td>
+        <td><span>Number </span></td>
+        <td><span>Yes </span></td>
+        <td><span>Separates mantissa and exponent in scientific notation. </span><em><span>Need not 
+        be quoted in prefix or suffix.</span></em><span> </span></td>
+      </tr>
+      <tr vAlign="top">
+        <td>+ </td>
+        <td><span>Exponent </span></td>
+        <td><span>Yes </span></td>
+        <td><span>Prefix positive exponents with localized plus sign. </span><em><span>Need not be 
+        quoted in prefix or suffix.</span></em><span> </span></td>
+      </tr>
+      <tr vAlign="top" bgColor="#eeeeff">
+        <td>; </td>
+        <td><span>Subpattern boundary </span></td>
+        <td><span>Yes </span></td>
+        <td><span>Separates positive and negative subpatterns </span></td>
+      </tr>
+      <tr vAlign="top">
+        <td>% </td>
+        <td><span>Prefix or suffix </span></td>
+        <td><span>Yes </span></td>
+        <td><span>Multiply by 100 and show as percentage </span></td>
+      </tr>
+      <tr vAlign="top" bgColor="#eeeeff">
+        <td>‰<br>
+        (\u2030)</td>
+        <td><span>Prefix or suffix </span></td>
+        <td><span>Yes </span></td>
+        <td><span>Multiply by 1000 and show as per mille </span></td>
+      </tr>
+      <tr vAlign="top">
+        <td>¤ (\u00A4) </td>
+        <td><span>Prefix or suffix </span></td>
+        <td><span>No </span></td>
+        <td><span>Currency sign, replaced by currency symbol. If doubled, replaced by international 
+        currency symbol. If present in a pattern, the monetary decimal separator and grouping 
+        separators are used instead of the numeric ones. </span></td>
+      </tr>
+      <tr vAlign="top" bgColor="#eeeeff">
+        <td>&#39; </td>
+        <td><span>Prefix or suffix </span></td>
+        <td><span>No </span></td>
+        <td><span>Used to quote special characters in a prefix or suffix, for example, </span><code>
+        <span>&quot;&#39;#&#39;#&quot;</span></code><span> formats 123 to </span><code><span>&quot;#123&quot;</span></code><span>. 
+        To create a single quote itself, use two in a row: </span><code><span>&quot;# o&#39;&#39;clock&quot;</span></code><span>.
+        </span></td>
+      </tr>
+      <tr vAlign="top">
+        <td>* </td>
+        <td><span>Prefix or suffix boundary </span></td>
+        <td><span>Yes </span></td>
+        <td><span>Pad escape, precedes pad character </span></td>
       </tr>
     </table>
-    <p><span>To specify a rounding increment in a pattern, include the increment in the pattern 
-    itself. &quot;#,#50&quot; specifies a rounding increment of 50. &quot;#,##0.05&quot; specifies a rounding increment 
-    of 0.05. </span></p>
-    <ul>
-      <li><span>Rounding only affects the string produced by formatting. It does not affect parsing 
-      or change any numerical values. </span></li>
-      <li><span>An implementation may allow the specification of a </span><em><span>rounding mode</span></em><span> 
-      to determine how values are rounded. In the absence of such choices, the default is to round 
-      &quot;half-even&quot;, as described in IEEE arithmetic. That is, it rounds towards the &quot;nearest 
-      neighbor&quot; unless both neighbors are equidistant, in which case, it rounds towards the even 
-      neighbor. Behaves as for round &quot;half-up&quot; if the digit to the left of the discarded fraction is 
-      odd; behaves as for round &quot;half-down&quot; if it&#39;s even. Note that this is the rounding mode that 
-      minimizes cumulative error when applied repeatedly over a sequence of calculations.</span></li>
-      <li><span>Some locales use rounding in their currency formats to reflect the smallest currency 
-      denomination. </span></li>
-      <li><span>In a pattern, digits &#39;1&#39; through &#39;9&#39; specify rounding, but otherwise behave 
-      identically to digit &#39;0&#39;. </span></li>
+  </blockquote>
+  <p><span>A pattern contains a </span><span>postive</span><span> and negative </span><span>
+  subpattern</span><span>, for example, &quot;#,##0.00;(#,##0.00)&quot;. Each </span><span>subpattern</span><span> 
+  has a prefix, a numeric part, and a suffix. If there is no explicit negative </span><span>
+  subpattern</span><span>, the negative </span><span>subpattern</span><span> is the localized minus 
+  sign prefixed to the positive </span><span>subpattern</span><span>. That is, &quot;0.00&quot; alone is 
+  equivalent to &quot;0.00;-0.00&quot;. If there is an explicit negative </span><span>subpattern</span><span>, 
+  it serves only to specify the negative prefix and suffix; the number of digits, minimal digits, 
+  and other characteristics are ignored in the negative </span><span>subpattern</span><span>. That 
+  means that &quot;#,##0.0#;(#)&quot; has precisely the same result as &quot;#,##0.0#;(#,##0.0#)&quot;. </span></p>
+  <p><span>The prefixes, suffixes, and various symbols used for infinity, digits, thousands 
+  separators, decimal separators, etc. may be set to arbitrary values, and they will appear properly 
+  during formatting. </span><i><span>However, care must be taken that the symbols and strings do not 
+  conflict, or parsing will be unreliable. </span></i><span>For example, either the positive and 
+  negative prefixes or the suffixes must be distinct for any parser using this data to be able to 
+  distinguish positive from negative values. Another example is that the decimal separator and 
+  thousands separator should be distinct characters, or parsing will be impossible. </span></p>
+  <p><span>The </span><em><span>grouping separator</span></em><span> is a character that separates 
+  clusters of integer digits to make large numbers more legible. It commonly used for thousands, but 
+  in some locales it separates ten-thousands. The </span><em><span>grouping size</span></em><span> 
+  is the number of digits between the grouping separators, such as 3 for &quot;100,000,000&quot; or 4 for &quot;1 
+  0000 0000&quot;. There are actually two different grouping sizes: One used for the least significant 
+  integer digits, the </span><em><span>primary grouping size</span></em><span>, and one used for all 
+  others, the </span><em><span>secondary grouping size</span></em><span>. In most locales these are 
+  the same, but sometimes they are different. For example, if the primary grouping interval is 3, 
+  and the secondary is 2, then this corresponds to the pattern &quot;#,##,##0&quot;, and the number 123456789 
+  is formatted as &quot;12,34,56,789&quot;. If a pattern contains multiple grouping separators, the interval 
+  between the last one and the end of the integer defines the primary grouping size, and the 
+  interval between the last two defines the secondary grouping size. All others are ignored, so 
+  &quot;#,##,###,####&quot; == &quot;###,###,####&quot; == &quot;##,#,###,####&quot;.</span></p>
+  <p><span>When parsing using a number format, a more lenient parse should be used where possible. 
+  In particular, it should implement at least the following rules.</span></p>
+  <blockquote>
+    <ul type="disc">
+      <li><span>if the separator is a NO BREAK SPACE, all input whitespace is treated as<br>
+      matching</span></li>
+      <li><span>if the separator is an apostrophe (curly or straight), all input apostrophes<br>
+      are treated as matching</span></li>
+      <li><span>if the separator has a fullwidth or halfwidth equivalent, that is treated as<br>
+      matching.</span></li>
     </ul>
+  </blockquote>
+  <h4><span>Formatting</span></h4>
+  <p><span>Formatting is guided by several parameters, all of which can be specified either using a 
+  pattern or using the API. The following description applies to formats that do not use </span>
+  <a href="#sci"><span>scientific notation</span></a><span> or </span><a href="#sigdig"><span>
+  significant digits</span></a><span>. </span></p>
+  <ul>
+    <li><span>If the number of actual integer digits exceeds the </span><em><span>maximum integer 
+    digits</span></em><span>, then only the least significant digits are shown. For example, 1997 is 
+    formatted as &quot;97&quot; if the maximum integer digits is set to 2. </span></li>
+    <li><span>If the number of actual integer digits is less than the </span><em><span>minimum 
+    integer digits</span></em><span>, then leading zeros are added. For example, 1997 is formatted 
+    as &quot;01997&quot; if the minimum integer digits is set to 5. </span></li>
+    <li><span>If the number of actual fraction digits exceeds the </span><em><span>maximum fraction 
+    digits</span></em><span>, then half-even rounding it performed to the maximum fraction digits. 
+    For example, 0.125 is formatted as &quot;0.12&quot; if the maximum fraction digits is 2. This behavior can 
+    be changed by specifying a rounding increment and a rounding mode. </span></li>
+    <li><span>If the number of actual fraction digits is less than the </span><em><span>minimum 
+    fraction digits</span></em><span>, then trailing zeros are added. For example, 0.125 is 
+    formatted as &quot;0.1250&quot; if the </span>mimimum<span> fraction digits is set to 4. </span></li>
+    <li><span>Trailing fractional zeros are not displayed if they occur </span><em><span>j</span></em><span> 
+    positions after the decimal, where </span><em><span>j</span></em><span> is less than the maximum 
+    fraction digits. For example, 0.10004 is formatted as &quot;0.1&quot; if the maximum fraction digits is 
+    four or less. </span></li>
+  </ul>
+  <p><strong><span>Special Values</span></strong><span> </span></p>
+  <p><code><span>NaN</span></code><span> is represented as a single character, typically </span>
+  <font SIZE="3"><span></span></font><code><span>(\uFFFD)</span></code><span>. This character is 
+  determined by the localized number symbols. This is the only value for which the prefixes and 
+  suffixes are not used. </span></p>
+  <p><span>Infinity is represented as a single character, typically </span><font SIZE="3"><span>∞
+  </span></font><code><span>(\u221E)</span></code><span>, with the positive or negative prefixes and 
+  suffixes applied. The infinity character is determined by the localized number symbols. </span>
+  </p>
+  <h4><span><a name="sci">Scientific Notation</a></span></h4>
+  <p><span>Numbers in scientific notation are expressed as the product of a mantissa and a power of 
+  ten, for example, 1234 can be expressed as 1.234 x 10</span><sup><span>3</span></sup><span>. The 
+  mantissa is typically in the half-open interval [1.0, 10.0) or sometimes [0.0, 1.0), but it need 
+  not be. In a pattern, the exponent character immediately followed by one or more digit characters 
+  indicates scientific notation. Example: &quot;0.###E0&quot; formats the number 1234 as &quot;1.234E3&quot;. </span>
+  </p>
+  <ul>
+    <li><span>The number of digit characters after the exponent character gives the minimum exponent 
+    digit count. There is no maximum. Negative exponents are formatted using the localized minus 
+    sign, </span><em><span>not</span></em><span> the prefix and suffix from the pattern. This allows 
+    patterns such as &quot;0.###E0 m/s&quot;. To prefix positive exponents with a localized plus sign, specify 
+    &#39;+&#39; between the exponent and the digits: &quot;0.###E+0&quot; will produce formats &quot;1E+1&quot;, &quot;1E+0&quot;, &quot;1E-1&quot;, 
+    etc. (In localized patterns, use the localized plus sign rather than &#39;+&#39;.) </span></li>
+    <li><span>The minimum number of integer digits is achieved by adjusting the exponent. Example: 
+    0.00123 formatted with &quot;00.###E0&quot; yields &quot;12.3E-4&quot;. This only happens if there is no maximum 
+    number of integer digits. If there is a maximum, then the minimum number of integer digits is 
+    fixed at one. </span></li>
+    <li><span>The maximum number of integer digits, if present, specifies the exponent grouping. The 
+    most common use of this is to generate </span><em><span>engineering notation</span></em><span>, 
+    in which the exponent is a multiple of three, e.g., &quot;##0.###E0&quot;. The number 12345 is formatted 
+    using &quot;##0.####E0&quot; as &quot;12.345E3&quot;. </span></li>
+    <li><span>When using scientific notation, the formatter controls the digit counts using 
+    significant digits logic. The maximum number of significant digits limits the total number of 
+    integer and fraction digits that will be shown in the mantissa; it does not affect parsing. For 
+    example, 12345 formatted with &quot;##0.##E0&quot; is &quot;12.3E3&quot;. See the section on significant digits for 
+    more details. </span></li>
+    <li><span>Exponential patterns may not contain grouping separators. </span></li>
+  </ul>
+  <h4><a name="sigdig">Significant Digits</a></h4>
+  <p><span>There are two ways of controlling how many digits are shows: (a) significant digits 
+  counts, or (b) integer and fraction digit counts. Integer and fraction digit counts are described 
+  above. When a formatter is using significant digits counts, the number of integer and fraction 
+  digits is not specified directly, and the formatter settings for these counts are ignored. 
+  Instead, the formatter uses however many integer and fraction digits are required to display the 
+  specified number of significant digits. Examples: </span></p>
+  <blockquote>
+    <table cellSpacing="3" cellPadding="0" border="0">
+      <tr bgColor="#ccccff">
+        <th align="left"><span>Pattern </span></th>
+        <th align="left"><span>Minimum significant digits </span></th>
+        <th align="left"><span>Maximum significant digits </span></th>
+        <th align="left"><span>Number </span></th>
+        <th align="left"><span>Output</span></th>
+      </tr>
+      <tr vAlign="top">
+        <td><code><span>@@@</span></code><span> </span></td>
+        <td><span>3 </span></td>
+        <td><span>3 </span></td>
+        <td><span>12345 </span></td>
+        <td><code><span>12300</span></code><span> </span></td>
+      </tr>
+      <tr vAlign="top" bgColor="#eeeeff">
+        <td><code><span>@@@</span></code><span> </span></td>
+        <td><span>3 </span></td>
+        <td><span>3 </span></td>
+        <td><span>0.12345 </span></td>
+        <td><code><span>0.123</span></code><span> </span></td>
+      </tr>
+      <tr vAlign="top">
+        <td><code><span>@@##</span></code><span> </span></td>
+        <td><span>2 </span></td>
+        <td><span>4 </span></td>
+        <td><span>3.14159 </span></td>
+        <td><code><span>3.142</span></code><span> </span></td>
+      </tr>
+      <tr vAlign="top" bgColor="#eeeeff">
+        <td><code><span>@@##</span></code><span> </span></td>
+        <td><span>2 </span></td>
+        <td><span>4 </span></td>
+        <td><span>1.23004 </span></td>
+        <td><code><span>1.23</span></code><span> </span></td>
+      </tr>
+    </table>
+  </blockquote>
+  <ul>
+    <li><span>In order to enable significant digits formatting, use a pattern containing the </span>
+    <code><span>&#39;@&#39;</span></code><span> pattern character. In order to disable significant digits 
+    formatting, use a pattern that does not contain the </span><code><span>&#39;@&#39;</span></code><span> 
+    pattern character.</span></li>
+    <li><span>Significant digit counts may be expressed using patterns that specify a minimum and 
+    maximum number of significant digits. These are indicated by the </span><code><span>&#39;@&#39;</span></code><span> 
+    and </span><code><span>&#39;#&#39;</span></code><span> characters. The minimum number of significant 
+    digits is the number of </span><code><span>&#39;@&#39;</span></code><span> characters. The maximum 
+    number of significant digits is the number of </span><code><span>&#39;@&#39;</span></code><span> 
+    characters plus the number of </span><code><span>&#39;#&#39;</span></code><span> characters following on 
+    the right. For example, the pattern </span><code><span>&quot;@@@&quot;</span></code><span> indicates 
+    exactly 3 significant digits. The pattern </span><code><span>&quot;@##&quot;</span></code><span> indicates 
+    from 1 to 3 significant digits. Trailing zero digits to the right of the decimal separator are 
+    suppressed after the minimum number of significant digits have been shown. For example, the 
+    pattern </span><code><span>&quot;@##&quot;</span></code><span> formats the number 0.1203 as </span><code>
+    <span>&quot;0.12&quot;</span></code><span>. </span></li>
+    <li><span>If a pattern uses significant digits, it may not contain a decimal separator, nor the
+    </span><code><span>&#39;0&#39;</span></code><span> pattern character. Patterns such as </span><code>
+    <span>&quot;@00&quot;</span></code><span> or </span><code><span>&quot;@.###&quot;</span></code><span> are 
+    disallowed. </span></li>
+    <li><span>Any number of </span><code><span>&#39;#&#39;</span></code><span> characters may be </span>
+    <span>prepended</span><span> to the left of the leftmost </span><code><span>&#39;@&#39;</span></code><span> 
+    character. These have no effect on the minimum and maximum significant digits counts, but may be 
+    used to position grouping separators. For example, </span><code><span>&quot;#,#@#&quot;</span></code><span> 
+    indicates a minimum of one significant digits, a maximum of two significant digits, and a 
+    grouping size of three. </span></li>
+    <li><span>The number of significant digits has no effect on parsing. </span></li>
+    <li><span>Significant digits may be used together with exponential notation. Such patterns are 
+    equivalent to a normal exponential pattern with a minimum and maximum integer digit count of 
+    one, a minimum fraction digit count of </span><code><span>Minimum Significant Digits - 1</span></code><span>, 
+    and a maximum fraction digit count of </span><code><span>Maximum Significant Digits - 1</span></code><span>. 
+    For example, the pattern </span><code><span>&quot;@@###E0&quot;</span></code><span> is equivalent to
+    </span><code><span>&quot;0.0###E0&quot;</span></code><span>. </span></li>
+  </ul>
+  <h4><span>Padding</span></h4>
+  <p><span>Patterns support padding the result to a specific width. In a pattern the pad escape 
+  character, followed by a single pad character, causes padding to be parsed and formatted. The pad 
+  escape character is &#39;*&#39;. For example, </span><code><span>&quot;$*x#,##0.00&quot;</span></code><span> formats 
+  123 to </span><code><span>&quot;$xx123.00&quot;</span></code><span>, and 1234 to </span><code><span>
+  &quot;$1,234.00&quot;</span></code><span>. </span></p>
+  <ul>
+    <li><span>When padding is in effect, the width of the positive </span><span>subpattern</span><span>, 
+    including prefix and suffix, determines the format width. For example, in the pattern </span>
+    <code><span>&quot;* #0 o&#39;&#39;clock&quot;</span></code><span>, the format width is 10. </span></li>
+    <li><span>Some parameters which usually do not matter have meaning when padding is used, because 
+    the pattern width is significant with padding. In the pattern &quot;*</span><font face="Lucida Sans Unicode"><span>&nbsp;</span></font><span>##,##,#,##0.##&quot;, 
+    the format width is 14. The initial characters &quot;##,##,&quot; do not affect the grouping size or 
+    maximum integer digits, but they do affect the format width. </span></li>
+    <li><span>Padding may be inserted at one of four locations: before the prefix, after the prefix, 
+    before the suffix, or after the suffix. No padding can be specified in any other location. If 
+    there is no prefix, before the prefix and after the prefix are equivalent, likewise for the 
+    suffix. </span></li>
+    <li><span>When specified in a pattern, the code point immediately following the pad escape is 
+    the pad character. This may be any character, including a special pattern character. That is, 
+    the pad escape </span><em><span>escapes</span></em><span> the following character. If there is 
+    no character after the pad escape, then the pattern is illegal. </span></li>
+  </ul>
+  <p><strong><span>Rounding</span></strong><span> </span></p>
+  <p><span>Patterns support rounding to a specific increment. For example, 1230 rounded to the 
+  nearest 50 is 1250. Mathematically, rounding to specific increments is performed by multiplying by 
+  the increment, rounding to an integer, then dividing by the increment. To take a more bizarre 
+  example, 1.234 rounded to the nearest 0.65 is 1.3, as follows:</span></p>
+  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+    <tr>
+      <th>Original:</th>
+      <td>1.234</td>
+    </tr>
+    <tr>
+      <th>Divide by increment (0.65):</th>
+      <td>1.89846...</td>
+    </tr>
+    <tr>
+      <th>Round:</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Multiply by increment (0.65):</th>
+      <td>1.3</td>
+    </tr>
+  </table>
+  <p><span>To specify a rounding increment in a pattern, include the increment in the pattern 
+  itself. &quot;#,#50&quot; specifies a rounding increment of 50. &quot;#,##0.05&quot; specifies a rounding increment of 
+  0.05. </span></p>
+  <ul>
+    <li><span>Rounding only affects the string produced by formatting. It does not affect parsing or 
+    change any numerical values. </span></li>
+    <li><span>An implementation may allow the specification of a </span><em><span>rounding mode</span></em><span> 
+    to determine how values are rounded. In the absence of such choices, the default is to round 
+    &quot;half-even&quot;, as described in IEEE arithmetic. That is, it rounds towards the &quot;nearest neighbor&quot; 
+    unless both neighbors are equidistant, in which case, it rounds towards the even neighbor. 
+    Behaves as for round &quot;half-up&quot; if the digit to the left of the discarded fraction is odd; 
+    behaves as for round &quot;half-down&quot; if it&#39;s even. Note that this is the rounding mode that 
+    minimizes cumulative error when applied repeatedly over a sequence of calculations.</span></li>
+    <li><span>Some locales use rounding in their currency formats to reflect the smallest currency 
+    denomination. </span></li>
+    <li><span>In a pattern, digits &#39;1&#39; through &#39;9&#39; specify rounding, but otherwise behave 
+    identically to digit &#39;0&#39;. </span></li>
+  </ul>
+  <dl>
     <dt>&nbsp;</dt>
-    <dt><b><span>decimalFormats</span></b><span> </span></dt>
-    <dd><span>The normal locale specific way to write a base 10 number. </span></dd>
+    <dt><b>decimalFormats</b></dt>
+    <dd>The normal locale specific way to write a base 10 number.</dd>
     <dt><b><span>currencyFormats</span></b><span> </span></dt>
     <dd><span>Use \u00A4 where the local currency symbol should be. Doubling the currency symbol 
     (\u00A4\u00A4) will output the international currency symbol (a 3-letter code). </span></dd>
@@ -3674,7 +3660,7 @@ root</pre>
   from right to left, for each choice evaluating &lt;number&gt; &lt;relation&gt; N. The first choice that 
   matches results in the corresponding string. If no match is found, then the first string is used. 
   For example:</span></p>
-  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" id="AutoNumber2">
     <tr>
       <td width="33%"><span>Pattern</span></td>
       <td width="33%"><span>N</span></td>
@@ -3939,7 +3925,7 @@ root</pre>
   The locale &#39;de_CH&#39; has &lt;default type=&#39;B&#39;&gt;<br>
   <br>
   Here are the searches for various combinations.</span></p>
-  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber4">
+  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" id="AutoNumber4">
     <tr>
       <td rowspan="4"><span>1.</span></td>
       <td><span>de_CH</span></td>
@@ -4958,9 +4944,8 @@ root</pre>
     <tr>
       <td class="noborder">[<a name="RBBI">RBBI</a>]</td>
       <td class="noborder">Rule-Based Break Iterator<br>
-      <a href="http://oss.software.ibm.com/icu/docs/papers/RBBI-rule-syntax.html">
-      http://oss.software.ibm.com/icu/docs/papers/RBBI-rule-syntax.html<br>
-      </a>(The format will be moved into the ICU User Guide soon.)</td>
+      <a href="http://oss.software.ibm.com/icu/userguide/boundaryAnalysis.html">
+      http://oss.software.ibm.com/icu/userguide/boundaryAnalysis.html</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="Scripts">Scripts</a>]</td>
@@ -5024,7 +5009,7 @@ root</pre>
     <li>changed provisional element name to validSubLocales</li>
     <li>added description of alias path, and the 2 allowable values for alt.</li>
     <li>described those elements where the DTD has *, but can only occur once (non-draft).</li>
-    <li>added <span><a name="themesg" a <>big5han</a> and <a name="themesg" a <>gb2312han</a></span></li>
+    <li>added <span>big5han and gb2312han</span></li>
     <li>updated contributors</li>
     <li>added appendix K, with allowed values</li>
     <li>Fixed the XPath syntax in Appendix I. Added definitions of elements to clarify inheritance. 
@@ -5034,7 +5019,6 @@ root</pre>
     <li>Added list of attribute-information elements to Appendix K and I.</li>
     <li>Fixed table of contents</li>
   </ul>
-  </td>
   <hr>
   <p class="copyright">Copyright © 2001-2004 Unicode, Inc. All Rights Reserved. The Unicode 
   Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors 
@@ -5042,7 +5026,8 @@ root</pre>
   or arising out of the use of the information or programs contained or accompanying this technical 
   report. The Unicode <a href="http://www.unicode.org/copyright.html">Terms of Use</a> apply.</p>
   <p class="copyright">Unicode and the Unicode logo are trademarks of Unicode, Inc., and are 
-  registered in some jurisdictions.</div>
+  registered in some jurisdictions.
+</div>
 
 </body>
 

@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
-[
-      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
-%icu;
-]
->
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="2.0"/>
@@ -970,7 +965,6 @@
 				<reset>힐</reset>
 				<sc>詰犵纈襭頡黠</sc>
 			</rules>
-			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="2.1" />
 		</collation  >
 	</collations>
 </ldml>

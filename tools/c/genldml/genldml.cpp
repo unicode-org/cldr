@@ -2339,7 +2339,7 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 
 	if(src.start != src.end){
 		for(;;){
-			 
+			  
 			  uint32_t strength = parseRules(&src,startOfRules);
 			  UnicodeString tempStr;
 			  startOfRules = FALSE;
@@ -2428,36 +2428,25 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 								//xmlString.append(formatString(mStringsBundle.getStringEx(seqKey,mError),args,2,t));
 							    writeCollation(args[1].getString(),xmlString, seqKey);
                             }
+                            
+						    
+                            if(src.current== src.end){
+                                break;
+                            }
 						}
-
-						//reset
-
-						count = 0;
+                        //reset
+						
+                        count = 0;
 						collStr.remove();
 					}
 			  }
-              int32_t index = tempStr.indexOf((UChar)0x2F);
-              if(index>0){
-                   // & c < k / h
-                   // <x><p>k</p> <extend>h</extend></x>
-                   //
-                   tempStr.remove(index,1); // remove forward slash
-                   tempStr.insert(index, "</p><extend>");
-                   tempStr.insert(0,"<x><p>");
-                   tempStr.append("</extend>\n");
-                   tempStr.insert(0, indentOffset);
-                   xmlString.append(tempStr); 
-                   tempStr.remove();
-              }
+
 
 			  collStr.append(tempStr);
              
 			  count++;
 			  prevStrength = strength;		
-              if(src.current == src.end){
-                  xmlString.append(tempStr);
-		 		  break;
-              }
+
 		}
 	}
 	if(appendedRules==TRUE){
@@ -2473,7 +2462,20 @@ void GenerateXML::writeCollation(UnicodeString& src, UnicodeString &xmlString, c
     int i =src.indexOf("</context>");
     Formattable args[] = { indentOffset ,"" , ""};
     UnicodeString t,temp;
-    if(i>0){
+    
+    int32_t index = src.indexOf((UChar)0x2F);
+    if(index>0){
+       // & c < k / h
+       // <x><p>k</p> <extend>h</extend></x>
+       //
+       src.remove(index,1); // remove forward slash
+       src.insert(index, "</p><extend>");
+       src.insert(0,"<x><p>");
+       src.append("</extend>\n");
+       src.insert(0, indentOffset);
+       temp.append(src);
+    
+    }else if(i>0){
         UnicodeString temp1,temp2;
         i += strlen("</context>");
         src.extract(0,i,temp1);
@@ -2987,10 +2989,6 @@ uint32_t GenerateXML::parseRules(Token* src,UBool startOfRules){
 
  EndOfLoop:
   wasInQuote = FALSE;
-  if (newStrength == UCOL_TOK_UNSET) {
-    return NULL;
-  }
-
   return newStrength;
 }
 

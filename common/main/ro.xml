@@ -41,6 +41,7 @@
 		</languages>
 		<territories>
 			<territory type="AD">Andorra</territory>
+			<territory alt="proposed" draft="true" type="AD">Andora</territory>
 			<territory type="AE">Emiratele Arabe Unite</territory>
 			<territory type="AF">Afganistan</territory>
 			<territory type="AG">Antigua şi Barbuda</territory>
@@ -114,6 +115,7 @@
 			<territory type="FR">Franţa</territory>
 			<territory type="GA">Gabon</territory>
 			<territory type="GB">Regatul Unit</territory>
+			<territory alt="proposed" draft="true" type="GB">Marea Britanie</territory>
 			<territory type="GD">Grenada</territory>
 			<territory type="GE">Georgia</territory>
 			<territory type="GF">Guyana Franceză</territory>
@@ -222,6 +224,7 @@
 			<territory type="RE">Reunion</territory>
 			<territory type="RO">România</territory>
 			<territory type="RU">Federaţia Rusă</territory>
+			<territory alt="proposed" draft="true" type="RU">Rusia</territory>
 			<territory type="RW">Rwanda</territory>
 			<territory type="SA">Arabia Saudită</territory>
 			<territory type="SB">Insulele Solomon</territory>
@@ -258,6 +261,7 @@
 			<territory type="TT">Trinidad şi Tobago</territory>
 			<territory type="TV">Tuvalu</territory>
 			<territory type="TW">Taiwan, Provincia Chineză</territory>
+			<territory alt="proposed" draft="true" type="TW">Taiwan</territory>
 			<territory type="TZ">Tanzania</territory>
 			<territory type="UA">Ucraina</territory>
 			<territory type="UG">Uganda</territory>
@@ -281,6 +285,25 @@
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
+		<keys>
+			<key draft="true" type="collation">Röðun</key>
+			<key draft="true" type="calendar">Dagatal</key>
+			<key draft="true" type="currency">Gjaldmiðill</key>
+		</keys>
+		<types>
+			<type draft="true" type="japanese" key="calendar">Japanskt dagatal</type>
+			<type draft="true" type="buddhist" key="calendar">Búddískt dagatal</type>
+			<type draft="true" type="islamic" key="calendar">Íslamskt dagatal</type>
+			<type draft="true" type="islamic-civil" key="calendar">Íslamskt borgaradagatal</type>
+			<type draft="true" type="hebrew" key="calendar">Hebreskt  dagatal</type>
+			<type draft="true" type="chinese" key="calendar">Kínverskt dagatal</type>
+			<type draft="true" type="gregorian" key="calendar">Gregorískt dagatal</type>
+			<type draft="true" type="phonebook" key="collation">Símaskráarröðun</type>
+			<type draft="true" type="pinyin" key="collation">Pinyin-röðun</type>
+			<type draft="true" type="traditional" key="collation">Hefðbundin</type>
+			<type draft="true" type="stroke" key="collation">Strikaröðun</type>
+			<type draft="true" type="direct" key="collation">Bein röðun</type>
+		</types>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a-z â î ă ş ţ]</exemplarCharacters>
@@ -306,6 +329,20 @@
 							<month type="11">Nov</month>
 							<month type="12">Dec</month>
 						</monthWidth>
+						<monthWidth draft="true" type="narrow">
+							<month type="1">I</month>
+							<month type="2">F</month>
+							<month type="3">M</month>
+							<month type="4">A</month>
+							<month type="5">M</month>
+							<month type="6">I</month>
+							<month type="7">I</month>
+							<month type="8">A</month>
+							<month type="9">S</month>
+							<month type="10">O</month>
+							<month type="11">N</month>
+							<month type="12">D</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">ianuarie</month>
 							<month type="2">februarie</month>
@@ -329,6 +366,15 @@
 							<day type="mon">L</day>
 							<day type="tue">Ma</day>
 							<day type="wed">Mi</day>
+							<day type="thu">J</day>
+							<day type="fri">V</day>
+							<day type="sat">S</day>
+						</dayWidth>
+						<dayWidth draft="true" type="narrow">
+							<day type="sun">D</day>
+							<day type="mon">L</day>
+							<day type="tue">M</day>
+							<day type="wed">M</day>
 							<day type="thu">J</day>
 							<day type="fri">V</day>
 							<day type="sat">S</day>

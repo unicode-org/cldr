@@ -39,6 +39,49 @@
 			<language type="tr">turecki</language>
 			<language type="zh">chiński</language>
 		</languages>
+		<scripts>
+			<script draft="true" type="Arab">Arabski</script>
+			<script draft="true" type="Armn">Armeński</script>
+			<script draft="true" type="Beng">Bengalski</script>
+			<script draft="true" type="Cans">Zunifikowane symbole kanadyjskich autochtonów</script>
+			<script draft="true" type="Cher">Czerokezki</script>
+			<script draft="true" type="Cyrl">Cyrylicki</script>
+			<script draft="true" type="Ethi">Etiopski</script>
+			<script draft="true" type="Geor">Gruziński</script>
+			<script draft="true" type="Goth">Gotycki</script>
+			<script draft="true" type="Grek">Grecki</script>
+			<script draft="true" type="Gujr">Gudżarati</script>
+			<script draft="true" type="Hano">Hanunoo</script>
+			<script draft="true" type="Hans">Uproszczony Han</script>
+			<script draft="true" type="Hant">Tradycyjny Han</script>
+			<script draft="true" type="Hebr">Hebrajski</script>
+			<script draft="true" type="Ital">Starowłoski</script>
+			<script draft="true" type="Khmr">Khmerski</script>
+			<script draft="true" type="Laoo">Laotański</script>
+			<script draft="true" type="Latn">Łaciński</script>
+			<script draft="true" type="Limb">Limbu</script>
+			<script draft="true" type="Linb">Linearny B</script>
+			<script draft="true" type="Mlym">Malayalam</script>
+			<script draft="true" type="Mong">Mongolski</script>
+			<script draft="true" type="Mymr">Myanmar</script>
+			<script draft="true" type="Ogam">Ogham</script>
+			<script draft="true" type="Orya">Oriya</script>
+			<script draft="true" type="Osma">Csmanya</script>
+			<script draft="true" type="Qaac">Koptyjski</script>
+			<script draft="true" type="Qaai">Dziedziczny</script>
+			<script draft="true" type="Runr">Runiczny</script>
+			<script draft="true" type="Sinh">Syngaleski</script>
+			<script draft="true" type="Syrc">Syryjski</script>
+			<script draft="true" type="Tagb">Tagbanwa</script>
+			<script draft="true" type="Taml">Tamilski</script>
+			<script draft="true" type="Telu">Telugu</script>
+			<script draft="true" type="Tglg">Tagalog</script>
+			<script draft="true" type="Thaa">Thaana</script>
+			<script draft="true" type="Thai">Tajski</script>
+			<script draft="true" type="Tibt">Tybetański</script>
+			<script draft="true" type="Ugar">Ugarycki</script>
+			<script draft="true" type="Zyyy">Wspólny</script>
+		</scripts>
 		<territories>
 			<territory type="AD">Andora</territory>
 			<territory type="AE">Zjednoczone Emiraty Arabskie</territory>
@@ -281,6 +324,25 @@
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
+		<keys>
+			<key draft="true" type="collation">Sortowanie</key>
+			<key draft="true" type="calendar">Kalendarz</key>
+			<key draft="true" type="currency">Waluta</key>
+		</keys>
+		<types>
+			<type draft="true" type="japanese" key="calendar">Kalendarz japoński</type>
+			<type draft="true" type="buddhist" key="calendar">Kalendarz buddyjski</type>
+			<type draft="true" type="islamic" key="calendar">Kalendarz muzułmański</type>
+			<type draft="true" type="islamic-civil" key="calendar">Kalendarz muzułmański cywilny</type>
+			<type draft="true" type="hebrew" key="calendar">Kalendarz żydowski</type>
+			<type draft="true" type="chinese" key="calendar">Kalendarz chiński</type>
+			<type draft="true" type="gregorian" key="calendar">Kalendarz gregoriański</type>
+			<type draft="true" type="phonebook" key="collation">porządek książki telefonicznej</type>
+			<type draft="true" type="pinyin" key="collation">porządek Pinyin</type>
+			<type draft="true" type="traditional" key="collation">tradycyjny</type>
+			<type draft="true" type="stroke" key="collation">porządek akcentów</type>
+			<type draft="true" type="direct" key="collation">porządek bezpośredni</type>
+		</types>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a-z ó ą ę ć ń ś ź ł ż]</exemplarCharacters>
@@ -390,6 +452,15 @@
 							<day type="fri">Pt</day>
 							<day type="sat">So</day>
 						</dayWidth>
+						<dayWidth draft="true" type="narrow">
+							<day type="sun">N</day>
+							<day type="mon">P</day>
+							<day type="tue">W</day>
+							<day type="wed">Ś</day>
+							<day type="thu">C</day>
+							<day type="fri">P</day>
+							<day type="sat">S</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">niedziela</day>
 							<day type="mon">poniedziałek</day>
@@ -483,9 +554,1461 @@
 			<nan>�</nan>
 		</symbols>
 		<currencies>
-			<currency type="PLN">
-				<displayName>PLN</displayName>
+			<currency draft="true" type="ADD">
+				<displayName>diner andorski</displayName>
+				<symbol>ADD</symbol>
+			</currency>
+			<currency draft="true" type="ADP">
+				<displayName>peseta andorska</displayName>
+				<symbol>ADP</symbol>
+			</currency>
+			<currency draft="true" type="AED">
+				<displayName>dirham ZEA</displayName>
+				<symbol>AED</symbol>
+			</currency>
+			<currency draft="true" type="AFA">
+				<displayName>afgani (1927-2002)</displayName>
+				<symbol>AFA</symbol>
+			</currency>
+			<currency draft="true" type="AFN">
+				<displayName>afgani</displayName>
+				<symbol>Af</symbol>
+			</currency>
+			<currency draft="true" type="AIF">
+				<displayName>frank Affars and Issas Franc</displayName>
+				<symbol>AIF</symbol>
+			</currency>
+			<currency draft="true" type="ALK">
+				<displayName>lek albański (1946-1961)</displayName>
+				<symbol>ALK</symbol>
+			</currency>
+			<currency draft="true" type="ALL">
+				<displayName>lek albański</displayName>
+				<symbol>lek</symbol>
+			</currency>
+			<currency draft="true" type="ALV">
+				<displayName>lek waluta albańska</displayName>
+				<symbol>ALV</symbol>
+			</currency>
+			<currency draft="true" type="ALX">
+				<displayName>dolar albański dewizowy dla transakcji zagranicznych</displayName>
+				<symbol>ALX</symbol>
+			</currency>
+			<currency draft="true" type="AMD">
+				<displayName>dram armeński</displayName>
+				<symbol>dram</symbol>
+			</currency>
+			<currency draft="true" type="ANG">
+				<displayName>gulden Antyle Holenderskie</displayName>
+				<symbol>NA f.</symbol>
+			</currency>
+			<currency draft="true" type="AOA">
+				<displayName>kwanza angolańska</displayName>
+				<symbol>AOA</symbol>
+			</currency>
+			<currency draft="true" type="AOK">
+				<displayName>kwanza angolańska (1977-1990)</displayName>
+				<symbol>AOK</symbol>
+			</currency>
+			<currency draft="true" type="AON">
+				<displayName>nowa kwanza angolańska (1990-2000)</displayName>
+				<symbol>AON</symbol>
+			</currency>
+			<currency draft="true" type="AOR">
+				<displayName>kwanza angolańska Reajustado (1995-1999)</displayName>
+				<symbol>AOR</symbol>
+			</currency>
+			<currency draft="true" type="AOS">
+				<displayName>escudo angolańskie</displayName>
+				<symbol>AOS</symbol>
+			</currency>
+			<currency draft="true" type="ARA">
+				<displayName>austral argentyński</displayName>
+				<symbol>ARA</symbol>
+			</currency>
+			<currency draft="true" type="ARM">
+				<displayName>peso argentyńskie Moneda Nacional</displayName>
+				<symbol>ARM</symbol>
+			</currency>
+			<currency draft="true" type="ARP">
+				<displayName>peso argentyńskie (1983-1985)</displayName>
+				<symbol>ARP</symbol>
+			</currency>
+			<currency draft="true" type="ARS">
+				<displayName>peso argentyńskie</displayName>
+				<symbol>Arg$</symbol>
+			</currency>
+			<currency draft="true" type="ATS">
+				<displayName>szyling austriacki </displayName>
+				<symbol>ATS</symbol>
+			</currency>
+			<currency draft="true" type="AUD">
+				<displayName>dolar australijski</displayName>
+				<symbol>$A</symbol>
+			</currency>
+			<currency draft="true" type="AUP">
+				<displayName>funt australijski</displayName>
+				<symbol>AUP</symbol>
+			</currency>
+			<currency draft="true" type="AWG">
+				<displayName>gulden arubski</displayName>
+				<symbol>AWG</symbol>
+			</currency>
+			<currency draft="true" type="AZM">
+				<displayName>manat azerbejdżański</displayName>
+				<symbol>AZM</symbol>
+			</currency>
+			<currency draft="true" type="BAD">
+				<displayName>dinar Bośni i Hercegowiny</displayName>
+				<symbol>BAD</symbol>
+			</currency>
+			<currency draft="true" type="BAM">
+				<displayName>marka konwertybilna Bośni i Hercegowiny</displayName>
+				<symbol>KM</symbol>
+			</currency>
+			<currency draft="true" type="BAN">
+				<displayName>nowy dinar Bośni i Hercegowinyr</displayName>
+				<symbol>BAN</symbol>
+			</currency>
+			<currency draft="true" type="BBD">
+				<displayName>dolar Barbadosu</displayName>
+				<symbol>BDS$</symbol>
+			</currency>
+			<currency draft="true" type="BDT">
+				<displayName>taka bengalska</displayName>
+				<symbol>Tk</symbol>
+			</currency>
+			<currency draft="true" type="BEC">
+				<displayName>frank belgijski (zamienny)</displayName>
+				<symbol>BEC</symbol>
+			</currency>
+			<currency draft="true" type="BEF">
+				<displayName>frank belgijski</displayName>
+				<symbol>BF</symbol>
+			</currency>
+			<currency draft="true" type="BEL">
+				<displayName>frank belgijski (finansowy)</displayName>
+				<symbol>BEL</symbol>
+			</currency>
+			<currency draft="true" type="BGL">
+				<displayName>lewa bułgarskie</displayName>
+				<symbol>lev</symbol>
+			</currency>
+			<currency draft="true" type="BGM">
+				<displayName>lewa bułgarskie socjalistyczne</displayName>
+				<symbol>BGM</symbol>
+			</currency>
+			<currency draft="true" type="BGN">
+				<displayName>nowe lewa bułgarskie</displayName>
+				<symbol>BGN</symbol>
+			</currency>
+			<currency draft="true" type="BGO">
+				<displayName>lewa bułgarskie (1879-1952)</displayName>
+				<symbol>BGO</symbol>
+			</currency>
+			<currency draft="true" type="BGX">
+				<displayName>lewa bułgarskie dewizowe dla transakcji zagranicznych</displayName>
+				<symbol>BGX</symbol>
+			</currency>
+			<currency draft="true" type="BHD">
+				<displayName>dinar bahrański</displayName>
+				<symbol>BD</symbol>
+			</currency>
+			<currency draft="true" type="BIF">
+				<displayName>frank burundyjski</displayName>
+				<symbol>Fbu</symbol>
+			</currency>
+			<currency draft="true" type="BMD">
+				<displayName>dolar bermudzki</displayName>
+				<symbol>Ber$</symbol>
+			</currency>
+			<currency draft="true" type="BMP">
+				<displayName>funt bermudzki</displayName>
+				<symbol>BMP</symbol>
+			</currency>
+			<currency draft="true" type="BND">
+				<displayName>dolar brunejski</displayName>
+				<symbol>BND</symbol>
+			</currency>
+			<currency draft="true" type="BOB">
+				<displayName>boliviano</displayName>
+				<symbol>Bs</symbol>
+			</currency>
+			<currency draft="true" type="BOL">
+				<displayName>boliviano (1863-1962)</displayName>
+				<symbol>BOL</symbol>
+			</currency>
+			<currency draft="true" type="BOP">
+				<displayName>peso boliwijskie</displayName>
+				<symbol>BOP</symbol>
+			</currency>
+			<currency draft="true" type="BOV">
+				<displayName>mvdol boliwijski</displayName>
+				<symbol>BOV</symbol>
+			</currency>
+			<currency draft="true" type="BRB">
+				<displayName>cruzeiro novo brazylijskie (1967-1986)</displayName>
+				<symbol>BRB</symbol>
+			</currency>
+			<currency draft="true" type="BRC">
+				<displayName>cruzado brazylijskie</displayName>
+				<symbol>BRC</symbol>
+			</currency>
+			<currency draft="true" type="BRE">
+				<displayName>cruzeiro brazylijskie(1990-1993)</displayName>
+				<symbol>BRE</symbol>
+			</currency>
+			<currency draft="true" type="BRL">
+				<displayName>real brazylijski</displayName>
+				<symbol>R$</symbol>
+			</currency>
+			<currency draft="true" type="BRN">
+				<displayName>cruzado brazylijskie</displayName>
+				<symbol>BRN</symbol>
+			</currency>
+			<currency draft="true" type="BRR">
+				<displayName>cruzeiro brazylijskie</displayName>
+				<symbol>BRR</symbol>
+			</currency>
+			<currency draft="true" type="BRZ">
+				<displayName>cruzeiro brazylijskie (1942-1967)</displayName>
+				<symbol>BRZ</symbol>
+			</currency>
+			<currency draft="true" type="BSD">
+				<displayName>dolar bahamski</displayName>
+				<symbol>BSD</symbol>
+			</currency>
+			<currency draft="true" type="BSP">
+				<displayName>funt bahamski</displayName>
+				<symbol>BSP</symbol>
+			</currency>
+			<currency draft="true" type="BTN">
+				<displayName>ngultrum  Bhutan</displayName>
+				<symbol>Nu</symbol>
+			</currency>
+			<currency draft="true" type="BTR">
+				<displayName>rupia Bhutan</displayName>
+				<symbol>BTR</symbol>
+			</currency>
+			<currency draft="true" type="BUK">
+				<displayName>kyat birmański</displayName>
+				<symbol>BUK</symbol>
+			</currency>
+			<currency draft="true" type="BUR">
+				<displayName>rupia birmańska</displayName>
+				<symbol>BUR</symbol>
+			</currency>
+			<currency draft="true" type="BWP">
+				<displayName>pula</displayName>
+				<symbol>BWP</symbol>
+			</currency>
+			<currency draft="true" type="BYB">
+				<displayName>rubel białoruski (1994-1999)</displayName>
+				<symbol>BYB</symbol>
+			</currency>
+			<currency draft="true" type="BYL">
+				<displayName>rubel białoruski (1992-1994)</displayName>
+				<symbol>BYL</symbol>
+			</currency>
+			<currency draft="true" type="BYR">
+				<displayName>rubel białoruski</displayName>
+				<symbol>Rbl</symbol>
+			</currency>
+			<currency draft="true" type="BZD">
+				<displayName>dolar belizeński</displayName>
+				<symbol>BZ$</symbol>
+			</currency>
+			<currency draft="true" type="BZH">
+				<displayName>dolar Hondurasu Brytyjskiego</displayName>
+				<symbol>BZH</symbol>
+			</currency>
+			<currency draft="true" type="CAD">
+				<displayName>dolar kanadyjski</displayName>
+				<symbol>Can$</symbol>
+			</currency>
+			<currency draft="true" type="CDF">
+				<displayName>frank kongijski</displayName>
+				<symbol>CDF</symbol>
+			</currency>
+			<currency draft="true" type="CDG">
+				<displayName>frank Republiki Konga</displayName>
+				<symbol>CDG</symbol>
+			</currency>
+			<currency draft="true" type="CDL">
+				<displayName>zair kongijski</displayName>
+				<symbol>CDL</symbol>
+			</currency>
+			<currency draft="true" type="CFF">
+				<displayName>frank CFA Republiki Środkowoafrykańskiej</displayName>
+				<symbol>CFF</symbol>
+			</currency>
+			<currency draft="true" type="CHF">
+				<displayName>frank szwajcarski</displayName>
+				<symbol>SwF</symbol>
+			</currency>
+			<currency draft="true" type="CKD">
+				<displayName>dolar Wysp Cooka</displayName>
+				<symbol>CKD</symbol>
+			</currency>
+			<currency draft="true" type="CLC">
+				<displayName>condor chilijski</displayName>
+				<symbol>CLC</symbol>
+			</currency>
+			<currency draft="true" type="CLE">
+				<displayName>escudo chilijskie</displayName>
+				<symbol>CLE</symbol>
+			</currency>
+			<currency draft="true" type="CLP">
+				<displayName>peso chilijskie</displayName>
+				<symbol>Ch$</symbol>
+			</currency>
+			<currency draft="true" type="CMF">
+				<displayName>frank CFA Kamerunu</displayName>
+				<symbol>CMF</symbol>
+			</currency>
+			<currency draft="true" type="CNP">
+				<displayName>Jen Min Piao juan Jen Min Piao chiński</displayName>
+				<symbol>CNP</symbol>
+			</currency>
+			<currency draft="true" type="CNX">
+				<displayName>dolar chiński dla transakcji zagranicznych</displayName>
+				<symbol>CNX</symbol>
+			</currency>
+			<currency draft="true" type="CNY">
+				<displayName>juan renminbi</displayName>
+				<symbol>Y</symbol>
+			</currency>
+			<currency draft="true" type="COB">
+				<displayName>peso kolumbijskie papierowe</displayName>
+				<symbol>COB</symbol>
+			</currency>
+			<currency draft="true" type="COF">
+				<displayName>frank CFA Konga</displayName>
+				<symbol>COF</symbol>
+			</currency>
+			<currency draft="true" type="COP">
+				<displayName>peso kolumbijskie</displayName>
+				<symbol>Col$</symbol>
+			</currency>
+			<currency draft="true" type="CRC">
+				<displayName>colon kostarykański</displayName>
+				<symbol>C</symbol>
+			</currency>
+			<currency draft="true" type="CSC">
+				<displayName>korona czechosłowacka</displayName>
+				<symbol>CSC</symbol>
+			</currency>
+			<currency draft="true" type="CSK">
+				<displayName>korona czechosłowacka</displayName>
+				<symbol>CSK</symbol>
+			</currency>
+			<currency draft="true" type="CUP">
+				<displayName>peso kubańskie</displayName>
+				<symbol>CUP</symbol>
+			</currency>
+			<currency draft="true" type="CUX">
+				<displayName>certyfikaty kubańskie dla transakcji zagranicznych</displayName>
+				<symbol>CUX</symbol>
+			</currency>
+			<currency draft="true" type="CVE">
+				<displayName>escudo Zielonego Przylądka</displayName>
+				<symbol>CVEsc</symbol>
+			</currency>
+			<currency draft="true" type="CWG">
+				<displayName>gulden Curacao</displayName>
+				<symbol>CWG</symbol>
+			</currency>
+			<currency draft="true" type="CYP">
+				<displayName>funt cypryjski</displayName>
+				<symbol>£C</symbol>
+			</currency>
+			<currency draft="true" type="CZK">
+				<displayName>korona czeska</displayName>
+				<symbol>CZK</symbol>
+			</currency>
+			<currency draft="true" type="DDM">
+				<displayName>wschodnia marka wschodnioniemiecka</displayName>
+				<symbol>DDM</symbol>
+			</currency>
+			<currency draft="true" type="DEM">
+				<displayName>marka niemiecka</displayName>
+				<symbol>DEM</symbol>
+			</currency>
+			<currency draft="true" type="DJF">
+				<displayName>frank Dżibuti</displayName>
+				<symbol>DF</symbol>
+			</currency>
+			<currency draft="true" type="DKK">
+				<displayName>korona duńska</displayName>
+				<symbol>DKr</symbol>
+			</currency>
+			<currency draft="true" type="DOP">
+				<displayName>peso dominikańskie</displayName>
+				<symbol>RD$</symbol>
+			</currency>
+			<currency draft="true" type="DZD">
+				<displayName>dinar algierski</displayName>
+				<symbol>DA</symbol>
+			</currency>
+			<currency draft="true" type="DZF">
+				<displayName>nowy frank algierski</displayName>
+				<symbol>DZF</symbol>
+			</currency>
+			<currency draft="true" type="ECS">
+				<displayName>sucre ekwadorski</displayName>
+				<symbol>ECS</symbol>
+			</currency>
+			<currency draft="true" type="EEK">
+				<displayName>korona estońska</displayName>
+				<symbol>EEK</symbol>
+			</currency>
+			<currency draft="true" type="EGP">
+				<displayName>funt egipski</displayName>
+				<symbol>EGP</symbol>
+			</currency>
+			<currency draft="true" type="ERN">
+				<displayName>nakfa erytrejska</displayName>
+				<symbol>ERN</symbol>
+			</currency>
+			<currency draft="true" type="ESP">
+				<displayName>peseta hiszpańska</displayName>
+				<symbol>ESP</symbol>
+			</currency>
+			<currency draft="true" type="ETB">
+				<displayName>birr etiopski</displayName>
+				<symbol>Br</symbol>
+			</currency>
+			<currency draft="true" type="ETD">
+				<displayName>dolar etiopski</displayName>
+				<symbol>ETD</symbol>
+			</currency>
+			<currency draft="true" type="EUR">
+				<displayName>euro</displayName>
+				<symbol>€</symbol>
+			</currency>
+			<currency draft="true" type="FIM">
+				<displayName>marka fińska</displayName>
+				<symbol>FIM</symbol>
+			</currency>
+			<currency draft="true" type="FIN">
+				<displayName>marka fińska (1860-1962)</displayName>
+				<symbol>FIN</symbol>
+			</currency>
+			<currency draft="true" type="FJD">
+				<displayName>dolar fidżijski</displayName>
+				<symbol>F$</symbol>
+			</currency>
+			<currency draft="true" type="FJP">
+				<displayName>funt fidżijski</displayName>
+				<symbol>FJP</symbol>
+			</currency>
+			<currency draft="true" type="FKP">
+				<displayName>funt Wysp Falklandzkich</displayName>
+				<symbol>FKP</symbol>
+			</currency>
+			<currency draft="true" type="FOK">
+				<displayName>korona Wysp Owczych</displayName>
+				<symbol>FOK</symbol>
+			</currency>
+			<currency draft="true" type="FRF">
+				<displayName>frank francuski </displayName>
+				<symbol>FRF</symbol>
+			</currency>
+			<currency draft="true" type="GAF">
+				<displayName>frank CFA Gabonu</displayName>
+				<symbol>GAF</symbol>
+			</currency>
+			<currency draft="true" type="GBP">
+				<displayName>funt szterling</displayName>
+				<symbol>£</symbol>
+			</currency>
+			<currency draft="true" type="GEK">
+				<displayName>Larit gruziński kupon</displayName>
+				<symbol>GEK</symbol>
+			</currency>
+			<currency draft="true" type="GEL">
+				<displayName>lari gruzińskie</displayName>
+				<symbol>lari</symbol>
+			</currency>
+			<currency draft="true" type="GHC">
+				<displayName>cedi ghańskie</displayName>
+				<symbol>GHC</symbol>
+			</currency>
+			<currency draft="true" type="GHO">
+				<displayName>stare cedi ghańskie</displayName>
+				<symbol>GHO</symbol>
+			</currency>
+			<currency draft="true" type="GHP">
+				<displayName>funt ghański</displayName>
+				<symbol>GHP</symbol>
+			</currency>
+			<currency draft="true" type="GHR">
+				<displayName>cedi zrewaloryzowane ghańskie</displayName>
+				<symbol>GHR</symbol>
+			</currency>
+			<currency draft="true" type="GIP">
+				<displayName>funt gibraltarski</displayName>
+				<symbol>GIP</symbol>
+			</currency>
+			<currency draft="true" type="GLK">
+				<displayName>korona grenlandzka</displayName>
+				<symbol>GLK</symbol>
+			</currency>
+			<currency draft="true" type="GMD">
+				<displayName>dalasi gambijskie</displayName>
+				<symbol>GMD</symbol>
+			</currency>
+			<currency draft="true" type="GMP">
+				<displayName>funt gambijski</displayName>
+				<symbol>GMP</symbol>
+			</currency>
+			<currency draft="true" type="GNF">
+				<displayName>frank gwinejski</displayName>
+				<symbol>GF</symbol>
+			</currency>
+			<currency draft="true" type="GNI">
+				<displayName>frank gwinejski (1960-1972)</displayName>
+				<symbol>GNI</symbol>
+			</currency>
+			<currency draft="true" type="GNS">
+				<displayName>syli gwinejskie</displayName>
+				<symbol>GNS</symbol>
+			</currency>
+			<currency draft="true" type="GPF">
+				<displayName>frank Gwadelupy</displayName>
+				<symbol>GPF</symbol>
+			</currency>
+			<currency draft="true" type="GQE">
+				<displayName>ekwele gwinejskie Gwinei Równikowej</displayName>
+				<symbol>GQE</symbol>
+			</currency>
+			<currency draft="true" type="GQF">
+				<displayName>frank Gwinei Równikowej</displayName>
+				<symbol>GQF</symbol>
+			</currency>
+			<currency draft="true" type="GQP">
+				<displayName>peseta gujańska Gwinei Równikowej</displayName>
+				<symbol>GQP</symbol>
+			</currency>
+			<currency draft="true" type="GRD">
+				<displayName>drachma grecka</displayName>
+				<symbol>GRD</symbol>
+			</currency>
+			<currency draft="true" type="GRN">
+				<displayName>nowa drachma grecka</displayName>
+				<symbol>GRN</symbol>
+			</currency>
+			<currency draft="true" type="GTQ">
+				<displayName>quetzal gwatemalski</displayName>
+				<symbol>Q</symbol>
+			</currency>
+			<currency draft="true" type="GWE">
+				<displayName>escudo Gwinea Portugalska</displayName>
+				<symbol>GWE</symbol>
+			</currency>
+			<currency draft="true" type="GWP">
+				<displayName>peso Guinea-Bissau</displayName>
+				<symbol>GWP</symbol>
+			</currency>
+			<currency draft="true" type="GYD">
+				<displayName>dolar gujański</displayName>
+				<symbol>G$</symbol>
+			</currency>
+			<currency draft="true" type="HKD">
+				<displayName>dolar hongkoński</displayName>
+				<symbol>HK$</symbol>
+			</currency>
+			<currency draft="true" type="HNL">
+				<displayName>lempira Hondurasu</displayName>
+				<symbol>L</symbol>
+			</currency>
+			<currency draft="true" type="HRD">
+				<displayName>dinar chorwacki</displayName>
+				<symbol>HRD</symbol>
+			</currency>
+			<currency draft="true" type="HRK">
+				<displayName>kuna chorwacka</displayName>
+				<symbol>HRK</symbol>
+			</currency>
+			<currency draft="true" type="HTG">
+				<displayName>gourde haitańskie</displayName>
+				<symbol>HTG</symbol>
+			</currency>
+			<currency draft="true" type="HUF">
+				<displayName>forint węgierski </displayName>
+				<symbol>Ft</symbol>
+			</currency>
+			<currency draft="true" type="IBP">
+				<displayName>fund północnoirlandzki</displayName>
+				<symbol>IBP</symbol>
+			</currency>
+			<currency draft="true" type="IDG">
+				<displayName>gulden indonezyjski Nica</displayName>
+				<symbol>IDG</symbol>
+			</currency>
+			<currency draft="true" type="IDJ">
+				<displayName>rupia indonezyjska Java</displayName>
+				<symbol>IDJ</symbol>
+			</currency>
+			<currency draft="true" type="IDN">
+				<displayName>nowa rupia indonezyjska</displayName>
+				<symbol>IDN</symbol>
+			</currency>
+			<currency draft="true" type="IDR">
+				<displayName>rupia indonezyjska</displayName>
+				<symbol>Rp</symbol>
+			</currency>
+			<currency draft="true" type="IEP">
+				<displayName>funt irlandzki</displayName>
+				<symbol>IR£</symbol>
+			</currency>
+			<currency draft="true" type="ILL">
+				<displayName>szekel izraelski</displayName>
+				<symbol>ILL</symbol>
+			</currency>
+			<currency draft="true" type="ILP">
+				<displayName>funt izraelski</displayName>
+				<symbol>ILP</symbol>
+			</currency>
+			<currency draft="true" type="ILS">
+				<displayName>nowy szekel izraelski</displayName>
+				<symbol>ILS</symbol>
+			</currency>
+			<currency draft="true" type="IMP">
+				<displayName>funt szterling Wyspa Man</displayName>
+				<symbol>IMP</symbol>
+			</currency>
+			<currency draft="true" type="INR">
+				<displayName>rupia indyjska</displayName>
+				<symbol>INR</symbol>
+			</currency>
+			<currency draft="true" type="IQD">
+				<displayName>dinar iracki</displayName>
+				<symbol>ID</symbol>
+			</currency>
+			<currency draft="true" type="IRR">
+				<displayName>rial irański</displayName>
+				<symbol>RI</symbol>
+			</currency>
+			<currency draft="true" type="ISK">
+				<displayName>korona islandzka</displayName>
+				<symbol>ISK</symbol>
+			</currency>
+			<currency draft="true" type="ITL">
+				<displayName>lir włoski</displayName>
+				<symbol>₤</symbol>
+			</currency>
+			<currency draft="true" type="JEP">
+				<displayName>funt szterling Jersey</displayName>
+				<symbol>JEP</symbol>
+			</currency>
+			<currency draft="true" type="JMD">
+				<displayName>dolar jamajski</displayName>
+				<symbol>J$</symbol>
+			</currency>
+			<currency draft="true" type="JMP">
+				<displayName>funt  jamajski</displayName>
+				<symbol>JMP</symbol>
+			</currency>
+			<currency draft="true" type="JOD">
+				<displayName>dinar jordański</displayName>
+				<symbol>JD</symbol>
+			</currency>
+			<currency draft="true" type="JPY">
+				<displayName>jen japoński</displayName>
+				<symbol>¥</symbol>
+			</currency>
+			<currency draft="true" type="KES">
+				<displayName>szyling kenijski</displayName>
+				<symbol>K Sh</symbol>
+			</currency>
+			<currency draft="true" type="KGS">
+				<displayName>som kirgiski</displayName>
+				<symbol>som</symbol>
+			</currency>
+			<currency draft="true" type="KHO">
+				<displayName>stary riel kambodżański</displayName>
+				<symbol>KHO</symbol>
+			</currency>
+			<currency draft="true" type="KHR">
+				<displayName>riel kambodżański</displayName>
+				<symbol>CR</symbol>
+			</currency>
+			<currency draft="true" type="KID">
+				<displayName>dolar Kiribati</displayName>
+				<symbol>KID</symbol>
+			</currency>
+			<currency draft="true" type="KMF">
+				<displayName>frank komoryjski</displayName>
+				<symbol>CF</symbol>
+			</currency>
+			<currency draft="true" type="KPP">
+				<displayName>won ludowopółnocnokoreański</displayName>
+				<symbol>KPP</symbol>
+			</currency>
+			<currency draft="true" type="KPW">
+				<displayName>won północnokoreański</displayName>
+				<symbol>KPW</symbol>
+			</currency>
+			<currency draft="true" type="KRH">
+				<displayName>hwan południowokoreański</displayName>
+				<symbol>KRH</symbol>
+			</currency>
+			<currency draft="true" type="KRO">
+				<displayName>stary won południowokoreański</displayName>
+				<symbol>KRO</symbol>
+			</currency>
+			<currency draft="true" type="KRW">
+				<displayName>won południowokoreański</displayName>
+				<symbol>KRW</symbol>
+			</currency>
+			<currency draft="true" type="KWD">
+				<displayName>dinar kuwejcki</displayName>
+				<symbol>KD</symbol>
+			</currency>
+			<currency draft="true" type="KYD">
+				<displayName>dolar kajmański</displayName>
+				<symbol>KYD</symbol>
+			</currency>
+			<currency draft="true" type="KZR">
+				<displayName>rubel kazachski</displayName>
+				<symbol>KZR</symbol>
+			</currency>
+			<currency draft="true" type="KZT">
+				<displayName>Tenge kazachskie</displayName>
+				<symbol>T</symbol>
+			</currency>
+			<currency draft="true" type="LAK">
+				<displayName>kip laotański</displayName>
+				<symbol>LAK</symbol>
+			</currency>
+			<currency draft="true" type="LBP">
+				<displayName>funt libański</displayName>
+				<symbol>LL</symbol>
+			</currency>
+			<currency draft="true" type="LIF">
+				<displayName>frank Liechtenstein</displayName>
+				<symbol>LIF</symbol>
+			</currency>
+			<currency draft="true" type="LKR">
+				<displayName>rupia lankijska</displayName>
+				<symbol>SL Re</symbol>
+			</currency>
+			<currency draft="true" type="LNR">
+				<displayName>rupia cejlońska</displayName>
+				<symbol>LNR</symbol>
+			</currency>
+			<currency draft="true" type="LRD">
+				<displayName>dolar liberyjski</displayName>
+				<symbol>LRD</symbol>
+			</currency>
+			<currency draft="true" type="LSL">
+				<displayName>loti Lesoto</displayName>
+				<symbol>M</symbol>
+			</currency>
+			<currency draft="true" type="LTL">
+				<displayName>lit litewski</displayName>
+				<symbol>LTL</symbol>
+			</currency>
+			<currency draft="true" type="LTT">
+				<displayName>talon litewski</displayName>
+				<symbol>LTT</symbol>
+			</currency>
+			<currency draft="true" type="LUF">
+				<displayName>frank luksemburski</displayName>
+				<symbol>LUF</symbol>
+			</currency>
+			<currency draft="true" type="LVL">
+				<displayName>łat łotewski</displayName>
+				<symbol>LVL</symbol>
+			</currency>
+			<currency draft="true" type="LVR">
+				<displayName>rubel łotewski</displayName>
+				<symbol>LVR</symbol>
+			</currency>
+			<currency draft="true" type="LYB">
+				<displayName>lir brytyjskich władz wojskowych w Libii</displayName>
+				<symbol>LYB</symbol>
+			</currency>
+			<currency draft="true" type="LYD">
+				<displayName>dinar libijski</displayName>
+				<symbol>LD</symbol>
+			</currency>
+			<currency draft="true" type="LYP">
+				<displayName>funt libijski</displayName>
+				<symbol>LYP</symbol>
+			</currency>
+			<currency draft="true" type="MAD">
+				<displayName>dirham marokański</displayName>
+				<symbol>MAD</symbol>
+			</currency>
+			<currency draft="true" type="MAF">
+				<displayName>frank marokański</displayName>
+				<symbol>MAF</symbol>
+			</currency>
+			<currency draft="true" type="MCF">
+				<displayName>nowy frank Monaco</displayName>
+				<symbol>MCF</symbol>
+			</currency>
+			<currency draft="true" type="MCG">
+				<displayName>frank Monaco Germinal</displayName>
+				<symbol>MCG</symbol>
+			</currency>
+			<currency draft="true" type="MDC">
+				<displayName>lej kuponowy mołdawski</displayName>
+				<symbol>MDC</symbol>
+			</currency>
+			<currency draft="true" type="MDL">
+				<displayName>lej mołdawski</displayName>
+				<symbol>MDL</symbol>
+			</currency>
+			<currency draft="true" type="MDR">
+				<displayName>rubel kuponowy mołdawski</displayName>
+				<symbol>MDR</symbol>
+			</currency>
+			<currency draft="true" type="MGA">
+				<displayName>ariar malgaski</displayName>
+				<symbol>MGA</symbol>
+			</currency>
+			<currency draft="true" type="MGF">
+				<displayName>frank malgaski</displayName>
+				<symbol>MGF</symbol>
+			</currency>
+			<currency draft="true" type="MHD">
+				<displayName>dolar Wysp Marshalla</displayName>
+				<symbol>MHD</symbol>
+			</currency>
+			<currency draft="true" type="MKD">
+				<displayName>denar macedoński</displayName>
+				<symbol>MDen</symbol>
+			</currency>
+			<currency draft="true" type="MKN">
+				<displayName>denar macedoński (1992-1993)</displayName>
+				<symbol>MKN</symbol>
+			</currency>
+			<currency draft="true" type="MLF">
+				<displayName>frank malijski</displayName>
+				<symbol>MLF</symbol>
+			</currency>
+			<currency draft="true" type="MMK">
+				<displayName>kyat Myanmar</displayName>
+				<symbol>MMK</symbol>
+			</currency>
+			<currency draft="true" type="MMX">
+				<displayName>dolarowy certyfikat Myanmar dla transakcji zagranicznych</displayName>
+				<symbol>MMX</symbol>
+			</currency>
+			<currency draft="true" type="MNT">
+				<displayName>tugrik mongolski</displayName>
+				<symbol>Tug</symbol>
+			</currency>
+			<currency draft="true" type="MOP">
+				<displayName>pataka Macao</displayName>
+				<symbol>MOP</symbol>
+			</currency>
+			<currency draft="true" type="MQF">
+				<displayName>frank Martynika</displayName>
+				<symbol>MQF</symbol>
+			</currency>
+			<currency draft="true" type="MRO">
+				<displayName>ouguiya mauterańska</displayName>
+				<symbol>UM</symbol>
+			</currency>
+			<currency draft="true" type="MTL">
+				<displayName>lira maltańska</displayName>
+				<symbol>Lm</symbol>
+			</currency>
+			<currency draft="true" type="MTP">
+				<displayName>funt maltański</displayName>
+				<symbol>MTP</symbol>
+			</currency>
+			<currency draft="true" type="MUR">
+				<displayName>rupia Mauritius</displayName>
+				<symbol>MUR</symbol>
+			</currency>
+			<currency draft="true" type="MVP">
+				<displayName>rupia malediwska</displayName>
+				<symbol>MVP</symbol>
+			</currency>
+			<currency draft="true" type="MVR">
+				<displayName>rufiyaa malediwska</displayName>
+				<symbol>MVR</symbol>
+			</currency>
+			<currency draft="true" type="MWK">
+				<displayName>kwacha malawska</displayName>
+				<symbol>MK</symbol>
+			</currency>
+			<currency draft="true" type="MWP">
+				<displayName>funt malawski</displayName>
+				<symbol>MWP</symbol>
+			</currency>
+			<currency draft="true" type="MXN">
+				<displayName>peso meksykańskie</displayName>
+				<symbol>MEX$</symbol>
+			</currency>
+			<currency draft="true" type="MXP">
+				<displayName>peso srebrne meksykańskie (1861-1992)</displayName>
+				<symbol>MXP</symbol>
+			</currency>
+			<currency draft="true" type="MYR">
+				<displayName>ringgit malezyjski</displayName>
+				<symbol>RM</symbol>
+			</currency>
+			<currency draft="true" type="MZE">
+				<displayName>escudo mozambickie</displayName>
+				<symbol>MZE</symbol>
+			</currency>
+			<currency draft="true" type="MZM">
+				<displayName>metical Mozambik</displayName>
+				<symbol>Mt</symbol>
+			</currency>
+			<currency draft="true" type="NAD">
+				<displayName>dolar namibijski</displayName>
+				<symbol>N$</symbol>
+			</currency>
+			<currency draft="true" type="NCF">
+				<displayName>franc germinal Nowa Kaledonia</displayName>
+				<symbol>NCF</symbol>
+			</currency>
+			<currency draft="true" type="NGN">
+				<displayName>naira nigeryjska</displayName>
+				<symbol>NGN</symbol>
+			</currency>
+			<currency draft="true" type="NGP">
+				<displayName>funt nigeryjski</displayName>
+				<symbol>NGP</symbol>
+			</currency>
+			<currency draft="true" type="NIC">
+				<displayName>cordoba nikaraguańska</displayName>
+				<symbol>NIC</symbol>
+			</currency>
+			<currency draft="true" type="NIG">
+				<displayName>cordoba Gold nikaraguańska</displayName>
+				<symbol>NIG</symbol>
+			</currency>
+			<currency draft="true" type="NIO">
+				<displayName>cordoba oro nikaraguańska</displayName>
+				<symbol>NIO</symbol>
+			</currency>
+			<currency draft="true" type="NLG">
+				<displayName>gulden holenderski </displayName>
+				<symbol>NLG</symbol>
+			</currency>
+			<currency draft="true" type="NOK">
+				<displayName>korona norweska</displayName>
+				<symbol>NKr</symbol>
+			</currency>
+			<currency draft="true" type="NPR">
+				<displayName>rupia nepalska</displayName>
+				<symbol>Nrs</symbol>
+			</currency>
+			<currency draft="true" type="NZD">
+				<displayName>dolar nowozelandzki</displayName>
+				<symbol>$NZ</symbol>
+			</currency>
+			<currency draft="true" type="NZP">
+				<displayName>funt nowozelandzki</displayName>
+				<symbol>NZP</symbol>
+			</currency>
+			<currency draft="true" type="OMR">
+				<displayName>rial Omanu</displayName>
+				<symbol>RO</symbol>
+			</currency>
+			<currency draft="true" type="OMS">
+				<displayName>rial saidi omański</displayName>
+				<symbol>OMS</symbol>
+			</currency>
+			<currency draft="true" type="PAB">
+				<displayName>balboa panamski</displayName>
+				<symbol>PAB</symbol>
+			</currency>
+			<currency draft="true" type="PDK">
+				<displayName>rubel kuponowy naddniestrzański</displayName>
+				<symbol>PDK</symbol>
+			</currency>
+			<currency draft="true" type="PDN">
+				<displayName>nowy rubel naddniestrzański</displayName>
+				<symbol>PDN</symbol>
+			</currency>
+			<currency draft="true" type="PDR">
+				<displayName>rubel naddniestrzański</displayName>
+				<symbol>PDR</symbol>
+			</currency>
+			<currency draft="true" type="PEI">
+				<displayName>inti peruwiański</displayName>
+				<symbol>PEI</symbol>
+			</currency>
+			<currency draft="true" type="PEN">
+				<displayName>nowy sol peruwiański</displayName>
+				<symbol>PEN</symbol>
+			</currency>
+			<currency draft="true" type="PES">
+				<displayName>sol peruwiański</displayName>
+				<symbol>PES</symbol>
+			</currency>
+			<currency draft="true" type="PGK">
+				<displayName>kina Papua Nowa Gwinea</displayName>
+				<symbol>PGK</symbol>
+			</currency>
+			<currency draft="true" type="PHP">
+				<displayName>peso filipińskie</displayName>
+				<symbol>PHP</symbol>
+			</currency>
+			<currency draft="true" type="PKR">
+				<displayName>rupia pakistańska</displayName>
+				<symbol>Pra</symbol>
+			</currency>
+			<currency draft="true" type="PLN">
+				<displayName>złoty polski</displayName>
 				<symbol>zł</symbol>
+			</currency>
+			<currency draft="true" type="PLX">
+				<displayName>złoty polski dewizowy dla transakcji zagranicznych</displayName>
+				<symbol>PLX</symbol>
+			</currency>
+			<currency draft="true" type="PLZ">
+				<displayName>złoty polski (1950-1995)</displayName>
+				<symbol>PLZ</symbol>
+			</currency>
+			<currency draft="true" type="PSP">
+				<displayName>funt palestyński</displayName>
+				<symbol>PSP</symbol>
+			</currency>
+			<currency draft="true" type="PTC">
+				<displayName>conto portugalskie</displayName>
+				<symbol>PTC</symbol>
+			</currency>
+			<currency draft="true" type="PTE">
+				<displayName>escudo portugalskie</displayName>
+				<symbol>PTE</symbol>
+			</currency>
+			<currency draft="true" type="PYG">
+				<displayName>guarani paragwajskie</displayName>
+				<symbol>PYG</symbol>
+			</currency>
+			<currency draft="true" type="QAR">
+				<displayName>rial katarski</displayName>
+				<symbol>QR</symbol>
+			</currency>
+			<currency draft="true" type="REF">
+				<displayName>frank Reunion</displayName>
+				<symbol>REF</symbol>
+			</currency>
+			<currency draft="true" type="ROL">
+				<displayName>lej rumuński</displayName>
+				<symbol>leu</symbol>
+			</currency>
+			<currency draft="true" type="RON">
+				<displayName>nowy lej rumuński</displayName>
+				<symbol>RON</symbol>
+			</currency>
+			<currency draft="true" type="RUB">
+				<displayName>rubel rosyjski</displayName>
+				<symbol>RUB</symbol>
+			</currency>
+			<currency draft="true" type="RUR">
+				<displayName>rubel rosyjski (1991-1998)</displayName>
+				<symbol>RUR</symbol>
+			</currency>
+			<currency draft="true" type="RWF">
+				<displayName>frank ruandyjski</displayName>
+				<symbol>RWF</symbol>
+			</currency>
+			<currency draft="true" type="SAR">
+				<displayName>rial saudyjski</displayName>
+				<symbol>SRl</symbol>
+			</currency>
+			<currency draft="true" type="SAS">
+				<displayName>riyal sovereign saudyjski</displayName>
+				<symbol>SAS</symbol>
+			</currency>
+			<currency draft="true" type="SBD">
+				<displayName>dolar Wysp Salomona</displayName>
+				<symbol>SI$</symbol>
+			</currency>
+			<currency draft="true" type="SCR">
+				<displayName>rupia seszelska</displayName>
+				<symbol>SR</symbol>
+			</currency>
+			<currency draft="true" type="SDD">
+				<displayName>dinar sudański</displayName>
+				<symbol>SDD</symbol>
+			</currency>
+			<currency draft="true" type="SDP">
+				<displayName>funt sudański</displayName>
+				<symbol>SDP</symbol>
+			</currency>
+			<currency draft="true" type="SEK">
+				<displayName>korona szwedzka</displayName>
+				<symbol>SKr</symbol>
+			</currency>
+			<currency draft="true" type="SGD">
+				<displayName>dolar singapurski</displayName>
+				<symbol>S$</symbol>
+			</currency>
+			<currency draft="true" type="SHP">
+				<displayName>funt Wyspy Świętej Heleny</displayName>
+				<symbol>SHP</symbol>
+			</currency>
+			<currency draft="true" type="SIB">
+				<displayName>tolar słoweński bonowy</displayName>
+				<symbol>SIB</symbol>
+			</currency>
+			<currency draft="true" type="SIT">
+				<displayName>tolar słoweński</displayName>
+				<symbol>SIT</symbol>
+			</currency>
+			<currency draft="true" type="SKK">
+				<displayName>korona słowacka</displayName>
+				<symbol>Sk</symbol>
+			</currency>
+			<currency draft="true" type="SLL">
+				<displayName>leone Sierra Leone</displayName>
+				<symbol>SLL</symbol>
+			</currency>
+			<currency draft="true" type="SML">
+				<displayName>lir San Marino</displayName>
+				<symbol>SML</symbol>
+			</currency>
+			<currency draft="true" type="SOS">
+				<displayName>szyling somalijski</displayName>
+				<symbol>So. Sh.</symbol>
+			</currency>
+			<currency draft="true" type="SQS">
+				<displayName>szyling somalijski</displayName>
+				<symbol>SQS</symbol>
+			</currency>
+			<currency draft="true" type="SRG">
+				<displayName>gulden surinamski</displayName>
+				<symbol>Sf</symbol>
+			</currency>
+			<currency draft="true" type="SSP">
+				<displayName>funt szkocki</displayName>
+				<symbol>SSP</symbol>
+			</currency>
+			<currency draft="true" type="STD">
+				<displayName>dobra Wysp Świętego Tomasza i Książęcej</displayName>
+				<symbol>Db</symbol>
+			</currency>
+			<currency draft="true" type="STE">
+				<displayName>escudo Wysp Świętego Tomasza i Książęcej</displayName>
+				<symbol>STE</symbol>
+			</currency>
+			<currency draft="true" type="SUN">
+				<displayName>nowy rubel radziecki</displayName>
+				<symbol>SUN</symbol>
+			</currency>
+			<currency draft="true" type="SUR">
+				<displayName>rubel radziecki</displayName>
+				<symbol>SUR</symbol>
+			</currency>
+			<currency draft="true" type="SVC">
+				<displayName>colon salwadorski</displayName>
+				<symbol>SVC</symbol>
+			</currency>
+			<currency draft="true" type="SYP">
+				<displayName>funt syryjski</displayName>
+				<symbol>LS</symbol>
+			</currency>
+			<currency draft="true" type="SZL">
+				<displayName>lilangeni Suazi</displayName>
+				<symbol>E</symbol>
+			</currency>
+			<currency draft="true" type="TCC">
+				<displayName>korona Turks i Caicos</displayName>
+				<symbol>TCC</symbol>
+			</currency>
+			<currency draft="true" type="TDF">
+				<displayName>frank CFA Czadu</displayName>
+				<symbol>TDF</symbol>
+			</currency>
+			<currency draft="true" type="THB">
+				<displayName>baht tajski</displayName>
+				<symbol>THB</symbol>
+			</currency>
+			<currency draft="true" type="TJR">
+				<displayName>rubel tadżycki</displayName>
+				<symbol>TJR</symbol>
+			</currency>
+			<currency draft="true" type="TJS">
+				<displayName>somoni tadżyckie</displayName>
+				<symbol>TJS</symbol>
+			</currency>
+			<currency draft="true" type="TMM">
+				<displayName>manat turkmeński</displayName>
+				<symbol>TMM</symbol>
+			</currency>
+			<currency draft="true" type="TND">
+				<displayName>dinar tunezyjski</displayName>
+				<symbol>TND</symbol>
+			</currency>
+			<currency draft="true" type="TOP">
+				<displayName>paʻanga Tonga</displayName>
+				<symbol>T$</symbol>
+			</currency>
+			<currency draft="true" type="TOS">
+				<displayName>funt szterling Tonga</displayName>
+				<symbol>TOS</symbol>
+			</currency>
+			<currency draft="true" type="TPE">
+				<displayName>escudo timorskie</displayName>
+				<symbol>TPE</symbol>
+			</currency>
+			<currency draft="true" type="TPP">
+				<displayName>pataca timorskie</displayName>
+				<symbol>TPP</symbol>
+			</currency>
+			<currency draft="true" type="TRL">
+				<displayName>lir turecki</displayName>
+				<symbol>TL</symbol>
+			</currency>
+			<currency draft="true" type="TTD">
+				<displayName>dolar Trynidadu i Tobago</displayName>
+				<symbol>TT$</symbol>
+			</currency>
+			<currency draft="true" type="TTO">
+				<displayName>stary dolar Trynidadu i Tobago</displayName>
+				<symbol>TTO</symbol>
+			</currency>
+			<currency draft="true" type="TVD">
+				<displayName>dolar Tuvalu</displayName>
+				<symbol>TVD</symbol>
+			</currency>
+			<currency draft="true" type="TWD">
+				<displayName>nowy dolar tajwański</displayName>
+				<symbol>NT$</symbol>
+			</currency>
+			<currency draft="true" type="TZS">
+				<displayName>szyling tanzański</displayName>
+				<symbol>T Sh</symbol>
+			</currency>
+			<currency draft="true" type="UAH">
+				<displayName>hrywna ukraińska</displayName>
+				<symbol>UAH</symbol>
+			</currency>
+			<currency draft="true" type="UAK">
+				<displayName>karbowaniec ukraiński</displayName>
+				<symbol>UAK</symbol>
+			</currency>
+			<currency draft="true" type="UGS">
+				<displayName>szyling ugandyjski (1966-1987)</displayName>
+				<symbol>UGS</symbol>
+			</currency>
+			<currency draft="true" type="UGX">
+				<displayName>szyling ugandyjski</displayName>
+				<symbol>USh</symbol>
+			</currency>
+			<currency draft="true" type="USD">
+				<displayName>dolar amerykański </displayName>
+				<symbol>US$</symbol>
+			</currency>
+			<currency draft="true" type="UYF">
+				<displayName>peso urugwajskie Fuerte</displayName>
+				<symbol>UYF</symbol>
+			</currency>
+			<currency draft="true" type="UYP">
+				<displayName>peso urugwajskie (1975-1993)</displayName>
+				<symbol>UYP</symbol>
+			</currency>
+			<currency draft="true" type="UYU">
+				<displayName>peso urugwajskie</displayName>
+				<symbol>Ur$</symbol>
+			</currency>
+			<currency draft="true" type="UZC">
+				<displayName>som kuponowy uzbecki</displayName>
+				<symbol>UZC</symbol>
+			</currency>
+			<currency draft="true" type="UZS">
+				<displayName>som uzbecki</displayName>
+				<symbol>UZS</symbol>
+			</currency>
+			<currency draft="true" type="VAL">
+				<displayName>lir Miasta Watykan</displayName>
+				<symbol>VAL</symbol>
+			</currency>
+			<currency draft="true" type="VDD">
+				<displayName>piastre dong viet północnowietnamski</displayName>
+				<symbol>VDD</symbol>
+			</currency>
+			<currency draft="true" type="VDN">
+				<displayName>nowy dong północnowietnamski</displayName>
+				<symbol>VDN</symbol>
+			</currency>
+			<currency draft="true" type="VDP">
+				<displayName>viet minh piastre dong viet północnowietnamski</displayName>
+				<symbol>VDP</symbol>
+			</currency>
+			<currency draft="true" type="VEB">
+				<displayName>boliwar wenezuelski</displayName>
+				<symbol>Be</symbol>
+			</currency>
+			<currency draft="true" type="VGD">
+				<displayName>dolar Brytyjskich Wysp Dziewiczych</displayName>
+				<symbol>VGD</symbol>
+			</currency>
+			<currency draft="true" type="VND">
+				<displayName>dong wietnamski</displayName>
+				<symbol>VND</symbol>
+			</currency>
+			<currency draft="true" type="VNN">
+				<displayName>nowy dong wietnamski</displayName>
+				<symbol>VNN</symbol>
+			</currency>
+			<currency draft="true" type="VNR">
+				<displayName>dong Republiki Wietnamskiej</displayName>
+				<symbol>VNR</symbol>
+			</currency>
+			<currency draft="true" type="VNS">
+				<displayName>dong narodowy wietnamski</displayName>
+				<symbol>VNS</symbol>
+			</currency>
+			<currency draft="true" type="VUV">
+				<displayName>vatu Vanuatu</displayName>
+				<symbol>VT</symbol>
+			</currency>
+			<currency draft="true" type="WSP">
+				<displayName>funt samoański</displayName>
+				<symbol>WSP</symbol>
+			</currency>
+			<currency draft="true" type="WST">
+				<displayName>tala samoańska</displayName>
+				<symbol>WST</symbol>
+			</currency>
+			<currency draft="true" type="XAD">
+				<displayName>jednostla dinar rozliczeniowy azjatycki</displayName>
+				<symbol>XAD</symbol>
+			</currency>
+			<currency draft="true" type="XAF">
+				<displayName>frank CFA BEAC</displayName>
+				<symbol>XAF</symbol>
+			</currency>
+			<currency draft="true" type="XAM">
+				<displayName>jednostka monetarna azjatycka</displayName>
+				<symbol>XAM</symbol>
+			</currency>
+			<currency draft="true" type="XAU">
+				<displayName>złoto</displayName>
+				<symbol>XAU</symbol>
+			</currency>
+			<currency draft="true" type="XCD">
+				<displayName>dolar wschodniokaraibski</displayName>
+				<symbol>EC$</symbol>
+			</currency>
+			<currency draft="true" type="XCF">
+				<displayName>nowy frank CFA</displayName>
+				<symbol>XCF</symbol>
+			</currency>
+			<currency draft="true" type="XDR">
+				<displayName>specjalne prawa ciągnienia</displayName>
+				<symbol>XDR</symbol>
+			</currency>
+			<currency draft="true" type="XEF">
+				<displayName>frank CFA BCEAEC</displayName>
+				<symbol>XEF</symbol>
+			</currency>
+			<currency draft="true" type="XFO">
+				<displayName>frank złoty francuski</displayName>
+				<symbol>XFO</symbol>
+			</currency>
+			<currency draft="true" type="XFU">
+				<displayName>UIC-frank francuski</displayName>
+				<symbol>XFU</symbol>
+			</currency>
+			<currency draft="true" type="XID">
+				<displayName>dinar islamski</displayName>
+				<symbol>XID</symbol>
+			</currency>
+			<currency draft="true" type="XMF">
+				<displayName>nowy frank Metropolii Francuskiej</displayName>
+				<symbol>XMF</symbol>
+			</currency>
+			<currency draft="true" type="XNF">
+				<displayName>frank CFA Antyli Francuskich</displayName>
+				<symbol>XNF</symbol>
+			</currency>
+			<currency draft="true" type="XOF">
+				<displayName>frank CFA</displayName>
+				<symbol>XOF</symbol>
+			</currency>
+			<currency draft="true" type="XPF">
+				<displayName>frank CFP</displayName>
+				<symbol>CFPF</symbol>
+			</currency>
+			<currency draft="true" type="XTR">
+				<displayName>rubel transferowy COMECON</displayName>
+				<symbol>XTR</symbol>
+			</currency>
+			<currency draft="true" type="YDD">
+				<displayName>dinar jemeński</displayName>
+				<symbol>YDD</symbol>
+			</currency>
+			<currency draft="true" type="YEI">
+				<displayName>riyal Imadi jemeński</displayName>
+				<symbol>YEI</symbol>
+			</currency>
+			<currency draft="true" type="YER">
+				<displayName>rial jemeński</displayName>
+				<symbol>YRl</symbol>
+			</currency>
+			<currency draft="true" type="YUD">
+				<displayName>dinar jugosławiański wymienny</displayName>
+				<symbol>YUD</symbol>
+			</currency>
+			<currency draft="true" type="YUF">
+				<displayName>dinar Federacji jugosławiańskiej</displayName>
+				<symbol>YUF</symbol>
+			</currency>
+			<currency draft="true" type="YUG">
+				<displayName>dinar jugosławiański 1994</displayName>
+				<symbol>YUG</symbol>
+			</currency>
+			<currency draft="true" type="YUM">
+				<displayName>nowy dinar jugosławiański</displayName>
+				<symbol>YUM</symbol>
+			</currency>
+			<currency draft="true" type="YUN">
+				<displayName>dinar jugosławiański wymienny</displayName>
+				<symbol>YUN</symbol>
+			</currency>
+			<currency draft="true" type="YUO">
+				<displayName>dinar październikowy jugosławiański</displayName>
+				<symbol>YUO</symbol>
+			</currency>
+			<currency draft="true" type="YUR">
+				<displayName>dinar reformowany jugosławiański</displayName>
+				<symbol>YUR</symbol>
+			</currency>
+			<currency draft="true" type="ZAL">
+				<displayName>rand południowoafrykański (finansowy)</displayName>
+				<symbol>ZAL</symbol>
+			</currency>
+			<currency draft="true" type="ZAP">
+				<displayName>funt południowoafrykański</displayName>
+				<symbol>ZAP</symbol>
+			</currency>
+			<currency draft="true" type="ZAR">
+				<displayName>rand południowoafrykański</displayName>
+				<symbol>R</symbol>
+			</currency>
+			<currency draft="true" type="ZMK">
+				<displayName>kwacha zambijska</displayName>
+				<symbol>ZMK</symbol>
+			</currency>
+			<currency draft="true" type="ZMP">
+				<displayName>funt zambijski</displayName>
+				<symbol>ZMP</symbol>
+			</currency>
+			<currency draft="true" type="ZRN">
+				<displayName>nowy zair zairski</displayName>
+				<symbol>ZRN</symbol>
+			</currency>
+			<currency draft="true" type="ZRZ">
+				<displayName>zair zairski</displayName>
+				<symbol>ZRZ</symbol>
+			</currency>
+			<currency draft="true" type="ZWD">
+				<displayName>dolar Zimbabwe</displayName>
+				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>

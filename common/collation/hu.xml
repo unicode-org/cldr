@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-12-17" />
+		<language type="hu" /> 
+	</identity>
+	<collations version="3.1.1">
+		<collation type="standard" >
+			<rules>
+				<reset>C</reset>
+				<p>cs</p>
+				<t>Cs</t>
+				<t>CS</t>
+				<reset>D</reset>
+				<p>dz</p>
+				<t>Dz</t>
+				<t>DZ</t>
+				<reset>DZ</reset>
+				<p>dzs</p>
+				<t>Dzs</t>
+				<t>DZS</t>
+				<reset>G</reset>
+				<p>gy</p>
+				<t>Gy</t>
+				<t>GY</t>
+				<reset>L</reset>
+				<p>ly</p>
+				<t>Ly</t>
+				<t>LY</t>
+				<reset>N</reset>
+				<p>ny</p>
+				<t>Ny</t>
+				<t>NY</t>
+				<reset>S</reset>
+				<p>sz</p>
+				<t>Sz</t>
+				<t>SZ</t>
+				<reset>T</reset>
+				<p>ty</p>
+				<t>Ty</t>
+				<t>TY</t>
+				<reset>Z</reset>
+				<p>zs</p>
+				<t>Zs</t>
+				<t>ZS</t>
+				<reset>O</reset>
+				<p>ö</p>
+				<t>Ö</t>
+				<s>ő</s>
+				<t>Ő</t>
+				<reset>U</reset>
+				<p>ü</p>
+				<t>Ü</t>
+				<s>ű</s>
+				<t>Ű</t>
+				<reset>cs</reset>
+				<x><p>ccs</p><extend>cs</extend></x>
+				<reset>Cs</reset>
+				<x><p>Ccs</p><extend>cs</extend></x>
+				<reset>CS</reset>
+				<x><p>CCS</p><extend>CS</extend></x>
+				<reset>dz</reset>
+				<x><p>ddz</p><extend>dz</extend></x>
+				<reset>Dz</reset>
+				<x><p>Ddz</p><extend>dz</extend></x>
+				<reset>DZ</reset>
+				<x><p>DDZ</p><extend>DZ</extend></x>
+				<reset>dzs</reset>
+				<x><p>ddzs</p><extend>dzs</extend></x>
+				<reset>Dzs</reset>
+				<x><p>Ddzs</p><extend>dzs</extend></x>
+				<reset>DZS</reset>
+				<x><p>DDZS</p><extend>DZS</extend></x>
+				<reset>gy</reset>
+				<x><p>ggy</p><extend>gy</extend></x>
+				<reset>Gy</reset>
+				<x><p>Ggy</p><extend>gy</extend></x>
+				<reset>GY</reset>
+				<x><p>GGY</p><extend>GY</extend></x>
+				<reset>ly</reset>
+				<x><p>lly</p><extend>ly</extend></x>
+				<reset>Ly</reset>
+				<x><p>Lly</p><extend>ly</extend></x>
+				<reset>LY</reset>
+				<x><p>LLY</p><extend>LY</extend></x>
+				<reset>ny</reset>
+				<x><p>nny</p><extend>ny</extend></x>
+				<reset>Ny</reset>
+				<x><p>Nny</p><extend>ny</extend></x>
+				<reset>NY</reset>
+				<x><p>NNY</p><extend>NY</extend></x>
+				<reset>sz</reset>
+				<x><p>ssz</p><extend>sz</extend></x>
+				<reset>Sz</reset>
+				<x><p>Ssz</p><extend>sz</extend></x>
+				<reset>SZ</reset>
+				<x><p>SSZ</p><extend>SZ</extend></x>
+				<reset>ty</reset>
+				<x><p>tty</p><extend>ty</extend></x>
+				<reset>Ty</reset>
+				<x><p>Tty</p><extend>ty</extend></x>
+				<reset>TY</reset>
+				<x><p>TTY</p><extend>TY</extend></x>
+				<reset>zs</reset>
+				<x><p>zzs</p><extend>zs</extend></x>
+				<reset>Zs</reset>
+				<x><p>Zzs</p><extend>zs</extend></x>
+				<reset>ZS</reset>
+				<x><p>ZZS</p><extend>ZS</extend></x>
+			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="2.0" />
+		</collation  >
+	</collations >
+</ldml>

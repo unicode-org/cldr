@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-12-17" />
+		<language type="tr" /> 
+	</identity>
+	<collations version="3.1.1">
+		<collation type="standard" >
+			<rules>
+				<reset>C</reset>
+				<p>ç</p>
+				<t>Ç</t>
+				<reset>G</reset>
+				<p>ğ</p>
+				<t>Ğ</t>
+				<reset before="primary">i</reset>
+				<p>ı</p>
+				<t>I</t>
+				<reset>i</reset>
+				<t>İ</t>
+				<reset>O</reset>
+				<p>ö</p>
+				<t>Ö</t>
+				<reset>S</reset>
+				<p>ş</p>
+				<t>Ş</t>
+				<reset>U</reset>
+				<p>ü</p>
+			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="2.1" />
+		</collation  >
+	</collations >
+</ldml>

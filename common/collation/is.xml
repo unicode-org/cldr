@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-12-17" />
+		<language type="is" /> 
+	</identity>
+	<collations version="3.1.1">
+		<collation type="standard" >
+			<rules>
+				<reset before="primary">b</reset>
+				<p>á</p>
+				<t>Á</t>
+				<reset before="primary">d</reset>
+				<s>đ</s>
+				<t>Đ</t>
+				<p>ð</p>
+				<t>Ð</t>
+				<reset before="primary">f</reset>
+				<p>é</p>
+				<t>É</t>
+				<reset before="primary">j</reset>
+				<p>í</p>
+				<t>Í</t>
+				<reset before="primary">p</reset>
+				<p>ó</p>
+				<t>Ó</t>
+				<reset before="primary">v</reset>
+				<p>ú</p>
+				<t>Ú</t>
+				<reset before="primary">z</reset>
+				<p>ý</p>
+				<t>Ý</t>
+				<reset before="primary">ʒ</reset>
+				<p>þ</p>
+				<t>Þ</t>
+				<p>æ</p>
+				<t>Æ</t>
+				<s>ä</s>
+				<t>Ä</t>
+				<p>ö</p>
+				<t>Ö</t>
+				<s>ø</s>
+				<t>Ø</t>
+				<p>å</p>
+			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="2.0" />
+		</collation  >
+	</collations >
+</ldml>

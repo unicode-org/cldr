@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-12-17" />
+		<language type="de" /> 
+	</identity>
+	<collations version="3.1.1">
+		<collation type="phonebook" >
+			<rules>
+				<reset>a</reset>
+				<x><p>æ</p><extend>e</extend></x>
+				<x><p>ä</p><extend>e</extend></x>
+				<reset>A</reset>
+				<x><p>Æ</p><extend>E</extend></x>
+				<x><p>Ä</p><extend>E</extend></x>
+				<reset>œ</reset>
+				<x><p>ö</p><extend>e</extend></x>
+				<reset>Œ</reset>
+				<x><p>Ö</p><extend>E</extend></x>
+				<reset>u</reset>
+				<x><p>ü</p><extend>e</extend></x>
+				<reset>U</reset>
+				<x><p>Ü</p><extend>E</extend></x>
+			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="2.0" />
+		</collation  >
+		<collation type="standard" >
+			<rules>
+				<reset>A</reset>
+				<x><p>Æ</p><extend>E</extend></x>
+				<reset>a</reset>
+				<x><p>æ</p><extend>e</extend></x>
+			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
+		</collation  >
+	</collations >
+</ldml>

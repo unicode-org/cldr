@@ -12,11 +12,13 @@ backup_tree()
     mv ${TREE} ${TREE}.backup1
 }
 
-mkdir ../vetting
-cd ../vetting
-backup_tree sideways
-mkdir sideways
-mkdir sideways/by_type
+cd ../diff
+backup_tree cleaned
+mkdir cleaned
+mkdir cleaned/by_type
 #MATCH="-m '.*[mM][tT].*'"
 #MATCH="-m '.*[mM][tT].*'"
-GenerateSidewaysView -z "x-cockney" -s ../common/main/ -d sideways/ -t ../../../J/icu4j/src/com/ibm/icu/dev/tool/cldr/
+GenerateSidewaysView -z "x-cockney" -s ../common/main/ -d cleaned/ -t ../../../J/icu4j/src/com/ibm/icu/dev/tool/cldr/
+set -x
+rm -f by_type/*.html
+cp cleaned/by_type/*.html by_type/

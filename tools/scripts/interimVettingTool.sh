@@ -8,6 +8,7 @@
 MATCHIT=
 #MATCHIT=ar
 #MATCHIT=fi
+COMMON=../../common
 
 write_index()
 {
@@ -71,24 +72,24 @@ compare_tree()
 {
     TREE=$1
     mkdir ${TREE}
-    for file in `cd ../common/${TREE} ; ls ${MATCHIT}*.xml | fgrep -v supplementalData`;
+    for file in `cd ${COMMON}/${TREE} ; ls ${MATCHIT}*.xml | fgrep -v supplementalData`;
       do
 #      echo ${TREE} _ ${file}
-      LDMLComparator -d ./${TREE} -vetting -common:gold ../common/${TREE}/${file}
+      LDMLComparator -d ./${TREE} -vetting -common:gold ${COMMON}/${TREE}/${file}
     done
 }
 
-if [ ! -d ../common/main ];
+mkdir -p ../diff/vetting
+cd ../diff/vetting
+if [ ! -d ${COMMON}/main ];
 then
     echo `basename $0` ":## Error: run me from locale/tools."
     exit 1
 fi
 
-mkdir ../vetting
-cd ../vetting
-echo "INFO: Starting in ../vetting"
+echo "INFO: Starting in ../diff/vetting"
 
 backup_tree main
 compare_tree main
 write_index main
-echo "INFO: Done with ../vetting"
+echo "INFO: Done with ../diff/vetting"

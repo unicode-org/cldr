@@ -131,6 +131,7 @@
 			<territory type="CN">Chiny</territory>
 			<territory type="CO">Kolumbia</territory>
 			<territory type="CR">Kostaryka</territory>
+			<territory type="CS" draft="true">Serbia i Czarnogóra</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Wyspy Zielonego Przylądka</territory>
 			<territory type="CX">Wyspa Bożego Narodzenia</territory>
@@ -280,7 +281,6 @@
 			<territory type="SM">San Marino</territory>
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somalia</territory>
-			<territory type="CS" draft="true">Serbia i Czarnogóra</territory>
 			<territory type="SR">Surinam</territory>
 			<territory type="ST">Wyspy Świętego Tomasza i Książęca</territory>
 			<territory type="SV">Salwador</territory>
@@ -444,19 +444,19 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">N</day>
-							<day alt="proposed" draft="true" type="sun">niedz.</day>
+							<day type="sun" alt="proposed" draft="true">niedz.</day>
 							<day type="mon">Pn</day>
-							<day alt="proposed" draft="true" type="mon">pon.</day>
+							<day type="mon" alt="proposed" draft="true">pon.</day>
 							<day type="tue">Wt</day>
-							<day alt="proposed" draft="true" type="tue">wt.</day>
+							<day type="tue" alt="proposed" draft="true">wt.</day>
 							<day type="wed">Śr</day>
-							<day alt="proposed" draft="true" type="wed">śr.</day>
+							<day type="wed" alt="proposed" draft="true">śr.</day>
 							<day type="thu">Cz</day>
-							<day alt="proposed" draft="true" type="thu">czw.</day>
+							<day type="thu" alt="proposed" draft="true">czw.</day>
 							<day type="fri">Pt</day>
-							<day alt="proposed" draft="true" type="fri">pt.</day>
+							<day type="fri" alt="proposed" draft="true">pt.</day>
 							<day type="sat">So</day>
-							<day alt="proposed" draft="true" type="sat">sob.</day>
+							<day type="sat" alt="proposed" draft="true">sob.</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">N</day>
@@ -1333,7 +1333,7 @@
 				<displayName>lir turecki</displayName>
 				<symbol>TL</symbol>
 			</currency>
-			<currency draft="true" type="TRY">
+			<currency type="TRY" draft="true">
 				<displayName>Nowa lira turecka</displayName>
 			</currency>
 			<currency type="TTD">

@@ -11,7 +11,7 @@
     All trademarks and registered trademarks mentioned herein are the property of their respective owners.
 -->
 
-<!ELEMENT ldml ( identity,(alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, special*))) >
+<!ELEMENT ldml ( identity,(alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, special*))) >
 <!ATTLIST ldml
    version          CDATA              #FIXED "1.1"
 >
@@ -116,8 +116,8 @@
 <!ATTLIST layout standard CDATA #IMPLIED >
 
 <!ELEMENT orientation ( special* ) >
-<!ATTLIST orientation characters ( left-to-right | right-to-left ) "left-to-right" >
-<!ATTLIST orientation lines ( top-to-bottom | bottom-to-top ) "top-to-bottom" >
+<!ATTLIST orientation characters ( left-to-right | right-to-left | top-to-bottom | bottom-to-top ) "left-to-right" >
+<!ATTLIST orientation lines ( left-to-right | right-to-left | top-to-bottom | bottom-to-top ) "top-to-bottom" >
 <!ATTLIST orientation draft ( true | false ) #IMPLIED >
 <!ATTLIST orientation standard CDATA #IMPLIED >
 
@@ -505,7 +505,18 @@
 <!ELEMENT first_trailing EMPTY >
 <!ELEMENT last_trailing EMPTY >
 
+<!ELEMENT posix (alias | (messages*, special*)) >
+<!ATTLIST posix draft ( true | false ) #IMPLIED >
 
+<!ELEMENT messages (alias | ( yesstr?, nostr?, yesexpr?, noexpr?)) >
+
+<!ELEMENT yesstr ( #PCDATA ) >
+
+<!ELEMENT nostr ( #PCDATA ) >
+
+<!ELEMENT yesexpr ( #PCDATA ) >
+
+<!ELEMENT noexpr ( #PCDATA ) >
 
 
 

@@ -33,7 +33,7 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   </tr>
   <tr>
     <td class="white" height="27"><i>Version:</i></td>
-    <td class="white" height="27"><font color="#FF0000"><b>0.8 (draft 5)</b></font></td>
+    <td class="white" height="27"><font color="#FF0000"><b>0.8 (draft 6)</b></font></td>
   </tr>
   <tr>
     <td class="white" height="27"><i>Date:</i></td>
@@ -1949,82 +1949,91 @@ not contained in the locale hierarchy, and is not overridden by locale data. It
 uses the following format, where the data is solely for illustration:</p>
 <pre class="changed">&lt;supplementalData&gt;
   &lt;currencyData&gt;
-    &lt;currency iso4217=&quot;ITL&quot;&gt;
-      &lt;fraction digits=&quot;0&quot;/&gt;
-      &lt;region iso3166=&quot;IT&quot; before=&quot;2000-01-01&quot;/&gt; &lt;!-- Italy --&gt;
-      &lt;region iso3166=&quot;IT&quot; before=&quot;2002-01-01&quot; alternate=&quot;1&quot;/&gt; &lt;!-- Italy --&gt;
-      &lt;region iso3166=&quot;ET&quot; before=&quot;1945-03-01&quot;/&gt; &lt;!-- Ethiopia --&gt;
+    &lt;fractions&gt;
+      &lt;currency iso4217=&quot;CHF&quot; rounding=&quot;5&quot;/&gt;
+      &lt;currency iso4217=&quot;ITL&quot; digits=&quot;0&quot;/&gt;
+      &lt;currency iso4217=&quot;FOO&quot; digits=&quot;0&quot; rounding=&quot;5&quot;/&gt;
+    &lt;/fractions&gt;
+    &lt;region iso3166=&quot;IT&quot;&gt; &lt;!-- Italy --&gt;
+      &lt;currency iso4217=&quot;EUR&quot;/&gt;
+      &lt;currency iso4217=&quot;EUR&quot; before=&quot;2002-01-01&quot;&gt;
+        &lt;alternate iso4217=&quot;ITL&quot;/&gt;
+      &lt;/currency&gt;
+      &lt;currency iso4217=&quot;ITL&quot; before=&quot;2000-01-01&quot;/&gt;
+    &lt;/region&gt;
+    &lt;region iso3166=&quot;ET&quot;&gt; &lt;!-- Ethiopia --&gt;
        ...
-    &lt;/currency&gt;
-    &lt;currency iso4217=&quot;EUR&quot;&gt;
-      &lt;region iso3166=&quot;IT&quot;/&gt; &lt;!-- Italy --&gt;
-      &lt;region iso3166=&quot;DE&quot;/&gt; &lt;!-- Germany --&gt;
+      &lt;region iso4217=&quot;ITL&quot; before=&quot;1945-03-01&quot;/&gt; 
+    &lt;/region&gt;
+    &lt;region iso3166=&quot;DE&quot;&gt; &lt;!-- Germany --&gt;
+      &lt;currency iso4217=&quot;EUR&quot;/&gt;
        ...
-    &lt;/currency&gt;
-    &lt;currency iso4217=&quot;USD&quot;&gt;
-      &lt;region iso3166=&quot;US&quot;/&gt; &lt;!-- USA --&gt;
-      &lt;region iso3166=&quot;EC&quot;/&gt; &lt;!-- Ecuador --&gt;
+    &lt;/region&gt;
+    &lt;region iso3166=&quot;US&quot;&gt; &lt;!-- USA --&gt;
+      &lt;currency iso4217=&quot;USD&quot;/&gt;
+    &lt;/region&gt;
+    &lt;region iso3166=&quot;EC&quot;&gt; &lt;!-- Ecuador --&gt;
+      &lt;currency iso4217=&quot;USD&quot;/&gt;
+      &lt;currency iso4217=&quot;ECS&quot; before=&quot;2000-01-01&quot;/&gt;
        ...
-    &lt;/currency&gt;
-    &lt;currency iso4217=&quot;CHF&quot;&gt;
-      &lt;rounding increment=&quot;5&quot;/&gt;
-      &lt;region iso3166=&quot;CH&quot;/&gt; &lt;!-- Switzerland --&gt;
-    &lt;/currency&gt;
-    &lt;currency iso4217=&quot;ECS&quot;&gt;
-      &lt;region iso3166=&quot;EC&quot; before=&quot;2000-01-01&quot;/&gt; &lt;!-- Ecuador --&gt;
-    &lt;/currency&gt;
+    &lt;/region&gt;
+    &lt;region iso3166=&quot;CH&quot;&gt; &lt;!-- Switzerland --&gt;
+      &lt;currency iso4217=&quot;CHF&quot;/&gt;
+    &lt;/region&gt;
   &lt;/currencyData&gt;
 &lt;/supplementalData&gt;</pre>
-<p class="changed"><b>Open Issue:</b> we may want to invert the above structure, 
-so that regions are at the top level, with currency within. If we did that, we 
-would need a separate table that mapped from currency to fraction/rounding 
-behavior.</p>
-<p class="changed">The only data currently represented is currency data. The 
-attributes are:</p>
+<p class="changed">The only data currently represented is currency data. Each 
+currencyData element contains one fractions element followed by one or more 
+region elements. The fractions element contains any number of currency elements, 
+with the following attributes: </p>
 <ul>
   <li>
-    <p class="changed"><b>currency iso4217: </b>the ISO 4217 code for the 
-    currency in question</li>
+    <p class="changed"><b>iso4217: </b>the ISO 4217 code for the currency in 
+    question. If a particular currency does not occur in the fractions list, 
+    then it is given the defaults listed for the next two attributes.</li>
   <li>
-    <p class="changed"><b>region iso3166:</b> the ISO 3166 code for the region 
-    in question. The special value <i>none</i> can be used to indicate that the 
-    region has no valid currency (usually used in conjunction with <i>before</i>, 
-    as described below).</li>
+    <p class="changed"><b>digits: </b>the number of decimal digits normally 
+    formatted. The default is 2.</li>
   <li>
-    <p class="changed"><b>fraction digits: </b>the number of decimal digits 
-    normally formatted. The default is 2.</li>
+    <p class="changed"><b>rounding: </b>the rounding increment, in units of 10<sup>-digits</sup>. 
+    The default is 1. Thus with fraction digits of 2 and rounding increment of 
+    5, numeric values are rounded to the nearest 0.05 units in formatting. With 
+    fraction digits of 0 and rounding increment of 50, numeric values are 
+    rounded to the nearest 50.</li>
+</ul>
+<p class="changed">Each region element contains one attribute:</p>
+<ul>
   <li>
-    <p class="changed"><b>rounding increment: </b>the rounding value, in units 
-    of 10<sup>-fraction digits</sup>. Thus with fraction digits of 2, and 
-    rounding increment of 5, then numeric values are rounded to the nearest 0.05 
-    units in formatting.</li>
+    <p class="changed"><b>iso3166:</b> the ISO 3166 code for the region in 
+    question. The special value <i>XXX</i> can be used to indicate that the 
+    region has no valid currency or that the circumstances are unknown (usually 
+    used in conjunction with <i>before</i>, as described below).</li>
+</ul>
+<p class="changed">And can have any number of currency elements, with the 
+following attributes. (Each currency element can also contain zero or more 
+alternate elements. These are a list of alternate currencies, in preference 
+order.)</p>
+<ul>
   <li>
-    <p class="changed"><b>region alternate:</b> the default is zero, indicating 
-    that the currency is the preferred currency in the region at that time. Any 
-    other numeric value indicates that the currency was valid, but was not the 
-    preferred currency.</li>
+    <p class="changed"><b>iso4217: </b>the ISO 4217 code for the currency in 
+    question</li>
   <li>
-    <p class="changed"><b>region before: </b>the currency was valid up to the 
-    datetime indicated by the value of before. The datetime is defined as in XML 
-    Schema.</li>
+    <p class="changed"><b>before: </b>the currency was valid up to the datetime 
+    indicated by the value of <i>before</i>. The datetime is defined as in XML 
+    Schema. The before values are resolved as described below.</li>
 </ul>
 <p class="changed">Each <i>before</i> value governs the time up to the previous <i>before</i> 
-value for the same region. That is, suppose that we have the following data for 
-the region code <i>R</i>.</p>
-<pre class="changed">  &lt;currency iso4217=&quot;C1&quot;&gt;
-    &lt;region iso3166=&quot;R&quot;&gt;
-  &lt;/currency&gt;
-  &lt;currency iso4217=&quot;C2&quot;&gt;
-    &lt;region iso3166=&quot;R&quot; before=&quot;1942&quot;&gt;
-  &lt;/currency&gt;
-  &lt;currency iso4217=&quot;C3&quot;&gt;
-    &lt;region iso3166=&quot;R&quot; before=&quot;1927&quot;&gt;
-  &lt;/currency&gt;
-  &lt;currency iso4217=&quot;none&quot;&gt;
-    &lt;region iso3166=&quot;R&quot; before=&quot;1937-02-13&quot;&gt;
-  &lt;/currency&gt;</pre>
-<p class="changed">This results in the following mapping for region <i>R</i>, 
-using a set of half-open intervals:</p>
+value. That is, suppose that we have the following data for the region code <i>R</i>.</p>
+<pre class="changed">  &lt;region iso3166=&quot;R&quot;&gt;
+    &lt;currency iso4217=&quot;C01&quot; before=&quot;1942&quot;/&gt;
+    &lt;currency iso4217=&quot;C02&quot;/&gt;
+    &lt;currency iso4217=&quot;C03&quot; before=&quot;1927&quot;/&gt;
+    &lt;currency iso4217=&quot;none&quot; before=&quot;1937-02-13&quot;/&gt;
+  &lt;/region&gt;</pre>
+<p class="changed">Logically, the currency elements are treated in sorted order, 
+according to the <i>before</i> value. If default value for the before element is 
+logically +∞. This results in the following mapping for region <i>R</i>, using 
+a set of half-open intervals:</p>
 <table border="1">
   <tr>
     <th>
@@ -2036,7 +2045,7 @@ using a set of half-open intervals:</p>
   </tr>
   <tr>
     <td align="center">
-      <p class="changed">C1</p>
+      <p class="changed">C02</p>
     </td>
     <td align="right">
       <p class="changed">1942-01-01 00:00:00 GMT</p>
@@ -2045,12 +2054,12 @@ using a set of half-open intervals:</p>
       <p class="changed">≤ t ≤</p>
     </td>
     <td>
-      <p class="changed">∞</p>
+      <p class="changed">+∞</p>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <p class="changed">C2</p>
+      <p class="changed">C01</p>
     </td>
     <td align="right">
       <p class="changed">1937-02-13 00:00:00 GMT</p>
@@ -2064,7 +2073,7 @@ using a set of half-open intervals:</p>
   </tr>
   <tr>
     <td align="center">
-      <p class="changed">C3</p>
+      <p class="changed">C03</p>
     </td>
     <td align="right">
       <p class="changed">1927-01-01 00:00:00 GMT</p>
@@ -2078,7 +2087,7 @@ using a set of half-open intervals:</p>
   </tr>
   <tr>
     <td align="center">
-      <p class="changed"><i>none</i></p>
+      <p class="changed"><i>XXX</i></p>
     </td>
     <td align="right">
       <p class="changed">-∞</p>
@@ -2091,8 +2100,6 @@ using a set of half-open intervals:</p>
     </td>
   </tr>
 </table>
-<p class="changed">For the purpose of determining such ranges, each distinct 
-pair &lt;region, alternate_value&gt; results in a different mapping table.</p>
 
 </body>
 

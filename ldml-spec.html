@@ -33,7 +33,7 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   </tr>
   <tr>
     <td class="white"><i>Version:</i></td>
-    <td class="white">7</td>
+    <td class="white"><font color="#FF0000"><b>8 (draft!)</b></font></td>
   </tr>
   <tr>
     <td class="white"><i>Date:</i></td>
@@ -337,8 +337,9 @@ Nynorsk) locale IDs.</p>
 </table>
 <p class="note">Note: For information on the process for adding additional
 variants or element/type pairs, see <a href="http://oss.software.ibm.com/icu/locale/">http://oss.software.ibm.com/icu/locale/</a>.</p>
-<p class="note">Open issue: should we consider changing language_code to <a href="http://www.ietf.org/rfc/rfc3066.txt">RFC
-3066</a> instead of <a href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_639.html">ISO-639</a>?</p>
+<p class="note">Open issue: we are considering changing the language_code to <a href="http://www.ietf.org/rfc/rfc3066.txt">RFC
+3066</a> instead of <a href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_639.html">ISO-639</a>?
+However, we must resolve some issues with it first.</p>
 <h2><a name="Locale_Inheritance">Locale Inheritance</a></h2>
 <p>The XML format relies on an inheritance model, whereby the resources are
 collected into <i>bundles</i>, and the bundles organized into a tree. Data for
@@ -398,15 +399,16 @@ source of the data. For example, for <i>openoffice.org</i> the current version
 version at the time of this writing would be 2.2. The transformed options are
 the &lt;options&gt; from the <a href="#Locale_IDs">Locale ID</a> with the
 &quot;@&quot; removed, and &quot;,&quot; converted to &quot;&amp;&quot;.</p>
-<p><i>Example, where base = http://oss.software.ibm.com/cgi-bin/icu/locale/ and
-platform = icu</i></p>
+<p><i>Example, where base = http://openi18n.org/locale and platform = icu</i></p>
 <blockquote>
-  <p><a href="http://oss.software.ibm.com/cgi-bin/icu/locale/icu/de_DE.xml?version=2.2&amp;collation=phonebook&amp;currency=pre-euro">http://oss.software.ibm.com/cgi-bin/icu/locale/icu/de_DE.xml?version=2.2&amp;collation=phonebook&amp;currency=pre-euro</a></p>
+  <p><a href="http://openi18n.org/locale/icu/de_DE.xml?version=2.2&amp;collation=phonebook">http://openi18n.org/locale/icu/de_DE.xml?version=2.2&amp;collation=phonebook</a>
+  </p>
 </blockquote>
 <p>At this point in time, there is not a mechanism for querying the base to
 determine which platforms, which versions of each platform, and which locales in
 the version are supported. In the future there will be more information,
-accessible at <a href="http://oss.software.ibm.com/icu/locale/">http://oss.software.ibm.com/icu/locale/</a>.</p>
+accessible at <a href="http://www.openi18n.org/subgroups/lade/locale/">http://www.openi18n.org/subgroups/lade/locale/</a>
+</p>
 <h2><a name="XML_Format">XML Format</a></h2>
 <p>The following sections describe the structure of the XML format for locale
 data. To start with, the root element is &lt;localeData&gt;. That element
@@ -536,6 +538,24 @@ referenced by a default element. For example:</p>
 &lt;/localeData&gt;</pre>
 <p>If there is no type attribute present, then the value is assumed to be
 &quot;standard&quot;.</p>
+<p class="element2">&lt;... draft=&quot;true&quot; ...&gt;</p>
+<p>If this attribute is present, it indicates the status of all the data in this
+element and any subelements (unless they have a contrary <i>draft</i> value).</p>
+<ul>
+  <li><i>true</i> meaning that it is all draft status (provisional data, not
+    verified)</li>
+  <li><i>false</i> indicating the reverse.</li>
+</ul>
+<p class="element2">&lt;... standard=&quot;...&quot; ...&gt;</p>
+<p>The value of this list is a list of strings representing standards:
+international, national, organization, or vendor standards. The presence of this
+attribute indicates that the data in this element is compliant with the
+indicated standards. Where possible, for uniqueness, the string should be a URL
+that represents that standard. The strings are separated by commas; leading or
+trailing spaces on each string are not significant. Examples:</p>
+<p><code>&lt;collation &#11; standard=”MSA 200:2002”&gt;<br>
+&lt;dateFormatStyle standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;ICS1=1&amp;ICS2=140&amp;ICS3=30”&gt;</code></p>
+<p></p>
 <hr width="50%">
 <h3><a name="&lt;identity&gt;">&lt;identity&gt;</a></h3>
 <p>The identity element contains information identifying the target locale for
@@ -707,7 +727,7 @@ numbers to the users, one would convert from millimeters to the customary units.
   &lt;width&gt;216&lt;/width&gt;
   &lt;units&gt;mm&lt;/units&gt;
 &lt;/paperSize&gt;</pre>
-<h3><a name="&lt;dates&gt;">&lt;dates&gt;</a></h3>
+<h3><a name="&lt;dates&gt;">&lt;date&gt;</a></h3>
 <p>This top-level element contains information regarding the format and parsing
 of dates and times. The data is based on the Java/ICU format. Most of these are
 fairly self-explanatory, except <i>minDays</i> and <i>localizedPatternChars</i>.
@@ -781,17 +801,23 @@ the differing data will be present.</p>
     &lt;/eras&gt;
 
     &lt;dateFormats&gt;
-      &lt;default type=&quot;medium&quot;/&gt;
-      &lt;dateFormat type=&quot;medium&quot;&gt;
-        &lt;pattern&gt;MM d, yyyy &lt;/pattern&gt;
-        &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
-      &lt;/dateFormat&gt;
-      &lt;dateFormat type=&quot;full&quot;&gt;
-        &lt;pattern&gt;EEEE, MMMM d, yyyy&lt;/pattern&gt;
-          &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
-      &lt;/dateFormat&gt;
-     &lt;/dateFormats&gt;
-     &lt;timeFormats&gt;
+      &lt;default type=”medium”/&gt;
+      &lt;dateFormatStyle type=”full”&gt;
+        &lt;dateFormat&gt;
+          &lt;pattern&gt;EEEE, MMMM d, yyyy&lt;/pattern&gt;
+        &lt;/dateFormat&gt;
+       &lt;/dateFormatStyle&gt;
+     &lt;dateFormatStyle type=&quot;medium&quot;&gt;
+       &lt;default type=&quot;DateFormatsKey2&quot;&gt;
+       &lt;dateFormat type=&quot;DateFormatsKey2&quot;&gt;
+        &lt;pattern&gt;MMM d, yyyy&lt;/pattern&gt;
+       &lt;/dateFormat&gt;
+       &lt;dateFormat type=&quot;DateFormatsKey3&quot;&gt;
+         &lt;pattern&gt;MMM dd, yyyy&lt;/pattern&gt;
+        &lt;/dateFormat&gt;
+      &lt;/dateFormatStyle&gt;
+    &lt;dateFormats&gt;</pre>
+<pre>     &lt;timeFormats&gt;
        &lt;default type=&quot;medium&quot;/&gt;
        &lt;timeFormat type=&quot;full&quot;&gt;
          &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
@@ -813,7 +839,7 @@ the differing data will be present.</p>
   &lt;/calendar&gt;
 </pre>
 <p class="element2"><a name="&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></p>
-<p>The timezone IDs are language-independent, and follow the <a href="ftp://elsie.nci.nih.gov/pub/">Olsen
+<p>The timezone IDs are language-independent, and follow the <a href="ftp://elsie.nci.nih.gov/pub/">Olson
 data</a>. However, the display names for those IDs can vary by locale. The
 generic time is so-called wall-time; what clocks use when they are correctly
 switched from standard to daylight time at the mandated time of the year.</p>
@@ -839,6 +865,39 @@ switched from standard to daylight time at the mandated time of the year.</p>
     &lt;/long&gt;
     &lt;exemplarCity&gt;York&lt;/exemplarCity&gt;
 &lt;/zone&gt;</pre>
+<p class="note"><b>Note: </b>Transmitting &quot;14:30&quot; with no other
+context is incomplete unless it contains information about the time zone.
+Ideally one would transmit neutral-format date/time information, commonly in
+UTC, and localize as close to the user as possible. (For more about UTC, see <a href="http://www.boulder.nist.gov/timefreq/">NIST
+Time and Frequency Division Home Page</a>,&nbsp; <a href="http://aa.usno.navy.mil/AA/faq/docs/UT.html">U.S.
+Naval Observatory: What is Universal Time?</a>.)</p>
+<p class="note">The conversion from local time into UTC depends on the
+particular time zone rules, which will vary by location. The standard data used
+for converting local time (sometimes called <i>wall time</i>) to UTC and back is
+the <a href="ftp://elsie.nci.nih.gov/pub/">Olson data</a>, used by UNIX, Java,
+ICU, and others. The data includes rules for matching the laws for time changes
+in different countries. For example, for the US it is:</p>
+<blockquote>
+  <p class="note">&quot;During the period commencing at 2 o'clock antemeridian
+  on the first Sunday of April of each year and ending at 2 o'clock antemeridian
+  on the last Sunday of October of each year, the standard time of each zone
+  established by sections 261 to 264 of this title, as modified by section 265
+  of this title, shall be advanced one hour...&quot; (United States Law - 15
+  U.S.C. §6(IX)(260-7)).</p>
+</blockquote>
+<p class="note">Each region that has a different timezone or daylight savings
+time rules, either now or at any time in the past, is given a unique internal
+ID, such as <code>Europe/Paris</code>. As with currency codes, these are
+internal codes that should be localized if exposed to a user (such as in the
+Windows<i> Control Panels&gt;Date/Time&gt;Time Zone</i>).</p>
+<p class="note">Unfortunately, laws change over time, and will continue to
+change in the future, both for the boundaries of timezone regions and the rules
+for daylight savings. Thus the Olson data is continually being augmented. Any
+two implementations using the same version of the Olsen data will get the same
+results for the same IDs (assuming a correct implementation). However, if
+implementations use different versions of the data they may get different
+results. So if precise results are required then both the Olson ID and the Olson
+data version must be transmitted between the different implementations.</p>
 <h3><a name="&lt;numbers&gt;">&lt;numbers&gt;</a></h3>
 <p>The numbers element supplies information for formatting and parsing numbers
 and currencies. It has three sub-elements: &lt;symbols&gt;, &lt;numbers&gt;, and
@@ -882,7 +941,6 @@ Explorer</a> (pick the locale and scroll to &quot;Number Patterns&quot;).</p>
   &lt;/numberFormat&gt;
 &lt;/numberFormat&gt;</pre>
 <pre><a name="&lt;currencies&gt;">&lt;currencies&gt;</a>
-    &lt;default type=&quot;USD&quot;/&gt;
     &lt;currency type=&quot;USD&quot;&gt;
         &lt;displayName&gt;dollar&lt;/displayName&gt;
         &lt;symbol&gt;$&lt;/symbol&gt;
@@ -896,11 +954,37 @@ Explorer</a> (pick the locale and scroll to &quot;Number Patterns&quot;).</p>
 need to be included. All others are inherited from the number format symbols.
 Any of these (decimal, grouping, etc) can be overridden for any particular
 currency, such as the following (pre-Euro Portuguese currency):</p>
-<pre>    &lt;currency type =&quot;PTE&quot;&gt;
+<pre>    &lt;currency type=&quot;PTE&quot;&gt;
         &lt;displayName&gt;escudo&lt;/displayName&gt;
         &lt;symbol&gt;Esc.&lt;/symbol&gt;
         &lt;decimal&gt;$&lt;/decimal&gt;
     &lt;/currency&gt;</pre>
+<p class="note"><b>Note: </b>locale data contains localization information for
+currencies, not a currency value for a country. There is some confusion over the
+use of currencies that should be addressed. A currency amount logically consists
+of a numeric value, plus an accompanying <a class="btmlink" href="http://www.bsi-global.com/Portfolio+of+Products+and+Services/Books+Guides/Consumer/th42090.xalter">ISO
+4217</a> currency code (or equivalent). The currency code may be implicit in a
+protocol, such as where USD is implicit. But if the raw numeric value is
+transmitted without any context, then it has no definitive interpretation.</p>
+<p class="note">Notice that the currency code is completely independent of the
+end-user's language or locale. For example, RUR is the code for Russian Rubles.
+A currency amount of &lt;RUR, 1.23457×10³&gt; would be localized for a Russian
+user into &quot;1&nbsp;234,57&#1088;.&quot; (using U+0440 (&#1088;) <span style="FONT-VARIANT: small-caps">cyrillic
+small letter er</span>). For an English user it would be localized into the
+string &quot;Rub 1,234.57&quot; The end-user's language is needed for doing this
+last localization step; but that language is completely orthogonal to the
+currency code needed in the data. After all, the same English user could be
+working with dozens of currencies. (See for example: <a href="http://www-124.ibm.com/icu/dropbox/nsdsa.phdnswc.navy.mil/mspecs/docs/styleman2000/chapter_txt-17.html#17t6">NSDSA
+Currency Table</a> and <a href="http://www.unece.org/etrades/unedocs/repository/codelists/xml/CurrencyCodeList.xml">UNECE
+Currency Data</a>.) Notice also that the currency code is also independent of
+whether currency values are inter-converted, which requires more interesting
+financial processing: the rate of conversion may depend on a variety of factors.</p>
+<p class="note">Thus logically speaking, once a currency amount is entered into
+a system, it should be logically accompanied by a currency code in all
+processing. This currency code is independent of whatever the user's original
+locale was. Only in badly-designed software is the currency code (or equivalent)
+not present, so that the software has to &quot;guess&quot; at the currency code
+based on the user's locale.</p>
 <p class="note"><b>Note: </b>The number of decimal places <b>and</b> the
 rounding for each currency is not locale-specific data, and is not contained in
 the localeData format. Those values override whatever is given in the currency
@@ -932,7 +1016,8 @@ actual weights used in any particular UCA table. That way the same rules can be
 applied to UCA versions over time, even if the underlying weights change. The
 following describes the overall document structure of a collation:</p>
 <p><code><a name="&lt;collation&gt;">&lt;collation&gt;</a><br>
-&nbsp;&lt;special owner="http://oss.software.ibm.com/icu/" version="1.2" /&gt;<br> 
+&nbsp;&lt;special owner=&quot;http://oss.software.ibm.com/icu/&quot;
+version=&quot;1.2&quot; /&gt;<br>
 &nbsp;&lt;uca version='3.1.1'&gt;<br>
 &nbsp;&lt;settings caseLevel=&quot;on&quot;/&gt;<br>
 &nbsp;&lt;rules&gt;<br>
@@ -1168,7 +1253,7 @@ e.g.</p>
       <th>Description</th>
     </tr>
     <tr>
-      <td><code>&amp; k <br>
+      <td><code>&amp; k<br>
         &lt; ch</code></td>
       <td><code>&lt;reset&gt;k&lt;reset&gt;<br>
         &lt;p&gt;ch&lt;/p&gt;</code></td>
@@ -1192,7 +1277,7 @@ be a contraction).</p>
       <th>Description</th>
     </tr>
     <tr>
-      <td><code>&amp; ch <br>
+      <td><code>&amp; ch<br>
         &lt; k</code></td>
       <td><code>&lt;reset&gt;ch&lt;/reset&gt;<br>
         &lt;p&gt;k&lt;/p&gt;</code></td>

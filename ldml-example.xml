@@ -20,7 +20,7 @@ For example, most country locales will inherit the bulk of their data from the l
         <version number="1.1">Various notes and changes in version 1.1</version>
         <!-- Two letter codes, if available; otherwise 3-letter codes.If both exist, a separate database contains the mapping. -->
         <language type="en"/>
-        <country type="US"/>
+        <territory type="US"/>
 
         <!-- Only one variant allowed for now -->
         <variant type="B"/>
@@ -139,7 +139,7 @@ For example, most country locales will inherit the bulk of their data from the l
                   <month type="11">Nov</month>
                   <month type="12">Dec</month>
               </monthAbbr>
-  
+
               <dayNames>
                   <day type="sun">Sunday</day>
                   <day type="mon">Monday</day>
@@ -166,7 +166,7 @@ For example, most country locales will inherit the bulk of their data from the l
               </week>
               <am>AM</am>
               <pm>PM</pm>
-  
+
                <eras>
                   <!-- Non-gregorians may have many more eras -->
                   <era type="0">BC</era>
@@ -206,7 +206,7 @@ For example, most country locales will inherit the bulk of their data from the l
                   <pattern>{0} {1}</pattern>
               </dateTimeFormat>
           </calendar>
-  
+
           <!-- The Buddhist calendar inherits month names, etc. (everything but eras) from Gregorian -->
           <calendar type="Buddhist">
               <eras>
@@ -263,62 +263,62 @@ For example, most country locales will inherit the bulk of their data from the l
         </timeZoneNames>
    </dates>
    <numbers>
-		<symbols>
-			<decimal>.</decimal>
-			<group>,</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>&#x2030;</perMille>
-			<infinity>&#x221e;</infinity>
-			<nan>&#x2639;</nan>
-		</symbols>
-		<numberFormats>
-			<default type="decimal"/>
-			<numberFormat type="decimal">
-				<pattern type="positive">#,##0.###</pattern>
-				<pattern type="negative">-#,##0.###</pattern>
-			</numberFormat>
-			<numberFormat type="percent">
-				<pattern type="positive">#,##0%</pattern>
-			</numberFormat>
-			<numberFormat type="scientific">
-				<pattern >#,##0%</pattern>
-			</numberFormat>
-			<numberFormat type="currency">
-				<pattern type="positive">&#x00a4; #,##0.00;</pattern>
-				<pattern type="negative">(&#x00a4; #,##0.00)</pattern>
-			</numberFormat>
-		</numberFormats>
-		<currencies>
-			<default type="USD"/>
-			<!-- If no decimal and group seperators are specified that implies
-				 they are inherited from symbols section above -->
-			<currency type="USD">
-				<displayName>dollar</displayName>
-				<symbol>$</symbol>
-			</currency>
-			<currency id ="JPY">
-				<displayName>yen</displayName>
-				<symbol>&#x00A5;</symbol>
-			</currency>
-			<currency id ="PTE">
-				<displayName>escudo</displayName>
-				<symbol>Esc.</symbol>
-				<decimal>$</decimal>
-			</currency>
-		</currencies>
+        <symbols>
+            <decimal>.</decimal>
+            <group>,</group>
+            <list>;</list>
+            <percentSign>%</percentSign>
+            <nativeZeroDigit>0</nativeZeroDigit>
+            <patternDigit>#</patternDigit>
+            <plusSign>+</plusSign>
+            <minusSign>-</minusSign>
+            <exponential>E</exponential>
+            <perMille>&#x2030;</perMille>
+            <infinity>&#x221e;</infinity>
+            <nan>&#x2639;</nan>
+        </symbols>
+        <numberFormats>
+            <default type="decimal"/>
+            <numberFormat type="decimal">
+                <pattern type="positive">#,##0.###</pattern>
+                <pattern type="negative">-#,##0.###</pattern>
+            </numberFormat>
+            <numberFormat type="percent">
+                <pattern type="positive">#,##0%</pattern>
+            </numberFormat>
+            <numberFormat type="scientific">
+                <pattern >#,##0%</pattern>
+            </numberFormat>
+            <numberFormat type="currency">
+                <pattern type="positive">&#x00a4; #,##0.00;</pattern>
+                <pattern type="negative">(&#x00a4; #,##0.00)</pattern>
+            </numberFormat>
+        </numberFormats>
+        <currencies>
+            <default type="USD"/>
+            <!-- If no decimal and group seperators are specified that implies
+                 they are inherited from symbols section above -->
+            <currency type="USD">
+                <displayName>dollar</displayName>
+                <symbol>$</symbol>
+            </currency>
+            <currency id ="JPY">
+                <displayName>yen</displayName>
+                <symbol>&#x00A5;</symbol>
+            </currency>
+            <currency id ="PTE">
+                <displayName>escudo</displayName>
+                <symbol>Esc.</symbol>
+                <decimal>$</decimal>
+            </currency>
+        </currencies>
     </numbers>
     <collations>
         <collation>
 
             <!--
             This syntax is an XMLized version of the Java/ICU syntax, used to tailor the default table.
-           
+
             Note that collation needs its own version, independent of the Locale version.
             For more information, see
             http://java.sun.com/products/jdk/1.2/docs/api/java/text/RuleBasedCollator.html
@@ -329,39 +329,39 @@ For example, most country locales will inherit the bulk of their data from the l
             French accent ordering can be specified with the accentOrder="reverse" attribute.
             The displayName attribute supplies a message pattern for getDisplayName.
             -->
-			<base UCA="3.1.1"/>
-			<settings caseLevel="on"/>
-			<rules>
-				<!-- this example takes the swedish tailoring plus part of a japanese tailoring, 
-				for illustration -->
-				<reset>Z</reset>
-				<p>&#x00E6;</p>
-				<t>&#x00C6;</t>
-				<p>a&#x030A;</p>
-				<t>A&#x030A;</t>
-				<t>aa</t>
-				<t>aA</t>
-				<t>Aa</t>
-				<t>AA</t>
-				<p>a&#x0308;</p>
-				<t>A&#x0308;</t>
-				<p>o&#x0308;</p>
-				<t>O&#x0308;</t>
-				<s>u&#x030B;</s>
-				<t>U&#x030B;</t>
-				<p>o&#x030B;</p>
-				<t>O&#x030B;</t>
-				<s>&#x00F8;</s>
-				<t>&#x00D8;</t>
-				<reset>V</reset>
-				<tc>wW</tc>
-				<reset>Y</reset>
-				<tc>&#x00FC;&#x00DC;</tc>
-				<position at="last non ignorable"/>
-				<!-- following is equivalent to <p>&#x4E9C;</p><p>&#x5516;</p><p>&#x5A03;</p>... -->
-				<pc>&#x4E9C;&#x5516;&#x5A03;&#x963F;&#x54C0;&#x611B;&#x6328;&#x59F6;&#x9022;&#x8475;&#x831C;&#x7A50;&#x60AA;&#x63E1;&#x6E25;&#x65ED;&#x8466;&#x82A6;</pc>
-				<pc>&#x9BF5;&#x6893;&#x5727;&#x65A1;&#x6271;</pc>
-			</rules>
+            <base UCA="3.1.1"/>
+            <settings caseLevel="on"/>
+            <rules>
+                <!-- this example takes the swedish tailoring plus part of a japanese tailoring,
+                for illustration -->
+                <reset>Z</reset>
+                <p>&#x00E6;</p>
+                <t>&#x00C6;</t>
+                <p>a&#x030A;</p>
+                <t>A&#x030A;</t>
+                <t>aa</t>
+                <t>aA</t>
+                <t>Aa</t>
+                <t>AA</t>
+                <p>a&#x0308;</p>
+                <t>A&#x0308;</t>
+                <p>o&#x0308;</p>
+                <t>O&#x0308;</t>
+                <s>u&#x030B;</s>
+                <t>U&#x030B;</t>
+                <p>o&#x030B;</p>
+                <t>O&#x030B;</t>
+                <s>&#x00F8;</s>
+                <t>&#x00D8;</t>
+                <reset>V</reset>
+                <tc>wW</tc>
+                <reset>Y</reset>
+                <tc>&#x00FC;&#x00DC;</tc>
+                <position at="last non ignorable"/>
+                <!-- following is equivalent to <p>&#x4E9C;</p><p>&#x5516;</p><p>&#x5A03;</p>... -->
+                <pc>&#x4E9C;&#x5516;&#x5A03;&#x963F;&#x54C0;&#x611B;&#x6328;&#x59F6;&#x9022;&#x8475;&#x831C;&#x7A50;&#x60AA;&#x63E1;&#x6E25;&#x65ED;&#x8466;&#x82A6;</pc>
+                <pc>&#x9BF5;&#x6893;&#x5727;&#x65A1;&#x6271;</pc>
+            </rules>
             <special owner="http://www.openoffice.org">
                 <default type="alphanumeric"/>
                 <collator type="alphanumeric" />
@@ -381,7 +381,7 @@ For example, most country locales will inherit the bulk of their data from the l
                 %%commas:
                     ' and =%default=;
                     100: , =%default=;
-                    1000: , 
+                    1000: ,
             </ruleBasedNumberFormat>
             <ruleBasedNumberFormat type="ordinal">
                 %main:
@@ -394,7 +394,7 @@ For example, most country locales will inherit the bulk of their data from the l
             <ruleBasedNumberFormat type="duration">
             %with-words:
                 0 seconds; 1 second; =0= seconds;
-                60/60: 
+                60/60:
             </ruleBasedNumberFormat>
         </ruleBasedNumberFormats>
         <boundaries>

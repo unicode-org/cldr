@@ -37,7 +37,8 @@
 			<language type="it">Italijanski</language>
 			<language type="ja">Japanski</language>
 			<language type="ka">Gruzijski</language>
-			<language type="km">Kmerski</language>
+			<language type="km">Kambodžanski</language> <!-- OLD remove -->
+	 <!-- VETTED --><language alt="proposed" draft="true" type="km">Kmerski</language>
 			<language type="ko">Korejski</language>
 			<language type="ku">Kurdski</language>
 			<language type="ky">Kirgiski</language>
@@ -68,7 +69,7 @@
 			<language type="yi">Jidiš</language>
 			<language type="zh">Kineski</language>
 		</languages>
-		<scripts>
+		<scripts draft="true">
 			<script type="Arab">arapsko pismo</script>
 			<script type="Armn">jermensko pismo</script>
 			<script type="Beng">bengalsko pismo</script>
@@ -92,15 +93,15 @@
 			<territory type="AD">Andora</territory>
 			<territory type="AE">Ujedinjeni Arapski Emirati</territory>
 			<territory type="AF">Avganistan</territory>
-			<territory type="AG">Antigva i Barbuda</territory>
-			<territory type="AI">Angvila</territory>
+	 <!-- VETTED --><territory draft="true" type="AG">Antigva i Barbuda</territory>
+	 <!-- VETTED --><territory draft="true" type="AI">Angvila</territory>
 			<territory type="AL">Albanija</territory>
 			<territory type="AM">Armenija</territory>
 			<territory type="AN">Holandski Antili</territory>
 			<territory type="AO">Angola</territory>
-			<territory type="AQ">Antarktika</territory>
+	 <!-- VETTED --><territory draft="true" type="AQ">Antarktika</territory>
 			<territory type="AR">Argentina</territory>
-			<territory type="AS">Američka Samoa</territory>
+	 <!-- VETTED --><territory draft="true" type="AS">Američka Samoa</territory>
 			<territory type="AT">Austrija</territory>
 			<territory type="AU">Australija</territory>
 			<territory type="AW">Aruba</territory>
@@ -120,26 +121,26 @@
 			<territory type="BR">Brazil</territory>
 			<territory type="BS">Bahami</territory>
 			<territory type="BT">Butan</territory>
-			<territory type="BV">Buve Ostrva</territory>
+	 <!-- VETTED --><territory draft="true" type="BV">Buve Ostrva</territory>
 			<territory type="BW">Bocvana</territory>
 			<territory type="BY">Belorusija</territory>
 			<territory type="BZ">Belise</territory>
 			<territory type="CA">Kanada</territory>
-			<territory type="CC">Kokos (Keling) Ostrva</territory>
-			<territory type="CD">Demokratska Republika Kongo</territory>
+	 <!-- VETTED --><territory draft="true" type="CC">Kokos (Keling) Ostrva</territory>
+	 <!-- VETTED --><territory draft="true" type="CD">Demokratska Republika Kongo</territory>
 			<territory type="CF">Centralno Afrička Republika</territory>
 			<territory type="CG">Kongo</territory>
 			<territory type="CH">Švajcarska</territory>
 			<territory type="CI">Obala Slonovače</territory>
-			<territory type="CK">Kukova Ostrva</territory>
+	 <!-- VETTED --><territory draft="true" type="CK">Kukova Ostrva</territory>
 			<territory type="CL">Čile</territory>
 			<territory type="CM">Kamerun</territory>
 			<territory type="CN">Kina</territory>
 			<territory type="CO">Kolumbija</territory>
 			<territory type="CR">Kostarika</territory>
 			<territory type="CU">Kuba</territory>
-			<territory type="CV">Kape Verde</territory>
-			<territory type="CX">Uskršnja Ostrva</territory>
+	 <!-- VETTED --><territory draft="true" type="CV">Kape Verde</territory>
+	 <!-- VETTED --><territory draft="true" type="CX">Uskršnja Ostrva</territory>
 			<territory type="CY">Kipar</territory>
 			<territory type="CZ">Češka</territory>
 			<territory type="DE">Nemačka</territory>
@@ -157,9 +158,9 @@
 			<territory type="ET">Etiopija</territory>
 			<territory type="FI">Finska</territory>
 			<territory type="FJ">Fidži</territory>
-			<territory type="FK">Folklendska Ostrva</territory>
+	 <!-- VETTED --><territory draft="true" type="FK">Folklendska Ostrva</territory>
 			<territory type="FM">Mikronezija</territory>
-			<territory type="FO">Farska Ostrva</territory>
+	 <!-- VETTED --><territory draft="true" type="FO">Farska Ostrva</territory>
 			<territory type="FR">Francuska</territory>
 			<territory type="GA">Gabon</territory>
 			<territory type="GB">Velika Britanija</territory>
@@ -168,19 +169,19 @@
 			<territory type="GF">Francuska Gvajana</territory>
 			<territory type="GH">Gana</territory>
 			<territory type="GI">Gibraltar</territory>
-			<territory type="GL">Grenland</territory>
+	 <!-- VETTED --><territory draft="true" type="GL">Grenland</territory>
 			<territory type="GM">Gambija</territory>
 			<territory type="GN">Gvineja</territory>
 			<territory type="GP">Gvadelupe</territory>
 			<territory type="GQ">Ekvatorijalna Gvineja</territory>
 			<territory type="GR">Grčka</territory>
-			<territory type="GS">Južna Džordžija i Južna Sendvič Ostrva</territory>
+	 <!-- VETTED --><territory draft="true" type="GS">Južna Džordžija i Južna Sendvič Ostrva</territory>
 			<territory type="GT">Gvatemala</territory>
 			<territory type="GU">Guam</territory>
 			<territory type="GW">Gvineja-Bisao</territory>
 			<territory type="GY">Gvajana</territory>
-			<territory type="HK">Hong Kong</territory>
-			<territory type="HM">Herd i Mekdonald Ostrva</territory>
+			<territory draft="true" type="HK">Hong Kong (S. A. R. Kina)</territory>
+	 <!-- VETTED --><territory draft="true" type="HM">Herd i Mekdonald Ostrva</territory>
 			<territory type="HN">Honduras</territory>
 			<territory type="HR">Hrvatska</territory>
 			<territory type="HT">Haiti</territory>
@@ -201,17 +202,18 @@
 			<territory type="KG">Kirgistan</territory>
 			<territory type="KH">Kambodža</territory>
 			<territory type="KI">Kiribati</territory>
-			<territory type="KM">Komorska Ostrva</territory>
-			<territory type="KN">Sent Kits i Nevis</territory>
+	 <!-- VETTED --><territory draft="true" type="KM">Komorska Ostrva</territory>
+	 <!-- VETTED --><territory draft="true" type="KN">Sent Kits i Nevis</territory>
 			<territory type="KP">Severna Koreja</territory>
 			<territory type="KR">Južna Koreja</territory>
 			<territory type="KW">Kuvajt</territory>
-			<territory type="KY">Kajmanska Ostrva</territory>
+	 <!-- VETTED --><territory draft="true" type="KY">Kajmanska Ostrva</territory>
 			<territory type="KZ">Kazahstan</territory>
 			<territory type="LA">Laos</territory>
 			<territory type="LB">Liban</territory>
-			<territory type="LC">Sent Lucija</territory>
-			<territory type="LI">Lihtenštajn</territory>
+	 <!-- VETTED --><territory draft="true" type="LC">Sent Lucija</territory>
+			<territory type="LI">Lihenštajn</territory><!-- OLD, remove -->
+	 <!-- VETTED --><territory alt="proposed" draft="true" type="LI">Lihtenštajn</territory>
 			<territory type="LK">Šrilanka</territory>
 			<territory type="LR">Liberija</territory>
 			<territory type="LS">Lesoto</territory>
@@ -223,27 +225,28 @@
 			<territory type="MC">Monako</territory>
 			<territory type="MD">Moldavija</territory>
 			<territory type="MG">Madagaskar</territory>
-			<territory type="MH">Maršalska Ostrva</territory>
+	 <!-- VETTED --><territory draft="true" type="MH">Maršalska Ostrva</territory>
 			<territory type="MK">Makedonija</territory>
 			<territory type="ML">Mali</territory>
-			<territory type="MM">Mijanmar</territory>
+			<territory type="MM">Mijnamar</territory><!-- OLD, remove -->
+	 <!-- VETTED --><territory alt="proposed" draft="true" type="MM">Mijanmar</territory>
 			<territory type="MN">Mongolija</territory>
-			<territory type="MO">Makao</territory>
-			<territory type="MP">Severna Marijanska Ostrva</territory>
+			<territory draft="true" type="MO">Makao (S. A. R. Kina)</territory>
+	 <!-- VETTED --><territory draft="true" type="MP">Severna Marijanska Ostrva</territory>
 			<territory type="MQ">Martinik</territory>
 			<territory type="MR">Mauritanija</territory>
 			<territory type="MS">Montserrat</territory>
 			<territory type="MT">Malta</territory>
 			<territory type="MU">Mauricius</territory>
-			<territory type="MV">Maldivi</territory>
-			<territory type="MW">Malavi</territory>
+	 <!-- VETTED --><territory draft="true" type="MV">Maldivi</territory>
+	 <!-- VETTED --><territory draft="true" type="MW">Malavi</territory>
 			<territory type="MX">Meksiko</territory>
 			<territory type="MY">Malezija</territory>
 			<territory type="MZ">Mozambik</territory>
 			<territory type="NA">Namibija</territory>
 			<territory type="NC">Nova Kaledonija</territory>
 			<territory type="NE">Niger</territory>
-			<territory type="NF">Norfolk Ostrvo</territory>
+	 <!-- VETTED --><territory draft="true" type="NF">Norfolk Ostrvo</territory>
 			<territory type="NG">Nigerija</territory>
 			<territory type="NI">Nikaragva</territory>
 			<territory type="NL">Holandija</territory>
@@ -260,15 +263,15 @@
 			<territory type="PH">Filipini</territory>
 			<territory type="PK">Pakistan</territory>
 			<territory type="PL">Poljska</territory>
-			<territory type="PM">Sen Pjer i Mikelon</territory>
+	 <!-- VETTED --><territory draft="true" type="PM">Sen Pjer i Mikelon</territory>
 			<territory type="PN">Pitcairn</territory>
 			<territory type="PR">Porto Riko</territory>
-			<territory type="PS">Palestinska Teritorija</territory>
+	 <!-- VETTED --><territory draft="true" type="PS">Palestinska Teritorija</territory>
 			<territory type="PT">Portugal</territory>
 			<territory type="PW">Palau</territory>
 			<territory type="PY">Paragvaj</territory>
 			<territory type="QA">Katar</territory>
-			<territory type="RE">Rejunion</territory>
+	 <!-- VETTED --><territory draft="true" type="RE">Rejunion</territory>
 			<territory type="RO">Rumunija</territory>
 			<territory type="RU">Rusija</territory>
 			<territory type="RW">Ruanda</territory>
@@ -280,7 +283,7 @@
 			<territory type="SG">Singapur</territory>
 			<territory type="SH">Saint Helena</territory>
 			<territory type="SI">Slovenija</territory>
-			<territory type="SJ">Svalbard i Jan Majen</territory>
+	 <!-- VETTED --><territory draft="true" type="SJ">Svalbard i Jan Majen</territory>
 			<territory type="SK">Slovačka</territory>
 			<territory type="SL">Sijera Leone</territory>
 			<territory type="SM">San Marino</territory>
@@ -288,11 +291,11 @@
 			<territory type="SO">Somalija</territory>
 			<!-- <territory type="SP">Srbija</territory> Wrong! Might be needed for AIX -->
 			<territory type="SR">Surinam</territory>
-			<territory type="ST">Sao Tome i Principe</territory>
+	 <!-- VETTED --><territory draft="true" type="ST">Sao Tome i Principe</territory>
 			<territory type="SV">Salvador</territory>
 			<territory type="SY">Sirija</territory>
 			<territory type="SZ">Svazilend</territory>
-			<territory type="TC">Turks i Kajkos Ostrva</territory>
+	 <!-- VETTED --><territory draft="true" type="TC">Turks i Kajkos Ostrva</territory>
 			<territory type="TD">Čad</territory>
 			<territory type="TF">Francuske Južne Teritorije</territory>
 			<territory type="TG">Togo</territory>
@@ -310,18 +313,18 @@
 			<territory type="TZ">Tanzanija</territory>
 			<territory type="UA">Ukrajina</territory>
 			<territory type="UG">Uganda</territory>
-			<territory type="UM">Manja Udaljena Ostrva SAD</territory>
+	 <!-- VETTED --><territory draft="true" type="UM">Manja Udaljena Ostrva SAD</territory>
 			<territory type="US">Sjedinjene Američke Države</territory>
 			<territory type="UY">Urugvaj</territory>
 			<territory type="UZ">Uzbekistan</territory>
 			<territory type="VA">Vatikan</territory>
-			<territory type="VC">Sent Vinsent i Grenadini</territory>
+	 <!-- VETTED --><territory draft="true" type="VC">Sent Vinsent i Grenadini</territory>
 			<territory type="VE">Venecuela</territory>
 			<territory type="VG">Britanska Devičanska Ostrva</territory>
 			<territory type="VI">S.A.D. Devičanska Ostrva</territory>
 			<territory type="VN">Vijetnam</territory>
 			<territory type="VU">Vanuatu</territory>
-			<territory type="WF">Valis i Futuna</territory>
+	 <!-- VETTED --><territory draft="true" type="WF">Valis i Futuna</territory>
 			<territory type="WS">Samoa</territory>
 			<territory type="YE">Jemen</territory>
 			<territory type="YT">Mayotte</territory>
@@ -353,7 +356,7 @@
 							<month type="11">nov</month>
 							<month type="12">dec</month>
 						</monthWidth>
-						<monthWidth type="narrow">
+						<monthWidth draft="true" type="narrow"><!-- VETTED -->
 							<month type="1">j</month>
 							<month type="2">f</month>
 							<month type="3">m</month>
@@ -367,7 +370,7 @@
 							<month type="11">n</month>
 							<month type="12">d</month>
 						</monthWidth>
-						<monthWidth type="wide">
+						<monthWidth draft="true" type="wide"><!-- VETTED -->
 							<month type="1">januar</month>
 							<month type="2">februar</month>
 							<month type="3">mart</month>
@@ -394,7 +397,7 @@
 							<day type="fri">pet</day>
 							<day type="sat">sub</day>
 						</dayWidth>
-						<dayWidth type="narrow">
+						<dayWidth draft="true" type="narrow"><!-- VETTED -->
 							<day type="sun">n</day>
 							<day type="mon">p</day>
 							<day type="tue">u</day>
@@ -450,7 +453,7 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
 			<yesstr>Da</yesstr>
 			<nostr>Ne</nostr>

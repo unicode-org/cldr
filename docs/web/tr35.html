@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Language" content="en-us">
 <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<link rel="stylesheet" href="http://www.unicode.org/reports/reports.css" type="text/css">
+<link rel="stylesheet" href="http://unicode.org/reports/reports.css" type="text/css">
 <title>UTR #35: Locale Data Markup Language</title>
 <style type="text/css">
 <!--
@@ -22,8 +22,8 @@ span.attributeValue { font-weight: color: blue}
 
 <table class="header" width="100%">
   <tr>
-    <td class="icon"><a href="http://www.unicode.org">
-    <img align="middle" alt="[Unicode]" border="0" src="http://www.unicode.org/webscripts/logo60s2.gif" width="34" height="33"></a>&nbsp;&nbsp;<a class="bar" href="http://www.unicode.org/reports">Technical 
+    <td class="icon"><a href="http://unicode.org">
+    <img align="middle" alt="[Unicode]" border="0" src="http://unicode.org/webscripts/logo60s2.gif" width="34" height="33"></a>&nbsp;&nbsp;<a class="bar" href="http://unicode.org/reports">Technical 
     Reports</a></td>
   </tr>
   <tr>
@@ -31,54 +31,55 @@ span.attributeValue { font-weight: color: blue}
   </tr>
 </table>
 <div class="body">
-  <h2 align="center">Unicode Technical Standard #35</h2>
+  <h2 align="center"><font color="#FF0000">Working Draft - Proposed Update<br>
+  </font>Unicode Technical Standard #35</h2>
   <h1 align="right">Locale Data Markup Language (LDML)</h1>
   <table border="1" cellpadding="2" style="border-collapse: collapse; border-width: 1" cellspacing="0" width="100%">
     <tr>
       <td>Version</td>
-      <td>1<span>.2<b>R1</b></span></td>
+      <td>1<span>.3</span></td>
     </tr>
     <tr>
       <td>Authors</td>
-      <td><a href="http://www.unicode.org/reporting.html">Mark Davis</a></td>
+      <td><a href="http://unicode.org/reporting.html">Mark Davis</a></td>
     </tr>
     <tr>
       <td>Date</td>
-      <td><span>2004-12-02</span></td>
+      <td><span>2005-03-04</span></td>
     </tr>
     <tr>
       <td>This Version</td>
-      <td><span><a href="http://www.unicode.org/reports/tr35/tr35-4.html">
-      http://www.unicode.org/reports/tr35/tr35-4.html</a></span></td>
+      <td><span><a href="http://unicode.org/reports/tr35/tr35-5.html">
+      http://unicode.org/reports/tr35/tr35-5.html</a></span></td>
     </tr>
     <tr>
       <td>Previous Version</td>
-      <td><span><a href="http://www.unicode.org/reports/tr35/tr35-3.html">
-      http://www.unicode.org/reports/tr35/tr35-3.html</a></span></td>
+      <td><span><a href="http://unicode.org/reports/tr35/tr35-4.html">
+      http://unicode.org/reports/tr35/tr35-4.html</a></span></td>
     </tr>
     <tr>
       <td>Latest Version</td>
-      <td><a href="http://www.unicode.org/reports/tr35/">http://www.unicode.org/reports/tr35/</a></td>
+      <td><a href="http://unicode.org/reports/tr35/">http://unicode.org/reports/tr35/</a></td>
     </tr>
     <tr>
       <td>Latest Draft</td>
-      <td><span><a href="http://www.unicode.org/reports/tr35/draft.html">
-      http://www.unicode.org/reports/tr35/draft.html</a></span></td>
+      <td><a href="http://unicode.org/cldr/data/docs/web/tr35.html">
+      http://unicode.org/cldr/data/docs/web/tr35.html</a></td>
     </tr>
     <tr>
       <td>Namespace:</td>
-      <td><a href="http://www.unicode.org/cldr/">http://www.unicode.org/cldr/</a></td>
+      <td><a href="http://unicode.org/cldr/">http://unicode.org/cldr/</a></td>
     </tr>
     <tr>
       <td>DTDs:</td>
-      <td><a href="http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-      http://www.unicode.org/cldr/dtd/1.2/ldml.dtd</a><br>
-      <a href="http://www.unicode.org/cldr/dtd/1.2/ldmlSupplemental.dtd">
-      http://www.unicode.org/cldr/dtd/1.2/ldmlSupplemental.dtd</a></td>
+      <td><a href="http://unicode.org/cldr/dtd/1.3/ldml.dtd">
+      http://unicode.org/cldr/dtd/1.3/ldml.dtd</a><br>
+      <a href="http://unicode.org/cldr/dtd/1.3/ldmlSupplemental.dtd">
+      http://unicode.org/cldr/dtd/1.3/ldmlSupplemental.dtd</a></td>
     </tr>
     <tr>
       <td>Revision</td>
-      <td>4</td>
+      <td>5</td>
     </tr>
   </table>
   <p><br>
@@ -102,7 +103,7 @@ span.attributeValue { font-weight: color: blue}
   <a href="#References">References</a>. For the latest version of the Unicode Standard see [<a href="#Unicode">Unicode</a>]. 
   For a list of current Unicode Technical Reports see [<a href="#Reports">Reports</a>]. For more 
   information about versions of the Unicode Standard, see [<a href="#Versions">Versions</a>]. For 
-  possible errata for this document, see [<a href="http://www.unicode.org/errata/">Errata</a>].</span></i></p>
+  possible errata for this document, see [<a href="http://unicode.org/errata/">Errata</a>].</span></i></p>
   <h2><a name="Contents">Contents</a></h2>
   <ul class="toc">
     <li>1 <a href="#Introduction">Introduction</a></li>
@@ -206,8 +207,8 @@ span.attributeValue { font-weight: color: blue}
   data. With it, for example, collation rules can be exchanged, allowing two implementations to 
   exchange a specification of collation. Using the same specification, the two implementations will 
   achieve the same results in comparing strings.</p>
-  <p>For more information, see the <a href="http://www.unicode.org/cldr/">Common XML Locale 
-  Repository project page</a> [<a href="#localeProject">LocaleProject</a>].</p>
+  <p>For more information, see the <a href="http://unicode.org/cldr/">Common XML Locale Repository 
+  project page</a> [<a href="#localeProject">LocaleProject</a>].</p>
   <h2>2. <a name="Locale">What is a locale?</a></h2>
   <p>Before diving into the XML structure, it is helpful to describe the model behind the structure. 
   People do not have to subscribe to this model to use the data, but they do need to understand it 
@@ -608,8 +609,8 @@ root</pre>
   product-specific. It has one required attribute, which specifies the XML
   <a href="http://www.w3.org/TR/REC-xml-names/">namespace</a> of the special data. For example, the 
   following used the version 1.0 POSIX special element.</p>
-  <pre>&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.0/ldml.dtd</span>&quot; [
-    &lt;!ENTITY % posix SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.0/ldmlPOSIX.dtd</span>&quot;&gt;
+  <pre>&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://unicode.org/cldr/dtd/1.0/ldml.dtd</span>&quot; [
+    &lt;!ENTITY % posix SYSTEM &quot;<span style="color: blue">http://unicode.org/cldr/dtd/1.0/ldmlPOSIX.dtd</span>&quot;&gt;
 <span style="color: blue">%<span>posix</span>;</span>
 ]&gt;
 &lt;ldml&gt;
@@ -824,7 +825,7 @@ root</pre>
   <p>This element can contain an number of script elements. Each script element provides the 
   localized name for a script, given by the value of the type attribute. The script IDs can be 
   either the long or short forms from Scripts.txt in the UCD. (See
-  <a href="http://www.unicode.org/reports/tr24/">UAX #24: Script Names</a> [<a href="#Scripts">Scripts</a>] 
+  <a href="http://unicode.org/reports/tr24/">UAX #24: Script Names</a> [<a href="#Scripts">Scripts</a>] 
   for more information.) For example, in the language of this locale, the name for the Latin script 
   might be &quot;Romana&quot;, and for the Cyrillic script is &quot;Kyrillica&quot;. That would be expressed with the 
   following.</p>
@@ -892,7 +893,7 @@ root</pre>
   top-to-bottom, and the characters are left-to-right. For Mongolian the lines are right-to-left, 
   and the characters are top to bottom. </span>This does not override the ordering behavior of 
   bidirectional text; it does, however, supply the paragraph direction for that text (for more 
-  information, see <a href="http://www.unicode.org/reports/tr9/">UAX #9:&nbsp;The Bidirectional Algorithm</a> 
+  information, see <a href="http://unicode.org/reports/tr9/">UAX #9:&nbsp;The Bidirectional Algorithm</a> 
   [<a href="#BIDI">BIDI</a>]).</p>
   <h3>5.6 <a name="&lt;characters&gt;">&lt;characters&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT characters (alias | (exemplarCharacters*, mapping*, special*)) &gt;</span></p>
@@ -915,8 +916,8 @@ root</pre>
   common practice to spell those words without the accents. The exemplar character set for </span>
   <span>fr</span><span> (French), on the other hand, must contain those characters: [a-z </span>
   <span>é</span><span> </span><span>è</span><span> ù </span><span>ç</span><span> </span><span>à</span><span>
-  </span><span>â</span><span> </span><span>ê</span><span> î ô û æ œ </span><span>ë</span><span> ï 
-  ÿ]. </span></p>
+  </span><span>â</span><span> </span><span>ê</span><span> î ô û æ œ </span><span>ë</span><span> ï ÿ].
+  </span></p>
   <p><span>The list of characters is in the </span><a href="#Unicode_Sets"><span>Unicode Set</span></a><span> 
   format, which allows </span><span>boolean</span><span> combinations of sets of letters, including 
   those specified by Unicode properties.</span></p>
@@ -929,7 +930,7 @@ root</pre>
   few base characters, the specific combinations should be included. Wherever there is not a </span>
   <span>precomposed</span><span> character (e.g. single </span><span>codepoint</span><span>) for a 
   given combination, that must be included within braces. For example, to include sequences from the
-  </span><a href="http://www.unicode.org/standard/where/"><span>Where is my Character?</span></a><span> 
+  </span><a href="http://unicode.org/standard/where/"><span>Where is my Character?</span></a><span> 
   page on the Unicode site, one would write: [{ch} {tʰ} {x̣} {ƛ̓} {ą́} {i̇́} {ト゚}], but for French 
   one would just write [a-z </span><span>é</span><span> </span><span>è</span><span> ù ...]. When in 
   doubt use braces, since it does no harm to included them around single code points: e.g. [a-z {</span><span>é</span><span>} 
@@ -959,7 +960,7 @@ root</pre>
   <p>The registry indicates the source of the encoding. Currently the only registry that can be used 
   is &quot;iana&quot;, which specifies use of&nbsp; an
   <a href="http://www.iana.org/assignments/character-sets">IANA name</a>.&nbsp; Note: while IANA 
-  names are not precise for conversion (see <a href="http://www.unicode.org/reports/tr22/">UTR #22: 
+  names are not precise for conversion (see <a href="http://unicode.org/reports/tr22/">UTR #22: 
   Character Mapping Tables</a> [<a href="#CharMapML">CharMapML</a>]), they are sufficient for this 
   purpose.</p>
   <h3>5.7 <a name="&lt;delimiters&gt;">&lt;delimiters&gt;</a></h3>
@@ -1499,11 +1500,11 @@ root</pre>
   <p><span class="dtd">&lt;!ELEMENT collations (alias | (default?, collation*, special*)) &gt;</span></p>
   <p>This section contains one or more collation elements, distinguished by type. Each collation 
   contains rules that specify a certain sort-order, as a tailoring of the UCA table defined in
-  <a href="http://www.unicode.org/reports/tr10/">UTS #10: Unicode Collation Algorithm</a> [<a href="#UCA">UCA</a>]. 
-  (For a chart view of the UCA, see <a href="http://www.unicode.org/charts/collation/">Collation 
-  Chart</a> [<a href="#UCAChart">UCAChart</a>].) This syntax is an XMLized version of the Java/ICU 
-  syntax. <span>For illustration, the rules are accompanied by the corresponding <i>basic</i> <i>ICU 
-  rule syntax</i> [<a href="#ICUCollation">ICUCollation</a>] (used in ICU and Java) and/or the ICU 
+  <a href="http://unicode.org/reports/tr10/">UTS #10: Unicode Collation Algorithm</a> [<a href="#UCA">UCA</a>]. 
+  (For a chart view of the UCA, see <a href="http://unicode.org/charts/collation/">Collation Chart</a> 
+  [<a href="#UCAChart">UCAChart</a>].) This syntax is an XMLized version of the Java/ICU syntax.
+  <span>For illustration, the rules are accompanied by the corresponding <i>basic</i> <i>ICU rule 
+  syntax</i> [<a href="#ICUCollation">ICUCollation</a>] (used in ICU and Java) and/or the ICU 
   parameterizations, and the basic syntax may be used in examples.</span></p>
   <p class="note"><b>Note: </b>ICU provides a concise format for specifying orderings, based on 
   tailorings to the UCA. For example, to specify that k and q follow &#39;c&#39;, one can use the rule: &quot;&amp; c 
@@ -2245,24 +2246,24 @@ root</pre>
   document, and are present her more as examples of how to extend the format.</span> (Some of these 
   items may move into a future version of the Locale Data Markup Language specification.)</p>
   <ul>
-    <li><a href="http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
-    http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd</a></li>
-    <li><a href="http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
-    http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd</a></li>
+    <li><a href="http://unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
+    http://unicode.org/cldr/dtd/1.1/ldmlICU.dtd</a></li>
+    <li><a href="http://unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
+    http://unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd</a></li>
   </ul>
   <p>These DTDs use namespaces and the special element. To include one or more, use the following 
   pattern to import the special DTDs that are used in the file:</p>
   <pre>&lt;?xml version=&quot;<span style="color: blue">1.0</span>&quot; encoding=&quot;<span style="color: blue">UTF-8</span>&quot; ?&gt;
-&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldml.dtd</span>&quot; [
-    &lt;!ENTITY % <span style="color: blue">icu</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd</span>&quot;&gt;
-    &lt;!ENTITY % <span style="color: blue">openOffice</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd</span>&quot;&gt;
+&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://unicode.org/cldr/dtd/1.1/ldml.dtd</span>&quot; [
+    &lt;!ENTITY % <span style="color: blue">icu</span> SYSTEM &quot;<span style="color: blue">http://unicode.org/cldr/dtd/1.1/ldmlICU.dtd</span>&quot;&gt;
+    &lt;!ENTITY % <span style="color: blue">openOffice</span> SYSTEM &quot;<span style="color: blue">http://unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd</span>&quot;&gt;
 <span style="color: blue">%icu;
 %openOffice;
 </span>]&gt;</pre>
   <p>Thus to include just the ICU DTD, one uses:</p>
   <pre>&lt;?xml version=&quot;<span style="color: blue">1.0</span>&quot; encoding=&quot;<span style="color: blue">UTF-8</span>&quot; ?&gt;
-&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldml.dtd</span>&quot; [
-    &lt;!ENTITY % icu SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd</span>&quot;&gt;
+&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://unicode.org/cldr/dtd/1.1/ldml.dtd</span>&quot; [
+    &lt;!ENTITY % icu SYSTEM &quot;<span style="color: blue">http://unicode.org/cldr/dtd/1.1/ldmlICU.dtd</span>&quot;&gt;
 <span style="color: blue">%icu;
 </span>]&gt;</pre>
   <blockquote>
@@ -2652,7 +2653,7 @@ root</pre>
   &quot;2003年3月20日&quot;, for example, is <i>not</i>.</p>
   <h2>Appendix E: <a name="Unicode_Sets">Unicode Sets</a></h2>
   <p>A UnicodeSet is a set of Unicode characters (and possibly strings) determined by a pattern, 
-  following <a href="http://www.unicode.org/reports/tr18/tr18-7.html">UTS #18: Unicode Regular 
+  following <a href="http://unicode.org/reports/tr18/tr18-7.html">UTS #18: Unicode Regular 
   Expressions</a> [<a href="#URegex">URegex</a>]. For an example of a concrete implementation of 
   this, see [<a href="#ICUUnicodeSet">ICUUnicodeSet</a>].</p>
   <p>Patterns are a series of characters bounded by square brackets that contain lists of characters 
@@ -3712,8 +3713,8 @@ root</pre>
   <p><span>For any element in an XML file, </span><i><span>an element chain</span></i><span> is a 
   resolved </span><span>XPath</span><span> leading from the root to an element, with attributes on 
   each element in alphabetical order. So in, say, </span>
-  <a href="http://www.unicode.org/cldr/data/common/main/el.xml"><span>
-  http://www.unicode.org/cldr/data/common/main/el.xml</span></a><span> we have:</span></p>
+  <a href="http://unicode.org/cldr/data/common/main/el.xml"><span>
+  http://unicode.org/cldr/data/common/main/el.xml</span></a><span> we have:</span></p>
   <pre><span>&lt;</span><span>ldml</span><span> version=&quot;1.1&quot;&gt;
   &lt;identity&gt;
     &lt;version number=&quot;1.1&quot; /&gt;
@@ -4723,39 +4724,38 @@ root</pre>
     <tr>
       <td class="noborder">[<a name="Charts">Charts</a>]</td>
       <td class="noborder">The online code charts can be found at
-      <a href="http://www.unicode.org/charts/">http://www.unicode.org/charts/</a> An index to 
-      characters names with links to the corresponding chart is found at
-      <a href="http://www.unicode.org/charts/charindex.html">
-      http://www.unicode.org/charts/charindex.html</a></td>
+      <a href="http://unicode.org/charts/">http://unicode.org/charts/</a> An index to characters 
+      names with links to the corresponding chart is found at
+      <a href="http://unicode.org/charts/charindex.html">http://unicode.org/charts/charindex.html</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="DUCET">DUCET</a>]</td>
       <td class="noborder">The Default Unicode Collation Element Table (DUCET)<br>
       For the base-level collation, of which all the collation tables in this document are 
       tailorings.<br>
-      <a href="http://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table">
-      http://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table</a></td>
+      <a href="http://unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table">
+      http://unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="FAQ">FAQ</a>]</td>
       <td class="noborder" valign="top">Unicode Frequently Asked Questions<br>
-      <a href="http://www.unicode.org/faq/">http://www.unicode.org/faq/<br>
+      <a href="http://unicode.org/faq/">http://unicode.org/faq/<br>
       </a><i>For answers to common questions on technical issues.</i></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="FCD">FCD</a>]</td>
       <td class="noborder">As defined in UTN #5 Canonical Equivalences in Applications<br>
-      <a href="http://www.unicode.org/notes/tn5/">http://www.unicode.org/notes/tn5/</a></td>
+      <a href="http://unicode.org/notes/tn5/">http://unicode.org/notes/tn5/</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="Feedback">Feedback</a>]</td>
       <td class="noborder">Reporting Errors and Requesting Information Online<i><br>
-      </i><a href="http://www.unicode.org/reporting.html">http://www.unicode.org/reporting.html</a></td>
+      </i><a href="http://unicode.org/reporting.html">http://unicode.org/reporting.html</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="Glossary">Glossary</a>]</td>
-      <td class="noborder">Unicode Glossary<a href="http://www.unicode.org/glossary/"><br>
-      http://www.unicode.org/glossary/<br>
+      <td class="noborder">Unicode Glossary<a href="http://unicode.org/glossary/"><br>
+      http://unicode.org/glossary/<br>
       </a><i>For explanations of terminology used in this and other documents.</i></td>
     </tr>
     <tr>
@@ -4773,31 +4773,31 @@ root</pre>
     <tr>
       <td class="noborder">[<a name="Reports">Reports</a>]</td>
       <td class="noborder">Unicode Technical Reports<br>
-      <a href="http://www.unicode.org/reports/">http://www.unicode.org/reports/<br>
+      <a href="http://unicode.org/reports/">http://unicode.org/reports/<br>
       </a><i>For information on the status and development process for technical reports, and for a 
       list of technical reports.</i></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="UCA">UCA</a>]</td>
-      <td class="noborder">UTS #10: Unicode Collation Algorithm<a href="http://www.unicode.org/reports/tr10/"><br>
-      http://www.unicode.org/reports/tr10/</a></td>
+      <td class="noborder">UTS #10: Unicode Collation Algorithm<a href="http://unicode.org/reports/tr10/"><br>
+      http://unicode.org/reports/tr10/</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="UCD">UCD</a>]</td>
       <td class="noborder">The Unicode Character Database (UCD)<br>
       For character properties, casing behavior, default line-, word-, cluster-breaking behavior, 
       etc.<br>
-      <a href="http://www.unicode.org/ucd/">http://www.unicode.org/ucd/</a></td>
+      <a href="http://unicode.org/ucd/">http://unicode.org/ucd/</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="Unicode">Unicode</a>]</td>
-      <td class="noborder">The Unicode Consortium. <a href="http://www.unicode.org/uni2book/u2.html">
-      The Unicode Standard, Version 4.0</a>. Reading, MA, Addison-Wesley, 2003. 0-321-18578-1.</td>
+      <td class="noborder">The Unicode Consortium. <a href="http://unicode.org/uni2book/u2.html">The 
+      Unicode Standard, Version 4.0</a>. Reading, MA, Addison-Wesley, 2003. 0-321-18578-1.</td>
     </tr>
     <tr>
       <td class="noborder">[<a name="Versions">Versions</a>]</td>
       <td class="noborder">Versions of the Unicode Standard<br>
-      <a href="http://www.unicode.org/standard/versions">http://www.unicode.org/standard/versions<br>
+      <a href="http://unicode.org/standard/versions">http://unicode.org/standard/versions<br>
       </a><i>For information on version numbering, and citing and referencing the Unicode Standard, 
       the Unicode Character Database, and Unicode Technical Reports.</i></td>
     </tr>
@@ -4855,7 +4855,7 @@ root</pre>
     <tr>
       <td class="noborder">[<a name="BIDI">BIDI</a>]</td>
       <td class="noborder">UAX #9:&nbsp;The Bidirectional Algorithm<br>
-      <a href="http://www.unicode.org/reports/tr9/">http://www.unicode.org/reports/tr9/</a></td>
+      <a href="http://unicode.org/reports/tr9/">http://unicode.org/reports/tr9/</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="Calendars">Calendars</a>]</td>
@@ -4865,13 +4865,13 @@ root</pre>
     </tr>
     <tr>
       <td class="noborder">[<a name="CharMapML">CharMapML</a>]</td>
-      <td class="noborder">UTR #22: Character Mapping Tables<a href="http://www.unicode.org/reports/tr22/"><br>
-      http://www.unicode.org/reports/tr22/</a></td>
+      <td class="noborder">UTR #22: Character Mapping Tables<a href="http://unicode.org/reports/tr22/"><br>
+      http://unicode.org/reports/tr22/</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="Comparisons">Comparisons</a>]</td>
       <td class="noborder">Comparisons between locale data from different sources<br>
-      <a href="http://www.unicode.org/cldr/data/diff/">http://www.unicode.org/cldr/data/diff/</a></td>
+      <a href="http://unicode.org/cldr/data/diff/">http://unicode.org/cldr/data/diff/</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="CurrencyInfo">CurrencyInfo</a>]</td>
@@ -4885,14 +4885,13 @@ root</pre>
     <tr>
       <td class="noborder">[<a name="DataFormats">DataFormats</a>]</td>
       <td class="noborder">CLDR Data Formats<br>
-      <a href="http://www.unicode.org/cldr/data_formats.html">
-      http://www.unicode.org/cldr/data_formats.html</a></td>
+      <a href="http://unicode.org/cldr/data_formats.html">http://unicode.org/cldr/data_formats.html</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="LDML">Example</a>]</td>
       <td class="noborder">A sample in Locale Data Markup Language<br>
-      <a href="http://www.unicode.org/cldr/dtd/1.1/ldml-example.xml">
-      http://www.unicode.org/cldr/dtd/1.1/ldml-example.xml</a></td>
+      <a href="http://unicode.org/cldr/dtd/1.1/ldml-example.xml">
+      http://unicode.org/cldr/dtd/1.1/ldml-example.xml</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="ICUCollation">ICUCollation</a>]</td>
@@ -4927,7 +4926,7 @@ root</pre>
     <tr>
       <td class="noborder">[<a name="localeProject">LocaleProject</a>]</td>
       <td class="noborder">Common Locale Data Repository Project<br>
-      <a href="http://www.unicode.org/cldr/">http://www.unicode.org/cldr/</a></td>
+      <a href="http://unicode.org/cldr/">http://unicode.org/cldr/</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="NamingGuideline">NamingGuideline</a>]</td>
@@ -4950,20 +4949,20 @@ root</pre>
     <tr>
       <td class="noborder">[<a name="Scripts">Scripts</a>]</td>
       <td class="noborder">UAX #24: Script Names<br>
-      <a href="http://www.unicode.org/reports/tr24/">http://www.unicode.org/reports/tr24/</a></td>
+      <a href="http://unicode.org/reports/tr24/">http://unicode.org/reports/tr24/</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="UCAChart">UCAChart</a>]</td>
-      <td class="noborder">Collation Chart<a href="http://www.unicode.org/charts/collation/"><br>
-      http://www.unicode.org/charts/collation/</a></td>
+      <td class="noborder">Collation Chart<a href="http://unicode.org/charts/collation/"><br>
+      http://unicode.org/charts/collation/</a></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="URegex">URegex</a>]</td>
       <td class="noborder">UTR #18: Unicode Regular Expression Guidelines<br>
-      <a href="http://www.unicode.org/reports/tr18/">http://www.unicode.org/reports/tr18/<br>
+      <a href="http://unicode.org/reports/tr18/">http://unicode.org/reports/tr18/<br>
       </a><i>UTS #18: Unicode Regular Expressions (Proposed Update)<br>
-      <a href="http://www.unicode.org/reports/tr18/tr18-7.html">
-      http://www.unicode.org/reports/tr18/tr18-7.html</a></i></td>
+      <a href="http://unicode.org/reports/tr18/tr18-7.html">
+      http://unicode.org/reports/tr18/tr18-7.html</a></i></td>
     </tr>
     <tr>
       <td class="noborder">[<a name="UTCInfo">UTCInfo</a>]</td>
@@ -4992,7 +4991,7 @@ root</pre>
   George Rhoten, Markus Scherer, Baldev Soor, Michael Twomey, Philippe Verdy, Ram Viswanadha, 
   Vladimir Weinstein<span>, Daniel Yacob</span>.</p>
   <h2><a name="Modifications">Modifications</a></h2>
-  <p>The following summarizes modifications from the previous version of this document.</p>
+  <p>The following summarizes modifications from the previous revision of this document.</p>
   <ul>
     <li>Added <a href="#Date_Format_Patterns"><span>Date_Format_Patterns</span></a>,
     <a href="#Number_Format_Patterns"><span>Number_Format_Patterns</span></a>,
@@ -5004,7 +5003,7 @@ root</pre>
     alt_attribute</span></a>, <a href="#references_attribute"><span>references_attribute</span></a>,
     <a href="#Inheritance_and_Validity"><span>Inheritance_and_Validity</span></a></li>
     <li><span>Added the material from
-    <a href="http://www.unicode.org/cldr/data/design/formatting/time_zone_localization.html">
+    <a href="http://unicode.org/cldr/data/design/formatting/time_zone_localization.html">
     time_zone_localization.html</a></span></li>
     <li>changed provisional element name to validSubLocales</li>
     <li>added description of alias path, and the 2 allowable values for alt.</li>
@@ -5030,7 +5029,7 @@ root</pre>
   Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors 
   or omissions. No liability is assumed for incidental and consequential damages in connection with 
   or arising out of the use of the information or programs contained or accompanying this technical 
-  report. The Unicode <a href="http://www.unicode.org/copyright.html">Terms of Use</a> apply.</p>
+  report. The Unicode <a href="http://unicode.org/copyright.html">Terms of Use</a> apply.</p>
   <p class="copyright">Unicode and the Unicode logo are trademarks of Unicode, Inc., and are 
   registered in some jurisdictions.
 </div>

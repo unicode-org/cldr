@@ -18,8 +18,9 @@ For example, most country locales will inherit the bulk of their data from the l
     <identity>
         <version number="1.1">Various notes and changes in version 1.1</version>
         <generation date="2002-10-24" />
-		<!-- Two letter codes, if available; otherwise 3-letter codes.If both exist, a separate database contains the mapping. -->
+        <!-- Two letter codes, if available; otherwise 3-letter codes.If both exist, a separate database contains the mapping. -->
         <language type="en"/>
+        <script type="nynorsk"/>
         <territory type="US"/>
 
         <!-- Only one variant allowed for now -->
@@ -82,20 +83,19 @@ For example, most country locales will inherit the bulk of their data from the l
        <mapping registry="iana" type="euc-jp"/>
     </encodings>
     <delimiters>
-       <quotationStart>'</quotationStart>
-       <quotationEnd>'</quotationEnd>
-       <doubleQuotationStart>&#x201C;</doubleQuotationStart>
-       <doubleQuotationEnd>&#x201D;</doubleQuotationEnd>
+       <quotationStart>&#x201C;</quotationStart>
+       <quotationEnd>&#x201D;</quotationEnd>
+       <alternateQuotationStart>'</alternateQuotationStart>
+       <alternateQuotationEnd>'</alternateQuotationEnd>
     </delimiters>
     <measurement>
-	    <!-- Measurement system: US/ISO 1000/Other -->
+        <!-- Measurement system: US/ISO 1000/Other -->
         <measurementSystem type="US"/>
         <paperSize>
             <!-- Papersize. The numbers are always in millimeters.
              The units name is the customary unit for that locale for measuring paper. -->
             <height>279</height>
             <width>216</width>
-            <units>mm</units>
         </paperSize>
     </measurement>
     <dates>
@@ -169,21 +169,21 @@ For example, most country locales will inherit the bulk of their data from the l
                <eras>
                   <eraNames>
                         <!-- Non-gregorians may have many more eras -->
-                        <era type="0">BC</era>
-                        <era type="1">AD</era>
-                        <era type="2">BCE</era>
-                        <era type="3">CE</era>
-                  </eraNames>
-                  <eraAbbr>
                         <era type="0">Before Christ</era>
                         <era type="1">Anno Domini</era>
                         <era type="2">Before Common Era</era>
                         <era type="3">Common Era</era>
+                  </eraNames>
+                  <eraAbbr>
+                        <era type="0">BC</era>
+                        <era type="1">AD</era>
+                        <era type="2">BCE</era>
+                        <era type="3">CE</era>
                   </eraAbbr>
               </eras>
               <dateFormats>
                 <default type="medium"/>
-                <dateFormatStyle type="medium">
+                <dateFormatLength type="medium">
                      <default type="DateFormatsKey2"/>
                      <dateFormat type="DateFormatsKey2">
                         <!--  Optional special element for platform/application specific overheads. Paser can
@@ -195,33 +195,42 @@ For example, most country locales will inherit the bulk of their data from the l
                      <dateFormat type="DateFormatsKey3">
                           <pattern>MMM dd, yyyy</pattern>
                      </dateFormat>
-                </dateFormatStyle>
-                <dateFormatStyle type="full">
+                </dateFormatLength>
+                <dateFormatLength type="full">
                     <dateFormat type="DateFormatsKey2">
-                        <!--  Optional special element for platform/application specific overheads. Paser can
+                          <!--  Optional special element for platform/application specific overheads. Paser can
                               choose to ignore if required  -->
                           <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
                           <pattern>EEEE, MMMM d, yyyy</pattern>
                           <displayName>DIN 5008 (EN 28601)</displayName>
                      </dateFormat>
-                </dateFormatStyle>
+                </dateFormatLength>
               </dateFormats>
               <timeFormats>
                   <default type="medium"/>
-                  <timeFormat type="full">
-                    <!--  Optional special element for platform/application specific overheads. Paser can
-                          choose to ignore if required  -->
-                      <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
-                      <pattern>h:mm:ss a z</pattern>
-                      <displayName>DIN 5008 (EN 28601)</displayName>
-                 </timeFormat>
-                 <timeFormat type="medium">
-                      <pattern>h:mm:ss a</pattern>
-                 </timeFormat>
+                  <timeFormatLength type="full">
+                      <timeFormat >
+                          <!--  Optional special element for platform/application specific overheads. Paser can
+                              choose to ignore if required  -->
+                          <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
+                          <pattern>h:mm:ss a z</pattern>
+                          <displayName>DIN 5008 (EN 28601)</displayName>
+                      </timeFormat>
+                 </timeFormatLength>
+                 <timeFormatLength type="medium">
+                     <timeFormat>
+                          <pattern>h:mm:ss a</pattern>
+                     </timeFormat>
+                 </timeFormatLength>
               </timeFormats>
-              <dateTimeFormat>
-                  <pattern>{0} {1}</pattern>
-              </dateTimeFormat>
+              <dateTimeFormats>
+                 <default type="medium"/>
+                 <dateTimeFormatLength type ="full">
+                      <dateTimeFormat>
+                          <pattern>{0} {1}</pattern>
+                      </dateTimeFormat>
+                 </dateTimeFormatLength>
+              </dateTimeFormats>
           </calendar>
 
           <!-- The Buddhist calendar inherits month names, etc. (everything but eras) from Gregorian -->
@@ -296,31 +305,45 @@ For example, most country locales will inherit the bulk of their data from the l
             <infinity>&#x221e;</infinity>
             <nan>&#x2639;</nan>
         </symbols>
-        <numberFormats>
-            <default type="decimal"/>
-            <numberFormatStyle type="decimal">
-                <numberFormat type="long">
-                  <pattern type="positive">#,##0.###</pattern>
-                  <pattern type="negative">-#,##0.###</pattern>
-                </numberFormat>
-            </numberFormatStyle>
-            <numberFormatStyle type="percent">
-                <numberFormat type="long">
-                  <pattern type="positive">#,##0%</pattern>
-                </numberFormat>
-            </numberFormatStyle>
-            <numberFormatStyle type="percent">
-                <numberFormat type="long">
-                  <pattern >#,##0%</pattern>
-                </numberFormat>
-            </numberFormatStyle>
-            <numberFormatStyle type="currency">
-                <numberFormat type="long">
-                  <pattern type="positive">&#x00a4; #,##0.00;</pattern>
-                  <pattern type="negative">(&#x00a4; #,##0.00)</pattern>
-                </numberFormat>
-            </numberFormatStyle>
-        </numberFormats>
+
+        <decimalFormats>
+          <decimalFormatLength type="long">
+            <decimalFormat>
+              <pattern>#,##0.###</pattern>
+            </decimalFormat>
+          </decimalFormatLength>
+        </decimalFormats>
+
+        <scientificFormats>
+          <default type="long"/>
+          <scientificFormatLength type="long">
+            <scientificFormat>
+              <pattern>0.000###E+00</pattern>
+            </scientificFormat>
+          </scientificFormatLength>
+          <scientificFormatLength type="medium">
+            <scientificFormat>
+              <pattern>0.00##E+00</pattern>
+            </scientificFormat>
+          </scientificFormatLength>
+        </scientificFormats>
+
+        <percentFormats>
+          <percentFormatLength type="long">
+            <percentFormat>
+              <pattern>#,##0%</pattern>
+            </percentFormat>
+          </percentFormatLength>
+        </percentFormats>
+
+        <currencyFormats>
+          <currencyFormatLength type="long">
+            <currencyFormat>
+              <pattern>&#x00A5; #,##0.00;(&#x00A5; #,##0.00)</pattern>
+            </currencyFormat>
+          </currencyFormatLength>
+        </currencyFormats>
+
         <currencies>
             <default type="USD"/>
             <!-- If no decimal and group seperators are specified that implies
@@ -341,7 +364,7 @@ For example, most country locales will inherit the bulk of their data from the l
         </currencies>
     </numbers>
     <collations>
-        <collation>
+        <collation type="uca">
 
             <!--
             This syntax is an XMLized version of the Java/ICU syntax, used to tailor the default table.
@@ -360,7 +383,7 @@ For example, most country locales will inherit the bulk of their data from the l
 
             <uca version="3.1.1"/>
             <settings caseLevel="on"/>
-			<suppress_contractions>[Ѐ-џ]</suppress_contractions>
+            <suppress_contractions>[?-?]</suppress_contractions>
             <rules>
                 <!-- this example takes the swedish tailoring plus part of a japanese tailoring,
                 for illustration -->
@@ -391,8 +414,8 @@ For example, most country locales will inherit the bulk of their data from the l
                 <!-- following is equivalent to <p>&#x4E9C;</p><p>&#x5516;</p><p>&#x5A03;</p>... -->
                 <pc>&#x4E9C;&#x5516;&#x5A03;&#x963F;&#x54C0;&#x611B;&#x6328;&#x59F6;&#x9022;&#x8475;&#x831C;&#x7A50;&#x60AA;&#x63E1;&#x6E25;&#x65ED;&#x8466;&#x82A6;</pc>
                 <pc>&#x9BF5;&#x6893;&#x5727;&#x65A1;&#x6271;</pc>
-				<t>ァ<context>ー</context></t>
-				<p>ァ<context>ー</context></p>
+                <t>?<context>?</context></t>
+                <p>?<context>?</context></p>
             </rules>
             <special owner="http://www.openoffice.org">
                 <default type="alphanumeric"/>

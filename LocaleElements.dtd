@@ -1,8 +1,10 @@
 <!ELEMENT localeData ( identity, ( localeDisplayNames | layout | encodings | delimiters | measurement | dates | numbers | collations  | special*)* ) >
-
+<!ATTLIST localeData
+   version          CDATA              #FIXED "1.0"
+>
 <!-- ######################################################### -->
 
-<!ELEMENT identity ( (version, generation, language, (territory? | variant? | special*)*) | alias) >
+<!ELEMENT identity ( (version, generation, language, (territory? | variant? | script? | special*)*) | alias) >
 
 <!ELEMENT version ( #PCDATA ) >
 <!ATTLIST version number NMTOKEN #REQUIRED >
@@ -76,15 +78,15 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT delimiters ( (quotationStart| quotationEnd | doubleQuotationStart | doubleQuotationEnd | special*)* | alias ) >
+<!ELEMENT delimiters ( (quotationStart| quotationEnd | alternateQuotationStart | alternateQuotationEnd | special*)* | alias ) >
 
 <!ELEMENT quotationStart ( #PCDATA ) >
 
 <!ELEMENT quotationEnd ( #PCDATA ) >
 
-<!ELEMENT doubleQuotationStart ( #PCDATA ) >
+<!ELEMENT alternateQuotationStart ( #PCDATA ) >
 
-<!ELEMENT doubleQuotationEnd ( #PCDATA ) >
+<!ELEMENT alternateQuotationEnd ( #PCDATA ) >
 
 <!-- ######################################################### -->
 
@@ -116,7 +118,7 @@
 
 <!ELEMENT calendars ( (default | calendar+ | special*)* | alias ) >
 
-<!ELEMENT calendar ( (am | dateFormats | dateTimeFormat | dayAbbr | dayNames | eras | monthAbbr | monthNames | pm | timeFormats | week | special*)* | alias) >
+<!ELEMENT calendar ( (am | dateFormats | dateTimeFormats | dayAbbr | dayNames | eras | monthAbbr | monthNames | pm | timeFormats | week | special*)* | alias) >
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
 
 <!ELEMENT monthNames ( (month+ | special*)* | alias) >
@@ -162,22 +164,31 @@
 <!ELEMENT era (#PCDATA) >
 <!ATTLIST era type NMTOKEN #REQUIRED >
 
-<!ELEMENT dateFormats ( (default | dateFormatStyle+ | special*)* | alias ) >
+<!ELEMENT dateFormats ( (default | dateFormatLength+ | special*)* | alias ) >
 
-<!ELEMENT dateFormatStyle ( (default | dateFormat+ | special*)* | alias ) >
-<!ATTLIST dateFormatStyle type NMTOKEN #REQUIRED >
+<!ELEMENT dateFormatLength ( (default | dateFormat+ | special*)* | alias ) >
+<!ATTLIST dateFormatLength type NMTOKEN #REQUIRED >
 
 <!ELEMENT dateFormat ( (pattern | displayName | special*)* | alias ) >
 <!ATTLIST dateFormat type NMTOKEN #IMPLIED >
 
 <!ELEMENT displayName ( #PCDATA ) >
 
-<!ELEMENT timeFormats ( (default | timeFormat+ | special*)* | alias ) >
+<!ELEMENT timeFormats ( (default | timeFormatLength+ | special*)* | alias ) >
 
-<!ELEMENT timeFormat ( ( displayName | pattern | special* )* | alias) >
-<!ATTLIST timeFormat type NMTOKEN #REQUIRED >
+<!ELEMENT timeFormatLength ( ( default | timeFormat | special* )* | alias) >
+<!ATTLIST timeFormatLength type NMTOKEN #REQUIRED >
 
-<!ELEMENT dateTimeFormat ( (pattern | alias) ) >
+<!ELEMENT timeFormat ( (pattern | displayName | special*)* | alias ) >
+<!ATTLIST timeFormat type NMTOKEN #IMPLIED >
+
+<!ELEMENT dateTimeFormats ( (default | dateTimeFormatLength+ | special*)* | alias ) >
+
+<!ELEMENT dateTimeFormatLength ( (default | dateTimeFormat+ | special*)* | alias ) >
+<!ATTLIST dateTimeFormatLength type NMTOKEN #REQUIRED >
+
+<!ELEMENT dateTimeFormat ( (pattern | displayName | special*)* | alias ) >
+<!ATTLIST dateTimeFormat type NMTOKEN #IMPLIED >
 
 <!ELEMENT timeZoneNames ( (default | zone+ | special*)* | alias ) >
 
@@ -201,7 +212,7 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT numbers ( (symbols | numberFormats | currencies | special*)* | alias ) >
+<!ELEMENT numbers ( (symbols | currencyFormats | decimalFormats | percentFormats | scientificFormats | currencies | special*)* | alias ) >
 
 <!ELEMENT symbols ( (decimal | group | list | percentSign | nativeZeroDigit | patternDigit | plusSign | minusSign | exponential | perMille | infinity | nan | special*)* | alias ) >
 
@@ -229,16 +240,32 @@
 
 <!ELEMENT nan ( #PCDATA ) >
 
-<!ELEMENT numberFormats ( (default | numberFormatStyle+ | special*)* | alias) >
-
-<!ELEMENT numberFormatStyle ( (default | numberFormat+ | special*)* | alias) >
-<!ATTLIST numberFormatStyle type NMTOKEN #REQUIRED >
-
-<!ELEMENT numberFormat ( (pattern+ | special*)* | alias ) >
-<!ATTLIST numberFormat type NMTOKEN #IMPLIED >
-
 <!ELEMENT pattern ( #PCDATA ) >
 <!ATTLIST pattern type NMTOKEN #IMPLIED >
+
+<!ELEMENT decimalFormats ( (default | decimalFormatLength+ | special*)* | alias) >
+<!ELEMENT decimalFormatLength ( (default+ | decimalFormat+ | special*)* | alias ) >
+<!ATTLIST decimalFormatLength type NMTOKEN #REQUIRED >
+<!ELEMENT decimalFormat (pattern) >
+<!ATTLIST decimalFormat type NMTOKEN #IMPLIED >
+
+<!ELEMENT scientificFormats ( (default | scientificFormatLength+ | special*)* | alias) >
+<!ELEMENT scientificFormatLength ( (default+ | scientificFormat+ | special*)* | alias ) >
+<!ATTLIST scientificFormatLength type NMTOKEN #REQUIRED >
+<!ELEMENT scientificFormat ((pattern | special*)* | alias) >
+<!ATTLIST scientificFormat type NMTOKEN #IMPLIED >
+
+<!ELEMENT percentFormats ( (default | percentFormatLength+ | special*)* | alias) >
+<!ELEMENT percentFormatLength ( (default+ | percentFormat+ | special*)* | alias ) >
+<!ATTLIST percentFormatLength type NMTOKEN #REQUIRED >
+<!ELEMENT percentFormat ((pattern | special*)* | alias) >
+<!ATTLIST percentFormat type NMTOKEN #IMPLIED >
+
+<!ELEMENT currencyFormats ( (default | currencyFormatLength+ | special*)* | alias) >
+<!ELEMENT currencyFormatLength ( (default+ | currencyFormat+ | special*)* | alias ) >
+<!ATTLIST currencyFormatLength type NMTOKEN #REQUIRED >
+<!ELEMENT currencyFormat ((pattern|  special*)* | alias) >
+<!ATTLIST currencyFormat type NMTOKEN #IMPLIED >
 
 <!ELEMENT currencies ( (default | currency+ | special*)* | alias ) >
 
@@ -253,11 +280,13 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT collations ( (collation+ | special*)* | alias ) >
+<!ELEMENT collations ( (default+ | collation+ | special*)* | alias ) >
 
 <!ELEMENT collation ( ( special* | uca? | settings? | suppress_contractions? | optimize?   | rules? )* | alias ) >
 
 <!ATTLIST collation key NMTOKEN #IMPLIED >
+
+<!ATTLIST collation type NMTOKEN #IMPLIED >
 
 <!ELEMENT uca EMPTY >
 <!ATTLIST uca version NMTOKEN #REQUIRED >
@@ -422,6 +451,8 @@
 <!ELEMENT no ( #PCDATA ) >
 
 <!ELEMENT shortNo ( #PCDATA ) >
+
+<!ELEMENT include ( #PCDATA ) >
 
 <!-- ######################################################### -->
 

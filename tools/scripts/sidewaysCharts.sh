@@ -2,7 +2,7 @@
 # Copyright (C) 2004, International Business Machines Corporation
 #  and others.  All Rights Reserved.
 #
-# Run this in locale/tools and it will create an InterimVettingChart in ../vetting/main
+# Run this in locale/tools and it will create a sidewaysview in ../vetting/sideways
 
 backup_tree()
 {
@@ -19,4 +19,4 @@ mkdir sideways
 mkdir sideways/by_type
 #MATCH="-m '.*[mM][tT].*'"
 #MATCH="-m '.*[mM][tT].*'"
-GenerateSidewaysView -s ../common/main/ -d sideways/ -t /xsrl/J/icu4j/src/com/ibm/icu/dev/tool/cldr/
+GenerateSidewaysView -z "x-cockney" -s ../common/main/ -d sideways/ -t ../../../J/icu4j/src/com/ibm/icu/dev/tool/cldr/

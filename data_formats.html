@@ -172,7 +172,7 @@ English, since they indicate internal IDs and <i>not</i> translated text, such a
   is my Character?</a> page on the Unicode site, one would write: [{ch} {t&#688;} {x&#803;} {&#411;&#787;} {&#261;&#769;} {i&#775;&#769;} {&#12488;&#12442;}], but for French one
   would just write [a-z é è ù ...]. When in doubt use braces, since it does no harm to included them around single code points: e.g. [a-z {é} {è} {ù} ...].<br>
   <br>
-  The exemplar character set for Han characters is composed somewhat differently. It is even harder to draw a clear line for Han characters, since usage is more more like a
+  The exemplar character set for Han characters is composed somewhat differently. It is even harder to draw a clear line for Han characters, since usage is more like a
   frequency curve that slowly trails off to the right in terms of decreasing frequency. So for this case, the exemplar characters simply contain a set of reasonably frequent
   characters for the language, based on presence in character set standards.</p>
 </blockquote>
@@ -182,7 +182,7 @@ English, since they indicate internal IDs and <i>not</i> translated text, such a
 </blockquote>
 <h2><a name="Display_Names">Display Names</a>: Languages, Scripts, Territories, Currencies, Time Zones</h2>
 <blockquote>
-  <p>These items are perhaps the simplest to translate. The typically behavior if any particular one is not available is to display the corresponding ISO code (or RFC 3166 code).
+  <p>These items are perhaps the simplest to translate. The typical behavior if any particular one is not available is to display the corresponding ISO code (or RFC 3166 code).
   Thus if there is no localization of FR (France), then the string &quot;FR&quot; will appear.</p>
   <p>For a list of the kinds of IDs that can be localized, see the <a href="diff/main/en_US.html">English-US locale data</a>, which has all territories, languages, scripts and
   currency names that can be translated.</p>
@@ -240,7 +240,7 @@ English, since they indicate internal IDs and <i>not</i> translated text, such a
 <h3>Number Patterns</h3>
 <blockquote>
   <p>There are different formats for different types of numbers. For example, here are some patterns (using the unlocalized symbols) with the corresponding text. While the format
-  is localized, the <i>characters to specify the format pattern</i> are not localized. That is, the decimal point al</p>
+  is localized, the <i>characters to specify the format pattern</i> are not localized. That is, the decimal point always is represented by a ".", and the grouping separator (thousands, etc.) is always represented by a ",". </p>
   <p>The <a href="#NumberElements">NumberElements</a> resource affects how these patterns are interpreted in a localized context. Here are some examples, based on the French
   locale. The &quot;.&quot; shows where the decimal point should go. The &quot;,&quot; shows where the thousands separator should go. A &quot;0&quot; indicates zero-padding: if the
   number is too short, a zero (in the locale's numeric set) will go there. A &quot;#&quot; indicates no padding: if the number is too short, nothing goes there. A &quot;¤&quot;

@@ -1,0 +1,697 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM 'cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest>
+  <number>
+   <result input='0.0' numberType='standard'>०</result>
+   <result numberType='integer'>०</result>
+   <result numberType='decimal'>०</result>
+   <result numberType='percent'>०%</result>
+   <result numberType='scientific'>०E०</result>
+   <result numberType='currency'>०E०</result>
+   <result input='0.01' numberType='standard'>०.०१</result>
+   <result numberType='integer'>०</result>
+   <result numberType='decimal'>०.०१</result>
+   <result numberType='percent'>१%</result>
+   <result numberType='scientific'>१E-२</result>
+   <result numberType='currency'>१E-२</result>
+   <result input='-0.01' numberType='standard'>-०.०१</result>
+   <result numberType='integer'>-०</result>
+   <result numberType='decimal'>-०.०१</result>
+   <result numberType='percent'>-१%</result>
+   <result numberType='scientific'>-१E-२</result>
+   <result numberType='currency'>-१E-२</result>
+   <result input='1.0' numberType='standard'>१</result>
+   <result numberType='integer'>१</result>
+   <result numberType='decimal'>१</result>
+   <result numberType='percent'>१००%</result>
+   <result numberType='scientific'>१E०</result>
+   <result numberType='currency'>१E०</result>
+   <result input='-1.0' numberType='standard'>-१</result>
+   <result numberType='integer'>-१</result>
+   <result numberType='decimal'>-१</result>
+   <result numberType='percent'>-१००%</result>
+   <result numberType='scientific'>-१E०</result>
+   <result numberType='currency'>-१E०</result>
+   <result input='123.456' numberType='standard'>१२३.४५६</result>
+   <result numberType='integer'>१२३</result>
+   <result numberType='decimal'>१२३.४५६</result>
+   <result numberType='percent'>१२,३४६%</result>
+   <result numberType='scientific'>१.२३४५६E२</result>
+   <result numberType='currency'>१.२३४५६E२</result>
+   <result input='-123.456' numberType='standard'>-१२३.४५६</result>
+   <result numberType='integer'>-१२३</result>
+   <result numberType='decimal'>-१२३.४५६</result>
+   <result numberType='percent'>-१२,३४६%</result>
+   <result numberType='scientific'>-१.२३४५६E२</result>
+   <result numberType='currency'>-१.२३४५६E२</result>
+   <result input='123456.78' numberType='standard'>१२३,४५६.७८</result>
+   <result numberType='integer'>१२३,४५७</result>
+   <result numberType='decimal'>१२३,४५६.७८</result>
+   <result numberType='percent'>१२,३४५,६७८%</result>
+   <result numberType='scientific'>१.२३४५६७८E५</result>
+   <result numberType='currency'>१.२३४५६७८E५</result>
+   <result input='-123456.78' numberType='standard'>-१२३,४५६.७८</result>
+   <result numberType='integer'>-१२३,४५७</result>
+   <result numberType='decimal'>-१२३,४५६.७८</result>
+   <result numberType='percent'>-१२,३४५,६७८%</result>
+   <result numberType='scientific'>-१.२३४५६७८E५</result>
+   <result numberType='currency'>-१.२३४५६७८E५</result>
+   <result input='Infinity' numberType='standard'>∞</result>
+   <result numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result numberType='currency'>∞</result>
+   <result input='-Infinity' numberType='standard'>-∞</result>
+   <result numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result numberType='currency'>-∞</result>
+   <result input='NaN' numberType='standard'>�</result>
+   <result numberType='integer'>�</result>
+   <result numberType='decimal'>�</result>
+   <result numberType='percent'>�</result>
+   <result numberType='scientific'>�</result>
+   <result numberType='currency'>�</result>
+  </number>
+  <date>
+   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>००:००</result>
+   <result timeType='medium'>००:००:०० </result>
+   <result timeType='long'>००:००:०० GMT+००:००</result>
+   <result timeType='full'>००:००:०० GMT+००:००</result>
+   <result dateType='short' timeType='none'>००/०१/३१</result>
+   <result timeType='short'>००/०१/३१ ००:००</result>
+   <result timeType='medium'>००/०१/३१ ००:००:०० </result>
+   <result timeType='long'>००/०१/३१ ००:००:०० GMT+००:००</result>
+   <result timeType='full'>००/०१/३१ ००:००:०० GMT+००:००</result>
+   <result dateType='medium' timeType='none'>१९०० जनवरी ३१ </result>
+   <result timeType='short'>१९०० जनवरी ३१  ००:००</result>
+   <result timeType='medium'>१९०० जनवरी ३१  ००:००:०० </result>
+   <result timeType='long'>१९०० जनवरी ३१  ००:००:०० GMT+००:००</result>
+   <result timeType='full'>१९०० जनवरी ३१  ००:००:०० GMT+००:००</result>
+   <result dateType='long' timeType='none'>१९०० जनवरी ३१ </result>
+   <result timeType='short'>१९०० जनवरी ३१  ००:००</result>
+   <result timeType='medium'>१९०० जनवरी ३१  ००:००:०० </result>
+   <result timeType='long'>१९०० जनवरी ३१  ००:००:०० GMT+००:००</result>
+   <result timeType='full'>१९०० जनवरी ३१  ००:००:०० GMT+००:००</result>
+   <result dateType='full' timeType='none'>बुधवार, १९०० जनवरी ३१ </result>
+   <result timeType='short'>बुधवार, १९०० जनवरी ३१  ००:००</result>
+   <result timeType='medium'>बुधवार, १९०० जनवरी ३१  ००:००:०० </result>
+   <result timeType='long'>बुधवार, १९०० जनवरी ३१  ००:००:०० GMT+००:००</result>
+   <result timeType='full'>बुधवार, १९०० जनवरी ३१  ००:००:०० GMT+००:००</result>
+   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>००:००</result>
+   <result timeType='medium'>००:००:०१ </result>
+   <result timeType='long'>००:००:०१ GMT+००:००</result>
+   <result timeType='full'>००:००:०१ GMT+००:००</result>
+   <result dateType='short' timeType='none'>०९/०२/२८</result>
+   <result timeType='short'>०९/०२/२८ ००:००</result>
+   <result timeType='medium'>०९/०२/२८ ००:००:०१ </result>
+   <result timeType='long'>०९/०२/२८ ००:००:०१ GMT+००:००</result>
+   <result timeType='full'>०९/०२/२८ ००:००:०१ GMT+००:००</result>
+   <result dateType='medium' timeType='none'>१९०९ फरवरी २८ </result>
+   <result timeType='short'>१९०९ फरवरी २८  ००:००</result>
+   <result timeType='medium'>१९०९ फरवरी २८  ००:००:०१ </result>
+   <result timeType='long'>१९०९ फरवरी २८  ००:००:०१ GMT+००:००</result>
+   <result timeType='full'>१९०९ फरवरी २८  ००:००:०१ GMT+००:००</result>
+   <result dateType='long' timeType='none'>१९०९ फरवरी २८ </result>
+   <result timeType='short'>१९०९ फरवरी २८  ००:००</result>
+   <result timeType='medium'>१९०९ फरवरी २८  ००:००:०१ </result>
+   <result timeType='long'>१९०९ फरवरी २८  ००:००:०१ GMT+००:००</result>
+   <result timeType='full'>१९०९ फरवरी २८  ००:००:०१ GMT+००:००</result>
+   <result dateType='full' timeType='none'>रविवार, १९०९ फरवरी २८ </result>
+   <result timeType='short'>रविवार, १९०९ फरवरी २८  ००:००</result>
+   <result timeType='medium'>रविवार, १९०९ फरवरी २८  ००:००:०१ </result>
+   <result timeType='long'>रविवार, १९०९ फरवरी २८  ००:००:०१ GMT+००:००</result>
+   <result timeType='full'>रविवार, १९०९ फरवरी २८  ००:००:०१ GMT+००:००</result>
+   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>००:५९</result>
+   <result timeType='medium'>००:५९:५९ </result>
+   <result timeType='long'>००:५९:५९ GMT+००:००</result>
+   <result timeType='full'>००:५९:५९ GMT+००:००</result>
+   <result dateType='short' timeType='none'>१८/०३/२६</result>
+   <result timeType='short'>१८/०३/२६ ००:५९</result>
+   <result timeType='medium'>१८/०३/२६ ००:५९:५९ </result>
+   <result timeType='long'>१८/०३/२६ ००:५९:५९ GMT+००:००</result>
+   <result timeType='full'>१८/०३/२६ ००:५९:५९ GMT+००:००</result>
+   <result dateType='medium' timeType='none'>१९१८ मार्च २६ </result>
+   <result timeType='short'>१९१८ मार्च २६  ००:५९</result>
+   <result timeType='medium'>१९१८ मार्च २६  ००:५९:५९ </result>
+   <result timeType='long'>१९१८ मार्च २६  ००:५९:५९ GMT+००:००</result>
+   <result timeType='full'>१९१८ मार्च २६  ००:५९:५९ GMT+००:००</result>
+   <result dateType='long' timeType='none'>१९१८ मार्च २६ </result>
+   <result timeType='short'>१९१८ मार्च २६  ००:५९</result>
+   <result timeType='medium'>१९१८ मार्च २६  ००:५९:५९ </result>
+   <result timeType='long'>१९१८ मार्च २६  ००:५९:५९ GMT+००:००</result>
+   <result timeType='full'>१९१८ मार्च २६  ००:५९:५९ GMT+००:००</result>
+   <result dateType='full' timeType='none'>मंगलवार, १९१८ मार्च २६ </result>
+   <result timeType='short'>मंगलवार, १९१८ मार्च २६  ००:५९</result>
+   <result timeType='medium'>मंगलवार, १९१८ मार्च २६  ००:५९:५९ </result>
+   <result timeType='long'>मंगलवार, १९१८ मार्च २६  ००:५९:५९ GMT+००:००</result>
+   <result timeType='full'>मंगलवार, १९१८ मार्च २६  ००:५९:५९ GMT+००:००</result>
+   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>०१:००</result>
+   <result timeType='medium'>०१:००:०० </result>
+   <result timeType='long'>०१:००:०० GMT+००:००</result>
+   <result timeType='full'>०१:००:०० GMT+००:००</result>
+   <result dateType='short' timeType='none'>३२/०४/२४</result>
+   <result timeType='short'>३२/०४/२४ ०१:००</result>
+   <result timeType='medium'>३२/०४/२४ ०१:००:०० </result>
+   <result timeType='long'>३२/०४/२४ ०१:००:०० GMT+००:००</result>
+   <result timeType='full'>३२/०४/२४ ०१:००:०० GMT+००:००</result>
+   <result dateType='medium' timeType='none'>१९३२ अप्रैल २४ </result>
+   <result timeType='short'>१९३२ अप्रैल २४  ०१:००</result>
+   <result timeType='medium'>१९३२ अप्रैल २४  ०१:००:०० </result>
+   <result timeType='long'>१९३२ अप्रैल २४  ०१:००:०० GMT+००:००</result>
+   <result timeType='full'>१९३२ अप्रैल २४  ०१:००:०० GMT+००:००</result>
+   <result dateType='long' timeType='none'>१९३२ अप्रैल २४ </result>
+   <result timeType='short'>१९३२ अप्रैल २४  ०१:००</result>
+   <result timeType='medium'>१९३२ अप्रैल २४  ०१:००:०० </result>
+   <result timeType='long'>१९३२ अप्रैल २४  ०१:००:०० GMT+००:००</result>
+   <result timeType='full'>१९३२ अप्रैल २४  ०१:००:०० GMT+००:००</result>
+   <result dateType='full' timeType='none'>रविवार, १९३२ अप्रैल २४ </result>
+   <result timeType='short'>रविवार, १९३२ अप्रैल २४  ०१:००</result>
+   <result timeType='medium'>रविवार, १९३२ अप्रैल २४  ०१:००:०० </result>
+   <result timeType='long'>रविवार, १९३२ अप्रैल २४  ०१:००:०० GMT+००:००</result>
+   <result timeType='full'>रविवार, १९३२ अप्रैल २४  ०१:००:०० GMT+००:००</result>
+   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>०१:००</result>
+   <result timeType='medium'>०१:००:०१ </result>
+   <result timeType='long'>०१:००:०१ GMT+००:००</result>
+   <result timeType='full'>०१:००:०१ GMT+००:००</result>
+   <result dateType='short' timeType='none'>४५/०५/२०</result>
+   <result timeType='short'>४५/०५/२० ०१:००</result>
+   <result timeType='medium'>४५/०५/२० ०१:००:०१ </result>
+   <result timeType='long'>४५/०५/२० ०१:००:०१ GMT+००:००</result>
+   <result timeType='full'>४५/०५/२० ०१:००:०१ GMT+००:००</result>
+   <result dateType='medium' timeType='none'>१९४५ मई २० </result>
+   <result timeType='short'>१९४५ मई २०  ०१:००</result>
+   <result timeType='medium'>१९४५ मई २०  ०१:००:०१ </result>
+   <result timeType='long'>१९४५ मई २०  ०१:००:०१ GMT+००:००</result>
+   <result timeType='full'>१९४५ मई २०  ०१:००:०१ GMT+००:००</result>
+   <result dateType='long' timeType='none'>१९४५ मई २० </result>
+   <result timeType='short'>१९४५ मई २०  ०१:००</result>
+   <result timeType='medium'>१९४५ मई २०  ०१:००:०१ </result>
+   <result timeType='long'>१९४५ मई २०  ०१:००:०१ GMT+००:००</result>
+   <result timeType='full'>१९४५ मई २०  ०१:००:०१ GMT+००:००</result>
+   <result dateType='full' timeType='none'>रविवार, १९४५ मई २० </result>
+   <result timeType='short'>रविवार, १९४५ मई २०  ०१:००</result>
+   <result timeType='medium'>रविवार, १९४५ मई २०  ०१:००:०१ </result>
+   <result timeType='long'>रविवार, १९४५ मई २०  ०१:००:०१ GMT+००:००</result>
+   <result timeType='full'>रविवार, १९४५ मई २०  ०१:००:०१ GMT+००:००</result>
+   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>११:५९</result>
+   <result timeType='medium'>११:५९:५९ </result>
+   <result timeType='long'>११:५९:५९ GMT+००:००</result>
+   <result timeType='full'>११:५९:५९ GMT+००:००</result>
+   <result dateType='short' timeType='none'>५२/०६/१८</result>
+   <result timeType='short'>५२/०६/१८ ११:५९</result>
+   <result timeType='medium'>५२/०६/१८ ११:५९:५९ </result>
+   <result timeType='long'>५२/०६/१८ ११:५९:५९ GMT+००:००</result>
+   <result timeType='full'>५२/०६/१८ ११:५९:५९ GMT+००:००</result>
+   <result dateType='medium' timeType='none'>१९५२ जून १८ </result>
+   <result timeType='short'>१९५२ जून १८  ११:५९</result>
+   <result timeType='medium'>१९५२ जून १८  ११:५९:५९ </result>
+   <result timeType='long'>१९५२ जून १८  ११:५९:५९ GMT+००:००</result>
+   <result timeType='full'>१९५२ जून १८  ११:५९:५९ GMT+००:००</result>
+   <result dateType='long' timeType='none'>१९५२ जून १८ </result>
+   <result timeType='short'>१९५२ जून १८  ११:५९</result>
+   <result timeType='medium'>१९५२ जून १८  ११:५९:५९ </result>
+   <result timeType='long'>१९५२ जून १८  ११:५९:५९ GMT+००:००</result>
+   <result timeType='full'>१९५२ जून १८  ११:५९:५९ GMT+००:००</result>
+   <result dateType='full' timeType='none'>बुधवार, १९५२ जून १८ </result>
+   <result timeType='short'>बुधवार, १९५२ जून १८  ११:५९</result>
+   <result timeType='medium'>बुधवार, १९५२ जून १८  ११:५९:५९ </result>
+   <result timeType='long'>बुधवार, १९५२ जून १८  ११:५९:५९ GMT+००:००</result>
+   <result timeType='full'>बुधवार, १९५२ जून १८  ११:५९:५९ GMT+००:००</result>
+   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>१२:००</result>
+   <result timeType='medium'>१२:००:०० </result>
+   <result timeType='long'>१२:००:०० GMT+००:००</result>
+   <result timeType='full'>१२:००:०० GMT+००:००</result>
+   <result dateType='short' timeType='none'>७३/०७/१६</result>
+   <result timeType='short'>७३/०७/१६ १२:००</result>
+   <result timeType='medium'>७३/०७/१६ १२:००:०० </result>
+   <result timeType='long'>७३/०७/१६ १२:००:०० GMT+००:००</result>
+   <result timeType='full'>७३/०७/१६ १२:००:०० GMT+००:००</result>
+   <result dateType='medium' timeType='none'>१९७३ जुलाई १६ </result>
+   <result timeType='short'>१९७३ जुलाई १६  १२:००</result>
+   <result timeType='medium'>१९७३ जुलाई १६  १२:००:०० </result>
+   <result timeType='long'>१९७३ जुलाई १६  १२:००:०० GMT+००:००</result>
+   <result timeType='full'>१९७३ जुलाई १६  १२:००:०० GMT+००:००</result>
+   <result dateType='long' timeType='none'>१९७३ जुलाई १६ </result>
+   <result timeType='short'>१९७३ जुलाई १६  १२:००</result>
+   <result timeType='medium'>१९७३ जुलाई १६  १२:००:०० </result>
+   <result timeType='long'>१९७३ जुलाई १६  १२:००:०० GMT+००:००</result>
+   <result timeType='full'>१९७३ जुलाई १६  १२:००:०० GMT+००:००</result>
+   <result dateType='full' timeType='none'>सोमवार, १९७३ जुलाई १६ </result>
+   <result timeType='short'>सोमवार, १९७३ जुलाई १६  १२:००</result>
+   <result timeType='medium'>सोमवार, १९७३ जुलाई १६  १२:००:०० </result>
+   <result timeType='long'>सोमवार, १९७३ जुलाई १६  १२:००:०० GMT+००:००</result>
+   <result timeType='full'>सोमवार, १९७३ जुलाई १६  १२:००:०० GMT+००:००</result>
+   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>१२:००</result>
+   <result timeType='medium'>१२:००:०१ </result>
+   <result timeType='long'>१२:००:०१ GMT+००:००</result>
+   <result timeType='full'>१२:००:०१ GMT+००:००</result>
+   <result dateType='short' timeType='none'>९९/०८/१४</result>
+   <result timeType='short'>९९/०८/१४ १२:००</result>
+   <result timeType='medium'>९९/०८/१४ १२:००:०१ </result>
+   <result timeType='long'>९९/०८/१४ १२:००:०१ GMT+००:००</result>
+   <result timeType='full'>९९/०८/१४ १२:००:०१ GMT+००:००</result>
+   <result dateType='medium' timeType='none'>१९९९ अगस्त १४ </result>
+   <result timeType='short'>१९९९ अगस्त १४  १२:००</result>
+   <result timeType='medium'>१९९९ अगस्त १४  १२:००:०१ </result>
+   <result timeType='long'>१९९९ अगस्त १४  १२:००:०१ GMT+००:००</result>
+   <result timeType='full'>१९९९ अगस्त १४  १२:००:०१ GMT+००:००</result>
+   <result dateType='long' timeType='none'>१९९९ अगस्त १४ </result>
+   <result timeType='short'>१९९९ अगस्त १४  १२:००</result>
+   <result timeType='medium'>१९९९ अगस्त १४  १२:००:०१ </result>
+   <result timeType='long'>१९९९ अगस्त १४  १२:००:०१ GMT+००:००</result>
+   <result timeType='full'>१९९९ अगस्त १४  १२:००:०१ GMT+००:००</result>
+   <result dateType='full' timeType='none'>शनिवार, १९९९ अगस्त १४ </result>
+   <result timeType='short'>शनिवार, १९९९ अगस्त १४  १२:००</result>
+   <result timeType='medium'>शनिवार, १९९९ अगस्त १४  १२:००:०१ </result>
+   <result timeType='long'>शनिवार, १९९९ अगस्त १४  १२:००:०१ GMT+००:००</result>
+   <result timeType='full'>शनिवार, १९९९ अगस्त १४  १२:००:०१ GMT+००:००</result>
+   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>२२:५९</result>
+   <result timeType='medium'>२२:५९:५९ </result>
+   <result timeType='long'>२२:५९:५९ GMT+००:००</result>
+   <result timeType='full'>२२:५९:५९ GMT+००:००</result>
+   <result dateType='short' timeType='none'>००/०९/१२</result>
+   <result timeType='short'>००/०९/१२ २२:५९</result>
+   <result timeType='medium'>००/०९/१२ २२:५९:५९ </result>
+   <result timeType='long'>००/०९/१२ २२:५९:५९ GMT+००:००</result>
+   <result timeType='full'>००/०९/१२ २२:५९:५९ GMT+००:००</result>
+   <result dateType='medium' timeType='none'>२००० सितम्बर १२ </result>
+   <result timeType='short'>२००० सितम्बर १२  २२:५९</result>
+   <result timeType='medium'>२००० सितम्बर १२  २२:५९:५९ </result>
+   <result timeType='long'>२००० सितम्बर १२  २२:५९:५९ GMT+००:००</result>
+   <result timeType='full'>२००० सितम्बर १२  २२:५९:५९ GMT+००:००</result>
+   <result dateType='long' timeType='none'>२००० सितम्बर १२ </result>
+   <result timeType='short'>२००० सितम्बर १२  २२:५९</result>
+   <result timeType='medium'>२००० सितम्बर १२  २२:५९:५९ </result>
+   <result timeType='long'>२००० सितम्बर १२  २२:५९:५९ GMT+००:००</result>
+   <result timeType='full'>२००० सितम्बर १२  २२:५९:५९ GMT+००:००</result>
+   <result dateType='full' timeType='none'>मंगलवार, २००० सितम्बर १२ </result>
+   <result timeType='short'>मंगलवार, २००० सितम्बर १२  २२:५९</result>
+   <result timeType='medium'>मंगलवार, २००० सितम्बर १२  २२:५९:५९ </result>
+   <result timeType='long'>मंगलवार, २००० सितम्बर १२  २२:५९:५९ GMT+००:००</result>
+   <result timeType='full'>मंगलवार, २००० सितम्बर १२  २२:५९:५९ GMT+००:००</result>
+   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>२३:००</result>
+   <result timeType='medium'>२३:००:०० </result>
+   <result timeType='long'>२३:००:०० GMT+००:००</result>
+   <result timeType='full'>२३:००:०० GMT+००:००</result>
+   <result dateType='short' timeType='none'>०१/१०/०८</result>
+   <result timeType='short'>०१/१०/०८ २३:००</result>
+   <result timeType='medium'>०१/१०/०८ २३:००:०० </result>
+   <result timeType='long'>०१/१०/०८ २३:००:०० GMT+००:००</result>
+   <result timeType='full'>०१/१०/०८ २३:००:०० GMT+००:००</result>
+   <result dateType='medium' timeType='none'>२००१ अक्तूबर ८ </result>
+   <result timeType='short'>२००१ अक्तूबर ८  २३:००</result>
+   <result timeType='medium'>२००१ अक्तूबर ८  २३:००:०० </result>
+   <result timeType='long'>२००१ अक्तूबर ८  २३:००:०० GMT+००:००</result>
+   <result timeType='full'>२००१ अक्तूबर ८  २३:००:०० GMT+००:००</result>
+   <result dateType='long' timeType='none'>२००१ अक्तूबर ८ </result>
+   <result timeType='short'>२००१ अक्तूबर ८  २३:००</result>
+   <result timeType='medium'>२००१ अक्तूबर ८  २३:००:०० </result>
+   <result timeType='long'>२००१ अक्तूबर ८  २३:००:०० GMT+००:००</result>
+   <result timeType='full'>२००१ अक्तूबर ८  २३:००:०० GMT+००:००</result>
+   <result dateType='full' timeType='none'>सोमवार, २००१ अक्तूबर ०८ </result>
+   <result timeType='short'>सोमवार, २००१ अक्तूबर ०८  २३:००</result>
+   <result timeType='medium'>सोमवार, २००१ अक्तूबर ०८  २३:००:०० </result>
+   <result timeType='long'>सोमवार, २००१ अक्तूबर ०८  २३:००:०० GMT+००:००</result>
+   <result timeType='full'>सोमवार, २००१ अक्तूबर ०८  २३:००:०० GMT+००:००</result>
+   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>२३:००</result>
+   <result timeType='medium'>२३:००:०१ </result>
+   <result timeType='long'>२३:००:०१ GMT+००:००</result>
+   <result timeType='full'>२३:००:०१ GMT+००:००</result>
+   <result dateType='short' timeType='none'>०४/११/०४</result>
+   <result timeType='short'>०४/११/०४ २३:००</result>
+   <result timeType='medium'>०४/११/०४ २३:००:०१ </result>
+   <result timeType='long'>०४/११/०४ २३:००:०१ GMT+००:००</result>
+   <result timeType='full'>०४/११/०४ २३:००:०१ GMT+००:००</result>
+   <result dateType='medium' timeType='none'>२००४ नवम्बर ४ </result>
+   <result timeType='short'>२००४ नवम्बर ४  २३:००</result>
+   <result timeType='medium'>२००४ नवम्बर ४  २३:००:०१ </result>
+   <result timeType='long'>२००४ नवम्बर ४  २३:००:०१ GMT+००:००</result>
+   <result timeType='full'>२००४ नवम्बर ४  २३:००:०१ GMT+००:००</result>
+   <result dateType='long' timeType='none'>२००४ नवम्बर ४ </result>
+   <result timeType='short'>२००४ नवम्बर ४  २३:००</result>
+   <result timeType='medium'>२००४ नवम्बर ४  २३:००:०१ </result>
+   <result timeType='long'>२००४ नवम्बर ४  २३:००:०१ GMT+००:००</result>
+   <result timeType='full'>२००४ नवम्बर ४  २३:००:०१ GMT+००:००</result>
+   <result dateType='full' timeType='none'>गुरुवार, २००४ नवम्बर ०४ </result>
+   <result timeType='short'>गुरुवार, २००४ नवम्बर ०४  २३:००</result>
+   <result timeType='medium'>गुरुवार, २००४ नवम्बर ०४  २३:००:०१ </result>
+   <result timeType='long'>गुरुवार, २००४ नवम्बर ०४  २३:००:०१ GMT+००:००</result>
+   <result timeType='full'>गुरुवार, २००४ नवम्बर ०४  २३:००:०१ GMT+००:००</result>
+   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>२३:५९</result>
+   <result timeType='medium'>२३:५९:५९ </result>
+   <result timeType='long'>२३:५९:५९ GMT+००:००</result>
+   <result timeType='full'>२३:५९:५९ GMT+००:००</result>
+   <result dateType='short' timeType='none'>१०/१२/०१</result>
+   <result timeType='short'>१०/१२/०१ २३:५९</result>
+   <result timeType='medium'>१०/१२/०१ २३:५९:५९ </result>
+   <result timeType='long'>१०/१२/०१ २३:५९:५९ GMT+००:००</result>
+   <result timeType='full'>१०/१२/०१ २३:५९:५९ GMT+००:००</result>
+   <result dateType='medium' timeType='none'>२०१० दिसम्बर १ </result>
+   <result timeType='short'>२०१० दिसम्बर १  २३:५९</result>
+   <result timeType='medium'>२०१० दिसम्बर १  २३:५९:५९ </result>
+   <result timeType='long'>२०१० दिसम्बर १  २३:५९:५९ GMT+००:००</result>
+   <result timeType='full'>२०१० दिसम्बर १  २३:५९:५९ GMT+००:००</result>
+   <result dateType='long' timeType='none'>२०१० दिसम्बर १ </result>
+   <result timeType='short'>२०१० दिसम्बर १  २३:५९</result>
+   <result timeType='medium'>२०१० दिसम्बर १  २३:५९:५९ </result>
+   <result timeType='long'>२०१० दिसम्बर १  २३:५९:५९ GMT+००:००</result>
+   <result timeType='full'>२०१० दिसम्बर १  २३:५९:५९ GMT+००:००</result>
+   <result dateType='full' timeType='none'>बुधवार, २०१० दिसम्बर ०१ </result>
+   <result timeType='short'>बुधवार, २०१० दिसम्बर ०१  २३:५९</result>
+   <result timeType='medium'>बुधवार, २०१० दिसम्बर ०१  २३:५९:५९ </result>
+   <result timeType='long'>बुधवार, २०१० दिसम्बर ०१  २३:५९:५९ GMT+००:००</result>
+   <result timeType='full'>बुधवार, २०१० दिसम्बर ०१  २३:५९:५९ GMT+००:००</result>
+  </date>
+  <collation>
+   <result>
+x‌
+x‍
+x‌<!-- dup for equality -->
+X‌
+X‍
+X‌<!-- dup for equality -->
+xॐ
+Xॐ
+xॐx
+x।
+X।
+x।x
+x॥
+X॥
+x॥x
+x॰
+X॰
+x॰x
+x०
+X०
+x०x
+x१
+X१
+x१x
+x२
+X२
+x२x
+x३
+X३
+x३x
+x४
+X४
+x४x
+x५
+X५
+x५x
+x६
+X६
+x६x
+x७
+X७
+x७x
+x८
+X८
+x८x
+x९
+X९
+x९x
+x‌x
+x‍x
+x‌x<!-- dup for equality -->
+xऄ
+Xऄ
+xऄx
+xअ
+Xअ
+xअx
+xआ
+Xआ
+xआx
+xइ
+Xइ
+xइx
+xई
+Xई
+xईx
+xउ
+Xउ
+xउx
+xऊ
+Xऊ
+xऊx
+xऋ
+Xऋ
+xऋx
+xॠ
+Xॠ
+xॠx
+xऌ
+Xऌ
+xऌx
+xॡ
+Xॡ
+xॡx
+xऍ
+Xऍ
+xऍx
+xऎ
+Xऎ
+xऎx
+xए
+Xए
+xएx
+xऐ
+Xऐ
+xऐx
+xऑ
+Xऑ
+xऑx
+xऒ
+Xऒ
+xऒx
+xओ
+Xओ
+xओx
+xऔ
+Xऔ
+xऔx
+xक
+Xक
+xकx
+xक़
+Xक़
+xक़x
+xख
+Xख
+xखx
+xख़
+Xख़
+xख़x
+xग
+Xग
+xगx
+xग़
+Xग़
+xग़x
+xघ
+Xघ
+xघx
+xङ
+Xङ
+xङx
+xच
+Xच
+xचx
+xछ
+Xछ
+xछx
+xज
+Xज
+xजx
+xज़
+Xज़
+xज़x
+xझ
+Xझ
+xझx
+xञ
+Xञ
+xञx
+xट
+Xट
+xटx
+xठ
+Xठ
+xठx
+xड
+Xड
+xडx
+xड़
+Xड़
+xड़x
+xढ
+Xढ
+xढx
+xढ़
+Xढ़
+xढ़x
+xण
+Xण
+xणx
+xत
+Xत
+xतx
+xथ
+Xथ
+xथx
+xद
+Xद
+xदx
+xध
+Xध
+xधx
+xन
+Xन
+xनx
+xऩ
+Xऩ
+xऩx
+xप
+Xप
+xपx
+xफ
+Xफ
+xफx
+xफ़
+Xफ़
+xफ़x
+xब
+Xब
+xबx
+xभ
+Xभ
+xभx
+xम
+Xम
+xमx
+xय
+Xय
+xयx
+xय़
+Xय़
+xय़x
+xर
+Xर
+xरx
+xऱ
+Xऱ
+xऱx
+xल
+Xल
+xलx
+xळ
+Xळ
+xळx
+xऴ
+Xऴ
+xऴx
+xव
+Xव
+xवx
+xश
+Xश
+xशx
+xष
+Xष
+xषx
+xस
+Xस
+xसx
+xह
+Xह
+xहx
+x़
+X़
+x़x
+xँ
+Xँ
+xँx
+xं
+Xं
+xंx
+xः
+Xः
+xःx
+x॑
+X॑
+x॑x
+x॒
+X॒
+x॒x
+x॓
+X॓
+x॓x
+x॔
+X॔
+x॔x
+xऽ
+Xऽ
+xऽx
+x्
+X्
+x्x
+xा
+Xा
+xाx
+xि
+Xि
+xिx
+xी
+Xी
+xीx
+xु
+Xु
+xुx
+xू
+Xू
+xूx
+xृ
+Xृ
+xृx
+xॄ
+Xॄ
+xॄx
+xॢ
+Xॢ
+xॢx
+xॣ
+Xॣ
+xॣx
+xॅ
+Xॅ
+xॅx
+xॆ
+Xॆ
+xॆx
+xे
+Xे
+xेx
+xै
+Xै
+xैx
+xॉ
+Xॉ
+xॉx
+xॊ
+Xॊ
+xॊx
+xो
+Xो
+xोx
+xौ
+Xौ
+xौx
+   </result>
+  </collation>
+ </cldrTest>

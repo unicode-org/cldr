@@ -33,7 +33,9 @@ CONVOPTS_COL+= -s $(L)/common/collation -d $(COLSRCDIR) -p $(L)/icu/collation $(
 
 # some aliases
 GENRB_ALIAS_PATHS=$(GENRB_ALIAS_SOURCE:%.txt=$(LOCSRCDIR)/%.txt)
+GENRB_SYNTHETIC_PATHS=$(GENRB_SYNTHETIC_ALIAS:%.txt=$(LOCSRCDIR)/%.txt)
 COLLATION_ALIAS_PATHS=$(COLLATION_ALIAS_SOURCE:%.txt=$(COLSRCDIR)/%.txt)
+COLLATION_SYNTHETIC_PATHS=$(COLLATION_SYNTHETIC_ALIAS:%.txt=$(COLSRCDIR)/%.txt)
 GENRB_PATHS=$(GENRB_SOURCE:%.txt=$(LOCSRCDIR)/%.txt)
 COLLATION_PATHS=$(COLLATION_SOURCE:%.txt=$(COLSRCDIR)/%.txt)
 
@@ -57,6 +59,7 @@ cldr-clean-lists:
 cldr-clean-old: cldr-clean-lists
 	-$(RMV) $(LOCSRCDIR)/*.txt $(COLSRCDIR)/*.txt
 
+cldr-lists:  coll/colfiles.mk locales/resfiles.mk
 
 # the following two are S-L-O-W.  
 # Don't run them if you're just cleaning up!
@@ -65,12 +68,10 @@ cldr-clean-old: cldr-clean-lists
 #ifneq ($(patsubst %cldr-clean-old,,$(MAKECMDGOALS)),)
 #ifneq ($(patsubst %cldr-clean-lists,,$(MAKECMDGOALS)),)
 
-$(GENRB_ALIAS_PATHS) $(LOCSRCDIR)/resfiles.mk: $(L)/icu/deprecatedList.xml $(L)/common/main $(L)/icu/main
-	echo $(MAKECMDGOALS)
+$(GENRB_SYNTHETIC_PATHS) $(LOCSRCDIR)/resfiles.mk: $(L)/icu/deprecatedList.xml $(L)/common/main $(L)/icu/main
 	$(LDML_CONVERTER) $(CONVOPTS) -w $(L)/common/main
 
-$(COLLATION_ALIAS_PATHS) $(COLSRCDIR)/colfiles.mk: $(L)/icu/deprecatedList.xml $(L)/common/collation $(L)/icu/collation
-	echo $(MAKECMDGOALS)
+$(COLLATION_SYNTHETIC_PATHS) $(COLSRCDIR)/colfiles.mk: $(L)/icu/deprecatedList.xml $(L)/common/collation $(L)/icu/collation
 	$(LDML_CONVERTER) $(CONVOPTS_COL) -w $(L)/common/collation
 #endif
 #endif

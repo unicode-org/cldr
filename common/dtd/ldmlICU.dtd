@@ -70,8 +70,8 @@
 
 <!ELEMENT icu:breakDictionaryData EMPTY >
 <!ATTLIST icu:breakDictionaryData icu:class NMTOKEN #REQUIRED >
-<!ATTLIST icu:breakDictionaryData icu:import NMTOKEN #REQUIRED >
-<!ATTLIST icu:breakDictionaryData icu:importFile NMTOKEN #REQUIRED >
+<!ATTLIST icu:breakDictionaryData icu:import NMTOKEN #IMPLIED >
+<!ATTLIST icu:breakDictionaryData icu:importFile CDATA #IMPILIED >
 
 <!-- RBT data  -->
 <!ELEMENT icu:transforms ( alias | (default?, icu:transform*)) >

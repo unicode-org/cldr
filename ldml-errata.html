@@ -34,20 +34,27 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   <tr>
     <td width="20%"><i>Summary:</i></td>
     <td>This document contains corrigenda for errata found in the 1.0 version of 
-      the Locale Data Markup Language specification (<a href="http://www.openi18n.org/spec/ldml/1.0/ldml-spec.html">http://www.openi18n.org/spec/ldml/1.0/ldml-spec.html</a>).</td>
+      the Locale Data Markup Language specification (<a href="http://www.openi18n.org/spec/ldml/1.0/ldml-spec.htm">http://www.openi18n.org/spec/ldml/1.0/ldml-spec.htm</a>).</td>
   </tr>
   <tr>
     <td><i>Date:</i></td>
-    <td>2003-08-03</td>
+    <td>2003-08-13</td>
   </tr>
   <tr>
     <td><i>Author:</i></td>
     <td>Mark Davis</td>
   </tr>
   <tr>
-    <td><i>This Document:</i></td>
-    <td><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml_errata.html">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml_errata.html</a><b><i><font color="#FF0000"> 
-      (to be changed!)</font></i></b></td>
+    <td><i>Latest Version:</i></td>
+    <td><a href="http://www.openi18n.org/spec/ldml/1.0/ldml-errata.htm">http://www.openi18n.org/spec/ldml/1.0/ldml-errata.htm</a></td>
+  </tr>
+  <tr>
+    <td><i>Older Versions:</i></td>
+    <td><a href="http://oss.software.ibm.com/cvs/icu/locale/ldml_errata.html">http://oss.software.ibm.com/cvs/icu/locale/ldml_errata.html</a></td>
+  </tr>
+  <tr>
+    <td><i>Feedback:</i></td>
+    <td><a href="http://www.openi18n.org/locale-bugs/public">http://www.openi18n.org/locale-bugs/public</a></td>
   </tr>
 </table>
 &nbsp;
@@ -59,18 +66,20 @@ specification may be referenced including errata as of a given date.</p>
 <table border="1" width="100%">
   <tr>
     <th>1.</th>
-    <th>&quot;Locale IDs&quot;</th>
+    <th><a href="http://www.openi18n.org/spec/ldml/1.0/ldml-spec.htm#Locale_IDs">Locale 
+      IDs</a></th>
     <th>2003.08.03</th>
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td>The &quot;currency=pre-euro&quot; should be struck. &nbsp;This is no 
-      longer a valid example.</td>
+    <td>The &quot;currency=pre-euro&quot; example should be struck. &nbsp;This 
+      is no longer a valid example.</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <th>2.</th>
-    <th>in &nbsp;&quot;XML Format, Common Elements : special&quot;</th>
+    <th><a href="http://www.openi18n.org/spec/ldml/1.0/ldml-spec.htm#Common_Elements">Common 
+      Elements</a>, under <code>&lt;special xmlns:yyy=&quot;<span style="COLOR: blue">xxx</span>&quot;&gt;</code></th>
     <th>2003.08.03</th>
   </tr>
   <tr>
@@ -80,29 +89,32 @@ specification may be referenced including errata as of a given date.</p>
   </tr>
   <tr>
     <th>3.</th>
-    <th>under &quot;alias&quot;</th>
+    <th><a href="http://www.openi18n.org/spec/ldml/1.0/ldml-spec.htm#Common_Elements">Common 
+      Elements</a>, under <b><code>&lt;alias source=&quot;</code></b><code><span style="COLOR: blue">&lt;locale_ID&gt;</span><b>&quot;&gt;</b></code></th>
     <th>2003.08.03</th>
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td>There should be a closing &nbsp;slash on the alias tag: &nbsp; &lt;alias 
-      .......... /&gt;</td>
+    <td>There should be a closing &nbsp;slash on the alias tag: <code>&lt;alias 
+      .......... /&gt;</code></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <th>4.</th>
-    <th>Escaping Characters</th>
+    <th><a href="http://www.openi18n.org/spec/ldml/1.0/ldml-spec.htm#Escaping_Characters">Escaping 
+      Characters</a></th>
     <th>2003.08.03</th>
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td>It should explain that '\u0000' is just a comparison to ICU format, and 
-      compared to the &amp;#x0000; &nbsp;format.</td>
+    <td>The text should use U+0000 instead of '\u0000', and add some 
+      clarification.</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <th>5.</th>
-    <th>Page title (which shows up as the window title in the browser)</th>
+    <th><a href="http://www.openi18n.org/spec/ldml/1.0/ldml-spec.htm">Page title</a> 
+      (which shows up as the window title in the browser)</th>
     <th>2003.08.03</th>
   </tr>
   <tr>
@@ -113,7 +125,7 @@ specification may be referenced including errata as of a given date.</p>
   </tr>
   <tr>
     <th>6.</th>
-    <th>In <a href="http://www.openi18n.org/spec/ldml/1.0/ldml-spec.html#Expansions">http://www.openi18n.org/spec/ldml/1.0/ldml-spec.html#Expansions</a></th>
+    <th><a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm#Expansions">Expansions</a></th>
     <th>2003.08.13</th>
   </tr>
   <tr>
@@ -127,23 +139,25 @@ specification may be referenced including errata as of a given date.</p>
       </ol>
       <blockquote>
         <p>With the syntax <code>&lt;reset&gt;<span style="COLOR: blue">ch</span>&lt;/reset&gt;</code> 
-        there are two things to watch for.</p>
+        there are two things to watch for:</p>
         <ul>
           <li>The expansion is <i>only</i> in effect up to and not including the 
-            first primary rule. Thus <code>&lt;reset&gt;<span style="COLOR: blue">ch</span>&lt;/reset&gt;<br>
-            &lt;s&gt;<span style="color: blue">x</span>&lt;/x&gt;<br>
-            &lt;t&gt;<span style="color: blue">y</span>&lt;/t&gt;<br>
-            &lt;p&gt;<span style="color: blue">z</span>&lt;/p&gt;<br>
+            first primary rule. Thus<br>
+            <code>&nbsp; &lt;reset&gt;<span style="COLOR: blue">ch</span>&lt;/reset&gt;<br>
+            &nbsp; &lt;s&gt;<span style="color: blue">x</span>&lt;/x&gt;<br>
+            &nbsp; &lt;t&gt;<span style="color: blue">y</span>&lt;/t&gt;<br>
+            &nbsp; &lt;p&gt;<span style="color: blue">z</span>&lt;/p&gt;<br>
             </code>is the same as<br>
-            <code>&lt;reset&gt;<span style="COLOR: blue">ch</span>&lt;/reset&gt;<br>
-            &lt;x&gt;&lt;s&gt;<span style="color: blue">x</span>&lt;/s&gt;&lt;extend&gt;<span style="COLOR: blue">h</span>&lt;/extend&gt;&lt;/x&gt;<br>
-            &lt;x&gt;&lt;t&gt;<span style="color: blue">y</span>&lt;/t&gt;&lt;extend&gt;<span style="COLOR: blue">h</span>&lt;/extend&gt;&lt;/x&gt;<br>
-            &lt;p&gt;<span style="color: blue">z</span>&lt;/p&gt;</code></li>
-          <li>In accordance with UCA, all strings are interpreted as being in 
-            NFD form. In other rules, this has no effect, but syntax such as <code>&lt;reset&gt;</code>ä<code>&lt;/reset&gt;</code> 
-            will be treated as two characters a +&nbsp; ¨ <i>unless</i> the ä 
-            has previously been used as a contraction. Thus the ¨ will be used 
-            as an expansion for following characters (up to the next primary).</li>
+            <code>&nbsp; &lt;reset&gt;<span style="COLOR: blue">c</span>&lt;/reset&gt;<br>
+            &nbsp; &lt;x&gt;&lt;s&gt;<span style="color: blue">x</span>&lt;/s&gt;&lt;extend&gt;<span style="COLOR: blue">h</span>&lt;/extend&gt;&lt;/x&gt;<br>
+            &nbsp; &lt;x&gt;&lt;t&gt;<span style="color: blue">y</span>&lt;/t&gt;&lt;extend&gt;<span style="COLOR: blue">h</span>&lt;/extend&gt;&lt;/x&gt;<br>
+            &nbsp; &lt;p&gt;<span style="color: blue">z</span>&lt;/p&gt;</code></li>
+          <li>In accordance with the UCA, all strings are interpreted as being 
+            in NFD form. In other rules, this has no effect, but syntax such as <code>&lt;reset&gt;</code><b>ä</b><code>&lt;/reset&gt;</code> 
+            the <b>ä</b> will be treated as two characters <b>a +&nbsp; ¨</b>, 
+            <i>unless</i> the <b>ä</b> has previously been used as a 
+            contraction. Thus the <b>¨</b> will be used as an expansion for 
+            following characters (up to the next primary).</li>
         </ul>
       </blockquote>
     </td>
@@ -156,10 +170,6 @@ specification may be referenced including errata as of a given date.</p>
   others. All rights reserved. All trademarks and registered trademarks 
   mentioned herein are the property of their respective owners.</p>
 </blockquote>
-
-<!-- SURFAID METRICS ** 06/04/02 DO NOT ALTER ** -------------->
-<script type="text/javascript" language="JavaScript1.2" src="unsaved://www.ibm.com/common/stats/stats.js"></script>
-<noscript><img src="unsaved://stats.www.ibm.com/rc/images/uc.GIF?R=noscript" width="1" height="1" alt border="0" /></noscript>
 
 </body>
 

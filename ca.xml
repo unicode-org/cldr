@@ -361,6 +361,7 @@
 						<monthWidth type="abbreviated">
 							<month type="1">gen.</month>
 							<month type="2">feb.</month>
+							<month type="2" alt="proposed" draft="true">febr.</month>
 							<month type="3">març</month>
 							<month type="4">abr.</month>
 							<month type="5">maig</month>
@@ -421,11 +422,13 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE dd MMMM yyyy</pattern>
+							<pattern alt="proposed" draft="true">EEEE d 'd'''MMMM 'de' yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>d MMMM yyyy</pattern>
+							<pattern alt="proposed" draft="true">d 'd'''MMMM 'de' yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -444,21 +447,25 @@
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
+							<pattern  alt="proposed" draft="true">H:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
+							<pattern alt="proposed" draft="true">H:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
+							<pattern alt="proposed" draft="true">H:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern>HH:mm</pattern>
+							<pattern alt="proposed" draft="true">H:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>

@@ -61,9 +61,9 @@ cldr-clean-old: cldr-clean-lists
 # the following two are S-L-O-W.  
 # Don't run them if you're just cleaning up!
 
-ifneq ($(patsubst %clean,,$(MAKECMDGOALS)),)
-ifneq ($(patsubst %cldr-clean-old,,$(MAKECMDGOALS)),)
-ifneq ($(patsubst %cldr-clean-lists,,$(MAKECMDGOALS)),)
+#ifneq ($(patsubst %clean,,$(MAKECMDGOALS)),)
+#ifneq ($(patsubst %cldr-clean-old,,$(MAKECMDGOALS)),)
+#ifneq ($(patsubst %cldr-clean-lists,,$(MAKECMDGOALS)),)
 
 $(GENRB_ALIAS_PATHS) $(LOCSRCDIR)/resfiles.mk: $(L)/icu/deprecatedList.xml $(L)/common/main $(L)/icu/main
 	echo $(MAKECMDGOALS)
@@ -72,6 +72,6 @@ $(GENRB_ALIAS_PATHS) $(LOCSRCDIR)/resfiles.mk: $(L)/icu/deprecatedList.xml $(L)/
 $(COLLATION_ALIAS_PATHS) $(COLSRCDIR)/colfiles.mk: $(L)/icu/deprecatedList.xml $(L)/common/collation $(L)/icu/collation
 	echo $(MAKECMDGOALS)
 	$(LDML_CONVERTER) $(CONVOPTS_COL) -w $(L)/common/collation
-endif
-endif
-endif
+#endif
+#endif
+#endif

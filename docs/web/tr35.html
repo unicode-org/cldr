@@ -7,7 +7,7 @@
 <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <link rel="stylesheet" href="http://unicode.org/reports/reports.css" type="text/css">
-<title>UTR #35: Locale Data Markup Language</title>
+<title>UTS #35: Locale Data Markup Language</title>
 <style type="text/css">
 <!--
 span.dtd         { font-family: monospace; font-size:90%; text-indent:-3em; margin-left:3em; background-color:#CCCCFF }
@@ -792,8 +792,7 @@ root</pre>
   5.12 <a href="#references_element">&lt;references&gt;</a>. (In older versions of CLDR, the value of the 
   attribute was freeform text. That format is deprecated.)</span></p>
   <p><i><span class="changedspan">Example:</span></i></p>
-  <p class="example"><span class="changedspan">&lt;territory type=&quot;UM&quot; references=&quot;R2&quot;&gt;USAs yttre 
-  öar&lt;/territory&gt;</span></p>
+  <p class="example"><span class="changedspan">&lt;territory type=&quot;UM&quot; references=&quot;R2&quot;&gt;USAs yttre öar&lt;/territory&gt;</span></p>
   <p><span class="changedspan">The reference element may be inherited. Thus for example, even if R2 
   may be used in sv_SE.xml even though it is not defined there, if it is defined in sv.xml.</span></p>
   <hr width="50%">
@@ -2927,9 +2926,9 @@ America/Kentucky/Monticello&quot;&gt;
   <p>Unicode property sets are specified by any Unicode property, such as [:Letter:], using the 
   PropertyAlias file and the PropertyValueAlias file. The syntax for specifying the property names 
   is an extension of either POSIX or Perl syntax with the addition of &quot;=value&quot;. For example, you can 
-  match letters by using the POSIX syntax <b>[:Letter:]</b>, or by using the Perl-style syntax <b>\p{Letter}</b>. 
-  The type can be omitted for the Category and Script properties, but is required for other 
-  properties.</p>
+  match letters by using the POSIX syntax <b>[:Letter:]</b>, or by using the Perl-style syntax <b>
+  \p{Letter}</b>. The type can be omitted for the Category and Script properties, but is required 
+  for other properties.</p>
   <p>The table below shows the two kinds of syntax: POSIX and Perl style. Also, the table shows the 
   &quot;Negative&quot;, which is a property that excludes all characters of a given kind. For example, <b>
   [:^Letter:]</b> matches all characters that are not <b>[:Letter:]</b>.</p>
@@ -3003,7 +3002,8 @@ America/Kentucky/Monticello&quot;&gt;
     <tr>
       <td>[:Lu:]&nbsp;</td>
       <td>The set of characters belonging to the given Unicode category, as defined by 
-      Character.getType(); in this case, Unicode uppercase letters. The long form for this is <b>[:UppercaseLetter:]</b>.&nbsp;</td>
+      Character.getType(); in this case, Unicode uppercase letters. The long form for this is <b>
+      [:UppercaseLetter:]</b>.&nbsp;</td>
     </tr>
     <tr>
       <td>[:L:]&nbsp;</td>
@@ -4748,8 +4748,8 @@ America/Kentucky/Monticello&quot;&gt;
       <!-- 10, 1-->
       <td><span>type</span></td>
       <!-- 10-->
-      <td><span>&quot;buddhist&quot;, &quot;chinese&quot;, &quot;gregorian&quot;, &quot;hebrew&quot;, &quot;islamic&quot;, &quot;islamic-civil&quot;, &quot;japanese&quot;, 
-      &quot;arabic[alias]&quot;, &quot;civil-arabic[alias]&quot;, &quot;thai-buddhist[alias]&quot;</span></td>
+      <td><span>&quot;buddhist&quot;, &quot;chinese&quot;, &quot;gregorian&quot;, &quot;hebrew&quot;, &quot;islamic&quot;, &quot;islamic-civil&quot;, 
+      &quot;japanese&quot;, &quot;arabic[alias]&quot;, &quot;civil-arabic[alias]&quot;, &quot;thai-buddhist[alias]&quot;</span></td>
     </tr>
     <tr>
       <td><span>collation</span></td>
@@ -4765,20 +4765,21 @@ America/Kentucky/Monticello&quot;&gt;
       <td><span>type</span></td>
       <!-- 202-->
       <td><span>&quot;ADP&quot;, &quot;AED&quot;, &quot;AFA&quot;, &quot;ALL&quot;, &quot;AMD&quot;, &quot;ANG&quot;, &quot;AON&quot;, &quot;AOR&quot;, &quot;ARS&quot;, &quot;ATS&quot;, &quot;AUD&quot;, &quot;AWG&quot;, 
-      &quot;AZM&quot;, &quot;BAM&quot;, &quot;BBD&quot;, &quot;BDT&quot;, &quot;BEF&quot;, &quot;BGL&quot;, &quot;BGN&quot;, &quot;BHD&quot;, &quot;BIF&quot;, &quot;BMD&quot;, &quot;BND&quot;, &quot;BRL&quot;, &quot;BSD&quot;, &quot;BTN&quot;, 
-      &quot;BWP&quot;, &quot;BYR&quot;, &quot;BZD&quot;, &quot;CAD&quot;, &quot;CDF&quot;, &quot;CHF&quot;, &quot;CLF&quot;, &quot;CLP&quot;, &quot;CNY&quot;, &quot;COP&quot;, &quot;CRC&quot;, &quot;CUP&quot;, &quot;CVE&quot;, &quot;CYP&quot;, 
-      &quot;CZK&quot;, &quot;DEM&quot;, &quot;DJF&quot;, &quot;DKK&quot;, &quot;DOP&quot;, &quot;DZD&quot;, &quot;ECS&quot;, &quot;ECV&quot;, &quot;EEK&quot;, &quot;EGP&quot;, &quot;ERN&quot;, &quot;ESP&quot;, &quot;ETB&quot;, &quot;EUR&quot;, 
-      &quot;FIM&quot;, &quot;FJD&quot;, &quot;FKP&quot;, &quot;FRF&quot;, &quot;GBP&quot;, &quot;GEL&quot;, &quot;GHC&quot;, &quot;GIP&quot;, &quot;GMD&quot;, &quot;GNF&quot;, &quot;GRD&quot;, &quot;GTQ&quot;, &quot;GWP&quot;, &quot;GYD&quot;, 
-      &quot;HI-THERE&quot;, &quot;HKD&quot;, &quot;HNL&quot;, &quot;HRK&quot;, &quot;HTG&quot;, &quot;HUF&quot;, &quot;IDR&quot;, &quot;IEP&quot;, &quot;ILS&quot;, &quot;INR&quot;, &quot;IQD&quot;, &quot;IRR&quot;, &quot;ISK&quot;, 
-      &quot;ITL&quot;, &quot;JMD&quot;, &quot;JOD&quot;, &quot;JPY&quot;, &quot;KES&quot;, &quot;KGS&quot;, &quot;KHR&quot;, &quot;KMF&quot;, &quot;KPW&quot;, &quot;KRW&quot;, &quot;KWD&quot;, &quot;KYD&quot;, &quot;KZT&quot;, &quot;LAK&quot;, 
-      &quot;LBP&quot;, &quot;LKR&quot;, &quot;LRD&quot;, &quot;LSL&quot;, &quot;LTL&quot;, &quot;LUF&quot;, &quot;LVL&quot;, &quot;LYD&quot;, &quot;MAD&quot;, &quot;MDL&quot;, &quot;MGF&quot;, &quot;MKD&quot;, &quot;MMK&quot;, &quot;MNT&quot;, 
-      &quot;MOP&quot;, &quot;MRO&quot;, &quot;MTL&quot;, &quot;MUR&quot;, &quot;MVR&quot;, &quot;MWK&quot;, &quot;MXN&quot;, &quot;MXV&quot;, &quot;MYR&quot;, &quot;MZM&quot;, &quot;NAD&quot;, &quot;NGN&quot;, &quot;NIO&quot;, 
-      &quot;NLG&quot;, &quot;NOK&quot;, &quot;NPR&quot;, &quot;NZD&quot;, &quot;OMR&quot;, &quot;PAB&quot;, &quot;PEN&quot;, &quot;PGK&quot;, &quot;PHP&quot;, &quot;PKR&quot;, &quot;PLN&quot;, &quot;PTE&quot;, &quot;PYG&quot;, &quot;QAR&quot;, 
-      &quot;ROL&quot;, &quot;RUB&quot;, &quot;RUR&quot;, &quot;RWF&quot;, &quot;SAR&quot;, &quot;SBD&quot;, &quot;SCR&quot;, &quot;SDD&quot;, &quot;SEK&quot;, &quot;SGD&quot;, &quot;SHP&quot;, &quot;SIT&quot;, &quot;SKK&quot;, &quot;SLL&quot;, 
-      &quot;SOS&quot;, &quot;SRG&quot;, &quot;STD&quot;, &quot;SVC&quot;, &quot;SYP&quot;, &quot;SZL&quot;, &quot;THB&quot;, &quot;TJR&quot;, &quot;TJS&quot;, &quot;TMM&quot;, &quot;TND&quot;, &quot;TOP&quot;, &quot;TPE&quot;, &quot;TRL&quot;, 
-      &quot;TTD&quot;, &quot;TWD&quot;, &quot;TZS&quot;, &quot;UAH&quot;, &quot;UGX&quot;, &quot;USD&quot;, &quot;USN&quot;, &quot;USS&quot;, &quot;UYU&quot;, &quot;UZS&quot;, &quot;VEB&quot;, &quot;VND&quot;, &quot;VUV&quot;, &quot;WST&quot;, 
-      &quot;XAF&quot;, &quot;XAG&quot;, &quot;XAU&quot;, &quot;XBA&quot;, &quot;XBB&quot;, &quot;XBC&quot;, &quot;XBD&quot;, &quot;XCD&quot;, &quot;XDR&quot;, &quot;XFO&quot;, &quot;XFU&quot;, &quot;XOF&quot;, &quot;XPD&quot;, &quot;XPF&quot;, 
-      &quot;XPT&quot;, &quot;XTS&quot;, &quot;XXX&quot;, &quot;YER&quot;, &quot;YUM&quot;, &quot;ZAL&quot;, &quot;ZAR&quot;, &quot;ZMK&quot;, &quot;ZRN&quot;, &quot;ZWD&quot;</span></td>
+      &quot;AZM&quot;, &quot;BAM&quot;, &quot;BBD&quot;, &quot;BDT&quot;, &quot;BEF&quot;, &quot;BGL&quot;, &quot;BGN&quot;, &quot;BHD&quot;, &quot;BIF&quot;, &quot;BMD&quot;, &quot;BND&quot;, &quot;BRL&quot;, &quot;BSD&quot;, 
+      &quot;BTN&quot;, &quot;BWP&quot;, &quot;BYR&quot;, &quot;BZD&quot;, &quot;CAD&quot;, &quot;CDF&quot;, &quot;CHF&quot;, &quot;CLF&quot;, &quot;CLP&quot;, &quot;CNY&quot;, &quot;COP&quot;, &quot;CRC&quot;, &quot;CUP&quot;, 
+      &quot;CVE&quot;, &quot;CYP&quot;, &quot;CZK&quot;, &quot;DEM&quot;, &quot;DJF&quot;, &quot;DKK&quot;, &quot;DOP&quot;, &quot;DZD&quot;, &quot;ECS&quot;, &quot;ECV&quot;, &quot;EEK&quot;, &quot;EGP&quot;, &quot;ERN&quot;, 
+      &quot;ESP&quot;, &quot;ETB&quot;, &quot;EUR&quot;, &quot;FIM&quot;, &quot;FJD&quot;, &quot;FKP&quot;, &quot;FRF&quot;, &quot;GBP&quot;, &quot;GEL&quot;, &quot;GHC&quot;, &quot;GIP&quot;, &quot;GMD&quot;, &quot;GNF&quot;, 
+      &quot;GRD&quot;, &quot;GTQ&quot;, &quot;GWP&quot;, &quot;GYD&quot;, &quot;HI-THERE&quot;, &quot;HKD&quot;, &quot;HNL&quot;, &quot;HRK&quot;, &quot;HTG&quot;, &quot;HUF&quot;, &quot;IDR&quot;, &quot;IEP&quot;, 
+      &quot;ILS&quot;, &quot;INR&quot;, &quot;IQD&quot;, &quot;IRR&quot;, &quot;ISK&quot;, &quot;ITL&quot;, &quot;JMD&quot;, &quot;JOD&quot;, &quot;JPY&quot;, &quot;KES&quot;, &quot;KGS&quot;, &quot;KHR&quot;, &quot;KMF&quot;, 
+      &quot;KPW&quot;, &quot;KRW&quot;, &quot;KWD&quot;, &quot;KYD&quot;, &quot;KZT&quot;, &quot;LAK&quot;, &quot;LBP&quot;, &quot;LKR&quot;, &quot;LRD&quot;, &quot;LSL&quot;, &quot;LTL&quot;, &quot;LUF&quot;, &quot;LVL&quot;, 
+      &quot;LYD&quot;, &quot;MAD&quot;, &quot;MDL&quot;, &quot;MGF&quot;, &quot;MKD&quot;, &quot;MMK&quot;, &quot;MNT&quot;, &quot;MOP&quot;, &quot;MRO&quot;, &quot;MTL&quot;, &quot;MUR&quot;, &quot;MVR&quot;, &quot;MWK&quot;, 
+      &quot;MXN&quot;, &quot;MXV&quot;, &quot;MYR&quot;, &quot;MZM&quot;, &quot;NAD&quot;, &quot;NGN&quot;, &quot;NIO&quot;, &quot;NLG&quot;, &quot;NOK&quot;, &quot;NPR&quot;, &quot;NZD&quot;, &quot;OMR&quot;, &quot;PAB&quot;, 
+      &quot;PEN&quot;, &quot;PGK&quot;, &quot;PHP&quot;, &quot;PKR&quot;, &quot;PLN&quot;, &quot;PTE&quot;, &quot;PYG&quot;, &quot;QAR&quot;, &quot;ROL&quot;, &quot;RUB&quot;, &quot;RUR&quot;, &quot;RWF&quot;, &quot;SAR&quot;, 
+      &quot;SBD&quot;, &quot;SCR&quot;, &quot;SDD&quot;, &quot;SEK&quot;, &quot;SGD&quot;, &quot;SHP&quot;, &quot;SIT&quot;, &quot;SKK&quot;, &quot;SLL&quot;, &quot;SOS&quot;, &quot;SRG&quot;, &quot;STD&quot;, &quot;SVC&quot;, 
+      &quot;SYP&quot;, &quot;SZL&quot;, &quot;THB&quot;, &quot;TJR&quot;, &quot;TJS&quot;, &quot;TMM&quot;, &quot;TND&quot;, &quot;TOP&quot;, &quot;TPE&quot;, &quot;TRL&quot;, &quot;TTD&quot;, &quot;TWD&quot;, &quot;TZS&quot;, 
+      &quot;UAH&quot;, &quot;UGX&quot;, &quot;USD&quot;, &quot;USN&quot;, &quot;USS&quot;, &quot;UYU&quot;, &quot;UZS&quot;, &quot;VEB&quot;, &quot;VND&quot;, &quot;VUV&quot;, &quot;WST&quot;, &quot;XAF&quot;, &quot;XAG&quot;, 
+      &quot;XAU&quot;, &quot;XBA&quot;, &quot;XBB&quot;, &quot;XBC&quot;, &quot;XBD&quot;, &quot;XCD&quot;, &quot;XDR&quot;, &quot;XFO&quot;, &quot;XFU&quot;, &quot;XOF&quot;, &quot;XPD&quot;, &quot;XPF&quot;, &quot;XPT&quot;, 
+      &quot;XTS&quot;, &quot;XXX&quot;, &quot;YER&quot;, &quot;YUM&quot;, &quot;ZAL&quot;, &quot;ZAR&quot;, &quot;ZMK&quot;, &quot;ZRN&quot;, &quot;ZWD&quot;</span></td>
     </tr>
     <tr>
       <td><span>currencyFormat</span></td>
@@ -4915,37 +4916,38 @@ America/Kentucky/Monticello&quot;&gt;
       <td><span>&quot;aa&quot;, &quot;ab&quot;, &quot;ace&quot;, &quot;ach&quot;, &quot;ada&quot;, &quot;ady&quot;, &quot;ae&quot;, &quot;af&quot;, &quot;afa&quot;, &quot;afh&quot;, &quot;ak&quot;, &quot;akk&quot;, 
       &quot;ale&quot;, &quot;alg&quot;, &quot;alt&quot;, &quot;am&quot;, &quot;an&quot;, &quot;ang&quot;, &quot;apa&quot;, &quot;ar&quot;, &quot;arc&quot;, &quot;arn&quot;, &quot;arp&quot;, &quot;art&quot;, &quot;arw&quot;, &quot;as&quot;, 
       &quot;ast&quot;, &quot;ath&quot;, &quot;aus&quot;, &quot;av&quot;, &quot;awa&quot;, &quot;ay&quot;, &quot;az&quot;, &quot;ba&quot;, &quot;bad&quot;, &quot;bai&quot;, &quot;bal&quot;, &quot;ban&quot;, &quot;bas&quot;, &quot;bat&quot;, 
-      &quot;be&quot;, &quot;bej&quot;, &quot;bem&quot;, &quot;ber&quot;, &quot;bg&quot;, &quot;bh&quot;, &quot;bho&quot;, &quot;bi&quot;, &quot;bik&quot;, &quot;bin&quot;, &quot;bla&quot;, &quot;bm&quot;, &quot;bn&quot;, &quot;bnt&quot;, &quot;bo&quot;, 
-      &quot;br&quot;, &quot;bra&quot;, &quot;bs&quot;, &quot;btk&quot;, &quot;bua&quot;, &quot;bug&quot;, &quot;byn&quot;, &quot;ca&quot;, &quot;cad&quot;, &quot;cai&quot;, &quot;car&quot;, &quot;cau&quot;, &quot;ce&quot;, &quot;ceb&quot;, 
-      &quot;cel&quot;, &quot;ch&quot;, &quot;chb&quot;, &quot;chg&quot;, &quot;chk&quot;, &quot;chm&quot;, &quot;chn&quot;, &quot;cho&quot;, &quot;chp&quot;, &quot;chr&quot;, &quot;chy&quot;, &quot;cmc&quot;, &quot;co&quot;, 
-      &quot;cop&quot;, &quot;cpe&quot;, &quot;cpf&quot;, &quot;cpp&quot;, &quot;cr&quot;, &quot;crh&quot;, &quot;crp&quot;, &quot;cs&quot;, &quot;csb&quot;, &quot;cu&quot;, &quot;cus&quot;, &quot;cv&quot;, &quot;cy&quot;, &quot;da&quot;, &quot;dak&quot;, 
-      &quot;dar&quot;, &quot;day&quot;, &quot;de&quot;, &quot;del&quot;, &quot;den&quot;, &quot;dgr&quot;, &quot;din&quot;, &quot;doi&quot;, &quot;dra&quot;, &quot;dsb&quot;, &quot;dua&quot;, &quot;dum&quot;, &quot;dv&quot;, &quot;dyu&quot;, 
-      &quot;dz&quot;, &quot;ee&quot;, &quot;efi&quot;, &quot;egy&quot;, &quot;eka&quot;, &quot;el&quot;, &quot;elx&quot;, &quot;en&quot;, &quot;enm&quot;, &quot;eo&quot;, &quot;es&quot;, &quot;et&quot;, &quot;eu&quot;, &quot;ewo&quot;, &quot;fa&quot;, 
-      &quot;fan&quot;, &quot;fat&quot;, &quot;ff&quot;, &quot;fi&quot;, &quot;fil&quot;, &quot;fiu&quot;, &quot;fj&quot;, &quot;fo&quot;, &quot;fon&quot;, &quot;fr&quot;, &quot;frm&quot;, &quot;fro&quot;, &quot;fur&quot;, &quot;fy&quot;, &quot;ga&quot;, 
-      &quot;gaa&quot;, &quot;gay&quot;, &quot;gba&quot;, &quot;gd&quot;, &quot;gem&quot;, &quot;gez&quot;, &quot;gil&quot;, &quot;gl&quot;, &quot;gmh&quot;, &quot;gn&quot;, &quot;goh&quot;, &quot;gon&quot;, &quot;gor&quot;, &quot;got&quot;, 
-      &quot;grb&quot;, &quot;grc&quot;, &quot;gu&quot;, &quot;gv&quot;, &quot;gwi&quot;, &quot;ha&quot;, &quot;hai&quot;, &quot;haw&quot;, &quot;he&quot;, &quot;hi&quot;, &quot;hil&quot;, &quot;him&quot;, &quot;hit&quot;, &quot;hmn&quot;, 
-      &quot;ho&quot;, &quot;hr&quot;, &quot;hsb&quot;, &quot;ht&quot;, &quot;hu&quot;, &quot;hup&quot;, &quot;hy&quot;, &quot;hz&quot;, &quot;ia&quot;, &quot;iba&quot;, &quot;id&quot;, &quot;ie&quot;, &quot;ig&quot;, &quot;ii&quot;, &quot;ijo&quot;, 
-      &quot;ik&quot;, &quot;ilo&quot;, &quot;in&quot;, &quot;inc&quot;, &quot;ine&quot;, &quot;inh&quot;, &quot;io&quot;, &quot;ira&quot;, &quot;iro&quot;, &quot;is&quot;, &quot;it&quot;, &quot;iu&quot;, &quot;iw&quot;, &quot;ja&quot;, &quot;jbo&quot;, 
-      &quot;ji&quot;, &quot;jpr&quot;, &quot;jrb&quot;, &quot;jv&quot;, &quot;ka&quot;, &quot;kaa&quot;, &quot;kab&quot;, &quot;kac&quot;, &quot;kam&quot;, &quot;kar&quot;, &quot;kaw&quot;, &quot;kbd&quot;, &quot;kg&quot;, &quot;kha&quot;, 
-      &quot;khi&quot;, &quot;kho&quot;, &quot;ki&quot;, &quot;kj&quot;, &quot;kk&quot;, &quot;kl&quot;, &quot;km&quot;, &quot;kmb&quot;, &quot;kn&quot;, &quot;ko&quot;, &quot;kok&quot;, &quot;kos&quot;, &quot;kpe&quot;, &quot;kr&quot;, &quot;krc&quot;, 
-      &quot;kro&quot;, &quot;kru&quot;, &quot;ks&quot;, &quot;ku&quot;, &quot;kum&quot;, &quot;kut&quot;, &quot;kv&quot;, &quot;kw&quot;, &quot;ky&quot;, &quot;la&quot;, &quot;lad&quot;, &quot;lah&quot;, &quot;lam&quot;, &quot;lb&quot;, &quot;lez&quot;, 
-      &quot;lg&quot;, &quot;li&quot;, &quot;ln&quot;, &quot;lo&quot;, &quot;lol&quot;, &quot;loz&quot;, &quot;lt&quot;, &quot;lu&quot;, &quot;lua&quot;, &quot;lui&quot;, &quot;lun&quot;, &quot;luo&quot;, &quot;lus&quot;, &quot;lv&quot;, 
-      &quot;mad&quot;, &quot;mag&quot;, &quot;mai&quot;, &quot;mak&quot;, &quot;man&quot;, &quot;map&quot;, &quot;mas&quot;, &quot;mdf&quot;, &quot;mdr&quot;, &quot;men&quot;, &quot;mg&quot;, &quot;mga&quot;, &quot;mh&quot;, &quot;mi&quot;, 
-      &quot;mic&quot;, &quot;min&quot;, &quot;mis&quot;, &quot;mk&quot;, &quot;mkh&quot;, &quot;ml&quot;, &quot;mn&quot;, &quot;mnc&quot;, &quot;mni&quot;, &quot;mno&quot;, &quot;mo&quot;, &quot;moh&quot;, &quot;mos&quot;, &quot;mr&quot;, 
-      &quot;ms&quot;, &quot;mt&quot;, &quot;mul&quot;, &quot;mun&quot;, &quot;mus&quot;, &quot;mwl&quot;, &quot;mwr&quot;, &quot;my&quot;, &quot;myn&quot;, &quot;myv&quot;, &quot;na&quot;, &quot;nah&quot;, &quot;nai&quot;, &quot;nap&quot;, 
-      &quot;nb&quot;, &quot;nd&quot;, &quot;nds&quot;, &quot;ne&quot;, &quot;new&quot;, &quot;ng&quot;, &quot;nia&quot;, &quot;nic&quot;, &quot;niu&quot;, &quot;nl&quot;, &quot;nn&quot;, &quot;no&quot;, &quot;nog&quot;, &quot;non&quot;, 
-      &quot;nr&quot;, &quot;nso&quot;, &quot;nub&quot;, &quot;nv&quot;, &quot;nwc&quot;, &quot;ny&quot;, &quot;nym&quot;, &quot;nyn&quot;, &quot;nyo&quot;, &quot;nzi&quot;, &quot;oc&quot;, &quot;oj&quot;, &quot;om&quot;, &quot;or&quot;, &quot;os&quot;, 
-      &quot;osa&quot;, &quot;ota&quot;, &quot;oto&quot;, &quot;pa&quot;, &quot;paa&quot;, &quot;pag&quot;, &quot;pal&quot;, &quot;pam&quot;, &quot;pap&quot;, &quot;pau&quot;, &quot;peo&quot;, &quot;phi&quot;, &quot;phn&quot;, 
-      &quot;pi&quot;, &quot;pl&quot;, &quot;pon&quot;, &quot;pra&quot;, &quot;pro&quot;, &quot;ps&quot;, &quot;pt&quot;, &quot;qaa..qtz&quot;, &quot;qu&quot;, &quot;raj&quot;, &quot;rap&quot;, &quot;rar&quot;, &quot;rm&quot;, &quot;rn&quot;, 
-      &quot;ro&quot;, &quot;roa&quot;, &quot;rom&quot;, &quot;root&quot;, &quot;ru&quot;, &quot;rw&quot;, &quot;sa&quot;, &quot;sad&quot;, &quot;sah&quot;, &quot;sai&quot;, &quot;sal&quot;, &quot;sam&quot;, &quot;sas&quot;, &quot;sat&quot;, 
-      &quot;sc&quot;, &quot;scn&quot;, &quot;sco&quot;, &quot;sd&quot;, &quot;se&quot;, &quot;sel&quot;, &quot;sem&quot;, &quot;sg&quot;, &quot;sga&quot;, &quot;sgn&quot;, &quot;sh&quot;, &quot;shn&quot;, &quot;si&quot;, &quot;sid&quot;, &quot;sio&quot;, 
-      &quot;sit&quot;, &quot;sk&quot;, &quot;sl&quot;, &quot;sla&quot;, &quot;sm&quot;, &quot;sma&quot;, &quot;smi&quot;, &quot;smj&quot;, &quot;smn&quot;, &quot;sms&quot;, &quot;sn&quot;, &quot;snk&quot;, &quot;so&quot;, &quot;sog&quot;, 
-      &quot;son&quot;, &quot;sq&quot;, &quot;sr&quot;, &quot;srr&quot;, &quot;ss&quot;, &quot;ssa&quot;, &quot;st&quot;, &quot;su&quot;, &quot;suk&quot;, &quot;sus&quot;, &quot;sux&quot;, &quot;sv&quot;, &quot;sw&quot;, &quot;syr&quot;, &quot;ta&quot;, 
-      &quot;tai&quot;, &quot;te&quot;, &quot;tem&quot;, &quot;ter&quot;, &quot;tet&quot;, &quot;tg&quot;, &quot;th&quot;, &quot;ti&quot;, &quot;tig&quot;, &quot;tiv&quot;, &quot;tk&quot;, &quot;tkl&quot;, &quot;tl&quot;, &quot;tlh&quot;, &quot;tli&quot;, 
-      &quot;tmh&quot;, &quot;tn&quot;, &quot;to&quot;, &quot;tog&quot;, &quot;tpi&quot;, &quot;tr&quot;, &quot;ts&quot;, &quot;tsi&quot;, &quot;tt&quot;, &quot;tum&quot;, &quot;tup&quot;, &quot;tut&quot;, &quot;tvl&quot;, &quot;tw&quot;, &quot;ty&quot;, 
-      &quot;tyv&quot;, &quot;udm&quot;, &quot;ug&quot;, &quot;uga&quot;, &quot;uk&quot;, &quot;umb&quot;, &quot;und&quot;, &quot;ur&quot;, &quot;uz&quot;, &quot;vai&quot;, &quot;ve&quot;, &quot;vi&quot;, &quot;vo&quot;, &quot;vot&quot;, &quot;wa&quot;, 
-      &quot;wak&quot;, &quot;wal&quot;, &quot;war&quot;, &quot;was&quot;, &quot;wen&quot;, &quot;wo&quot;, &quot;xal&quot;, &quot;xh&quot;, &quot;yao&quot;, &quot;yap&quot;, &quot;yi&quot;, &quot;yo&quot;, &quot;ypk&quot;, &quot;za&quot;, 
-      &quot;zap&quot;, &quot;zen&quot;, &quot;zh&quot;, &quot;znd&quot;, &quot;zu&quot;, &quot;zun&quot;</span></td>
+      &quot;be&quot;, &quot;bej&quot;, &quot;bem&quot;, &quot;ber&quot;, &quot;bg&quot;, &quot;bh&quot;, &quot;bho&quot;, &quot;bi&quot;, &quot;bik&quot;, &quot;bin&quot;, &quot;bla&quot;, &quot;bm&quot;, &quot;bn&quot;, &quot;bnt&quot;, 
+      &quot;bo&quot;, &quot;br&quot;, &quot;bra&quot;, &quot;bs&quot;, &quot;btk&quot;, &quot;bua&quot;, &quot;bug&quot;, &quot;byn&quot;, &quot;ca&quot;, &quot;cad&quot;, &quot;cai&quot;, &quot;car&quot;, &quot;cau&quot;, &quot;ce&quot;, 
+      &quot;ceb&quot;, &quot;cel&quot;, &quot;ch&quot;, &quot;chb&quot;, &quot;chg&quot;, &quot;chk&quot;, &quot;chm&quot;, &quot;chn&quot;, &quot;cho&quot;, &quot;chp&quot;, &quot;chr&quot;, &quot;chy&quot;, &quot;cmc&quot;, 
+      &quot;co&quot;, &quot;cop&quot;, &quot;cpe&quot;, &quot;cpf&quot;, &quot;cpp&quot;, &quot;cr&quot;, &quot;crh&quot;, &quot;crp&quot;, &quot;cs&quot;, &quot;csb&quot;, &quot;cu&quot;, &quot;cus&quot;, &quot;cv&quot;, &quot;cy&quot;, 
+      &quot;da&quot;, &quot;dak&quot;, &quot;dar&quot;, &quot;day&quot;, &quot;de&quot;, &quot;del&quot;, &quot;den&quot;, &quot;dgr&quot;, &quot;din&quot;, &quot;doi&quot;, &quot;dra&quot;, &quot;dsb&quot;, &quot;dua&quot;, 
+      &quot;dum&quot;, &quot;dv&quot;, &quot;dyu&quot;, &quot;dz&quot;, &quot;ee&quot;, &quot;efi&quot;, &quot;egy&quot;, &quot;eka&quot;, &quot;el&quot;, &quot;elx&quot;, &quot;en&quot;, &quot;enm&quot;, &quot;eo&quot;, &quot;es&quot;, 
+      &quot;et&quot;, &quot;eu&quot;, &quot;ewo&quot;, &quot;fa&quot;, &quot;fan&quot;, &quot;fat&quot;, &quot;ff&quot;, &quot;fi&quot;, &quot;fil&quot;, &quot;fiu&quot;, &quot;fj&quot;, &quot;fo&quot;, &quot;fon&quot;, &quot;fr&quot;, 
+      &quot;frm&quot;, &quot;fro&quot;, &quot;fur&quot;, &quot;fy&quot;, &quot;ga&quot;, &quot;gaa&quot;, &quot;gay&quot;, &quot;gba&quot;, &quot;gd&quot;, &quot;gem&quot;, &quot;gez&quot;, &quot;gil&quot;, &quot;gl&quot;, &quot;gmh&quot;, 
+      &quot;gn&quot;, &quot;goh&quot;, &quot;gon&quot;, &quot;gor&quot;, &quot;got&quot;, &quot;grb&quot;, &quot;grc&quot;, &quot;gu&quot;, &quot;gv&quot;, &quot;gwi&quot;, &quot;ha&quot;, &quot;hai&quot;, &quot;haw&quot;, &quot;he&quot;, 
+      &quot;hi&quot;, &quot;hil&quot;, &quot;him&quot;, &quot;hit&quot;, &quot;hmn&quot;, &quot;ho&quot;, &quot;hr&quot;, &quot;hsb&quot;, &quot;ht&quot;, &quot;hu&quot;, &quot;hup&quot;, &quot;hy&quot;, &quot;hz&quot;, &quot;ia&quot;, 
+      &quot;iba&quot;, &quot;id&quot;, &quot;ie&quot;, &quot;ig&quot;, &quot;ii&quot;, &quot;ijo&quot;, &quot;ik&quot;, &quot;ilo&quot;, &quot;in&quot;, &quot;inc&quot;, &quot;ine&quot;, &quot;inh&quot;, &quot;io&quot;, &quot;ira&quot;, 
+      &quot;iro&quot;, &quot;is&quot;, &quot;it&quot;, &quot;iu&quot;, &quot;iw&quot;, &quot;ja&quot;, &quot;jbo&quot;, &quot;ji&quot;, &quot;jpr&quot;, &quot;jrb&quot;, &quot;jv&quot;, &quot;ka&quot;, &quot;kaa&quot;, &quot;kab&quot;, 
+      &quot;kac&quot;, &quot;kam&quot;, &quot;kar&quot;, &quot;kaw&quot;, &quot;kbd&quot;, &quot;kg&quot;, &quot;kha&quot;, &quot;khi&quot;, &quot;kho&quot;, &quot;ki&quot;, &quot;kj&quot;, &quot;kk&quot;, &quot;kl&quot;, &quot;km&quot;, 
+      &quot;kmb&quot;, &quot;kn&quot;, &quot;ko&quot;, &quot;kok&quot;, &quot;kos&quot;, &quot;kpe&quot;, &quot;kr&quot;, &quot;krc&quot;, &quot;kro&quot;, &quot;kru&quot;, &quot;ks&quot;, &quot;ku&quot;, &quot;kum&quot;, &quot;kut&quot;, 
+      &quot;kv&quot;, &quot;kw&quot;, &quot;ky&quot;, &quot;la&quot;, &quot;lad&quot;, &quot;lah&quot;, &quot;lam&quot;, &quot;lb&quot;, &quot;lez&quot;, &quot;lg&quot;, &quot;li&quot;, &quot;ln&quot;, &quot;lo&quot;, &quot;lol&quot;, 
+      &quot;loz&quot;, &quot;lt&quot;, &quot;lu&quot;, &quot;lua&quot;, &quot;lui&quot;, &quot;lun&quot;, &quot;luo&quot;, &quot;lus&quot;, &quot;lv&quot;, &quot;mad&quot;, &quot;mag&quot;, &quot;mai&quot;, &quot;mak&quot;, &quot;man&quot;, 
+      &quot;map&quot;, &quot;mas&quot;, &quot;mdf&quot;, &quot;mdr&quot;, &quot;men&quot;, &quot;mg&quot;, &quot;mga&quot;, &quot;mh&quot;, &quot;mi&quot;, &quot;mic&quot;, &quot;min&quot;, &quot;mis&quot;, &quot;mk&quot;, &quot;mkh&quot;, 
+      &quot;ml&quot;, &quot;mn&quot;, &quot;mnc&quot;, &quot;mni&quot;, &quot;mno&quot;, &quot;mo&quot;, &quot;moh&quot;, &quot;mos&quot;, &quot;mr&quot;, &quot;ms&quot;, &quot;mt&quot;, &quot;mul&quot;, &quot;mun&quot;, &quot;mus&quot;, 
+      &quot;mwl&quot;, &quot;mwr&quot;, &quot;my&quot;, &quot;myn&quot;, &quot;myv&quot;, &quot;na&quot;, &quot;nah&quot;, &quot;nai&quot;, &quot;nap&quot;, &quot;nb&quot;, &quot;nd&quot;, &quot;nds&quot;, &quot;ne&quot;, &quot;new&quot;, 
+      &quot;ng&quot;, &quot;nia&quot;, &quot;nic&quot;, &quot;niu&quot;, &quot;nl&quot;, &quot;nn&quot;, &quot;no&quot;, &quot;nog&quot;, &quot;non&quot;, &quot;nr&quot;, &quot;nso&quot;, &quot;nub&quot;, &quot;nv&quot;, &quot;nwc&quot;, 
+      &quot;ny&quot;, &quot;nym&quot;, &quot;nyn&quot;, &quot;nyo&quot;, &quot;nzi&quot;, &quot;oc&quot;, &quot;oj&quot;, &quot;om&quot;, &quot;or&quot;, &quot;os&quot;, &quot;osa&quot;, &quot;ota&quot;, &quot;oto&quot;, &quot;pa&quot;, 
+      &quot;paa&quot;, &quot;pag&quot;, &quot;pal&quot;, &quot;pam&quot;, &quot;pap&quot;, &quot;pau&quot;, &quot;peo&quot;, &quot;phi&quot;, &quot;phn&quot;, &quot;pi&quot;, &quot;pl&quot;, &quot;pon&quot;, &quot;pra&quot;, 
+      &quot;pro&quot;, &quot;ps&quot;, &quot;pt&quot;, &quot;qaa..qtz&quot;, &quot;qu&quot;, &quot;raj&quot;, &quot;rap&quot;, &quot;rar&quot;, &quot;rm&quot;, &quot;rn&quot;, &quot;ro&quot;, &quot;roa&quot;, &quot;rom&quot;, 
+      &quot;root&quot;, &quot;ru&quot;, &quot;rw&quot;, &quot;sa&quot;, &quot;sad&quot;, &quot;sah&quot;, &quot;sai&quot;, &quot;sal&quot;, &quot;sam&quot;, &quot;sas&quot;, &quot;sat&quot;, &quot;sc&quot;, &quot;scn&quot;, &quot;sco&quot;, 
+      &quot;sd&quot;, &quot;se&quot;, &quot;sel&quot;, &quot;sem&quot;, &quot;sg&quot;, &quot;sga&quot;, &quot;sgn&quot;, &quot;sh&quot;, &quot;shn&quot;, &quot;si&quot;, &quot;sid&quot;, &quot;sio&quot;, &quot;sit&quot;, &quot;sk&quot;, 
+      &quot;sl&quot;, &quot;sla&quot;, &quot;sm&quot;, &quot;sma&quot;, &quot;smi&quot;, &quot;smj&quot;, &quot;smn&quot;, &quot;sms&quot;, &quot;sn&quot;, &quot;snk&quot;, &quot;so&quot;, &quot;sog&quot;, &quot;son&quot;, &quot;sq&quot;, 
+      &quot;sr&quot;, &quot;srr&quot;, &quot;ss&quot;, &quot;ssa&quot;, &quot;st&quot;, &quot;su&quot;, &quot;suk&quot;, &quot;sus&quot;, &quot;sux&quot;, &quot;sv&quot;, &quot;sw&quot;, &quot;syr&quot;, &quot;ta&quot;, &quot;tai&quot;, 
+      &quot;te&quot;, &quot;tem&quot;, &quot;ter&quot;, &quot;tet&quot;, &quot;tg&quot;, &quot;th&quot;, &quot;ti&quot;, &quot;tig&quot;, &quot;tiv&quot;, &quot;tk&quot;, &quot;tkl&quot;, &quot;tl&quot;, &quot;tlh&quot;, &quot;tli&quot;, 
+      &quot;tmh&quot;, &quot;tn&quot;, &quot;to&quot;, &quot;tog&quot;, &quot;tpi&quot;, &quot;tr&quot;, &quot;ts&quot;, &quot;tsi&quot;, &quot;tt&quot;, &quot;tum&quot;, &quot;tup&quot;, &quot;tut&quot;, &quot;tvl&quot;, &quot;tw&quot;, 
+      &quot;ty&quot;, &quot;tyv&quot;, &quot;udm&quot;, &quot;ug&quot;, &quot;uga&quot;, &quot;uk&quot;, &quot;umb&quot;, &quot;und&quot;, &quot;ur&quot;, &quot;uz&quot;, &quot;vai&quot;, &quot;ve&quot;, &quot;vi&quot;, &quot;vo&quot;, 
+      &quot;vot&quot;, &quot;wa&quot;, &quot;wak&quot;, &quot;wal&quot;, &quot;war&quot;, &quot;was&quot;, &quot;wen&quot;, &quot;wo&quot;, &quot;xal&quot;, &quot;xh&quot;, &quot;yao&quot;, &quot;yap&quot;, &quot;yi&quot;, &quot;yo&quot;, 
+      &quot;ypk&quot;, &quot;za&quot;, &quot;zap&quot;, &quot;zen&quot;, &quot;zh&quot;, &quot;znd&quot;, &quot;zu&quot;, &quot;zun&quot;</span></td>
     </tr>
     <tr>
       <td><span>ldml</span></td>
@@ -5074,15 +5076,16 @@ America/Kentucky/Monticello&quot;&gt;
       <!-- 103, 1-->
       <td><span>type</span></td>
       <!-- 103-->
-      <td><span>&quot;Arab&quot;, &quot;Armn&quot;, &quot;Bali&quot;, &quot;Batk&quot;, &quot;Beng&quot;, &quot;Blis&quot;, &quot;Bopo&quot;, &quot;Brah&quot;, &quot;Brai&quot;, &quot;Bugi&quot;, &quot;Buhd&quot;, 
-      &quot;Cans&quot;, &quot;Cham&quot;, &quot;Cher&quot;, &quot;Cirt&quot;, &quot;Copt&quot;, &quot;Cprt&quot;, &quot;Cyrl&quot;, &quot;Cyrs&quot;, &quot;Deva&quot;, &quot;Dsrt&quot;, &quot;Egyd&quot;, &quot;Egyh&quot;, 
-      &quot;Egyp&quot;, &quot;Ethi&quot;, &quot;Geor&quot;, &quot;Glag&quot;, &quot;Goth&quot;, &quot;Grek&quot;, &quot;Gujr&quot;, &quot;Guru&quot;, &quot;Hang&quot;, &quot;Hani&quot;, &quot;Hano&quot;, 
-      &quot;Hans&quot;, &quot;Hant&quot;, &quot;Hebr&quot;, &quot;Hira&quot;, &quot;Hmng&quot;, &quot;Hrkt&quot;, &quot;Hung&quot;, &quot;Inds&quot;, &quot;Ital&quot;, &quot;Java&quot;, &quot;Kali&quot;, 
-      &quot;Kana&quot;, &quot;Khar&quot;, &quot;Khmr&quot;, &quot;Knda&quot;, &quot;Laoo&quot;, &quot;Latf&quot;, &quot;Latg&quot;, &quot;Latn&quot;, &quot;Lepc&quot;, &quot;Limb&quot;, &quot;Lina&quot;, &quot;Linb&quot;, 
-      &quot;Mand&quot;, &quot;Maya&quot;, &quot;Mero&quot;, &quot;Mlym&quot;, &quot;Mong&quot;, &quot;Mymr&quot;, &quot;Ogam&quot;, &quot;Orkh&quot;, &quot;Orya&quot;, &quot;Osma&quot;, &quot;Perm&quot;, &quot;Phag&quot;, 
-      &quot;Phnx&quot;, &quot;Plrd&quot;, &quot;Qaaa..Qabx&quot;, &quot;Qaai&quot;, &quot;Roro&quot;, &quot;Runr&quot;, &quot;Sara&quot;, &quot;Shaw&quot;, &quot;Sinh&quot;, &quot;Sylo&quot;, &quot;Syrc&quot;, 
-      &quot;Syre&quot;, &quot;Syrj&quot;, &quot;Syrn&quot;, &quot;Tagb&quot;, &quot;Tale&quot;, &quot;Talu&quot;, &quot;Taml&quot;, &quot;Telu&quot;, &quot;Teng&quot;, &quot;Tfng&quot;, &quot;Tglg&quot;, &quot;Thaa&quot;, 
-      &quot;Thai&quot;, &quot;Tibt&quot;, &quot;Ugar&quot;, &quot;Vaii&quot;, &quot;Visp&quot;, &quot;Xpeo&quot;, &quot;Xsux&quot;, &quot;Yiii&quot;, &quot;Zxxx&quot;, &quot;Zyyy&quot;, &quot;Zzzz&quot;</span></td>
+      <td><span>&quot;Arab&quot;, &quot;Armn&quot;, &quot;Bali&quot;, &quot;Batk&quot;, &quot;Beng&quot;, &quot;Blis&quot;, &quot;Bopo&quot;, &quot;Brah&quot;, &quot;Brai&quot;, &quot;Bugi&quot;, 
+      &quot;Buhd&quot;, &quot;Cans&quot;, &quot;Cham&quot;, &quot;Cher&quot;, &quot;Cirt&quot;, &quot;Copt&quot;, &quot;Cprt&quot;, &quot;Cyrl&quot;, &quot;Cyrs&quot;, &quot;Deva&quot;, &quot;Dsrt&quot;, 
+      &quot;Egyd&quot;, &quot;Egyh&quot;, &quot;Egyp&quot;, &quot;Ethi&quot;, &quot;Geor&quot;, &quot;Glag&quot;, &quot;Goth&quot;, &quot;Grek&quot;, &quot;Gujr&quot;, &quot;Guru&quot;, &quot;Hang&quot;, 
+      &quot;Hani&quot;, &quot;Hano&quot;, &quot;Hans&quot;, &quot;Hant&quot;, &quot;Hebr&quot;, &quot;Hira&quot;, &quot;Hmng&quot;, &quot;Hrkt&quot;, &quot;Hung&quot;, &quot;Inds&quot;, &quot;Ital&quot;, 
+      &quot;Java&quot;, &quot;Kali&quot;, &quot;Kana&quot;, &quot;Khar&quot;, &quot;Khmr&quot;, &quot;Knda&quot;, &quot;Laoo&quot;, &quot;Latf&quot;, &quot;Latg&quot;, &quot;Latn&quot;, &quot;Lepc&quot;, 
+      &quot;Limb&quot;, &quot;Lina&quot;, &quot;Linb&quot;, &quot;Mand&quot;, &quot;Maya&quot;, &quot;Mero&quot;, &quot;Mlym&quot;, &quot;Mong&quot;, &quot;Mymr&quot;, &quot;Ogam&quot;, &quot;Orkh&quot;, 
+      &quot;Orya&quot;, &quot;Osma&quot;, &quot;Perm&quot;, &quot;Phag&quot;, &quot;Phnx&quot;, &quot;Plrd&quot;, &quot;Qaaa..Qabx&quot;, &quot;Qaai&quot;, &quot;Roro&quot;, &quot;Runr&quot;, &quot;Sara&quot;, 
+      &quot;Shaw&quot;, &quot;Sinh&quot;, &quot;Sylo&quot;, &quot;Syrc&quot;, &quot;Syre&quot;, &quot;Syrj&quot;, &quot;Syrn&quot;, &quot;Tagb&quot;, &quot;Tale&quot;, &quot;Talu&quot;, &quot;Taml&quot;, 
+      &quot;Telu&quot;, &quot;Teng&quot;, &quot;Tfng&quot;, &quot;Tglg&quot;, &quot;Thaa&quot;, &quot;Thai&quot;, &quot;Tibt&quot;, &quot;Ugar&quot;, &quot;Vaii&quot;, &quot;Visp&quot;, &quot;Xpeo&quot;, 
+      &quot;Xsux&quot;, &quot;Yiii&quot;, &quot;Zxxx&quot;, &quot;Zyyy&quot;, &quot;Zzzz&quot;</span></td>
     </tr>
     <tr>
       <td rowSpan="8"><span>settings*</span></td>
@@ -5135,20 +5138,20 @@ America/Kentucky/Monticello&quot;&gt;
       &quot;AU&quot;, &quot;AW&quot;, &quot;AX&quot;, &quot;AZ&quot;, &quot;BA&quot;, &quot;BB&quot;, &quot;BD&quot;, &quot;BE&quot;, &quot;BF&quot;, &quot;BG&quot;, &quot;BH&quot;, &quot;BI&quot;, &quot;BJ&quot;, &quot;BM&quot;, &quot;BN&quot;, 
       &quot;BO&quot;, &quot;BQ&quot;, &quot;BR&quot;, &quot;BS&quot;, &quot;BT&quot;, &quot;BU&quot;, &quot;BV&quot;, &quot;BW&quot;, &quot;BY&quot;, &quot;BZ&quot;, &quot;CA&quot;, &quot;CC&quot;, &quot;CD&quot;, &quot;CF&quot;, &quot;CG&quot;, 
       &quot;CH&quot;, &quot;CI&quot;, &quot;CK&quot;, &quot;CL&quot;, &quot;CM&quot;, &quot;CN&quot;, &quot;CO&quot;, &quot;CR&quot;, &quot;CS&quot;, &quot;CT&quot;, &quot;CU&quot;, &quot;CV&quot;, &quot;CX&quot;, &quot;CY&quot;, &quot;CZ&quot;, 
-      &quot;DD&quot;, &quot;DE&quot;, &quot;DJ&quot;, &quot;DK&quot;, &quot;DM&quot;, &quot;DO&quot;, &quot;DY&quot;, &quot;DZ&quot;, &quot;EC&quot;, &quot;EE&quot;, &quot;EG&quot;, &quot;EH&quot;, &quot;ER&quot;, &quot;ES&quot;, &quot;ET&quot;, &quot;FI&quot;, 
-      &quot;FJ&quot;, &quot;FK&quot;, &quot;FM&quot;, &quot;FO&quot;, &quot;FQ&quot;, &quot;FR&quot;, &quot;FX&quot;, &quot;GA&quot;, &quot;GB&quot;, &quot;GD&quot;, &quot;GE&quot;, &quot;GF&quot;, &quot;GH&quot;, &quot;GI&quot;, &quot;GL&quot;, 
-      &quot;GM&quot;, &quot;GN&quot;, &quot;GP&quot;, &quot;GQ&quot;, &quot;GR&quot;, &quot;GS&quot;, &quot;GT&quot;, &quot;GU&quot;, &quot;GW&quot;, &quot;GY&quot;, &quot;HK&quot;, &quot;HM&quot;, &quot;HN&quot;, &quot;HR&quot;, &quot;HT&quot;, &quot;HU&quot;, 
-      &quot;HV&quot;, &quot;ID&quot;, &quot;IE&quot;, &quot;IL&quot;, &quot;IN&quot;, &quot;IO&quot;, &quot;IQ&quot;, &quot;IR&quot;, &quot;IS&quot;, &quot;IT&quot;, &quot;JM&quot;, &quot;JO&quot;, &quot;JP&quot;, &quot;JT&quot;, &quot;KE&quot;, 
-      &quot;KG&quot;, &quot;KH&quot;, &quot;KI&quot;, &quot;KM&quot;, &quot;KN&quot;, &quot;KP&quot;, &quot;KR&quot;, &quot;KW&quot;, &quot;KY&quot;, &quot;KZ&quot;, &quot;LA&quot;, &quot;LB&quot;, &quot;LC&quot;, &quot;LI&quot;, &quot;LK&quot;, &quot;LR&quot;, 
-      &quot;LS&quot;, &quot;LT&quot;, &quot;LU&quot;, &quot;LV&quot;, &quot;LY&quot;, &quot;MA&quot;, &quot;MC&quot;, &quot;MD&quot;, &quot;MG&quot;, &quot;MH&quot;, &quot;MI&quot;, &quot;MK&quot;, &quot;ML&quot;, &quot;MM&quot;, &quot;MN&quot;, 
-      &quot;MO&quot;, &quot;MP&quot;, &quot;MQ&quot;, &quot;MR&quot;, &quot;MS&quot;, &quot;MT&quot;, &quot;MU&quot;, &quot;MV&quot;, &quot;MW&quot;, &quot;MX&quot;, &quot;MY&quot;, &quot;MZ&quot;, &quot;NA&quot;, &quot;NC&quot;, &quot;NE&quot;, 
-      &quot;NF&quot;, &quot;NG&quot;, &quot;NH&quot;, &quot;NI&quot;, &quot;NL&quot;, &quot;NO&quot;, &quot;NP&quot;, &quot;NQ&quot;, &quot;NR&quot;, &quot;NT&quot;, &quot;NU&quot;, &quot;NZ&quot;, &quot;OM&quot;, &quot;PA&quot;, &quot;PC&quot;, 
-      &quot;PE&quot;, &quot;PF&quot;, &quot;PG&quot;, &quot;PH&quot;, &quot;PK&quot;, &quot;PL&quot;, &quot;PM&quot;, &quot;PN&quot;, &quot;PR&quot;, &quot;PS&quot;, &quot;PT&quot;, &quot;PU&quot;, &quot;PW&quot;, &quot;PY&quot;, &quot;PZ&quot;, 
-      &quot;QA&quot;, &quot;QM..QZ&quot;, &quot;RE&quot;, &quot;RH&quot;, &quot;RO&quot;, &quot;RU&quot;, &quot;RW&quot;, &quot;SA&quot;, &quot;SB&quot;, &quot;SC&quot;, &quot;SD&quot;, &quot;SE&quot;, &quot;SG&quot;, &quot;SH&quot;, &quot;SI&quot;, 
-      &quot;SJ&quot;, &quot;SK&quot;, &quot;SL&quot;, &quot;SM&quot;, &quot;SN&quot;, &quot;SO&quot;, &quot;SR&quot;, &quot;ST&quot;, &quot;SU&quot;, &quot;SV&quot;, &quot;SY&quot;, &quot;SZ&quot;, &quot;TC&quot;, &quot;TD&quot;, &quot;TF&quot;, 
-      &quot;TG&quot;, &quot;TH&quot;, &quot;TJ&quot;, &quot;TK&quot;, &quot;TL&quot;, &quot;TM&quot;, &quot;TN&quot;, &quot;TO&quot;, &quot;TP&quot;, &quot;TR&quot;, &quot;TT&quot;, &quot;TV&quot;, &quot;TW&quot;, &quot;TZ&quot;, &quot;UA&quot;, &quot;UG&quot;, 
-      &quot;UM&quot;, &quot;US&quot;, &quot;UY&quot;, &quot;UZ&quot;, &quot;VA&quot;, &quot;VC&quot;, &quot;VD&quot;, &quot;VE&quot;, &quot;VG&quot;, &quot;VI&quot;, &quot;VN&quot;, &quot;VU&quot;, &quot;WF&quot;, &quot;WK&quot;, &quot;WS&quot;, &quot;XA..XZ&quot;, 
-      &quot;YD&quot;, &quot;YE&quot;, &quot;YT&quot;, &quot;YU&quot;, &quot;ZA&quot;, &quot;ZM&quot;, &quot;ZR&quot;, &quot;ZW&quot;, &quot;ZZ&quot;</span></td>
+      &quot;DD&quot;, &quot;DE&quot;, &quot;DJ&quot;, &quot;DK&quot;, &quot;DM&quot;, &quot;DO&quot;, &quot;DY&quot;, &quot;DZ&quot;, &quot;EC&quot;, &quot;EE&quot;, &quot;EG&quot;, &quot;EH&quot;, &quot;ER&quot;, &quot;ES&quot;, &quot;ET&quot;, 
+      &quot;FI&quot;, &quot;FJ&quot;, &quot;FK&quot;, &quot;FM&quot;, &quot;FO&quot;, &quot;FQ&quot;, &quot;FR&quot;, &quot;FX&quot;, &quot;GA&quot;, &quot;GB&quot;, &quot;GD&quot;, &quot;GE&quot;, &quot;GF&quot;, &quot;GH&quot;, &quot;GI&quot;, 
+      &quot;GL&quot;, &quot;GM&quot;, &quot;GN&quot;, &quot;GP&quot;, &quot;GQ&quot;, &quot;GR&quot;, &quot;GS&quot;, &quot;GT&quot;, &quot;GU&quot;, &quot;GW&quot;, &quot;GY&quot;, &quot;HK&quot;, &quot;HM&quot;, &quot;HN&quot;, &quot;HR&quot;, 
+      &quot;HT&quot;, &quot;HU&quot;, &quot;HV&quot;, &quot;ID&quot;, &quot;IE&quot;, &quot;IL&quot;, &quot;IN&quot;, &quot;IO&quot;, &quot;IQ&quot;, &quot;IR&quot;, &quot;IS&quot;, &quot;IT&quot;, &quot;JM&quot;, &quot;JO&quot;, &quot;JP&quot;, 
+      &quot;JT&quot;, &quot;KE&quot;, &quot;KG&quot;, &quot;KH&quot;, &quot;KI&quot;, &quot;KM&quot;, &quot;KN&quot;, &quot;KP&quot;, &quot;KR&quot;, &quot;KW&quot;, &quot;KY&quot;, &quot;KZ&quot;, &quot;LA&quot;, &quot;LB&quot;, &quot;LC&quot;, 
+      &quot;LI&quot;, &quot;LK&quot;, &quot;LR&quot;, &quot;LS&quot;, &quot;LT&quot;, &quot;LU&quot;, &quot;LV&quot;, &quot;LY&quot;, &quot;MA&quot;, &quot;MC&quot;, &quot;MD&quot;, &quot;MG&quot;, &quot;MH&quot;, &quot;MI&quot;, &quot;MK&quot;, 
+      &quot;ML&quot;, &quot;MM&quot;, &quot;MN&quot;, &quot;MO&quot;, &quot;MP&quot;, &quot;MQ&quot;, &quot;MR&quot;, &quot;MS&quot;, &quot;MT&quot;, &quot;MU&quot;, &quot;MV&quot;, &quot;MW&quot;, &quot;MX&quot;, &quot;MY&quot;, &quot;MZ&quot;, 
+      &quot;NA&quot;, &quot;NC&quot;, &quot;NE&quot;, &quot;NF&quot;, &quot;NG&quot;, &quot;NH&quot;, &quot;NI&quot;, &quot;NL&quot;, &quot;NO&quot;, &quot;NP&quot;, &quot;NQ&quot;, &quot;NR&quot;, &quot;NT&quot;, &quot;NU&quot;, &quot;NZ&quot;, 
+      &quot;OM&quot;, &quot;PA&quot;, &quot;PC&quot;, &quot;PE&quot;, &quot;PF&quot;, &quot;PG&quot;, &quot;PH&quot;, &quot;PK&quot;, &quot;PL&quot;, &quot;PM&quot;, &quot;PN&quot;, &quot;PR&quot;, &quot;PS&quot;, &quot;PT&quot;, &quot;PU&quot;, 
+      &quot;PW&quot;, &quot;PY&quot;, &quot;PZ&quot;, &quot;QA&quot;, &quot;QM..QZ&quot;, &quot;RE&quot;, &quot;RH&quot;, &quot;RO&quot;, &quot;RU&quot;, &quot;RW&quot;, &quot;SA&quot;, &quot;SB&quot;, &quot;SC&quot;, &quot;SD&quot;, &quot;SE&quot;, 
+      &quot;SG&quot;, &quot;SH&quot;, &quot;SI&quot;, &quot;SJ&quot;, &quot;SK&quot;, &quot;SL&quot;, &quot;SM&quot;, &quot;SN&quot;, &quot;SO&quot;, &quot;SR&quot;, &quot;ST&quot;, &quot;SU&quot;, &quot;SV&quot;, &quot;SY&quot;, &quot;SZ&quot;, 
+      &quot;TC&quot;, &quot;TD&quot;, &quot;TF&quot;, &quot;TG&quot;, &quot;TH&quot;, &quot;TJ&quot;, &quot;TK&quot;, &quot;TL&quot;, &quot;TM&quot;, &quot;TN&quot;, &quot;TO&quot;, &quot;TP&quot;, &quot;TR&quot;, &quot;TT&quot;, &quot;TV&quot;, 
+      &quot;TW&quot;, &quot;TZ&quot;, &quot;UA&quot;, &quot;UG&quot;, &quot;UM&quot;, &quot;US&quot;, &quot;UY&quot;, &quot;UZ&quot;, &quot;VA&quot;, &quot;VC&quot;, &quot;VD&quot;, &quot;VE&quot;, &quot;VG&quot;, &quot;VI&quot;, &quot;VN&quot;, 
+      &quot;VU&quot;, &quot;WF&quot;, &quot;WK&quot;, &quot;WS&quot;, &quot;XA..XZ&quot;, &quot;YD&quot;, &quot;YE&quot;, &quot;YT&quot;, &quot;YU&quot;, &quot;ZA&quot;, &quot;ZM&quot;, &quot;ZR&quot;, &quot;ZW&quot;, &quot;ZZ&quot;</span></td>
     </tr>
     <tr>
       <td><span>timeFormat</span></td>
@@ -5220,60 +5223,64 @@ America/Kentucky/Monticello&quot;&gt;
       <!-- 401, 1-->
       <td><span>type</span></td>
       <!-- 401-->
-      <td><span>&quot;Africa/Abidjan&quot;, &quot;Africa/Accra&quot;, &quot;Africa/Addis_Ababa&quot;, &quot;Africa/Algiers&quot;, &quot;Africa/Asmera&quot;, 
-      &quot;Africa/Bamako&quot;, &quot;Africa/Bangui&quot;, &quot;Africa/Banjul&quot;, &quot;Africa/Bissau&quot;, &quot;Africa/Blantyre&quot;, 
-      &quot;Africa/Brazzaville&quot;, &quot;Africa/Bujumbura&quot;, &quot;Africa/Cairo&quot;, &quot;Africa/Casablanca&quot;, &quot;Africa/Ceuta&quot;, 
-      &quot;Africa/Conakry&quot;, &quot;Africa/Dakar&quot;, &quot;Africa/Dar_es_Salaam&quot;, &quot;Africa/Djibouti&quot;, &quot;Africa/Douala&quot;, 
-      &quot;Africa/El_Aaiun&quot;, &quot;Africa/Freetown&quot;, &quot;Africa/Gaborone&quot;, &quot;Africa/Harare&quot;, 
-      &quot;Africa/Johannesburg&quot;, &quot;Africa/Kampala&quot;, &quot;Africa/Khartoum&quot;, &quot;Africa/Kigali&quot;, 
+      <td><span>&quot;Africa/Abidjan&quot;, &quot;Africa/Accra&quot;, &quot;Africa/Addis_Ababa&quot;, &quot;Africa/Algiers&quot;, 
+      &quot;Africa/Asmera&quot;, &quot;Africa/Bamako&quot;, &quot;Africa/Bangui&quot;, &quot;Africa/Banjul&quot;, &quot;Africa/Bissau&quot;, 
+      &quot;Africa/Blantyre&quot;, &quot;Africa/Brazzaville&quot;, &quot;Africa/Bujumbura&quot;, &quot;Africa/Cairo&quot;, 
+      &quot;Africa/Casablanca&quot;, &quot;Africa/Ceuta&quot;, &quot;Africa/Conakry&quot;, &quot;Africa/Dakar&quot;, &quot;Africa/Dar_es_Salaam&quot;, 
+      &quot;Africa/Djibouti&quot;, &quot;Africa/Douala&quot;, &quot;Africa/El_Aaiun&quot;, &quot;Africa/Freetown&quot;, &quot;Africa/Gaborone&quot;, 
+      &quot;Africa/Harare&quot;, &quot;Africa/Johannesburg&quot;, &quot;Africa/Kampala&quot;, &quot;Africa/Khartoum&quot;, &quot;Africa/Kigali&quot;, 
       &quot;Africa/Kinshasa&quot;, &quot;Africa/Lagos&quot;, &quot;Africa/Libreville&quot;, &quot;Africa/Lome&quot;, &quot;Africa/Luanda&quot;, 
       &quot;Africa/Lubumbashi&quot;, &quot;Africa/Lusaka&quot;, &quot;Africa/Malabo&quot;, &quot;Africa/Maputo&quot;, &quot;Africa/Maseru&quot;, 
       &quot;Africa/Mbabane&quot;, &quot;Africa/Mogadishu&quot;, &quot;Africa/Monrovia&quot;, &quot;Africa/Nairobi&quot;, &quot;Africa/Ndjamena&quot;, 
-      &quot;Africa/Niamey&quot;, &quot;Africa/Nouakchott&quot;, &quot;Africa/Ouagadougou&quot;, &quot;Africa/Porto-Novo&quot;, &quot;Africa/Sao_Tome&quot;, 
-      &quot;Africa/Timbuktu&quot;, &quot;Africa/Tripoli&quot;, &quot;Africa/Tunis&quot;, &quot;Africa/Windhoek&quot;, &quot;America/Adak&quot;, 
-      &quot;America/Anchorage&quot;, &quot;America/Anguilla&quot;, &quot;America/Antigua&quot;, &quot;America/Araguaina&quot;, 
-      &quot;America/Aruba&quot;, &quot;America/Asuncion&quot;, &quot;America/Barbados&quot;, &quot;America/Belem&quot;, &quot;America/Belize&quot;, 
-      &quot;America/Boa_Vista&quot;, &quot;America/Bogota&quot;, &quot;America/Boise&quot;, &quot;America/Buenos_Aires&quot;, &quot;America/Cambridge_Bay&quot;, 
-      &quot;America/Cancun&quot;, &quot;America/Caracas&quot;, &quot;America/Catamarca&quot;, &quot;America/Cayenne&quot;, &quot;America/Cayman&quot;, 
-      &quot;America/Chicago&quot;, &quot;America/Chihuahua&quot;, &quot;America/Cordoba&quot;, &quot;America/Costa_Rica&quot;, &quot;America/Cuiaba&quot;, 
+      &quot;Africa/Niamey&quot;, &quot;Africa/Nouakchott&quot;, &quot;Africa/Ouagadougou&quot;, &quot;Africa/Porto-Novo&quot;, 
+      &quot;Africa/Sao_Tome&quot;, &quot;Africa/Timbuktu&quot;, &quot;Africa/Tripoli&quot;, &quot;Africa/Tunis&quot;, &quot;Africa/Windhoek&quot;, 
+      &quot;America/Adak&quot;, &quot;America/Anchorage&quot;, &quot;America/Anguilla&quot;, &quot;America/Antigua&quot;, 
+      &quot;America/Araguaina&quot;, &quot;America/Aruba&quot;, &quot;America/Asuncion&quot;, &quot;America/Barbados&quot;, &quot;America/Belem&quot;, 
+      &quot;America/Belize&quot;, &quot;America/Boa_Vista&quot;, &quot;America/Bogota&quot;, &quot;America/Boise&quot;, 
+      &quot;America/Buenos_Aires&quot;, &quot;America/Cambridge_Bay&quot;, &quot;America/Cancun&quot;, &quot;America/Caracas&quot;, 
+      &quot;America/Catamarca&quot;, &quot;America/Cayenne&quot;, &quot;America/Cayman&quot;, &quot;America/Chicago&quot;, 
+      &quot;America/Chihuahua&quot;, &quot;America/Cordoba&quot;, &quot;America/Costa_Rica&quot;, &quot;America/Cuiaba&quot;, 
       &quot;America/Curacao&quot;, &quot;America/Danmarkshavn&quot;, &quot;America/Dawson&quot;, &quot;America/Dawson_Creek&quot;, 
-      &quot;America/Denver&quot;, &quot;America/Detroit&quot;, &quot;America/Dominica&quot;, &quot;America/Edmonton&quot;, &quot;America/Eirunepe&quot;, 
-      &quot;America/El_Salvador&quot;, &quot;America/Fortaleza&quot;, &quot;America/Glace_Bay&quot;, &quot;America/Godthab&quot;, &quot;America/Goose_Bay&quot;, 
-      &quot;America/Grand_Turk&quot;, &quot;America/Grenada&quot;, &quot;America/Guadeloupe&quot;, &quot;America/Guatemala&quot;, &quot;America/Guayaquil&quot;, 
-      &quot;America/Guyana&quot;, &quot;America/Halifax&quot;, &quot;America/Havana&quot;, &quot;America/Hermosillo&quot;, 
-      &quot;America/Indiana/Knox&quot;, &quot;America/Indiana/Marengo&quot;, &quot;America/Indiana/Vevay&quot;, 
-      &quot;America/Indianapolis&quot;, &quot;America/Inuvik&quot;, &quot;America/Iqaluit&quot;, &quot;America/Jamaica&quot;, &quot;America/Jujuy&quot;, 
-      &quot;America/Juneau&quot;, &quot;America/Kentucky/Monticello&quot;, &quot;America/La_Paz&quot;, &quot;America/Lima&quot;, &quot;America/Los_Angeles&quot;, 
+      &quot;America/Denver&quot;, &quot;America/Detroit&quot;, &quot;America/Dominica&quot;, &quot;America/Edmonton&quot;, 
+      &quot;America/Eirunepe&quot;, &quot;America/El_Salvador&quot;, &quot;America/Fortaleza&quot;, &quot;America/Glace_Bay&quot;, 
+      &quot;America/Godthab&quot;, &quot;America/Goose_Bay&quot;, &quot;America/Grand_Turk&quot;, &quot;America/Grenada&quot;, 
+      &quot;America/Guadeloupe&quot;, &quot;America/Guatemala&quot;, &quot;America/Guayaquil&quot;, &quot;America/Guyana&quot;, 
+      &quot;America/Halifax&quot;, &quot;America/Havana&quot;, &quot;America/Hermosillo&quot;, &quot;America/Indiana/Knox&quot;, 
+      &quot;America/Indiana/Marengo&quot;, &quot;America/Indiana/Vevay&quot;, &quot;America/Indianapolis&quot;, &quot;America/Inuvik&quot;, 
+      &quot;America/Iqaluit&quot;, &quot;America/Jamaica&quot;, &quot;America/Jujuy&quot;, &quot;America/Juneau&quot;, 
+      &quot;America/Kentucky/Monticello&quot;, &quot;America/La_Paz&quot;, &quot;America/Lima&quot;, &quot;America/Los_Angeles&quot;, 
       &quot;America/Louisville&quot;, &quot;America/Maceio&quot;, &quot;America/Managua&quot;, &quot;America/Manaus&quot;, 
-      &quot;America/Martinique&quot;, &quot;America/Mazatlan&quot;, &quot;America/Mendoza&quot;, &quot;America/Menominee&quot;, &quot;America/Merida&quot;, 
-      &quot;America/Mexico_City&quot;, &quot;America/Miquelon&quot;, &quot;America/Monterrey&quot;, &quot;America/Montevideo&quot;, 
-      &quot;America/Montreal&quot;, &quot;America/Montserrat&quot;, &quot;America/Nassau&quot;, &quot;America/New_York&quot;, &quot;America/Nipigon&quot;, 
-      &quot;America/Nome&quot;, &quot;America/Noronha&quot;, &quot;America/North_Dakota/Center&quot;, &quot;America/Panama&quot;, &quot;America/Pangnirtung&quot;, 
-      &quot;America/Paramaribo&quot;, &quot;America/Phoenix&quot;, &quot;America/Port-au-Prince&quot;, &quot;America/Port_of_Spain&quot;, 
-      &quot;America/Porto_Velho&quot;, &quot;America/Puerto_Rico&quot;, &quot;America/Rainy_River&quot;, &quot;America/Rankin_Inlet&quot;, 
-      &quot;America/Recife&quot;, &quot;America/Regina&quot;, &quot;America/Rio_Branco&quot;, &quot;America/Santiago&quot;, &quot;America/Santo_Domingo&quot;, 
-      &quot;America/Sao_Paulo&quot;, &quot;America/Scoresbysund&quot;, &quot;America/St_Johns&quot;, &quot;America/St_Kitts&quot;, &quot;America/St_Lucia&quot;, 
-      &quot;America/St_Thomas&quot;, &quot;America/St_Vincent&quot;, &quot;America/Swift_Current&quot;, &quot;America/Tegucigalpa&quot;, 
-      &quot;America/Thule&quot;, &quot;America/Thunder_Bay&quot;, &quot;America/Tijuana&quot;, &quot;America/Tortola&quot;, 
-      &quot;America/Vancouver&quot;, &quot;America/Whitehorse&quot;, &quot;America/Winnipeg&quot;, &quot;America/Yakutat&quot;, 
-      &quot;America/Yellowknife&quot;, &quot;Antarctica/Casey&quot;, &quot;Antarctica/Davis&quot;, &quot;Antarctica/DumontDUrville&quot;, 
-      &quot;Antarctica/Mawson&quot;, &quot;Antarctica/McMurdo&quot;, &quot;Antarctica/Palmer&quot;, &quot;Antarctica/Rothera&quot;, 
-      &quot;Antarctica/Syowa&quot;, &quot;Antarctica/Vostok&quot;, &quot;Asia/Aden&quot;, &quot;Asia/Almaty&quot;, &quot;Asia/Amman&quot;, &quot;Asia/Anadyr&quot;, 
-      &quot;Asia/Aqtau&quot;, &quot;Asia/Aqtobe&quot;, &quot;Asia/Ashgabat&quot;, &quot;Asia/Baghdad&quot;, &quot;Asia/Bahrain&quot;, &quot;Asia/Baku&quot;, 
-      &quot;Asia/Bangkok&quot;, &quot;Asia/Beirut&quot;, &quot;Asia/Bishkek&quot;, &quot;Asia/Brunei&quot;, &quot;Asia/Calcutta&quot;, &quot;Asia/Choibalsan&quot;, 
-      &quot;Asia/Chongqing&quot;, &quot;Asia/Colombo&quot;, &quot;Asia/Damascus&quot;, &quot;Asia/Dhaka&quot;, &quot;Asia/Dili&quot;, &quot;Asia/Dubai&quot;, 
-      &quot;Asia/Dushanbe&quot;, &quot;Asia/Gaza&quot;, &quot;Asia/Harbin&quot;, &quot;Asia/Hong_Kong&quot;, &quot;Asia/Hovd&quot;, &quot;Asia/Irkutsk&quot;, 
-      &quot;Asia/Jakarta&quot;, &quot;Asia/Jayapura&quot;, &quot;Asia/Jerusalem&quot;, &quot;Asia/Kabul&quot;, &quot;Asia/Kamchatka&quot;, 
-      &quot;Asia/Karachi&quot;, &quot;Asia/Kashgar&quot;, &quot;Asia/Katmandu&quot;, &quot;Asia/Krasnoyarsk&quot;, &quot;Asia/Kuala_Lumpur&quot;, 
-      &quot;Asia/Kuching&quot;, &quot;Asia/Kuwait&quot;, &quot;Asia/Macau&quot;, &quot;Asia/Magadan&quot;, &quot;Asia/Makassar&quot;, &quot;Asia/Manila&quot;, 
-      &quot;Asia/Muscat&quot;, &quot;Asia/Nicosia&quot;, &quot;Asia/Novosibirsk&quot;, &quot;Asia/Omsk&quot;, &quot;Asia/Oral&quot;, &quot;Asia/Phnom_Penh&quot;, 
-      &quot;Asia/Pontianak&quot;, &quot;Asia/Pyongyang&quot;, &quot;Asia/Qatar&quot;, &quot;Asia/Qyzylorda&quot;, &quot;Asia/Rangoon&quot;, 
-      &quot;Asia/Riyadh&quot;, &quot;Asia/Saigon&quot;, &quot;Asia/Sakhalin&quot;, &quot;Asia/Samarkand&quot;, &quot;Asia/Seoul&quot;, 
-      &quot;Asia/Shanghai&quot;, &quot;Asia/Singapore&quot;, &quot;Asia/Taipei&quot;, &quot;Asia/Tashkent&quot;, &quot;Asia/Tbilisi&quot;, 
-      &quot;Asia/Tehran&quot;, &quot;Asia/Thimphu&quot;, &quot;Asia/Tokyo&quot;, &quot;Asia/Ulaanbaatar&quot;, &quot;Asia/Urumqi&quot;, 
-      &quot;Asia/Vientiane&quot;, &quot;Asia/Vladivostok&quot;, &quot;Asia/Yakutsk&quot;, &quot;Asia/Yekaterinburg&quot;, &quot;Asia/Yerevan&quot;, 
-      &quot;Atlantic/Azores&quot;, &quot;Atlantic/Bermuda&quot;, &quot;Atlantic/Canary&quot;, &quot;Atlantic/Cape_Verde&quot;, 
-      &quot;Atlantic/Faeroe&quot;, &quot;Atlantic/Jan_Mayen&quot;, &quot;Atlantic/Madeira&quot;, &quot;Atlantic/Reykjavik&quot;, &quot;Atlantic/South_Georgia&quot;, 
+      &quot;America/Martinique&quot;, &quot;America/Mazatlan&quot;, &quot;America/Mendoza&quot;, &quot;America/Menominee&quot;, 
+      &quot;America/Merida&quot;, &quot;America/Mexico_City&quot;, &quot;America/Miquelon&quot;, &quot;America/Monterrey&quot;, 
+      &quot;America/Montevideo&quot;, &quot;America/Montreal&quot;, &quot;America/Montserrat&quot;, &quot;America/Nassau&quot;, 
+      &quot;America/New_York&quot;, &quot;America/Nipigon&quot;, &quot;America/Nome&quot;, &quot;America/Noronha&quot;, 
+      &quot;America/North_Dakota/Center&quot;, &quot;America/Panama&quot;, &quot;America/Pangnirtung&quot;, &quot;America/Paramaribo&quot;, 
+      &quot;America/Phoenix&quot;, &quot;America/Port-au-Prince&quot;, &quot;America/Port_of_Spain&quot;, &quot;America/Porto_Velho&quot;, 
+      &quot;America/Puerto_Rico&quot;, &quot;America/Rainy_River&quot;, &quot;America/Rankin_Inlet&quot;, &quot;America/Recife&quot;, 
+      &quot;America/Regina&quot;, &quot;America/Rio_Branco&quot;, &quot;America/Santiago&quot;, &quot;America/Santo_Domingo&quot;, 
+      &quot;America/Sao_Paulo&quot;, &quot;America/Scoresbysund&quot;, &quot;America/St_Johns&quot;, &quot;America/St_Kitts&quot;, 
+      &quot;America/St_Lucia&quot;, &quot;America/St_Thomas&quot;, &quot;America/St_Vincent&quot;, &quot;America/Swift_Current&quot;, 
+      &quot;America/Tegucigalpa&quot;, &quot;America/Thule&quot;, &quot;America/Thunder_Bay&quot;, &quot;America/Tijuana&quot;, 
+      &quot;America/Tortola&quot;, &quot;America/Vancouver&quot;, &quot;America/Whitehorse&quot;, &quot;America/Winnipeg&quot;, 
+      &quot;America/Yakutat&quot;, &quot;America/Yellowknife&quot;, &quot;Antarctica/Casey&quot;, &quot;Antarctica/Davis&quot;, 
+      &quot;Antarctica/DumontDUrville&quot;, &quot;Antarctica/Mawson&quot;, &quot;Antarctica/McMurdo&quot;, &quot;Antarctica/Palmer&quot;, 
+      &quot;Antarctica/Rothera&quot;, &quot;Antarctica/Syowa&quot;, &quot;Antarctica/Vostok&quot;, &quot;Asia/Aden&quot;, &quot;Asia/Almaty&quot;, 
+      &quot;Asia/Amman&quot;, &quot;Asia/Anadyr&quot;, &quot;Asia/Aqtau&quot;, &quot;Asia/Aqtobe&quot;, &quot;Asia/Ashgabat&quot;, &quot;Asia/Baghdad&quot;, 
+      &quot;Asia/Bahrain&quot;, &quot;Asia/Baku&quot;, &quot;Asia/Bangkok&quot;, &quot;Asia/Beirut&quot;, &quot;Asia/Bishkek&quot;, &quot;Asia/Brunei&quot;, 
+      &quot;Asia/Calcutta&quot;, &quot;Asia/Choibalsan&quot;, &quot;Asia/Chongqing&quot;, &quot;Asia/Colombo&quot;, &quot;Asia/Damascus&quot;, 
+      &quot;Asia/Dhaka&quot;, &quot;Asia/Dili&quot;, &quot;Asia/Dubai&quot;, &quot;Asia/Dushanbe&quot;, &quot;Asia/Gaza&quot;, &quot;Asia/Harbin&quot;, 
+      &quot;Asia/Hong_Kong&quot;, &quot;Asia/Hovd&quot;, &quot;Asia/Irkutsk&quot;, &quot;Asia/Jakarta&quot;, &quot;Asia/Jayapura&quot;, 
+      &quot;Asia/Jerusalem&quot;, &quot;Asia/Kabul&quot;, &quot;Asia/Kamchatka&quot;, &quot;Asia/Karachi&quot;, &quot;Asia/Kashgar&quot;, 
+      &quot;Asia/Katmandu&quot;, &quot;Asia/Krasnoyarsk&quot;, &quot;Asia/Kuala_Lumpur&quot;, &quot;Asia/Kuching&quot;, &quot;Asia/Kuwait&quot;, 
+      &quot;Asia/Macau&quot;, &quot;Asia/Magadan&quot;, &quot;Asia/Makassar&quot;, &quot;Asia/Manila&quot;, &quot;Asia/Muscat&quot;, &quot;Asia/Nicosia&quot;, 
+      &quot;Asia/Novosibirsk&quot;, &quot;Asia/Omsk&quot;, &quot;Asia/Oral&quot;, &quot;Asia/Phnom_Penh&quot;, &quot;Asia/Pontianak&quot;, 
+      &quot;Asia/Pyongyang&quot;, &quot;Asia/Qatar&quot;, &quot;Asia/Qyzylorda&quot;, &quot;Asia/Rangoon&quot;, &quot;Asia/Riyadh&quot;, 
+      &quot;Asia/Saigon&quot;, &quot;Asia/Sakhalin&quot;, &quot;Asia/Samarkand&quot;, &quot;Asia/Seoul&quot;, &quot;Asia/Shanghai&quot;, 
+      &quot;Asia/Singapore&quot;, &quot;Asia/Taipei&quot;, &quot;Asia/Tashkent&quot;, &quot;Asia/Tbilisi&quot;, &quot;Asia/Tehran&quot;, 
+      &quot;Asia/Thimphu&quot;, &quot;Asia/Tokyo&quot;, &quot;Asia/Ulaanbaatar&quot;, &quot;Asia/Urumqi&quot;, &quot;Asia/Vientiane&quot;, 
+      &quot;Asia/Vladivostok&quot;, &quot;Asia/Yakutsk&quot;, &quot;Asia/Yekaterinburg&quot;, &quot;Asia/Yerevan&quot;, &quot;Atlantic/Azores&quot;, 
+      &quot;Atlantic/Bermuda&quot;, &quot;Atlantic/Canary&quot;, &quot;Atlantic/Cape_Verde&quot;, &quot;Atlantic/Faeroe&quot;, 
+      &quot;Atlantic/Jan_Mayen&quot;, &quot;Atlantic/Madeira&quot;, &quot;Atlantic/Reykjavik&quot;, &quot;Atlantic/South_Georgia&quot;, 
       &quot;Atlantic/St_Helena&quot;, &quot;Atlantic/Stanley&quot;, &quot;Australia/Adelaide&quot;, &quot;Australia/Brisbane&quot;, 
       &quot;Australia/Broken_Hill&quot;, &quot;Australia/Darwin&quot;, &quot;Australia/Hobart&quot;, &quot;Australia/Lindeman&quot;, 
       &quot;Australia/Lord_Howe&quot;, &quot;Australia/Melbourne&quot;, &quot;Australia/Perth&quot;, &quot;Australia/Sydney&quot;, 
@@ -5296,12 +5303,13 @@ America/Kentucky/Monticello&quot;&gt;
       &quot;Indian/Maldives&quot;, &quot;Indian/Mauritius&quot;, &quot;Indian/Mayotte&quot;, &quot;Indian/Reunion&quot;, &quot;Pacific/Apia&quot;, 
       &quot;Pacific/Auckland&quot;, &quot;Pacific/Chatham&quot;, &quot;Pacific/Easter&quot;, &quot;Pacific/Efate&quot;, &quot;Pacific/Enderbury&quot;, 
       &quot;Pacific/Fakaofo&quot;, &quot;Pacific/Fiji&quot;, &quot;Pacific/Funafuti&quot;, &quot;Pacific/Galapagos&quot;, &quot;Pacific/Gambier&quot;, 
-      &quot;Pacific/Guadalcanal&quot;, &quot;Pacific/Guam&quot;, &quot;Pacific/Honolulu&quot;, &quot;Pacific/Johnston&quot;, &quot;Pacific/Kiritimati&quot;, 
-      &quot;Pacific/Kosrae&quot;, &quot;Pacific/Kwajalein&quot;, &quot;Pacific/Majuro&quot;, &quot;Pacific/Marquesas&quot;, 
-      &quot;Pacific/Midway&quot;, &quot;Pacific/Nauru&quot;, &quot;Pacific/Niue&quot;, &quot;Pacific/Norfolk&quot;, &quot;Pacific/Noumea&quot;, 
-      &quot;Pacific/Pago_Pago&quot;, &quot;Pacific/Palau&quot;, &quot;Pacific/Pitcairn&quot;, &quot;Pacific/Ponape&quot;, &quot;Pacific/Port_Moresby&quot;, 
-      &quot;Pacific/Rarotonga&quot;, &quot;Pacific/Saipan&quot;, &quot;Pacific/Tahiti&quot;, &quot;Pacific/Tarawa&quot;, &quot;Pacific/Tongatapu&quot;, 
-      &quot;Pacific/Truk&quot;, &quot;Pacific/Wake&quot;, &quot;Pacific/Wallis&quot;, &quot;Pacific/Yap&quot;</span></td>
+      &quot;Pacific/Guadalcanal&quot;, &quot;Pacific/Guam&quot;, &quot;Pacific/Honolulu&quot;, &quot;Pacific/Johnston&quot;, 
+      &quot;Pacific/Kiritimati&quot;, &quot;Pacific/Kosrae&quot;, &quot;Pacific/Kwajalein&quot;, &quot;Pacific/Majuro&quot;, 
+      &quot;Pacific/Marquesas&quot;, &quot;Pacific/Midway&quot;, &quot;Pacific/Nauru&quot;, &quot;Pacific/Niue&quot;, &quot;Pacific/Norfolk&quot;, 
+      &quot;Pacific/Noumea&quot;, &quot;Pacific/Pago_Pago&quot;, &quot;Pacific/Palau&quot;, &quot;Pacific/Pitcairn&quot;, &quot;Pacific/Ponape&quot;, 
+      &quot;Pacific/Port_Moresby&quot;, &quot;Pacific/Rarotonga&quot;, &quot;Pacific/Saipan&quot;, &quot;Pacific/Tahiti&quot;, 
+      &quot;Pacific/Tarawa&quot;, &quot;Pacific/Tongatapu&quot;, &quot;Pacific/Truk&quot;, &quot;Pacific/Wake&quot;, &quot;Pacific/Wallis&quot;, 
+      &quot;Pacific/Yap&quot;</span></td>
     </tr>
   </table>
   <h2>&nbsp;</h2>

@@ -2196,57 +2196,66 @@ void GenerateXML::writeCollation(ResourceBundle& bundle,UnicodeString& xmlString
     UnicodeString sequence;
     UnicodeString rules;
     const char* key = bundle.getKey();
-
     UnicodeString t;
-    if( mError!=U_USING_DEFAULT_WARNING && 
-		U_SUCCESS(mError) && 
-		mError!=U_USING_FALLBACK_WARNING){
+    if(stricmp(key, "default") == 0) {
         Formattable args[]={indentOffset,"","","",""};
+               sequence = bundle.getString(mError);
+               args[0] = indentOffset;
+               args[1] = sequence;
+               xmlString.append(formatString(mStringsBundle.getStringEx("default",mError),args,2,t));
+           }
+    else {
 
-		UnicodeString str = "type=\"";
-		str.append(key);
-		str.append("\"");
-		args[2] = str;
+        if( mError!=U_USING_DEFAULT_WARNING && 
+		    U_SUCCESS(mError) && 
+		    mError!=U_USING_FALLBACK_WARNING){
+            Formattable args[]={indentOffset,"","","",""};
 
-		xmlString.append(formatString(mStringsBundle.getStringEx("collation",mError),args,3,t));
+		    UnicodeString str = "type=\"";
+		    str.append(key);
+		    str.append("\"");
+		    args[2] = str;
 
-		indentOffset.append("\t");
-        
-        // wirte the base element
-        writeBase(t.remove());
-        if(t.length() != 0){
-            xmlString.append(t);
-        }
+		    xmlString.append(formatString(mStringsBundle.getStringEx("collation",mError),args,3,t));
 
-		while(bundle.hasNext()){
-            ResourceBundle dBundle1 = bundle.getNext(mError);
-            const char* mykey=dBundle1.getKey();
-            if(stricmp(mykey,"Version")==0 && ignoreSpecials==FALSE){
-               version = bundle.getStringEx(mykey,mError);
-			   UnicodeString temp = UnicodeString("icu:version=\"").append(version);
-			   temp.append("\"");
-			   args[0] = indentOffset;
-               args[1] = mStringsBundle.getStringEx("xmlns_icu",mError);
-			   args[2] = temp;
-			   args[3] = UnicodeString(XML_END_SLASH);
-			   xmlString.append(formatString(mStringsBundle.getStringEx("special",mError),args,4,t));
-            }else if(stricmp(mykey,"Sequence")==0){
-                sequence = bundle.getStringEx(mykey,mError);
-				rules = parseRules((UChar*)sequence.getBuffer(),sequence.length(),rules);
-				xmlString.append(rules);
-                sequence.releaseBuffer();
-
-           }else if(stricmp(mykey,"Override")==0){
-                overide =  bundle.getStringEx(mykey,mError);
+		    indentOffset.append("\t");
+            
+            // wirte the base element
+            writeBase(t.remove());
+            if(t.length() != 0){
+                xmlString.append(t);
             }
+
+		    while(bundle.hasNext()){
+                ResourceBundle dBundle1 = bundle.getNext(mError);
+                const char* mykey=dBundle1.getKey();
+                if(stricmp(mykey,"Version")==0 && ignoreSpecials==FALSE){
+                version = bundle.getStringEx(mykey,mError);
+			    UnicodeString temp = UnicodeString("icu:version=\"").append(version);
+			    temp.append("\"");
+			    args[0] = indentOffset;
+                args[1] = mStringsBundle.getStringEx("xmlns_icu",mError);
+			    args[2] = temp;
+			    args[3] = UnicodeString(XML_END_SLASH);
+			    xmlString.append(formatString(mStringsBundle.getStringEx("special",mError),args,4,t));
+                }else if(stricmp(mykey,"Sequence")==0){
+                    sequence = bundle.getStringEx(mykey,mError);
+				    rules = parseRules((UChar*)sequence.getBuffer(),sequence.length(),rules);
+				    xmlString.append(rules);
+                    sequence.releaseBuffer();
+
+            }else if(stricmp(mykey,"Override")==0){
+                    overide =  bundle.getStringEx(mykey,mError);
+            }
+            }
+            
+            chopIndent();
+		    args[0] = indentOffset;
+		    args[1] = "/";
+		    args[2] ="";
+		    xmlString.append(formatString(mStringsBundle.getStringEx("collation",mError),args,3,t));
+            //printString(&xmlString);
         }
-        
-        chopIndent();
-		args[0] = indentOffset;
-		args[1] = "/";
-		args[2] ="";
-		xmlString.append(formatString(mStringsBundle.getStringEx("collation",mError),args,3,t));
-        //printString(&xmlString);
     }
     mError = U_ZERO_ERROR;
 }
@@ -2298,8 +2307,8 @@ numeric 	    on                  [numeric on] 	                numeric = "on"
 void GenerateXML::writeSettings(UnicodeString& src , UnicodeString& xmlString){
 	const UChar* start = src.getBuffer();
 	const UChar* limit = start + src.length(); 
-	UChar setting[256];
-	UChar value[20];
+	UChar setting[16384];
+	UChar value[16384];
 	int32_t valueLen=0,settingLen =0;
 	UBool isValue = FALSE;
 	Formattable args[] = {indentOffset,setting,value};

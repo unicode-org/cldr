@@ -294,7 +294,7 @@
 <!ATTLIST dateTimeFormats draft ( true | false ) #IMPLIED >
 
 <!ELEMENT dateTimeFormatLength (alias | (default?, dateTimeFormat*, special*)) >
-<!ATTLIST dateTimeFormatLength type ( full | long | medium | short ) #REQUIRED >
+<!ATTLIST dateTimeFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST dateTimeFormatLength draft ( true | false ) #IMPLIED >
 
 <!ELEMENT dateTimeFormat (alias | (pattern, displayName?, special*)) >
@@ -433,7 +433,7 @@
 <!-- ######################################################### -->
 
 <!ELEMENT collations (alias | (default?, collation*, special*)) >
-<!ATTLIST collations version NMTOKEN #REQUIRED >
+<!ATTLIST collations version NMTOKEN #IMPLIED >
 <!ATTLIST collations draft ( true | false ) #IMPLIED >
 
 <!ELEMENT collation (alias | (settings?, suppress_contractions?, optimize?, rules?, special*)) >
@@ -444,7 +444,7 @@
 <!ELEMENT settings (special*) >
 <!ATTLIST settings strength             ( primary | secondary | tertiary | quaternary | identical ) #IMPLIED >
 <!ATTLIST settings alternate            ( non-ignorable | shifted ) #IMPLIED >
-<!ATTLIST settings backwards            ( on | off ) #IMPLIED >
+<!ATTLIST settings backwards            ( on | off)  #IMPLIED >
 <!ATTLIST settings normalization        ( on | off ) #IMPLIED >
 <!ATTLIST settings caseLevel            ( on | off ) #IMPLIED >
 <!ATTLIST settings caseFirst            ( upper | lower | off ) #IMPLIED >

@@ -16,7 +16,7 @@
 
 <!ATTLIST special xmlns:posix CDATA #IMPLIED>
 
-<!ELEMENT posix:messages (alias | (posix:no?, posix:yes?, posix:shortYes?, posix:shortNo?)) >
+<!ELEMENT posix:messages (alias | (posix:no?, posix:yes?, posix:shortYes?, posix:shortNo?, posix:noExpr?, posix:yesExpr?)) >
 
 <!ELEMENT posix:yes ( #PCDATA ) >
 
@@ -27,6 +27,10 @@
 <!ELEMENT posix:shortNo ( #PCDATA ) >
 
 <!ELEMENT posix:include ( #PCDATA ) >
+
+<!ELEMENT posix:yesExpr ( #PCDATA ) >
+
+<!ELEMENT posix:noExpr ( #PCDATA ) >
 
 <!-- ######################################################### -->
 

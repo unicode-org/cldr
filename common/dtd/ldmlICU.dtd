@@ -17,6 +17,17 @@
 <!--  ICU Specific elements                                    -->
 <!-- ######################################################### -->
 <!ATTLIST special xmlns:icu CDATA #IMPLIED>
+<!ATTLIST special icu:version CDATA #IMPLIED>
+
+<!-- ICU Scripts -->
+
+<!ELEMENT icu:scripts (alias | icu:script* ) >
+<!ATTLIST icu:scripts draft ( true | false ) #IMPLIED >
+<!ATTLIST icu:scripts standard CDATA #IMPLIED >
+
+<!ELEMENT icu:script ( #PCDATA ) >
+<!ATTLIST icu:script type NMTOKEN #REQUIRED >
+<!ATTLIST icu:script draft ( true | false ) #IMPLIED >
 
 <!-- RBNF data -->
 <!ELEMENT icu:ruleBasedNumberFormats ( alias | (default?, icu:ruleBasedNumberFormat*)) >

@@ -30,18 +30,18 @@ For example, most country locales will inherit the bulk of their data from the l
         <!--
         Display names for scripts, languages, countries, and variants in this locale
         -->
-        <scripts>
-            <!-- types come from the Unicode Tech Report on scripts -->
-            <script type="Latin">Romana</script>
-            <script type="Cyrillic">Kyrillica</script>
-         </scripts>
-
         <languages>
             <language type="ab">Abkhazian</language>
             <language type="aa">Afar</language>
             <language type="af">Afrikaans</language>
             <language type="sq">Albanian</language>
         </languages>
+        
+        <scripts>
+            <!-- types come from the Unicode Tech Report on scripts -->
+            <script type="Latin">Romana</script>
+            <script type="Cyrillic">Kyrillica</script>
+        </scripts>
 
         <territories>
             <territory type="AF">Afghanistan</territory>
@@ -363,8 +363,8 @@ For example, most country locales will inherit the bulk of their data from the l
             </currency>
         </currencies>
     </numbers>
-    <collations>
-        <collation type="uca">
+    <collations  version="3.1.1">
+        <collation>
 
             <!--
             This syntax is an XMLized version of the Java/ICU syntax, used to tailor the default table.
@@ -380,9 +380,8 @@ For example, most country locales will inherit the bulk of their data from the l
             The displayName attribute supplies a message pattern for getDisplayName.
             -->
 
-            <uca version="3.1.1"/>
             <settings caseLevel="on"/>
-            <suppressContractions>[?-?]</suppressContractions>
+            <suppress_contractions>[&#x0409;-&#x0491;]</suppress_contractions>
             <rules>
                 <!-- this example takes the swedish tailoring plus part of a japanese tailoring,
                 for illustration -->
@@ -409,7 +408,13 @@ For example, most country locales will inherit the bulk of their data from the l
                 <tc>wW</tc>
                 <reset>Y</reset>
                 <tc>&#x00FC;&#x00DC;</tc>
-                <position at="last non ignorable"/>
+                <reset><last_non_ignorable/></reset>
+                <reset>c</reset>
+                <p>k<extend>h</extend></p>
+                <reset><first_tertiary_ignorable/></reset>
+                <s>a</s>
+                <reset before="primary">x</reset>
+                <p><last_variable/></p>
                 <!-- following is equivalent to <p>&#x4E9C;</p><p>&#x5516;</p><p>&#x5A03;</p>... -->
                 <pc>&#x4E9C;&#x5516;&#x5A03;&#x963F;&#x54C0;&#x611B;&#x6328;&#x59F6;&#x9022;&#x8475;&#x831C;&#x7A50;&#x60AA;&#x63E1;&#x6E25;&#x65ED;&#x8466;&#x82A6;</pc>
                 <pc>&#x9BF5;&#x6893;&#x5727;&#x65A1;&#x6271;</pc>

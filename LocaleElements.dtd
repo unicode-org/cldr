@@ -1,10 +1,3 @@
-<!--
-NOTE: With a DTD it is very difficult to allow for any order of elements, and special elements anywhere.
-But LDML has quite a few other constraints that cannot be tested by DTDs in any event. So what is done
-here is to use looser rules for the DTD, and put a comments indicating what each rule should be, were
-it not for the specials and ordering.
--->
-
 <!ELEMENT localeData ( identity,(alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, special*))) >
 <!ATTLIST localeData
    version          CDATA              #FIXED "1.0"
@@ -27,12 +20,15 @@ it not for the specials and ordering.
 <!ELEMENT variant ( #PCDATA ) >
 <!ATTLIST variant type NMTOKEN #REQUIRED >
 
+<!ELEMENT cp (special*) >
+<!ATTLIST cp hex NMTOKEN #REQUIRED >
+
 <!-- ######################################################### -->
 
 
 <!-- ######################################################### -->
 
-<!ELEMENT localeDisplayNames (alias | (scripts?, languages?, territories?, variants?, keys?, types?, special*)) >
+<!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, variants?, keys?, types?, special*)) >
 
 <!-- Either 1 alias OR any specials, any order, zero or more script -->
 <!ELEMENT scripts (alias |(script | special)* ) >
@@ -59,19 +55,17 @@ it not for the specials and ordering.
 <!ELEMENT types ( alias | (type | special)* ) >
 
 <!ELEMENT type ( #PCDATA ) >
-<!ATTLIST type key NMTOKEN #REQUIRED >
 <!ATTLIST type type NMTOKEN #REQUIRED >
-
+<!ATTLIST type key NMTOKEN #IMPLIED >
 <!-- ######################################################### -->
 
 
 <!-- ######################################################### -->
-<!-- Either 1 alias OR any specials, any order, exactly one orientation -->
-<!ELEMENT layout ( alias | (special*, orientation, special*) ) >
+<!ELEMENT layout ( alias | (orientation, special*) ) >
 
-<!ELEMENT orientation (special*) >
-<!ATTLIST orientation characters NMTOKEN #REQUIRED >
-<!ATTLIST orientation lines NMTOKEN #REQUIRED >
+<!ELEMENT orientation ( special* ) >
+<!ATTLIST orientation characters ( left-to-right | right-to-left ) "left-to-right" >
+<!ATTLIST orientation lines ( top-to-bottom | bottom-to-top ) "top-to-bottom" >
 
 <!-- ######################################################### -->
 
@@ -79,7 +73,7 @@ it not for the specials and ordering.
 <!-- ######################################################### -->
 <!ELEMENT characters (alias | (exemplarCharacters?, mapping*, special*))  >
 
-<!ELEMENT exemplarCharacters ( #PCDATA ) >
+<!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
 
 <!ELEMENT mapping (special*) >
 <!ATTLIST mapping registry NMTOKEN #REQUIRED >
@@ -92,13 +86,13 @@ it not for the specials and ordering.
 
 <!ELEMENT delimiters (alias | (quotationStart?, quotationEnd?, alternateQuotationStart?, alternateQuotationEnd?, special*)) >
 
-<!ELEMENT quotationStart ( #PCDATA ) >
+<!ELEMENT quotationStart ( #PCDATA | cp )* >
 
-<!ELEMENT quotationEnd ( #PCDATA ) >
+<!ELEMENT quotationEnd ( #PCDATA | cp )* >
 
-<!ELEMENT alternateQuotationStart ( #PCDATA ) >
+<!ELEMENT alternateQuotationStart ( #PCDATA | cp )* >
 
-<!ELEMENT alternateQuotationEnd ( #PCDATA ) >
+<!ELEMENT alternateQuotationEnd ( #PCDATA | cp )* >
 
 <!-- ######################################################### -->
 
@@ -123,7 +117,7 @@ it not for the specials and ordering.
 
 <!ELEMENT dates (alias | (localizedPatternChars?, calendars?, timeZoneNames?, special*)) >
 
-<!ELEMENT localizedPatternChars ( #PCDATA ) >
+<!ELEMENT localizedPatternChars ( #PCDATA | cp )* >
 
 <!ELEMENT calendars (alias | (default?, calendar*, special*)) >
 
@@ -132,15 +126,15 @@ it not for the specials and ordering.
 
 <!ELEMENT monthNames ( alias | (month*, special*)) >
 
-<!ELEMENT month ( #PCDATA ) >
-<!ATTLIST month type NMTOKEN #REQUIRED >
+<!ELEMENT month ( #PCDATA | cp )* >
+<!ATTLIST month type ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 ) #REQUIRED >
 
 <!ELEMENT monthAbbr ( alias | (month*, special*)) >
 
 <!ELEMENT dayNames ( alias | (day*, special*)) >
 
 <!ELEMENT day ( #PCDATA ) >
-<!ATTLIST day type NMTOKEN #REQUIRED >
+<!ATTLIST day type ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
 
 <!ELEMENT dayAbbr ( alias | (day*, special*)) >
 
@@ -154,11 +148,11 @@ it not for the specials and ordering.
 
 <!ELEMENT weekendStart (special*) >
 <!ATTLIST weekendStart day NMTOKEN #REQUIRED >
-<!ATTLIST weekendStart time NMTOKEN #REQUIRED >
+<!ATTLIST weekendStart time CDATA "00:00" >
 
 <!ELEMENT weekendEnd (special*) >
 <!ATTLIST weekendEnd day NMTOKEN #REQUIRED >
-<!ATTLIST weekendEnd time NMTOKEN #REQUIRED >
+<!ATTLIST weekendEnd time CDATA "00:00" >
 
 <!ELEMENT am ( #PCDATA ) >
 
@@ -176,28 +170,28 @@ it not for the specials and ordering.
 <!ELEMENT dateFormats (alias | (default?, dateFormatLength*, special*)) >
 
 <!ELEMENT dateFormatLength (alias | (default?, dateFormat*, special*)) >
-<!ATTLIST dateFormatLength type NMTOKEN #REQUIRED >
+<!ATTLIST dateFormatLength type ( full | long | medium | short ) #REQUIRED >
 
 <!ELEMENT dateFormat (alias | (pattern?, displayName?, special*))  >
-<!ATTLIST dateFormat type NMTOKEN #IMPLIED >
+<!ATTLIST dateFormat type NMTOKEN "standard">
 
 <!ELEMENT displayName ( #PCDATA ) >
 
 <!ELEMENT timeFormats (alias | (default?, timeFormatLength*, special*)) >
 
 <!ELEMENT timeFormatLength (alias | (default?, timeFormat*, special*)) >
-<!ATTLIST timeFormatLength type NMTOKEN #REQUIRED >
+<!ATTLIST timeFormatLength type ( full | long | medium | short ) #REQUIRED >
 
 <!ELEMENT timeFormat (alias | (pattern?, displayName?, special*)) >
-<!ATTLIST timeFormat type NMTOKEN #IMPLIED >
+<!ATTLIST timeFormat type NMTOKEN "standard" >
 
 <!ELEMENT dateTimeFormats (alias | (default?, dateTimeFormatLength*, special*)) >
 
 <!ELEMENT dateTimeFormatLength (alias | (default?, dateTimeFormat*, special*)) >
-<!ATTLIST dateTimeFormatLength type NMTOKEN #REQUIRED >
+<!ATTLIST dateTimeFormatLength type ( full | long | medium | short ) #REQUIRED >
 
 <!ELEMENT dateTimeFormat (alias | (pattern?, displayName?, special*)) >
-<!ATTLIST dateTimeFormat type NMTOKEN #IMPLIED >
+<!ATTLIST dateTimeFormat type NMTOKEN "standard"  >
 
 <!ELEMENT timeZoneNames (alias | (default?, zone*, special*)) >
 
@@ -250,45 +244,45 @@ it not for the specials and ordering.
 <!ELEMENT nan ( #PCDATA ) >
 
 <!ELEMENT pattern ( #PCDATA ) >
-<!ATTLIST pattern type NMTOKEN #IMPLIED >
+<!ATTLIST pattern type NMTOKEN "standard" >
 
-<!ELEMENT decimalFormats (alias | (default?,decimalFormatLength*, special*)) >
+<!ELEMENT decimalFormats (alias | (default?, decimalFormatLength*, special*)) >
 
 <!ELEMENT decimalFormatLength (alias | (default?, decimalFormat*, special*)) >
-<!ATTLIST decimalFormatLength type NMTOKEN #REQUIRED >
+<!ATTLIST decimalFormatLength type ( full | long | medium | short ) #REQUIRED >
 
 <!ELEMENT decimalFormat (alias | (pattern*, special*)) >
-<!ATTLIST decimalFormat type NMTOKEN #IMPLIED >
+<!ATTLIST decimalFormat type NMTOKEN "standard" >
 
 <!ELEMENT scientificFormats (alias | (default?, scientificFormatLength*, special*)) >
 
 <!ELEMENT scientificFormatLength (alias | (default?, scientificFormat*, special*)) >
-<!ATTLIST scientificFormatLength type NMTOKEN #REQUIRED >
+<!ATTLIST scientificFormatLength type ( full | long | medium | short ) #REQUIRED >
 
 <!ELEMENT scientificFormat (alias | (pattern*, special*)) >
-<!ATTLIST scientificFormat type NMTOKEN #IMPLIED >
+<!ATTLIST scientificFormat type NMTOKEN "standard" >
 
 <!ELEMENT percentFormats (alias | (default?, percentFormatLength*, special*)) >
 
 <!ELEMENT percentFormatLength (alias | (default?, percentFormat*, special*)) >
-<!ATTLIST percentFormatLength type NMTOKEN #REQUIRED >
+<!ATTLIST percentFormatLength type ( full | long | medium | short ) #REQUIRED >
 
 <!ELEMENT percentFormat (alias | (pattern*, special*)) >
-<!ATTLIST percentFormat type NMTOKEN #IMPLIED >
+<!ATTLIST percentFormat type NMTOKEN "standard" >
 
 <!ELEMENT currencyFormats (alias | (default?, currencyFormatLength*, special*)) >
 
 <!ELEMENT currencyFormatLength (alias | (default?, currencyFormat*, special*)) >
-<!ATTLIST currencyFormatLength type NMTOKEN #REQUIRED >
+<!ATTLIST currencyFormatLength type ( full | long | medium | short ) #REQUIRED >
 
 <!ELEMENT currencyFormat (alias | (pattern*, special*)) >
-<!ATTLIST currencyFormat type NMTOKEN #IMPLIED >
+<!ATTLIST currencyFormat type NMTOKEN "standard" >
 
 <!ELEMENT currencies (alias | (default?, currency*, special*)) >
 
 <!ELEMENT currency (alias | (displayName, symbol, decimal*, group*, special*)) >
 <!ATTLIST currency id NMTOKEN #IMPLIED >
-<!ATTLIST currency type NMTOKEN #IMPLIED >
+<!ATTLIST currency type NMTOKEN "standard" >
 
 <!ELEMENT symbol ( #PCDATA ) >
 
@@ -298,12 +292,10 @@ it not for the specials and ordering.
 <!-- ######################################################### -->
 
 <!ELEMENT collations (alias | (default?, collation*, special*)) >
+<!ATTLIST collations version NMTOKEN #REQUIRED >
 
-<!ELEMENT collation (alias | (uca?, settings?, suppressContractions?, optimize?, rules?, special*)) >
-<!ATTLIST collation type NMTOKEN #IMPLIED >
-
-<!ELEMENT uca (special*) >
-<!ATTLIST uca version NMTOKEN #REQUIRED >
+<!ELEMENT collation (alias | (settings?, suppress_contractions?, optimize?, rules?, special*)) >
+<!ATTLIST collation type NMTOKEN "standard" >
 
 <!ELEMENT settings (special*) >
 <!ATTLIST settings caseLevel NMTOKEN #IMPLIED >
@@ -315,44 +307,53 @@ it not for the specials and ordering.
 <!ATTLIST settings strength NMTOKEN #IMPLIED >
 <!ATTLIST settings numeric NMTOKEN #IMPLIED >
 
-<!ELEMENT suppressContractions (  #PCDATA ) >
+<!ELEMENT suppress_contractions (  #PCDATA | cp )* >
 
-<!ELEMENT optimize ( #PCDATA ) >
+<!ELEMENT optimize ( #PCDATA | cp )* >
 
-<!ELEMENT rules (alias | ((p | pc | position | reset | s | sc | t | tc | q | qc | i | ic)*, special*)) >
+<!ELEMENT rules (alias | (( reset | p | pc |  s | sc | t | tc | q | qc | i | ic)*, special*)) >
 
-<!ELEMENT p ( #PCDATA | context | cp)* >
+<!ELEMENT p  ( #PCDATA | context | cp | last_variable | extend )* >
 
-<!ELEMENT pc ( #PCDATA | context | cp )* >
+<!ELEMENT pc ( #PCDATA | context | cp | last_variable | extend )*  >
 
-<!ELEMENT s ( #PCDATA | context | cp )* >
+<!ELEMENT s  ( #PCDATA | context | cp | last_variable | extend )*  >
 
-<!ELEMENT sc ( #PCDATA | context | cp )* >
+<!ELEMENT sc ( #PCDATA | context | cp | last_variable | extend )*  >
 
-<!ELEMENT t ( #PCDATA | context | cp )* >
+<!ELEMENT t  ( #PCDATA | context | cp | last_variable | extend )*  >
 
-<!ELEMENT tc ( #PCDATA | context | cp )* >
+<!ELEMENT tc ( #PCDATA | context | cp | last_variable | extend )*  >
 
-<!ELEMENT q ( #PCDATA | context | cp )* >
+<!ELEMENT q  ( #PCDATA | context | cp | last_variable | extend )*  >
 
-<!ELEMENT qc ( #PCDATA | context | cp )* >
+<!ELEMENT qc ( #PCDATA | context | cp | last_variable | extend )*   >
 
-<!ELEMENT i ( #PCDATA | context | cp )* >
+<!ELEMENT i  ( #PCDATA | context | cp | last_variable | extend )*   >
 
-<!ELEMENT ic ( #PCDATA | context | cp )* >
+<!ELEMENT ic ( #PCDATA | context | cp | last_variable | extend )*  >
 
-<!ELEMENT reset ( #PCDATA | context | cp | top )* >
+ <!ELEMENT extend ( #PCDATA | cp )* >
+
+<!ELEMENT reset ( #PCDATA | cp  | first_variable| last_variable | first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable | last_secondary_ignorable | first_primary_ignorable | last_primary_ignorable | first_non_ignorable | last_non_ignorable | first_trailing | last_trailing )* >
 <!ATTLIST reset before NMTOKEN #IMPLIED >
 
-<!ELEMENT top (special*) >
+<!ELEMENT first_variable EMPTY >
+<!ELEMENT last_variable EMPTY >
+<!ELEMENT first_tertiary_ignorable EMPTY >
+<!ELEMENT last_tertiary_ignorable EMPTY >
+<!ELEMENT first_secondary_ignorable EMPTY >
+<!ELEMENT last_secondary_ignorable EMPTY >
+<!ELEMENT first_primary_ignorable EMPTY >
+<!ELEMENT last_primary_ignorable EMPTY >
+<!ELEMENT first_non_ignorable EMPTY >
+<!ELEMENT last_non_ignorable EMPTY >
+<!ELEMENT first_trailing EMPTY >
+<!ELEMENT last_trailing EMPTY >
 
 <!ELEMENT context (  #PCDATA ) >
 
-<!ELEMENT position (special*) >
-<!ATTLIST position at CDATA #REQUIRED >
 
-<!ELEMENT cp (special*) >
-<!ATTLIST cp hex NMTOKEN #REQUIRED >
 
 <!-- ######################################################### -->
 

@@ -1578,7 +1578,7 @@ public class LDML2ICUConverter {
             if(ecn!=null){
                 exemplarCity.val = LDMLUtilities.getNodeValue(ecn);
             }else{
-                exemplarCity.val = type.val.replaceAll(".*?/(.*)", "$1").replaceAll("_","\\s");
+                exemplarCity.val = type.val.replaceAll(".*?/(.*)", "$1").replaceAll("_","\\3s");
             }
         }
         /* assemble the array */

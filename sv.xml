@@ -832,6 +832,7 @@
 		</territories>
 		<variants>
 			<variant type="REVISED">Reviderad</variant>
+			<variant draft="true" alt="proposed" type="REVISED">reviderad</variant>
 		</variants>
 		<keys>
 			<key type="calendar">kalender</key>
@@ -848,9 +849,13 @@
 			<type type="islamic-civil" key="calendar">Islamisk civil kalender</type>
 			<type type="japanese" key="calendar">Japansk kalender</type>
 			<type type="phonebook" key="collation">Telefonboksordning</type>
+			<type draft="true" alt="proposed" type="phonebook" key="collation">telefonboksordning</type>
 			<type type="pinyin" key="collation">Pinyinordning</type>
+			<type draft="true" alt="proposed" type="pinyin" key="collation">pinyinordning</type>
 			<type type="stroke" key="collation">Raderingsordning</type>
+			<type draft="true" alt="proposed" type="stroke" key="collation">raderingsordning</type>
 			<type type="traditional" key="collation">Traditionell ordning</type>
+			<type draft="true" alt="proposed" type="traditional" key="collation">traditionell ordning</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -909,12 +914,19 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">sö</day>
+							<day draft="true" alt="proposed" type="sun" references="http://www.spraknamnden.se">sön</day>
 							<day type="mon">må</day>
+							<day draft="true" alt="proposed" type="mon" references="http://www.spraknamnden.se">mån</day>
 							<day type="tue">ti</day>
+							<day draft="true" alt="proposed" type="tue" references="http://www.spraknamnden.se">tis</day>
 							<day type="wed">on</day>
+							<day draft="true" alt="proposed" type="wed" references="http://www.spraknamnden.se">ons</day>
 							<day type="thu">to</day>
+							<day draft="true" alt="proposed" type="thu" references="http://www.spraknamnden.se">tors</day>
 							<day type="fri">fr</day>
+							<day draft="true" alt="proposed" type="fri" references="http://www.spraknamnden.se">fre</day>
 							<day type="sat">lö</day>
+							<day draft="true" alt="proposed" type="sat" references="http://www.spraknamnden.se">lör</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">S</day>
@@ -948,16 +960,19 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>'den 'd MMMM yyyy</pattern>
+							<pattern draft="true" alt="proposed" references="Svenska skrivregler (ISBN 47-04974-X)">EEEE d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>'den 'd MMM yyyy</pattern>
+							<pattern draft="true" alt="proposed" references="Svenska skrivregler (ISBN 47-04974-X)">EEEE d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>yyyy-MM-dd</pattern>
+							<pattern draft="true" alt="proposed" references="Svenska skrivregler (ISBN 47-04974-X)">d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1929,6 +1944,9 @@
 			<currency type="TRL">
 				<displayName>Turkisk lira</displayName>
 				<symbol>TL</symbol>
+			</currency>
+			<currency draft="true" type="TRY">
+				<displayName>Ny turkisk lira</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidadisk dollar</displayName>

@@ -20,7 +20,7 @@ exist, a separate database contains the mapping. -->
         Display names for scripts, languages, countries, and variants in this locale
         -->
      <languages>
-        <language type="ar">ཨེ་ར་སྦིག</language>
+	<language type="ar">ཨེ་ར་སྦིག</language>
 	<language type="art">བཟོ་བཟོཝ (གཞན)</language>
 	<language type="as">ཨ་ས་མི་སི</language>
 	<language type="bh">བི་ཧ་ལི</language>
@@ -72,7 +72,7 @@ exist, a separate database contains the mapping. -->
 	<language type="zh">རགྱ་མི་ཁ</language>
   </languages>
         
-        <scripts>          
+        <scripts>
 	<script type="Arab">ཨེ་རེ་སྦིག</script>
 	<script type="Beng">བེངྒ་ལི</script>
 	<script type="Brai">བེརེལ</script>
@@ -107,7 +107,7 @@ exist, a separate database contains the mapping. -->
         </scripts>
 
         <territories>
-        <territory type="AE">ཡུ་ནའི་ཊེཊ་ཨ་ར བ་ཨེ་མི་རེཊསི</territory>
+	<territory type="AE">ཡུ་ནའི་ཊེཊ་ཨ་ར བ་ཨེ་མི་རེཊསི</territory>
 	<territory type="AF">ཨཕ་ག་ནིསི་ཏཱན</territory>
 	<territory type="AQ">ཨེན་ཊཱག་ཊི་ཀ</territory>
 	<territory type="AR">ཨར་ཇེན་ཊི་ན</territory>
@@ -187,22 +187,10 @@ exist, a separate database contains the mapping. -->
         </types>
     </localeDisplayNames>
     <layout>
-        <orientation lines="top-to-bottom" characters="left-to-right" />  
- <!-- both attributes are required -->
+        <orientation lines="top-to-bottom" characters="left-to-right" />
     </layout>
-    
      <characters>
-        <!-- follows the UnicodeSet syntax -->
         <exemplarCharacters>[ཀཁགངཅཆཇཉཏཐདནཔཕབམཙཚཛཝཞཟའཡརལཤསཧཨཱིེོུྐྒྔྕྗྙྟྡྣྤྦྨྩྫྭྱྲླྷ]</exemplarCharacters>
-        <!--
-        List of encodings that are in common use in this locale.
-        The order is not significant.
-        The format is as in http://www.unicode.org/unicode/reports/tr22/
-        with the version suppressed.
-        (It is assumed that the largest available version is chosen.)
-        The exemplarCharacters can also be used to select appropriate
-        encodings.
-        -->
        <mapping registry="iana" type="utf-8"/>
      </characters>
     
@@ -212,19 +200,6 @@ exist, a separate database contains the mapping. -->
        <alternateQuotationStart>'</alternateQuotationStart>
        <alternateQuotationEnd>'</alternateQuotationEnd>
     </delimiters>
-    <measurement>
-        <!-- Measurement system: US/ISO 1000/Other -->
-        <measurementSystem type="metric"/>
-        <paperSize>
-            <!-- Papersize. The numbers are always in millimeters.
-             The units name is the customary unit for that locale for measuring
-             paper. -->
-            <!-- TODO: verify paper size. This is US paper, which seems wrong -->
-            <height>279</height>
-            <width>216</width>
-        </paperSize>
-    </measurement>
-    
      <dates>
         <calendars>
           <calendar type="Gregorian">
@@ -291,96 +266,96 @@ exist, a separate database contains the mapping. -->
                   <weekendStart day="sat" time="00:00"/>
                   <weekendEnd day="sun" time="24:00"/>
               </week>
-              <am>སྔ་ཆ་</am>
-              <pm>ཕྱི་ཆ་</pm>
+		<am>སྔ་ཆ་</am>
+		<pm>ཕྱི་ཆ་</pm>
 
-               <eras>
-       		    <eraNames>
-        		<era type="0">Before Common Era</era><!-- TODO: This data is the wrong translation -->
-        		<era type="1">Common Era</era><!-- TODO: This data is in the wrong translation -->
-       		    </eraNames>
-       		   <eraAbbr>
-        	       	<era type="0">BCE</era><!-- TODO: This data may be the wrong translation -->
-        		<era type="1">CE</era><!-- TODO: This data may be the wrong translation -->
-       		    </eraAbbr>
-    	       </eras>
-             
-              <dateFormats>
-		    <default type="long"/>
-		    <dateFormatLength type="full">
-		    <dateFormat >
-			<pattern>སྤྱི་ལོ་yyyy ཟླ་ MMMM ཚེས་ dd</pattern>
-		    </dateFormat>
-		     </dateFormatLength >
+		<!-- TODO: This data is the wrong translation -->
+		<!-- eras>
+			<eraNames>
+				<era type="0">Before Common Era</era>
+				<era type="1">Common Era</era>
+			</eraNames>
+			<eraAbbr>
+				<era type="0">BCE</era>
+				<era type="1">CE</era>
+			</eraAbbr>
+		</eras-->
+
+		<dateFormats>
+			<default type="long"/>
+			<dateFormatLength type="full">
+				<dateFormat >
+					<pattern>སྤྱི་ལོ་yyyy ཟླ་ MMMM ཚེས་ dd</pattern>
+				</dateFormat>
+			</dateFormatLength >
 			<dateFormatLength type="long">
-			<dateFormat >
-			   <pattern>སྤྱི་ལོ་yyyy ཟླ་ MMMM ཚེས་ dd</pattern>
-			</dateFormat>
-		     </dateFormatLength >
-		    <dateFormatLength type="medium">
-			<dateFormat >
-			  <pattern>སྤྱི་ལོ་yyyy ཟླ་ MMM ཚེས་ dd</pattern>
-			</dateFormat>
-		    </dateFormatLength >
-		    <dateFormatLength type="short">
-			<dateFormat >
-			    <pattern>སྤྱི་ལོ་ yyyy ཟླ་ MMM ཚེས་ dd</pattern>
-			</dateFormat>
-		   </dateFormatLength >
+				<dateFormat >
+					<pattern>སྤྱི་ལོ་yyyy ཟླ་ MMMM ཚེས་ dd</pattern>
+				</dateFormat>
+			</dateFormatLength >
+			<dateFormatLength type="medium">
+				<dateFormat >
+					<pattern>སྤྱི་ལོ་yyyy ཟླ་ MMM ཚེས་ dd</pattern>
+				</dateFormat>
+			</dateFormatLength >
+			<dateFormatLength type="short">
+				<dateFormat >
+					<pattern>སྤྱི་ལོ་ yyyy ཟླ་ MMM ཚེས་ dd</pattern>
+				</dateFormat>
+			</dateFormatLength >
 		</dateFormats> 
 
-             <timeFormats>
-		<default type="long"/>
-		   <timeFormatLength type="full">
-			<timeFormat >
-				<pattern>ཆུ་ཚོད་ h སྐར་མ་ mm སྐར་ཆཱ་ ss a zzzz</pattern>
-			</timeFormat>
-		    </timeFormatLength >
-			<timeFormatLength type="long">
-		       	<timeFormat >
-		           	<pattern>ཆུ་ཚོད་ h སྐར་མ་ mm སྐར་ཆཱ་ ss a zzz</pattern>
-			</timeFormat>
-		       </timeFormatLength >
-		     <timeFormatLength type="medium">
-			<timeFormat >
-		        	<pattern>ཆུ་ཚོད་h:mm:ss a</pattern>
-			</timeFormat>
-		     </timeFormatLength >
-		     <timeFormatLength type="short">
-			<timeFormat >
-		        	<pattern>ཆུ་ཚོད་ h སྐར་མ་ mm a</pattern>
-			</timeFormat>
-		     </timeFormatLength >
-		</timeFormats>
-             
-              <dateTimeFormats>
-                 <default type="long"/>
-                 <dateTimeFormatLength type ="full">
-                      <dateTimeFormat>
-                          <pattern>{1} {0}</pattern>
-                      </dateTimeFormat>
-                 </dateTimeFormatLength>
-              </dateTimeFormats>
-          </calendar>
-       </calendars>
-       <!-- Bhutan also has own calendar similar to but not the same as
-       Tibetan lunar calendar -->
-	   <timeZoneNames>
-		<zone type="Asia/Thimphu">
-		<!-- Bhutan does not use Daylight Saving Time -->
-		<long>
-                    <!-- Bhutanese time is referred to as "BST" in Bhutan -->
-                   <generic>Bhutan Standard Time</generic><!--TODO:  This data is in the wrong script -->
-	           <standard>Bhutan Standard Time</standard><!-- TODO: This data is in the wrong script -->
-	           <daylight>Bhutan Standard Time</daylight><!-- TODO: This data is in the wrong script -->
-		</long>
-		<short>
-                   <generic>BST</generic><!-- TODO: This data may be in the wrong script -->
-                   <standard>BST</standard><!-- TODO: This data may be in the wrong script -->
-                   <daylight>BST</daylight><!-- TODO: This data may be in the wrong script -->
-		</short>
-		<exemplarCity>Thimphu</exemplarCity><!-- TODO: This data is in the wrong script -->
-		</zone>
-	</timeZoneNames>
-   </dates>
+		<timeFormats>
+			<default type="long"/>
+			<timeFormatLength type="full">
+				<timeFormat>
+					<pattern>ཆུ་ཚོད་ h སྐར་མ་ mm སྐར་ཆཱ་ ss a zzzz</pattern>
+				</timeFormat>
+				</timeFormatLength>
+				<timeFormatLength type="long">
+					<timeFormat >
+						<pattern>ཆུ་ཚོད་ h སྐར་མ་ mm སྐར་ཆཱ་ ss a zzz</pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="medium">
+					<timeFormat >
+						<pattern>ཆུ་ཚོད་h:mm:ss a</pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="short">
+					<timeFormat>
+						<pattern>ཆུ་ཚོད་ h སྐར་མ་ mm a</pattern>
+					</timeFormat>
+				</timeFormatLength >
+			</timeFormats>
+			<dateTimeFormats>
+				<default type="long"/>
+					<dateTimeFormatLength type ="full">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<!-- Bhutan also has own calendar similar to but not the same as
+        Tibetan lunar calendar -->
+		<timeZoneNames>
+			<zone type="Asia/Thimphu">
+			<!-- Bhutan does not use Daylight Saving Time -->
+			<long>
+				<!-- Bhutanese time is referred to as "BST" in Bhutan -->
+				<generic>Bhutan Standard Time</generic><!--TODO:  This data is in the wrong script -->
+				<standard>Bhutan Standard Time</standard><!-- TODO: This data is in the wrong script -->
+				<daylight>Bhutan Standard Time</daylight><!-- TODO: This data is in the wrong script -->
+			</long>
+			<short>
+				<generic>BST</generic><!-- TODO: This data may be in the wrong script -->
+				<standard>BST</standard><!-- TODO: This data may be in the wrong script -->
+				<daylight>BST</daylight><!-- TODO: This data may be in the wrong script -->
+			</short>
+			<exemplarCity>ཐིམ་ཕུག</exemplarCity>
+			</zone>
+		</timeZoneNames>
+	</dates>
 </ldml>

@@ -202,15 +202,22 @@
 <!ELEMENT calendars (alias | (default?, calendar*, special*)) >
 <!ATTLIST calendars draft ( true | false ) #IMPLIED >
 
-<!ELEMENT calendar (alias | (monthNames*, monthAbbr?, dayNames*, dayAbbr?, week?, am?, pm?, eras?, dateFormats?, timeFormats?, dateTimeFormats?, special*))>
+<!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, days?, dayNames?, dayAbbr?, week?, am?, pm?, eras?, dateFormats?, timeFormats?, dateTimeFormats?, special*))>
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
 <!ATTLIST calendar draft ( true | false ) #IMPLIED >
 <!ATTLIST calendar standard CDATA #IMPLIED >
 
+<!ELEMENT months ( alias | (default?, monthContext?, special*)) >
+<!ATTLIST months draft ( true | false ) #IMPLIED >
+
+<!ELEMENT monthContext ( alias | (default?, monthWidth?, special*)) >
+<!ATTLIST monthContext draft ( true | false ) #IMPLIED >
+
+<!ELEMENT monthWidth ( alias | (month*, special*)) >
+<!ATTLIST monthWidth draft ( true | false ) #IMPLIED >
+
 <!ELEMENT monthNames ( alias | (month*, special*)) >
 <!ATTLIST monthNames draft ( true | false ) #IMPLIED >
-<!ATTLIST monthNames width ( narrow | wide | abbreviated ) "wide" >
-<!ATTLIST monthNames context ( stand-alone | format ) "format" >
 
 <!ELEMENT month ( #PCDATA | cp )* >
 <!ATTLIST month type ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 ) #REQUIRED >
@@ -218,10 +225,17 @@
 <!ELEMENT monthAbbr ( alias | (month*, special*)) >
 <!ATTLIST monthAbbr draft ( true | false ) #IMPLIED >
 
+<!ELEMENT days ( alias | (default?, dayContext?, special*)) >
+<!ATTLIST days draft ( true | false ) #IMPLIED >
+
+<!ELEMENT dayContext ( alias | (default?, dayWidth?, special*)) >
+<!ATTLIST dayContext draft ( true | false ) #IMPLIED >
+
+<!ELEMENT dayWidth ( alias | (month*, special*)) >
+<!ATTLIST dayWidth draft ( true | false ) #IMPLIED >
+
 <!ELEMENT dayNames ( alias | (day*, special*)) >
 <!ATTLIST dayNames draft ( true | false ) #IMPLIED >
-<!ATTLIST dayNames width ( narrow | wide | abbreviated ) "wide" >
-<!ATTLIST dayNames context ( stand-alone | format ) "format" >
 
 <!ELEMENT day ( #PCDATA ) >
 <!ATTLIST day type ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >

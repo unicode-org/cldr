@@ -16,21 +16,27 @@
 <!ATTLIST supplementalData version CDATA #FIXED "1.3" >
 
 <!ELEMENT currencyData ( fractions*, region+ ) >
+<!ATTLIST currencyData draft ( true | false ) #IMPLIED >
+
 <!ELEMENT fractions ( info+ ) >
+<!ATTLIST fractions draft ( true | false ) #IMPLIED >
 
 <!ELEMENT info EMPTY >
 <!ATTLIST info iso4217 NMTOKEN #REQUIRED >
 <!ATTLIST info digits NMTOKEN #IMPLIED >
 <!ATTLIST info rounding NMTOKEN #IMPLIED >
+<!ATTLIST info draft ( true | false ) #IMPLIED >
 
 <!ELEMENT region ( currency* ) >
 <!ATTLIST region iso3166 NMTOKEN #REQUIRED >
+<!ATTLIST region draft ( true | false ) #IMPLIED >
 
 <!ELEMENT currency ( alternate* ) >
 <!ATTLIST currency before NMTOKEN #IMPLIED > <!-- This usage is deprecated. Use from and to. -->
 <!ATTLIST currency from NMTOKEN #IMPLIED >
 <!ATTLIST currency to NMTOKEN #IMPLIED >
 <!ATTLIST currency iso4217 NMTOKEN #REQUIRED >
+<!ATTLIST currency draft ( true | false ) #IMPLIED >
 
 <!ELEMENT alternate EMPTY > <!-- This usage is deprecated. Use from and to. -->
 <!ATTLIST alternate iso4217 NMTOKEN #REQUIRED >
@@ -39,7 +45,7 @@
 <!ELEMENT group EMPTY >
 <!ATTLIST group type NMTOKEN #REQUIRED >
 <!ATTLIST group contains NMTOKENS #IMPLIED >
-
+<!ATTLIST group draft ( true | false ) #IMPLIED >
 
 <!ELEMENT languageData ( language* ) >
 <!ELEMENT language EMPTY >
@@ -47,6 +53,4 @@
 <!ATTLIST language scripts NMTOKENS #IMPLIED >
 <!ATTLIST language territories NMTOKENS #IMPLIED >
 <!ATTLIST language variants NMTOKENS #IMPLIED >
-
-
-
+<!ATTLIST language draft ( true | false ) #IMPLIED >

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="no"></language>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="no" /> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -158,123 +163,136 @@
 			<territory type="YE">Jemen</territory>
 			<territory type="ZA">Sør-Afrika</territory>
 		</territories>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
 	</localeDisplayNames>
-	<layout>
-		<orientation lines="top-to-bottom" characters="left-to-right" />
-	</layout>
-		<dates>
-			<localizedPatternChars>GyMdkHmsSEDFwWahKzZ</localizedPatternChars>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">januar</month>
-						<month type="2">februar</month>
-						<month type="3">mars</month>
-						<month type="4">april</month>
-						<month type="5">mai</month>
-						<month type="6">juni</month>
-						<month type="7">juli</month>
-						<month type="8">august</month>
-						<month type="9">september</month>
-						<month type="10">oktober</month>
-						<month type="11">november</month>
-						<month type="12">desember</month>
-						<month type="13"></month>
-					</monthNames>
-					<monthAbbr>
-						<month type="1">jan</month>
-						<month type="2">feb</month>
-						<month type="3">mar</month>
-						<month type="4">apr</month>
-						<month type="5">mai</month>
-						<month type="6">jun</month>
-						<month type="7">jul</month>
-						<month type="8">aug</month>
-						<month type="9">sep</month>
-						<month type="10">okt</month>
-						<month type="11">nov</month>
-						<month type="12">des</month>
-						<month type="13"></month>
-					</monthAbbr>
-					<dayNames>
-						<day type="sun">søndag</day>
-						<day type="mon">mandag</day>
-						<day type="tue">tirsdag</day>
-						<day type="wed">onsdag</day>
-						<day type="thu">torsdag</day>
-						<day type="fri">fredag</day>
-						<day type="sat">lørdag</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">sø</day>
-						<day type="mon">ma</day>
-						<day type="tue">ti</day>
-						<day type="wed">on</day>
-						<day type="thu">to</day>
-						<day type="fri">fr</day>
-						<day type="sat">lø</day>
-					</dayAbbr>
-					<dateFormats>
-						<default type="medium"/>
-						<dateFormat type="full">
+	<dates>
+		<localizedPatternChars>GyMdkHmsSEDFwWahKzZ</localizedPatternChars>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">januar</month>
+					<month type="2">februar</month>
+					<month type="3">mars</month>
+					<month type="4">april</month>
+					<month type="5">mai</month>
+					<month type="6">juni</month>
+					<month type="7">juli</month>
+					<month type="8">august</month>
+					<month type="9">september</month>
+					<month type="10">oktober</month>
+					<month type="11">november</month>
+					<month type="12">desember</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">jan</month>
+					<month type="2">feb</month>
+					<month type="3">mar</month>
+					<month type="4">apr</month>
+					<month type="5">mai</month>
+					<month type="6">jun</month>
+					<month type="7">jul</month>
+					<month type="8">aug</month>
+					<month type="9">sep</month>
+					<month type="10">okt</month>
+					<month type="11">nov</month>
+					<month type="12">des</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">søndag</day>
+					<day type="mon">mandag</day>
+					<day type="tue">tirsdag</day>
+					<day type="wed">onsdag</day>
+					<day type="thu">torsdag</day>
+					<day type="fri">fredag</day>
+					<day type="sat">lørdag</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">sø</day>
+					<day type="mon">ma</day>
+					<day type="tue">ti</day>
+					<day type="wed">on</day>
+					<day type="thu">to</day>
+					<day type="fri">fr</day>
+					<day type="sat">lø</day>
+				</dayAbbr>
+				<week>
+					<minDays count="4"/>
+					<firstDay day="mon"/>
+				</week>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
 							<pattern>d. MMMM yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="long">
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
 							<pattern>d. MMMM yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="medium">
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
 							<pattern>dd.MMM.yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="short">
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
 							<pattern>dd.MM.yy</pattern>
 						</dateFormat>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"/>
-						<timeFormat type="full">
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
 							<pattern>'kl 'HH.mm z</pattern>
 						</timeFormat>
-						<timeFormat type="long">
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-						<timeFormat type="medium">
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="short">
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
 							<pattern>HH:mm</pattern>
 						</timeFormat>
-					</timeFormats>
-					<dateTimeFormat>
-						<pattern>{1} {0}</pattern>
-					</dateTimeFormat>
-				</calendar>
-			</calendars>
-		</dates>
-			<collations>
-				<collation  >
-					<rules>
-						<reset>Z</reset>
-						<p>æ</p>
-						<t>Æ</t>
-						<p>ä</p>
-						<t>Ä</t>
-						<p>ø</p>
-						<t>Ø</t>
-						<p>ö</p>
-						<t>Ö</t>
-						<p>ő</p>
-						<t>Ő</t>
-						<p>å</p>
-						<tc>ÅaaaAAaAA</tc>
-						<reset>V</reset>
-						<t>w</t>
-					</rules>
-					<special owner="http://oss.software.ibm.com/icu/" version="1.0" />
-				</collation  >
-			</collations>
-</localeData>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group> </group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+	</numbers>
+	<collations version="3.1.1">
+		<collation  >
+		</collation  >
+	</collations >
+</ldml>

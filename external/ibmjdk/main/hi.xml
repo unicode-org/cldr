@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="hi"></language>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="hi" /> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -15,98 +20,100 @@
 			<territory type="IN">भारत</territory>
 			<territory type="US">संयुक्त राज्य अमेरिका</territory>
 		</territories>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
 	</localeDisplayNames>
-	<layout>
-		<orientation lines="top-to-bottom" characters="left-to-right" />
-	</layout>
-		<dates>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">जनवरी</month>
-						<month type="2">फ़रवरी</month>
-						<month type="3">मार्च</month>
-						<month type="4">अप्रैल</month>
-						<month type="5">मई</month>
-						<month type="6">जून</month>
-						<month type="7">जुलाई</month>
-						<month type="8">अगस्त</month>
-						<month type="9">सितंबर</month>
-						<month type="10">अक्‍तूबर</month>
-						<month type="11">नवंबर</month>
-						<month type="12">दिसंबर</month>
-						<month type="13"></month>
-					</monthNames>
-					<monthAbbr>
-						<month type="1">जनवरी</month>
-						<month type="2">फ़रवरी</month>
-						<month type="3">मार्च</month>
-						<month type="4">अप्रैल</month>
-						<month type="5">मई</month>
-						<month type="6">जून</month>
-						<month type="7">जुलाई</month>
-						<month type="8">अगस्त</month>
-						<month type="9">सितंबर</month>
-						<month type="10">अक्‍तूबर</month>
-						<month type="11">नवंबर</month>
-						<month type="12">दिसंबर</month>
-						<month type="13"></month>
-					</monthAbbr>
-					<dayNames>
-						<day type="sun">रविवार</day>
-						<day type="mon">सोमवार</day>
-						<day type="tue">मंगलवार</day>
-						<day type="wed">बुधवार</day>
-						<day type="thu">गुरुवार</day>
-						<day type="fri">शुक्रवार</day>
-						<day type="sat">शनिवार</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">रवि</day>
-						<day type="mon">सोम</day>
-						<day type="tue">मंगल</day>
-						<day type="wed">बुध</day>
-						<day type="thu">गुरु</day>
-						<day type="fri">शुक्र</day>
-						<day type="sat">शनि</day>
-					</dayAbbr>
-					<eras>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">जनवरी</month>
+					<month type="2">फ़रवरी</month>
+					<month type="3">मार्च</month>
+					<month type="4">अप्रैल</month>
+					<month type="5">मई</month>
+					<month type="6">जून</month>
+					<month type="7">जुलाई</month>
+					<month type="8">अगस्त</month>
+					<month type="9">सितंबर</month>
+					<month type="10">अक्‍तूबर</month>
+					<month type="11">नवंबर</month>
+					<month type="12">दिसंबर</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">जनवरी</month>
+					<month type="2">फ़रवरी</month>
+					<month type="3">मार्च</month>
+					<month type="4">अप्रैल</month>
+					<month type="5">मई</month>
+					<month type="6">जून</month>
+					<month type="7">जुलाई</month>
+					<month type="8">अगस्त</month>
+					<month type="9">सितंबर</month>
+					<month type="10">अक्‍तूबर</month>
+					<month type="11">नवंबर</month>
+					<month type="12">दिसंबर</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">रविवार</day>
+					<day type="mon">सोमवार</day>
+					<day type="tue">मंगलवार</day>
+					<day type="wed">बुधवार</day>
+					<day type="thu">गुरुवार</day>
+					<day type="fri">शुक्रवार</day>
+					<day type="sat">शनिवार</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">रवि</day>
+					<day type="mon">सोम</day>
+					<day type="tue">मंगल</day>
+					<day type="wed">बुध</day>
+					<day type="thu">गुरु</day>
+					<day type="fri">शुक्र</day>
+					<day type="sat">शनि</day>
+				</dayAbbr>
+				<am>पूर्वाह्न</am>
+				<pm>अपराह्न</pm>
+				<eras>
+					<eraAbbr>
 						<era type="1">ईसापूर्व</era>
 						<era type="2">सन</era>
-					</eras>
-					<am>पूर्वाह्न</am>
-					<pm>अपराह्न</pm>
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<numberFormats>
-				<default type="decimal"/>
-				<numberFormat type="decimal">
-					<pattern>#,##0.###</pattern>
-					<pattern>-#,##0.###</pattern>
-				</numberFormat>
-				<numberFormat type="currency">
-					<pattern>¤ #,##0.00</pattern>
-					<pattern>-¤ #,##0.00</pattern>
-				</numberFormat>
-				<numberFormat type="percent">
+					</eraAbbr>
+				</eras>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>०</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
 					<pattern>#,##0%</pattern>
-				</numberFormat>
-			</numberFormats>
-		</numbers>
-			<collations>
-				<collation  >
-					<rules>
-						<reset><top/></reset>
-						<pc>ॐंःअआइऌईॡउऊऋॠऎएऐऍऒओऔऑकक़खख़गग़घङचछजज़झञटठडड़ढढ़णतथदधनऩपफफ़बभमयय़रऱलळऴवशषसहािॢीॣुूृॄॆेैॅॊोौॉ़्।ऽ॥॒॑०१२३४५६७८९॓॔</pc>
-					</rules>
-					<special owner="http://oss.software.ibm.com/icu/" version="1.0" />
-				</collation  >
-			</collations>
-</localeData>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>¤ #,##0.00;-¤ #,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+	<collations version="3.1.1">
+		<collation  >
+		</collation  >
+	</collations >
+</ldml>

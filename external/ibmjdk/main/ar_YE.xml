@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="ar"></language>
-		<territory type="YEM">YE</territory>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="ar" /> 
+		<territory type="YE" /> 
 	</identity>
-	<localeDisplayNames>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
-	</localeDisplayNames>
-		<dates>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-				</calendar>
-			</calendars>
-		</dates>
-</localeData>
+	<layout>
+		<orientation lines="top-to-bottom" characters="right-to-left" />
+	</layout>
+</ldml>

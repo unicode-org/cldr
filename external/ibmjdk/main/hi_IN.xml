@@ -1,48 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="hi"></language>
-		<territory type="IND">IN</territory>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="hi" /> 
+		<territory type="IN" /> 
 	</identity>
-	<localeDisplayNames>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
-	</localeDisplayNames>
-		<dates>
-			<localizedPatternChars>GyMdkHmsSEDFwWahKzZ</localizedPatternChars>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<numberFormats>
-				<default type="decimal"/>
-				<numberFormat type="decimal">
-					<pattern>#,##0.###</pattern>
-					<pattern>-#,##0.###</pattern>
-				</numberFormat>
-				<numberFormat type="currency">
-					<pattern>¤ #,##,##0.00</pattern>
-					<pattern>-¤ #,##,##0.00</pattern>
-				</numberFormat>
-				<numberFormat type="percent">
+	<dates>
+		<localizedPatternChars>GyMdkHmsSEDFwWahKzZ</localizedPatternChars>
+	</dates>
+	<numbers>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
 					<pattern>#,##0%</pattern>
-				</numberFormat>
-			</numberFormats>
-			<currencies>
-				<default type="INR"/>
-				<currency type="INR">
-					<symbol>रू</symbol>
-					<displayName>INR</displayName>
-					<decimal>.</decimal>
-				</currency>
-			</currencies>
-		</numbers>
-</localeData>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>¤ #,##,##0.00;-¤ #,##,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

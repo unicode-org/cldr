@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="iw"></language>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="iw" /> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -13,168 +18,125 @@
 		<territories>
 			<territory type="IL">ישראל</territory>
 		</territories>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
 	</localeDisplayNames>
-	<layout>
-		<orientation lines="top-to-bottom" characters="left-to-right" />
-	</layout>
-		<dates>
-			<localizedPatternChars>GanjkHmsSEDFwWxhKzZ</localizedPatternChars>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">ינואר</month>
-						<month type="2">פברואר</month>
-						<month type="3">מרץ</month>
-						<month type="4">אפריל</month>
-						<month type="5">מאי</month>
-						<month type="6">יוני</month>
-						<month type="7">יולי</month>
-						<month type="8">אוגוסט</month>
-						<month type="9">ספטמבר</month>
-						<month type="10">אוקטובר</month>
-						<month type="11">נובמבר</month>
-						<month type="12">דצמבר</month>
-						<month type="13"></month>
-					</monthNames>
-					<monthAbbr>
-						<month type="1">ינו</month>
-						<month type="2">פבר</month>
-						<month type="3">מרץ</month>
-						<month type="4">אפר</month>
-						<month type="5">מאי</month>
-						<month type="6">יונ</month>
-						<month type="7">יול</month>
-						<month type="8">אוג</month>
-						<month type="9">ספט</month>
-						<month type="10">אוק</month>
-						<month type="11">נוב</month>
-						<month type="12">דצמ</month>
-						<month type="13"></month>
-					</monthAbbr>
-					<dayNames>
-						<day type="sun">יום ראשון</day>
-						<day type="mon">יום שני</day>
-						<day type="tue">יום שלישי</day>
-						<day type="wed">יום רביעי</day>
-						<day type="thu">יום חמישי</day>
-						<day type="fri">יום שישי</day>
-						<day type="sat">שבת</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">א</day>
-						<day type="mon">ב</day>
-						<day type="tue">ג</day>
-						<day type="wed">ד</day>
-						<day type="thu">ה</day>
-						<day type="fri">ו</day>
-						<day type="sat">ש</day>
-					</dayAbbr>
-					<eras>
+	<dates>
+		<localizedPatternChars>GanjkHmsSEDFwWxhKzZ</localizedPatternChars>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">ינואר</month>
+					<month type="2">פברואר</month>
+					<month type="3">מרץ</month>
+					<month type="4">אפריל</month>
+					<month type="5">מאי</month>
+					<month type="6">יוני</month>
+					<month type="7">יולי</month>
+					<month type="8">אוגוסט</month>
+					<month type="9">ספטמבר</month>
+					<month type="10">אוקטובר</month>
+					<month type="11">נובמבר</month>
+					<month type="12">דצמבר</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">ינו</month>
+					<month type="2">פבר</month>
+					<month type="3">מרץ</month>
+					<month type="4">אפר</month>
+					<month type="5">מאי</month>
+					<month type="6">יונ</month>
+					<month type="7">יול</month>
+					<month type="8">אוג</month>
+					<month type="9">ספט</month>
+					<month type="10">אוק</month>
+					<month type="11">נוב</month>
+					<month type="12">דצמ</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">יום ראשון</day>
+					<day type="mon">יום שני</day>
+					<day type="tue">יום שלישי</day>
+					<day type="wed">יום רביעי</day>
+					<day type="thu">יום חמישי</day>
+					<day type="fri">יום שישי</day>
+					<day type="sat">שבת</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">א</day>
+					<day type="mon">ב</day>
+					<day type="tue">ג</day>
+					<day type="wed">ד</day>
+					<day type="thu">ה</day>
+					<day type="fri">ו</day>
+					<day type="sat">ש</day>
+				</dayAbbr>
+				<am>לפה"צ</am>
+				<pm>אחה"צ</pm>
+				<eras>
+					<eraAbbr>
 						<era type="1">לסה"נ</era>
 						<era type="2">לפסה"נ</era>
-					</eras>
-					<am>לפה"צ</am>
-					<pm>אחה"צ</pm>
-					<dateFormats>
-						<default type="medium"/>
-						<dateFormat type="full">
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
 							<pattern>EEEE d MMMM yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="long">
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
 							<pattern>d MMMM yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="medium">
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
 							<pattern>dd/MM/yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="short">
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
 							<pattern>dd/MM/yy</pattern>
 						</dateFormat>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"/>
-						<timeFormat type="full">
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-						<timeFormat type="long">
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-						<timeFormat type="medium">
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="short">
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
 							<pattern>HH:mm</pattern>
 						</timeFormat>
-					</timeFormats>
-					<dateTimeFormat>
-						<pattern>{0} {1}</pattern>
-					</dateTimeFormat>
-				</calendar>
-			</calendars>
-		</dates>
-			<collations>
-				<collation  >
-					<rules>
-						<reset>͡</reset>
-						<i>ׄ</i>
-						<reset>̍</reset>
-						<i>֑</i>
-						<sc>֖֒֓֔֕֗֘֙</sc>
-						<reset>́</reset>
-						<i>֚</i>
-						<reset>̀</reset>
-						<i>֛</i>
-						<reset>̇</reset>
-						<i>֜</i>
-						<s>֝</s>
-						<reset>̂</reset>
-						<i>֞</i>
-						<reset>̈</reset>
-						<i>֟</i>
-						<reset>̌</reset>
-						<i>֠</i>
-						<reset>̆</reset>
-						<i>֡</i>
-						<reset>̄</reset>
-						<i>֣</i>
-						<s>֤</s>
-						<reset>̃</reset>
-						<i>֥</i>
-						<reset>̊</reset>
-						<i>֦</i>
-						<reset>̨</reset>
-						<i>֧</i>
-						<reset>̧</reset>
-						<i>֨</i>
-						<reset>̋</reset>
-						<i>֩</i>
-						<reset>̶</reset>
-						<i>֪</i>
-						<reset>̷</reset>
-						<i>֫</i>
-						<reset≯</reset>
-						<i>֬</i>
-						<sc>ְֱֲֳִֵֶַָֹֻּֽֿ֭֮֯׀ׁׂ</sc>
-						<reset>µ</reset>
-						<pc>־׃׳״</pc>
-						<reset>Z</reset>
-						<pc>אבגדהוװױזחטיײך</pc>
-						<t>כ</t>
-						<pc>לם</pc>
-						<t>מ</t>
-						<p>ן</p>
-						<t>נ</t>
-						<pc>סעף</pc>
-						<t>פ</t>
-						<p>ץ</p>
-						<t>צ</t>
-						<pc>קרש</pc>
-					</rules>
-					<special owner="http://oss.software.ibm.com/icu/" version="1.0" />
-				</collation  >
-			</collations>
-</localeData>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<collations version="3.1.1">
+		<collation  >
+		</collation  >
+	</collations >
+</ldml>

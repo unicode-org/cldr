@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="et"></language>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="et" /> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -13,135 +18,142 @@
 		<territories>
 			<territory type="EE">Eesti</territory>
 		</territories>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
 	</localeDisplayNames>
-	<layout>
-		<orientation lines="top-to-bottom" characters="left-to-right" />
-	</layout>
-		<dates>
-			<localizedPatternChars>GanjkHmsSEDFwWxhKzZ</localizedPatternChars>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">Jaanuar</month>
-						<month type="2">Veebruar</month>
-						<month type="3">Märts</month>
-						<month type="4">Aprill</month>
-						<month type="5">Mai</month>
-						<month type="6">Juuni</month>
-						<month type="7">Juuli</month>
-						<month type="8">August</month>
-						<month type="9">September</month>
-						<month type="10">Oktoober</month>
-						<month type="11">November</month>
-						<month type="12">Detsember</month>
-						<month type="13"></month>
-					</monthNames>
-					<monthAbbr>
-						<month type="1">Jaan</month>
-						<month type="2">Veebr</month>
-						<month type="3">Märts</month>
-						<month type="4">Apr</month>
-						<month type="5">Mai</month>
-						<month type="6">Juuni</month>
-						<month type="7">Juuli</month>
-						<month type="8">Aug</month>
-						<month type="9">Sept</month>
-						<month type="10">Okt</month>
-						<month type="11">Nov</month>
-						<month type="12">Dets</month>
-						<month type="13"></month>
-					</monthAbbr>
-					<dayNames>
-						<day type="sun">pühapäev</day>
-						<day type="mon">esmaspäev</day>
-						<day type="tue">teisipäev</day>
-						<day type="wed">kolmapäev</day>
-						<day type="thu">neljapäev</day>
-						<day type="fri">reede</day>
-						<day type="sat">laupäev</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">P</day>
-						<day type="mon">E</day>
-						<day type="tue">T</day>
-						<day type="wed">K</day>
-						<day type="thu">N</day>
-						<day type="fri">R</day>
-						<day type="sat">L</day>
-					</dayAbbr>
-					<eras>
+	<dates>
+		<localizedPatternChars>GanjkHmsSEDFwWxhKzZ</localizedPatternChars>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">Jaanuar</month>
+					<month type="2">Veebruar</month>
+					<month type="3">Märts</month>
+					<month type="4">Aprill</month>
+					<month type="5">Mai</month>
+					<month type="6">Juuni</month>
+					<month type="7">Juuli</month>
+					<month type="8">August</month>
+					<month type="9">September</month>
+					<month type="10">Oktoober</month>
+					<month type="11">November</month>
+					<month type="12">Detsember</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">Jaan</month>
+					<month type="2">Veebr</month>
+					<month type="3">Märts</month>
+					<month type="4">Apr</month>
+					<month type="5">Mai</month>
+					<month type="6">Juuni</month>
+					<month type="7">Juuli</month>
+					<month type="8">Aug</month>
+					<month type="9">Sept</month>
+					<month type="10">Okt</month>
+					<month type="11">Nov</month>
+					<month type="12">Dets</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">pühapäev</day>
+					<day type="mon">esmaspäev</day>
+					<day type="tue">teisipäev</day>
+					<day type="wed">kolmapäev</day>
+					<day type="thu">neljapäev</day>
+					<day type="fri">reede</day>
+					<day type="sat">laupäev</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">P</day>
+					<day type="mon">E</day>
+					<day type="tue">T</day>
+					<day type="wed">K</day>
+					<day type="thu">N</day>
+					<day type="fri">R</day>
+					<day type="sat">L</day>
+				</dayAbbr>
+				<week>
+					<minDays count="4"/>
+					<firstDay day="mon"/>
+				</week>
+				<eras>
+					<eraAbbr>
 						<era type="1">e.m.a.</era>
 						<era type="2">m.a.j.</era>
-					</eras>
-					<dateFormats>
-						<default type="medium"/>
-						<dateFormat type="full">
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
 							<pattern>EEEE, d. MMMM yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="long">
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
 							<pattern>EEEE, d. MMMM yyyy. 'a'</pattern>
 						</dateFormat>
-						<dateFormat type="medium">
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
 							<pattern>d.MM.yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="short">
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
 							<pattern>d.MM.yy</pattern>
 						</dateFormat>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"/>
-						<timeFormat type="full">
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
 							<pattern>H:mm:ss z</pattern>
 						</timeFormat>
-						<timeFormat type="long">
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
 							<pattern>H:mm:ss z</pattern>
 						</timeFormat>
-						<timeFormat type="medium">
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
 							<pattern>H:mm:ss</pattern>
 						</timeFormat>
-						<timeFormat type="short">
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
 							<pattern>H:mm</pattern>
 						</timeFormat>
-					</timeFormats>
-					<dateTimeFormat>
-						<pattern>{1} {0}</pattern>
-					</dateTimeFormat>
-				</calendar>
-			</calendars>
-		</dates>
-			<collations>
-				<collation  >
-					<settings backwards="2"/>
-					<rules>
-						<reset>S</reset>
-						<p>š</p>
-						<t>Š</t>
-						<p>z</p>
-						<t>Z</t>
-						<p>ž</p>
-						<t>Ž</t>
-						<reset>V</reset>
-						<s>w</s>
-						<t>W</t>
-						<p>õ</p>
-						<t>Õ</t>
-						<p>ä</p>
-						<t>Ä</t>
-						<p>ö</p>
-						<t>Ö</t>
-						<s>ŵ</s>
-						<t>Ŵ</t>
-						<p>ü</p>
-						<t>Ü</t>
-						<reset>Y</reset>
-						<p>ƶ</p>
-					</rules>
-					<special owner="http://oss.software.ibm.com/icu/" version="1.0" />
-				</collation  >
-			</collations>
-</localeData>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group> </group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+	</numbers>
+	<collations version="3.1.1">
+		<collation  >
+		</collation  >
+	</collations >
+</ldml>

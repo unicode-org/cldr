@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="ar"></language>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="ar" /> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -29,162 +34,148 @@
 			<territory type="TN">تونس</territory>
 			<territory type="YE">اليمن</territory>
 		</territories>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
 	</localeDisplayNames>
 	<layout>
 		<orientation lines="top-to-bottom" characters="right-to-left" />
 	</layout>
-		<dates>
-			<localizedPatternChars>GanjkHmsSEDFwWxhKzZ</localizedPatternChars>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">يناير</month>
-						<month type="2">فبراير</month>
-						<month type="3">مارس</month>
-						<month type="4">أبريل</month>
-						<month type="5">مايو</month>
-						<month type="6">يونيو</month>
-						<month type="7">يوليو</month>
-						<month type="8">أغسطس</month>
-						<month type="9">سبتمبر</month>
-						<month type="10">أكتوبر</month>
-						<month type="11">نوفمبر</month>
-						<month type="12">ديسمبر</month>
-						<month type="13"></month>
-					</monthNames>
-					<monthAbbr>
-						<month type="1">ينا</month>
-						<month type="2">فبر</month>
-						<month type="3">مار</month>
-						<month type="4">أبر</month>
-						<month type="5">ماي</month>
-						<month type="6">يون</month>
-						<month type="7">يول</month>
-						<month type="8">أغس</month>
-						<month type="9">سبت</month>
-						<month type="10">أكت</month>
-						<month type="11">نوف</month>
-						<month type="12">ديس</month>
-						<month type="13"></month>
-					</monthAbbr>
-					<dayNames>
-						<day type="sun">الأحد</day>
-						<day type="mon">الاثنين</day>
-						<day type="tue">الثلاثاء</day>
-						<day type="wed">الأربعاء</day>
-						<day type="thu">الخميس</day>
-						<day type="fri">الجمعة</day>
-						<day type="sat">السبت</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">ح</day>
-						<day type="mon">ن</day>
-						<day type="tue">ث</day>
-						<day type="wed">ر</day>
-						<day type="thu">خ</day>
-						<day type="fri">ج</day>
-						<day type="sat">س</day>
-					</dayAbbr>
-					<eras>
+	<dates>
+		<localizedPatternChars>GanjkHmsSEDFwWxhKzZ</localizedPatternChars>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">يناير</month>
+					<month type="2">فبراير</month>
+					<month type="3">مارس</month>
+					<month type="4">أبريل</month>
+					<month type="5">مايو</month>
+					<month type="6">يونيو</month>
+					<month type="7">يوليو</month>
+					<month type="8">أغسطس</month>
+					<month type="9">سبتمبر</month>
+					<month type="10">أكتوبر</month>
+					<month type="11">نوفمبر</month>
+					<month type="12">ديسمبر</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">ينا</month>
+					<month type="2">فبر</month>
+					<month type="3">مار</month>
+					<month type="4">أبر</month>
+					<month type="5">ماي</month>
+					<month type="6">يون</month>
+					<month type="7">يول</month>
+					<month type="8">أغس</month>
+					<month type="9">سبت</month>
+					<month type="10">أكت</month>
+					<month type="11">نوف</month>
+					<month type="12">ديس</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">الأحد</day>
+					<day type="mon">الاثنين</day>
+					<day type="tue">الثلاثاء</day>
+					<day type="wed">الأربعاء</day>
+					<day type="thu">الخميس</day>
+					<day type="fri">الجمعة</day>
+					<day type="sat">السبت</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">ح</day>
+					<day type="mon">ن</day>
+					<day type="tue">ث</day>
+					<day type="wed">ر</day>
+					<day type="thu">خ</day>
+					<day type="fri">ج</day>
+					<day type="sat">س</day>
+				</dayAbbr>
+				<week>
+					<minDays count="1"/>
+					<firstDay day="sat"/>
+				</week>
+				<am>ص</am>
+				<pm>م</pm>
+				<eras>
+					<eraAbbr>
 						<era type="1">ق.م</era>
 						<era type="2">م</era>
-					</eras>
-					<am>ص</am>
-					<pm>م</pm>
-					<dateFormats>
-						<default type="medium"/>
-						<dateFormat type="full">
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
 							<pattern>dd MMMM, yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="long">
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
 							<pattern>dd MMMM, yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="medium">
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
 							<pattern>dd/MM/yyyy</pattern>
 						</dateFormat>
-						<dateFormat type="short">
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
 							<pattern>dd/MM/yy</pattern>
 						</dateFormat>
-					</dateFormats>
-					<timeFormats>
-						<default type="medium"/>
-						<timeFormat type="full">
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
 							<pattern>z hh:mm:ss a</pattern>
 						</timeFormat>
-						<timeFormat type="long">
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
 							<pattern>z hh:mm:ss a</pattern>
 						</timeFormat>
-						<timeFormat type="medium">
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
 							<pattern>hh:mm:ss a</pattern>
 						</timeFormat>
-						<timeFormat type="short">
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
 							<pattern>hh:mm a</pattern>
 						</timeFormat>
-					</timeFormats>
-					<dateTimeFormat>
-						<pattern>{1} {0}</pattern>
-					</dateTimeFormat>
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<numberFormats>
-				<default type="decimal"/>
-				<numberFormat type="decimal">
-					<pattern>#,##0.###</pattern>
-					<pattern>#,##0.###-</pattern>
-				</numberFormat>
-				<numberFormat type="currency">
-					<pattern>¤ #,##0.###</pattern>
-					<pattern>¤ #,##0.###-</pattern>
-				</numberFormat>
-				<numberFormat type="percent">
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
 					<pattern>#,##0%</pattern>
-				</numberFormat>
-			</numberFormats>
-		</numbers>
-			<collations>
-				<collation  >
-					<rules>
-						<reset>͡</reset>
-						<ic>ـًٌٍَُِْ٭ۖۗۘۙۚۛۜ۞ۣ۟۠ۡۢۤۥۦۧۨ۩۪ۭ۫۬</ic>
-						<reset>0</reset>
-						<pc>٠۰</pc>
-						<reset>1</reset>
-						<pc>١۱</pc>
-						<reset>2</reset>
-						<pc>٢۲</pc>
-						<reset>3</reset>
-						<pc>٣۳</pc>
-						<reset>4</reset>
-						<pc>٤۴</pc>
-						<reset>5</reset>
-						<pc>٥۵</pc>
-						<reset>6</reset>
-						<pc>٦۶</pc>
-						<reset>7</reset>
-						<pc>٧۷</pc>
-						<reset>8</reset>
-						<pc>٨۸</pc>
-						<reset>9</reset>
-						<pc>٩۹</pc>
-						<reset>µ</reset>
-						<pc>،؛؟٪٫٬۔</pc>
-						<reset>Z</reset>
-						<p>ء</p>
-						<sc>آأؤإئ</sc>
-						<pc>ابپة</pc>
-						<i>ت</i>
-						<pc>ثجچحخدذرزژسشصضطظعغفقكگلمنهوى</pc>
-						<s>ي</s>
-						<pc>ٰٱٲٳٴٵٶٷٸٹٺٻټٽٿڀځڂڃڄڅڇڈډڊڋڌڍڎڏڐڑڒړڔڕږڗڙښڛڜڝڞڟڠڡڢڣڤڥڦڧڨکڪګڬڭڮڰڱڲڳڴڵڶڷںڻڼڽھۀہۂۃۄۅۆۇۈۉۊۋیۍێېۑےۓە</pc>
-					</rules>
-					<special owner="http://oss.software.ibm.com/icu/" version="1.0" />
-				</collation  >
-			</collations>
-</localeData>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>¤ #,##0.###;¤ #,##0.###-</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+	<collations version="3.1.1">
+		<collation  >
+		</collation  >
+	</collations >
+</ldml>

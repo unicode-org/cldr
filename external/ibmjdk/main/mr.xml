@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
-<localeData>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
 	<identity>
-		<version number="1.0">Various notes and changes in version 1.0</version>
-		<generation date="2003-01-10" />
-		<language type="mr"></language>
+		<version number="1.0"/>
+		<generation date="2003-07-24" />
+		<language type="mr" /> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -13,85 +18,90 @@
 		<territories>
 			<territory type="IN">भारत</territory>
 		</territories>
-		<keys>
-			<key type="collation">collation</key>
-			<key type="calendar">calendar</key>
-		</keys>
 	</localeDisplayNames>
-	<layout>
-		<orientation lines="top-to-bottom" characters="left-to-right" />
-	</layout>
-		<dates>
-			<calendars>
-				<default type="gregorian"/>
-				<calendar type="gregorian">
-					<monthNames>
-						<month type="1">जानेवारी</month>
-						<month type="2">फेब्रुवारी</month>
-						<month type="3">मार्च</month>
-						<month type="4">एप्रिल</month>
-						<month type="5">मे</month>
-						<month type="6">जून</month>
-						<month type="7">जुलै</month>
-						<month type="8">ऑगस्ट</month>
-						<month type="9">सप्टेंबर</month>
-						<month type="10">ऑक्टोबर</month>
-						<month type="11">नोव्हेंबर</month>
-						<month type="12">डिसेंबर</month>
-						<month type="13"></month>
-					</monthNames>
-					<monthAbbr>
-						<month type="1">जाने.</month>
-						<month type="2">फेब्रु.</month>
-						<month type="3">मार्च</month>
-						<month type="4">एप्रिल</month>
-						<month type="5">मे</month>
-						<month type="6">जून</month>
-						<month type="7">जुलै</month>
-						<month type="8">ऑगस्ट</month>
-						<month type="9">सप्टें.</month>
-						<month type="10">ऑक्टो.</month>
-						<month type="11">नोव्हें.</month>
-						<month type="12">डिसें.</month>
-						<month type="13"></month>
-					</monthAbbr>
-					<dayNames>
-						<day type="sun">सोमवार</day>
-						<day type="mon">मंगळवार</day>
-						<day type="tue">बुधवार</day>
-						<day type="wed">गुरुवार</day>
-						<day type="thu">शुक्रवार</day>
-						<day type="fri">शनिवार</day>
-						<day type="sat">रविवार</day>
-					</dayNames>
-					<dayAbbr>
-						<day type="sun">सोम.</day>
-						<day type="mon">मंगळ.</day>
-						<day type="tue">बुध.</day>
-						<day type="wed">गुरु.</day>
-						<day type="thu">शुक्र.</day>
-						<day type="fri">शनि.</day>
-						<day type="sat">रवि.</day>
-					</dayAbbr>
-					<am>म.पू.</am>
-					<pm>म.नं.</pm>
-				</calendar>
-			</calendars>
-		</dates>
-		<numbers>
-			<numberFormats>
-				<default type="decimal"/>
-				<numberFormat type="decimal">
-					<pattern>#,##0.###</pattern>
-					<pattern>-#,##0.###</pattern>
-				</numberFormat>
-				<numberFormat type="currency">
-					<pattern>¤ #,##0.00</pattern>
-					<pattern>-¤ #,##0.00</pattern>
-				</numberFormat>
-				<numberFormat type="percent">
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">जानेवारी</month>
+					<month type="2">फेब्रुवारी</month>
+					<month type="3">मार्च</month>
+					<month type="4">एप्रिल</month>
+					<month type="5">मे</month>
+					<month type="6">जून</month>
+					<month type="7">जुलै</month>
+					<month type="8">ऑगस्ट</month>
+					<month type="9">सप्टेंबर</month>
+					<month type="10">ऑक्टोबर</month>
+					<month type="11">नोव्हेंबर</month>
+					<month type="12">डिसेंबर</month>
+					<month type="13"></month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">जाने.</month>
+					<month type="2">फेब्रु.</month>
+					<month type="3">मार्च</month>
+					<month type="4">एप्रिल</month>
+					<month type="5">मे</month>
+					<month type="6">जून</month>
+					<month type="7">जुलै</month>
+					<month type="8">ऑगस्ट</month>
+					<month type="9">सप्टें.</month>
+					<month type="10">ऑक्टो.</month>
+					<month type="11">नोव्हें.</month>
+					<month type="12">डिसें.</month>
+					<month type="13"></month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">सोमवार</day>
+					<day type="mon">मंगळवार</day>
+					<day type="tue">बुधवार</day>
+					<day type="wed">गुरुवार</day>
+					<day type="thu">शुक्रवार</day>
+					<day type="fri">शनिवार</day>
+					<day type="sat">रविवार</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">सोम.</day>
+					<day type="mon">मंगळ.</day>
+					<day type="tue">बुध.</day>
+					<day type="wed">गुरु.</day>
+					<day type="thu">शुक्र.</day>
+					<day type="fri">शनि.</day>
+					<day type="sat">रवि.</day>
+				</dayAbbr>
+				<am>म.पू.</am>
+				<pm>म.नं.</pm>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>०</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
 					<pattern>#,##0%</pattern>
-				</numberFormat>
-			</numberFormats>
-		</numbers>
-</localeData>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>¤ #,##0.00;-¤ #,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

@@ -134,16 +134,8 @@
           <h1 align="center">CLDR Data Formats</h1>
           <p>This document provides basic information about data formats for fields in the Common 
           Locale Data Repository. It is intended to clarify the meaning of some of the data in the 
-          CLDR for localizers and other people reading the CLDR comparison charts.</p>
-          <p><b>Note:</b> there is additional material in the
-          <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/tr35.html">working 
-          draft</a> of the next version of LDML, in particular:
-          <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/tr35.html#&lt;characters&gt;">
-          Exemplar Characters</a><span class="changed">,
-          <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/tr35.html#Date_Format_Patterns">
-          Appendix F: Date Format Patterns</a></span>, <span class="changed">and
-          <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/tr35.html#Number_Format_Patterns">
-          Appendix G: Number Format Patterns</a></span>.</p>
+          CLDR for localizers and other people reading the CLDR comparison charts. The references 
+          given below are to the LDML specification.</p>
           <h2><a name="General">General</a></h2>
           <p>The locale data should be in the customary form for the target language, in the form 
           that is in most common usage. For example, for the country name in English one would use 
@@ -305,59 +297,33 @@
           <blockquote>
             <p>The exemplar character set contains the commonly used letters for a given modern form 
             of a language, which can be for testing and for determining the appropriate repertoire 
-            of letters for charset conversion or collation. It is not a complete set of letters used 
-            for a language, nor should it be considered to apply to multiple languages in a 
-            particular country. In general, the test to see whether or not a letter belongs in the 
-            set is based on whether it is acceptable in that language to always use spellings that 
-            avoid that character. For example, the exemplar character set for en (English) is the 
-            set [a-z]. This set does not contain the accented letters that are sometimes seen in 
-            words like &quot;résumé&quot; or &quot;naïve&quot;, because it is acceptable in common practice to spell 
-            those words without the accents. The exemplar character set for fr (French), on the 
-            other hand, must contain those characters: [a-z é è ù ç à â ê î ô û æ œ ë ï ÿ].</p>
-            <p>Punctuation and other symbols should not be included. Sequences of characters that 
-            act like a single letter in the language — especially in collation — are included within 
-            braces, such as [a-z á é í ó ú ö ü ő ű {cs} {dz} {dzs} {gy} ...]. Where combining marks 
-            are used generatively, and apply to a large number of base characters (such as in Indic 
-            scripts), the individual combining marks should be included. Where they are used with 
-            only a few base characters, the specific combinations should be included. Wherever there 
-            is not a precomposed character (e.g. single codepoint) for a given combination, that 
-            must be included within braces. For example, to include sequences from the
-            <a href="http://www.unicode.org/standard/where/">Where is my Character?</a> page on the 
-            Unicode site, one would write: [{ch} {tʰ} {x̣} {ƛ̓} {ą́} {i̇́} {ト゚}], but for French one 
-            would just write [a-z é è ù ...]. When in doubt use braces, since it does no harm to 
-            included them around single code points: e.g. [a-z {é} {è} {ù} ...].<br>
-            <br>
-            The exemplar character set for Han characters is composed somewhat differently. It is 
-            even harder to draw a clear line for Han characters, since usage is more like a 
-            frequency curve that slowly trails off to the right in terms of decreasing frequency. So 
-            for this case, the exemplar characters simply contain a set of reasonably frequent 
-            characters for the language, based on presence in character set standards.</p>
-          </blockquote>
-          <blockquote>
-            <p>This set is case insensitive; this means it does not need both upper and lower case 
-            characters. The ordering of these characters are irrelevant. If the sort order or 
-            collation order is needed, then please refer to the <a href="#Collation">collation 
-            section</a> of this guide.</p>
+            of letters for charset conversion or collation. For more information, see&nbsp;
+            <a href="http://www.unicode.org/reports/tr35/#&lt;characters&gt;">Exemplar Characters</a> 
+            in Section 5.6 and Appendix E:
+            <a href="http://www.unicode.org/reports/tr35/#Unicode_Sets">Unicode Sets</a>. </p>
           </blockquote>
           <h2><a name="Display_Names">Display Names</a>: Languages, Scripts, Territories, 
           Currencies, Time Zones</h2>
           <blockquote>
-            <p>These items are perhaps the simplest to translate. The typical behavior if any 
-            particular one is not available is to display the corresponding ISO code (or RFC 3166 
-            code). Thus if there is no localization of FR (France), then the string &quot;FR&quot; will 
-            appear.</p>
+            <p>These items are perhaps the simplest to translate. The type values that can be used 
+            for each are found in Appendix K: <span>
+            <a href="http://www.unicode.org/reports/tr35/#valid_attribute_values">Valid Attribute 
+            Values</a></span></p>
+            <p>The typical behavior if any particular translation is not available is to display the 
+            corresponding code, such as an ISO or RFC 3166 code. Thus if there is no localization of 
+            FR (France), then the string &quot;FR&quot; will appear.</p>
             <p>The names must, however, be unique within a given category: thus one cannot use the 
             same translated name for the following two:<br>
-            &nbsp; <i>&lt;territory type=&quot;CD&quot;&gt;Democratic Republic of the Congo&lt;/territory&gt;</i><br>
+&nbsp; <i>&lt;territory type=&quot;CD&quot;&gt;Democratic Republic of the Congo&lt;/territory&gt;</i><br>
             <i>&nbsp; &lt;territory type=&quot;CG&quot;&gt;Congo&lt;/territory&gt;</i></p>
             <p>Whatever is most typically used to distinguish these in the target language can be 
             used, for example, one could have the translated equivalents of the following:<br>
             <br>
             <i>&nbsp; &lt;territory type=&quot;CD&quot;&gt;Congo (Kinshasa)&lt;/territory&gt;<br>
-            &nbsp; &lt;territory type=&quot;CG&quot;&gt;Congo (Brazzaville)&lt;/territory&gt;</i></p>
+&nbsp; &lt;territory type=&quot;CG&quot;&gt;Congo (Brazzaville)&lt;/territory&gt;</i></p>
             <p>or</p>
             <p><i>&nbsp; &lt;territory type=&quot;CD&quot;&gt;Congo (formerly Zaire)&lt;/territory&gt;<br>
-            &nbsp; &lt;territory type=&quot;CG&quot;&gt;Congo&lt;/territory&gt;<br>
+&nbsp; &lt;territory type=&quot;CG&quot;&gt;Congo&lt;/territory&gt;<br>
             </i><br>
             Typically one should only use such parenthesized additions if the name would either not 
             be unique or not be recognizable to a large group of people. Only if the name would not 
@@ -390,10 +356,9 @@
             For example, English will translate fr to be &quot;French&quot;, but Spanish will translate fr to 
             be &quot;francés&quot;.</p>
             <p><b>Note: </b>In CLDR 1.1, the time periods are included in the English translations 
-            of languages (from the<br>
-            ISO names), such as the following:</p>
+            of languages (from the ISO names), such as the following:</p>
             <p><i>&nbsp; &lt;language type=&quot;gmh&quot;&gt;German, Middle High (ca.1050-1500)&lt;/language&gt;<br>
-            &nbsp; &lt;language type=&quot;goh&quot;&gt;German, Old High (ca.750-1050)&lt;/language&gt;</i></p>
+&nbsp; &lt;language type=&quot;goh&quot;&gt;German, Old High (ca.750-1050)&lt;/language&gt;</i></p>
             <p>We will probably be converting those to XML comments, so it is not recommended to 
             keep those parentheticals in the translation unless there is no good term for describing 
             the differences between codes such as gmh and goh in the target language.</p>
@@ -435,8 +400,6 @@
             no modern difference between two IDs; they are only distinguished in the past. For 
             example, America/Chicago and America/Indianapolis are currently the same, but differed 
             in the past.</p>
-            <p>For the possible timezone IDs that can be translated, see <a href="timezone_ids.html">
-            Olson IDs</a>.</p>
             <p>Most countries do not span multiple time zones, and may not have localized names for 
             particular time zones. In that case, probably the best localizations are something of a 
             form like &quot;New York Time&quot;.</p>
@@ -446,6 +409,9 @@
               <li>summer/daylight savings time, e.g. <span style="COLOR: blue">Pacific Standard Time</span></li>
               <li>standard time, e.g. <span style="COLOR: blue">Pacific Daylight Time</span></li>
             </ul>
+            <p>For more information, see Appendix J:
+            <a href="http://www.unicode.org/reports/tr35/#Time_Zone_Fallback"><span>Time Zone 
+            Fallback</span></a></p>
           </blockquote>
           <h2 align="left"><a name="Numbers">Numbers</a></h2>
           <h3>Number Patterns</h3>
@@ -494,73 +460,9 @@
               </tr>
             </table>
           </blockquote>
-          <dl>
-            <dt><b>decimalFormats</b> </dt>
-            <dd>The normal locale specific way to write a base 10 number. </dd>
-            <dt><b>currencyFormats</b> </dt>
-            <dd>Use \u00A4 where the local currency symbol should be. Doubling the currency symbol 
-            (\u00A4\u00A4) will output the international currency symbol (a 3-letter code). </dd>
-            <dt><b>percentFormats</b> </dt>
-            <dd>Pattern for use with percentage formatting </dd>
-            <dt><b>scientificFormats</b> </dt>
-            <dd>Pattern for use with scientific (exponent) formatting.</dd>
-          </dl>
-          <h3><b>Quoting rules</b></h3>
-          <blockquote>
-            <p>Single quotes, (<b>&#39;</b>), enclose bits of the pattern that should be treated 
-            literally. Inside a quoted string, two single quotes (&#39;&#39;) are replaced with a single one 
-            (&#39;). For example: <tt><u>&#39;X &#39;</u>#<u>&#39; Q &#39;</u></tt> -&gt; <b>X 1939 Q </b>(Literal strings
-            <u>underlined</u>.)</p>
-          </blockquote>
-          <h3><a name="NumberElements">Number Elements</a></h3>
-          <blockquote>
-            <p>Localized symbols used in number formatting and parsing.</p>
-          </blockquote>
-          <dl>
-            <dt><b>decimal</b> </dt>
-            <dd>- separates the integer and fractional part of the number. </dd>
-            <dt><b>group</b> </dt>
-            <dd>- groups (for example) units of thousands: 10^6 = 1,000,000. The grouping separator 
-            is commonly used for thousands, but in some countries for ten-thousands. The interval is 
-            a constant number of digits between the grouping characters, such as 100,000,000 or 
-            1,0000,0000. If you supply a pattern with multiple grouping characters, the interval 
-            between the last one and the end of the integer is the one that is used. So 
-            &quot;#,##,###,####&quot; == &quot;######,####&quot; == &quot;##,####,####&quot;. </dd>
-            <dt><b>list</b> </dt>
-            <dd>- separates lists of numbers </dd>
-            <dt><b>percentSign</b> </dt>
-            <dd>- symbol used to indicate a percentage (1/100th) amount. (If present, the value is 
-            also multiplied by 100 before formatting. That way 1.23 =&gt; 123%) </dd>
-            <dt><b>nativeZeroDigit</b> </dt>
-            <dd>- Symbol used to indicate a digit in the pattern, or zero if that place would 
-            otherwise be empty. For example, with the digit of &#39;0&#39;, the pattern &quot;000&quot; would format 
-            &quot;34&quot; as &quot;034&quot;, but the pattern &quot;0&quot; would format &quot;34&quot; as just &quot;34&quot;. As well, the digits 
-            1-9 are expected to follow the code point of this specified 0 value. </dd>
-            <dt><b>patternDigit</b> </dt>
-            <dd>- Symbol used to indicate any digit value, typically #. When that digit is zero, 
-            then it is not shown. </dd>
-            <dt><b>minusSign</b> </dt>
-            <dd>- Symbol used to denote negative value. </dd>
-            <dt><b>plusSign</b> </dt>
-            <dd>- Symbol used to denote negative value. </dd>
-            <dt><b>exponential</b> </dt>
-            <dd>- Symbol separating the mantissa and exponent values. </dd>
-            <dt><b>perMille</b> </dt>
-            <dd>- symbol used to indicate a per-mille (1/1000th) amount. (If present, the value is 
-            also multiplied by 1000 before formatting. That way 1.23 =&gt; 1230 [1/000]) </dd>
-            <dt><b>infinity</b> </dt>
-            <dd>- The infinity sign. Corresponds to the IEEE infinity bit pattern. </dd>
-            <dt><b>nan - Not a number</b> </dt>
-            <dd>- The NaN sign. Corresponds to the IEEE NaN bit pattern.</dd>
-            <dt><b>currencySeparator</b> </dt>
-            <dd>This is used as the decimal separator in currency formatting/parsing, instead of the 
-            DecimalSeparator from the <a href="#NumberElements">NumberElements</a> list. This item 
-            is optional in the CLDR.</dd>
-            <dt><b>currencyGroup</b> </dt>
-            <dd>This is used as the grouping separator in currency formatting/parsing, instead of 
-            the DecimalSeparator from the <a href="#NumberElements">NumberElements</a> list. This 
-            item is optional in the CLDR.</dd>
-          </dl>
+          <p>For more information, see Appendix G:
+          <a href="http://www.unicode.org/reports/tr35/#Number_Format_Patterns"><span>Number Format 
+          Patterns</span></a></p>
           <h2><a name="Dates">Dates</a></h2>
           <h3><a name="DayMonth">Day &amp; Month Names</a></h3>
           <p>All of the following should have the appropriate grammatical form for appearing in a 
@@ -576,133 +478,9 @@
             <dd>These are the abbreviated day names, like &quot;Mon&quot;</dd>
           </dl>
           <h3><a name="DateTimeElements">Date &amp; Time Options</a></h3>
-          <dl>
-            <dt><b>firstDay</b> </dt>
-            <dd>A number indicating which day of the week is considered the &#39;first&#39; day, for 
-            calendar purposes. Because the ordering of days may vary between calendar, keywords are 
-            used for this value, such as sun, mon,... These values will be replaced by the localized 
-            name when they are actually used. </dd>
-            <dt><b>minDays (Minimal Days in First Week)</b></dt>
-            <dd>Minimal days required in the first week of a month or year. For example, if the 
-            first week is defined as one that contains at least one day, this value will be 1. If it 
-            must contain a full seven days before it counts as the first week, then the value would 
-            be 7.</dd>
-            <dt><b>weekendStart, weekendEnd</b></dt>
-            <dd>Indicates the day and time that the weekend starts or ends. As with firstDay, 
-            keywords are used instead of numbers.</dd>
-          </dl>
-          <h3><a name="DateTimePatterns">Date &amp; Time Patterns</a></h3>
-          <blockquote>
-            <p>The following are characters used in patterns to show the appropriate formats for a 
-            given locale. These characters are replaced with the appropriate values when a date or 
-            time is being formatted.</p>
-            <p>Characters may be used multiple times. For example, if y is used for the year, &#39;yy&#39; 
-            might produce &#39;99&#39;, whereas &#39;yyyy&#39; produces &#39;1999&#39;. For most numerical characters, the 
-            number of characters specifies the field width. For example, if h is the hour, &#39;h&#39; might 
-            produce &#39;5&#39;, but &#39;hh&#39; produces &#39;05&#39;. For some characters, the count specifies whether an 
-            abbreviated or full form should be used.</p>
-            <table border="1" cellspacing="0" cellpadding="2">
-              <tr>
-                <td>Sym.</td>
-                <td>Description</td>
-              </tr>
-              <tr>
-                <td><tt>G</tt></td>
-                <td>Era - Replaced with the <a href="#Era">Era</a> string for the current date.</td>
-              </tr>
-              <tr>
-                <td><tt>y</tt></td>
-                <td>Year - Use two for the short year, or 4 for the full year</td>
-              </tr>
-              <tr>
-                <td><tt>M</tt></td>
-                <td>Month - Use one or two for the numerical month, three for the abbreviation, or 
-                four for the full name.</td>
-              </tr>
-              <tr>
-                <td><tt>d</tt></td>
-                <td>Date - Day of the month. Use one or two for zero padding.</td>
-              </tr>
-              <tr>
-                <td><tt>h</tt></td>
-                <td>Hour [1-12]. Use one or two for zero padding.</td>
-              </tr>
-              <tr>
-                <td><tt>H</tt></td>
-                <td>Hour [0-23]. Use one or two for zero padding.</td>
-              </tr>
-              <tr>
-                <td><tt>K</tt></td>
-                <td>Hour [0-11]. Use one or two for zero padding.</td>
-              </tr>
-              <tr>
-                <td><tt>k</tt></td>
-                <td>Hour [1-24]. Use one or two for zero padding.</td>
-              </tr>
-              <tr>
-                <td><tt>m</tt></td>
-                <td>Minute. Use one or two for zero padding.</td>
-              </tr>
-              <tr>
-                <td><tt>s</tt></td>
-                <td>Second. Use one or two for zero padding.</td>
-              </tr>
-              <tr>
-                <td><tt>S</tt></td>
-                <td>Millisecond - Use 1,2, or 3. shows the most significant digits.</td>
-              </tr>
-              <tr>
-                <td><tt>a</tt></td>
-                <td>AM or PM</td>
-              </tr>
-              <tr>
-                <td><tt>E</tt></td>
-                <td>Day of week - Use three for the short day, or four for the full name.</td>
-              </tr>
-              <tr>
-                <td><tt>D</tt></td>
-                <td>Day of year - Use 1-3</td>
-              </tr>
-              <tr>
-                <td><tt>F</tt></td>
-                <td>Day of Week in Month- use one.</td>
-              </tr>
-              <tr>
-                <td><tt>w</tt></td>
-                <td>Week of Year. Use one or two for zero padding.</td>
-              </tr>
-              <tr>
-                <td><tt>W</tt></td>
-                <td>Week of Month - use 1</td>
-              </tr>
-              <tr>
-                <td><tt>z</tt></td>
-                <td>Timezone. Use 3 for the short timezone (i.e. PST) or 4 for the full name 
-                (Pacific Standard Time). If there&#39;s no name for the zone, it&#39;ll show up as GMT+/-hh:mm.</td>
-              </tr>
-              <tr>
-                <td><tt>A</tt></td>
-                <td>Year (of &quot;Week of Year&quot;). [May differ from Calendar year, see comments under 
-                &#39;Week of Year&#39;, above.]</td>
-              </tr>
-            </table>
-            <p>For more information, see
-            <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/SimpleDateFormat.html">
-            SimpleDateFormat</a>.</p>
-          </blockquote>
-          <h3><a name="&lt;localizedPatternChars&gt;">localizedPatternChars</a></h3>
-          <p>These are characters that can be used when displaying a date pattern to an end user. 
-          This can occur, for example, when a spreadsheet allows users to specify date patterns. 
-          Whatever is in the string is substituted one-for-one with the characters &quot;<span class="tx">GyMdkHmsSEDFwWahKzYe&quot;, 
-          with the above meanings</span>. Thus, for example, if &quot;J&quot; is to be used instead of &quot;Y&quot; to 
-          mean Year, then the string would be: &quot;<span class="tx">GyMdkHmsSEDFwWahKz<u>J</u>e&quot;.</span></p>
-          <h3><b>Quoting rules</b></h3>
-          <blockquote>
-            <p>Single quotes, (<b>&#39;</b>), enclose bits of the pattern that should be treated 
-            literally. Inside a quoted string, two single quotes (&#39;&#39;) are replaced with a single one 
-            (&#39;). For example: <tt><u>&#39;class of &#39;</u>YYYY<u>&#39; at &#39;</u>h<u>&#39; o&#39;&#39;clock&#39;</u></tt> -&gt; <b>
-            class of 1939 at 6 o&#39;clock</b> (Literal strings <u>underlined</u>.)</p>
-          </blockquote>
+          <p>The main source of information is see Appendix F: <span>
+          <a href="http://www.unicode.org/reports/tr35/#Date_Format_Patterns">Date Format Patterns</a>. 
+          There are a couple of troublesome areas:</span></p>
           <h3>AM / PM</h3>
           <blockquote>
             <p>Even for countries where the customary date format only has a 24 hour format, both 

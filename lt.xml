@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="2.0"/>
+		<generation date="2003-09-08" />
+		<language type="lt" /> 
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="lt">Lietuvių</language>
+		</languages>
+		<territories>
+			<territory type="LT">Lietuva</territory>
+		</territories>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[a-z ą ę į ų ė ū č š ž]</exemplarCharacters>
+	</characters>
+	<dates>
+		<localizedPatternChars>GanjkHmsSEDFwWxhKzAe</localizedPatternChars>
+		<calendars>
+			<calendar type="gregorian">
+				<monthNames>
+					<month type="1">sausio</month>
+					<month type="2">vasario</month>
+					<month type="3">kovo</month>
+					<month type="4">balandžio</month>
+					<month type="5">gegužės</month>
+					<month type="6">birželio</month>
+					<month type="7">liepos</month>
+					<month type="8">rugpjūčio</month>
+					<month type="9">rugsėjo</month>
+					<month type="10">spalio</month>
+					<month type="11">lapkričio</month>
+					<month type="12">gruodžio</month>
+				</monthNames>
+				<monthAbbr>
+					<month type="1">sau</month>
+					<month type="2">vas</month>
+					<month type="3">kov</month>
+					<month type="4">bal</month>
+					<month type="5">geg</month>
+					<month type="6">bir</month>
+					<month type="7">lie</month>
+					<month type="8">rgp</month>
+					<month type="9">rgs</month>
+					<month type="10">spa</month>
+					<month type="11">lap</month>
+					<month type="12">grd</month>
+				</monthAbbr>
+				<dayNames>
+					<day type="sun">sekmadienis</day>
+					<day type="mon">pirmadienis</day>
+					<day type="tue">antradienis</day>
+					<day type="wed">trečiadienis</day>
+					<day type="thu">ketvirtadienis</day>
+					<day type="fri">penktadienis</day>
+					<day type="sat">šeštadienis</day>
+				</dayNames>
+				<dayAbbr>
+					<day type="sun">sk</day>
+					<day type="mon">pr</day>
+					<day type="tue">an</day>
+					<day type="wed">tr</day>
+					<day type="thu">kt</day>
+					<day type="fri">pn</day>
+					<day type="sat">št</day>
+				</dayAbbr>
+				<week>
+					<minDays count="1"/>
+					<firstDay day="mon"/>
+				</week>
+				<eras>
+					<eraAbbr>
+						<era type="1">pr.Kr.</era>
+						<era type="2">po.Kr.</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>yyyy 'm.' MMMM d 'd.',EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>yyyy 'm.' MMMM d 'd.'</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>yyyy.M.d</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>yyyy.M.d</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<currencies>
+			<currency type="LTL">
+				<displayName>LTL</displayName>
+				<symbol>Lt</symbol>
+			</currency>
+		</currencies>
+	</numbers>
+	<collations version="3.1.1">
+		<collation  >
+			<settings backwards="on"  />
+			<rules>
+				<reset>C</reset>
+				<p>č</p>
+				<t>Č</t>
+				<reset>I</reset>
+				<s>y</s>
+				<i>ı</i>
+				<t>Y</t>
+				<i>İ</i>
+				<reset>S</reset>
+				<p>š</p>
+				<t>Š</t>
+				<reset>X</reset>
+				<p>ý</p>
+				<t>Ý</t>
+				<p>ŷ</p>
+				<t>Ŷ</t>
+				<p>ÿ</p>
+				<t>Ÿ</t>
+				<reset>Z</reset>
+				<p>ž</p>
+			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
+		</collation  >
+	</collations >
+</ldml>

@@ -80,3 +80,6 @@ $(COLLATION_SYNTHETIC_PATHS) $(COLSRCDIR)/colfiles.mk: $(L)/icu/deprecatedList.x
 locales.tgz:
 	tar cvfpz $@ locales/resfiles.mk locales/*.txt coll/colfiles.mk coll/*.txt
 
+cldr-locale-txt: $(GENRB_PATHS)
+
+cldr-collation-txt: $(COLLATION_PATHS)

@@ -16,11 +16,11 @@ Common Locale Data Repository. It is intended to clarify the meaning of some of
 the data in the CLDR for localizers and other people reading the CLDR comparison
 charts.</p>
 <p>The formats are described in the LDML <a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm">specification</a>;
-in addition, there is a link at the top of the page to the ICU locale explorer,
-where the results of different formats can be viewed. Note that some fields are
-expected to be in English, since they indicate internal IDs and <i>not</i>
-translated text, such as the layout orientation, which has the value
-&quot;top-to-bottom&quot;.</p>
+in addition, there is a link at the top of the page to the <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">ICU
+locale explorer</a>, where the results of different formats can be viewed. Note
+that some fields are expected to be in English, since they indicate internal IDs
+and <i>not</i> translated text, such as the layout orientation, which has the
+value &quot;top-to-bottom&quot;.</p>
 <p>This document is fairly rough at this point, and needs quite a bit of work.
 However, we felt it worth posting to help answer common questions about the
 format.</p>
@@ -191,61 +191,121 @@ format.</p>
   <p>These characters are replaced with the appropriate values when a date or
   time is being formatted.</p>
   <p>Characters may be used multiple times. For example, if y is used for the
-  year, 'yy' might produce '99', whereas 'yyyy' produces '1999'.</p>
-  <p>For most numerical characters, the number of characters specifies the field
-  width. For example, if h is the hour, 'h' might produce '5', but 'hh' produces
-  '05'. For some characters, the count specifies whether an abbreviated or full
-  form should be used.</p>
+  year, 'yy' might produce '99', whereas 'yyyy' produces '1999'. For most
+  numerical characters, the number of characters specifies the field width. For
+  example, if h is the hour, 'h' might produce '5', but 'hh' produces '05'. For
+  some characters, the count specifies whether an abbreviated or full form
+  should be used.</p>
   <p><b>Note:</b> In the following list, the default (English) form is used as
   an example, but see the actual locale for the correct characters!</p>
+  <table border="1" width="100%" cellspacing="0" cellpadding="2">
+    <tr>
+      <td>Sym.</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td><tt>G</tt></td>
+      <td>Era - Replaced with the <a href="#Era">Era</a> string for the current
+        date.</td>
+    </tr>
+    <tr>
+      <td><tt>y</tt> </td>
+      <td>Year - Use two for the short year, or 4 for the full year</td>
+    </tr>
+    <tr>
+      <td><tt>M</tt> </td>
+      <td>Month - Use one or two for the numerical month, three for the
+        abbreviation, or four for the full name.</td>
+    </tr>
+    <tr>
+      <td><tt>d</tt> </td>
+      <td>Date - Day of the month. Use one or two for zero padding.</td>
+    </tr>
+    <tr>
+      <td><tt>h</tt> </td>
+      <td>Hour [1-12]. Use one or two for zero padding.</td>
+    </tr>
+    <tr>
+      <td><tt>H</tt> </td>
+      <td>Hour [0-23]. Use one or two for zero padding.</td>
+    </tr>
+    <tr>
+      <td><tt>K</tt> </td>
+      <td>Hour [0-11]. Use one or two for zero padding.</td>
+    </tr>
+    <tr>
+      <td><tt>k</tt> </td>
+      <td>Hour [1-24]. Use one or two for zero padding.</td>
+    </tr>
+    <tr>
+      <td><tt>m</tt> </td>
+      <td>Minute. Use one or two for zero padding.</td>
+    </tr>
+    <tr>
+      <td><tt>s</tt> </td>
+      <td>Second. Use one or two for zero padding.</td>
+    </tr>
+    <tr>
+      <td><tt>S</tt> </td>
+      <td>Millisecond - Use 1,2, or 3. shows the most significant digits.</td>
+    </tr>
+    <tr>
+      <td><tt>a</tt> </td>
+      <td>AM or PM</td>
+    </tr>
+    <tr>
+      <td><tt>E</tt> </td>
+      <td>Day of week - Use three for the short day, or four for the full name.</td>
+    </tr>
+    <tr>
+      <td><tt>D</tt> </td>
+      <td>Day of year - Use 1-3</td>
+    </tr>
+    <tr>
+      <td><tt>F</tt> </td>
+      <td>Day of Week in Month- use one.</td>
+    </tr>
+    <tr>
+      <td><tt>w</tt> </td>
+      <td>Week of Year. Use one or two for zero padding.</td>
+    </tr>
+    <tr>
+      <td><tt>W</tt> </td>
+      <td>Week of Month - use 1</td>
+    </tr>
+    <tr>
+      <td><tt>z</tt> </td>
+      <td>Timezone. Use 3 for the short timezone (i.e. PST) or 4 for the full
+        name (Pacific Standard Time). If there's no name for the zone, it'll
+        show up as GMT+/-hh:mm.</td>
+    </tr>
+    <tr>
+      <td><tt>A</tt> </td>
+      <td>Year (of &quot;Week of Year&quot;). [May differ from Calendar year,
+        see comments under 'Week of Year', above.]</td>
+    </tr>
+    <tr>
+      <td><tt>e</tt> </td>
+      <td>Timezone. Use 3 for the short timezone (i.e. PST) or 4 for the full
+        name (Pacific Standard Time). If there's no name for the zone, it'll
+        show up as GMT+/-hh:mm.</td>
+    </tr>
+  </table>
+  <p>For more information, see <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>.</p>
 </blockquote>
+<h3>Week of Year</h3>
 <ul>
-  <li><tt>G</tt> Era - Replaced with the <a href="#Era">Era</a> string for the
-    current date.
-  <li><tt>y</tt> Year - Use two for the short year, or 4 for the full year
-  <li><tt>M</tt> Month - Use one or two for the numerical month, three for the
-    abbreviation, or four for the full name.
-  <li><tt>d</tt> Date - Day of the month. Use one, or two for zero padding.
-  <li><tt>k</tt> Hour of day 1 [Midnight appears as '24']
-  <li><tt>H</tt> Hour of day 0 [0-23]
-  <li><tt>m</tt> Minute - Use one or two
-  <li><tt>s</tt> Second - use one or two
-  <li><tt>S</tt> Millisecond - Use 1,2, or 3.. shows the MOST significant
-    digits.
-  <li><tt>E</tt> Day of week - Use three for the short day, or four for the full
-    name.
-  <li><tt>D</tt> Day of year - Use 1-3
-  <li><tt>F</tt> Day of Week in Month- use one. This is 1 for the first day of
-    the week, etc..
-  <li><tt>w</tt> Week of Year - use 1 or 2.
-    <ul>
-      <font size="-1">&quot;Values calculated for the WEEK_OF_YEAR field range
-      from 1 to 53. Week 1 for a year is the first week that contains at least
-      getMinimalDaysInFirstWeek() days from that year. It depends on the values
-      of getMinimalDaysInFirstWeek(), getFirstDayOfWeek(), and the day of the
-      week of January 1. Weeks between week 1 of one year and week 1 of the
-      following year are numbered sequentially from 2 to 52 or 53 (if needed).
-      For example, January 1, 1998 was a Thursday. If getFirstDayOfWeek() is
-      MONDAY and getMinimalDaysInFirstWeek() is 4 (these are the values
-      reflecting ISO 8601 and many national standards), then week 1 of 1998
-      starts on December 29, 1997, and ends on January 4, 1998. However, if
-      getFirstDayOfWeek() is SUNDAY, then week 1 of 1998 starts on January 4,
-      1998, and ends on January 10, 1998. The first three days of 1998 are then
-      part of week 53 of 1997.&quot; (from <a href="http://oss.software.ibm.com/icu/userguide/dateCalendar.html#cal">ICU
-      User's Guide</a>)</font>
-    </ul>
-  <li><tt>W</tt> Week of month - use 1
-  <li><tt>a</tt> AM or PM
-  <li><tt>h</tt> Hour 1 - Noon and Midnight show up as &quot;12&quot;
-  <li><tt>K</tt> Hour 0 - [0-11]
-  <li><tt>z</tt> Timezone. Use 3 for the short timezone (i.e. PST) or 4 for the
-    full name (Pacific Standard Time). If there's no name for the zone, it'll
-    show up as GMT+/-hh:mm.
-  <li><tt>A</tt> Year (of &quot;Week of Year&quot;). [May differ from Calendar
-    year, see comments under 'Week of Year', above.]
-  <li><tt>e</tt> Timezone. Use 3 for the short timezone (i.e. PST) or 4 for the
-    full name (Pacific Standard Time). If there's no name for the zone, it'll
-    show up as GMT+/-hh:mm.</li>
+  Values calculated for the Week of Year field range from 1 to 53. Week 1 for a
+  year is the first week of that year that contains at least the minimum days in
+  a week days. Weeks between week 1 of one year and week 1 of the following year
+  are numbered sequentially from 2 to 52 or 53 (if needed). For example, January
+  1, 1998 was a Thursday. If the first day of the week is MONDAY and the minimum
+  days in a week is 4 (these are the values reflecting ISO 8601 and many
+  national standards), then week 1 of 1998 starts on December 29, 1997, and ends
+  on January 4, 1998. However, if the first day of the week is SUNDAY, then week
+  1 of 1998 starts on January 4, 1998, and ends on January 10, 1998. The first
+  three days of 1998 are then part of week 53 of 1997.
+  <p>Values are similarly calculated for the Week of Month.</p>
 </ul>
 <h3>BIDI Ordering</h3>
 <blockquote>

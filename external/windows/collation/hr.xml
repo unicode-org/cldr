@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-12-13" />
+		<language type="hr" /> 
+		<variant type="COLLATION" /> 
+	</identity>
+	<collations version="3.1.1">
+		<collation type="standard" >
+			<base>
+				<alias url="en"/>
+			</base>
+			<rules>
+				<reset>â±</reset>
+				<sc>ÌŒÌ†</sc>
+				<reset>ï¼£</reset>
+				<s>Æˆ</s>
+				<t>Æ‡</t>
+				<sc>É”É•Æ†Ê—</sc>
+				<p>Ä</p>
+				<t>ÄŒ</t>
+				<p>Ä‡</p>
+				<t>Ä†</t>
+				<reset>DÃ°</reset>
+				<s>Ê¤</s>
+				<reset>Ê¥</reset>
+				<p>dÅ¾</p>
+				<i>Ç†</i>
+				<t>DÅ¾</t>
+				<i>Ç…</i>
+				<t>DÅ½</t>
+				<i>Ç„</i>
+				<p>Ä‘</p>
+				<t>Ä</t>
+				<reset>Ë¡</reset>
+				<p>lj</p>
+				<i>Ç‰</i>
+				<t>Lj</t>
+				<i>Çˆ</i>
+				<t>LJ</t>
+				<i>Ç‡</i>
+				<reset>ï¼®</reset>
+				<p>nj</p>
+				<i>ÇŒ</i>
+				<t>Nj</t>
+				<i>Ç‹</i>
+				<t>NJ</t>
+				<i>ÇŠ</i>
+				<reset>ï¼³</reset>
+				<sc>Ê‚Æ©Ë¢ÆªÆ¨</sc>
+				<t>Æ§</t>
+				<reset>ï¬…</reset>
+				<p>Å¡</p>
+				<t>Å </t>
+				<reset>ï¼º</reset>
+				<s>Æ¶</s>
+				<t>Æµ</t>
+				<sc>ÊÊ‘</sc>
+				<reset>Æ¸</reset>
+				<p>Å¾</p>
+			</rules>
+		</collation  >
+	</collations >
+</ldml>

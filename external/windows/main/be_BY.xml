@@ -1,87 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:06:53 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="BY" />
-		<correspondsTo vendor="0423">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">Студзень</month>
-				<month id="2">Люты</month>
-				<month id="3">Сакавік</month>
-				<month id="4">Красавік</month>
-				<month id="5">Май</month>
-				<month id="6">Чэрвень</month>
-				<month id="7">Ліпень</month>
-				<month id="8">Жнівень</month>
-				<month id="9">Верасень</month>
-				<month id="10">Кастрычнік</month>
-				<month id="11">Лістапад</month>
-				<month id="12">Снежань</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">нядзеля </day>
-				<day id="2">панядзелак </day>
-				<day id="3">аўторак </day>
-				<day id="4">серада </day>
-				<day id="5">чацвер </day>
-				<day id="6">пятніца </day>
-				<day id="7">субота </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">нд </day>
-				<day id="2">пн </day>
-				<day id="3">аў </day>
-				<day id="4">ср </day>
-				<day id="5">чц </day>
-				<day id="6">пт </day>
-				<day id="7">сб </day>
-			</dayAbbr>
-			<am></am><pm></pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>H:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>d MMMM yyyy</full>
-					<long></long>
-					<medium></medium>
-					<short>dd.MM.yyyy</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="BYB" default="true">
-			<symbol>р.</symbol>
-			<name>BYB</name>
-			<decimal>,</decimal>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="be"></language>
+		<territory type="BLR">BY</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">Студзень</month>
+						<month type="2">Люты</month>
+						<month type="3">Сакавік</month>
+						<month type="4">Красавік</month>
+						<month type="5">Май</month>
+						<month type="6">Чэрвень</month>
+						<month type="7">Ліпень</month>
+						<month type="8">Жнівень</month>
+						<month type="9">Верасень</month>
+						<month type="10">Кастрычнік</month>
+						<month type="11">Лістапад</month>
+						<month type="12">Снежань</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">нядзеля</day>
+						<day type="mon">панядзелак</day>
+						<day type="tue">аўторак</day>
+						<day type="wed">серада</day>
+						<day type="thu">чацвер</day>
+						<day type="fri">пятніца</day>
+						<day type="sat">субота</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">нд</day>
+						<day type="mon">пн</day>
+						<day type="tue">аў</day>
+						<day type="wed">ср</day>
+						<day type="thu">чц</day>
+						<day type="fri">пт</day>
+						<day type="sat">сб</day>
+					</dayAbbr>
+					<am></am>
+					<pm></pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>d MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>dd.MM.yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="BYB"/>
+				<currency type="BYB">
+					<symbol>р.</symbol>
+					<displayName>BYB</displayName>
+					<decimal>,</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

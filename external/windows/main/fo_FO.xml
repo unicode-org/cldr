@@ -1,87 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:06:58 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="FO" />
-		<correspondsTo vendor="0438">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">januar</month>
-				<month id="2">februar</month>
-				<month id="3">mars</month>
-				<month id="4">apríl</month>
-				<month id="5">mai</month>
-				<month id="6">juni</month>
-				<month id="7">juli</month>
-				<month id="8">august</month>
-				<month id="9">september</month>
-				<month id="10">oktober</month>
-				<month id="11">november</month>
-				<month id="12">desember</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">sunnudagur </day>
-				<day id="2">mánadagur </day>
-				<day id="3">týsdagur </day>
-				<day id="4">mikudagur </day>
-				<day id="5">hósdagur </day>
-				<day id="6">fríggjadagur </day>
-				<day id="7">leygardagur </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">sun </day>
-				<day id="2">mán </day>
-				<day id="3">týs </day>
-				<day id="4">mik </day>
-				<day id="5">hós </day>
-				<day id="6">frí </day>
-				<day id="7">leyg </day>
-			</dayAbbr>
-			<am></am><pm></pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>HH.mm.ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>d. MMMM yyyy</full>
-					<long></long>
-					<medium></medium>
-					<short>dd-MM-yyyy</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="DKK" default="true">
-			<symbol>kr</symbol>
-			<name>DKK</name>
-			<decimal>,</decimal>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="fo"></language>
+		<territory type="FRO">FO</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">januar</month>
+						<month type="2">februar</month>
+						<month type="3">mars</month>
+						<month type="4">apríl</month>
+						<month type="5">mai</month>
+						<month type="6">juni</month>
+						<month type="7">juli</month>
+						<month type="8">august</month>
+						<month type="9">september</month>
+						<month type="10">oktober</month>
+						<month type="11">november</month>
+						<month type="12">desember</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">sunnudagur</day>
+						<day type="mon">mánadagur</day>
+						<day type="tue">týsdagur</day>
+						<day type="wed">mikudagur</day>
+						<day type="thu">hósdagur</day>
+						<day type="fri">fríggjadagur</day>
+						<day type="sat">leygardagur</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">sun</day>
+						<day type="mon">mán</day>
+						<day type="tue">týs</day>
+						<day type="wed">mik</day>
+						<day type="thu">hós</day>
+						<day type="fri">frí</day>
+						<day type="sat">leyg</day>
+					</dayAbbr>
+					<am></am>
+					<pm></pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>d. MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>dd-MM-yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>HH.mm.ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="DKK"/>
+				<currency type="DKK">
+					<symbol>kr</symbol>
+					<displayName>DKK</displayName>
+					<decimal>,</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

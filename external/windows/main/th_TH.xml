@@ -1,88 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:07:04 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="TH" />
-		<correspondsTo vendor="041E">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">มกราคม</month>
-				<month id="2">กุมภาพันธ์</month>
-				<month id="3">มีนาคม</month>
-				<month id="4">เมษายน</month>
-				<month id="5">พฤษภาคม</month>
-				<month id="6">มิถุนายน</month>
-				<month id="7">กรกฎาคม</month>
-				<month id="8">สิงหาคม</month>
-				<month id="9">กันยายน</month>
-				<month id="10">ตุลาคม</month>
-				<month id="11">พฤศจิกายน</month>
-				<month id="12">ธันวาคม</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">อาทิตย์ </day>
-				<day id="2">จันทร์ </day>
-				<day id="3">อังคาร </day>
-				<day id="4">พุธ </day>
-				<day id="5">พฤหัสบดี </day>
-				<day id="6">ศุกร์ </day>
-				<day id="7">เสาร์ </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">อา. </day>
-				<day id="2">จ. </day>
-				<day id="3">อ. </day>
-				<day id="4">พ. </day>
-				<day id="5">พฤ. </day>
-				<day id="6">ศ. </day>
-				<day id="7">ส. </day>
-			</dayAbbr>
-			<am>AM</am><pm>PM</pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>H:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>d MMMM yyyy</full>
-					<long></long>
-					<medium></medium>
-					<short>d/M/yyyy</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="THB" default="true">
-			<symbol>฿</symbol>
-			<name>THB</name>
-			<decimal>.</decimal>
-			<pattern>¤#,##0.00;¤-#,##0.00</pattern>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="th"></language>
+		<territory type="THA">TH</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">มกราคม</month>
+						<month type="2">กุมภาพันธ์</month>
+						<month type="3">มีนาคม</month>
+						<month type="4">เมษายน</month>
+						<month type="5">พฤษภาคม</month>
+						<month type="6">มิถุนายน</month>
+						<month type="7">กรกฎาคม</month>
+						<month type="8">สิงหาคม</month>
+						<month type="9">กันยายน</month>
+						<month type="10">ตุลาคม</month>
+						<month type="11">พฤศจิกายน</month>
+						<month type="12">ธันวาคม</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">อาทิตย์</day>
+						<day type="mon">จันทร์</day>
+						<day type="tue">อังคาร</day>
+						<day type="wed">พุธ</day>
+						<day type="thu">พฤหัสบดี</day>
+						<day type="fri">ศุกร์</day>
+						<day type="sat">เสาร์</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">อา.</day>
+						<day type="mon">จ.</day>
+						<day type="tue">อ.</day>
+						<day type="wed">พ.</day>
+						<day type="thu">พฤ.</day>
+						<day type="fri">ศ.</day>
+						<day type="sat">ส.</day>
+					</dayAbbr>
+					<am>AM</am>
+					<pm>PM</pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>d MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>d/M/yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="THB"/>
+				<currency type="THB">
+					<symbol>฿</symbol>
+					<displayName>THB</displayName>
+					<decimal>.</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

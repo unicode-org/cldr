@@ -1,87 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:06:53 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="AZ" />
-		<correspondsTo vendor="042C">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">Yanvar</month>
-				<month id="2">Fevral</month>
-				<month id="3">Mart</month>
-				<month id="4">Aprel</month>
-				<month id="5">May</month>
-				<month id="6">İyun</month>
-				<month id="7">İyul</month>
-				<month id="8">Avgust</month>
-				<month id="9">Sentyabr</month>
-				<month id="10">Oktyabr</month>
-				<month id="11">Noyabr</month>
-				<month id="12">Dekabr</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">Bazar </day>
-				<day id="2">Bazar ertəsi </day>
-				<day id="3">Çərşənbə axşamı </day>
-				<day id="4">Çərşənbə </day>
-				<day id="5">Cçmə axşamı </day>
-				<day id="6">Cçmə </day>
-				<day id="7">Şənbə </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">B </day>
-				<day id="2">Be </day>
-				<day id="3">Ça </day>
-				<day id="4">Ç </day>
-				<day id="5">Ca </day>
-				<day id="6">C </day>
-				<day id="7">Ş </day>
-			</dayAbbr>
-			<am></am><pm></pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>H:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>d MMMM yyyy</full>
-					<long></long>
-					<medium></medium>
-					<short>dd.MM.yyyy</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="AZM" default="true">
-			<symbol>man.</symbol>
-			<name>AZM</name>
-			<decimal>,</decimal>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="az"></language>
+		<territory type="AZE">AZ</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">Yanvar</month>
+						<month type="2">Fevral</month>
+						<month type="3">Mart</month>
+						<month type="4">Aprel</month>
+						<month type="5">May</month>
+						<month type="6">İyun</month>
+						<month type="7">İyul</month>
+						<month type="8">Avgust</month>
+						<month type="9">Sentyabr</month>
+						<month type="10">Oktyabr</month>
+						<month type="11">Noyabr</month>
+						<month type="12">Dekabr</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">Bazar</day>
+						<day type="mon">Bazar ertəsi</day>
+						<day type="tue">Çərşənbə axşamı</day>
+						<day type="wed">Çərşənbə</day>
+						<day type="thu">Cçmə axşamı</day>
+						<day type="fri">Cçmə</day>
+						<day type="sat">Şənbə</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">B</day>
+						<day type="mon">Be</day>
+						<day type="tue">Ça</day>
+						<day type="wed">Ç</day>
+						<day type="thu">Ca</day>
+						<day type="fri">C</day>
+						<day type="sat">Ş</day>
+					</dayAbbr>
+					<am></am>
+					<pm></pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>d MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>dd.MM.yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="AZM"/>
+				<currency type="AZM">
+					<symbol>man.</symbol>
+					<displayName>AZM</displayName>
+					<decimal>,</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

@@ -1,87 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:06:54 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="AT" />
-		<correspondsTo vendor="0C07">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">Jänner</month>
-				<month id="2">Februar</month>
-				<month id="3">März</month>
-				<month id="4">April</month>
-				<month id="5">Mai</month>
-				<month id="6">Juni</month>
-				<month id="7">Juli</month>
-				<month id="8">August</month>
-				<month id="9">September</month>
-				<month id="10">Oktober</month>
-				<month id="11">November</month>
-				<month id="12">Dezember</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">Sonntag </day>
-				<day id="2">Montag </day>
-				<day id="3">Dienstag </day>
-				<day id="4">Mittwoch </day>
-				<day id="5">Donnerstag </day>
-				<day id="6">Freitag </day>
-				<day id="7">Samstag </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">So </day>
-				<day id="2">Mo </day>
-				<day id="3">Di </day>
-				<day id="4">Mi </day>
-				<day id="5">Do </day>
-				<day id="6">Fr </day>
-				<day id="7">Sa </day>
-			</dayAbbr>
-			<am></am><pm></pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>HH:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>dddd, dd. MMMM yyyy</full>
-					<long></long>
-					<medium></medium>
-					<short>dd.MM.yyyy</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="ATS" default="true">
-			<symbol>öS</symbol>
-			<name>ATS</name>
-			<decimal>,</decimal>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="de"></language>
+		<territory type="AUT">AT</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">Jänner</month>
+						<month type="2">Februar</month>
+						<month type="3">März</month>
+						<month type="4">April</month>
+						<month type="5">Mai</month>
+						<month type="6">Juni</month>
+						<month type="7">Juli</month>
+						<month type="8">August</month>
+						<month type="9">September</month>
+						<month type="10">Oktober</month>
+						<month type="11">November</month>
+						<month type="12">Dezember</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">Sonntag</day>
+						<day type="mon">Montag</day>
+						<day type="tue">Dienstag</day>
+						<day type="wed">Mittwoch</day>
+						<day type="thu">Donnerstag</day>
+						<day type="fri">Freitag</day>
+						<day type="sat">Samstag</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">So</day>
+						<day type="mon">Mo</day>
+						<day type="tue">Di</day>
+						<day type="wed">Mi</day>
+						<day type="thu">Do</day>
+						<day type="fri">Fr</day>
+						<day type="sat">Sa</day>
+					</dayAbbr>
+					<am></am>
+					<pm></pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>dddd, dd. MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>dd.MM.yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="ATS"/>
+				<currency type="ATS">
+					<symbol>öS</symbol>
+					<displayName>ATS</displayName>
+					<decimal>,</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

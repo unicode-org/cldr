@@ -1,88 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:06:51 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="ZA" />
-		<correspondsTo vendor="0436">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">Januarie</month>
-				<month id="2">Februarie</month>
-				<month id="3">Maart</month>
-				<month id="4">April</month>
-				<month id="5">Mei</month>
-				<month id="6">Junie</month>
-				<month id="7">Julie</month>
-				<month id="8">Augustus</month>
-				<month id="9">September</month>
-				<month id="10">Oktober</month>
-				<month id="11">November</month>
-				<month id="12">Desember</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">Sondag </day>
-				<day id="2">Maandag </day>
-				<day id="3">Dinsdag </day>
-				<day id="4">Woensdag </day>
-				<day id="5">Donderdag </day>
-				<day id="6">Vrydag </day>
-				<day id="7">Saterdag </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">Son </day>
-				<day id="2">Maan </day>
-				<day id="3">Dins </day>
-				<day id="4">Woen </day>
-				<day id="5">Dond </day>
-				<day id="6">Vry </day>
-				<day id="7">Sat </day>
-			</dayAbbr>
-			<am></am><pm>nm</pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>hh:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>dd MMMM yyyy</full>
-					<long></long>
-					<medium></medium>
-					<short>yyyy/MM/dd</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>6</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="ZAR" default="true">
-			<symbol>R</symbol>
-			<name>ZAR</name>
-			<decimal>.</decimal>
-			<pattern>¤#,##0.00;-¤#,##0.00</pattern>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="af"></language>
+		<territory type="ZAF">ZA</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">Januarie</month>
+						<month type="2">Februarie</month>
+						<month type="3">Maart</month>
+						<month type="4">April</month>
+						<month type="5">Mei</month>
+						<month type="6">Junie</month>
+						<month type="7">Julie</month>
+						<month type="8">Augustus</month>
+						<month type="9">September</month>
+						<month type="10">Oktober</month>
+						<month type="11">November</month>
+						<month type="12">Desember</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">Sondag</day>
+						<day type="mon">Maandag</day>
+						<day type="tue">Dinsdag</day>
+						<day type="wed">Woensdag</day>
+						<day type="thu">Donderdag</day>
+						<day type="fri">Vrydag</day>
+						<day type="sat">Saterdag</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">Son</day>
+						<day type="mon">Maan</day>
+						<day type="tue">Dins</day>
+						<day type="wed">Woen</day>
+						<day type="thu">Dond</day>
+						<day type="fri">Vry</day>
+						<day type="sat">Sat</day>
+					</dayAbbr>
+					<am></am>
+					<pm>nm</pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>dd MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>yyyy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="ZAR"/>
+				<currency type="ZAR">
+					<symbol>R</symbol>
+					<displayName>ZAR</displayName>
+					<decimal>.</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

@@ -1,87 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:07:02 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="PL" />
-		<correspondsTo vendor="0415">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">styczeń</month>
-				<month id="2">luty</month>
-				<month id="3">marzec</month>
-				<month id="4">kwiecień</month>
-				<month id="5">maj</month>
-				<month id="6">czerwiec</month>
-				<month id="7">lipiec</month>
-				<month id="8">sierpień</month>
-				<month id="9">wrzesień</month>
-				<month id="10">październik</month>
-				<month id="11">listopad</month>
-				<month id="12">grudzień</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">niedziela </day>
-				<day id="2">poniedziałek </day>
-				<day id="3">wtorek </day>
-				<day id="4">środa </day>
-				<day id="5">czwartek </day>
-				<day id="6">piątek </day>
-				<day id="7">sobota </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">N </day>
-				<day id="2">Pn </day>
-				<day id="3">Wt </day>
-				<day id="4">Śr </day>
-				<day id="5">Cz </day>
-				<day id="6">Pt </day>
-				<day id="7">So </day>
-			</dayAbbr>
-			<am></am><pm></pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>HH:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>d MMMM yyyy</full>
-					<long></long>
-					<medium></medium>
-					<short>yyyy-MM-dd</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="PLN" default="true">
-			<symbol>zł</symbol>
-			<name>PLN</name>
-			<decimal>,</decimal>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="pl"></language>
+		<territory type="POL">PL</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">styczeń</month>
+						<month type="2">luty</month>
+						<month type="3">marzec</month>
+						<month type="4">kwiecień</month>
+						<month type="5">maj</month>
+						<month type="6">czerwiec</month>
+						<month type="7">lipiec</month>
+						<month type="8">sierpień</month>
+						<month type="9">wrzesień</month>
+						<month type="10">październik</month>
+						<month type="11">listopad</month>
+						<month type="12">grudzień</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">niedziela</day>
+						<day type="mon">poniedziałek</day>
+						<day type="tue">wtorek</day>
+						<day type="wed">środa</day>
+						<day type="thu">czwartek</day>
+						<day type="fri">piątek</day>
+						<day type="sat">sobota</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">N</day>
+						<day type="mon">Pn</day>
+						<day type="tue">Wt</day>
+						<day type="wed">Śr</day>
+						<day type="thu">Cz</day>
+						<day type="fri">Pt</day>
+						<day type="sat">So</day>
+					</dayAbbr>
+					<am></am>
+					<pm></pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>d MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>yyyy-MM-dd</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="PLN"/>
+				<currency type="PLN">
+					<symbol>zł</symbol>
+					<displayName>PLN</displayName>
+					<decimal>,</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

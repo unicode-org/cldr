@@ -1,87 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:07:01 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="MK" />
-		<correspondsTo vendor="042F">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">јануари</month>
-				<month id="2">февруари</month>
-				<month id="3">март</month>
-				<month id="4">април</month>
-				<month id="5">мај</month>
-				<month id="6">јуни</month>
-				<month id="7">јули</month>
-				<month id="8">август</month>
-				<month id="9">септември</month>
-				<month id="10">октомври</month>
-				<month id="11">ноември</month>
-				<month id="12">декември</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">недела </day>
-				<day id="2">понеделник </day>
-				<day id="3">вторник </day>
-				<day id="4">среда </day>
-				<day id="5">четврток </day>
-				<day id="6">петок </day>
-				<day id="7">сабота </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">нед </day>
-				<day id="2">пон </day>
-				<day id="3">втр </day>
-				<day id="4">срд </day>
-				<day id="5">чет </day>
-				<day id="6">пет </day>
-				<day id="7">саб </day>
-			</dayAbbr>
-			<am></am><pm></pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>HH:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>dddd, dd MMMM yyyy</full>
-					<long></long>
-					<medium></medium>
-					<short>dd.MM.yyyy</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="MKD" default="true">
-			<symbol>ден.</symbol>
-			<name>MKD</name>
-			<decimal>,</decimal>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="mk"></language>
+		<territory type="MKD">MK</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">јануари</month>
+						<month type="2">февруари</month>
+						<month type="3">март</month>
+						<month type="4">април</month>
+						<month type="5">мај</month>
+						<month type="6">јуни</month>
+						<month type="7">јули</month>
+						<month type="8">август</month>
+						<month type="9">септември</month>
+						<month type="10">октомври</month>
+						<month type="11">ноември</month>
+						<month type="12">декември</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">недела</day>
+						<day type="mon">понеделник</day>
+						<day type="tue">вторник</day>
+						<day type="wed">среда</day>
+						<day type="thu">четврток</day>
+						<day type="fri">петок</day>
+						<day type="sat">сабота</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">нед</day>
+						<day type="mon">пон</day>
+						<day type="tue">втр</day>
+						<day type="wed">срд</day>
+						<day type="thu">чет</day>
+						<day type="fri">пет</day>
+						<day type="sat">саб</day>
+					</dayAbbr>
+					<am></am>
+					<pm></pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>dddd, dd MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>dd.MM.yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="MKD"/>
+				<currency type="MKD">
+					<symbol>ден.</symbol>
+					<displayName>MKD</displayName>
+					<decimal>,</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

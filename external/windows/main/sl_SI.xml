@@ -1,87 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:07:03 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="SI" />
-		<correspondsTo vendor="0424">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">januar</month>
-				<month id="2">februar</month>
-				<month id="3">marec</month>
-				<month id="4">april</month>
-				<month id="5">maj</month>
-				<month id="6">junij</month>
-				<month id="7">julij</month>
-				<month id="8">avgust</month>
-				<month id="9">september</month>
-				<month id="10">oktober</month>
-				<month id="11">november</month>
-				<month id="12">december</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">nedelja </day>
-				<day id="2">ponedeljek </day>
-				<day id="3">torek </day>
-				<day id="4">sreda </day>
-				<day id="5">četrtek </day>
-				<day id="6">petek </day>
-				<day id="7">sobota </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">ned </day>
-				<day id="2">pon </day>
-				<day id="3">tor </day>
-				<day id="4">sre </day>
-				<day id="5">čet </day>
-				<day id="6">pet </day>
-				<day id="7">sob </day>
-			</dayAbbr>
-			<am></am><pm></pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>H:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>d. MMMM yyyy</full>
-					<long></long>
-					<medium></medium>
-					<short>d.M.yyyy</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="SIT" default="true">
-			<symbol>SIT</symbol>
-			<name>SIT</name>
-			<decimal>,</decimal>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="sl"></language>
+		<territory type="SVN">SI</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">januar</month>
+						<month type="2">februar</month>
+						<month type="3">marec</month>
+						<month type="4">april</month>
+						<month type="5">maj</month>
+						<month type="6">junij</month>
+						<month type="7">julij</month>
+						<month type="8">avgust</month>
+						<month type="9">september</month>
+						<month type="10">oktober</month>
+						<month type="11">november</month>
+						<month type="12">december</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">nedelja</day>
+						<day type="mon">ponedeljek</day>
+						<day type="tue">torek</day>
+						<day type="wed">sreda</day>
+						<day type="thu">četrtek</day>
+						<day type="fri">petek</day>
+						<day type="sat">sobota</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">ned</day>
+						<day type="mon">pon</day>
+						<day type="tue">tor</day>
+						<day type="wed">sre</day>
+						<day type="thu">čet</day>
+						<day type="fri">pet</day>
+						<day type="sat">sob</day>
+					</dayAbbr>
+					<am></am>
+					<pm></pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>d. MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>d.M.yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="SIT"/>
+				<currency type="SIT">
+					<symbol>SIT</symbol>
+					<displayName>SIT</displayName>
+					<decimal>,</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

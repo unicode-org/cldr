@@ -1,87 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:07:01 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="LV" />
-		<correspondsTo vendor="0426">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">janvāris</month>
-				<month id="2">februāris</month>
-				<month id="3">marts</month>
-				<month id="4">aprīlis</month>
-				<month id="5">maijs</month>
-				<month id="6">jūnijs</month>
-				<month id="7">jūlijs</month>
-				<month id="8">augusts</month>
-				<month id="9">septembris</month>
-				<month id="10">oktobris</month>
-				<month id="11">novembris</month>
-				<month id="12">decembris</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">svētdiena </day>
-				<day id="2">pirmdiena </day>
-				<day id="3">otrdiena </day>
-				<day id="4">trešdiena </day>
-				<day id="5">ceturtdiena </day>
-				<day id="6">piektdiena </day>
-				<day id="7">sestdiena </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">Sv </day>
-				<day id="2">Pr </day>
-				<day id="3">Ot </day>
-				<day id="4">Tr </day>
-				<day id="5">Ce </day>
-				<day id="6">Pk </day>
-				<day id="7">Se </day>
-			</dayAbbr>
-			<am></am><pm></pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>H:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>dddd, yyyy'. gada 'd. MMMM</full>
-					<long></long>
-					<medium></medium>
-					<short>yyyy.MM.dd.</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="LVL" default="true">
-			<symbol>Ls</symbol>
-			<name>LVL</name>
-			<decimal>,</decimal>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="lv"></language>
+		<territory type="LVA">LV</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">janvāris</month>
+						<month type="2">februāris</month>
+						<month type="3">marts</month>
+						<month type="4">aprīlis</month>
+						<month type="5">maijs</month>
+						<month type="6">jūnijs</month>
+						<month type="7">jūlijs</month>
+						<month type="8">augusts</month>
+						<month type="9">septembris</month>
+						<month type="10">oktobris</month>
+						<month type="11">novembris</month>
+						<month type="12">decembris</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">svētdiena</day>
+						<day type="mon">pirmdiena</day>
+						<day type="tue">otrdiena</day>
+						<day type="wed">trešdiena</day>
+						<day type="thu">ceturtdiena</day>
+						<day type="fri">piektdiena</day>
+						<day type="sat">sestdiena</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">Sv</day>
+						<day type="mon">Pr</day>
+						<day type="tue">Ot</day>
+						<day type="wed">Tr</day>
+						<day type="thu">Ce</day>
+						<day type="fri">Pk</day>
+						<day type="sat">Se</day>
+					</dayAbbr>
+					<am></am>
+					<pm></pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>dddd, yyyy'. gada 'd. MMMM</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>yyyy.MM.dd.</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="LVL"/>
+				<currency type="LVL">
+					<symbol>Ls</symbol>
+					<displayName>LVL</displayName>
+					<decimal>,</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

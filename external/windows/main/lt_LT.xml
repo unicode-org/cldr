@@ -1,87 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:07:00 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="LT" />
-		<correspondsTo vendor="0427">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">sausis</month>
-				<month id="2">vasaris</month>
-				<month id="3">kovas</month>
-				<month id="4">balandis</month>
-				<month id="5">gegužė</month>
-				<month id="6">birželis</month>
-				<month id="7">liepa</month>
-				<month id="8">rugpjūtis</month>
-				<month id="9">rugsėjis</month>
-				<month id="10">spalis</month>
-				<month id="11">lapkritis</month>
-				<month id="12">gruodis</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">sekmadienis </day>
-				<day id="2">pirmadienis </day>
-				<day id="3">antradienis </day>
-				<day id="4">trečiadienis </day>
-				<day id="5">ketvirtadienis </day>
-				<day id="6">penktadienis </day>
-				<day id="7">šeštadienis </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">Sk </day>
-				<day id="2">Pr </day>
-				<day id="3">An </day>
-				<day id="4">Tr </day>
-				<day id="5">Kt </day>
-				<day id="6">Pn </day>
-				<day id="7">Št </day>
-			</dayAbbr>
-			<am></am><pm></pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>HH:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>yyyy 'm.' MMMM d 'd.'</full>
-					<long></long>
-					<medium></medium>
-					<short>yyyy.MM.dd</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="LTL" default="true">
-			<symbol>Lt</symbol>
-			<name>LTL</name>
-			<decimal>,</decimal>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="lt"></language>
+		<territory type="LTU">LT</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">sausis</month>
+						<month type="2">vasaris</month>
+						<month type="3">kovas</month>
+						<month type="4">balandis</month>
+						<month type="5">gegužė</month>
+						<month type="6">birželis</month>
+						<month type="7">liepa</month>
+						<month type="8">rugpjūtis</month>
+						<month type="9">rugsėjis</month>
+						<month type="10">spalis</month>
+						<month type="11">lapkritis</month>
+						<month type="12">gruodis</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">sekmadienis</day>
+						<day type="mon">pirmadienis</day>
+						<day type="tue">antradienis</day>
+						<day type="wed">trečiadienis</day>
+						<day type="thu">ketvirtadienis</day>
+						<day type="fri">penktadienis</day>
+						<day type="sat">šeštadienis</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">Sk</day>
+						<day type="mon">Pr</day>
+						<day type="tue">An</day>
+						<day type="wed">Tr</day>
+						<day type="thu">Kt</day>
+						<day type="fri">Pn</day>
+						<day type="sat">Št</day>
+					</dayAbbr>
+					<am></am>
+					<pm></pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>yyyy 'm.' MMMM d 'd.'</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>yyyy.MM.dd</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="LTL"/>
+				<currency type="LTL">
+					<symbol>Lt</symbol>
+					<displayName>LTL</displayName>
+					<decimal>,</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

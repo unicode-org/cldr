@@ -1,87 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:06:58 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="FI" />
-		<correspondsTo vendor="040B">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">tammikuu</month>
-				<month id="2">helmikuu</month>
-				<month id="3">maaliskuu</month>
-				<month id="4">huhtikuu</month>
-				<month id="5">toukokuu</month>
-				<month id="6">kesäkuu</month>
-				<month id="7">heinäkuu</month>
-				<month id="8">elokuu</month>
-				<month id="9">syyskuu</month>
-				<month id="10">lokakuu</month>
-				<month id="11">marraskuu</month>
-				<month id="12">joulukuu</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">sunnuntai </day>
-				<day id="2">maanantai </day>
-				<day id="3">tiistai </day>
-				<day id="4">keskiviikko </day>
-				<day id="5">torstai </day>
-				<day id="6">perjantai </day>
-				<day id="7">lauantai </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">su </day>
-				<day id="2">ma </day>
-				<day id="3">ti </day>
-				<day id="4">ke </day>
-				<day id="5">to </day>
-				<day id="6">pe </day>
-				<day id="7">la </day>
-			</dayAbbr>
-			<am></am><pm></pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>H:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>d. MMMM'ta 'yyyy</full>
-					<long></long>
-					<medium></medium>
-					<short>d.M.yyyy</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="FIM" default="true">
-			<symbol>mk</symbol>
-			<name>FIM</name>
-			<decimal>,</decimal>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="fi"></language>
+		<territory type="FIN">FI</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">tammikuu</month>
+						<month type="2">helmikuu</month>
+						<month type="3">maaliskuu</month>
+						<month type="4">huhtikuu</month>
+						<month type="5">toukokuu</month>
+						<month type="6">kesäkuu</month>
+						<month type="7">heinäkuu</month>
+						<month type="8">elokuu</month>
+						<month type="9">syyskuu</month>
+						<month type="10">lokakuu</month>
+						<month type="11">marraskuu</month>
+						<month type="12">joulukuu</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">sunnuntai</day>
+						<day type="mon">maanantai</day>
+						<day type="tue">tiistai</day>
+						<day type="wed">keskiviikko</day>
+						<day type="thu">torstai</day>
+						<day type="fri">perjantai</day>
+						<day type="sat">lauantai</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">su</day>
+						<day type="mon">ma</day>
+						<day type="tue">ti</day>
+						<day type="wed">ke</day>
+						<day type="thu">to</day>
+						<day type="fri">pe</day>
+						<day type="sat">la</day>
+					</dayAbbr>
+					<am></am>
+					<pm></pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>d. MMMM'ta 'yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>d.M.yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="FIM"/>
+				<currency type="FIM">
+					<symbol>mk</symbol>
+					<displayName>FIM</displayName>
+					<decimal>,</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

@@ -1,102 +1,124 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:06:59 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="CH" />
-		<correspondsTo vendor="100C">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">janvier</month>
-				<month id="2">février</month>
-				<month id="3">mars</month>
-				<month id="4">avril</month>
-				<month id="5">mai</month>
-				<month id="6">juin</month>
-				<month id="7">juillet</month>
-				<month id="8">août</month>
-				<month id="9">septembre</month>
-				<month id="10">octobre</month>
-				<month id="11">novembre</month>
-				<month id="12">décembre</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">dimanche </day>
-				<day id="2">lundi </day>
-				<day id="3">mardi </day>
-				<day id="4">mercredi </day>
-				<day id="5">jeudi </day>
-				<day id="6">vendredi </day>
-				<day id="7">samedi </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">dim. </day>
-				<day id="2">lun. </day>
-				<day id="3">mar. </day>
-				<day id="4">mer. </day>
-				<day id="5">jeu. </day>
-				<day id="6">ven. </day>
-				<day id="7">sam. </day>
-			</dayAbbr>
-			<am></am><pm></pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>HH:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>dddd, d. MMMM yyyy</full>
-					<long></long>
-					<medium></medium>
-					<short>dd.MM.yyyy</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-		<symbols>
-			<decimal>.</decimal>
-			<group>'</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>;</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
-		</symbols>
-	</numberFormat> 
-	<currencies>
-		<currency id="CHF" default="true">
-			<symbol>SFr.</symbol>
-			<name>CHF</name>
-			<decimal>.</decimal>
-			<pattern>¤ #,##0.00;¤-#,##0.00</pattern>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="fr"></language>
+		<territory type="CHE">CH</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">janvier</month>
+						<month type="2">février</month>
+						<month type="3">mars</month>
+						<month type="4">avril</month>
+						<month type="5">mai</month>
+						<month type="6">juin</month>
+						<month type="7">juillet</month>
+						<month type="8">août</month>
+						<month type="9">septembre</month>
+						<month type="10">octobre</month>
+						<month type="11">novembre</month>
+						<month type="12">décembre</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">dimanche</day>
+						<day type="mon">lundi</day>
+						<day type="tue">mardi</day>
+						<day type="wed">mercredi</day>
+						<day type="thu">jeudi</day>
+						<day type="fri">vendredi</day>
+						<day type="sat">samedi</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">dim.</day>
+						<day type="mon">lun.</day>
+						<day type="tue">mar.</day>
+						<day type="wed">mer.</day>
+						<day type="thu">jeu.</day>
+						<day type="fri">ven.</day>
+						<day type="sat">sam.</day>
+					</dayAbbr>
+					<am></am>
+					<pm></pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>dddd, d. MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>dd.MM.yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<symbols>
+				<decimal>.</decimal>
+				<group>'</group>
+				<list>;</list>
+				<percentSign>%</percentSign>
+				<nativeZeroDigit>;</nativeZeroDigit>
+				<patternDigit>#</patternDigit>
+				<plusSign>+</plusSign>
+				<minusSign>-</minusSign>
+				<exponential>E</exponential>
+				<perMille>‰</perMille>
+				<infinity>∞</infinity>
+				<nan>�</nan>
+			</symbols>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="CHF"/>
+				<currency type="CHF">
+					<symbol>SFr.</symbol>
+					<displayName>CHF</displayName>
+					<decimal>.</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

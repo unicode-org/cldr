@@ -1,87 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:06:53 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="ES" />
-		<correspondsTo vendor="0403">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">gener</month>
-				<month id="2">febrer</month>
-				<month id="3">març</month>
-				<month id="4">abril</month>
-				<month id="5">maig</month>
-				<month id="6">juny</month>
-				<month id="7">juliol</month>
-				<month id="8">agost</month>
-				<month id="9">setembre</month>
-				<month id="10">octubre</month>
-				<month id="11">novembre</month>
-				<month id="12">desembre</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">diumenge </day>
-				<day id="2">dilluns </day>
-				<day id="3">dimarts </day>
-				<day id="4">dimecres </day>
-				<day id="5">dijous </day>
-				<day id="6">divendres </day>
-				<day id="7">dissabte </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">dg. </day>
-				<day id="2">dl. </day>
-				<day id="3">dt. </day>
-				<day id="4">dc. </day>
-				<day id="5">dj. </day>
-				<day id="6">dv. </day>
-				<day id="7">ds. </day>
-			</dayAbbr>
-			<am></am><pm></pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>HH:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>dddd, d' / 'MMMM' / 'yyyy</full>
-					<long></long>
-					<medium></medium>
-					<short>dd/MM/yyyy</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="ESP" default="true">
-			<symbol>pta</symbol>
-			<name>ESP</name>
-			<decimal>,</decimal>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="ca"></language>
+		<territory type="ESP">ES</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">gener</month>
+						<month type="2">febrer</month>
+						<month type="3">març</month>
+						<month type="4">abril</month>
+						<month type="5">maig</month>
+						<month type="6">juny</month>
+						<month type="7">juliol</month>
+						<month type="8">agost</month>
+						<month type="9">setembre</month>
+						<month type="10">octubre</month>
+						<month type="11">novembre</month>
+						<month type="12">desembre</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">diumenge</day>
+						<day type="mon">dilluns</day>
+						<day type="tue">dimarts</day>
+						<day type="wed">dimecres</day>
+						<day type="thu">dijous</day>
+						<day type="fri">divendres</day>
+						<day type="sat">dissabte</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">dg.</day>
+						<day type="mon">dl.</day>
+						<day type="tue">dt.</day>
+						<day type="wed">dc.</day>
+						<day type="thu">dj.</day>
+						<day type="fri">dv.</day>
+						<day type="sat">ds.</day>
+					</dayAbbr>
+					<am></am>
+					<pm></pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>dddd, d' / 'MMMM' / 'yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>dd/MM/yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="ESP"/>
+				<currency type="ESP">
+					<symbol>pta</symbol>
+					<displayName>ESP</displayName>
+					<decimal>,</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

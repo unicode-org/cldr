@@ -1,87 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Tue Jun 11 15:06:58 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="ES" />
-		<correspondsTo vendor="042D">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">urtarrila</month>
-				<month id="2">otsaila</month>
-				<month id="3">martxoa</month>
-				<month id="4">apirila</month>
-				<month id="5">maiatza</month>
-				<month id="6">ekaina</month>
-				<month id="7">uztaila</month>
-				<month id="8">abuztua</month>
-				<month id="9">iraila</month>
-				<month id="10">urria</month>
-				<month id="11">azaroa</month>
-				<month id="12">abendua</month>
-				<month id="13"></month>
-			</monthNames>
-			<dayNames>
-				<day id="1">igandea </day>
-				<day id="2">astelehena </day>
-				<day id="3">asteartea </day>
-				<day id="4">asteazkena </day>
-				<day id="5">osteguna </day>
-				<day id="6">ostirala </day>
-				<day id="7">larunbata </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">ig. </day>
-				<day id="2">al. </day>
-				<day id="3">as. </day>
-				<day id="4">az. </day>
-				<day id="5">og. </day>
-				<day id="6">or. </day>
-				<day id="7">lr. </day>
-			</dayAbbr>
-			<am></am><pm></pm>
-			<patterns> 
-				<time>
-					<full></full>
-					<long></long>
-					<medium>HH:mm:ss</medium>
-					<short></short>
-				</time>
-				<date>
-					<full>dddd, yyyy.'eko' MMMM'k 'd</full>
-					<long></long>
-					<medium></medium>
-					<short>yyyy/MM/dd</short>
-				</date>
- 				<dateTime> </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays></minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal></decimal>
-			<percent></percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="ESP" default="true">
-			<symbol>pta</symbol>
-			<name>ESP</name>
-			<decimal>,</decimal>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="eu"></language>
+		<territory type="ESP">ES</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">urtarrila</month>
+						<month type="2">otsaila</month>
+						<month type="3">martxoa</month>
+						<month type="4">apirila</month>
+						<month type="5">maiatza</month>
+						<month type="6">ekaina</month>
+						<month type="7">uztaila</month>
+						<month type="8">abuztua</month>
+						<month type="9">iraila</month>
+						<month type="10">urria</month>
+						<month type="11">azaroa</month>
+						<month type="12">abendua</month>
+						<month type="13"></month>
+					</monthNames>
+					<dayNames>
+						<day type="sun">igandea</day>
+						<day type="mon">astelehena</day>
+						<day type="tue">asteartea</day>
+						<day type="wed">asteazkena</day>
+						<day type="thu">osteguna</day>
+						<day type="fri">ostirala</day>
+						<day type="sat">larunbata</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">ig.</day>
+						<day type="mon">al.</day>
+						<day type="tue">as.</day>
+						<day type="wed">az.</day>
+						<day type="thu">og.</day>
+						<day type="fri">or.</day>
+						<day type="sat">lr.</day>
+					</dayAbbr>
+					<am></am>
+					<pm></pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>dddd, yyyy.'eko' MMMM'k 'd</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern></pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>yyyy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern></pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+				</numberFormat>
+				<numberFormat type="currency">
+				</numberFormat>
+				<numberFormat type="percent">
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="ESP"/>
+				<currency type="ESP">
+					<symbol>pta</symbol>
+					<displayName>ESP</displayName>
+					<decimal>,</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

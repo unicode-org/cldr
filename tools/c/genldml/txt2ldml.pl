@@ -1,4 +1,4 @@
-#/usr/bin/perl
+#!/usr/bin/perl
 
 ####################################################################################
 # txt2ldml.pl:
@@ -103,7 +103,7 @@ sub getBaseLocale(){
     $baseFH = IO::File->new($basefile,"r")
             or die  "could not open the file $basefile for reading: $! \n";
     while(defined ( $line = <$baseFH>)){
-        if( $line =~ /\<$locale\>/){
+        if( $line =~ /^\<$locale\>/){
             ($loc,$bse) = split (/\>/, $line);
              $bse =~ s/^\s+\<//;
              return $bse;

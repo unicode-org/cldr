@@ -23,8 +23,9 @@ BODY{font:serif}
 
 <h1>LDML Element Validity</h1>
 <p>Mark Davis, 2004-07-25</p>
-<p>Latest: <a href="http://snjgsa.ibm.com/~marked/public/CLDR/ldmlValidity.htm">
-http://snjgsa.ibm.com/~marked/public/CLDR/ldmlValidity.htm</a> </p>
+<p>Latest:
+<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/cldr/ldmlValidity.htm">
+http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/cldr/ldmlValidity.htm</a> </p>
 <p>The following describes in more detail how to determine the validity of the data for a given 
 element in LDML. Part of this depends on the use of the attribute <i>draft</i>. If an element has 
 draft=&quot;true&quot;, then the data is explicitly not known to be valid. (&quot;Not known to be&quot; because it may 
@@ -38,28 +39,28 @@ what it is to be implicitly draft.</p>
 to an element, with attributes on each element in alphabetical order. So in, say,
 <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/el.xml">
 http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/el.xml</a> we have:</p>
-<div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+<div class="c" style="text-indent: -2em; margin-left: 1em">
   <a class="b" onfocus="h()" onclick="return false" href="#">-</a> <span class="m">&lt;</span><span class="t">ldml 
   version</span><span class="m">=&quot;</span><b>1.1</b><span class="m">&quot;&gt;</span></div>
 <div>
   <div class="e">
-    <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+    <div class="c" style="text-indent: -2em; margin-left: 1em">
       <a class="b" onfocus="h()" onclick="return false" href="#">+</a> <span class="m">&lt;</span><span class="t">identity</span><span class="m">&gt;</span></div>
-    <div style="DISPLAY: none">
+    <div style="display: none">
       <div class="e">
-        <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+        <div style="text-indent: -2em; margin-left: 1em">
           <span class="b">&nbsp;</span> <span class="m">&lt;</span><span class="t">version</span>
           <span class="t">number</span><span class="m">=&quot;</span><b>1.1</b><span class="m">&quot; /&gt;</span>
         </div>
       </div>
       <div class="e">
-        <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+        <div style="text-indent: -2em; margin-left: 1em">
           <span class="b">&nbsp;</span> <span class="m">&lt;</span><span class="t">generation</span>
           <span class="t">date</span><span class="m">=&quot;</span><b>2004-06-04</b><span class="m">&quot; /&gt;</span>
         </div>
       </div>
       <div class="e">
-        <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+        <div style="text-indent: -2em; margin-left: 1em">
           <span class="b">&nbsp;</span> <span class="m">&lt;</span><span class="t">language</span>
           <span class="t">type</span><span class="m">=&quot;</span><b>el</b><span class="m">&quot; /&gt;</span>
         </div>
@@ -69,15 +70,15 @@ http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/el.xml</a> we 
     </div>
   </div>
   <div class="e">
-    <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+    <div class="c" style="text-indent: -2em; margin-left: 1em">
       <a class="b" onfocus="h()" onclick="return false" href="#">-</a> <span class="m">&lt;</span><span class="t">localeDisplayNames</span><span class="m">&gt;</span></div>
     <div>
       <div class="e">
-        <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+        <div class="c" style="text-indent: -2em; margin-left: 1em">
           <a class="b" onfocus="h()" onclick="return false" href="#">-</a> <span class="m">&lt;</span><span class="t">languages</span><span class="m">&gt;</span></div>
         <div>
           <div class="e">
-            <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+            <div style="text-indent: -2em; margin-left: 1em">
               <span class="b">&nbsp;</span> <span class="m">&lt;</span><span class="t">language type</span><span class="m">=&quot;</span><b>ar</b><span class="m">&quot;&gt;</span><span class="tx">&#913;&#961;&#945;&#946;&#953;&#954;&#940;</span><span class="m">&lt;/</span><span class="t">language</span><span class="m">&gt;</span>
             </div>
           </div>
@@ -182,6 +183,16 @@ chain E:</p>
 </ol>
 <p>The legitimateChildren in the most specific (farthest from root file) locale file wins through 
 the full resolution step (data from more specific files replacing data from less specific ones).</p>
+<h2>Separating Trees</h2>
+<p>To separate trees, add legitimateChildren wherever necessary. That is, wherever a file is removed 
+that had existed in the main tree, any non-draft, validly inherited elements will need to have a 
+legitimateChildren value added. </p>
+<h2>Merging Trees</h2>
+<p>When merging trees, draft='true' attributes need to be added whenever the merging of the trees 
+would cause additional elements to be considered non-draft. In addition, legitimateChildren elements 
+can be removed wherever they are no longer necessary (although these are merely redundant; they will 
+have no harmful effects).</p>
+<p>&nbsp;</p>
 
 </body>
 

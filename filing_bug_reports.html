@@ -1,0 +1,78 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Filing Locale Data Bug Reports</title>
+<style>
+<!--
+table        { border-spacing: 0; border-collapse: collapse; width: 100%; 
+               border: 1px solid black }
+td, th       { width: 10%; border-spacing: 0; border-collapse: collapse; color: black; 
+               vertical-align: top; border: 1px solid black }
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h1>Filing Locale Data Bug Reports</h1>
+<p>Before filing a bug report:</p>
+<ol>
+  <li>Consult the appropriate <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/comparison_charts.html">comparison 
+    chart</a>
+    <ul>
+      <li>The purpose is to compare the data against that from other platforms.</li>
+    </ul>
+    <ul>
+      <li>Note: this is a beta version of the comparison charts; if something 
+        looks odd to you in the chart (especially in collation), it may be a 
+        known error or omission, either in data or in the generation tools. 
+        Please read <a href="http://www.openi18n.org/locale-bugs/public?findid=18">known 
+        errors and omissions</a>.</li>
+    </ul>
+  </li>
+  <li>Review the <a href="data_formats.html">Data Formats</a>, so that you are 
+    familiar with the format of the data in question.
+    <ul>
+      <li>Even for items as simple as the months of the year, there are issues 
+        of grammatical form that you should be acquainted with.</li>
+    </ul>
+  </li>
+  <li>Do not file bugs against platform data.
+    <ul>
+      <li>That data simply represents what was gathered on the platform, and is 
+        not under the control of this project.</li>
+      <li>However, you can file bugs on the <i>tools,</i> if it appears that the 
+        platform data is not being correctly gathered in XML or displayed as 
+        HTML in the comparison charts.</li>
+    </ul>
+  </li>
+</ol>
+<p>In the bug report, include the following information:</p>
+<ul>
+  <li>The specific locale.</li>
+  <li>The date the comparison chart was generated (at the bottom of the chart).</li>
+  <li>The line(s) of data that are incorrect.</li>
+  <li>If one of the other data sources is correct, then that data source, 
+    otherwise the corrected to use.</li>
+  <li>The justification for the change.</li>
+</ul>
+<p>Please group all bugs for a single locale into a single bug report, wherever 
+possible.</p>
+<p>Bugs may also be filed on the <a href="http://oss.software.ibm.com/cvs/icu/locale/common/xml/supplementalData.xml">supplemental 
+data</a>, which is only available in XML format. Note that the default currency 
+for a given country is in the supplemental data, not in the locale data. 
+Similarly, the timezones for different regions are to be derived from <a href="olson_ids.txt">Olson 
+data</a>, and are not in the locale data. The <i>localized names</i> for 
+currencies and timezones, on the other hand, will be in the locale data (if 
+available).</p>
+<p>We have tried to make the format of the comparison charts as useful as 
+possible. If you have suggestions for improvements, please also file it as a bug 
+report.</p>
+
+</body>
+
+</html>

@@ -28,16 +28,14 @@
     </td>
   </tr>
 </table>
-<p align="left">The purpose of the Common Locale Data Repository project is to:</p>
+<p align="left">On 2003.12.19, the Version 1.0 Final Candidate was made available. The CLDR Version 1.0 final release is pending approval by the OpenI18N steering committee.</p>
+<p align="left">The purpose of the Common Locale Data Repository (CLDR) project is to:</p>
 <ol>
   <li>
     <p align="left">devise a general XML format for the exchange of culturally sensitive (locale) information for use in application and system development</li>
   <li>
     <p align="left">gather, store, and make available data generated in that format</li>
 </ol>
-<p align="left">On 2003.07.02, the <a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm">specification</a> for the XML format was released. As of 2003.10.31, the Version
-1.0 Beta of the locale data was made available for public review and feedback. On 2003.12.19, the Version 1.0 Final Candidate was made available. <i>The CLDR Version 1.0 final
-release is pending approval by the OpenI18N steering committee.</i></p>
 <p align="left">CLDR 1.0 is just the first step. It provides a version of the data that can be referenced, but enhancements and fixes will come in future versions. We request that
 people continue to review the data for languages and countries that they are familiar with for the next version of CLDR, and <a href="filing_bug_reports.html">file bug reports</a>
 where they see problems.</p>
@@ -63,7 +61,17 @@ files can be divided into main/ and collation/.</p>
   sunjdk/<br>
   windows/</p>
 </blockquote>
-<p align="left"><i><b>Note:</b> the data for all but common is provided for comparison only, and is not to be viewed as authoritative or referenceable.</i></p>
+<p align="left"><i><b>Note:</b> the data for all but Common is provided for comparison only, and is not to be viewed as authoritative or referenceable.</i></p>
+<p align="left"><b>Known Issues</b></p>
+<ul>
+  <li>
+    <p align="left">The XML and HTML files generated as part of this work appear to stress the common browsers. Most of them will fail on at least some of the XML files, even
+    though we have verified the formats with the Xerxes parser. If that happens, try opening with the menu View &gt; Source, or its equivalent.</li>
+  <li>
+    <p align="left">The generated xml files are not minimal. That is, elements might be repeated that would be inherited from the parent.</li>
+  <li>
+    <p align="left">The comparison collation data is only generated for a few data sources at present.</li>
+</ul>
 <hr>
 <p>COPYRIGHT AND PERMISSION NOTICE<br>
 <br>

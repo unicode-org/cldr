@@ -38,7 +38,7 @@ public class DraftFirstTexter implements NodeSet.NodeSetTexter {
             (e.proposed != null) ) { // proposed
             return "0" + subTexter.text(e);
         } else if ((e.main == null)&&(e.fallbackLocale == null)) { // missing
-            return "1" + subTexter.text(e);
+            return "6" + subTexter.text(e);
         } else {
             return "2" + subTexter.text(e); // normal
         }

@@ -66,6 +66,28 @@ public class WebContext {
 //              System.err.println("[[ empty query string: " + x + "]]");
             res = "";   
         }
+        
+        byte asBytes[] = new byte[res.length()];
+        boolean wasHigh = false;
+        int n;
+        for(n=0;n<res.length();n++) {
+            asBytes[n] = (byte)(res.charAt(n)&0x00FF);
+            //println(" n : " + (int)asBytes[n] + " .. ");
+            if(asBytes[n]<0) {
+                wasHigh = true;
+            }
+        }
+        if(wasHigh == false) {
+            return res; // no utf-8
+        } else {
+            //println("[ trying to decode on: " + res + "]");
+        }
+        try {
+            res = new String(asBytes, "UTF-8");
+        } catch(Throwable t) {
+            return res;
+        }
+        
         return res;
     }
 // query api
@@ -95,6 +117,20 @@ public class WebContext {
             String v = outQueryMap.get(k).toString();
             println("<input type='hidden' name='" + k + "' value='" + v + "'/>");
         }
+    }
+    
+    /**
+     * return the IP of the remote user.
+     */
+    static String userIP() {
+        return cgi_lib.myGetProperty("REMOTE_ADDR");
+    }
+
+    /**
+     * return the hostname of the web server
+     */
+    String serverName() {
+        return cgi_lib.myGetProperty("SERVER_NAME");
     }
     
 // print api

@@ -22,6 +22,7 @@
             <info iso4217="KRW" digits="0" rounding="0"/>
             <info iso4217="KWD" digits="3" rounding="0"/>
             <info iso4217="LYD" digits="3" rounding="0"/>
+            <info iso4217="MGA" digits="0" rounding="0"/><!-- Is this right? -->
             <info iso4217="MGF" digits="0" rounding="0"/>
             <info iso4217="OMR" digits="3" rounding="0"/>
             <info iso4217="PYG" digits="0" rounding="0"/>
@@ -40,6 +41,7 @@ So the normal inclusive date range 07/01/1992-08/15/1994 is equal to
 
 Most of this list can be found here: 
 http://www.globalfindata.com/gh/index.html
+http://europa.eu.int/comm/translation/currencies/entable1.htm
 http://www.bsi-global.com/Technical+Information/Publications/_Publications/tig90.xalter
 http://www.bsi-global.com/ Technical+Information/Publications/_Publications/tig90x.doc
 -->
@@ -56,8 +58,7 @@ http://www.bsi-global.com/ Technical+Information/Publications/_Publications/tig9
         </region>
         <region iso3166="AF">
             <currency iso4217="AFN"/>
-<!-- ISO-4217 says AFA.
-On October 7, 2002, Afghanistan announced that it would introduce a new 
+<!-- On October 7, 2002, Afghanistan announced that it would introduce a new 
 Afghani at the rate of 1 New Afghani = 1000 Rabbini Afghani = 2000 Dostumi 
 Afghanis. -->
         </region>
@@ -120,7 +121,7 @@ Afghanis. -->
             <currency iso4217="XOF"/>
         </region>
         <region iso3166="BG">
-            <currency iso4217="BGN"/><!-- BGL 1,000 to BGN 1 -->
+            <currency iso4217="BGN"/>
             <!-- currency iso4217="BGL"/--><!-- inclusive range 01/01/1962-07/04/1999 -->
         </region>
         <region iso3166="BH">
@@ -140,7 +141,6 @@ Afghanis. -->
         </region>
         <region iso3166="BO">
             <currency iso4217="BOB"/>
-            <!--currency iso4217="BOV"/--><!-- Fund code -->
         </region>
         <region iso3166="BR">
             <currency iso4217="BRL"/>
@@ -148,7 +148,7 @@ Afghanis. -->
         <region iso3166="BS">
             <currency iso4217="BSD"/>
         </region>
-        <region iso3166="BV">
+        <region iso3166="BV"><!-- uninhabited territory of Norway -->
             <currency iso4217="NOK"/>
         </region>
         <region iso3166="BW">
@@ -194,10 +194,14 @@ Afghanis. -->
             <currency iso4217="CNY"/>
         </region>
         <region iso3166="CO">
-            <currency iso4217="COP"/>
+            <currency iso4217="COU"/>
         </region>
         <region iso3166="CR">
             <currency iso4217="CRC"/>
+        </region>
+        <region iso3166="CS">
+            <currency iso4217="CSD"/><!-- Serbia -->
+            <!--currency iso4217="EUR"/><!-- Montenegro -->
         </region>
         <region iso3166="CU">
             <currency iso4217="CUP"/>
@@ -320,6 +324,9 @@ Afghanis. -->
                 <alternate iso4217="GRD"/>
             </currency>
         </region>
+        <region iso3166="GS"><!-- UK overseas territory. No indigenous population -->
+            <currency iso4217="GBP"/>
+        </region>
         <region iso3166="GT">
             <currency iso4217="GTQ"/>
         </region>
@@ -332,7 +339,7 @@ Afghanis. -->
         <region iso3166="HK">
             <currency iso4217="HKD"/>
         </region>
-        <region iso3166="HM">
+        <region iso3166="HM"><!-- Uninhabited territory of Australia -->
             <currency iso4217="AUD"/>
         </region>
         <region iso3166="HN">
@@ -340,6 +347,9 @@ Afghanis. -->
         </region>
         <region iso3166="HR">
             <currency iso4217="HRK"/>
+        </region>
+        <region iso3166="HT">
+            <currency iso4217="HTG"/>
         </region>
         <region iso3166="HU">
             <currency iso4217="HUF"/>
@@ -358,8 +368,9 @@ Afghanis. -->
         <region iso3166="IN">
             <currency iso4217="INR"/>
         </region>
-        <region iso3166="IO">
+        <region iso3166="IO"><!-- UK/US overseas territories. No indigenous population -->
             <currency iso4217="USD"/>
+            <!--currency iso4217="GBP"/-->
         </region>
         <region iso3166="IQ">
             <currency iso4217="IQD"/>
@@ -435,6 +446,9 @@ Afghanis. -->
         <region iso3166="LR">
             <currency iso4217="LRD"/>
         </region>
+        <region iso3166="LS">
+            <currency iso4217="LSL"/>
+        </region>
         <region iso3166="LT">
             <currency iso4217="LTL"/>
         </region>
@@ -459,7 +473,8 @@ Afghanis. -->
             <currency iso4217="MDL"/>
         </region>
         <region iso3166="MG">
-            <currency iso4217="MGF"/>
+            <currency iso4217="MGA"/>
+            <!--currency iso4217="MGF"/><!-- to="2004/12/31" -->
         </region>
         <region iso3166="MH">
             <currency iso4217="USD"/>
@@ -511,6 +526,10 @@ Afghanis. -->
         </region>
         <region iso3166="MZ">
             <currency iso4217="MZM"/>
+        </region>
+        <region iso3166="NA">
+            <currency iso4217="NAD"/><!-- Both NAD and ZAR are valid. -->
+            <!--currency iso4217="ZAR"/><!-- Both NAD and ZAR are valid. -->
         </region>
         <region iso3166="NC">
             <currency iso4217="XPF"/>
@@ -649,13 +668,14 @@ Afghanis. -->
             <currency iso4217="SOS"/>
         </region>
         <region iso3166="SR">
-            <currency iso4217="SRG"/>
+            <currency iso4217="SRD"/>
         </region>
         <region iso3166="ST">
             <currency iso4217="STD"/>
         </region>
         <region iso3166="SV">
-            <currency iso4217="SVC"/>
+            <currency iso4217="SVC"/><!-- Both SVC and USD are valid. -->
+            <!--currency iso4217="USD"/><!-- Both SVC and USD are valid. -->
         </region>
         <region iso3166="SY">
             <currency iso4217="SYP"/>
@@ -670,6 +690,9 @@ Afghanis. -->
             <currency iso4217="XAF"/>
         </region>
         <region iso3166="TF">
+<!-- Part of the Antarctic claimed by France (whose sovereignty is not recognised 
+internationally), makes up the French Southern and Antarctic Lands (TAAF) 
+administered from Saint-Pierre de la Réunion. No indigenous population -->
             <currency iso4217="EUR"/>
         </region>
         <region iso3166="TG">
@@ -697,7 +720,7 @@ Afghanis. -->
             <currency iso4217="TOP"/>
         </region>
         <region iso3166="TR">
-            <currency iso4217="TRL"/>
+            <currency iso4217="TRY"/>
         </region>
         <region iso3166="TT">
             <currency iso4217="TTD"/>
@@ -774,6 +797,39 @@ Afghanis. -->
         <region iso3166="ZW">
             <currency iso4217="ZWD"/>
         </region>
+<!--
+The following are fund codes. They are not really in the form of hard currency.
+They are mainly interesting to certain parts of the financing industry, and average people won't use them.
+-->
+<!--
+BOV	Bolivia Mvdol
+CLF	Unidades de Fomento
+ECV	Unidad de Valor Constante
+MXV	Mexico Unidad de Inversion
+USN	US Dollar (Next day)
+USS	US Dollar (same day)
+ZAL	South African Financial Rand (02/02/1976-02/06/1983, 09/01/1985-3/13/1995)
+-->
+<!-- The following are precious metals -->
+<!--
+XAG	Silver
+XAU	Gold
+XPD	Palladium
+XPT	Platinum
+-->
+<!-- The following are other various codes of limited usage. -->
+<!--
+XBA	European Composite Unit (EURCO)
+XBB	European Monetary Unit (EMU-6)
+XBC	European Unit of Account (EUA-9)
+XBD	European Unit of Account (EUA-17)
+XDR	Special Drawing Rights (International Monetary Fund)
+XEU	European Currency Unit (ECU). EUR should be used instead.
+XFO	France Gold Franc
+XFU	France UIC-Franc
+XTS	Code specifically reserved for testing purposes
+XXX	Code for transations where no currency is involved
+-->
     </currencyData>
 	<territoryContainment> <!-- based on UN data, at http://unstats.un.org/unsd/methods/m49/m49regin.htm -->
 		<group type="001" contains="002 009 019 142 150"/> <!--World -->

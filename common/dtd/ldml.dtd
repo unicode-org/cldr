@@ -207,10 +207,10 @@
 <!ATTLIST calendar draft ( true | false ) #IMPLIED >
 <!ATTLIST calendar standard CDATA #IMPLIED >
 
-<!ELEMENT months ( alias | (default?, monthContext?, special*)) >
+<!ELEMENT months ( alias | (default?, monthContext*, special*)) >
 <!ATTLIST months draft ( true | false ) #IMPLIED >
 
-<!ELEMENT monthContext ( alias | (default?, monthWidth?, special*)) >
+<!ELEMENT monthContext ( alias | (default?, monthWidth*, special*)) >
 <!ATTLIST monthContext type NMTOKEN #REQUIRED >
 <!ATTLIST monthContext draft ( true | false ) #IMPLIED >
 
@@ -228,10 +228,10 @@
 <!ELEMENT monthAbbr ( alias | (month*, special*)) >
 <!ATTLIST monthAbbr draft ( true | false ) #IMPLIED >
 
-<!ELEMENT days ( alias | (default?, dayContext?, special*)) >
+<!ELEMENT days ( alias | (default?, dayContext*, special*)) >
 <!ATTLIST days draft ( true | false ) #IMPLIED >
 
-<!ELEMENT dayContext ( alias | (default?, dayWidth?, special*)) >
+<!ELEMENT dayContext ( alias | (default?, dayWidth*, special*)) >
 <!ATTLIST dayContext draft ( true | false ) #IMPLIED >
 <!ATTLIST dayContext type NMTOKEN #REQUIRED >
 

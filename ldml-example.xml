@@ -28,7 +28,7 @@ For example, most country locales will inherit the bulk of their data from the l
 
         <!-- Only one variant allowed for now -->
         <variant id="B"/>
-        <correspondsTo vendor="windows"/>
+        <!-- correspondsTo vendor="windows" -->
         <special owner="windows" lcid="0409"/>
      </identity>
      <layout>

@@ -2,6 +2,12 @@
 # Copyright (C) 2004, International Business Machines Corporation
 #  and others.  All Rights Reserved.
 #
+######################
+##
+## See documentation at: http://www.jtcsv.com/cgibin/cldrwiki.pl?CldrTools
+##
+######################
+#
 # To use: put this in your 'bin' dir, 
 # and symlink it to XMLValidator and LDML2ICUConverter
 #
@@ -44,4 +50,4 @@ then
     exit 1
 fi
 
-exec ${JAVA} ${CPCMD} ${PKG}.${ME} $@
+exec ${JAVA} ${CWDEFS} ${CPCMD} ${PKG}.${ME} $@

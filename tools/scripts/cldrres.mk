@@ -68,10 +68,12 @@ cldr-lists:  coll/colfiles.mk locales/resfiles.mk
 #ifneq ($(patsubst %cldr-clean-old,,$(MAKECMDGOALS)),)
 #ifneq ($(patsubst %cldr-clean-lists,,$(MAKECMDGOALS)),)
 
-$(GENRB_SYNTHETIC_PATHS) $(LOCSRCDIR)/resfiles.mk: $(L)/icu/deprecatedList.xml $(L)/common/main $(L)/icu/main
+# $(L)/common/main $(L)/icu/main
+$(GENRB_SYNTHETIC_PATHS) $(LOCSRCDIR)/resfiles.mk: $(L)/icu/deprecatedList.xml 
 	$(LDML_CONVERTER) $(CONVOPTS) -w $(L)/common/main
 
-$(COLLATION_SYNTHETIC_PATHS) $(COLSRCDIR)/colfiles.mk: $(L)/icu/deprecatedList.xml $(L)/common/collation $(L)/icu/collation
+#$(L)/common/collation $(L)/icu/collation
+$(COLLATION_SYNTHETIC_PATHS) $(COLSRCDIR)/colfiles.mk: $(L)/icu/deprecatedList.xml 
 	$(LDML_CONVERTER) $(CONVOPTS_COL) -w $(L)/common/collation
 #endif
 #endif

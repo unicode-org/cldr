@@ -492,17 +492,26 @@
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
 							<month type="1">ян.</month>
+							<month type="1" alt="proposed" draft="true">яну</month>
 							<month type="2">фев.</month>
+							<month type="2" alt="proposed" draft="true">фев</month>
 							<month type="3">март</month>
+							<month type="3" alt="proposed" draft="true">мар</month>
 							<month type="4">апр.</month>
+							<month type="4" alt="proposed" draft="true">апр</month>
 							<month type="5">май</month>
 							<month type="6">юни</month>
 							<month type="7">юли</month>
 							<month type="8">авг.</month>
+							<month type="8" alt="proposed" draft="true">авг</month>
 							<month type="9">сеп.</month>
+							<month type="9" alt="proposed" draft="true">сеп</month>
 							<month type="10">окт.</month>
+							<month type="10" alt="proposed" draft="true">окт</month>
 							<month type="11">ноем.</month>
+							<month type="11" alt="proposed" draft="true">ное</month>
 							<month type="12">дек.</month>
+							<month type="12" alt="proposed" draft="true">дек</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">я</month>
@@ -538,12 +547,19 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">нед.</day>
+							<day type="sun" draft="true" alt="proposed">нд</day>
 							<day type="mon">пон.</day>
+							<day type="mon" draft="true" alt="proposed">пн</day>
 							<day type="tue">вт.</day>
+							<day type="tue" draft="true" alt="proposed">вт</day>
 							<day type="wed">ср.</day>
+							<day type="wed" draft="true" alt="proposed">ср</day>
 							<day type="thu">четв.</day>
+							<day type="thu" draft="true" alt="proposed">чт</day>
 							<day type="fri">пет.</day>
+							<day type="fri" draft="true" alt="proposed">пт</day>
 							<day type="sat">съб.</day>
+							<day type="sat" draft="true" alt="proposed">сб</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">н</day>
@@ -568,10 +584,14 @@
 				<week>
 					<firstDay day="mon"/>
 				</week>
+				<am draft="true">пр. об. </am>
+				<pm draft="true">сл. об.</pm>
 				<eras>
 					<eraAbbr>
 						<era type="0">пр.н.е.</era>
+						<era type="0" draft="true" alt="proposed">пр.Хр. </era>
 						<era type="1">н.е.</era>
+						<era type="1" draft="true" alt="proposed">сл.Хр. </era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -934,7 +954,7 @@
 				<symbol>BGM</symbol>
 			</currency>
 			<currency type="BGN">
-				<displayName>BGN</displayName>
+				<displayName draft="true">Български лев</displayName>
 				<symbol>лв.</symbol>
 			</currency>
 			<currency type="BGO">

@@ -24,7 +24,9 @@ GetOptions(
            "--genrb=s" => \$genrb,
 	       "--ldml-only=s" => \$ldmlOnly,
            "--ignore-collation" => \$ignoreCollation, 
-		   "--base=s" => \$baseFile
+		   "--base=s" => \$baseFile,
+           "--ignore-specials" => \$ignoreSpecials,
+           "--ignore-layout" => \$ignoreLayout
           );
            
 
@@ -75,10 +77,18 @@ sub ldmlify{
     my $infile = shift;
     my $genldmlExec = $genldml."/genldml";
     my $ic ="";
+    my $is ="";
+    my $il ="";
     my $base = "";
     my $baseTyp = "";
     if (defined $ignoreCollation){
-        $ic = "-i";
+        $ic = "--ignore-collation";
+    }
+    if (defined $ignoreSpecials){
+        $is = "--ignore-specials";
+    }
+    if(defined $ignoreLayout){
+        $il = "--ignore-layout";
     }
     if(defined $baseFile){
         $baseLoc = getBaseLocale($baseFile, $infile);
@@ -94,7 +104,7 @@ sub ldmlify{
         
     }
     
-    cmd("$prefix $genldmlExec --sourcedir $tempDir --destdir $destDir --package $tempPackage $base $baseTyp $ic $infile");
+    cmd("$prefix $genldmlExec --sourcedir $tempDir --destdir $destDir --package $tempPackage $base $baseTyp $ic $il $is $infile");
 }
 
 sub getBaseLocale(){
@@ -141,7 +151,7 @@ sub resify{
 
 #
 sub getPathToGenrb{
-    $genrb = $icuRoot."bin";
+    $genrb = $icuRoot."/bin";
 }
 
 #-----------------------------------------------------------------------
@@ -180,6 +190,8 @@ Options:
         --genrb=<path to genrb executatble>
         --ignore-collation
         --base=<the text file that contains the base to locale mapping including the path>
+        --ignore-layout
+        --ignore-specials
 
 txt2ldml creates *.xml file from *.txt files by invoking the respective tools
 Optionally, one or more locales may be specified on the command line.

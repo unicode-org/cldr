@@ -41,7 +41,9 @@ enum
 	PACKAGE_NAME,
     IGNORE_COLLATION,
     BASE,
-    BASE_TYPE
+    BASE_TYPE,
+    IGNORE_SPECIALS,
+    IGNORE_LAYOUT
 };
 
 
@@ -52,7 +54,10 @@ UOption options[]={
 					  UOPTION_DESTDIR,
 					  UOPTION_DEF("package", 'p', UOPT_REQUIRES_ARG),
                       UOPTION_DEF("ignore-collation", 'i', UOPT_NO_ARG),
-                      UOPTION_DEF("base", 'b', UOPT_REQUIRES_ARG)
+                      UOPTION_DEF("base", 'b', UOPT_REQUIRES_ARG),
+                      UOPTION_DEF("base-type", 't', UOPT_REQUIRES_ARG),
+                      UOPTION_DEF("ignore-specials", 'c', UOPT_NO_ARG),
+                      UOPTION_DEF("ignore-layout", 'l', UOPT_NO_ARG)
                    };
 
 const char* usageString =
@@ -69,11 +74,15 @@ const char* usageString =
                 "\t-i or --ignore-collation Ignores collation generation\n"
                 "\t-b or --base             the base tailoring for collation if any\n"
                 "\t-t or --base-type        the type of base tailoring for collation in the base. Defaults to standard\n"
+                "\t-c or --ignore-specials  Ignores specials in collations\n"
+                "\t-l or --ignore-layout    Ignores layout element\n"
                ;
 
 UBool ignoreCollation = FALSE;
 const char* baseCollation = NULL;
 const char* baseType = NULL;
+UBool ignoreSpecials = FALSE;
+UBool ignoreLayout = FALSE;
 
 int main (int32_t argc, const char* argv[]) {
 	const char* srcDir =NULL;
@@ -110,6 +119,13 @@ int main (int32_t argc, const char* argv[]) {
     if(options[BASE_TYPE].doesOccur){
         baseCollation = options[BASE_TYPE].value;
     }
+    if(options[IGNORE_SPECIALS].doesOccur){
+        ignoreSpecials = TRUE;
+    }
+    if(options[IGNORE_LAYOUT].doesOccur){
+        ignoreLayout = TRUE;
+    }
+
 #ifndef GENLDML_NOSETAPPDATA
     /* Tell ICU where our resource data is located in memory.
      *   The data lives in the genldml_resources dll, and we just
@@ -390,7 +406,12 @@ void GenerateXML::writeXMLVersionAndComments(){
 	if(U_FAILURE(mError)) {
         return;
 	}
-	UnicodeString temp = mStringsBundle.getStringEx("declaration",mError);
+	UnicodeString temp;
+    if(ignoreSpecials==FALSE){
+        temp = mStringsBundle.getStringEx("declaration",mError);
+    }else{
+        temp = mStringsBundle.getStringEx("declarationNoSpecials",mError);
+    }
     xmlString.append(temp);
 	Formattable arguments[] = {""};
 	UnicodeString tempStr;
@@ -622,46 +643,47 @@ void GenerateXML::writeTable(const char* key, const char* resMain, const char* r
 }
 
 void GenerateXML::writeLocaleScript(UnicodeString& xmlString){
-
-    ResourceBundle scripts= mSourceBundle.get("LocaleScript",mError);
-	UnicodeString t;
-
-	if( mError!=U_USING_DEFAULT_WARNING && 
-		mError!=U_USING_FALLBACK_WARNING && 
-		U_SUCCESS(mError)){
-
-	    Formattable args[]={indentOffset,mStringsBundle.getStringEx("xmlns_icu",mError),"",""};
+    if(ignoreSpecials == FALSE){
+        ResourceBundle scripts= mSourceBundle.get("LocaleScript",mError);
 	    UnicodeString t;
-	    xmlString.append(formatString(mStringsBundle.getStringEx( "special",mError),args,4,t));
-	    indentOffset.append("\t");		
-        
-        args[0]=indentOffset;
-        args[1]="";
-		xmlString.append(formatString(mStringsBundle.getStringEx("icu_scripts",mError),args,2,t));
-		indentOffset.append("\t");
-        for(int i=0;scripts.hasNext();i++){
-			char c;
-			itoa(i+1,&c,10);
-			args[0] = indentOffset;
-			args[1] = UnicodeString(&c);
-			args[2] = scripts.getNextString(mError);
-			xmlString.append(formatString(mStringsBundle.getStringEx("icu_script",mError),args,3,t));
-		}
-		chopIndent();
-		args[0] = indentOffset;
-		args[1] = UnicodeString(XML_END_SLASH);
-		xmlString.append(formatString(mStringsBundle.getStringEx("icu_scripts",mError),args,2,t));
-        
-        chopIndent();
-		args[0] = indentOffset;
-		args[1] = UnicodeString(XML_END_SLASH);
-		xmlString.append(formatString(mStringsBundle.getStringEx("specialEnd",mError),args,2,t));
 
-		mError=U_ZERO_ERROR;
-		return;
-	}
-	xmlString.remove();
-	mError= U_ZERO_ERROR;
+	    if( mError!=U_USING_DEFAULT_WARNING && 
+		    mError!=U_USING_FALLBACK_WARNING && 
+		    U_SUCCESS(mError)){
+
+	        Formattable args[]={indentOffset,mStringsBundle.getStringEx("xmlns_icu",mError),"",""};
+	        UnicodeString t;
+	        xmlString.append(formatString(mStringsBundle.getStringEx( "special",mError),args,4,t));
+	        indentOffset.append("\t");		
+        
+            args[0]=indentOffset;
+            args[1]="";
+		    xmlString.append(formatString(mStringsBundle.getStringEx("icu_scripts",mError),args,2,t));
+		    indentOffset.append("\t");
+            for(int i=0;scripts.hasNext();i++){
+			    char c;
+			    itoa(i+1,&c,10);
+			    args[0] = indentOffset;
+			    args[1] = UnicodeString(&c);
+			    args[2] = scripts.getNextString(mError);
+			    xmlString.append(formatString(mStringsBundle.getStringEx("icu_script",mError),args,3,t));
+		    }
+		    chopIndent();
+		    args[0] = indentOffset;
+		    args[1] = UnicodeString(XML_END_SLASH);
+		    xmlString.append(formatString(mStringsBundle.getStringEx("icu_scripts",mError),args,2,t));
+        
+            chopIndent();
+		    args[0] = indentOffset;
+		    args[1] = UnicodeString(XML_END_SLASH);
+		    xmlString.append(formatString(mStringsBundle.getStringEx("specialEnd",mError),args,2,t));
+
+		    mError=U_ZERO_ERROR;
+		    return;
+	    }
+	    xmlString.remove();
+	    mError= U_ZERO_ERROR;
+    }
 
 }
 
@@ -738,35 +760,37 @@ void GenerateXML::writeTypeNames(UnicodeString& xmlString){
 }
 
 void GenerateXML::writeLayout(){
-	UnicodeString xmlString;
-	Formattable args[] = {indentOffset,"",""};
-	UnicodeString t;
-	xmlString.append(formatString(mStringsBundle.getStringEx("layout", mError), args,2,t));
-	UnicodeString lang = mLocale.getLanguage();
-	UnicodeString country = mLocale.getCountry();
-	indentOffset.append("\t");
-    UBool rightToLeft = FALSE;
-	if(lang=="ar" || lang=="he" || lang=="il" || lang=="ps" || lang=="fa" ){
-		args[0] = indentOffset;
-		args[1] = "top-to-bottom";
-		args[2] = "right-to-left";
-		xmlString.append(formatString(mStringsBundle.getStringEx("orientation",mError), args,3,t));
-	    rightToLeft = TRUE;
-    }else if(lang== "root"){
-		args[0] = indentOffset;
-		args[1] = "top-to-bottom";
-		args[2] = "left-to-right";
-		xmlString.append(formatString(mStringsBundle.getStringEx("orientation",mError), args,3,t));
-	}
-	chopIndent();
-	args[0] = indentOffset;
-	args[1] = "/";
-	xmlString.append(formatString(mStringsBundle.getStringEx("layout",mError),args,2,t));
-	mError = U_ZERO_ERROR;
-	//print this only in the root language locale
-	if(lang=="root" || rightToLeft == TRUE){
-		printString(&xmlString);
-	}
+    if(ignoreLayout == FALSE){
+	    UnicodeString xmlString;
+	    Formattable args[] = {indentOffset,"",""};
+	    UnicodeString t;
+	    xmlString.append(formatString(mStringsBundle.getStringEx("layout", mError), args,2,t));
+	    UnicodeString lang = mLocale.getLanguage();
+	    UnicodeString country = mLocale.getCountry();
+	    indentOffset.append("\t");
+        UBool rightToLeft = FALSE;
+	    if(lang=="ar" || lang=="he" || lang=="il" || lang=="ps" || lang=="fa" ){
+		    args[0] = indentOffset;
+		    args[1] = "top-to-bottom";
+		    args[2] = "right-to-left";
+		    xmlString.append(formatString(mStringsBundle.getStringEx("orientation",mError), args,3,t));
+	        rightToLeft = TRUE;
+        }else if(lang== "root"){
+		    args[0] = indentOffset;
+		    args[1] = "top-to-bottom";
+		    args[2] = "left-to-right";
+		    xmlString.append(formatString(mStringsBundle.getStringEx("orientation",mError), args,3,t));
+	    }
+	    chopIndent();
+	    args[0] = indentOffset;
+	    args[1] = "/";
+	    xmlString.append(formatString(mStringsBundle.getStringEx("layout",mError),args,2,t));
+	    mError = U_ZERO_ERROR;
+	    //print this only in the root language locale
+	    if(lang=="root" || rightToLeft == TRUE){
+		    printString(&xmlString);
+	    }
+    }
 }
 void GenerateXML::writeEncodings(){
 	UnicodeString xmlString;
@@ -1783,87 +1807,91 @@ void GenerateXML::writeCurrency(UnicodeString& xmlString){
 }
 
 void GenerateXML::writeSpecial(){
-	UnicodeString xmlString, tempStr;
-	Formattable args[]={indentOffset,mStringsBundle.getStringEx("xmlns_icu",mError),"",""};
-	UnicodeString t;
-	xmlString.append(formatString(mStringsBundle.getStringEx( "special",mError),args,4,t));
-	indentOffset.append("\t");
-	UBool print = FALSE;
-	
-	writeBoundary(tempStr);
-	if(!tempStr.isEmpty()){
-		xmlString.append(tempStr);
-		print = TRUE;
-	}
-	tempStr.remove();
-	writeRuleBasedNumberFormat(tempStr);
-	if(!tempStr.isEmpty()){
-		xmlString.append(tempStr);
-		print = TRUE;
-	}
-	chopIndent();
-	args[1]=UnicodeString(XML_END_SLASH);
-	xmlString.append(formatString(mStringsBundle.getStringEx( "specialEnd",mError),args,2,t));
-	if(print) printString(&xmlString);
+    if(ignoreSpecials == FALSE){
+	    UnicodeString xmlString, tempStr;
+	    Formattable args[]={indentOffset,mStringsBundle.getStringEx("xmlns_icu",mError),"",""};
+	    UnicodeString t;
+	    xmlString.append(formatString(mStringsBundle.getStringEx( "special",mError),args,4,t));
+	    indentOffset.append("\t");
+	    UBool print = FALSE;
+	    
+	    writeBoundary(tempStr);
+	    if(!tempStr.isEmpty()){
+		    xmlString.append(tempStr);
+		    print = TRUE;
+	    }
+	    tempStr.remove();
+	    writeRuleBasedNumberFormat(tempStr);
+	    if(!tempStr.isEmpty()){
+		    xmlString.append(tempStr);
+		    print = TRUE;
+	    }
+	    chopIndent();
+	    args[1]=UnicodeString(XML_END_SLASH);
+	    xmlString.append(formatString(mStringsBundle.getStringEx( "specialEnd",mError),args,2,t));
+	    if(print) printString(&xmlString);
+    }
 }
 
 void GenerateXML::writeRuleBasedNumberFormat(UnicodeString& xmlString){
-	UnicodeString tempStr;
-	Formattable args[] = {indentOffset,"","",""};
-	UBool print = FALSE;
-	UnicodeString t;
+    if(ignoreSpecials == TRUE){
+	    UnicodeString tempStr;
+	    Formattable args[] = {indentOffset,"","",""};
+	    UBool print = FALSE;
+	    UnicodeString t;
 
-    xmlString.append(formatString(mStringsBundle.getStringEx("ruleBasedNFS",mError),args,2,t));
-	indentOffset.append("\t");
+        xmlString.append(formatString(mStringsBundle.getStringEx("ruleBasedNFS",mError),args,2,t));
+	    indentOffset.append("\t");
 
-	UnicodeString spellout = mSourceBundle.getStringEx("SpelloutRules",mError);
-	if( mError != U_USING_DEFAULT_WARNING && 
-		U_SUCCESS(mError) &&
-		mError != U_USING_FALLBACK_WARNING){
-		escape(spellout);
-		args[0] = indentOffset;
-		args[1] = "spellout";
-		args[2] = spellout;
-        args[3] = indentOffset;
-		tempStr.append(formatString(mStringsBundle.getStringEx("ruleBasedNF",mError),args,4,t));
+	    UnicodeString spellout = mSourceBundle.getStringEx("SpelloutRules",mError);
+	    if( mError != U_USING_DEFAULT_WARNING && 
+		    U_SUCCESS(mError) &&
+		    mError != U_USING_FALLBACK_WARNING){
+		    escape(spellout);
+		    args[0] = indentOffset;
+		    args[1] = "spellout";
+		    args[2] = spellout;
+            args[3] = indentOffset;
+		    tempStr.append(formatString(mStringsBundle.getStringEx("ruleBasedNF",mError),args,4,t));
 
-	}
+	    }
 
-	mError=U_ZERO_ERROR;
-	UnicodeString ordinal = mSourceBundle.getStringEx("OrdinalRules", mError);
-	if( mError != U_USING_DEFAULT_WARNING && 
-		U_SUCCESS(mError) &&
-		mError != U_USING_FALLBACK_WARNING){
-		escape(ordinal);
-		args[0] = indentOffset;
-		args[1] = "ordinal";
-		args[2] = ordinal;
-        args[3] = indentOffset;
-		tempStr.append(formatString(mStringsBundle.getStringEx("ruleBasedNF",mError),args,4,t));
-	}
+	    mError=U_ZERO_ERROR;
+	    UnicodeString ordinal = mSourceBundle.getStringEx("OrdinalRules", mError);
+	    if( mError != U_USING_DEFAULT_WARNING && 
+		    U_SUCCESS(mError) &&
+		    mError != U_USING_FALLBACK_WARNING){
+		    escape(ordinal);
+		    args[0] = indentOffset;
+		    args[1] = "ordinal";
+		    args[2] = ordinal;
+            args[3] = indentOffset;
+		    tempStr.append(formatString(mStringsBundle.getStringEx("ruleBasedNF",mError),args,4,t));
+	    }
 
-	mError=U_ZERO_ERROR;
-	UnicodeString duration = mSourceBundle.getStringEx("DurationRules", mError);
-	if( mError != U_USING_DEFAULT_WARNING && 
-		U_SUCCESS(mError) &&
-		mError != U_USING_FALLBACK_WARNING){
-		escape(duration);
-		args[0] = indentOffset;
-		args[1] = "duration";
-		args[2] = duration;
-        args[3] = indentOffset;
-		tempStr.append(formatString(mStringsBundle.getStringEx("ruleBasedNF",mError),args,4,t));
-	}
-	if(tempStr.isEmpty()){
-		xmlString.remove();
-	}else{
-		chopIndent();
-		xmlString.append(tempStr);
-		args[0] = indentOffset;
-		args[1] = UnicodeString(XML_END_SLASH);
-	    xmlString.append(formatString(mStringsBundle.getStringEx("ruleBasedNFS",mError),args,2,t));
-	}
-	mError= U_ZERO_ERROR;
+	    mError=U_ZERO_ERROR;
+	    UnicodeString duration = mSourceBundle.getStringEx("DurationRules", mError);
+	    if( mError != U_USING_DEFAULT_WARNING && 
+		    U_SUCCESS(mError) &&
+		    mError != U_USING_FALLBACK_WARNING){
+		    escape(duration);
+		    args[0] = indentOffset;
+		    args[1] = "duration";
+		    args[2] = duration;
+            args[3] = indentOffset;
+		    tempStr.append(formatString(mStringsBundle.getStringEx("ruleBasedNF",mError),args,4,t));
+	    }
+	    if(tempStr.isEmpty()){
+		    xmlString.remove();
+	    }else{
+		    chopIndent();
+		    xmlString.append(tempStr);
+		    args[0] = indentOffset;
+		    args[1] = UnicodeString(XML_END_SLASH);
+	        xmlString.append(formatString(mStringsBundle.getStringEx("ruleBasedNFS",mError),args,2,t));
+	    }
+	    mError= U_ZERO_ERROR;
+    }
 }
 /*
 void GenerateXML::writeTransliteration(){
@@ -1991,9 +2019,9 @@ void GenerateXML::writeBoundary(UnicodeString& xmlString){
 void GenerateXML::writeCollations(){
 	UnicodeString tempStr,xmlString;
 	UBool print=FALSE;
-	Formattable args[3] = { indentOffset,"","version=\"3.1.1\""};
+	Formattable args[3] = { indentOffset,""};
 	UnicodeString t;
-	xmlString.append(formatString(mStringsBundle.getStringEx("collations",mError),args,3,t));
+	xmlString.append(formatString(mStringsBundle.getStringEx("collations",mError),args,2,t));
 	indentOffset.append("\t");
 	  
     ResourceBundle dBundle = mSourceBundle.get("collations", mError);
@@ -2086,7 +2114,7 @@ void GenerateXML::writeCollation(ResourceBundle& bundle,UnicodeString& xmlString
 		while(bundle.hasNext()){
             ResourceBundle dBundle1 = bundle.getNext(mError);
             const char* mykey=dBundle1.getKey();
-            if(stricmp(mykey,"Version")==0){
+            if(stricmp(mykey,"Version")==0 && ignoreSpecials==FALSE){
                version = bundle.getStringEx(mykey,mError);
 			   UnicodeString temp = UnicodeString("icu:version=\"").append(version);
 			   temp.append("\"");
@@ -2449,6 +2477,7 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 								indentOffset.append("\t");
 								appendedRules = TRUE;
 							}
+                            args[1] = collStr;
 							switch(prevStrength){
 							case UCOL_IDENTICAL:
 								singleKey = "identical";

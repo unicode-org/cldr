@@ -26,6 +26,10 @@ root{
 
                              
                          }
+    declarationNoSpecials{
+                             "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
+                             "<!DOCTYPE ldml SYSTEM \"http://www.openi18n.org/spec/ldml/1.0/ldml.dtd\">\n"
+                         }
     supplementalDeclaration{
                                 "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
                                 "<!DOCTYPE supplementalData SYSTEM \"http://www.openi18n.org/spec/ldml/1.0/ldmlSupplemental.dtd\" >\n"
@@ -397,7 +401,7 @@ root{
                              "{0}<symbol>{1}</symbol>\n"
                          }
 	collations		     {
-							 "{0}<{1}collations {2}>\n"
+							 "{0}<{1}collations>\n"
 						 }
     collation            {
                              "{0}<{1}collation {2} >\n"

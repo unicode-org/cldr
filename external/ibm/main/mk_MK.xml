@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--add CoreLocaleElements DTD reference here-->
+<!-- Tag was "CoreLocaleData" - this has been changed below to allow the
+Cupertino XML tool to work -->
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+<localeData>
+<generation date="2002, June, 12"></generation>
+<!--
+Core Locale Data Format
+Version 1.0.4: 2002-05-23
+	
+Contains locale data elements from ICIR (version 1.4.1) that map into 
+CoreLocaleElements.xml.
+-->
+
+<!--ICIR VERSION information-->
+  <versioning>
+    <version number="1.4.1"></version>
+  </versioning>
+
+<!--IDENTIFICATION of the locale-->
+  <identity>
+    <!--Two letter ISO codes only-->
+    <language id="mk"/>
+    <country id="MK"/>
+  </identity>
+
+<!--CALENDAR INFORMATION.  Gregorian Only-->
+  <calendars>
+    <calendar class="Gregorian" default="true">
+      <monthNames>
+        <month id="1">&#x0458;&#x0430;&#x043D;&#x0443;&#x0430;&#x0440;&#x0438;</month>
+        <month id="2">&#x0444;&#x0435;&#x0432;&#x0440;&#x0443;&#x0430;&#x0440;&#x0438;</month>
+        <month id="3">&#x043C;&#x0430;&#x0440;&#x0442;</month>
+        <month id="4">&#x0430;&#x043F;&#x0440;&#x0438;&#x043B;</month>
+        <month id="5">&#x043C;&#x0430;&#x0458;</month>
+        <month id="6">&#x0458;&#x0443;&#x043D;&#x0438;</month>
+        <month id="7">&#x0458;&#x0443;&#x043B;&#x0438;</month>
+        <month id="8">&#x0430;&#x0432;&#x0433;&#x0443;&#x0441;&#x0442;</month>
+        <month id="9">&#x0441;&#x0435;&#x043F;&#x0442;&#x0435;&#x043C;&#x0432;&#x0440;&#x0438;</month>
+        <month id="10">&#x043E;&#x043A;&#x0442;&#x043E;&#x043C;&#x0432;&#x0440;&#x0438;</month>
+        <month id="11">&#x043D;&#x043E;&#x0435;&#x043C;&#x0432;&#x0440;&#x0438;</month>
+        <month id="12">&#x0434;&#x0435;&#x043A;&#x0435;&#x043C;&#x0432;&#x0440;&#x0438;</month>
+        <month id="13"></month>
+      </monthNames>
+
+      <monthAbbr>
+        <month id="1">&#x0458;&#x0430;&#x043D;&#x002E;</month>
+        <month id="2">&#x0444;&#x0435;&#x0432;&#x002E;</month>
+        <month id="3">&#x043C;&#x0430;&#x0440;&#x002E;</month>
+        <month id="4">&#x0430;&#x043F;&#x0440;&#x002E;</month>
+        <month id="5">&#x043C;&#x0430;&#x0458;&#x002E;</month>
+        <month id="6">&#x0458;&#x0443;&#x043D;&#x002E;</month>
+        <month id="7">&#x0458;&#x0443;&#x043B;&#x002E;</month>
+        <month id="8">&#x0430;&#x0432;&#x0433;&#x002E;</month>
+        <month id="9">&#x0441;&#x0435;&#x043F;&#x0442;&#x002E;</month>
+        <month id="10">&#x043E;&#x043A;&#x0442;&#x002E;</month>
+        <month id="11">&#x043D;&#x043E;&#x0435;&#x043C;&#x002E;</month>
+        <month id="12">&#x0434;&#x0435;&#x043A;&#x0435;&#x043C;&#x002E;</month>
+        <month id="13"></month>
+      </monthAbbr>
+
+      <dayNames>
+        <day id="1">&#x043D;&#x0435;&#x0434;&#x0435;&#x043B;&#x0430;</day>
+        <day id="2">&#x043F;&#x043E;&#x043D;&#x0435;&#x0434;&#x0435;&#x043B;&#x043D;&#x0438;&#x043A;</day>
+        <day id="3">&#x0432;&#x0442;&#x043E;&#x0440;&#x043D;&#x0438;&#x043A;</day>
+        <day id="4">&#x0441;&#x0440;&#x0435;&#x0434;&#x0430;</day>
+        <day id="5">&#x0447;&#x0435;&#x0442;&#x0432;&#x0440;&#x0442;&#x043E;&#x043A;</day>
+        <day id="6">&#x043F;&#x0435;&#x0442;&#x043E;&#x043A;</day>
+        <day id="7">&#x0441;&#x0430;&#x0431;&#x043E;&#x0442;&#x0430;</day>
+      </dayNames>
+
+      <dayAbbr>
+        <day id="1">&#x043D;&#x0435;&#x0434;&#x002E;</day>
+        <day id="2">&#x043F;&#x043E;&#x043D;&#x002E;</day>
+        <day id="3">&#x0432;&#x0442;&#x002E;</day>
+        <day id="4">&#x0441;&#x0440;&#x0435;&#x002E;</day>
+        <day id="5">&#x0447;&#x0435;&#x0442;&#x002E;</day>
+        <day id="6">&#x043F;&#x0435;&#x0442;&#x002E;</day>
+        <day id="7">&#x0441;&#x0430;&#x0431;&#x002E;</day>
+      </dayAbbr>
+
+      <!--
+      Patterns used for formatting and parsing dates and times for this calendar
+      -->
+
+      <patterns>
+        <!-- <chars>GyMdhHmsSEDFwWakKz</chars> -->
+        <time>
+          <full>HH:mm:ss</full>
+          <medium>HH:mm:ss</medium>
+          <short>HH:mm</short>
+        </time>
+
+        <date>
+          <full>EEEE, dd MMMM, yyyy</full>
+          <long>dd MMMM, yyyy</long>
+          <short>dd.MM.yy</short>
+        </date>
+      </patterns>
+    </calendar>
+  </calendars>
+
+<!--NUMERIC INFORMATION-->
+  <numberFormat class="decimal" default="true">
+    <patterns>
+      <decimal>#,###,##0.##;-#,###,##0.##</decimal>
+    </patterns>
+    <symbols>
+      <decimal>,</decimal>
+      <group>.</group>
+      <minusSign>-</minusSign>
+    </symbols>
+  </numberFormat>
+
+<!--MONETARY INFORMATION-->
+  <currencies>
+    <!--currency id as per ISO4217, three letter alphabetic code-->
+    <currency id="MKD">
+      <symbol>&#x0434;&#x0435;&#x043D;.</symbol>
+      <pattern>#,###,##0.00 &#x00A4;;-#,###,##0.00 &#x00A4;</pattern>
+      <decimal>,</decimal>
+      <group>.</group>
+    </currency>
+  </currencies>
+
+<!--POSIX TYPE INFORMATION-->
+  <PosixCompatibilityData>
+    <!--POSIX LC_MESSAGE EQUIVALENT-->
+    <messages>
+      <no>&#x043D;&#x0435;</no>
+      <yes>&#x0434;&#x0430;</yes>
+      <shortNo>&#x043D;</shortNo>
+      <shortYes>&#x0434;</shortYes>
+    </messages>
+
+    <!--TELEPHONE INFORMATION-->
+    <TelephoneFormat>
+      <!-- International Access Code is shown below -->
+      <InternationalDialCode>99</InternationalDialCode>
+    </TelephoneFormat>
+  </PosixCompatibilityData>
+
+<!-- Tag was "/CoreLocaleData" - changed below to allow Cupertino XML
+tool to work -->
+</localeData>

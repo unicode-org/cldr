@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:59 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="AM" />
+		<correspondsTo vendor="042B">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Հունվար</month>
+				<month id="2">Փետրվար</month>
+				<month id="3">Մարտ</month>
+				<month id="4">Ապրիլ</month>
+				<month id="5">Մայիս</month>
+				<month id="6">Հունիս</month>
+				<month id="7">Հուլիս</month>
+				<month id="8">Օգոստոս</month>
+				<month id="9">Սեպտեմբեր</month>
+				<month id="10">Հոկտեմբեր</month>
+				<month id="11">Նոյեմբեր</month>
+				<month id="12">Դեկտեմբեր</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">Կիրակի </day>
+				<day id="2">Երկուշաբթի </day>
+				<day id="3">Երեքշաբթի </day>
+				<day id="4">Չորեքշաբթի </day>
+				<day id="5">Հինգշաբթի </day>
+				<day id="6">ՈՒրբաթ </day>
+				<day id="7">Շաբաթ </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">Կիր </day>
+				<day id="2">Երկ </day>
+				<day id="3">Երք </day>
+				<day id="4">Չրք </day>
+				<day id="5">Հնգ </day>
+				<day id="6">ՈՒր </day>
+				<day id="7">Շբթ </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d MMMM, yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>dd.MM.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="AMD" default="true">
+			<symbol>դր.</symbol>
+			<name>AMD</name>
+			<decimal>.</decimal>
+			<pattern>#0.00 ¤;-#0.00 ¤</pattern>
+		</currency>
+	</currencies>
+
+</localeData>

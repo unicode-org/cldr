@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:58 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="PA" />
+		<correspondsTo vendor="180A">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Enero</month>
+				<month id="2">Febrero</month>
+				<month id="3">Marzo</month>
+				<month id="4">Abril</month>
+				<month id="5">Mayo</month>
+				<month id="6">Junio</month>
+				<month id="7">Julio</month>
+				<month id="8">Agosto</month>
+				<month id="9">Septiembre</month>
+				<month id="10">Octubre</month>
+				<month id="11">Noviembre</month>
+				<month id="12">Diciembre</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">Domingo </day>
+				<day id="2">Lunes </day>
+				<day id="3">Martes </day>
+				<day id="4">Miércoles </day>
+				<day id="5">Jueves </day>
+				<day id="6">Viernes </day>
+				<day id="7">Sábado </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">Dom </day>
+				<day id="2">Lun </day>
+				<day id="3">Mar </day>
+				<day id="4">Mié </day>
+				<day id="5">Jue </day>
+				<day id="6">Vie </day>
+				<day id="7">Sáb </day>
+			</dayAbbr>
+			<am>a.m.</am><pm>p.m.</pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>hh:mm:ss a</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dddd, dd' de 'MMMM' de 'yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>MM/dd/yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>6</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="PAB" default="true">
+			<symbol>B/.</symbol>
+			<name>PAB</name>
+			<decimal>.</decimal>
+			<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+		</currency>
+	</currencies>
+
+</localeData>

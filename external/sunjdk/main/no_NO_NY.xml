@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:04:31 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="NO" />
+		<variant id="NY" />
+		<correspondsTo vendor="0814">Windows</correspondsTo>
+	</identity  >
+
+	<displayNames >
+		<languages >
+			<language id="no" >norsk</language>
+		</languages >
+
+	</displayNames >
+	<timeZoneNames>
+		<zone id="Africa/Casablanca" default="true">
+			<long>
+				<generic>GMT</generic>
+				<standard>GMT</standard>
+			</long>
+			<short>
+				<generic>Africa/Casablanca</generic>
+				<standard>GMT</standard>
+				<daylight>GMT</daylight>
+			</short>
+		</zone>
+	</timeZoneNames>
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<dayNames>
+				<day id="1">sundag </day>
+				<day id="2">måndag </day>
+				<day id="3">tysdag </day>
+				<day id="4">onsdag </day>
+				<day id="5">torsdag </day>
+				<day id="6">fredag </day>
+				<day id="7">laurdag </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">su </day>
+				<day id="2">må </day>
+				<day id="3">ty </day>
+				<day id="4">on </day>
+				<day id="5">to </day>
+				<day id="6">fr </day>
+				<day id="7">lau </day>
+			</dayAbbr>
+			<patterns> 
+				<chars>GyMdkHmsSEDFwWahKz</chars>
+			</patterns>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##0.###;-#,##0.###</decimal>
+			<percent>#,##0%</percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="NOK" default="true">
+			<symbol>kr</symbol>
+			<name>NOK</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

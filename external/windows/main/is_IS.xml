@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:59 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="IS" />
+		<correspondsTo vendor="040F">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">janúar</month>
+				<month id="2">febrúar</month>
+				<month id="3">mars</month>
+				<month id="4">apríl</month>
+				<month id="5">maí</month>
+				<month id="6">júní</month>
+				<month id="7">júlí</month>
+				<month id="8">ágúst</month>
+				<month id="9">september</month>
+				<month id="10">október</month>
+				<month id="11">nóvember</month>
+				<month id="12">desember</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">sunnudagur </day>
+				<day id="2">mánudagur </day>
+				<day id="3">þriðjudagur </day>
+				<day id="4">miðvikudagur </day>
+				<day id="5">fimmtudagur </day>
+				<day id="6">föstudagur </day>
+				<day id="7">laugardagur </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">sun. </day>
+				<day id="2">mán. </day>
+				<day id="3">þri. </day>
+				<day id="4">mið. </day>
+				<day id="5">fim. </day>
+				<day id="6">fös. </day>
+				<day id="7">lau. </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>HH:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d. MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>d.M.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="ISK" default="true">
+			<symbol>kr.</symbol>
+			<name>ISK</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

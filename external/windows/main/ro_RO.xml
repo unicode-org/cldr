@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:02 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="RO" />
+		<correspondsTo vendor="0418">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">ianuarie</month>
+				<month id="2">februarie</month>
+				<month id="3">martie</month>
+				<month id="4">aprilie</month>
+				<month id="5">mai</month>
+				<month id="6">iunie</month>
+				<month id="7">iulie</month>
+				<month id="8">august</month>
+				<month id="9">septembrie</month>
+				<month id="10">octombrie</month>
+				<month id="11">noiembrie</month>
+				<month id="12">decembrie</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">duminică </day>
+				<day id="2">luni </day>
+				<day id="3">marţi </day>
+				<day id="4">miercuri </day>
+				<day id="5">joi </day>
+				<day id="6">vineri </day>
+				<day id="7">sâmbătă </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">D </day>
+				<day id="2">L </day>
+				<day id="3">Ma </day>
+				<day id="4">Mi </day>
+				<day id="5">J </day>
+				<day id="6">V </day>
+				<day id="7">S </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>HH:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>dd.MM.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="ROL" default="true">
+			<symbol>lei</symbol>
+			<name>ROL</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:54 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="AT" />
+		<correspondsTo vendor="0C07">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Jänner</month>
+				<month id="2">Februar</month>
+				<month id="3">März</month>
+				<month id="4">April</month>
+				<month id="5">Mai</month>
+				<month id="6">Juni</month>
+				<month id="7">Juli</month>
+				<month id="8">August</month>
+				<month id="9">September</month>
+				<month id="10">Oktober</month>
+				<month id="11">November</month>
+				<month id="12">Dezember</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">Sonntag </day>
+				<day id="2">Montag </day>
+				<day id="3">Dienstag </day>
+				<day id="4">Mittwoch </day>
+				<day id="5">Donnerstag </day>
+				<day id="6">Freitag </day>
+				<day id="7">Samstag </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">So </day>
+				<day id="2">Mo </day>
+				<day id="3">Di </day>
+				<day id="4">Mi </day>
+				<day id="5">Do </day>
+				<day id="6">Fr </day>
+				<day id="7">Sa </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>HH:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dddd, dd. MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>dd.MM.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="ATS" default="true">
+			<symbol>öS</symbol>
+			<name>ATS</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

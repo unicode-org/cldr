@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:53 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="BG" />
+		<correspondsTo vendor="0402">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Януари</month>
+				<month id="2">Февруари</month>
+				<month id="3">Март</month>
+				<month id="4">Април</month>
+				<month id="5">Май</month>
+				<month id="6">Юни</month>
+				<month id="7">Юли</month>
+				<month id="8">Август</month>
+				<month id="9">Септември</month>
+				<month id="10">Октомври</month>
+				<month id="11">Ноември</month>
+				<month id="12">Декември</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">неделя </day>
+				<day id="2">понеделник </day>
+				<day id="3">вторник </day>
+				<day id="4">сряда </day>
+				<day id="5">четвъртък </day>
+				<day id="6">петък </day>
+				<day id="7">събота </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">неделя </day>
+				<day id="2">понеделник </day>
+				<day id="3">вторник </day>
+				<day id="4">сряда </day>
+				<day id="5">четвъвтък </day>
+				<day id="6">петък </day>
+				<day id="7">събота </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>HH:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dd MMMM yyyy 'г.'</full>
+					<long></long>
+					<medium></medium>
+					<short>dd.M.yyyy 'г.'</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="BGL" default="true">
+			<symbol>лв</symbol>
+			<name>BGL</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

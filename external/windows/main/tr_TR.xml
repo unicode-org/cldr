@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:04 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="TR" />
+		<correspondsTo vendor="041F">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Ocak</month>
+				<month id="2">Şubat</month>
+				<month id="3">Mart</month>
+				<month id="4">Nisan</month>
+				<month id="5">Mayıs</month>
+				<month id="6">Haziran</month>
+				<month id="7">Temmuz</month>
+				<month id="8">Ağustos</month>
+				<month id="9">Eylül</month>
+				<month id="10">Ekim</month>
+				<month id="11">Kasım</month>
+				<month id="12">Aralık</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">Pazar </day>
+				<day id="2">Pazartesi </day>
+				<day id="3">Salı </day>
+				<day id="4">Çarşamba </day>
+				<day id="5">Perşembe </day>
+				<day id="6">Cuma </day>
+				<day id="7">Cumartesi </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">Paz </day>
+				<day id="2">Pzt </day>
+				<day id="3">Sal </day>
+				<day id="4">Çar </day>
+				<day id="5">Per </day>
+				<day id="6">Cum </day>
+				<day id="7">Cmt </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>HH:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dd MMMM yyyy dddd</full>
+					<long></long>
+					<medium></medium>
+					<short>dd.MM.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="TRL" default="true">
+			<symbol>TL</symbol>
+			<name>TRL</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:03 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="SP" />
+		<correspondsTo vendor="081A">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">januar</month>
+				<month id="2">februar</month>
+				<month id="3">mart</month>
+				<month id="4">april</month>
+				<month id="5">maj</month>
+				<month id="6">jun</month>
+				<month id="7">jul</month>
+				<month id="8">avgust</month>
+				<month id="9">septembar</month>
+				<month id="10">oktobar</month>
+				<month id="11">novembar</month>
+				<month id="12">decembar</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">nedelja </day>
+				<day id="2">ponedeljak </day>
+				<day id="3">utorak </day>
+				<day id="4">sreda </day>
+				<day id="5">četvrtak </day>
+				<day id="6">petak </day>
+				<day id="7">subota </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">ned </day>
+				<day id="2">pon </day>
+				<day id="3">uto </day>
+				<day id="4">sre </day>
+				<day id="5">čet </day>
+				<day id="6">pet </day>
+				<day id="7">sub </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d. MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>d.M.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="YUN" default="true">
+			<symbol>Din.</symbol>
+			<name>YUN</name>
+			<decimal>,</decimal>
+			<pattern>¤ #,##0.00;-¤ #,##0.00</pattern>
+		</currency>
+	</currencies>
+
+</localeData>

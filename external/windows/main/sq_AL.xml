@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:03 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="AL" />
+		<correspondsTo vendor="041C">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">janar</month>
+				<month id="2">shkurt</month>
+				<month id="3">mars</month>
+				<month id="4">prill</month>
+				<month id="5">maj</month>
+				<month id="6">qershor</month>
+				<month id="7">korrik</month>
+				<month id="8">gusht</month>
+				<month id="9">shtator</month>
+				<month id="10">tetor</month>
+				<month id="11">nëntor</month>
+				<month id="12">dhjetor</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">e diel </day>
+				<day id="2">e hënë </day>
+				<day id="3">e martë </day>
+				<day id="4">e mërkurë </day>
+				<day id="5">e enjte </day>
+				<day id="6">e premte </day>
+				<day id="7">e shtunë </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">Die </day>
+				<day id="2">Hën </day>
+				<day id="3">Mar </day>
+				<day id="4">Mër </day>
+				<day id="5">Enj </day>
+				<day id="6">Pre </day>
+				<day id="7">Sht </day>
+			</dayAbbr>
+			<am>PD</am><pm>MD</pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>h:mm:ss.a</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>yyyy-MM-dd</full>
+					<long></long>
+					<medium></medium>
+					<short>yyyy-MM-dd</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="ALL" default="true">
+			<symbol>Lek</symbol>
+			<name>ALL</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

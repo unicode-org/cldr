@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:02 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="RU" />
+		<correspondsTo vendor="0419">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Январь</month>
+				<month id="2">Февраль</month>
+				<month id="3">Март</month>
+				<month id="4">Апрель</month>
+				<month id="5">Май</month>
+				<month id="6">Июнь</month>
+				<month id="7">Июль</month>
+				<month id="8">Август</month>
+				<month id="9">Сентябрь</month>
+				<month id="10">Октябрь</month>
+				<month id="11">Ноябрь</month>
+				<month id="12">Декабрь</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">воскресенье </day>
+				<day id="2">понедельник </day>
+				<day id="3">вторник </day>
+				<day id="4">среда </day>
+				<day id="5">четверг </day>
+				<day id="6">пятница </day>
+				<day id="7">суббота </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">Вс </day>
+				<day id="2">Пн </day>
+				<day id="3">Вт </day>
+				<day id="4">Ср </day>
+				<day id="5">Чт </day>
+				<day id="6">Пт </day>
+				<day id="7">Сб </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d MMMM yyyy 'г.'</full>
+					<long></long>
+					<medium></medium>
+					<short>dd.MM.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+		<symbols>
+			<decimal>,</decimal>
+			<group> </group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>;</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+	</numberFormat> 
+	<currencies>
+		<currency id="RUR" default="true">
+			<symbol>р.</symbol>
+			<name>RUR</name>
+			<decimal>,</decimal>
+			<pattern>#,##0.00¤;-#,##0.00¤</pattern>
+		</currency>
+	</currencies>
+
+</localeData>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:51 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="IQ" />
+		<correspondsTo vendor="0801">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">كانون الثاني</month>
+				<month id="2">شباط</month>
+				<month id="3">آذار</month>
+				<month id="4">نيسان</month>
+				<month id="5">أيار</month>
+				<month id="6">حزيران</month>
+				<month id="7">تموز</month>
+				<month id="8">آب</month>
+				<month id="9">أيلول</month>
+				<month id="10">تشرين الأول</month>
+				<month id="11">تشرين الثاني</month>
+				<month id="12">كانون الأول</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">الاحد </day>
+				<day id="2">الاثنين </day>
+				<day id="3">الثلاثاء </day>
+				<day id="4">الاربعاء </day>
+				<day id="5">الخميس </day>
+				<day id="6">الجمعة </day>
+				<day id="7">السبت </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">الاحد </day>
+				<day id="2">الاثنين </day>
+				<day id="3">الثلاثاء </day>
+				<day id="4">الاربعاء </day>
+				<day id="5">الخميس </day>
+				<day id="6">الجمعة </day>
+				<day id="7">السبت </day>
+			</dayAbbr>
+			<am>ص</am><pm>م</pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>hh:mm:ss a</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dd MMMM, yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>dd/MM/yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>5</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="IQD" default="true">
+			<symbol>د.ع.‏</symbol>
+			<name>IQD</name>
+			<decimal>.</decimal>
+			<pattern>¤ #,##0.000;¤ #,##0.000-</pattern>
+		</currency>
+	</currencies>
+
+</localeData>

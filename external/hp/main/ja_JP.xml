@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 15:59:23 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="JP" />
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">1月</month>
+				<month id="2">2月</month>
+				<month id="3">3月</month>
+				<month id="4">4月</month>
+				<month id="5">5月</month>
+				<month id="6">6月</month>
+				<month id="7">7月</month>
+				<month id="8">8月</month>
+				<month id="9">9月</month>
+				<month id="10">10月</month>
+				<month id="11">11月</month>
+				<month id="12">12月</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1"> 1月</month>
+				<month id="2"> 2月</month>
+				<month id="3"> 3月</month>
+				<month id="4"> 4月</month>
+				<month id="5"> 5月</month>
+				<month id="6"> 6月</month>
+				<month id="7"> 7月</month>
+				<month id="8"> 8月</month>
+				<month id="9"> 9月</month>
+				<month id="10">10月</month>
+				<month id="11">11月</month>
+				<month id="12">12月</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">日曜日 </day>
+				<day id="2">月曜日 </day>
+				<day id="3">火曜日 </day>
+				<day id="4">水曜日 </day>
+				<day id="5">木曜日 </day>
+				<day id="6">金曜日 </day>
+				<day id="7">土曜日 </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">日 </day>
+				<day id="2">月 </day>
+				<day id="3">火 </day>
+				<day id="4">水 </day>
+				<day id="5">木 </day>
+				<day id="6">金 </day>
+				<day id="7">土 </day>
+			</dayAbbr>
+			<am>午前</am><pm>午後</pm>
+			<patterns> 
+				<time>
+					<full>aahh時mm分ss秒</full>
+					<long>HH時mm分ss秒</long>
+					<medium>HH時mm分ss秒</medium>
+					<short>HH時mm分ss秒</short>
+				</time>
+				<date>
+					<full>yyyy年MM月dd日 </full>
+					<long>yyyy年MM月dd日 HH時mm分ss秒</long>
+					<medium>yyyy年MM月dd日</medium>
+					<short>yyyy年MM月dd日</short>
+				</date>
+ 				<dateTime>{1} {0} </dateTime>
+			</patterns>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##0.###;-#,##0.###</decimal>
+			<percent>#,##0%</percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="JPY" default="true">
+			<symbol>¥</symbol>
+			<name>JPY</name>
+			<decimal></decimal>
+			<pattern>¤#,##0;-¤#,##0</pattern>
+		</currency>
+	</currencies>
+
+</localeData>

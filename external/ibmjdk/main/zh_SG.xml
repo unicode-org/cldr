@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:05:24 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="SG" />
+		<correspondsTo vendor="1004">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<patterns> 
+				<time>
+					<full>ahh'時'mm'分'ss'秒' z</full>
+					<long>ahh'時'mm'分'ss'秒'</long>
+					<medium>a hh:mm:ss</medium>
+					<short>a h:mm</short>
+				</time>
+				<date>
+					<full>yyyy'年'M'月'd'日'</full>
+					<long>yyyy'年'M'月'd'日'</long>
+					<medium>yyyy/M/d</medium>
+					<short>yyyy/M/d</short>
+				</date>
+ 				<dateTime>{1} {0} </dateTime>
+			</patterns>
+		</calendar>
+	</calendars>
+
+</localeData>

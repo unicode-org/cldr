@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:03 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="SK" />
+		<correspondsTo vendor="041B">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">január</month>
+				<month id="2">február</month>
+				<month id="3">marec</month>
+				<month id="4">apríl</month>
+				<month id="5">máj</month>
+				<month id="6">jún</month>
+				<month id="7">júl</month>
+				<month id="8">august</month>
+				<month id="9">september</month>
+				<month id="10">október</month>
+				<month id="11">november</month>
+				<month id="12">december</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">nedeľa </day>
+				<day id="2">pondelok </day>
+				<day id="3">utorok </day>
+				<day id="4">streda </day>
+				<day id="5">štvrtok </day>
+				<day id="6">piatok </day>
+				<day id="7">sobota </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">ne </day>
+				<day id="2">po </day>
+				<day id="3">ut </day>
+				<day id="4">st </day>
+				<day id="5">št </day>
+				<day id="6">pi </day>
+				<day id="7">so </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d. MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>d. M. yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="SKK" default="true">
+			<symbol>Sk</symbol>
+			<name>SKK</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

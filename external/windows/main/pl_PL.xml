@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:02 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="PL" />
+		<correspondsTo vendor="0415">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">styczeń</month>
+				<month id="2">luty</month>
+				<month id="3">marzec</month>
+				<month id="4">kwiecień</month>
+				<month id="5">maj</month>
+				<month id="6">czerwiec</month>
+				<month id="7">lipiec</month>
+				<month id="8">sierpień</month>
+				<month id="9">wrzesień</month>
+				<month id="10">październik</month>
+				<month id="11">listopad</month>
+				<month id="12">grudzień</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">niedziela </day>
+				<day id="2">poniedziałek </day>
+				<day id="3">wtorek </day>
+				<day id="4">środa </day>
+				<day id="5">czwartek </day>
+				<day id="6">piątek </day>
+				<day id="7">sobota </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">N </day>
+				<day id="2">Pn </day>
+				<day id="3">Wt </day>
+				<day id="4">Śr </day>
+				<day id="5">Cz </day>
+				<day id="6">Pt </day>
+				<day id="7">So </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>HH:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>yyyy-MM-dd</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="PLN" default="true">
+			<symbol>zł</symbol>
+			<name>PLN</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

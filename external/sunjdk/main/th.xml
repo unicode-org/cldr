@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:04:33 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<correspondsTo vendor="041e">Windows</correspondsTo>
+	</identity  >
+
+	<displayNames >
+		<languages >
+			<language id="th" >ไทย</language>
+		</languages >
+		<countries  >
+			<country id="TH">ประเทศไทย</country>
+		</countries  >
+
+	</displayNames >
+	<timeZoneNames>
+		<zone id="THA" default="true">
+			<long>
+				<generic>Thailand Time</generic>
+				<standard>Thailand Time</standard>
+				<daylight>Bangkok</daylight>
+			</long>
+			<short>
+				<generic>THA</generic>
+				<standard>THA</standard>
+				<daylight>THA</daylight>
+			</short>
+			<city>Bangkok</city>
+		</zone>
+	</timeZoneNames>
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">มกราคม</month>
+				<month id="2">กุมภาพันธ์</month>
+				<month id="3">มีนาคม</month>
+				<month id="4">เมษายน</month>
+				<month id="5">พฤษภาคม</month>
+				<month id="6">มิถุนายน</month>
+				<month id="7">กรกฎาคม</month>
+				<month id="8">สิงหาคม</month>
+				<month id="9">กันยายน</month>
+				<month id="10">ตุลาคม</month>
+				<month id="11">พฤศจิกายน</month>
+				<month id="12">ธันวาคม</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">ม.ค.</month>
+				<month id="2">ก.พ.</month>
+				<month id="3">มี.ค.</month>
+				<month id="4">เม.ย.</month>
+				<month id="5">พ.ค.</month>
+				<month id="6">มิ.ย.</month>
+				<month id="7">ก.ค.</month>
+				<month id="8">ส.ค.</month>
+				<month id="9">ก.ย.</month>
+				<month id="10">ต.ค.</month>
+				<month id="11">พ.ย.</month>
+				<month id="12">ธ.ค.</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">วันอาทิตย์ </day>
+				<day id="2">วันจันทร์ </day>
+				<day id="3">วันอังคาร </day>
+				<day id="4">วันพุธ </day>
+				<day id="5">วันพฤหัสบดี </day>
+				<day id="6">วันศุกร์ </day>
+				<day id="7">วันเสาร์ </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">อา. </day>
+				<day id="2">จ. </day>
+				<day id="3">อ. </day>
+				<day id="4">พ. </day>
+				<day id="5">พฤ. </day>
+				<day id="6">ศ. </day>
+				<day id="7">ส. </day>
+			</dayAbbr>
+			<eras>
+				<era id="0">ปีก่อนคริสต์กาลที่</era>
+				<era id="1">ค.ศ.</era>
+			</eras>
+			<am>ก่อนเที่ยง</am><pm>หลังเที่ยง</pm>
+			<patterns> 
+				<chars>GanjkHmsSEDFwWxhKz</chars>
+				<time>
+					<full>H' นาฬิกา 'm' นาที 'ss' วินาที'</full>
+					<long>H' นาฬิกา 'm' นาที'</long>
+					<medium>H:mm:ss</medium>
+					<short>H:mm</short>
+				</time>
+				<date>
+					<full>EEEE'ที่ 'd MMMM G yyyy</full>
+					<long>d MMMM yyyy</long>
+					<medium>d MMM yyyy</medium>
+					<short>d/M/yyyy</short>
+				</date>
+ 				<dateTime>{1}, {0} </dateTime>
+			</patterns>
+		</calendar>
+	</calendars>
+
+</localeData>

@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 15:59:23 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="HU" />
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">JANUÁR</month>
+				<month id="2">FEBRUÁR</month>
+				<month id="3">MÁRCIUS</month>
+				<month id="4">ÁPRILIS</month>
+				<month id="5">MÁJUS</month>
+				<month id="6">JÚNIUS</month>
+				<month id="7">JÚLIUS</month>
+				<month id="8">AUGUSZTUS</month>
+				<month id="9">SZEPTEMBER</month>
+				<month id="10">OKTÓBER</month>
+				<month id="11">NOVEMBER</month>
+				<month id="12">DECEMBER</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">JAN</month>
+				<month id="2">FEB</month>
+				<month id="3">MÁR</month>
+				<month id="4">ÁPR</month>
+				<month id="5">MÁJ</month>
+				<month id="6">JÚN</month>
+				<month id="7">JÚL</month>
+				<month id="8">AUG</month>
+				<month id="9">SZE</month>
+				<month id="10">OKT</month>
+				<month id="11">NOV</month>
+				<month id="12">DEC</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">VASÁRNAP </day>
+				<day id="2">HÉTFŐ </day>
+				<day id="3">KEDD </day>
+				<day id="4">SZERDA </day>
+				<day id="5">CSÜTÖRTÖK </day>
+				<day id="6">PÉNTEK </day>
+				<day id="7">SZOMBAT </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">V </day>
+				<day id="2">H </day>
+				<day id="3">K </day>
+				<day id="4">SZE </day>
+				<day id="5">CS </day>
+				<day id="6">P </day>
+				<day id="7">SZO </day>
+			</dayAbbr>
+			<patterns> 
+				<time>
+					<full>HH.mm.ss</full>
+					<long>HH.mm.ss</long>
+					<medium>HH.mm.ss</medium>
+					<short>HH.mm.ss</short>
+				</time>
+				<date>
+					<full>EEE, %.1d MMM yyyy </full>
+					<long>EEE, %.1d MMM yyyy HH.mm.ss</long>
+					<medium>EEE, %.1d MMM yyyy</medium>
+					<short>EEE, %.1d MMM yyyy</short>
+				</date>
+ 				<dateTime>{1} {0} </dateTime>
+			</patterns>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##0.###;-#,##0.###</decimal>
+			<percent>#,##0%</percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="HUF" default="true">
+			<symbol>Ft</symbol>
+			<name>HUF</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+	<collation version="0.0" accentOrder="FORWARD" override="TRUE">
+		<collationElements>
+		<after> </after>
+		<gt1> </gt1>
+		<gt1>0</gt1>
+		<gt1>1</gt1>
+		<gt1>2</gt1>
+		<gt1>3</gt1>
+		<gt1>4</gt1>
+		<gt1>5</gt1>
+		<gt1>6</gt1>
+		<gt1>7</gt1>
+		<gt1>8</gt1>
+		<gt1>9</gt1>
+		<gt1>A</gt1>
+		<gt2>a</gt2>
+		<gt2>Á</gt2>
+		<gt2>á</gt2>
+		<gt2>Ă</gt2>
+		<gt2>ă</gt2>
+		<gt2>Â</gt2>
+		<gt2>â</gt2>
+		<gt2>Ä</gt2>
+		<gt2>ä</gt2>
+		<gt2>Ą</gt2>
+		<gt2>ą</gt2>
+		<gt1>B</gt1>
+		<gt2>b</gt2>
+		<gt1>C</gt1>
+		<gt2>c</gt2>
+		<gt2>Ć</gt2>
+		<gt2>ć</gt2>
+		<gt2>Č</gt2>
+		<gt2>č</gt2>
+		<gt2>Ç</gt2>
+		<gt2>ç</gt2>
+		<gt1>CS</gt1>
+		<gt2>Cs</gt2>
+		<gt2>cS</gt2>
+		<gt2>cs</gt2>
+		<gt1>D</gt1>
+		<gt2>d</gt2>
+		<gt2>Đ</gt2>
+		<gt2>đ</gt2>
+		<gt2>Ď</gt2>
+		<gt2>ď</gt2>
+		<gt1>E</gt1>
+		<gt2>e</gt2>
+		<gt2>É</gt2>
+		<gt2>é</gt2>
+		<gt2>Ě</gt2>
+		<gt2>ě</gt2>
+		<gt2>Ë</gt2>
+		<gt2>ë</gt2>
+		<gt2>Ę</gt2>
+		<gt2>ę</gt2>
+		<gt1>F</gt1>
+		<gt2>f</gt2>
+		<gt1>G</gt1>
+		<gt2>g</gt2>
+		<gt1>GY</gt1>
+		<gt2>Gy</gt2>
+		<gt2>gY</gt2>
+		<gt2>gy</gt2>
+		<gt1>H</gt1>
+		<gt2>h</gt2>
+		<gt1>I</gt1>
+		<gt2>i</gt2>
+		<gt2>Í</gt2>
+		<gt2>í</gt2>
+		<gt2>Î</gt2>
+		<gt2>î</gt2>
+		<gt1>J</gt1>
+		<gt2>j</gt2>
+		<gt1>K</gt1>
+		<gt2>k</gt2>
+		<gt1>L</gt1>
+		<gt2>l</gt2>
+		<gt2>Ĺ</gt2>
+		<gt2>ĺ</gt2>
+		<gt2>Ľ</gt2>
+		<gt2>ǐ</gt2>
+		<gt2>Ł</gt2>
+		<gt2>ɨ</gt2>
+		<gt1>LY</gt1>
+		<gt2>Ly</gt2>
+		<gt2>lY</gt2>
+		<gt2>ly</gt2>
+		<gt1>M</gt1>
+		<gt2>m</gt2>
+		<gt1>N</gt1>
+		<gt2>n</gt2>
+		<gt2>Ń</gt2>
+		<gt2>ń</gt2>
+		<gt2>Ň</gt2>
+		<gt2>ň</gt2>
+		<gt1>NY</gt1>
+		<gt2>Ny</gt2>
+		<gt2>nY</gt2>
+		<gt2>ny</gt2>
+		<gt1>O</gt1>
+		<gt2>o</gt2>
+		<gt2>Ó</gt2>
+		<gt2>ó</gt2>
+		<gt2>Ô</gt2>
+		<gt2>ô</gt2>
+		<gt2>Ö</gt2>
+		<gt2>ö</gt2>
+		<gt2>Ő</gt2>
+		<gt2>ő</gt2>
+		<gt1>P</gt1>
+		<gt2>p</gt2>
+		<gt1>Q</gt1>
+		<gt2>q</gt2>
+		<gt1>R</gt1>
+		<gt2>r</gt2>
+		<gt2>Ŕ</gt2>
+		<gt2>ŕ</gt2>
+		<gt2>Ř</gt2>
+		<gt2>ř</gt2>
+		<gt1>S</gt1>
+		<gt2>s</gt2>
+		<gt2>Ś</gt2>
+		<gt2>ś</gt2>
+		<gt2>Š</gt2>
+		<gt2>š</gt2>
+		<gt2>Ş</gt2>
+		<gt2>ş</gt2>
+		<gt1>T</gt1>
+		<gt2>t</gt2>
+		<gt2>Ť</gt2>
+		<gt2>ť</gt2>
+		<gt2>Ţ</gt2>
+		<gt2>ţ</gt2>
+		<gt1>U</gt1>
+		<gt2>u</gt2>
+		<gt2>Ú</gt2>
+		<gt2>ú</gt2>
+		<gt2>Ů</gt2>
+		<gt2>ů</gt2>
+		<gt2>Ü</gt2>
+		<gt2>ü</gt2>
+		<gt2>Ű</gt2>
+		<gt2>ű</gt2>
+		<gt1>V</gt1>
+		<gt2>v</gt2>
+		<gt1>W</gt1>
+		<gt2>w</gt2>
+		<gt1>X</gt1>
+		<gt2>x</gt2>
+		<gt1>Y</gt1>
+		<gt2>y</gt2>
+		<gt2>Ý</gt2>
+		<gt2>ý</gt2>
+		<gt1>Z</gt1>
+		<gt2>z</gt2>
+		<gt2>Ź</gt2>
+		<gt2>ź</gt2>
+		<gt2>Ż</gt2>
+		<gt2>ż</gt2>
+		<gt2>Ž</gt2>
+		<gt2>ž</gt2>
+		<gt1>ZS</gt1>
+		<gt2>Zs</gt2>
+		<gt2>zS</gt2>
+		<gt2>zs</gt2>
+		<gt1>­</gt1>
+		<gt1>(</gt1>
+		<gt1>)</gt1>
+		<gt1>[</gt1>
+		<gt1>]</gt1>
+		<gt1>{</gt1>
+		<gt1>}</gt1>
+		<gt1>&lt;</gt1>
+		<gt1>&gt;</gt1>
+		<gt1>=</gt1>
+		<gt1>+</gt1>
+		<gt1>-</gt1>
+		<gt1>°</gt1>
+		<gt1>%</gt1>
+		<gt1>*</gt1>
+		<gt1>.</gt1>
+		<gt1>,</gt1>
+		<gt1>;</gt1>
+		<gt1>:</gt1>
+		<gt1>?</gt1>
+		<gt1>!</gt1>
+		<gt1>/</gt1>
+		<gt1>\</gt1>
+		<gt1>|</gt1>
+		<gt1>@</gt1>
+		<gt1>&amp;</gt1>
+		<gt1>#</gt1>
+		<gt1>¶</gt1>
+		<gt1>$</gt1>
+		<gt1>¤</gt1>
+		<gt1>&quot;</gt1>
+		<gt1>`</gt1>
+		<gt1>'</gt1>
+		<gt1>^</gt1>
+		<gt1>~</gt1>
+		<gt1>_</gt1>
+		<gt1>´</gt1>
+		<gt1>¨</gt1>
+		<gt1>˘</gt1>
+		<gt1>˛</gt1>
+		<gt1>ˇ</gt1>
+		<gt1>¸</gt1>
+		<gt1>˝</gt1>
+		<gt1>×</gt1>
+		<gt1>÷</gt1>
+		<gt1>˙</gt1>
+		<gt1></gt1>
+		<gt1>\u0001</gt1>
+		<gt1>\u0002</gt1>
+		<gt1>\u0003</gt1>
+		<gt1>\u0004</gt1>
+		<gt1>\u0005</gt1>
+		<gt1>\u0006</gt1>
+		<gt1>\u0007</gt1>
+		<gt1>\u0008</gt1>
+		<gt1>\u0009</gt1>
+		<gt1>\u000A</gt1>
+		<gt1>\u000B</gt1>
+		<gt1>\u000C</gt1>
+		<gt1>\u000D</gt1>
+		<gt1>\u000E</gt1>
+		<gt1>\u000F</gt1>
+		<gt1>\u0010</gt1>
+		<gt1>\u0011</gt1>
+		<gt1>\u0012</gt1>
+		<gt1>\u0013</gt1>
+		<gt1>\u0014</gt1>
+		<gt1>\u0015</gt1>
+		<gt1>\u0016</gt1>
+		<gt1>\u0017</gt1>
+		<gt1>\u0018</gt1>
+		<gt1>\u0019</gt1>
+		<gt1>\u001A</gt1>
+		<gt1>\u001B</gt1>
+		<gt1>\u001C</gt1>
+		<gt1>\u001D</gt1>
+		<gt1>\u001E</gt1>
+		<gt1>\u001F</gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<after>Sş</after>
+		<gt3>ß</gt3>
+		</collationElements>
+	</collation>
+
+</localeData>

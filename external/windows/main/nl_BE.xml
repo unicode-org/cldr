@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:01 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="BE" />
+		<correspondsTo vendor="0813">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">januari</month>
+				<month id="2">februari</month>
+				<month id="3">maart</month>
+				<month id="4">april</month>
+				<month id="5">mei</month>
+				<month id="6">juni</month>
+				<month id="7">juli</month>
+				<month id="8">augustus</month>
+				<month id="9">september</month>
+				<month id="10">oktober</month>
+				<month id="11">november</month>
+				<month id="12">december</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">zondag </day>
+				<day id="2">maandag </day>
+				<day id="3">dinsdag </day>
+				<day id="4">woensdag </day>
+				<day id="5">donderdag </day>
+				<day id="6">vrijdag </day>
+				<day id="7">zaterdag </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">zo </day>
+				<day id="2">ma </day>
+				<day id="3">di </day>
+				<day id="4">wo </day>
+				<day id="5">do </day>
+				<day id="6">vr </day>
+				<day id="7">za </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dddd d MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>d/MM/yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="BEF" default="true">
+			<symbol>BF</symbol>
+			<name>BEF</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

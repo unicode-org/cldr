@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:53 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="BY" />
+		<correspondsTo vendor="0423">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Студзень</month>
+				<month id="2">Люты</month>
+				<month id="3">Сакавік</month>
+				<month id="4">Красавік</month>
+				<month id="5">Май</month>
+				<month id="6">Чэрвень</month>
+				<month id="7">Ліпень</month>
+				<month id="8">Жнівень</month>
+				<month id="9">Верасень</month>
+				<month id="10">Кастрычнік</month>
+				<month id="11">Лістапад</month>
+				<month id="12">Снежань</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">нядзеля </day>
+				<day id="2">панядзелак </day>
+				<day id="3">аўторак </day>
+				<day id="4">серада </day>
+				<day id="5">чацвер </day>
+				<day id="6">пятніца </day>
+				<day id="7">субота </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">нд </day>
+				<day id="2">пн </day>
+				<day id="3">аў </day>
+				<day id="4">ср </day>
+				<day id="5">чц </day>
+				<day id="6">пт </day>
+				<day id="7">сб </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>dd.MM.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="BYB" default="true">
+			<symbol>р.</symbol>
+			<name>BYB</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

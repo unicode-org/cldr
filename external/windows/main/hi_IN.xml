@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:59 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="IN" />
+		<correspondsTo vendor="0439">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">जनवरी</month>
+				<month id="2">फरवरी</month>
+				<month id="3">मार्च</month>
+				<month id="4">अप्रैल</month>
+				<month id="5">मई</month>
+				<month id="6">जून</month>
+				<month id="7">जुलाई</month>
+				<month id="8">अगस्त</month>
+				<month id="9">सितम्बर</month>
+				<month id="10">अक्तूबर</month>
+				<month id="11">नवम्बर</month>
+				<month id="12">दिसम्बर</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">रविवार </day>
+				<day id="2">सोमवार </day>
+				<day id="3">मंगलवार </day>
+				<day id="4">बुधवार </day>
+				<day id="5">गुरुवार </day>
+				<day id="6">शुक्रवार </day>
+				<day id="7">शनिवार </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">रवि. </day>
+				<day id="2">सोम. </day>
+				<day id="3">मंगल. </day>
+				<day id="4">बुध. </day>
+				<day id="5">गुरु. </day>
+				<day id="6">शुक्र. </day>
+				<day id="7">शनि. </day>
+			</dayAbbr>
+			<am>पूर्वाह्न</am><pm>अपराह्न</pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>HH:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dd MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>dd-MM-yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="INR" default="true">
+			<symbol>रु</symbol>
+			<name>INR</name>
+			<decimal>.</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:00 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="KZ" />
+		<correspondsTo vendor="043F">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">қаңтар</month>
+				<month id="2">ақпан</month>
+				<month id="3">наурыз</month>
+				<month id="4">сәуір</month>
+				<month id="5">мамыр</month>
+				<month id="6">маусым</month>
+				<month id="7">шілде</month>
+				<month id="8">тамыз</month>
+				<month id="9">қыркүйек</month>
+				<month id="10">қазан</month>
+				<month id="11">қараша</month>
+				<month id="12">желтоқсан</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">Жексенбі </day>
+				<day id="2">Дүйсенбі </day>
+				<day id="3">Сейсенбі </day>
+				<day id="4">Сәрсенбі </day>
+				<day id="5">Бейсенбі </day>
+				<day id="6">Жұма </day>
+				<day id="7">Сенбі </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">Жк </day>
+				<day id="2">Дс </day>
+				<day id="3">Сс </day>
+				<day id="4">Ср </day>
+				<day id="5">Бс </day>
+				<day id="6">Жм </day>
+				<day id="7">Сн </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d MMMM yyyy 'ж.'</full>
+					<long></long>
+					<medium></medium>
+					<short>dd.MM.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="KZT" default="true">
+			<symbol>Т</symbol>
+			<name>KZT</name>
+			<decimal>-</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 15:59:20 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="DZ" />
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">جانفي</month>
+				<month id="2">فيفري</month>
+				<month id="3">مارس </month>
+				<month id="4">أفريل</month>
+				<month id="5">ماي</month>
+				<month id="6">جوان</month>
+				<month id="7">جويليه</month>
+				<month id="8">أوت </month>
+				<month id="9">سبتمبر</month>
+				<month id="10">أكتوبر</month>
+				<month id="11">نوفمبر</month>
+				<month id="12">ديسمبر</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">Janv</month>
+				<month id="2">Fevr</month>
+				<month id="3">Mars</month>
+				<month id="4">Avr</month>
+				<month id="5">Mai</month>
+				<month id="6">Juin</month>
+				<month id="7">Juil</month>
+				<month id="8">Aout</month>
+				<month id="9">Sept</month>
+				<month id="10">Oct</month>
+				<month id="11">Nov</month>
+				<month id="12">Dec</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">الأحد </day>
+				<day id="2">الإثنين </day>
+				<day id="3">الثلاثاء </day>
+				<day id="4">الأربعاء </day>
+				<day id="5">الخميس  </day>
+				<day id="6">الجمعـة </day>
+				<day id="7">السبت  </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">Dim </day>
+				<day id="2">Lun </day>
+				<day id="3">Mar </day>
+				<day id="4">Mer </day>
+				<day id="5">Jeu </day>
+				<day id="6">Ven </day>
+				<day id="7">Sam </day>
+			</dayAbbr>
+			<patterns> 
+				<time>
+					<full>%.1H:mm:ss</full>
+					<long>%.1H:mm:ss</long>
+					<medium>%.1H:mm:ss</medium>
+					<short>%.1H:mm:ss</short>
+				</time>
+				<date>
+					<full>  yyyy MMMM %.1d EEEE </full>
+					<long>%.1H:mm:ss  yyyy MMMM %.1d EEEE </long>
+					<medium>yyyy MMMM %.1d EEEE </medium>
+					<short>yyyy MMMM %.1d EEEE </short>
+				</date>
+ 				<dateTime>{0} {1} </dateTime>
+			</patterns>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##0.###;-#,##0.###</decimal>
+			<percent>#,##0%</percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="DZD" default="true">
+			<symbol>دينار</symbol>
+			<name>DZD</name>
+			<decimal>,</decimal>
+			<pattern>¤ #,##0.00;¤ #,##0.00-</pattern>
+		</currency>
+	</currencies>
+	<collation version="0.0" accentOrder="FORWARD" override="TRUE">
+		<collationElements>
+		<after>ـ</after>
+		<gt2>ً</gt2>
+		<gt2>ٌ</gt2>
+		<gt2>ٍ</gt2>
+		<gt2>ّ</gt2>
+		<gt2>ْ</gt2>
+		<gt2>َ</gt2>
+		<gt2>ُ</gt2>
+		<gt2>ِ</gt2>
+		<gt1> </gt1>
+		<gt1>0</gt1>
+		<gt2>٠</gt2>
+		<gt1>1</gt1>
+		<gt2>١</gt2>
+		<gt1>2</gt1>
+		<gt2>٢</gt2>
+		<gt1>3</gt1>
+		<gt2>٣</gt2>
+		<gt1>4</gt1>
+		<gt2>٤</gt2>
+		<gt1>5</gt1>
+		<gt2>٥</gt2>
+		<gt1>6</gt1>
+		<gt2>٦</gt2>
+		<gt1>7</gt1>
+		<gt2>٧</gt2>
+		<gt1>8</gt1>
+		<gt2>٨</gt2>
+		<gt1>9</gt1>
+		<gt2>٩</gt2>
+		<gt1>A</gt1>
+		<gt2>a</gt2>
+		<gt1>B</gt1>
+		<gt2>b</gt2>
+		<gt1>C</gt1>
+		<gt2>c</gt2>
+		<gt1>D</gt1>
+		<gt2>d</gt2>
+		<gt1>E</gt1>
+		<gt2>e</gt2>
+		<gt1>F</gt1>
+		<gt2>f</gt2>
+		<gt1>G</gt1>
+		<gt2>g</gt2>
+		<gt1>H</gt1>
+		<gt2>h</gt2>
+		<gt1>I</gt1>
+		<gt2>i</gt2>
+		<gt1>J</gt1>
+		<gt2>j</gt2>
+		<gt1>K</gt1>
+		<gt2>k</gt2>
+		<gt1>L</gt1>
+		<gt2>l</gt2>
+		<gt1>M</gt1>
+		<gt2>m</gt2>
+		<gt1>N</gt1>
+		<gt2>n</gt2>
+		<gt1>O</gt1>
+		<gt2>o</gt2>
+		<gt1>P</gt1>
+		<gt2>p</gt2>
+		<gt1>Q</gt1>
+		<gt2>q</gt2>
+		<gt1>R</gt1>
+		<gt2>r</gt2>
+		<gt1>S</gt1>
+		<gt2>s</gt2>
+		<gt1>T</gt1>
+		<gt2>t</gt2>
+		<gt1>U</gt1>
+		<gt2>u</gt2>
+		<gt1>V</gt1>
+		<gt2>v</gt2>
+		<gt1>W</gt1>
+		<gt2>w</gt2>
+		<gt1>X</gt1>
+		<gt2>x</gt2>
+		<gt1>Y</gt1>
+		<gt2>y</gt2>
+		<gt1>Z</gt1>
+		<gt2>z</gt2>
+		<gt1>!</gt1>
+		<gt1>&quot;</gt1>
+		<gt1>#</gt1>
+		<gt1>$</gt1>
+		<gt1>%</gt1>
+		<gt1>&amp;</gt1>
+		<gt1>'</gt1>
+		<gt1>(</gt1>
+		<gt1>)</gt1>
+		<gt1>*</gt1>
+		<gt1>+</gt1>
+		<gt1>,</gt1>
+		<gt1>-</gt1>
+		<gt1>.</gt1>
+		<gt1>/</gt1>
+		<gt1>:</gt1>
+		<gt1>;</gt1>
+		<gt1>&lt;</gt1>
+		<gt1>=</gt1>
+		<gt1>&gt;</gt1>
+		<gt1>?</gt1>
+		<gt1>@</gt1>
+		<gt1>[</gt1>
+		<gt1>\</gt1>
+		<gt1>]</gt1>
+		<gt1>^</gt1>
+		<gt1>_</gt1>
+		<gt1>`</gt1>
+		<gt1>{</gt1>
+		<gt1>|</gt1>
+		<gt1>}</gt1>
+		<gt1>~</gt1>
+		<gt1> </gt1>
+		<gt1>ء</gt1>
+		<gt1>آ</gt1>
+		<gt1>أ</gt1>
+		<gt1>ؤ</gt1>
+		<gt1>إ</gt1>
+		<gt1>ئ</gt1>
+		<gt1>ا</gt1>
+		<gt1>ب</gt1>
+		<gt1>ة</gt1>
+		<gt1>ت</gt1>
+		<gt1>ث</gt1>
+		<gt1>ج</gt1>
+		<gt1>ح</gt1>
+		<gt1>خ</gt1>
+		<gt1>د</gt1>
+		<gt1>ذ</gt1>
+		<gt1>ر</gt1>
+		<gt1>ز</gt1>
+		<gt1>س</gt1>
+		<gt1>ش</gt1>
+		<gt1>ص</gt1>
+		<gt1>ض</gt1>
+		<gt1>ط</gt1>
+		<gt1>ظ</gt1>
+		<gt1>ع</gt1>
+		<gt1>غ</gt1>
+		<gt1>ف</gt1>
+		<gt1>ق</gt1>
+		<gt1>ك</gt1>
+		<gt1>ل</gt1>
+		<gt1>م</gt1>
+		<gt1>ن</gt1>
+		<gt1>ه</gt1>
+		<gt1>و</gt1>
+		<gt1>ى</gt1>
+		<gt1>ي</gt1>
+		<gt1>٪</gt1>
+		<gt1>٭</gt1>
+		<gt1>،</gt1>
+		<gt1>۔</gt1>
+		<gt1>؛</gt1>
+		<gt1>؟</gt1>
+		<gt1></gt1>
+		<gt1>\u0001</gt1>
+		<gt1>\u0002</gt1>
+		<gt1>\u0003</gt1>
+		<gt1>\u0004</gt1>
+		<gt1>\u0005</gt1>
+		<gt1>\u0006</gt1>
+		<gt1>\u0007</gt1>
+		<gt1>\u0008</gt1>
+		<gt1>\u0009</gt1>
+		<gt1>\u000A</gt1>
+		<gt1>\u000B</gt1>
+		<gt1>\u000C</gt1>
+		<gt1>\u000D</gt1>
+		<gt1>\u000E</gt1>
+		<gt1>\u000F</gt1>
+		<gt1>\u0010</gt1>
+		<gt1>\u0011</gt1>
+		<gt1>\u0012</gt1>
+		<gt1>\u0013</gt1>
+		<gt1>\u0014</gt1>
+		<gt1>\u0015</gt1>
+		<gt1>\u0016</gt1>
+		<gt1>\u0017</gt1>
+		<gt1>\u0018</gt1>
+		<gt1>\u0019</gt1>
+		<gt1>\u001A</gt1>
+		<gt1>\u001B</gt1>
+		<gt1>\u001C</gt1>
+		<gt1>\u001D</gt1>
+		<gt1>\u001E</gt1>
+		<gt1>\u001F</gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		</collationElements>
+	</collation>
+
+</localeData>

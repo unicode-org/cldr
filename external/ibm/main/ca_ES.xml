@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--add CoreLocaleElements DTD reference here-->
+<!-- Tag was "CoreLocaleData" - this has been changed below to allow the
+Cupertino XML tool to work -->
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+<localeData>
+<generation date="2002, June, 12"></generation>
+<!--
+Core Locale Data Format
+Version 1.0.4: 2002-05-23
+	
+Contains locale data elements from ICIR (version 1.4.1) that map into 
+CoreLocaleElements.xml.
+-->
+
+<!--ICIR VERSION information-->
+  <versioning>
+    <version number="1.4.1"></version>
+  </versioning>
+
+<!--IDENTIFICATION of the locale-->
+  <identity>
+    <!--Two letter ISO codes only-->
+    <language id="ca"/>
+    <country id="ES"/>
+  </identity>
+
+<!--CALENDAR INFORMATION.  Gregorian Only-->
+  <calendars>
+    <calendar class="Gregorian" default="true">
+      <monthNames>
+        <month id="1">gener</month>
+        <month id="2">febrer</month>
+        <month id="3">mar&#x00E7;</month>
+        <month id="4">abril</month>
+        <month id="5">maig</month>
+        <month id="6">juny</month>
+        <month id="7">juliol</month>
+        <month id="8">agost</month>
+        <month id="9">setembre</month>
+        <month id="10">octubre</month>
+        <month id="11">novembre</month>
+        <month id="12">desembre</month>
+        <month id="13"></month>
+      </monthNames>
+
+      <monthAbbr>
+        <month id="1">gn</month>
+        <month id="2">fb</month>
+        <month id="3">m&#x00E7;</month>
+        <month id="4">ab</month>
+        <month id="5">mg</month>
+        <month id="6">jn</month>
+        <month id="7">jl</month>
+        <month id="8">ag</month>
+        <month id="9">st</month>
+        <month id="10">oc</month>
+        <month id="11">nv</month>
+        <month id="12">ds</month>
+        <month id="13"></month>
+      </monthAbbr>
+
+      <dayNames>
+        <day id="1">diumenge</day>
+        <day id="2">dilluns</day>
+        <day id="3">dimarts</day>
+        <day id="4">dimecres</day>
+        <day id="5">dijous</day>
+        <day id="6">divendres</day>
+        <day id="7">dissabte</day>
+      </dayNames>
+
+      <dayAbbr>
+        <day id="1">dg</day>
+        <day id="2">dl</day>
+        <day id="3">dt</day>
+        <day id="4">dc</day>
+        <day id="5">dj</day>
+        <day id="6">dv</day>
+        <day id="7">ds</day>
+      </dayAbbr>
+
+      <!--
+      Patterns used for formatting and parsing dates and times for this calendar
+      -->
+
+      <patterns>
+        <!-- <chars>GyMdhHmsSEDFwWakKz</chars> -->
+        <time>
+          <full>H:mm:ss</full>
+          <medium>H:mm:ss</medium>
+          <short>H:mm</short>
+        </time>
+
+        <date>
+          <full>EEEE d 'd''MMMM 'de' yyyy</full>
+          <long>d 'd''MMMM 'de' yyyy</long>
+          <short>dd/MM/yy</short>
+        </date>
+      </patterns>
+    </calendar>
+  </calendars>
+
+<!--NUMERIC INFORMATION-->
+  <numberFormat class="decimal" default="true">
+    <patterns>
+      <decimal>#,###,##0.##;-#,###,##0.##</decimal>
+    </patterns>
+    <symbols>
+      <decimal>,</decimal>
+      <group>.</group>
+      <minusSign>-</minusSign>
+    </symbols>
+  </numberFormat>
+
+<!--MONETARY INFORMATION-->
+  <currencies>
+    <!--currency id as per ISO4217, three letter alphabetic code-->
+    <currency id="EUR">
+      <symbol>&#x20AC;</symbol>
+      <pattern>#,###,##0.00 &#x00A4;;-#,###,##0.00 &#x00A4;</pattern>
+      <decimal>,</decimal>
+      <group>.</group>
+    </currency>
+  </currencies>
+
+<!--POSIX TYPE INFORMATION-->
+  <PosixCompatibilityData>
+    <!--POSIX LC_MESSAGE EQUIVALENT-->
+    <messages>
+      <no>No</no>
+      <yes>Si&#x0301;</yes>
+      <shortNo>N</shortNo>
+      <shortYes>S</shortYes>
+    </messages>
+
+    <!--TELEPHONE INFORMATION-->
+    <TelephoneFormat>
+      <!-- International Access Code is shown below -->
+      <InternationalDialCode>00</InternationalDialCode>
+    </TelephoneFormat>
+  </PosixCompatibilityData>
+
+<!-- Tag was "/CoreLocaleData" - changed below to allow Cupertino XML
+tool to work -->
+</localeData>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:05 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="PK" />
+		<correspondsTo vendor="0420">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">جنورى</month>
+				<month id="2">فرورى</month>
+				<month id="3">مارچ</month>
+				<month id="4">اپري ل</month>
+				<month id="5">ميى</month>
+				<month id="6">جون</month>
+				<month id="7">جولاٸ</month>
+				<month id="8">اگست</month>
+				<month id="9">ستمبر</month>
+				<month id="10">اکتوبر</month>
+				<month id="11">نومبر</month>
+				<month id="12">دسمبر</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">اتوار </day>
+				<day id="2">پير </day>
+				<day id="3">منگ ل </day>
+				<day id="4">بدھ </day>
+				<day id="5">جمعرات </day>
+				<day id="6">جمعه </day>
+				<day id="7">هفته </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">اتوار </day>
+				<day id="2">پير </day>
+				<day id="3">منگ ل </day>
+				<day id="4">بدھ </day>
+				<day id="5">جمعرات </day>
+				<day id="6">جمعه </day>
+				<day id="7">هفته </day>
+			</dayAbbr>
+			<am>AM</am><pm>PM</pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>h:mm:ss a</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dd MMMM, yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>dd/MM/yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="PKR" default="true">
+			<symbol>Rs</symbol>
+			<name>PKR</name>
+			<decimal>.</decimal>
+			<pattern>¤ #,##0.00;-¤ #,##0.00</pattern>
+		</currency>
+	</currencies>
+
+</localeData>

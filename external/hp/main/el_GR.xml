@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 15:59:21 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="GR" />
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">ΓΕΝΑΡΗΣ</month>
+				<month id="2">ΦΛΕΒΑΡΗΣ</month>
+				<month id="3">ΜΑΡΤΗΣ</month>
+				<month id="4">ΑΠΡΙΛΗΣ</month>
+				<month id="5">ΜΑΗΣ</month>
+				<month id="6">ΙΟΥΝΙΟΣ</month>
+				<month id="7">ΙΟΥΛΙΟΣ</month>
+				<month id="8">ΑΥΓΟΥΣΤΟΣ</month>
+				<month id="9">ΣΕΠΤΕΜΒΡΗΣ</month>
+				<month id="10">ΟΚΤΩΒΡΗΣ</month>
+				<month id="11">ΝΟΕΜΒΡΗΣ</month>
+				<month id="12">ΔΕΚΕΜΒΡΗΣ</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">ΓΕΝ</month>
+				<month id="2">ΦΛΕ</month>
+				<month id="3">ΜΑΡ</month>
+				<month id="4">ΑΠΡ</month>
+				<month id="5">ΜΑΗ</month>
+				<month id="6">ΙΟΥΝ</month>
+				<month id="7">ΙΟΥΛ</month>
+				<month id="8">ΑΥΓ</month>
+				<month id="9">ΣΕΠ</month>
+				<month id="10">ΟΚΤ</month>
+				<month id="11">ΝΟΕ</month>
+				<month id="12">ΔΕΚ</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">ΚΥΡΙΑΚΗ </day>
+				<day id="2">ΔΕΥΤΕΡΑ </day>
+				<day id="3">ΤΡΙΤΗ </day>
+				<day id="4">ΤΕΤΑΡΤΗ </day>
+				<day id="5">ΠΕΜΠΤΗ </day>
+				<day id="6">ΠΑΡΑΣΚΕΥΗ </day>
+				<day id="7">ΣΑΒΒΑΤΟ </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">ΚΥΡ </day>
+				<day id="2">ΔΕΥ </day>
+				<day id="3">ΤΡΙ </day>
+				<day id="4">ΤΕΤ </day>
+				<day id="5">ΠΕΜ </day>
+				<day id="6">ΠΑΡ </day>
+				<day id="7">ΣΑΒ </day>
+			</dayAbbr>
+			<patterns> 
+				<time>
+					<full>HH:mm:ss</full>
+					<long>HH:mm:ss</long>
+					<medium>HH:mm:ss</medium>
+					<short>HH:mm:ss</short>
+				</time>
+				<date>
+					<full>EEE dd MMM yyyy </full>
+					<long>EEE dd MMM yyyy HH:mm:ss</long>
+					<medium>EEE dd MMM yyyy</medium>
+					<short>EEE dd MMM yyyy</short>
+				</date>
+ 				<dateTime>{1} {0} </dateTime>
+			</patterns>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##0.###;-#,##0.###</decimal>
+			<percent>#,##0%</percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="GRD" default="true">
+			<symbol>ΔΡ</symbol>
+			<name>GRD</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+	<collation version="0.0" accentOrder="FORWARD" override="TRUE">
+		<collationElements>
+		<after> </after>
+		<gt1>0</gt1>
+		<gt1>1</gt1>
+		<gt1>2</gt1>
+		<gt1>3</gt1>
+		<gt1>4</gt1>
+		<gt1>5</gt1>
+		<gt1>6</gt1>
+		<gt1>7</gt1>
+		<gt1>8</gt1>
+		<gt1>9</gt1>
+		<gt1>.</gt1>
+		<gt1>,</gt1>
+		<gt1>A</gt1>
+		<gt2>a</gt2>
+		<gt2>Ά</gt2>
+		<gt2>Α</gt2>
+		<gt2>α</gt2>
+		<gt2>ά</gt2>
+		<gt1>B</gt1>
+		<gt2>b</gt2>
+		<gt2>Β</gt2>
+		<gt2>β</gt2>
+		<gt1>C</gt1>
+		<gt2>c</gt2>
+		<gt1>D</gt1>
+		<gt2>d</gt2>
+		<gt2>Δ</gt2>
+		<gt2>δ</gt2>
+		<gt1>E</gt1>
+		<gt2>e</gt2>
+		<gt2>Έ</gt2>
+		<gt2>Ε</gt2>
+		<gt2>ε</gt2>
+		<gt2>έ</gt2>
+		<gt1>F</gt1>
+		<gt2>f</gt2>
+		<gt1>G</gt1>
+		<gt2>g</gt2>
+		<gt2>Γ</gt2>
+		<gt2>γ</gt2>
+		<gt1>H</gt1>
+		<gt2>h</gt2>
+		<gt2>Ή</gt2>
+		<gt2>Η</gt2>
+		<gt2>η</gt2>
+		<gt2>ή</gt2>
+		<gt1>I</gt1>
+		<gt2>i</gt2>
+		<gt2>Ί</gt2>
+		<gt2>Ι</gt2>
+		<gt2>Ϊ</gt2>
+		<gt2>ι</gt2>
+		<gt2>ί</gt2>
+		<gt2>ΐ</gt2>
+		<gt2>ϊ</gt2>
+		<gt1>J</gt1>
+		<gt2>j</gt2>
+		<gt1>K</gt1>
+		<gt2>k</gt2>
+		<gt2>Κ</gt2>
+		<gt2>κ</gt2>
+		<gt1>L</gt1>
+		<gt2>l</gt2>
+		<gt2>Λ</gt2>
+		<gt2>λ</gt2>
+		<gt1>M</gt1>
+		<gt2>m</gt2>
+		<gt2>Μ</gt2>
+		<gt2>μ</gt2>
+		<gt1>N</gt1>
+		<gt2>n</gt2>
+		<gt2>Ν</gt2>
+		<gt2>ν</gt2>
+		<gt1>O</gt1>
+		<gt2>o</gt2>
+		<gt2>Ό</gt2>
+		<gt2>Ο</gt2>
+		<gt2>ο</gt2>
+		<gt2>ό</gt2>
+		<gt2>Ώ</gt2>
+		<gt2>Ω</gt2>
+		<gt2>ω</gt2>
+		<gt2>ώ</gt2>
+		<gt1>P</gt1>
+		<gt2>p</gt2>
+		<gt2>Π</gt2>
+		<gt2>π</gt2>
+		<gt1>Q</gt1>
+		<gt2>q</gt2>
+		<gt1>R</gt1>
+		<gt2>r</gt2>
+		<gt2>Ρ</gt2>
+		<gt2>ρ</gt2>
+		<gt1>S</gt1>
+		<gt2>s</gt2>
+		<gt2>Σ</gt2>
+		<gt2>σ</gt2>
+		<gt2>ς</gt2>
+		<gt1>T</gt1>
+		<gt2>t</gt2>
+		<gt2>Τ</gt2>
+		<gt2>τ</gt2>
+		<gt1>U</gt1>
+		<gt2>u</gt2>
+		<gt1>V</gt1>
+		<gt2>v</gt2>
+		<gt1>W</gt1>
+		<gt2>w</gt2>
+		<gt1>X</gt1>
+		<gt2>x</gt2>
+		<gt2>Χ</gt2>
+		<gt2>χ</gt2>
+		<gt1>Y</gt1>
+		<gt2>y</gt2>
+		<gt2>Ύ</gt2>
+		<gt2>Υ</gt2>
+		<gt2>Ϋ</gt2>
+		<gt2>υ</gt2>
+		<gt2>ύ</gt2>
+		<gt2>ΰ</gt2>
+		<gt2>ϋ</gt2>
+		<gt1>Z</gt1>
+		<gt2>z</gt2>
+		<gt2>Ζ</gt2>
+		<gt2>ζ</gt2>
+		<gt1>!</gt1>
+		<gt1>&quot;</gt1>
+		<gt1>#</gt1>
+		<gt1>$</gt1>
+		<gt1>%</gt1>
+		<gt1>&amp;</gt1>
+		<gt1>'</gt1>
+		<gt1>(</gt1>
+		<gt1>)</gt1>
+		<gt1>*</gt1>
+		<gt1>+</gt1>
+		<gt1>-</gt1>
+		<gt1>/</gt1>
+		<gt1>:</gt1>
+		<gt1>;</gt1>
+		<gt1>&lt;</gt1>
+		<gt1>=</gt1>
+		<gt1>&gt;</gt1>
+		<gt1>?</gt1>
+		<gt1>@</gt1>
+		<gt1>[</gt1>
+		<gt1>\</gt1>
+		<gt1>]</gt1>
+		<gt1>^</gt1>
+		<gt1>_</gt1>
+		<gt1>`</gt1>
+		<gt1>{</gt1>
+		<gt1>|</gt1>
+		<gt1>}</gt1>
+		<gt1>~</gt1>
+		<gt1>·</gt1>
+		<gt1> </gt1>
+		<gt1>ʽ</gt1>
+		<gt1>ʼ</gt1>
+		<gt1>£</gt1>
+		<gt1>¦</gt1>
+		<gt1>§</gt1>
+		<gt1>¨</gt1>
+		<gt1>©</gt1>
+		<gt1>«</gt1>
+		<gt1>¬</gt1>
+		<gt1>­</gt1>
+		<gt1>¯</gt1>
+		<gt1>°</gt1>
+		<gt1>±</gt1>
+		<gt1>²</gt1>
+		<gt1>³</gt1>
+		<gt1>΄</gt1>
+		<gt1>΅</gt1>
+		<gt1>»</gt1>
+		<gt1>½</gt1>
+		<gt1></gt1>
+		<gt1>\u0001</gt1>
+		<gt1>\u0002</gt1>
+		<gt1>\u0003</gt1>
+		<gt1>\u0004</gt1>
+		<gt1>\u0005</gt1>
+		<gt1>\u0006</gt1>
+		<gt1>\u0007</gt1>
+		<gt1>\u0008</gt1>
+		<gt1>\u0009</gt1>
+		<gt1>\u000A</gt1>
+		<gt1>\u000B</gt1>
+		<gt1>\u000C</gt1>
+		<gt1>\u000D</gt1>
+		<gt1>\u000E</gt1>
+		<gt1>\u000F</gt1>
+		<gt1>\u0010</gt1>
+		<gt1>\u0011</gt1>
+		<gt1>\u0012</gt1>
+		<gt1>\u0013</gt1>
+		<gt1>\u0014</gt1>
+		<gt1>\u0015</gt1>
+		<gt1>\u0016</gt1>
+		<gt1>\u0017</gt1>
+		<gt1>\u0018</gt1>
+		<gt1>\u0019</gt1>
+		<gt1>\u001A</gt1>
+		<gt1>\u001B</gt1>
+		<gt1>\u001C</gt1>
+		<gt1>\u001D</gt1>
+		<gt1>\u001E</gt1>
+		<gt1>\u001F</gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<after>Kκ</after>
+		<gt3>Ξ</gt3>
+		<after>kκ</after>
+		<gt3>ξ</gt3>
+		<after>Pπ</after>
+		<gt3>Ψ</gt3>
+		<after>Ψ</after>
+		<gt3>Φ</gt3>
+		<after>pπ</after>
+		<gt3>ψ</gt3>
+		<after>ψ</after>
+		<gt3>φ</gt3>
+		<after>Tτ</after>
+		<gt3>Θ</gt3>
+		<after>tτ</after>
+		<gt3>θ</gt3>
+		</collationElements>
+	</collation>
+
+</localeData>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:05:11 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<correspondsTo vendor="0421">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Januari</month>
+				<month id="2">Februari</month>
+				<month id="3">Maret</month>
+				<month id="4">April</month>
+				<month id="5">Mei</month>
+				<month id="6">Juni</month>
+				<month id="7">Juli</month>
+				<month id="8">Agustus</month>
+				<month id="9">September</month>
+				<month id="10">Oktober</month>
+				<month id="11">Nopember</month>
+				<month id="12">Desember</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">Jan</month>
+				<month id="2">Feb</month>
+				<month id="3">Mar</month>
+				<month id="4">Apr</month>
+				<month id="5">Mei</month>
+				<month id="6">Jun</month>
+				<month id="7">Jul</month>
+				<month id="8">Agu</month>
+				<month id="9">Sep</month>
+				<month id="10">Okt</month>
+				<month id="11">Nop</month>
+				<month id="12">Des</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">Minggu </day>
+				<day id="2">Senin </day>
+				<day id="3">Selasa </day>
+				<day id="4">Rabu </day>
+				<day id="5">Kamis </day>
+				<day id="6">Jumat </day>
+				<day id="7">Sabtu </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">Minggu </day>
+				<day id="2">Senin </day>
+				<day id="3">Selasa </day>
+				<day id="4">Rabu </day>
+				<day id="5">Kamis </day>
+				<day id="6">Jumat </day>
+				<day id="7">Sabtu </day>
+			</dayAbbr>
+			<patterns> 
+				<time>
+					<full>H:mm:ss z</full>
+					<long>H:mm:ss</long>
+					<medium>H:mm:ss</medium>
+					<short>H:mm</short>
+				</time>
+				<date>
+					<full>EEEE d MMMM, yyyy</full>
+					<long>d MMMM, yyyy</long>
+					<medium>dd/MM/yyyy</medium>
+					<short>dd/MM/yy</short>
+				</date>
+ 				<dateTime>{1} {0} </dateTime>
+			</patterns>
+			<firstDay>2</firstDay>
+			<minDays>1</minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##0.###;-#,##0.###</decimal>
+			<percent>#,##0%</percent>
+		</patterns>
+	</numberFormat> 
+
+</localeData>

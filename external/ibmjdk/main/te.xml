@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:05:20 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<correspondsTo vendor="044A">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">జనవరి</month>
+				<month id="2">ఫిబ్రవరి</month>
+				<month id="3">మార్చి</month>
+				<month id="4">ఏప్రిల్</month>
+				<month id="5">మే</month>
+				<month id="6">జూన్</month>
+				<month id="7">జూలై</month>
+				<month id="8">ఆగస్టు</month>
+				<month id="9">సెప్టెంబర్</month>
+				<month id="10">అక్టోబర్</month>
+				<month id="11">నవంబర్</month>
+				<month id="12">డిసెంబర్</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">జనవరి</month>
+				<month id="2">ఫిబ్రవరి</month>
+				<month id="3">మార్చి</month>
+				<month id="4">ఏప్రిల్</month>
+				<month id="5">మే</month>
+				<month id="6">జూన్</month>
+				<month id="7">జూలై</month>
+				<month id="8">ఆగస్టు</month>
+				<month id="9">సెప్టెంబర్</month>
+				<month id="10">అక్టోబర్</month>
+				<month id="11">నవంబర్</month>
+				<month id="12">డిసెంబర్</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">ఆదివారం </day>
+				<day id="2">సోమవారం </day>
+				<day id="3">మంగళవారం </day>
+				<day id="4">బుధవారం </day>
+				<day id="5">గురువారం </day>
+				<day id="6">శుక్రవారం </day>
+				<day id="7">శనివారం </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">ఆది </day>
+				<day id="2">సోమ </day>
+				<day id="3">మంగళ </day>
+				<day id="4">బుధ </day>
+				<day id="5">గురు </day>
+				<day id="6">శుక్ర </day>
+				<day id="7">శని </day>
+			</dayAbbr>
+			<eras>
+				<era id="0">BC</era>
+				<era id="1">AD</era>
+			</eras>
+			<am>పూర్వాహ్న</am><pm>అపరాహ్న</pm>
+			<patterns> 
+				<time>
+					<full>h:mm:ss a z</full>
+					<long>h:mm:ss a</long>
+					<medium>h:mm:ss a</medium>
+					<short>h:mm a</short>
+				</time>
+				<date>
+					<full>EEEE d MMMM yyyy</full>
+					<long>d MMMM yyyy</long>
+					<medium>dd.MM.yyyy</medium>
+					<short>dd.MM.yy</short>
+				</date>
+ 				<dateTime>{1} {0} </dateTime>
+			</patterns>
+			<firstDay>1</firstDay>
+			<minDays>1</minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##,##0.###;-#,##,##0.###</decimal>
+			<percent>#,##,##0%</percent>
+		</patterns>
+	</numberFormat> 
+	<collation version="1.0" accentOrder="FORWARD" override="FALSE">
+		<collationElements>
+		<gt1>ఁ</gt1>
+		<gt1>ం</gt1>
+		<gt1>ః</gt1>
+		<gt1>అ</gt1>
+		<gt1>ఆ</gt1>
+		<gt1>ఇ</gt1>
+		<gt1>ఌ</gt1>
+		<gt1>ఈ</gt1>
+		<gt1>ౡ</gt1>
+		<gt1>ఉ</gt1>
+		<gt1>ఊ</gt1>
+		<gt1>ఋ</gt1>
+		<gt1>ౠ</gt1>
+		<gt1>ఎ</gt1>
+		<gt1>ఏ</gt1>
+		<gt1>ఐ</gt1>
+		<gt1>ఒ</gt1>
+		<gt1>ఓ</gt1>
+		<gt1>ఔ</gt1>
+		<gt1>఑</gt1>
+		<gt1>క</gt1>
+		<gt1>ఖ</gt1>
+		<gt1>గ</gt1>
+		<gt1>ఘ</gt1>
+		<gt1>ఙ</gt1>
+		<gt1>చ</gt1>
+		<gt1>ఛ</gt1>
+		<gt1>జ</gt1>
+		<gt1>ఝ</gt1>
+		<gt1>ఞ</gt1>
+		<gt1>ట</gt1>
+		<gt1>ఠ</gt1>
+		<gt1>డ</gt1>
+		<gt1>ఢ</gt1>
+		<gt1>ణ</gt1>
+		<gt1>త</gt1>
+		<gt1>థ</gt1>
+		<gt1>ద</gt1>
+		<gt1>ధ</gt1>
+		<gt1>న</gt1>
+		<gt1>ప</gt1>
+		<gt1>ఫ</gt1>
+		<gt1>బ</gt1>
+		<gt1>భ</gt1>
+		<gt1>మ</gt1>
+		<gt1>య</gt1>
+		<gt1>ర</gt1>
+		<gt1>ఱ</gt1>
+		<gt1>ల</gt1>
+		<gt1>ళ</gt1>
+		<gt1>వ</gt1>
+		<gt1>శ</gt1>
+		<gt1>ష</gt1>
+		<gt1>స</gt1>
+		<gt1>హ</gt1>
+		<gt1>ా</gt1>
+		<gt1>ి</gt1>
+		<gt1>ీ</gt1>
+		<gt1>ు</gt1>
+		<gt1>ూ</gt1>
+		<gt1>ృ</gt1>
+		<gt1>ౄ</gt1>
+		<gt1>ె</gt1>
+		<gt1>ే</gt1>
+		<gt1>ై</gt1>
+		<gt1>ొ</gt1>
+		<gt1>ో</gt1>
+		<gt1>ౌ</gt1>
+		<gt1>్</gt1>
+		<gt1>ౕ</gt1>
+		<gt1>ౖ</gt1>
+		<gt1>౦</gt1>
+		<gt1>౧</gt1>
+		<gt1>౨</gt1>
+		<gt1>౩</gt1>
+		<gt1>౪</gt1>
+		<gt1>౫</gt1>
+		<gt1>౬</gt1>
+		<gt1>౭</gt1>
+		<gt1>౮</gt1>
+		<gt1>౯</gt1>
+		</collationElements>
+	</collation>
+
+</localeData>

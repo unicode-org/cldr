@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:07 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="TW" />
+		<correspondsTo vendor="0404">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">一月</month>
+				<month id="2">二月</month>
+				<month id="3">三月</month>
+				<month id="4">四月</month>
+				<month id="5">五月</month>
+				<month id="6">六月</month>
+				<month id="7">七月</month>
+				<month id="8">八月</month>
+				<month id="9">九月</month>
+				<month id="10">十月</month>
+				<month id="11">十一月</month>
+				<month id="12">十二月</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">星期日 </day>
+				<day id="2">星期一 </day>
+				<day id="3">星期二 </day>
+				<day id="4">星期三 </day>
+				<day id="5">星期四 </day>
+				<day id="6">星期五 </day>
+				<day id="7">星期六 </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">星期日 </day>
+				<day id="2">星期一 </day>
+				<day id="3">星期二 </day>
+				<day id="4">星期三 </day>
+				<day id="5">星期四 </day>
+				<day id="6">星期五 </day>
+				<day id="7">星期六 </day>
+			</dayAbbr>
+			<am>上午</am><pm>下午</pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>a hh:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>yyyy'年'M'月'd'日'</full>
+					<long></long>
+					<medium></medium>
+					<short>yyyy/M/d</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>6</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="TWD" default="true">
+			<symbol>NT$</symbol>
+			<name>TWD</name>
+			<decimal>.</decimal>
+			<pattern>¤#,##0.00;-¤#,##0.00</pattern>
+		</currency>
+	</currencies>
+
+</localeData>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:54 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="GR" />
+		<correspondsTo vendor="0408">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Ιανουάριος</month>
+				<month id="2">Φεβρουάριος</month>
+				<month id="3">Μάρτιος</month>
+				<month id="4">Απρίλιος</month>
+				<month id="5">Μάιος</month>
+				<month id="6">Ιούνιος</month>
+				<month id="7">Ιούλιος</month>
+				<month id="8">Αύγουστος</month>
+				<month id="9">Σεπτέμβριος</month>
+				<month id="10">Οκτώβριος</month>
+				<month id="11">Νοέμβριος</month>
+				<month id="12">Δεκέμβριος</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">Κυριακή </day>
+				<day id="2">Δευτέρα </day>
+				<day id="3">Τρίτη </day>
+				<day id="4">Τετάρτη </day>
+				<day id="5">Πέμπτη </day>
+				<day id="6">Παρασκευή </day>
+				<day id="7">Σάββατο </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">Κυρ </day>
+				<day id="2">Δευ </day>
+				<day id="3">Τρι </day>
+				<day id="4">Τετ </day>
+				<day id="5">Πεμ </day>
+				<day id="6">Παρ </day>
+				<day id="7">Σαβ </day>
+			</dayAbbr>
+			<am>πμ</am><pm>μμ</pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>h:mm:ss a</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dddd, d MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>d/M/yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="GRD" default="true">
+			<symbol>Δρχ</symbol>
+			<name>GRD</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

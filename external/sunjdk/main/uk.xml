@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:04:34 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<correspondsTo vendor="0422">Windows</correspondsTo>
+	</identity  >
+
+	<displayNames >
+		<languages >
+			<language id="uk" >українська</language>
+		</languages >
+		<countries  >
+			<country id="UA">Україна</country>
+		</countries  >
+
+	</displayNames >
+	<timeZoneNames>
+		<zone id="Africa/Casablanca" default="true">
+			<long>
+				<generic>GMT</generic>
+				<standard>GMT</standard>
+			</long>
+			<short>
+				<generic>Africa/Casablanca</generic>
+				<standard>GMT</standard>
+				<daylight>GMT</daylight>
+			</short>
+		</zone>
+	</timeZoneNames>
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">січня</month>
+				<month id="2">лютого</month>
+				<month id="3">бережня</month>
+				<month id="4">квітня</month>
+				<month id="5">травня</month>
+				<month id="6">червня</month>
+				<month id="7">липня</month>
+				<month id="8">серпня</month>
+				<month id="9">вересня</month>
+				<month id="10">жовтня</month>
+				<month id="11">листопада</month>
+				<month id="12">грудня</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">січ</month>
+				<month id="2">лют</month>
+				<month id="3">бер</month>
+				<month id="4">квіт</month>
+				<month id="5">трав</month>
+				<month id="6">черв</month>
+				<month id="7">лип</month>
+				<month id="8">серп</month>
+				<month id="9">вер</month>
+				<month id="10">жовт</month>
+				<month id="11">лист</month>
+				<month id="12">груд</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">неділя </day>
+				<day id="2">понеділок </day>
+				<day id="3">вівторок </day>
+				<day id="4">середа </day>
+				<day id="5">четвер </day>
+				<day id="6">п'ятниця </day>
+				<day id="7">субота </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">нд </day>
+				<day id="2">пн </day>
+				<day id="3">вт </day>
+				<day id="4">ср </day>
+				<day id="5">чт </day>
+				<day id="6">пт </day>
+				<day id="7">сб </day>
+			</dayAbbr>
+			<eras>
+				<era id="0">до н.е.</era>
+				<era id="1">після н.е.</era>
+			</eras>
+			<patterns> 
+				<chars>GanjkHmsSEDFwWxhKz</chars>
+				<time>
+					<full>H:mm:ss z</full>
+					<long>H:mm:ss z</long>
+					<medium>H:mm:ss</medium>
+					<short>H:mm</short>
+				</time>
+				<date>
+					<full>EEEE, d, MMMM yyyy</full>
+					<long>EEEE, d, MMMM yyyy</long>
+					<medium>d/M/yyyy</medium>
+					<short>d/M/yy</short>
+				</date>
+ 				<dateTime>{1} {0} </dateTime>
+			</patterns>
+		</calendar>
+	</calendars>
+	<collation version="0.0" accentOrder="FORWARD" override="FALSE">
+		<collationElements>
+		<after>9</after>
+		<gt1>҂</gt1>
+		<after>Z</after>
+		<gt1>а</gt1>
+		<gt3>А</gt3>
+		<gt1>б</gt1>
+		<gt3>Б</gt3>
+		<gt1>в</gt1>
+		<gt3>В</gt3>
+		<gt1>г</gt1>
+		<gt3>Г</gt3>
+		<gt2>ґ</gt2>
+		<gt3>Ґ</gt3>
+		<gt2>ҕ</gt2>
+		<gt3>Ҕ</gt3>
+		<gt2>ѓ</gt2>
+		<gt3>Ѓ</gt3>
+		<gt2>ғ</gt2>
+		<gt3>Ғ</gt3>
+		<gt1>д</gt1>
+		<gt3>Д</gt3>
+		<gt1>ђ</gt1>
+		<gt3>Ђ</gt3>
+		<gt1>е</gt1>
+		<gt3>Е</gt3>
+		<gt2>ҽ</gt2>
+		<gt3>Ҽ</gt3>
+		<gt2>ё</gt2>
+		<gt3>Ё</gt3>
+		<gt2>ҿ</gt2>
+		<gt3>Ҿ</gt3>
+		<gt1>є</gt1>
+		<gt3>Є</gt3>
+		<gt1>ж</gt1>
+		<gt3>Ж</gt3>
+		<gt2>җ</gt2>
+		<gt3>Җ</gt3>
+		<gt2>ӂ</gt2>
+		<gt3>Ӂ</gt3>
+		<gt1>з</gt1>
+		<gt3>З</gt3>
+		<gt2>ҙ</gt2>
+		<gt3>Ҙ</gt3>
+		<gt1>ѕ</gt1>
+		<gt3>Ѕ</gt3>
+		<gt1>и</gt1>
+		<gt3>И</gt3>
+		<gt1>і</gt1>
+		<gt3>І</gt3>
+		<gt2>Ӏ</gt2>
+		<gt1>ї</gt1>
+		<gt3>Ї</gt3>
+		<gt1>й</gt1>
+		<gt3>Й</gt3>
+		<gt1>ј</gt1>
+		<gt3>Ј</gt3>
+		<gt1>к</gt1>
+		<gt3>К</gt3>
+		<gt2>ҟ</gt2>
+		<gt3>Ҟ</gt3>
+		<gt2>ӄ</gt2>
+		<gt3>Ӄ</gt3>
+		<gt2>ҝ</gt2>
+		<gt3>Ҝ</gt3>
+		<gt2>ҡ</gt2>
+		<gt3>Ҡ</gt3>
+		<gt2>ќ</gt2>
+		<gt3>Ќ</gt3>
+		<gt2>қ</gt2>
+		<gt3>Қ</gt3>
+		<gt1>л</gt1>
+		<gt3>Л</gt3>
+		<gt1>љ</gt1>
+		<gt3>Љ</gt3>
+		<gt1>м</gt1>
+		<gt3>М</gt3>
+		<gt1>н</gt1>
+		<gt3>Н</gt3>
+		<gt2>ѣ</gt2>
+		<gt2>ң</gt2>
+		<gt3>Ң</gt3>
+		<gt2>ҥ</gt2>
+		<gt3>Ҥ</gt3>
+		<gt2>һ</gt2>
+		<gt3>Һ</gt3>
+		<gt2>ӈ</gt2>
+		<gt3>Ӈ</gt3>
+		<gt1>њ</gt1>
+		<gt3>Њ</gt3>
+		<gt1>о</gt1>
+		<gt3>О</gt3>
+		<gt2>ҩ</gt2>
+		<gt3>Ҩ</gt3>
+		<gt1>п</gt1>
+		<gt3>П</gt3>
+		<gt2>ҧ</gt2>
+		<gt3>Ҧ</gt3>
+		<gt1>р</gt1>
+		<gt3>Р</gt3>
+		<gt1>с</gt1>
+		<gt3>С</gt3>
+		<gt2>ҫ</gt2>
+		<gt3>Ҫ</gt3>
+		<gt1>т</gt1>
+		<gt3>Т</gt3>
+		<gt2>ҭ</gt2>
+		<gt3>Ҭ</gt3>
+		<gt1>ћ</gt1>
+		<gt3>Ћ</gt3>
+		<gt1>у</gt1>
+		<gt3>У</gt3>
+		<gt2>ү</gt2>
+		<gt3>Ү</gt3>
+		<gt1>ў</gt1>
+		<gt3>Ў</gt3>
+		<gt1>ұ</gt1>
+		<gt3>Ұ</gt3>
+		<gt1>ф</gt1>
+		<gt3>Ф</gt3>
+		<gt1>х</gt1>
+		<gt3>Х</gt3>
+		<gt2>ҳ</gt2>
+		<gt3>Ҳ</gt3>
+		<gt1>ц</gt1>
+		<gt3>Ц</gt3>
+		<gt2>ҵ</gt2>
+		<gt3>Ҵ</gt3>
+		<gt1>ч</gt1>
+		<gt3>Ч</gt3>
+		<gt2>ҷ</gt2>
+		<gt2>Ҷ</gt2>
+		<gt2>ҹ</gt2>
+		<gt3>Ҹ</gt3>
+		<gt2>ӌ</gt2>
+		<gt3>Ӌ</gt3>
+		<gt1>џ</gt1>
+		<gt3>Џ</gt3>
+		<gt1>ш</gt1>
+		<gt3>Ш</gt3>
+		<gt1>щ</gt1>
+		<gt3>Щ</gt3>
+		<gt1>ъ</gt1>
+		<gt3>Ъ</gt3>
+		<gt1>ы</gt1>
+		<gt3>Ы</gt3>
+		<gt1>э</gt1>
+		<gt3>Э</gt3>
+		<gt1>ю</gt1>
+		<gt3>Ю</gt3>
+		<gt1>я</gt1>
+		<gt3>Я</gt3>
+		<gt1>ь</gt1>
+		<gt3>Ь</gt3>
+		<gt1>ѡ</gt1>
+		<gt3>Ѡ</gt3>
+		<gt1>Ѣ</gt1>
+		<gt1>ѥ</gt1>
+		<gt3>Ѥ</gt3>
+		<gt1>ѧ</gt1>
+		<gt3>Ѧ</gt3>
+		<gt1>ѩ</gt1>
+		<gt3>Ѩ</gt3>
+		<gt1>ѫ</gt1>
+		<gt3>Ѫ</gt3>
+		<gt1>ѭ</gt1>
+		<gt3>Ѭ</gt3>
+		<gt1>ѯ</gt1>
+		<gt3>Ѯ</gt3>
+		<gt1>ѱ</gt1>
+		<gt3>Ѱ</gt3>
+		<gt1>ѳ</gt1>
+		<gt3>Ѳ</gt3>
+		<gt1>ѵ</gt1>
+		<gt3>Ѵ</gt3>
+		<gt2>ѷ</gt2>
+		<gt3>Ѷ</gt3>
+		<gt1>ѹ</gt1>
+		<gt3>Ѹ</gt3>
+		<gt1>ѻ</gt1>
+		<gt3>Ѻ</gt3>
+		<gt1>ѽ</gt1>
+		<gt3>Ѽ</gt3>
+		<gt1>ѿ</gt1>
+		<gt3>Ѿ</gt3>
+		<gt1>ҁ</gt1>
+		<gt3>Ҁ</gt3>
+		</collationElements>
+	</collation>
+
+</localeData>

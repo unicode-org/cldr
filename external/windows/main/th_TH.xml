@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:04 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="TH" />
+		<correspondsTo vendor="041E">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">มกราคม</month>
+				<month id="2">กุมภาพันธ์</month>
+				<month id="3">มีนาคม</month>
+				<month id="4">เมษายน</month>
+				<month id="5">พฤษภาคม</month>
+				<month id="6">มิถุนายน</month>
+				<month id="7">กรกฎาคม</month>
+				<month id="8">สิงหาคม</month>
+				<month id="9">กันยายน</month>
+				<month id="10">ตุลาคม</month>
+				<month id="11">พฤศจิกายน</month>
+				<month id="12">ธันวาคม</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">อาทิตย์ </day>
+				<day id="2">จันทร์ </day>
+				<day id="3">อังคาร </day>
+				<day id="4">พุธ </day>
+				<day id="5">พฤหัสบดี </day>
+				<day id="6">ศุกร์ </day>
+				<day id="7">เสาร์ </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">อา. </day>
+				<day id="2">จ. </day>
+				<day id="3">อ. </day>
+				<day id="4">พ. </day>
+				<day id="5">พฤ. </day>
+				<day id="6">ศ. </day>
+				<day id="7">ส. </day>
+			</dayAbbr>
+			<am>AM</am><pm>PM</pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>d/M/yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="THB" default="true">
+			<symbol>฿</symbol>
+			<name>THB</name>
+			<decimal>.</decimal>
+			<pattern>¤#,##0.00;¤-#,##0.00</pattern>
+		</currency>
+	</currencies>
+
+</localeData>

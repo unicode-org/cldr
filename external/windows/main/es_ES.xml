@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:57 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="ES" />
+		<correspondsTo vendor="040A">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">enero</month>
+				<month id="2">febrero</month>
+				<month id="3">marzo</month>
+				<month id="4">abril</month>
+				<month id="5">mayo</month>
+				<month id="6">junio</month>
+				<month id="7">julio</month>
+				<month id="8">agosto</month>
+				<month id="9">septiembre</month>
+				<month id="10">octubre</month>
+				<month id="11">noviembre</month>
+				<month id="12">diciembre</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">domingo </day>
+				<day id="2">lunes </day>
+				<day id="3">martes </day>
+				<day id="4">miércoles </day>
+				<day id="5">jueves </day>
+				<day id="6">viernes </day>
+				<day id="7">sábado </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">dom </day>
+				<day id="2">lun </day>
+				<day id="3">mar </day>
+				<day id="4">mié </day>
+				<day id="5">jue </day>
+				<day id="6">vie </day>
+				<day id="7">sáb </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dddd, dd' de 'MMMM' de 'yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>dd/MM/yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>;</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+	</numberFormat> 
+	<currencies>
+		<currency id="ESP" default="true">
+			<symbol>pta</symbol>
+			<name>ESP</name>
+			<decimal>,</decimal>
+			<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
+		</currency>
+	</currencies>
+
+</localeData>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:01 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="MK" />
+		<correspondsTo vendor="042F">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">јануари</month>
+				<month id="2">февруари</month>
+				<month id="3">март</month>
+				<month id="4">април</month>
+				<month id="5">мај</month>
+				<month id="6">јуни</month>
+				<month id="7">јули</month>
+				<month id="8">август</month>
+				<month id="9">септември</month>
+				<month id="10">октомври</month>
+				<month id="11">ноември</month>
+				<month id="12">декември</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">недела </day>
+				<day id="2">понеделник </day>
+				<day id="3">вторник </day>
+				<day id="4">среда </day>
+				<day id="5">четврток </day>
+				<day id="6">петок </day>
+				<day id="7">сабота </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">нед </day>
+				<day id="2">пон </day>
+				<day id="3">втр </day>
+				<day id="4">срд </day>
+				<day id="5">чет </day>
+				<day id="6">пет </day>
+				<day id="7">саб </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>HH:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dddd, dd MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>dd.MM.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="MKD" default="true">
+			<symbol>ден.</symbol>
+			<name>MKD</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

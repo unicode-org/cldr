@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:00 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="KR" />
+		<correspondsTo vendor="0412">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">1월</month>
+				<month id="2">2월</month>
+				<month id="3">3월</month>
+				<month id="4">4월</month>
+				<month id="5">5월</month>
+				<month id="6">6월</month>
+				<month id="7">7월</month>
+				<month id="8">8월</month>
+				<month id="9">9월</month>
+				<month id="10">10월</month>
+				<month id="11">11월</month>
+				<month id="12">12월</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">일요일 </day>
+				<day id="2">월요일 </day>
+				<day id="3">화요일 </day>
+				<day id="4">수요일 </day>
+				<day id="5">목요일 </day>
+				<day id="6">금요일 </day>
+				<day id="7">토요일 </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">일 </day>
+				<day id="2">월 </day>
+				<day id="3">화 </day>
+				<day id="4">수 </day>
+				<day id="5">목 </day>
+				<day id="6">금 </day>
+				<day id="7">토 </day>
+			</dayAbbr>
+			<am>오전</am><pm>오후</pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>a h:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>yyyy'년' M'월' d'일' dddd</full>
+					<long></long>
+					<medium></medium>
+					<short>yyyy-MM-dd</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>6</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="KRW" default="true">
+			<symbol>₩</symbol>
+			<name>KRW</name>
+			<decimal>.</decimal>
+			<pattern>¤#,##0.00;-¤#,##0.00</pattern>
+		</currency>
+	</currencies>
+
+</localeData>

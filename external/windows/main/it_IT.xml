@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:00 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="IT" />
+		<correspondsTo vendor="0410">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">gennaio</month>
+				<month id="2">febbraio</month>
+				<month id="3">marzo</month>
+				<month id="4">aprile</month>
+				<month id="5">maggio</month>
+				<month id="6">giugno</month>
+				<month id="7">luglio</month>
+				<month id="8">agosto</month>
+				<month id="9">settembre</month>
+				<month id="10">ottobre</month>
+				<month id="11">novembre</month>
+				<month id="12">dicembre</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">domenica </day>
+				<day id="2">lunedì </day>
+				<day id="3">martedì </day>
+				<day id="4">mercoledì </day>
+				<day id="5">giovedì </day>
+				<day id="6">venerdì </day>
+				<day id="7">sabato </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">dom </day>
+				<day id="2">lun </day>
+				<day id="3">mar </day>
+				<day id="4">mer </day>
+				<day id="5">gio </day>
+				<day id="6">ven </day>
+				<day id="7">sab </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H.mm.ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dddd d MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>dd/MM/yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="ITL" default="true">
+			<symbol>L.</symbol>
+			<name>ITL</name>
+			<decimal></decimal>
+		</currency>
+	</currencies>
+
+</localeData>

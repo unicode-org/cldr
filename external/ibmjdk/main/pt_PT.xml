@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:05:18 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="PT" />
+		<correspondsTo vendor="0816">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Janeiro</month>
+				<month id="2">Fevereiro</month>
+				<month id="3">Março</month>
+				<month id="4">Abril</month>
+				<month id="5">Maio</month>
+				<month id="6">Junho</month>
+				<month id="7">Julho</month>
+				<month id="8">Agosto</month>
+				<month id="9">Setembro</month>
+				<month id="10">Outubro</month>
+				<month id="11">Novembro</month>
+				<month id="12">Dezembro</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">Jan</month>
+				<month id="2">Fev</month>
+				<month id="3">Mar</month>
+				<month id="4">Abr</month>
+				<month id="5">Mai</month>
+				<month id="6">Jun</month>
+				<month id="7">Jul</month>
+				<month id="8">Ago</month>
+				<month id="9">Set</month>
+				<month id="10">Out</month>
+				<month id="11">Nov</month>
+				<month id="12">Dez</month>
+				<month id="13"></month>
+			</monthAbbr>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##0.###;-#,##0.###</decimal>
+			<percent>#,##0%</percent>
+		</patterns>
+	</numberFormat> 
+
+</localeData>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:04:33 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<correspondsTo vendor="041d">Windows</correspondsTo>
+	</identity  >
+
+	<displayNames >
+		<languages >
+			<language id="sv" >svenska</language>
+		</languages >
+		<countries  >
+			<country id="SE">Sverige</country>
+		</countries  >
+
+	</displayNames >
+	<timeZoneNames>
+		<zone id="Africa/Casablanca" default="true">
+			<long>
+				<generic>GMT</generic>
+				<standard>GMT</standard>
+			</long>
+			<short>
+				<generic>Africa/Casablanca</generic>
+				<standard>GMT</standard>
+				<daylight>GMT</daylight>
+			</short>
+		</zone>
+	</timeZoneNames>
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">januari</month>
+				<month id="2">februari</month>
+				<month id="3">mars</month>
+				<month id="4">april</month>
+				<month id="5">maj</month>
+				<month id="6">juni</month>
+				<month id="7">juli</month>
+				<month id="8">augusti</month>
+				<month id="9">september</month>
+				<month id="10">oktober</month>
+				<month id="11">november</month>
+				<month id="12">december</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">jan</month>
+				<month id="2">feb</month>
+				<month id="3">mar</month>
+				<month id="4">apr</month>
+				<month id="5">maj</month>
+				<month id="6">jun</month>
+				<month id="7">jul</month>
+				<month id="8">aug</month>
+				<month id="9">sep</month>
+				<month id="10">okt</month>
+				<month id="11">nov</month>
+				<month id="12">dec</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">söndag </day>
+				<day id="2">måndag </day>
+				<day id="3">tisdag </day>
+				<day id="4">onsdag </day>
+				<day id="5">torsdag </day>
+				<day id="6">fredag </day>
+				<day id="7">lördag </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">sö </day>
+				<day id="2">må </day>
+				<day id="3">ti </day>
+				<day id="4">on </day>
+				<day id="5">to </day>
+				<day id="6">fr </day>
+				<day id="7">lö </day>
+			</dayAbbr>
+			<patterns> 
+				<chars>GyMdkHmsSEDFwWahKz</chars>
+				<time>
+					<full>'kl 'H:mm z</full>
+					<long>HH:mm:ss z</long>
+					<medium>HH:mm:ss</medium>
+					<short>HH:mm</short>
+				</time>
+				<date>
+					<full>'den 'd MMMM yyyy</full>
+					<long>'den 'd MMMM yyyy</long>
+					<medium>yyyy-MMM-dd</medium>
+					<short>yyyy-MM-dd</short>
+				</date>
+ 				<dateTime>{1} {0} </dateTime>
+			</patterns>
+			<firstDay>2</firstDay>
+			<minDays>4</minDays>
+		</calendar>
+	</calendars>
+	<collation version="0.0" accentOrder="FORWARD" override="FALSE">
+		<collationElements>
+		<after>Z</after>
+		<gt1>æ</gt1>
+		<gt3>Æ</gt3>
+		<gt1>å</gt1>
+		<gt3>Å</gt3>
+		<gt3>aa</gt3>
+		<gt3>aA</gt3>
+		<gt3>Aa</gt3>
+		<gt3>AA</gt3>
+		<gt1>ä</gt1>
+		<gt3>Ä</gt3>
+		<gt1>ö</gt1>
+		<gt3>Ö</gt3>
+		<gt2>ű</gt2>
+		<gt3>Ű</gt3>
+		<gt1>ő</gt1>
+		<gt3>Ő</gt3>
+		<gt2>ø</gt2>
+		<gt3>Ø</gt3>
+		<after>V</after>
+		<gt2>w</gt2>
+		<gt3>W</gt3>
+		<after>Y</after>
+		<gt3>ü</gt3>
+		<gt3>Ü</gt3>
+		</collationElements>
+	</collation>
+
+</localeData>

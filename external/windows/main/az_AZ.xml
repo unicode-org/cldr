@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:53 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="AZ" />
+		<correspondsTo vendor="042C">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Yanvar</month>
+				<month id="2">Fevral</month>
+				<month id="3">Mart</month>
+				<month id="4">Aprel</month>
+				<month id="5">May</month>
+				<month id="6">İyun</month>
+				<month id="7">İyul</month>
+				<month id="8">Avgust</month>
+				<month id="9">Sentyabr</month>
+				<month id="10">Oktyabr</month>
+				<month id="11">Noyabr</month>
+				<month id="12">Dekabr</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">Bazar </day>
+				<day id="2">Bazar ertəsi </day>
+				<day id="3">Çərşənbə axşamı </day>
+				<day id="4">Çərşənbə </day>
+				<day id="5">Cçmə axşamı </day>
+				<day id="6">Cçmə </day>
+				<day id="7">Şənbə </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">B </day>
+				<day id="2">Be </day>
+				<day id="3">Ça </day>
+				<day id="4">Ç </day>
+				<day id="5">Ca </day>
+				<day id="6">C </day>
+				<day id="7">Ş </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>dd.MM.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="AZM" default="true">
+			<symbol>man.</symbol>
+			<name>AZM</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

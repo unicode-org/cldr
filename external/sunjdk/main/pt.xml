@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:04:31 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<correspondsTo vendor="0816">Windows</correspondsTo>
+	</identity  >
+
+	<displayNames >
+		<languages >
+			<language id="pt" >português</language>
+		</languages >
+		<countries  >
+			<country id="BR">Brasil</country>
+			<country id="PT">Portugal</country>
+		</countries  >
+
+	</displayNames >
+	<timeZoneNames>
+		<zone id="Africa/Casablanca" default="true">
+			<long>
+				<generic>GMT</generic>
+				<standard>GMT</standard>
+			</long>
+			<short>
+				<generic>Africa/Casablanca</generic>
+				<standard>GMT</standard>
+				<daylight>GMT</daylight>
+			</short>
+		</zone>
+	</timeZoneNames>
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Janeiro</month>
+				<month id="2">Fevereiro</month>
+				<month id="3">Março</month>
+				<month id="4">Abril</month>
+				<month id="5">Maio</month>
+				<month id="6">Junho</month>
+				<month id="7">Julho</month>
+				<month id="8">Agosto</month>
+				<month id="9">Setembro</month>
+				<month id="10">Outubro</month>
+				<month id="11">Novembro</month>
+				<month id="12">Dezembro</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">Jan</month>
+				<month id="2">Fev</month>
+				<month id="3">Mar</month>
+				<month id="4">Abr</month>
+				<month id="5">Mai</month>
+				<month id="6">Jun</month>
+				<month id="7">Jul</month>
+				<month id="8">Ago</month>
+				<month id="9">Set</month>
+				<month id="10">Out</month>
+				<month id="11">Nov</month>
+				<month id="12">Dez</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">Domingo </day>
+				<day id="2">Segunda-feira </day>
+				<day id="3">Terça-feira </day>
+				<day id="4">Quarta-feira </day>
+				<day id="5">Quinta-feira </day>
+				<day id="6">Sexta-feira </day>
+				<day id="7">Sábado </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">Dom </day>
+				<day id="2">Seg </day>
+				<day id="3">Ter </day>
+				<day id="4">Qua </day>
+				<day id="5">Qui </day>
+				<day id="6">Sex </day>
+				<day id="7">Sáb </day>
+			</dayAbbr>
+			<patterns> 
+				<chars>GyMdkHmsSEDFwWahKz</chars>
+				<time>
+					<full>HH'H'mm'm' z</full>
+					<long>H:mm:ss z</long>
+					<medium>H:mm:ss</medium>
+					<short>H:mm</short>
+				</time>
+				<date>
+					<full>EEEE, d' de 'MMMM' de 'yyyy</full>
+					<long>d' de 'MMMM' de 'yyyy</long>
+					<medium>d/MMM/yy</medium>
+					<short>dd-MM-yyyy</short>
+				</date>
+ 				<dateTime>{1} {0} </dateTime>
+			</patterns>
+			<firstDay>2</firstDay>
+			<minDays>1</minDays>
+		</calendar>
+	</calendars>
+
+</localeData>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:05 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="UA" />
+		<correspondsTo vendor="0422">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Січень</month>
+				<month id="2">Лютий</month>
+				<month id="3">Березень</month>
+				<month id="4">Квітень</month>
+				<month id="5">Травень</month>
+				<month id="6">Червень</month>
+				<month id="7">Липень</month>
+				<month id="8">Серпень</month>
+				<month id="9">Вересень</month>
+				<month id="10">Жовтень</month>
+				<month id="11">Листопад</month>
+				<month id="12">Грудень</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">неділя </day>
+				<day id="2">понеділок </day>
+				<day id="3">вівторок </day>
+				<day id="4">середа </day>
+				<day id="5">четвер </day>
+				<day id="6">п'ятниця </day>
+				<day id="7">субота </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">Нд </day>
+				<day id="2">Пн </day>
+				<day id="3">Вв </day>
+				<day id="4">Ср </day>
+				<day id="5">Чт </day>
+				<day id="6">Пт </day>
+				<day id="7">Сб </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d MMMM yyyy' р.'</full>
+					<long></long>
+					<medium></medium>
+					<short>dd.MM.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="UAK" default="true">
+			<symbol>грн.</symbol>
+			<name>UAK</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

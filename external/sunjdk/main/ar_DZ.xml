@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:04:19 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="DZ" />
+		<correspondsTo vendor="0c01">Windows</correspondsTo>
+	</identity  >
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##0.###;#,##0.###-</decimal>
+			<percent>#,##0%</percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="DZD" default="true">
+			<symbol>د.ج.‏</symbol>
+			<name>DZD</name>
+			<decimal>.</decimal>
+			<pattern>¤ #,##0.00;¤ #,##0.00-</pattern>
+		</currency>
+	</currencies>
+
+</localeData>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:04 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="FI" />
+		<correspondsTo vendor="081D">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">januari</month>
+				<month id="2">februari</month>
+				<month id="3">mars</month>
+				<month id="4">april</month>
+				<month id="5">maj</month>
+				<month id="6">juni</month>
+				<month id="7">juli</month>
+				<month id="8">augusti</month>
+				<month id="9">september</month>
+				<month id="10">oktober</month>
+				<month id="11">november</month>
+				<month id="12">december</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">söndag </day>
+				<day id="2">måndag </day>
+				<day id="3">tisdag </day>
+				<day id="4">onsdag </day>
+				<day id="5">torsdag </day>
+				<day id="6">fredag </day>
+				<day id="7">lördag </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">sö </day>
+				<day id="2">må </day>
+				<day id="3">ti </day>
+				<day id="4">on </day>
+				<day id="5">to </day>
+				<day id="6">fr </day>
+				<day id="7">lö </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>HH:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>'den 'd MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>d.M.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="FIM" default="true">
+			<symbol>mk</symbol>
+			<name>FIM</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

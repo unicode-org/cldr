@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:05 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="VN" />
+		<correspondsTo vendor="042A">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">tháng một</month>
+				<month id="2">tháng hai</month>
+				<month id="3">tháng ba</month>
+				<month id="4">tháng tư</month>
+				<month id="5">tháng năm</month>
+				<month id="6">tháng sáu</month>
+				<month id="7">tháng bảy</month>
+				<month id="8">tháng tám</month>
+				<month id="9">tháng chín</month>
+				<month id="10">tháng mười</month>
+				<month id="11">tháng mười một</month>
+				<month id="12">tháng mười hai</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">chủ nhật </day>
+				<day id="2">thứ hai </day>
+				<day id="3">thứ ba </day>
+				<day id="4">thứ tư </day>
+				<day id="5">thứ năm </day>
+				<day id="6">thứ sáu </day>
+				<day id="7">thứ bảy </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">cn </day>
+				<day id="2">hai </day>
+				<day id="3">ba </day>
+				<day id="4">tư </day>
+				<day id="5">năm </day>
+				<day id="6">sáu </day>
+				<day id="7">bảy </day>
+			</dayAbbr>
+			<am>SA</am><pm>CH</pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>h:mm:ss a</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dd MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>dd/MM/yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="VND" default="true">
+			<symbol>₫</symbol>
+			<name>VND</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

@@ -1,0 +1,363 @@
+bg_BG {
+    ///* Discarding duplicate data for tag: AddressFormat */
+    ///* Discarding duplicate data for tag: AmPmMarkers */
+    ///* Discarding duplicate data for tag: CountryISBNNumber */
+    ///* Discarding duplicate data for tag: CountryNumber */
+    CurrencyElements { 
+            "\u041B\u0412.",
+            "BGL",
+            ".",
+    }
+    DateTimePatterns { 
+            "%.lH:mm:ss",
+            "%.lH:mm:ss",
+            "%.lH:mm:ss",
+            "%.lH:mm:ss",
+            "EEE, %.1d MMM yyyy",
+            "EEE, %.1d MMM yyyy HH:mm:ss",
+            "EEE, %.1d MMM yyyy",
+            "EEE, %.1d MMM yyyy",
+            "{1} {0}",
+    }
+    DayAbbreviations { 
+            "\u041D\u0415\u0414",
+            "\u041F\u041E\u041D",
+            "\u0412\u0422\u0420",
+            "\u0421\u0420\u0414",
+            "\u0427\u0422\u0412",
+            "\u041F\u0415\u0422",
+            "\u0421\u042A\u0411",
+    }
+    DayNames { 
+            "\u041D\u0415\u0414\u0415\u041B\u042F",
+            "\u041F\u041E\u041D\u0415\u0414\u0415\u041B\u041D\u0418\u041A",
+            "\u0412\u0422\u041E\u0420\u041D\u0418\u041A",
+            "\u0421\u0420\u042F\u0414\u0410",
+            "\u0427\u0415\u0422\u0412\u042A\u0420\u0422\u042A\u041A",
+            "\u041F\u0415\u0422\u042A\u041A",
+            "\u0421\u042A\u0411\u041E\u0422\u0410",
+    }
+    ///* Discarding duplicate data for tag: Identification */
+    ///* Discarding duplicate data for tag: LanguageLibraryUse */
+    ///* Discarding duplicate data for tag: Measurement */
+    Messages { 
+        yesExpression { "^([Yy]|[Yy][Ee][Ss])" }
+        noExpression { "^([Nn]|[Nn][Oo])" }
+    }
+    MonthAbbreviations { 
+            "\u042F\u041D\u0423",
+            "\u0424\u0415\u0412",
+            "\u041C\u0410\u0420",
+            "\u0410\u041F\u0420",
+            "\u041C\u0410\u0419",
+            "\u042E\u041D\u0418",
+            "\u042E\u041B\u0418",
+            "\u0410\u0412\u0413",
+            "\u0421\u0415\u041F",
+            "\u041E\u041A\u0422",
+            "\u041D\u041E\u0415",
+            "\u0414\u0415\u041A",
+            "",
+    }
+    MonthNames { 
+            "\u042F\u041D\u0423\u0410\u0420\u0418",
+            "\u0424\u0415\u0412\u0420\u0423\u0410\u0420\u0418",
+            "\u041C\u0410\u0420\u0422",
+            "\u0410\u041F\u0420\u0418\u041B",
+            "\u041C\u0410\u0419",
+            "\u042E\u041D\u0418",
+            "\u042E\u041B\u0418",
+            "\u0410\u0412\u0413\u0423\u0421\u0422",
+            "\u0421\u0415\u041F\u0422\u0415\u041C\u0412\u0420\u0418",
+            "\u041E\u041A\u0422\u041E\u041C\u0412\u0420\u0418",
+            "\u041D\u041E\u0415\u041C\u0412\u0420\u0418",
+            "\u0414\u0415\u041A\u0415\u041C\u0412\u0420\u0418",
+            "",
+    }
+    ///* Discarding duplicate data for tag: NameFormat */
+    NumberElements { 
+            ".",
+            " ",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "#,##0.00 \u00A4;-#,##0.00 \u00A4",
+            "#,##0%",
+    }
+    PaperSize { 
+        Hieght { "" }
+        Width { "" }
+        Units { "mm" }
+    }
+    ///* Discarding duplicate data for tag: TelephoneFormat */
+    CollationElements { 
+        Version { "0.0" }
+        Override { "TRUE" }
+        Sequence { "&' '"     //<space>		<space>
+            "<\u00A0"         //<nobreakspace>		<nobreakspace>
+            "<'-'"            //<hyphen>		<hyphen>
+            "<\u00AD"         //<dash>		<dash>
+            "<''"             //<apostrophe>		<apostrophe>
+            "<'\u0022'"       //<quotation-mark>		<quotation-mark>
+            "<'.'"            //<period>		<period>
+            "<'!'"            //<exclamation-mark>		<exclamation-mark>
+            "<'?'"            //<question-mark>		<question-mark>
+            "<','"            //<comma>		<comma>
+            "<';'"            //<semicolon>		<semicolon>
+            "<':'"            //<colon>		<colon>
+            "<'('"            //<left-parenthesis>		<left-parenthesis>
+            "<')'"            //<right-parenthesis>		<right-parenthesis>
+            "<\u0410"         //<cyrillic-A>		<cyrillic-A>;<cyrillic-A>
+            ";\u0430"         //<cyrillic-a>		<cyrillic-A>;<cyrillic-a>
+            "<\u0411"         //<cyrillic-BE>		<cyrillic-BE>;<cyrillic-BE>
+            ";\u0431"         //<cyrillic-be>		<cyrillic-BE>;<cyrillic-be>
+            "<\u0412"         //<cyrillic-VE>		<cyrillic-VE>;<cyrillic-VE>
+            ";\u0432"         //<cyrillic-ve>		<cyrillic-VE>;<cyrillic-ve>
+            "<\u0413"         //<cyrillic-GHE>		<cyrillic-GHE>;<cyrillic-GHE>
+            ";\u0433"         //<cyrillic-ghe>		<cyrillic-GHE>;<cyrillic-ghe>
+            "<\u0414"         //<cyrillic-DE>		<cyrillic-DE>;<cyrillic-DE>
+            ";\u0434"         //<cyrillic-de>		<cyrillic-DE>;<cyrillic-de>
+            "<\u0402"         //<serbocroatian-DJE>		<serbocroatian-DJE>;<serbocroatian-DJE>
+            ";\u0452"         //<serbocroatian-dje>		<serbocroatian-DJE>;<serbocroatian-dje>
+            "<\u0403"         //<macedonian-GJE>		<macedonian-GJE>;<macedonian-GJE>
+            ";\u0453"         //<macedonian-gje>		<macedonian-GJE>;<macedonian-gje>
+            "<\u0415"         //<cyrillic-IE>		<cyrillic-IE>;<cyrillic-IE>
+            ";\u0435"         //<cyrillic-ie>		<cyrillic-IE>;<cyrillic-ie>
+            "<\u0401"         //<cyrillic-IO>		<cyrillic-IO>;<cyrillic-IO>
+            ";\u0451"         //<cyrillic-io>		<cyrillic-IO>;<cyrillic-io>
+            "<\u0404"         //<ukrainian-IE>		<ukrainian-IE>;<ukrainian-IE>
+            ";\u0454"         //<ukrainian-ie>		<ukrainian-IE>;<ukrainian-ie>
+            "<\u0416"         //<cyrillic-ZHE>		<cyrillic-ZHE>;<cyrillic-ZHE>
+            ";\u0436"         //<cyrillic-zhe>		<cyrillic-ZHE>;<cyrillic-zhe>
+            "<\u0417"         //<cyrillic-ZE>		<cyrillic-ZE>;<cyrillic-ZE>
+            ";\u0437"         //<cyrillic-ze>		<cyrillic-ZE>;<cyrillic-ze>
+            "<\u0405"         //<macedonian-DZE>		<macedonian-DZE>;<macedonian-DZE>
+            ";\u0455"         //<macedonian-dze>		<macedonian-DZE>;<macedonian-dze>
+            "<\u0418"         //<cyrillic-I>		<cyrillic-I>;<cyrillic-I>
+            ";\u0438"         //<cyrillic-i>		<cyrillic-I>;<cyrillic-i>
+            "<\u0406"         //<byelorussian-I>		<byelorussian-I>;<byelorussian-I>
+            ";\u0456"         //<byelorussian-i>		<byelorussian-I>;<byelorussian-i>
+            "<\u0407"         //<ukrainian-YI>		<ukrainian-YI>;<ukrainian-YI>
+            ";\u0457"         //<ukrainian-yi>		<ukrainian-YI>;<ukrainian-yi>
+            "<\u0408"         //<cyrillic-JE>		<cyrillic-JE>;<cyrillic-JE>
+            ";\u0458"         //<cyrillic-je>		<cyrillic-JE>;<cyrillic-je>
+            "<\u0419"         //<cyrillic-SHORT-I>		<cyrillic-SHORT-I>;<cyrillic-SHORT-I>
+            ";\u0439"         //<cyrillic-short-i>		<cyrillic-SHORT-I>;<cyrillic-short-i>
+            "<\u041A"         //<cyrillic-KA>		<cyrillic-KA>;<cyrillic-KA>
+            ";\u043A"         //<cyrillic-ka>		<cyrillic-KA>;<cyrillic-ka>
+            "<\u041B"         //<cyrillic-EL>		<cyrillic-EL>;<cyrillic-EL>
+            ";\u043B"         //<cyrillic-el>		<cyrillic-EL>;<cyrillic-el>
+            "<\u0409"         //<cyrillic-LJE>		<cyrillic-LJE>;<cyrillic-LJE>
+            ";\u0459"         //<cyrillic-lje>		<cyrillic-LJE>;<cyrillic-lje>
+            "<\u041C"         //<cyrillic-EM>		<cyrillic-EM>;<cyrillic-EM>
+            ";\u043C"         //<cyrillic-em>		<cyrillic-EM>;<cyrillic-em>
+            "<\u041D"         //<cyrillic-EN>		<cyrillic-EN>;<cyrillic-EN>
+            ";\u043D"         //<cyrillic-en>		<cyrillic-EN>;<cyrillic-en>
+            "<\u040A"         //<cyrillic-NJE>		<cyrillic-NJE>;<cyrillic-NJE>
+            ";\u045A"         //<cyrillic-nje>		<cyrillic-NJE>;<cyrillic-nje>
+            "<\u041E"         //<cyrillic-O>		<cyrillic-O>;<cyrillic-O>
+            ";\u043E"         //<cyrillic-o>		<cyrillic-O>;<cyrillic-o>
+            "<\u041F"         //<cyrillic-PE>		<cyrillic-PE>;<cyrillic-PE>
+            ";\u043F"         //<cyrillic-pe>		<cyrillic-PE>;<cyrillic-pe>
+            "<\u0420"         //<cyrillic-ER>		<cyrillic-ER>;<cyrillic-ER>
+            ";\u0440"         //<cyrillic-er>		<cyrillic-ER>;<cyrillic-er>
+            "<\u0421"         //<cyrillic-ES>		<cyrillic-ES>;<cyrillic-ES>
+            ";\u0441"         //<cyrillic-es>		<cyrillic-ES>;<cyrillic-es>
+            "<\u0422"         //<cyrillic-TE>		<cyrillic-TE>;<cyrillic-TE>
+            ";\u0442"         //<cyrillic-te>		<cyrillic-TE>;<cyrillic-te>
+            "<\u040B"         //<serbocroatian-TSHE>		<serbocroatian-TSHE>;<serbocroatian-TSHE>
+            ";\u045B"         //<serbocroatian-tshe>		<serbocroatian-TSHE>;<serbocroatian-tshe>
+            "<\u040C"         //<macedonian-KJE>		<macedonian-KJE>;<macedonian-KJE>
+            ";\u045C"         //<macedonian-kje>		<macedonian-KJE>;<macedonian-kje>
+            "<\u0423"         //<cyrillic-U>		<cyrillic-U>;<cyrillic-U>
+            ";\u0443"         //<cyrillic-u>		<cyrillic-U>;<cyrillic-u>
+            "<\u040E"         //<byelorussian-SHORT-U>		<byelorussian-SHORT-U>;<byelorussian-SHORT-U>
+            ";\u045E"         //<byelorussian-short-u>		<byelorussian-SHORT-U>;<byelorussian-short-u>
+            "<\u0424"         //<cyrillic-EF>		<cyrillic-EF>;<cyrillic-EF>
+            ";\u0444"         //<cyrillic-ef>		<cyrillic-EF>;<cyrillic-ef>
+            "<\u0425"         //<cyrillic-HA>		<cyrillic-HA>;<cyrillic-HA>
+            ";\u0445"         //<cyrillic-ha>		<cyrillic-HA>;<cyrillic-ha>
+            "<\u0426"         //<cyrillic-TSE>		<cyrillic-TSE>;<cyrillic-TSE>
+            ";\u0446"         //<cyrillic-tse>		<cyrillic-TSE>;<cyrillic-tse>
+            "<\u0427"         //<cyrillic-CHE>		<cyrillic-CHE>;<cyrillic-CHE>
+            ";\u0447"         //<cyrillic-che>		<cyrillic-CHE>;<cyrillic-che>
+            "<\u040F"         //<cyrillic-DZHE>		<cyrillic-DZHE>;<cyrillic-DZHE>
+            ";\u045F"         //<cyrillic-dzhe>		<cyrillic-DZHE>;<cyrillic-dzhe>
+            "<\u0428"         //<cyrillic-SHA>		<cyrillic-SHA>;<cyrillic-SHA>
+            ";\u0448"         //<cyrillic-sha>		<cyrillic-SHA>;<cyrillic-sha>
+            "<\u0429"         //<cyrillic-SHCHA>		<cyrillic-SHCHA>;<cyrillic-SHCHA>
+            ";\u0449"         //<cyrillic-shcha>		<cyrillic-SHCHA>;<cyrillic-shcha>
+            "<\u042A"         //<cyrillic-HARD-SIGN>		<cyrillic-HARD-SIGN>;<cyrillic-HARD-SIGN>
+            ";\u044A"         //<cyrillic-hard-sign>		<cyrillic-HARD-SIGN>;<cyrillic-hard-sign>
+            "<\u042B"         //<cyrillic-YERU>		<cyrillic-YERU>;<cyrillic-YERU>
+            ";\u044B"         //<cyrillic-yeru>		<cyrillic-YERU>;<cyrillic-yeru>
+            "<\u042C"         //<cyrillic-SOFT-SIGN>		<cyrillic-SOFT-SIGN>;<cyrillic-SOFT-SIGN>
+            ";\u044C"         //<cyrillic-soft-sign>		<cyrillic-SOFT-SIGN>;<cyrillic-soft-sign>
+            "<\u042D"         //<cyrillic-E>		<cyrillic-E>;<cyrillic-E>
+            ";\u044D"         //<cyrillic-e>		<cyrillic-E>;<cyrillic-e>
+            "<\u042E"         //<cyrillic-YU>		<cyrillic-YU>;<cyrillic-YU>
+            ";\u044E"         //<cyrillic-yu>		<cyrillic-YU>;<cyrillic-yu>
+            "<\u042F"         //<cyrillic-YA>		<cyrillic-YA>;<cyrillic-YA>
+            ";\u044F"         //<cyrillic-ya>		<cyrillic-YA>;<cyrillic-ya>
+            "<0"              //<zero>		<zero>
+            "<1"              //<one>		<one>
+            "<2"              //<two>		<two>
+            "<3"              //<three>		<three>
+            "<4"              //<four>		<four>
+            "<5"              //<five>		<five>
+            "<6"              //<six>		<six>
+            "<7"              //<seven>		<seven>
+            "<8"              //<eight>		<eight>
+            "<9"              //<nine>		<nine>
+            "<A"              //<A>		<A>;<A>
+            ";a"              //<a>		<A>;<a>
+            "<B"              //<B>		<B>;<B>
+            ";b"              //<b>		<B>;<b>
+            "<C"              //<C>		<C>;<C>
+            ";c"              //<c>		<C>;<c>
+            "<D"              //<D>		<D>;<D>
+            ";d"              //<d>		<D>;<d>
+            "<E"              //<E>		<E>;<E>
+            ";e"              //<e>		<E>;<e>
+            "<F"              //<F>		<F>;<F>
+            ";f"              //<f>		<F>;<f>
+            "<G"              //<G>		<G>;<G>
+            ";g"              //<g>		<G>;<g>
+            "<H"              //<H>		<H>;<H>
+            ";h"              //<h>		<H>;<h>
+            "<I"              //<I>		<I>;<I>
+            ";i"              //<i>		<I>;<i>
+            "<J"              //<J>		<J>;<J>
+            ";j"              //<j>		<J>;<j>
+            "<K"              //<K>		<K>;<K>
+            ";k"              //<k>		<K>;<k>
+            "<L"              //<L>		<L>;<L>
+            ";l"              //<l>		<L>;<l>
+            "<M"              //<M>		<M>;<M>
+            ";m"              //<m>		<M>;<m>
+            "<N"              //<N>		<N>;<N>
+            ";n"              //<n>		<N>;<n>
+            "<O"              //<O>		<O>;<O>
+            ";o"              //<o>		<O>;<o>
+            "<P"              //<P>		<P>;<P>
+            ";p"              //<p>		<P>;<p>
+            "<Q"              //<Q>		<Q>;<Q>
+            ";q"              //<q>		<Q>;<q>
+            "<R"              //<R>		<R>;<R>
+            ";r"              //<r>		<R>;<r>
+            "<S"              //<S>		<S>;<S>
+            ";s"              //<s>		<S>;<s>
+            "<T"              //<T>		<T>;<T>
+            ";t"              //<t>		<T>;<t>
+            "<U"              //<U>		<U>;<U>
+            ";u"              //<u>		<U>;<u>
+            "<V"              //<V>		<V>;<V>
+            ";v"              //<v>		<V>;<v>
+            "<W"              //<W>		<W>;<W>
+            ";w"              //<w>		<W>;<w>
+            "<X"              //<X>		<X>;<X>
+            ";x"              //<x>		<X>;<x>
+            "<Y"              //<Y>		<Y>;<Y>
+            ";y"              //<y>		<Y>;<y>
+            "<Z"              //<Z>		<Z>;<Z>
+            ";z"              //<z>		<Z>;<z>
+            "<\u2116"         //<letter33022>		<letter33022>
+            "<'['"            //<left-square-bracket>		<left-square-bracket>
+            "<']'"            //<right-square-bracket>		<right-square-bracket>
+            "<'{'"            //<left-brace>		<left-brace>
+            "<'}'"            //<right-curly-bracket>		<right-curly-bracket>
+            "<'<'"            //<less-than-sign>		<less-than-sign>
+            "<'>'"            //<greater-than-sign>		<greater-than-sign>
+            "<'='"            //<equals-sign>		<equals-sign>
+            "<'+'"            //<plus-sign>		<plus-sign>
+            "<'%'"            //<percent-sign>		<percent-sign>
+            "<'*'"            //<asterisk>		<asterisk>
+            "<'/'"            //<slash>		<slash>
+            "<'\u005C'"       //<backslash>		<backslash>
+            "<'|'"            //<vertical-line>		<vertical-line>
+            "<'@'"            //<commercial-at>		<commercial-at>
+            "<'&'"            //<ampersand>		<ampersand>
+            "<'#'"            //<number-sign>		<number-sign>
+            "<'$'"            //<dollar-sign>		<dollar-sign>
+            "<\u00B6"         //<paragraph>		<paragraph>
+            "<'`'"            //<grave-accent>		<grave-accent>
+            "<'^'"            //<circumflex>		<circumflex>
+            "<'~'"            //<tilde>		<tilde>
+            "<'_'"            //<underscore>		<underscore>
+            "<\u0000"         //<NUL>		<NUL>
+            "<\u0001"         //<SOH>		<SOH>
+            "<\u0002"         //<STX>		<STX>
+            "<\u0003"         //<ETX>		<ETX>
+            "<\u0004"         //<EOT>		<EOT>
+            "<\u0005"         //<ENQ>		<ENQ>
+            "<\u0006"         //<ACK>		<ACK>
+            "<\u0007"         //<BEL>		<BEL>
+            "<\u0008"         //<backspace>		<backspace>
+            "<'\u0009'"       //<tab>		<tab>
+            "<'\u000A'"       //<newline>		<newline>
+            "<'\u000B'"       //<vertical-tab>		<vertical-tab>
+            "<'\u000C'"       //<form-feed>		<form-feed>
+            "<'\u000D'"       //<carriage-return>		<carriage-return>
+            "<\u000E"         //<SO>		<SO>
+            "<\u000F"         //<SI>		<SI>
+            "<\u0010"         //<DLE>		<DLE>
+            "<\u0011"         //<DC1>		<DC1>
+            "<\u0012"         //<DC2>		<DC2>
+            "<\u0013"         //<DC3>		<DC3>
+            "<\u0014"         //<DC4>		<DC4>
+            "<\u0015"         //<NAK>		<NAK>
+            "<\u0016"         //<SYN>		<SYN>
+            "<\u0017"         //<ETB>		<ETB>
+            "<\u0018"         //<CAN>		<CAN>
+            "<\u0019"         //<EM>		<EM>
+            "<\u001A"         //<SUB>		<SUB>
+            "<\u001B"         //<ESC>		<ESC>
+            "<\u001C"         //<IS4>		<IS4>
+            "<\u001D"         //<IS3>		<IS3>
+            "<\u001E"         //<IS2>		<IS2>
+            "<\u001F"         //<IS1>		<IS1>
+            "<\u0080"         //<PAD>		<PAD>
+            "<\u0081"         //<HOP>		<HOP>
+            "<\u0082"         //<BPH>		<BPH>
+            "<\u0083"         //<NBH>		<NBH>
+            "<\u0084"         //<IND>		<IND>
+            "<\u0085"         //<NEL>		<NEL>
+            "<\u0086"         //<SSA>		<SSA>
+            "<\u0087"         //<ESA>		<ESA>
+            "<\u0088"         //<HTS>		<HTS>
+            "<\u0089"         //<HTJ>		<HTJ>
+            "<\u008A"         //<VTS>		<VTS>
+            "<\u008B"         //<PLD>		<PLD>
+            "<\u008C"         //<PLU>		<PLU>
+            "<\u008D"         //<RI>		<RI>
+            "<\u008E"         //<SS2>		<SS2>
+            "<\u008F"         //<SS3>		<SS3>
+            "<\u0090"         //<DCS>		<DCS>
+            "<\u0091"         //<PU1>		<PU1>
+            "<\u0092"         //<PU2>		<PU2>
+            "<\u0093"         //<STS>		<STS>
+            "<\u0094"         //<CCH>		<CCH>
+            "<\u0095"         //<MW>		<MW>
+            "<\u0096"         //<SPS>		<SPS>
+            "<\u0097"         //<EPA>		<EPA>
+            "<\u0098"         //<SOS>		<SOS>
+            "<\u0099"         //<SGCI>		<SGCI>
+            "<\u009A"         //<SCI>		<SCI>
+            "<\u009B"         //<CSI>		<CSI>
+            "<\u009C"         //<ST>		<ST>
+            "<\u009D"         //<OSC>		<OSC>
+            "<\u009E"         //<PM>		<PM>
+            "<\u009F"         //<APC>		<APC>
+            "<"              //<DEL>		<DEL>
+            "" } 
+     }
+}

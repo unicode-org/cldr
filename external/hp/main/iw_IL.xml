@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 15:59:23 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="IL" />
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">ינوאר</month>
+				<month id="2">פברوאר</month>
+				<month id="3">מרץ</month>
+				<month id="4">אפריל</month>
+				<month id="5">מאי</month>
+				<month id="6">יوני</month>
+				<month id="7">יوלי</month>
+				<month id="8">אوגوסט</month>
+				<month id="9">ספטמבר</month>
+				<month id="10">אوקטوבר</month>
+				<month id="11">נوבמבר</month>
+				<month id="12">דצמבר</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">ינو'</month>
+				<month id="2">פבר'</month>
+				<month id="3">מרץ</month>
+				<month id="4">אפר'</month>
+				<month id="5">מאי</month>
+				<month id="6">יوני</month>
+				<month id="7">יوלי</month>
+				<month id="8">אوג'</month>
+				<month id="9">ספט'</month>
+				<month id="10">אوק'</month>
+				<month id="11">נوב'</month>
+				<month id="12">דצמ'</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">יوם ראשوן </day>
+				<day id="2">יوם שני </day>
+				<day id="3">יوם שלישי </day>
+				<day id="4">יوם רביעי </day>
+				<day id="5">יوם חמישי </day>
+				<day id="6">יوם שישי </day>
+				<day id="7">יوם שבת </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">א' </day>
+				<day id="2">ב' </day>
+				<day id="3">ג' </day>
+				<day id="4">ד' </day>
+				<day id="5">ה' </day>
+				<day id="6">و' </day>
+				<day id="7">שבת </day>
+			</dayAbbr>
+			<patterns> 
+				<time>
+					<full>%.1H:mm:ss</full>
+					<long>%.1H:mm:ss</long>
+					<medium>%.1H:mm:ss</medium>
+					<short>%.1H:mm:ss</short>
+				</time>
+				<date>
+					<full>, yyyy MMMM %.1d EEE</full>
+					<long>%.1H:mm:ss , yyyy MMMM %.1d  EEE</long>
+					<medium>yyyy MMMM %.1d  EEE</medium>
+					<short>yyyy MMMM %.1d  EEE</short>
+				</date>
+ 				<dateTime>{0} {1} </dateTime>
+			</patterns>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##0.###;-#,##0.###</decimal>
+			<percent>#,##0%</percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="NIS" default="true">
+			<symbol>ש</symbol>
+			<name>NIS</name>
+			<decimal>.</decimal>
+			<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
+		</currency>
+	</currencies>
+	<collation version="0.0" accentOrder="FORWARD" override="TRUE">
+		<collationElements>
+		<after> </after>
+		<gt1>0</gt1>
+		<gt1>1</gt1>
+		<gt1>2</gt1>
+		<gt1>3</gt1>
+		<gt1>4</gt1>
+		<gt1>5</gt1>
+		<gt1>6</gt1>
+		<gt1>7</gt1>
+		<gt1>8</gt1>
+		<gt1>9</gt1>
+		<gt1>A</gt1>
+		<gt2>a</gt2>
+		<gt1>B</gt1>
+		<gt2>b</gt2>
+		<gt1>C</gt1>
+		<gt2>c</gt2>
+		<gt1>D</gt1>
+		<gt2>d</gt2>
+		<gt1>E</gt1>
+		<gt2>e</gt2>
+		<gt1>F</gt1>
+		<gt2>f</gt2>
+		<gt1>G</gt1>
+		<gt2>g</gt2>
+		<gt1>H</gt1>
+		<gt2>h</gt2>
+		<gt1>I</gt1>
+		<gt2>i</gt2>
+		<gt1>J</gt1>
+		<gt2>j</gt2>
+		<gt1>K</gt1>
+		<gt2>k</gt2>
+		<gt1>L</gt1>
+		<gt2>l</gt2>
+		<gt1>M</gt1>
+		<gt2>m</gt2>
+		<gt1>N</gt1>
+		<gt2>n</gt2>
+		<gt1>O</gt1>
+		<gt2>o</gt2>
+		<gt1>P</gt1>
+		<gt2>p</gt2>
+		<gt1>Q</gt1>
+		<gt2>q</gt2>
+		<gt1>R</gt1>
+		<gt2>r</gt2>
+		<gt1>S</gt1>
+		<gt2>s</gt2>
+		<gt1>T</gt1>
+		<gt2>t</gt2>
+		<gt1>U</gt1>
+		<gt2>u</gt2>
+		<gt1>V</gt1>
+		<gt2>v</gt2>
+		<gt1>W</gt1>
+		<gt2>w</gt2>
+		<gt1>X</gt1>
+		<gt2>x</gt2>
+		<gt1>Y</gt1>
+		<gt2>y</gt2>
+		<gt1>Z</gt1>
+		<gt2>z</gt2>
+		<gt1>!</gt1>
+		<gt1>&quot;</gt1>
+		<gt1>#</gt1>
+		<gt1>$</gt1>
+		<gt1>%</gt1>
+		<gt1>&amp;</gt1>
+		<gt1>'</gt1>
+		<gt1>(</gt1>
+		<gt1>)</gt1>
+		<gt1>*</gt1>
+		<gt1>+</gt1>
+		<gt1>,</gt1>
+		<gt1>-</gt1>
+		<gt1>.</gt1>
+		<gt1>/</gt1>
+		<gt1>:</gt1>
+		<gt1>;</gt1>
+		<gt1>&lt;</gt1>
+		<gt1>=</gt1>
+		<gt1>&gt;</gt1>
+		<gt1>?</gt1>
+		<gt1>@</gt1>
+		<gt1>[</gt1>
+		<gt1>\</gt1>
+		<gt1>]</gt1>
+		<gt1>^</gt1>
+		<gt1>_</gt1>
+		<gt1>`</gt1>
+		<gt1>{</gt1>
+		<gt1>|</gt1>
+		<gt1>}</gt1>
+		<gt1>~</gt1>
+		<gt1> </gt1>
+		<gt1>א</gt1>
+		<gt1>ב</gt1>
+		<gt1>ג</gt1>
+		<gt1>ד</gt1>
+		<gt1>ה</gt1>
+		<gt1>و</gt1>
+		<gt1>ز</gt1>
+		<gt1>ח</gt1>
+		<gt1>ט</gt1>
+		<gt1>י</gt1>
+		<gt1>כ</gt1>
+		<gt1>ך</gt1>
+		<gt1>ל</gt1>
+		<gt1>מ</gt1>
+		<gt1>ם</gt1>
+		<gt1>נ</gt1>
+		<gt1>ן</gt1>
+		<gt1>ס</gt1>
+		<gt1>ע</gt1>
+		<gt1>פ</gt1>
+		<gt1>ף</gt1>
+		<gt1>צ</gt1>
+		<gt1>ץ</gt1>
+		<gt1>ק</gt1>
+		<gt1>ר</gt1>
+		<gt1>ת</gt1>
+		<gt1>«</gt1>
+		<gt1>»</gt1>
+		<gt1>×</gt1>
+		<gt1>÷</gt1>
+		<gt1>±</gt1>
+		<gt1>¬</gt1>
+		<gt1>¼</gt1>
+		<gt1>½</gt1>
+		<gt1>¾</gt1>
+		<gt1>¦</gt1>
+		<gt1>¶</gt1>
+		<gt1>§</gt1>
+		<gt1>°</gt1>
+		<gt1>¢</gt1>
+		<gt1>£</gt1>
+		<gt1>¥</gt1>
+		<gt1>¤</gt1>
+		<gt1>µ</gt1>
+		<gt1>´</gt1>
+		<gt1>¨</gt1>
+		<gt1>¸</gt1>
+		<gt1>·</gt1>
+		<gt1>‾</gt1>
+		<gt1>­</gt1>
+		<gt1>¹</gt1>
+		<gt1>²</gt1>
+		<gt1>³</gt1>
+		<gt1>©</gt1>
+		<gt1>®</gt1>
+		<gt1>‗</gt1>
+		<gt1>ש</gt1>
+		<gt1></gt1>
+		<gt1>\u0001</gt1>
+		<gt1>\u0002</gt1>
+		<gt1>\u0003</gt1>
+		<gt1>\u0004</gt1>
+		<gt1>\u0005</gt1>
+		<gt1>\u0006</gt1>
+		<gt1>\u0007</gt1>
+		<gt1>\u0008</gt1>
+		<gt1>\u0009</gt1>
+		<gt1>\u000A</gt1>
+		<gt1>\u000B</gt1>
+		<gt1>\u000C</gt1>
+		<gt1>\u000D</gt1>
+		<gt1>\u000E</gt1>
+		<gt1>\u000F</gt1>
+		<gt1>\u0010</gt1>
+		<gt1>\u0011</gt1>
+		<gt1>\u0012</gt1>
+		<gt1>\u0013</gt1>
+		<gt1>\u0014</gt1>
+		<gt1>\u0015</gt1>
+		<gt1>\u0016</gt1>
+		<gt1>\u0017</gt1>
+		<gt1>\u0018</gt1>
+		<gt1>\u0019</gt1>
+		<gt1>\u001A</gt1>
+		<gt1>\u001B</gt1>
+		<gt1>\u001C</gt1>
+		<gt1>\u001D</gt1>
+		<gt1>\u001E</gt1>
+		<gt1>\u001F</gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		<gt1></gt1>
+		</collationElements>
+	</collation>
+
+</localeData>

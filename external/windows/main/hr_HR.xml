@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:59 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="HR" />
+		<correspondsTo vendor="041A">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">siječanj</month>
+				<month id="2">veljača</month>
+				<month id="3">ožujak</month>
+				<month id="4">travanj</month>
+				<month id="5">svibanj</month>
+				<month id="6">lipanj</month>
+				<month id="7">srpanj</month>
+				<month id="8">kolovoz</month>
+				<month id="9">rujan</month>
+				<month id="10">listopad</month>
+				<month id="11">studeni</month>
+				<month id="12">prosinac</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">nedjelja </day>
+				<day id="2">ponedjeljak </day>
+				<day id="3">utorak </day>
+				<day id="4">srijeda </day>
+				<day id="5">četvrtak </day>
+				<day id="6">petak </day>
+				<day id="7">subota </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">ned </day>
+				<day id="2">pon </day>
+				<day id="3">uto </day>
+				<day id="4">sri </day>
+				<day id="5">čet </day>
+				<day id="6">pet </day>
+				<day id="7">sub </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d. MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>d.M.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="HRK" default="true">
+			<symbol>kn</symbol>
+			<name>HRK</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

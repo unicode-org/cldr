@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:02 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="PT" />
+		<correspondsTo vendor="0816">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">Janeiro</month>
+				<month id="2">Fevereiro</month>
+				<month id="3">Março</month>
+				<month id="4">Abril</month>
+				<month id="5">Maio</month>
+				<month id="6">Junho</month>
+				<month id="7">Julho</month>
+				<month id="8">Agosto</month>
+				<month id="9">Setembro</month>
+				<month id="10">Outubro</month>
+				<month id="11">Novembro</month>
+				<month id="12">Dezembro</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">domingo </day>
+				<day id="2">segunda-feira </day>
+				<day id="3">terça-feira </day>
+				<day id="4">quarta-feira </day>
+				<day id="5">quinta-feira </day>
+				<day id="6">sexta-feira </day>
+				<day id="7">sábado </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">dom </day>
+				<day id="2">seg </day>
+				<day id="3">ter </day>
+				<day id="4">qua </day>
+				<day id="5">qui </day>
+				<day id="6">sex </day>
+				<day id="7">sáb </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dddd, d' de 'MMMM' de 'yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>dd-MM-yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="PTE" default="true">
+			<symbol>Esc.</symbol>
+			<name>PTE</name>
+			<decimal>$</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

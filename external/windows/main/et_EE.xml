@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:58 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="EE" />
+		<correspondsTo vendor="0425">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">jaanuar</month>
+				<month id="2">veebruar</month>
+				<month id="3">märts</month>
+				<month id="4">aprill</month>
+				<month id="5">mai</month>
+				<month id="6">juuni</month>
+				<month id="7">juuli</month>
+				<month id="8">august</month>
+				<month id="9">september</month>
+				<month id="10">oktoober</month>
+				<month id="11">november</month>
+				<month id="12">detsember</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">pühapäev </day>
+				<day id="2">esmaspäev </day>
+				<day id="3">teisipäev </day>
+				<day id="4">kolmapäev </day>
+				<day id="5">neljapäev </day>
+				<day id="6">reede </day>
+				<day id="7">laupäev </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">P </day>
+				<day id="2">E </day>
+				<day id="3">T </day>
+				<day id="4">K </day>
+				<day id="5">N </day>
+				<day id="6">R </day>
+				<day id="7">L </day>
+			</dayAbbr>
+			<am>EL</am><pm>PL</pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>dd. MMMM yyyy'. a.'</full>
+					<long></long>
+					<medium></medium>
+					<short>dd.MM.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="EEK" default="true">
+			<symbol>kr</symbol>
+			<name>EEK</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:04:26 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<correspondsTo vendor="040c">Windows</correspondsTo>
+	</identity  >
+
+	<displayNames >
+		<languages >
+			<language id="da" >danois</language>
+			<language id="de" >allemand</language>
+			<language id="el" >grec</language>
+			<language id="en" >anglais</language>
+			<language id="es" >espagnol</language>
+			<language id="fi" >finnois</language>
+			<language id="fr" >français</language>
+			<language id="it" >italien</language>
+			<language id="ja" >japonais</language>
+			<language id="nl" >hollandais</language>
+			<language id="no" >norvégien</language>
+			<language id="pt" >portugais</language>
+			<language id="sv" >suédois</language>
+			<language id="tr" >turc</language>
+		</languages >
+		<countries  >
+			<country id="AT">Autriche</country>
+			<country id="BE">Belgique</country>
+			<country id="CA">Canada</country>
+			<country id="CH">Suisse</country>
+			<country id="DE">Allemagne</country>
+			<country id="DK">Danemark</country>
+			<country id="ES">Espagne</country>
+			<country id="FI">Finlande</country>
+			<country id="FR">France</country>
+			<country id="GR">Grèce</country>
+			<country id="IT">Italie</country>
+			<country id="JP">Japon</country>
+			<country id="NL">Pays-Bas</country>
+			<country id="NO">Norvège</country>
+			<country id="PT">Portugal</country>
+			<country id="SE">Suède</country>
+			<country id="TR">Turquie</country>
+			<country id="US">États-Unis</country>
+		</countries  >
+
+	</displayNames >
+	<timeZoneNames>
+		<zone id="Africa/Casablanca" default="true">
+			<long>
+				<generic>GMT</generic>
+				<standard>GMT</standard>
+			</long>
+			<short>
+				<generic>Africa/Casablanca</generic>
+				<standard>GMT</standard>
+				<daylight>GMT</daylight>
+			</short>
+		</zone>
+	</timeZoneNames>
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">janvier</month>
+				<month id="2">février</month>
+				<month id="3">mars</month>
+				<month id="4">avril</month>
+				<month id="5">mai</month>
+				<month id="6">juin</month>
+				<month id="7">juillet</month>
+				<month id="8">août</month>
+				<month id="9">septembre</month>
+				<month id="10">octobre</month>
+				<month id="11">novembre</month>
+				<month id="12">décembre</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">janv.</month>
+				<month id="2">févr.</month>
+				<month id="3">mars</month>
+				<month id="4">avr.</month>
+				<month id="5">mai</month>
+				<month id="6">juin</month>
+				<month id="7">juil.</month>
+				<month id="8">août</month>
+				<month id="9">sept.</month>
+				<month id="10">oct.</month>
+				<month id="11">nov.</month>
+				<month id="12">déc.</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">dimanche </day>
+				<day id="2">lundi </day>
+				<day id="3">mardi </day>
+				<day id="4">mercredi </day>
+				<day id="5">jeudi </day>
+				<day id="6">vendredi </day>
+				<day id="7">samedi </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">dim. </day>
+				<day id="2">lun. </day>
+				<day id="3">mar. </day>
+				<day id="4">mer. </day>
+				<day id="5">jeu. </day>
+				<day id="6">ven. </day>
+				<day id="7">sam. </day>
+			</dayAbbr>
+			<eras>
+				<era id="0">BC</era>
+				<era id="1">ap. J.-C.</era>
+			</eras>
+			<patterns> 
+				<chars>GanjkHmsSEDFwWxhKz</chars>
+				<time>
+					<full>HH' h 'mm z</full>
+					<long>HH:mm:ss z</long>
+					<medium>HH:mm:ss</medium>
+					<short>HH:mm</short>
+				</time>
+				<date>
+					<full>EEEE d MMMM yyyy</full>
+					<long>d MMMM yyyy</long>
+					<medium>d MMM yy</medium>
+					<short>dd/MM/yy</short>
+				</date>
+ 				<dateTime>{1} {0} </dateTime>
+			</patterns>
+			<firstDay>2</firstDay>
+			<minDays>1</minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##0.###;-#,##0.###</decimal>
+			<percent>#,##0%</percent>
+		</patterns>
+	</numberFormat> 
+	<collation version="0.0" accentOrder="FORWARD" override="FALSE">
+		<collationElements>
+		</collationElements>
+	</collation>
+
+</localeData>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:06:53 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="CZ" />
+		<correspondsTo vendor="0405">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">leden</month>
+				<month id="2">únor</month>
+				<month id="3">březen</month>
+				<month id="4">duben</month>
+				<month id="5">květen</month>
+				<month id="6">červen</month>
+				<month id="7">červenec</month>
+				<month id="8">srpen</month>
+				<month id="9">září</month>
+				<month id="10">říjen</month>
+				<month id="11">listopad</month>
+				<month id="12">prosinec</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">neděle </day>
+				<day id="2">pondělí </day>
+				<day id="3">úterý </day>
+				<day id="4">středa </day>
+				<day id="5">čtvrtek </day>
+				<day id="6">pátek </day>
+				<day id="7">sobota </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">ne </day>
+				<day id="2">po </day>
+				<day id="3">út </day>
+				<day id="4">st </day>
+				<day id="5">čt </day>
+				<day id="6">pá </day>
+				<day id="7">so </day>
+			</dayAbbr>
+			<am>dop.</am><pm>odp.</pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>H:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>d. MMMM yyyy</full>
+					<long></long>
+					<medium></medium>
+					<short>d.M.yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="CZK" default="true">
+			<symbol>Kč</symbol>
+			<name>CZK</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

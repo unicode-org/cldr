@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:04:24 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<correspondsTo vendor="0c0a">Windows</correspondsTo>
+	</identity  >
+
+	<displayNames >
+		<languages >
+			<language id="es" >español</language>
+		</languages >
+		<countries  >
+			<country id="AR">Argentina</country>
+			<country id="BO">Bolivia</country>
+			<country id="CL">Chile</country>
+			<country id="CO">Colombia</country>
+			<country id="CR">Costa Rica</country>
+			<country id="DO">República Dominicana</country>
+			<country id="EC">Ecuador</country>
+			<country id="ES">España</country>
+			<country id="GT">Guatemala</country>
+			<country id="HN">Honduras</country>
+			<country id="MX">México</country>
+			<country id="NI">Nicaragua</country>
+			<country id="PA">Panamá</country>
+			<country id="PE">Perú</country>
+			<country id="PR">Puerto Rico</country>
+			<country id="PY">Paraguay</country>
+			<country id="SV">El SalvadorUY</country>
+			<country id="UY">Uruguay</country>
+			<country id="VE">Venezuela</country>
+		</countries  >
+
+	</displayNames >
+	<timeZoneNames>
+		<zone id="Africa/Casablanca" default="true">
+			<long>
+				<generic>GMT</generic>
+				<standard>GMT</standard>
+			</long>
+			<short>
+				<generic>Africa/Casablanca</generic>
+				<standard>GMT</standard>
+				<daylight>GMT</daylight>
+			</short>
+		</zone>
+	</timeZoneNames>
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">enero</month>
+				<month id="2">febrero</month>
+				<month id="3">marzo</month>
+				<month id="4">abril</month>
+				<month id="5">mayo</month>
+				<month id="6">junio</month>
+				<month id="7">julio</month>
+				<month id="8">agosto</month>
+				<month id="9">septiembre</month>
+				<month id="10">octubre</month>
+				<month id="11">noviembre</month>
+				<month id="12">diciembre</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">ene</month>
+				<month id="2">feb</month>
+				<month id="3">mar</month>
+				<month id="4">abr</month>
+				<month id="5">may</month>
+				<month id="6">jun</month>
+				<month id="7">jul</month>
+				<month id="8">ago</month>
+				<month id="9">sep</month>
+				<month id="10">oct</month>
+				<month id="11">nov</month>
+				<month id="12">dic</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">domingo </day>
+				<day id="2">lunes </day>
+				<day id="3">martes </day>
+				<day id="4">miércoles </day>
+				<day id="5">jueves </day>
+				<day id="6">viernes </day>
+				<day id="7">sábado </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">dom </day>
+				<day id="2">lun </day>
+				<day id="3">mar </day>
+				<day id="4">mié </day>
+				<day id="5">jue </day>
+				<day id="6">vie </day>
+				<day id="7">sáb </day>
+			</dayAbbr>
+			<patterns> 
+				<chars>GuMtkHmsSEDFwWahKz</chars>
+				<time>
+					<full>HH'H'mm'' z</full>
+					<long>H:mm:ss z</long>
+					<medium>H:mm:ss</medium>
+					<short>H:mm</short>
+				</time>
+				<date>
+					<full>EEEE d' de 'MMMM' de 'yyyy</full>
+					<long>d' de 'MMMM' de 'yyyy</long>
+					<medium>dd-MMM-yy</medium>
+					<short>d/MM/yy</short>
+				</date>
+ 				<dateTime>{1} {0} </dateTime>
+			</patterns>
+			<firstDay>2</firstDay>
+			<minDays>1</minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##0.###;-#,##0.###</decimal>
+			<percent>#,##0%</percent>
+		</patterns>
+	</numberFormat> 
+	<collation version="0.0" accentOrder="FORWARD" override="FALSE">
+		<collationElements>
+		<after>N</after>
+		<gt1>ñ</gt1>
+		<gt3>Ñ</gt3>
+		</collationElements>
+	</collation>
+
+</localeData>

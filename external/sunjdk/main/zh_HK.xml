@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:04:35 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="HK" />
+		<correspondsTo vendor="0c04">Windows</correspondsTo>
+	</identity  >
+	<timeZoneNames>
+		<zone id="CTT" default="true">
+			<long>
+				<generic>Hong Kong Standard Time</generic>
+				<standard>Hong Kong Standard Time</standard>
+				<daylight>Hong Kong</daylight>
+			</long>
+			<short>
+				<generic>CTT</generic>
+				<standard>HKST</standard>
+				<daylight>HKST</daylight>
+			</short>
+			<city>Hong Kong</city>
+		</zone>
+	</timeZoneNames>
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthAbbr>
+				<month id="1">1月</month>
+				<month id="2">2月</month>
+				<month id="3">3月</month>
+				<month id="4">4月</month>
+				<month id="5">5月</month>
+				<month id="6">6月</month>
+				<month id="7">7月</month>
+				<month id="8">8月</month>
+				<month id="9">9月</month>
+				<month id="10">10月</month>
+				<month id="11">11月</month>
+				<month id="12">12月</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayAbbr>
+				<day id="1">日 </day>
+				<day id="2">一 </day>
+				<day id="3">二 </day>
+				<day id="4">三 </day>
+				<day id="5">四 </day>
+				<day id="6">五 </day>
+				<day id="7">六 </day>
+			</dayAbbr>
+			<patterns> 
+				<chars>GanjkHmsSEDFwWxhKz</chars>
+				<time>
+					<full>ahh'時'mm'分'ss'秒' z</full>
+					<long>ahh'時'mm'分'ss'秒'</long>
+					<medium>ahh:mm:ss</medium>
+					<short>ah:mm</short>
+				</time>
+				<date>
+					<full>yyyy'年'MM'月'dd'日' EEEE</full>
+					<long>yyyy'年'MM'月'dd'日' EEEE</long>
+					<medium>yyyy'年'M'月'd'日'</medium>
+					<short>yy'年'M'月'd'日'</short>
+				</date>
+ 				<dateTime>{1} {0} </dateTime>
+			</patterns>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##0.###;-#,##0.###</decimal>
+			<percent>#,##0%</percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="HKD" default="true">
+			<symbol>HK$</symbol>
+			<name>HKD</name>
+			<decimal>.</decimal>
+			<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+		</currency>
+	</currencies>
+
+</localeData>

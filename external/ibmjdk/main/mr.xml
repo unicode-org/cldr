@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Thu Jun 13 16:05:16 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<correspondsTo vendor="044e">Windows</correspondsTo>
+	</identity  >
+
+	<displayNames >
+		<languages >
+			<language id="mr" >मराठी</language>
+		</languages >
+		<countries  >
+			<country id="IN">भारत</country>
+		</countries  >
+
+	</displayNames >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">जानेवारी</month>
+				<month id="2">फेब्रुवारी</month>
+				<month id="3">मार्च</month>
+				<month id="4">एप्रिल</month>
+				<month id="5">मे</month>
+				<month id="6">जून</month>
+				<month id="7">जुलै</month>
+				<month id="8">ऑगस्ट</month>
+				<month id="9">सप्टेंबर</month>
+				<month id="10">ऑक्टोबर</month>
+				<month id="11">नोव्हेंबर</month>
+				<month id="12">डिसेंबर</month>
+				<month id="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month id="1">जाने.</month>
+				<month id="2">फेब्रु.</month>
+				<month id="3">मार्च</month>
+				<month id="4">एप्रिल</month>
+				<month id="5">मे</month>
+				<month id="6">जून</month>
+				<month id="7">जुलै</month>
+				<month id="8">ऑगस्ट</month>
+				<month id="9">सप्टें.</month>
+				<month id="10">ऑक्टो.</month>
+				<month id="11">नोव्हें.</month>
+				<month id="12">डिसें.</month>
+				<month id="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day id="1">सोमवार </day>
+				<day id="2">मंगळवार </day>
+				<day id="3">बुधवार </day>
+				<day id="4">गुरुवार </day>
+				<day id="5">शुक्रवार </day>
+				<day id="6">शनिवार </day>
+				<day id="7">रविवार </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">सोम. </day>
+				<day id="2">मंगळ. </day>
+				<day id="3">बुध. </day>
+				<day id="4">गुरु. </day>
+				<day id="5">शुक्र. </day>
+				<day id="6">शनि. </day>
+				<day id="7">रवि. </day>
+			</dayAbbr>
+			<am>म.पू.</am><pm>म.नं.</pm>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal>#,##0.###;-#,##0.###</decimal>
+			<percent>#,##0%</percent>
+		</patterns>
+	</numberFormat> 
+
+</localeData>

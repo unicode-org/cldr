@@ -1,0 +1,39 @@
+fr_CH {
+    DateTimeElements { 
+            "2",
+            "4",
+    }
+    DateTimePatterns { 
+            "HH.mm.' h' z",
+            "HH:mm:ss z",
+            "HH:mm:ss",
+            "HH:mm",
+            "EEEE, d. MMMM yyyy",
+            "d. MMMM yyyy",
+            "d MMM yyyy",
+            "dd.MM.yy",
+            "{1} {0}",
+    }
+    LocaleID { "100c" }
+    LocaleString { "fr_CH" }
+    NumberElements { 
+            ".",
+            "'",
+            ";",
+            "%",
+            "0",
+            "#",
+            "-",
+            "E",
+            "\u2030",
+            "\u221E",
+            "\uFFFD",
+    }
+    NumberPatterns { 
+            "#,##0.###;-#,##0.###",
+            "\u00A4 #,##0.00;\u00A4-#,##0.00",
+            "#,##0%",
+    }
+    ShortCountry { "CHE" }
+    localPatternChars { "GanjkHmsSEDFwWxhKzZ" }
+}

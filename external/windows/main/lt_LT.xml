@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:00 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="LT" />
+		<correspondsTo vendor="0427">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">sausis</month>
+				<month id="2">vasaris</month>
+				<month id="3">kovas</month>
+				<month id="4">balandis</month>
+				<month id="5">gegužė</month>
+				<month id="6">birželis</month>
+				<month id="7">liepa</month>
+				<month id="8">rugpjūtis</month>
+				<month id="9">rugsėjis</month>
+				<month id="10">spalis</month>
+				<month id="11">lapkritis</month>
+				<month id="12">gruodis</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">sekmadienis </day>
+				<day id="2">pirmadienis </day>
+				<day id="3">antradienis </day>
+				<day id="4">trečiadienis </day>
+				<day id="5">ketvirtadienis </day>
+				<day id="6">penktadienis </day>
+				<day id="7">šeštadienis </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">Sk </day>
+				<day id="2">Pr </day>
+				<day id="3">An </day>
+				<day id="4">Tr </day>
+				<day id="5">Kt </day>
+				<day id="6">Pn </day>
+				<day id="7">Št </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>HH:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>yyyy 'm.' MMMM d 'd.'</full>
+					<long></long>
+					<medium></medium>
+					<short>yyyy.MM.dd</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="LTL" default="true">
+			<symbol>Lt</symbol>
+			<name>LTL</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

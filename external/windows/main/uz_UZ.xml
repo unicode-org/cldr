@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+
+<!-- 
+	Copyright (C) 2000-2003, International Business Machines 
+	Corporation and others.  All Rights Reserved.
+ -->
+
+<localeData>
+	<versioning  >
+ 		<version number="1.0" date="Tue Jun 11 15:07:05 2002">Various notes and changes in version 1.0</version>
+	</versioning  >
+ 	<identity  >
+		<country id="UZ" />
+		<correspondsTo vendor="0443">Windows</correspondsTo>
+	</identity  >
+	<calendars>
+		<calendar class="gregorian" default="true">
+			<monthNames>
+				<month id="1">yanvar</month>
+				<month id="2">fevral</month>
+				<month id="3">mart</month>
+				<month id="4">aprel</month>
+				<month id="5">may</month>
+				<month id="6">iyun</month>
+				<month id="7">iyul</month>
+				<month id="8">avgust</month>
+				<month id="9">sentyabr</month>
+				<month id="10">oktyabr</month>
+				<month id="11">noyabr</month>
+				<month id="12">dekabr</month>
+				<month id="13"></month>
+			</monthNames>
+			<dayNames>
+				<day id="1">yakshanba </day>
+				<day id="2">dushanba </day>
+				<day id="3">seshanba </day>
+				<day id="4">chorshanba </day>
+				<day id="5">payshanba </day>
+				<day id="6">juma </day>
+				<day id="7">shanba </day>
+			</dayNames>
+			<dayAbbr>
+				<day id="1">yak. </day>
+				<day id="2">dsh. </day>
+				<day id="3">sesh. </day>
+				<day id="4">chr. </day>
+				<day id="5">psh. </day>
+				<day id="6">jm. </day>
+				<day id="7">sh. </day>
+			</dayAbbr>
+			<am></am><pm></pm>
+			<patterns> 
+				<time>
+					<full></full>
+					<long></long>
+					<medium>HH:mm:ss</medium>
+					<short></short>
+				</time>
+				<date>
+					<full>yyyy 'yil' d-MMMM</full>
+					<long></long>
+					<medium></medium>
+					<short>dd/MM yyyy</short>
+				</date>
+ 				<dateTime> </dateTime>
+			</patterns>
+			<firstDay>0</firstDay>
+			<minDays></minDays>
+		</calendar>
+	</calendars>
+	<numberFormat class="decimal" default="true"> 
+		<patterns> 
+			<decimal></decimal>
+			<percent></percent>
+		</patterns>
+	</numberFormat> 
+	<currencies>
+		<currency id="UZS" default="true">
+			<symbol>su'm</symbol>
+			<name>UZS</name>
+			<decimal>,</decimal>
+		</currency>
+	</currencies>
+
+</localeData>

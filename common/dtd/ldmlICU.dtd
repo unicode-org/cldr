@@ -61,7 +61,7 @@
 <!ELEMENT icu:breakDictionaryData (alias|(icu:import)) >
 
 <!ELEMENT icu:import ( #PCDATA ) >
-<!ATTLIST icu:import icu:path NMTOKEN #REQUIRED >
+<!ATTLIST icu:import icu:path CDATA #REQUIRED >
 
 <!-- RBT data  -->
 <!ELEMENT icu:transforms ( alias | (default?, icu:transform*)) >

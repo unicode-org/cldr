@@ -373,7 +373,7 @@
 <!ATTLIST decimalFormats draft ( true | false ) #IMPLIED >
 
 <!ELEMENT decimalFormatLength (alias | (default?, decimalFormat*, special*)) >
-<!ATTLIST decimalFormatLength type ( full | long | medium | short ) #REQUIRED >
+<!ATTLIST decimalFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST decimalFormatLength draft ( true | false ) #IMPLIED >
 
 <!ELEMENT decimalFormat (alias | (pattern, special*)) >
@@ -385,7 +385,7 @@
 <!ATTLIST scientificFormats draft ( true | false ) #IMPLIED >
 
 <!ELEMENT scientificFormatLength (alias | (default?, scientificFormat*, special*)) >
-<!ATTLIST scientificFormatLength type ( full | long | medium | short ) #REQUIRED >
+<!ATTLIST scientificFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST scientificFormatLength draft ( true | false ) #IMPLIED >
 
 <!ELEMENT scientificFormat (alias | (pattern, special*)) >
@@ -397,7 +397,7 @@
 <!ATTLIST percentFormats draft ( true | false ) #IMPLIED >
 
 <!ELEMENT percentFormatLength (alias | (default?, percentFormat*, special*)) >
-<!ATTLIST percentFormatLength type ( full | long | medium | short ) #REQUIRED >
+<!ATTLIST percentFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST percentFormatLength draft ( true | false ) #IMPLIED >
 
 <!ELEMENT percentFormat (alias | (pattern, special*)) >
@@ -408,7 +408,7 @@
 <!ATTLIST currencyFormats draft ( true | false ) #IMPLIED >
 
 <!ELEMENT currencyFormatLength (alias | (default?, currencyFormat*, special*)) >
-<!ATTLIST currencyFormatLength type ( full | long | medium | short ) #REQUIRED >
+<!ATTLIST currencyFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST currencyFormatLength draft ( true | false ) #IMPLIED >
 
 <!ELEMENT currencyFormat (alias | (pattern, special*)) >

@@ -16,7 +16,7 @@ tool to generate versions for different platforms.
 inherited data
 - The restriction of currency codes to ISO 4217 codes (past and present)
 - The addition of number and data tests, for verifying that implementations
-correctly implement CLDR
+correctly implement the LDML specification using CLDR data.
 - Various other fixes and additions of data, and extensions to the
 specification.
 

@@ -2120,6 +2120,7 @@ void GenerateXML::writeCollation(ResourceBundle& bundle,UnicodeString& xmlString
 #define UCOL_TOK_SETTING  0xFFFFFFFE
 #define UCOL_TOK_OVERRIDE 0xFFFFFFFD 
 #define UCOL_TOK_DONE     0xFFFFFFFC
+#define UCOL_TOK_EXPANSION_MARKER 0xFFFF
 
 UBool 
 uprv_isRuleWhiteSpace(UChar32 c) {
@@ -2273,7 +2274,32 @@ void GenerateXML::writeReset(UnicodeString& src, UnicodeString& xmlString){
 	if(src.indexOf("top")>=0){
 		Formattable args[] = {indentOffset, mStringsBundle.getStringEx("lastNonIgnorable",mError)};
 		xmlString.append(formatString(mStringsBundle.getStringEx("reset",mError),args,2,t));
-	}else if(src.indexOf("[")>=0 && src.length() > 1){
+
+    }else if(src.indexOf("first primary ignorable")>=0){
+		Formattable args[] = {indentOffset, mStringsBundle.getStringEx("firstPIgnorable",mError)};
+		xmlString.append(formatString(mStringsBundle.getStringEx("reset",mError),args,2,t));
+        
+    }else if(src.indexOf("first secondary ignorable")>=0){
+		Formattable args[] = {indentOffset, mStringsBundle.getStringEx("firstSIgnorable",mError)};
+		xmlString.append(formatString(mStringsBundle.getStringEx("reset",mError),args,2,t));
+    
+    }else if(src.indexOf("first tertiary ignorable")>=0){
+		Formattable args[] = {indentOffset, mStringsBundle.getStringEx("fristTIgnorable",mError)};
+		xmlString.append(formatString(mStringsBundle.getStringEx("reset",mError),args,2,t));
+        
+    }else if(src.indexOf("last primary ignorable")>=0){
+		Formattable args[] = {indentOffset, mStringsBundle.getStringEx("lastPIgnorable",mError)};
+		xmlString.append(formatString(mStringsBundle.getStringEx("reset",mError),args,2,t));
+        
+    }else if(src.indexOf("last secondary ignorable")>=0){
+		Formattable args[] = {indentOffset, mStringsBundle.getStringEx("lastSIgnorable",mError)};
+		xmlString.append(formatString(mStringsBundle.getStringEx("reset",mError),args,2,t));
+    
+    }else if(src.indexOf("last tertiary ignorable")>=0){
+		Formattable args[] = {indentOffset, mStringsBundle.getStringEx("lastTIgnorable",mError)};
+		xmlString.append(formatString(mStringsBundle.getStringEx("reset",mError),args,2,t));
+        
+    }else if(src.indexOf("[")>=0 && src.length() > 1){
 		while(start < limit ){
 			UChar ch = *start++;
 			if(uprv_isRuleWhiteSpace(ch)){
@@ -2337,6 +2363,7 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
     UnicodeString t;
 	UBool startOfRules = TRUE;
     UBool writtenSettings = FALSE;
+    UBool isTempStrContraction =FALSE, isCollStrContraction = FALSE;
 
 	if(src.start != src.end){
 		for(;;){
@@ -2345,10 +2372,15 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 			  UnicodeString tempStr;
 			  startOfRules = FALSE;
 			  tempStr.append(src.chars,src.charsLen);
-			  escape(tempStr);
+
               int32_t indexOfPipe = tempStr.indexOf((UChar)0x7c);
+              if(U_FAILURE(mError)){
+                  fprintf(stderr,"parseRules returned NULL for strength!. Error: %s", u_errorName(mError));
+                  exit(1);
+              }
               if( indexOfPipe >= 0 && tempStr.length() > 1){
                     UnicodeString str = mStringsBundle.getStringEx("context",mError);
+                    escape(tempStr);
                     str.append(tempStr);
 					str.findAndReplace((UChar)0x7C, mStringsBundle.getStringEx("contextEnd",mError));
 	                tempStr = str;
@@ -2356,10 +2388,25 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
               if((prevStrength == strength) && (prevStrength == UCOL_TOK_DONE)){
                   break;
               }
-			  if((prevStrength != strength) || tempStr.length() >1 /* contraction */ ){
+
+
+              /* verify that tempStr is a contraction */
+              isTempStrContraction = tempStr.length()>1;
+              
+
+              if(U_FAILURE(mError)){
+                  fprintf(stderr,"Normalizer:;compose failed!. Error: %s", u_errorName(mError));
+                  exit(1);
+              }
+			  if((prevStrength != strength) || 
+                  isTempStrContraction==TRUE/* contraction */ || 
+                  isCollStrContraction==TRUE/* contraction */ ||
+                  tempStr.indexOf((UChar)UCOL_TOK_EXPANSION_MARKER) >=0 || /* expansion */
+                  collStr.indexOf((UChar)UCOL_TOK_EXPANSION_MARKER) >=0 /* expansion */){
 					char* singleKey = NULL;
 					char* seqKey = NULL;
 					
+                    escape(collStr);
 					// assume that settings always preceed rule strings
 
 					Formattable args[] = {indentOffset,collStr,""};
@@ -2444,8 +2491,11 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 					}
 			  }
 
-
+              
+              isCollStrContraction = isTempStrContraction;
+              isTempStrContraction = FALSE;
 			  collStr.append(tempStr);
+
              
 			  count++;
 			  prevStrength = strength;		
@@ -2466,7 +2516,7 @@ void GenerateXML::writeCollation(UnicodeString& src, UnicodeString &xmlString, c
     Formattable args[] = { indentOffset ,"" , ""};
     UnicodeString t,temp;
     
-    int32_t index = src.indexOf((UChar)0x2F);
+    int32_t index = src.indexOf((UChar) UCOL_TOK_EXPANSION_MARKER);
     if(index>0 && i<0){
        // & c < k / h
        // <x><p>k</p> <extend>h</extend></x>
@@ -2888,7 +2938,7 @@ uint32_t GenerateXML::parseRules(Token* src,UBool startOfRules){
           case 0x002F/*'/'*/:
             wasInQuote = FALSE; /* if we were copying source characters, we want to stop now */
             /* RAM: expansion just add the character back */
-            src->chars[src->charsLen++] =ch;
+            src->chars[src->charsLen++] = UCOL_TOK_EXPANSION_MARKER;
             inChars = FALSE; /* we're now processing expansion */
             break;
           case 0x005C /* back slash for escaped chars */:

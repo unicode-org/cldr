@@ -42,7 +42,7 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   </tr>
   <tr>
     <td><i>Date:</i></td>
-    <td>2003-06-16</td>
+    <td>2003-06-19</td>
   </tr>
   <tr>
     <td><i>Author:</i></td>
@@ -50,7 +50,10 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   </tr>
   <tr>
     <td><i>Latest Version:</i></td>
-    <td><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_markup.html">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_markup.html</a></td>
+    <td><b><font color="red">draft:<br>
+      </font></b><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_markup.html">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_markup.html<br>
+      </a><font color="red"><b>at 1.0 release (not yet available):<br>
+      </b></font><a href="http://www.openi18n.org/spec/ldml/1.0/ldml.html">http://www.openi18n.org/spec/ldml/1.0/ldml.html</a></td>
   </tr>
   <tr>
     <td><i>Older Versions:</i></td>
@@ -62,15 +65,24 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   </tr>
   <tr>
     <td><i>Namespace:</i></td>
-    <td><a href="http://www.openi18n.org/subgroups/lade/locale/ldml">http://www.openi18n.org/subgroups/lade/locale/ldml</a></td>
+    <td><a href="http://www.openi18n.org/spec/ldml">http://www.openi18n.org/spec/ldml</a></td>
   </tr>
   <tr>
     <td><i>DTDs:</i></td>
-    <td><font color="red"><b>draft:<br>
-      </b></font><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd</a><br>
+    <td><b><font color="red">draft:<br>
+      </font></b><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd</a><br>
+      <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlSupplemental.dtd">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlSupplemental.dtd</a><br>
+      <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlICU.dtd">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlICU.dtd</a><br>
+      <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlISO14652.dtd">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlISO14652.dtd</a><br>
+      <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlPOSIX.dtd">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlPOSIX.dtd</a><br>
+      <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlOpenOffice.dtd">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlOpenOffice.dtd</a><br>
       <font color="red"><b>at 1.0 release (not yet available):<br>
-      </b><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/1.0/LocaleElements.dtd">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/1.0/LocaleElements.dtd</a><br>
-      <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/1.0/LocaleElementsSupplemental.dtd">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/1.0/LocaleElementsSupplemental.dtd</a></font></td>
+      </b></font><a href="http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">http://www.openi18n.org/spec/ldml/1.0/ldml.dtd</a><br>
+      <a href="http://www.openi18n.org/spec/ldml/1.0/ldmlSupplemental.dtd">http://www.openi18n.org/spec/ldml/1.0/ldmlSupplemental.dtd</a><br>
+      <a href="http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd</a><br>
+      <a href="http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd">http://www.openi18n.org/spec/ldml/1.0/ldmlISO14652.dtd</a><br>
+      <a href="http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd">http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd</a><br>
+      <a href="http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd">http://www.openi18n.org/spec/ldml/1.0/ldmlOpenOffice.dtd</a></td>
   </tr>
   <tr>
     <td><i>License:</i></td>
@@ -496,8 +508,8 @@ the version are supported. In the future there will be more information,
 accessible at [<a href="#localeProject">LocaleProject</a>].</p>
 <h2><a name="XML_Format">XML Format</a></h2>
 <p>The following sections describe the structure of the XML format for locale 
-data. To start with, the root element is &lt;localeData&gt;. That element 
-contains the following elements:</p>
+data. To start with, the root element is &lt;ldml&gt;. That element contains the 
+following elements:</p>
 <ul>
   <li><a href="#&lt;identity&gt;">&lt;identity&gt;</a></li>
   <li><a href="#&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></li>
@@ -563,13 +575,13 @@ special data. For example:</p>
 another source for the data. The resource is to be fetched from the 
 corresponding location in the other source. Normal resource searching is to be 
 used; take the following example:</p>
-<pre>&lt;localeData&gt;
+<pre>&lt;ldml&gt;
   &lt;collations&gt;
     &lt;collation type=&quot;phonebook&quot;&gt;
       &lt;alias source=&quot;de_DE&quot; type=&quot;phonebook&quot;&gt;
     &lt;/collation&gt;
   &lt;/collation&gt;
-&lt;/localeData&gt;</pre>
+&lt;/ldml&gt;</pre>
 <p>The resource bundle at &quot;de_DE&quot; will be searched for a resource 
 element at the same position in the the same tree with type 
 &quot;collation&quot;. If not found there, then the resource bundle at 
@@ -634,13 +646,13 @@ never tailored.</p>
 <p>The attribute <i>type</i> is also used to indicate an alternate resource that 
 can be selected with a matching type=option in the locale id modifiers, or be 
 referenced by a default element. For example:</p>
-<pre>&lt;localeData&gt;
+<pre>&lt;ldml&gt;
   ...
   &lt;currencies&gt;
     &lt;currency&gt;...&lt;/currency&gt;
     &lt;currency type=&quot;preEuro&quot;&gt;...&lt;/currency&gt;
   &lt;/currencies&gt;
-&lt;/localeData&gt;</pre>
+&lt;/ldml&gt;</pre>
 <p>If there is no type attribute present, then the value is assumed to be 
 &quot;standard&quot;.</p>
 <p class="element2">&lt;... draft=&quot;true&quot; ...&gt;</p>
@@ -1142,7 +1154,7 @@ not present, so that the software has to &quot;guess&quot; at the currency code
 based on the user's locale.</p>
 <p class="note"><b>Note: </b>The number of decimal places <b>and</b> the 
 rounding for each currency is not locale-specific data, and is not contained in 
-the localeData format. Those values override whatever is given in the currency 
+the ldml format. Those values override whatever is given in the currency 
 numberFormat. For more information, see <a href="#Supplemental_Data">Supplemental 
 Data</a>.</p>
 <p>For background information on currency names, see [CurrencyInfo].</p>
@@ -1899,8 +1911,8 @@ Formatter</i> [<a href="#RBNF">RBNF</a>].</p>
 <p>Boundaries provide rules for grapheme-cluster (&quot;user-character&quot;), 
 word, line, and sentence breaks. This format is the Java/ICU syntax, at the top 
 level. For a description of that, see <i>Rule-Based Break Iterator</i> [<a href="#RBBI">RBBI</a>]. 
-The enclosing special element is a sub-element of &lt;localeData&gt;.</p>
-<pre>&lt;localeData&gt;
+The enclosing special element is a sub-element of &lt;ldml&gt;.</p>
+<pre>&lt;ldml&gt;
 ...
   &lt;special xmlns=&quot;http://oss.software.ibm.com/icu&quot;&gt;
     &lt;boundaries&gt;
@@ -1915,7 +1927,7 @@ The enclosing special element is a sub-element of &lt;localeData&gt;.</p>
       &lt;/word&gt;
     &lt;/boundaries&gt;
   &lt;/special&gt;
-&lt;/localeData&gt;</pre>
+&lt;/ldml&gt;</pre>
 <h3><a name="&lt;transforms&gt;">&lt;transforms&gt;</a></h3>
 <p>There may be language-specific transformations, typically used in locale data 
 for transliterations. Such transformations require far more than a simple list 
@@ -1923,12 +1935,12 @@ of matching characters, since the matches are highly context-sensitive. Each
 such transform is supplied in a &lt;transform&gt; element. The contents of the 
 transform element is a list of rules, as described in the ICU documentation for 
 [<a href="#ICUTransforms">ICUTransforms</a>]. The enclosing special element is a 
-sub-element of &lt;localeData&gt;. The target value is either a script (long or 
-short name) or a locale id.</p>
+sub-element of &lt;ldml&gt;. The target value is either a script (long or short 
+name) or a locale id.</p>
 <p class="note">Note: there is an on-line demonstration of transforms at</p>
 <p class="example">Example: The following is an abbreviated example for Greek to 
 Latin, in a Greek locale. The target value can be a script ID or a locale ID.</p>
-<pre>&lt;localeData&gt;
+<pre>&lt;ldml&gt;
 ...
   &lt;special xmlns=&quot;http://oss.software.ibm.com/icu&quot;&gt;
     &lt;transforms&gt;
@@ -1959,7 +1971,7 @@ Latin, in a Greek locale. The target value can be a script ID or a locale ID.</p
 <pre>      &lt;/transform&gt;
     &lt;/transforms&gt;
   &lt;/special&gt;
-&lt;/localeData&gt;</pre>
+&lt;/ldml&gt;</pre>
 <h3><a name="OpenOffice">openoffice.org</a></h3>
 <p>A number of the elements above can have extra information for openoffice.org, 
 such as the following example:</p>
@@ -1970,7 +1982,7 @@ such as the following example:</p>
 &lt;/numberFormat&gt;</pre>
 <h3><a name="POSIX">POSIX</a></h3>
 <p>This is a sample of old POSIX abbreviations for pre-GUI days:</p>
-<pre>&lt;localeData&gt;
+<pre>&lt;ldml&gt;
 ...
   &lt;special xmlns=&quot;http://www.opengroup.org/regproducts/xu.htm&quot;&gt;
     &lt;messages&gt;
@@ -1980,7 +1992,7 @@ such as the following example:</p>
       &lt;shortNo&gt;N&lt;/shortNo&gt;
     &lt;/messages&gt;
   &lt;/special&gt;
-&lt;/localeData&gt;</pre>
+&lt;/ldml&gt;</pre>
 <h3><a name="ISO_TR_14652">ISO TR 14652</a></h3>
 <p>The following is <a href="http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n897-14652w25.pdf">ISO 
 TR 14652</a> compatibility data. This section is here because portions of TR 
@@ -1994,7 +2006,7 @@ are empty, so are not particularly useful in practice. Compare, for example, the
 mail-merge capabilities of production software such as Microsoft Word or 
 OpenOffice.</p>
 <p class="example">Examples:</p>
-<pre>&lt;localeData&gt;
+<pre>&lt;ldml&gt;
 ...
   &lt;special xmlns=&quot;http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n897-14652w25.pdf&quot;&gt;
     &lt;iso14652&gt;
@@ -2046,7 +2058,7 @@ OpenOffice.</p>
             &lt;/countryInfo&gt;
     &lt;/iso14652&gt;
   &lt;/special&gt;
-&lt;localeData&gt;</pre>
+&lt;ldml&gt;</pre>
 <h2>Appendix B: <a name="Transmitting_Locale_Information">Transmitting Locale 
 Information</a></h2>
 <p>In a world of on-demand software components, with arbitrary connections 

@@ -29,26 +29,23 @@
     </td>
   </tr>
 </table>
-<p align="left"><b>Status. </b>On 2003.12.19, the Version 1.0 Final Candidate was made available. The CLDR Version 1.0 final release is pending approval by the OpenI18N steering
-committee.</p>
-<p align="left">The purpose of the Common Locale Data Repository (CLDR) project is to:</p>
+<p align="left"><b><i><font size="5">CLDR 1.0 Available!</font></i></b></p>
+<p align="left">On 2003.12.19, the Version 1.0 Final Candidate was made available. This version was approved on 2003.01.16 by the OpenI18N steering committee as CLDR 1.0. This is a
+stable release, and may be used as reference material or cited as a normative reference by other specifications or products. To obtain the data in CLDR 1.0, see <a href="#xml_source">XML
+Source</a>.</p>
+<p align="left"><b><a name="project">Project</a>. </b>Briefly, the purpose of the Common Locale Data Repository (CLDR) project is to:</p>
 <ol>
   <li>
     <p align="left">devise a general XML format for the exchange of culturally sensitive (locale) information for use in application and system development</li>
   <li>
     <p align="left">gather, store, and make available data generated in that format</li>
 </ol>
-<p align="left">CLDR 1.0 is just the first step. It provides a version of the data that can be referenced, but enhancements and fixes will come in future versions. We request that
-people continue to review the data for languages and countries that they are familiar with for the next version of CLDR, and <a href="filing_bug_reports.html">file bug reports</a>
-where they see problems.</p>
-<blockquote>
-  <p align="left">The easiest way to provide feedback is to view the <a href="comparison_charts.html">comparison charts</a>, which provide an HTML view of data from different
-  sources. There is also locale-insensitive supplementary data which is only available in <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/supplementalData.xml">XML
-  format</a>. That data tells which country uses which currency, how many digits each currency takes, and any special rounding behavior.</p>
-</blockquote>
-<p align="left"><b>XML Source. </b>The locale data XML specification and locale data XML files are checked into a <a href>CVS repository</a>, currently hosted on the <a href="http://oss.software.ibm.com/icu/">ICU
-site</a>, and available via the web or by using CVS clients. The CVS tag is &quot;<code>release-1-0-candidate</code>&quot;. For information on using CVS clients to access the
-repository, see <a href="readme.html">readme.html</a>.</p>
+<p align="left">CLDR 1.0 is just the first step. It provides a version of the data that can be referenced, but enhancements and fixes will come in future versions of CLDR. We
+request that people continue to review the data for languages and countries that they are familiar with for the next version, and <a href="filing_bug_reports.html">file bug reports</a>
+where they see problems. For more details on the CLDR project, see <a href="http://www.openi18n.org/subgroups/lade/locale/index.htm">project description</a>.</p>
+<p align="left"><b><a name="xml_source">XML Source</a>. </b>The locale data XML specification and locale data XML files are checked into a <a href>CVS repository</a>, currently
+hosted on the <a href="http://oss.software.ibm.com/icu/">ICU site</a>, and available via the <a href="http://oss.software.ibm.com/cvs/icu/locale/">web</a> or by using CVS clients.
+The CVS tag is &quot;<code>release-1-0-candidate</code>&quot;. For information on using CVS clients to access the repository, see <a href="readme.html">readme.html</a>.</p>
 <p align="left">The XML source data is organized in the following directories. Within those directories, ignore the folders icu_format/; those are just for production. The xml
 files can be divided into main/ and collation/.</p>
 <blockquote>
@@ -63,8 +60,8 @@ files can be divided into main/ and collation/.</p>
   sunjdk/<br>
   windows/</code></p>
 </blockquote>
-<p align="left"><i><b>Note:</b> the data for all but </i><code>common</code><i> is provided for comparison only, and is not to be viewed as authoritative or referenceable.</i></p>
-<p align="left"><b>Known Issues</b></p>
+<p align="left"><b><i>Note: the data for all but </i><code>common</code><i> is provided for comparison only, and is <u>not</u> to be viewed as authoritative or referenceable.</i></b></p>
+<p align="left"><b>Known Issues with CLDR 1.0</b></p>
 <ul>
   <li>
     <p align="left">The XML and HTML files generated as part of this work appear to stress the common browsers. Most of them will fail on at least some of the XML files, even

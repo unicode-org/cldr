@@ -11,6 +11,7 @@
 			<language type="ar">Arabų</language>
 			<language type="bg">Bulgarų</language>
 			<language type="cs">Čekijos</language>
+			<language type="cs" alt="proposed" draft="true">Čekų</language>
 			<language type="da">Danų</language>
 			<language type="de">Vokiečių</language>
 			<language type="el">Graikų</language>
@@ -521,6 +522,7 @@
 							<month type="8">Rgp</month>
 							<month type="9">Rgs</month>
 							<month type="10">Spa</month>
+							<month type="10" alt="proposed" draft="true">Spl</month>
 							<month type="11">Lap</month>
 							<month type="12">Grd</month>
 						</monthWidth>
@@ -540,17 +542,45 @@
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Sausio</month>
+							<month type="1" alt="proposed" draft="true">sausio</month>
 							<month type="2">Vasario</month>
+							<month type="2" alt="proposed" draft="true">vasario</month>
 							<month type="3">Kovo</month>
+							<month type="3" alt="proposed" draft="true">kovo</month>
 							<month type="4">Balandžio</month>
+							<month type="4" alt="proposed" draft="true">balandžio</month>
 							<month type="5">Gegužės</month>
+							<month type="5" alt="proposed" draft="true">gegužės</month>
 							<month type="6">Birželio</month>
+							<month type="6" alt="proposed" draft="true">birželio</month>
 							<month type="7">Liepos</month>
+							<month type="7" alt="proposed" draft="true">liepos</month>
 							<month type="8">Rugpjūčio</month>
+							<month type="8" alt="proposed" draft="true">rugpjūčio</month>
 							<month type="9">Rugsėjo</month>
+							<month type="9" alt="proposed" draft="true">rugsėjo</month>
 							<month type="10">Spalio</month>
+							<month type="10" alt="proposed" draft="true">spalio</month>
 							<month type="11">Lapkričio</month>
+							<month type="11" alt="proposed" draft="true">lapkričio</month>
 							<month type="12">Gruodžio</month>
+							<month type="12" alt="proposed" draft="true">gruodžio</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="wide">
+							<month type="1" draft="true">Sausis</month>
+							<month type="2" draft="true">Vasaris</month>
+							<month type="3" draft="true">Kovas</month>
+							<month type="4" draft="true">Balandis</month>
+							<month type="5" draft="true">Gegužė</month>
+							<month type="6" draft="true">Birželis</month>
+							<month type="7" draft="true">Liepa</month>
+							<month type="8" draft="true">Rugpjūtis</month>
+							<month type="9" draft="true">Rugsėjis</month>
+							<month type="10" draft="true">Spalis</month>
+							<month type="11" draft="true">Lapkritis</month>
+							<month type="12" draft="true">Gruodis</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -576,12 +606,19 @@
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Sekmadienis</day>
+							<day type="sun" draft="true" alt="proposed">sekmadienis</day>
 							<day type="mon">Pirmadienis</day>
+							<day type="mon" draft="true" alt="proposed">pirmadienis</day>
 							<day type="tue">Antradienis</day>
+							<day type="tue" draft="true" alt="proposed">antradienis</day>
 							<day type="wed">Trečiadienis</day>
+							<day type="wed" draft="true" alt="proposed">trečiadienis</day>
 							<day type="thu">Ketvirtadienis</day>
+							<day type="thu" draft="true" alt="proposed">ketvirtadienis</day>
 							<day type="fri">Penktadienis</day>
+							<day type="fri" draft="true" alt="proposed">penktadienis</day>
 							<day type="sat">Šeštadienis</day>
+							<day type="sat" draft="true" alt="proposed">šeštadienis</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -589,10 +626,14 @@
 					<minDays count="4"/>
 					<firstDay day="mon"/>
 				</week>
+				<am draft="true">priešpiet</am>
+				<pm draft="true">popiet</pm>
 				<eras>
 					<eraAbbr>
 						<era type="0">pr.Kr.</era>
+						<era type="0" draft="true" alt="proposed">pr. Kr.</era>
 						<era type="1">po.Kr.</era>
+						<era type="1" draft="true" alt="proposed">po Kr.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -614,6 +655,7 @@
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>yyyy.MM.dd</pattern>
+							<pattern alt="proposed" draft="true">yyyy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -645,6 +687,7 @@
 				<displayName draft="true">Jena</displayName>
 			</currency>
 			<currency type="LTL">
+				<displayName draft="true">Litai</displayName>
 				<symbol>Lt</symbol>
 			</currency>
 			<currency type="RUB">

@@ -157,10 +157,10 @@ reference. If necessary, the Locale Data Markup Language specification may be re
         <li>Below the example, add the following text.</li>
       </ol>
       <blockquote>
-        <p>The optional base element <code>&lt;base&gt;<span style="color: blue">...</span>&lt;/base&gt;</code>, contains an alias that points to another collation element. If 
-        present, it indicates that the settings and rules are modifications applied on top of the respective elements in the base collation. Settings, where present, override what 
-        is in the base as described in <a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm#Setting_Options">Setting Options</a>. Rules are concatenated to the end of the 
-        rules in the base. The results of multiple rules with the same characters is covered in <a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm#Orderings">Orderings</a>.</p>
+        <p>The optional base element <code>&lt;base&gt;<span style="color: blue">...</span>&lt;/base&gt;</code>, contains an alias element that points to another data source that 
+        defines a <i>base </i>collation. If present, it indicates that the settings and rules in the collation are modifications applied on <i>top of the</i> respective elements in 
+        the base collation. That is, any successive settings, where present, override what is in the base as described in <a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm#Setting_Options">Setting 
+        Options</a>. Any successive rules are concatenated to the end of the rules in the base. The results of multiple rules applying to the same characters is covered in <a href="http://www.openi18n.org/specs/ldml/1.0/ldml-spec.htm#Orderings">Orderings</a>.</p>
       </blockquote>
     </td>
     <td>&nbsp;</td>

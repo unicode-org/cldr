@@ -359,7 +359,7 @@ For example, most country locales will inherit the bulk of their data from the l
         <!-- following is equivalent to <p>&#x4E9C;</p><p>&#x5516;</p><p>&#x5A03;</p>... -->
         <pc>&#x4E9C;&#x5516;&#x5A03;&#x963F;&#x54C0;&#x611B;&#x6328;&#x59F6;&#x9022;&#x8475;&#x831C;&#x7A50;&#x60AA;&#x63E1;&#x6E25;&#x65ED;&#x8466;&#x82A6;</pc>
         <pc>&#x9BF5;&#x6893;&#x5727;&#x65A1;&#x6271;</pc>
-        <special owner="OpenOffice">
+        <special owner="www.openoffice.org">
             <collator unoid="alphanumeric" default="true"/>
             <collator unoid="phonebook" default="false"/>
         </special>
@@ -415,7 +415,7 @@ For example, most country locales will inherit the bulk of their data from the l
         <!-- Measurement system: US/ISO 1000/Other -->
         <measurementSystem id="US"/>
     </measurement>
-    <special owner="OpenOffice">
+    <special owner="www.openoffice.org">
         <numberingLevels>
             <!--
             the parameter NumType can have one of the following values:
@@ -453,7 +453,7 @@ For example, most country locales will inherit the bulk of their data from the l
         <transliterationModules>IGNORE_CASE</transliterationModules>
         <outLineNumberingLevel></outLineNumberingLevel>
     </special>
-    <special owner="POSIX">
+    <special owner="http://www.opengroup.org/regproducts/xu.htm">
         <!-- old abbreviations for pre-GUI days -->
         <messages>
             <no>No</no>
@@ -462,7 +462,7 @@ For example, most country locales will inherit the bulk of their data from the l
             <shortNo>N</shortNo>
         </messages>
     </special>
-    <special owner="Redhat">
+    <special owner="www.redhat.com">
         <!-- The following is ISO TR 14652 compatibility data. (14652 is a Type 1 TR:
              "when the required support cannot be obtained for the publication of an
              International Standard, despite repeated effort".

@@ -656,6 +656,9 @@ is in XML Schema format (yyyy-mm-dd).</p>
 <p class="element2">&lt;language type=&quot;en&quot;/&gt;</p>
 <p>The language code is the primary part of the specification of the locale id, 
 with values as described above.</p>
+<p class="element2">&lt;script type=&quot;Latn&quot; /&gt;</p>
+<p>The script field may be used in the identification of locales, once we 
+resolve issues around the use of 3066.</p>
 <p class="element2">&lt;territory type=&quot;US&quot;/&gt;</p>
 <p>The territory code is the secondary part of the specification of the locale 
 id, with values as described above.</p>
@@ -1985,7 +1988,7 @@ uses the following format, where the data is solely for illustration:</p>
 <p class="changed">The only data currently represented is currency data. Each 
 currencyData element contains one fractions element followed by one or more 
 region elements. The fractions element contains any number of currency elements, 
-with the following attributes: </p>
+with the following attributes:</p>
 <ul>
   <li>
     <p class="changed"><b>iso4217: </b>the ISO 4217 code for the currency in 

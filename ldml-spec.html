@@ -183,13 +183,8 @@ which is not expressed in LDML. The sources for this data include:</p>
       <li>For timezone and daylight savings information.</li>
     </ul>
   </li>
-  <li>The Common Locale Repository Supplemental Data
-    <ul>
-      <li>Currently, this includes information that maps from currency codes to 
-        the number of number of decimal digits used, the rounding behavior, and 
-        the countries in which it is an official currency. <font color="#FF0000"><b>[TBD]</b></font></li>
-    </ul>
-  </li>
+  <li>The Common Locale Repository <a href="#Supplemental_Data">Supplemental 
+    Data</a></li>
 </ul>
 <p>In addition, various standards define codes that are used as keys or values 
 in LDML. These include:</p>
@@ -277,7 +272,7 @@ to <a href="http://www.ietf.org/rfc/rfc3066.txt">RFC 3066</a> instead of <a href
 However, we must resolve some issues with it first. For the ongoing discussion 
 of the issues, see <a href="http://www.alvestrand.no/mailman/listinfo/ietf-languages">ietf-languages</a> 
 and <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/language_code_issues.html">Language 
-Code Issues</a>. </p>
+Code Issues</a>.</p>
 <p>We will speak of data as being &quot;in locale X&quot;. That does not imply 
 that a locale <i>is</i> a collection of data; it is simply shorthand for 
 &quot;the set of data associated with the locale id X&quot;. Each individual 
@@ -1950,8 +1945,8 @@ have considerable performance benefits.</p>
 <h2 class="changed">Appendix C: <a name="Supplemental_Data">Supplemental Data</a></h2>
 <p class="changed">The following represents the format for supplemental 
 information. This is information that is important for proper formatting, but is 
-not contained in the locale hierarchy, and is not overridden by locale data. The 
-following data is solely for illustration:</p>
+not contained in the locale hierarchy, and is not overridden by locale data. It 
+uses the following format, where the data is solely for illustration:</p>
 <pre class="changed">&lt;supplementalData&gt;
   &lt;currencyData&gt;
     &lt;currency iso4217=&quot;ITL&quot;&gt;
@@ -1980,6 +1975,10 @@ following data is solely for illustration:</p>
     &lt;/currency&gt;
   &lt;/currencyData&gt;
 &lt;/supplementalData&gt;</pre>
+<p class="changed"><b>Open Issue:</b> we may want to invert the above structure, 
+so that regions are at the top level, with currency within. If we did that, we 
+would need a separate table that mapped from currency to fraction/rounding 
+behavior.</p>
 <p class="changed">The only data currently represented is currency data. The 
 attributes are:</p>
 <ul>
@@ -2009,21 +2008,21 @@ attributes are:</p>
 </ul>
 <p class="changed">Each <i>before</i> value governs the time up to the previous <i>before</i> 
 value for the same region. That is, suppose that we have the following data for 
-the region code <i>x</i>.</p>
-<pre class="changed">  &lt;currency iso4217=&quot;a&quot;&gt;
-    &lt;region iso3166=&quot;x&quot;&gt;
+the region code <i>R</i>.</p>
+<pre class="changed">  &lt;currency iso4217=&quot;C1&quot;&gt;
+    &lt;region iso3166=&quot;R&quot;&gt;
   &lt;/currency&gt;
-  &lt;currency iso4217=&quot;b&quot;&gt;
-    &lt;region iso3166=&quot;x&quot; before=&quot;1942&quot;&gt;
+  &lt;currency iso4217=&quot;C2&quot;&gt;
+    &lt;region iso3166=&quot;R&quot; before=&quot;1942&quot;&gt;
   &lt;/currency&gt;
-  &lt;currency iso4217=&quot;c&quot;&gt;
-    &lt;region iso3166=&quot;x&quot; before=&quot;1927&quot;&gt;
+  &lt;currency iso4217=&quot;C3&quot;&gt;
+    &lt;region iso3166=&quot;R&quot; before=&quot;1927&quot;&gt;
   &lt;/currency&gt;
   &lt;currency iso4217=&quot;none&quot;&gt;
-    &lt;region iso3166=&quot;x&quot; before=&quot;1937-02-13&quot;&gt;
+    &lt;region iso3166=&quot;R&quot; before=&quot;1937-02-13&quot;&gt;
   &lt;/currency&gt;</pre>
-<p class="changed">This results in the following mapping for <i>x</i>, using a 
-set of half-open intervals:</p>
+<p class="changed">This results in the following mapping for region <i>R</i>, 
+using a set of half-open intervals:</p>
 <table border="1">
   <tr>
     <th>
@@ -2035,7 +2034,7 @@ set of half-open intervals:</p>
   </tr>
   <tr>
     <td align="center">
-      <p class="changed">a</p>
+      <p class="changed">C1</p>
     </td>
     <td align="right">
       <p class="changed">1942-01-01 00:00:00 GMT</p>
@@ -2049,7 +2048,7 @@ set of half-open intervals:</p>
   </tr>
   <tr>
     <td align="center">
-      <p class="changed">b</p>
+      <p class="changed">C2</p>
     </td>
     <td align="right">
       <p class="changed">1937-02-13 00:00:00 GMT</p>
@@ -2063,7 +2062,7 @@ set of half-open intervals:</p>
   </tr>
   <tr>
     <td align="center">
-      <p class="changed">c</p>
+      <p class="changed">C3</p>
     </td>
     <td align="right">
       <p class="changed">1927-01-01 00:00:00 GMT</p>
@@ -2090,10 +2089,6 @@ set of half-open intervals:</p>
     </td>
   </tr>
 </table>
-<p class="changed"><b>Open Issue:</b> we may want to invert the above structure, 
-so that regions are at the top level, with currency within. If we did that, we 
-would need a separate table that mapped from currency to fraction/rounding 
-behavior.</p>
 
 </body>
 

@@ -171,8 +171,18 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<week>
+					<minDays count="1"/>
+					<firstDay day="sat"/>
+				</week>
 				<am>ማለዶ</am>
 				<pm>ቃማ</pm>
+				<eras>
+					<eraAbbr>
+						<era type="1">አዳ ዎዴ</era>
+						<era type="2">ግሮተታ ላይታ</era>
+					</eraAbbr>
+				</eras>
 			</calendar>
 		</calendars>
 	</dates>

@@ -344,8 +344,18 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<week>
+					<minDays count="1"/>
+					<firstDay day="sat"/>
+				</week>
 				<am>ፋዱስ ጃብ</am>
 				<pm>ፋዱስ ደምቢ</pm>
+				<eras>
+					<eraAbbr>
+						<era type="1">ይጅ</era>
+						<era type="2">ኣድ</era>
+					</eraAbbr>
+				</eras>
 			</calendar>
 		</calendars>
 	</dates>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml draft="true">
 <!--
@@ -6,681 +6,639 @@ Locale Data Format
 Draft: 2004-08-02
 By Pema geyleg <pema_geyleg@druknet.bt>
 -->
-  <identity>
-    <version number="1.2">First available version</version>
+    <identity>
+        <version number="0.1">First available version</version>
+        <generation date="2004-08-09" />
+        <!-- Two letter codes, if available; otherwise 3-letter codes.If both
+exist, a separate database contains the mapping. -->
+        <language type="dz"/>
+        <script type="tibt"/>
+        <territory type="BT"/>
 
-    <generation date="2004-08-09" />
+        <!-- Only one variant allowed for now -->
+        <variant type="B"/>
+    </identity>
 
-<!-- Two letter codes, if available; otherwise 3-letter codes.If bothcexist, a separate database contains the mapping. -->
-    <language type="dz" />
-    
-  </identity>
-  <localeDisplayNames>
-<!-- Display names for scripts, languages, countries, and variants in this locale-->
-    <languages>
-      <language type="ar">?????????</language>
-
-      <language type="art">????????(???)</language>
-
-      <language type="as">?????????</language>
-
-      <language type="bh">???????</language>
-
-      <language type="bn">???????</language>
-
-      <language type="bo">?????</language>
-
-      <language type="cs">???</language>
-
-      <language type="da">??????</language>
-
-      <language type="de">???????</language>
-
-      <language type="dv">????????</language>
-
-      <language type="dz">??????</language>
-
-      <language type="egy">??????????(??????????)</language>
-
-      <language type="el">?????</language>
-
-      <language type="en">???????</language>
-
-      <language type="es">????????</language>
-
-      <language type="fa">????????</language>
-
-      <language type="fr">????????</language>
-
-      <language type="ga">???????</language>
-
-      <language type="grc">?????,??????????( 1453)</language>
-
-      <language type="he">???????</language>
-
-      <language type="hi">??????</language>
-
-      <language type="him">?????????</language>
-
-      <language type="inc">???????(???)</language>
-
-      <language type="it">??????????</language>
-
-      <language type="km">?????</language>
-
-      <language type="kn">?????</language>
-
-      <language type="ko">???????</language>
-
-      <language type="ks">?????????</language>
-
-      <language type="lo">???</language>
-
-      <language type="ml">????????</language>
-
-      <language type="mn">??????????</language>
-
-      <language type="mnc">??????</language>
-
-      <language type="mni">??????????</language>
-
-      <language type="mr">??????</language>
-
-      <language type="my">???????</language>
-
-      <language type="ne">???????</language>
-
-      <language type="new">???????</language>
-
-      <language type="nl">??</language>
-
-      <language type="no">????????????</language>
-
-      <language type="or">???????</language>
-
-      <language type="pa">????????</language>
-
-      <language type="pi">????</language>
-
-      <language type="ru">???????</language>
-
-      <language type="sa">???????</language>
-
-      <language type="si">??????????</language>
-
-      <language type="ta">?????</language>
-
-      <language type="te">????????</language>
-
-      <language type="th">????</language>
-
-      <language type="ur">??????</language>
-
-      <language type="zh">????????</language>
-    </languages>
-
-    <scripts>
-        <script type="Arab">
-        ??????????
-        </script>
+    <localeDisplayNames>
+        <!--
+        Display names for scripts, languages, countries, and variants in this
+locale
+        -->
+     <languages>
+        <language
+type="ar">ཨེ་ར་སྦིག</language>
+	<language type="art">བཟོ་བཟོཝ
+(གཞན)</language>
+	<language type="as">ཨ་ས་མི་སི</language>
+	<language type="bh">བི་ཧ་ལི</language>
+	<language type="bn">བེངྒ་ལི</language>
+	<language type="bo">བོད་ཁ</language>
+	<language type="cs">ཅེཀ</language>
+	<language type="da">ཌེ་ནིཤ</language>
+	<language type="de">ཇཱར་མཱན</language>
+	<language type="dv">དི་བེ་ཧི</language>
+	<language type="dz">རྫོང་ཁ
+</language>
+	<language type="egy">ཨི་ཇིཔ་ཤཱན
+(སྔ་དུས་ཀྱི)
+        </language>
+	<language type="el">གིརིཀ</language>
+	<language type="en">ཨིང་ལིཤ</language>
+	<language type="es">སིཔེ་ནིཤ</language>
+	<language type="fa">པར་ཤི་ཡན</language>
+	<language type="fr">ཕེ་རེནཆེ</language>
+	<language type="ga">ཨའི་རིཤ</language>
+	<language type="grc">གིརིཀ,
+སྔ་དུས་ཀྱི
+( ༡༤༥༣)</language>
+	<language type="he">ཧི་བུརུ</language>
+	<language type="hi">ཧིན་དི</language>
+	<language type="him">ཧི་མ་ཅ་ལི</language>
+	<language type="inc">ཨིན་ཌིཀ
+(གཞན)</language>
+	<language type="it">ཨི་ཊ་ལི་རན</language>
+	<language type="km">ཁེ་མར</language>
+	<language type="kn">ཀ་ན་ཌ</language>
+	<language type="ko">ཀོ་རིཡན</language>
+	<language type="ks">ཀེཤ་མི་རི</language>
+	<language type="lo">ལའོ</language>
+	<language type="ml">མ་ལ་ཡ་ལམ</language>
+	<language type="mn">སོག་པོའི་ཁ</language>
+	<language type="mnc">མཱན་ཅུ</language>
+	<language type="mni">མ་ནི་པུ་རི</language>
+	<language type="mr">མ་ར་ཐི</language>
+	<language type="my">བར་མིསི</language>
+	<language type="ne">ནེ་པ་ལི</language>
+	<language type="new">ནི་ཝ་རི</language>
+	<language type="nl">ཌཆ</language>
+	<language type="no">
+ནོར་ཝི་ཇི་ཡན
+        </language>
+	<language type="or">ཨོ་རི་ཡ</language>
+	<language type="pa">པཱན་ཇ་བི</language>
+	<language type="pi">པ་ལི</language>
+	<language type="ru">ར་ཤི་ཡན</language>
+	<language type="sa">སཾསྐྲྀཏ</language>
+	<language type="si">སིན་ཧ་ལིསི</language>
+	<language type="ta">ཏ་མིལ</language>
+	<language type="te">ཏེ་ལུ་གུ</language>
+	<language type="th">ཐཱའེ</language>
+	<language type="ur">ཨུར་དུ</language>
+	<language type="zh">རགྱ་མི་ཁ</language>
+  </languages>
         
-        <script type="Beng">
-        ???????
-        </script>
-        
-        <script type="Brai">
-        ?????
-        </script>
-        
-        <script type="Cyrl">
-        ????????
-        </script>
-        
-        <!-- Russian script -->
-        <script type="Deva">
-        ??????????
-        </script>
-        
-        <script type="Grek">
-        ?????
-        </script>
-        
-        <script type="Gujr">
-        ?????????
-        </script>
-        
-        <script type="Guru">
-        ?????????
-        </script>
-        
-        <!-- Punjabi Sikh script -->
-        <script type="Hang">
-        ??????
-        </script>
-        
-        <script type="Hani">
-        ???
-        </script>
-        
-        <!-- Han = Chinese script-->
-        <script type="Hans">
-        ???????? ???
-        </script>
-        
-        <!-- "Simplified Chinese script" -->
-        <script type="Hant">
-        ????????? ???
-        </script>
-        
-        <!-- "Traditional Chinese script" -->
-        <script type="Hebr">
-        ???????
-        </script>
-        
-        <!-- Jewish script -->
-        <script type="Hira">
-        ????????
-        </script>
-        
-        <!-- one kind of Japanese script -->
-        <script type="Kana">
-        ???????
-        </script>
-        
-        <!-- another kind of Japanese script -->
-        <script type="Khmr">
-        ?????
-        </script>
-        
-        <!--Cambodian script -->
-        <script type="Knda">
-        ?????
-        </script>
-        
-        <script type="Laoo">
-        ???
-        </script>
-        
-        <script type="Latn">
-        ??????
-        </script>
-        
-        <script type="Limb">
-        ??????
-        </script>
-        
-        <script type="Mlym">
-        ????????
-        </script>
-        
-        <script type="Mong">
-        ??????
-        </script>
-        
-        <script type="Mymr">
-        ?????
-        </script>
-        
-        <script type="Orya">
-        ???????
-        </script>
-        
-        <script type="Qaai">
-        ?????????
-        </script>
-        
-        <!-- put Dzongkha translation of "inherited" -->
-        <script type="Sinh">
-        ???????
-        </script>
-        
-        <!-- Sri Lanka Script -->
-        <script type="Taml">
-        ?????
-        </script>
-        
-        <script type="Telu">
-        ????????
-        </script>
-        
-        <script type="Thaa">
-        ????
-        </script>
-        
-        <script type="Tibt">
-        ???
-        </script>
-        
-        <script type="Zyyy">
-        ?????
-        </script>
-    </scripts>
-
-    <territories>
-      <territory type="AE">?????????????? ?????????????</territory>
-
-      <territory type="AF">?????????????</territory>
-
-      <territory type="AQ">????????????</territory>
-
-      <territory type="AR">???????????</territory>
-
-      <territory type="AT">???????</territory>
-
-      <territory type="AU">????????????</territory>
-
-      <territory type="BD">?????????</territory>
-
-      <territory type="BE">????????</territory>
-
-      <territory type="BH">??????</territory>
-
-      <territory type="BR">????????</territory>
-
-      <territory type="BT">?????</territory>
-
-      <territory type="CA">??????</territory>
-
-      <territory type="CH">????????????</territory>
-
-      <territory type="CN">??????</territory>
-
-      <territory type="CU">???????</territory>
-
-      <territory type="CZ">?????????????</territory>
-
-      <territory type="DE">????????</territory>
-
-      <territory type="DK">???????</territory>
-
-      <territory type="EG">???????</territory>
-
-      <territory type="ES">??????</territory>
-
-      <territory type="FI">????????</territory>
-
-      <territory type="FR">??????</territory>
-
-      <territory type="GB">?????????????????</territory>
-
-      <territory type="GR">??????</territory>
-
-      <territory type="HK">???????</territory>
-
-      <territory type="IE">??????????</territory>
-
-      <territory type="IL">????????</territory>
-
-      <territory type="IN">??????</territory>
-
-      <territory type="IQ">?????</territory>
-
-      <territory type="IR">??????</territory>
-
-      <territory type="IS">??????????</territory>
-
-      <territory type="IT">??????</territory>
-
-      <territory type="JM">???????</territory>
-
-      <territory type="JP">?????</territory>
-
-      <territory type="KE">???????</territory>
-
-      <territory type="KH">??????????</territory>
-
-      <territory type="KP">???????????</territory>
-
-      <territory type="KR">???????????</territory>
-
-      <territory type="KW">??????</territory>
-
-      <territory type="LA">??????</territory>
-
-      <territory type="LB">??????????</territory>
-
-      <territory type="LK">????????</territory>
-
-      <territory type="MM">?????</territory>
-
-      <territory type="MN">??????</territory>
-
-      <territory type="MS">?????????</territory>
-
-      <territory type="MU">???????????</territory>
-
-      <territory type="MV">????????</territory>
-
-      <territory type="MX">????????</territory>
-
-      <territory type="MY">?????????</territory>
-
-      <territory type="NL">????????????</territory>
-
-      <territory type="NO">?????</territory>
-
-      <territory type="NP">??????</territory>
-
-      <territory type="NZ">????????????</territory>
-
-      <territory type="PA">??????</territory>
-
-      <territory type="PK">??????????</territory>
-
-      <territory type="PS">???????????????????????????</territory>
-
-      <territory type="PT">?????????</territory>
-
-      <territory type="QA">????</territory>
-
-      <territory type="SA">?????????????????</territory>
-
-      <territory type="SE">???????</territory>
-
-      <territory type="SI">????????????</territory>
-
-      <territory type="TH">?????????</territory>
-
-      <territory type="TJ">?????????????</territory>
-
-      <territory type="TW">???????</territory>
-
-      <territory type="US">?????????????????</territory>
-
-      <territory type="UZ">???????????????</territory>
-
-      <territory type="VN">???????</territory>
-
-      <territory type="ZA">????????????</territory>
-
-      <territory type="ZM">???????</territory>
-
-      <territory type="ZW">?????????</territory>
-    </territories>
-
-    <variants>
-<!-- Variant types must be unique across ALL locales. Currently they include  B, NY, EURO -->
-      <variant type="B">??????</variant>
-    </variants>
-
-    <keys>
-      <key type="collation">??????????????????</key>
-    </keys>
-
-    <types>
-      <type type="traditional" key="collation">?????????</type>
-    </types>
-  </localeDisplayNames>
-
-  <layout>
-    <orientation lines="top-to-bottom"
-    characters="left-to-right" />
-
-<!--both attributes are required -->
-  </layout>
-
-  <characters>
-<!-- follows the UnicodeSet syntax -->
-    <exemplarCharacters>
-    [????????????????????????????????????]</exemplarCharacters>
-
+        <scripts>          
+	<script type="Arab">ཨེ་རེ་སྦིག</script>
+	<script type="Beng">བེངྒ་ལི</script>
+	<script type="Brai">བེརེལ</script>
+	<script type="Cyrl">སིརི་ལིཀ</script>
+<!-- Russian script -->
+	<script type="Deva">དི་ཝ་ན་གརི</script>
+	<script type="Grek">གིརིཀ</script>
+	<script type="Gujr">གུ་ཇ་ར་ཏི</script>
+	<script type="Guru">གུར་མུ་ཁི</script>
+<!-- Punjabi Sikh script -->
+	<script type="Hang">ཧང་གུལ</script>
+	<script type="Hani">ཧཱན</script>
+<!-- Han = Chinese script
+-->
+	<script type="Hans">ལུགས་གསར
+ ཧཱན</script> 
+<!-- "Simplified Chinese script" -->
+	<script type="Hant">
+ལུགས་རྙིང
+
+ཧཱན
+        </script> 
+<!-- "Traditional Chinese script" -->
+	<script type="Hebr">ཧི་བུརུ</script>
+<!-- Jewish script -->
+	<script type="Hira">ཧི་ར་ག་ན</script>
+<!-- one kind of Japanese script -->
+	<script type="Kana">ཀ་ཏ་ཀ་ན</script>
+
+<!-- another kind of Japanese script -->
+	<script type="Khmr">ཁེ་མར</script>
 <!--
+Cambodian script -->
+	<script type="Knda">ཀ་ན་ཌ</script>
+	<script type="Laoo">ལའོ</script>
+	<script type="Latn">ལེ་ཊིན</script>
+	<script type="Limb">ལིམ་བུ</script>
+	<script type="Mlym">མ་ལ་ཡ་ལམ</script>
+	<script type="Mong">སོག་པོ</script>
+	<script type="Mymr">མི་མར</script>
+	<script type="Orya">ཨོ་རི་ཡ</script>
+	<script type="Qaai">སྔར་རྒྱུན</script>
+
+<!-- put Dzongkha translation of "inherited" -->
+	<script type="Sinh">སིན་ཧ་ལ</script>
+<!-- Sri Lanka Script -->
+	<script type="Taml">ཏ་མིལ</script>
+	<script type="Telu">ཏེ་ལུ་གུ</script>
+	<script type="Thaa">ཐཱ་ན</script>
+	<script type="Tibt">བོད</script>
+	<script type="Zyyy">སྤྱིར</script>
+        </scripts>
+
+        <territories>
+        <territory type="AE">
+ཡུ་ནའི་ཊེཊ་ཨ་ར
+བ་ཨེ་མི་རེཊསི
+        </territory>
+	<territory type="AF">
+ཨཕ་ག་ནིསི་ཏཱན
+        </territory>
+	<territory type="AQ">
+      ཨེན་ཊཱག་ཊི་ཀ
+        </territory>
+	<territory type="AR">ཨར་ཇེན་ཊི་ན</territory>
+	<territory type="AT">ཨས་ཊི་ཡ</territory>
+	<territory type="AU">
+         ཨས་ཊེཡེ་ལི་ཡ
+        </territory>
+	<territory type="BD">བངྒ་ལ་དེཤ</territory>
+	<territory type="BE">བེལ་ཇིཡམ</territory>
+	<territory type="BH">བཧ་རེན</territory>
+	<territory type="BR">བཱརཱ་ཛིལ</territory>
+	<territory type="BT">འབྲུག</territory>
+	<territory type="CA">ཀེ་ན་ཌ</territory>
+	<territory type="CH">
+          སུའིཊ་ཛར་ལེན
+        </territory>
+	<territory type="CN">རྒྱ་མི</territory>
+	<territory type="CU">ཀིའུ་སྦ</territory>
+	<territory type="CZ">
+ཅེཀ་རི་པབ་ལིཀ
+        </territory>
+	<territory type="DE">ཇཱར་མ་ནི</territory>
+	<territory type="DK">ཌེན་མཱཀ</territory>
+	<territory type="EG">ཨི་ཇིཔཊ</territory>
+	<territory type="ES">སིཔཱེན</territory>
+	<territory type="FI">ཕིན་ལེནཌ</territory>
+	<territory type="FR">ཕརཱནསི</territory>
+	<territory type="GB">
+ཡུ་ནའི་ཊེཊ་ཀིང་ཌམ
+        </territory>
+	<territory type="GR">གིརིསི</territory>
+	<territory type="HK">ཧོང་ཀོང</territory>
+	<territory type="IE">ཨའིརི་ལེནཌ</territory>
+	<territory type="IL">ཨིཛ་རཱེལ</territory>
+	<territory type="IN">རྒྱ་གར</territory>
+	<territory type="IQ">ཨི་རཀ</territory>
+	<territory type="IR">ཨི་རཱན</territory>
+	<territory type="IS">ཨའིསི་ལེནཌ</territory>
+	<territory type="IT">ཨྀཊ་ལི</territory>
+	<territory type="JM">ཇ་མའི་ཀ</territory>
+	<territory type="JP">ཇ་པཱན</territory>
+	<territory type="KE">ཀེ་ནི་ཡ</territory>
+	<territory type="KH">ཀམ་བོ་ཌི་ཡ</territory>
+	<territory type="KP">བྱང་ཀོ་རི་ཡ</territory>
+	<territory type="KR">ལྷོ་ཀོ་རི་ཡ</territory>
+	<territory type="KW">ཀུ་ཝེཊ</territory>
+	<territory type="LA">ལ་འོསུ</territory>
+	<territory type="LB">ལེ་བཱ་ནཱོན</territory>
+	<territory type="LK">ཤྲཱྀ་ལངཀ</territory>
+	<territory type="MM">མེ་མར</territory>
+	<territory type="MN">སོག་པོ</territory>
+	<territory type="MS">མོན་ས་རཊི</territory>
+	<territory type="MU">མོ་རི་ཤིཡསི</territory>
+	<territory type="MV">མཱལ་ཌིབས</territory>
+	<territory type="MX">མེཀསི་ཀོ</territory>
+	<territory type="MY">མ་ལེ་ཤི་ཡ</territory>
+	<territory type="NL">
+      ནེ་དར་ལེནཌསི
+        </territory>
+	<territory type="NO">ནོ་ཝེ</territory>
+	<territory type="NP">བལ་ཡུལ</territory>
+	<territory type="NZ">
+      ནིའུ་ཛི་ལེནཌ
+        </territory>
+	<territory type="PA">པ་ན་མཱ</territory>
+	<territory type="PK">པ་ཀིསི་ཏཱན</territory>
+	<territory type="PS">
+པེ་ལིསི་ཊི་ནིཡ
+ན་ཊེ་རི་ངོ་རི
+</territory>
+	<territory type="PT">པོར་ཅུ་གལ</territory>
+	<territory type="QA">ཀ་ཏར</territory>
+	<territory type="SA">
+སའུ་དི་ཨེ་ར་ས
+ྦི་ཡ
+</territory>
+	<territory type="SE">སུའི་ཌན</territory>
+	<territory type="SI">
+སིལོ་བེ་ནི་ཡ
+         </territory>
+	<territory type="TH">ཐཱའི་ལེནཌ</territory>
+	<territory type="TJ">
+        ཏ་ཇག་ཀིསི་ཏཱན
+        </territory>
+	<territory type="TW">ཏའི་ཝཱན</territory>
+	<territory type="US">
+ཡུ་ནའིཊེཊ་སི་ཊེསི
+        </territory>
+	<territory type="UZ">
+ཨུཛ་བེ་ཀིསི་ཏཱན
+       </territory>
+	<territory type="VN">བེཊ་ནཱམ</territory>
+	<territory type="ZA">
+སའུཐ་ཨཕ་རི་ཀ
+        </territory>
+	<territory type="ZM">ཛམ་བི་ཡ</territory>
+	<territory type="ZW">ཛིམ་བབ་ཝེ</territory>
+        </territories>
+
+        <variants>
+            <!-- Variant types must be unique across ALL locales. Currently
+they
+include  B, NY, EURO -->
+            <variant
+type="B">བོགམཱལ</variant>
+        </variants>
+        <keys>
+            <key type="collation">
+གནས་སདུད་རིམ་
+སགྲིག
+         </key>
+        </keys>
+        <types>
+            <type type="traditional"
+key="collation">ལུགས་སྲོལ</type>
+        </types>
+    </localeDisplayNames>
+    <layout>
+        <orientation lines="top-to-bottom" characters="left-to-right" />  
+ <!--
+both attributes are required -->
+    </layout>
+    
+     <characters>
+        <!-- follows the UnicodeSet syntax -->
+        <exemplarCharacters>[ཀཁགངཅཆཇཉཏཐདནཔཕབམཙཚཛཝཞཟའཡརལཤསཧཨིེོུྱྲ]
+
+
+       </exemplarCharacters>
+        <!--
         List of encodings that are in common use in this locale.
         The order is not significant.
         The format is as in http://www.unicode.org/unicode/reports/tr22/
         with the version suppressed.
         (It is assumed that the largest available version is chosen.)
         The exemplarCharacters can also be used to select appropriate
-        encodings.
+encodings.
         -->
-    <mapping registry="iana" type="utf-8" />
-  </characters>
-
-  <delimiters>
-    <quotationStart>"</quotationStart>
-
-    <quotationEnd>"</quotationEnd>
-
-    <alternateQuotationStart>'</alternateQuotationStart>
-
-    <alternateQuotationEnd>'</alternateQuotationEnd>
-  </delimiters>
-
-  <measurement>
-<!-- Measurement system: US/ISO 1000/Other -->
-    <measurementSystem type="metric" />
-
-    <paperSize>
-<!-- Papersize. The numbers are always in millimeters.
-             The units name is the customary unit for that locale for measuring paper. -->
-      <height>279</height>
-
-      <width>216</width>
-    </paperSize>
-  </measurement>
-
-  <dates>
-    <calendars>
-      <calendar type="Gregorian">
-        <months>
-          <monthContext type="format">
-            <default type="wide" />
-
-            <monthWidth type="wide">
-              <month type="1">?????????????</month>
-
-              <month type="2">????????????????</month>
-
-              <month type="3">????????????????</month>
-
-              <month type="4">???????????????</month>
-
-              <month type="5">??????????????</month>
-
-              <month type="6">????????????????</month>
-
-              <month type="7">????????????????</month>
-
-              <month type="8">?????????????????</month>
-
-              <month type="9">???????????????</month>
-
-              <month type="10">???????????????</month>
-
-              <month type="11">????????????????????</month>
-
-              <month type="12">????????????????????</month>
-            </monthWidth>
-
-            <monthWidth type="abbreviated">
-              <month type="1">??? 1</month>
-
-              <month type="2">??? 2</month>
-
-              <month type="3">??? 3</month>
-
-              <month type="4">??? 4</month>
-
-              <month type="5">??? 5</month>
-
-              <month type="6">??? 6</month>
-
-              <month type="7">??? 7</month>
-
-              <month type="8">??? 8</month>
-
-              <month type="9">??? 9</month>
-
-              <month type="10">??? 10</month>
-
-              <month type="11">??? 11</month>
-
-              <month type="12">??? 12</month>
-            </monthWidth>
-          </monthContext>
-        </months>
-
-        <days>
-          <dayContext type="format">
-            <default type="wide" />
-
-            <dayWidth type="wide">
-              <day type="sun">?????????</day>
-
-              <day type="mon">????????????</day>
-
-              <day type="tue">??????????</day>
-
-              <day type="wed">???????????</day>
-
-              <day type="thu">??????????</day>
-
-              <day type="fri">???????????</day>
-
-              <day type="sat">?????????</day>
-            </dayWidth>
-
-            <dayWidth type="abbreviated">
-              <day type="sun">???</day>
-
-              <day type="mon">????</day>
-
-              <day type="tue">????</day>
-
-              <day type="wed">????</day>
-
-              <day type="thu">????</day>
-
-              <day type="fri">?????</day>
-
-              <day type="sat">???</day>
-            </dayWidth>
-          </dayContext>
-        </days>
-
-        <week>
-          <minDays count="1" />
-
-          <firstDay day="mon" />
-
-          <weekendStart day="sat" time="00:00" />
-
-          <weekendEnd day="sun" time="24:00" />
-        </week>
-
-        <am>?????</am>
-
-        <pm>??????</pm>
-
-        <eras>
-          <eraNames>
-            <era type="0">Before Common Era</era>
-
-            <era type="1">Common Era</era>
-          </eraNames>
-          <eraAbbr>
-            <era type="0">BCE</era>
-
-            <era type="1">CE</era>
-          </eraAbbr>
-        </eras>
-
-        <dateFormats>
-          <default type="long" />
-
-          <dateFormatLength type="full">
-            <dateFormat>
-              <pattern>???????? yyyy ??? MMMM ???? dd</pattern>
-            </dateFormat>
-          </dateFormatLength>
-
-          <dateFormatLength type="long">
-            <dateFormat>
-              <pattern>???????? yyyy ??? MMMM ???? dd</pattern>
-            </dateFormat>
-          </dateFormatLength>
-
-          <dateFormatLength type="medium">
-            <dateFormat>
-              <pattern>???????? yy ??? MMM ???? dd</pattern>
-            </dateFormat>
-          </dateFormatLength>
-
-          <dateFormatLength type="short">
-            <dateFormat>
-              <pattern>???????? yy ??? MMM ???? dd</pattern>
-            </dateFormat>
-          </dateFormatLength>
-        </dateFormats>
-
-        <timeFormats>
-          <default type="long" />
-
-          <timeFormatLength type="full">
-            <timeFormat>
-              <pattern>??????? h ?????? mm ??????? ss a
-              zzzz</pattern>
-            </timeFormat>
-          </timeFormatLength>
-
-          <timeFormatLength type="long">
-            <timeFormat>
-              <pattern>??????? h ?????? mm ??????? ss a
-              zzzz</pattern>
-            </timeFormat>
-          </timeFormatLength>
-
-          <timeFormatLength type="medium">
-            <timeFormat>
-              <pattern>???????h:mm:ss a zzz</pattern>
-            </timeFormat>
-          </timeFormatLength>
-
-          <timeFormatLength type="short">
-            <timeFormat>
-              <pattern>??????? h ?????? mm a</pattern>
-            </timeFormat>
-          </timeFormatLength>
-        </timeFormats>
-
-        <dateTimeFormats>
-          <default type="long" />
-
-          <dateTimeFormatLength type="full">
-            <dateTimeFormat>
-              <pattern>{1} {0}</pattern>
-            </dateTimeFormat>
-          </dateTimeFormatLength>
-        </dateTimeFormats>
-      </calendar>
-    </calendars>
-
-<!-- Bhutan also has own calendar similar to but not the same as
+       <mapping registry="iana" type="utf-8"/>
+     </characters>
+    
+    <delimiters>
+       <quotationStart>"</quotationStart>
+       <quotationEnd>"</quotationEnd>
+       <alternateQuotationStart>'</alternateQuotationStart>
+       <alternateQuotationEnd>'</alternateQuotationEnd>
+    </delimiters>
+    <measurement>
+        <!-- Measurement system: US/ISO 1000/Other -->
+        <measurementSystem type="metric"/>
+        <paperSize>
+            <!-- Papersize. The numbers are always in millimeters.
+             The units name is the customary unit for that locale for measuring
+paper. -->
+            <height>279</height>
+            <width>216</width>
+        </paperSize>
+    </measurement>
+    
+     <dates>
+        <calendars>
+          <calendar type="Gregorian">
+              <months>
+               <monthContext type="format">
+                       <default type="wide"/>
+                        <monthWidth type="wide">
+                        <month type="1">
+                           
+སྤྱི་ཟླཝ་དངཔ་
+
+                        </month>
+                        <month type="2">
+                        
+སྤྱི་ཟླཝ་གཉིས་པ་
+
+                        </month>
+                        <month type="3">
+  སྤྱི་ཟླཝ་གསུམ་པ་
+
+                        </month>
+                        <month type="4">
+སྤྱི་ཟླཝ་བཞི་པ་
+
+                        </month>
+                        <month type="5">
+སྤྱི་ཟླཝ་ལྔ་པ་
+
+                        </month>
+                        <month type="6">
+སྤྱི་ཟླཝ་དྲུག་པ་
+
+
+                        </month>
+                        <month type="7">
+སྤྱི་ཟླཝ་བདུན་པ་
+
+                        </month>
+                        <month type="8">
+སྤྱི་ཟླཝ་བརྒྱད་པ་
+
+
+                         </month>
+                        <month type="9">
+སྤྱི་ཟླཝ་དགུ་པ་
+ 
+                         </month>
+                        <month type="10">
+སྤྱི་ཟླཝ་བཅུ་པ་
+
+                        </month>
+                        <month type="11">
+སྤྱི་ཟླཝ་བཅུ་གཅིག་པ་
+
+
+                        </month>
+                        <month type="12">
+སྤྱི་ཟླཝ་བཅུ་གཉིས་པ་
+
+                        </month>
+                    </monthWidth>
+                    <monthWidth type="abbreviated">
+                        <month type="1">
+                          
+ཟླ་ ༡
+                            
+                        </month>
+                        <month type="2">
+			ཟླ་ ༢
+			
+                        </month>
+                        <month type="3">
+                       
+ཟླ་ ༣
+                        
+                        </month>
+                        <month type="4">
+                        
+ཟླ་ ༤
+                         
+                        </month>
+                        <month type="5">
+                        
+ཟླ་ ༥
+                         
+                        </month>
+                        <month type="6">
+				ཟླ་ ༦
+				
+			</month>
+                        <month type="7">
+				ཟླ་ ༧
+				
+			</month>
+                        <month type="8">
+			ཟླ་ ༨
+			
+			</month>
+                        <month type="9">
+                          
+ཟླ་ ༩
+				
+                        </month>
+                        <month type="10">
+			ཟླ་ ༡༠
+					
+			</month>
+                        <month type="11">
+			ཟླ་ ༡༡
+			
+                        </month>
+                        <month type="12">
+			ཟླ་ ༡༢
+			
+			</month>
+                    </monthWidth>
+               </monthContext>
+           </months>
+              
+             <days>
+                 <dayContext type="format">
+                    <default type="wide"/>
+                    <dayWidth type="wide">
+                        <day type="sun">
+	      གཟའ་ཟླ་བ་
+			
+                        </day>
+                        <day type="mon">
+                  གཟའ་མིག་དམར་
+		
+                       </day>
+                        <day type="tue">
+				གཟའ་ལྷག་པ་
+				
+                        </day>
+                        <day type="wed">
+				གཟའ་ཕུར་བུ་
+				
+                        </day>
+                        <day type="thu">
+				གཟའ་པ་སངས་
+				
+                        </day>
+                        <day type="fri">
+				གཟའ་སྤེན་པ་
+				
+                        </day>
+                        <day type="sat">
+                               
+གཟའ་ཉི་མ་
+				
+			</day>
+                    </dayWidth>
+                    <dayWidth type="abbreviated">
+                        <day type="sun">
+				ཟླ་
+				
+			</day>
+                        <day type="mon">
+			མིར་
+			
+                        </day>
+                        <day type="tue">
+			ལྷག་
+			
+                        </day>
+                        <day type="wed">
+			ཕུར་
+			
+			</day>
+                        <day type="thu">
+				སངས་
+				
+			</day>
+                        <day type="fri">
+				སྤེན་
+				
+			</day>
+                        <day type="sat">
+			ཉི་
+			
+			</day>
+                    </dayWidth>
+                 </dayContext>
+               </days>
+              <week>
+                  <minDays count="1"/>
+                  <firstDay day="mon"/>
+                  <weekendStart day="sat" time="00:00"/>
+                  <weekendEnd day="sun" time="24:00"/>
+              </week>
+              <am>སྔ་ཆ་</am>
+              <pm>ཕྱི་ཆ་</pm>
+
+               <eras>
+       		    <eraNames>
+        		<era type="0">Before Common Era</era>
+        		<era type="1">Common Era</era>
+       		    </eraNames>
+       		   <eraAbbr>
+        	       	<era type="0">BCE</era>
+        		<era type="1">CE</era>
+       		    </eraAbbr>
+    	       </eras>
+             
+              <dateFormats>
+		    <default type="long"/>
+		    <dateFormatLength type="full">
+		    <dateFormat >
+			<pattern>
+སྤྱི་ལོ་
+yyyy 
+ཟླ་  MMMM 
+ཚེས་  dd 
+
+                       </pattern>
+		    </dateFormat>
+		     </dateFormatLength >
+			<dateFormatLength type="long">
+			<dateFormat >
+			   <pattern>
+སྤྱི་ལོ་
+yyyy 
+ཟླ་  MMMM 
+ཚེས་  dd 
+
+                            </pattern>
+			</dateFormat>
+		     </dateFormatLength >
+		    <dateFormatLength type="medium">
+			<dateFormat >
+			  <pattern>
+སྤྱི་ལོ་
+yy
+ཟླ་ MMM
+ཚེས་ dd  
+
+                         </pattern>
+			</dateFormat>
+		    </dateFormatLength >
+		    <dateFormatLength type="short">
+			<dateFormat >
+			    <pattern>
+སྤྱི་ལོ་
+yy
+ཟླ་ MMM
+ཚེས་ dd 
+
+                            </pattern>
+			</dateFormat>
+		   </dateFormatLength >
+		</dateFormats> 
+
+             <timeFormats>
+		<default type="long"/>
+		   <timeFormatLength type="full">
+			<timeFormat >
+				<pattern>
+ཆུ་ཚོད་
+h
+སྐར་མ་ mm
+སྐར་ཆཱ་
+ss a zzzz
+
+                                </pattern>
+			</timeFormat>
+		    </timeFormatLength >
+			<timeFormatLength type="long">
+		       	<timeFormat >
+		           	<pattern>
+ཆུ་ཚོད་
+h
+སྐར་མ་ mm
+སྐར་ཆཱ་
+ss a zzzz
+
+                                </pattern>
+			</timeFormat>
+		       </timeFormatLength >
+		     <timeFormatLength type="medium">
+			<timeFormat >
+		        	<pattern>
+				ཆུ་ཚོད་h:mm:ss
+a zzz
+				
+				</pattern>
+			</timeFormat>
+		     </timeFormatLength >
+		     <timeFormatLength type="short">
+			<timeFormat >
+		        	<pattern>
+ཆུ་ཚོད་
+h
+སྐར་མ་ mm a
+
+                               </pattern>
+			</timeFormat>
+		     </timeFormatLength >
+		</timeFormats>
+             
+              <dateTimeFormats>
+                 <default type="long"/>
+                 <dateTimeFormatLength type ="full">
+                      <dateTimeFormat>
+                          <pattern>{1} {0}</pattern>
+                      </dateTimeFormat>
+                 </dateTimeFormatLength>
+              </dateTimeFormats>
+          </calendar>
+       </calendars>
+       <!-- Bhutan also has own calendar similar to but not the same as
 Tibetan
 lunar calendar -->
-    <timeZoneNames>
-      <zone type="Asia/Thimphu">
-<!-- Bhutan does not use Daylight Saving Time -->
-        <long>
-<!-- Bhutanese time is referred to as "BST" in  Bhutan
+	   <timeZoneNames>
+		<zone type="Asia/Thimphu">
+		<!-- Bhutan does not use Daylight Saving Time -->
+		<long>
+                    <!-- Bhutanese time is referred to as "BST" in  Bhutan
 -->
-          <generic>Bhutan Standard Time</generic>
-
-          <standard>Bhutan Standard Time</standard>
-
-          <daylight>Bhutan Standard Time</daylight>
-        </long>
-
-        <short>
-          <generic>BST</generic>
-
-          <standard>BST</standard>
-
-          <daylight>BST</daylight>
-        </short>
-
-        <exemplarCity>Thimphu</exemplarCity>
-      </zone>
-    </timeZoneNames>
-  </dates>
+                   <generic>Bhutan Standard Time</generic>
+	           <standard>Bhutan Standard Time</standard>
+	           <daylight>Bhutan Standard Time</daylight>
+		</long>
+		<short>
+                   <generic>BST</generic>
+                   <standard>BST</standard>
+                   <daylight>BST</daylight>
+		</short>
+		<exemplarCity>Thimphu</exemplarCity>
+		</zone>
+	</timeZoneNames>
+   </dates>
 </ldml>

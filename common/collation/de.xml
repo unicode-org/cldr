@@ -3,24 +3,34 @@
 <ldml>
 	<identity>
 		<version number="1.1.1"/>
-		<generation date="2004-07-09" />
+		<generation date="2004-07-12" />
 		<language type="de" /> 
 	</identity>
 	<collations>
 		<collation type="phonebook" >
 			<rules>
 				<reset>a</reset>
+				<x><s>æ</s><extend>e</extend></x>
+				<x><s>ä</s><extend>e</extend></x>
 				<reset>A</reset>
+				<x><s>Æ</s><extend>E</extend></x>
+				<x><s>Ä</s><extend>E</extend></x>
 				<reset>œ</reset>
+				<x><s>ö</s><extend>e</extend></x>
 				<reset>Œ</reset>
+				<x><s>Ö</s><extend>E</extend></x>
 				<reset>u</reset>
+				<x><s>ü</s><extend>e</extend></x>
 				<reset>U</reset>
+				<x><s>Ü</s><extend>E</extend></x>
 			</rules>
 		</collation  >
 		<collation type="standard" >
 			<rules>
 				<reset>A</reset>
+				<x><s>Æ</s><extend>E</extend></x>
 				<reset>a</reset>
+				<x><s>æ</s><extend>e</extend></x>
 			</rules>
 		</collation  >
 	</collations>

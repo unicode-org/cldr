@@ -3,14 +3,16 @@
 <ldml>
 	<identity>
 		<version number="1.1.1"/>
-		<generation date="2004-07-09" />
+		<generation date="2004-07-12" />
 		<language type="it" /> 
 	</identity>
 	<collations>
 		<collation type="standard" >
 			<rules>
 				<reset>A</reset>
+				<x><s>Æ</s><extend>E</extend></x>
 				<reset>a</reset>
+				<x><s>æ</s><extend>e</extend></x>
 			</rules>
 		</collation  >
 	</collations>

@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
-[
-      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
-%icu;
-]
->
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-18" />
+		<generation date="2003-12-19" />
 		<language type="he" /> 
 	</identity>
 	<localeDisplayNames>
@@ -291,11 +286,6 @@
 	</layout>
 	<characters>
 		<exemplarCharacters>[[:Hebr:]‏‎]</exemplarCharacters>
-		<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
-			<icu:scripts>
-				<icu:script type="1">Hebr</icu:script>
-			</icu:scripts>
-		</special>
 	</characters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAe</localizedPatternChars>
@@ -417,27 +407,4 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
-		<icu:ruleBasedNumberFormats>
-			<icu:ruleBasedNumberFormat type="spellout">
-zero (incomplete data); אהד; שגיים; שלושה;
-4: אדבצה; חגוישה; ששה;
-7: שבצה; שמוגה; תשצה;
-10: צשדה[ &gt;&gt;];
-20: צשדים[ &gt;&gt;];
-30: שלושים[ &gt;&gt;];
-40: אדבצים[ &gt;&gt;];
-50: חמישים[ &gt;&gt;];
-60: ששים[ &gt;&gt;];
-70: שבצים[ &gt;&gt;];
-80: שמוגים[ &gt;&gt;];
-90: תשצים[ &gt;&gt;];
-100: מאה[ &gt;&gt;];
-200: &lt;&lt; מאה[ &gt;&gt;];
-1000: אלף[ &gt;&gt;];
-2000: &lt;&lt; אלף[ &gt;&gt;];
-1,000,000: =#,##0= (incomplete data);
-			</icu:ruleBasedNumberFormat>
-		</icu:ruleBasedNumberFormats>
-	</special>
 </ldml>

@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
-[
-      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
-%icu;
-]
->
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-18" />
+		<generation date="2003-12-19" />
 		<language type="ru" /> 
 	</identity>
 	<localeDisplayNames>
@@ -398,11 +393,6 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[а-я ё і ѣ ѳ ѵ]</exemplarCharacters>
-		<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
-			<icu:scripts>
-				<icu:script type="1">Cyrl</icu:script>
-			</icu:scripts>
-		</special>
 	</characters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAe</localizedPatternChars>
@@ -532,29 +522,4 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
-		<icu:ruleBasedNumberFormats>
-			<icu:ruleBasedNumberFormat type="spellout">
-ноль; один; два; три; четыре; пят; шест; семь; восемь; девят;
-10: десят; одиннадцать;
-двеннадцать; тринадцать; четырнадцать;
-15: пятнадцать; шестнадцать; семнадцать; восемнадцать; девятнадцать;
-20: двадцать[ &gt;&gt;];
-30: трлдцать[ &gt;&gt;];
-40: сорок[ &gt;&gt;];
-50: пятьдесят[ &gt;&gt;];
-60: шестьдесят[ &gt;&gt;];
-70: семьдесят[ &gt;&gt;];
-80: восемьдесят[ &gt;&gt;];
-90: девяносто[ &gt;&gt;];
-100: сто[ &gt;&gt;];
-200: &lt;&lt; сто[ &gt;&gt;];
-1000: тысяча[ &gt;&gt;];
-2000: &lt;&lt; тысяча[ &gt;&gt;];
-1,000,000: миллион[ &gt;&gt;];
-2,000,000: &lt;&lt; миллион[ &gt;&gt;];
-1,000,000,000: =#,##0=;
-			</icu:ruleBasedNumberFormat>
-		</icu:ruleBasedNumberFormats>
-	</special>
 </ldml>

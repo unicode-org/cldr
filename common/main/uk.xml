@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
-[
-      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
-%icu;
-]
->
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-18" />
+		<generation date="2003-12-19" />
 		<language type="uk" /> 
 	</identity>
 	<localeDisplayNames>
@@ -396,11 +391,6 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[а-щюьяєіїґ]</exemplarCharacters>
-		<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
-			<icu:scripts>
-				<icu:script type="1">Cyrl</icu:script>
-			</icu:scripts>
-		</special>
 	</characters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAe</localizedPatternChars>
@@ -540,38 +530,4 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
-		<icu:ruleBasedNumberFormats>
-			<icu:ruleBasedNumberFormat type="spellout">
-нуль; один; два; три; чотири; п'ять; шість; сім; вісім; дев'ять;
-10: десять; одинадцять;
-дванадцять; тринадцять; чотирнадцять;
-15: п'ятнадцять; шістнадцять; сімнадцять; вісімнадцять; дев'ятнадцять;
-20: двадцять[ &gt;&gt;];
-30: тридцять[ &gt;&gt;];
-40: сорок[ &gt;&gt;];
-50: п'ятдесят[ &gt;&gt;];
-60: шістдесят[ &gt;&gt;];
-70: сімдесят[ &gt;&gt;];
-80: вісімдесят[ &gt;&gt;];
-90: дев'яносто[ &gt;&gt;];
-100: сто[ &gt;&gt;];
-200: двісті[ &gt;&gt;];
-300: триста[ &gt;&gt;];
-400: чотириста[ &gt;&gt;];
-500: п'ятсот[ &gt;&gt;];
-600: шістсот[ &gt;&gt;];
-700: сімсот[ &gt;&gt;];
-800: вісімсот[ &gt;&gt;];
-900: дев'ятсот[ &gt;&gt;];
-1000: тисяча[ &gt;&gt;];
-2000: &lt;&lt; тисячі[ &gt;&gt;];
-5000: &lt;&lt; тисяч[ &gt;&gt;];
-1,000,000: мільйон[ &gt;&gt;];
-2,000,000: &lt;&lt; мільйони[ &gt;&gt;];
-5,000,000: &lt;&lt; мільйонів[ &gt;&gt;];
-1,000,000,000: &lt;&lt; мільярд[ &gt;&gt;];
-			</icu:ruleBasedNumberFormat>
-		</icu:ruleBasedNumberFormats>
-	</special>
 </ldml>

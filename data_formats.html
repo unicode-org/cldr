@@ -11,6 +11,8 @@
 <style>
 <!--
 li           { margin-top: 0.5em }
+h2           { text-decoration: underline; margin-top: 2em }
+h3           { margin-top: 1.5em }
 -->
 </style>
 </head>
@@ -55,8 +57,16 @@ value &quot;top-to-bottom&quot;.</p>
 <p>This document is fairly rough at this point, and needs quite a bit of work.
 However, we felt it worth posting to help answer common questions about the
 format.</p>
-<p>If you ever need to convert text from hex format (\uXXXX) to real characters
-or back, you can do the following:</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#Collation">Collation</a> (Sorting)</li>
+  <li><a href="#Exemplar">Exemplar Characters</a></li>
+  <li><a href="#Numbers">Numbers</a></li>
+  <li><a href="#Dates">Dates</a></li>
+  <li><a href="#BIDI">BIDI</a></li>
+</ul>
+<p><b>Note: </b>If you ever need to convert text from hex format (\uXXXX) to
+real characters or back, you can do the following:</p>
 <ol>
   <li>go to the <a href="http://oss.software.ibm.com/cgi-bin/icu/tr">ICU
     Transform Demo</a></li>
@@ -74,7 +84,9 @@ or back, you can do the following:</p>
   <p>For readability, the rules are presented here in Java/ICU rule format,
   rather than XML; for the same reason, we prefer the bug reports to also use
   that format, even though the end result will be in XML.</p>
-  <h3>Comparison Charts</h3>
+</blockquote>
+<h3>Comparison Charts</h3>
+<blockquote>
   <p>In the comparison charts, rules are gathered programmatically; gathering
   the data for the rules is complicated by a number of factors, including:</p>
   <ul>
@@ -99,7 +111,9 @@ or back, you can do the following:</p>
   <p>At the moment there are a number of known problems with the gathering
   mechanism that may result in spurious rules. For more information, see <a href="http://www.openi18n.org/locale-bugs/public?findid=18">known
   errors and omissions</a>.</p>
-  <h3>Pitfalls</h3>
+</blockquote>
+<h3>Pitfalls</h3>
+<blockquote>
   <p>There are a number of pitfalls with collation, so be careful.</p>
   <ol>
     <li>In some cases, such as Hungarian or Japanese, the rules can be fairly
@@ -115,7 +129,7 @@ or back, you can do the following:</p>
       </ul>
     </li>
     <li>If a sequence of characters is treated as a unit for collation, it
-      should be entered as a contraction. 
+      should be entered as a contraction.
       <p>&amp; c &lt; ch</p>
       <p>One might think that sequence like &quot;dz&quot; doesn't require that,
       since it would always come after &quot;d&quot; followed by any other
@@ -177,7 +191,7 @@ or back, you can do the following:</p>
       this, notably when CJK characters are interleaved with Hangul Syllables.</li>
   </ol>
 </blockquote>
-<h2><a name="ExemplarCharacters">Exemplar Characters</a></h2>
+<h2><a name="Exemplar">Exemplar Characters</a></h2>
 <blockquote>
   The exemplar character set contains the commonly used for a given language,
   which can be for testing and for determining the appropriate repertoire of
@@ -206,7 +220,8 @@ or back, you can do the following:</p>
   order or collation order is needed, then please refer to the <a href="#Collation">collation
   section</a> of this guide.
 </blockquote>
-<h2>Display Names for Languages, Scripts, Territories, Currencies, Time Zones</h2>
+<h2><a name="Display_Names">Display Names</a> for Languages, Scripts,
+Territories, Currencies, Time Zones</h2>
 <blockquote>
   <p>These items are perhaps the simplest to translate. The typically behavior
   if any particular one is not available is to display the corresponding ISO
@@ -286,7 +301,8 @@ or back, you can do the following:</p>
     <li>standard time, e.g. <span style="COLOR: blue">Pacific Daylight Time</span></li>
   </ul>
 </blockquote>
-<h2><a name="NumberPatterns">Number Patterns</a></h2>
+<h2 align="left"><a name="Numbers">Numbers</a></h2>
+<h3>Number Patterns</h3>
 <blockquote>
   <p>There are different formats for different types of numbers. For example,
   here are some patterns (using the unlocalized symbols) with the corresponding
@@ -351,7 +367,7 @@ or back, you can do the following:</p>
   with a single one ('). For example: <tt><u>'X '</u>#<u>' Q '</u></tt> -&gt; <b>X
   1939 Q </b>(Literal strings <u>underlined</u>.)</p>
 </blockquote>
-<h2><a name="NumberElements">Number Elements</a></h2>
+<h3><a name="NumberElements">Number Elements</a></h3>
 <blockquote>
   <p>Localized symbols used in number formatting and parsing.</p>
 </blockquote>
@@ -405,7 +421,8 @@ or back, you can do the following:</p>
     instead of the DecimalSeparator from the <a href="#NumberElements">NumberElements</a>
     list. This item is optional in the CLDR.</dd>
 </dl>
-<h2><a name="DayMonth">Day &amp; Month Names</a></h2>
+<h2><a name="Dates">Dates</a></h2>
+<h3><a name="DayMonth">Day &amp; Month Names</a></h3>
 <p>All of the following should have the appropriate grammatical form for
 appearing in a date format.</p>
 <dl>
@@ -418,7 +435,7 @@ appearing in a date format.</p>
   <dt>dayAbbr<b> (Short Names)</b></dt>
   <dd>These are the abbreviated day names, like &quot;Mon&quot;</dd>
 </dl>
-<h2><a name="DateTimeElements">Date &amp; Time Options</a></h2>
+<h3><a name="DateTimeElements">Date &amp; Time Options</a></h3>
 <dl>
   <dt><b>firstDay</b>
   <dd>A number indicating which day of the week is considered the 'first' day,
@@ -434,7 +451,7 @@ appearing in a date format.</p>
   <dd>Indicates the day and time that the weekend starts or ends. As with
     firstDay, keywords are used instead of numbers.</dd>
 </dl>
-<h2><a name="DateTimePatterns">Date &amp; Time Patterns</a></h2>
+<h3><a name="DateTimePatterns">Date &amp; Time Patterns</a></h3>
 <blockquote>
   <p>The following are characters used in patterns to show the appropriate
   formats for a given locale. These characters are replaced with the appropriate
@@ -579,7 +596,7 @@ meanings</span>. Thus, for example, if &quot;J&quot; is to be used instead of
   three days of 1998 are then part of week 53 of 1997.
   <p>Values are similarly calculated for the Week of Month.</p>
 </blockquote>
-<h2><a name="BIDI_Ordering">BIDI Ordering</a></h2>
+<h2><a name="BIDI">BIDI Ordering</a></h2>
 <blockquote>
   <p>In the comparison charts, the ordering of characters for BIDI languages is
   up to the browser. The ordering may differ from the typical ordering in

@@ -541,7 +541,7 @@ For example, most country locales will inherit the bulk of their data from the l
             <openOffice:quarter4Abbreviation>Q4</openOffice:quarter4Abbreviation>
         </openOffice:reservedWords>
         <openOffice:collations>
-            <openOffice:collator unoid="alphanumeric" default="true"/>
+            <openOffice:collator openOffice:unoid="alphanumeric" default="true"/>
             <openOffice:collationOptions>
                 <openOffice:transliterationModules>IGNORE_CASE</openOffice:transliterationModules>
             </openOffice:collationOptions>
@@ -551,7 +551,7 @@ For example, most country locales will inherit the bulk of their data from the l
                 <openOffice:transliterationModules>IGNORE_CASE</openOffice:transliterationModules>
             </openOffice:searchOptions>
         </openOffice:search>
-        <openOffice:currency default="true" usedInCompatibleFormatCodes="true">
+        <openOffice:currency default="true" openOffice:usedInCompatibleFormatCodes="true">
             <openOffice:separators>
                 <openOffice:dateSeparator>/</openOffice:dateSeparator>
                 <openOffice:thousandSeparator>,</openOffice:thousandSeparator>
@@ -563,71 +563,71 @@ For example, most country locales will inherit the bulk of their data from the l
                 <openOffice:longDateYearSeparator> </openOffice:longDateYearSeparator>
             </openOffice:separators>
             <openOffice:numberingLevels>
-                <openOffice:numberingLevel prefix=" " numType="4" suffix=")" />
-                <openOffice:numberingLevel prefix=" " numType="4" suffix="." />
-                <openOffice:numberingLevel prefix="(" numType="4" suffix="." />
-                <openOffice:numberingLevel prefix=" " numType="2" suffix="." />
-                <openOffice:numberingLevel prefix=" " numType="0" suffix=")" />
-                <openOffice:numberingLevel prefix=" " numType="1" suffix=")" />
-                <openOffice:numberingLevel prefix="(" numType="1" suffix=")" />
-                <openOffice:numberingLevel prefix=" " numType="3" suffix="." />
+                <openOffice:numberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix=")" />
+                <openOffice:numberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix="." />
+                <openOffice:numberingLevel openOffice:prefix="(" openOffice:numType="4" openOffice:suffix="." />
+                <openOffice:numberingLevel openOffice:prefix=" " openOffice:numType="2" openOffice:suffix="." />
+                <openOffice:numberingLevel openOffice:prefix=" " openOffice:numType="0" openOffice:suffix=")" />
+                <openOffice:numberingLevel openOffice:prefix=" " openOffice:numType="1" openOffice:suffix=")" />
+                <openOffice:numberingLevel openOffice:prefix="(" openOffice:numType="1" openOffice:suffix=")" />
+                <openOffice:numberingLevel openOffice:prefix=" " openOffice:numType="3" openOffice:suffix="." />
             </openOffice:numberingLevels>
             <openOffice:outLineNumberingLevels>
                 <openOffice:outlineStyle>
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="0" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="1" leftMargin="50" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="1" suffix=")" bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="100" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="6" suffix=" " bulletChar="2022"  bulletFontName="StarSymbol"  parentNumbering="0" leftMargin="150" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="6" suffix=" " bulletChar="2022"  bulletFontName="StarSymbol"  parentNumbering="0" leftMargin="200" symbolTextDistance="50" firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="0" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="1" openOffice:leftMargin="50" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="1" openOffice:suffix=")" openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="100" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix=" " openOffice:bulletChar="2022"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="150" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix=" " openOffice:bulletChar="2022"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="200" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
                 </openOffice:outlineStyle>
                 <openOffice:outlineStyle>
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="0" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="1" suffix=")" bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="50" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="6" suffix=" " bulletChar="2022"  bulletFontName="StarSymbol"  parentNumbering="0" leftMargin="100" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="6" suffix=" " bulletChar="2022"  bulletFontName="StarSymbol"  parentNumbering="0" leftMargin="150" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="6" suffix=" " bulletChar="2022"  bulletFontName="StarSymbol"  parentNumbering="0" leftMargin="200" symbolTextDistance="50" firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="0" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="1" openOffice:suffix=")" openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="50" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix=" " openOffice:bulletChar="2022"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="100" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix=" " openOffice:bulletChar="2022"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="150" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix=" " openOffice:bulletChar="2022"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="200" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
                 </openOffice:outlineStyle>
                 <openOffice:outlineStyle>
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="0" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix="(" numType="1" suffix=")" bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="50" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="3" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="100" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="0" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="150" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="6" suffix="." bulletChar="2022"  bulletFontName="StarSymbol"  parentNumbering="0" leftMargin="200" symbolTextDistance="50" firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="0" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix="(" openOffice:numType="1" openOffice:suffix=")" openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="50" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="3" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="100" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="0" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="150" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix="." openOffice:bulletChar="2022"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="200" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
                 </openOffice:outlineStyle>
                 <openOffice:outlineStyle>
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="0" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="50" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="100" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="150" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="200" symbolTextDistance="50" firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="0" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="50" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="100" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="150" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="200" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
                 </openOffice:outlineStyle>
                 <openOffice:outlineStyle>
-                    <openOffice:outLineNumberingLevel prefix=" " numType="2" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="0" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="0" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="50" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="3" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="100" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="1" suffix=")" bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="150" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="6" suffix=" " bulletChar="2022"  bulletFontName="StarSymbol"  parentNumbering="0" leftMargin="200" symbolTextDistance="50" firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="2" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="0" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="0" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="50" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="3" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="100" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="1" openOffice:suffix=")" openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="150" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix=" " openOffice:bulletChar="2022"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="200" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
                 </openOffice:outlineStyle>
                 <openOffice:outlineStyle>
-                    <openOffice:outLineNumberingLevel prefix=" " numType="0" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="0" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="2" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="50" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="1" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="100" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="3" suffix="." bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="150" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="6" suffix=" " bulletChar="2022"  bulletFontName="StarSymbol"  parentNumbering="0" leftMargin="200" symbolTextDistance="50" firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="0" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="0" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="2" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="50" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="1" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="100" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="3" openOffice:suffix="." openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="150" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix=" " openOffice:bulletChar="2022"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="200" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
                 </openOffice:outlineStyle>
                 <openOffice:outlineStyle>
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix=" " bulletChar="0020"  bulletFontName=""            parentNumbering="0" leftMargin="0" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix=" " bulletChar="0020"  bulletFontName=""            parentNumbering="1" leftMargin="50" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix=" " bulletChar="0020"  bulletFontName=""            parentNumbering="2" leftMargin="100" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix=" " bulletChar="0020"  bulletFontName=""            parentNumbering="3" leftMargin="150" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="4" suffix=" " bulletChar="0020"  bulletFontName=""            parentNumbering="4" leftMargin="200" symbolTextDistance="50" firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix=" " openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="0" openOffice:leftMargin="0" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix=" " openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="1" openOffice:leftMargin="50" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix=" " openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="2" openOffice:leftMargin="100" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix=" " openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="3" openOffice:leftMargin="150" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="4" openOffice:suffix=" " openOffice:bulletChar="0020"  openOffice:bulletFontName=""            openOffice:parentNumbering="4" openOffice:leftMargin="200" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
                 </openOffice:outlineStyle>
                 <openOffice:outlineStyle>
-                    <openOffice:outLineNumberingLevel prefix=" " numType="6" suffix=" " bulletChar="27A2"  bulletFontName="StarSymbol"  parentNumbering="0" leftMargin="0" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="6" suffix=" " bulletChar="E006"  bulletFontName="StarSymbol"  parentNumbering="0" leftMargin="50" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="6" suffix=")" bulletChar="E004"  bulletFontName="StarSymbol"  parentNumbering="0" leftMargin="100" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="6" suffix=" " bulletChar="2022"  bulletFontName="StarSymbol"  parentNumbering="0" leftMargin="150" symbolTextDistance="50" firstLineOffset="0" />
-                    <openOffice:outLineNumberingLevel prefix=" " numType="6" suffix=" " bulletChar="2022"  bulletFontName="StarSymbol"  parentNumbering="0" leftMargin="200" symbolTextDistance="50" firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix=" " openOffice:bulletChar="27A2"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="0" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix=" " openOffice:bulletChar="E006"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="50" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix=")" openOffice:bulletChar="E004"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="100" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix=" " openOffice:bulletChar="2022"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="150" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
+                    <openOffice:outLineNumberingLevel openOffice:prefix=" " openOffice:numType="6" openOffice:suffix=" " openOffice:bulletChar="2022"  openOffice:bulletFontName="StarSymbol"  openOffice:parentNumbering="0" openOffice:leftMargin="200" openOffice:symbolTextDistance="50" openOffice:firstLineOffset="0" />
                 </openOffice:outlineStyle>
             </openOffice:outLineNumberingLevels>
         </openOffice:currency>

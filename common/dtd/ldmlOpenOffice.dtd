@@ -16,8 +16,8 @@
 
 <!-- Begin OpenOffice specific elements -->
 
-<!ENTITY % UNOModule 'unoid                     CDATA              #IMPLIED'>
-<!ENTITY % RefLocale 'ref                     CDATA              #IMPLIED'>
+<!ENTITY % UNOModule 'openOffice:unoid                     CDATA              #IMPLIED'>
+<!ENTITY % RefLocale 'openOffice:ref                     CDATA              #IMPLIED'>
 
 <!ATTLIST special xmlns:openOffice CDATA #IMPLIED>
 <!ATTLIST special formatindex NMTOKEN #IMPLIED >
@@ -65,7 +65,7 @@
 
 <!ELEMENT openOffice:currency ( openOffice:separators?, openOffice:numberingLevels?, openOffice:outLineNumberingLevels?) >
 <!ATTLIST openOffice:currency default CDATA #IMPLIED >
-<!ATTLIST openOffice:currency usedInCompatibleFormatCodes CDATA #IMPLIED >
+<!ATTLIST openOffice:currency openOffice:usedInCompatibleFormatCodes CDATA #IMPLIED >
 
 <!-- Additional validation elements --> 
 
@@ -117,25 +117,25 @@ the parameter numType can have one of the following values:
 
 <!ELEMENT openOffice:numberingLevels (openOffice:numberingLevel+) >
 <!ELEMENT openOffice:numberingLevel ( #PCDATA) >
-<!ATTLIST openOffice:numberingLevel prefix CDATA #IMPLIED>
-<!ATTLIST openOffice:numberingLevel numType NMTOKEN #IMPLIED>
-<!ATTLIST openOffice:numberingLevel suffix CDATA #IMPLIED>
-<!ATTLIST openOffice:numberingLevel transliteration CDATA #IMPLIED >
-<!ATTLIST openOffice:numberingLevel natNum CDATA #IMPLIED >
+<!ATTLIST openOffice:numberingLevel openOffice:prefix CDATA #IMPLIED>
+<!ATTLIST openOffice:numberingLevel openOffice:numType NMTOKEN #IMPLIED>
+<!ATTLIST openOffice:numberingLevel openOffice:suffix CDATA #IMPLIED>
+<!ATTLIST openOffice:numberingLevel openOffice:transliteration CDATA #IMPLIED >
+<!ATTLIST openOffice:numberingLevel openOffice:natNum CDATA #IMPLIED >
 
 <!ELEMENT openOffice:outLineNumberingLevels (openOffice:outlineStyle+ ) >
 <!ELEMENT openOffice:outlineStyle (openOffice:outLineNumberingLevel+) >
 <!ELEMENT openOffice:outLineNumberingLevel ( #PCDATA) >
-<!ATTLIST openOffice:outLineNumberingLevel prefix CDATA #IMPLIED >
-<!ATTLIST openOffice:outLineNumberingLevel numType CDATA #IMPLIED >
-<!ATTLIST openOffice:outLineNumberingLevel suffix CDATA #IMPLIED >
-<!ATTLIST openOffice:outLineNumberingLevel bulletChar CDATA #IMPLIED >
-<!ATTLIST openOffice:outLineNumberingLevel bulletFontName CDATA #IMPLIED >
-<!ATTLIST openOffice:outLineNumberingLevel parentNumbering CDATA #IMPLIED >
-<!ATTLIST openOffice:outLineNumberingLevel leftMargin CDATA #IMPLIED >
-<!ATTLIST openOffice:outLineNumberingLevel symbolTextDistance CDATA #IMPLIED >
-<!ATTLIST openOffice:outLineNumberingLevel firstLineOffset CDATA #IMPLIED >
-<!ATTLIST openOffice:outLineNumberingLevel transliteration CDATA #IMPLIED >
-<!ATTLIST openOffice:outLineNumberingLevel natNum CDATA #IMPLIED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:prefix CDATA #IMPLIED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:numType CDATA #IMPLIED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:suffix CDATA #IMPLIED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:bulletChar CDATA #IMPLIED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:bulletFontName CDATA #IMPLIED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:parentNumbering CDATA #IMPLIED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:leftMargin CDATA #IMPLIED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:symbolTextDistance CDATA #IMPLIED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:firstLineOffset CDATA #IMPLIED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:transliteration CDATA #IMPLIED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:natNum CDATA #IMPLIED >
 
 <!-- ######################################################### -->

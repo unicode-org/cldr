@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/beta/ldml.dtd">
 <ldml>
 	<identity>
@@ -313,7 +313,7 @@
 					<minDays count="1"></minDays>
 					<firstDay day="sun"></firstDay>
 					<weekendStart draft="true" day="sat" time="00:00"></weekendStart>
-					<weekendEnd draft="true" day="mon" time="00:00"></weekendEnd>
+					<weekendEnd draft="true" day="sun" time="24:00"></weekendEnd>
 				</week>
 				<am>AM</am>
 				<pm>PM</pm>

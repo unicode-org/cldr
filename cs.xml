@@ -390,6 +390,20 @@
 			<territory type="ZM">Zambie</territory>
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
+		<keys>
+			<key draft="true" type="collation">Třídění</key>
+			<key draft="true" type="calendar">Kalendář</key>
+			<key draft="true" type="currency">Měna</key>
+		</keys>
+		<types>
+			<type draft="true" type="japanese" key="calendar">Japonský kalendář</type>
+			<type draft="true" type="buddhist" key="calendar">Budhistický kalendář</type>
+			<type draft="true" type="islamic" key="calendar">Muslimský kalendář</type>
+			<type draft="true" type="islamic-civil" key="calendar">Muslimský občanský kalendář</type>
+			<type draft="true" type="hebrew" key="calendar">Hebrejský kalendář</type>
+			<type draft="true" type="chinese" key="calendar">Čínský kalendář</type>
+			<type draft="true" type="gregorian" key="calendar">Gregoriánský kalendář</type>
+		</types>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a-z ý á é í ó ú ě ů č ď ň ř š ť ž]</exemplarCharacters>
@@ -578,6 +592,327 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<zone draft="true" type="PST">
+				<long>
+				<standard>Pacifický standardní čas</standard>
+				<daylight>Pacifický letní čas</daylight>
+				</long>
+				<short>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
+				<exemplarCity>Los Angeles</exemplarCity>
+			</zone>
+			<zone draft="true" type="America/Los_Angeles">
+				<long>
+				<standard>Pacifický standardní čas</standard>
+				<daylight>Pacifický letní čas</daylight>
+				</long>
+				<short>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
+				<exemplarCity>Los Angeles</exemplarCity>
+			</zone>
+			<zone draft="true" type="MST">
+				<long>
+				<standard>Horský standardní čas</standard>
+				<daylight>Horský letní čas</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+				<exemplarCity>Denver</exemplarCity>
+			</zone>
+			<zone draft="true" type="America/Denver">
+				<long>
+				<standard>Horský standardní čas</standard>
+				<daylight>Horský letní čas</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+				<exemplarCity>Denver</exemplarCity>
+			</zone>
+			<zone draft="true" type="PNT">
+				<long>
+				<standard>Horský standardní čas</standard>
+				<daylight>Horský standardní čas</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MST</daylight>
+				</short>
+				<exemplarCity>Phoenix</exemplarCity>
+			</zone>
+			<zone draft="true" type="America/Phoenix">
+				<long>
+				<standard>Horský standardní čas</standard>
+				<daylight>Horský standardní čas</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MST</daylight>
+				</short>
+				<exemplarCity>Phoenix</exemplarCity>
+			</zone>
+			<zone draft="true" type="CST">
+				<long>
+				<standard>Centrální standardní čas</standard>
+				<daylight>Centrální letní čas</daylight>
+				</long>
+				<short>
+					<standard>CST</standard>
+					<daylight>CDT</daylight>
+				</short>
+				<exemplarCity>Chicago</exemplarCity>
+			</zone>
+			<zone draft="true" type="America/Chicago">
+				<long>
+				<standard>Centrální standardní čas</standard>
+				<daylight>Centrální letní čas</daylight>
+				</long>
+				<short>
+					<standard>CST</standard>
+					<daylight>CDT</daylight>
+				</short>
+				<exemplarCity>Chicago</exemplarCity>
+			</zone>
+			<zone draft="true" type="EST">
+				<long>
+				<standard>Východní standardní čas</standard>
+				<daylight>Východní letní čas</daylight>
+				</long>
+				<short>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
+				</short>
+				<exemplarCity>New York</exemplarCity>
+			</zone>
+			<zone draft="true" type="America/New_York">
+				<long>
+				<standard>Východní standardní čas</standard>
+				<daylight>Východní letní čas</daylight>
+				</long>
+				<short>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
+				</short>
+				<exemplarCity>New York</exemplarCity>
+			</zone>
+			<zone draft="true" type="IET">
+				<long>
+				<standard>Východní standardní čas</standard>
+				<daylight>Východní standardní čas</daylight>
+				</long>
+				<short>
+					<standard>EST</standard>
+					<daylight>EST</daylight>
+				</short>
+				<exemplarCity>Indianapolis</exemplarCity>
+			</zone>
+			<zone draft="true" type="America/Indianapolis">
+				<long>
+				<standard>Východní standardní čas</standard>
+				<daylight>Východní standardní čas</daylight>
+				</long>
+				<short>
+					<standard>EST</standard>
+					<daylight>EST</daylight>
+				</short>
+				<exemplarCity>Indianapolis</exemplarCity>
+			</zone>
+			<zone draft="true" type="HST">
+				<long>
+				<standard>Havajský standardní čas</standard>
+				<daylight>Havajský standardní čas</daylight>
+				</long>
+				<short>
+					<standard>HST</standard>
+					<daylight>HST</daylight>
+				</short>
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
+			<zone draft="true" type="Pacific/Honolulu">
+				<long>
+				<standard>Havajský standardní čas</standard>
+				<daylight>Havajský standardní čas</daylight>
+				</long>
+				<short>
+					<standard>HST</standard>
+					<daylight>HST</daylight>
+				</short>
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
+			<zone draft="true" type="AST">
+				<long>
+				<standard>Aljašský standardní čas</standard>
+				<daylight>Aljašský letní čas</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+				<exemplarCity>Anchorage</exemplarCity>
+			</zone>
+			<zone draft="true" type="America/Anchorage">
+				<long>
+				<standard>Aljašský standardní čas</standard>
+				<daylight>Aljašský letní čas</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+				<exemplarCity>Anchorage</exemplarCity>
+			</zone>
+			<zone draft="true" type="America/Halifax">
+				<long>
+				<standard>Atlantický standardní čas</standard>
+				<daylight>Atlantický letní čas</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+				<exemplarCity>Halifax</exemplarCity>
+			</zone>
+			<zone draft="true" type="CNT">
+				<long>
+				<standard>Newfoundlandský standardní čas</standard>
+				<daylight>Newfoundlandský letní čas</daylight>
+				</long>
+				<short>
+					<standard>CNT</standard>
+					<daylight>CDT</daylight>
+				</short>
+				<exemplarCity>St. Johns</exemplarCity>
+			</zone>
+			<zone draft="true" type="America/St_Johns">
+				<long>
+				<standard>Newfoundlandský standardní čas</standard>
+				<daylight>Newfoundlandský letní čas</daylight>
+				</long>
+				<short>
+					<standard>CNT</standard>
+					<daylight>CDT</daylight>
+				</short>
+				<exemplarCity>St. Johns</exemplarCity>
+			</zone>
+			<zone draft="true" type="ECT">
+				<long>
+				<standard>Středoevropský standardní čas</standard>
+				<daylight>Středoevropský letní čas</daylight>
+				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+				<exemplarCity>Paříž</exemplarCity>
+			</zone>
+			<zone draft="true" type="Europe/Paris">
+				<long>
+				<standard>Středoevropský standardní čas</standard>
+				<daylight>Středoevropský letní čas</daylight>
+				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+				<exemplarCity>Paříž</exemplarCity>
+			</zone>
+			<zone draft="true" type="GMT">
+				<long>
+				<standard>Greenwichský střední čas</standard>
+				<daylight>Greenwichský střední čas</daylight>
+				</long>
+				<short>
+					<standard>GMT</standard>
+					<daylight>GMT</daylight>
+				</short>
+				<exemplarCity>Londýn</exemplarCity>
+			</zone>
+			<zone draft="true" type="Africa/Casablanca">
+				<long>
+				<standard>Greenwichský střední čas</standard>
+				<daylight>Greenwichský střední čas</daylight>
+				</long>
+				<short>
+					<standard>GMT</standard>
+					<daylight>GMT</daylight>
+				</short>
+				<exemplarCity>Casablanca</exemplarCity>
+			</zone>
+			<zone draft="true" type="Asia/Jerusalem">
+				<long>
+				<standard>Izraelský standardní čas</standard>
+				<daylight>Izraelský letní čas</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
+				</short>
+				<exemplarCity>Jeruzalém</exemplarCity>
+			</zone>
+			<zone draft="true" type="JST">
+				<long>
+				<standard>Japonský standardní čas</standard>
+				<daylight>Japonský standardní čas</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JST</daylight>
+				</short>
+				<exemplarCity>Tokio</exemplarCity>
+			</zone>
+			<zone draft="true" type="Asia/Tokyo">
+				<long>
+				<standard>Japonský standardní čas</standard>
+				<daylight>Japonský standardní čas</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JST</daylight>
+				</short>
+				<exemplarCity>Tokio</exemplarCity>
+			</zone>
+			<zone draft="true" type="Europe/Bucharest">
+				<long>
+				<standard>Východoevropský standardní čas</standard>
+				<daylight>Východoevropský letní čas</daylight>
+				</long>
+				<short>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+				<exemplarCity>Bukurešť</exemplarCity>
+			</zone>
+			<zone draft="true" type="CTT">
+				<long>
+				<standard>Čínský standardní čas</standard>
+				<daylight>Čínský standardní čas</daylight>
+				</long>
+				<short>
+					<standard>CTT</standard>
+					<daylight>CDT</daylight>
+				</short>
+				<exemplarCity>Šanghaj</exemplarCity>
+			</zone>
+			<zone draft="true" type="Asia/Shanghai">
+				<long>
+				<standard>Čínský standardní čas</standard>
+				<daylight>Čínský standardní čas</daylight>
+				</long>
+				<short>
+					<standard>CTT</standard>
+					<daylight>CDT</daylight>
+				</short>
+				<exemplarCity>Šanghaj</exemplarCity>
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>
@@ -595,9 +930,1445 @@
 			<nan>�</nan>
 		</symbols>
 		<currencies>
-			<currency type="CZK">
-				<displayName>CZK</displayName>
+			<currency draft="true" type="ADD">
+				<displayName>Diner andorrský</displayName>
+				<symbol>ADD</symbol>
+			</currency>
+			<currency draft="true" type="ADP">
+				<displayName>Peseta andorrská</displayName>
+				<symbol>ADP</symbol>
+			</currency>
+			<currency draft="true" type="AED">
+				<displayName>Dirham SAE</displayName>
+				<symbol>AED</symbol>
+			</currency>
+			<currency draft="true" type="AFA">
+				<displayName>Afghán (1927-2002)</displayName>
+				<symbol>AFA</symbol>
+			</currency>
+			<currency draft="true" type="AFN">
+				<displayName>Afghán</displayName>
+				<symbol>Af</symbol>
+			</currency>
+			<currency draft="true" type="AIF">
+				<displayName>Affars and Issas Franc</displayName>
+				<symbol>AIF</symbol>
+			</currency>
+			<currency draft="true" type="ALK">
+				<displayName>Lek (1946-1961)</displayName>
+				<symbol>ALK</symbol>
+			</currency>
+			<currency draft="true" type="ALL">
+				<displayName>Lek</displayName>
+				<symbol>lek</symbol>
+			</currency>
+			<currency draft="true" type="ALV">
+				<displayName>Albanian Lek Valute</displayName>
+				<symbol>ALV</symbol>
+			</currency>
+			<currency draft="true" type="AMD">
+				<displayName>Dram arménský</displayName>
+				<symbol>dram</symbol>
+			</currency>
+			<currency draft="true" type="ANG">
+				<displayName>Zlatý Nizozemských Antil</displayName>
+				<symbol>NA f.</symbol>
+			</currency>
+			<currency draft="true" type="AOA">
+				<displayName>Kwanza</displayName>
+				<symbol>AOA</symbol>
+			</currency>
+			<currency draft="true" type="AOK">
+				<displayName>Kwanza (1977-1990)</displayName>
+				<symbol>AOK</symbol>
+			</currency>
+			<currency draft="true" type="AON">
+				<displayName>Kwanza nová (1990-2000)</displayName>
+				<symbol>AON</symbol>
+			</currency>
+			<currency draft="true" type="AOR">
+				<displayName>Kwanza reajustado (1995-1999)</displayName>
+				<symbol>AOR</symbol>
+			</currency>
+			<currency draft="true" type="AOS">
+				<displayName>Escudo angolské</displayName>
+				<symbol>AOS</symbol>
+			</currency>
+			<currency draft="true" type="ARA">
+				<displayName>Austral</displayName>
+				<symbol>ARA</symbol>
+			</currency>
+			<currency draft="true" type="ARM">
+				<displayName>Peso argentinské Moneda Nacional</displayName>
+				<symbol>ARM</symbol>
+			</currency>
+			<currency draft="true" type="ARP">
+				<displayName>Peso argentinské (1983-1985)</displayName>
+				<symbol>ARP</symbol>
+			</currency>
+			<currency draft="true" type="ARS">
+				<displayName>Peso argentinské</displayName>
+				<symbol>Arg$</symbol>
+			</currency>
+			<currency draft="true" type="ATS">
+				<displayName>Šilink</displayName>
+				<symbol>ATS</symbol>
+			</currency>
+			<currency draft="true" type="AUD">
+				<displayName>Dolar australský</displayName>
+				<symbol>$A</symbol>
+			</currency>
+			<currency draft="true" type="AUP">
+				<displayName>Libra australská</displayName>
+				<symbol>AUP</symbol>
+			</currency>
+			<currency draft="true" type="AWG">
+				<displayName>Zlatý arubský</displayName>
+				<symbol>AWG</symbol>
+			</currency>
+			<currency draft="true" type="AZM">
+				<displayName>Manat ázerbajdžánský</displayName>
+				<symbol>AZM</symbol>
+			</currency>
+			<currency draft="true" type="BAD">
+				<displayName>Dinár Bosny a Hercegoviny</displayName>
+				<symbol>BAD</symbol>
+			</currency>
+			<currency draft="true" type="BAM">
+				<displayName>Marka konvertibilní</displayName>
+				<symbol>KM</symbol>
+			</currency>
+			<currency draft="true" type="BAN">
+				<displayName>Nový Dinár Bosny a Hercegoviny</displayName>
+				<symbol>BAN</symbol>
+			</currency>
+			<currency draft="true" type="BBD">
+				<displayName>Dolar barbadoský</displayName>
+				<symbol>BDS$</symbol>
+			</currency>
+			<currency draft="true" type="BDT">
+				<displayName>Taka</displayName>
+				<symbol>Tk</symbol>
+			</currency>
+			<currency draft="true" type="BEC">
+				<displayName>Frank konvertibilní</displayName>
+				<symbol>BEC</symbol>
+			</currency>
+			<currency draft="true" type="BEF">
+				<displayName>Frank belgický</displayName>
+				<symbol>BF</symbol>
+			</currency>
+			<currency draft="true" type="BEL">
+				<displayName>Frank finanční</displayName>
+				<symbol>BEL</symbol>
+			</currency>
+			<currency draft="true" type="BGL">
+				<displayName>Lev</displayName>
+				<symbol>lev</symbol>
+			</currency>
+			<currency draft="true" type="BGM">
+				<displayName>Lev Bulharský socialistický</displayName>
+				<symbol>BGM</symbol>
+			</currency>
+			<currency draft="true" type="BGN">
+				<displayName>Lev Bulharský</displayName>
+				<symbol>BGN</symbol>
+			</currency>
+			<currency draft="true" type="BGO">
+				<displayName>Lev Bulharský (1879-1952)</displayName>
+				<symbol>BGO</symbol>
+			</currency>
+			<currency draft="true" type="BHD">
+				<displayName>Dinár bahrajnský</displayName>
+				<symbol>BD</symbol>
+			</currency>
+			<currency draft="true" type="BIF">
+				<displayName>Frank burundský</displayName>
+				<symbol>Fbu</symbol>
+			</currency>
+			<currency draft="true" type="BMD">
+				<displayName>Dolar bermudský</displayName>
+				<symbol>Ber$</symbol>
+			</currency>
+			<currency draft="true" type="BMP">
+				<displayName>Libra bermudská</displayName>
+				<symbol>BMP</symbol>
+			</currency>
+			<currency draft="true" type="BND">
+				<displayName>Dolar brunejský</displayName>
+				<symbol>BND</symbol>
+			</currency>
+			<currency draft="true" type="BOB">
+				<displayName>Boliviano</displayName>
+				<symbol>Bs</symbol>
+			</currency>
+			<currency draft="true" type="BOL">
+				<displayName>Boliviano (1863-1962)</displayName>
+				<symbol>BOL</symbol>
+			</currency>
+			<currency draft="true" type="BOP">
+				<displayName>Peso</displayName>
+				<symbol>BOP</symbol>
+			</currency>
+			<currency draft="true" type="BOV">
+				<displayName>Mvdol</displayName>
+				<symbol>BOV</symbol>
+			</currency>
+			<currency draft="true" type="BRB">
+				<displayName>Cruzeiro (1967-1986)</displayName>
+				<symbol>BRB</symbol>
+			</currency>
+			<currency draft="true" type="BRC">
+				<displayName>Cruzado</displayName>
+				<symbol>BRC</symbol>
+			</currency>
+			<currency draft="true" type="BRE">
+				<displayName>Cruzeiro (1990-1993)</displayName>
+				<symbol>BRE</symbol>
+			</currency>
+			<currency draft="true" type="BRL">
+				<displayName>Real brazilský</displayName>
+				<symbol>R$</symbol>
+			</currency>
+			<currency draft="true" type="BRN">
+				<displayName>Cruzado nové</displayName>
+				<symbol>BRN</symbol>
+			</currency>
+			<currency draft="true" type="BRR">
+				<displayName>Cruzeiro real</displayName>
+				<symbol>BRR</symbol>
+			</currency>
+			<currency draft="true" type="BRZ">
+				<displayName>Cruzeiro (1942-1967)</displayName>
+				<symbol>BRZ</symbol>
+			</currency>
+			<currency draft="true" type="BSD">
+				<displayName>Dolar bahamský</displayName>
+				<symbol>BSD</symbol>
+			</currency>
+			<currency draft="true" type="BSP">
+				<displayName>Libra bahamská</displayName>
+				<symbol>BSP</symbol>
+			</currency>
+			<currency draft="true" type="BTN">
+				<displayName>Ngultrum</displayName>
+				<symbol>Nu</symbol>
+			</currency>
+			<currency draft="true" type="BTR">
+				<displayName>Rupie bhútánská</displayName>
+				<symbol>BTR</symbol>
+			</currency>
+			<currency draft="true" type="BUK">
+				<displayName>Kyat barmský</displayName>
+				<symbol>BUK</symbol>
+			</currency>
+			<currency draft="true" type="BUR">
+				<displayName>Rupie barmská</displayName>
+				<symbol>BUR</symbol>
+			</currency>
+			<currency draft="true" type="BWP">
+				<displayName>Pula</displayName>
+				<symbol>BWP</symbol>
+			</currency>
+			<currency draft="true" type="BYB">
+				<displayName>Rubl nový běloruský (1994-1999)</displayName>
+				<symbol>BYB</symbol>
+			</currency>
+			<currency draft="true" type="BYL">
+				<displayName>Rubl běloruský (1992-1994)</displayName>
+				<symbol>BYL</symbol>
+			</currency>
+			<currency draft="true" type="BYR">
+				<displayName>Rubl běloruský</displayName>
+				<symbol>Rbl</symbol>
+			</currency>
+			<currency draft="true" type="BZD">
+				<displayName>Dolar belizský</displayName>
+				<symbol>BZ$</symbol>
+			</currency>
+			<currency draft="true" type="BZH">
+				<displayName>Dolar Britského Hondurasu</displayName>
+				<symbol>BZH</symbol>
+			</currency>
+			<currency draft="true" type="CAD">
+				<displayName>Dolar kanadský</displayName>
+				<symbol>Can$</symbol>
+			</currency>
+			<currency draft="true" type="CDF">
+				<displayName>Frank konžský</displayName>
+				<symbol>CDF</symbol>
+			</currency>
+			<currency draft="true" type="CDG">
+				<displayName>Frank Konžské republiky</displayName>
+				<symbol>CDG</symbol>
+			</currency>
+			<currency draft="true" type="CDL">
+				<displayName>Zaire konžský</displayName>
+				<symbol>CDL</symbol>
+			</currency>
+			<currency draft="true" type="CFF">
+				<displayName>Frank Středoafrické republiky CFA</displayName>
+				<symbol>CFF</symbol>
+			</currency>
+			<currency draft="true" type="CHF">
+				<displayName>Frank švýcarský</displayName>
+				<symbol>SwF</symbol>
+			</currency>
+			<currency draft="true" type="CKD">
+				<displayName>Dolar Cookových ostrovů</displayName>
+				<symbol>CKD</symbol>
+			</currency>
+			<currency draft="true" type="CLC">
+				<displayName>Condor chilský</displayName>
+				<symbol>CLC</symbol>
+			</currency>
+			<currency draft="true" type="CLE">
+				<displayName>Escudo chilské</displayName>
+				<symbol>CLE</symbol>
+			</currency>
+			<currency draft="true" type="CLF">
+				<displayName>Unidades de fomento</displayName>
+				<symbol>CLF</symbol>
+			</currency>
+			<currency draft="true" type="CLP">
+				<displayName>Peso chilské</displayName>
+				<symbol>Ch$</symbol>
+			</currency>
+			<currency draft="true" type="CMF">
+				<displayName>Frank kamerunský CFA</displayName>
+				<symbol>CMF</symbol>
+			</currency>
+			<currency draft="true" type="CNP">
+				<displayName>Juan jen min piao</displayName>
+				<symbol>CNP</symbol>
+			</currency>
+			<currency draft="true" type="CNX">
+				<displayName>Dolar lidové banky</displayName>
+				<symbol>CNX</symbol>
+			</currency>
+			<currency draft="true" type="CNY">
+				<displayName>Juan renminbi</displayName>
+				<symbol>Y</symbol>
+			</currency>
+			<currency draft="true" type="COB">
+				<displayName>Peso kolumbijské</displayName>
+				<symbol>COB</symbol>
+			</currency>
+			<currency draft="true" type="COF">
+				<displayName>Krank konžský CFA</displayName>
+				<symbol>COF</symbol>
+			</currency>
+			<currency draft="true" type="COP">
+				<displayName>Peso kolumbijské</displayName>
+				<symbol>Col$</symbol>
+			</currency>
+			<currency draft="true" type="CRC">
+				<displayName>Colón kostarický</displayName>
+				<symbol>C</symbol>
+			</currency>
+			<currency draft="true" type="CSC">
+				<displayName>Koruna československá</displayName>
+				<symbol>CSC</symbol>
+			</currency>
+			<currency draft="true" type="CSK">
+				<displayName>Koruna československá</displayName>
+				<symbol>CSK</symbol>
+			</currency>
+			<currency draft="true" type="CUP">
+				<displayName>Peso kubánské</displayName>
+				<symbol>CUP</symbol>
+			</currency>
+			<currency draft="true" type="CVE">
+				<displayName>Escudo kapverdské</displayName>
+				<symbol>CVEsc</symbol>
+			</currency>
+			<currency draft="true" type="CWG">
+				<displayName>Zlatý Curacao</displayName>
+				<symbol>CWG</symbol>
+			</currency>
+			<currency draft="true" type="CYP">
+				<displayName>Libra kyperská</displayName>
+				<symbol>£</symbol>
+			</currency>
+			<currency draft="true" type="CZK">
+				<displayName>Koruna česká</displayName>
 				<symbol>Kč</symbol>
+			</currency>
+			<currency draft="true" type="DDM">
+				<displayName>Marka NDR</displayName>
+				<symbol>DDM</symbol>
+			</currency>
+			<currency draft="true" type="DEM">
+				<displayName>Marka německá</displayName>
+				<symbol>DEM</symbol>
+			</currency>
+			<currency draft="true" type="DES">
+				<displayName>Sperrmark německá</displayName>
+				<symbol>DES</symbol>
+			</currency>
+			<currency draft="true" type="DJF">
+				<displayName>Frank džibutský</displayName>
+				<symbol>DF</symbol>
+			</currency>
+			<currency draft="true" type="DKK">
+				<displayName>Koruna dánská</displayName>
+				<symbol>DKr</symbol>
+			</currency>
+			<currency draft="true" type="DOP">
+				<displayName>Peso dominikánské</displayName>
+				<symbol>RD$</symbol>
+			</currency>
+			<currency draft="true" type="DZD">
+				<displayName>Dinár alžírský</displayName>
+				<symbol>DA</symbol>
+			</currency>
+			<currency draft="true" type="DZF">
+				<displayName>Frank nový alžírský</displayName>
+				<symbol>DZF</symbol>
+			</currency>
+			<currency draft="true" type="DZG">
+				<displayName>Frank alžírský germinal</displayName>
+				<symbol>DZG</symbol>
+			</currency>
+			<currency draft="true" type="ECS">
+				<displayName>Sucre ekvádorský</displayName>
+				<symbol>ECS</symbol>
+			</currency>
+			<currency draft="true" type="ECV">
+				<displayName>Ecuador Unidad de Valor Constante (UVC)</displayName>
+				<symbol>ECV</symbol>
+			</currency>
+			<currency draft="true" type="EEK">
+				<displayName>Kroon</displayName>
+				<symbol>EEK</symbol>
+			</currency>
+			<currency draft="true" type="EGP">
+				<displayName>Libra egyptská</displayName>
+				<symbol>EGP</symbol>
+			</currency>
+			<currency draft="true" type="ERN">
+				<displayName>Nakfa</displayName>
+				<symbol>ERN</symbol>
+			</currency>
+			<currency draft="true" type="ESP">
+				<displayName>Peseta španělská</displayName>
+				<symbol>ESP</symbol>
+			</currency>
+			<currency draft="true" type="ETB">
+				<displayName>Birr etiopský</displayName>
+				<symbol>Br</symbol>
+			</currency>
+			<currency draft="true" type="ETD">
+				<displayName>Dolar etiopský</displayName>
+				<symbol>ETD</symbol>
+			</currency>
+			<currency draft="true" type="EUR">
+				<displayName>Euro</displayName>
+				<symbol>€</symbol>
+			</currency>
+			<currency draft="true" type="FIM">
+				<displayName>Markka</displayName>
+				<symbol>FIM</symbol>
+			</currency>
+			<currency draft="true" type="FIN">
+				<displayName>Markka (1860-1962)</displayName>
+				<symbol>FIN</symbol>
+			</currency>
+			<currency draft="true" type="FJD">
+				<displayName>Dolar fidžijský</displayName>
+				<symbol>F$</symbol>
+			</currency>
+			<currency draft="true" type="FJP">
+				<displayName>Libra fidžijská</displayName>
+				<symbol>FJP</symbol>
+			</currency>
+			<currency draft="true" type="FKP">
+				<displayName>Libra falklandská</displayName>
+				<symbol>FKP</symbol>
+			</currency>
+			<currency draft="true" type="FOK">
+				<displayName>Koruna Faerských ostrovů</displayName>
+				<symbol>FOK</symbol>
+			</currency>
+			<currency draft="true" type="FRF">
+				<displayName>Frank francouzský</displayName>
+				<symbol>FRF</symbol>
+			</currency>
+			<currency draft="true" type="FRG">
+				<displayName>Frank francouzský germinal/Frank poincare</displayName>
+				<symbol>FRG</symbol>
+			</currency>
+			<currency draft="true" type="GAF">
+				<displayName>Frank gabonský CFA</displayName>
+				<symbol>GAF</symbol>
+			</currency>
+			<currency draft="true" type="GBP">
+				<displayName>Libra šterlinků</displayName>
+				<symbol>£</symbol>
+			</currency>
+			<currency draft="true" type="GEK">
+				<displayName>Georgian Kupon Larit</displayName>
+				<symbol>GEK</symbol>
+			</currency>
+			<currency draft="true" type="GEL">
+				<displayName>Lari</displayName>
+				<symbol>lari</symbol>
+			</currency>
+			<currency draft="true" type="GHC">
+				<displayName>Cedi</displayName>
+				<symbol>GHC</symbol>
+			</currency>
+			<currency draft="true" type="GHO">
+				<displayName>Ghana Old Cedi</displayName>
+				<symbol>GHO</symbol>
+			</currency>
+			<currency draft="true" type="GHP">
+				<displayName>Libra ghanská</displayName>
+				<symbol>GHP</symbol>
+			</currency>
+			<currency draft="true" type="GHR">
+				<displayName>Ghana Revalued Cedi</displayName>
+				<symbol>GHR</symbol>
+			</currency>
+			<currency draft="true" type="GIP">
+				<displayName>Libra gibraltarská</displayName>
+				<symbol>GIP</symbol>
+			</currency>
+			<currency draft="true" type="GLK">
+				<displayName>Greenland Krone</displayName>
+				<symbol>GLK</symbol>
+			</currency>
+			<currency draft="true" type="GMD">
+				<displayName>Dalasi</displayName>
+				<symbol>GMD</symbol>
+			</currency>
+			<currency draft="true" type="GMP">
+				<displayName>Libra gambijská</displayName>
+				<symbol>GMP</symbol>
+			</currency>
+			<currency draft="true" type="GNF">
+				<displayName>Frank guinejský</displayName>
+				<symbol>GF</symbol>
+			</currency>
+			<currency draft="true" type="GNI">
+				<displayName>Frank guinejský (1960-1972)</displayName>
+				<symbol>GNI</symbol>
+			</currency>
+			<currency draft="true" type="GNS">
+				<displayName>Guinea Syli</displayName>
+				<symbol>GNS</symbol>
+			</currency>
+			<currency draft="true" type="GPF">
+				<displayName>Frank guadeloupský</displayName>
+				<symbol>GPF</symbol>
+			</currency>
+			<currency draft="true" type="GQE">
+				<displayName>Equatorial Guinea Ekwele Guineana</displayName>
+				<symbol>GQE</symbol>
+			</currency>
+			<currency draft="true" type="GQF">
+				<displayName>Equatorial Guinea Franco</displayName>
+				<symbol>GQF</symbol>
+			</currency>
+			<currency draft="true" type="GQP">
+				<displayName>Equatorial Guinea Peseta Guineana</displayName>
+				<symbol>GQP</symbol>
+			</currency>
+			<currency draft="true" type="GRD">
+				<displayName>Drachma</displayName>
+				<symbol>GRD</symbol>
+			</currency>
+			<currency draft="true" type="GRN">
+				<displayName>Drachma nová řecká</displayName>
+				<symbol>GRN</symbol>
+			</currency>
+			<currency draft="true" type="GTQ">
+				<displayName>Quetzal</displayName>
+				<symbol>Q</symbol>
+			</currency>
+			<currency draft="true" type="GUF">
+				<displayName>French Guyana Franc Guiana</displayName>
+				<symbol>GUF</symbol>
+			</currency>
+			<currency draft="true" type="GWE">
+				<displayName>Escudo guinejské</displayName>
+				<symbol>GWE</symbol>
+			</currency>
+			<currency draft="true" type="GWM">
+				<displayName>Portuguese Guinea Mil Reis</displayName>
+				<symbol>GWM</symbol>
+			</currency>
+			<currency draft="true" type="GWP">
+				<displayName>Peso Guinnea-Bissau</displayName>
+				<symbol>GWP</symbol>
+			</currency>
+			<currency draft="true" type="GYD">
+				<displayName>Dolar guyanský</displayName>
+				<symbol>G$</symbol>
+			</currency>
+			<currency draft="true" type="HKD">
+				<displayName>Dolar hongkongský</displayName>
+				<symbol>HK$</symbol>
+			</currency>
+			<currency draft="true" type="HNL">
+				<displayName>Lempira</displayName>
+				<symbol>L</symbol>
+			</currency>
+			<currency draft="true" type="HRD">
+				<displayName>Dinar chorvatský</displayName>
+				<symbol>HRD</symbol>
+			</currency>
+			<currency draft="true" type="HRK">
+				<displayName>Kuna chorvatská</displayName>
+				<symbol>HRK</symbol>
+			</currency>
+			<currency draft="true" type="HTG">
+				<displayName>Gourde</displayName>
+				<symbol>HTG</symbol>
+			</currency>
+			<currency draft="true" type="HUF">
+				<displayName>Forint</displayName>
+				<symbol>Ft</symbol>
+			</currency>
+			<currency draft="true" type="IBP">
+				<displayName>Libra severoirská</displayName>
+				<symbol>IBP</symbol>
+			</currency>
+			<currency draft="true" type="IDG">
+				<displayName>Indonesian Nica Guilder</displayName>
+				<symbol>IDG</symbol>
+			</currency>
+			<currency draft="true" type="IDJ">
+				<displayName>Indonesian Java Rupiah</displayName>
+				<symbol>IDJ</symbol>
+			</currency>
+			<currency draft="true" type="IDN">
+				<displayName>Indonesian New Rupiah</displayName>
+				<symbol>IDN</symbol>
+			</currency>
+			<currency draft="true" type="IDR">
+				<displayName>Rupie indonézská</displayName>
+				<symbol>Rp</symbol>
+			</currency>
+			<currency draft="true" type="IEP">
+				<displayName>Libra irská</displayName>
+				<symbol>IR£</symbol>
+			</currency>
+			<currency draft="true" type="ILL">
+				<displayName>Šekel izraelský</displayName>
+				<symbol>ILL</symbol>
+			</currency>
+			<currency draft="true" type="ILP">
+				<displayName>Libra izraelská</displayName>
+				<symbol>ILP</symbol>
+			</currency>
+			<currency draft="true" type="ILS">
+				<displayName>Šekel nový izraelský</displayName>
+				<symbol>ILS</symbol>
+			</currency>
+			<currency draft="true" type="IMP">
+				<displayName>Libra šterlinků Ostrov Man</displayName>
+				<symbol>IMP</symbol>
+			</currency>
+			<currency draft="true" type="INR">
+				<displayName>Rupie indická</displayName>
+				<symbol>INR</symbol>
+			</currency>
+			<currency draft="true" type="IQD">
+				<displayName>Dinár irácký</displayName>
+				<symbol>ID</symbol>
+			</currency>
+			<currency draft="true" type="IRR">
+				<displayName>Rijál íránský</displayName>
+				<symbol>RI</symbol>
+			</currency>
+			<currency draft="true" type="ISK">
+				<displayName>Koruna islandská</displayName>
+				<symbol>ISK</symbol>
+			</currency>
+			<currency draft="true" type="ITL">
+				<displayName>Lira italská</displayName>
+				<symbol>₤</symbol>
+			</currency>
+			<currency draft="true" type="JEP">
+				<displayName>Libra šterlinků Jersey</displayName>
+				<symbol>JEP</symbol>
+			</currency>
+			<currency draft="true" type="JMD">
+				<displayName>Dolar jamajský</displayName>
+				<symbol>J$</symbol>
+			</currency>
+			<currency draft="true" type="JMP">
+				<displayName>Libra jamajská</displayName>
+				<symbol>JMP</symbol>
+			</currency>
+			<currency draft="true" type="JOD">
+				<displayName>Dinár jordánský</displayName>
+				<symbol>JD</symbol>
+			</currency>
+			<currency draft="true" type="JPY">
+				<displayName>Jen</displayName>
+				<symbol>¥</symbol>
+			</currency>
+			<currency draft="true" type="KES">
+				<displayName>Šilink keňský</displayName>
+				<symbol>K Sh</symbol>
+			</currency>
+			<currency draft="true" type="KGS">
+				<displayName>Som</displayName>
+				<symbol>som</symbol>
+			</currency>
+			<currency draft="true" type="KHO">
+				<displayName>Riel starý</displayName>
+				<symbol>KHO</symbol>
+			</currency>
+			<currency draft="true" type="KHR">
+				<displayName>Riel</displayName>
+				<symbol>CR</symbol>
+			</currency>
+			<currency draft="true" type="KID">
+				<displayName>Dolar kiribatský</displayName>
+				<symbol>KID</symbol>
+			</currency>
+			<currency draft="true" type="KMF">
+				<displayName>Frank komorský</displayName>
+				<symbol>CF</symbol>
+			</currency>
+			<currency draft="true" type="KPW">
+				<displayName>Won severokorejský</displayName>
+				<symbol>KPW</symbol>
+			</currency>
+			<currency draft="true" type="KRH">
+				<displayName>Hwan jihokorejský</displayName>
+				<symbol>KRH</symbol>
+			</currency>
+			<currency draft="true" type="KRO">
+				<displayName>Won starý jihokorejský</displayName>
+				<symbol>KRO</symbol>
+			</currency>
+			<currency draft="true" type="KRW">
+				<displayName>Won jihokorejský</displayName>
+				<symbol>KRW</symbol>
+			</currency>
+			<currency draft="true" type="KWD">
+				<displayName>Dinár kuvajtský</displayName>
+				<symbol>KD</symbol>
+			</currency>
+			<currency draft="true" type="KYD">
+				<displayName>Dolar Kajmanských ostrovů</displayName>
+				<symbol>KYD</symbol>
+			</currency>
+			<currency draft="true" type="KZR">
+				<displayName>Rubl kazašský</displayName>
+				<symbol>KZR</symbol>
+			</currency>
+			<currency draft="true" type="KZT">
+				<displayName>Tenge</displayName>
+				<symbol>T</symbol>
+			</currency>
+			<currency draft="true" type="LAK">
+				<displayName>Kip</displayName>
+				<symbol>LAK</symbol>
+			</currency>
+			<currency draft="true" type="LBP">
+				<displayName>Libra libanonská</displayName>
+				<symbol>LL</symbol>
+			</currency>
+			<currency draft="true" type="LIF">
+				<displayName>Frank lichtenštejnský</displayName>
+				<symbol>LIF</symbol>
+			</currency>
+			<currency draft="true" type="LKR">
+				<displayName>Rupie srílanská</displayName>
+				<symbol>SL Re</symbol>
+			</currency>
+			<currency draft="true" type="LNR">
+				<displayName>Rupie cejlonská</displayName>
+				<symbol>LNR</symbol>
+			</currency>
+			<currency draft="true" type="LRD">
+				<displayName>Dolar liberijský</displayName>
+				<symbol>LRD</symbol>
+			</currency>
+			<currency draft="true" type="LSL">
+				<displayName>Loti</displayName>
+				<symbol>M</symbol>
+			</currency>
+			<currency draft="true" type="LTL">
+				<displayName>Litus litevský</displayName>
+				<symbol>LTL</symbol>
+			</currency>
+			<currency draft="true" type="LTT">
+				<displayName>Talon</displayName>
+				<symbol>LTT</symbol>
+			</currency>
+			<currency draft="true" type="LUF">
+				<displayName>Frank lucemburský</displayName>
+				<symbol>LUF</symbol>
+			</currency>
+			<currency draft="true" type="LVL">
+				<displayName>Lat lotyšský</displayName>
+				<symbol>LVL</symbol>
+			</currency>
+			<currency draft="true" type="LVR">
+				<displayName>Rubl lotyšský</displayName>
+				<symbol>LVR</symbol>
+			</currency>
+			<currency draft="true" type="LYD">
+				<displayName>Dinár lybijský</displayName>
+				<symbol>LD</symbol>
+			</currency>
+			<currency draft="true" type="LYP">
+				<displayName>Libra lybijská</displayName>
+				<symbol>LYP</symbol>
+			</currency>
+			<currency draft="true" type="MAD">
+				<displayName>Dirham marocký</displayName>
+				<symbol>MAD</symbol>
+			</currency>
+			<currency draft="true" type="MAF">
+				<displayName>Frank marocký</displayName>
+				<symbol>MAF</symbol>
+			</currency>
+			<currency draft="true" type="MCF">
+				<displayName>Frank nouveau monacký</displayName>
+				<symbol>MCF</symbol>
+			</currency>
+			<currency draft="true" type="MCG">
+				<displayName>Frank monacký germinal</displayName>
+				<symbol>MCG</symbol>
+			</currency>
+			<currency draft="true" type="MDC">
+				<displayName>Moldovan Leu Cupon</displayName>
+				<symbol>MDC</symbol>
+			</currency>
+			<currency draft="true" type="MDL">
+				<displayName>Leu moldavský</displayName>
+				<symbol>MDL</symbol>
+			</currency>
+			<currency draft="true" type="MDR">
+				<displayName>Moldovan Ruble Cupon</displayName>
+				<symbol>MDR</symbol>
+			</currency>
+			<currency draft="true" type="MGA">
+				<displayName>Ariary madagaskarský</displayName>
+				<symbol>MGA</symbol>
+			</currency>
+			<currency draft="true" type="MGF">
+				<displayName>Frank madagaskarský</displayName>
+				<symbol>MGF</symbol>
+			</currency>
+			<currency draft="true" type="MHD">
+				<displayName>Dolar Marshallových ostrovů</displayName>
+				<symbol>MHD</symbol>
+			</currency>
+			<currency draft="true" type="MKD">
+				<displayName>Denár</displayName>
+				<symbol>MDen</symbol>
+			</currency>
+			<currency draft="true" type="MKN">
+				<displayName>Denár (1992-1993)</displayName>
+				<symbol>MKN</symbol>
+			</currency>
+			<currency draft="true" type="MLF">
+				<displayName>Frank malijský</displayName>
+				<symbol>MLF</symbol>
+			</currency>
+			<currency draft="true" type="MMK">
+				<displayName>Kyat</displayName>
+				<symbol>MMK</symbol>
+			</currency>
+			<currency draft="true" type="MNT">
+				<displayName>Tugrik</displayName>
+				<symbol>Tug</symbol>
+			</currency>
+			<currency draft="true" type="MOP">
+				<displayName>Pataca</displayName>
+				<symbol>MOP</symbol>
+			</currency>
+			<currency draft="true" type="MQF">
+				<displayName>Frank martinikský</displayName>
+				<symbol>MQF</symbol>
+			</currency>
+			<currency draft="true" type="MRO">
+				<displayName>Ouguiya</displayName>
+				<symbol>UM</symbol>
+			</currency>
+			<currency draft="true" type="MTL">
+				<displayName>Lira maltská</displayName>
+				<symbol>Lm</symbol>
+			</currency>
+			<currency draft="true" type="MTP">
+				<displayName>Libra maltská</displayName>
+				<symbol>MTP</symbol>
+			</currency>
+			<currency draft="true" type="MUR">
+				<displayName>Rupie mauricijská</displayName>
+				<symbol>MUR</symbol>
+			</currency>
+			<currency draft="true" type="MVP">
+				<displayName>Rupie maledivská</displayName>
+				<symbol>MVP</symbol>
+			</currency>
+			<currency draft="true" type="MVR">
+				<displayName>Rufiyaa</displayName>
+				<symbol>MVR</symbol>
+			</currency>
+			<currency draft="true" type="MWK">
+				<displayName>Kwacha</displayName>
+				<symbol>MK</symbol>
+			</currency>
+			<currency draft="true" type="MWP">
+				<displayName>Libra malawijská</displayName>
+				<symbol>MWP</symbol>
+			</currency>
+			<currency draft="true" type="MXN">
+				<displayName>Peso mexické</displayName>
+				<symbol>MEX$</symbol>
+			</currency>
+			<currency draft="true" type="MXP">
+				<displayName>Peso stříbrné mexické (1861-1992)</displayName>
+				<symbol>MXP</symbol>
+			</currency>
+			<currency draft="true" type="MXV">
+				<displayName>Mexican Unidad de Inversion (UDI)</displayName>
+				<symbol>MXV</symbol>
+			</currency>
+			<currency draft="true" type="MYR">
+				<displayName>Ringgit malajskijský</displayName>
+				<symbol>RM</symbol>
+			</currency>
+			<currency draft="true" type="MZE">
+				<displayName>Escudo Mosambiku</displayName>
+				<symbol>MZE</symbol>
+			</currency>
+			<currency draft="true" type="MZM">
+				<displayName>Metical</displayName>
+				<symbol>Mt</symbol>
+			</currency>
+			<currency draft="true" type="NAD">
+				<displayName>Dolar namibijský</displayName>
+				<symbol>N$</symbol>
+			</currency>
+			<currency draft="true" type="NCF">
+				<displayName>Frank Nové Kaledonie germinal</displayName>
+				<symbol>NCF</symbol>
+			</currency>
+			<currency draft="true" type="NGN">
+				<displayName>Naira</displayName>
+				<symbol>NGN</symbol>
+			</currency>
+			<currency draft="true" type="NGP">
+				<displayName>Libra nigerijská</displayName>
+				<symbol>NGP</symbol>
+			</currency>
+			<currency draft="true" type="NHF">
+				<displayName>Frank Nových Hebrid CFP</displayName>
+				<symbol>NHF</symbol>
+			</currency>
+			<currency draft="true" type="NIC">
+				<displayName>Cordoba</displayName>
+				<symbol>NIC</symbol>
+			</currency>
+			<currency draft="true" type="NIG">
+				<displayName>Cordoba zlatá</displayName>
+				<symbol>NIG</symbol>
+			</currency>
+			<currency draft="true" type="NIO">
+				<displayName>Cordoba oro</displayName>
+				<symbol>NIO</symbol>
+			</currency>
+			<currency draft="true" type="NLG">
+				<displayName>Zlatý holandský</displayName>
+				<symbol>NLG</symbol>
+			</currency>
+			<currency draft="true" type="NOK">
+				<displayName>Koruna norská</displayName>
+				<symbol>NKr</symbol>
+			</currency>
+			<currency draft="true" type="NPR">
+				<displayName>Rupie nepálská</displayName>
+				<symbol>Nrs</symbol>
+			</currency>
+			<currency draft="true" type="NZD">
+				<displayName>Dolar novozélandský</displayName>
+				<symbol>$NZ</symbol>
+			</currency>
+			<currency draft="true" type="NZP">
+				<displayName>Libra novozélandská</displayName>
+				<symbol>NZP</symbol>
+			</currency>
+			<currency draft="true" type="OMR">
+				<displayName>Rijál ománský</displayName>
+				<symbol>RO</symbol>
+			</currency>
+			<currency draft="true" type="OMS">
+				<displayName>Rijál ománský saidi</displayName>
+				<symbol>OMS</symbol>
+			</currency>
+			<currency draft="true" type="PAB">
+				<displayName>Balboa</displayName>
+				<symbol>PAB</symbol>
+			</currency>
+			<currency draft="true" type="PDK">
+				<displayName>Transdniestria Ruble Kupon</displayName>
+				<symbol>PDK</symbol>
+			</currency>
+			<currency draft="true" type="PDN">
+				<displayName>Transdniestria New Ruble</displayName>
+				<symbol>PDN</symbol>
+			</currency>
+			<currency draft="true" type="PDR">
+				<displayName>Transdniestria Ruble</displayName>
+				<symbol>PDR</symbol>
+			</currency>
+			<currency draft="true" type="PEI">
+				<displayName>Inti</displayName>
+				<symbol>PEI</symbol>
+			</currency>
+			<currency draft="true" type="PEN">
+				<displayName>Nuevo sol</displayName>
+				<symbol>PEN</symbol>
+			</currency>
+			<currency draft="true" type="PES">
+				<displayName>Sol</displayName>
+				<symbol>PES</symbol>
+			</currency>
+			<currency draft="true" type="PGK">
+				<displayName>Kina</displayName>
+				<symbol>PGK</symbol>
+			</currency>
+			<currency draft="true" type="PHP">
+				<displayName>Peso filipínské</displayName>
+				<symbol>PHP</symbol>
+			</currency>
+			<currency draft="true" type="PKR">
+				<displayName>Rupie pákistánská</displayName>
+				<symbol>Pra</symbol>
+			</currency>
+			<currency draft="true" type="PLN">
+				<displayName>Zlotý</displayName>
+				<symbol>Zl</symbol>
+			</currency>
+			<currency draft="true" type="PLZ">
+				<displayName>Zlotý (1950-1995)</displayName>
+				<symbol>PLZ</symbol>
+			</currency>
+			<currency draft="true" type="PSP">
+				<displayName>Libra palestinská</displayName>
+				<symbol>PSP</symbol>
+			</currency>
+			<currency draft="true" type="PTC">
+				<displayName>Conto portugalské</displayName>
+				<symbol>PTC</symbol>
+			</currency>
+			<currency draft="true" type="PTE">
+				<displayName>Escudo portugalské</displayName>
+				<symbol>PTE</symbol>
+			</currency>
+			<currency draft="true" type="PYG">
+				<displayName>Guarani</displayName>
+				<symbol>PYG</symbol>
+			</currency>
+			<currency draft="true" type="QAR">
+				<displayName>Rijál katarský</displayName>
+				<symbol>QR</symbol>
+			</currency>
+			<currency draft="true" type="REF">
+				<displayName>Frank Reunion</displayName>
+				<symbol>REF</symbol>
+			</currency>
+			<currency draft="true" type="ROL">
+				<displayName>Lei</displayName>
+				<symbol>leu</symbol>
+			</currency>
+			<currency draft="true" type="RON">
+				<displayName>Lei nový</displayName>
+				<symbol>RON</symbol>
+			</currency>
+			<currency draft="true" type="RUB">
+				<displayName>Rubl ruský</displayName>
+				<symbol>RUB</symbol>
+			</currency>
+			<currency draft="true" type="RUR">
+				<displayName>Rubl ruský (1991-1998)</displayName>
+				<symbol>RUR</symbol>
+			</currency>
+			<currency draft="true" type="RWF">
+				<displayName>Frank rwandský</displayName>
+				<symbol>RWF</symbol>
+			</currency>
+			<currency draft="true" type="SAR">
+				<displayName>Rijál saudský</displayName>
+				<symbol>SRl</symbol>
+			</currency>
+			<currency draft="true" type="SAS">
+				<displayName>Rijál saudský sovereign</displayName>
+				<symbol>SAS</symbol>
+			</currency>
+			<currency draft="true" type="SBD">
+				<displayName>Dolar Šalamounových ostrovů</displayName>
+				<symbol>SI$</symbol>
+			</currency>
+			<currency draft="true" type="SCR">
+				<displayName>Rupie seychelská</displayName>
+				<symbol>SR</symbol>
+			</currency>
+			<currency draft="true" type="SDD">
+				<displayName>Dinár súdánský</displayName>
+				<symbol>SDD</symbol>
+			</currency>
+			<currency draft="true" type="SDP">
+				<displayName>Libra súdánská</displayName>
+				<symbol>SDP</symbol>
+			</currency>
+			<currency draft="true" type="SEK">
+				<displayName>Koruna švédská</displayName>
+				<symbol>SKr</symbol>
+			</currency>
+			<currency draft="true" type="SGD">
+				<displayName>Dolar singapurský</displayName>
+				<symbol>S$</symbol>
+			</currency>
+			<currency draft="true" type="SHP">
+				<displayName>Libra Svaté Heleny</displayName>
+				<symbol>SHP</symbol>
+			</currency>
+			<currency draft="true" type="SIB">
+				<displayName>Slovenia Tolar Bons</displayName>
+				<symbol>SIB</symbol>
+			</currency>
+			<currency draft="true" type="SIT">
+				<displayName>Tolar</displayName>
+				<symbol>SIT</symbol>
+			</currency>
+			<currency draft="true" type="SKK">
+				<displayName>Koruna slovenská</displayName>
+				<symbol>Sk</symbol>
+			</currency>
+			<currency draft="true" type="SML">
+				<displayName>Lira San Marino</displayName>
+				<symbol>SML</symbol>
+			</currency>
+			<currency draft="true" type="SOS">
+				<displayName>Šilink somálský</displayName>
+				<symbol>So. Sh.</symbol>
+			</currency>
+			<currency draft="true" type="SQS">
+				<displayName>Somaliland Shilling</displayName>
+				<symbol>SQS</symbol>
+			</currency>
+			<currency draft="true" type="SRG">
+				<displayName>Zlatý surinamský</displayName>
+				<symbol>Sf</symbol>
+			</currency>
+			<currency draft="true" type="SSP">
+				<displayName>Libra skotská</displayName>
+				<symbol>SSP</symbol>
+			</currency>
+			<currency draft="true" type="STD">
+				<displayName>Dobra</displayName>
+				<symbol>Db</symbol>
+			</currency>
+			<currency draft="true" type="STE">
+				<displayName>Escudo Svatého Tomáše</displayName>
+				<symbol>STE</symbol>
+			</currency>
+			<currency draft="true" type="SUN">
+				<displayName>Rubl nový</displayName>
+				<symbol>SUN</symbol>
+			</currency>
+			<currency draft="true" type="SUR">
+				<displayName>Rubl</displayName>
+				<symbol>SUR</symbol>
+			</currency>
+			<currency draft="true" type="SVC">
+				<displayName>Colon salvadorský</displayName>
+				<symbol>SVC</symbol>
+			</currency>
+			<currency draft="true" type="SYP">
+				<displayName>Libra syrská</displayName>
+				<symbol>LS</symbol>
+			</currency>
+			<currency draft="true" type="SZL">
+				<displayName>Lilangeni</displayName>
+				<symbol>E</symbol>
+			</currency>
+			<currency draft="true" type="TCC">
+				<displayName>Koruna Turks a Caicos</displayName>
+				<symbol>TCC</symbol>
+			</currency>
+			<currency draft="true" type="TDF">
+				<displayName>Frank čadský CFA</displayName>
+				<symbol>TDF</symbol>
+			</currency>
+			<currency draft="true" type="THB">
+				<displayName>Baht</displayName>
+				<symbol>THB</symbol>
+			</currency>
+			<currency draft="true" type="TJR">
+				<displayName>Tajikistan Ruble</displayName>
+				<symbol>TJR</symbol>
+			</currency>
+			<currency draft="true" type="TJS">
+				<displayName>Somoni</displayName>
+				<symbol>TJS</symbol>
+			</currency>
+			<currency draft="true" type="TMM">
+				<displayName>Manat</displayName>
+				<symbol>TMM</symbol>
+			</currency>
+			<currency draft="true" type="TND">
+				<displayName>Dinár tuniský</displayName>
+				<symbol>TND</symbol>
+			</currency>
+			<currency draft="true" type="TOS">
+				<displayName>Libra šterlinků tonžská</displayName>
+				<symbol>TOS</symbol>
+			</currency>
+			<currency draft="true" type="TPE">
+				<displayName>Escudo timorské</displayName>
+				<symbol>TPE</symbol>
+			</currency>
+			<currency draft="true" type="TPP">
+				<displayName>Pataca timorská</displayName>
+				<symbol>TPP</symbol>
+			</currency>
+			<currency draft="true" type="TRL">
+				<displayName>Lira turecká</displayName>
+				<symbol>TL</symbol>
+			</currency>
+			<currency draft="true" type="TTD">
+				<displayName>Dolar Trinidad a Tobago</displayName>
+				<symbol>TT$</symbol>
+			</currency>
+			<currency draft="true" type="TTO">
+				<displayName>Dolar starý Trinidad a Tobago</displayName>
+				<symbol>TTO</symbol>
+			</currency>
+			<currency draft="true" type="TVD">
+				<displayName>Dolar tuvalský</displayName>
+				<symbol>TVD</symbol>
+			</currency>
+			<currency draft="true" type="TWD">
+				<displayName>Dolar tchajvanský nový</displayName>
+				<symbol>NT$</symbol>
+			</currency>
+			<currency draft="true" type="TZS">
+				<displayName>Šilink tanzanský</displayName>
+				<symbol>T Sh</symbol>
+			</currency>
+			<currency draft="true" type="UAH">
+				<displayName>Hřivna</displayName>
+				<symbol>UAH</symbol>
+			</currency>
+			<currency draft="true" type="UAK">
+				<displayName>Karbovanec</displayName>
+				<symbol>UAK</symbol>
+			</currency>
+			<currency draft="true" type="UGS">
+				<displayName>Šilink ugandský (1966-1987)</displayName>
+				<symbol>UGS</symbol>
+			</currency>
+			<currency draft="true" type="UGX">
+				<displayName>Šilink ugandský</displayName>
+				<symbol>U Sh</symbol>
+			</currency>
+			<currency draft="true" type="USD">
+				<displayName>Dolar americký</displayName>
+				<symbol>US$</symbol>
+			</currency>
+			<currency draft="true" type="USN">
+				<displayName>Dolar americký (příští den)</displayName>
+				<symbol>USN</symbol>
+			</currency>
+			<currency draft="true" type="USS">
+				<displayName>Dolar americký (týž den)</displayName>
+				<symbol>USS</symbol>
+			</currency>
+			<currency draft="true" type="UYF">
+				<displayName>Peso uruguayské fuerte</displayName>
+				<symbol>UYF</symbol>
+			</currency>
+			<currency draft="true" type="UYP">
+				<displayName>Peso uruguayské (1975-1993)</displayName>
+				<symbol>UYP</symbol>
+			</currency>
+			<currency draft="true" type="UYU">
+				<displayName>Peso uruguayské</displayName>
+				<symbol>Ur$</symbol>
+			</currency>
+			<currency draft="true" type="UZC">
+				<displayName>Uzbekistan Coupon Som</displayName>
+				<symbol>UZC</symbol>
+			</currency>
+			<currency draft="true" type="UZS">
+				<displayName>Sum uzbecký</displayName>
+				<symbol>UZS</symbol>
+			</currency>
+			<currency draft="true" type="VAL">
+				<displayName>Lira Vatikánu</displayName>
+				<symbol>VAL</symbol>
+			</currency>
+			<currency draft="true" type="VEB">
+				<displayName>Bolivar</displayName>
+				<symbol>Be</symbol>
+			</currency>
+			<currency draft="true" type="VGD">
+				<displayName>Dolar Britských Panenských ostrovů</displayName>
+				<symbol>VGD</symbol>
+			</currency>
+			<currency draft="true" type="VUV">
+				<displayName>Vatu</displayName>
+				<symbol>VT</symbol>
+			</currency>
+			<currency draft="true" type="WSP">
+				<displayName>Libra Západní Samoa</displayName>
+				<symbol>WSP</symbol>
+			</currency>
+			<currency draft="true" type="WST">
+				<displayName>Tala</displayName>
+				<symbol>WST</symbol>
+			</currency>
+			<currency draft="true" type="XAF">
+				<displayName>Frank BEAC/CFA</displayName>
+				<symbol>XAF</symbol>
+			</currency>
+			<currency draft="true" type="XAM">
+				<displayName>Asijská peněžní jednotka</displayName>
+				<symbol>XAM</symbol>
+			</currency>
+			<currency draft="true" type="XAU">
+				<displayName>Zlato</displayName>
+				<symbol>XAU</symbol>
+			</currency>
+			<currency draft="true" type="XBA">
+				<displayName>Evropská smíšená jednotka</displayName>
+				<symbol>XBA</symbol>
+			</currency>
+			<currency draft="true" type="XBB">
+				<displayName>Evropská peněžní jednotka</displayName>
+				<symbol>XBB</symbol>
+			</currency>
+			<currency draft="true" type="XBC">
+				<displayName>Evropská jednotka účtu 9 (XBC)</displayName>
+				<symbol>XBC</symbol>
+			</currency>
+			<currency draft="true" type="XBD">
+				<displayName>Evropská jednotka účtu 17 (XBD)</displayName>
+				<symbol>XBD</symbol>
+			</currency>
+			<currency draft="true" type="XCD">
+				<displayName>Dolar východokaribský</displayName>
+				<symbol>EC$</symbol>
+			</currency>
+			<currency draft="true" type="XCF">
+				<displayName>Frank Nouveau CFA</displayName>
+				<symbol>XCF</symbol>
+			</currency>
+			<currency draft="true" type="XDR">
+				<displayName>SDR</displayName>
+				<symbol>XDR</symbol>
+			</currency>
+			<currency draft="true" type="XEF">
+				<displayName>Frank BCEAEC/CFA</displayName>
+				<symbol>XEF</symbol>
+			</currency>
+			<currency draft="true" type="XEU">
+				<displayName>Evropská měnová jednotka</displayName>
+				<symbol>XEU</symbol>
+			</currency>
+			<currency draft="true" type="XFO">
+				<displayName>Frank zlatý</displayName>
+				<symbol>XFO</symbol>
+			</currency>
+			<currency draft="true" type="XFU">
+				<displayName>Frank UIC</displayName>
+				<symbol>XFU</symbol>
+			</currency>
+			<currency draft="true" type="XID">
+				<displayName>Dinár islámský</displayName>
+				<symbol>XID</symbol>
+			</currency>
+			<currency draft="true" type="XNF">
+				<displayName>Frank Francouzských Antil CFA</displayName>
+				<symbol>XNF</symbol>
+			</currency>
+			<currency draft="true" type="XOF">
+				<displayName>Frank BCEAO/CFA</displayName>
+				<symbol>XOF</symbol>
+			</currency>
+			<currency draft="true" type="XPF">
+				<displayName>Frank CFP</displayName>
+				<symbol>CFPF</symbol>
+			</currency>
+			<currency draft="true" type="YDD">
+				<displayName>Dinár jemenský</displayName>
+				<symbol>YDD</symbol>
+			</currency>
+			<currency draft="true" type="YEI">
+				<displayName>Rijál jemenský imadi</displayName>
+				<symbol>YEI</symbol>
+			</currency>
+			<currency draft="true" type="YER">
+				<displayName>Rijál jemenský</displayName>
+				<symbol>YRl</symbol>
+			</currency>
+			<currency draft="true" type="YUD">
+				<displayName>Dinár jugoslávský nový</displayName>
+				<symbol>YUD</symbol>
+			</currency>
+			<currency draft="true" type="YUF">
+				<displayName>Dinár jugoslávský federativní</displayName>
+				<symbol>YUF</symbol>
+			</currency>
+			<currency draft="true" type="YUG">
+				<displayName>Dinár jugoslávský 1994</displayName>
+				<symbol>YUG</symbol>
+			</currency>
+			<currency draft="true" type="YUM">
+				<displayName>Dinár jugoslávský</displayName>
+				<symbol>YUM</symbol>
+			</currency>
+			<currency draft="true" type="YUN">
+				<displayName>Dinár jugoslávský</displayName>
+				<symbol>YUN</symbol>
+			</currency>
+			<currency draft="true" type="YUR">
+				<displayName>Dinár jugoslávský reformovaný</displayName>
+				<symbol>YUR</symbol>
+			</currency>
+			<currency draft="true" type="ZAL">
+				<displayName>Rand finanční</displayName>
+				<symbol>ZAL</symbol>
+			</currency>
+			<currency draft="true" type="ZAP">
+				<displayName>Libra jihoafrická</displayName>
+				<symbol>ZAP</symbol>
+			</currency>
+			<currency draft="true" type="ZAR">
+				<displayName>Rand</displayName>
+				<symbol>R</symbol>
+			</currency>
+			<currency draft="true" type="ZMK">
+				<displayName>Kwacha</displayName>
+				<symbol>ZMK</symbol>
+			</currency>
+			<currency draft="true" type="ZMP">
+				<displayName>Libra zambijská</displayName>
+				<symbol>ZMP</symbol>
+			</currency>
+			<currency draft="true" type="ZRN">
+				<displayName>Zaire nový</displayName>
+				<symbol>ZRN</symbol>
+			</currency>
+			<currency draft="true" type="ZRZ">
+				<displayName>Zaire</displayName>
+				<symbol>ZRZ</symbol>
+			</currency>
+			<currency draft="true" type="ZWD">
+				<displayName>Dolar zimbabwský</displayName>
+				<symbol>Z$</symbol>
 			</currency>
 		</currencies>
 	</numbers>

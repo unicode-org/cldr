@@ -1188,7 +1188,7 @@ void GenerateXML::writeMonthNames(ResourceBundle& calendar, UnicodeString& xmlSt
             }
             if(ctxKey=="default"){
                 args[0] = indentOffset;
-                args[1] = ctxKey;
+                args[1] = context.getString(mError);
                 xmlString.append(formatString(mStringsBundle.getStringEx("default",mError),args,2,t));
                 continue;
             }
@@ -1196,6 +1196,14 @@ void GenerateXML::writeMonthNames(ResourceBundle& calendar, UnicodeString& xmlSt
             args[1] = ctxKey;
             xmlString.append(formatString(mStringsBundle.getStringEx("monthContext",mError),args,2,t));
 		    indentOffset.append("\t");
+            
+            UnicodeString defaultWidth = context.getStringEx("default", mError);
+            if(U_SUCCESS(mError)){
+                args[0] = indentOffset;
+                args[1] = defaultWidth;
+                xmlString.append(formatString(mStringsBundle.getStringEx("default",mError),args,2,t));
+            }
+            mError = U_ZERO_ERROR;
 
             while(context.hasNext()){
                 ResourceBundle width = context.getNext(mError);
@@ -1204,10 +1212,7 @@ void GenerateXML::writeMonthNames(ResourceBundle& calendar, UnicodeString& xmlSt
                     exit(U_INTERNAL_PROGRAM_ERROR);
                 }
                 UnicodeString widthKey = UnicodeString(width.getKey());
-                if(ctxKey=="default"){
-                    args[0] = indentOffset;
-                    args[1] = widthKey;
-                    xmlString.append(formatString(mStringsBundle.getStringEx("default",mError),args,2,t));
+                if(widthKey=="default"){
                     continue;
                 }
                 args[0] = indentOffset;
@@ -1260,7 +1265,7 @@ void GenerateXML::writeDayNames(ResourceBundle& calendar, UnicodeString& xmlStri
             UnicodeString ctxKey = UnicodeString(context.getKey());
             if(ctxKey=="default"){
                 args[0] = indentOffset;
-                args[1] = ctxKey;
+                args[1] = context.getString(mError);
                 xmlString.append(formatString(mStringsBundle.getStringEx("default",mError),args,2,t));
                 continue;
             }
@@ -1271,7 +1276,13 @@ void GenerateXML::writeDayNames(ResourceBundle& calendar, UnicodeString& xmlStri
             args[1] = ctxKey;
             xmlString.append(formatString(mStringsBundle.getStringEx("dayContext",mError),args,2,t));
 		    indentOffset.append("\t");
-
+            UnicodeString defaultWidth = context.getStringEx("default", mError);
+            if(U_SUCCESS(mError)){
+                args[0] = indentOffset;
+                args[1] = defaultWidth;
+                xmlString.append(formatString(mStringsBundle.getStringEx("default",mError),args,2,t));
+            }
+            mError = U_ZERO_ERROR;
             while(context.hasNext()){
                 ResourceBundle width = context.getNext(mError);
                 if(U_FAILURE(mError)){
@@ -1280,10 +1291,7 @@ void GenerateXML::writeDayNames(ResourceBundle& calendar, UnicodeString& xmlStri
                 }
                 UnicodeString widthKey = UnicodeString(width.getKey());
                 if(widthKey == "default"){
-                    args[0] = indentOffset;
-                    args[1] = widthKey;
-                    xmlString.append(formatString(mStringsBundle.getStringEx("default",mError),args,2,t));
-                    continue;
+                     continue;
                 }
                 args[0] = indentOffset;
                 args[1] = widthKey;
@@ -1353,7 +1361,7 @@ void GenerateXML::writeWeek(ResourceBundle& calendar, UnicodeString& xmlString){
 
 void GenerateXML::writeEra(ResourceBundle& calendar,UnicodeString& xmlString){
 
-    ResourceBundle eras= calendar.get("Eras",mError);
+    ResourceBundle eras= calendar.get("eras",mError);
 	UnicodeString t;
 	if( mError!=U_USING_DEFAULT_WARNING && 
 		mError!=U_USING_FALLBACK_WARNING && 

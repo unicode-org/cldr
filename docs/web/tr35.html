@@ -789,16 +789,19 @@ root</pre>
   territory?, variant?, special*) ) &gt;</span></p>
   <p>The identity element contains information identifying the target locale for this data, and 
   general information about the version of this data.</p>
-  <p class="element2">&lt;version number=&quot;<span style="color: blue">1.1</span>&quot;&gt;</p>
+  <p class="element2">&lt;version number=&quot;<span class="changedspan">$Revision$</span>&quot;&gt;</p>
   <p>The version element provides, in an attribute, the version of this file.&nbsp; The contents of 
   the element can contain textual notes about the changes between this version and the last. For 
   example:</p>
   <blockquote>
     <pre>&lt;version number=&quot;<span style="color: blue">1.1</span>&quot;&gt;<span style="color: blue">Various notes and changes in version 1.1</span>&lt;/version&gt;</pre>
+    <p><span class="changedspan">This is not to be confused with the version attribute on the ldml 
+    element, which tracks the dtd version.</span></p>
   </blockquote>
-  <p class="element2">&lt;generation date=&quot;<span style="color: blue">2002-08-28</span>&quot; /&gt;</p>
-  <p>The generation element contains the last modified date for the data. The data is in XML Schema 
-  format (yyyy-mm-dd).</p>
+  <p class="element2">&lt;generation date=&quot;<span class="changedspan">$Date$</span>&quot; 
+  /&gt;</p>
+  <p>The generation element contains the last modified date for the data.<span class="changedspan"> 
+  The data is in the format illustrated by the example above.</span></p>
   <p class="element2">&lt;language type=&quot;<span style="color: blue">en</span>&quot;/&gt;</p>
   <p>The language code is the primary part of the specification of the locale id, with values as 
   described above.</p>
@@ -811,6 +814,46 @@ root</pre>
   <p class="element2">&lt;variant type=&quot;<span style="color: blue">nynorsk</span>&quot;/&gt;</p>
   <p>The variant code is the tertiary part of the specification of the locale id, with values as 
   described above.</p>
+  <p><span class="changedspan">&lt;coverage level=&quot;1&quot;/&gt; </span></p>
+  <p><span class="changedspan">The level provides an indication of the coverage of the data. The 
+  coverage may change over time, as new fields are added.</span></p>
+  <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber6">
+    <tr>
+      <td><span class="changedspan">level 10</span></td>
+      <td><span class="changedspan">comprehensive</span></td>
+      <td><span class="changedspan">Has complete localizations (or valid inheritance) for every 
+      possible field</span></td>
+    </tr>
+    <tr>
+      <td><span class="changedspan">level 8</span></td>
+      <td><span class="changedspan">modern</span></td>
+      <td><span class="changedspan">Has complete localizations (or valid inheritance) for every<br>
+      field in common modern use. That is, for this level only non-modern<br>
+      currencies, non-modern territories don&#39;t have to be there. Only languages<br>
+      that are official languages of some modern country need coverage. Only<br>
+      timezone exemplars for multi-zone countries need coverage.</span></td>
+    </tr>
+    <tr>
+      <td><span class="changedspan">level 4</span></td>
+      <td><span class="changedspan">basic</span></td>
+      <td><span class="changedspan">Has localization (or valid inheritance) as given by<br>
+      <a href="http://www.unicode.org/cldr/data_formats.html">
+      http://www.unicode.org/cldr/data_formats.html</a> &quot;Minimal Localization&quot;</span></td>
+    </tr>
+    <tr>
+      <td><span class="changedspan">level 2</span></td>
+      <td><span class="changedspan">posix</span></td>
+      <td><span class="changedspan">Only what is required for POSIX generation; example, only one<br>
+      country name, only one currency symbol, etc.</span></td>
+    </tr>
+    <tr>
+      <td><span class="changedspan">level 0</span></td>
+      <td><span class="changedspan">rudimentary</span></td>
+      <td><span class="changedspan">(default, if nothing specified) Doesn&#39;t even meet any of the 
+      above levels.</span></td>
+    </tr>
+  </table>
+  <p><span class="changedspan"><b>Issue: </b>use the numeric or the text values?</span></p>
   <h3>5.4 <a name="&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, 
   variants?, keys?, types?, special*)) &gt;</span></p>

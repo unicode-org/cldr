@@ -1447,6 +1447,12 @@ root</pre>
       <td><span>type=</span><span>&quot;America/Mexico_City America/Chihuahua America/New_York&quot;</span></td>
       <td><span>a preference ordering among modern zones</span></td>
     </tr>
+    <tr>
+      <td><span class="changedspan">singleCountries</span></td>
+      <td><span class="changedspan">list=&quot;America/Godthab America/Santiago America/Guayaquil 
+      Europe/Madrid Pacific/Auckland&nbsp; Pacific/Tahiti Europe/Lisbon</span></td>
+      <td><span class="changedspan">uses country name alone</span></td>
+    </tr>
   </table>
   <h3><br>
   5.10 <a name="&lt;numbers&gt;">&lt;numbers&gt;</a></h3>
@@ -4520,8 +4526,8 @@ America/Kentucky/Monticello&quot;&gt;
     </ul>
     </li>
     <li><span>* </span>Else if there is a country for the time zone, and a translation in the locale 
-    for the country name, and the country only has one (modern) timezone, use it with the region 
-    format :
+    for the country name, and the country only has one (modern) timezone<span class="changedspan"> 
+    or is in the singleCountries list</span>, use it with the region format :
     <ul>
       <li><i>Africa/Monrovia =&gt; LR =&gt; &quot;Tampo de Liberja&quot;</i> </li>
     </ul>

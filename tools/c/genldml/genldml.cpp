@@ -2119,6 +2119,7 @@ void GenerateXML::writeCollation(ResourceBundle& bundle,UnicodeString& xmlString
 #define UCOL_TOK_RESET    0xDEADBEEF
 #define UCOL_TOK_SETTING  0xFFFFFFFE
 #define UCOL_TOK_OVERRIDE 0xFFFFFFFD 
+#define UCOL_TOK_DONE     0xFFFFFFFC
 
 UBool 
 uprv_isRuleWhiteSpace(UChar32 c) {
@@ -2352,8 +2353,7 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 					str.findAndReplace((UChar)0x7C, mStringsBundle.getStringEx("contextEnd",mError));
 	                tempStr = str;
 			  }
-			  if((prevStrength != strength) || (prevStrength==strength && src.current >= src.end)
-                  || tempStr.length() != 1){
+			  if((prevStrength != strength) ){
 					char* singleKey = NULL;
 					char* seqKey = NULL;
 					
@@ -2428,15 +2428,16 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 								//xmlString.append(formatString(mStringsBundle.getStringEx(seqKey,mError),args,2,t));
 							    writeCollation(args[1].getString(),xmlString, seqKey);
                             }
+                            if(src.current== src.end){
+                                break;
+                            }
                           
 						}
                         //reset
 						
                         count = 0;
 						collStr.remove();
-                        if(src.current== src.end){
-                            break;
-                        }
+
 					}
 			  }
 
@@ -2987,6 +2988,9 @@ uint32_t GenerateXML::parseRules(Token* src,UBool startOfRules){
 
 
  EndOfLoop:
+    if(newStrength == UCOL_TOK_UNSET && src->current == src->end){
+        return UCOL_TOK_DONE;
+    }
   wasInQuote = FALSE;
   return newStrength;
 }

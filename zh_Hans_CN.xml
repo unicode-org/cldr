@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
-<ldml draft="true">
+<ldml>
 	<identity>
-		<version number="x0.2"/>
+		<version number="2.0"/>
 		<generation date="2004-06-04" />
-		<language type="haw" /> 
-		<territory type="US" /> 
+		<language type="zh" /> 
+		<script type="Hans" /> 
+		<territory type="CN" /> 
 	</identity>
-	<measurement>
-		<measurementSystem type="US"/>
-		<paperSize>
-			<height>279</height>
-			<width>216</width>
-		</paperSize>
-	</measurement>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -21,22 +15,22 @@
 					<default type="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat >
-							<pattern>EEEE, d MMMM yyyy</pattern>
+							<pattern>yyyy'年'M'月'd'日'EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength >
 					<dateFormatLength type="long">
 						<dateFormat >
-							<pattern>d MMMM yyyy</pattern>
+							<pattern>yyyy'年'M'月'd'日'</pattern>
 						</dateFormat>
 					</dateFormatLength >
 					<dateFormatLength type="medium">
 						<dateFormat >
-							<pattern>d MMM yyyy</pattern>
+							<pattern>yyyy-M-d</pattern>
 						</dateFormat>
 					</dateFormatLength >
 					<dateFormatLength type="short">
 						<dateFormat >
-							<pattern>d/M/yy</pattern>
+							<pattern>yy-M-d</pattern>
 						</dateFormat>
 					</dateFormatLength >
 				</dateFormats>
@@ -44,22 +38,22 @@
 					<default type="medium"/>
 					<timeFormatLength type="full">
 						<timeFormat >
-							<pattern>h:mm:ss a z</pattern>
+							<pattern>ahh'时'mm'分'ss'秒' z</pattern>
 						</timeFormat>
 					</timeFormatLength >
 					<timeFormatLength type="long">
 						<timeFormat >
-							<pattern>h:mm:ss a z</pattern>
+							<pattern>ahh'时'mm'分'ss'秒'</pattern>
 						</timeFormat>
 					</timeFormatLength >
 					<timeFormatLength type="medium">
 						<timeFormat >
-							<pattern>h:mm:ss a</pattern>
+							<pattern>ahh:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength >
 					<timeFormatLength type="short">
 						<timeFormat >
-							<pattern>h:mm a</pattern>
+							<pattern>ah:mm</pattern>
 						</timeFormat>
 					</timeFormatLength >
 				</timeFormats>
@@ -98,7 +92,7 @@
 		<currencyFormats>
 			<currencyFormatLength >
 				<currencyFormat >
-					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+					<pattern>¤#,##0.00;-¤#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength >
 		</currencyFormats>

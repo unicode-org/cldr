@@ -5,12 +5,14 @@
  ******************************************************************************
 */
 package org.unicode.cldr.tool;
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -18,6 +20,7 @@ import com.ibm.icu.dev.tool.UOption;
 
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
@@ -47,7 +50,8 @@ public class CLDRModify {
 	    MATCH = 4,
 	    JOIN = 5,
 		MINIMIZE = 6,
-		FIX = 7
+		FIX = 7,
+		JOIN_ARGS = 8
 		;
 	
 	private static final UOption[] options = {
@@ -59,22 +63,30 @@ public class CLDRModify {
 	    UOption.create("join", 'j', UOption.OPTIONAL_ARG),
 	    UOption.create("minimize", 'r', UOption.NO_ARG),
 	    UOption.create("fix", 'f', UOption.OPTIONAL_ARG),
+	    UOption.create("join-args", 'i', UOption.OPTIONAL_ARG),
 	};
 	
 	static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
 		+ "-h or -?\tfor this message" + XPathParts.NEWLINE
 		+ "-"+options[SOURCEDIR].shortName + "\tsource directory. Default = " 
 		+ Utility.getCanonicalName(Utility.MAIN_DIRECTORY) + XPathParts.NEWLINE
+		+ "\tExample:-sC:\\Unicode-CVS2\\cldr\\common\\gen\\source\\" + XPathParts.NEWLINE
 		+ "-"+options[DESTDIR].shortName + "\tdestination directory. Default = "
 		+ Utility.getCanonicalName(Utility.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
 		+ "-m<regex>\tto restrict the locales to what matches <regex>" + XPathParts.NEWLINE
-		+ "-j<prefix>\tto merge two sets of files together (from <source_dir>/X and <source_dir>/../to_merge/<prefix>X)" + XPathParts.NEWLINE
+		+ "-j<merge_dir>/X'\tto merge two sets of files together (from <source_dir>/X and <merge_dir>/X', " + XPathParts.NEWLINE
+		+ "\twhere * in X' is replaced by X)." + XPathParts.NEWLINE
+		+ "\tExample:-jC:\\Unicode-CVS2\\cldr\\dropbox\\to_be_merged\\missing\\missing_*" + XPathParts.NEWLINE
+		+ "-i\tmerge arguments:" + XPathParts.NEWLINE
+		+ "\td\tmake draft" + XPathParts.NEWLINE
+		+ "\tc\tignore comments in <merge_dir> files" + XPathParts.NEWLINE
 		+ "-r\tto minimize the results (removing items that inherit from parent)." + XPathParts.NEWLINE
 		+ "-f\tto perform various fixes on the files (TBD: add argument to specify which ones)" + XPathParts.NEWLINE
 		+ "\tn\tfix numbers" + XPathParts.NEWLINE
 		+ "\tv\tvalidate codes" + XPathParts.NEWLINE
 		+ "\tc\tfix CS" + XPathParts.NEWLINE
 		+ "\ts\tfix stand-alone narrows" + XPathParts.NEWLINE
+		+ "\tr\tfix references and standards" + XPathParts.NEWLINE
 		+ "A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results.";
 	
 	/**
@@ -87,9 +99,10 @@ public class CLDRModify {
         	return;
         }
 		//String sourceDir = "C:\\ICU4C\\locale\\common\\main\\";
-		String mergeDir = options[SOURCEDIR].value + "../to_merge/";	// Utility.COMMON_DIRECTORY + "main/";
+		String mergeDir = options[JOIN].value;	// Utility.COMMON_DIRECTORY + "main/";
 		String sourceDir = options[SOURCEDIR].value;	// Utility.COMMON_DIRECTORY + "main/";
 		String targetDir = options[DESTDIR].value;	// Utility.GEN_DIRECTORY + "main/";
+		
 		SimpleLineComparator lineComparer = new SimpleLineComparator(
 				SimpleLineComparator.SKIP_SPACES + SimpleLineComparator.SKIP_EMPTY + SimpleLineComparator.SKIP_CVS_TAGS);
 		
@@ -100,7 +113,17 @@ public class CLDRModify {
 		//if (true) return;
 		
 		Factory mergeFactory = null;
+		String join_prefix = "", join_postfix = "";
 		if (options[JOIN].doesOccur) {
+			File temp = new File(mergeDir);
+			mergeDir = temp.getParent() + File.separator;
+			String filename = temp.getName();
+			join_prefix = join_postfix = "";
+			int pos = filename.indexOf("*");
+			if (pos >= 0) {
+				join_prefix = filename.substring(0,pos);
+				join_postfix = filename.substring(pos+1);
+			}
 			mergeFactory = Factory.make(mergeDir, ".*");
 		}
 		/*
@@ -121,10 +144,11 @@ public class CLDRModify {
 			Set locales3 = new TreeSet();
 			for (Iterator it = temp.iterator(); it.hasNext();) {
 				String locale = (String)it.next();
-				if (!locale.startsWith(options[JOIN].value)) continue;
-				locales3.add(locale.substring(options[JOIN].value.length()));
+				if (!locale.startsWith(join_prefix) || !locale.endsWith(join_postfix)) continue;
+				locales3.add(locale.substring(join_prefix.length(), locale.length() - join_postfix.length()));
 			}
 			locales.retainAll(locales3);
+			System.out.println("Merging: " + locales3);
 		}
 		new Utility.MatcherFilter(options[MATCH].value).retainAll(locales);
 
@@ -138,15 +162,20 @@ public class CLDRModify {
 			
 			CLDRFile k = (CLDRFile) cldrFactory.make(test, false).clone();
 			if (mergeFactory != null) {
-				CLDRFile toMergeIn = mergeFactory.make(options[JOIN].value + test, false);
+				CLDRFile toMergeIn = (CLDRFile) mergeFactory.make(join_prefix + test + join_postfix, false).clone();				
+				if (options[JOIN_ARGS].doesOccur) {
+					if (options[JOIN_ARGS].value.indexOf("d") >= 0) toMergeIn.makeDraft();
+					if (options[JOIN_ARGS].value.indexOf("c") >= 0) toMergeIn.clearComments();
+					if (options[JOIN_ARGS].value.indexOf("x") >= 0) removePosix(toMergeIn);
+				}
 				if (toMergeIn != null) {
-					k.putAll(toMergeIn, false);
+					k.putAll(toMergeIn, k.MERGE_ADD_ALTERNATE);
 				}
 				// special fix
 				k.removeComment(" The following are strings that are not found in the locale (currently), but need valid translations for localizing timezones. ");
 			}
 			if (options[FIX].doesOccur) {
-				fix(k, options[FIX].value.toLowerCase());
+				fix(k, options[FIX].value.toLowerCase(), cldrFactory);
 			}
 			if (options[MINIMIZE].doesOccur) {
 				// TODO, fix identity
@@ -189,14 +218,31 @@ public class CLDRModify {
 		System.out.println("Done");
 	}
 	
+	/**
+	 * 
+	 */
+	private static void removePosix(CLDRFile toMergeIn) {
+		Set toRemove = new HashSet();
+		for (Iterator it = toMergeIn.keySet().iterator(); it.hasNext();) {
+			String xpath = (String) it.next();
+			if (xpath.startsWith("/ldml/posix")) toRemove.add(xpath);
+		}
+		toMergeIn.removeAll(toRemove, false);
+	}
+
 	abstract static class CLDRFilter {
+		protected CLDRFile k;
+		protected Set availableChildren;
 		protected XPathParts parts = new XPathParts(null, null);
 		protected XPathParts fullparts = new XPathParts(null, null);
-		public abstract void handle(CLDRFile k, String xpath, Set removal, CLDRFile additions);
+		public abstract void handle(String xpath, Set removal, CLDRFile additions);
+		public void setFile(CLDRFile k) {
+			this.k = k;
+		}
 	}
 	
 	static CLDRFilter fixCS = new CLDRFilter() {
-		public void handle(CLDRFile k, String xpath, Set removal, CLDRFile replacements) {
+		public void handle(String xpath, Set removal, CLDRFile replacements) {
 			if (!xpath.startsWith("/ldml/localeDisplayNames/territories/territory")) return;
 			String type = parts.set(xpath).findAttributeValue("territory", "type");
 			if ("CS".equals(type) || "SP".equals(type)) {
@@ -219,7 +265,7 @@ public class CLDRModify {
 	};
 	
 	static CLDRFilter fixNarrow = new CLDRFilter() {
-		public void handle(CLDRFile k, String xpath, Set removal, CLDRFile replacements) {
+		public void handle(String xpath, Set removal, CLDRFile replacements) {
 			if (xpath.indexOf("[@type=\"narrow\"]") < 0) return;
 			parts.set(xpath);
 			String element = "";
@@ -242,8 +288,9 @@ public class CLDRModify {
 		}		
 	};
 	
+	
 	static CLDRFilter fixNumbers = new CLDRFilter() {
-		public void handle(CLDRFile k, String xpath, Set removal, CLDRFile replacements) {
+		public void handle(String xpath, Set removal, CLDRFile replacements) {
 			byte type = CLDRTest.getNumericType(xpath);
 			if (type == CLDRTest.NOT_NUMERIC_TYPE) return;
 			CLDRFile.StringValue value = (StringValue) k.getValue(xpath);
@@ -254,26 +301,138 @@ public class CLDRModify {
 			replacements.add(xpath, value.getFullXPath(), pattern);
 		}
 	};
+
+	static CLDRFilter fixReferences = new CLDRFilter() {
+		References standards = new References(true);
+		References references = new References(false);
+		public void setFile(CLDRFile k) {
+			super.setFile(k);
+			standards.clear();
+			references.clear();
+		}
+		public void handle(String xpath, Set removal, CLDRFile replacements) {
+			Value value = k.getValue(xpath);
+			String fullpath = value.getFullXPath();
+			if (fullpath.indexOf("[@references=\"") < 0 && fullpath.indexOf("[@standard=\"") < 0) return;
+			fullparts.set(fullpath);
+			for (int i = 0; i < fullparts.size(); ++i) {
+				Map attributes = fullparts.getAttributes(i);
+				standards.fix(attributes, replacements);
+				references.fix(attributes, replacements);
+			}
+			replacements.add(fullparts.toString(), value.getStringValue());
+		}
+	};
 	
+	private static class References {
+		static String[][] keys = {{"standard", "S", "[@standard=\"true\"]"}, {"references", "R", ""}};
+		int referenceCounter = 0;
+		Map referencesMap = new TreeMap();
+		String[] keys2;
+		References(boolean standard) {
+			keys2 = standard ? keys[0] : keys[1];
+		}
+		/**
+		 * 
+		 */
+		public void clear() {
+			referenceCounter = 0;
+			referencesMap.clear();
+		}
+		private void fix(Map attributes, CLDRFile replacements) {
+			String references = (String) attributes.get(keys2[0]);
+			if (references != null) {
+				references = references.trim();
+				String token = (String) referencesMap.get(references);
+				if (token == null) {
+					token = keys2[1] + (++referenceCounter);
+					referencesMap.put(references, token);
+					System.out.println("Adding: " + token + "\t" + references);
+					replacements.add("/ldml/references/reference[@type=\"" + token + "\"]" + keys2[2], references);
+				}
+				attributes.put(keys2[0], token);
+			}
+		}
+	}
+
+	// references="http://www.stat.fi/tk/tt/luokitukset/lk/kieli_02.html"
+
+	/**
+	 * Find the set of xpaths that 
+	 * (a) have all the same values (if present) in the children
+	 * (b) are absent in the parent,
+	 * (c) are different than what is in the fully resolved parent
+	 * and add them.
+	 */
+	static void fixIdenticalChildren(CLDRFile.Factory cldrFactory, CLDRFile k, CLDRFile replacements) {
+		String key = k.getKey();
+		Set availableChildren = cldrFactory.getAvailableWithParent(key, true);
+		if (availableChildren.size() == 0) return;
+		Set skipPaths = new HashSet();
+		Map haveSameValues = new TreeMap();
+		CLDRFile resolvedFile = cldrFactory.make(key, true);
+		skipPaths.addAll(k.keySet());
+		for (Iterator it1 = availableChildren.iterator(); it1.hasNext();) {
+			String locale = (String)it1.next();
+			if (locale.indexOf("POSIX") >= 0) continue;
+			CLDRFile item = cldrFactory.make(locale, true);
+			for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
+				String xpath = (String) it2.next();
+				if (skipPaths.contains(xpath)) continue;
+				// skip certain elements
+				if (xpath.indexOf("/identity") >= 0) continue;
+				if (xpath.startsWith("/ldml/numbers/currencies/currency")) continue;
+				if (xpath.indexOf("[@alt") >= 0) continue;
+
+				// must be string vale
+				Value v1 = item.getValue(xpath);
+				if (!(v1 instanceof StringValue)) {
+					skipPaths.add(xpath);
+					continue;
+				}
+				Value vAlready = (Value)haveSameValues.get(xpath);
+				if (vAlready == null) {
+					haveSameValues.put(xpath, v1);
+				} else if (!v1.equals(vAlready)) {
+					skipPaths.add(xpath);
+					haveSameValues.remove(xpath);
+				}
+			}
+		}
+		// at this point, haveSameValues is all kosher, so add items
+		for (Iterator it = haveSameValues.keySet().iterator(); it.hasNext();) {
+			String xpath = (String) it.next();
+			Value v = (Value) haveSameValues.get(xpath);
+			Value vResolved = resolvedFile.getValue(xpath);
+			if (v.equals(vResolved)) continue;
+			replacements.add(xpath, v.getFullXPath(), v.getStringValue());
+		}
+	}
+
 	/**
 	 * Perform various fixes
 	 * TODO add options to pick which one.
 	 * @param options TODO
+	 * @param cldrFactory TODO
 	 */
-	private static void fix(CLDRFile k, String options) {
+	private static void fix(CLDRFile k, String options, Factory cldrFactory) {
 		
 		// TODO before modifying, make sure that it is fully resolved.
 		// then minimize against the NEW parents
 		
 		Set removal = new TreeSet(CLDRFile.ldmlComparator);
 		CLDRFile replacements = CLDRFile.make("temp");
+		fixNumbers.setFile(k);
+		fixCS.setFile(k);
+		fixNarrow.setFile(k);
+		fixReferences.setFile(k);
 		
 		for (Iterator it2 = k.keySet().iterator(); it2.hasNext();) {
 			String xpath = (String) it2.next();
 
 			// Fix number problems across locales
 			// http://www.jtcsv.com/cgibin/locale-bugs?findid=180
-			if (options.indexOf('n') >= 0) fixNumbers.handle(k, xpath, removal, replacements);
+			if (options.indexOf('n') >= 0) fixNumbers.handle(xpath, removal, replacements);
 		
 			//Before removing SP, do the following!
 			//http://www.jtcsv.com/cgibin/locale-bugs?findid=351, 353
@@ -286,7 +445,7 @@ public class CLDRModify {
 			=>
 			<territory type="CS" draft="true">Serbia</territory> <!-- should be serbia & montegro -->
 			*/
-			if (options.indexOf('c') >= 0) fixCS.handle(k, xpath, removal, replacements);
+			if (options.indexOf('c') >= 0) fixCS.handle(xpath, removal, replacements);
 			
 			//Give best default for each language
 			//http://www.jtcsv.com/cgibin/locale-bugs?findid=282
@@ -294,13 +453,14 @@ public class CLDRModify {
 			// It appears that all of the current "narrow" data that we have was intended to be
 			// stand-alone instead of format, and should be changed to be so in a mechanical
 			// sweep.
-			if (options.indexOf('s') >= 0) fixNarrow.handle(k, xpath, removal, replacements);
+			if (options.indexOf('s') >= 0) fixNarrow.handle(xpath, removal, replacements);
 			
 			// move references
 			// http://www.jtcsv.com/cgibin/cldr/locale-bugs-private/data?id=445
 			// My recommendation would be: collect all
 			// contents of standard and references. Number the standards S001, S002,... and the
 			// references R001, R002, etc. Emit
+			if (options.indexOf('r') >= 0) fixReferences.handle(xpath, removal, replacements);
 		}
 		
 		//remove bad attributes
@@ -310,13 +470,16 @@ public class CLDRModify {
 		
 		if (options.indexOf('v') >= 0) CLDRTest.checkAttributeValidity(k, null, removal);
 		
+		// raise identical elements
+		
+		if (options.indexOf('i') >= 0) fixIdenticalChildren(cldrFactory, k, replacements);
 		
 		// now do the actions we collected
 		
 		if (removal.size() != 0) {
 			k.removeAll(removal, COMMENT_REMOVALS);
 		}
-		k.putAll(replacements, false);
+		k.putAll(replacements, k.MERGE_REPLACE_MINE);
 	}
 
 	/**

@@ -30,6 +30,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 
 public class Utility {
 	/**
@@ -256,7 +258,13 @@ public class Utility {
             String batName = targetFile + ".bat";
             String[] failureLines = new String[2];
 
-            if (!areFileIdentical(sourceDir + sourceFile, targetDir + targetFile, failureLines, lineComparer)) {
+            if (!new File(sourceDir + sourceFile).exists()) {
+                File f = new File(batDir + batName);
+                if (f.exists()) {
+                    if (DEBUG_SHOW_BAT) System.out.println("*Deleting old " + f.getCanonicalPath());
+                    f.delete();
+                }
+            } else if (!areFileIdentical(sourceDir + sourceFile, targetDir + targetFile, failureLines, lineComparer)) {
                 PrintWriter bat = BagFormatter.openUTF8Writer(batDir, batName);
                 try {
                 	bat.println(COMPARE_PROGRAM + " " +
@@ -441,6 +449,19 @@ public class Utility {
 		} catch (IOException e) {
 			return file;
 		}
+	}
+	
+	/**
+	 * Scan the string value from index forward. Stop at any point where the character
+	 * at index is not in the UnicodeSet.
+	 */
+	public static int scan(UnicodeSet uset, String value, int index) {
+		int cp;
+		for (; index < value.length(); index += UTF16.getCharCount(cp)) {
+			cp = UTF16.charAt(value, index);
+			if (!uset.contains(cp)) break;
+		}
+		return index;
 	}
 
 	public static abstract class Transform {

@@ -35,7 +35,7 @@ import org.w3c.dom.NamedNodeMap;
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.UnicodeMap;
-import com.ibm.icu.impl.Utility;
+//import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
@@ -56,6 +56,7 @@ import com.ibm.icu.dev.test.util.SortedBag;
 import com.ibm.icu.dev.tool.UOption;
 import org.unicode.cldr.icu.ICUResourceWriter.Resource;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.Utility;
 
 /**
  * Generated tests for CLDR. Currently, these are driven off of a version of ICU4J, and just
@@ -71,9 +72,9 @@ public class GenerateCldrTests {
     private static final int
         HELP1 = 0,
         HELP2 = 1,
-        DESTDIR = 2,
-        LOGDIR = 3,
-        SOURCEDIR =4,
+        SOURCEDIR =2,
+        DESTDIR = 3,
+        LOGDIR = 4,
         MATCH = 5,
         FULLY_RESOLVED = 6,
 		LANGUAGES = 7,
@@ -82,9 +83,9 @@ public class GenerateCldrTests {
     private static final UOption[] options = {
             UOption.HELP_H(),
             UOption.HELP_QUESTION_MARK(),
-            UOption.DESTDIR().setDefault("C:\\DATA\\GEN\\cldr\\test\\"),
-            UOption.create("log", 'l', UOption.REQUIRES_ARG).setDefault("C:\\DATA\\GEN\\cldr\\test\\"),
-            UOption.SOURCEDIR().setDefault("C:\\ICU4C\\locale\\common\\"),
+    	    UOption.SOURCEDIR().setDefault(Utility.COMMON_DIRECTORY),
+		    UOption.DESTDIR().setDefault(Utility.GEN_DIRECTORY + "test/"),
+            UOption.create("log", 'l', UOption.REQUIRES_ARG).setDefault(Utility.GEN_DIRECTORY + "test/"),
             UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
             UOption.create("fullyresolved", 'f', UOption.NO_ARG),
             UOption.create("languages", 'g', UOption.NO_ARG),
@@ -624,12 +625,13 @@ public class GenerateCldrTests {
                 locale.getDisplayName(ULocale.ENGLISH) + " ["
                 + locale.getDisplayName(locale))
                 + "] -->");
-        //generateItems(locale, numberLocales, NumberEquator, NumberShower);
-        //generateItems(locale, dateLocales, DateEquator, DateShower);
+        generateItems(locale, numberLocales, NumberEquator, NumberShower);
+        generateItems(locale, dateLocales, DateEquator, DateShower);
         generateItems(locale, collationLocales, CollationEquator, CollationShower);
         out.println(" </cldrTest>");
         out.close();
-        GenerateSidewaysView.generateBat(options[SOURCEDIR].value + "test" + File.separator, locale + ".xml", options[DESTDIR].value, locale + ".xml");
+        Utility.generateBat(options[SOURCEDIR].value + "test" + File.separator, locale + ".xml", 
+        		options[DESTDIR].value, locale + ".xml", new Utility.SimpleLineComparator(0));
     }
 
     /*
@@ -1337,7 +1339,7 @@ public class GenerateCldrTests {
             String validSubLocales = LDMLUtilities.getAttributeValue(colls, "validSubLocales");
             if (validSubLocales != null) {
                 String items[] = new String[100]; // allocate plenty
-                Utility.split(validSubLocales, ' ', items);
+                com.ibm.icu.impl.Utility.split(validSubLocales, ' ', items);
                 for (int i = 0; items[i].length() != 0; ++i) {
                     log.println("Valid Sub Locale: " + items[i]);
                     validLocales.add(items[i]);
@@ -1416,11 +1418,41 @@ public class GenerateCldrTests {
         }
         return target;
     }
-
+    
+    static class UnicodeSetComparator implements Comparator {
+    	UnicodeSetIterator ait = new UnicodeSetIterator();
+    	UnicodeSetIterator bit = new UnicodeSetIterator();
+		public int compare(Object o1, Object o2) {
+			if (o1 == o2) return 0;
+			if (o1 == null) return -1;
+			if (o2 == null) return 1;
+			UnicodeSet a = (UnicodeSet)o1;
+			UnicodeSet b = (UnicodeSet)o2;
+			if (a.size() != b.size()) {
+				return a.size() < b.size() ? -1 : 1;
+			}
+			ait.reset(a);
+			bit.reset(b);
+			while (ait.nextRange()) {
+				bit.nextRange();
+				if (ait.codepoint != bit.codepoint) {
+					return ait.codepoint < bit.codepoint ? -1 : 1;
+				}
+				if (ait.codepoint == ait.IS_STRING) {
+					int result = ait.string.compareTo(bit.string);
+					if (result != 0) return result;
+				} else if (ait.codepointEnd != bit.codepointEnd) {
+					return ait.codepointEnd < bit.codepointEnd ? -1 : 1;
+				}
+			}
+			return 0;
+		}
+    }
+    
     public static final CloseCodePoint CCCP = new CloseCodePoint() {
         Locale locale = Locale.ENGLISH;
         UnicodeSet NONE = new UnicodeSet();
-        UnicodeMap map = new UnicodeMap();
+        UnicodeMap map = new UnicodeMap(new UnicodeSetComparator());
 
         public UnicodeSet close(int cp, UnicodeSet toAddTo) {
             UnicodeSet result = (UnicodeSet) map.getValue(cp);

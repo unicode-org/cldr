@@ -31,6 +31,7 @@ public class XPathParts {
 	Map suppressionMap;
 	
 	public XPathParts(Comparator attributeComparator, Map suppressionMap) {
+		if (attributeComparator == null) attributeComparator = CLDRFile.getAttributeComparator();
 		this.attributeComparator = attributeComparator;
 		this.suppressionMap = suppressionMap;
 	}
@@ -62,7 +63,7 @@ public class XPathParts {
 	 * @param lastFullXPath
 	 * @param filteredLastXPath TODO
 	 */
-	public void writeDifference(PrintWriter pw, XPathParts filteredXPath, XPathParts lastFullXPath,
+	public XPathParts writeDifference(PrintWriter pw, XPathParts filteredXPath, XPathParts lastFullXPath,
 			XPathParts filteredLastXPath, Value v, Comments xpath_comments) {
 		int limit = findFirstDifference(lastFullXPath);
 		// write the end of the last one
@@ -70,7 +71,7 @@ public class XPathParts {
 			Utility.indent(pw, i);
 			pw.println(((Element)lastFullXPath.elements.get(i)).toString(XML_CLOSE));
 		}
-		if (v == null) return; // end
+		if (v == null) return this; // end
 		// now write the start of the current
 		for (int i = limit; i < size()-1; ++i) {
 			filteredXPath.writeComment(pw, xpath_comments, i+1, Comments.PREBLOCK);
@@ -94,6 +95,7 @@ public class XPathParts {
 		pw.println();
 		filteredXPath.writeComment(pw, xpath_comments, size(), Comments.POSTBLOCK);
 		pw.flush();
+		return this;
 	}
 	
 	//public static final char BLOCK_PREFIX = 'B', LINE_PREFIX = 'L';
@@ -147,15 +149,16 @@ public class XPathParts {
 		/**
 		 * @param other
 		 */
-		public void joinAll(Comments other) {
+		public Comments joinAll(Comments other) {
 			Utility.joinWithSeparation(comments[LINE], XPathParts.NEWLINE, other.comments[LINE]);
 			Utility.joinWithSeparation(comments[PREBLOCK], XPathParts.NEWLINE, other.comments[PREBLOCK]);
 			Utility.joinWithSeparation(comments[POSTBLOCK], XPathParts.NEWLINE, other.comments[POSTBLOCK]);
+			return this;
 		}
 		/**
 		 * @param string
 		 */
-		public void removeComment(String string) {
+		public Comments removeComment(String string) {
 			if (initialComment.equals(string)) initialComment = "";
 			if (finalComment.equals(string)) finalComment = "";
 			for (int i = 0; i < comments.length; ++i) {
@@ -166,6 +169,7 @@ public class XPathParts {
 					it.remove();
 				}
 			}
+			return this;
 		}
 		private String initialComment = "";
 		private String finalComment = "";
@@ -178,8 +182,9 @@ public class XPathParts {
 		/**
 		 * @param finalComment The finalComment to set.
 		 */
-		public void setFinalComment(String finalComment) {
+		public Comments setFinalComment(String finalComment) {
 			this.finalComment = finalComment;
+			return this;
 		}
 		/**
 		 * @return Returns the initialComment.
@@ -190,8 +195,9 @@ public class XPathParts {
 		/**
 		 * @param initialComment The initialComment to set.
 		 */
-		public void setInitialComment(String initialComment) {
+		public Comments setInitialComment(String initialComment) {
 			this.initialComment = initialComment;
+			return this;
 		}
 	}
 	
@@ -200,14 +206,15 @@ public class XPathParts {
 	 * @param xpath_comments
 	 * @param index TODO
 	 */
-	private void writeComment(PrintWriter pw, Comments xpath_comments, int index, int style) {
-		if (index == 0) return;
+	private XPathParts writeComment(PrintWriter pw, Comments xpath_comments, int index, int style) {
+		if (index == 0) return this;
 		String xpath = toString(index);
 		Log.logln("Checking for: " + xpath);
 		String comment = (String) xpath_comments.remove(style, xpath);
 		if (comment != null) {
 			XPathParts.writeComment(pw, index-1, comment, style != Comments.LINE);
 		}
+		return this;
 	}
 
 	/**
@@ -293,17 +300,19 @@ public class XPathParts {
 	/**
 	 * Add an element
 	 */
-	public void addElement(String element) {
+	public XPathParts addElement(String element) {
 		elements.add(new Element(element));
+		return this;
 	}
 	/**
 	 * Add an attribute/value pair to the current last element.
 	 */
-	public void addAttribute(String attribute, String value) {
+	public XPathParts addAttribute(String attribute, String value) {
 		Element e = (Element)elements.get(elements.size()-1);
 		attribute = attribute.intern();
 		//AttributeComparator.add(attribute);
 		e.attributes.put(attribute, value);
+		return this;
 	}
 
 	/**
@@ -481,7 +490,7 @@ public class XPathParts {
 		 * @param removeLDMLExtras TODO
 		 * @param result
 		 */
-		private void writeAttributes(String element, String prefix, String postfix,
+		private Element writeAttributes(String element, String prefix, String postfix,
 				boolean removeLDMLExtras, StringBuffer result) {
 			Set keys = attributes.keySet();
 			if (attributeComparator != null) {
@@ -502,6 +511,7 @@ public class XPathParts {
 				result.append(prefix).append(attribute).append("=\"")
 						.append(value).append(postfix);
 			}
+			return this;
 		}
 
 		public boolean equals(Object other) {
@@ -544,28 +554,31 @@ public class XPathParts {
 	}
 	/**
 	 */
-	public void trimLast() {
+	public XPathParts trimLast() {
 		elements.remove(elements.size()-1);
+		return this;
 	}
 	/**
 	 * @param parts
 	 */
-	public void set(XPathParts parts) {
+	public XPathParts set(XPathParts parts) {
 		elements.clear();
 		elements.addAll(parts.elements);
+		return this;
 	}
 	/**
 	 * Replace up to i with parts
 	 * @param i
 	 * @param parts
 	 */
-	public void replace(int i, XPathParts parts) {
+	public XPathParts replace(int i, XPathParts parts) {
 		List temp = elements;
 		elements = new ArrayList();
 		set(parts);
 		for (;i < temp.size(); ++i) {
 			elements.add(temp.get(i));
 		}
+		return this;
 	}
 
 	/**
@@ -647,8 +660,9 @@ public class XPathParts {
 	/**
 	 * Sets an attribute/value on the first matching element.
 	 */
-	public void setAttribute(String elementName, String attributeName, String attributeValue) {
+	public XPathParts setAttribute(String elementName, String attributeName, String attributeValue) {
 		Map m = findAttributes(elementName);
 		m.put(attributeName, attributeValue);
+		return this;
 	}
 }

@@ -189,12 +189,13 @@ public class CLDRFile implements Lockable {
      * Prints the contents of the file (the xpaths/values) to the console.
      *
      */
-    public void show() {
+    public CLDRFile show() {
 		for (Iterator it2 = xpath_value.keySet().iterator(); it2.hasNext();) {
 			String xpath = (String)it2.next();
 			Value v = (Value) xpath_value.get(xpath);
 			System.out.println(v.getFullXPath() + " =>\t" + v.getStringValue());
 		}
+		return this;
     }
 
     static DateFormat myDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");  
@@ -206,7 +207,7 @@ public class CLDRFile implements Lockable {
 	 * Write the corresponding XML file out, with the normal formatting and indentation.
 	 * Will update the identity element, including generation, version, and other items.
 	 */
-	public void write(PrintWriter pw) {
+	public CLDRFile write(PrintWriter pw) {
 		pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
 		pw.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/" + GEN_VERSION + "/ldml.dtd\">");
 		/*
@@ -287,14 +288,16 @@ public class CLDRFile implements Lockable {
 			finalComment += XPathParts.NEWLINE + extras;
 		}
 		XPathParts.writeComment(pw, 0, finalComment, true);
+		return this;
 	}
 
 	/**
 	 * @param fullxpath
 	 * @param value
 	 */
-	private void add(String fullxpath, String value) {
+	public CLDRFile add(String fullxpath, String value) {
 		add(getDistinguishingXPath(fullxpath), fullxpath, value);
+		return this;
 	}
 
 	/**
@@ -319,15 +322,16 @@ public class CLDRFile implements Lockable {
      * @param currentFullXPath
      * @param value
      */
-    public void add(String xpath, String currentFullXPath, String value) {
+    public CLDRFile add(String xpath, String currentFullXPath, String value) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	StringValue v = new StringValue(value, currentFullXPath);
     	Log.logln("ADDING: \t" + xpath + " \t" + v);
     	xpath = xpath.intern();
         xpath_value.put(xpath, v);
+        return this;
     }
     
-    public void addComment(String xpath, String comment, int type) {
+    public CLDRFile addComment(String xpath, String comment, int type) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	// System.out.println("Adding comment: <" + xpath + "> '" + comment + "'");
     	Log.logln("ADDING Comment: \t" + type + "\t" + xpath + " \t" + comment);
@@ -337,9 +341,10 @@ public class CLDRFile implements Lockable {
     	} else {
 	        xpath_comments.add(type, xpath, comment);
     	}
+    	return this;
     }
 
-    
+    static final public int MERGE_KEEP_MINE = 0, MERGE_REPLACE_MINE = 1, MERGE_ADD_ALTERNATE = 2;
     /**
      * Merges elements from another CLDR file. Note: when both have the same xpath key, 
      * the keepMine determines whether "my" values are kept
@@ -347,16 +352,33 @@ public class CLDRFile implements Lockable {
      * @param other
      * @param keepMine if true, keep my values in case of conflict; otherwise keep the other's values.
      */
-    public void putAll(CLDRFile other, boolean keepMine) {
+    public CLDRFile putAll(CLDRFile other, int conflict_resolution) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-    	if (keepMine) {
+    	if (conflict_resolution == MERGE_KEEP_MINE) {
     		Map temp = isSupplemental ? new TreeMap() : new TreeMap(ldmlComparator);
     		temp.putAll(other.xpath_value);
     		temp.putAll(xpath_value);
-    		xpath_value = temp;
-    		
-    	} else {
+    		xpath_value = temp;    		
+    	} else if (conflict_resolution == MERGE_REPLACE_MINE) {
     		xpath_value.putAll(other.xpath_value);
+    	} else { // MERGE_ADD_ALTERNATE
+    		XPathParts parts = new XPathParts(null, null);
+    		for (Iterator it = other.xpath_value.keySet().iterator(); it.hasNext();) {
+    			String key = (String) it.next();
+    			Value otherValue = (Value) other.xpath_value.get(key);
+    			Value myValue = (Value) xpath_value.get(key);
+    			if (myValue == null) {
+    				xpath_value.put(getDistinguishingXPath(otherValue.getFullXPath()), otherValue);
+    			} else if (!myValue.equalsIgnoringDraft(otherValue) && !key.startsWith("/ldml/identity")){
+    				for (int i = 0; ; ++i) {
+    					String fullPath = parts.set(otherValue.getFullXPath()).addAttribute("alt", "proposed" + i).toString();
+    					String path = getDistinguishingXPath(fullPath);
+    					if (xpath_value.get(path) != null) continue;
+    					xpath_value.put(path, new StringValue(otherValue.getStringValue(), fullPath));
+    					break;
+    				}
+    			}
+    		}
     	}
     	xpath_comments.setInitialComment(
     			Utility.joinWithSeparation(xpath_comments.getInitialComment(),
@@ -376,42 +398,46 @@ private XPathParts.Comments xpath_comments = new XPathParts.Comments(); // map f
 private boolean isSupplemental;
 
 		 */
+    	return this;
     }
     
 	/**
      * Removes an element from a CLDRFile.
      */
-    public void remove(String xpath) {
+    public CLDRFile remove(String xpath) {
     	remove(xpath, false);
+    	return this;
     }
 
 	/**
      * Removes an element from a CLDRFile.
      */
-    public void remove(String xpath, boolean butComment) {
+    public CLDRFile remove(String xpath, boolean butComment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	if (butComment) {
     		CLDRFile.Value v = getValue(xpath);
     		appendFinalComment(v.getFullXPath()+ "::<" + v.getStringValue() + ">");
     	}
     	xpath_value.remove(xpath);
+    	return this;
     }
     
 	/**
      * Removes all xpaths from a CLDRFile.
      */
-   public void removeAll(Set xpaths, boolean butComment) {
+   public CLDRFile removeAll(Set xpaths, boolean butComment) {
    		if (butComment) appendFinalComment("Illegal attributes removed:");
     	for (Iterator it = xpaths.iterator(); it.hasNext();) {
     		remove((String) it.next(), butComment);
     	}
+    	return this;
 	}
 
     
     /**
      * Removes all items with same value
      */
-    public void removeDuplicates(CLDRFile other, boolean butComment) {
+    public CLDRFile removeDuplicates(CLDRFile other, boolean butComment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	boolean first = true;
     	for (Iterator it = other.xpath_value.keySet().iterator(); it.hasNext();) {
@@ -419,13 +445,14 @@ private boolean isSupplemental;
     		Value currentValue = (Value) xpath_value.get(xpath);
     		if (currentValue == null) continue;
     		Value otherValue = (Value) other.xpath_value.get(xpath);
-    		if (!currentValue.getStringValue().equals(otherValue.getStringValue())) continue;
+    		if (!currentValue.equalsIgnoringDraft(otherValue)) continue;
     		if (first) {
     			first = false;
     			if (butComment) appendFinalComment("Duplicates removed:");
     		}
     		remove(xpath, butComment);
     	}
+    	return this;
     }
     
 	/**
@@ -469,28 +496,36 @@ private boolean isSupplemental;
 		locked = true;
 		return this;
 	}
+	
+	public CLDRFile clearComments() {
+		xpath_comments = new XPathParts.Comments();
+		return this;
+	}
 	/**
 	 * Sets a final comment, replacing everything that was there.
 	 */
-	public void setFinalComment(String comment) {
+	public CLDRFile setFinalComment(String comment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
 		xpath_comments.setFinalComment(comment);
+		return this;
 	}
 
 	/**
 	 * Adds a comment to the final list of comments.
 	 */
-	public void appendFinalComment(String comment) {
+	public CLDRFile appendFinalComment(String comment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
 		xpath_comments.setFinalComment(Utility.joinWithSeparation(xpath_comments.getFinalComment(), XPathParts.NEWLINE, comment));
+		return this;
 	}
 
 	/**
 	 * Sets the initial comment, replacing everything that was there.
 	 */
-	public void setInitialComment(String comment) {
+	public CLDRFile setInitialComment(String comment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	xpath_comments.setInitialComment(comment);
+    	return this;
 	}
 
 	// ========== STATIC UTILITIES ==========
@@ -536,6 +571,19 @@ private boolean isSupplemental;
     	return parts.toString();
     }
     
+    private static String getNondraftXPath(String xpath) {
+    	XPathParts parts = new XPathParts(null,null).set(xpath);
+    	for (int i = 0; i < parts.size(); ++i) {
+    		String element = parts.getElement(i);
+    		Map attributes = parts.getAttributes(i);
+    		for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
+    			String attribute = (String) it.next();
+    			if (attribute.equals("draft")) it.remove();
+    		}
+    	}
+    	return parts.toString();
+    }
+    
 	/**
 	 * Determine if an attribute is a distinguishing attribute.
 	 * @param elementName
@@ -550,6 +598,7 @@ private boolean isSupplemental;
 		|| attribute.equals("iso3166")
 		|| (attribute.equals("type") 
 				&& !elementName.equals("default") 
+				&& !elementName.equals("measurementSystem") 
 				&& !elementName.equals("mapping")
 				&& !elementName.equals("abbreviationFallback")
 				&& !elementName.equals("preferenceOrdering"));
@@ -677,7 +726,7 @@ private boolean isSupplemental;
     					currentName = CLDRFile.getParent(currentName);
     					if (currentName == null) break;
     					CLDRFile parent = make(currentName, false);
-    					result.putAll(parent, true);
+    					result.putAll(parent, MERGE_KEEP_MINE);
     					result.fixAliases(this);	    					
     				}
     				// now add "constructed" items
@@ -714,7 +763,7 @@ private boolean isSupplemental;
     					}
     					constructedItems.lock();
     				}
-    				result.putAll(constructedItems, true);
+    				result.putAll(constructedItems, MERGE_KEEP_MINE);
  	    		}
 	    		result.lock();
 	    		cache.put(localeName, result);
@@ -763,6 +812,11 @@ private boolean isSupplemental;
     	final public boolean equals(Object other) {
     		if (!hasSameValue(other)) return false;
 			return fullXPath.equals(((Value)other).fullXPath);
+    	}
+
+    	final public boolean equalsIgnoringDraft(Object other) {
+    		if (!hasSameValue(other)) return false;
+			return getNondraftXPath(fullXPath).equals(getNondraftXPath(((Value)other).fullXPath));
     	}
     	
     	public boolean hasSameValue(Object other) {
@@ -1175,7 +1229,7 @@ private boolean isSupplemental;
 	/**
 	 * Only gets called on (mostly) resolved stuff
 	 */
-	private void fixAliases(Factory factory) {
+	private CLDRFile fixAliases(Factory factory) {
 		// walk through the entire tree. If we ever find an alias, 
 		// remove every peer of that alias,
 		// then add everything from the resolved source of the alias.
@@ -1186,7 +1240,7 @@ private boolean isSupplemental;
 				aliases.add(xpath);
 			}
 		}
-		if (aliases.size() == 0) return;
+		if (aliases.size() == 0) return this;
 		XPathParts parts = new XPathParts(attributeOrdering, defaultSuppressionMap);
 		XPathParts fullParts = new XPathParts(attributeOrdering, defaultSuppressionMap);
 		XPathParts otherParts = new XPathParts(attributeOrdering, defaultSuppressionMap);
@@ -1218,6 +1272,7 @@ private boolean isSupplemental;
 			}
 			addChildren(parts, fullParts, other, otherParts);
 		}		
+		return this;
 	}
 
 	/**
@@ -1225,7 +1280,7 @@ private boolean isSupplemental;
 	 * @param other
 	 * @param otherParts
 	 */
-	private void addChildren(XPathParts parts, XPathParts fullParts, CLDRFile other, XPathParts otherParts) {
+	private CLDRFile addChildren(XPathParts parts, XPathParts fullParts, CLDRFile other, XPathParts otherParts) {
 		String otherPath = otherParts + "/";
 		XPathParts temp = new XPathParts(attributeOrdering, defaultSuppressionMap);
 		XPathParts fullTemp = new XPathParts(attributeOrdering, defaultSuppressionMap);
@@ -1246,12 +1301,13 @@ private boolean isSupplemental;
 			}
 		}
 		xpath_value.putAll(tempMap);
+		return this;
 	}
 
 	/**
 	 * @param parts
 	 */
-	private void removeChildren(XPathParts parts) {
+	private CLDRFile removeChildren(XPathParts parts) {
 		String mypath = parts + "/";
 		for (Iterator it = xpath_value.keySet().iterator(); it.hasNext();) {
 			String path = (String)it.next();
@@ -1260,6 +1316,7 @@ private boolean isSupplemental;
 				it.remove();
 			}
 		}
+		return this;
 	}
 
 	/**
@@ -1390,6 +1447,15 @@ private boolean isSupplemental;
 	}
 
 	/**
+	 * Get standard ordering for attributes.
+	 * @return ordered collection with items.
+	 */
+	public static Comparator getAttributeComparator() {
+		return attributeOrdering; // already unmodifiable
+	}
+
+
+	/**
 	 * Get standard ordering for attribute values.
 	 * @return ordered collection with items.
 	 */
@@ -1441,7 +1507,7 @@ private boolean isSupplemental;
 			"list", "percentSign", "nativeZeroDigit", "patternDigit",
 			"plusSign", "minusSign", "exponential", "perMille", "infinity",
 			"nan", "collation", "messages", "yesstr", "nostr",
-			"yesexpr", "noexpr",
+			"yesexpr", "noexpr", "references", "reference",
 			"special", }).lock();
 	
 	static MapComparator attributeOrdering = (MapComparator) new MapComparator().add(new String[] {
@@ -1453,7 +1519,8 @@ private boolean isSupplemental;
 			"before",
 			"number", "time",
 			"validSubLocales",
-			"standard", "references",				
+			"standard", "references",
+			"uri",
 			"draft",
 			}).lock();
 	static MapComparator valueOrdering = (MapComparator) new MapComparator().setErrorOnMissing(false).lock();
@@ -1616,9 +1683,26 @@ private boolean isSupplemental;
 	/**
 	 * Removes a comment.
 	 */
-	public void removeComment(String string) {
+	public CLDRFile removeComment(String string) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
 		// TODO Auto-generated method stub
     	xpath_comments.removeComment(string);
+    	return this;
+	}
+
+	/**
+	 * 
+	 */
+	public CLDRFile makeDraft() {
+    	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+    	XPathParts parts = new XPathParts(null,null);
+    	for (Iterator it = xpath_value.keySet().iterator(); it.hasNext();) {
+    		String path = (String) it.next();
+    		Value v = (Value) xpath_value.get(path);
+    		if (!(v instanceof StringValue)) continue;
+    		parts.set(v.getFullXPath()).addAttribute("draft", "true");
+    		xpath_value.put(path, new StringValue(v.getStringValue(), parts.toString()));
+    	}
+		return this;
 	}
 }

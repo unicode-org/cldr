@@ -134,7 +134,8 @@ public class GenerateSidewaysView {
                 // if (baseName.equals("root")) temp.addMissing();
                 if (options[SHOW_DTD].doesOccur) temp.writeDTDCheck();
                 temp.writeTo(options[DESTDIR].value, baseName);
-                generateBat(options[SOURCEDIR].value, baseName + ".xml", options[DESTDIR].value, baseName + ".xml");
+                org.unicode.cldr.util.Utility.generateBat(options[SOURCEDIR].value, baseName + ".xml", options[DESTDIR].value, 
+                		baseName + ".xml", null);
                 sidewaysView.putData(temp.data, baseName);
                 log.flush();
             }
@@ -462,7 +463,7 @@ public class GenerateSidewaysView {
         return buffer.toString();
     }
 
-    static void generateBat(String sourceDir, String sourceFile, String targetDir, String targetFile) {
+/*    static void generateBat(String sourceDir, String sourceFile, String targetDir, String targetFile) {
         boolean needBat = true;
         try {
             BufferedReader b1 = BagFormatter.openUTF8Reader(sourceDir, sourceFile);
@@ -512,7 +513,7 @@ public class GenerateSidewaysView {
      //
 
     }
-
+*/
     static boolean equalsIgnoringWhitespace(String a, String b) {
         int i = 0;
         int j = 0;

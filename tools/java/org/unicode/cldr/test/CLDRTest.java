@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -25,6 +26,8 @@ import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UCharacterCategory;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -35,9 +38,14 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.StringValue;
 import org.unicode.cldr.util.CLDRFile.Value;
+
+import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Initial version of CLDR tests. Each test is named TextXXX. To run all the tests, use the options
@@ -252,8 +260,8 @@ public class CLDRTest extends TestFmwk {
 						if (p.containsAttributeValue("draft","true")) draft = " [draft]";
 					}
 					String count = (vc.count == size ? "" : vc.count + "/") + size;
-					errln(getLocaleAndName(parent) + "\t" + draft +
-							", all children (" + count + ") have same value for:\t"
+					warnln(getLocaleAndName(parent) + draft +
+							"\tall children (" + count + ") have same value for:\t"
 							+ xpath + ";\t" + vc.value.getStringValue());
 				}
 			}
@@ -285,6 +293,7 @@ public class CLDRTest extends TestFmwk {
 				}
 				Value pvalue = plain.getValue(xpath);
 				if (SKIP_DRAFT && pvalue.getFullXPath().indexOf("[@draft=\"true\"") > 0) continue;
+				if (xpath.startsWith("/ldml/posix/messages")) continue;
 				String value = pvalue.getStringValue();
 				if (!exemplars.containsAll(value)) {
 					count++;
@@ -331,7 +340,7 @@ public class CLDRTest extends TestFmwk {
 			errln(getLocaleName(cldrfile.getKey()) + " exemplar pattern contains property: " + pattern);
 		}
 		UnicodeSet result = new UnicodeSet(v.getStringValue(), UnicodeSet.CASE);
-		if (type.length() != 0) System.out.println("fetched set for " + type);
+		//if (type.length() != 0) System.out.println("fetched set for " + type);
 		return result;
 	}
 	
@@ -584,6 +593,7 @@ public class CLDRTest extends TestFmwk {
 	private void checkTranslatedCode(CLDRFile cldrfile, StandardCodes codes, String type, String prefix, String postfix) {
 		Set codeItems = codes.getAvailableCodes(type);
 		int count = 0;
+		Set exceptions = (Set) completionExceptions.get(type);
 		for (Iterator it = codeItems.iterator(); it.hasNext();) {
 			String code = (String) it.next();
 			String rfcname = codes.getData(type, code);
@@ -597,12 +607,23 @@ public class CLDRTest extends TestFmwk {
 				continue;
 			}
 			String translation = v.getStringValue();
+			if (translation.equals(code)) {
+				if (exceptions != null && exceptions.contains(code)) continue;
+				errln("Translation = code for:\t<" + type + " type=\""  + code + "\">" + rfcname + "</" + type + ">");
+				continue;
+			}
 			if (!translation.equalsIgnoreCase(rfcname)) {
-				logln(type + " translation differs from RFC, check: " + code + "\trfc: " + rfcname + "\tcldr: " + translation);
+				warnln(type + " translation differs from RFC, check: " + code + "\trfc: " + rfcname + "\tcldr: " + translation);
 			}
 		}
 		logln("Total " + type + ":\t" + count);
 	}
+	
+	// TODO, expand to other languages
+	Map completionExceptions = Utility.asMap(new Object[][]{
+			{"script", new HashSet(Arrays.asList(new String[]{"Cham", "Thai"}))},
+			});
+
 	
 	// <territoryContainment><group type="001" contains="002 009 019 142 150"/>
 	// <languageData><language type="af" scripts="Latn" territories="ZA"/>
@@ -610,7 +631,7 @@ public class CLDRTest extends TestFmwk {
 		boolean SHOW = false;
 		Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
 		CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-		XPathParts parts = new XPathParts(null, null);
+		XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
 		for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
 			String path = (String) it.next();
 			Value v = supp.getValue(path);
@@ -624,7 +645,7 @@ public class CLDRTest extends TestFmwk {
 					if (s == null) territory_currencies.put(region, s = new LinkedHashSet());
 					m = parts.findAttributes("currency");
 					if (m == null) {
-						System.out.println("Error: missing currency; " + path);
+						warnln("missing currency for region: " + path);
 						continue;
 					}
 					String currency = (String) m.get("iso4217");
@@ -742,8 +763,9 @@ public class CLDRTest extends TestFmwk {
 				missing.write(out);
 				out.close();
 				//String s = getIDAndLocalization(missing);
-				if (failureCount[0] > 0) errln(getLocaleAndName(locale) + "\tmissing localizations, creating file");
-				else logln(getLocaleAndName(locale) + "\tpossibly missing localizations, creating file");
+				String message = "missing localizations, creating file" + new File(Utility.GEN_DIRECTORY + "missing/" + filename).getCanonicalPath();
+				if (failureCount[0] > 0) warnln(getLocaleAndName(locale) + "\t" + message);
+				else logln(getLocaleAndName(locale) + "\tpossibly " + message);
 			} else {
 				new File(Utility.GEN_DIRECTORY + "missing/" + filename).delete();
 			}
@@ -785,7 +807,6 @@ public class CLDRTest extends TestFmwk {
 				key = CLDRFile.getKey(type, code);
 			} else {
 				key = getDateKey(-type-1, code);
-				System.out.println(key);
 			}
 			Value v = item.getValue(key);
 			Value rootValue = resolvedRoot.getValue(key);
@@ -848,7 +869,7 @@ public class CLDRTest extends TestFmwk {
 			sTerritories.addAll((Collection)it.next());
 		}
 		StandardCodes sc = StandardCodes.make();
-		Set temp = sc.getAvailableCodes("territory");
+		Set fullTerritories = sc.getAvailableCodes("territory");
 		
 		Set allLanguages = new TreeSet(language_scripts.keySet());
 		allLanguages.addAll(language_territories.keySet());
@@ -863,8 +884,9 @@ public class CLDRTest extends TestFmwk {
 		
 		// remove private use, deprecated, groups
 		Set standardTerritories = new TreeSet();
-		for (Iterator it = temp.iterator(); it.hasNext();) {
+		for (Iterator it = fullTerritories.iterator(); it.hasNext();) {
 			String code = (String)it.next();
+			if (code.equals("200") || code.equals("YU") || code.equals("PZ")) continue;
 			List data = sc.getFullData("territory", code);
 			if (data.get(0).equals("PRIVATE USE")) continue;
 			if (!data.get(2).equals("")) continue;
@@ -875,20 +897,24 @@ public class CLDRTest extends TestFmwk {
 		if (!standardTerritories.containsAll(sTerritories)) {
 			TreeSet extras = new TreeSet(sTerritories);
 			extras.removeAll(standardTerritories);
-			errln("Supplemental Territories contain illegal values: " + EnglishName.transform(extras));
+			errln("Supplemental Language Territories contain illegal values: " + EnglishName.transform(extras));
 		}
 		if (!sTerritories.containsAll(standardTerritories)) {
 			TreeSet extras = new TreeSet(standardTerritories);
 			extras.removeAll(sTerritories);
-			errln("Missing Territories: " + EnglishName.transform(extras));
+			warnln("Missing Language Territories: " + EnglishName.transform(extras));
 		}
 		
 		// now test currencies
         logln("Check that no illegal territories are used");
 		if (!standardTerritories.containsAll(territory_currencies.keySet())) {
 			TreeSet extras = new TreeSet(territory_currencies.keySet());
+			extras.removeAll(fullTerritories);
+			if (extras.size() != 0) errln("Currency info -- Illegal Territories: " + EnglishName.transform(extras));
+			extras = new TreeSet(territory_currencies.keySet());
+			extras.retainAll(fullTerritories);
 			extras.removeAll(standardTerritories);
-			errln("Currency info -- Illegal Territories: " + EnglishName.transform(extras));
+			if (extras.size() != 0) warnln("Currency info -- Archaic Territories: " + EnglishName.transform(extras));
 		}
         logln("Check that no territories are missing");
 		if (!territory_currencies.keySet().containsAll(standardTerritories)) {
@@ -923,7 +949,7 @@ public class CLDRTest extends TestFmwk {
 			for (Iterator it = failures.keySet().iterator(); it.hasNext();) {
 				String type = (String) it.next();
 				Set s = (Set) failures.get(type);
-				errln("Currency info -- Missing Currencies: " + type + "\t => " + EnglishCurrencyName.transform(s));
+				warnln("Currency info -- Missing Currencies: " + type + "\t => " + EnglishCurrencyName.transform(s));
 			}
 		}
         logln("Missing English currency names");
@@ -1013,6 +1039,45 @@ public class CLDRTest extends TestFmwk {
 			Set oldItems = (Set) new_old.get(newOne);
 			logln(newOne + "\t" + oldItems);
 		}
+	}
+	
+	public void TestNarrowForms() {
+		for (Iterator it = locales.iterator(); it.hasNext();) {
+			String locale = (String)it.next();
+			logln("Testing: " + getLocaleAndName(locale));
+			BreakIterator bi = BreakIterator.getCharacterInstance(new ULocale(locale));
+			CLDRFile item = cldrFactory.make(locale, false);
+			// Walk through all the xpaths, adding to currentValues
+			// Whenever two values for the same xpath are different, we remove from currentValues, and add to okValues
+			for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
+				String xpath = (String) it2.next();
+				if (xpath.indexOf("[@type=\"narrow\"]") >= 0) {
+					Value v = item.getValue(xpath);
+					if (!(v instanceof StringValue)) continue;
+					String value = v.getStringValue();
+					//logln("\tTesting: " + value + "\t path: " + xpath);
+					int end = getXGraphemeClusterBoundary(bi, value, 0);
+					if (end == value.length()) continue;
+					errln(getLocaleAndName(locale) + "\tillegal narrow value " + value + "\t path: " + xpath);
+				}
+			}
+		}
+	}
+
+	static final UnicodeSet XGRAPHEME = new UnicodeSet("[[:mark:][:grapheme_extend:]]");
+	static final UnicodeSet DIGIT = new UnicodeSet("[:decimal_number:]");
+	
+	private int getXGraphemeClusterBoundary(BreakIterator bi, String value, int start) {
+		bi.setText(value);
+		if (start != 0) bi.preceding(start+1); // backup one
+		int current = bi.next();
+		int cp = 0;
+		// link any digits
+		if (DIGIT.contains(UTF16.charAt(value, current-1))) {
+			current = Utility.scan(DIGIT, value, current);		
+		}
+		// continue collecting any additional characters that are M or grapheme extend
+		return Utility.scan(XGRAPHEME, value, current);
 	}
 }
 

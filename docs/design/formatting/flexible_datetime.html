@@ -1,0 +1,272 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Flexible Datetime</title>
+</head>
+
+<body>
+
+<h1>Flexible Datetime</h1>
+<p>MED, 2004-12-10</p>
+<p>I've done some investigating on this issue, and here is my current recommendation. The goal is to 
+have a more flexible set of patterns available to developers, so that calendaring software, for 
+example, can retrieve the best pattern for say, year and numeric month, that is available for a 
+given locale.</p>
+<p>1. Make part of the patterns variable; in particular, '/' and ':'. They can be used to change 
+formats without having to duplicate information.</p>
+<pre>&lt;dateSymbols&gt;
+    &lt;shortDateSeparator&gt;/&lt;/shortDateSeparator&gt;
+    &lt;shortTimeSeparator&gt;:&lt;/shortTimeSeparator&gt;</pre>
+<p>2. Add alternatives for lenient input</p>
+<pre>    &lt;input&gt;
+        &lt;shortDateSeparator&gt;-&lt;/shortDateSeparator&gt;
+        &lt;shortDateSeparator&gt;.&lt;/shortDateSeparator&gt;
+        &lt;shortTimeSeparator&gt;:&lt;/shortTimeSeparator&gt;
+    &lt;/input&gt;</pre>
+<p>This is a &quot;atomic&quot; element, so it is treated as a single item vis-a-vis inheritance: its children 
+do not inherit. That means also that the items do not need to be distinguished by a type.</p>
+<p>3. Add a list of formats (this is a sample set taken from OpenOffice).</p>
+<pre>    &lt;flexibleFormats&gt;
+	&lt;pattern&gt;EEEE, d MMMM yyyy&lt;/pattern&gt;
+	&lt;pattern&gt;EEE d MMMM yyyy&lt;/pattern&gt;
+	&lt;pattern&gt;EEE dd/MMM yy&lt;/pattern&gt;
+	&lt;pattern&gt;EEE d MMM yy&lt;/pattern&gt;
+	&lt;pattern&gt;dd MMMM yyyy&lt;/pattern&gt;
+	&lt;pattern&gt;d. MMMM yyyy&lt;/pattern&gt;
+	&lt;pattern&gt;d. MMM. yyyy&lt;/pattern&gt;
+	&lt;pattern&gt;d MMM yy&lt;/pattern&gt;
+	&lt;pattern&gt;dd/MM/yyyy&lt;/pattern&gt;
+	&lt;pattern&gt;dd/MM/yy&lt;/pattern&gt;
+	&lt;pattern&gt;dd/MMM&lt;/pattern&gt;
+	&lt;pattern&gt;MM/yy&lt;/pattern&gt;
+	&lt;pattern&gt;MM-dd&lt;/pattern&gt;
+	&lt;pattern&gt;ww&lt;/pattern&gt;
+	&lt;pattern&gt;MMMM&lt;/pattern&gt;
+	&lt;pattern&gt;hh:mm:ss a&lt;/pattern&gt;
+	&lt;pattern&gt;mm:ss.SS&lt;/pattern&gt;
+	&lt;pattern&gt;HH:mm:ss&lt;/pattern&gt;
+	&lt;pattern&gt;hh:mm a&lt;/pattern&gt;
+	&lt;pattern&gt;HH:mm&lt;/pattern&gt;
+    &lt;/flexibleFormats&gt;</pre>
+<p>This provides a set of formats that can be used to produce a variety of different patterns. The 
+field letters are based on the table in
+<a href="http://www.unicode.org/reports/tr35/#Date_Format_Patterns">Date_Format_Patterns</a>, with 
+some restrictions. The Survey tools doesn't have to present this raw list; it can have more 
+localizer-friendly methods of composing it!</p>
+<p>Before looking at the restrictions on the patterns and defining the interpretation of the list, 
+we first have some definitions.</p>
+<p>The <i>match set</i> for any pattern is the set of all fields in the pattern, excluding 'a' 
+fields. (Of course, any quoted characters are not counted as fields.) Since it is a set, the order 
+doesn't matter: in examples, we'll use alphabetical. Examples:</p>
+<ul>
+  <li>&quot;hh:mm:ss a&quot; <font face="Arial Unicode MS">&#8594; {hh mm ss}</font></li>
+  <li>&quot;yyyy-MM-dd&quot; <font face="Arial Unicode MS">&#8594; {dd MM yyyy}</font></li>
+  <li>&quot;MM/dd/yyyy&quot; <font face="Arial Unicode MS">&#8594; {dd MM yyyy}</font></li>
+  <li>&quot;MM/dd/'yyyy'&quot; <font face="Arial Unicode MS">&#8594; {dd MM}</font></li>
+</ul>
+<p>To <i>fix</i> a pattern means to replace all unquoted instances of / and : by the 
+shortDateSeparator and shortTimeSeparator, respectively.</p>
+<h3>Restrictions</h3>
+<ol>
+  <li>You cannot have multiple fields with the same letter in the pattern,<ul>
+    <li>e.g. &quot;MM-dd-MMM&quot; is illegal.</li>
+  </ul>
+  </li>
+  <li>You cannot have multiple fields with similar letters in the pattern. These are field starting 
+  with the following {u y Y}, {h H k K}, {z Z}<ul>
+    <li>e.g. &quot;yyyy-MM-uuuu&quot; is illegal</li>
+  </ul>
+  </li>
+  <li>The match set for each pattern must be unique within the list<ul>
+    <li>Thus having both &quot;HH:mm&quot; and &quot;mm.HH&quot; in the list is illegal, because the match sets are both 
+    {HH mm}</li>
+  </ul>
+  </li>
+  <li>Note that / and : are variable, and may be replaced by shortDateSeparator and 
+  shortTimeSeparator, respectively. If a fixed value it desired, it must be quoted<ul>
+    <li>e.g. &quot;MM'/'dd'/'yyyy&quot;</li>
+  </ul>
+  </li>
+  <li>The characters { and } also have special meaning, and must be quoted if they are to have fixed 
+  values.</li>
+</ol>
+<h3>Interpretation</h3>
+<p>The following is the interpretation given to the patterns. The set of patterns provides a way to 
+generate a date time format as described in
+<a href="http://www.unicode.org/reports/tr35/#Date_Format_Patterns">Date_Format_Patterns</a>, that 
+can be used to parse or format dates or times. The method provided here specifies the 
+interpretation, but not the API. That is, although the key below is described as, say {MM yyyy}, an 
+API could use a key in the form of a set, like {two-digit-numeric-month, four-digit-year}. The 
+description here is logical; it can certainly be optimized (and in any even, the result would 
+probably be cached so that subsequent accesses would be fast).</p>
+<ul>
+  <li>The input for selecting among the patterns is a match set.</li>
+  <li>If the key contains one of {h, H, k, K, y, Y, u, z, Z} (or any field starting with one of 
+  those), and <i>none</i> of the patterns do, then the key is altered by remapping each character in 
+  it with the following table. The replacements are in priority order from left to right.<ul>
+    <li>
+    <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+      <tr>
+        <th>key</th>
+        <th colspan="3">replacements</th>
+      </tr>
+      <tr>
+        <td>h</td>
+        <td>K</td>
+        <td>H</td>
+        <td>k</td>
+      </tr>
+      <tr>
+        <td>H</td>
+        <td>k</td>
+        <td>h</td>
+        <td>K</td>
+      </tr>
+      <tr>
+        <td>k</td>
+        <td>H</td>
+        <td>K</td>
+        <td>h</td>
+      </tr>
+      <tr>
+        <td>K</td>
+        <td>h</td>
+        <td>k</td>
+        <td>H</td>
+      </tr>
+      <tr>
+        <td>y</td>
+        <td>u</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>u</td>
+        <td>y</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>Y</td>
+        <td>u</td>
+        <td>y</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>z</td>
+        <td>Z</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>Z</td>
+        <td>z</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+    </li>
+  </ul>
+  </li>
+  <li>Compare the key match set to each pattern's match set, by computing a penalty (see below). If 
+  the penalty is ever zero, then the pattern is returned (after fixing).</li>
+  <li>If the penalty is over 1000, divide the key into two match sets, one with date fields and the 
+  other with time fields. If both are none-empty, match each against the patterns, compose the 
+  result with the dateTimeFormat pattern (already defined in CLDR 1.2), and return it.</li>
+  <li>Pick the best match from the patterns, the one with the smallest penalty. If there are 
+  multiple patterns with the same penalty, pick the first one in the list.</li>
+  <li>If all of the key fields are represented, return the format (after fixing).</li>
+  <li>Otherwise, pick the pattern, fix it, and remove its match set from the key. Get the matching 
+  pattern for the (now reduced) key, and append to the pattern with a space between.<ul>
+    <li>Alternatively, instead of a space, separate each append by the shortDateSeparator if it is a 
+    date field, and the shortTimeSeparator if it is a time field. Fix the result and return it.</li>
+  </ul>
+  </li>
+</ul>
+<h4>Penalty Function</h4>
+<p>Compute the penalty by comparing each of the fields in the two sets, and adding up the penalty.</p>
+<ol>
+  <li>Fields match exactly, penalty = 0</li>
+  <li>Field letter in Key, but not in Pattern, penalty = 1000</li>
+  <li>Field letter in Pattern, but not in Key, penalty = 100000</li>
+  <li>Fields match in letter, but not number, use following table:</li>
+</ol>
+<table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
+  <tr>
+    <td>KeyField</td>
+    <td>PatternField</td>
+    <td>Penalty</td>
+  </tr>
+  <tr>
+    <td>MMM MMMM</td>
+    <td>M MM</td>
+    <td align="right">20</td>
+  </tr>
+  <tr>
+    <td>EEE EEEE</td>
+    <td>E EE</td>
+    <td align="right">20</td>
+  </tr>
+  <tr>
+    <td>M MM</td>
+    <td>MMM MMMM</td>
+    <td align="right">20</td>
+  </tr>
+  <tr>
+    <td>E EE</td>
+    <td>EEE EEEE</td>
+    <td align="right">20</td>
+  </tr>
+  <tr>
+    <td>otherwise</td>
+    <td>dddd</td>
+    <td align="right">sqr(length(KeyField) - length(PatternField))</td>
+  </tr>
+</table>
+<p>Example: key: {MMM yy}, pattern: {G MM yyyy}</p>
+<ul>
+  <li>G: case 3, +100000</li>
+  <li>MM vs MMM, +1</li>
+  <li>yy vs yyyy, +4</li>
+  <li>total: 100,005</li>
+</ul>
+<h3>Existing Formats</h3>
+<p>This supplements the existing formats.</p>
+<p><b>Option: </b>for the existing full, long, medium, short formats, we could have an alternative 
+fallback. If a type doesn't have a value, and the flexibleFormats do exist, then use the following 
+keys to get a pattern.</p>
+<table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+  <tr>
+    <th align="left">&nbsp;</th>
+    <th>date</th>
+    <th>time</th>
+  </tr>
+  <tr>
+    <th align="left">full</th>
+    <td>EdMMMMyG</td>
+    <td>hmsSz</td>
+  </tr>
+  <tr>
+    <th align="left">long</th>
+    <td>EdMMMMy</td>
+    <td>hmsz</td>
+  </tr>
+  <tr>
+    <th align="left">medium</th>
+    <td>dMMMy</td>
+    <td>hms</td>
+  </tr>
+  <tr>
+    <th align="left">short</th>
+    <td>dMy</td>
+    <td>hm</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

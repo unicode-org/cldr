@@ -270,35 +270,6 @@ ru_RU {
             "RUB ",
             ".",
     }
-    DateTimePatterns { 
-            "HH.mm.ss",
-            "HH.mm.ss",
-            "HH.mm.ss",
-            "HH.mm.ss",
-            "EEEE dd MMMM yyyy \u0433. ",
-            "EEEE dd MMMM yyyy \u0433. HH.mm.ss",
-            "dd MMM yyyy",
-            "dd.MMMM.yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u0432\u043E\u0441.",
-            "\u043F\u043E\u043D.",
-            "\u0432\u0442\u043E.",
-            "\u0441\u0440\u0435.",
-            "\u0447\u0435\u0442.",
-            "\u043F\u044F\u0442.",
-            "\u0441\u0443\u0431.",
-    }
-    DayNames { 
-            "\u0432\u043E\u0441\u043A\u0440\u0435\u0441\u0435\u043D\u044C\u0435",
-            "\u043F\u043E\u043D\u0435\u0434\u0435\u043B\u044C\u043D\u0438\u043A",
-            "\u0432\u0442\u043E\u0440\u043D\u0438\u043A",
-            "\u0441\u0440\u0435\u0434\u0430",
-            "\u0447\u0435\u0442\u0432\u0435\u0440\u0433",
-            "\u043F\u044F\u0442\u043D\u0438\u0446\u0430",
-            "\u0441\u0443\u0431\u0431\u043E\u0442\u0430",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -307,36 +278,6 @@ ru_RU {
         NoExpression { "^([\u043D\u041D]|[\u043D\u041D][\u0435\u0415][\u0442\u0422]|[nN]|[nN][oO])" }
         YesStr { "\u0434\u0430:\u0414\u0410:\u0434:\u0414:yes:y:Y" }
         NoStr { "\u043D\u0435\u0442:\u041D\u0415\u0422:\u043D:\u041D:no:n:N" }
-    }
-    MonthAbbreviations { 
-            "\u044F\u043D\u0432.",
-            "\u0444\u0435\u0432\u0440",
-            "\u043C\u0430\u0440\u0442",
-            "\u0430\u043F\u0440.",
-            "\u043C\u0430\u044F",
-            "\u0438\u044E\u043D\u044F",
-            "\u0438\u044E\u043B\u044F",
-            "\u0430\u0432\u0433.",
-            "\u0441\u0435\u043D.",
-            "\u043E\u043A\u0442.",
-            "\u043D\u043E\u044F.",
-            "\u0434\u0435\u043A.",
-            "",
-    }
-    MonthNames { 
-            "\u044F\u043D\u0432\u0430\u0440\u044F",
-            "\u0444\u0435\u0432\u0440\u0430\u043B\u044F",
-            "\u043C\u0430\u0440\u0442\u0430",
-            "\u0430\u043F\u0440\u0435\u043B\u044F",
-            "\u043C\u0430\u044F",
-            "\u0438\u044E\u043D\u044F",
-            "\u0438\u044E\u043B\u044F",
-            "\u0430\u0432\u0433\u0443\u0441\u0442\u0430",
-            "\u0441\u0435\u043D\u0442\u044F\u0431\u0440\u044F",
-            "\u043E\u043A\u0442\u044F\u0431\u0440\u044F",
-            "\u043D\u043E\u044F\u0431\u0440\u044F",
-            "\u0434\u0435\u043A\u0430\u0431\u0440\u044F",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -357,10 +298,76 @@ ru_RU {
             "+#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH.mm.ss",
+                    "HH.mm.ss",
+                    "HH.mm.ss",
+                    "HH.mm.ss",
+                    "EEEE dd MMMM yyyy \u0433. ",
+                    "EEEE dd MMMM yyyy \u0433. HH.mm.ss",
+                    "dd MMM yyyy",
+                    "dd.MMMM.yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u0432\u043E\u0441.",
+                            "\u043F\u043E\u043D.",
+                            "\u0432\u0442\u043E.",
+                            "\u0441\u0440\u0435.",
+                            "\u0447\u0435\u0442.",
+                            "\u043F\u044F\u0442.",
+                            "\u0441\u0443\u0431.",
+                    }
+                    wide{
+                            "\u0432\u043E\u0441\u043A\u0440\u0435\u0441\u0435\u043D\u044C\u0435",
+                            "\u043F\u043E\u043D\u0435\u0434\u0435\u043B\u044C\u043D\u0438\u043A",
+                            "\u0432\u0442\u043E\u0440\u043D\u0438\u043A",
+                            "\u0441\u0440\u0435\u0434\u0430",
+                            "\u0447\u0435\u0442\u0432\u0435\u0440\u0433",
+                            "\u043F\u044F\u0442\u043D\u0438\u0446\u0430",
+                            "\u0441\u0443\u0431\u0431\u043E\u0442\u0430",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u044F\u043D\u0432.",
+                            "\u0444\u0435\u0432\u0440",
+                            "\u043C\u0430\u0440\u0442",
+                            "\u0430\u043F\u0440.",
+                            "\u043C\u0430\u044F",
+                            "\u0438\u044E\u043D\u044F",
+                            "\u0438\u044E\u043B\u044F",
+                            "\u0430\u0432\u0433.",
+                            "\u0441\u0435\u043D.",
+                            "\u043E\u043A\u0442.",
+                            "\u043D\u043E\u044F.",
+                            "\u0434\u0435\u043A.",
+                            "",
+                    }
+                    wide{
+                            "\u044F\u043D\u0432\u0430\u0440\u044F",
+                            "\u0444\u0435\u0432\u0440\u0430\u043B\u044F",
+                            "\u043C\u0430\u0440\u0442\u0430",
+                            "\u0430\u043F\u0440\u0435\u043B\u044F",
+                            "\u043C\u0430\u044F",
+                            "\u0438\u044E\u043D\u044F",
+                            "\u0438\u044E\u043B\u044F",
+                            "\u0430\u0432\u0433\u0443\u0441\u0442\u0430",
+                            "\u0441\u0435\u043D\u0442\u044F\u0431\u0440\u044F",
+                            "\u043E\u043A\u0442\u044F\u0431\u0440\u044F",
+                            "\u043D\u043E\u044F\u0431\u0440\u044F",
+                            "\u0434\u0435\u043A\u0430\u0431\u0440\u044F",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

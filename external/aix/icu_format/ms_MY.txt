@@ -273,35 +273,6 @@ ms_MY {
             "MYR ",
             ".",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEEE dd MMMM yyyy ",
-            "EEEE dd MMMM yyyy HH:mm:ss",
-            "dd MMMM yyyy",
-            "dd/MMMM/yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Ahad",
-            "Isnin",
-            "Selasa",
-            "Rabu",
-            "Khamis",
-            "Jumaat",
-            "Sabtu",
-    }
-    DayNames { 
-            "Ahad",
-            "Isnin",
-            "Selasa",
-            "Rabu",
-            "Khamis",
-            "Jumaat",
-            "Sabtu",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -311,36 +282,6 @@ ms_MY {
         YesStr { "" }
         NoStr { "" }
     }
-    MonthAbbreviations { 
-            "Jan",
-            "Feb",
-            "Mac",
-            "Apr",
-            "Mei",
-            "Jun",
-            "Jul",
-            "Ogos",
-            "Sep",
-            "Okt",
-            "Nov",
-            "Dis",
-            "",
-    }
-    MonthNames { 
-            "Januari",
-            "Februari",
-            "Mach",
-            "April",
-            "Mei",
-            "Jun",
-            "Julai",
-            "Ogos",
-            "September",
-            "Oktober",
-            "November",
-            "Disember",
-            "",
-    }
     ///* Discarding duplicate data for tag: NameFormat */
     ///* Discarding duplicate data for tag: NumberElements */
     NumberPatterns { 
@@ -348,10 +289,76 @@ ms_MY {
             "\u00A4 #,##0.00;-\u00A4 #,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEEE dd MMMM yyyy ",
+                    "EEEE dd MMMM yyyy HH:mm:ss",
+                    "dd MMMM yyyy",
+                    "dd/MMMM/yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Ahad",
+                            "Isnin",
+                            "Selasa",
+                            "Rabu",
+                            "Khamis",
+                            "Jumaat",
+                            "Sabtu",
+                    }
+                    wide{
+                            "Ahad",
+                            "Isnin",
+                            "Selasa",
+                            "Rabu",
+                            "Khamis",
+                            "Jumaat",
+                            "Sabtu",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Feb",
+                            "Mac",
+                            "Apr",
+                            "Mei",
+                            "Jun",
+                            "Jul",
+                            "Ogos",
+                            "Sep",
+                            "Okt",
+                            "Nov",
+                            "Dis",
+                            "",
+                    }
+                    wide{
+                            "Januari",
+                            "Februari",
+                            "Mach",
+                            "April",
+                            "Mei",
+                            "Jun",
+                            "Julai",
+                            "Ogos",
+                            "September",
+                            "Oktober",
+                            "November",
+                            "Disember",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

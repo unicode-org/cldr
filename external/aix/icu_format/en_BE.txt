@@ -273,17 +273,6 @@ en_BE {
             "EUR ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE dd MMM yyyy",
-            "EEE dd MMM HH:mm:ss yyyy",
-            "dd MMM yyyy",
-            "dd/MMMM/yy",
-            "{1} {0}",
-    }
     ///* Discarding duplicate data for tag: DayAbbreviations */
     ///* Discarding duplicate data for tag: DayNames */
     ///* Discarding duplicate data for tag: Identification */
@@ -316,10 +305,20 @@ en_BE {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE dd MMM yyyy",
+                    "EEE dd MMM HH:mm:ss yyyy",
+                    "dd MMM yyyy",
+                    "dd/MMMM/yy",
+                    "{1} {0}",
+            }
+        }
+    }
 }

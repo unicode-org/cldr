@@ -270,35 +270,6 @@ bg_BG {
             "BGL ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEEE dd MMMM yyyy ",
-            "EEEE dd MMMM yyyy HH:mm:ss",
-            "dd MMM yyyy",
-            "dd.MMMM.yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u041D\u0434",
-            "\u041F\u043D",
-            "\u0412\u0442",
-            "\u0421\u0440",
-            "\u0427\u0442",
-            "\u041F\u0442",
-            "\u0421\u0431",
-    }
-    DayNames { 
-            "\u041D\u0435\u0434\u0435\u043B\u044F",
-            "\u041F\u043E\u043D\u0435\u0434\u0435\u043B\u043D\u0438\u043A",
-            "\u0412\u0442\u043E\u0440\u043D\u0438\u043A",
-            "\u0421\u0440\u044F\u0434\u0430",
-            "\u0427\u0435\u0442\u0432\u044A\u0440\u0442\u044A\u043A",
-            "\u041F\u0435\u0442\u044A\u043A",
-            "\u0421\u044A\u0431\u043E\u0442\u0430",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -307,36 +278,6 @@ bg_BG {
         NoExpression { "^([nN]|[nN][eE]|[nN][oO])" }
         YesStr { "da:d:D:yes:y:Y" }
         NoStr { "ne:n:N:no" }
-    }
-    MonthAbbreviations { 
-            "I",
-            "II",
-            "III",
-            "IV",
-            "V",
-            "VI",
-            "VII",
-            "VIII",
-            "IX",
-            "X",
-            "XI",
-            "XII",
-            "",
-    }
-    MonthNames { 
-            "\u044F\u043D\u0443\u0430\u0440\u0438",
-            "\u0444\u0435\u0432\u0440\u0443\u0430\u0440\u0438",
-            "\u043C\u0430\u0440\u0442",
-            "\u0430\u043F\u0440\u0438\u043B",
-            "\u043C\u0430\u0439",
-            "\u044E\u043D\u0438",
-            "\u044E\u043B\u0438",
-            "\u0430\u0432\u0433\u0443\u0441\u0442",
-            "\u0441\u0435\u043F\u0442\u0435\u043C\u0432\u0440\u0438",
-            "\u043E\u043A\u0442\u043E\u043C\u0432\u0440\u0438",
-            "\u043D\u043E\u0435\u043C\u0432\u0440\u0438",
-            "\u0434\u0435\u043A\u0435\u043C\u0432\u0440\u0438",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -357,10 +298,76 @@ bg_BG {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEEE dd MMMM yyyy ",
+                    "EEEE dd MMMM yyyy HH:mm:ss",
+                    "dd MMM yyyy",
+                    "dd.MMMM.yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u041D\u0434",
+                            "\u041F\u043D",
+                            "\u0412\u0442",
+                            "\u0421\u0440",
+                            "\u0427\u0442",
+                            "\u041F\u0442",
+                            "\u0421\u0431",
+                    }
+                    wide{
+                            "\u041D\u0435\u0434\u0435\u043B\u044F",
+                            "\u041F\u043E\u043D\u0435\u0434\u0435\u043B\u043D\u0438\u043A",
+                            "\u0412\u0442\u043E\u0440\u043D\u0438\u043A",
+                            "\u0421\u0440\u044F\u0434\u0430",
+                            "\u0427\u0435\u0442\u0432\u044A\u0440\u0442\u044A\u043A",
+                            "\u041F\u0435\u0442\u044A\u043A",
+                            "\u0421\u044A\u0431\u043E\u0442\u0430",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "I",
+                            "II",
+                            "III",
+                            "IV",
+                            "V",
+                            "VI",
+                            "VII",
+                            "VIII",
+                            "IX",
+                            "X",
+                            "XI",
+                            "XII",
+                            "",
+                    }
+                    wide{
+                            "\u044F\u043D\u0443\u0430\u0440\u0438",
+                            "\u0444\u0435\u0432\u0440\u0443\u0430\u0440\u0438",
+                            "\u043C\u0430\u0440\u0442",
+                            "\u0430\u043F\u0440\u0438\u043B",
+                            "\u043C\u0430\u0439",
+                            "\u044E\u043D\u0438",
+                            "\u044E\u043B\u0438",
+                            "\u0430\u0432\u0433\u0443\u0441\u0442",
+                            "\u0441\u0435\u043F\u0442\u0435\u043C\u0432\u0440\u0438",
+                            "\u043E\u043A\u0442\u043E\u043C\u0432\u0440\u0438",
+                            "\u043D\u043E\u0435\u043C\u0432\u0440\u0438",
+                            "\u0434\u0435\u043A\u0435\u043C\u0432\u0440\u0438",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

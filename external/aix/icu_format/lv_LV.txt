@@ -230,35 +230,6 @@ lv_LV {
             "LVL ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "yyyy.MMMM.dd",
-            "EEEE, yyyy. gada dd. MMMM, plkst. HH un mm",
-            "yyyy.MMMM.dd",
-            "yyyy.MMMM.dd",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Sv",
-            "P ",
-            "O ",
-            "T ",
-            "C ",
-            "Pk",
-            "S ",
-    }
-    DayNames { 
-            "sv\u0113tdiena",
-            "pirmdiena",
-            "otrdiena",
-            "tre\u0161diena",
-            "ceturdien",
-            "piektdiena",
-            "sestdiena",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -267,36 +238,6 @@ lv_LV {
         NoExpression { "^([nN]|[nN][oO])" }
         YesStr { "Y:y:yes" }
         NoStr { "N:n:no" }
-    }
-    MonthAbbreviations { 
-            "jan",
-            "feb",
-            "mar",
-            "apr",
-            "maijs",
-            "j\u016Bn",
-            "j\u016Bl",
-            "aug",
-            "sep",
-            "okt",
-            "nov",
-            "dec",
-            "",
-    }
-    MonthNames { 
-            "janv\u0101ris",
-            "febru\u0101ris",
-            "marts",
-            "apr\u012Blis",
-            "maijs",
-            "j\u016Bnijs",
-            "j\u016Blijs",
-            "augusts",
-            "septembris",
-            "oktobris",
-            "novembris",
-            "decembris",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -317,10 +258,76 @@ lv_LV {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "yyyy.MMMM.dd",
+                    "EEEE, yyyy. gada dd. MMMM, plkst. HH un mm",
+                    "yyyy.MMMM.dd",
+                    "yyyy.MMMM.dd",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Sv",
+                            "P ",
+                            "O ",
+                            "T ",
+                            "C ",
+                            "Pk",
+                            "S ",
+                    }
+                    wide{
+                            "sv\u0113tdiena",
+                            "pirmdiena",
+                            "otrdiena",
+                            "tre\u0161diena",
+                            "ceturdien",
+                            "piektdiena",
+                            "sestdiena",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jan",
+                            "feb",
+                            "mar",
+                            "apr",
+                            "maijs",
+                            "j\u016Bn",
+                            "j\u016Bl",
+                            "aug",
+                            "sep",
+                            "okt",
+                            "nov",
+                            "dec",
+                            "",
+                    }
+                    wide{
+                            "janv\u0101ris",
+                            "febru\u0101ris",
+                            "marts",
+                            "apr\u012Blis",
+                            "maijs",
+                            "j\u016Bnijs",
+                            "j\u016Blijs",
+                            "augusts",
+                            "septembris",
+                            "oktobris",
+                            "novembris",
+                            "decembris",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

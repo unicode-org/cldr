@@ -273,35 +273,6 @@ de_DE {
             "EUR ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE dd MMM yyyy",
-            "EEE dd MMM HH:mm:ss yyyy",
-            "dd MMM yyyy",
-            "dd.MMMM.yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "So",
-            "Mo",
-            "Di",
-            "Mi",
-            "Do",
-            "Fr",
-            "Sa",
-    }
-    DayNames { 
-            "Sonntag",
-            "Montag",
-            "Dienstag",
-            "Mittwoch",
-            "Donnerstag",
-            "Freitag",
-            "Samstag",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -310,36 +281,6 @@ de_DE {
         NoExpression { "^([nN]|[nN][eE][iI][nN]|[nN][oO])" }
         YesStr { "ja:j:J:yes:y:Y" }
         NoStr { "nein:n:N:no" }
-    }
-    MonthAbbreviations { 
-            "Jan",
-            "Feb",
-            "M\u00E4r",
-            "Apr",
-            "Mai",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Okt",
-            "Nov",
-            "Dez",
-            "",
-    }
-    MonthNames { 
-            "Januar",
-            "Februar",
-            "M\u00E4rz",
-            "April",
-            "Mai",
-            "Juni",
-            "Juli",
-            "August",
-            "September",
-            "Oktober",
-            "November",
-            "Dezember",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -360,10 +301,76 @@ de_DE {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE dd MMM yyyy",
+                    "EEE dd MMM HH:mm:ss yyyy",
+                    "dd MMM yyyy",
+                    "dd.MMMM.yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "So",
+                            "Mo",
+                            "Di",
+                            "Mi",
+                            "Do",
+                            "Fr",
+                            "Sa",
+                    }
+                    wide{
+                            "Sonntag",
+                            "Montag",
+                            "Dienstag",
+                            "Mittwoch",
+                            "Donnerstag",
+                            "Freitag",
+                            "Samstag",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Feb",
+                            "M\u00E4r",
+                            "Apr",
+                            "Mai",
+                            "Jun",
+                            "Jul",
+                            "Aug",
+                            "Sep",
+                            "Okt",
+                            "Nov",
+                            "Dez",
+                            "",
+                    }
+                    wide{
+                            "Januar",
+                            "Februar",
+                            "M\u00E4rz",
+                            "April",
+                            "Mai",
+                            "Juni",
+                            "Juli",
+                            "August",
+                            "September",
+                            "Oktober",
+                            "November",
+                            "Dezember",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

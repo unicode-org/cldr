@@ -8,17 +8,6 @@ en_US {
             "USD ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss aa",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE MMM dd yyyy",
-            "EEE MMM dd HH:mm:ss z yyyy",
-            "MMM dd yyyy",
-            "MMMM/dd/yy",
-            "{1} {0}",
-    }
     ///* Discarding duplicate data for tag: DayAbbreviations */
     ///* Discarding duplicate data for tag: DayNames */
     ///* Discarding duplicate data for tag: Identification */
@@ -39,10 +28,20 @@ en_US {
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss aa",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE MMM dd yyyy",
+                    "EEE MMM dd HH:mm:ss z yyyy",
+                    "MMM dd yyyy",
+                    "MMMM/dd/yy",
+                    "{1} {0}",
+            }
+        }
+    }
 }

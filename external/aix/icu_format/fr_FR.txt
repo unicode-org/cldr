@@ -273,35 +273,6 @@ fr_FR {
             "EUR ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE dd MMM yyyy",
-            "EEE dd MMM HH:mm:ss z yyyy",
-            "dd MMM yyyy",
-            "dd.MMMM.yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "dim",
-            "lun",
-            "mar",
-            "mer",
-            "jeu",
-            "ven",
-            "sam",
-    }
-    DayNames { 
-            "dimanche",
-            "lundi",
-            "mardi",
-            "mercredi",
-            "jeudi",
-            "vendredi",
-            "samedi",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -310,36 +281,6 @@ fr_FR {
         NoExpression { "^([nN]|[nN][oO][nN]|[nN][oO])" }
         YesStr { "oui:o:O:yes:y:Y" }
         NoStr { "non:n:N:no" }
-    }
-    MonthAbbreviations { 
-            "jan",
-            "f\u00E9v",
-            "mar",
-            "avr",
-            "mai",
-            "jun",
-            "jul",
-            "ao\u00FB",
-            "sep",
-            "oct",
-            "nov",
-            "d\u00E9c",
-            "",
-    }
-    MonthNames { 
-            "janvier",
-            "f\u00E9vrier",
-            "mars",
-            "avril",
-            "mai",
-            "juin",
-            "juillet",
-            "ao\u00FBt",
-            "septembre",
-            "octobre",
-            "novembre",
-            "d\u00E9cembre",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -360,11 +301,77 @@ fr_FR {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
 
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE dd MMM yyyy",
+                    "EEE dd MMM HH:mm:ss z yyyy",
+                    "dd MMM yyyy",
+                    "dd.MMMM.yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "dim",
+                            "lun",
+                            "mar",
+                            "mer",
+                            "jeu",
+                            "ven",
+                            "sam",
+                    }
+                    wide{
+                            "dimanche",
+                            "lundi",
+                            "mardi",
+                            "mercredi",
+                            "jeudi",
+                            "vendredi",
+                            "samedi",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jan",
+                            "f\u00E9v",
+                            "mar",
+                            "avr",
+                            "mai",
+                            "jun",
+                            "jul",
+                            "ao\u00FB",
+                            "sep",
+                            "oct",
+                            "nov",
+                            "d\u00E9c",
+                            "",
+                    }
+                    wide{
+                            "janvier",
+                            "f\u00E9vrier",
+                            "mars",
+                            "avril",
+                            "mai",
+                            "juin",
+                            "juillet",
+                            "ao\u00FBt",
+                            "septembre",
+                            "octobre",
+                            "novembre",
+                            "d\u00E9cembre",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

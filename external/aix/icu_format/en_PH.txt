@@ -273,17 +273,6 @@ en_PH {
             "PHP ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss aa z",
-            "HH:mm:ss z",
-            "HH:mm:ss z",
-            "HH:mm:ss z",
-            "EEEE, dd MMMM, yyyy",
-            "EEEE, dd MMMM, yyyy hh:mm:ss aa z",
-            "EEEE, dd MMMM, yyyy",
-            "EEEE, dd MMMM, yyyy",
-            "{1} {0}",
-    }
     ///* Discarding duplicate data for tag: DayAbbreviations */
     ///* Discarding duplicate data for tag: DayNames */
     ///* Discarding duplicate data for tag: Identification */
@@ -304,10 +293,20 @@ en_PH {
             "\u00A4#,##0.00;(\u00A4#,##0.00)",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss aa z",
+                    "HH:mm:ss z",
+                    "HH:mm:ss z",
+                    "HH:mm:ss z",
+                    "EEEE, dd MMMM, yyyy",
+                    "EEEE, dd MMMM, yyyy hh:mm:ss aa z",
+                    "EEEE, dd MMMM, yyyy",
+                    "EEEE, dd MMMM, yyyy",
+                    "{1} {0}",
+            }
+        }
+    }
 }

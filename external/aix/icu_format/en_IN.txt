@@ -273,17 +273,6 @@ en_IN {
             "INR ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss aa",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "dd MMM yyyy",
-            "EEEE MMMM dd yyyy hh:mm:ss aa z",
-            "dd MMM yyyy",
-            "dd/MMMM/yy",
-            "{1} {0}",
-    }
     ///* Discarding duplicate data for tag: DayAbbreviations */
     ///* Discarding duplicate data for tag: DayNames */
     ///* Discarding duplicate data for tag: Identification */
@@ -304,10 +293,20 @@ en_IN {
             "\u00A4 #,##0.00;-\u00A4 #,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss aa",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "dd MMM yyyy",
+                    "EEEE MMMM dd yyyy hh:mm:ss aa z",
+                    "dd MMM yyyy",
+                    "dd/MMMM/yy",
+                    "{1} {0}",
+            }
+        }
+    }
 }

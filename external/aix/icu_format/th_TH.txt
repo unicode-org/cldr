@@ -225,35 +225,6 @@ th_TH {
             "THB ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss aa",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "dd MMM %o",
-            "EEE dd MMM %o h:mm a",
-            "dd MMM %o",
-            "dd MMMM %E",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u0E2D\u0E32",
-            " \u0E08",
-            " \u0E2D",
-            " \u0E1E",
-            "\u0E1E\u0E24",
-            " \u0E28",
-            " \u0E2A",
-    }
-    DayNames { 
-            "\u0E27\u0E31\u0E19\u0E2D\u0E32\u0E17\u0E34\u0E15\u0E22\u0E4C",
-            "\u0E27\u0E31\u0E19\u0E08\u0E31\u0E19\u0E17\u0E23\u0E4C",
-            "\u0E27\u0E31\u0E19\u0E2D\u0E31\u0E07\u0E04\u0E32\u0E23",
-            "\u0E27\u0E31\u0E19\u0E1E\u0E38\u0E18",
-            "\u0E27\u0E31\u0E19\u0E1E\u0E24\u0E2B\u0E31\u0E2A\u0E1A\u0E14\u0E35",
-            "\u0E27\u0E31\u0E19\u0E28\u0E38\u0E01\u0E23\u0E4C",
-            "\u0E27\u0E31\u0E19\u0E40\u0E2A\u0E32\u0E23\u0E4C",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -263,36 +234,6 @@ th_TH {
         YesStr { "yes:y:Y" }
         NoStr { "no:n:N" }
     }
-    MonthAbbreviations { 
-            "\u0E21.\u0E04. ",
-            "\u0E01.\u0E1E. ",
-            "\u0E21\u0E35.\u0E04.",
-            "\u0E40\u0E21.\u0E22.",
-            "\u0E1E.\u0E04. ",
-            "\u0E21\u0E34.\u0E22.",
-            "\u0E01.\u0E04. ",
-            "\u0E2A.\u0E04. ",
-            "\u0E01.\u0E22. ",
-            "\u0E15.\u0E04. ",
-            "\u0E1E.\u0E22. ",
-            "\u0E18.\u0E04. ",
-            "",
-    }
-    MonthNames { 
-            "\u0E21\u0E01\u0E23\u0E32\u0E04\u0E21",
-            "\u0E01\u0E38\u0E21\u0E20\u0E32\u0E1E\u0E31\u0E19\u0E18\u0E4C",
-            "\u0E21\u0E35\u0E19\u0E32\u0E04\u0E21",
-            "\u0E40\u0E21\u0E29\u0E32\u0E22\u0E19",
-            "\u0E1E\u0E24\u0E29\u0E20\u0E32\u0E04\u0E21",
-            "\u0E21\u0E34\u0E16\u0E38\u0E19\u0E32\u0E22\u0E19",
-            "\u0E01\u0E23\u0E01\u0E0E\u0E32\u0E04\u0E21",
-            "\u0E2A\u0E34\u0E07\u0E2B\u0E32\u0E04\u0E21",
-            "\u0E01\u0E31\u0E19\u0E22\u0E32\u0E22\u0E19",
-            "\u0E15\u0E38\u0E25\u0E32\u0E04\u0E21",
-            "\u0E1E\u0E24\u0E28\u0E08\u0E34\u0E01\u0E32\u0E22\u0E19",
-            "\u0E18\u0E31\u0E19\u0E27\u0E32\u0E04\u0E21",
-            "",
-    }
     ///* Discarding duplicate data for tag: NameFormat */
     ///* Discarding duplicate data for tag: NumberElements */
     NumberPatterns { 
@@ -300,10 +241,76 @@ th_TH {
             "\u00A4#,##0.00;\u00A4-#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss aa",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "dd MMM %o",
+                    "EEE dd MMM %o h:mm a",
+                    "dd MMM %o",
+                    "dd MMMM %E",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u0E2D\u0E32",
+                            " \u0E08",
+                            " \u0E2D",
+                            " \u0E1E",
+                            "\u0E1E\u0E24",
+                            " \u0E28",
+                            " \u0E2A",
+                    }
+                    wide{
+                            "\u0E27\u0E31\u0E19\u0E2D\u0E32\u0E17\u0E34\u0E15\u0E22\u0E4C",
+                            "\u0E27\u0E31\u0E19\u0E08\u0E31\u0E19\u0E17\u0E23\u0E4C",
+                            "\u0E27\u0E31\u0E19\u0E2D\u0E31\u0E07\u0E04\u0E32\u0E23",
+                            "\u0E27\u0E31\u0E19\u0E1E\u0E38\u0E18",
+                            "\u0E27\u0E31\u0E19\u0E1E\u0E24\u0E2B\u0E31\u0E2A\u0E1A\u0E14\u0E35",
+                            "\u0E27\u0E31\u0E19\u0E28\u0E38\u0E01\u0E23\u0E4C",
+                            "\u0E27\u0E31\u0E19\u0E40\u0E2A\u0E32\u0E23\u0E4C",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u0E21.\u0E04. ",
+                            "\u0E01.\u0E1E. ",
+                            "\u0E21\u0E35.\u0E04.",
+                            "\u0E40\u0E21.\u0E22.",
+                            "\u0E1E.\u0E04. ",
+                            "\u0E21\u0E34.\u0E22.",
+                            "\u0E01.\u0E04. ",
+                            "\u0E2A.\u0E04. ",
+                            "\u0E01.\u0E22. ",
+                            "\u0E15.\u0E04. ",
+                            "\u0E1E.\u0E22. ",
+                            "\u0E18.\u0E04. ",
+                            "",
+                    }
+                    wide{
+                            "\u0E21\u0E01\u0E23\u0E32\u0E04\u0E21",
+                            "\u0E01\u0E38\u0E21\u0E20\u0E32\u0E1E\u0E31\u0E19\u0E18\u0E4C",
+                            "\u0E21\u0E35\u0E19\u0E32\u0E04\u0E21",
+                            "\u0E40\u0E21\u0E29\u0E32\u0E22\u0E19",
+                            "\u0E1E\u0E24\u0E29\u0E20\u0E32\u0E04\u0E21",
+                            "\u0E21\u0E34\u0E16\u0E38\u0E19\u0E32\u0E22\u0E19",
+                            "\u0E01\u0E23\u0E01\u0E0E\u0E32\u0E04\u0E21",
+                            "\u0E2A\u0E34\u0E07\u0E2B\u0E32\u0E04\u0E21",
+                            "\u0E01\u0E31\u0E19\u0E22\u0E32\u0E22\u0E19",
+                            "\u0E15\u0E38\u0E25\u0E32\u0E04\u0E21",
+                            "\u0E1E\u0E24\u0E28\u0E08\u0E34\u0E01\u0E32\u0E22\u0E19",
+                            "\u0E18\u0E31\u0E19\u0E27\u0E32\u0E04\u0E21",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

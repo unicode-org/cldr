@@ -270,35 +270,6 @@ pl_PL {
             "PLZ ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE dd MMM yyyy ",
-            "EEE dd MMM yyyy HH:mm:ss",
-            "dd MMM yyyy",
-            "yyyy-MMMM-dd",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Ni",
-            "Pn",
-            "Wt",
-            "\u015Ar",
-            "Cz",
-            "Pt",
-            "So",
-    }
-    DayNames { 
-            "Niedziela",
-            "Poniedzia\u0142ek",
-            "Wtorek",
-            "\u015Aroda",
-            "Czwartek",
-            "Pi\u0105tek",
-            "Sobota",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -307,36 +278,6 @@ pl_PL {
         NoExpression { "^([nN]|[nN][iI][eE]|[nN][oO])" }
         YesStr { "Tak:t:T:yes:y:Y" }
         NoStr { "Nie:n:N:no" }
-    }
-    MonthAbbreviations { 
-            "Styc",
-            "Luty",
-            "Marz",
-            "Kwie",
-            "Maj",
-            "Czer",
-            "Lipi",
-            "Sier",
-            "Wrze",
-            "Pa\u017Ad",
-            "List",
-            "Grud",
-            "",
-    }
-    MonthNames { 
-            "Stycze\u0144",
-            "Luty",
-            "Marzec",
-            "Kwiecie\u0144",
-            "Maj",
-            "Czerwiec",
-            "Lipiec",
-            "Sierpie\u0144",
-            "Wrzesie\u0144",
-            "Pa\u017Adziernik",
-            "Listopad",
-            "Grudzie\u0144",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -357,10 +298,76 @@ pl_PL {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE dd MMM yyyy ",
+                    "EEE dd MMM yyyy HH:mm:ss",
+                    "dd MMM yyyy",
+                    "yyyy-MMMM-dd",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Ni",
+                            "Pn",
+                            "Wt",
+                            "\u015Ar",
+                            "Cz",
+                            "Pt",
+                            "So",
+                    }
+                    wide{
+                            "Niedziela",
+                            "Poniedzia\u0142ek",
+                            "Wtorek",
+                            "\u015Aroda",
+                            "Czwartek",
+                            "Pi\u0105tek",
+                            "Sobota",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Styc",
+                            "Luty",
+                            "Marz",
+                            "Kwie",
+                            "Maj",
+                            "Czer",
+                            "Lipi",
+                            "Sier",
+                            "Wrze",
+                            "Pa\u017Ad",
+                            "List",
+                            "Grud",
+                            "",
+                    }
+                    wide{
+                            "Stycze\u0144",
+                            "Luty",
+                            "Marzec",
+                            "Kwiecie\u0144",
+                            "Maj",
+                            "Czerwiec",
+                            "Lipiec",
+                            "Sierpie\u0144",
+                            "Wrzesie\u0144",
+                            "Pa\u017Adziernik",
+                            "Listopad",
+                            "Grudzie\u0144",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

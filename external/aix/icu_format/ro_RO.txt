@@ -270,35 +270,6 @@ ro_RO {
             "ROL ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE dd MMM yyyy ",
-            "EEE dd MMM yyyy HH:mm:ss",
-            "dd MMM yyyy",
-            "dd/MMMM/yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "D",
-            "L",
-            "Ma",
-            "Mi",
-            "J",
-            "V",
-            "S",
-    }
-    DayNames { 
-            "Duminic\u0103",
-            "Luni",
-            "Mar\u0163i",
-            "Miercuri",
-            "Joi",
-            "Vineri",
-            "Simb\u00E1t\u00E1",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -307,36 +278,6 @@ ro_RO {
         NoExpression { "^([nN]|[nN][uU]|[nN][oO])" }
         YesStr { "Da:d:D:yes:y:Y" }
         NoStr { "Nu:n:N:no" }
-    }
-    MonthAbbreviations { 
-            "Ian",
-            "Feb",
-            "Mar",
-            "Apr",
-            "Mai",
-            "Iun",
-            "Iul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Noe",
-            "Dec",
-            "",
-    }
-    MonthNames { 
-            "Ianuarie",
-            "Februarie",
-            "Martie",
-            "Aprilie",
-            "Mai",
-            "Iunie",
-            "Iulie",
-            "August",
-            "Septembrie",
-            "Octombrie",
-            "Noiembrie",
-            "Decembrie",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -357,10 +298,76 @@ ro_RO {
             "+#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE dd MMM yyyy ",
+                    "EEE dd MMM yyyy HH:mm:ss",
+                    "dd MMM yyyy",
+                    "dd/MMMM/yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "D",
+                            "L",
+                            "Ma",
+                            "Mi",
+                            "J",
+                            "V",
+                            "S",
+                    }
+                    wide{
+                            "Duminic\u0103",
+                            "Luni",
+                            "Mar\u0163i",
+                            "Miercuri",
+                            "Joi",
+                            "Vineri",
+                            "Simb\u00E1t\u00E1",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Ian",
+                            "Feb",
+                            "Mar",
+                            "Apr",
+                            "Mai",
+                            "Iun",
+                            "Iul",
+                            "Aug",
+                            "Sep",
+                            "Oct",
+                            "Noe",
+                            "Dec",
+                            "",
+                    }
+                    wide{
+                            "Ianuarie",
+                            "Februarie",
+                            "Martie",
+                            "Aprilie",
+                            "Mai",
+                            "Iunie",
+                            "Iulie",
+                            "August",
+                            "Septembrie",
+                            "Octombrie",
+                            "Noiembrie",
+                            "Decembrie",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,9 +1,5 @@
 ta_IN {
     ///* Discarding duplicate data for tag: AddressFormat */
-    AmPmMarkers { 
-            "\u0B95\u0BBE\u0BC8\u0BB2",
-            "\u0BAE\u0BBE\u0BC8\u0BB2",
-    }
     CollationElements { 
         Version { "1.0" }
         Overide { "false" }
@@ -681,35 +677,6 @@ ta_IN {
             "INR ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss aa",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "dd MMMM yyyy",
-            "EEEE dd MMMM yyyy hh:mm:ss aa z",
-            "dd MMMM yyyy",
-            "dd-MMMM-yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u0B9E\u0BBE",
-            "\u0BA4\u0BBF",
-            "\u0B9A\u0BC6",
-            "\u0BAA\u0BC1",
-            "\u0BB5\u0BBF",
-            "\u0BB5\u0BC6",
-            "\u0B9A",
-    }
-    DayNames { 
-            "\u0B9E\u0BBE\u0BAF\u0BBF\u0BB1\u0BC1",
-            "\u0BA4\u0BBF\u0B99\u0BCD\u0B95\u0BB3\u0BCD",
-            "\u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD",
-            "\u0BAA\u0BC1\u0BA4\u0BA9\u0BCD",
-            "\u0BB5\u0BBF\u0BAF\u0BBE\u0BB4\u0BA9\u0BCD",
-            "\u0BB5\u0BC6\u0BB3\u0BCD\u0BB3",
-            "\u0B9A\u0BA9\u0BBF",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -719,36 +686,6 @@ ta_IN {
         YesStr { "yes:y:Y:\u0B86\u0BAE\u0BCD" }
         NoStr { "no:n:N:\u0B87\u0BB2\u0BCD\u0BC8" }
     }
-    MonthAbbreviations { 
-            "\u0B9C\u0BA9",
-            "\u0BAA\u0BBF\u0BAA\u0BCD",
-            "\u0BAE\u0BBE\u0BB0\u0BCD",
-            "\u0B8F\u0BAA\u0BCD",
-            "\u0BAE\u0BC7",
-            "\u0B9C\u0BC0\u0BA9\u0BCD",
-            "\u0B9C\u0BC0\u0BB2\u0BC8",
-            "\u0B86\u0B95",
-            "\u0B9A\u0BC6\u0BAA\u0BCD",
-            "\u0B85\u0B95\u0BCD",
-            "\u0BA8\u0BB5",
-            "\u0B9F\u0BBF\u0B9A\u0BC6",
-            "",
-    }
-    MonthNames { 
-            "\u0B9C\u0BA9\u0BB5\u0BB0\u0BBF",
-            "\u0BAA\u0BBF\u0BAA\u0BCD\u0BB0\u0BB5\u0BB0\u0BBF",
-            "\u0BAE\u0BBE\u0BB0\u0BCD\u0B9A\u0BCD",
-            "\u0B8F\u0BAA\u0BCD\u0BB0\u0BB2\u0BCD",
-            "\u0BAE\u0BC7",
-            "\u0B9C\u0BC0\u0BA9\u0BCD",
-            "\u0B9C\u0BC0\u0BB2\u0BC8",
-            "\u0B86\u0B95\u0BB8\u0BCD\u0B9F\u0BCD",
-            "\u0B9A\u0BC6\u0BAA\u0BCD\u0B9F\u0BAE\u0BCD\u0BAA\u0BB0\u0BCD",
-            "\u0B85\u0B95\u0BCD\u0B9F\u0BCB\u0BAA\u0BB0\u0BCD",
-            "\u0BA8\u0BB5\u0BAE\u0BCD\u0BAA\u0BB0\u0BCD",
-            "\u0B9F\u0BBF\u0B9A\u0BC6\u0BAE\u0BCD\u0BAA\u0BB0\u0BCD",
-            "",
-    }
     ///* Discarding duplicate data for tag: NameFormat */
     ///* Discarding duplicate data for tag: NumberElements */
     NumberPatterns { 
@@ -756,10 +693,80 @@ ta_IN {
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    "\u0B95\u0BBE\u0BC8\u0BB2",
+                    "\u0BAE\u0BBE\u0BC8\u0BB2",
+            }
+            DateTimePatterns{
+                    "hh:mm:ss aa",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "dd MMMM yyyy",
+                    "EEEE dd MMMM yyyy hh:mm:ss aa z",
+                    "dd MMMM yyyy",
+                    "dd-MMMM-yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u0B9E\u0BBE",
+                            "\u0BA4\u0BBF",
+                            "\u0B9A\u0BC6",
+                            "\u0BAA\u0BC1",
+                            "\u0BB5\u0BBF",
+                            "\u0BB5\u0BC6",
+                            "\u0B9A",
+                    }
+                    wide{
+                            "\u0B9E\u0BBE\u0BAF\u0BBF\u0BB1\u0BC1",
+                            "\u0BA4\u0BBF\u0B99\u0BCD\u0B95\u0BB3\u0BCD",
+                            "\u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD",
+                            "\u0BAA\u0BC1\u0BA4\u0BA9\u0BCD",
+                            "\u0BB5\u0BBF\u0BAF\u0BBE\u0BB4\u0BA9\u0BCD",
+                            "\u0BB5\u0BC6\u0BB3\u0BCD\u0BB3",
+                            "\u0B9A\u0BA9\u0BBF",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u0B9C\u0BA9",
+                            "\u0BAA\u0BBF\u0BAA\u0BCD",
+                            "\u0BAE\u0BBE\u0BB0\u0BCD",
+                            "\u0B8F\u0BAA\u0BCD",
+                            "\u0BAE\u0BC7",
+                            "\u0B9C\u0BC0\u0BA9\u0BCD",
+                            "\u0B9C\u0BC0\u0BB2\u0BC8",
+                            "\u0B86\u0B95",
+                            "\u0B9A\u0BC6\u0BAA\u0BCD",
+                            "\u0B85\u0B95\u0BCD",
+                            "\u0BA8\u0BB5",
+                            "\u0B9F\u0BBF\u0B9A\u0BC6",
+                            "",
+                    }
+                    wide{
+                            "\u0B9C\u0BA9\u0BB5\u0BB0\u0BBF",
+                            "\u0BAA\u0BBF\u0BAA\u0BCD\u0BB0\u0BB5\u0BB0\u0BBF",
+                            "\u0BAE\u0BBE\u0BB0\u0BCD\u0B9A\u0BCD",
+                            "\u0B8F\u0BAA\u0BCD\u0BB0\u0BB2\u0BCD",
+                            "\u0BAE\u0BC7",
+                            "\u0B9C\u0BC0\u0BA9\u0BCD",
+                            "\u0B9C\u0BC0\u0BB2\u0BC8",
+                            "\u0B86\u0B95\u0BB8\u0BCD\u0B9F\u0BCD",
+                            "\u0B9A\u0BC6\u0BAA\u0BCD\u0B9F\u0BAE\u0BCD\u0BAA\u0BB0\u0BCD",
+                            "\u0B85\u0B95\u0BCD\u0B9F\u0BCB\u0BAA\u0BB0\u0BCD",
+                            "\u0BA8\u0BB5\u0BAE\u0BCD\u0BAA\u0BB0\u0BCD",
+                            "\u0B9F\u0BBF\u0B9A\u0BC6\u0BAE\u0BCD\u0BAA\u0BB0\u0BCD",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

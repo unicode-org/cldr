@@ -224,35 +224,6 @@ lt_LT {
             "LTL ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "yyyy m. MMMM dd d. ",
-            "yyyy m. MMMM dd d. HH:mm:ss",
-            "yyyy.MMMM.dd",
-            "yyyy.MMMM.dd",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Sk",
-            "Pr",
-            "An",
-            "Tr",
-            "Kt",
-            "Pn",
-            "\u0160t",
-    }
-    DayNames { 
-            "Sekmadienis",
-            "Pirmadienis",
-            "Antradienis",
-            "Tre\u010Diadienis",
-            "Ketvirtadienis",
-            "Penktadienis",
-            "\u0160e\u0161tadienis",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -261,36 +232,6 @@ lt_LT {
         NoExpression { "^([nN]|[nN][oO])" }
         YesStr { "T:t:yes:y:Y" }
         NoStr { "N:n:no" }
-    }
-    MonthAbbreviations { 
-            "Sau",
-            "Vas",
-            "Kov",
-            "Bal",
-            "Geg",
-            "Bir",
-            "Lie",
-            "Rgp",
-            "Rgs",
-            "Spa",
-            "Lap",
-            "Grd",
-            "",
-    }
-    MonthNames { 
-            "sausio",
-            "vasario",
-            "kovo",
-            "baland\u017Eio",
-            "gegu\u017E\u0117s",
-            "bir\u017Eelio",
-            "liepos",
-            "rugpj\u016B\u010Dio",
-            "rugs\u0117jo",
-            "spalio",
-            "lapkri\u010Dio",
-            "gruod\u017Eio",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -311,10 +252,76 @@ lt_LT {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "yyyy m. MMMM dd d. ",
+                    "yyyy m. MMMM dd d. HH:mm:ss",
+                    "yyyy.MMMM.dd",
+                    "yyyy.MMMM.dd",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Sk",
+                            "Pr",
+                            "An",
+                            "Tr",
+                            "Kt",
+                            "Pn",
+                            "\u0160t",
+                    }
+                    wide{
+                            "Sekmadienis",
+                            "Pirmadienis",
+                            "Antradienis",
+                            "Tre\u010Diadienis",
+                            "Ketvirtadienis",
+                            "Penktadienis",
+                            "\u0160e\u0161tadienis",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Sau",
+                            "Vas",
+                            "Kov",
+                            "Bal",
+                            "Geg",
+                            "Bir",
+                            "Lie",
+                            "Rgp",
+                            "Rgs",
+                            "Spa",
+                            "Lap",
+                            "Grd",
+                            "",
+                    }
+                    wide{
+                            "sausio",
+                            "vasario",
+                            "kovo",
+                            "baland\u017Eio",
+                            "gegu\u017E\u0117s",
+                            "bir\u017Eelio",
+                            "liepos",
+                            "rugpj\u016B\u010Dio",
+                            "rugs\u0117jo",
+                            "spalio",
+                            "lapkri\u010Dio",
+                            "gruod\u017Eio",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

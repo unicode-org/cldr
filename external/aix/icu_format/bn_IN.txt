@@ -1,9 +1,5 @@
 bn_IN {
     ///* Discarding duplicate data for tag: AddressFormat */
-    AmPmMarkers { 
-            "\u09AA\u09C2\u09B0\u09CD\u09AC\u09BE\u09A8\u09CD\u09B9",
-            "\u0985\u09AA\u09B0\u09BE\u09A8\u09CD\u09B9",
-    }
     CollationElements { 
         Version { "1.0" }
         Overide { "false" }
@@ -901,35 +897,6 @@ bn_IN {
             "INR ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss aa",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "dd MMM yyyy",
-            "EEEE MMMM dd yyyy hh:mm:ss aa z",
-            "dd MMM yyyy",
-            "dd.MMMM.yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u09B0\u09AC\u09BF",
-            "\u09B8\u09CB\u09AE",
-            "\u09AE\u0999\u09CD\u0997\u09B2",
-            "\u09AC\u09C1\u09A7",
-            "\u09AC\u09C3\u09B9\u09B7\u09CD\u09AA\u09A4\u09BF",
-            "\u09B6\u09C1\u0995\u09CD\u09B0",
-            "\u09B6\u09A8\u09BF",
-    }
-    DayNames { 
-            "\u09B0\u09AC\u09BF\u09AC\u09BE\u09B0",
-            "\u09B8\u09CB\u09AE\u09AC\u09BE\u09B0",
-            "\u09AE\u0999\u09CD\u0997\u09B2\u09AC\u09BE\u09B0",
-            "\u09AC\u09C1\u09A7\u09AC\u09BE\u09B0",
-            "\u09AC\u09C3\u09B9\u09B7\u09CD\u09AA\u09A4\u09BF\u09AC\u09BE\u09B0",
-            "\u09B6\u09C1\u0995\u09CD\u09B0\u09AC\u09BE\u09B0",
-            "\u09B6\u09A8\u09BF\u09AC\u09BE\u09B0",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -939,36 +906,6 @@ bn_IN {
         YesStr { "yes:y:Y:\u09B9\u09CD\u09DF\u09BE\u0981" }
         NoStr { "no:n:N:\u09A8\u09BE" }
     }
-    MonthAbbreviations { 
-            "\u099C\u09BE\u09A8\u09C1\u09DF\u09BE\u09B0\u09C0",
-            "\u09AB\u09C7\u09AC\u09CD\u09B0\u09C1\u09DF\u09BE\u09B0\u09C0",
-            "\u09AE\u09BE\u09B0\u09CD\u099A",
-            "\u098F\u09AA\u09CD\u09B0\u09BF\u09B2",
-            "\u09AE\u09C7",
-            "\u099C\u09C1\u09A8",
-            "\u099C\u09C1\u09B2\u09BE\u0987",
-            "\u0986\u0997\u09B7\u09CD\u099F",
-            "\u09B8\u09C7\u09AA\u09CD\u099F\u09C7\u09AE\u09CD\u09AC\u09B0",
-            "\u0985\u0995\u09CD\u099F\u09CB\u09AC\u09B0",
-            "\u09A8\u09AD\u09C7\u09AE\u09CD\u09AC\u09B0",
-            "\u09A1\u09BF\u09B8\u09C7\u09AE\u09CD\u09AC\u09B0",
-            "",
-    }
-    MonthNames { 
-            "\u099C\u09BE\u09A8\u09C1\u09DF\u09BE\u09B0\u09C0",
-            "\u09AB\u09C7\u09AC\u09CD\u09B0\u09C1\u09DF\u09BE\u09B0\u09C0",
-            "\u09AE\u09BE\u09B0\u09CD\u099A",
-            "\u098F\u09AA\u09CD\u09B0\u09BF\u09B2",
-            "\u09AE\u09C7",
-            "\u099C\u09C1\u09A8",
-            "\u099C\u09C1\u09B2\u09BE\u0987",
-            "\u0986\u0997\u09B7\u09CD\u099F",
-            "\u09B8\u09C7\u09AA\u09CD\u099F\u09C7\u09AE\u09CD\u09AC\u09B0",
-            "\u0985\u0995\u09CD\u099F\u09CB\u09AC\u09B0",
-            "\u09A8\u09AD\u09C7\u09AE\u09CD\u09AC\u09B0",
-            "\u09A1\u09BF\u09B8\u09C7\u09AE\u09CD\u09AC\u09B0",
-            "",
-    }
     ///* Discarding duplicate data for tag: NameFormat */
     ///* Discarding duplicate data for tag: NumberElements */
     NumberPatterns { 
@@ -976,10 +913,80 @@ bn_IN {
             "+\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    "\u09AA\u09C2\u09B0\u09CD\u09AC\u09BE\u09A8\u09CD\u09B9",
+                    "\u0985\u09AA\u09B0\u09BE\u09A8\u09CD\u09B9",
+            }
+            DateTimePatterns{
+                    "hh:mm:ss aa",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "dd MMM yyyy",
+                    "EEEE MMMM dd yyyy hh:mm:ss aa z",
+                    "dd MMM yyyy",
+                    "dd.MMMM.yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u09B0\u09AC\u09BF",
+                            "\u09B8\u09CB\u09AE",
+                            "\u09AE\u0999\u09CD\u0997\u09B2",
+                            "\u09AC\u09C1\u09A7",
+                            "\u09AC\u09C3\u09B9\u09B7\u09CD\u09AA\u09A4\u09BF",
+                            "\u09B6\u09C1\u0995\u09CD\u09B0",
+                            "\u09B6\u09A8\u09BF",
+                    }
+                    wide{
+                            "\u09B0\u09AC\u09BF\u09AC\u09BE\u09B0",
+                            "\u09B8\u09CB\u09AE\u09AC\u09BE\u09B0",
+                            "\u09AE\u0999\u09CD\u0997\u09B2\u09AC\u09BE\u09B0",
+                            "\u09AC\u09C1\u09A7\u09AC\u09BE\u09B0",
+                            "\u09AC\u09C3\u09B9\u09B7\u09CD\u09AA\u09A4\u09BF\u09AC\u09BE\u09B0",
+                            "\u09B6\u09C1\u0995\u09CD\u09B0\u09AC\u09BE\u09B0",
+                            "\u09B6\u09A8\u09BF\u09AC\u09BE\u09B0",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u099C\u09BE\u09A8\u09C1\u09DF\u09BE\u09B0\u09C0",
+                            "\u09AB\u09C7\u09AC\u09CD\u09B0\u09C1\u09DF\u09BE\u09B0\u09C0",
+                            "\u09AE\u09BE\u09B0\u09CD\u099A",
+                            "\u098F\u09AA\u09CD\u09B0\u09BF\u09B2",
+                            "\u09AE\u09C7",
+                            "\u099C\u09C1\u09A8",
+                            "\u099C\u09C1\u09B2\u09BE\u0987",
+                            "\u0986\u0997\u09B7\u09CD\u099F",
+                            "\u09B8\u09C7\u09AA\u09CD\u099F\u09C7\u09AE\u09CD\u09AC\u09B0",
+                            "\u0985\u0995\u09CD\u099F\u09CB\u09AC\u09B0",
+                            "\u09A8\u09AD\u09C7\u09AE\u09CD\u09AC\u09B0",
+                            "\u09A1\u09BF\u09B8\u09C7\u09AE\u09CD\u09AC\u09B0",
+                            "",
+                    }
+                    wide{
+                            "\u099C\u09BE\u09A8\u09C1\u09DF\u09BE\u09B0\u09C0",
+                            "\u09AB\u09C7\u09AC\u09CD\u09B0\u09C1\u09DF\u09BE\u09B0\u09C0",
+                            "\u09AE\u09BE\u09B0\u09CD\u099A",
+                            "\u098F\u09AA\u09CD\u09B0\u09BF\u09B2",
+                            "\u09AE\u09C7",
+                            "\u099C\u09C1\u09A8",
+                            "\u099C\u09C1\u09B2\u09BE\u0987",
+                            "\u0986\u0997\u09B7\u09CD\u099F",
+                            "\u09B8\u09C7\u09AA\u09CD\u099F\u09C7\u09AE\u09CD\u09AC\u09B0",
+                            "\u0985\u0995\u09CD\u099F\u09CB\u09AC\u09B0",
+                            "\u09A8\u09AD\u09C7\u09AE\u09CD\u09AC\u09B0",
+                            "\u09A1\u09BF\u09B8\u09C7\u09AE\u09CD\u09AC\u09B0",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

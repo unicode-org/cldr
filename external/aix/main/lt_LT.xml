@@ -1,63 +1,76 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-27" />
 		<language type="lt" /> 
 		<territory type="LT" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">sausio</month>
-					<month type="2">vasario</month>
-					<month type="3">kovo</month>
-					<month type="4">balandžio</month>
-					<month type="5">gegužės</month>
-					<month type="6">birželio</month>
-					<month type="7">liepos</month>
-					<month type="8">rugpjūčio</month>
-					<month type="9">rugsėjo</month>
-					<month type="10">spalio</month>
-					<month type="11">lapkričio</month>
-					<month type="12">gruodžio</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">Sau</month>
-					<month type="2">Vas</month>
-					<month type="3">Kov</month>
-					<month type="4">Bal</month>
-					<month type="5">Geg</month>
-					<month type="6">Bir</month>
-					<month type="7">Lie</month>
-					<month type="8">Rgp</month>
-					<month type="9">Rgs</month>
-					<month type="10">Spa</month>
-					<month type="11">Lap</month>
-					<month type="12">Grd</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">Sekmadienis</day>
-					<day type="mon">Pirmadienis</day>
-					<day type="tue">Antradienis</day>
-					<day type="wed">Trečiadienis</day>
-					<day type="thu">Ketvirtadienis</day>
-					<day type="fri">Penktadienis</day>
-					<day type="sat">Šeštadienis</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">Sk</day>
-					<day type="mon">Pr</day>
-					<day type="tue">An</day>
-					<day type="wed">Tr</day>
-					<day type="thu">Kt</day>
-					<day type="fri">Pn</day>
-					<day type="sat">Št</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Sau</month>
+							<month type="2">Vas</month>
+							<month type="3">Kov</month>
+							<month type="4">Bal</month>
+							<month type="5">Geg</month>
+							<month type="6">Bir</month>
+							<month type="7">Lie</month>
+							<month type="8">Rgp</month>
+							<month type="9">Rgs</month>
+							<month type="10">Spa</month>
+							<month type="11">Lap</month>
+							<month type="12">Grd</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">sausio</month>
+							<month type="2">vasario</month>
+							<month type="3">kovo</month>
+							<month type="4">balandžio</month>
+							<month type="5">gegužės</month>
+							<month type="6">birželio</month>
+							<month type="7">liepos</month>
+							<month type="8">rugpjūčio</month>
+							<month type="9">rugsėjo</month>
+							<month type="10">spalio</month>
+							<month type="11">lapkričio</month>
+							<month type="12">gruodžio</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Sk</day>
+							<day type="mon">Pr</day>
+							<day type="tue">An</day>
+							<day type="wed">Tr</day>
+							<day type="thu">Kt</day>
+							<day type="fri">Pn</day>
+							<day type="sat">Št</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Sekmadienis</day>
+							<day type="mon">Pirmadienis</day>
+							<day type="tue">Antradienis</day>
+							<day type="wed">Trečiadienis</day>
+							<day type="thu">Ketvirtadienis</day>
+							<day type="fri">Penktadienis</day>
+							<day type="sat">Šeštadienis</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">

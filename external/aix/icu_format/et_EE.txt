@@ -270,35 +270,6 @@ et_EE {
             "EEK ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE dd MMM yyyy ",
-            "EEE dd MMM yyyy HH:mm:ss z",
-            "dd-MMMM-yy",
-            "dd-MMMM-yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "P",
-            "E",
-            "T",
-            "K",
-            "N",
-            "R",
-            "L",
-    }
-    DayNames { 
-            "p\u00FChap\u00E4ev",
-            "esmasp\u00E4ev",
-            "teisip\u00E4ev",
-            "kolmap\u00E4ev",
-            "neljap\u00E4ev",
-            "reede",
-            "laup\u00E4ev",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -307,36 +278,6 @@ et_EE {
         NoExpression { "^([eE]|[nN]|[nN][oO])" }
         YesStr { "J:j:yes:y:Y" }
         NoStr { "E:e:no:n:N" }
-    }
-    MonthAbbreviations { 
-            "jaan ",
-            "veebr",
-            "m\u00E4rts",
-            "apr  ",
-            "mai  ",
-            "juuni",
-            "juuli",
-            "aug  ",
-            "sept ",
-            "okt  ",
-            "nov  ",
-            "dets ",
-            "",
-    }
-    MonthNames { 
-            "jaanuar",
-            "veebruar",
-            "m\u00E4rts",
-            "aprill",
-            "mai",
-            "juuni",
-            "juuli",
-            "august",
-            "september",
-            "oktoober",
-            "november",
-            "detsember",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -357,10 +298,76 @@ et_EE {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE dd MMM yyyy ",
+                    "EEE dd MMM yyyy HH:mm:ss z",
+                    "dd-MMMM-yy",
+                    "dd-MMMM-yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "P",
+                            "E",
+                            "T",
+                            "K",
+                            "N",
+                            "R",
+                            "L",
+                    }
+                    wide{
+                            "p\u00FChap\u00E4ev",
+                            "esmasp\u00E4ev",
+                            "teisip\u00E4ev",
+                            "kolmap\u00E4ev",
+                            "neljap\u00E4ev",
+                            "reede",
+                            "laup\u00E4ev",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jaan ",
+                            "veebr",
+                            "m\u00E4rts",
+                            "apr  ",
+                            "mai  ",
+                            "juuni",
+                            "juuli",
+                            "aug  ",
+                            "sept ",
+                            "okt  ",
+                            "nov  ",
+                            "dets ",
+                            "",
+                    }
+                    wide{
+                            "jaanuar",
+                            "veebruar",
+                            "m\u00E4rts",
+                            "aprill",
+                            "mai",
+                            "juuni",
+                            "juuli",
+                            "august",
+                            "september",
+                            "oktoober",
+                            "november",
+                            "detsember",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

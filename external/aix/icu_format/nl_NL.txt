@@ -273,35 +273,6 @@ nl_NL {
             "EUR ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE MMM dd yyyy",
-            "EEE MMM dd HH:mm:ss yyyy",
-            "MMM dd yyyy",
-            "dd-MMMM-yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "zo",
-            "ma",
-            "di",
-            "wo",
-            "do",
-            "vr",
-            "za",
-    }
-    DayNames { 
-            "zondag",
-            "maandag",
-            "dinsdag",
-            "woensdag",
-            "donderdag",
-            "vrijdag",
-            "zaterdag",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -310,36 +281,6 @@ nl_NL {
         NoExpression { "^([nN]|[nN][eE][eE]|[nN][oO])" }
         YesStr { "ja:j:J:yes:y:Y" }
         NoStr { "nee:n:N:no" }
-    }
-    MonthAbbreviations { 
-            "jan",
-            "feb",
-            "mrt",
-            "apr",
-            "mei",
-            "jun",
-            "jul",
-            "aug",
-            "sep",
-            "okt",
-            "nov",
-            "dec",
-            "",
-    }
-    MonthNames { 
-            "januari",
-            "februari",
-            "maart",
-            "april",
-            "mei",
-            "juni",
-            "juli",
-            "augustus",
-            "september",
-            "oktober",
-            "november",
-            "december",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -360,10 +301,76 @@ nl_NL {
             "\u00A4 #,##0.00;\u00A4 #,##0.00-",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE MMM dd yyyy",
+                    "EEE MMM dd HH:mm:ss yyyy",
+                    "MMM dd yyyy",
+                    "dd-MMMM-yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "zo",
+                            "ma",
+                            "di",
+                            "wo",
+                            "do",
+                            "vr",
+                            "za",
+                    }
+                    wide{
+                            "zondag",
+                            "maandag",
+                            "dinsdag",
+                            "woensdag",
+                            "donderdag",
+                            "vrijdag",
+                            "zaterdag",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jan",
+                            "feb",
+                            "mrt",
+                            "apr",
+                            "mei",
+                            "jun",
+                            "jul",
+                            "aug",
+                            "sep",
+                            "okt",
+                            "nov",
+                            "dec",
+                            "",
+                    }
+                    wide{
+                            "januari",
+                            "februari",
+                            "maart",
+                            "april",
+                            "mei",
+                            "juni",
+                            "juli",
+                            "augustus",
+                            "september",
+                            "oktober",
+                            "november",
+                            "december",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

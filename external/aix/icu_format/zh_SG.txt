@@ -1,9 +1,5 @@
 zh_SG {
     ///* Discarding duplicate data for tag: AddressFormat */
-    AmPmMarkers { 
-            "\u4E0A\u5348",
-            "\u4E0B\u5348",
-    }
     CollationElements { 
         Version { "1.0" }
         Overide { "false" }
@@ -276,35 +272,6 @@ zh_SG {
             "SGD ",
             ".",
     }
-    DateTimePatterns { 
-            "HH\u65F6mm\u5206ss\u79D2 z",
-            "HH\u65F6mm\u5206ss\u79D2 z",
-            "HH\u65F6mm\u5206ss\u79D2 z",
-            "HH\u65F6mm\u5206ss\u79D2 z",
-            "yyyy\u5E74MMMM\u6708dd\u65E5   EEEE ",
-            "yyyy\u5E74MMMM\u6708dd\u65E5         EEEE HH\u65F6mm\u5206ss\u79D2 z",
-            "yyyy\u5E74MMMM\u6708dd\u65E5",
-            "yyyy\u5E74MMMM\u6708dd\u65E5",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u661F\u671F\u65E5",
-            "\u661F\u671F\u4E00",
-            "\u661F\u671F\u4E8C",
-            "\u661F\u671F\u4E09",
-            "\u661F\u671F\u56DB",
-            "\u661F\u671F\u4E94",
-            "\u661F\u671F\u516D",
-    }
-    DayNames { 
-            "\u661F\u671F\u65E5",
-            "\u661F\u671F\u4E00",
-            "\u661F\u671F\u4E8C",
-            "\u661F\u671F\u4E09",
-            "\u661F\u671F\u56DB",
-            "\u661F\u671F\u4E94",
-            "\u661F\u671F\u516D",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -314,36 +281,6 @@ zh_SG {
         YesStr { "Yes" }
         NoStr { "No" }
     }
-    MonthAbbreviations { 
-            "\u4E00\u6708",
-            "\u4E8C\u6708",
-            "\u4E09\u6708",
-            "\u56DB\u6708",
-            "\u4E94\u6708",
-            "\u516D\u6708",
-            "\u4E03\u6708",
-            "\u516B\u6708",
-            "\u4E5D\u6708",
-            "\u5341\u6708",
-            "\u5341\u4E00\u6708",
-            "\u5341\u4E8C\u6708",
-            "",
-    }
-    MonthNames { 
-            "\u4E00\u6708",
-            "\u4E8C\u6708",
-            "\u4E09\u6708",
-            "\u56DB\u6708",
-            "\u4E94\u6708",
-            "\u516D\u6708",
-            "\u4E03\u6708",
-            "\u516B\u6708",
-            "\u4E5D\u6708",
-            "\u5341\u6708",
-            "\u5341\u4E00\u6708",
-            "\u5341\u4E8C\u6708",
-            "",
-    }
     ///* Discarding duplicate data for tag: NameFormat */
     ///* Discarding duplicate data for tag: NumberElements */
     NumberPatterns { 
@@ -351,12 +288,82 @@ zh_SG {
             "\u00A4#,##0.00;(\u00A4#,##0.00)",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     Languages:alias{ "zh_CN" }
     Countries:alias{ "zh_CN" }
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    "\u4E0A\u5348",
+                    "\u4E0B\u5348",
+            }
+            DateTimePatterns{
+                    "HH\u65F6mm\u5206ss\u79D2 z",
+                    "HH\u65F6mm\u5206ss\u79D2 z",
+                    "HH\u65F6mm\u5206ss\u79D2 z",
+                    "HH\u65F6mm\u5206ss\u79D2 z",
+                    "yyyy\u5E74MMMM\u6708dd\u65E5   EEEE ",
+                    "yyyy\u5E74MMMM\u6708dd\u65E5         EEEE HH\u65F6mm\u5206ss\u79D2 z",
+                    "yyyy\u5E74MMMM\u6708dd\u65E5",
+                    "yyyy\u5E74MMMM\u6708dd\u65E5",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u661F\u671F\u65E5",
+                            "\u661F\u671F\u4E00",
+                            "\u661F\u671F\u4E8C",
+                            "\u661F\u671F\u4E09",
+                            "\u661F\u671F\u56DB",
+                            "\u661F\u671F\u4E94",
+                            "\u661F\u671F\u516D",
+                    }
+                    wide{
+                            "\u661F\u671F\u65E5",
+                            "\u661F\u671F\u4E00",
+                            "\u661F\u671F\u4E8C",
+                            "\u661F\u671F\u4E09",
+                            "\u661F\u671F\u56DB",
+                            "\u661F\u671F\u4E94",
+                            "\u661F\u671F\u516D",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u4E00\u6708",
+                            "\u4E8C\u6708",
+                            "\u4E09\u6708",
+                            "\u56DB\u6708",
+                            "\u4E94\u6708",
+                            "\u516D\u6708",
+                            "\u4E03\u6708",
+                            "\u516B\u6708",
+                            "\u4E5D\u6708",
+                            "\u5341\u6708",
+                            "\u5341\u4E00\u6708",
+                            "\u5341\u4E8C\u6708",
+                            "",
+                    }
+                    wide{
+                            "\u4E00\u6708",
+                            "\u4E8C\u6708",
+                            "\u4E09\u6708",
+                            "\u56DB\u6708",
+                            "\u4E94\u6708",
+                            "\u516D\u6708",
+                            "\u4E03\u6708",
+                            "\u516B\u6708",
+                            "\u4E5D\u6708",
+                            "\u5341\u6708",
+                            "\u5341\u4E00\u6708",
+                            "\u5341\u4E8C\u6708",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

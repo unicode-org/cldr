@@ -270,35 +270,6 @@ sq_AL {
             "ALL ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE dd MMM yyyy",
-            "EEE dd MMM HH:mm:ss yyyy",
-            "dd MMM yyyy",
-            "dd.MMMM.yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Die",
-            "H\u00EBn",
-            "Mar",
-            "M\u00EBr",
-            "Enj",
-            "Pre",
-            "Sht",
-    }
-    DayNames { 
-            "E Diel\u00EB",
-            "E H\u00EBn\u00EB",
-            "E Mart\u00EB",
-            "E M\u00EBrkur\u00EB",
-            "E Enjte",
-            "E Premte",
-            "E Shtun\u00EB",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -307,36 +278,6 @@ sq_AL {
         NoExpression { "^([jJ]|[jJ][oO]|[nN]|[nN][oO])" }
         YesStr { "Po:p:P:yes:y:Y" }
         NoStr { "Jo:j:J:no:n:N" }
-    }
-    MonthAbbreviations { 
-            "Jan",
-            "Shk",
-            "Mar",
-            "Pri",
-            "Maj",
-            "Qer",
-            "Kor",
-            "Gus",
-            "Sht",
-            "Tet",
-            "N\u00EBn",
-            "Dhj",
-            "",
-    }
-    MonthNames { 
-            "Janar",
-            "Shkurt",
-            "Mars",
-            "Prill",
-            "Maj",
-            "Qershor",
-            "Korrik",
-            "Gusht",
-            "Shtator",
-            "Tetor",
-            "N\u00EBntor",
-            "Dhjetor",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -357,10 +298,76 @@ sq_AL {
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE dd MMM yyyy",
+                    "EEE dd MMM HH:mm:ss yyyy",
+                    "dd MMM yyyy",
+                    "dd.MMMM.yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Die",
+                            "H\u00EBn",
+                            "Mar",
+                            "M\u00EBr",
+                            "Enj",
+                            "Pre",
+                            "Sht",
+                    }
+                    wide{
+                            "E Diel\u00EB",
+                            "E H\u00EBn\u00EB",
+                            "E Mart\u00EB",
+                            "E M\u00EBrkur\u00EB",
+                            "E Enjte",
+                            "E Premte",
+                            "E Shtun\u00EB",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Shk",
+                            "Mar",
+                            "Pri",
+                            "Maj",
+                            "Qer",
+                            "Kor",
+                            "Gus",
+                            "Sht",
+                            "Tet",
+                            "N\u00EBn",
+                            "Dhj",
+                            "",
+                    }
+                    wide{
+                            "Janar",
+                            "Shkurt",
+                            "Mars",
+                            "Prill",
+                            "Maj",
+                            "Qershor",
+                            "Korrik",
+                            "Gusht",
+                            "Shtator",
+                            "Tetor",
+                            "N\u00EBntor",
+                            "Dhjetor",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

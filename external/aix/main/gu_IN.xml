@@ -1,63 +1,76 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-27" />
 		<language type="gu" /> 
 		<territory type="IN" /> 
 	</identity>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">જાન્યૂઆરી</month>
-					<month type="2">ફેબ્રીઆરી</month>
-					<month type="3">મા્ચ</month>
-					<month type="4">અેપ્રીલ</month>
-					<month type="5">મે</month>
-					<month type="6">જૂન</month>
-					<month type="7">જુલાઈ</month>
-					<month type="8">ઓગષ્ટ</month>
-					<month type="9">સપ્ટેમ્બર</month>
-					<month type="10">ઓકટોબર</month>
-					<month type="11">નવેમ્બર</month>
-					<month type="12">ડીસેમ્બર</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">જાન્યૂઆરી</month>
-					<month type="2">ફેબ્રીઆરી</month>
-					<month type="3">મા્ચ</month>
-					<month type="4">અેપ્રીલ</month>
-					<month type="5">મે</month>
-					<month type="6">જૂન</month>
-					<month type="7">જુલાઈ</month>
-					<month type="8">ઓગષ્ટ</month>
-					<month type="9">સપ્ટેમ્બર</month>
-					<month type="10">ઓકટોબર</month>
-					<month type="11">નવેમ્બર</month>
-					<month type="12">ડીસેમ્બર</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">રવિવાર</day>
-					<day type="mon">સૈમવાર</day>
-					<day type="tue">મંગળવાર</day>
-					<day type="wed">બુધવાર</day>
-					<day type="thu">ગુરુવાર</day>
-					<day type="fri">શુવ્વાર</day>
-					<day type="sat">શનીવાર</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">રવિ</day>
-					<day type="mon">સૈમ</day>
-					<day type="tue">મંગળ</day>
-					<day type="wed">બુધ</day>
-					<day type="thu">ગુરુ</day>
-					<day type="fri">શુવ્</day>
-					<day type="sat">શની</day>
-				</dayAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">જાન્યૂઆરી</month>
+							<month type="2">ફેબ્રીઆરી</month>
+							<month type="3">મા્ચ</month>
+							<month type="4">અેપ્રીલ</month>
+							<month type="5">મે</month>
+							<month type="6">જૂન</month>
+							<month type="7">જુલાઈ</month>
+							<month type="8">ઓગષ્ટ</month>
+							<month type="9">સપ્ટેમ્બર</month>
+							<month type="10">ઓકટોબર</month>
+							<month type="11">નવેમ્બર</month>
+							<month type="12">ડીસેમ્બર</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">જાન્યૂઆરી</month>
+							<month type="2">ફેબ્રીઆરી</month>
+							<month type="3">મા્ચ</month>
+							<month type="4">અેપ્રીલ</month>
+							<month type="5">મે</month>
+							<month type="6">જૂન</month>
+							<month type="7">જુલાઈ</month>
+							<month type="8">ઓગષ્ટ</month>
+							<month type="9">સપ્ટેમ્બર</month>
+							<month type="10">ઓકટોબર</month>
+							<month type="11">નવેમ્બર</month>
+							<month type="12">ડીસેમ્બર</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">રવિ</day>
+							<day type="mon">સૈમ</day>
+							<day type="tue">મંગળ</day>
+							<day type="wed">બુધ</day>
+							<day type="thu">ગુરુ</day>
+							<day type="fri">શુવ્</day>
+							<day type="sat">શની</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">રવિવાર</day>
+							<day type="mon">સૈમવાર</day>
+							<day type="tue">મંગળવાર</day>
+							<day type="wed">બુધવાર</day>
+							<day type="thu">ગુરુવાર</day>
+							<day type="fri">શુવ્વાર</day>
+							<day type="sat">શનીવાર</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<am>કાૈલ</am>
 				<pm>માૈલ</pm>
 				<dateFormats>

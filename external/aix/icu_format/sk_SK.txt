@@ -273,35 +273,6 @@ sk_SK {
             "CSK ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE dd MMM yyyy ",
-            "EEE dd MMM yyyy HH:mm:ss",
-            "dd MMM yyyy",
-            "yyyy-MMMM-dd",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Ne",
-            "Po",
-            "Ut",
-            "St",
-            "\u0160t",
-            "Pa",
-            "So",
-    }
-    DayNames { 
-            "nede\u013Ee",
-            "pondelok",
-            "utorok",
-            "streda",
-            "\u0161tvrtok",
-            "piatok",
-            "sobota",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -310,36 +281,6 @@ sk_SK {
         NoExpression { "^([nN]|[nN][iI][eE]|[nN][oO])" }
         YesStr { "Ano:a:A:yes:y:Y" }
         NoStr { "Nie:n:N:no" }
-    }
-    MonthAbbreviations { 
-            "jan",
-            "feb",
-            "mar",
-            "apr",
-            "m\u00E1j",
-            "j\u00FAn",
-            "j\u00FAl",
-            "aug",
-            "sep",
-            "okt",
-            "nov",
-            "dec",
-            "",
-    }
-    MonthNames { 
-            "janu\u00E1r",
-            "febru\u00E1r",
-            "marec",
-            "apr\u00EDl",
-            "m\u00E1j",
-            "j\u00FAn",
-            "j\u00FAl",
-            "august",
-            "september",
-            "okt\u00F3ber",
-            "november",
-            "december",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -360,10 +301,76 @@ sk_SK {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE dd MMM yyyy ",
+                    "EEE dd MMM yyyy HH:mm:ss",
+                    "dd MMM yyyy",
+                    "yyyy-MMMM-dd",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Ne",
+                            "Po",
+                            "Ut",
+                            "St",
+                            "\u0160t",
+                            "Pa",
+                            "So",
+                    }
+                    wide{
+                            "nede\u013Ee",
+                            "pondelok",
+                            "utorok",
+                            "streda",
+                            "\u0161tvrtok",
+                            "piatok",
+                            "sobota",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jan",
+                            "feb",
+                            "mar",
+                            "apr",
+                            "m\u00E1j",
+                            "j\u00FAn",
+                            "j\u00FAl",
+                            "aug",
+                            "sep",
+                            "okt",
+                            "nov",
+                            "dec",
+                            "",
+                    }
+                    wide{
+                            "janu\u00E1r",
+                            "febru\u00E1r",
+                            "marec",
+                            "apr\u00EDl",
+                            "m\u00E1j",
+                            "j\u00FAn",
+                            "j\u00FAl",
+                            "august",
+                            "september",
+                            "okt\u00F3ber",
+                            "november",
+                            "december",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

@@ -273,35 +273,6 @@ pt_BR {
             "BRL ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE dd MMM yyyy ",
-            "EEE dd MMM yyyy HH:mm:ss",
-            "dd MMM yyyy",
-            "dd/MMMM/yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Dom",
-            "Seg",
-            "Ter",
-            "Qua",
-            "Qui",
-            "Sex",
-            "Sab",
-    }
-    DayNames { 
-            "Domingo",
-            "Segunda-feira",
-            "Ter\u00E7a-feira",
-            "Quarta-feira",
-            "Quinta-feira",
-            "Sexta-feira",
-            "S\u00E1bado",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -310,36 +281,6 @@ pt_BR {
         NoExpression { "^([nN]|[nN][\u00E3\u00C3][oO]|[nN][oO])" }
         YesStr { "sim:s:S:yes:y:Y" }
         NoStr { "n\u00E3o:n:N:no" }
-    }
-    MonthAbbreviations { 
-            "Jan",
-            "Fev",
-            "Mar",
-            "Abr",
-            "Mai",
-            "Jun",
-            "Jul",
-            "Ago",
-            "Set",
-            "Out",
-            "Nov",
-            "Dez",
-            "",
-    }
-    MonthNames { 
-            "Janeiro",
-            "Fevereiro",
-            "Mar\u00E7o",
-            "Abril",
-            "Maio",
-            "Junho",
-            "Julho",
-            "Agosto",
-            "Setembro",
-            "Outubro",
-            "Novembro",
-            "Dezembro",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -360,10 +301,76 @@ pt_BR {
             "\u00A4 #,##0.00;-\u00A4 #,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE dd MMM yyyy ",
+                    "EEE dd MMM yyyy HH:mm:ss",
+                    "dd MMM yyyy",
+                    "dd/MMMM/yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Dom",
+                            "Seg",
+                            "Ter",
+                            "Qua",
+                            "Qui",
+                            "Sex",
+                            "Sab",
+                    }
+                    wide{
+                            "Domingo",
+                            "Segunda-feira",
+                            "Ter\u00E7a-feira",
+                            "Quarta-feira",
+                            "Quinta-feira",
+                            "Sexta-feira",
+                            "S\u00E1bado",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Fev",
+                            "Mar",
+                            "Abr",
+                            "Mai",
+                            "Jun",
+                            "Jul",
+                            "Ago",
+                            "Set",
+                            "Out",
+                            "Nov",
+                            "Dez",
+                            "",
+                    }
+                    wide{
+                            "Janeiro",
+                            "Fevereiro",
+                            "Mar\u00E7o",
+                            "Abril",
+                            "Maio",
+                            "Junho",
+                            "Julho",
+                            "Agosto",
+                            "Setembro",
+                            "Outubro",
+                            "Novembro",
+                            "Dezembro",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

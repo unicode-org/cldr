@@ -273,35 +273,6 @@ sl_SL {
             "SLT ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE dd MMM yyyy ",
-            "EEE dd MMM yyyy HH:mm:ss",
-            "dd MMM yyyy",
-            "dd.MMMM.yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "ned",
-            "pon",
-            "tor",
-            "sre",
-            "\u010Det",
-            "pet",
-            "sob",
-    }
-    DayNames { 
-            "nedelja",
-            "ponedeljek",
-            "torek",
-            "sreda",
-            "\u010Detrtek",
-            "petek",
-            "sobota",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -310,36 +281,6 @@ sl_SL {
         NoExpression { "^([nN]|[nN][eE]|[nN][oO])" }
         YesStr { "da:d:D:yes:y:Y" }
         NoStr { "ne:n:N:no" }
-    }
-    MonthAbbreviations { 
-            "jan",
-            "feb",
-            "mar",
-            "apr",
-            "maj",
-            "jun",
-            "jul",
-            "avg",
-            "sep",
-            "okt",
-            "nov",
-            "dec",
-            "",
-    }
-    MonthNames { 
-            "januar",
-            "februar",
-            "marec",
-            "april",
-            "maj",
-            "junij",
-            "julij",
-            "avgust",
-            "september",
-            "oktober",
-            "november",
-            "december",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -360,10 +301,76 @@ sl_SL {
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE dd MMM yyyy ",
+                    "EEE dd MMM yyyy HH:mm:ss",
+                    "dd MMM yyyy",
+                    "dd.MMMM.yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "ned",
+                            "pon",
+                            "tor",
+                            "sre",
+                            "\u010Det",
+                            "pet",
+                            "sob",
+                    }
+                    wide{
+                            "nedelja",
+                            "ponedeljek",
+                            "torek",
+                            "sreda",
+                            "\u010Detrtek",
+                            "petek",
+                            "sobota",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jan",
+                            "feb",
+                            "mar",
+                            "apr",
+                            "maj",
+                            "jun",
+                            "jul",
+                            "avg",
+                            "sep",
+                            "okt",
+                            "nov",
+                            "dec",
+                            "",
+                    }
+                    wide{
+                            "januar",
+                            "februar",
+                            "marec",
+                            "april",
+                            "maj",
+                            "junij",
+                            "julij",
+                            "avgust",
+                            "september",
+                            "oktober",
+                            "november",
+                            "december",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

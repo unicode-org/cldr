@@ -1,9 +1,5 @@
 hi_IN {
     ///* Discarding duplicate data for tag: AddressFormat */
-    AmPmMarkers { 
-            "\u092A\u0942\u0930\u094D\u0935\u093E\u0939\u094D\u0928",
-            "\u0905\u092A\u0930\u093E\u0939\u094D\u0928",
-    }
     CollationElements { 
         Version { "1.0" }
         Overide { "false" }
@@ -1706,35 +1702,6 @@ hi_IN {
             "INR ",
             ".",
     }
-    DateTimePatterns { 
-            "hh:mm:ss aa",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "dd MMM yyyy",
-            "EEEE MMMM dd yyyy hh:mm:ss aa z",
-            "dd MMM yyyy",
-            "dd-MMMM-yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u0930\u0935\u093F",
-            "\u0938\u094B\u092E",
-            "\u092E\u0902\u0917\u0932",
-            "\u092C\u0941\u0927",
-            "\u0917\u0941\u0930\u0941",
-            "\u0936\u0941\u0915\u094D\u0930",
-            "\u0936\u0928\u093F",
-    }
-    DayNames { 
-            "\u0930\u0935\u093F\u0935\u093E\u0930",
-            "\u0938\u094B\u092E\u0935\u093E\u0930",
-            "\u092E\u0902\u0917\u0932\u0935\u093E\u0930",
-            "\u092C\u0941\u0927\u0935\u093E\u0930",
-            "\u0917\u0941\u0930\u0941\u0935\u093E\u0930",
-            "\u0936\u0941\u0915\u094D\u0930\u0935\u093E\u0930",
-            "\u0936\u0928\u093F\u0935\u093E\u0930",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -1744,36 +1711,6 @@ hi_IN {
         YesStr { "yes:y:Y:\u0939\u093E\u0901" }
         NoStr { "no:n:N:\u0928\u0939\u0940\u0902" }
     }
-    MonthAbbreviations { 
-            "\u091C\u0928\u0935\u0930\u0940",
-            "\u092B\u093C\u0930\u0935\u0930\u0940",
-            "\u092E\u093E\u0930\u094D\u091A",
-            "\u0905\u092A\u094D\u0930\u0948\u0932",
-            "\u092E\u0908",
-            "\u091C\u0942\u0928",
-            "\u091C\u0941\u0932\u093E\u0908",
-            "\u0905\u0917\u0938\u094D\u0924",
-            "\u0938\u093F\u0924\u0902\u092C\u0930",
-            "\u0905\u0915\u094D\u200D\u0924\u0942\u092C\u0930",
-            "\u0928\u0935\u0902\u092C\u0930",
-            "\u0926\u093F\u0938\u0902\u092C\u0930",
-            "",
-    }
-    MonthNames { 
-            "\u091C\u0928\u0935\u0930\u0940",
-            "\u092B\u093C\u0930\u0935\u0930\u0940",
-            "\u092E\u093E\u0930\u094D\u091A",
-            "\u0905\u092A\u094D\u0930\u0948\u0932",
-            "\u092E\u0908",
-            "\u091C\u0942\u0928",
-            "\u091C\u0941\u0932\u093E\u0908",
-            "\u0905\u0917\u0938\u094D\u0924",
-            "\u0938\u093F\u0924\u0902\u092C\u0930",
-            "\u0905\u0915\u094D\u200D\u0924\u0942\u092C\u0930",
-            "\u0928\u0935\u0902\u092C\u0930",
-            "\u0926\u093F\u0938\u0902\u092C\u0930",
-            "",
-    }
     ///* Discarding duplicate data for tag: NameFormat */
     ///* Discarding duplicate data for tag: NumberElements */
     NumberPatterns { 
@@ -1781,10 +1718,80 @@ hi_IN {
             "\u00A4 #,##0.00;-\u00A4 #,##0.00",
             "#,##0%",
     }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
-    }
     ///* Discarding duplicate data for tag: TelephoneFormat */
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    "\u092A\u0942\u0930\u094D\u0935\u093E\u0939\u094D\u0928",
+                    "\u0905\u092A\u0930\u093E\u0939\u094D\u0928",
+            }
+            DateTimePatterns{
+                    "hh:mm:ss aa",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "dd MMM yyyy",
+                    "EEEE MMMM dd yyyy hh:mm:ss aa z",
+                    "dd MMM yyyy",
+                    "dd-MMMM-yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u0930\u0935\u093F",
+                            "\u0938\u094B\u092E",
+                            "\u092E\u0902\u0917\u0932",
+                            "\u092C\u0941\u0927",
+                            "\u0917\u0941\u0930\u0941",
+                            "\u0936\u0941\u0915\u094D\u0930",
+                            "\u0936\u0928\u093F",
+                    }
+                    wide{
+                            "\u0930\u0935\u093F\u0935\u093E\u0930",
+                            "\u0938\u094B\u092E\u0935\u093E\u0930",
+                            "\u092E\u0902\u0917\u0932\u0935\u093E\u0930",
+                            "\u092C\u0941\u0927\u0935\u093E\u0930",
+                            "\u0917\u0941\u0930\u0941\u0935\u093E\u0930",
+                            "\u0936\u0941\u0915\u094D\u0930\u0935\u093E\u0930",
+                            "\u0936\u0928\u093F\u0935\u093E\u0930",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u091C\u0928\u0935\u0930\u0940",
+                            "\u092B\u093C\u0930\u0935\u0930\u0940",
+                            "\u092E\u093E\u0930\u094D\u091A",
+                            "\u0905\u092A\u094D\u0930\u0948\u0932",
+                            "\u092E\u0908",
+                            "\u091C\u0942\u0928",
+                            "\u091C\u0941\u0932\u093E\u0908",
+                            "\u0905\u0917\u0938\u094D\u0924",
+                            "\u0938\u093F\u0924\u0902\u092C\u0930",
+                            "\u0905\u0915\u094D\u200D\u0924\u0942\u092C\u0930",
+                            "\u0928\u0935\u0902\u092C\u0930",
+                            "\u0926\u093F\u0938\u0902\u092C\u0930",
+                            "",
+                    }
+                    wide{
+                            "\u091C\u0928\u0935\u0930\u0940",
+                            "\u092B\u093C\u0930\u0935\u0930\u0940",
+                            "\u092E\u093E\u0930\u094D\u091A",
+                            "\u0905\u092A\u094D\u0930\u0948\u0932",
+                            "\u092E\u0908",
+                            "\u091C\u0942\u0928",
+                            "\u091C\u0941\u0932\u093E\u0908",
+                            "\u0905\u0917\u0938\u094D\u0924",
+                            "\u0938\u093F\u0924\u0902\u092C\u0930",
+                            "\u0905\u0915\u094D\u200D\u0924\u0942\u092C\u0930",
+                            "\u0928\u0935\u0902\u092C\u0930",
+                            "\u0926\u093F\u0938\u0902\u092C\u0930",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>GMT Translations</title>
+</head>
+
+<body>
+
+<h2>GMT Translations</h2>
+<p><i>2003-07-24, MD</i></p>
+<h3>Background</h3>
+<p>When ICU formats or parses a date pattern containing a &quot;z&quot;
+parameter (for <i>time-zone</i>), then it uses the Olson IDs to look up a
+localized name. For example:</p>
+<p><code>&quot;hh 'o''clock' a, zzzz&quot; -&gt;&gt; 12 o'clock PM, Pacific
+Daylight Time</code></p>
+<p>If there are no localized names for a given Olson ID, then it falls back to
+using a format like &quot;GMT+12:00&quot;, so for another time-zone the above
+pattern might produce:</p>
+<p><code>&quot;hh 'o''clock' a, zzzz&quot; -&gt;&gt; 11 o'clock AM, </code><code>GMT-09:00</code></p>
+<p>For more information, see:</p>
+<ul>
+  <li><a href="http://oss.software.ibm.com/icu4j/doc/com/ibm/icu/util/TimeZone.html">http://oss.software.ibm.com/icu4j/doc/com/ibm/icu/util/TimeZone.html</a></li>
+  <li><a href="http://oss.software.ibm.com/icu4j/doc/com/ibm/icu/text/SimpleDateFormat.html">http://oss.software.ibm.com/icu4j/doc/com/ibm/icu/text/SimpleDateFormat.html</a></li>
+</ul>
+<h2>Problem</h2>
+<p>Currently that fallback format is hard-coded, which is <i>prima facie</i> a
+problem, since one can't translate &quot;GMT&quot; or &quot;:&quot; into strings
+more appropriate for other languages, and the ordering of elements is fixed.
+Moreover, the GMT+/- format itself may not be customary in a given country. If
+the time-zone being reported is in India, but the localized time is for a
+Serbian, for example, it would be much more useful to note the offset from
+Serbian time rather than the offset from GMT (actually UTC).</p>
+<p>For examples of current zone string localizations, see:</p>
+<ul>
+  <li><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icu/source/data/locales/en.txt">http://oss.software.ibm.com/cvs/icu/~checkout~/icu/source/data/locales/en.txt</a></li>
+</ul>
+<h2>Proposed Solutions</h2>
+<p>Add a ZoneFallback resource, containing a base Olson ID, and some fallback
+strings, all of which can be localized for each locale. Each string is itself a
+date format. The base time is an ID used for normalization. Examples (just for
+illustration):</p>
+<p><b>Root:</b></p>
+<blockquote>
+  <p>Zone_Base: &quot;GMT&quot;<br>
+  Positive_Zone: &quot;'GMT+ hh:mm&quot;<br>
+  Negative_Zone: &quot;'GMT-'hh:mm&quot;<br>
+  Abb_Positive_Zone: &quot;'GMT+ 'hh:mm&quot;<br>
+  Abb_Negative_Zone: &quot;'GMT-'hh:mm&quot;</p>
+  <p><i>Open Issue: should we use UTC or GMT in the Root? Probably better to use
+  GMT for compatibility.</i></p>
+</blockquote>
+<p><b>en_US:</b></p>
+<blockquote>
+  <p>Zone_Base: &quot;America/New_York&quot;<br>
+  Positive_Zone: &quot;'Eastern Time+ 'hh:mm&quot;<br>
+  Negative_Zone: &quot;'Eastern Time-'hh:mm&quot;<br>
+  Short_Positive_Zone: &quot;'ET+ 'hh:mm&quot;<br>
+  Short_Negative_Zone: &quot;'ET-'hh:mm&quot;</p>
+</blockquote>
+<p><b>de_DE:</b></p>
+<blockquote>
+  <p>Zone_Base: &quot;Europe/Paris&quot;<br>
+  Positive_GMT: &quot;'Mitteleuropäische Zeit+ 'hh.mm&quot;<br>
+  Negative_GMT: &quot;'Mitteleuropäische Zeit-'hh.mm&quot;<br>
+  Short_Positive_GMT: &quot;'MEZ+ 'hh.mm&quot;<br>
+  Short_Negative_GMT: &quot;'MEZ-'hh.mm&quot;</p>
+</blockquote>
+<p>If there is no specific name for a zone ID, then these values will be used to
+compose a fallback. The Zone_Base will be used to find the difference in
+hours/minutes. Those values will then be formatted with the available
+localization strings, according to whether the difference is positive or
+negative, and weather the long or short &quot;z&quot; parameter is used in the
+format string.</p>
+<p>For parsing, all of the localization strings will be attempted, plus the ones
+for the Root. In addition, we will be somewhat more lenient by permitting
+plus-signs and punctuation between hh and mm to be omitted.</p>
+<p>We would generate initial (static) data for the above having a tool pass over
+our data and construct some defaults. E.g. we would get the punctuation for the
+hh:mm string from the existing short time strings, and have the base be GMT. We
+would then pass this out to the translation sites for better data.</p>
+
+</body>
+
+</html>

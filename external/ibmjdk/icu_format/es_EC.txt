@@ -1,15 +1,4 @@
 es_EC {
-    DateTimePatterns { 
-            "hh:mm:ss a z",
-            "hh:mm:ss a z",
-            "hh:mm:ss a",
-            "hh:mm a",
-            "EEEE d' de 'MMMM' de 'yyyy",
-            "d' de 'MMMM' de 'yyyy",
-            "dd/MM/yyyy",
-            "dd/MM/yy",
-            "{1} {0}",
-    }
     LocaleID { "300a" }
     LocaleString { "es_EC" }
     ///* Discarding duplicate data for tag: NumberElements */
@@ -19,4 +8,19 @@ es_EC {
             "#,##0%",
     }
     ShortCountry { "ECU" }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss a z",
+                    "hh:mm:ss a z",
+                    "hh:mm:ss a",
+                    "hh:mm a",
+                    "EEEE d' de 'MMMM' de 'yyyy",
+                    "d' de 'MMMM' de 'yyyy",
+                    "dd/MM/yyyy",
+                    "dd/MM/yy",
+                    "{1} {0}",
+            }
+        }
+    }
 }

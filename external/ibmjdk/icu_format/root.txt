@@ -1,8 +1,4 @@
 root {
-    AmPmMarkers { 
-            "AM",
-            "PM",
-    }
     CollationElements { "" }
     Countries { 
         AF { "Afghanistan" }
@@ -204,43 +200,6 @@ root {
         ZM { "Zambia" }
         ZW { "Zimbabwe" }
     }
-    DateTimeElements:intvector { 
-            1,
-            1,
-    }
-    DateTimePatterns { 
-            "h:mm:ss a z",
-            "h:mm:ss a z",
-            "h:mm:ss a",
-            "h:mm a",
-            "EEEE, MMMM d, yyyy",
-            "MMMM d, yyyy",
-            "MMM d, yyyy",
-            "M/d/yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Sun",
-            "Mon",
-            "Tue",
-            "Wed",
-            "Thu",
-            "Fri",
-            "Sat",
-    }
-    DayNames { 
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-    }
-    Eras { 
-            "BC",
-            "AD",
-    }
     Languages { 
         ab { "Abkhazian" }
         aa { "Afar" }
@@ -387,36 +346,6 @@ root {
     }
     LocaleID { "0409" }
     LocaleString { "en" }
-    MonthAbbreviations { 
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
-            "",
-    }
-    MonthNames { 
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-            "",
-    }
     NumberElements { 
             ".",
             ",",
@@ -438,4 +367,88 @@ root {
     ShortCountry { "" }
     ShortLanguage { "eng" }
     localPatternChars { "GyMdkHmsSEDFwWahKzZ" }
+    calendar{
+        default{ "gregorian" }
+        gregorian{
+            AmPmMarkers{
+                    "AM",
+                    "PM",
+            }
+            DateTimeElements:intvector{
+                    1,
+                    1,
+            }
+            DateTimePatterns{
+                    "h:mm:ss a z",
+                    "h:mm:ss a z",
+                    "h:mm:ss a",
+                    "h:mm a",
+                    "EEEE, MMMM d, yyyy",
+                    "MMMM d, yyyy",
+                    "MMM d, yyyy",
+                    "M/d/yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Sun",
+                            "Mon",
+                            "Tue",
+                            "Wed",
+                            "Thu",
+                            "Fri",
+                            "Sat",
+                    }
+                    wide{
+                            "Sunday",
+                            "Monday",
+                            "Tuesday",
+                            "Wednesday",
+                            "Thursday",
+                            "Friday",
+                            "Saturday",
+                    }
+                }
+            }
+            eras{
+                    "BC",
+                    "AD",
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Feb",
+                            "Mar",
+                            "Apr",
+                            "May",
+                            "Jun",
+                            "Jul",
+                            "Aug",
+                            "Sep",
+                            "Oct",
+                            "Nov",
+                            "Dec",
+                            "",
+                    }
+                    wide{
+                            "January",
+                            "February",
+                            "March",
+                            "April",
+                            "May",
+                            "June",
+                            "July",
+                            "August",
+                            "September",
+                            "October",
+                            "November",
+                            "December",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

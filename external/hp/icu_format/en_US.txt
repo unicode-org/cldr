@@ -4,17 +4,6 @@ en_US {
     ///* Discarding duplicate data for tag: CountryISBNNumber */
     ///* Discarding duplicate data for tag: CountryNumber */
     ///* Discarding duplicate data for tag: CurrencyElements */
-    DateTimePatterns { 
-            "hh:mm:ss aa",
-            "hh:mm:ss aa",
-            "hh:mm:ss aa",
-            "hh:mm:ss aa",
-            "EEE, MMM d, yyyy ",
-            "EEE, MMM d, yyyy hh:mm:ss aa",
-            "EEE, MMM d, yyyy",
-            "EEE, MMM d, yyyy",
-            "{1} {0}",
-    }
     ///* Discarding duplicate data for tag: DayAbbreviations */
     ///* Discarding duplicate data for tag: DayNames */
     ///* Discarding duplicate data for tag: Identification */
@@ -32,11 +21,6 @@ en_US {
             "#,##0.###;-#,##0.###",
             "\u00A4#,##0.00;-\u00A4#,##0.00",
             "#,##0%",
-    }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
     }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     CollationElements { 
@@ -311,4 +295,19 @@ en_US {
             "&S\u0161,\u00DF" //<s-sharp>		<S>;<S><S>
             "" } 
      }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss aa",
+                    "hh:mm:ss aa",
+                    "hh:mm:ss aa",
+                    "hh:mm:ss aa",
+                    "EEE, MMM d, yyyy ",
+                    "EEE, MMM d, yyyy hh:mm:ss aa",
+                    "EEE, MMM d, yyyy",
+                    "EEE, MMM d, yyyy",
+                    "{1} {0}",
+            }
+        }
+    }
 }

@@ -1,8 +1,4 @@
 cs {
-    AmPmMarkers { 
-            "dop.",
-            "odp.",
-    }
     CollationElements { "& \u0361 ; \u0308 = \u030D& C < c\u030C , C\u030C& H < ch , cH , Ch , CH & R < r\u030C , R\u030C& S < s\u030C , S\u030C& Z < z\u030C , Z\u030C" }
     Countries { 
         AF { "Afgh\u00E1nist\u00E1n" }
@@ -205,43 +201,6 @@ cs {
         ZM { "Zambie" }
         ZW { "Zimbabwe" }
     }
-    DateTimeElements:intvector { 
-            2,
-            1,
-    }
-    DateTimePatterns { 
-            "H:mm:ss z",
-            "H:mm:ss z",
-            "H:mm:ss",
-            "H:mm",
-            "EEEE, d. MMMM yyyy",
-            "d. MMMM yyyy",
-            "d.M.yyyy",
-            "d.M.yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Ne",
-            "Po",
-            "\u00DAt",
-            "St",
-            "\u010Ct",
-            "P\u00E1",
-            "So",
-    }
-    DayNames { 
-            "Ned\u011Ble",
-            "Pond\u011Bl\u00ED",
-            "\u00DAter\u00FD",
-            "St\u0159eda",
-            "\u010Ctvrtek",
-            "P\u00E1tek",
-            "Sobota",
-    }
-    Eras { 
-            "p\u0159.Kr.",
-            "po Kr.",
-    }
     Languages { 
         ab { "Abch\u00E1z\u0161tina" }
         aa { "Afar\u0161tina" }
@@ -388,36 +347,6 @@ cs {
     }
     LocaleID { "0405" }
     LocaleString { "cs" }
-    MonthAbbreviations { 
-            "I",
-            "II",
-            "III",
-            "IV",
-            "V",
-            "VI",
-            "VII",
-            "VIII",
-            "IX",
-            "X",
-            "XI",
-            "XII",
-            "",
-    }
-    MonthNames { 
-            "leden",
-            "\u00FAnor",
-            "b\u0159ezen",
-            "duben",
-            "kv\u011Bten",
-            "\u010Derven",
-            "\u010Dervenec",
-            "srpen",
-            "z\u00E1\u0159\u00ED",
-            "\u0159\u00EDjen",
-            "listopad",
-            "prosinec",
-            "",
-    }
     NumberElements { 
             ",",
             "\u00A0",
@@ -433,4 +362,87 @@ cs {
     }
     ShortLanguage { "ces" }
     localPatternChars { "GyMdkHmsSEDFwWahKzZ" }
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    "dop.",
+                    "odp.",
+            }
+            DateTimeElements:intvector{
+                    2,
+                    1,
+            }
+            DateTimePatterns{
+                    "H:mm:ss z",
+                    "H:mm:ss z",
+                    "H:mm:ss",
+                    "H:mm",
+                    "EEEE, d. MMMM yyyy",
+                    "d. MMMM yyyy",
+                    "d.M.yyyy",
+                    "d.M.yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Ne",
+                            "Po",
+                            "\u00DAt",
+                            "St",
+                            "\u010Ct",
+                            "P\u00E1",
+                            "So",
+                    }
+                    wide{
+                            "Ned\u011Ble",
+                            "Pond\u011Bl\u00ED",
+                            "\u00DAter\u00FD",
+                            "St\u0159eda",
+                            "\u010Ctvrtek",
+                            "P\u00E1tek",
+                            "Sobota",
+                    }
+                }
+            }
+            eras{
+                    "p\u0159.Kr.",
+                    "po Kr.",
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "I",
+                            "II",
+                            "III",
+                            "IV",
+                            "V",
+                            "VI",
+                            "VII",
+                            "VIII",
+                            "IX",
+                            "X",
+                            "XI",
+                            "XII",
+                            "",
+                    }
+                    wide{
+                            "leden",
+                            "\u00FAnor",
+                            "b\u0159ezen",
+                            "duben",
+                            "kv\u011Bten",
+                            "\u010Derven",
+                            "\u010Dervenec",
+                            "srpen",
+                            "z\u00E1\u0159\u00ED",
+                            "\u0159\u00EDjen",
+                            "listopad",
+                            "prosinec",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

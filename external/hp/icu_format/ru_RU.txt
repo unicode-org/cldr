@@ -8,71 +8,12 @@ ru_RU {
             "SUR",
             ".",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE,  MMM yyyy ",
-            "EEE,  MMM yyyy HH:mm:ss",
-            "EEE,  MMM yyyy",
-            "EEE,  MMM yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u0412\u0421",
-            "\u041F\u041D",
-            "\u0412\u0422",
-            "\u0421\u0420",
-            "\u0427\u0422",
-            "\u041F\u0422",
-            "\u0421\u0411",
-    }
-    DayNames { 
-            "\u0412\u041E\u0421\u041A\u0420\u0415\u0421\u0415\u041D\u042C\u0415",
-            "\u041F\u041E\u041D\u0415\u0414\u0415\u041B\u042C\u041D\u0418\u041A",
-            "\u0412\u0422\u041E\u0420\u041D\u0418\u041A",
-            "\u0421\u0420\u0415\u0414\u0410",
-            "\u0427\u0415\u0422\u0412\u0415\u0420\u0413",
-            "\u041F\u042F\u0422\u041D\u0418\u0426\u0410",
-            "\u0421\u0423\u0411\u0411\u041E\u0422\u0410",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
     Messages { 
         yesExpression { "^([Yy]|[Yy][Ee][Ss])" }
         noExpression { "^([Nn]|[Nn][Oo])" }
-    }
-    MonthAbbreviations { 
-            "\u042F\u041D\u0412",
-            "\u0424\u0415\u0412\u0420",
-            "\u041C\u0410\u0420\u0422",
-            "\u0410\u041F\u0420",
-            "\u041C\u0410\u042F",
-            "\u0418\u042E\u041D\u042F",
-            "\u0418\u042E\u041B\u042F",
-            "\u0410\u0412\u0413",
-            "\u0421\u0415\u041D\u0422",
-            "\u041E\u041A\u0422",
-            "\u041D\u041E\u042F\u0411",
-            "\u0414\u0415\u041A",
-            "",
-    }
-    MonthNames { 
-            "\u042F\u041D\u0412\u0410\u0420\u042F",
-            "\u0424\u0415\u0412\u0420\u0410\u041B\u042F",
-            "\u041C\u0410\u0420\u0422\u0410",
-            "\u0410\u041F\u0420\u0415\u041B\u042F",
-            "\u041C\u0410\u042F",
-            "\u0418\u042E\u041D\u042F",
-            "\u0418\u042E\u041B\u042F",
-            "\u0410\u0412\u0413\u0423\u0421\u0422\u0410",
-            "\u0421\u0415\u041D\u0422\u042F\u0411\u0420\u042F",
-            "\u041E\u041A\u0422\u042F\u0411\u0420\u042F",
-            "\u041D\u041E\u042F\u0411\u0420\u042F",
-            "\u0414\u0415\u041A\u0410\u0411\u0420\u042F",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -92,11 +33,6 @@ ru_RU {
             "#,##0.###;-#,##0.###",
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
-    }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
     }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     CollationElements { 
@@ -360,4 +296,75 @@ ru_RU {
             "<"              //<DEL>		<DEL>
             "" } 
      }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE,  MMM yyyy ",
+                    "EEE,  MMM yyyy HH:mm:ss",
+                    "EEE,  MMM yyyy",
+                    "EEE,  MMM yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u0412\u0421",
+                            "\u041F\u041D",
+                            "\u0412\u0422",
+                            "\u0421\u0420",
+                            "\u0427\u0422",
+                            "\u041F\u0422",
+                            "\u0421\u0411",
+                    }
+                    wide{
+                            "\u0412\u041E\u0421\u041A\u0420\u0415\u0421\u0415\u041D\u042C\u0415",
+                            "\u041F\u041E\u041D\u0415\u0414\u0415\u041B\u042C\u041D\u0418\u041A",
+                            "\u0412\u0422\u041E\u0420\u041D\u0418\u041A",
+                            "\u0421\u0420\u0415\u0414\u0410",
+                            "\u0427\u0415\u0422\u0412\u0415\u0420\u0413",
+                            "\u041F\u042F\u0422\u041D\u0418\u0426\u0410",
+                            "\u0421\u0423\u0411\u0411\u041E\u0422\u0410",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u042F\u041D\u0412",
+                            "\u0424\u0415\u0412\u0420",
+                            "\u041C\u0410\u0420\u0422",
+                            "\u0410\u041F\u0420",
+                            "\u041C\u0410\u042F",
+                            "\u0418\u042E\u041D\u042F",
+                            "\u0418\u042E\u041B\u042F",
+                            "\u0410\u0412\u0413",
+                            "\u0421\u0415\u041D\u0422",
+                            "\u041E\u041A\u0422",
+                            "\u041D\u041E\u042F\u0411",
+                            "\u0414\u0415\u041A",
+                            "",
+                    }
+                    wide{
+                            "\u042F\u041D\u0412\u0410\u0420\u042F",
+                            "\u0424\u0415\u0412\u0420\u0410\u041B\u042F",
+                            "\u041C\u0410\u0420\u0422\u0410",
+                            "\u0410\u041F\u0420\u0415\u041B\u042F",
+                            "\u041C\u0410\u042F",
+                            "\u0418\u042E\u041D\u042F",
+                            "\u0418\u042E\u041B\u042F",
+                            "\u0410\u0412\u0413\u0423\u0421\u0422\u0410",
+                            "\u0421\u0415\u041D\u0422\u042F\u0411\u0420\u042F",
+                            "\u041E\u041A\u0422\u042F\u0411\u0420\u042F",
+                            "\u041D\u041E\u042F\u0411\u0420\u042F",
+                            "\u0414\u0415\u041A\u0410\u0411\u0420\u042F",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

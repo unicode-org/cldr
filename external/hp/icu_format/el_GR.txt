@@ -8,71 +8,12 @@ el_GR {
             "GRD",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE dd MMM yyyy ",
-            "EEE dd MMM yyyy HH:mm:ss",
-            "EEE dd MMM yyyy",
-            "EEE dd MMM yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "\u039A\u03A5\u03A1",
-            "\u0394\u0395\u03A5",
-            "\u03A4\u03A1\u0399",
-            "\u03A4\u0395\u03A4",
-            "\u03A0\u0395\u039C",
-            "\u03A0\u0391\u03A1",
-            "\u03A3\u0391\u0392",
-    }
-    DayNames { 
-            "\u039A\u03A5\u03A1\u0399\u0391\u039A\u0397",
-            "\u0394\u0395\u03A5\u03A4\u0395\u03A1\u0391",
-            "\u03A4\u03A1\u0399\u03A4\u0397",
-            "\u03A4\u0395\u03A4\u0391\u03A1\u03A4\u0397",
-            "\u03A0\u0395\u039C\u03A0\u03A4\u0397",
-            "\u03A0\u0391\u03A1\u0391\u03A3\u039A\u0395\u03A5\u0397",
-            "\u03A3\u0391\u0392\u0392\u0391\u03A4\u039F",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
     Messages { 
         yesExpression { "^([Nn]|[Nn][Aa][Ii])" }
         noExpression { "^([Oo]|[Oo][Xx][Ii])" }
-    }
-    MonthAbbreviations { 
-            "\u0393\u0395\u039D",
-            "\u03A6\u039B\u0395",
-            "\u039C\u0391\u03A1",
-            "\u0391\u03A0\u03A1",
-            "\u039C\u0391\u0397",
-            "\u0399\u039F\u03A5\u039D",
-            "\u0399\u039F\u03A5\u039B",
-            "\u0391\u03A5\u0393",
-            "\u03A3\u0395\u03A0",
-            "\u039F\u039A\u03A4",
-            "\u039D\u039F\u0395",
-            "\u0394\u0395\u039A",
-            "",
-    }
-    MonthNames { 
-            "\u0393\u0395\u039D\u0391\u03A1\u0397\u03A3",
-            "\u03A6\u039B\u0395\u0392\u0391\u03A1\u0397\u03A3",
-            "\u039C\u0391\u03A1\u03A4\u0397\u03A3",
-            "\u0391\u03A0\u03A1\u0399\u039B\u0397\u03A3",
-            "\u039C\u0391\u0397\u03A3",
-            "\u0399\u039F\u03A5\u039D\u0399\u039F\u03A3",
-            "\u0399\u039F\u03A5\u039B\u0399\u039F\u03A3",
-            "\u0391\u03A5\u0393\u039F\u03A5\u03A3\u03A4\u039F\u03A3",
-            "\u03A3\u0395\u03A0\u03A4\u0395\u039C\u0392\u03A1\u0397\u03A3",
-            "\u039F\u039A\u03A4\u03A9\u0392\u03A1\u0397\u03A3",
-            "\u039D\u039F\u0395\u039C\u0392\u03A1\u0397\u03A3",
-            "\u0394\u0395\u039A\u0395\u039C\u0392\u03A1\u0397\u03A3",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -92,11 +33,6 @@ el_GR {
             "#,##0.###;-#,##0.###",
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
-    }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
     }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     CollationElements { 
@@ -354,4 +290,75 @@ el_GR {
             "&t\u03C4,\u03B8" //<theta>		<T>;<t><h>
             "" } 
      }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE dd MMM yyyy ",
+                    "EEE dd MMM yyyy HH:mm:ss",
+                    "EEE dd MMM yyyy",
+                    "EEE dd MMM yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "\u039A\u03A5\u03A1",
+                            "\u0394\u0395\u03A5",
+                            "\u03A4\u03A1\u0399",
+                            "\u03A4\u0395\u03A4",
+                            "\u03A0\u0395\u039C",
+                            "\u03A0\u0391\u03A1",
+                            "\u03A3\u0391\u0392",
+                    }
+                    wide{
+                            "\u039A\u03A5\u03A1\u0399\u0391\u039A\u0397",
+                            "\u0394\u0395\u03A5\u03A4\u0395\u03A1\u0391",
+                            "\u03A4\u03A1\u0399\u03A4\u0397",
+                            "\u03A4\u0395\u03A4\u0391\u03A1\u03A4\u0397",
+                            "\u03A0\u0395\u039C\u03A0\u03A4\u0397",
+                            "\u03A0\u0391\u03A1\u0391\u03A3\u039A\u0395\u03A5\u0397",
+                            "\u03A3\u0391\u0392\u0392\u0391\u03A4\u039F",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "\u0393\u0395\u039D",
+                            "\u03A6\u039B\u0395",
+                            "\u039C\u0391\u03A1",
+                            "\u0391\u03A0\u03A1",
+                            "\u039C\u0391\u0397",
+                            "\u0399\u039F\u03A5\u039D",
+                            "\u0399\u039F\u03A5\u039B",
+                            "\u0391\u03A5\u0393",
+                            "\u03A3\u0395\u03A0",
+                            "\u039F\u039A\u03A4",
+                            "\u039D\u039F\u0395",
+                            "\u0394\u0395\u039A",
+                            "",
+                    }
+                    wide{
+                            "\u0393\u0395\u039D\u0391\u03A1\u0397\u03A3",
+                            "\u03A6\u039B\u0395\u0392\u0391\u03A1\u0397\u03A3",
+                            "\u039C\u0391\u03A1\u03A4\u0397\u03A3",
+                            "\u0391\u03A0\u03A1\u0399\u039B\u0397\u03A3",
+                            "\u039C\u0391\u0397\u03A3",
+                            "\u0399\u039F\u03A5\u039D\u0399\u039F\u03A3",
+                            "\u0399\u039F\u03A5\u039B\u0399\u039F\u03A3",
+                            "\u0391\u03A5\u0393\u039F\u03A5\u03A3\u03A4\u039F\u03A3",
+                            "\u03A3\u0395\u03A0\u03A4\u0395\u039C\u0392\u03A1\u0397\u03A3",
+                            "\u039F\u039A\u03A4\u03A9\u0392\u03A1\u0397\u03A3",
+                            "\u039D\u039F\u0395\u039C\u0392\u03A1\u0397\u03A3",
+                            "\u0394\u0395\u039A\u0395\u039C\u0392\u03A1\u0397\u03A3",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<generation date="2004-05-14" />
 		<language type="de" /> 
 		<territory type="AT" /> 
 	</identity>
@@ -11,36 +11,40 @@
 		<localizedPatternChars>GuMtkHmsSEDFwWahKzZ</localizedPatternChars>
 		<calendars>
 			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">Jänner</month>
-					<month type="2">Februar</month>
-					<month type="3">März</month>
-					<month type="4">April</month>
-					<month type="5">Mai</month>
-					<month type="6">Juni</month>
-					<month type="7">Juli</month>
-					<month type="8">August</month>
-					<month type="9">September</month>
-					<month type="10">Oktober</month>
-					<month type="11">November</month>
-					<month type="12">Dezember</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">Jän</month>
-					<month type="2">Feb</month>
-					<month type="3">Mär</month>
-					<month type="4">Apr</month>
-					<month type="5">Mai</month>
-					<month type="6">Jun</month>
-					<month type="7">Jul</month>
-					<month type="8">Aug</month>
-					<month type="9">Sep</month>
-					<month type="10">Okt</month>
-					<month type="11">Nov</month>
-					<month type="12">Dez</month>
-					<month type="13"></month>
-				</monthAbbr>
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Jän</month>
+							<month type="2">Feb</month>
+							<month type="3">Mär</month>
+							<month type="4">Apr</month>
+							<month type="5">Mai</month>
+							<month type="6">Jun</month>
+							<month type="7">Jul</month>
+							<month type="8">Aug</month>
+							<month type="9">Sep</month>
+							<month type="10">Okt</month>
+							<month type="11">Nov</month>
+							<month type="12">Dez</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Jänner</month>
+							<month type="2">Februar</month>
+							<month type="3">März</month>
+							<month type="4">April</month>
+							<month type="5">Mai</month>
+							<month type="6">Juni</month>
+							<month type="7">Juli</month>
+							<month type="8">August</month>
+							<month type="9">September</month>
+							<month type="10">Oktober</month>
+							<month type="11">November</month>
+							<month type="12">Dezember</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
 				<week>
 					<minDays count="1"/>
 					<firstDay day="mon"/>

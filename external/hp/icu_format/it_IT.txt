@@ -8,71 +8,12 @@ it_IT {
             "ITL.",
             ",",
     }
-    DateTimePatterns { 
-            "%.1H:mm:ss",
-            "%.1H:mm:ss",
-            "%.1H:mm:ss",
-            "%.1H:mm:ss",
-            "EEEE, /MM/yyyy ",
-            "EEEE, /MM/yyyy  %.1H:mm:ss",
-            "EEEE,  MMMM yyyy",
-            "EEEE,  MMMM yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "dom",
-            "lun",
-            "mar",
-            "mer",
-            "gio",
-            "ven",
-            "sab",
-    }
-    DayNames { 
-            "domenica",
-            "luned\u00EC",
-            "marted\u00EC",
-            "mercoled\u00EC",
-            "gioved\u00EC",
-            "venerd\u00EC",
-            "sabato",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
     Messages { 
         yesExpression { "^([sS]|[sS][iI])" }
         noExpression { "^([nN]|[nN][oO])" }
-    }
-    MonthAbbreviations { 
-            "gen",
-            "feb",
-            "mar",
-            "apr",
-            "mag",
-            "giu",
-            "lug",
-            "ago",
-            "set",
-            "ott",
-            "nov",
-            "dic",
-            "",
-    }
-    MonthNames { 
-            "gennaio",
-            "febbraio",
-            "marzo",
-            "aprile",
-            "maggio",
-            "giugno",
-            "luglio",
-            "agosto",
-            "settembre",
-            "ottobre",
-            "novembre",
-            "dicembre",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -92,11 +33,6 @@ it_IT {
             "#,##0.###;-#,##0.###",
             "\u00A4 #,##0.00;-\u00A4 #,##0.00",
             "#,##0%",
-    }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
     }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     CollationElements { 
@@ -371,4 +307,75 @@ it_IT {
             "&S\u0161,\u00DF" //<s-sharp>		<S>;<S><S>
             "" } 
      }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "%.1H:mm:ss",
+                    "%.1H:mm:ss",
+                    "%.1H:mm:ss",
+                    "%.1H:mm:ss",
+                    "EEEE, /MM/yyyy ",
+                    "EEEE, /MM/yyyy  %.1H:mm:ss",
+                    "EEEE,  MMMM yyyy",
+                    "EEEE,  MMMM yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "dom",
+                            "lun",
+                            "mar",
+                            "mer",
+                            "gio",
+                            "ven",
+                            "sab",
+                    }
+                    wide{
+                            "domenica",
+                            "luned\u00EC",
+                            "marted\u00EC",
+                            "mercoled\u00EC",
+                            "gioved\u00EC",
+                            "venerd\u00EC",
+                            "sabato",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "gen",
+                            "feb",
+                            "mar",
+                            "apr",
+                            "mag",
+                            "giu",
+                            "lug",
+                            "ago",
+                            "set",
+                            "ott",
+                            "nov",
+                            "dic",
+                            "",
+                    }
+                    wide{
+                            "gennaio",
+                            "febbraio",
+                            "marzo",
+                            "aprile",
+                            "maggio",
+                            "giugno",
+                            "luglio",
+                            "agosto",
+                            "settembre",
+                            "ottobre",
+                            "novembre",
+                            "dicembre",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

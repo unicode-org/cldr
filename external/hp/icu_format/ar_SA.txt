@@ -8,27 +8,7 @@ ar_SA {
             "SAR",
             ".",
     }
-    DateTimePatterns { 
-            "%.1H:mm:ss",
-            "%.1H:mm:ss",
-            "%.1H:mm:ss",
-            "%.1H:mm:ss",
-            "EEEE\u00A0\u00A0MMMM\u00A0yyyy\u00A0\u00A0",
-            "EEEE\u00A0\u00A0MMMM\u00A0yyyy\u00A0\u00A0%.1H:mm:ss",
-            "EEEE\u00A0\u00A0MMMM\u00A0yyyy",
-            "EEEE\u00A0\u00A0MMMM\u00A0yyyy",
-            "{1} {0}",
-    }
     ///* Discarding duplicate data for tag: DayAbbreviations */
-    DayNames { 
-            "\u0627\u0644\u0623\u062D\u062F",
-            "\u0627\u0644\u0625\u062B\u0646\u064A\u0646",
-            "\u0627\u0644\u062B\u0644\u0627\u062B\u0627\u0621",
-            "\u0627\u0644\u0623\u0631\u0628\u0639\u0627\u0621",
-            "\u0627\u0644\u062E\u0645\u064A\u0633\u00A0",
-            "\u0627\u0644\u062C\u0645\u0639\u0640\u0629",
-            "\u0627\u0644\u0633\u0628\u062A\u00A0",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
@@ -37,21 +17,6 @@ ar_SA {
         noExpression { "^(\u0644|\u0644\u0627)" }
     }
     ///* Discarding duplicate data for tag: MonthAbbreviations */
-    MonthNames { 
-            "\u0643\u0627\u0646\u0648\u0646\u00A0\u0627\u0644\u062B\u0627\u0646\u064A",
-            "\u0634\u0628\u0627\u0637",
-            "\u0622\u0630\u0627\u0631",
-            "\u0646\u064A\u0633\u0640\u0627\u0646",
-            "\u0623\u064A\u0627\u0631",
-            "\u062D\u0632\u064A\u0631\u0627\u0646",
-            "\u062A\u0640\u0645\u0640\u0648\u0632",
-            "\u0622\u0628\u00A0",
-            "\u0623\u064A\u0644\u0648\u0644",
-            "\u062A\u0634\u0631\u064A\u0646\u00A0\u0627\u0644\u0623\u0648\u0644",
-            "\u062A\u0634\u0631\u064A\u0646\u00A0\u0627\u0644\u062B\u0627\u0646\u064A",
-            "\u0643\u0627\u0646\u0648\u0646\u00A0\u0627\u0644\u0623\u0648\u0644",
-            "",
-    }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
             ".",
@@ -70,11 +35,6 @@ ar_SA {
             "#,#0.##;-#,#0.##",
             "#0.00 \u00A4;-#0.00 \u00A4",
             "#,#0%",
-    }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
     }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     CollationElements { 
@@ -304,4 +264,51 @@ ar_SA {
             "<"              //<DEL>		<DEL>
             "" } 
      }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "%.1H:mm:ss",
+                    "%.1H:mm:ss",
+                    "%.1H:mm:ss",
+                    "%.1H:mm:ss",
+                    "EEEE\u00A0\u00A0MMMM\u00A0yyyy\u00A0\u00A0",
+                    "EEEE\u00A0\u00A0MMMM\u00A0yyyy\u00A0\u00A0%.1H:mm:ss",
+                    "EEEE\u00A0\u00A0MMMM\u00A0yyyy",
+                    "EEEE\u00A0\u00A0MMMM\u00A0yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    wide{
+                            "\u0627\u0644\u0623\u062D\u062F",
+                            "\u0627\u0644\u0625\u062B\u0646\u064A\u0646",
+                            "\u0627\u0644\u062B\u0644\u0627\u062B\u0627\u0621",
+                            "\u0627\u0644\u0623\u0631\u0628\u0639\u0627\u0621",
+                            "\u0627\u0644\u062E\u0645\u064A\u0633\u00A0",
+                            "\u0627\u0644\u062C\u0645\u0639\u0640\u0629",
+                            "\u0627\u0644\u0633\u0628\u062A\u00A0",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    wide{
+                            "\u0643\u0627\u0646\u0648\u0646\u00A0\u0627\u0644\u062B\u0627\u0646\u064A",
+                            "\u0634\u0628\u0627\u0637",
+                            "\u0622\u0630\u0627\u0631",
+                            "\u0646\u064A\u0633\u0640\u0627\u0646",
+                            "\u0623\u064A\u0627\u0631",
+                            "\u062D\u0632\u064A\u0631\u0627\u0646",
+                            "\u062A\u0640\u0645\u0640\u0648\u0632",
+                            "\u0622\u0628\u00A0",
+                            "\u0623\u064A\u0644\u0648\u0644",
+                            "\u062A\u0634\u0631\u064A\u0646\u00A0\u0627\u0644\u0623\u0648\u0644",
+                            "\u062A\u0634\u0631\u064A\u0646\u00A0\u0627\u0644\u062B\u0627\u0646\u064A",
+                            "\u0643\u0627\u0646\u0648\u0646\u00A0\u0627\u0644\u0623\u0648\u0644",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

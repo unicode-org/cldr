@@ -1,15 +1,4 @@
 en_ZA {
-    DateTimePatterns { 
-            "hh:mm:ss a",
-            "hh:mm:ss",
-            "hh:mm:ss",
-            "hh:mm",
-            "dd MMMM yyyy",
-            "dd MMMM yyyy",
-            "yyyy/MM/dd",
-            "yy/MM/dd",
-            "{1} {0}",
-    }
     LocaleID { "1c09" }
     LocaleString { "en_ZA" }
     NumberPatterns { 
@@ -18,4 +7,19 @@ en_ZA {
             "#,##0%",
     }
     ShortCountry { "ZAF" }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss a",
+                    "hh:mm:ss",
+                    "hh:mm:ss",
+                    "hh:mm",
+                    "dd MMMM yyyy",
+                    "dd MMMM yyyy",
+                    "yyyy/MM/dd",
+                    "yy/MM/dd",
+                    "{1} {0}",
+            }
+        }
+    }
 }

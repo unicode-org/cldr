@@ -3,78 +3,11 @@ et {
     Countries { 
         EE { "Eesti" }
     }
-    DateTimeElements:intvector { 
-            2,
-            4,
-    }
-    DateTimePatterns { 
-            "H:mm:ss z",
-            "H:mm:ss z",
-            "H:mm:ss",
-            "H:mm",
-            "EEEE, d. MMMM yyyy",
-            "EEEE, d. MMMM yyyy. 'a'",
-            "d.MM.yyyy",
-            "d.MM.yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "P",
-            "E",
-            "T",
-            "K",
-            "N",
-            "R",
-            "L",
-    }
-    DayNames { 
-            "p\u00FChap\u00E4ev",
-            "esmasp\u00E4ev",
-            "teisip\u00E4ev",
-            "kolmap\u00E4ev",
-            "neljap\u00E4ev",
-            "reede",
-            "laup\u00E4ev",
-    }
-    Eras { 
-            "e.m.a.",
-            "m.a.j.",
-    }
     Languages { 
         et { "Eesti" }
     }
     LocaleID { "0425" }
     LocaleString { "et" }
-    MonthAbbreviations { 
-            "Jaan",
-            "Veebr",
-            "M\u00E4rts",
-            "Apr",
-            "Mai",
-            "Juuni",
-            "Juuli",
-            "Aug",
-            "Sept",
-            "Okt",
-            "Nov",
-            "Dets",
-            "",
-    }
-    MonthNames { 
-            "Jaanuar",
-            "Veebruar",
-            "M\u00E4rts",
-            "Aprill",
-            "Mai",
-            "Juuni",
-            "Juuli",
-            "August",
-            "September",
-            "Oktoober",
-            "November",
-            "Detsember",
-            "",
-    }
     NumberElements { 
             ",",
             "\u00A0",
@@ -90,4 +23,83 @@ et {
     }
     ShortLanguage { "est" }
     localPatternChars { "GanjkHmsSEDFwWxhKzZ" }
+    calendar{
+        gregorian{
+            DateTimeElements:intvector{
+                    2,
+                    4,
+            }
+            DateTimePatterns{
+                    "H:mm:ss z",
+                    "H:mm:ss z",
+                    "H:mm:ss",
+                    "H:mm",
+                    "EEEE, d. MMMM yyyy",
+                    "EEEE, d. MMMM yyyy. 'a'",
+                    "d.MM.yyyy",
+                    "d.MM.yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "P",
+                            "E",
+                            "T",
+                            "K",
+                            "N",
+                            "R",
+                            "L",
+                    }
+                    wide{
+                            "p\u00FChap\u00E4ev",
+                            "esmasp\u00E4ev",
+                            "teisip\u00E4ev",
+                            "kolmap\u00E4ev",
+                            "neljap\u00E4ev",
+                            "reede",
+                            "laup\u00E4ev",
+                    }
+                }
+            }
+            eras{
+                    "e.m.a.",
+                    "m.a.j.",
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jaan",
+                            "Veebr",
+                            "M\u00E4rts",
+                            "Apr",
+                            "Mai",
+                            "Juuni",
+                            "Juuli",
+                            "Aug",
+                            "Sept",
+                            "Okt",
+                            "Nov",
+                            "Dets",
+                            "",
+                    }
+                    wide{
+                            "Jaanuar",
+                            "Veebruar",
+                            "M\u00E4rts",
+                            "Aprill",
+                            "Mai",
+                            "Juuni",
+                            "Juuli",
+                            "August",
+                            "September",
+                            "Oktoober",
+                            "November",
+                            "Detsember",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

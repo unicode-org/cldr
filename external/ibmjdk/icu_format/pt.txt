@@ -200,39 +200,6 @@ pt {
         ZM { "Z\u00E2mbia" }
         ZW { "Zimb\u00E1bue" }
     }
-    DateTimeElements:intvector { 
-            2,
-            1,
-    }
-    DateTimePatterns { 
-            "HH'H'mm'm' z",
-            "H:mm:ss z",
-            "H:mm:ss",
-            "H:mm",
-            "EEEE, d' de 'MMMM' de 'yyyy",
-            "d' de 'MMMM' de 'yyyy",
-            "d/MMM/yyyy",
-            "dd-MM-yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "dom",
-            "seg",
-            "ter",
-            "qua",
-            "qui",
-            "sex",
-            "s\u00E1b",
-    }
-    DayNames { 
-            "domingo",
-            "segunda-feira",
-            "ter\u00E7a-feira",
-            "quarta-feira",
-            "quinta-feira",
-            "sexta-feira",
-            "s\u00E1bado",
-    }
     Languages { 
         ab { "Abkhazian" }
         aa { "Afar" }
@@ -379,36 +346,6 @@ pt {
     }
     LocaleID { "0816" }
     LocaleString { "pt" }
-    MonthAbbreviations { 
-            "jan",
-            "fev",
-            "mar",
-            "abr",
-            "mai",
-            "jun",
-            "jul",
-            "ago",
-            "set",
-            "out",
-            "nov",
-            "dez",
-            "",
-    }
-    MonthNames { 
-            "janeiro",
-            "fevereiro",
-            "mar\u00E7o",
-            "abril",
-            "maio",
-            "junho",
-            "julho",
-            "agosto",
-            "setembro",
-            "outubro",
-            "novembro",
-            "dezembro",
-            "",
-    }
     NumberElements { 
             ",",
             ".",
@@ -424,4 +361,79 @@ pt {
     }
     ShortLanguage { "por" }
     localPatternChars { "GyMdkHmsSEDFwWahKzZ" }
+    calendar{
+        gregorian{
+            DateTimeElements:intvector{
+                    2,
+                    1,
+            }
+            DateTimePatterns{
+                    "HH'H'mm'm' z",
+                    "H:mm:ss z",
+                    "H:mm:ss",
+                    "H:mm",
+                    "EEEE, d' de 'MMMM' de 'yyyy",
+                    "d' de 'MMMM' de 'yyyy",
+                    "d/MMM/yyyy",
+                    "dd-MM-yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "dom",
+                            "seg",
+                            "ter",
+                            "qua",
+                            "qui",
+                            "sex",
+                            "s\u00E1b",
+                    }
+                    wide{
+                            "domingo",
+                            "segunda-feira",
+                            "ter\u00E7a-feira",
+                            "quarta-feira",
+                            "quinta-feira",
+                            "sexta-feira",
+                            "s\u00E1bado",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "jan",
+                            "fev",
+                            "mar",
+                            "abr",
+                            "mai",
+                            "jun",
+                            "jul",
+                            "ago",
+                            "set",
+                            "out",
+                            "nov",
+                            "dez",
+                            "",
+                    }
+                    wide{
+                            "janeiro",
+                            "fevereiro",
+                            "mar\u00E7o",
+                            "abril",
+                            "maio",
+                            "junho",
+                            "julho",
+                            "agosto",
+                            "setembro",
+                            "outubro",
+                            "novembro",
+                            "dezembro",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

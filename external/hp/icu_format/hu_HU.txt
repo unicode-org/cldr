@@ -8,71 +8,12 @@ hu_HU {
             "HUF",
             ",",
     }
-    DateTimePatterns { 
-            "HH.mm.ss",
-            "HH.mm.ss",
-            "HH.mm.ss",
-            "HH.mm.ss",
-            "EEE,  MMM yyyy ",
-            "EEE,  MMM yyyy HH.mm.ss",
-            "EEE,  MMM yyyy",
-            "EEE,  MMM yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "V",
-            "H",
-            "K",
-            "SZE",
-            "CS",
-            "P",
-            "SZO",
-    }
-    DayNames { 
-            "VAS\u00C1RNAP",
-            "H\u00C9TF\u0150",
-            "KEDD",
-            "SZERDA",
-            "CS\u00DCT\u00D6RT\u00D6K",
-            "P\u00C9NTEK",
-            "SZOMBAT",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
     Messages { 
         yesExpression { "^([Ii]|[Ii][Gg][Ee][Nn])" }
         noExpression { "^([Nn]|[Nn][Ee][Mm])" }
-    }
-    MonthAbbreviations { 
-            "JAN",
-            "FEB",
-            "M\u00C1R",
-            "\u00C1PR",
-            "M\u00C1J",
-            "J\u00DAN",
-            "J\u00DAL",
-            "AUG",
-            "SZE",
-            "OKT",
-            "NOV",
-            "DEC",
-            "",
-    }
-    MonthNames { 
-            "JANU\u00C1R",
-            "FEBRU\u00C1R",
-            "M\u00C1RCIUS",
-            "\u00C1PRILIS",
-            "M\u00C1JUS",
-            "J\u00DANIUS",
-            "J\u00DALIUS",
-            "AUGUSZTUS",
-            "SZEPTEMBER",
-            "OKT\u00D3BER",
-            "NOVEMBER",
-            "DECEMBER",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -92,11 +33,6 @@ hu_HU {
             "#,##0.###;-#,##0.###",
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
-    }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
     }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     CollationElements { 
@@ -380,4 +316,75 @@ hu_HU {
             "&S\u015F,\u00DF" //<s-sharp>		<S>;<S><S>
             "" } 
      }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH.mm.ss",
+                    "HH.mm.ss",
+                    "HH.mm.ss",
+                    "HH.mm.ss",
+                    "EEE,  MMM yyyy ",
+                    "EEE,  MMM yyyy HH.mm.ss",
+                    "EEE,  MMM yyyy",
+                    "EEE,  MMM yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "V",
+                            "H",
+                            "K",
+                            "SZE",
+                            "CS",
+                            "P",
+                            "SZO",
+                    }
+                    wide{
+                            "VAS\u00C1RNAP",
+                            "H\u00C9TF\u0150",
+                            "KEDD",
+                            "SZERDA",
+                            "CS\u00DCT\u00D6RT\u00D6K",
+                            "P\u00C9NTEK",
+                            "SZOMBAT",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "JAN",
+                            "FEB",
+                            "M\u00C1R",
+                            "\u00C1PR",
+                            "M\u00C1J",
+                            "J\u00DAN",
+                            "J\u00DAL",
+                            "AUG",
+                            "SZE",
+                            "OKT",
+                            "NOV",
+                            "DEC",
+                            "",
+                    }
+                    wide{
+                            "JANU\u00C1R",
+                            "FEBRU\u00C1R",
+                            "M\u00C1RCIUS",
+                            "\u00C1PRILIS",
+                            "M\u00C1JUS",
+                            "J\u00DANIUS",
+                            "J\u00DALIUS",
+                            "AUGUSZTUS",
+                            "SZEPTEMBER",
+                            "OKT\u00D3BER",
+                            "NOVEMBER",
+                            "DECEMBER",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

@@ -8,71 +8,12 @@ ar_DZ {
             "DZD",
             ",",
     }
-    DateTimePatterns { 
-            "%.1H:mm:ss",
-            "%.1H:mm:ss",
-            "%.1H:mm:ss",
-            "%.1H:mm:ss",
-            "\u00A0\u00A0yyyy\u00A0MMMM\u00A0\u00A0EEEE\u00A0",
-            "%.1H:mm:ss\u00A0\u00A0yyyy\u00A0MMMM\u00A0\u00A0EEEE\u00A0",
-            "yyyy\u00A0MMMM\u00A0\u00A0EEEE\u00A0",
-            "yyyy\u00A0MMMM\u00A0\u00A0EEEE\u00A0",
-            "{0} {1}",
-    }
-    DayAbbreviations { 
-            "Dim",
-            "Lun",
-            "Mar",
-            "Mer",
-            "Jeu",
-            "Ven",
-            "Sam",
-    }
-    DayNames { 
-            "\u0627\u0644\u0623\u062D\u062F",
-            "\u0627\u0644\u0625\u062B\u0646\u064A\u0646",
-            "\u0627\u0644\u062B\u0644\u0627\u062B\u0627\u0621",
-            "\u0627\u0644\u0623\u0631\u0628\u0639\u0627\u0621",
-            "\u0627\u0644\u062E\u0645\u064A\u0633\u00A0",
-            "\u0627\u0644\u062C\u0645\u0639\u0640\u0629",
-            "\u0627\u0644\u0633\u0628\u062A\u00A0",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
     Messages { 
         yesExpression { "^(\u0646|\u0646\u0639\u0645)" }
         noExpression { "^(\u0644|\u0644\u0627)" }
-    }
-    MonthAbbreviations { 
-            "Janv",
-            "Fevr",
-            "Mars",
-            "Avr",
-            "Mai",
-            "Juin",
-            "Juil",
-            "Aout",
-            "Sept",
-            "Oct",
-            "Nov",
-            "Dec",
-            "",
-    }
-    MonthNames { 
-            "\u062C\u0627\u0646\u0641\u064A",
-            "\u0641\u064A\u0641\u0631\u064A",
-            "\u0645\u0627\u0631\u0633\u00A0",
-            "\u0623\u0641\u0631\u064A\u0644",
-            "\u0645\u0627\u064A",
-            "\u062C\u0648\u0627\u0646",
-            "\u062C\u0648\u064A\u0644\u064A\u0647",
-            "\u0623\u0648\u062A\u00A0",
-            "\u0633\u0628\u062A\u0645\u0628\u0631",
-            "\u0623\u0643\u062A\u0648\u0628\u0631",
-            "\u0646\u0648\u0641\u0645\u0628\u0631",
-            "\u062F\u064A\u0633\u0645\u0628\u0631",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -92,11 +33,6 @@ ar_DZ {
             "#,##0.###;-#,##0.###",
             "#,##0.00 \u00A4;#,##0.00 -\u00A4",
             "#,##0%",
-    }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
     }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     CollationElements { 
@@ -326,4 +262,75 @@ ar_DZ {
             "<"              //<DEL>		<DEL>
             "" } 
      }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "%.1H:mm:ss",
+                    "%.1H:mm:ss",
+                    "%.1H:mm:ss",
+                    "%.1H:mm:ss",
+                    "\u00A0\u00A0yyyy\u00A0MMMM\u00A0\u00A0EEEE\u00A0",
+                    "%.1H:mm:ss\u00A0\u00A0yyyy\u00A0MMMM\u00A0\u00A0EEEE\u00A0",
+                    "yyyy\u00A0MMMM\u00A0\u00A0EEEE\u00A0",
+                    "yyyy\u00A0MMMM\u00A0\u00A0EEEE\u00A0",
+                    "{0} {1}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Dim",
+                            "Lun",
+                            "Mar",
+                            "Mer",
+                            "Jeu",
+                            "Ven",
+                            "Sam",
+                    }
+                    wide{
+                            "\u0627\u0644\u0623\u062D\u062F",
+                            "\u0627\u0644\u0625\u062B\u0646\u064A\u0646",
+                            "\u0627\u0644\u062B\u0644\u0627\u062B\u0627\u0621",
+                            "\u0627\u0644\u0623\u0631\u0628\u0639\u0627\u0621",
+                            "\u0627\u0644\u062E\u0645\u064A\u0633\u00A0",
+                            "\u0627\u0644\u062C\u0645\u0639\u0640\u0629",
+                            "\u0627\u0644\u0633\u0628\u062A\u00A0",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Janv",
+                            "Fevr",
+                            "Mars",
+                            "Avr",
+                            "Mai",
+                            "Juin",
+                            "Juil",
+                            "Aout",
+                            "Sept",
+                            "Oct",
+                            "Nov",
+                            "Dec",
+                            "",
+                    }
+                    wide{
+                            "\u062C\u0627\u0646\u0641\u064A",
+                            "\u0641\u064A\u0641\u0631\u064A",
+                            "\u0645\u0627\u0631\u0633\u00A0",
+                            "\u0623\u0641\u0631\u064A\u0644",
+                            "\u0645\u0627\u064A",
+                            "\u062C\u0648\u0627\u0646",
+                            "\u062C\u0648\u064A\u0644\u064A\u0647",
+                            "\u0623\u0648\u062A\u00A0",
+                            "\u0633\u0628\u062A\u0645\u0628\u0631",
+                            "\u0623\u0643\u062A\u0648\u0628\u0631",
+                            "\u0646\u0648\u0641\u0645\u0628\u0631",
+                            "\u062F\u064A\u0633\u0645\u0628\u0631",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

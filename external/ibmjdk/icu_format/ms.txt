@@ -1,69 +1,6 @@
 ms {
-    DateTimeElements:intvector { 
-            2,
-            1,
-    }
-    DateTimePatterns { 
-            "H:mm:ss z",
-            "H:mm:ss",
-            "H:mm:ss",
-            "H:mm",
-            "EEEE d MMMM yyyy",
-            "d MMMM yyyy",
-            "dd/MM/yyyy",
-            "dd/MM/yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Ahad",
-            "Isnin",
-            "Selasa",
-            "Rabu",
-            "Khamis",
-            "Jumaat",
-            "Sabtu",
-    }
-    DayNames { 
-            "Ahad",
-            "Isnin",
-            "Selasa",
-            "Rabu",
-            "Khamis",
-            "Jumaat",
-            "Sabtu",
-    }
     LocaleID { "0421" }
     LocaleString { "ms" }
-    MonthAbbreviations { 
-            "Jan",
-            "Feb",
-            "Mac",
-            "Apr",
-            "Mei",
-            "Jun",
-            "Jul",
-            "Ogo",
-            "Sep",
-            "Okt",
-            "Nov",
-            "Dis",
-            "",
-    }
-    MonthNames { 
-            "Januari",
-            "Februari",
-            "Mac",
-            "April",
-            "Mei",
-            "Jun",
-            "Julai",
-            "Ogos",
-            "September",
-            "Oktober",
-            "November",
-            "Disember",
-            "",
-    }
     NumberElements { 
             ",",
             ".",
@@ -83,4 +20,79 @@ ms {
             "#,##0%",
     }
     ShortLanguage { "msa" }
+    calendar{
+        gregorian{
+            DateTimeElements:intvector{
+                    2,
+                    1,
+            }
+            DateTimePatterns{
+                    "H:mm:ss z",
+                    "H:mm:ss",
+                    "H:mm:ss",
+                    "H:mm",
+                    "EEEE d MMMM yyyy",
+                    "d MMMM yyyy",
+                    "dd/MM/yyyy",
+                    "dd/MM/yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Ahad",
+                            "Isnin",
+                            "Selasa",
+                            "Rabu",
+                            "Khamis",
+                            "Jumaat",
+                            "Sabtu",
+                    }
+                    wide{
+                            "Ahad",
+                            "Isnin",
+                            "Selasa",
+                            "Rabu",
+                            "Khamis",
+                            "Jumaat",
+                            "Sabtu",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Feb",
+                            "Mac",
+                            "Apr",
+                            "Mei",
+                            "Jun",
+                            "Jul",
+                            "Ogo",
+                            "Sep",
+                            "Okt",
+                            "Nov",
+                            "Dis",
+                            "",
+                    }
+                    wide{
+                            "Januari",
+                            "Februari",
+                            "Mac",
+                            "April",
+                            "Mei",
+                            "Jun",
+                            "Julai",
+                            "Ogos",
+                            "September",
+                            "Oktober",
+                            "November",
+                            "Disember",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,15 +1,4 @@
 pt_BR {
-    DateTimePatterns { 
-            "HH'h'mm'min'ss's' z",
-            "H'h'm'min's's' z",
-            "HH:mm:ss",
-            "HH:mm",
-            "EEEE, d' de 'MMMM' de 'yyyy",
-            "d' de 'MMMM' de 'yyyy",
-            "dd/MM/yyyy",
-            "dd/MM/yy",
-            "{1} {0}",
-    }
     LocaleID { "0416" }
     LocaleString { "pt_BR" }
     NumberPatterns { 
@@ -19,4 +8,19 @@ pt_BR {
     }
     ShortCountry { "BRA" }
     localPatternChars { "GyMdkHmsSEDFwWahKzZ" }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH'h'mm'min'ss's' z",
+                    "H'h'm'min's's' z",
+                    "HH:mm:ss",
+                    "HH:mm",
+                    "EEEE, d' de 'MMMM' de 'yyyy",
+                    "d' de 'MMMM' de 'yyyy",
+                    "dd/MM/yyyy",
+                    "dd/MM/yy",
+                    "{1} {0}",
+            }
+        }
+    }
 }

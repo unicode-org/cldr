@@ -1,15 +1,4 @@
 es_CL {
-    DateTimePatterns { 
-            "hh:mm:ss a z",
-            "hh:mm:ss a z",
-            "hh:mm:ss a",
-            "hh:mm a",
-            "EEEE d' de 'MMMM' de 'yyyy",
-            "d' de 'MMMM' de 'yyyy",
-            "dd-MM-yyyy",
-            "dd-MM-yy",
-            "{1} {0}",
-    }
     LocaleID { "340a" }
     LocaleString { "es_CL" }
     NumberPatterns { 
@@ -18,4 +7,19 @@ es_CL {
             "#,##0%",
     }
     ShortCountry { "CHL" }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss a z",
+                    "hh:mm:ss a z",
+                    "hh:mm:ss a",
+                    "hh:mm a",
+                    "EEEE d' de 'MMMM' de 'yyyy",
+                    "d' de 'MMMM' de 'yyyy",
+                    "dd-MM-yyyy",
+                    "dd-MM-yy",
+                    "{1} {0}",
+            }
+        }
+    }
 }

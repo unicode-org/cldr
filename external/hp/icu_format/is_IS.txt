@@ -8,71 +8,12 @@ is_IS {
             "ISK",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE. dd. MMM. yyyy ",
-            "EEE. dd. MMM. yyyy HH:mm:ss",
-            "EEE. dd. MMM. yyyy",
-            "EEE. dd. MMM. yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Sun",
-            "M\u00E1n",
-            "\u00F6ri",
-            "Mi\u00F0",
-            "Fim",
-            "F\u00F6s",
-            "Lau",
-    }
-    DayNames { 
-            "Sunnudagur",
-            "M\u00E1nudagur",
-            "\u00DEri\u00F0judagur",
-            "Mi\u00F0vikudagur",
-            "Fimmtudagur",
-            "F\u00F6studagur",
-            "Laugardagur",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
     Messages { 
         yesExpression { "^([Jj]|[Jj][\u00C1\u00E1])" }
         noExpression { "^([Nn]|[Nn][Ee][Ii])" }
-    }
-    MonthAbbreviations { 
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "Ma\u00ED",
-            "J\u00FAn",
-            "J\u00FAl",
-            "\u00C1g\u00FA",
-            "Sep",
-            "Okt",
-            "N\u00F3v",
-            "Des",
-            "",
-    }
-    MonthNames { 
-            "Jan\u00FAar",
-            "Febr\u00FAar",
-            "Mars",
-            "Apr\u00EDl",
-            "Ma\u00ED",
-            "J\u00FAn\u00ED",
-            "J\u00FAl\u00ED",
-            "\u00C1g\u00FAst",
-            "September",
-            "Okt\u00F3ber",
-            "N\u00F3vember",
-            "Desember",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -92,11 +33,6 @@ is_IS {
             "#,##0.###;-#,##0.###",
             "\u00A4 #,##0.00;-\u00A4 #,##0.00",
             "#,##0%",
-    }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
     }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     CollationElements { 
@@ -371,4 +307,75 @@ is_IS {
             "&S\u0161,\u00DF" //<s-sharp>		<S>;<S><S>
             "" } 
      }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE. dd. MMM. yyyy ",
+                    "EEE. dd. MMM. yyyy HH:mm:ss",
+                    "EEE. dd. MMM. yyyy",
+                    "EEE. dd. MMM. yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Sun",
+                            "M\u00E1n",
+                            "\u00F6ri",
+                            "Mi\u00F0",
+                            "Fim",
+                            "F\u00F6s",
+                            "Lau",
+                    }
+                    wide{
+                            "Sunnudagur",
+                            "M\u00E1nudagur",
+                            "\u00DEri\u00F0judagur",
+                            "Mi\u00F0vikudagur",
+                            "Fimmtudagur",
+                            "F\u00F6studagur",
+                            "Laugardagur",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Feb",
+                            "Mar",
+                            "Apr",
+                            "Ma\u00ED",
+                            "J\u00FAn",
+                            "J\u00FAl",
+                            "\u00C1g\u00FA",
+                            "Sep",
+                            "Okt",
+                            "N\u00F3v",
+                            "Des",
+                            "",
+                    }
+                    wide{
+                            "Jan\u00FAar",
+                            "Febr\u00FAar",
+                            "Mars",
+                            "Apr\u00EDl",
+                            "Ma\u00ED",
+                            "J\u00FAn\u00ED",
+                            "J\u00FAl\u00ED",
+                            "\u00C1g\u00FAst",
+                            "September",
+                            "Okt\u00F3ber",
+                            "N\u00F3vember",
+                            "Desember",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

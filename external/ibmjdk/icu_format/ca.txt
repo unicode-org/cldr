@@ -201,35 +201,6 @@ ca {
         ZM { "Z\u00E0mbia" }
         ZW { "Zimbabwe" }
     }
-    DateTimePatterns { 
-            "HH:mm:ss z",
-            "HH:mm:ss z",
-            "HH:mm:ss",
-            "HH:mm",
-            "EEEE, d MMMMM' de 'yyyy",
-            "d MMMMM' de 'yyyy",
-            "dd/MM/yyyy",
-            "dd/MM/yy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "dg.",
-            "dl.",
-            "dt.",
-            "dc.",
-            "dj.",
-            "dv.",
-            "ds.",
-    }
-    DayNames { 
-            "diumenge",
-            "dilluns",
-            "dimarts",
-            "dimecres",
-            "dijous",
-            "divendres",
-            "dissabte",
-    }
     Languages { 
         ab { "Abkhaz" }
         aa { "\u00C0far" }
@@ -376,49 +347,6 @@ ca {
     }
     LocaleID { "0403" }
     LocaleString { "ca" }
-    MonthAbbreviations { 
-            "gen.",
-            "feb.",
-            "mar\u00E7",
-            "abr.",
-            "maig",
-            "juny",
-            "jul.",
-            "ag.",
-            "set.",
-            "oct.",
-            "nov.",
-            "des.",
-            "",
-    }
-    MonthNames { 
-            "gener",
-            "febrer",
-            "mar\u00E7",
-            "abril",
-            "maig",
-            "juny",
-            "juliol",
-            "agost",
-            "setembre",
-            "octubre",
-            "novembre",
-            "desembre",
-            "",
-            "de gener",
-            "de febrer",
-            "de mar\u00E7",
-            "d'abril",
-            "de maig",
-            "de juny",
-            "de juliol",
-            "d'agost",
-            "de setembre",
-            "d'octubre",
-            "de novembre",
-            "de desembre",
-            "",
-    }
     NumberElements { 
             ",",
             ".",
@@ -434,4 +362,92 @@ ca {
     }
     ShortLanguage { "cat" }
     localPatternChars { "GyMdkHmsSEDFwWahKzZ" }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss z",
+                    "HH:mm:ss z",
+                    "HH:mm:ss",
+                    "HH:mm",
+                    "EEEE, d MMMMM' de 'yyyy",
+                    "d MMMMM' de 'yyyy",
+                    "dd/MM/yyyy",
+                    "dd/MM/yy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "dg.",
+                            "dl.",
+                            "dt.",
+                            "dc.",
+                            "dj.",
+                            "dv.",
+                            "ds.",
+                    }
+                    wide{
+                            "diumenge",
+                            "dilluns",
+                            "dimarts",
+                            "dimecres",
+                            "dijous",
+                            "divendres",
+                            "dissabte",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "gen.",
+                            "feb.",
+                            "mar\u00E7",
+                            "abr.",
+                            "maig",
+                            "juny",
+                            "jul.",
+                            "ag.",
+                            "set.",
+                            "oct.",
+                            "nov.",
+                            "des.",
+                            "",
+                    }
+                    wide{
+                            "gener",
+                            "febrer",
+                            "mar\u00E7",
+                            "abril",
+                            "maig",
+                            "juny",
+                            "juliol",
+                            "agost",
+                            "setembre",
+                            "octubre",
+                            "novembre",
+                            "desembre",
+                            "",
+                    }
+                }
+                stand-alone{
+                     wide{
+                            "de gener",
+                            "de febrer",
+                            "de mar\u00E7",
+                            "d'abril",
+                            "de maig",
+                            "de juny",
+                            "de juliol",
+                            "d'agost",
+                            "de setembre",
+                            "d'octubre",
+                            "de novembre",
+                            "de desembre",
+                            "",
+                     }
+                }
+            }
+        }
+    }
 }

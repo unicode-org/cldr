@@ -1,16 +1,20 @@
 en_IN {
-    DateTimePatterns { 
-            "h:mm:ss a z",
-            "h:mm:ss a",
-            "h:mm:ss a",
-            "h:mm a",
-            "EEEE MMMM d yyyy",
-            "MMMM d yyyy",
-            "d-MM-yyyy",
-            "d-MM-yy",
-            "{1} {0}",
-    }
     LocaleID { "0809" }
     LocaleString { "en_IN" }
     ShortCountry { "IND" }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "h:mm:ss a z",
+                    "h:mm:ss a",
+                    "h:mm:ss a",
+                    "h:mm a",
+                    "EEEE MMMM d yyyy",
+                    "MMMM d yyyy",
+                    "d-MM-yyyy",
+                    "d-MM-yy",
+                    "{1} {0}",
+            }
+        }
+    }
 }

@@ -8,71 +8,12 @@ fi_FI {
             "FIM",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            ".%.1m.yyyy ",
-            ".%.1m.yyyy HH:mm:ss",
-            ".%.1m.yyyy",
-            ".%.1m.yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Su",
-            "Ma",
-            "Ti",
-            "Ke",
-            "To",
-            "Pe",
-            "La",
-    }
-    DayNames { 
-            "Sunnuntai",
-            "Maanantai",
-            "Tiistai",
-            "Keskiviikko",
-            "Torstai",
-            "Perjantai",
-            "Lauantai",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
     Messages { 
         yesExpression { "^([kK]|[kK][yY][lL][lL][\u00E4\u00C4])" }
         noExpression { "^([eE]|[eE][iI])" }
-    }
-    MonthAbbreviations { 
-            "Tammi",
-            "Helmi",
-            "Maalis",
-            "Huhti",
-            "Touko",
-            "Kes\u00E4",
-            "Hein\u00E4",
-            "Elo",
-            "Syys",
-            "Loka",
-            "Marras",
-            "Joulu",
-            "",
-    }
-    MonthNames { 
-            "Tammikuu",
-            "Helmikuu",
-            "Maaliskuu",
-            "Huhtikuu",
-            "Toukokuu",
-            "Kes\u00E4kuu",
-            "Hein\u00E4kuu",
-            "Elokuu",
-            "Syyskuu",
-            "Lokakuu",
-            "Marraskuu",
-            "Joulukuu",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -92,11 +33,6 @@ fi_FI {
             "#,##0.###;-#,##0.###",
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
-    }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
     }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     CollationElements { 
@@ -371,4 +307,75 @@ fi_FI {
             "&Ss,\u00DF"      //<s-sharp>		<S>;<S><S>
             "" } 
      }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    ".%.1m.yyyy ",
+                    ".%.1m.yyyy HH:mm:ss",
+                    ".%.1m.yyyy",
+                    ".%.1m.yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Su",
+                            "Ma",
+                            "Ti",
+                            "Ke",
+                            "To",
+                            "Pe",
+                            "La",
+                    }
+                    wide{
+                            "Sunnuntai",
+                            "Maanantai",
+                            "Tiistai",
+                            "Keskiviikko",
+                            "Torstai",
+                            "Perjantai",
+                            "Lauantai",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Tammi",
+                            "Helmi",
+                            "Maalis",
+                            "Huhti",
+                            "Touko",
+                            "Kes\u00E4",
+                            "Hein\u00E4",
+                            "Elo",
+                            "Syys",
+                            "Loka",
+                            "Marras",
+                            "Joulu",
+                            "",
+                    }
+                    wide{
+                            "Tammikuu",
+                            "Helmikuu",
+                            "Maaliskuu",
+                            "Huhtikuu",
+                            "Toukokuu",
+                            "Kes\u00E4kuu",
+                            "Hein\u00E4kuu",
+                            "Elokuu",
+                            "Syyskuu",
+                            "Lokakuu",
+                            "Marraskuu",
+                            "Joulukuu",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

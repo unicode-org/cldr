@@ -8,71 +8,12 @@ hr_HR {
             "HRD",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE,  MMM yyyy ",
-            "EEE,  MMM yyyy HH:mm:ss",
-            "EEE,  MMM yyyy",
-            "EEE,  MMM yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "NED",
-            "PON",
-            "TOR",
-            "SRE",
-            "\u010CET",
-            "PET",
-            "SUB",
-    }
-    DayNames { 
-            "NEDELJA",
-            "PONEDELJAK",
-            "UTORAK",
-            "SREDA",
-            "\u010CETVRTAK",
-            "PETAK",
-            "SUBOTA",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
     Messages { 
         yesExpression { "^([Dd]|[Dd][Aa])" }
         noExpression { "^([Nn]|[Nn][Ee])" }
-    }
-    MonthAbbreviations { 
-            "JAN",
-            "FEB",
-            "MAR",
-            "APR",
-            "MAJ",
-            "JUN",
-            "JUL",
-            "AUG",
-            "SEP",
-            "OKT",
-            "NOV",
-            "DEC",
-            "",
-    }
-    MonthNames { 
-            "JANUAR",
-            "FEBRUAR",
-            "MART",
-            "APRIL",
-            "MAJ",
-            "JUN",
-            "JUL",
-            "AUGUST",
-            "SEPTEMBAR",
-            "OKTOBAR",
-            "NOVEMBAR",
-            "DECEMBAR",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -92,11 +33,6 @@ hr_HR {
             "#,##0.###;-#,##0.###",
             "\u00A4 #,##0.00;\u00A4- #,##0.00",
             "#,##0%",
-    }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
     }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     CollationElements { 
@@ -372,4 +308,75 @@ hr_HR {
             "&S\u015F,\u00DF" //<s-sharp>		<S>;<S><S>
             "" } 
      }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE,  MMM yyyy ",
+                    "EEE,  MMM yyyy HH:mm:ss",
+                    "EEE,  MMM yyyy",
+                    "EEE,  MMM yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "NED",
+                            "PON",
+                            "TOR",
+                            "SRE",
+                            "\u010CET",
+                            "PET",
+                            "SUB",
+                    }
+                    wide{
+                            "NEDELJA",
+                            "PONEDELJAK",
+                            "UTORAK",
+                            "SREDA",
+                            "\u010CETVRTAK",
+                            "PETAK",
+                            "SUBOTA",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "JAN",
+                            "FEB",
+                            "MAR",
+                            "APR",
+                            "MAJ",
+                            "JUN",
+                            "JUL",
+                            "AUG",
+                            "SEP",
+                            "OKT",
+                            "NOV",
+                            "DEC",
+                            "",
+                    }
+                    wide{
+                            "JANUAR",
+                            "FEBRUAR",
+                            "MART",
+                            "APRIL",
+                            "MAJ",
+                            "JUN",
+                            "JUL",
+                            "AUGUST",
+                            "SEPTEMBAR",
+                            "OKTOBAR",
+                            "NOVEMBAR",
+                            "DECEMBAR",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,15 +1,4 @@
 es_PE {
-    DateTimePatterns { 
-            "hh:mm:ss a z",
-            "hh:mm:ss a z",
-            "hh:mm:ss a",
-            "hh:mm a",
-            "EEEE d' de 'MMMM' de 'yyyy",
-            "d' de 'MMMM' de 'yyyy",
-            "dd/MM/yyyy",
-            "dd/MM/yy",
-            "{1} {0}",
-    }
     LocaleID { "280a" }
     LocaleString { "es_PE" }
     NumberPatterns { 
@@ -18,4 +7,19 @@ es_PE {
             "#,##0%",
     }
     ShortCountry { "PER" }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "hh:mm:ss a z",
+                    "hh:mm:ss a z",
+                    "hh:mm:ss a",
+                    "hh:mm a",
+                    "EEEE d' de 'MMMM' de 'yyyy",
+                    "d' de 'MMMM' de 'yyyy",
+                    "dd/MM/yyyy",
+                    "dd/MM/yy",
+                    "{1} {0}",
+            }
+        }
+    }
 }

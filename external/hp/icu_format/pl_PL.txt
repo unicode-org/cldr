@@ -8,71 +8,12 @@ pl_PL {
             "PLZ",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE,  MMM yyyy ",
-            "EEE,  MMM yyyy HH:mm:ss",
-            "EEE,  MMM yyyy",
-            "EEE,  MMM yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "NIE",
-            "PON",
-            "WTO",
-            "\u015ARO",
-            "CZW",
-            "PI\u0104",
-            "SOB",
-    }
-    DayNames { 
-            "NIEDZIELA",
-            "PONIEDZIA\u0141EK",
-            "WTOREK",
-            "\u015ARODA",
-            "CZWARTEK",
-            "PI\u0104TEK",
-            "SOBOTA",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
     Messages { 
         yesExpression { "^([Tt]|[Tt][Aa][Kk])" }
         noExpression { "^([Nn]|[Nn][Ii][Ee])" }
-    }
-    MonthAbbreviations { 
-            "STY",
-            "LUTY",
-            "MAR",
-            "KWIE",
-            "MAJ",
-            "CZER",
-            "LIP",
-            "SIER",
-            "WRZE",
-            "PA\u0179D",
-            "LIST",
-            "GRU",
-            "",
-    }
-    MonthNames { 
-            "STYZE\u0143",
-            "LUTY",
-            "MARZEC",
-            "KWIECIE\u0143",
-            "MAJ",
-            "CZERWIEC",
-            "LIPIEC",
-            "SIERPIE\u0143",
-            "WRZESIE\u0143",
-            "PA\u0179DZIERNIK",
-            "LISTOPAD",
-            "GRUDZIE\u0143",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -92,11 +33,6 @@ pl_PL {
             "#,##0.###;-#,##0.###",
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
-    }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
     }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     CollationElements { 
@@ -360,4 +296,75 @@ pl_PL {
             "&S\u015F,\u00DF" //<s-sharp>		<S>;<S><S>
             "" } 
      }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE,  MMM yyyy ",
+                    "EEE,  MMM yyyy HH:mm:ss",
+                    "EEE,  MMM yyyy",
+                    "EEE,  MMM yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "NIE",
+                            "PON",
+                            "WTO",
+                            "\u015ARO",
+                            "CZW",
+                            "PI\u0104",
+                            "SOB",
+                    }
+                    wide{
+                            "NIEDZIELA",
+                            "PONIEDZIA\u0141EK",
+                            "WTOREK",
+                            "\u015ARODA",
+                            "CZWARTEK",
+                            "PI\u0104TEK",
+                            "SOBOTA",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "STY",
+                            "LUTY",
+                            "MAR",
+                            "KWIE",
+                            "MAJ",
+                            "CZER",
+                            "LIP",
+                            "SIER",
+                            "WRZE",
+                            "PA\u0179D",
+                            "LIST",
+                            "GRU",
+                            "",
+                    }
+                    wide{
+                            "STYZE\u0143",
+                            "LUTY",
+                            "MARZEC",
+                            "KWIECIE\u0143",
+                            "MAJ",
+                            "CZERWIEC",
+                            "LIPIEC",
+                            "SIERPIE\u0143",
+                            "WRZESIE\u0143",
+                            "PA\u0179DZIERNIK",
+                            "LISTOPAD",
+                            "GRUDZIE\u0143",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

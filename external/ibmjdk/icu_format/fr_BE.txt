@@ -1,15 +1,4 @@
 fr_BE {
-    DateTimePatterns { 
-            "H' h 'mm' min 'ss' s 'z",
-            "H:mm:ss z",
-            "H:mm:ss",
-            "H:mm",
-            "EEEE d MMMM yyyy",
-            "d MMMM yyyy",
-            "dd-MMM-yyyy",
-            "d/MM/yy",
-            "{1} {0}",
-    }
     LocaleID { "080c" }
     LocaleString { "fr_BE" }
     NumberElements { 
@@ -27,4 +16,19 @@ fr_BE {
     }
     ShortCountry { "BEL" }
     localPatternChars { "GanjkHmsSEDFwWxhKzZ" }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "H' h 'mm' min 'ss' s 'z",
+                    "H:mm:ss z",
+                    "H:mm:ss",
+                    "H:mm",
+                    "EEEE d MMMM yyyy",
+                    "d MMMM yyyy",
+                    "dd-MMM-yyyy",
+                    "d/MM/yy",
+                    "{1} {0}",
+            }
+        }
+    }
 }

@@ -8,71 +8,12 @@ cs_CZ {
             "CZK",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "EEE,  MMM yyyy ",
-            "EEE,  MMM yyyy HH:mm:ss",
-            "EEE,  MMM yyyy",
-            "EEE,  MMM yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Ne",
-            "Po",
-            "\u00DAt",
-            "St",
-            "\u010Ct",
-            "P\u00E1",
-            "So",
-    }
-    DayNames { 
-            "NED\u011ALE",
-            "POND\u011AL\u00CD",
-            "\u00DATER\u00DD",
-            "ST\u0158EDA",
-            "\u010CTVRTEK",
-            "P\u00C1TEK",
-            "SOBOTA",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
     Messages { 
         yesExpression { "^([Aa]|[Aa][Nn][Oo])" }
         noExpression { "^([Nn]|[Nn][Ee])" }
-    }
-    MonthAbbreviations { 
-            "LED",
-            "\u00DANOR",
-            "B\u0158E",
-            "DUB",
-            "KV\u011A",
-            "\u010CER",
-            "\u010CERC",
-            "SRP",
-            "Z\u00C1\u0158\u00CD",
-            "\u0158\u00CDJ",
-            "LIST",
-            "PRO",
-            "",
-    }
-    MonthNames { 
-            "LEDEN",
-            "\u00DANOR",
-            "B\u0158EZEN",
-            "DUBEN",
-            "KV\u011ATEN",
-            "\u010CERVEN",
-            "\u010CERVENEC",
-            "SRPEN",
-            "Z\u00C1\u0158\u00CD",
-            "\u0158\u00CDJEN",
-            "LISTOPAD",
-            "PROSINEC",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -92,11 +33,6 @@ cs_CZ {
             "#,##0.###;-#,##0.###",
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
-    }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
     }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     CollationElements { 
@@ -363,4 +299,75 @@ cs_CZ {
             "&sS,\u00DF"      //<s-sharp>		<s>;<s><s>
             "" } 
      }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "EEE,  MMM yyyy ",
+                    "EEE,  MMM yyyy HH:mm:ss",
+                    "EEE,  MMM yyyy",
+                    "EEE,  MMM yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Ne",
+                            "Po",
+                            "\u00DAt",
+                            "St",
+                            "\u010Ct",
+                            "P\u00E1",
+                            "So",
+                    }
+                    wide{
+                            "NED\u011ALE",
+                            "POND\u011AL\u00CD",
+                            "\u00DATER\u00DD",
+                            "ST\u0158EDA",
+                            "\u010CTVRTEK",
+                            "P\u00C1TEK",
+                            "SOBOTA",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "LED",
+                            "\u00DANOR",
+                            "B\u0158E",
+                            "DUB",
+                            "KV\u011A",
+                            "\u010CER",
+                            "\u010CERC",
+                            "SRP",
+                            "Z\u00C1\u0158\u00CD",
+                            "\u0158\u00CDJ",
+                            "LIST",
+                            "PRO",
+                            "",
+                    }
+                    wide{
+                            "LEDEN",
+                            "\u00DANOR",
+                            "B\u0158EZEN",
+                            "DUBEN",
+                            "KV\u011ATEN",
+                            "\u010CERVEN",
+                            "\u010CERVENEC",
+                            "SRPEN",
+                            "Z\u00C1\u0158\u00CD",
+                            "\u0158\u00CDJEN",
+                            "LISTOPAD",
+                            "PROSINEC",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

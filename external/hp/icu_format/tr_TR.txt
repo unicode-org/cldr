@@ -8,71 +8,12 @@ tr_TR {
             "TRL",
             ",",
     }
-    DateTimePatterns { 
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "HH:mm:ss",
-            "dd MMM yyyy ",
-            "dd MMM yyyy  HH:mm:ss",
-            "dd MMM yyyy",
-            "dd MMM yyyy",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Pa",
-            "Pt",
-            "Sa",
-            "\u00C7a",
-            "Pe",
-            "Cu",
-            "Ct",
-    }
-    DayNames { 
-            "PAZAR",
-            "PAZARTES\u0130",
-            "SALI",
-            "\u00C7AR\u015EAMBA",
-            "PER\u015EEMBE",
-            "CUMA",
-            "CUMARTES\u0130",
-    }
     ///* Discarding duplicate data for tag: Identification */
     ///* Discarding duplicate data for tag: LanguageLibraryUse */
     ///* Discarding duplicate data for tag: Measurement */
     Messages { 
         yesExpression { "^([Ee]|[Ee][Vv][Ee][Tt])" }
         noExpression { "^([Hh]|[Hh][Aa][Yy][Ii][Rr])" }
-    }
-    MonthAbbreviations { 
-            "OCA",
-            "\u015EUB",
-            "MAR",
-            "N\u0130S",
-            "MAY",
-            "HAZ",
-            "TEM",
-            "A\u011EUS",
-            "EYL",
-            "EK\u0130",
-            "KAS",
-            "ARA",
-            "",
-    }
-    MonthNames { 
-            "OCAK",
-            "\u015EUBAT",
-            "MART",
-            "N\u0130SAN",
-            "MAYIS",
-            "HAZ\u0130RAN",
-            "TEMMUZ",
-            "A\u011EUSTOS",
-            "EYL\u00DCL",
-            "EK\u0130M",
-            "KASIM",
-            "ARALIK",
-            "",
     }
     ///* Discarding duplicate data for tag: NameFormat */
     NumberElements { 
@@ -92,11 +33,6 @@ tr_TR {
             "#,##0.###;-#,##0.###",
             "+#,##0.00 \u00A4;(-)#,##0.00 \u00A4",
             "#,##0%",
-    }
-    PaperSize { 
-        Hieght { "" }
-        Width { "" }
-        Units { "mm" }
     }
     ///* Discarding duplicate data for tag: TelephoneFormat */
     CollationElements { 
@@ -370,4 +306,75 @@ tr_TR {
             "&S\u0161,\u00DF" //<s-sharp>		<S>;<S><S>
             "" } 
      }
+    calendar{
+        gregorian{
+            DateTimePatterns{
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "HH:mm:ss",
+                    "dd MMM yyyy ",
+                    "dd MMM yyyy  HH:mm:ss",
+                    "dd MMM yyyy",
+                    "dd MMM yyyy",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Pa",
+                            "Pt",
+                            "Sa",
+                            "\u00C7a",
+                            "Pe",
+                            "Cu",
+                            "Ct",
+                    }
+                    wide{
+                            "PAZAR",
+                            "PAZARTES\u0130",
+                            "SALI",
+                            "\u00C7AR\u015EAMBA",
+                            "PER\u015EEMBE",
+                            "CUMA",
+                            "CUMARTES\u0130",
+                    }
+                }
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "OCA",
+                            "\u015EUB",
+                            "MAR",
+                            "N\u0130S",
+                            "MAY",
+                            "HAZ",
+                            "TEM",
+                            "A\u011EUS",
+                            "EYL",
+                            "EK\u0130",
+                            "KAS",
+                            "ARA",
+                            "",
+                    }
+                    wide{
+                            "OCAK",
+                            "\u015EUBAT",
+                            "MART",
+                            "N\u0130SAN",
+                            "MAYIS",
+                            "HAZ\u0130RAN",
+                            "TEMMUZ",
+                            "A\u011EUSTOS",
+                            "EYL\u00DCL",
+                            "EK\u0130M",
+                            "KASIM",
+                            "ARALIK",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

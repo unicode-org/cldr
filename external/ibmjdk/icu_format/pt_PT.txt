@@ -1,39 +1,47 @@
 pt_PT {
     LocaleString { "pt_PT" }
-    MonthAbbreviations { 
-            "Jan",
-            "Fev",
-            "Mar",
-            "Abr",
-            "Mai",
-            "Jun",
-            "Jul",
-            "Ago",
-            "Set",
-            "Out",
-            "Nov",
-            "Dez",
-            "",
-    }
-    MonthNames { 
-            "Janeiro",
-            "Fevereiro",
-            "Mar\u00E7o",
-            "Abril",
-            "Maio",
-            "Junho",
-            "Julho",
-            "Agosto",
-            "Setembro",
-            "Outubro",
-            "Novembro",
-            "Dezembro",
-            "",
-    }
     NumberPatterns { 
             "#,##0.###;-#,##0.###",
             "#,##0.00 \u00A4;-#,##0.00 \u00A4",
             "#,##0%",
     }
     ShortCountry { "PRT" }
+    calendar{
+        gregorian{
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Fev",
+                            "Mar",
+                            "Abr",
+                            "Mai",
+                            "Jun",
+                            "Jul",
+                            "Ago",
+                            "Set",
+                            "Out",
+                            "Nov",
+                            "Dez",
+                            "",
+                    }
+                    wide{
+                            "Janeiro",
+                            "Fevereiro",
+                            "Mar\u00E7o",
+                            "Abril",
+                            "Maio",
+                            "Junho",
+                            "Julho",
+                            "Agosto",
+                            "Setembro",
+                            "Outubro",
+                            "Novembro",
+                            "Dezembro",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

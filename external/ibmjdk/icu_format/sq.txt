@@ -1,80 +1,13 @@
 sq {
-    AmPmMarkers { 
-            "PD",
-            "MD",
-    }
     CollationElements { "@" }
     Countries { 
         AL { "Shqip\u00EBria" }
-    }
-    DateTimePatterns { 
-            "h.mm.ss.a z",
-            "h.mm.ss.a z",
-            "h:mm:ss.a",
-            "h.mm.a",
-            "yyyy-MM-dd",
-            "yyyy-MM-dd",
-            "yyyy-MM-dd",
-            "yy-MM-dd",
-            "{1} {0}",
-    }
-    DayAbbreviations { 
-            "Die",
-            "H\u00EBn",
-            "Mar",
-            "M\u00EBr",
-            "Enj",
-            "Pre",
-            "Sht",
-    }
-    DayNames { 
-            "e diel",
-            "e h\u00EBn\u00EB",
-            "e mart\u00EB",
-            "e m\u00EBrkur\u00EB",
-            "e enjte",
-            "e premte",
-            "e shtun\u00EB",
-    }
-    Eras { 
-            "p.e.r.",
-            "n.e.r.",
     }
     Languages { 
         sq { "shqipe" }
     }
     LocaleID { "041c" }
     LocaleString { "sq" }
-    MonthAbbreviations { 
-            "Jan",
-            "Shk",
-            "Mar",
-            "Pri",
-            "Maj",
-            "Qer",
-            "Kor",
-            "Gsh",
-            "Sht",
-            "Tet",
-            "N\u00EBn",
-            "Dhj",
-            "",
-    }
-    MonthNames { 
-            "janar",
-            "shkurt",
-            "mars",
-            "prill",
-            "maj",
-            "qershor",
-            "korrik",
-            "gusht",
-            "shtator",
-            "tetor",
-            "n\u00EBntor",
-            "dhjetor",
-            "",
-    }
     NumberElements { 
             ",",
             ".",
@@ -90,4 +23,83 @@ sq {
     }
     ShortLanguage { "sqi" }
     localPatternChars { "GanjkHmsSEDFwWxhKzZ" }
+    calendar{
+        gregorian{
+            AmPmMarkers{
+                    "PD",
+                    "MD",
+            }
+            DateTimePatterns{
+                    "h.mm.ss.a z",
+                    "h.mm.ss.a z",
+                    "h:mm:ss.a",
+                    "h.mm.a",
+                    "yyyy-MM-dd",
+                    "yyyy-MM-dd",
+                    "yyyy-MM-dd",
+                    "yy-MM-dd",
+                    "{1} {0}",
+            }
+            dayNames{
+                format{
+                    abbreviated{
+                            "Die",
+                            "H\u00EBn",
+                            "Mar",
+                            "M\u00EBr",
+                            "Enj",
+                            "Pre",
+                            "Sht",
+                    }
+                    wide{
+                            "e diel",
+                            "e h\u00EBn\u00EB",
+                            "e mart\u00EB",
+                            "e m\u00EBrkur\u00EB",
+                            "e enjte",
+                            "e premte",
+                            "e shtun\u00EB",
+                    }
+                }
+            }
+            eras{
+                    "p.e.r.",
+                    "n.e.r.",
+            }
+            monthNames{
+                format{
+                    abbreviated{
+                            "Jan",
+                            "Shk",
+                            "Mar",
+                            "Pri",
+                            "Maj",
+                            "Qer",
+                            "Kor",
+                            "Gsh",
+                            "Sht",
+                            "Tet",
+                            "N\u00EBn",
+                            "Dhj",
+                            "",
+                    }
+                    wide{
+                            "janar",
+                            "shkurt",
+                            "mars",
+                            "prill",
+                            "maj",
+                            "qershor",
+                            "korrik",
+                            "gusht",
+                            "shtator",
+                            "tetor",
+                            "n\u00EBntor",
+                            "dhjetor",
+                            "",
+                    }
+                }
+            }
+        }
+    }
 }

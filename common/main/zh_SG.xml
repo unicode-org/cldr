@@ -1,30 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="zh" /> 
-		<territory type="SG" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="zh"></language> 
+		<territory type="SG"></territory> 
 	</identity>
-	<alias source="zh_Hans_SG" path="//ldml/*" />
+	<alias source="zh_Hans_SG" path="//ldml/*"></alias>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/zh_SG.txt?only_with_tag=final-update-LDML
-
-﻿// -*- Coding: utf-8; -*-
-Singapore locale: Data By Syn Wee Quek
-AmPmMarkers { 
-"\u4E0A\u5348", // am
-"\u4E0B\u5348" // pm
-}
-most commonly used formal time format 
-most commonly used date format
-Duplicates from zh locale have been removed.
-Duplicates from zh locale have been removed.
-        ko { "\u97e9\u6587" }           // Korean
-        sh { "\u585e\u5c14\u7ef4\u4e9a\u514b\u7f57\u5730\u4e9a\u6587" }   // SerboCroatian
-"Singapore"
-
--->

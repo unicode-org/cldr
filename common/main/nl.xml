@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="nl" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="nl"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -609,74 +609,74 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="4"/>
-					<firstDay day="mon"/>
+					<minDays count="4"></minDays>
+					<firstDay day="mon"></firstDay>
 				</week>
 				<eras>
 					<eraAbbr>
-						<era type="1">v. Chr.</era>
-						<era type="2">n. Chr.</era>
+						<era type="0">v. Chr.</era>
+						<era type="1">n. Chr.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE d MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d-MMM-yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d-M-yy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss' uur' z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="nl" path="../monthWidth[@type='wide']"/>
+							<alias source="nl" path="../monthWidth[@type='wide']"></alias>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tisjrie</month>
@@ -700,7 +700,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="nl" path="../monthWidth[@type='wide']"/>
+							<alias source="nl" path="../monthWidth[@type='wide']"></alias>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Moeharram</month>
@@ -720,12 +720,12 @@
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="1">Saʻna Hizjria</era>
+						<era type="0">Saʻna Hizjria</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
-        <alias source="nl" path="../calendar[@type='islamic']"/>
+        <alias source="nl" path="../calendar[@type='islamic']"></alias>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -2588,51 +2588,11 @@
 			</currency>
 		</currencies>
 	</numbers>
-</ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/nl.txt?only_with_tag=final-update-LDML
-
-Islamic calendar
-                        "Moeharram",            // Muharram
-                        "Safar",                // Safar
-                        "Rabi\u02bba al awal",      // Rabi' al-awwal
-                        "Rabi\u02bba al thani",      // Rabi' al-thani
-                        "Joemad\u02bbal awal",       // Jumada al-awwal
-                        "Joemad\u02bbal thani",      // Jumada al-thani
-                        "Rajab",                // Rajab
-                        "Sja\u02bbaban",             // Sha'ban
-                        "Ramadan",              // Ramadan
-                        "Sjawal",               // Shawwal
-                        "Doe al ka\u02bbaba",        // Dhu al-Qi'dah
-                        "Doe al hizja",         // Dhu al-Hijjah
-                "v. Chr.",  // voor Christus
-                "n. Chr.",  // na Christus
-                        "Tisjrie",      // Tishri
-                        "Chesjwan",     // Heshvan
-                        "Kislev",       // Kislev
-                        "Tevet",        // Tevet
-                        "Sjevat",       // Shevat
-                        "Adar",         // Adar I
-                        "Adar B",       // Adar
-                        "Nisan",        // Nisan
-                        "Ijar",         // Iyar
-                        "Sivan",        // Sivan
-                        "Tammoez",      // Tamuz
-                        "Av",           // Av
-                        "Elloel",       // Elul
-IR { "Iran, Islamitische Republiek" }
-RE { "R\u00E9union" }
-Currency display names
-        vo  { "Volap\u00fck" }   // Yes the iso-639 standard uses the umlaut in the English name
-zh_cn { "Chinees (Vereenvoudigd)" }
-zh_tw { "Chinees (Traditioneel)" }
-        "Latn",  // ISO 15924 Name 
-        Hans { "Vereenvoudigd Han" } // Not a formal part of ISO-15924 yet
-        Hant { "Traditioneel Han" } // Not a formal part of ISO-15924 yet
-        Qaac { "Koptisch" } // Coptic is not a formal part of ISO-15924 yet
-Qaai { "Inherited" } // PUA
-Thai { "Thai" } // Just happens to be a duplicate
-        Zyyy { "Algemeen" } // This may need to become "undetermined script"
-
--->
+<posix draft="true">
+    <messages>
+      <yesstr>Ja</yesstr>
+      <nostr>Nee</nostr>
+      <yesexpr>J</yesexpr>
+      <noexpr>N</noexpr>
+    </messages>
+  </posix></ldml>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="zh" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="zh"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -875,12 +875,18 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+        <week draft="true">
+          <minDays count="1"></minDays>
+          <firstDay day="sun"></firstDay>
+          <weekendStart day="sat"></weekendStart>
+          <weekendEnd day="sun"></weekendEnd>
+        </week>
 				<am>上午</am>
 				<pm>下午</pm>
 				<eras>
 					<eraAbbr>
-						<era type="1">公元前</era>
-						<era type="2">公元</era>
+						<era type="0">公元前</era>
+						<era type="1">公元</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -2671,25 +2677,12 @@
 			</currency>
 		</currencies>
 	</numbers>
+  <posix draft="true">
+    <messages>
+      <yesstr>確定</yesstr>
+      <nostr>否定</nostr>
+      <yesexpr>是</yesexpr>
+      <noexpr>否</noexpr>
+    </messages>
+  </posix>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/zh.txt?only_with_tag=final-update-LDML
-
-        CN { "\u4E2D\u56FD" }  // From the JDK and translation center
-CN { "\u4E2D\u83EF\u4EBA\u6C11\u5171\u548C\u570B" } // Old value
-KR { "\u5357\u671D\u9C9C" } // Old value
-Currency display names
-? an  { "\u963F\u62C9\u8CA2\u6587" }
-        bla { "\u53f8\u514b\u53f8\u5361\u6587" }   // Blackfoot
-? ht  { "\u6D77\u5730\u4EBA" }
-        Hans { "\u7B80\u4F53\u6C49\u8BED" } // Not a formal part of ISO-15924 yet
-        Hant { "\u7E41\u4F53\u6C49\u8BED" } // Not a formal part of ISO-15924 yet
-Linb { "\u7EBF\u5F62\u6587\u5B57\u4E59" }
-        Qaac { "\u514B\u666E\u7279\u8BED" } // Coptic is not a formal part of ISO-15924 yet
-Qaai { "\u7EE7\u627F\u8BED" } // PUA
-Zyyy { "\u672A\u786E\u5B9A\u8BED\u7CFB" } // This may need to become "undetermined script"
-EURO    { "\u6b27\u5143" }
-PREEURO { "\u65e7\u5e01" }
-
--->

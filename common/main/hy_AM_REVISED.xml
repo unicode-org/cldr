@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="hy" /> 
-		<territory type="AM" /> 
-		<variant type="REVISED" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="hy"></language> 
+		<territory type="AM"></territory> 
+		<variant type="REVISED"></variant> 
 	</identity>
 		<dates>
 			<calendars>
@@ -48,25 +48,11 @@
 					<pm>Կե․</pm>
 					<eras>
 						<eraAbbr>
-							<era type="1">Մ․Թ․Ա․</era>
-							<era type="2">Մ․Թ․</era>
+							<era type="0">Մ․Թ․Ա․</era>
+							<era type="1">Մ․Թ․</era>
 						</eraAbbr>
 					</eras>
 				</calendar>
 			</calendars>
 		</dates>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/hy_AM_REVISED.txt?only_with_tag=final-update-LDML
-
-*   Data by :
-*         Bedo Agopian   www.agosoft.com
-*         Aram Airapetian
-*         Arminco Global Telecommunications
-*         Jora Manoucherians
-*         Richard Youatt
-Just use the data from the parent.
-The original data in this locale looked suspicious.
-
--->

@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="sv" /> 
-		<territory type="FI" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="sv"></language> 
+		<territory type="FI"></territory> 
 	</identity>
 		<numbers>
 			<decimalFormats>
-				<decimalFormatLength >
-					<decimalFormat >
+				<decimalFormatLength>
+					<decimalFormat>
 						<pattern>#,##0.###;-#,##0.###</pattern>
 					</decimalFormat>
-				</decimalFormatLength >
+				</decimalFormatLength>
 			</decimalFormats>
 			<scientificFormats>
-				<scientificFormatLength >
-					<scientificFormat >
+				<scientificFormatLength>
+					<scientificFormat>
 						<pattern>#E0</pattern>
 					</scientificFormat>
-				</scientificFormatLength >
+				</scientificFormatLength>
 			</scientificFormats>
 			<percentFormats>
-				<percentFormatLength >
-					<percentFormat >
+				<percentFormatLength>
+					<percentFormat>
 						<pattern>#,##0%</pattern>
 					</percentFormat>
-				</percentFormatLength >
+				</percentFormatLength>
 			</percentFormats>
 			<currencyFormats>
-				<currencyFormatLength >
-					<currencyFormat >
+				<currencyFormatLength>
+					<currencyFormat>
 						<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
 					</currencyFormat>
-				</currencyFormatLength >
+				</currencyFormatLength>
 			</currencyFormats>
 		</numbers>
 </ldml>

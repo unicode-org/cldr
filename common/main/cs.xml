@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="cs" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="cs"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -526,69 +526,69 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"/>
-					<firstDay day="mon"/>
+					<minDays count="1"></minDays>
+					<firstDay day="mon"></firstDay>
 				</week>
 				<am>dop.</am>
 				<pm>odp.</pm>
 				<eras>
 					<eraAbbr>
-						<era type="1">př.Kr.</era>
-						<era type="2">po Kr.</era>
+						<era type="0">př.Kr.</era>
+						<era type="1">po Kr.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE, d. MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d. MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d.M.yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d.M.yy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -2372,22 +2372,11 @@
 			</currency>
 		</currencies>
 	</numbers>
-</ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/cs.txt?only_with_tag=final-update-LDML
-
-        KP { "Severn\u00ED Korea" } // alternate name { "Korea, lidov\u011B demokratick\u00E1 republika" }
-        KR { "Ji\u017En\u00ED Korea" } // alternate name { "Korea, republika" }
-        LY { "Libye" }    // alternate name { "Libye" }
-MK { "Makedonie, republika" }
-MO { "\u010C\u00EDna, zvl\u00E1\u0161tn\u00ED administrativn\u00ED oblast \u010C\u00EDny" }
-PS { "Palestinsk\u00E9 \u00FAzem\u00ED" }
-RE { "R\u00E9union" }
-        SY { "S\u00FDrie" }    // alternate name { "S\u00FDrie" }
-in { "Indon\u00E9\u0161tina" }
-iw { "Hebrej\u0161tina" }
-ji { "Jidi\u0161" }
-                1, // "Minimal Days in First Week" is unknown. Root value used instead
-
--->
+<posix draft="true">
+    <messages>
+      <yesstr>ANO</yesstr>
+      <nostr>NE</nostr>
+      <yesexpr>A</yesexpr>
+      <noexpr>N</noexpr>
+    </messages>
+  </posix></ldml>

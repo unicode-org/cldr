@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="ja" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="ja"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -581,361 +581,367 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+        <week draft="true">
+          <minDays count="1"></minDays>
+          <firstDay day="sun"></firstDay>
+          <weekendStart day="sat"></weekendStart>
+          <weekendEnd day="sun"></weekendEnd>
+        </week>
 				<am>午前</am>
 				<pm>午後</pm>
 				<eras>
 					<eraAbbr>
-						<era type="1">紀元前</era>
-						<era type="2">西暦</era>
+						<era type="0">紀元前</era>
+						<era type="1">西暦</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy'年'M'月'd'日'EEEE</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy'年'M'月'd'日'</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy/MM/dd</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yy/MM/dd</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H'時'mm'分'ss'秒'z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss:z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
 				<eras>
 					<eraAbbr>
-						<era type="1">大化</era>
-						<era type="2">白雉</era>
-						<era type="3">白鳯</era>
-						<era type="4">朱鳥</era>
-						<era type="5">大宝</era>
-						<era type="6">慶雲</era>
-						<era type="7">和銅</era>
-						<era type="8">霊亀</era>
-						<era type="9">養老</era>
-						<era type="10">神亀</era>
-						<era type="11">天平</era>
-						<era type="12">天平感宝</era>
-						<era type="13">天平勝宝</era>
-						<era type="14">天平宝字</era>
-						<era type="15">天平神護</era>
-						<era type="16">神護景雲</era>
-						<era type="17">宝亀</era>
-						<era type="18">天応</era>
-						<era type="19">延暦</era>
-						<era type="20">大同</era>
-						<era type="21">弘仁</era>
-						<era type="22">天長</era>
-						<era type="23">承和</era>
-						<era type="24">嘉祥</era>
-						<era type="25">仁寿</era>
-						<era type="26">斉衡</era>
-						<era type="27">天安</era>
-						<era type="28">貞観</era>
-						<era type="29">元慶</era>
-						<era type="30">仁和</era>
-						<era type="31">寛平</era>
-						<era type="32">昌泰</era>
-						<era type="33">延喜</era>
-						<era type="34">延長</era>
-						<era type="35">承平</era>
-						<era type="36">天慶</era>
-						<era type="37">天暦</era>
-						<era type="38">天徳</era>
-						<era type="39">応和</era>
-						<era type="40">康保</era>
-						<era type="41">安和</era>
-						<era type="42">天禄</era>
-						<era type="43">天延</era>
-						<era type="44">貞元</era>
-						<era type="45">天元</era>
-						<era type="46">永観</era>
-						<era type="47">寛和</era>
-						<era type="48">永延</era>
-						<era type="49">永祚</era>
-						<era type="50">正暦</era>
-						<era type="51">長徳</era>
-						<era type="52">長保</era>
-						<era type="53">寛弘</era>
-						<era type="54">長和</era>
-						<era type="55">寛仁</era>
-						<era type="56">治安</era>
-						<era type="57">万寿</era>
-						<era type="58">長元</era>
-						<era type="59">長暦</era>
-						<era type="60">長久</era>
-						<era type="61">寛徳</era>
-						<era type="62">永承</era>
-						<era type="63">天喜</era>
-						<era type="64">康平</era>
-						<era type="65">治暦</era>
-						<era type="66">延久</era>
-						<era type="67">承保</era>
-						<era type="68">承暦</era>
-						<era type="69">永保</era>
-						<era type="70">応徳</era>
-						<era type="71">寛治</era>
-						<era type="72">嘉保</era>
-						<era type="73">永長</era>
-						<era type="74">承徳</era>
-						<era type="75">康和</era>
-						<era type="76">長治</era>
-						<era type="77">嘉承</era>
-						<era type="78">天仁</era>
-						<era type="79">天永</era>
-						<era type="80">永久</era>
-						<era type="81">元永</era>
-						<era type="82">保安</era>
-						<era type="83">天治</era>
-						<era type="84">大治</era>
-						<era type="85">天承</era>
-						<era type="86">長承</era>
-						<era type="87">保延</era>
-						<era type="88">永治</era>
-						<era type="89">康治</era>
-						<era type="90">天養</era>
-						<era type="91">久安</era>
-						<era type="92">仁平</era>
-						<era type="93">久寿</era>
-						<era type="94">保元</era>
-						<era type="95">平治</era>
-						<era type="96">永暦</era>
-						<era type="97">応保</era>
-						<era type="98">長寛</era>
-						<era type="99">永万</era>
-						<era type="100">仁安</era>
-						<era type="101">嘉応</era>
-						<era type="102">承安</era>
-						<era type="103">安元</era>
-						<era type="104">治承</era>
-						<era type="105">養和</era>
-						<era type="106">寿永</era>
-						<era type="107">元暦</era>
-						<era type="108">文治</era>
-						<era type="109">建久</era>
-						<era type="110">正治</era>
-						<era type="111">建仁</era>
-						<era type="112">元久</era>
-						<era type="113">建永</era>
-						<era type="114">承元</era>
-						<era type="115">建暦</era>
-						<era type="116">建保</era>
-						<era type="117">承久</era>
-						<era type="118">貞応</era>
-						<era type="119">元仁</era>
-						<era type="120">嘉禄</era>
-						<era type="121">安貞</era>
-						<era type="122">寛喜</era>
-						<era type="123">貞永</era>
-						<era type="124">天福</era>
-						<era type="125">文暦</era>
-						<era type="126">嘉禎</era>
-						<era type="127">暦仁</era>
-						<era type="128">延応</era>
-						<era type="129">仁治</era>
-						<era type="130">寛元</era>
-						<era type="131">宝治</era>
-						<era type="132">建長</era>
-						<era type="133">康元</era>
-						<era type="134">正嘉</era>
-						<era type="135">正元</era>
-						<era type="136">文応</era>
-						<era type="137">弘長</era>
-						<era type="138">文永</era>
-						<era type="139">建治</era>
-						<era type="140">弘安</era>
-						<era type="141">正応</era>
-						<era type="142">永仁</era>
-						<era type="143">正安</era>
-						<era type="144">乾元</era>
-						<era type="145">嘉元</era>
-						<era type="146">徳治</era>
-						<era type="147">延慶</era>
-						<era type="148">応長</era>
-						<era type="149">正和</era>
-						<era type="150">文保</era>
-						<era type="151">元応</era>
-						<era type="152">元亨</era>
-						<era type="153">正中</era>
-						<era type="154">嘉暦</era>
-						<era type="155">元徳</era>
-						<era type="156">元弘</era>
-						<era type="157">建武</era>
-						<era type="158">延元</era>
-						<era type="159">興国</era>
-						<era type="160">正平</era>
-						<era type="161">建徳</era>
-						<era type="162">文中</era>
-						<era type="163">天授</era>
-						<era type="164">康暦</era>
-						<era type="165">弘和</era>
-						<era type="166">元中</era>
-						<era type="167">至徳</era>
-						<era type="168">嘉慶</era>
-						<era type="169">康応</era>
-						<era type="170">明徳</era>
-						<era type="171">応永</era>
-						<era type="172">正長</era>
-						<era type="173">永享</era>
-						<era type="174">嘉吉</era>
-						<era type="175">文安</era>
-						<era type="176">宝徳</era>
-						<era type="177">享徳</era>
-						<era type="178">康正</era>
-						<era type="179">長禄</era>
-						<era type="180">寛正</era>
-						<era type="181">文正</era>
-						<era type="182">応仁</era>
-						<era type="183">文明</era>
-						<era type="184">長享</era>
-						<era type="185">延徳</era>
-						<era type="186">明応</era>
-						<era type="187">文亀</era>
-						<era type="188">永正</era>
-						<era type="189">大永</era>
-						<era type="190">享禄</era>
-						<era type="191">天文</era>
-						<era type="192">弘治</era>
-						<era type="193">永禄</era>
-						<era type="194">元亀</era>
-						<era type="195">天正</era>
-						<era type="196">文禄</era>
-						<era type="197">慶長</era>
-						<era type="198">元和</era>
-						<era type="199">寛永</era>
-						<era type="200">正保</era>
-						<era type="201">慶安</era>
-						<era type="202">承応</era>
-						<era type="203">明暦</era>
-						<era type="204">万治</era>
-						<era type="205">寛文</era>
-						<era type="206">延宝</era>
-						<era type="207">天和</era>
-						<era type="208">貞享</era>
-						<era type="209">元禄</era>
-						<era type="210">宝永</era>
-						<era type="211">正徳</era>
-						<era type="212">享保</era>
-						<era type="213">元文</era>
-						<era type="214">寛保</era>
-						<era type="215">延享</era>
-						<era type="216">寛延</era>
-						<era type="217">宝暦</era>
-						<era type="218">明和</era>
-						<era type="219">安永</era>
-						<era type="220">天明</era>
-						<era type="221">寛政</era>
-						<era type="222">享和</era>
-						<era type="223">文化</era>
-						<era type="224">文政</era>
-						<era type="225">天保</era>
-						<era type="226">弘化</era>
-						<era type="227">嘉永</era>
-						<era type="228">安政</era>
-						<era type="229">万延</era>
-						<era type="230">文久</era>
-						<era type="231">元治</era>
-						<era type="232">慶応</era>
-						<era type="233">明治</era>
-						<era type="234">大正</era>
-						<era type="235">昭和</era>
-						<era type="236">平成</era>
+						<era type="0">大化</era>
+						<era type="1">白雉</era>
+						<era type="2">白鳯</era>
+						<era type="3">朱鳥</era>
+						<era type="4">大宝</era>
+						<era type="5">慶雲</era>
+						<era type="6">和銅</era>
+						<era type="7">霊亀</era>
+						<era type="8">養老</era>
+						<era type="9">神亀</era>
+						<era type="10">天平</era>
+						<era type="11">天平感宝</era>
+						<era type="12">天平勝宝</era>
+						<era type="13">天平宝字</era>
+						<era type="14">天平神護</era>
+						<era type="15">神護景雲</era>
+						<era type="16">宝亀</era>
+						<era type="17">天応</era>
+						<era type="18">延暦</era>
+						<era type="19">大同</era>
+						<era type="20">弘仁</era>
+						<era type="21">天長</era>
+						<era type="22">承和</era>
+						<era type="23">嘉祥</era>
+						<era type="24">仁寿</era>
+						<era type="25">斉衡</era>
+						<era type="26">天安</era>
+						<era type="27">貞観</era>
+						<era type="28">元慶</era>
+						<era type="29">仁和</era>
+						<era type="30">寛平</era>
+						<era type="31">昌泰</era>
+						<era type="32">延喜</era>
+						<era type="33">延長</era>
+						<era type="34">承平</era>
+						<era type="35">天慶</era>
+						<era type="36">天暦</era>
+						<era type="37">天徳</era>
+						<era type="38">応和</era>
+						<era type="39">康保</era>
+						<era type="40">安和</era>
+						<era type="41">天禄</era>
+						<era type="42">天延</era>
+						<era type="43">貞元</era>
+						<era type="44">天元</era>
+						<era type="45">永観</era>
+						<era type="46">寛和</era>
+						<era type="47">永延</era>
+						<era type="48">永祚</era>
+						<era type="49">正暦</era>
+						<era type="50">長徳</era>
+						<era type="51">長保</era>
+						<era type="52">寛弘</era>
+						<era type="53">長和</era>
+						<era type="54">寛仁</era>
+						<era type="55">治安</era>
+						<era type="56">万寿</era>
+						<era type="57">長元</era>
+						<era type="58">長暦</era>
+						<era type="59">長久</era>
+						<era type="60">寛徳</era>
+						<era type="61">永承</era>
+						<era type="62">天喜</era>
+						<era type="63">康平</era>
+						<era type="64">治暦</era>
+						<era type="65">延久</era>
+						<era type="66">承保</era>
+						<era type="67">承暦</era>
+						<era type="68">永保</era>
+						<era type="69">応徳</era>
+						<era type="70">寛治</era>
+						<era type="71">嘉保</era>
+						<era type="72">永長</era>
+						<era type="73">承徳</era>
+						<era type="74">康和</era>
+						<era type="75">長治</era>
+						<era type="76">嘉承</era>
+						<era type="77">天仁</era>
+						<era type="78">天永</era>
+						<era type="79">永久</era>
+						<era type="80">元永</era>
+						<era type="81">保安</era>
+						<era type="82">天治</era>
+						<era type="83">大治</era>
+						<era type="84">天承</era>
+						<era type="85">長承</era>
+						<era type="86">保延</era>
+						<era type="87">永治</era>
+						<era type="88">康治</era>
+						<era type="89">天養</era>
+						<era type="90">久安</era>
+						<era type="91">仁平</era>
+						<era type="92">久寿</era>
+						<era type="93">保元</era>
+						<era type="94">平治</era>
+						<era type="95">永暦</era>
+						<era type="96">応保</era>
+						<era type="97">長寛</era>
+						<era type="98">永万</era>
+						<era type="99">仁安</era>
+						<era type="100">嘉応</era>
+						<era type="101">承安</era>
+						<era type="102">安元</era>
+						<era type="103">治承</era>
+						<era type="104">養和</era>
+						<era type="105">寿永</era>
+						<era type="106">元暦</era>
+						<era type="107">文治</era>
+						<era type="108">建久</era>
+						<era type="109">正治</era>
+						<era type="110">建仁</era>
+						<era type="111">元久</era>
+						<era type="112">建永</era>
+						<era type="113">承元</era>
+						<era type="114">建暦</era>
+						<era type="115">建保</era>
+						<era type="116">承久</era>
+						<era type="117">貞応</era>
+						<era type="118">元仁</era>
+						<era type="119">嘉禄</era>
+						<era type="120">安貞</era>
+						<era type="121">寛喜</era>
+						<era type="122">貞永</era>
+						<era type="123">天福</era>
+						<era type="124">文暦</era>
+						<era type="125">嘉禎</era>
+						<era type="126">暦仁</era>
+						<era type="127">延応</era>
+						<era type="128">仁治</era>
+						<era type="129">寛元</era>
+						<era type="130">宝治</era>
+						<era type="131">建長</era>
+						<era type="132">康元</era>
+						<era type="133">正嘉</era>
+						<era type="134">正元</era>
+						<era type="135">文応</era>
+						<era type="136">弘長</era>
+						<era type="137">文永</era>
+						<era type="138">建治</era>
+						<era type="139">弘安</era>
+						<era type="140">正応</era>
+						<era type="141">永仁</era>
+						<era type="142">正安</era>
+						<era type="143">乾元</era>
+						<era type="144">嘉元</era>
+						<era type="145">徳治</era>
+						<era type="146">延慶</era>
+						<era type="147">応長</era>
+						<era type="148">正和</era>
+						<era type="149">文保</era>
+						<era type="150">元応</era>
+						<era type="151">元亨</era>
+						<era type="152">正中</era>
+						<era type="153">嘉暦</era>
+						<era type="154">元徳</era>
+						<era type="155">元弘</era>
+						<era type="156">建武</era>
+						<era type="157">延元</era>
+						<era type="158">興国</era>
+						<era type="159">正平</era>
+						<era type="160">建徳</era>
+						<era type="161">文中</era>
+						<era type="162">天授</era>
+						<era type="163">康暦</era>
+						<era type="164">弘和</era>
+						<era type="165">元中</era>
+						<era type="166">至徳</era>
+						<era type="167">嘉慶</era>
+						<era type="168">康応</era>
+						<era type="169">明徳</era>
+						<era type="170">応永</era>
+						<era type="171">正長</era>
+						<era type="172">永享</era>
+						<era type="173">嘉吉</era>
+						<era type="174">文安</era>
+						<era type="175">宝徳</era>
+						<era type="176">享徳</era>
+						<era type="177">康正</era>
+						<era type="178">長禄</era>
+						<era type="179">寛正</era>
+						<era type="180">文正</era>
+						<era type="181">応仁</era>
+						<era type="182">文明</era>
+						<era type="183">長享</era>
+						<era type="184">延徳</era>
+						<era type="185">明応</era>
+						<era type="186">文亀</era>
+						<era type="187">永正</era>
+						<era type="188">大永</era>
+						<era type="189">享禄</era>
+						<era type="190">天文</era>
+						<era type="191">弘治</era>
+						<era type="192">永禄</era>
+						<era type="193">元亀</era>
+						<era type="194">天正</era>
+						<era type="195">文禄</era>
+						<era type="196">慶長</era>
+						<era type="197">元和</era>
+						<era type="198">寛永</era>
+						<era type="199">正保</era>
+						<era type="200">慶安</era>
+						<era type="201">承応</era>
+						<era type="202">明暦</era>
+						<era type="203">万治</era>
+						<era type="204">寛文</era>
+						<era type="205">延宝</era>
+						<era type="206">天和</era>
+						<era type="207">貞享</era>
+						<era type="208">元禄</era>
+						<era type="209">宝永</era>
+						<era type="210">正徳</era>
+						<era type="211">享保</era>
+						<era type="212">元文</era>
+						<era type="213">寛保</era>
+						<era type="214">延享</era>
+						<era type="215">寛延</era>
+						<era type="216">宝暦</era>
+						<era type="217">明和</era>
+						<era type="218">安永</era>
+						<era type="219">天明</era>
+						<era type="220">寛政</era>
+						<era type="221">享和</era>
+						<era type="222">文化</era>
+						<era type="223">文政</era>
+						<era type="224">天保</era>
+						<era type="225">弘化</era>
+						<era type="226">嘉永</era>
+						<era type="227">安政</era>
+						<era type="228">万延</era>
+						<era type="229">文久</era>
+						<era type="230">元治</era>
+						<era type="231">慶応</era>
+						<era type="232">明治</era>
+						<era type="233">大正</era>
+						<era type="234">昭和</era>
+						<era type="235">平成</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>Gy'年'M'月'd'日'EEEE</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>Gy'年'M'月'd'日'</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>G yy/MM/dd</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>G yy/MM/dd</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H'時'mm'分'ss'秒'z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss:z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -2773,49 +2779,12 @@
 			</currency>
 		</currencies>
 	</numbers>
+  <posix draft="true">
+    <messages>
+      <yesstr>はい</yesstr>
+      <nostr>いいえ</nostr>
+      <yesexpr></yesexpr>
+      <noexpr></noexpr>
+    </messages>
+  </posix>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ja.txt?only_with_tag=final-update-LDML
-
-Below are same as root
-abbreviated{
-"10",
-"11",
-"12",
-}
-narrow{
-"10",
-"11",
-"12",
-}
-BM { "\u30d0\u30fc\u30df\u30e5\u30fc\u30c0\u8af8\u5cf6" } // Baamyuuda Shodou
-        BM { "\u30d0\u30fc\u30df\u30e5\u30fc\u30c0" } // Baamyuuda
-CN { "\u4e2d\u83ef\u4eba\u6c11\u5171\u548c\u56fd" } // China (PRC)
-        CN { "\u4e2d\u56fd" } // China
-HK { "\u9999\u6e2f\u7279\u5225\u884c\u653f\u533a" } // Hong Kong SAR
-        HK { "\u4e2d\u83ef\u4eba\u6c11\u5171\u548c\u56fd\u9999\u6e2f\u7279\u5225\u884c\u653f\u533a" } // PRC Hong Kong SAR
-LA { "\u30e9\u30aa\u30b9\u4eba\u6c11\u6c11\u4e3b\u5171\u548c\u56fd" } // From translation center
-LU { "\u30eb\u30af\u30bb\u30f3\u30d6\u30eb\u30af" } // Old value. Spelling error?
-MO { "\u30de\u30ab\u30aa\u7279\u5225\u884c\u653f\u533a" } // Makao SAR
-        MO { "\u4e2d\u83ef\u4eba\u6c11\u5171\u548c\u56fd\u30de\u30ab\u30aa\u7279\u5225\u884c\u653f\u533a" } // PRC Makao SAR
-MQ { "\u30de\u30eb\u30c1\u30cb\u30fc\u30af\u5cf6" } // From translation center
-TF { "\u4ecf\u9818\u6975\u5357\u8af8\u5cf6" } // From translation center
-TL { "\u6771\u30c1\u30e2\u30fc\u30eb" } // From translation center
-VA { "\u30d0\u30c1\u30ab\u30f3" } // Old value
-YU { "\u30e6\u30fc\u30b4\u30b9\u30e9\u30d3\u30a2\u9023\u90a6" } // Yuugosurabia Rempou (Union)
-        YU { "\u30e6\u30fc\u30b4\u30b9\u30e9\u30d3\u30a2" } // Yuugosurabia
-be { "\u767d\u30ed\u30b7\u30a2\u8a9e" } // Old value
-el { "\u30ae\u30ea\u30b7\u30a2\u8a9e" } // Old value
-lv { "\u30e9\u30c8\u30d3\u30a2\u8a9e (\u30ec\u30c3\u30c8\u8a9e)" } // Old value
-zh_cn { "\u4e2d\u56fd\u8a9e (\u7c21\u4f53\u5b57)" }
-zh_tw { "\u4e2d\u56fd\u8a9e (\u7e41\u4f53\u5b57)" }
-"\u2030",
-"\u221e",
-"\ufffd",
-}
-        Qaac { "\u30b3\u30d7\u30c8\u6587\u5b57" } // Coptic is not a formal part of ISO-15924 yet
-Qaai { "Inherited" } // PUA
-Zyyy { "Common" } // This may need to become "undetermined script"
-
--->

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="fa" /> 
-		<territory type="IR" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="fa"></language> 
+		<territory type="IR"></territory> 
 	</identity>
 	<layout>
-		<orientation lines="top-to-bottom" characters="right-to-left" />
+		<orientation lines="top-to-bottom" characters="right-to-left"></orientation>
 	</layout>
 		<dates>
 			<calendars>
 				
 				<calendar type="gregorian">
 					<week>
-						<minDays count="1"/>
-						<firstDay day="sat"/>
+						<minDays count="1"></minDays>
+						<firstDay day="sat"></firstDay>
 					</week>
 				</calendar>
 			</calendars>
@@ -37,40 +37,32 @@
 				<nan>�</nan>
 			</symbols>
 			<decimalFormats>
-				<decimalFormatLength >
-					<decimalFormat >
+				<decimalFormatLength>
+					<decimalFormat>
 						<pattern>#,##0.###;−#,##0.###</pattern>
 					</decimalFormat>
-				</decimalFormatLength >
+				</decimalFormatLength>
 			</decimalFormats>
 			<scientificFormats>
-				<scientificFormatLength >
-					<scientificFormat >
+				<scientificFormatLength>
+					<scientificFormat>
 						<pattern>#E0</pattern>
 					</scientificFormat>
-				</scientificFormatLength >
+				</scientificFormatLength>
 			</scientificFormats>
 			<percentFormats>
-				<percentFormatLength >
-					<percentFormat >
+				<percentFormatLength>
+					<percentFormat>
 						<pattern>%#,##0</pattern>
 					</percentFormat>
-				</percentFormatLength >
+				</percentFormatLength>
 			</percentFormats>
 			<currencyFormats>
-				<currencyFormatLength >
-					<currencyFormat >
+				<currencyFormatLength>
+					<currencyFormat>
 						<pattern>#,##0 ¤;−#,##0 ¤</pattern>
 					</currencyFormat>
-				</currencyFormatLength >
+				</currencyFormatLength>
 			</currencyFormats>
 		</numbers>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/fa_IR.txt?only_with_tag=final-update-LDML
-
-Created by Roozbeh Pournader <roozbeh@sharif.edu>
-                7,      // Saturday
-
--->

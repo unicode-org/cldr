@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="mt" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="mt"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -179,6 +179,7 @@
 			<language type="hr">Kroat</language>
 			<language type="hsb">Upper Sorbian</language>
 			<language type="ht">Haitian</language>
+
 			<language type="hu">Ungeriż</language>
 			<language type="hup">Ħupa</language>
 			<language type="hy">Armenjan</language>
@@ -784,67 +785,67 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="4"/>
-					<firstDay day="sun"/>
+					<minDays count="4"></minDays>
+					<firstDay day="sun"></firstDay>
 				</week>
 				<eras>
 					<eraAbbr>
-						<era type="1">QK</era>
-						<era type="2">WK</era>
+						<era type="0">QK</era>
+						<era type="1">WK</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE, d 'ta''' MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d 'ta''' MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd MMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd/MM/yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -871,51 +872,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/mt.txt?only_with_tag=final-update-LDML
-
-Maltese locale. Conforms to MSA 200:2003 http://www.msa.org.mt
-http://www.msa.org.mt/standards/maltese_stds.htm#msa200
-MSA 200:2003 - Maltese Data and Information Requirements on Information and Communication Technology
-
-l            U
-ċ = U+010B   Ċ = U+010A  'ch'    
-ġ = U+0121   Ġ = U+0120  soft G
-ħ = U+0127   Ħ = U+0126  voiced H [or 2nd letter of 'silent' għ]
-ż = U+017c   Ż = U+017B  'dz'
-COMBINING MARKS:
-There is no combining mark for the slash (h/)
-but, U+0307 is the DOT ABOVE needed for ż, ċ, and ġ (in collation rules)
-    Version { "2.0" } // 2003-10-18 - first MSA 200:2003 compliant v
-illum is-Sibt, 01 ta'' Awissu, 1998 :)
-                1,       // Sunday (il-Hadd) is first day of calendar week
-                4        // four days minimal in first week for week numbering  [MSA 200:2003 4.5.5, referencing 8601?]
-Monday is first day of workweek. [MSA 200:2003 4.5.5]
-                "HH:mm:ss z",   // needs to be 24 hour
-                "EEEE, d 'ta''' MMMM yyyy", // long day with weekday [MSA 200:2003 4.5.2]
-                "d 'ta''' MMMM yyyy", //
-                 "QK",  // "Qabel Kristu" 
-                 "WK"   // "Wara Kristu"
-NumberElements {    // Ex: 12,345.67 [MSA 200:2003 4.3 & 4.4]     (duplicated in root)
-"‰",
-"∞",
-"�"
-}
-Variants{
-PREEURO { "Qabel il-Euro" }
-}
-        "Latn",  // ISO 15924 Name 
-    ExemplarCharacters { "[[a-z \u00e0 \u00ec \u00f9 \u00e8 \u00f2 ċ ġ ħ {għ} ż]-[cy]]" } // [MSA 200:2003 4.10]
-Time zone // [MSA 200:2003 4.5.5]
-TODO: (no format yet)
-* [MSA 200:2003 4.12]
-measurement: metric
-'full stop is writen after ordinals'
-* [MSA 200:2003 4.6]
-YES:  'I' 'i' 'iva'
-TRUE:  'V' 'v' 'veru'
-NO:  'L' 'l' 'le'
-FALSE:  'F' 'f' 'falz'
-
--->

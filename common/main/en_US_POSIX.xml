@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
-<!--
-This is a special purpose locale so that a user can request the C or POSIX
-style formatting. This does not include grouping separators in numbers, nor
-unusual characters for infinity or NaN. Some people have known this to be the
-invariant locale, which is different from the root locale.
 
-This locale should not be modified to create some sort of custom collation to
-represent a specific codepage. Many users complained when the C locale was
-being used, and multi-level UCA collation was expected.
--->
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="en" /> 
-		<territory type="US" /> 
-		<variant type="POSIX" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="en"></language> 
+		<territory type="US"></territory> 
+		<variant type="POSIX"></variant> 
 	</identity>
 	<numbers>
 		<symbols>
@@ -34,41 +25,32 @@ being used, and multi-level UCA collation was expected.
 			<nan>NaN</nan>
 		</symbols>
 		<decimalFormats>
-			<decimalFormatLength >
-				<decimalFormat >
+			<decimalFormatLength>
+				<decimalFormat>
 					<pattern>0.######;-0.######</pattern>
 				</decimalFormat>
-			</decimalFormatLength >
+			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats>
-			<scientificFormatLength >
-				<scientificFormat >
+			<scientificFormatLength>
+				<scientificFormat>
 					<pattern>0.000000E+000</pattern>
 				</scientificFormat>
-			</scientificFormatLength >
+			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats>
-			<percentFormatLength >
-				<percentFormat >
+			<percentFormatLength>
+				<percentFormat>
 					<pattern>0%</pattern>
 				</percentFormat>
-			</percentFormatLength >
+			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
-			<currencyFormatLength >
-				<currencyFormat >
+			<currencyFormatLength>
+				<currencyFormat>
 					<pattern>¤ 0.00;-¤ 0.00</pattern>
 				</currencyFormat>
-			</currencyFormatLength >
+			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/en_US_POSIX.txt?only_with_tag=final-update-LDML
-
-This is an invariant locale.
-This has been also known as the C locale on Unix or the invariant locale in Windows.
-No grouping separators
-
--->

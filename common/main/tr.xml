@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="tr" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="tr"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -525,67 +525,67 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"/>
-					<firstDay day="mon"/>
+					<minDays count="1"></minDays>
+					<firstDay day="mon"></firstDay>
 				</week>
 				<eras>
 					<eraAbbr>
-						<era type="1">MÖ</era>
-						<era type="2">MS</era>
+						<era type="0">MÖ</era>
+						<era type="1">MS</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd MMMM yyyy EEEE</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd MMMM yyyy EEEE</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd.MMM.yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd.MM.yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -2128,24 +2128,11 @@
 			</currency>
 		</currencies>
 	</numbers>
-</ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/tr.txt?only_with_tag=final-update-LDML
-
-BN { "Brunei Dar\u00FCsselam" }
-        FK { "Falkland Adalar\u0131 (Malvinalar)" }    // alternate name { "Falkland Adalar\u0131" }
-        KP { "Kore, Kuzey" }    // alternate name { "Kore Demokratik Halk Cumhuriyeti" }
-        KR { "Kore, G\u00FCney" }    // alternate name { "Kore Cumhuriyeti" }
-LY { "Libya Arap Cemahiriyesi" }
-        TW { "Tayvan, \u00C7in B\u00F6lgesi" }    // alternate name { "Tayvan" }
-as { "Assamese" }
-zh_cn { "\u00C7ince (Basitle\u015Ftirilmi\u015F)" }
-zh_tw { "\u00C7ince (Geleneksel)" }
-        "Latn",  // ISO 15924 Name 
-Currency display names
-        ITL { "ITL", "ITL" } // Italian Lira
-TRL { "\u20A4", "TRL" } // Turkish Lira (Rarely used)
-        TRL { "TL", "TRL" } // Turkish Lira
-
--->
+<posix draft="true">
+    <messages>
+      <yesstr>Evet</yesstr>
+      <nostr>Hayır</nostr>
+      <yesexpr>E</yesexpr>
+      <noexpr>H</noexpr>
+    </messages>
+  </posix></ldml>

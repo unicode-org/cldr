@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="ar" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="ar"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -320,7 +320,7 @@
 		</types>
 	</localeDisplayNames>
 	<layout>
-		<orientation lines="top-to-bottom" characters="right-to-left" />
+		<orientation lines="top-to-bottom" characters="right-to-left"></orientation>
 	</layout>
 	<characters>
 		<exemplarCharacters>[ء-غـ-ٕ٠-٬‌‍‏‎]</exemplarCharacters>
@@ -331,7 +331,7 @@
 			<calendar type="buddhist">
 				<eras>
 					<eraAbbr>
-						<era type="1">التقويم البوذي</era>
+						<era type="0">التقويم البوذي</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -414,76 +414,76 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"/>
-					<firstDay day="sat"/>
+					<minDays count="1"></minDays>
+					<firstDay day="sat"></firstDay>
 				</week>
 				<am>ص</am>
 				<pm>م</pm>
 				<eras>
 					<eraAbbr>
-						<era type="1">ق.م</era>
-						<era type="2">م</era>
+						<era type="0">ق.م</era>
+						<era type="1">م</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE, d MMMM, yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d MMMM, yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>dd/MM/yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d/M/yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>z h:mm:ss a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-              <alias source="ar" path="../monthWidth[@type='wide']"/>
+              <alias source="ar" path="../monthWidth[@type='wide']"></alias>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">محرم</month>
@@ -503,16 +503,16 @@
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="1">ه‍</era>
+						<era type="0">ه‍</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
 				<months>
-          <alias source="ar" path="../../calendar[@type='islamic']/months"/>
+          <alias source="ar" path="../../calendar[@type='islamic']/months"></alias>
 				</months>
 				<eras>
-          <alias source="ar" path="../../calendar[@type='islamic']/eras"/>
+          <alias source="ar" path="../../calendar[@type='islamic']/eras"></alias>
 				</eras>
 			</calendar>
 		</calendars>
@@ -533,32 +533,32 @@
 			<nan>�</nan>
 		</symbols>
 		<decimalFormats>
-			<decimalFormatLength >
-				<decimalFormat >
+			<decimalFormatLength>
+				<decimalFormat>
 					<pattern>#,##0.###;#,##0.###-</pattern>
 				</decimalFormat>
-			</decimalFormatLength >
+			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats>
-			<scientificFormatLength >
-				<scientificFormat >
+			<scientificFormatLength>
+				<scientificFormat>
 					<pattern>#E0</pattern>
 				</scientificFormat>
-			</scientificFormatLength >
+			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats>
-			<percentFormatLength >
-				<percentFormat >
+			<percentFormatLength>
+				<percentFormat>
 					<pattern>#,##0%</pattern>
 				</percentFormat>
-			</percentFormatLength >
+			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
-			<currencyFormatLength >
-				<currencyFormat >
+			<currencyFormatLength>
+				<currencyFormat>
 					<pattern>¤ #,##0.00;¤ #,##0.00-</pattern>
 				</currencyFormat>
-			</currencyFormatLength >
+			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
@@ -631,19 +631,11 @@
 			</currency>
 		</currencies>
 	</numbers>
-</ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ar.txt?only_with_tag=final-update-LDML
-
-AE { "\u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062A" }
-JO { "\u0627\u0644\u0623\u0631\u062F\u0646" }
-OM { "\u0633\u0644\u0637\u0646\u0629 \u0639\u0645\u0627\u0646" }
-SA { "\u0627\u0644\u0633\u0639\u0648\u062F\u064A\u0629" }
-SY { "\u0633\u0648\u0631\u064A\u0627" }
-TL { "\u062a\u064a\u0645\u0648\u0631 \u0627\u0644\u0634\u0631\u0642\u064a\u0629" }    // This was called East Timor
-Note to translator: Sometimes the hamza is optional for these translations.
-"[\u0621 \u0627-\u063A \u0641-\u064A\u0651 \u0653-\u0655 \u0670-\u06B7 \u06BA-\u06BE \u06C1 \u06C3-\u06CE \u06D0-\u06D2]"
-Civil is identical other than in calculations
-
--->
+<posix draft="true">
+    <messages>
+      <yesstr>نعم</yesstr>
+      <nostr>لا</nostr>
+      <yesexpr>ن</yesexpr>
+      <noexpr>ل</noexpr>
+    </messages>
+  </posix></ldml>

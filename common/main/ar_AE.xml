@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="ar" /> 
-		<territory type="AE" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="ar"></language> 
+		<territory type="AE"></territory> 
 	</identity>
 	<layout>
-		<orientation lines="top-to-bottom" characters="right-to-left" />
+		<orientation lines="top-to-bottom" characters="right-to-left"></orientation>
 	</layout>
 		<dates>
 			<calendars>
 				
 				<calendar type="gregorian">
 					<week>
-						<weekendStart draft="true" day="thu" time="00:00"/>
-						<weekendEnd draft="true" day="sat" time="00:00"/>
+						<weekendStart draft="true" day="thu" time="00:00"></weekendStart>
+						<weekendEnd draft="true" day="sat" time="00:00"></weekendEnd>
 					</week>
 				</calendar>
 			</calendars>

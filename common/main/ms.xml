@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="ms" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="ms"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -314,7 +314,13 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-			</calendar>
+			<week draft="true">
+          <minDays count="1"></minDays>
+          <firstDay day="mon"></firstDay>
+          <weekendStart day="sat"></weekendStart> 
+          <weekendEnd day="sun"></weekendEnd>
+          
+        </week></calendar>
 		</calendars>
 	</dates>
 	<numbers>
@@ -325,13 +331,11 @@
 			</currency>
 		</currencies>
 	</numbers>
-</ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ms.txt?only_with_tag=final-update-LDML
-
-*   Original source - Universal Locales for Linux Project
-Most of the Country names are the same as en. They fallback to en to save space.
-        "Latn",  // ISO 15924 Name 
-
--->
+<posix draft="true">
+    <messages>
+      <yesstr>Ya</yesstr>
+      <nostr>Tidak</nostr>
+      <yesexpr>Ya</yesexpr>
+      <noexpr>Tidak</noexpr>
+    </messages>
+  </posix></ldml>

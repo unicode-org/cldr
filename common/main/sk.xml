@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="sk" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="sk"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -394,67 +394,67 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="4"/>
-					<firstDay day="mon"/>
+					<minDays count="4"></minDays>
+					<firstDay day="mon"></firstDay>
 				</week>
 				<eras>
 					<eraAbbr>
-						<era type="1">pred n.l.</era>
-						<era type="2">n.l.</era>
+						<era type="0">pred n.l.</era>
+						<era type="1">n.l.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE, d. MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d. MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d.M.yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d.M.yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -1113,6 +1113,7 @@
 			</currency>
 			<currency draft="true" type="INR">
 				<displayName>Indijská rupia</displayName>
+
 				<symbol>INR</symbol>
 			</currency>
 			<currency draft="true" type="IQD">
@@ -1862,6 +1863,7 @@
 			<currency draft="true" type="XMF">
 				<displayName>Francúzsky Metropolitan Nouveau frank</displayName>
 				<symbol>XMF</symbol>
+
 			</currency>
 			<currency draft="true" type="XNF">
 				<displayName>Francúzske Antilly CFA frank</displayName>
@@ -1953,21 +1955,11 @@
 			</currency>
 		</currencies>
 	</numbers>
-</ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/sk.txt?only_with_tag=final-update-LDML
-
-AQ { "Antarkt\u00EDda" }
-        KP { "K\u00F3rea, Severn\u00E1" }    // alternate name { "K\u00F3rea, \u013Eudovodemokratick\u00E1 republika" }
-        KR { "K\u00F3rea, Ju\u017En\u00E1" }    // alternate name { "K\u00F3rea, republika" }
-SK { "Slovensko" } // From translation center
-        SY { "S\u00FDrska arabsk\u00E1 republika" }    // alternate name { "S\u00FDria" }
-sk { "Sloven\u010Dina" } // Old value
-zh_cn { "\u010D\u00EDnsky (zjednodu\u0161en\u00FD)" }
-zh_tw { "\u010D\u00EDnsky (tradi\u010Dn\u00FD)" }
-        "Latn",  // ISO 15924 Name 
-Currency display names
-                        "Nede\u013Ea", // Is this Nede\u013Ea or Nede\u013Ee?
-
--->
+<posix draft="true">
+    <messages>
+      <yesstr>Ano</yesstr>
+      <nostr>Nie</nostr>
+      <yesexpr>A</yesexpr>
+      <noexpr>N</noexpr>
+    </messages>
+  </posix></ldml>

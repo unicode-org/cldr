@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="hu" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="hu"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -454,7 +454,7 @@
 			<calendar type="buddhist">
 				<eras>
 					<eraAbbr>
-						<era type="1">BK</era>
+						<era type="0">BK</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -537,76 +537,76 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"/>
-					<firstDay day="mon"/>
+					<minDays count="1"></minDays>
+					<firstDay day="mon"></firstDay>
 				</week>
 				<am>DE</am>
 				<pm>DU</pm>
 				<eras>
 					<eraAbbr>
-						<era type="1">i.e.</era>
-						<era type="2">i.u.</era>
+						<era type="0">i.e.</era>
+						<era type="1">i.u.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy. MMMM d.</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy. MMMM d.</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy.MM.dd.</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy.MM.dd.</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="hu" path="../monthWidth[@type='wide']"/>
+							<alias source="hu" path="../monthWidth[@type='wide']"></alias>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tisri</month>
@@ -627,7 +627,7 @@
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="1">TÉ</era>
+						<era type="0">TÉ</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -635,7 +635,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="hu" path="../monthWidth[@type='wide']"/>
+							<alias source="hu" path="../monthWidth[@type='wide']"></alias>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Moharrem</month>
@@ -655,12 +655,12 @@
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="1">MF</era>
+						<era type="0">MF</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
-        <alias source="hu" path="../calendar[@type='islamic']"/>
+        <alias source="hu" path="../calendar[@type='islamic']"></alias>
 			</calendar>
 		</calendars>
 	</dates>
@@ -2194,16 +2194,12 @@
 			</currency>
 		</currencies>
 	</numbers>
+  <posix draft="true">
+    <messages>
+      <yesstr>igen</yesstr>
+      <nostr>nem</nostr>
+      <yesexpr>I</yesexpr>
+      <noexpr>N</noexpr>
+    </messages>
+  </posix>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/hu.txt?only_with_tag=final-update-LDML
-
-HK { "Hong Kong S.A.R. of China" }
-        KP { "Korea, \u00C9szak" }    // alternate name { "Korea, N\u00E9pi Demokratikus K\u00F6zt\u00E1rsas\u00E1g" }
-        KR { "Korea, D\u00E9l" }    // alternate name { "Koreai K\u00F6zt\u00E1rsas\u00E1g" }
-MO { "Macao S.A.R. of China" }
-        SY { "Sz\u00EDriai Arab K\u00F6zt\u00E1rsas\u00E1g" }    // alternate name { "Sz\u00EDria" }
-        "Latn",  // ISO 15924 Name 
-
--->

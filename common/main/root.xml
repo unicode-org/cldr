@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="root" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="root"></language> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -21,13 +21,13 @@
 		</types>
 	</localeDisplayNames>
 	<layout>
-		<orientation lines="top-to-bottom" characters="left-to-right" />
+		<orientation lines="top-to-bottom" characters="left-to-right"></orientation>
 	</layout>
 	<characters>
 		<exemplarCharacters>[]</exemplarCharacters>
 	</characters>
 	<measurement>
-		<measurementSystem type="metric"/>
+		<measurementSystem type="metric"></measurementSystem>
 		<paperSize>
 			<height>297</height>
 			<width>210</width>
@@ -36,127 +36,127 @@
 	<dates>
 		<localizedPatternChars>GyMdkHmsSEDFwWahKzYeugAZ</localizedPatternChars>
 		<calendars>
-			<default type="gregorian"/>
+			<default type="gregorian"></default>
 			<calendar type="buddhist">
 				<eras>
 					<eraAbbr>
-						<era type="1">BE</era>
+						<era type="0">BE</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE, MMMM d, yyyy G</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>MMMM d, yyyy G</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>MMM d, yyyy G</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>M/d/yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE y'x'G-Ml-d</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>y'x'G-Ml-d</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>y'x'G-Ml-d</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>y'x'G-Ml-d</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
-					<default type="format"/>
+					<default type="format"></default>
 					<monthContext type="format">
-						<default type="wide"/>
+						<default type="wide"></default>
 						<monthWidth type="abbreviated">
 							<month type="1">1</month>
 							<month type="2">2</month>
@@ -201,7 +201,7 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<default type="wide"/>
+						<default type="wide"></default>
 						<monthWidth type="abbreviated">
 							<month type="1">1</month>
 							<month type="2">2</month>
@@ -247,9 +247,9 @@
 					</monthContext>
 				</months>
 				<days>
-					<default type="format"/>
+					<default type="format"></default>
 					<dayContext type="format">
-						<default type="wide"/>
+						<default type="wide"></default>
 						<dayWidth type="abbreviated">
 							<day type="sun">1</day>
 							<day type="mon">2</day>
@@ -279,7 +279,7 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
-						<default type="wide"/>
+						<default type="wide"></default>
 						<dayWidth type="abbreviated">
 							<day type="sun">1</day>
 							<day type="mon">2</day>
@@ -310,80 +310,80 @@
 					</dayContext>
 				</days>
 				<week>
-					<minDays count="1"/>
-					<firstDay day="sun"/>
-					<weekendStart draft="true" day="sat" time="00:00"/>
-					<weekendEnd draft="true" day="mon" time="00:00"/>
+					<minDays count="1"></minDays>
+					<firstDay day="sun"></firstDay>
+					<weekendStart draft="true" day="sat" time="00:00"></weekendStart>
+					<weekendEnd draft="true" day="mon" time="00:00"></weekendEnd>
 				</week>
 				<am>AM</am>
 				<pm>PM</pm>
 				<eras>
 					<eraAbbr>
-						<era type="1">BCE</era>
-						<era type="2">CE</era>
+						<era type="0">BCE</era>
+						<era type="1">CE</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE, yyyy MMMM dd</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy MMMM d</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yyyy MMM d</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>yy/MM/dd</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>HH:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
-					<default type="format"/>
+					<default type="format"></default>
 					<monthContext type="format">
-						<default type="wide"/>
+						<default type="wide"></default>
 						<monthWidth type="abbreviated">
-							<alias source="root" path="../monthWidth[@type='wide']"/>
+							<alias source="root" path="../monthWidth[@type='wide']"></alias>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tishri</month>
@@ -404,17 +404,17 @@
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="1">AM</era>
+						<era type="0">AM</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
 			<calendar type="islamic">
 				<months>
-					<default type="format"/>
+					<default type="format"></default>
 					<monthContext type="format">
-						<default type="wide"/>
+						<default type="wide"></default>
 						<monthWidth type="abbreviated">
-							<alias source="root" path="../monthWidth[@type='wide']"/>
+							<alias source="root" path="../monthWidth[@type='wide']"></alias>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Muharram</month>
@@ -434,306 +434,306 @@
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="1">AH</era>
+						<era type="0">AH</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
-				<alias source="root" path="../calendar[@type='islamic']"/>
+				<alias source="root" path="../calendar[@type='islamic']"></alias>
 			</calendar>
 			<calendar type="japanese">
 				<eras>
 					<eraAbbr>
-						<era type="1">Taika</era>
-						<era type="2">Hakuchi</era>
-						<era type="3">Hakuhō</era>
-						<era type="4">Shuchō</era>
-						<era type="5">Taihō</era>
-						<era type="6">Keiun</era>
-						<era type="7">Wadō</era>
-						<era type="8">Reiki</era>
-						<era type="9">Yōrō</era>
-						<era type="10">Jinki</era>
-						<era type="11">Tempyō</era>
-						<era type="12">Tempyō-kampō</era>
-						<era type="13">Tempyō-shōhō</era>
-						<era type="14">Tempyō-hōji</era>
-						<era type="15">Temphō-jingo</era>
-						<era type="16">Jingo-keiun</era>
-						<era type="17">Hōki</era>
-						<era type="18">Ten-ō</era>
-						<era type="19">Enryaku</era>
-						<era type="20">Daidō</era>
-						<era type="21">Kōnin</era>
-						<era type="22">Tenchō</era>
-						<era type="23">Shōwa</era>
-						<era type="24">Kajō</era>
-						<era type="25">Ninju</era>
-						<era type="26">Saiko</era>
-						<era type="27">Tennan</era>
-						<era type="28">Jōgan</era>
-						<era type="29">Genkei</era>
-						<era type="30">Ninna</era>
-						<era type="31">Kampyō</era>
-						<era type="32">Shōtai</era>
-						<era type="33">Engi</era>
-						<era type="34">Enchō</era>
-						<era type="35">Shōhei</era>
-						<era type="36">Tengyō</era>
-						<era type="37">Tenryaku</era>
-						<era type="38">Tentoku</era>
-						<era type="39">Ōwa</era>
-						<era type="40">Kōhō</era>
-						<era type="41">Anna</era>
-						<era type="42">Tenroku</era>
-						<era type="43">Ten-en</era>
-						<era type="44">Jōgen</era>
-						<era type="45">Tengen</era>
-						<era type="46">Eikan</era>
-						<era type="47">Kanna</era>
-						<era type="48">Ei-en</era>
-						<era type="49">Eiso</era>
-						<era type="50">Shōryaku</era>
-						<era type="51">Chōtoku</era>
-						<era type="52">Chōhō</era>
-						<era type="53">Kankō</era>
-						<era type="54">Chōwa</era>
-						<era type="55">Kannin</era>
-						<era type="56">Jian</era>
-						<era type="57">Manju</era>
-						<era type="58">Chōgen</era>
-						<era type="59">Chōryaku</era>
-						<era type="60">Chōkyū</era>
-						<era type="61">Kantoku</era>
-						<era type="62">Eishō</era>
-						<era type="63">Tengi</era>
-						<era type="64">Kōhei</era>
-						<era type="65">Jiryaku</era>
-						<era type="66">Enkyū</era>
-						<era type="67">Shōho</era>
-						<era type="68">Shōryaku</era>
-						<era type="69">Eiho</era>
-						<era type="70">Ōtoku</era>
-						<era type="71">Kanji</era>
-						<era type="72">Kaho</era>
-						<era type="73">Eichō</era>
-						<era type="74">Shōtoku</era>
-						<era type="75">Kōwa</era>
-						<era type="76">Chōji</era>
-						<era type="77">Kashō</era>
-						<era type="78">Tennin</era>
-						<era type="79">Ten-ei</era>
-						<era type="80">Eikyū</era>
-						<era type="81">Gen-ei</era>
-						<era type="82">Hoan</era>
-						<era type="83">Tenji</era>
-						<era type="84">Daiji</era>
-						<era type="85">Tenshō</era>
-						<era type="86">Chōshō</era>
-						<era type="87">Hoen</era>
-						<era type="88">Eiji</era>
-						<era type="89">Kōji</era>
-						<era type="90">Tenyō</era>
-						<era type="91">Kyūan</era>
-						<era type="92">Ninpei</era>
-						<era type="93">Kyūju</era>
-						<era type="94">Hogen</era>
-						<era type="95">Heiji</era>
-						<era type="96">Eiryaku</era>
-						<era type="97">Ōho</era>
-						<era type="98">Chōkan</era>
-						<era type="99">Eiman</era>
-						<era type="100">Nin-an</era>
-						<era type="101">Kaō</era>
-						<era type="102">Shōan</era>
-						<era type="103">Angen</era>
-						<era type="104">Jishō</era>
-						<era type="105">Yōwa</era>
-						<era type="106">Juei</era>
-						<era type="107">Genryuku</era>
-						<era type="108">Bunji</era>
-						<era type="109">Kenkyū</era>
-						<era type="110">Shōji</era>
-						<era type="111">Kennin</era>
-						<era type="112">Genkyū</era>
-						<era type="113">Ken-ei</era>
-						<era type="114">Shōgen</era>
-						<era type="115">Kenryaku</era>
-						<era type="116">Kenpō</era>
-						<era type="117">Shōkyū</era>
-						<era type="118">Jōō</era>
-						<era type="119">Gennin</era>
-						<era type="120">Karoku</era>
-						<era type="121">Antei</era>
-						<era type="122">Kanki</era>
-						<era type="123">Jōei</era>
-						<era type="124">Tempuku</era>
-						<era type="125">Bunryaku</era>
-						<era type="126">Katei</era>
-						<era type="127">Ryakunin</era>
-						<era type="128">En-ō</era>
-						<era type="129">Ninji</era>
-						<era type="130">Kangen</era>
-						<era type="131">Hōji</era>
-						<era type="132">Kenchō</era>
-						<era type="133">Kōgen</era>
-						<era type="134">Shōka</era>
-						<era type="135">Shōgen</era>
-						<era type="136">Bun-ō</era>
-						<era type="137">Kōchō</era>
-						<era type="138">Bun-ei</era>
-						<era type="139">Kenji</era>
-						<era type="140">Kōan</era>
-						<era type="141">Shōō</era>
-						<era type="142">Einin</era>
-						<era type="143">Shōan</era>
-						<era type="144">Kengen</era>
-						<era type="145">Kagen</era>
-						<era type="146">Tokuji</era>
-						<era type="147">Enkei</era>
-						<era type="148">Ōchō</era>
-						<era type="149">Shōwa</era>
-						<era type="150">Bunpō</era>
-						<era type="151">Genō</era>
-						<era type="152">Genkyō</era>
-						<era type="153">Shōchū</era>
-						<era type="154">Kareki</era>
-						<era type="155">Gentoku</era>
-						<era type="156">Genkō</era>
-						<era type="157">Kemmu</era>
-						<era type="158">Engen</era>
-						<era type="159">Kōkoku</era>
-						<era type="160">Shōhei</era>
-						<era type="161">Kentoku</era>
-						<era type="162">Bunchũ</era>
-						<era type="163">Tenju</era>
-						<era type="164">Kōryaku</era>
-						<era type="165">Kōwa</era>
-						<era type="166">Genchũ</era>
-						<era type="167">Meitoku</era>
-						<era type="168">Kakei</era>
-						<era type="169">Kōō</era>
-						<era type="170">Meitoku</era>
-						<era type="171">Ōei</era>
-						<era type="172">Shōchō</era>
-						<era type="173">Eikyō</era>
-						<era type="174">Kakitsu</era>
-						<era type="175">Bun-an</era>
-						<era type="176">Hōtoku</era>
-						<era type="177">Kyōtoku</era>
-						<era type="178">Kōshō</era>
-						<era type="179">Chōroku</era>
-						<era type="180">Kanshō</era>
-						<era type="181">Bunshō</era>
-						<era type="182">Ōnin</era>
-						<era type="183">Bunmei</era>
-						<era type="184">Chōkyō</era>
-						<era type="185">Entoku</era>
-						<era type="186">Meiō</era>
-						<era type="187">Bunki</era>
-						<era type="188">Eishō</era>
-						<era type="189">Taiei</era>
-						<era type="190">Kyōroku</era>
-						<era type="191">Tenmon</era>
-						<era type="192">Kōji</era>
-						<era type="193">Eiroku</era>
-						<era type="194">Genki</era>
-						<era type="195">Tenshō</era>
-						<era type="196">Bunroku</era>
-						<era type="197">Keichō</era>
-						<era type="198">Genwa</era>
-						<era type="199">Kan-ei</era>
-						<era type="200">Shōho</era>
-						<era type="201">Keian</era>
-						<era type="202">Shōō</era>
-						<era type="203">Meiryaku</era>
-						<era type="204">Manji</era>
-						<era type="205">Kanbun</era>
-						<era type="206">Enpō</era>
-						<era type="207">Tenwa</era>
-						<era type="208">Jōkyō</era>
-						<era type="209">Genroku</era>
-						<era type="210">Hōei</era>
-						<era type="211">Shōtoku</era>
-						<era type="212">Kyōhō</era>
-						<era type="213">Genbun</era>
-						<era type="214">Kanpō</era>
-						<era type="215">Enkyō</era>
-						<era type="216">Kan-en</era>
-						<era type="217">Hōryaku</era>
-						<era type="218">Meiwa</era>
-						<era type="219">An-ei</era>
-						<era type="220">Tenmei</era>
-						<era type="221">Kansei</era>
-						<era type="222">Kyōwa</era>
-						<era type="223">Bunka</era>
-						<era type="224">Bunsei</era>
-						<era type="225">Tenpō</era>
-						<era type="226">Kōka</era>
-						<era type="227">Kaei</era>
-						<era type="228">Ansei</era>
-						<era type="229">Man-en</era>
-						<era type="230">Bunkyū</era>
-						<era type="231">Genji</era>
-						<era type="232">Keiō</era>
-						<era type="233">Meiji</era>
-						<era type="234">Taishō</era>
-						<era type="235">Shōwa</era>
-						<era type="236">Heisei</era>
+						<era type="0">Taika</era>
+						<era type="1">Hakuchi</era>
+						<era type="2">Hakuhō</era>
+						<era type="3">Shuchō</era>
+						<era type="4">Taihō</era>
+						<era type="5">Keiun</era>
+						<era type="6">Wadō</era>
+						<era type="7">Reiki</era>
+						<era type="8">Yōrō</era>
+						<era type="9">Jinki</era>
+						<era type="10">Tempyō</era>
+						<era type="11">Tempyō-kampō</era>
+						<era type="12">Tempyō-shōhō</era>
+						<era type="13">Tempyō-hōji</era>
+						<era type="14">Temphō-jingo</era>
+						<era type="15">Jingo-keiun</era>
+						<era type="16">Hōki</era>
+						<era type="17">Ten-ō</era>
+						<era type="18">Enryaku</era>
+						<era type="19">Daidō</era>
+						<era type="20">Kōnin</era>
+						<era type="21">Tenchō</era>
+						<era type="22">Shōwa</era>
+						<era type="23">Kajō</era>
+						<era type="24">Ninju</era>
+						<era type="25">Saiko</era>
+						<era type="26">Tennan</era>
+						<era type="27">Jōgan</era>
+						<era type="28">Genkei</era>
+						<era type="29">Ninna</era>
+						<era type="30">Kampyō</era>
+						<era type="31">Shōtai</era>
+						<era type="32">Engi</era>
+						<era type="33">Enchō</era>
+						<era type="34">Shōhei</era>
+						<era type="35">Tengyō</era>
+						<era type="36">Tenryaku</era>
+						<era type="37">Tentoku</era>
+						<era type="38">Ōwa</era>
+						<era type="39">Kōhō</era>
+						<era type="40">Anna</era>
+						<era type="41">Tenroku</era>
+						<era type="42">Ten-en</era>
+						<era type="43">Jōgen</era>
+						<era type="44">Tengen</era>
+						<era type="45">Eikan</era>
+						<era type="46">Kanna</era>
+						<era type="47">Ei-en</era>
+						<era type="48">Eiso</era>
+						<era type="49">Shōryaku</era>
+						<era type="50">Chōtoku</era>
+						<era type="51">Chōhō</era>
+						<era type="52">Kankō</era>
+						<era type="53">Chōwa</era>
+						<era type="54">Kannin</era>
+						<era type="55">Jian</era>
+						<era type="56">Manju</era>
+						<era type="57">Chōgen</era>
+						<era type="58">Chōryaku</era>
+						<era type="59">Chōkyū</era>
+						<era type="60">Kantoku</era>
+						<era type="61">Eishō</era>
+						<era type="62">Tengi</era>
+						<era type="63">Kōhei</era>
+						<era type="64">Jiryaku</era>
+						<era type="65">Enkyū</era>
+						<era type="66">Shōho</era>
+						<era type="67">Shōryaku</era>
+						<era type="68">Eiho</era>
+						<era type="69">Ōtoku</era>
+						<era type="70">Kanji</era>
+						<era type="71">Kaho</era>
+						<era type="72">Eichō</era>
+						<era type="73">Shōtoku</era>
+						<era type="74">Kōwa</era>
+						<era type="75">Chōji</era>
+						<era type="76">Kashō</era>
+						<era type="77">Tennin</era>
+						<era type="78">Ten-ei</era>
+						<era type="79">Eikyū</era>
+						<era type="80">Gen-ei</era>
+						<era type="81">Hoan</era>
+						<era type="82">Tenji</era>
+						<era type="83">Daiji</era>
+						<era type="84">Tenshō</era>
+						<era type="85">Chōshō</era>
+						<era type="86">Hoen</era>
+						<era type="87">Eiji</era>
+						<era type="88">Kōji</era>
+						<era type="89">Tenyō</era>
+						<era type="90">Kyūan</era>
+						<era type="91">Ninpei</era>
+						<era type="92">Kyūju</era>
+						<era type="93">Hogen</era>
+						<era type="94">Heiji</era>
+						<era type="95">Eiryaku</era>
+						<era type="96">Ōho</era>
+						<era type="97">Chōkan</era>
+						<era type="98">Eiman</era>
+						<era type="99">Nin-an</era>
+						<era type="100">Kaō</era>
+						<era type="101">Shōan</era>
+						<era type="102">Angen</era>
+						<era type="103">Jishō</era>
+						<era type="104">Yōwa</era>
+						<era type="105">Juei</era>
+						<era type="106">Genryuku</era>
+						<era type="107">Bunji</era>
+						<era type="108">Kenkyū</era>
+						<era type="109">Shōji</era>
+						<era type="110">Kennin</era>
+						<era type="111">Genkyū</era>
+						<era type="112">Ken-ei</era>
+						<era type="113">Shōgen</era>
+						<era type="114">Kenryaku</era>
+						<era type="115">Kenpō</era>
+						<era type="116">Shōkyū</era>
+						<era type="117">Jōō</era>
+						<era type="118">Gennin</era>
+						<era type="119">Karoku</era>
+						<era type="120">Antei</era>
+						<era type="121">Kanki</era>
+						<era type="122">Jōei</era>
+						<era type="123">Tempuku</era>
+						<era type="124">Bunryaku</era>
+						<era type="125">Katei</era>
+						<era type="126">Ryakunin</era>
+						<era type="127">En-ō</era>
+						<era type="128">Ninji</era>
+						<era type="129">Kangen</era>
+						<era type="130">Hōji</era>
+						<era type="131">Kenchō</era>
+						<era type="132">Kōgen</era>
+						<era type="133">Shōka</era>
+						<era type="134">Shōgen</era>
+						<era type="135">Bun-ō</era>
+						<era type="136">Kōchō</era>
+						<era type="137">Bun-ei</era>
+						<era type="138">Kenji</era>
+						<era type="139">Kōan</era>
+						<era type="140">Shōō</era>
+						<era type="141">Einin</era>
+						<era type="142">Shōan</era>
+						<era type="143">Kengen</era>
+						<era type="144">Kagen</era>
+						<era type="145">Tokuji</era>
+						<era type="146">Enkei</era>
+						<era type="147">Ōchō</era>
+						<era type="148">Shōwa</era>
+						<era type="149">Bunpō</era>
+						<era type="150">Genō</era>
+						<era type="151">Genkyō</era>
+						<era type="152">Shōchū</era>
+						<era type="153">Kareki</era>
+						<era type="154">Gentoku</era>
+						<era type="155">Genkō</era>
+						<era type="156">Kemmu</era>
+						<era type="157">Engen</era>
+						<era type="158">Kōkoku</era>
+						<era type="159">Shōhei</era>
+						<era type="160">Kentoku</era>
+						<era type="161">Bunchũ</era>
+						<era type="162">Tenju</era>
+						<era type="163">Kōryaku</era>
+						<era type="164">Kōwa</era>
+						<era type="165">Genchũ</era>
+						<era type="166">Meitoku</era>
+						<era type="167">Kakei</era>
+						<era type="168">Kōō</era>
+						<era type="169">Meitoku</era>
+						<era type="170">Ōei</era>
+						<era type="171">Shōchō</era>
+						<era type="172">Eikyō</era>
+						<era type="173">Kakitsu</era>
+						<era type="174">Bun-an</era>
+						<era type="175">Hōtoku</era>
+						<era type="176">Kyōtoku</era>
+						<era type="177">Kōshō</era>
+						<era type="178">Chōroku</era>
+						<era type="179">Kanshō</era>
+						<era type="180">Bunshō</era>
+						<era type="181">Ōnin</era>
+						<era type="182">Bunmei</era>
+						<era type="183">Chōkyō</era>
+						<era type="184">Entoku</era>
+						<era type="185">Meiō</era>
+						<era type="186">Bunki</era>
+						<era type="187">Eishō</era>
+						<era type="188">Taiei</era>
+						<era type="189">Kyōroku</era>
+						<era type="190">Tenmon</era>
+						<era type="191">Kōji</era>
+						<era type="192">Eiroku</era>
+						<era type="193">Genki</era>
+						<era type="194">Tenshō</era>
+						<era type="195">Bunroku</era>
+						<era type="196">Keichō</era>
+						<era type="197">Genwa</era>
+						<era type="198">Kan-ei</era>
+						<era type="199">Shōho</era>
+						<era type="200">Keian</era>
+						<era type="201">Shōō</era>
+						<era type="202">Meiryaku</era>
+						<era type="203">Manji</era>
+						<era type="204">Kanbun</era>
+						<era type="205">Enpō</era>
+						<era type="206">Tenwa</era>
+						<era type="207">Jōkyō</era>
+						<era type="208">Genroku</era>
+						<era type="209">Hōei</era>
+						<era type="210">Shōtoku</era>
+						<era type="211">Kyōhō</era>
+						<era type="212">Genbun</era>
+						<era type="213">Kanpō</era>
+						<era type="214">Enkyō</era>
+						<era type="215">Kan-en</era>
+						<era type="216">Hōryaku</era>
+						<era type="217">Meiwa</era>
+						<era type="218">An-ei</era>
+						<era type="219">Tenmei</era>
+						<era type="220">Kansei</era>
+						<era type="221">Kyōwa</era>
+						<era type="222">Bunka</era>
+						<era type="223">Bunsei</era>
+						<era type="224">Tenpō</era>
+						<era type="225">Kōka</era>
+						<era type="226">Kaei</era>
+						<era type="227">Ansei</era>
+						<era type="228">Man-en</era>
+						<era type="229">Bunkyū</era>
+						<era type="230">Genji</era>
+						<era type="231">Keiō</era>
+						<era type="232">Meiji</era>
+						<era type="233">Taishō</era>
+						<era type="234">Shōwa</era>
+						<era type="235">Heisei</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE, MMMM d, y G</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>MMMM d, y G</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>MMM d, y G</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>M/d/yy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<default type="medium"/>
+					<default type="medium"></default>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a z</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm:ss a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>h:mm a</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -767,32 +767,32 @@
 			<nan>�</nan>
 		</symbols>
 		<decimalFormats>
-			<decimalFormatLength >
-				<decimalFormat >
+			<decimalFormatLength>
+				<decimalFormat>
 					<pattern>#,##0.###;-#,##0.###</pattern>
 				</decimalFormat>
-			</decimalFormatLength >
+			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats>
-			<scientificFormatLength >
-				<scientificFormat >
+			<scientificFormatLength>
+				<scientificFormat>
 					<pattern>#E0</pattern>
 				</scientificFormat>
-			</scientificFormatLength >
+			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats>
-			<percentFormatLength >
-				<percentFormat >
+			<percentFormatLength>
+				<percentFormat>
 					<pattern>#,##0%</pattern>
 				</percentFormat>
-			</percentFormatLength >
+			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
-			<currencyFormatLength >
-				<currencyFormat >
+			<currencyFormatLength>
+				<currencyFormat>
 					<pattern>¤ #,##0.00;-¤ #,##0.00</pattern>
 				</currencyFormat>
-			</currencyFormatLength >
+			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
 			<currency type="EUR">
@@ -822,96 +822,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-
-
-<!--
-
-  **********************
-  * ABOUT THE OLD COMMENTS
- 
-The following comment block, and similar 'Old Comments' blocks in other files, have been extracted from ICU 3.0 prior to about 20-August-2004. At this time CLDR data was extracted, without comments, from the ICU data.
- The oss.software.ibm.com URL, below, provides access to the original source file in ICU format, via the '(download)' link on that page.
-
- If you are updating these files, please feel free to restructure or remove comments after you have read and understood the original meaning, especially as the information is encoded in proper LDML form (source URL, alternate translation, etc).  
-
- Please do not remove this comment in root.xml until all other 'Old Comments' are gone.
-
- Thank you.
--->
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/root.txt?only_with_tag=final-update-LDML
-
-Date        Name        Description
-01/15/2002  grhoten     Synchronized the language and contry codes with ISO standards
-***  Note: do NOT translate or modify (customize) this root locale.
-Instead, put translations in sub locales.
-International Calendars Data.
-NOTE (ICU 3.0) - the format of this data WILL CHANGE in future releases.
-Islamic calendar  - the Religious (Astronomical) variant first
-                "AH" // Anno Hijri
-Civil is identical other than in calculations
-Buddhist calendar data
-                "BE"                             // Buddhist Era  = 543 BC Gregorian
-            DateTimePatterns{ // shorten year, use Era
-                "yy/MM/dd", // Changing this will break binary compatibility.
-                "BCE", // BC
-                "CE"   // AD
-                        "Adar I",       // Leap years only
-            "AM" // Anno Mundi
-                "h:mm:ss a z", // full time pattern
-                "h:mm:ss a z", // long time pattern
-                "h:mm:ss a", // medium time pattern
-                "h:mm a", // short time pattern
-                "EEEE, MMMM d, y G", // full date pattern
-                "MMMM d, y G", // long date pattern
-                "MMM d, y G", // medium date pattern
-                "M/d/yy", // short date pattern
-                "{1} {0}" // date-time pattern
-Japanese calendar data - Eras - see ICU's japancal.cpp for the format
-                "h:mm:ss a z", // full time pattern
-                "h:mm:ss a z", // long time pattern
-                "h:mm:ss a", // medium time pattern
-                "h:mm a", // short time pattern
-TODO Fix the following
-                "EEEE y'x'G-Ml-d", // full date pattern
-                "y'x'G-Ml-d", // long date pattern
-                "y'x'G-Ml-d", // medium date pattern
-                "y'x'G-Ml-d", // short date pattern
-                "{1} {0}" // date-time pattern
-The official list list of ISO-3166 country codes are located at:
-http://www.din.de/gremien/nas/nabd/iso3166ma/codlstp1/en_listp1.html
-        Fallback{""} // this is just to make cloctst not complain and not break the fallback chain..if multilevel fallback is implemented
-CS { "CS" } // TODO: if we allow this, then SP must go away
-Localized display names of currencies, analogous to Countries
-and Languages.  "Common usage" display names are listed here in
-for example, is used to indicate not only USD, but also ARS,
-AUD, BND, CAD, CLP, COP, JDF, ETB, MXN, NZD, and SOS.  Hoever,
-its default meaning in many locales is USD, so we list it here
-and override it in sublocales that use "$" for something else.
-@since ICU 2.2
-        EUR { "\u20AC", "EUR" } // Euro
-        GBP { "\u00A3", "GBP" } // British Pound Sterling
-        INR { "=0#Rs.|1#Re.|1<Rs.", "INR" } // Indian Rupee
-        ITL { "\u20A4", "ITL" } // Italian Lira
-        JPY { "\u00A5", "JPY" } // Japanese Yen
-        USD { "US$",    "USD" } // US Dollar
-If there is a two letter abbreviation (ISO-639-1) for a three letter
-abbreviation (ISO-639-2), the two letter abbreviation must be used.
-Source: http://lcweb.loc.gov/standards/iso639-2/englangn.html
-iw  { "iw"  }
-qaa-qtz is reserved for locale use
-        sh  { "sh"  } // This is deprecated. This will be removed once we can use scripts in locale IDs.
-    MeasurementSystem:int{ 0 } // ISO/Metric system
-the PaperSize units are in mm
-        297, // height
-        210  // width
-        Hans { "Hans" } // Not a formal part of ISO-15924 yet
-        Hant { "Hant" } // Not a formal part of ISO-15924 yet
-keys for collation (traditional may also be used for traditional chinese)
-The values in root must always be capitalized because the signify the values are
-codes not translations
-NY      { "NY" }        // No longer valid variant. Here for backwards compatibility.
-EURO    { "EURO" }      // EURO variant display name
-
--->

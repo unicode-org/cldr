@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27" />
-		<language type="de" /> 
-		<territory type="CH" /> 
+		<version number="1.2"></version>
+		<generation date="2004-08-27"></generation>
+		<language type="de"></language> 
+		<territory type="CH"></territory> 
 	</identity>
 	<localeDisplayNames>
 		<territories>
@@ -38,45 +38,32 @@
 				<nan>�</nan>
 			</symbols>
 			<decimalFormats>
-				<decimalFormatLength >
-					<decimalFormat >
+				<decimalFormatLength>
+					<decimalFormat>
 						<pattern>#,##0.###;-#,##0.###</pattern>
 					</decimalFormat>
-				</decimalFormatLength >
+				</decimalFormatLength>
 			</decimalFormats>
 			<scientificFormats>
-				<scientificFormatLength >
-					<scientificFormat >
+				<scientificFormatLength>
+					<scientificFormat>
 						<pattern>#E0</pattern>
 					</scientificFormat>
-				</scientificFormatLength >
+				</scientificFormatLength>
 			</scientificFormats>
 			<percentFormats>
-				<percentFormatLength >
-					<percentFormat >
+				<percentFormatLength>
+					<percentFormat>
 						<pattern>#,##0%</pattern>
 					</percentFormat>
-				</percentFormatLength >
+				</percentFormatLength>
 			</percentFormats>
 			<currencyFormats>
-				<currencyFormatLength >
-					<currencyFormat >
+				<currencyFormatLength>
+					<currencyFormat>
 						<pattern>¤ #,##0.00;¤-#,##0.00</pattern>
 					</currencyFormat>
-				</currencyFormatLength >
+				</currencyFormatLength>
 			</currencyFormats>
 		</numbers>
 </ldml>
-
-<!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/de_CH.txt?only_with_tag=final-update-LDML
-
-Country names in de, de_AT, and de_CH are short names from the
-list of names maintained by the German
-Federal Permanent Committee for Geographic Names,
-Sta"ndiger Ausschuss fu"r Geographische Namen (StAGN),
-as published at its web site at
-http://www.ifag.de/kartographie/Stagn/Staatennamen.htm
-Date there: 1999-apr-19
-
--->

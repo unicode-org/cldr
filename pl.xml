@@ -7,8 +7,8 @@
 >
 <ldml>
 	<identity>
-		<version number="2.0"/>
-		<generation date="2003-11-11" />
+		<version number="1.0"/>
+		<generation date="2003-12-08" />
 		<language type="pl" /> 
 	</identity>
 	<localeDisplayNames>
@@ -433,38 +433,6 @@
 		</currency>
 	</currencies>
 </numbers>
-<collations version="3.1.1">
-	<collation  >
-		<rules>
-			<reset>A</reset>
-			<p>ą</p>
-			<t>Ą</t>
-			<reset>C</reset>
-			<p>ć</p>
-			<t>Ć</t>
-			<reset>E</reset>
-			<p>ę</p>
-			<t>Ę</t>
-			<reset>L</reset>
-			<p>ł</p>
-			<t>Ł</t>
-			<reset>N</reset>
-			<p>ń</p>
-			<t>Ń</t>
-			<reset>O</reset>
-			<p>ó</p>
-			<t>Ó</t>
-			<reset>S</reset>
-			<p>ś</p>
-			<t>Ś</t>
-			<reset>Z</reset>
-			<p>ź</p>
-			<t>Ź</t>
-			<p>ż</p>
-		</rules>
-		<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="2" />
-	</collation  >
-</collations >
 <special xmlns:icu="http://oss.software.ibm.com/icu/"  >
 	<icu:ruleBasedNumberFormats>
 		<icu:ruleBasedNumberFormat type="spellout">

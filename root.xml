@@ -7,8 +7,8 @@
 >
 <ldml>
 	<identity>
-		<version number="5.0"/>
-		<generation date="2003-11-11" />
+		<version number="1.0"/>
+		<generation date="2003-12-08" />
 		<language type="" /> 
 	</identity>
 	<localeDisplayNames>
@@ -73,6 +73,7 @@
 			<language type="btk">btk</language>
 			<language type="bua">bua</language>
 			<language type="bug">bug</language>
+			<language type="byn">byn</language>
 			<language type="ca">ca</language>
 			<language type="cad">cad</language>
 			<language type="cai">cai</language>
@@ -778,12 +779,11 @@
 		<variants>
 			<variant type="EURO">EURO</variant>
 			<variant type="Fallback"></variant>
-			<variant type="NY">NY</variant>
 			<variant type="POSIX">POSIX</variant>
 			<variant type="REVISED">REVISED</variant>
 		</variants>
 		<keys>
-			<key type="calendar">CALDENDAR</key>
+			<key type="calendar">CALENDAR</key>
 			<key type="collation">COLLATION</key>
 			<key type="currency">CURRENCY</key>
 		</keys>
@@ -794,6 +794,7 @@
 			<type type="gregorian" key="calendar">GREGORIAN</type>
 			<type type="hebrew" key="calendar">HEBREW</type>
 			<type type="islamic" key="calendar">ISLAMIC</type>
+			<type type="islamic-civil" key="calendar">ISLAMIC-CIVIL</type>
 			<type type="japanese" key="calendar">JAPANESE</type>
 			<type type="traditional" key="calendar">TRADITIONAL</type>
 			<type type="Fallback" key="collation"></type>
@@ -1018,11 +1019,6 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<collations version="3.1.1">
-		<collation  >
-			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="0.0" />
-		</collation  >
-	</collations >
 	<special xmlns:icu="http://oss.software.ibm.com/icu/"  >
 		<icu:ruleBasedNumberFormats>
 			<icu:ruleBasedNumberFormat type="spellout">

@@ -7,8 +7,8 @@
 >
 <ldml>
 	<identity>
-		<version number="2.0"/>
-		<generation date="2003-11-11" />
+		<version number="1.0"/>
+		<generation date="2003-12-08" />
 		<language type="lt" /> 
 	</identity>
 	<localeDisplayNames>
@@ -347,7 +347,7 @@
 				<day type="sat">št</day>
 			</dayAbbr>
 			<week>
-				<minDays count="1"/>
+				<minDays count="4"/>
 				<firstDay day="mon"/>
 			</week>
 			<eras>
@@ -370,12 +370,12 @@
 				</dateFormatLength >
 				<dateFormatLength type="medium">
 					<dateFormat >
-						<pattern>yyyy.M.d</pattern>
+						<pattern>yyyy.MM.dd</pattern>
 					</dateFormat>
 				</dateFormatLength >
 				<dateFormatLength type="short">
 					<dateFormat >
-						<pattern>yyyy.M.d</pattern>
+						<pattern>yyyy.MM.dd</pattern>
 					</dateFormat>
 				</dateFormatLength >
 			</dateFormats>
@@ -434,32 +434,4 @@
 		</currency>
 	</currencies>
 </numbers>
-<collations version="3.1.1">
-	<collation  >
-		<settings backwards="on"  />
-		<rules>
-			<reset>C</reset>
-			<p>č</p>
-			<t>Č</t>
-			<reset>I</reset>
-			<s>y</s>
-			<i>ı</i>
-			<t>Y</t>
-			<i>İ</i>
-			<reset>S</reset>
-			<p>š</p>
-			<t>Š</t>
-			<reset>X</reset>
-			<p>ý</p>
-			<t>Ý</t>
-			<p>ŷ</p>
-			<t>Ŷ</t>
-			<p>ÿ</p>
-			<t>Ÿ</t>
-			<reset>Z</reset>
-			<p>ž</p>
-		</rules>
-		<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
-	</collation  >
-</collations >
 </ldml>

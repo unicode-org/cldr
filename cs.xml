@@ -7,42 +7,13 @@
 >
 <ldml>
 	<identity>
-		<version number="3.0"/>
-		<generation date="2003-11-11" />
+		<version number="1.0"/>
+		<generation date="2003-12-08" />
 		<language type="cs" /> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="ar">arapski</language>
-			<language type="bg">bugarski</language>
-			<language type="cs">češki</language>
-			<language type="da">danski</language>
-			<language type="de">njemački</language>
-			<language type="el">grčki</language>
-			<language type="en">engleski</language>
-			<language type="es">španjolski</language>
-			<language type="et">estonijski</language>
-			<language type="fi">finski</language>
-			<language type="fr">francuski</language>
-			<language type="he">hebrejski</language>
-			<language type="hr">hrvatski</language>
-			<language type="hu">mađarski</language>
-			<language type="it">talijanski</language>
-			<language type="ja">japanski</language>
-			<language type="ko">korejski</language>
-			<language type="lt">litvanski</language>
-			<language type="lv">latvijski</language>
-			<language type="nl">nizozemski</language>
-			<language type="no">norveškin</language>
-			<language type="pl">poljski</language>
-			<language type="pt">portugalski</language>
-			<language type="ro">rumunjski</language>
-			<language type="ru">ruski</language>
-			<language type="sk">slovački</language>
-			<language type="sl">slovenski</language>
-			<language type="sv">švedski</language>
-			<language type="tr">turski</language>
-			<language type="zh">kineski</language>
+			<language type="cs">čeština</language>
 		</languages>
 		<territories>
 			<territory type="AD">Andorra</territory>
@@ -432,27 +403,4 @@
 		</currency>
 	</currencies>
 </numbers>
-<collations version="3.1.1">
-	<collation  >
-		<rules>
-			<reset>C</reset>
-			<p>č</p>
-			<t>Č</t>
-			<reset>H</reset>
-			<p>ch</p>
-			<t>cH</t>
-			<t>Ch</t>
-			<t>CH</t>
-			<reset>R</reset>
-			<p>ř</p>
-			<t>Ř</t>
-			<reset>S</reset>
-			<p>š</p>
-			<t>Š</t>
-			<reset>Z</reset>
-			<p>ž</p>
-		</rules>
-		<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="1.0" />
-	</collation  >
-</collations >
 </ldml>

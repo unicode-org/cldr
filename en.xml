@@ -7,8 +7,8 @@
 >
 <ldml>
 	<identity>
-		<version number="3.0"/>
-		<generation date="2003-11-11" />
+		<version number="1.0"/>
+		<generation date="2003-12-08" />
 		<language type="en" /> 
 	</identity>
 	<localeDisplayNames>
@@ -72,6 +72,7 @@
 			<language type="btk">Batak</language>
 			<language type="bua">Buriat</language>
 			<language type="bug">Buginese</language>
+			<language type="byn">Blin</language>
 			<language type="ca">Catalan</language>
 			<language type="cad">Caddo</language>
 			<language type="cai">Central American Indian (Other)</language>
@@ -499,7 +500,7 @@
 			<script type="Hant">Traditional Han</script>
 			<script type="Hebr">Hebrew</script>
 			<script type="Hira">Hiragana</script>
-			<script type="Ital">Old_italic</script>
+			<script type="Ital">Old Italic</script>
 			<script type="Kana">Katakana</script>
 			<script type="Khmr">Khmer</script>
 			<script type="Knda">Kannada</script>
@@ -524,7 +525,7 @@
 			<script type="Taml">Tamil</script>
 			<script type="Telu">Telugu</script>
 			<script type="Tglg">Tagalog</script>
-			<script type="Thaa">Thana</script>
+			<script type="Thaa">Thaana</script>
 			<script type="Tibt">Tibetan</script>
 			<script type="Ugar">Ugaritic</script>
 			<script type="Yiii">Yi</script>
@@ -773,15 +774,22 @@
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
 		<variants>
-			<variant type="EURO">Euro</variant>
-			<variant type="NY">Nynorsk</variant>
 			<variant type="POSIX">Posix</variant>
+			<variant type="REVISED">Revised Orthography</variant>
 		</variants>
 		<keys>
 			<key type="calendar">Calendar</key>
 			<key type="collation">Collation</key>
+			<key type="currency">Currency</key>
 		</keys>
 		<types>
+			<type type="buddhist" key="calendar">Buddhist Calendar</type>
+			<type type="chinese" key="calendar">Chinese Calendar</type>
+			<type type="gregorian" key="calendar">Gregorian Calendar</type>
+			<type type="hebrew" key="calendar">Hebrew Calendar</type>
+			<type type="islamic" key="calendar">Islamic Calendar</type>
+			<type type="islamic-civil" key="calendar">Islamic-Civil Calendar</type>
+			<type type="japanese" key="calendar">Japaneese Calendar</type>
 			<type type="traditional" key="calendar">Traditional Calendar</type>
 			<type type="direct" key="collation">Direct Order</type>
 			<type type="phonebook" key="collation">Phonebook Order</type>

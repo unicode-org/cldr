@@ -59,6 +59,8 @@ private:
 		int32_t charsLen;
 
 	};
+    UnicodeString mSettings;
+
 	/* Full path to the resource bundle eg: root.res */
 	ResourceBundle mSourceBundle;
     
@@ -127,6 +129,8 @@ private:
 	 * @param void
 	 */
 	void writeIdentity();
+    
+    void writeLocaleScript(UnicodeString& xmlString);
 
 	void writeScript(UnicodeString& xmlString);
 
@@ -169,6 +173,8 @@ private:
 	void writeFormats(UnicodeString& xmlString);
 	void writeFormat(const char* style, const char* start, const char* end, const char* type,UnicodeString& pattern, UnicodeString& xmlString, UBool split=FALSE);
 
+    void writeFormat(const char* elemName, const char* style, const char* start, const char* end, const char* type,UnicodeString& pattern, UnicodeString& xmlString, UBool split=FALSE);
+
 	void writeLocalePatternChars(UnicodeString& xmlString);
 
 	void writeTimeFormat(UnicodeString& xmlString);
@@ -193,6 +199,8 @@ private:
 	void writeCollations();
 
 	void writeCollation(ResourceBundle& bundle, UnicodeString& xmlString,UnicodeString* collKey=NULL);
+    
+    void writeCollation(UnicodeString& src, UnicodeString &xmlString, const char* keyName);
 
 	void writeTimeZoneNames(UnicodeString& xmlString);
 

@@ -21,7 +21,9 @@ GetOptions(
            "--destdir=s" => \$destDir,
            "--icuroot=s" => \$icuRoot,
            "--genldml=s" => \$genldml,
-           "--genrb=s" => \$genrb);
+           "--genrb=s" => \$genrb,
+	   "--ldml-only" => \$ldmlOnly
+          );
            
 
 usage() unless defined $sourceDir;
@@ -57,7 +59,9 @@ if (@ARGV) {
 # now convert
 foreach $item (@list){
     next if($item eq "." || $item eq "..");
-    resify($item);
+
+    resify($item) unless defined $ldmlOnly;
+
     $txt = $item;;
     $txt =~ s/\.txt$//i;
     ldmlify($txt);

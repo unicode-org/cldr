@@ -10,6 +10,12 @@
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <title>Common Locale Data Repository - Filing CLDR Bug Reports</title>
 <link rel="stylesheet" type="text/css" href="http://www.unicode.org/webscripts/standard_styles.css">
+<style>
+<!--
+.e{margin-left:1em;text-indent:-1em;margin-right:1em}
+.tx{font-weight:bold}
+-->
+</style>
 </head>
 
 <body text="#330000">
@@ -42,8 +48,7 @@
         <td valign="top" class="navColCell"><a href="#Collation_Bugs">Collation Bugs</a></td>
       </tr>
       <tr>
-        <td valign="top" class="navColCell"><a href="#Possible_Comparison_Sources">Possible 
-        Comparison Sources</a></td>
+        <td valign="top" class="navColCell"><a href="#Possible_Comparison_Sources">Sources</a></td>
       </tr>
       <tr>
         <td class="navColTitle">CLDR</td>
@@ -116,8 +121,9 @@
         <td class="contents" valign="top">
         <blockquote>
           <h1>Filing CLDR Bug Reports</h1>
-          <p>Locale data bugs and feature requests are filed at
-          <a href="http://www.jtcsv.com/cgibin/locale-bugs">Locale Bugs</a>.</p>
+          <p>Locale data bugs are filed at <a href="http://www.jtcsv.com/cgibin/locale-bugs">Locale 
+          Bugs</a>. Bugs may be filed for defects in current data, for submissions of new data, and 
+          for feature requests in CLDR or LDML.</p>
           <blockquote>
             <p><font size="2">The CLDR bug database is currently being hosted by IBM as a service to 
             the Unicode Consortium until it can be moved to the Unicode site. The Unicode Consortium 
@@ -149,13 +155,13 @@
             </ul>
             </li>
           </ol>
-          <p>In the bug report, include the following information:</p>
+          <p>For defects or submissions of new data, include the following information:</p>
           <ul>
             <li>The specific locale.</li>
             <li>The date the comparison chart was generated (at the bottom of the chart).</li>
             <li>The line(s) of data that are incorrect.</li>
-            <li>The justification for the change: mention a standard or other sources if there are 
-            any.</li>
+            <li>The justification for the change: mention <a href="#Possible_Comparison_Sources">
+            Sources</a> if available.</li>
             <li>If one of the other data sources is correct, then that data source, otherwise the 
             corrected data to use.</li>
             <li>Wherever possible, include sample test data. <a href="#Collation_Bugs">This is 
@@ -199,7 +205,7 @@
             </ul>
             </li>
           </ul>
-          <p>Test out any suggested rules before filing a bug, using Locale Explorer:</p>
+          <p>Please test out any suggested rules before filing a bug, using Locale Explorer:</p>
           <ol>
             <li>Go to
             <a href="http://oss.software.ibm.com/cgi-bin/icu/lx/en/utf-8/?_=root&EXPLORE_CollationElements=">
@@ -210,9 +216,16 @@
             <li>Verify that the proper order results.</li>
           </ol>
           <h2><a name="Possible_Comparison_Sources">Possible Comparison Sources</a></h2>
-          <p>Here are some possible sources for comparison of locale data. This is <i>not</i> an 
-          endorsement of the sources, merely a collation of possibly-useful links. We can add to 
-          this over time; if you have suggestions, file a bug at
+          <p>Sources may be standards or can also be dictionaries, journal style guides (such as The 
+          Economist Style Guide for English), and other available sources that provide guidance as 
+          to common practice. Online sources are preferred where available, since they can be more 
+          easily checked.</p>
+          <p>The goal is to follow common, customary practice. For example, language or country 
+          display names should use the most recognizable name in common usage. This is generally not 
+          the official name. For example, one would use &quot;Switzerland&quot; not &quot;Swiss Confederation&quot;.</p>
+          <p>Here are some possible resources for comparison of locale data. <i>This is <b>not</b> 
+          an endorsement of the sources, merely a collation of possibly-useful links. </i>We can add 
+          to this over time; if you have suggestions, add a reply to
           <a href="http://www.jtcsv.com/cgibin/locale-bugs?findid=163">
           http://www.jtcsv.com/cgibin/locale-bugs?findid=163</a><i>.</i></p>
           <p>Country names; Language names; Gregorian/non-Gregorian month names; Day names; Exemplar 
@@ -221,7 +234,7 @@
             <li><a href="http://www.geonames.de/">http://www.geonames.de/</a></li>
           </ul>
           <p><i>The Economist Style Guide</i> (unfortunately only hard copy): Currencies, Display 
-          Names, Formatting...</p>
+          Names, Formatting for English:</p>
           <ul>
             <li><a href="http://www.amazon.com/exec/obidos/tg/detail/-/186197535X">
             http://www.amazon.com/exec/obidos/tg/detail/-/186197535X</a> </li>

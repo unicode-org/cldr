@@ -837,14 +837,14 @@ root</pre>
   collation. </span><span class="changed">(&quot;Letter is interpreted broadly, as in the Unicode General 
   Category, and also includes syllabaries and ideographs.) It is not a complete set of letters used 
   for a language, nor should it be considered to apply to multiple languages in a particular 
-  country. In general, the test to see whether or not a letter belongs in the set is based on 
-  whether it is acceptable in that language to always use spellings that avoid that character. For 
-  example, the exemplar character set for en (English) is the set [a-z]. This set does not contain 
-  the accented letters that are sometimes seen in words like &quot;résumé&quot; or &quot;naïve&quot;, because it is 
-  acceptable in common practice to spell those words without the accents. The exemplar character set 
-  for </span><span class="changed">fr</span><span class="changed"> (French), on the other hand, must 
-  contain those characters: [a-z </span><span class="changed">é</span><span class="changed"> </span>
-  <span class="changed">è</span><span class="changed"> ù </span><span class="changed">ç</span><span class="changed">
+  country. Punctuation and other symbols should not be included. In general, the test to see whether 
+  or not a letter belongs in the set is based on whether it is acceptable in that language to always 
+  use spellings that avoid that character. For example, the exemplar character set for en (English) 
+  is the set [a-z]. This set does not contain the accented letters that are sometimes seen in words 
+  like &quot;résumé&quot; or &quot;naïve&quot;, because it is acceptable in common practice to spell those words without 
+  the accents. The exemplar character set for </span><span class="changed">fr</span><span class="changed"> 
+  (French), on the other hand, must contain those characters: [a-z </span><span class="changed">é</span><span class="changed">
+  </span><span class="changed">è</span><span class="changed"> ù </span><span class="changed">ç</span><span class="changed">
   </span><span class="changed">à</span><span class="changed"> </span><span class="changed">â</span><span class="changed">
   </span><span class="changed">ê</span><span class="changed"> î ô û æ œ </span>
   <span class="changed">ë</span><span class="changed"> ï ÿ]. </span></p>
@@ -852,29 +852,29 @@ root</pre>
   <span class="changed">Unicode Set</span></a><span class="changed"> format, which allows </span>
   <span class="changed">boolean</span><span class="changed"> combinations of sets of letters, 
   including those specified by Unicode properties.</span></p>
-  <p><span class="changed">Punctuation and other symbols should not be included. Sequences of 
-  characters that act like a single letter in the language — especially in collation — are included 
-  within braces, such as [a-z </span><span class="changed">á</span><span class="changed"> </span>
-  <span class="changed">é</span><span class="changed"> í ó ú ö ü ő ű {</span><span class="changed">cs</span><span class="changed">} 
+  <p><span class="changed">Sequences of characters that act like a single letter in the language — 
+  especially in collation — are included within braces, such as [a-z </span><span class="changed">á</span><span class="changed">
+  </span><span class="changed">é</span><span class="changed"> í ó ú ö ü ő ű {</span><span class="changed">cs</span><span class="changed">} 
   {</span><span class="changed">dz</span><span class="changed">} {</span><span class="changed">dzs</span><span class="changed">} 
-  {</span><span class="changed">gy</span><span class="changed">} ...]. Where combining marks are 
-  used generatively, and apply to a large number of base characters (such as in Indic scripts), the 
-  individual combining marks should be included. Where they are used with only a few base 
-  characters, the specific combinations should be included. Wherever there is not a </span>
-  <span class="changed">precomposed</span><span class="changed"> character (e.g. single </span>
-  <span class="changed">codepoint</span><span class="changed">) for a given combination, that must 
-  be included within braces. For example, to include sequences from the </span>
-  <a href="http://www.unicode.org/standard/where/"><span class="changed">Where is my Character?</span></a><span class="changed"> 
-  page on the Unicode site, one would write: [{ch} {tʰ} {x̣} {ƛ̓} {ą́} {i̇́} {ト゚}], but for French 
-  one would just write [a-z </span><span class="changed">é</span><span class="changed"> </span>
-  <span class="changed">è</span><span class="changed"> ù ...]. When in doubt use braces, since it 
-  does no harm to included them around single code points: e.g. [a-z {</span><span class="changed">é</span><span class="changed">} 
-  {</span><span class="changed">è</span><span class="changed">} {ù} ...].</span></p>
+  {</span><span class="changed">gy</span><span class="changed">} ...]. The characters should be in 
+  normalized form (NFC). Where combining marks are used generatively, and apply to a large number of 
+  base characters (such as in Indic scripts), the individual combining marks should be included. 
+  Where they are used with only a few base characters, the specific combinations should be included. 
+  Wherever there is not a </span><span class="changed">precomposed</span><span class="changed"> 
+  character (e.g. single </span><span class="changed">codepoint</span><span class="changed">) for a 
+  given combination, that must be included within braces. For example, to include sequences from the
+  </span><a href="http://www.unicode.org/standard/where/"><span class="changed">Where is my 
+  Character?</span></a><span class="changed"> page on the Unicode site, one would write: [{ch} {tʰ} 
+  {x̣} {ƛ̓} {ą́} {i̇́} {ト゚}], but for French one would just write [a-z </span><span class="changed">
+  é</span><span class="changed"> </span><span class="changed">è</span><span class="changed"> ù ...]. 
+  When in doubt use braces, since it does no harm to included them around single code points: e.g. 
+  [a-z {</span><span class="changed">é</span><span class="changed">} {</span><span class="changed">è</span><span class="changed">} 
+  {ù} ...].</span></p>
   <p><span class="changed">The exemplar character set for Han characters is composed somewhat 
   differently. It is even harder to draw a clear line for Han characters, since usage is more like a 
   frequency curve that slowly trails off to the right in terms of decreasing frequency. So for this 
   case, the exemplar characters simply contain a set of reasonably frequent characters for the 
-  language, based on presence in character set standards.</span></p>
+  language.</span></p>
   <p><span class="changed">The letters do not necessarily form a complete set (especially for 
   languages using large character sets, such as </span><span class="changed">CJK</span><span class="changed">). 
   Nor does the list necessarily include letters that are used in common foreign words used in that 

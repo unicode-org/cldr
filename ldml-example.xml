@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE LocaleElements SYSTEM "./LocaleElements.dtd" >
+<localeData>
+<!--
+Locale Data Format
+Draft: 2000-06-16
+
+Format that contains the required locale data for use by Java, ICU and POSIX APIs.
+Note: constructing a POSIX locale also requires use of the Unicode Character Database data.
+That data being common across locales, it is not duplicated here.
+See ftp://ftp.unicode.org/Public/UNIDATA/UnicodeCharacterDatabase.html.
+
+NOTE: The data below is purely illustrative, and doesn't match any particular language.
+NOTE: The data for any given locale will only contain items that are different from the parent locale.
+For example, most country locales will inherit the bulk of their data from the language locale:
+"en" will contain the bulk of the data: en_US will only contain a few items like currency.
+-->
+    <generation date="2002, Aug, 28" />
+    <versioning>
+      <version number="1.1">Various notes and changes in version 1.1</version>
+      <version number="1.0">Various notes and changes in version 1.0</version>
+    </versioning>
+
+     <identity>
+        <!-- Two letter codes, if available; otherwise 3-letter codes.
+     If both exist, a separate database contains the mapping. -->
+        <language id="en" name="english"/>
+        <country id="US" name="United States"/>
+
+        <!-- Only one variant allowed for now -->
+       <variant id="B"/>
+        <correspondsTo vendor="windows">0409</correspondsTo>
+     </identity>
+
+       <orientation lines="top-to-bottom" characters="left-to-right" />    <!-- both attributes are required -->
+
+    <encodings requiredLetters="a-z&#xE5;&#xE6;&#xF8;">    <!-- optional attribute -->
+        <!--
+        List of encodings that are in common use in this locale.
+        The order is not significant.
+        The format is as in http://www.unicode.org/unicode/reports/tr22/
+        with the version suppressed.
+        (It is assumed that the largest available version is chosen.)
+        The required letters can also be used to select appropriate encodings.
+        -->
+       <mapping>windows-1252</mapping>
+       <mapping>iso-8859_1</mapping>
+       <mapping>euc-jp</mapping>
+    </encodings>
+
+    <!--
+    Display names for scripts, languages, countries, and variants in this locale
+    -->
+    <displayNames>
+        <scripts>
+            <!-- IDs come from the Unicode Tech Report on scripts -->
+            <script id="Latin">Romana</script>
+            <script id="Cyrillic">Kyrillica</script>
+         </scripts>
+
+        <languages>
+            <language id="ab">Abkhazian</language>
+            <language id="aa">Afar</language>
+            <language id="af">Afrikaans</language>
+            <language id="sq">Albanian</language>
+        </languages>
+
+        <countries>
+            <country id="AF">Afghanistan</country>
+            <country id="AL">Albania</country>
+            <country id="DZ">Algeria</country>
+            <country id="AD">Andorra</country>
+            <country id="AO">Angola</country>
+            <country id="US">United States</country>
+        </countries>
+
+        <!-- Variant IDs must be unique across ALL locales. Currently they include
+                B, NY, EURO -->
+        <variants>
+            <variant id="B">Bokm&#x00e5;l</variant>
+        </variants>
+
+        <!--
+        Java/ICU choice format syntax for producing the name of a locale in a particular language.
+        -->
+        <localePatterns>
+            <locale>{0,choice,0#|1#{1}|2#{1} ({2})}</locale>
+            <list>{0,choice,0#|1#{1}|2#{1},{2}|3#{1},{2},{3}}</list>
+            <composition>{0},{1}</composition>
+        </localePatterns>
+    </displayNames>
+    <!--
+    There can be multiple calendars in the same locale, e.g. Gregorian + Imperial Japanese.
+    The ids must match what is produced by the calendar system.
+    -->
+    <calendars>
+        <calendar class="Gregorian" default="true">
+            <monthNames>
+                <month id="1" name="jan">january</month>
+                <month id="2" name="feb">february</month>
+                <month id="3" name="mar">march</month>
+                <month id="4" name="apr">april</month>
+                <month id="5" name="may">may</month>
+                <month id="6" name="jun">june</month>
+                <month id="7" name="jul">july</month>
+                <month id="8" name="aug">august</month>
+                <month id="9" name="sep">September</month>
+                <month id="10" name="oct">October</month>
+                <month id="11" name="nov">November</month>
+                <month id="12" name="dec">December</month>
+            </monthNames>
+            <monthAbbr>
+                <month id="1" name="jan">Jan</month>
+                <month id="2" name="feb">Feb</month>
+                <month id="3" name="mar">Mar</month>
+                <month id="4" name="apr">Apr</month>
+                <month id="5" name="may">May</month>
+                <month id="6" name="jun">Jun</month>
+                <month id="7" name="jul">Jul</month>
+                <month id="8" name="aug">Aug</month>
+                <month id="9" name="sep">Sep</month>
+                <month id="10" name="oct">Oct</month>
+                <month id="11" name="nov">Nov</month>
+                <month id="12" name="dec">Dec</month>
+            </monthAbbr>
+
+            <dayNames>
+                <day id="1" name="sun">Sunday</day>
+                <day id="2" name="mon">Monday</day>
+                <day id="3" name="tue">Tuesday</day>
+                <day id="4" name="wed">Wednesday</day>
+                <day id="5" name="thu">Thursday</day>
+                <day id="6" name="fri">Friday</day>
+                <day id="7" name="sat">Saturday</day>
+            </dayNames>
+            <dayAbbr>
+                <day id="1" name="sun">Sun</day>
+                <day id="2" name="mon">Mon</day>
+                <day id="3" name="tue">Tue</day>
+                <day id="4" name="wed">Wed</day>
+                <day id="5" name="thu">Thu</day>
+                <day id="6" name="fri">Fri</day>
+                <day id="7" name="sat">Sat</day>
+            </dayAbbr>
+            <week>
+                <minDays>1</minDays>
+                <firstDay>SUN</firstDay>
+                <weekendStart><day>FRI</day><time>18:00</time></weekendStart>
+                <weekendEnd><day>SUN</day><time>18:00</time></weekendEnd>
+            </week>
+            <am>AM</am><pm>PM</pm>
+            <eras>
+                <!-- Non-gregorians may have many more eras -->
+                <era id="0">BC</era>
+                <era id="1">AD</era>
+            </eras>
+            <!--
+            Patterns used for formatting and parsing dates and times for this calendar
+            -->
+            <patterns>
+                <chars>GyMdkHmsSEDFwWahKz</chars>
+                <time>
+                    <full>h:mm:ss a z</full>
+                    <long>h:mm:ss a z</long>
+                    <medium>h:mm:ss a</medium>
+                    <short>h:mm a</short>
+                </time>
+                <date>
+                    <full>EEEE, MMMM d, yyyy</full>
+                    <long>MMMM d, yyyy</long>
+                    <medium>MMM d, yyyy</medium>
+                    <short>M/d/yy</short>
+                </date>
+                <dateTime>{0} {1}</dateTime>
+            </patterns>
+        </calendar>
+
+        <!-- The Buddhist calendar inherits month names, etc. (everything but eras) from Gregorian -->
+        <calendar class="Buddhist" inheritsFrom="Gregorian">
+            <eras>
+                <era id="0">BE</era>
+            </eras>
+        </calendar>
+   </calendars>
+
+   <markers>
+       <quotationStart>'</quotationStart>
+       <quotationEnd>'</quotationEnd>
+       <doubleQuotationStart>&quot;</doubleQuotationStart>
+       <doubleQuotationEnd>&quot;</doubleQuotationEnd>
+   </markers>
+   <!--
+    There can be multiple number formats for the same locale.
+    Only one can be marked as "default"
+    -->
+   <numberFormat class="decimal" default="true">
+       <patterns>
+        <decimal>#,##0.###;-#,##0.###</decimal>
+        <percent>#,##0%</percent>
+        <scientific>0E##</scientific>
+    </patterns>
+      <symbols>
+          <decimal>.</decimal>
+          <group>,</group>
+          <list>;</list>
+          <percentSign>%</percentSign>
+          <nativeZeroDigit>0</nativeZeroDigit>
+          <patternDigit>#</patternDigit>
+          <plusSign>+</plusSign>
+          <minusSign>-</minusSign>
+          <exponential>E</exponential>
+          <perMille>&#x2030;</perMille>
+          <infinity>&#x221e;</infinity>
+          <nan>&#x2639;</nan>
+       </symbols>
+    </numberFormat>
+
+    <currencies>
+        <currency id="USD" name="dollar" default="true">
+            <symbol>$</symbol>
+            <pattern>&#x00a4; #,##0.00;(&#x00a4; #,##0.00)</pattern>
+            <decimal>.</decimal>
+            <group>,</group>
+        </currency>
+        <currency id ="YEN" name="yen">
+            <name>&#x00A5;</name>
+            <pattern>&#x00a4;  #,##0;(&#x00a4; #,##0)</pattern>
+            <decimal>.</decimal>
+        </currency>
+    </currencies>
+
+
+    <!--
+    This syntax is an XMLized version of the Java/ICU syntax, used to tailor the default table.
+    The main difference is that the &lt; sign is replaced by &#xAB;, and the &amp; is replaced by "&#xA7;",
+    since otherwise the XML is clumsy!
+
+    Note that collation needs its own version, independent of the Locale version.
+    For more information, see
+    http://java.sun.com/products/jdk/1.2/docs/api/java/text/RuleBasedCollator.html
+    and
+    http://www.unicode.org/unicode/reports/tr10/#Comparison to Java.
+    By default, lowercase is before upper in the default.
+    This can be changed with the firstCase="upper" attribute.
+    French accent ordering can be specified with the accentOrder="reverse" attribute.
+    The displayName attribute supplies a message pattern for getDisplayName.
+    -->
+    <collation version="1.5" accentOrder="reverse" override="true">
+        a,A &#xAB; b,B &#xAB; sc,C
+        &#xA7; C &#xAB; ch &#xAB; D
+    </collation>
+
+    <timeZoneNames>
+        <!--
+        The zone id's are language-independent.
+        Their values and data (default offset from GMT, daylight savings rules)
+        are stored elsewhere
+        Here we just have the localized names for them.
+        -->
+        <zone id="America/Los_Angeles" default="true">
+            <long>
+                <generic>Pacific Time</generic>
+                <standard>Pacific Standard Time</standard>
+                <daylight>Pacific Daylight Time</daylight>
+            </long>
+            <short>
+                <generic>PT</generic>
+                <standard>PST</standard>
+                <daylight>PDT</daylight>
+            </short>
+            <city>Los Angeles</city>
+        </zone>
+
+        <zone id="America/Denver">
+            <long>
+                <generic>Mountain Time</generic>
+                <standard>Mountain Standard Time</standard>
+                <daylight>Mountain Daylight Time</daylight>
+            </long>
+            <short>
+                <generic>MT</generic>
+                <standard>MST</standard>
+                <daylight>MDT</daylight>
+            </short>
+            <city>Denver</city>
+        </zone>
+
+        <zone id="Europe/London">
+             <long>
+                <generic>British Time</generic>
+                <standard>British Standard Time</standard>
+                <daylight>British Daylight Time</daylight>
+            </long>
+            <city>York</city>
+        </zone>
+
+    </timeZoneNames>
+
+    <miscellaneous>
+        <yes>Yes</yes>
+        <no>No</no>
+        <reservedWords>
+            <trueWord>true</trueWord>
+            <falseWord>false</falseWord>
+            <quarter1Word>1st quarter</quarter1Word>
+            <quarter2Word>2nd quarter</quarter2Word>
+            <quarter3Word>3rd quarter</quarter3Word>
+            <quarter4Word>4th quarter</quarter4Word>
+            <aboveWord>above</aboveWord>
+            <belowWord>below</belowWord>
+        </reservedWords>
+    </miscellaneous>
+
+     <!-- Boundary rules.
+    Selected samples are given with no attempt to make them work.
+    This format is the Java/ICU syntax, at the top level.
+    For real data, see http://oss.software.ibm.com/developerworks/opensource/cvs/icu4j
+    in BreakIteratorRules.java
+    displayName attributes removed for now
+    -->
+    <boundaries>
+        <grapheme class="RuleBased">
+            <!-- in addition to the normal rules, treat CH and RR as graphemes. -->
+            [cC][hH];[rR][rR]
+        </grapheme>
+        <word class="Dictionary" import="thaiDict.dat" >
+            <!-- When doing Thai word break, check the normal word break rules first. -->
+            digit=[[:Nd:][:No:]];
+            $digit [[:Pd:]&#xAD;&#x2027;&apos;.]
+        </word>
+    </boundaries>
+     <!-- The following are items from POSIX that we think might be reasonable to
+          add to ICU in the near future. -->
+    <!-- Measurement system: US/ISO 1000/Other -->
+    <measurement>US</measurement>
+    <!-- CountryPost:
+         The operand is a string with the abbreviation of the country,
+         used for postal addresses, for example by CEPT-MAILCODE. -->
+    <countryPost>US</countryPost>
+    <!-- CountryNumber :
+         The operand is an integer with the three-digit number of the
+          country, according to ISO 3166. -->
+    <countryNumber>666</countryNumber>
+    <!-- CountryCar:
+         The operand is a string with the abbreviation of the country,
+         used for motor vehicles and traffic, according to the Geneve convention
+         1949:68 -->
+    <countryCar>US</countryCar>
+    <!-- CountryISBNNumber :
+         The operand is a string with the abbreviation of the country,
+         used for book numbering (ISBN), according to ISO 2108. ISBN numbers are
+         allocated according to country. -->
+    <countryISBNNumber>666</countryISBNNumber>
+    <!-- Papersize. The numbers are always in millimeters.
+         The units name is the customary unit for that locale for measuring paper. -->
+    <paperSize>
+        <height>279</height>
+        <width>216</width>
+        <units>mm</units>
+    </paperSize>
+    <!--
+    the parameter NumType can have one of the following values:
+    0 = CHARS_UPPER_LETTER   EX: A, B, C, ....
+    1 = CHARS_LOWER_LETTER   EX: a, b, c, ....
+    2 = ROMAN_UPPER          EX: I, II, III, ....
+    3 = ROMAN_LOWER          EX: i, ii, iii, ....
+    4 = ARABIC               EX: 1, 2, 3, 4, .....
+    5 = NUMBER_ONE     numbering is invisible
+    6 = CHAR_SPECIAL   use a character from specified font
+    7 = PAGE_DESCRIPTOR  numbering is specified in page style
+    8 = BITMAP                numbering is displayed in bitmap graphic
+    9 = CHARS_UPPER_LETTER_N  EX: A, B, ...., AA, BB
+    10 = CHARS_LOWER_LETTER_N EX: a, b, ..., aa, bb, cc
+    -->
+    <numberingLevels>
+      <numberingLevel Prefix="" NumType="4" Suffix=")" />
+      <numberingLevel Prefix="" NumType="4" Suffix="." />
+      <numberingLevel Prefix="(" NumType="4" Suffix=")" />
+      <numberingLevel Prefix="" NumType="2" Suffix="." />
+      <numberingLevel Prefix="" NumType="0" Suffix=")" />
+      <numberingLevel Prefix="" NumType="1" Suffix=")" />
+      <numberingLevel Prefix="(" NumType="1" Suffix=")" />
+      <numberingLevel Prefix="" NumType="3" Suffix="." />
+    </numberingLevels>
+    <!-- The following is POSIX (actually 14652) compatibility data.
+         We do not think that the format is well thought-out (like most of 14652)
+         It is here only to allow us to have the RedHat LINUX data in the same XML file.
+         -->
+
+    <posixCompatibilityData>
+        <!-- old abbreviations for pre-GUI days -->
+        <messages>
+            <no>No</no>
+            <yes>Yes</yes>
+            <shortYes>Y</shortYes>
+            <shortNo>N</shortNo>
+        </messages>
+        <!--
+        Postal format:
+        POSIX   ICU Description
+        %a         {0}  C/O address.
+        %f         {1}  Firm name.
+        %d         {2}  department name.
+        %b         {3}  Building name.
+        %s         {4}  street or block (eg. Japanese) name.
+        %h         {5}  house number or designation.
+        %N         {6}  if any graphical characters have been specified then an
+                end of line is made.
+        %t         {13} if the preceding escape sequence resulted in an empty
+                string, then the empty string, else a <space>.
+        %r         {7}  room number, door designation.
+        %e         {8}  floor number.
+        %C         {9}  country designation.
+        %z         {10} zip number, postal code.
+        %T         {11} town, city.
+        %c         {12} country.
+        Example:
+        POSIX : postal_fmt "<%><a><%><N><%><f><%><N><%><d><%><N><%><b><%><N>/
+                     <%><s><SP><%><h><SP><%><e><SP><%><r><%><N>/
+                     <%><C><-><%><z><SP><%><T><%><N><%><c><%><N>"
+
+        ICU   : "{0}{6}{1}{6}{2}{6}{3}{6}{4}\s{5}\s{8}\s{7}{6}{9}-{10}\s{11}{6}{12}{6}"
+        -->
+        <addressFormat>
+            <postalPattern>{10}{9}{11}{4}{3}{8}{7}</postalPattern>
+        </addressFormat>
+        <nameFormat>
+            <!-- Grab-bag name format from 14652
+            %f         {0}  Family names.
+            %F         {1}  Family names in uppercase.
+            %g         {2}  First given name.
+            %G         {3}  First given initial.
+            %l         {4}  First given name with latin letters.
+            %o         {5}  Other shorter name, eg. "Bill".
+            %m         {6}  Middle names.
+            %M         {7}  Middle initial.
+            %p         {8}  Profession.
+            %s         {9}  Salutation, such as "Doctor"
+            %S         {10} Abbreviated salutation, such as "Mr." or "Dr."
+            %d         {11} Salutation, using the FDCC-sets conventions, with 1 for
+                    the name_gen, 2 for name_mr, 3 for name_mrs, 4 for
+                    name_miss, 5 for name_ms.
+            %t         {12} If the preceding escape sequence resulted in an empty
+                    string, then the
+                    empty string, else a <space>.
+            Example:
+            POSIX    : name_fmt "<%><p><%><t><%><g><%><t><%><m><%><t><%><f>"
+            ICU  : NameFormat "{8}\s{2}\s{6}\s{0}"
+            -->
+            <namePattern> {8} {2} {6} {0}</namePattern>
+            <generalSalutation></generalSalutation>
+            <shortSalutationMr> Mr.</shortSalutationMr>
+            <shortSalutationMiss>Ms.</shortSalutationMiss>
+            <shortSalutationMrs>Mrs.</shortSalutationMrs>
+            <longSalutationMr> Mister.</longSalutationMr>
+            <longSalutationMiss>Miss</longSalutationMiss>
+            <longSalutationMrs>Mrs.</longSalutationMrs>
+        </nameFormat>
+        <!-- Identification of the person who produced the data file. -->
+        <identification>
+            <title></title>
+            <source></source>
+            <address></address>
+            <contact></contact>
+            <email></email>
+            <telephone></telephone>
+            <fax></fax>
+            <language></language>
+            <territory></territory>
+            <audience></audience>
+            <application></application>
+            <abbreviation></abbreviation>
+            <revision></revision>
+            <date></date>
+        </identification>
+        <!--
+        Telephone format:
+        POSIX   ICU Description
+        %a         {0}  area code without prefix (prefix is often <0>).
+        %A         {1}  area code including prefix (prefix is often <0>).
+        %l         {2}  local number.
+        %c         {3}  country code.
+        %C         {4}  alternative carrier service code used for dialling
+                abroad
+        %c         {5}  country.
+
+        Example:
+        POSIX  :  tel_int_fmt "<+><%><c><SP><%><a><SP><%><l>"
+        ICU    :  "+{3}\s{0}\s{2}"
+        -->
+        <telephoneFormat>
+            <internationalPattern> +{3} {0}-{2}</internationalPattern>
+            <domesticPattern>({0}) {2}</domesticPattern>
+            <internationalDialCode>001 </internationalDialCode>
+            <internationalPrefix> </internationalPrefix>
+        </telephoneFormat>
+     </posixCompatibilityData>
+
+
+
+</localeData>

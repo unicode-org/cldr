@@ -444,6 +444,10 @@
 			<calendar type="japanese">
 				<eras>
 					<eraAbbr>
+                                                <!-- These eras are numbered according to the data used
+                                                     by the ICU Japanese Calendar.
+                                                     http://oss.software.ibm.com/cvs/icu4j/icu4j/src/com/ibm/icu/util/JapaneseCalendar.java?rev=1.25   search for 'ERAS ='
+                                                     -->
 						<era type="0">Taika</era>
 						<era type="1">Hakuchi</era>
 						<era type="2">Hakuhō</era>

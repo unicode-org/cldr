@@ -16,6 +16,7 @@ public class WebContext {
     public org.w3c.dom.Document doc= null;
     public ULocale locale = null;
     public String localeName = null; 
+    public CookieSession session = null;
 
 // private fields
     protected PrintWriter out = null;
@@ -49,7 +50,8 @@ public class WebContext {
         outQuery = other.outQuery;
         locale = other.locale;
         localeName = other.localeName;
-
+        session = other.session;
+        
         dontCloseMe = true;
     }
     
@@ -57,7 +59,7 @@ public class WebContext {
     String field(String x) {
         String res = (String)form_data.get(x);
          if(res == null) {       
-              System.out.println("[[ empty query string: " + x + "]]");
+              System.err.println("[[ empty query string: " + x + "]]");
             res = "";   
         }
         return res;
@@ -99,7 +101,38 @@ public class WebContext {
             // ? 
         }
     }
+// locale hash api
+    // get the hashtable of modified locales
 
+    Hashtable localeHash = null;
+    public Hashtable getLocaleHash() {
+        if(session == null) {
+            throw new RuntimeException("Session is null in WebContext.getLocaleHash()!");
+        }
+        if(localeHash == null) {
+            Hashtable localesHash = session.getLocales();
+            if(localesHash == null) { return null; }
+            localeHash = (Hashtable)localesHash.get(locale);
+        }
+        return localeHash;
+    }
+    
+    public Object getByLocale(String key) {
+        Hashtable localeHash = getLocaleHash();
+        if(localeHash != null) {
+            return localeHash.get(key);
+        }
+        return null;
+    }
+
+    public void putByLocale(String key, Object value) {
+        Hashtable localeHash = getLocaleHash();
+        if(localeHash == null) {
+            localeHash = new Hashtable();
+            session.getLocales().put(locale,localeHash);
+        }
+        localeHash.put(key, value);
+    }
 // Internal Utils
 
     // from BagFormatter

@@ -87,16 +87,55 @@ class SurveyMain {
 
     public void doGet(WebContext ctx)
     {
-//        CachingEntityResolver.setCacheDir("/tmp/cldrdtd");
-        
         ctx.println("<html>");
         ctx.println("<head>");
         ctx.println("<title>Interim Test Tool - s/n " + getN() + "</title>");
         ctx.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
         ctx.println("</head>");
         ctx.println("<body>");
+        
+        // get the context
+        
+        CookieSession mySession = null;
+        String myNum = ctx.field("s");
+        if(myNum != null) {
+            mySession = CookieSession.retrieve(myNum);
+            if(mySession == null) {
+                ctx.println("<i>Warning: ignoring expired session " + myNum + "</i><br/>");
+            }
+        }
+        if(mySession == null) {
+            mySession = new CookieSession();
+        }
+        ctx.session = mySession;
+        ctx.addQuery("s", mySession.id);
+        WebContext baseContext = new WebContext(ctx);
+        ctx.println("<i>using session " + mySession.id + " </i><br/>");
+        
+        // print 'shopping cart'
+        {
+            Hashtable lh = ctx.session.getLocales();
+            Enumeration e = lh.keys();
+            if(e.hasMoreElements()) { 
+                ctx.println("<B>Changed locales: </B> ");
+            }
+            for(;e.hasMoreElements();) {
+                String k = e.nextElement().toString();
+                ctx.println("<a href=\"" + baseContext.url() + "&_=" + k + "\">" + 
+                        new ULocale(k).getDisplayName() + "</a> ");
+            }
+            ctx.println("<br/>");
+        }
+
+
         ctx.println("<h1>Locales</h1>");
-        String locale =  ctx.field("_");
+        String locale = ctx.field("_");
+        if(locale != null) {  // knock out some bad cases
+            if((locale.indexOf('.') != -1) ||
+               (locale.indexOf('/') != -1)) {
+               locale = null;
+            }
+        }
         if((locale==null)||(locale.length()<=0)) {
             ctx.println("<b>locales: </b> <br/>");
             // 1. get the list of input XML files
@@ -112,18 +151,25 @@ class SurveyMain {
             File baseDir = new File(fileBase);
             File inFiles[] = baseDir.listFiles(myFilter);
             int nrInFiles = inFiles.length;
+            String doMajor = ctx.field("MXM");
+            if((doMajor!=null)&&(doMajor.length()<=0)) {
+                doMajor = null;
+            }
             for(int i=0;i<nrInFiles;i++) {
                 String localeName = inFiles[i].getName();
                 int dot = localeName.indexOf('.');
                 if(dot !=  -1) {
                     localeName = localeName.substring(0,dot);
                     if(i != 0) {
-                        ctx.println("<a href=\"" + cgi_lib.MyTinyURL() 
-                            + "?" + "_=" + localeName + "\">" +
+                        ctx.println("<a href=\"" + baseContext.url() 
+                            + "&" + "_=" + localeName + "\">" +
                                 new ULocale(localeName).getDisplayName() +
                                 " - <tt>" + localeName + "</tt>" +                                 
                                 "</a> ");
                             ctx.println("<br/> ");
+                        if(doMajor != null) {
+                            fetchDoc(ctx, localeName);
+                        }
                     }
                 }
             }
@@ -137,7 +183,7 @@ class SurveyMain {
         } else {
             ctx.locale = new ULocale(locale);
             ctx.println("<b>" + ctx.locale + "</b><br/>\n");
-            Document doc = fetchDoc(ctx,locale);
+            Document doc = fetchDoc(ctx,ctx.locale.toString());
             if(doc != null) {                
                 //ctx.println("Parsed. Huh. " + doc.toString() + "<hr>(");
                 //LDMLUtilities.printDOMTree(doc,out);
@@ -147,7 +193,7 @@ class SurveyMain {
                 ctx.doc = doc;
                 showLocale(ctx);
             } else {
-                ctx.println("<i>err, couldn't fetch " + locale + "</i><br/>");
+                ctx.println("<i>err, couldn't fetch " + ctx.locale.toString() + "</i><br/>");
             }
         }
         ctx.println("</body>");
@@ -285,6 +331,11 @@ class SurveyMain {
         NodeSet mySet = NodeSet.loadFromRoot(root);
         total = mySet.count();
         Map sortedMap = mySet.getSorted(new DraftFirstTexter(tx));
+        Hashtable changes = (Hashtable)ctx.getByLocale(xpath);
+        
+        
+        /* SRL TEST */ if(changes==null) { ctx.println("Getting ready a new hash..<br/>");changes = new Hashtable(); }
+       //         else { ctx.println (" <blockquote>old hash: " + changes.toString() + "</blockquote>\n"); }
         
         String str = ctx.field("skip");
         if((str!=null)&&(str.length()>0)) {
@@ -314,7 +365,7 @@ class SurveyMain {
         
         ctx.println("Displaying items " + from + " to " + to + " of " + total + "<br/>");
         
-        ctx.println("<table border=0>");
+        ctx.println("<table border=1>");
 
         for(Iterator e = sortedMap.values().iterator();e.hasNext();) {
             NodeSet.NodeSetEntry f = (NodeSet.NodeSetEntry)e.next();
@@ -337,7 +388,7 @@ class SurveyMain {
                 prop = LDMLUtilities.getNodeValue(f.proposed);
             }
 
-            ctx.println("<tr><th align=left rowspan=2>" + tx.text(f) + "<br/><tt>" + type + "</tt>");
+            ctx.println("<tr><th align=left rowspan=3>" + tx.text(f) + "<br/><tt>" + type + "</tt>");
             ctx.println("</th>");
             ctx.println("<td bgcolor=\"" + (mainDraft?"#DDDDDD":"#FFFFFF") + "\">");
             if(main != null) {
@@ -347,40 +398,65 @@ class SurveyMain {
             ctx.println("<td bgcolor=\"" + (mainDraft?"#DDDDDD":"#FFFFFF") + "\">");
             if(mainDraft) {
                 ctx.println("<i>draft</i>");
+                ctx.println("<input type=checkbox " +
+                  (  ((changes!=null)&&(changes.get(type+"//d")!=null)) ?
+                            " CHECKED " : "" )
+                    + " name=\"" + xpath +"/" + type + "//d" + "\"> <br/>");
+                /* SRL TEST */ if(changes!=null) { changes.put(type + "//d","X"); } 
             }
             ctx.println("</td>");
 
-            ctx.println("<td rowspan=2>");
-            doVet(ctx, type, "m", main);
-            ctx.println("</td>");
             ctx.println("</tr>");
             
             ctx.println("<tr>");
-            ctx.println("<td bgcolor=\"" + ((prop!=null)?"#DDFFDD":"#FFFFFF") + "\">");
             if(prop != null) {
+                ctx.println("<td bgcolor=\"" + ((prop!=null)?"#DDFFDD":"#FFFFFF") + "\">");
                 ctx.println(prop);
-            }
             ctx.println("</td>");
-            ctx.println("<td bgcolor=\"" + ((prop!=null)?"#DDFFDD":"#FFFFFF") + "\">");
+            }
             if(prop != null) {
+                ctx.println("<td bgcolor=\"" + ((prop!=null)?"#DDFFDD":"#FFFFFF") + "\">");
                 ctx.println("<i>proposed</i>");
+                ctx.println("<input type=checkbox " + 
+                  (  ((changes!=null)&&(changes.get(type+"//p")!=null)) ?
+                            " CHECKED " : "" )
+                    + " name=\"" + xpath +"/" + type + "//p" + "\"> <br/>");
+                ctx.println("</td>");
+                /* SRL TEST */ if(changes!=null) { changes.put(type + "//p","X"); } 
             }
-            ctx.println("</td>");
             ctx.println("</tr>");
             
+            ctx.println("<tr>");
+            ctx.println("<td bgcolor=\"#FFFFFF\" colspan=2 rowspan=\"" + ((prop!=null)?"1":"1") + "\">");
+            String change = "";
+            if(changes != null) {
+                change = (String)changes.get(type + "//n");
+            }
+            ctx.println("<input size=50 value=\"" + 
+                  (  (change!=null) ? change : "" )
+                    + "\" name=\"" + xpath +"/" + type + "//n" + "\">");
+            /* SRL TEST */ if((changes!=null)&&(change==null)) { changes.put(type + "//n",getSillyText()); } 
+            ctx.println("</td>");            
+            ctx.println("</tr>");
             ctx.println("<tr><td colspan=4 bgcolor=\"#EEEEDD\"><font size=-8>&nbsp;</font></td></tr>");
 
             // -----
             
             if(dispCount >= CODES_PER_PAGE) {
-                ctx.println("</table>\n<a href=\"" + ctx.url() + 
-                        "&skip=" + new Integer(count) + "\">" +
-                        "More..." +
-                        "</a> ");
-                return;
+                break;
             }
         }
         ctx.println("</table>");
+        if(dispCount >= CODES_PER_PAGE) {
+                ctx.println("<a href=\"" + ctx.url() + 
+                        "&skip=" + new Integer(count) + "\">" +
+                        "More..." +
+                        "</a> ");
+        }
+        
+    /* SRL TEST */ if(changes!=null) { ctx.println("Putting in locale: " + xpath + ", changes<br/>");
+                    ctx.putByLocale(xpath,changes); }  else {ctx.println("Changes = null..<br/>"); }
+
     }
     
     public static void main (String args[]) {
@@ -390,7 +466,11 @@ class SurveyMain {
             try {
              m.go(System.out);
             } catch(Throwable t) {
+                System.out.println("Content-type: text/html\n\n\n");
+                System.out.flush();
                 System.out.println("<B>err</B>: " + t.toString());
+                t.printStackTrace();
+                
             }
         }
     }
@@ -399,17 +479,12 @@ class SurveyMain {
         ctx.println("<td bgcolor=\"" + background + "\">");
     }
     
-    protected void doVet(WebContext ctx, String type, String vType, String value) {
-       ctx.println("<input type=checkbox name=\"" + type + "_" + vType + "\"> OK?<br/>");
-    }
-    
     protected void endCell(WebContext ctx) {
         ctx.println("</td>");
     }
     
     protected void doCell(WebContext ctx, String type, String value) {
         startCell(ctx,"#FFFFFF");
-        doVet(ctx, type, "", value);
         ctx.println(value);
         endCell(ctx);
     }
@@ -417,7 +492,6 @@ class SurveyMain {
     protected void doDraftCell(WebContext ctx, String type, String value) {
         startCell(ctx,"#DDDDDD");
         ctx.println("<i>Draft</i><br/>");
-        doVet(ctx, type, "d", value);
         ctx.println(value);
         endCell(ctx);
     }
@@ -425,7 +499,6 @@ class SurveyMain {
     protected void doPropCell(WebContext ctx, String type, String value) {
         startCell(ctx,"#DDFFDD");
         ctx.println("<i>Proposed:</i><br/>");
-        doVet(ctx, type, "p", value);
         ctx.println(value);
         endCell(ctx);
     }
@@ -451,5 +524,13 @@ class SurveyMain {
             }
         }
         return null;
+    }
+    
+    static int qqq = 0;
+    static final String foo[] = { "Jellyfish", "Sucralose", "Henry F. Talbot", 
+                            "Rio Grande", "Zirconium", "Natto", "The Taj Mahal" };
+    static String getSillyText() { 
+        qqq++;
+        return foo[qqq%foo.length];
     }
 }

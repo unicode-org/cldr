@@ -47,6 +47,35 @@
 			<script type="Zyyy">Obecný</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">Svet</territory>
+			<territory type="002" draft="true">Afrika</territory>
+			<territory type="005" draft="true">Južná Amerika</territory>
+			<territory type="011" draft="true">Západná Afrika</territory>
+			<territory type="013" draft="true">Stredná Amerika</territory>
+			<territory type="014" draft="true">Východná Afrika</territory>
+			<territory type="015" draft="true">Severná Afrika</territory>
+			<territory type="017" draft="true">Stredná Afrika</territory>
+			<territory type="018" draft="true">Južná Afrika</territory>
+			<territory type="019" draft="true">Americký kontinent</territory>
+			<territory type="021" draft="true">Severná Amerika</territory>
+			<territory type="029" draft="true">Karibik</territory>
+			<territory type="030" draft="true">Východná Ázia</territory>
+			<territory type="035" draft="true">Juhovýchodná Ázia</territory>
+			<territory type="039" draft="true">Južná Európa</territory>
+			<territory type="053" draft="true">Austrália a Nový Zéland</territory>
+			<territory type="054" draft="true">Melanézia</territory>
+			<territory type="057" draft="true">Mikronésia</territory>
+			<territory type="061" draft="true">Polynézia</territory>
+			<territory type="062" draft="true">Južná Ázia</territory>
+			<territory type="142" draft="true">Ázia</territory>
+			<territory type="145" draft="true">Západná Ázia</territory>
+			<territory type="150" draft="true">Európa</territory>
+			<territory type="151" draft="true">Východná Európa</territory>
+			<territory type="154" draft="true">Severná Európa</territory>
+			<territory type="155" draft="true">Západná Európa</territory>
+			<territory type="200" draft="true">�esk� a Slovensk� rep.</territory>
+			<territory type="830" draft="true">Kanál La Manche</territory>
+			<territory type="833" draft="true">Ostrov Man</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Spojené arabské emiráty</territory>
 			<territory type="AF">Afganistan</territory>
@@ -62,6 +91,7 @@
 			<territory type="AT">Rakúsko</territory>
 			<territory type="AU">Austrália</territory>
 			<territory type="AW">Aruba</territory>
+			<territory type="AX" draft="true">Alandské ostrovy</territory>
 			<territory type="AZ">Azerbajdžan</territory>
 			<territory type="BA">Bosna a Hercegovina</territory>
 			<territory type="BB">Barbados</territory>
@@ -287,6 +317,7 @@
 			<territory type="ZA">Južná Afrika</territory>
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabwe</territory>
+			<territory type="ZZ" draft="true">Tichomorie - ostatné</territory>
 		</territories>
 		<keys>
 			<key type="calendar">Kalendár</key>
@@ -444,6 +475,66 @@
 				</timeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<hourFormat draft="true">+HHmm;-HHmm</hourFormat>
+			<zone type="Antarctica/South_Pole">
+				<exemplarCity draft="true">Južný pól</exemplarCity>
+			</zone>
+			<zone type="Asia/Shanghai">
+				<exemplarCity draft="true">Šanghaj</exemplarCity>
+			</zone>
+			<zone type="Pacific/Galapagos">
+				<exemplarCity draft="true">Galapágy</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Canary">
+				<exemplarCity draft="true">Kanárske ostrovy</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<exemplarCity draft="true">Londýn</exemplarCity>
+			</zone>
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity draft="true">Ulanbátar</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Azores">
+				<exemplarCity draft="true">Azorské ostrovy</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity draft="true">Lisabon</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="true">Moskva</exemplarCity>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<exemplarCity draft="true">Jekaterinburg</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity draft="true">Krasnojarsko</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity draft="true">Irkutsko</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity draft="true">Jakutsko</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity draft="true">Sachalin</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity draft="true">Kamčatka</exemplarCity>
+			</zone>
+			<zone type="Europe/Uzhgorod">
+				<exemplarCity draft="true">Užhorod</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="true">Kyjev</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity draft="true">Záporožie</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity draft="true">Taškent</exemplarCity>
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>

@@ -40,6 +40,31 @@
 			<language type="zh">Chineză</language>
 		</languages>
 		<territories>
+			<territory type="001" draft="true">Lume</territory>
+			<territory type="005" draft="true">America de Sud</territory>
+			<territory type="011" draft="true">Africa occidentală</territory>
+			<territory type="013" draft="true">America centrală</territory>
+			<territory type="014" draft="true">Africa orientală</territory>
+			<territory type="015" draft="true">Africa septentrionala</territory>
+			<territory type="017" draft="true">Africa centrală</territory>
+			<territory type="018" draft="true">Africa australă</territory>
+			<territory type="019" draft="true">Americi</territory>
+			<territory type="021" draft="true">America de Nord</territory>
+			<territory type="029" draft="true">Caraibe</territory>
+			<territory type="030" draft="true">Asia orientală</territory>
+			<territory type="035" draft="true">Asia de Sud-Est</territory>
+			<territory type="039" draft="true">Europa meridională</territory>
+			<territory type="053" draft="true">Australia și Noua Zeelandă</territory>
+			<territory type="054" draft="true">Melanezia</territory>
+			<territory type="057" draft="true">Micronezia</territory>
+			<territory type="061" draft="true">Polinezia</territory>
+			<territory type="062" draft="true">Asia centrală și de Sud</territory>
+			<territory type="145" draft="true">Asia occidentală</territory>
+			<territory type="150" draft="true">Europa</territory>
+			<territory type="151" draft="true">Europa de Est</territory>
+			<territory type="154" draft="true">Europa septentrională</territory>
+			<territory type="155" draft="true">Europa occidentală</territory>
+			<territory type="830" draft="true">Insulele Anglo-Normande</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AD" alt="proposed" draft="true">Andora</territory>
 			<territory type="AE">Emiratele Arabe Unite</territory>
@@ -56,6 +81,7 @@
 			<territory type="AT">Austria</territory>
 			<territory type="AU">Australia</territory>
 			<territory type="AW">Aruba</territory>
+			<territory type="AX" draft="true">Insulele Aland</territory>
 			<territory type="AZ">Azerbaidjan</territory>
 			<territory type="BA">Bosnia şi Herzegovina</territory>
 			<territory type="BB">Barbados</territory>
@@ -283,6 +309,7 @@
 			<territory type="ZA">Africa de Sud</territory>
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabwe</territory>
+			<territory type="ZZ" draft="true">Altă Oceania</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
@@ -399,6 +426,44 @@
 				</dateFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<zone type="Antarctica/South_Pole">
+				<exemplarCity draft="true">Polul Sud</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Canary">
+				<exemplarCity draft="true">Canare</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<exemplarCity draft="true">Londra</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Azores">
+				<exemplarCity draft="true">Azore</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity draft="true">Lisabona</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="true">Moscova</exemplarCity>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<exemplarCity draft="true">Ekaterinburg</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity draft="true">Irkuțk</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity draft="true">Yakuțk</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity draft="true">Sahalin</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity draft="true">Kamciatka</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity draft="true">Zaporoje</exemplarCity>
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>
@@ -406,11 +471,32 @@
 			<group>.</group>
 		</symbols>
 		<currencies>
+			<currency type="BRL">
+				<displayName draft="true">Real brazilian</displayName>
+			</currency>
+			<currency type="CNY">
+				<displayName draft="true">Yuan Renminbi chinezesc</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName draft="true">Liră sterlină britanică</displayName>
+			</currency>
+			<currency type="INR">
+				<displayName draft="true">Rupie indiană</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName draft="true">Yen japonez</displayName>
+			</currency>
 			<currency type="ROL">
 				<symbol>lei</symbol>
 			</currency>
+			<currency type="RUB">
+				<displayName draft="true">Rublă rusească</displayName>
+			</currency>
 			<currency type="TRY" draft="true">
 				<displayName>Noua liră turcească</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName draft="true">Dolar SUA</displayName>
 			</currency>
 		</currencies>
 	</numbers>

@@ -185,6 +185,35 @@
 			<script type="Zyyy">Meghatározatlan</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">Világ</territory>
+			<territory type="002" draft="true">Afrika</territory>
+			<territory type="005" draft="true">Dél-Amerika</territory>
+			<territory type="009" draft="true">Óceánia</territory>
+			<territory type="011" draft="true">Nyugat-Afrika</territory>
+			<territory type="013" draft="true">Közép-Amerika</territory>
+			<territory type="014" draft="true">Kelet-Afrika</territory>
+			<territory type="015" draft="true">Észak-Afrika</territory>
+			<territory type="017" draft="true">Közép-Afrika</territory>
+			<territory type="018" draft="true">Dél-Afrika</territory>
+			<territory type="019" draft="true">Amerika</territory>
+			<territory type="021" draft="true">Észak-Amerika</territory>
+			<territory type="029" draft="true">Karib-tenger</territory>
+			<territory type="030" draft="true">Kelet-Ázsia</territory>
+			<territory type="035" draft="true">Délkelet-Ázsia</territory>
+			<territory type="039" draft="true">Dél-Európa</territory>
+			<territory type="053" draft="true">Ausztrália és Új-Zéland</territory>
+			<territory type="054" draft="true">Melanézia</territory>
+			<territory type="057" draft="true">Mikronézia</territory>
+			<territory type="061" draft="true">Polinézia</territory>
+			<territory type="062" draft="true">Délközép-Ázsia</territory>
+			<territory type="142" draft="true">Ázsia</territory>
+			<territory type="145" draft="true">Nyugat-Ázsia</territory>
+			<territory type="150" draft="true">Európa</territory>
+			<territory type="151" draft="true">Kelet-Európa</territory>
+			<territory type="154" draft="true">Észak-Európa</territory>
+			<territory type="155" draft="true">Nyugat-Európa</territory>
+			<territory type="830" draft="true">Csatorna-szigetek</territory>
+			<territory type="833" draft="true">Man-sziget</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Egyesült Arab Emirátus</territory>
 			<territory type="AF">Afganisztán</territory>
@@ -200,6 +229,7 @@
 			<territory type="AT">Ausztria</territory>
 			<territory type="AU">Ausztrália</territory>
 			<territory type="AW">Aruba</territory>
+			<territory type="AX" draft="true">Aland-szigetek</territory>
 			<territory type="AZ">Azerbajdzsán</territory>
 			<territory type="BA">Bosznia-Hercegovina</territory>
 			<territory type="BB">Barbados</territory>
@@ -425,6 +455,7 @@
 			<territory type="ZA">Dél-Afrika</territory>
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabwe</territory>
+			<territory type="ZZ" draft="true">Külső-Óceánia</territory>
 		</territories>
 		<keys>
 			<key type="calendar">Naptár</key>
@@ -649,11 +680,53 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<zone type="Antarctica/South_Pole">
+				<exemplarCity draft="true">Déli-sark</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity draft="true">Vosztok</exemplarCity>
+			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity draft="true">Dumont d'Urville</exemplarCity>
 			</zone>
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity draft="true">Río Gallegos</exemplarCity>
+			</zone>
 			<zone type="America/Argentina/ComodRivadavia">
 				<exemplarCity draft="true">Comodoro Rivadavia</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity draft="true">Tucumán</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity draft="true">Córdoba</exemplarCity>
+			</zone>
+			<zone type="America/Eirunepe">
+				<exemplarCity draft="true">Eirunepé</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity draft="true">Río Branco</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity draft="true">Pôrto Velho</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity draft="true">Cuiabá</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity draft="true">Belém</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity draft="true">Araguaína</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity draft="true">São Paulo</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity draft="true">Maceió</exemplarCity>
+			</zone>
+			<zone type="America/Montreal">
+				<exemplarCity draft="true">Montréal</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity draft="true">St. John's</exemplarCity>
@@ -661,6 +734,15 @@
 			<!-- Chile -->
 			<zone type="Pacific/Easter">
 				<exemplarCity draft="true">Húsvét-szigetek</exemplarCity>
+			</zone>
+			<zone type="Asia/Kashgar">
+				<exemplarCity draft="true">Kasgár</exemplarCity>
+			</zone>
+			<zone type="Asia/Urumqi">
+				<exemplarCity draft="true">Ürümqi</exemplarCity>
+			</zone>
+			<zone type="Asia/Chongqing">
+				<exemplarCity draft="true">Csungking</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<exemplarCity draft="true">Sanghaj</exemplarCity>
@@ -686,15 +768,36 @@
 			<zone type="Pacific/Kosrae">
 				<exemplarCity draft="true">Kosrae-szigetek</exemplarCity>
 			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity draft="true">Godthåb</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity draft="true">Scoresby Sound</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity draft="true">Danmarks Havn</exemplarCity>
+			</zone>
 			<!-- Indonesia -->
 			<zone type="Asia/Jakarta">
 				<exemplarCity draft="true">Dzsakarta</exemplarCity>
+			</zone>
+			<zone type="Asia/Makassar">
+				<exemplarCity draft="true">Makasar</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity draft="true">Kiritimati-sziget</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tarawa">
 				<exemplarCity draft="true">Tarawa-sziget</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtau">
+				<exemplarCity draft="true">Aktau</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity draft="true">Aktöbe</exemplarCity>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity draft="true">Kizilorda</exemplarCity>
 			</zone>
 			<zone type="Asia/Almaty">
 				<exemplarCity draft="true">Alma-Ata</exemplarCity>
@@ -709,8 +812,20 @@
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity draft="true">Ulan Bator</exemplarCity>
 			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity draft="true">Csojbalszan</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity draft="true">Mazatlán</exemplarCity>
+			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity draft="true">Mexikóváros</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity draft="true">Mérida</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity draft="true">Cancún</exemplarCity>
 			</zone>
 			<!-- New Zealand -->
 			<zone type="Pacific/Chatham">
@@ -786,6 +901,9 @@
 			<!-- Ukraine -->
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity draft="true">Ungvár</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="true">Kijev</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity draft="true">Szimferopol</exemplarCity>
@@ -1168,6 +1286,9 @@
 			</currency>
 			<currency type="ILS">
 				<displayName>Izraeli új sékel</displayName>
+			</currency>
+			<currency type="INR">
+				<displayName draft="true">Indiai rúpia</displayName>
 			</currency>
 			<currency type="IQD">
 				<displayName>Iraki dínár</displayName>

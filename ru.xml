@@ -418,6 +418,35 @@
 			<script type="Zyyy">Неопределенная</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">Всемирное</territory>
+			<territory type="002" draft="true">Африка</territory>
+			<territory type="005" draft="true">Южная Америка</territory>
+			<territory type="009" draft="true">Океания</territory>
+			<territory type="011" draft="true">Западная Африка</territory>
+			<territory type="013" draft="true">Центральная Африка</territory>
+			<territory type="014" draft="true">Восточная Африка</territory>
+			<territory type="015" draft="true">Северная Африка</territory>
+			<territory type="017" draft="true">Центральная Африка</territory>
+			<territory type="018" draft="true">Южная Африка</territory>
+			<territory type="019" draft="true">Центральная и Южная Америка</territory>
+			<territory type="021" draft="true">Северная Америка</territory>
+			<territory type="029" draft="true">Карибы</territory>
+			<territory type="030" draft="true">Восточная Азия</territory>
+			<territory type="035" draft="true">Юго-Восточная Азия</territory>
+			<territory type="039" draft="true">Южная Европа</territory>
+			<territory type="053" draft="true">Австралия и Новая Зеландия</territory>
+			<territory type="054" draft="true">Меланезия</territory>
+			<territory type="057" draft="true">Микронезия</territory>
+			<territory type="061" draft="true">Полинезия</territory>
+			<territory type="062" draft="true">Южная Средняя Азия</territory>
+			<territory type="142" draft="true">Азия</territory>
+			<territory type="145" draft="true">Ближний и Средний Восток</territory>
+			<territory type="150" draft="true">Европа</territory>
+			<territory type="151" draft="true">Восточная Европа</territory>
+			<territory type="154" draft="true">Северная Европа</territory>
+			<territory type="155" draft="true">Западная Европа </territory>
+			<territory type="830" draft="true">Нормандские острова</territory>
+			<territory type="833" draft="true">Остров Мэн</territory>
 			<territory type="AD">Андорра</territory>
 			<territory type="AE">Объединенные Арабские Эмираты</territory>
 			<territory type="AF">Афганистан</territory>
@@ -433,6 +462,7 @@
 			<territory type="AT">Австрия</territory>
 			<territory type="AU">Австралия</territory>
 			<territory type="AW">Аруба</territory>
+			<territory type="AX" draft="true">Аландские острова</territory>
 			<territory type="AZ">Азербайджан</territory>
 			<territory type="BA">Босния</territory>
 			<territory type="BB">Барбадос</territory>
@@ -659,6 +689,7 @@
 			<territory type="ZA">Южная Африка</territory>
 			<territory type="ZM">Замбия</territory>
 			<territory type="ZW">Зимбабве</territory>
+			<territory type="ZZ" draft="true">Удаленная Океания</territory>
 		</territories>
 		<keys>
 			<key type="calendar">Календарь</key>
@@ -856,6 +887,7 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="true">+HHmm;-HHmm</hourFormat>
 			<!-- Antarctica -->
 			<zone type="Antarctica/Rothera">
 				<exemplarCity draft="true">Ротера</exemplarCity>
@@ -1897,6 +1929,7 @@
 			</currency>
 			<currency type="RUB">
 				<displayName>Российский рубль</displayName>
+				<symbol draft="true">р.</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Российский рубль (1991-1998)</displayName>

@@ -31,9 +31,9 @@ For example, most country locales will inherit the bulk of their data from the l
         <correspondsTo vendor="windows"/>
         <special owner="windows" lcid="0409"/>
      </identity>
-
-     <orientation lines="top-to-bottom" characters="left-to-right" />    <!-- both attributes are required -->
-
+     <layout>
+        <orientation lines="top-to-bottom" characters="left-to-right" />    <!-- both attributes are required -->
+     </layout>
      <encodings requiredLetters="a-z&#xE5;&#xE6;&#xF8;">    <!-- optional attribute -->
         <!--
         List of encodings that are in common use in this locale.
@@ -97,61 +97,61 @@ For example, most country locales will inherit the bulk of their data from the l
         -->
         <calendar class="Gregorian" default="true">
             <monthNames>
-                <month id="1" name="jan">january</month>
-                <month id="2" name="feb">february</month>
-                <month id="3" name="mar">march</month>
-                <month id="4" name="apr">april</month>
-                <month id="5" name="may">may</month>
-                <month id="6" name="jun">june</month>
-                <month id="7" name="jul">july</month>
-                <month id="8" name="aug">august</month>
-                <month id="9" name="sep">September</month>
-                <month id="10" name="oct">October</month>
-                <month id="11" name="nov">November</month>
-                <month id="12" name="dec">December</month>
+                <month id="jan">january</month>
+                <month id="feb">february</month>
+                <month id="mar">march</month>
+                <month id="apr">april</month>
+                <month id="may">may</month>
+                <month id="jun">june</month>
+                <month id="jul">july</month>
+                <month id="aug">august</month>
+                <month id="sep">September</month>
+                <month id="oct">October</month>
+                <month id="nov">November</month>
+                <month id="dec">December</month>
             </monthNames>
             <monthAbbr>
-                <month id="1" name="jan">Jan</month>
-                <month id="2" name="feb">Feb</month>
-                <month id="3" name="mar">Mar</month>
-                <month id="4" name="apr">Apr</month>
-                <month id="5" name="may">May</month>
-                <month id="6" name="jun">Jun</month>
-                <month id="7" name="jul">Jul</month>
-                <month id="8" name="aug">Aug</month>
-                <month id="9" name="sep">Sep</month>
-                <month id="10" name="oct">Oct</month>
-                <month id="11" name="nov">Nov</month>
-                <month id="12" name="dec">Dec</month>
+                <month id="jan">Jan</month>
+                <month id="feb">Feb</month>
+                <month id="mar">Mar</month>
+                <month id="apr">Apr</month>
+                <month id="may">May</month>
+                <month id="jun">Jun</month>
+                <month id="jul">Jul</month>
+                <month id="aug">Aug</month>
+                <month id="sep">Sep</month>
+                <month id="oct">Oct</month>
+                <month id="nov">Nov</month>
+                <month id="dec">Dec</month>
             </monthAbbr>
 
             <dayNames>
-                <day id="1" name="sun">Sunday</day>
-                <day id="2" name="mon">Monday</day>
-                <day id="3" name="tue">Tuesday</day>
-                <day id="4" name="wed">Wednesday</day>
-                <day id="5" name="thu">Thursday</day>
-                <day id="6" name="fri">Friday</day>
-                <day id="7" name="sat">Saturday</day>
+                <day id="sun">Sunday</day>
+                <day id="mon">Monday</day>
+                <day id="tue">Tuesday</day>
+                <day id="wed">Wednesday</day>
+                <day id="thu">Thursday</day>
+                <day id="fri">Friday</day>
+                <day id="sat">Saturday</day>
             </dayNames>
             <dayAbbr>
-                <day id="1" name="sun">Sun</day>
-                <day id="2" name="mon">Mon</day>
-                <day id="3" name="tue">Tue</day>
-                <day id="4" name="wed">Wed</day>
-                <day id="5" name="thu">Thu</day>
-                <day id="6" name="fri">Fri</day>
-                <day id="7" name="sat">Sat</day>
+                <day id="sun">Sun</day>
+                <day id="mon">Mon</day>
+                <day id="tue">Tue</day>
+                <day id="wed">Wed</day>
+                <day id="thu">Thu</day>
+                <day id="fri">Fri</day>
+                <day id="sat">Sat</day>
             </dayAbbr>
             <week>
                 <minDays>1</minDays>
-                <firstDay id="1" name="sun"/>
+                <firstDay id="sun"/>
                 <weekendStart>
-                    <day id="6" name="fri"></day>
+                    <day id="fri"></day>
                     <time>18:00</time>
                 </weekendStart>
                 <weekendEnd>
-                    <day id="1" name="sun"></day>
+                    <day id="sun"></day>
                     <time>18:00</time>
                 </weekendEnd>
             </week>
@@ -359,6 +359,10 @@ For example, most country locales will inherit the bulk of their data from the l
         <!-- following is equivalent to <p>&#x4E9C;</p><p>&#x5516;</p><p>&#x5A03;</p>... -->
         <pc>&#x4E9C;&#x5516;&#x5A03;&#x963F;&#x54C0;&#x611B;&#x6328;&#x59F6;&#x9022;&#x8475;&#x831C;&#x7A50;&#x60AA;&#x63E1;&#x6E25;&#x65ED;&#x8466;&#x82A6;</pc>
         <pc>&#x9BF5;&#x6893;&#x5727;&#x65A1;&#x6271;</pc>
+        <special owner="OpenOffice">
+            <collator unoid="alphanumeric" default="true"/>
+            <collator unoid="phonebook" default="false"/>
+        </special>
     </collation>
 
     <boundaries>
@@ -411,7 +415,7 @@ For example, most country locales will inherit the bulk of their data from the l
         <!-- Measurement system: US/ISO 1000/Other -->
         <measurementSystem id="US"/>
     </measurement>
-    <special owner="StarOffice">
+    <special owner="OpenOffice">
         <numberingLevels>
             <!--
             the parameter NumType can have one of the following values:
@@ -446,6 +450,8 @@ For example, most country locales will inherit the bulk of their data from the l
             <aboveWord>above</aboveWord>
             <belowWord>below</belowWord>
         </reservedWords>
+        <transliterationModules>IGNORE_CASE</transliterationModules>
+        <outLineNumberingLevel></outLineNumberingLevel>
     </special>
     <special owner="POSIX">
         <!-- old abbreviations for pre-GUI days -->
@@ -577,7 +583,4 @@ For example, most country locales will inherit the bulk of their data from the l
         </iso14652:iso14652>
 
      </special>
-
-
-
 </localeData>

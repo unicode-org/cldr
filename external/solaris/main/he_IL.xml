@@ -4,8 +4,8 @@
     <identity>
         <version number="1.2">Generated from ConvertPOSIXLocale</version>
         <generation date="2005-3-3"/>
-        <language type = "es"/>
-        <territory type = "BO"/>
+        <language type = "iw"/>
+        <territory type = "IL"/>
     </identity>
     <dates>
         <calendars>
@@ -13,54 +13,54 @@
                 <months>
                     <monthContext type = "format">
                         <monthWidth type = "wide">
-                            <month type = "1">enero</month>
-                            <month type = "2">febrero</month>
-                            <month type = "3">marzo</month>
-                            <month type = "4">abril</month>
-                            <month type = "5">mayo</month>
-                            <month type = "6">junio</month>
-                            <month type = "7">julio</month>
-                            <month type = "8">agosto</month>
-                            <month type = "9">septiembre</month>
-                            <month type = "10">octubre</month>
-                            <month type = "11">noviembre</month>
-                            <month type = "12">diciembre</month>
+                            <month type = "1">ינואר</month>
+                            <month type = "2">פברואר</month>
+                            <month type = "3">מרץ</month>
+                            <month type = "4">אפריל</month>
+                            <month type = "5">מאי</month>
+                            <month type = "6">יוני</month>
+                            <month type = "7">יולי</month>
+                            <month type = "8">אוגוסט</month>
+                            <month type = "9">ספטמבר</month>
+                            <month type = "10">אוקטובר</month>
+                            <month type = "11">נובמבר</month>
+                            <month type = "12">דצמבר</month>
                         </monthWidth>
                         <monthWidth type = "abbreviated">
-                            <month type = "1">ene </month>
-                            <month type = "2">feb </month>
-                            <month type = "3">mar </month>
-                            <month type = "4">abr </month>
-                            <month type = "5">may </month>
-                            <month type = "6">jun </month>
-                            <month type = "7">jul </month>
-                            <month type = "8">ago </month>
-                            <month type = "9">sep </month>
-                            <month type = "10">oct </month>
-                            <month type = "11">nov </month>
-                            <month type = "12">dic </month>
+                            <month type = "1">ינו</month>
+                            <month type = "2">פבר</month>
+                            <month type = "3">מרץ</month>
+                            <month type = "4">אפר</month>
+                            <month type = "5">מאי</month>
+                            <month type = "6">יונ</month>
+                            <month type = "7">יול</month>
+                            <month type = "8">אוג</month>
+                            <month type = "9">ספט</month>
+                            <month type = "10">אוק</month>
+                            <month type = "11">נוב</month>
+                            <month type = "12">דצמ</month>
                         </monthWidth>
                     </monthContext>
                 </months>
                 <days>
                     <dayContext type = "format">
                         <dayWidth type = "wide">
-                            <day type = "sun">domingo</day>
-                            <day type = "mon">lunes</day>
-                            <day type = "tue">martes</day>
-                            <day type = "wed">miércoles</day>
-                            <day type = "thu">jueves</day>
-                            <day type = "fri">viernes</day>
-                            <day type = "sat">sábado</day>
+                            <day type = "sun">ראשון</day>
+                            <day type = "mon">שני</day>
+                            <day type = "tue">שלישי</day>
+                            <day type = "wed">רביעי</day>
+                            <day type = "thu">המישי</day>
+                            <day type = "fri">ששי</day>
+                            <day type = "sat">שבת</day>
                         </dayWidth>
                         <dayWidth type = "abbreviated">
-                            <day type = "sun">dom</day>
-                            <day type = "mon">lun</day>
-                            <day type = "tue">mar</day>
-                            <day type = "wed">mié</day>
-                            <day type = "thu">jue</day>
-                            <day type = "fri">vie</day>
-                            <day type = "sat">sáb</day>
+                            <day type = "sun">א'</day>
+                            <day type = "mon">ב'</day>
+                            <day type = "tue">ג'</day>
+                            <day type = "wed">ד'</day>
+                            <day type = "thu">ה'</day>
+                            <day type = "fri">ו'</day>
+                            <day type = "sat">ש'</day>
                         </dayWidth>
                     </dayContext>
                 </days>
@@ -69,12 +69,12 @@
                 <dateFormats>
                     <dateFormatLength type = "full">
                         <dateFormat>
-                            <pattern>EEEE, d 'de' MMMM 'de' yyyy, </pattern>
+                            <pattern>yyyy MMM dd EEE</pattern>
                         </dateFormat>
                     </dateFormatLength>
                     <dateFormatLength type = "long">
                         <dateFormat>
-                            <pattern>EEE dd MMM yy </pattern>
+                            <pattern>yyyy MMM dd EEE</pattern>
                         </dateFormat>
                     </dateFormatLength>
                     <dateFormatLength type = "medium">
@@ -86,12 +86,12 @@
                 <timeFormats>
                     <timeFormatLength type="full">
                         <timeFormat>
-                            <pattern>hh:mm:ss z</pattern>
+                            <pattern>z HH:mm:ss </pattern>
                         </timeFormat>
                     </timeFormatLength>
                     <timeFormatLength type="long">
                         <timeFormat>
-                            <pattern>HH:mm:ss</pattern>
+                            <pattern>z HH:mm:ss </pattern>
                         </timeFormat>
                     </timeFormatLength>
                     <timeFormatLength type="medium">
@@ -103,7 +103,7 @@
                 <dateTimeFormats>
                     <dateTimeFormatLength>
                         <dateTimeFormat>
-                            <pattern>{1} {0}</pattern>
+                            <pattern>{0} {1}</pattern>
                         </dateTimeFormat>
                     </dateTimeFormatLength>
                 </dateTimeFormats>
@@ -112,8 +112,8 @@
     </dates>
     <numbers>
         <symbols>
-            <decimal>,</decimal>
-            <group>.</group>
+            <decimal>.</decimal>
+            <group>,</group>
         </symbols>
         <decimalFormats>
             <decimalFormatLength>
@@ -125,25 +125,25 @@
         <currencyFormats>
             <currencyFormatLength>
                 <currencyFormat>
-                    <pattern>¤ #,##0.;-¤ #,##0.</pattern>
-                    <pattern type="international">¤ #,##0.;-¤ #,##0.</pattern>
+                    <pattern>¤ #,##0.00;¤ #,##0.00-</pattern>
+                    <pattern type="international">¤ #,##0.00;¤ #,##0.00-</pattern>
                 </currencyFormat>
             </currencyFormatLength>
         </currencyFormats>
         <currencies>
-            <currency type="BOP">
-                <symbol>Pts</symbol>
-                <decimal>,</decimal>
-                <group>.</group>
+            <currency type="ILS">
+                <symbol>שח</symbol>
+                <decimal>.</decimal>
+                <group>,</group>
             </currency>
         </currencies>
     </numbers>
     <posix>
         <messages>
-            <yesstr>s�</yesstr>
+            <yesstr>yes</yesstr>
             <nostr>no</nostr>
-            <yesexpr>[sSyY][[:alpha:]]*</yesexpr>
-            <noexpr>[nN][[:alpha:]]*</noexpr>
+            <yesexpr>[yYכ][[:alpha:]]*</yesexpr>
+            <noexpr>[nNל][[:alpha:]]*</noexpr>
         </messages>
     </posix>
 </ldml>

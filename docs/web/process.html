@@ -18,9 +18,10 @@
     <td colspan="2">
       <table width="100%" border="0" cellpadding="0" cellspacing="0">
         <tr>
-          <td class="icon"><a href="http://www.unicode.org/"><img border="0" src="http://www.unicode.org/webscripts/logo60s2.gif" align="middle" alt="[Unicode]" width="34" height="33"></a>&nbsp;&nbsp; 
-            <a class="bar" href="index.html"><font size="3">Common Locale Data Repository</font></a></td>
-          <td class="bar"><a href="http://www.unicode.org" class="bar">Home</a> | <a href="http://www.unicode.org/sitemap/" class="bar">Site Map</a> | <a href="http://www.unicode.org/search/" class="bar">Search</a></td>
+          <td class="icon"><a href="http://www.unicode.org/"><img border="0" src="http://www.unicode.org/webscripts/logo60s2.gif" align="middle" alt="[Unicode]" width="34"
+            height="33"></a>&nbsp;&nbsp; <a class="bar" href="index.html"><font size="3">Common Locale Data Repository</font></a></td>
+          <td class="bar"><a href="http://www.unicode.org" class="bar">Home</a> | <a href="http://www.unicode.org/sitemap/" class="bar">Site Map</a> | <a
+            href="http://www.unicode.org/search/" class="bar">Search</a></td>
         </tr>
       </table>
     </td>
@@ -47,10 +48,16 @@
           <td valign="top" class="navColCell"><a href="#data_release_process">Data Release Process</a></td>
         </tr>
         <tr>
+          <td valign="top" class="navColCell"><a href="#meetings">Meetings and Communication</a></td>
+        </tr>
+        <tr>
           <td class="navColTitle">CLDR</td>
         </tr>
         <tr>
           <td valign="top" class="navColCell"><a href="index.html">CLDR Project</a></td>
+        </tr>
+        <tr>
+          <td valign="top" class="navColCell">CLDR Technical Committee</td>
         </tr>
         <tr>
           <td valign="top" class="navColCell"><a href="repository_access.html">Repository Access</a></td>
@@ -68,16 +75,13 @@
           <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/tr35/">UTS #35: LDML</a></td>
         </tr>
         <tr>
-          <td valign="top" class="navColCell"><a href="procedures.html">LTC Procedures</a></td>
-        </tr>
-        <tr>
-          <td valign="top" class="navColCell">Join the <a href="http://www.unicode.org/consortium/consort.html">Unicode Consortium</a></td>
+          <td valign="top" class="navColCell"><a href="procedures.html">CLDR-TC Procedures</a></td>
         </tr>
         <tr>
           <td class="navColTitle">Related Links</td>
         </tr>
         <tr>
-          <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/tr35/">Locale Data Markup Language</a></td>
+          <td valign="top" class="navColCell">Join the <a href="http://www.unicode.org/consortium/consort.html">Unicode Consortium</a></td>
         </tr>
         <tr>
           <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/">Unicode Technical Reports</a></td>
@@ -108,19 +112,20 @@
         <tr>
           <td class="contents" valign="top">
             <blockquote>
-              <h1>CLDR Process</h1>
+              <h1>CLDR Technical Committee</h1>
               <h2><a name="introduction"></a>1. Introduction</h2>
-              <p>This document describes the process for CLDR Data Collection, Vetting, Public Feedback and Release. These procedures and process were based on the UTC Procedures, 
-              but are modified to provide for a much lighter-weight process for data collection and release, with a much faster turn-around. In particular, the meetings are much 
-              more often, much shorter, and more informal. Most of the work is by email or phone, with a database recording requested changes in data.</p>
+              <p>This document describes the CLDR committee, and its process for Data Collection, Vetting, Public Feedback and Release. These procedures and process were based on 
+              the Unicode Technical Committee Procedures, but are modified to provide for a much lighter-weight process for data collection and release, with a much faster 
+              turn-around. In particular, the meetings are much more often, much shorter, and more informal. Most of the work is by email or phone, with a database recording 
+              requested changes in data.</p>
               <p>When gathering data for a region and language, it is important to have multiple sources for that data to produce the most widely acceptable data. Initial versions 
               of data will be be based on the best available sources, but the expectation is that CLDR data will be modified and improved, in successive versions, by more input 
               from the contributors inside and outside of the Unicode Consortium.</p>
               <p>It is important to note that CLDR is a Repository, not a Registration. That is, contributors should not expect that their contributions will simply be adopted into 
               the repository; instead, it will be vetted against the best available information.</p>
               <p>All inputs will be open, and recorded in a bug/feature request database. Changes in response to items the database may be entered into the repository snapshot over 
-              time by the maintainers of the repository, but the final approval of the release of any version of CLDR is up to the decision of the LTC. For more information, see 
-              the <a href="procedures.html">LTC Procedures</a>.</p>
+              time by the maintainers of the repository, but the final approval of the release of any version of CLDR is up to the decision of the CLDR-TC. For more information, 
+              see the <a href="procedures.html">CLDR-TC Procedures</a>.</p>
               <h2><a name="data_vetting_process"></a>2. Data Vetting Process</h2>
               <p>Once data for a country and language has been received, the data from the different sources will be compared to show agreements and differences. Initial data 
               contributions are normally marked as &quot;draft&quot;; this will be changed once the data is vetted.</p>
@@ -128,15 +133,16 @@
               <p>a) Comparison data: The contributor can be an individual or an organization. Data from a software platform or product, is normally gathered by calling public APIs, 
               to ensure that the data matches what is actually in use. In either case, the data is only for comparison, and <i>will not be changed</i> except where necessary to 
               update the data to match the external source. The only requirement is that all changed data be versioned, and the Version Numbering Scheme be used.</p>
-              <p>b) Common Data: The contents is decided upon by the LTC, following its procedures and this process.</p>
+              <p>b) Common Data: The contents is decided upon by the CLDR-TC, following its procedures and this process.</p>
               <h3>2.1 Resolution Procedure</h3>
               <p>Data contributed to CLDR from different sources may be in conflict. For example, a contribution on abbreviated month names may show each abbreviated name ending 
               with a period and another contribution for the same abbreviated month names may not show the trailing period.</p>
               <p>Members are encouraged to use local language and country contacts, inside and outside their organization, to help vet current common data and any new proposals for 
               addition or amendment of common data. In particular, national standards organizations are encouraged to be involved in the data vetting process.</p>
-              <p>All people involved in vetting data must be familiar with the <a href="data_formats.html">Data Formats</a> and the requirements for <a href="filing_bug_reports.html">Filing 
-              Bug Reports</a>. In particular, they should compare any proposed changes against the data in the <a href="comparison_charts.html">Comparison Charts</a> and indicate 
-              which platforms the proposed changes align with, or whether they are different than all of the platforms.</p>
+              <p>All people involved in vetting data must be familiar with the <a href="data_formats.html">Data Formats</a> and the requirements for <a
+              href="filing_bug_reports.html">Filing Bug Reports</a>. In particular, they should compare any proposed changes against the data in the <a
+              href="comparison_charts.html">Comparison Charts</a> and indicate which platforms the proposed changes align with, or whether they are different than all of the 
+              platforms.</p>
               <h3>2.2 Prioritization</h3>
               <p>There may be conflicting common practices or standards for a given country and language. Thus LDML provides keyword variants to reflect the different practices. 
               For example, for German it allows the distinction between PHONEBOOK and DICTIONARY collation.</p>
@@ -147,17 +153,22 @@
               is, however, no guarantee that data will be tagged with any or all of the national standards that it follows.</p>
               <h2>3. <a name="public_feedback">Public Feedback Process</a></h2>
               <p>The public can supply formal feedback into CLDR by filing a <a href="filing_bug_reports.html">Bug Report or Feature Request (RFE)</a>. Anyone can also asked to be 
-              added to a list that will receive notification of new CLDR bugs, so they can track issues if they want. To subscribe, send a note to &quot;ecartis+unicode.org&quot; 
-              (use an <i>at sign</i> instead of the +) and put &quot;subscribe cldr-bugrfe&quot; in the subject line. To unsubscribe, put &quot;unsubscribe cldr-bugrfe&quot; in the&nbsp;subject 
-              line instead. Anyone will also be able to reply to any bug/rfe, to add comments (this latter feature is not yet functional, but will be soon).</p>
+              added to a list that will receive notification of new CLDR bugs, so they can track issues if they want. Anyone will also be able to reply to any bug/rfe, to add 
+              comments (this latter feature is not yet functional, but will be soon).</p>
+              <ul>
+                <li>To subscribe, send a note to &quot;ecartis+unicode.org&quot; (use an <i>at sign</i> instead of the +) and put &quot;subscribe cldr-bugrfe&quot; in the subject 
+                  line.</li>
+                <li>To unsubscribe, put &quot;unsubscribe cldr-bugrfe&quot; in the&nbsp;subject line instead.</li>
+              </ul>
+              <p>The email archive (in raw form) are in the <a href="http://www.unicode.org/~ecartis/cldr/">CLDR Email Archives</a>.</p>
               <p><a href="http://www.unicode.org/review/">Public Review Issues</a> may be posted in cases where broader public feedback is desired on a particular issue.</p>
               <p>The public is also free to discuss locale issues on the Unicode list <a href="mailto:(unicode@unicode.org">unicode@unicode.org</a>, which is devoted to Unicode and 
-              related globalization standards (see <a href="http://www.unicode.org/consortium/distlist.html">Mail Lists</a> to subscribe). There is an internal email list for the 
-              Unicode Locale Technical Committee (LTC), open to Unicode members and invited experts. All national standards bodies who are interested in locale data are also 
-              invited to become involved by establishing a <a href="http://www.unicode.org/consortium/join.html">Liaison membership</a> in the Unicode Consortium.</p>
-              <p>People should, however, be aware that changes and updates to CLDR will only be taken in response to complete, specific bug reports as described on <a href="filing_bug_reports.html">Filing 
-              Bug Reports</a>. Discussion on public mailing lists is not monitored; no actions will be taken in response to such discussion -- only in response to filed bugs. The 
-              process of checking and entering data takes time and effort; so even when bugs/RFEs are accepted, it may take some time before they are in a release of CLDR.</p>
+              related globalization standards (see <a href="http://www.unicode.org/consortium/distlist.html">Mail Lists</a> to subscribe).</p>
+              <p>&nbsp;</p>
+              <p>People should, however, be aware that changes and updates to CLDR will only be taken in response to complete, specific bug reports as described on <a
+              href="filing_bug_reports.html">Filing Bug Reports</a>. Discussion on public mailing lists is not monitored; no actions will be taken in response to such discussion -- 
+              only in response to filed bugs. The process of checking and entering data takes time and effort; so even when bugs/RFEs are accepted, it may take some time before 
+              they are in a release of CLDR.</p>
               <h2><a name="data_release_process"></a>4. Data Release Process</h2>
               <h3>4.1 Version Numbering Scheme</h3>
               <p>The locale data is frozen per version. Once a version is released, it is never modified. Any changes, however minor, will mean a newer version of the locale data 
@@ -169,6 +180,13 @@
               <p>CLDR 1.1, due in mid-May, will be the first under the sponsorship of the Unicode Consortium is designed to contain few changes over CLDR 1.0; the goal is to 
               complete the transfer of the project without introducing a large number of changes, so there will be limited opportunity for feedback and changes. CLDR 1.2, due in 
               mid-October, will provide more opportunity to incorporate additional data.</p>
+              <h2><a name="meetings"></a>Meetings and Communication</h2>
+              <p>The currently-scheduled meetings are listed on the <a href="http://www.unicode.org/timesens/calendar.html">Unicode Calendar</a>. Meetings are held by phone, every 
+              two weeks at 8:00 Pacific time (08:00 GMT in winter, 07:00 GMT in summer). Some meetings may be skipped if they conflict with holidays or other Unicode meetings.</p>
+              <p>There is an internal email list for the Unicode CLDR Technical Committee (CLDR-TC), open to Unicode members and invited experts. All national standards bodies who 
+              are interested in locale data are also invited to become involved by establishing a <a href="http://www.unicode.org/consortium/join.html">Liaison membership</a> in 
+              the Unicode Consortium, to gain access to this list.</p>
+              <p>Notification of the telephone numbers and passcode, and agenda, and any change in schedule are sent out on the this email list.</p>
             </blockquote>
           </td>
         </tr>
@@ -178,7 +196,8 @@
         <center>
         <table cellspacing="0" cellpadding="0" border="0">
           <tr>
-            <td><a href="http://www.unicode.org/copyright.html"><img src="http://www.unicode.org/img/hb_notice.gif" border="0" alt="Access to Copyright and terms of use" width="216" height="50"></a></td>
+            <td><a href="http://www.unicode.org/copyright.html"><img src="http://www.unicode.org/img/hb_notice.gif" border="0" alt="Access to Copyright and terms of use"
+              width="216" height="50"></a></td>
           </tr>
         </table>
 

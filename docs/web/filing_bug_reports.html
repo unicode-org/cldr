@@ -1,348 +1,186 @@
 <!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html>
 
-
-
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
 <meta http-equiv="Content-Language" content="en-us">
-
 <meta name="VI60_defaultClientScript" content="JavaScript">
-
-<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
-
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
 <meta name="keywords" content="Unicode, common locale data repository">
-
 <meta name="ProgId" content="FrontPage.Editor.Document">
-
 <title>Common Locale Data Repository - Filing CLDR Bug Reports</title>
-
 <link rel="stylesheet" type="text/css" href="http://www.unicode.org/webscripts/standard_styles.css">
-
 </head>
-
-
 
 <body text="#330000">
 
-
-
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
-
   <tr>
-
     <td colspan="2">
-
       <table width="100%" border="0" cellpadding="0" cellspacing="0">
-
         <tr>
-
-          <td class="icon"><a href="http://www.unicode.org/"><img border="0" src="http://www.unicode.org/webscripts/logo60s2.gif" align="middle" alt="[Unicode]" width="34" height="33"></a>&nbsp;&nbsp; 
-
-            <a class="bar" href="index.html"><font size="3">Common Locale Data Repository</font></a></td>
-
-          <td class="bar"><a href="http://www.unicode.org" class="bar">Home</a> | <a href="http://www.unicode.org/sitemap/" class="bar">Site Map</a> | <a href="http://www.unicode.org/search/" class="bar">Search</a></td>
-
+          <td class="icon"><a href="http://www.unicode.org/"><img border="0" src="http://www.unicode.org/webscripts/logo60s2.gif" align="middle" alt="[Unicode]" width="34"
+            height="33"></a>&nbsp;&nbsp; <a class="bar" href="index.html"><font size="3">Common Locale Data Repository</font></a></td>
+          <td class="bar"><a href="http://www.unicode.org" class="bar">Home</a> | <a href="http://www.unicode.org/sitemap/" class="bar">Site Map</a> | <a
+            href="http://www.unicode.org/search/" class="bar">Search</a></td>
         </tr>
-
       </table>
-
     </td>
-
   </tr>
-
   <tr>
-
     <td colspan="2" class="gray">&nbsp;</td>
-
   </tr>
-
   <tr>
-
     <td valign="top" width="25%" class="navCol">
-
       <table class="navColTable" border="0" width="100%" cellspacing="4" cellpadding="0">
-
         <tr>
-
           <td class="navColTitle">CLDR</td>
-
         </tr>
-
         <tr>
-
           <td valign="top" class="navColCell"><a href="index.html">CLDR Project</a></td>
-
         </tr>
-
         <tr>
-
+          <td valign="top" class="navColCell"><a href="process.html">CLDR Technical Committee</a></td>
+        </tr>
+        <tr>
           <td valign="top" class="navColCell"><a href="repository_access.html">Repository Access</a></td>
-
         </tr>
-
         <tr>
-
           <td valign="top" class="navColCell"><a href="data_formats.html">Data Formats</a></td>
-
         </tr>
-
         <tr>
-
           <td valign="top" class="navColCell"><a href="comparison_charts.html">Comparison Charts</a></td>
-
         </tr>
-
         <tr>
-
+          <td valign="top" class="navColCell">Filing Bug Reports</td>
+        </tr>
+        <tr>
           <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/tr35/">UTS #35: LDML</a></td>
-
         </tr>
-
         <tr>
-
-          <td valign="top" class="navColCell"><a href="procedures.html">LTC Procedures</a></td>
-
+          <td valign="top" class="navColCell"><a href="procedures.html">CLDR-TC Procedures</a></td>
         </tr>
-
         <tr>
-
-          <td valign="top" class="navColCell">Join the <a href="http://www.unicode.org/consortium/consort.html">
-          Unicode Consortium</a></td>
-
-        </tr>
-
-        <tr>
-
           <td class="navColTitle">Related Links</td>
-
         </tr>
-
         <tr>
-
-          <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/tr35/">Locale Data Markup Language</a></td>
-
+          <td valign="top" class="navColCell">Join the <a href="http://www.unicode.org/consortium/consort.html">Unicode Consortium</a></td>
         </tr>
-
         <tr>
-
           <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/">Unicode Technical Reports</a></td>
-
         </tr>
-
         <tr>
-
           <td valign="top" class="navColCell"><a href="http://www.unicode.org/faq/reports_process.html">Technical Reports Development and Maintenance Process</a></td>
-
         </tr>
-
         <tr>
-
           <td valign="top" class="navColCell"><a href="http://www.unicode.org/consortium/utc.html">Unicode Technical Committee</a></td>
-
         </tr>
-
         <tr>
-
           <td valign="top" class="navColCell"><a href="http://www.unicode.org/versions/">Versions of the Unicode Standard</a></td>
-
         </tr>
-
         <tr>
-
           <td class="navColTitle">Other Publications</td>
-
         </tr>
-
         <tr>
-
           <td valign="top" class="navColCell"><a href="http://www.unicode.org/standard/standard.html">The Unicode Standard</a></td>
-
         </tr>
-
         <tr>
-
           <td valign="top" class="navColCell"><a href="http://www.unicode.org/notes/">Unicode Technical Notes</a></td>
-
         </tr>
-
       </table>
 
 
 
         <!-- BEGIN CONTENTS --></td>
-
     <td>
-
       <table>
-
         <tr>
-
           <td class="contents" valign="top">
-
             <blockquote>
-
               <h1>Filing CLDR Bug Reports</h1>
-
               <p>Locale data bugs and feature requests are filed at <a href="http://www.jtcsv.com/cgibin/locale-bugs">Locale Bugs</a>.</p>
-
-              <p>However, before filing a bug report:</p>
-
+              <blockquote>
+                <p><font size="2">The CLDR bug database is currently being hosted by IBM as a service to the Unicode Consortium until it can be moved to the Unicode site. The 
+                Unicode Consortium thanks IBM for this support.</font></p>
+              </blockquote>
+              <p><i>Before filing a bug report:</i></p>
               <ol>
-
                 <li>Review the <a href="data_formats.html">Data Formats</a>, so that you are familiar with the format of the data in question.
-
                   <ul>
-
                     <li>Even for items as simple as the months of the year, there are issues of grammatical form that you should be acquainted with.</li>
-
                   </ul>
-
                 </li>
-
                 <li>Consult the appropriate <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/comparison_charts.html">comparison chart</a>.
-
                   <ul>
-
                     <li>The purpose is to compare the data against that from other platforms.</li>
-
                   </ul>
-
                 </li>
-
                 <li><i>Do not file bugs against platform data.</i>
-
                   <ul>
-
                     <li>That data simply represents what was gathered on the platform, and is not under the control of this project.</li>
-
                     <li>However, you can file bugs on the <i>tools,</i> if it appears that the platform data is not being correctly gathered in XML or displayed as HTML in the 
-
                       comparison charts.</li>
-
                   </ul>
-
                 </li>
-
                 <li>If you have any questions, you can sign up to the CLDR mailing list, at <a href="http://www.unicode.org/consortium/distlist.html">Mailing List</a>.</li>
-
               </ol>
-
               <p>In the bug report, include the following information:</p>
-
               <ul>
-
                 <li>The specific locale.</li>
-
                 <li>The date the comparison chart was generated (at the bottom of the chart).</li>
-
                 <li>The line(s) of data that are incorrect.</li>
-
                 <li>The justification for the change: mention a standard or other sources if there are any.</li>
-
                 <li>If one of the other data sources is correct, then that data source, otherwise the corrected data to use.</li>
-
                 <li>Wherever possible, include sample test data. <a href="#Collation_Bugs">This is especially important for collation (sorting) rules</a>!</li>
-
               </ul>
-
               <p>Please group all bugs for a single locale into a single bug report, wherever possible.</p>
-
               <p>Bugs may also be filed on the <a href="http://oss.software.ibm.com/cvs/icu/locale/common/xml/supplementalData.xml">supplemental data</a>, which is only available 
-
               in XML format. Note that the default currency for a given country is in the supplemental data, not in the locale data. Similarly, the timezones for different regions 
-
               are to be derived from <a href="olson_ids.txt">Olson data</a>, and are not in the locale data. The <i>localized names</i> for currencies and timezones, on the other 
-
               hand, will be in the locale data (if available).</p>
-
               <p>We have tried to make the format of the comparison charts as useful as possible. If you have suggestions for improvements, please also file it as a bug report.</p>
-
               <h2><a name="Collation_Bugs">Collation Bugs</a></h2>
-
               <p>Please supply some short test cases that illustrate the correct sorting behavior as a list of lines in sorted order. Try to include cases that show the boundary 
-
               behavior by including high suffixes, such as the following:</p>
-
               <ul>
-
                 <li><i>Rules:</i>
-
                   <ul>
-
                     <li><i>&amp; c &lt; cs</i></li>
-
                     <li>&amp; cs &lt;&lt;&lt; ccs / cs</li>
-
                   </ul>
-
                 </li>
-
                 <li><i>Test Data:</i>
-
                   <ul>
-
                     <li><i>c<br>
-
                       cy<br>
-
                       cs<br>
-
                       cscs<br>
-
                       ccs<br>
-
                       cscsy<br>
-
                       ccsy<br>
-
                       csy<br>
-
                       d</i></li>
-
                   </ul>
-
                 </li>
-
               </ul>
-
               <p>Test out any suggested rules before filing a bug, using Locale Explorer:</p>
-
               <ol>
-
                 <li>Go to <a href="http://oss.software.ibm.com/cgi-bin/icu/lx/en/utf-8/?_=root&amp;EXPLORE_CollationElements=">LocaleExplorer</a></li>
-
                 <li>Pick the appropriate locale</li>
-
                 <li>Follow the instructions at the bottom to use your suggested rules on your suggested test data.</li>
-
                 <li>Verify that the proper order results.</li>
-
               </ol>
-
             </blockquote>
-
           </td>
-
         </tr>
-
       </table>
-
       <hr width="50%">
-
       <div align="center">
-
         <center>
-
         <table cellspacing="0" cellpadding="0" border="0">
-
           <tr>
-
-            <td><a href="http://www.unicode.org/copyright.html"><img src="http://www.unicode.org/img/hb_notice.gif" border="0" alt="Access to Copyright and terms of use" width="216" height="50"></a></td>
-
+            <td><a href="http://www.unicode.org/copyright.html"><img src="http://www.unicode.org/img/hb_notice.gif" border="0" alt="Access to Copyright and terms of use"
+              width="216" height="50"></a></td>
           </tr>
-
         </table>
 
 
@@ -356,19 +194,11 @@
 
 
         </center>
-
       </div>
-
     </td>
-
   </tr>
-
 </table>
 
-
-
 </body>
-
-
 
 </html>

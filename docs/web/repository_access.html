@@ -36,7 +36,10 @@
           <td class="navColTitle">Contents</td>
         </tr>
         <tr>
-          <td valign="top" class="navColCell"><a href="#WebCVS">WebCVS</a></td>
+          <td valign="top" class="navColCell"><a href="#latest_version">Latest Version</a></td>
+        </tr>
+        <tr>
+          <td valign="top" class="navColCell"><a href="#CVS">CVS</a></td>
         </tr>
         <tr>
           <td valign="top" class="navColCell"><a href="#WinCVS">WinCVS</a></td>
@@ -54,6 +57,12 @@
           <td valign="top" class="navColCell"><a href="index.html">CLDR Project</a></td>
         </tr>
         <tr>
+          <td valign="top" class="navColCell"><a href="process.html">CLDR Technical Committee</a></td>
+        </tr>
+        <tr>
+          <td valign="top" class="navColCell">Repository Access</td>
+        </tr>
+        <tr>
           <td valign="top" class="navColCell"><a href="data_formats.html">Data Formats</a></td>
         </tr>
         <tr>
@@ -66,16 +75,13 @@
           <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/tr35/">UTS #35: LDML</a></td>
         </tr>
         <tr>
-          <td valign="top" class="navColCell"><a href="procedures.html">LTC Procedures</a></td>
-        </tr>
-        <tr>
-          <td valign="top" class="navColCell">Join the <a href="http://www.unicode.org/consortium/consort.html">Unicode Consortium</a></td>
+          <td valign="top" class="navColCell"><a href="procedures.html">CLDR-TC Procedures</a></td>
         </tr>
         <tr>
           <td class="navColTitle">Related Links</td>
         </tr>
         <tr>
-          <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/tr35/">Locale Data Markup Language</a></td>
+          <td valign="top" class="navColCell">Join the <a href="http://www.unicode.org/consortium/consort.html">Unicode Consortium</a></td>
         </tr>
         <tr>
           <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/">Unicode Technical Reports</a></td>
@@ -107,6 +113,7 @@
           <td class="contents" valign="top">
             <blockquote>
               <h1>Repository Access</h1>
+              <h2><a name="latest_version"></a>Latest Version</h2>
               <p>The latest version of CLDR is Version 1.1. This release contains roughly 50% more data than CLDR 1.0: adding many translated terms for languages, scripts, 
               countries, currencies, and timezones. It also improves collation for a number of languages in Eastern Europe, and adds stand-alone month data for Slavic languages and 
               Greek, and narrow month/day names for quite a number of languages. Among other things, the LDML 1.1 adds new formats for narrow and stand-alone month and day names&nbsp; 
@@ -119,9 +126,18 @@
               <p>This is a stable release and may be used as reference material or cited as a normative reference by other specifications. Although the data will not be changed, 
               bug reports for changes in future versions filed at <a href="filing_bug_reports.html">Bug Reports</a>. The next version, CLDR 1.2, is planned for mid-October, but any 
               reports must be filed well ahead of time for consideration.</p>
-              <p>The release data contains only the common data. Access to the latest working snapshot of CLDR, and access to data collected for other platforms is available 
-              through CVS, as described below. (This data is currently being hosted on the ICU site.)</p>
-              <h2><a name="WebCVS">WebCVS</a></h2>
+              <h2><a name="CVS">CVS</a></h2>
+              <p class="first">The release data contains only the common data. Access to the latest working snapshot of CLDR, and access to data collected for other platforms is 
+              available through CVS, as described below.</p>
+              <blockquote>
+                <p>The CLDR bug database is currently being hosted by IBM as a service to the Unicode Consortium until it can be moved to the Unicode site. The Unicode Consortium 
+                thanks IBM for this support.</p>
+              </blockquote>
+              <p class="first">The CVS tags for the available releases are:</p>
+              <ul>
+                <li>1.1 release: &quot;<code>release-1-1</code>&quot;.</li>
+                <li>1.0 release: &quot;<code>release-1-0</code>&quot;.</li>
+              </ul>
               <p class="first">If you want to browse the code and only make occasional downloads, you may want to use <a
               href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/">WebCVS</a>. It provides a convenient, web-based interface for browsing and downloading the latest 
               version of the files highlighting the differences and sources of the locale data.</p>
@@ -156,10 +172,6 @@
               checkout. For example:</p>
               <pre>cvs checkout -P -r release-1-2-3 locale</pre>
               <p>You should then have a working repository.</p>
-              <ul>
-                <li><b>The CVS tag for the 1.1 release is &quot;<code>release-1-1</code>&quot;.</b></li>
-                <li><b>The CVS tag for the 1.0 release is &quot;<code>release-1-0</code>&quot;.</b></li>
-              </ul>
               <h2><a name="Repository_Organization">Repository Organization</a></h2>
               <p>In the descriptions below, <strong><i>&lt;</i></strong><b><i>locale_data</i></b><strong><i> &gt;</i></strong> is the full path name of the locale data root 
               directory (the top level directory from the distribution archives) in your file system. The directories are named to reflect the source platform from which they are 
@@ -167,28 +179,42 @@
               <p>The following directories contain source code and data files:</p>
               <table>
                 <tr>
-                  <td><b>&lt;path&gt;/locale/</b></td>
+                  <td colspan="3">&lt;path&gt;/locale</td>
                   <td>The repository containing locale data from different platforms.</td>
                 </tr>
                 <tr>
-                  <td><b>&lt;path&gt;/locale/</b>&lt;platform_name&gt;</td>
-                  <td>Contains locale data collected from the specific platform denoted by the &lt;platform_name&gt;</td>
+                  <td width="30">&nbsp;&nbsp; </td>
+                  <td colspan="2">/&lt;platform_name&gt;</td>
+                  <td>Contains locale data collected from the specific platform denoted by the &lt;platform_name&gt;. &quot;Common&quot; is the common data.</td>
                 </tr>
                 <tr>
-                  <td><b>&lt;path&gt;/locale/</b>&lt;platform_name&gt;/main</td>
+                  <td></td>
+                  <td width="30"></td>
+                  <td>/main</td>
                   <td>The locale data in XML format, e.g.: locale/icu/main/en.xml, locale/icu/main/fr_FR.xml.</td>
                 </tr>
                 <tr>
-                  <td><b>&lt;path&gt;/locale/</b>&lt;platform_name&gt;/collation</td>
+                  <td></td>
+                  <td></td>
+                  <td>/collation</td>
                   <td>The collation data in XML format, e.g.: locale/icu/collaiton/en.xml, locale/icu/collation/fr_FR.xml.</td>
                 </tr>
                 <tr>
-                  <td><b>&lt;path&gt;/locale/diff/main</b></td>
-                  <td>Contains the comparison charts for main data in the locales. The charts show the differences in tabular format</td>
+                  <td></td>
+                  <td colspan="2">/diff</td>
+                  <td>Contains comparison charts. The charts show data for different locales across platforms in tabular format/</td>
                 </tr>
                 <tr>
-                  <td><b>&lt;path&gt;/locale/diff/collation</b></td>
-                  <td>Contains the comparison charts for collation data in the locales.</td>
+                  <td></td>
+                  <td></td>
+                  <td>/main</td>
+                  <td>Contains the comparison charts for main data </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>/collation</td>
+                  <td>Contains the comparison charts for collation data</td>
                 </tr>
               </table>
               <p align="left">The XML source data is organized in the following directories. The xml files can be divided into main/ and collation/.</p>

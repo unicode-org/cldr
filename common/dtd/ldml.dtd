@@ -161,7 +161,7 @@
 <!ATTLIST characters draft ( true | false ) #IMPLIED >
 
 <!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
-<!ATTLIST exemplarCharacters type NMTOKEN #IMPLIED >
+<!ATTLIST exemplarCharacters type ( auxillary ) #IMPLIED >
 <!ATTLIST exemplarCharacters draft ( true | false ) #IMPLIED >
 <!ATTLIST exemplarCharacters standard CDATA #IMPLIED >
 <!ATTLIST exemplarCharacters references CDATA #IMPLIED >
@@ -486,11 +486,23 @@
 <!ATTLIST dateTimeFormat alt CDATA #IMPLIED >
 <!ATTLIST dateTimeFormat validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT timeZoneNames (alias | (default?, zone*, special*)) >
+<!ELEMENT timeZoneNames (alias | (hourFormat?, hoursFormat?, gmtFormat?, regionFormat?, fallbackFormat?, abbreviationFallback?, preferenceOrdering?, default?, zone*, special*)) >
 <!ATTLIST timeZoneNames draft ( true | false ) #IMPLIED >
 <!ATTLIST timeZoneNames validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT zone (alias | ( long*, short*, exemplarCity*, abbreviationFallback?,special*)) >
+<!ELEMENT hourFormat ( #PCDATA ) >
+<!ELEMENT hoursFormat ( #PCDATA ) >
+<!ELEMENT gmtFormat ( #PCDATA ) >
+<!ELEMENT regionFormat ( #PCDATA ) >
+<!ELEMENT fallbackFormat ( #PCDATA ) >
+
+<!ELEMENT abbreviationFallback (special) >
+<!ATTLIST abbreviationFallback type NMTOKEN #REQUIRED >
+
+<!ELEMENT preferenceOrdering (special) >
+<!ATTLIST preferenceOrdering type NMTOKEN #REQUIRED >
+
+<!ELEMENT zone (alias | ( long*, short*, exemplarCity*, special*)) >
 <!ATTLIST zone type CDATA #REQUIRED >
 <!ATTLIST zone draft ( true | false ) #IMPLIED >
 <!ATTLIST zone standard CDATA #IMPLIED >
@@ -529,9 +541,6 @@
 <!ATTLIST exemplarCity draft ( true | false ) #IMPLIED >
 <!ATTLIST exemplarCity references CDATA #IMPLIED >
 <!ATTLIST exemplarCity alt CDATA #IMPLIED >
-
-<!ELEMENT abbreviationFallbackType (special) >
-<!ATTLIST abbreviation type NMTOKEN #REQUIRED >
 
 <!ELEMENT fields ( alias | (field*, special*)) >
 <!ATTLIST fields draft ( true | false ) #IMPLIED >

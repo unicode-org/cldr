@@ -265,17 +265,28 @@
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
 							<month type="1">jan</month>
+							<month type="1" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" alt="proposed" draft="true">jan.</month>
 							<month type="2">feb</month>
+							<month type="2" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" alt="proposed" draft="true">feb.</month>
 							<month type="3">mar</month>
+							<month type="3" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" alt="proposed" draft="true">mars</month>
 							<month type="4">apr</month>
-							<month type="5">mai</month>
+							<month type="4" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" alt="proposed" draft="true">april</month>
+							<month type="5" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)">mai</month>
 							<month type="6">jun</month>
+							<month type="6" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" alt="proposed" draft="true">juni</month>
 							<month type="7">jul</month>
+							<month type="7" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" alt="proposed" draft="true">juli</month>
 							<month type="8">aug</month>
+							<month type="8" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" alt="proposed" draft="true">aug.</month>
 							<month type="9">sep</month>
+							<month type="9" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" alt="proposed" draft="true">sep.</month>
 							<month type="10">okt</month>
+							<month type="10" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" alt="proposed" draft="true">okt.</month>
 							<month type="11">nov</month>
+							<month type="11" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" alt="proposed" draft="true">nov.</month>
 							<month type="12">des</month>
+							<month type="12" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" alt="proposed" draft="true">des.</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januar</month>
@@ -297,12 +308,19 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">su</day>
+							<day type="sun" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" draft="true" alt="proposed">su.</day>
 							<day type="mon">må</day>
+							<day type="mon" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" draft="true" alt="proposed">må.</day>
 							<day type="tue">ty</day>
+							<day type="tue" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" draft="true" alt="proposed">ty.</day>
 							<day type="wed">on</day>
+							<day type="wed" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" draft="true" alt="proposed">on.</day>
 							<day type="thu">to</day>
+							<day type="thu" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" draft="true" alt="proposed">to.</day>
 							<day type="fri">fr</day>
+							<day type="fri" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" draft="true" alt="proposed">fr.</day>
 							<day type="sat">la</day>
+							<day type="sat" references="Vinje, Finn-Erik, Skriveregler (1994) (ISBN: 82-03-32936-5)" draft="true" alt="proposed">la.</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">sundag</day>
@@ -319,6 +337,8 @@
 					<minDays count="4"/>
 					<firstDay day="mon"/>
 				</week>
+				<am draft="true">a.m.</am>
+				<pm draft="true">p.m.</pm>
 				<eras>
 					<eraAbbr>
 						<era type="0">f.Kr.</era>
@@ -381,6 +401,9 @@
 			<currency type="NOK">
 				<displayName>NOK</displayName>
 				<symbol>kr</symbol>
+			</currency>
+			<currency type="NOK" draft="true" alt="proposed">
+				<displayName>Norske kroner</displayName>
 			</currency>
 		</currencies>
 	</numbers>

@@ -90,8 +90,8 @@ span.attributeValue { font-weight: color: blue}
   <h3><i>Status</i></h3>
   <p class="changed"><i>This is a<b><font color="#ff3333"> draft </font></b>document which may be 
   updated, replaced, or superseded by other documents at any time. Publication does not imply 
-  endorsement by the Unicode Consortium.&nbsp; This is not a stable document; it is inappropriate to cite 
-  this document as other than a work in progress.</i></p>
+  endorsement by the Unicode Consortium.&nbsp; This is not a stable document; it is inappropriate to 
+  cite this document as other than a work in progress.</i></p>
   <blockquote>
     <p><span><i><b>A Unicode Technical Standard (UTS)</b> is an independent specification. 
     Conformance to the Unicode Standard does not imply conformance to any UTS.</i> <i>Each UTS 
@@ -3026,10 +3026,11 @@ America/Kentucky/Monticello&quot;&gt;
     <tr>
       <th>era</th>
       <td style="text-align: center">G</td>
-      <td style="text-align: center">1<span class="changedspan">..3</span></td>
+      <td style="text-align: center">1<span class="changedspan">..5</span></td>
       <td>AD</td>
       <td><span>Era - Replaced with the Era string for the current date.<span class="changedspan"> 
-      Use 1 for narrow, 2 for abbreviated, 3 for full. Issue: this may cause compatibility issues.</span></span></td>
+      Use 1..3 letters for abbreviated, 4 for full (</span></span><span class="changedspan">&quot;Anno 
+      Domini&quot;), 5 for narrow.</span></td>
     </tr>
     <tr>
       <th rowspan="3">year</th>
@@ -3053,6 +3054,14 @@ America/Kentucky/Monticello&quot;&gt;
       encompassing all supra-year fields. For example, for the Julian calendar system, year numbers 
       are positive, with an era of BCE or CE. An extended year value for the Julian calendar system 
       assigns positive values to CE years and negative values to BCE years, with 1 BCE being year 0.</td>
+    </tr>
+    <tr>
+      <th><span class="changedspan">quarter</span></th>
+      <td style="text-align: center"><span class="changedspan">Q</span></td>
+      <td style="text-align: center"><span class="changedspan">1..4</span></td>
+      <td><span class="changedspan">Q1</span></td>
+      <td><span class="changedspan">Quarter of a year. Use 1..2 letters for numeric (&quot;1&quot;, &quot;01&quot;), 3 
+      for abbreviated (&quot;Q1&quot;), 4 for long (&quot;2nd Quarter&quot;)</span></td>
     </tr>
     <tr>
       <th rowspan="4">month</th>
@@ -5129,8 +5138,8 @@ decimal?, group?, special*)) &gt;</span></pre>
     <li><span class="changedspan">There are no blank lines except within comments or content.</span></li>
     <li><span class="changedspan">Spaces are used within a start element. There are no extra spaces 
     within elements.</span><ul>
-      <li><span class="changedspan"><code>&lt;version number=&quot;1.2&quot;/&gt;</code>, not <code>&lt;version&nbsp; number 
-      = &quot;1.2&quot; /&gt;</code></span></li>
+      <li><span class="changedspan"><code>&lt;version number=&quot;1.2&quot;/&gt;</code>, not <code>&lt;version&nbsp; 
+      number = &quot;1.2&quot; /&gt;</code></span></li>
       <li><span class="changedspan"><code>&lt;/identity&gt;</code>, not <code>&lt;/identity &gt;</code></span></li>
     </ul>
     </li>

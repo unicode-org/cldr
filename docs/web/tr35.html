@@ -87,6 +87,8 @@ span.attributeValue { font-weight: color: blue}
   <h3><i>Summary</i></h3>
   <p>This document describes an XML format (<i>vocabulary</i>) for the exchange of structured locale 
   data.</p>
+  <p><i><span class="changedspan">Note that not all of the changes in this version are in the dtd 
+  yet.</span></i></p>
   <h3><i>Status</i></h3>
   <p class="changed"><i>This is a<b><font color="#ff3333"> draft </font></b>document which may be 
   updated, replaced, or superseded by other documents at any time. Publication does not imply 
@@ -933,6 +935,15 @@ root</pre>
   bidirectional text; it does, however, supply the paragraph direction for that text (for more 
   information, see <a href="http://unicode.org/reports/tr9/">UAX #9:&nbsp;The Bidirectional Algorithm</a> 
   [<a href="#BIDI">BIDI</a>]).</p>
+  <p><span class="changedspan">&lt;inList&gt;</span></p>
+  <p><span class="changedspan">The following element controls whether display names (language, 
+  territory, etc) are titlecased in GUI menu lists and the like. It is only used in languages where 
+  the normal display is lowercase, but titlecase is used in lists.</span></p>
+  <pre><span class="changedspan">&lt;inList casing=&quot;titlecase-words&quot;&gt;</span></pre>
+  <p><span class="changedspan">It can be fine-tuned by using alt=&quot;list&quot; on any element where 
+  titlecasing as defined by the Unicode Standard will produce the wrong value. For example, suppose 
+  that &quot;turc de Crimée&quot; is a value, and the titlecase should be &quot;Turc de Crimée&quot;. Then that can be 
+  expressed using the alt=&quot;list&quot; value.</span></p>
   <h3>5.6 <a name="&lt;characters&gt;">&lt;characters&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT characters (alias | (exemplarCharacters*, mapping*, special*)) &gt;</span></p>
   <p><span>The &lt;characters&gt; <span>element provides optional information about characters that are in 

@@ -2800,6 +2800,21 @@ America/Kentucky/Monticello&quot;&gt;
 			&lt;mapZone other=&quot;Samoa&quot; type=&quot;Pacific/Midway&quot;&gt;
 			&lt;mapZone other=&quot;Hawaiian&quot; type=&quot;Pacific/Honolulu&quot;&gt;</span></pre>
   <pre><span class="changedspan">...</span></pre>
+  <p><span class="changedspan">&lt;alias&gt;</span></p>
+  <p><span class="changedspan">This element provides information as to parts of locale IDs that 
+  should be substituted when accessing CLDR data. This logical substitution should be done to both 
+  the locale id, and to any lookup for display names of languages, territories, etc. As with the 
+  display names, the language type and replacement may be any prefix of a valid locale id, such as 
+  &quot;no-NO&quot;.</span></p>
+  <pre><span class="changedspan">&lt;alias&gt;
+  &lt;language type=&quot;in&quot; replacement=&quot;id&quot;&gt;
+  &lt;language type=&quot;sh&quot; replacement=&quot;sr&quot;&gt;
+  &lt;language type=&quot;sh_YU&quot; replacement=&quot;sr_Latn_YU&quot;&gt;
+...
+  &lt;territory type=&quot;BU&quot; replacement=&quot;MM&quot;&gt;
+...
+&lt;/alias&gt;</span></pre>
+  <pre>&nbsp;</pre>
   <h2>Appendix D: <a name="Language_and_Locale_IDs">Language and Locale IDs</a></h2>
   <p>People have very slippery notions of what distinguishes a language code vs. a locale code. The 
   problem is that both are somewhat nebulous concepts.</p>

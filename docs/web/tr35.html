@@ -23,12 +23,12 @@
   </tr>
 </table>
 <div class="body">
-  <h2 align="center"><font color="#FF0000">DRAFT</font> Unicode Technical Standard #35</h2>
+  <h2 align="center">Unicode Technical Standard #35</h2>
   <h1 align="right">Locale Data Markup Language (LDML)</h1>
-  <table border="1" cellpadding="2" width="95%" style="border-collapse: collapse; border-width: 1" cellspacing="0">
+  <table border="1" cellpadding="2" style="border-collapse: collapse; border-width: 1" cellspacing="0">
     <tr>
       <td>Version</td>
-      <td>1<span class="changed">.1 (draft</span><span class="changed2">3</span><span class="changed">)</span></td>
+      <td>1<span>.1</span></td>
     </tr>
     <tr>
       <td>Authors</td>
@@ -36,73 +36,70 @@
     </tr>
     <tr>
       <td>Date</td>
-      <td><span class="changed2">2004-05-28</span></td>
+      <td><span>2004-06-07</span></td>
     </tr>
     <tr>
       <td>This Version</td>
-      <td><a href="http://www.unicode.org/reports/tr35/tr35-2.html"><span class="changed2">http://www.unicode.org/reports/tr35/tr135-2.html</span></a></td>
+      <td><a href="http://www.unicode.org/reports/tr35/tr35-2.html"><span>http://www.unicode.org/reports/tr35/tr135-2.html</span></a></td>
     </tr>
     <tr>
       <td>Previous Version</td>
       <td>
-        <p class="changed2">(see <a href="#Previous_Version">below</a>)</p>
+        <p>(see <a href="#Previous_Version">below</a>)</p>
       </td>
     </tr>
     <tr>
       <td>Latest Version</td>
       <td>
-        <p class="changed"><a href="http://www.unicode.org/reports/tr35/">http://www.unicode.org/reports/tr35/</a></p>
+        <p><a href="http://www.unicode.org/reports/tr35/">http://www.unicode.org/reports/tr35/</a></p>
       </td>
     </tr>
     <tr>
       <td><i>Namespace:</i></td>
-      <td class="changed2"><a href="http://www.unicode.org/cldr/">http://www.unicode.org/cldr/</a></td>
+      <td><a href="http://www.unicode.org/cldr/">http://www.unicode.org/cldr/</a></td>
     </tr>
     <tr>
       <td><i>DTDs:</i></td>
-      <td class="changed2"><a href="http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">http://www.unicode.org/cldr/dtd/1.1/ldml.dtd</a><br>
+      <td><a href="http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">http://www.unicode.org/cldr/dtd/1.1/ldml.dtd</a><br>
         <a href="http://www.unicode.org/cldr/dtd/1.1/ldmlSupplemental.dtd">http://www.unicode.org/cldr/dtd/1.1/ldmlSupplemental.dtd</a></td>
     </tr>
     <tr>
       <td>Tracking Number</td>
       <td><a href="#TrackingNumber2">2</a></td>
   </table>
-  <table border="1" cellpadding="2" width="95%" style="border-collapse: collapse; border-width: 1" cellspacing="0">
-  </table>
   <br>
   <h3><i>Summary</i></h3>
   <p>This document describes an XML format (<i>vocabulary</i>) for the exchange of structured locale data.</p>
   <h3><i>Status</i></h3>
-  <p><i><span class="changed">This document is a proposed draft Unicode Technical Standard. Publication does not imply endorsement by the Unicode Consortium. This is a draft 
-  document which may be updated, replaced, or superseded by other documents at any time. This is not a stable document; it is inappropriate to cite this document as other than a 
-  work in progress.</span></i></p>
+  <p><i>This document has been reviewed by Unicode members and other interested parties, and has been approved by the Unicode Locale Data Technical Committee as a Unicode Technical 
+  Standard. This is a stable document and may be used as reference material or cited as a normative reference by other specifications.</i></p>
   <blockquote>
-    <p><span class="changed"><i><b>A Unicode Technical Standard (UTS)</b> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any 
-    UTS.</i> <i>Each UTS specifies a base version of the Unicode Standard. Conformance to the UTS requires conformance to that version or higher.</i></span></p>
+    <p><span><i><b>A Unicode Technical Standard (UTS)</b> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</i> <i>Each 
+    UTS specifies a base version of the Unicode Standard. Conformance to the UTS requires conformance to that version or higher.</i></span></p>
   </blockquote>
-  <p><i><span class="changed">Please submit corrigenda and other comments with the online reporting form [<a href="#Feedback">Feedback</a>]. Related information that is useful in 
-  understanding this document is found in the <a href="#References">References</a>. For the latest version of the Unicode Standard see [<a href="#Unicode">Unicode</a>]. For a list 
-  of current Unicode Technical Reports see [<a href="#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="#Versions">Versions</a>]. 
-  For possible errata for this document, see [<a href="http://www.unicode.org/errata/">Errata</a>].</span></i></p>
-  <h3><i><span class="changed"><a name="Previous_Version">Previous Version</a></span></i></h3>
-  <p><i><span class="changed">The 1.0 version of this document was hosted on the OpenI18N site:</span></i></p>
+  <p><i><span>Please submit corrigenda and other comments with the online reporting form [<a href="#Feedback">Feedback</a>]. Related information that is useful in understanding 
+  this document is found in the <a href="#References">References</a>. For the latest version of the Unicode Standard see [<a href="#Unicode">Unicode</a>]. For a list of current 
+  Unicode Technical Reports see [<a href="#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="#Versions">Versions</a>]. For possible 
+  errata for this document, see [<a href="http://www.unicode.org/errata/">Errata</a>].</span></i></p>
+  <h3><i><span><a name="Previous_Version">Previous Version</a></span></i></h3>
+  <p><i><span>The 1.0 version of this document was hosted on the OpenI18N site:</span></i></p>
   <table border="1" cellpadding="2" width="95%" style="border-collapse: collapse; border-width: 1" cellspacing="0">
     <tr>
-      <td><i><span class="changed">1.0 Version:</span></i></td>
-      <td><a href="http://www.openi18n.org/spec/ldml/1.0/ldml-spec.htm"><span class="changed">http://www.openi18n.org/spec/ldml/1.0/ldml-spec.htm</span></a></td>
+      <td><i><span>1.0 Version:</span></i></td>
+      <td><a href="http://www.openi18n.org/spec/ldml/1.0/ldml-spec.htm"><span>http://www.openi18n.org/spec/ldml/1.0/ldml-spec.htm</span></a></td>
     </tr>
     <tr>
-      <td><i><span class="changed">1.0 Namespace:</span></i></td>
-      <td><a href="http://www.openi18n.org/spec/ldml"><span class="changed">http://www.openi18n.org/spec/ldml</span></a></td>
+      <td><i><span>1.0 Namespace:</span></i></td>
+      <td><a href="http://www.openi18n.org/spec/ldml"><span>http://www.openi18n.org/spec/ldml</span></a></td>
     </tr>
     <tr>
-      <td><i><span class="changed">1.0 DTDs:</span></i></td>
-      <td><span class="changed"><a href="http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">http://www.openi18n.org/spec/ldml/1.0/ldml.dtd</a><br>
+      <td><i><span>1.0 DTDs:</span></i></td>
+      <td><span><a href="http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">http://www.openi18n.org/spec/ldml/1.0/ldml.dtd</a><br>
         <a href="http://www.openi18n.org/spec/ldml/1.0/ldmlSupplemental.dtd">http://www.openi18n.org/spec/ldml/1.0/ldmlSupplemental.dtd</a></span></td>
     </tr>
     <tr>
-      <td><span class="changed">Mirror</span></td>
-      <td><span class="changed"><a href="http://www.unicode.org/cldr/dtd/1.0/">http://www.unicode.org/cldr/dtd/1.0/</a></span></td>
+      <td><span>Mirror</span></td>
+      <td><span><a href="http://www.unicode.org/cldr/dtd/1.0/">http://www.unicode.org/cldr/dtd/1.0/</a></span></td>
     </tr>
   </table>
   <h2><a name="Contents">Contents</a></h2>
@@ -115,7 +112,6 @@
         <li><a href="#Multiple_Inheritance">Multiple Inheritance</a></li>
       </ul>
     </li>
-    <li><a href="#Data_Access">Data Access</a></li>
     <li><a href="#XML_Format">XML Format</a>
       <ul>
         <li><a href="#Common_Elements">Common Elements</a>
@@ -174,8 +170,8 @@
       <p><a href="#Language_and_Locale_IDs">Appendix D: Language and Locale IDs</a></li>
     <li>
       <p><a href="#Unicode_Sets">Appendix E: Unicode Sets</a></li>
-    <li><a href="#Additional_Data_Sources">References</a></li>
-    <li><a href="#Modifications"><span class="changed">Modifications</span></a></li>
+    <li><a href="#References">References</a></li>
+    <li><a href="#Modifications"><span>Modifications</span></a></li>
   </ul>
   <h2><a name="Introduction">Introduction</a></h2>
   <p>Not long ago, computer systems were like separate worlds, isolated from one another. The internet and related events have changed all that. A single system can be built of 
@@ -220,7 +216,7 @@
   <p>We will speak of data as being &quot;in locale X&quot;. That does not imply that a locale <i>is</i> a collection of data; it is simply shorthand for &quot;the set of data 
   associated with the locale id X&quot;. Each individual piece of data is called a <i>resource</i>, and a tag indicating the key of resource is called a <i>resource tag.</i></p>
   <h2><a name="Locale_IDs">Locale IDs</a></h2>
-  <p>A <span class="changed2">CLDR</span> locale id consists of the following format:</p>
+  <p>A <span>CLDR</span> locale id consists of the following format:</p>
   <blockquote>
     <p><code><i>locale_id</i> := <i>base_locale_id</i> <i>options</i>?</code></p>
     <p><code><i>base_locale_id</i> := <i>language_code </i>(&quot;_&quot; <i>script_code)? </i>(&quot;_&quot; <i>territory_code)? </i>(&quot;_&quot; <i>variant_code</i>)?</code></p>
@@ -228,12 +224,12 @@
   </blockquote>
   <p>As usual x? means that x is optional; x* means that x occurs zero or more times.</p>
   <blockquote>
-    <p><span class="changed"><b>Note:</b> The successor to RFC 3066 is being currently developed. Once that standard has been approved, the goal is to update this locale id 
-    definition to correspond to that. This would be a correspondence, not necessarily precisely the same syntax.</span></p>
+    <p><span><b>Note:</b> The successor to RFC 3066 is being currently developed. Once that standard has been approved, the goal is to update this locale id definition to 
+    correspond to that. This would be a correspondence, not necessarily precisely the same syntax.</span></p>
   </blockquote>
   <p>The field values are given in the following table. All field values are case-insensitive, except for the <i>type</i>, which is case-sensitive. However, customarily the 
-  language code is lowercase, the territory and variant codes are uppercase, and the script code is titlecase (that is, first character uppercase and other characters lowercase). <span
-  class="changed2">The <i>type</i> may also be referred to as a <i>key-value</i>, for clarity.</span></p>
+  language code is lowercase, the territory and variant codes are uppercase, and the script code is titlecase (that is, first character uppercase and other characters lowercase). <span>The 
+  <i>type</i> may also be referred to as a <i>key-value</i>, for clarity.</span></p>
   <table>
     <caption>Locale Field Definitions</caption>
     <tr>
@@ -254,24 +250,24 @@
         of usage are:
         <table border="1" width="100%" cellspacing="0" cellpadding="4">
           <tr>
-            <td class="changed2">az-Arab</td>
-            <td class="changed2">Azerbaijani in Arabic script</td>
+            <td>az-Arab</td>
+            <td>Azerbaijani in Arabic script</td>
           </tr>
           <tr>
-            <td class="changed2">az-Cyrl</td>
-            <td class="changed2">Azerbaijani in Cyrillic script</td>
+            <td>az-Cyrl</td>
+            <td>Azerbaijani in Cyrillic script</td>
           </tr>
           <tr>
-            <td class="changed2">az-Latn</td>
-            <td class="changed2">Azerbaijani in Latin script</td>
+            <td>az-Latn</td>
+            <td>Azerbaijani in Latin script</td>
           </tr>
           <tr>
-            <td class="changed2">zh-Hans</td>
-            <td class="changed2">Chinese, in simplified script</td>
+            <td>zh-Hans</td>
+            <td>Chinese, in simplified script</td>
           </tr>
           <tr>
-            <td class="changed2">zh-Hant</td>
-            <td class="changed2">Chinese, in traditional script</td>
+            <td>zh-Hant</td>
+            <td>Chinese, in traditional script</td>
           </tr>
         </table>
       </td>
@@ -284,8 +280,8 @@
     <tr>
       <td><i>variant_code</i></td>
       <td>ASCII letters</td>
-      <td rowspan="3"><span class="changed2"><i>Values used in CLDR are listed below.</i><b> </b><i>For information on the process for adding new standard variants or element/type 
-        pairs, see [<a href="#localeProject">LocaleProject</a>].</i></span></td>
+      <td rowspan="3"><span><i>Values used in CLDR are listed below.</i><b> </b><i>For information on the process for adding new standard variants or element/type pairs, see [<a
+        href="#localeProject">LocaleProject</a>].</i></span></td>
     </tr>
     <tr>
       <td><i>key</i></td>
@@ -300,13 +296,13 @@
   <blockquote>
     <pre>en
 fr_BE
-de_DE@collation=phonebook,currency=<span class="changed">DDM</span></pre>
+de_DE@collation=phonebook,currency=<span>DDM</span></pre>
   </blockquote>
   <p>The locale id format generally follows the description in the <i>OpenI18N Locale Naming Guideline</i> [<a href="#NamingGuideline">NamingGuideline</a>], with some enhancements. 
   The main differences from the those guidelines are that the locale id:</p>
   <ol type="a">
-    <li>does not include a charset (since the data in <span class="changed2">LDML format always provides a representation of all Unicode characters. The repository is stored in 
-      UTF-8, although that can be transcoded to other encodings as well.</span>),</li>
+    <li>does not include a charset (since the data in <span>LDML format always provides a representation of all Unicode characters. The repository is stored in UTF-8, although that 
+      can be transcoded to other encodings as well.</span>),</li>
     <li>adds the ability to have a variant, as in Java</li>
     <li>
       <p>adds the ability to discriminate the written language by script (or script variant).</li>
@@ -342,7 +338,7 @@ de_DE@collation=phonebook,currency=<span class="changed">DDM</span></pre>
   </center>
   <p><b>Note: </b>The first two of the above variants are for backwards compatibility. Typically the entire contents of these are defined by an &lt;alias&gt; element pointing at 
   nb_NO (Norwegian Bokmål) and nn_NO(Norwegian Nynorsk) locale IDs.</p>
-  <p>The currently defined optional key/type combinations include the following. <span class="changed2">Additional type values are defined in the detail sections of this document.</span></p>
+  <p>The currently defined optional key/type combinations include the following. <span>Additional type values are defined in the detail sections of this document.</span></p>
   <table>
     <caption>Key/Type Definitions</caption>
     <tr>
@@ -357,7 +353,7 @@ de_DE@collation=phonebook,currency=<span class="changed">DDM</span></pre>
     </tr>
     <tr>
       <td>pinyin</td>
-      <td>Pinyin order for CJK characters <span class="changed2">(that is, an ordering for CJK characters based on a character-by-character transliteration into a pinyin)</span></td>
+      <td>Pinyin order for CJK characters <span>(that is, an ordering for CJK characters based on a character-by-character transliteration into a pinyin)</span></td>
     </tr>
     <tr>
       <td>traditional</td>
@@ -381,8 +377,8 @@ de_DE@collation=phonebook,currency=<span class="changed">DDM</span></pre>
       <td>(default)</td>
     </tr>
     <tr>
-      <td><span class="changed">islamic</span>
-        <p><span class="changed"><i>alias:</i> </span>arabic</p>
+      <td><span>islamic</span>
+        <p><span><i>alias:</i> </span>arabic</p>
       </td>
       <td>Astronomical Arabic</td>
     </tr>
@@ -391,8 +387,8 @@ de_DE@collation=phonebook,currency=<span class="changed">DDM</span></pre>
       <td>Traditional Chinese calendar</td>
     </tr>
     <tr>
-      <td><span class="changed">islamic-civil</span>
-        <p><span class="changed"><i>alias:</i> </span>civil-arabic</p>
+      <td><span>islamic-civil</span>
+        <p><span><i>alias:</i> </span>civil-arabic</p>
       </td>
       <td>Civil (algorithmic) Arabic calendar</td>
     </tr>
@@ -405,27 +401,27 @@ de_DE@collation=phonebook,currency=<span class="changed">DDM</span></pre>
       <td>Imperial Calendar (same as Gregorian except for the year, with one era for each Emperor)</td>
     </tr>
     <tr>
-      <td><span class="changed">buddhist</span>
-        <p><span class="changed"><i>alias:</i></span> thai-buddhist</p>
+      <td><span>buddhist</span>
+        <p><span><i>alias:</i></span> thai-buddhist</p>
       </td>
       <td>Thai Buddhist Calendar (same as Gregorian except for the year)</td>
     </tr>
     <tr>
-      <td class="changed" colspan="2"><span class="changed2">*For information on the calendar algorithms associated with the data used with these types, see [<a href="#Calendars">Calendars</a>].</span></td>
+      <td colspan="2"><span>*For information on the calendar algorithms associated with the data used with these types, see [<a href="#Calendars">Calendars</a>].</span></td>
     </tr>
     <tr>
-      <td class="changed">currency</td>
-      <td class="changed">ISO 4217 code</td>
-      <td class="changed">Currency value identified by ISO code. See [<a href="#DataFormats">Data Formats</a>]</td>
+      <td>currency</td>
+      <td>ISO 4217 code</td>
+      <td>Currency value identified by ISO code. See [<a href="#DataFormats">Data Formats</a>]</td>
     </tr>
     <tr>
-      <td class="changed">timezone</td>
-      <td class="changed"><i>Olson ID</i></td>
-      <td class="changed">Identification for timezone according to the Olson Database ID. See [<a href="#DataFormats">Data Formats</a>].</td>
+      <td>timezone</td>
+      <td><i>Olson ID</i></td>
+      <td>Identification for timezone according to the Olson Database ID. See [<a href="#DataFormats">Data Formats</a>].</td>
     </tr>
   </table>
-  <p class="note"><span class="changed2"><b>Note:</b> There is no standard system (or rather, there are many standard systems) for defining locale ID syntax. This definition of 
-  Locale IDs may not match the locale ID syntax used on a particular system, so some process of ID translation may be required.</span></p>
+  <p class="note"><span><b>Note:</b> There is no standard system (or rather, there are many standard systems) for defining locale ID syntax. This definition of Locale IDs may not 
+  match the locale ID syntax used on a particular system, so some process of ID translation may be required.</span></p>
   <h2><a name="Locale_Inheritance">Locale Inheritance</a></h2>
   <p>The XML format relies on an inheritance model, whereby the resources are collected into <i>bundles</i>, and the bundles organized into a tree. Data for the many Spanish 
   locales does not need to be duplicated across all of the countries having Spanish as a national language. Instead, common data is collected in the Spanish language locale, and 
@@ -449,30 +445,15 @@ root</pre>
   system, by adding <i>all</i> inherited data to each locale data set.</p>
   <p>The locale data does not contain general character properties that are derived from the <i>Unicode Character Database</i> [<a
   href="ftp://ftp.unicode.org/Public/UNIDATA/UnicodeCharacterDatabase.html">UCD</a>]. That data being common across locales, it is not duplicated in the bundles. Constructing a 
-  POSIX locale from the following data requires use of <span class="changed2">UCD</span> data. In addition, POSIX locales may also specify the character encoding, which requires 
-  the data to be transformed into that target encoding.</p>
+  POSIX locale from the following data requires use of <span>UCD</span> data. In addition, POSIX locales may also specify the character encoding, which requires the data to be 
+  transformed into that target encoding.</p>
   <h3><a name="Multiple_Inheritance">Multiple Inheritance</a></h3>
   <p>In clearly specified instances, resources may inherit from within the same locale. For example, currency format symbols inherit from the number format symbols; the Buddhist 
-  calendar inherits from the Gregorian calendar. This <i>only</i> happens where documented in this specification. In these special cases, the inheritance <span class="removed">within 
-  the locale supercedes the inheritance from the parent.</span> <span class="changed2">functions as normal, up to the root. If the data is not found along that path, then a second 
-  search is made, logically changing the element/attribute to the alternate values.</span></p>
-  <p><span class="changed2">For example, for the locale &quot;en_US&quot; the month data in &lt;calendar class=&quot;<span style="color: blue">buddhist</span>&quot;&gt; inherits 
-  first from &lt;calendar class=&quot;<span style="color: blue">buddhist</span>&quot;&gt; in &quot;en&quot;, then in &quot;root&quot;. If not found there, then it inherits from 
-  &lt;calendar type=&quot;<span style="color: blue">gregorian</span>&quot;&gt; in &quot;en_US&quot;, then &quot;en&quot;, then in &quot;root&quot;.</span></p>
-  <h2><a name="Data_Access"><span class="removed">Data Access</span></a></h2>
-  <p><span class="removed">Data can be accessed by means of a URL. A locale URL has the following structure:</span></p>
-  <pre><span class="removed"><i>base</i> &quot;/&quot; platform &quot;/&quot; 
-<i>base_locale_id</i> &quot;.xml&quot; (&quot;?&quot; (&quot;version=&quot; <i>version</i> | <i>transformed_options</i>)</span></pre>
-  <p><span class="removed">The version is the version of the entire tree, not of a particular resource bundle, or resource within a bundle. The format for the version depends on 
-  the source of the data. For example, for <i>openoffice.org</i> the current version (at the time of this writing) would be 1.2, and for <i>icu</i> the current version at the time 
-  of this writing would be 2.2. The transformed options are the &lt;options&gt; from the <a href="#Locale_IDs">Locale ID</a> with the &quot;@&quot; removed, and &quot;,&quot; 
-  converted to &quot;&amp;&quot;.</span></p>
-  <p><i><span class="removed">Example, where base = http://openi18n.org/locale and platform = icu</span></i></p>
-  <blockquote>
-    <p><a href="http://openi18n.org/locale/icu/de_DE.xml?version=2.2&amp;collation=phonebook"><span class="removed">http://openi18n.org/locale/icu/de_DE.xml?version=2.2&amp;collation=phonebook</span></a></p>
-  </blockquote>
-  <p><span class="removed">At this point in time, there is not a mechanism for querying the base to determine which platforms, which versions of each platform, and which locales in 
-  the version are supported. In the future there will be more information, accessible at [<a href="#localeProject">LocaleProject</a>].</span></p>
+  calendar inherits from the Gregorian calendar. This <i>only</i> happens where documented in this specification. In these special cases, the inheritance <span>functions as normal, 
+  up to the root. If the data is not found along that path, then a second search is made, logically changing the element/attribute to the alternate values.</span></p>
+  <p><span>For example, for the locale &quot;en_US&quot; the month data in &lt;calendar class=&quot;<span style="color: blue">buddhist</span>&quot;&gt; inherits first from 
+  &lt;calendar class=&quot;<span style="color: blue">buddhist</span>&quot;&gt; in &quot;en&quot;, then in &quot;root&quot;. If not found there, then it inherits from &lt;calendar 
+  type=&quot;<span style="color: blue">gregorian</span>&quot;&gt; in &quot;en_US&quot;, then &quot;en&quot;, then in &quot;root&quot;.</span></p>
   <h2><a name="XML_Format">XML Format</a></h2>
   <p>The following sections describe the structure of the XML format for locale data. To start with, the root element is &lt;ldml&gt;. That element contains the following elements:</p>
   <ul>
@@ -514,10 +495,10 @@ root</pre>
   <p>At any level in any element, two special elements are allowed.</p>
   <p class="element2">&lt;special xmlns:yyy=&quot;<span style="color: blue">xxx</span>&quot;&gt;</p>
   <p>This element is designed to allow for arbitrary additional annotation and data that is product-specific. It has one required attribute, which specifies the XML <a
-  href="http://www.w3.org/TR/REC-xml-names/">namespace</a> of the special data. For example:</p>
-  <pre>&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldml.dtd</span>&quot; [
-    &lt;!ENTITY % posix SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlPOSIX.dtd</span>&quot;&gt;
-<span style="color: blue">%<span class="changed">posix</span>;</span>
+  href="http://www.w3.org/TR/REC-xml-names/">namespace</a> of the special data. For example, the following used the version 1.0 POSIX special element.</p>
+  <pre>&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.0/ldml.dtd</span>&quot; [
+    &lt;!ENTITY % posix SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.0/ldmlPOSIX.dtd</span>&quot;&gt;
+<span style="color: blue">%<span>posix</span>;</span>
 ]&gt;
 &lt;ldml&gt;
 ...
@@ -531,7 +512,7 @@ root</pre>
         &lt;/posix:messages&gt;
     &lt;/special&gt;
 &lt;/ldml&gt;</pre>
-  <p class="element2"><b>&lt;alias source=&quot;</b><span style="color: blue">&lt;locale_ID&gt;</span><b>&quot;<span class="changed">/</span>&gt;</b></p>
+  <p class="element2"><b>&lt;alias source=&quot;</b><span style="color: blue">&lt;locale_ID&gt;</span><b>&quot;<span>/</span>&gt;</b></p>
   <p>The contents of any element can be replaced by an alias, which points to another source for the data. The resource is to be fetched from the corresponding location in the 
   other source. Normal resource searching is to be used; take the following example:</p>
   <pre>&lt;ldml&gt;
@@ -539,12 +520,12 @@ root</pre>
     &lt;collation type=&quot;<span style="color: blue">phonebook</span>&quot;&gt;
       &lt;alias source=&quot;<span style="color: blue">de_DE</span>&quot; type=&quot;<span style="color: blue">phonebook</span>&quot;&gt;
     &lt;/collation&gt;
-  &lt;/collation<span class="changed2">s</span>&gt;
+  &lt;/collation<span>s</span>&gt;
 &lt;/ldml&gt;</pre>
   <p>The resource bundle at &quot;de_DE&quot; will be searched for a resource element at the same position in the the same tree with type &quot;collation&quot;. If not found there, 
   then the resource bundle at &quot;de&quot; will be searched, etc.</p>
-  <p><span class="changed2">It is an error to have a circular chain of aliases. That is, a collection of LDML XML documents must not have situations where a sequence of alias 
-  lookups (including inheritance and multiple inheritance) can be followed indefinitely without terminating.</span></p>
+  <p><span>It is an error to have a circular chain of aliases. That is, a collection of LDML XML documents must not have situations where a sequence of alias lookups (including 
+  inheritance and multiple inheritance) can be followed indefinitely without terminating.</span></p>
   <p class="element2">&lt;displayName&gt;</p>
   <p>Many elements can have a display name. This is a translated name that can be presented to users when discussing the particular service. For example, a number format, used to 
   format numbers using the conventions of that locale, can have translated name for presentation in GUIs.</p>
@@ -552,13 +533,13 @@ root</pre>
     &lt;displayName&gt;<span style="color: blue">Prozentformat</span>&lt;/displayName&gt;
 ...
   &lt;numberFormat&gt;</pre>
-  <p><span class="changed2">Where present, the display names must be unique; that is, two distinct code would not get the same display name. Any translations should follow 
-  customary practice for the locale in question. For more information, see [<a href="#DataFormats">Data Formats</a>].</span></p>
+  <p><span>Where present, the display names must be unique; that is, two distinct code would not get the same display name. Any translations should follow customary practice for 
+  the locale in question. For more information, see [<a href="#DataFormats">Data Formats</a>].</span></p>
   <p class="element2">&lt;default type=&quot;<span style="color: blue">someID</span>&quot;/&gt;</p>
   <p>In some cases, a number of elements are present. The default element can be used to indicate which of them is the default, in the absence of other information. The value of 
   the type attribute is to match the value of the type attribute for the selected item.</p>
-  <pre><span class="changed2">&lt;timeFormats&gt;
-  &lt;default type=&quot;<font color="#FF0000">medium</font>&quot; /&gt; 
+  <pre><span>&lt;timeFormats&gt;
+  &lt;default type=&quot;<span style="color: red">medium</span>&quot; /&gt; 
   &lt;timeFormatLength type=&quot;<span style="color: blue">full</span>&quot;&gt;
     &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
       &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span style="color: blue">h:mm:ss a z</span>&lt;/pattern&gt; 
@@ -569,7 +550,7 @@ root</pre>
       &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span style="color: blue">h:mm:ss a z</span>&lt;/pattern&gt; 
     &lt;/timeFormat&gt;
   &lt;/timeFormatLength&gt;
-  &lt;timeFormatLength type=&quot;<font color="#FF0000">medium</font>&quot;&gt;
+  &lt;timeFormatLength type=&quot;<span style="color: red">medium</span>&quot;&gt;
     &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
       &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span style="color: blue">h:mm:ss a</span>&lt;/pattern&gt; 
     &lt;/timeFormat&gt;
@@ -577,19 +558,18 @@ root</pre>
 ...</span></pre>
   <p>Like all other elements, the &lt;default&gt; element is inherited. Thus, it can also refer to inherited resources. For example, suppose that the above resources are present in 
   fr, and that in fr_BE we have the following:</p>
-  <pre><span class="changed2">&lt;timeFormats&gt;
-  &lt;default type=&quot;<font color="#FF0000">long</font>&quot;/&gt;
+  <pre><span>&lt;timeFormats&gt;
+  &lt;default type=&quot;<span style="color: red">long</span>&quot;/&gt;
 &lt;/timeFormats&gt;</span></pre>
-  <p>In that case, the default <span class="changed2">time</span> format for fr_BE would be the inherited &quot;<span class="changed2">long</span>&quot; resource from fr. Now 
-  suppose that we had in fr_CA:</p>
-  <pre><span class="changed2">  &lt;timeFormatLength type=&quot;<font color="#FF0000">medium</font>&quot;&gt;
+  <p>In that case, the default <span>time</span> format for fr_BE would be the inherited &quot;<span>long</span>&quot; resource from fr. Now suppose that we had in fr_CA:</p>
+  <pre><span>  &lt;timeFormatLength type=&quot;<span style="color:red">medium</span>&quot;&gt;
     &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
       &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span style="color: blue">...</span>&lt;/pattern&gt; 
     &lt;/timeFormat&gt;
   &lt;/timeFormatLength&gt;
 </span></pre>
-  <p>In this case, the &lt;default&gt; is inherited from fr, and has the value &quot;<span class="changed2">medium</span>&quot;. It thus refers to this new &quot;<span
-  class="changed2">medium</span>&quot; pattern in this resource bundle.</p>
+  <p>In this case, the &lt;default&gt; is inherited from fr, and has the value &quot;<span>medium</span>&quot;. It thus refers to this new &quot;<span>medium</span>&quot; pattern 
+  in this resource bundle.</p>
   <h4><a name="Escaping_Characters">Escaping Characters</a></h4>
   <p>Unfortunately, XML does not have the capability to contain all Unicode code points. Due to this, extra syntax is required to represent those code points that cannot be 
   otherwise represented in element content. This also must be used where spaces are significant (otherwise they can be stripped).</p>
@@ -597,7 +577,7 @@ root</pre>
     <caption>Escaping Characters</caption>
     <tbody>
       <tr>
-        <th class="changed">Code Point</th>
+        <th>Code Point</th>
         <th>XML Example</th>
       </tr>
       <tr>
@@ -655,8 +635,8 @@ root</pre>
   <h3><a name="&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></h3>
   <p>Display names for scripts, languages, countries, and variants in this locale are supplied by this element. These supply localized names for these items for use in 
   user-interfaces for displaying lists of locales and scripts. Examples are given below.</p>
-  <p><span class="changed2">Where present, the display names must be unique; that is, two distinct code would not get the same display name. Any translations should follow 
-  customary practice for the locale in question. For more information, see [<a href="#DataFormats">Data Formats</a>].</span></p>
+  <p><span>Where present, the display names must be unique; that is, two distinct code would not get the same display name. Any translations should follow customary practice for 
+  the locale in question. For more information, see [<a href="#DataFormats">Data Formats</a>].</span></p>
   <p class="element2">&lt;languages&gt;</p>
   <p>This contains a list of elements that provide the user-translated names for language codes from [<a href="#ISO639">ISO639</a>], as described in <a href="#Locale_IDs">Locale_IDs</a>.</p>
   <blockquote>
@@ -703,7 +683,7 @@ root</pre>
   <h3><a name="&lt;layout&gt;">&lt;layout&gt;</a></h3>
   <p>This top-level element specifies general layout features. It currently only has one possible element (other than &lt;special&gt;, which is always permitted).</p>
   <p class="element2">&lt;orientation lines=&quot;<span style="color: blue">top-to-bottom</span>&quot; characters=&quot;<span style="color: blue">left-to-right</span>&quot; /&gt;</p>
-  <p>The lines and characters attributes specify the default general ordering of lines <span class="changed2">within a page</span>, and characters within a line. The values are:</p>
+  <p>The lines and characters attributes specify the default general ordering of lines <span>within a page</span>, and characters within a line. The values are:</p>
   <table>
     <caption>Orientation Attributes</caption>
     <tr>
@@ -721,25 +701,24 @@ root</pre>
       <td>right-to-left</td>
     </tr>
   </table>
-  <p><span class="changed2">If the lines value is one of the vertical attributes, then the characters value must be one of the horizontal attributes, and vice versa. For example, 
-  for English the lines are top-to-bottom, and the characters are left-to-right. For Mongolian the lines are right-to-left, and the characters are top to bottom. </span>This does 
-  not override the ordering behavior of bidirectional text; it does, however, supply the paragraph direction for that text (for more information, see <a
-  href="http://www.unicode.org/reports/tr9/">UAX #9:&nbsp;The Bidirectional Algorithm</a> [<a href="#BIDI">BIDI</a>]).</p>
+  <p><span>If the lines value is one of the vertical attributes, then the characters value must be one of the horizontal attributes, and vice versa. For example, for English the 
+  lines are top-to-bottom, and the characters are left-to-right. For Mongolian the lines are right-to-left, and the characters are top to bottom. </span>This does not override the 
+  ordering behavior of bidirectional text; it does, however, supply the paragraph direction for that text (for more information, see <a href="http://www.unicode.org/reports/tr9/">UAX 
+  #9:&nbsp;The Bidirectional Algorithm</a> [<a href="#BIDI">BIDI</a>]).</p>
   <h3><a name="&lt;characters&gt;">&lt;characters&gt;</a></h3>
-  <p><span class="changed2">The &lt;characters&gt; element provides optional information about characters are in common use in the locale, and information that can be helpful in 
-  picking among character encodings that are typically used to transmit data in the language of the locale. </span>It typically only occurs in a language locale, not in a 
-  language/territory locale.</p>
+  <p><span>The &lt;characters&gt; element provides optional information about characters are in common use in the locale, and information that can be helpful in picking among 
+  character encodings that are typically used to transmit data in the language of the locale. </span>It typically only occurs in a language locale, not in a language/territory 
+  locale.</p>
   <p class="element2">&lt;exemplarCharacters&gt;<span style="color: blue">[a-zåæø]</span>&lt;/exemplarCharacters&gt;</p>
-  <p>This element indicates that normal usage of the language of this locale requires these letters. <span class="changed2">(&quot;Letter is interpreted broadly, as in the Unicode 
-  General Category, and also includes syllabaries and ideographs.) </span>An encoding that cannot encompass at least these letters is inappropriate for encoding data in the 
-  language of this locale. The list of characters is in the <a href="#Unicode_Sets">Unicode Set</a> format, which allows boolean combinations of sets of letters, including those 
-  specified by Unicode properties.</p>
-  <p><span class="changed2">The list should not include non-letters: punctuation marks, digits, etc., although this policy may be changed in future versions of this standard.</span></p>
+  <p>This element indicates that normal usage of the language of this locale requires these letters. <span>(&quot;Letter is interpreted broadly, as in the Unicode General Category, 
+  and also includes syllabaries and ideographs.) </span>An encoding that cannot encompass at least these letters is inappropriate for encoding data in the language of this locale. 
+  The list of characters is in the <a href="#Unicode_Sets">Unicode Set</a> format, which allows boolean combinations of sets of letters, including those specified by Unicode 
+  properties.</p>
+  <p><span>The list should not include non-letters: punctuation marks, digits, etc., although this policy may be changed in future versions of this standard.</span></p>
   <p>The letters do not necessarily form a complete set (especially for languages using large character sets, such as CJK). Nor does the list necessarily include letters that are 
   used in common foreign words used in that language. The letters are only the lowercase alternatives, but implicitly include the normal &quot;case-closure&quot;: all uppercase and 
   titlecase variants. For the special case of Turkish, the dotted capital I should be included. Sequences of characters that are considered to be a single letter in the alphabet, 
-  such as &quot;ch&quot; can be included, using curly braces (e.g., [[a-z{ch}{ll}{rr}] - [w]]). <span class="changed2">For more information, see [<a href="#DataFormats">Data 
-  Formats</a>].</span></p>
+  such as &quot;ch&quot; can be included, using curly braces (e.g., [[a-z{ch}{ll}{rr}] - [w]]). <span>For more information, see [<a href="#DataFormats">Data Formats</a>].</span></p>
   <p class="element2">&lt;mapping registry=&quot;<span style="color: blue">iana</span>&quot; type=&quot;<span style="color: blue">windows-1252</span>&quot;/&gt;</p>
   <p>There can be multiple mapping elements. Each indicates the character conversion mapping table name for a character encoding that may be commonly used to encode data in the 
   language of this locale. The version field of the mapping table is omitted. The ordering among the mapping elements is not significant. The mapping elements themselves are not 
@@ -771,14 +750,14 @@ root</pre>
   <p class="note"><b>Note:</b><i> Numbers indicating measurements should <b>never</b> be interchanged without known dimensions. You never want the number 3.51 interpreted as 3.51 
   feet by one user and 3.51 meters by another. However, this element can be used to convert dimensioned numbers into the user's desired notation: so the value of 3.51 meters can be 
   formatted as 11.52 feet on a particular user's system.</i></p>
-  <p><span class="changed2">&lt;paperSize&gt;</span></p>
-  <p>The paperSize element gives <span class="changed2">the height and width of paper used for </span>normal business letters. <span class="changed2">The units for the numbers are 
-  always in millimeters. For example, the paperSize in the root (the default) is A4:</span></p>
-  <pre><span class="changed2">&lt;paperSize&gt;
+  <p><span>&lt;paperSize&gt;</span></p>
+  <p>The paperSize element gives <span>the height and width of paper used for </span>normal business letters. <span>The units for the numbers are always in millimeters. For 
+  example, the paperSize in the root (the default) is A4:</span></p>
+  <pre><span>&lt;paperSize&gt;
   &lt;height&gt;<span style="color: blue">297</span>&lt;/height&gt;
   &lt;width&gt;<span style="color: blue">210</span>&lt;/width&gt;
 &lt;/paperSize&gt;</span></pre>
-  <p><span class="changed2">An example of locale data that differs from this would be en-US:</span></p>
+  <p><span>An example of locale data that differs from this would be en-US:</span></p>
   <pre>&lt;paperSize&gt;
   &lt;height&gt;<span style="color: blue">279</span>&lt;/height&gt;
   &lt;width&gt;<span style="color: blue">216</span>&lt;/width&gt;
@@ -796,22 +775,19 @@ root</pre>
   <p>This element contains multiple &lt;calendar&gt; elements, each of which specifies the fields used for formatting and parsing dates and times according to the given calendar. 
   The month names are identified numerically, starting at 1. The day names are identified with short strings, since there is no universally-accepted numeric designation.</p>
   <p>Many calendars will only differ from the Gregorian Calendar in the year and era values. For example, the Japanese calendar will have many more eras (one for each Emperor), and 
-  the years will be numbered within that era. All <span class="removed">other</span> calendar <span class="changed2">data inherits</span> from the Gregorian calendar in the same 
-  locale data <span class="changed2">(if not present in the chain up to root)</span>, so only the differing data will be present.<span class="changed2"> See <a
-  href="#Multiple_Inheritance">Multiple Inheritance</a>.</span></p>
-  <p class="changed">Both month and day names may vary along two axes: the width and the context. The context is either <i>format</i> (the default), the form used within a date 
-  format string (such as &quot;Saturday, November 12<sup>th</sup>&quot;, or <i>stand-alone</i>, the form used independently, such as in Calendar headers. The width can be <i>wide</i> 
-  (the default), <i>abbreviated</i>, or <i>narrow</i>. The latter is the shortest possible width: it is typically used in calendar headers. The values in formats must be distinct; 
-  that is, &quot;S&quot; could not be used both for Saturday and for Sunday. The same is not true for stand-alone values; they might only be distinguished by context, especially in 
-  the narrow format.</p>
-  <p class="changed">If the stand-alone form does not exist (in the chain up to root), then it inherits from the format form. See <a href="#Multiple_Inheritance">Multiple 
-  Inheritance</a>.</p>
-  <p class="changed">The older monthNames, dayNames, and monthAbbr, dayAbbr are maintained for backwards compatibility. They are equivalent to: using the months element with the 
-  context type=&quot;<span style="color: blue">format</span>&quot; and the width type=&quot;<span style="color: blue">wide</span>&quot; (for ...Names) and type=&quot;<span
+  the years will be numbered within that era. All calendar <span>data inherits</span> from the Gregorian calendar in the same locale data <span>(if not present in the chain up to 
+  root)</span>, so only the differing data will be present.<span> See <a href="#Multiple_Inheritance">Multiple Inheritance</a>.</span></p>
+  <p>Both month and day names may vary along two axes: the width and the context. The context is either <i>format</i> (the default), the form used within a date format string (such 
+  as &quot;Saturday, November 12<sup>th</sup>&quot;, or <i>stand-alone</i>, the form used independently, such as in Calendar headers. The width can be <i>wide</i> (the default), <i>abbreviated</i>, 
+  or <i>narrow</i>. The latter is the shortest possible width: it is typically used in calendar headers. The values in formats must be distinct; that is, &quot;S&quot; could not be 
+  used both for Saturday and for Sunday. The same is not true for stand-alone values; they might only be distinguished by context, especially in the narrow format.</p>
+  <p>If the stand-alone form does not exist (in the chain up to root), then it inherits from the format form. See <a href="#Multiple_Inheritance">Multiple Inheritance</a>.</p>
+  <p>The older monthNames, dayNames, and monthAbbr, dayAbbr are maintained for backwards compatibility. They are equivalent to: using the months element with the context 
+  type=&quot;<span style="color: blue">format</span>&quot; and the width type=&quot;<span style="color: blue">wide</span>&quot; (for ...Names) and type=&quot;<span
   style="color: blue">narrow</span>&quot; (for ...Abbr), respectively.</p>
   <p class="example">Example:</p>
   <pre>  &lt;calendar type=&quot;<span style="color: blue">gregorian</span>&quot;&gt;
-<span class="changed2">    &lt;months&gt;
+<span>    &lt;months&gt;
       &lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;
   &nbsp;&nbsp;&nbsp;&nbsp;&lt;monthContext type=&quot;<span style="color: blue">format</span>&quot;&gt;
      &nbsp;&nbsp;&nbsp;&nbsp;&lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;
@@ -946,24 +922,24 @@ root</pre>
      &lt;/dateTimeFormats&gt;</pre>
   <pre>  &lt;/calendar&gt;
 
-  &lt;calendar class=&quot;<span class="removed">thai-</span><span style="color: blue">buddhist</span>&quot;&gt;
+  &lt;calendar class=&quot;<span style="color: blue">buddhist</span>&quot;&gt;
     &lt;eras&gt;
         &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span style="color: blue">BE</span>&lt;/era&gt;
     &lt;/eras&gt;
   &lt;/calendar&gt;</pre>
   <p class="note"><b>Note: </b>the weekendStart time defaults to &quot;00:00:00&quot; (midnight at the start of the day). The weekendEnd time defaults to &quot;24:00:00&quot; 
-  (midnight at the end of the day). <span class="changed2">(That is, Friday at 24:00:00 is the same time as Saturday at 00:00:00.) Thus the following are equivalent:</span></p>
+  (midnight at the end of the day). <span>(That is, Friday at 24:00:00 is the same time as Saturday at 00:00:00.) Thus the following are equivalent:</span></p>
   <table>
     <tr>
-      <td><span class="changed2">&lt;weekendStart day=&quot;<span style="color: blue">sat</span>&quot;/&gt;<br>
+      <td><span>&lt;weekendStart day=&quot;<span style="color: blue">sat</span>&quot;/&gt;<br>
         &lt;weekendEnd day=&quot;<span style="color: blue">sun</span>&quot;/&gt;</span></td>
     </tr>
     <tr>
-      <td><span class="changed2">&lt;weekendStart day=&quot;<span style="color: blue">sat</span>&quot; time=&quot;<span style="color: blue">00:00</span>&quot;/&gt;<br>
+      <td><span>&lt;weekendStart day=&quot;<span style="color: blue">sat</span>&quot; time=&quot;<span style="color: blue">00:00</span>&quot;/&gt;<br>
         &lt;weekendEnd day=&quot;<span style="color: blue">sun</span>&quot; time=&quot;<span style="color: blue">24:00</span>&quot;/&gt;</span></td>
     </tr>
     <tr>
-      <td><span class="changed2">&lt;weekendStart day=&quot;<span style="color: blue">fri</span>&quot; time=&quot;<span style="color: blue">24:00</span>&quot;/&gt;<br>
+      <td><span>&lt;weekendStart day=&quot;<span style="color: blue">fri</span>&quot; time=&quot;<span style="color: blue">24:00</span>&quot;/&gt;<br>
         &lt;weekendEnd day=&quot;<span style="color: blue">mon</span>&quot; time=&quot;<span style="color: blue">00:00</span>&quot;/&gt;</span></td>
     </tr>
   </table>
@@ -971,7 +947,7 @@ root</pre>
   <p>The timezone IDs are language-independent, and follow the <i>Olson Data</i> [<a href="#Olson">Olson</a>]. However, the display names for those IDs can vary by locale. The 
   generic time is so-called <i>wall-time</i>; what clocks use when they are correctly switched from standard to daylight time at the mandated time of the year.</p>
   <blockquote>
-    <p><span class="changed2"><b>Note: </b>The <i>type</i> field for each zone is the identification of that zone. It is not to be translated.</span></p>
+    <p><span><b>Note: </b>The <i>type</i> field for each zone is the identification of that zone. It is not to be translated.</span></p>
   </blockquote>
   <pre>&lt;zone type=&quot;<span style="color: blue">America/Los_Angeles</span>&quot; &gt;
     &lt;long&gt;
@@ -1011,7 +987,7 @@ root</pre>
   Thus the Olson data is continually being augmented. Any two implementations using the same version of the Olson data will get the same results for the same IDs (assuming a 
   correct implementation). However, if implementations use different versions of the data they may get different results. So if precise results are required then both the Olson ID 
   and the Olson data version must be transmitted between the different implementations.</p>
-  <p class="note"><span class="changed2">For more information, see [<a href="#DataFormats">Data Formats</a>].</span></p>
+  <p class="note"><span>For more information, see [<a href="#DataFormats">Data Formats</a>].</span></p>
   <h3><a name="&lt;numbers&gt;">&lt;numbers&gt;</a></h3>
   <p>The numbers element supplies information for formatting and parsing numbers and currencies. It has three sub-elements: &lt;symbols&gt;, &lt;numbers&gt;, and 
   &lt;currencies&gt;. The data is based on the Java/ICU format. The currency IDs are from [<a href="#ISO4217">ISO4217</a>]. For more information, including the pattern structure, 
@@ -1087,9 +1063,8 @@ root</pre>
   <p>In formatting currencies, the currency number format is used with the appropriate symbol from &lt;currencies&gt;, according to the currency code. The &lt;currencies&gt; list 
   can contain codes that are no longer in current use, such as PTE. The choice attribute can be used to indicate that the value uses a pattern which is to be interpreted as a Java 
   ChoiceFormat [<a href="#JavaChoice">JavaChoice</a>], with the 0 parameter being the numeric value.</p>
-  <p>Currencies can also contain <span class="changed">optional</span> grouping, decimal data<span class="changed">, and pattern elements</span>. This data is inherited from the 
-  &lt;symbols&gt; in the same locale data<span class="changed2"> (if not present in the chain up to root)</span>, so only the <i>differing</i> data will be present. <span
-  class="changed2">See <a href="#Multiple_Inheritance">Multiple Inheritance</a>.</span></p>
+  <p>Currencies can also contain <span>optional</span> grouping, decimal data<span>, and pattern elements</span>. This data is inherited from the &lt;symbols&gt; in the same locale 
+  data<span> (if not present in the chain up to root)</span>, so only the <i>differing</i> data will be present. <span>See <a href="#Multiple_Inheritance">Multiple Inheritance</a>.</span></p>
   <p class="note"><b>Note: </b><i>Currency values should <b>never</b> be interchanged without a known currency code. You never want the number 3.5 interpreted as $3.5 by one user 
   and ¥3.5 by another. </i>Locale data contains localization information for currencies, not a currency value for a country. A currency amount logically consists of a numeric 
   value, plus an accompanying <a href="#ISO4217">[ISO4217</a>] currency code (or equivalent). The currency code may be implicit in a protocol, such as where USD is implicit. But if 
@@ -1145,10 +1120,10 @@ root</pre>
   <font color="green">&nbsp; &lt;!-- rules go here --&gt;<br>
   </font>&nbsp;&lt;/rules&gt;<br>
   &lt;/collation&gt;</code></p>
-  <p><span class="changed">The optional base element <code>&lt;base&gt;<span style="color: blue">...</span>&lt;/base&gt;</code>, contains an alias element that points to another 
-  data source that defines a <i>base </i>collation. If present, it indicates that the settings and rules in the collation are modifications applied on <i>top of the</i> respective 
-  elements in the base collation. That is, any successive settings, where present, override what is in the base as described in <a href="#Setting_Options">Setting Options</a>. Any 
-  successive rules are concatenated to the end of the rules in the base. The results of multiple rules applying to the same characters is covered in <a href="#Orderings">Orderings</a>.</span></p>
+  <p><span>The optional base element <code>&lt;base&gt;<span style="color: blue">...</span>&lt;/base&gt;</code>, contains an alias element that points to another data source that 
+  defines a <i>base </i>collation. If present, it indicates that the settings and rules in the collation are modifications applied on <i>top of the</i> respective elements in the 
+  base collation. That is, any successive settings, where present, override what is in the base as described in <a href="#Setting_Options">Setting Options</a>. Any successive rules 
+  are concatenated to the end of the rules in the base. The results of multiple rules applying to the same characters is covered in <a href="#Orderings">Orderings</a>.</span></p>
   <h3><a name="Setting_Options">Setting Options</a></h3>
   <p>In XML, these are attributes of &lt;settings&gt;. For example, &lt;setting strength=&quot;secondary&quot;&gt; will only compare strings based on their primary and secondary 
   weights.</p>
@@ -1332,20 +1307,20 @@ root</pre>
     </tbody>
   </table>
   <p>Notice that characters can occur multiple times, and thus override previous rules.</p>
-  <p><span class="changed2">Except for the case of expansion sequence syntax, every sequence after a reset is equivalent in action to breaking up the sequence into an <i>atomic</i> 
-  rule: a reset + relation pair. The tailoring is then equivalent to applying each of the atomic rules to the UCA in order, according to the above description.</span></p>
-  <p><span class="changed2"><i>Example:</i></span></p>
+  <p><span>Except for the case of expansion sequence syntax, every sequence after a reset is equivalent in action to breaking up the sequence into an <i>atomic</i> rule: a reset + 
+  relation pair. The tailoring is then equivalent to applying each of the atomic rules to the UCA in order, according to the above description.</span></p>
+  <p><span><i>Example:</i></span></p>
   <table>
     <tr>
-      <th><span class="changed2">Rules</span></th>
+      <th><span>Rules</span></th>
       <th>
-        <p><span class="changed2">Equivalent Atomic Rules</span></p>
+        <p><span>Equivalent Atomic Rules</span></p>
       </th>
     </tr>
     <tr>
-      <td><span class="changed2">&amp; b &lt; q &lt;&lt;&lt; Q<br>
+      <td><span>&amp; b &lt; q &lt;&lt;&lt; Q<br>
         &amp; a &lt; x &lt;&lt;&lt; X &lt;&lt; q &lt;&lt;&lt; Q &lt; z</span></td>
-      <td><span class="changed2">&amp; b &lt; q<br>
+      <td><span>&amp; b &lt; q<br>
         &amp; q &lt;&lt;&lt; Q<br>
         &amp; a &lt; x<br>
         &amp; x &lt;&lt;&lt; X<br>
@@ -1354,8 +1329,8 @@ root</pre>
         &amp; Q &lt; z</span></td>
     </tr>
   </table>
-  <p><span class="changed2">In the case of expansion sequence syntax, the equivalent atomic sequence can be derived by first transforming the expansion sequence syntax into normal 
-  expansion syntax. (See <a href="#Expansions">Expansions</a>.)</span></p>
+  <p><span>In the case of expansion sequence syntax, the equivalent atomic sequence can be derived by first transforming the expansion sequence syntax into normal expansion syntax. 
+  (See <a href="#Expansions">Expansions</a>.)</span></p>
   <table>
     <caption>Specifying Collation Ordering</caption>
     <tbody>
@@ -1464,8 +1439,8 @@ root</pre>
   </table>
   <h3><a name="Expansions">Expansions</a></h3>
   <p>There are two ways to handle expansions (where a character sorts as a sequence) with both the basic syntax and the XML syntax. The first method is to reset to the sequence of 
-  characters. <span class="changed2">This is called <i>sequence expansion syntax. </i></span>The second is to use the extension sequence. Both are equivalent in practice (unless 
-  the reset sequence happens to be a contraction). <span class="changed2">This is called <i>normal expansion syntax</i>.</span></p>
+  characters. <span>This is called <i>sequence expansion syntax. </i></span>The second is to use the extension sequence. Both are equivalent in practice (unless the reset sequence 
+  happens to be a contraction). <span>This is called <i>normal expansion syntax</i>.</span></p>
   <table>
     <caption>Specifying Expansions</caption>
     <tbody>
@@ -1476,18 +1451,18 @@ root</pre>
       </tr>
       <tr>
         <td><code>&amp;&nbsp;c&nbsp;<br>
-          &lt;<span class="changed">&lt;</span>&nbsp;k&nbsp;/&nbsp;h</code></td>
+          &lt;<span>&lt;</span>&nbsp;k&nbsp;/&nbsp;h</code></td>
         <td><code>&lt;reset&gt;<span style="color: blue">c</span>&lt;/reset&gt;<br>
-          &lt;x&gt;&lt;<span class="changed">s</span>&gt;<span style="color: blue">k</span>&lt;/<span class="changed">s</span>&gt; &lt;extend&gt;<span style="color: blue">h</span>&lt;/extend&gt;&lt;/x&gt;</code></td>
-        <td><span class="changed2"><i>normal expansion syntax:<br>
+          &lt;x&gt;&lt;<span>s</span>&gt;<span style="color: blue">k</span>&lt;/<span>s</span>&gt; &lt;extend&gt;<span style="color: blue">h</span>&lt;/extend&gt;&lt;/x&gt;</code></td>
+        <td><span><i>normal expansion syntax:<br>
           </i></span>Make 'k' sort after the sequence 'ch'; thus 'k' will behave as if it expands to a character after 'c' followed by an 'h'.</td>
       </tr>
       <tr>
         <td><code>&amp; ch<br>
-          &lt;<span class="changed">&lt;</span> k</code></td>
+          &lt;<span>&lt;</span> k</code></td>
         <td><code>&lt;reset&gt;<span style="color: blue">ch</span>&lt;/reset&gt;<br>
-          &lt;<span class="changed">s</span>&gt;<span style="color: blue">k</span>&lt;/<span class="changed">s</span>&gt;</code></td>
-        <td><span class="changed2"><i>sequence expansion syntax:<br>
+          &lt;<span>s</span>&gt;<span style="color: blue">k</span>&lt;/<span>s</span>&gt;</code></td>
+        <td><span><i>sequence expansion syntax:<br>
           </i></span>Make 'k' sort after the sequence 'ch'; thus 'k' will behave as if it expands to a character after 'c' followed by an 'h'.
           <p><i>(unless 'ch' is defined beforehand as a contraction).</i></p>
         </td>
@@ -1495,9 +1470,9 @@ root</pre>
     </tbody>
   </table>
   <p>If an <code>&lt;extend&gt;</code> element is necessary, it requires the rule to be embedded in an &lt;x&gt; element.</p>
-  <p><span class="changed2">The sequence expansion syntax can be quite tricky, so it should be avoided where possible. In particular:</span></p>
+  <p><span>The sequence expansion syntax can be quite tricky, so it should be avoided where possible. In particular:</span></p>
   <ul>
-    <li><span class="changed">The expansion is <i>only</i> in effect up to and not including the first primary rule. Thus<br>
+    <li><span>The expansion is <i>only</i> in effect up to and not including the first primary rule. Thus<br>
       <code>&nbsp; &lt;reset&gt;<span style="COLOR: blue">ch</span>&lt;/reset&gt;<br>
       &nbsp; &lt;s&gt;<span style="color: blue">x</span>&lt;/x&gt;<br>
       &nbsp; &lt;t&gt;<span style="color: blue">y</span>&lt;/t&gt;<br>
@@ -1507,25 +1482,25 @@ root</pre>
       &nbsp; &lt;x&gt;&lt;s&gt;<span style="color: blue">x</span>&lt;/s&gt;&lt;extend&gt;<span style="COLOR: blue">h</span>&lt;/extend&gt;&lt;/x&gt;<br>
       &nbsp; &lt;x&gt;&lt;t&gt;<span style="color: blue">y</span>&lt;/t&gt;&lt;extend&gt;<span style="COLOR: blue">h</span>&lt;/extend&gt;&lt;/x&gt;<br>
       &nbsp; &lt;p&gt;<span style="color: blue">z</span>&lt;/p&gt;</code></span></li>
-    <li><span class="changed">In accordance with the UCA, all strings are interpreted as being in NFD form. In other rules, this has no effect, but syntax such as <code>&lt;reset&gt;</code><b>ä</b><code>&lt;/reset&gt;</code>, 
+    <li><span>In accordance with the UCA, all strings are interpreted as being in NFD form. In other rules, this has no effect, but syntax such as <code>&lt;reset&gt;</code><b>ä</b><code>&lt;/reset&gt;</code>, 
       the <b>ä</b> will be treated as two characters <b>a +&nbsp; ¨</b>, <i>unless</i> the <b>ä</b> has previously been used as a contraction. Thus the <b>¨</b> will be used as 
       an expansion for following characters (up to the next primary).</span></li>
   </ul>
-  <p><span class="changed2">When expressing rules as atomic rules, the sequences must first be transformed into normal expansion syntax:</span></p>
+  <p><span>When expressing rules as atomic rules, the sequences must first be transformed into normal expansion syntax:</span></p>
   <table>
     <tr>
-      <th><span class="changed2">Expansion Sequence</span></th>
-      <th><span class="changed2">Normal Expansion</span></th>
+      <th><span>Expansion Sequence</span></th>
+      <th><span>Normal Expansion</span></th>
       <th>
-        <p><span class="changed2">Equivalent Atomic Rules</span></p>
+        <p><span>Equivalent Atomic Rules</span></p>
       </th>
     </tr>
     <tr>
-      <td><span class="changed2">&amp; a<u>b</u> &lt;&lt; q &lt;&lt;&lt; Q<br>
+      <td><span>&amp; a<u>b</u> &lt;&lt; q &lt;&lt;&lt; Q<br>
         &amp; a<u>d</u> &lt;&lt;&lt; AD &lt; x &lt;&lt;&lt; X</span></td>
-      <td><span class="changed2">&amp; a &lt;&lt; q <u>/ b</u> &lt;&lt;&lt; Q <u>/ b</u><br>
+      <td><span>&amp; a &lt;&lt; q <u>/ b</u> &lt;&lt;&lt; Q <u>/ b</u><br>
         &amp; a &lt;&lt;&lt; AD <u>/ d</u> &lt; x &lt;&lt;&lt; X</span></td>
-      <td><span class="changed2">&amp; b &lt;&lt; q <u>/ b</u><br>
+      <td><span>&amp; b &lt;&lt; q <u>/ b</u><br>
         &amp; q &lt;&lt;&lt; Q <u>/ b</u><br>
         &amp; a &lt; AD <u>/ d</u><br>
         &amp; AD &lt; x<br>
@@ -1587,27 +1562,27 @@ root</pre>
       </tr>
     </tbody>
   </table>
-  <p><span class="changed2">It is an error if the strength of the before relation is not identical to the relation after the reset. Thus the following are errors, since the value 
-  of the <i>before</i> attribute does not agree with the relation &lt;s&gt;.</span></p>
+  <p><span>It is an error if the strength of the before relation is not identical to the relation after the reset. Thus the following are errors, since the value of the <i>before</i> 
+  attribute does not agree with the relation &lt;s&gt;.</span></p>
   <table>
     <tr>
-      <th><span class="changed2">Basic Example &nbsp;</span></th>
-      <th><span class="changed2">XML Example</span></th>
+      <th><span>Basic Example &nbsp;</span></th>
+      <th><span>XML Example</span></th>
       <th></th>
     </tr>
     <tr>
-      <td><code><span class="changed2">&amp; [before 2] a<br>
+      <td><code><span>&amp; [before 2] a<br>
         &lt; à</span></code></td>
-      <td><code><span class="changed2">&lt;reset before=&quot;<span style="color: blue; background-color: #00FF00">primary</span>&quot;&gt;<span style="color: blue">a</span>&lt;/reset&gt;<br>
+      <td><code><span>&lt;reset before=&quot;<span style="color: blue; background-color: #00FF00">primary</span>&quot;&gt;<span style="color: blue">a</span>&lt;/reset&gt;<br>
         &lt;s&gt;<span style="color: blue">à</span>&lt;/s&gt;</span></code></td>
-      <td><code><span class="changed2">Error</span></code></td>
+      <td><code><span>Error</span></code></td>
     </tr>
     <tr>
-      <td><code><span class="changed2">&amp; [before 2] a<br>
+      <td><code><span>&amp; [before 2] a<br>
         &lt;&lt;&lt; à</span></code></td>
-      <td><code><span class="changed2">&lt;reset before=&quot;<span style="color: blue; background-color: #00FF00">tertiary</span>&quot;&gt;<span style="color: blue">a</span>&lt;/reset&gt;<br>
+      <td><code><span>&lt;reset before=&quot;<span style="color: blue; background-color: #00FF00">tertiary</span>&quot;&gt;<span style="color: blue">a</span>&lt;/reset&gt;<br>
         &lt;s&gt;<span style="color: blue">à</span>&lt;/s&gt;</span></code></td>
-      <td><code><span class="changed2">Error</span></code></td>
+      <td><code><span>Error</span></code></td>
     </tr>
   </table>
   <h3><a name="Logical_Reset_Positions">Logical Reset Positions</a></h3>
@@ -1817,43 +1792,33 @@ root</pre>
 &lt;/collation&gt;</pre>
   <h2>Appendix A: <a name="Sample_Special_Elements">Sample Special Elements</a></h2>
   <p>The elements in this section are <i><b>not</b></i> part of the Locale Data Markup Language 1.0 specification. Instead, they are special elements used for application-specific 
-  data to be stored in the Common Locale Repository. <span class="changed2">They may change or be removed future versions of this document, and are present her more as examples of 
-  how to extend the format.</span> (Some of these items may move into a future version of the Locale Data Markup Language specification.)</p>
+  data to be stored in the Common Locale Repository. <span>They may change or be removed future versions of this document, and are present her more as examples of how to extend the 
+  format.</span> (Some of these items may move into a future version of the Locale Data Markup Language specification.)</p>
   <ul>
     <li><a href="http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd</a></li>
-    <li>
-      <p class="removed"><a href="http://www.unicode.org/cldr/dtd/1.1/ldmlPOSIX.dtd">http://www.unicode.org/cldr/dtd/1.1/ldmlPOSIX.dtd</a></li>
     <li><a href="http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd</a></li>
-    <li>
-      <p class="removed"><a href="http://www.unicode.org/cldr/dtd/1.1/ldmlISO14652.dtd">http://www.unicode.org/cldr/dtd/1.1/ldmlISO14652.dtd</a></li>
   </ul>
   <p>These DTDs use namespaces and the special element. To include one or more, use the following pattern to import the special DTDs that are used in the file:</p>
   <pre>&lt;?xml version=&quot;<span style="color: blue">1.0</span>&quot; encoding=&quot;<span style="color: blue">UTF-8</span>&quot; ?&gt;
 &lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldml.dtd</span>&quot; [
     &lt;!ENTITY % <span style="color: blue">icu</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd</span>&quot;&gt;
     &lt;!ENTITY % <span style="color: blue">openOffice</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd</span>&quot;&gt;
-<span class="removed2">    &lt;!ENTITY % <span style="color: blue">iso14652</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlISO14652.dtd</span>&quot;&gt;
-    &lt;!ENTITY % <span style="color: blue">posix</span> SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlPOSIX.dtd</span>&quot;&gt;
-</span><span style="color: blue">%icu;
+<span style="color: blue">%icu;
 %openOffice;
-<span class="removed2">%iso14652;
-%posix;
-</span></span>]&gt;</pre>
-  <p>Thus to include just the ICU<span class="removed2"> and POSIX </span>DTD<span class="removed2">s</span>, one uses:</p>
+</span>]&gt;</pre>
+  <p>Thus to include just the ICU DTD, one uses:</p>
   <pre>&lt;?xml version=&quot;<span style="color: blue">1.0</span>&quot; encoding=&quot;<span style="color: blue">UTF-8</span>&quot; ?&gt;
 &lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldml.dtd</span>&quot; [
     &lt;!ENTITY % icu SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd</span>&quot;&gt;
-<span class="removed2">    &lt;!ENTITY % posix SYSTEM &quot;<span style="color: blue">http://www.unicode.org/cldr/dtd/1.1/ldmlPOSIX.dtd</span>&quot;&gt;
-</span><span style="color: blue">%icu;
-<span class="removed2">%posix;
-</span></span>]&gt;</pre>
+<span style="color: blue">%icu;
+</span>]&gt;</pre>
   <blockquote>
-    <p><span class="changed2"><b>Note: </b>A previous version of this document contained a special element for <a
-    href="http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n897-14652w25.pdf">ISO TR 14652</a> compatibility data. That element has been withdrawn, pending further investigation.</span> <b><i>Warning: 
-    </i></b>14652 is a Type 1 TR: &quot;when the required support cannot be obtained for the publication of an International Standard, despite repeated effort&quot;. See the ballot 
-    comments on <a href="http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n948-J1N6769-14652.pdf">14652 Comments</a> for details on the 14652 defects. For example, most of these patterns 
-    make little provision for substantial changes in format when elements are empty, so are not particularly useful in practice. Compare, for example, the mail-merge capabilities 
-    of production software such as Microsoft Word or OpenOffice.</p>
+    <p><span><b>Note: </b>A previous version of this document contained a special element for <a href="http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n897-14652w25.pdf">ISO TR 14652</a> 
+    compatibility data. That element has been withdrawn, pending further investigation.</span> <b><i>Warning: </i></b>14652 is a Type 1 TR: &quot;when the required support cannot 
+    be obtained for the publication of an International Standard, despite repeated effort&quot;. See the ballot comments on <a
+    href="http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n948-J1N6769-14652.pdf">14652 Comments</a> for details on the 14652 defects. For example, most of these patterns make little 
+    provision for substantial changes in format when elements are empty, so are not particularly useful in practice. Compare, for example, the mail-merge capabilities of production 
+    software such as Microsoft Word or OpenOffice.</p>
   </blockquote>
   <h3><a name="ICU">ICU</a></h3>
   <p>There are three main areas where ICU has capabilities that go beyond what is shown above.</p>
@@ -2454,7 +2419,7 @@ root</pre>
   <p>Any character formed as the result of a backslash escape loses any special meaning and is treated as a literal. In particular, note that \u and \U escapes create literal 
   characters. (In contrast, for example, javac treats Unicode escapes as just a way to represent arbitrary characters in an ASCII source file, and any resulting characters are 
   _not_ tagged as literals.)</p>
-  <h2><a name="Additional_Data_Sources">References</a></h2>
+  <h2><a name="References">References</a></h2>
   <table style="border-collapse: collapse; border-width: 1; " cellpadding="4" cellspacing="0" class="noborder" border="0">
     <tr>
       <th class="noborder">Ancillary Information</th>
@@ -2717,26 +2682,29 @@ root</pre>
     </tr>
   </table>
   <h2><a name="Acknowledgments">Acknowledgments</a></h2>
-  <p>Thanks to Karlsson Kent, Jarkko Hietaniemi, Gurusamy Sarathy, Tom Watson and Kento Tamura for their feedback on the document.</p>
+  <p>Thanks to Patrick Andries, Philips Benjamin, Avery Chan, Alexis Cheng, Helena Shih Chapman, Lee Collins, Simon Dean, Sivaraj Doddannan, Doug Felt, Tom Garland, Deborah 
+  Goldsmith, Chris Hansten, Andy Heninger, Hideki Hiura, Jarkko Hietaniemi, Alexander Kachur, Karlsson Kent, Walter Keutgen, Akio Kido, Yuri Kirghisov, Rici Lake, Antoine Leca, 
+  Alan Liu, Steven R Loomis, Eric Mader, Sasha Maric, Eric Muller, Kentaroh Noji, Sandra O'Donnell, Åke Persson, Eike Rathke, George Rhoten, Markus Scherer, Baldev Soor, Michael 
+  Twomey, Philippe Verdy, Ram Viswanadha, Vladimir Weinstein for their contributions to LDML and/or CLDR.</p>
   <h2><a name="Modifications">Modifications</a></h2>
   <p>The following summarizes modifications from the previous version of this document.</p>
   <table class="noborder">
     <tr>
-      <td class="noborder" class="changed"><a name="TrackingNumber2">2</a></td>
-      <td class="noborder" class="changed">
+      <td class="noborder"><a name="TrackingNumber2">2</a></td>
+      <td class="noborder">
         <ul>
-          <li><span class="changed">First UTS version 2004/03/08.</span></li>
-          <li><span class="changed">Rolled in 1.0 errata.</span></li>
-          <li><span class="changed">Added aliases for calendars</span></li>
-          <li><span class="changed">Added keywords for currency id, timezone id</span></li>
-          <li><span class="changed">Added note on the successor to RFC 3066</span></li>
-          <li><span class="changed">Removed Data Access, pending resolution</span></li>
-          <li><span class="changed">Added width and context to dayNames and monthNames, changing element structure</span></li>
-          <li><span class="changed">Added optional pattern for currencies</span></li>
-          <li><span class="changed">Clarified restriction on before attribute in collation, and order of rules (introducing new term &quot;atomic&quot;)</span></li>
-          <li><span class="changed">Clarified multiple inheritance</span></li>
-          <li><span class="changed">Moved POSIX items into specification (from special)</span></li>
-          <li><span class="changed">Misc. other edits</span></li>
+          <li><span>First UTS version 2004/03/08.</span></li>
+          <li><span>Rolled in 1.0 errata.</span></li>
+          <li><span>Added aliases for calendars</span></li>
+          <li><span>Added keywords for currency id, timezone id</span></li>
+          <li><span>Added note on the successor to RFC 3066</span></li>
+          <li><span>Removed Data Access, pending resolution</span></li>
+          <li><span>Added width and context to dayNames and monthNames, changing element structure</span></li>
+          <li><span>Added optional pattern for currencies</span></li>
+          <li><span>Clarified restriction on before attribute in collation, and order of rules (introducing new term &quot;atomic&quot;)</span></li>
+          <li><span>Clarified multiple inheritance</span></li>
+          <li><span>Moved POSIX items into specification (from special)</span></li>
+          <li><span>Misc. other edits</span></li>
         </ul>
       </td>
     </tr>

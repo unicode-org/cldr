@@ -1,5 +1,6 @@
 eu_ES{
 
+ Version{"Windows XP"}
  LocaleID{ "042D"}
  AmPmMarkers{
   "",
@@ -13,13 +14,17 @@ eu_ES{
   "EUQ"
  }
 
- Language{
-  "Basque"
+ Languages{
+  eu {  "euskara"  }
+ }
+
+ Countries{
+  ES {  "Espainia"  }
  }
 
  CurrencyElements{
-  "pta",
-  "ESP",
+  "\u20AC",
+  "EUR",
   ","
  }
 

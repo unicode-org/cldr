@@ -1,5 +1,6 @@
 fr_BE{
 
+ Version{"Windows XP"}
  LocaleID{ "080C"}
  AmPmMarkers{
   "",
@@ -13,13 +14,17 @@ fr_BE{
   "FRB"
  }
 
- Language{
-  "French"
+ Languages{
+  fr {  "fran\u00E7ais"  }
+ }
+
+ Countries{
+  BE {  "Belgique"  }
  }
 
  CurrencyElements{
-  "FB",
-  "BEF",
+  "\u20AC",
+  "EUR",
   ","
  }
 

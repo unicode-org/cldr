@@ -1,5 +1,6 @@
 no_NO{
 
+ Version{"Windows XP"}
  LocaleID{ "0414"}
  AmPmMarkers{
   "",
@@ -13,8 +14,12 @@ no_NO{
   "NOR"
  }
 
- Language{
-  "Norwegian"
+ Languages{
+  no {  "norsk (bokm\u00E5l)"  }
+ }
+
+ Countries{
+  NO {  "Norge"  }
  }
 
  CurrencyElements{
@@ -113,118 +118,4 @@ no_NO{
 
 }
 
-no_NO{
-
- LocaleID{ "0814"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "NOR"
- }
-
- ShortLanguage{
-  "NON"
- }
-
- Language{
-  "Norwegian"
- }
-
- CurrencyElements{
-  "kr",
-  "NOK",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "d. MMMM yyyy",
-  "",
-  "",
-  "dd.MM.yyyy",
-  "",
- }
-
- DateTimeElements:intvector{
-  0,
-  
- }
- DayNames{
-  "sundag",
-  "m\u00E5ndag",
-  "tysdag",
-  "onsdag",
-  "torsdag",
-  "fredag",
-  "laurdag"
- }
-
- DayAbbreviations{
-  "su",
-  "m\u00E5",
-  "ty",
-  "on",
-  "to",
-  "fr",
-  "la"
- }
-
- MonthNames{
-  "januar",
-  "februar",
-  "mars",
-  "april",
-  "mai",
-  "juni",
-  "juli",
-  "august",
-  "september",
-  "oktober",
-  "november",
-  "desember",
-  ""
- }
-
- MonthAbbreviations{
-  "jan",
-  "feb",
-  "mar",
-  "apr",
-  "mai",
-  "jun",
-  "jul",
-  "aug",
-  "sep",
-  "okt",
-  "nov",
-  "des",
-  ""
- }
-
- NumberElements{
-  ",",
-  "\u00A0",
-  ";",
-  "%",
-  "0",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
 

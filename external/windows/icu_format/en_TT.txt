@@ -1,5 +1,6 @@
 en_TT{
 
+ Version{"Windows XP"}
  LocaleID{ "2C09"}
  AmPmMarkers{
   "AM",
@@ -13,8 +14,12 @@ en_TT{
   "ENT"
  }
 
- Language{
-  "English"
+ Languages{
+  en {  "English"  }
+ }
+
+ Countries{
+  TT {  "Trinidad y Tobago"  }
  }
 
  CurrencyElements{
@@ -26,7 +31,7 @@ en_TT{
  DateTimePatterns{
   "",
   "",
-  "hh:mm:ss",
+  "hh:mm:ss a",
   "",
   "dddd, dd MMMM yyyy",
   "",

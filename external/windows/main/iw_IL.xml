@@ -7,151 +7,159 @@
 >
 <ldml>
 	<identity>
-		<version number="1.0"/>
-		<generation date="2003-07-24" />
+		<version number="Windows XP"/>
+		<generation date="2003-10-02" />
 		<language type="iw" /> 
 		<territory type="IL" /> 
 	</identity>
-	<dates>
-		<calendars>
-			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">ינואר</month>
-					<month type="2">פברואר</month>
-					<month type="3">מרץ</month>
-					<month type="4">אפריל</month>
-					<month type="5">מאי</month>
-					<month type="6">יוני</month>
-					<month type="7">יולי</month>
-					<month type="8">אוגוסט</month>
-					<month type="9">ספטמבר</month>
-					<month type="10">אוקטובר</month>
-					<month type="11">נובמבר</month>
-					<month type="12">דצמבר</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">ינואר</month>
-					<month type="2">פברואר</month>
-					<month type="3">מרץ</month>
-					<month type="4">אפריל</month>
-					<month type="5">מאי</month>
-					<month type="6">יוני</month>
-					<month type="7">יולי</month>
-					<month type="8">אוגוסט</month>
-					<month type="9">ספטמבר</month>
-					<month type="10">אוקטובר</month>
-					<month type="11">נובמבר</month>
-					<month type="12">דצמבר</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">יום ראשון</day>
-					<day type="mon">יום שני</day>
-					<day type="tue">יום שלישי</day>
-					<day type="wed">יום רביעי</day>
-					<day type="thu">יום חמישי</day>
-					<day type="fri">יום שישי</day>
-					<day type="sat">שבת</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">א</day>
-					<day type="mon">ב</day>
-					<day type="tue">ג</day>
-					<day type="wed">ד</day>
-					<day type="thu">ה</day>
-					<day type="fri">ו</day>
-					<day type="sat">ש</day>
-				</dayAbbr>
-				<week>
-					<minDays count="0"/>
-					<firstDay day="fri"/>
-				</week>
-				<am>AM</am>
-				<pm>PM</pm>
-				<dateFormats>
-					<default type="medium"/>
-					<dateFormatLength type="full">
-						<dateFormat >
-							<pattern>dddd dd MMMM yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength >
-					<dateFormatLength type="long">
-						<dateFormat >
-							<pattern></pattern>
-						</dateFormat>
-					</dateFormatLength >
-					<dateFormatLength type="medium">
-						<dateFormat >
-							<pattern></pattern>
-						</dateFormat>
-					</dateFormatLength >
-					<dateFormatLength type="short">
-						<dateFormat >
-							<pattern>dd/MM/yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength >
-				</dateFormats>
-				<timeFormats>
-					<default type="medium"/>
-					<timeFormatLength type="full">
-						<timeFormat >
-							<pattern></pattern>
-						</timeFormat>
-					</timeFormatLength >
-					<timeFormatLength type="long">
-						<timeFormat >
-							<pattern></pattern>
-						</timeFormat>
-					</timeFormatLength >
-					<timeFormatLength type="medium">
-						<timeFormat >
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength >
-					<timeFormatLength type="short">
-						<timeFormat >
-							<pattern></pattern>
-						</timeFormat>
-					</timeFormatLength >
-				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength >
-						<dateTimeFormat>
-							<pattern></pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength >
-				</dateTimeFormats>
-			</calendar>
-		</calendars>
-	</dates>
-	<numbers>
-		<symbols>
-			<decimal>.</decimal>
-			<group>,</group>
-			<list>,</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
-		</symbols>
-		<percentFormats>
-			<percentFormatLength >
-				<percentFormat >
-					<pattern></pattern>
-				</percentFormat>
-			</percentFormatLength >
-		</percentFormats>
-		<currencyFormats>
-			<currencyFormatLength >
-				<currencyFormat >
-					<pattern></pattern>
-				</currencyFormat>
-			</currencyFormatLength >
-		</currencyFormats>
-	</numbers>
+	<localeDisplayNames>
+		<languages>
+			<language type="iw">עברית</language>
+		</languages>
+		<territories>
+			<territory type="IL">ישראל</territory>
+		</territories>
+</localeDisplayNames>
+<dates>
+	<calendars>
+		<calendar type="gregorian">
+			<monthNames>
+				<month type="1">ינואר</month>
+				<month type="2">פברואר</month>
+				<month type="3">מרץ</month>
+				<month type="4">אפריל</month>
+				<month type="5">מאי</month>
+				<month type="6">יוני</month>
+				<month type="7">יולי</month>
+				<month type="8">אוגוסט</month>
+				<month type="9">ספטמבר</month>
+				<month type="10">אוקטובר</month>
+				<month type="11">נובמבר</month>
+				<month type="12">דצמבר</month>
+				<month type="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month type="1">ינואר</month>
+				<month type="2">פברואר</month>
+				<month type="3">מרץ</month>
+				<month type="4">אפריל</month>
+				<month type="5">מאי</month>
+				<month type="6">יוני</month>
+				<month type="7">יולי</month>
+				<month type="8">אוגוסט</month>
+				<month type="9">ספטמבר</month>
+				<month type="10">אוקטובר</month>
+				<month type="11">נובמבר</month>
+				<month type="12">דצמבר</month>
+				<month type="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day type="sun">יום ראשון</day>
+				<day type="mon">יום שני</day>
+				<day type="tue">יום שלישי</day>
+				<day type="wed">יום רביעי</day>
+				<day type="thu">יום חמישי</day>
+				<day type="fri">יום שישי</day>
+				<day type="sat">שבת</day>
+			</dayNames>
+			<dayAbbr>
+				<day type="sun">א</day>
+				<day type="mon">ב</day>
+				<day type="tue">ג</day>
+				<day type="wed">ד</day>
+				<day type="thu">ה</day>
+				<day type="fri">ו</day>
+				<day type="sat">ש</day>
+			</dayAbbr>
+			<week>
+				<minDays count="0"/>
+				<firstDay day="fri"/>
+			</week>
+			<am>AM</am>
+			<pm>PM</pm>
+			<dateFormats>
+				<default type="medium"/>
+				<dateFormatLength type="full">
+					<dateFormat >
+						<pattern>dddd dd MMMM yyyy</pattern>
+					</dateFormat>
+				</dateFormatLength >
+				<dateFormatLength type="long">
+					<dateFormat >
+						<pattern></pattern>
+					</dateFormat>
+				</dateFormatLength >
+				<dateFormatLength type="medium">
+					<dateFormat >
+						<pattern></pattern>
+					</dateFormat>
+				</dateFormatLength >
+				<dateFormatLength type="short">
+					<dateFormat >
+						<pattern>dd/MM/yyyy</pattern>
+					</dateFormat>
+				</dateFormatLength >
+			</dateFormats>
+			<timeFormats>
+				<default type="medium"/>
+				<timeFormatLength type="full">
+					<timeFormat >
+						<pattern></pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="long">
+					<timeFormat >
+						<pattern></pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="medium">
+					<timeFormat >
+						<pattern>HH:mm:ss</pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="short">
+					<timeFormat >
+						<pattern></pattern>
+					</timeFormat>
+				</timeFormatLength >
+			</timeFormats>
+			<dateTimeFormats>
+				<dateTimeFormatLength >
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</dateTimeFormatLength >
+			</dateTimeFormats>
+		</calendar>
+	</calendars>
+</dates>
+<numbers>
+	<symbols>
+		<decimal>.</decimal>
+		<group>,</group>
+		<list>,</list>
+		<percentSign>%</percentSign>
+		<nativeZeroDigit>0</nativeZeroDigit>
+		<patternDigit>#</patternDigit>
+		<minusSign>-</minusSign>
+		<exponential>E</exponential>
+		<perMille>‰</perMille>
+		<infinity>∞</infinity>
+		<nan>�</nan>
+	</symbols>
+	<percentFormats>
+		<percentFormatLength >
+			<percentFormat >
+				<pattern></pattern>
+			</percentFormat>
+		</percentFormatLength >
+	</percentFormats>
+	<currencyFormats>
+		<currencyFormatLength >
+			<currencyFormat >
+				<pattern></pattern>
+			</currencyFormat>
+		</currencyFormatLength >
+	</currencyFormats>
+</numbers>
 </ldml>

@@ -1,5 +1,6 @@
 af_ZA{
 
+ Version{"Windows XP"}
  LocaleID{ "0436"}
  AmPmMarkers{
   "",
@@ -13,8 +14,12 @@ af_ZA{
   "AFK"
  }
 
- Language{
-  "Afrikaans"
+ Languages{
+  af {  "Afrikaans"  }
+ }
+
+ Countries{
+  ZA {  "Suid Afrika"  }
  }
 
  CurrencyElements{
@@ -26,7 +31,7 @@ af_ZA{
  DateTimePatterns{
   "",
   "",
-  "hh:mm:ss",
+  "hh:mm:ss a",
   "",
   "dd MMMM yyyy",
   "",

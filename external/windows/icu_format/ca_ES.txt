@@ -1,5 +1,6 @@
 ca_ES{
 
+ Version{"Windows XP"}
  LocaleID{ "0403"}
  AmPmMarkers{
   "",
@@ -13,13 +14,17 @@ ca_ES{
   "CAT"
  }
 
- Language{
-  "Catalan"
+ Languages{
+  ca {  "catal\u00E0"  }
+ }
+
+ Countries{
+  ES {  "Espanya"  }
  }
 
  CurrencyElements{
-  "pta",
-  "ESP",
+  "\u20AC",
+  "EUR",
   ","
  }
 
@@ -76,18 +81,18 @@ ca_ES{
  }
 
  MonthAbbreviations{
-  "gen.",
-  "feb.",
+  "gen",
+  "feb",
   "mar\u00E7",
-  "abr.",
+  "abr",
   "maig",
   "juny",
-  "jul.",
-  "ag.",
-  "set.",
-  "oct.",
-  "nov.",
-  "des.",
+  "jul",
+  "ag",
+  "set",
+  "oct",
+  "nov",
+  "des",
   ""
  }
 

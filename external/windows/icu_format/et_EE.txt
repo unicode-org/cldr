@@ -1,5 +1,6 @@
 et_EE{
 
+ Version{"Windows XP"}
  LocaleID{ "0425"}
  AmPmMarkers{
   "EL",
@@ -13,14 +14,18 @@ et_EE{
   "ETI"
  }
 
- Language{
-  "Estonian"
+ Languages{
+  et {  "eesti"  }
+ }
+
+ Countries{
+  EE {  "Eesti"  }
  }
 
  CurrencyElements{
   "kr",
   "EEK",
-  ","
+  "."
  }
 
  DateTimePatterns{
@@ -28,10 +33,10 @@ et_EE{
   "",
   "H:mm:ss",
   "",
-  "dd. MMMM yyyy'. a.'",
+  "d. MMMM yyyy'. a.'",
   "",
   "",
-  "dd.MM.yyyy",
+  "d.MM.yyyy",
   "",
  }
 

@@ -1,5 +1,6 @@
 pt_PT{
 
+ Version{"Windows XP"}
  LocaleID{ "0816"}
  AmPmMarkers{
   "",
@@ -13,14 +14,18 @@ pt_PT{
   "PTG"
  }
 
- Language{
-  "Portuguese"
+ Languages{
+  pt {  "portugu\u00EAs"  }
+ }
+
+ Countries{
+  PT {  "Portugal"  }
  }
 
  CurrencyElements{
-  "Esc.",
-  "PTE",
-  "$"
+  "\u20AC",
+  "EUR",
+  ","
  }
 
  DateTimePatterns{

@@ -7,151 +7,159 @@
 >
 <ldml>
 	<identity>
-		<version number="1.0"/>
-		<generation date="2003-07-24" />
+		<version number="Windows XP"/>
+		<generation date="2003-10-02" />
 		<language type="ro" /> 
 		<territory type="RO" /> 
 	</identity>
-	<dates>
-		<calendars>
-			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">ianuarie</month>
-					<month type="2">februarie</month>
-					<month type="3">martie</month>
-					<month type="4">aprilie</month>
-					<month type="5">mai</month>
-					<month type="6">iunie</month>
-					<month type="7">iulie</month>
-					<month type="8">august</month>
-					<month type="9">septembrie</month>
-					<month type="10">octombrie</month>
-					<month type="11">noiembrie</month>
-					<month type="12">decembrie</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">ian.</month>
-					<month type="2">feb.</month>
-					<month type="3">mar.</month>
-					<month type="4">apr.</month>
-					<month type="5">mai.</month>
-					<month type="6">iun.</month>
-					<month type="7">iul.</month>
-					<month type="8">aug.</month>
-					<month type="9">sep.</month>
-					<month type="10">oct.</month>
-					<month type="11">nov.</month>
-					<month type="12">dec.</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">duminică</day>
-					<day type="mon">luni</day>
-					<day type="tue">marţi</day>
-					<day type="wed">miercuri</day>
-					<day type="thu">joi</day>
-					<day type="fri">vineri</day>
-					<day type="sat">sâmbătă</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">D</day>
-					<day type="mon">L</day>
-					<day type="tue">Ma</day>
-					<day type="wed">Mi</day>
-					<day type="thu">J</day>
-					<day type="fri">V</day>
-					<day type="sat">S</day>
-				</dayAbbr>
-				<week>
-					<minDays count="0"/>
-					<firstDay day=""/>
-				</week>
-				<am></am>
-				<pm></pm>
-				<dateFormats>
-					<default type="medium"/>
-					<dateFormatLength type="full">
-						<dateFormat >
-							<pattern>d MMMM yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength >
-					<dateFormatLength type="long">
-						<dateFormat >
-							<pattern></pattern>
-						</dateFormat>
-					</dateFormatLength >
-					<dateFormatLength type="medium">
-						<dateFormat >
-							<pattern></pattern>
-						</dateFormat>
-					</dateFormatLength >
-					<dateFormatLength type="short">
-						<dateFormat >
-							<pattern>dd.MM.yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength >
-				</dateFormats>
-				<timeFormats>
-					<default type="medium"/>
-					<timeFormatLength type="full">
-						<timeFormat >
-							<pattern></pattern>
-						</timeFormat>
-					</timeFormatLength >
-					<timeFormatLength type="long">
-						<timeFormat >
-							<pattern></pattern>
-						</timeFormat>
-					</timeFormatLength >
-					<timeFormatLength type="medium">
-						<timeFormat >
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength >
-					<timeFormatLength type="short">
-						<timeFormat >
-							<pattern></pattern>
-						</timeFormat>
-					</timeFormatLength >
-				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength >
-						<dateTimeFormat>
-							<pattern></pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength >
-				</dateTimeFormats>
-			</calendar>
-		</calendars>
-	</dates>
-	<numbers>
-		<symbols>
-			<decimal>,</decimal>
-			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
-		</symbols>
-		<percentFormats>
-			<percentFormatLength >
-				<percentFormat >
-					<pattern></pattern>
-				</percentFormat>
-			</percentFormatLength >
-		</percentFormats>
-		<currencyFormats>
-			<currencyFormatLength >
-				<currencyFormat >
-					<pattern></pattern>
-				</currencyFormat>
-			</currencyFormatLength >
-		</currencyFormats>
-	</numbers>
+	<localeDisplayNames>
+		<languages>
+			<language type="ro">română</language>
+		</languages>
+		<territories>
+			<territory type="RO">România</territory>
+		</territories>
+</localeDisplayNames>
+<dates>
+	<calendars>
+		<calendar type="gregorian">
+			<monthNames>
+				<month type="1">ianuarie</month>
+				<month type="2">februarie</month>
+				<month type="3">martie</month>
+				<month type="4">aprilie</month>
+				<month type="5">mai</month>
+				<month type="6">iunie</month>
+				<month type="7">iulie</month>
+				<month type="8">august</month>
+				<month type="9">septembrie</month>
+				<month type="10">octombrie</month>
+				<month type="11">noiembrie</month>
+				<month type="12">decembrie</month>
+				<month type="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month type="1">ian.</month>
+				<month type="2">feb.</month>
+				<month type="3">mar.</month>
+				<month type="4">apr.</month>
+				<month type="5">mai.</month>
+				<month type="6">iun.</month>
+				<month type="7">iul.</month>
+				<month type="8">aug.</month>
+				<month type="9">sep.</month>
+				<month type="10">oct.</month>
+				<month type="11">nov.</month>
+				<month type="12">dec.</month>
+				<month type="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day type="sun">duminică</day>
+				<day type="mon">luni</day>
+				<day type="tue">marţi</day>
+				<day type="wed">miercuri</day>
+				<day type="thu">joi</day>
+				<day type="fri">vineri</day>
+				<day type="sat">sâmbătă</day>
+			</dayNames>
+			<dayAbbr>
+				<day type="sun">D</day>
+				<day type="mon">L</day>
+				<day type="tue">Ma</day>
+				<day type="wed">Mi</day>
+				<day type="thu">J</day>
+				<day type="fri">V</day>
+				<day type="sat">S</day>
+			</dayAbbr>
+			<week>
+				<minDays count="0"/>
+				<firstDay day=""/>
+			</week>
+			<am></am>
+			<pm></pm>
+			<dateFormats>
+				<default type="medium"/>
+				<dateFormatLength type="full">
+					<dateFormat >
+						<pattern>d MMMM yyyy</pattern>
+					</dateFormat>
+				</dateFormatLength >
+				<dateFormatLength type="long">
+					<dateFormat >
+						<pattern></pattern>
+					</dateFormat>
+				</dateFormatLength >
+				<dateFormatLength type="medium">
+					<dateFormat >
+						<pattern></pattern>
+					</dateFormat>
+				</dateFormatLength >
+				<dateFormatLength type="short">
+					<dateFormat >
+						<pattern>dd.MM.yyyy</pattern>
+					</dateFormat>
+				</dateFormatLength >
+			</dateFormats>
+			<timeFormats>
+				<default type="medium"/>
+				<timeFormatLength type="full">
+					<timeFormat >
+						<pattern></pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="long">
+					<timeFormat >
+						<pattern></pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="medium">
+					<timeFormat >
+						<pattern>HH:mm:ss</pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="short">
+					<timeFormat >
+						<pattern></pattern>
+					</timeFormat>
+				</timeFormatLength >
+			</timeFormats>
+			<dateTimeFormats>
+				<dateTimeFormatLength >
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</dateTimeFormatLength >
+			</dateTimeFormats>
+		</calendar>
+	</calendars>
+</dates>
+<numbers>
+	<symbols>
+		<decimal>,</decimal>
+		<group>.</group>
+		<list>;</list>
+		<percentSign>%</percentSign>
+		<nativeZeroDigit>0</nativeZeroDigit>
+		<patternDigit>#</patternDigit>
+		<minusSign>-</minusSign>
+		<exponential>E</exponential>
+		<perMille>‰</perMille>
+		<infinity>∞</infinity>
+		<nan>�</nan>
+	</symbols>
+	<percentFormats>
+		<percentFormatLength >
+			<percentFormat >
+				<pattern></pattern>
+			</percentFormat>
+		</percentFormatLength >
+	</percentFormats>
+	<currencyFormats>
+		<currencyFormatLength >
+			<currencyFormat >
+				<pattern></pattern>
+			</currencyFormat>
+		</currencyFormatLength >
+	</currencyFormats>
+</numbers>
 </ldml>

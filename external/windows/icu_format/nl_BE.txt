@@ -1,5 +1,6 @@
 nl_BE{
 
+ Version{"Windows XP"}
  LocaleID{ "0813"}
  AmPmMarkers{
   "",
@@ -13,13 +14,17 @@ nl_BE{
   "NLB"
  }
 
- Language{
-  "Dutch"
+ Languages{
+  nl {  "Nederlands"  }
+ }
+
+ Countries{
+  BE {  "Belgi\u00EB"  }
  }
 
  CurrencyElements{
-  "BF",
-  "BEF",
+  "\u20AC",
+  "EUR",
   ","
  }
 

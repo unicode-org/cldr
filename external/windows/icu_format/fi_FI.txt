@@ -1,5 +1,6 @@
 fi_FI{
 
+ Version{"Windows XP"}
  LocaleID{ "040B"}
  AmPmMarkers{
   "",
@@ -13,13 +14,17 @@ fi_FI{
   "FIN"
  }
 
- Language{
-  "Finnish"
+ Languages{
+  fi {  "suomi"  }
+ }
+
+ Countries{
+  FI {  "Suomi"  }
  }
 
  CurrencyElements{
-  "mk",
-  "FIM",
+  "\u20AC",
+  "EUR",
   ","
  }
 

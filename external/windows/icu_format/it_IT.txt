@@ -1,5 +1,6 @@
 it_IT{
 
+ Version{"Windows XP"}
  LocaleID{ "0410"}
  AmPmMarkers{
   "",
@@ -13,14 +14,18 @@ it_IT{
   "ITA"
  }
 
- Language{
-  "Italian"
+ Languages{
+  it {  "italiano"  }
+ }
+
+ Countries{
+  IT {  "Italia"  }
  }
 
  CurrencyElements{
-  "L.",
-  "ITL",
-  ""
+  "\u20AC",
+  "EUR",
+  ","
  }
 
  DateTimePatterns{

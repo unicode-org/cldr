@@ -7,151 +7,159 @@
 >
 <ldml>
 	<identity>
-		<version number="1.0"/>
-		<generation date="2003-07-24" />
+		<version number="Windows XP"/>
+		<generation date="2003-10-02" />
 		<language type="ko" /> 
 		<territory type="KR" /> 
 	</identity>
-	<dates>
-		<calendars>
-			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">1월</month>
-					<month type="2">2월</month>
-					<month type="3">3월</month>
-					<month type="4">4월</month>
-					<month type="5">5월</month>
-					<month type="6">6월</month>
-					<month type="7">7월</month>
-					<month type="8">8월</month>
-					<month type="9">9월</month>
-					<month type="10">10월</month>
-					<month type="11">11월</month>
-					<month type="12">12월</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">1</month>
-					<month type="2">2</month>
-					<month type="3">3</month>
-					<month type="4">4</month>
-					<month type="5">5</month>
-					<month type="6">6</month>
-					<month type="7">7</month>
-					<month type="8">8</month>
-					<month type="9">9</month>
-					<month type="10">10</month>
-					<month type="11">11</month>
-					<month type="12">12</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">일요일</day>
-					<day type="mon">월요일</day>
-					<day type="tue">화요일</day>
-					<day type="wed">수요일</day>
-					<day type="thu">목요일</day>
-					<day type="fri">금요일</day>
-					<day type="sat">토요일</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">일</day>
-					<day type="mon">월</day>
-					<day type="tue">화</day>
-					<day type="wed">수</day>
-					<day type="thu">목</day>
-					<day type="fri">금</day>
-					<day type="sat">토</day>
-				</dayAbbr>
-				<week>
-					<minDays count="0"/>
-					<firstDay day="fri"/>
-				</week>
-				<am>오전</am>
-				<pm>오후</pm>
-				<dateFormats>
-					<default type="medium"/>
-					<dateFormatLength type="full">
-						<dateFormat >
-							<pattern>yyyy'년' M'월' d'일' dddd</pattern>
-						</dateFormat>
-					</dateFormatLength >
-					<dateFormatLength type="long">
-						<dateFormat >
-							<pattern></pattern>
-						</dateFormat>
-					</dateFormatLength >
-					<dateFormatLength type="medium">
-						<dateFormat >
-							<pattern></pattern>
-						</dateFormat>
-					</dateFormatLength >
-					<dateFormatLength type="short">
-						<dateFormat >
-							<pattern>yyyy-MM-dd</pattern>
-						</dateFormat>
-					</dateFormatLength >
-				</dateFormats>
-				<timeFormats>
-					<default type="medium"/>
-					<timeFormatLength type="full">
-						<timeFormat >
-							<pattern></pattern>
-						</timeFormat>
-					</timeFormatLength >
-					<timeFormatLength type="long">
-						<timeFormat >
-							<pattern></pattern>
-						</timeFormat>
-					</timeFormatLength >
-					<timeFormatLength type="medium">
-						<timeFormat >
-							<pattern>a h:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength >
-					<timeFormatLength type="short">
-						<timeFormat >
-							<pattern></pattern>
-						</timeFormat>
-					</timeFormatLength >
-				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength >
-						<dateTimeFormat>
-							<pattern></pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength >
-				</dateTimeFormats>
-			</calendar>
-		</calendars>
-	</dates>
-	<numbers>
-		<symbols>
-			<decimal>.</decimal>
-			<group>,</group>
-			<list>,</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
-		</symbols>
-		<percentFormats>
-			<percentFormatLength >
-				<percentFormat >
-					<pattern></pattern>
-				</percentFormat>
-			</percentFormatLength >
-		</percentFormats>
-		<currencyFormats>
-			<currencyFormatLength >
-				<currencyFormat >
-					<pattern></pattern>
-				</currencyFormat>
-			</currencyFormatLength >
-		</currencyFormats>
-	</numbers>
+	<localeDisplayNames>
+		<languages>
+			<language type="ko">한국어</language>
+		</languages>
+		<territories>
+			<territory type="KR">대한민국</territory>
+		</territories>
+</localeDisplayNames>
+<dates>
+	<calendars>
+		<calendar type="gregorian">
+			<monthNames>
+				<month type="1">1월</month>
+				<month type="2">2월</month>
+				<month type="3">3월</month>
+				<month type="4">4월</month>
+				<month type="5">5월</month>
+				<month type="6">6월</month>
+				<month type="7">7월</month>
+				<month type="8">8월</month>
+				<month type="9">9월</month>
+				<month type="10">10월</month>
+				<month type="11">11월</month>
+				<month type="12">12월</month>
+				<month type="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month type="1">1</month>
+				<month type="2">2</month>
+				<month type="3">3</month>
+				<month type="4">4</month>
+				<month type="5">5</month>
+				<month type="6">6</month>
+				<month type="7">7</month>
+				<month type="8">8</month>
+				<month type="9">9</month>
+				<month type="10">10</month>
+				<month type="11">11</month>
+				<month type="12">12</month>
+				<month type="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day type="sun">일요일</day>
+				<day type="mon">월요일</day>
+				<day type="tue">화요일</day>
+				<day type="wed">수요일</day>
+				<day type="thu">목요일</day>
+				<day type="fri">금요일</day>
+				<day type="sat">토요일</day>
+			</dayNames>
+			<dayAbbr>
+				<day type="sun">일</day>
+				<day type="mon">월</day>
+				<day type="tue">화</day>
+				<day type="wed">수</day>
+				<day type="thu">목</day>
+				<day type="fri">금</day>
+				<day type="sat">토</day>
+			</dayAbbr>
+			<week>
+				<minDays count="0"/>
+				<firstDay day="fri"/>
+			</week>
+			<am>오전</am>
+			<pm>오후</pm>
+			<dateFormats>
+				<default type="medium"/>
+				<dateFormatLength type="full">
+					<dateFormat >
+						<pattern>yyyy'년' M'월' d'일' dddd</pattern>
+					</dateFormat>
+				</dateFormatLength >
+				<dateFormatLength type="long">
+					<dateFormat >
+						<pattern></pattern>
+					</dateFormat>
+				</dateFormatLength >
+				<dateFormatLength type="medium">
+					<dateFormat >
+						<pattern></pattern>
+					</dateFormat>
+				</dateFormatLength >
+				<dateFormatLength type="short">
+					<dateFormat >
+						<pattern>yyyy-MM-dd</pattern>
+					</dateFormat>
+				</dateFormatLength >
+			</dateFormats>
+			<timeFormats>
+				<default type="medium"/>
+				<timeFormatLength type="full">
+					<timeFormat >
+						<pattern></pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="long">
+					<timeFormat >
+						<pattern></pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="medium">
+					<timeFormat >
+						<pattern>a h:mm:ss</pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="short">
+					<timeFormat >
+						<pattern></pattern>
+					</timeFormat>
+				</timeFormatLength >
+			</timeFormats>
+			<dateTimeFormats>
+				<dateTimeFormatLength >
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</dateTimeFormatLength >
+			</dateTimeFormats>
+		</calendar>
+	</calendars>
+</dates>
+<numbers>
+	<symbols>
+		<decimal>.</decimal>
+		<group>,</group>
+		<list>,</list>
+		<percentSign>%</percentSign>
+		<nativeZeroDigit>0</nativeZeroDigit>
+		<patternDigit>#</patternDigit>
+		<minusSign>-</minusSign>
+		<exponential>E</exponential>
+		<perMille>‰</perMille>
+		<infinity>∞</infinity>
+		<nan>�</nan>
+	</symbols>
+	<percentFormats>
+		<percentFormatLength >
+			<percentFormat >
+				<pattern></pattern>
+			</percentFormat>
+		</percentFormatLength >
+	</percentFormats>
+	<currencyFormats>
+		<currencyFormatLength >
+			<currencyFormat >
+				<pattern></pattern>
+			</currencyFormat>
+		</currencyFormatLength >
+	</currencyFormats>
+</numbers>
 </ldml>

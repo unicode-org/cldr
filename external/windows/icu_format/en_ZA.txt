@@ -1,5 +1,6 @@
 en_ZA{
 
+ Version{"Windows XP"}
  LocaleID{ "1C09"}
  AmPmMarkers{
   "AM",
@@ -13,8 +14,12 @@ en_ZA{
   "ENS"
  }
 
- Language{
-  "English"
+ Languages{
+  en {  "English"  }
+ }
+
+ Countries{
+  ZA {  "South Africa"  }
  }
 
  CurrencyElements{
@@ -26,7 +31,7 @@ en_ZA{
  DateTimePatterns{
   "",
   "",
-  "hh:mm:ss",
+  "hh:mm:ss a",
   "",
   "dd MMMM yyyy",
   "",

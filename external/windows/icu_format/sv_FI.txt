@@ -1,5 +1,6 @@
 sv_FI{
 
+ Version{"Windows XP"}
  LocaleID{ "081D"}
  AmPmMarkers{
   "",
@@ -13,13 +14,17 @@ sv_FI{
   "SVF"
  }
 
- Language{
-  "Swedish"
+ Languages{
+  sv {  "svenska"  }
+ }
+
+ Countries{
+  FI {  "Finland"  }
  }
 
  CurrencyElements{
-  "mk",
-  "FIM",
+  "\u20AC",
+  "EUR",
   ","
  }
 

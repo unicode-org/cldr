@@ -1,5 +1,6 @@
 de_AT{
 
+ Version{"Windows XP"}
  LocaleID{ "0C07"}
  AmPmMarkers{
   "",
@@ -13,13 +14,17 @@ de_AT{
   "DEA"
  }
 
- Language{
-  "German"
+ Languages{
+  de {  "Deutsch"  }
+ }
+
+ Countries{
+  AT {  "\u00D6sterreich"  }
  }
 
  CurrencyElements{
-  "\u00F6S",
-  "ATS",
+  "\u20AC",
+  "EUR",
   ","
  }
 

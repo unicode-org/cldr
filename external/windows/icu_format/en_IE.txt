@@ -1,5 +1,6 @@
 en_IE{
 
+ Version{"Windows XP"}
  LocaleID{ "1809"}
  AmPmMarkers{
   "",
@@ -13,13 +14,17 @@ en_IE{
   "ENI"
  }
 
- Language{
-  "English"
+ Languages{
+  en {  "English"  }
+ }
+
+ Countries{
+  IE {  "Eire"  }
  }
 
  CurrencyElements{
-  "IR\u00A3",
-  "IEP",
+  "\u20AC",
+  "EUR",
   "."
  }
 

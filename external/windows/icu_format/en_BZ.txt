@@ -1,5 +1,6 @@
 en_BZ{
 
+ Version{"Windows XP"}
  LocaleID{ "2809"}
  AmPmMarkers{
   "AM",
@@ -13,8 +14,12 @@ en_BZ{
   "ENL"
  }
 
- Language{
-  "English"
+ Languages{
+  en {  "English"  }
+ }
+
+ Countries{
+  BZ {  "Belize"  }
  }
 
  CurrencyElements{
@@ -26,7 +31,7 @@ en_BZ{
  DateTimePatterns{
   "",
   "",
-  "hh:mm:ss",
+  "hh:mm:ss a",
   "",
   "dddd, dd MMMM yyyy",
   "",

@@ -1,5 +1,6 @@
 ka_GE{
 
+ Version{"Windows XP"}
  LocaleID{ "0437"}
  AmPmMarkers{
   "",
@@ -13,8 +14,12 @@ ka_GE{
   "KAT"
  }
 
- Language{
-  "Georgian"
+ Languages{
+  ka {  "\u10E5\u10D0\u10E0\u10D7\u10E3\u10DA\u10D8"  }
+ }
+
+ Countries{
+  GE {  "\u10E1\u10D0\u10E5\u10D0\u10E0\u10D7\u10D5\u10D4\u10DA\u10DD"  }
  }
 
  CurrencyElements{
@@ -28,7 +33,7 @@ ka_GE{
   "",
   "H:mm:ss",
   "",
-  "yyyy \u10EC\u10DA\u10D8\u10E1 dd MM, dddd",
+  "yyyy '\u10EC\u10DA\u10D8\u10E1' dd MM, dddd",
   "",
   "",
   "dd.MM.yyyy",

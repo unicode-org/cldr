@@ -1,135 +1,25 @@
 uz_UZ{
 
- LocaleID{ "0443"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "UZB"
- }
-
- ShortLanguage{
-  "UZB"
- }
-
- Language{
-  "Uzbek"
- }
-
- CurrencyElements{
-  "su'm",
-  "UZS",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "HH:mm:ss",
-  "",
-  "yyyy 'yil' d-MMMM",
-  "",
-  "",
-  "dd/MM yyyy",
-  "",
- }
-
- DateTimeElements:intvector{
-  0,
-  
- }
- DayNames{
-  "yakshanba",
-  "dushanba",
-  "seshanba",
-  "chorshanba",
-  "payshanba",
-  "juma",
-  "shanba"
- }
-
- DayAbbreviations{
-  "yak.",
-  "dsh.",
-  "sesh.",
-  "chr.",
-  "psh.",
-  "jm.",
-  "sh."
- }
-
- MonthNames{
-  "yanvar",
-  "fevral",
-  "mart",
-  "aprel",
-  "may",
-  "iyun",
-  "iyul",
-  "avgust",
-  "sentyabr",
-  "oktyabr",
-  "noyabr",
-  "dekabr",
-  ""
- }
-
- MonthAbbreviations{
-  "yanvar",
-  "fevral",
-  "mart",
-  "aprel",
-  "may",
-  "iyun",
-  "iyul",
-  "avgust",
-  "sentyabr",
-  "oktyabr",
-  "noyabr",
-  "dekabr",
-  ""
- }
-
- NumberElements{
-  ",",
-  "\u00A0",
-  ";",
-  "%",
-  "0",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-uz_UZ{
-
+ Version{"Windows XP"}
  LocaleID{ "0843"}
  AmPmMarkers{
   "",
   ""
  }
  ShortCountry{
-  "UZS"
+  "UZB"
  }
 
  ShortLanguage{
   "UZB"
  }
 
- Language{
-  "Uzbek"
+ Languages{
+  uz {  "\u040E\u0437\u0431\u0435\u043A"  }
+ }
+
+ Countries{
+  UZ {  "\u040E\u0437\u0431\u0435\u043A\u0438\u0441\u0442\u043E\u043D"  }
  }
 
  CurrencyElements{
@@ -143,7 +33,7 @@ uz_UZ{
   "",
   "HH:mm:ss",
   "",
-  "yyyy \u0439\u0438\u043B d-MMMM",
+  "yyyy '\u0439\u0438\u043B' d-MMMM",
   "",
   "",
   "dd.MM.yyyy",

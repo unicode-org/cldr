@@ -1,5 +1,6 @@
 es_SV{
 
+ Version{"Windows XP"}
  LocaleID{ "440A"}
  AmPmMarkers{
   "a.m.",
@@ -13,13 +14,17 @@ es_SV{
   "ESE"
  }
 
- Language{
-  "Spanish"
+ Languages{
+  es {  "Espa\u00F1ol"  }
+ }
+
+ Countries{
+  SV {  "El Salvador"  }
  }
 
  CurrencyElements{
-  "\u20A1",
-  "SVC",
+  "$",
+  "USD",
   "."
  }
 

@@ -7,151 +7,159 @@
 >
 <ldml>
 	<identity>
-		<version number="1.0"/>
-		<generation date="2003-07-24" />
+		<version number="Windows XP"/>
+		<generation date="2003-10-02" />
 		<language type="uz" /> 
 		<territory type="UZ" /> 
 	</identity>
-	<dates>
-		<calendars>
-			<calendar type="gregorian">
-				<monthNames>
-					<month type="1">yanvar</month>
-					<month type="2">fevral</month>
-					<month type="3">mart</month>
-					<month type="4">aprel</month>
-					<month type="5">may</month>
-					<month type="6">iyun</month>
-					<month type="7">iyul</month>
-					<month type="8">avgust</month>
-					<month type="9">sentyabr</month>
-					<month type="10">oktyabr</month>
-					<month type="11">noyabr</month>
-					<month type="12">dekabr</month>
-					<month type="13"></month>
-				</monthNames>
-				<monthAbbr>
-					<month type="1">yanvar</month>
-					<month type="2">fevral</month>
-					<month type="3">mart</month>
-					<month type="4">aprel</month>
-					<month type="5">may</month>
-					<month type="6">iyun</month>
-					<month type="7">iyul</month>
-					<month type="8">avgust</month>
-					<month type="9">sentyabr</month>
-					<month type="10">oktyabr</month>
-					<month type="11">noyabr</month>
-					<month type="12">dekabr</month>
-					<month type="13"></month>
-				</monthAbbr>
-				<dayNames>
-					<day type="sun">yakshanba</day>
-					<day type="mon">dushanba</day>
-					<day type="tue">seshanba</day>
-					<day type="wed">chorshanba</day>
-					<day type="thu">payshanba</day>
-					<day type="fri">juma</day>
-					<day type="sat">shanba</day>
-				</dayNames>
-				<dayAbbr>
-					<day type="sun">yak.</day>
-					<day type="mon">dsh.</day>
-					<day type="tue">sesh.</day>
-					<day type="wed">chr.</day>
-					<day type="thu">psh.</day>
-					<day type="fri">jm.</day>
-					<day type="sat">sh.</day>
-				</dayAbbr>
-				<week>
-					<minDays count="0"/>
-					<firstDay day=""/>
-				</week>
-				<am></am>
-				<pm></pm>
-				<dateFormats>
-					<default type="medium"/>
-					<dateFormatLength type="full">
-						<dateFormat >
-							<pattern>yyyy 'yil' d-MMMM</pattern>
-						</dateFormat>
-					</dateFormatLength >
-					<dateFormatLength type="long">
-						<dateFormat >
-							<pattern></pattern>
-						</dateFormat>
-					</dateFormatLength >
-					<dateFormatLength type="medium">
-						<dateFormat >
-							<pattern></pattern>
-						</dateFormat>
-					</dateFormatLength >
-					<dateFormatLength type="short">
-						<dateFormat >
-							<pattern>dd/MM yyyy</pattern>
-						</dateFormat>
-					</dateFormatLength >
-				</dateFormats>
-				<timeFormats>
-					<default type="medium"/>
-					<timeFormatLength type="full">
-						<timeFormat >
-							<pattern></pattern>
-						</timeFormat>
-					</timeFormatLength >
-					<timeFormatLength type="long">
-						<timeFormat >
-							<pattern></pattern>
-						</timeFormat>
-					</timeFormatLength >
-					<timeFormatLength type="medium">
-						<timeFormat >
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength >
-					<timeFormatLength type="short">
-						<timeFormat >
-							<pattern></pattern>
-						</timeFormat>
-					</timeFormatLength >
-				</timeFormats>
-				<dateTimeFormats>
-					<dateTimeFormatLength >
-						<dateTimeFormat>
-							<pattern></pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength >
-				</dateTimeFormats>
-			</calendar>
-		</calendars>
-	</dates>
-	<numbers>
-		<symbols>
-			<decimal>,</decimal>
-			<group> </group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
-		</symbols>
-		<percentFormats>
-			<percentFormatLength >
-				<percentFormat >
-					<pattern></pattern>
-				</percentFormat>
-			</percentFormatLength >
-		</percentFormats>
-		<currencyFormats>
-			<currencyFormatLength >
-				<currencyFormat >
-					<pattern></pattern>
-				</currencyFormat>
-			</currencyFormatLength >
-		</currencyFormats>
-	</numbers>
+	<localeDisplayNames>
+		<languages>
+			<language type="uz">Ўзбек</language>
+		</languages>
+		<territories>
+			<territory type="UZ">Ўзбекистон</territory>
+		</territories>
+</localeDisplayNames>
+<dates>
+	<calendars>
+		<calendar type="gregorian">
+			<monthNames>
+				<month type="1">Январ</month>
+				<month type="2">Феврал</month>
+				<month type="3">Март</month>
+				<month type="4">Апрел</month>
+				<month type="5">Май</month>
+				<month type="6">Июн</month>
+				<month type="7">Июл</month>
+				<month type="8">Август</month>
+				<month type="9">Сентябр</month>
+				<month type="10">Октябр</month>
+				<month type="11">Ноябр</month>
+				<month type="12">Декабр</month>
+				<month type="13"></month>
+			</monthNames>
+			<monthAbbr>
+				<month type="1">Янв</month>
+				<month type="2">Фев</month>
+				<month type="3">Мар</month>
+				<month type="4">Апр</month>
+				<month type="5">Май</month>
+				<month type="6">Июн</month>
+				<month type="7">Июл</month>
+				<month type="8">Авг</month>
+				<month type="9">Сен</month>
+				<month type="10">Окт</month>
+				<month type="11">Ноя</month>
+				<month type="12">Дек</month>
+				<month type="13"></month>
+			</monthAbbr>
+			<dayNames>
+				<day type="sun">якшанба</day>
+				<day type="mon">душанба</day>
+				<day type="tue">сешанба</day>
+				<day type="wed">чоршанба</day>
+				<day type="thu">пайшанба</day>
+				<day type="fri">жума</day>
+				<day type="sat">шанба</day>
+			</dayNames>
+			<dayAbbr>
+				<day type="sun">якш</day>
+				<day type="mon">дш</day>
+				<day type="tue">сш</day>
+				<day type="wed">чш</day>
+				<day type="thu">пш</day>
+				<day type="fri">ж</day>
+				<day type="sat">ш</day>
+			</dayAbbr>
+			<week>
+				<minDays count="0"/>
+				<firstDay day=""/>
+			</week>
+			<am></am>
+			<pm></pm>
+			<dateFormats>
+				<default type="medium"/>
+				<dateFormatLength type="full">
+					<dateFormat >
+						<pattern>yyyy 'йил' d-MMMM</pattern>
+					</dateFormat>
+				</dateFormatLength >
+				<dateFormatLength type="long">
+					<dateFormat >
+						<pattern></pattern>
+					</dateFormat>
+				</dateFormatLength >
+				<dateFormatLength type="medium">
+					<dateFormat >
+						<pattern></pattern>
+					</dateFormat>
+				</dateFormatLength >
+				<dateFormatLength type="short">
+					<dateFormat >
+						<pattern>dd.MM.yyyy</pattern>
+					</dateFormat>
+				</dateFormatLength >
+			</dateFormats>
+			<timeFormats>
+				<default type="medium"/>
+				<timeFormatLength type="full">
+					<timeFormat >
+						<pattern></pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="long">
+					<timeFormat >
+						<pattern></pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="medium">
+					<timeFormat >
+						<pattern>HH:mm:ss</pattern>
+					</timeFormat>
+				</timeFormatLength >
+				<timeFormatLength type="short">
+					<timeFormat >
+						<pattern></pattern>
+					</timeFormat>
+				</timeFormatLength >
+			</timeFormats>
+			<dateTimeFormats>
+				<dateTimeFormatLength >
+					<dateTimeFormat>
+						<pattern></pattern>
+					</dateTimeFormat>
+				</dateTimeFormatLength >
+			</dateTimeFormats>
+		</calendar>
+	</calendars>
+</dates>
+<numbers>
+	<symbols>
+		<decimal>,</decimal>
+		<group> </group>
+		<list>;</list>
+		<percentSign>%</percentSign>
+		<nativeZeroDigit>0</nativeZeroDigit>
+		<patternDigit>#</patternDigit>
+		<minusSign>-</minusSign>
+		<exponential>E</exponential>
+		<perMille>‰</perMille>
+		<infinity>∞</infinity>
+		<nan>�</nan>
+	</symbols>
+	<percentFormats>
+		<percentFormatLength >
+			<percentFormat >
+				<pattern></pattern>
+			</percentFormat>
+		</percentFormatLength >
+	</percentFormats>
+	<currencyFormats>
+		<currencyFormatLength >
+			<currencyFormat >
+				<pattern></pattern>
+			</currencyFormat>
+		</currencyFormatLength >
+	</currencyFormats>
+</numbers>
 </ldml>

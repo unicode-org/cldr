@@ -1,5 +1,6 @@
 fr_MC{
 
+ Version{"Windows XP"}
  LocaleID{ "180C"}
  AmPmMarkers{
   "",
@@ -13,13 +14,17 @@ fr_MC{
   "FRM"
  }
 
- Language{
-  "French"
+ Languages{
+  fr {  "fran\u00E7ais"  }
+ }
+
+ Countries{
+  MC {  "Principaut\u00E9 de Monaco"  }
  }
 
  CurrencyElements{
-  "F",
-  "FRF",
+  "\u20AC",
+  "EUR",
   ","
  }
 

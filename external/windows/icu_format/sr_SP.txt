@@ -1,120 +1,6 @@
 sr_SP{
 
- LocaleID{ "081A"}
- AmPmMarkers{
-  "",
-  ""
- }
- ShortCountry{
-  "SPB"
- }
-
- ShortLanguage{
-  "SRL"
- }
-
- Language{
-  "Serbian (Latin)"
- }
-
- CurrencyElements{
-  "Din.",
-  "YUN",
-  ","
- }
-
- DateTimePatterns{
-  "",
-  "",
-  "H:mm:ss",
-  "",
-  "d. MMMM yyyy",
-  "",
-  "",
-  "d.M.yyyy",
-  "",
- }
-
- DateTimeElements:intvector{
-  0,
-  
- }
- DayNames{
-  "nedelja",
-  "ponedeljak",
-  "utorak",
-  "sreda",
-  "\u010Detvrtak",
-  "petak",
-  "subota"
- }
-
- DayAbbreviations{
-  "ned",
-  "pon",
-  "uto",
-  "sre",
-  "\u010Det",
-  "pet",
-  "sub"
- }
-
- MonthNames{
-  "januar",
-  "februar",
-  "mart",
-  "april",
-  "maj",
-  "jun",
-  "jul",
-  "avgust",
-  "septembar",
-  "oktobar",
-  "novembar",
-  "decembar",
-  ""
- }
-
- MonthAbbreviations{
-  "jan",
-  "feb",
-  "mar",
-  "apr",
-  "maj",
-  "jun",
-  "jul",
-  "avg",
-  "sep",
-  "okt",
-  "nov",
-  "dec",
-  ""
- }
-
- NumberElements{
-  ",",
-  ".",
-  ";",
-  "%",
-  "0",
-  "#",
-  "-",
-  "E",
-  "\u2030",
-  "\u221e",
-  "\ufffd",
- }
-
- NumberPatterns{
-  "",
-  "",
-  ""
- }
-
-}
-
-sr_SP{
-
+ Version{"Windows XP"}
  LocaleID{ "0C1A"}
  AmPmMarkers{
   "",
@@ -128,12 +14,16 @@ sr_SP{
   "SRB"
  }
 
- Language{
-  "Serbian (Cyrillic)"
+ Languages{
+  sr {  "\u0441\u0440\u043F\u0441\u043A\u0438"  }
+ }
+
+ Countries{
+  SP {  "\u0408\u0443\u0433\u043E\u0441\u043B\u0430\u0432\u0438\u0458\u0430"  }
  }
 
  CurrencyElements{
-  "Din.",
+  "\u0414\u0438\u043D.",
   "YUN",
   ","
  }

@@ -1,5 +1,6 @@
 es_EC{
 
+ Version{"Windows XP"}
  LocaleID{ "300A"}
  AmPmMarkers{
   "",
@@ -13,13 +14,17 @@ es_EC{
   "ESF"
  }
 
- Language{
-  "Spanish"
+ Languages{
+  es {  "Espa\u00F1ol"  }
+ }
+
+ Countries{
+  EC {  "Ecuador"  }
  }
 
  CurrencyElements{
-  "S/.",
-  "ECS",
+  "$",
+  "USD",
   ","
  }
 

@@ -1,5 +1,6 @@
 fr_CA{
 
+ Version{"Windows XP"}
  LocaleID{ "0C0C"}
  AmPmMarkers{
   "",
@@ -13,8 +14,12 @@ fr_CA{
   "FRC"
  }
 
- Language{
-  "French"
+ Languages{
+  fr {  "fran\u00E7ais"  }
+ }
+
+ Countries{
+  CA {  "Canada"  }
  }
 
  CurrencyElements{
@@ -28,7 +33,7 @@ fr_CA{
   "",
   "HH:mm:ss",
   "",
-  "d MMMM, yyyy",
+  "d MMMM yyyy",
   "",
   "",
   "yyyy-MM-dd",

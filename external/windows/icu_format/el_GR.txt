@@ -1,5 +1,6 @@
 el_GR{
 
+ Version{"Windows XP"}
  LocaleID{ "0408"}
  AmPmMarkers{
   "\u03C0\u03BC",
@@ -13,13 +14,17 @@ el_GR{
   "ELL"
  }
 
- Language{
-  "Greek"
+ Languages{
+  el {  "\u03B5\u03BB\u03BB\u03B7\u03BD\u03B9\u03BA\u03AC"  }
+ }
+
+ Countries{
+  GR {  "\u0395\u03BB\u03BB\u03AC\u03B4\u03B1"  }
  }
 
  CurrencyElements{
-  "\u0394\u03C1\u03C7",
-  "GRD",
+  "\u20AC",
+  "EUR",
   ","
  }
 

@@ -245,7 +245,8 @@
 
 <!ELEMENT collations ( (collation+ | special*)* | alias ) >
 
-<!ELEMENT collation ( ( special* | uca? | settings? | rules? )* | alias ) >
+<!ELEMENT collation ( ( special* | uca? | settings? | suppress_contractions? | optimize?   | rules? )* | alias ) >
+
 <!ATTLIST collation key NMTOKEN #IMPLIED >
 
 <!ELEMENT uca EMPTY >
@@ -260,28 +261,44 @@
 <!ATTLIST settings hiraganaQuarternary NMTOKEN #IMPLIED >
 <!ATTLIST settings strength NMTOKEN #IMPLIED >
 
-<!ELEMENT rules ( (special* | p | pc | position | reset | s | sc | t | tc | i | ic)* | alias) >
+<!ELEMENT suppress_contractions (  #PCDATA ) >
 
-<!ELEMENT p ( #PCDATA ) >
+<!ELEMENT optimize ( #PCDATA ) >
 
-<!ELEMENT pc ( #PCDATA ) >
+<!ELEMENT rules ( (special* | p | pc | position | reset | s | sc | t | tc | q | qc | i | ic)* | alias) >
 
-<!ELEMENT s ( #PCDATA ) >
+<!ELEMENT p ( #PCDATA | context | cp)* >
 
-<!ELEMENT sc ( #PCDATA ) >
+<!ELEMENT pc ( #PCDATA | context | cp )* >
 
-<!ELEMENT t ( #PCDATA ) >
+<!ELEMENT s ( #PCDATA | context | cp )* >
 
-<!ELEMENT tc ( #PCDATA ) >
+<!ELEMENT sc ( #PCDATA | context | cp )* >
 
-<!ELEMENT i ( #PCDATA ) >
+<!ELEMENT t ( #PCDATA | context | cp )* >
 
-<!ELEMENT ic ( #PCDATA ) >
+<!ELEMENT tc ( #PCDATA | context | cp )* >
 
-<!ELEMENT reset ( #PCDATA ) >
+<!ELEMENT q ( #PCDATA | context | cp )* >
+
+<!ELEMENT qc ( #PCDATA | context | cp )* >
+
+<!ELEMENT i ( #PCDATA | context | cp )* >
+
+<!ELEMENT ic ( #PCDATA | context | cp )* >
+
+<!ELEMENT reset ( #PCDATA | context | cp | top )* >
+<!ATTLIST reset before NMTOKEN #IMPLIED >
+
+<!ELEMENT top EMPTY >
+
+<!ELEMENT context (  #PCDATA ) >
 
 <!ELEMENT position EMPTY >
 <!ATTLIST position at CDATA #REQUIRED >
+
+<!ELEMENT cp EMPTY >
+<!ATTLIST cp hex NMTOKEN #REQUIRED >
 
 <!-- ######################################################### -->
 
@@ -310,10 +327,10 @@
 <!-- ######################################################### -->
 
 <!-- RBNF data -->
-<!ELEMENT ruleBasedNumberFormat ( #PCDATA ) >
+<!ELEMENT ruleBasedNumberFormat (#PCDATA | cp)* >
 <!ATTLIST ruleBasedNumberFormat type NMTOKEN #REQUIRED >
 
-<!ELEMENT ruleBasedNumberFormats ( ruleBasedNumberFormat+ |alias ) >
+<!ELEMENT ruleBasedNumberFormats ( ruleBasedNumberFormat+ | alias ) >
 
 <!-- RBBI data -->
 <!ELEMENT boundaries ( (grapheme? | word? | line? | sentence? | special*)* | alias ) >

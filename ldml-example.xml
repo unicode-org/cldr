@@ -332,6 +332,7 @@ For example, most country locales will inherit the bulk of their data from the l
 
             <uca version="3.1.1"/>
             <settings caseLevel="on"/>
+			<suppress_contractions>[Ѐ-џ]</suppress_contractions>
             <rules>
                 <!-- this example takes the swedish tailoring plus part of a japanese tailoring,
                 for illustration -->
@@ -362,6 +363,8 @@ For example, most country locales will inherit the bulk of their data from the l
                 <!-- following is equivalent to <p>&#x4E9C;</p><p>&#x5516;</p><p>&#x5A03;</p>... -->
                 <pc>&#x4E9C;&#x5516;&#x5A03;&#x963F;&#x54C0;&#x611B;&#x6328;&#x59F6;&#x9022;&#x8475;&#x831C;&#x7A50;&#x60AA;&#x63E1;&#x6E25;&#x65ED;&#x8466;&#x82A6;</pc>
                 <pc>&#x9BF5;&#x6893;&#x5727;&#x65A1;&#x6271;</pc>
+				<t>ァ<context>ー</context></t>
+				<p>ァ<context>ー</context></p>
             </rules>
             <special owner="http://www.openoffice.org">
                 <default type="alphanumeric"/>

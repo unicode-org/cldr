@@ -519,7 +519,9 @@ de_DE@collation=phonebook,currency=<span>DDM</span></pre>
     <tr>
       <td>currency</td>
       <td>ISO 4217 code</td>
-      <td>Currency value identified by ISO code. See [<a href="#DataFormats">Data Formats</a>]</td>
+      <td>Currency value identified by ISO code<span class="changedspan">, plus others in common use</span>. 
+      See <span class="changedspan"><a href="#valid_attribute_values">Appendix K: Valid Attribute 
+      Values</a> and </span>also [<a href="#DataFormats">Data Formats</a>]</td>
     </tr>
     <tr>
       <td>timezone</td>
@@ -1292,8 +1294,8 @@ root</pre>
     &lt;relative type=&#39;-2&#39;&gt;Vorgestern&lt;/relative&gt;
     &lt;relative type=&#39;-1&#39;&gt;Gestern&lt;/relative&gt;
     &lt;relative type=&#39;0&#39;&gt;Heute&lt;/relative&gt;
-    &lt;relative type=&#39;1&#39;&gt;Morgan&lt;/relative&gt;
-    &lt;relative type=&#39;2&#39;&gt;Übermorgan&lt;/relative&gt;
+    &lt;relative type=&#39;1&#39;&gt;Morgen&lt;/relative&gt;
+    &lt;relative type=&#39;2&#39;&gt;Übermorgen&lt;/relative&gt;
    &lt;/field&gt;
   &lt;/fields&gt;
 &lt;/calendars&gt;</pre>
@@ -1454,9 +1456,10 @@ root</pre>
   percentFormats?, currencyFormats?, currencies?, special*)) &gt;</span></p>
   <p>The numbers element supplies information for formatting and parsing numbers and currencies. It 
   has the following sub-elements: &lt;symbols&gt;, &lt;decimalFormats&gt;, &lt;scientificFormats&gt;, &lt;percentFormats&gt;, 
-  &lt;currencyFormats&gt;, and &lt;currencies&gt;. The currency IDs are from [<a href="#ISO4217">ISO4217</a>]. 
-  For more information, including the pattern structure<span class="changed">, see </span>
-  <a href="#Number_Format_Patterns"><span class="changed">Appendix G: Number Pattern Format</span></a><span class="changed">.</span></p>
+  &lt;currencyFormats&gt;, and &lt;currencies&gt;. The currency IDs are from [<a href="#ISO4217">ISO4217</a>]<span class="changedspan"> 
+  (plus some additional common-use codes)</span>. For more information, including the pattern 
+  structure<span class="changed">, see </span><a href="#Number_Format_Patterns">
+  <span class="changed">Appendix G: Number Pattern Format</span></a><span class="changed">.</span></p>
   <p><span class="dtd">&lt;!ELEMENT symbols (alias | (decimal?, group?, list?, percentSign?, 
   nativeZeroDigit?, patternDigit?, plusSign?, minusSign?, exponential?, perMille?, infinity?, nan?, 
   special*)) &gt;</span></p>
@@ -1546,10 +1549,10 @@ root</pre>
   <p class="note"><b>Note: </b><i>Currency values should <b>never</b> be interchanged without a 
   known currency code. You never want the number 3.5 interpreted as $3.5 by one user and ¥3.5 by 
   another. </i>Locale data contains localization information for currencies, not a currency value 
-  for a country. A currency amount logically consists of a numeric value, plus an accompanying
-  <a href="#ISO4217">[ISO4217</a>] currency code (or equivalent). The currency code may be implicit 
-  in a protocol, such as where USD is implicit. But if the raw numeric value is transmitted without 
-  any context, then it has no definitive interpretation.</p>
+  for a country. A currency amount logically consists of a numeric value, plus an accompanying 
+  currency code (or equivalent). The currency code may be implicit in a protocol, such as where USD 
+  is implicit. But if the raw numeric value is transmitted without any context, then it has no 
+  definitive interpretation.</p>
   <p class="note">Notice that the currency code is completely independent of the end-user&#39;s language 
   or locale. For example, RUR is the code for Russian Rubles. A currency amount of &lt;RUR, 
   1.23457×10³&gt; would be localized for a Russian user into &quot;1&nbsp;234,57р.&quot; (using U+0440 (р)
@@ -4251,7 +4254,9 @@ root</pre>
   <h2><span class="changedspan"><a name="valid_attribute_values"></a>Appendix K: Valid Attribute 
   Values</span></h2>
   <p><span class="changedspan">The following provides a list of valid tags, for all elements except 
-  collations and its children.</span></p>
+  collation &lt;rules&gt; and its children. For currency codes, this list only includes the ISO 4217 
+  currency codes; however, there are other codes in common use that may occur in LDML data. A 
+  definitive list will be provided in the future.</span></p>
   <table>
     <tr>
       <th><span class="changedspan">Element</span></th>

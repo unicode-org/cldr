@@ -20,86 +20,91 @@ By Pema geyleg <pema_geyleg@druknet.bt>
     
   </identity>
 
-  <numbers>
-    <symbols>
-      <decimal>.</decimal>
+ 
+   <numbers>
+        <symbols>
+            <decimal>.</decimal>
+            <group>,</group>
+            <list>
+		དང་
+	
+	    </list>
+            <percentSign>
+             བརྒ་ཆཱ
 
-      <group>,</group>
+		
+	    </percentSign>
+            <nativeZeroDigit>à¼ </nativeZeroDigit>
+            <patternDigit>#</patternDigit>
+            <plusSign>+</plusSign>
+            <minusSign>-</minusSign>
+            <exponential>E</exponential>
+            <perMille>‰</perMille>
+            <infinity>
+		གྲངས་མེད
+		
+           </infinity>
+            <nan>
+		ཨང་མད
+		
+	    </nan>
+        </symbols>
 
-      <list>???</list>
-
-      <percentSign>??????</percentSign>
-
-      <nativeZeroDigit>�</nativeZeroDigit>
-
-      <patternDigit>#</patternDigit>
-
-      <plusSign>+</plusSign>
-
-      <minusSign>-</minusSign>
-
-      <exponential>E</exponential>
-
-      <perMille>�</perMille>
-
-      <infinity>????????</infinity>
-
-      <nan>?????</nan>
-    </symbols>
-
-    <decimalFormats>
-      <decimalFormatLength type="long">
-        <decimalFormat>
-<!-- number grouping same as India (thousands, lakhs, crores,
+        <decimalFormats>
+          <decimalFormatLength type="long">
+            <decimalFormat>
+             <!-- number grouping same as India (thousands, lakhs, crores,
 etc.)
 -->
-          <pattern>##,##,##0.###;-##,##,##0.###</pattern>
-        </decimalFormat>
-      </decimalFormatLength>
-    </decimalFormats>
+              <pattern>##,##,##0.###;-##,##,##0.###</pattern>
+            </decimalFormat>
+          </decimalFormatLength>
+        </decimalFormats>
 
-    <scientificFormats>
-      <default type="long" />
+        <scientificFormats>
+          <default type="long"/>
+          <scientificFormatLength type="long">
+            <scientificFormat>
+              <pattern>#E+00</pattern>
+            </scientificFormat>
+          </scientificFormatLength>
+        </scientificFormats>
 
-      <scientificFormatLength type="long">
-        <scientificFormat>
-          <pattern>#E+00</pattern>
-        </scientificFormat>
-      </scientificFormatLength>
+        <percentFormats>
+          <percentFormatLength type="long">
+            <percentFormat>
+              <pattern>
+		##,##,##0 བརྒ་ཆཱ
 
-      <scientificFormatLength type="medium">
-        <scientificFormat>
-          <pattern>#E+00</pattern>
-        </scientificFormat>
-      </scientificFormatLength>
-    </scientificFormats>
+		
+		</pattern>
+            </percentFormat>
+          </percentFormatLength>
+        </percentFormats>
 
-    <percentFormats>
-      <percentFormatLength type="long">
-        <percentFormat>
-          <pattern>##,##,##0 ??????</pattern>
-        </percentFormat>
-      </percentFormatLength>
-    </percentFormats>
+        <currencyFormats>
+          <currencyFormatLength type="long">
+            <currencyFormat>
+              <pattern>
+དངུལ་ཀྲམ་
+##,##,##0.00;
+-དངུལ་ཀྲམ་
+##,##,##0.00
 
-    <currencyFormats>
-      <currencyFormatLength type="long">
-        <currencyFormat>
-          <pattern>????????? ##,##,##0.00; -?????????
-          ##,##,##0.00</pattern>
-        </currencyFormat>
-      </currencyFormatLength>
-    </currencyFormats>
-
-    <currencies>
-      <default type="BTN" />
-
-      <currency type="BTN">
-        <displayName>?????????</displayName>
-
-        <symbol>Nu</symbol>
-      </currency>
-    </currencies>
-  </numbers>
+              </pattern>
+            </currencyFormat>
+          </currencyFormatLength>
+        </currencyFormats>
+        <currencies>
+            <default type="BTN"/>
+            <currency type="BTN">
+		<displayName>
+			དངུལ་ཀྲམ་
+			
+		</displayName>
+		<symbol>Nu</symbol>
+	     </currency>
+         </currencies>
+    </numbers>
 </ldml>
 

@@ -143,10 +143,11 @@
                 <td><a href="ftp://www.unicode.org/Public/cldr/cldr1.2.zip">CLDR 1.2</a></td>
               </tr>
               <tr>
-                <th align="left" rowspan='2'>Previous Releases: </th>
+                <th align="left" rowspan="2">Previous Releases: </th>
                 <td><a href="http://www.unicode.org/Public/cldr/cldr1.1.1.zip">CLDR 1.1.1</a></td>
                 <td><a href="ftp://www.unicode.org/Public/cldr/cldr1.1.1.zip">CLDR 1.1.1</a></td>
-</tr><tr>
+              </tr>
+              <tr>
                 <td><a href="http://www.unicode.org/Public/cldr/cldr1.1.zip">CLDR 1.1.0</a></td>
                 <td><a href="ftp://www.unicode.org/Public/cldr/cldr1.1.zip">CLDR 1.1.0</a></td>
               </tr>
@@ -160,24 +161,44 @@
             </center>
           </div>
           <h2><a name="latest_version"></a>Latest Release Version</h2>
-          <p>The latest version of CLDR is Version 1.3. This release contains roughly XX% more 
-          data than CLDR 1.1: ......
-	</p>
-<p>To see the list of all bugs fixes and additions for this release, go to
-<a href='http://www.jtcsv.com/cgibin/locale-bugs/fixed?expression=closed.*1.2'>Release Changes</a>.
-This is a view into the feature/bug database that presents only those closed in this release.</p>
+          <p>The latest version of CLDR is Version 1.2. This new release contains data for 232 
+          locales, covering 72 languages and 108 countries. There are also 63 draft locales in the 
+          process of being developed, covering an additional 27 languages and 28 countries.</p>
+          <p>In this release, the major additions to CLDR are: </p>
+          <ul>
+            <li>Additions of many language, territory, and script names, many currency names and 
+            symbols, many timezone names, many type names (names of calendars, collations, etc); 
+            compaction of the data by removal of inherited or aliased data; and changes to Chinese 
+            collation names. </li>
+            <li>Enhancement of the LDML specification to add approximately 40% more information, 
+            covering date format patterns, number format patterns, choice patterns, inheritance and 
+            validity, time zone fallbacks, and providing a lists of all valid attribute values. 
+            Structure has been added to assist in vetting and to mark vetted locales, to allow for 
+            multiple sets of exemplar characters (indicating characters in use in particular 
+            locales), to represent relative dates and times, and to strengthen the alias mechanism 
+            by adding XPath sources.</li>
+            <li>Conformance tests to allow people to test their implementation of collation for 
+            different languages.</li>
+            <li>For comparison of data, by-type charts and vetting charts were added.</li>
+            <li>The CLDR source is now independent of ICU.</li>
+          </ul>
+          <p><i><b>Note: </b>The freeze date for the next version of CLDR is January 15, 2004. All 
+          new data or defect reports for CLDR 1.3 must be submitted by then.</i></p>
+          <p>To see the list of all bugs fixes and additions for this release, go to
+          <a href="http://www.jtcsv.com/cgibin/locale-bugs/closed?expression=target.*1.2">Release 
+          Changes</a>. This is a view into the feature/bug database that presents only those closed 
+          in this release.</p>
           <p>This is a stable release and may be used as reference material or cited as a normative 
           reference by other specifications. Although the data will not be changed, bug reports for 
           changes in future versions filed at <a href="filing_bug_reports.html">Bug Reports</a>. The 
-          next version, CLDR 1.3, is planned for the start of April, but any reports <i>must</i> be filed
-	 before the <a href='index.html'>Input Freeze</a> 
-          for consideration.</p>
+          next version, CLDR 1.3, is planned for the start of April, but any reports <i>must</i> be 
+          filed before the <a href="index.html">Input Freeze</a> for consideration.</p>
           <h2><a name="latest_draft_version">Latest Draft Version</a></h2>
           <p>The latest draft version is in a source-code repository.</p>
           <blockquote>
-            <p><font size="2">The CVS source control repository is currently being hosted by the ICU project as 
-            a service to the Unicode Consortium until it can be moved to the Unicode site. The 
-            Unicode Consortium thanks the ICU project for this support.</font></p>
+            <p><font size="2">The CVS source control repository is currently being hosted by the ICU 
+            project as a service to the Unicode Consortium until it can be moved to the Unicode 
+            site. The Unicode Consortium thanks the ICU project for this support.</font></p>
           </blockquote>
           <p>If you want to browse the data and make occasional downloads, you may want to use
           <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/">WebCVS</a>. It 
@@ -192,12 +213,30 @@ This is a view into the feature/bug database that presents only those closed in 
           working snapshot of CLDR, and access to data collected for other platforms is available 
           through CVS, as described below.</p>
           <p class="first">The CVS tags for the available releases are:</p>
-          <ul>
-            <li>1.2 release: &quot;<code>release-1-2</code>&quot;.</li>
-            <li>1.1.1 release: &quot;<code>release-1-1-1</code>&quot;.</li>
-            <li>1.1 release: &quot;<code>release-1-1</code>&quot;.</li>
-            <li>1.0 release: &quot;<code>release-1-0</code>&quot;.</li>
-          </ul>
+          <blockquote>
+            <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
+              <tr>
+                <td width="50%">CLDR Version</td>
+                <td width="50%">CVS Release Tag</td>
+              </tr>
+              <tr>
+                <td width="50%">1.2 release:</td>
+                <td width="50%"><code>release-1-2</code></td>
+              </tr>
+              <tr>
+                <td width="50%">1.1.1 release:</td>
+                <td width="50%"><code>release-1-1-1</code></td>
+              </tr>
+              <tr>
+                <td width="50%">1.1 release:</td>
+                <td width="50%"><code>release-1-1</code></td>
+              </tr>
+              <tr>
+                <td width="50%">1.0 release:</td>
+                <td width="50%"><code>release-1-0</code></td>
+              </tr>
+            </table>
+          </blockquote>
           <h2><a name="WinCVS">WinCVS</a></h2>
           <p class="first">If you will be doing serious work on CLDR, you should probably install a 
           CVS client on your own machine so that you can do batch operations without going through 
@@ -263,7 +302,14 @@ This is a view into the feature/bug database that presents only those closed in 
               <td></td>
               <td></td>
               <td>/collation</td>
-              <td>The collation data in XML format, e.g.: locale/icu/collaiton/en.xml, locale/icu/collation/fr_FR.xml.</td>
+              <td>The collation data in XML format, e.g.: locale/icu/collaiton/en.xml, 
+              locale/icu/collation/fr_FR.xml.</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>/test</td>
+              <td>for the common data, the conformance tests</td>
             </tr>
             <tr>
               <td></td>

@@ -16,21 +16,17 @@
 
 <!ATTLIST special xmlns:posix CDATA #IMPLIED>
 
-<!ELEMENT posix:messages (alias | (posix:no?, posix:yes?, posix:shortYes?, posix:shortNo?, posix:noExpr?, posix:yesExpr?)) >
+<!ELEMENT posix:messages (alias | ( posix:yesstr?, posix:nostr?, posix:yesexpr?, posix:noexpr?)) >
 
-<!ELEMENT posix:yes ( #PCDATA ) >
+<!ELEMENT posix:yesstr ( #PCDATA ) >
 
-<!ELEMENT posix:shortYes ( #PCDATA ) >
-
-<!ELEMENT posix:no ( #PCDATA ) >
-
-<!ELEMENT posix:shortNo ( #PCDATA ) >
+<!ELEMENT posix:nostr ( #PCDATA ) >
 
 <!ELEMENT posix:include ( #PCDATA ) >
 
-<!ELEMENT posix:yesExpr ( #PCDATA ) >
+<!ELEMENT posix:yesexpr ( #PCDATA ) >
 
-<!ELEMENT posix:noExpr ( #PCDATA ) >
+<!ELEMENT posix:noexpr ( #PCDATA ) >
 
 <!-- ######################################################### -->
 

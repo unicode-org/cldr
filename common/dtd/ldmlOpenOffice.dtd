@@ -63,7 +63,7 @@
 <!ATTLIST search %RefLocale; >
 <!ELEMENT openOffice:searchOptions (openOffice:transliterationModules+) >
 
-<!ELEMENT openOffice:currency ( openOffice:separators?, openOffice:numberingLevels?, openOffice:outLineNumberingLevels?) >
+<!ELEMENT openOffice:currency ( openOffice:separators?, openOffice:numberingLevels?) >
 <!ATTLIST openOffice:currency default CDATA #IMPLIED >
 <!ATTLIST openOffice:currency openOffice:usedInCompatibleFormatCodes CDATA #IMPLIED >
 

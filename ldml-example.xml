@@ -43,14 +43,14 @@ For example, most country locales will inherit the bulk of their data from the l
             <language type="sq">Albanian</language>
         </languages>
 
-        <countries>
+        <territories>
             <territory type="AF">Afghanistan</territory>
             <territory type="AL">Albania</territory>
             <territory type="DZ">Algeria</territory>
             <territory type="AD">Andorra</territory>
             <territory type="AO">Angola</territory>
             <territory type="US">United States</territory>
-        </countries>
+        </territories>
 
         <variants>
             <!-- Variant IDs must be unique across ALL locales. Currently they include
@@ -76,7 +76,7 @@ For example, most country locales will inherit the bulk of their data from the l
         The format is as in http://www.unicode.org/unicode/reports/tr22/
         with the version suppressed.
         (It is assumed that the largest available version is chosen.)
-        The required letters can also be used to select appropriate encodings.
+        The exemplarCharacters can also be used to select appropriate encodings.
         -->
        <mapping registry="iana" type="windows-1252"/>
        <mapping registry="iana" type="iso-8859_1"/>
@@ -318,9 +318,7 @@ For example, most country locales will inherit the bulk of their data from the l
 
             <!--
             This syntax is an XMLized version of the Java/ICU syntax, used to tailor the default table.
-            The main difference is that the &lt; sign is replaced by &#xAB;, and the &amp; is replaced by "&#xA7;",
-            since otherwise the XML is clumsy!
-
+           
             Note that collation needs its own version, independent of the Locale version.
             For more information, see
             http://java.sun.com/products/jdk/1.2/docs/api/java/text/RuleBasedCollator.html

@@ -492,16 +492,41 @@
 <!ATTLIST timeZoneNames validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT hourFormat ( #PCDATA ) >
+<!ATTLIST hourFormat alt CDATA #IMPLIED >
+<!ATTLIST hourFormat draft ( true | false ) #IMPLIED >
+<!ATTLIST hourFormat references CDATA #IMPLIED >
+
 <!ELEMENT hoursFormat ( #PCDATA ) >
+<!ATTLIST hoursFormat alt CDATA #IMPLIED >
+<!ATTLIST hoursFormat draft ( true | false ) #IMPLIED >
+<!ATTLIST hoursFormat references CDATA #IMPLIED >
+
 <!ELEMENT gmtFormat ( #PCDATA ) >
+<!ATTLIST gmtFormat alt CDATA #IMPLIED >
+<!ATTLIST gmtFormat draft ( true | false ) #IMPLIED >
+<!ATTLIST gmtFormat references CDATA #IMPLIED >
+
 <!ELEMENT regionFormat ( #PCDATA ) >
+<!ATTLIST regionFormat alt CDATA #IMPLIED >
+<!ATTLIST regionFormat draft ( true | false ) #IMPLIED >
+<!ATTLIST regionFormat references CDATA #IMPLIED >
+
 <!ELEMENT fallbackFormat ( #PCDATA ) >
+<!ATTLIST fallbackFormat alt CDATA #IMPLIED >
+<!ATTLIST fallbackFormat draft ( true | false ) #IMPLIED >
+<!ATTLIST fallbackFormat references CDATA #IMPLIED >
 
-<!ELEMENT abbreviationFallback (special) >
+<!ELEMENT abbreviationFallback EMPTY >
 <!ATTLIST abbreviationFallback type ( GMT | standard ) #REQUIRED >
+<!ATTLIST abbreviationFallback alt CDATA #IMPLIED >
+<!ATTLIST abbreviationFallback draft ( true | false ) #IMPLIED >
+<!ATTLIST abbreviationFallback references CDATA #IMPLIED >
 
-<!ELEMENT preferenceOrdering (special) >
-<!ATTLIST preferenceOrdering type NMTOKEN #REQUIRED >
+<!ELEMENT preferenceOrdering EMPTY >
+<!ATTLIST preferenceOrdering type CDATA #REQUIRED >
+<!ATTLIST preferenceOrdering alt CDATA #IMPLIED >
+<!ATTLIST preferenceOrdering draft ( true | false ) #IMPLIED >
+<!ATTLIST preferenceOrdering references CDATA #IMPLIED >
 
 <!ELEMENT zone (alias | ( long*, short*, exemplarCity*, special*)) >
 <!ATTLIST zone type CDATA #REQUIRED >

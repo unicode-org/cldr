@@ -123,6 +123,10 @@ public class StandardCodes {
 	
 	private Map platform_locale_status = null;
 	
+	/**
+	 * Returns locales according to status.
+	 *
+	 */
 	public Map getLocaleTypes() throws IOException {
 		if (platform_locale_status == null) {
 			platform_locale_status = new TreeMap();

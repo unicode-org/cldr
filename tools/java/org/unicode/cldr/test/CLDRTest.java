@@ -46,10 +46,13 @@ import com.ibm.icu.text.UnicodeSet;
  * <blockquote>-nothrow TestForIllegalAttributeValues TestMinimalLocalization</blockquote>
  * To show more information (logln), add -verbose
  * <p>There are some environment variables that can be used with the test.
+ * <br>-DSHOW_FILES=<anything> shows all create/open of files.
  * <br>-DXML_MATCH=<regular expression> skips all locales that don't match the regular expression
- * <br>-DMAIN_DIR=<filesystem directory> resets to a different main directory (eg not cldr/common/main.
- * For example, some of the tools generate in cldr/common/gen/main, so this can be used to check that directory.
- * <br>-DSKIP_DRAFT=<boolean> skips draft locales if <boolean> is a string starting with T or t 
+ * <br>-DXML_MAIN_DIR=<filesystem directory> resets to a different main directory (eg not cldr/common/main.
+ * For example, some of the tools generate into a locale directory like
+ *  -DXML_MAIN_DIR=C:\Unicode-CVS2\cldr\common\gen\main\
+ * so this can be used to check that directory.
+ * <br>-DSKIP_DRAFT=<boolean> skips draft locales if <boolean> is a string starting with T or t
  */
 public class CLDRTest extends TestFmwk {
 	/**
@@ -77,11 +80,12 @@ public class CLDRTest extends TestFmwk {
 	public static void main(String[] args) throws Exception {
         MATCH = System.getProperty("XML_MATCH");
         if (MATCH == null) MATCH = ".*";
+        else System.out.println("Resetting MATCH:" + MATCH);
         MAIN_DIR = System.getProperty("XML_MAIN_DIR");
         if (MAIN_DIR == null) MAIN_DIR = Utility.MAIN_DIRECTORY;
-        String skipDraftValue = System.getProperty("XML_SKIP_DRAFT");
-        if (skipDraftValue != null) skipDraftValue = skipDraftValue.toLowerCase();
-        SKIP_DRAFT = skipDraftValue != null && skipDraftValue.startsWith("t");
+        else System.out.println("Resetting MAIN_DIR:" + MAIN_DIR);
+        SKIP_DRAFT = System.getProperty("XML_SKIP_DRAFT") != null;
+        if (SKIP_DRAFT) System.out.println("Skipping Draft locales");
 
         double deltaTime = System.currentTimeMillis();
         new CLDRTest().run(args);
@@ -139,7 +143,7 @@ public class CLDRTest extends TestFmwk {
 	 * @return the numeric type, for use by getCanonicalPattern
 	 */
 	public static byte getNumericType(String xpath) {
-		if (!xpath.startsWith("/ldml/numbers/")) {
+		if (!xpath.startsWith("/ldml/numbers/") || xpath.indexOf("/pattern") < 0) {
 			return NOT_NUMERIC_TYPE;
 		}
 		if (xpath.startsWith("/ldml/numbers/currencyFormats/")) {
@@ -151,7 +155,7 @@ public class CLDRTest extends TestFmwk {
 		} else if (xpath.startsWith("/ldml/numbers/scientificFormats/")) {
 			return SCIENTIFIC_TYPE;
 		} else if (xpath.startsWith("/ldml/numbers/currencies/currency/")
-				&& xpath.indexOf("pattern") >= 0) {
+				) {
 			return CURRENCY_TYPE;
 		} else {
 			return NOT_NUMERIC_TYPE;
@@ -177,8 +181,8 @@ public class CLDRTest extends TestFmwk {
 		df.setMaximumFractionDigits(digits[2]);
 		String pattern = df.toPattern();
 
-		int pos = pattern.indexOf(';');
-		if (pos < 0) return pattern + ";-" + pattern;
+		//int pos = pattern.indexOf(';');
+		//if (pos < 0) return pattern + ";-" + pattern;
 		return pattern;
 	}
 	

@@ -695,9 +695,6 @@ public class GenerateCldrTests {
 
     /**
      * Work-around
-     * @param locale
-     * @param options
-     * @return
      */
     public UnicodeSet getExemplarSet(ULocale locale, int options) {
         String n = locale.toString();
@@ -1468,8 +1465,6 @@ public class GenerateCldrTests {
     /**
      * Produce the result of appending each element of this to each element of other.
      * That is, [a{cd}] + [d{ef}] => [{ad}{aef}{cdd}{cdef}]
-     * @param other
-     * @return
      */
     public static UnicodeSet createAppend(UnicodeSet a, UnicodeSet b) {
         UnicodeSet target = new UnicodeSet();

@@ -1369,7 +1369,6 @@ public class GenerateSidewaysView {
         }
         /**
          * @param key
-         * @return
          */
         public Object getKeyFor(ElementChain key) {
             for (int i = 0; i < list.size(); ++i) {
@@ -1384,10 +1383,7 @@ public class GenerateSidewaysView {
             map.remove(object);
             list.remove(object);
         }
-        /**
-         * @param map
-         */
-        /*
+         /*
         public void removeAll(OrderedMap other) {
             for (Iterator it = other.iterator(); it.hasNext();) {
                 Object key = it.next();

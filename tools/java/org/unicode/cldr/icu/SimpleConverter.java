@@ -24,7 +24,6 @@ import com.ibm.icu.util.ByteArrayWrapper;
 /**
  * WARNING, DON'T USE.
  * This is very draft. Don't use outside of GenerateSidewaysView, for now.
- * @internal
  */
 public class SimpleConverter {
     public SimpleConverter(Charset cs) {

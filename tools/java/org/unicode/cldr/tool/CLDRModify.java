@@ -32,6 +32,8 @@ import org.unicode.cldr.util.Utility.*;
 
 /**
  * Tool for applying modifications to the CLDR files. Use -h to see the options.
+ * <p>There are some environment variables that can be used with the program
+ * <br>-DSHOW_FILES=<anything> shows all create/open of files.
  */
 public class CLDRModify {
 	static final boolean COMMENT_REMOVALS = false; // append removals as comments
@@ -56,7 +58,7 @@ public class CLDRModify {
 	    UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
 	    UOption.create("join", 'j', UOption.OPTIONAL_ARG),
 	    UOption.create("minimize", 'r', UOption.NO_ARG),
-	    UOption.create("fix", 'f', UOption.NO_ARG),
+	    UOption.create("fix", 'f', UOption.OPTIONAL_ARG),
 	};
 	
 	static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
@@ -69,6 +71,10 @@ public class CLDRModify {
 		+ "-j<prefix>\tto merge two sets of files together (from <source_dir>/X and <source_dir>/../to_merge/<prefix>X)" + XPathParts.NEWLINE
 		+ "-r\tto minimize the results (removing items that inherit from parent)." + XPathParts.NEWLINE
 		+ "-f\tto perform various fixes on the files (TBD: add argument to specify which ones)" + XPathParts.NEWLINE
+		+ "\tn\tfix numbers" + XPathParts.NEWLINE
+		+ "\tv\tvalidate codes" + XPathParts.NEWLINE
+		+ "\tc\tfix CS" + XPathParts.NEWLINE
+		+ "\ts\tfix stand-alone narrows" + XPathParts.NEWLINE
 		+ "A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results.";
 	
 	/**
@@ -85,7 +91,7 @@ public class CLDRModify {
 		String sourceDir = options[SOURCEDIR].value;	// Utility.COMMON_DIRECTORY + "main/";
 		String targetDir = options[DESTDIR].value;	// Utility.GEN_DIRECTORY + "main/";
 		SimpleLineComparator lineComparer = new SimpleLineComparator(
-				SimpleLineComparator.SKIP_SPACES + SimpleLineComparator.SKIP_EMPTY);
+				SimpleLineComparator.SKIP_SPACES + SimpleLineComparator.SKIP_EMPTY + SimpleLineComparator.SKIP_CVS_TAGS);
 		
 		Log.setLog(targetDir + "log.txt");
 		//String[] failureLines = new String[2];
@@ -140,7 +146,7 @@ public class CLDRModify {
 				k.removeComment(" The following are strings that are not found in the locale (currently), but need valid translations for localizing timezones. ");
 			}
 			if (options[FIX].doesOccur) {
-				fix(k);
+				fix(k, options[FIX].value.toLowerCase());
 			}
 			if (options[MINIMIZE].doesOccur) {
 				// TODO, fix identity
@@ -252,8 +258,9 @@ public class CLDRModify {
 	/**
 	 * Perform various fixes
 	 * TODO add options to pick which one.
+	 * @param options TODO
 	 */
-	private static void fix(CLDRFile k) {
+	private static void fix(CLDRFile k, String options) {
 		
 		// TODO before modifying, make sure that it is fully resolved.
 		// then minimize against the NEW parents
@@ -266,7 +273,7 @@ public class CLDRModify {
 
 			// Fix number problems across locales
 			// http://www.jtcsv.com/cgibin/locale-bugs?findid=180
-			//fixNumbers.handle(k, xpath, removal, replacements);
+			if (options.indexOf('n') >= 0) fixNumbers.handle(k, xpath, removal, replacements);
 		
 			//Before removing SP, do the following!
 			//http://www.jtcsv.com/cgibin/locale-bugs?findid=351, 353
@@ -279,7 +286,7 @@ public class CLDRModify {
 			=>
 			<territory type="CS" draft="true">Serbia</territory> <!-- should be serbia & montegro -->
 			*/
-			fixCS.handle(k, xpath, removal, replacements);
+			if (options.indexOf('c') >= 0) fixCS.handle(k, xpath, removal, replacements);
 			
 			//Give best default for each language
 			//http://www.jtcsv.com/cgibin/locale-bugs?findid=282
@@ -287,7 +294,7 @@ public class CLDRModify {
 			// It appears that all of the current "narrow" data that we have was intended to be
 			// stand-alone instead of format, and should be changed to be so in a mechanical
 			// sweep.
-			//fixNarrow.handle(k, xpath, removal, replacements);
+			if (options.indexOf('s') >= 0) fixNarrow.handle(k, xpath, removal, replacements);
 			
 			// move references
 			// http://www.jtcsv.com/cgibin/cldr/locale-bugs-private/data?id=445
@@ -301,7 +308,7 @@ public class CLDRModify {
 		//Removing invalid currency codes
 		//http://www.jtcsv.com/cgibin/locale-bugs?findid=323
 		
-		CLDRTest.checkAttributeValidity(k, null, removal);
+		if (options.indexOf('v') >= 0) CLDRTest.checkAttributeValidity(k, null, removal);
 		
 		
 		// now do the actions we collected

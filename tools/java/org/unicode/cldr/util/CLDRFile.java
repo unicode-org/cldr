@@ -48,13 +48,14 @@ import org.xml.sax.helpers.XMLReaderFactory;
 //import javax.xml.parsers.*;
 
 /**
- * This is a simple class that walks through the CLDR hierarchy and does 2 things.
- * First, it determines all the places where the CLDR is not minimal: where there
- * are redundancies with inheritance. It generates new files in the target directory.
- * Second, it gathers together all the items from all the locales that share the
- * same element chain, and thus presents a "sideways" view of the data, in files called
- * by_type/X.html, where X is a type. X may be the concatenation of more than more than
- * one element, where the file would otherwise be too large.
+ * This is a class that represents the contents of a CLDR file, as <key,value> pairs,
+ * where the key is a "cleaned" xpath (with non-distinguishing attributes removed),
+ * and the value is an object that contains the full
+ * xpath plus a value, which is a string, or a node (the latter for atomic elements).
+ * <p><b>WARNING: The API on this class is likely to change.</b> Having the full xpath on the value is clumsy;
+ * I need to change it to having the key be an object that contains the full xpath, but then sorts as if
+ * it were clean.
+ * <p>Each instance also contains a set of associated comments for each xpath.
  * @author medavis
  */
 /*
@@ -497,9 +498,6 @@ private boolean isSupplemental;
     /**
 	 * Utility to restrict to files matching a given regular expression. The expression does not contain ".xml".
 	 * Note that supplementalData is always skipped, and root is always included.
-	 * @param sourceDir
-	 * @param localeRegex
-	 * @return
 	 */
     public static Set getMatchingXMLFiles(String sourceDir, String localeRegex) {
         Matcher m = Pattern.compile(localeRegex).matcher("");
@@ -518,8 +516,7 @@ private boolean isSupplemental;
 
     /**
      * Returns a collection containing the keys for this file.
-     * @return
-     */
+      */
     public Set keySet() {
     	return Collections.unmodifiableSet(xpath_value.keySet());
     }
@@ -560,8 +557,6 @@ private boolean isSupplemental;
 	
 	/**
 	 * Utility to create a validating XML reader.
-	 * @param validating
-	 * @return
 	 */
     public static XMLReader createXMLReader(boolean validating) {
     	String[] testList = {
@@ -605,12 +600,10 @@ private boolean isSupplemental;
 		private Map resolvedCache = new TreeMap();  
 		private Map supplementalCache = new TreeMap();
 		private Factory() {}		
+
 		/**
 		 * Create a factory from a source directory, matchingString, and an optional log file.
-		 * For the matchString meaning, see getMatchingXMLFiles
-		 * @param sourceDirectory
-		 * @param matchString
-		 * @return
+		 * For the matchString meaning, see {@link getMatchingXMLFiles}
 		 */
 		public static Factory make(String sourceDirectory, String matchString) {
 			Factory result = new Factory();
@@ -622,7 +615,6 @@ private boolean isSupplemental;
 
 		/**
 		 * Get a set of the available locales for the factory.
-		 * @return
 		 */
 	    public Set getAvailable() {
 	    	return Collections.unmodifiableSet(localeList);
@@ -630,7 +622,6 @@ private boolean isSupplemental;
 	    
 	    /**
 	     * Get a set of the available language locales (according to isLanguage).
-	     * @return
 	     */
 	    public Set getAvailableLanguages() {
 	    	Set result = new TreeSet();
@@ -643,9 +634,7 @@ private boolean isSupplemental;
 	    
 	    /**
 	     * Get a set of the locales that have the given parent (according to isSubLocale())
-	     * @param parent
 	     * @param isProper if false, then parent itself will match
-	     * @return
 	     */
 	    public Set getAvailableWithParent(String parent, boolean isProper) {
 	    	Set result = new TreeSet();
@@ -662,9 +651,6 @@ private boolean isSupplemental;
 	    /**
 	     * Make a CLDR file. The result is a locked file, so that it can be cached. If you want to modify it,
 	     * use clone().
-	     * @param localeName
-	     * @param resolved if true, produces a resolved version.
-	     * @return
 	     */
 	    // TODO resolve aliases
 		public CLDRFile make(String localeName, boolean resolved) {
@@ -784,7 +770,6 @@ private boolean isSupplemental;
     	}
     	/**
     	 * Must be overridden.
-    	 * @return
     	 */
     	public abstract String getStringValue();
 		/**
@@ -793,8 +778,9 @@ private boolean isSupplemental;
     	public String toString() {
     		return fullXPath + ";\t" + getStringValue(); 
     	}
+    	
 		/**
-		 * @return
+		 * Gets whether the file is draft or not.
 		 */
 		public boolean isDraft() {
 			return fullXPath.indexOf("[@draft=\"true\"]") >= 0;
@@ -1413,8 +1399,6 @@ private boolean isSupplemental;
 	
 	/**
 	 * Utility to get the parent of a locale. If the input is "root", then the output is null.
-	 * @param localeName
-	 * @return
 	 */
 	public static String getParent(String localeName) {
 	    int pos = localeName.lastIndexOf('_');
@@ -1425,7 +1409,7 @@ private boolean isSupplemental;
 	    return "root";
 	}
 
-	static MapComparator elementOrdering = (MapComparator) new MapComparator().add(new String[] {
+	private static MapComparator elementOrdering = (MapComparator) new MapComparator().add(new String[] {
 			"ldml", "identity", "alias",
 			"localeDisplayNames", "layout", "characters", "delimiters",
 			"measurement", "dates", "numbers", "collations", "posix",

@@ -100,7 +100,7 @@ public class Utility {
 	}
 	
 	public static class SimpleLineComparator implements LineComparer {
-	    public static final int TRIM = 1, SKIP_SPACES = 2, SKIP_EMPTY = 4;
+	    public static final int TRIM = 1, SKIP_SPACES = 2, SKIP_EMPTY = 4, SKIP_CVS_TAGS = 8;
 	    StringIterator si1 = new StringIterator();
         StringIterator si2 = new StringIterator();
         int flags;
@@ -138,8 +138,30 @@ public class Utility {
 			if (line1.equals(line2)) return LINES_SAME;
 			
 			// if not equal, see if we are skipping spaces
+			if ((flags & SKIP_CVS_TAGS) != 0 && line1.indexOf('$') >= 0 && line2.indexOf('$') >= 0) {
+				line1 = stripTags(line1);
+				line2 = stripTags(line2);
+				if (line1.equals(line2)) return LINES_SAME;
+			}
 			if ((flags & SKIP_SPACES) != 0 && si1.set(line1).matches(si2.set(line2))) return LINES_SAME;
 			return LINES_DIFFERENT;
+		}
+		
+		private String[] CVS_TAGS = {"Revision", "Date"};
+		
+		private String stripTags(String line) {
+			//$Revision$
+			//$Date$
+			int pos = line.indexOf('$');
+			if (pos < 0) return line;
+			pos++;
+			int endpos = line.indexOf('$', pos);
+			if (endpos < 0) return line;
+			for (int i = 0; i < CVS_TAGS.length; ++i) {
+				if (!line.startsWith(CVS_TAGS[i], pos)) continue;
+				line = line.substring(0,pos + CVS_TAGS[i].length()) + line.substring(endpos);
+			}
+			return line;
 		}
 		
 	}
@@ -230,7 +252,7 @@ public class Utility {
     
     static public void generateBat(String sourceDir, String sourceFile, String targetDir, String targetFile, LineComparer lineComparer) {
         try {
-            String batDir = targetDir + File.separator + "diff" + File.separator;
+            String batDir = targetDir + "diff" + File.separator;
             String batName = targetFile + ".bat";
             String[] failureLines = new String[2];
 
@@ -249,6 +271,9 @@ public class Utility {
                     if (DEBUG_SHOW_BAT) System.out.println("*Deleting old " + f.getCanonicalPath());
                     f.delete();
                 }
+                f = new File(targetDir + targetFile);
+                if (BagFormatter.SHOW_FILES) System.out.println("*Renaming old " + f.getCanonicalPath());
+                f.renameTo(new File(targetDir + "_unchanged_" + targetFile));
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block

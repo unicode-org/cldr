@@ -20,7 +20,6 @@ package org.unicode.cldr.util;
 public interface Lockable extends Cloneable {
 	/**
 	 * Determines whether the object has been locked or not.
-	 * @return
 	 */
 	public boolean isLocked();
 	/**

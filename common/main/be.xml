@@ -145,10 +145,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>Так</yesstr>
-			<nostr>Не</nostr>
-			<yesexpr>Т</yesexpr>
-			<noexpr>Н</noexpr>
+			<yesstr>так:т</yesstr>
+			<nostr>не:н</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([тТ]([аА][кК])?)</yesexpr>
+			<noexpr>^([nN][oO]?)|([нН][еЕ]?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -2016,12 +2016,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
-			<yesstr>Ναι</yesstr>
-			<nostr>Όχι</nostr>
-			<yesexpr>Ν</yesexpr>
-			<noexpr>Ο</noexpr>
+			<yesstr>ναι:ν</yesstr>
+			<nostr>οχι:όχι:ο:ό</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([νΝ]([αΑ][ιΙ])?)</yesexpr>
+			<noexpr>^([nN][oO]?)|([οΟόΌ]([χΧ][ιΙ])?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

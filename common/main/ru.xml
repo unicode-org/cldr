@@ -2176,10 +2176,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>да</yesstr>
-			<nostr>нет</nostr>
-			<yesexpr/>
-			<noexpr/>
+			<yesstr>да:д</yesstr>
+			<nostr>нет:н</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([дД][аА]?)</yesexpr>
+			<noexpr>^([nN][oO]?)|([нН]([еЕ][тТ])?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -485,10 +485,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>Sí</yesstr>
-			<nostr>No</nostr>
-			<yesexpr>S</yesexpr>
-			<noexpr>N</noexpr>
+			<yesstr>sí:si:s</yesstr>
+			<nostr>no:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([sS][iIíÍ]?)</yesexpr>
+			<noexpr>^([nN][oO]?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -3287,10 +3287,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>oui</yesstr>
-			<nostr>non</nostr>
-			<yesexpr>o;O</yesexpr>
-			<noexpr>n;N</noexpr>
+			<yesstr>oui:o</yesstr>
+			<nostr>non:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([oO]([uU][iI])?)</yesexpr>
+			<noexpr>^[nN]([oO][nN]?)?</noexpr>
 		</messages>
 	</posix>
 </ldml>

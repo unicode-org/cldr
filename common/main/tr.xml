@@ -2634,12 +2634,12 @@ ComodRivadavia</exemplarCity>
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
-			<yesstr>Evet</yesstr>
-			<nostr>Hayır</nostr>
-			<yesexpr>E</yesexpr>
-			<noexpr>H</noexpr>
+			<yesstr>evet:e</yesstr>
+			<nostr>hayır:hayir:h</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([eE]([vV][eE][tT])?)</yesexpr>
+			<noexpr>^([nN][oO]?)|([hH]([aA][yY][ıiIİ][rR])?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

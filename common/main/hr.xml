@@ -1418,12 +1418,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
-			<yesstr>Da</yesstr>
-			<nostr>Ne</nostr>
-			<yesexpr>D</yesexpr>
-			<noexpr>N</noexpr>
+			<yesstr>da:d</yesstr>
+			<nostr>ne:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([dD][aA]?)</yesexpr>
+			<noexpr>^[nN][oOeE]?</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -519,12 +519,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
-			<yesstr>כן</yesstr>
-			<nostr>לא</nostr>
-			<yesexpr>כ</yesexpr>
-			<noexpr>ל</noexpr>
+			<yesstr>כן:כ</yesstr>
+			<nostr>לא:ל</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|כ|כן</yesexpr>
+			<noexpr>^([nN][oO]?)|לא|ל</noexpr>
 		</messages>
 	</posix>
 </ldml>

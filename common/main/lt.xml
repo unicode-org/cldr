@@ -608,10 +608,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>Taip</yesstr>
-			<nostr>Ne</nostr>
-			<yesexpr>T;t;TAIP</yesexpr>
-			<noexpr>N;n;NE</noexpr>
+			<yesstr>taip:t</yesstr>
+			<nostr>ne:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([tT]([aA][iI][pP])?)</yesexpr>
+			<noexpr>^[nN][oOeE]?</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -2528,12 +2528,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
-			<yesstr>TAK</yesstr>
-			<nostr>NIE</nostr>
-			<yesexpr>T</yesexpr>
-			<noexpr>N</noexpr>
+			<yesstr>tak:t</yesstr>
+			<nostr>nie:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([tT]([aA][kK])?)</yesexpr>
+			<noexpr>^[nN]([oO]|[iI][eE])?</noexpr>
 		</messages>
 	</posix>
 </ldml>

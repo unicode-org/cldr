@@ -3154,10 +3154,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>Sì</yesstr>
-			<nostr>No</nostr>
-			<yesexpr>S</yesexpr>
-			<noexpr>N</noexpr>
+			<yesstr>sì:si:s</yesstr>
+			<nostr>no:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([sS][ìÌiI]?)</yesexpr>
+			<noexpr>^[nN][oO]?</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -383,10 +383,10 @@
 	</numbers>
 	<posix draft="true">
 		<messages>
-			<yesstr>có;có</yesstr>
-			<nostr>không</nostr>
-			<yesexpr>c</yesexpr>
-			<noexpr>k</noexpr>
+			<yesstr>сó:co:c</yesstr>
+			<nostr>không:khong:k</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([cC][óÓoO]?)</yesexpr>
+			<noexpr>^([nN][oO]?)|([kK]([hH][ôÔoO][nN][gG])?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

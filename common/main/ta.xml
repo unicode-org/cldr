@@ -434,8 +434,8 @@
 		<messages>
 			<yesstr>ஆம்</yesstr>
 			<nostr>இல்லை</nostr>
-			<yesexpr>ஆம்</yesexpr>
-			<noexpr>இல்லை</noexpr>
+			<yesexpr>^([yY]([eE][sS])?)|ஆம்</yesexpr>
+			<noexpr>^([nN][oO]?)|இல்லை</noexpr>
 		</messages>
 	</posix>
 </ldml>

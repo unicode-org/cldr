@@ -116,8 +116,8 @@
 		<messages>
 			<yesstr>ਹਾਂ</yesstr>
 			<nostr>ਨਹੀਂ</nostr>
-			<yesexpr>ਹਾਂ</yesexpr>
-			<noexpr>ਨਹੀਂ</noexpr>
+			<yesexpr>^([yY]([eE][sS])?)|ਹਾਂ</yesexpr>
+			<noexpr>^([nN][oO]?)|ਨਹੀਂ</noexpr>
 		</messages>
 	</posix>
 </ldml>

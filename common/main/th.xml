@@ -547,12 +547,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
 			<yesstr>ใช่</yesstr>
-			<nostr>ไม่ใช่</nostr>
-			<yesexpr>ใช่</yesexpr>
-			<noexpr>ไม่</noexpr>
+			<nostr>ไม่</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|ใช่</yesexpr>
+			<noexpr>^([nN][oO]?)|ไม่</noexpr>
 		</messages>
 	</posix>
 </ldml>

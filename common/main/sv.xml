@@ -3179,12 +3179,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
-			<yesstr>ja</yesstr>
-			<nostr>nej</nostr>
-			<yesexpr>ja</yesexpr>
-			<noexpr>nej</noexpr>
+			<yesstr>ja:j</yesstr>
+			<nostr>nej:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([jJ][aA]?)</yesexpr>
+			<noexpr>^[nN]([oO]|[eE][jJ])?</noexpr>
 		</messages>
 	</posix>
 </ldml>

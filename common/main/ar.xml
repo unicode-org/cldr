@@ -1167,12 +1167,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix>
+	<posix draft="true">
 		<messages>
-			<yesstr>نعم</yesstr>
-			<nostr>لا</nostr>
-			<yesexpr>ن</yesexpr>
-			<noexpr>ل</noexpr>
+			<yesstr>نعم:ن</yesstr>
+			<nostr>لا:ل</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|ن|نعم</yesexpr>
+			<noexpr>^([nN][oO]?)|ل|لا</noexpr>
 		</messages>
 	</posix>
 </ldml>

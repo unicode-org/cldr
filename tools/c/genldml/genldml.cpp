@@ -44,7 +44,8 @@ enum
     BASE_TYPE,
     IGNORE_SPECIALS,
     IGNORE_LAYOUT,
-    DRAFT
+    DRAFT,
+    ONLY_SPECIALS
 };
 
 
@@ -59,7 +60,8 @@ UOption options[]={
                       UOPTION_DEF("base-type", 't', UOPT_REQUIRES_ARG),
                       UOPTION_DEF("ignore-specials", 'c', UOPT_NO_ARG),
                       UOPTION_DEF("ignore-layout", 'l', UOPT_NO_ARG),
-                      UOPTION_DEF("draft", 'r', UOPT_NO_ARG)
+                      UOPTION_DEF("draft", 'r', UOPT_NO_ARG),
+                      UOPTION_DEF("only-specials", 'g', UOPT_NO_ARG)
                    };
 
 const char* usageString =
@@ -79,6 +81,7 @@ const char* usageString =
                 "\t-c or --ignore-specials  Ignores specials in collations\n"
                 "\t-l or --ignore-layout    Ignores layout element\n"
                 "\t-r or --draft            The LDML file being generated will marked as draft\n"
+                "\t-g or --only-specials    Produces on special elements\n"
                ;
 
 UBool ignoreCollation = FALSE;
@@ -87,6 +90,7 @@ const char* baseType = NULL;
 UBool ignoreSpecials = FALSE;
 UBool ignoreLayout = FALSE;
 UBool isDraft = FALSE;
+UBool onlySpecials = FALSE;
 
 int main (int32_t argc, const char* argv[]) {
 	const char* srcDir =NULL;
@@ -131,6 +135,9 @@ int main (int32_t argc, const char* argv[]) {
     }
     if(options[DRAFT].doesOccur){
         isDraft = TRUE;
+    }
+    if(options[ONLY_SPECIALS].doesOccur){
+        onlySpecials = TRUE;
     }
 #ifndef GENLDML_NOSETAPPDATA
     /* Tell ICU where our resource data is located in memory.
@@ -240,23 +247,29 @@ void GenerateXML::closeFileHandle(){
     }
 }
 void GenerateXML::DoIt(){
-	
-	writeXMLVersionAndComments();
-	writeIdentity();
-	writeDisplayNames();
-	writeLayout();
-	writeEncodings();
-	writeDelimiters();
-	writeMeasurement();
-	writeDates();
-	writeNumberFormat();
+    writeXMLVersionAndComments();
+    writeIdentity();
+    if(onlySpecials==FALSE){
+	    writeDisplayNames();
+	    writeLayout();
+    }
+	// WARNING: do not change the order
+    // the generated XML will not validate!!!
+    writeEncodings();
+    
+    if(onlySpecials==FALSE){
+	    writeDelimiters();
+	    writeMeasurement();
+	    writeDates();
+	    writeNumberFormat();
+    }
     if(ignoreCollation == FALSE){
 	    writeCollations();
     }
     writeSpecial();
-    if(strcmp(locName, "root")==0){
+    //if(strcmp(locName, "root")==0){
         writeSupplementalData();
-    }
+    //}
 /*	
 	writeTransliteration();
 	writeBoundary();
@@ -826,32 +839,52 @@ void GenerateXML::writeEncodings(){
 	UnicodeString t;
 	xmlString.append(formatString(mStringsBundle.getStringEx("characters",mError),args,2,t));
 	indentOffset.append("\t");
-	args[0] = indentOffset;
+    UnicodeString temp;
+    UBool writeData = FALSE;
+
+    if(onlySpecials==FALSE){
+        writeExemplarCharacters(temp);
+    }
+    if(temp.length()>0){
+        xmlString.append(temp);
+        writeData = TRUE;
+    }
+    temp.remove();
+    //if(ignoreSpecials==TRUE){
+        writeLocaleScript(temp);
+    //}
+    if(temp.length()>0){
+        xmlString.append(temp);
+        writeData = TRUE;
+    }
+    // currently no mappings are defined in ICU 
+    // so we donot add them
+    if(writeData == TRUE){
+        chopIndent();
+        args[0] = indentOffset;
+	    args[1] = "/";
+	    xmlString.append(formatString(mStringsBundle.getStringEx("characters",mError),args,2,t));
+	    printString(&xmlString);
+    }else{
+        xmlString.remove();
+    }
+
+    mError = U_ZERO_ERROR;
+}
+
+void GenerateXML::writeExemplarCharacters(UnicodeString& xmlString){
+    Formattable args[] = {"","",""};
+    args[0] = indentOffset;
 	args[1] = mSourceBundle.getStringEx("ExemplarCharacters",mError);
-	
+	UnicodeString t;
 	if(	mError != U_USING_FALLBACK_WARNING && 
 		mError != U_USING_DEFAULT_WARNING && 
 		U_SUCCESS(mError)){
 	
 		xmlString.append(formatString(mStringsBundle.getStringEx("exemplarCharacters",mError),args,2,t));
-		UnicodeString temp;
-        writeLocaleScript(temp);
-        if(temp.length()> 0){
-            xmlString.append(temp);
-        }
-        // currently no mappings are defined in ICU 
-		// so we donot add them
-		chopIndent();
-		args[0] = indentOffset;
-		args[1] = "/";
-		xmlString.append(formatString(mStringsBundle.getStringEx("characters",mError),args,2,t));
-		printString(&xmlString);
-        return;
 	}
-    chopIndent();
     mError = U_ZERO_ERROR;
 }
-
 void GenerateXML::writeDelimiters(){
 // Data not available in ICU
 }
@@ -1043,10 +1076,14 @@ void GenerateXML::writeCalendars(UnicodeString& xmlString){
 
         ResourceBundle defaultCalendar = calendars.getWithFallback("default", mError);
         UnicodeString defaultC = defaultCalendar.getString(mError);
+        args[0] = indentOffset;
+        args[1] = defaultC;
         if(U_FAILURE(mError)){
             fprintf(stderr, "Could not find the default calendar. Dying.\n");
             exit(U_INTERNAL_PROGRAM_ERROR);
         }
+        xmlString.append(formatString(mStringsBundle.getStringEx( "default",mError),args,2,tempStr));
+
         while(calendars.hasNext()){
             ResourceBundle calendar = calendars.getNext(mError);
             if(U_SUCCESS(mError)){
@@ -1062,6 +1099,7 @@ void GenerateXML::writeCalendars(UnicodeString& xmlString){
         }
     }
 	chopIndent();
+    args[0] = indentOffset;
 	args[1]=UnicodeString(XML_END_SLASH);
     if(print ==TRUE){
 	    xmlString.append(formatString(mStringsBundle.getStringEx("calendars",mError),args,2,tempStr));
@@ -1336,36 +1374,94 @@ void GenerateXML::writeDayNames(ResourceBundle& calendar, UnicodeString& xmlStri
 	xmlString.remove();
 	mError= U_ZERO_ERROR;
 }
+UnicodeString getTimeString(UnicodeString& val, int32_t milliSecs){
+    int32_t minutes = milliSecs / (60000); /* number of milli seconds in 1 hr*/
+    int32_t deltaMin = minutes % 60;
+    int32_t hours = (minutes-deltaMin)/60;
+    char c[10]={0};
+    itoa(hours, c, 10);
+    if(strcmp(c,"0")==0){
+        val.append("00");
+    }else{
+        if(strlen(c)==1){
+            val.append("0");
+        }
+        val.append(c);
+    }
+    val.append(":");
+    c[0] = 0;
+    itoa(minutes, c, 10);
+    if(strcmp(c,"0")==0){
+        val.append("00");
+    }else{
+        if(strlen(c)==1){
+            val.append("0");
+        }
+        val.append(c);
+    }
+    return val;
+}
 void GenerateXML::writeWeek(ResourceBundle& calendar, UnicodeString& xmlString){
-	ResourceBundle dtElements = calendar.get("DateTimeElements", mError);
-	int32_t len =0;
-	const int32_t* vector = dtElements.getIntVector(len,mError);
 	UnicodeString t;
-	if( mError!=U_USING_DEFAULT_WARNING && 
+    Formattable args[3] = {indentOffset,"",""};
+	xmlString.append(formatString(mStringsBundle.getStringEx("week",mError),args,2,t));
+	indentOffset.append("\t");
+
+    ResourceBundle dtElements = calendar.get("DateTimeElements", mError);
+	UnicodeString temp;
+
+    if( mError!=U_USING_DEFAULT_WARNING && 
 		mError!=U_USING_FALLBACK_WARNING && 
 		U_SUCCESS(mError)){
-		Formattable args[3] = {indentOffset,"",""};
-		xmlString.append(formatString(mStringsBundle.getStringEx("week",mError),args,2,t));
-		indentOffset.append("\t");
-        
+	    int32_t len =0;
+	    const int32_t* vector = dtElements.getIntVector(len,mError);
+
 		args[0] = indentOffset;
+        // write min days in a week
         if(len > 1){
-		    args[1] = vector[1];
-            		xmlString.append(formatString(mStringsBundle.getStringEx("minDays",mError),args,2,t));
+		    args[1] = vector[1];	
         }else{
             args[1] = "";
         }
+        temp.append(formatString(mStringsBundle.getStringEx("minDays",mError),args,2,t));
 
-		args[1] = getDayNameDTE(vector[0]);
-		xmlString.append(formatString(mStringsBundle.getStringEx("firstDay",mError),args,2,t));
-		
-		chopIndent();
+        // write first day of the week
+        args[1] = getDayNameDTE(vector[0]);
+		temp.append(formatString(mStringsBundle.getStringEx("firstDay",mError),args,2,t));
+        
+    }
+
+    mError = U_ZERO_ERROR;
+    // now write weekend information
+    ResourceBundle weekend = calendar.get("weekend", mError);
+    if(U_SUCCESS(mError)){
+        int32_t len = 0;
+        const int32_t* vector = weekend.getIntVector(len, mError);
+        UnicodeString time;
+        args[0] = indentOffset;
+
+        args[1] = getDayNameDTE(vector[0]);
+        args[2] = getTimeString(time, vector[1]);
+        temp.append(formatString(mStringsBundle.getStringEx("weekendStart", mError), args, 3, t));
+        
+        time.remove();
+        args[1] = getDayNameDTE(vector[2]);
+        args[2] = getTimeString(time, vector[3]);
+        temp.append(formatString(mStringsBundle.getStringEx("weekendEnd", mError), args, 3, t));
+
+    }
+    
+    mError = U_ZERO_ERROR;
+    if(temp.length()>0){
+        xmlString.append(temp);
+    	chopIndent();
 		args[0] = indentOffset;
 		args[1] = UnicodeString(XML_END_SLASH);
 		xmlString.append(formatString(mStringsBundle.getStringEx("week",mError),args,2,t));
 		mError=U_ZERO_ERROR;
 		return;
-	}
+    }
+    chopIndent();
 	xmlString.remove();
 	mError= U_ZERO_ERROR;
 }
@@ -1726,7 +1822,7 @@ void GenerateXML::writeNumberElements(UnicodeString& xmlString){
 		args[1]=numFormats.getStringEx((int32_t)5,mError);
 		xmlString.append(formatString(mStringsBundle.getStringEx( "patternDigit",mError),args,2,t));
 		
-		args[1]=numFormats.getStringEx((int32_t)12,mError);
+		args[1]=numFormats.getStringEx((int32_t)11,mError);
 		xmlString.append(formatString(mStringsBundle.getStringEx( "plusSign",mError),args,2,t));
         if(mError == U_MISSING_RESOURCE_ERROR){
             mError = U_ZERO_ERROR;
@@ -1857,7 +1953,7 @@ void GenerateXML::writeCurrency(UnicodeString& xmlString){
                     args[1] = pattern;
                     xmlString.append(formatString(mStringsBundle.getStringEx("pattern",mError),args,2,t));
 
-                    args[2] = decimalSep;
+                    args[1] = decimalSep;
                     xmlString.append(formatString(mStringsBundle.getStringEx("decimal",mError),args,2,t));
 
                     args[1] = groupSep;
@@ -2111,14 +2207,7 @@ void GenerateXML::writeCollations(){
         }
 
     }
-    if(strcmp(locName, "root")==0){
-        UnicodeString sequence = mSourceBundle.getStringEx("%%UCARULES",mError);
-        UnicodeString temp;
-        writeUCARules(sequence, temp);
-        if(U_SUCCESS(mError) && temp.length()!=0){
-            xmlString.append(temp);
-        }
-    }
+    
 	/*writeSentBrkRules(tempStr);
 	if(!tempStr.isEmpty()){
 		xmlString.append(tempStr);
@@ -2244,23 +2333,23 @@ void GenerateXML::writeCollation(ResourceBundle& bundle,UnicodeString& xmlString
                 ResourceBundle dBundle1 = bundle.getNext(mError);
                 const char* mykey=dBundle1.getKey();
                 if(stricmp(mykey,"Version")==0 && ignoreSpecials==FALSE){
-                version = bundle.getStringEx(mykey,mError);
-			    UnicodeString temp = UnicodeString("icu:version=\"").append(version);
-			    temp.append("\"");
-			    args[0] = indentOffset;
-                args[1] = mStringsBundle.getStringEx("xmlns_icu",mError);
-			    args[2] = temp;
-			    args[3] = UnicodeString(XML_END_SLASH);
-			    xmlString.append(formatString(mStringsBundle.getStringEx("special",mError),args,4,t));
-                }else if(stricmp(mykey,"Sequence")==0){
+                    version = bundle.getStringEx(mykey,mError);
+			        UnicodeString temp = UnicodeString("icu:version=\"").append(version);
+			        temp.append("\"");
+			        args[0] = indentOffset;
+                    args[1] = mStringsBundle.getStringEx("xmlns_icu",mError);
+			        args[2] = temp;
+			        args[3] = UnicodeString(XML_END_SLASH);
+			        xmlString.append(formatString(mStringsBundle.getStringEx("special",mError),args,4,t));
+                }else if(stricmp(mykey,"Sequence")==0 && onlySpecials==FALSE){
                     sequence = bundle.getStringEx(mykey,mError);
 				    rules = parseRules((UChar*)sequence.getBuffer(),sequence.length(),rules);
 				    xmlString.append(rules);
                     sequence.releaseBuffer();
 
-            }else if(stricmp(mykey,"Override")==0){
-                    overide =  bundle.getStringEx(mykey,mError);
-            }
+                }else if(stricmp(mykey,"Override")==0 && onlySpecials==FALSE){
+                        overide =  bundle.getStringEx(mykey,mError);
+                }
             }
             
             chopIndent();
@@ -2387,107 +2476,120 @@ numeric 	    on                  [numeric on] 	                numeric = "on"
 */
 
 void GenerateXML::writeSettings(UnicodeString& src , UnicodeString& xmlString){
-	const UChar* start = src.getBuffer();
+	const UChar* saveStart = src.getBuffer();
+    const UChar* start = saveStart;
 	const UChar* limit = start + src.length(); 
-	UChar setting[16384];
-	UChar value[16384];
 	int32_t valueLen=0,settingLen =0;
 	UBool isValue = FALSE;
-	Formattable args[] = {indentOffset,setting,value};
 	UnicodeString t;
-	if(src.indexOf("suppressContractions") >=0 || src.indexOf("optimize") >= 0){
-		int dCount=0, bCount = 0;
-		while(start < limit){
-			UChar ch = *start++;
-			if((ch == 0x5b && bCount == 0)){ // skip the first '[' 
-				bCount++;
-				continue;
-			}
-			if(ch == 0x5b){
-				isValue = TRUE;
-			}
-			if(ch == 0x5d && start==limit){
-				continue;
-			}
-			if(isValue){
-				value[valueLen++]=ch;
-			}
-		}
-		args[1] = UnicodeString(value,valueLen);
-		if(src.indexOf("optimize") >= 0){
-			xmlString.append(formatString(mStringsBundle.getStringEx("optimize",mError),args,2,t));
-		}else{
-			xmlString.append(formatString(mStringsBundle.getStringEx("suppressContractions",mError),args,2,t));	
-		}
-	}else{
-        UnicodeString set;
-		while(start < limit ){
-			UChar ch = *start++;
-			if(uprv_isRuleWhiteSpace(ch)){
-				if(settingLen>0){
-					isValue = TRUE;
-				}
-				continue; //skip white spaces
-			}else if(ch == 0x5b ){ // skip '[' && ']'
-				continue;
-			}else if(ch == 0x5d){ // ']'
-				set.append(setting,settingLen);
-				if(set.indexOf("hiraganaQ")>=0){
-					args[1] = UnicodeString("hiraganaQuarternary");
-				}else if(set.indexOf("casefirst")>=0){
-					args[1] = UnicodeString("caseFirst");
-				}else{
-					args[1] = set;
-				}
-                if(set.indexOf("backwards") != -1 && value[0] == '2'){
-                     args[2] = "on";
-                }else if(set.indexOf("strength") != -1 ){
-                    switch (value[0]){
+    int32_t index = 0;
+    UnicodeString setting, value;
+    Formattable args[] = {indentOffset, "", "" };
+    while(index < src.length()){
+        index = getSettingAndValue(src, index, setting, value);
+        if(setting == "suppressContractions"){
+		    args[1] = value;
+			xmlString.append(formatString(mStringsBundle.getStringEx("suppressContractions",mError),args,2,t));			    
+        }else if(setting =="optimize"){
+            args[1] = value;
+            xmlString.append(formatString(mStringsBundle.getStringEx("optimize",mError),args,2,t));
+        }else{
+            if(setting == "strength"){
+                UChar val = value.charAt(0);
+                value.remove();
+                switch (val){
                     case '1':
-                        args[2] = "primary";
+                        value.append("primary");
                         break;
                     case '2':
-                        args[2] = "secondary";
+                        value.append("secondary");
                         break;
                     case '3':
-                        args[2] = "tertiary";
+                        value.append("tertiary");
                         break;
                     case '4':
-                        args[2] = "quaternary";
+                        value.append("quaternary");
                         break;
                     case '5':
-                        args[2] = "identical";
+                        value.append("identical");
                         break;
                     default:
                         mError = U_ILLEGAL_ARGUMENT_ERROR;
                         exit (mError);
                     }
+            }else if(setting == "alternate"){
+            }else if(setting == "backwards"){ 	
+                if(value == "2"){
+                    value.remove();
+                    value.append ("on");
                 }else{
-				    args[2] = UnicodeString(value,valueLen);
+                    fprintf(stderr, "Unrecognized value for setting backwards!.");
+                    exit(-1);
                 }
-				//xmlString.append(formatString(mStringsBundle.getStringEx("settings",mError),args,3,t));
-				mSettings.append(args[1].getString());
-                mSettings.append("=\"");
-                mSettings.append(args[2].getString());
-                mSettings.append("\" ");
-                valueLen = settingLen =0;
-				isValue =FALSE;
-                set.truncate(0);
-				continue;
-			}
-            //backwards can only have on | off as the attribute values
-            
-			if(isValue){
-                 value[valueLen++] = ch;
-			}else{
-				setting[settingLen++] = ch;
-			}
-		}
-	}
-
-	src.releaseBuffer();
+            }else if(setting == "normalization"){ 
+            }else if(setting == "caseLevel"){  	                          
+            }else if(setting == "casefirst"){ 
+                setting = "caseFirst";
+            }else if(setting == "hiraganaQ"){
+                setting = "hiraganaQuarternary";
+            }else if(setting == "numeric"){  	  
+            }else{
+                fprintf(stderr,"Could not recogize setting!!");
+                exit(-1);
+            }
+            mSettings.append(setting);
+            mSettings.append("=\"");
+            mSettings.append(value);
+            mSettings.append("\" ");
+        }
+        setting.remove();
+        value.remove();
+    }
 }
 
+int32_t GenerateXML::getSettingAndValue(UnicodeString& source, int32_t index, UnicodeString& setting, UnicodeString& value){
+    const UChar* src = source.getBuffer();
+    int32_t start = index;
+    int32_t end = source.length();
+    int32_t open=0;
+    UBool startVal=FALSE, initialSpace = TRUE;
+    /* [ setting value ]*/
+    while(start < end){
+        UChar ch = src[start++];
+        switch(ch){
+            case '[':
+                open++;
+                if(open > 1 && startVal==TRUE){
+                    value.append(ch);
+                }
+                break;
+            case ']':
+                if(open > 1 && startVal==TRUE){
+                    value.append(ch);
+                }else if(open == 1){
+                    goto OUTER;
+                }
+                open--;
+                
+            case ' ':
+                if(initialSpace){
+                    break;
+                }
+                startVal = TRUE;
+                break;
+            default:
+                initialSpace = FALSE;
+                if(startVal == TRUE){
+                    value.append(ch);
+                }else{
+                    setting.append(ch);
+                }
+        }
+    }
+OUTER:
+    source.releaseBuffer();
+    return start;
+}
 void GenerateXML::writeReset(UnicodeString& src, UnicodeString& xmlString){
 	const UChar* start = src.getBuffer();
 	const UChar* limit = start + src.length(); 
@@ -3249,9 +3351,8 @@ void GenerateXML::writeSupplementalData(){
 	UnicodeString tempStr;
 	xmlString.append(formatString(mStringsBundle.getStringEx("supplementalData",error),arguments,1,tempStr));
 
-    //open ICU root resource bundle for now
     // TODO: change later
-    ResourceBundle root(path, "root", error);
+    UResourceBundle* root = ures_openDirect(path, "CurrencyData", &error);
 
     addIndent(suppIndent);
     arguments[0] = suppIndent;
@@ -3259,7 +3360,7 @@ void GenerateXML::writeSupplementalData(){
 	xmlString.append(formatString(mStringsBundle.getStringEx("currencyData",error),arguments,2,tempStr));
 
     tempStr.remove();
-    writeCurrencyMeta(tempStr, root, error);
+    writeCurrencyMeta(tempStr, root,error);
     if(tempStr.length()!=0){
         xmlString.append(tempStr);
     }
@@ -3277,24 +3378,28 @@ void GenerateXML::writeSupplementalData(){
 	xmlString.append(formatString(mStringsBundle.getStringEx("supplementalData",error),arguments,1,tempStr));
 	printString(&xmlString, sFile);
 
+    ures_close(root);
+
 }
-void GenerateXML::writeCurrencyMap(UnicodeString& xmlString, ResourceBundle& root, UErrorCode& error){
+void GenerateXML::writeCurrencyMap(UnicodeString& xmlString, UResourceBundle* root, UErrorCode& error){
     if(U_FAILURE(error)){
         return;
     }
-    ResourceBundle curr = root.get("CurrencyMap", error);
+    UResourceBundle* curr = ures_getByKey(root, "CurrencyMap", NULL, &error);
     char altKey[100] = {0};
     const char* preEuro = "_PREEURO";
     const char* euro    = "_EURO";
     if(U_SUCCESS(error)){
         addIndent(suppIndent);
-        while(curr.hasNext()){
-            ResourceBundle element = curr.getNext(error);
-            const char*   country  = element.getKey();
+        while(ures_hasNext(curr)){
+            UResourceBundle* element = ures_getNextResource(curr,NULL, &error);
+            const char*   country  =  ures_getKey(element);
             if(strstr(country, preEuro) != NULL || strstr(country, euro)!=NULL){
                 continue;
             }
-            UnicodeString currency = curr.getStringEx(country,error);
+            int32_t len =0;
+            const UChar* temp = ures_getString(element,&len, &error);
+            UnicodeString currency (temp, len);
             Formattable args[] = {suppIndent, country, "" };
             UnicodeString tempStr;
             xmlString.append(formatString(mStringsBundle.getStringEx("regionStart",error),args,2,tempStr));
@@ -3307,7 +3412,9 @@ void GenerateXML::writeCurrencyMap(UnicodeString& xmlString, ResourceBundle& roo
             addIndent(suppIndent);
             strcpy(altKey, country);
             strcat(altKey, preEuro);
-            UnicodeString altCurrency = curr.getStringEx(altKey, error);
+            len=0;
+            temp = ures_getStringByKey(curr, altKey, &len, &error);
+            UnicodeString altCurrency (temp, len);
             if(U_SUCCESS(error)){
                 args[0] = suppIndent;
                 args[1] = altCurrency;
@@ -3330,11 +3437,11 @@ void GenerateXML::writeCurrencyMap(UnicodeString& xmlString, ResourceBundle& roo
     }
 
 }
-void GenerateXML::writeCurrencyMeta(UnicodeString& xmlString, ResourceBundle& root, UErrorCode& error){
+void GenerateXML::writeCurrencyMeta(UnicodeString& xmlString, UResourceBundle* root, UErrorCode& error){
     if(U_FAILURE(error)){
         return;
     }
-    ResourceBundle curr = root.get("CurrencyMeta", error);
+    UResourceBundle* curr = ures_getByKey(root, "CurrencyMeta", NULL, &error);
     if(U_SUCCESS(error)){
         addIndent(suppIndent);
         Formattable args[] = {suppIndent, "", "", ""};
@@ -3343,12 +3450,12 @@ void GenerateXML::writeCurrencyMeta(UnicodeString& xmlString, ResourceBundle& ro
         xmlString.append(formatString(mStringsBundle.getStringEx("fractions",error),args,2,tempStr));
         
         addIndent(suppIndent);
-        while(curr.hasNext()){
-            ResourceBundle element = curr.getNext(error);
-            const char* key = element.getKey();
+        while(ures_hasNext(curr)){
+            UResourceBundle* element = ures_getNextResource(curr, NULL, &error);
+            const char* key = ures_getKey(element);
             int32_t len =0;
-            ResourceBundle vector = curr.get(key, error);
-            const int32_t* intVector = vector.getIntVector(len,error);
+            const int32_t* intVector = ures_getIntVector(element,&len, &error);
+            ures_close(element);
             if(len < 2){
                 error = U_INTERNAL_PROGRAM_ERROR;
                 return;
@@ -3360,7 +3467,7 @@ void GenerateXML::writeCurrencyMeta(UnicodeString& xmlString, ResourceBundle& ro
             args[1] = key;
             args[2] = formatString(mStringsBundle.getStringEx("digits", error), UnicodeString(buffer, len), tempStr);
 
-            if(intVector[1]!=0){
+            if(intVector!=0){
                 len = itou(buffer, intVector[1], 10, 0);
                 args[3] = formatString(mStringsBundle.getStringEx("rounding", error), UnicodeString(buffer, len), tempStr);
             }else{

@@ -22,12 +22,13 @@ GetOptions(
            "--icuroot=s" => \$icuRoot,
            "--genldml=s" => \$genldml,
            "--genrb=s" => \$genrb,
-	       "--ldml-only=s" => \$ldmlOnly,
+	         "--ldml-only=s" => \$ldmlOnly,
            "--ignore-collation" => \$ignoreCollation, 
-		   "--base=s" => \$baseFile,
+		       "--base=s" => \$baseFile,
            "--ignore-specials" => \$ignoreSpecials,
            "--ignore-layout" => \$ignoreLayout,
            "--draft"  => \$draft,
+           "--only-specials" => \$onlySpecials,
           );
            
 
@@ -92,6 +93,7 @@ sub ldmlify{
     my $base = "";
     my $baseTyp = "";
     my $id = "";
+    my $os = "";
     if (defined $ignoreCollation){
         $ic = "--ignore-collation";
     }
@@ -103,6 +105,9 @@ sub ldmlify{
     }
     if(defined $draft){
         $id = "--draft";
+    }
+    if(defined $onlySpecials){
+        $os = "--only-specials";
     }
     if(defined $baseFile){
         $baseLoc = getBaseLocale($baseFile, $infile);
@@ -118,7 +123,7 @@ sub ldmlify{
         
     }
     
-    cmd("$prefix $genldmlExec --sourcedir $tempDir --destdir $destDir --package $tempPackage $base $baseTyp $ic $il $is $id $infile");
+    cmd("$prefix $genldmlExec --sourcedir $tempDir --destdir $destDir --package $tempPackage $base $baseTyp $ic $il $is $id $os $infile");
 }
 
 sub getBaseLocale(){
@@ -206,6 +211,7 @@ Options:
         --base=<the text file that contains the base to locale mapping including the path>
         --ignore-layout
         --ignore-specials
+        --only-specials
         --draft
 
 txt2ldml creates *.xml file from *.txt files by invoking the respective tools

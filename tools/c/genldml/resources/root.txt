@@ -17,9 +17,9 @@ root{
                            //  "%icu;\n"
                            // "]\n"
                            //  ">\n"
-                             "<!DOCTYPE ldml SYSTEM \" 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd\" \n"
+                             "<!DOCTYPE ldml SYSTEM \" 	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd\" \n"
                              "[\n"
-                             "      <!ENTITY % icu SYSTEM \" http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd\"> \n"
+                             "      <!ENTITY % icu SYSTEM \" http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldmlICU.dtd\"> \n"
                              "%icu;\n"
                              "]\n"
                              ">\n"
@@ -28,7 +28,7 @@ root{
                          }
     declarationNoSpecials{
                              "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
-                             "<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.1/ldml.dtd\">\n"
+                             "<!DOCTYPE ldml SYSTEM \"	http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd\">\n"
                          }
     supplementalDeclaration{
                                 "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
@@ -229,10 +229,10 @@ root{
                              "{0}<firstDay day=\"{1}\"/>\n"
                          }
     weekendStart         {
-                             "{0}<{1}weekendStart day=\"{2}\" time=\"{3}\"/>\n"
+                             "{0}<weekendStart draft=\"true\" day=\"{1}\" time=\"{2}\"/>\n"
                          }
     weekendEnd           {
-                             "{0}<{1}weekendEnd day=\"{2}\" time=\"{3}\"/>\n"
+                             "{0}<weekendEnd draft=\"true\" day=\"{1}\" time=\"{2}\"/>\n"
                          }
     am                   {
                              "{0}<am>{1}</am>\n"

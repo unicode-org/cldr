@@ -146,7 +146,9 @@ private:
 
 	void writeEncodings();
 
-	void writeDelimiters();
+    void writeExemplarCharacters(UnicodeString& xmlString);
+	
+    void writeDelimiters();
 
 	void writeMeasurement();
 	
@@ -173,8 +175,9 @@ private:
     void writeTimeFormat(ResourceBundle& calendar, UnicodeString& xmlString);
 
 	void writeWeek(ResourceBundle& calendar, UnicodeString& xmlString);
-	
+
 	void writeFormats(UnicodeString& xmlString);
+
 	void writeFormat(const char* style, const char* start, const char* end, const char* type,UnicodeString& pattern, UnicodeString& xmlString, UBool split=FALSE);
 
     void writeFormat(const char* elemName, const char* style, const char* start, const char* end, const char* type,UnicodeString& pattern, UnicodeString& xmlString, UBool split=FALSE);
@@ -224,9 +227,9 @@ private:
 
     void writeSupplementalData();
 
-    void writeCurrencyMeta(UnicodeString& xmlString, ResourceBundle& root, UErrorCode& error);
+    void writeCurrencyMeta(UnicodeString& xmlString, UResourceBundle* root, UErrorCode& error);
 
-    void writeCurrencyMap(UnicodeString& xmlString, ResourceBundle& root, UErrorCode& error);
+    void writeCurrencyMap(UnicodeString& xmlString, UResourceBundle* root, UErrorCode& error);
 
     void writePosixAdditions();
     void writeMeasurement(UnicodeString& xmlString);
@@ -269,7 +272,7 @@ private:
 	void growBuffer(UChar* src, int32_t len, int32_t size, int32_t requiredCapacity, UErrorCode* status);
 
     void writeUCARules(UnicodeString& sequence,UnicodeString& xmlString);	
-
+    int32_t getSettingAndValue(UnicodeString& source, int32_t index, UnicodeString& setting, UnicodeString& value);
 public:
 	
 	/* constructor */

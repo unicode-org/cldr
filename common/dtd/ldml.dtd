@@ -357,7 +357,7 @@
 
 <!ELEMENT weekendEnd (special*) >
 <!ATTLIST weekendEnd day ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
-<!ATTLIST weekendEnd time CDATA "00:00" >
+<!ATTLIST weekendEnd time CDATA "24:00" >
 <!ATTLIST weekendEnd draft ( true | false ) #IMPLIED >
 <!ATTLIST weekendEnd references CDATA #IMPLIED >
 <!ATTLIST weekendEnd alt CDATA #IMPLIED >

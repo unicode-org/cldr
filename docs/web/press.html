@@ -56,21 +56,21 @@
           combined with a public repository for a common set of locale data in that format. In this 
           release, the major additions to CLDR are: </p>
           <ul>
-            <li>Additions of many language, territory, and script names, many currency names and 
-            symbols, many timezone names, many type names (names of calendars, collations, etc); 
-            compaction of the data by removal of inherited or aliased data; and changes to Chinese 
-            collation names. </li>
-            <li>Enhancement of the LDML specification to add approximately 40% more information, 
-            covering date format patterns, number format patterns, choice patterns, inheritance and 
-            validity, time zone fallbacks, and providing a lists of all valid attribute values. 
-            Structure has been added to assist in vetting and to mark vetted locales, to allow for 
-            multiple sets of exemplar characters (indicating characters in use in particular 
-            locales), to represent relative dates and times, and to strengthen the alias mechanism 
-            by adding XPath sources.</li>
-            <li>Conformance tests to allow people to test their implementation of collation for 
-            different languages.</li>
-            <li>For comparison of data, by-type charts and vetting charts were added.</li>
-            <li>The CLDR source is now independent of ICU.</li>
+            <li><font color="#330000"><b>Data</b>: Many names for languages, territories, and 
+            scripts have been added, as well as for timezones, calendars, and other named items such 
+            as collation</font>; the data has been compacted by removal of inherited or aliased 
+            data; and a number of fixes to data have been made.</li>
+            <li><b>Structure</b>: The LDML specification has been enhanced substantially. It now has 
+            self-contained descriptions of date format patterns, number format patterns, choice 
+            patterns, inheritance and validity, time zone fallbacks, and provides lists of all valid 
+            attribute values. The XML format adds structure to assist in vetting and to mark vetted 
+            locales, to allow for multiple sets of exemplar characters (indicating characters in use 
+            in particular locales), to represent relative dates and times, to provide better support 
+            for timezone names, and to strengthen the alias mechanism by adding XPath sources.</li>
+            <li><b>Implementation</b>: The new tests allow implementations to verify that they are 
+            using the locale data in correctly (in the first release, only collation tests are 
+            supplied). For comparison of data, by-type charts and vetting charts were added. The 
+            CLDR source now does not require ICU for generation.</li>
           </ul>
           <p><i><b>Note: </b>The freeze date for the next version of CLDR is January 15, 2004. All 
           new data or defect reports for CLDR 1.3 must be submitted by then.</i></p>

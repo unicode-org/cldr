@@ -8,7 +8,7 @@
 <ldml>
 	<identity>
 		<version number="1.0"/>
-		<generation date="2003-12-12" />
+		<generation date="2003-12-17" />
 		<language type="ro" /> 
 	</identity>
 	<localeDisplayNames>
@@ -346,6 +346,10 @@
 					<day type="fri">V</day>
 					<day type="sat">S</day>
 				</dayAbbr>
+				<week>
+					<minDays count="1"/>
+					<firstDay day="mon"/>
+				</week>
 				<eras>
 					<eraAbbr>
 						<era type="1">d.C.</era>

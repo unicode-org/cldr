@@ -718,7 +718,7 @@
 <!ATTLIST currencies draft ( true | false ) #IMPLIED >
 <!ATTLIST currencies validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT currency (alias | (displayName?, symbol?, pattern*, decimal?, group?, special*)) >
+<!ELEMENT currency (alias | (pattern*, displayName?, symbol?, pattern*, decimal?, group?, special*)) >
 <!ATTLIST currency type NMTOKEN "standard" >
 <!ATTLIST currency draft ( true | false ) #IMPLIED >
 <!ATTLIST currency references CDATA #IMPLIED >

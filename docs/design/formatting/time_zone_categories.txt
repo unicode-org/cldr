@@ -1,4 +1,47 @@
-# Zone Localization Categories, using 'current' as: 2000-01-01T00:00Z to 2010-01-01T00:00Z
+﻿Time Zone Localization Categories
+
+This document: http://www.unicode.org/cldr/data/docs/design/formatting/time_zone_categories.txt
+
+The time zone IDs are broken up into the following categories. As examples of usage, I am using faked Greek (Greek to show the results in a different script, where a Latin fallback string would not be particularly good.) A number of the choices are a matter of judgment, so please look them over.
+
+The timezone localization strings available for fallback are described in:
+http://www.unicode.org/reports/tr35/#Time_Zone_Fallback
+
+The original design document is at:
+http://www.unicode.org/cldr/data/docs/design/formatting/time_zone_localization.html. 
+
+# Main Localization Zones (multi-zone countries)
+These are the 57 zones that are in the main multi-zone countries. They will fallback unless localized. Thus 
+Australia/Perth => "Perth" (even though "Perth" is in the wrong alphabet for Greek).
+Note: if we added a message string for this in LDML, we could add the country name at least, so we would fallback by adding the country name, such as
+Australia/Perth => "Perth (Αυστραλία)"
+
+# Secondary Localization Zones (multi-zone countries)
+These are 28 zones that are probably not of major interest for most localized products, so it is probably ok if they fallback. 
+
+# Outlying Islands (of single-zone countries)
+These are 7 outlining islands of countries that otherwise have single zones. So they will fallback unless localized.
+
+# Zones localized from country name (single-zone countries)
+These have only a single zone, so if there is no explicit localization, the country name gets used, e.g. 
+Asia/Kabul => "Αφγανιστάν"
+These do not need localization unless that result is unsuitable. If a message string can be provided for the equivalent of "{0} Time", that can be used. E.g. with "{0} (χρόνος)" we would get:
+Asia/Kabul => "Αφγανιστάν (χρόνος)"
+
+# Aliased Zones (invariant)
+These are 162 zones that are invariant aliases. They never need aliasing, they just get mapped to another alias before localization;
+
+# Aliased Zones (current)
+These are 58 zones that currently are identical (where currently means within the date interval specified below). If they don't have localizations, we'll map them to the other alias first.
+
+# GMT Zones (can be algorithmically localized)
+These are zones that are fixed (no daylight), and will be derived from a message pattern. We need one localization for them, for that message pattern. E.g. for Greek we would need something like " ΓΣΧ{0}" (I'm making the Greek up!)
+
+The Timezone database people are constantly updating, so items may change categories in the future, and thus require additional localizations. I am not running my tests against the latest versions, so category contents may change when I update.
+
+==============
+
+Zone Localization Categories, using 'current' as: 2000-01-01T00:00Z to 2010-01-01T00:00Z
 
 # Main Localization Zones (multi-zone countries)
 1 ;	Australia/Perth ;	AU	#  (8)
@@ -546,7 +589,7 @@
 57 ;	America/Louisville ;	America/New_York	#  (-5/-4)	on 1975-04-26T23:45Z, had -4 while America/Detroit had -5
 58 ;	Asia/Samarkand ;	Asia/Tashkent	#  (5)
 
-# GMT Zones (can be algorithmically localized)
+# GMT Zones (algorithmically localized)
 1 ;	Etc/GMT+12 ;	ZZ	#  (-12)
 2 ;	Etc/GMT+11 ;	ZZ	#  (-11)
 3 ;	Etc/GMT+10 ;	ZZ	#  (-10)
@@ -574,3 +617,5 @@
 25 ;	Etc/GMT-12 ;	ZZ	#  (12)
 26 ;	Etc/GMT-13 ;	ZZ	#  (13)
 27 ;	Etc/GMT-14 ;	ZZ	#  (14)
+
+

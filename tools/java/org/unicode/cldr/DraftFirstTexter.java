@@ -34,7 +34,8 @@ public class DraftFirstTexter implements NodeSet.NodeSetTexter {
         subTexter = aTexter;
     }
     public String text(NodeSet.NodeSetEntry e) {
-        if( ((e.main != null)&&(LDMLUtilities.isNodeDraft(e.main))) ||
+        if( ((e.main == null)&&(e.fallbackLocale == null)) ||
+            ((e.main != null)&&LDMLUtilities.isNodeDraft(e.main)) ||
             (e.proposed != null) ) {
             return "0" + subTexter.text(e);
         } else {

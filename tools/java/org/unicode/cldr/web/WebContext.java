@@ -7,14 +7,16 @@
 //
 package org.unicode.cldr.web;
 
+import org.w3c.dom.Document;
 import java.io.*;
 import java.util.*;
 import com.ibm.icu.util.ULocale;
 
 public class WebContext {
 // USER fields
-    public org.w3c.dom.Document doc= null;
+    public Document doc[]= new Document[0];
     public ULocale locale = null;
+    public String docLocale[] = new String[0];
     public String localeName = null; 
     public CookieSession session = null;
 
@@ -44,6 +46,7 @@ public class WebContext {
     // copy c'tor
     public WebContext( WebContext other) {
         doc = other.doc;
+        docLocale = other.docLocale;
         out = other.out;
         form_data = other.form_data;
         baseURL = other.baseURL;
@@ -101,6 +104,33 @@ public class WebContext {
             // ? 
         }
     }
+// doc api
+    public static String getParent(Object l) {
+        String locale = l.toString();
+        int pos = locale.lastIndexOf('_');
+        if (pos >= 0) {
+            return locale.substring(0,pos);
+        }
+        if (!locale.equals("root")) return "root";
+        return null;
+    }
+
+    void setLocale(ULocale l) {
+        locale = l;
+        String parents = null;
+        Vector localesVector = new Vector();
+        Vector docsVector = new Vector();
+        parents = l.toString();
+        do {
+            Document d = SurveyMain.fetchDoc(this, parents);
+            localesVector.add(parents);
+            docsVector.add(d);
+            parents = getParent(parents);
+        } while(parents != null);
+        doc = (Document[])docsVector.toArray(doc);
+        docLocale = (String[])localesVector.toArray(docLocale);
+    }
+        
 // locale hash api
     // get the hashtable of modified locales
 

@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/alpha/ldml.dtd">
-<ldml>
-
+<ldml draft="true">
+<!--
+Locale Data Format
+Draft: 2004-08-02
+By Pema geyleg <pema_geyleg@druknet.bt>
+-->
     <identity>
         <version number="0.1">First available version</version>
         <generation date="2004-08-09"></generation>
         
         <language type="dz"></language>
-        <territory type="BT"></territory>
     </identity>
 
     <localeDisplayNames>
@@ -195,7 +198,7 @@
     </delimiters>
      <dates>
         <calendars>
-          <calendar type="Gregorian">
+          <calendar type="gregorian">
               <months>
                <monthContext type="format">
                        <default type="wide"></default>
@@ -325,10 +328,10 @@
 		
 		<timeZoneNames>
 			<zone type="Asia/Thimphu">
-			
+			  <!-- Bhutan does not use Daylight Saving Time -->
 			<long>
-				
-				<generic>Bhutan Standard Time</generic>
+				<!-- Bhutanese time is referred to as "BST" in Bhutan -->				
+				<generic>Bhutan Standard Time</generic><!-- TODO: This data may be in the wrong script -->
 				<standard>Bhutan Standard Time</standard>
 				<daylight>Bhutan Standard Time</daylight>
 			</long>

@@ -575,6 +575,7 @@ public class LDML2ICUConverter {
         xpath.delete(savedLength, xpath.length());
         return first;
     }
+    private String ldmlVersion = null;
     private ICUResourceWriter.Resource parseBundle(Node root){
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.Resource current = null;
@@ -589,6 +590,7 @@ public class LDML2ICUConverter {
             }
             String name = ldml.getNodeName();
             if(name.equals(LDMLConstants.LDML) ){
+                ldmlVersion = LDMLUtilities.getAttributeValue(ldml, LDMLConstants.VERSION);
                 if(LDMLUtilities.isNodeDraft(ldml) && writeDraft==false){
                     System.err.println("WARNING: The LDML file "+sourceDir+"/"+locName+".xml is marked draft! Not producing ICU file. ");
                     System.exit(-1);
@@ -764,7 +766,7 @@ public class LDML2ICUConverter {
                     }
                     str.comment = "Draft";
                 }
-                str.val= str.val.replaceAll("Revision: (.*?) .*", "$1");
+                str.val= str.val.replaceAll(".*?Revision: (.*?) .*", "$1");
                 res = str;
             }else if(name.equals(LDMLConstants.LANGUAGE)||
                     name.equals(LDMLConstants.SCRIPT) ||
@@ -1578,7 +1580,7 @@ public class LDML2ICUConverter {
             if(ecn!=null){
                 exemplarCity.val = LDMLUtilities.getNodeValue(ecn);
             }else{
-                exemplarCity.val = type.val.replaceAll(".*?/(.*)", "$1").replaceAll("_","\\3s");
+                exemplarCity.val = type.val.replaceAll(".*?/(.*)", "$1").replaceAll("_"," ");
             }
         }
         /* assemble the array */
@@ -1917,11 +1919,13 @@ public class LDML2ICUConverter {
                ICUResourceWriter.ResourceString res = new ICUResourceWriter.ResourceString();
                res.val = (String)map.get(key);
                // array of unnamed strings
-               if(current == null){
-                   current = array.first = res;
-               }else{
-                   current.next = res;
-                   current = current.next;
+               if(res.val != null){
+                   if(current == null){
+                       current = array.first = res;
+                   }else{
+                       current.next = res;
+                       current = current.next;
+                   }
                }
             }
         }
@@ -2036,11 +2040,15 @@ public class LDML2ICUConverter {
                 ICUResourceWriter.ResourceInt startday = new ICUResourceWriter.ResourceInt();
                 startday.val = getDayNumberAsString(LDMLUtilities.getAttributeValue(wkendStart, LDMLConstants.DAY));
                 ICUResourceWriter.ResourceInt starttime = new ICUResourceWriter.ResourceInt();
-                starttime.val = Integer.toString(getMillis(LDMLUtilities.getAttributeValue(wkendStart, LDMLConstants.TIME)));
+                String time = LDMLUtilities.getAttributeValue(wkendStart, LDMLConstants.TIME);
+                starttime.val = Integer.toString(getMillis(time==null?"00:00":time));
                 ICUResourceWriter.ResourceInt endday = new ICUResourceWriter.ResourceInt();
                 endday.val = getDayNumberAsString(LDMLUtilities.getAttributeValue(wkendEnd, LDMLConstants.DAY));
                 ICUResourceWriter.ResourceInt endtime = new ICUResourceWriter.ResourceInt();
-                endtime.val = Integer.toString(getMillis(LDMLUtilities.getAttributeValue(wkendEnd, LDMLConstants.TIME)));
+                
+                time = LDMLUtilities.getAttributeValue(wkendEnd, LDMLConstants.TIME);              
+                endtime.val = Integer.toString(getMillis(time==null?"24:00":time));
+                
                 wkend.first = startday;
                 startday.next = starttime;
                 starttime.next = endday;
@@ -2193,6 +2201,13 @@ public class LDML2ICUConverter {
         }
         return null;
 
+    }
+    private boolean isDraft(Node context, String res, StringBuffer xpath){
+        StringBuffer xp = new StringBuffer();
+        xp.append(xpath);
+        xp.append("/"); 
+        xp.append(res);
+        return isDraft(context, xp);
     }
     private boolean isDraft(Node node, StringBuffer xpath){
         //if the xpath contains : then it is a special node
@@ -2599,21 +2614,24 @@ public class LDML2ICUConverter {
             xpath.delete(savedLength, xpath.length());
             return res;
         }
-        Node symbolNode = LDMLUtilities.getNode(root, LDMLConstants.SYMBOL , fullyResolvedDoc, xpath.toString());
-        Node displayNameNode = LDMLUtilities.getNode(root, LDMLConstants.DISPLAY_NAME , fullyResolvedDoc, xpath.toString());
+        Node symbolNode = getVettedNode(root, LDMLConstants.SYMBOL , xpath);
+        Node displayNameNode = getVettedNode(root, LDMLConstants.DISPLAY_NAME, xpath);
         ICUResourceWriter.ResourceArray arr = new ICUResourceWriter.ResourceArray();
         arr.name = LDMLUtilities.getAttributeValue(root, LDMLConstants.TYPE);
       //  if(displayNameNode==null){
       //     throw new RuntimeException("Could not get display name for currency resource with type "+arr.name);
       //  }
-
-        ICUResourceWriter.ResourceString symbol = new ICUResourceWriter.ResourceString();
-        symbol.val = symbolNode!=null ? LDMLUtilities.getNodeValue(symbolNode): arr.name;
-        ICUResourceWriter.ResourceString displayName = new ICUResourceWriter.ResourceString();
-        displayName.val = displayNameNode!=null ? LDMLUtilities.getNodeValue(displayNameNode): arr.name;
-
-        arr.first = symbol;
-        symbol.next = displayName;
+        ICUResourceWriter.ResourceString displayName = null;
+        ICUResourceWriter.ResourceString symbol = null;
+        
+        if(symbolNode != null || displayNameNode != null){
+            symbol = new ICUResourceWriter.ResourceString(); 
+            displayName = new ICUResourceWriter.ResourceString();
+            symbol.val = symbolNode!=null? LDMLUtilities.getNodeValue(symbolNode): arr.name;
+            displayName.val = displayNameNode!=null ? LDMLUtilities.getNodeValue(displayNameNode): arr.name;
+            arr.first = symbol;
+            symbol.next = displayName;
+        }
 
         Node patternNode = LDMLUtilities.getNode(root, LDMLConstants.PATTERN , fullyResolvedDoc, xpath.toString());
         Node decimalNode = LDMLUtilities.getNode(root, LDMLConstants.DECIMAL , fullyResolvedDoc, xpath.toString());
@@ -2659,14 +2677,17 @@ public class LDML2ICUConverter {
             elementsArr.first = pattern;
             pattern.next = decimal;
             decimal.next = group;
-
-            displayName.next = elementsArr;
+            if(displayName != null){
+                displayName.next = elementsArr;
+            }else{
+                System.out.println("WARNING: displayName and symbol not vetted/available for currency resource " +arr.name +" not generating the resource");
+            }
         }
         xpath.delete(savedLength, xpath.length());
         if(arr.first!=null){
             return arr;
         }
-        return arr;
+        return null;
     }
 
     private ICUResourceWriter.Resource parsePosix(Node root, StringBuffer xpath){
@@ -2925,13 +2946,16 @@ public class LDML2ICUConverter {
             }
             str = new ICUResourceWriter.ResourceString();
             str.name = "Version";
-            str.val = "1.0";
+            str.val = ldmlVersion; //"1.0";
+            /*
+             * Not needed anymore
             if(specialsDoc!=null){
                 Node version = LDMLUtilities.getNode(specialsDoc, xpath.append("/special").toString());
                 if(version!=null){
                     str.val = LDMLUtilities.getAttributeValue(version, "icu:version");
                 }
             }
+            */
             current.next = str;
 
         }

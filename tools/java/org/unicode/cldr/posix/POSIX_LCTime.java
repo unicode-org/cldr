@@ -79,7 +79,7 @@ public class POSIX_LCTime {
             t_fmt_ampm = "";
 
       // d_fmt - 
-         SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='medium']/dateFormat/pattern";
+         SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='short']/dateFormat/pattern";
          n = LDMLUtilities.getNode(doc, SearchLocation);
          d_fmt = POSIXUtilities.POSIXDateTimeFormat(LDMLUtilities.getNodeValue(n));
 

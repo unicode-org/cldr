@@ -40,19 +40,16 @@ Europe/Rome = Europe/Vatican). If we picked one exemplar from each of these sets
 <p>We can also distinguish &quot;modern&quot; equivalents; those that produce the same result for the current year. If we picked one exemplar from each of these sets of aliases,
 there are 88 exemplars. There are also some &quot;suspicious&quot; IDs like WET, CET, MET, EET, Asia/Riyadh87, Asia/Riyadh88, Asia/Riyadh89, which may lower the number slightly if
 removed.</p>
-<p>The <a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html">zone_log.html</a> provides a breakdown of various types of information from the Olson database. It is
-based off of the current Java data, so it may be slightly out of date, and does contain some older Java aliases. </p>
+<p>The <a href="zone_log.html">zone_log.html</a> provides a breakdown of various types of information from the Olson database. It is based off of the current Java data, so it may
+be slightly out of date, and does contain some older Java aliases.</p>
 <ul>
-  <li><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#aliases">a</a><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#aliases">liases</a> contains
-    mapping for aliases from the Olson database, plus Java aliases. The aliases that would remove IDs for countries are removed.</li>
-  <li><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#country_to_zones">country to zones</a> shows the relationship between the countries and zones</li>
-  <li><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#zone_to_countries_(not_unique">zone to countries</a> is just a test table to see if there are any non-unique
-    country-to-zone mappings.</li>
-  <li><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#zones_that_are_missing_countries">zones that are missing countries</a> lists the zones that belong to no
-    country, including some suspicious IDs</li>
-  <li><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#windows_ids">windows ids</a> shows a mapping from windows IDs to Olson IDs.</li>
-  <li><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#equivalent_modern_zones">equivalent modern zones</a> is the most complicated. It shows the 88 groups of
-    modern-equivalent IDs.
+  <li><a href="zone_log.html#aliases">a</a><a href="zone_log.html#aliases">liases</a> contains mapping for aliases from the Olson database, plus Java aliases. The aliases that
+    would remove IDs for countries are removed.</li>
+  <li><a href="zone_log.html#country_to_zones">country to zones</a> shows the relationship between the countries and zones</li>
+  <li><a href="zone_log.html#zone_to_countries_(not_unique">zone to countries</a> is just a test table to see if there are any non-unique country-to-zone mappings.</li>
+  <li><a href="zone_log.html#zones_that_are_missing_countries">zones that are missing countries</a> lists the zones that belong to no country, including some suspicious IDs</li>
+  <li><a href="zone_log.html#windows_ids">windows ids</a> shows a mapping from windows IDs to Olson IDs.</li>
+  <li><a href="zone_log.html#equivalent_modern_zones">equivalent modern zones</a> is the most complicated. It shows the 88 groups of modern-equivalent IDs.
     <ul>
       <li>column 2: the offset list</li>
       <li>column 3: the modern equivalent IDs. The suggested root &quot;exemplar&quot; ID for modern useage is in boldface. (See below for more information).</li>
@@ -266,7 +263,7 @@ whether Olson ID x is preferred to Olson ID y.</p>
   </tr>
 </table>
 <p>Note that Chihuahua is preferred over Mazatlan because it is alphabetically prior. Hermosillo and Tijuana are preferred because they are both MX. The suggested Root preferences
-are listed in boldface in the <a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#equivalent_modern_zones">equivalent modern zones</a>.</p>
+are listed in boldface in the <a href="zone_log.html#equivalent_modern_zones">equivalent modern zones</a>.</p>
 <h3>E. Conversion</h3>
 <p>The current CLDR has translations for a number of locales. However, the IDs that are used as keys may not be &quot;real&quot; IDs, so we would need to convert them to real IDs.
 We may also want to do a slight modification of the IDs to use only invariant characters in them.</p>

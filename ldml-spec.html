@@ -87,7 +87,11 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   <li><a href="#Data_Access">Data Access</a></li>
   <li><a href="#XML_Format">XML Format</a>
     <ul>
-      <li><a href="#Common_Elements">Common Elements</a></li>
+      <li><a href="#Common_Elements">Common Elements</a>
+        <ul>
+          <li><a href="#Escaping_Characters">Escaping Characters</a></li>
+        </ul>
+      </li>
       <li><a href="#Common_Attributes">Common Attributes</a></li>
       <li><a href="#&lt;identity&gt;">&lt;identity&gt;</a></li>
       <li><a href="#&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></li>
@@ -604,6 +608,27 @@ resources are present in fr, and that in fr_BE we have the following:</p>
 <p>In this case, the &lt;default&gt; is inherited from fr, and has the value 
 &quot;scientific&quot;. It thus refers to this new &quot;scientific&quot; 
 pattern in this resource bundle.</p>
+<h4><a name="Escaping_Characters">Escaping Characters</a></h4>
+<p>Unfortunately, XML does not have the capability to contain all Unicode code 
+points. Due to this, extra syntax is required to represent those code points 
+that cannot be otherwise represented in element content. This also must be used 
+where spaces are significant (otherwise they can be stripped).</p>
+<table>
+  <caption>Escaping Characters</caption>
+  <tbody>
+    <tr>
+      <th>Basic Example</th>
+      <th>XML Example</th>
+    </tr>
+    <tr>
+      <td><code>'\u0000'</code></td>
+      <td><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+<p class="note"><b>Note: </b>If XML 1.1 is approved in the current state, then 
+this would not be necessary -- except for NULL (U+0000), which is typically 
+never tailored.</p>
 <h3><a name="Common_Attributes">Common Attributes</a></h3>
 <p class="element2">&lt;... type=&quot;stroke&quot; ...&gt;</p>
 <p>The attribute <i>type</i> is also used to indicate an alternate resource that 
@@ -1490,28 +1515,6 @@ elements with the corresponding strength:</p>
     <td>&lt;i&gt;V&lt;/i&gt;&lt;i&gt;w&lt;/i&gt;&lt;i&gt;W&lt;/i&gt;</td>
   </tr>
 </table>
-<h3><a name="Escaping_Characters">Escaping Characters</a></h3>
-<p>Unfortunately, XML does not have the capability to contain all Unicode code 
-points. Due to this, extra syntax is required to represent those code points 
-that cannot be otherwise represented. This corresponds to the quoting mechanism 
-used in the basic syntax. This also must be used where spaces are significant 
-(otherwise they are stripped).</p>
-<table>
-  <caption>Escaping Characters</caption>
-  <tbody>
-    <tr>
-      <th>Basic Example</th>
-      <th>XML Example</th>
-    </tr>
-    <tr>
-      <td><code>'\u0000'</code></td>
-      <td><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
-    </tr>
-  </tbody>
-</table>
-<p class="note"><b>Note: </b>If XML 1.1 is approved in the current state, then 
-this would not be necessary -- except for NULL (U+0000), which is typically 
-never tailored.</p>
 <h3><a name="Contractions">Contractions</a></h3>
 <p>To sort a sequence as a single item (contraction), just use the sequence, 
 e.g.</p>
@@ -1560,17 +1563,20 @@ be a contraction).</p>
       <td><code>&amp;&nbsp;c&nbsp;<br>
         &lt;&nbsp;k&nbsp;/&nbsp;h</code></td>
       <td><code>&lt;reset&gt;c&lt;/reset&gt;<br>
-        &lt;p&gt;k&lt;extend&gt;h&lt;/extend&gt;&lt;/p&gt;</code></td>
+        &lt;x&gt;&lt;p&gt;k&lt;/p&gt; &lt;extend&gt;h&lt;/extend&gt;&lt;/x&gt;</code></td>
       <td>Make 'k' sort after the sequence 'ch'; thus 'k' will behave as if it 
         expands to a character after 'c' followed by an 'h'.</td>
     </tr>
   </tbody>
 </table>
+<p>&nbsp;If an <code>&lt;extend&gt;</code> element is necessary, it requires the 
+rule to be embedded in an &lt;x&gt; element.</p>
 <h3><a name="Context_Before">Context Before</a></h3>
 <p>The context before a character can affect how it is ordered, such as in 
 Japanese. This could be expressed with a combination of contractions and 
 expansions, but is faster using a context. (The actual weights produced are 
-different, but the resulting string comparisons are the same.)</p>
+different, but the resulting string comparisons are the same.) If a context 
+element occurs, it must be the first item in the rule.</p>
 <table>
   <caption>Specifying Previous Context</caption>
   <tbody>
@@ -1590,6 +1596,14 @@ different, but the resulting string comparisons are the same.)</p>
     </tr>
   </tbody>
 </table>
+<p>&nbsp;If an <code>&lt;extend&gt;</code> element is necessary, it requires the 
+rule to be embedded in an &lt;x&gt; element. There can also be a <code>&lt;context&gt;</code> 
+at the same time. For example, the following are allowed:</p>
+<ul>
+  <li><code>&lt;x&gt;&lt;context&gt;abc&lt;/context&gt;&lt;p&gt;def&lt;/p&gt;&lt;extend&gt;ghi&lt;/extend&gt;&lt;/x&gt;</code></li>
+  <li><code>&lt;x&gt;&lt;p&gt;def&lt;/p&gt;&lt;extend&gt;ghi&lt;/extend&gt;&lt;/x&gt;</code></li>
+  <li><code>&lt;x&gt;&lt;context&gt;abc&lt;/context&gt;&lt;p&gt;def&lt;/p&gt;&lt;/x&gt;</code></li>
+</ul>
 <h3><a name="Placing_Characters_Before_Others">Placing Characters Before Others</a></h3>
 <p>There are certain circumstances where characters need to be placed before a 
 given character, rather than after. This is the case with Pinyin, for example, 
@@ -1765,6 +1779,16 @@ example, in 3.1.1, the value is at:</p>
 <blockquote>
   <p>U+1D7C3 MATHEMATICAL SANS-SERIF BOLD ITALIC PARTIAL DIFFERENTIAL</p>
 </blockquote>
+<p>The <code>&lt;last_variable/&gt;</code> cannot occur inside an &lt;x&gt; 
+element, nor can there be any element content. Thus there can be no 
+&lt;context&gt; or &lt;extend&gt; or text data in the rule. For example, the 
+following are all disallowed:</p>
+<ul>
+  <li><code>&lt;x&gt;&lt;context&gt;a&lt;/context&gt;&lt;p&gt;&lt;last_variable/&gt;&lt;/p&gt;&lt;/x&gt;</code></li>
+  <li><code>&lt;x&gt;&lt;p&gt;&lt;last_variable/&gt;&lt;/p&gt;&lt;extend&gt;a&lt;/extend&gt;&lt;/x&gt;</code></li>
+  <li><code>&lt;p&gt;&lt;last_variable/&gt;a&lt;/p&gt;</code></li>
+  <li><code>&lt;p&gt;a&lt;last_variable/&gt;&lt;/p&gt;</code></li>
+</ul>
 <h3><a name="Logical_Reset_Positions">Special-Purpose Commands</a></h3>
 <p>The <i>suppress contractions</i> tailoring command turns off any existing 
 contractions that begin with those characters. It is typically used to turn off 

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd"
 [
-	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldmlOpenOffice.dtd">
+	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldmlOpenOffice.dtd">
 %openOffice;
 ]
 >
 <ldml>
     <identity>
         <version number="1.2">Generated from ConvertOOLocale</version>
-        <generation date="2004-10-9"/>
+        <generation date="2005-3-24"/>
         <language type="zh"/>
         <territory type="TW"/>
     </identity>
@@ -38,7 +38,7 @@
             <default type="gregorian"/>
             <calendar type="gregorian">
                 <months>
-                    <monthContext type="stand-alone">
+                    <monthContext type="format">
                         <monthWidth type ="abbreviated">
                             <month type="1">一月</month>
                             <month type="2">二月</month>
@@ -70,7 +70,7 @@
                     </monthContext>
                 </months>
                 <days>
-                    <dayContext type="stand-alone">
+                    <dayContext type="format">
                         <dayWidth type ="abbreviated">
                             <day type="sun">日</day>
                             <day type="mon">一</day>
@@ -302,9 +302,9 @@
                     </dateTimeFormatLength>
                 </dateTimeFormats>
             </calendar>
-            <calendar type="ROC">
+            <calendar type="chinese">
                 <months>
-                    <monthContext type="stand-alone">
+                    <monthContext type="format">
                         <monthWidth type ="abbreviated">
                             <month type="1">一月</month>
                             <month type="2">二月</month>
@@ -336,7 +336,7 @@
                     </monthContext>
                 </months>
                 <days>
-                    <dayContext type="stand-alone">
+                    <dayContext type="format">
                         <dayWidth type ="abbreviated">
                             <day type="sun">日</day>
                             <day type="mon">一</day>
@@ -506,10 +506,11 @@
             </currency>
         </currencies>
     </numbers>
-    <special xmlns:openOffice="http://www.openOffice.org" openOffice:version="1.2">
+    <special xmlns:openOffice="http://www.openOffice.org">
+        <openOffice:locale openOffice:versionDTD="2.0" openOffice:allowUpdateFromCLDR="no" openOffice:version="1.2"/>
         <openOffice:forbiddenCharacters>
-            <openOffice:forbiddenLineBeginCharacters>!),.:;?]}¢·--'"¨•′、。〉》」』】〕〞︰︱︳︴︶︸︺︼︾﹀﹂﹄﹏﹐､﹒﹔﹕﹖﹗﹚﹜﹞！），．：；？｜｝､</openOffice:forbiddenLineBeginCharacters>
-            <openOffice:forbiddenLineEndCharacters>!),.:;?]}¢·--'"¨•′、。〉》」』】〕〞︰︱︳︴︶︸︺︼︾﹀﹂﹄﹏﹐､﹒﹔﹕﹖﹗﹚﹜﹞！），．：；？｜｝､</openOffice:forbiddenLineEndCharacters>
+            <openOffice:forbiddenLineBeginCharacters>!),.:;?]}¢·--&apos;&quot;¨•′、。〉》」』】〕〞︰︱︳︴︶︸︺︼︾﹀﹂﹄﹏﹐､﹒﹔﹕﹖﹗﹚﹜﹞！），．：；？｜｝､</openOffice:forbiddenLineBeginCharacters>
+            <openOffice:forbiddenLineEndCharacters>([{£¥&apos;&quot;‵〈《「『【〔〝︵︷︹︻︽︿﹁﹃﹙﹛﹝（｛</openOffice:forbiddenLineEndCharacters>
         </openOffice:forbiddenCharacters>
         <openOffice:reservedWords>
             <openOffice:trueWord>真</openOffice:trueWord>
@@ -606,12 +607,7 @@
             <openOffice:transliteration openOffice:unoid="HALFWIDTH_FULLWIDTH"/>
             <openOffice:transliteration openOffice:unoid="HALFWIDTH_FULLWIDTH"/>
         </openOffice:transliterations>
-        <openOffice:search>
-            <openOffice:searchOptions>
-                <openOffice:transliterationModules>IGNORE_CASE</openOffice:transliterationModules>
-                <openOffice:transliterationModules>IGNORE_WIDTH</openOffice:transliterationModules>
-            </openOffice:searchOptions>
-        </openOffice:search>
+        <openOffice:search openOffice:ref="zh_CN"/>
         <openOffice:index>
             <openOffice:indexKey openOffice:phonetic="false" default="true" openOffice:unoid="stroke"/>
             <openOffice:indexKey openOffice:phonetic="false" default="false" openOffice:unoid="radical"/>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd"
 [
-	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldmlOpenOffice.dtd">
+	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldmlOpenOffice.dtd">
 %openOffice;
 ]
 >
 <ldml>
     <identity>
         <version number="1.2">Generated from ConvertOOLocale</version>
-        <generation date="2004-10-9"/>
+        <generation date="2005-3-24"/>
         <language type="zh"/>
         <territory type="CN"/>
     </identity>
@@ -38,7 +38,7 @@
             <default type="gregorian"/>
             <calendar type="gregorian">
                 <months>
-                    <monthContext type="stand-alone">
+                    <monthContext type="format">
                         <monthWidth type ="abbreviated">
                             <month type="1">一月</month>
                             <month type="2">二月</month>
@@ -70,7 +70,7 @@
                     </monthContext>
                 </months>
                 <days>
-                    <dayContext type="stand-alone">
+                    <dayContext type="format">
                         <dayWidth type ="abbreviated">
                             <day type="sun">日</day>
                             <day type="mon">一</day>
@@ -430,10 +430,11 @@
             </currency>
         </currencies>
     </numbers>
-    <special xmlns:openOffice="http://www.openOffice.org" openOffice:version="1.2">
+    <special xmlns:openOffice="http://www.openOffice.org">
+        <openOffice:locale openOffice:versionDTD="2.0" openOffice:allowUpdateFromCLDR="no" openOffice:version="1.2"/>
         <openOffice:forbiddenCharacters>
-            <openOffice:forbiddenLineBeginCharacters>:!),.:;?]}¢'"、。〉》」』】〕〗〞︰︱︳﹐､﹒﹔﹕﹖﹗﹚﹜﹞！），．：；？｜｝︴︶︸︺︼︾﹀﹂﹄﹏､～￠々‖•·ˇˉ―--′</openOffice:forbiddenLineBeginCharacters>
-            <openOffice:forbiddenLineEndCharacters>:!),.:;?]}¢'"、。〉》」』】〕〗〞︰︱︳﹐､﹒﹔﹕﹖﹗﹚﹜﹞！），．：；？｜｝︴︶︸︺︼︾﹀﹂﹄﹏､～￠々‖•·ˇˉ―--′</openOffice:forbiddenLineEndCharacters>
+            <openOffice:forbiddenLineBeginCharacters>:!),.:;?]}¢&apos;&quot;、。〉》」』】〕〗〞︰︱︳﹐､﹒﹔﹕﹖﹗﹚﹜﹞！），．：；？｜｝︴︶︸︺︼︾﹀﹂﹄﹏､～￠々‖•·ˇˉ―--′</openOffice:forbiddenLineBeginCharacters>
+            <openOffice:forbiddenLineEndCharacters>([{£¥&apos;&quot;‵〈《「『【〔〖（［｛￡￥〝︵︷︹︻︽︿﹁﹃﹙﹛﹝（｛</openOffice:forbiddenLineEndCharacters>
         </openOffice:forbiddenCharacters>
         <openOffice:reservedWords>
             <openOffice:trueWord>真</openOffice:trueWord>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd"
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd"
 [
-	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldmlOpenOffice.dtd">
+	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldmlOpenOffice.dtd">
 %openOffice;
 ]
 >
 <ldml>
     <identity>
         <version number="1.2">Generated from ConvertOOLocale</version>
-        <generation date="2004-10-9"/>
+        <generation date="2005-3-24"/>
         <language type="sl"/>
         <territory type="SI"/>
     </identity>
@@ -27,8 +27,8 @@
     <delimiters>
         <quotationStart>‘</quotationStart>
         <quotationEnd>’</quotationEnd>
-        <alternateQuotationStart>“</alternateQuotationStart>
-        <alternateQuotationEnd>”</alternateQuotationEnd>
+        <alternateQuotationStart>„</alternateQuotationStart>
+        <alternateQuotationEnd>“</alternateQuotationEnd>
     </delimiters>
     <measurement>
         <measurementSystem type="metric"/>
@@ -38,56 +38,56 @@
             <default type="gregorian"/>
             <calendar type="gregorian">
                 <months>
-                    <monthContext type="stand-alone">
+                    <monthContext type="format">
                         <monthWidth type ="abbreviated">
-                            <month type="1">Jan</month>
-                            <month type="2">Feb</month>
-                            <month type="3">Mar</month>
-                            <month type="4">Apr</month>
-                            <month type="5">Maj</month>
-                            <month type="6">Jun</month>
-                            <month type="7">Jul</month>
-                            <month type="8">Avg</month>
-                            <month type="9">Sept</month>
-                            <month type="10">Okt</month>
-                            <month type="11">Nov</month>
-                            <month type="12">Dec</month>
+                            <month type="1">jan</month>
+                            <month type="2">feb</month>
+                            <month type="3">mar</month>
+                            <month type="4">apr</month>
+                            <month type="5">maj</month>
+                            <month type="6">jun</month>
+                            <month type="7">jul</month>
+                            <month type="8">avg</month>
+                            <month type="9">sep</month>
+                            <month type="10">okt</month>
+                            <month type="11">nov</month>
+                            <month type="12">dec</month>
                         </monthWidth>
                         <monthWidth type ="wide">
-                            <month type="1">Januar</month>
-                            <month type="2">Februar</month>
-                            <month type="3">Marec</month>
-                            <month type="4">April</month>
-                            <month type="5">Maj</month>
-                            <month type="6">Junij</month>
-                            <month type="7">Julij</month>
-                            <month type="8">Avgust</month>
-                            <month type="9">September</month>
-                            <month type="10">Oktober</month>
-                            <month type="11">November</month>
-                            <month type="12">December</month>
+                            <month type="1">januar</month>
+                            <month type="2">februar</month>
+                            <month type="3">marec</month>
+                            <month type="4">april</month>
+                            <month type="5">maj</month>
+                            <month type="6">junij</month>
+                            <month type="7">julij</month>
+                            <month type="8">avgust</month>
+                            <month type="9">september</month>
+                            <month type="10">oktober</month>
+                            <month type="11">november</month>
+                            <month type="12">december</month>
                         </monthWidth>
                     </monthContext>
                 </months>
                 <days>
-                    <dayContext type="stand-alone">
+                    <dayContext type="format">
                         <dayWidth type ="abbreviated">
-                            <day type="sun">Ned</day>
-                            <day type="mon">Pon</day>
-                            <day type="tue">Tor</day>
-                            <day type="wed">Sre</day>
-                            <day type="thu">Čet</day>
-                            <day type="fri">Pet</day>
-                            <day type="sat">Sob</day>
+                            <day type="sun">ned</day>
+                            <day type="mon">pon</day>
+                            <day type="tue">tor</day>
+                            <day type="wed">sre</day>
+                            <day type="thu">čet</day>
+                            <day type="fri">pet</day>
+                            <day type="sat">sob</day>
                         </dayWidth>
                         <dayWidth type ="wide">
-                            <day type="sun">Nedelja</day>
-                            <day type="mon">Ponedeljek</day>
-                            <day type="tue">Torek</day>
-                            <day type="wed">Sreda</day>
-                            <day type="thu">Četrtek</day>
-                            <day type="fri">Petek</day>
-                            <day type="sat">Sobota</day>
+                            <day type="sun">nedelja</day>
+                            <day type="mon">ponedeljek</day>
+                            <day type="tue">torek</day>
+                            <day type="wed">sreda</day>
+                            <day type="thu">četrtek</day>
+                            <day type="fri">petek</day>
+                            <day type="sat">sobota</day>
                         </dayWidth>
                     </dayContext>
                 </days>
@@ -395,7 +395,8 @@
             </currency>
         </currencies>
     </numbers>
-    <special xmlns:openOffice="http://www.openOffice.org" openOffice:version="1.2">
+    <special xmlns:openOffice="http://www.openOffice.org">
+        <openOffice:locale openOffice:versionDTD="2.0" openOffice:allowUpdateFromCLDR="no" openOffice:version="1.2"/>
         <openOffice:reservedWords>
             <openOffice:trueWord>true</openOffice:trueWord>
             <openOffice:falseWord>false</openOffice:falseWord>
@@ -489,7 +490,7 @@
             </openOffice:searchOptions>
         </openOffice:search>
         <openOffice:index>
-            <openOffice:indexKey openOffice:phonetic="false" default="true" openOffice:unoid="alphanumeric"/>
+            <openOffice:indexKey openOffice:phonetic="false" default="true" openOffice:unoid="alphanumeric">A-P R-V Z Č Š Ž</openOffice:indexKey>
             <openOffice:unicodeScript>0</openOffice:unicodeScript>
             <openOffice:unicodeScript>1</openOffice:unicodeScript>
             <openOffice:unicodeScript>2</openOffice:unicodeScript>

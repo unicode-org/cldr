@@ -9,26 +9,29 @@
     <identity>
         <version number="1.2">Generated from ConvertOOLocale</version>
         <generation date="2005-3-24"/>
-        <language type="gl"/>
-        <territory type="ES"/>
+        <language type="rw"/>
+        <territory type="RW"/>
+        <special xmlns:openOffice="http://www.openOffice.org">
+            <openOffice:platformId>generic</openOffice:platformId>
+        </special>
     </identity>
     <localeDisplayNames>
         <languages>
             <special xmlns:openOffice="http://www.openOffice.org">
-                <openOffice:defaultName type="gl">Galician</openOffice:defaultName>
+                <openOffice:defaultName type="rw">Kinyarwanda</openOffice:defaultName>
             </special>
         </languages>
         <territories>
             <special xmlns:openOffice="http://www.openOffice.org">
-                <openOffice:defaultName type="ES">Spain</openOffice:defaultName>
+                <openOffice:defaultName type="RW">Rwanda</openOffice:defaultName>
             </special>
         </territories>
     </localeDisplayNames>
     <delimiters>
         <quotationStart>‘</quotationStart>
         <quotationEnd>’</quotationEnd>
-        <alternateQuotationStart>“</alternateQuotationStart>
-        <alternateQuotationEnd>”</alternateQuotationEnd>
+        <alternateQuotationStart>«</alternateQuotationStart>
+        <alternateQuotationEnd>»</alternateQuotationEnd>
     </delimiters>
     <measurement>
         <measurementSystem type="metric"/>
@@ -40,54 +43,54 @@
                 <months>
                     <monthContext type="format">
                         <monthWidth type ="abbreviated">
-                            <month type="1">xan.</month>
-                            <month type="2">feb.</month>
-                            <month type="3">mar</month>
-                            <month type="4">abr.</month>
-                            <month type="5">mai</month>
-                            <month type="6">xun</month>
-                            <month type="7">xul.</month>
-                            <month type="8">ago.</month>
-                            <month type="9">set.</month>
-                            <month type="10">out.</month>
-                            <month type="11">nov.</month>
-                            <month type="12">dec.</month>
+                            <month type="1">mut.</month>
+                            <month type="2">gas.</month>
+                            <month type="3">wer.</month>
+                            <month type="4">mat.</month>
+                            <month type="5">gic.</month>
+                            <month type="6">kam.</month>
+                            <month type="7">nya.</month>
+                            <month type="8">kan.</month>
+                            <month type="9">nze.</month>
+                            <month type="10">ukw.</month>
+                            <month type="11">ugu.</month>
+                            <month type="12">uku.</month>
                         </monthWidth>
                         <monthWidth type ="wide">
-                            <month type="1">xaneiro</month>
-                            <month type="2">febreiro</month>
-                            <month type="3">marzo</month>
-                            <month type="4">abril</month>
-                            <month type="5">maio</month>
-                            <month type="6">xunio</month>
-                            <month type="7">xullo</month>
-                            <month type="8">agosto</month>
-                            <month type="9">setembro</month>
-                            <month type="10">outubro</month>
-                            <month type="11">novembro</month>
-                            <month type="12">decembro</month>
+                            <month type="1">Mutarama</month>
+                            <month type="2">Gashyantare</month>
+                            <month type="3">Werurwe</month>
+                            <month type="4">Mata</month>
+                            <month type="5">Gicuransi</month>
+                            <month type="6">Kamena</month>
+                            <month type="7">Nyakanga</month>
+                            <month type="8">Kanama</month>
+                            <month type="9">Nzeli</month>
+                            <month type="10">Ukwakira</month>
+                            <month type="11">Ugushyingo</month>
+                            <month type="12">Ukuboza</month>
                         </monthWidth>
                     </monthContext>
                 </months>
                 <days>
                     <dayContext type="format">
                         <dayWidth type ="abbreviated">
-                            <day type="sun">do.</day>
-                            <day type="mon">lu.</day>
-                            <day type="tue">ma.</day>
-                            <day type="wed">me.</day>
-                            <day type="thu">xo.</day>
-                            <day type="fri">ve.</day>
-                            <day type="sat">sa.</day>
+                            <day type="sun">cyu.</day>
+                            <day type="mon">mbe.</day>
+                            <day type="tue">kab.</day>
+                            <day type="wed">gtu.</day>
+                            <day type="thu">kan.</day>
+                            <day type="fri">gnu.</day>
+                            <day type="sat">gnd.</day>
                         </dayWidth>
                         <dayWidth type ="wide">
-                            <day type="sun">domingo</day>
-                            <day type="mon">luns</day>
-                            <day type="tue">martes</day>
-                            <day type="wed">mércores</day>
-                            <day type="thu">xoves</day>
-                            <day type="fri">venres</day>
-                            <day type="sat">sábado</day>
+                            <day type="sun">Ku cyumweru</day>
+                            <day type="mon">Kuwa mbere</day>
+                            <day type="tue">Kuwa kabiri</day>
+                            <day type="wed">Kuwa gatatu</day>
+                            <day type="thu">Kuwa kane</day>
+                            <day type="fri">Kuwa gatanu</day>
+                            <day type="sat">Kuwa gatandatu</day>
                         </dayWidth>
                     </dayContext>
                 </days>
@@ -99,12 +102,12 @@
                 <pm>PM</pm>
                 <eras>
                     <eraNames>
-                        <era type="1">D.C.</era>
-                        <era type="0">A.C.</era>
+                        <era type="1">Anno Domini</era>
+                        <era type="0">BC</era>
                     </eraNames>
                     <eraAbbr>
-                        <era type="1">D.C.</era>
-                        <era type="0">A.C.</era>
+                        <era type="1">Anno Domini</era>
+                        <era type="0">BC</era>
                     </eraAbbr>
                 </eras>
                 <dateFormats>
@@ -115,35 +118,35 @@
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="26" default="false" openOffice:msgtype="DateFormatskey17" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey16">
-                            <pattern>D. MMM. YYYY</pattern>
+                            <pattern>D. MMM YYYY</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="24" default="false" openOffice:msgtype="DateFormatskey16" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey15">
-                            <pattern>NNNND "de" MMMM "de" YYYY</pattern>
+                            <pattern>NNNND MMMM YYYY</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="30" default="false" openOffice:msgtype="DateFormatskey15" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey14">
-                            <pattern>NN D "de" MMMM "de" YYYY</pattern>
+                            <pattern>NN D MMMM YYYY</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="29" default="false" openOffice:msgtype="DateFormatskey14" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey13">
-                            <pattern>NN D "de" MMM "de" YY</pattern>
+                            <pattern>NN D MMM YY</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="27" default="false" openOffice:msgtype="DateFormatskey13" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey12">
-                            <pattern>D "de" MMMM "de" YYYY</pattern>
+                            <pattern>D MMMM YYYY</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="25" default="false" openOffice:msgtype="DateFormatskey12" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey11">
-                            <pattern>D "de" MMM "de" YYYY</pattern>
+                            <pattern>D MMM YYYY</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="23" default="false" openOffice:msgtype="DateFormatskey11" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey10">
-                            <pattern>D "de" MMM "de" YY</pattern>
+                            <pattern>D MMM YY</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="22" default="false" openOffice:msgtype="DateFormatskey10" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey9">
-                            <pattern>NNNND "de" MMMM "de" YYYY</pattern>
+                            <pattern>NNNND MMMM YYYY</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="19" default="true" openOffice:msgtype="DateFormatskey9" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                     </dateFormatLength>
@@ -184,13 +187,13 @@
                         <dateFormat type="DateFormatskey20">
                             <pattern>YYYY-MM-DD</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="33" default="false" openOffice:msgtype="DateFormatskey20" type="medium" openOffice:usage="DATE">
-                                <openOffice:defaultName>ISO 8601 (EN 28601)</openOffice:defaultName>
+                                <openOffice:defaultName>ISO 8601</openOffice:defaultName>
                             </special>
                         </dateFormat>
                         <dateFormat type="DateFormatskey19">
                             <pattern>YY-MM-DD</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="32" default="false" openOffice:msgtype="DateFormatskey19" type="medium" openOffice:usage="DATE">
-                                <openOffice:defaultName>ISO 8601 (EN 28601)</openOffice:defaultName>
+                                <openOffice:defaultName>ISO 8601</openOffice:defaultName>
                             </special>
                         </dateFormat>
                     </dateFormatLength>
@@ -273,9 +276,9 @@
                 <openOffice:dateSeparator>/</openOffice:dateSeparator>
                 <openOffice:timeSeparator>:</openOffice:timeSeparator>
                 <openOffice:time100SecSeparator>,</openOffice:time100SecSeparator>
-                <openOffice:longDateDayOfWeekSeparator>, </openOffice:longDateDayOfWeekSeparator>
-                <openOffice:longDateDaySeparator> de </openOffice:longDateDaySeparator>
-                <openOffice:longDateMonthSeparator> de </openOffice:longDateMonthSeparator>
+                <openOffice:longDateDayOfWeekSeparator> </openOffice:longDateDayOfWeekSeparator>
+                <openOffice:longDateDaySeparator> </openOffice:longDateDaySeparator>
+                <openOffice:longDateMonthSeparator> </openOffice:longDateMonthSeparator>
                 <openOffice:longDateYearSeparator> </openOffice:longDateYearSeparator>
             </special>
         </symbols>
@@ -352,80 +355,81 @@
             <currencyFormatLength type="long">
             </currencyFormatLength>
             <currencyFormatLength type="medium">
-                <default type="CurrencyFormatskey3"/>
+                <default type="CurrencyFormatskey4"/>
                 <currencyFormat type="CurrencyFormatskey6">
-                    <pattern>#.##0 [CURRENCY];[RED]-#.##0 [CURRENCY]</pattern>
+                    <pattern>#.##0,-- [$F-621];[RED]-#.##0,-- [$F-621]</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="17" default="false" openOffice:msgtype="CurrencyFormatskey6" type="medium" openOffice:usage="CURRENCY"/>
                 </currencyFormat>
                 <currencyFormat type="CurrencyFormatskey5">
-                    <pattern>#.##0 CCC</pattern>
+                    <pattern>#.##0,00 CCC</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="16" default="false" openOffice:msgtype="CurrencyFormatskey5" type="medium" openOffice:usage="CURRENCY"/>
                 </currencyFormat>
                 <currencyFormat type="CurrencyFormatskey4">
-                    <pattern>#.##0 [CURRENCY];[RED]-#.##0 [CURRENCY]</pattern>
-                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="15" default="false" openOffice:msgtype="CurrencyFormatskey4" type="medium" openOffice:usage="CURRENCY"/>
+                    <pattern>#.##0,00 [$F-621];[RED]-#.##0,00 [$F-621]</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="15" default="true" openOffice:msgtype="CurrencyFormatskey4" type="medium" openOffice:usage="CURRENCY"/>
                 </currencyFormat>
                 <currencyFormat type="CurrencyFormatskey3">
-                    <pattern>#.##0 [CURRENCY];[RED]-#.##0 [CURRENCY]</pattern>
-                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="14" default="true" openOffice:msgtype="CurrencyFormatskey3" type="medium" openOffice:usage="CURRENCY"/>
+                    <pattern>#.##0 [$F-621];[RED]-#.##0 [$F-621]</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="14" default="false" openOffice:msgtype="CurrencyFormatskey3" type="medium" openOffice:usage="CURRENCY"/>
                 </currencyFormat>
                 <currencyFormat type="CurrencyFormatskey2">
-                    <pattern>#.##0 [CURRENCY];-#.##0 [CURRENCY]</pattern>
+                    <pattern>#.##0,00 [$F-621];-#.##0,00 [$F-621]</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="13" default="false" openOffice:msgtype="CurrencyFormatskey2" type="medium" openOffice:usage="CURRENCY"/>
                 </currencyFormat>
             </currencyFormatLength>
             <currencyFormatLength type="short">
                 <default type="CurrencyFormatskey1"/>
                 <currencyFormat type="CurrencyFormatskey1">
-                    <pattern>#.##0 [CURRENCY];-#.##0 [CURRENCY]</pattern>
+                    <pattern>#.##0 [$F-621];-#.##0 [$F-621]</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="12" default="true" openOffice:msgtype="CurrencyFormatskey1" type="short" openOffice:usage="CURRENCY"/>
                 </currencyFormat>
             </currencyFormatLength>
         </currencyFormats>
         <currencies>
-            <default type="EUR"/>
-            <currency type="ESP">
-                <displayName>Peseta</displayName>
-                <symbol>Pts</symbol>
+            <default type="RWF"/>
+            <currency type="RWF">
+                <displayName>Franc</displayName>
+                <symbol>F</symbol>
                 <special xmlns:openOffice="http://www.openOffice.org">
                     <openOffice:currency openOffice:usedInCompatibleFormatCodes="true">
-                        <openOffice:currencyId>Pts</openOffice:currencyId>
-                    </openOffice:currency>
-                </special>
-            </currency>
-            <currency type="EUR">
-                <displayName>Euro</displayName>
-                <symbol>€</symbol>
-                <special xmlns:openOffice="http://www.openOffice.org">
-                    <openOffice:currency openOffice:usedInCompatibleFormatCodes="false">
-                        <openOffice:currencyId>euro</openOffice:currencyId>
+                        <openOffice:currencyId>RWF</openOffice:currencyId>
                     </openOffice:currency>
                 </special>
             </currency>
         </currencies>
     </numbers>
     <special xmlns:openOffice="http://www.openOffice.org">
-        <openOffice:locale openOffice:versionDTD="2.0" openOffice:allowUpdateFromCLDR="no" openOffice:version="1.2"/>
+        <openOffice:locale openOffice:versionDTD="2.0" openOffice:allowUpdateFromCLDR="no" openOffice:version="1.1"/>
         <openOffice:reservedWords>
-            <openOffice:trueWord>verdadeiro</openOffice:trueWord>
-            <openOffice:falseWord>falso</openOffice:falseWord>
-            <openOffice:quarter1Word>1er trimestre</openOffice:quarter1Word>
-            <openOffice:quarter2Word>2on trimestre</openOffice:quarter2Word>
-            <openOffice:quarter3Word>3er trimestre</openOffice:quarter3Word>
-            <openOffice:quarter4Word>4rt trimestre</openOffice:quarter4Word>
-            <openOffice:aboveWord>enriba</openOffice:aboveWord>
-            <openOffice:belowWord>debaixo</openOffice:belowWord>
-            <openOffice:quarter1Abbreviation>T1</openOffice:quarter1Abbreviation>
-            <openOffice:quarter2Abbreviation>T2</openOffice:quarter2Abbreviation>
-            <openOffice:quarter3Abbreviation>T3</openOffice:quarter3Abbreviation>
-            <openOffice:quarter4Abbreviation>T4</openOffice:quarter4Abbreviation>
+            <openOffice:trueWord>nibyo</openOffice:trueWord>
+            <openOffice:falseWord>sibyo</openOffice:falseWord>
+            <openOffice:quarter1Word>igihembwe cya mbere</openOffice:quarter1Word>
+            <openOffice:quarter2Word>igihembwe cya kabiri</openOffice:quarter2Word>
+            <openOffice:quarter3Word>igihembwe cya gatatu</openOffice:quarter3Word>
+            <openOffice:quarter4Word>igihembwe cya kane</openOffice:quarter4Word>
+            <openOffice:aboveWord>hejuru</openOffice:aboveWord>
+            <openOffice:belowWord>hasi</openOffice:belowWord>
+            <openOffice:quarter1Abbreviation>I1</openOffice:quarter1Abbreviation>
+            <openOffice:quarter2Abbreviation>I2</openOffice:quarter2Abbreviation>
+            <openOffice:quarter3Abbreviation>I3</openOffice:quarter3Abbreviation>
+            <openOffice:quarter4Abbreviation>I4</openOffice:quarter4Abbreviation>
         </openOffice:reservedWords>
         <openOffice:numberingLevels openOffice:ref="en_US"/>
         <openOffice:outLineNumberingLevels openOffice:ref="en_US"/>
         <openOffice:transliterations openOffice:ref="en_US"/>
         <openOffice:search openOffice:ref="en_US"/>
-        <openOffice:index openOffice:ref="es_ES"/>
-        <openOffice:collations openOffice:ref="en_US"/>
-        <openOffice:format openOffice:replaceFrom="[CURRENCY]" openOffice:replaceTo="[$Pts-456]"/>
+        <openOffice:index>
+            <openOffice:indexKey openOffice:phonetic="false" default="true" openOffice:unoid="alphanumeric">A-Z</openOffice:indexKey>
+            <openOffice:unicodeScript>0</openOffice:unicodeScript>
+            <openOffice:unicodeScript>1</openOffice:unicodeScript>
+            <openOffice:followPageWord> sv</openOffice:followPageWord>
+        </openOffice:index>
+        <openOffice:collations>
+            <openOffice:collator default="true" openOffice:unoid="alphanumeric"/>
+            <openOffice:collationOptions>
+                <openOffice:transliterationModules>IGNORE_CASE</openOffice:transliterationModules>
+            </openOffice:collationOptions>
+        </openOffice:collations>
+        <openOffice:format/>
     </special>
 </ldml>

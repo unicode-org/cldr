@@ -32,7 +32,7 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
     <td class="white" height="27"><i>Summary:</i></td>
     <td class="white" height="27">This document describes an XML format (<i>vocabulary</i>) 
       for the exchange of structured locale data. For more information, see the <a href="http://www.openi18n.org/subgroups/lade/locale/index.htm">openI18n 
-      page.</a></td>
+      page</a>.</td>
   </tr>
   <tr>
     <td class="white" height="27"><i>Version:</i></td>
@@ -40,7 +40,7 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   </tr>
   <tr>
     <td class="white" height="27"><i>Date:</i></td>
-    <td class="white" height="27">2003-06-06</td>
+    <td class="white" height="27">2003-06-09</td>
   </tr>
   <tr>
     <td class="white" height="25"><i>Author:</i></td>
@@ -57,6 +57,18 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   <tr>
     <td class="white" height="27"><i>Feedback:</i></td>
     <td class="white" height="27"><a href="http://www.openi18n.org/locale-bugs/public">http://www.openi18n.org/locale-bugs/public</a></td>
+  </tr>
+  <tr>
+    <td class="white" height="27"><i>Namespace:</i></td>
+    <td class="white" height="27"><a href="http://www.openi18n.org/subgroups/lade/locale/ldml">http://www.openi18n.org/subgroups/lade/locale/ldml</a></td>
+  </tr>
+  <tr>
+    <td class="white" height="27"><i>DTDs:</i></td>
+    <td class="white" height="27"><font color="#FF0000"><b>draft:<br>
+      </b></font><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd</a><br>
+      <font color="#FF0000"><b>at 1.0 release (not yet available):<br>
+      </b><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements1.0.dtd">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements1.0.dtd</a><br>
+      <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElementsSupplemental1.0.dtd">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElementsSupplemental1.0.dtd</a></font></td>
   </tr>
   <tr>
     <td class="white" height="27"><i>License:</i></td>
@@ -290,14 +302,15 @@ practical matter</i> — two languages are different if they require
 substantially different localized resources. Distinctions according to spoken 
 form are important in some contexts, but the written form is <i>by far and away</i> 
 the most important issue for data interchange. Unfortunately, this is not the 
-principle used in ISO 639, which has the unproductive notion that only spoken 
-language matters (it is also not completely consistent about this, however). RFC 
-3066 <i><b>can</b></i> express a difference if the use of written languages 
-happens to correspond to region boundaries expressed as ISO 639 country codes, 
-but in many cases this is not true. For example, both simplified and traditional 
-Chinese are used in Hong Kong S.A.R.; both Cyrillic and Latin are used in 
-Serbia, Azerbaijan, and Uzbekistan; Indic languages are customarily written in 
-different scripts, etc.</p>
+principle used in ISO 639, which has the unproductive notion (data interchange) 
+that only spoken language matters (it is also not completely consistent about 
+this, however).</p>
+<p class="note">RFC 3066 <i><b>can</b></i> express a difference if the use of 
+written languages happens to correspond to region boundaries expressed as ISO 
+639 country codes, and has recently added codes that allow it to express some 
+important cases that are not distinguished by ISO 639 codes. These include 
+simplified and traditional Chinese (both used in Hong Kong S.A.R.); Latin 
+Serbian, Azeri, and Uzbek in both Cyrillic and; Azeri in Arab.</p>
 <p>We will speak of data as being &quot;in locale X&quot;. That does not imply 
 that a locale <i>is</i> a collection of data; it is simply shorthand for 
 &quot;the set of data associated with the locale id X&quot;. Each individual 
@@ -588,14 +601,13 @@ significant in translated material.</p>
 <p>Note that the data in examples given below is purely illustrative, and 
 doesn't match any particular language. For a more detailed example of this 
 format, see <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.xml">Example</a>. 
-There is also a <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd">DTD</a> 
-for this format, but remember that the DTD alone is not sufficient to understand 
-the semantics, the constraints, nor&nbsp; the interrelationships between the 
-different elements and attributes. You may wish to have copies of each of these 
-to hand as you proceed through the rest of this document.</p>
+There is also a DTD for this format, but remember that the DTD alone is not 
+sufficient to understand the semantics, the constraints, nor&nbsp; the 
+interrelationships between the different elements and attributes. You may wish 
+to have copies of each of these to hand as you proceed through the rest of this 
+document.</p>
 <p class="note">Note: To compare with the ICU locale data format and contents, 
 see <a href="http://oss.software.ibm.com/cvs/icu/icu/source/data/">ICU Data</a>.</p>
-<p>The namespace for this specification is <a href="http://www.openi18n.org/subgroups/lade/locale/ldml1.0">http://www.openi18n.org/subgroups/lade/locale/ldml1.0</a>.</p>
 <h3><a name="Common_Elements">Common Elements</a></h3>
 <p>At any level in any element, two special elements are allowed.</p>
 <p class="element2">&lt;special xmlns=&quot;xxx&quot;&gt;</p>
@@ -692,8 +704,7 @@ indicated standards. Where possible, for uniqueness, the string should be a URL
 that represents that standard. The strings are separated by commas; leading or 
 trailing spaces on each string are not significant. Examples:</p>
 <p><code>&lt;collation standard=”MSA 200:2002”&gt;<br>
-&lt;dateFormatStyle 
-standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;ICS1=1&amp;ICS2=140&amp;ICS3=30”&gt;</code></p>
+&lt;dateFormatStyle standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;ICS1=1&amp;ICS2=140&amp;ICS3=30”&gt;</code></p>
 <hr width="50%">
 <h3><a name="&lt;identity&gt;">&lt;identity&gt;</a></h3>
 <p>The identity element contains information identifying the target locale for 
@@ -778,8 +789,7 @@ for the <i>type</i> values described in <a href="#Locale_IDs">Locale_IDs</a>.
 Since the translation of an option name may depend on the <i>key</i> it is used 
 with, the latter is optionally supplied.</p>
 <blockquote>
-  <p>&lt;type type=&quot;phonebook&quot; 
-  key=&quot;collation&quot;&gt;Telefonbuch&lt;/type&gt;</p>
+  <p>&lt;type type=&quot;phonebook&quot; key=&quot;collation&quot;&gt;Telefonbuch&lt;/type&gt;</p>
 </blockquote>
 <h3><a name="&lt;layout&gt;">&lt;layout&gt;</a></h3>
 <p>This top-level element specifies general layout features. It currently only 
@@ -868,8 +878,8 @@ use (except for date/time). The values are &quot;metric&quot; (= <a href="http:/
 <p class="note"><b>Note:</b> In the future, we may need to add display names for 
 the particular measurement units (millimeter vs millimetre vs whatever the 
 Greek, Russian, etc are), and a message format for position those with respect 
-to numbers. E.g. &quot;{number} {unitName}&quot; in some languages, but 
-&quot;{unitName} {number}&quot; in others.</p>
+to numbers. E.g. &quot;{number} {unitName}&quot; in some languages, but &quot;{unitName} 
+{number}&quot; in others.</p>
 <p class="note"><b>Note:</b><i> Numbers indicating measurements should <b>never</b> 
 be interchanged without known dimensions. You never want the number 3.51 
 interpreted as 3.51 feet by one user and 3.51 meters by another. However, this 
@@ -893,8 +903,8 @@ see the Java API: <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/Dat
 <p class="note"><b>Note: </b>there is an on-line demonstration of date 
 formatting and parsing at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale 
 Explorer</a> (pick the locale and scroll to &quot;Date Patterns&quot;).</p>
-<p>The &lt;dates&gt; element has three possible sub-elements: 
-&lt;localizedPatternCharacters&gt;, &lt;calendars&gt; and &lt;timeZoneNames&gt;</p>
+<p>The &lt;dates&gt; element has three possible sub-elements: &lt;localizedPatternCharacters&gt;, 
+&lt;calendars&gt; and &lt;timeZoneNames&gt;</p>
 <pre class="element2"><a name="&lt;localizedPatternChars&gt;">&lt;localizedPatternChars&gt;</a>GyMdkHmsSEDFwWahKz&lt;/localizedPatternChars&gt;</pre>
 <p>The interpretation of this is explained in <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DateFormatSymbols.html">DateFormatSymbols</a>.</p>
 <pre class="element2"><a name="&lt;calendars&gt;">&lt;calendars&gt;</a></pre>
@@ -2360,8 +2370,8 @@ publication, and ask for it to be redone:</p>
     <p class="noStyle">&quot;Theatre Center News: The date of the last version 
     of this document was 2003年3月20日. A copy can be obtained for $50,0 or 
     1.234,57 грн. We would like to acknowledge contributions by the following 
-    authors (in alphabetical order): Alaa Ghoneim, Behdad Esfahbod, Ahmed 
-    Talaat, Eric Mader, Asmus Freytag, Avery Bishop, and Doug Felt.&quot;</p>
+    authors (in alphabetical order): Alaa Ghoneim, Behdad Esfahbod, Ahmed Talaat, 
+    Eric Mader, Asmus Freytag, Avery Bishop, and Doug Felt.&quot;</p>
   </li>
 </ol>
 <p class="noStyle">So one would change it to either B or C below, depending on 

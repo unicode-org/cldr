@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -15,7 +15,7 @@
 		<types/>
 	</localeDisplayNames>
 	<layout>
-		<orientation lines="top-to-bottom" characters="left-to-right"/>
+		<orientation/>
 	</layout>
 	<characters>
 		<exemplarCharacters>[]</exemplarCharacters>
@@ -306,8 +306,8 @@
 				<week>
 					<minDays count="1"/>
 					<firstDay day="sun"/>
-					<weekendStart draft="true" day="sat" time="00:00"/>
-					<weekendEnd draft="true" day="sun" time="24:00"/>
+					<weekendStart day="sat" draft="true"/>
+					<weekendEnd day="sun" draft="true"/>
 				</week>
 				<am>AM</am>
 				<pm>PM</pm>
@@ -439,8 +439,8 @@
 				<eras>
 					<eraAbbr>
 						<!-- These eras are numbered according to the data used
-                                                     by the ICU Japanese Calendar.
-                                                     http://oss.software.ibm.com/cvs/icu4j/icu4j/src/com/ibm/icu/util/JapaneseCalendar.java?rev=1.25   search for 'ERAS ='
+							 by the ICU Japanese Calendar.
+							 http://oss.software.ibm.com/cvs/icu4j/icu4j/src/com/ibm/icu/util/JapaneseCalendar.java?rev=1.25   search for 'ERAS ='
 						-->
 						<era type="0">Taika</era>
 						<era type="1">Hakuchi</era>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -282,23 +282,23 @@
 			<territory type="ZW">Zimbabve</territory>
 		</territories>
 		<keys>
-			<key type="collation">Zlaganje</key>
 			<key type="calendar">Kolendar</key>
+			<key type="collation">Zlaganje</key>
 			<key type="currency">Valuta</key>
 		</keys>
 		<types>
-			<type type="japanese" key="calendar">Japonski kolendar</type>
 			<type type="buddhist" key="calendar">Budistični kolendar</type>
+			<type type="chinese" key="calendar">Kitajski kolendar</type>
+			<type type="direct" key="collation">Direktno zlaganje</type>
+			<type type="gregorian" key="calendar">Gregorijanski kolendar</type>
+			<type type="hebrew" key="calendar">Hebrejski kolendar</type>
 			<type type="islamic" key="calendar">Islamski kolendar</type>
 			<type type="islamic-civil" key="calendar">Islamski civilni kolendar</type>
-			<type type="hebrew" key="calendar">Hebrejski kolendar</type>
-			<type type="chinese" key="calendar">Kitajski kolendar</type>
-			<type type="gregorian" key="calendar">Gregorijanski kolendar</type>
+			<type type="japanese" key="calendar">Japonski kolendar</type>
 			<type type="phonebook" key="collation">Zlaganje po abecedi</type>
 			<type type="pinyin" key="collation">Pinyin zlaganje</type>
-			<type type="traditional" key="collation">Tradicionano zlaganje</type>
 			<type type="stroke" key="collation">Stroke order zlaganje</type>
-			<type type="direct" key="collation">Direktno zlaganje</type>
+			<type type="traditional" key="collation">Tradicionano zlaganje</type>
 		</types>
 	</localeDisplayNames>
 	<characters>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -739,12 +739,12 @@
 		<types>
 			<type type="buddhist" key="calendar">Buddhistisk kalender</type>
 			<type type="chinese" key="calendar">Kinesisk kalender</type>
+			<type type="direct" key="collation">Direkte sorteringsrækkefølge</type>
 			<type type="gregorian" key="calendar">Gregoriansk kalender</type>
 			<type type="hebrew" key="calendar">Jødisk kalender</type>
 			<type type="islamic" key="calendar">Islamisk kalender</type>
 			<type type="islamic-civil" key="calendar">Verdslig islamisk kalender</type>
 			<type type="japanese" key="calendar">Japansk kalender</type>
-			<type type="direct" key="collation">Direkte sorteringsrækkefølge</type>
 			<type type="phonebook" key="collation">Sorteringsrækkefølge i telefonbøger</type>
 			<type type="pinyin" key="collation">Pinyin-baseret sorteringsrækkefølge</type>
 			<type type="stroke" key="collation">Stroke-baseret sorteringsrækkefølge</type>
@@ -870,6 +870,17 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<zone type="America/Anchorage">
+				<long>
+					<standard>Alaska-normaltid</standard>
+					<daylight>Alaska-sommertid</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+				<exemplarCity>Anchorage</exemplarCity>
+			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
 					<standard>Pacific-normaltid</standard>
@@ -880,17 +891,6 @@
 					<daylight>PDT</daylight>
 				</short>
 				<exemplarCity>Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<long>
-					<standard>Mountain-normaltid</standard>
-					<daylight>Mountain-sommertid</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-				<exemplarCity>Denver</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
@@ -903,6 +903,17 @@
 				</short>
 				<exemplarCity>Phoenix</exemplarCity>
 			</zone>
+			<zone type="America/Denver">
+				<long>
+					<standard>Mountain-normaltid</standard>
+					<daylight>Mountain-sommertid</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+				<exemplarCity>Denver</exemplarCity>
+			</zone>
 			<zone type="America/Chicago">
 				<long>
 					<standard>Central-normaltid</standard>
@@ -913,17 +924,6 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>Chicago</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
-				<long>
-					<standard>Eastern-normaltid</standard>
-					<daylight>Eastern-sommertid</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
-				<exemplarCity>New York</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
@@ -936,27 +936,16 @@
 				</short>
 				<exemplarCity>Indianapolis</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
+			<zone type="America/New_York">
 				<long>
-					<standard>Hawaii-normaltid</standard>
-					<daylight>Hawaii-normaltid</daylight>
+					<standard>Eastern-normaltid</standard>
+					<daylight>Eastern-sommertid</daylight>
 				</long>
 				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
 				</short>
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<long>
-					<standard>Alaska-normaltid</standard>
-					<daylight>Alaska-sommertid</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
-				<exemplarCity>Anchorage</exemplarCity>
+				<exemplarCity>New York</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -991,16 +980,16 @@
 				</short>
 				<exemplarCity>Paris</exemplarCity>
 			</zone>
-			<zone type="Etc/GMT">
+			<zone type="Europe/Bucharest">
 				<long>
-					<standard>Verdenstid</standard>
-					<daylight>Verdenstid</daylight>
+					<standard>Østeuropæisk normaltid</standard>
+					<daylight>Østeuropæisk sommertid</daylight>
 				</long>
 				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
 				</short>
-				<exemplarCity>London</exemplarCity>
+				<exemplarCity>Bukarest</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
@@ -1024,6 +1013,17 @@
 				</short>
 				<exemplarCity>Jerusalem</exemplarCity>
 			</zone>
+			<zone type="Asia/Shanghai">
+				<long>
+					<standard>Kinesisk normaltid</standard>
+					<daylight>Kinesisk normaltid</daylight>
+				</long>
+				<short>
+					<standard>CTT</standard>
+					<daylight>CDT</daylight>
+				</short>
+				<exemplarCity>Shanghai</exemplarCity>
+			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>Japansk normaltid</standard>
@@ -1035,27 +1035,27 @@
 				</short>
 				<exemplarCity>Tokyo</exemplarCity>
 			</zone>
-			<zone type="Europe/Bucharest">
+			<zone type="Pacific/Honolulu">
 				<long>
-					<standard>Østeuropæisk normaltid</standard>
-					<daylight>Østeuropæisk sommertid</daylight>
+					<standard>Hawaii-normaltid</standard>
+					<daylight>Hawaii-normaltid</daylight>
 				</long>
 				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
+					<standard>HST</standard>
+					<daylight>HST</daylight>
 				</short>
-				<exemplarCity>Bukarest</exemplarCity>
+				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
-			<zone type="Asia/Shanghai">
+			<zone type="Etc/GMT">
 				<long>
-					<standard>Kinesisk normaltid</standard>
-					<daylight>Kinesisk normaltid</daylight>
+					<standard>Verdenstid</standard>
+					<daylight>Verdenstid</daylight>
 				</long>
 				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
+					<standard>GMT</standard>
+					<daylight>GMT</daylight>
 				</short>
-				<exemplarCity>Shanghai</exemplarCity>
+				<exemplarCity>London</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>

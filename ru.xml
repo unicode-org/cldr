@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -72,7 +72,7 @@
 			<language type="cop">Коптский</language>
 			<language type="cpe">Англо-креольские и пиджины (другие)</language>
 			<language type="cpf">Франко-креольские и пиджины (другие)</language>
-			<language draft="true" type="cpp">Португалокреольские и пиджины (другие)</language>
+			<language type="cpp" draft="true">Португалокреольские и пиджины (другие)</language>
 			<language type="crp">Креольские и пиджины (другие)</language>
 			<language type="cs">Чешский</language>
 			<language type="cus">Кушитские (другие)</language>
@@ -137,7 +137,7 @@
 			<language type="him">Химачали</language>
 			<language type="hr">Хорватский</language>
 			<language type="hu">Венгерский</language>
-			<language draft="true" type="hup">Хула</language>
+			<language type="hup" draft="true">Хула</language>
 			<language type="hy">Армянский</language>
 			<language type="ia">Смешанный язык</language>
 			<language type="iba">Ибанский</language>
@@ -660,18 +660,18 @@
 			<territory type="ZW">Зимбабве</territory>
 		</territories>
 		<keys>
-			<key type="collation">Сортировка</key>
 			<key type="calendar">Календарь</key>
+			<key type="collation">Сортировка</key>
 			<key type="currency">Валюта</key>
 		</keys>
 		<types>
-			<type type="japanese" key="calendar">Японский календарь</type>
 			<type type="buddhist" key="calendar">Буддистский календарь</type>
-			<type type="islamic" key="calendar">Исламский календарь</type>
-			<type type="islamic-civil" key="calendar">Исламский гражданский календарь</type>
-			<type type="hebrew" key="calendar">Еврейский календарь</type>
 			<type type="chinese" key="calendar">Китайский календарь</type>
 			<type type="gregorian" key="calendar">Григорианский календарь</type>
+			<type type="hebrew" key="calendar">Еврейский календарь</type>
+			<type type="islamic" key="calendar">Исламский календарь</type>
+			<type type="islamic-civil" key="calendar">Исламский гражданский календарь</type>
+			<type type="japanese" key="calendar">Японский календарь</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -872,7 +872,7 @@
 				<displayName>Афгани (1927-2002)</displayName>
 				<symbol>AFA</symbol>
 			</currency>
-			<currency draft="true" type="ALL">
+			<currency type="ALL" draft="true">
 				<displayName>Лек</displayName>
 				<symbol>lek</symbol>
 			</currency>
@@ -892,7 +892,7 @@
 				<displayName>Аргентинское песо</displayName>
 				<symbol>Arg$</symbol>
 			</currency>
-			<currency draft="true" type="ATS">
+			<currency type="ATS" draft="true">
 				<displayName>Шиллинг</displayName>
 				<symbol>ATS</symbol>
 			</currency>
@@ -912,7 +912,7 @@
 				<displayName>Барбадосский доллар</displayName>
 				<symbol>BDS$</symbol>
 			</currency>
-			<currency draft="true" type="BDT">
+			<currency type="BDT" draft="true">
 				<displayName>Така</displayName>
 				<symbol>Tk</symbol>
 			</currency>
@@ -964,7 +964,7 @@
 				<displayName>Нгултрум</displayName>
 				<symbol>Nu</symbol>
 			</currency>
-			<currency draft="true" type="BWP">
+			<currency type="BWP" draft="true">
 				<displayName>Пула</displayName>
 				<symbol>BWP</symbol>
 			</currency>
@@ -1016,7 +1016,7 @@
 				<displayName>Кубинское песо</displayName>
 				<symbol>CUP</symbol>
 			</currency>
-			<currency draft="true" type="CVE">
+			<currency type="CVE" draft="true">
 				<displayName>Эскудо Кабо - Верде</displayName>
 				<symbol>CVEsc</symbol>
 			</currency>
@@ -1048,11 +1048,11 @@
 				<displayName>Алжирский динар</displayName>
 				<symbol>DA</symbol>
 			</currency>
-			<currency draft="true" type="ECS">
+			<currency type="ECS" draft="true">
 				<displayName>Сукре</displayName>
 				<symbol>ECS</symbol>
 			</currency>
-			<currency draft="true" type="EEK">
+			<currency type="EEK" draft="true">
 				<displayName>Крона</displayName>
 				<symbol>EEK</symbol>
 			</currency>
@@ -1071,7 +1071,7 @@
 			<currency type="EUR">
 				<displayName>Евро</displayName>
 			</currency>
-			<currency draft="true" type="FIM">
+			<currency type="FIM" draft="true">
 				<displayName>Марка</displayName>
 				<symbol>FIM</symbol>
 			</currency>
@@ -1087,7 +1087,7 @@
 				<displayName>Французский франк</displayName>
 				<symbol>FRF</symbol>
 			</currency>
-			<currency draft="true" type="GBP">
+			<currency type="GBP" draft="true">
 				<displayName>Фунт стерлингов</displayName>
 			</currency>
 			<currency type="GEK">
@@ -1098,7 +1098,7 @@
 				<displayName>Грузинский лари</displayName>
 				<symbol>lari</symbol>
 			</currency>
-			<currency draft="true" type="GHC">
+			<currency type="GHC" draft="true">
 				<displayName>Седи</displayName>
 				<symbol>GHC</symbol>
 			</currency>
@@ -1106,7 +1106,7 @@
 				<displayName>Гибралтарский фунт</displayName>
 				<symbol>GIP</symbol>
 			</currency>
-			<currency draft="true" type="GMD">
+			<currency type="GMD" draft="true">
 				<displayName>Даласи</displayName>
 				<symbol>GMD</symbol>
 			</currency>
@@ -1114,15 +1114,15 @@
 				<displayName>Гвинейский франк</displayName>
 				<symbol>GF</symbol>
 			</currency>
-			<currency draft="true" type="GRD">
+			<currency type="GRD" draft="true">
 				<displayName>Драхма</displayName>
 				<symbol>GRD</symbol>
 			</currency>
-			<currency draft="true" type="GTQ">
+			<currency type="GTQ" draft="true">
 				<displayName>Кетсаль</displayName>
 				<symbol>Q</symbol>
 			</currency>
-			<currency draft="true" type="GWP">
+			<currency type="GWP" draft="true">
 				<displayName>Песо Гвинеи - Бисау</displayName>
 				<symbol>GWP</symbol>
 			</currency>
@@ -1134,7 +1134,7 @@
 				<displayName>Гонконгский доллар</displayName>
 				<symbol>HK$</symbol>
 			</currency>
-			<currency draft="true" type="HNL">
+			<currency type="HNL" draft="true">
 				<displayName>Лемпира</displayName>
 				<symbol>L</symbol>
 			</currency>
@@ -1142,19 +1142,19 @@
 				<displayName>Хорватский динар</displayName>
 				<symbol>HRD</symbol>
 			</currency>
-			<currency draft="true" type="HRK">
+			<currency type="HRK" draft="true">
 				<displayName>Куна</displayName>
 				<symbol>HRK</symbol>
 			</currency>
-			<currency draft="true" type="HTG">
+			<currency type="HTG" draft="true">
 				<displayName>Гурд</displayName>
 				<symbol>HTG</symbol>
 			</currency>
-			<currency draft="true" type="HUF">
+			<currency type="HUF" draft="true">
 				<displayName>Форинт</displayName>
 				<symbol>Ft</symbol>
 			</currency>
-			<currency draft="true" type="IDR">
+			<currency type="IDR" draft="true">
 				<displayName>Рупия</displayName>
 				<symbol>Rp</symbol>
 			</currency>
@@ -1162,11 +1162,11 @@
 				<displayName>Ирландский фунт</displayName>
 				<symbol>IR£</symbol>
 			</currency>
-			<currency draft="true" type="ILS">
+			<currency type="ILS" draft="true">
 				<displayName>Шекель</displayName>
 				<symbol>ILS</symbol>
 			</currency>
-			<currency draft="true" type="INR">
+			<currency type="INR" draft="true">
 				<displayName>Индийская рупия</displayName>
 				<symbol>INR</symbol>
 			</currency>
@@ -1193,18 +1193,18 @@
 				<displayName>Иорданский динар</displayName>
 				<symbol>JD</symbol>
 			</currency>
-			<currency draft="true" type="JPY">
+			<currency type="JPY" draft="true">
 				<displayName>Йена</displayName>
 			</currency>
 			<currency type="KES">
 				<displayName>Кенийский шиллинг</displayName>
 				<symbol>K Sh</symbol>
 			</currency>
-			<currency draft="true" type="KGS">
+			<currency type="KGS" draft="true">
 				<displayName>Сом (киргизский)</displayName>
 				<symbol>som</symbol>
 			</currency>
-			<currency draft="true" type="KHR">
+			<currency type="KHR" draft="true">
 				<displayName>Риель</displayName>
 				<symbol>CR</symbol>
 			</currency>
@@ -1212,11 +1212,11 @@
 				<displayName>Франк Коморских островов</displayName>
 				<symbol>CF</symbol>
 			</currency>
-			<currency draft="true" type="KPW">
+			<currency type="KPW" draft="true">
 				<displayName>Северо - корейская вона</displayName>
 				<symbol>KPW</symbol>
 			</currency>
-			<currency draft="true" type="KRW">
+			<currency type="KRW" draft="true">
 				<displayName>Вона</displayName>
 				<symbol>KRW</symbol>
 			</currency>
@@ -1228,11 +1228,11 @@
 				<displayName>Доллар Каймановых островов</displayName>
 				<symbol>KYD</symbol>
 			</currency>
-			<currency draft="true" type="KZT">
+			<currency type="KZT" draft="true">
 				<displayName>Тенге (казахский)</displayName>
 				<symbol>T</symbol>
 			</currency>
-			<currency draft="true" type="LAK">
+			<currency type="LAK" draft="true">
 				<displayName>Кип</displayName>
 				<symbol>LAK</symbol>
 			</currency>
@@ -1240,7 +1240,7 @@
 				<displayName>Ливанский фунт</displayName>
 				<symbol>LL</symbol>
 			</currency>
-			<currency draft="true" type="LKR">
+			<currency type="LKR" draft="true">
 				<displayName>Шри - Ланкийская рупия</displayName>
 				<symbol>SL Re</symbol>
 			</currency>
@@ -1280,15 +1280,15 @@
 				<displayName>Малагасийский франк</displayName>
 				<symbol>MGF</symbol>
 			</currency>
-			<currency draft="true" type="MKD">
+			<currency type="MKD" draft="true">
 				<displayName>Денар</displayName>
 				<symbol>MDen</symbol>
 			</currency>
-			<currency draft="true" type="MNT">
+			<currency type="MNT" draft="true">
 				<displayName>Тугрик</displayName>
 				<symbol>Tug</symbol>
 			</currency>
-			<currency draft="true" type="MRO">
+			<currency type="MRO" draft="true">
 				<displayName>Угия</displayName>
 				<symbol>UM</symbol>
 			</currency>
@@ -1300,7 +1300,7 @@
 				<displayName>Маврикийская рупия</displayName>
 				<symbol>MUR</symbol>
 			</currency>
-			<currency draft="true" type="MVR">
+			<currency type="MVR" draft="true">
 				<displayName>Руфия</displayName>
 				<symbol>MVR</symbol>
 			</currency>
@@ -1312,11 +1312,11 @@
 				<displayName>Мексиканское новое песо</displayName>
 				<symbol>MEX$</symbol>
 			</currency>
-			<currency draft="true" type="MYR">
+			<currency type="MYR" draft="true">
 				<displayName>Малайзийский ринггит</displayName>
 				<symbol>RM</symbol>
 			</currency>
-			<currency draft="true" type="MZM">
+			<currency type="MZM" draft="true">
 				<displayName>Метикал</displayName>
 				<symbol>Mt</symbol>
 			</currency>
@@ -1324,7 +1324,7 @@
 				<displayName>Доллар Намибии</displayName>
 				<symbol>N$</symbol>
 			</currency>
-			<currency draft="true" type="NGN">
+			<currency type="NGN" draft="true">
 				<displayName>Найра</displayName>
 				<symbol>NGN</symbol>
 			</currency>
@@ -1352,11 +1352,11 @@
 				<displayName>Оманский риал</displayName>
 				<symbol>RO</symbol>
 			</currency>
-			<currency draft="true" type="PAB">
+			<currency type="PAB" draft="true">
 				<displayName>Бальбоа</displayName>
 				<symbol>PAB</symbol>
 			</currency>
-			<currency draft="true" type="PEN">
+			<currency type="PEN" draft="true">
 				<displayName>Новый соль</displayName>
 				<symbol>PEN</symbol>
 			</currency>
@@ -1384,7 +1384,7 @@
 				<displayName>Португальское эскудо</displayName>
 				<symbol>PTE</symbol>
 			</currency>
-			<currency draft="true" type="PYG">
+			<currency type="PYG" draft="true">
 				<displayName>Гуарани</displayName>
 				<symbol>PYG</symbol>
 			</currency>
@@ -1392,7 +1392,7 @@
 				<displayName>Катарский риал</displayName>
 				<symbol>QR</symbol>
 			</currency>
-			<currency draft="true" type="ROL">
+			<currency type="ROL" draft="true">
 				<displayName>Лей</displayName>
 				<symbol>leu</symbol>
 			</currency>
@@ -1436,7 +1436,7 @@
 				<displayName>Фунт острова Святой Елены</displayName>
 				<symbol>SHP</symbol>
 			</currency>
-			<currency draft="true" type="SIT">
+			<currency type="SIT" draft="true">
 				<displayName>Толар</displayName>
 				<symbol>SIT</symbol>
 			</currency>
@@ -1468,11 +1468,11 @@
 				<displayName>Сирийский фунт</displayName>
 				<symbol>LS</symbol>
 			</currency>
-			<currency draft="true" type="SZL">
+			<currency type="SZL" draft="true">
 				<displayName>Лилангени</displayName>
 				<symbol>E</symbol>
 			</currency>
-			<currency draft="true" type="THB">
+			<currency type="THB" draft="true">
 				<displayName>Бат</displayName>
 				<symbol>THB</symbol>
 			</currency>
@@ -1484,7 +1484,7 @@
 				<displayName>Таджикский сомони</displayName>
 				<symbol>TJS</symbol>
 			</currency>
-			<currency draft="true" type="TMM">
+			<currency type="TMM" draft="true">
 				<displayName>Манат</displayName>
 				<symbol>TMM</symbol>
 			</currency>
@@ -1540,11 +1540,11 @@
 				<displayName>Узбекский сум</displayName>
 				<symbol>UZS</symbol>
 			</currency>
-			<currency draft="true" type="VEB">
+			<currency type="VEB" draft="true">
 				<displayName>Боливар</displayName>
 				<symbol>Be</symbol>
 			</currency>
-			<currency draft="true" type="VND">
+			<currency type="VND" draft="true">
 				<displayName>Донг</displayName>
 				<symbol>VND</symbol>
 			</currency>
@@ -1564,7 +1564,7 @@
 				<displayName>Золото</displayName>
 				<symbol>XAU</symbol>
 			</currency>
-			<currency draft="true" type="XCD">
+			<currency type="XCD" draft="true">
 				<displayName>Восточно - карибский доллар</displayName>
 				<symbol>EC$</symbol>
 			</currency>

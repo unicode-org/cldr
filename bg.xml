@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -80,8 +80,8 @@
 			<language type="hi">Хинди</language>
 			<language type="hit">Хитски</language>
 			<language type="hr">Хърватски</language>
-			<language type="hu">Унгарски</language>
 			<language type="ht">Хаитянски</language>
+			<language type="hu">Унгарски</language>
 			<language type="hy">Арменски</language>
 			<language type="id">Индонезийски</language>
 			<language type="inc">Индийски (други)</language>
@@ -90,9 +90,9 @@
 			<language type="ira">Ирански</language>
 			<language type="is">Исландски</language>
 			<language type="it">Италиански</language>
+			<language type="ja">Японски</language>
 			<language type="jpr">еврейско-персийски</language>
 			<language type="jrb">еврейско-арабски</language>
-			<language type="ja">Японски</language>
 			<language type="jv">Явански</language>
 			<language type="ka">Грузински</language>
 			<language type="kg">Конгоански</language>
@@ -467,18 +467,18 @@
 			<key type="currency">Валути</key>
 		</keys>
 		<types>
-			<type type="japanese" key="calendar">Японски календар</type>
 			<type type="buddhist" key="calendar">Будистки календар</type>
+			<type type="chinese" key="calendar">Китайски календар</type>
+			<type type="direct" key="collation">Директно</type>
+			<type type="gregorian" key="calendar">Григориански календар</type>
+			<type type="hebrew" key="calendar">Еврейски календар</type>
 			<type type="islamic" key="calendar">Ислямски календар</type>
 			<type type="islamic-civil" key="calendar">Ислямски цивилен календар</type>
-			<type type="hebrew" key="calendar">Еврейски календар</type>
-			<type type="chinese" key="calendar">Китайски календар</type>
-			<type type="gregorian" key="calendar">Григориански календар</type>
+			<type type="japanese" key="calendar">Японски календар</type>
 			<type type="phonebook" key="collation">Азбучен ред</type>
 			<type type="pinyin" key="collation">Сортиране Pinyin</type>
-			<type type="traditional" key="collation">Традиционно</type>
 			<type type="stroke" key="collation">Сортиране по щрих</type>
-			<type type="direct" key="collation">Директно</type>
+			<type type="traditional" key="collation">Традиционно</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -606,6 +606,17 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<zone type="America/Anchorage">
+				<long>
+					<standard>Часова зона Аляска</standard>
+					<daylight>Лятна часова зона Аляска</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+				<exemplarCity>Anchorage</exemplarCity>
+			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
 					<standard>Тихоокеанска часова зона</standard>
@@ -616,17 +627,6 @@
 					<daylight>PDT</daylight>
 				</short>
 				<exemplarCity>Лос Анжелис</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<long>
-					<standard>Американска планинска часова зона</standard>
-					<daylight>Американска планинска лятна часова зона</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-				<exemplarCity>Денвър</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
@@ -639,6 +639,17 @@
 				</short>
 				<exemplarCity>Финикс</exemplarCity>
 			</zone>
+			<zone type="America/Denver">
+				<long>
+					<standard>Американска планинска часова зона</standard>
+					<daylight>Американска планинска лятна часова зона</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+				<exemplarCity>Денвър</exemplarCity>
+			</zone>
 			<zone type="America/Chicago">
 				<long>
 					<standard>Американска централна часова зона</standard>
@@ -649,17 +660,6 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>Чикаго</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
-				<long>
-					<standard>Американска източна часова зона</standard>
-					<daylight>Американска източна лятна часова зона</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
-				<exemplarCity>Ню Йорк</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
@@ -672,27 +672,16 @@
 				</short>
 				<exemplarCity>Индианополис</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
+			<zone type="America/New_York">
 				<long>
-					<standard>Часова зона Хавай</standard>
-					<daylight>Лятна часова зона Хавай</daylight>
+					<standard>Американска източна часова зона</standard>
+					<daylight>Американска източна лятна часова зона</daylight>
 				</long>
 				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
 				</short>
-				<exemplarCity>Хонолулу</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<long>
-					<standard>Часова зона Аляска</standard>
-					<daylight>Лятна часова зона Аляска</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
-				<exemplarCity>Anchorage</exemplarCity>
+				<exemplarCity>Ню Йорк</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -727,16 +716,16 @@
 				</short>
 				<exemplarCity>Париж</exemplarCity>
 			</zone>
-			<zone type="Etc/GMT">
+			<zone type="Europe/Bucharest">
 				<long>
-					<standard>Часова зона Гринуич</standard>
-					<daylight>Часова зона Гринуич</daylight>
+					<standard>Източноевропейска часова зона</standard>
+					<daylight>Източноевропейска лятна часова зона</daylight>
 				</long>
 				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
 				</short>
-				<exemplarCity>Лондон</exemplarCity>
+				<exemplarCity>Букурещ</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
@@ -760,6 +749,17 @@
 				</short>
 				<exemplarCity>Йерусалим</exemplarCity>
 			</zone>
+			<zone type="Asia/Shanghai">
+				<long>
+					<standard>Китайска часова зона</standard>
+					<daylight>Китайска часова зона</daylight>
+				</long>
+				<short>
+					<standard>CTT</standard>
+					<daylight>CDT</daylight>
+				</short>
+				<exemplarCity>Шанхай</exemplarCity>
+			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>Японска часова зона</standard>
@@ -771,27 +771,27 @@
 				</short>
 				<exemplarCity>Токио</exemplarCity>
 			</zone>
-			<zone type="Europe/Bucharest">
+			<zone type="Pacific/Honolulu">
 				<long>
-					<standard>Източноевропейска часова зона</standard>
-					<daylight>Източноевропейска лятна часова зона</daylight>
+					<standard>Часова зона Хавай</standard>
+					<daylight>Лятна часова зона Хавай</daylight>
 				</long>
 				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
+					<standard>HST</standard>
+					<daylight>HST</daylight>
 				</short>
-				<exemplarCity>Букурещ</exemplarCity>
+				<exemplarCity>Хонолулу</exemplarCity>
 			</zone>
-			<zone type="Asia/Shanghai">
+			<zone type="Etc/GMT">
 				<long>
-					<standard>Китайска часова зона</standard>
-					<daylight>Китайска часова зона</daylight>
+					<standard>Часова зона Гринуич</standard>
+					<daylight>Часова зона Гринуич</daylight>
 				</long>
 				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
+					<standard>GMT</standard>
+					<daylight>GMT</daylight>
 				</short>
-				<exemplarCity>Шанхай</exemplarCity>
+				<exemplarCity>Лондон</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
@@ -929,13 +929,13 @@
 				<displayName>BGL</displayName>
 				<symbol>лв</symbol>
 			</currency>
-			<currency type="BGN">
-				<displayName>BGN</displayName>
-				<symbol>лв.</symbol>
-			</currency>
 			<currency type="BGM">
 				<displayName>Български социалистически лев</displayName>
 				<symbol>BGM</symbol>
+			</currency>
+			<currency type="BGN">
+				<displayName>BGN</displayName>
+				<symbol>лв.</symbol>
 			</currency>
 			<currency type="BGO">
 				<displayName>Български лев (1879-1952)</displayName>

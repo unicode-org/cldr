@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -328,8 +328,8 @@
 			<territory type="ZW">זימבבווה</territory>
 		</territories>
 		<keys>
-			<key type="collation">מיון</key>
 			<key type="calendar">לוח שנה</key>
+			<key type="collation">מיון</key>
 			<key type="currency">מטבע</key>
 		</keys>
 		<types>
@@ -337,7 +337,7 @@
 		</types>
 	</localeDisplayNames>
 	<layout>
-		<orientation lines="top-to-bottom" characters="right-to-left"/>
+		<orientation characters="right-to-left"/>
 	</layout>
 	<characters>
 		<exemplarCharacters>[ְ-ֹֻ-ֽֿׁ-ׂׄא-ת]</exemplarCharacters>
@@ -410,8 +410,8 @@
 					</dayContext>
 				</days>
 				<week>
-					<weekendStart day="fri" time="00:00"/>
-					<weekendEnd day="sat" time="24:00"/>
+					<weekendStart day="fri"/>
+					<weekendEnd day="sat"/>
 				</week>
 				<eras>
 					<eraAbbr>

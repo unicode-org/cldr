@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -391,18 +391,18 @@
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
 		<keys>
-			<key type="collation">Třídění</key>
 			<key type="calendar">Kalendář</key>
+			<key type="collation">Třídění</key>
 			<key type="currency">Měna</key>
 		</keys>
 		<types>
-			<type type="japanese" key="calendar">Japonský kalendář</type>
 			<type type="buddhist" key="calendar">Budhistický kalendář</type>
-			<type type="islamic" key="calendar">Muslimský kalendář</type>
-			<type type="islamic-civil" key="calendar">Muslimský občanský kalendář</type>
-			<type type="hebrew" key="calendar">Hebrejský kalendář</type>
 			<type type="chinese" key="calendar">Čínský kalendář</type>
 			<type type="gregorian" key="calendar">Gregoriánský kalendář</type>
+			<type type="hebrew" key="calendar">Hebrejský kalendář</type>
+			<type type="islamic" key="calendar">Muslimský kalendář</type>
+			<type type="islamic-civil" key="calendar">Muslimský občanský kalendář</type>
+			<type type="japanese" key="calendar">Japonský kalendář</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -582,6 +582,17 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<zone type="America/Anchorage">
+				<long>
+					<standard>Aljašský standardní čas</standard>
+					<daylight>Aljašský letní čas</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+				<exemplarCity>Anchorage</exemplarCity>
+			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
 					<standard>Pacifický standardní čas</standard>
@@ -592,17 +603,6 @@
 					<daylight>PDT</daylight>
 				</short>
 				<exemplarCity>Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<long>
-					<standard>Horský standardní čas</standard>
-					<daylight>Horský letní čas</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-				<exemplarCity>Denver</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
@@ -615,6 +615,17 @@
 				</short>
 				<exemplarCity>Phoenix</exemplarCity>
 			</zone>
+			<zone type="America/Denver">
+				<long>
+					<standard>Horský standardní čas</standard>
+					<daylight>Horský letní čas</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+				<exemplarCity>Denver</exemplarCity>
+			</zone>
 			<zone type="America/Chicago">
 				<long>
 					<standard>Centrální standardní čas</standard>
@@ -625,17 +636,6 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>Chicago</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
-				<long>
-					<standard>Východní standardní čas</standard>
-					<daylight>Východní letní čas</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
-				<exemplarCity>New York</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
@@ -648,27 +648,16 @@
 				</short>
 				<exemplarCity>Indianapolis</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
+			<zone type="America/New_York">
 				<long>
-					<standard>Havajský standardní čas</standard>
-					<daylight>Havajský standardní čas</daylight>
+					<standard>Východní standardní čas</standard>
+					<daylight>Východní letní čas</daylight>
 				</long>
 				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
 				</short>
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<long>
-					<standard>Aljašský standardní čas</standard>
-					<daylight>Aljašský letní čas</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
-				<exemplarCity>Anchorage</exemplarCity>
+				<exemplarCity>New York</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -703,16 +692,16 @@
 				</short>
 				<exemplarCity>Paříž</exemplarCity>
 			</zone>
-			<zone type="Etc/GMT">
+			<zone type="Europe/Bucharest">
 				<long>
-					<standard>Greenwichský střední čas</standard>
-					<daylight>Greenwichský střední čas</daylight>
+					<standard>Východoevropský standardní čas</standard>
+					<daylight>Východoevropský letní čas</daylight>
 				</long>
 				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
 				</short>
-				<exemplarCity>Londýn</exemplarCity>
+				<exemplarCity>Bukurešť</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
@@ -736,6 +725,17 @@
 				</short>
 				<exemplarCity>Jeruzalém</exemplarCity>
 			</zone>
+			<zone type="Asia/Shanghai">
+				<long>
+					<standard>Čínský standardní čas</standard>
+					<daylight>Čínský standardní čas</daylight>
+				</long>
+				<short>
+					<standard>CTT</standard>
+					<daylight>CDT</daylight>
+				</short>
+				<exemplarCity>Šanghaj</exemplarCity>
+			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>Japonský standardní čas</standard>
@@ -747,27 +747,27 @@
 				</short>
 				<exemplarCity>Tokio</exemplarCity>
 			</zone>
-			<zone type="Europe/Bucharest">
+			<zone type="Pacific/Honolulu">
 				<long>
-					<standard>Východoevropský standardní čas</standard>
-					<daylight>Východoevropský letní čas</daylight>
+					<standard>Havajský standardní čas</standard>
+					<daylight>Havajský standardní čas</daylight>
 				</long>
 				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
+					<standard>HST</standard>
+					<daylight>HST</daylight>
 				</short>
-				<exemplarCity>Bukurešť</exemplarCity>
+				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
-			<zone type="Asia/Shanghai">
+			<zone type="Etc/GMT">
 				<long>
-					<standard>Čínský standardní čas</standard>
-					<daylight>Čínský standardní čas</daylight>
+					<standard>Greenwichský střední čas</standard>
+					<daylight>Greenwichský střední čas</daylight>
 				</long>
 				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
+					<standard>GMT</standard>
+					<daylight>GMT</daylight>
 				</short>
-				<exemplarCity>Šanghaj</exemplarCity>
+				<exemplarCity>Londýn</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -409,23 +409,23 @@
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
 		<keys>
-			<key type="collation">Sıralama</key>
 			<key type="calendar">Takvim</key>
+			<key type="collation">Sıralama</key>
 			<key type="currency">Para Birimi</key>
 		</keys>
 		<types>
-			<type type="japanese" key="calendar">Japon Takvimi</type>
 			<type type="buddhist" key="calendar">Budist Takvimi</type>
+			<type type="chinese" key="calendar">Çin Takvimi</type>
+			<type type="direct" key="collation">Düz Sıralama</type>
+			<type type="gregorian" key="calendar">Miladi Takvim</type>
+			<type type="hebrew" key="calendar">Yahudi Takvimi</type>
 			<type type="islamic" key="calendar">Hicri Takvim</type>
 			<type type="islamic-civil" key="calendar">Arap Takvimi</type>
-			<type type="hebrew" key="calendar">Yahudi Takvimi</type>
-			<type type="chinese" key="calendar">Çin Takvimi</type>
-			<type type="gregorian" key="calendar">Miladi Takvim</type>
+			<type type="japanese" key="calendar">Japon Takvimi</type>
 			<type type="phonebook" key="collation">Telefon Defteri Sıralaması</type>
 			<type type="pinyin" key="collation">Pinyin Sıralaması</type>
-			<type type="traditional" key="collation">Geleneksel</type>
 			<type type="stroke" key="collation">Stroke Sıralaması</type>
-			<type type="direct" key="collation">Düz Sıralama</type>
+			<type type="traditional" key="collation">Geleneksel</type>
 		</types>
 	</localeDisplayNames>
 	<characters>

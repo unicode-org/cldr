@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -302,25 +302,25 @@
 			<territory type="ZW">زيمبابوي</territory>
 		</territories>
 		<keys>
-			<key type="collation">الترتيب</key>
 			<key type="calendar">تقويم</key>
+			<key type="collation">الترتيب</key>
 			<key type="currency">العملات</key>
 		</keys>
 		<types>
-			<type type="japanese" key="calendar">تقويم ياباني</type>
 			<type type="buddhist" key="calendar">تقويم بوني</type>
+			<type type="chinese" key="calendar">تقويم صيني</type>
+			<type type="direct" key="collation">ترتيب مباشر</type>
+			<type type="gregorian" key="calendar">تقويم ميلادي</type>
+			<type type="hebrew" key="calendar">تقويم عبري</type>
 			<type type="islamic" key="calendar">تقويم اسلامي</type>
 			<type type="islamic-civil" key="calendar">تقويم اسلامي مدني</type>
-			<type type="hebrew" key="calendar">تقويم عبري</type>
-			<type type="chinese" key="calendar">تقويم صيني</type>
-			<type type="gregorian" key="calendar">تقويم ميلادي</type>
+			<type type="japanese" key="calendar">تقويم ياباني</type>
 			<type type="phonebook" key="collation">ترتيب دليل الهاتف</type>
 			<type type="traditional" key="collation">تقليدي</type>
-			<type type="direct" key="collation">ترتيب مباشر</type>
 		</types>
 	</localeDisplayNames>
 	<layout>
-		<orientation lines="top-to-bottom" characters="right-to-left"/>
+		<orientation characters="right-to-left"/>
 	</layout>
 	<characters>
 		<exemplarCharacters>[ء-غـ-ْ‌‍‏‎]</exemplarCharacters>
@@ -415,8 +415,8 @@
 				</days>
 				<week>
 					<firstDay day="sat"/>
-					<weekendStart day="thu" time="00:00"/>
-					<weekendEnd day="fri" time="24:00"/>
+					<weekendStart day="thu"/>
+					<weekendEnd day="fri"/>
 				</week>
 				<am>ص</am>
 				<pm>م</pm>

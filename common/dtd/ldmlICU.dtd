@@ -78,4 +78,9 @@
 <!ELEMENT icu:transform ( #PCDATA |cp )* >
 <!ATTLIST icu:transform type NMTOKEN #REQUIRED >
 
+<!-- leap month information -->
+<!ELEMENT icu:isLeapMonth ( alias | (icu:nonLeapSymbol?, icu:leapSymbol? ))>
+<!ELEMENT icu:nonLeapSymbol ( #PCDATA ) >
+<!ELEMENT icu:leapSymbol ( #PCDATA ) >
+
 <!-- ######################################################### -->

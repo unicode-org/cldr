@@ -17,13 +17,14 @@ th           { background-color: #9999CC; border-style: solid; border-width: 1px
 td           { background-color: #CCCCFF; border-style: solid; border-width: 1px; padding: 4 }
 table        { border-style: solid; border-width: 1px }
 .white       { background-color: #FFFFFF }
+caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
 -->
 </style>
 </head>
 
 <body bgcolor="#FFFFFF">
 
-<h1>Locale Data Interchange Format</h1>
+<h1>Locale Data Markup Language</h1>
 <table>
   <tr>
     <td class="white"><i>Summary:</i></td>
@@ -32,11 +33,19 @@ table        { border-style: solid; border-width: 1px }
   </tr>
   <tr>
     <td class="white"><i>Version:</i></td>
-    <td class="white">Draft 6, 2002-10-30, MED</td>
+    <td class="white">7</td>
+  </tr>
+  <tr>
+    <td class="white"><i>Date:</i></td>
+    <td class="white">2002-10-31</td>
+  </tr>
+  <tr>
+    <td class="white"><i>Author:</i></td>
+    <td class="white">Mark Davis</td>
   </tr>
   <tr>
     <td class="white"><i>Location:</i></td>
-    <td class="white"><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_interchange_format.html">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_interchange_format.html</a></td>
+    <td class="white"><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_markup.html">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_markup.html</a></td>
   </tr>
 </table>
 <h2><a name="Contents">Contents</a></h2>
@@ -58,11 +67,23 @@ table        { border-style: solid; border-width: 1px }
       <li><a href="#&lt;measurement&gt;">&lt;measurement&gt;</a></li>
       <li><a href="#&lt;dates&gt;">&lt;dates&gt;</a>
         <ul>
+          <li><a href="#&lt;localizedPatternChars&gt;">&lt;localizedPatternChars&gt;</a></li>
+          <li><a href="#&lt;calendars&gt;">&lt;calendars&gt;</a></li>
           <li><a href="#&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></li>
         </ul>
       </li>
-      <li><a href="#&lt;numbers&gt;">&lt;numbers&gt;</a></li>
-      <li><a href="#&lt;collations&gt;">&lt;collations&gt;</a></li>
+      <li><a href="#&lt;numbers&gt;">&lt;numbers&gt;</a>
+        <ul>
+          <li><a href="#&lt;symbols&gt;">&lt;symbols&gt;</a></li>
+          <li><a href="#&lt;numberFormats&gt;">&lt;numberFormats&gt;</a></li>
+          <li><a href="#&lt;currencies&gt;">&lt;currencies&gt;</a></li>
+        </ul>
+      </li>
+      <li><a href="#&lt;collations&gt;">&lt;collations&gt;</a>
+        <ul>
+          <li><a href="#&lt;collation&gt;">&lt;collation&gt;</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><a href="#Sample_Special_Elements">Appendix A: Sample Special Elements</a>
@@ -133,14 +154,15 @@ countries, and scripts. They can also include text boundaries (character, word,
 line, and sentence), text transformations (including transliterations), and
 support for other services.</p>
 <p>Locale data is not cast in stone: the data used on someone's machine
-generally may reflect the US format, but preferences can typically set to
-override particular items, such as setting the data format for 2002.03.15, or
-using metric vs. Imperial measurement units. In the abstract, locales are simply
-one of many sets of preferences that, say, a website may want to remember for a
-particular user. Depending on the application, it may want to also remember the
-user's timezone, preferred character set, smoker/non-smoker preference, meal
-preference (vegetarian, kosher, etc.), music preference, religion, party
-affiliation, favorite charity, etc. Users also customize their preferences.</p>
+generally may reflect the US format for example, but preferences can typically
+set to override particular items, such as setting the data format for
+2002.03.15, or using metric vs. Imperial measurement units. In the abstract,
+locales are simply one of many sets of preferences that, say, a website may want
+to remember for a particular user. Depending on the application, it may want to
+also remember the user's timezone, preferred character set, smoker/non-smoker
+preference, meal preference (vegetarian, kosher, etc.), music preference,
+religion, party affiliation, favorite charity, etc. Users also customize their
+preferences.</p>
 <p>Locale data in a system may also change over time: country boundaries change;
 governments (and currencies) come and go: committees impose new standards; bugs
 are found and fixed in the source data; and so on. Thus the data needs to be
@@ -166,6 +188,7 @@ resource is called a <i>resource tag.</i></p>
 <p>The field values are given in the following table. All field values are
 case-sensitive.</p>
 <table border="1">
+  <caption>Locale Field Definitions</caption>
   <tr>
     <th>Field</th>
     <th>Allowable Characters</th>
@@ -214,14 +237,34 @@ as in Java.</p>
 one with both language and territory codes is called a <i>territory locale</i>
 (or <i>country locale</i>).</p>
 <p>The variant codes specify particular variants of the locale, typically with
-special options. The currently defined variants include: (for Norwegian): bo =
-Bokmål, al = Åland, ny = Nynorsk.</p>
+special options. The currently defined variants include:</p>
+<table>
+  <caption>Variant Definitions</caption>
+  <tr>
+    <th align="left">variant</th>
+    <th align="left">Description</th>
+  </tr>
+  <tr>
+    <td>bo</td>
+    <td>Bokmål, variant of Norwegian</td>
+  </tr>
+  <tr>
+    <td>al</td>
+    <td>Åland, variant of Norwegian</td>
+  </tr>
+  <tr>
+    <td>ny</td>
+    <td>Nynorsk, variant of Norwegian</td>
+  </tr>
+</table>
 <p class="note"><b>Note: </b>two of the above variants are for backwards
 compatibility. Typically the entire contents of these are defined by an
 &lt;alias&gt; element pointing at nb_NO (Norwegian Bokmål) and nn_NO(Norwegian
 Nynorsk) locale IDs.</p>
+<p class="ed_note">[Ed. Note: update this table with complete data.]</p>
 <p>The currently defined optional key/type combinations include:</p>
 <table>
+  <caption>Key/Type Definitions</caption>
   <tr>
     <th align="left">key</th>
     <th align="left">type</th>
@@ -288,7 +331,7 @@ Nynorsk) locale IDs.</p>
       for each Emperor)</td>
   </tr>
   <tr>
-    <td>thai</td>
+    <td>thai-buddhist</td>
     <td>Thai Buddhist Calendar (same as Gregorian except for the year)</td>
   </tr>
 </table>
@@ -375,12 +418,29 @@ contains the following elements:</p>
   <li><a href="#&lt;encodings&gt;">&lt;encodings&gt;</a></li>
   <li><a href="#&lt;delimiters&gt;">&lt;delimiters&gt;</a></li>
   <li><a href="#&lt;measurement&gt;">&lt;measurement&gt;</a></li>
-  <li><a href="#&lt;dates&gt;">&lt;dates&gt;</a></li>
-  <li><a href="#&lt;numbers&gt;">&lt;numbers&gt;</a></li>
-  <li><a href="#&lt;collations&gt;">&lt;collations&gt;</a></li>
+  <li><a href="#&lt;dates&gt;">&lt;dates&gt;</a>
+    <ul>
+      <li><a href="#&lt;localizedPatternChars&gt;">&lt;localizedPatternChars&gt;</a></li>
+      <li><a href="#&lt;calendars&gt;">&lt;calendars&gt;</a></li>
+      <li><a href="#&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></li>
+    </ul>
+  </li>
+  <li><a href="#&lt;numbers&gt;">&lt;numbers&gt;</a>
+    <ul>
+      <li><a href="#&lt;symbols&gt;">&lt;symbols&gt;</a></li>
+      <li><a href="#&lt;numberFormats&gt;">&lt;numberFormats&gt;</a></li>
+      <li><a href="#&lt;currencies&gt;">&lt;currencies&gt;</a></li>
+    </ul>
+  </li>
+  <li><a href="#&lt;collations&gt;">&lt;collations&gt;</a>
+    <ul>
+      <li><a href="#&lt;collation&gt;">&lt;collation&gt;</a></li>
+    </ul>
+  </li>
 </ul>
 <p>The structure of each of these elements and their contents will be described
-below.</p>
+below. The first few elements have little structure, while dates, numbers, and
+collations are more involved.</p>
 <p>In general, all translatable text in this format is in element contents,
 while attributes are reserved for types and non-translated information (such as
 numbers or dates). The reason that attributes are not used for translatable text
@@ -568,6 +628,7 @@ characters=&quot;left-to-right&quot; /&gt;</p>
 <p>The lines and characters attributes specify the default general ordering of
 lines, and characters within a line. The values are:</p>
 <table border="1">
+  <caption>Orientation Attributes</caption>
   <tr>
     <td width="50%" rowspan="2">Vertical</td>
     <td width="50%">top-to-bottom</td>
@@ -659,38 +720,32 @@ formatting and parsing at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">L
 Explorer</a> (pick the locale and scroll to &quot;Date Patterns&quot;).</p>
 <p>The &lt;dates&gt; element has three possible sub-elements: &lt;localizedPatternCharacters&gt;,
 &lt;calendars&gt; and &lt;timeZoneNames&gt;</p>
-<pre class="element2">&lt;localizedPatternChars&gt;GyMdkHmsSEDFwWahKz&lt;/localizedPatternChars&gt;</pre>
+<pre class="element2"><a name="&lt;localizedPatternChars&gt;">&lt;localizedPatternChars&gt;</a>GyMdkHmsSEDFwWahKz&lt;/localizedPatternChars&gt;</pre>
 <p>The interpretation of this is explained in <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DateFormatSymbols.html">DateFormatSymbols</a>.</p>
-<pre class="element2">&lt;calendars&gt;</pre>
+<pre class="element2"><a name="&lt;calendars&gt;">&lt;calendars&gt;</a></pre>
 <p>This element contains multiple &lt;calendar&gt; elements, each of which
 specifies the fields used for formatting and parsing dates and times according
-to the given calendar. For example:</p>
-<pre>  &lt;calendar class=&quot;Gregorian&quot;&gt;
+to the given calendar. The month names are identified numerically, starting at
+1. The day names are identified with short strings, since there is no
+universally-accepted numeric designation.</p>
+<p>Many calendars will only differ from the Gregorian Calendar in the year and
+era values. For example, the Japanese calendar will have many more eras (one for
+each Emperor), and the years will be numbered within that era. All other
+calendars inherit from the Gregorian calendar (which must be present), so only
+the differing data will be present.</p>
+<p class="example">Example:</p>
+<pre>  &lt;calendar class=&quot;gregorian&quot;&gt;
     &lt;monthNames&gt;
-        &lt;month type=&quot;1&quot;&gt;january&lt;/month&gt;
-        &lt;month type=&quot;2&quot;&gt;february&lt;/month&gt;
-        &lt;month type=&quot;3&quot;&gt;march&lt;/month&gt;
-        &lt;month type=&quot;4&quot;&gt;april&lt;/month&gt;
-        &lt;month type=&quot;5&quot;&gt;may&lt;/month&gt;
-        &lt;month type=&quot;6&quot;&gt;june&lt;/month&gt;
-        &lt;month type=&quot;7&quot;&gt;july&lt;/month&gt;
-        &lt;month type=&quot;8&quot;&gt;august&lt;/month&gt;
-        &lt;month type=&quot;9&quot;&gt;September&lt;/month&gt;
-        &lt;month type=&quot;10&quot;&gt;October&lt;/month&gt;
+        &lt;month type=&quot;1&quot;&gt;January&lt;/month&gt;
+        &lt;month type=&quot;2&quot;&gt;February&lt;/month&gt;
+...
         &lt;month type=&quot;11&quot;&gt;November&lt;/month&gt;
         &lt;month type=&quot;12&quot;&gt;December&lt;/month&gt;
     &lt;/monthNames&gt;
     &lt;monthAbbr&gt;
         &lt;month type=&quot;1&quot;&gt;Jan&lt;/month&gt;
         &lt;month type=&quot;2&quot;&gt;Feb&lt;/month&gt;
-        &lt;month type=&quot;3&quot;&gt;Mar&lt;/month&gt;
-        &lt;month type=&quot;4&quot;&gt;Apr&lt;/month&gt;
-        &lt;month type=&quot;5&quot;&gt;May&lt;/month&gt;
-        &lt;month type=&quot;6&quot;&gt;Jun&lt;/month&gt;
-        &lt;month type=&quot;7&quot;&gt;Jul&lt;/month&gt;
-        &lt;month type=&quot;8&quot;&gt;Aug&lt;/month&gt;
-        &lt;month type=&quot;9&quot;&gt;Sep&lt;/month&gt;
-        &lt;month type=&quot;10&quot;&gt;Oct&lt;/month&gt;
+...
         &lt;month type=&quot;11&quot;&gt;Nov&lt;/month&gt;
         &lt;month type=&quot;12&quot;&gt;Dec&lt;/month&gt;
     &lt;/monthAbbr&gt;
@@ -698,18 +753,14 @@ to the given calendar. For example:</p>
     &lt;dayNames&gt;
         &lt;day type=&quot;sun&quot;&gt;Sunday&lt;/day&gt;
         &lt;day type=&quot;mon&quot;&gt;Monday&lt;/day&gt;
-        &lt;day type=&quot;tue&quot;&gt;Tuesday&lt;/day&gt;
-        &lt;day type=&quot;wed&quot;&gt;Wednesday&lt;/day&gt;
-        &lt;day type=&quot;thu&quot;&gt;Thursday&lt;/day&gt;
+...
         &lt;day type=&quot;fri&quot;&gt;Friday&lt;/day&gt;
         &lt;day type=&quot;sat&quot;&gt;Saturday&lt;/day&gt;
     &lt;/dayNames&gt;
     &lt;dayAbbr&gt;
         &lt;day type=&quot;sun&quot;&gt;Sun&lt;/day&gt;
         &lt;day type=&quot;mon&quot;&gt;Mon&lt;/day&gt;
-        &lt;day type=&quot;tue&quot;&gt;Tue&lt;/day&gt;
-        &lt;day type=&quot;wed&quot;&gt;Wed&lt;/day&gt;
-        &lt;day type=&quot;thu&quot;&gt;Thu&lt;/day&gt;
+...
         &lt;day type=&quot;fri&quot;&gt;Fri&lt;/day&gt;
         &lt;day type=&quot;sat&quot;&gt;Sat&lt;/day&gt;
     &lt;/dayAbbr&gt;
@@ -724,7 +775,7 @@ to the given calendar. For example:</p>
     &lt;am&gt;AM&lt;/am&gt;
     &lt;pm&gt;PM&lt;/pm&gt;
 
-    &lt;eras&gt;    <font color="#00FF00">&lt;!-- Non-gregorians may have many more eras --&gt;</font>
+    &lt;eras&gt;
         &lt;era type=&quot;0&quot;&gt;BC&lt;/era&gt;
         &lt;era type=&quot;1&quot;&gt;AD&lt;/era&gt;
     &lt;/eras&gt;
@@ -743,11 +794,8 @@ to the given calendar. For example:</p>
      &lt;timeFormats&gt;
        &lt;default type=&quot;medium&quot;/&gt;
        &lt;timeFormat type=&quot;full&quot;&gt;
-         &lt;!--  Optional special element for platform/application specific overheads. Paser can
-                          choose to ignore if required  --&gt;
-         &lt;special owner=&quot;http://www.openoffice.org&quot; msgtype=&quot;DateFormatskey3&quot; usage=&quot;DATE&quot; formatindex=&quot;20&quot; /&gt;
-           &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
-           &lt;pattern&gt;h:mm:ss a z&lt;/pattern&gt;
+         &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
+         &lt;pattern&gt;h:mm:ss a z&lt;/pattern&gt;
        &lt;/timeFormat&gt;
        &lt;timeFormat type=&quot;medium&quot;&gt;
          &lt;pattern&gt;h:mm:ss a&lt;/pattern&gt;
@@ -758,8 +806,7 @@ to the given calendar. For example:</p>
      &lt;/dateTimeFormat&gt;
   &lt;/calendar&gt;
 
-<font color="#00FF00">  &lt;!-- The Buddhist calendar inherits month names, etc. (everything but eras) from Gregorian --&gt;
-</font>  &lt;calendar class=&quot;Buddhist&quot;&gt;
+  &lt;calendar class=&quot;thai-buddhist&quot;&gt;
     &lt;eras&gt;
         &lt;era type=&quot;0&quot;&gt;BE&lt;/era&gt;
     &lt;/eras&gt;
@@ -804,7 +851,7 @@ API: <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/NumberFormat.htm
 <p class="note"><b>Note: </b>there is an on-line demonstration of number
 formatting and parsing at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale
 Explorer</a> (pick the locale and scroll to &quot;Number Patterns&quot;).</p>
-<pre>&lt;symbols&gt;
+<pre><a name="&lt;symbols&gt;">&lt;symbols&gt;</a>
       &lt;decimal&gt;.&lt;/decimal&gt;
       &lt;group&gt;,&lt;/group&gt;
       &lt;list&gt;;&lt;/list&gt;
@@ -818,7 +865,7 @@ Explorer</a> (pick the locale and scroll to &quot;Number Patterns&quot;).</p>
       &lt;infinity&gt;&#8734;&lt;/infinity&gt;
       &lt;nan&gt;&#9785;&lt;/nan&gt;
 &lt;/symbols&gt;</pre>
-<pre>&lt;numberFormats&gt;
+<pre><a name="&lt;numberFormats&gt;">&lt;numberFormats&gt;</a>
   &lt;numberFormat type=&quot;decimal&quot;&gt;
       &lt;pattern type=&quot;positive&quot;&gt;#,##0.###&lt;/pattern&gt;
       &lt;pattern type=&quot;negative&quot;&gt;-#,##0.###&lt;/pattern&gt;
@@ -834,13 +881,13 @@ Explorer</a> (pick the locale and scroll to &quot;Number Patterns&quot;).</p>
     &lt;pattern type=&quot;negative&quot;&gt;(¤ #,##0.00)&lt;/pattern&gt;
   &lt;/numberFormat&gt;
 &lt;/numberFormat&gt;</pre>
-<pre>&lt;currencies&gt;
+<pre><a name="&lt;currencies&gt;">&lt;currencies&gt;</a>
     &lt;default type=&quot;USD&quot;/&gt;
     &lt;currency type=&quot;USD&quot;&gt;
         &lt;displayName&gt;dollar&lt;/displayName&gt;
         &lt;symbol&gt;$&lt;/symbol&gt;
     &lt;/currency&gt;
-    &lt;currency id =&quot;JPY&quot;&gt;
+    &lt;currency type =&quot;JPY&quot;&gt;
         &lt;displayName&gt;yen&lt;/displayName&gt;
         &lt;symbol&gt;¥&lt;/symbol&gt;
     &lt;/currency&gt;
@@ -849,7 +896,7 @@ Explorer</a> (pick the locale and scroll to &quot;Number Patterns&quot;).</p>
 need to be included. All others are inherited from the number format symbols.
 Any of these (decimal, grouping, etc) can be overridden for any particular
 currency, such as the following (pre-Euro Portuguese currency):</p>
-<pre>    &lt;currency id =&quot;PTE&quot;&gt;
+<pre>    &lt;currency type =&quot;PTE&quot;&gt;
         &lt;displayName&gt;escudo&lt;/displayName&gt;
         &lt;symbol&gt;Esc.&lt;/symbol&gt;
         &lt;decimal&gt;$&lt;/decimal&gt;
@@ -884,13 +931,16 @@ Explorer</a> (pick the locale and scroll to &quot;Collation Rules&quot;).</p>
 actual weights used in any particular UCA table. That way the same rules can be
 applied to UCA versions over time, even if the underlying weights change. The
 following describes the overall document structure of a collation:</p>
-<p><code>&lt;collation&gt;<br>
-&nbsp;&lt;base UCA='3.1.1'&gt;<br>
+<p><code><a name="&lt;collation&gt;">&lt;collation&gt;</a><br>
+&nbsp;&lt;uca version='3.1.1'&gt;<br>
 &nbsp;&lt;settings caseLevel=&quot;on&quot;/&gt;<br>
 &nbsp;&lt;rules&gt;<br>
-&nbsp; &lt;!-- rules go here --&gt;<br>
-&nbsp;&lt;/rules&gt;<br>
+<font color="#00FF00">&nbsp; &lt;!-- rules go here --&gt;<br>
+</font>&nbsp;&lt;/rules&gt;<br>
 &lt;/collation&gt;</code></p>
+<h3><a name="Collation_Version">Version</a></h3>
+<p>All collations are specified by rules that are tailorings of the UCA, so the
+specific version of the UCA is required.</p>
 <blockquote>
   <p><i><b>Note: </b>For version 3.1.1 of the UCA, the version of Unicode must
   also be specified with any versioning information. This has been changed as of
@@ -906,6 +956,7 @@ attribute, if there is one) is used. The default is listed in italics. The
 effect of these are defined by reference to the <a href="http://oss.software.ibm.com/icu/userguide/Collate_Customization.html">ICU
 rule syntax</a>).</p>
 <table>
+  <caption>Collation Settings Attributes</caption>
   <tbody>
     <tr>
       <th>Attribute</th>
@@ -990,6 +1041,7 @@ occur as frequently, and have longer names.</p>
 <p>The following are the normal ordering actions used for the bulk of
 characters.</p>
 <table>
+  <caption>Specifying Collation Ordering</caption>
   <tbody>
     <tr>
       <th>Basic Symbol</th>
@@ -1008,31 +1060,39 @@ characters.</p>
     </tr>
     <tr>
       <td align="middle"><code>&lt; &nbsp;</code></td>
-      <td><code>&amp; a &lt; b &nbsp;</code></td>
+      <td><code>&amp; a<br>
+        &lt; b &nbsp;</code></td>
       <td><code>&lt;p&gt;</code></td>
-      <td><code>&lt;reset&gt;a&lt;reset&gt;&lt;p&gt;b&lt;/p&gt;</code></td>
+      <td><code>&lt;reset&gt;a&lt;reset&gt;<br>
+        &lt;p&gt;b&lt;/p&gt;</code></td>
       <td>Make 'b' sort after 'a', as a <i>primary</i> (base-character)
         difference</td>
     </tr>
     <tr>
       <td align="middle"><code>&lt;&lt; &nbsp;</code></td>
-      <td><code>&amp; a &lt;&lt; ä &nbsp;</code></td>
+      <td><code>&amp; a<br>
+        &lt;&lt; ä &nbsp;</code></td>
       <td><code>&lt;s&gt;</code></td>
-      <td><code>&lt;reset&gt;a&lt;reset&gt;&lt;s&gt;ä&lt;/s&gt;</code></td>
+      <td><code>&lt;reset&gt;a&lt;reset&gt;<br>
+        &lt;s&gt;ä&lt;/s&gt;</code></td>
       <td>Make 'ä' sort after 'a' as a <i>secondary</i> (accent) difference</td>
     </tr>
     <tr>
       <td align="middle"><code>&lt;&lt;&lt; &nbsp;</code></td>
-      <td><code>&amp; a &lt;&lt;&lt; A &nbsp;</code></td>
+      <td><code>&amp; a<br>
+        &lt;&lt;&lt; A &nbsp;</code></td>
       <td><code>&lt;t&gt;</code></td>
-      <td><code>&lt;reset&gt;a&lt;reset&gt;&lt;t&gt;A&lt;/t&gt;</code></td>
+      <td><code>&lt;reset&gt;a&lt;reset&gt;<br>
+        &lt;t&gt;A&lt;/t&gt;</code></td>
       <td>Make 'A' sort after 'a' as a <i>secondary</i> (accent) difference</td>
     </tr>
     <tr>
       <td align="middle"><code>= &nbsp;</code></td>
-      <td><code>&amp; x = y &nbsp;</code></td>
+      <td><code>&amp; x<br>
+        = y &nbsp;</code></td>
       <td><code>&lt;i&gt;</code></td>
-      <td><code>&lt;reset&gt;v&lt;reset&gt;&lt;i&gt;w&lt;/i&gt;</code></td>
+      <td><code>&lt;reset&gt;v&lt;reset&gt;<br>
+        &lt;i&gt;w&lt;/i&gt;</code></td>
       <td>Make 'w' sort <i>identically</i> to 'v'</td>
     </tr>
   </tbody>
@@ -1046,6 +1106,7 @@ The addition of a 'c' to the element name indicates that each of the characters
 in the contents of that element are to be handled as if they were separate
 elements with the corresponding strength:</p>
 <table>
+  <caption>Abbreviating Ordering Specifications</caption>
   <tr>
     <th>XML Symbol</th>
     <th>XML Example</th>
@@ -1079,6 +1140,7 @@ that cannot be otherwise represented. This corresponds to the quoting mechanism
 used in the basic syntax. This also must be used where spaces are significant
 (otherwise they are stripped).</p>
 <table>
+  <caption>Excaping Characters</caption>
   <tbody>
     <tr>
       <th>Basic Example</th>
@@ -1097,6 +1159,7 @@ never tailored.</p>
 <p>To sort a sequence as a single item (contraction), just use the sequence,
 e.g.</p>
 <table>
+  <caption>Specifying Contractions</caption>
   <tbody>
     <tr>
       <th>BASIC Example</th>
@@ -1104,8 +1167,10 @@ e.g.</p>
       <th>Description</th>
     </tr>
     <tr>
-      <td><code>&amp; k &lt; ch</code></td>
-      <td><code>&lt;reset&gt;k&lt;reset&gt;&lt;p&gt;ch&lt;/p&gt;</code></td>
+      <td><code>&amp; k <br>
+        &lt; ch</code></td>
+      <td><code>&lt;reset&gt;k&lt;reset&gt;<br>
+        &lt;p&gt;ch&lt;/p&gt;</code></td>
       <td>Make the sequence 'ch' sort after 'k', as a primary (base-character)
         difference</td>
     </tr>
@@ -1118,6 +1183,7 @@ reset to the sequence of characters. The second is to use the extension
 sequence. Both are equivalent in practice (unless the reset sequence happens to
 be a contraction).</p>
 <table>
+  <caption>Specifying Expansions</caption>
   <tbody>
     <tr>
       <th>Basic</th>
@@ -1125,15 +1191,19 @@ be a contraction).</p>
       <th>Description</th>
     </tr>
     <tr>
-      <td><code>&amp; ch &lt; k</code></td>
-      <td><code>&lt;reset&gt;ch&lt;/reset&gt;&lt;p&gt;k&lt;/p&gt;</code></td>
+      <td><code>&amp; ch <br>
+        &lt; k</code></td>
+      <td><code>&lt;reset&gt;ch&lt;/reset&gt;<br>
+        &lt;p&gt;k&lt;/p&gt;</code></td>
       <td>Make 'k' sort after the sequence 'ch'; thus 'k' will behave as if it
         expands to a character after 'c' followed by an 'h'. (unless 'ch' is
         defined beforehand as a contraction).</td>
     </tr>
     <tr>
-      <td><code>&amp;&nbsp;c&nbsp;&lt;&nbsp;k&nbsp;/&nbsp;h</code></td>
-      <td><code>&lt;reset&gt;c&lt;/reset&gt;&lt;p&gt;k&lt;extend&gt;h&lt;/extend&gt;&lt;/p&gt;</code></td>
+      <td><code>&amp;&nbsp;c&nbsp;<br>
+        &lt;&nbsp;k&nbsp;/&nbsp;h</code></td>
+      <td><code>&lt;reset&gt;c&lt;/reset&gt;<br>
+        &lt;p&gt;k&lt;extend&gt;h&lt;/extend&gt;&lt;/p&gt;</code></td>
       <td>Make 'k' sort after the sequence 'ch'; thus 'k' will behave as if it
         expands to a character after 'c' followed by an 'h'.</td>
     </tr>
@@ -1145,6 +1215,7 @@ Japanese. This could be expressed with a combination of contractions and
 expansions, but is faster using a context. (The actual weights produced are
 different, but the resulting string comparisons are the same.)</p>
 <table>
+  <caption>Specifying Previous Context</caption>
   <tbody>
     <tr>
       <th>Basic</th>
@@ -1168,6 +1239,7 @@ given character, rather than after. This is the case with Pinyin, for example,
 where certain accented letters are positioned before the base letter. That is
 accomplished with the following syntax.</p>
 <table>
+  <caption>Placing Characters <i>Before</i> Others</caption>
   <tbody>
     <tr>
       <th>Item</th>
@@ -1181,8 +1253,10 @@ accomplished with the following syntax.</p>
         secondary<br>
         tertiary<br>
         identical</td>
-      <td><code>&amp; [before 1] a &lt;&lt; à</code></td>
-      <td><code>&lt;reset before=&quot;primary&quot;&gt;a&lt;/reset&gt;&lt;s&gt;à&lt;/s&gt;</code></td>
+      <td><code>&amp; [before 1] a<br>
+        &lt;&lt; à</code></td>
+      <td><code>&lt;reset before=&quot;primary&quot;&gt;a&lt;/reset&gt;<br>
+        &lt;s&gt;à&lt;/s&gt;</code></td>
     </tr>
   </tbody>
 </table>
@@ -1190,6 +1264,7 @@ accomplished with the following syntax.</p>
 <p>The UCA has the following overall structure for weights, going from low to
 high.</p>
 <table>
+  <caption>Specifying Logical Positions</caption>
   <tbody>
     <tr>
       <th valign="top" align="middle" bgcolor="#ccccff">Name</th>
@@ -1275,22 +1350,66 @@ added; or it could be that you just want Y to come after a given logical
 position, e.g. after the last primary ignorable.</p>
 <p>Here is an example of the syntax:</p>
 <table>
+  <caption>Sample Logical Position</caption>
   <tbody>
     <tr>
       <th>Basic</th>
       <th>XML</th>
     </tr>
     <tr>
-      <td><code>&amp; [first tertiary ignorable] &lt;&lt; à&nbsp;</code></td>
-      <td><code>&lt;reset&gt;&lt;first_tertiary_ignorable/&gt;&lt;/reset&gt;&lt;s&gt;à&lt;/s&gt;</code></td>
+      <td><code>&amp; [first tertiary ignorable]<br>
+        &lt;&lt; à&nbsp;</code></td>
+      <td><code>&lt;reset&gt;&lt;first_tertiary_ignorable/&gt;&lt;/reset&gt;<br>
+        &lt;s&gt;à&lt;/s&gt;</code></td>
     </tr>
   </tbody>
 </table>
 <p>For example, to make a character be a secondary ignorable, one can make it be
 immediately after (at a secondary level) a specific character (like a combining
 dieresis), or one can make it be immediately after the last secondary ignorable.</p>
+<p>The <i>last-variable</i> element indicates the &quot;highest&quot; character
+that is treated as punctuation with alternate handling. Unlike the other logical
+positions, it can be reset as well as referenced. For example, it can be reset
+to be just above spaces if all visible punctuation are to be treated as having
+distinct primary values.</p>
+<table>
+  <caption>Specifying Last-Variable</caption>
+  <tr>
+    <th>Attribute</th>
+    <th>Options</th>
+    <th>Basic Example &nbsp;</th>
+    <th>XML Example</th>
+  </tr>
+  <tr>
+    <td rowspan="3">variableTop</td>
+    <td><font color="#000000">at</font></td>
+    <td><code>&amp; x<br>
+      = [last variable]</code></td>
+    <td><code>&lt;reset&gt;x&lt;/reset&gt;<br>
+      &lt;i&gt;&lt;last_variable/&gt;&lt;/i&gt;</code></td>
+  </tr>
+  <tr>
+    <td><font color="#000000">after</font></td>
+    <td><code>&amp; x<br>
+      &lt; [last variable]</code></td>
+    <td><code>&lt;reset&gt;x&lt;/reset&gt;<br>
+      &lt;p&gt;&lt;last_variable/&gt;&lt;/p&gt;</code></td>
+  </tr>
+  <tr>
+    <td><font color="#000000">before</font></td>
+    <td><code>&amp; [before 1] x<br>
+      &lt; [last variable]</code></td>
+    <td><code>&lt;reset before=&quot;primary&quot;&gt;x&lt;/reset&gt;<br>
+      &lt;p&gt;&lt;last_variable/&gt;&lt;/p&gt;</code></td>
+  </tr>
+</table>
+<p>The default value for <i>variable-top</i> depends on the UCA setting. For
+example, in 3.1.1, the value is at:</p>
+<blockquote>
+  <p>U+1D7C3 MATHEMATICAL SANS-SERIF BOLD ITALIC PARTIAL DIFFERENTIAL</p>
+</blockquote>
 <h3><a name="Logical_Reset_Positions">Special-Purpose Commands</a></h3>
-<p>The <i>suppress contractions</i> tailoring command turns off any previous
+<p>The <i>suppress contractions</i> tailoring command turns off any existing
 contractions that begin with those characters. It is typically used to turn off
 the Cyrillic contractions in the UCA, since they are not used in many languages
 and have a considerable performance penalty. The argument is a <a href="http://oss.software.ibm.com/icu/userguide/unicodeSet.html">UnicodeSet</a>.</p>
@@ -1298,6 +1417,7 @@ and have a considerable performance penalty. The argument is a <a href="http://o
 that those characters are sufficiently common in the target language for the
 tailoring that their performance should be enhanced.</p>
 <table>
+  <caption>Special-Purpose Commands</caption>
   <tbody>
     <tr>
       <th>Basic</th>
@@ -1313,48 +1433,17 @@ tailoring that their performance should be enhanced.</p>
     </tr>
   </tbody>
 </table>
-<p>The <i>variable-top</i> element indicates the &quot;highest&quot; character
-that is treated as punctuation with alternate handling. For example, it can be
-reset to be just above spaces if all visible punctuation are to be treated as
-having distinct primary values.</p>
-<table>
-  <tr>
-    <th>Attribute</th>
-    <th>Options</th>
-    <th>Basic Example &nbsp;</th>
-    <th>XML Example</th>
-  </tr>
-  <tr>
-    <td rowspan="3">variableTop</td>
-    <td><font color="#000000">at</font></td>
-    <td><code>&amp; x = [variable top]</code></td>
-    <td><code>&lt;reset&gt;x&lt;/reset&gt;&lt;i&gt;&lt;variable_top/&gt;&lt;/i&gt;</code></td>
-  </tr>
-  <tr>
-    <td><font color="#000000">after</font></td>
-    <td><code>&amp; x &lt; [variable top]</code></td>
-    <td><code>&lt;reset&gt;x&lt;/reset&gt;&lt;p&gt;&lt;variable_top/&gt;&lt;/p&gt;</code></td>
-  </tr>
-  <tr>
-    <td><font color="#000000">before</font></td>
-    <td><code>&amp; [before 1] x &lt; [variable top]</code></td>
-    <td><code>&lt;reset
-      before=&quot;primary&quot;&gt;x&lt;/reset&gt;&lt;p&gt;&lt;variable_top/&gt;&lt;/p&gt;</code></td>
-  </tr>
-</table>
-<p>The default value for <i>variable-top</i> depends on the UCA setting. For
-example, in 3.1.1, the value is at:</p>
-<blockquote>
-  <p>U+1D7C3 MATHEMATICAL SANS-SERIF BOLD ITALIC PARTIAL DIFFERENTIAL</p>
-</blockquote>
+<br>
 <hr width="50%">
 <p class="example">Example:</p>
+<p class="example">The following is a simple example that takes portions of the
+Swedish tailoring plus part of a Japanese tailoring, for illustration. For more
+complete examples, see the actual locale data: Japanese, Chinese, Swedish,
+Traditional German are particularly illustrative.</p>
 <pre>&lt;collation&gt;
   &lt;base UCA='3.1.1'&gt;
 &nbsp; &lt;settings caseLevel=&quot;on&quot;/&gt;
-&nbsp; &lt;rules&gt;
-<font color="#00FF00">        &lt;!-- this example takes the swedish tailoring plus part of a japanese tailoring, 
-        for illustration --&gt;
+&nbsp; &lt;rules&gt;<font color="#00FF00">
 </font>        &lt;reset&gt;Z&lt;/reset&gt;
         &lt;p&gt;æ&lt;/p&gt;
         &lt;t&gt;Æ&lt;/t&gt;
@@ -1512,8 +1601,8 @@ such as the following example:</p>
 &lt;/localeData&gt;</pre>
 <h3><a name="ISO_TR_14652">ISO TR 14652</a></h3>
 <p>The following is <a href="http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n897-14652w25.pdf">ISO
-TR 14652</a> compatibility data. (This section is here because TR 14652 data is
-used in RedHat LINUX, otherwise would not be included here.)</p>
+TR 14652</a> compatibility data. This section is here because portions of TR
+14652 data may used in LINUX distributions and other systems.</p>
 <p class="note">Note: 14652 is a Type 1 TR: &quot;when the required support
 cannot be obtained for the publication of an International Standard, despite
 repeated effort&quot;. See the ballot comments on <a href="http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n948-J1N6769-14652.pdf">14652
@@ -1525,8 +1614,8 @@ OpenOffice.</p>
 <p class="example">Examples:</p>
 <pre>&lt;localeData&gt;
 ...
-  &lt;special owner=&quot;http://www.redhat.com&quot;&gt;
-    &lt;iso14652 xmlns:iso14652=&quot;http://oss.software.ibm.com/icu/iso14652&quot;&gt;
+  &lt;special owner=&quot;http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n897-14652w25.pdf&quot;&gt;
+    &lt;iso14652&gt;
             &lt;addressFormat&gt;
                 &lt;postalPattern&gt;&quot;%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N&quot;&lt;/postalPattern&gt;
             &lt;/addressFormat&gt;
@@ -1575,8 +1664,7 @@ OpenOffice.</p>
             &lt;/countryInfo&gt;
     &lt;/iso14652&gt;
   &lt;/special&gt;
-&lt;localeData&gt;
-</pre>
+&lt;localeData&gt;</pre>
 
 </body>
 

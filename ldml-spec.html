@@ -30,15 +30,16 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   <tr>
     <td class="white" height="27"><i>Summary:</i></td>
     <td class="white" height="27">This document describes an XML format (<i>vocabulary</i>) 
-      for the exchange of structured locale data.</td>
+      for the exchange of structured locale data. For more information, see the <a href="http://www.openi18n.org/subgroups/lade/locale/index.htm">openI18n 
+      page.</a> </td>
   </tr>
   <tr>
     <td class="white" height="27"><i>Version:</i></td>
-    <td class="white" height="27"><font color="#FF0000"><b>0.8 (draft 7)</b></font></td>
+    <td class="white" height="27"><font color="#FF0000"><b>1.0 (draft)</b></font></td>
   </tr>
   <tr>
     <td class="white" height="27"><i>Date:</i></td>
-    <td class="white" height="27">2003-05-06</td>
+    <td class="white" height="27">2003-06-06</td>
   </tr>
   <tr>
     <td class="white" height="25"><i>Author:</i></td>
@@ -55,6 +56,11 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   <tr>
     <td class="white" height="27"><i>Feedback:</i></td>
     <td class="white" height="27"><a href="http://www.openi18n.org/locale-bugs/public">http://www.openi18n.org/locale-bugs/public</a></td>
+  </tr>
+  <tr>
+    <td class="white" height="27"><i>License:</i></td>
+    <td class="white" height="27">See <a href="#Copyright_and_Permission_Notice">Copyright 
+      and Permission Notice</a></td>
   </tr>
 </table>
 <h2><a name="Contents">Contents</a></h2>
@@ -119,8 +125,11 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   </li>
   <li><a href="#Supplemental_Data">Appendix C: Supplemental Data</a></li>
   <li>
-    <p class="changed"><a href="#Language_and_Locale_IDs">Appendix D: Language 
+    <p class="noStyle"><a href="#Language_and_Locale_IDs">Appendix D: Language 
     and Locale IDs</a></li>
+  <li>
+    <p class="changed"><a href="#Copyright_and_Permission_Notice">Copyright and 
+    Permission Notice</a></li>
 </ul>
 <h2><a name="Introduction">Introduction</a></h2>
 <p>Not long ago, computer systems were like separate worlds, isolated from one 
@@ -225,22 +234,22 @@ in LDML. These include:</p>
         list).</li>
     </ul>
   <li>
-    <p class="changed"><a href="http://www.evertype.com/standards/iso15924/">ISO 
+    <p class="noStyle"><a href="http://www.evertype.com/standards/iso15924/">ISO 
     15924</a> (script codes)
     <ul>
       <li>
-        <p class="changed"><a href="http://www.evertype.com/standards/iso15924/document/dis15924.pdf">Older 
+        <p class="noStyle"><a href="http://www.evertype.com/standards/iso15924/document/dis15924.pdf">Older 
         version with Actual List</a></li>
     </ul>
   </li>
 </ul>
-<p class="changed">Other sources that may be useful for comparison include:</p>
+<p class="noStyle">Other sources that may be useful for comparison include:</p>
 <ul>
   <li>
-    <p class="changed">Windows <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemGlobalizationCultureInfoClassTopic.asp">Culture 
+    <p class="noStyle">Windows <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemGlobalizationCultureInfoClassTopic.asp">Culture 
     Info</a> (with&nbsp; mappings from RFC 3066-style codes to LCIDs)</li>
   <li>
-    <p class="changed">Java <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/util/Locale.html" target="classFrame">Locale</a></li>
+    <p class="noStyle">Java <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/util/Locale.html" target="classFrame">Locale</a></li>
 </ul>
 <h2><a name="Locale">What is a locale?</a></h2>
 <p>Before diving into the XML structure, it is helpful to describe the model 
@@ -300,9 +309,9 @@ resource is called a <i>resource tag.</i></p>
   <pre><i>base_locale_id</i> := <i>language_code </i>(&quot;_&quot; <i>script_code)? </i>(&quot;_&quot; <i>territory_code)? </i>(&quot;_&quot; <i>variant_code</i>)?</pre>
   <pre><i>options</i> := &quot;@&quot; <i>key</i> &quot;=&quot; <i>type</i> (&quot;,&quot; <i>key</i> &quot;=&quot; <i>type</i> )*</pre>
 </blockquote>
-<p class="changed">As usual x? means that x is optional; x* means that x occurs 
+<p class="noStyle">As usual x? means that x is optional; x* means that x occurs 
 zero or more times.</p>
-<p class="changed">The field values are given in the following table. All field 
+<p class="noStyle">The field values are given in the following table. All field 
 values are case-insensitive, except for the key and type, which are 
 case-sensitive. However, customarily the language code is lowercase, the 
 territory and variant codes are uppercase, and the script code is titlecase 
@@ -317,16 +326,16 @@ territory and variant codes are uppercase, and the script code is titlecase
   <tr>
     <td><i>language_code</i></td>
     <td>ASCII letters</td>
-    <td class="changed"><a href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_639.html">ISO-639</a> 
+    <td class="noStyle"><a href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_639.html">ISO-639</a> 
       2-letter codes where they exist; otherwise 3-letter codes (the mapping 
       between 2-letter codes and 3-letter codes is not part of this format.), <i>or</i> 
       <a href="http://www.ietf.org/rfc/rfc3066.txt">RFC 3066</a> codes that do 
       not contain script or territory codes.</td>
   </tr>
   <tr>
-    <td class="changed"><i>script_code</i></td>
-    <td class="changed">ASCII letters</td>
-    <td class="changed"><a href="http://www.evertype.com/standards/iso15924/">ISO 
+    <td class="noStyle"><i>script_code</i></td>
+    <td class="noStyle">ASCII letters</td>
+    <td class="noStyle"><a href="http://www.evertype.com/standards/iso15924/">ISO 
       15924</a> 4-letter codes. In most cases the script is implicit, since the 
       language is only customarily written in a single script.</td>
   </tr>
@@ -365,20 +374,19 @@ the those guidelines are that the locale id:</p>
     Unicode),</li>
   <li>adds the ability to have a variant, as in Java</li>
   <li>
-    <p class="changed">adds the ability to discriminate the written language by 
+    <p class="noStyle">adds the ability to discriminate the written language by 
     script (or script variant).</li>
   <li>
-    <p class="changed">is a superset of <a href="http://www.ietf.org/rfc/rfc3066.txt">RFC 
+    <p class="noStyle">is a superset of <a href="http://www.ietf.org/rfc/rfc3066.txt">RFC 
     3066</a> codes.</li>
 </ol>
-<p class="note"><span class="changed"><b>Note:</b> The language + script + 
-territory code combination can itself be considered simply a language code: For 
-more information, see <a href="#Language_and_Locale_IDs">Appendix D: Language 
-and Locale IDs</a>.</span></p>
+<p class="note"><b>Note:</b> The language + script + territory code combination 
+can itself be considered simply a language code: For more information, see <a href="#Language_and_Locale_IDs">Appendix 
+D: Language and Locale IDs</a>.</p>
 <p>A locale that only has a language code (and possibly a script code) is called 
 a <i>language locale</i>; one with both language and territory codes is called a 
 <i>territory locale</i> (or <i>country locale</i>).</p>
-<p class="changed">The variant codes specify particular variants of the locale, 
+<p class="noStyle">The variant codes specify particular variants of the locale, 
 typically with special options. They cannot overlap with script or territory 
 codes, so they must have either one letter or have more than 4 letters. The 
 currently defined variants include:</p>
@@ -389,11 +397,11 @@ currently defined variants include:</p>
     <th align="left">Description</th>
   </tr>
   <tr>
-    <td class="changed">bokmal</td>
+    <td class="noStyle">bokmal</td>
     <td>Bokmål, variant of Norwegian</td>
   </tr>
   <tr>
-    <td class="changed">nynorsk</td>
+    <td class="noStyle">nynorsk</td>
     <td>Nynorsk, variant of Norwegian</td>
   </tr>
   <tr>
@@ -586,13 +594,15 @@ different elements and attributes. You may wish to have copies of each of these
 to hand as you proceed through the rest of this document.</p>
 <p class="note">Note: To compare with the ICU locale data format and contents, 
 see <a href="http://oss.software.ibm.com/cvs/icu/icu/source/data/">ICU Data</a>.</p>
+<p>The namespace for this specification is <a href="http://www.openi18n.org/subgroups/lade/locale/ldml1.0">http://www.openi18n.org/subgroups/lade/locale/ldml1.0</a>. 
+</p>
 <h3><a name="Common_Elements">Common Elements</a></h3>
 <p>At any level in any element, two special elements are allowed.</p>
-<p class="element2">&lt;special owner=&quot;xxx&quot;&gt;</p>
+<p class="element2">&lt;special xmlns=&quot;xxx&quot;&gt;</p>
 <p>This element is designed to allow for arbitrary additional annotation and 
 data that is product-specific. It has one required attribute, which specifies 
-the owner of the special data. For uniqueness, that owner is specified by means 
-of a URL. For example:</p>
+the XML <a href="http://www.w3.org/TR/REC-xml-names/">namespace</a> of the 
+special data. For example:</p>
 <pre>&lt;special owner=&quot;http://www.opengroup.org/regproducts/xu.htm&quot;&gt;
     &lt;!-- old abbreviations for pre-GUI days --&gt;
     &lt;messages&gt;
@@ -706,7 +716,7 @@ values described above.</p>
 <p class="element2">&lt;territory type=&quot;US&quot;/&gt;</p>
 <p>The territory code is a common part of the specification of the locale id, 
 with values as described above.</p>
-<p class="element2">&lt;variant type=&quot;BU&quot;/&gt;</p>
+<p class="changed">&lt;variant type=&quot;nynorsk&quot;/&gt;</p>
 <p>The variant code is the tertiary part of the specification of the locale id, 
 with values as described above.</p>
 <h3><a name="&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></h3>
@@ -753,7 +763,7 @@ as described in <a href="#Locale_IDs">Locale_IDs</a>.</p>
 <p>This contains a list of elements that provide the user-translated names for 
 the <i>variant_code</i> values described in <a href="#Locale_IDs">Locale_IDs</a>.</p>
 <blockquote>
-  <p>&lt;variant type=&quot;NY&quot;&gt;Nynorsk&lt;/variant&gt;</p>
+  <p>&lt;variant type=&quot;nynorsk&quot;&gt;Nynorsk&lt;/variant&gt;</p>
 </blockquote>
 <p class="element2">&lt;keys&gt;</p>
 <p>This contains a list of elements that provide the user-translated names for 
@@ -832,12 +842,22 @@ registry that can be used is &quot;iana&quot;, which specifies use of&nbsp; an <
 name</a>.&nbsp; Note: while IANA names are not precise for conversion (see <a href="http://www.unicode.org/unicode/reports/tr22/">UTR 
 #22: Character Mapping Tables</a>), they are sufficient for this purpose.</p>
 <h3><a name="&lt;delimiters&gt;">&lt;delimiters&gt;</a></h3>
-<p>The delimiters supply common delimiters for bracketing. The values should be 
-self-explanatory, so only some examples are given:</p>
-<pre>&lt;quotationStart&gt;‘&lt;/quotationStart&gt;
-&lt;quotationEnd&gt;’&lt;/quotationEnd&gt;
-&lt;doubleQuotationStart&gt;“&lt;/doubleQuotationStart&gt;
-&lt;doubleQuotationEnd&gt;”&lt;/doubleQuotationEnd&gt;</pre>
+<p class="changed">The delimiters supply common delimiters for bracketing 
+quotations. The quotation marks are used with simple quoted text, such as:</p>
+<blockquote>
+  <p class="changed">He said, “Don’t be absurd!”</p>
+</blockquote>
+<p class="changed">The alternate marks are used with embedded quotations, such 
+as:</p>
+<blockquote>
+  <p class="changed">He said, “Remember what the Mad Hatter said: ‘Not the 
+  same thing a bit! Why you might just as well say that “I see what I eat” 
+  is the same thing as “I eat what I see”!’”</p>
+</blockquote>
+<p class="changed"><code>&lt;quotationStart&gt;</code>“<code>&lt;/quotationStart&gt;</code><br>
+<code>&lt;quotationEnd&gt;</code>”<code>&lt;/quotationEnd&gt;</code><br>
+<code>&lt;alternateQuotationStart&gt;</code>‘<code>&lt;/alternateQuotationStart&gt;</code><br>
+<code>&lt;alternateQuotationEnd&gt;</code>’<code>&lt;/alternateQuotationEnd&gt;</code></p>
 <h3><a name="&lt;measurement&gt;">&lt;measurement&gt;</a></h3>
 <pre>&lt;measurementSystem type=&quot;US&quot;/&gt;</pre>
 <p>The measurement system is the normal measurement system in common everyday 
@@ -937,16 +957,15 @@ the differing data will be present.</p>
         &lt;era type=&quot;0&quot;&gt;Before Christ&lt;/era&gt;
         &lt;era type=&quot;1&quot;&gt;Anno Domini&lt;/era&gt;
        &lt;/eraName&gt;
-    &lt;/eras&gt;
-
-    &lt;dateFormats&gt;
+    &lt;/eras&gt;</pre>
+<pre class="changed">    &lt;dateFormats&gt;
       &lt;default type=”medium”/&gt;
-      &lt;dateFormatStyle type=”full”&gt;
+      &lt;dateFormatLength type=”full”&gt;
         &lt;dateFormat&gt;
           &lt;pattern&gt;EEEE, MMMM d, yyyy&lt;/pattern&gt;
         &lt;/dateFormat&gt;
-       &lt;/dateFormatStyle&gt;
-     &lt;dateFormatStyle type=&quot;medium&quot;&gt;
+       &lt;/dateFormatLength&gt;
+     &lt;dateFormatLength type=&quot;medium&quot;&gt;
        &lt;default type=&quot;DateFormatsKey2&quot;&gt;
        &lt;dateFormat type=&quot;DateFormatsKey2&quot;&gt;
         &lt;pattern&gt;MMM d, yyyy&lt;/pattern&gt;
@@ -954,22 +973,32 @@ the differing data will be present.</p>
        &lt;dateFormat type=&quot;DateFormatsKey3&quot;&gt;
          &lt;pattern&gt;MMM dd, yyyy&lt;/pattern&gt;
         &lt;/dateFormat&gt;
-      &lt;/dateFormatStyle&gt;
+      &lt;/dateFormatLength&gt;
     &lt;dateFormats&gt;</pre>
-<pre>     &lt;timeFormats&gt;
+<pre class="changed">     &lt;timeFormats&gt;
        &lt;default type=&quot;medium&quot;/&gt;
-       &lt;timeFormat type=&quot;full&quot;&gt;
-         &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
-         &lt;pattern&gt;h:mm:ss a z&lt;/pattern&gt;
-       &lt;/timeFormat&gt;
-       &lt;timeFormat type=&quot;medium&quot;&gt;
-         &lt;pattern&gt;h:mm:ss a&lt;/pattern&gt;
-       &lt;/timeFormat&gt;
+       &lt;timeFormatLength type=”full”&gt;
+         &lt;timeFormat&gt;
+           &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
+           &lt;pattern&gt;h:mm:ss a z&lt;/pattern&gt;
+         &lt;/timeFormat&gt;
+       &lt;/timeFormatLength&gt;
+       &lt;timeFormatLength type=&quot;medium&quot;&gt;
+         &lt;timeFormat&gt;
+           &lt;pattern&gt;h:mm:ss a&lt;/pattern&gt;
+         &lt;/timeFormat&gt;
+       &lt;/timeFormatLength&gt;
      &lt;/timeFormats&gt;
-     &lt;dateTimeFormat&gt;
-       &lt;pattern&gt;{0} {1}&lt;/pattern&gt;
-     &lt;/dateTimeFormat&gt;
-  &lt;/calendar&gt;
+
+     &lt;dateTimeFormats&gt;
+       &lt;default type=&quot;medium&quot;/&gt;
+       &lt;dateTimeFormatLength type=”full”&gt;
+         &lt;dateTimeFormat&gt;
+            &lt;pattern&gt;{0} {1}&lt;/pattern&gt;
+         &lt;/dateTimeFormat&gt;
+       &lt;/dateTimeFormatLength&gt;
+     &lt;/dateTimeFormats&gt;</pre>
+<pre>  &lt;/calendar&gt;
 
   &lt;calendar class=&quot;thai-buddhist&quot;&gt;
     &lt;eras&gt;
@@ -1064,25 +1093,40 @@ Explorer</a> (pick the locale and scroll to &quot;Number Patterns&quot;).</p>
       &lt;infinity&gt;∞&lt;/infinity&gt;
       &lt;nan&gt;☹&lt;/nan&gt;
 &lt;/symbols&gt;</pre>
-<pre><a name="&lt;numberFormats&gt;">&lt;numberFormats&gt;</a>
-  &lt;numberFormatStyle type=“decimal”&gt;
-    &lt;numberFormat type=”long”&gt;
-      &lt;pattern type=“positive”&gt;#,##0.###&lt;/pattern&gt;
-      &lt;pattern type=“negative”&gt;-#,##0.###&lt;/pattern&gt;
-    &lt;/numberFormat&gt;
-  &lt;/numberFormatStyle&gt;
-  &lt;numberFormatStyle type=“percent”&gt;
-    &lt;numberFormat type=”short”&gt;
-      &lt;pattern type=“positive”&gt;#,##0%&lt;/pattern&gt;
-    &lt;/numberFormat&gt;
-  &lt;/numberFormatStyle&gt;
-  &lt;numberFormatStyle type=“currency”&gt;
-    &lt;numberFormat type=”medium”&gt;
-     &lt;pattern type=“positive”&gt;¤ #,##0.00;&lt;/pattern&gt;
-     &lt;pattern type=“negative”&gt;(¤ #,##0.00)&lt;/pattern&gt;
-    &lt;/numberFormat&gt;
-  &lt;/numberFormatStyle&gt;
-&lt;/numberFormats&gt;</pre>
+<pre class="changed"><a name="&lt;numberFormats&gt;">&lt;decimalFormats&gt;</a>
+  &lt;decimalFormatLength type=&quot;long&quot;&gt;
+    &lt;decimalFormat&gt;
+      &lt;pattern&gt;#,##0.###&lt;/pattern&gt;
+    &lt;/decimalFormat&gt;
+  &lt;/decimalFormatLength&gt;
+&lt;/decimalFormats&gt;</pre>
+<pre class="changed"><a name="&lt;numberFormats&gt;">&lt;scientificFormats&gt;</a>
+  &lt;default type=&quot;long&quot;&gt;
+  &lt;scientificFormatLength type=&quot;long&quot;&gt;
+    &lt;scientificFormat&gt;
+      &lt;pattern&gt;0.000###E+00&lt;/pattern&gt;
+    &lt;/scientificFormat&gt;
+  &lt;/scientificFormatLength&gt;
+  &lt;scientificFormatLength type=&quot;medium&quot;&gt;
+    &lt;scientificFormat&gt;
+      &lt;pattern&gt;0.00##E+00&lt;/pattern&gt;
+    &lt;/scientificFormat&gt;
+  &lt;/scientificFormatLength&gt;
+&lt;/scientificFormats&gt;</pre>
+<pre class="changed"><a name="&lt;numberFormats&gt;">&lt;percentFormats&gt;</a>
+  &lt;percentFormatLength type=&quot;long&quot;&gt;
+    &lt;percentFormat&gt;
+      &lt;pattern&gt;#,##0%&lt;/pattern&gt;
+    &lt;/percentFormat&gt;
+  &lt;/percentFormatLength&gt;
+&lt;/percentFormats&gt;</pre>
+<pre class="changed"><a name="&lt;numberFormats&gt;">&lt;currencyFormats&gt;</a>
+  &lt;currencyFormatLength type=&quot;long&quot;&gt;
+    &lt;currencyFormat&gt;
+      &lt;pattern&gt;¤ #,##0.00;(¤ #,##0.00)&lt;/pattern&gt;
+    &lt;/currencyFormat&gt;
+  &lt;/currencyFormatLength&gt;
+&lt;/currencyFormats&gt;</pre>
 <pre><a name="&lt;currencies&gt;">&lt;currencies&gt;</a>
     &lt;currency type=&quot;USD&quot;&gt;
         &lt;displayName&gt;Dollar&lt;/displayName&gt;
@@ -1144,10 +1188,11 @@ Names</a>.</p>
 <h3><a name="&lt;collations&gt;">&lt;collations&gt;</a></h3>
 <p>This section contains one or more collation elements, distinguished by type. 
 Each collation contains rules that specify a certain sort-order, as a tailoring 
-of the UCA table. This syntax is an XMLized version of the Java/ICU syntax. 
-While a summary of the effect of different rules are given here, the specifics 
-of the rules are defined by correspondence with the <i>basic</i> <a href="http://oss.software.ibm.com/icu/userguide/Collate_Customization.html">ICU 
-rule syntax</a> (used in ICU and Java) and/or the ICU parameterizations.</p>
+of the UCA table. (For a chart view of the UCA, see <a href="http://www.unicode.org/charts/collation/">Collation 
+Chart</a>.) This syntax is an XMLized version of the Java/ICU syntax. <span class="changed">For 
+illustration, the rules are accompanied by the corresponding <i>basic</i> <a href="http://oss.software.ibm.com/icu/userguide/Collate_Customization.html">ICU 
+rule syntax</a> (used in ICU and Java) and/or the ICU parameterizations, and the 
+basic syntax may be used in examples.</span></p>
 <p class="note"><b>Note: </b>ICU provides a concise format for specifying 
 orderings, based on tailorings to the UCA. For example, to specify that k and q 
 follow 'c', one can use the rule: &quot;&amp; c &lt; k &lt; q&quot;. The rules 
@@ -1156,18 +1201,15 @@ uppercase is before lowercase or not. (Java contains an earlier version of ICU,
 and has not been updated recently. It does not support any of the basic syntax 
 marked with [...], and its default table is not the UCA.)</p>
 <p class="note">However, it is <b>not</b> necessary for ICU to be used in the 
-underlying implementation. The features are simply described here in terms of 
-the ICU capabilities, since that is easier than duplicating the text. In a final 
-version of the specification, the details of the semantics will be copied here.</p>
-<p class="note"><b>Note: </b>there is an on-line demonstration of collation at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale 
+underlying implementation. <span class="changed">The features are simply related 
+to the ICU capabilities, since that supplies more detailed examples.</span> <b>Note: 
+</b>there is an on-line demonstration of collation at <a href="http://oss.software.ibm.com/cgi-bin/icu/lx">Locale 
 Explorer</a> (pick the locale and scroll to &quot;Collation Rules&quot;).</p>
 <p>Like the ICU rules, the tailoring syntax is designed to be independent of the 
 actual weights used in any particular UCA table. That way the same rules can be 
 applied to UCA versions over time, even if the underlying weights change. The 
 following describes the overall document structure of a collation:</p>
 <p><code><a name="&lt;collation&gt;">&lt;collation&gt;</a><br>
-&nbsp;&lt;special owner=&quot;http://oss.software.ibm.com/icu/&quot; 
-version=&quot;1.2&quot; /&gt;<br>
 &nbsp;&lt;uca version='3.1.1'&gt;<br>
 &nbsp;&lt;settings caseLevel=&quot;on&quot;/&gt;<br>
 &nbsp;&lt;rules&gt;<br>
@@ -1175,8 +1217,10 @@ version=&quot;1.2&quot; /&gt;<br>
 </font>&nbsp;&lt;/rules&gt;<br>
 &lt;/collation&gt;</code></p>
 <h3><a name="Collation_Version">Version</a></h3>
-<p>All collations are specified by rules that are tailorings of the UCA, so the 
-specific version of the UCA is required.</p>
+<p class="changed">The version is used in case a specific version of the UCA is 
+to be specified. It must be specified if the results are to be identical on 
+different systems. If it is not supplied, then the version is assumed to be the 
+same as the Unicode version for the system as a whole.</p>
 <blockquote>
   <p><i><b>Note: </b>For version 3.1.1 of the UCA, the version of Unicode must 
   also be specified with any versioning information. This has been changed as of 
@@ -1199,49 +1243,7 @@ rule syntax</a>).</p>
       <th>Options</th>
       <th>Basic Example &nbsp;</th>
       <th>XML Example</th>
-    </tr>
-    <tr>
-      <td>alternate</td>
-      <td><i>non-ignorable</i><br>
-        shifted</td>
-      <td><font color="#000000"><code>[alternate non-ignorable]</code></font></td>
-      <td><code>alternate=&quot;non-ignorable&quot;</code></td>
-    </tr>
-    <tr>
-      <td>backwards</td>
-      <td>on<br>
-        <i>off</i></td>
-      <td><font color="#000000"><code>[backwards on] &nbsp;</code></font></td>
-      <td><code>backwards=&quot;on&quot;</code></td>
-    </tr>
-    <tr>
-      <td>normalization</td>
-      <td>on<br>
-        off</td>
-      <td><font color="#000000"><code>[normalization on]&nbsp;</code></font></td>
-      <td><code>normalization=&quot;off&quot;</code></td>
-    </tr>
-    <tr>
-      <td>caseLevel</td>
-      <td>on<br>
-        off</td>
-      <td><font color="#000000"><code>[caseLevel on]</code></font></td>
-      <td><code>caseLevel=&quot;off&quot;</code></td>
-    </tr>
-    <tr>
-      <td>caseFirst</td>
-      <td>upper<br>
-        lower<br>
-        off</td>
-      <td><font color="#000000"><code>[caseFirst off]</code></font></td>
-      <td><code>caseFirst=&quot;off&quot;</code></td>
-    </tr>
-    <tr>
-      <td>hiraganaQ</td>
-      <td>on<br>
-        off</td>
-      <td><code>[hiraganaQ on]</code></td>
-      <td><code>hiraganaQuarternary=&quot;on&quot;</code></td>
+      <th class="changed">Description</th>
     </tr>
     <tr>
       <td><font color="#000000">strength</font></td>
@@ -1251,7 +1253,73 @@ rule syntax</a>).</p>
         quarternary (4)<br>
         identical (5)</td>
       <td><code>[strength 1]</code></td>
-      <td><code>strength=&quot;primary&quot;</code></td>
+      <td><code>strength = &quot;primary&quot;</code></td>
+      <td class="changed">Sets the default strength for comparison, as described 
+        in the UCA.</td>
+    </tr>
+    <tr>
+      <td>alternate</td>
+      <td><i>non-ignorable</i><br>
+        shifted</td>
+      <td><code>[alternate non-ignorable]</code></td>
+      <td><code>alternate = &quot;non-ignorable&quot;</code></td>
+      <td class="changed">Sets alternate handling for variable weights, as 
+        described in UCA</td>
+    </tr>
+    <tr>
+      <td>backwards</td>
+      <td>on<br>
+        <i>off</i></td>
+      <td><code>[backwards on] &nbsp;</code></td>
+      <td><code>backwards = &quot;on&quot;</code></td>
+      <td class="changed">Sets the comparison to be backwards 
+        (&quot;French&quot;), as s described in UCA</td>
+    </tr>
+    <tr>
+      <td>normalization</td>
+      <td>on<br>
+        off</td>
+      <td><code>[normalization on]&nbsp;</code></td>
+      <td><code>normalization = &quot;off&quot;</code></td>
+      <td class="changed">If <i>on</i>, then the normal UCA algorithm is used. 
+        If <i>off</i>, then all strings that are in <a href="http://www.unicode.org/notes/tn5/">FCD</a> 
+        will sort correctly, but others won't. So should only be set <i>off</i> 
+        if the the strings to be compared are in FCD.</td>
+    </tr>
+    <tr>
+      <td>caseLevel</td>
+      <td>on<br>
+        off</td>
+      <td><code>[caseLevel on]</code></td>
+      <td><code>caseLevel = &quot;off&quot;</code></td>
+      <td class="changed">If set to <i>on,</i> a level consisting only of case 
+        characteristics will be inserted in front of tertiary level. To ignore 
+        accents but take cases into account, set strength to primary and case 
+        level to <i>on</i>.&nbsp;</td>
+    </tr>
+    <tr>
+      <td>caseFirst</td>
+      <td>upper<br>
+        lower<br>
+        off</td>
+      <td><code>[caseFirst off]</code></td>
+      <td><code>caseFirst = &quot;off&quot;</code></td>
+      <td class="changed">If set to <i>upper</i>, causes upper case to sort 
+        before lower case. If set to <i>lower</i>, lower case will sort before 
+        upper case. Useful for locales that have already supported ordering but 
+        require different order of cases. Affects case and tertiary levels.</td>
+    </tr>
+    <tr>
+      <td>hiraganaQ</td>
+      <td>on<br>
+        off</td>
+      <td><code>[hiraganaQ on]</code></td>
+      <td><code>hiragana­Quarternary = &quot;on&quot;</code></td>
+      <td class="changed">Controls special treatment of Hiragana code points on 
+        quaternary level. If turned <i>on</i>, Hiragana codepoints will get 
+        lower values than all the other non-variable code points. The strength 
+        must be greater or equal than quaternary if you want this attribute to 
+        take effect.</td>
     </tr>
   </tbody>
 </table>
@@ -1270,12 +1338,98 @@ longer names.</p>
   stability; assigning characters specific weights would not work, since the 
   exact weight assignment in UCA (or ISO 14651) is not required for conformance 
   -- only the relative ordering of the weights. In addition, stating rules in 
-  terms of relative order is less sensitive to changes over time in the UCA 
+  terms of relative order is much less sensitive to changes over time in the UCA 
   itself.</p>
 </blockquote>
 <h3><a name="Orderings">Orderings</a></h3>
-<p>The following are the normal ordering actions used for the bulk of 
-characters.</p>
+<p class="changed">The following are the normal ordering actions used for the 
+bulk of characters. Each rule contains a string of ordered characters that 
+starts with an anchor point or a reset value. The reset value is an absolute 
+point in the UCA that determines the order of other characters. For example, the 
+rule &amp; a &lt; g, places &quot;g&quot; after &quot;a&quot; in a tailored UCA: 
+the &quot;a&quot; does not change place. Logically, subsequent rule after a 
+reset indicates a change to the ordering (and comparison strength) of the 
+characters in the UCA. For example, the UCA has the following sequence 
+(abbreviated for illustration):</p>
+<p class="changed">... a &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> 
+A &lt;<sub>3</sub> Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª &lt;<sub>2</sub> 
+á &lt;<sub>3</sub> Á &lt;<sub>1</sub> æ &lt;<sub>3</sub> Æ &lt;<sub>1</sub> 
+ɐ &lt;<sub>1</sub> ɑ &lt;<sub>1</sub> ɒ &lt;<sub>1</sub> b &lt;<sub>3</sub> 
+ｂ &lt;<sub>3</sub> ⓑ &lt;<sub>3</sub> B &lt;<sub>3</sub> Ｂ &lt;<sub>3</sub> 
+ℬ ...</p>
+<p class="changed">Whenever a character is inserted into the UCA sequence, it is 
+inserted at the first point where the strength difference will not disturb the 
+other characters in the UCA. For example, &amp; a &lt; g puts <i>g</i> in the 
+above sequence with a strength of L1. Thus the <i>g</i> must go in after any 
+lower strengths,&nbsp; as follows:</p>
+<p class="changed">... a &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> 
+A &lt;<sub>3</sub> Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª &lt;<sub>2</sub> 
+á &lt;<sub>3</sub> Á <b><font color="#FF0000">&lt;<sub>1</sub> g </font></b>&lt;<sub>1</sub> 
+æ &lt;<sub>3</sub> Æ &lt;<sub>1</sub> ɐ &lt;<sub>1</sub> ɑ &lt;<sub>1</sub> 
+ɒ &lt;<sub>1</sub> b &lt;<sub>3</sub> ｂ &lt;<sub>3</sub> ⓑ &lt;<sub>3</sub> 
+B &lt;<sub>3</sub> Ｂ &lt;<sub>3</sub> ℬ ...</p>
+<p class="changed">The rule &amp; a &lt;&lt; g, which uses a level-2 strength, 
+would produce the following sequence:</p>
+<p class="changed">... a &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> 
+A &lt;<sub>3</sub> Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª <b><font color="#FF0000">&lt;<sub>2</sub> 
+g</font></b> &lt;<sub>2</sub> á &lt;<sub>3</sub> Á<b><font color="#FF0000"> </font></b>&lt;<sub>1</sub> 
+æ &lt;<sub>3</sub> Æ &lt;<sub>1</sub> ɐ &lt;<sub>1</sub> ɑ &lt;<sub>1</sub> 
+ɒ &lt;<sub>1</sub> b &lt;<sub>3</sub> ｂ &lt;<sub>3</sub> ⓑ &lt;<sub>3</sub> 
+B &lt;<sub>3</sub> Ｂ &lt;<sub>3</sub> ℬ ...</p>
+<p class="changed">And the rule &amp; a &lt;&lt;&lt; g, which uses a level-3 
+strength, would produce the following sequence:</p>
+<p class="changed">... a <b><font color="#FF0000">&lt;<sub>3</sub> g</font></b> 
+&lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> A &lt;<sub>3</sub> 
+Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª &lt;<sub>2</sub> á &lt;<sub>3</sub> 
+Á<b><font color="#FF0000"> </font></b>&lt;<sub>1</sub> æ &lt;<sub>3</sub> Æ 
+&lt;<sub>1</sub> ɐ &lt;<sub>1</sub> ɑ &lt;<sub>1</sub> ɒ &lt;<sub>1</sub> b 
+&lt;<sub>3</sub> ｂ &lt;<sub>3</sub> ⓑ &lt;<sub>3</sub> B &lt;<sub>3</sub> 
+Ｂ &lt;<sub>3</sub> ℬ ...</p>
+<p class="changed">Since resets always work on the existing state, the rule 
+entries must be are in the proper order. A character or sequence may occur 
+multiple times; each subsequent occurrence causes a different change. The 
+following shows the result of serially applying a three rules.</p>
+<table cellspacing="2" cellpadding="2" border="0">
+  <tbody>
+    <tr>
+      <th valign="center" align="middle" bgcolor="#9999CC" class="changed">&nbsp;</th>
+      <th valign="center" align="middle" bgcolor="#9999CC" class="changed">Rules 
+        &nbsp;</th>
+      <th valign="center" align="middle" bgcolor="#9999CC" class="changed">Result</th>
+      <th valign="center" align="middle" bgcolor="#9999CC" class="changed">Comment 
+        &nbsp;</th>
+    </tr>
+    <tr>
+      <td valign="top" align="left" bgcolor="#ccccff" class="changed">1</td>
+      <td valign="top" align="left" bgcolor="#ccccff" class="changed">&amp; a 
+        &lt; g</td>
+      <td valign="top" align="left" bgcolor="#ccccff" class="changed">... a<font color="#FF0000"> 
+        &lt;<sub>1</sub> g</font> ...</td>
+      <td valign="top" align="left" bgcolor="#ccccff" class="changed">Put g 
+        after a.</td>
+    </tr>
+    <tr>
+      <td valign="top" align="left" bgcolor="#ccccff" class="changed">2</td>
+      <td valign="top" align="left" bgcolor="#ccccff" class="changed">&amp; a 
+        &lt; h &lt; k</td>
+      <td valign="top" align="left" bgcolor="#ccccff" class="changed">... a<font color="#FF0000"> 
+        &lt;<sub>1</sub> h &lt;<sub>1</sub> k</font> &lt;<sub>1</sub> g ...</td>
+      <td valign="top" align="left" bgcolor="#ccccff" class="changed">Now put h 
+        and k after a (inserting before the g).</td>
+    </tr>
+    <tr>
+      <td valign="top" align="left" bgcolor="#ccccff" class="changed">3</td>
+      <td valign="top" align="left" bgcolor="#ccccff" class="changed">&amp; h 
+        &lt;&lt; g</td>
+      <td valign="top" align="left" bgcolor="#ccccff" class="changed">... a &lt;<sub>1</sub> 
+        h<font color="#FF0000"> &lt;<sub>1</sub> g</font> &lt;<sub>1</sub> k ...</td>
+      <td valign="top" align="left" bgcolor="#ccccff" class="changed">Now put g 
+        after h (inserting before k).</td>
+    </tr>
+  </tbody>
+</table>
+<p class="changed">Notice that characters can occur multiple times, and thus 
+override previous rules.</p>
 <table>
   <caption>Specifying Collation Ordering</caption>
   <tbody>
@@ -1648,7 +1802,8 @@ example, in 3.1.1, the value is at:</p>
 <p>The <i>suppress contractions</i> tailoring command turns off any existing 
 contractions that begin with those characters. It is typically used to turn off 
 the Cyrillic contractions in the UCA, since they are not used in many languages 
-and have a considerable performance penalty. The argument is a <a href="http://oss.software.ibm.com/icu/userguide/unicodeSet.html">UnicodeSet</a>.</p>
+and have a considerable performance penalty. The argument is a Unicode Set, with 
+syntax as in <a href="http://oss.software.ibm.com/icu/userguide/unicodeSet.html">UnicodeSet</a>.</p>
 <p>The <i>optimize</i> tailoring command is purely for performance. It indicates 
 that those characters are sufficiently common in the target language for the 
 tailoring that their performance should be enhanced.</p>
@@ -1722,7 +1877,7 @@ roman numerals, or for ordinal numbers (1<sup>st</sup>, 2<sup>nd</sup>, 3<sup>rd
 The rules are fairly sophisticated; for details see <a href="http://oss.software.ibm.com/icu/apiref/classRuleBasedNumberFormat.html#_details">Rule-Based 
 Number Format</a>.</p>
 <p class="example">Example:</p>
-<pre>&lt;special owner=&quot;http://oss.software.ibm.com/icu&quot;&gt;
+<pre>&lt;special xmlns=&quot;http://oss.software.ibm.com/icu&quot;&gt;
   &lt;ruleBasedNumberFormats&gt;
     &lt;ruleBasedNumberFormat type=&quot;spellout&quot;&gt;
                 %%and:
@@ -1756,7 +1911,7 @@ Rule Syntax</a>. (The format will be moved into the ICU User Guide soon.) The
 enclosing special element is a sub-element of &lt;localeData&gt;.</p>
 <pre>&lt;localeData&gt;
 ...
-  &lt;special owner=&quot;http://oss.software.ibm.com/icu&quot;&gt;
+  &lt;special xmlns=&quot;http://oss.software.ibm.com/icu&quot;&gt;
     &lt;boundaries&gt;
       &lt;grapheme class=&quot;RuleBased&quot; append=&quot;true&quot;&gt;
         <span class="comment">&lt;!-- in addition to the normal rules, treat CH and RR as graphemes. --&gt;</span>
@@ -1784,7 +1939,7 @@ Demo.</a></p>
 Latin, in a Greek locale. The target value can be a script ID or a locale ID.</p>
 <pre>&lt;localeData&gt;
 ...
-  &lt;special  owner=&quot;http://oss.software.ibm.com/icu&quot;&gt;
+  &lt;special xmlns=&quot;http://oss.software.ibm.com/icu&quot;&gt;
     &lt;transforms&gt;
       &lt;transform type=&quot;Latin&quot;&gt;</pre>
 <blockquote>
@@ -1818,7 +1973,7 @@ Latin, in a Greek locale. The target value can be a script ID or a locale ID.</p
 <p>A number of the elements above can have extra information for openoffice.org, 
 such as the following example:</p>
 <pre>&lt;numberFormat type=&quot;currency&quot;&gt;
-  &lt;special owner=&quot;http://www.openoffice.org&quot; msgid=&quot;FixedFormatstype9&quot; usage=&quot;FIXED_NUMBER&quot; formatindex=&quot;4&quot; /&gt;
+  &lt;special xmlns=&quot;http://www.openoffice.org&quot; msgid=&quot;FixedFormatstype9&quot; usage=&quot;FIXED_NUMBER&quot; formatindex=&quot;4&quot; /&gt;
   &lt;pattern type=&quot;positive&quot;&gt;<font size="4">¤</font> #,##0.00;&lt;/pattern&gt;
   &lt;pattern type=&quot;negative&quot;&gt;(<font size="4">¤</font> #,##0.00)&lt;/pattern&gt;
 &lt;/numberFormat&gt;</pre>
@@ -1826,7 +1981,7 @@ such as the following example:</p>
 <p>This is a sample of old POSIX abbreviations for pre-GUI days:</p>
 <pre>&lt;localeData&gt;
 ...
-  &lt;special owner=&quot;http://www.opengroup.org/regproducts/xu.htm&quot;&gt;
+  &lt;special xmlns=&quot;http://www.opengroup.org/regproducts/xu.htm&quot;&gt;
     &lt;messages&gt;
       &lt;no&gt;No&lt;/no&gt;
       &lt;yes&gt;Yes&lt;/yes&gt;
@@ -1850,7 +2005,7 @@ OpenOffice.</p>
 <p class="example">Examples:</p>
 <pre>&lt;localeData&gt;
 ...
-  &lt;special owner=&quot;http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n897-14652w25.pdf&quot;&gt;
+  &lt;special xmlns=&quot;http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n897-14652w25.pdf&quot;&gt;
     &lt;iso14652&gt;
             &lt;addressFormat&gt;
                 &lt;postalPattern&gt;&quot;%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N&quot;&lt;/postalPattern&gt;
@@ -2151,15 +2306,14 @@ a set of half-open intervals:</p>
   </table>
   </center>
 </div>
-<p class="note"><span class="changed"><b>Open issue: </b>We should supply 
-information for mapping locales to a normalized version, thus en_Latin_US would 
-normalize to en_US.</span></p>
-<h2 class="changed">Appendix D: <a name="Language_and_Locale_IDs">Language and 
+<p class="note"><b>Open issue: </b>We should supply information for mapping 
+locales to a normalized version, thus en_Latin_US would normalize to en_US.</p>
+<h2 class="noStyle">Appendix D: <a name="Language_and_Locale_IDs">Language and 
 Locale IDs</a></h2>
-<p class="changed">People have very slippery notions of what distinguishes a 
+<p class="noStyle">People have very slippery notions of what distinguishes a 
 language code vs. a locale code. The problem is that both are somewhat nebulous 
 concepts.</p>
-<p class="changed">In practice, many people use RFC 3066 codes to mean locale 
+<p class="noStyle">In practice, many people use RFC 3066 codes to mean locale 
 codes instead of strictly language codes. It is easy to see why this came about; 
 because RFC 3066 includes an explicit region (territory) code, for most people 
 it was sufficient for use as a locale code as well. For example, when typical 
@@ -2172,7 +2326,7 @@ variation out in the world in the use of these separators. Notice that Windows,
 for example, uses &quot;-&quot; as a separator in its locale codes. So 
 pragmatically one is forced to treat &quot;-&quot; and &quot;_&quot; as 
 equivalent when interpreting either one on imput.</p>
-<p class="changed">Another reason for the conflation of these codes is that very 
+<p class="noStyle">Another reason for the conflation of these codes is that very 
 little data in most systems is distinguished by region alone; currency codes and 
 measurement systems being some of the few. Sometimes date or number formats are 
 mentioned as regional, but that really doesn't make much sense. If people see 
@@ -2184,7 +2338,7 @@ would never expect to see intermixed a date in the format &quot;2003年4月1日&
 (using Kanji) in text purporting to be purely English. There are regional 
 differences in date and number format — differences which can be important — 
 but those are different in kind than other language differences between regions.</p>
-<p class="changed">Notice also that currency <i>codes</i> are different than 
+<p class="noStyle">Notice also that currency <i>codes</i> are different than 
 currency <i>localizations</i>. The currency localizations should normally be in 
 the language-based resource bundles, not in the territory-based resource 
 bundles. Thus, the resource bundle <i>en</i> contains the localized mappings in 
@@ -2194,45 +2348,74 @@ amounts; otherwise the data is ambiguous, and software is forced to use the
 user's territory to guess at the currency. For some informal discussion of this, 
 see <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/jit_localization.html">JIT 
 Localization</a>.)</p>
-<h3 class="changed"><a name="Written_Language">Written Language</a></h3>
-<p class="changed">Criteria for what makes a written language should be purely 
+<h3 class="noStyle"><a name="Written_Language">Written Language</a></h3>
+<p class="noStyle">Criteria for what makes a written language should be purely 
 pragmatic; <i>what would copy-editors say? </i>If one gave them text like the 
 following, they would respond that is far from acceptable English for 
 publication, and ask for it to be redone:</p>
 <ol>
   <li type="A">
-    <p class="changed">&quot;Theatre Center News: The date of the last version 
+    <p class="noStyle">&quot;Theatre Center News: The date of the last version 
     of this document was 2003年3月20日. A copy can be obtained for $50,0 or 
     1.234,57 грн. We would like to acknowledge contributions by the following 
     authors (in alphabetical order): Alaa Ghoneim, Behdad Esfahbod, Ahmed Talaat, 
     Eric Mader, Asmus Freytag, Avery Bishop, and Doug Felt.&quot;</p>
   </li>
 </ol>
-<p class="changed">So one would change it to either B or C below, depending on 
+<p class="noStyle">So one would change it to either B or C below, depending on 
 which orthographic variant of English was the target for the publication:</p>
 <ol type="A" start="2">
   <li>
-    <p class="changed">&quot;Theater Center News: The date of the last version 
+    <p class="noStyle">&quot;Theater Center News: The date of the last version 
     of this document was 3/20/2003. A copy can be obtained for $50.00 or 
     1,234.57 Ukrainian Hryvni. We would like to acknowledge contributions by the 
     following authors (in alphabetical order): Alaa Ghoneim, Ahmed Talaat, Asmus 
     Freytag, Avery Bishop, Behdad Esfahbod, Doug Felt, Eric Mader.&quot;</p>
   <li>
-    <p class="changed">&quot;Theatre Centre News: The date of the last version 
+    <p class="noStyle">&quot;Theatre Centre News: The date of the last version 
     of this document was 20/3/2003. A copy can be obtained for $50.00 or 
     1,234.57 Ukrainian Hryvni. We would like to acknowledge contributions by the 
     following authors (in alphabetical order): Alaa Ghoneim, Ahmed Talaat, Asmus 
     Freytag, Avery Bishop, Behdad Esfahbod, Doug Felt, Eric Mader.&quot;</p>
   </li>
 </ol>
-<p class="changed">Clearly there are many acceptable variations on this text. 
+<p class="noStyle">Clearly there are many acceptable variations on this text. 
 For example, copy editors might still quibble with the use of first vs. last 
 name sorting in the list, but clearly the first list was <i>not</i> acceptable 
 English alphabetical order. And in quoting a name, like &quot;Theatre Centre 
 News&quot;, one may leave it in the source orthography even if it differs from 
 the publication target orthography. And so on. However, just as clearly, there 
 limits on what is acceptable English, and &quot;2003年3月20日&quot;, for 
-example, is not.</p>
+example, is <i>not</i>.</p>
+<h2 class="changed"><a name="Copyright_and_Permission_Notice">Copyright and 
+Permission Notice</a></h2>
+<blockquote>
+  <p class="changed">Copyright (c) 2002-2003 International Business Machines 
+  Corporation and others. All rights reserved.</p>
+  <p class="changed">Permission is hereby granted, free of charge, to any person 
+  obtaining a copy of the LDML format and associated documentation files (the 
+  &quot;Format&quot;), to deal in the Format without restriction, including 
+  without limitation the rights to use, copy, modify, merge, publish, 
+  distribute, and/or sell copies of the Format, and to permit persons to whom 
+  the Format is furnished to do so, provided that both the above copyright 
+  notice(s) and this permission notice appear in supporting documentation.</p>
+  <p class="changed">THE FORMAT IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY 
+  OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF 
+  THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED 
+  IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR 
+  CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, 
+  DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER 
+  TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE 
+  OF THIS FORMAT.</p>
+  <p class="changed">Except as contained in this notice, the name of a copyright 
+  holder shall not be used in advertising or otherwise to promote the sale, use 
+  or other dealings in this Format without prior written authorization of the 
+  copyright holder.</p>
+  <hr width="33%">
+  <p class="changed">All trademarks and registered trademarks mentioned herein 
+  are the property of their respective owners.</p>
+</blockquote>
 
 </body>
 

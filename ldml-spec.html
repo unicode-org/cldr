@@ -1,0 +1,985 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Locale Data Interchange Format</title>
+<style>
+<!--
+.element2    { font-family: monospace; font-weight: bold }
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p><font color="#FF0000" size="7">Rough Draft</font></p>
+<h1>Locale Data Interchange Format</h1>
+<p><i>2002-10-15, MED</i></p>
+<h2><i>Summary</i></h2>
+<p>This document describes the format for locale data interchange using XML. The
+goal is to provide a mechanism for applications and systems to interchange
+locale data, to access a common set of locale data, and to also enable access to
+specific vendor versions of locale data. Versioning is provided for stability.</p>
+<h2>What is a locale?</h2>
+<p>Before diving into the XML structure, it is helpful to describe the model
+behind the structure. People do not have to subscribe to this model to use the
+data, but they do need to understand it so that the data can be correctly
+translated into whatever model their implementation uses.</p>
+<p>The first issue is basic: what is a locale? In this document, a locale is an
+id that refers to a set of user preferences that tend to be shared across
+significant swathes of the world. Traditionally, the data associated with this
+id provides support for formatting and parsing of dates, times, numbers, and
+currencies; for the default units of currency; for measurement units, for
+sort-order (collation), plus translated names for timezones, languages,
+countries, and scripts. They can also include text boundaries (character, word,
+line, and sentence), transliterations, and support for other services.</p>
+<p>Locale data is not cast in stone: the data used on someone's machine
+generally may reflect the US format, but preferences can typically set to
+override particular items, such as setting the data format for 2002.03.15, or
+using metric instead of English measurement units. In the abstract, locales are
+simply one of many sets of preferences that, say, a website may want to remember
+for a particular user. Depending on the application, it may want to also
+remember the user's timezone, preferred character set, smoker/non-smoker
+preference, meal preference (vegetarian, kosher, etc.), music preference,
+religion, party affiliation, favorite charity, etc. Users also customize their
+preferences.</p>
+<p>Locale data in a system may also change over time: country boundaries change;
+governments (and currencies) come and go: committees impose new standards; bugs
+are found and fixed in the source data; and so on. Thus the data needs to be
+versioned for stability over time.</p>
+<p>In general terms, the locale id is a parameter that is supplied to a
+particular service (date formatting, sorting, spell-checking, etc.). The format
+in this document does not attempt to collect together all the data that could
+conceivably be used by all possible services. Instead, it collects together data
+that is in common use in systems and internationalization libraries for basic
+services.</p>
+<p>We will speak of data as being &quot;in locale X&quot;. That does not imply
+that a locale <i>is</i> a collection of data; it is simply shorthand for
+&quot;the set of data associated with the locale id X&quot;. Each individual
+piece of data is called a <i>resource</i>, and a tag indicating the type of
+resource is called a <i>resource tag.</i></p>
+<h2>Locale IDs</h2>
+<p>A locale id consists of the following format:</p>
+<pre>&lt;locale_id&gt; := &lt;base_locale_id&gt;&lt;options&gt;?</pre>
+<pre>&lt;base_locale_id&gt; := &lt;language_code&gt;(&quot;_&quot;&lt;territory_code(&quot;_&quot;&lt;variant_code&gt;)?)?</pre>
+<pre>&lt;options&gt; := &quot;@&quot;&lt;keyword&gt;&quot;=&quot;&lt;option_value&gt;(&quot;,&quot;&lt;keyword&gt;&quot;=&quot;&lt;option_value&gt;)*</pre>
+<p>The &lt;language_code&gt;, &lt;territory_code&gt;, and &lt;variant_code&gt;
+can only have ASCII letters. The &lt;language_code&gt; uses lowercase <a href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_639.html">ISO-639</a>
+values, using the 2-letter codes where they exist, and otherwise the 3-letter
+codes. The &lt;territory_code&gt; (also called &lt;country_code&gt;) uses
+uppercase <a href="http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html">ISO-3166</a>
+2-letter values. The &lt;variant_code&gt; values are described below; they can
+have lowercase ASCII letters.</p>
+<p>The &lt;keyword&gt; can have lowercase ASCII letter andASCII digits, and the
+&lt;option_value&gt; can have lowercase ASCII letters, digits, and
+&quot;-&quot;. The allowable values are also described below in the XML format
+section.</p>
+<p><i>Example:</i></p>
+<blockquote>
+  <p>en<br>
+  fr_be<br>
+  de_de@collation=phonebook,currency=pre-euro</p>
+</blockquote>
+<p>The locale id format generally follows the description in the <a href="http://www.li18nux.org/docs/text/LocNameGuide-V10.txt">LI18NUX
+Locale Name Guideline</a>. The differences from the those guidelines are that
+(a) the locale id does not include a charset since the data in the locale is
+always in Unicode, and (b) the locale id adds the ability to have a variant, as
+in Java.</p>
+<h2>Locale Inheritance</h2>
+<p>The XML format relies on an inheritance model, whereby the resources are
+collected into <i>bundles</i>, and the bundles organized into a tree. Data for
+the many Spanish locales does not need to be duplicated across all of the
+countries having Spanish as a national language. Instead, common data is
+collected in the Spanish language locale, and country locales only need to
+supply differences. The parent all of the language locales is a generic locale
+known as <i>root</i>. For example, the collation order in the root is the UCA
+(see UAX #10). Since English language collation is the same as that, the 'en'
+locale data does not need to supply any collation data, nor does either the 'en_US'
+or the 'en_IE' locale data.</p>
+<p><b><i>[add diagram here]</i></b></p>
+<p>Given a particular locale id &quot;en_US_someVariant&quot;, the search chain
+for a particular resource is the following.</p>
+<p>en_US_someVariant<br>
+en_US<br>
+en<br>
+root</p>
+<p>If a keyword is supplied in the locale id, then the chain is searched for a
+resource tag with a given keyword, all the way up to root. If no resource is
+found with that tag and keyword, then the chain is searched again without the
+keyword. (There are currently no instances where there are multiple relevant
+keywords.)</p>
+<p>Thus the data for any given locale will only contain resources that are
+different from the parent locale. For example, most country locales will inherit
+the bulk of their data from the language locale: &quot;en&quot; will contain the
+bulk of the data: &quot;en_US&quot; will only contain a few items like currency.
+All data that is inherited from a parent is presumed to be valid, just as valid
+as if it were physically present in the file.</p>
+<p>Where this inheritance relationship does not match a target system, such as
+POSIX, the data should be fully resolved in converting to a format for use by
+that system, by adding <i>all</i> inherited data to each locale data set.</p>
+<p>The locale data does not contain general character properties that are
+derived from the Unicode Character Database data [<a href="ftp://ftp.unicode.org/Public/UNIDATA/UnicodeCharacterDatabase.html">UCD</a>].
+That data being common across locales, it is not duplicated in the bundles.
+Constructing a POSIX locale from the following data requires use of that data.
+In addition, POSIX locales may also specify the character encoding, which
+requires the data to be transformed into that target encoding.</p>
+<h2>Data Access</h2>
+<p>Data can be accessed by means of a URL. A locale URL has the following
+structure:</p>
+<pre>&lt;base&gt; &quot;/&quot; &lt;platform&gt; &quot;/&quot; &lt;base_locale_id&gt; &quot;.xml&quot; (&quot;/?&quot; (&quot;version=&quot; &lt;version&gt; | &lt;transformed_options&gt;)</pre>
+<p>where version has the structure given below, and the transformed options are
+&lt;options&gt; with the &quot;@&quot; removed, and &quot;,&quot; converted to
+&quot;&amp;&quot;.</p>
+<p><i>Example:</i></p>
+<blockquote>
+  <p><a href="http://oss.software.ibm.com/icu/locales/solaris/de_de@collation=phonebook,currency=pre-euro">http://oss.software.ibm.com/icu/locales/solaris/de_de.xml/?version=2.1&amp;collation=phonebook&amp;currency=pre-euro</a></p>
+</blockquote>
+<p><i><b>[above format is tentative]</b></i></p>
+<h2>XML Format</h2>
+<p>The high-level of the Locale Data element are:</p>
+<p class="element2">&lt;identity&gt;<br>
+&lt;layout&gt;<br>
+&lt;encodings&gt;<br>
+&lt;displayNames&gt;<br>
+&lt;dates&gt;<br>
+&lt;delimiters&gt;<br>
+&lt;numbers&gt;<br>
+&lt;collation&gt;<br>
+&lt;boundaries&gt;<br>
+&lt;countryInfo&gt;<br>
+&lt;measurement&gt;</p>
+<p>The structure of each of these elements and their contents will be described
+below. Note that data below is <i>purely</i> illustrative, and doesn't match any
+particular language.</p>
+<h3>Common Elements</h3>
+<p>At any level in any element, two special elements are allowed.</p>
+<p class="element2">&lt;special&gt;</p>
+<p>This element is designed to allow for arbitrary additional annotation and
+data that is product-specific. It has one required attribute, which specifies
+the owner of the special data. For uniqueness, that owner is specified by means
+of a URL. For example:</p>
+<pre>    &lt;special owner=&quot;http://www.opengroup.org/regproducts/xu.htm&quot;&gt;
+        &lt;!-- old abbreviations for pre-GUI days --&gt;
+        &lt;messages&gt;
+            &lt;no&gt;No&lt;/no&gt;
+            &lt;yes&gt;Yes&lt;/yes&gt;
+            &lt;shortYes&gt;Y&lt;/shortYes&gt;
+            &lt;shortNo&gt;N&lt;/shortNo&gt;
+        &lt;/messages&gt;
+    &lt;/special&gt;</pre>
+<p class="element2"><b>&lt;alias source=&quot;&lt;locale_URL&gt;&quot;&gt;</b></p>
+<p>The contents of any element can be replaced by an alias, which points to
+another locale. The resource is to be fetched from that location. Normal
+resource searching is to be used, so with</p>
+<p>&lt;localeData&gt;<br>
+&nbsp; &lt;collation&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;alias source=&quot;<a href="http://oss.software.ibm.com/icu/locales/solaris/de_de@collation=phonebook,currency=pre-euro">http://oss.software.ibm.com/icu/locales/solaris/de_de.xml/?version=2.1&amp;collation=phonebook</a>&quot;&gt;<br>
+&nbsp; &lt;/collation&gt;<br>
+&lt;/localeData&gt;</p>
+<p>the resource bundle at &quot;de_de&quot; will be searched for a resource
+element at the same position in the tree with keyword &quot;collation&quot;. If
+not found there, then the resource bundle at &quot;de&quot; will be searched,
+etc.</p>
+<h3>Common Attributes</h3>
+<p class="element2">&lt;...keyword=&quot;Stroke&quot;...&gt;</p>
+<p>The attribute <i>keyword</i> is used to indicate an alternate resource that
+should only be selected with a matching keyword=option in the locale id
+modifiers. For example:</p>
+<pre>&lt;localeData&gt;
+  ...
+  &lt;currencies&gt;
+    &lt;currency&gt;...&lt;/currency&gt;
+    &lt;currency keyword=&quot;preEuro&quot;&gt;...&lt;/currency&gt;
+  &lt;/currencies&gt;
+&lt;/localeData&gt;</pre>
+<pre>The currently defined keywords include</pre>
+<table border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th align="left">element</th>
+    <th align="left">keyword</th>
+    <th align="left">Description</th>
+  </tr>
+  <tr>
+    <td rowspan="6">collation</td>
+    <td>phonebook</td>
+    <td>For a phonebook-style ordering (used in German).</td>
+  </tr>
+  <tr>
+    <td>pinyin</td>
+    <td>Pinyin order for CJK characters</td>
+  </tr>
+  <tr>
+    <td>traditional</td>
+    <td>For a traditional-style sort (as in Spanish)</td>
+  </tr>
+  <tr>
+    <td>stroke</td>
+    <td>Stroke order for CJK characters</td>
+  </tr>
+  <tr>
+    <td>direct</td>
+    <td>???</td>
+  </tr>
+  <tr>
+    <td>posix</td>
+    <td>???</td>
+  </tr>
+  <tr>
+    <td rowspan="2">currency</td>
+    <td>Euro</td>
+    <td>For data using the Euro currency</td>
+  </tr>
+  <tr>
+    <td>Pre-Euro</td>
+    <td>For data using older currency.</td>
+  </tr>
+  <tr>
+    <td rowspan="7">calendar</td>
+    <td>Gregorian</td>
+    <td>(default)</td>
+  </tr>
+  <tr>
+    <td>Arabic</td>
+    <td>Astronomical Arabic</td>
+  </tr>
+  <tr>
+    <td>Chinese</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>CivilArabic</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Hebrew</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Japanese</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Thai</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<p class="element2">&nbsp;&lt;... displayName=&quot;...&quot; ...&gt;</p>
+<p>Almost all elements can have a display name, a translated name that can be
+presented to users when discussing the particular service.</p>
+<hr width="50%">
+<h3>&lt;identity&gt;</h3>
+<p>The identity element contains information identifying the target locale for
+this data, and general information about the version of this data.</p>
+<p class="element2">&lt;generation date=&quot;2002-08-28&quot; /&gt;</p>
+<p>The generation element contains the last modified date for the data. The data
+is in XML Schema format (yyyy-mm-dd).</p>
+<p class="element2">&lt;version number=&quot;1.1&quot;&gt;</p>
+<p>The version element provides, in an attribute, the version of this file.
+Versions are in the format &lt;major&gt;.&lt;minor&gt;(.&lt;update&gt;)? The
+contents of the element can contain textual notes about the changes between this
+version and the last. For example:</p>
+<blockquote>
+  <pre>&lt;version number=&quot;1.1&quot;&gt;Various notes and changes in version 1.1&lt;/version&gt;</pre>
+</blockquote>
+<p><i><b>[Ed note: this element is changed, since the versioning is external!]</b></i></p>
+<p class="element2">&lt;language id=&quot;en&quot;/&gt;</p>
+<p>The language id is the main part of the specification of the locale id. The
+value is any code from the <a href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_639.html">ISO-639</a>
+standard; a two-letter code if available, otherwise a 3-letter code. (The
+mapping between 2-letter codes and 3-letter codes is not part of this format.)
+All language IDs are case-insensitive.</p>
+<p><i><b>[Ed note: remove &quot;name =&quot;]</b></i></p>
+<p class="element2">&lt;country id=&quot;US&quot;/&gt;</p>
+<p>The country id is the secondary part of the specification of the locale id.
+The two letter country code uses the <a href="http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html">ISO-3166</a>
+standard. All country IDs are case-insensitive. Note that some entities given
+country codes are better termed &quot;regions&quot;, since they may be
+considered parts of other countries.</p>
+<p><i><b>[Ed note: remove &quot;name =&quot;]</b></i></p>
+<p class="element2">&lt;variant id=&quot;Sort&quot;
+value=&quot;Traditional&quot;/&gt;</p>
+<p>There can be any number of variant IDs. These specify particular variants of
+the locale, typically with special options. The currently defined variants
+include: (for norwegian: bo = Bokmål, al = Åland, ny = Nynorsk</p>
+<p><i><b>[Ed note: consider having the &lt;language_code&gt; be 1766]</b></i></p>
+<p class="element2">&lt;correspondsTo type=&quot;lcid&quot;
+value=&quot;0409&quot;/&gt;</p>
+<pre><i><b>[Ed note: change this element -- doesn't really want to be special]</b></i></pre>
+<p>There can be one or more elements indicate that the identity of this locale,
+as specified by language + country + variants, corresponds to an alternative id
+style. Currently the only type is lcid. Macintosh id's may be added in the
+future.</p>
+<h2>&lt;layout&gt;</h2>
+<p>This top-level element specifies general layout features. It currently only
+has one possible element (other than &lt;special&gt;, which is always
+permitted).</p>
+<p class="element2">&lt;orientation lines=&quot;top-to-bottom&quot;
+characters=&quot;left-to-right&quot; /&gt;</p>
+<pre>The lines and characters attributes specify the default general ordering of lines, and characters within a line. The values are:</pre>
+<table border="1">
+  <tr>
+    <td width="50%" rowspan="2">Vertical</td>
+    <td width="50%">top-to-bottom</td>
+  </tr>
+  <tr>
+    <td width="50%">bottom-to-top</td>
+  </tr>
+  <tr>
+    <td width="50%" rowspan="2">Horizontal</td>
+    <td width="50%">left-to-right</td>
+  </tr>
+  <tr>
+    <td width="50%">right-to-left</td>
+  </tr>
+</table>
+<p>If the lines value is vertical then the characters value must be horizontal,
+and vice versa. This does not override the ordering behavior of bidirectional
+text; it does, however, supply the paragraph direction for that text (for more
+information, see <a href="http://www.unicode.org/unicode/reports/tr9/">UAX #9</a>).</p>
+<h2>&lt;encodings&gt;</h2>
+<p>The encodings element does not, unlike POSIX, specify the encoding of the
+data itself. Instead, it provide optional information that can be helpful in
+picking among character encodings that are typically used to transmit data in
+the language of this locale. It typically only occurs in a language locale, not
+in a language/country locale.</p>
+<p>There is one optional attribute on the encodings element itself:
+requiredLetters=&quot;a-zåæø&quot; indicates that normal usage of the
+language of this locale requires these letters. The list of characters is in
+UnicodeSet format. An encoding that cannot encompass at least these letters is
+inappropriate for encoding data in the language of this locale.</p>
+<p class="element2">&lt;mapping&gt;</p>
+<p>There can be multiple mapping elements. Each indicates the character
+conversion mapping table name (in <a href="http://www.unicode.org/unicode/reports/tr22/">UTR
+#22</a> format) for a character encoding that is commonly used to encode data in
+the language of this locale. The version field of the mapping table is omitted.
+The ordering among the mapping elements is not significant. The mapping elements
+themselves are not inherited from parents.</p>
+<h2>&lt;displayNames&gt;</h2>
+<p>Display names for scripts, languages, countries, and variants in this locale
+are supplied by this element. These supply localized names for these items for
+use in user-interfaces. Examples are given below.</p>
+<p class="element2">&lt;scripts&gt;</p>
+<p>This element can contain an number of script elements. Each script element
+provides the localized name for a script, given by ID. The script IDs can be
+either the long or short forms from Scripts.txt in the UCD. (See <a href="http://www.unicode.org/unicode/reports/tr24/">UTR
+#24: Script Names</a> for more information.) For example, in the language of
+this locale, the name for the Latin script might be &quot;Romana&quot;, and for
+the Cyrillic script is &quot;Kyrillica&quot;. That would be expressed with the
+following.</p>
+<blockquote>
+  <p>&lt;script id=&quot;Latin&quot;&gt;Romana&lt;/script&gt;<br>
+  &lt;script id=&quot;Cyrillic&quot;&gt;Kyrillica&lt;/script&gt;</p>
+</blockquote>
+<p class="element2">&lt;languages&gt;</p>
+<blockquote>
+  <p>&lt;language id=&quot;ab&quot;&gt;Abkhazian&lt;/language&gt;<br>
+  &lt;language id=&quot;aa&quot;&gt;Afar&lt;/language&gt;<br>
+  &lt;language id=&quot;af&quot;&gt;Afrikaans&lt;/language&gt;<br>
+  &lt;language id=&quot;sq&quot;&gt;Albanian&lt;/language&gt;</p>
+</blockquote>
+<p class="element2">&lt;countries&gt;</p>
+<blockquote>
+  <p>&lt;country id=&quot;AF&quot;&gt;Afghanistan&lt;/country&gt;<br>
+  &lt;country id=&quot;AL&quot;&gt;Albania&lt;/country&gt;<br>
+  &lt;country id=&quot;DZ&quot;&gt;Algeria&lt;/country&gt;<br>
+  &lt;country id=&quot;AD&quot;&gt;Andorra&lt;/country&gt;<br>
+  &lt;country id=&quot;AO&quot;&gt;Angola&lt;/country&gt;<br>
+  &lt;country id=&quot;US&quot;&gt;United States&lt;/country&gt;</p>
+</blockquote>
+<p class="element2">&lt;variants&gt;</p>
+<blockquote>
+  <p>&lt;variant id=&quot;NY&quot;&gt;Nynorsk&lt;/country&gt;</p>
+</blockquote>
+<p class="element2">&lt;keywords&gt;</p>
+<blockquote>
+  <p>&lt;keyword id=&quot;collation&quot;&gt;Sortierung&lt;/keyword &gt;</p>
+</blockquote>
+<p class="element2">&lt;options&gt;</p>
+<p>Since the translation of an option name may depend on the keyword it is used
+with, the latter is optionally supplied.</p>
+<blockquote>
+  <p>&lt;option keyword=&quot;collation id=&quot;phonebook&quot;&gt;Telefonbuch&lt;/option
+  &gt;</p>
+</blockquote>
+<p class="element2">&lt;localePatterns&gt;</p>
+<p>This consists of a Java/ICU choice format syntax for producing the name of a
+locale in a particular language.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;locale&gt;{0,choice,0#|1#{1}|2#{1} ({2})}&lt;/locale&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;list&gt;{0,choice,0#|1#{1}|2#{1},{2}|3#{1},{2},{3}}&lt;/list&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;composition&gt;{0},{1}&lt;/composition&gt;</p>
+<p><i><b>[Ed. Note: explain this]</b></i></p>
+<h2>&lt;dates&gt;</h2>
+<p>This top-level element contains information regarding the format/parsing of
+dates and times. It contains multiple calendar elements, each of which specifies
+the fields used for formatting and parsing dates and times according to the
+given calendar. Most of these are self-explanatory, except the following. For
+more information, see the Java API [add link].</p>
+<p><i>minDays:&nbsp; the minimum number of days needed to start a new week.</i></p>
+<p><i>patternCode: a pattern used to specify the input and output format.</i></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;calendar
+class=&quot;Gregorian&quot; ke=&quot;true&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;monthNames&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;1&quot;&gt;january&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;2&quot;&gt;february&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;3&quot;&gt;march&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;4&quot;&gt;april&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;5&quot;&gt;may&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;6&quot;&gt;june&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;7&quot;&gt;july&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;8&quot;&gt;august&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;9&quot;&gt;September&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;10&quot;&gt;October&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;11&quot;&gt;November&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;12&quot;&gt;December&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/monthNames&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;monthAbbr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;1&quot;&gt;Jan&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;2&quot;&gt;Feb&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;3&quot;&gt;Mar&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;4&quot;&gt;Apr&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;5&quot;&gt;May&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;6&quot;&gt;Jun&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;7&quot;&gt;Jul&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;8&quot;&gt;Aug&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;9&quot;&gt;Sep&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;10&quot;&gt;Oct&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;11&quot;&gt;Nov&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;month id=&quot;12&quot;&gt;Dec&lt;/month&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/monthAbbr&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;dayNames&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;sun&quot;&gt;Sunday&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;mon&quot;&gt;Monday&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;tue&quot;&gt;Tuesday&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;wed&quot;&gt;Wednesday&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;thu&quot;&gt;Thursday&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;fri&quot;&gt;Friday&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;sat&quot;&gt;Saturday&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/dayNames&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;dayAbbr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;sun&quot;&gt;Sun&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;mon&quot;&gt;Mon&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;tue&quot;&gt;Tue&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;wed&quot;&gt;Wed&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;thu&quot;&gt;Thu&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;fri&quot;&gt;Fri&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;sat&quot;&gt;Sat&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/dayAbbr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;week&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;minDays&gt;1&lt;/minDays&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;firstDay id=&quot;sun&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;weekendStart&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;fri&quot;&gt;&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;time&gt;18:00&lt;/time&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/weekendStart&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;weekendEnd&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;day id=&quot;sun&quot;&gt;&lt;/day&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;time&gt;18:00&lt;/time&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/weekendEnd&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/week&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;am&gt;AM&lt;/am&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;pm&gt;PM&lt;/pm&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;eras&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- Non-gregorians may have many more eras --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;era id=&quot;0&quot;&gt;BC&lt;/era&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;era id=&quot;1&quot;&gt;AD&lt;/era&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/eras&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;patterns&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!--<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Patterns used for formatting and parsing dates and times for this calendar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+--&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;localizedPatternChars&gt;GyMdkHmsSEDFwWahKz&lt;/localizedPatternChars&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;patternElement patternid=&quot;date&quot; type=&quot;medium&quot;
+default=&quot;true&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!--&nbsp; Optional special element for platform/application specific
+overheads. Paser can<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+choose to ignore if required&nbsp; --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;special owner=&quot;StarOffice&quot; msgid=&quot;DateFormatskey3&quot;
+usage=&quot;DATE&quot; formatindex=&quot;20&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;patternCode &gt;MM d, yyyy &lt;/patternCode&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;patternName&gt;DIN 5008 (EN 28601)&lt;/patternName&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/patternElement&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;patternElement patternid=&quot;date&quot; type=&quot;full&quot;
+default=&quot;true&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!--&nbsp; Optional special element for platform/application specific
+overheads. Paser can<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+choose to ignore if required&nbsp; --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;special owner=&quot;StarOffice&quot; msgid=&quot;DateFormatskey3&quot;
+usage=&quot;DATE&quot; formatindex=&quot;20&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;patternCode&gt;EEEE, MMMM d, yyyy&lt;/patternCode&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;patternName&gt;DIN 5008 (EN 28601)&lt;/patternName&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/patternElement&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;patternElement patternid=&quot;time&quot; type=&quot;full&quot;
+default=&quot;true&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!--&nbsp; Optional special element for platform/application specific
+overheads. Paser can<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+choose to ignore if required&nbsp; --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;special owner=&quot;StarOffice&quot; msgid=&quot;DateFormatskey3&quot;
+usage=&quot;DATE&quot; formatindex=&quot;20&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;patternCode&gt;h:mm:ss a z&lt;/patternCode&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;patternName&gt;DIN 5008 (EN 28601)&lt;/patternName&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/patternElement&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;patternElement patternid=&quot;dateTime&quot;&gt;{0} {1}&lt;/patternElement&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/patterns&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/calendar&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- The Buddhist calendar
+inherits month names, etc. (everything but eras) from Gregorian --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;calendar
+class=&quot;Buddhist&quot; inheritsFrom=&quot;Gregorian&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;eras&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;era id=&quot;0&quot;&gt;BE&lt;/era&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/eras&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/calendar&gt;</p>
+<p class="element2">&lt;timeZoneNames&gt;</p>
+<p>The timezone IDs are language-independent, and follow the Olsen data [add
+link]. However, the <i>names</i> for those IDs can vary by locale.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;zone id=&quot;America/Los_Angeles&quot; default=&quot;true&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;long&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;generic&gt;Pacific Time&lt;/generic&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;standard&gt;Pacific Standard Time&lt;/standard&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;daylight&gt;Pacific Daylight Time&lt;/daylight&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/long&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;short&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;generic&gt;PT&lt;/generic&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;standard&gt;PST&lt;/standard&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;daylight&gt;PDT&lt;/daylight&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/short&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;exemplarCity&gt;Los Angeles&lt;/exemplarCity&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/zone&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;zone id=&quot;America/Denver&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;long&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;generic&gt;Mountain Time&lt;/generic&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;standard&gt;Mountain Standard Time&lt;/standard&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;daylight&gt;Mountain Daylight Time&lt;/daylight&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/long&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;short&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;generic&gt;MT&lt;/generic&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;standard&gt;MST&lt;/standard&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;daylight&gt;MDT&lt;/daylight&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/short&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;exemplarCity&gt;Denver&lt;/exemplarCity&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/zone&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;zone id=&quot;Europe/London&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;long&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;generic&gt;British Time&lt;/generic&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;standard&gt;British Standard Time&lt;/standard&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;daylight&gt;British Daylight Time&lt;/daylight&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/long&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;exemplarCity&gt;York&lt;/exemplarCity&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;/zone&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/timeZoneNames&gt;<br>
+&nbsp;&nbsp; &lt;/dates&gt;</p>
+<h2>&lt;delimiters&gt;</h2>
+<p>The delimiters supply common delimiters for bracketing. The values should be
+self-explanatory.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;quotationStart&gt;'&lt;/quotationStart&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;quotationEnd&gt;'&lt;/quotationEnd&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;doubleQuotationStart&gt;&amp;quot;&lt;/doubleQuotationStart&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;doubleQuotationEnd&gt;&amp;quot;&lt;/doubleQuotationEnd&gt;</p>
+<h2>&lt;numbers&gt;</h2>
+<p>The numbers element supplies information for formatting and parsing numbers
+and currencies. The data is based on the Java format. The currency IDs are from <a href="http://www.bsi-global.com/Technical+Information/Publications/_Publications/tig90x.doc">ISO
+4217</a>.</p>
+<pre>        &lt;numberFormat class=&quot;decimal&quot; default=&quot;true&quot;&gt;
+          &lt;!--
+           There can be multiple number formats for the same locale.
+           Only one can be marked as &quot;default&quot;
+          --&gt;
+          &lt;!--  The class of symbol together with it's identifier &quot;id=&quot;, position and value allows for
+            --&gt;
+          &lt;patternElement patternid=&quot;number&quot; type=&quot;decimal&quot; default=&quot;false&quot;&gt;
+              &lt;special owner=&quot;StarOffice&quot; msgid=&quot;FixedFormatskey5&quot; usage=&quot;FIXED_NUMBER&quot; formatindex=&quot;4&quot; /&gt;
+              &lt;patternCode type=&quot;positive&quot;&gt;#,##0.###&lt;/patternCode&gt;
+              &lt;patternCode type=&quot;negative&quot;&gt;-#,##0.###&lt;/patternCode&gt;
+          &lt;/patternElement&gt;
+          &lt;patternElement patternid=&quot;number&quot; type=&quot;percent&quot; default=&quot;false&quot;&gt;
+              &lt;special owner=&quot;StarOffice&quot; msgid=&quot;FixedFormatskey6&quot; usage=&quot;FIXED_NUMBER&quot; formatindex=&quot;4&quot; /&gt;
+              &lt;patternCode type=&quot;positive&quot;&gt;#,##0%&lt;/patternCode&gt;
+          &lt;/patternElement&gt;
+          &lt;patternElement patternid=&quot;number&quot; type=&quot;scientific&quot; default=&quot;false&quot;&gt;
+              &lt;special owner=&quot;StarOffice&quot; msgid=&quot;FixedFormatskey7&quot; usage=&quot;FIXED_NUMBER&quot; formatindex=&quot;4&quot; /&gt;
+              &lt;patternCode &gt;#,##0%&lt;/patternCode&gt;
+          &lt;/patternElement&gt;
+
+          &lt;symbols&gt;
+              &lt;decimal&gt;.&lt;/decimal&gt;
+              &lt;group&gt;,&lt;/group&gt;
+              &lt;list&gt;;&lt;/list&gt;
+              &lt;percentSign&gt;%&lt;/percentSign&gt;
+              &lt;nativeZeroDigit&gt;0&lt;/nativeZeroDigit&gt;
+              &lt;patternDigit&gt;#&lt;/patternDigit&gt;
+              &lt;plusSign&gt;+&lt;/plusSign&gt;
+              &lt;minusSign&gt;-&lt;/minusSign&gt;
+              &lt;exponential&gt;E&lt;/exponential&gt;
+              &lt;perMille&gt;‰&lt;/perMille&gt;
+              &lt;infinity&gt;&#8734;&lt;/infinity&gt;
+              &lt;nan&gt;&#9785;&lt;/nan&gt;
+         &lt;/symbols&gt;
+       &lt;/numberFormat&gt;
+       &lt;currencies&gt;
+            &lt;currency id=&quot;USD&quot; default=&quot;true&quot;&gt;
+<b>[Ed note: the above had a name attribute. But it needs to be an element]
+</b>                &lt;name&gt;dollar&lt;/name&gt;
+                &lt;symbol&gt;$&lt;/symbol&gt;
+                &lt;decimal&gt;.&lt;/decimal&gt;
+                &lt;group&gt;,&lt;/group&gt;
+                &lt;patternElement patternid=&quot;currency&quot; default=&quot;false&quot;&gt;
+                    &lt;special owner=&quot;StarOffice&quot; msgid=&quot;FixedFormatskey9&quot; usage=&quot;FIXED_NUMBER&quot; formatindex=&quot;4&quot; /&gt;
+                    &lt;patternCode type=&quot;positive&quot;&gt;¤ #,##0.00;&lt;/patternCode&gt;
+                    &lt;patternCode type=&quot;negative&quot;&gt;(¤ #,##0.00)&lt;/patternCode&gt;
+                &lt;/patternElement&gt;
+            &lt;/currency&gt;
+
+            &lt;currency id =&quot;JPY&quot;&gt;
+                &lt;name&gt;yen&lt;/name&gt;
+                &lt;symbol&gt;¥&lt;/symbol&gt;
+                &lt;patternElement patternid=&quot;currency&quot; default=&quot;false&quot;&gt;
+                    &lt;special owner=&quot;StarOffice&quot; msgid=&quot;FixedFormatskey9&quot; usage=&quot;FIXED_NUMBER&quot; formatindex=&quot;4&quot; /&gt;
+                    &lt;patternCode type=&quot;positive&quot;&gt;¤ #,##0.00;&lt;/patternCode&gt;
+                    &lt;patternCode type=&quot;negative&quot;&gt;(¤ #,##0.00)&lt;/patternCode&gt;
+                &lt;/patternElement&gt;
+                &lt;decimal&gt;.&lt;/decimal&gt;
+            &lt;/currency&gt;
+        &lt;/currencies&gt;
+    &lt;/numbers&gt;
+</pre>
+<h2>&lt;collations&gt;</h2>
+<p>This section contains one or more collation elements, distinguished by
+keyword. This syntax is an XMLized version of the Java/ICU syntax, used to
+tailor the default table.</p>
+<p><i><b>[Ed note: incorporate the collation syntax doc here.]</b></i></p>
+<p><i><b>[Ed note: in all examples change the escaped characters to real ones.]</b></i></p>
+<pre>&lt;collation version=&quot;1.5&quot; accentOrder=&quot;reverse&quot; override=&quot;true&quot;&gt;
+        &lt;!-- this example takes the swedish tailoring plus part of a japanese tailoring, for illustration --&gt;
+        &lt;reset&gt;Z&lt;/reset&gt;
+        &lt;p&gt;æ&lt;/p&gt;
+        &lt;t&gt;Æ&lt;/t&gt;
+        &lt;p&gt;a&#778;&lt;/p&gt;
+        &lt;t&gt;A&#778;&lt;/t&gt;
+        &lt;t&gt;aa&lt;/t&gt;
+        &lt;t&gt;aA&lt;/t&gt;
+        &lt;t&gt;Aa&lt;/t&gt;
+        &lt;t&gt;AA&lt;/t&gt;
+        &lt;p&gt;a&#776;&lt;/p&gt;
+        &lt;t&gt;A&#776;&lt;/t&gt;
+        &lt;p&gt;o&#776;&lt;/p&gt;
+        &lt;t&gt;O&#776;&lt;/t&gt;
+        &lt;s&gt;u&#779;&lt;/s&gt;
+        &lt;t&gt;U&#779;&lt;/t&gt;
+        &lt;p&gt;o&#779;&lt;/p&gt;
+        &lt;t&gt;O&#779;&lt;/t&gt;
+        &lt;s&gt;ø&lt;/s&gt;
+        &lt;t&gt;Ø&lt;/t&gt;
+        &lt;reset&gt;V&lt;/reset&gt;
+        &lt;!-- following is equivalent to &lt;t&gt;w&lt;/t&gt;&lt;t&gt;W&lt;/t&gt;&lt;t&gt;u&#776;&lt;/t&gt;&lt;t&gt;U&#776;&lt;/t&gt; --&gt;
+        &lt;tc&gt;wWu&#776;U&#776;&lt;/tc&gt;
+        &lt;position at=&quot;last non ignorable&quot;/&gt;
+        &lt;!-- following is equivalent to &lt;p&gt;&#20124;&lt;/p&gt;&lt;p&gt;&#21782;&lt;/p&gt;&lt;p&gt;&#23043;&lt;/p&gt;... --&gt;
+        &lt;pc&gt;&#20124;&#21782;&#23043;&#38463;&#21696;&#24859;&#25384;&#23030;&#36898;&#33909;&#33564;&#31312;&#24746;&#25569;&#28197;&#26093;&#33894;&#33446;&lt;/pc&gt;
+        &lt;pc&gt;&#39925;&#26771;&#22311;&#26017;&#25201;&lt;/pc&gt;</pre>
+<h2>&lt;boundaries&gt;</h2>
+<p>Selected samples are given with no attempt to make them work. This format is
+the Java/ICU syntax, at the top level. For real data, see <a href="http://oss.software.ibm.com/developerworks/opensource/cvs/icu4j">http://oss.software.ibm.com/developerworks/opensource/cvs/icu4j</a>
+in BreakIteratorRules.java <b>[Ed note: add more explicit</b></p>
+<pre>        &lt;grapheme class=&quot;RuleBased&quot;&gt;
+            &lt;!-- in addition to the normal rules, treat CH and RR as graphemes. --&gt;
+            [cC][hH];[rR][rR]
+        &lt;/grapheme&gt;
+        &lt;word class=&quot;Dictionary&quot; import=&quot;thaiDict.dat&quot; &gt;
+            &lt;!-- When doing Thai word break, check the normal word break rules first. --&gt;
+            digit=[[:Nd:][:No:]];
+            $digit [[:Pd:]­&#8231;&amp;apos;.]
+        &lt;/word&gt;</pre>
+<h2>&lt;countryInfo&gt;</h2>
+<p>This section provides information associated with countries. The countryPost
+is a string with the abbreviation of the country, used for postal addresses, for
+example by CEPT-MAILCODE. <b>[say which standard]</b>. The countryNumber is the
+The operand is an integer with the three-digit number of the country, according
+to <a href="http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html">ISO-3166</a>.
+The countryCar is the abbreviation of the country,used for motor vehicles and
+traffic, according to the Geneve convention 1949:68 <b>[get link]</b>. The
+CountryISBNNumber is the abbreviation of the country used for book numbering
+(ISBN), according to ISO 2108. ISBN numbers are allocated according to country.</p>
+<pre>        &lt;countryPost&gt;US&lt;/countryPost&gt;
+        &lt;countryCar&gt;US&lt;/countryCar&gt;
+        &lt;countryNumber id=&quot;666&quot;/&gt;
+        &lt;countryISBNNumber id=&quot;666&quot;/&gt;</pre>
+<h2>&lt;measurement&gt;</h2>
+<p>The measurement system is the normal measurement system in common everyday
+use (except for date/time). The values are &quot;metric&quot; (= <a href="http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=5448&amp;ICS1=1&amp;ICS2=60&amp;ICS3=">ISO
+1000</a>) or &quot;US&quot;; others will be added over time. The paperSize gives
+the normal business letter size, and customary units. The numbers are always in
+millimeters. The units name is the customary unit for that locale for measuring
+paper.</p>
+<pre>        &lt;measurementSystem id=&quot;US&quot;/&gt;
+        &lt;paperSize&gt;
+            &lt;height&gt;279&lt;/height&gt;
+            &lt;width&gt;216&lt;/width&gt;
+            &lt;units&gt;mm&lt;/units&gt;
+        &lt;/paperSize&gt;</pre>
+<h2>Others</h2>
+<p>The following are nonstandard elements that are worth providing as examples.</p>
+<p>Some old abbreviations for pre-GUI days for POSIX.</p>
+<pre>    &lt;special owner=&quot;http://www.opengroup.org/regproducts/xu.htm&quot;&gt;
+        &lt;!-- old abbreviations for pre-GUI days --&gt;
+        &lt;messages&gt;
+            &lt;no&gt;No&lt;/no&gt;
+            &lt;yes&gt;Yes&lt;/yes&gt;
+            &lt;shortYes&gt;Y&lt;/shortYes&gt;
+            &lt;shortNo&gt;N&lt;/shortNo&gt;
+        &lt;/messages&gt;
+    &lt;/special&gt;</pre>
+<p>The following is ISO TR 14652 compatibility data. (14652 is a Type 1 TR:
+&quot;when the required support cannot be obtained for the publication of an
+International Standard, despite repeated effort&quot;. See the ballot comments
+on <a href="http://anubis.dkuug.dk/jtc1/sc22/wg20/docs/n948-J1N6769-14652.pdf">14652
+Comments</a> for details on how bad 14652 is.) This section is here because TR
+14652 data is used in RedHat LINUX.</p>
+<p><b>[Ed note: make all of these into real tables]</b></p>
+<p class="element2">&lt;postalPattern&gt;</p>
+<p>It makes no provision for changes in format when elements are empty, so it is
+fairly useless.</p>
+<pre>                        Postal format:
+                        POSIX          ICU              Description
+                        =====      ===========         =============
+                        %a         {co_address}         C/O address.
+                        %f         {firm_name}          Firm name.
+                        %d         {dept_name}          department name.
+                        %b         {bldg_name}          Building name.
+                        %s         {street}             street or block (eg. Japanese) name.
+                        %h         {house_num}          house number or designation.
+                        %N         {graphic_chars}      if any graphical characters have been specified then an
+                                                        of line is made.
+                        %t         {esc_seq_preced}     if the preceding escape sequence resulted in an empty
+                                                        string, then the empty string, else a &lt;space&gt;.
+                        %r         {room_num}           room number, door designation.
+                        %e         {floor_num}          floor number.
+                        %C         {cntry_desig}        country designation.
+                        %z         {zip}                zip number, postal code.
+                        %T         {city}               town, city.
+                        %c         {country}            country.
+
+                        Example:
+                        POSIX : postal_fmt &quot;&lt;%&gt;&lt;a&gt;&lt;%&gt;&lt;N&gt;&lt;%&gt;&lt;f&gt;&lt;%&gt;&lt;N&gt;&lt;%&gt;&lt;d&gt;&lt;%&gt;&lt;N&gt;&lt;%&gt;&lt;b&gt;&lt;%&gt;&lt;N&gt;/
+                                     &lt;%&gt;&lt;s&gt;&lt;SP&gt;&lt;%&gt;&lt;h&gt;&lt;SP&gt;&lt;%&gt;&lt;e&gt;&lt;SP&gt;&lt;%&gt;&lt;r&gt;&lt;%&gt;&lt;N&gt;/
+                                     &lt;%&gt;&lt;C&gt;&lt;-&gt;&lt;%&gt;&lt;z&gt;&lt;SP&gt;&lt;%&gt;&lt;T&gt;&lt;%&gt;&lt;N&gt;&lt;%&gt;&lt;c&gt;&lt;%&gt;&lt;N&gt;&quot;
+
+                        ICU   : &quot;{co_address}{graphic_chars}{firm_name}{graphic_chars}{dept_name}{graphic_chars}{bldg_name}{graphic_chars}{street}\s{house_num}\s{8}\s{room_num}{graphic_chars}{cntry_desig}-{zip}\s{city}{graphic_chars}{country}{graphic_chars}&quot;</pre>
+<p class="element2">&lt;nameFormat&gt;</p>
+<p>This is the grab-bag name format from 14652. It makes no provision for
+changes in format when elements are empty, so it is fairly useless.</p>
+<pre>
+                POSIX          ICU                     Description
+                =====      ===========                 =============
+                %f         {family_name}               Family names.
+                %F         {family_name_upper}         Family names in uppercase.
+                %g         {first_name}                First given name.
+                %G         {first_initial}             First given initial.
+                %l         {first_name_latin}          First given name with latin letters.
+                %o         {short_name}                Other shorter name, eg. &quot;Bill&quot;.
+                %m         {middle_name}               Middle names.
+                %M         {middle_initial}            Middle initial.
+                %p         {profession}                Profession.
+                %s         {salutation}                Salutation, such as &quot;Doctor&quot;
+                %S         {salutation_abbr}           Abbreviated salutation, such as &quot;Mr.&quot; or &quot;Dr.&quot;
+                %d         {salutation_fdcc}           Salutation, using the FDCC-sets conventions, with 1 for
+                                                       the name_gen, 2 for name_mr, 3 for name_mrs, 4 for
+                                                       name_miss, 5 for name_ms.
+                %t          {esc_seq_preced}           If the preceding escape sequence resulted in an empty
+                                                            string, then the empty string, else a &lt;space&gt;.
+                Example:
+                POSIX    : name_fmt &quot;&lt;%&gt;&lt;p&gt;&lt;%&gt;&lt;t&gt;&lt;%&gt;&lt;g&gt;&lt;%&gt;&lt;t&gt;&lt;%&gt;&lt;m&gt;&lt;%&gt;&lt;t&gt;&lt;%&gt;&lt;f&gt;&quot;
+                ICU  : NameFormat &quot;{8}\s{2}\s{6}\s{0}&quot;</pre>
+<p class="element2">&lt;telephoneFormat&gt;</p>
+<p>It does not actually provide a mechanism for turning an arbitrary string of
+digits into a well-formed telephone number, so it is, well, fairly useless.</p>
+<pre>                        POSIX   ICU                 Description
+                        =====   ==========          ===========
+                        %a      {area_code}         area code without prefix (prefix is often &lt;0&gt;).
+                        %A      {area_code_prefix}  area code including prefix (prefix is often &lt;0&gt;).
+                        %l      {local_num}         local number.
+                        %c      {country_code}      country code.
+                        %C      {alternative_carr}  alternative carrier service code used for dialling
+                                                    abroad
+                        %c      {contry}            country.
+
+                        Example:
+                        POSIX  :  tel_int_fmt &quot;&lt;+&gt;&lt;%&gt;&lt;c&gt;&lt;SP&gt;&lt;%&gt;&lt;a&gt;&lt;SP&gt;&lt;%&gt;&lt;l&gt;&quot;
+                        ICU    :  &quot;+{country_code}\s{area_code}\s{local_num}&quot;</pre>
+<p><i>Example:</i></p>
+<pre>    &lt;special owner=&quot;http://www.redhat.com&quot;&gt;
+       &lt;iso14652:iso14652 xmlns:iso14652=&quot;http://oss.software.ibm.com/icu/iso14652&quot;&gt;
+            &lt;iso14652:addressFormat&gt;
+                &lt;iso14652:postalPattern&gt;{postal_code}{country}{town}{street}{building}{floor}{room}&lt;/iso14652:postalPattern&gt;
+            &lt;/iso14652:addressFormat&gt;
+            &lt;iso14652:nameFormat&gt;
+                &lt;namePattern&gt; {profession} {first_name} {middle_name} {family_name}&lt;/namePattern&gt;
+                &lt;generalSalutation&gt;&lt;/generalSalutation&gt;
+                &lt;shortSalutationMr&gt; Mr.&lt;/shortSalutationMr&gt;
+                &lt;shortSalutationMiss&gt;Ms.&lt;/shortSalutationMiss&gt;
+                &lt;shortSalutationMrs&gt;Mrs.&lt;/shortSalutationMrs&gt;
+                &lt;longSalutationMr&gt; Mister.&lt;/longSalutationMr&gt;
+                &lt;longSalutationMiss&gt;Miss&lt;/longSalutationMiss&gt;
+                &lt;longSalutationMrs&gt;Mrs.&lt;/longSalutationMrs&gt;
+            &lt;/iso14652:nameFormat&gt;
+
+            &lt;iso14652:identification&gt;
+                &lt;!-- Identification of the person who produced the data file. --&gt;
+                &lt;iso14652:title&gt;&lt;/iso14652:title&gt;
+                &lt;iso14652:source&gt;&lt;/iso14652:source&gt;
+                &lt;iso14652:address&gt;&lt;/iso14652:address&gt;
+                &lt;iso14652:contact&gt;&lt;/iso14652:contact&gt;
+                &lt;iso14652:email&gt;&lt;/iso14652:email&gt;
+                &lt;iso14652:telephone&gt;&lt;/iso14652:telephone&gt;
+                &lt;iso14652:fax&gt;&lt;/iso14652:fax&gt;
+                &lt;iso14652:language&gt;&lt;/iso14652:language&gt;
+                &lt;iso14652:territory&gt;&lt;/iso14652:territory&gt;
+                &lt;iso14652:audience&gt;&lt;/iso14652:audience&gt;
+                &lt;iso14652:application&gt;&lt;/iso14652:application&gt;
+                &lt;iso14652:abbreviation&gt;&lt;/iso14652:abbreviation&gt;
+                &lt;iso14652:revision&gt;&lt;/iso14652:revision&gt;
+                &lt;iso14652:date&gt;&lt;/iso14652:date&gt;
+            &lt;/iso14652:identification&gt;
+
+            &lt;iso14652:telephoneFormat&gt;
+                &lt;iso14652:internationalPattern&gt; +{country_code} {area_code}-{local_num}&lt;/iso14652:internationalPattern&gt;
+                &lt;iso14652:domesticPattern&gt;({area_code}) {local_num}&lt;/iso14652:domesticPattern&gt;
+                &lt;iso14652:internationalDialCode&gt;001 &lt;/iso14652:internationalDialCode&gt;
+                &lt;iso14652:internationalPrefix&gt; &lt;/iso14652:internationalPrefix&gt;
+            &lt;/iso14652:telephoneFormat&gt;
+        &lt;/iso14652:iso14652&gt;
+</pre>
+
+</body>
+
+</html>

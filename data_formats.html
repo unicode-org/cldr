@@ -85,7 +85,10 @@ real characters or back, you can do the following:</p>
   #10: Unicode Collation Algorithm</a> (UCA).</p>
   <p>For readability, the rules are presented here in Java/ICU rule format,
   rather than XML; for the same reason, we prefer the bug reports to also use
-  that format, even though the end result will be in XML.</p>
+  that format, even though the end result will be in XML. For more information,
+  see <a href="http://oss.software.ibm.com/icu/userguide/Collate_Customization.html">ICU
+  C</a><a href="http://oss.software.ibm.com/icu/userguide/Collate_Customization.html">ollation
+  Customization</a>.</p>
 </blockquote>
 <h3>Comparison Charts</h3>
 <blockquote>
@@ -195,26 +198,41 @@ real characters or back, you can do the following:</p>
 </blockquote>
 <h2><a name="Exemplar">Exemplar Characters</a></h2>
 <blockquote>
-  The exemplar character set contains the commonly used for a given language,
-  which can be for testing and for determining the appropriate repertoire of
-  characters for charset conversion or collation. It is not a complete set of
-  characters for a language, nor should it be considered to apply to multiple
-  languages in a particular country. In general, the test to see whether or not
-  a character belongs in the set is based on whether it is acceptable in that
-  language to always use spellings that avoid that character. For example, the
-  exemplar character set for en (English) is the set [a-z]. This set does not
-  contain the accented characters that are sometimes seen in words like
-  &quot;résumé&quot; or &quot;naïve&quot;, because it is acceptable in common
-  practice to spell those words without the accents. The exemplar character set
-  for fr (French), on the other hand, must contain those characters: [a-z é è
-  ù ç à â ê î ô û æ œ ë ï ÿ]<br>
+  The exemplar character set contains the commonly used letters for a given
+  modern form of a language, which can be for testing and for determining the
+  appropriate repertoire of letters for charset conversion or collation. It is
+  not a complete set of letters used for a language, nor should it be considered
+  to apply to multiple languages in a particular country. In general, the test
+  to see whether or not a letter belongs in the set is based on whether it is
+  acceptable in that language to always use spellings that avoid that character.
+  For example, the exemplar character set for en (English) is the set [a-z].
+  This set does not contain the accented letters that are sometimes seen in
+  words like &quot;résumé&quot; or &quot;naïve&quot;, because it is
+  acceptable in common practice to spell those words without the accents. The
+  exemplar character set for fr (French), on the other hand, must contain those
+  characters: [a-z é è ù ç à â ê î ô û æ œ ë ï ÿ].
+  <p>Punctuation and other symbols should not be included. Sequences of
+  characters that act like a single letter in the language — especially in
+  collation — are included within braces, such as [a-z á é í ó ú ö ü
+  &#337; &#369; {cs} {dz} {dzs} {gy} ...]. Where combining marks are used
+  generatively, and apply to a large number of base characters (such as in Indic
+  scripts), the individual combining marks should be included. Where they are
+  used with only a few base characters, the specific combinations should be
+  included. Wherever there is not a precomposed character (e.g. single codepoint)
+  for a given combination, that must be included within braces. For example, to
+  include sequences from the <a href="http://www.unicode.org/standard/where/">Where
+  is my Character?</a> page on the Unicode site, one would write: [{ch} {t&#688;}
+  {x&#803;} {&#411;&#787;} {&#261;&#769;} {i&#775;&#769;} {&#12488;&#12442;}],
+  but for French one would just write [a-z é è ù ...]. When in doubt use
+  braces, since it does no harm to included them around single code points: e.g.
+  [a-z {é} {è} {ù} ...].<br>
   <br>
   The exemplar character set for Han characters is composed somewhat
   differently. It is even harder to draw a clear line for Han characters, since
   usage is more more like a frequency curve that slowly trails off to the right
   in terms of decreasing frequency. So for this case, the exemplar characters
   simply contain a set of reasonably frequent characters for the language, based
-  on presence in character set standards.
+  on presence in character set standards.</p>
 </blockquote>
 <blockquote>
   This set is case insensitive; this means it does not need both upper and lower

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27"/>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
 		<language type="eo"/>
 	</identity>
 	<localeDisplayNames>
@@ -335,7 +335,7 @@
 			<territory type="SM">San-Marino</territory>
 			<territory type="SN">Senegalo</territory>
 			<territory type="SO">Somalujo</territory>
-			<!--<territory type="SP">Serbujo</territory>-->
+			<!-- <territory type="SP">Serbujo</territory> -->
 			<territory type="SR">Surinamo</territory>
 			<territory type="ST">Sao-Tomeo kaj Principeo</territory>
 			<territory type="SV">Salvadoro</territory>
@@ -437,10 +437,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week>
-					<minDays count="4"/>
-					<firstDay day="mon"/>
-				</week>
 				<am>atm</am>
 				<pm>ptm</pm>
 				<eras>

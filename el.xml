@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27"/>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
 		<language type="el"/>
 	</identity>
 	<localeDisplayNames>
@@ -296,7 +296,7 @@
 			<territory type="SM">Άγιος Μαρίνος</territory>
 			<territory type="SN">Σενεγάλη</territory>
 			<territory type="SO">Σομαλία</territory>
-			<!--<territory type="SP">Σερβία</territory>-->
+			<!-- <territory type="SP">Σερβία</territory> -->
 			<territory type="SR">Σουρινάμ</territory>
 			<territory type="ST">Σάο Τομέ και Πρίνσιπε</territory>
 			<territory type="SV">Ελ Σαλβαδόρ</territory>
@@ -488,9 +488,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week>
-					<firstDay day="mon"/>
-				</week>
 				<am>ΠΜ</am>
 				<pm>ΜΜ</pm>
 				<eras>
@@ -552,37 +549,18 @@
 			<group>.</group>
 		</symbols>
 		<currencies>
-			<currency type="ADD">
-				<displayName>Δηνάριο Ανδόρας</displayName>
-				<symbol>ADD</symbol>
-			</currency>
 			<currency type="ADP">
 				<displayName>Πεσέτα Ανδόρας</displayName>
-				<symbol>ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>Ντιράμ Ηνωμένων Αραβικών Εμιράτων</displayName>
-				<symbol>AED</symbol>
-			</currency>
-			<currency type="AIF">
-				<displayName>Φράγκο Affars και Issas</displayName>
-				<symbol>AIF</symbol>
 			</currency>
 			<currency type="ALK">
 				<displayName>Λεκ Αλβανίας (1946-1961)</displayName>
-				<symbol>ALK</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Λεκ Αλβανίας</displayName>
 				<symbol>lek</symbol>
-			</currency>
-			<currency type="ALV">
-				<displayName>Λεκ Valute Αλβανίας</displayName>
-				<symbol>ALV</symbol>
-			</currency>
-			<currency type="ALX">
-				<displayName>Αλβανικά Πιστοποιητικά Ξένου Συναλλάγματος σε Δολάρια</displayName>
-				<symbol>ALX</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Dram Αρμενίας</displayName>
@@ -594,35 +572,21 @@
 			</currency>
 			<currency type="AOA">
 				<displayName>Kwanza Ανγκόλας</displayName>
-				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Kwanza Ανγκόλας (1977-1990)</displayName>
-				<symbol>AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>Νέα Kwanza Ανγκόλας (1990-2000)</displayName>
-				<symbol>AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>Kwanza Reajustado Ανγκόλας (1995-1999)</displayName>
-				<symbol>AOR</symbol>
-			</currency>
-			<currency type="AOS">
-				<displayName>Εσκούδο Ανγκόλας</displayName>
-				<symbol>AOS</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>Austral Αργεντινής</displayName>
-				<symbol>ARA</symbol>
-			</currency>
-			<currency type="ARM">
-				<displayName>Εθνικό Νόμισμα Πέσο Αργεντινής</displayName>
-				<symbol>ARM</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>Πέσο Αργεντινής (1983-1985)</displayName>
-				<symbol>ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Πέσο Αργεντινής</displayName>
@@ -630,35 +594,23 @@
 			</currency>
 			<currency type="ATS">
 				<displayName>Σελίνι Αυστρίας</displayName>
-				<symbol>ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>Δολάριο Αυστραλίας</displayName>
 				<symbol>$A</symbol>
 			</currency>
-			<currency type="AUP">
-				<displayName>Λίρα Αυστραλίας</displayName>
-				<symbol>AUP</symbol>
-			</currency>
 			<currency type="AWG">
 				<displayName>Γκίλντα Αρούμπα</displayName>
-				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Μανάτ Αζερμπαϊτζάν</displayName>
-				<symbol>AZM</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>Δηνάριο Βοσνίας-Ερζεγοβίνης</displayName>
-				<symbol>BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Μάρκο Βοσνίας-Ερζεγοβίνης</displayName>
 				<symbol>KM</symbol>
-			</currency>
-			<currency type="BAN">
-				<displayName>Νέο Δηνάριο Βοσνίας-Ερζεγοβίνης</displayName>
-				<symbol>BAN</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Δολάριο Μπαρμπάντος</displayName>
@@ -670,7 +622,6 @@
 			</currency>
 			<currency type="BEC">
 				<displayName>Φράγκο Βελγίου (μετατρέψιμο)</displayName>
-				<symbol>BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>Φράγκο Βελγίου</displayName>
@@ -678,27 +629,13 @@
 			</currency>
 			<currency type="BEL">
 				<displayName>Φράγκο Βελγίου (οικονομικό)</displayName>
-				<symbol>BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>Μεταλλικό Λεβ Βουλγαρίας</displayName>
 				<symbol>lev</symbol>
 			</currency>
-			<currency type="BGM">
-				<displayName>Σοσιαλιστικό Λεβ Βουλγαρίας</displayName>
-				<symbol>BGM</symbol>
-			</currency>
 			<currency type="BGN">
 				<displayName>Νέο Λεβ Βουλγαρίας</displayName>
-				<symbol>BGN</symbol>
-			</currency>
-			<currency type="BGO">
-				<displayName>Λεβ Βουλγαρίας (1879-1952)</displayName>
-				<symbol>BGO</symbol>
-			</currency>
-			<currency type="BGX">
-				<displayName>Πιστοποιητικά Ξένου Συναλλάγματος σε Λεβ</displayName>
-				<symbol>BGX</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Δηνάριο Bahraini</displayName>
@@ -712,33 +649,23 @@
 				<displayName>Δολάριο Βερμούδων</displayName>
 				<symbol>Ber$</symbol>
 			</currency>
-			<currency type="BMP">
-				<displayName>Λίρα Βερμούδων</displayName>
-				<symbol>BMP</symbol>
-			</currency>
 			<currency type="BND">
 				<displayName>Δολάριο Brunei</displayName>
-				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>Πέσο Βολιβίας</displayName>
-				<symbol>BOP</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>Mvdol Βολιβίας</displayName>
-				<symbol>BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>Νέο Cruzeiro Βραζιλίας (1967-1986)</displayName>
-				<symbol>BRB</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>Cruzado Βραζιλίας</displayName>
-				<symbol>BRC</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>Cruzeiro Βραζιλίας (1990-1993)</displayName>
-				<symbol>BRE</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Real Βραζιλίας</displayName>
@@ -746,51 +673,25 @@
 			</currency>
 			<currency type="BRN">
 				<displayName>Νέο Cruzado Βραζιλίας</displayName>
-				<symbol>BRN</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>Cruzeiro Βραζιλίας</displayName>
-				<symbol>BRR</symbol>
-			</currency>
-			<currency type="BRZ">
-				<displayName>Cruzeiro Βραζιλίας (1942-1967)</displayName>
-				<symbol>BRZ</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Δολάριο Μπαχάμες</displayName>
-				<symbol>BSD</symbol>
-			</currency>
-			<currency type="BSP">
-				<displayName>Λίρα Μπαχάμες</displayName>
-				<symbol>BSP</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Ngultrum Μπουτάν</displayName>
 				<symbol>Nu</symbol>
 			</currency>
-			<currency type="BTR">
-				<displayName>Ρούπια Μπουτάν</displayName>
-				<symbol>BTR</symbol>
-			</currency>
 			<currency type="BUK">
 				<displayName>Kyat Βιρμανίας</displayName>
-				<symbol>BUK</symbol>
-			</currency>
-			<currency type="BUR">
-				<displayName>Ρούπια Βιρμανίας</displayName>
-				<symbol>BUR</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Pula Μποτσουάνα</displayName>
-				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Νέο Ρούβλι Λευκορωσίας (1994-1999)</displayName>
-				<symbol>BYB</symbol>
-			</currency>
-			<currency type="BYL">
-				<displayName>Ρούβλι Λευκορωσίας (1992-1994)</displayName>
-				<symbol>BYL</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>Ρούβλι Λευκορωσίας</displayName>
@@ -800,77 +701,30 @@
 				<displayName>Δολάριο Belize</displayName>
 				<symbol>BZ$</symbol>
 			</currency>
-			<currency type="BZH">
-				<displayName>Δολάριο Βρετανικής Ονδούρας</displayName>
-				<symbol>BZH</symbol>
-			</currency>
 			<currency type="CAD">
 				<displayName>Δολάριο Καναδά</displayName>
 				<symbol>Can$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>Φράγκο Congolais Κονγκό</displayName>
-				<symbol>CDF</symbol>
-			</currency>
-			<currency type="CDG">
-				<displayName>Φράγκο Δημοκρατίας Κονγκό</displayName>
-				<symbol>CDG</symbol>
-			</currency>
-			<currency type="CDL">
-				<displayName>Congolese Ζαΐρ</displayName>
-				<symbol>CDL</symbol>
-			</currency>
-			<currency type="CFF">
-				<displayName>Φράγκο Κεντρικής Αφρικανικής Δημοκρατίας CFA</displayName>
-				<symbol>CFF</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Φράγκο Ελβετίας</displayName>
 				<symbol>SwF</symbol>
 			</currency>
-			<currency type="CKD">
-				<displayName>Δολάριο Νήσων Κουκ</displayName>
-				<symbol>CKD</symbol>
-			</currency>
-			<currency type="CLC">
-				<displayName>Condor Χιλής</displayName>
-				<symbol>CLC</symbol>
-			</currency>
-			<currency type="CLE">
-				<displayName>Εσκούδο Χιλής</displayName>
-				<symbol>CLE</symbol>
-			</currency>
 			<currency type="CLF">
 				<displayName>Unidades de Fomento Χιλής</displayName>
-				<symbol>CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Πέσο Χιλής</displayName>
 				<symbol>Ch$</symbol>
 			</currency>
-			<currency type="CMF">
-				<displayName>Φράγκο Καμερούν CFA</displayName>
-				<symbol>CMF</symbol>
-			</currency>
-			<currency type="CNP">
-				<displayName>Jen Min Piao Yuan Κίνας</displayName>
-				<symbol>CNP</symbol>
-			</currency>
 			<currency type="CNX">
 				<displayName>Πιστοποιητικά Ξένου Συναλλάγματος σε Δολάρια ΗΠΑ, Κίνας</displayName>
-				<symbol>CNX</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Yuan Renminbi Κίνας</displayName>
 				<symbol>Y</symbol>
-			</currency>
-			<currency type="COB">
-				<displayName>Χάρτινο Πέσο Κολομβίας</displayName>
-				<symbol>COB</symbol>
-			</currency>
-			<currency type="COF">
-				<displayName>Φράγκο Κονγκό CFA</displayName>
-				<symbol>COF</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Πέσο Κολομβίας</displayName>
@@ -880,52 +734,31 @@
 				<displayName>Colon Κόστα Ρίκα</displayName>
 				<symbol>C</symbol>
 			</currency>
-			<currency type="CSC">
-				<displayName>Κορόνα Τσεχοσλοβακίας</displayName>
-				<symbol>CSC</symbol>
-			</currency>
 			<currency type="CSK">
 				<displayName>Σκληρή Κορόνα Τσεχοσλοβακίας</displayName>
-				<symbol>CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Πέσο Κούβας</displayName>
-				<symbol>CUP</symbol>
-			</currency>
-			<currency type="CUX">
-				<displayName>Πιστοποιητικά Ξένου Συναλλάγματος Κούβας</displayName>
-				<symbol>CUX</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Εσκούδο Πράσινου Ακρωτηρίου</displayName>
 				<symbol>CVEsc</symbol>
 			</currency>
-			<currency type="CWG">
-				<displayName>Γκίλντα Curacao</displayName>
-				<symbol>CWG</symbol>
-			</currency>
 			<currency type="CYP">
 				<displayName>Λίρα Κύπρου</displayName>
 				<symbol>£</symbol>
 			</currency>
-			<currency type="CYP"  alt="proposed" draft="true">
+			<currency type="CYP" alt="proposed" draft="true">
 				<symbol>C£</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>Κορόνα Τσέχικης Δημοκρατίας</displayName>
-				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Ostmark Ανατολικής Γερμανίας</displayName>
-				<symbol>DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Μάρκο Γερμανίας</displayName>
-				<symbol>DEM</symbol>
-			</currency>
-			<currency type="DES">
-				<displayName>Sperrmark Γερμανίας</displayName>
-				<symbol>DES</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Φράγκο Τζιμπουτί</displayName>
@@ -943,93 +776,49 @@
 				<displayName>Δηνάριο Αλγερίας</displayName>
 				<symbol>DA</symbol>
 			</currency>
-			<currency type="DZF">
-				<displayName>Νέο Φράγκο Αλγερίας</displayName>
-				<symbol>DZF</symbol>
-			</currency>
-			<currency type="DZG">
-				<displayName>Germinal Φράγκο Αλγερίας</displayName>
-				<symbol>DZG</symbol>
-			</currency>
 			<currency type="ECS">
 				<displayName>Sucre Ισημερινού</displayName>
-				<symbol>ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>Unidad de Valor Constante (UVC) Ισημερινού</displayName>
-				<symbol>ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>Κορόνα Εσθονίας</displayName>
-				<symbol>EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Λίρα Αιγύπτου</displayName>
-				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Eritrean Nakfa</displayName>
-				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>Πεσέτα Ισπανίας</displayName>
-				<symbol>ESP</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>Birr Αιθιοπίας</displayName>
 				<symbol>Br</symbol>
 			</currency>
-			<currency type="ETD">
-				<displayName>Δολάριο Αιθιοπίας</displayName>
-				<symbol>ETD</symbol>
-			</currency>
 			<currency type="EUR">
 				<displayName>Ευρώ</displayName>
-				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Μάρκο Φινλανδίας</displayName>
-				<symbol>FIM</symbol>
-			</currency>
-			<currency type="FIN">
-				<displayName>Μάρκο Φινλανδίας (1860-1962)</displayName>
-				<symbol>FIN</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>Δολάριο Φίτζι</displayName>
 				<symbol>F$</symbol>
 			</currency>
-			<currency type="FJP">
-				<displayName>Λίρα Φίτζι</displayName>
-				<symbol>FJP</symbol>
-			</currency>
 			<currency type="FKP">
 				<displayName>Λίρα Νησιών Φώλκλαντ</displayName>
-				<symbol>FKP</symbol>
-			</currency>
-			<currency type="FOK">
-				<displayName>Kronur Νήσων Faeroe</displayName>
-				<symbol>FOK</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Φράγκο Γαλλίας</displayName>
-				<symbol>FRF</symbol>
-			</currency>
-			<currency type="FRG">
-				<displayName>Φράγκο Germinal/Φράγκο Poincare Γαλλίας</displayName>
-				<symbol>FRG</symbol>
-			</currency>
-			<currency type="GAF">
-				<displayName>Φράγκο Γκαμπόν CFA</displayName>
-				<symbol>GAF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Λίρα Στερλίνα Βρετανίας</displayName>
-				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Kupon Larit Γεωργίας</displayName>
-				<symbol>GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>Lari Γεωργίας</displayName>
@@ -1037,63 +826,22 @@
 			</currency>
 			<currency type="GHC">
 				<displayName>Cedi Γκάνας</displayName>
-				<symbol>GHC</symbol>
-			</currency>
-			<currency type="GHO">
-				<displayName>Παλαιό Cedi Γκάνας</displayName>
-				<symbol>GHO</symbol>
-			</currency>
-			<currency type="GHP">
-				<displayName>Λίρα Γκάνας</displayName>
-				<symbol>GHP</symbol>
-			</currency>
-			<currency type="GHR">
-				<displayName>Ανατιμημένο Cedi Γκάνας</displayName>
-				<symbol>GHR</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Λίρα Γιβραλτάρ</displayName>
-				<symbol>GIP</symbol>
-			</currency>
-			<currency type="GLK">
-				<displayName>Κορόνα Γροιλανδίας</displayName>
-				<symbol>GLK</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Dalasi Γκάμπια</displayName>
-				<symbol>GMD</symbol>
-			</currency>
-			<currency type="GMP">
-				<displayName>Λίρα Γκάμπια</displayName>
-				<symbol>GMP</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Φράγκο Γουινέας</displayName>
 				<symbol>GF</symbol>
 			</currency>
-			<currency type="GNI">
-				<displayName>Φράγκο Γουινέας (1960-1972)</displayName>
-				<symbol>GNI</symbol>
-			</currency>
 			<currency type="GNS">
 				<displayName>Syli Γουινέας</displayName>
-				<symbol>GNS</symbol>
-			</currency>
-			<currency type="GPF">
-				<displayName>Φράγκο Γουαδελούπης</displayName>
-				<symbol>GPF</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>Ekwele Guineana Ισημερινής Γουινέας</displayName>
-				<symbol>GQE</symbol>
-			</currency>
-			<currency type="GQF">
-				<displayName>Φράγκο Ισημερινής Γουινέας</displayName>
-				<symbol>GQF</symbol>
-			</currency>
-			<currency type="GQP">
-				<displayName>Πεσέτα Guineana Ισημερινής Γουινέας</displayName>
-				<symbol>GQP</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>Δρχ</displayName>
@@ -1103,29 +851,15 @@
 				<displayName>Δραχμή Ελλάδας</displayName>
 				<symbol>GRD</symbol>
 			</currency>
-			<currency type="GRN">
-				<displayName>Νέα Δραχμή Ελλάδας</displayName>
-				<symbol>GRN</symbol>
-			</currency>
 			<currency type="GTQ">
 				<displayName>Quetzal Γουατεμάλα</displayName>
 				<symbol>Q</symbol>
 			</currency>
-			<currency type="GUF">
-				<displayName>Φράγκο Guiana Γαλλικής Γουιάνας</displayName>
-				<symbol>GUF</symbol>
-			</currency>
 			<currency type="GWE">
 				<displayName>Γκινέα Εσκούδο Πορτογαλίας</displayName>
-				<symbol>GWE</symbol>
-			</currency>
-			<currency type="GWM">
-				<displayName>Γκινέα Mil Reis Πορτογαλίας</displayName>
-				<symbol>GWM</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName>Πέσο Guinea-Bissau</displayName>
-				<symbol>GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Δολάριο Γουιάνας</displayName>
@@ -1137,35 +871,16 @@
 			</currency>
 			<currency type="HRD">
 				<displayName>Δηνάριο Κροατίας</displayName>
-				<symbol>HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Kuna Δηνάριο</displayName>
-				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Gourde Αϊτής</displayName>
-				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Φιορίνι Ουγγαρίας</displayName>
 				<symbol>Ft</symbol>
-			</currency>
-			<currency type="IBP">
-				<displayName>Λίρα Βόρειας Ιρλανδίας</displayName>
-				<symbol>IBP</symbol>
-			</currency>
-			<currency type="IDG">
-				<displayName>Γκίλντα Nica Ινδονησίας</displayName>
-				<symbol>IDG</symbol>
-			</currency>
-			<currency type="IDJ">
-				<displayName>Ρούπια Ιάβας Ινδονησίας</displayName>
-				<symbol>IDJ</symbol>
-			</currency>
-			<currency type="IDN">
-				<displayName>Νέα Ρούπια Ινδονησίας</displayName>
-				<symbol>IDN</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Ρούπια Ινδονησίας</displayName>
@@ -1175,21 +890,11 @@
 				<displayName>Λίρα Ιρλανδίας</displayName>
 				<symbol>IR£</symbol>
 			</currency>
-			<currency type="ILL">
-				<displayName>Sheqel Ισραήλ</displayName>
-				<symbol>ILL</symbol>
-			</currency>
 			<currency type="ILP">
 				<displayName>Λίρα Ισραήλ</displayName>
-				<symbol>ILP</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>Νέο Sheqel Ισραήλ</displayName>
-				<symbol>ILS</symbol>
-			</currency>
-			<currency type="IMP">
-				<displayName>Λίρα Στερλίνα Νήσου Man</displayName>
-				<symbol>IMP</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Ρούπια Ινδίας</displayName>
@@ -1205,22 +910,13 @@
 			</currency>
 			<currency type="ISK">
 				<displayName>Κορόνα Ισλανδίας</displayName>
-				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Λιρέτα Ιταλίας</displayName>
 			</currency>
-			<currency type="JEP">
-				<displayName>Λίρα Στερλίνα Υερσέης</displayName>
-				<symbol>JEP</symbol>
-			</currency>
 			<currency type="JMD">
 				<displayName>Δολάριο Τζαμάικας</displayName>
 				<symbol>J$</symbol>
-			</currency>
-			<currency type="JMP">
-				<displayName>Λίρα Τζαμάικας</displayName>
-				<symbol>JMP</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Δηνάριο Ιορδανίας</displayName>
@@ -1228,47 +924,24 @@
 			</currency>
 			<currency type="JPY">
 				<displayName>Γιεν Ιαπωνίας</displayName>
-				<symbol>¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Σελίνι Κένυας</displayName>
 				<symbol>K Sh</symbol>
 			</currency>
-			<currency type="KHO">
-				<displayName>Παλαιό Riel Καμπότζης</displayName>
-				<symbol>KHO</symbol>
-			</currency>
 			<currency type="KHR">
 				<displayName>Riel Καμπότζης</displayName>
 				<symbol>CR</symbol>
-			</currency>
-			<currency type="KID">
-				<displayName>Δολάριο Kiribati</displayName>
-				<symbol>KID</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Φράγκο Comoro</displayName>
 				<symbol>CF</symbol>
 			</currency>
-			<currency type="KPP">
-				<displayName>Won Δημοκρατίας Βόρειας Κορέας</displayName>
-				<symbol>KPP</symbol>
-			</currency>
 			<currency type="KPW">
 				<displayName>Won Βόρειας Κορέας</displayName>
-				<symbol>KPW</symbol>
-			</currency>
-			<currency type="KRH">
-				<displayName>Hwan Νότιας Κορέας</displayName>
-				<symbol>KRH</symbol>
-			</currency>
-			<currency type="KRO">
-				<displayName>Παλαιό Won Νότιας Κορέας</displayName>
-				<symbol>KRO</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Won Νότιας Κορέας</displayName>
-				<symbol>KRW</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Δηνάριο Κουβέιτ</displayName>
@@ -1276,11 +949,6 @@
 			</currency>
 			<currency type="KYD">
 				<displayName>Δολάριο Νήσων Κάιμαν</displayName>
-				<symbol>KYD</symbol>
-			</currency>
-			<currency type="KZR">
-				<displayName>Ρούβλι Καζακστάν</displayName>
-				<symbol>KZR</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Tenge Καζακστάν</displayName>
@@ -1288,119 +956,61 @@
 			</currency>
 			<currency type="LAK">
 				<displayName>Kip Λάος</displayName>
-				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Λίρα Λιβάνου</displayName>
 				<symbol>LL</symbol>
 			</currency>
-			<currency type="LIF">
-				<displayName>Φράγκο Λιχτενστάιν</displayName>
-				<symbol>LIF</symbol>
-			</currency>
 			<currency type="LKR">
 				<displayName>Ρούπια Σρι Λάνκα</displayName>
 				<symbol>SL Re</symbol>
 			</currency>
-			<currency type="LNR">
-				<displayName>Ρούπια Ceylon</displayName>
-				<symbol>LNR</symbol>
-			</currency>
 			<currency type="LRD">
 				<displayName>Δολάριο Λιβερίας</displayName>
-				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Lita Λιθουανίας</displayName>
-				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Talonas Λιθουανίας</displayName>
-				<symbol>LTT</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>Φράγκο Λουξεμβούργου</displayName>
-				<symbol>LUF</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>Lats Λετονίας</displayName>
-				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Ρούβλι Λετονίας</displayName>
-				<symbol>LVR</symbol>
-			</currency>
-			<currency type="LYB">
-				<displayName>Λίρα Βρετανικής Στρατιωτικής Εξουσίας Λιβύης</displayName>
-				<symbol>LYB</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Δηνάριο Λιβύης</displayName>
 				<symbol>LD</symbol>
 			</currency>
-			<currency type="LYP">
-				<displayName>Λίρα Λιβύης</displayName>
-				<symbol>LYP</symbol>
-			</currency>
 			<currency type="MAD">
 				<displayName>Ντιράμ Μαρόκου</displayName>
-				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Φράγκο Μαρόκου</displayName>
-				<symbol>MAF</symbol>
-			</currency>
-			<currency type="MCF">
-				<displayName>Νέο Φράγκο Μονακό</displayName>
-				<symbol>MCF</symbol>
-			</currency>
-			<currency type="MCG">
-				<displayName>Φράγκο Germinal Μονακό</displayName>
-				<symbol>MCG</symbol>
-			</currency>
-			<currency type="MDC">
-				<displayName>Λέι Cupon Μολδαβίας</displayName>
-				<symbol>MDC</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>Λέι Μολδαβίας</displayName>
-				<symbol>MDL</symbol>
-			</currency>
-			<currency type="MDR">
-				<displayName>Ρούβλι Cupon Μολδαβίας</displayName>
-				<symbol>MDR</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Ariary Μαδαγασκάρης</displayName>
-				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Φράγκο Μαδαγασκάρης</displayName>
-				<symbol>MGF</symbol>
-			</currency>
-			<currency type="MHD">
-				<displayName>Δολάριο Νήσων Marshall</displayName>
-				<symbol>MHD</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>Δηνάριο Π.Γ.Δ.Μ.</displayName>
 				<symbol>MDen</symbol>
 			</currency>
-			<currency type="MKN">
-				<displayName>Δηνάριο Π.Γ.Δ.Μ. (1992-1993)</displayName>
-				<symbol>MKN</symbol>
-			</currency>
 			<currency type="MLF">
 				<displayName>Φράγκο Μαλί</displayName>
-				<symbol>MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>Kyat Μιανμάρ</displayName>
-				<symbol>MMK</symbol>
-			</currency>
-			<currency type="MMX">
-				<displayName>Πιστοποιητικά Ξένου Συναλλάγματος σε Δολάρια, Μιανμάρ</displayName>
-				<symbol>MMX</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Tugrik Μογγολίας</displayName>
@@ -1408,11 +1018,6 @@
 			</currency>
 			<currency type="MOP">
 				<displayName>Pataca Μακάο</displayName>
-				<symbol>MOP</symbol>
-			</currency>
-			<currency type="MQF">
-				<displayName>Φράγκο Μαρτινίκας</displayName>
-				<symbol>MQF</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Ouguiya Μαυριτανίας</displayName>
@@ -1424,27 +1029,16 @@
 			</currency>
 			<currency type="MTP">
 				<displayName>Λίρα Μάλτας</displayName>
-				<symbol>MTP</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Ρούπια Μαυρικίου</displayName>
-				<symbol>MUR</symbol>
-			</currency>
-			<currency type="MVP">
-				<displayName>Ρούπια Νήσων Μαλδίβων</displayName>
-				<symbol>MVP</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Rufiyaa Νήσων Μαλδίβων</displayName>
-				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Kwacha Μαλάουι</displayName>
 				<symbol>MK</symbol>
-			</currency>
-			<currency type="MWP">
-				<displayName>Λίρα Μαλάουι</displayName>
-				<symbol>MWP</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Πέσο Μεξικού</displayName>
@@ -1452,11 +1046,9 @@
 			</currency>
 			<currency type="MXP">
 				<displayName>Ασημένιο Πέσο Μεξικού (1861-1992)</displayName>
-				<symbol>MXP</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>Unidad de Inversion (UDI) Μεξικού</displayName>
-				<symbol>MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>Ringgit Μαλαισίας</displayName>
@@ -1464,7 +1056,6 @@
 			</currency>
 			<currency type="MZE">
 				<displayName>Εσκούδο Μοζαμβίκης</displayName>
-				<symbol>MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>Metical Μοζαμβίκης</displayName>
@@ -1474,37 +1065,17 @@
 				<displayName>Δολάριο Ναμίμπια</displayName>
 				<symbol>N$</symbol>
 			</currency>
-			<currency type="NCF">
-				<displayName>Φράγκο Germinal Νέας Καληδονίας</displayName>
-				<symbol>NCF</symbol>
-			</currency>
 			<currency type="NGN">
 				<displayName>Naira Νιγηρίας</displayName>
-				<symbol>NGN</symbol>
-			</currency>
-			<currency type="NGP">
-				<displayName>Λίρα Νιγηρίας</displayName>
-				<symbol>NGP</symbol>
-			</currency>
-			<currency type="NHF">
-				<displayName>Φράγκο Νέων Εβρίδων CFP</displayName>
-				<symbol>NHF</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>Κόρδοβα Νικαράγουας</displayName>
-				<symbol>NIC</symbol>
-			</currency>
-			<currency type="NIG">
-				<displayName>Χρυσή Κόρδοβα Νικαράγουας</displayName>
-				<symbol>NIG</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>Χρυσή Κόρδοβα Νικαράγουας</displayName>
-				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Γκίλντα Ολλανδίας</displayName>
-				<symbol>NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Κορόνα Νορβηγίας</displayName>
@@ -1518,41 +1089,27 @@
 				<displayName>Δολάριο Νέας Ζηλανδίας</displayName>
 				<symbol>$NZ</symbol>
 			</currency>
-			<currency type="NZP">
-				<displayName>Λίρα Νέας Ζηλανδίας</displayName>
-				<symbol>NZP</symbol>
-			</currency>
 			<currency type="OMR">
 				<displayName>Rial Ομάν</displayName>
 				<symbol>RO</symbol>
 			</currency>
-			<currency type="OMS">
-				<displayName>Rial Saidi Ομάν</displayName>
-				<symbol>OMS</symbol>
-			</currency>
 			<currency type="PAB">
 				<displayName>Μπαλμπόα Παναμά</displayName>
-				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Inti Περού</displayName>
-				<symbol>PEI</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Sol Nuevo Περού</displayName>
-				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>Sol Περού</displayName>
-				<symbol>PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>Kina Παπούα Νέα Γουινέα</displayName>
-				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Πέσο Φιλιππίνων</displayName>
-				<symbol>PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Ρούπια Πακιστάν</displayName>
@@ -1562,57 +1119,31 @@
 				<displayName>Ζλότυ Πολωνίας</displayName>
 				<symbol>Zl</symbol>
 			</currency>
-			<currency type="PLX">
-				<displayName>Πιστοποιητικά Ξένου Συναλλάγματος σε Δολάρια, Πολωνίας</displayName>
-				<symbol>PLX</symbol>
-			</currency>
 			<currency type="PLZ">
 				<displayName>Ζλότυ Πολωνίας (1950-1995)</displayName>
-				<symbol>PLZ</symbol>
-			</currency>
-			<currency type="PSP">
-				<displayName>Λίρα Παλαιστίνης</displayName>
-				<symbol>PSP</symbol>
-			</currency>
-			<currency type="PTC">
-				<displayName>Conto Πορτογαλίας</displayName>
-				<symbol>PTC</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>Εσκούδο Πορτογαλίας</displayName>
-				<symbol>PTE</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>Γκουαρανί Παραγουάης</displayName>
-				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Rial Κατάρ</displayName>
 				<symbol>QR</symbol>
 			</currency>
-			<currency type="REF">
-				<displayName>Φράγκο Reunion</displayName>
-				<symbol>REF</symbol>
-			</currency>
 			<currency type="ROL">
 				<displayName>Λέι Ρουμανίας</displayName>
 				<symbol>leu</symbol>
 			</currency>
-			<currency type="RON">
-				<displayName>Νέο Λέι Ρουμανίας</displayName>
-				<symbol>RON</symbol>
-			</currency>
 			<currency type="RUB">
 				<displayName>Ρούβλι Ρωσίας</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Ρούβλι Ρωσίας (1991-1998)</displayName>
-				<symbol>RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Φράγκο Ρουάντας</displayName>
-				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Δολάριο Νήσων Σολομώντος</displayName>
@@ -1624,11 +1155,9 @@
 			</currency>
 			<currency type="SDD">
 				<displayName>Δηνάριο Σουδάν</displayName>
-				<symbol>SDD</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Λίρα Σουδάν</displayName>
-				<symbol>SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Κορόνα Σουηδίας</displayName>
@@ -1640,15 +1169,9 @@
 			</currency>
 			<currency type="SHP">
 				<displayName>Λίρα Αγίας Ελένης</displayName>
-				<symbol>SHP</symbol>
-			</currency>
-			<currency type="SIB">
-				<displayName>Tolar Bons Σλοβενίας</displayName>
-				<symbol>SIB</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Tolar Σλοβενίας</displayName>
-				<symbol>SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>Κορόνα Σλοβενίας</displayName>
@@ -1656,39 +1179,20 @@
 			</currency>
 			<currency type="SLL">
 				<displayName>Leone Σιέρα Λεόνε</displayName>
-				<symbol>SLL</symbol>
-			</currency>
-			<currency type="SML">
-				<displayName>Λιρέτα Αγίου Μαρίνου</displayName>
-				<symbol>SML</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Σελίνι Σομαλίας</displayName>
 				<symbol>So. Sh.</symbol>
 			</currency>
-			<currency type="SQS">
-				<displayName>Σελίνι Σομαλίας</displayName>
-				<symbol>SQS</symbol>
-			</currency>
 			<currency type="SRG">
 				<displayName>Γκίλντα Σουρινάμ</displayName>
 				<symbol>Sf</symbol>
 			</currency>
-			<currency type="SSP">
-				<displayName>Λίρα Σκωτίας</displayName>
-				<symbol>SSP</symbol>
-			</currency>
-			<currency type="SUN">
-				<displayName>Νέο Σοβιετικό Ρούβλι</displayName>
-				<symbol>SUN</symbol>
-			</currency>
 			<currency type="SUR">
 				<displayName>Σοβιετικό Ρούβλι</displayName>
-				<symbol>SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>Colon Ελ Σαλβαδόρ</displayName>
-				<symbol>SVC</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Λίρα Συρίας</displayName>
@@ -1698,45 +1202,23 @@
 				<displayName>Lilangeni Ζουαζιλάνδη</displayName>
 				<symbol>E</symbol>
 			</currency>
-			<currency type="TCC">
-				<displayName>Κορόνα Νήσων Τερκς και Κάικος</displayName>
-				<symbol>TCC</symbol>
-			</currency>
-			<currency type="TDF">
-				<displayName>Φράγκο Τσαντ CFA</displayName>
-				<symbol>TDF</symbol>
-			</currency>
 			<currency type="THB">
 				<displayName>Μπατ Ταϊλάνδης</displayName>
-				<symbol>THB</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Ρούβλι Τατζικιστάν</displayName>
-				<symbol>TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Somoni Τατζικιστάν</displayName>
-				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Μανάτ Τουρκμενιστάν</displayName>
-				<symbol>TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Δηνάριο Τυνησίας</displayName>
-				<symbol>TND</symbol>
-			</currency>
-			<currency type="TOS">
-				<displayName>Λίρα Στερλίνα Τόνγκα</displayName>
-				<symbol>TOS</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Εσκούδο Τιμόρ</displayName>
-				<symbol>TPE</symbol>
-			</currency>
-			<currency type="TPP">
-				<displayName>Pataca Τιμόρ</displayName>
-				<symbol>TPP</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>Λίρα Τουρκίας</displayName>
@@ -1745,14 +1227,6 @@
 			<currency type="TTD">
 				<displayName>Δολάριο Τρινιδάδ και Τομπάγκο</displayName>
 				<symbol>TT$</symbol>
-			</currency>
-			<currency type="TTO">
-				<displayName>Παλαιό Δολάριο Τρινιδάδ και Τομπάγκο</displayName>
-				<symbol>TTO</symbol>
-			</currency>
-			<currency type="TVD">
-				<displayName>Tuvalu Δολάριο</displayName>
-				<symbol>TVD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Νέο Δολάριο Ταϊβάν</displayName>
@@ -1764,15 +1238,12 @@
 			</currency>
 			<currency type="UAH">
 				<displayName>Hryvnia Ουκρανίας</displayName>
-				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>Karbovanetz Ουκρανίας</displayName>
-				<symbol>UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>Σελίνι Ουγκάντας (1966-1987)</displayName>
-				<symbol>UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Σελίνι Ουγκάντας</displayName>
@@ -1784,171 +1255,73 @@
 			</currency>
 			<currency type="USN">
 				<displayName>Δολάριο ΗΠΑ (Επόμενη Ημέρα)</displayName>
-				<symbol>USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>Δολάριο ΗΠΑ (Ίδια Ημέρα)</displayName>
-				<symbol>USS</symbol>
-			</currency>
-			<currency type="UYF">
-				<displayName>Μεταλλικό Πέσο Ουρουγουάης</displayName>
-				<symbol>UYF</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>Πέσο Ουρουγουάης (1975-1993)</displayName>
-				<symbol>UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>Πέσο Uruguayo Ουρουγουάης</displayName>
 				<symbol>Ur$</symbol>
 			</currency>
-			<currency type="UZC">
-				<displayName>Coupon Som Ουζμπεκιστάν</displayName>
-				<symbol>UZC</symbol>
-			</currency>
 			<currency type="UZS">
 				<displayName>Sum Ουζμπεκιστάν</displayName>
-				<symbol>UZS</symbol>
-			</currency>
-			<currency type="VAL">
-				<displayName>Λιρέτα Βατικανού</displayName>
-				<symbol>VAL</symbol>
-			</currency>
-			<currency type="VDD">
-				<displayName>Piastre Dong Viet Βορείου Βιετνάμ</displayName>
-				<symbol>VDD</symbol>
-			</currency>
-			<currency type="VDN">
-				<displayName>Νέο Dong Βορείου Βιετνάμ</displayName>
-				<symbol>VDN</symbol>
-			</currency>
-			<currency type="VDP">
-				<displayName>Viet Minh Piastre Dong Viet Βορείου Βιετνάμ</displayName>
-				<symbol>VDP</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Μπολιβάλ Βενεζουέλας</displayName>
 				<symbol>Be</symbol>
 			</currency>
-			<currency type="VGD">
-				<displayName>Δολάριο Βρετανικών Παρθένων Νήσων</displayName>
-				<symbol>VGD</symbol>
-			</currency>
 			<currency type="VND">
 				<displayName>Dong Βιετνάμ</displayName>
-				<symbol>VND</symbol>
-			</currency>
-			<currency type="VNN">
-				<displayName>Νέο Dong Βιετνάμ</displayName>
-				<symbol>VNN</symbol>
-			</currency>
-			<currency type="VNR">
-				<displayName>Dong Δημοκρατίας Βιετνάμ</displayName>
-				<symbol>VNR</symbol>
-			</currency>
-			<currency type="VNS">
-				<displayName>Εθνικό Dong Βιετνάμ</displayName>
-				<symbol>VNS</symbol>
-			</currency>
-			<currency type="WSP">
-				<displayName>Λίρα Δυτικής Σαμόα</displayName>
-				<symbol>WSP</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Tala Δυτικής Σαμόα</displayName>
-				<symbol>WST</symbol>
-			</currency>
-			<currency type="XAD">
-				<displayName>Μονάδα Λογαριασμού Ασιατικού Δηναρίου</displayName>
-				<symbol>XAD</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>Φράγκο BEAC CFA</displayName>
-				<symbol>XAF</symbol>
-			</currency>
-			<currency type="XAM">
-				<displayName>Ασιατική Νομισματική Μονάδα</displayName>
-				<symbol>XAM</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>Χρυσός</displayName>
-				<symbol>XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>Ευρωπαϊκή Σύνθετη Μονάδα</displayName>
-				<symbol>XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>Ευρωπαϊκή Νομισματική Μονάδα</displayName>
-				<symbol>XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>Ευρωπαϊκή Μονάδα Λογαριασμού (XBC)</displayName>
-				<symbol>XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>Ευρωπαϊκή Μονάδα Λογαριασμού (XBD)</displayName>
-				<symbol>XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>Δολάριο Ανατολικής Καραϊβικής</displayName>
 				<symbol>EC$</symbol>
 			</currency>
-			<currency type="XCF">
-				<displayName>Νέο Φράγκο CFA</displayName>
-				<symbol>XCF</symbol>
-			</currency>
 			<currency type="XDR">
 				<displayName>Ειδικά Δικαιώματα Ανάληψης</displayName>
-				<symbol>XDR</symbol>
-			</currency>
-			<currency type="XEF">
-				<displayName>Φράγκο BCEAEC CFA</displayName>
-				<symbol>XEF</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>Ευρωπαϊκή Συναλλαγματική Μονάδα</displayName>
-				<symbol>XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>Χρυσό Φράγκο Γαλλίας</displayName>
-				<symbol>XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>UIC-Φράγκο Γαλλίας</displayName>
-				<symbol>XFU</symbol>
-			</currency>
-			<currency type="XID">
-				<displayName>Ισλαμικό Δηνάριο</displayName>
-				<symbol>XID</symbol>
-			</currency>
-			<currency type="XMF">
-				<displayName>Νέο Μητροπολιτικό Φράγκο Γαλλίας</displayName>
-				<symbol>XMF</symbol>
-			</currency>
-			<currency type="XNF">
-				<displayName>Φράγκο Γαλλικών Αντιλλών CFA</displayName>
-				<symbol>XNF</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>Φράγκο BCEAO CFA</displayName>
-				<symbol>XOF</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>Φράγκο CFP</displayName>
 				<symbol>CFPF</symbol>
 			</currency>
-			<currency type="XTR">
-				<displayName>Μεταβιβάσιμο Ρούβλι COMECON</displayName>
-				<symbol>XTR</symbol>
-			</currency>
 			<currency type="YDD">
 				<displayName>Δηνάριο Υεμένης</displayName>
-				<symbol>YDD</symbol>
-			</currency>
-			<currency type="YEI">
-				<displayName>Imadi Riyal Υεμένης</displayName>
-				<symbol>YEI</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>Rial Υεμένης</displayName>
@@ -1956,39 +1329,15 @@
 			</currency>
 			<currency type="YUD">
 				<displayName>Μεταλλικό Δηνάριο Γιουγκοσλαβίας</displayName>
-				<symbol>YUD</symbol>
-			</currency>
-			<currency type="YUF">
-				<displayName>Δηνάριο Γιουγκοσλαβικής Ομοσπονδίας</displayName>
-				<symbol>YUF</symbol>
-			</currency>
-			<currency type="YUG">
-				<displayName>Δηνάριο Γιουγκοσλαβίας</displayName>
-				<symbol>YUG</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>Νέο Δηνάριο Γιουγκοσλαβίας</displayName>
-				<symbol>YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>Μετατρέψιμο Δηνάριο Γιουγκοσλαβίας</displayName>
-				<symbol>YUN</symbol>
-			</currency>
-			<currency type="YUO">
-				<displayName>Οκτωβριανό Δηνάριο Γιουγκοσλαβίας</displayName>
-				<symbol>YUO</symbol>
-			</currency>
-			<currency type="YUR">
-				<displayName>Ανανεωμένο Δηνάριο Γιουγκοσλαβίας</displayName>
-				<symbol>YUR</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>Ραντ Νότιας Αφρικής (οικονομικό)</displayName>
-				<symbol>ZAL</symbol>
-			</currency>
-			<currency type="ZAP">
-				<displayName>Λίρα Νότιας Αφρικής</displayName>
-				<symbol>ZAP</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Ραντ Νότιας Αφρικής</displayName>
@@ -1996,19 +1345,12 @@
 			</currency>
 			<currency type="ZMK">
 				<displayName>Kwacha Ζάμπιας</displayName>
-				<symbol>ZMK</symbol>
-			</currency>
-			<currency type="ZMP">
-				<displayName>Λίρα Ζάμπιας</displayName>
-				<symbol>ZMP</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Νέο Zaire Ζαΐρ</displayName>
-				<symbol>ZRN</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>Zaire Ζαΐρ</displayName>
-				<symbol>ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Δολάριο Ζιμπάμπουε</displayName>

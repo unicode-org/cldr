@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27"/>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
 		<language type="ca"/>
 	</identity>
 	<localeDisplayNames>
@@ -310,7 +310,7 @@
 			<territory type="SL">Sierra Leone</territory>
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somàlia</territory>
-			<!--<territory type="SP">Sèrbia</territory>-->
+			<!-- <territory type="SP">Sèrbia</territory> -->
 			<territory type="SR">Surinam</territory>
 			<territory type="SV">El Salvador</territory>
 			<territory type="SY">Síria</territory>
@@ -410,13 +410,10 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week draft="true">
-					<firstDay day="mon"/>
-				</week>
 				<eras>
 					<eraAbbr>
-						<era type="0" draft="true" references="l'Institut d'Estudis Catalans http://www.termcat.net">aC</era>
-						<era type="1" draft="true" references="l'Institut d'Estudis Catalans http://www.termcat.net">dC</era>
+						<era type="0" references="l'Institut d'Estudis Catalans http://www.termcat.net" draft="true">aC</era>
+						<era type="1" references="l'Institut d'Estudis Catalans http://www.termcat.net" draft="true">dC</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -476,7 +473,6 @@
 		<currencies>
 			<currency type="ESP">
 				<pattern>¤ #,##0;-¤ #,##0</pattern>
-				<displayName>ESP</displayName>
 				<symbol>₧</symbol>
 				<decimal>,</decimal>
 				<group>.</group>
@@ -486,7 +482,6 @@
 	<posix draft="true">
 		<messages>
 			<yesstr>sí:si:s</yesstr>
-			<nostr>no:n</nostr>
 			<yesexpr>^([yY]([eE][sS])?)|([sS][iIíÍ]?)</yesexpr>
 			<noexpr>^([nN][oO]?)</noexpr>
 		</messages>

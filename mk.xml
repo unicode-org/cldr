@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27"/>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
 		<language type="mk"/>
 	</identity>
 	<localeDisplayNames>
@@ -208,7 +208,7 @@
 			<territory type="SM">Сан Марино</territory>
 			<territory type="SN">Сенегал</territory>
 			<territory type="SO">Сомалија</territory>
-			<!--<territory type="SP">Србија</territory>-->
+			<!-- <territory type="SP">Србија</territory> -->
 			<territory type="SR">Суринам</territory>
 			<territory type="ST">Сао Томе и Принципе</territory>
 			<territory type="SV">Ел Салвадор</territory>
@@ -355,9 +355,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week>
-					<firstDay day="mon"/>
-				</week>
 				<eras>
 					<eraAbbr>
 						<era type="0">пр.н.е.</era>
@@ -395,21 +392,14 @@
 			<group>.</group>
 		</symbols>
 		<currencies>
-			<currency type="ADD">
-				<displayName>Андорски Динер</displayName>
-				<symbol>ADD</symbol>
-			</currency>
 			<currency type="ADP">
 				<displayName>Андорска Пезета</displayName>
-				<symbol>ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>Дирхам</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Авгани (1927-2002)</displayName>
-				<symbol>AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>Авгани</displayName>
@@ -417,15 +407,10 @@
 			</currency>
 			<currency type="ALK">
 				<displayName>Албански лек (1946-1961)</displayName>
-				<symbol>ALK</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Албански Лек</displayName>
 				<symbol>lek</symbol>
-			</currency>
-			<currency type="ALV">
-				<displayName>Албанска Лек Валута</displayName>
-				<symbol>ALV</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Ермениски Драм</displayName>
@@ -433,23 +418,15 @@
 			</currency>
 			<currency type="AOA">
 				<displayName>Анголска Кванза</displayName>
-				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Анголска Кванза (1977-1990)</displayName>
-				<symbol>AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>Анголска нова Кванза (1990-2000)</displayName>
-				<symbol>AON</symbol>
-			</currency>
-			<currency type="AOS">
-				<displayName>Анголско ескудо</displayName>
-				<symbol>AOS</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>Аргентински Пезос (1983-1985)</displayName>
-				<symbol>ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Аргентински Пезос</displayName>
@@ -457,27 +434,17 @@
 			</currency>
 			<currency type="ATS">
 				<displayName>Австралиски Шилинг</displayName>
-				<symbol>ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>Австралиски Долар</displayName>
 				<symbol>$A</symbol>
 			</currency>
-			<currency type="AUP">
-				<displayName>Австралиска Фунта</displayName>
-				<symbol>AUP</symbol>
-			</currency>
 			<currency type="BAD">
 				<displayName>Босанско-Херцеговски Динар</displayName>
-				<symbol>BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Босанско-Херцеговски Динар конвертабилна марка</displayName>
 				<symbol>KM</symbol>
-			</currency>
-			<currency type="BAN">
-				<displayName>Босанско-Херцеговски нов Динар</displayName>
-				<symbol>BAN</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Барбадоски Долар</displayName>
@@ -485,7 +452,6 @@
 			</currency>
 			<currency type="BEC">
 				<displayName>Белгиски Франк (конвертибилен)</displayName>
-				<symbol>BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>Белгиски Франк</displayName>
@@ -493,23 +459,13 @@
 			</currency>
 			<currency type="BEL">
 				<displayName>Белгиски Франк (финансиски)</displayName>
-				<symbol>BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>Бугарски цврст лев</displayName>
 				<symbol>lev</symbol>
 			</currency>
-			<currency type="BGM">
-				<displayName>Бугарски социјалистички лев</displayName>
-				<symbol>BGM</symbol>
-			</currency>
 			<currency type="BGN">
 				<displayName>Бугарски нов лев</displayName>
-				<symbol>BGN</symbol>
-			</currency>
-			<currency type="BGO">
-				<displayName>Бугарски лев(1879-1952)</displayName>
-				<symbol>BGO</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Бахраински Динар</displayName>
@@ -523,41 +479,17 @@
 				<displayName>Бермудски Долар</displayName>
 				<symbol>Ber$</symbol>
 			</currency>
-			<currency type="BMP">
-				<displayName>Бермудски фунта</displayName>
-				<symbol>BMP</symbol>
-			</currency>
 			<currency type="BND">
 				<displayName>Брунејски долар</displayName>
-				<symbol>BND</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Бахамски Долар</displayName>
-				<symbol>BSD</symbol>
-			</currency>
-			<currency type="BSP">
-				<displayName>Бахамска Фунта</displayName>
-				<symbol>BSP</symbol>
-			</currency>
-			<currency type="BTR">
-				<displayName>Бутански Рупии</displayName>
-				<symbol>BTR</symbol>
-			</currency>
-			<currency type="BUR">
-				<displayName>Бурмезиски рупии</displayName>
-				<symbol>BUR</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Боцвантска Пула</displayName>
-				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Белоруска нова рубља (1994-1999)</displayName>
-				<symbol>BYB</symbol>
-			</currency>
-			<currency type="BYL">
-				<displayName>Белоруска Рубља (1992-1994)</displayName>
-				<symbol>BYL</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>Белоруска Рубља</displayName>
@@ -566,10 +498,6 @@
 			<currency type="BZD">
 				<displayName>Белизиски Долар</displayName>
 				<symbol>BZ$</symbol>
-			</currency>
-			<currency type="BZH">
-				<displayName>Британско Хондурски Долар</displayName>
-				<symbol>BZH</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Канадски Долар</displayName>
@@ -587,17 +515,11 @@
 				<displayName>Костарикански Колон</displayName>
 				<symbol>C</symbol>
 			</currency>
-			<currency type="CSC">
-				<displayName>Чехословачка корона</displayName>
-				<symbol>CSC</symbol>
-			</currency>
 			<currency type="CSK">
 				<displayName>Чехословачка цврста корона</displayName>
-				<symbol>CSK</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Кубански пезос</displayName>
-				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>Кипарска фунта</displayName>
@@ -605,11 +527,9 @@
 			</currency>
 			<currency type="CZK">
 				<displayName>Чешка корона</displayName>
-				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Германска Марка</displayName>
-				<symbol>DEM</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Доминикански Пезос</displayName>
@@ -619,56 +539,31 @@
 				<displayName>Алгериски Динар</displayName>
 				<symbol>DA</symbol>
 			</currency>
-			<currency type="DZF">
-				<displayName>Алгериски нов Франк</displayName>
-				<symbol>DZF</symbol>
-			</currency>
 			<currency type="EGP">
 				<displayName>Египетска Фунта</displayName>
-				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>Шпанска Пезета</displayName>
-				<symbol>ESP</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>Етиописки Бир</displayName>
 				<symbol>Br</symbol>
-			</currency>
-			<currency type="ETD">
-				<displayName>Етиописки Долар</displayName>
-				<symbol>ETD</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Евро</displayName>
 			</currency>
 			<currency type="FIM">
 				<displayName>Финска марка</displayName>
-				<symbol>FIM</symbol>
-			</currency>
-			<currency type="FIN">
-				<displayName>Финска Марка (1860-1962)</displayName>
-				<symbol>FIN</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>Фиџи долар</displayName>
 				<symbol>F$</symbol>
 			</currency>
-			<currency type="FJP">
-				<displayName>Фиџи фунта</displayName>
-				<symbol>FJP</symbol>
-			</currency>
 			<currency type="FKP">
 				<displayName>Факландска фунта</displayName>
-				<symbol>FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Француски франк</displayName>
-				<symbol>FRF</symbol>
-			</currency>
-			<currency type="GAF">
-				<displayName>Габон CFA Франк</displayName>
-				<symbol>GAF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Британска Фунта</displayName>
@@ -679,47 +574,19 @@
 			</currency>
 			<currency type="GHC">
 				<displayName>Ганајски Седи</displayName>
-				<symbol>GHC</symbol>
-			</currency>
-			<currency type="GHO">
-				<displayName>Ганајски стари Седи</displayName>
-				<symbol>GHO</symbol>
-			</currency>
-			<currency type="GHP">
-				<displayName>Ганајски фунта</displayName>
-				<symbol>GHP</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Гибралтарска фунта</displayName>
-				<symbol>GIP</symbol>
-			</currency>
-			<currency type="GLK">
-				<displayName>Гренландск круна</displayName>
-				<symbol>GLK</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Гамбиски Даласи</displayName>
-				<symbol>GMD</symbol>
-			</currency>
-			<currency type="GMP">
-				<displayName>Гамбиска Фунта</displayName>
-				<symbol>GMP</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Гвинејски франк</displayName>
 				<symbol>GF</symbol>
 			</currency>
-			<currency type="GNI">
-				<displayName>Гвинејски франк (1960-1972)</displayName>
-				<symbol>GNI</symbol>
-			</currency>
 			<currency type="GRD">
 				<displayName>Грчка драхма</displayName>
-				<symbol>GRD</symbol>
-			</currency>
-			<currency type="GRN">
-				<displayName>Грчка драхма</displayName>
-				<symbol>GRN</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Гватемалски кветцал</displayName>
@@ -727,7 +594,6 @@
 			</currency>
 			<currency type="GWP">
 				<displayName>Гвинејски Бисау пезос</displayName>
-				<symbol>GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Гвијански Долар</displayName>
@@ -743,39 +609,26 @@
 			</currency>
 			<currency type="HRD">
 				<displayName>Хрватски динар</displayName>
-				<symbol>HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Хрватска Куна</displayName>
-				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Хаитски гурд</displayName>
-				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Унгарска форинта</displayName>
 				<symbol>Ft</symbol>
 			</currency>
-			<currency type="IBP">
-				<displayName>Северноирска фунта</displayName>
-				<symbol>IBP</symbol>
-			</currency>
 			<currency type="IEP">
 				<displayName>Ирска фунта</displayName>
 				<symbol>IR£</symbol>
 			</currency>
-			<currency type="ILL">
-				<displayName>Израелски шекел</displayName>
-				<symbol>ILL</symbol>
-			</currency>
 			<currency type="ILP">
 				<displayName>Изрелска фунта</displayName>
-				<symbol>ILP</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>Израелски нов шекел</displayName>
-				<symbol>ILS</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Индиска рупија</displayName>
@@ -791,7 +644,6 @@
 			</currency>
 			<currency type="ISK">
 				<displayName>Исландска крона</displayName>
-				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Италијанкса лира</displayName>
@@ -799,10 +651,6 @@
 			<currency type="JMD">
 				<displayName>Јамајкански долар</displayName>
 				<symbol>J$</symbol>
-			</currency>
-			<currency type="JMP">
-				<displayName>Јамајканска фунта</displayName>
-				<symbol>JMP</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Јордански динар</displayName>
@@ -819,17 +667,9 @@
 				<displayName>Киргистански сом</displayName>
 				<symbol>som</symbol>
 			</currency>
-			<currency type="KHO">
-				<displayName>Камбоџиски стар рел</displayName>
-				<symbol>KHO</symbol>
-			</currency>
 			<currency type="KHR">
 				<displayName>Камбоџиски рел</displayName>
 				<symbol>CR</symbol>
-			</currency>
-			<currency type="KID">
-				<displayName>Кирбатски долар</displayName>
-				<symbol>KID</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Коморски долар</displayName>
@@ -837,27 +677,13 @@
 			</currency>
 			<currency type="KPW">
 				<displayName>Северно корејски вон</displayName>
-				<symbol>KPW</symbol>
-			</currency>
-			<currency type="KRH">
-				<displayName>Јужно корески хван</displayName>
-				<symbol>KRH</symbol>
-			</currency>
-			<currency type="KRO">
-				<displayName>Јужно корејски стар вон</displayName>
-				<symbol>KRO</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Јужно корејски вон</displayName>
-				<symbol>KRW</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Кувајтски динар</displayName>
 				<symbol>KD</symbol>
-			</currency>
-			<currency type="KZR">
-				<displayName>Казакстанска рубља</displayName>
-				<symbol>KZR</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Казакстантска тенга</displayName>
@@ -865,27 +691,17 @@
 			</currency>
 			<currency type="LAK">
 				<displayName>Лаоски кип</displayName>
-				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Либиска фунта</displayName>
 				<symbol>LL</symbol>
 			</currency>
-			<currency type="LIF">
-				<displayName>Лихнтенштајнски франк</displayName>
-				<symbol>LIF</symbol>
-			</currency>
 			<currency type="LKR">
 				<displayName>Шриланканска рупија</displayName>
 				<symbol>SL Re</symbol>
 			</currency>
-			<currency type="LNR">
-				<displayName>Цејлонска рупија</displayName>
-				<symbol>LNR</symbol>
-			</currency>
 			<currency type="LRD">
 				<displayName>Либериски долар</displayName>
-				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Лесотско лоти</displayName>
@@ -893,55 +709,38 @@
 			</currency>
 			<currency type="LTL">
 				<displayName>Литваниска лита</displayName>
-				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Литваниски литаз</displayName>
-				<symbol>LTT</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>Луксембуршки франк</displayName>
-				<symbol>LUF</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>Латвијски лат</displayName>
-				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Латвијска рубља</displayName>
-				<symbol>LVR</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Либијски динар</displayName>
 				<symbol>LD</symbol>
 			</currency>
-			<currency type="LYP">
-				<displayName>Либијска фунта</displayName>
-				<symbol>LYP</symbol>
-			</currency>
 			<currency type="MAD">
 				<displayName>Марокански Дирхам</displayName>
-				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Марконски франк</displayName>
-				<symbol>MAF</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>Молдавски леу</displayName>
-				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>Македонски денар</displayName>
 				<symbol>MDen</symbol>
 			</currency>
-			<currency type="MKN">
-				<displayName>Македонски денар (1992-1993)</displayName>
-				<symbol>MKN</symbol>
-			</currency>
 			<currency type="MLF">
 				<displayName>Малски франк</displayName>
-				<symbol>MLF</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Монголиски тугрик</displayName>
@@ -949,7 +748,6 @@
 			</currency>
 			<currency type="MOP">
 				<displayName>Макао патака</displayName>
-				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Малтиска лира</displayName>
@@ -957,11 +755,6 @@
 			</currency>
 			<currency type="MTP">
 				<displayName>Малтиска финта</displayName>
-				<symbol>MTP</symbol>
-			</currency>
-			<currency type="MWP">
-				<displayName>Малависка фунта</displayName>
-				<symbol>MWP</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Мексикански пезос</displayName>
@@ -969,7 +762,6 @@
 			</currency>
 			<currency type="MXP">
 				<displayName>Мексикански сребрен пезос (1861-1992)</displayName>
-				<symbol>MXP</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>Малазиски рингит</displayName>
@@ -977,7 +769,6 @@
 			</currency>
 			<currency type="MZE">
 				<displayName>Мозамбиско ескудо</displayName>
-				<symbol>MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>Мозамбиски метикал</displayName>
@@ -989,23 +780,12 @@
 			</currency>
 			<currency type="NGN">
 				<displayName>Нигериска наира</displayName>
-				<symbol>NGN</symbol>
-			</currency>
-			<currency type="NGP">
-				<displayName>Нигериска фунта</displayName>
-				<symbol>NGP</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>Никарагванска кордоба</displayName>
-				<symbol>NIC</symbol>
-			</currency>
-			<currency type="NIG">
-				<displayName>Никарагванска златна кордоба</displayName>
-				<symbol>NIG</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Холандски гилдер</displayName>
-				<symbol>NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Норвешка круна</displayName>
@@ -1019,33 +799,24 @@
 				<displayName>Новозелански долар</displayName>
 				<symbol>$NZ</symbol>
 			</currency>
-			<currency type="NZP">
-				<displayName>Новозеландка фунта</displayName>
-				<symbol>NZP</symbol>
-			</currency>
 			<currency type="OMR">
 				<displayName>Омански Риал</displayName>
 				<symbol>RO</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>Панамска балбоа</displayName>
-				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Перуански нов сол</displayName>
-				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>Перуански сол</displayName>
-				<symbol>PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>Папуа новогвинејскиа кина</displayName>
-				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Филипински пезос</displayName>
-				<symbol>PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Пакистанска рупија</displayName>
@@ -1057,23 +828,12 @@
 			</currency>
 			<currency type="PLZ">
 				<displayName>Полска злота (1950-1995)</displayName>
-				<symbol>PLZ</symbol>
-			</currency>
-			<currency type="PSP">
-				<displayName>Палестинска фунта</displayName>
-				<symbol>PSP</symbol>
-			</currency>
-			<currency type="PTC">
-				<displayName>Португалско конто</displayName>
-				<symbol>PTC</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>Португалско ескудо</displayName>
-				<symbol>PTE</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>Парагвајска гуарана</displayName>
-				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Кватарски риал</displayName>
@@ -1083,21 +843,14 @@
 				<displayName>Романска леа</displayName>
 				<symbol>leu</symbol>
 			</currency>
-			<currency type="RON">
-				<displayName>Романска нова леа</displayName>
-				<symbol>RON</symbol>
-			</currency>
 			<currency type="RUB">
 				<displayName>Руска рубља</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Руска рубља (1991-1998)</displayName>
-				<symbol>RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Руандски франк</displayName>
-				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Саудиски риал</displayName>
@@ -1113,11 +866,9 @@
 			</currency>
 			<currency type="SDD">
 				<displayName>Судански динар</displayName>
-				<symbol>SDD</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Суданска фунта</displayName>
-				<symbol>SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Шведска круна</displayName>
@@ -1127,13 +878,8 @@
 				<displayName>Сингапурски доалр</displayName>
 				<symbol>S$</symbol>
 			</currency>
-			<currency type="SIB">
-				<displayName>Словенски толар бон</displayName>
-				<symbol>SIB</symbol>
-			</currency>
 			<currency type="SIT">
 				<displayName>Словенски толар</displayName>
-				<symbol>SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>Словачка круна</displayName>
@@ -1141,11 +887,6 @@
 			</currency>
 			<currency type="SLL">
 				<displayName>Сиералеонско леоне</displayName>
-				<symbol>SLL</symbol>
-			</currency>
-			<currency type="SML">
-				<displayName>Санмаринска лира</displayName>
-				<symbol>SML</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Сомалијски шилинг</displayName>
@@ -1155,21 +896,11 @@
 				<displayName>Суринамски гилдер</displayName>
 				<symbol>Sf</symbol>
 			</currency>
-			<currency type="SSP">
-				<displayName>Шкотска фунта</displayName>
-				<symbol>SSP</symbol>
-			</currency>
-			<currency type="SUN">
-				<displayName>Советска нова рубља</displayName>
-				<symbol>SUN</symbol>
-			</currency>
 			<currency type="SUR">
 				<displayName>Советска рубља</displayName>
-				<symbol>SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>Елсавадорски колон</displayName>
-				<symbol>SVC</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Сириска фунта</displayName>
@@ -1179,45 +910,27 @@
 				<displayName>Свазилендски лилаген</displayName>
 				<symbol>E</symbol>
 			</currency>
-			<currency type="TDF">
-				<displayName>‘адски франк</displayName>
-				<symbol>TDF</symbol>
-			</currency>
 			<currency type="THB">
 				<displayName>Таи бат</displayName>
-				<symbol>THB</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>таџикистанска рубља</displayName>
-				<symbol>TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Таџикистантски сомони</displayName>
-				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Турментистантски матат</displayName>
-				<symbol>TMM</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Тунезиски динар</displayName>
-				<symbol>TND</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Тиморски ескудо</displayName>
-				<symbol>TPE</symbol>
-			</currency>
-			<currency type="TPP">
-				<displayName>Тиморска патака</displayName>
-				<symbol>TPP</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>Турска лира</displayName>
 				<symbol>TL</symbol>
-			</currency>
-			<currency type="TVD">
-				<displayName>Тувалски долар</displayName>
-				<symbol>TVD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Тајвански нов долар</displayName>
@@ -1229,11 +942,9 @@
 			</currency>
 			<currency type="UAH">
 				<displayName>Украинска хривнија</displayName>
-				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>Угандиски шилинг (1966-1987)</displayName>
-				<symbol>UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Угандиски шилинг</displayName>
@@ -1245,23 +956,15 @@
 			</currency>
 			<currency type="USN">
 				<displayName>САД долар (Next day)</displayName>
-				<symbol>USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>САД долар (Same day)</displayName>
-				<symbol>USS</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>Уругвајско песо (1975-1993)</displayName>
-				<symbol>UYP</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>УЗбекистански Сум</displayName>
-				<symbol>UZS</symbol>
-			</currency>
-			<currency type="VAL">
-				<displayName>Ватиканска лира</displayName>
-				<symbol>VAL</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Венецуелски боливар</displayName>
@@ -1269,43 +972,20 @@
 			</currency>
 			<currency type="VND">
 				<displayName>Виетнамски донг</displayName>
-				<symbol>VND</symbol>
-			</currency>
-			<currency type="VNN">
-				<displayName>Виетнамски нов донг</displayName>
-				<symbol>VNN</symbol>
-			</currency>
-			<currency type="VNR">
-				<displayName>Виетнамски републички донг</displayName>
-				<symbol>VNR</symbol>
-			</currency>
-			<currency type="VNS">
-				<displayName>Виетнамски национален донг</displayName>
-				<symbol>VNS</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Ванатски вату</displayName>
 				<symbol>VT</symbol>
 			</currency>
-			<currency type="WSP">
-				<displayName>Самоа фунта</displayName>
-				<symbol>WSP</symbol>
-			</currency>
 			<currency type="WST">
 				<displayName>Самоа тала</displayName>
-				<symbol>WST</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>Источно карибиски долар</displayName>
 				<symbol>EC$</symbol>
 			</currency>
-			<currency type="XID">
-				<displayName>Исламски динар</displayName>
-				<symbol>XID</symbol>
-			</currency>
 			<currency type="YDD">
 				<displayName>Јеменски дианр</displayName>
-				<symbol>YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>Јеменски риал</displayName>
@@ -1313,19 +993,12 @@
 			</currency>
 			<currency type="YUD">
 				<displayName>Југословенски динар</displayName>
-				<symbol>YUD</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>Југословенски конвертибилен динар</displayName>
-				<symbol>YUN</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>Јужно афрички ранд(финансиски)</displayName>
-				<symbol>ZAL</symbol>
-			</currency>
-			<currency type="ZAP">
-				<displayName>Јужно африча фунта</displayName>
-				<symbol>ZAP</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Јужно афрички ранд</displayName>
@@ -1333,19 +1006,12 @@
 			</currency>
 			<currency type="ZMK">
 				<displayName>Замбиска кванча</displayName>
-				<symbol>ZMK</symbol>
-			</currency>
-			<currency type="ZMP">
-				<displayName>Замбиска фунта</displayName>
-				<symbol>ZMP</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Заирско новозаире</displayName>
-				<symbol>ZRN</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>Зирско заире</displayName>
-				<symbol>ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Зимбабвиски долар</displayName>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27"/>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
 		<language type="vi"/>
 	</identity>
 	<localeDisplayNames>
@@ -223,7 +223,7 @@
 			<territory type="SM">Xan Ma-ri-nô</territory>
 			<territory type="SN">Xê-nê-gan</territory>
 			<territory type="SO">Xô-ma-li</territory>
-			<!--<territory type="SP">Séc-bia</territory>-->
+			<!-- <territory type="SP">Séc-bia</territory> -->
 			<territory type="SR">Xu-ri-nam</territory>
 			<territory type="ST">Xao Tô-mê và Prin-xi-pê</territory>
 			<territory type="SV">En-san-va-đo</territory>
@@ -319,9 +319,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week>
-					<firstDay day="mon"/>
-				</week>
 				<am>SA</am>
 				<pm>CH</pm>
 				<eras>

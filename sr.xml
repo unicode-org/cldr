@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27"/>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
 		<language type="sr"/>
 	</identity>
 	<localeDisplayNames>
@@ -429,9 +429,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week>
-					<firstDay day="mon"/>
-				</week>
 				<eras>
 					<eraAbbr>
 						<era type="0">п. н. е.</era>
@@ -505,7 +502,6 @@
 		<currencies>
 			<currency type="ATS">
 				<displayName>Аустријски шилинг</displayName>
-				<symbol>ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>Аустралијски долар</displayName>
@@ -529,7 +525,6 @@
 			</currency>
 			<currency type="DEM">
 				<displayName>Немачка марка</displayName>
-				<symbol>DEM</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Данска круна</displayName>
@@ -537,37 +532,27 @@
 			</currency>
 			<currency type="ESP">
 				<displayName>Шпанска пезета</displayName>
-				<symbol>ESP</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>ЕВРО</displayName>
 			</currency>
 			<currency type="FIM">
 				<displayName>Финска марка</displayName>
-				<symbol>FIM</symbol>
-			</currency>
-			<currency type="FIN">
-				<displayName>Финска марка (1860-1962)</displayName>
-				<symbol>FIN</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Француски франак</displayName>
-				<symbol>FRF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Фунта стерлинга</displayName>
 			</currency>
 			<currency type="GRD">
 				<displayName>Драхма</displayName>
-				<symbol>GRD</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>Хрватски динар</displayName>
-				<symbol>HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Куна</displayName>
-				<symbol>HRK</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Ирска фунта</displayName>
@@ -585,11 +570,9 @@
 			</currency>
 			<currency type="LUF">
 				<displayName>Луксембуршки франак</displayName>
-				<symbol>LUF</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Холандски гулден</displayName>
-				<symbol>NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Норвешка круна</displayName>
@@ -597,15 +580,12 @@
 			</currency>
 			<currency type="PTE">
 				<displayName>Португалски ескудо</displayName>
-				<symbol>PTE</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Руска рубља</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Руска рубља (1991-1998)</displayName>
-				<symbol>RUR</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Шведска круна</displayName>
@@ -613,14 +593,12 @@
 			</currency>
 			<currency type="SIT">
 				<displayName>Толар</displayName>
-				<symbol>SIT</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>Амерички долар</displayName>
 				<symbol>US$</symbol>
 			</currency>
 			<currency type="YUN">
-				<displayName>YUN</displayName>
 				<symbol>Дин</symbol>
 			</currency>
 		</currencies>

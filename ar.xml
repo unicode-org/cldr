@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.3"/>
-		<generation date="2005-01-28T21:55:56Z"/>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
 		<language type="ar"/>
 	</identity>
 	<localeDisplayNames>
@@ -413,11 +413,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week>
-					<firstDay day="sat"/>
-					<weekendStart day="thu"/>
-					<weekendEnd day="fri"/>
-				</week>
 				<am>ص</am>
 				<pm>م</pm>
 				<eras>
@@ -1095,74 +1090,57 @@
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
-				<displayName>AED</displayName>
 				<symbol>د.إ.‏</symbol>
 			</currency>
 			<currency type="BHD">
-				<displayName>BHD</displayName>
 				<symbol>د.ب.‏</symbol>
 			</currency>
 			<currency type="DZD">
-				<displayName>DZD</displayName>
 				<symbol>د.ج.‏</symbol>
 			</currency>
 			<currency type="EGP">
-				<displayName>EGP</displayName>
 				<symbol>ج.م.‏</symbol>
 			</currency>
 			<currency type="IQD">
-				<displayName>IQD</displayName>
 				<symbol>د.ع.‏</symbol>
 			</currency>
 			<currency type="JOD">
-				<displayName>JOD</displayName>
 				<symbol>د.أ.‏</symbol>
 			</currency>
 			<currency type="KWD">
-				<displayName>KWD</displayName>
 				<symbol>د.ك.‏</symbol>
 			</currency>
 			<currency type="LBP">
-				<displayName>LBP</displayName>
 				<symbol>ل.ل.‏</symbol>
 			</currency>
 			<currency type="LYD">
-				<displayName>LYD</displayName>
 				<symbol>د.ل.‏</symbol>
 			</currency>
 			<currency type="MAD">
-				<displayName>MAD</displayName>
 				<symbol>د.م.‏</symbol>
 			</currency>
 			<currency type="OMR">
-				<displayName>OMR</displayName>
 				<symbol>ر.ع.‏</symbol>
 			</currency>
 			<currency type="QAR">
-				<displayName>QAR</displayName>
 				<symbol>ر.ق.‏</symbol>
 			</currency>
 			<currency type="SAR">
-				<displayName>SAR</displayName>
 				<symbol>ر.س.‏</symbol>
-			</currency>
-			<currency type="SDP">
-				<displayName>SDP</displayName>
-				<symbol>ج.س.‏</symbol>
 			</currency>
 			<currency type="SDD" draft="true">
 				<symbol>ج.س.‏</symbol>
 			</currency>
+			<currency type="SDP">
+				<symbol>ج.س.‏</symbol>
+			</currency>
 			<currency type="SYP">
-				<displayName>SYP</displayName>
 				<symbol>ل.س.‏</symbol>
 			</currency>
 			<currency type="TND">
-				<displayName>TND</displayName>
 				<symbol>د.ت.‏</symbol>
 			</currency>
 			<currency type="YER">
-				<displayName>YER</displayName>
 				<symbol>ر.ي.‏</symbol>
 			</currency>
 		</currencies>

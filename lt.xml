@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-08-27"/>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
 		<language type="lt"/>
 	</identity>
 	<localeDisplayNames>
@@ -40,6 +40,7 @@
 			<language type="zh">Kinų</language>
 		</languages>
 		<territories>
+			<territory type="200" alt="proposed" draft="true">Serbija ir Juodkalnija</territory>
 			<territory type="AD">Andora</territory>
 			<territory type="AD" alt="variant" draft="true">Andoros Kunigaikštystė</territory>
 			<territory type="AE">Jungtiniai Arabų Emyratai</territory>
@@ -101,7 +102,7 @@
 			<territory type="BY" alt="variant" draft="true">Baltarusijos Respublika</territory>
 			<territory type="BZ">Belizas</territory>
 			<territory type="CA">Kanada</territory>
-      <territory type="CC">Kokosų salos</territory>
+			<territory type="CC">Kokosų salos</territory>
 			<territory type="CC" alt="proposed" draft="true">Kokosų (Keelingo) salos</territory>
 			<territory type="CD">Kongo Demokratinė Respublika</territory>
 			<territory type="CF">Centrinės Afrikos Respublika</territory>
@@ -123,7 +124,6 @@
 			<territory type="CO" alt="variant" draft="true">Kolumbijos Respublika</territory>
 			<territory type="CR">Kosta Rika</territory>
 			<territory type="CR" alt="variant" draft="true">Kosta Rikos Respublika</territory>
-			<territory type="CS" alt="proposed" draft="true">Serbija ir Juodkalnija</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CU" alt="variant" draft="true">Kubos Respublika</territory>
 			<territory type="CV">Žaliojo Kyšulio salos</territory>
@@ -558,10 +558,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week>
-					<minDays count="4"/>
-					<firstDay day="mon"/>
-				</week>
 				<eras>
 					<eraAbbr>
 						<era type="0">pr.Kr.</era>
@@ -600,7 +596,6 @@
 		</symbols>
 		<currencies>
 			<currency type="LTL">
-				<displayName>LTL</displayName>
 				<symbol>Lt</symbol>
 			</currency>
 		</currencies>

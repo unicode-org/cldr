@@ -700,9 +700,9 @@ language codes from [<a href="#ISO639">ISO639</a>], as described in <a href="#Lo
 <p>This element can contain an number of script elements. Each script element 
 provides the localized name for a script, given by the value of the type 
 attribute. The script IDs can be either the long or short forms from Scripts.txt 
-in the UCD. (See <a href="http://www.unicode.org/unicode/reports/tr24/">UAX #24: 
-Script Names</a> [<a href="#Scripts">Scripts</a>] for more information.) For 
-example, in the language of this locale, the name for the Latin script might be 
+in the UCD. (See <a href="http://www.unicode.org/reports/tr24/">UAX #24: Script 
+Names</a> [<a href="#Scripts">Scripts</a>] for more information.) For example, 
+in the language of this locale, the name for the Latin script might be 
 &quot;Romana&quot;, and for the Cyrillic script is &quot;Kyrillica&quot;. That 
 would be expressed with the following.</p>
 <blockquote>
@@ -770,7 +770,7 @@ lines, and characters within a line. The values are:</p>
 <p>If the lines value is vertical then the characters value must be horizontal, 
 and vice versa. This does not override the ordering behavior of bidirectional 
 text; it does, however, supply the paragraph direction for that text (for more 
-information, see <a href="http://www.unicode.org/unicode/reports/tr9/">UAX #9:&nbsp;The 
+information, see <a href="http://www.unicode.org/reports/tr9/">UAX #9:&nbsp;The 
 Bidirectional Algorithm</a> [<a href="#BIDI">BIDI</a>]).</p>
 <h3><a name="&lt;characters&gt;">&lt;characters&gt;</a></h3>
 <p>The encodings element does <i>not</i> (unlike POSIX) specify the encoding of 
@@ -803,7 +803,7 @@ table is omitted. The ordering among the mapping elements is not significant.
 The mapping elements themselves are not inherited from parents.</p>
 <p>The registry indicates the source of the encoding. Currently the only 
 registry that can be used is &quot;iana&quot;, which specifies use of&nbsp; an <a href="http://www.iana.org/assignments/character-sets">IANA 
-name</a>.&nbsp; Note: while IANA names are not precise for conversion (see <a href="http://www.unicode.org/unicode/reports/tr22/">UTR 
+name</a>.&nbsp; Note: while IANA names are not precise for conversion (see <a href="http://www.unicode.org/reports/tr22/">UTR 
 #22: Character Mapping Tables</a> [<a href="#CharMapML">CharMapML</a>]), they 
 are sufficient for this purpose.</p>
 <h3><a name="&lt;delimiters&gt;">&lt;delimiters&gt;</a></h3>
@@ -830,8 +830,8 @@ use (except for date/time). The values are &quot;metric&quot; (= <a href="http:/
 <p class="note"><b>Note:</b> In the future, we may need to add display names for 
 the particular measurement units (millimeter vs millimetre vs whatever the 
 Greek, Russian, etc are), and a message format for position those with respect 
-to numbers. E.g. &quot;{number} {unitName}&quot; in some languages, but &quot;{unitName} 
-{number}&quot; in others.</p>
+to numbers. E.g. &quot;{number} {unitName}&quot; in some languages, but 
+&quot;{unitName} {number}&quot; in others.</p>
 <p class="note"><b>Note:</b><i> Numbers indicating measurements should <b>never</b> 
 be interchanged without known dimensions. You never want the number 3.51 
 interpreted as 3.51 feet by one user and 3.51 meters by another. However, this 
@@ -853,8 +853,8 @@ see [<a href="#JavaDates">JavaDates</a>].</p>
 <p class="note"><b>Note: </b>there is an on-line demonstration of date 
 formatting and parsing at [<a href="#LocaleExplorer">LocaleExplorer</a>] (pick 
 the locale and scroll to &quot;Date Patterns&quot;).</p>
-<p>The &lt;dates&gt; element has three possible sub-elements: &lt;localizedPatternCharacters&gt;, 
-&lt;calendars&gt; and &lt;timeZoneNames&gt;</p>
+<p>The &lt;dates&gt; element has three possible sub-elements: 
+&lt;localizedPatternCharacters&gt;, &lt;calendars&gt; and &lt;timeZoneNames&gt;</p>
 <pre class="element2"><a name="&lt;localizedPatternChars&gt;">&lt;localizedPatternChars&gt;</a><span style="color: blue">GyMdkHmsSEDFwWahKz</span>&lt;/localizedPatternChars&gt;</pre>
 <p>The interpretation of this is explained in [<a href="#JavaDates">JavaDates</a>].</p>
 <pre class="element2"><a name="&lt;calendars&gt;">&lt;calendars&gt;</a></pre>
@@ -1242,7 +1242,7 @@ attribute, if there is one) is used. The default is listed in italics.</p>
       <td><code>[normalization on]&nbsp;</code></td>
       <td><code>normalization = &quot;<span style="color: blue">off</span>&quot;</code></td>
       <td>If <i>on</i>, then the normal UCA algorithm is used. If <i>off</i>, 
-        then all strings that are in [<a href="#fc">FCD</a>] will sort 
+        then all strings that are in [<a href="#FCD">FCD</a>] will sort 
         correctly, but others won't. So should only be set <i>off</i> if the the 
         strings to be compared are in FCD.</td>
     </tr>
@@ -2400,8 +2400,8 @@ be redone:</p>
     <p>&quot;Theatre Center News: The date of the last version of this document 
     was 2003年3月20日. A copy can be obtained for $50,0 or 1.234,57 грн. 
     We would like to acknowledge contributions by the following authors (in 
-    alphabetical order): Alaa Ghoneim, Behdad Esfahbod, Ahmed Talaat, Eric Mader, 
-    Asmus Freytag, Avery Bishop, and Doug Felt.&quot;</p>
+    alphabetical order): Alaa Ghoneim, Behdad Esfahbod, Ahmed Talaat, Eric 
+    Mader, Asmus Freytag, Avery Bishop, and Doug Felt.&quot;</p>
   </li>
 </ol>
 <p>So one would change it to either B or C below, depending on which 
@@ -2507,8 +2507,8 @@ with the normal set operations (union, inverse, difference, and intersection):</
 </ul>
 <p>The binary operators '&amp;' and '-' have equal precedence and bind 
 left-to-right. Thus [[:letter:]-[a-z]-[\u0100-\u01FF]] is equivalent to 
-[[[:letter:]-[a-z]]-[\u0100-\u01FF]]. Another example is the set [[ace][bdf] - [abc][def]] 
-is not the empty set, but instead the set [def].</p>
+[[[:letter:]-[a-z]]-[\u0100-\u01FF]]. Another example is the set [[ace][bdf] - 
+[abc][def]] is not the empty set, but instead the set [def].</p>
 <p>Another caveat with the '&amp;' and '-' operators is that they operate 
 between sets. That is, they must be immediately preceded and immediately 
 followed by a set. For example, the pattern [[:Lu:]-A] is illegal, since it is 
@@ -2713,8 +2713,8 @@ meaning:</p>
   </tbody>
 </table>
 <p>Anything else following a backslash is mapped to itself, except in an 
-environment where it is defined to have some special meaning. For example, \p{uppercase} 
-is the set of uppercase letters in Unicode.</p>
+environment where it is defined to have some special meaning. For example, 
+\p{uppercase} is the set of uppercase letters in Unicode.</p>
 <p>Any character formed as the result of a backslash escape loses any special 
 meaning and is treated as a literal. In particular, note that \u and \U escapes 
 create literal characters. (In contrast, for example, javac treats Unicode 
@@ -2865,17 +2865,17 @@ and any resulting characters are _not_ tagged as literals.)</p>
   <tr>
     <td>[<a name="Scripts">Scripts</a>]</td>
     <td>UAX #24: Script Names<br>
-      <a href="http://www.unicode.org/unicode/reports/tr24/">http://www.unicode.org/unicode/reports/tr24/</a></td>
+      <a href="http://www.unicode.org/reports/tr24/">http://www.unicode.org/reports/tr24/</a></td>
   </tr>
   <tr>
     <td>[<a name="BIDI">BIDI</a>]</td>
     <td>UAX #9:&nbsp;The Bidirectional Algorithm<br>
-      <a href="http://www.unicode.org/unicode/reports/tr9/">http://www.unicode.org/unicode/reports/tr9/</a></td>
+      <a href="http://www.unicode.org/reports/tr9/">http://www.unicode.org/reports/tr9/</a></td>
   </tr>
   <tr>
     <td>[<a name="CharMapML">CharMapML</a>]</td>
-    <td>UTR #22: Character Mapping Tables<a href="http://www.unicode.org/unicode/reports/tr22/"><br>
-      http://www.unicode.org/unicode/reports/tr22/</a></td>
+    <td>UTR #22: Character Mapping Tables<a href="http://www.unicode.org/reports/tr22/"><br>
+      http://www.unicode.org/reports/tr22/</a></td>
   </tr>
   <tr>
     <td>[<a name="LocaleExplorer">LocaleExplorer</a>]</td>
@@ -2918,7 +2918,7 @@ and any resulting characters are _not_ tagged as literals.)</p>
       </a>(The format will be moved into the ICU User Guide soon.)</td>
   </tr>
   <tr>
-    <td>[<a name="ICUTransforms">ICUTransforms</a>]<a href="http://oss.software.ibm.com/icu/userguide/Transliteration.html"></a></td>
+    <td>[<a name="ICUTransforms">ICUTransforms</a>]</td>
     <td>Transforms<br>
       <a href="http://oss.software.ibm.com/icu/userguide/Transliteration.html">http://oss.software.ibm.com/icu/userguide/Transliteration.html<br>
       </a>Transforms Demo<br>

@@ -9,9 +9,8 @@ By Pema geyleg <pema_geyleg@druknet.bt>
   <identity>
     <version number="1.2">First available version</version>
     <generation date="2004-08-09" />
-<!-- Two letter codes, if available; otherwise 3-letter codes.If bothcexist, a separate database contains the mapping. -->
+<!-- Two letter codes, if available; otherwise 3-letter codes.If both cexist, a separate database contains the mapping. -->
     <language type="dz" />
-    <script type="Tibt" />
     <territory type="BT" />    
   </identity>
  
@@ -21,7 +20,7 @@ By Pema geyleg <pema_geyleg@druknet.bt>
             <group>,</group>
             <list>དང་</list>
             <percentSign>བརྒ་ཆཱ</percentSign>
-            <nativeZeroDigit>à¼ </nativeZeroDigit>
+            <nativeZeroDigit>༠</nativeZeroDigit>
             <patternDigit>#</patternDigit>
             <plusSign>+</plusSign>
             <minusSign>-</minusSign>
@@ -34,10 +33,8 @@ By Pema geyleg <pema_geyleg@druknet.bt>
         <decimalFormats>
           <decimalFormatLength type="long">
             <decimalFormat>
-             <!-- number grouping same as India (thousands, lakhs, crores,
-etc.)
--->
-              <pattern>##,##,##0.###;-##,##,##0.###</pattern>
+             <!-- number grouping same as India (thousands, lakhs, crores, etc.) -->
+              <pattern>#,##,##0.###;-#,##,##0.###</pattern>
             </decimalFormat>
           </decimalFormatLength>
         </decimalFormats>
@@ -54,11 +51,7 @@ etc.)
         <percentFormats>
           <percentFormatLength type="long">
             <percentFormat>
-              <pattern>
-		##,##,##0 བརྒ་ཆཱ
-
-		
-		</pattern>
+              <pattern>#,##,##0 བརྒ་ཆཱ</pattern>
             </percentFormat>
           </percentFormatLength>
         </percentFormats>
@@ -66,26 +59,16 @@ etc.)
         <currencyFormats>
           <currencyFormatLength type="long">
             <currencyFormat>
-              <pattern>
-དངུལ་ཀྲམ་
-##,##,##0.00;
--དངུལ་ཀྲམ་
-##,##,##0.00
-
-              </pattern>
+              <pattern>¤#,##,##0.00;-¤#,##,##0.00</pattern>
             </currencyFormat>
           </currencyFormatLength>
         </currencyFormats>
         <currencies>
-            <default type="BTN"/>
             <currency type="BTN">
-		<displayName>
-			དངུལ་ཀྲམ་
-			
-		</displayName>
+		<displayName>དངུལ་ཀྲམ་</displayName>
 		<symbol>Nu</symbol>
-	     </currency>
-         </currencies>
+            </currency>
+        </currencies>
     </numbers>
 </ldml>
 

@@ -436,10 +436,12 @@
 <!ATTLIST collations version NMTOKEN #IMPLIED >
 <!ATTLIST collations draft ( true | false ) #IMPLIED >
 
-<!ELEMENT collation (alias | (settings?, suppress_contractions?, optimize?, rules?, special*)) >
+<!ELEMENT collation (alias | (base?, settings?, suppress_contractions?, optimize?, rules?, special*)) >
 <!ATTLIST collation type NMTOKEN "standard" >
 <!ATTLIST collation draft ( true | false ) #IMPLIED >
 <!ATTLIST collation standard CDATA #IMPLIED >
+
+<!ELEMENT base (#PCDATA) >
 
 <!ELEMENT settings (special*) >
 <!ATTLIST settings strength             ( primary | secondary | tertiary | quaternary | identical ) #IMPLIED >

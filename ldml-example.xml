@@ -403,7 +403,7 @@ For example, most country locales will inherit the bulk of their data from the l
             French accent ordering can be specified with the accentOrder="reverse" attribute.
             The displayName attribute supplies a message pattern for getDisplayName.
             -->
-
+            <base>UCA</base>
             <settings caseLevel="on"/>
             <suppress_contractions>[&#x0409;-&#x0491;]</suppress_contractions>
             <rules>

@@ -43,7 +43,8 @@ enum
     BASE,
     BASE_TYPE,
     IGNORE_SPECIALS,
-    IGNORE_LAYOUT
+    IGNORE_LAYOUT,
+    DRAFT
 };
 
 
@@ -57,7 +58,8 @@ UOption options[]={
                       UOPTION_DEF("base", 'b', UOPT_REQUIRES_ARG),
                       UOPTION_DEF("base-type", 't', UOPT_REQUIRES_ARG),
                       UOPTION_DEF("ignore-specials", 'c', UOPT_NO_ARG),
-                      UOPTION_DEF("ignore-layout", 'l', UOPT_NO_ARG)
+                      UOPTION_DEF("ignore-layout", 'l', UOPT_NO_ARG),
+                      UOPTION_DEF("draft", 'r', UOPT_NO_ARG)
                    };
 
 const char* usageString =
@@ -76,6 +78,7 @@ const char* usageString =
                 "\t-t or --base-type        the type of base tailoring for collation in the base. Defaults to standard\n"
                 "\t-c or --ignore-specials  Ignores specials in collations\n"
                 "\t-l or --ignore-layout    Ignores layout element\n"
+                "\t-r or --draft            The LDML file being generated will marked as draft\n"
                ;
 
 UBool ignoreCollation = FALSE;
@@ -83,6 +86,7 @@ const char* baseCollation = NULL;
 const char* baseType = NULL;
 UBool ignoreSpecials = FALSE;
 UBool ignoreLayout = FALSE;
+UBool isDraft = FALSE;
 
 int main (int32_t argc, const char* argv[]) {
 	const char* srcDir =NULL;
@@ -125,7 +129,9 @@ int main (int32_t argc, const char* argv[]) {
     if(options[IGNORE_LAYOUT].doesOccur){
         ignoreLayout = TRUE;
     }
-
+    if(options[DRAFT].doesOccur){
+        isDraft = TRUE;
+    }
 #ifndef GENLDML_NOSETAPPDATA
     /* Tell ICU where our resource data is located in memory.
      *   The data lives in the genldml_resources dll, and we just
@@ -278,9 +284,9 @@ int32_t GenerateXML::copyUnicodeStringToChars(const UnicodeString& str,
 }
 void GenerateXML::closeXMLDocument(){
 	chopIndent();
-	Formattable args[] = {UnicodeString(XML_END_SLASH)};
+	Formattable args[] = {UnicodeString(XML_END_SLASH), ""};
 	UnicodeString xmlString;
-	formatString(mStringsBundle.getStringEx("localeData",mError),args,1,xmlString);
+	formatString(mStringsBundle.getStringEx("localeData",mError),args,2,xmlString);
 	printString(&xmlString);
 }
 UnicodeString GenerateXML::formatString(UnicodeString& str,UnicodeString& argument,UnicodeString& result){
@@ -413,9 +419,9 @@ void GenerateXML::writeXMLVersionAndComments(){
         temp = mStringsBundle.getStringEx("declarationNoSpecials",mError);
     }
     xmlString.append(temp);
-	Formattable arguments[] = {""};
+    Formattable arguments[] = {"", (isDraft==TRUE)? " draft=\"true\"" : ""};
 	UnicodeString tempStr;
-	xmlString.append(formatString(mStringsBundle.getStringEx("localeData",mError),arguments,1,tempStr));
+	xmlString.append(formatString(mStringsBundle.getStringEx("localeData",mError),arguments,2,tempStr));
 	printString(&xmlString);
     mError=U_ZERO_ERROR;
 }
@@ -489,6 +495,16 @@ void GenerateXML::writeIdentity(){
 
     mError = U_ZERO_ERROR;
 
+    tempStr.remove();
+    tempStr = mLocale.getScript();
+	if(!tempStr.isEmpty() && tempStr!="t"){
+		Formattable args1[] = {indentOffset, tempStr};
+		UnicodeString t;
+		xmlString.append(formatString(mStringsBundle.getStringEx("scriptElem",mError),args1,2,t));
+	}
+
+    mError = U_ZERO_ERROR;
+
 	tempStr1=mLocale.getCountry();
 	tempStr2=mLocale.getISO3Country();
 
@@ -500,14 +516,15 @@ void GenerateXML::writeIdentity(){
 	if(mError==U_MISSING_RESOURCE_ERROR){
 		mError=U_ZERO_ERROR;
 	}
-	tempStr.remove();
+	
+    tempStr.remove();
 	tempStr=mLocale.getVariant();
 	if(!tempStr.isEmpty() && tempStr!="t"){
 		Formattable args1[] = {indentOffset, tempStr};
 		UnicodeString t;
 		xmlString.append(formatString(mStringsBundle.getStringEx("variantElem",mError),args1,2,t));
 	}
-
+    
 	ResourceBundle tb  = mSourceBundle.get("LocaleID",mError);
     UResType type = tb.getType();
 	chopIndent();
@@ -661,10 +678,10 @@ void GenerateXML::writeLocaleScript(UnicodeString& xmlString){
 		    xmlString.append(formatString(mStringsBundle.getStringEx("icu_scripts",mError),args,2,t));
 		    indentOffset.append("\t");
             for(int i=0;scripts.hasNext();i++){
-			    char c;
-			    itoa(i+1,&c,10);
+                char c[10]={0};
+			    itoa(i+1,c,10);
 			    args[0] = indentOffset;
-			    args[1] = UnicodeString(&c);
+			    args[1] = UnicodeString(c);
 			    args[2] = scripts.getNextString(mError);
 			    xmlString.append(formatString(mStringsBundle.getStringEx("icu_script",mError),args,3,t));
 		    }
@@ -829,7 +846,9 @@ void GenerateXML::writeDelimiters(){
 }
 
 void GenerateXML::writeMeasurement(){
-// Data not available in ICU
+    UnicodeString xmlString;
+    writeMeasurement(xmlString);
+    if(xmlString.length()>0)  printString(&xmlString);
 }
 
 
@@ -1003,15 +1022,34 @@ void GenerateXML::writeCalendars(UnicodeString& xmlString){
 	UBool print =FALSE;
 	Formattable args[2]={indentOffset,""};
 	xmlString.append(formatString(mStringsBundle.getStringEx("calendars",mError),args,2,tempStr));
+    
+    ResourceBundle calendars = mSourceBundle.get("calendar", mError);
+    indentOffset.append("\t");
+    if( mError!=U_USING_DEFAULT_WARNING && 
+		mError!=U_USING_FALLBACK_WARNING && 
+            U_SUCCESS(mError)){
 
-	indentOffset.append("\t");
-    mError=U_ZERO_ERROR;
-	tempStr.remove();
-	writeCalendar(UnicodeString("gregorian"),TRUE,tempStr);
-	if(!tempStr.isEmpty()){
-		xmlString.append(tempStr);
-		print = TRUE;
-	}
+
+        ResourceBundle defaultCalendar = calendars.getWithFallback("default", mError);
+        UnicodeString defaultC = defaultCalendar.getString(mError);
+        if(U_FAILURE(mError)){
+            fprintf(stderr, "Could not find the default calendar. Dying.\n");
+            exit(U_INTERNAL_PROGRAM_ERROR);
+        }
+        while(calendars.hasNext()){
+            ResourceBundle calendar = calendars.getNext(mError);
+            if(U_SUCCESS(mError)){
+                UnicodeString key = UnicodeString(calendar.getKey());
+                mError=U_ZERO_ERROR;
+	            tempStr.remove();
+                writeCalendar(calendar, key, (defaultC==key),tempStr); 
+	            if(!tempStr.isEmpty()){
+		            xmlString.append(tempStr);
+		            print = TRUE;
+	            }
+            }
+        }
+    }
 	chopIndent();
 	args[1]=UnicodeString(XML_END_SLASH);
     if(print ==TRUE){
@@ -1021,75 +1059,62 @@ void GenerateXML::writeCalendars(UnicodeString& xmlString){
     }
 }
 
-void GenerateXML::writeCalendar(UnicodeString& calendar,UBool isDefault,UnicodeString& xmlString){
+void GenerateXML::writeCalendar(ResourceBundle& calendar, UnicodeString& cal,UBool isDefault,UnicodeString& xmlString){
 	
 	UnicodeString tempStr;
 	UBool print =FALSE;
-	Formattable args[]={indentOffset,calendar};
+	Formattable args[]={indentOffset,cal};
 	// TODO : Figure out a way to find default
 	// xmlString.append(formatString(mStringsBundle.getStringEx( "default",mError),args,2,tempStr));
 	xmlString.append(formatString(mStringsBundle.getStringEx("calendarStart",mError),args,2,tempStr));
 
 	indentOffset.append("\t");
 	tempStr.remove();
-	writeMonthNames(tempStr);
+	writeMonthNames(calendar, tempStr);
 	if(!tempStr.isEmpty()){
 		xmlString.append(tempStr);
 		print = TRUE;
 	}
 
 	tempStr.remove();
-	writeMonthAbbr(tempStr);
+	writeDayNames(calendar, tempStr);
 	if(!tempStr.isEmpty()){
 		xmlString.append(tempStr);
 		print = TRUE;
 	}
 
-	tempStr.remove();
-	writeDayNames(tempStr);
-	if(!tempStr.isEmpty()){
-		xmlString.append(tempStr);
-		print = TRUE;
-	}
-
-	tempStr.remove();
-	writeDayAbbr(tempStr);
+    tempStr.remove();
+	writeWeek(calendar, tempStr);
 	if(!tempStr.isEmpty()){
 		xmlString.append(tempStr);
 		print = TRUE;
 	}
 	tempStr.remove();
-	writeWeek(tempStr);
-	if(!tempStr.isEmpty()){
-		xmlString.append(tempStr);
-		print = TRUE;
-	}
-	tempStr.remove();
-	writeAMPMmarkers(tempStr);
+	writeAMPMmarkers(calendar, tempStr);
 	if(!tempStr.isEmpty()){
 		xmlString.append(tempStr);
 		print = TRUE;
 	}
     tempStr.remove();
-	writeEra(tempStr);
+	writeEra(calendar, tempStr);
 	if(!tempStr.isEmpty()){
 		xmlString.append(tempStr);
 		print = TRUE;
 	}
 	tempStr.remove();
-	writeDateFormat(tempStr);
+	writeDateFormat(calendar,tempStr);
 	if(!tempStr.isEmpty()){
 		xmlString.append(tempStr);
 		print = TRUE;
 	}
     tempStr.remove();
-	writeTimeFormat(tempStr);
+	writeTimeFormat(calendar, tempStr);
 	if(!tempStr.isEmpty()){
 		xmlString.append(tempStr);
 		print = TRUE;
 	}
     tempStr.remove();
-	writeDateTimeFormat(tempStr);
+	writeDateTimeFormat(calendar, tempStr);
 	if(!tempStr.isEmpty()){
 		xmlString.append(tempStr);
 		print = TRUE;
@@ -1143,126 +1168,157 @@ const char* getDayNameDTE(int index){
 		return "";
 	}
 }
-void GenerateXML::writeMonthNames(UnicodeString& xmlString){
+void GenerateXML::writeMonthNames(ResourceBundle& calendar, UnicodeString& xmlString){
 
-    ResourceBundle longMonths= mSourceBundle.get("MonthNames",mError);
+    ResourceBundle monthNames = calendar.get("monthNames",mError);
 	UnicodeString t;
-
-	if( mError!=U_USING_DEFAULT_WARNING && 
+    if( mError!=U_USING_DEFAULT_WARNING && 
 		mError!=U_USING_FALLBACK_WARNING && 
 		U_SUCCESS(mError)){
-		
-		Formattable args[3] = {indentOffset,"",""};
-		xmlString.append(formatString(mStringsBundle.getStringEx("monthNames",mError),args,2,t));
-		indentOffset.append("\t");
-        for(int i=0;longMonths.hasNext();i++){
-			char c;
-			itoa(i+1,&c,10);
-			args[0] = indentOffset;
-			args[1] = UnicodeString(&c);
-			args[2] = longMonths.getNextString(mError);
-			xmlString.append(formatString(mStringsBundle.getStringEx("month",mError),args,3,t));
-		}
-		chopIndent();
-		args[0] = indentOffset;
-		args[1] = UnicodeString(XML_END_SLASH);
-		xmlString.append(formatString(mStringsBundle.getStringEx("monthNames",mError),args,2,t));
-		mError=U_ZERO_ERROR;
+        
+        Formattable args[4] ={ indentOffset, "", "", "" };
+        xmlString.append(formatString(mStringsBundle.getStringEx("months", mError), args, 2, t));
+        indentOffset.append("\t");
+
+        while(monthNames.hasNext()){
+            ResourceBundle context = monthNames.getNext(mError);
+            UnicodeString ctxKey = UnicodeString(context.getKey());
+            if(U_FAILURE(mError)){
+                exit(U_INTERNAL_PROGRAM_ERROR);
+            }
+            if(ctxKey=="default"){
+                args[0] = indentOffset;
+                args[1] = ctxKey;
+                xmlString.append(formatString(mStringsBundle.getStringEx("default",mError),args,2,t));
+                continue;
+            }
+            args[0] = indentOffset;
+            args[1] = ctxKey;
+            xmlString.append(formatString(mStringsBundle.getStringEx("monthContext",mError),args,2,t));
+		    indentOffset.append("\t");
+
+            while(context.hasNext()){
+                ResourceBundle width = context.getNext(mError);
+                if(U_FAILURE(mError)){
+                    fprintf(stderr, "Unexpected Error: %s \n", u_errorName(mError));
+                    exit(U_INTERNAL_PROGRAM_ERROR);
+                }
+                UnicodeString widthKey = UnicodeString(width.getKey());
+                if(ctxKey=="default"){
+                    args[0] = indentOffset;
+                    args[1] = widthKey;
+                    xmlString.append(formatString(mStringsBundle.getStringEx("default",mError),args,2,t));
+                    continue;
+                }
+                args[0] = indentOffset;
+                args[1] = widthKey;
+                xmlString.append(formatString(mStringsBundle.getStringEx("monthWidth",mError),args,2,t));
+		        indentOffset.append("\t");
+
+                for(int i=0;width.hasNext();i++){
+                    char c[10]={0};
+			        itoa(i+1,c,10);
+			        args[0] = indentOffset;
+			        args[1] = UnicodeString(c);
+			        args[2] = width.getNextString(mError);
+			        xmlString.append(formatString(mStringsBundle.getStringEx("month",mError),args,3,t));
+		        }
+		        chopIndent();
+		        args[0] = indentOffset;
+		        xmlString.append(formatString(mStringsBundle.getStringEx("monthWidthEnd",mError),args,1,t));
+            }
+            chopIndent();
+            args[0] = indentOffset;
+            xmlString.append(formatString(mStringsBundle.getStringEx("monthContextEnd",mError),args,1,t));
+        }
+        
+        chopIndent();
+        args[0] = indentOffset;
+        args[1] = UnicodeString(XML_END_SLASH);
+        xmlString.append(formatString(mStringsBundle.getStringEx("months",mError),args,2,t));
+
+        mError=U_ZERO_ERROR;
 		return;
-	}
+    }
 	xmlString.remove();
 	mError= U_ZERO_ERROR;
 }
 
-void GenerateXML::writeMonthAbbr(UnicodeString& xmlString){
-
-    ResourceBundle longMonths= mSourceBundle.get("MonthAbbreviations",mError);
+void GenerateXML::writeDayNames(ResourceBundle& calendar, UnicodeString& xmlString){
+   ResourceBundle dayNames = calendar.get("dayNames",mError);
 	UnicodeString t;
-	if( mError!=U_USING_DEFAULT_WARNING &&
+    if( mError!=U_USING_DEFAULT_WARNING && 
 		mError!=U_USING_FALLBACK_WARNING && 
 		U_SUCCESS(mError)){
-		
-		Formattable args[3] = {indentOffset,"",""};
-		xmlString.append(formatString(mStringsBundle.getStringEx("monthAbbr",mError),args,2,t));
-		indentOffset.append("\t");
-		
-		args[0] = indentOffset;
-        for(int i=0;longMonths.hasNext();i++){
-			char c;
-			itoa(i+1,&c,10);
-			args[1] = UnicodeString(&c);
-			args[2] = longMonths.getNextString(mError);
-			xmlString.append(formatString(mStringsBundle.getStringEx("month",mError),args,3,t));
-		}
-		chopIndent();
-		args[0] = indentOffset;
-		args[1] = UnicodeString(XML_END_SLASH);
-		xmlString.append(formatString(mStringsBundle.getStringEx("monthAbbr",mError),args,2,t));
-		mError=U_ZERO_ERROR;
+        
+        Formattable args[4] ={ indentOffset, "", "", "" };
+        xmlString.append(formatString(mStringsBundle.getStringEx("days", mError), args, 2, t));
+        indentOffset.append("\t");
+
+        while(dayNames.hasNext()){
+            ResourceBundle context = dayNames.getNext(mError);
+            UnicodeString ctxKey = UnicodeString(context.getKey());
+            if(ctxKey=="default"){
+                args[0] = indentOffset;
+                args[1] = ctxKey;
+                xmlString.append(formatString(mStringsBundle.getStringEx("default",mError),args,2,t));
+                continue;
+            }
+            if(U_FAILURE(mError)){
+                exit(U_INTERNAL_PROGRAM_ERROR);
+            }
+            args[0] = indentOffset;
+            args[1] = ctxKey;
+            xmlString.append(formatString(mStringsBundle.getStringEx("dayContext",mError),args,2,t));
+		    indentOffset.append("\t");
+
+            while(context.hasNext()){
+                ResourceBundle width = context.getNext(mError);
+                if(U_FAILURE(mError)){
+                    fprintf(stderr, "Unexpected Error: %s \n", u_errorName(mError));
+                    exit(U_INTERNAL_PROGRAM_ERROR);
+                }
+                UnicodeString widthKey = UnicodeString(width.getKey());
+                if(widthKey == "default"){
+                    args[0] = indentOffset;
+                    args[1] = widthKey;
+                    xmlString.append(formatString(mStringsBundle.getStringEx("default",mError),args,2,t));
+                    continue;
+                }
+                args[0] = indentOffset;
+                args[1] = widthKey;
+                xmlString.append(formatString(mStringsBundle.getStringEx("dayWidth",mError),args,2,t));
+		        indentOffset.append("\t");
+
+                for(int i=0;width.hasNext();i++){
+                    
+			        args[0] = indentOffset;
+			        args[1] = getDayName(i);
+			        args[2] = width.getNextString(mError);
+			        xmlString.append(formatString(mStringsBundle.getStringEx("day",mError),args,3,t));
+		        }
+		        chopIndent();
+		        args[0] = indentOffset;
+		        xmlString.append(formatString(mStringsBundle.getStringEx("dayWidthEnd",mError),args,1,t));
+            }
+            chopIndent();
+            args[0] = indentOffset;
+            xmlString.append(formatString(mStringsBundle.getStringEx("dayContextEnd",mError),args,1,t));
+        }
+        
+        chopIndent();
+        args[0] = indentOffset;
+        args[1] = UnicodeString(XML_END_SLASH);
+        xmlString.append(formatString(mStringsBundle.getStringEx("days",mError),args,2,t));
+
+        mError=U_ZERO_ERROR;
 		return;
-	}
+    }
 	xmlString.remove();
 	mError= U_ZERO_ERROR;
 }
-
-
-
-void GenerateXML::writeDayNames(UnicodeString& xmlString){
-	ResourceBundle longDays= mSourceBundle.get("DayNames",mError);
-	UnicodeString t;
-	if( mError!=U_USING_DEFAULT_WARNING && 
-		mError!=U_USING_FALLBACK_WARNING && 
-		U_SUCCESS(mError)){
-		Formattable args[3] = {indentOffset,"",""};
-		xmlString.append(formatString(mStringsBundle.getStringEx("dayNames",mError),args,2,t));
-		indentOffset.append("\t");
-		args[0] = indentOffset;
-		
-		for(int i=0;longDays.hasNext();i++){
-			args[1] = UnicodeString(getDayName(i));
-			args[2] = longDays.getNextString(mError);
-			xmlString.append(formatString(mStringsBundle.getStringEx("day",mError),args,3,t));
-		}
-		chopIndent();
-		args[0] = indentOffset;
-		args[1] = UnicodeString(XML_END_SLASH);
-		xmlString.append(formatString(mStringsBundle.getStringEx("dayNames",mError),args,2,t));
-		mError=U_ZERO_ERROR;
-		return;
-	}
-	xmlString.remove();
-	mError= U_ZERO_ERROR;
-}
-
-void GenerateXML::writeDayAbbr(UnicodeString& xmlString){
-
-	ResourceBundle abbrDays=mSourceBundle.get("DayAbbreviations", mError);
-	UnicodeString t;
-	if( mError!=U_USING_DEFAULT_WARNING && 
-		mError!=U_USING_FALLBACK_WARNING && 
-		U_SUCCESS(mError)){
-		Formattable args[3] = {indentOffset,"",""};
-		xmlString.append(formatString(mStringsBundle.getStringEx("dayAbbr",mError),args,2,t));
-		indentOffset.append("\t");
-		args[0] = indentOffset;
-		
-		for(int i=0;abbrDays.hasNext();i++){
-			args[1] = UnicodeString(getDayName(i));
-			args[2] = abbrDays.getNextString(mError);
-			xmlString.append(formatString(mStringsBundle.getStringEx("day",mError),args,3,t));
-		}
-		chopIndent();
-		args[0] = indentOffset;
-		args[1] = UnicodeString(XML_END_SLASH);
-		xmlString.append(formatString(mStringsBundle.getStringEx("dayAbbr",mError),args,2,t));
-		mError=U_ZERO_ERROR;
-		return;
-	}
-	xmlString.remove();
-	mError= U_ZERO_ERROR;
-}
-void GenerateXML::writeWeek(UnicodeString& xmlString){
-	ResourceBundle dtElements = mSourceBundle.get("DateTimeElements", mError);
+void GenerateXML::writeWeek(ResourceBundle& calendar, UnicodeString& xmlString){
+	ResourceBundle dtElements = calendar.get("DateTimeElements", mError);
 	int32_t len =0;
 	const int32_t* vector = dtElements.getIntVector(len,mError);
 	UnicodeString t;
@@ -1295,9 +1351,9 @@ void GenerateXML::writeWeek(UnicodeString& xmlString){
 	mError= U_ZERO_ERROR;
 }
 
-void GenerateXML::writeEra(UnicodeString& xmlString){
+void GenerateXML::writeEra(ResourceBundle& calendar,UnicodeString& xmlString){
 
-    ResourceBundle eras= mSourceBundle.get("Eras",mError);
+    ResourceBundle eras= calendar.get("Eras",mError);
 	UnicodeString t;
 	if( mError!=U_USING_DEFAULT_WARNING && 
 		mError!=U_USING_FALLBACK_WARNING && 
@@ -1313,9 +1369,9 @@ void GenerateXML::writeEra(UnicodeString& xmlString){
         indentOffset.append("\t");
 		args[0] = indentOffset;
         for(int i=0;eras.hasNext();i++){
-			char c;
-			itoa(i+1,&c,10);
-			args[1] = UnicodeString(&c);
+            char c[10]={0};
+			itoa(i+1,c,10);
+			args[1] = UnicodeString(c);
 			args[2] = eras.getNextString(mError);
 			xmlString.append(formatString(mStringsBundle.getStringEx("era",mError),args,3,t));
 		}
@@ -1336,8 +1392,8 @@ void GenerateXML::writeEra(UnicodeString& xmlString){
 }
 
 
-void GenerateXML::writeAMPMmarkers(UnicodeString& xmlString){
-	ResourceBundle markers =mSourceBundle.get("AmPmMarkers",mError);
+void GenerateXML::writeAMPMmarkers( ResourceBundle& calendar, UnicodeString& xmlString){
+	ResourceBundle markers = calendar.get("AmPmMarkers",mError);
 	UnicodeString t;
 	if( mError!=U_USING_DEFAULT_WARNING && 
 		mError!=U_USING_FALLBACK_WARNING && 
@@ -1459,9 +1515,9 @@ void GenerateXML::writeFormat(const char* style, const char* start, const char* 
 	
 }
 
-void GenerateXML::writeDateFormat(UnicodeString& xmlString){
+void GenerateXML::writeDateFormat(ResourceBundle& calendar, UnicodeString& xmlString){
 
-	ResourceBundle dtPatterns = mSourceBundle.get("DateTimePatterns", mError);
+	ResourceBundle dtPatterns = calendar.get("DateTimePatterns", mError);
 	UnicodeString t;
 	if( mError!=U_USING_DEFAULT_WARNING && 
 		mError!=U_USING_FALLBACK_WARNING && 
@@ -1497,8 +1553,8 @@ void GenerateXML::writeDateFormat(UnicodeString& xmlString){
 }
 
 
-void GenerateXML::writeTimeFormat(UnicodeString& xmlString){
-	ResourceBundle dtPatterns = mSourceBundle.get("DateTimePatterns", mError);
+void GenerateXML::writeTimeFormat(ResourceBundle& calendar, UnicodeString& xmlString){
+	ResourceBundle dtPatterns = calendar.get("DateTimePatterns", mError);
 	UnicodeString t;
 	if( mError!=U_USING_DEFAULT_WARNING && 
 		mError!=U_USING_FALLBACK_WARNING && 
@@ -1532,8 +1588,8 @@ void GenerateXML::writeTimeFormat(UnicodeString& xmlString){
 //	if(!print) xmlString.remove();	
 }
 
-void GenerateXML::writeDateTimeFormat(UnicodeString& xmlString){
-	ResourceBundle dtPatterns = mSourceBundle.get("DateTimePatterns", mError);
+void GenerateXML::writeDateTimeFormat(ResourceBundle& calendar, UnicodeString& xmlString){
+	ResourceBundle dtPatterns = calendar.get("DateTimePatterns", mError);
     UnicodeString t;
 	if( mError!=U_USING_DEFAULT_WARNING && 
 		mError!=U_USING_FALLBACK_WARNING && 
@@ -2065,6 +2121,7 @@ void GenerateXML::writeCollations(){
     xmlString.append(formatString(mStringsBundle.getStringEx("collations",mError),args,3,t));
 	
 	if(print)  printString(&xmlString);
+    mError =U_ZERO_ERROR;
 	
 }
 
@@ -3283,6 +3340,84 @@ void GenerateXML::writeCurrencyMeta(UnicodeString& xmlString, ResourceBundle& ro
         chopIndent(suppIndent);
     }
 }
+
+void GenerateXML::writePaperSize(UnicodeString& xmlString){
+    ResourceBundle paperSize = mSourceBundle.get("PaperSize", mError);
+    int32_t len=0;
+    const int32_t* sizes = paperSize.getIntVector(len,mError);
+    UnicodeString tempStr;
+
+    if( mError!=U_USING_DEFAULT_WARNING && 
+		mError!=U_USING_FALLBACK_WARNING && 
+            U_SUCCESS(mError)){
+        Formattable args[] = {indentOffset, "", ""};
+        xmlString.append(formatString( mStringsBundle.getStringEx("paperSize", mError), args, 2, tempStr));
+        indentOffset.append("\t");
+
+        char c[10] = {0};
+        itoa(sizes[0], c, 10);
+        args[0] = indentOffset;
+        args[1] = UnicodeString(c);
+        tempStr.remove();
+        xmlString.append(formatString( mStringsBundle.getStringEx("height", mError), args, 2, tempStr));
+        
+        c[0] = 0;
+        itoa(sizes[1], c, 10);
+        args[1] = UnicodeString(c);
+        tempStr.remove();
+        xmlString.append(formatString( mStringsBundle.getStringEx("width", mError), args, 2, tempStr));
+
+        chopIndent();
+        tempStr.remove();
+        args[0] = indentOffset;
+        args[1] = UnicodeString(XML_END_SLASH);
+        xmlString.append(formatString( mStringsBundle.getStringEx("paperSize", mError), args, 2, tempStr));
+        mError = U_ZERO_ERROR;
+        return;
+    }
+    mError = U_ZERO_ERROR;
+    xmlString.remove();
+}
+
+void GenerateXML::writeMeasurement(UnicodeString& xmlString){
+    UnicodeString tempStr;
+    Formattable args[] = { indentOffset, "", "" };
+    xmlString.append(formatString( mStringsBundle.getStringEx("measurement", mError), args, 2, tempStr));
+    UBool print = FALSE;
+
+    ResourceBundle measurementSystem = mSourceBundle.get("MeasurementSystem", mError);
+    indentOffset.append("\t");
+    
+    if( mError!=U_USING_DEFAULT_WARNING && 
+		mError!=U_USING_FALLBACK_WARNING && 
+            U_SUCCESS(mError)){
+
+        args[0] = indentOffset;
+        args[1] = (measurementSystem.getInt(mError)== 0) ? "metric" : "US";
+        if(U_SUCCESS(mError)){
+            tempStr.remove();
+            xmlString.append(formatString( mStringsBundle.getStringEx("measurementSystem", mError), args, 2, tempStr));
+            print = TRUE;
+        }
+    }
+    
+    tempStr.remove();
+    writePaperSize(tempStr);
+    if(tempStr.length()>0){
+        xmlString.append(tempStr);
+        print = TRUE;
+    }
+    tempStr.remove();
+    chopIndent();
+    args[0] = indentOffset;
+    args[1] = UnicodeString(XML_END_SLASH);
+    xmlString.append(formatString( mStringsBundle.getStringEx("measurement", mError), args, 2, tempStr));
+    if(print==FALSE){
+        xmlString.remove();
+    }
+    mError = U_ZERO_ERROR;
+}
+
 /*
 void GenerateXML::writePosixCompData(){
     char temp[50]={'\0'};
@@ -3443,32 +3578,6 @@ void GenerateXML::writePosixAdditions(){
     writePaperSize(xmlString);
     if(xmlString.length()>0){
         printString(&xmlString);
-    }
-}
-
-void GenerateXML::writePaperSize(UnicodeString& xmlString){
-    UnicodeString temp;
-    ResourceBundle dBundle = mSourceBundle.get("PaperSize", mError);
-    if(U_SUCCESS(mError)){
-        indentOffset.append("\t");
-        getStringRes("Height",temp,UnicodeString(HEIGHT));
-        getStringRes("Width",temp,UnicodeString(WIDTH));
-        getStringRes("Units",temp,UnicodeString(UNITS));
-        chopIndent();
-        if(temp.length()>0){
-            xmlString.append(formatString(UnicodeString(PAPER),indentOffset));
-            xmlString.append(temp);
-            xmlString.append(formatString(UnicodeString(PAPER_END), indentOffset));
-        }      
-    }
-    mError=U_ZERO_ERROR;
-}
-
-void GenerateXML::writeMeasurement(UnicodeString& xmlString){
-    UnicodeString temp;
-    getStringRes("Measurement",temp,UnicodeString(MEASURE));
-    if(temp.length()>0){
-        xmlString.append(temp);
     }
 }
 void GenerateXML::writeCountryPost(UnicodeString& xmlString){

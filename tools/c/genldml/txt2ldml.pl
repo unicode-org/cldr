@@ -26,7 +26,8 @@ GetOptions(
            "--ignore-collation" => \$ignoreCollation, 
 		   "--base=s" => \$baseFile,
            "--ignore-specials" => \$ignoreSpecials,
-           "--ignore-layout" => \$ignoreLayout
+           "--ignore-layout" => \$ignoreLayout,
+           "--draft"  => \$draft,
           );
            
 
@@ -60,10 +61,12 @@ if (@ARGV) {
     @list = grep{/\.txt$/} readdir(DIR);
     closedir(DIR);
 }
+resify("root.txt");
+ldmlify("root");
 
 # now convert
 foreach $item (@list){
-    next if($item eq "." || $item eq "..");
+    next if($item eq "." || $item eq ".." || $item eq "root.txt");
 
     resify($item) unless defined $ldmlOnly;
 
@@ -81,6 +84,7 @@ sub ldmlify{
     my $il ="";
     my $base = "";
     my $baseTyp = "";
+    my $id = "";
     if (defined $ignoreCollation){
         $ic = "--ignore-collation";
     }
@@ -89,6 +93,9 @@ sub ldmlify{
     }
     if(defined $ignoreLayout){
         $il = "--ignore-layout";
+    }
+    if(defined $draft){
+        $id = "--draft";
     }
     if(defined $baseFile){
         $baseLoc = getBaseLocale($baseFile, $infile);
@@ -104,7 +111,7 @@ sub ldmlify{
         
     }
     
-    cmd("$prefix $genldmlExec --sourcedir $tempDir --destdir $destDir --package $tempPackage $base $baseTyp $ic $il $is $infile");
+    cmd("$prefix $genldmlExec --sourcedir $tempDir --destdir $destDir --package $tempPackage $base $baseTyp $ic $il $is $id $infile");
 }
 
 sub getBaseLocale(){
@@ -192,6 +199,7 @@ Options:
         --base=<the text file that contains the base to locale mapping including the path>
         --ignore-layout
         --ignore-specials
+        --draft
 
 txt2ldml creates *.xml file from *.txt files by invoking the respective tools
 Optionally, one or more locales may be specified on the command line.

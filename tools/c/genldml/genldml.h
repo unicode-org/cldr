@@ -22,16 +22,13 @@
 #include "unicode/msgfmt.h"
 #include "unicode/fmtable.h"
 #include "unicode/locid.h"
-#include "unicode/rbt.h"
 #include "unicode/rep.h"
 #include "unicode/numfmt.h"
 #include "unicode/decimfmt.h"
 #include "unicode/dcfmtsym.h"
-#include "unicode/hextouni.h"
 #include "unicode/ures.h"
 #include "unicode/ucol.h"
 #include "unicode/unum.h"
-#include "unicode/unitohex.h"
 #include "unicode/udata.h"     /* ICU API for data handling.                 */
 #include "unicode/uset.h"
 #include "unicode/ucnv.h"
@@ -155,34 +152,34 @@ private:
 	
 	void writeDisplayNames();
 
-	void writeCalendar(UnicodeString& calendar,UBool isDefault, UnicodeString& xmlString);
-
 	void writeCalendars(UnicodeString& xmlString);
 
-	void writeMonthNames(UnicodeString& xmlString);
+	void writeCalendar(ResourceBundle& calendar, UnicodeString& cal,UBool isDefault, UnicodeString& xmlString);
 
-	void writeMonthAbbr(UnicodeString& xmlString);
+    void writeAMPMmarkers(ResourceBundle& calendar, UnicodeString& xmlString);
+ 
+    void writeDateFormat(ResourceBundle& calendar, UnicodeString& xmlString);
 
-	void writeDayNames(UnicodeString& xmlString);
+    void writeDateTimeFormat(ResourceBundle& calendar, UnicodeString& xmlString);
+    
+    void writeDateTimeElements(ResourceBundle& calendar, UnicodeString& xmlString);
 
-	void writeDayAbbr(UnicodeString& xmlString);
+    void writeDayNames(ResourceBundle& calendar, UnicodeString& xmlString);
 	
-	void writeWeek(UnicodeString& xmlString);
-	
-	void writeEra(UnicodeString& xmlString);
+    void writeEra(ResourceBundle& calendar, UnicodeString& xmlString);
 
+    void writeMonthNames(ResourceBundle& calendar,UnicodeString& xmlString);
+	
+    void writeTimeFormat(ResourceBundle& calendar, UnicodeString& xmlString);
+
+	void writeWeek(ResourceBundle& calendar, UnicodeString& xmlString);
+	
 	void writeFormats(UnicodeString& xmlString);
 	void writeFormat(const char* style, const char* start, const char* end, const char* type,UnicodeString& pattern, UnicodeString& xmlString, UBool split=FALSE);
 
     void writeFormat(const char* elemName, const char* style, const char* start, const char* end, const char* type,UnicodeString& pattern, UnicodeString& xmlString, UBool split=FALSE);
 
 	void writeLocalePatternChars(UnicodeString& xmlString);
-
-	void writeTimeFormat(UnicodeString& xmlString);
-	void writeDateFormat(UnicodeString& xmlString);
-	void writeDateTimeFormat(UnicodeString& xmlString);
-    
-    void writeDateTimeElements(UnicodeString& xmlString);
 
 	void writeNumberFormat();
 
@@ -212,8 +209,6 @@ private:
 	void closeFileHandle();
 	
 	void closeXMLDocument();
-
-	void writeAMPMmarkers(UnicodeString& xmlString);
 
 	void writeTransliteration();
 

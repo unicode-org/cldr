@@ -200,7 +200,7 @@
 <!ELEMENT calendars (alias | (default?, calendar*, special*)) >
 <!ATTLIST calendars draft ( true | false ) #IMPLIED >
 
-<!ELEMENT calendar (alias | (monthNames?, monthAbbr?, dayNames?, dayAbbr?, week?, am?, pm?, eras?, dateFormats?, timeFormats?, dateTimeFormats?, special*))>
+<!ELEMENT calendar (alias | (monthNames*, monthAbbr?, dayNames*, dayAbbr?, week?, am?, pm?, eras?, dateFormats?, timeFormats?, dateTimeFormats?, special*))>
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
 <!ATTLIST calendar draft ( true | false ) #IMPLIED >
 <!ATTLIST calendar standard CDATA #IMPLIED >

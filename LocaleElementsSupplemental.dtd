@@ -8,10 +8,8 @@
 <!ATTLIST info digits NMTOKEN #IMPLIED >
 <!ATTLIST info rounding NMTOKEN #IMPLIED >
 
-<!ELEMENT region ( currency*, region? ) >
-<!ATTLIST region before NMTOKEN #IMPLIED >
+<!ELEMENT region ( currency* ) >
 <!ATTLIST region iso3166 NMTOKEN #REQUIRED >
-<!ATTLIST region iso4217 NMTOKEN #IMPLIED >
 
 <!ELEMENT currency ( alternate* ) >
 <!ATTLIST currency before NMTOKEN #IMPLIED >

@@ -32,7 +32,7 @@ table        { border-style: solid; border-width: 1px }
   </tr>
   <tr>
     <td class="white"><i>Version:</i></td>
-    <td class="white">Draft 5a, 2002-10-25, MED</td>
+    <td class="white">Draft 5b, 2002-10-25, MED</td>
   </tr>
   <tr>
     <td class="white"><i>Location:</i></td>
@@ -347,7 +347,7 @@ inheritance within the locale supercedes the inheritance from the parent.</p>
 <h2><a name="Data_Access">Data Access</a></h2>
 <p>Data can be accessed by means of a URL. A locale URL has the following
 structure:</p>
-<pre><i>base</i> &quot;/&quot; platform &quot;/&quot; <i>base_locale_id</i> &quot;.xml&quot; (&quot;/?&quot; (&quot;version=&quot; <i>version</i> | <i>transformed_options</i>)</pre>
+<pre><i>base</i> &quot;/&quot; platform &quot;/&quot; <i>base_locale_id</i> &quot;.xml&quot; (&quot;?&quot; (&quot;version=&quot; <i>version</i> | <i>transformed_options</i>)</pre>
 <p>The version is the version of the entire tree, not of a particular resource
 bundle, or resource within a bundle. The format for the version depends on the
 source of the data. For example, for <i>openoffice.org</i> the current version
@@ -355,9 +355,10 @@ source of the data. For example, for <i>openoffice.org</i> the current version
 version at the time of this writing would be 2.2. The transformed options are
 the &lt;options&gt; from the <a href="#Locale_IDs">Locale ID</a> with the
 &quot;@&quot; removed, and &quot;,&quot; converted to &quot;&amp;&quot;.</p>
-<p><i>Example:</i></p>
+<p><i>Example, where base = http://oss.software.ibm.com/cgi-bin/icu/locale/ and
+platform = icu</i></p>
 <blockquote>
-  <p><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/icu/de_DE.xml/?version=2.2&amp;collation=phonebook&amp;currency=pre-euro">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/icu/de_DE.xml/?version=2.2&amp;collation=phonebook&amp;currency=pre-euro</a></p>
+  <p><a href="http://oss.software.ibm.com/cgi-bin/icu/locale/icu/de_DE.xml?version=2.2&amp;collation=phonebook&amp;currency=pre-euro">http://oss.software.ibm.com/cgi-bin/icu/locale/icu/de_DE.xml?version=2.2&amp;collation=phonebook&amp;currency=pre-euro</a></p>
 </blockquote>
 <p>At this point in time, there is not a mechanism for querying the base to
 determine which platforms, which versions of each platform, and which locales in
@@ -410,10 +411,10 @@ element at the same position in the the same tree with type
 presented to users when discussing the particular service. For example, a number
 format, used to format numbers using the conventions of that locale, can have
 translated name for presentation in GUIs.</p>
-<pre>  &lt;pattern&gt;
+<pre>  &lt;numberFormat&gt;
     &lt;displayName&gt;Prozentformat&lt;/displayName&gt;
 ...
-  &lt;pattern&gt;</pre>
+  &lt;numberFormat&gt;</pre>
 <p class="element2">&lt;default type=&quot;someID&quot;/&gt;</p>
 <p>In some cases, a number of elements are present. The default element can be
 used to indicate which of them is the default, in the absence of other
@@ -421,9 +422,9 @@ information. The value of the type attribute is to match the value of the type
 attribute for the selected item.</p>
 <pre>&lt;numberFormats&gt;
     &lt;default type=&quot;<font color="#0000FF">scientific</font>&quot;/&gt;
-    &lt;numberFormat type=&quot;decimal&quot;&gt;...&lt;/pattern&gt;
-    &lt;numberFormat type=&quot;percent&quot;&gt;...&lt;/pattern&gt;
-    &lt;numberFormat type=&quot;<font color="#0000FF">scientific</font>&quot;&gt;...&lt;/pattern&gt;
+    &lt;numberFormat type=&quot;decimal&quot;&gt;...&lt;/numberFormat&gt;
+    &lt;numberFormat type=&quot;percent&quot;&gt;...&lt;/numberFormat&gt;
+    &lt;numberFormat type=&quot;<font color="#0000FF">scientific</font>&quot;&gt;...&lt;/numberFormat&gt;
 &lt;/numberFormats&gt;</pre>
 <p>Like all other elements, the &lt;default&gt; element is inherited. Thus, it
 can also refer to inherited resources. For example, suppose that the above
@@ -434,11 +435,11 @@ resources are present in fr, and that in fr_BE we have the following:</p>
 <p>In that case, the default number format for fr_BE would be the inherited
 &quot;decimal&quot; resource from fr. Now suppose that we had in fr_CA:</p>
 <pre>&lt;numberFormats&gt;
-  &lt;numberFormat type=&quot;<font color="#0000FF">scientific</font>&quot;&gt;...&lt;/pattern&gt;
+  &lt;numberFormat type=&quot;<font color="#0000FF">scientific</font>&quot;&gt;...&lt;/numberFormat&gt;
 &lt;/numberFormats&gt;</pre>
-<p>In this case, the default is inherited from fr, and has the value
-&quot;scientific&quot;. It thus refers to the &quot;scientific&quot; pattern
-inherited from fr.</p>
+<p>In this case, the &lt;default&gt; is inherited from fr, and has the value
+&quot;scientific&quot;. It thus refers to this new &quot;scientific&quot;
+pattern in this resource bundle.</p>
 <h3><a name="Common_Attributes">Common Attributes</a></h3>
 <p class="element2">&lt;... type=&quot;stroke&quot; ...&gt;</p>
 <p>The attribute <i>type</i> is also used to indicate an alternate resource that
@@ -628,14 +629,9 @@ to numbers. E.g. &quot;{number} {unitName}&quot; in some languages, but &quot;{u
 of dates and times. It contains multiple calendar elements, each of which
 specifies the fields used for formatting and parsing dates and times according
 to the given calendar. The data is based on the Java/ICU format. Most of these
-are fairly self-explanatory, except the following.</p>
-<ul>
-  <li><i>minDays:&nbsp; the minimum number of days needed to start a new week.</i></li>
-  <li><i>pattern</i><i>: a pattern used to specify the input and output format</i></li>
-  <li><i>localizedPatternChars: used to localized the special characters in
-    patters for a given locale.</i></li>
-</ul>
-<p>For more information, see the Java API: <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DateFormat.html">DateFormat</a>,
+are fairly self-explanatory, except <i>minDays</i> and <i>localizedPatternChars</i>.
+For information on this, and more information on other elements and attributes,
+see the Java API: <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DateFormat.html">DateFormat</a>,
 <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/DateFormatSymbols.html">DateFormatSymbols</a>,
 <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>.</p>
 <pre>&lt;localizedPatternChars&gt;GyMdkHmsSEDFwWahKz&lt;/localizedPatternChars&gt;
@@ -700,35 +696,42 @@ are fairly self-explanatory, except the following.</p>
     &lt;am&gt;AM&lt;/am&gt;
     &lt;pm&gt;PM&lt;/pm&gt;
 
-    &lt;eras&gt;    &lt;!-- Non-gregorians may have many more eras --&gt;
+    &lt;eras&gt;    <font color="#00FF00">&lt;!-- Non-gregorians may have many more eras --&gt;</font>
         &lt;era type=&quot;0&quot;&gt;BC&lt;/era&gt;
         &lt;era type=&quot;1&quot;&gt;AD&lt;/era&gt;
     &lt;/eras&gt;
 
-    &lt;dateFormat&gt;
-          &lt;default type=&quot;medium&quot;/&gt;
-          &lt;dateFormat type=&quot;medium&quot;&gt;
-              &lt;pattern&gt;MM d, yyyy &lt;/pattern&gt;
-              &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
-           &lt;/dateFormat&gt;
-           &lt;dateFormat type=&quot;full&quot;&gt;
-              &lt;pattern&gt;EEEE, MMMM d, yyyy&lt;/pattern&gt;
-              &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
-           &lt;/dateFormat&gt;
-    &lt;/dateFormat&gt;
-    &lt;timeFormat&gt;
-        &lt;pattern type=&quot;time&quot; key=&quot;full&quot; default=&quot;true&quot;&gt;
-              &lt;pattern&gt;h:mm:ss a z&lt;/pattern&gt;
-              &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
-           &lt;/pattern&gt;
-    &lt;/timeFormat&gt;
-    &lt;dateTimeFormat&gt;
-        &lt;pattern&gt;{0} {1}&lt;/pattern&gt;
-    &lt;/dateTimeFormat&gt;
+    &lt;dateFormats&gt;
+      &lt;default type=&quot;medium&quot;/&gt;
+      &lt;dateFormat type=&quot;medium&quot;&gt;
+        &lt;pattern&gt;MM d, yyyy &lt;/pattern&gt;
+        &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
+      &lt;/dateFormat&gt;
+      &lt;dateFormat type=&quot;full&quot;&gt;
+        &lt;pattern&gt;EEEE, MMMM d, yyyy&lt;/pattern&gt;
+          &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
+      &lt;/dateFormat&gt;
+     &lt;/dateFormats&gt;
+     &lt;timeFormats&gt;
+       &lt;default type=&quot;medium&quot;/&gt;
+       &lt;timeFormat type=&quot;full&quot;&gt;
+         &lt;!--  Optional special element for platform/application specific overheads. Paser can
+                          choose to ignore if required  --&gt;
+         &lt;special owner=&quot;http://www.openoffice.org&quot; msgtype=&quot;DateFormatskey3&quot; usage=&quot;DATE&quot; formatindex=&quot;20&quot; /&gt;
+           &lt;displayName&gt;DIN 5008 (EN 28601)&lt;/displayName&gt;
+           &lt;pattern&gt;h:mm:ss a z&lt;/pattern&gt;
+       &lt;/timeFormat&gt;
+       &lt;timeFormat type=&quot;medium&quot;&gt;
+         &lt;pattern&gt;h:mm:ss a&lt;/pattern&gt;
+       &lt;/timeFormat&gt;
+     &lt;/timeFormats&gt;
+     &lt;dateTimeFormat&gt;
+       &lt;pattern&gt;{0} {1}&lt;/pattern&gt;
+     &lt;/dateTimeFormat&gt;
   &lt;/calendar&gt;
 
 <font color="#00FF00">  &lt;!-- The Buddhist calendar inherits month names, etc. (everything but eras) from Gregorian --&gt;
-</font>  &lt;calendar class=&quot;Buddhist&quot; inheritsFrom=&quot;Gregorian&quot;&gt;
+</font>  &lt;calendar class=&quot;Buddhist&quot;&gt;
     &lt;eras&gt;
         &lt;era type=&quot;0&quot;&gt;BE&lt;/era&gt;
     &lt;/eras&gt;
@@ -1288,7 +1291,7 @@ tailoring that their performance should be enhanced.</p>
 <p>The <i>variable-top</i> element indicates the &quot;highest&quot; character
 that is treated as punctuation with alternate handling. For example, it can be
 reset to be just above spaces if all visible punctuation are to be treated as
-having distinct primary values. </p>
+having distinct primary values.</p>
 <table>
   <tr>
     <th>Attribute</th>
@@ -1350,7 +1353,7 @@ example, in 3.1.1, the value is at:</p>
         &lt;tc&gt;wW&lt;/tc&gt;
         &lt;reset&gt;Y&lt;/reset&gt;
         &lt;tc&gt;üÜ&lt;/tc&gt;
-        &lt;position at=&quot;last non ignorable&quot;/&gt;
+        &lt;reset&gt;&lt;last_non_ignorable/&gt;&lt;/reset&gt;
 <font color="#00FF00">        &lt;!-- following is equivalent to &lt;p&gt;&#20124;&lt;/p&gt;&lt;p&gt;&#21782;&lt;/p&gt;&lt;p&gt;&#23043;&lt;/p&gt;... --&gt;
 </font>        &lt;pc&gt;&#20124;&#21782;&#23043;&#38463;&#21696;&#24859;&#25384;&#23030;&#36898;&#33909;&#33564;&#31312;&#24746;&#25569;&#28197;&#26093;&#33894;&#33446;&lt;/pc&gt;
         &lt;pc&gt;&#39925;&#26771;&#22311;&#26017;&#25201;&lt;/pc&gt;
@@ -1368,24 +1371,33 @@ for spelling out numbers, but can also be used for other number systems like
 roman numerals, or for ordinal numbers (1<sup>st</sup>, 2<sup>nd</sup>, 3<sup>rd</sup>,...).
 The rules are fairly sophisticated; for details see <a href="http://oss.software.ibm.com/icu/apiref/classRuleBasedNumberFormat.html#_details">Rule-Based
 Number Format</a>.</p>
-<p class="example">Example: The following provides a segment of RBNF for
-Italian.</p>
-<pre>&lt;numbers&gt;
- &lt;numberFormat&gt;
-   &lt;special owner=&quot;oss.software.ibm.com/icu&quot;&gt;
-     &lt;ruleBasedNumberFormat type=&quot;cardinal&quot;&gt;
-       %main:
-       -x: meno &gt;&gt;;
-       x.x: &lt;&lt; virgola &gt;&gt;;
-         zero; uno; due; tre; quattro; cinque; sei; sette; otto; nove;
-         dieci; undici; dodici; tredici; quattordici; quindici; sedici;
-         diciasette; diciotto; diciannove;
-       20: venti; vent&gt;%%with-i&gt;;
-... 
-      &lt;/ruleBasedNumberFormat&gt;
-    &lt;/special&gt;
-  &lt;/numberFormat&gt;
-&lt;numbers&gt;</pre>
+<p class="example">Example:</p>
+<pre>&lt;special owner=&quot;http://oss.software.ibm.com/icu&quot;&gt;
+  &lt;ruleBasedNumberFormats&gt;
+    &lt;ruleBasedNumberFormat type=&quot;spellout&quot;&gt;
+                %%and:
+                    and =%default=;
+                    100: =%default=;
+                %%commas:
+                    ' and =%default=;
+                    100: , =%default=;
+                    1000: , 
+    &lt;/ruleBasedNumberFormat&gt;
+    &lt;ruleBasedNumberFormat type=&quot;ordinal&quot;&gt;
+                %main:
+                    =#,##0==%%abbrev=;
+                %%abbrev:
+                    th; st; nd; rd; th;
+                    20: &amp;gt;&amp;gt;;
+                    100: &amp;gt;&amp;gt;;
+    &lt;/ruleBasedNumberFormat&gt;
+    &lt;ruleBasedNumberFormat type=&quot;duration&quot;&gt;
+            %with-words:
+                0 seconds; 1 second; =0= seconds;
+                60/60: 
+    &lt;/ruleBasedNumberFormat&gt;
+  &lt;/special&gt;
+</pre>
 <h3><a name="&lt;boundaries&gt;">&lt;boundaries&gt;</a></h3>
 <p>Boundaries provide rules for grapheme-cluster (&quot;user-character&quot;),
 word, line, and sentence breaks. This format is the Java/ICU syntax, at the top
@@ -1394,19 +1406,19 @@ Rule Syntax</a>. (The format will be moved into the ICU User Guide soon.) The
 enclosing special element is a sub-element of &lt;localeData&gt;.</p>
 <pre>&lt;localeData&gt;
 ...
-  &lt;special&gt;
+  &lt;special owner=&quot;http://oss.software.ibm.com/icu&quot;&gt;
     &lt;boundaries&gt;
       &lt;grapheme class=&quot;RuleBased&quot; append=&quot;true&quot;&gt;
         <span class="comment">&lt;!-- in addition to the normal rules, treat CH and RR as graphemes. --&gt;</span>
         [cC][hH];[rR][rR];
       &lt;/grapheme&gt;
-      &lt;word class=&quot;Dictionary&quot; import=&quot;thaiDict.dat&quot; &gt;
+      &lt;word class=&quot;Dictionary&quot; import=&quot;thaiDict.dat&quot; append=&quot;true&quot;&gt;
 <span class="comment">        &lt;!-- When doing Thai word break, check the normal word break rules first. --&gt;
 </span>        digit=[[:Nd:][:No:]];
         $digit [[:Pd:]­&#8231;&amp;apos;.]
       &lt;/word&gt;
-    &lt;boundaries&gt;
-  &lt;special&gt;
+    &lt;/boundaries&gt;
+  &lt;/special&gt;
 &lt;/localeData&gt;</pre>
 <h3><a name="&lt;transforms&gt;">&lt;transforms&gt;</a></h3>
 <p>There may be language-specific transformations, typically used in locale data
@@ -1419,11 +1431,12 @@ value is either a script (long or short name) or a locale id.</p>
 <p class="note">Note: there is an on-line demonstration of transforms at <a href="http://oss.software.ibm.com/cgi-bin/icu/tr">Transforms
 Demo.</a></p>
 <p class="example">Example: The following is an abbreviated example for Greek to
-Latin. The target value can be a script ID or a locale ID.</p>
+Latin, in a Greek locale. The target value can be a script ID or a locale ID.</p>
 <pre>&lt;localeData&gt;
 ...
-  &lt;transforms&gt;
-    &lt;transform target=&quot;Latin&quot;&gt;</pre>
+  &lt;special  owner=&quot;http://oss.software.ibm.com/icu&quot;&gt;
+    &lt;transforms&gt;
+      &lt;transform type=&quot;Latin&quot;&gt;</pre>
 <blockquote>
   <pre>::NFD (NFC) ; # convert everything to decomposed for simplicity
 ...
@@ -1447,19 +1460,20 @@ Latin. The target value can be a script ID or a locale ID.</p>
 ...
 ::NFC (NFD) ; # convert back to composed</pre>
 </blockquote>
-<pre>    &lt;/transform&gt;
-  &lt;/transforms&gt;
+<pre>      &lt;/transform&gt;
+    &lt;/transforms&gt;
+  &lt;/special&gt;
 &lt;/localeData&gt;</pre>
 <h3><a name="OpenOffice">openoffice.org</a></h3>
 <p>A number of the elements above can have extra information for openoffice.org,
 such as the following example:</p>
-<pre>&lt;pattern patternId=&quot;currency&quot; default=&quot;false&quot;&gt;
-<font color="#0000FF">  &lt;special owner=&quot;<a href="http://www.openoffice.org">http://www.openoffice.org</a>&quot; msgid=&quot;FixedFormatstype9&quot; usage=&quot;FIXED_NUMBER&quot; formatindex=&quot;4&quot; /&gt;
-</font>  &lt;pattern type=&quot;positive&quot;&gt;¤ #,##0.00;&lt;/pattern&gt;
-  &lt;pattern type=&quot;negative&quot;&gt;(¤ #,##0.00)&lt;/pattern&gt;
-&lt;/pattern&gt;</pre>
+<pre>&lt;numberFormat type=&quot;currency&quot;&gt;
+  &lt;special owner=&quot;http://www.openoffice.org&quot; msgid=&quot;FixedFormatstype9&quot; usage=&quot;FIXED_NUMBER&quot; formatindex=&quot;4&quot; /&gt;
+  &lt;pattern type=&quot;positive&quot;&gt;&amp;#x00a4; #,##0.00;&lt;/pattern&gt;
+  &lt;pattern type=&quot;negative&quot;&gt;(&amp;#x00a4; #,##0.00)&lt;/pattern&gt;
+&lt;/numberFormat&gt;</pre>
 <h3><a name="POSIX">POSIX</a></h3>
-<p>These are examples of old POSIX abbreviations for pre-GUI days:</p>
+<p>This is a sample of old POSIX abbreviations for pre-GUI days:</p>
 <pre>&lt;localeData&gt;
 ...
   &lt;special owner=&quot;http://www.opengroup.org/regproducts/xu.htm&quot;&gt;

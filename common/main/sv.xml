@@ -948,6 +948,10 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<week>
+					<minDays count="4"/>
+					<firstDay day="mon"/>
+				</week>
 				<am>f.m.</am>
 				<pm>e.m.</pm>
 				<eras>
@@ -1313,6 +1317,7 @@
 			</currency>
 			<currency type="BAD" references="http://europa.eu.int/comm/translation/currencies/svtable1.htm">
 				<displayName>Bosnisk-hercegovinsk dinar</displayName>
+				<symbol>BAD</symbol>
 			</currency>
 			<currency type="BAM" references="http://europa.eu.int/comm/translation/currencies/svtable1.htm">
 				<displayName>Konvertibel bosnisk-hercegovinsk mark</displayName>
@@ -1654,6 +1659,7 @@
 			</currency>
 			<currency type="KYD" references="http://europa.eu.int/comm/translation/currencies/svtable1.htm">
 				<displayName>Cayman-dollar</displayName>
+				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Kazakisk tenge</displayName>

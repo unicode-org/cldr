@@ -17,7 +17,6 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.Collection;
 
-import javax.naming.OperationNotSupportedException;
 
 import com.ibm.icu.text.UnicodeSet;
 

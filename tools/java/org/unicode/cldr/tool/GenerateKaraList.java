@@ -1,14 +1,10 @@
 package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
-import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import org.unicode.cldr.util.CLDRFile;
@@ -16,11 +12,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.CLDRFile.Value;
 
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.util.ULocale;
 
 public class GenerateKaraList {
 	public static void main(String[] args) throws IOException {
@@ -90,12 +82,11 @@ public class GenerateKaraList {
 	 * @param log
 	 * @param locales
 	 * @param availableCodes
-	 * @param comment TODO
-	 * @param string
+	 * @param choice TODO
 	 */
 	private static void printCodes(PrintWriter log, Set locales, Set availableCodes, int choice) {
 		boolean hasAbbreviation = choice == CLDRFile.CURRENCY_NAME;
-		boolean skipDraft = true;
+		//boolean skipDraft = true;
 		Set errors = new HashSet();
 		for (Iterator it = availableCodes.iterator(); it.hasNext();) {
 			String id = (String) it.next();

@@ -5,7 +5,7 @@
  *******************************************************************************
  *
  */
-package com.ibm.icu.dev.tool.cldr;
+package org.unicode.cldr.icu;
 
 import com.ibm.icu.dev.tool.UOption;
 

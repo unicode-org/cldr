@@ -9,7 +9,7 @@
  * TODO To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-package com.ibm.icu.dev.tool.cldr;
+package org.unicode.cldr.util;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
-import java.io.*;
+
 
 // DOM imports
 import org.apache.xpath.XPathAPI;
@@ -26,11 +26,10 @@ import org.apache.xalan.serialize.Serializer;
 import org.apache.xalan.serialize.SerializerFactory;
 import org.apache.xalan.templates.OutputProperties;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.Text;
+import org.unicode.cldr.icu.LDMLConstants;
 
 // Needed JAXP classes
 import javax.xml.parsers.DocumentBuilder;
@@ -993,8 +992,6 @@ public class LDMLUtilities {
      * 
      * @param context
      * @param resToFetch
-     * @param fullyResolved
-     * @param xpath
      * @return
      */
     public static NodeList getChildNodes(Node context, String resToFetch){
@@ -1093,10 +1090,9 @@ public class LDMLUtilities {
      * @param sNode
      * @param attribName
      * @param val
-     * @return
      */
     public static void setAttributeValue(Node sNode, String attribName, String val){
-        String value=null;
+
         Node attr = sNode.getAttributes().getNamedItem(attribName);
         if(attr!=null){
             attr.setNodeValue(val);

@@ -7,7 +7,7 @@
  * TODO To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-package com.ibm.icu.dev.tool.cldr;
+package org.unicode.cldr.icu;
 
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
-
+import org.unicode.cldr.util.LDMLUtilities;
 import com.ibm.icu.dev.tool.UOption;
 
 /**

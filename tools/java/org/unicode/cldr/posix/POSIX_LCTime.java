@@ -9,52 +9,12 @@
 
 package org.unicode.cldr.posix;
 
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.BitSet;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-
-import javax.xml.parsers.DocumentBuilder; 
-import javax.xml.parsers.DocumentBuilderFactory;  
-import javax.xml.parsers.FactoryConfigurationError;  
-import javax.xml.parsers.ParserConfigurationException;
- 
-
-import org.xml.sax.SAXException;
-import org.xml.sax.SAXParseException;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.DOMException;
-import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Text;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.CollationElementIterator;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
-
-import com.ibm.icu.dev.test.util.Relation;
-import com.ibm.icu.dev.test.util.SortedBag;
-import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.tool.cldr.*;
+import org.unicode.cldr.util.LDMLUtilities;
 
 
 public class POSIX_LCTime {
@@ -153,7 +113,7 @@ public class POSIX_LCTime {
    }
 
    
-   public void write ( PrintWriter out ) throws IOException {
+   public void write ( PrintWriter out ) {
  
       out.println("*************");
       out.println("LC_TIME");

@@ -15,23 +15,13 @@ import java.nio.charset.Charset;
 import java.nio.ByteBuffer;
 import java.util.*;
 
-import org.xml.sax.SAXException;
-
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.CollationElementIterator;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 
-import com.ibm.icu.dev.test.util.Relation;
-import com.ibm.icu.dev.test.util.SortedBag;
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.tool.cldr.*;
+import org.unicode.cldr.icu.SimpleConverter;
 
 /**
  * Class to generate POSIX format charmap

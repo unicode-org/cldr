@@ -4,7 +4,7 @@
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
-package com.ibm.icu.dev.tool.cldr;
+package org.unicode.cldr.icu;
 
 /**
  * @author ram

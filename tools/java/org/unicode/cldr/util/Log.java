@@ -43,16 +43,15 @@ public class Log {
 		return log;
 	}
 	/**
-	 * @param log The log to set.
+	 * @param newlog The log to set.
 	 */
 	public static void setLog(PrintWriter newlog) {
 		log = newlog;
 	}
 	
 	/**
-	 * @throws java.io.IOException
 	 */
-	public static void close() throws IOException {
+	public static void close() {
 		if (log != null) log.close();
 	}
 	

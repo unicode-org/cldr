@@ -10,7 +10,6 @@ package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -105,7 +104,7 @@ public class Utility {
 	 * @param file1
 	 * @param file2
 	 * @param failureLines on input, String[2], on output, failing lines
-	 * @param flags TRIM, SKIP_EMPTY
+	 * @param lineComparer
 	 * @return
 	 * @throws IOException
 	 */
@@ -257,7 +256,7 @@ public class Utility {
 	
 	/**
 	 * Utility to indent by a certain number of tabs.
-	 * @param out
+	 * @param s
 	 * @param count
 	 */
 	public static String repeat(String s, int count) {

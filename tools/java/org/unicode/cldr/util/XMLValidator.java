@@ -5,25 +5,17 @@
  ******************************************************************************
  */
 
-package com.ibm.icu.dev.tool.cldr;
+package org.unicode.cldr.util;
 
-/**
- * @author Ram
- *
- * To change this generated comment edit the template variable "typecomment":
- * Window>Preferences>Java>Templates.
- * To enable and disable the creation of type comments go to
- * Window>Preferences>Java>Code Generation.
- */
 /**
  * @author ram
  * 
  * This tool validates xml against DTD ... IE 6 does not do a good job
  */
-import java.io.*;
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.io.IOException;
 
 // Needed JAXP classes
 import javax.xml.parsers.DocumentBuilder;
@@ -31,7 +23,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 // SAX2 imports
 import org.xml.sax.ErrorHandler;
-import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;

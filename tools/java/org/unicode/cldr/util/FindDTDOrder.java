@@ -1,11 +1,7 @@
 package org.unicode.cldr.util;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
-import java.io.StringBufferInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -14,7 +10,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
@@ -22,8 +17,6 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
-import org.xml.sax.SAXNotRecognizedException;
-import org.xml.sax.SAXNotSupportedException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
@@ -32,7 +25,7 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 	static final boolean SHOW_ALL = false;
 	static final boolean SHOW_PROGRESS = true;
 	
-        public static void main(String[] args) throws IOException, SAXException {
+        public static void main(String[] args){
          	//StringBufferInputStream fis = new StringBufferInputStream(
         		//"<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.2/ldml.dtd\"><ldml></ldml>");
         	try {
@@ -141,8 +134,6 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
             return null;
         }
         /**
-         * @param keys
-         * @param it
          * @param possibleFirst
          */
         private void removeEverywhere(Object possibleFirst) {

@@ -6,7 +6,7 @@
 * Author: Mark Davis
 **********************************************************************
 */
-package com.ibm.icu.dev.tool.cldr;
+package org.unicode.cldr.icu;
 
 import java.io.File;
 import java.io.PrintWriter;

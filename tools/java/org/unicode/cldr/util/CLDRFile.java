@@ -10,7 +10,6 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -39,17 +38,12 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
-import org.xml.sax.SAXNotRecognizedException;
-import org.xml.sax.SAXNotSupportedException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.util.ULocale;
 
 //import javax.xml.parsers.*;
 
@@ -89,7 +83,6 @@ public class CLDRFile implements Lockable {
     /**
      * Create a CLDRFile for the given localename. (Normally a Factory is used to create CLDRFiles.)
      * @param localeName
-     * @param optionalLog TODO
      */
     public static CLDRFile make(String localeName) {
     	CLDRFile result = new CLDRFile(localeName.equals(SUPPLEMENTAL_NAME));
@@ -101,10 +94,6 @@ public class CLDRFile implements Lockable {
      * Produce a CLDRFile from a localeName, given a directory. (Normally a Factory is used to create CLDRFiles.)
      * @param localeName
      * @param dir directory 
-     * @param optionalLog TODO
-     * @throws SAXNotSupportedException
-     * @throws SAXNotRecognizedException
-     * @throws IOException
      */
     // TODO make the directory a URL
     public static CLDRFile make(String localeName, String dir) {
@@ -127,12 +116,8 @@ public class CLDRFile implements Lockable {
     
     /**
      * Produce a CLDRFile from a file input stream. (Normally a Factory is used to create CLDRFiles.)
-     * @param directory TODO
      * @param localeName
      * @param fis
-     * @param log TODO
-     * @throws IOException
-     * @throws SAXException
      */
     public static CLDRFile make(String fileName, String localeName, InputStream fis) {
     	try {
@@ -279,8 +264,8 @@ public class CLDRFile implements Lockable {
 	}
 
 	/**
-	 * @param string
-	 * @param string2
+	 * @param xpath
+	 * @param value
 	 */
 	private void add(String xpath, String value) {
 		add(xpath, xpath, value);
@@ -296,7 +281,6 @@ public class CLDRFile implements Lockable {
     /**
      * Add a new element to a CLDRFile.
      * @param xpath
-     * @param comment
      * @param currentFullXPath
      * @param value
      */
@@ -426,7 +410,7 @@ private boolean isSupplemental;
 		return this;
 	}
 	/**
-	 * @param finalComment The finalComment to set.
+	 * @param comment The finalComment to set.
 	 */
 	public void setFinalComment(String comment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
@@ -434,7 +418,7 @@ private boolean isSupplemental;
 	}
 
 	/**
-	 * @param finalComment The finalComment to set.
+	 * @param comment The finalComment to set.
 	 */
 	public void setInitialComment(String comment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
@@ -540,7 +524,6 @@ private boolean isSupplemental;
 		 * For the matchString meaning, see getMatchingXMLFiles
 		 * @param sourceDirectory
 		 * @param matchString
-		 * @param optionalLog
 		 * @return
 		 */
 		public static Factory make(String sourceDirectory, String matchString) {
@@ -596,8 +579,6 @@ private boolean isSupplemental;
 	     * @param localeName
 	     * @param resolved if true, produces a resolved version.
 	     * @return
-	     * @throws SAXException
-	     * @throws IOException
 	     */
 	    // TODO resolve aliases
 		public CLDRFile make(String localeName, boolean resolved) {
@@ -681,8 +662,6 @@ private boolean isSupplemental;
     	private String fullXPath;
 		/**
 		 * Create a value.
-		 * @param value
-		 * @param comment2
 		 */
 		public Value(String currentFullXPath) {
 	        //this.comment = comment.intern();
@@ -743,7 +722,6 @@ private boolean isSupplemental;
     	private String stringValue;
     	/**
 		 * @param value
-		 * @param comment
 		 * @param currentFullXPath
 		 */
 		public StringValue(String value, String currentFullXPath) {
@@ -780,7 +758,6 @@ private boolean isSupplemental;
     	/**
     	 * Creation. WARNING, may change.
     	 * @param value
-    	 * @param comment
     	 * @param currentFullXPath
     	 */
 		public NodeValue(Node value, String currentFullXPath) {
@@ -1031,8 +1008,7 @@ private boolean isSupplemental;
         	Log.logln(SHOW_ALL, "Internal Entity\t" + name + "\t" + publicId + "\t" + systemId);
         }
 
-        public void notationDecl (String name, String publicId, String systemId)
-        throws SAXException {
+        public void notationDecl (String name, String publicId, String systemId){
             Log.logln(SHOW_ALL, "notationDecl: " + name
             + ", " + publicId
             + ", " + systemId
@@ -1240,7 +1216,7 @@ private boolean isSupplemental;
 	}
 	/**
 	 * Utility for getting the name, given a code.
-	 * @param choice
+	 * @param type
 	 * @param code
 	 * @param skipDraft
 	 * @return

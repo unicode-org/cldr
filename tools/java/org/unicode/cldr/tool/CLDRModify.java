@@ -5,16 +5,11 @@
  ******************************************************************************
 */
 package org.unicode.cldr.tool;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-
-import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.tool.UOption;
@@ -24,8 +19,8 @@ import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.util.ULocale;
+
 import org.unicode.cldr.util.Utility.*;
 
 public class CLDRModify {
@@ -60,7 +55,7 @@ public class CLDRModify {
 				SimpleLineComparator.SKIP_SPACES + SimpleLineComparator.SKIP_EMPTY);
 		
 		Log.setLog(targetDir + "log.txt");
-		String[] failureLines = new String[2];
+		//String[] failureLines = new String[2];
 		Factory cldrFactory = Factory.make(sourceDir, ".*");
 		//testMinimize(cldrFactory);
 		//if (true) return;

@@ -12,27 +12,19 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedMap;
-import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.print.attribute.UnmodifiableSetException;
-
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.ULocale;
-
 
 /**
  * Provides access to various codes used by CLDR: RFC 3066, ISO 4217, Olson tzids
@@ -50,7 +42,6 @@ public class StandardCodes {
 	/**
 	 * Get the singleton copy of the standard codes.
 	 * @return
-	 * @throws IOException
 	 */
 	static public synchronized StandardCodes make() {
 		if (singleton == null) singleton = new StandardCodes();
@@ -113,7 +104,6 @@ public class StandardCodes {
 
 	/**
 	 * Get all the available types
-	 * @param type
 	 * @return
 	 */
 	public Set getAvailableTypes() {
@@ -227,7 +217,7 @@ public class StandardCodes {
 						continue;
 					}
 					// type = tzid
-					List codes = (List) Utility.splitList(code, ',', true, new ArrayList());
+					//List codes = (List) Utility.splitList(code, ',', true, new ArrayList());
 					String preferred = null;
 					for (int i = 0; i < pieces.size(); ++i) {
 						code = (String) pieces.get(i);

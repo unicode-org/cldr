@@ -6,7 +6,7 @@
 * Author: Mark Davis
 **********************************************************************
 */
-package com.ibm.icu.dev.tool.cldr;
+package org.unicode.cldr.icu;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -59,8 +59,8 @@ import com.ibm.icu.util.ULocale;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.dev.test.util.SortedBag;
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.tool.cldr.ICUResourceWriter.Resource;
-import com.ibm.icu.dev.tool.cldr.ICUResourceWriter.ResourceTable;
+import org.unicode.cldr.icu.ICUResourceWriter.Resource;
+import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
 
 /**
  * Generated tests for CLDR. Currently, these are driven off of a version of ICU4J, and just

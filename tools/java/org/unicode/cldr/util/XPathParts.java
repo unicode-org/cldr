@@ -8,8 +8,6 @@ package org.unicode.cldr.util;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -21,7 +19,6 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile.StringValue;
 import org.unicode.cldr.util.CLDRFile.Value;
-import org.unicode.cldr.util.Utility.StringIterator;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 
@@ -64,7 +61,6 @@ public class XPathParts {
 	 * @param filteredXPath TODO
 	 * @param lastFullXPath
 	 * @param filteredLastXPath TODO
-	 * @param attributeComparator TODO
 	 */
 	public void writeDifference(PrintWriter pw, XPathParts filteredXPath, XPathParts lastFullXPath,
 			XPathParts filteredLastXPath, Value v, Comments xpath_comments) {
@@ -149,8 +145,7 @@ public class XPathParts {
 			}			
 		}
 		/**
-		 * @param xpath_comments
-		 * @param keepMine
+		 * @param other
 		 */
 		public void joinAll(Comments other) {
 			Utility.joinWithSeparation(comments[LINE], XPathParts.NEWLINE, other.comments[LINE]);
@@ -288,7 +283,7 @@ public class XPathParts {
 	
 	/**
 	 * Get the attributes for the nth element. Returns null or an empty map if there's nothing.
-	 * @param elementIndex
+	 * @param elementName
 	 * @return
 	 */
 	public Map findAttributes(String elementName) {
@@ -441,12 +436,11 @@ public class XPathParts {
 		}
 		/**
 		 * @param style from XPATH_STYLE
-		 * @param attributeComparator TODO
 		 * @return
 		 */
 		public String toString(int style) {
 			StringBuffer result = new StringBuffer();
-			Set keys;
+			//Set keys;
 			switch (style) {
 			case XPathParts.XPATH_STYLE:
 				result.append('/').append(element);
@@ -526,7 +520,7 @@ public class XPathParts {
 	}
 
 	/**
-	 * @param string
+	 * @param elementName
 	 * @return
 	 */
 	public int findElement(String elementName) {
@@ -555,7 +549,6 @@ public class XPathParts {
 		return setInternal(path);
 	}
 	/**
-	 * @param i
 	 */
 	public void trim() {
 		elements.remove(elements.size()-1);
@@ -585,7 +578,7 @@ public class XPathParts {
 	 * Utility to write a comment.
 	 * @param pw
 	 * @param blockComment TODO
-	 * @param v
+	 * @param indent
 	 */
 	static void writeComment(PrintWriter pw, int indent, String comment, boolean blockComment) {
 		// now write the comment

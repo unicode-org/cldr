@@ -5,24 +5,15 @@
  ******************************************************************************
 */
 package org.unicode.cldr.tool;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Arrays;
+
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
-import org.xml.sax.SAXException;
-
-import com.ibm.icu.dev.test.util.BagFormatter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.util.ULocale;
+
 public class CountItems {
 	static Set keys = new HashSet();
 	public static void main(String[] args) {
@@ -37,7 +28,7 @@ public class CountItems {
 
 	/**
 	 * @param cldrFactory
-	 * @param locales
+	 * @param resolved
 	 */
 	private static int countItems(Factory cldrFactory, boolean resolved) {
 		int count = 0;

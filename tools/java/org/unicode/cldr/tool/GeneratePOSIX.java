@@ -23,7 +23,6 @@ import org.unicode.cldr.util.Utility;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.SortedBag;
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.dev.tool.cldr.SimpleConverter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.CollationElementIterator;
 import com.ibm.icu.text.Collator;
@@ -33,6 +32,8 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
+
+import org.unicode.cldr.icu.SimpleConverter;
 
 /**
  * Class to generate POSIX format from CLDR. This is just a prototype version,
@@ -129,7 +130,7 @@ public class GeneratePOSIX {
      */
     private void getFilteredSet(UnicodeSet chars, UnicodeSet tailored) {
         for (UnicodeSetIterator it = new UnicodeSetIterator(tailored); it.next();) {
-            if (it.codepoint != it.IS_STRING) continue;
+            if (it.codepoint != UnicodeSetIterator.IS_STRING) continue;
             String s = it.getString();
             s = Normalizer.compose(s,false);    // normalize to make sure
             if (!UTF16.hasMoreCodePointsThan(s, 1)) continue;
@@ -360,17 +361,12 @@ toupper (<a>,<A>);(<b>,<B>);(<c>,<C>);(<d>,<D>);(<e>,<E>);\
     /**
      * @param leadChar TODO
      * @param i
-     * @param intList
      * @return
      */
     private static String getID(char leadChar, int i) {
         return "<" + leadChar + com.ibm.icu.impl.Utility.hex(i,4)+ ">";
     }
 
-    /**
-     * @param i
-     * @param intList
-     */
     private class Weights {
         WeightList primaries = new WeightList();
         WeightList secondaries = new WeightList();

@@ -21,27 +21,17 @@ package org.unicode.cldr.util;
  * 
  * Caching entity resolver
  */
-import java.io.*;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
 
-// Needed JAXP classes
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 // SAX2 imports
-import org.xml.sax.ErrorHandler;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-import org.xml.sax.SAXParseException;
-//DOM imports
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Text;
 
-import com.ibm.icu.dev.tool.UOption;
 
 
 public class CachingEntityResolver implements EntityResolver {

@@ -24,28 +24,36 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
 
 <body bgcolor="#FFFFFF">
 
-<h1>Locale Data Markup Language</h1>
-<table>
+<h1 align="center">Locale Data Markup Language</h1>
+<table cellspacing="0" width="100%">
   <tr>
-    <td class="white"><i>Summary:</i></td>
-    <td class="white">This document describes an XML format (<i>vocabulary</i>)
+    <td class="white" height="27"><i>Summary:</i></td>
+    <td class="white" height="27">This document describes an XML format (<i>vocabulary</i>)
       for the exchange of structured locale data.</td>
   </tr>
   <tr>
-    <td class="white"><i>Version:</i></td>
-    <td class="white"><font color="#FF0000"><b>8 (draft 2!)</b></font></td>
+    <td class="white" height="27"><i>Version:</i></td>
+    <td class="white" height="27"><font color="#FF0000"><b>0.8 (draft 3)</b></font></td>
   </tr>
   <tr>
-    <td class="white"><i>Date:</i></td>
-    <td class="white">2003-04-06</td>
+    <td class="white" height="27"><i>Date:</i></td>
+    <td class="white" height="27">2003-04-07</td>
   </tr>
   <tr>
-    <td class="white"><i>Author:</i></td>
-    <td class="white">Mark Davis</td>
+    <td class="white" height="25"><i>Author:</i></td>
+    <td class="white" height="25">Mark Davis</td>
   </tr>
   <tr>
-    <td class="white"><i>Location:</i></td>
-    <td class="white"><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_markup.html">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_markup.html</a></td>
+    <td class="white" height="27"><i>Latest Version:</i></td>
+    <td class="white" height="27"><a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_markup.html">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/locale_data_markup.html</a></td>
+  </tr>
+  <tr>
+    <td class="white" height="27"><i>Older Versions:</i></td>
+    <td class="white" height="27"><a href="http://oss.software.ibm.com/cvs/icu/locale/locale_data_markup.html">http://oss.software.ibm.com/cvs/icu/locale/locale_data_markup.html</a></td>
+  </tr>
+  <tr>
+    <td class="white" height="27"><i>Feedback:</i></td>
+    <td class="white" height="27"><a href="http://www.openi18n.org/locale-bugs/public">http://www.openi18n.org/locale-bugs/public</a></td>
   </tr>
 </table>
 <h2><a name="Contents">Contents</a></h2>
@@ -55,6 +63,7 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   <li><a href="#Locale_IDs">Locale IDs</a></li>
   <li><a href="#Locale_Inheritance">Locale Inheritance</a></li>
   <li><a href="#Data_Access">Data Access</a></li>
+  <li><a href="#Additional_Data_Sources">Additional Data Sources</a></li>
   <li><a href="#XML_Format">XML Format</a>
     <ul>
       <li><a href="#Common_Elements">Common Elements</a></li>
@@ -100,6 +109,13 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
       <li><a href="#ISO_TR_14652">ISO TR 14652</a></li>
     </ul>
   </li>
+  <li><a href="#Transmitting_Locale_Information">Appendix B: Transmitting Locale
+    Information</a>
+    <ul>
+      <li><a href="#Message_Formatting_and_Exceptions">Message Formatting and
+        Exceptions</a></li>
+    </ul>
+  </li>
 </ul>
 <h2><a name="Introduction">Introduction</a></h2>
 <p>Not long ago, computer systems were like separate worlds, isolated from one
@@ -133,12 +149,82 @@ results. The second is to gather up locale data from different systems, and
 compare that data to find any differences. The third is to provide an online
 repository for such data. The fourth is to have an open process for reconciling
 differences between the locale data used on different systems and validating the
-data, to come up with a useful, common base of locale data.</p>
+data, to come up with a useful, common, consistent base of locale data.</p>
+<p class="note"><b>Note:</b> There are many different equally valid ways in
+which data can be judged to be &quot;correct&quot; for a particular locale. The
+goal for the common locale data is to make it as consistent as possible with
+existing locale data, and acceptable to users in that locale.</p>
 <p>This document describes one of those pieces, an XML format for the
 communication of locale data. With it, for example, collation rules can be
 exchanged, allowing two implementations to exchange a specification of
 collation. Using the same specification, the two implementations will achieve
 the same results in comparing strings.</p>
+<h2><a name="Additional_Data_Sources">Additional Data Sources</a></h2>
+<p>To properly localize, parse, and format data requires ancillary information,
+which is not expressed in LDML. The sources for this data include:</p>
+<ul>
+  <li>The <a href="http://www.unicode.org/ucd/">Unicode Character Database</a>
+    (UCD)
+    <ul>
+      <li>For character properties, casing behavior, default line-, word-,
+        clusterbreaking behavior, etc.</li>
+    </ul>
+  </li>
+  <li>The <a href="http://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table">Default
+    Unicode Collation Element Table</a> (DUCET)
+    <ul>
+      <li>For the base-level collation, of which all the collation tables in
+        this document are tailorings.</li>
+    </ul>
+  </li>
+  <li>The <a href="ftp://elsie.nci.nih.gov/pub/">Olson Data</a>
+    <ul>
+      <li>For timezone and daylight savings information.</li>
+    </ul>
+  </li>
+  <li>The Common Locale Repository Supplemental Data
+    <ul>
+      <li>Currently, this includes information that maps from currency codes to
+        the number of number of decimal digits used, the rounding behavior, and
+        the countries in which it is an official currency. <font color="#FF0000"><b>[TBD]</b></font></li>
+    </ul>
+  </li>
+</ul>
+<p>In addition, various standards define codes that are used as keys or values
+in LDML. These include:</p>
+<ul>
+  <li><a href="http://www.ietf.org/rfc/rfc3066.txt">RFC 3066</a> (language
+    codes)
+    <ul>
+      <li><a href="http://www.evertype.com/standards/iso639/iana-lang-assignments.html">RFC
+        3066 -- Language code assignments</a></li>
+    </ul>
+  <li><a href="http://lcweb.loc.gov/standards/iso639-2/">ISO 639</a> (language
+    codes)
+    <ul>
+      <li><a href="http://www.loc.gov/standards/iso639-2/langcodes.html">Actual
+        List</a></li>
+    </ul>
+  <li><a href="http://www.iso.org/iso/en/prods-services/iso3166ma/index.html">ISO
+    3166</a> (region codes)
+    <ul>
+      <li><a href="http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html">Actual
+        List</a></li>
+    </ul>
+  <li><a href="http://www.evertype.com/standards/iso15924/">ISO 15924</a>
+    (script codes: <i>draft</i>)
+    <ul>
+      <li><a href="http://www.evertype.com/standards/iso15924/document/dis15924.pdf">Older
+        version with Actual List</a></li>
+    </ul>
+  <li><a class="btmlink" href="http://www.bsi-global.com/Portfolio+of+Products+and+Services/Books+Guides/Consumer/th42090.xalter">ISO
+    4217</a> (currency codes)
+    <ul>
+      <li><a href="http://www.bsi-global.com/Technical+Information/Publications/_Publications/tig90x.doc">Actual
+        List</a> (may not work in the future, since BSI wants £205 for the
+        list).</li>
+    </ul>
+</ul>
 <h2><a name="Locale">What is a locale?</a></h2>
 <p>Before diving into the XML structure, it is helpful to describe the model
 behind the structure. People do not have to subscribe to this model to use the
@@ -148,21 +234,19 @@ translated into whatever model their implementation uses.</p>
 id that refers to a set of user preferences that tend to be shared across
 significant swathes of the world. Traditionally, the data associated with this
 id provides support for formatting and parsing of dates, times, numbers, and
-currencies; for the default units of currency; for measurement units, for
-sort-order (collation), plus translated names for timezones, languages,
-countries, and scripts. They can also include text boundaries (character, word,
-line, and sentence), text transformations (including transliterations), and
-support for other services.</p>
+currencies; for measurement units, for sort-order (collation), plus translated
+names for timezones, languages, countries, and scripts. They can also include
+text boundaries (character, word, line, and sentence), text transformations
+(including transliterations), and support for other services.</p>
 <p>Locale data is not cast in stone: the data used on someone's machine
-generally may reflect the US format for example, but preferences can typically
+generally may reflect the US format, for example, but preferences can typically
 set to override particular items, such as setting the data format for
 2002.03.15, or using metric vs. Imperial measurement units. In the abstract,
 locales are simply one of many sets of preferences that, say, a website may want
 to remember for a particular user. Depending on the application, it may want to
-also remember the user's timezone, preferred character set, smoker/non-smoker
-preference, meal preference (vegetarian, kosher, etc.), music preference,
-religion, party affiliation, favorite charity, etc. Users also customize their
-preferences.</p>
+also remember the user's timezone, preferred currency, preferred character set,
+smoker/non-smoker preference, meal preference (vegetarian, kosher, etc.), music
+preference, religion, party affiliation, favorite charity, etc.</p>
 <p>Locale data in a system may also change over time: country boundaries change;
 governments (and currencies) come and go: committees impose new standards; bugs
 are found and fixed in the source data; and so on. Thus the data needs to be
@@ -172,7 +256,25 @@ particular service (date formatting, sorting, spell-checking, etc.). The format
 in this document does not attempt to collect together all the data that could
 conceivably be used by all possible services. Instead, it collects together data
 that is in common use in systems and internationalization libraries for basic
-services.</p>
+services. The main difference among locales is in terms of language; there may
+also be some differences according to different countries or regions.</p>
+<p class="note"><b>Note: </b>As far as we are concerned — <i>as a completely
+practical matter</i> — two languages are different if they require
+substantially different localized resources. Distinctions according to spoken
+form are important in some contexts, but the written form is <i>by far and away</i>
+the most important issue for data interchange. Unfortunately, this is not the
+principle used in ISO 639, which has the unproductive notion that only spoken
+language matters (it is also not completely consistent about this, however). RFC
+3066 <i><b>can</b></i> express a difference if the use of written languages
+happens to correspond to region boundaries expressed as ISO 639 country codes,
+but in many cases this is not true. For example, both simplified and traditional
+Chinese are used in Hong Kong S.A.R.; both Cyrillic and Latin are used in
+Serbia, Azerbaijan, and Uzbekistan; Indic languages are customarily written in
+different scripts, etc.</p>
+<p class="note"><b>Open issue: </b>We are considering changing the language_code
+to <a href="http://www.ietf.org/rfc/rfc3066.txt">RFC 3066</a> instead of <a href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_639.html">ISO-639</a>.
+However, we must resolve some issues with it first. For the ongoing discussion
+of the issues, see <a href="http://www.alvestrand.no/mailman/listinfo/ietf-languages">http://www.alvestrand.no/mailman/listinfo/ietf-languages</a>.</p>
 <p>We will speak of data as being &quot;in locale X&quot;. That does not imply
 that a locale <i>is</i> a collection of data; it is simply shorthand for
 &quot;the set of data associated with the locale id X&quot;. Each individual
@@ -249,19 +351,18 @@ special options. The currently defined variants include:</p>
     <td>Bokmål, variant of Norwegian</td>
   </tr>
   <tr>
-    <td>al</td>
-    <td>Åland, variant of Norwegian</td>
-  </tr>
-  <tr>
     <td>ny</td>
     <td>Nynorsk, variant of Norwegian</td>
+  </tr>
+  <tr>
+    <td>aaland</td>
+    <td>Åland, variant of Norwegian</td>
   </tr>
 </table>
 <p class="note"><b>Note: </b>two of the above variants are for backwards
 compatibility. Typically the entire contents of these are defined by an
 &lt;alias&gt; element pointing at nb_NO (Norwegian Bokmål) and nn_NO(Norwegian
 Nynorsk) locale IDs.</p>
-<p class="ed_note">[Ed. Note: update this table with complete data.]</p>
 <p>The currently defined optional key/type combinations include:</p>
 <table>
   <caption>Key/Type Definitions</caption>
@@ -296,15 +397,6 @@ Nynorsk) locale IDs.</p>
     <td>A &quot;C&quot;-based locale.</td>
   </tr>
   <tr>
-    <td rowspan="2">currency</td>
-    <td>euro</td>
-    <td>For data using the Euro currency</td>
-  </tr>
-  <tr>
-    <td>pre-euro</td>
-    <td>For data using older currency.</td>
-  </tr>
-  <tr>
     <td rowspan="7">calendar</td>
     <td>gregorian</td>
     <td>(default)</td>
@@ -335,11 +427,8 @@ Nynorsk) locale IDs.</p>
     <td>Thai Buddhist Calendar (same as Gregorian except for the year)</td>
   </tr>
 </table>
-<p class="note">Note: For information on the process for adding additional
-variants or element/type pairs, see <a href="http://oss.software.ibm.com/icu/locale/">http://oss.software.ibm.com/icu/locale/</a>.</p>
-<p class="note">Open issue: we are considering changing the language_code to <a href="http://www.ietf.org/rfc/rfc3066.txt">RFC
-3066</a> instead of <a href="http://www.chemie.fu-berlin.de/diverse/doc/ISO_639.html">ISO-639</a>?
-However, we must resolve some issues with it first.</p>
+<p class="note"><b>Note: </b>For information on the process for adding
+additional variants or element/type pairs, see <a href="http://www.openi18n.org/subgroups/lade/locale/">http://www.openi18n.org/subgroups/lade/locale/</a>.</p>
 <h2><a name="Locale_Inheritance">Locale Inheritance</a></h2>
 <p>The XML format relies on an inheritance model, whereby the resources are
 collected into <i>bundles</i>, and the bundles organized into a tree. Data for
@@ -352,7 +441,6 @@ language &amp; territory neutral. For example, the collation order in the root
 is the UCA (see UAX #10). Since English language collation has the same
 ordering, the 'en' locale data does not need to supply any collation data, nor
 does either the 'en_US' or the 'en_IE' locale data.</p>
-<p class="ed_note">[Ed. Note: add diagram here]</p>
 <p>Given a particular locale id &quot;en_US_someVariant&quot;, the search chain
 for a particular resource is the following.</p>
 <blockquote>
@@ -401,14 +489,12 @@ the &lt;options&gt; from the <a href="#Locale_IDs">Locale ID</a> with the
 &quot;@&quot; removed, and &quot;,&quot; converted to &quot;&amp;&quot;.</p>
 <p><i>Example, where base = http://openi18n.org/locale and platform = icu</i></p>
 <blockquote>
-  <p><a href="http://openi18n.org/locale/icu/de_DE.xml?version=2.2&amp;collation=phonebook">http://openi18n.org/locale/icu/de_DE.xml?version=2.2&amp;collation=phonebook</a>
-  </p>
+  <p><a href="http://openi18n.org/locale/icu/de_DE.xml?version=2.2&amp;collation=phonebook">http://openi18n.org/locale/icu/de_DE.xml?version=2.2&amp;collation=phonebook</a></p>
 </blockquote>
 <p>At this point in time, there is not a mechanism for querying the base to
 determine which platforms, which versions of each platform, and which locales in
 the version are supported. In the future there will be more information,
-accessible at <a href="http://www.openi18n.org/subgroups/lade/locale/">http://www.openi18n.org/subgroups/lade/locale/</a>
-</p>
+accessible at <a href="http://www.openi18n.org/subgroups/lade/locale/">http://www.openi18n.org/subgroups/lade/locale/</a>.</p>
 <h2><a name="XML_Format">XML Format</a></h2>
 <p>The following sections describe the structure of the XML format for locale
 data. To start with, the root element is &lt;localeData&gt;. That element
@@ -553,9 +639,8 @@ attribute indicates that the data in this element is compliant with the
 indicated standards. Where possible, for uniqueness, the string should be a URL
 that represents that standard. The strings are separated by commas; leading or
 trailing spaces on each string are not significant. Examples:</p>
-<p><code>&lt;collation &#11; standard=”MSA 200:2002”&gt;<br>
+<p><code>&lt;collation standard=”MSA 200:2002”&gt;<br>
 &lt;dateFormatStyle standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;ICS1=1&amp;ICS2=140&amp;ICS3=30”&gt;</code></p>
-<p></p>
 <hr width="50%">
 <h3><a name="&lt;identity&gt;">&lt;identity&gt;</a></h3>
 <p>The identity element contains information identifying the target locale for
@@ -713,11 +798,17 @@ self-explanatory, so only some examples are given:</p>
 <p>The measurement system is the normal measurement system in common everyday
 use (except for date/time). The values are &quot;metric&quot; (= <a href="http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=5448&amp;ICS1=1&amp;ICS2=60&amp;ICS3=">ISO
 1000</a>) or &quot;US&quot;; others will be added over time.</p>
-<p class="note"><b>Note:</b> in the future, we may need to add display names for
+<p class="note"><b>Note:</b> In the future, we may need to add display names for
 the particular measurement units (millimeter vs millimetre vs whatever the
 Greek, Russian, etc are), and a message format for position those with respect
 to numbers. E.g. &quot;{number} {unitName}&quot; in some languages, but &quot;{unitName}
 {number}&quot; in others.</p>
+<p class="note"><b>Note:</b><i> Numbers indicating measurements should <b>never</b>
+be interchanged without known dimensions. You never want the number 3.51
+interpreted as 3.51 feet by one user and 3.51 meters by another. However, this
+element can be used to convert dimensioned numbers into the user's desired
+notation: so the value of 3.51 meters can be formatted as 11.52 feet on a
+particular user's system. </i></p>
 <p>The paperSize element gives the normal business letter size, and customary
 units. The units for the numbers are always in millimeters. The units name is
 the customary unit for that locale for measuring paper, so to display the
@@ -796,8 +887,14 @@ the differing data will be present.</p>
     &lt;pm&gt;PM&lt;/pm&gt;
 
     &lt;eras&gt;
+       &lt;eraAbbr&gt;
         &lt;era type=&quot;0&quot;&gt;BC&lt;/era&gt;
         &lt;era type=&quot;1&quot;&gt;AD&lt;/era&gt;
+       &lt;/eraAbbr&gt;
+       &lt;eraName&gt;
+        &lt;era type=&quot;0&quot;&gt;Before Christ&lt;/era&gt;
+        &lt;era type=&quot;1&quot;&gt;Anno Domini&lt;/era&gt;
+       &lt;/eraName&gt;
     &lt;/eras&gt;
 
     &lt;dateFormats&gt;
@@ -962,10 +1059,11 @@ currency, such as the following (pre-Euro Portuguese currency):</p>
         &lt;symbol&gt;Esc.&lt;/symbol&gt;
         &lt;decimal&gt;$&lt;/decimal&gt;
     &lt;/currency&gt;</pre>
-<p class="note"><b>Note: </b>locale data contains localization information for
-currencies, not a currency value for a country. There is some confusion over the
-use of currencies that should be addressed. A currency amount logically consists
-of a numeric value, plus an accompanying <a class="btmlink" href="http://www.bsi-global.com/Portfolio+of+Products+and+Services/Books+Guides/Consumer/th42090.xalter">ISO
+<p class="note"><b>Note: </b><i>Currency values should <b>never</b> be
+interchanged without a known currency code. You never want the number 3.5
+interpreted as $3.5 by one user and ¥3.5 by another. </i>Locale data contains
+localization information for currencies, not a currency value for a country. A
+currency amount logically consists of a numeric value, plus an accompanying <a class="btmlink" href="http://www.bsi-global.com/Portfolio+of+Products+and+Services/Books+Guides/Consumer/th42090.xalter">ISO
 4217</a> currency code (or equivalent). The currency code may be implicit in a
 protocol, such as where USD is implicit. But if the raw numeric value is
 transmitted without any context, then it has no definitive interpretation.</p>
@@ -1754,6 +1852,93 @@ OpenOffice.</p>
     &lt;/iso14652&gt;
   &lt;/special&gt;
 &lt;localeData&gt;</pre>
+<h2><a name="Transmitting_Locale_Information">Transmitting Locale Information</a></h2>
+<p>In a world of on-demand software components, with arbitrary connections
+between those components, it is important to get a sense of where localization
+should be done, and how to transmit enough information so that it can be done at
+that appropriate place. End-users need to get messages localized to their
+languages, messages that not only contain a translation of text, but also
+contain variables such as date, time, number formats, and currencies formatted
+according to the users' conventions. The strategy for doing the so-called <i>JIT
+localization </i>is made up of two parts:</p>
+<ol>
+  <li>Store and transmit <i>neutral-format</i> data wherever possible.
+    <ul>
+      <li>Neutral-format data is data that is kept in a standard format, no
+        matter what the local user's environment is. Neutral-format is also
+        (loosely) called <i>binary data</i>, even though it actually could be
+        represented in many different ways, including a textual representation
+        such as in XML.
+      <li>Such data should use accepted standards where possible, such as for
+        currency codes.
+      <li>Textual data should also be in a uniform character set (Unicode/10646)
+        to avoid possible data corruption problems when converting between
+        encodings.</li>
+    </ul>
+  <li>Localize that data as &quot;<i>close</i>&quot; to the end-user as
+    possible.</li>
+</ol>
+<p>There are a number of advantages to this strategy. The longer the data is
+kept in a neutral format, the more flexible the entire system is. On a practical
+level, if transmitted data is neutral-format, then it is much easier to
+manipulate the data, debug the processing of the data, and maintain the software
+connections between components.</p>
+<p>Once data has been localized into a given language, it can be quite difficult
+to programmatically convert that data into another format, if required. This is
+especially true if the data contains a mixture of translated text and formatted
+variables. Once information has been localized into, say, Romanian, it is much
+more difficult to localize that data into, say, French. Parsing is more
+difficult than formatting, and may run up against different ambiguities in
+interpreting text that has been localized, even if the original translated
+message text is available (which it may not be).</p>
+<p>Moreover, the closer we are to end-user, the more we know about that user's
+preferred formats. If we format dates, for example, at the user's machine, then
+it can easily take into account any customizations that the user has specified.
+If the formatting is done elsewhere, either we have to transmit whatever user
+customizations are in play, or we only transmit the user's locale code, which
+may only approximate the desired format. Thus the closer the localization is to
+the end user, the less we need to ship all of the user's preferences arond to
+all the places that localization could possibly need to be done.</p>
+<p>Even though localization should be done as close to the end-user as possible,
+there will be cases where different components need to be aware of whatever
+settings are appropriate for doing the localization. Thus information such as a
+locale code or timezone needs to be communicated between different components.</p>
+<h3><a name="Message_Formatting_and_Exceptions">Message Formatting and
+Exceptions</a></h3>
+<p>Windows (<a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/wcesdkr/htm/_wcesdk_win32_FormatMessage.asp">FormatMessage</a>,
+<a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemstringclassformattopic1.asp">String.Format</a>),
+Java (<a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/MessageFormat.html">MessageFormat</a>)
+and ICU (<a href="http://oss.software.ibm.com/icu/apiref/classMessageFormat.html">MessageFormat</a>,
+<a href="http://oss.software.ibm.com/icu/apiref/umsg_8h.html">umsg</a>) all
+provide methods of formatting variables (dates, times, etc) and inserting them
+at arbitrary positions in a string. This avoids the manual string concatenation
+that causes severe problems for localization. The question is, where to do this?
+It is especially important since the original code site that originates a
+particular message may be far down in the bowels of a component, and passed up
+to the top of the component with an exception. So we will take that case as
+representative of this class of issues.</p>
+<p>There are circumstances where the message can be communicated with a
+language-neutral code, such as a numeric error code or mnemonic string key, that
+is understood outside of the component. If there are arguments that need to
+accompany that message, such as a number of files or a datetime, those need to
+accompany the numeric code so that when the localization is finally at some
+point, the full information can be presented to the end-user. This is the best
+case for localization.</p>
+<p>More often, the exact messages that could originate from within the component
+are not known outside of the component itself; or at least they may not be known
+by the component that is finally displaying text to the user. In such a case,
+the information as to the user's locale needs to be communicated in some way to
+the component that is doing the localization. That locale information does not
+necessarily need to be communicated deep within the component; ideally, any
+exceptions should bundle up some language-neutral message ID, plus the arguments
+needed to format the message (e.g. datetime), but not do the localization at the
+throw site. This approach has the advantages noted above for JIT localization.</p>
+<p>In addition, exceptions are often caught at a higher level; they don't end up
+being displayed to any end-user at all. By avoiding the localization at the
+throw site, it the cost of doing formatting, when that formatting is not really
+necessary. In fact, in many running programs most of the exceptions that are
+thrown at a low level never end up being presented to an end-user, so this can
+have considerable performance benefits.</p>
 
 </body>
 

@@ -39,6 +39,7 @@ GENRB_ALIAS_PATHS=$(GENRB_ALIAS_SOURCE:%.txt=$(LOCSRCDIR)/%.txt)
 GENRB_SYNTHETIC_PATHS=$(GENRB_SYNTHETIC_ALIAS:%.txt=$(LOCSRCDIR)/%.txt)
 COLLATION_ALIAS_PATHS=$(COLLATION_ALIAS_SOURCE:%.txt=$(COLSRCDIR)/%.txt)
 COLLATION_SYNTHETIC_PATHS=$(COLLATION_SYNTHETIC_ALIAS:%.txt=$(COLSRCDIR)/%.txt)
+COLLATION_EMPTY_PATHS=$(COLLATION_EMPTY_SOURCE:%.txt=$(COLSRCDIR)/%.txt)
 GENRB_PATHS=$(GENRB_SOURCE:%.txt=$(LOCSRCDIR)/%.txt)
 COLLATION_PATHS=$(COLLATION_SOURCE:%.txt=$(COLSRCDIR)/%.txt)
 
@@ -75,7 +76,7 @@ cldr-lists:  coll/colfiles.mk locales/resfiles.mk
 $(GENRB_SYNTHETIC_PATHS) $(LOCSRCDIR)/resfiles.mk: $(CLDR_ROOT)/icu/deprecatedList.xml 
 	$(LDML_CONVERTER) $(LDML_OPTS_RES) -w $(CLDR_ROOT)/common/main  || ($(RMV) $@;false)
 
-$(COLLATION_SYNTHETIC_PATHS) $(COLSRCDIR)/colfiles.mk: $(CLDR_ROOT)/icu/deprecatedList.xml 
+$(COLLATION_SYNTHETIC_PATHS) $(COLLATION_EMPTY_PATHS) $(COLSRCDIR)/colfiles.mk: $(CLDR_ROOT)/icu/deprecatedList.xml 
 	$(LDML_CONVERTER) $(LDML_OPTS_COL) -w $(CLDR_ROOT)/common/collation || ($(RMV) $@;false)
 #endif
 #endif

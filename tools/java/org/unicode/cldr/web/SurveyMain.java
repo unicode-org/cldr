@@ -20,6 +20,8 @@ import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.lang.UCharacter;
 
+import com.ibm.icu.dev.test.util.BagFormatter;
+
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.icu.*;
 
@@ -41,6 +43,8 @@ class SurveyMain {
     public String vetdata = System.getProperty("CLDR_VET_DATA");
     public String vetweb = System.getProperty("CLDR_VET_WEB");
     static String fileBase = System.getProperty("CLDR_COMMON") + "/main";
+    
+    static final String LOCALEDISPLAYNAMES = "//ldml/localeDisplayNames/";
 
     public UserRegistry reg = new UserRegistry(vetdata);
     
@@ -161,7 +165,13 @@ class SurveyMain {
         UserRegistry.User user;
         user = reg.get(uid,email);
         
-        if(myNum != null) {
+        if(user != null) {
+            mySession = CookieSession.retrieveUser(user.id);
+            if(mySession != null) {
+                ctx.println("<i>Reconnecting you to your previous session, " + myNum + "</i></br>");
+            }
+        }        
+        if((mySession == null) && (myNum != null) && (myNum.length()>0)) {
             mySession = CookieSession.retrieve(myNum);
             if(mySession == null) {
                 ctx.println("<i>Warning: ignoring expired session " + myNum + "</i><br/>");
@@ -176,7 +186,7 @@ class SurveyMain {
             ctx.session.setUser(user); // this will replace any existing session by this user.
         }
         WebContext baseContext = new WebContext(ctx);
-//        ctx.println("<i>using session " + mySession.id + " </i><br/>");
+        ctx.println("<i>using session " + mySession.id + " </i><br/>");
         
         // print 'shopping cart'
         {
@@ -253,6 +263,7 @@ class SurveyMain {
     
     // cache of documents
     static Hashtable docTable = new Hashtable();
+    static Hashtable docVersions = new Hashtable();
     
     public static Document fetchDoc( String locale) {
      Document doc = null;
@@ -266,6 +277,10 @@ class SurveyMain {
      boolean ex  = f.exists();
      boolean cr  = f.canRead();
      String res  = null; /* request.getParameter("res"); */ /* ALWAYS resolve */
+     String ver = LDMLUtilities.getCVSVersion(fileBase, locale + ".xml");
+     if(ver != null) {
+        docVersions.put(locale, ver);
+     }
      if((res!=null)&&(res.length()>0)) {
         // throws exception
         doc= LDMLUtilities.getFullyResolvedLDML(fileBase, locale, 
@@ -350,17 +365,113 @@ class SurveyMain {
 
     public void doSubmit(WebContext ctx)
     {
-        String uid = (String)ctx.session.get("uid");
-        if(uid == null) {   
+        if((ctx.session.user) == null) {   
             ctx.println("No Vetting Account found... please see this help link: ");
             ctx.printHelpLink("/NoUser");
             ctx.println("<br/>");
         }
-        String email = (String)ctx.session.get("email");
-        if(email == null) {   
-            ctx.println("No email address entered... please enter it ");
-            ctx.println("<br/>");
+        UserRegistry.User u = ctx.session.user;
+        ctx.println("<hr/>");
+        ctx.println("You:  " + u.real + " &lt;" + u.email + "&gt;<br/>");
+        ctx.println("Your sponsor: " + u.sponsor);
+        
+        Hashtable lh = ctx.session.getLocales();
+        Enumeration e = lh.keys();
+        if(e.hasMoreElements()) { 
+            for(;e.hasMoreElements();) {
+                String k = e.nextElement().toString();
+                ctx.println("<hr/>");
+                ctx.println("<H3><a href=\"" + ctx.base() + "&_=" + k + "\">" + 
+                        new ULocale(k).getDisplayName() + "</a></h3>");
+                CLDRFile f = createCLDRFile(ctx, k, (Hashtable)lh.get(k));
+                
+                StringWriter sw = new StringWriter();
+                PrintWriter pw = new PrintWriter(sw);
+                f.write(pw);
+                String asString = sw.toString();
+                String asHtml = BagFormatter.toHTML.transliterate(asString);
+                ctx.println("<pre>" + asHtml + "</pre>");
+            }
         }
+    }
+    private void appendCodeList(WebContext ctx, CLDRFile file, String xpath, String subtype, Hashtable data) {
+        if(data == null) {
+            return;
+        }
+        for(Enumeration e = data.keys();e.hasMoreElements();) {
+            String k = e.nextElement().toString();
+            if(k.endsWith(SUBVETTING)) { // we ONLY care about SUBVETTING items. (
+                String key = k.substring(0,k.length()-SUBVETTING.length());
+                String vet = (String)data.get(k);
+                // Now, what's happening? 
+                NodeSet.NodeSetEntry nse = (NodeSet.NodeSetEntry)data.get(key);
+                String newxpath = xpath + "/" + subtype + "[@type='" + key + "']";
+                newxpath=newxpath.substring(1); // remove initial /     
+                if(vet.equals(DRAFT)) {
+                    file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.main));
+                } else if(vet.equals(PROPOSED)) {
+                    file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.proposed));
+                } else if(vet.equals(NEW)) {
+                    String newString = (String)data.get(key + SUBNEW);
+                    file.add(newxpath, newxpath, newString);
+                } else {
+                    // ignored:  current, etc.
+                }
+            }
+        }
+    }
+    public static final String typeToSubtype(String type)
+    {
+        String subtype = type;
+        if(type.equals(LDMLConstants.LANGUAGES)) {
+            subtype = LDMLConstants.LANGUAGE;
+        } else if(type.equals(LDMLConstants.SCRIPTS)) {
+            subtype = LDMLConstants.SCRIPT;
+        } else if(type.equals(LDMLConstants.TERRITORIES)) {
+            subtype = LDMLConstants.TERRITORY;
+        } else if(type.equals(LDMLConstants.VARIANTS)) {
+            subtype = LDMLConstants.VARIANT;
+        } /* else if(subtype.endsWith("s")) {
+            subtype = subtype.substring(0,subtype.length()-1);
+        }
+        */
+        return subtype;
+    }
+    private void appendLocaleCodes(WebContext ctx, CLDRFile file, String type, Hashtable data) {
+        String xpath = LOCALEDISPLAYNAMES + type;
+        Hashtable items = (Hashtable)data.get(xpath);
+        String subtype = typeToSubtype(type);
+        appendCodeList(ctx, file, xpath, subtype, items);
+    }
+    
+    private CLDRFile createCLDRFile(WebContext ctx, String locale, Hashtable data) {
+        CLDRFile file = CLDRFile.make(locale);
+        String cvsVer = (String)docVersions.get(locale);
+        if(cvsVer == null) {
+            cvsVer = "(unknown)";
+        }
+        file.setInitialComment(
+                                "Date: " + new Date().toString() + "\n" +
+                                "From: " + ctx.session.user.real + "\n" +
+                                "Email: " + ctx.session.user.email + "\n" +
+                                "Sponsor: " + ctx.session.user.sponsor + "\n" +
+                                "IP: " + /* ctx. */WebContext.userIP() + "\n" + 
+                                "Locale: " + locale +"\n" +
+                                "CVS Version: " + cvsVer + "\n"
+                                );
+                                
+        if(data == null) {
+            file.appendFinalComment("No data.");
+            return file;
+        }
+
+        appendLocaleCodes(ctx, file, xLANG, data);
+        appendLocaleCodes(ctx, file, xSCRP, data);
+        appendLocaleCodes(ctx, file, xREGN, data);
+        appendLocaleCodes(ctx, file, xVARI, data);
+
+        file.appendFinalComment("That's it.");
+        return file;
     }
 
     public void showLocale(WebContext ctx)
@@ -398,7 +509,7 @@ class SurveyMain {
                         return new ULocale(e.type).getDisplayLanguage(inLocale);
                     }
             };
-            doSimpleCodeList(subCtx, "//ldml/localeDisplayNames/" + which, texter,
+            doLocaleCodeList(subCtx, LOCALEDISPLAYNAMES + which, texter,
                 standardCodes.getAvailableCodes("language"));
         } else if(xSCRP.equals(which)) {
             NodeSet.NodeSetTexter texter = new NodeSet.NodeSetTexter() { 
@@ -406,7 +517,7 @@ class SurveyMain {
                         return new ULocale("_"+e.type).getDisplayScript(inLocale);
                     }
             };
-            doSimpleCodeList(subCtx, "//ldml/localeDisplayNames/" + which, texter,
+            doLocaleCodeList(subCtx, LOCALEDISPLAYNAMES + which, texter,
                 standardCodes.getAvailableCodes("script"));
         } else if(xREGN.equals(which)) {
             NodeSet.NodeSetTexter texter = new NodeSet.NodeSetTexter() { 
@@ -414,7 +525,7 @@ class SurveyMain {
                         return new ULocale("_"+e.type).getDisplayCountry(inLocale);
                     }
             };
-            doSimpleCodeList(subCtx, "//ldml/localeDisplayNames/" + which, texter,
+            doLocaleCodeList(subCtx,LOCALEDISPLAYNAMES + which, texter,
                 standardCodes.getAvailableCodes("region"));
         } else if(xVARI.equals(which)) {
              NodeSet.NodeSetTexter texter = new NodeSet.NodeSetTexter() { 
@@ -422,7 +533,7 @@ class SurveyMain {
                         return new ULocale("__"+e.type).getDisplayVariant(inLocale);
                     }
             };
-           doSimpleCodeList(subCtx, "//ldml/localeDisplayNames/" + which, texter,
+           doLocaleCodeList(subCtx, LOCALEDISPLAYNAMES + which, texter,
                 null);  // no default variant list
         } else {
             doMain(subCtx);
@@ -438,7 +549,7 @@ class SurveyMain {
      * @param tx the texter to use for presentation of the items
      * @param fullSet the set of tags denoting the expected full-set, or null if none.
      */
-    public void doSimpleCodeList(WebContext ctx, String xpath, NodeSet.NodeSetTexter tx, Set fullSet) {
+    public void doLocaleCodeList(WebContext ctx, String xpath, NodeSet.NodeSetTexter tx, Set fullSet) {
         final int CODES_PER_PAGE = 51;
         int count = 0;
         int dispCount = 0;
@@ -565,12 +676,14 @@ class SurveyMain {
                         changes.remove(type + SUBVETTING); // remove 'current' 
                     } else {
                         changes.put(type + SUBVETTING, checked); // set
+                        changes.put(type, f);
                     }
                 }
             }
             
             if(formNew.length()>0) {
                 changes.put(type + SUBNEW, formNew);
+                changes.put(type, f);
                 newString = formNew;
             } else if((newString !=null) && (newString.length()>0)) {
                 changes.remove(type + SUBNEW);
@@ -675,8 +788,12 @@ class SurveyMain {
                         "</a> ");
         }
         
-        if((changes!=null) && (!changes.isEmpty())) { /*ctx.println("Putting in locale: " + xpath + ", changes<br/>");*/
-                    ctx.putByLocale(xpath,changes); }  else {ctx.println("no changes..<br/>"); }
+        if((changes!=null) && (!changes.isEmpty())) { 
+            ctx.println("Putting in locale: " + xpath + ", changes<br/>");
+            ctx.putByLocale(xpath,changes); 
+        }  else {
+            ctx.println("no changes..<br/>"); 
+        }
 
     }
     

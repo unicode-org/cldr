@@ -106,6 +106,7 @@ public class LanguageTagParser {
 	private String region;
 	private List variants = new ArrayList();
 	private List extensions = new ArrayList();
+	
 	private List frozenExtlangs = Collections.unmodifiableList(extlangs);
 	private List frozenVariants = Collections.unmodifiableList(variants);
 	private List frozenExtensions = Collections.unmodifiableList(extensions);
@@ -127,15 +128,16 @@ public class LanguageTagParser {
 	 * @return
 	 */
 	public LanguageTagParser set(String languageTag) {
-		original = languageTag;
 		if (languageTag.length() == 0) {
 			throw new IllegalArgumentException("Language tag cannot be empty");
 		}
 		// clear everything out
 		language = region = script = "";
+		grandfathered = false;
 		extlangs.clear();
 		variants.clear();
 		extensions.clear();
+		original = languageTag;
 		
 		// first test for grandfathered
 		if (grandfatheredCodes.contains(languageTag)) {
@@ -150,7 +152,8 @@ public class LanguageTagParser {
 		
 		// check for private use (x-...) and return if so
 		if (subtag.equalsIgnoreCase("x")) {
-			return getPrivateUse(subtag, st);
+			getExtension(subtag, st, 1);
+			return this;
 		}
 		
 		// check that language subtag is valid
@@ -188,16 +191,13 @@ public class LanguageTagParser {
 			
 			// get extensions: singleton '-' subtag (2-8 long)
 			while (subtag.length() == 1 && ALPHA_MINUS_X.contains(subtag)) {
-				if (!st.hasMoreElements()) throwError(subtag, "Extension requires subsequent subtag");
-				String prefix = subtag;
-				subtag = getSubtag(st); // prepare for next
-				if (subtag.length() < 2) throwError(subtag, "Extension subtag must be length 2 or more");
-				extensions.add(prefix + "-" + subtag);
-				subtag = getSubtag(st); // prepare for next
+				subtag = getExtension(subtag, st, 2);
+				if (subtag == null) return this; // done
 			}
 			
 			if (subtag.equalsIgnoreCase("x")) {
-				return getPrivateUse(subtag, st);
+				getExtension(subtag, st, 1);
+				return this;
 			}
 			
 			// if we make it to this point, then we have an error
@@ -239,15 +239,22 @@ public class LanguageTagParser {
 	}
 	/**
 	 * Internal method
+	 * @param minLength TODO
 	 */
-	private LanguageTagParser getPrivateUse(String subtag, StringTokenizer st) {
-		if (!st.hasMoreElements()) throwError(subtag, "Private Use requires subsequent subtag");
-		StringBuffer result = new StringBuffer(subtag);
-		while (st.hasMoreElements()) {
-			result.append('-').append(getSubtag(st));
+	private String getExtension(String subtag, StringTokenizer st, int minLength) {
+		if (!st.hasMoreElements()) throwError(subtag, "Private Use / Extension requires subsequent subtag");
+		StringBuffer result = new StringBuffer();
+		result.append(subtag);
+		try {
+			while (st.hasMoreElements()) {
+				subtag = getSubtag(st);
+				if (subtag.length() < minLength) return subtag;
+				result.append('-').append(subtag);
+			}
+			return null;
+		} finally {
+			extensions.add(result.toString());
 		}
-		extensions.add(result.toString());
-		return this;
 	}
 	
 	/**

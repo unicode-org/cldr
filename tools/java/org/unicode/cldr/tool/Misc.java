@@ -42,7 +42,7 @@ public class Misc {
 				"en-US", 
 				"x-12345678-a", 
 				"en-Latn-US-lojban-gaulish",
-				"en-Latn-US-lojban-gaulish-a-12345678-b-ABCDEFGH-x-a-b-c-12345678",
+				"en-Latn-US-lojban-gaulish-a-12345678-ABCD-b-ABCDEFGH-x-a-b-c-12345678",
 				"en-Latn-001",
 				"en-GB-oed", // grandfathered
 				"badtagsfromhere",

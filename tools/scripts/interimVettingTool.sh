@@ -19,6 +19,7 @@ write_index()
     cat > ${OUTF} <<"EOF"
 <html>
 <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
  <title>Draft/ALT for CLDR</title>
  <style>
          <!--

@@ -203,6 +203,8 @@ private:
     
     void writeCollation(UnicodeString& src, UnicodeString &xmlString, const char* keyName);
 
+    void writeBase(UnicodeString& xmlString);
+
 	void writeTimeZoneNames(UnicodeString& xmlString);
 
 	void writeBoundary(UnicodeString& xmlString);

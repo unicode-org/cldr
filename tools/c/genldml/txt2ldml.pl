@@ -22,7 +22,9 @@ GetOptions(
            "--icuroot=s" => \$icuRoot,
            "--genldml=s" => \$genldml,
            "--genrb=s" => \$genrb,
-	       "--ldml-only" => \$ldmlOnly
+	       "--ldml-only=s" => \$ldmlOnly,
+           "--ignore-collation=s" => \$ignoreCollation, 
+		   "--base=s" => \$baseFile
           );
            
 
@@ -30,8 +32,9 @@ usage() unless defined $sourceDir;
 usage() unless defined $destDir;
 usage() unless defined $icuRoot;
 usage() unless defined $genldml;
-usage() unless defined $genrb;
 
+getPathToGenrb() unless defined $genrb;
+								
 # create a temp directory and copy all the txt files there
 my $tempDir = $destDir."/temp";
 mkpath($tempDir);
@@ -71,14 +74,74 @@ foreach $item (@list){
 sub ldmlify{
     my $infile = shift;
     my $genldmlExec = $genldml."/genldml";
-    cmd("$prefix $genldmlExec --sourcedir $tempDir --destdir $destDir --package $tempPackage $infile");
+    my $ic ="";
+    my $base = "";
+    my $baseTyp = "";
+    if (defined $ignoreCollation){
+        $ic = "-i";
+    }
+    if(defined $baseFile){
+        $baseLoc = getBaseLocale($baseFile, $infile);
+        $base = "--base $baseLoc";
+        
+        # Commented out because currently we don't need to 
+        # pass in the type argument to genldml
+        # can be uncommented if needed
+        #$baseLoc = getBaseType ($baseFile, $infile);
+        #if(baseLoc ne ""){
+        #    $baseTyp ="--base-type $baseLoc";
+        #}
+        
+    }
+    
+    cmd("$prefix $genldmlExec --sourcedir $tempDir --destdir $destDir --package $tempPackage $base $baseTyp $ic $infile");
 }
+
+sub getBaseLocale(){
+    my $basefile = shift;
+    my $locale = shift;
+    $baseFH = IO::File->new($basefile,"r")
+            or die  "could not open the file $basefile for reading: $! \n";
+    while(defined ( $line = <$baseFH>)){
+        if( $line =~ /\<$locale\>/){
+            ($loc,$bse) = split (/\>/, $line);
+             $bse =~ s/^\s+\<//;
+             return $bse;
+        }
+    }
+}
+
+#------------------------
+# This method is commented out for now
+# can be uncommented if we need to pass baseType argument to 
+# genldml. Currently we don't need this feature
+# P.S: Not tested.
+#--------------------------
+#sub getBaseType(){
+#    my $basefile = shift;
+#    my $locale = shift;
+#    $baseFH = IO::File->new($basefile,"r")
+#            or die  "could not open the file $basefile for reading: $! \n";
+#    while(defined ( $line = <$baseFH>)){
+#        if( $line =~ /\<$locale\>/){
+#            ($loc,$bse) = split (/\>/, $line);
+#             $bse =~ s/^\s+\<//;
+#             return $bse;
+#        }
+#    }
+#}
 
 # run genrb 
 sub resify{
     my $infile = shift;
     my $genrbExec = $genrb."/genrb";
+
     cmd("$prefix $genrbExec --sourcedir $sourceDir --package-name $tempPackage --destdir $tempDir --encoding UTF8 $infile");
+}
+
+#
+sub getPathToGenrb{
+    $genrb = $icuRoot."bin";
 }
 
 #-----------------------------------------------------------------------
@@ -115,6 +178,8 @@ Options:
         --icuroot=<path to ICU's root directory> 
         --genldml=<path to genldml executatble>
         --genrb=<path to genrb executatble>
+        --ignore-collation
+        --base=<the text file that contains the base to locale mapping including the path>
 
 txt2ldml creates *.xml file from *.txt files by invoking the respective tools
 Optionally, one or more locales may be specified on the command line.

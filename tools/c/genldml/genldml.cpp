@@ -39,6 +39,9 @@ enum
     SOURCEDIR,
 	DESTDIR,
 	PACKAGE_NAME,
+    IGNORE_COLLATION,
+    BASE,
+    BASE_TYPE
 };
 
 
@@ -47,7 +50,9 @@ UOption options[]={
                       UOPTION_HELP_QUESTION_MARK,
                       UOPTION_SOURCEDIR,
 					  UOPTION_DESTDIR,
-					  UOPTION_DEF("package", 'p', UOPT_REQUIRES_ARG)
+					  UOPTION_DEF("package", 'p', UOPT_REQUIRES_ARG),
+                      UOPTION_DEF("ignore-collation", 'i', UOPT_NO_ARG),
+                      UOPTION_DEF("base", 'b', UOPT_REQUIRES_ARG)
                    };
 
 const char* usageString =
@@ -61,7 +66,14 @@ const char* usageString =
                 "\t                         followed by path\n"
 				"\t-p or --package			name of the package that is prepended to the resource bundles\n"
 				"\t                         defaults to ICU's data\n"
+                "\t-i or --ignore-collation Ignores collation generation\n"
+                "\t-b or --base             the base tailoring for collation if any\n"
+                "\t-t or --base-type        the type of base tailoring for collation in the base. Defaults to standard\n"
                ;
+
+UBool ignoreCollation = FALSE;
+const char* baseCollation = NULL;
+const char* baseType = NULL;
 
 int main (int32_t argc, const char* argv[]) {
 	const char* srcDir =NULL;
@@ -89,6 +101,15 @@ int main (int32_t argc, const char* argv[]) {
 	if(options[PACKAGE_NAME].doesOccur) {
         packageName = options[PACKAGE_NAME].value;
     }
+    if(options[IGNORE_COLLATION].doesOccur){
+        ignoreCollation = TRUE;
+    }
+    if(options[BASE].doesOccur){
+        baseCollation = options[BASE].value;
+    }
+    if(options[BASE_TYPE].doesOccur){
+        baseCollation = options[BASE_TYPE].value;
+    }
 #ifndef GENLDML_NOSETAPPDATA
     /* Tell ICU where our resource data is located in memory.
      *   The data lives in the genldml_resources dll, and we just
@@ -101,6 +122,7 @@ int main (int32_t argc, const char* argv[]) {
         exit(-1);
     }
 #endif
+
 	if(srcDir!=NULL){
 		path = (char*) malloc(strlen(srcDir)+((packageName!=NULL) ? strlen(packageName) : 0 )+2);
 		strcpy(path,srcDir);
@@ -206,7 +228,9 @@ void GenerateXML::DoIt(){
 	writeMeasurement();
 	writeDates();
 	writeNumberFormat();
-	writeCollations();
+    if(ignoreCollation == FALSE){
+	    writeCollations();
+    }
     writeSpecial();
     if(strcmp(locName, "root")==0){
         writeSupplementalData();
@@ -849,7 +873,7 @@ void GenerateXML::writeTimeZoneNames(UnicodeString& xmlString){
             
                 int i = 0;
 
-                UnicodeString data =dBundle1.getStringEx((int32_t)5,mError);
+                UnicodeString data =dBundle1.getStringEx((int32_t)0,mError);
                 if(U_SUCCESS(mError)){
                      remove = FALSE;
              	     args[0] =indentOffset;
@@ -866,11 +890,14 @@ void GenerateXML::writeTimeZoneNames(UnicodeString& xmlString){
 			        xmlString.append(formatString(mStringsBundle.getStringEx("long",mError),args,2,t));
 
 			        indentOffset.append("\t");
-         	        args[0]=indentOffset;
+         	       /*
+                    // Currently ICU does not have support for generic
+                    args[0]=indentOffset;
 			        args[1]=dBundle1.getStringEx((int32_t)1,mError);
                     if(U_SUCCESS(mError)){
 			            xmlString.append(formatString(mStringsBundle.getStringEx("generic",mError),args,2,t));
                     }
+                    */
                     mError=U_ZERO_ERROR;
                     args[1]=dBundle1.getStringEx((int32_t)1,mError);
                     if(U_SUCCESS(mError)){
@@ -893,11 +920,15 @@ void GenerateXML::writeTimeZoneNames(UnicodeString& xmlString){
 
 			        indentOffset.append("\t");
 			        args[0]=indentOffset;
+                    /*
+                    // Currently ICU does not have support for generic
+                   
                     data=dBundle1.getStringEx((int32_t)0,mError);
                     if(U_SUCCESS(mError)){
 			            args[1]=data;
 			            xmlString.append(formatString(mStringsBundle.getStringEx("generic",mError),args,2,t));
                     }
+                    */
                     data=dBundle1.getStringEx((int32_t)2,mError);
                     if(U_SUCCESS(mError)){
 			            args[1]=data;
@@ -1999,6 +2030,30 @@ void GenerateXML::writeCollations(){
 	if(print)  printString(&xmlString);
 	
 }
+
+void GenerateXML::writeBase(UnicodeString& xmlString){
+    if(baseCollation != NULL){
+        Formattable args[] = {indentOffset, "", ""};
+        UnicodeString temp;
+        xmlString.append(formatString(mStringsBundle.getStringEx("baseStart", mError), args, 1, temp));
+        indentOffset.append("\t");
+        
+        args[0] = indentOffset;
+        args[1] = baseCollation;
+        args[2] = (baseType==NULL) ? "standard" : baseType;
+        xmlString.append(formatString(mStringsBundle.getStringEx("alias", mError), args, 3, temp));
+
+        chopIndent();
+
+        args[0] = indentOffset;
+        xmlString.append(formatString(mStringsBundle.getStringEx("baseEnd", mError), args, 1, temp));
+    }
+
+    if(U_FAILURE(mError)){
+        mError = U_ZERO_ERROR;
+        xmlString.remove();
+    }
+}
 void GenerateXML::writeCollation(ResourceBundle& bundle,UnicodeString& xmlString, UnicodeString* collKey){
 
     UnicodeString version;
@@ -2021,6 +2076,12 @@ void GenerateXML::writeCollation(ResourceBundle& bundle,UnicodeString& xmlString
 		xmlString.append(formatString(mStringsBundle.getStringEx("collation",mError),args,3,t));
 
 		indentOffset.append("\t");
+        
+        // wirte the base element
+        writeBase(t.remove());
+        if(t.length() != 0){
+            xmlString.append(t);
+        }
 
 		while(bundle.hasNext()){
             ResourceBundle dBundle1 = bundle.getNext(mError);

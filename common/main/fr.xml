@@ -1102,14 +1102,14 @@
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
-					<generic>Heure de Hawaï</generic>
-					<standard>Heure normale de Hawaï</standard>
-					<daylight>Heure avancée de Hawaï</daylight>
+					<generic>Heure d’Hawaï</generic>
+					<standard>Heure normale d’Hawaï</standard>
+					<daylight>Heure avancée d’Hawaï</daylight>
 				</long>
 				<short>
-					<generic>HH</generic>
-					<standard>HNH</standard>
-					<daylight>HAH</daylight>
+					<generic>HT</generic>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
 				</short>
 				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
@@ -1150,16 +1150,18 @@
 					<standard>HNT</standard>
 					<daylight>HAT</daylight>
 				</short>
-				<exemplarCity>St. Johns</exemplarCity>
+				<exemplarCity>Saint-Jean de Terre-Neuve</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
-					<standard>Heure normale de l’Europe Centrale</standard>
-					<daylight>Heure avancée de l’Europe Centrale</daylight>
+					<generic>Heure de l’Europe centrale</generic>
+					<standard>Heure normale de l’Europe centrale</standard>
+					<daylight>Heure avancée de l’Europe centrale</daylight>
 				</long>
 				<short>
-					<standard>CET</standard>
-					<daylight>CEST</daylight>
+					<generic>HEC</generic>
+					<standard>HNEC</standard>
+					<daylight>HAEC</daylight>
 				</short>
 				<exemplarCity>Paris</exemplarCity>
 			</zone>
@@ -1180,19 +1182,19 @@
 					<daylight>Heure avancée d’Israël</daylight>
 				</long>
 				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
+					<standard>HNI</standard>
+					<daylight>HAI</daylight>
 				</short>
-				<exemplarCity>Jerusalem</exemplarCity>
+				<exemplarCity>Jérusalem</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>Heure normale du Japon</standard>
-					<daylight>Heure normale du Japon</daylight>
+					<daylight>Heure avancée du Japon</daylight>
 				</long>
 				<short>
-					<standard>JST</standard>
-					<daylight>JST</daylight>
+					<standard>HNJ</standard>
+					<daylight>HAJ</daylight>
 				</short>
 				<exemplarCity>Tokyo</exemplarCity>
 			</zone>
@@ -1202,19 +1204,19 @@
 					<daylight>Heure avancée de l’Europe de l’Est</daylight>
 				</long>
 				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
+	S				<standard>HEE</standard>
+					<daylight>HAEE</daylight>
 				</short>
-				<exemplarCity>Bucharest</exemplarCity>
+				<exemplarCity>Bucarest</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
 					<standard>Heure normale de Chine</standard>
-					<daylight>Heure normale de Chine</daylight>
+					<daylight>Heure avancée de Chine</daylight>
 				</long>
 				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
+					<standard>HNC</standard>
+					<daylight>HAC</daylight>
 				</short>
 				<exemplarCity>Shanghai</exemplarCity>
 			</zone>

@@ -1,59 +1,69 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 16:05:18 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="PT" />
-		<correspondsTo vendor="0816">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">Janeiro</month>
-				<month id="2">Fevereiro</month>
-				<month id="3">Março</month>
-				<month id="4">Abril</month>
-				<month id="5">Maio</month>
-				<month id="6">Junho</month>
-				<month id="7">Julho</month>
-				<month id="8">Agosto</month>
-				<month id="9">Setembro</month>
-				<month id="10">Outubro</month>
-				<month id="11">Novembro</month>
-				<month id="12">Dezembro</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">Jan</month>
-				<month id="2">Fev</month>
-				<month id="3">Mar</month>
-				<month id="4">Abr</month>
-				<month id="5">Mai</month>
-				<month id="6">Jun</month>
-				<month id="7">Jul</month>
-				<month id="8">Ago</month>
-				<month id="9">Set</month>
-				<month id="10">Out</month>
-				<month id="11">Nov</month>
-				<month id="12">Dez</month>
-				<month id="13"></month>
-			</monthAbbr>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal>#,##0.###;-#,##0.###</decimal>
-			<percent>#,##0%</percent>
-		</patterns>
-	</numberFormat> 
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="pt"></language>
+		<territory type="PRT">PT</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">Janeiro</month>
+						<month type="2">Fevereiro</month>
+						<month type="3">Março</month>
+						<month type="4">Abril</month>
+						<month type="5">Maio</month>
+						<month type="6">Junho</month>
+						<month type="7">Julho</month>
+						<month type="8">Agosto</month>
+						<month type="9">Setembro</month>
+						<month type="10">Outubro</month>
+						<month type="11">Novembro</month>
+						<month type="12">Dezembro</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">Jan</month>
+						<month type="2">Fev</month>
+						<month type="3">Mar</month>
+						<month type="4">Abr</month>
+						<month type="5">Mai</month>
+						<month type="6">Jun</month>
+						<month type="7">Jul</month>
+						<month type="8">Ago</month>
+						<month type="9">Set</month>
+						<month type="10">Out</month>
+						<month type="11">Nov</month>
+						<month type="12">Dez</month>
+						<month type="13"></month>
+					</monthAbbr>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+					<pattern>#,##0.###</pattern>
+					<pattern>-#,##0.###</pattern>
+				</numberFormat>
+				<numberFormat type="currency">
+					<pattern>#,##0.00 ¤</pattern>
+					<pattern>-#,##0.00 ¤</pattern>
+				</numberFormat>
+				<numberFormat type="percent">
+					<pattern>#,##0%</pattern>
+				</numberFormat>
+			</numberFormats>
+		</numbers>
 </localeData>

@@ -1,87 +1,97 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 16:05:17 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<correspondsTo vendor="0446">Windows</correspondsTo>
-	</identity  >
-
-	<displayNames >
-		<languages >
-			<language id="pa" >ਪੰਜਾਬੀ</language>
-		</languages >
-		<countries  >
-			<country id="IN">ਭਾਰਤ</country>
-		</countries  >
-
-	</displayNames >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">ਜਨਵਰੀ</month>
-				<month id="2">ਫ਼ਰਵਰੀ</month>
-				<month id="3">ਮਾਰਚ</month>
-				<month id="4">ਅਪ੍ਰੈਲ</month>
-				<month id="5">ਮਈ</month>
-				<month id="6">ਜੂਨ</month>
-				<month id="7">ਜੁਲਾਈ</month>
-				<month id="8">ਅਗਸਤ</month>
-				<month id="9">ਸਤੰਬਰ</month>
-				<month id="10">ਅਕਤੂਬਰ</month>
-				<month id="11">ਨਵੰਬਰ</month>
-				<month id="12">ਦਸੰਬਰ</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">ਜਨਵਰੀ</month>
-				<month id="2">ਫ਼ਰਵਰੀ</month>
-				<month id="3">ਮਾਰਚ</month>
-				<month id="4">ਅਪ੍ਰੈਲ</month>
-				<month id="5">ਮਈ</month>
-				<month id="6">ਜੂਨ</month>
-				<month id="7">ਜੁਲਾਈ</month>
-				<month id="8">ਅਗਸਤ</month>
-				<month id="9">ਸਤੰਬਰ</month>
-				<month id="10">ਅਕਤੂਬਰ</month>
-				<month id="11">ਨਵੰਬਰ</month>
-				<month id="12">ਦਸੰਬਰ</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">ਸੋਮਵਾਰ </day>
-				<day id="2">ਮੰਗਲਵਾਰ </day>
-				<day id="3">ਬੁਧਵਾਰ </day>
-				<day id="4">ਵੀਰਵਾਰ </day>
-				<day id="5">ਸ਼ੁੱਕਰਵਾਰ </day>
-				<day id="6">ਸ਼ਨੀਚਰਵਾਰ </day>
-				<day id="7">ਐਤਵਾਰ </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">ਸੋਮ. </day>
-				<day id="2">ਮੰਗਲ. </day>
-				<day id="3">ਬੁਧ. </day>
-				<day id="4">ਵੀਰ. </day>
-				<day id="5">ਸ਼ੁਕਰ. </day>
-				<day id="6">ਸ਼ਨੀ. </day>
-				<day id="7">ਐਤ. </day>
-			</dayAbbr>
-			<am>ਸਵੇਰੇ</am><pm>ਸ਼ਾਮ</pm>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal>#,##0.###;-#,##0.###</decimal>
-			<percent>#,##0%</percent>
-		</patterns>
-	</numberFormat> 
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="pa"></language>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="pa">ਪੰਜਾਬੀ</language>
+		</languages>
+		<territories>
+			<territory type="IN">ਭਾਰਤ</territory>
+		</territories>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+	<layout>
+		<orientation lines="top-to-bottom" characters="left-to-right" />
+	</layout>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">ਜਨਵਰੀ</month>
+						<month type="2">ਫ਼ਰਵਰੀ</month>
+						<month type="3">ਮਾਰਚ</month>
+						<month type="4">ਅਪ੍ਰੈਲ</month>
+						<month type="5">ਮਈ</month>
+						<month type="6">ਜੂਨ</month>
+						<month type="7">ਜੁਲਾਈ</month>
+						<month type="8">ਅਗਸਤ</month>
+						<month type="9">ਸਤੰਬਰ</month>
+						<month type="10">ਅਕਤੂਬਰ</month>
+						<month type="11">ਨਵੰਬਰ</month>
+						<month type="12">ਦਸੰਬਰ</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">ਜਨਵਰੀ</month>
+						<month type="2">ਫ਼ਰਵਰੀ</month>
+						<month type="3">ਮਾਰਚ</month>
+						<month type="4">ਅਪ੍ਰੈਲ</month>
+						<month type="5">ਮਈ</month>
+						<month type="6">ਜੂਨ</month>
+						<month type="7">ਜੁਲਾਈ</month>
+						<month type="8">ਅਗਸਤ</month>
+						<month type="9">ਸਤੰਬਰ</month>
+						<month type="10">ਅਕਤੂਬਰ</month>
+						<month type="11">ਨਵੰਬਰ</month>
+						<month type="12">ਦਸੰਬਰ</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">ਸੋਮਵਾਰ</day>
+						<day type="mon">ਮੰਗਲਵਾਰ</day>
+						<day type="tue">ਬੁਧਵਾਰ</day>
+						<day type="wed">ਵੀਰਵਾਰ</day>
+						<day type="thu">ਸ਼ੁੱਕਰਵਾਰ</day>
+						<day type="fri">ਸ਼ਨੀਚਰਵਾਰ</day>
+						<day type="sat">ਐਤਵਾਰ</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">ਸੋਮ.</day>
+						<day type="mon">ਮੰਗਲ.</day>
+						<day type="tue">ਬੁਧ.</day>
+						<day type="wed">ਵੀਰ.</day>
+						<day type="thu">ਸ਼ੁਕਰ.</day>
+						<day type="fri">ਸ਼ਨੀ.</day>
+						<day type="sat">ਐਤ.</day>
+					</dayAbbr>
+					<am>ਸਵੇਰੇ</am>
+					<pm>ਸ਼ਾਮ</pm>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+					<pattern>#,##0.###</pattern>
+					<pattern>-#,##0.###</pattern>
+				</numberFormat>
+				<numberFormat type="currency">
+					<pattern>¤ #,##0.00</pattern>
+					<pattern>-¤ #,##0.00</pattern>
+				</numberFormat>
+				<numberFormat type="percent">
+					<pattern>#,##0%</pattern>
+				</numberFormat>
+			</numberFormats>
+		</numbers>
 </localeData>

@@ -1,477 +1,494 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 16:05:19 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<correspondsTo vendor="041b">Windows</correspondsTo>
-	</identity  >
-
-	<displayNames >
-		<languages >
-			<language id="aa" >Afar</language>
-			<language id="ab" >Abcházsky</language>
-			<language id="af" >Africky</language>
-			<language id="am" >Amharic</language>
-			<language id="ar" >Arabsky</language>
-			<language id="as" >Assamese</language>
-			<language id="ay" >Aymara</language>
-			<language id="az" >Azerbajdžansky</language>
-			<language id="ba" >Bashkir</language>
-			<language id="be" >Bielorusky</language>
-			<language id="bg" >Bulharsky</language>
-			<language id="bh" >Bihari</language>
-			<language id="bi" >Bislama</language>
-			<language id="bn" >Bengálsky</language>
-			<language id="bo" >Tibetsky</language>
-			<language id="br" >Bretónsky</language>
-			<language id="ca" >Katalánsky</language>
-			<language id="co" >Korzicky</language>
-			<language id="cs" >Česky</language>
-			<language id="cy" >Welsh</language>
-			<language id="da" >Dánsky</language>
-			<language id="de" >Nemecky</language>
-			<language id="dz" >Bhutánsky</language>
-			<language id="el" >Grécky</language>
-			<language id="en" >Anglicky</language>
-			<language id="eo" >Esperanto</language>
-			<language id="es" >Španielsky</language>
-			<language id="et" >Estónsky</language>
-			<language id="eu" >Basque</language>
-			<language id="fa" >Perzsky</language>
-			<language id="fi" >Fínsky</language>
-			<language id="fj" >Fidžijsky</language>
-			<language id="fo" >Faroese</language>
-			<language id="fr" >Francúzsky</language>
-			<language id="fy" >Frisian</language>
-			<language id="ga" >Írsky</language>
-			<language id="gd" >Scots Gaelic</language>
-			<language id="gl" >Galsky</language>
-			<language id="gn" >Guarani</language>
-			<language id="gu" >Gujarati</language>
-			<language id="ha" >Hausa</language>
-			<language id="he" >Hebrejsky</language>
-			<language id="hi" >Hindi</language>
-			<language id="hr" >Chorvátsky</language>
-			<language id="hu" >Maďarsky</language>
-			<language id="hy" >Arménsky</language>
-			<language id="ia" >Interlingua</language>
-			<language id="id" >Indonézsky</language>
-			<language id="ie" >Interlingue</language>
-			<language id="ik" >Inupiak</language>
-			<language id="in" >Indonézsky</language>
-			<language id="is" >Islandsky</language>
-			<language id="it" >Taliansky</language>
-			<language id="iu" >Inuktitut</language>
-			<language id="iw" >Hebrejsky</language>
-			<language id="ja" >Japonsky</language>
-			<language id="ji" >Yiddish</language>
-			<language id="jw" >Javanese</language>
-			<language id="ka" >Georgiánsky</language>
-			<language id="kk" >Kazašsky</language>
-			<language id="kl" >Greenlandic</language>
-			<language id="km" >Kambodžsky</language>
-			<language id="kn" >Kanada</language>
-			<language id="ko" >Kórejsky</language>
-			<language id="ks" >Kašmírsky</language>
-			<language id="ku" >Kurdsky</language>
-			<language id="ky" >Kirgizsky</language>
-			<language id="la" >Latinka</language>
-			<language id="ln" >Lingala</language>
-			<language id="lo" >Laothian</language>
-			<language id="lt" >Litovsky</language>
-			<language id="lv" >Latvian (Lettish)</language>
-			<language id="mg" >Malagasy</language>
-			<language id="mi" >Maori</language>
-			<language id="mk" >Macedónsky</language>
-			<language id="ml" >Malayalam</language>
-			<language id="mn" >Mongolsky</language>
-			<language id="mo" >Moldavsky</language>
-			<language id="mr" >Marathi</language>
-			<language id="ms" >Malay</language>
-			<language id="mt" >Maltese</language>
-			<language id="my" >Burmese</language>
-			<language id="na" >Nauru</language>
-			<language id="ne" >Nepálsky</language>
-			<language id="nl" >Holandsky</language>
-			<language id="no" >Nórsky</language>
-			<language id="oc" >Occitan</language>
-			<language id="om" >Oromo (Afan)</language>
-			<language id="or" >Oriya</language>
-			<language id="pa" >Punjabi</language>
-			<language id="pl" >Poľsky</language>
-			<language id="ps" >Pashto (Pushto)</language>
-			<language id="pt" >Portugalsky</language>
-			<language id="qu" >Quechua</language>
-			<language id="rm" >Rhaeto-Romance</language>
-			<language id="rn" >Kirundi</language>
-			<language id="ro" >Rumunsky</language>
-			<language id="ru" >Rusky</language>
-			<language id="rw" >Kinyarwanda</language>
-			<language id="sa" >Sanskrit</language>
-			<language id="sd" >Sindhi</language>
-			<language id="sg" >Sangho</language>
-			<language id="sh" >Srbochorvátsky</language>
-			<language id="si" >Sinhalese</language>
-			<language id="sk" >Slovensky</language>
-			<language id="sl" >Slovinsky</language>
-			<language id="sm" >Samoan</language>
-			<language id="sn" >Shona</language>
-			<language id="so" >Somálsky</language>
-			<language id="sq" >Albánsky</language>
-			<language id="sr" >Srbsky</language>
-			<language id="ss" >Siswati</language>
-			<language id="st" >Sesotho</language>
-			<language id="su" >Sundanese</language>
-			<language id="sv" >Švédsky</language>
-			<language id="sw" >Swahilsky</language>
-			<language id="ta" >Tamil</language>
-			<language id="te" >Telugu</language>
-			<language id="tg" >Tajik</language>
-			<language id="th" >Thajsky</language>
-			<language id="ti" >Tigrinya</language>
-			<language id="tk" >Turkménsky</language>
-			<language id="tl" >Tagalog</language>
-			<language id="tn" >Setswana</language>
-			<language id="to" >Tonga</language>
-			<language id="tr" >Turecky</language>
-			<language id="ts" >Tsonga</language>
-			<language id="tt" >Tatar</language>
-			<language id="tw" >Twi</language>
-			<language id="ug" >Uighur</language>
-			<language id="uk" >Ukrajinsky</language>
-			<language id="ur" >Urdu</language>
-			<language id="uz" >Uzbecky</language>
-			<language id="vi" >Vietnamsky</language>
-			<language id="vo" >Volapuk</language>
-			<language id="wo" >Wolof</language>
-			<language id="xh" >Xhosa</language>
-			<language id="yi" >Yiddish</language>
-			<language id="yo" >Yoruba</language>
-			<language id="za" >Zhuang</language>
-			<language id="zh" >Čínsky</language>
-			<language id="zu" >Zulu</language>
-		</languages >
-		<countries  >
-			<country id="AD">Andorra</country>
-			<country id="AE">Spojené Arabské Emiráty</country>
-			<country id="AF">Afganistan</country>
-			<country id="AI">Anguilla</country>
-			<country id="AL">Albánsko</country>
-			<country id="AM">Arménsko</country>
-			<country id="AN">Holandské Antily</country>
-			<country id="AO">Angola</country>
-			<country id="AR">Argentína</country>
-			<country id="AT">Rakúsko</country>
-			<country id="AU">Austrália</country>
-			<country id="AW">Aruba</country>
-			<country id="AZ">Azerbajdžan</country>
-			<country id="BA">Bosna a Hercegovina</country>
-			<country id="BB">Barbados</country>
-			<country id="BD">Bangladéš</country>
-			<country id="BE">Belgicko</country>
-			<country id="BF">Burkina Faso</country>
-			<country id="BG">Bulharsko</country>
-			<country id="BH">Bahrain</country>
-			<country id="BI">Burundi</country>
-			<country id="BJ">Benin</country>
-			<country id="BM">Bermudy</country>
-			<country id="BN">Brunej</country>
-			<country id="BO">Bolívia</country>
-			<country id="BR">Brazília</country>
-			<country id="BS">Bahamy</country>
-			<country id="BT">Bhután</country>
-			<country id="BW">Botswana</country>
-			<country id="BY">Bielorusko</country>
-			<country id="BZ">Belize</country>
-			<country id="CA">Kanada</country>
-			<country id="CF">Centrálna africká republika</country>
-			<country id="CG">Kongo</country>
-			<country id="CH">Švajčiarsko</country>
-			<country id="CI">Pobrežie Slonoviny</country>
-			<country id="CL">Čile</country>
-			<country id="CM">Kamerun</country>
-			<country id="CN">Čína</country>
-			<country id="CO">Kolumbia</country>
-			<country id="CR">Kostarika</country>
-			<country id="CU">Kuba</country>
-			<country id="CV">Cape Verde</country>
-			<country id="CY">Cyprus</country>
-			<country id="CZ">Česká republika</country>
-			<country id="DE">Nemecko</country>
-			<country id="DJ">Džibutská republika</country>
-			<country id="DK">Dánsko</country>
-			<country id="DM">Dominika</country>
-			<country id="DO">Dominikánska republika</country>
-			<country id="DZ">Alžírsko</country>
-			<country id="EC">Ekvádor</country>
-			<country id="EE">Estónsko</country>
-			<country id="EG">Egypt</country>
-			<country id="EH">Západná Sahara</country>
-			<country id="ER">Eritrea</country>
-			<country id="ES">Španielsko</country>
-			<country id="ET">Etiópia</country>
-			<country id="FI">Fínsko</country>
-			<country id="FJ">Fidži</country>
-			<country id="FM">Mikronézia</country>
-			<country id="FR">Francúzsko</country>
-			<country id="GA">Gabon</country>
-			<country id="GB">Veľká Británia</country>
-			<country id="GE">Georgia</country>
-			<country id="GF">Francúzska Guinea</country>
-			<country id="GH">Ghana</country>
-			<country id="GM">Gambia</country>
-			<country id="GN">Guinea</country>
-			<country id="GP">Galapágy</country>
-			<country id="GQ">Rovníková Guinea</country>
-			<country id="GR">Grécko</country>
-			<country id="GT">Guatemala</country>
-			<country id="GW">Guinea-Bissau</country>
-			<country id="GY">Guyana</country>
-			<country id="HK">Hongkong S.A.R.</country>
-			<country id="HN">Honduras</country>
-			<country id="HR">Chorvátsko</country>
-			<country id="HT">Haiti</country>
-			<country id="HU">Maďarsko</country>
-			<country id="ID">Indonézia</country>
-			<country id="IE">Írsko</country>
-			<country id="IL">Izrael</country>
-			<country id="IN">India</country>
-			<country id="IQ">Irak</country>
-			<country id="IR">Irán</country>
-			<country id="IS">Island</country>
-			<country id="IT">Taliansko</country>
-			<country id="JM">Jamajka</country>
-			<country id="JO">Jordánsko</country>
-			<country id="JP">Japonsko</country>
-			<country id="KE">Keňa</country>
-			<country id="KG">Kyrgyzstan</country>
-			<country id="KH">Kambodža</country>
-			<country id="KI">Karibik</country>
-			<country id="KM">Komory</country>
-			<country id="KP">Severná Kórea</country>
-			<country id="KR">Južná Kórea</country>
-			<country id="KW">Kuvajt</country>
-			<country id="KZ">Kazachstan</country>
-			<country id="LA">Laos</country>
-			<country id="LB">Libanon</country>
-			<country id="LI">Lichtenštajnsko</country>
-			<country id="LK">Srí Lanka</country>
-			<country id="LR">Libéria</country>
-			<country id="LS">Lesotho</country>
-			<country id="LT">Litva</country>
-			<country id="LU">Luxembursko</country>
-			<country id="LV">Lotyšsko</country>
-			<country id="LY">Líbya</country>
-			<country id="MA">Maroko</country>
-			<country id="MC">Monako</country>
-			<country id="MD">Moldavsko</country>
-			<country id="MG">Madagaskar</country>
-			<country id="MK">Macedónsko</country>
-			<country id="ML">Mali</country>
-			<country id="MM">Myanmar</country>
-			<country id="MN">Mongolsko</country>
-			<country id="MO">Macao S.A.R.</country>
-			<country id="MQ">Martinik</country>
-			<country id="MR">Mauretánia</country>
-			<country id="MS">Montserrat</country>
-			<country id="MT">Malta</country>
-			<country id="MU">Maurícius</country>
-			<country id="MX">Mexico</country>
-			<country id="MY">Malajzia</country>
-			<country id="MZ">Mozambik</country>
-			<country id="NA">Namíbia</country>
-			<country id="NC">Nová Kaledónia</country>
-			<country id="NE">Niger</country>
-			<country id="NG">Nigéria</country>
-			<country id="NI">Nikaragua</country>
-			<country id="NL">Holandsko</country>
-			<country id="NO">Nórsko</country>
-			<country id="NP">Nepál</country>
-			<country id="NU">Niue</country>
-			<country id="NZ">Nový Zéland</country>
-			<country id="OM">Omán</country>
-			<country id="PA">Panama</country>
-			<country id="PE">Peru</country>
-			<country id="PF">Francúzska Polynézia</country>
-			<country id="PG">Papua-Nová Guinea</country>
-			<country id="PH">Filipíny</country>
-			<country id="PK">Pakistan</country>
-			<country id="PL">Poľsko</country>
-			<country id="PR">Portoriko</country>
-			<country id="PT">Portugalsko</country>
-			<country id="PY">Paraguaj</country>
-			<country id="QA">Katar</country>
-			<country id="RO">Rumunsko</country>
-			<country id="RU">Rusko</country>
-			<country id="RW">Rwanda</country>
-			<country id="SA">Saudská Arábia</country>
-			<country id="SC">Seychely</country>
-			<country id="SD">Sudán</country>
-			<country id="SE">Švédsko</country>
-			<country id="SG">Singapur</country>
-			<country id="SI">Slovinsko</country>
-			<country id="SK">Slovensko</country>
-			<country id="SL">Sierra Leone</country>
-			<country id="SN">Senegal</country>
-			<country id="SO">Somálsko</country>
-			<country id="SP">Srbsko</country>
-			<country id="SR">Surinam</country>
-			<country id="SV">Salvádor</country>
-			<country id="SY">Sýria</country>
-			<country id="SZ">Svazijsko</country>
-			<country id="TD">Čad</country>
-			<country id="TF">Francúzske južné teritóriá</country>
-			<country id="TG">Togo</country>
-			<country id="TH">Thajsko</country>
-			<country id="TJ">Tadžikistan</country>
-			<country id="TK">Tokelau</country>
-			<country id="TM">Turkménsko</country>
-			<country id="TN">Tunisko</country>
-			<country id="TO">Tonga</country>
-			<country id="TP">Východný Timor</country>
-			<country id="TR">Turecko</country>
-			<country id="TT">Trinidad a Tobago</country>
-			<country id="TW">Taiwan</country>
-			<country id="TZ">Tanzánia</country>
-			<country id="UA">Ukrajina</country>
-			<country id="UG">Uganda</country>
-			<country id="US">Spojené štáty americké</country>
-			<country id="UY">Uruguaj</country>
-			<country id="UZ">Uzbekistan</country>
-			<country id="VA">Vatikán</country>
-			<country id="VE">Venezuela</country>
-			<country id="VG">Britské panenské ostrovy</country>
-			<country id="VI">Americké panenské ostrovy</country>
-			<country id="VN">Vietnam</country>
-			<country id="VU">Vanuatu</country>
-			<country id="YE">Jemen</country>
-			<country id="YT">Mayotte</country>
-			<country id="YU">Juhoslávia</country>
-			<country id="ZA">Južná Afrika</country>
-			<country id="ZM">Zambia</country>
-			<country id="ZR">Zaire</country>
-			<country id="ZW">Zimbabwe</country>
-		</countries  >
-
-	</displayNames >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">január</month>
-				<month id="2">február</month>
-				<month id="3">marec</month>
-				<month id="4">apríl</month>
-				<month id="5">máj</month>
-				<month id="6">jún</month>
-				<month id="7">júl</month>
-				<month id="8">august</month>
-				<month id="9">september</month>
-				<month id="10">október</month>
-				<month id="11">november</month>
-				<month id="12">december</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">jan</month>
-				<month id="2">feb</month>
-				<month id="3">mar</month>
-				<month id="4">apr</month>
-				<month id="5">máj</month>
-				<month id="6">jún</month>
-				<month id="7">júl</month>
-				<month id="8">aug</month>
-				<month id="9">sep</month>
-				<month id="10">okt</month>
-				<month id="11">nov</month>
-				<month id="12">dec</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">Nedeľa </day>
-				<day id="2">Pondelok </day>
-				<day id="3">Utorok </day>
-				<day id="4">Streda </day>
-				<day id="5">Štvrtok </day>
-				<day id="6">Piatok </day>
-				<day id="7">Sobota </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">Ne </day>
-				<day id="2">Po </day>
-				<day id="3">Ut </day>
-				<day id="4">St </day>
-				<day id="5">Št </day>
-				<day id="6">Pi </day>
-				<day id="7">So </day>
-			</dayAbbr>
-			<eras>
-				<era id="0">pred n.l.</era>
-				<era id="1">n.l.</era>
-			</eras>
-			<patterns> 
-				<chars>GanjkHmsSEDFwWxhKzZ</chars>
-				<time>
-					<full>H:mm:ss z</full>
-					<long>H:mm:ss z</long>
-					<medium>H:mm:ss</medium>
-					<short>H:mm</short>
-				</time>
-				<date>
-					<full>EEEE, yyyy, MMMM d</full>
-					<long>EEEE, yyyy, MMMM d</long>
-					<medium>d.M.yyyy</medium>
-					<short>d.M.yyyy</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-		</calendar>
-	</calendars>
-	<collation version="1.0" accentOrder="FORWARD" override="FALSE">
-		<collationElements>
-		<after>͡</after>
-		<gt2>̈</gt2>
-		<eq>̍</eq>
-		<after>A</after>
-		<gt1>ä</gt1>
-		<gt3>Ä</gt3>
-		<after>C</after>
-		<gt1>č</gt1>
-		<gt3>Č</gt3>
-		<after>D</after>
-		<gt1>đ</gt1>
-		<gt3>Đ</gt3>
-		<after>H</after>
-		<gt1>ch</gt1>
-		<gt3>cH</gt3>
-		<gt3>Ch</gt3>
-		<gt3>CH</gt3>
-		<after>L</after>
-		<gt1>ł</gt1>
-		<gt3>Ł</gt3>
-		<after>O</after>
-		<gt1>ô</gt1>
-		<gt3>Ô</gt3>
-		<after>R</after>
-		<gt1>ř</gt1>
-		<gt3>Ř</gt3>
-		<after>S</after>
-		<gt1>š</gt1>
-		<gt3>Š</gt3>
-		<after>Z</after>
-		<gt1>ž</gt1>
-		<gt3>Ž</gt3>
-		<gt1>ż</gt1>
-		<gt3>Ż</gt3>
-		</collationElements>
-	</collation>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="sk"></language>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="aa">Afar</language>
+			<language type="ab">Abcházsky</language>
+			<language type="af">Africky</language>
+			<language type="am">Amharic</language>
+			<language type="ar">Arabsky</language>
+			<language type="as">Assamese</language>
+			<language type="ay">Aymara</language>
+			<language type="az">Azerbajdžansky</language>
+			<language type="ba">Bashkir</language>
+			<language type="be">Bielorusky</language>
+			<language type="bg">Bulharsky</language>
+			<language type="bh">Bihari</language>
+			<language type="bi">Bislama</language>
+			<language type="bn">Bengálsky</language>
+			<language type="bo">Tibetsky</language>
+			<language type="br">Bretónsky</language>
+			<language type="ca">Katalánsky</language>
+			<language type="co">Korzicky</language>
+			<language type="cs">Česky</language>
+			<language type="cy">Welsh</language>
+			<language type="da">Dánsky</language>
+			<language type="de">Nemecky</language>
+			<language type="dz">Bhutánsky</language>
+			<language type="el">Grécky</language>
+			<language type="en">Anglicky</language>
+			<language type="eo">Esperanto</language>
+			<language type="es">Španielsky</language>
+			<language type="et">Estónsky</language>
+			<language type="eu">Basque</language>
+			<language type="fa">Perzsky</language>
+			<language type="fi">Fínsky</language>
+			<language type="fj">Fidžijsky</language>
+			<language type="fo">Faroese</language>
+			<language type="fr">Francúzsky</language>
+			<language type="fy">Frisian</language>
+			<language type="ga">Írsky</language>
+			<language type="gd">Scots Gaelic</language>
+			<language type="gl">Galsky</language>
+			<language type="gn">Guarani</language>
+			<language type="gu">Gujarati</language>
+			<language type="ha">Hausa</language>
+			<language type="he">Hebrejsky</language>
+			<language type="hi">Hindi</language>
+			<language type="hr">Chorvátsky</language>
+			<language type="hu">Maďarsky</language>
+			<language type="hy">Arménsky</language>
+			<language type="ia">Interlingua</language>
+			<language type="id">Indonézsky</language>
+			<language type="ie">Interlingue</language>
+			<language type="ik">Inupiak</language>
+			<language type="in">Indonézsky</language>
+			<language type="is">Islandsky</language>
+			<language type="it">Taliansky</language>
+			<language type="iu">Inuktitut</language>
+			<language type="iw">Hebrejsky</language>
+			<language type="ja">Japonsky</language>
+			<language type="ji">Yiddish</language>
+			<language type="jw">Javanese</language>
+			<language type="ka">Georgiánsky</language>
+			<language type="kk">Kazašsky</language>
+			<language type="kl">Greenlandic</language>
+			<language type="km">Kambodžsky</language>
+			<language type="kn">Kanada</language>
+			<language type="ko">Kórejsky</language>
+			<language type="ks">Kašmírsky</language>
+			<language type="ku">Kurdsky</language>
+			<language type="ky">Kirgizsky</language>
+			<language type="la">Latinka</language>
+			<language type="ln">Lingala</language>
+			<language type="lo">Laothian</language>
+			<language type="lt">Litovsky</language>
+			<language type="lv">Latvian (Lettish)</language>
+			<language type="mg">Malagasy</language>
+			<language type="mi">Maori</language>
+			<language type="mk">Macedónsky</language>
+			<language type="ml">Malayalam</language>
+			<language type="mn">Mongolsky</language>
+			<language type="mo">Moldavsky</language>
+			<language type="mr">Marathi</language>
+			<language type="ms">Malay</language>
+			<language type="mt">Maltese</language>
+			<language type="my">Burmese</language>
+			<language type="na">Nauru</language>
+			<language type="ne">Nepálsky</language>
+			<language type="nl">Holandsky</language>
+			<language type="no">Nórsky</language>
+			<language type="oc">Occitan</language>
+			<language type="om">Oromo (Afan)</language>
+			<language type="or">Oriya</language>
+			<language type="pa">Punjabi</language>
+			<language type="pl">Poľsky</language>
+			<language type="ps">Pashto (Pushto)</language>
+			<language type="pt">Portugalsky</language>
+			<language type="qu">Quechua</language>
+			<language type="rm">Rhaeto-Romance</language>
+			<language type="rn">Kirundi</language>
+			<language type="ro">Rumunsky</language>
+			<language type="ru">Rusky</language>
+			<language type="rw">Kinyarwanda</language>
+			<language type="sa">Sanskrit</language>
+			<language type="sd">Sindhi</language>
+			<language type="sg">Sangho</language>
+			<language type="sh">Srbochorvátsky</language>
+			<language type="si">Sinhalese</language>
+			<language type="sk">Slovensky</language>
+			<language type="sl">Slovinsky</language>
+			<language type="sm">Samoan</language>
+			<language type="sn">Shona</language>
+			<language type="so">Somálsky</language>
+			<language type="sq">Albánsky</language>
+			<language type="sr">Srbsky</language>
+			<language type="ss">Siswati</language>
+			<language type="st">Sesotho</language>
+			<language type="su">Sundanese</language>
+			<language type="sv">Švédsky</language>
+			<language type="sw">Swahilsky</language>
+			<language type="ta">Tamil</language>
+			<language type="te">Telugu</language>
+			<language type="tg">Tajik</language>
+			<language type="th">Thajsky</language>
+			<language type="ti">Tigrinya</language>
+			<language type="tk">Turkménsky</language>
+			<language type="tl">Tagalog</language>
+			<language type="tn">Setswana</language>
+			<language type="to">Tonga</language>
+			<language type="tr">Turecky</language>
+			<language type="ts">Tsonga</language>
+			<language type="tt">Tatar</language>
+			<language type="tw">Twi</language>
+			<language type="ug">Uighur</language>
+			<language type="uk">Ukrajinsky</language>
+			<language type="ur">Urdu</language>
+			<language type="uz">Uzbecky</language>
+			<language type="vi">Vietnamsky</language>
+			<language type="vo">Volapuk</language>
+			<language type="wo">Wolof</language>
+			<language type="xh">Xhosa</language>
+			<language type="yi">Yiddish</language>
+			<language type="yo">Yoruba</language>
+			<language type="za">Zhuang</language>
+			<language type="zh">Čínsky</language>
+			<language type="zu">Zulu</language>
+		</languages>
+		<territories>
+			<territory type="AD">Andorra</territory>
+			<territory type="AE">Spojené Arabské Emiráty</territory>
+			<territory type="AF">Afganistan</territory>
+			<territory type="AI">Anguilla</territory>
+			<territory type="AL">Albánsko</territory>
+			<territory type="AM">Arménsko</territory>
+			<territory type="AN">Holandské Antily</territory>
+			<territory type="AO">Angola</territory>
+			<territory type="AR">Argentína</territory>
+			<territory type="AT">Rakúsko</territory>
+			<territory type="AU">Austrália</territory>
+			<territory type="AW">Aruba</territory>
+			<territory type="AZ">Azerbajdžan</territory>
+			<territory type="BA">Bosna a Hercegovina</territory>
+			<territory type="BB">Barbados</territory>
+			<territory type="BD">Bangladéš</territory>
+			<territory type="BE">Belgicko</territory>
+			<territory type="BF">Burkina Faso</territory>
+			<territory type="BG">Bulharsko</territory>
+			<territory type="BH">Bahrain</territory>
+			<territory type="BI">Burundi</territory>
+			<territory type="BJ">Benin</territory>
+			<territory type="BM">Bermudy</territory>
+			<territory type="BN">Brunej</territory>
+			<territory type="BO">Bolívia</territory>
+			<territory type="BR">Brazília</territory>
+			<territory type="BS">Bahamy</territory>
+			<territory type="BT">Bhután</territory>
+			<territory type="BW">Botswana</territory>
+			<territory type="BY">Bielorusko</territory>
+			<territory type="BZ">Belize</territory>
+			<territory type="CA">Kanada</territory>
+			<territory type="CF">Centrálna africká republika</territory>
+			<territory type="CG">Kongo</territory>
+			<territory type="CH">Švajčiarsko</territory>
+			<territory type="CI">Pobrežie Slonoviny</territory>
+			<territory type="CL">Čile</territory>
+			<territory type="CM">Kamerun</territory>
+			<territory type="CN">Čína</territory>
+			<territory type="CO">Kolumbia</territory>
+			<territory type="CR">Kostarika</territory>
+			<territory type="CU">Kuba</territory>
+			<territory type="CV">Cape Verde</territory>
+			<territory type="CY">Cyprus</territory>
+			<territory type="CZ">Česká republika</territory>
+			<territory type="DE">Nemecko</territory>
+			<territory type="DJ">Džibutská republika</territory>
+			<territory type="DK">Dánsko</territory>
+			<territory type="DM">Dominika</territory>
+			<territory type="DO">Dominikánska republika</territory>
+			<territory type="DZ">Alžírsko</territory>
+			<territory type="EC">Ekvádor</territory>
+			<territory type="EE">Estónsko</territory>
+			<territory type="EG">Egypt</territory>
+			<territory type="EH">Západná Sahara</territory>
+			<territory type="ER">Eritrea</territory>
+			<territory type="ES">Španielsko</territory>
+			<territory type="ET">Etiópia</territory>
+			<territory type="FI">Fínsko</territory>
+			<territory type="FJ">Fidži</territory>
+			<territory type="FM">Mikronézia</territory>
+			<territory type="FR">Francúzsko</territory>
+			<territory type="GA">Gabon</territory>
+			<territory type="GB">Veľká Británia</territory>
+			<territory type="GE">Georgia</territory>
+			<territory type="GF">Francúzska Guinea</territory>
+			<territory type="GH">Ghana</territory>
+			<territory type="GM">Gambia</territory>
+			<territory type="GN">Guinea</territory>
+			<territory type="GP">Galapágy</territory>
+			<territory type="GQ">Rovníková Guinea</territory>
+			<territory type="GR">Grécko</territory>
+			<territory type="GT">Guatemala</territory>
+			<territory type="GW">Guinea-Bissau</territory>
+			<territory type="GY">Guyana</territory>
+			<territory type="HK">Hongkong S.A.R.</territory>
+			<territory type="HN">Honduras</territory>
+			<territory type="HR">Chorvátsko</territory>
+			<territory type="HT">Haiti</territory>
+			<territory type="HU">Maďarsko</territory>
+			<territory type="ID">Indonézia</territory>
+			<territory type="IE">Írsko</territory>
+			<territory type="IL">Izrael</territory>
+			<territory type="IN">India</territory>
+			<territory type="IQ">Irak</territory>
+			<territory type="IR">Irán</territory>
+			<territory type="IS">Island</territory>
+			<territory type="IT">Taliansko</territory>
+			<territory type="JM">Jamajka</territory>
+			<territory type="JO">Jordánsko</territory>
+			<territory type="JP">Japonsko</territory>
+			<territory type="KE">Keňa</territory>
+			<territory type="KG">Kyrgyzstan</territory>
+			<territory type="KH">Kambodža</territory>
+			<territory type="KI">Karibik</territory>
+			<territory type="KM">Komory</territory>
+			<territory type="KP">Severná Kórea</territory>
+			<territory type="KR">Južná Kórea</territory>
+			<territory type="KW">Kuvajt</territory>
+			<territory type="KZ">Kazachstan</territory>
+			<territory type="LA">Laos</territory>
+			<territory type="LB">Libanon</territory>
+			<territory type="LI">Lichtenštajnsko</territory>
+			<territory type="LK">Srí Lanka</territory>
+			<territory type="LR">Libéria</territory>
+			<territory type="LS">Lesotho</territory>
+			<territory type="LT">Litva</territory>
+			<territory type="LU">Luxembursko</territory>
+			<territory type="LV">Lotyšsko</territory>
+			<territory type="LY">Líbya</territory>
+			<territory type="MA">Maroko</territory>
+			<territory type="MC">Monako</territory>
+			<territory type="MD">Moldavsko</territory>
+			<territory type="MG">Madagaskar</territory>
+			<territory type="MK">Macedónsko</territory>
+			<territory type="ML">Mali</territory>
+			<territory type="MM">Myanmar</territory>
+			<territory type="MN">Mongolsko</territory>
+			<territory type="MO">Macao S.A.R.</territory>
+			<territory type="MQ">Martinik</territory>
+			<territory type="MR">Mauretánia</territory>
+			<territory type="MS">Montserrat</territory>
+			<territory type="MT">Malta</territory>
+			<territory type="MU">Maurícius</territory>
+			<territory type="MX">Mexico</territory>
+			<territory type="MY">Malajzia</territory>
+			<territory type="MZ">Mozambik</territory>
+			<territory type="NA">Namíbia</territory>
+			<territory type="NC">Nová Kaledónia</territory>
+			<territory type="NE">Niger</territory>
+			<territory type="NG">Nigéria</territory>
+			<territory type="NI">Nikaragua</territory>
+			<territory type="NL">Holandsko</territory>
+			<territory type="NO">Nórsko</territory>
+			<territory type="NP">Nepál</territory>
+			<territory type="NU">Niue</territory>
+			<territory type="NZ">Nový Zéland</territory>
+			<territory type="OM">Omán</territory>
+			<territory type="PA">Panama</territory>
+			<territory type="PE">Peru</territory>
+			<territory type="PF">Francúzska Polynézia</territory>
+			<territory type="PG">Papua-Nová Guinea</territory>
+			<territory type="PH">Filipíny</territory>
+			<territory type="PK">Pakistan</territory>
+			<territory type="PL">Poľsko</territory>
+			<territory type="PR">Portoriko</territory>
+			<territory type="PT">Portugalsko</territory>
+			<territory type="PY">Paraguaj</territory>
+			<territory type="QA">Katar</territory>
+			<territory type="RO">Rumunsko</territory>
+			<territory type="RU">Rusko</territory>
+			<territory type="RW">Rwanda</territory>
+			<territory type="SA">Saudská Arábia</territory>
+			<territory type="SC">Seychely</territory>
+			<territory type="SD">Sudán</territory>
+			<territory type="SE">Švédsko</territory>
+			<territory type="SG">Singapur</territory>
+			<territory type="SI">Slovinsko</territory>
+			<territory type="SK">Slovensko</territory>
+			<territory type="SL">Sierra Leone</territory>
+			<territory type="SN">Senegal</territory>
+			<territory type="SO">Somálsko</territory>
+			<territory type="SP">Srbsko</territory>
+			<territory type="SR">Surinam</territory>
+			<territory type="SV">Salvádor</territory>
+			<territory type="SY">Sýria</territory>
+			<territory type="SZ">Svazijsko</territory>
+			<territory type="TD">Čad</territory>
+			<territory type="TF">Francúzske južné teritóriá</territory>
+			<territory type="TG">Togo</territory>
+			<territory type="TH">Thajsko</territory>
+			<territory type="TJ">Tadžikistan</territory>
+			<territory type="TK">Tokelau</territory>
+			<territory type="TM">Turkménsko</territory>
+			<territory type="TN">Tunisko</territory>
+			<territory type="TO">Tonga</territory>
+			<territory type="TP">Východný Timor</territory>
+			<territory type="TR">Turecko</territory>
+			<territory type="TT">Trinidad a Tobago</territory>
+			<territory type="TW">Taiwan</territory>
+			<territory type="TZ">Tanzánia</territory>
+			<territory type="UA">Ukrajina</territory>
+			<territory type="UG">Uganda</territory>
+			<territory type="US">Spojené štáty americké</territory>
+			<territory type="UY">Uruguaj</territory>
+			<territory type="UZ">Uzbekistan</territory>
+			<territory type="VA">Vatikán</territory>
+			<territory type="VE">Venezuela</territory>
+			<territory type="VG">Britské panenské ostrovy</territory>
+			<territory type="VI">Americké panenské ostrovy</territory>
+			<territory type="VN">Vietnam</territory>
+			<territory type="VU">Vanuatu</territory>
+			<territory type="YE">Jemen</territory>
+			<territory type="YT">Mayotte</territory>
+			<territory type="YU">Juhoslávia</territory>
+			<territory type="ZA">Južná Afrika</territory>
+			<territory type="ZM">Zambia</territory>
+			<territory type="ZR">Zaire</territory>
+			<territory type="ZW">Zimbabwe</territory>
+		</territories>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+	<layout>
+		<orientation lines="top-to-bottom" characters="left-to-right" />
+	</layout>
+		<dates>
+			<localizedPatternChars>GanjkHmsSEDFwWxhKzZ</localizedPatternChars>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">január</month>
+						<month type="2">február</month>
+						<month type="3">marec</month>
+						<month type="4">apríl</month>
+						<month type="5">máj</month>
+						<month type="6">jún</month>
+						<month type="7">júl</month>
+						<month type="8">august</month>
+						<month type="9">september</month>
+						<month type="10">október</month>
+						<month type="11">november</month>
+						<month type="12">december</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">jan</month>
+						<month type="2">feb</month>
+						<month type="3">mar</month>
+						<month type="4">apr</month>
+						<month type="5">máj</month>
+						<month type="6">jún</month>
+						<month type="7">júl</month>
+						<month type="8">aug</month>
+						<month type="9">sep</month>
+						<month type="10">okt</month>
+						<month type="11">nov</month>
+						<month type="12">dec</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">Nedeľa</day>
+						<day type="mon">Pondelok</day>
+						<day type="tue">Utorok</day>
+						<day type="wed">Streda</day>
+						<day type="thu">Štvrtok</day>
+						<day type="fri">Piatok</day>
+						<day type="sat">Sobota</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">Ne</day>
+						<day type="mon">Po</day>
+						<day type="tue">Ut</day>
+						<day type="wed">St</day>
+						<day type="thu">Št</day>
+						<day type="fri">Pi</day>
+						<day type="sat">So</day>
+					</dayAbbr>
+					<eras>
+						<era type="1">pred n.l.</era>
+						<era type="2">n.l.</era>
+					</eras>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>EEEE, yyyy, MMMM d</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>EEEE, yyyy, MMMM d</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>d.M.yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>d.M.yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>H:mm:ss z</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>H:mm:ss z</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>H:mm</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+			<collations>
+				<collation  >
+					<rules>
+						<reset>͡</reset>
+						<s>̈</s>
+						<i>̍</i>
+						<reset>A</reset>
+						<p>ä</p>
+						<t>Ä</t>
+						<reset>C</reset>
+						<p>č</p>
+						<t>Č</t>
+						<reset>D</reset>
+						<p>đ</p>
+						<t>Đ</t>
+						<reset>H</reset>
+						<p>ch</p>
+						<tc>cHChCH</tc>
+						<reset>L</reset>
+						<p>ł</p>
+						<t>Ł</t>
+						<reset>O</reset>
+						<p>ô</p>
+						<t>Ô</t>
+						<reset>R</reset>
+						<p>ř</p>
+						<t>Ř</t>
+						<reset>S</reset>
+						<p>š</p>
+						<t>Š</t>
+						<reset>Z</reset>
+						<p>ž</p>
+						<t>Ž</t>
+						<p>ż</p>
+					</rules>
+					<special owner="http://oss.software.ibm.com/icu/" version="1.0" />
+				</collation  >
+			</collations>
 </localeData>

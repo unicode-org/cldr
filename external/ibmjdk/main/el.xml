@@ -1,287 +1,292 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 16:05:03 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<correspondsTo vendor="0408">Windows</correspondsTo>
-	</identity  >
-
-	<displayNames >
-		<languages >
-			<language id="ar" >Αραβικά</language>
-			<language id="bg" >Βουλγαρικά</language>
-			<language id="ca" >Καταλανικά</language>
-			<language id="cs" >Τσέχικα</language>
-			<language id="da" >Δανέζικα</language>
-			<language id="de" >Γερμανικά</language>
-			<language id="el" >ελληνικά</language>
-			<language id="en" >Αγγλικά</language>
-			<language id="es" >Ισπανικά</language>
-			<language id="fi" >Φινλανδικά</language>
-			<language id="fr" >Γαλλικά</language>
-			<language id="hr" >Κροατικά</language>
-			<language id="hu" >Ουγγρικά</language>
-			<language id="it" >Ιταλικά</language>
-			<language id="iw" >Εβραϊκά</language>
-			<language id="mk" >Σλαβομακεδονικά</language>
-			<language id="nl" >Ολλανδικά</language>
-			<language id="no" >Νορβηγικά</language>
-			<language id="pl" >Πολωνικά</language>
-			<language id="pt" >Πορτογαλικά</language>
-			<language id="ro" >Ρουμανικά</language>
-			<language id="ru" >Ρωσικά</language>
-			<language id="sk" >Σλοβακικά</language>
-			<language id="sl" >Σλοβενικά</language>
-			<language id="sq" >Αλβανικά</language>
-			<language id="sr" >Σερβικά</language>
-			<language id="sv" >Σουηδικά</language>
-		</languages >
-		<countries  >
-			<country id="AL">Αλβανία</country>
-			<country id="AT">Αυστρία</country>
-			<country id="AU">Αυστραλία (Αγγλικά)</country>
-			<country id="BA">Βοσνία</country>
-			<country id="BE">Βέλγιο</country>
-			<country id="BG">Βουλγαρία</country>
-			<country id="BR">Βραζιλία</country>
-			<country id="CA">Καναδάς</country>
-			<country id="CH">Ελβετία</country>
-			<country id="CN">Κίνα (Λ.Δ.Κ.)</country>
-			<country id="CZ">Τσεχία</country>
-			<country id="DE">Γερμανία</country>
-			<country id="DK">Δανία</country>
-			<country id="EE">Εσθονία</country>
-			<country id="ES">Ισπανία</country>
-			<country id="FI">Φινλανδία</country>
-			<country id="FR">Γαλλία</country>
-			<country id="GB">Ηνωμένο Βασίλειο</country>
-			<country id="GR">Ελλάδα</country>
-			<country id="HK">Περιοχή Χονγκ Κονγκ</country>
-			<country id="HR">Κροατία</country>
-			<country id="HU">Ουγγαρία</country>
-			<country id="IE">Ιρλανδία</country>
-			<country id="IL">Ισραήλ</country>
-			<country id="IS">Ισλανδία</country>
-			<country id="IT">Ιταλία</country>
-			<country id="JP">Ιαπωνία</country>
-			<country id="KR">Κορέα</country>
-			<country id="LA">Λατινική Αμερική</country>
-			<country id="LT">Λιθουανία</country>
-			<country id="LV">Λετονία</country>
-			<country id="MK">ΠΓΔ Μακεδονίας</country>
-			<country id="MO">Περιοχή Μακάο</country>
-			<country id="NL">Ολλανδία</country>
-			<country id="NO">Νορβηγία</country>
-			<country id="NZ">Νέα Ζηλανδία</country>
-			<country id="PL">Πολωνία</country>
-			<country id="PT">Πορτογαλία</country>
-			<country id="RO">Ρουμανία</country>
-			<country id="RU">Ρωσία</country>
-			<country id="SE">Σουηδία</country>
-			<country id="SI">Σλοβενία</country>
-			<country id="SK">Σλοβακία</country>
-			<country id="SP">Σερβία</country>
-			<country id="TH">Ταϊλάνδη</country>
-			<country id="TR">Τουρκία</country>
-			<country id="TW">Ταϊβάν (Δ.Κ.)</country>
-			<country id="US">Ηνωμένες Πολιτείες Αμερικής</country>
-			<country id="ZA">Νότιος Αφρική</country>
-		</countries  >
-
-	</displayNames >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">Ιανουάριος</month>
-				<month id="2">Φεβρουάριος</month>
-				<month id="3">Μάρτιος</month>
-				<month id="4">Απρίλιος</month>
-				<month id="5">Μάϊος</month>
-				<month id="6">Ιούνιος</month>
-				<month id="7">Ιούλιος</month>
-				<month id="8">Αύγουστος</month>
-				<month id="9">Σεπτέμβριος</month>
-				<month id="10">Οκτώβριος</month>
-				<month id="11">Νοέμβριος</month>
-				<month id="12">Δεκέμβριος</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">Ιαν</month>
-				<month id="2">Φεβ</month>
-				<month id="3">Μαρ</month>
-				<month id="4">Απρ</month>
-				<month id="5">Μαϊ</month>
-				<month id="6">Ιουν</month>
-				<month id="7">Ιουλ</month>
-				<month id="8">Αυγ</month>
-				<month id="9">Σεπ</month>
-				<month id="10">Οκτ</month>
-				<month id="11">Νοε</month>
-				<month id="12">Δεκ</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">Κυριακή </day>
-				<day id="2">Δευτέρα </day>
-				<day id="3">Τρίτη </day>
-				<day id="4">Τετάρτη </day>
-				<day id="5">Πέμπτη </day>
-				<day id="6">Παρασκευή </day>
-				<day id="7">Σάββατο </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">Κυρ </day>
-				<day id="2">Δευ </day>
-				<day id="3">Τρι </day>
-				<day id="4">Τετ </day>
-				<day id="5">Πεμ </day>
-				<day id="6">Παρ </day>
-				<day id="7">Σαβ </day>
-			</dayAbbr>
-			<am>πμ</am><pm>μμ</pm>
-			<patterns> 
-				<chars>GanjkHmsSEDFwWxhKzZ</chars>
-				<time>
-					<full>h:mm:ss a z</full>
-					<long>h:mm:ss a z</long>
-					<medium>h:mm:ss a</medium>
-					<short>h:mm a</short>
-				</time>
-				<date>
-					<full>EEEE, d MMMM yyyy</full>
-					<long>d MMMM yyyy</long>
-					<medium>d MMM yyyy</medium>
-					<short>d/M/yyyy</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-			<firstDay>2</firstDay>
-			<minDays>1</minDays>
-		</calendar>
-	</calendars>
-	<collation version="1.0" accentOrder="FORWARD" override="FALSE">
-		<collationElements>
-		<after>͡</after>
-		<eq>·</eq>
-		<eq>ϳ</eq>
-		<after>µ</after>
-		<gt1>ʹ</gt1>
-		<gt1>͵</gt1>
-		<gt1>ͺ</gt1>
-		<gt1>;</gt1>
-		<gt1>΄</gt1>
-		<gt1>΅</gt1>
-		<after>Z</after>
-		<gt1>α</gt1>
-		<gt3>Α</gt3>
-		<gt2>ά</gt2>
-		<gt3>Ά</gt3>
-		<gt1>β</gt1>
-		<gt3>Β</gt3>
-		<gt2>ϐ</gt2>
-		<gt1>γ</gt1>
-		<gt3>Γ</gt3>
-		<gt1>δ</gt1>
-		<gt3>Δ</gt3>
-		<gt1>ε</gt1>
-		<gt3>Ε</gt3>
-		<gt2>έ</gt2>
-		<gt3>Έ</gt3>
-		<gt1>ζ</gt1>
-		<gt3>Ζ</gt3>
-		<gt1>η</gt1>
-		<gt3>Η</gt3>
-		<gt2>ή</gt2>
-		<gt3>Ή</gt3>
-		<gt1>θ</gt1>
-		<gt3>Θ</gt3>
-		<gt2>ϑ</gt2>
-		<gt1>ι</gt1>
-		<gt3>Ι</gt3>
-		<gt2>ί</gt2>
-		<gt3>Ί</gt3>
-		<gt2>ϊ</gt2>
-		<gt3>Ϊ</gt3>
-		<gt2>ΐ</gt2>
-		<gt1>κ</gt1>
-		<gt3>Κ</gt3>
-		<gt2>ϰ</gt2>
-		<gt1>λ</gt1>
-		<gt3>Λ</gt3>
-		<gt1>μ</gt1>
-		<gt3>Μ</gt3>
-		<gt1>ν</gt1>
-		<gt3>Ν</gt3>
-		<gt1>ξ</gt1>
-		<gt3>Ξ</gt3>
-		<gt1>ο</gt1>
-		<gt3>Ο</gt3>
-		<gt2>ό</gt2>
-		<gt3>Ό</gt3>
-		<gt1>π</gt1>
-		<gt3>Π</gt3>
-		<gt2>ϖ</gt2>
-		<gt1>ρ</gt1>
-		<gt3>Ρ</gt3>
-		<gt2>ϱ</gt2>
-		<gt1>σ</gt1>
-		<gt3>ς</gt3>
-		<gt3>Σ</gt3>
-		<gt2>ϲ</gt2>
-		<gt1>τ</gt1>
-		<gt3>Τ</gt3>
-		<gt1>υ</gt1>
-		<gt3>Υ</gt3>
-		<gt2>ύ</gt2>
-		<gt3>Ύ</gt3>
-		<gt2>ϋ</gt2>
-		<gt3>Ϋ</gt3>
-		<eq>ϔ</eq>
-		<gt2>ΰ</gt2>
-		<gt2>ϒ</gt2>
-		<gt2>ϓ</gt2>
-		<gt1>φ</gt1>
-		<gt3>Φ</gt3>
-		<gt2>ϕ</gt2>
-		<gt1>χ</gt1>
-		<gt3>Χ</gt3>
-		<gt1>ψ</gt1>
-		<gt3>Ψ</gt3>
-		<gt1>ω</gt1>
-		<gt3>Ω</gt3>
-		<gt2>ώ</gt2>
-		<gt3>Ώ</gt3>
-		<gt3>Ϛ</gt3>
-		<gt3>Ϝ</gt3>
-		<gt3>Ϟ</gt3>
-		<gt3>Ϡ</gt3>
-		<gt1>ϣ</gt1>
-		<gt3>Ϣ</gt3>
-		<gt1>ϥ</gt1>
-		<gt3>Ϥ</gt3>
-		<gt1>ϧ</gt1>
-		<gt3>Ϧ</gt3>
-		<gt1>ϩ</gt1>
-		<gt3>Ϩ</gt3>
-		<gt1>ϫ</gt1>
-		<gt3>Ϫ</gt3>
-		<gt1>ϭ</gt1>
-		<gt3>Ϭ</gt3>
-		<gt1>ϯ</gt1>
-		<gt3>Ϯ</gt3>
-		<after>μ</after>
-		<eq>µ</eq>
-		</collationElements>
-	</collation>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="el"></language>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="ar">Αραβικά</language>
+			<language type="bg">Βουλγαρικά</language>
+			<language type="ca">Καταλανικά</language>
+			<language type="cs">Τσέχικα</language>
+			<language type="da">Δανέζικα</language>
+			<language type="de">Γερμανικά</language>
+			<language type="el">ελληνικά</language>
+			<language type="en">Αγγλικά</language>
+			<language type="es">Ισπανικά</language>
+			<language type="fi">Φινλανδικά</language>
+			<language type="fr">Γαλλικά</language>
+			<language type="hr">Κροατικά</language>
+			<language type="hu">Ουγγρικά</language>
+			<language type="it">Ιταλικά</language>
+			<language type="iw">Εβραϊκά</language>
+			<language type="mk">Σλαβομακεδονικά</language>
+			<language type="nl">Ολλανδικά</language>
+			<language type="no">Νορβηγικά</language>
+			<language type="pl">Πολωνικά</language>
+			<language type="pt">Πορτογαλικά</language>
+			<language type="ro">Ρουμανικά</language>
+			<language type="ru">Ρωσικά</language>
+			<language type="sk">Σλοβακικά</language>
+			<language type="sl">Σλοβενικά</language>
+			<language type="sq">Αλβανικά</language>
+			<language type="sr">Σερβικά</language>
+			<language type="sv">Σουηδικά</language>
+		</languages>
+		<territories>
+			<territory type="AL">Αλβανία</territory>
+			<territory type="AT">Αυστρία</territory>
+			<territory type="AU">Αυστραλία (Αγγλικά)</territory>
+			<territory type="BA">Βοσνία</territory>
+			<territory type="BE">Βέλγιο</territory>
+			<territory type="BG">Βουλγαρία</territory>
+			<territory type="BR">Βραζιλία</territory>
+			<territory type="CA">Καναδάς</territory>
+			<territory type="CH">Ελβετία</territory>
+			<territory type="CN">Κίνα (Λ.Δ.Κ.)</territory>
+			<territory type="CZ">Τσεχία</territory>
+			<territory type="DE">Γερμανία</territory>
+			<territory type="DK">Δανία</territory>
+			<territory type="EE">Εσθονία</territory>
+			<territory type="ES">Ισπανία</territory>
+			<territory type="FI">Φινλανδία</territory>
+			<territory type="FR">Γαλλία</territory>
+			<territory type="GB">Ηνωμένο Βασίλειο</territory>
+			<territory type="GR">Ελλάδα</territory>
+			<territory type="HK">Περιοχή Χονγκ Κονγκ</territory>
+			<territory type="HR">Κροατία</territory>
+			<territory type="HU">Ουγγαρία</territory>
+			<territory type="IE">Ιρλανδία</territory>
+			<territory type="IL">Ισραήλ</territory>
+			<territory type="IS">Ισλανδία</territory>
+			<territory type="IT">Ιταλία</territory>
+			<territory type="JP">Ιαπωνία</territory>
+			<territory type="KR">Κορέα</territory>
+			<territory type="LA">Λατινική Αμερική</territory>
+			<territory type="LT">Λιθουανία</territory>
+			<territory type="LV">Λετονία</territory>
+			<territory type="MK">ΠΓΔ Μακεδονίας</territory>
+			<territory type="MO">Περιοχή Μακάο</territory>
+			<territory type="NL">Ολλανδία</territory>
+			<territory type="NO">Νορβηγία</territory>
+			<territory type="NZ">Νέα Ζηλανδία</territory>
+			<territory type="PL">Πολωνία</territory>
+			<territory type="PT">Πορτογαλία</territory>
+			<territory type="RO">Ρουμανία</territory>
+			<territory type="RU">Ρωσία</territory>
+			<territory type="SE">Σουηδία</territory>
+			<territory type="SI">Σλοβενία</territory>
+			<territory type="SK">Σλοβακία</territory>
+			<territory type="SP">Σερβία</territory>
+			<territory type="TH">Ταϊλάνδη</territory>
+			<territory type="TR">Τουρκία</territory>
+			<territory type="TW">Ταϊβάν (Δ.Κ.)</territory>
+			<territory type="US">Ηνωμένες Πολιτείες Αμερικής</territory>
+			<territory type="ZA">Νότιος Αφρική</territory>
+		</territories>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+	<layout>
+		<orientation lines="top-to-bottom" characters="left-to-right" />
+	</layout>
+		<dates>
+			<localizedPatternChars>GanjkHmsSEDFwWxhKzZ</localizedPatternChars>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">Ιανουάριος</month>
+						<month type="2">Φεβρουάριος</month>
+						<month type="3">Μάρτιος</month>
+						<month type="4">Απρίλιος</month>
+						<month type="5">Μάϊος</month>
+						<month type="6">Ιούνιος</month>
+						<month type="7">Ιούλιος</month>
+						<month type="8">Αύγουστος</month>
+						<month type="9">Σεπτέμβριος</month>
+						<month type="10">Οκτώβριος</month>
+						<month type="11">Νοέμβριος</month>
+						<month type="12">Δεκέμβριος</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">Ιαν</month>
+						<month type="2">Φεβ</month>
+						<month type="3">Μαρ</month>
+						<month type="4">Απρ</month>
+						<month type="5">Μαϊ</month>
+						<month type="6">Ιουν</month>
+						<month type="7">Ιουλ</month>
+						<month type="8">Αυγ</month>
+						<month type="9">Σεπ</month>
+						<month type="10">Οκτ</month>
+						<month type="11">Νοε</month>
+						<month type="12">Δεκ</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">Κυριακή</day>
+						<day type="mon">Δευτέρα</day>
+						<day type="tue">Τρίτη</day>
+						<day type="wed">Τετάρτη</day>
+						<day type="thu">Πέμπτη</day>
+						<day type="fri">Παρασκευή</day>
+						<day type="sat">Σάββατο</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">Κυρ</day>
+						<day type="mon">Δευ</day>
+						<day type="tue">Τρι</day>
+						<day type="wed">Τετ</day>
+						<day type="thu">Πεμ</day>
+						<day type="fri">Παρ</day>
+						<day type="sat">Σαβ</day>
+					</dayAbbr>
+					<am>πμ</am>
+					<pm>μμ</pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>EEEE, d MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>d MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>d MMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>d/M/yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>h:mm:ss a z</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>h:mm:ss a z</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>h:mm:ss a</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>h:mm a</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+			<collations>
+				<collation  >
+					<rules>
+						<reset>͡</reset>
+						<ic>·ϳ</ic>
+						<reset>µ</reset>
+						<pc>ʹ͵ͺ;΄΅</pc>
+						<reset>Z</reset>
+						<p>α</p>
+						<t>Α</t>
+						<s>ά</s>
+						<t>Ά</t>
+						<p>β</p>
+						<t>Β</t>
+						<s>ϐ</s>
+						<p>γ</p>
+						<t>Γ</t>
+						<p>δ</p>
+						<t>Δ</t>
+						<p>ε</p>
+						<t>Ε</t>
+						<s>έ</s>
+						<t>Έ</t>
+						<p>ζ</p>
+						<t>Ζ</t>
+						<p>η</p>
+						<t>Η</t>
+						<s>ή</s>
+						<t>Ή</t>
+						<p>θ</p>
+						<t>Θ</t>
+						<s>ϑ</s>
+						<p>ι</p>
+						<t>Ι</t>
+						<s>ί</s>
+						<t>Ί</t>
+						<s>ϊ</s>
+						<t>Ϊ</t>
+						<s>ΐ</s>
+						<p>κ</p>
+						<t>Κ</t>
+						<s>ϰ</s>
+						<p>λ</p>
+						<t>Λ</t>
+						<p>μ</p>
+						<t>Μ</t>
+						<p>ν</p>
+						<t>Ν</t>
+						<p>ξ</p>
+						<t>Ξ</t>
+						<p>ο</p>
+						<t>Ο</t>
+						<s>ό</s>
+						<t>Ό</t>
+						<p>π</p>
+						<t>Π</t>
+						<s>ϖ</s>
+						<p>ρ</p>
+						<t>Ρ</t>
+						<s>ϱ</s>
+						<p>σ</p>
+						<tc>ςΣ</tc>
+						<s>ϲ</s>
+						<p>τ</p>
+						<t>Τ</t>
+						<p>υ</p>
+						<t>Υ</t>
+						<s>ύ</s>
+						<t>Ύ</t>
+						<s>ϋ</s>
+						<t>Ϋ</t>
+						<i>ϔ</i>
+						<sc>ΰϒϓ</sc>
+						<p>φ</p>
+						<t>Φ</t>
+						<s>ϕ</s>
+						<p>χ</p>
+						<t>Χ</t>
+						<p>ψ</p>
+						<t>Ψ</t>
+						<p>ω</p>
+						<t>Ω</t>
+						<s>ώ</s>
+						<tc>ΏϚϜϞϠ</tc>
+						<p>ϣ</p>
+						<t>Ϣ</t>
+						<p>ϥ</p>
+						<t>Ϥ</t>
+						<p>ϧ</p>
+						<t>Ϧ</t>
+						<p>ϩ</p>
+						<t>Ϩ</t>
+						<p>ϫ</p>
+						<t>Ϫ</t>
+						<p>ϭ</p>
+						<t>Ϭ</t>
+						<p>ϯ</p>
+						<t>Ϯ</t>
+						<reset>μ</reset>
+					</rules>
+					<special owner="http://oss.software.ibm.com/icu/" version="1.0" />
+				</collation  >
+			</collations>
 </localeData>

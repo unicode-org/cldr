@@ -1,46 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 16:05:05 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="SG" />
-		<correspondsTo vendor="0c09">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<patterns> 
-				<time>
-					<full>h:mm:ss a z</full>
-					<long>h:mm:ss a</long>
-					<medium>h:mm:ss a</medium>
-					<short>h:mm a</short>
-				</time>
-				<date>
-					<full>EEEE, d MMMM, yyyy</full>
-					<long>d MMMM, yyyy</long>
-					<medium>d/M/yyyy</medium>
-					<short>d/M/yy</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-			<firstDay>0</firstDay>
-			<minDays>1</minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal>#,##0.###;-#,##0.###</decimal>
-			<percent>#,##0%</percent>
-		</patterns>
-	</numberFormat> 
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="en"></language>
+		<territory type="SGP">SG</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>EEEE, d MMMM, yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>d MMMM, yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>d/M/yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>d/M/yy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>h:mm:ss a z</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>h:mm:ss a</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>h:mm:ss a</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>h:mm a</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
 </localeData>

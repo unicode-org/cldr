@@ -1,93 +1,122 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 16:05:16 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<correspondsTo vendor="0421">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">Januari</month>
-				<month id="2">Februari</month>
-				<month id="3">Mac</month>
-				<month id="4">April</month>
-				<month id="5">Mei</month>
-				<month id="6">Jun</month>
-				<month id="7">Julai</month>
-				<month id="8">Ogos</month>
-				<month id="9">September</month>
-				<month id="10">Oktober</month>
-				<month id="11">November</month>
-				<month id="12">Disember</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">Jan</month>
-				<month id="2">Feb</month>
-				<month id="3">Mac</month>
-				<month id="4">Apr</month>
-				<month id="5">Mei</month>
-				<month id="6">Jun</month>
-				<month id="7">Jul</month>
-				<month id="8">Ogo</month>
-				<month id="9">Sep</month>
-				<month id="10">Okt</month>
-				<month id="11">Nov</month>
-				<month id="12">Dis</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">Ahad </day>
-				<day id="2">Isnin </day>
-				<day id="3">Selasa </day>
-				<day id="4">Rabu </day>
-				<day id="5">Khamis </day>
-				<day id="6">Jumaat </day>
-				<day id="7">Sabtu </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">Ahad </day>
-				<day id="2">Isnin </day>
-				<day id="3">Selasa </day>
-				<day id="4">Rabu </day>
-				<day id="5">Khamis </day>
-				<day id="6">Jumaat </day>
-				<day id="7">Sabtu </day>
-			</dayAbbr>
-			<patterns> 
-				<time>
-					<full>H:mm:ss z</full>
-					<long>H:mm:ss</long>
-					<medium>H:mm:ss</medium>
-					<short>H:mm</short>
-				</time>
-				<date>
-					<full>EEEE d MMMM yyyy</full>
-					<long>d MMMM yyyy</long>
-					<medium>dd/MM/yyyy</medium>
-					<short>dd/MM/yy</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-			<firstDay>2</firstDay>
-			<minDays>1</minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal>#,##0.###;-#,##0.###</decimal>
-			<percent>#,##0%</percent>
-		</patterns>
-	</numberFormat> 
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="ms"></language>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+	<layout>
+		<orientation lines="top-to-bottom" characters="left-to-right" />
+	</layout>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">Januari</month>
+						<month type="2">Februari</month>
+						<month type="3">Mac</month>
+						<month type="4">April</month>
+						<month type="5">Mei</month>
+						<month type="6">Jun</month>
+						<month type="7">Julai</month>
+						<month type="8">Ogos</month>
+						<month type="9">September</month>
+						<month type="10">Oktober</month>
+						<month type="11">November</month>
+						<month type="12">Disember</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">Jan</month>
+						<month type="2">Feb</month>
+						<month type="3">Mac</month>
+						<month type="4">Apr</month>
+						<month type="5">Mei</month>
+						<month type="6">Jun</month>
+						<month type="7">Jul</month>
+						<month type="8">Ogo</month>
+						<month type="9">Sep</month>
+						<month type="10">Okt</month>
+						<month type="11">Nov</month>
+						<month type="12">Dis</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">Ahad</day>
+						<day type="mon">Isnin</day>
+						<day type="tue">Selasa</day>
+						<day type="wed">Rabu</day>
+						<day type="thu">Khamis</day>
+						<day type="fri">Jumaat</day>
+						<day type="sat">Sabtu</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">Ahad</day>
+						<day type="mon">Isnin</day>
+						<day type="tue">Selasa</day>
+						<day type="wed">Rabu</day>
+						<day type="thu">Khamis</day>
+						<day type="fri">Jumaat</day>
+						<day type="sat">Sabtu</day>
+					</dayAbbr>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>EEEE d MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>d MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>dd/MM/yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>dd/MM/yy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>H:mm:ss z</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>H:mm</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+					<pattern>#,##0.###</pattern>
+					<pattern>-#,##0.###</pattern>
+				</numberFormat>
+				<numberFormat type="currency">
+					<pattern>¤ #,##0.00</pattern>
+					<pattern>- ¤ #,##0.00</pattern>
+				</numberFormat>
+				<numberFormat type="percent">
+					<pattern>#,##0%</pattern>
+				</numberFormat>
+			</numberFormats>
+		</numbers>
 </localeData>

@@ -1,38 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 16:05:24 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="SG" />
-		<correspondsTo vendor="1004">Windows</correspondsTo>
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<patterns> 
-				<time>
-					<full>ahh'時'mm'分'ss'秒' z</full>
-					<long>ahh'時'mm'分'ss'秒'</long>
-					<medium>a hh:mm:ss</medium>
-					<short>a h:mm</short>
-				</time>
-				<date>
-					<full>yyyy'年'M'月'd'日'</full>
-					<long>yyyy'年'M'月'd'日'</long>
-					<medium>yyyy/M/d</medium>
-					<short>yyyy/M/d</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-		</calendar>
-	</calendars>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="zh"></language>
+		<territory type="SGP">SG</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>yyyy'年'M'月'd'日'</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>yyyy'年'M'月'd'日'</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>yyyy/M/d</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>yyyy/M/d</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>ahh'時'mm'分'ss'秒' z</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>ahh'時'mm'分'ss'秒'</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>a hh:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>a h:mm</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
 </localeData>

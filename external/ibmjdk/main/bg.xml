@@ -1,290 +1,305 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 16:05:01 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<correspondsTo vendor="0402">Windows</correspondsTo>
-	</identity  >
-
-	<displayNames >
-		<languages >
-			<language id="bg" >български</language>
-		</languages >
-		<countries  >
-			<country id="BG">България</country>
-		</countries  >
-
-	</displayNames >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">Януари</month>
-				<month id="2">Февруари</month>
-				<month id="3">Март</month>
-				<month id="4">Април</month>
-				<month id="5">Май</month>
-				<month id="6">Юни</month>
-				<month id="7">Юли</month>
-				<month id="8">Август</month>
-				<month id="9">Септември</month>
-				<month id="10">Октомври</month>
-				<month id="11">Ноември</month>
-				<month id="12">Декември</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">I</month>
-				<month id="2">II</month>
-				<month id="3">III</month>
-				<month id="4">IV</month>
-				<month id="5">V</month>
-				<month id="6">VI</month>
-				<month id="7">VII</month>
-				<month id="8">VIII</month>
-				<month id="9">IX</month>
-				<month id="10">X</month>
-				<month id="11">XI</month>
-				<month id="12">XII</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">Неделя </day>
-				<day id="2">Понеделник </day>
-				<day id="3">Вторник </day>
-				<day id="4">Сряда </day>
-				<day id="5">Четвъвтък </day>
-				<day id="6">Петък </day>
-				<day id="7">Събота </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">Нд </day>
-				<day id="2">Пн </day>
-				<day id="3">Вт </day>
-				<day id="4">Ср </day>
-				<day id="5">Чт </day>
-				<day id="6">Пт </day>
-				<day id="7">Сб </day>
-			</dayAbbr>
-			<eras>
-				<era id="0">пр.н.е.</era>
-				<era id="1">н.е.</era>
-			</eras>
-			<patterns> 
-				<chars>GanjkHmsSEDFwWxhKzZ</chars>
-				<time>
-					<full>HH:mm:ss z</full>
-					<long>HH:mm:ss z</long>
-					<medium>H:mm:ss</medium>
-					<short>H:mm</short>
-				</time>
-				<date>
-					<full>EEEE, yyyy, MMMM d</full>
-					<long>EEEE, yyyy, MMMM d</long>
-					<medium>yyyy-M-d</medium>
-					<short>yy-M-d</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-		</calendar>
-	</calendars>
-	<collation version="1.0" accentOrder="FORWARD" override="FALSE">
-		<collationElements>
-		<after>9</after>
-		<gt1>҂</gt1>
-		<after>Z</after>
-		<gt1>а</gt1>
-		<gt3>А</gt3>
-		<gt1>б</gt1>
-		<gt3>Б</gt3>
-		<gt1>в</gt1>
-		<gt3>В</gt3>
-		<gt1>г</gt1>
-		<gt3>Г</gt3>
-		<gt2>ґ</gt2>
-		<gt3>Ґ</gt3>
-		<gt2>ҕ</gt2>
-		<gt3>Ҕ</gt3>
-		<gt2>ѓ</gt2>
-		<gt3>Ѓ</gt3>
-		<gt2>ғ</gt2>
-		<gt3>Ғ</gt3>
-		<gt1>д</gt1>
-		<gt3>Д</gt3>
-		<gt1>ђ</gt1>
-		<gt3>Ђ</gt3>
-		<gt1>е</gt1>
-		<gt3>Е</gt3>
-		<gt2>ҽ</gt2>
-		<gt3>Ҽ</gt3>
-		<gt2>ё</gt2>
-		<gt3>Ё</gt3>
-		<gt2>ҿ</gt2>
-		<gt3>Ҿ</gt3>
-		<gt1>є</gt1>
-		<gt3>Є</gt3>
-		<gt1>ж</gt1>
-		<gt3>Ж</gt3>
-		<gt2>җ</gt2>
-		<gt3>Җ</gt3>
-		<gt2>ӂ</gt2>
-		<gt3>Ӂ</gt3>
-		<gt1>з</gt1>
-		<gt3>З</gt3>
-		<gt2>ҙ</gt2>
-		<gt3>Ҙ</gt3>
-		<gt1>ѕ</gt1>
-		<gt3>Ѕ</gt3>
-		<gt1>и</gt1>
-		<gt3>И</gt3>
-		<gt1>і</gt1>
-		<gt3>І</gt3>
-		<gt2>Ӏ</gt2>
-		<gt1>ї</gt1>
-		<gt3>Ї</gt3>
-		<gt1>й</gt1>
-		<gt3>Й</gt3>
-		<gt1>ј</gt1>
-		<gt3>Ј</gt3>
-		<gt1>к</gt1>
-		<gt3>К</gt3>
-		<gt2>ҟ</gt2>
-		<gt3>Ҟ</gt3>
-		<gt2>ӄ</gt2>
-		<gt3>Ӄ</gt3>
-		<gt2>ҝ</gt2>
-		<gt3>Ҝ</gt3>
-		<gt2>ҡ</gt2>
-		<gt3>Ҡ</gt3>
-		<gt2>ќ</gt2>
-		<gt3>Ќ</gt3>
-		<gt2>қ</gt2>
-		<gt3>Қ</gt3>
-		<gt1>л</gt1>
-		<gt3>Л</gt3>
-		<gt1>љ</gt1>
-		<gt3>Љ</gt3>
-		<gt1>м</gt1>
-		<gt3>М</gt3>
-		<gt1>н</gt1>
-		<gt3>Н</gt3>
-		<gt2>ѣ</gt2>
-		<gt2>ң</gt2>
-		<gt3>Ң</gt3>
-		<gt2>ҥ</gt2>
-		<gt3>Ҥ</gt3>
-		<gt2>һ</gt2>
-		<gt3>Һ</gt3>
-		<gt2>ӈ</gt2>
-		<gt3>Ӈ</gt3>
-		<gt1>њ</gt1>
-		<gt3>Њ</gt3>
-		<gt1>о</gt1>
-		<gt3>О</gt3>
-		<gt2>ҩ</gt2>
-		<gt3>Ҩ</gt3>
-		<gt1>п</gt1>
-		<gt3>П</gt3>
-		<gt2>ҧ</gt2>
-		<gt3>Ҧ</gt3>
-		<gt1>р</gt1>
-		<gt3>Р</gt3>
-		<gt1>с</gt1>
-		<gt3>С</gt3>
-		<gt2>ҫ</gt2>
-		<gt3>Ҫ</gt3>
-		<gt1>т</gt1>
-		<gt3>Т</gt3>
-		<gt2>ҭ</gt2>
-		<gt3>Ҭ</gt3>
-		<gt1>ћ</gt1>
-		<gt3>Ћ</gt3>
-		<gt1>у</gt1>
-		<gt3>У</gt3>
-		<gt2>ү</gt2>
-		<gt3>Ү</gt3>
-		<gt1>ў</gt1>
-		<gt3>Ў</gt3>
-		<gt1>ұ</gt1>
-		<gt3>Ұ</gt3>
-		<gt1>ф</gt1>
-		<gt3>Ф</gt3>
-		<gt1>х</gt1>
-		<gt3>Х</gt3>
-		<gt2>ҳ</gt2>
-		<gt3>Ҳ</gt3>
-		<gt1>ц</gt1>
-		<gt3>Ц</gt3>
-		<gt2>ҵ</gt2>
-		<gt3>Ҵ</gt3>
-		<gt1>ч</gt1>
-		<gt3>Ч</gt3>
-		<gt2>ҷ</gt2>
-		<gt2>Ҷ</gt2>
-		<gt2>ҹ</gt2>
-		<gt3>Ҹ</gt3>
-		<gt2>ӌ</gt2>
-		<gt3>Ӌ</gt3>
-		<gt1>џ</gt1>
-		<gt3>Џ</gt3>
-		<gt1>ш</gt1>
-		<gt3>Ш</gt3>
-		<gt1>щ</gt1>
-		<gt3>Щ</gt3>
-		<gt1>ъ</gt1>
-		<gt3>Ъ</gt3>
-		<gt1>ы</gt1>
-		<gt3>Ы</gt3>
-		<gt1>ь</gt1>
-		<gt3>Ь</gt3>
-		<gt1>э</gt1>
-		<gt3>Э</gt3>
-		<gt1>ю</gt1>
-		<gt3>Ю</gt3>
-		<gt1>я</gt1>
-		<gt3>Я</gt3>
-		<gt1>ѡ</gt1>
-		<gt3>Ѡ</gt3>
-		<gt1>Ѣ</gt1>
-		<gt1>ѥ</gt1>
-		<gt3>Ѥ</gt3>
-		<gt1>ѧ</gt1>
-		<gt3>Ѧ</gt3>
-		<gt1>ѩ</gt1>
-		<gt3>Ѩ</gt3>
-		<gt1>ѫ</gt1>
-		<gt3>Ѫ</gt3>
-		<gt1>ѭ</gt1>
-		<gt3>Ѭ</gt3>
-		<gt1>ѯ</gt1>
-		<gt3>Ѯ</gt3>
-		<gt1>ѱ</gt1>
-		<gt3>Ѱ</gt3>
-		<gt1>ѳ</gt1>
-		<gt3>Ѳ</gt3>
-		<gt1>ѵ</gt1>
-		<gt3>Ѵ</gt3>
-		<gt2>ѷ</gt2>
-		<gt3>Ѷ</gt3>
-		<gt1>ѹ</gt1>
-		<gt3>Ѹ</gt3>
-		<gt1>ѻ</gt1>
-		<gt3>Ѻ</gt3>
-		<gt1>ѽ</gt1>
-		<gt3>Ѽ</gt3>
-		<gt1>ѿ</gt1>
-		<gt3>Ѿ</gt3>
-		<gt1>ҁ</gt1>
-		<gt3>Ҁ</gt3>
-		</collationElements>
-	</collation>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="bg"></language>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="bg">български</language>
+		</languages>
+		<territories>
+			<territory type="BG">България</territory>
+		</territories>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+	<layout>
+		<orientation lines="top-to-bottom" characters="left-to-right" />
+	</layout>
+		<dates>
+			<localizedPatternChars>GanjkHmsSEDFwWxhKzZ</localizedPatternChars>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">Януари</month>
+						<month type="2">Февруари</month>
+						<month type="3">Март</month>
+						<month type="4">Април</month>
+						<month type="5">Май</month>
+						<month type="6">Юни</month>
+						<month type="7">Юли</month>
+						<month type="8">Август</month>
+						<month type="9">Септември</month>
+						<month type="10">Октомври</month>
+						<month type="11">Ноември</month>
+						<month type="12">Декември</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">I</month>
+						<month type="2">II</month>
+						<month type="3">III</month>
+						<month type="4">IV</month>
+						<month type="5">V</month>
+						<month type="6">VI</month>
+						<month type="7">VII</month>
+						<month type="8">VIII</month>
+						<month type="9">IX</month>
+						<month type="10">X</month>
+						<month type="11">XI</month>
+						<month type="12">XII</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">Неделя</day>
+						<day type="mon">Понеделник</day>
+						<day type="tue">Вторник</day>
+						<day type="wed">Сряда</day>
+						<day type="thu">Четвъвтък</day>
+						<day type="fri">Петък</day>
+						<day type="sat">Събота</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">Нд</day>
+						<day type="mon">Пн</day>
+						<day type="tue">Вт</day>
+						<day type="wed">Ср</day>
+						<day type="thu">Чт</day>
+						<day type="fri">Пт</day>
+						<day type="sat">Сб</day>
+					</dayAbbr>
+					<eras>
+						<era type="1">пр.н.е.</era>
+						<era type="2">н.е.</era>
+					</eras>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>EEEE, yyyy, MMMM d</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>EEEE, yyyy, MMMM d</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>yyyy-M-d</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>yy-M-d</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>HH:mm:ss z</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>HH:mm:ss z</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>H:mm</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+			<collations>
+				<collation  >
+					<rules>
+						<reset>9</reset>
+						<p>҂</p>
+						<reset>Z</reset>
+						<p>а</p>
+						<t>А</t>
+						<p>б</p>
+						<t>Б</t>
+						<p>в</p>
+						<t>В</t>
+						<p>г</p>
+						<t>Г</t>
+						<s>ґ</s>
+						<t>Ґ</t>
+						<s>ҕ</s>
+						<t>Ҕ</t>
+						<s>ѓ</s>
+						<t>Ѓ</t>
+						<s>ғ</s>
+						<t>Ғ</t>
+						<p>д</p>
+						<t>Д</t>
+						<p>ђ</p>
+						<t>Ђ</t>
+						<p>е</p>
+						<t>Е</t>
+						<s>ҽ</s>
+						<t>Ҽ</t>
+						<s>ё</s>
+						<t>Ё</t>
+						<s>ҿ</s>
+						<t>Ҿ</t>
+						<p>є</p>
+						<t>Є</t>
+						<p>ж</p>
+						<t>Ж</t>
+						<s>җ</s>
+						<t>Җ</t>
+						<s>ӂ</s>
+						<t>Ӂ</t>
+						<p>з</p>
+						<t>З</t>
+						<s>ҙ</s>
+						<t>Ҙ</t>
+						<p>ѕ</p>
+						<t>Ѕ</t>
+						<p>и</p>
+						<t>И</t>
+						<p>і</p>
+						<t>І</t>
+						<s>Ӏ</s>
+						<p>ї</p>
+						<t>Ї</t>
+						<p>й</p>
+						<t>Й</t>
+						<p>ј</p>
+						<t>Ј</t>
+						<p>к</p>
+						<t>К</t>
+						<s>ҟ</s>
+						<t>Ҟ</t>
+						<s>ӄ</s>
+						<t>Ӄ</t>
+						<s>ҝ</s>
+						<t>Ҝ</t>
+						<s>ҡ</s>
+						<t>Ҡ</t>
+						<s>ќ</s>
+						<t>Ќ</t>
+						<s>қ</s>
+						<t>Қ</t>
+						<p>л</p>
+						<t>Л</t>
+						<p>љ</p>
+						<t>Љ</t>
+						<p>м</p>
+						<t>М</t>
+						<p>н</p>
+						<t>Н</t>
+						<sc>ѣң</sc>
+						<t>Ң</t>
+						<s>ҥ</s>
+						<t>Ҥ</t>
+						<s>һ</s>
+						<t>Һ</t>
+						<s>ӈ</s>
+						<t>Ӈ</t>
+						<p>њ</p>
+						<t>Њ</t>
+						<p>о</p>
+						<t>О</t>
+						<s>ҩ</s>
+						<t>Ҩ</t>
+						<p>п</p>
+						<t>П</t>
+						<s>ҧ</s>
+						<t>Ҧ</t>
+						<p>р</p>
+						<t>Р</t>
+						<p>с</p>
+						<t>С</t>
+						<s>ҫ</s>
+						<t>Ҫ</t>
+						<p>т</p>
+						<t>Т</t>
+						<s>ҭ</s>
+						<t>Ҭ</t>
+						<p>ћ</p>
+						<t>Ћ</t>
+						<p>у</p>
+						<t>У</t>
+						<s>ү</s>
+						<t>Ү</t>
+						<p>ў</p>
+						<t>Ў</t>
+						<p>ұ</p>
+						<t>Ұ</t>
+						<p>ф</p>
+						<t>Ф</t>
+						<p>х</p>
+						<t>Х</t>
+						<s>ҳ</s>
+						<t>Ҳ</t>
+						<p>ц</p>
+						<t>Ц</t>
+						<s>ҵ</s>
+						<t>Ҵ</t>
+						<p>ч</p>
+						<t>Ч</t>
+						<sc>ҷҶҹ</sc>
+						<t>Ҹ</t>
+						<s>ӌ</s>
+						<t>Ӌ</t>
+						<p>џ</p>
+						<t>Џ</t>
+						<p>ш</p>
+						<t>Ш</t>
+						<p>щ</p>
+						<t>Щ</t>
+						<p>ъ</p>
+						<t>Ъ</t>
+						<p>ы</p>
+						<t>Ы</t>
+						<p>ь</p>
+						<t>Ь</t>
+						<p>э</p>
+						<t>Э</t>
+						<p>ю</p>
+						<t>Ю</t>
+						<p>я</p>
+						<t>Я</t>
+						<p>ѡ</p>
+						<t>Ѡ</t>
+						<pc>Ѣѥ</pc>
+						<t>Ѥ</t>
+						<p>ѧ</p>
+						<t>Ѧ</t>
+						<p>ѩ</p>
+						<t>Ѩ</t>
+						<p>ѫ</p>
+						<t>Ѫ</t>
+						<p>ѭ</p>
+						<t>Ѭ</t>
+						<p>ѯ</p>
+						<t>Ѯ</t>
+						<p>ѱ</p>
+						<t>Ѱ</t>
+						<p>ѳ</p>
+						<t>Ѳ</t>
+						<p>ѵ</p>
+						<t>Ѵ</t>
+						<s>ѷ</s>
+						<t>Ѷ</t>
+						<p>ѹ</p>
+						<t>Ѹ</t>
+						<p>ѻ</p>
+						<t>Ѻ</t>
+						<p>ѽ</p>
+						<t>Ѽ</t>
+						<p>ѿ</p>
+						<t>Ѿ</t>
+						<p>ҁ</p>
+					</rules>
+					<special owner="http://oss.software.ibm.com/icu/" version="1.0" />
+				</collation  >
+			</collations>
 </localeData>

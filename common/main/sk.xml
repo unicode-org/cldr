@@ -1360,12 +1360,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>ano:a</yesstr>
-			<nostr>nie:n</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([aA]([nN][oO])?)</yesexpr>
-			<noexpr>^[nN]([oO]|[iI][eE])?</noexpr>
+			<yesstr draft="true">ano:a</yesstr>
+			<nostr draft="true">nie:n</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([aA]([nN][oO])?)</yesexpr>
+			<noexpr draft="true">^[nN]([oO]|[iI][eE])?</noexpr>
 		</messages>
 	</posix>
 </ldml>

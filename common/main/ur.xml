@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
-<ldml draft="true">
+<ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
@@ -8,22 +8,22 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="ur">اردو</language>
+			<language type="ur" draft="true">اردو</language>
 		</languages>
 		<territories>
-			<territory type="PK">پاکستان</territory>
+			<territory type="PK" draft="true">پاکستان</territory>
 		</territories>
 	</localeDisplayNames>
 	<layout>
-		<orientation characters="right-to-left"/>
+		<orientation characters="right-to-left" draft="true"/>
 	</layout>
 	<characters>
-		<exemplarCharacters>[[:Arab:]‌‍‏‎]</exemplarCharacters>
+		<exemplarCharacters draft="true">[[:Arab:]‌‍‏‎]</exemplarCharacters>
 	</characters>
 	<numbers>
 		<currencies>
 			<currency type="PKR">
-				<symbol>Rs</symbol>
+				<symbol draft="true">Rs</symbol>
 			</currency>
 		</currencies>
 	</numbers>

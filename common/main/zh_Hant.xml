@@ -138,7 +138,7 @@
 			<language type="ho">西里莫圖土文</language>
 			<language type="hr">克羅埃西亞文</language>
 			<language type="ht">海地人</language>
-			<language type="ht" alt="proposed" draft="true">海地文</language>
+			<language type="ht" alt="proposed" draft="true">海地文</language>
 			<language type="hy">亞美尼亞文</language>
 			<language type="hz">赫雷羅文</language>
 			<language type="ia">拉丁國際文</language>
@@ -2046,10 +2046,10 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>確定</yesstr>
-			<yesexpr>^([yY]([eE][sS])?)|確定</yesexpr>
+			<yesstr draft="true">確定</yesstr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|確定</yesexpr>
 		</messages>
 	</posix>
 </ldml>

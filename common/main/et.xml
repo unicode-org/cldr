@@ -406,20 +406,23 @@
 		</symbols>
 		<currencies>
 			<currency type="EEK">
-				<displayName draft="true" references="Bank Of Estonia http://www.eestipank.info/pub/en/majandus/rahasysteem/yldalused">kroon</displayName>
+				<displayName references="R1" draft="true">kroon</displayName>
 				<symbol>kr</symbol>
 				<decimal>.</decimal>
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>jah:j</yesstr>
-			<nostr>ei:e</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([jJ]([аА][hH])?)</yesexpr>
-			<noexpr>^([nN][oO]?)|([eE][iI]?)</noexpr>
+			<yesstr draft="true">jah:j</yesstr>
+			<nostr draft="true">ei:e</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([jJ]([аА][hH])?)</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|([eE][iI]?)</noexpr>
 		</messages>
 	</posix>
+	<references>
+		<reference type="R1">Bank Of Estonia http://www.eestipank.info/pub/en/majandus/rahasysteem/yldalused</reference>
+	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/et.txt?only_with_tag=final-update-LDML

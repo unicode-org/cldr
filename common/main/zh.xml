@@ -2247,8 +2247,8 @@
 			<currency type="TRL">
 				<displayName>土耳其里拉</displayName>
 			</currency>
-			<currency type="TRY" draft="true">
-				<displayName>新土耳其里拉</displayName>
+			<currency type="TRY">
+				<displayName draft="true">新土耳其里拉</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>特立尼达和多巴哥元</displayName>
@@ -2359,12 +2359,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>是:确定</yesstr>
-			<nostr>否:否定</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|是|确定</yesexpr>
-			<noexpr>^([nN][oO]?)|否定?</noexpr>
+			<yesstr draft="true">是:确定</yesstr>
+			<nostr draft="true">否:否定</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|是|确定</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|否定?</noexpr>
 		</messages>
 	</posix>
 </ldml>

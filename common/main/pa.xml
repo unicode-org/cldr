@@ -112,12 +112,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>ਹਾਂ</yesstr>
-			<nostr>ਨਹੀਂ</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|ਹਾਂ</yesexpr>
-			<noexpr>^([nN][oO]?)|ਨਹੀਂ</noexpr>
+			<yesstr draft="true">ਹਾਂ</yesstr>
+			<nostr draft="true">ਨਹੀਂ</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|ਹਾਂ</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|ਨਹੀਂ</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -1389,8 +1389,8 @@
 			<currency type="ECS">
 				<displayName>sucre ecuatoriano</displayName>
 			</currency>
-			<currency type="ECS" alt="proposed" draft="true">
-				<symbol>S/</symbol>
+			<currency type="ECS" alt="proposed">
+				<symbol draft="true">S/</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>unidad de valor constante (UVC) ecuatoriana</displayName>
@@ -1694,8 +1694,8 @@
 			<currency type="NIO">
 				<displayName>córdoba oro nicaragüense</displayName>
 			</currency>
-			<currency type="NIO" alt="proposed" references="R1" draft="true">
-				<symbol>C$</symbol>
+			<currency type="NIO" alt="proposed" references="R1">
+				<symbol draft="true">C$</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>florín neerlandés</displayName>
@@ -1997,10 +1997,10 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>si:sí:s</yesstr>
-			<yesexpr>^([yY]([eE][sS])?)|([sS][iIíÍ]?)</yesexpr>
+			<yesstr draft="true">si:sí:s</yesstr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([sS][iIíÍ]?)</yesexpr>
 		</messages>
 	</posix>
 	<references>

@@ -355,7 +355,7 @@
 			<language type="rap" draft="true">ラパヌイ語</language>
 			<language type="rar" draft="true">ラロトガ語</language>
 			<language type="rm">レト＝ロマン語</language>
-			<language type="rm" draft="true" alt="proposed">レト・ロマン語</language>
+			<language type="rm" alt="proposed" draft="true">レト・ロマン語</language>
 			<language type="rn">ルンジ語</language>
 			<language type="ro">ルーマニア語</language>
 			<language type="roa" draft="true">ロマンス諸語</language>
@@ -380,7 +380,7 @@
 			<language type="sga" draft="true">古期アイルランド語 (900まで)</language>
 			<language type="sgn" draft="true">手まね言語</language>
 			<language type="sh">セルボ＝クロアチア語</language>
-			<language type="sh" draft="true" alt="proposed">セルボ・クロアチア語</language>
+			<language type="sh" alt="proposed" draft="true">セルボ・クロアチア語</language>
 			<language type="shn" draft="true">シャン語</language>
 			<language type="si">シンハラ語</language>
 			<language type="sid">シダモ語</language>
@@ -2580,8 +2580,8 @@
 			<currency type="TRL">
 				<displayName>トルコ リラ</displayName>
 			</currency>
-			<currency type="TRY" draft="true">
-				<displayName>新トルコリラ</displayName>
+			<currency type="TRY">
+				<displayName draft="true">新トルコリラ</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>トリニダードトバゴ ドル</displayName>
@@ -2707,12 +2707,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>はい:ハイ</yesstr>
-			<nostr>いいえ:イイエ</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([ｙＹ]([ｅＥ][ｓＳ])?)|はい|ハイ</yesexpr>
-			<noexpr>^([nN][oO]?)|([ｎＮ][ｏＯ]?)|いいえ|イイエ</noexpr>
+			<yesstr draft="true">はい:ハイ</yesstr>
+			<nostr draft="true">いいえ:イイエ</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([ｙＹ]([ｅＥ][ｓＳ])?)|はい|ハイ</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|([ｎＮ][ｏＯ]?)|いいえ|イイエ</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -966,8 +966,8 @@
 				<displayName>Λίρα Κύπρου</displayName>
 				<symbol>£</symbol>
 			</currency>
-			<currency type="CYP" alt="proposed" draft="true">
-				<symbol>C£</symbol>
+			<currency type="CYP" alt="proposed">
+				<symbol draft="true">C£</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>Κορόνα Τσέχικης Δημοκρατίας</displayName>
@@ -1065,9 +1065,9 @@
 				<displayName>Δρχ</displayName>
 				<symbol>Δρχ</symbol>
 			</currency>
-			<currency type="GRD" alt="proposed" draft="true">
-				<displayName>Δραχμή Ελλάδας</displayName>
-				<symbol>GRD</symbol>
+			<currency type="GRD" alt="proposed">
+				<displayName draft="true">Δραχμή Ελλάδας</displayName>
+				<symbol draft="true">GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Quetzal Γουατεμάλα</displayName>
@@ -1442,8 +1442,8 @@
 				<displayName>Λίρα Τουρκίας</displayName>
 				<symbol>TL</symbol>
 			</currency>
-			<currency type="TRY" draft="true">
-				<displayName>Νέα Τουρκική Λίρα</displayName>
+			<currency type="TRY">
+				<displayName draft="true">Νέα Τουρκική Λίρα</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Δολάριο Τρινιδάδ και Τομπάγκο</displayName>
@@ -1579,12 +1579,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>ναι:ν</yesstr>
-			<nostr>οχι:όχι:ο:ό</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([νΝ]([αΑ][ιΙ])?)</yesexpr>
-			<noexpr>^([nN][oO]?)|([οΟόΌ]([χΧ][ιΙ])?)</noexpr>
+			<yesstr draft="true">ναι:ν</yesstr>
+			<nostr draft="true">οχι:όχι:ο:ό</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([νΝ]([αΑ][ιΙ])?)</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|([οΟόΌ]([χΧ][ιΙ])?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

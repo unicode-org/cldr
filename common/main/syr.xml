@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
-<ldml draft="true">
+<ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
@@ -8,14 +8,14 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="syr">ܣܘܪܝܝܐ</language>
+			<language type="syr" draft="true">ܣܘܪܝܝܐ</language>
 		</languages>
 		<territories>
-			<territory type="SY">ܣܘܪܝܝܐ</territory>
+			<territory type="SY" draft="true">ܣܘܪܝܝܐ</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[[:Syrc:]‌‍‏‎]</exemplarCharacters>
+		<exemplarCharacters draft="true">[[:Syrc:]‌‍‏‎]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -23,18 +23,18 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">܏ܟܢ ܏ܒ</month>
-							<month type="2">ܫܒܛ</month>
-							<month type="3">ܐܕܪ</month>
-							<month type="4">ܢܝܣܢ</month>
-							<month type="5">ܐܝܪ</month>
-							<month type="6">ܚܙܝܪܢ</month>
-							<month type="7">ܬܡܘܙ</month>
-							<month type="8">ܐܒ</month>
-							<month type="9">ܐܝܠܘܠ</month>
-							<month type="10">܏ܬܫ ܏ܐ</month>
-							<month type="11">܏ܬܫ ܏ܒ</month>
-							<month type="12">܏ܟܢ ܏ܐ</month>
+							<month type="1" draft="true">܏ܟܢ ܏ܒ</month>
+							<month type="2" draft="true">ܫܒܛ</month>
+							<month type="3" draft="true">ܐܕܪ</month>
+							<month type="4" draft="true">ܢܝܣܢ</month>
+							<month type="5" draft="true">ܐܝܪ</month>
+							<month type="6" draft="true">ܚܙܝܪܢ</month>
+							<month type="7" draft="true">ܬܡܘܙ</month>
+							<month type="8" draft="true">ܐܒ</month>
+							<month type="9" draft="true">ܐܝܠܘܠ</month>
+							<month type="10" draft="true">܏ܬܫ ܏ܐ</month>
+							<month type="11" draft="true">܏ܬܫ ܏ܒ</month>
+							<month type="12" draft="true">܏ܟܢ ܏ܐ</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -44,7 +44,7 @@
 	<numbers>
 		<currencies>
 			<currency type="SYP">
-				<symbol>ل.س.‏</symbol>
+				<symbol draft="true">ل.س.‏</symbol>
 			</currency>
 		</currencies>
 	</numbers>

@@ -359,12 +359,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>po:p</yesstr>
-			<nostr>jo:j</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([pP][oO]?)</yesexpr>
-			<noexpr>^[nNjJ][oO]?</noexpr>
+			<yesstr draft="true">po:p</yesstr>
+			<nostr draft="true">jo:j</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([pP][oO]?)</yesexpr>
+			<noexpr draft="true">^[nNjJ][oO]?</noexpr>
 		</messages>
 	</posix>
 </ldml>

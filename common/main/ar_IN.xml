@@ -10,10 +10,10 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<week draft="true">
-					<firstDay day="mon"/>
-					<weekendStart day="sun"/>
-					<weekendEnd day="sun"/>
+				<week>
+					<firstDay day="mon" draft="true"/>
+					<weekendStart day="sun" draft="true"/>
+					<weekendEnd day="sun" draft="true"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="full">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
-<ldml draft="true">
+<ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
@@ -11,49 +11,49 @@
 		<calendars>
 			<calendar type="gregorian">
 				<week>
-					<firstDay day="fri"/>
+					<firstDay day="fri" draft="true"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE d MMMM yyyy</pattern>
+							<pattern draft="true">EEEE d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM yyyy</pattern>
+							<pattern draft="true">d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dd-MM-yyyy</pattern>
+							<pattern draft="true">dd-MM-yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d-M-yy</pattern>
+							<pattern draft="true">d-M-yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>hh:mm:ss a z</pattern>
+							<pattern draft="true">hh:mm:ss a z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>hh:mm:ss a z</pattern>
+							<pattern draft="true">hh:mm:ss a z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>hh:mm:ss a</pattern>
+							<pattern draft="true">hh:mm:ss a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>hh:mm a</pattern>
+							<pattern draft="true">hh:mm a</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>

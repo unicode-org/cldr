@@ -430,12 +430,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>ஆம்</yesstr>
-			<nostr>இல்லை</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|ஆம்</yesexpr>
-			<noexpr>^([nN][oO]?)|இல்லை</noexpr>
+			<yesstr draft="true">ஆம்</yesstr>
+			<nostr draft="true">இல்லை</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|ஆம்</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|இல்லை</noexpr>
 		</messages>
 	</posix>
 </ldml>

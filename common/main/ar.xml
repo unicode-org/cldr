@@ -1181,8 +1181,8 @@
 			<currency type="TND">
 				<symbol>د.ت.‏</symbol>
 			</currency>
-			<currency type="TRY" draft="true">
-				<displayName>ليرة تركية جديدة</displayName>
+			<currency type="TRY">
+				<displayName draft="true">ليرة تركية جديدة</displayName>
 			</currency>
 			<currency type="USD">
 				<displayName draft="true">دولار أمريكي</displayName>
@@ -1200,12 +1200,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>نعم:ن</yesstr>
-			<nostr>لا:ل</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|ن|نعم</yesexpr>
-			<noexpr>^([nN][oO]?)|ل|لا</noexpr>
+			<yesstr draft="true">نعم:ن</yesstr>
+			<nostr draft="true">لا:ل</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|ن|نعم</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|ل|لا</noexpr>
 		</messages>
 	</posix>
 </ldml>

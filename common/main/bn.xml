@@ -195,12 +195,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>হ্য়াঁ</yesstr>
-			<nostr>না</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|হ্য়াঁ</yesexpr>
-			<noexpr>^([nN][oO]?)|না</noexpr>
+			<yesstr draft="true">হ্য়াঁ</yesstr>
+			<nostr draft="true">না</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|হ্য়াঁ</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|না</noexpr>
 		</messages>
 	</posix>
 </ldml>

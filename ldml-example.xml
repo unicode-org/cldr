@@ -167,26 +167,44 @@ For example, most country locales will inherit the bulk of their data from the l
               <pm>PM</pm>
 
                <eras>
-                  <!-- Non-gregorians may have many more eras -->
-                  <era type="0">BC</era>
-                  <era type="1">AD</era>
+                  <eraNames>
+                        <!-- Non-gregorians may have many more eras -->
+                        <era type="0">BC</era>
+                        <era type="1">AD</era>
+                        <era type="2">BCE</era>
+                        <era type="3">CE</era>
+                  </eraNames>
+                  <eraAbbr>
+                        <era type="0">Before Christ</era>
+                        <era type="1">Anno Domini</era>
+                        <era type="2">Before Common Era</era>
+                        <era type="3">Common Era</era>
+                  </eraAbbr>
               </eras>
               <dateFormats>
                 <default type="medium"/>
-                <dateFormat type="medium">
-                    <!--  Optional special element for platform/application specific overheads. Paser can
-                          choose to ignore if required  -->
-                      <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
-                      <pattern>MM d, yyyy </pattern>
-                      <displayName>DIN 5008 (EN 28601)</displayName>
-                 </dateFormat>
-                 <dateFormat type="full">
-                    <!--  Optional special element for platform/application specific overheads. Paser can
-                          choose to ignore if required  -->
-                      <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
-                      <pattern>EEEE, MMMM d, yyyy</pattern>
-                      <displayName>DIN 5008 (EN 28601)</displayName>
-                 </dateFormat>
+                <dateFormatStyle type="medium">
+                     <default type="DateFormatsKey2"/>
+                     <dateFormat type="DateFormatsKey2">
+                        <!--  Optional special element for platform/application specific overheads. Paser can
+                              choose to ignore if required  -->
+                          <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
+                          <pattern>MM d, yyyy </pattern>
+                          <displayName>DIN 5008 (EN 28601)</displayName>
+                     </dateFormat>
+                     <dateFormat type="DateFormatsKey3">
+                          <pattern>MMM dd, yyyy</pattern>
+                     </dateFormat>
+                </dateFormatStyle>
+                <dateFormatStyle type="full">
+                    <dateFormat type="DateFormatsKey2">
+                        <!--  Optional special element for platform/application specific overheads. Paser can
+                              choose to ignore if required  -->
+                          <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
+                          <pattern>EEEE, MMMM d, yyyy</pattern>
+                          <displayName>DIN 5008 (EN 28601)</displayName>
+                     </dateFormat>
+                </dateFormatStyle>
               </dateFormats>
               <timeFormats>
                   <default type="medium"/>
@@ -209,7 +227,9 @@ For example, most country locales will inherit the bulk of their data from the l
           <!-- The Buddhist calendar inherits month names, etc. (everything but eras) from Gregorian -->
           <calendar type="Buddhist">
               <eras>
-                  <era type="0">BE</era>
+                  <eraAbbr>
+                       <era type="0">BE</era>
+                  </eraAbbr>
               </eras>
           </calendar>
         </calendars>
@@ -278,20 +298,28 @@ For example, most country locales will inherit the bulk of their data from the l
         </symbols>
         <numberFormats>
             <default type="decimal"/>
-            <numberFormat type="decimal">
-                <pattern type="positive">#,##0.###</pattern>
-                <pattern type="negative">-#,##0.###</pattern>
-            </numberFormat>
-            <numberFormat type="percent">
-                <pattern type="positive">#,##0%</pattern>
-            </numberFormat>
-            <numberFormat type="scientific">
-                <pattern >#,##0%</pattern>
-            </numberFormat>
-            <numberFormat type="currency">
-                <pattern type="positive">&#x00a4; #,##0.00;</pattern>
-                <pattern type="negative">(&#x00a4; #,##0.00)</pattern>
-            </numberFormat>
+            <numberFormatStyle type="decimal">
+                <numberFormat type="long">
+                  <pattern type="positive">#,##0.###</pattern>
+                  <pattern type="negative">-#,##0.###</pattern>
+                </numberFormat>
+            </numberFormatStyle>
+            <numberFormatStyle type="percent">
+                <numberFormat type="long">
+                  <pattern type="positive">#,##0%</pattern>
+                </numberFormat>
+            </numberFormatStyle>
+            <numberFormatStyle type="percent">
+                <numberFormat type="long">
+                  <pattern >#,##0%</pattern>
+                </numberFormat>
+            </numberFormatStyle>
+            <numberFormatStyle type="currency">
+                <numberFormat type="long">
+                  <pattern type="positive">&#x00a4; #,##0.00;</pattern>
+                  <pattern type="negative">(&#x00a4; #,##0.00)</pattern>
+                </numberFormat>
+            </numberFormatStyle>
         </numberFormats>
         <currencies>
             <default type="USD"/>

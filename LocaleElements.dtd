@@ -153,15 +153,22 @@
 
 <!ELEMENT pm ( #PCDATA ) >
 
-<!ELEMENT eras ( era+ ) >
+<!ELEMENT eras ( (eraNames | eraAbbr | special*)* | alias ) >
 
-<!ELEMENT era ( #PCDATA ) >
+<!ELEMENT eraNames ( (era+ | special*)* | alias ) >
+
+<!ELEMENT eraAbbr ( (era+ | special*)* | alias ) >
+
+<!ELEMENT era (#PCDATA) >
 <!ATTLIST era type NMTOKEN #REQUIRED >
 
-<!ELEMENT dateFormats ( (default | dateFormat+ | special*)* | alias ) >
+<!ELEMENT dateFormats ( (default | dateFormatStyle+ | special*)* | alias ) >
+
+<!ELEMENT dateFormatStyle ( (default | dateFormat+ | special*)* | alias ) >
+<!ATTLIST dateFormatStyle type NMTOKEN #REQUIRED >
 
 <!ELEMENT dateFormat ( (pattern | displayName | special*)* | alias ) >
-<!ATTLIST dateFormat type NMTOKEN #REQUIRED >
+<!ATTLIST dateFormat type NMTOKEN #IMPLIED >
 
 <!ELEMENT displayName ( #PCDATA ) >
 
@@ -222,10 +229,13 @@
 
 <!ELEMENT nan ( #PCDATA ) >
 
-<!ELEMENT numberFormats ( (default | numberFormat+ | special*)* | alias) >
+<!ELEMENT numberFormats ( (default | numberFormatStyle+ | special*)* | alias) >
+
+<!ELEMENT numberFormatStyle ( (default | numberFormat+ | special*)* | alias) >
+<!ATTLIST numberFormatStyle type NMTOKEN #REQUIRED >
 
 <!ELEMENT numberFormat ( (pattern+ | special*)* | alias ) >
-<!ATTLIST numberFormat type NMTOKEN #REQUIRED >
+<!ATTLIST numberFormat type NMTOKEN #IMPLIED >
 
 <!ELEMENT pattern ( #PCDATA ) >
 <!ATTLIST pattern type NMTOKEN #IMPLIED >
@@ -319,6 +329,9 @@
 <!ATTLIST special owner CDATA #REQUIRED >
 <!ATTLIST special usage NMTOKEN #IMPLIED >
 <!ATTLIST special version NMTOKEN #IMPLIED >
+<!ATTLIST special default NMTOKEN #IMPLIED>
+<!ATTLIST special type NMTOKEN #IMPLIED>
+<!ATTLIST special unoid NMTOKEN #IMPLIED>
 
 <!-- ######################################################### -->
 

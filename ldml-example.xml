@@ -133,6 +133,7 @@ For example, most country locales will inherit the bulk of their data from the l
           <default type="Gregorian"/>
           <calendar type="Gregorian">
               <months>
+                <default type="format"/>
                 <monthContext type="format">
                     <default type="wide"/>
                     <monthWidth type="wide">
@@ -183,7 +184,9 @@ For example, most country locales will inherit the bulk of their data from the l
                 </monthContext>
               </months>
               <days>
+                <default type="format"/>
                 <dayContext type="format">
+                    <default type="wide"/>
                     <dayWidth type="wide">
                         <day type="sun">Sunday</day>
                         <day type="mon">Monday</day>

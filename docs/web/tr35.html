@@ -3487,8 +3487,22 @@ root</pre>
     &quot;#,##,##0&quot;, and the number 123456789 is formatted as &quot;12,34,56,789&quot;. If a pattern contains 
     multiple grouping separators, the interval between the last one and the end of the integer 
     defines the primary grouping size, and the interval between the last two defines the secondary 
-    grouping size. All others are ignored, so &quot;#,##,###,####&quot; == &quot;###,###,####&quot; == &quot;##,#,###,####&quot;.
-    </span></p>
+    grouping size. All others are ignored, so &quot;#,##,###,####&quot; == &quot;###,###,####&quot; == &quot;##,#,###,####&quot;.</span></p>
+    <p><span class="changed">When parsing using a number format, a more lenient parse should be used 
+    where possible. In particular, it should implement at least the following rules.</span></p>
+    <blockquote>
+      <ul type="disc">
+        <li><span class="changedspan">if the separator is a NO BREAK SPACE, all input whitespace is 
+        treated as<br>
+        matching</span></li>
+        <li><span class="changedspan">if the separator is an apostrophe (curly or straight), all 
+        input apostrophes<br>
+        are treated as matching</span></li>
+        <li><span class="changedspan">if the separator has a fullwidth or halfwidth equivalent, that 
+        is treated as<br>
+        matching.</span></li>
+      </ul>
+    </blockquote>
     <h4><span class="changed">Formatting</span></h4>
     <p><span class="changed">Formatting is guided by several parameters, all of which can be 
     specified either using a pattern or using the API. The following description applies to formats 
@@ -3888,16 +3902,31 @@ root</pre>
   <p><span class="changed">For example, some of those pairs would be the following. Notice that the 
   first has the null string as element contents.</span></p>
   <ul>
-    <li><span class="changed">&lt;//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/identity/version[@number=&quot;1.1&quot;], 
-    &quot;&quot;&gt;</span></li>
-    <li><span class="changed">&lt;//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/localeDisplayNames</span><span class="changed">/languages/language[@type=&quot;</span><span class="changed">ar&quot;], 
-    &quot;</span><span class="changed">Αραβικά</span><span class="changed">&quot;&gt;</span></li>
+    <li><span class="changed"><b>&lt;</b>//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/identity/version[@number=&quot;1.1&quot;]<b>,
+    </b>&quot;&quot;<b>&gt;</b></span></li>
+    <li><span class="changed"><b>&lt;</b>//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/localeDisplayNames</span><span class="changed">/languages/language[@type=&quot;</span><span class="changed">ar&quot;]<b>,
+    </b>&quot;Αραβικά&quot;<b>&gt;</b></span></li>
   </ul>
   <blockquote>
     <p><b><span class="changed">Note:</span></b><span class="changed"> Rule elements are not 
     inherited from their parent locales. For example, all of the elements in a &lt;collation&gt; element 
     are part of the structure of the collation data itself. So everything in a &lt;collation&gt; element 
     is treated as a single lump of data, as far as inheritance is concerned.</span></p>
+    <p><span class="changed"><b>Note: </b>There is one other exception to this definition of element 
+    pairs. Certain elements are called <i>attribute-information</i> elements. They do not have 
+    element content; their information is carried in their attribute values. This is unlike the 
+    other elements, whose attributes are used to distinguish different types of data. For these 
+    elements, in terms of computing inheritance, the element pair consists of:the element chain 
+    minus the attributes in the final element and the value is the list of attributes for that final 
+    element. A list of these elements is found in <a href="#valid_attribute_values">Appendix K: 
+    Valid Attribute Values</a>.</span></p>
+    <p><span class="changedspan">Thus instead of the element pair being #1 below, it is #2:</span></p>
+    <ol>
+      <li><span class="changedspan"><b>&lt;</b>//ldml[@version=&quot;1.1&quot;]/dates/calendars/calendar[@type=&#39;gregorian&#39;]/week/weekendStart[@day=&#39;sun&#39;][@time=&#39;00:00&#39;]<b>,</b><br>
+      <b>&quot;&quot;&gt;</b></span></li>
+      <li><span class="changedspan"><b>&lt;</b>//ldml[@version=&quot;1.1&quot;]/dates/calendars/calendar[@type=&#39;gregorian&#39;]/week/weekendStart<b>,</b><br>
+      [@day=&#39;sun&#39;][@time=&#39;00:00&#39;]<b>&gt;</b></span></li>
+    </ol>
   </blockquote>
   <p><span class="changed">Two </span><span class="changed">LDML</span><span class="changed"> 
   element chains are </span><i><span class="changed">equivalent</span></i><span class="changed"> 
@@ -4253,10 +4282,12 @@ root</pre>
   <h2>&nbsp;</h2>
   <h2><span class="changedspan"><a name="valid_attribute_values"></a>Appendix K: Valid Attribute 
   Values</span></h2>
-  <p><span class="changedspan">The following provides a list of valid tags, for all elements except 
-  collation &lt;rules&gt; and its children. For currency codes, this list only includes the ISO 4217 
-  currency codes; however, there are other codes in common use that may occur in LDML data. A 
+  <p><span class="changedspan">The following list provides a list of valid tags, for all elements 
+  except collation &lt;rules&gt; and its children. For currency codes, this list only includes the ISO 
+  4217 currency codes; however, there are other codes in common use that may occur in LDML data. A 
   definitive list will be provided in the future.</span></p>
+  <p><span class="changedspan">In addition, data marked draft=&quot;true&quot; may use attribute values that 
+  are not in the following list, to allow for proposed additions, such as new variant codes.</span></p>
   <table>
     <tr>
       <th><span class="changedspan">Element</span></th>
@@ -4518,7 +4549,7 @@ root</pre>
       <!-- 1, 1-->
       <td><span class="changedspan">version</span></td>
       <!-- 1-->
-      <td><span class="changedspan">&quot;1.2&quot;</span></td>
+      <td><span class="changedspan">&quot;1.0&quot;, &quot;1.1&quot;, &quot;1.2&quot;</span></td>
     </tr>
     <tr>
       <td rowSpan="2"><span class="changedspan">mapping</span></td>
@@ -4874,7 +4905,21 @@ root</pre>
       &quot;Pacific/Truk&quot;, &quot;Pacific/Wake&quot;, &quot;Pacific/Wallis&quot;, &quot;Pacific/Yap&quot;</span></td>
     </tr>
   </table>
-  <p>&nbsp;</p>
+  <p><span class="changedspan">The following lists the <i>attribute-information</i> elements, used 
+  and discussed in </span><span class="changed"><a href="#Inheritance_and_Validity">Appendix I: 
+  Inheritance and Validity</a>.</span></p>
+  <ul>
+    <li><span class="changedspan">alias</span></li>
+    <li><span class="changedspan">default</span></li>
+    <li><span class="changedspan">firstDay</span></li>
+    <li><span class="changedspan">mapping</span></li>
+    <li><span class="changedspan">measurementSystem</span></li>
+    <li><span class="changedspan">minDays</span></li>
+    <li><span class="changedspan">orientation</span></li>
+    <li><span class="changedspan">settings</span></li>
+    <li><span class="changedspan">weekendStart</span></li>
+    <li><span class="changedspan">weekendEnd</span></li>
+  </ul>
   <h2><a name="References">References</a></h2>
   <table style="border-collapse: collapse; border-width: 1; " cellpadding="4" cellspacing="0" class="noborder" border="0">
     <tr>
@@ -5209,6 +5254,10 @@ root</pre>
           syntax in Appendix I. Named the &#39;rule&#39; vs. &#39;structure&#39; elements to clarify inheritance. 
           Fixed list of attributes that are ignored in comparing element chains.</span></span></li>
           <li><span class="changedspan"><span style="background-color: #FFFF00">Added DTD fragments</span></span></li>
+          <li><span class="changedspan"><span style="background-color: #FFFF00">Added notes to 
+          Appendix K</span></span></li>
+          <li><span class="changedspan"><span style="background-color: #FFFF00">Added list of 
+          attribute-information elements to Appendix K and I.</span></span></li>
         </ul>
         </li>
       </ul>

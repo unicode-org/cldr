@@ -47,10 +47,10 @@ COLLATION_PATHS=$(COLLATION_SOURCE:%.txt=$(COLSRCDIR)/%.txt)
 #	( cd $L/common/main ; ls *.xml | grep -v root | fgrep -v supplemental | sed -e s%xml%txt% | tr '\012' ' ' ) >> $@
 
 $(LOCSRCDIR)/%.txt: $(L)/common/main/%.xml
-	$(LDML_CONVERTER) $(CONVOPTS) $(<F) || $(RMV) $@
+	$(LDML_CONVERTER) $(CONVOPTS) $(<F) || ($(RMV) $@;false)
 
 $(COLSRCDIR)/%.txt: $(L)/common/collation/%.xml
-	$(LDML_CONVERTER) $(CONVOPTS_COL) $(<F) || $(RMV) $@
+	$(LDML_CONVERTER) $(CONVOPTS_COL) $(<F) || ($(RMV) $@;false)
 
 # use the following two to clean up just the lists, or the whole deal.
 cldr-clean-lists:
@@ -70,11 +70,11 @@ cldr-lists:  coll/colfiles.mk locales/resfiles.mk
 
 # $(L)/common/main $(L)/icu/main
 $(GENRB_SYNTHETIC_PATHS) $(LOCSRCDIR)/resfiles.mk: $(L)/icu/deprecatedList.xml 
-	$(LDML_CONVERTER) $(CONVOPTS) -w $(L)/common/main
+	$(LDML_CONVERTER) $(CONVOPTS) -w $(L)/common/main  || ($(RMV) $@;false)
 
 #$(L)/common/collation $(L)/icu/collation
 $(COLLATION_SYNTHETIC_PATHS) $(COLSRCDIR)/colfiles.mk: $(L)/icu/deprecatedList.xml 
-	$(LDML_CONVERTER) $(CONVOPTS_COL) -w $(L)/common/collation
+	$(LDML_CONVERTER) $(CONVOPTS_COL) -w $(L)/common/collation || ($(RMV) $@;false)
 #endif
 #endif
 #endif

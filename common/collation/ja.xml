@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1"/>
-		<generation date="2004-06-01" />
+		<version number="1.1.1"/>
+		<generation date="2004-06-28" />
 		<language type="ja" /> 
 	</identity>
 	<collations>
@@ -266,14 +266,6 @@
 				<i>&lt;context&gt;ぅ&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ヴ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ゔ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ウ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ｳ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;う&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ゥ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ｩ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ぅ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ヴ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ゔ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">エ</reset>
 				<t>&lt;context&gt;エ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ｴ&lt;/context&gt;ヽ</i>
@@ -302,22 +294,12 @@
 				<i>&lt;context&gt;き&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ギ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ぎ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;キ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ｷ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;き&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ギ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ぎ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">ク</reset>
 				<t>&lt;context&gt;ク&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ｸ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;く&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;グ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ぐ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ク&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ｸ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;く&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;グ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ぐ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">ケ</reset>
 				<t>&lt;context&gt;ケ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ｹ&lt;/context&gt;ヽ</i>
@@ -332,88 +314,48 @@
 				<i>&lt;context&gt;こ&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ゴ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ご&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;コ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ｺ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;こ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ゴ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ご&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">サ</reset>
 				<t>&lt;context&gt;サ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ｻ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;さ&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ザ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ざ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;サ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ｻ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;さ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ザ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ざ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">シ</reset>
 				<t>&lt;context&gt;シ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ｼ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;し&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ジ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;じ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;シ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ｼ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;し&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ジ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;じ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">ス</reset>
 				<t>&lt;context&gt;ス&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ｽ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;す&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ズ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ず&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ス&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ｽ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;す&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ズ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ず&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">セ</reset>
 				<t>&lt;context&gt;セ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ｾ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;せ&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ゼ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ぜ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;セ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ｾ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;せ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ゼ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ぜ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">ソ</reset>
 				<t>&lt;context&gt;ソ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ｿ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;そ&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ゾ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ぞ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ソ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ｿ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;そ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ゾ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ぞ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">タ</reset>
 				<t>&lt;context&gt;タ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ﾀ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;た&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ダ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;だ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;タ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ﾀ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;た&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ダ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;だ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">チ</reset>
 				<t>&lt;context&gt;チ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ﾁ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ち&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ヂ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ぢ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;チ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ﾁ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ち&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ヂ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ぢ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">ツ</reset>
 				<t>&lt;context&gt;ツ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ﾂ&lt;/context&gt;ヽ</i>
@@ -423,42 +365,21 @@
 				<i>&lt;context&gt;っ&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ヅ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;づ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ツ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ﾂ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;つ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ヅ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;づ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<i>&lt;context&gt;ツ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ﾂ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;つ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ッ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ｯ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;っ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ツ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ﾂ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;つ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">テ</reset>
 				<t>&lt;context&gt;テ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ﾃ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;て&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;デ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;で&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;テ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ﾃ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;て&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;デ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;で&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">ト</reset>
 				<t>&lt;context&gt;ト&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ﾄ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;と&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ド&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ど&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ト&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ﾄ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;と&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ド&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ど&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">ナ</reset>
 				<t>&lt;context&gt;ナ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ﾅ&lt;/context&gt;ヽ</i>
@@ -485,75 +406,40 @@
 				<i>&lt;context&gt;は&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;バ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ば&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ハ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ﾊ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;は&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;バ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ば&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<i>&lt;context&gt;パ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ぱ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;パ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ぱ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">ヒ</reset>
 				<t>&lt;context&gt;ヒ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ﾋ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ひ&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ビ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;び&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ヒ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ﾋ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ひ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ビ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;び&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<i>&lt;context&gt;ピ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ぴ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ピ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ぴ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">フ</reset>
 				<t>&lt;context&gt;フ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ﾌ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ふ&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ブ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ぶ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;フ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ﾌ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ふ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ブ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ぶ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<i>&lt;context&gt;プ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ぷ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;プ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ぷ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">ヘ</reset>
 				<t>&lt;context&gt;ヘ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ﾍ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;へ&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ベ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;べ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ヘ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ﾍ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;へ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ベ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;べ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<i>&lt;context&gt;ペ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ぺ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ペ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ぺ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">ホ</reset>
 				<t>&lt;context&gt;ホ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ﾎ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ほ&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ボ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ぼ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ホ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ﾎ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ほ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ボ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ぼ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<i>&lt;context&gt;ポ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ぽ&lt;/context&gt;ゝ</i>
-				<x><p>&lt;context&gt;ポ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ぽ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">マ</reset>
 				<t>&lt;context&gt;マ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ﾏ&lt;/context&gt;ヽ</i>
@@ -622,35 +508,19 @@
 				<i>&lt;context&gt;ヮ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;ゎ&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ヷ&lt;/context&gt;ヽ</i>
-				<x><p>&lt;context&gt;ワ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ﾜ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;わ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ヷ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ヮ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ゎ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
 				<reset before="tertiary">ヰ</reset>
 				<t>&lt;context&gt;ヰ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ゐ&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ヸ&lt;/context&gt;ヽ</i>
-				<x><p>&lt;context&gt;ヰ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ゐ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ヸ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
 				<reset before="tertiary">ヱ</reset>
 				<t>&lt;context&gt;ヱ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ゑ&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ヹ&lt;/context&gt;ヽ</i>
-				<x><p>&lt;context&gt;ヱ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ゑ&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ヹ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
 				<reset before="tertiary">ヲ</reset>
 				<t>&lt;context&gt;ヲ&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ｦ&lt;/context&gt;ヽ</i>
 				<i>&lt;context&gt;を&lt;/context&gt;ゝ</i>
 				<i>&lt;context&gt;ヺ&lt;/context&gt;ヽ</i>
-				<x><p>&lt;context&gt;ヲ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ｦ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;を&lt;/context&gt;ゞ</p><extend>゙</extend></x>
-				<x><p>&lt;context&gt;ヺ&lt;/context&gt;ヾ</p><extend>゙</extend></x>
 				<reset before="tertiary">ン</reset>
 				<t>&lt;context&gt;ン&lt;/context&gt;ヽ</t>
 				<i>&lt;context&gt;ﾝ&lt;/context&gt;ヽ</i>

@@ -619,6 +619,9 @@ void GenerateXML::writeTable(const char* key, const char* resMain, const char* r
 				ResourceBundle delta1 = rootDelta.getNext(mError);
 				const char* mykey = delta1.getKey();
 				UnicodeString string = dBundle.getStringEx(mykey, mError);
+                if(strcmp(mykey, "Fallback") == 0){
+                    continue;
+                }
 				if(fallbackName.length() > 0 && 
                     (mError == U_MISSING_RESOURCE_ERROR)){
 					// explicit fallback is set 
@@ -2632,15 +2635,15 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 							}
 							if(count <= 1){
 								//xmlString.append(formatString(mStringsBundle.getStringEx(singleKey,mError),args,2,t));
-                                writeCollation(args[1].getString(),xmlString, singleKey);
+                                writeCollation(args[1].getString(),xmlString, prevStrength, singleKey);
 
 							}else{
 								//xmlString.append(formatString(mStringsBundle.getStringEx(seqKey,mError),args,2,t));
-							    writeCollation(args[1].getString(),xmlString, seqKey);
+							    writeCollation(args[1].getString(),xmlString, prevStrength, seqKey);
                             }
-                            if(src.current== src.end){
-                                break;
-                            }
+                            //if(src.current== src.end){
+                            //    break;
+                            //}
                           
 						}
                         //reset
@@ -2671,19 +2674,41 @@ UnicodeString GenerateXML::parseRules(UChar* rules, int32_t ruleLen, UnicodeStri
 	free(src.chars);
 	return xmlString;
 }
-void GenerateXML::writeCollation(UnicodeString& src, UnicodeString &xmlString, const char* keyName){
+void GenerateXML::writeCollation(UnicodeString& src, UnicodeString &xmlString,uint32_t prevStrength, const char* keyName){
     int i =src.indexOf("</context>");
     Formattable args[] = { indentOffset ,"" , ""};
     UnicodeString t,temp;
     
     int32_t index = src.indexOf((UChar) UCOL_TOK_EXPANSION_MARKER);
     if(index>0 && i<0){
+        UnicodeString prepend;
+        UnicodeString append;
+        switch(prevStrength){
+            case UCOL_PRIMARY:
+                 prepend = "<x><p>";
+                 append = "</p><extend>";
+                 break;
+            case UCOL_SECONDARY:
+                 prepend = "<x><s>";
+                 append = "</s><extend>";
+                 break;
+            case UCOL_TERTIARY:
+                 prepend = "<x><t>";
+                 append = "</t><extend>";
+                 break;
+            case UCOL_QUATERNARY:
+                 prepend = "<x><p>";
+                 append = "</p><extend>";
+                 break;
+            default:
+                return;
+        }
        // & c < k / h
        // <x><p>k</p> <extend>h</extend></x>
        //
        src.remove(index,1); // remove forward slash
-       src.insert(index, "</p><extend>");
-       src.insert(0,"<x><p>");
+       src.insert(index, append);
+       src.insert(0,prepend);
        src.append("</extend></x>\n");
        src.insert(0, indentOffset);
        temp.append(src);

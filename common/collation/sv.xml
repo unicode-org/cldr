@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1"/>
-		<generation date="2004-06-01" />
+		<version number="1.1.1"/>
+		<generation date="2004-06-28" />
 		<language type="sv" /> 
 	</identity>
 	<collations>
@@ -15,9 +15,9 @@
 				<s>ð</s>
 				<t>Ð</t>
 				<reset>t</reset>
-				<x><p>þ</p><extend>h</extend></x>
+				<x><t>þ</t><extend>h</extend></x>
 				<reset>T</reset>
-				<x><p>Þ</p><extend>H</extend></x>
+				<x><t>Þ</t><extend>H</extend></x>
 				<reset>v</reset>
 				<t>w</t>
 				<reset>V</reset>
@@ -45,6 +45,7 @@
 				<s>œ</s>
 				<t>Œ</t>
 				<s>ô</s>
+				<t>Ô</t>
 			</rules>
 		</collation  >
 	</collations>

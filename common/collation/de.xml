@@ -2,35 +2,35 @@
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1"/>
-		<generation date="2004-06-01" />
+		<version number="1.1.1"/>
+		<generation date="2004-06-28" />
 		<language type="de" /> 
 	</identity>
 	<collations>
 		<collation type="phonebook" >
 			<rules>
 				<reset>a</reset>
-				<x><p>æ</p><extend>e</extend></x>
-				<x><p>ä</p><extend>e</extend></x>
+				<x><s>æ</s><extend>e</extend></x>
+				<x><s>ä</s><extend>e</extend></x>
 				<reset>A</reset>
-				<x><p>Æ</p><extend>E</extend></x>
-				<x><p>Ä</p><extend>E</extend></x>
+				<x><s>Æ</s><extend>E</extend></x>
+				<x><s>Ä</s><extend>E</extend></x>
 				<reset>œ</reset>
-				<x><p>ö</p><extend>e</extend></x>
+				<x><s>ö</s><extend>e</extend></x>
 				<reset>Œ</reset>
-				<x><p>Ö</p><extend>E</extend></x>
+				<x><s>Ö</s><extend>E</extend></x>
 				<reset>u</reset>
-				<x><p>ü</p><extend>e</extend></x>
+				<x><s>ü</s><extend>e</extend></x>
 				<reset>U</reset>
-				<x><p>Ü</p><extend>E</extend></x>
+				<x><s>Ü</s><extend>E</extend></x>
 			</rules>
 		</collation  >
 		<collation type="standard" >
 			<rules>
 				<reset>A</reset>
-				<x><p>Æ</p><extend>E</extend></x>
+				<x><s>Æ</s><extend>E</extend></x>
 				<reset>a</reset>
-				<x><p>æ</p><extend>e</extend></x>
+				<x><s>æ</s><extend>e</extend></x>
 			</rules>
 		</collation  >
 	</collations>

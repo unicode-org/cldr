@@ -61,15 +61,22 @@ if (@ARGV) {
     @list = grep{/\.txt$/} readdir(DIR);
     closedir(DIR);
 }
-resify("root.txt");
-ldmlify("root");
 
-# now convert
+# creating res files and LDML files 
+# cannot be combined in one step
+# since there may be dependencies while building
+# the res files which may not be resolved until
+# all files are built
+
+# Step 1: create *.res files
 foreach $item (@list){
-    next if($item eq "." || $item eq ".." || $item eq "root.txt");
-
+    next if($item eq "." || $item eq "..");
     resify($item) unless defined $ldmlOnly;
+}
 
+# Step 2:  create *.xml files
+foreach $item (@list){
+    next if($item eq "." || $item eq ".." );
     $txt = $item;;
     $txt =~ s/\.txt$//i;
     ldmlify($txt);

@@ -2,8 +2,8 @@
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.1"/>
-		<generation date="2004-06-01" />
+		<version number="1.1.1"/>
+		<generation date="2004-06-28" />
 		<language type="fr" /> 
 	</identity>
 	<collations>
@@ -11,9 +11,9 @@
 			<settings backwards="on"  />
 			<rules>
 				<reset>A</reset>
-				<x><p>Æ</p><extend>E</extend></x>
+				<x><s>Æ</s><extend>E</extend></x>
 				<reset>a</reset>
-				<x><p>æ</p><extend>e</extend></x>
+				<x><s>æ</s><extend>e</extend></x>
 			</rules>
 		</collation  >
 	</collations>

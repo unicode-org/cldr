@@ -198,7 +198,7 @@ private:
 
 	void writeCollation(ResourceBundle& bundle, UnicodeString& xmlString,UnicodeString* collKey=NULL);
     
-    void writeCollation(UnicodeString& src, UnicodeString &xmlString, const char* keyName);
+    void writeCollation(UnicodeString& src, UnicodeString &xmlString, uint32_t prevStrength, const char* keyName);
 
     void writeBase(UnicodeString& xmlString);
 

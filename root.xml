@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd">
-<ldml>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd">
+<ldml draft="true">
 	<identity>
-		<version number="5.0"/>
-		<generation date="2004-05-14" />
+		<version number="1.1"/>
+		<generation date="2004-05-27" />
 		<language type="" /> 
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="Fallback"></language>
 			<language type="aa">aa</language>
 			<language type="ab">ab</language>
 			<language type="ace">ace</language>
@@ -611,7 +610,6 @@
 			<territory type="FM">FM</territory>
 			<territory type="FO">FO</territory>
 			<territory type="FR">FR</territory>
-			<territory type="Fallback"></territory>
 			<territory type="GA">GA</territory>
 			<territory type="GB">GB</territory>
 			<territory type="GD">GD</territory>
@@ -782,7 +780,6 @@
 			<territory type="ZW">ZW</territory>
 		</territories>
 		<variants>
-			<variant type="Fallback"></variant>
 			<variant type="POSIX">POSIX</variant>
 			<variant type="REVISED">REVISED</variant>
 		</variants>
@@ -792,15 +789,13 @@
 			<key type="currency">CURRENCY</key>
 		</keys>
 		<types>
-			<type type="Fallback" key="calendar"></type>
-			<type type="arabic" key="calendar">ARABIC</type>
-			<type type="arabic-civil" key="calendar">ARABIC-CIVIL</type>
 			<type type="buddhist" key="calendar">BUDDHIST</type>
 			<type type="chinese" key="calendar">CHINESE</type>
 			<type type="gregorian" key="calendar">GREGORIAN</type>
 			<type type="hebrew" key="calendar">HEBREW</type>
+			<type type="islamic" key="calendar">ISLAMIC</type>
+			<type type="islamic-civil" key="calendar">ISLAMIC-CIVIL</type>
 			<type type="japanese" key="calendar">JAPANESE</type>
-			<type type="Fallback" key="collation"></type>
 			<type type="direct" key="collation">DIRECT</type>
 			<type type="phonebook" key="collation">PHONEBOOK</type>
 			<type type="pinyin" key="collation">PINYIN</type>
@@ -824,92 +819,6 @@
 	<dates>
 		<localizedPatternChars>GyMdkHmsSEDFwWahKzYeugAZ</localizedPatternChars>
 		<calendars>
-			<calendar type="arabic">
-				<months>
-					<default type="default"/>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">Muharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabi' I</month>
-							<month type="4">Rabi' II</month>
-							<month type="5">Jumada I</month>
-							<month type="6">Jumada II</month>
-							<month type="7">Rajab</month>
-							<month type="8">Sha'ban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Shawwal</month>
-							<month type="11">Dhu'l-Qi'dah</month>
-							<month type="12">Dhu'l-Hijjah</month>
-						</monthWidth>
-						<monthWidth type="default">
-							<month type="1">wide</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Muharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabi' I</month>
-							<month type="4">Rabi' II</month>
-							<month type="5">Jumada I</month>
-							<month type="6">Jumada II</month>
-							<month type="7">Rajab</month>
-							<month type="8">Sha'ban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Shawwal</month>
-							<month type="11">Dhu'l-Qi'dah</month>
-							<month type="12">Dhu'l-Hijjah</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<eras>
-					<eraAbbr>
-						<era type="1">AH</era>
-					</eraAbbr>
-				</eras>
-			</calendar>
-			<calendar type="arabic-civil">
-				<months>
-					<default type="default"/>
-					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="1">Muharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabi' I</month>
-							<month type="4">Rabi' II</month>
-							<month type="5">Jumada I</month>
-							<month type="6">Jumada II</month>
-							<month type="7">Rajab</month>
-							<month type="8">Sha'ban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Shawwal</month>
-							<month type="11">Dhu'l-Qi'dah</month>
-							<month type="12">Dhu'l-Hijjah</month>
-						</monthWidth>
-						<monthWidth type="default">
-							<month type="1">wide</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1">Muharram</month>
-							<month type="2">Safar</month>
-							<month type="3">Rabi' I</month>
-							<month type="4">Rabi' II</month>
-							<month type="5">Jumada I</month>
-							<month type="6">Jumada II</month>
-							<month type="7">Rajab</month>
-							<month type="8">Sha'ban</month>
-							<month type="9">Ramadan</month>
-							<month type="10">Shawwal</month>
-							<month type="11">Dhu'l-Qi'dah</month>
-							<month type="12">Dhu'l-Hijjah</month>
-						</monthWidth>
-					</monthContext>
-				</months>
-				<eras>
-					<eraAbbr>
-						<era type="1">AH</era>
-					</eraAbbr>
-				</eras>
-			</calendar>
 			<calendar type="buddhist">
 				<eras>
 					<eraAbbr>
@@ -970,10 +879,66 @@
 					</dateTimeFormatLength >
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="chinese">
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>EEEE y'x'G-Ml-d</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>y'x'G-Ml-d</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>y'x'G-Ml-d</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>y'x'G-Ml-d</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>h:mm:ss a z</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>h:mm:ss a z</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>h:mm:ss a</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>h:mm a</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
-					<default type="default"/>
+					<default type="format"/>
 					<monthContext type="format">
+						<default type="wide"/>
 						<monthWidth type="abbreviated">
 							<month type="1">1</month>
 							<month type="2">2</month>
@@ -987,9 +952,6 @@
 							<month type="10">10</month>
 							<month type="11">11</month>
 							<month type="12">12</month>
-						</monthWidth>
-						<monthWidth type="default">
-							<month type="1">wide</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -1021,6 +983,7 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<default type="wide"/>
 						<monthWidth type="abbreviated">
 							<month type="1">1</month>
 							<month type="2">2</month>
@@ -1034,9 +997,6 @@
 							<month type="10">10</month>
 							<month type="11">11</month>
 							<month type="12">12</month>
-						</monthWidth>
-						<monthWidth type="default">
-							<month type="1">wide</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
@@ -1069,8 +1029,9 @@
 					</monthContext>
 				</months>
 				<days>
-					<default type="default"/>
+					<default type="format"/>
 					<dayContext type="format">
+						<default type="wide"/>
 						<dayWidth type="abbreviated">
 							<day type="sun">1</day>
 							<day type="mon">2</day>
@@ -1080,7 +1041,6 @@
 							<day type="fri">6</day>
 							<day type="sat">7</day>
 						</dayWidth>
-						<default type="default"/>
 						<dayWidth type="narrow">
 							<day type="sun">1</day>
 							<day type="mon">2</day>
@@ -1101,6 +1061,7 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
+						<default type="wide"/>
 						<dayWidth type="abbreviated">
 							<day type="sun">1</day>
 							<day type="mon">2</day>
@@ -1110,7 +1071,6 @@
 							<day type="fri">6</day>
 							<day type="sat">7</day>
 						</dayWidth>
-						<default type="default"/>
 						<dayWidth type="narrow">
 							<day type="sun">1</day>
 							<day type="mon">2</day>
@@ -1199,8 +1159,9 @@
 			</calendar>
 			<calendar type="hebrew">
 				<months>
-					<default type="default"/>
+					<default type="format"/>
 					<monthContext type="format">
+						<default type="wide"/>
 						<monthWidth type="abbreviated">
 							<month type="1">Tishri</month>
 							<month type="2">Heshvan</month>
@@ -1215,9 +1176,6 @@
 							<month type="11">Tamuz</month>
 							<month type="12">Av</month>
 							<month type="13">Elul</month>
-						</monthWidth>
-						<monthWidth type="default">
-							<month type="1">wide</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tishri</month>
@@ -1239,6 +1197,88 @@
 				<eras>
 					<eraAbbr>
 						<era type="1">AM</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
+			<calendar type="islamic">
+				<months>
+					<default type="format"/>
+					<monthContext type="format">
+						<default type="wide"/>
+						<monthWidth type="abbreviated">
+							<month type="1">Muharram</month>
+							<month type="2">Safar</month>
+							<month type="3">Rabiʻ I</month>
+							<month type="4">Rabiʻ II</month>
+							<month type="5">Jumada I</month>
+							<month type="6">Jumada II</month>
+							<month type="7">Rajab</month>
+							<month type="8">Shaʻban</month>
+							<month type="9">Ramadan</month>
+							<month type="10">Shawwal</month>
+							<month type="11">Dhuʻl-Qiʻdah</month>
+							<month type="12">Dhuʻl-Hijjah</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Muharram</month>
+							<month type="2">Safar</month>
+							<month type="3">Rabiʻ I</month>
+							<month type="4">Rabiʻ II</month>
+							<month type="5">Jumada I</month>
+							<month type="6">Jumada II</month>
+							<month type="7">Rajab</month>
+							<month type="8">Shaʻban</month>
+							<month type="9">Ramadan</month>
+							<month type="10">Shawwal</month>
+							<month type="11">Dhuʻl-Qiʻdah</month>
+							<month type="12">Dhuʻl-Hijjah</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraAbbr>
+						<era type="1">AH</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
+			<calendar type="islamic-civil">
+				<months>
+					<default type="format"/>
+					<monthContext type="format">
+						<default type="wide"/>
+						<monthWidth type="abbreviated">
+							<month type="1">Muharram</month>
+							<month type="2">Safar</month>
+							<month type="3">Rabiʻ I</month>
+							<month type="4">Rabiʻ II</month>
+							<month type="5">Jumada I</month>
+							<month type="6">Jumada II</month>
+							<month type="7">Rajab</month>
+							<month type="8">Shaʻban</month>
+							<month type="9">Ramadan</month>
+							<month type="10">Shawwal</month>
+							<month type="11">Dhuʻl-Qiʻdah</month>
+							<month type="12">Dhuʻl-Hijjah</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Muharram</month>
+							<month type="2">Safar</month>
+							<month type="3">Rabiʻ I</month>
+							<month type="4">Rabiʻ II</month>
+							<month type="5">Jumada I</month>
+							<month type="6">Jumada II</month>
+							<month type="7">Rajab</month>
+							<month type="8">Shaʻban</month>
+							<month type="9">Ramadan</month>
+							<month type="10">Shawwal</month>
+							<month type="11">Dhuʻl-Qiʻdah</month>
+							<month type="12">Dhuʻl-Hijjah</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraAbbr>
+						<era type="1">AH</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -1615,10 +1655,6 @@
 			<currency type="JPY">
 				<displayName>JPY</displayName>
 				<symbol>¥</symbol>
-			</currency>
-			<currency type="PTE">
-				<displayName>Escudo</displayName>
-				<symbol>Esc.</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>USD</displayName>

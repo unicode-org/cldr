@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
+		<version number="1.3"/>
 		<generation date="2004-08-27"/>
 		<language type="root"/>
 	</identity>
@@ -735,6 +735,15 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
+			<abbreviationFallback type="standard"/>
+			<preferenceOrdering type="America/Mexico_City America/Chihuahua America/New_York"/>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols>

@@ -1,327 +1,152 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 15:59:22 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="GB" />
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<patterns> 
-				<time>
-					<full>hh:mm:ss aa</full>
-					<long>hh:mm:ss aa</long>
-					<medium>hh:mm:ss aa</medium>
-					<short>hh:mm:ss aa</short>
-				</time>
-				<date>
-					<full>EEE. dd MMM, yyyy </full>
-					<long>EEE. dd MMM, yyyy hh:mm:ss aa</long>
-					<medium>EEE. dd MMM, yyyy</medium>
-					<short>EEE. dd MMM, yyyy</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal>#,##0.###;-#,##0.###</decimal>
-			<percent>#,##0%</percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="GBP" default="true">
-			<symbol>-£</symbol>
-			<name>GBP</name>
-			<decimal>.</decimal>
-			<pattern>¤#,##0.00;-¤#,##0.00</pattern>
-		</currency>
-	</currencies>
-	<collation version="0.0" accentOrder="FORWARD" override="TRUE">
-		<collationElements>
-		<after> </after>
-		<gt1> </gt1>
-		<gt1>0</gt1>
-		<gt1>1</gt1>
-		<gt1>2</gt1>
-		<gt1>3</gt1>
-		<gt1>4</gt1>
-		<gt1>5</gt1>
-		<gt1>6</gt1>
-		<gt1>7</gt1>
-		<gt1>8</gt1>
-		<gt1>9</gt1>
-		<gt1>A</gt1>
-		<gt2>a</gt2>
-		<gt2>Á</gt2>
-		<gt2>á</gt2>
-		<gt2>À</gt2>
-		<gt2>à</gt2>
-		<gt2>Â</gt2>
-		<gt2>â</gt2>
-		<gt2>Ä</gt2>
-		<gt2>ä</gt2>
-		<gt2>Å</gt2>
-		<gt2>å</gt2>
-		<gt2>Ã</gt2>
-		<gt2>ã</gt2>
-		<gt1>B</gt1>
-		<gt2>b</gt2>
-		<gt1>C</gt1>
-		<gt2>c</gt2>
-		<gt2>Ç</gt2>
-		<gt2>ç</gt2>
-		<gt1>D</gt1>
-		<gt2>d</gt2>
-		<gt2>Ð</gt2>
-		<gt2>ð</gt2>
-		<gt1>E</gt1>
-		<gt2>e</gt2>
-		<gt2>É</gt2>
-		<gt2>é</gt2>
-		<gt2>È</gt2>
-		<gt2>è</gt2>
-		<gt2>Ê</gt2>
-		<gt2>ê</gt2>
-		<gt2>Ë</gt2>
-		<gt2>ë</gt2>
-		<gt1>F</gt1>
-		<gt2>f</gt2>
-		<gt1>G</gt1>
-		<gt2>g</gt2>
-		<gt1>H</gt1>
-		<gt2>h</gt2>
-		<gt1>I</gt1>
-		<gt2>i</gt2>
-		<gt2>Í</gt2>
-		<gt2>í</gt2>
-		<gt2>Ì</gt2>
-		<gt2>ì</gt2>
-		<gt2>Î</gt2>
-		<gt2>î</gt2>
-		<gt2>Ï</gt2>
-		<gt2>ï</gt2>
-		<gt1>J</gt1>
-		<gt2>j</gt2>
-		<gt1>K</gt1>
-		<gt2>k</gt2>
-		<gt1>L</gt1>
-		<gt2>l</gt2>
-		<gt1>M</gt1>
-		<gt2>m</gt2>
-		<gt1>N</gt1>
-		<gt2>n</gt2>
-		<gt2>Ñ</gt2>
-		<gt2>ñ</gt2>
-		<gt1>O</gt1>
-		<gt2>o</gt2>
-		<gt2>Ó</gt2>
-		<gt2>ó</gt2>
-		<gt2>Ò</gt2>
-		<gt2>ò</gt2>
-		<gt2>Ô</gt2>
-		<gt2>ô</gt2>
-		<gt2>Ö</gt2>
-		<gt2>ö</gt2>
-		<gt2>Õ</gt2>
-		<gt2>õ</gt2>
-		<gt2>Ø</gt2>
-		<gt2>ø</gt2>
-		<gt1>P</gt1>
-		<gt2>p</gt2>
-		<gt1>Q</gt1>
-		<gt2>q</gt2>
-		<gt1>R</gt1>
-		<gt2>r</gt2>
-		<gt1>S</gt1>
-		<gt2>s</gt2>
-		<gt2>Š</gt2>
-		<gt2>š</gt2>
-		<gt1>T</gt1>
-		<gt2>t</gt2>
-		<gt1>U</gt1>
-		<gt2>u</gt2>
-		<gt2>Ú</gt2>
-		<gt2>ú</gt2>
-		<gt2>Ù</gt2>
-		<gt2>ù</gt2>
-		<gt2>Û</gt2>
-		<gt2>û</gt2>
-		<gt2>Ü</gt2>
-		<gt2>ü</gt2>
-		<gt1>V</gt1>
-		<gt2>v</gt2>
-		<gt1>W</gt1>
-		<gt2>w</gt2>
-		<gt1>X</gt1>
-		<gt2>x</gt2>
-		<gt1>Y</gt1>
-		<gt2>y</gt2>
-		<gt2>Ý</gt2>
-		<gt2>ý</gt2>
-		<gt2>Ÿ</gt2>
-		<gt2>ÿ</gt2>
-		<gt1>Z</gt1>
-		<gt2>z</gt2>
-		<gt2>Ž</gt2>
-		<gt2>ž</gt2>
-		<gt1>Þ</gt1>
-		<gt2>þ</gt2>
-		<gt1>(</gt1>
-		<gt1>)</gt1>
-		<gt1>[</gt1>
-		<gt1>]</gt1>
-		<gt1>{</gt1>
-		<gt1>}</gt1>
-		<gt1>«</gt1>
-		<gt1>»</gt1>
-		<gt1>&lt;</gt1>
-		<gt1>&gt;</gt1>
-		<gt1>`</gt1>
-		<gt1>'</gt1>
-		<gt1>=</gt1>
-		<gt1>+</gt1>
-		<gt1>-</gt1>
-		<gt1>×</gt1>
-		<gt1>÷</gt1>
-		<gt1>±</gt1>
-		<gt1>¬</gt1>
-		<gt1>¼</gt1>
-		<gt1>½</gt1>
-		<gt1>¾</gt1>
-		<gt1>*</gt1>
-		<gt1>.</gt1>
-		<gt1>,</gt1>
-		<gt1>;</gt1>
-		<gt1>:</gt1>
-		<gt1>&quot;</gt1>
-		<gt1>¿</gt1>
-		<gt1>?</gt1>
-		<gt1>¡</gt1>
-		<gt1>!</gt1>
-		<gt1>/</gt1>
-		<gt1>\</gt1>
-		<gt1>|</gt1>
-		<gt1>¦</gt1>
-		<gt1>¶</gt1>
-		<gt1>§</gt1>
-		<gt1>@</gt1>
-		<gt1>&amp;</gt1>
-		<gt1>°</gt1>
-		<gt1>%</gt1>
-		<gt1>#</gt1>
-		<gt1>$</gt1>
-		<gt1>¢</gt1>
-		<gt1>£</gt1>
-		<gt1>₤</gt1>
-		<gt1>¥</gt1>
-		<gt1>ƒ</gt1>
-		<gt1>¤</gt1>
-		<gt1>μ</gt1>
-		<gt1>^</gt1>
-		<gt1>~</gt1>
-		<gt1>´</gt1>
-		<gt1>¨</gt1>
-		<gt1>¸</gt1>
-		<gt1>·</gt1>
-		<gt1>¯</gt1>
-		<gt1>_</gt1>
-		<gt1>―</gt1>
-		<gt1>­</gt1>
-		<gt1>ª</gt1>
-		<gt1>º</gt1>
-		<gt1>█</gt1>
-		<gt1>¹</gt1>
-		<gt1>²</gt1>
-		<gt1>³</gt1>
-		<gt1>©</gt1>
-		<gt1>®</gt1>
-		<gt1></gt1>
-		<gt1>\u0001</gt1>
-		<gt1>\u0002</gt1>
-		<gt1>\u0003</gt1>
-		<gt1>\u0004</gt1>
-		<gt1>\u0005</gt1>
-		<gt1>\u0006</gt1>
-		<gt1>\u0007</gt1>
-		<gt1>\u0008</gt1>
-		<gt1>\u0009</gt1>
-		<gt1>\u000A</gt1>
-		<gt1>\u000B</gt1>
-		<gt1>\u000C</gt1>
-		<gt1>\u000D</gt1>
-		<gt1>\u000E</gt1>
-		<gt1>\u000F</gt1>
-		<gt1>\u0010</gt1>
-		<gt1>\u0011</gt1>
-		<gt1>\u0012</gt1>
-		<gt1>\u0013</gt1>
-		<gt1>\u0014</gt1>
-		<gt1>\u0015</gt1>
-		<gt1>\u0016</gt1>
-		<gt1>\u0017</gt1>
-		<gt1>\u0018</gt1>
-		<gt1>\u0019</gt1>
-		<gt1>\u001A</gt1>
-		<gt1>\u001B</gt1>
-		<gt1>\u001C</gt1>
-		<gt1>\u001D</gt1>
-		<gt1>\u001E</gt1>
-		<gt1>\u001F</gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<after>Aã</after>
-		<gt3>Æ</gt3>
-		<after>aã</after>
-		<gt3>æ</gt3>
-		<after>Oø</after>
-		<gt3>Œ</gt3>
-		<after>oø</after>
-		<gt3>œ</gt3>
-		<after>Sš</after>
-		<gt3>ß</gt3>
-		</collationElements>
-	</collation>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="en"></language>
+		<territory type="GBR">GB</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>EEE. dd MMM, yyyy </pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>EEE. dd MMM, yyyy hh:mm:ss aa</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>EEE. dd MMM, yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>EEE. dd MMM, yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+					<pattern>#,##0.###</pattern>
+					<pattern>-#,##0.###</pattern>
+				</numberFormat>
+				<numberFormat type="currency">
+					<pattern>¤#,##0.00</pattern>
+					<pattern>-¤#,##0.00</pattern>
+				</numberFormat>
+				<numberFormat type="percent">
+					<pattern>#,##0%</pattern>
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="GBP"/>
+				<currency type="GBP">
+					<symbol>-£</symbol>
+					<displayName>GBP</displayName>
+					<decimal>.</decimal>
+				</currency>
+			</currencies>
+		</numbers>
+		<collations>
+			<collation  >
+				<rules>
+					<reset> </reset>
+					<pc>0123456789A</pc>
+					<sc>aÁáÀàÂâÄäÅåÃã</sc>
+					<p>B</p>
+					<s>b</s>
+					<p>C</p>
+					<sc>cÇç</sc>
+					<p>D</p>
+					<sc>dÐð</sc>
+					<p>E</p>
+					<sc>eÉéÈèÊêËë</sc>
+					<p>F</p>
+					<s>f</s>
+					<p>G</p>
+					<s>g</s>
+					<p>H</p>
+					<s>h</s>
+					<p>I</p>
+					<sc>iÍíÌìÎîÏï</sc>
+					<p>J</p>
+					<s>j</s>
+					<p>K</p>
+					<s>k</s>
+					<p>L</p>
+					<s>l</s>
+					<p>M</p>
+					<s>m</s>
+					<p>N</p>
+					<sc>nÑñ</sc>
+					<p>O</p>
+					<sc>oÓóÒòÔôÖöÕõØø</sc>
+					<p>P</p>
+					<s>p</s>
+					<p>Q</p>
+					<s>q</s>
+					<p>R</p>
+					<s>r</s>
+					<p>S</p>
+					<sc>sŠš</sc>
+					<p>T</p>
+					<s>t</s>
+					<p>U</p>
+					<sc>uÚúÙùÛûÜü</sc>
+					<p>V</p>
+					<s>v</s>
+					<p>W</p>
+					<s>w</s>
+					<p>X</p>
+					<s>x</s>
+					<p>Y</p>
+					<sc>yÝýŸÿ</sc>
+					<p>Z</p>
+					<sc>zŽž</sc>
+					<p>Þ</p>
+					<s>þ</s>
+					<pc>()[]{}«»&lt;&gt;`'=+-×÷±¬¼½¾*.,;:&quot;¿?¡!/'<context></context>¦¶§@&amp;°%#$¢£₤¥ƒ¤μ^~´¨¸·¯_―­ªº█¹²³©®<cp hex="0000" /><cp hex="0001" /><cp hex="0002" /><cp hex="0003" /><cp hex="0004" /><cp hex="0005" /><cp hex="0006" /><cp hex="0007" /><cp hex="0008" /><cp hex="0009" /><cp hex="000A" /><cp hex="000B" /><cp hex="000C" /><cp hex="000D" /><cp hex="000E" /><cp hex="000F" /><cp hex="0010" /><cp hex="0011" /><cp hex="0012" /><cp hex="0013" /><cp hex="0014" /><cp hex="0015" /><cp hex="0016" /><cp hex="0017" /><cp hex="0018" /><cp hex="0019" /><cp hex="001A" /><cp hex="001B" /><cp hex="001C" /><cp hex="001D" /><cp hex="001E" /><cp hex="001F" /></pc>
+					<reset>Aã</reset>
+					<t>Æ</t>
+					<reset>aã</reset>
+					<t>æ</t>
+					<reset>Oø</reset>
+					<t>Œ</t>
+					<reset>oø</reset>
+					<t>œ</t>
+					<reset>Sš</reset>
+				</rules>
+				<special owner="http://oss.software.ibm.com/icu/" version="0.0" />
+			</collation  >
+		</collations>
 </localeData>

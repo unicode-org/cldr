@@ -1,362 +1,200 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 15:59:26 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="SK" />
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">LEDEN</month>
-				<month id="2">ÚNOR</month>
-				<month id="3">BŘEZEN</month>
-				<month id="4">DUBEN</month>
-				<month id="5">KVĚTEN</month>
-				<month id="6">ČERVEN</month>
-				<month id="7">ČERVENEC</month>
-				<month id="8">SRPEN</month>
-				<month id="9">ZÁŘÍ</month>
-				<month id="10">ŘÍJEN</month>
-				<month id="11">LISTOPAD</month>
-				<month id="12">PROSINEC</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">LED</month>
-				<month id="2">ÚNOR</month>
-				<month id="3">BŘE</month>
-				<month id="4">DUB</month>
-				<month id="5">KVĚ</month>
-				<month id="6">ČER</month>
-				<month id="7">ČERC</month>
-				<month id="8">SRP</month>
-				<month id="9">ZÁŘÍ</month>
-				<month id="10">ŘÍJ</month>
-				<month id="11">LIST</month>
-				<month id="12">PRO</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">NEDĚLE </day>
-				<day id="2">PONDĚLÍ </day>
-				<day id="3">ÚTERÝ </day>
-				<day id="4">STŘEDA </day>
-				<day id="5">ČTVRTEK </day>
-				<day id="6">PÁTEK </day>
-				<day id="7">SOBOTA </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">Ne </day>
-				<day id="2">Po </day>
-				<day id="3">Út </day>
-				<day id="4">St </day>
-				<day id="5">Ćt </day>
-				<day id="6">Pá </day>
-				<day id="7">So </day>
-			</dayAbbr>
-			<patterns> 
-				<time>
-					<full>HH:mm:ss</full>
-					<long>HH:mm:ss</long>
-					<medium>HH:mm:ss</medium>
-					<short>HH:mm:ss</short>
-				</time>
-				<date>
-					<full>EEE, %.1d MMM yyyy </full>
-					<long>EEE, %.1d MMM yyyy HH:mm:ss</long>
-					<medium>EEE, %.1d MMM yyyy</medium>
-					<short>EEE, %.1d MMM yyyy</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal>#,##0.###;-#,##0.###</decimal>
-			<percent>#,##0%</percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="SKK" default="true">
-			<symbol>SK</symbol>
-			<name>SKK</name>
-			<decimal>,</decimal>
-		</currency>
-	</currencies>
-	<collation version="0.0" accentOrder="FORWARD" override="TRUE">
-		<collationElements>
-		<after> </after>
-		<gt1> </gt1>
-		<gt1>0</gt1>
-		<gt1>1</gt1>
-		<gt1>2</gt1>
-		<gt1>3</gt1>
-		<gt1>4</gt1>
-		<gt1>5</gt1>
-		<gt1>6</gt1>
-		<gt1>7</gt1>
-		<gt1>8</gt1>
-		<gt1>9</gt1>
-		<gt1>a</gt1>
-		<gt2>A</gt2>
-		<gt2>á</gt2>
-		<gt2>Á</gt2>
-		<gt2>â</gt2>
-		<gt2>Â</gt2>
-		<gt2>ă</gt2>
-		<gt2>Ă</gt2>
-		<gt2>ä</gt2>
-		<gt2>Ä</gt2>
-		<gt2>ą</gt2>
-		<gt2>Ą</gt2>
-		<gt1>b</gt1>
-		<gt2>B</gt2>
-		<gt1>c</gt1>
-		<gt2>C</gt2>
-		<gt1>č</gt1>
-		<gt2>Č</gt2>
-		<gt2>ć</gt2>
-		<gt2>Ć</gt2>
-		<gt2>ç</gt2>
-		<gt2>Ç</gt2>
-		<gt1>d</gt1>
-		<gt2>D</gt2>
-		<gt2>đ</gt2>
-		<gt2>Đ</gt2>
-		<gt2>ď</gt2>
-		<gt2>Ď</gt2>
-		<gt1>e</gt1>
-		<gt2>E</gt2>
-		<gt2>é</gt2>
-		<gt2>É</gt2>
-		<gt2>ě</gt2>
-		<gt2>Ě</gt2>
-		<gt2>ë</gt2>
-		<gt2>Ë</gt2>
-		<gt2>ę</gt2>
-		<gt2>Ę</gt2>
-		<gt1>f</gt1>
-		<gt2>F</gt2>
-		<gt1>g</gt1>
-		<gt2>G</gt2>
-		<gt1>h</gt1>
-		<gt2>H</gt2>
-		<gt1>ch</gt1>
-		<gt2>CH</gt2>
-		<gt2>Ch</gt2>
-		<gt1>i</gt1>
-		<gt2>I</gt2>
-		<gt2>í</gt2>
-		<gt2>Í</gt2>
-		<gt2>î</gt2>
-		<gt2>Î</gt2>
-		<gt1>j</gt1>
-		<gt2>J</gt2>
-		<gt1>k</gt1>
-		<gt2>K</gt2>
-		<gt1>l</gt1>
-		<gt2>L</gt2>
-		<gt2>ĺ</gt2>
-		<gt2>Ĺ</gt2>
-		<gt2>ǐ</gt2>
-		<gt2>Ľ</gt2>
-		<gt2>ɨ</gt2>
-		<gt2>Ł</gt2>
-		<gt1>m</gt1>
-		<gt2>M</gt2>
-		<gt1>n</gt1>
-		<gt2>N</gt2>
-		<gt2>ń</gt2>
-		<gt2>Ń</gt2>
-		<gt2>ň</gt2>
-		<gt2>Ň</gt2>
-		<gt1>o</gt1>
-		<gt2>O</gt2>
-		<gt2>ó</gt2>
-		<gt2>Ó</gt2>
-		<gt2>ô</gt2>
-		<gt2>Ô</gt2>
-		<gt2>ö</gt2>
-		<gt2>Ö</gt2>
-		<gt2>ő</gt2>
-		<gt2>Ő</gt2>
-		<gt1>p</gt1>
-		<gt2>P</gt2>
-		<gt1>q</gt1>
-		<gt2>Q</gt2>
-		<gt1>r</gt1>
-		<gt2>R</gt2>
-		<gt1>ř</gt1>
-		<gt2>Ř</gt2>
-		<gt2>ŕ</gt2>
-		<gt2>Ŕ</gt2>
-		<gt1>s</gt1>
-		<gt2>S</gt2>
-		<gt1>š</gt1>
-		<gt2>Š</gt2>
-		<gt2>ś</gt2>
-		<gt2>Ś</gt2>
-		<gt2>ş</gt2>
-		<gt2>Ş</gt2>
-		<gt1>t</gt1>
-		<gt2>T</gt2>
-		<gt2>ť</gt2>
-		<gt2>Ť</gt2>
-		<gt2>ţ</gt2>
-		<gt2>Ţ</gt2>
-		<gt1>u</gt1>
-		<gt2>U</gt2>
-		<gt2>ú</gt2>
-		<gt2>Ú</gt2>
-		<gt2>ů</gt2>
-		<gt2>Ů</gt2>
-		<gt2>ü</gt2>
-		<gt2>Ü</gt2>
-		<gt2>ű</gt2>
-		<gt2>Ű</gt2>
-		<gt1>v</gt1>
-		<gt2>V</gt2>
-		<gt1>w</gt1>
-		<gt2>W</gt2>
-		<gt1>x</gt1>
-		<gt2>X</gt2>
-		<gt1>y</gt1>
-		<gt2>Y</gt2>
-		<gt2>ý</gt2>
-		<gt2>Ý</gt2>
-		<gt1>z</gt1>
-		<gt2>Z</gt2>
-		<gt1>ž</gt1>
-		<gt2>Ž</gt2>
-		<gt2>ż</gt2>
-		<gt2>Ż</gt2>
-		<gt2>ź</gt2>
-		<gt2>Ź</gt2>
-		<gt1>­</gt1>
-		<gt1>.</gt1>
-		<gt1>,</gt1>
-		<gt1>;</gt1>
-		<gt1>?</gt1>
-		<gt1>!</gt1>
-		<gt1>:</gt1>
-		<gt1>&quot;</gt1>
-		<gt1>`</gt1>
-		<gt1>'</gt1>
-		<gt1>°</gt1>
-		<gt1>_</gt1>
-		<gt1>|</gt1>
-		<gt1>/</gt1>
-		<gt1>\</gt1>
-		<gt1>(</gt1>
-		<gt1>)</gt1>
-		<gt1>[</gt1>
-		<gt1>]</gt1>
-		<gt1>{</gt1>
-		<gt1>}</gt1>
-		<gt1>&amp;</gt1>
-		<gt1>¶</gt1>
-		<gt1>%</gt1>
-		<gt1>$</gt1>
-		<gt1>@</gt1>
-		<gt1>&lt;</gt1>
-		<gt1>&gt;</gt1>
-		<gt1>=</gt1>
-		<gt1>+</gt1>
-		<gt1>×</gt1>
-		<gt1>-</gt1>
-		<gt1>÷</gt1>
-		<gt1>*</gt1>
-		<gt1>#</gt1>
-		<gt1>¤</gt1>
-		<gt1>^</gt1>
-		<gt1>~</gt1>
-		<gt1>´</gt1>
-		<gt1>¨</gt1>
-		<gt1>˘</gt1>
-		<gt1>˛</gt1>
-		<gt1>ˇ</gt1>
-		<gt1>¸</gt1>
-		<gt1>˝</gt1>
-		<gt1>˙</gt1>
-		<gt1></gt1>
-		<gt1>\u0001</gt1>
-		<gt1>\u0002</gt1>
-		<gt1>\u0003</gt1>
-		<gt1>\u0004</gt1>
-		<gt1>\u0005</gt1>
-		<gt1>\u0006</gt1>
-		<gt1>\u0007</gt1>
-		<gt1>\u0008</gt1>
-		<gt1>\u0009</gt1>
-		<gt1>\u000A</gt1>
-		<gt1>\u000B</gt1>
-		<gt1>\u000C</gt1>
-		<gt1>\u000D</gt1>
-		<gt1>\u000E</gt1>
-		<gt1>\u000F</gt1>
-		<gt1>\u0010</gt1>
-		<gt1>\u0011</gt1>
-		<gt1>\u0012</gt1>
-		<gt1>\u0013</gt1>
-		<gt1>\u0014</gt1>
-		<gt1>\u0015</gt1>
-		<gt1>\u0016</gt1>
-		<gt1>\u0017</gt1>
-		<gt1>\u0018</gt1>
-		<gt1>\u0019</gt1>
-		<gt1>\u001A</gt1>
-		<gt1>\u001B</gt1>
-		<gt1>\u001C</gt1>
-		<gt1>\u001D</gt1>
-		<gt1>\u001E</gt1>
-		<gt1>\u001F</gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<after>sS</after>
-		<gt3>ß</gt3>
-		</collationElements>
-	</collation>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="sk"></language>
+		<territory type="SVK">SK</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">LEDEN</month>
+						<month type="2">ÚNOR</month>
+						<month type="3">BŘEZEN</month>
+						<month type="4">DUBEN</month>
+						<month type="5">KVĚTEN</month>
+						<month type="6">ČERVEN</month>
+						<month type="7">ČERVENEC</month>
+						<month type="8">SRPEN</month>
+						<month type="9">ZÁŘÍ</month>
+						<month type="10">ŘÍJEN</month>
+						<month type="11">LISTOPAD</month>
+						<month type="12">PROSINEC</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">LED</month>
+						<month type="2">ÚNOR</month>
+						<month type="3">BŘE</month>
+						<month type="4">DUB</month>
+						<month type="5">KVĚ</month>
+						<month type="6">ČER</month>
+						<month type="7">ČERC</month>
+						<month type="8">SRP</month>
+						<month type="9">ZÁŘÍ</month>
+						<month type="10">ŘÍJ</month>
+						<month type="11">LIST</month>
+						<month type="12">PRO</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">NEDĚLE</day>
+						<day type="mon">PONDĚLÍ</day>
+						<day type="tue">ÚTERÝ</day>
+						<day type="wed">STŘEDA</day>
+						<day type="thu">ČTVRTEK</day>
+						<day type="fri">PÁTEK</day>
+						<day type="sat">SOBOTA</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">Ne</day>
+						<day type="mon">Po</day>
+						<day type="tue">Út</day>
+						<day type="wed">St</day>
+						<day type="thu">Ćt</day>
+						<day type="fri">Pá</day>
+						<day type="sat">So</day>
+					</dayAbbr>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>EEE, %.1d MMM yyyy </pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>EEE, %.1d MMM yyyy HH:mm:ss</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>EEE, %.1d MMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>EEE, %.1d MMM yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+					<pattern>#,##0.###</pattern>
+					<pattern>-#,##0.###</pattern>
+				</numberFormat>
+				<numberFormat type="currency">
+					<pattern>#,##0.00 ¤</pattern>
+					<pattern>-#,##0.00 ¤</pattern>
+				</numberFormat>
+				<numberFormat type="percent">
+					<pattern>#,##0%</pattern>
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="SKK"/>
+				<currency type="SKK">
+					<symbol>SK</symbol>
+					<displayName>SKK</displayName>
+					<decimal>,</decimal>
+				</currency>
+			</currencies>
+		</numbers>
+		<collations>
+			<collation  >
+				<rules>
+					<reset> </reset>
+					<pc>0123456789a</pc>
+					<sc>AáÁâÂăĂäÄąĄ</sc>
+					<p>b</p>
+					<s>B</s>
+					<p>c</p>
+					<s>C</s>
+					<p>č</p>
+					<sc>ČćĆçÇ</sc>
+					<p>d</p>
+					<sc>DđĐďĎ</sc>
+					<p>e</p>
+					<sc>EéÉěĚëËęĘ</sc>
+					<p>f</p>
+					<s>F</s>
+					<p>g</p>
+					<s>G</s>
+					<p>h</p>
+					<s>H</s>
+					<p>ch</p>
+					<sc>CHCh</sc>
+					<p>i</p>
+					<sc>IíÍîÎ</sc>
+					<p>j</p>
+					<s>J</s>
+					<p>k</p>
+					<s>K</s>
+					<p>l</p>
+					<sc>LĺĹǐĽɨŁ</sc>
+					<p>m</p>
+					<s>M</s>
+					<p>n</p>
+					<sc>NńŃňŇ</sc>
+					<p>o</p>
+					<sc>OóÓôÔöÖőŐ</sc>
+					<p>p</p>
+					<s>P</s>
+					<p>q</p>
+					<s>Q</s>
+					<p>r</p>
+					<s>R</s>
+					<p>ř</p>
+					<sc>ŘŕŔ</sc>
+					<p>s</p>
+					<s>S</s>
+					<p>š</p>
+					<sc>ŠśŚşŞ</sc>
+					<p>t</p>
+					<sc>TťŤţŢ</sc>
+					<p>u</p>
+					<sc>UúÚůŮüÜűŰ</sc>
+					<p>v</p>
+					<s>V</s>
+					<p>w</p>
+					<s>W</s>
+					<p>x</p>
+					<s>X</s>
+					<p>y</p>
+					<sc>YýÝ</sc>
+					<p>z</p>
+					<s>Z</s>
+					<p>ž</p>
+					<sc>ŽżŻźŹ</sc>
+					<pc>­.,;?!:&quot;`'°_<context></context>/'()[]{}&amp;¶%$@&lt;&gt;=+×-÷*#¤^~´¨˘˛ˇ¸˝˙<cp hex="0000" /><cp hex="0001" /><cp hex="0002" /><cp hex="0003" /><cp hex="0004" /><cp hex="0005" /><cp hex="0006" /><cp hex="0007" /><cp hex="0008" /><cp hex="0009" /><cp hex="000A" /><cp hex="000B" /><cp hex="000C" /><cp hex="000D" /><cp hex="000E" /><cp hex="000F" /><cp hex="0010" /><cp hex="0011" /><cp hex="0012" /><cp hex="0013" /><cp hex="0014" /><cp hex="0015" /><cp hex="0016" /><cp hex="0017" /><cp hex="0018" /><cp hex="0019" /><cp hex="001A" /><cp hex="001B" /><cp hex="001C" /><cp hex="001D" /><cp hex="001E" /><cp hex="001F" /></pc>
+					<reset>sS</reset>
+				</rules>
+				<special owner="http://oss.software.ibm.com/icu/" version="0.0" />
+			</collation  >
+		</collations>
 </localeData>

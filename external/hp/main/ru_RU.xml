@@ -1,373 +1,295 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 15:59:26 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="RU" />
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">ЯНВАРЯ</month>
-				<month id="2">ФЕВРАЛЯ</month>
-				<month id="3">МАРТА</month>
-				<month id="4">АПРЕЛЯ</month>
-				<month id="5">МАЯ</month>
-				<month id="6">ИЮНЯ</month>
-				<month id="7">ИЮЛЯ</month>
-				<month id="8">АВГУСТА</month>
-				<month id="9">СЕНТЯБРЯ</month>
-				<month id="10">ОКТЯБРЯ</month>
-				<month id="11">НОЯБРЯ</month>
-				<month id="12">ДЕКАБРЯ</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">ЯНВ</month>
-				<month id="2">ФЕВР</month>
-				<month id="3">МАРТ</month>
-				<month id="4">АПР</month>
-				<month id="5">МАЯ</month>
-				<month id="6">ИЮНЯ</month>
-				<month id="7">ИЮЛЯ</month>
-				<month id="8">АВГ</month>
-				<month id="9">СЕНТ</month>
-				<month id="10">ОКТ</month>
-				<month id="11">НОЯБ</month>
-				<month id="12">ДЕК</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">ВОСКРЕСЕНЬЕ </day>
-				<day id="2">ПОНЕДЕЛЬНИК </day>
-				<day id="3">ВТОРНИК </day>
-				<day id="4">СРЕДА </day>
-				<day id="5">ЧЕТВЕРГ </day>
-				<day id="6">ПЯТНИЦА </day>
-				<day id="7">СУББОТА </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">ВС </day>
-				<day id="2">ПН </day>
-				<day id="3">ВТ </day>
-				<day id="4">СР </day>
-				<day id="5">ЧТ </day>
-				<day id="6">ПТ </day>
-				<day id="7">СБ </day>
-			</dayAbbr>
-			<patterns> 
-				<time>
-					<full>HH:mm:ss</full>
-					<long>HH:mm:ss</long>
-					<medium>HH:mm:ss</medium>
-					<short>HH:mm:ss</short>
-				</time>
-				<date>
-					<full>EEE, %.1d MMM yyyy </full>
-					<long>EEE, %.1d MMM yyyy HH:mm:ss</long>
-					<medium>EEE, %.1d MMM yyyy</medium>
-					<short>EEE, %.1d MMM yyyy</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal>#,##0.###;-#,##0.###</decimal>
-			<percent>#,##0%</percent>
-		</patterns>
-		<symbols>
-			<decimal>.</decimal>
-			<group> </group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<nativeZeroDigit>0</nativeZeroDigit>
-			<patternDigit>#</patternDigit>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>�</nan>
-		</symbols>
-	</numberFormat> 
-	<currencies>
-		<currency id="SUR" default="true">
-			<symbol>РУБ.</symbol>
-			<name>SUR</name>
-			<decimal>.</decimal>
-			<pattern>#,##0.00¤;-#,##0.00¤</pattern>
-		</currency>
-	</currencies>
-	<collation version="0.0" accentOrder="FORWARD" override="TRUE">
-		<collationElements>
-		<after> </after>
-		<gt1> </gt1>
-		<gt1>-</gt1>
-		<gt1>­</gt1>
-		<gt1>'</gt1>
-		<gt1>&quot;</gt1>
-		<gt1>.</gt1>
-		<gt1>!</gt1>
-		<gt1>?</gt1>
-		<gt1>,</gt1>
-		<gt1>;</gt1>
-		<gt1>:</gt1>
-		<gt1>(</gt1>
-		<gt1>)</gt1>
-		<gt1>А</gt1>
-		<gt2>а</gt2>
-		<gt1>Б</gt1>
-		<gt2>б</gt2>
-		<gt1>В</gt1>
-		<gt2>в</gt2>
-		<gt1>Г</gt1>
-		<gt2>г</gt2>
-		<gt1>Д</gt1>
-		<gt2>д</gt2>
-		<gt1>Ђ</gt1>
-		<gt2>ђ</gt2>
-		<gt1>Ѓ</gt1>
-		<gt2>ѓ</gt2>
-		<gt1>Е</gt1>
-		<gt2>е</gt2>
-		<gt1>Ё</gt1>
-		<gt2>ё</gt2>
-		<gt1>Є</gt1>
-		<gt2>є</gt2>
-		<gt1>Ж</gt1>
-		<gt2>ж</gt2>
-		<gt1>З</gt1>
-		<gt2>з</gt2>
-		<gt1>Ѕ</gt1>
-		<gt2>ѕ</gt2>
-		<gt1>И</gt1>
-		<gt2>и</gt2>
-		<gt1>І</gt1>
-		<gt2>і</gt2>
-		<gt1>Ї</gt1>
-		<gt2>ї</gt2>
-		<gt1>Ј</gt1>
-		<gt2>ј</gt2>
-		<gt1>Й</gt1>
-		<gt2>й</gt2>
-		<gt1>К</gt1>
-		<gt2>к</gt2>
-		<gt1>Л</gt1>
-		<gt2>л</gt2>
-		<gt1>Љ</gt1>
-		<gt2>љ</gt2>
-		<gt1>М</gt1>
-		<gt2>м</gt2>
-		<gt1>Н</gt1>
-		<gt2>н</gt2>
-		<gt1>Њ</gt1>
-		<gt2>њ</gt2>
-		<gt1>О</gt1>
-		<gt2>о</gt2>
-		<gt1>П</gt1>
-		<gt2>п</gt2>
-		<gt1>Р</gt1>
-		<gt2>р</gt2>
-		<gt1>С</gt1>
-		<gt2>с</gt2>
-		<gt1>Т</gt1>
-		<gt2>т</gt2>
-		<gt1>Ћ</gt1>
-		<gt2>ћ</gt2>
-		<gt1>Ќ</gt1>
-		<gt2>ќ</gt2>
-		<gt1>У</gt1>
-		<gt2>у</gt2>
-		<gt1>Ў</gt1>
-		<gt2>ў</gt2>
-		<gt1>Ф</gt1>
-		<gt2>ф</gt2>
-		<gt1>Х</gt1>
-		<gt2>х</gt2>
-		<gt1>Ц</gt1>
-		<gt2>ц</gt2>
-		<gt1>Ч</gt1>
-		<gt2>ч</gt2>
-		<gt1>Џ</gt1>
-		<gt2>џ</gt2>
-		<gt1>Ш</gt1>
-		<gt2>ш</gt2>
-		<gt1>Щ</gt1>
-		<gt2>щ</gt2>
-		<gt1>Ъ</gt1>
-		<gt2>ъ</gt2>
-		<gt1>Ы</gt1>
-		<gt2>ы</gt2>
-		<gt1>Ь</gt1>
-		<gt2>ь</gt2>
-		<gt1>Э</gt1>
-		<gt2>э</gt2>
-		<gt1>Ю</gt1>
-		<gt2>ю</gt2>
-		<gt1>Я</gt1>
-		<gt2>я</gt2>
-		<gt1>0</gt1>
-		<gt1>1</gt1>
-		<gt1>2</gt1>
-		<gt1>3</gt1>
-		<gt1>4</gt1>
-		<gt1>5</gt1>
-		<gt1>6</gt1>
-		<gt1>7</gt1>
-		<gt1>8</gt1>
-		<gt1>9</gt1>
-		<gt1>A</gt1>
-		<gt2>a</gt2>
-		<gt1>B</gt1>
-		<gt2>b</gt2>
-		<gt1>C</gt1>
-		<gt2>c</gt2>
-		<gt1>D</gt1>
-		<gt2>d</gt2>
-		<gt1>E</gt1>
-		<gt2>e</gt2>
-		<gt1>F</gt1>
-		<gt2>f</gt2>
-		<gt1>G</gt1>
-		<gt2>g</gt2>
-		<gt1>H</gt1>
-		<gt2>h</gt2>
-		<gt1>I</gt1>
-		<gt2>i</gt2>
-		<gt1>J</gt1>
-		<gt2>j</gt2>
-		<gt1>K</gt1>
-		<gt2>k</gt2>
-		<gt1>L</gt1>
-		<gt2>l</gt2>
-		<gt1>M</gt1>
-		<gt2>m</gt2>
-		<gt1>N</gt1>
-		<gt2>n</gt2>
-		<gt1>O</gt1>
-		<gt2>o</gt2>
-		<gt1>P</gt1>
-		<gt2>p</gt2>
-		<gt1>Q</gt1>
-		<gt2>q</gt2>
-		<gt1>R</gt1>
-		<gt2>r</gt2>
-		<gt1>S</gt1>
-		<gt2>s</gt2>
-		<gt1>T</gt1>
-		<gt2>t</gt2>
-		<gt1>U</gt1>
-		<gt2>u</gt2>
-		<gt1>V</gt1>
-		<gt2>v</gt2>
-		<gt1>W</gt1>
-		<gt2>w</gt2>
-		<gt1>X</gt1>
-		<gt2>x</gt2>
-		<gt1>Y</gt1>
-		<gt2>y</gt2>
-		<gt1>Z</gt1>
-		<gt2>z</gt2>
-		<gt1>№</gt1>
-		<gt1>[</gt1>
-		<gt1>]</gt1>
-		<gt1>{</gt1>
-		<gt1>}</gt1>
-		<gt1>&lt;</gt1>
-		<gt1>&gt;</gt1>
-		<gt1>=</gt1>
-		<gt1>+</gt1>
-		<gt1>%</gt1>
-		<gt1>*</gt1>
-		<gt1>/</gt1>
-		<gt1>\</gt1>
-		<gt1>|</gt1>
-		<gt1>@</gt1>
-		<gt1>&amp;</gt1>
-		<gt1>#</gt1>
-		<gt1>$</gt1>
-		<gt1>¶</gt1>
-		<gt1>`</gt1>
-		<gt1>^</gt1>
-		<gt1>~</gt1>
-		<gt1>_</gt1>
-		<gt1></gt1>
-		<gt1>\u0001</gt1>
-		<gt1>\u0002</gt1>
-		<gt1>\u0003</gt1>
-		<gt1>\u0004</gt1>
-		<gt1>\u0005</gt1>
-		<gt1>\u0006</gt1>
-		<gt1>\u0007</gt1>
-		<gt1>\u0008</gt1>
-		<gt1>\u0009</gt1>
-		<gt1>\u000A</gt1>
-		<gt1>\u000B</gt1>
-		<gt1>\u000C</gt1>
-		<gt1>\u000D</gt1>
-		<gt1>\u000E</gt1>
-		<gt1>\u000F</gt1>
-		<gt1>\u0010</gt1>
-		<gt1>\u0011</gt1>
-		<gt1>\u0012</gt1>
-		<gt1>\u0013</gt1>
-		<gt1>\u0014</gt1>
-		<gt1>\u0015</gt1>
-		<gt1>\u0016</gt1>
-		<gt1>\u0017</gt1>
-		<gt1>\u0018</gt1>
-		<gt1>\u0019</gt1>
-		<gt1>\u001A</gt1>
-		<gt1>\u001B</gt1>
-		<gt1>\u001C</gt1>
-		<gt1>\u001D</gt1>
-		<gt1>\u001E</gt1>
-		<gt1>\u001F</gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		</collationElements>
-	</collation>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="ru"></language>
+		<territory type="RUS">RU</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">ЯНВАРЯ</month>
+						<month type="2">ФЕВРАЛЯ</month>
+						<month type="3">МАРТА</month>
+						<month type="4">АПРЕЛЯ</month>
+						<month type="5">МАЯ</month>
+						<month type="6">ИЮНЯ</month>
+						<month type="7">ИЮЛЯ</month>
+						<month type="8">АВГУСТА</month>
+						<month type="9">СЕНТЯБРЯ</month>
+						<month type="10">ОКТЯБРЯ</month>
+						<month type="11">НОЯБРЯ</month>
+						<month type="12">ДЕКАБРЯ</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">ЯНВ</month>
+						<month type="2">ФЕВР</month>
+						<month type="3">МАРТ</month>
+						<month type="4">АПР</month>
+						<month type="5">МАЯ</month>
+						<month type="6">ИЮНЯ</month>
+						<month type="7">ИЮЛЯ</month>
+						<month type="8">АВГ</month>
+						<month type="9">СЕНТ</month>
+						<month type="10">ОКТ</month>
+						<month type="11">НОЯБ</month>
+						<month type="12">ДЕК</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">ВОСКРЕСЕНЬЕ</day>
+						<day type="mon">ПОНЕДЕЛЬНИК</day>
+						<day type="tue">ВТОРНИК</day>
+						<day type="wed">СРЕДА</day>
+						<day type="thu">ЧЕТВЕРГ</day>
+						<day type="fri">ПЯТНИЦА</day>
+						<day type="sat">СУББОТА</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">ВС</day>
+						<day type="mon">ПН</day>
+						<day type="tue">ВТ</day>
+						<day type="wed">СР</day>
+						<day type="thu">ЧТ</day>
+						<day type="fri">ПТ</day>
+						<day type="sat">СБ</day>
+					</dayAbbr>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>EEE, %.1d MMM yyyy </pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>EEE, %.1d MMM yyyy HH:mm:ss</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>EEE, %.1d MMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>EEE, %.1d MMM yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<symbols>
+				<decimal>.</decimal>
+				<group> </group>
+				<list>;</list>
+				<percentSign>%</percentSign>
+				<nativeZeroDigit>0</nativeZeroDigit>
+				<patternDigit>#</patternDigit>
+				<plusSign>+</plusSign>
+				<minusSign>-</minusSign>
+				<exponential>E</exponential>
+				<perMille>‰</perMille>
+				<infinity>∞</infinity>
+				<nan>�</nan>
+			</symbols>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+					<pattern>#,##0.###</pattern>
+					<pattern>-#,##0.###</pattern>
+				</numberFormat>
+				<numberFormat type="currency">
+					<pattern>#,##0.00 ¤</pattern>
+					<pattern>-#,##0.00 ¤</pattern>
+				</numberFormat>
+				<numberFormat type="percent">
+					<pattern>#,##0%</pattern>
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="SUR"/>
+				<currency type="SUR">
+					<symbol>РУБ.</symbol>
+					<displayName>SUR</displayName>
+					<decimal>.</decimal>
+				</currency>
+			</currencies>
+		</numbers>
+		<collations>
+			<collation  >
+				<rules>
+					<reset> </reset>
+					<pc>-­'&quot;.!?,;:()А</pc>
+					<s>а</s>
+					<p>Б</p>
+					<s>б</s>
+					<p>В</p>
+					<s>в</s>
+					<p>Г</p>
+					<s>г</s>
+					<p>Д</p>
+					<s>д</s>
+					<p>Ђ</p>
+					<s>ђ</s>
+					<p>Ѓ</p>
+					<s>ѓ</s>
+					<p>Е</p>
+					<s>е</s>
+					<p>Ё</p>
+					<s>ё</s>
+					<p>Є</p>
+					<s>є</s>
+					<p>Ж</p>
+					<s>ж</s>
+					<p>З</p>
+					<s>з</s>
+					<p>Ѕ</p>
+					<s>ѕ</s>
+					<p>И</p>
+					<s>и</s>
+					<p>І</p>
+					<s>і</s>
+					<p>Ї</p>
+					<s>ї</s>
+					<p>Ј</p>
+					<s>ј</s>
+					<p>Й</p>
+					<s>й</s>
+					<p>К</p>
+					<s>к</s>
+					<p>Л</p>
+					<s>л</s>
+					<p>Љ</p>
+					<s>љ</s>
+					<p>М</p>
+					<s>м</s>
+					<p>Н</p>
+					<s>н</s>
+					<p>Њ</p>
+					<s>њ</s>
+					<p>О</p>
+					<s>о</s>
+					<p>П</p>
+					<s>п</s>
+					<p>Р</p>
+					<s>р</s>
+					<p>С</p>
+					<s>с</s>
+					<p>Т</p>
+					<s>т</s>
+					<p>Ћ</p>
+					<s>ћ</s>
+					<p>Ќ</p>
+					<s>ќ</s>
+					<p>У</p>
+					<s>у</s>
+					<p>Ў</p>
+					<s>ў</s>
+					<p>Ф</p>
+					<s>ф</s>
+					<p>Х</p>
+					<s>х</s>
+					<p>Ц</p>
+					<s>ц</s>
+					<p>Ч</p>
+					<s>ч</s>
+					<p>Џ</p>
+					<s>џ</s>
+					<p>Ш</p>
+					<s>ш</s>
+					<p>Щ</p>
+					<s>щ</s>
+					<p>Ъ</p>
+					<s>ъ</s>
+					<p>Ы</p>
+					<s>ы</s>
+					<p>Ь</p>
+					<s>ь</s>
+					<p>Э</p>
+					<s>э</s>
+					<p>Ю</p>
+					<s>ю</s>
+					<p>Я</p>
+					<s>я</s>
+					<pc>0123456789A</pc>
+					<s>a</s>
+					<p>B</p>
+					<s>b</s>
+					<p>C</p>
+					<s>c</s>
+					<p>D</p>
+					<s>d</s>
+					<p>E</p>
+					<s>e</s>
+					<p>F</p>
+					<s>f</s>
+					<p>G</p>
+					<s>g</s>
+					<p>H</p>
+					<s>h</s>
+					<p>I</p>
+					<s>i</s>
+					<p>J</p>
+					<s>j</s>
+					<p>K</p>
+					<s>k</s>
+					<p>L</p>
+					<s>l</s>
+					<p>M</p>
+					<s>m</s>
+					<p>N</p>
+					<s>n</s>
+					<p>O</p>
+					<s>o</s>
+					<p>P</p>
+					<s>p</s>
+					<p>Q</p>
+					<s>q</s>
+					<p>R</p>
+					<s>r</s>
+					<p>S</p>
+					<s>s</s>
+					<p>T</p>
+					<s>t</s>
+					<p>U</p>
+					<s>u</s>
+					<p>V</p>
+					<s>v</s>
+					<p>W</p>
+					<s>w</s>
+					<p>X</p>
+					<s>x</s>
+					<p>Y</p>
+					<s>y</s>
+					<p>Z</p>
+					<s>z</s>
+					<pc>№[]{}&lt;&gt;=+%*/'<context></context>@&amp;#$¶`^~_<cp hex="0000" /><cp hex="0001" /><cp hex="0002" /><cp hex="0003" /><cp hex="0004" /><cp hex="0005" /><cp hex="0006" /><cp hex="0007" /><cp hex="0008" /><cp hex="0009" /><cp hex="000A" /><cp hex="000B" /><cp hex="000C" /><cp hex="000D" /><cp hex="000E" /><cp hex="000F" /><cp hex="0010" /><cp hex="0011" /><cp hex="0012" /><cp hex="0013" /><cp hex="0014" /><cp hex="0015" /><cp hex="0016" /><cp hex="0017" /><cp hex="0018" /><cp hex="0019" /><cp hex="001A" /><cp hex="001B" /><cp hex="001C" /><cp hex="001D" /><cp hex="001E" /><cp hex="001F" /></pc>
+				</rules>
+				<special owner="http://oss.software.ibm.com/icu/" version="0.0" />
+			</collation  >
+		</collations>
 </localeData>

@@ -1,100 +1,130 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 15:59:25 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="KR" />
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">1월</month>
-				<month id="2">2월</month>
-				<month id="3">3월</month>
-				<month id="4">4월</month>
-				<month id="5">5월</month>
-				<month id="6">6월</month>
-				<month id="7">7월</month>
-				<month id="8">8월</month>
-				<month id="9">9월</month>
-				<month id="10">10월</month>
-				<month id="11">11월</month>
-				<month id="12">12월</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">1월</month>
-				<month id="2">2월</month>
-				<month id="3">3월</month>
-				<month id="4">4월</month>
-				<month id="5">5월</month>
-				<month id="6">6월</month>
-				<month id="7">7월</month>
-				<month id="8">8월</month>
-				<month id="9">9월</month>
-				<month id="10">10월</month>
-				<month id="11">11월</month>
-				<month id="12">12월</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">일요일 </day>
-				<day id="2">월요일 </day>
-				<day id="3">화요일 </day>
-				<day id="4">수요일 </day>
-				<day id="5">목요일 </day>
-				<day id="6">금요일 </day>
-				<day id="7">토요일 </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">일 </day>
-				<day id="2">월 </day>
-				<day id="3">화 </day>
-				<day id="4">수 </day>
-				<day id="5">목 </day>
-				<day id="6">금 </day>
-				<day id="7">토 </day>
-			</dayAbbr>
-			<am>오전</am><pm>오후</pm>
-			<patterns> 
-				<time>
-					<full>aa %.1I시%.1M분%.1S초</full>
-					<long>aa %.1I시%.1M분%.1S초</long>
-					<medium>aa %.1I시%.1M분%.1S초</medium>
-					<short>aa %.1I시%.1M분%.1S초</short>
-				</time>
-				<date>
-					<full>yyyy년MMM%.1d일 (EEE), </full>
-					<long>yyyy년MMM%.1d일 (EEE), aa %.1I시%.1M분%.1S초</long>
-					<medium>yyyy년MMM%.1d일 (EEE)</medium>
-					<short>yyyy년MMM%.1d일 (EEE)</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal>#,#0.##;-#,#0.##</decimal>
-			<percent>#,#0%</percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="KRW" default="true">
-			<symbol>₩</symbol>
-			<name>KRW</name>
-			<decimal>.</decimal>
-			<pattern>¤#,##0.00;-¤#,##0.00</pattern>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="ko"></language>
+		<territory type="KOR">KR</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">1월</month>
+						<month type="2">2월</month>
+						<month type="3">3월</month>
+						<month type="4">4월</month>
+						<month type="5">5월</month>
+						<month type="6">6월</month>
+						<month type="7">7월</month>
+						<month type="8">8월</month>
+						<month type="9">9월</month>
+						<month type="10">10월</month>
+						<month type="11">11월</month>
+						<month type="12">12월</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">1월</month>
+						<month type="2">2월</month>
+						<month type="3">3월</month>
+						<month type="4">4월</month>
+						<month type="5">5월</month>
+						<month type="6">6월</month>
+						<month type="7">7월</month>
+						<month type="8">8월</month>
+						<month type="9">9월</month>
+						<month type="10">10월</month>
+						<month type="11">11월</month>
+						<month type="12">12월</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">일요일</day>
+						<day type="mon">월요일</day>
+						<day type="tue">화요일</day>
+						<day type="wed">수요일</day>
+						<day type="thu">목요일</day>
+						<day type="fri">금요일</day>
+						<day type="sat">토요일</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">일</day>
+						<day type="mon">월</day>
+						<day type="tue">화</day>
+						<day type="wed">수</day>
+						<day type="thu">목</day>
+						<day type="fri">금</day>
+						<day type="sat">토</day>
+					</dayAbbr>
+					<am>오전</am>
+					<pm>오후</pm>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>yyyy년MMM%.1d일 (EEE), </pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>yyyy년MMM%.1d일 (EEE), aa %.1I시%.1M분%.1S초</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>yyyy년MMM%.1d일 (EEE)</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>yyyy년MMM%.1d일 (EEE)</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>aa %.1I시%.1M분%.1S초</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>aa %.1I시%.1M분%.1S초</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>aa %.1I시%.1M분%.1S초</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>aa %.1I시%.1M분%.1S초</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+					<pattern>#,#0.##</pattern>
+					<pattern>-#,#0.##</pattern>
+				</numberFormat>
+				<numberFormat type="currency">
+					<pattern>¤#,##0.00</pattern>
+					<pattern>-¤#,##0.00</pattern>
+				</numberFormat>
+				<numberFormat type="percent">
+					<pattern>#,#0%</pattern>
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="KRW"/>
+				<currency type="KRW">
+					<symbol>₩</symbol>
+					<displayName>KRW</displayName>
+					<decimal>.</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

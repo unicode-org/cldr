@@ -1,99 +1,128 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 15:59:27 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="CN" />
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">一月</month>
-				<month id="2">二月</month>
-				<month id="3">三月</month>
-				<month id="4">四月</month>
-				<month id="5">五月</month>
-				<month id="6">六月</month>
-				<month id="7">七月</month>
-				<month id="8">八月</month>
-				<month id="9">九月</month>
-				<month id="10">十月</month>
-				<month id="11">十一月</month>
-				<month id="12">十二月</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">1月</month>
-				<month id="2">2月</month>
-				<month id="3">3月</month>
-				<month id="4">4月</month>
-				<month id="5">5月</month>
-				<month id="6">6月</month>
-				<month id="7">7月</month>
-				<month id="8">8月</month>
-				<month id="9">9月</month>
-				<month id="10">10月</month>
-				<month id="11">11月</month>
-				<month id="12">12月</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">星期日 </day>
-				<day id="2">星期一 </day>
-				<day id="3">星期二 </day>
-				<day id="4">星期三 </day>
-				<day id="5">星期四 </day>
-				<day id="6">星期五 </day>
-				<day id="7">星期六 </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">日 </day>
-				<day id="2">一 </day>
-				<day id="3">二 </day>
-				<day id="4">三 </day>
-				<day id="5">四 </day>
-				<day id="6">五 </day>
-				<day id="7">六 </day>
-			</dayAbbr>
-			<patterns> 
-				<time>
-					<full>hh:mm:ss</full>
-					<long>hh:mm:ss</long>
-					<medium>hh:mm:ss</medium>
-					<short>hh:mm:ss</short>
-				</time>
-				<date>
-					<full>yyyy年MMM%.1d日 星期EEE, </full>
-					<long>yyyy年MMM%.1d日 星期EEE, hh:mm:ss</long>
-					<medium>yyyy年MMM%.1d日 星期EEE</medium>
-					<short>yyyy年MMM%.1d日 星期EEE</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal>#,##0.###;-#,##0.###</decimal>
-			<percent>#,##0%</percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="CNY" default="true">
-			<symbol>CNY</symbol>
-			<name>CNY</name>
-			<decimal>.</decimal>
-			<pattern>¤#,##0.00;-¤#,##0.00</pattern>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="zh"></language>
+		<territory type="CHN">CN</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">一月</month>
+						<month type="2">二月</month>
+						<month type="3">三月</month>
+						<month type="4">四月</month>
+						<month type="5">五月</month>
+						<month type="6">六月</month>
+						<month type="7">七月</month>
+						<month type="8">八月</month>
+						<month type="9">九月</month>
+						<month type="10">十月</month>
+						<month type="11">十一月</month>
+						<month type="12">十二月</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">1月</month>
+						<month type="2">2月</month>
+						<month type="3">3月</month>
+						<month type="4">4月</month>
+						<month type="5">5月</month>
+						<month type="6">6月</month>
+						<month type="7">7月</month>
+						<month type="8">8月</month>
+						<month type="9">9月</month>
+						<month type="10">10月</month>
+						<month type="11">11月</month>
+						<month type="12">12月</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">星期日</day>
+						<day type="mon">星期一</day>
+						<day type="tue">星期二</day>
+						<day type="wed">星期三</day>
+						<day type="thu">星期四</day>
+						<day type="fri">星期五</day>
+						<day type="sat">星期六</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">日</day>
+						<day type="mon">一</day>
+						<day type="tue">二</day>
+						<day type="wed">三</day>
+						<day type="thu">四</day>
+						<day type="fri">五</day>
+						<day type="sat">六</day>
+					</dayAbbr>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>yyyy年MMM%.1d日 星期EEE, </pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>yyyy年MMM%.1d日 星期EEE, hh:mm:ss</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>yyyy年MMM%.1d日 星期EEE</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>yyyy年MMM%.1d日 星期EEE</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+					<pattern>#,##0.###</pattern>
+					<pattern>-#,##0.###</pattern>
+				</numberFormat>
+				<numberFormat type="currency">
+					<pattern>#,##0.00¤</pattern>
+					<pattern>-¤#,##0.00</pattern>
+				</numberFormat>
+				<numberFormat type="percent">
+					<pattern>#,##0%</pattern>
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="CNY"/>
+				<currency type="CNY">
+					<symbol>CNY</symbol>
+					<displayName>CNY</displayName>
+					<decimal>.</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

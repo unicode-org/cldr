@@ -1,321 +1,189 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 15:59:23 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="IL" />
-	</identity  >
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">ינوאר</month>
-				<month id="2">פברوאר</month>
-				<month id="3">מרץ</month>
-				<month id="4">אפריל</month>
-				<month id="5">מאי</month>
-				<month id="6">יوני</month>
-				<month id="7">יوלי</month>
-				<month id="8">אوגوסט</month>
-				<month id="9">ספטמבר</month>
-				<month id="10">אوקטوבר</month>
-				<month id="11">נوבמבר</month>
-				<month id="12">דצמבר</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">ינو'</month>
-				<month id="2">פבר'</month>
-				<month id="3">מרץ</month>
-				<month id="4">אפר'</month>
-				<month id="5">מאי</month>
-				<month id="6">יوני</month>
-				<month id="7">יوלי</month>
-				<month id="8">אوג'</month>
-				<month id="9">ספט'</month>
-				<month id="10">אوק'</month>
-				<month id="11">נوב'</month>
-				<month id="12">דצמ'</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">יوם ראשوן </day>
-				<day id="2">יوם שני </day>
-				<day id="3">יوם שלישי </day>
-				<day id="4">יوם רביעי </day>
-				<day id="5">יوם חמישי </day>
-				<day id="6">יوם שישי </day>
-				<day id="7">יوם שבת </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">א' </day>
-				<day id="2">ב' </day>
-				<day id="3">ג' </day>
-				<day id="4">ד' </day>
-				<day id="5">ה' </day>
-				<day id="6">و' </day>
-				<day id="7">שבת </day>
-			</dayAbbr>
-			<patterns> 
-				<time>
-					<full>%.1H:mm:ss</full>
-					<long>%.1H:mm:ss</long>
-					<medium>%.1H:mm:ss</medium>
-					<short>%.1H:mm:ss</short>
-				</time>
-				<date>
-					<full>, yyyy MMMM %.1d EEE</full>
-					<long>%.1H:mm:ss , yyyy MMMM %.1d  EEE</long>
-					<medium>yyyy MMMM %.1d  EEE</medium>
-					<short>yyyy MMMM %.1d  EEE</short>
-				</date>
- 				<dateTime>{0} {1} </dateTime>
-			</patterns>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal>#,##0.###;-#,##0.###</decimal>
-			<percent>#,##0%</percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="NIS" default="true">
-			<symbol>ש</symbol>
-			<name>NIS</name>
-			<decimal>.</decimal>
-			<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
-		</currency>
-	</currencies>
-	<collation version="0.0" accentOrder="FORWARD" override="TRUE">
-		<collationElements>
-		<after> </after>
-		<gt1>0</gt1>
-		<gt1>1</gt1>
-		<gt1>2</gt1>
-		<gt1>3</gt1>
-		<gt1>4</gt1>
-		<gt1>5</gt1>
-		<gt1>6</gt1>
-		<gt1>7</gt1>
-		<gt1>8</gt1>
-		<gt1>9</gt1>
-		<gt1>A</gt1>
-		<gt2>a</gt2>
-		<gt1>B</gt1>
-		<gt2>b</gt2>
-		<gt1>C</gt1>
-		<gt2>c</gt2>
-		<gt1>D</gt1>
-		<gt2>d</gt2>
-		<gt1>E</gt1>
-		<gt2>e</gt2>
-		<gt1>F</gt1>
-		<gt2>f</gt2>
-		<gt1>G</gt1>
-		<gt2>g</gt2>
-		<gt1>H</gt1>
-		<gt2>h</gt2>
-		<gt1>I</gt1>
-		<gt2>i</gt2>
-		<gt1>J</gt1>
-		<gt2>j</gt2>
-		<gt1>K</gt1>
-		<gt2>k</gt2>
-		<gt1>L</gt1>
-		<gt2>l</gt2>
-		<gt1>M</gt1>
-		<gt2>m</gt2>
-		<gt1>N</gt1>
-		<gt2>n</gt2>
-		<gt1>O</gt1>
-		<gt2>o</gt2>
-		<gt1>P</gt1>
-		<gt2>p</gt2>
-		<gt1>Q</gt1>
-		<gt2>q</gt2>
-		<gt1>R</gt1>
-		<gt2>r</gt2>
-		<gt1>S</gt1>
-		<gt2>s</gt2>
-		<gt1>T</gt1>
-		<gt2>t</gt2>
-		<gt1>U</gt1>
-		<gt2>u</gt2>
-		<gt1>V</gt1>
-		<gt2>v</gt2>
-		<gt1>W</gt1>
-		<gt2>w</gt2>
-		<gt1>X</gt1>
-		<gt2>x</gt2>
-		<gt1>Y</gt1>
-		<gt2>y</gt2>
-		<gt1>Z</gt1>
-		<gt2>z</gt2>
-		<gt1>!</gt1>
-		<gt1>&quot;</gt1>
-		<gt1>#</gt1>
-		<gt1>$</gt1>
-		<gt1>%</gt1>
-		<gt1>&amp;</gt1>
-		<gt1>'</gt1>
-		<gt1>(</gt1>
-		<gt1>)</gt1>
-		<gt1>*</gt1>
-		<gt1>+</gt1>
-		<gt1>,</gt1>
-		<gt1>-</gt1>
-		<gt1>.</gt1>
-		<gt1>/</gt1>
-		<gt1>:</gt1>
-		<gt1>;</gt1>
-		<gt1>&lt;</gt1>
-		<gt1>=</gt1>
-		<gt1>&gt;</gt1>
-		<gt1>?</gt1>
-		<gt1>@</gt1>
-		<gt1>[</gt1>
-		<gt1>\</gt1>
-		<gt1>]</gt1>
-		<gt1>^</gt1>
-		<gt1>_</gt1>
-		<gt1>`</gt1>
-		<gt1>{</gt1>
-		<gt1>|</gt1>
-		<gt1>}</gt1>
-		<gt1>~</gt1>
-		<gt1> </gt1>
-		<gt1>א</gt1>
-		<gt1>ב</gt1>
-		<gt1>ג</gt1>
-		<gt1>ד</gt1>
-		<gt1>ה</gt1>
-		<gt1>و</gt1>
-		<gt1>ز</gt1>
-		<gt1>ח</gt1>
-		<gt1>ט</gt1>
-		<gt1>י</gt1>
-		<gt1>כ</gt1>
-		<gt1>ך</gt1>
-		<gt1>ל</gt1>
-		<gt1>מ</gt1>
-		<gt1>ם</gt1>
-		<gt1>נ</gt1>
-		<gt1>ן</gt1>
-		<gt1>ס</gt1>
-		<gt1>ע</gt1>
-		<gt1>פ</gt1>
-		<gt1>ף</gt1>
-		<gt1>צ</gt1>
-		<gt1>ץ</gt1>
-		<gt1>ק</gt1>
-		<gt1>ר</gt1>
-		<gt1>ת</gt1>
-		<gt1>«</gt1>
-		<gt1>»</gt1>
-		<gt1>×</gt1>
-		<gt1>÷</gt1>
-		<gt1>±</gt1>
-		<gt1>¬</gt1>
-		<gt1>¼</gt1>
-		<gt1>½</gt1>
-		<gt1>¾</gt1>
-		<gt1>¦</gt1>
-		<gt1>¶</gt1>
-		<gt1>§</gt1>
-		<gt1>°</gt1>
-		<gt1>¢</gt1>
-		<gt1>£</gt1>
-		<gt1>¥</gt1>
-		<gt1>¤</gt1>
-		<gt1>µ</gt1>
-		<gt1>´</gt1>
-		<gt1>¨</gt1>
-		<gt1>¸</gt1>
-		<gt1>·</gt1>
-		<gt1>‾</gt1>
-		<gt1>­</gt1>
-		<gt1>¹</gt1>
-		<gt1>²</gt1>
-		<gt1>³</gt1>
-		<gt1>©</gt1>
-		<gt1>®</gt1>
-		<gt1>‗</gt1>
-		<gt1>ש</gt1>
-		<gt1></gt1>
-		<gt1>\u0001</gt1>
-		<gt1>\u0002</gt1>
-		<gt1>\u0003</gt1>
-		<gt1>\u0004</gt1>
-		<gt1>\u0005</gt1>
-		<gt1>\u0006</gt1>
-		<gt1>\u0007</gt1>
-		<gt1>\u0008</gt1>
-		<gt1>\u0009</gt1>
-		<gt1>\u000A</gt1>
-		<gt1>\u000B</gt1>
-		<gt1>\u000C</gt1>
-		<gt1>\u000D</gt1>
-		<gt1>\u000E</gt1>
-		<gt1>\u000F</gt1>
-		<gt1>\u0010</gt1>
-		<gt1>\u0011</gt1>
-		<gt1>\u0012</gt1>
-		<gt1>\u0013</gt1>
-		<gt1>\u0014</gt1>
-		<gt1>\u0015</gt1>
-		<gt1>\u0016</gt1>
-		<gt1>\u0017</gt1>
-		<gt1>\u0018</gt1>
-		<gt1>\u0019</gt1>
-		<gt1>\u001A</gt1>
-		<gt1>\u001B</gt1>
-		<gt1>\u001C</gt1>
-		<gt1>\u001D</gt1>
-		<gt1>\u001E</gt1>
-		<gt1>\u001F</gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		<gt1></gt1>
-		</collationElements>
-	</collation>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="iw"></language>
+		<territory type="ISR">IL</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">ינوאר</month>
+						<month type="2">פברوאר</month>
+						<month type="3">מרץ</month>
+						<month type="4">אפריל</month>
+						<month type="5">מאי</month>
+						<month type="6">יوני</month>
+						<month type="7">יوלי</month>
+						<month type="8">אوגوסט</month>
+						<month type="9">ספטמבר</month>
+						<month type="10">אوקטوבר</month>
+						<month type="11">נوבמבר</month>
+						<month type="12">דצמבר</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">ינو'</month>
+						<month type="2">פבר'</month>
+						<month type="3">מרץ</month>
+						<month type="4">אפר'</month>
+						<month type="5">מאי</month>
+						<month type="6">יوני</month>
+						<month type="7">יوלי</month>
+						<month type="8">אوג'</month>
+						<month type="9">ספט'</month>
+						<month type="10">אوק'</month>
+						<month type="11">נوב'</month>
+						<month type="12">דצמ'</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">יوם ראשوן</day>
+						<day type="mon">יوם שני</day>
+						<day type="tue">יوם שלישי</day>
+						<day type="wed">יوם רביעי</day>
+						<day type="thu">יوם חמישי</day>
+						<day type="fri">יوם שישי</day>
+						<day type="sat">יوם שבת</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">א'</day>
+						<day type="mon">ב'</day>
+						<day type="tue">ג'</day>
+						<day type="wed">ד'</day>
+						<day type="thu">ה'</day>
+						<day type="fri">و'</day>
+						<day type="sat">שבת</day>
+					</dayAbbr>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>, yyyy MMMM %.1d EEE</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>%.1H:mm:ss , yyyy MMMM %.1d  EEE</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>yyyy MMMM %.1d  EEE</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>yyyy MMMM %.1d  EEE</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>%.1H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>%.1H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>%.1H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>%.1H:mm:ss</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{0} {1}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+					<pattern>#,##0.###</pattern>
+					<pattern>-#,##0.###</pattern>
+				</numberFormat>
+				<numberFormat type="currency">
+					<pattern>¤#,##0.00</pattern>
+					<pattern>¤-#,##0.00</pattern>
+				</numberFormat>
+				<numberFormat type="percent">
+					<pattern>#,##0%</pattern>
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="NIS"/>
+				<currency type="NIS">
+					<symbol>ש</symbol>
+					<displayName>NIS</displayName>
+					<decimal>.</decimal>
+				</currency>
+			</currencies>
+		</numbers>
+		<collations>
+			<collation  >
+				<rules>
+					<reset> </reset>
+					<pc>0123456789A</pc>
+					<s>a</s>
+					<p>B</p>
+					<s>b</s>
+					<p>C</p>
+					<s>c</s>
+					<p>D</p>
+					<s>d</s>
+					<p>E</p>
+					<s>e</s>
+					<p>F</p>
+					<s>f</s>
+					<p>G</p>
+					<s>g</s>
+					<p>H</p>
+					<s>h</s>
+					<p>I</p>
+					<s>i</s>
+					<p>J</p>
+					<s>j</s>
+					<p>K</p>
+					<s>k</s>
+					<p>L</p>
+					<s>l</s>
+					<p>M</p>
+					<s>m</s>
+					<p>N</p>
+					<s>n</s>
+					<p>O</p>
+					<s>o</s>
+					<p>P</p>
+					<s>p</s>
+					<p>Q</p>
+					<s>q</s>
+					<p>R</p>
+					<s>r</s>
+					<p>S</p>
+					<s>s</s>
+					<p>T</p>
+					<s>t</s>
+					<p>U</p>
+					<s>u</s>
+					<p>V</p>
+					<s>v</s>
+					<p>W</p>
+					<s>w</s>
+					<p>X</p>
+					<s>x</s>
+					<p>Y</p>
+					<s>y</s>
+					<p>Z</p>
+					<s>z</s>
+					<pc>!&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?@[']^_`{<context></context>}~אבגדהوزחטיכךלמםנןסעפףצץקרת«»×÷±¬¼½¾¦¶§°¢£¥¤µ´¨¸·‾­¹²³©®‗ש<cp hex="0000" /><cp hex="0001" /><cp hex="0002" /><cp hex="0003" /><cp hex="0004" /><cp hex="0005" /><cp hex="0006" /><cp hex="0007" /><cp hex="0008" /><cp hex="0009" /><cp hex="000A" /><cp hex="000B" /><cp hex="000C" /><cp hex="000D" /><cp hex="000E" /><cp hex="000F" /><cp hex="0010" /><cp hex="0011" /><cp hex="0012" /><cp hex="0013" /><cp hex="0014" /><cp hex="0015" /><cp hex="0016" /><cp hex="0017" /><cp hex="0018" /><cp hex="0019" /><cp hex="001A" /><cp hex="001B" /><cp hex="001C" /><cp hex="001D" /><cp hex="001E" /><cp hex="001F" /></pc>
+				</rules>
+				<special owner="http://oss.software.ibm.com/icu/" version="0.0" />
+			</collation  >
+		</collations>
 </localeData>

@@ -32,7 +32,7 @@ table        { border-style: solid; border-width: 1px }
   </tr>
   <tr>
     <td class="white"><i>Version:</i></td>
-    <td class="white">Draft 5, 2002-10-25, MED</td>
+    <td class="white">Draft 5a, 2002-10-25, MED</td>
   </tr>
   <tr>
     <td class="white"><i>Location:</i></td>
@@ -941,15 +941,14 @@ rule syntax</a>).</p>
   </tbody>
 </table>
 <h2><a name="Rules">Collation Rule Syntax</a></h2>
-<p>The goal for the collation rule syntax is to have clearly expressed rules,
+<p>The goal for the collation rule syntax is to have clearly expressed rules
 with a concise format, that parallels the Basic syntax as much as
-possible.&nbsp; The rule syntax uses elements as <i>delimiters</i> rather than <i>containers</i>.
-The reason for this is because the tailorings for CJK characters are quite large
-(tens of thousands of elements), and the extra overhead of the element
-termination would have been considerable. For the same reason, the element names
-for primary (level 1), secondary (level 2), tertiary (level 3), and identical
-are abbreviated, to be as short as possible. Other elements and attributes do
-not occur as frequently, and have longer names.</p>
+possible.&nbsp; The rule syntax uses abbreviated element names for primary
+(level 1), secondary (level 2), tertiary (level 3), and identical, to be as
+short as possible. The reason for this is because the tailorings for CJK
+characters are quite large (tens of thousands of elements), and the extra
+overhead would have been considerable. Other elements and attributes do not
+occur as frequently, and have longer names.</p>
 <blockquote>
   <p><b><i>Note: </i></b>The rules are stated in terms of actions that cause
   characters to change their ordering relative to other characters. This is for
@@ -1009,6 +1008,41 @@ characters.</p>
       <td>Make 'w' sort <i>identically</i> to 'v'</td>
     </tr>
   </tbody>
+</table>
+<p>Resets only need to be at the start of a sequence, to position the characters
+relative a character that is in the UCA (or has already occurred in the
+tailoring). For example:
+&lt;reset&gt;z&lt;/reset&gt;&lt;p&gt;a&lt;/p&gt;&lt;p&gt;b&lt;/p&gt;&lt;p&gt;c&lt;/p&gt;&lt;p&gt;d&lt;/p&gt;.</p>
+<p>Some additional elements are provided to save space with large tailorings.
+The addition of a 'c' to the element name indicates that each of the characters
+in the contents of that element are to be handled as if they were separate
+elements with the corresponding strength:</p>
+<table>
+  <tr>
+    <th>XML Symbol</th>
+    <th>XML Example</th>
+    <th>Equivalent</th>
+  </tr>
+  <tr>
+    <td><code>&lt;pc&gt;</code></td>
+    <td>&lt;pc&gt;bcd&lt;/pc&gt;</td>
+    <td><code>&lt;p&gt;b&lt;/p&gt;&lt;p&gt;c&lt;/p&gt;&lt;p&gt;d&lt;/p&gt;</code></td>
+  </tr>
+  <tr>
+    <td><code>&lt;sc&gt;</code></td>
+    <td>&lt;sc&gt;рсту&lt;/sc&gt;</td>
+    <td>&lt;s&gt;р&lt;/s&gt;&lt;s&gt;с&lt;/s&gt;&lt;s&gt;т&lt;/s&gt;&lt;s&gt;у&lt;/s&gt;</td>
+  </tr>
+  <tr>
+    <td><code>&lt;tc&gt;</code></td>
+    <td>&lt;tc&gt;P&#65360;&#65328;&lt;/tc&gt;</td>
+    <td>&lt;t&gt;P&lt;/t&gt;&lt;t&gt;&#65360;&lt;/t&gt;&lt;t&gt;&#65328;&lt;/t&gt;</td>
+  </tr>
+  <tr>
+    <td><code>&lt;ic&gt;</code></td>
+    <td>&lt;ic&gt;VwW&lt;/ic&gt;</td>
+    <td>&lt;i&gt;V&lt;/i&gt;&lt;i&gt;w&lt;/i&gt;&lt;i&gt;W&lt;/i&gt;</td>
+  </tr>
 </table>
 <h3><a name="Escaping_Characters">Escaping Characters</a></h3>
 <p>Unfortunately, XML does not have the capability to contain all Unicode code

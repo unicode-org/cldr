@@ -13,7 +13,7 @@
 
 <!ELEMENT ldml (identity, (alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, special*))) >
 <!ATTLIST ldml
-   version          CDATA              #FIXED "1.2"
+   version          CDATA              #FIXED "1.3"
 >
 <!ATTLIST ldml draft ( true | false ) #IMPLIED >
 

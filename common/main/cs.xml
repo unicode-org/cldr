@@ -653,7 +653,8 @@
 					<daylight>ADT</daylight>
 				</short>
 			</zone>
-			<zone type="America/St_Johns">
+			<!-- CDT is wrong. It conflicts with America/Chicago -->
+			<!-- zone type="America/St_Johns">
 				<long>
 					<standard>Newfoundlandský standardní čas</standard>
 					<daylight>Newfoundlandský letní čas</daylight>
@@ -663,12 +664,13 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>St. Johns</exemplarCity>
-			</zone>
+			</zone -->
 			<!-- China -->
 			<zone type="Asia/Kashgar">
 				<exemplarCity draft="true">Kašghar</exemplarCity>
 			</zone>
-			<zone type="Asia/Shanghai">
+			<!-- CDT is wrong. It conflicts with America/Chicago -->
+			<!-- zone type="Asia/Shanghai">
 				<long>
 					<standard>Čínský standardní čas</standard>
 					<daylight>Čínský standardní čas</daylight>
@@ -678,7 +680,7 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>Šanghaj</exemplarCity>
-			</zone>
+			</zone -->
 			<!-- Ecuador -->
 			<zone type="Pacific/Galapagos">
 				<exemplarCity draft="true">Galapágy</exemplarCity>

@@ -50,11 +50,22 @@ yyyy-MM-dd
 yyyy-MM
 yyyy
 
+It is also worth noting this as a part of the history of ISO-4217. This
+should be kept in mind in case anyone is claiming that an ISO code existed
+before 1978 (source: www.unece.org):
+... the International Organization for Standardization (ISO) decided in 1973 to
+develop a code for the representation of currencies and funds for use in any
+application of trade, commerce or banking. ... At its seventeenth session
+(February 1978) the Group of Experts agreed that the three-letter alphabetic
+codes for International Standard ISO 4217, "Codes for the representation of
+currencies and funds", would be suitable for use in international trade.
+
 Most of this list was derived from the following sources: 
 http://www.iso.org/iso/en/prods-services/popstds/currencycodeslist.html
 http://www.globalfindata.com/gh/index.html
 http://europa.eu.int/comm/translation/currencies/entable1.htm
 http://europa.eu.int/comm/budget/inforeuro/index.cfm?fuseaction=countries&Language=en
+http://www.unece.org/cefact/recommendations/rec09/rec09_ecetrd203.pdf
 The printed version of ISO-4217:2001
 -->
         <region iso3166="AD">
@@ -225,8 +236,6 @@ The printed version of ISO-4217:2001
         <region iso3166="CF">
             <currency iso4217="XAF" from="1993-01-01"/>
             <!-- currency iso4217="CFF" from="1973-04-01" to="1992-12-31"/ --><!-- Validity is unknown -->
-            <!-- currency iso4217="XEF" from="1958-11-28" to="1973-04-01"/ --><!-- Validity is unknown -->
-            <!-- currency iso4217="XEF" from="1945-12-26" to="1958-11-28"/ --><!-- Validity is unknown -->
         </region>
         <region iso3166="CG">
             <currency iso4217="XAF" from="1993"/>
@@ -247,9 +256,8 @@ The printed version of ISO-4217:2001
             <currency iso4217="XAF" from="1973-04-01"/>
         </region>
         <region iso3166="CN">
-            <currency iso4217="CNY" from="1969-06"/>
-            <currency iso4217="CNX" from="1979" to="1998"/>
-            <currency iso4217="CNY" from="1953-03-01" to="1969-06"/>
+            <currency iso4217="CNY" from="1953-03-01"/>
+            <currency iso4217="CNX" from="1979" to="1998"/><!-- Peoples Bank Dollar -->
         </region>
         <region iso3166="CO">
             <currency iso4217="COP" from="1905"/>

@@ -33,11 +33,11 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   </tr>
   <tr>
     <td class="white"><i>Version:</i></td>
-    <td class="white"><font color="#FF0000"><b>8 (draft!)</b></font></td>
+    <td class="white"><font color="#FF0000"><b>8 (draft 2!)</b></font></td>
   </tr>
   <tr>
     <td class="white"><i>Date:</i></td>
-    <td class="white">2002-10-31</td>
+    <td class="white">2003-04-06</td>
   </tr>
   <tr>
     <td class="white"><i>Author:</i></td>
@@ -925,21 +925,24 @@ Explorer</a> (pick the locale and scroll to &quot;Number Patterns&quot;).</p>
       &lt;nan&gt;&#9785;&lt;/nan&gt;
 &lt;/symbols&gt;</pre>
 <pre><a name="&lt;numberFormats&gt;">&lt;numberFormats&gt;</a>
-  &lt;numberFormat type=&quot;decimal&quot;&gt;
-      &lt;pattern type=&quot;positive&quot;&gt;#,##0.###&lt;/pattern&gt;
-      &lt;pattern type=&quot;negative&quot;&gt;-#,##0.###&lt;/pattern&gt;
-  &lt;/numberFormat&gt;
-  &lt;numberFormat type=&quot;percent&quot;&gt;
-      &lt;pattern type=&quot;positive&quot;&gt;#,##0%&lt;/pattern&gt;
-  &lt;/numberFormat&gt;
-  &lt;numberFormat type=&quot;scientific&quot;&gt;
-      &lt;pattern &gt;#,##0%&lt;/pattern&gt;
-  &lt;/numberFormat&gt;
-  &lt;numberFormat type=&quot;currency&quot;&gt;
-    &lt;pattern type=&quot;positive&quot;&gt;¤ #,##0.00;&lt;/pattern&gt;
-    &lt;pattern type=&quot;negative&quot;&gt;(¤ #,##0.00)&lt;/pattern&gt;
-  &lt;/numberFormat&gt;
-&lt;/numberFormat&gt;</pre>
+  &lt;numberFormatStyle type=“decimal”&gt;
+    &lt;numberFormat type=”long”&gt;
+      &lt;pattern type=“positive”&gt;#,##0.###&lt;/pattern&gt;
+      &lt;pattern type=“negative”&gt;-#,##0.###&lt;/pattern&gt;
+    &lt;/numberFormat&gt;
+  &lt;/numberFormatStyle&gt;
+  &lt;numberFormatStyle type=“percent”&gt;
+    &lt;numberFormat type=”short”&gt;
+      &lt;pattern type=“positive”&gt;#,##0%&lt;/pattern&gt;
+    &lt;/numberFormat&gt;
+  &lt;/numberFormatStyle&gt;
+  &lt;numberFormatStyle type=“currency”&gt;
+    &lt;numberFormat type=”medium”&gt;
+     &lt;pattern type=“positive”&gt;#,##0.00;&lt;/pattern&gt;
+     &lt;pattern type=“negative”&gt;(#,##0.00)&lt;/pattern&gt;
+    &lt;/numberFormat&gt;
+  &lt;/numberFormatStyle&gt;
+&lt;/numberFormats&gt;</pre>
 <pre><a name="&lt;currencies&gt;">&lt;currencies&gt;</a>
     &lt;currency type=&quot;USD&quot;&gt;
         &lt;displayName&gt;dollar&lt;/displayName&gt;

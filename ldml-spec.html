@@ -42,7 +42,7 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   </tr>
   <tr>
     <td><i>Date:</i></td>
-    <td>2003-06-24</td>
+    <td>2003-07-02</td>
   </tr>
   <tr>
     <td><i>Author:</i></td>
@@ -72,7 +72,9 @@ caption      { font-size: 133%; font-weight: bold; margin-bottom: 0.5em }
   <tr>
     <td><i>Status:</i></td>
     <td>This is a stable document and may be used as reference material or cited 
-      as a normative reference by other specifications.</td>
+      as a normative reference by other specifications. Note: simple, 
+      non-normative, editorial corrections for typographic errors may be made to 
+      this document without changing the version number.</td>
   </tr>
 </table>
 <h2><a name="Contents">Contents</a></h2>
@@ -518,11 +520,11 @@ is that spaces are not preserved, and we cannot predict where spaces may be
 significant in translated material.</p>
 <p>Note that the data in examples given below is purely illustrative, and 
 doesn't match any particular language. For a more detailed example of this 
-format, see [<a href="#ExampleLDML">ExampleLDML</a>]. There is also a DTD for 
-this format, but remember that the DTD alone is not sufficient to understand the 
-semantics, the constraints, nor&nbsp; the interrelationships between the 
-different elements and attributes. You may wish to have copies of each of these 
-to hand as you proceed through the rest of this document.</p>
+format, see [<a href="#LDML">Example</a>]. There is also a DTD for this format, 
+but remember that the DTD alone is not sufficient to understand the semantics, 
+the constraints, nor&nbsp; the interrelationships between the different elements 
+and attributes. You may wish to have copies of each of these to hand as you 
+proceed through the rest of this document.</p>
 <p class="note">Note: To compare with the ICU locale data format and contents, 
 see [<a href="#ICUData">ICUData</a>].</p>
 <h3><a name="Common_Elements">Common Elements</a></h3>
@@ -1140,8 +1142,8 @@ not present, so that the software has to &quot;guess&quot; at the currency code
 based on the user's locale.</p>
 <p class="note"><b>Note: </b>The number of decimal places <b>and</b> the 
 rounding for each currency is not locale-specific data, and is not contained in 
-the ldml format. Those values override whatever is given in the currency 
-numberFormat. For more information, see <a href="#Supplemental_Data">Supplemental 
+the Locale Data Markup Language format. Those values override whatever is given 
+in the currency numberFormat. For more information, see <a href="#Supplemental_Data">Supplemental 
 Data</a>.</p>
 <p>For background information on currency names, see [CurrencyInfo].</p>
 <h3><a name="&lt;collations&gt;">&lt;collations&gt;</a></h3>
@@ -1856,10 +1858,11 @@ Traditional German are particularly illustrative.</p>
 &nbsp; &lt;/rules&gt;
 &lt;/collation&gt;</pre>
 <h2>Appendix A: <a name="Sample_Special_Elements">Sample Special Elements</a></h2>
-<p>The elements in this section are not part of the LDML 1.0 specification. 
-Instead, they are special elements used for application-specific data to be 
-stored in the Common Locale Repository. (Some of these items may move into a 
-future version of the LDML specification.)</p>
+<p>The elements in this section are not part of the Locale Data Markup Language 
+1.0 specification. Instead, they are special elements used for 
+application-specific data to be stored in the Common Locale Repository. (Some of 
+these items may move into a future version of the Locale Data Markup Language 
+specification.)</p>
 <ul>
   <li><a href="http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd">http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd</a></li>
   <li><a href="http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd">http://www.openi18n.org/spec/ldml/1.0/ldmlPOSIX.dtd</a></li>
@@ -2725,9 +2728,10 @@ and any resulting characters are _not_ tagged as literals.)</p>
   <tr>
     <th>Ancillary Information</th>
     <td><i>To properly localize, parse, and format data requires ancillary 
-      information, which is not expressed in LDML. Some of the formats for 
-      values used in LDML are constructed according to external specifications. 
-      The sources for this data and/or formats include the following:</i></td>
+      information, which is not expressed in Locale Data Markup Language. Some 
+      of the formats for values used in Locale Data Markup Language are 
+      constructed according to external specifications. The sources for this 
+      data and/or formats include the following:</i></td>
   </tr>
   <tr>
     <td>[<a name="DUCET">DUCET</a>]</td>
@@ -2781,7 +2785,7 @@ and any resulting characters are _not_ tagged as literals.)</p>
   <tr>
     <th>Other Standards</th>
     <td><i>Various standards define codes that are used as keys or values in 
-      LDML. These include:</i></td>
+      Locale Data Markup Language. These include:</i></td>
   </tr>
   <tr>
     <td>[<a name="RFC3066">RFC3066</a>]</td>
@@ -2835,8 +2839,8 @@ and any resulting characters are _not_ tagged as literals.)</p>
       <a href="http://oss.software.ibm.com/cvs/icu/locale/all_diff_xml/">http://oss.software.ibm.com/cvs/icu/locale/all_diff_xml/</a></td>
   </tr>
   <tr>
-    <td>[<a name="ExampleLDML">ExampleLDML</a>]</td>
-    <td>A sample LDML<br>
+    <td>[<a name="LDML">Example</a>]</td>
+    <td>A sample in Locale Data Markup Language<br>
       <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml-example.xml">http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml-example.xml</a></td>
   </tr>
   <tr>
@@ -2946,9 +2950,9 @@ and any resulting characters are _not_ tagged as literals.)</p>
   <p>Copyright (c) 2002-2003 International Business Machines Corporation and 
   others. All rights reserved.</p>
   <p>Permission is hereby granted, free of charge, to any person obtaining a 
-  copy of the LDML format and associated documentation files (the 
-  &quot;Format&quot;), to deal in the Format without restriction, including 
-  without limitation the rights to use, copy, modify, merge, publish, 
+  copy of the Locale Data Markup Language format and associated documentation 
+  files (the &quot;Format&quot;), to deal in the Format without restriction, 
+  including without limitation the rights to use, copy, modify, merge, publish, 
   distribute, and/or sell copies of the Format, and to permit persons to whom 
   the Format is furnished to do so, provided that both the above copyright 
   notice(s) and this permission notice appear in supporting documentation.</p>

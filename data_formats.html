@@ -56,9 +56,9 @@ format.</p>
   if any particular one is not available is to display the corresponding ISO
   code (or RFC 3066 code). Thus if there is no localization of FR (France), then
   the string &quot;FR&quot; will appear.</p>
-  <p>For a list of the kinds of IDs that can be localized, see the <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/all_diff_xml/en_US.html">English-US
+  <p>For a list of the kinds of IDs that can be localized, see the <a href="all_diff_xml/en_US.html">English-US
   locale data</a>, which has most regions, languages, scripts and currency names
-  translated. For the possible timezone IDs that can be translated, see <a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/olson_ids.txt">Olson
+  translated. For the possible timezone IDs that can be translated, see <a href="olson_ids.txt">Olson
   IDs</a>.</p>
   <p>Because these lists are long, it may be more difficult to collect all the
   data at once. If that is the case, we suggest first providing translations of
@@ -72,6 +72,110 @@ format.</p>
     <li>Countries adjacent to the countries in #1</li>
   </ol>
 </blockquote>
+<h2><a name="NumberPatterns">Number Patterns</a></h2>
+<blockquote>
+  <p>Patterns for formatting different types of numbers. For example, here are
+  some patterns (using the US symbols) with the corresponding text.</p>
+  <table border="1">
+    <tr>
+      <th width="33%">Pattern</th>
+      <th width="34%">Binary</th>
+      <th width="33%">Text</th>
+    </tr>
+    <tr>
+      <td width="33%">#,###.##</td>
+      <td width="34%">1234.567</td>
+      <td width="33%">1,234.57</td>
+    </tr>
+    <tr>
+      <td width="33%">#,###.###</td>
+      <td width="34%">1234.567</td>
+      <td width="33%">1,234.567</td>
+    </tr>
+    <tr>
+      <td width="33%">####.###</td>
+      <td width="34%">1234.5</td>
+      <td width="33%">1234.5</td>
+    </tr>
+    <tr>
+      <td width="33%">####.00#</td>
+      <td width="34%">1234.5</td>
+      <td width="33%">1234.50</td>
+    </tr>
+    <tr>
+      <td width="33%">00000.000</td>
+      <td width="34%">1234.5</td>
+      <td width="33%">01234.500</td>
+    </tr>
+  </table>
+  <p>Note that the <a href="#NumberElements">NumberElements</a> resource affects
+  how these patterns are interpreted.</p>
+</blockquote>
+<dl>
+  <dt><b>decimalFormats</b>
+  <dd>The normal locale specific way to write a base 10 number.
+  <dt><b>currencyFormats</b>
+  <dd>Use \u00A4 where the local currency symbol should be. Doubling the
+    currency symbol (\u00A4\u00A4) will output the international currency symbol
+    (a 3-letter code).
+  <dt><b>percentFormats</b>
+  <dd>Pattern for use with percentage formatting
+  <dt><b>scientificFormats</b>
+  <dd>Pattern for use with scientific (exponent) formatting.</dd>
+</dl>
+<p><b>Quoting rules:</b></p>
+<blockquote>
+  <p>Single quotes, (<b>'</b>), enclose bits of the pattern that should be
+  treated literally. Inside a quoted string, two single quotes ('') are replaced
+  with a single one ('). For example: <tt><u>'X '</u>#<u>' at '</u>h<u>'
+  o''clock'</u></tt> -&gt; <b>class of 1939 at 6 o'clock</b> (Literal strings <u>underlined</u>.)</p>
+</blockquote>
+<h2><a name="NumberElements">Number Elements</a></h2>
+<blockquote>
+  <p>Localized symbols used in number formatting and parsing. </p>
+</blockquote>
+<dl>
+  <dt><b>decimal</b>
+  <dd>- separates the integer and fractional part of the number.
+  <dt><b>group</b>
+  <dd>- groups (for example) units of thousands: 10^6 = 1,000,000. The grouping
+    separator is commonly used for thousands, but in some countries for
+    ten-thousands. The interval is a constant number of digits between the
+    grouping characters, such as 100,000,000 or 1,0000,0000. If you supply a
+    pattern with multiple grouping characters, the interval between the last one
+    and the end of the integer is the one that is used. So
+    &quot;#,##,###,####&quot; == &quot;######,####&quot; ==
+    &quot;##,####,####&quot;.
+  <dt><b>list</b>
+  <dd>- separates lists of numbers
+  <dt><b>percentSign</b>
+  <dd>- symbol used to indicate a percentage (1/100th) amount. (If present, the
+    value is also multiplied by 100 before formatting. That way 1.23 =&gt; 123%)
+  <dt><b>nativeZeroDigit</b>
+  <dd>- Symbol used to indicate a digit in the pattern, or zero if that place
+    would otherwise be empty. For example, with the digit of '0', the pattern
+    &quot;000&quot; would format &quot;34&quot; as &quot;034&quot;, but the
+    pattern &quot;0&quot; would format &quot;34&quot; as just &quot;34&quot;. As
+    well, the digits 1-9 are expected to follow the code point of this specified
+    0 value.
+  <dt><b>patternDigit</b>
+  <dd>- Symbol used to indicate any digit value, typically #. When that digit is
+    zero, then it is not shown.
+  <dt><b>minusSign</b>
+  <dd>- Symbol used to denote negative value.
+  <dt><b>plusSign</b>
+  <dd>- Symbol used to denote negative value.
+  <dt><b>exponential</b>
+  <dd>- Symbol separating the mantissa and exponent values.
+  <dt><b>perMille</b>
+  <dd>- symbol used to indicate a per-mille (1/1000th) amount. (If present, the
+    value is also multiplied by 1000 before formatting. That way 1.23 =&gt; 1230
+    [1/000])
+  <dt><b>infinity</b>
+  <dd>- The infinity sign. Corresponds to the IEEE infinity bit pattern.
+  <dt><b>nan - Not a number</b>
+  <dd>- The NaN sign. Corresponds to the IEEE NaN bit pattern.</dd>
+</dl>
 <h2><a name="CurrencyElements">Currency Elements</a></h2>
 <blockquote>
   <p>These strings are used in parsing/formatting numbers which are designated
@@ -95,7 +199,8 @@ format.</p>
   <dd>A number indicating which day of the week is considered the 'first' day,
     for calendar purposes. It is 1-based, with 1 being Sunday, 2 being Monday,
     .. 7 being Saturday.
-  <dt><b>Minimal Days in First Week</b>
+  <dt>&nbsp;</dt>
+  <dt><b>Minimal Days in First Week</b></dt>
   <dd>Minimal days required in the first week of a month or year. For example,
     if the first week is defined as one that contains the first day of the first
     month of a year, this value will be 1. If it must be a full seven days
@@ -113,104 +218,6 @@ format.</p>
   treated literally. Inside a quoted string, two single quotes ('') are replaced
   with a single one ('). For example: <tt><u>'class of '</u>YYYY<u>' at '</u>h<u>'
   o''clock'</u></tt> -&gt; <b>class of 1939 at 6 o'clock</b> (Literal strings <u>underlined</u>.)</p>
-</blockquote>
-<h2><a name="NumberElements">Number Elements</a></h2>
-<blockquote>
-  <p>Symbols used in number formatting and parsing. Used in <a href="#NumberPatterns">NumberPatterns</a>.</p>
-</blockquote>
-<dl>
-  <dt><b>Decimal Separator</b>
-  <dd>- separates the integer and fractional part of the number.
-  <dt><b>Grouping Separator</b>
-  <dd>- groups (for example) units of thousands: 10^6 = 1,000,000. The grouping
-    separator is commonly used for thousands, but in some countries for
-    ten-thousands. The interval is a constant number of digits between the
-    grouping characters, such as 100,000,000 or 1,0000,0000. If you supply a
-    pattern with multiple grouping characters, the interval between the last one
-    and the end of the integer is the one that is used. So
-    &quot;#,##,###,####&quot; == &quot;######,####&quot; ==
-    &quot;##,####,####&quot;.
-  <dt><b>Pattern Separator</b>
-  <dd>- sets the character used for separating variant expressions. (For
-    example: <u>0.00<b>;</b>(0.00)</u> where the second pattern is the form to
-    use for negative number)
-  <dt><b>Percent</b>
-  <dd>- symbol used to indicate a percentage (1/100th) amount. (If present, the
-    value is also multiplied by 100 before formatting. That way 1.23 =&gt; 123%)
-  <dt><b>ZeroDigit</b>
-  <dd>- Symbol used to indicate a digit in the pattern, or zero if that place
-    would otherwise be empty. For example, with the digit of '0', the pattern
-    &quot;000&quot; would format &quot;34&quot; as &quot;034&quot;, but the
-    pattern &quot;0&quot; would format &quot;34&quot; as just &quot;34&quot;. As
-    well, the digits 1-9 are expected to follow the code point of this specified
-    0 value.
-  <dt><b>Digit</b>
-  <dd>- Symbol used to indicate any digit value. If that digit is zero, then it
-    is not shown.
-  <dt><b>Minus Sign</b>
-  <dd>- Symbol used to denote negative value.
-  <dt><b>Exponential</b>
-  <dd>- Symbol separating the mantissa and exponent values.
-  <dt><b>PerMill</b>
-  <dd>- symbol used to indicate a per-mille (1/1000th) amount. (If present, the
-    value is also multiplied by 1000 before formatting. That way 1.23 =&gt; 1230
-    [1/000])
-  <dt><b>Infinity</b>
-  <dd>- The infinity sign. Corresponds to the IEEE infinity bit pattern.
-  <dt><b>Not a number</b>
-  <dd>- The NaN sign. Corresponds to the IEEE NaN bit pattern.</dd>
-</dl>
-<h2><a name="NumberPatterns">Number Patterns</a></h2>
-<blockquote>
-  <p>Patterns for formatting different types of numbers. Note that the <a href="#NumberElements">NumberElements</a>
-  resource affects how these patterns are interpreted.</p>
-</blockquote>
-<dl>
-  <dt><b>Decimal</b>
-  <dd>The normal locale specific way to write a base 10 number.
-  <dt><b>Currency</b>
-  <dd>Use \u00A4 where the local currency symbol should be. Doubling the
-    currency symbol (\u00A4\u00A4) will output the international currency symbol
-    (a 3-letter code).
-  <dt><b>Percent</b>
-  <dd>Pattern for use with percentage formatting
-  <dt><b>Scientific</b>
-  <dd>Pattern for use with scientific (exponent) formatting.</dd>
-</dl>
-<p><b>Quoting rules:</b></p>
-<blockquote>
-  <p>Single quotes, (<b>'</b>), enclose bits of the pattern that should be
-  treated literally. Inside a quoted string, two single quotes ('') are replaced
-  with a single one ('). For example: <tt><u>'X '</u>#<u>' at '</u>h<u>'
-  o''clock'</u></tt> -&gt; <b>class of 1939 at 6 o'clock</b> (Literal strings <u>underlined</u>.)</p>
-</blockquote>
-<h2>Time Zones</h2>
-<blockquote>
-  <p>A time zone uses the Olson IDs, such as America/Los Angeles. These IDs
-  provide not only the information as to the offset from GMT (UTC), but also the
-  daylight savings information. Thus, for example, America/Phoenix is distinct
-  from America/Denver because they have different daylight savings time
-  behavior. There are many cases where there is no modern difference between two
-  IDs; they are only distinguished in the past. For example, XXX/YYY and ZZZ/WWW
-  are currently the same, but differed in the past.</p>
-  <p>Most countries do not span multiple time zones, and may not have localized
-  names for particular time zones. In that case, probably the best localizations
-  are something of a form like &quot;New York Time&quot;.</p>
-  <p>Localized names for time zones. The fields are:</p>
-  <ul>
-    <li>Display long name for the normal time zone.
-    <li>Abbreviation for the normal time zone.
-    <li>Display long name for the time zone on summer/daylight savings time.
-    <li>Abbreviation for the time zone on summer/daylight savings time.
-    <li>A city in the specified time zone.</li>
-  </ul>
-</blockquote>
-<h2>AM / PM</h2>
-<blockquote>
-  <p>Even for countries where the customary date format only has a 24 hour
-  format, both the am and pm localized strings must be present and must be
-  distinct from one another. However, if the 24 hour format is used, these
-  strings will normally never be used.</p>
 </blockquote>
 <h2><a name="localPatternChars">Localized Date Pattern Chars</a></h2>
 <blockquote>
@@ -319,6 +326,14 @@ format.</p>
   </table>
   <p>For more information, see <a href="http://java.sun.com/j2se/1.4.1/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>.</p>
 </blockquote>
+<h3>AM / PM</h3>
+<blockquote>
+  <p>Even for countries where the customary date format only has a 24 hour
+  format, both the am and pm localized strings must be present and must be
+  distinct from one another. Note that as long as the 24 hour format is used,
+  these strings will normally never be used; but for testing and unusual
+  circumstances they must be present.</p>
+</blockquote>
 <h3>Week of Year</h3>
 <ul>
   Values calculated for the Week of Year field range from 1 to 53. Week 1 for a
@@ -333,7 +348,28 @@ format.</p>
   three days of 1998 are then part of week 53 of 1997.
   <p>Values are similarly calculated for the Week of Month.</p>
 </ul>
-<h3>BIDI Ordering</h3>
+<h2><a name="Time_Zones">Time Zones</a></h2>
+<blockquote>
+  <p>A time zone uses the Olson IDs, such as America/Los Angeles. These IDs
+  provide not only the information as to the offset from GMT (UTC), but also the
+  daylight savings information. Thus, for example, America/Phoenix is distinct
+  from America/Denver because they have different daylight savings time
+  behavior. There are many cases where there is no modern difference between two
+  IDs; they are only distinguished in the past. For example, XXX/YYY and ZZZ/WWW
+  are currently the same, but differed in the past.</p>
+  <p>Most countries do not span multiple time zones, and may not have localized
+  names for particular time zones. In that case, probably the best localizations
+  are something of a form like &quot;New York Time&quot;.</p>
+  <p>Localized names for time zones. The fields are:</p>
+  <ul>
+    <li>Display long name for the normal time zone.
+    <li>Abbreviation for the normal time zone.
+    <li>Display long name for the time zone on summer/daylight savings time.
+    <li>Abbreviation for the time zone on summer/daylight savings time.
+    <li>A city in the specified time zone.</li>
+  </ul>
+</blockquote>
+<h2><a name="BIDI_Ordering">BIDI Ordering</a></h2>
 <blockquote>
   <p>In the comparison charts, the ordering of characters for BIDI languages is
   up to the browser. The ordering may differ from the typical ordering in

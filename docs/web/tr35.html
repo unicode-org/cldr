@@ -45,7 +45,7 @@ span.attributeValue { font-weight: color: blue}
     </tr>
     <tr>
       <td>Date</td>
-      <td><span>2005-03-04</span></td>
+      <td>$Date$</td>
     </tr>
     <tr>
       <td>This Version</td>
@@ -3557,13 +3557,17 @@ America/Kentucky/Monticello&quot;&gt;
   override the number of decimal places — and the rounding — according to the currency that is being 
   formatted. That can be seen in the above chart, with the difference between Yen and Euro 
   formatting.</p>
-  <p>Thus for consistency in the CLDR data, the following conventions should be observed:</p>
+  <p><span class="removedspan">[MOVED BELOW] Thus for consistency in the CLDR data, the following 
+  conventions should be observed:</span></p>
   <ul>
-    <li>All number patterns should be minimal: there should be no leading # marks except to specify 
-    the position of the grouping separators (e.g. avoid&nbsp; ##,##0.###).</li>
-    <li>All formats should have one 0 before the decimal point (e.g. avoid #,###.##) </li>
-    <li>Decimal formats should have three hash marks in the fractional position (e.g. #,##0.###).</li>
-    <li>Currency formats should have two zeros in the fractional position (e.g. ¤ #,##0.00).</li>
+    <li><span class="removedspan">All number patterns should be minimal: there should be no leading 
+    # marks except to specify the position of the grouping separators (e.g. avoid&nbsp; ##,##0.###).</span></li>
+    <li><span class="removedspan">All formats should have one 0 before the decimal point (e.g. avoid 
+    #,###.##) </span></li>
+    <li><span class="removedspan">Decimal formats should have three hash marks in the fractional 
+    position (e.g. #,##0.###).</span></li>
+    <li><span class="removedspan">Currency formats should have two zeros in the fractional position 
+    (e.g. ¤ #,##0.00).</span></li>
   </ul>
   <h3><span>Special Pattern Characters</span></h3>
   <p><span>Many characters in a pattern are taken literally; they are matched during parsing and 
@@ -3686,15 +3690,21 @@ America/Kentucky/Monticello&quot;&gt;
       </tr>
     </table>
   </blockquote>
-  <p><span>A pattern contains a </span><span>postive</span><span> and negative </span><span>
-  subpattern</span><span>, for example, &quot;#,##0.00;(#,##0.00)&quot;. Each </span><span>subpattern</span><span> 
-  has a prefix, a numeric part, and a suffix. If there is no explicit negative </span><span>
-  subpattern</span><span>, the negative </span><span>subpattern</span><span> is the localized minus 
-  sign prefixed to the positive </span><span>subpattern</span><span>. That is, &quot;0.00&quot; alone is 
-  equivalent to &quot;0.00;-0.00&quot;. If there is an explicit negative </span><span>subpattern</span><span>, 
-  it serves only to specify the negative prefix and suffix; the number of digits, minimal digits, 
-  and other characteristics are ignored in the negative </span><span>subpattern</span><span>. That 
-  means that &quot;#,##0.0#;(#)&quot; has precisely the same result as &quot;#,##0.0#;(#,##0.0#)&quot;. </span></p>
+  <p><span>A pattern contains a </span><span>postive</span><span> and <span class="changedspan">may 
+  contain a </span>negative </span><span>subpattern</span><span>, for example, 
+  &quot;#,##0.00;(#,##0.00)&quot;. Each </span><span>subpattern</span><span> has a prefix, a numeric part, and 
+  a suffix. If there is no explicit negative </span><span>subpattern</span><span>, the negative
+  </span><span>subpattern</span><span> is the localized minus sign prefixed to the positive </span>
+  <span>subpattern</span><span>. That is, &quot;0.00&quot; alone is equivalent to &quot;0.00;-0.00&quot;. If there is an 
+  explicit negative </span><span>subpattern</span><span>, it serves only to specify the negative 
+  prefix and suffix; the number of digits, minimal digits, and other characteristics are ignored in 
+  the negative </span><span>subpattern</span><span>. That means that &quot;#,##0.0#;(#)&quot; has precisely 
+  the same result as &quot;#,##0.0#;(#,##0.0#)&quot;.</span></p>
+  <blockquote>
+    <p><span class="changedspan"><b>Note: </b>The thousands separator and decimal separator in this 
+    pattern are always &#39;,&#39; and &#39;.&#39;. They are substituted by the code with the correct local values 
+    according to other fields in CLDR.</span></p>
+  </blockquote>
   <p><span>The prefixes, suffixes, and various symbols used for infinity, digits, thousands 
   separators, decimal separators, etc. may be set to arbitrary values, and they will appear properly 
   during formatting. </span><i><span>However, care must be taken that the symbols and strings do not 
@@ -3719,7 +3729,7 @@ America/Kentucky/Monticello&quot;&gt;
   In particular, it should implement at least the following rules.</span></p>
   <blockquote>
     <ul type="disc">
-      <li><span>if the separator is a NO BREAK SPACE, all input whitespace is treated as<br>
+      <li><span>if the separator is a NO BREAK SPACE, all input white space is treated as<br>
       matching</span></li>
       <li><span>if the separator is an apostrophe (curly or straight), all input apostrophes<br>
       are treated as matching</span></li>
@@ -3727,6 +3737,24 @@ America/Kentucky/Monticello&quot;&gt;
       matching.</span></li>
     </ul>
   </blockquote>
+  <p><span class="changedspan">For consistency in the CLDR data, the following conventions should be 
+  observed so as to have a canonical representation:</span></p>
+  <ul>
+    <li><span class="changedspan">All number patterns should be minimal: there should be no leading 
+    # marks except to specify the position of the grouping separators (e.g. avoid&nbsp; ##,##0.###).</span></li>
+    <li><span class="changedspan">All formats should have one 0 before the decimal point (e.g. avoid 
+    #,###.##) </span></li>
+    <li><span class="changedspan">Decimal formats should have three hash marks in the fractional 
+    position (e.g. #,##0.###).</span></li>
+    <li><span class="changedspan">Currency formats should have two zeros in the fractional position 
+    (e.g. ¤ #,##0.00).</span><ul>
+      <li><span><span class="changedspan">The exact number of decimals is overridden with the 
+      decimal count in supplementary data.</span></span></li>
+    </ul>
+    </li>
+    <li><span><span class="changedspan">The only time two thousands separators needs to be used is 
+    when the number of digits varies, such as for Hindi: #,##,##0.</span></span></li>
+  </ul>
   <h4><span>Formatting</span></h4>
   <p><span>Formatting is guided by several parameters, all of which can be specified either using a 
   pattern or using the API. The following description applies to formats that do not use </span>
@@ -5207,6 +5235,8 @@ decimal?, group?, special*)) &gt;</span></pre>
   appended to the final comment in the document.</span></p>
   <p><span class="changedspan">Multiline comments will have leading tabs stripped, so any 
   indentation should be done with spaces.</span></p>
+  <p><i><span class="changedspan"><b>Issue: </b>we need to determine how to canonicalize draft 
+  attributes.</span></i></p>
   <hr>
   <h3><span class="changedspan"><a name="Element_Order_Table">Element Order Table</a></span></h3>
   <p><span class="changedspan">The organization into bullets is purely for clarity; the ordering is 

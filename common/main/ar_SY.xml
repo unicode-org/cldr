@@ -55,6 +55,11 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<week>
+					<firstDay day="thu"/>
+					<weekendStart day="fri" draft="true"/>
+					<weekendEnd day="sat" draft="true"/>
+				</week>
 			</calendar>
 		</calendars>
 	</dates>

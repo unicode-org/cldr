@@ -1,0 +1,93 @@
+<!--
+
+    Copyright (c) 2002-2003 International Business Machines Corporation and others. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of the LDML format and associated documentation files (the "Format"), to deal in the Format without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Format, and to permit persons to whom the Format is furnished to do so, provided that both the above copyright notice(s) and this permission notice appear in supporting documentation.
+
+    THE FORMAT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS FORMAT.
+
+    Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Format without prior written authorization of the copyright holder.
+
+    All trademarks and registered trademarks mentioned herein are the property of their respective owners.
+-->
+
+<!--  TR-14652/GLIBC Specific elements                         -->
+<!-- ######################################################### -->
+
+<!ATTLIST special xmlns:iso14652 CDATA #IMPLIED>
+
+<!ELEMENT iso14652:addressFormat (alias | (iso14652:postalPattern?)) >
+
+<!ELEMENT iso14652:postalPattern ( #PCDATA ) >
+
+<!ELEMENT iso14652:nameFormat (alias | (iso14652:namePattern?, iso14652:generalSalutation?, iso14652:shortSalutationMr?, iso14652:shortSalutationMiss?, iso14652:shortSalutationMrs?, iso14652:longSalutationMr?, iso14652:longSalutationMiss?, iso14652:longSalutationMrs?)) >
+
+<!ELEMENT iso14652:namePattern ( #PCDATA ) >
+
+<!ELEMENT iso14652:generalSalutation ( #PCDATA ) >
+
+<!ELEMENT iso14652:shortSalutationMiss ( #PCDATA ) >
+
+<!ELEMENT iso14652:shortSalutationMr ( #PCDATA ) >
+
+<!ELEMENT iso14652:shortSalutationMrs ( #PCDATA ) >
+
+<!ELEMENT iso14652:longSalutationMiss ( #PCDATA ) >
+
+<!ELEMENT iso14652:longSalutationMr ( #PCDATA ) >
+
+<!ELEMENT iso14652:longSalutationMrs ( #PCDATA ) >
+
+<!ELEMENT iso14652:identification (alias | (iso14652:title?, iso14652:source?, iso14652:address?, iso14652:contact?, iso14652:email?, iso14652:telephone?, iso14652:fax?, iso14652:languageUsed?, iso14652:country?, iso14652:audience?, iso14652:application?, iso14652:abbreviation?, iso14652:revision?, iso14652:date?)) >
+
+<!ELEMENT iso14652:title ( #PCDATA ) >
+
+<!ELEMENT iso14652:source ( #PCDATA ) >
+
+<!ELEMENT iso14652:address ( #PCDATA ) >
+
+<!ELEMENT iso14652:contact ( #PCDATA ) >
+
+<!ELEMENT iso14652:email ( #PCDATA ) >
+
+<!ELEMENT iso14652:telephone ( #PCDATA ) >
+
+<!ELEMENT iso14652:fax ( #PCDATA ) >
+
+<!ELEMENT iso14652:languageUsed ( #PCDATA ) >
+
+<!ELEMENT iso14652:country ( #PCDATA ) >
+
+<!ELEMENT iso14652:audience ( #PCDATA ) >
+
+<!ELEMENT iso14652:application ( #PCDATA ) >
+
+<!ELEMENT iso14652:abbreviation ( #PCDATA ) >
+
+<!ELEMENT iso14652:revision ( #PCDATA ) >
+
+<!ELEMENT iso14652:date ( #PCDATA ) >
+
+<!ELEMENT iso14652:telephoneFormat (alias | (iso14652:internationalPattern?, iso14652:domesticPattern?, iso14652:internationalDialCode?, iso14652:internationalPrefix?)) >
+
+<!ELEMENT iso14652:internationalPattern ( #PCDATA ) >
+
+<!ELEMENT iso14652:domesticPattern ( #PCDATA ) >
+
+<!ELEMENT iso14652:internationalDialCode ( #PCDATA ) >
+
+<!ELEMENT iso14652:internationalPrefix ( #PCDATA ) >
+
+<!ELEMENT iso14652:countryInfo (alias | (iso14652:countryPost?, iso14652:countryCar?, iso14652:countryNumber?, iso14652:countryISBNNumber?)) >
+
+<!ELEMENT iso14652:countryPost ( #PCDATA ) >
+
+<!ELEMENT iso14652:countryCar ( #PCDATA ) >
+
+<!ELEMENT iso14652:countryNumber EMPTY >
+<!ATTLIST iso14652:countryNumber type NMTOKEN #REQUIRED >
+
+<!ELEMENT iso14652:countryISBNNumber EMPTY >
+<!ATTLIST iso14652:countryISBNNumber type NMTOKEN #REQUIRED >
+
+<!-- ######################################################### -->

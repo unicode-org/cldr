@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE supplementalData SYSTEM "./ldmlSupplemental.dtd" >
-<!--
+ <!--
 
     Copyright (c) 2002-2003 International Business Machines Corporation and others. All rights reserved.
 
@@ -12,35 +10,24 @@
 
     All trademarks and registered trademarks mentioned herein are the property of their respective owners.
 -->
-<supplementalData>
-  <currencyData>
-    <fractions>
-      <info iso4217="CHF" rounding="5"/>
-      <info iso4217="ITL" digits="0"/>
-      <info iso4217="FOO" digits="0" rounding="5"/>
-    </fractions>
-    <region iso3166="IT"> <!-- Italy -->
-      <currency iso4217="EUR"/>
-      <currency iso4217="EUR" before="2002-01-01">
-        <alternate iso4217="ITL"/>
-      </currency>
-      <currency iso4217="ITL" before="2000-01-01"/>
-    </region>
-    <region iso3166="ET"> <!-- Ethiopia -->
-      <currency iso4217="ITL" before="1945-03-01"/>
-    </region>
-    <region iso3166="DE"> <!-- Germany -->
-      <currency iso4217="EUR"/>
-    </region>
-    <region iso3166="US"> <!-- USA -->
-      <currency iso4217="USD"/>
-    </region>
-    <region iso3166="EC"> <!-- Ecuador -->
-      <currency iso4217="USD"/>
-      <currency iso4217="ECS" before="2000-01-01"/>
-    </region>
-    <region iso3166="CH"> <!-- Switzerland -->
-      <currency iso4217="CHF"/>
-    </region>
-  </currencyData>
-</supplementalData>
+
+<!--  POSIX/XPG4 Specific elements                             -->
+<!-- ######################################################### -->
+
+<!ATTLIST special xmlns:posix CDATA #IMPLIED>
+
+<!ELEMENT posix:messages (alias | (posix:no?, posix:yes?, posix:shortYes?, posix:shortNo?)) >
+
+<!ELEMENT posix:yes ( #PCDATA ) >
+
+<!ELEMENT posix:shortYes ( #PCDATA ) >
+
+<!ELEMENT posix:no ( #PCDATA ) >
+
+<!ELEMENT posix:shortNo ( #PCDATA ) >
+
+<!ELEMENT posix:include ( #PCDATA ) >
+
+<!-- ######################################################### -->
+
+

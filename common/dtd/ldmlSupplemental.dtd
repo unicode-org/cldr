@@ -11,7 +11,7 @@
     All trademarks and registered trademarks mentioned herein are the property of their respective owners.
 -->
 
-<!ELEMENT supplementalData ( currencyData?, languageData? ) >
+<!ELEMENT supplementalData ( currencyData?, territoryContainment?, languageData? ) >
 
 <!ATTLIST supplementalData version CDATA #FIXED "1.3" >
 
@@ -32,6 +32,12 @@
 
 <!ELEMENT alternate EMPTY >
 <!ATTLIST alternate iso4217 NMTOKEN #REQUIRED >
+
+<!ELEMENT territoryContainment ( group* ) >
+<!ELEMENT group EMPTY >
+<!ATTLIST group type NMTOKEN #REQUIRED >
+<!ATTLIST group contains NMTOKENS #IMPLIED >
+
 
 <!ELEMENT languageData ( language* ) >
 <!ELEMENT language EMPTY >

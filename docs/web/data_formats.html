@@ -138,7 +138,7 @@
           given below are to the LDML specification.</p>
           <h2><a name="General">General</a></h2>
           <p>The locale data should be in the customary form for the target language, in the form 
-          that is in most common usage. For example, for the country name in English one would use 
+          that is in most common usage. For example, for the territory name in English one would use 
           &quot;Switzerland&quot; instead of &quot;Swiss Confederation&quot;, and use &quot;United Kingdom&quot; instead of &quot;The 
           United Kingdom of Great Britain and Northern Ireland&quot;.</p>
           <p>As with all of the CLDR data, the language locale should contain the most broadly used 
@@ -335,12 +335,12 @@
             <p>Because these lists are long, it may be more difficult to collect all the data at 
             once. If that is the case, we suggest first providing translations of at least the 
             elements that are most familiar to people with the target language. This might be, for 
-            example, the countries, languages, scripts, and (modern) currencies for:</p>
+            example, the territories, languages, scripts, and (modern) currencies for:</p>
             <ol>
-              <li>Countries having the target language as an official language</li>
-              <li>G7 + BRIC countries: US, Canada, Japan, UK, France, Germany, Italy; Brazil, 
+              <li>Territories having the target language as an official language</li>
+              <li>G7 + BRIC territories: US, Canada, Japan, UK, France, Germany, Italy; Brazil, 
               Russia, India, China</li>
-              <li>Countries adjacent to the countries in #1</li>
+              <li>Territories adjacent to the territories in #1</li>
             </ol>
             <p>Beyond that, one should use frequency of usage in the target language as a guide: it 
             is clearly more important to have an accurate name for &quot;Russian&quot; or &quot;Arabic&quot; than it is 
@@ -400,9 +400,9 @@
             no modern difference between two IDs; they are only distinguished in the past. For 
             example, America/Chicago and America/Indianapolis are currently the same, but differed 
             in the past.</p>
-            <p>Most countries do not span multiple time zones, and may not have localized names for 
-            particular time zones. In that case, probably the best localizations are something of a 
-            form like &quot;New York Time&quot;.</p>
+            <p>Most territories do not span multiple time zones, and may not have localized names 
+            for particular time zones. In that case, probably the best localizations are something 
+            of a form like &quot;New York Time&quot;.</p>
             <p>The fields are long and short (abbreviated) versions of:</p>
             <ul>
               <li>generic time zone name, e.g. <span style="COLOR: blue">Pacific Time</span></li>
@@ -483,7 +483,7 @@
           There are a couple of troublesome areas:</span></p>
           <h3>AM / PM</h3>
           <blockquote>
-            <p>Even for countries where the customary date format only has a 24 hour format, both 
+            <p>Even for territories where the customary date format only has a 24 hour format, both 
             the am and pm localized strings must be present and must be distinct from one another. 
             Note that as long as the 24 hour format is used, these strings will normally never be 
             used, but for testing and unusual circumstances they must be present.</p>

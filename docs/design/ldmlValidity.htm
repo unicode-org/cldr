@@ -110,6 +110,12 @@ string as element contents.</p>
   <li>&lt;//ldml/identity/version@number=&quot;1.1&quot;, &quot;&quot;&gt;</li>
   <li>&lt;//ldml/localeDisplayNames/languages/language@type=&quot;ar&quot;, &quot;&#913;&#961;&#945;&#946;&#953;&#954;&#940;&quot;&gt;</li>
 </ul>
+<blockquote>
+  <p><b>Note:</b> Some elements are not inherited from their parent locales. For example, all of the 
+  elements in a &lt;collation&gt; element are part of the structure of the collation data itself. So 
+  everything in a &lt;collation&gt; element is treated as a single lump of data, as far as inheritance is 
+  concerned.</p>
+</blockquote>
 <p>Two LDML element chains are <i>equivalent</i> when they would be identical if all attributes 
 except the following list were removed: <b>type, width, context</b>. Thus the following are 
 equivalent:</p>

@@ -6,12 +6,7 @@
 <meta name="ProgId" content="FrontPage.Editor.Document">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 <title>Multiple Inheritance</title>
-<style>
-<!--
-body         { font-family: serif; background-color: #FFFFFF }
-li, p           { margin-top: 0.5em; margin-bottom: 0.5em }
--->
-</style>
+<link rel="stylesheet" type="text/css" href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/common.css">
 </head>
 
 <body>
@@ -60,11 +55,11 @@ want to add [position()=1] to the path (somehow), to force it to be unique.</p>
   &lt;calendar type=&quot;gregorian&quot;&gt;<br>
   &lt;months&gt;<br>
   &lt;monthContext type='stand-alone'&gt;<br>
-  &lt;alias path=&quot;../@format&quot;/&gt;<br>
+  &lt;alias path=&quot;../@type='format'&quot;/&gt;<br>
   ...<br>
   &lt;days&gt;<br>
   &lt;dayContext type='stand-alone'&gt;<br>
-  &lt;alias path=&quot;../@format&quot;/&gt;<br>
+  &lt;alias path=&quot;../@type='format'&quot;/&gt;<br>
   ...</li>
   <li>For each non-gregorian calendar that is not represented in root, we would add path aliases for 
   any missing elements. Example, japanese currently has only eras in root:<br>
@@ -100,7 +95,7 @@ want to add [position()=1] to the path (somehow), to force it to be unique.</p>
   <br>
   &lt;currency type=xxx&gt;<br>
   &lt;symbol&gt;&lt;alias path=&quot;../../@displayName&quot;&gt;&lt;/symbol&gt;<br>
-  &lt;pattern&gt;&lt;alias path=&quot;../../../../currencyFormats/currencyFormatLength/currencyFormat@standard&quot;&gt;&lt;/symbol&gt;<br>
+  &lt;pattern&gt;&lt;alias path=&quot;../../../../currencyFormats/currencyFormatLength/currencyFormat@type='standard'&quot;&gt;&lt;/symbol&gt;<br>
   &lt;decimal&gt;&lt;alias path=&quot;../../../../symbols/decimal&quot;&gt;&lt;/symbol&gt;<br>
   &lt;group&gt;&lt;alias path=&quot;../../../../symbols/decimal&quot;&gt;&lt;/group&gt;<br>
   <br>
@@ -113,7 +108,11 @@ want to add [position()=1] to the path (somehow), to force it to be unique.</p>
   <li>It is more than a bit ugly to add all the elements to the currency types. That would bulk up 
   the data files quite considerably, and at levels other than the root. And in the root we'd be 
   forced to add all the ISO currency codes. I think in this case it would be better to simply 
-  document the behavior.<br>
+  document the behavior.</li>
+  <li>Some elements are not inherited from their parent locales. For example, all of the elements in 
+  a &lt;collation&gt; element are part of the structure of the collation data itself. So everything in a 
+  &lt;collation&gt; element is treated as a single lump of data, as far as inheritance is concerned. We 
+  should consider a way to handle this also by means of structure rather than documentation.<p><br>
   <br>
 &nbsp;</li>
 </ol>

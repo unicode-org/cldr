@@ -11,6 +11,9 @@
 <style>
 <!--
 span.dtd         { font-family: monospace; font-size:90%; text-indent:-3em; margin-left:3em; background-color:#CCCCFF }
+span.element { font-weight: bold; color: red }
+span.attribute { font-weight: bold; color: maroon}
+span.attributeValue { font-weight: color: blue}
 -->
 </style>
 </head>
@@ -678,7 +681,7 @@ root</pre>
   <pre>&lt;ldml&gt;
   &lt;collations&gt;
     &lt;collation type=&quot;<span style="color: blue">phonebook</span>&quot;&gt;
-      &lt;alias source=&quot;<span style="color: blue">de_DE</span>&quot; type=&quot;<span style="color: blue">phonebook</span>&quot;&gt;
+      &lt;alias source=&quot;<span style="color: blue">de_DE</span>&quot;&gt;
     &lt;/collation&gt;
   &lt;/collation<span>s</span>&gt;
 &lt;/ldml&gt;</pre>
@@ -686,8 +689,12 @@ root</pre>
   the the same tree with type &quot;collation&quot;. If not found there, then the resource bundle at &quot;de&quot; will 
   be searched, etc.</p>
   <p><span class="changedspan">If the path attribute is present, then its value is an XPath that 
-  points to a different position in the tree. For example:</span></p>
+  points to a different node in the tree. For example:</span></p>
   <pre><span class="changedspan">&lt;alias source=&quot;root&quot; path=&quot;../monthWidth[@type=&#39;wide&#39;]&quot;/&gt;</span></pre>
+  <p class="changed"><span>The default value if the path is not present is the same position in the 
+  tree. For more information, see </span><span class="changed"><a href="#Inheritance_and_Validity">
+  Appendix I: Inheritance and Validity</a>. In particular, the only attributes in the XPath are to 
+  be distinguishing attributes.</span></p>
   <p><span>It is an error to have a circular chain of aliases. That is, a collection of LDML XML 
   documents must not have situations where a sequence of alias lookups (including inheritance and 
   multiple inheritance) can be followed indefinitely without terminating.</span></p>
@@ -781,8 +788,14 @@ root</pre>
     <li><i>true</i> meaning that it is all draft status (provisional data, not verified)</li>
     <li><i>false</i> indicating the reverse.</li>
   </ul>
-  <p class="changed">For a more complete description of how draft applies to data, see
-  <a href="#Inheritance_and_Validity">Inheritance_and_Validity</a>.</p>
+  <p class="changed"><span class="changed">If an element has the attribute </span>
+  <span class="attribute">draft</span><span class="changed">=&quot;</span><span class="attributeValue">true</span><span class="changed">&quot;, 
+  then the data is not known to be valid. (&quot;Not known to be&quot; because it may actually be valid, but 
+  it has not been vetted.). But it is a bit more complicated than that, since </span>
+  <span class="attribute">draft</span><span class="changed">=&quot;</span><span class="attributeValue">true</span><span class="changed">&quot; 
+  is inherited by subelements, and sublocales. For a more formal description of how elements are 
+  inherited, and what their draft status is, </span>see <a href="#Inheritance_and_Validity">
+  Inheritance_and_Validity</a>.</p>
   <p class="changed">&lt;... <a name="alt_attribute">alt</a>=&quot;<span style="color: #0000FF">proposed</span>&quot; 
   ...&gt;</p>
   <p class="changed">This attribute should only be present if draft=&quot;true&quot;. It indicates that the 
@@ -3856,14 +3869,37 @@ root</pre>
   </table>
   <p><span class="changed">Quoting is done using &#39; characters, as in date or number formats.</span></p>
   <h2><span class="changed">Appendix I: <a name="Inheritance_and_Validity">Inheritance and Validity</a></span></h2>
-  <p><span class="changed">The following describes in more detail how to determine the exact 
-  inheritance of elements, and the validity of a given element in </span><span class="changed">LDML</span><span class="changed">. 
-  If an element has draft=&quot;true&quot;, then the data is not known to be valid. (&quot;Not known to be&quot; because 
-  it may actually be valid, but it has not been vetted.). But it is a bit more complicated than 
-  that, since draft=&quot;true&quot; is inherited by </span><span class="changed">subelements</span><span class="changed">, 
-  and sublocales. So this section provides a more formal description of how elements are inherited, 
-  and what their draft status is.</span></p>
+  <p class="changed"><span class="changed">The following describes in more detail how to determine 
+  the exact inheritance of elements, and the validity of a given element in </span>
+  <span class="changed">LDML</span><span class="changed">.</span></p>
+  <p class="changed"><span class="changed">When any of the following definitions are applied, it is 
+  assumed that all aliases are resolved: that is, everything behaves as if each alias element were 
+  replaced by the <i>contents</i> of the element it points to. One exception is the at the very top 
+  level: the </span><span class="element">ldml</span><span class="changed"> element can have both an
+  </span><span class="element">identity</span><span class="changed"> element and an </span>
+  <span class="element">alias</span><span class="changed"> element; the resolution of that </span>
+  <span class="element">alias</span><span class="changed"> element, excludes any </span>
+  <span class="element">identity</span><span class="changed"> element in the contents of the element 
+  it points to. If the </span><span class="attribute">path</span><span class="changed"> attribute of 
+  an </span><span class="element">alias</span><span class="changed"> element is not present, then it 
+  defaults to the XPath of the enclosing element.</span></p>
   <h3><span class="changed">Definitions</span></h3>
+  <p class="changed"><span class="changedspan">Attributes that serve to distinguish multiple 
+  elements at the same level are called <i>distinguishing</i> attributes. These currently consist of
+  </span><span class="attribute">key</span><span class="changedspan">, </span>
+  <span class="attribute">registry</span><span class="changedspan">, </span><span class="attribute">
+  alt</span><span class="changedspan">, and </span><span class="attribute">type</span><span class="changedspan"> 
+  (except for the </span><span class="attribute">type</span><span class="changedspan"> attribute on 
+  the elements </span><span class="element">default</span><span class="changedspan"> and </span>
+  <span class="element">mapping</span><span class="changedspan">).</span></p>
+  <p><span class="changed"><i>Blocking</i> elements are those whose subelements do not inherit from 
+  parent locales. For example, a &lt;collation&gt; element is a blocking element: everything in a 
+  &lt;collation&gt; element is treated as a single lump of data, as far as inheritance is concerned.</span></p>
+  <p><span class="changed">Certain elements are called <i>attribute-information</i> elements. They 
+  do not have element content; their information is carried in their attribute values. This is 
+  unlike the other elements, whose attributes are used to distinguish different types of data.</span></p>
+  <p><span class="changed">A list of blocking and <i>attribute-information</i> elements is found in
+  <a href="#valid_attribute_values">Appendix K: Valid Attribute Values</a>.</span></p>
   <p><span class="changed">For any element in an XML file, </span><i><span class="changed">an 
   element chain</span></i><span class="changed"> is a resolved </span><span class="changed">XPath</span><span class="changed"> 
   leading from the root to an element, with attributes on each element in alphabetical order. So in, 
@@ -3908,30 +3944,28 @@ root</pre>
     </b>&quot;Αραβικά&quot;<b>&gt;</b></span></li>
   </ul>
   <blockquote>
-    <p><b><span class="changed">Note:</span></b><span class="changed"> Rule elements are not 
-    inherited from their parent locales. For example, all of the elements in a &lt;collation&gt; element 
-    are part of the structure of the collation data itself. So everything in a &lt;collation&gt; element 
-    is treated as a single lump of data, as far as inheritance is concerned.</span></p>
-    <p><span class="changed"><b>Note: </b>There is one other exception to this definition of element 
-    pairs. Certain elements are called <i>attribute-information</i> elements. They do not have 
-    element content; their information is carried in their attribute values. This is unlike the 
-    other elements, whose attributes are used to distinguish different types of data. For these 
-    elements, in terms of computing inheritance, the element pair consists of:the element chain 
-    minus the attributes in the final element and the value is the list of attributes for that final 
-    element. A list of these elements is found in <a href="#valid_attribute_values">Appendix K: 
-    Valid Attribute Values</a>.</span></p>
-    <p><span class="changedspan">Thus instead of the element pair being #1 below, it is #2:</span></p>
+    <p><span class="changed"><b>Note: </b>There are two exceptions to this:</span></p>
     <ol>
-      <li><span class="changedspan"><b>&lt;</b>//ldml[@version=&quot;1.1&quot;]/dates/calendars/calendar[@type=&#39;gregorian&#39;]/week/weekendStart[@day=&#39;sun&#39;][@time=&#39;00:00&#39;]<b>,</b><br>
-      <b>&quot;&quot;&gt;</b></span></li>
-      <li><span class="changedspan"><b>&lt;</b>//ldml[@version=&quot;1.1&quot;]/dates/calendars/calendar[@type=&#39;gregorian&#39;]/week/weekendStart<b>,</b><br>
-      [@day=&#39;sun&#39;][@time=&#39;00:00&#39;]<b>&gt;</b></span></li>
+      <li><span class="changed">Blocking nodes and their contents are treated as a single end note.
+      </span></li>
+      <li><span class="changed">For attribute-information elements, in terms of computing 
+      inheritance, the element pair consists of the element chain minus the attributes in the final 
+      element and the value is the list of attributes for that final element. </span></li>
     </ol>
+    <blockquote>
+      <p><span class="changedspan">Thus instead of the element pair being (a) below, it is (b):</span></p>
+      <ol type="a">
+        <li><span class="changedspan"><b>&lt;</b>//ldml[@version=&quot;1.1&quot;]/dates/calendars/calendar[@type=&#39;gregorian&#39;]/week/weekendStart[@day=&#39;sun&#39;][@time=&#39;00:00&#39;]<b>,</b><br>
+        <b>&quot;&quot;&gt;</b></span></li>
+        <li><span class="changedspan"><b>&lt;</b>//ldml[@version=&quot;1.1&quot;]/dates/calendars/calendar[@type=&#39;gregorian&#39;]/week/weekendStart<b>,</b><br>
+        [@day=&#39;sun&#39;][@time=&#39;00:00&#39;]<b>&gt;</b></span></li>
+      </ol>
+    </blockquote>
   </blockquote>
   <p><span class="changed">Two </span><span class="changed">LDML</span><span class="changed"> 
   element chains are </span><i><span class="changed">equivalent</span></i><span class="changed"> 
-  when they would be identical if the following attributes and their values were removed: <b>draft</b>,
-  <b>standard</b>, <b>references</b>, <b>validSubLocales</b>. Thus the following are equivalent:</span></p>
+  when they would be identical if all attributes and their values were removed<font face="Times New Roman"> 
+  —</font>except for distinguishing attributes. Thus the following are equivalent:</span></p>
   <ul>
     <li><span class="changed">//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/localeDisplayNames</span><span class="changed">/languages/language[@type=&quot;</span><span class="changed">ar&quot;]</span></li>
     <li><span class="changed">//</span><span class="changed">ldml[@version=&quot;1.1&quot;]/localeDisplayNames</span><span class="changed">/languages/language[@type=&quot;</span><span class="changed">ar&quot;][@draft=&quot;true&quot;]</span></li>
@@ -4282,12 +4316,32 @@ root</pre>
   <h2>&nbsp;</h2>
   <h2><span class="changedspan"><a name="valid_attribute_values"></a>Appendix K: Valid Attribute 
   Values</span></h2>
-  <p><span class="changedspan">The following list provides a list of valid tags, for all elements 
-  except collation &lt;rules&gt; and its children. For currency codes, this list only includes the ISO 
-  4217 currency codes; however, there are other codes in common use that may occur in LDML data. A 
-  definitive list will be provided in the future.</span></p>
-  <p><span class="changedspan">In addition, data marked draft=&quot;true&quot; may use attribute values that 
-  are not in the following list, to allow for proposed additions, such as new variant codes.</span></p>
+  <p class="changed"><span class="changedspan">The following list provides a list of the currently 
+  valid attributes and values, for all elements except </span><span class="element">collation</span><span class="changedspan"> 
+  &lt;</span><span class="element">rules</span><span class="changedspan">&gt; and its subelements. For 
+  currency codes, this list only includes the ISO 4217 currency codes; however, there are other 
+  codes in common use that may occur in LDML data. A definitive list will be provided in the future. 
+  In addition, data marked </span><span class="attribute">draft</span><span class="changedspan">=&quot;</span><span class="attributeValue">true</span><span class="changedspan">&quot; 
+  may use attribute values that are not in the following list, to allow for proposed additions, such 
+  as new variant codes.</span></p>
+  <p class="changed"><span class="changedspan">In the following list, the <i>attribute-information</i> 
+  elements (</span><span class="element">alias</span><span class="changedspan">, </span>
+  <span class="element">default</span><span class="changedspan">, </span><span class="element">
+  firstDay</span><span class="changedspan">, </span><span class="element">mapping</span><span class="changedspan">,
+  </span><span class="element">measurementSystem</span><span class="changedspan">, </span>
+  <span class="element">minDays</span><span class="changedspan">, </span><span class="element">
+  orientation</span><span class="changedspan">, </span><span class="element">settings</span><span class="changedspan">,
+  </span><span class="element">weekendStart</span><span class="changedspan">, </span>
+  <span class="element">weekendEnd</span><span class="changedspan">) are marked with a *. These 
+  elements carry all of their information in attributes, and are to have empty element contents. 
+  There is currently only one <i>blocking</i> element: </span><span class="element">collation</span><span class="changedspan">. 
+  The <i>distinguishing</i> attributes are not marked in the table, but currently consist of </span>
+  <span class="attribute">key</span><span class="changedspan">, </span><span class="attribute">
+  registry</span><span class="changedspan">, </span><span class="attribute">alt</span><span class="changedspan">, 
+  and </span><span class="attribute">type</span><span class="changedspan"> (except for the </span>
+  <span class="attribute">type</span><span class="changedspan"> attribute on the elements </span>
+  <span class="element">default</span><span class="changedspan"> and </span><span class="element">
+  mapping</span><span class="changedspan">).</span></p>
   <table>
     <tr>
       <th><span class="changedspan">Element</span></th>
@@ -4329,7 +4383,7 @@ root</pre>
       <td><span class="changedspan">&quot;standard&quot;, &quot;GMT&quot;</span></td>
     </tr>
     <tr>
-      <td rowSpan="2"><span class="changedspan">alias</span></td>
+      <td rowSpan="2"><span class="changedspan">alias*</span></td>
       <!-- 1, 2-->
       <td><span class="changedspan">path</span></td>
       <!-- 1-->
@@ -4455,7 +4509,7 @@ root</pre>
       <td><span class="changedspan">&quot;full&quot;, &quot;long&quot;, &quot;medium&quot;, &quot;short&quot;</span></td>
     </tr>
     <tr>
-      <td><span class="changedspan">default</span></td>
+      <td><span class="changedspan">default*</span></td>
       <!-- 1, 1-->
       <td><span class="changedspan">type</span></td>
       <!-- 1-->
@@ -4484,7 +4538,7 @@ root</pre>
       &quot;hour&quot;, &quot;minute&quot;, &quot;second&quot;, &quot;zone&quot;</span></td>
     </tr>
     <tr>
-      <td><span class="changedspan">firstDay</span></td>
+      <td><span class="changedspan">firstDay*</span></td>
       <!-- 7, 1-->
       <td><span class="changedspan">day</span></td>
       <!-- 7-->
@@ -4552,7 +4606,7 @@ root</pre>
       <td><span class="changedspan">&quot;1.0&quot;, &quot;1.1&quot;, &quot;1.2&quot;</span></td>
     </tr>
     <tr>
-      <td rowSpan="2"><span class="changedspan">mapping</span></td>
+      <td rowSpan="2"><span class="changedspan">mapping*</span></td>
       <!-- 1, 2-->
       <td><span class="changedspan">registry</span></td>
       <!-- 1-->
@@ -4564,14 +4618,14 @@ root</pre>
       <td><span class="changedspan">&quot;&lt;any valid charset from the given registry&gt;&quot;</span></td>
     </tr>
     <tr>
-      <td><span class="changedspan">measurementSystem</span></td>
+      <td><span class="changedspan">measurementSystem*</span></td>
       <!-- 3, 1-->
       <td><span class="changedspan">type</span></td>
       <!-- 3-->
       <td><span class="changedspan">&quot;metric&quot;, &quot;US&quot;, &quot;UK&quot;</span></td>
     </tr>
     <tr>
-      <td><span class="changedspan">minDays</span></td>
+      <td><span class="changedspan">minDays*</span></td>
       <!-- 7, 1-->
       <td><span class="changedspan">count</span></td>
       <!-- 7-->
@@ -4600,7 +4654,7 @@ root</pre>
       <td><span class="changedspan">&quot;abbreviated&quot;, &quot;narrow&quot;, &quot;wide&quot;</span></td>
     </tr>
     <tr>
-      <td rowSpan="2"><span class="changedspan">orientation</span></td>
+      <td rowSpan="2"><span class="changedspan">orientation*</span></td>
       <!-- 4, 2-->
       <td><span class="changedspan">characters</span></td>
       <!-- 4-->
@@ -4686,7 +4740,7 @@ root</pre>
       &quot;Zyyy&quot;, &quot;Zzzz&quot;</span></td>
     </tr>
     <tr>
-      <td rowSpan="8"><span class="changedspan">settings</span></td>
+      <td rowSpan="8"><span class="changedspan">settings*</span></td>
       <!-- 2, 8-->
       <td><span class="changedspan">alternate</span></td>
       <!-- 2-->
@@ -4793,7 +4847,7 @@ root</pre>
       <td><span class="changedspan">&quot;&lt;n.m format&gt;&quot;</span></td>
     </tr>
     <tr>
-      <td rowSpan="2"><span class="changedspan">weekendEnd</span></td>
+      <td rowSpan="2"><span class="changedspan">weekendEnd*</span></td>
       <!-- 7, 2-->
       <td><span class="changedspan">day</span></td>
       <!-- 7-->
@@ -4805,7 +4859,7 @@ root</pre>
       <td><span class="changedspan">&quot;&lt;HH:mm (00:00..24:00)&gt;&quot;</span></td>
     </tr>
     <tr>
-      <td rowSpan="2"><span class="changedspan">weekendStart</span></td>
+      <td rowSpan="2"><span class="changedspan">weekendStart*</span></td>
       <!-- 7, 2-->
       <td><span class="changedspan">day</span></td>
       <!-- 7-->
@@ -4905,21 +4959,7 @@ root</pre>
       &quot;Pacific/Truk&quot;, &quot;Pacific/Wake&quot;, &quot;Pacific/Wallis&quot;, &quot;Pacific/Yap&quot;</span></td>
     </tr>
   </table>
-  <p><span class="changedspan">The following lists the <i>attribute-information</i> elements, used 
-  and discussed in </span><span class="changed"><a href="#Inheritance_and_Validity">Appendix I: 
-  Inheritance and Validity</a>.</span></p>
-  <ul>
-    <li><span class="changedspan">alias</span></li>
-    <li><span class="changedspan">default</span></li>
-    <li><span class="changedspan">firstDay</span></li>
-    <li><span class="changedspan">mapping</span></li>
-    <li><span class="changedspan">measurementSystem</span></li>
-    <li><span class="changedspan">minDays</span></li>
-    <li><span class="changedspan">orientation</span></li>
-    <li><span class="changedspan">settings</span></li>
-    <li><span class="changedspan">weekendStart</span></li>
-    <li><span class="changedspan">weekendEnd</span></li>
-  </ul>
+  <h2>&nbsp;</h2>
   <h2><a name="References">References</a></h2>
   <table style="border-collapse: collapse; border-width: 1; " cellpadding="4" cellspacing="0" class="noborder" border="0">
     <tr>

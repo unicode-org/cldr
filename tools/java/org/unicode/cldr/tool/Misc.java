@@ -22,7 +22,6 @@ import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.CLDRFile.Value;
 
 import sun.java2d.loops.ScaledBlit;
 
@@ -181,9 +180,9 @@ public class Misc {
 		for (Iterator it = languages.iterator(); it.hasNext();) {
 			String language = (String)it.next();
 			CLDRFile desiredLocaleFile = cldrFactory.make(language, true);
-			Value orientation = desiredLocaleFile.getValue("/ldml/layout/orientation");
+			String orientation = desiredLocaleFile.getFullXPath("/ldml/layout/orientation");
 			boolean rtl = orientation == null ? false
-					: orientation.getFullXPath().indexOf("[@characters=\"right-to-left\"]") >= 0;
+					: orientation.indexOf("[@characters=\"right-to-left\"]") >= 0;
 			// <orientation characters="right-to-left"/>
 			PrintWriter log = BagFormatter.openUTF8Writer(options[DESTDIR].value + "", language + "_current.html");
 			log.println("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
@@ -789,8 +788,7 @@ public class Misc {
 		XPathParts parts = new XPathParts(null, null);
 		for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
 			String path = (String) it.next();
-			Value v = supp.getValue(path);
-			parts.set(v.getFullXPath());
+			parts.set(supp.getFullXPath(path));
 			Map m = parts.findAttributes("language");
 			if (m == null) continue;
 			if (false) System.out.println("Type: " + m.get("type") 
@@ -803,8 +801,7 @@ public class Misc {
 		Map groups = new TreeMap();
 		for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
 			String path = (String) it.next();
-			Value v = supp.getValue(path);
-			parts.set(v.getFullXPath());
+			parts.set(supp.getFullXPath(path));
 			Map m = parts.findAttributes("territoryContainment");
 			if (m == null) continue;
 			Map attributes = parts.getAttributes(2);
@@ -949,8 +946,8 @@ public class Misc {
 		String name;
 		int pos = key.lastIndexOf('/');
 		if (pos >= 0) {
-			Value v = localization.getValue("/ldml/dates/timeZoneNames/zone[@type=\"" + key + "\"]/exemplarCity");
-			if (v != null) name = v.getStringValue();
+			String v = localization.getStringValue("/ldml/dates/timeZoneNames/zone[@type=\"" + key + "\"]/exemplarCity");
+			if (v != null) name = v;
 			else {
 			
 	// <ldml><dates><timezoneNames>

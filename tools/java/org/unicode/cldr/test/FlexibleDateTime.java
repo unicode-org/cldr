@@ -28,7 +28,6 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.CLDRFile.Value;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
@@ -213,8 +212,8 @@ public class FlexibleDateTime {
 				boolean isDate = xpath.indexOf("/dateFormat/") >= 0 || xpath.indexOf("/dateFormat[@") >= 0;
 				boolean isTime = xpath.indexOf("/timeFormat/") >= 0 || xpath.indexOf("/timeFormat[@") >= 0;
 				if (isDate || isTime) {
-					Value value = item.getValue(xpath);
-					String pattern = value.getStringValue();
+					String value = item.getStringValue(xpath);
+					String pattern = value;
 					String oldPattern = pattern;
 					if (oldPattern.indexOf('[') >= 0) continue;
 					pattern = isDate ? ooConverter.convertOODate(pattern, locale) 

@@ -36,8 +36,6 @@ import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.CLDRFile.StringValue;
-import org.unicode.cldr.util.CLDRFile.Value;
 
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.Collator;
@@ -135,13 +133,13 @@ public class CLDRTest extends TestFmwk {
 				String xpath = (String) it2.next();
 				byte type = getNumericType(xpath);
 				if (type == NOT_NUMERIC_TYPE) continue;
-				CLDRFile.StringValue value = (StringValue) item.getValue(xpath);
+				String value = (String) item.getStringValue(xpath);
 				// at this point, we only have currency formats
-				String pattern = getCanonicalPattern(value.getStringValue(), type, isPOSIX);
-				if (!pattern.equals(value.getStringValue())) {
+				String pattern = getCanonicalPattern(value, type, isPOSIX);
+				if (!pattern.equals(value)) {
 					String draft = "";
-					if (value.getFullXPath().indexOf("[@draft=\"true\"]") >= 0) draft = " [draft]";
-					assertEquals(getLocaleAndName(locale) + draft + " " + TYPE_NAME[type] + " pattern incorrect", pattern, value.getStringValue());
+					if (item.getFullXPath(xpath).indexOf("[@draft=\"true\"]") >= 0) draft = " [draft]";
+					assertEquals(getLocaleAndName(locale) + draft + " " + TYPE_NAME[type] + " pattern incorrect", pattern, value);
 				}
 			}
 		}
@@ -199,7 +197,8 @@ public class CLDRTest extends TestFmwk {
 	 */
 	private static class ValueCount {
 		int count = 1;
-		Value value;
+		String value;
+		String fullxpath;
 	}
 	
 	/**
@@ -225,11 +224,12 @@ public class CLDRTest extends TestFmwk {
 					String xpath = (String) it2.next();
 					if (okValues.contains(xpath)) continue;
 					if (xpath.startsWith("/ldml/identity/")) continue; // skip identity elements
-					Value v = item.getValue(xpath);
+					String v = item.getStringValue(xpath);
 					ValueCount last = (ValueCount) currentValues.get(xpath);
 					if (last == null) {
 						ValueCount vc = new ValueCount();
 						vc.value = v;
+						vc.fullxpath = item.getFullXPath(xpath);
 						currentValues.put(xpath, vc);
 					} else if (v.equals(last.value)) {
 						last.count++;
@@ -251,18 +251,19 @@ public class CLDRTest extends TestFmwk {
 			for (Iterator it2 = currentValues.keySet().iterator(); it2.hasNext();) {
 				String xpath = (String) it2.next();
 				ValueCount vc = (ValueCount) currentValues.get(xpath);
-				if (vc.count == size || vc.value.equals(parentCLDR.getValue(xpath))) {
+				if (vc.count == size || (vc.value.equals(parentCLDR.getStringValue(xpath)) 
+						&& vc.fullxpath.equals(parentCLDR.getStringValue(xpath)))) {
 					String draft = "";
 					if (true) {
-						if (vc.value.getFullXPath().indexOf("[@draft=\"true\"]") >= 0) draft = " [draft]";
+						if (vc.fullxpath.indexOf("[@draft=\"true\"]") >= 0) draft = " [draft]";
 					} else {
-						p.set(vc.value.getFullXPath());
+						p.set(vc.fullxpath);
 						if (p.containsAttributeValue("draft","true")) draft = " [draft]";
 					}
 					String count = (vc.count == size ? "" : vc.count + "/") + size;
 					warnln(getLocaleAndName(parent) + draft +
 							"\tall children (" + count + ") have same value for:\t"
-							+ xpath + ";\t" + vc.value.getStringValue());
+							+ xpath + ";\t" + vc.value);
 				}
 			}
 		}
@@ -291,10 +292,10 @@ public class CLDRTest extends TestFmwk {
 				for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
 					if (xpath.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) continue file; // skip some items.
 				}
-				Value pvalue = plain.getValue(xpath);
-				if (SKIP_DRAFT && pvalue.getFullXPath().indexOf("[@draft=\"true\"") > 0) continue;
+				String fullxpath = plain.getFullXPath(xpath);
+				if (SKIP_DRAFT && fullxpath.indexOf("[@draft=\"true\"") > 0) continue;
 				if (xpath.startsWith("/ldml/posix/messages")) continue;
-				String value = pvalue.getStringValue();
+				String value = plain.getStringValue(xpath);
 				if (!exemplars.containsAll(value)) {
 					count++;
 					UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
@@ -333,13 +334,13 @@ public class CLDRTest extends TestFmwk {
 	 */
 	public UnicodeSet getExemplarSet(CLDRFile cldrfile, String type) {
 		if (type.length() != 0) type = "[@type=\"" + type + "\"]";
-		Value v = cldrfile.getValue("/ldml/characters/exemplarCharacters" + type);
+		String v = cldrfile.getStringValue("/ldml/characters/exemplarCharacters" + type);
 		if (v == null) return new UnicodeSet();
-		String pattern = v.getStringValue();
+		String pattern = v;
 		if (pattern.indexOf("[:") >= 0 || pattern.indexOf("\\p{") > 0) {
 			errln(getLocaleName(cldrfile.getKey()) + " exemplar pattern contains property: " + pattern);
 		}
-		UnicodeSet result = new UnicodeSet(v.getStringValue(), UnicodeSet.CASE);
+		UnicodeSet result = new UnicodeSet(v, UnicodeSet.CASE);
 		//if (type.length() != 0) System.out.println("fetched set for " + type);
 		return result;
 	}
@@ -410,9 +411,9 @@ public class CLDRTest extends TestFmwk {
 	 * Internal
 	 */
 	private String getName(CLDRFile english, String kind, String type) {
-		Value v = english.getValue("/ldml/localeDisplayNames/" + kind + "[@type=\"" + type + "\"]");
+		String v = english.getStringValue("/ldml/localeDisplayNames/" + kind + "[@type=\"" + type + "\"]");
 		if (v == null) return "<" + type + ">";
-		return v.getStringValue();
+		return v;
 	}
 	
 	/**
@@ -474,7 +475,7 @@ public class CLDRTest extends TestFmwk {
 				String xpath = (String) it2.next();
 				int nameType = CLDRFile.getNameType(xpath);
 				if (nameType < 0) continue;
-				String value = ((StringValue) item.getValue(xpath)).getStringValue();
+				String value = item.getStringValue(xpath);
 				String xpath2 = (String) maps[nameType].get(value);
 				if (xpath2 == null) {
 					maps[nameType].put(value, xpath);
@@ -500,8 +501,7 @@ public class CLDRTest extends TestFmwk {
 		XPathParts parts = new XPathParts(null, null);
 		for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
 			String xpath = (String) it2.next();
-			CLDRFile.StringValue value = (StringValue) item.getValue(xpath);
-			parts.set(value.getFullXPath());
+			parts.set(item.getFullXPath(xpath));
 			for (int i = 0; i < parts.size(); ++i) {
 				String element = parts.getElement(i);
 				Map attributes = parts.getAttributes(i);
@@ -601,12 +601,12 @@ public class CLDRTest extends TestFmwk {
 			++count;
 			if (rfcname.equals("PRIVATE USE")) continue;
 			String fullFragment = prefix + "[@type=\"" + code + "\"]" + postfix;
-			Value v = cldrfile.getValue(fullFragment);
+			String v = cldrfile.getStringValue(fullFragment);
 			if (v == null) {
 				errln("Missing translation for:\t<" + type + " type=\""  + code + "\">" + rfcname + "</" + type + ">");
 				continue;
 			}
-			String translation = v.getStringValue();
+			String translation = v;
 			if (translation.equals(code)) {
 				if (exceptions != null && exceptions.contains(code)) continue;
 				errln("Translation = code for:\t<" + type + " type=\""  + code + "\">" + rfcname + "</" + type + ">");
@@ -634,8 +634,7 @@ public class CLDRTest extends TestFmwk {
 		XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
 		for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
 			String path = (String) it.next();
-			Value v = supp.getValue(path);
-			parts.set(v.getFullXPath());
+			parts.set(supp.getFullXPath(path));
 			Map m;
 			if (territory_currencies != null) {
 				m = parts.findAttributes("region");
@@ -808,20 +807,20 @@ public class CLDRTest extends TestFmwk {
 			} else {
 				key = getDateKey(-type-1, code);
 			}
-			Value v = item.getValue(key);
-			Value rootValue = resolvedRoot.getValue(key);
-			if (v == null || v.hasSameValue(rootValue) && (exemplarTest == null || !exemplarTest.containsAll(rootValue.getStringValue()))) {
-				Value englishValue = resolvedEnglish.getValue(key);
+			String v = item.getStringValue(key);
+			String rootValue = resolvedRoot.getStringValue(key);
+			if (v == null || v.equals(rootValue) && (exemplarTest == null || !exemplarTest.containsAll(rootValue))) {
+				String englishValue = resolvedEnglish.getStringValue(key);
 				String transValue;
 				if (englishValue != null) {
-					transValue = englishValue.getStringValue();
+					transValue = englishValue;
 				} else {
 					transValue = code;
 				}
 				missing.add(key, key, "TODO " + transValue);
 				failureCount[0]++;
 			} else {
-				logln("\t" + code + "\t" + v.getStringValue());
+				logln("\t" + code + "\t" + v);
 			}
 		}
 	}
@@ -1052,9 +1051,7 @@ public class CLDRTest extends TestFmwk {
 			for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
 				String xpath = (String) it2.next();
 				if (xpath.indexOf("[@type=\"narrow\"]") >= 0) {
-					Value v = item.getValue(xpath);
-					if (!(v instanceof StringValue)) continue;
-					String value = v.getStringValue();
+					String value = item.getStringValue(xpath);
 					//logln("\tTesting: " + value + "\t path: " + xpath);
 					int end = getXGraphemeClusterBoundary(bi, value, 0);
 					if (end == value.length()) continue;

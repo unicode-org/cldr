@@ -17,9 +17,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.util.CLDRFile.StringValue;
-import org.unicode.cldr.util.CLDRFile.Value;
-
 import com.ibm.icu.dev.test.util.BagFormatter;
 
 /**
@@ -64,7 +61,7 @@ public class XPathParts {
 	 * @param filteredLastXPath TODO
 	 */
 	public XPathParts writeDifference(PrintWriter pw, XPathParts filteredXPath, XPathParts lastFullXPath,
-			XPathParts filteredLastXPath, Value v, Comments xpath_comments) {
+			XPathParts filteredLastXPath, String v, Comments xpath_comments) {
 		int limit = findFirstDifference(lastFullXPath);
 		// write the end of the last one
 		for (int i = lastFullXPath.size()-2; i >= limit; --i) {
@@ -83,7 +80,7 @@ public class XPathParts {
 		// now write element itself
 		Utility.indent(pw, size()-1);
 		Element e = (Element)elements.get(size()-1);
-		String eValue = ((StringValue)v).getStringValue();
+		String eValue = v;
 		if (eValue.length() == 0) {
 			pw.print(e.toString(XML_NO_VALUE));
 		} else {

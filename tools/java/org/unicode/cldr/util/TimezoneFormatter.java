@@ -12,8 +12,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.unicode.cldr.util.CLDRFile.Value;
-
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -46,27 +44,24 @@ public class TimezoneFormatter {
 
 	public TimezoneFormatter(CLDRFile desiredLocaleFile) {
 		this.desiredLocaleFile = desiredLocaleFile;
-		String hourFormatString = desiredLocaleFile.getValue("/ldml/dates/timeZoneNames/hourFormat").getStringValue();
+		String hourFormatString = desiredLocaleFile.getStringValue("/ldml/dates/timeZoneNames/hourFormat");
 		String[] hourFormatStrings = Utility.splitArray(hourFormatString,';');
 		hourFormat[0] = new SimpleDateFormat(hourFormatStrings[0]);
 		hourFormat[1] = new SimpleDateFormat(hourFormatStrings[1]);
-		hoursFormat = new MessageFormat(desiredLocaleFile.getValue(
-				"/ldml/dates/timeZoneNames/hoursFormat").getStringValue());
-		gmtFormat = new MessageFormat(desiredLocaleFile.getValue(
-				"/ldml/dates/timeZoneNames/gmtFormat").getStringValue());
-		regionFormat = new MessageFormat(desiredLocaleFile.getValue(
-				"/ldml/dates/timeZoneNames/regionFormat").getStringValue());
-		fallbackFormat = new MessageFormat(desiredLocaleFile.getValue(
-				"/ldml/dates/timeZoneNames/fallbackFormat")
-				.getStringValue());
+		hoursFormat = new MessageFormat(desiredLocaleFile.getStringValue(
+				"/ldml/dates/timeZoneNames/hoursFormat"));
+		gmtFormat = new MessageFormat(desiredLocaleFile.getStringValue(
+				"/ldml/dates/timeZoneNames/gmtFormat"));
+		regionFormat = new MessageFormat(desiredLocaleFile.getStringValue(
+				"/ldml/dates/timeZoneNames/regionFormat"));
+		fallbackFormat = new MessageFormat(desiredLocaleFile.getStringValue(
+				"/ldml/dates/timeZoneNames/fallbackFormat"));
 		abbreviationFallback = (String) new XPathParts(null, null).set(
-				desiredLocaleFile.getValue(
-						"/ldml/dates/timeZoneNames/abbreviationFallback")
-						.getFullXPath()).findAttributes(
-				"abbreviationFallback").get("type");
-		Value temp = desiredLocaleFile.getValue("/ldml/dates/timeZoneNames/preferenceOrdering");
+				desiredLocaleFile.getFullXPath("/ldml/dates/timeZoneNames/abbreviationFallback"))
+				.findAttributes("abbreviationFallback").get("type");
+		String temp = desiredLocaleFile.getFullXPath("/ldml/dates/timeZoneNames/preferenceOrdering");
 		preferenceOrdering = (String) new XPathParts(null, null).set(
-				temp.getFullXPath()).findAttributes(
+				temp).findAttributes(
 				"preferenceOrdering").get("type");
 	}
 	
@@ -87,8 +82,8 @@ public class TimezoneFormatter {
 		String prefix = "/ldml/dates/timeZoneNames/zone[@type=\"" + zoneid + "\"]/";
 		// 1. If non-GMT format, and we have an explicit translation, use it
 		if (length != GMT) {
-			Value formatValue = desiredLocaleFile.getValue(prefix + LENGTH.get(length) + "/" + TYPE.get(type));
-			if (formatValue != null) return formatValue.getStringValue();
+			String formatValue = desiredLocaleFile.getStringValue(prefix + LENGTH.get(length) + "/" + TYPE.get(type));
+			if (formatValue != null) return formatValue;
 		}
 		
 		String country = (String) zone_countries.get(zoneid);
@@ -133,9 +128,9 @@ public class TimezoneFormatter {
 		
 		// 7. Else fall back to the raw Olson ID (stripping off the prefix, and turning _ into space), using the fallback format. 
 		//	America/Goose_Bay => "Tampo de  «Goose Bay»"
-		Value exemplarValue = desiredLocaleFile.getValue(prefix + "exemplarCity");
+		String exemplarValue = desiredLocaleFile.getStringValue(prefix + "exemplarCity");
 		if (exemplarValue != null) {
-			result = exemplarValue.getStringValue();
+			result = exemplarValue;
 		} else {
 			result = getFallbackName(zoneid);
 		}

@@ -264,7 +264,7 @@ public class CLDRFile implements Lockable {
 			Value v = (Value) xpath_value.get(xpath);
 			currentFiltered.set(xpath);
 			current.set(v.fullXPath);
-			current.writeDifference(pw, currentFiltered, last, lastFiltered, v, tempComments);
+			current.writeDifference(pw, currentFiltered, last, lastFiltered, v.getStringValue(), tempComments);
 			// exchange pairs of parts
 			XPathParts temp = current;
 			current = last;
@@ -303,7 +303,7 @@ public class CLDRFile implements Lockable {
 	/**
 	 * Get a value from an xpath.
 	 */
-    public Value getValue(String xpath) {
+    private Value getValue(String xpath) {
     	return (Value) xpath_value.get(xpath);
     }
     
@@ -314,6 +314,15 @@ public class CLDRFile implements Lockable {
     	Value v = (Value) xpath_value.get(xpath);
     	if (v == null) return null;
     	return v.getStringValue();
+    }
+    
+	/**
+	 * Get a string value from an xpath.
+	 */
+    public String getFullXPath(String xpath) {
+    	Value v = (Value) xpath_value.get(xpath);
+    	if (v == null) return null;
+    	return v.getFullXPath();
     }
     
     /**
@@ -784,7 +793,7 @@ private boolean isSupplemental;
      * Immutable class that defines the value at a particular xpath.
      * Normally a string, unless the item does not inherit (like collation).
      */
-    static public abstract class Value {
+    static private abstract class Value {
     	//private String comment;
     	private String fullXPath;
 		/**
@@ -850,7 +859,7 @@ private boolean isSupplemental;
     /**
      * Value that contains a single string
      */
-    static public class StringValue extends Value {
+    static private class StringValue extends Value {
     	private String stringValue;
     	/**
 		 * @param value
@@ -881,41 +890,41 @@ private boolean isSupplemental;
 			return new StringValue(stringValue, string);
 		}
     }
-    /**
+/*    *//**
      * Value that contains a node. WARNING: this is not done yet, and may change.
      * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
-     */
+     *//*
     static public class NodeValue extends Value {
     	private Node nodeValue;
-    	/**
+    	*//**
     	 * Creation. WARNING, may change.
     	 * @param value
     	 * @param currentFullXPath
-    	 */
+    	 *//*
 		public NodeValue(Node value, String currentFullXPath) {
 			super(currentFullXPath);
 	        this.nodeValue = value;
 		}
-		/**
+		*//**
 		 * boilerplate
-		 */
+		 *//*
     	public boolean hasSameValue(Object other) {
     		if (super.hasSameValue(other)) return false;
     		return nodeValue.equals(((NodeValue)other).nodeValue);
     	}
-		/**
+		*//**
 		 * boilerplate
-		 */
+		 *//*
 		public String getStringValue() {
 			return nodeValue.toString();
 		}
-		/* (non-Javadoc)
+		 (non-Javadoc)
 		 * @see org.unicode.cldr.util.CLDRFile.Value#changePath(java.lang.String)
-		 */
+		 
 		public Value changePath(String string) {
 			return new NodeValue(nodeValue, string);
 		}
-    }
+    }*/
 
     private static class MyDeclHandler implements DeclHandler, ContentHandler, LexicalHandler, ErrorHandler {
     	private static final boolean SHOW_ALL = false;

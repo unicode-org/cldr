@@ -25,10 +25,9 @@ import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.CLDRFile.StringValue;
-import org.unicode.cldr.util.CLDRFile.Value;
 
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 import org.unicode.cldr.util.Utility.*;
@@ -246,8 +245,8 @@ public class CLDRModify {
 			if (!xpath.startsWith("/ldml/localeDisplayNames/territories/territory")) return;
 			String type = parts.set(xpath).findAttributeValue("territory", "type");
 			if ("CS".equals(type) || "SP".equals(type)) {
-				Value v = k.getValue(xpath);
-				String fullXPath = v.getFullXPath();
+				String v = k.getStringValue(xpath);
+				String fullXPath = k.getFullXPath(xpath);
 				fullparts.set(fullXPath);
 				if (type.equals("CS")) {
 					parts.setAttribute("territory", "type", "200");
@@ -258,7 +257,7 @@ public class CLDRModify {
 					parts.setAttribute("territory", "draft", "true");
 					fullparts.setAttribute("territory", "draft", "true");
 				}
-				replacements.add(parts.toString(), fullparts.toString(), v.getStringValue());
+				replacements.add(parts.toString(), fullparts.toString(), v);
 				removal.add(xpath);
 			}
 		}		
@@ -277,13 +276,13 @@ public class CLDRModify {
 			
 			// change the element type UNLESS it conflicts
 			parts.setAttribute(element, "type", "stand-alone");
-			if (k.getValue(parts.toString()) != null) return;
+			if (k.getStringValue(parts.toString()) != null) return;
 			
-			Value v = k.getValue(xpath);
-			String fullXPath = v.getFullXPath();
+			String v = k.getStringValue(xpath);
+			String fullXPath = k.getFullXPath(xpath);
 			fullparts.set(fullXPath);
 			fullparts.setAttribute(element, "type", "stand-alone");
-			replacements.add(parts.toString(), fullparts.toString(), v.getStringValue());
+			replacements.add(parts.toString(), fullparts.toString(), v);
 			removal.add(xpath);
 		}		
 	};
@@ -293,12 +292,12 @@ public class CLDRModify {
 		public void handle(String xpath, Set removal, CLDRFile replacements) {
 			byte type = CLDRTest.getNumericType(xpath);
 			if (type == CLDRTest.NOT_NUMERIC_TYPE) return;
-			CLDRFile.StringValue value = (StringValue) k.getValue(xpath);
+			String value = k.getStringValue(xpath);
 			// at this point, we only have currency formats
 			boolean isPOSIX = k.getKey().indexOf("POSIX") >= 0;
-			String pattern = CLDRTest.getCanonicalPattern(value.getStringValue(), type, isPOSIX);
-			if (pattern.equals(value.getStringValue())) return;
-			replacements.add(xpath, value.getFullXPath(), pattern);
+			String pattern = CLDRTest.getCanonicalPattern(value, type, isPOSIX);
+			if (pattern.equals(value)) return;
+			replacements.add(xpath, k.getFullXPath(xpath), pattern);
 		}
 	};
 
@@ -311,21 +310,23 @@ public class CLDRModify {
 			references.clear();
 		}
 		public void handle(String xpath, Set removal, CLDRFile replacements) {
-			Value value = k.getValue(xpath);
-			String fullpath = value.getFullXPath();
+			String value = k.getStringValue(xpath);
+			String fullpath = k.getFullXPath(xpath);
 			if (fullpath.indexOf("[@references=\"") < 0 && fullpath.indexOf("[@standard=\"") < 0) return;
 			fullparts.set(fullpath);
+			int fixCount = 0;
 			for (int i = 0; i < fullparts.size(); ++i) {
 				Map attributes = fullparts.getAttributes(i);
-				standards.fix(attributes, replacements);
-				references.fix(attributes, replacements);
+				fixCount += standards.fix(attributes, replacements);
+				fixCount += references.fix(attributes, replacements);
 			}
-			replacements.add(fullparts.toString(), value.getStringValue());
+			if (fixCount >= 0) replacements.add(fullparts.toString(), value);
 		}
 	};
 	
 	private static class References {
 		static String[][] keys = {{"standard", "S", "[@standard=\"true\"]"}, {"references", "R", ""}};
+		UnicodeSet digits = new UnicodeSet("[0-9]");
 		int referenceCounter = 0;
 		Map referencesMap = new TreeMap();
 		String[] keys2;
@@ -339,24 +340,34 @@ public class CLDRModify {
 			referenceCounter = 0;
 			referencesMap.clear();
 		}
-		private void fix(Map attributes, CLDRFile replacements) {
+		private int fix(Map attributes, CLDRFile replacements) {
 			String references = (String) attributes.get(keys2[0]);
+			int result = 0;
 			if (references != null) {
 				references = references.trim();
+				if (references.startsWith("S") || references.startsWith("R")) {
+					if (digits.containsAll(references.substring(1))) return 0;
+				}
 				String token = (String) referencesMap.get(references);
 				if (token == null) {
 					token = keys2[1] + (++referenceCounter);
 					referencesMap.put(references, token);
 					System.out.println("Adding: " + token + "\t" + references);
 					replacements.add("/ldml/references/reference[@type=\"" + token + "\"]" + keys2[2], references);
+					result = 1;
 				}
 				attributes.put(keys2[0], token);
 			}
+			return result;
 		}
 	}
 
 	// references="http://www.stat.fi/tk/tt/luokitukset/lk/kieli_02.html"
 
+	private static class ValuePair {
+		String value;
+		String fullxpath;
+	}
 	/**
 	 * Find the set of xpaths that 
 	 * (a) have all the same values (if present) in the children
@@ -385,15 +396,14 @@ public class CLDRModify {
 				if (xpath.indexOf("[@alt") >= 0) continue;
 
 				// must be string vale
-				Value v1 = item.getValue(xpath);
-				if (!(v1 instanceof StringValue)) {
-					skipPaths.add(xpath);
-					continue;
-				}
-				Value vAlready = (Value)haveSameValues.get(xpath);
+				ValuePair v1 = new ValuePair();
+				v1.value = item.getStringValue(xpath);
+				v1.fullxpath = item.getFullXPath(xpath);
+
+				ValuePair vAlready = (ValuePair) haveSameValues.get(xpath);
 				if (vAlready == null) {
 					haveSameValues.put(xpath, v1);
-				} else if (!v1.equals(vAlready)) {
+				} else if (!v1.value.equals(vAlready.value) || !v1.fullxpath.equals(vAlready.fullxpath)) {
 					skipPaths.add(xpath);
 					haveSameValues.remove(xpath);
 				}
@@ -402,10 +412,10 @@ public class CLDRModify {
 		// at this point, haveSameValues is all kosher, so add items
 		for (Iterator it = haveSameValues.keySet().iterator(); it.hasNext();) {
 			String xpath = (String) it.next();
-			Value v = (Value) haveSameValues.get(xpath);
-			Value vResolved = resolvedFile.getValue(xpath);
-			if (v.equals(vResolved)) continue;
-			replacements.add(xpath, v.getFullXPath(), v.getStringValue());
+			ValuePair v = (ValuePair) haveSameValues.get(xpath);
+			if (v.value.equals(resolvedFile.getStringValue(xpath))
+					&& v.fullxpath.equals(resolvedFile.getFullXPath(xpath))) continue;
+			replacements.add(xpath, v.fullxpath, v.value);
 		}
 	}
 

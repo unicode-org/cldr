@@ -1694,7 +1694,7 @@
 			<currency type="NIO">
 				<displayName>córdoba oro nicaragüense</displayName>
 			</currency>
-			<currency type="NIO" alt="proposed" references="Banco Central de Nicaragua http://www.bcn.gob.ni/" draft="true">
+			<currency type="NIO" alt="proposed" references="R1" draft="true">
 				<symbol>C$</symbol>
 			</currency>
 			<currency type="NLG">
@@ -2003,6 +2003,9 @@
 			<yesexpr>^([yY]([eE][sS])?)|([sS][iIíÍ]?)</yesexpr>
 		</messages>
 	</posix>
+	<references>
+		<reference type="R1" uri="http://www.bcn.gob.ni/">Banco Central de Nicaragua</reference>
+	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/es.txt?only_with_tag=final-update-LDML

@@ -716,18 +716,18 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">янв.</month>
-							<month type="2" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">февр.</month>
-							<month type="3" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">марта</month>
-							<month type="4" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">апр.</month>
-							<month type="5" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">мая</month>
-							<month type="6" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">июня</month>
-							<month type="7" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">июля</month>
-							<month type="8" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">авг.</month>
-							<month type="9" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">сент.</month>
-							<month type="10" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">окт.</month>
-							<month type="11" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">нояб.</month>
-							<month type="12" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">дек.</month>
+							<month type="1" references="R1">янв.</month>
+							<month type="2" references="R1">февр.</month>
+							<month type="3" references="R1">марта</month>
+							<month type="4" references="R1">апр.</month>
+							<month type="5" references="R1">мая</month>
+							<month type="6" references="R1">июня</month>
+							<month type="7" references="R1">июля</month>
+							<month type="8" references="R1">авг.</month>
+							<month type="9" references="R1">сент.</month>
+							<month type="10" references="R1">окт.</month>
+							<month type="11" references="R1">нояб.</month>
+							<month type="12" references="R1">дек.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">Я</month>
@@ -760,18 +760,18 @@
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">янв.</month>
-							<month type="2" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">февр.</month>
-							<month type="3" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">март</month>
-							<month type="4" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">апр.</month>
-							<month type="5" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">май</month>
-							<month type="6" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">июнь</month>
-							<month type="7" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">июль</month>
-							<month type="8" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">авг.</month>
-							<month type="9" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">сент.</month>
-							<month type="10" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">окт.</month>
-							<month type="11" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">нояб.</month>
-							<month type="12" references="ГОСТ 7.12-93 http://www.bibliography.ru/method/gosts/7-12/7_12.htm">дек.</month>
+							<month type="1" references="R1">янв.</month>
+							<month type="2" references="R1">февр.</month>
+							<month type="3" references="R1">март</month>
+							<month type="4" references="R1">апр.</month>
+							<month type="5" references="R1">май</month>
+							<month type="6" references="R1">июнь</month>
+							<month type="7" references="R1">июль</month>
+							<month type="8" references="R1">авг.</month>
+							<month type="9" references="R1">сент.</month>
+							<month type="10" references="R1">окт.</month>
+							<month type="11" references="R1">нояб.</month>
+							<month type="12" references="R1">дек.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">Я</month>
@@ -2129,6 +2129,9 @@
 			<noexpr>^([nN][oO]?)|([нН]([еЕ][тТ])?)</noexpr>
 		</messages>
 	</posix>
+	<references>
+		<reference type="R1" uri="http://www.bibliography.ru/method/gosts/7-12/7_12.htm">ГОСТ 7.12-93</reference>
+	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/ru.txt?only_with_tag=final-update-LDML

@@ -771,6 +771,9 @@ root</pre>
   <p>For a more complete description of how draft applies to data, see
   <a href="#Inheritance_and_Validity">Inheritance_and_Validity</a>.</p>
   <p class="element2">&lt;... standard=&quot;<span style="color: blue">...</span>&quot; ...&gt;</p>
+  <p class="element2"><span class="changedspan"><i>Note: this attribute is deprecated. Instead, use 
+  a reference element with the attribute standard=&quot;true&quot;. See Section 5.12
+  <a href="#references_element">&lt;references&gt;.</a></i></span></p>
   <p>The value of this attribute is a list of strings representing standards: international, 
   national, organization, or vendor standards. The presence of this attribute indicates that the 
   data in this element is compliant with the indicated standards. Where possible, for uniqueness, 
@@ -780,9 +783,19 @@ root</pre>
   ...<br>
   &lt;dateFormatStyle standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;ICS1=1&amp;ICS2=140&amp;ICS3=30”&gt;</code></p>
   <p>&lt;... <a name="references_attribute">references</a>=&quot;<span style="color: blue">...</span>&quot; ...&gt;</p>
-  <p>The value of this attribute is a list of strings representing background information about the 
-  element, other than standards. The strings are separated by commas; leading or trailing spaces on 
-  each string are not significant.</p>
+  <p><span class="removedspan">The value of this attribute is a list of strings representing 
+  background information about the element, other than standards. The strings are separated by 
+  commas; leading or trailing spaces on each string are not significant.</span></p>
+  <p><span class="changedspan">The value of this attribute is a list of strings representing a 
+  reference for the information in the element, including standards that it may conform to. The best 
+  format is a series of tokens, where each token corresponds to a reference element. See Section 
+  5.12 <a href="#references_element">&lt;references&gt;</a>. (In older versions of CLDR, the value of the 
+  attribute was freeform text. That format is deprecated.)</span></p>
+  <p><i><span class="changedspan">Example:</span></i></p>
+  <p class="example"><span class="changedspan">&lt;territory type=&quot;UM&quot; references=&quot;R2&quot;&gt;USAs yttre 
+  öar&lt;/territory&gt;</span></p>
+  <p><span class="changedspan">The reference element may be inherited. Thus for example, even if R2 
+  may be used in sv_SE.xml even though it is not defined there, if it is defined in sv.xml.</span></p>
   <hr width="50%">
   <h3>5.3 <a name="&lt;identity&gt;">&lt;identity&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT identity (alias | (version, generation, language, script?, 
@@ -1653,7 +1666,19 @@ root</pre>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;posix:noexpr&gt;<span style="color: blue">^[Nn].*</span>&lt;/posix:noexpr&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/posix:messages&gt;<br>
   &nbsp;&lt;posix&gt;</p>
-  <h3>5.12 <a name="&lt;collations&gt;">&lt;collations&gt;</a></h3>
+  <h3><span class="changedspan">5.12 &lt;<a name="references_element">references</a>&gt;</span></h3>
+  <p><span class="changedspan">&lt;!ELEMENT references ( reference* ) &gt;<br>
+  &lt;!ELEMENT reference ( #PCDATA ) &gt;<br>
+  &lt;!ATTLIST reference type NMTOKEN #REQUIRED&gt;<br>
+  &lt;!ATTLIST reference standard ( true | false ) #IMPLIED &gt;<br>
+  &lt;!ATTLIST reference uri CDATA #IMPLIED &gt;</span></p>
+  <p><span class="changedspan">The references section supplies a central location for specifying 
+  references and standards. The uri should be supplied if at all possible. If not online, then a 
+  ISBN number should be supplied, such as in the following example:</span></p>
+  <p class="example"><span class="changedspan"><font size="2">&lt;reference type=&quot;R2&quot; uri=&quot;http://www.ur.se/nyhetsjournalistik/3lan.html&quot;&gt;Landskoder 
+  på Internet&lt;/reference&gt;<br>
+  &lt;reference type=&quot;R3&quot; uri=&quot;URN:ISBN:ISBN 47-04974-X&quot;&gt;Svenska skrivregler&lt;/reference&gt;</font></span></p>
+  <h3>5.1<span class="changedspan">3</span> <a name="&lt;collations&gt;">&lt;collations&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT collations (alias | (default?, collation*, special*)) &gt;</span></p>
   <p>This section contains one or more collation elements, distinguished by type. Each collation 
   contains rules that specify a certain sort-order, as a tailoring of the UCA table defined in

@@ -418,8 +418,8 @@
 				</week>
 				<eras>
 					<eraAbbr>
-						<era type="0" references="l'Institut d'Estudis Catalans http://www.termcat.net" draft="true">aC</era>
-						<era type="1" references="l'Institut d'Estudis Catalans http://www.termcat.net" draft="true">dC</era>
+						<era type="0" references="R1" draft="true">aC</era>
+						<era type="1" references="R1" draft="true">dC</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -516,5 +516,8 @@
 			<noexpr>^([nN][oO]?)</noexpr>
 		</messages>
 	</posix>
+	<references>
+		<reference type="R1" uri="http://www.termcat.net">l'Institut d'Estudis Catalans</reference>
+	</references>
 </ldml>
 

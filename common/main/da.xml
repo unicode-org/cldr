@@ -849,7 +849,7 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE dd MMMM yyyy</pattern>
-							<pattern alt="proposed" references="http://www.dsn.dk/oss_faq.htm" draft="true">EEEE 'den' dd. MMM yyyy</pattern>
+							<pattern alt="proposed" references="R1" draft="true">EEEE 'den' dd. MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -860,35 +860,35 @@
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd-MM-yyyy</pattern>
-							<pattern alt="proposed" references="http://www.dsn.dk/oss_faq.htm" draft="true">dd/MM/yyyy</pattern>
+							<pattern alt="proposed" references="R1" draft="true">dd/MM/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd-MM-yy</pattern>
-							<pattern alt="proposed" references="http://www.dsn.dk/oss_faq.htm" draft="true">dd/MM/yy</pattern>
+							<pattern alt="proposed" references="R1" draft="true">dd/MM/yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern references="http://www.dsn.dk/oss_faq.htm" draft="true">H.mm.ss z</pattern>
+							<pattern references="R1" draft="true">H.mm.ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern references="http://www.dsn.dk/oss_faq.htm" draft="true">H.mm.ss z</pattern>
+							<pattern references="R1" draft="true">H.mm.ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern references="http://www.dsn.dk/oss_faq.htm" draft="true">H.mm.ss</pattern>
+							<pattern references="R1" draft="true">H.mm.ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern references="http://www.dsn.dk/oss_faq.htm" draft="true">H.mm</pattern>
+							<pattern references="R1" draft="true">H.mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -1905,6 +1905,9 @@
 			<noexpr>^([nN]([oO]|([eE][jJ]))?)</noexpr>
 		</messages>
 	</posix>
+	<references>
+		<reference type="R1" uri="http://www.dsn.dk/oss_faq.htm">Dansk Sprognævn - Ofte stillede spørgsmål (OSS)</reference>
+	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/da.txt?only_with_tag=final-update-LDML

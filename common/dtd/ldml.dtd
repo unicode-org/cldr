@@ -11,7 +11,7 @@
     All trademarks and registered trademarks mentioned herein are the property of their respective owners.
 -->
 
-<!ELEMENT ldml (identity, (alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, special*))) >
+<!ELEMENT ldml (identity, (alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, references?, special*))) >
 <!ATTLIST ldml
    version          CDATA              #FIXED "1.3"
 >
@@ -856,6 +856,12 @@
 <!ELEMENT yesexpr ( #PCDATA ) >
 
 <!ELEMENT noexpr ( #PCDATA ) >
+
+<!ELEMENT references ( reference* ) >
+<!ELEMENT reference ( #PCDATA ) >
+<!ATTLIST reference type NMTOKEN #REQUIRED>
+<!ATTLIST reference standard ( true | false ) #IMPLIED >
+<!ATTLIST reference uri CDATA #IMPLIED >
 
 
 

@@ -178,7 +178,7 @@ class SurveyMain {
             }
         }
         if(mySession == null) {
-            mySession = new CookieSession();
+            mySession = new CookieSession(user==null);
         }
         ctx.session = mySession;
         ctx.addQuery("s", mySession.id);
@@ -202,7 +202,9 @@ class SurveyMain {
                     ctx.println("<a href=\"" + baseContext.url() + "&_=" + k + "\">" + 
                             new ULocale(k).getDisplayName() + "</a> ");
                 }
-                ctx.println("<a href=\"" + baseContext.url() + "&submit=yes\"><b>Submit Data</b></a>");
+                if(ctx.session.user != null) {
+                    ctx.println("<a href=\"" + baseContext.url() + "&submit=preview\"><b>Submit Data</b></a>");
+                }
             }
             ctx.println("<br/>");
         }
@@ -371,18 +373,34 @@ class SurveyMain {
             ctx.println("<br/>");
         }
         UserRegistry.User u = ctx.session.user;
+        if(u == null) {
+            u = reg.getEmptyUser();
+        }
+        WebContext subContext = new WebContext(ctx);
+        subContext.addQuery("submit","post");
+        boolean post = (ctx.field("submit").equals("post"));
+        if(post == false) {
+            ctx.println("<B>Please read the following carefully. If there are any errors, hit Back and correct them.  " + 
+                "The button to finalize the submission is at the very bottom of this page.</b><br/>");
+        } else {
+            ctx.println("Posting the following changes:<br/>");
+        }
         ctx.println("<hr/>");
         ctx.println("You:  " + u.real + " &lt;" + u.email + "&gt;<br/>");
         ctx.println("Your sponsor: " + u.sponsor);
-        
+        File sessDir = new File(vetweb + "/" + u.email + "/" + ctx.session.id);
+        if(post) {
+            sessDir.mkdirs();
+        }
+        String changedList = "";
         Hashtable lh = ctx.session.getLocales();
         Enumeration e = lh.keys();
         if(e.hasMoreElements()) { 
             for(;e.hasMoreElements();) {
                 String k = e.nextElement().toString();
                 ctx.println("<hr/>");
-                ctx.println("<H3><a href=\"" + ctx.base() + "&_=" + k + "\">" + 
-                        new ULocale(k).getDisplayName() + "</a></h3>");
+                ctx.println("<H3>" + 
+                        new ULocale(k).getDisplayName() + "</h3>");
                 CLDRFile f = createCLDRFile(ctx, k, (Hashtable)lh.get(k));
                 
                 StringWriter sw = new StringWriter();
@@ -391,7 +409,47 @@ class SurveyMain {
                 String asString = sw.toString();
                 String asHtml = BagFormatter.toHTML.transliterate(asString);
                 ctx.println("<pre>" + asHtml + "</pre>");
+                File xmlFile = new File(sessDir, k + ".xml");
+                if(post) {
+                    try {
+                        changedList = changedList + " " + k;
+                        OutputStream out = new FileOutputStream(xmlFile); // Append
+                        PrintWriter pw2 = new PrintWriter(out);
+                        f.write(pw2);
+                        pw2.close();
+                        out.close();
+                        ctx.println("<b>File Written.</b><br/>");
+                    } catch(Throwable t) {
+                        // TODO: log??
+                        ctx.println("<b>Couldn't write the file "+ k + ".xml</b> because: <br/>");
+                        ctx.println(t.toString());
+                        t.printStackTrace();
+                        ctx.println("<p>");
+                    }
+                }
             }
+        }
+        ctx.println("<hr/>");
+        if(post == false) {
+            subContext.println("<form method=POST action='" + subContext.base() + "'>");
+            subContext.printUrlAsHiddenFields();
+            subContext.println("<input type=submit value='Post Changes and Logout'>");
+            subContext.println("</form>");
+        } else {        
+            String body = "User:  " + u.real + " <" + u.email + "> for  " + u.sponsor + "\n" +
+             "Submitted data for: " + changedList;
+            MailSender.sendMail(u.email, "CLDR: Receipt of your data submission ",
+                    body);
+            MailSender.sendMail(System.getProperty("CLDR_NOTIFY"), "CLDR: from " + u.sponsor + "/" + u.email + ": " + changedList,
+                    body);
+            ctx.println("Thank you..   An email has been sent to the CLDR Vetting List and to you at " + u.email + ".<br/>");
+            // destroy session
+            ctx.session.remove();
+            ctx.println("<form method=GET action='" + ctx.base() + "'>");
+            ctx.println("<input type=hidden name=uid value='" + ctx.session.user.id + "'> " +
+                        "<input type=hidden name=email value='" + ctx.session.user.email + "'>");
+            ctx.println("<input type=submit value='Login Again'>");
+            ctx.println("</form>");
         }
     }
     private void appendCodeList(WebContext ctx, CLDRFile file, String xpath, String subtype, Hashtable data) {
@@ -413,7 +471,17 @@ class SurveyMain {
                     file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.proposed));
                 } else if(vet.equals(NEW)) {
                     String newString = (String)data.get(key + SUBNEW);
+                    if(newString == null) {
+                        newString = "";
+                    }
+                    newxpath = newxpath + "[@draft='true']"; // always draft
+                    if(nse.main != null) { // If there is already an existing main (which might be draft)
+                       newxpath = newxpath + "[@alt='proposed']";
+                    }
                     file.add(newxpath, newxpath, newString);
+                    if(newString.length() ==0) {
+                        file.addComment(newxpath, "empty 'other' submission: " + key, XPathParts.Comments.POSTBLOCK);
+                    }
                 } else {
                     // ignored:  current, etc.
                 }
@@ -469,8 +537,6 @@ class SurveyMain {
         appendLocaleCodes(ctx, file, xSCRP, data);
         appendLocaleCodes(ctx, file, xREGN, data);
         appendLocaleCodes(ctx, file, xVARI, data);
-
-        file.appendFinalComment("That's it.");
         return file;
     }
 
@@ -611,7 +677,9 @@ class SurveyMain {
         ctx.println("<form method=POST action='" + ctx.base() + "'>");
         ctx.printUrlAsHiddenFields();
         ctx.println("<table style='border-collapse: collapse' border=1>");
-        ctx.println("<input type=submit>");
+        if(ctx.session.user != null) {
+            ctx.println("<input type=submit value=Save>");
+        }
         ctx.println("<tr>");
         ctx.println(" <th class='heading' bgcolor='#DDDDDD' >Name<br/><tt>Code</tt></th>");
         ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=2>Contents</th>");
@@ -667,7 +735,6 @@ class SurveyMain {
             }
             
             String formChecked = ctx.field(xpath + "/" + type);
-            String formNew = ctx.field(xpath + "/" + type + SUBNEW );
             
             if((formChecked != null) && (formChecked.length()>0)) {   
                 if(!checked.equals(formChecked)) {
@@ -679,15 +746,18 @@ class SurveyMain {
                         changes.put(type, f);
                     }
                 }
-            }
-            
-            if(formNew.length()>0) {
-                changes.put(type + SUBNEW, formNew);
-                changes.put(type, f);
-                newString = formNew;
-            } else if((newString !=null) && (newString.length()>0)) {
-                changes.remove(type + SUBNEW);
-                newString = null;
+
+                // Don't consider the form, unless we know the checkbox is present.
+                // this is because we can't distinguish between an empty and a missing field.
+                String formNew = ctx.field(xpath + "/" + type + SUBNEW );
+                if(formNew.length()>0) {
+                    changes.put(type + SUBNEW, formNew);
+                    changes.put(type, f); // get the NodeSet in for later use
+                    newString = formNew;
+                } else if((newString !=null) && (newString.length()>0)) {
+                    changes.remove(type + SUBNEW);
+                    newString = null;
+                }
             }
             
             ctx.println("<tr>");
@@ -779,7 +849,9 @@ class SurveyMain {
             }
         }
         ctx.println("</table>");
-        ctx.println("<input type=submit>");
+        if(ctx.session.user != null) {
+            ctx.println("<input type=submit value=Save>");
+        }
         ctx.println("</form>");
         if(nextSkip >= 0) {
                 ctx.println("<a href=\"" + ctx.url() + 

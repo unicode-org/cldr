@@ -66,8 +66,8 @@ public class CookieSession {
         uHash.put(user.id, this); // replaces any existing session by this user.
     }
     
-    public CookieSession() {
-        id = newId();
+    public CookieSession(boolean isGuest) {
+        id = newId(isGuest);
         touch();
         gHash.put(id,this);
     }
@@ -76,16 +76,30 @@ public class CookieSession {
         last = System.currentTimeMillis();
     }
     
+    public void remove() {
+        if(user != null) {
+            uHash.remove(user.id);
+        }
+        gHash.remove(id);
+    }
+    
     protected long age() {
         return (System.currentTimeMillis()-last);
     }
     
     static int n = 4000;
+    static int g = 8000;
+    static int h = 90;
     static String j = cheapEncode(System.currentTimeMillis());
-    protected String newId() {  
-        return cheapEncode(n++)+"|" + j;
-    }
     
+    protected String newId(boolean isGuest) {  
+        if(isGuest) {
+            // no reason, just a different set of hashes
+            return cheapEncode(h+=2)+"w"+cheapEncode(g++);
+        } else {
+            return cheapEncode((n+=(j.hashCode()%444))+n) +"y" + j;
+        }
+    }
     
     // convenience functions
     Object get(String key) { 

@@ -21,6 +21,15 @@ public class UserRegistry {
         public String sponsor;  // 2
         public String real;     // 3
     };
+    public User getEmptyUser() {
+        User u = new User();
+        u.id = null;
+        u.real = "UNKNOWN";
+        u.email = "UNKNOWN - UNVERIFIED";
+        u.sponsor = "NONE"; 
+        
+       return u;   
+    }
     int lines = 0;
     int userCount = 0;
     

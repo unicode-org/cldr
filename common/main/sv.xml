@@ -772,9 +772,9 @@
 			<variant type="REVISED">Reviderad</variant>
 		</variants>
 		<keys>
-			<key type="calendar">Kalendar</key>
-			<key type="collation">Sortera</key>
-			<key type="currency">Valuta</key>
+			<key type="calendar">kalender</key>
+			<key type="collation">sorteringsordning</key>
+			<key type="currency">valuta</key>
 		</keys>
 		<types>
 			<type type="buddhist" key="calendar">Buddistisk kalender</type>
@@ -792,7 +792,7 @@
 		</types>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a-zäöåáéëü]</exemplarCharacters>
+		<exemplarCharacters>[a-zäöåàéëü]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -879,8 +879,8 @@
 					<minDays count="4"/>
 					<firstDay day="mon"/>
 				</week>
-				<am>fm</am>
-				<pm>em</pm>
+				<am>f.m.</am>
+				<pm>e.m.</pm>
 				<eras>
 					<eraAbbr>
 						<era type="1">f.Kr.</era>

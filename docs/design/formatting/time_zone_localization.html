@@ -1,0 +1,291 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Time Zone Localization</title>
+<style>
+<!--
+body         { font-family: serif; background-color: #FFFFFF }
+-->
+</style>
+</head>
+
+<body>
+
+<h1>Time Zone Localization</h1>
+<p><b>Draft, MED 2004-06-04</b>: <i>This is a bit rough yet, but can serve as the basis for discussion.</i></p>
+<p>We currently provide a mechanism for localizing Olson Time Zone IDs in CLDR. People can supply 6 different translations per language per ID, plus an exemplar city. For example,
+in English, for America/Los_Angeles these can be &quot;Pacific Time&quot; (&quot;PT&quot;), &quot;Pacific Standard Time&quot; (&quot;PST&quot;), &quot;Pacific Daylight Time&quot;
+(&quot;PDT&quot;) and &quot;Los Angeles&quot;. These translations mark a difference between &quot;generic&quot; usage (aka &quot;wall time&quot;) like &quot;Pacific Time&quot; and
+a fixed offset from GMT like &quot;Pacific Standard Time&quot; or &quot;Pacific Daylight Time&quot;, and also allow for both abbreviated and full names.</p>
+<p>There are two main purposes for this:</p>
+<ul>
+  <li>to represent particular times or recurring times: &quot;Jan 15, 2004 at 12:01 PT&quot; or &quot;Every Monday at 11:00 Pacific Time&quot;.</li>
+  <li>to provide UI for selecting time zones, such as in a menu or selection list.</li>
+</ul>
+<p>Why not use just GMT+08:00 format? Because it's not accurate. America/Los_Angeles, for example, is most of the year on GMT+07:00, and part of the year on GMT+08:00. If you pick
+one or the other, you have the wrong result.</p>
+<h2>The Problems</h2>
+<p>There are 558 Olson IDs as in used in CLDR. They are organized by cities -- roughly; there are a number of old IDs retained for compatibility (and Java adds some old, mistaken
+IDs of its own). Each country maps to a set of one or more zones, unique to that country. The database has alias links between compatibility IDs and &quot;real&quot; IDs. The IDs
+are slightly changed from Olson in having &quot;_&quot; substituted for spaces.</p>
+<p>There are a few flaws in this structure; there are ISO country IDs that don't have any associated Olson IDs (YU, BV, HM), and you can't use all the aliases or more countries
+miss Olson IDs. For the purposes of this document, we will assume that a &quot;repaired&quot; database is being used, and that all zones with no country map to the &quot;ZZ&quot;
+code (a private use code in ISO 3166).</p>
+<p>Anyway, a cleaned up list amounts to 407 entries. Of these, there are still many &quot;perpetual&quot; equivalents: IDs that always produce the same result over all time (e.g.
+Europe/Rome = Europe/Vatican). If we picked one exemplar from each of these sets of equivalents, we end up with 385 different exemplars.</p>
+<p>We can also distinguish &quot;modern&quot; equivalents; those that produce the same result for the current year. If we picked one exemplar from each of these sets of aliases,
+there are 88 exemplars. There are also some &quot;suspicious&quot; IDs like WET, CET, MET, EET, Asia/Riyadh87, Asia/Riyadh88, Asia/Riyadh89, which may lower the number slightly if
+removed.</p>
+<p>The <a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html">zone_log.html</a> provides a breakdown of various types of information from the Olson database. It is
+based off of the current Java data, so it may be slightly out of date, and does contain some older Java aliases. </p>
+<ul>
+  <li><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#aliases">a</a><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#aliases">liases</a> contains
+    mapping for aliases from the Olson database, plus Java aliases. The aliases that would remove IDs for countries are removed.</li>
+  <li><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#country_to_zones">country to zones</a> shows the relationship between the countries and zones</li>
+  <li><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#zone_to_countries_(not_unique">zone to countries</a> is just a test table to see if there are any non-unique
+    country-to-zone mappings.</li>
+  <li><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#zones_that_are_missing_countries">zones that are missing countries</a> lists the zones that belong to no
+    country, including some suspicious IDs</li>
+  <li><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#windows_ids">windows ids</a> shows a mapping from windows IDs to Olson IDs.</li>
+  <li><a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#equivalent_modern_zones">equivalent modern zones</a> is the most complicated. It shows the 88 groups of
+    modern-equivalent IDs.
+    <ul>
+      <li>column 2: the offset list</li>
+      <li>column 3: the modern equivalent IDs. The suggested root &quot;exemplar&quot; ID for modern useage is in boldface. (See below for more information).</li>
+      <li>column 4: the &quot;perpetual&quot; equivalents. The Windows IDs are also listed there, in italic.</li>
+      <li>column 5: date last different. For each modern equivalent (past the first), the date and time where they last differed is given. For example, 1978&#8209;10&#8209;01&nbsp;11:29Z&nbsp;(-11&#8800;-11.5)
+        means that they last differed then, and when they differed, the zone on this line had the offset GMT-11:00, while the previous line's offset was GMT-11:30.</li>
+      <li><font color="#00FF00"><span class="sam">column 3/4: sample dates showing inversion points in 2004, for IDs that have different offsets depending on the time in the year.
+        Z is UTC time, while L is the corresponding local time.</span></font></li>
+    </ul>
+  </li>
+</ul>
+<p>There are 90 different languages represented in CLDR 1.1 (not counting RFC 3066 variants, such as Hant vs. Hans). There are 487 different ISO 639 codes, currently (again, not
+counting some important variants, such as Hant vs. Hans). Clearly, we don't want to be in the business of representing all of the possible combinations: about 8,000 strings for
+modern zones with current CLDR languages; over 100,000 strings for the combinations of all Olson IDs with <i>all</i> ISO 639 languages.</p>
+<p>Moreover, we don't currently allow for the &quot;GMT&quot; format itself to be localized.</p>
+<h2>Proposal</h2>
+<p>Here is a proposal for how to deal with these problems. The goal is to leverage the fact that CLDR already has country translations; that there is a high degree of correlation
+between countries and timezones; that denoting timezones by reference to countries is fairly common.</p>
+<h3>A. Fallback procedure</h3>
+<p>We'll start with a definition.</p>
+<blockquote>
+  <p><b>Offset-List for a TimeZone (modern). </b>Start with an empty list. Add the GMT offset on December 31 at 23:59:59. Walk backwards through the reset of the year, and if the
+  offset ever changes, and the offset is not in the list, then add that offset to the list. Thus for America/Los_Angeles, the list is &lt;-8, -7&gt;. For Australia/Melbourne it is
+  &lt;11, 10&gt;, and for Africa/Algiers it is the one-element list &lt;1&gt;.</p>
+</blockquote>
+<p>Here is a proposed lookup mechanism for wall time. It uses formats that are explained below. The examples are purely for illustration, and don't represent any particular
+language. Examples are in italic following the steps.</p>
+<ol>
+  <li>Canonicalize the Olson ID, mapping to one of the 407 &quot;real&quot; IDs.
+    <ul>
+      <li><i>America/Atka =&gt; America/Adak</i></li>
+    </ul>
+  </li>
+  <li>If there is an exact translation, use it.
+    <ul>
+      <li><i>America/Los_Angeles =&gt; &quot;Pacific Time&quot;</i></li>
+    </ul>
+  </li>
+  <li>Else if there is an exemplar city, use it with the region format
+    <ul>
+      <li><i>America/Los_Angeles =&gt; &quot;Tampo de San Fransisko&quot;</i></li>
+    </ul>
+  </li>
+  <li>Else if there is a country for the time zone, and a translation in the locale for the country name:
+    <ol>
+      <li>If the country only has one (modern) timezone, use it with the region format
+        <ul>
+          <li><i>Africa/Monrovia =&gt; LR =&gt; &quot;Tampo de Liberja&quot;</i></li>
+        </ul>
+      </li>
+      <li>Else if the (modern) offset list uniquely specifies that zone within that country, use the region-GMT format.
+        <ul>
+          <li><i>America/Chicago =&gt; US &lt;-6/-5&gt; =&gt; &quot;United States Time, GMT-06:00/-05:00&quot;</i></li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>Else if the (modern) offset list uniquely specifies that zone in the whole world, use the GMT format
+    <ul>
+      <li><i>America/Nome =&gt; &quot;GMT-09:00/-08:00&quot;</i></li>
+    </ul>
+  </li>
+  <li>Else if it is a perpetual alias for a &quot;real&quot; ID, and if there is an exact translation for that, try #1..#4 with that alias.
+    <ul>
+      <li><i>Europe/San_Marino =&gt; Europe/Rome =&gt; ... =&gt; &quot;Tampo de Roma&quot;</i></li>
+    </ul>
+  </li>
+  <li>Else fall back to the raw Olson ID (stripping off the prefix, and turning _ into space), using the fallback format. Note that for non-wall-time, we never get to this step.
+    <ul>
+      <li><i>America/Goose_Bay =&gt; &quot;Tampo de&nbsp; </i>«<i>Goose Bay</i>»&quot;</li>
+    </ul>
+  </li>
+</ol>
+<p>Once this is put into place the translators have a clear strategy. They always need to translate the new format strings. Wherever the results of the above algorithm are
+inadequate, they can translate the precise Olson ID, any of the 407 &quot;real&quot; IDs, to get an exact result. If exact translations are needed, they can be prioritized: first
+the modern aliases, then the &quot;perpetual&quot; aliases, then the rest.</p>
+<h3>B. Format Strings</h3>
+<p>The above introduces some new format strings, which would be added to CLDR. All but the first are regular MessageFormat strings. This set would be added to the strings that
+would be localized for a locale. Note that it would be one set per locale, not one set per zone. Note that for some languages, some of the above choices would not be suitable;
+there may be grammatical interaction between the substituted elements and the rest of the pattern. To handle that case, it may be useful to have some special pattern (like
+&quot;&quot;) to indicated that that choice should be skipped.</p>
+<table border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Element Name</th>
+    <th>Pattern Examples</th>
+    <th>Example Results</th>
+  </tr>
+  <tr>
+    <td rowspan="2">hour-format</td>
+    <td rowspan="2">&quot;+HH:mm;-HH:mm&quot;</td>
+    <td>&quot;+12:00&quot;</td>
+  </tr>
+  <tr>
+    <td>&quot;-12:00&quot;</td>
+  </tr>
+  <tr>
+    <td>hours-format</td>
+    <td>&quot;{0}/{1}&quot;</td>
+    <td>&quot;-8:00/-7:00&quot;</td>
+  </tr>
+  <tr>
+    <td rowspan="2">gmt-format</td>
+    <td>&quot;GMT{0}&quot;</td>
+    <td>&quot;GMT-08:00&quot;</td>
+  </tr>
+  <tr>
+    <td>&quot;{0}&#1042;&#1087;&#1043;&quot;</td>
+    <td>&quot;-08:00&#1042;&#1087;&#1043;&quot;</td>
+  </tr>
+  <tr>
+    <td rowspan="2">region-format</td>
+    <td>&quot;{0} Time&quot;</td>
+    <td>&quot;Japan Time&quot;</td>
+  </tr>
+  <tr>
+    <td>&quot;Tiempo de {0}&quot;</td>
+    <td>&quot;Tiempo de Japón&quot;</td>
+  </tr>
+  <tr>
+    <td>region-gmt-format</td>
+    <td>&quot;{0} Time, GMT{1}&quot;</td>
+    <td>&quot;United States Time, GMT -8:00/-7:00&quot;</td>
+  </tr>
+  <tr>
+    <td>fallback-format</td>
+    <td>&quot;Tiempo de «{0}»&quot;</td>
+    <td>&quot;Tiempo de «Tokyo»&quot;</td>
+  </tr>
+</table>
+<p>The hours formats are used to compose what goes into the gmt and region-gmt formats</p>
+<ul>
+  <li>If there is a single offset (e.g. no daylight-savings time), then it is formatted with the hour-format, and the resulting string put into the gmt format.</li>
+  <li>If there are pairs of offsets, each is formatted with the hour-format, and the resulting pair put into with the hours-format, then the resulting string put into the gmt
+    format.</li>
+</ul>
+<p>Note that the results are semi-reversible; one cannot necessarily recover the exact time zone that one started with, but can recover a modern equivalent.</p>
+<h3>C. Syntax Characters</h3>
+<p>In addition, we need some new syntax characters for output (for input, all should be accepted). Currently we have the following (See <a
+href="http://www.unicode.org/cldr/data_formats.html#Dates">Dates</a>).</p>
+<table>
+  <tr>
+    <td><code>zzz</code>
+    <td><a href="#timezone">General time zone</a>
+    <td><code>PST/PDT</code>
+  </tr>
+  <tr bgcolor="#eeeeff">
+    <td><code>zzzz</code>
+    <td>
+    <td><code>Pacific Standard Time/Pacific Daylight Time</code>
+  <tr>
+    <td><code>Z</code>
+    <td><a href="#rfc822timezone">RFC 822 time zone</a>
+    <td><code>-0800</code>
+  </tr>
+</table>
+<p>To this, we need to add a way to get short/full wall time, and to force GMT+/-08:00 format. Here is a proposal:</p>
+<table>
+  <tr>
+    <td><code>z</code>
+    <td><a href="#timezone">General time zone</a>
+    <td><code>PT</code>
+  </tr>
+  <tr bgcolor="#eeeeff">
+    <td><code>zz</code>
+    <td>
+    <td><code>Pacific Time</code>
+  <tr>
+    <td><code>ZZ</code>
+    <td><a href="#rfc822timezone">GMT Format</a>
+    <td><code>GMT-08:00</code>
+  </tr>
+</table>
+<h3>D. Preferred Modern IDs.</h3>
+<p>A lot of people just don't care about historic differences. To account for that in UIs, by picking out a smaller set of &quot;preferred&quot; modern exemplar timezones. One can
+then show a list of these timezones (and optionally with an advanced button or some other device, show the larger list). The set of modern equivalents for any point in time can be
+calculated, but the issue is that the choice of exemplars for those modern equivalents may differ according to locale. In Mexico one would prefer to see the <b>America/Mexico_City</b>
+timezone (appropriately localized), while in the US, the <b>America/Chicago</b> one.</p>
+<p>The goal is to satisfy the above requirement, require little data to be added for each locale, and be relatively robust in the face of changes to the Olson database in the
+future. The proposal is to add an (optional) preference list to each locale. This preference list is a list of country codes and/or locales. It would work as follows, in seeing
+whether Olson ID x is preferred to Olson ID y.</p>
+<ul>
+  <li>If x, y are in the list, then the earlier one in the list is preferred.</li>
+  <li>Else if country(x) and country(y) are in the list, then the earlier one in the list is preferred.</li>
+  <li>Else if x is in the list and y isn't, then x is preferred</li>
+  <li>Else if country(x) is in the list and country(y) is not, then x is preferred</li>
+  <li>Else if the locale ID contains a country ID, and it equals country(x), then x is preferred</li>
+  <li>Else if not in root, repeat using the parent list</li>
+  <li>Else use a case-insensitive codepoint comparison of the Olson IDs.</li>
+</ul>
+<p>Thus a list for Mexico could simply consist of two items: &quot;MX America/Mexico_City&quot;. This would have the following results (for the modern-equivalent IDs in Mexico:</p>
+<table border="1" cellspacing="0" cellpadding="3">
+  <tr>
+    <td><b>Exemplar</b></td>
+    <td><b>Modern Equivalents</b></td>
+  </tr>
+  <tr>
+    <td><b>America/Mexico_City</b></td>
+    <td>America/Merida, America/Monterrey, America/Cancun, America/North_Dakota/Center, America/Rainy_River, America/Chicago, America/Menominee, America/Rankin_Inlet</td>
+  </tr>
+  <tr>
+    <td><b>America/Chihuahua</b><b></b></td>
+    <td>America/Mazatlan, America/Inuvik, America/Yellowknife, America/Edmonton, America/Boise, America/Denver, America/Cambridge_Bay</td>
+  </tr>
+  <tr>
+    <td><b>America/Hermosillo</b></td>
+    <td>America/Dawson_Creek, Etc/GMT+7, America/Phoenix</td>
+  </tr>
+  <tr>
+    <td><b>America/Tijuana</b></td>
+    <td>America/Dawson, America/Whitehorse, America/Vancouver, America/Los_Angeles</td>
+  </tr>
+</table>
+<p>Note that Chihuahua is preferred over Mazatlan because it is alphabetically prior. Hermosillo and Tijuana are preferred because they are both MX. The suggested Root preferences
+are listed in boldface in the <a href="http://snjgsa.ibm.com/~marked/public/zones/zone_log.html#equivalent_modern_zones">equivalent modern zones</a>.</p>
+<h3>E. Conversion</h3>
+<p>The current CLDR has translations for a number of locales. However, the IDs that are used as keys may not be &quot;real&quot; IDs, so we would need to convert them to real IDs.
+We may also want to do a slight modification of the IDs to use only invariant characters in them.</p>
+<hr>
+<p><i>Issues:</i></p>
+<ol>
+  <li>We could also introduce &quot;area&quot; IDs, like &quot;Central America&quot;, or &quot;West Africa&quot;. We could then add a step above:
+    <ul>
+      <li>If the ID is part of an area ID, and there is a translation for the area ID, use that.</li>
+    </ul>
+  </li>
+  <li>We could restrict the rules that call for &quot;modern&quot; equivalence to be perpetual equivalence. That would increase the roundtrip accuracy for IDs with translations,
+    but reduce it for the fallback GMT-style.</li>
+  <li>If we need to fallback, and we are asking for an abbreviated timezone, we have two choices: fallback in the same way as the full timezone (e.g. to <i>&quot;United States
+    Time, GMT-06:00/-05:00&quot;</i>) or go right to GMT format. Or, we could add abbreviated country names, and an abbreviated format, so that one could have e.g. &quot;JPT&quot;
+    for &quot;Japan Time&quot; (English example).</li>
+  <li>Others?</li>
+</ol>
+
+</body>
+
+</html>

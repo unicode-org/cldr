@@ -845,6 +845,7 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE dd MMMM yyyy</pattern>
+							<pattern draft="true" alt="proposed" references="http://www.dsn.dk/oss_faq.htm">EEEE 'den' dd. MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -855,14 +856,38 @@
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd-MM-yyyy</pattern>
+							<pattern draft="true" alt="proposed" references="http://www.dsn.dk/oss_faq.htm">dd/MM/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd-MM-yy</pattern>
+							<pattern draft="true" alt="proposed" references="http://www.dsn.dk/oss_faq.htm">dd/MM/yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="true" references="http://www.dsn.dk/oss_faq.htm">H.mm.ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="true" references="http://www.dsn.dk/oss_faq.htm">H.mm.ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="true" references="http://www.dsn.dk/oss_faq.htm">H.mm.ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="true" references="http://www.dsn.dk/oss_faq.htm">H.mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -1747,6 +1772,9 @@
 			<currency type="TRL">
 				<displayName>Tyrkisk lira</displayName>
 				<symbol>TL</symbol>
+			</currency>
+			<currency draft="true" type="TRY">
+				<displayName>Ny tyrkisk lira</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Dollar fra Trinidad og Tobago</displayName>

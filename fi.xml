@@ -1893,8 +1893,8 @@
 				<displayName>Turkin liira</displayName>
 				<symbol>TL</symbol>
 			</currency>
-			<currency type="TRY" draft="true">
-				<displayName>Uusi Turkin liira</displayName>
+			<currency type="TRY">
+				<displayName draft="true">Uusi Turkin liira</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidadin ja Tobagon dollari</displayName>
@@ -2034,12 +2034,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>kyllä:kylla:k</yesstr>
-			<nostr>ei:e</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([kK]([yY][lL][lL][aAäÄ])?)</yesexpr>
-			<noexpr>^([nN][oO]?)|([eE][iI]?)</noexpr>
+			<yesstr draft="true">kyllä:kylla:k</yesstr>
+			<nostr draft="true">ei:e</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([kK]([yY][lL][lL][aAäÄ])?)</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|([eE][iI]?)</noexpr>
 		</messages>
 	</posix>
 	<references>

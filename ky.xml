@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
-<ldml draft="true">
+<ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
@@ -8,23 +8,23 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="ky">Кыргыз</language>
+			<language type="ky" draft="true">Кыргыз</language>
 		</languages>
 		<territories>
-			<territory type="KG">Кыргызстан</territory>
+			<territory type="KG" draft="true">Кыргызстан</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[а-я і є ї ґ]</exemplarCharacters>
+		<exemplarCharacters draft="true">[а-я і є ї ґ]</exemplarCharacters>
 	</characters>
 	<numbers>
 		<symbols>
-			<decimal>,</decimal>
-			<group> </group>
+			<decimal draft="true">,</decimal>
+			<group draft="true"> </group>
 		</symbols>
 		<currencies>
 			<currency type="KGS">
-				<symbol>сом</symbol>
+				<symbol draft="true">сом</symbol>
 			</currency>
 		</currencies>
 	</numbers>

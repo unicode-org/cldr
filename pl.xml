@@ -834,14 +834,14 @@
 			<currency type="BEL">
 				<displayName>frank belgijski (finansowy)</displayName>
 			</currency>
-			<currency type="BGL" draft="true">
-				<displayName>lew bułgarski</displayName>
-				<displayName alt="proposed">lewa bułgarskie</displayName>
-				<symbol>lev</symbol>
+			<currency type="BGL">
+				<displayName draft="true">lew bułgarski</displayName>
+				<displayName alt="proposed" draft="true">lewa bułgarskie</displayName>
+				<symbol draft="true">lev</symbol>
 			</currency>
-			<currency type="BGN" draft="true">
-				<displayName>nowy lew bułgarski</displayName>
-				<displayName alt="proposed">nowe lewa bułgarskie</displayName>
+			<currency type="BGN">
+				<displayName draft="true">nowy lew bułgarski</displayName>
+				<displayName alt="proposed" draft="true">nowe lewa bułgarskie</displayName>
 			</currency>
 			<currency type="BHD">
 				<displayName>dinar bahrański</displayName>
@@ -1441,8 +1441,8 @@
 				<displayName>lir turecki</displayName>
 				<symbol>TL</symbol>
 			</currency>
-			<currency type="TRY" draft="true">
-				<displayName>Nowa lira turecka</displayName>
+			<currency type="TRY">
+				<displayName draft="true">Nowa lira turecka</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>dolar Trynidadu i Tobago</displayName>
@@ -1561,12 +1561,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>tak:t</yesstr>
-			<nostr>nie:n</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([tT]([aA][kK])?)</yesexpr>
-			<noexpr>^[nN]([oO]|[iI][eE])?</noexpr>
+			<yesstr draft="true">tak:t</yesstr>
+			<nostr draft="true">nie:n</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([tT]([aA][kK])?)</yesexpr>
+			<noexpr draft="true">^[nN]([oO]|[iI][eE])?</noexpr>
 		</messages>
 	</posix>
 </ldml>

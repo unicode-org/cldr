@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
-<ldml draft="true">
+<ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
 		<language type="az"/>
 		<script type="Cyrl"/>
 	</identity>
-	<localeDisplayNames>
-		<languages>
-			<language type="az">Азәрбајҹан</language>
-		</languages>
-		<territories>
-			<territory type="AZ">Азәрбајҹан</territory>
-		</territories>
-	</localeDisplayNames>
-	<characters>
-		<exemplarCharacters>[а-ик-хчшыјғҝүҹһәө]</exemplarCharacters>
-	</characters>
 	<numbers>
 		<symbols>
-			<group> </group>
+			<group draft="true"> </group>
 		</symbols>
 		<currencies>
 			<currency type="AZM">
-				<displayName>AZM</displayName>
-				<symbol>ман.</symbol>
+				<displayName draft="true">AZM</displayName>
+				<symbol draft="true">ман.</symbol>
 			</currency>
 		</currencies>
 	</numbers>

@@ -1443,8 +1443,8 @@
 				<displayName>Tyrknesk líra</displayName>
 				<symbol>TL</symbol>
 			</currency>
-			<currency type="TRY" draft="true">
-				<displayName>Ný, tyrknesk líra</displayName>
+			<currency type="TRY">
+				<displayName draft="true">Ný, tyrknesk líra</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trínidad og Tóbagó-dalur</displayName>
@@ -1527,12 +1527,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>já:ja:j</yesstr>
-			<nostr>nei:n</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([jJ][áÁaA]?)</yesexpr>
-			<noexpr>^[nN]([oO]|([eE][iI]))?</noexpr>
+			<yesstr draft="true">já:ja:j</yesstr>
+			<nostr draft="true">nei:n</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([jJ][áÁaA]?)</yesexpr>
+			<noexpr draft="true">^[nN]([oO]|([eE][iI]))?</noexpr>
 		</messages>
 	</posix>
 </ldml>

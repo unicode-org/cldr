@@ -1973,10 +1973,10 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>sì:si:s</yesstr>
-			<yesexpr>^([yY]([eE][sS])?)|([sS][ìÌiI]?)</yesexpr>
+			<yesstr draft="true">sì:si:s</yesstr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([sS][ìÌiI]?)</yesexpr>
 		</messages>
 	</posix>
 </ldml>

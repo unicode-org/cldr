@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
-<ldml draft="true">
+<ldml>
 	<!-- IDENTIFICATION of the locale -->
 	<identity>
 		<version number="$Revision$"/>
@@ -11,7 +11,7 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="sr">српски језик</language>
+			<language type="sr" draft="true">српски језик</language>
 		</languages>
 	</localeDisplayNames>
 	<!-- CALENDAR INFORMATION.  Gregorian Only -->
@@ -21,71 +21,71 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">Јан</month>
-							<month type="2">Феб</month>
-							<month type="3">Мар</month>
-							<month type="4">Апр</month>
-							<month type="5">Мај</month>
-							<month type="6">Јун</month>
-							<month type="7">Јул</month>
-							<month type="8">Авг</month>
-							<month type="9">Сеп</month>
-							<month type="10">Окт</month>
-							<month type="11">Нов</month>
-							<month type="12">Дец</month>
+							<month type="1" draft="true">Јан</month>
+							<month type="2" draft="true">Феб</month>
+							<month type="3" draft="true">Мар</month>
+							<month type="4" draft="true">Апр</month>
+							<month type="5" draft="true">Мај</month>
+							<month type="6" draft="true">Јун</month>
+							<month type="7" draft="true">Јул</month>
+							<month type="8" draft="true">Авг</month>
+							<month type="9" draft="true">Сеп</month>
+							<month type="10" draft="true">Окт</month>
+							<month type="11" draft="true">Нов</month>
+							<month type="12" draft="true">Дец</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="6">јуни</month>
-							<month type="7">јули</month>
+							<month type="6" draft="true">јуни</month>
+							<month type="7" draft="true">јули</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="wed">сри</day>
+							<day type="wed" draft="true">сри</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="wed">сриједа</day>
+							<day type="wed" draft="true">сриједа</day>
 						</dayWidth>
 					</dayContext>
 				</days>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, dd. MMMM yyyy.</pattern>
+							<pattern draft="true">EEEE, dd. MMMM yyyy.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>dd. MMMM yyyy.</pattern>
+							<pattern draft="true">dd. MMMM yyyy.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>yyyy-MM-dd</pattern>
+							<pattern draft="true">yyyy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>yy-MM-dd</pattern>
+							<pattern draft="true">yy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH 'часова', mm 'минута', ss' секунди'</pattern>
+							<pattern draft="true">HH 'часова', mm 'минута', ss' секунди'</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
+							<pattern draft="true">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>HH:mm</pattern>
+							<pattern draft="true">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -94,12 +94,12 @@
 		<timeZoneNames>
 			<zone type="Europe/Sarajevo">
 				<long>
-					<standard>Средње Европско Вријеме</standard>
-					<daylight>None</daylight>
+					<standard draft="true">Средње Европско Вријеме</standard>
+					<daylight draft="true">None</daylight>
 				</long>
 				<short>
-					<standard>None</standard>
-					<daylight>None</daylight>
+					<standard draft="true">None</standard>
+					<daylight draft="true">None</daylight>
 				</short>
 			</zone>
 		</timeZoneNames>
@@ -107,33 +107,33 @@
 	<!-- NUMERIC INFORMATION -->
 	<numbers>
 		<symbols>
-			<plusSign/>
+			<plusSign draft="true"/>
 		</symbols>
 		<!-- MONETARY INFORMATION -->
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>#,##0.00 ¤</pattern>
+					<pattern draft="true">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
 			<!-- currency id as per ISO4217, three letter alphabetic code -->
 			<currency type="BAM">
-				<displayName>Конвертибилна Марка</displayName>
-				<symbol>КМ.</symbol>
-				<decimal>,</decimal>
-				<group>.</group>
+				<displayName draft="true">Конвертибилна Марка</displayName>
+				<symbol draft="true">КМ.</symbol>
+				<decimal draft="true">,</decimal>
+				<group draft="true">.</group>
 			</currency>
 		</currencies>
 	</numbers>
 	<!-- POSIX TYPE INFORMATION -->
 	<posix>
 		<messages>
-			<yesstr>Да</yesstr>
-			<nostr>Не</nostr>
-			<yesexpr>Д</yesexpr>
-			<noexpr>Н</noexpr>
+			<yesstr draft="true">Да</yesstr>
+			<nostr draft="true">Не</nostr>
+			<yesexpr draft="true">Д</yesexpr>
+			<noexpr draft="true">Н</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -653,35 +653,37 @@
 					<daylight>ADT</daylight>
 				</short>
 			</zone>
-			<!-- CDT is wrong. It conflicts with America/Chicago -->
-			<!-- zone type="America/St_Johns">
-				<long>
-					<standard>Newfoundlandský standardní čas</standard>
-					<daylight>Newfoundlandský letní čas</daylight>
-				</long>
-				<short>
-					<standard>CNT</standard>
-					<daylight>CDT</daylight>
-				</short>
-				<exemplarCity>St. Johns</exemplarCity>
-			</zone -->
-			<!-- China -->
+			<!-- CDT is wrong. It conflicts with America/Chicago
+				 zone type="America/St_Johns">
+				 <long>
+				 <standard>Newfoundlandský standardní čas</standard>
+				 <daylight>Newfoundlandský letní čas</daylight>
+				 </long>
+				 <short>
+				 <standard>CNT</standard>
+				 <daylight>CDT</daylight>
+				 </short>
+				 <exemplarCity>St. Johns</exemplarCity>
+				 </zone
+				 China
+			-->
 			<zone type="Asia/Kashgar">
 				<exemplarCity draft="true">Kašghar</exemplarCity>
 			</zone>
-			<!-- CDT is wrong. It conflicts with America/Chicago -->
-			<!-- zone type="Asia/Shanghai">
-				<long>
-					<standard>Čínský standardní čas</standard>
-					<daylight>Čínský standardní čas</daylight>
-				</long>
-				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
-				</short>
-				<exemplarCity>Šanghaj</exemplarCity>
-			</zone -->
-			<!-- Ecuador -->
+			<!-- CDT is wrong. It conflicts with America/Chicago
+				 zone type="Asia/Shanghai">
+				 <long>
+				 <standard>Čínský standardní čas</standard>
+				 <daylight>Čínský standardní čas</daylight>
+				 </long>
+				 <short>
+				 <standard>CTT</standard>
+				 <daylight>CDT</daylight>
+				 </short>
+				 <exemplarCity>Šanghaj</exemplarCity>
+				 </zone
+				 Ecuador
+			-->
 			<zone type="Pacific/Galapagos">
 				<exemplarCity draft="true">Galapágy</exemplarCity>
 			</zone>
@@ -1580,8 +1582,8 @@
 				<displayName>Lira turecká</displayName>
 				<symbol>TL</symbol>
 			</currency>
-			<currency type="TRY" draft="true">
-				<displayName>Nová turecká lira</displayName>
+			<currency type="TRY">
+				<displayName draft="true">Nová turecká lira</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Dolar Trinidad a Tobago</displayName>
@@ -1718,12 +1720,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>ano:a</yesstr>
-			<nostr>ne:n</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([aA]([nN][oO])?)</yesexpr>
-			<noexpr>^([nN][oOeE]?)</noexpr>
+			<yesstr draft="true">ano:a</yesstr>
+			<nostr draft="true">ne:n</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([aA]([nN][oO])?)</yesexpr>
+			<noexpr draft="true">^([nN][oOeE]?)</noexpr>
 		</messages>
 	</posix>
 	<references>

@@ -313,13 +313,13 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week draft="true">
-					<firstDay day="mon"/>
+				<week>
+					<firstDay day="mon" draft="true"/>
 				</week>
-				<eras draft="true">
+				<eras>
 					<eraAbbr>
-						<era type="0">S.M.</era>
-						<era type="1">T.M.</era>
+						<era type="0" draft="true">S.M.</era>
+						<era type="1" draft="true">T.M.</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -333,12 +333,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>ya:y</yesstr>
-			<nostr>tidak:t</nostr>
-			<yesexpr>^[yY](([eE][sS])|[aA])?</yesexpr>
-			<noexpr>^([nN][oO]?)|([tT]([iI][dD][aA][kK])?)</noexpr>
+			<yesstr draft="true">ya:y</yesstr>
+			<nostr draft="true">tidak:t</nostr>
+			<yesexpr draft="true">^[yY](([eE][sS])|[aA])?</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|([tT]([iI][dD][aA][kK])?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

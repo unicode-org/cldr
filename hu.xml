@@ -1633,8 +1633,8 @@
 				<displayName>Török líra</displayName>
 				<symbol>TL</symbol>
 			</currency>
-			<currency type="TRY" draft="true">
-				<displayName>Új török líra</displayName>
+			<currency type="TRY">
+				<displayName draft="true">Új török líra</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad és tobagoi dollár</displayName>
@@ -1774,12 +1774,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>igen:i</yesstr>
-			<nostr>nem:n</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([iI]([gG][eE][nN])?)</yesexpr>
-			<noexpr>^[nN]([oO]|([eE][mM]))?</noexpr>
+			<yesstr draft="true">igen:i</yesstr>
+			<nostr draft="true">nem:n</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([iI]([gG][eE][nN])?)</yesexpr>
+			<noexpr draft="true">^[nN]([oO]|([eE][mM]))?</noexpr>
 		</messages>
 	</posix>
 </ldml>

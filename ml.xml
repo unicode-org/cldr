@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
-<ldml draft="true">
+<ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
@@ -8,14 +8,14 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="ml">മലയാളം</language>
+			<language type="ml" draft="true">മലയാളം</language>
 		</languages>
 		<territories>
-			<territory type="IN">ഇന്ത്യ</territory>
+			<territory type="IN" draft="true">ഇന്ത്യ</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[ംഃഅആഇഈഉഊഋഌഎഏഐഒഓഔകഖഗഘങചഛജഝഞടഠഡഢണതഥദധനപഫബഭമയരറലളഴവശഷസഹാിീുൂൃെേൈൊോൌ്ൗൠൡ]</exemplarCharacters>
+		<exemplarCharacters draft="true">[ംഃഅആഇഈഉഊഋഌഎഏഐഒഓഔകഖഗഘങചഛജഝഞടഠഡഢണതഥദധനപഫബഭമയരറലളഴവശഷസഹാിീുൂൃെേൈൊോൌ്ൗൠൡ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -23,73 +23,73 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">ജനു</month>
-							<month type="2">ഫിബ്</month>
-							<month type="3">മാറ്അ</month>
-							<month type="4">ഏപ്റില്അ</month>
-							<month type="5">മെയ്</month>
-							<month type="6">ജൂണ്അ</month>
-							<month type="7">ജൂൈല</month>
-							<month type="8">ആഗ</month>
-							<month type="9">സെപ്തം</month>
-							<month type="10">ഒക്ട</month>
-							<month type="11">നവം</month>
-							<month type="12">ഡിസം</month>
+							<month type="1" draft="true">ജനു</month>
+							<month type="2" draft="true">ഫിബ്</month>
+							<month type="3" draft="true">മാറ്അ</month>
+							<month type="4" draft="true">ഏപ്റില്അ</month>
+							<month type="5" draft="true">മെയ്</month>
+							<month type="6" draft="true">ജൂണ്അ</month>
+							<month type="7" draft="true">ജൂൈല</month>
+							<month type="8" draft="true">ആഗ</month>
+							<month type="9" draft="true">സെപ്തം</month>
+							<month type="10" draft="true">ഒക്ട</month>
+							<month type="11" draft="true">നവം</month>
+							<month type="12" draft="true">ഡിസം</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">ജനുവരി</month>
-							<month type="2">ഫിബ്റവരി</month>
-							<month type="3">മാറ്അച്അച്</month>
-							<month type="4">ഏപ്റില്അ</month>
-							<month type="5">മെയ്</month>
-							<month type="6">ജൂണ്അ</month>
-							<month type="7">ജൂൈല</month>
-							<month type="8">ആഗസ്ത്അ</month>
-							<month type="9">സെപ്തംബറ്അ</month>
-							<month type="10">ഒക്ടൈബറ്അ</month>
-							<month type="11">നവംബറ്അ</month>
-							<month type="12">ഡിസംബറ്അ</month>
+							<month type="1" draft="true">ജനുവരി</month>
+							<month type="2" draft="true">ഫിബ്റവരി</month>
+							<month type="3" draft="true">മാറ്അച്അച്</month>
+							<month type="4" draft="true">ഏപ്റില്അ</month>
+							<month type="5" draft="true">മെയ്</month>
+							<month type="6" draft="true">ജൂണ്അ</month>
+							<month type="7" draft="true">ജൂൈല</month>
+							<month type="8" draft="true">ആഗസ്ത്അ</month>
+							<month type="9" draft="true">സെപ്തംബറ്അ</month>
+							<month type="10" draft="true">ഒക്ടൈബറ്അ</month>
+							<month type="11" draft="true">നവംബറ്അ</month>
+							<month type="12" draft="true">ഡിസംബറ്അ</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun">ഞാ</day>
-							<day type="mon">തി</day>
-							<day type="tue">ചൊ</day>
-							<day type="wed">ബു</day>
-							<day type="thu">വ്യ</day>
-							<day type="fri">വെ</day>
-							<day type="sat">ശ</day>
+							<day type="sun" draft="true">ഞാ</day>
+							<day type="mon" draft="true">തി</day>
+							<day type="tue" draft="true">ചൊ</day>
+							<day type="wed" draft="true">ബു</day>
+							<day type="thu" draft="true">വ്യ</day>
+							<day type="fri" draft="true">വെ</day>
+							<day type="sat" draft="true">ശ</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">ഞായറ്അ</day>
-							<day type="mon">തിങ്കള്അ</day>
-							<day type="tue">ചൊവ്വ</day>
-							<day type="wed">ബുനഭ്അ</day>
-							<day type="thu">വ്യാഴം</day>
-							<day type="fri">വെള്ളി</day>
-							<day type="sat">ശനി</day>
+							<day type="sun" draft="true">ഞായറ്അ</day>
+							<day type="mon" draft="true">തിങ്കള്അ</day>
+							<day type="tue" draft="true">ചൊവ്വ</day>
+							<day type="wed" draft="true">ബുനഭ്അ</day>
+							<day type="thu" draft="true">വ്യാഴം</day>
+							<day type="fri" draft="true">വെള്ളി</day>
+							<day type="sat" draft="true">ശനി</day>
 						</dayWidth>
 					</dayContext>
 				</days>
-				<am>രാവിലെ</am>
-				<pm>വൈകു</pm>
+				<am draft="true">രാവിലെ</am>
+				<pm draft="true">വൈകു</pm>
 			</calendar>
 		</calendars>
 	</dates>
 	<numbers>
 		<symbols>
-			<nativeZeroDigit>൦</nativeZeroDigit>
+			<nativeZeroDigit draft="true">൦</nativeZeroDigit>
 		</symbols>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>അതെ</yesstr>
-			<nostr>അല്ല</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|അതെ</yesexpr>
-			<noexpr>^([nN][oO]?)|അല്ല</noexpr>
+			<yesstr draft="true">അതെ</yesstr>
+			<nostr draft="true">അല്ല</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|അതെ</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|അല്ല</noexpr>
 		</messages>
 	</posix>
 </ldml>

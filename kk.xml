@@ -113,12 +113,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>иә:и</yesstr>
-			<nostr>жоқ:ж</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([иИ][әӘ]?)</yesexpr>
-			<noexpr>^([nN][oO]?)|([жЖ]([оО][қҚ])?)</noexpr>
+			<yesstr draft="true">иә:и</yesstr>
+			<nostr draft="true">жоқ:ж</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([иИ][әӘ]?)</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|([жЖ]([оО][қҚ])?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -989,10 +989,10 @@
 			<decimal>,</decimal>
 			<group> </group>
 		</symbols>
-		<percentFormats draft="true">
+		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#,##0 %</pattern>
+					<pattern draft="true">#,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -1698,8 +1698,8 @@
 				<displayName>Tyrkiske lira</displayName>
 				<symbol>TL</symbol>
 			</currency>
-			<currency type="TRY" draft="true">
-				<displayName>Ny tyrkisk lire</displayName>
+			<currency type="TRY">
+				<displayName draft="true">Ny tyrkisk lire</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidadiske dollar</displayName>

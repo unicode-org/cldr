@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
-<ldml draft="true">
+<ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
@@ -14,22 +14,22 @@
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun">Nab</day>
-							<day type="mon">San</day>
-							<day type="tue">Sal</day>
-							<day type="wed">Rab</day>
-							<day type="thu">Cam</day>
-							<day type="fri">Jum</day>
-							<day type="sat">Qun</day>
+							<day type="sun" draft="true">Nab</day>
+							<day type="mon" draft="true">San</day>
+							<day type="tue" draft="true">Sal</day>
+							<day type="wed" draft="true">Rab</day>
+							<day type="thu" draft="true">Cam</day>
+							<day type="fri" draft="true">Jum</day>
+							<day type="sat" draft="true">Qun</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">Naba Sambat</day>
-							<day type="mon">Sani</day>
-							<day type="tue">Salus</day>
-							<day type="wed">Rabuq</day>
-							<day type="thu">Camus</day>
-							<day type="fri">Jumqata</day>
-							<day type="sat">Qunxa Sambat</day>
+							<day type="sun" draft="true">Naba Sambat</day>
+							<day type="mon" draft="true">Sani</day>
+							<day type="tue" draft="true">Salus</day>
+							<day type="wed" draft="true">Rabuq</day>
+							<day type="thu" draft="true">Camus</day>
+							<day type="fri" draft="true">Jumqata</day>
+							<day type="sat" draft="true">Qunxa Sambat</day>
 						</dayWidth>
 					</dayContext>
 				</days>

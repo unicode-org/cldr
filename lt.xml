@@ -606,19 +606,19 @@
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Sekmadienis</day>
-							<day type="sun" draft="true" alt="proposed">sekmadienis</day>
+							<day type="sun" alt="proposed" draft="true">sekmadienis</day>
 							<day type="mon">Pirmadienis</day>
-							<day type="mon" draft="true" alt="proposed">pirmadienis</day>
+							<day type="mon" alt="proposed" draft="true">pirmadienis</day>
 							<day type="tue">Antradienis</day>
-							<day type="tue" draft="true" alt="proposed">antradienis</day>
+							<day type="tue" alt="proposed" draft="true">antradienis</day>
 							<day type="wed">Trečiadienis</day>
-							<day type="wed" draft="true" alt="proposed">trečiadienis</day>
+							<day type="wed" alt="proposed" draft="true">trečiadienis</day>
 							<day type="thu">Ketvirtadienis</day>
-							<day type="thu" draft="true" alt="proposed">ketvirtadienis</day>
+							<day type="thu" alt="proposed" draft="true">ketvirtadienis</day>
 							<day type="fri">Penktadienis</day>
-							<day type="fri" draft="true" alt="proposed">penktadienis</day>
+							<day type="fri" alt="proposed" draft="true">penktadienis</day>
 							<day type="sat">Šeštadienis</day>
-							<day type="sat" draft="true" alt="proposed">šeštadienis</day>
+							<day type="sat" alt="proposed" draft="true">šeštadienis</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -631,9 +631,9 @@
 				<eras>
 					<eraAbbr>
 						<era type="0">pr.Kr.</era>
-						<era type="0" draft="true" alt="proposed">pr. Kr.</era>
+						<era type="0" alt="proposed" draft="true">pr. Kr.</era>
 						<era type="1">po.Kr.</era>
-						<era type="1" draft="true" alt="proposed">po Kr.</era>
+						<era type="1" alt="proposed" draft="true">po Kr.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -698,12 +698,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>taip:t</yesstr>
-			<nostr>ne:n</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([tT]([aA][iI][pP])?)</yesexpr>
-			<noexpr>^[nN][oOeE]?</noexpr>
+			<yesstr draft="true">taip:t</yesstr>
+			<nostr draft="true">ne:n</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([tT]([aA][iI][pP])?)</yesexpr>
+			<noexpr draft="true">^[nN][oOeE]?</noexpr>
 		</messages>
 	</posix>
 </ldml>

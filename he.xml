@@ -788,20 +788,20 @@
 				<displayName draft="true">רובל</displayName>
 				<symbol draft="true">TODO RUB</symbol>
 			</currency>
-			<currency type="TRY" draft="true">
-				<displayName>לירה טורקית חדשה</displayName>
+			<currency type="TRY">
+				<displayName draft="true">לירה טורקית חדשה</displayName>
 			</currency>
 			<currency type="USD">
 				<displayName draft="true">דולר אמריקאי</displayName>
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>כן:כ</yesstr>
-			<nostr>לא:ל</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|כ|כן</yesexpr>
-			<noexpr>^([nN][oO]?)|לא|ל</noexpr>
+			<yesstr draft="true">כן:כ</yesstr>
+			<nostr draft="true">לא:ל</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|כ|כן</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|לא|ל</noexpr>
 		</messages>
 	</posix>
 </ldml>

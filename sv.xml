@@ -1951,8 +1951,8 @@
 				<displayName>Turkisk lira</displayName>
 				<symbol>TL</symbol>
 			</currency>
-			<currency type="TRY" draft="true">
-				<displayName>Ny turkisk lira</displayName>
+			<currency type="TRY">
+				<displayName draft="true">Ny turkisk lira</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidadisk dollar</displayName>
@@ -2071,12 +2071,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>ja:j</yesstr>
-			<nostr>nej:n</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([jJ][aA]?)</yesexpr>
-			<noexpr>^[nN]([oO]|[eE][jJ])?</noexpr>
+			<yesstr draft="true">ja:j</yesstr>
+			<nostr draft="true">nej:n</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([jJ][aA]?)</yesexpr>
+			<noexpr draft="true">^[nN]([oO]|[eE][jJ])?</noexpr>
 		</messages>
 	</posix>
 	<references>

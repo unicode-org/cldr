@@ -416,12 +416,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>हाँ</yesstr>
-			<nostr>नहीं</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|हाँ</yesexpr>
-			<noexpr>^([nN][oO]?)|नहीं</noexpr>
+			<yesstr draft="true">हाँ</yesstr>
+			<nostr draft="true">नहीं</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|हाँ</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|नहीं</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -6,18 +6,18 @@
 		<generation date="$Date$"/>
 		<language type="root"/>
 	</identity>
-	<layout draft="true">
-		<orientation/>
+	<layout>
+		<orientation draft="true"/>
 	</layout>
 	<characters>
 		<exemplarCharacters>[]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="true">[]</exemplarCharacters>
 	</characters>
-	<delimiters draft="true">
-		<quotationStart>“</quotationStart>
-		<quotationEnd>”</quotationEnd>
-		<alternateQuotationStart>‘</alternateQuotationStart>
-		<alternateQuotationEnd>’</alternateQuotationEnd>
+	<delimiters>
+		<quotationStart draft="true">“</quotationStart>
+		<quotationEnd draft="true">”</quotationEnd>
+		<alternateQuotationStart draft="true">‘</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">’</alternateQuotationEnd>
 	</delimiters>
 	<measurement>
 		<measurementSystem type="metric"/>
@@ -294,39 +294,39 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 				</dateTimeFormats>
-				<fields draft="true">
+				<fields>
 					<field type="era">
-						<displayName>Era</displayName>
+						<displayName draft="true">Era</displayName>
 					</field>
 					<field type="year">
-						<displayName>Year</displayName>
+						<displayName draft="true">Year</displayName>
 					</field>
 					<field type="month">
-						<displayName>Month</displayName>
+						<displayName draft="true">Month</displayName>
 					</field>
 					<field type="week">
-						<displayName>Week</displayName>
+						<displayName draft="true">Week</displayName>
 					</field>
 					<field type="day">
-						<displayName>Day</displayName>
+						<displayName draft="true">Day</displayName>
 					</field>
 					<field type="weekday">
-						<displayName>Weekday</displayName>
+						<displayName draft="true">Weekday</displayName>
 					</field>
 					<field type="dayperiod">
-						<displayName>Dayperiod</displayName>
+						<displayName draft="true">Dayperiod</displayName>
 					</field>
 					<field type="hour">
-						<displayName>Hour</displayName>
+						<displayName draft="true">Hour</displayName>
 					</field>
 					<field type="minute">
-						<displayName>Minute</displayName>
+						<displayName draft="true">Minute</displayName>
 					</field>
 					<field type="second">
-						<displayName>Second</displayName>
+						<displayName draft="true">Second</displayName>
 					</field>
 					<field type="zone">
-						<displayName>Zone</displayName>
+						<displayName draft="true">Zone</displayName>
 					</field>
 				</fields>
 			</calendar>
@@ -774,12 +774,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>yes:y</yesstr>
-			<nostr>no:n</nostr>
-			<yesexpr>^[yY]([eE][sS])?</yesexpr>
-			<noexpr>^[nN][oO]?</noexpr>
+			<yesstr draft="true">yes:y</yesstr>
+			<nostr draft="true">no:n</nostr>
+			<yesexpr draft="true">^[yY]([eE][sS])?</yesexpr>
+			<noexpr draft="true">^[nN][oO]?</noexpr>
 		</messages>
 	</posix>
 </ldml>

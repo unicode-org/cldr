@@ -10,9 +10,9 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<week draft="true">
-					<minDays count="4"/>
-					<firstDay day="mon"/>
+				<week>
+					<minDays count="4" draft="true"/>
+					<firstDay day="mon" draft="true"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="medium">

@@ -388,12 +388,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>ājā:ja:j</yesstr>
-			<nostr>nē:ne:n</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([jJ][āĀaA]?)</yesexpr>
-			<noexpr>^[nN][oOēĒeE]?</noexpr>
+			<yesstr draft="true">ājā:ja:j</yesstr>
+			<nostr draft="true">nē:ne:n</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([jJ][āĀaA]?)</yesexpr>
+			<noexpr draft="true">^[nN][oOēĒeE]?</noexpr>
 		</messages>
 	</posix>
 </ldml>

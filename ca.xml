@@ -413,8 +413,8 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week draft="true">
-					<firstDay day="mon"/>
+				<week>
+					<firstDay day="mon" draft="true"/>
 				</week>
 				<eras>
 					<eraAbbr>
@@ -509,11 +509,11 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>sí:si:s</yesstr>
-			<yesexpr>^([yY]([eE][sS])?)|([sS][iIíÍ]?)</yesexpr>
-			<noexpr>^([nN][oO]?)</noexpr>
+			<yesstr draft="true">sí:si:s</yesstr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([sS][iIíÍ]?)</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)</noexpr>
 		</messages>
 	</posix>
 	<references>

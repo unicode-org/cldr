@@ -381,12 +381,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>сó:co:c</yesstr>
-			<nostr>không:khong:k</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|([cC][óÓoO]?)</yesexpr>
-			<noexpr>^([nN][oO]?)|([kK]([hH][ôÔoO][nN][gG])?)</noexpr>
+			<yesstr draft="true">сó:co:c</yesstr>
+			<nostr draft="true">không:khong:k</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|([cC][óÓoO]?)</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|([kK]([hH][ôÔoO][nN][gG])?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -163,12 +163,12 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>అవను</yesstr>
-			<nostr>కాదు</nostr>
-			<yesexpr>^([yY]([eE][sS])?)|అవను</yesexpr>
-			<noexpr>^([nN][oO]?)|కాదు</noexpr>
+			<yesstr draft="true">అవను</yesstr>
+			<nostr draft="true">కాదు</nostr>
+			<yesexpr draft="true">^([yY]([eE][sS])?)|అవను</yesexpr>
+			<noexpr draft="true">^([nN][oO]?)|కాదు</noexpr>
 		</messages>
 	</posix>
 </ldml>

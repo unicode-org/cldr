@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
-<ldml draft="true">
+<ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
@@ -8,14 +8,14 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="or">ଓଡ଼ିଆ</language>
+			<language type="or" draft="true">ଓଡ଼ିଆ</language>
 		</languages>
 		<territories>
-			<territory type="IN">ଭାରତ</territory>
+			<territory type="IN" draft="true">ଭାରତ</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[ଁଂଃଅଆଇଈଉଊଋଌଏଐଓଔକଖଗଘଙଚଛଜଝଞଟଠଡଢଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହ଼ଽାିୀୁୂୃେୈୋୌ୍ୖୗଡ଼ଢ଼ୟୠୡ୰ୱ]</exemplarCharacters>
+		<exemplarCharacters draft="true">[ଁଂଃଅଆଇଈଉଊଋଌଏଐଓଔକଖଗଘଙଚଛଜଝଞଟଠଡଢଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହ଼ଽାିୀୁୂୃେୈୋୌ୍ୖୗଡ଼ଢ଼ୟୠୡ୰ୱ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -23,40 +23,40 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="wide">
-							<month type="1">ଜାନୁଆରୀ</month>
-							<month type="2">ଫେବ୍ରୁୟାରୀ</month>
-							<month type="3">ମାର୍ଚ୍ଚ</month>
-							<month type="4">ଅପ୍ରେଲ</month>
-							<month type="5">ମେ</month>
-							<month type="6">ଜୁନ</month>
-							<month type="7">ଜୁଲାଇ</month>
-							<month type="8">ଅଗଷ୍ଟ</month>
-							<month type="9">ସେପ୍ଟେମ୍ବର</month>
-							<month type="10">ଅକ୍ଟୋବର</month>
-							<month type="11">ନଭେମ୍ବର</month>
-							<month type="12">ଡିସେମ୍ବର</month>
+							<month type="1" draft="true">ଜାନୁଆରୀ</month>
+							<month type="2" draft="true">ଫେବ୍ରୁୟାରୀ</month>
+							<month type="3" draft="true">ମାର୍ଚ୍ଚ</month>
+							<month type="4" draft="true">ଅପ୍ରେଲ</month>
+							<month type="5" draft="true">ମେ</month>
+							<month type="6" draft="true">ଜୁନ</month>
+							<month type="7" draft="true">ଜୁଲାଇ</month>
+							<month type="8" draft="true">ଅଗଷ୍ଟ</month>
+							<month type="9" draft="true">ସେପ୍ଟେମ୍ବର</month>
+							<month type="10" draft="true">ଅକ୍ଟୋବର</month>
+							<month type="11" draft="true">ନଭେମ୍ବର</month>
+							<month type="12" draft="true">ଡିସେମ୍ବର</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun">ରବି</day>
-							<day type="mon">ସୋମ</day>
-							<day type="tue">ମଙ୍ଗଳ</day>
-							<day type="wed">ବୁଧ</day>
-							<day type="thu">ଗୁରୁ</day>
-							<day type="fri">ଶୁକ୍ର</day>
-							<day type="sat">ଶନି</day>
+							<day type="sun" draft="true">ରବି</day>
+							<day type="mon" draft="true">ସୋମ</day>
+							<day type="tue" draft="true">ମଙ୍ଗଳ</day>
+							<day type="wed" draft="true">ବୁଧ</day>
+							<day type="thu" draft="true">ଗୁରୁ</day>
+							<day type="fri" draft="true">ଶୁକ୍ର</day>
+							<day type="sat" draft="true">ଶନି</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">ରବିବାର</day>
-							<day type="mon">ସୋମବାର</day>
-							<day type="tue">ମଙ୍ଗଳବାର</day>
-							<day type="wed">ବୁଧବାର</day>
-							<day type="thu">ଗୁରୁବାର</day>
-							<day type="fri">ଶୁକ୍ରବାର</day>
-							<day type="sat">ଶନିବାର</day>
+							<day type="sun" draft="true">ରବିବାର</day>
+							<day type="mon" draft="true">ସୋମବାର</day>
+							<day type="tue" draft="true">ମଙ୍ଗଳବାର</day>
+							<day type="wed" draft="true">ବୁଧବାର</day>
+							<day type="thu" draft="true">ଗୁରୁବାର</day>
+							<day type="fri" draft="true">ଶୁକ୍ରବାର</day>
+							<day type="sat" draft="true">ଶନିବାର</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -65,15 +65,15 @@
 	</dates>
 	<numbers>
 		<symbols>
-			<nativeZeroDigit>୦</nativeZeroDigit>
+			<nativeZeroDigit draft="true">୦</nativeZeroDigit>
 		</symbols>
 	</numbers>
-	<posix draft="true">
+	<posix>
 		<messages>
-			<yesstr>N/A</yesstr>
-			<nostr>N/A</nostr>
-			<yesexpr>N/A</yesexpr>
-			<noexpr>N/A</noexpr>
+			<yesstr draft="true">N/A</yesstr>
+			<nostr draft="true">N/A</nostr>
+			<yesexpr draft="true">N/A</yesexpr>
+			<noexpr draft="true">N/A</noexpr>
 		</messages>
 	</posix>
 </ldml>

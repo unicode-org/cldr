@@ -28,7 +28,7 @@
   <table border="1" cellpadding="2" style="border-collapse: collapse; border-width: 1" cellspacing="0" width="100%">
     <tr>
       <td>Version</td>
-      <td>1<span>.</span><span class="changed">2 (draft 1)</span></td>
+      <td>1<span>.</span><span class="changed">2 (draft 2)</span></td>
     </tr>
     <tr>
       <td>Authors</td>
@@ -36,7 +36,7 @@
     </tr>
     <tr>
       <td>Date</td>
-      <td><span>2004-</span><span class="changed">07-25</span></td>
+      <td><span>2004-</span><span class="changed">08-02</span></td>
     </tr>
     <tr>
       <td>This Version</td>
@@ -1953,8 +1953,8 @@ root</pre>
   </ul>
   <h3><a name="Special_Purpose_Commands">Special-Purpose Commands</a></h3>
   <p>The <i>suppress contractions</i> tailoring command turns off any existing contractions that 
-  begin with those characters. It is typically used to turn off the Cyrillic contractions in the UCA, 
-  since they are not used in many languages and have a considerable performance penalty. The 
+  begin with those characters. It is typically used to turn off the Cyrillic contractions in the 
+  UCA, since they are not used in many languages and have a considerable performance penalty. The 
   argument is a <a href="#Unicode_Sets">Unicode Set</a>.</p>
   <p>The <i>optimize</i> tailoring command is purely for performance. It indicates that those 
   characters are sufficiently common in the target language for the tailoring that their performance 
@@ -2936,52 +2936,89 @@ root</pre>
   </dl>
   <h2><span class="changed">Appendix G: <a name="Number_Format_Patterns">Number Format Patterns</a></span></h2>
   <h3><span class="changed">Number Patterns</span></h3>
+  <p><span class="changed">There are different formats for different types of numbers. For example, 
+  here are some patterns (using the </span><span class="changed">unlocalized</span><span class="changed"> 
+  symbols) with the corresponding text. While the format is localized, the </span><i>
+  <span class="changed">characters to specify the format pattern</span></i><span class="changed"> 
+  are not localized. That is, the decimal point always is represented by a &quot;.&quot;, and the grouping 
+  separator (thousands, etc.) is always represented by a &quot;,&quot;.</span></p>
+  <p><span class="changed">The </span><a href="#NumberElements"><span class="changed">NumberElements</span></a><span class="changed"> 
+  resource affects how these patterns are interpreted in a localized context. Here are some 
+  examples, based on the French locale. The &quot;.&quot; shows where the decimal point should go. The &quot;,&quot; 
+  shows where the thousands separator should go. A &quot;0&quot; indicates zero-padding: if the number is too 
+  short, a zero (in the locale&#39;s numeric set) will go there. A &quot;#&quot; indicates no padding: if the 
+  number is too short, nothing goes there. A &quot;¤&quot; shows where the currency sign will go. The 
+  following illustrates the effects of different patterns for the French locale, with the number 
+  &quot;1234.567&quot;. Notice how the pattern characters &#39;,&#39; and &#39;.&#39; are replaced by the characters 
+  appropriate for the locale.</span></p>
   <blockquote>
-    <p><span class="changed">There are different formats for different types of numbers. For 
-    example, here are some patterns (using the </span><span class="changed">unlocalized</span><span class="changed"> 
-    symbols) with the corresponding text. While the format is localized, the </span><i>
-    <span class="changed">characters to specify the format pattern</span></i><span class="changed"> 
-    are not localized. That is, the decimal point always is represented by a &quot;.&quot;, and the grouping 
-    separator (thousands, etc.) is always represented by a &quot;,&quot;.</span></p>
-    <p><span class="changed">The </span><a href="#NumberElements"><span class="changed">
-    NumberElements</span></a><span class="changed"> resource affects how these patterns are 
-    interpreted in a localized context. Here are some examples, based on the French locale. The &quot;.&quot; 
-    shows where the decimal point should go. The &quot;,&quot; shows where the thousands separator should go. 
-    A &quot;0&quot; indicates zero-padding: if the number is too short, a zero (in the locale&#39;s numeric set) 
-    will go there. A &quot;#&quot; indicates no padding: if the number is too short, nothing goes there. A &quot;¤&quot; 
-    shows where the currency sign will go. The following illustrates the effects of different 
-    patterns for the French locale, with the number &quot;1234.567&quot;</span></p>
     <table cellSpacing="0" cellPadding="4" border="1">
       <tr>
-        <th width="33%"><span class="changed">Pattern</span></th>
-        <th width="33%"><span class="changed">Text</span></th>
+        <th width="17%" class="changed">Pattern</th>
+        <th width="16%" class="changed">Currency</th>
+        <th width="33%" class="changed">Text</th>
       </tr>
       <tr>
-        <td width="33%"><span class="changed">#,###.##</span></td>
-        <td width="33%"><span class="changed">1&nbsp;234,57</span></td>
+        <td width="17%" class="changed">#,##0.##</td>
+        <td width="16%" class="changed"><i>n/a</i></td>
+        <td width="33%" class="changed">1&nbsp;234,57</td>
       </tr>
       <tr>
-        <td width="33%"><span class="changed">#,###.###</span></td>
-        <td width="33%"><span class="changed">1&nbsp;234,567</span></td>
+        <td width="17%" class="changed">#,##0.###</td>
+        <td width="16%" class="changed"><i>n/a</i></td>
+        <td width="33%" class="changed">1&nbsp;234,567</td>
       </tr>
       <tr>
-        <td width="33%"><span class="changed">####.#####</span></td>
-        <td width="33%"><span class="changed">1234,567</span></td>
+        <td width="17%" class="changed">###0.#####</td>
+        <td width="16%" class="changed"><i>n/a</i></td>
+        <td width="33%" class="changed">1234,567</td>
       </tr>
       <tr>
-        <td width="33%"><span class="changed">####.0000#</span></td>
-        <td width="33%"><span class="changed">1234,5670</span></td>
+        <td width="17%" class="changed">###0.0000#</td>
+        <td width="16%" class="changed"><i>n/a</i></td>
+        <td width="33%" class="changed">1234,5670</td>
       </tr>
       <tr>
-        <td width="33%"><span class="changed">00000.0000</span></td>
-        <td width="33%"><span class="changed">01234,5670</span></td>
+        <td width="17%" class="changed">00000.0000</td>
+        <td width="16%" class="changed"><i>n/a</i></td>
+        <td width="33%" class="changed">01234,5670</td>
       </tr>
       <tr>
-        <td width="33%"><span class="changed">#&nbsp;##0,00 ¤</span></td>
-        <td width="33%"><span class="changed">1&nbsp;234,57 €</span></td>
+        <td width="17%" class="changed" rowspan="2">#&nbsp;##0.00 ¤</td>
+        <td width="16%" class="changed">EUR</td>
+        <td width="33%" class="changed">1&nbsp;234,57 €</td>
+      </tr>
+      <tr>
+        <td width="16%" class="changed">JAY</td>
+        <td width="33%" class="changed">1&nbsp;235 ¥</td>
       </tr>
     </table>
   </blockquote>
+  <dl>
+    <p class="changed">The number of # placeholder characters before the decimal do not matter, 
+    since no limit is placed on the maximum number of digits. There should, however, be at least one 
+    zero someplace in the pattern. In currency formats, the number of digits after the decimal also 
+    do not matter, since the information in the <a href="#Supplemental_Data">Appendix C: 
+    Supplemental Data</a> is used to override the number of decimal places -- and the rounding -- 
+    according to the currency that is being formatted. That can be seen in the above chart, with the 
+    difference between Yen and Euro formatting.</p>
+    <p class="changed">Thus for consistency in the CLDR data, the following conventions should be 
+    observed:</p>
+  </dl>
+  <ul>
+    <li>
+    <p class="changed">All number patterns should be minimal: there should be no leading # marks 
+    except to specify the position of the grouping separators (e.g. avoid&nbsp; ##,##0.###).</li>
+    <li>
+    <p class="changed">All formats should have one 0 before the decimal point (e.g. avoid #,###.##)
+    </li>
+    <li>
+    <p class="changed">Decimal formats should have three hash marks in the fractional position (e.g. 
+    #,##0.###).</li>
+    <li>
+    <p class="changed">Currency formats should have two zeros in the fractional position (e.g. ¤ 
+    #,##0.00).</li>
+  </ul>
   <dl>
     <h3><span class="changed">Special Pattern Characters</span></h3>
     <p><span class="changed">Many characters in a pattern are taken literally; they are matched 
@@ -3000,55 +3037,55 @@ root</pre>
       <table cellSpacing="3" cellPadding="0" summary="Chart showing symbol,
   location, localized, and meaning." border="0">
         <tr bgColor="#ccccff">
-          <th align="left"><span class="changed">Symbol </span></th>
+          <th align="left" class="changed">Symbol </th>
           <th align="left"><span class="changed">Location </span></th>
           <th align="left"><span class="changed">Localized? </span></th>
           <th align="left"><span class="changed">Meaning </span></th>
         </tr>
         <tr vAlign="top">
-          <td><code><span class="changed">0</span></code><span class="changed"> </span></td>
+          <td class="changed">0 </td>
           <td><span class="changed">Number </span></td>
           <td><span class="changed">Yes </span></td>
           <td><span class="changed">Digit </span></td>
         </tr>
         <tr vAlign="top" bgColor="#eeeeff">
-          <td><code><span class="changed">1-9</span></code><span class="changed"> </span></td>
+          <td class="changed">1-9 </td>
           <td><span class="changed">Number </span></td>
           <td><span class="changed">Yes </span></td>
           <td><span class="changed">&#39;1&#39; through &#39;9&#39; indicate rounding. </span></td>
         </tr>
         <tr vAlign="top">
-          <td><code><span class="changed">@</span></code><span class="changed"> </span></td>
+          <td class="changed">@ </td>
           <td><span class="changed">Number </span></td>
           <td><span class="changed">No </span></td>
           <td><span class="changed">Significant digit </span></td>
         </tr>
         <tr vAlign="top" bgColor="#eeeeff">
-          <td><code><span class="changed">#</span></code><span class="changed"> </span></td>
+          <td class="changed"># </td>
           <td><span class="changed">Number </span></td>
           <td><span class="changed">Yes </span></td>
           <td><span class="changed">Digit, zero shows as absent </span></td>
         </tr>
         <tr vAlign="top">
-          <td><code><span class="changed">.</span></code><span class="changed"> </span></td>
+          <td class="changed">. </td>
           <td><span class="changed">Number </span></td>
           <td><span class="changed">Yes </span></td>
           <td><span class="changed">Decimal separator or monetary decimal separator </span></td>
         </tr>
         <tr vAlign="top" bgColor="#eeeeff">
-          <td><code><span class="changed">-</span></code><span class="changed"> </span></td>
+          <td class="changed">- </td>
           <td><span class="changed">Number </span></td>
           <td><span class="changed">Yes </span></td>
           <td><span class="changed">Minus sign </span></td>
         </tr>
         <tr vAlign="top">
-          <td><code><span class="changed">,</span></code><span class="changed"> </span></td>
+          <td class="changed">, </td>
           <td><span class="changed">Number </span></td>
           <td><span class="changed">Yes </span></td>
           <td><span class="changed">Grouping separator </span></td>
         </tr>
         <tr vAlign="top" bgColor="#eeeeff">
-          <td><code><span class="changed">E</span></code><span class="changed"> </span></td>
+          <td class="changed">E </td>
           <td><span class="changed">Number </span></td>
           <td><span class="changed">Yes </span></td>
           <td><span class="changed">Separates mantissa and exponent in scientific notation. </span>
@@ -3056,7 +3093,7 @@ root</pre>
           </span></td>
         </tr>
         <tr vAlign="top">
-          <td><code><span class="changed">+</span></code><span class="changed"> </span></td>
+          <td class="changed">+ </td>
           <td><span class="changed">Exponent </span></td>
           <td><span class="changed">Yes </span></td>
           <td><span class="changed">Prefix positive exponents with localized plus sign. </span><em>
@@ -3064,28 +3101,26 @@ root</pre>
           </span></td>
         </tr>
         <tr vAlign="top" bgColor="#eeeeff">
-          <td><code><span class="changed">;</span></code><span class="changed"> </span></td>
-          <td><span class="changed">Subpattern</span><span class="changed"> boundary </span></td>
+          <td class="changed">; </td>
+          <td><span class="changed">Subpattern boundary </span></td>
           <td><span class="changed">Yes </span></td>
-          <td><span class="changed">Separates positive and negative </span><span class="changed">
-          subpatterns</span><span class="changed"> </span></td>
+          <td><span class="changed">Separates positive and negative subpatterns </span></td>
         </tr>
         <tr vAlign="top">
-          <td><code><span class="changed">%</span></code><span class="changed"> </span></td>
+          <td class="changed">% </td>
           <td><span class="changed">Prefix or suffix </span></td>
           <td><span class="changed">Yes </span></td>
           <td><span class="changed">Multiply by 100 and show as percentage </span></td>
         </tr>
         <tr vAlign="top" bgColor="#eeeeff">
-          <td><font SIZE="3"><span class="changed">‰<br>
-          (</span></font><code><span class="changed">\u2030</span></code><span class="changed">)</span></td>
+          <td class="changed">‰<br>
+          (\u2030)</td>
           <td><span class="changed">Prefix or suffix </span></td>
           <td><span class="changed">Yes </span></td>
           <td><span class="changed">Multiply by 1000 and show as per mille </span></td>
         </tr>
         <tr vAlign="top">
-          <td><code><span class="changed">¤</span></code><span class="changed"> (</span><code><span class="changed">\u00A4</span></code><span class="changed">)
-          </span></td>
+          <td class="changed">¤ (\u00A4) </td>
           <td><span class="changed">Prefix or suffix </span></td>
           <td><span class="changed">No </span></td>
           <td><span class="changed">Currency sign, replaced by currency symbol. If doubled, replaced 
@@ -3093,7 +3128,7 @@ root</pre>
           and grouping separators are used instead of the numeric ones. </span></td>
         </tr>
         <tr vAlign="top" bgColor="#eeeeff">
-          <td><code><span class="changed">&#39;</span></code><span class="changed"> </span></td>
+          <td class="changed">&#39; </td>
           <td><span class="changed">Prefix or suffix </span></td>
           <td><span class="changed">No </span></td>
           <td><span class="changed">Used to quote special characters in a prefix or suffix, for 
@@ -3103,7 +3138,7 @@ root</pre>
           o&#39;&#39;clock&quot;</span></code><span class="changed">. </span></td>
         </tr>
         <tr vAlign="top">
-          <td><code><span class="changed">*</span></code><span class="changed"> </span></td>
+          <td class="changed">* </td>
           <td><span class="changed">Prefix or suffix boundary </span></td>
           <td><span class="changed">Yes </span></td>
           <td><span class="changed">Pad escape, precedes pad character </span></td>

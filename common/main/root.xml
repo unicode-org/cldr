@@ -6,9 +6,19 @@
 		<generation date="$Date$"/>
 		<language type="root"/>
 	</identity>
+	<layout draft="true">
+		<orientation/>
+	</layout>
 	<characters>
 		<exemplarCharacters>[]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="true">[]</exemplarCharacters>
 	</characters>
+	<delimiters draft="true">
+		<quotationStart>“</quotationStart>
+		<quotationEnd>”</quotationEnd>
+		<alternateQuotationStart>‘</alternateQuotationStart>
+		<alternateQuotationEnd>’</alternateQuotationEnd>
+	</delimiters>
 	<measurement>
 		<measurementSystem type="metric"/>
 		<paperSize>
@@ -284,6 +294,41 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 				</dateTimeFormats>
+				<fields draft="true">
+					<field type="era">
+						<displayName>Era</displayName>
+					</field>
+					<field type="year">
+						<displayName>Year</displayName>
+					</field>
+					<field type="month">
+						<displayName>Month</displayName>
+					</field>
+					<field type="week">
+						<displayName>Week</displayName>
+					</field>
+					<field type="day">
+						<displayName>Day</displayName>
+					</field>
+					<field type="weekday">
+						<displayName>Weekday</displayName>
+					</field>
+					<field type="dayperiod">
+						<displayName>Dayperiod</displayName>
+					</field>
+					<field type="hour">
+						<displayName>Hour</displayName>
+					</field>
+					<field type="minute">
+						<displayName>Minute</displayName>
+					</field>
+					<field type="second">
+						<displayName>Second</displayName>
+					</field>
+					<field type="zone">
+						<displayName>Zone</displayName>
+					</field>
+				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>

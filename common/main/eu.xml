@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -192,9 +192,9 @@
 		</symbols>
 		<currencies>
 			<currency type="ESP">
+				<pattern>¤ #,##0;-¤ #,##0</pattern>
 				<displayName>ESP</displayName>
 				<symbol>₧</symbol>
-				<pattern>¤ #,##0;-¤ #,##0</pattern>
 				<decimal>,</decimal>
 				<group>.</group>
 			</currency>

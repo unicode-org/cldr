@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -224,7 +224,7 @@
 			<territory type="GT">Guatemala</territory>
 			<territory type="GW">Guinea Bissau</territory>
 			<territory type="GY">Guyana</territory>
-			<territory draft="true" type="HK">Hong Kong</territory>
+			<territory type="HK" draft="true">Hong Kong</territory>
 			<territory type="HN">Hondures</territory>
 			<territory type="HR">Croàcia</territory>
 			<territory type="HT">Haití</territory>
@@ -360,7 +360,7 @@
 						<monthWidth type="abbreviated">
 							<month type="1">gen.</month>
 							<month type="2">feb.</month>
-							<month alt="proposed" draft="true" type="2">febr.</month>
+							<month type="2" alt="proposed" draft="true">febr.</month>
 							<month type="3">març</month>
 							<month type="4">abr.</month>
 							<month type="5">maig</month>

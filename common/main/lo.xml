@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd"> 
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
 <ldml draft="true">
 	<identity>
 		<version number="1.0"/>
-		<generation date="2004-07-31" />
-		<language type="lo" /> 
+		<generation date="2004-07-31"/>
+		<language type="lo"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
@@ -224,7 +224,7 @@
 			<territory type="GT">ກົວເຕມາລາ</territory>
 			<territory type="GW">ກິວນີ-ບິສໂຊ</territory>
 			<territory type="GY">ກູຢານາ</territory>
-			<territory draft="true" type="HK">ຮ່ອງກົງ</territory>
+			<territory type="HK" draft="true">ຮ່ອງກົງ</territory>
 			<territory type="HN">ອວນຄູຣັສ</territory>
 			<territory type="HR">ໂຄເອເຊຍ</territory>
 			<territory type="HT">ໄອທີ</territory>
@@ -267,7 +267,7 @@
 			<territory type="ML">ມາລິ</territory>
 			<territory type="MM">ສະຫະພາບພະມ້າ</territory>
 			<territory type="MN">ມົງໂກລີ</territory>
-			<territory draft="true" type="MO">ມາເກົ້າ</territory>
+			<territory type="MO" draft="true">ມາເກົ້າ</territory>
 			<territory type="MQ">ມາຕິນິກ</territory>
 			<territory type="MR">ມໍລິກທາເນຍ</territory>
 			<territory type="MS">ມອນເຊີລາດ</territory>
@@ -364,55 +364,55 @@
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE'ທີ່ 'd MMMM G yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
-          <dateFormatLength type="medium">
-						<dateFormat >
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
 							<pattern>d MMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d/M/yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<default type="medium"/>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H' ໂມງ 'm'ນາທີ 'ss' ວິນາທີ'</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H' ໂມງ 'm'ນາທີ'</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
@@ -462,7 +462,7 @@
 						<dayWidth type="wide">
 							<day type="sun">ວັນອາທິດ</day>
 							<day type="mon">ວັນຈັນ</day>
-			                <day type="tue">ວັນອັງຄານ</day>                     
+							<day type="tue">ວັນອັງຄານ</day>
 							<day type="wed">ວັນພຸດ</day>
 							<day type="thu">ວັນພະຫັດ</day>
 							<day type="fri">ວັນສຸກ</day>
@@ -475,65 +475,65 @@
 				<eras>
 					<eraNames>
 						<era type="0">ປີກ່ອນຄິດສະການທີ່</era>
-                                                <!-- missing AD -->
+						<!-- missing AD -->
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ຄ.ສ.</era>
-                                                <!-- missing AD -->
+						<!-- missing AD -->
 					</eraAbbr>
 				</eras>
 				<dateFormats>
 					<default type="medium"/>
 					<dateFormatLength type="full">
-						<dateFormat >
+						<dateFormat>
 							<pattern>EEEE'ທີ  'd MMMM G yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="long">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d MMMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="medium">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d MMM yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 					<dateFormatLength type="short">
-						<dateFormat >
+						<dateFormat>
 							<pattern>d/M/yyyy</pattern>
 						</dateFormat>
-					</dateFormatLength >
+					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<default type="medium"/>
 					<timeFormatLength type="full">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H'ໂມງ 'm'ນາທີ 'ss' ວິນາທີ</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="long">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H' ໂມງ 'm'ນາທີ'</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="medium">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm:ss</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 					<timeFormatLength type="short">
-						<timeFormat >
+						<timeFormat>
 							<pattern>H:mm</pattern>
 						</timeFormat>
-					</timeFormatLength >
+					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength >
+					<dateTimeFormatLength>
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
-					</dateTimeFormatLength >
+					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -547,7 +547,6 @@
 		</currencies>
 	</numbers>
 </ldml>
-<!--
-Locale Data Format
-By Anousak Souphavanh (Anousak at muanglao dot com)
--->
+<!-- Locale Data Format
+By Anousak Souphavanh (Anousak at muanglao dot com) -->
+

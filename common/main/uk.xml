@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -443,23 +443,23 @@
 			<territory type="ZW">Зімбабве</territory>
 		</territories>
 		<keys>
-			<key type="collation">Сортування</key>
 			<key type="calendar">Календар</key>
+			<key type="collation">Сортування</key>
 			<key type="currency">Валюта</key>
 		</keys>
 		<types>
-			<type type="japanese" key="calendar">Японський календар</type>
 			<type type="buddhist" key="calendar">Буддійський календар</type>
+			<type type="chinese" key="calendar">Китайський календар</type>
+			<type type="direct" key="collation">Прямий порядок</type>
+			<type type="gregorian" key="calendar">Григоріанський календар</type>
+			<type type="hebrew" key="calendar">Єврейський календар</type>
 			<type type="islamic" key="calendar">Мусульманський календар</type>
 			<type type="islamic-civil" key="calendar">Мусульманський друкований календар</type>
-			<type type="hebrew" key="calendar">Єврейський календар</type>
-			<type type="chinese" key="calendar">Китайський календар</type>
-			<type type="gregorian" key="calendar">Григоріанський календар</type>
+			<type type="japanese" key="calendar">Японський календар</type>
 			<type type="phonebook" key="collation">Телефонна книга</type>
 			<type type="pinyin" key="collation">Порядок Pinyin</type>
-			<type type="traditional" key="collation">Традиційний</type>
 			<type type="stroke" key="collation">Штриховий порядок</type>
-			<type type="direct" key="collation">Прямий порядок</type>
+			<type type="traditional" key="collation">Традиційний</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -1798,7 +1798,7 @@
 				<displayName>UAH</displayName>
 				<symbol>грн.</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="UAH">
+			<currency type="UAH" alt="proposed" draft="true">
 				<displayName>Українська гривня</displayName>
 				<symbol>UAH</symbol>
 			</currency>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -341,23 +341,23 @@
 			<territory type="ZW">Ζιμπάμπουε</territory>
 		</territories>
 		<keys>
-			<key type="collation">Τακτοποίηση</key>
 			<key type="calendar">Ημερολόγιο</key>
+			<key type="collation">Τακτοποίηση</key>
 			<key type="currency">Νόμισμα</key>
 		</keys>
 		<types>
-			<type type="japanese" key="calendar">Ιαπωνικό Ημερολόγιο</type>
 			<type type="buddhist" key="calendar">Βουδιστικό Ημερολόγιο</type>
+			<type type="chinese" key="calendar">Κινέζικο Ημερολόγιο</type>
+			<type type="direct" key="collation">Σειρά Direct</type>
+			<type type="gregorian" key="calendar">Γρηγοριανό Ημερολόγιο</type>
+			<type type="hebrew" key="calendar">Εβραϊκό Ημερολόγιο</type>
 			<type type="islamic" key="calendar">Ισλαμικό Ημερολόγιο</type>
 			<type type="islamic-civil" key="calendar">Ισλαμικό-Αστικό Ημερολόγιο</type>
-			<type type="hebrew" key="calendar">Εβραϊκό Ημερολόγιο</type>
-			<type type="chinese" key="calendar">Κινέζικο Ημερολόγιο</type>
-			<type type="gregorian" key="calendar">Γρηγοριανό Ημερολόγιο</type>
-			<type type="traditional" key="collation">Παραδοσιακή</type>
+			<type type="japanese" key="calendar">Ιαπωνικό Ημερολόγιο</type>
 			<type type="phonebook" key="collation">Σειρά Τηλεφωνικού Καταλόγου</type>
 			<type type="pinyin" key="collation">Σειρά Pinyin</type>
 			<type type="stroke" key="collation">Σειρά Stroke</type>
-			<type type="direct" key="collation">Σειρά Direct</type>
+			<type type="traditional" key="collation">Παραδοσιακή</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -1096,7 +1096,7 @@
 				<displayName>Δρχ</displayName>
 				<symbol>Δρχ</symbol>
 			</currency>
-			<currency alt="proposed" draft="true" type="GRD">
+			<currency type="GRD" alt="proposed" draft="true">
 				<displayName>Δραχμή Ελλάδας</displayName>
 				<symbol>GRD</symbol>
 			</currency>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -289,23 +289,23 @@
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
 		<keys>
-			<key type="collation">Triedenie</key>
 			<key type="calendar">Kalendár</key>
+			<key type="collation">Triedenie</key>
 			<key type="currency">Mena</key>
 		</keys>
 		<types>
-			<type type="japanese" key="calendar">Japonský kalendár</type>
 			<type type="buddhist" key="calendar">Buddhistický kalendár</type>
+			<type type="chinese" key="calendar">Čínsky kalendár</type>
+			<type type="direct" key="collation">Priame triedenie</type>
+			<type type="gregorian" key="calendar">Gregoriánsky kalendár</type>
+			<type type="hebrew" key="calendar">Židovský kalendár</type>
 			<type type="islamic" key="calendar">Islamský kalendár</type>
 			<type type="islamic-civil" key="calendar">Islamský občiansky kalendár</type>
-			<type type="hebrew" key="calendar">Židovský kalendár</type>
-			<type type="chinese" key="calendar">Čínsky kalendár</type>
-			<type type="gregorian" key="calendar">Gregoriánsky kalendár</type>
+			<type type="japanese" key="calendar">Japonský kalendár</type>
 			<type type="phonebook" key="collation">Lexikografické triedenie</type>
 			<type type="pinyin" key="collation">Triedenie pinyin</type>
-			<type type="traditional" key="collation">Tradičné</type>
 			<type type="stroke" key="collation">Tiedenie podľa ťahov</type>
-			<type type="direct" key="collation">Priame triedenie</type>
+			<type type="traditional" key="collation">Tradičné</type>
 		</types>
 	</localeDisplayNames>
 	<characters>

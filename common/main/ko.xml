@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -782,12 +782,12 @@
 		<types>
 			<type type="buddhist" key="calendar">불교력</type>
 			<type type="chinese" key="calendar">중국력</type>
+			<type type="direct" key="collation">순서</type>
 			<type type="gregorian" key="calendar">태양력</type>
 			<type type="hebrew" key="calendar">히브리력</type>
 			<type type="islamic" key="calendar">이슬람력</type>
 			<type type="islamic-civil" key="calendar">이슬람 상용력</type>
 			<type type="japanese" key="calendar">일본력</type>
-			<type type="direct" key="collation">순서</type>
 			<type type="phonebook" key="collation">전화번호부순</type>
 			<type type="pinyin" key="collation">병음순</type>
 			<type type="stroke" key="collation">자획순</type>
@@ -934,6 +934,17 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<zone type="America/Anchorage">
+				<long>
+					<standard>알래스카 표준시</standard>
+					<daylight>알래스카 기준시</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+				<exemplarCity>앵커리지</exemplarCity>
+			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
 					<standard>태평양 표준시</standard>
@@ -944,17 +955,6 @@
 					<daylight>PDT</daylight>
 				</short>
 				<exemplarCity>로스앤젤레스</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<long>
-					<standard>산악 표준시</standard>
-					<daylight>산악 기준시</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-				<exemplarCity>덴버</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
@@ -967,6 +967,17 @@
 				</short>
 				<exemplarCity>피닉스</exemplarCity>
 			</zone>
+			<zone type="America/Denver">
+				<long>
+					<standard>산악 표준시</standard>
+					<daylight>산악 기준시</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+				<exemplarCity>덴버</exemplarCity>
+			</zone>
 			<zone type="America/Chicago">
 				<long>
 					<standard>중부 표준시</standard>
@@ -977,17 +988,6 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>시카고</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
-				<long>
-					<standard>동부 표준시</standard>
-					<daylight>동부 기준시</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
-				<exemplarCity>뉴욕</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
@@ -1000,27 +1000,16 @@
 				</short>
 				<exemplarCity>인디애나폴리스</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
+			<zone type="America/New_York">
 				<long>
-					<standard>하와이 표준시</standard>
-					<daylight>하와이 표준시</daylight>
+					<standard>동부 표준시</standard>
+					<daylight>동부 기준시</daylight>
 				</long>
 				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
 				</short>
-				<exemplarCity>호놀룰루</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<long>
-					<standard>알래스카 표준시</standard>
-					<daylight>알래스카 기준시</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
-				<exemplarCity>앵커리지</exemplarCity>
+				<exemplarCity>뉴욕</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -1055,16 +1044,16 @@
 				</short>
 				<exemplarCity>파리</exemplarCity>
 			</zone>
-			<zone type="Etc/GMT">
+			<zone type="Europe/Bucharest">
 				<long>
-					<standard>그리니치 표준시</standard>
-					<daylight>그리니치 표준시</daylight>
+					<standard>동부유럽 표준시</standard>
+					<daylight>동부유럽 기준시</daylight>
 				</long>
 				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
 				</short>
-				<exemplarCity>런던</exemplarCity>
+				<exemplarCity>부쿠레슈티</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
@@ -1088,16 +1077,16 @@
 				</short>
 				<exemplarCity>예루살렘</exemplarCity>
 			</zone>
-			<zone type="Asia/Tokyo">
+			<zone type="Asia/Shanghai">
 				<long>
-					<standard>일본 표준시</standard>
-					<daylight>일본 표준시</daylight>
+					<standard>중국 표준시</standard>
+					<daylight>중국 표준시</daylight>
 				</long>
 				<short>
-					<standard>JST</standard>
-					<daylight>JST</daylight>
+					<standard>CTT</standard>
+					<daylight>CDT</daylight>
 				</short>
-				<exemplarCity>도쿄</exemplarCity>
+				<exemplarCity>상하이</exemplarCity>
 			</zone>
 			<zone type="Asia/Seoul">
 				<long>
@@ -1110,27 +1099,38 @@
 				</short>
 				<exemplarCity>서울</exemplarCity>
 			</zone>
-			<zone type="Europe/Bucharest">
+			<zone type="Asia/Tokyo">
 				<long>
-					<standard>동부유럽 표준시</standard>
-					<daylight>동부유럽 기준시</daylight>
+					<standard>일본 표준시</standard>
+					<daylight>일본 표준시</daylight>
 				</long>
 				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
+					<standard>JST</standard>
+					<daylight>JST</daylight>
 				</short>
-				<exemplarCity>부쿠레슈티</exemplarCity>
+				<exemplarCity>도쿄</exemplarCity>
 			</zone>
-			<zone type="Asia/Shanghai">
+			<zone type="Pacific/Honolulu">
 				<long>
-					<standard>중국 표준시</standard>
-					<daylight>중국 표준시</daylight>
+					<standard>하와이 표준시</standard>
+					<daylight>하와이 표준시</daylight>
 				</long>
 				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
+					<standard>HST</standard>
+					<daylight>HST</daylight>
 				</short>
-				<exemplarCity>상하이</exemplarCity>
+				<exemplarCity>호놀룰루</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<long>
+					<standard>그리니치 표준시</standard>
+					<daylight>그리니치 표준시</daylight>
+				</long>
+				<short>
+					<standard>GMT</standard>
+					<daylight>GMT</daylight>
+				</short>
+				<exemplarCity>런던</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>

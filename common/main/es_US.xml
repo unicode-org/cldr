@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -17,11 +17,11 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-        <week>
+				<week>
 					<minDays count="1"/>
 					<firstDay day="sun"/>
-					<weekendStart draft="true" day="sat" time="00:00"/>
-					<weekendEnd draft="true" day="sun" time="24:00"/>
+					<weekendStart day="sat" draft="true"/>
+					<weekendEnd day="sun" draft="true"/>
 				</week>
 				<dateFormats>
 					<dateFormatLength type="medium">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -252,23 +252,23 @@
 			<territory type="ZW">Зимбабве</territory>
 		</territories>
 		<keys>
-			<key type="collation">Сортирање</key>
 			<key type="calendar">Календар</key>
+			<key type="collation">Сортирање</key>
 			<key type="currency">Валута</key>
 		</keys>
 		<types>
-			<type type="japanese" key="calendar">Јапонски Календар</type>
 			<type type="buddhist" key="calendar">Будистички календар</type>
+			<type type="chinese" key="calendar">Кинески Календар</type>
+			<type type="direct" key="collation">Директно</type>
+			<type type="gregorian" key="calendar">Грегориански Календар</type>
+			<type type="hebrew" key="calendar">Еврејски Календар</type>
 			<type type="islamic" key="calendar">Исламски Календар</type>
 			<type type="islamic-civil" key="calendar">Исламско граѓански Календар</type>
-			<type type="hebrew" key="calendar">Еврејски Календар</type>
-			<type type="chinese" key="calendar">Кинески Календар</type>
-			<type type="gregorian" key="calendar">Грегориански Календар</type>
+			<type type="japanese" key="calendar">Јапонски Календар</type>
 			<type type="phonebook" key="collation">Азбучен редослед</type>
 			<type type="pinyin" key="collation">Сортирање Pinyin</type>
-			<type type="traditional" key="collation">Традиционално</type>
 			<type type="stroke" key="collation">Ритмички редослед</type>
-			<type type="direct" key="collation">Директно</type>
+			<type type="traditional" key="collation">Традиционално</type>
 		</types>
 	</localeDisplayNames>
 	<characters>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -220,7 +220,8 @@
 			<territory type="GU">Guam</territory>
 			<territory type="GW">An Ghuine-Bhissau</territory>
 			<territory type="GY">An Ghuáin</territory>
-			<territory type="HK" draft="true">Hong Cong (R.R.S. na Síne)</territory> <!-- Hong Cong, Reigiún Riaracháin Speisialta na Síne -->
+			<territory type="HK" draft="true">Hong Cong (R.R.S. na Síne)</territory>
+			<!-- Hong Cong, Reigiún Riaracháin Speisialta na Síne -->
 			<territory type="HM">Oileán Heard agus Oileáin McDonald</territory>
 			<territory type="HN">Hondúras</territory>
 			<territory type="HR">An Chróit</territory>
@@ -269,7 +270,8 @@
 			<territory type="ML">Mailí</territory>
 			<territory type="MM">Maenmar</territory>
 			<territory type="MN">An Mhongóil</territory>
-			<territory type="MO" draft="true">Macáó (R.R.S. na Síne)</territory> <!-- Macáó, Reigiún Riaracháin Speisialta na Síne -->
+			<territory type="MO" draft="true">Macáó (R.R.S. na Síne)</territory>
+			<!-- Macáó, Reigiún Riaracháin Speisialta na Síne -->
 			<territory type="MP">Oileáin Mariana Thuaidh</territory>
 			<territory type="MQ">Martinique</territory>
 			<territory type="MR">An Mharatáin</territory>
@@ -455,17 +457,6 @@
 				</short>
 				<exemplarCity>Baile Átha Cliath</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<standard>Meán-Am Greenwich</standard>
-					<daylight>Am Samhraidh na Breataine</daylight>
-				</long>
-				<short>
-					<standard>MAG</standard>
-					<daylight>ASB</daylight>
-				</short>
-				<exemplarCity>Londain</exemplarCity>
-			</zone>
 			<zone type="Europe/Belfast">
 				<long>
 					<standard>Meán-Am Greenwich</standard>
@@ -476,6 +467,17 @@
 					<daylight>ASB</daylight>
 				</short>
 				<exemplarCity>Béal Feirste</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<long>
+					<standard>Meán-Am Greenwich</standard>
+					<daylight>Am Samhraidh na Breataine</daylight>
+				</long>
+				<short>
+					<standard>MAG</standard>
+					<daylight>ASB</daylight>
+				</short>
+				<exemplarCity>Londain</exemplarCity>
 			</zone>
 			<zone type="Etc/GMT">
 				<long>

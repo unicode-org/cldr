@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -325,23 +325,23 @@
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
 		<keys>
-			<key type="collation">Sortowanie</key>
 			<key type="calendar">Kalendarz</key>
+			<key type="collation">Sortowanie</key>
 			<key type="currency">Waluta</key>
 		</keys>
 		<types>
-			<type type="japanese" key="calendar">Kalendarz japoński</type>
 			<type type="buddhist" key="calendar">Kalendarz buddyjski</type>
-			<type draft="true" type="islamic" key="calendar">Kalendarz muzułmański</type>
-			<type draft="true" type="islamic-civil" key="calendar">Kalendarz muzułmański cywilny</type>
-			<type type="hebrew" key="calendar">Kalendarz żydowski</type>
 			<type type="chinese" key="calendar">Kalendarz chiński</type>
+			<type type="direct" key="collation">porządek bezpośredni</type>
 			<type type="gregorian" key="calendar">Kalendarz gregoriański</type>
+			<type type="hebrew" key="calendar">Kalendarz żydowski</type>
+			<type type="islamic" key="calendar" draft="true">Kalendarz muzułmański</type>
+			<type type="islamic-civil" key="calendar" draft="true">Kalendarz muzułmański cywilny</type>
+			<type type="japanese" key="calendar">Kalendarz japoński</type>
 			<type type="phonebook" key="collation">porządek książki telefonicznej</type>
 			<type type="pinyin" key="collation">porządek Pinyin</type>
-			<type type="traditional" key="collation">tradycyjny</type>
 			<type type="stroke" key="collation">porządek akcentów</type>
-			<type type="direct" key="collation">porządek bezpośredni</type>
+			<type type="traditional" key="collation">tradycyjny</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -647,23 +647,23 @@
 				<displayName>frank belgijski (finansowy)</displayName>
 				<symbol>BEL</symbol>
 			</currency>
-			<currency draft="true" type="BGL">
+			<currency type="BGL" draft="true">
 				<displayName>lewa bułgarskie</displayName>
 				<symbol>lev</symbol>
 			</currency>
-			<currency draft="true" type="BGM">
+			<currency type="BGM" draft="true">
 				<displayName>lewa bułgarskie socjalistyczne</displayName>
 				<symbol>BGM</symbol>
 			</currency>
-			<currency draft="true" type="BGN">
+			<currency type="BGN" draft="true">
 				<displayName>nowe lewa bułgarskie</displayName>
 				<symbol>BGN</symbol>
 			</currency>
-			<currency draft="true" type="BGO">
+			<currency type="BGO" draft="true">
 				<displayName>lewa bułgarskie (1879-1952)</displayName>
 				<symbol>BGO</symbol>
 			</currency>
-			<currency draft="true" type="BGX">
+			<currency type="BGX" draft="true">
 				<displayName>lewa bułgarskie dewizowe dla transakcji zagranicznych</displayName>
 				<symbol>BGX</symbol>
 			</currency>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -22,6 +22,7 @@
 			<language type="akk">Akkadian</language>
 			<language type="ale">Aleut</language>
 			<language type="alg">Algonquian Languages</language>
+			<language type="alt">Southern Altai</language>
 			<language type="am">Amharic</language>
 			<language type="an">Aragonese</language>
 			<language type="ang">English, Old (ca.450-1100)</language>
@@ -137,6 +138,7 @@
 			<language type="fat">Fanti</language>
 			<language type="ff">Fulah</language>
 			<language type="fi">Finnish</language>
+			<language type="fil">Filipino</language>
 			<language type="fiu">Finno - Ugrian (Other)</language>
 			<language type="fj">Fijian</language>
 			<language type="fo">Faroese</language>
@@ -192,6 +194,7 @@
 			<language type="ijo">Ijo</language>
 			<language type="ik">Inupiaq</language>
 			<language type="ilo">Iloko</language>
+			<language type="in">Indonesian</language>
 			<language type="inc">Indic (Other)</language>
 			<language type="ine">Indo-European (Other)</language>
 			<language type="inh">Ingush</language>
@@ -201,8 +204,10 @@
 			<language type="is">Icelandic</language>
 			<language type="it">Italian</language>
 			<language type="iu">Inuktitut</language>
+			<language type="iw">Hebrew</language>
 			<language type="ja">Japanese</language>
 			<language type="jbo">Lojban</language>
+			<language type="ji">Yiddish</language>
 			<language type="jpr">Judeo-Persian</language>
 			<language type="jrb">Judeo-Arabic</language>
 			<language type="jv">Javanese</language>
@@ -293,6 +298,7 @@
 			<language type="mul">Multiple Languages</language>
 			<language type="mun">Munda Languages</language>
 			<language type="mus">Creek</language>
+			<language type="mwl">Mirandese</language>
 			<language type="mwr">Marwari</language>
 			<language type="my">Burmese</language>
 			<language type="myn">Mayan</language>
@@ -371,6 +377,7 @@
 			<language type="sas">Sasak</language>
 			<language type="sat">Santali</language>
 			<language type="sc">Sardinian</language>
+			<language type="scn">Sicilian</language>
 			<language type="sco">Scots</language>
 			<language type="sd">Sindhi</language>
 			<language type="se">Northern Sami</language>
@@ -478,32 +485,35 @@
 			<language type="znd">Zande</language>
 			<language type="zu">Zulu</language>
 			<language type="zun">Zuni</language>
-
-			<language type="alt">Southern Altai</language>
-			<language type="fil">Filipino</language>
-			<language type="ji">Yiddish</language>
-			<language type="mwl">Mirandese</language>
-			<language type="scn">Sicilian</language>
-
-			<language type="in">Indonesian</language>
-			<language type="iw">Hebrew</language>
 		</languages>
 		<scripts>
 			<script type="Arab">Arabic</script>
 			<script type="Armn">Armenian</script>
+			<script type="Bali">Balinese</script>
+			<script type="Batk">Batak</script>
 			<script type="Beng">Bengali</script>
+			<script type="Blis">Blissymbols</script>
 			<script type="Bopo">Bopomofo</script>
+			<script type="Brah">Brahmi</script>
 			<script type="Brai">Braille</script>
+			<script type="Bugi">Buginese</script>
 			<script type="Buhd">Buhid</script>
 			<script type="Cans">Unified Canadian Aboriginal Symbols</script>
+			<script type="Cham">Cham</script>
 			<script type="Cher">Cherokee</script>
+			<script type="Cirt">Cirth</script>
 			<script type="Copt">Coptic</script>
 			<script type="Cprt">Cypriot</script>
 			<script type="Cyrl">Cyrillic</script>
+			<script type="Cyrs">Cyrillic (Old Church Slavonic variant)</script>
 			<script type="Deva">Devanagari</script>
 			<script type="Dsrt">Deseret</script>
+			<script type="Egyd">Egyptian demotic</script>
+			<script type="Egyh">Egyptian hieratic</script>
+			<script type="Egyp">Egyptian hieroglyphs</script>
 			<script type="Ethi">Ethiopic</script>
 			<script type="Geor">Georgian</script>
+			<script type="Glag">Glagolitic</script>
 			<script type="Goth">Gothic</script>
 			<script type="Grek">Greek</script>
 			<script type="Gujr">Gujarati</script>
@@ -515,354 +525,73 @@
 			<script type="Hant">Traditional Han</script>
 			<script type="Hebr">Hebrew</script>
 			<script type="Hira">Hiragana</script>
+			<script type="Hmng">Pahawh Hmong</script>
 			<script type="Hrkt">Katakana or Hiragana</script>
+			<script type="Hung">Old Hungarian</script>
+			<script type="Inds">Indus (Harappan)</script>
 			<script type="Ital">Old Italic</script>
+			<script type="Java">Javanese</script>
+			<script type="Kali">Kayah Li</script>
 			<script type="Kana">Katakana</script>
+			<script type="Khar">Kharoshthi</script>
 			<script type="Khmr">Khmer</script>
 			<script type="Knda">Kannada</script>
 			<script type="Laoo">Lao</script>
+			<script type="Latf">Latin (Fraktur variant)</script>
+			<script type="Latg">Latin (Gaelic variant)</script>
 			<script type="Latn">Latin</script>
+			<script type="Lepc">Lepcha (Rong)</script>
 			<script type="Limb">Limbu</script>
+			<script type="Lina">Linear A</script>
 			<script type="Linb">Linear B</script>
+			<script type="Mand">Mandaean</script>
+			<script type="Maya">Mayan hieroglyphs</script>
+			<script type="Mero">Meroitic</script>
 			<script type="Mlym">Malayalam</script>
 			<script type="Mong">Mongolian</script>
 			<script type="Mymr">Myanmar</script>
 			<script type="Ogam">Ogham</script>
+			<script type="Orkh">Orkhon</script>
 			<script type="Orya">Oriya</script>
 			<script type="Osma">Osmanya</script>
-			<script type="Qaai">Inherited</script>
-			<script type="Runr">Runic</script>
-			<script type="Shaw">Shavian</script>
-			<script type="Sinh">Sinhala</script>
-			<script type="Syrc">Syriac</script>
-			<script type="Tagb">Tagbanwa</script>
-			<script type="Tale">Tai Le</script>
-			<script type="Taml">Tamil</script>
-			<script type="Telu">Telugu</script>
-			<script type="Tglg">Tagalog</script>
-			<script type="Thaa">Thaana</script>
-			<script type="Tibt">Tibetan</script>
-			<script type="Ugar">Ugaritic</script>
-			<script type="Yiii">Yi</script>
-			<script type="Zyyy">Common</script>
-
-			<script type="Bali">Balinese</script>
-			<script type="Batk">Batak</script>
-			<script type="Blis">Blissymbols</script>
-			<script type="Brah">Brahmi</script>
-			<script type="Bugi">Buginese</script>
-			<script type="Cham">Cham</script>
-			<script type="Cirt">Cirth</script>
-			<script type="Cyrs">Cyrillic (Old Church Slavonic variant)</script>
-			<script type="Egyd">Egyptian demotic</script>
-			<script type="Egyh">Egyptian hieratic</script>
-			<script type="Egyp">Egyptian hieroglyphs</script>
-			<script type="Glag">Glagolitic</script>
-			<script type="Hmng">Pahawh Hmong</script>
-			<script type="Hung">Old Hungarian</script>
-			<script type="Inds">Indus (Harappan)</script>
-			<script type="Java">Javanese</script>
-			<script type="Kali">Kayah Li</script>
-			<script type="Khar">Kharoshthi</script>
-			<script type="Latf">Latin (Fraktur variant)</script>
-			<script type="Latg">Latin (Gaelic variant)</script>
-			<script type="Lepc">Lepcha (Rong)</script>
-			<script type="Lina">Linear A</script>
-			<script type="Mand">Mandaean</script>
-			<script type="Maya">Mayan hieroglyphs</script>
-			<script type="Mero">Meroitic</script>
-			<script type="Orkh">Orkhon</script>
 			<script type="Perm">Old Permic</script>
 			<script type="Phag">Phags-pa</script>
 			<script type="Phnx">Phoenician</script>
 			<script type="Plrd">Pollard Phonetic</script>
+			<script type="Qaai">Inherited</script>
 			<script type="Roro">Rongorongo</script>
+			<script type="Runr">Runic</script>
 			<script type="Sara">Sarati</script>
+			<script type="Shaw">Shavian</script>
+			<script type="Sinh">Sinhala</script>
 			<script type="Sylo">Syloti Nagri</script>
+			<script type="Syrc">Syriac</script>
 			<script type="Syre">Syriac (Estrangelo variant)</script>
 			<script type="Syrj">Syriac (Western variant)</script>
 			<script type="Syrn">Syriac (Eastern variant)</script>
+			<script type="Tagb">Tagbanwa</script>
+			<script type="Tale">Tai Le</script>
 			<script type="Talu">Tai Lue</script>
+			<script type="Taml">Tamil</script>
+			<script type="Telu">Telugu</script>
 			<script type="Teng">Tengwar</script>
 			<script type="Tfng">Tifinagh (Berber)</script>
+			<script type="Tglg">Tagalog</script>
+			<script type="Thaa">Thaana</script>
 			<script type="Thai">Thai</script>
+			<script type="Tibt">Tibetan</script>
+			<script type="Ugar">Ugaritic</script>
 			<script type="Vaii">Vai</script>
 			<script type="Visp">Visible Speech</script>
 			<script type="Xpeo">Old Persian</script>
 			<script type="Xsux">Cuneiform, Sumero-Akkadian</script>
+			<script type="Yiii">Yi</script>
 			<script type="Zxxx">Code for unwritten languages</script>
+			<script type="Zyyy">Common</script>
 			<script type="Zzzz">Code for uncoded script</script>
 		</scripts>
 		<territories>
-			<territory type="AD">Andorra</territory>
-			<territory type="AE">United Arab Emirates</territory>
-			<territory type="AF">Afghanistan</territory>
-			<territory type="AG">Antigua and Barbuda</territory>
-			<territory type="AI">Anguilla</territory>
-			<territory type="AL">Albania</territory>
-			<territory type="AM">Armenia</territory>
-			<territory type="AN">Netherlands Antilles</territory>
-			<territory type="AO">Angola</territory>
-			<territory type="AQ">Antarctica</territory>
-			<territory type="AR">Argentina</territory>
-			<territory type="AS">American Samoa</territory>
-			<territory type="AT">Austria</territory>
-			<territory type="AU">Australia</territory>
-			<territory type="AW">Aruba</territory>
-			<territory type="AZ">Azerbaijan</territory>
-			<territory type="BA">Bosnia and Herzegovina</territory>
-			<territory type="BB">Barbados</territory>
-			<territory type="BD">Bangladesh</territory>
-			<territory type="BE">Belgium</territory>
-			<territory type="BF">Burkina Faso</territory>
-			<territory type="BG">Bulgaria</territory>
-			<territory type="BH">Bahrain</territory>
-			<territory type="BI">Burundi</territory>
-			<territory type="BJ">Benin</territory>
-			<territory type="BM">Bermuda</territory>
-			<territory type="BN">Brunei</territory>
-			<territory type="BO">Bolivia</territory>
-			<territory type="BR">Brazil</territory>
-			<territory type="BS">Bahamas</territory>
-			<territory type="BT">Bhutan</territory>
-			<territory type="BV">Bouvet Island</territory>
-			<territory type="BW">Botswana</territory>
-			<territory type="BY">Belarus</territory>
-			<territory type="BZ">Belize</territory>
-			<territory type="CA">Canada</territory>
-			<territory type="CC">Cocos (Keeling) Islands</territory>
-			<territory type="CD">Democratic Republic of the Congo</territory>
-			<territory type="CF">Central African Republic</territory>
-			<territory type="CG">Congo</territory>
-			<territory type="CH">Switzerland</territory>
-			<territory type="CI">Côte d’Ivoire</territory>
-			<territory type="CK">Cook Islands</territory>
-			<territory type="CL">Chile</territory>
-			<territory type="CM">Cameroon</territory>
-			<territory type="CN">China</territory>
-			<territory type="CO">Colombia</territory>
-			<territory type="CR">Costa Rica</territory>
-			<territory type="CU">Cuba</territory>
-			<territory type="CV">Cape Verde</territory>
-			<territory type="CX">Christmas Island</territory>
-			<territory type="CY">Cyprus</territory>
-			<territory type="CZ">Czech Republic</territory>
-			<territory type="DE">Germany</territory>
-			<territory type="DJ">Djibouti</territory>
-			<territory type="DK">Denmark</territory>
-			<territory type="DM">Dominica</territory>
-			<territory type="DO">Dominican Republic</territory>
-			<territory type="DZ">Algeria</territory>
-			<territory type="EC">Ecuador</territory>
-			<territory type="EE">Estonia</territory>
-			<territory type="EG">Egypt</territory>
-			<territory type="EH">Western Sahara</territory>
-			<territory type="ER">Eritrea</territory>
-			<territory type="ES">Spain</territory>
-			<territory type="ET">Ethiopia</territory>
-			<territory type="FI">Finland</territory>
-			<territory type="FJ">Fiji</territory>
-			<territory type="FK">Falkland Islands</territory>
-			<territory type="FM">Micronesia</territory>
-			<territory type="FO">Faroe Islands</territory>
-			<territory type="FR">France</territory>
-			<territory type="GA">Gabon</territory>
-			<territory type="GB">United Kingdom</territory>
-			<territory type="GD">Grenada</territory>
-			<territory type="GE">Georgia</territory>
-			<territory type="GF">French Guiana</territory>
-			<territory type="GH">Ghana</territory>
-			<territory type="GI">Gibraltar</territory>
-			<territory type="GL">Greenland</territory>
-			<territory type="GM">Gambia</territory>
-			<territory type="GN">Guinea</territory>
-			<territory type="GP">Guadeloupe</territory>
-			<territory type="GQ">Equatorial Guinea</territory>
-			<territory type="GR">Greece</territory>
-			<territory type="GS">South Georgia and the South Sandwich Islands</territory>
-			<territory type="GT">Guatemala</territory>
-			<territory type="GU">Guam</territory>
-			<territory type="GW">Guinea-Bissau</territory>
-			<territory type="GY">Guyana</territory>
-			<territory type="HK">Hong Kong S.A.R., China</territory>
-			<territory type="HM">Heard Island and McDonald Islands</territory>
-			<territory type="HN">Honduras</territory>
-			<territory type="HR">Croatia</territory>
-			<territory type="HT">Haiti</territory>
-			<territory type="HU">Hungary</territory>
-			<territory type="ID">Indonesia</territory>
-			<territory type="IE">Ireland</territory>
-			<territory type="IL">Israel</territory>
-			<territory type="IN">India</territory>
-			<territory type="IO">British Indian Ocean Territory</territory>
-			<territory type="IQ">Iraq</territory>
-			<territory type="IR">Iran</territory>
-			<territory type="IS">Iceland</territory>
-			<territory type="IT">Italy</territory>
-			<territory type="JM">Jamaica</territory>
-			<territory type="JO">Jordan</territory>
-			<territory type="JP">Japan</territory>
-			<territory type="KE">Kenya</territory>
-			<territory type="KG">Kyrgyzstan</territory>
-			<territory type="KH">Cambodia</territory>
-			<territory type="KI">Kiribati</territory>
-			<territory type="KM">Comoros</territory>
-			<territory type="KN">Saint Kitts and Nevis</territory>
-			<territory type="KP">North Korea</territory>
-			<territory type="KR">South Korea</territory>
-			<territory type="KW">Kuwait</territory>
-			<territory type="KY">Cayman Islands</territory>
-			<territory type="KZ">Kazakhstan</territory>
-			<territory type="LA">Laos</territory>
-			<territory type="LB">Lebanon</territory>
-			<territory type="LC">Saint Lucia</territory>
-			<territory type="LI">Liechtenstein</territory>
-			<territory type="LK">Sri Lanka</territory>
-			<territory type="LR">Liberia</territory>
-			<territory type="LS">Lesotho</territory>
-			<territory type="LT">Lithuania</territory>
-			<territory type="LU">Luxembourg</territory>
-			<territory type="LV">Latvia</territory>
-			<territory type="LY">Libya</territory>
-			<territory type="MA">Morocco</territory>
-			<territory type="MC">Monaco</territory>
-			<territory type="MD">Moldova</territory>
-			<territory type="MG">Madagascar</territory>
-			<territory type="MH">Marshall Islands</territory>
-			<territory type="MK">Macedonia</territory>
-			<territory type="ML">Mali</territory>
-			<territory type="MM">Myanmar</territory>
-			<territory type="MN">Mongolia</territory>
-			<territory type="MO">Macao S.A.R., China</territory>
-			<territory type="MP">Northern Mariana Islands</territory>
-			<territory type="MQ">Martinique</territory>
-			<territory type="MR">Mauritania</territory>
-			<territory type="MS">Montserrat</territory>
-			<territory type="MT">Malta</territory>
-			<territory type="MU">Mauritius</territory>
-			<territory type="MV">Maldives</territory>
-			<territory type="MW">Malawi</territory>
-			<territory type="MX">Mexico</territory>
-			<territory type="MY">Malaysia</territory>
-			<territory type="MZ">Mozambique</territory>
-			<territory type="NA">Namibia</territory>
-			<territory type="NC">New Caledonia</territory>
-			<territory type="NE">Niger</territory>
-			<territory type="NF">Norfolk Island</territory>
-			<territory type="NG">Nigeria</territory>
-			<territory type="NI">Nicaragua</territory>
-			<territory type="NL">Netherlands</territory>
-			<territory type="NO">Norway</territory>
-			<territory type="NP">Nepal</territory>
-			<territory type="NR">Nauru</territory>
-			<territory type="NU">Niue</territory>
-			<territory type="NZ">New Zealand</territory>
-			<territory type="OM">Oman</territory>
-			<territory type="PA">Panama</territory>
-			<territory type="PE">Peru</territory>
-			<territory type="PF">French Polynesia</territory>
-			<territory type="PG">Papua New Guinea</territory>
-			<territory type="PH">Philippines</territory>
-			<territory type="PK">Pakistan</territory>
-			<territory type="PL">Poland</territory>
-			<territory type="PM">Saint Pierre and Miquelon</territory>
-			<territory type="PN">Pitcairn</territory>
-			<territory type="PR">Puerto Rico</territory>
-			<territory type="PS">Palestinian Territory</territory>
-			<territory type="PT">Portugal</territory>
-			<territory type="PW">Palau</territory>
-			<territory type="PY">Paraguay</territory>
-			<territory type="QA">Qatar</territory>
-			<territory type="RE">Réunion</territory>
-			<territory type="RO">Romania</territory>
-			<territory type="RU">Russia</territory>
-			<territory type="RW">Rwanda</territory>
-			<territory type="SA">Saudi Arabia</territory>
-			<territory type="SB">Solomon Islands</territory>
-			<territory type="SC">Seychelles</territory>
-			<territory type="SD">Sudan</territory>
-			<territory type="SE">Sweden</territory>
-			<territory type="SG">Singapore</territory>
-			<territory type="SH">Saint Helena</territory>
-			<territory type="SI">Slovenia</territory>
-			<territory type="SJ">Svalbard and Jan Mayen</territory>
-			<territory type="SK">Slovakia</territory>
-			<territory type="SL">Sierra Leone</territory>
-			<territory type="SM">San Marino</territory>
-			<territory type="SN">Senegal</territory>
-			<territory type="SO">Somalia</territory>
-			<territory type="SP">Serbia</territory>
-			<territory type="SR">Suriname</territory>
-			<territory type="ST">Sao Tome and Principe</territory>
-			<territory type="SV">El Salvador</territory>
-			<territory type="SY">Syria</territory>
-			<territory type="SZ">Swaziland</territory>
-			<territory type="TC">Turks and Caicos Islands</territory>
-			<territory type="TD">Chad</territory>
-			<territory type="TF">French Southern Territories</territory>
-			<territory type="TG">Togo</territory>
-			<territory type="TH">Thailand</territory>
-			<territory type="TJ">Tajikistan</territory>
-			<territory type="TK">Tokelau</territory>
-			<territory type="TL">Timor-Leste</territory>
-			<territory type="TM">Turkmenistan</territory>
-			<territory type="TN">Tunisia</territory>
-			<territory type="TO">Tonga</territory>
-			<territory type="TR">Turkey</territory>
-			<territory type="TT">Trinidad and Tobago</territory>
-			<territory type="TV">Tuvalu</territory>
-			<territory type="TW">Taiwan</territory>
-			<territory type="TZ">Tanzania</territory>
-			<territory type="UA">Ukraine</territory>
-			<territory type="UG">Uganda</territory>
-			<territory type="UM">United States Minor Outlying Islands</territory>
-			<territory type="US">United States</territory>
-			<territory type="UY">Uruguay</territory>
-			<territory type="UZ">Uzbekistan</territory>
-			<territory type="VA">Vatican</territory>
-			<territory type="VC">Saint Vincent and the Grenadines</territory>
-			<territory type="VE">Venezuela</territory>
-			<territory type="VG">British Virgin Islands</territory>
-			<territory type="VI">U.S. Virgin Islands</territory>
-			<territory type="VN">Vietnam</territory>
-			<territory type="VU">Vanuatu</territory>
-			<territory type="WF">Wallis and Futuna</territory>
-			<territory type="WS">Samoa</territory>
-			<territory type="YE">Yemen</territory>
-			<territory type="YT">Mayotte</territory>
-			<territory type="YU">Yugoslavia</territory>
-      <territory type="YU" alt="proposed" draft="true">Serbia and Montenegro</territory>
-			<territory type="ZA">South Africa</territory>
-			<territory type="ZM">Zambia</territory>
-			<territory type="ZW">Zimbabwe</territory>
-
-			<territory type="AX">Aland Islands</territory>
-			<territory type="BQ">British Antarctic Territory</territory>
-			<territory type="BU">Myanmar</territory>
-			<territory type="CS">Czechoslovakia</territory>
-			<territory type="CT">Canton and Enderbury Islands</territory>
-			<territory type="DD">East Germany</territory>
-			<territory type="DY">Benin</territory>
-			<territory type="FQ">French Southern and Antarctic Territories</territory>
-			<territory type="FX">Metropolitan France</territory>
-			<territory type="HV">Burkina Faso</territory>
-			<territory type="JT">Johnston Island</territory>
-			<territory type="MI">Midway Islands</territory>
-			<territory type="NH">Vanuatu</territory>
-			<territory type="NQ">Dronning Maud Land</territory>
-			<territory type="NT">Neutral Zone</territory>
-			<territory type="PC">Pacific Islands Trust Territory</territory>
-			<territory type="PU">U.S. Miscellaneous Pacific Islands</territory>
-			<territory type="PZ">Panama Canal Zone</territory>
-			<territory type="RH">Zimbabwe</territory>
-			<territory type="SU">Union of Soviet Socialist Republics</territory>
-			<territory type="TP">Timor-Leste</territory>
-			<territory type="VD">North Vietnam</territory>
-			<territory type="WK">Wake Island</territory>
-			<territory type="YD">People's Democratic Republic of Yemen</territory>
-			<territory type="ZR">Congo, The Democratic Republic of the</territory>
-
-			<territory type="001">World</territory><!-- UN codes -->
+			<territory type="001">World</territory> <!-- UN codes -->
 			<territory type="002">Africa</territory>
 			<territory type="003">North America</territory>
 			<territory type="005">South America</territory>
@@ -894,13 +623,279 @@
 			<territory type="419">Latin America and the Caribbean</territory>
 			<territory type="830">Channel Islands</territory>
 			<territory type="833">Isle of Man</territory>
+			<territory type="AD">Andorra</territory>
+			<territory type="AE">United Arab Emirates</territory>
+			<territory type="AF">Afghanistan</territory>
+			<territory type="AG">Antigua and Barbuda</territory>
+			<territory type="AI">Anguilla</territory>
+			<territory type="AL">Albania</territory>
+			<territory type="AM">Armenia</territory>
+			<territory type="AN">Netherlands Antilles</territory>
+			<territory type="AO">Angola</territory>
+			<territory type="AQ">Antarctica</territory>
+			<territory type="AR">Argentina</territory>
+			<territory type="AS">American Samoa</territory>
+			<territory type="AT">Austria</territory>
+			<territory type="AU">Australia</territory>
+			<territory type="AW">Aruba</territory>
+			<territory type="AX">Aland Islands</territory>
+			<territory type="AZ">Azerbaijan</territory>
+			<territory type="BA">Bosnia and Herzegovina</territory>
+			<territory type="BB">Barbados</territory>
+			<territory type="BD">Bangladesh</territory>
+			<territory type="BE">Belgium</territory>
+			<territory type="BF">Burkina Faso</territory>
+			<territory type="BG">Bulgaria</territory>
+			<territory type="BH">Bahrain</territory>
+			<territory type="BI">Burundi</territory>
+			<territory type="BJ">Benin</territory>
+			<territory type="BM">Bermuda</territory>
+			<territory type="BN">Brunei</territory>
+			<territory type="BO">Bolivia</territory>
+			<territory type="BQ">British Antarctic Territory</territory>
+			<territory type="BR">Brazil</territory>
+			<territory type="BS">Bahamas</territory>
+			<territory type="BT">Bhutan</territory>
+			<territory type="BU">Myanmar</territory>
+			<territory type="BV">Bouvet Island</territory>
+			<territory type="BW">Botswana</territory>
+			<territory type="BY">Belarus</territory>
+			<territory type="BZ">Belize</territory>
+			<territory type="CA">Canada</territory>
+			<territory type="CC">Cocos (Keeling) Islands</territory>
+			<territory type="CD">Democratic Republic of the Congo</territory>
+			<territory type="CF">Central African Republic</territory>
+			<territory type="CG">Congo</territory>
+			<territory type="CH">Switzerland</territory>
+			<territory type="CI">Côte d’Ivoire</territory>
+			<territory type="CK">Cook Islands</territory>
+			<territory type="CL">Chile</territory>
+			<territory type="CM">Cameroon</territory>
+			<territory type="CN">China</territory>
+			<territory type="CO">Colombia</territory>
+			<territory type="CR">Costa Rica</territory>
+			<territory type="CS">Czechoslovakia</territory>
+			<territory type="CT">Canton and Enderbury Islands</territory>
+			<territory type="CU">Cuba</territory>
+			<territory type="CV">Cape Verde</territory>
+			<territory type="CX">Christmas Island</territory>
+			<territory type="CY">Cyprus</territory>
+			<territory type="CZ">Czech Republic</territory>
+			<territory type="DD">East Germany</territory>
+			<territory type="DE">Germany</territory>
+			<territory type="DJ">Djibouti</territory>
+			<territory type="DK">Denmark</territory>
+			<territory type="DM">Dominica</territory>
+			<territory type="DO">Dominican Republic</territory>
+			<territory type="DY">Benin</territory>
+			<territory type="DZ">Algeria</territory>
+			<territory type="EC">Ecuador</territory>
+			<territory type="EE">Estonia</territory>
+			<territory type="EG">Egypt</territory>
+			<territory type="EH">Western Sahara</territory>
+			<territory type="ER">Eritrea</territory>
+			<territory type="ES">Spain</territory>
+			<territory type="ET">Ethiopia</territory>
+			<territory type="FI">Finland</territory>
+			<territory type="FJ">Fiji</territory>
+			<territory type="FK">Falkland Islands</territory>
+			<territory type="FM">Micronesia</territory>
+			<territory type="FO">Faroe Islands</territory>
+			<territory type="FQ">French Southern and Antarctic Territories</territory>
+			<territory type="FR">France</territory>
+			<territory type="FX">Metropolitan France</territory>
+			<territory type="GA">Gabon</territory>
+			<territory type="GB">United Kingdom</territory>
+			<territory type="GD">Grenada</territory>
+			<territory type="GE">Georgia</territory>
+			<territory type="GF">French Guiana</territory>
+			<territory type="GH">Ghana</territory>
+			<territory type="GI">Gibraltar</territory>
+			<territory type="GL">Greenland</territory>
+			<territory type="GM">Gambia</territory>
+			<territory type="GN">Guinea</territory>
+			<territory type="GP">Guadeloupe</territory>
+			<territory type="GQ">Equatorial Guinea</territory>
+			<territory type="GR">Greece</territory>
+			<territory type="GS">South Georgia and the South Sandwich Islands</territory>
+			<territory type="GT">Guatemala</territory>
+			<territory type="GU">Guam</territory>
+			<territory type="GW">Guinea-Bissau</territory>
+			<territory type="GY">Guyana</territory>
+			<territory type="HK">Hong Kong S.A.R., China</territory>
+			<territory type="HM">Heard Island and McDonald Islands</territory>
+			<territory type="HN">Honduras</territory>
+			<territory type="HR">Croatia</territory>
+			<territory type="HT">Haiti</territory>
+			<territory type="HU">Hungary</territory>
+			<territory type="HV">Burkina Faso</territory>
+			<territory type="ID">Indonesia</territory>
+			<territory type="IE">Ireland</territory>
+			<territory type="IL">Israel</territory>
+			<territory type="IN">India</territory>
+			<territory type="IO">British Indian Ocean Territory</territory>
+			<territory type="IQ">Iraq</territory>
+			<territory type="IR">Iran</territory>
+			<territory type="IS">Iceland</territory>
+			<territory type="IT">Italy</territory>
+			<territory type="JM">Jamaica</territory>
+			<territory type="JO">Jordan</territory>
+			<territory type="JP">Japan</territory>
+			<territory type="JT">Johnston Island</territory>
+			<territory type="KE">Kenya</territory>
+			<territory type="KG">Kyrgyzstan</territory>
+			<territory type="KH">Cambodia</territory>
+			<territory type="KI">Kiribati</territory>
+			<territory type="KM">Comoros</territory>
+			<territory type="KN">Saint Kitts and Nevis</territory>
+			<territory type="KP">North Korea</territory>
+			<territory type="KR">South Korea</territory>
+			<territory type="KW">Kuwait</territory>
+			<territory type="KY">Cayman Islands</territory>
+			<territory type="KZ">Kazakhstan</territory>
+			<territory type="LA">Laos</territory>
+			<territory type="LB">Lebanon</territory>
+			<territory type="LC">Saint Lucia</territory>
+			<territory type="LI">Liechtenstein</territory>
+			<territory type="LK">Sri Lanka</territory>
+			<territory type="LR">Liberia</territory>
+			<territory type="LS">Lesotho</territory>
+			<territory type="LT">Lithuania</territory>
+			<territory type="LU">Luxembourg</territory>
+			<territory type="LV">Latvia</territory>
+			<territory type="LY">Libya</territory>
+			<territory type="MA">Morocco</territory>
+			<territory type="MC">Monaco</territory>
+			<territory type="MD">Moldova</territory>
+			<territory type="MG">Madagascar</territory>
+			<territory type="MH">Marshall Islands</territory>
+			<territory type="MI">Midway Islands</territory>
+			<territory type="MK">Macedonia</territory>
+			<territory type="ML">Mali</territory>
+			<territory type="MM">Myanmar</territory>
+			<territory type="MN">Mongolia</territory>
+			<territory type="MO">Macao S.A.R., China</territory>
+			<territory type="MP">Northern Mariana Islands</territory>
+			<territory type="MQ">Martinique</territory>
+			<territory type="MR">Mauritania</territory>
+			<territory type="MS">Montserrat</territory>
+			<territory type="MT">Malta</territory>
+			<territory type="MU">Mauritius</territory>
+			<territory type="MV">Maldives</territory>
+			<territory type="MW">Malawi</territory>
+			<territory type="MX">Mexico</territory>
+			<territory type="MY">Malaysia</territory>
+			<territory type="MZ">Mozambique</territory>
+			<territory type="NA">Namibia</territory>
+			<territory type="NC">New Caledonia</territory>
+			<territory type="NE">Niger</territory>
+			<territory type="NF">Norfolk Island</territory>
+			<territory type="NG">Nigeria</territory>
+			<territory type="NH">Vanuatu</territory>
+			<territory type="NI">Nicaragua</territory>
+			<territory type="NL">Netherlands</territory>
+			<territory type="NO">Norway</territory>
+			<territory type="NP">Nepal</territory>
+			<territory type="NQ">Dronning Maud Land</territory>
+			<territory type="NR">Nauru</territory>
+			<territory type="NT">Neutral Zone</territory>
+			<territory type="NU">Niue</territory>
+			<territory type="NZ">New Zealand</territory>
+			<territory type="OM">Oman</territory>
+			<territory type="PA">Panama</territory>
+			<territory type="PC">Pacific Islands Trust Territory</territory>
+			<territory type="PE">Peru</territory>
+			<territory type="PF">French Polynesia</territory>
+			<territory type="PG">Papua New Guinea</territory>
+			<territory type="PH">Philippines</territory>
+			<territory type="PK">Pakistan</territory>
+			<territory type="PL">Poland</territory>
+			<territory type="PM">Saint Pierre and Miquelon</territory>
+			<territory type="PN">Pitcairn</territory>
+			<territory type="PR">Puerto Rico</territory>
+			<territory type="PS">Palestinian Territory</territory>
+			<territory type="PT">Portugal</territory>
+			<territory type="PU">U.S. Miscellaneous Pacific Islands</territory>
+			<territory type="PW">Palau</territory>
+			<territory type="PY">Paraguay</territory>
+			<territory type="PZ">Panama Canal Zone</territory>
+			<territory type="QA">Qatar</territory>
+			<territory type="RE">Réunion</territory>
+			<territory type="RH">Zimbabwe</territory>
+			<territory type="RO">Romania</territory>
+			<territory type="RU">Russia</territory>
+			<territory type="RW">Rwanda</territory>
+			<territory type="SA">Saudi Arabia</territory>
+			<territory type="SB">Solomon Islands</territory>
+			<territory type="SC">Seychelles</territory>
+			<territory type="SD">Sudan</territory>
+			<territory type="SE">Sweden</territory>
+			<territory type="SG">Singapore</territory>
+			<territory type="SH">Saint Helena</territory>
+			<territory type="SI">Slovenia</territory>
+			<territory type="SJ">Svalbard and Jan Mayen</territory>
+			<territory type="SK">Slovakia</territory>
+			<territory type="SL">Sierra Leone</territory>
+			<territory type="SM">San Marino</territory>
+			<territory type="SN">Senegal</territory>
+			<territory type="SO">Somalia</territory>
+			<territory type="SP">Serbia</territory>
+			<territory type="SR">Suriname</territory>
+			<territory type="ST">Sao Tome and Principe</territory>
+			<territory type="SU">Union of Soviet Socialist Republics</territory>
+			<territory type="SV">El Salvador</territory>
+			<territory type="SY">Syria</territory>
+			<territory type="SZ">Swaziland</territory>
+			<territory type="TC">Turks and Caicos Islands</territory>
+			<territory type="TD">Chad</territory>
+			<territory type="TF">French Southern Territories</territory>
+			<territory type="TG">Togo</territory>
+			<territory type="TH">Thailand</territory>
+			<territory type="TJ">Tajikistan</territory>
+			<territory type="TK">Tokelau</territory>
+			<territory type="TL">Timor-Leste</territory>
+			<territory type="TM">Turkmenistan</territory>
+			<territory type="TN">Tunisia</territory>
+			<territory type="TO">Tonga</territory>
+			<territory type="TP">Timor-Leste</territory>
+			<territory type="TR">Turkey</territory>
+			<territory type="TT">Trinidad and Tobago</territory>
+			<territory type="TV">Tuvalu</territory>
+			<territory type="TW">Taiwan</territory>
+			<territory type="TZ">Tanzania</territory>
+			<territory type="UA">Ukraine</territory>
+			<territory type="UG">Uganda</territory>
+			<territory type="UM">United States Minor Outlying Islands</territory>
+			<territory type="US">United States</territory>
+			<territory type="UY">Uruguay</territory>
+			<territory type="UZ">Uzbekistan</territory>
+			<territory type="VA">Vatican</territory>
+			<territory type="VC">Saint Vincent and the Grenadines</territory>
+			<territory type="VD">North Vietnam</territory>
+			<territory type="VE">Venezuela</territory>
+			<territory type="VG">British Virgin Islands</territory>
+			<territory type="VI">U.S. Virgin Islands</territory>
+			<territory type="VN">Vietnam</territory>
+			<territory type="VU">Vanuatu</territory>
+			<territory type="WF">Wallis and Futuna</territory>
+			<territory type="WK">Wake Island</territory>
+			<territory type="WS">Samoa</territory>
+			<territory type="YD">People's Democratic Republic of Yemen</territory>
+			<territory type="YE">Yemen</territory>
+			<territory type="YT">Mayotte</territory>
+			<territory type="YU">Yugoslavia</territory>
+			<territory type="YU" alt="proposed" draft="true">Serbia and Montenegro</territory>
+			<territory type="ZA">South Africa</territory>
+			<territory type="ZM">Zambia</territory>
+			<territory type="ZR">Congo, The Democratic Republic of the</territory>
+			<territory type="ZW">Zimbabwe</territory>
 			<territory type="ZZ">Outlying Oceania</territory>
 		</territories>
 		<variants>
-			<variant type="POSIX">Computer</variant>
-			<variant type="REVISED">Revised Orthography</variant>
 			<variant type="1901">Traditional German orthography</variant>
 			<variant type="1996">German orthography of 1996</variant>
+			<variant type="POSIX">Computer</variant>
+			<variant type="REVISED">Revised Orthography</variant>
 			<variant type="boont">Boontling</variant>
 			<variant type="gaulish">Gaulish</variant>
 			<variant type="guoyu">Mandarin or Standard Chinese</variant>
@@ -919,12 +914,12 @@
 		<types>
 			<type type="buddhist" key="calendar">Buddhist Calendar</type>
 			<type type="chinese" key="calendar">Chinese Calendar</type>
+			<type type="direct" key="collation">Direct Order</type>
 			<type type="gregorian" key="calendar">Gregorian Calendar</type>
 			<type type="hebrew" key="calendar">Hebrew Calendar</type>
 			<type type="islamic" key="calendar">Islamic Calendar</type>
 			<type type="islamic-civil" key="calendar">Islamic-Civil Calendar</type>
 			<type type="japanese" key="calendar">Japanese Calendar</type>
-			<type type="direct" key="collation">Direct Order</type>
 			<type type="phonebook" key="collation">Phonebook Order</type>
 			<type type="pinyin" key="collation">Pinyin Order</type>
 			<type type="stroke" key="collation">Stroke Order</type>
@@ -1067,19 +1062,18 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<!-- Note: zones that don't use daylight time need further work -->		
-			<zone type="America/Los_Angeles">
+			<zone type="America/Anchorage">
 				<long>
-					<generic>Pacific Time</generic>
-					<standard>Pacific Standard Time</standard>
-					<daylight>Pacific Daylight Time</daylight>
+					<generic>Alaska Time</generic>
+					<standard>Alaska Standard Time</standard>
+					<daylight>Alaska Daylight Time</daylight>
 				</long>
 				<short>
-					<generic>PT</generic>
-					<standard>PST</standard>
-					<daylight>PDT</daylight>
+					<generic>AKT</generic>
+					<standard>AKST</standard>
+					<daylight>AKDT</daylight>
 				</short>
-				<exemplarCity>Los Angeles</exemplarCity>
+				<exemplarCity>Anchorage</exemplarCity>
 			</zone>
 			<zone type="America/Vancouver">
 				<long>
@@ -1094,18 +1088,19 @@
 				</short>
 				<exemplarCity>Vancouver</exemplarCity>
 			</zone>
-			<zone type="America/Denver">
+			<!-- Note: zones that don't use daylight time need further work -->
+			<zone type="America/Los_Angeles">
 				<long>
-					<generic>Mountain Time</generic>
-					<standard>Mountain Standard Time</standard>
-					<daylight>Mountain Daylight Time</daylight>
+					<generic>Pacific Time</generic>
+					<standard>Pacific Standard Time</standard>
+					<daylight>Pacific Daylight Time</daylight>
 				</long>
 				<short>
-					<generic>MT</generic>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
+					<generic>PT</generic>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
 				</short>
-				<exemplarCity>Denver</exemplarCity>
+				<exemplarCity>Los Angeles</exemplarCity>
 			</zone>
 			<zone type="America/Edmonton">
 				<long>
@@ -1133,18 +1128,18 @@
 				</short>
 				<exemplarCity>Phoenix</exemplarCity>
 			</zone>
-			<zone type="America/Chicago">
+			<zone type="America/Denver">
 				<long>
-					<generic>Central Time</generic>
-					<standard>Central Standard Time</standard>
-					<daylight>Central Daylight Time</daylight>
+					<generic>Mountain Time</generic>
+					<standard>Mountain Standard Time</standard>
+					<daylight>Mountain Daylight Time</daylight>
 				</long>
 				<short>
-					<generic>CT</generic>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
+					<generic>MT</generic>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
 				</short>
-				<exemplarCity>Chicago</exemplarCity>
+				<exemplarCity>Denver</exemplarCity>
 			</zone>
 			<zone type="America/Winnipeg">
 				<long>
@@ -1158,6 +1153,32 @@
 					<daylight>CDT (CA)</daylight>
 				</short>
 				<exemplarCity>Winnipeg</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<long>
+					<generic>Central Time</generic>
+					<standard>Central Standard Time</standard>
+					<daylight>Central Daylight Time</daylight>
+				</long>
+				<short>
+					<generic>CT</generic>
+					<standard>CST</standard>
+					<daylight>CDT</daylight>
+				</short>
+				<exemplarCity>Chicago</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<long>
+					<generic>Eastern Time</generic>
+					<standard>Eastern Standard Time</standard>
+					<daylight>Eastern Daylight Time</daylight>
+				</long>
+				<short>
+					<generic>ET</generic>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
+				</short>
+				<exemplarCity>Indianapolis</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
 				<long>
@@ -1185,45 +1206,6 @@
 				</short>
 				<exemplarCity>Montreal</exemplarCity>
 			</zone>
-			<zone type="America/Indianapolis">
-				<long>
-					<generic>Eastern Time</generic>
-					<standard>Eastern Standard Time</standard>
-					<daylight>Eastern Daylight Time</daylight>
-				</long>
-				<short>
-					<generic>ET</generic>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
-				<exemplarCity>Indianapolis</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<long>
-					<generic>Hawaii Time</generic>
-					<standard>Hawaii Standard Time</standard>
-					<daylight>Hawaii Daylight Time</daylight>
-				</long>
-				<short>
-					<generic>HT</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<long>
-					<generic>Alaska Time</generic>
-					<standard>Alaska Standard Time</standard>
-					<daylight>Alaska Daylight Time</daylight>
-				</long>
-				<short>
-					<generic>AKT</generic>
-					<standard>AKST</standard>
-					<daylight>AKDT</daylight>
-				</short>
-				<exemplarCity>Anchorage</exemplarCity>
-			</zone>
 			<zone type="America/Halifax">
 				<long>
 					<generic>Atlantic Time</generic>
@@ -1250,32 +1232,6 @@
 				</short>
 				<exemplarCity>St. John’s</exemplarCity>
 			</zone>
-			<zone type="Europe/Paris">
-				<long>
-					<generic>Central European Time</generic>
-					<standard>Central European Standard Time</standard>
-					<daylight>Central European Daylight Time</daylight>
-				</long>
-				<short>
-					<generic>CET</generic>
-					<standard>CEST</standard>
-					<daylight>CEDT</daylight>
-				</short>
-				<exemplarCity>Paris</exemplarCity>
-			</zone>
-			<zone type="Etc/GMT">
-				<long>
-					<generic>Greenwich Mean Time</generic>
-					<standard>Greenwich Mean Time</standard>
-					<daylight>Greenwich Mean Time</daylight>
-				</long>
-				<short>
-					<generic>GMT</generic>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
-				</short>
-				<exemplarCity>(GMT)</exemplarCity>
-			</zone>
 			<zone type="Europe/London">
 				<long>
 					<generic>British Time</generic>
@@ -1289,28 +1245,18 @@
 				</short>
 				<exemplarCity>London</exemplarCity>
 			</zone>
-<!-- Note: the following is known to be sparse, and needs to be improved in the future -->
-			<zone type="Asia/Jerusalem">
+			<zone type="Europe/Paris">
 				<long>
-					<standard>Israel Standard Time</standard>
-					<daylight>Israel Daylight Time</daylight>
+					<generic>Central European Time</generic>
+					<standard>Central European Standard Time</standard>
+					<daylight>Central European Daylight Time</daylight>
 				</long>
 				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
+					<generic>CET</generic>
+					<standard>CEST</standard>
+					<daylight>CEDT</daylight>
 				</short>
-				<exemplarCity>Jerusalem</exemplarCity>
-			</zone>
-			<zone type="Asia/Tokyo">
-				<long>
-					<standard>Japan Standard Time</standard>
-					<daylight>Japan Daylight Time</daylight>
-				</long>
-				<short>
-					<standard>JST</standard>
-					<daylight>JDT</daylight>
-				</short>
-				<exemplarCity>Tokyo</exemplarCity>
+				<exemplarCity>Paris</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
@@ -1323,6 +1269,18 @@
 				</short>
 				<exemplarCity>Bucharest</exemplarCity>
 			</zone>
+			<!-- Note: the following is known to be sparse, and needs to be improved in the future -->
+			<zone type="Asia/Jerusalem">
+				<long>
+					<standard>Israel Standard Time</standard>
+					<daylight>Israel Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>IST</standard>
+					<daylight>IDT</daylight>
+				</short>
+				<exemplarCity>Jerusalem</exemplarCity>
+			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
 					<standard>China Standard Time</standard>
@@ -1333,6 +1291,43 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>Shanghai</exemplarCity>
+			</zone>
+			<zone type="Asia/Tokyo">
+				<long>
+					<standard>Japan Standard Time</standard>
+					<daylight>Japan Daylight Time</daylight>
+				</long>
+				<short>
+					<standard>JST</standard>
+					<daylight>JDT</daylight>
+				</short>
+				<exemplarCity>Tokyo</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<long>
+					<generic>Hawaii Time</generic>
+					<standard>Hawaii Standard Time</standard>
+					<daylight>Hawaii Daylight Time</daylight>
+				</long>
+				<short>
+					<generic>HT</generic>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<long>
+					<generic>Greenwich Mean Time</generic>
+					<standard>Greenwich Mean Time</standard>
+					<daylight>Greenwich Mean Time</daylight>
+				</long>
+				<short>
+					<generic>GMT</generic>
+					<standard>GMT</standard>
+					<daylight>GMT</daylight>
+				</short>
+				<exemplarCity>(GMT)</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
@@ -1633,6 +1628,15 @@
 				<displayName>Central African Republic CFA Franc</displayName>
 				<symbol>CFF</symbol>
 			</currency>
+			<currency type="CFP">
+				<displayName>CFP Franc</displayName>
+			</currency>
+			<currency type="CHC">
+				<displayName>WIR Franc</displayName>
+			</currency>
+			<currency type="CHE">
+				<displayName>WIR Euro</displayName>
+			</currency>
 			<currency type="CHF">
 				<displayName>Swiss Franc</displayName>
 				<symbol>SwF</symbol>
@@ -1685,6 +1689,9 @@
 				<displayName>Colombian Peso</displayName>
 				<symbol>Col$</symbol>
 			</currency>
+			<currency type="COU">
+				<displayName>Unidad de Valor Real</displayName>
+			</currency>
 			<currency type="CRC">
 				<displayName>Costa Rican Colon</displayName>
 				<symbol>C</symbol>
@@ -1692,6 +1699,9 @@
 			<currency type="CSC">
 				<displayName>Czechoslovak Koruna</displayName>
 				<symbol>CSC</symbol>
+			</currency>
+			<currency type="CSD">
+				<displayName>Serbian Dinar</displayName>
 			</currency>
 			<currency type="CSK">
 				<displayName>Czechoslovak Hard Koruna</displayName>
@@ -1724,6 +1734,9 @@
 			<currency type="DDM">
 				<displayName>East German Ostmark</displayName>
 				<symbol>DDM</symbol>
+			</currency>
+			<currency type="DDR">
+				<displayName>East German Mark</displayName>
 			</currency>
 			<currency type="DEM">
 				<displayName>Deutsche Mark</displayName>
@@ -1773,9 +1786,18 @@
 				<displayName>Egyptian Pound</displayName>
 				<symbol>EGP</symbol>
 			</currency>
+			<currency type="EQE">
+				<displayName>Ekwele</displayName>
+			</currency>
 			<currency type="ERN">
 				<displayName>Eritrean Nakfa</displayName>
 				<symbol>ERN</symbol>
+			</currency>
+			<currency type="ESA">
+				<displayName>Spanish Peseta (A account)</displayName>
+			</currency>
+			<currency type="ESB">
+				<displayName>Spanish Peseta (convertible account)</displayName>
 			</currency>
 			<currency type="ESP">
 				<displayName>Spanish Peseta</displayName>
@@ -2120,6 +2142,9 @@
 				<displayName>Lesotho Loti</displayName>
 				<symbol>M</symbol>
 			</currency>
+			<currency type="LSM">
+				<displayName>Maloti</displayName>
+			</currency>
 			<currency type="LTL">
 				<displayName>Lithuanian Lita</displayName>
 				<symbol>LTL</symbol>
@@ -2128,9 +2153,15 @@
 				<displayName>Lithuanian Talonas</displayName>
 				<symbol>LTT</symbol>
 			</currency>
+			<currency type="LUC">
+				<displayName>Luxembourg Convertible Franc</displayName>
+			</currency>
 			<currency type="LUF">
 				<displayName>Luxembourg Franc</displayName>
 				<symbol>LUF</symbol>
+			</currency>
+			<currency type="LUL">
+				<displayName>Luxembourg Financial Franc</displayName>
 			</currency>
 			<currency type="LVL">
 				<displayName>Latvian Lats</displayName>
@@ -2416,6 +2447,9 @@
 				<displayName>Reunion Franc</displayName>
 				<symbol>REF</symbol>
 			</currency>
+			<currency type="RHD">
+				<displayName>Rhodesian Dollar</displayName>
+			</currency>
 			<currency type="ROL">
 				<displayName>Romanian Leu</displayName>
 				<symbol>leu</symbol>
@@ -2460,6 +2494,9 @@
 				<displayName>Sudanese Pound</displayName>
 				<symbol>SDP</symbol>
 			</currency>
+			<currency type="SDR">
+				<displayName>IMF SDR</displayName>
+			</currency>
 			<currency type="SEK">
 				<displayName>Swedish Krona</displayName>
 				<symbol>SKr</symbol>
@@ -2499,6 +2536,9 @@
 			<currency type="SQS">
 				<displayName>Somaliland Shilling</displayName>
 				<symbol>SQS</symbol>
+			</currency>
+			<currency type="SRD">
+				<displayName>Surinam Dollar</displayName>
 			</currency>
 			<currency type="SRG">
 				<displayName>Suriname Guilder</displayName>
@@ -2583,6 +2623,9 @@
 			<currency type="TRL">
 				<displayName>Turkish Lira</displayName>
 				<symbol>TL</symbol>
+			</currency>
+			<currency type="TRY">
+				<displayName>New Turkish Lira</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad and Tobago Dollar</displayName>
@@ -2712,6 +2755,9 @@
 				<displayName>CFA Franc BEAC</displayName>
 				<symbol>XAF</symbol>
 			</currency>
+			<currency type="XAG">
+				<displayName>Silver</displayName>
+			</currency>
 			<currency type="XAM">
 				<displayName>Asian Monetary Unit</displayName>
 				<symbol>XAM</symbol>
@@ -2780,13 +2826,28 @@
 				<displayName>CFA Franc BCEAO</displayName>
 				<symbol>XOF</symbol>
 			</currency>
+			<currency type="XPD">
+				<displayName>Palladium</displayName>
+			</currency>
 			<currency type="XPF">
 				<displayName>CFP Franc</displayName>
 				<symbol>CFPF</symbol>
 			</currency>
+			<currency type="XPT">
+				<displayName>Platinum</displayName>
+			</currency>
+			<currency type="XRE">
+				<displayName>RINET Funds</displayName>
+			</currency>
 			<currency type="XTR">
 				<displayName>COMECON Transferable Ruble</displayName>
 				<symbol>XTR</symbol>
+			</currency>
+			<currency type="XTS">
+				<displayName>Testing Currency Code</displayName>
+			</currency>
+			<currency type="XXX">
+				<displayName>No Currency</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>Yemeni Dinar</displayName>
@@ -2860,29 +2921,6 @@
 				<displayName>Zimbabwe Dollar</displayName>
 				<symbol>Z$</symbol>
 			</currency>
-			<currency type="CHC"><displayName>WIR Franc</displayName></currency>
-			<currency type="CHE"><displayName>WIR Euro</displayName></currency>
-			<currency type="COU"><displayName>Unidad de Valor Real</displayName></currency>
-			<currency type="CSD"><displayName>Serbian Dinar</displayName></currency>
-			<currency type="SRD"><displayName>Surinam Dollar</displayName></currency>
-			<currency type="TRY"><displayName>New Turkish Lira</displayName></currency>
-		
-			<currency type="CFP"><displayName>CFP Franc</displayName></currency>
-			<currency type="DDR"><displayName>East German Mark</displayName></currency>
-			<currency type="EQE"><displayName>Ekwele</displayName></currency>
-			<currency type="ESA"><displayName>Spanish Peseta (A account)</displayName></currency>
-			<currency type="ESB"><displayName>Spanish Peseta (convertible account)</displayName></currency>
-			<currency type="LSM"><displayName>Maloti</displayName></currency>
-			<currency type="LUC"><displayName>Luxembourg Convertible Franc</displayName></currency>
-			<currency type="LUL"><displayName>Luxembourg Financial Franc</displayName></currency>
-			<currency type="RHD"><displayName>Rhodesian Dollar</displayName></currency>
-			<currency type="SDR"><displayName>IMF SDR</displayName></currency>
-			<currency type="XAG"><displayName>Silver</displayName></currency>
-			<currency type="XPD"><displayName>Palladium</displayName></currency>
-			<currency type="XPT"><displayName>Platinum</displayName></currency>
-			<currency type="XRE"><displayName>RINET Funds</displayName></currency>
-			<currency type="XTS"><displayName>Testing Currency Code</displayName></currency>
-			<currency type="XXX"><displayName>No Currency</displayName></currency>
 		</currencies>
 	</numbers>
 	<posix draft="true">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -772,12 +772,12 @@
 		<types>
 			<type type="buddhist" key="calendar">Calendário Budista</type>
 			<type type="chinese" key="calendar">Calendário Chinês</type>
+			<type type="direct" key="collation">Ordem Direta</type>
 			<type type="gregorian" key="calendar">Calendário Gregoriano</type>
 			<type type="hebrew" key="calendar">Calendário Hebraico</type>
 			<type type="islamic" key="calendar">Calendário Islâmico</type>
 			<type type="islamic-civil" key="calendar">Calendário Civil Islâmico</type>
 			<type type="japanese" key="calendar">Calendário Japonês</type>
-			<type type="direct" key="collation">Ordem Direta</type>
 			<type type="phonebook" key="collation">Ordem de Lista Telefônica</type>
 			<type type="pinyin" key="collation">Ordem Pin-yin</type>
 			<type type="stroke" key="collation">Ordem dos Traços</type>
@@ -908,6 +908,17 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<zone type="America/Anchorage">
+				<long>
+					<standard>Horário Padrão do Alasca</standard>
+					<daylight>Horário de Verão do Alasca</daylight>
+				</long>
+				<short>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
+				<exemplarCity>Anchorage</exemplarCity>
+			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
 					<standard>Horário Padrão do Pacífico</standard>
@@ -918,17 +929,6 @@
 					<daylight>PDT</daylight>
 				</short>
 				<exemplarCity>Los Angeles</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<long>
-					<standard>Horário Padrão Montanha</standard>
-					<daylight>Horário de Verão Montanha</daylight>
-				</long>
-				<short>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-				<exemplarCity>Denver</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
@@ -941,6 +941,17 @@
 				</short>
 				<exemplarCity>Phoenix</exemplarCity>
 			</zone>
+			<zone type="America/Denver">
+				<long>
+					<standard>Horário Padrão Montanha</standard>
+					<daylight>Horário de Verão Montanha</daylight>
+				</long>
+				<short>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+				<exemplarCity>Denver</exemplarCity>
+			</zone>
 			<zone type="America/Chicago">
 				<long>
 					<standard>Horário Padrão Central</standard>
@@ -951,17 +962,6 @@
 					<daylight>CDT</daylight>
 				</short>
 				<exemplarCity>Chicago</exemplarCity>
-			</zone>
-			<zone type="America/New_York">
-				<long>
-					<standard>Horário Padrão Oriental</standard>
-					<daylight>Horário de Verão Oriental</daylight>
-				</long>
-				<short>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
-				</short>
-				<exemplarCity>Nova Iorque</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
@@ -974,27 +974,16 @@
 				</short>
 				<exemplarCity>Indianápolis</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
+			<zone type="America/New_York">
 				<long>
-					<standard>Horário Padrão do Havaí</standard>
-					<daylight>Horário Padrão do Havaí</daylight>
+					<standard>Horário Padrão Oriental</standard>
+					<daylight>Horário de Verão Oriental</daylight>
 				</long>
 				<short>
-					<standard>HST</standard>
-					<daylight>HST</daylight>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
 				</short>
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="America/Anchorage">
-				<long>
-					<standard>Horário Padrão do Alasca</standard>
-					<daylight>Horário de Verão do Alasca</daylight>
-				</long>
-				<short>
-					<standard>AST</standard>
-					<daylight>ADT</daylight>
-				</short>
-				<exemplarCity>Anchorage</exemplarCity>
+				<exemplarCity>Nova Iorque</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -1029,16 +1018,16 @@
 				</short>
 				<exemplarCity>Paris</exemplarCity>
 			</zone>
-			<zone type="Etc/GMT">
+			<zone type="Europe/Bucharest">
 				<long>
-					<standard>Horário do Meridiano de Greenwich</standard>
-					<daylight>Horário do Meridiano de Greenwich</daylight>
+					<standard>Horário Padrão da Europa Oriental</standard>
+					<daylight>Horário de Verão da Europa Oriental</daylight>
 				</long>
 				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
 				</short>
-				<exemplarCity>Londres</exemplarCity>
+				<exemplarCity>Bucareste</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
@@ -1062,6 +1051,17 @@
 				</short>
 				<exemplarCity>Jerusalém</exemplarCity>
 			</zone>
+			<zone type="Asia/Shanghai">
+				<long>
+					<standard>Horário Padrão da China</standard>
+					<daylight>Horário Padrão da China</daylight>
+				</long>
+				<short>
+					<standard>CTT</standard>
+					<daylight>CDT</daylight>
+				</short>
+				<exemplarCity>Xangai</exemplarCity>
+			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>Horário Padrão do Japão</standard>
@@ -1073,27 +1073,27 @@
 				</short>
 				<exemplarCity>Tóquio</exemplarCity>
 			</zone>
-			<zone type="Europe/Bucharest">
+			<zone type="Pacific/Honolulu">
 				<long>
-					<standard>Horário Padrão da Europa Oriental</standard>
-					<daylight>Horário de Verão da Europa Oriental</daylight>
+					<standard>Horário Padrão do Havaí</standard>
+					<daylight>Horário Padrão do Havaí</daylight>
 				</long>
 				<short>
-					<standard>EET</standard>
-					<daylight>EEST</daylight>
+					<standard>HST</standard>
+					<daylight>HST</daylight>
 				</short>
-				<exemplarCity>Bucareste</exemplarCity>
+				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
-			<zone type="Asia/Shanghai">
+			<zone type="Etc/GMT">
 				<long>
-					<standard>Horário Padrão da China</standard>
-					<daylight>Horário Padrão da China</daylight>
+					<standard>Horário do Meridiano de Greenwich</standard>
+					<daylight>Horário do Meridiano de Greenwich</daylight>
 				</long>
 				<short>
-					<standard>CTT</standard>
-					<daylight>CDT</daylight>
+					<standard>GMT</standard>
+					<daylight>GMT</daylight>
 				</short>
-				<exemplarCity>Xangai</exemplarCity>
+				<exemplarCity>Londres</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
-<ldml >
+<ldml>
 	<identity>
 		<version number="1.2"/>
 		<generation date="2004-08-27"/>
@@ -645,12 +645,12 @@
 		<types>
 			<type type="buddhist" key="calendar">佛教曆法</type>
 			<type type="chinese" key="calendar">農曆</type>
+			<type type="direct" key="collation">直接順序</type>
 			<type type="gregorian" key="calendar">公曆</type>
 			<type type="hebrew" key="calendar">希伯來曆法</type>
 			<type type="islamic" key="calendar">伊斯蘭曆法</type>
 			<type type="islamic-civil" key="calendar">伊斯蘭城市曆法</type>
 			<type type="japanese" key="calendar">日本曆法</type>
-			<type type="direct" key="collation">直接順序</type>
 			<type type="phonebook" key="collation">電話簿順序</type>
 			<type type="pinyin" key="collation">拼音順序</type>
 			<type type="stroke" key="collation">筆劃顺序</type>
@@ -710,18 +710,19 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<zone type="America/Anchorage">
+				<long>
+					<standard>阿拉斯加標準時間</standard>
+					<daylight>阿拉斯加日光節約時間</daylight>
+				</long>
+				<exemplarCity>安克里治</exemplarCity>
+			</zone>
 			<zone type="America/Los_Angeles">
 				<long>
 					<standard>太平洋標準時間</standard>
 					<daylight>太平洋日光節約時間</daylight>
 				</long>
 				<exemplarCity>洛杉磯</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<long>
-					<standard>山區標準時間</standard>
-					<daylight>山區日光節約時間</daylight>
-				</long>
 			</zone>
 			<zone type="America/Phoenix">
 				<long>
@@ -730,18 +731,17 @@
 				</long>
 				<exemplarCity>鳳凰城</exemplarCity>
 			</zone>
+			<zone type="America/Denver">
+				<long>
+					<standard>山區標準時間</standard>
+					<daylight>山區日光節約時間</daylight>
+				</long>
+			</zone>
 			<zone type="America/Chicago">
 				<long>
 					<standard>中部標準時間</standard>
 					<daylight>中部日光節約時間</daylight>
 				</long>
-			</zone>
-			<zone type="America/New_York">
-				<long>
-					<standard>東部標準時間</standard>
-					<daylight>東部日光節約時間</daylight>
-				</long>
-				<exemplarCity>紐約</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<long>
@@ -750,18 +750,12 @@
 				</long>
 				<exemplarCity>印第安那波里斯</exemplarCity>
 			</zone>
-			<zone type="Pacific/Honolulu">
+			<zone type="America/New_York">
 				<long>
-					<standard>夏威夷標準時間</standard>
-					<daylight>夏威夷標準時間</daylight>
+					<standard>東部標準時間</standard>
+					<daylight>東部日光節約時間</daylight>
 				</long>
-			</zone>
-			<zone type="America/Anchorage">
-				<long>
-					<standard>阿拉斯加標準時間</standard>
-					<daylight>阿拉斯加日光節約時間</daylight>
-				</long>
-				<exemplarCity>安克里治</exemplarCity>
+				<exemplarCity>紐約</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -783,12 +777,11 @@
 					<daylight>中歐日光節約時間</daylight>
 				</long>
 			</zone>
-			<zone type="Etc/GMT">
+			<zone type="Europe/Bucharest">
 				<long>
-					<standard>格林威治標準時間</standard>
-					<daylight>格林威治標準時間</daylight>
+					<standard>東歐標準時間</standard>
+					<daylight>東歐日光節約時間</daylight>
 				</long>
-				<exemplarCity>倫敦</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
@@ -803,6 +796,12 @@
 					<daylight>以色列日光節約時間</daylight>
 				</long>
 			</zone>
+			<zone type="Asia/Shanghai">
+				<long>
+					<standard>中國標準時間</standard>
+					<daylight>中國標準時間</daylight>
+				</long>
+			</zone>
 			<zone type="Asia/Tokyo">
 				<long>
 					<standard>日本標準時間</standard>
@@ -810,17 +809,18 @@
 				</long>
 				<exemplarCity>東京</exemplarCity>
 			</zone>
-			<zone type="Europe/Bucharest">
+			<zone type="Pacific/Honolulu">
 				<long>
-					<standard>東歐標準時間</standard>
-					<daylight>東歐日光節約時間</daylight>
+					<standard>夏威夷標準時間</standard>
+					<daylight>夏威夷標準時間</daylight>
 				</long>
 			</zone>
-			<zone type="Asia/Shanghai">
+			<zone type="Etc/GMT">
 				<long>
-					<standard>中國標準時間</standard>
-					<daylight>中國標準時間</daylight>
+					<standard>格林威治標準時間</standard>
+					<daylight>格林威治標準時間</daylight>
 				</long>
+				<exemplarCity>倫敦</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>

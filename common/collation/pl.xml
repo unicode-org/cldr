@@ -1,40 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<!DOCTYPE ldml SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " 	http://www.openi18n.org/spec/ldml/1.0/ldmlICU.dtd"> 
+%icu;
+]
+>
 <ldml>
 	<identity>
-		<version number="1.0"/>
-		<generation date="2003-12-19" />
+		<version number="2.0"/>
+		<generation date="2004-05-14" />
 		<language type="pl" /> 
 	</identity>
 	<collations>
 		<collation type="standard" >
 			<rules>
 				<reset>A</reset>
-				<p>ą</p>
-				<t>Ą</t>
+				<p>ą</p>
+				<t>Ą</t>
 				<reset>C</reset>
-				<p>ć</p>
-				<t>Ć</t>
+				<p>ć</p>
+				<t>Ć</t>
 				<reset>E</reset>
-				<p>ę</p>
-				<t>Ę</t>
+				<p>ę</p>
+				<t>Ę</t>
 				<reset>L</reset>
 				<p>ł</p>
 				<t>Ł</t>
 				<reset>N</reset>
-				<p>ń</p>
-				<t>Ń</t>
+				<p>ń</p>
+				<t>Ń</t>
 				<reset>O</reset>
-				<p>ó</p>
-				<t>Ó</t>
+				<p>ó</p>
+				<t>Ó</t>
 				<reset>S</reset>
-				<p>ś</p>
-				<t>Ś</t>
+				<p>ś</p>
+				<t>Ś</t>
 				<reset>Z</reset>
-				<p>ź</p>
-				<t>Ź</t>
-				<p>ż</p>
+				<p>ż</p>
+				<t>Ż</t>
+				<p>ź</p>
 			</rules>
+			<special xmlns:icu="http://oss.software.ibm.com/icu/" icu:version="2" />
 		</collation  >
 	</collations>
 </ldml>

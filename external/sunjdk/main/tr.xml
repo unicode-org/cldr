@@ -1,140 +1,144 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 16:04:34 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<correspondsTo vendor="041f">Windows</correspondsTo>
-	</identity  >
-
-	<displayNames >
-		<languages >
-			<language id="tr" >Türkçe</language>
-		</languages >
-		<countries  >
-			<country id="TR">Türkiye</country>
-		</countries  >
-
-	</displayNames >
-	<timeZoneNames>
-		<zone id="Africa/Casablanca" default="true">
-			<long>
-				<generic>GMT</generic>
-				<standard>GMT</standard>
-			</long>
-			<short>
-				<generic>Africa/Casablanca</generic>
-				<standard>GMT</standard>
-				<daylight>GMT</daylight>
-			</short>
-		</zone>
-	</timeZoneNames>
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">Ocak</month>
-				<month id="2">Şubat</month>
-				<month id="3">Mart</month>
-				<month id="4">Nisan</month>
-				<month id="5">Mayıs</month>
-				<month id="6">Haziran</month>
-				<month id="7">Temmuz</month>
-				<month id="8">Ağustos</month>
-				<month id="9">Eylül</month>
-				<month id="10">Ekim</month>
-				<month id="11">Kasım</month>
-				<month id="12">Aralık</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">Oca</month>
-				<month id="2">Şub</month>
-				<month id="3">Mar</month>
-				<month id="4">Nis</month>
-				<month id="5">May</month>
-				<month id="6">Haz</month>
-				<month id="7">Tem</month>
-				<month id="8">Ağu</month>
-				<month id="9">Eyl</month>
-				<month id="10">Eki</month>
-				<month id="11">Kas</month>
-				<month id="12">Ara</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">Pazar </day>
-				<day id="2">Pazartesi </day>
-				<day id="3">Salı </day>
-				<day id="4">Çarşamba </day>
-				<day id="5">Perşembe </day>
-				<day id="6">Cuma </day>
-				<day id="7">Cumartesi </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">Paz </day>
-				<day id="2">Pzt </day>
-				<day id="3">Sal </day>
-				<day id="4">Çar </day>
-				<day id="5">Per </day>
-				<day id="6">Cum </day>
-				<day id="7">Cmt </day>
-			</dayAbbr>
-			<patterns> 
-				<chars>GanjkHmsSEDFwWxhKz</chars>
-				<time>
-					<full>HH:mm:ss z</full>
-					<long>HH:mm:ss z</long>
-					<medium>HH:mm:ss</medium>
-					<short>HH:mm</short>
-				</time>
-				<date>
-					<full>dd MMMM yyyy EEEE</full>
-					<long>dd MMMM yyyy EEEE</long>
-					<medium>dd.MMM.yyyy</medium>
-					<short>dd.MM.yyyy</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-			<firstDay>2</firstDay>
-			<minDays>1</minDays>
-		</calendar>
-	</calendars>
-	<collation version="0.0" accentOrder="FORWARD" override="FALSE">
-		<collationElements>
-		<after>A</after>
-		<gt1>ä</gt1>
-		<gt3>Ä</gt3>
-		<after>C</after>
-		<gt1>ç</gt1>
-		<gt3>Ç</gt3>
-		<after>G</after>
-		<gt1>ğ</gt1>
-		<gt3>Ğ</gt3>
-		<after>H</after>
-		<gt1>ı</gt1>
-		<gt3>I</gt3>
-		<gt3>i</gt3>
-		<gt3>İ</gt3>
-		<gt1>Ĳ</gt1>
-		<gt3>ĳ</gt3>
-		<after>O</after>
-		<gt1>ö</gt1>
-		<gt3>Ö</gt3>
-		<after>S</after>
-		<gt1>ş</gt1>
-		<gt3>Ş</gt3>
-		<after>U</after>
-		<gt1>ü</gt1>
-		<gt3>Ü</gt3>
-		</collationElements>
-	</collation>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="tr"></language>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="tr">Türkçe</language>
+		</languages>
+		<territories>
+			<territory type="TR">Türkiye</territory>
+		</territories>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+	<layout>
+		<orientation lines="top-to-bottom" characters="left-to-right" />
+	</layout>
+		<dates>
+			<localizedPatternChars>GanjkHmsSEDFwWxhKz</localizedPatternChars>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">Ocak</month>
+						<month type="2">Şubat</month>
+						<month type="3">Mart</month>
+						<month type="4">Nisan</month>
+						<month type="5">Mayıs</month>
+						<month type="6">Haziran</month>
+						<month type="7">Temmuz</month>
+						<month type="8">Ağustos</month>
+						<month type="9">Eylül</month>
+						<month type="10">Ekim</month>
+						<month type="11">Kasım</month>
+						<month type="12">Aralık</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">Oca</month>
+						<month type="2">Şub</month>
+						<month type="3">Mar</month>
+						<month type="4">Nis</month>
+						<month type="5">May</month>
+						<month type="6">Haz</month>
+						<month type="7">Tem</month>
+						<month type="8">Ağu</month>
+						<month type="9">Eyl</month>
+						<month type="10">Eki</month>
+						<month type="11">Kas</month>
+						<month type="12">Ara</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">Pazar</day>
+						<day type="mon">Pazartesi</day>
+						<day type="tue">Salı</day>
+						<day type="wed">Çarşamba</day>
+						<day type="thu">Perşembe</day>
+						<day type="fri">Cuma</day>
+						<day type="sat">Cumartesi</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">Paz</day>
+						<day type="mon">Pzt</day>
+						<day type="tue">Sal</day>
+						<day type="wed">Çar</day>
+						<day type="thu">Per</day>
+						<day type="fri">Cum</day>
+						<day type="sat">Cmt</day>
+					</dayAbbr>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>dd MMMM yyyy EEEE</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>dd MMMM yyyy EEEE</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>dd.MMM.yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>dd.MM.yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>HH:mm:ss z</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>HH:mm:ss z</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>HH:mm</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+			<timeZoneNames>
+			</timeZoneNames>
+		</dates>
+			<collations>
+				<collation  >
+					<rules>
+						<reset>A</reset>
+						<p>ä</p>
+						<t>Ä</t>
+						<reset>C</reset>
+						<p>ç</p>
+						<t>Ç</t>
+						<reset>G</reset>
+						<p>ğ</p>
+						<t>Ğ</t>
+						<reset>H</reset>
+						<p>ı</p>
+						<tc>Iiİ</tc>
+						<p>Ĳ</p>
+						<t>ĳ</t>
+						<reset>O</reset>
+						<p>ö</p>
+						<t>Ö</t>
+						<reset>S</reset>
+						<p>ş</p>
+						<t>Ş</t>
+						<reset>U</reset>
+						<p>ü</p>
+					</rules>
+					<special owner="http://oss.software.ibm.com/icu/" version="0.0" />
+				</collation  >
+			</collations>
 </localeData>

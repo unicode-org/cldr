@@ -1,134 +1,140 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 16:04:26 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<correspondsTo vendor="040b">Windows</correspondsTo>
-	</identity  >
-
-	<displayNames >
-		<languages >
-			<language id="fi" >suomi</language>
-		</languages >
-		<countries  >
-			<country id="FI">Suomi</country>
-		</countries  >
-
-	</displayNames >
-	<timeZoneNames>
-		<zone id="Africa/Casablanca" default="true">
-			<long>
-				<generic>GMT</generic>
-				<standard>GMT</standard>
-			</long>
-			<short>
-				<generic>Africa/Casablanca</generic>
-				<standard>GMT</standard>
-				<daylight>GMT</daylight>
-			</short>
-		</zone>
-	</timeZoneNames>
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">tammikuu</month>
-				<month id="2">helmikuu</month>
-				<month id="3">maaliskuu</month>
-				<month id="4">huhtikuu</month>
-				<month id="5">toukokuu</month>
-				<month id="6">kesäkuu</month>
-				<month id="7">heinäkuu</month>
-				<month id="8">elokuu</month>
-				<month id="9">syyskuu</month>
-				<month id="10">lokakuu</month>
-				<month id="11">marraskuu</month>
-				<month id="12">joulukuu</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">tammi</month>
-				<month id="2">helmi</month>
-				<month id="3">maalis</month>
-				<month id="4">huhti</month>
-				<month id="5">touko</month>
-				<month id="6">kesä</month>
-				<month id="7">heinä</month>
-				<month id="8">elo</month>
-				<month id="9">syys</month>
-				<month id="10">loka</month>
-				<month id="11">marras</month>
-				<month id="12">joulu</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">sunnuntai </day>
-				<day id="2">maanantai </day>
-				<day id="3">tiistai </day>
-				<day id="4">keskiviikko </day>
-				<day id="5">torstai </day>
-				<day id="6">perjantai </day>
-				<day id="7">lauantai </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">su </day>
-				<day id="2">ma </day>
-				<day id="3">ti </day>
-				<day id="4">ke </day>
-				<day id="5">to </day>
-				<day id="6">pe </day>
-				<day id="7">la </day>
-			</dayAbbr>
-			<patterns> 
-				<chars>GanjkHmsSEDFwWxhKz</chars>
-				<time>
-					<full>H:mm:ss z</full>
-					<long>H:mm:ss z</long>
-					<medium>H:mm:ss</medium>
-					<short>H:mm</short>
-				</time>
-				<date>
-					<full>d. MMMM'ta 'yyyy</full>
-					<long>d. MMMM'ta 'yyyy</long>
-					<medium>d.M.yyyy</medium>
-					<short>d.M.yyyy</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-			<firstDay>2</firstDay>
-			<minDays>4</minDays>
-		</calendar>
-	</calendars>
-	<collation version="0.0" accentOrder="FORWARD" override="FALSE">
-		<collationElements>
-		<after>V</after>
-		<gt2>w</gt2>
-		<gt3>W</gt3>
-		<after>Z</after>
-		<gt1>å</gt1>
-		<gt3>Å</gt3>
-		<gt1>ä</gt1>
-		<gt3>Ä</gt3>
-		<gt1>ö</gt1>
-		<gt3>Ö</gt3>
-		<gt1>ő</gt1>
-		<gt3>Ő</gt3>
-		<gt2>ø</gt2>
-		<gt3>Ø</gt3>
-		<after>Y</after>
-		<gt2>ű</gt2>
-		<gt3>Ű</gt3>
-		<gt2>ü</gt2>
-		<gt3>Ü</gt3>
-		</collationElements>
-	</collation>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="fi"></language>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="fi">suomi</language>
+		</languages>
+		<territories>
+			<territory type="FI">Suomi</territory>
+		</territories>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+	<layout>
+		<orientation lines="top-to-bottom" characters="left-to-right" />
+	</layout>
+		<dates>
+			<localizedPatternChars>GanjkHmsSEDFwWxhKz</localizedPatternChars>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">tammikuu</month>
+						<month type="2">helmikuu</month>
+						<month type="3">maaliskuu</month>
+						<month type="4">huhtikuu</month>
+						<month type="5">toukokuu</month>
+						<month type="6">kesäkuu</month>
+						<month type="7">heinäkuu</month>
+						<month type="8">elokuu</month>
+						<month type="9">syyskuu</month>
+						<month type="10">lokakuu</month>
+						<month type="11">marraskuu</month>
+						<month type="12">joulukuu</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">tammi</month>
+						<month type="2">helmi</month>
+						<month type="3">maalis</month>
+						<month type="4">huhti</month>
+						<month type="5">touko</month>
+						<month type="6">kesä</month>
+						<month type="7">heinä</month>
+						<month type="8">elo</month>
+						<month type="9">syys</month>
+						<month type="10">loka</month>
+						<month type="11">marras</month>
+						<month type="12">joulu</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">sunnuntai</day>
+						<day type="mon">maanantai</day>
+						<day type="tue">tiistai</day>
+						<day type="wed">keskiviikko</day>
+						<day type="thu">torstai</day>
+						<day type="fri">perjantai</day>
+						<day type="sat">lauantai</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">su</day>
+						<day type="mon">ma</day>
+						<day type="tue">ti</day>
+						<day type="wed">ke</day>
+						<day type="thu">to</day>
+						<day type="fri">pe</day>
+						<day type="sat">la</day>
+					</dayAbbr>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>d. MMMM'ta 'yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>d. MMMM'ta 'yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>d.M.yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>d.M.yyyy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>H:mm:ss z</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>H:mm:ss z</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>H:mm</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+			<timeZoneNames>
+			</timeZoneNames>
+		</dates>
+			<collations>
+				<collation  >
+					<rules>
+						<reset>V</reset>
+						<s>w</s>
+						<t>W</t>
+						<reset>Z</reset>
+						<p>å</p>
+						<t>Å</t>
+						<p>ä</p>
+						<t>Ä</t>
+						<p>ö</p>
+						<t>Ö</t>
+						<p>ő</p>
+						<t>Ő</t>
+						<s>ø</s>
+						<t>Ø</t>
+						<reset>Y</reset>
+						<s>ű</s>
+						<t>Ű</t>
+						<s>ü</s>
+					</rules>
+					<special owner="http://oss.software.ibm.com/icu/" version="0.0" />
+				</collation  >
+			</collations>
 </localeData>

@@ -1,142 +1,158 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 16:04:24 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<correspondsTo vendor="0c0a">Windows</correspondsTo>
-	</identity  >
-
-	<displayNames >
-		<languages >
-			<language id="es" >español</language>
-		</languages >
-		<countries  >
-			<country id="AR">Argentina</country>
-			<country id="BO">Bolivia</country>
-			<country id="CL">Chile</country>
-			<country id="CO">Colombia</country>
-			<country id="CR">Costa Rica</country>
-			<country id="DO">República Dominicana</country>
-			<country id="EC">Ecuador</country>
-			<country id="ES">España</country>
-			<country id="GT">Guatemala</country>
-			<country id="HN">Honduras</country>
-			<country id="MX">México</country>
-			<country id="NI">Nicaragua</country>
-			<country id="PA">Panamá</country>
-			<country id="PE">Perú</country>
-			<country id="PR">Puerto Rico</country>
-			<country id="PY">Paraguay</country>
-			<country id="SV">El SalvadorUY</country>
-			<country id="UY">Uruguay</country>
-			<country id="VE">Venezuela</country>
-		</countries  >
-
-	</displayNames >
-	<timeZoneNames>
-		<zone id="Africa/Casablanca" default="true">
-			<long>
-				<generic>GMT</generic>
-				<standard>GMT</standard>
-			</long>
-			<short>
-				<generic>Africa/Casablanca</generic>
-				<standard>GMT</standard>
-				<daylight>GMT</daylight>
-			</short>
-		</zone>
-	</timeZoneNames>
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">enero</month>
-				<month id="2">febrero</month>
-				<month id="3">marzo</month>
-				<month id="4">abril</month>
-				<month id="5">mayo</month>
-				<month id="6">junio</month>
-				<month id="7">julio</month>
-				<month id="8">agosto</month>
-				<month id="9">septiembre</month>
-				<month id="10">octubre</month>
-				<month id="11">noviembre</month>
-				<month id="12">diciembre</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">ene</month>
-				<month id="2">feb</month>
-				<month id="3">mar</month>
-				<month id="4">abr</month>
-				<month id="5">may</month>
-				<month id="6">jun</month>
-				<month id="7">jul</month>
-				<month id="8">ago</month>
-				<month id="9">sep</month>
-				<month id="10">oct</month>
-				<month id="11">nov</month>
-				<month id="12">dic</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">domingo </day>
-				<day id="2">lunes </day>
-				<day id="3">martes </day>
-				<day id="4">miércoles </day>
-				<day id="5">jueves </day>
-				<day id="6">viernes </day>
-				<day id="7">sábado </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">dom </day>
-				<day id="2">lun </day>
-				<day id="3">mar </day>
-				<day id="4">mié </day>
-				<day id="5">jue </day>
-				<day id="6">vie </day>
-				<day id="7">sáb </day>
-			</dayAbbr>
-			<patterns> 
-				<chars>GuMtkHmsSEDFwWahKz</chars>
-				<time>
-					<full>HH'H'mm'' z</full>
-					<long>H:mm:ss z</long>
-					<medium>H:mm:ss</medium>
-					<short>H:mm</short>
-				</time>
-				<date>
-					<full>EEEE d' de 'MMMM' de 'yyyy</full>
-					<long>d' de 'MMMM' de 'yyyy</long>
-					<medium>dd-MMM-yy</medium>
-					<short>d/MM/yy</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-			<firstDay>2</firstDay>
-			<minDays>1</minDays>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal>#,##0.###;-#,##0.###</decimal>
-			<percent>#,##0%</percent>
-		</patterns>
-	</numberFormat> 
-	<collation version="0.0" accentOrder="FORWARD" override="FALSE">
-		<collationElements>
-		<after>N</after>
-		<gt1>ñ</gt1>
-		<gt3>Ñ</gt3>
-		</collationElements>
-	</collation>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="es"></language>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="es">español</language>
+		</languages>
+		<territories>
+			<territory type="AR">Argentina</territory>
+			<territory type="BO">Bolivia</territory>
+			<territory type="CL">Chile</territory>
+			<territory type="CO">Colombia</territory>
+			<territory type="CR">Costa Rica</territory>
+			<territory type="DO">República Dominicana</territory>
+			<territory type="EC">Ecuador</territory>
+			<territory type="ES">España</territory>
+			<territory type="GT">Guatemala</territory>
+			<territory type="HN">Honduras</territory>
+			<territory type="MX">México</territory>
+			<territory type="NI">Nicaragua</territory>
+			<territory type="PA">Panamá</territory>
+			<territory type="PE">Perú</territory>
+			<territory type="PR">Puerto Rico</territory>
+			<territory type="PY">Paraguay</territory>
+			<territory type="SV">El SalvadorUY</territory>
+			<territory type="UY">Uruguay</territory>
+			<territory type="VE">Venezuela</territory>
+		</territories>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+	<layout>
+		<orientation lines="top-to-bottom" characters="left-to-right" />
+	</layout>
+		<dates>
+			<localizedPatternChars>GuMtkHmsSEDFwWahKz</localizedPatternChars>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">enero</month>
+						<month type="2">febrero</month>
+						<month type="3">marzo</month>
+						<month type="4">abril</month>
+						<month type="5">mayo</month>
+						<month type="6">junio</month>
+						<month type="7">julio</month>
+						<month type="8">agosto</month>
+						<month type="9">septiembre</month>
+						<month type="10">octubre</month>
+						<month type="11">noviembre</month>
+						<month type="12">diciembre</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">ene</month>
+						<month type="2">feb</month>
+						<month type="3">mar</month>
+						<month type="4">abr</month>
+						<month type="5">may</month>
+						<month type="6">jun</month>
+						<month type="7">jul</month>
+						<month type="8">ago</month>
+						<month type="9">sep</month>
+						<month type="10">oct</month>
+						<month type="11">nov</month>
+						<month type="12">dic</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">domingo</day>
+						<day type="mon">lunes</day>
+						<day type="tue">martes</day>
+						<day type="wed">miércoles</day>
+						<day type="thu">jueves</day>
+						<day type="fri">viernes</day>
+						<day type="sat">sábado</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">dom</day>
+						<day type="mon">lun</day>
+						<day type="tue">mar</day>
+						<day type="wed">mié</day>
+						<day type="thu">jue</day>
+						<day type="fri">vie</day>
+						<day type="sat">sáb</day>
+					</dayAbbr>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>EEEE d' de 'MMMM' de 'yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>d' de 'MMMM' de 'yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>dd-MMM-yy</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>d/MM/yy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>HH'H'mm'' z</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>H:mm:ss z</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>H:mm</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+			<timeZoneNames>
+			</timeZoneNames>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+					<pattern>#,##0.###</pattern>
+					<pattern>-#,##0.###</pattern>
+				</numberFormat>
+				<numberFormat type="currency">
+					<pattern>¤#,##0.00</pattern>
+					<pattern>(¤#,##0.00)</pattern>
+				</numberFormat>
+				<numberFormat type="percent">
+					<pattern>#,##0%</pattern>
+				</numberFormat>
+			</numberFormats>
+		</numbers>
+			<collations>
+				<collation  >
+					<rules>
+						<reset>N</reset>
+						<p>ñ</p>
+					</rules>
+					<special owner="http://oss.software.ibm.com/icu/" version="0.0" />
+				</collation  >
+			</collations>
 </localeData>

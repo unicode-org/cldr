@@ -1,92 +1,120 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 16:04:35 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<country id="HK" />
-		<correspondsTo vendor="0c04">Windows</correspondsTo>
-	</identity  >
-	<timeZoneNames>
-		<zone id="CTT" default="true">
-			<long>
-				<generic>Hong Kong Standard Time</generic>
-				<standard>Hong Kong Standard Time</standard>
-				<daylight>Hong Kong</daylight>
-			</long>
-			<short>
-				<generic>CTT</generic>
-				<standard>HKST</standard>
-				<daylight>HKST</daylight>
-			</short>
-			<city>Hong Kong</city>
-		</zone>
-	</timeZoneNames>
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthAbbr>
-				<month id="1">1月</month>
-				<month id="2">2月</month>
-				<month id="3">3月</month>
-				<month id="4">4月</month>
-				<month id="5">5月</month>
-				<month id="6">6月</month>
-				<month id="7">7月</month>
-				<month id="8">8月</month>
-				<month id="9">9月</month>
-				<month id="10">10月</month>
-				<month id="11">11月</month>
-				<month id="12">12月</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayAbbr>
-				<day id="1">日 </day>
-				<day id="2">一 </day>
-				<day id="3">二 </day>
-				<day id="4">三 </day>
-				<day id="5">四 </day>
-				<day id="6">五 </day>
-				<day id="7">六 </day>
-			</dayAbbr>
-			<patterns> 
-				<chars>GanjkHmsSEDFwWxhKz</chars>
-				<time>
-					<full>ahh'時'mm'分'ss'秒' z</full>
-					<long>ahh'時'mm'分'ss'秒'</long>
-					<medium>ahh:mm:ss</medium>
-					<short>ah:mm</short>
-				</time>
-				<date>
-					<full>yyyy'年'MM'月'dd'日' EEEE</full>
-					<long>yyyy'年'MM'月'dd'日' EEEE</long>
-					<medium>yyyy'年'M'月'd'日'</medium>
-					<short>yy'年'M'月'd'日'</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-		</calendar>
-	</calendars>
-	<numberFormat class="decimal" default="true"> 
-		<patterns> 
-			<decimal>#,##0.###;-#,##0.###</decimal>
-			<percent>#,##0%</percent>
-		</patterns>
-	</numberFormat> 
-	<currencies>
-		<currency id="HKD" default="true">
-			<symbol>HK$</symbol>
-			<name>HKD</name>
-			<decimal>.</decimal>
-			<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
-		</currency>
-	</currencies>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="zh"></language>
+		<territory type="HKG">HK</territory>
+	</identity>
+	<localeDisplayNames>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+		<dates>
+			<localizedPatternChars>GanjkHmsSEDFwWxhKz</localizedPatternChars>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthAbbr>
+						<month type="1">1月</month>
+						<month type="2">2月</month>
+						<month type="3">3月</month>
+						<month type="4">4月</month>
+						<month type="5">5月</month>
+						<month type="6">6月</month>
+						<month type="7">7月</month>
+						<month type="8">8月</month>
+						<month type="9">9月</month>
+						<month type="10">10月</month>
+						<month type="11">11月</month>
+						<month type="12">12月</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayAbbr>
+						<day type="sun">日</day>
+						<day type="mon">一</day>
+						<day type="tue">二</day>
+						<day type="wed">三</day>
+						<day type="thu">四</day>
+						<day type="fri">五</day>
+						<day type="sat">六</day>
+					</dayAbbr>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>yyyy'年'MM'月'dd'日' EEEE</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>yyyy'年'MM'月'dd'日' EEEE</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>yyyy'年'M'月'd'日'</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>yy'年'M'月'd'日'</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>ahh'時'mm'分'ss'秒' z</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>ahh'時'mm'分'ss'秒'</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>ahh:mm:ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>ah:mm</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+			<timeZoneNames>
+				<zone type="Hong Kong">
+					<long>
+						<generic>Hong Kong Standard Time</generic>
+						<standard>Hong Kong Standard Time</standard>
+						<daylight>Hong Kong Standard Time</daylight>
+					</long>
+					<short>
+						<generic>CTT</generic>
+						<standard>HKST</standard>
+						<daylight>HKST</daylight>
+					</short>
+					<exemplarCity>Hong Kong</exemplarCity>
+				</zone>
+			</timeZoneNames>
+		</dates>
+		<numbers>
+			<numberFormats>
+				<default type="decimal"/>
+				<numberFormat type="decimal">
+					<pattern>#,##0.###</pattern>
+					<pattern>-#,##0.###</pattern>
+				</numberFormat>
+				<numberFormat type="currency">
+					<pattern>¤#,##0.00</pattern>
+					<pattern>(¤#,##0.00)</pattern>
+				</numberFormat>
+				<numberFormat type="percent">
+					<pattern>#,##0%</pattern>
+				</numberFormat>
+			</numberFormats>
+			<currencies>
+				<default type="HKD"/>
+				<currency type="HKD">
+					<symbol>HK$</symbol>
+					<displayName>HKD</displayName>
+					<decimal>.</decimal>
+				</currency>
+			</currencies>
+		</numbers>
 </localeData>

@@ -1,116 +1,120 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
-<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
-
-<!-- 
-	Copyright (C) 2000-2003, International Business Machines 
-	Corporation and others.  All Rights Reserved.
- -->
-
+<!DOCTYPE localeData SYSTEM "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/LocaleElements.dtd" >
 <localeData>
-	<versioning  >
- 		<version number="1.0" date="Thu Jun 13 16:04:27 2002">Various notes and changes in version 1.0</version>
-	</versioning  >
- 	<identity  >
-		<correspondsTo vendor="0410">Windows</correspondsTo>
-	</identity  >
-
-	<displayNames >
-		<languages >
-			<language id="it" >italiano</language>
-		</languages >
-		<countries  >
-			<country id="CH">Svizzera</country>
-			<country id="IT">Italia</country>
-		</countries  >
-
-	</displayNames >
-	<timeZoneNames>
-		<zone id="Africa/Casablanca" default="true">
-			<long>
-				<generic>GMT</generic>
-				<standard>GMT</standard>
-			</long>
-			<short>
-				<generic>Africa/Casablanca</generic>
-				<standard>GMT</standard>
-				<daylight>GMT</daylight>
-			</short>
-		</zone>
-	</timeZoneNames>
-	<calendars>
-		<calendar class="gregorian" default="true">
-			<monthNames>
-				<month id="1">gennaio</month>
-				<month id="2">febbraio</month>
-				<month id="3">marzo</month>
-				<month id="4">aprile</month>
-				<month id="5">maggio</month>
-				<month id="6">giugno</month>
-				<month id="7">luglio</month>
-				<month id="8">agosto</month>
-				<month id="9">settembre</month>
-				<month id="10">ottobre</month>
-				<month id="11">novembre</month>
-				<month id="12">dicembre</month>
-				<month id="13"></month>
-			</monthNames>
-			<monthAbbr>
-				<month id="1">gen</month>
-				<month id="2">feb</month>
-				<month id="3">mar</month>
-				<month id="4">apr</month>
-				<month id="5">mag</month>
-				<month id="6">giu</month>
-				<month id="7">lug</month>
-				<month id="8">ago</month>
-				<month id="9">set</month>
-				<month id="10">ott</month>
-				<month id="11">nov</month>
-				<month id="12">dic</month>
-				<month id="13"></month>
-			</monthAbbr>
-			<dayNames>
-				<day id="1">domenica </day>
-				<day id="2">lunedì </day>
-				<day id="3">martedì </day>
-				<day id="4">mercoledì </day>
-				<day id="5">giovedì </day>
-				<day id="6">venerdì </day>
-				<day id="7">sabato </day>
-			</dayNames>
-			<dayAbbr>
-				<day id="1">dom </day>
-				<day id="2">lun </day>
-				<day id="3">mar </day>
-				<day id="4">mer </day>
-				<day id="5">gio </day>
-				<day id="6">ven </day>
-				<day id="7">sab </day>
-			</dayAbbr>
-			<eras>
-				<era id="0">BC</era>
-				<era id="1">dopo Cristo</era>
-			</eras>
-			<patterns> 
-				<chars>GyMdkHmsSEDFwWahKz</chars>
-				<time>
-					<full>H.mm.ss z</full>
-					<long>H.mm.ss z</long>
-					<medium>H.mm.ss</medium>
-					<short>H.mm</short>
-				</time>
-				<date>
-					<full>EEEE d MMMM yyyy</full>
-					<long>d MMMM yyyy</long>
-					<medium>d-MMM-yy</medium>
-					<short>dd/MM/yy</short>
-				</date>
- 				<dateTime>{1} {0} </dateTime>
-			</patterns>
-			<firstDay>2</firstDay>
-			<minDays>4</minDays>
-		</calendar>
-	</calendars>
-
+	<identity>
+		<version number="1.0">Various notes and changes in version 1.0</version>
+		<generation date="2003-01-10" />
+		<language type="it"></language>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="it">italiano</language>
+		</languages>
+		<territories>
+			<territory type="CH">Svizzera</territory>
+			<territory type="IT">Italia</territory>
+		</territories>
+		<keys>
+			<key type="collation">collation</key>
+			<key type="calendar">calendar</key>
+		</keys>
+	</localeDisplayNames>
+	<layout>
+		<orientation lines="top-to-bottom" characters="left-to-right" />
+	</layout>
+		<dates>
+			<localizedPatternChars>GyMdkHmsSEDFwWahKz</localizedPatternChars>
+			<calendars>
+				<default type="gregorian"/>
+				<calendar type="gregorian">
+					<monthNames>
+						<month type="1">gennaio</month>
+						<month type="2">febbraio</month>
+						<month type="3">marzo</month>
+						<month type="4">aprile</month>
+						<month type="5">maggio</month>
+						<month type="6">giugno</month>
+						<month type="7">luglio</month>
+						<month type="8">agosto</month>
+						<month type="9">settembre</month>
+						<month type="10">ottobre</month>
+						<month type="11">novembre</month>
+						<month type="12">dicembre</month>
+						<month type="13"></month>
+					</monthNames>
+					<monthAbbr>
+						<month type="1">gen</month>
+						<month type="2">feb</month>
+						<month type="3">mar</month>
+						<month type="4">apr</month>
+						<month type="5">mag</month>
+						<month type="6">giu</month>
+						<month type="7">lug</month>
+						<month type="8">ago</month>
+						<month type="9">set</month>
+						<month type="10">ott</month>
+						<month type="11">nov</month>
+						<month type="12">dic</month>
+						<month type="13"></month>
+					</monthAbbr>
+					<dayNames>
+						<day type="sun">domenica</day>
+						<day type="mon">lunedì</day>
+						<day type="tue">martedì</day>
+						<day type="wed">mercoledì</day>
+						<day type="thu">giovedì</day>
+						<day type="fri">venerdì</day>
+						<day type="sat">sabato</day>
+					</dayNames>
+					<dayAbbr>
+						<day type="sun">dom</day>
+						<day type="mon">lun</day>
+						<day type="tue">mar</day>
+						<day type="wed">mer</day>
+						<day type="thu">gio</day>
+						<day type="fri">ven</day>
+						<day type="sat">sab</day>
+					</dayAbbr>
+					<eras>
+						<era type="1">BC</era>
+						<era type="2">dopo Cristo</era>
+					</eras>
+					<dateFormats>
+						<default type="medium"/>
+						<dateFormat type="full">
+							<pattern>EEEE d MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="long">
+							<pattern>d MMMM yyyy</pattern>
+						</dateFormat>
+						<dateFormat type="medium">
+							<pattern>d-MMM-yy</pattern>
+						</dateFormat>
+						<dateFormat type="short">
+							<pattern>dd/MM/yy</pattern>
+						</dateFormat>
+					</dateFormats>
+					<timeFormats>
+						<default type="medium"/>
+						<timeFormat type="full">
+							<pattern>H.mm.ss z</pattern>
+						</timeFormat>
+						<timeFormat type="long">
+							<pattern>H.mm.ss z</pattern>
+						</timeFormat>
+						<timeFormat type="medium">
+							<pattern>H.mm.ss</pattern>
+						</timeFormat>
+						<timeFormat type="short">
+							<pattern>H.mm</pattern>
+						</timeFormat>
+					</timeFormats>
+					<dateTimeFormat>
+						<pattern>{1} {0}</pattern>
+					</dateTimeFormat>
+				</calendar>
+			</calendars>
+			<timeZoneNames>
+			</timeZoneNames>
+		</dates>
 </localeData>

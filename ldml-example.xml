@@ -3,7 +3,7 @@
 <localeData>
 <!--
 Locale Data Format
-Draft: 2000-06-16
+Draft: 2002-10-24
 
 Format that contains the required locale data for use by Java, ICU and POSIX APIs.
 Note: constructing a POSIX locale also requires use of the Unicode Character Database data.
@@ -15,23 +15,61 @@ NOTE: The data for any given locale will only contain items that are different f
 For example, most country locales will inherit the bulk of their data from the language locale:
 "en" will contain the bulk of the data: en_US will only contain a few items like currency.
 -->
-     <identity>
-        <generation date="2002-08-28" />
+    <identity>
+        <generation date="2002-10-24" />
         <version number="1.1">Various notes and changes in version 1.1</version>
         <!-- Two letter codes, if available; otherwise 3-letter codes.If both exist, a separate database contains the mapping. -->
-        <language id="en"/>
-        <country id="US"/>
+        <language type="en"/>
+        <country type="US"/>
 
         <!-- Only one variant allowed for now -->
-        <variant id="B"/>
+        <variant type="B"/>
         <correspondsTo type="lcid" value="0409"/>
-     </identity>
-     <layout>
+    </identity>
+    <localeDisplayNames>
+        <!--
+        Display names for scripts, languages, countries, and variants in this locale
+        -->
+        <scripts>
+            <!-- IDs come from the Unicode Tech Report on scripts -->
+            <script type="Latin">Romana</script>
+            <script type="Cyrillic">Kyrillica</script>
+         </scripts>
+
+        <languages>
+            <language type="ab">Abkhazian</language>
+            <language type="aa">Afar</language>
+            <language type="af">Afrikaans</language>
+            <language type="sq">Albanian</language>
+        </languages>
+
+        <countries>
+            <territory type="AF">Afghanistan</territory>
+            <territory type="AL">Albania</territory>
+            <territory type="DZ">Algeria</territory>
+            <territory type="AD">Andorra</territory>
+            <territory type="AO">Angola</territory>
+            <territory type="US">United States</territory>
+        </countries>
+
+        <variants>
+            <!-- Variant IDs must be unique across ALL locales. Currently they include
+            B, NY, EURO -->
+            <variant type="B">Bokm&#x00e5;l</variant>
+        </variants>
+        <keys>
+            <key type="collation">Sortierung</key>
+        </keys>
+        <types>
+            <type type="phonebook" key="collation">Telefonbuch</type>
+        </types>
+    </localeDisplayNames>
+    <layout>
         <orientation lines="top-to-bottom" characters="left-to-right" />    <!-- both attributes are required -->
-     </layout>
-     <encodings>
+    </layout>
+    <encodings>
         <!-- follows the UnicodeSet syntax -->
-        <exemplarCharacters>[a-z&#x00E5;&#x00E6;&#x00F8;]</exemplarCharacters>"   
+        <exemplarCharacters>[a-z&#x00E5;&#x00E6;&#x00F8;]</exemplarCharacters>
         <!--
         List of encodings that are in common use in this locale.
         The order is not significant.
@@ -40,159 +78,143 @@ For example, most country locales will inherit the bulk of their data from the l
         (It is assumed that the largest available version is chosen.)
         The required letters can also be used to select appropriate encodings.
         -->
-       <mapping id="windows-1252"/>
-       <mapping id="iso-8859_1"/>
-       <mapping id="euc-jp"/>
-     </encodings>
-
-    <displayNames>
-        <!--
-        Display names for scripts, languages, countries, and variants in this locale
-        -->
-        <scripts>
-            <!-- IDs come from the Unicode Tech Report on scripts -->
-            <script id="Latin">Romana</script>
-            <script id="Cyrillic">Kyrillica</script>
-         </scripts>
-
-        <languages>
-            <language id="ab">Abkhazian</language>
-            <language id="aa">Afar</language>
-            <language id="af">Afrikaans</language>
-            <language id="sq">Albanian</language>
-        </languages>
-
-        <countries>
-            <country id="AF">Afghanistan</country>
-            <country id="AL">Albania</country>
-            <country id="DZ">Algeria</country>
-            <country id="AD">Andorra</country>
-            <country id="AO">Angola</country>
-            <country id="US">United States</country>
-        </countries>
-
-        <variants>
-            <!-- Variant IDs must be unique across ALL locales. Currently they include
-            B, NY, EURO -->
-            <variant id="B">Bokm&#x00e5;l</variant>
-        </variants>
-        <keywords>
-            <keyword id="collation">Sortierung</keyword >
-        </keywords>
-        <options>
-            <option id="phonebook" keyword="collation">Telefonbuch</option >
-        </options>
-    </displayNames>
-
+       <mapping registry="iana" type="windows-1252"/>
+       <mapping registry="iana" type="iso-8859_1"/>
+       <mapping registry="iana" type="euc-jp"/>
+    </encodings>
+    <delimiters>
+       <quotationStart>'</quotationStart>
+       <quotationEnd>'</quotationEnd>
+       <doubleQuotationStart>&#x201C;</doubleQuotationStart>
+       <doubleQuotationEnd>&#x201D;</doubleQuotationEnd>
+    </delimiters>
+    <measurement>
+        <paperSize>
+            <!-- Papersize. The numbers are always in millimeters.
+             The units name is the customary unit for that locale for measuring paper. -->
+            <height>279</height>
+            <width>216</width>
+            <units>mm</units>
+        </paperSize>
+        <!-- Measurement system: US/ISO 1000/Other -->
+        <measurementSystem type="US"/>
+    </measurement>
     <dates>
         <!--
-        There can be multiple calendars in the same locale, e.g. Gregorian + Imperial Japanese.
-        The ids must match what is produced by the calendar system.
+        Patterns used for formatting and parsing dates and times for this calendar
         -->
-        <calendar class="Gregorian" default="true">
-            <monthNames>
-                <month id="1">january</month>
-                <month id="2">february</month>
-                <month id="3">march</month>
-                <month id="4">april</month>
-                <month id="5">may</month>
-                <month id="6">june</month>
-                <month id="7">july</month>
-                <month id="8">august</month>
-                <month id="9">September</month>
-                <month id="10">October</month>
-                <month id="11">November</month>
-                <month id="12">December</month>
-            </monthNames>
-            <monthAbbr>
-                <month id="1">Jan</month>
-                <month id="2">Feb</month>
-                <month id="3">Mar</month>
-                <month id="4">Apr</month>
-                <month id="5">May</month>
-                <month id="6">Jun</month>
-                <month id="7">Jul</month>
-                <month id="8">Aug</month>
-                <month id="9">Sep</month>
-                <month id="10">Oct</month>
-                <month id="11">Nov</month>
-                <month id="12">Dec</month>
-            </monthAbbr>
-
-            <dayNames>
-                <day id="sun">Sunday</day>
-                <day id="mon">Monday</day>
-                <day id="tue">Tuesday</day>
-                <day id="wed">Wednesday</day>
-                <day id="thu">Thursday</day>
-                <day id="fri">Friday</day>
-                <day id="sat">Saturday</day>
-            </dayNames>
-            <dayAbbr>
-                <day id="sun">Sun</day>
-                <day id="mon">Mon</day>
-                <day id="tue">Tue</day>
-                <day id="wed">Wed</day>
-                <day id="thu">Thu</day>
-                <day id="fri">Fri</day>
-                <day id="sat">Sat</day>
-            </dayAbbr>
-            <week>
-                <minDays>1</minDays>
-                <firstDay id="sun"/>
-                <weekendStart>
-                    <day id="fri"></day>
-                    <time>18:00</time>
-                </weekendStart>
-                <weekendEnd>
-                    <day id="sun"></day>
-                    <time>18:00</time>
-                </weekendEnd>
-            </week>
-            <am>AM</am>
-            <pm>PM</pm>
-
-             <eras>
-                <!-- Non-gregorians may have many more eras -->
-                <era id="0">BC</era>
-                <era id="1">AD</era>
-            </eras>
-            <dateTimeFormat default="true">
-               <!--
-                        Patterns used for formatting and parsing dates and times for this calendar
-                -->
-                <localizedPatternChars>GyMdkHmsSEDFwWahKz</localizedPatternChars>
-                <pattern class="date" type="medium" default="true">
+        <localizedPatternChars>GyMdkHmsSEDFwWahKz</localizedPatternChars>
+        <calendars>
+          <!--
+          There can be multiple calendars in the same locale, e.g. Gregorian + Imperial Japanese.
+          The type's must match what is produced by the calendar system.
+          -->
+          <default type="Gregorian"/>
+          <calendar type="Gregorian">
+              <monthNames>
+                  <month type="1">january</month>
+                  <month type="2">february</month>
+                  <month type="3">march</month>
+                  <month type="4">april</month>
+                  <month type="5">may</month>
+                  <month type="6">june</month>
+                  <month type="7">july</month>
+                  <month type="8">august</month>
+                  <month type="9">September</month>
+                  <month type="10">October</month>
+                  <month type="11">November</month>
+                  <month type="12">December</month>
+              </monthNames>
+              <monthAbbr>
+                  <month type="1">Jan</month>
+                  <month type="2">Feb</month>
+                  <month type="3">Mar</month>
+                  <month type="4">Apr</month>
+                  <month type="5">May</month>
+                  <month type="6">Jun</month>
+                  <month type="7">Jul</month>
+                  <month type="8">Aug</month>
+                  <month type="9">Sep</month>
+                  <month type="10">Oct</month>
+                  <month type="11">Nov</month>
+                  <month type="12">Dec</month>
+              </monthAbbr>
+  
+              <dayNames>
+                  <day type="sun">Sunday</day>
+                  <day type="mon">Monday</day>
+                  <day type="tue">Tuesday</day>
+                  <day type="wed">Wednesday</day>
+                  <day type="thu">Thursday</day>
+                  <day type="fri">Friday</day>
+                  <day type="sat">Saturday</day>
+              </dayNames>
+              <dayAbbr>
+                  <day type="sun">Sun</day>
+                  <day type="mon">Mon</day>
+                  <day type="tue">Tue</day>
+                  <day type="wed">Wed</day>
+                  <day type="thu">Thu</day>
+                  <day type="fri">Fri</day>
+                  <day type="sat">Sat</day>
+              </dayAbbr>
+              <week>
+                  <minDays count="1"/>
+                  <firstDay day="sun"/>
+                  <weekendStart day="fri" time="18:00"/>
+                  <weekendEnd day="sun" time="18:00"/>
+              </week>
+              <am>AM</am>
+              <pm>PM</pm>
+  
+               <eras>
+                  <!-- Non-gregorians may have many more eras -->
+                  <era type="0">BC</era>
+                  <era type="1">AD</era>
+              </eras>
+              <dateFormats>
+                <default type="medium"/>
+                <dateFormat type="medium">
                     <!--  Optional special element for platform/application specific overheads. Paser can
                           choose to ignore if required  -->
-                      <special owner="http://www.openoffice.org" msgid="DateFormatskey3" usage="DATE" formatindex="20" />
-                      <patternCode >MM d, yyyy </patternCode>
-                      <patternName>DIN 5008 (EN 28601)</patternName>
-                 </pattern>
-                 <pattern class="date" type="full" default="true">
+                      <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
+                      <pattern>MM d, yyyy </pattern>
+                      <displayName>DIN 5008 (EN 28601)</displayName>
+                 </dateFormat>
+                 <dateFormat type="full">
                     <!--  Optional special element for platform/application specific overheads. Paser can
                           choose to ignore if required  -->
-                      <special owner="http://www.openoffice.org" msgid="DateFormatskey3" usage="DATE" formatindex="20" />
-                      <patternCode>EEEE, MMMM d, yyyy</patternCode>
-                      <patternName>DIN 5008 (EN 28601)</patternName>
-                 </pattern>
-                  <pattern class="date" type="full">
+                      <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
+                      <pattern>EEEE, MMMM d, yyyy</pattern>
+                      <displayName>DIN 5008 (EN 28601)</displayName>
+                 </dateFormat>
+              </dateFormats>
+              <timeFormats>
+                  <default type="medium"/>
+                  <timeFormat type="full">
                     <!--  Optional special element for platform/application specific overheads. Paser can
                           choose to ignore if required  -->
-                      <special owner="http://www.openoffice.org" msgid="DateFormatskey3" usage="DATE" formatindex="20" />
-                      <patternCode>h:mm:ss a z</patternCode>
-                      <patternName>DIN 5008 (EN 28601)</patternName>
-                 </pattern>
-                <pattern class="dateTime" default="true">{0} {1}</pattern>
-            </dateTimeFormat>
-        </calendar>
+                      <special owner="http://www.openoffice.org" msgtype="DateFormatskey3" usage="DATE" formatindex="20" />
+                      <pattern>h:mm:ss a z</pattern>
+                      <displayName>DIN 5008 (EN 28601)</displayName>
+                 </timeFormat>
+                 <timeFormat type="medium">
+                      <pattern>h:mm:ss a</pattern>
+                 </timeFormat>
+              </timeFormats>
+              <dateTimeFormat>
+                  <pattern>{0} {1}</pattern>
+              </dateTimeFormat>
+          </calendar>
+  
+          <!-- The Buddhist calendar inherits month names, etc. (everything but eras) from Gregorian -->
+          <calendar type="Buddhist">
+              <eras>
+                  <era type="0">BE</era>
+              </eras>
+          </calendar>
+        </calendars>
 
-        <!-- The Buddhist calendar inherits month names, etc. (everything but eras) from Gregorian -->
-        <calendar class="Buddhist" inheritsFrom="Gregorian">
-            <eras>
-                <era id="0">BE</era>
-            </eras>
-        </calendar>
         <timeZoneNames>
                 <!--
                 The zone id's are language-independent.
@@ -200,7 +222,8 @@ For example, most country locales will inherit the bulk of their data from the l
                 are stored elsewhere
                 Here we just have the localized names for them.
                 -->
-                <zone id="America/Los_Angeles" default="true">
+                <default type="America/Los_Angeles"/>
+                <zone type="America/Los_Angeles">
                     <long>
                         <generic>Pacific Time</generic>
                         <standard>Pacific Standard Time</standard>
@@ -214,7 +237,7 @@ For example, most country locales will inherit the bulk of their data from the l
                     <exemplarCity>Los Angeles</exemplarCity>
                 </zone>
 
-                <zone id="America/Denver">
+                <zone type="America/Denver">
                     <long>
                         <generic>Mountain Time</generic>
                         <standard>Mountain Standard Time</standard>
@@ -228,7 +251,7 @@ For example, most country locales will inherit the bulk of their data from the l
                     <exemplarCity>Denver</exemplarCity>
                 </zone>
 
-                <zone id="Europe/London">
+                <zone type="Europe/London">
                      <long>
                         <generic>British Time</generic>
                         <standard>British Standard Time</standard>
@@ -239,151 +262,59 @@ For example, most country locales will inherit the bulk of their data from the l
 
         </timeZoneNames>
    </dates>
-
-   <delimiters>
-       <quotationStart>'</quotationStart>
-       <quotationEnd>'</quotationEnd>
-       <doubleQuotationStart>&#x201C;</doubleQuotationStart>
-       <doubleQuotationEnd>&#x201D;</doubleQuotationEnd>
-   </delimiters>
    <numbers>
-       <numberFormat class="decimal" default="true">
-          <!--
-           There can be multiple number formats for the same locale.
-           Only one can be marked as "default"
-          -->
-          <!--  The class of symbol together with it's identifier "id=", position and value allows for
-            -->
-          <pattern type="decimal">
-              <special owner="http://www.openoffice.org" msgid="FixedFormatskey5" usage="FIXED_NUMBER" formatindex="4" />
-              <patternCode type="positive">#,##0.###</patternCode>
-              <patternCode type="negative">-#,##0.###</patternCode>
-          </pattern>
-          <pattern type="percent">
-              <special owner="http://www.openoffice.org" msgid="FixedFormatskey6" usage="FIXED_NUMBER" formatindex="4" />
-              <patternCode type="positive">#,##0%</patternCode>
-          </pattern>
-          <pattern type="scientific">
-              <special owner="http://www.openoffice.org" msgid="FixedFormatskey7" usage="FIXED_NUMBER" formatindex="4" />
-              <patternCode >#,##0%</patternCode>
-          </pattern>
-       </numberFormat>
-       <symbols>
-          <decimal>.</decimal>
-          <group>,</group>
-          <list>;</list>
-          <percentSign>%</percentSign>
-          <nativeZeroDigit>0</nativeZeroDigit>
-          <patternDigit>#</patternDigit>
-          <plusSign>+</plusSign>
-          <minusSign>-</minusSign>
-          <exponential>E</exponential>
-          <perMille>&#x2030;</perMille>
-          <infinity>&#x221e;</infinity>
-          <nan>&#x2639;</nan>
-       </symbols>
-       <ruleBasedNumberFormats>
-            <ruleBasedNumberFormat type="spellout">
-                %simplified:
-                    -x: minus &gt;&gt;;
-                    x.x: &lt;&lt; point &gt;&gt;;
-                    zero; one; two; three; four; five; six; seven; eight; nine;
-                    ten; eleven; twelve; thirteen; fourteen; fifteen; sixteen;
-                        seventeen; eighteen; nineteen;
-                    20: twenty[-&gt;&gt;];
-                    30: thirty[-&gt;&gt;];
-                    40: forty[-&gt;&gt;];
-                    50: fifty[-&gt;&gt;];
-                    60: sixty[-&gt;&gt;];
-                    70: seventy[-&gt;&gt;];
-                    80: eighty[-&gt;&gt;];
-                    90: ninety[-&gt;&gt;];
-                    100: &lt;&lt; hundred[ &gt;&gt;];
-                    1000: &lt;&lt; thousand[ &gt;&gt;];
-                    1,000,000: &lt;&lt; million[ &gt;&gt;];
-                    1,000,000,000: &lt;&lt; billion[ &gt;&gt;];
-                    1,000,000,000,000: &lt;&lt; trillion[ &gt;&gt;];
-                    1,000,000,000,000,000: =#,##0=;
-                %default:
-                    -x: minus &gt;&gt;;
-                    x.x: &lt;&lt; point &gt;&gt;;
-                    =%simplified=;
-                    100: &lt;&lt; hundred[ &gt;%%and&gt;];
-                    1000: &lt;&lt; thousand[ &gt;%%and&gt;];
-                    100,000&gt;&gt;: &lt;&lt; thousand[&gt;%%commas&gt;];
-                    1,000,000: &lt;&lt; million[&gt;%%commas&gt;];
-                    1,000,000,000: &lt;&lt; billion[&gt;%%commas&gt;];
-                    1,000,000,000,000: &lt;&lt; trillion[&gt;%%commas&gt;];
-                    1,000,000,000,000,000: =#,##0=;
-                %%and:
-                    and =%default=;
-                    100: =%default=;
-                %%commas:
-                    ' and =%default=;
-                    100: , =%default=;
-                    1000: , 
-            </ruleBasedNumberFormat>
-            <special owner="http://oss.software.ibm.com/icu/">
-                <ruleBasedNumberFormat type="ordinal">
-                    %main:
-                        =#,##0==%%abbrev=;
-                    %%abbrev:
-                        th; st; nd; rd; th;
-                        20: &gt;&gt;;
-                        100: &gt;&gt;;
-                </ruleBasedNumberFormat>
-                <ruleBasedNumberFormat type="duration">
-                %with-words:
-                    0 seconds; 1 second; =0= seconds;
-                    60/60: 
-                </ruleBasedNumberFormat>
-            </special>
-       </ruleBasedNumberFormats>
-
-       <currencies>
-            <currency id="USD"  default="true">
-                <symbol>$</symbol>
-                <decimal>.</decimal>
-                <group>,</group>
-                <name>US Dollar</name>
-                <currencyFormat>
-                    <pattern>
-                        <special owner="http://www.openoffice.org" msgid="FixedFormatskey9" usage="FIXED_NUMBER" formatindex="4" />
-                        <patternCode type="positive">&#x00a4; #,##0.00;</patternCode>
-                        <patternCode type="negative">(&#x00a4; #,##0.00)</patternCode>
-                    </pattern>
-                </currencyFormat>
-            </currency>
-            <currency id ="JPY" >
-                <symbol>&#x00A5;</symbol>
-                <group>,</group>
-                <decimal>.</decimal>
-                <name>Japanese Yen</name>
-                <currencyFormat default="true">
-                    <pattern>
-                        <special owner="http://www.openoffice.org" msgid="FixedFormatskey9" usage="FIXED_NUMBER" formatindex="4" />
-                        <patternCode type="positive">&#x00a4; #,##0.00;</patternCode>
-                        <patternCode type="negative">(&#x00a4; #,##0.00)</patternCode>
-                    </pattern>
-                </currencyFormat>
-            </currency>
-            <currency id ="perEuro" >
-                <symbol>DM</symbol>
-                <group>,</group>
-                <decimal>.</decimal>
-                <name>Mark</name>
-                <currencyFormat>
-                    <pattern>
-                        <special owner="http://www.openoffice.org" msgid="FixedFormatskey9" usage="FIXED_NUMBER" formatindex="4" />
-                        <patternCode type="positive">&#x00a4; #,##0.00;</patternCode>
-                        <patternCode type="negative">(&#x00a4; #,##0.00)</patternCode>
-                    </pattern>
-                </currencyFormat>
-            </currency>
-        </currencies>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>&#x2030;</perMille>
+			<infinity>&#x221e;</infinity>
+			<nan>&#x2639;</nan>
+		</symbols>
+		<numberFormats>
+			<default type="decimal"/>
+			<numberFormat type="decimal">
+				<pattern type="positive">#,##0.###</pattern>
+				<pattern type="negative">-#,##0.###</pattern>
+			</numberFormat>
+			<numberFormat type="percent">
+				<pattern type="positive">#,##0%</pattern>
+			</numberFormat>
+			<numberFormat type="scientific">
+				<pattern >#,##0%</pattern>
+			</numberFormat>
+			<numberFormat type="currency">
+				<pattern type="positive">&#x00a4; #,##0.00;</pattern>
+				<pattern type="negative">(&#x00a4; #,##0.00)</pattern>
+			</numberFormat>
+		</numberFormats>
+		<currencies>
+			<default type="USD"/>
+			<!-- If no decimal and group seperators are specified that implies
+				 they are inherited from symbols section above -->
+			<currency type="USD">
+				<displayName>dollar</displayName>
+				<symbol>$</symbol>
+			</currency>
+			<currency id ="JPY">
+				<displayName>yen</displayName>
+				<symbol>&#x00A5;</symbol>
+			</currency>
+			<currency id ="PTE">
+				<displayName>escudo</displayName>
+				<symbol>Esc.</symbol>
+				<decimal>$</decimal>
+			</currency>
+		</currencies>
     </numbers>
     <collations>
-        <collation version="1.5" keyword="default" accentOrder="reverse" override="true">
+        <collation>
 
             <!--
             This syntax is an XMLized version of the Java/ICU syntax, used to tailor the default table.
@@ -400,73 +331,119 @@ For example, most country locales will inherit the bulk of their data from the l
             French accent ordering can be specified with the accentOrder="reverse" attribute.
             The displayName attribute supplies a message pattern for getDisplayName.
             -->
-            <!-- this example takes the swedish tailoring plus part of a japanese
-            tailoring, for illustration -->
-            <reset>Z</reset>
-            <p>&#x00E6;</p>
-            <t>&#x00C6;</t>
-            <p>a&#x030A;</p>
-            <t>A&#x030A;</t>
-            <t>aa</t>
-            <t>aA</t>
-            <t>Aa</t>
-            <t>AA</t>
-            <p>a&#x0308;</p>
-            <t>A&#x0308;</t>
-            <p>o&#x0308;</p>
-            <t>O&#x0308;</t>
-            <s>u&#x030B;</s>
-            <t>U&#x030B;</t>
-            <p>o&#x030B;</p>
-            <t>O&#x030B;</t>
-            <s>&#x00F8;</s>
-            <t>&#x00D8;</t>
-            <reset>V</reset>
-            <!-- following is equivalent to <t>w</t><t>W</t><t>u&#x0308;</t><t>U&#x0308;</t> -->
-            <tc>wWu&#x0308;U&#x0308;</tc>
-            <position at="last non ignorable"/>
-            <!-- following is equivalent to <p>&#x4E9C;</p><p>&#x5516;</p><p>&#x5A03;</p>... -->
-            <pc>&#x4E9C;&#x5516;&#x5A03;&#x963F;&#x54C0;&#x611B;&#x6328;&#x59F6;&#x9022;&#x8475;&#x831C;&#x7A50;&#x60AA;&#x63E1;&#x6E25;&#x65ED;&#x8466;&#x82A6;</pc>
-            <pc>&#x9BF5;&#x6893;&#x5727;&#x65A1;&#x6271;</pc>
+			<base UCA="3.1.1"/>
+			<settings caseLevel="on"/>
+			<rules>
+				<!-- this example takes the swedish tailoring plus part of a japanese tailoring, 
+				for illustration -->
+				<reset>Z</reset>
+				<p>&#x00E6;</p>
+				<t>&#x00C6;</t>
+				<p>a&#x030A;</p>
+				<t>A&#x030A;</t>
+				<t>aa</t>
+				<t>aA</t>
+				<t>Aa</t>
+				<t>AA</t>
+				<p>a&#x0308;</p>
+				<t>A&#x0308;</t>
+				<p>o&#x0308;</p>
+				<t>O&#x0308;</t>
+				<s>u&#x030B;</s>
+				<t>U&#x030B;</t>
+				<p>o&#x030B;</p>
+				<t>O&#x030B;</t>
+				<s>&#x00F8;</s>
+				<t>&#x00D8;</t>
+				<reset>V</reset>
+				<tc>wW</tc>
+				<reset>Y</reset>
+				<tc>&#x00FC;&#x00DC;</tc>
+				<position at="last non ignorable"/>
+				<!-- following is equivalent to <p>&#x4E9C;</p><p>&#x5516;</p><p>&#x5A03;</p>... -->
+				<pc>&#x4E9C;&#x5516;&#x5A03;&#x963F;&#x54C0;&#x611B;&#x6328;&#x59F6;&#x9022;&#x8475;&#x831C;&#x7A50;&#x60AA;&#x63E1;&#x6E25;&#x65ED;&#x8466;&#x82A6;</pc>
+				<pc>&#x9BF5;&#x6893;&#x5727;&#x65A1;&#x6271;</pc>
+			</rules>
             <special owner="http://www.openoffice.org">
-                <collator unoid="alphanumeric" default="true"/>
-                <collator unoid="phonebook" default="false"/>
+                <default type="alphanumeric"/>
+                <collator type="alphanumeric" />
+                <collator type="phonebook"/>
             </special>
         </collation>
-        <collation version="1.5" keyword="phonebook" accentOrder="reverse" override="true">
-            <alias source="http://oss.software.ibm.com/icu/locales/solaris/de_de.xml/?version=2.1&amp;collation=phonebook"/>
+        <collation key="phonebook">
+            <alias source="de_DE" type="phonebook"/>
         </collation>
 
     </collations>
-    <boundaries>
-         <!-- Boundary rules.
-        Selected samples are given with no attempt to make them work.
-        This format is the Java/ICU syntax, at the top level.
-        For real data, see http://oss.software.ibm.com/developerworks/opensource/cvs/icu4j
-        in BreakIteratorRules.java
-        displayName attributes removed for now
-        -->
-        <grapheme class="RuleBased">
-            <!-- in addition to the normal rules, treat CH and RR as graphemes. -->
-            [cC][hH];[rR][rR]
-        </grapheme>
-        <word class="Dictionary" import="thaiDict.dat" >
-            <!-- When doing Thai word break, check the normal word break rules first. -->
-            digit=[[:Nd:][:No:]];
-            $digit [[:Pd:]&#xAD;&#x2027;&apos;.]
-        </word>
-    </boundaries>
-    <measurement>
-        <paperSize>
-            <!-- Papersize. The numbers are always in millimeters.
-             The units name is the customary unit for that locale for measuring paper. -->
-            <height>279</height>
-            <width>216</width>
-            <units>mm</units>
-        </paperSize>
-        <!-- Measurement system: US/ISO 1000/Other -->
-        <measurementSystem id="US"/>
-    </measurement>
+    <special owner="http://oss.software.ibm.com/icu/">
+        <ruleBasedNumberFormats>
+            <ruleBasedNumberFormat type="spellout">
+                %%and:
+                    and =%default=;
+                    100: =%default=;
+                %%commas:
+                    ' and =%default=;
+                    100: , =%default=;
+                    1000: , 
+            </ruleBasedNumberFormat>
+            <ruleBasedNumberFormat type="ordinal">
+                %main:
+                    =#,##0==%%abbrev=;
+                %%abbrev:
+                    th; st; nd; rd; th;
+                    20: &gt;&gt;;
+                    100: &gt;&gt;;
+            </ruleBasedNumberFormat>
+            <ruleBasedNumberFormat type="duration">
+            %with-words:
+                0 seconds; 1 second; =0= seconds;
+                60/60: 
+            </ruleBasedNumberFormat>
+        </ruleBasedNumberFormats>
+        <boundaries>
+             <!-- Boundary rules.
+            Selected samples are given with no attempt to make them work.
+            This format is the Java/ICU syntax, at the top level.
+            For real data, see http://oss.software.ibm.com/developerworks/opensource/cvs/icu4j
+            in BreakIteratorRules.java
+            displayName attributes removed for now
+            -->
+            <grapheme class="RuleBased">
+                <!-- in addition to the normal rules, treat CH and RR as graphemes. -->
+                [cC][hH];[rR][rR]
+            </grapheme>
+            <word class="Dictionary" import="thaiDict.dat" >
+                <!-- When doing Thai word break, check the normal word break rules first. -->
+                digit=[[:Nd:][:No:]];
+                $digit [[:Pd:]&#xAD;&#x2027;&apos;.]
+            </word>
+        </boundaries>
+        <transforms>
+            <transform target="Latin">
+                ::NFD (NFC) ; # convert everything to decomposed for simplicity
+                ...
+                &#x03B1; &lt;> a ;  &#x0391; &lt;> A ;
+                &#x03B2; &lt;> v ;  &#x0392; &lt;> V ;
+                &#x03B3; } $gammaLike &lt;> n } $egammaLike ;
+                &#x0393; } $gammaLike &lt;> N } $egammaLike ;
+                &#x03B3; &lt;> g ;  &#x0393; &lt;> G ;
+                &#x03B4; &lt;> d ;  &#x0394; &lt;> D ;
+                &#x03B5; &lt;> e ;  &#x0395; &lt;> E ;
+                &#x03B6; &lt;> z ;  &#x0396; &lt;> Z ;
+                &#x0398; } $beforeLower &lt;> Th ;
+                &#x03B8; &lt;> th ;  &#x0398; &lt;> TH ;
+                &#x03B9; &lt;> i ;  &#x0399; &lt;> I ;
+                &#x03BA; &lt;> k ;  &#x039A; &lt;> K ;
+                &#x03BB; &lt;> l ;  &#x039B; &lt;> L ;
+                &#x03BC; &lt;> m ; &#x039C; &lt;> M ;
+                &#x03BD; } $gammaLike > n\' ;
+                &#x039D; } $gammaLike &lt;> N\' ;
+                &#x03BD; &lt;> n ; &#x039D; &lt;> N ;
+                ...
+                ::NFC (NFD) ; # convert back to composed
+            </transform>
+        </transforms>
+    </special>
     <special owner="http://www.openoffice.org">
         <numberingLevels>
             <!--
@@ -523,66 +500,12 @@ For example, most country locales will inherit the bulk of their data from the l
              This section is here because TR 14652 data is used in RedHat LINUX.
          -->
        <iso14652:iso14652 xmlns:iso14652="http://oss.software.ibm.com/icu/iso14652">
-
-
             <iso14652:addressFormat>
-                  <!--
-
-                        Postal format:
-                        POSIX          ICU              Description
-                        =====      ===========         =============
-                        %a         {co_address}         C/O address.
-                        %f         {firm_name}          Firm name.
-                        %d         {dept_name}          department name.
-                        %b         {bldg_name}          Building name.
-                        %s         {street}             street or block (eg. Japanese) name.
-                        %h         {house_num}          house number or designation.
-                        %N         {graphic_chars}      if any graphical characters have been specified then an
-                                                        of line is made.
-                        %t         {esc_seq_preced}     if the preceding escape sequence resulted in an empty
-                                                        string, then the empty string, else a <space>.
-                        %r         {room_num}           room number, door designation.
-                        %e         {floor_num}          floor number.
-                        %C         {cntry_desig}        country designation.
-                        %z         {zip}                zip number, postal code.
-                        %T         {city}               town, city.
-                        %c         {country}            country.
-
-                        Example:
-                        POSIX : postal_fmt "<%><a><%><N><%><f><%><N><%><d><%><N><%><b><%><N>/
-                                     <%><s><SP><%><h><SP><%><e><SP><%><r><%><N>/
-                                     <%><C><-><%><z><SP><%><T><%><N><%><c><%><N>"
-
-                        ICU   : "{co_address}{graphic_chars}{firm_name}{graphic_chars}{dept_name}{graphic_chars}{bldg_name}{graphic_chars}{street}\s{house_num}\s{8}\s{room_num}{graphic_chars}{cntry_desig}-{zip}\s{city}{graphic_chars}{country}{graphic_chars}"
-                -->
-                <iso14652:postalPattern>{postal_code}{country}{town}{street}{building}{floor}{room}</iso14652:postalPattern>
+                <iso14652:postalPattern>"%n%N%a%N%d%N%f%N%b%N%h %s%N%e %r%N%l%N%C-%z %T%, %S %z%N%c%N"</iso14652:postalPattern>
             </iso14652:addressFormat>
-            <iso14652:nameFormat>
-                <!-- Grab-bag name format from 14652
 
-                POSIX          ICU                     Description
-                =====      ===========                 =============
-                %f         {family_name}               Family names.
-                %F         {family_name_upper}         Family names in uppercase.
-                %g         {first_name}                First given name.
-                %G         {first_initial}             First given initial.
-                %l         {first_name_latin}          First given name with latin letters.
-                %o         {short_name}                Other shorter name, eg. "Bill".
-                %m         {middle_name}               Middle names.
-                %M         {middle_initial}            Middle initial.
-                %p         {profession}                Profession.
-                %s         {salutation}                Salutation, such as "Doctor"
-                %S         {salutation_abbr}           Abbreviated salutation, such as "Mr." or "Dr."
-                %d         {salutation_fdcc}           Salutation, using the FDCC-sets conventions, with 1 for
-                                                       the name_gen, 2 for name_mr, 3 for name_mrs, 4 for
-                                                       name_miss, 5 for name_ms.
-                %t          {esc_seq_preced}           If the preceding escape sequence resulted in an empty
-                                                            string, then the empty string, else a <space>.
-                Example:
-                POSIX    : name_fmt "<%><p><%><t><%><g><%><t><%><m><%><t><%><f>"
-                ICU  : NameFormat "{8}\s{2}\s{6}\s{0}"
-                -->
-                <namePattern> {profession} {first_name} {middle_name} {family_name}</namePattern>
+            <iso14652:nameFormat>
+                <namePattern>%p%t%g%m%t%f</namePattern>
                 <generalSalutation></generalSalutation>
                 <shortSalutationMr> Mr.</shortSalutationMr>
                 <shortSalutationMiss>Ms.</shortSalutationMiss>
@@ -611,28 +534,18 @@ For example, most country locales will inherit the bulk of their data from the l
             </iso14652:identification>
 
             <iso14652:telephoneFormat>
-                <!--
-                        Telephone format:
-                        POSIX   ICU                 Description
-                        =====   ==========          ===========
-                        %a      {area_code}         area code without prefix (prefix is often <0>).
-                        %A      {area_code_prefix}  area code including prefix (prefix is often <0>).
-                        %l      {local_num}         local number.
-                        %c      {country_code}      country code.
-                        %C      {alternative_carr}  alternative carrier service code used for dialling
-                                                    abroad
-                        %c      {contry}            country.
-
-                        Example:
-                        POSIX  :  tel_int_fmt "<+><%><c><SP><%><a><SP><%><l>"
-                        ICU    :  "+{country_code}\s{area_code}\s{local_num}"
-                -->
-                <iso14652:internationalPattern> +{country_code} {area_code}-{local_num}</iso14652:internationalPattern>
-                <iso14652:domesticPattern>({area_code}) {local_num}</iso14652:domesticPattern>
+                <iso14652:internationalPattern>+%c (%a)%t-%l</iso14652:internationalPattern>
+                <iso14652:domesticPattern>(%a)%t-%l</iso14652:domesticPattern>
                 <iso14652:internationalDialCode>001 </iso14652:internationalDialCode>
                 <iso14652:internationalPrefix> </iso14652:internationalPrefix>
             </iso14652:telephoneFormat>
-        </iso14652:iso14652>
 
+            <iso14652:countryInfo>
+              <iso14652:countryPost>US</iso14652:countryPost>
+              <iso14652:countryCar>US</iso14652:countryCar>
+              <iso14652:countryNumber type="666"/>
+              <iso14652:countryISBNNumber type="666"/>
+            </iso14652:countryInfo>
+         </iso14652:iso14652>
      </special>
 </localeData>

@@ -41,7 +41,7 @@
 <!ATTLIST icu:ruleBasedNumberFormat type NMTOKEN #IMPLIED >
 
 <!-- RBBI data -->
-<!ELEMENT icu:boundaries (alias | (icu:grapheme?, icu:word?, icu:line?, icu:sentence?)) >
+<!ELEMENT icu:boundaries (alias | (icu:grapheme?, icu:word?, icu:line?, icu:sentence?, icu:title?)) >
 
 <!ELEMENT icu:grapheme ( #PCDATA ) >
 <!ATTLIST icu:grapheme icu:class NMTOKEN #REQUIRED >
@@ -69,8 +69,8 @@
 <!ATTLIST icu:title icu:import NMTOKEN #REQUIRED >
 
 <!ELEMENT icu:breakDictionaryData EMPTY >
-<!ATTLIST icu:title icu:class NMTOKEN #REQUIRED >
-<!ATTLIST icu:title icu:import NMTOKEN #REQUIRED >
+<!ATTLIST icu:breakDictionaryData icu:class NMTOKEN #REQUIRED >
+<!ATTLIST icu:breakDictionaryData icu:import NMTOKEN #REQUIRED >
 
 <!-- RBT data  -->
 <!ELEMENT icu:transforms ( alias | (default?, icu:transform*)) >

@@ -39,7 +39,7 @@ public class POSIX_LCMonetary {
    private static final int POSITIVE = 0;
    private static final int NEGATIVE = 1;
 
-   public POSIX_LCMonetary ( Document doc , Document supp ) {
+   public POSIX_LCMonetary ( Document doc , Document supp , POSIXVariant variant ) {
 
    Node n; 
 
@@ -64,8 +64,13 @@ public class POSIX_LCMonetary {
    n = LDMLUtilities.getNode(doc, "//ldml/identity/territory");
    String territory = LDMLUtilities.getAttributeValue(n,"type");
 
-   n = LDMLUtilities.getNode(supp, "//supplementalData/currencyData/region[@iso3166='"+territory+"']/currency");
-   int_curr_symbol = LDMLUtilities.getAttributeValue(n,"iso4217");
+   if ( variant.currency.equals("default") )
+   {
+      n = LDMLUtilities.getNode(supp, "//supplementalData/currencyData/region[@iso3166='"+territory+"']/currency");
+      int_curr_symbol = LDMLUtilities.getAttributeValue(n,"iso4217");
+   }
+   else
+      int_curr_symbol = variant.currency;
 
    n = LDMLUtilities.getNode(doc, "//ldml/numbers/currencies/currency[@type='"+int_curr_symbol+"']/symbol");
    if ( n != null )

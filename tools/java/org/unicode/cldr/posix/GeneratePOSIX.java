@@ -45,9 +45,18 @@ public class GeneratePOSIX {
 
     public static void main(String[] args) throws Exception {
         UOption.parseArgs(args, options);
-        String locale = options[MATCH].value;
         if ( ! options[MATCH].doesOccur )
            Usage();
+
+        String [] matchargs = options[MATCH].value.split("@",2);
+        String locale = matchargs[0];
+        String variant_string;
+        POSIXVariant variant;
+
+        if ( options[MATCH].value.indexOf("@") > 0 )
+           variant = new POSIXVariant(matchargs[1]);
+        else
+           variant = new POSIXVariant();
 
         String codeset = options[CHARSET].value;
         String cldr_data_location = options[SOURCEDIR].value;
@@ -68,15 +77,17 @@ public class GeneratePOSIX {
            System.out.println("Error: Specifying a non-UTF-8 codeset and repertoire or collation overrides are mutually exclusive.");
            Usage();
         }
-    	POSIXLocale pl = new POSIXLocale(locale,cldr_data_location,repertoire,Charset.forName(options[CHARSET].value),codeset,collate_set);
-        PrintWriter out = BagFormatter.openUTF8Writer(options[DESTDIR].value+File.separator,locale + "." + codeset + ".src");
+
+
+    	POSIXLocale pl = new POSIXLocale(locale,cldr_data_location,repertoire,Charset.forName(options[CHARSET].value),codeset,collate_set,variant);
+        PrintWriter out = BagFormatter.openUTF8Writer(options[DESTDIR].value+File.separator,options[MATCH].value + "." + codeset + ".src");
         pl.write(out);
         out.close();
     }
 
     public static void Usage () {
 
-    System.out.println("Usage: GeneratePOSIX [-s source_dir] [-d target_dir] -m locale_name");
+    System.out.println("Usage: GeneratePOSIX [-s source_dir] [-d target_dir] -m locale_name[@variants]");
     System.out.println("                     { [-c codeset] | [-u repertoire_set][-x collation_set] }");
     System.out.println("where:");
     System.out.println("   -s source_dir is the directory where CLDR .xml files reside");

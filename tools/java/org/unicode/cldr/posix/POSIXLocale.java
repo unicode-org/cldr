@@ -44,7 +44,7 @@ public class POSIXLocale {
    POSIX_LCMessages lc_messages;
    
 
-   public POSIXLocale ( String locale_name , String cldr_data_location , UnicodeSet repertoire, Charset cs, String codeset, UnicodeSet collateset ) throws Exception {
+   public POSIXLocale ( String locale_name , String cldr_data_location , UnicodeSet repertoire, Charset cs, String codeset, UnicodeSet collateset , POSIXVariant variant ) throws Exception {
 
       this.locale_name = locale_name;
       this.codeset = codeset;
@@ -90,7 +90,7 @@ public class POSIXLocale {
         repertoire = new UnicodeSet(UnicodeSet.MIN_VALUE,UnicodeSet.MAX_VALUE).retainAll(csset);
      }
 
-      lc_collate = new POSIX_LCCollate( doc, repertoire, collrules , collateset , codeset );
+      lc_collate = new POSIX_LCCollate( doc, repertoire, collrules , collateset , codeset , variant );
 
       if ( codeset.equals("UTF-8") )
       {
@@ -121,7 +121,7 @@ public class POSIXLocale {
       
       lc_ctype = new POSIX_LCCtype ( doc, repertoire );
       lc_numeric = new POSIX_LCNumeric( doc );
-      lc_monetary = new POSIX_LCMonetary( doc , supp );
+      lc_monetary = new POSIX_LCMonetary( doc , supp , variant );
       lc_time = new POSIX_LCTime( doc );
       lc_messages = new POSIX_LCMessages( doc );
 

@@ -45,7 +45,7 @@ public class POSIX_LCCollate {
    Document collrules;
    int longest_char;
 
-   public POSIX_LCCollate ( Document doc, UnicodeSet repertoire, Document collrules , UnicodeSet CollateSet , String codeset ) throws Exception
+   public POSIX_LCCollate ( Document doc, UnicodeSet repertoire, Document collrules , UnicodeSet CollateSet , String codeset , POSIXVariant variant ) throws Exception
    {
      Node n;
      String rules = "";
@@ -64,11 +64,11 @@ public class POSIX_LCCollate {
 
      if ( collrules != null )
      {
-        n = LDMLUtilities.getNode(collrules, "//ldml/collations/collation[@type='standard']/settings");
+        n = LDMLUtilities.getNode(collrules, "//ldml/collations/collation[@type='"+variant.collation_type+"']/settings");
         if ( n != null )
            settings = POSIXUtilities.CollationSettingString(n);
    
-        n = LDMLUtilities.getNode(collrules, "//ldml/collations/collation[@type='standard']/rules");
+        n = LDMLUtilities.getNode(collrules, "//ldml/collations/collation[@type='"+variant.collation_type+"']/rules");
         if ( n != null )
            rules = POSIXUtilities.CollationRuleString(n);
 

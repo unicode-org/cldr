@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="1.2"/>
-		<generation date="2004-06-04"/>
+		<version number="1.3"/>
+		<generation date="2005-02-03T21:09:39Z"/>
 		<language type="cy"/>
 	</identity>
 	<localeDisplayNames>
 		<languages>
 			<language type="cy">Cymraeg</language>
+			<language type="de">Almaeneg</language>
+			<language type="en">Saesneg</language>
+			<language type="es">Sbaeneg</language>
+			<language type="fr">Ffrangeg</language>
+			<language type="it">Eidaleg</language>
+			<language type="ja">Siapaneeg</language>
+			<language type="pt">Portiwgaleg</language>
+			<language type="ru">Rwsieg</language>
+			<language type="zh">Tseineeg</language>
 		</languages>
+		<scripts>
+			<script type="Latn">Lladin</script>
+		</scripts>
 		<territories>
+			<territory type="BR">Brasil</territory>
+			<territory type="CN">Tseina</territory>
+			<territory type="DE">Yr Almaen</territory>
+			<territory type="FR">Ffrainc</territory>
 			<territory type="GB">Prydain Fawr</territory>
+			<territory type="IN">India</territory>
+			<territory type="IT">Yr Eidal</territory>
+			<territory type="JP">Siapan</territory>
+			<territory type="RU">Rwsia</territory>
+			<territory type="US">Yr Unol Daleithiau</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
@@ -35,6 +56,20 @@
 							<month type="10">Hyd</month>
 							<month type="11">Tach</month>
 							<month type="12">Rhag</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">I</month>
+							<month type="2">C</month>
+							<month type="3">M</month>
+							<month type="4">E</month>
+							<month type="5">M</month>
+							<month type="6">M</month>
+							<month type="7">G</month>
+							<month type="8">A</month>
+							<month type="9">M</month>
+							<month type="10">H</month>
+							<month type="11">T</month>
+							<month type="12">R</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Ionawr</month>
@@ -63,6 +98,15 @@
 							<day type="fri">Gwen</day>
 							<day type="sat">Sad</day>
 						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">S</day>
+							<day type="mon">L</day>
+							<day type="tue">M</day>
+							<day type="wed">M</day>
+							<day type="thu">I</day>
+							<day type="fri">G</day>
+							<day type="sat">S</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Dydd Sul</day>
 							<day type="mon">Dydd Llun</day>
@@ -77,5 +121,33 @@
 			</calendar>
 		</calendars>
 	</dates>
+	<numbers>
+		<currencies>
+			<currency type="BRL">
+				<displayName>Real Brasil</displayName>
+			</currency>
+			<currency type="CNY">
+				<displayName>Yuan Renminbi Tseina</displayName>
+			</currency>
+			<currency type="EUR">
+				<displayName>Ewro</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName>Punt Sterling Prydain</displayName>
+			</currency>
+			<currency type="INR">
+				<displayName>Rwpî India</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName>Yen Siapan</displayName>
+			</currency>
+			<currency type="RUB">
+				<displayName>Rwbl Rwsia</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName>Doler yr UDA</displayName>
+			</currency>
+		</currencies>
+	</numbers>
 </ldml>
 

@@ -268,7 +268,7 @@
 <!ATTLIST calendars draft ( true | false ) #IMPLIED >
 <!ATTLIST calendars validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, days?, dayNames?, dayAbbr?, week?, am?, pm?, eras?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))>
+<!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, days?, dayNames?, dayAbbr?, week?, am*, pm*, eras?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))>
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
 <!ATTLIST calendar draft ( true | false ) #IMPLIED >
 <!ATTLIST calendar standard CDATA #IMPLIED >
@@ -308,9 +308,11 @@
 <!-- START_DEPRECATED -->
 <!ELEMENT monthNames ( alias | (month*, special*)) >
 <!ATTLIST monthNames draft ( true | false ) #IMPLIED >
+<!ATTLIST monthNames deprecated CDATA #FIXED true >
 
 <!ELEMENT monthAbbr ( alias | (month*, special*)) >
 <!ATTLIST monthAbbr draft ( true | false ) #IMPLIED >
+<!ATTLIST monthAbbr deprecated CDATA #FIXED true >
 <!-- END_DEPRECATED-->
 
 <!ELEMENT days ( alias | (default?, dayContext*, special*)) >

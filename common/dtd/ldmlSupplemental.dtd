@@ -11,9 +11,27 @@
     All trademarks and registered trademarks mentioned herein are the property of their respective owners.
 -->
 
-<!ELEMENT supplementalData ( currencyData?, territoryContainment?, languageData? ) >
-
+<!ELEMENT supplementalData ( alias?, currencyData?, territoryContainment?, languageData? ) >
 <!ATTLIST supplementalData version CDATA #FIXED "1.3" >
+
+<!ELEMENT alias ( languageAlias*,  scriptAlias*, territoryAlias*, variantAlias* ) >
+<!ATTLIST alias draft ( true | false ) #IMPLIED >
+
+<!ELEMENT languageAlias EMPTY >
+<!ATTLIST languageAlias type NMTOKEN #IMPLIED >
+<!ATTLIST languageAlias replacement NMTOKEN #IMPLIED >
+
+<!ELEMENT scriptAlias EMPTY >
+<!ATTLIST scriptAlias type NMTOKEN #IMPLIED >
+<!ATTLIST scriptAlias replacement NMTOKEN #IMPLIED >
+
+<!ELEMENT territoryAlias EMPTY >
+<!ATTLIST territoryAlias type NMTOKEN #IMPLIED >
+<!ATTLIST territoryAlias replacement NMTOKEN #IMPLIED >
+
+<!ELEMENT variantAlias EMPTY >
+<!ATTLIST variantAlias type NMTOKEN #IMPLIED >
+<!ATTLIST variantAlias replacement NMTOKEN #IMPLIED >
 
 <!ELEMENT currencyData ( fractions*, region+ ) >
 <!ATTLIST currencyData draft ( true | false ) #IMPLIED >

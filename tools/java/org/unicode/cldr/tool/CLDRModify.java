@@ -300,6 +300,19 @@ public class CLDRModify {
 			replacements.add(xpath, k.getFullXPath(xpath), pattern);
 		}
 	};
+	
+	static CLDRFilter fixExemplars = new CLDRFilter() {
+		public void handle(String xpath, Set removal, CLDRFile replacements) {
+			if (xpath.indexOf("/exemplarCharacters") < 0) return;
+			String value = k.getStringValue(xpath);
+			if (value.indexOf("[:") < 0) return;
+			UnicodeSet s = new UnicodeSet(value);
+			s.add(0xFFFF);
+			s.remove(0xFFFF); // force flattening
+			// at this point, we only have currency formats
+			replacements.add(xpath, k.getFullXPath(xpath), s.toPattern(false));
+		}
+	};
 
 	static CLDRFilter fixReferences = new CLDRFilter() {
 		References standards = new References(true);
@@ -436,6 +449,7 @@ public class CLDRModify {
 		fixCS.setFile(k);
 		fixNarrow.setFile(k);
 		fixReferences.setFile(k);
+		fixExemplars.setFile(k);
 		
 		for (Iterator it2 = k.keySet().iterator(); it2.hasNext();) {
 			String xpath = (String) it2.next();
@@ -443,6 +457,9 @@ public class CLDRModify {
 			// Fix number problems across locales
 			// http://www.jtcsv.com/cgibin/locale-bugs?findid=180
 			if (options.indexOf('n') >= 0) fixNumbers.handle(xpath, removal, replacements);
+			
+			// fix exemplars
+			if (options.indexOf('e') >= 0) fixExemplars.handle(xpath, removal, replacements);
 		
 			//Before removing SP, do the following!
 			//http://www.jtcsv.com/cgibin/locale-bugs?findid=351, 353

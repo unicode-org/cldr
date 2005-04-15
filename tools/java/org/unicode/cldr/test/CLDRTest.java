@@ -329,7 +329,9 @@ public class CLDRTest extends TestFmwk {
 		exemplars.addAll(getExemplarSet(cldrfile,"standard"));
 		UnicodeSet auxiliary = getExemplarSet(cldrfile,"auxiliary");
 		if (exemplars.containsSome(auxiliary)) {
-			errln("Auxiliary & main exemplars should be disjoint: change auxiliary to " + auxiliary.removeAll(exemplars));
+			errln(getLocaleAndName(locale) + "Auxiliary & main exemplars should be disjoint, but overlap with " +
+					new UnicodeSet(exemplars).retainAll(auxiliary) + 
+					": change auxiliary to " + auxiliary.removeAll(exemplars));
 		}
 		exemplars.addAll(auxiliary);
 		exemplars.addAll(commonAndInherited);
@@ -634,7 +636,8 @@ public class CLDRTest extends TestFmwk {
 	
 	// <territoryContainment><group type="001" contains="002 009 019 142 150"/>
 	// <languageData><language type="af" scripts="Latn" territories="ZA"/>
-	void getSupplementalData(Map language_scripts, Map language_territories, Map group_territory, Map territory_currencies) {
+	void getSupplementalData(Map language_scripts, Map language_territories, Map group_territory, 
+			Map territory_currencies, Map aliases) {
 		boolean SHOW = false;
 		Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
 		CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
@@ -643,6 +646,16 @@ public class CLDRTest extends TestFmwk {
 			String path = (String) it.next();
 			parts.set(supp.getFullXPath(path));
 			Map m;
+			String type = "";
+			if (aliases != null && parts.findElement("alias") >= 0) {
+				m = parts.findAttributes(type = "languageAlias");
+				if (m == null) m = parts.findAttributes(type = "territoryAlias");
+				if (m != null) {
+					Map top = (Map)aliases.get(type);
+					if (top == null) aliases.put(type, top = new TreeMap());
+					top.put(m.get("type"), m.get("replacement"));
+				}
+			}
 			if (territory_currencies != null) {
 				m = parts.findAttributes("region");
 				if (m != null) {
@@ -665,7 +678,7 @@ public class CLDRTest extends TestFmwk {
 			m = parts.findAttributes("group");
 			if (m != null) {
 				if (group_territory == null) continue;
-				String type = (String) m.get("type");
+				type = (String) m.get("type");
 				String contains = (String) m.get("contains");
 				group_territory.put(type, new TreeSet(Utility.splitList(contains,' ', true)));
 				continue;
@@ -695,7 +708,7 @@ public class CLDRTest extends TestFmwk {
 		boolean testDraft = false;
 		Map language_scripts = new HashMap();
 		Map language_territories = new HashMap();
-		getSupplementalData(language_scripts, language_territories, null, null);
+		getSupplementalData(language_scripts, language_territories, null, null, null);
 		LanguageTagParser localIDParser = new LanguageTagParser();
 		// see http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/design/minimal_requirements.htm
 		int[] failureCount = new int[1];
@@ -869,13 +882,15 @@ public class CLDRTest extends TestFmwk {
 		Map language_territories = new TreeMap();
 		Map groups = new TreeMap();
 		Map territory_currencies = new TreeMap();
-		getSupplementalData(language_scripts, language_territories, groups, territory_currencies);
+		Map aliases = new TreeMap();
+		getSupplementalData(language_scripts, language_territories, groups, territory_currencies, aliases);
 		Set sTerritories = new TreeSet();
 		for (Iterator it = language_territories.values().iterator(); it.hasNext(); ){
 			sTerritories.addAll((Collection)it.next());
 		}
 		StandardCodes sc = StandardCodes.make();
 		Set fullTerritories = sc.getAvailableCodes("territory");
+		Set fullLanguages = sc.getAvailableCodes("language");
 		
 		Set allLanguages = new TreeSet(language_scripts.keySet());
 		allLanguages.addAll(language_territories.keySet());
@@ -887,15 +902,34 @@ public class CLDRTest extends TestFmwk {
 					+ " scripts: " + EnglishName.transform(scripts)
 					+ " territories: " + EnglishName.transform(territories));
 		}
+
+		Map changedLanguage = new TreeMap();
+		for (Iterator it = fullLanguages.iterator(); it.hasNext();) {
+			String code = (String)it.next();
+			List data = sc.getFullData("language", code);
+			if (data.size() < 3) {
+				System.out.println("data problem: " + data);
+				continue;
+			}
+			String replacement = (String) data.get(2);
+			if (!replacement.equals("")) {
+				if (!replacement.equals("--")) changedLanguage.put(code, replacement);
+				continue;
+			}
+		}
 		
 		// remove private use, deprecated, groups
 		Set standardTerritories = new TreeSet();
+		Map changedTerritory = new TreeMap();
 		for (Iterator it = fullTerritories.iterator(); it.hasNext();) {
 			String code = (String)it.next();
-			if (code.equals("200") || code.equals("YU") || code.equals("PZ")) continue;
+			if (code.equals("200") ) continue; // || code.equals("YU") || code.equals("PZ")
 			List data = sc.getFullData("territory", code);
 			if (data.get(0).equals("PRIVATE USE")) continue;
-			if (!data.get(2).equals("")) continue;
+			if (!data.get(2).equals("")) {
+				if (!data.get(2).equals("--")) changedTerritory.put(code, data.get(2));
+				continue;
+			}
 			standardTerritories.add(code);
 		}
 		standardTerritories.removeAll(groups.keySet());
@@ -970,9 +1004,44 @@ public class CLDRTest extends TestFmwk {
         		logln("\t\t\t</currency>");				
         	}
         }
-		
+        logln("Check Aliases");
+        for (Iterator it = aliases.keySet().iterator(); it.hasNext();) {
+        	// the first part of the mapping had better not be in the standardTerritories
+        	String key = (String)it.next();
+        	Map submap = (Map)aliases.get(key);
+        	if (key.equals("territoryAlias")) {
+        		checkEqual(key, submap, changedTerritory);
+        	} else if (key.equals("languageAlias")) {
+        		for (Iterator it2 = submap.keySet().iterator(); it2.hasNext(); ) {
+        			Object k = it2.next();
+        			String value = (String) submap.get(k);
+        			if (value.indexOf("_") >= 0) it2.remove();
+        		}
+        		checkEqual(key, submap, changedLanguage);
+        	}
+        }
 	}
 	
+	/**
+	 * 
+	 */
+	private void checkEqual(String title, Map map1, Map map2) {
+		Set foo = new TreeSet(map1.keySet());
+		foo.removeAll(map2.keySet());
+		if (!foo.isEmpty()) errln("Extraneous Aliases: " + title + "\t" + foo);
+		foo = new TreeSet(map2.keySet());
+		foo.removeAll(map1.keySet());
+		if (!foo.isEmpty()) errln("Missing Aliases: " + title + "\t" + foo);
+		foo = map2.keySet();;
+		foo.retainAll(map1.keySet());
+        for (Iterator it = foo.iterator(); it.hasNext();) {
+        	Object key = it.next();
+        	Object result1 = (String) map1.get(key);
+        	Object result2 = (String) map2.get(key);
+        	if (!result1.equals(result2)) errln("Missing Aliases: " + title + "\t" + key + "\t" + result1 + " != " + result2);
+        }
+	}
+
 	/**
 	 * Test that the zone ids are well-formed.
 	 *

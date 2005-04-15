@@ -69,6 +69,12 @@ http://europa.eu.int/comm/budget/inforeuro/index.cfm?fuseaction=countries&Langua
 http://www.unece.org/cefact/recommendations/rec09/rec09_ecetrd203.pdf
 The printed version of ISO-4217:2001
 -->
+        <region iso3166="830">
+            <currency iso4217="GBP" from="1694-07-27"/>
+        </region>
+        <region iso3166="833">
+            <currency iso4217="GBP" from="1694-07-27"/>
+        </region>
         <region iso3166="AD">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="ESP" from="1873" to="2002-02-28"/>
@@ -110,6 +116,7 @@ The printed version of ISO-4217:2001
             <currency iso4217="AOK" from="1977-01-08" to="1991-03"/>
         </region>
         <region iso3166="AQ">
+	<currency iso4217="XXX"/>
             <!-- This is Antarctica. It has no currency -->
         </region>
         <region iso3166="AR">

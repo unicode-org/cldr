@@ -743,6 +743,8 @@ public class LDML2ICUConverter {
             }else if(name.indexOf("icu:")>-1|| name.indexOf("openOffice:")>-1){
                 //TODO: these are specials .. ignore for now ... figure out
                 // what to do later
+            }else if(name.equals(LDMLConstants.REFERENCES)){
+                //TODO: This is special documentation... ignore for now 
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);

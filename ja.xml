@@ -1243,17 +1243,6 @@
 			<hourFormat>+HHmm;-HHmm</hourFormat>
 			<regionFormat>{0}時間</regionFormat>
 			<fallbackFormat>{0} ({1})時間</fallbackFormat>
-			<zone type="Etc/GMT">
-				<long>
-					<standard>グリニッジ標準時</standard>
-					<daylight>グリニッジ標準時</daylight>
-				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>GMT</daylight>
-				</short>
-				<exemplarCity>ロンドン</exemplarCity>
-			</zone>
 			<!-- Antarctica -->
 			<zone type="Antarctica/Rothera">
 				<exemplarCity draft="true">ロデラ</exemplarCity>

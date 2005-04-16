@@ -1385,9 +1385,9 @@ root</pre>
   &lt;/fields&gt;
 &lt;/calendars&gt;</pre>
   <h4>5.9.2 <a name="&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></h4>
-  <p><span class="dtd">&lt;!ELEMENT timeZoneNames (alias | (hourFormat?, hoursFormat?, gmtFormat?, 
-  regionFormat?, fallbackFormat?, abbreviationFallback?, preferenceOrdering?, default?, zone*, 
-  special*)) &gt;<br>
+  <p><span class="dtd">&lt;!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*, 
+  regionFormat*, fallbackFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, 
+  default*, zone*, special*)) &gt;<br>
   &lt;!ELEMENT zone (alias | ( long*, short*, exemplarCity*, special*)) &gt;</span></p>
   <p>The timezone IDs are language-independent, and follow the <i>Olson Data</i> [<a href="#Olson">Olson</a>]. 
   However, the display names for those IDs can vary by locale. The generic time is so-called <i>
@@ -1505,7 +1505,7 @@ root</pre>
     <tr>
       <td><span class="changedspan">singleCountries</span></td>
       <td><span class="changedspan">list=&quot;America/Godthab America/Santiago America/Guayaquil 
-      Europe/Madrid Pacific/Auckland&nbsp; Pacific/Tahiti Europe/Lisbon</span></td>
+      Europe/Madrid Pacific/Auckland&nbsp; Pacific/Tahiti Europe/Lisbon...&quot;</span></td>
       <td><span class="changedspan">uses country name alone</span></td>
     </tr>
   </table>

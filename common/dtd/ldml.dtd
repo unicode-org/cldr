@@ -491,7 +491,7 @@
 <!ATTLIST dateTimeFormat alt CDATA #IMPLIED >
 <!ATTLIST dateTimeFormat validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT timeZoneNames (alias | (hourFormat?, hoursFormat?, gmtFormat?, regionFormat?, fallbackFormat?, abbreviationFallback?, preferenceOrdering?, default?, zone*, special*)) >
+<!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*, regionFormat*, fallbackFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, special*)) >
 <!ATTLIST timeZoneNames draft ( true | false ) #IMPLIED >
 <!ATTLIST timeZoneNames validSubLocales CDATA #IMPLIED >
 
@@ -531,6 +531,12 @@
 <!ATTLIST preferenceOrdering alt CDATA #IMPLIED >
 <!ATTLIST preferenceOrdering draft ( true | false ) #IMPLIED >
 <!ATTLIST preferenceOrdering references CDATA #IMPLIED >
+
+<!ELEMENT singleCountries EMPTY >
+<!ATTLIST singleCountries list CDATA #REQUIRED >
+<!ATTLIST singleCountries alt CDATA #IMPLIED >
+<!ATTLIST singleCountries draft ( true | false ) #IMPLIED >
+<!ATTLIST singleCountries references CDATA #IMPLIED >
 
 <!ELEMENT zone (alias | ( long*, short*, exemplarCity*, special*)) >
 <!ATTLIST zone type CDATA #REQUIRED >

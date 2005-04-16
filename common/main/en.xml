@@ -205,7 +205,6 @@
 			<language type="ijo">Ijo</language>
 			<language type="ik">Inupiaq</language>
 			<language type="ilo">Iloko</language>
-			<language type="in" draft="true">Indonesian</language>
 			<language type="inc">Indic (Other)</language>
 			<language type="ine">Indo-European (Other)</language>
 			<language type="inh">Ingush</language>
@@ -215,10 +214,8 @@
 			<language type="is">Icelandic</language>
 			<language type="it">Italian</language>
 			<language type="iu">Inuktitut</language>
-			<language type="iw" draft="true">Hebrew</language>
 			<language type="ja">Japanese</language>
 			<language type="jbo">Lojban</language>
-			<language type="ji" draft="true">Yiddish</language>
 			<language type="jpr">Judeo-Persian</language>
 			<language type="jrb">Judeo-Arabic</language>
 			<language type="jv">Javanese</language>
@@ -427,6 +424,7 @@
 			<language type="son">Songhai</language>
 			<language type="sq">Albanian</language>
 			<language type="sr">Serbian</language>
+			<language type="srn">Sranan Tongo</language>
 			<language type="srr">Serer</language>
 			<language type="ss">Swati</language>
 			<language type="ssa">Nilo-Saharam (Other)</language>
@@ -676,7 +674,6 @@
 			<territory type="BR">Brazil</territory>
 			<territory type="BS">Bahamas</territory>
 			<territory type="BT">Bhutan</territory>
-			<territory type="BU" draft="true">Myanmar</territory>
 			<territory type="BV">Bouvet Island</territory>
 			<territory type="BW">Botswana</territory>
 			<territory type="BY">Belarus</territory>
@@ -710,7 +707,6 @@
 			<territory type="DK">Denmark</territory>
 			<territory type="DM">Dominica</territory>
 			<territory type="DO">Dominican Republic</territory>
-			<territory type="DY" draft="true">Benin</territory>
 			<territory type="DZ">Algeria</territory>
 			<territory type="EC">Ecuador</territory>
 			<territory type="EE">Estonia</territory>
@@ -752,7 +748,6 @@
 			<territory type="HR">Croatia</territory>
 			<territory type="HT">Haiti</territory>
 			<territory type="HU">Hungary</territory>
-			<territory type="HV" draft="true">Burkina Faso</territory>
 			<territory type="ID">Indonesia</territory>
 			<territory type="IE">Ireland</territory>
 			<territory type="IL">Israel</territory>
@@ -818,7 +813,6 @@
 			<territory type="NE">Niger</territory>
 			<territory type="NF">Norfolk Island</territory>
 			<territory type="NG">Nigeria</territory>
-			<territory type="NH" draft="true">Vanuatu</territory>
 			<territory type="NI">Nicaragua</territory>
 			<territory type="NL">Netherlands</territory>
 			<territory type="NO">Norway</territory>
@@ -849,7 +843,6 @@
 			<territory type="QA">Qatar</territory>
 			<territory type="RE">Reunion</territory>
 			<territory type="RE" alt="variant">Réunion</territory>
-			<territory type="RH" draft="true">Zimbabwe</territory>
 			<territory type="RO">Romania</territory>
 			<territory type="RU">Russia</territory>
 			<territory type="RW">Rwanda</territory>
@@ -885,7 +878,6 @@
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
-			<territory type="TP" draft="true">Timor-Leste</territory>
 			<territory type="TR">Turkey</territory>
 			<territory type="TT">Trinidad and Tobago</territory>
 			<territory type="TV">Tuvalu</territory>
@@ -912,11 +904,8 @@
 			<territory type="YD" draft="true">People's Democratic Republic of Yemen</territory>
 			<territory type="YE">Yemen</territory>
 			<territory type="YT">Mayotte</territory>
-			<territory type="YU">Yugoslavia</territory>
-			<territory type="YU" alt="proposed" draft="true">Serbia and Montenegro</territory>
 			<territory type="ZA">South Africa</territory>
 			<territory type="ZM">Zambia</territory>
-			<territory type="ZR" draft="true">Congo, The Democratic Republic of the</territory>
 			<territory type="ZW">Zimbabwe</territory>
 			<territory type="ZZ" draft="true">Outlying Oceania</territory>
 		</territories>
@@ -1515,6 +1504,9 @@
 			<currency type="CHF">
 				<displayName>Swiss Franc</displayName>
 				<symbol>SwF</symbol>
+			</currency>
+			<currency type="CHW">
+				<displayName>WIR Franc</displayName>
 			</currency>
 			<currency type="CLF">
 				<displayName>Chilean Unidades de Fomento</displayName>

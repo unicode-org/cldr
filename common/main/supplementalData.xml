@@ -1083,39 +1083,46 @@ XXX	Code for transations where no currency is involved
 		<group type="ZZ" contains="AQ BV CC CX GS HM IO TF UM"/> <!--Outlying Oceania -->
 	</territoryContainment>
 	<languageData>
-		<language type="ab" scripts="Cyrl" territories="GE"/>
+		<language type="ab" scripts="Cyrl" territories="GE" alt="secondary"/>
 		<language type="ab" scripts="Cyrl" territories="TR" alt="secondary"/>
 		<language type="af" scripts="Latn" territories="NA ZA"/>
 		<language type="am" scripts="Ethi" territories="ET"/>
-		<language type="ar" scripts="Arab" territories="AE BH CD DJ DZ EG EH ER IL IQ JO KM KW LB LY MA MR OM PS QA SA SD SY TD TN YE"/>
+		<language type="ar" scripts="Arab" territories="AE BH DJ DZ EG EH ER IL IQ JO KM KW LB LY MA MR OM PS QA SA SD SY TD TN YE"/>
+		<language type="ar" scripts="Arab" territories="IR" alt="secondary"/>
 		<language type="as" scripts="Beng" territories="BD IN"/>
 		<language type="ay" scripts="Latn" territories="BO PE"/>
-		<language type="az" scripts="Arab Cyrl Latn" territories="AZ IR GE"/>
-		<language type="bal" scripts="Arab Cyrl Latn" territories="IR PK"/>
+		<language type="az" scripts="Arab Cyrl Latn" territories="AZ IR"/>
+		<language type="az" scripts="Arab Cyrl Latn" territories="GE TR" alt="secondary"/>
+		<language type="bal" scripts="Arab Latn" territories="PK"/>
+		<language type="bal" scripts="Arab Latn" territories="AF IR OM" alt="secondary"/>
 		<language type="be" scripts="Cyrl" territories="BY"/>
 		<language type="bg" scripts="Cyrl" territories="BG"/>
 		<language type="bn" scripts="Beng" territories="BD IN"/>
+		<language type="bo" scripts="Tibt" territories="CN IN NP" alt="secondary"/>
 		<language type="bs" scripts="Latn" territories="BA"/>
 		<language type="bs" scripts="Latn" territories="HR CS" alt="secondary"/>
 		<language type="ca" scripts="Latn" territories="AD ES"/>
 		<language type="ch" scripts="Latn" territories="GU MP"/>
+		<language type="chr" scripts="Latn Cher" territories="US" alt="secondary"/>
 		<language type="cpe" scripts="Latn" territories="SL"/>
-		<language type="cr" scripts="Cans Latn" territories="CA"/>
+		<language type="cr" scripts="Cans Latn" territories="CA" alt="secondary"/>
 		<language type="cs" scripts="Latn" territories="CZ"/>
 		<language type="cy" scripts="Latn" territories="GB"/>
-		<language type="da" scripts="Latn" territories="DK"/>
-		<language type="de" scripts="Latn" territories="AT BE CH DE IT LI LU NA"/>
-		<language type="dgr" territories="CA"/>
+		<language type="da" scripts="Latn" territories="DK GL"/>
+		<language type="de" scripts="Latn" territories="AT BE CH DE LI LU NA"/>
+		<language type="de" scripts="Latn" territories="IT" alt="secondary"/>
+		<language type="dgr" territories="CA" alt="secondary"/>
 		<language type="dv" scripts="Thaa" territories="MV"/>
 		<language type="dz" scripts="Tibt" territories="BT"/>
 		<language type="el" scripts="Grek" territories="CY GR"/>
-		<language type="en" scripts="Latn" territories="AG AI AS AU AW BB BM BS BW BZ CA CC CK CM CX DM FJ FK FM GB GD GH GI GM GY HK IE IN IO JM KE KI KN KY LC LR LS MH MP MS MT MW NA NF NG NR NU NZ PG PH PK PN PW RW SB SG SH SL SZ TC TK TO TT UG UM US VC VG VI ZA ZM ZW"/>
+		<language type="en" scripts="Latn" territories="AG AI AS AU AW BB BM BS BW BZ CA CC CK CM CX DM ER FJ FK FM GB GD GH GI GM GY HK IE IN IO JM KE KI KN KY LC LR LS MH MP MS MT MW NA NF NG NR NU NZ PG PH PK PN PW RW SB SG SH SL SZ TC TK TO TT TZ UG UM US VC VG VI ZA ZM ZW"/>
 		<language type="eo" scripts="Latn"/>
 		<language type="es" scripts="Latn" territories="AR BO CL CO CR CU DO EC ES GI GQ GT HN MX NI PA PE PR PY SV US UY VE"/>
 		<language type="et" scripts="Latn" territories="EE"/>
 		<language type="eu" scripts="Latn" territories="ES"/>
 		<language type="fa" scripts="Arab" territories="AF IR"/>
 		<language type="fi" scripts="Latn" territories="FI SE"/>
+		<language type="fil" scripts="Latn" territories="PH"/>		
 		<language type="fiu" scripts="Latn" territories="FI SE" alt="secondary"/>
 		<language type="fj" scripts="Latn" territories="FJ"/>
 		<language type="fo" scripts="Latn" territories="FO"/>
@@ -1124,26 +1131,29 @@ XXX	Code for transations where no currency is involved
 		<language type="fy" scripts="Latn" territories="DE NL" alt="secondary"/>
 		<language type="ga" scripts="Latn" territories="IE"/>
 		<language type="ga" scripts="Latn" territories="GB" alt="secondary"/>
+		<language type="gd" scripts="Latn" territories="GB"/>
 		<language type="gl" scripts="Latn" territories="ES"/>
-		<language type="gn" scripts="Latn" territories="AR BO PY"/>
+		<language type="gn" scripts="Latn" territories="PY"/>
+		<language type="gn" scripts="Latn" territories="AR BO" alt="secondary"/>
 		<language type="gu" scripts="Gujr" territories="IN"/>
 		<language type="gv" scripts="Latn" territories="GB"/>
 		<language type="ha" scripts="Arab Latn" territories="NE NG"/>
 		<language type="haw" scripts="Latn" territories="US" alt="secondary"/>
 		<language type="he" scripts="Hebr" territories="IL"/>
 		<language type="hi" scripts="Deva" territories="IN FJ"/>
-		<language type="hr" scripts="Latn" territories="BA HR CS"/>
+		<language type="ho" scripts="Latn" territories="PG"/>
+		<language type="hr" scripts="Latn" territories="BA HR"/>
+		<language type="hr" scripts="Latn" territories="CS" alt="secondary"/>
 		<language type="ht" scripts="Latn" territories="HT"/>
-		<language type="hu" scripts="Latn" territories="HU SI CS"/>
+		<language type="hu" scripts="Latn" territories="HU"/>
+		<language type="hu" scripts="Latn" territories="SI CS" alt="secondary"/>
 		<language type="hy" scripts="Armn" territories="AM"/>
 		<language type="hy" scripts="Armn" territories="AZ GE IR" alt="secondary"/>
 		<language type="id" scripts="Latn" territories="ID"/>
-		<language type="in" scripts="Latn" territories="ID"/>
 		<language type="is" scripts="Latn" territories="IS"/>
 		<language type="it" scripts="Latn" territories="CH IT SM VA"/>
 		<language type="it" scripts="Latn" territories="HR SI" alt="secondary"/>
 		<language type="iu" scripts="Cans Cyrl Latn" territories="CA GL US RU" alt="secondary"/>
-		<language type="iw" scripts="Hebr" territories="IL"/>
 		<language type="ja" scripts="Hani Hira Kana" territories="GU JP PW"/>
 		<language type="ka" scripts="Geor" territories="GE"/>
 		<language type="kk" scripts="Cyrl" territories="KZ"/>
@@ -1153,13 +1163,15 @@ XXX	Code for transations where no currency is involved
 		<language type="ko" scripts="Hang Hani" territories="KP KR"/>
 		<language type="kok" scripts="Deva" territories="IN"/>
 		<language type="ks" scripts="Arab Deva" territories="IN"/>
-		<language type="ku" scripts="Arab Latn Cyrl" territories="IQ IR TR SY"/>
+		<language type="ku" scripts="Arab Latn Cyrl" territories="IQ IR TR"/>
+		<language type="ku" scripts="Arab Latn Cyrl" territories="SY" alt="secondary"/>
 		<language type="ky" scripts="Arab Cyrl" territories="KG"/>
 		<language type="ky" scripts="Arab Cyrl" territories="CN" alt="secondary"/>
 		<language type="kw" scripts="Latn" territories="GB" alt="secondary"/>
 		<language type="la" scripts="Latn" territories="VA"/>
 		<language type="lb" scripts="Latn" territories="LU"/>
-		<language type="ln" scripts="Latn" territories="CD CG"/>
+		<language type="ln" scripts="Latn" territories="CG" />
+		<language type="ln" scripts="Latn" territories="CD" alt="secondary"/>
 		<language type="lo" scripts="Laoo" territories="LA"/>
 		<language type="lt" scripts="Latn" territories="LT"/>
 		<language type="lv" scripts="Latn" territories="LV"/>
@@ -1174,7 +1186,7 @@ XXX	Code for transations where no currency is involved
 		<language type="mni" territories="IN"/>
 		<language type="mo" scripts="Latn" territories="MD"/>
 		<language type="mr" scripts="Deva" territories="IN"/>
-		<language type="ms" scripts="Latn" territories="BN CC CX MY SG"/>
+		<language type="ms" scripts="Arab Latn" territories="BN CC CX MY SG"/>
 		<language type="mt" scripts="Latn" territories="MT"/>
 		<language type="my" scripts="Mymr" territories="MM"/>
 		<language type="na" scripts="Latn" territories="NR"/>
@@ -1187,33 +1199,36 @@ XXX	Code for transations where no currency is involved
 		<language type="no" scripts="Latn" territories="NO SJ"/>
 		<language type="nr" scripts="Latn" territories="ZA"/>
 		<language type="nso" scripts="Latn" territories="ZA"/>
-		<language type="ny" scripts="Latn" territories="MW MZ ZM"/>
+		<language type="ny" scripts="Latn" territories="MW"/>
+		<language type="ny" scripts="Latn" territories="MZ ZM" alt="secondary"/>
 		<language type="oc" scripts="Latn" territories="ES" alt="secondary"/>
 		<language type="om" scripts="Latn" territories="ET KE"/>
 		<language type="or" scripts="Orya" territories="IN"/>
 		<language type="os" scripts="Latn" territories="GE RU" alt="secondary"/>
-		<language type="pa" scripts="Guru" territories="IN"/>
+		<language type="pa" scripts="Arab Guru" territories="IN PK"/>
 		<language type="pau" territories="PW"/>
 		<language type="pl" scripts="Latn" territories="PL"/>
 		<language type="ps" scripts="Arab" territories="AF PK"/>
-		<language type="pt" scripts="Latn" territories="AO BR CV GW PT ST TL"/>
-		<language type="pt" scripts="Latn" territories="MO" alt="secondary"/>
+		<language type="pt" scripts="Latn" territories="AO BR CV GW MO MZ PT ST TL"/>
 		<language type="qu" scripts="Latn" territories="BO PE"/>		
 		<language type="rm" scripts="Latn" territories="CH" alt="secondary"/>
 		<language type="rn" scripts="Latn" territories="BI"/>
 		<language type="ro" scripts="Latn" territories="RO"/>
 		<language type="ro" scripts="Latn" territories="CS" alt="secondary"/>
-		<language type="ru" scripts="Cyrl" territories="BY GE KG KZ MD RU SJ UA"/>
+		<language type="ru" scripts="Cyrl" territories="BY GE KG KZ RU SJ UA"/>
+		<language type="ru" scripts="Cyrl" territories="MD" alt="secondary"/>
 		<language type="rw" scripts="Latn" territories="RW"/>
 		<language type="sa" scripts="Deva" territories="IN" alt="secondary"/>
 		<language type="sd" scripts="Deva Arab" territories="IN PK"/>
 		<language type="sg" scripts="Latn" territories="CF"/>
 		<language type="si" scripts="Sinh" territories="LK"/>
 		<language type="sk" scripts="Latn" territories="SK"/>
+		<language type="sk" scripts="Latn" territories="CS" alt="secondary"/>
 		<language type="sl" scripts="Latn" territories="SI"/>
 		<language type="sm" scripts="Latn" territories="AS WS"/>
-		<language type="so" scripts="Latn" territories="DJ ET KE SO"/>
-		<language type="son" scripts="Latn" territories="BJ ML NE"/>
+		<language type="so" scripts="Latn" territories="DJ SO"/>
+		<language type="so" scripts="Latn" territories="ET KE" alt="secondary"/>
+		<language type="son" scripts="Latn" territories="BJ ML NE" alt="secondary"/>
 		<language type="sq" scripts="Latn" territories="AL MK CS"/>
 		<language type="sr" scripts="Cyrl Latn" territories="BA CS"/>
 		<language type="sr" scripts="Cyrl Latn" territories="HR" alt="secondary"/>
@@ -1224,22 +1239,26 @@ XXX	Code for transations where no currency is involved
 		<language type="ta" scripts="Taml" territories="IN LK SG"/>
 		<language type="te" scripts="Telu" territories="IN"/>
 		<language type="tem" scripts="Latn" territories="SL"/>
+		<language type="tet" scripts="Latn" territories="TL"/>
 		<language type="th" scripts="Thai" territories="TH"/>
 		<language type="ti" scripts="Ethi" territories="ER ET"/>
 		<language type="tg" scripts="Arab Cyrl Latn" territories="TJ"/>
-		<language type="tk" scripts="Arab Cyrl Latn" territories="AF IR TM"/>
+		<language type="tk" scripts="Arab Cyrl Latn" territories="TM"/>
+		<language type="tk" scripts="Arab Cyrl Latn" territories="AF IR" alt="secondary"/>
 		<language type="tkl" scripts="Latn" territories="TK"/>
 		<language type="tvl" scripts="Latn" territories="TV"/>
 		<language type="tl" scripts="Latn" territories="GU PH"/>
-		<language type="tmh" scripts="Latn" territories="ML NE"/>
+		<language type="tmh" scripts="Latn" territories="ML NE" alt="secondary"/>
 		<language type="tn" scripts="Latn" territories="BW ZA"/>
 		<language type="to" scripts="Latn" territories="TO"/>
 		<language type="tpi" scripts="Latn" territories="PG"/>
-		<language type="tr" scripts="Latn" territories="CY TR"/>
+		<language type="tr" scripts="Arab Latn" territories="CY TR"/>
 		<language type="ts" scripts="Latn" territories="ZA"/>
-		<language type="uk" scripts="Cyrl" territories="MD UA"/>
+		<language type="uk" scripts="Cyrl" territories="UA"/>
+		<language type="uk" scripts="Cyrl" territories="MD" alt="secondary"/>
 		<language type="ur" scripts="Arab" territories="IN PK"/>
-		<language type="uz" scripts="Arab Cyrl Latn" territories="AF UZ"/>
+		<language type="uz" scripts="Arab Cyrl Latn" territories="UZ"/>
+		<language type="uz" scripts="Arab Cyrl Latn" territories="AF" alt="secondary"/>
 		<language type="ve" scripts="Latn" territories="ZA"/>
 		<language type="vi" scripts="Latn" territories="VN"/>
 		<language type="wo" scripts="Latn" territories="GM MR SN"/>

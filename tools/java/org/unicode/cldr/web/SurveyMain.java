@@ -720,13 +720,15 @@ class SurveyMain {
                     if(newString == null) {
                         newString = "";
                     }
-                    newxpath = newxpath + "[@draft='true']"; // always draft
                     if(nse.main != null) { // If there is already an existing main (which might be draft)
                        newxpath = newxpath + "[@alt='proposed']";
                     }
+                    newxpath = newxpath + "[@draft='true']"; // always draft
+/*SRL*/                 ctx.println("<tt>CLDRFile.add(<b>" + newxpath + "</b>, \"\", blah);</tt><br/>");
                     file.add(newxpath, newxpath, newString);
                     if(newString.length() ==0) {
                         file.addComment(newxpath, "Item marked as wrong:  " + type, XPathParts.Comments.POSTBLOCK);
+/*SRL*/                 ctx.println("<tt>CLDRFile.addComment(<b>" + newxpath + "</b>, blah, POSTBLOCK);</tt><br/>");
                     }
                 } else {
                     // ignored:  current, etc.

@@ -1094,6 +1094,10 @@
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
+		<!-- Please note that the Arabic translated currency symbols include the Right to
+Left Marker <RLM> to position the dot properly on the boundary between
+Arabic
+and English XML tags. -->
 		<currencies>
 			<currency type="AED">
 				<symbol>د.إ.‏</symbol>
@@ -1170,6 +1174,7 @@
 			<currency type="SDD">
 				<displayName draft="true">دينار سوداني</displayName>
 				<symbol draft="true">ج.س.‏</symbol>
+				<symbol alt="proposed" draft="true">.‏د.س</symbol>
 				<symbol alt="proposed0" draft="true">.‏د.س</symbol>
 			</currency>
 			<currency type="SDP">

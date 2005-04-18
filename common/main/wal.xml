@@ -8,8 +8,22 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="ar" draft="true">ዐርቢኛ</language>
+			<language type="de" draft="true">ጀርመን</language>
+			<language type="en" draft="true">እንግሊዝኛ</language>
+			<language type="es" draft="true">ስፓኒሽ</language>
+			<language type="fr" draft="true">ፈረንሳይኛ</language>
+			<language type="hi" draft="true">ሐንድኛ</language>
+			<language type="it" draft="true">ጣሊያንኛ</language>
+			<language type="ja" draft="true">ጃፓንኛ</language>
+			<language type="pt" draft="true">ፖርቱጋሊኛ</language>
+			<language type="ru" draft="true">ራሽኛ</language>
 			<language type="wal" draft="true">ወላይታቱ</language>
+			<language type="zh" draft="true">ቻይንኛ</language>
 		</languages>
+		<scripts>
+			<script type="Latn" draft="true">ላቲን</script>
+		</scripts>
 		<territories>
 			<territory type="AD" draft="true">አንዶራ</territory>
 			<territory type="AE" draft="true">የተባበሩት አረብ ኤምሬትስ</territory>
@@ -57,6 +71,7 @@
 			<territory type="FI" draft="true">ፊንላንድ</territory>
 			<territory type="FJ" draft="true">ፊጂ</territory>
 			<territory type="FM" draft="true">ሚክሮኔዢያ</territory>
+			<territory type="FR" draft="true">ፈረንሳይ</territory>
 			<territory type="GB" draft="true">እንግሊዝ</territory>
 			<territory type="GE" draft="true">ጆርጂያ</territory>
 			<territory type="GF" draft="true">የፈረንሳይ ጉዊአና</territory>
@@ -148,6 +163,52 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="true">ጃንዩ</month>
+							<month type="2" draft="true">ፌብሩ</month>
+							<month type="3" draft="true">ማርች</month>
+							<month type="4" draft="true">ኤፕረ</month>
+							<month type="5" draft="true">ሜይ</month>
+							<month type="6" draft="true">ጁን</month>
+							<month type="7" draft="true">ጁላይ</month>
+							<month type="8" draft="true">ኦገስ</month>
+							<month type="9" draft="true">ሴፕቴ</month>
+							<month type="10" draft="true">ኦክተ</month>
+							<month type="11" draft="true">ኖቬም</month>
+							<month type="12" draft="true">ዲሴም</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="true">ጃ</month>
+							<month type="2" draft="true">ፌ</month>
+							<month type="3" draft="true">ማ</month>
+							<month type="4" draft="true">ኤ</month>
+							<month type="5" draft="true">ሜ</month>
+							<month type="6" draft="true">ጁ</month>
+							<month type="7" draft="true">ጁ</month>
+							<month type="8" draft="true">ኦ</month>
+							<month type="9" draft="true">ሴ</month>
+							<month type="10" draft="true">ኦ</month>
+							<month type="11" draft="true">ኖ</month>
+							<month type="12" draft="true">ዲ</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="true">ጃንዩወሪ</month>
+							<month type="2" draft="true">ፌብሩወሪ</month>
+							<month type="3" draft="true">ማርች</month>
+							<month type="4" draft="true">ኤፕረል</month>
+							<month type="5" draft="true">ሜይ</month>
+							<month type="6" draft="true">ጁን</month>
+							<month type="7" draft="true">ጁላይ</month>
+							<month type="8" draft="true">ኦገስት</month>
+							<month type="9" draft="true">ሴፕቴምበር</month>
+							<month type="10" draft="true">ኦክተውበር</month>
+							<month type="11" draft="true">ኖቬምበር</month>
+							<month type="12" draft="true">ዲሴምበር</month>
+						</monthWidth>
+					</monthContext>
+				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -158,6 +219,15 @@
 							<day type="thu" draft="true">ሃሙሳ</day>
 							<day type="fri" draft="true">አርባ</day>
 							<day type="sat" draft="true">ቄራ</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="true">ወ</day>
+							<day type="mon" draft="true">ሳ</day>
+							<day type="tue" draft="true">ማ</day>
+							<day type="wed" draft="true">አ</day>
+							<day type="thu" draft="true">ሃ</day>
+							<day type="fri" draft="true">አ</day>
+							<day type="sat" draft="true">ቄ</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun" draft="true">ወጋ</day>
@@ -186,11 +256,37 @@
 	</dates>
 	<numbers>
 		<currencies>
+			<currency type="BRL">
+				<displayName draft="true">የብራዚል ሪል</displayName>
+				<symbol draft="true">R$</symbol>
+			</currency>
+			<currency type="CNY">
+				<displayName draft="true">የቻይና ዩአን ረንሚንቢ</displayName>
+				<symbol draft="true">Y</symbol>
+			</currency>
 			<currency type="ETB">
+				<displayName draft="true">የኢትዮጵያ ብር</displayName>
 				<symbol draft="true">$</symbol>
 			</currency>
+			<currency type="EUR">
+				<displayName draft="true">አውሮ</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName draft="true">የእንግሊዝ ፓውንድ ስተርሊንግ</displayName>
+			</currency>
+			<currency type="INR">
+				<displayName draft="true">የሕንድ ሩፒ</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName draft="true">የጃፓን የን</displayName>
+			</currency>
+			<currency type="RUB">
+				<displayName draft="true">የራሻ ሩብል</displayName>
+			</currency>
 			<currency type="USD">
+				<displayName draft="true">የአሜሪካን ዶላር</displayName>
 				<symbol draft="true">US$</symbol>
+				<symbol alt="proposed" draft="true">USD</symbol>
 			</currency>
 		</currencies>
 	</numbers>

@@ -585,6 +585,35 @@
 			-->
 		</scripts>
 		<territories>
+			<territory type="001" draft="true">Världen</territory>
+			<territory type="002" draft="true">Afrika</territory>
+			<territory type="005" draft="true">Sydamerika</territory>
+			<territory type="009" draft="true">Oceanien</territory>
+			<territory type="011" draft="true">Västra Afrika</territory>
+			<territory type="013" draft="true">Centralamerika</territory>
+			<territory type="014" draft="true">Östra Afrika</territory>
+			<territory type="015" draft="true">Norra Afrika</territory>
+			<territory type="017" draft="true">Centralafrika</territory>
+			<territory type="018" draft="true">Södra Afrika</territory>
+			<territory type="019" draft="true">Nord- och Sydamerika</territory>
+			<territory type="021" draft="true">Nordamerika</territory>
+			<territory type="029" draft="true">Karibien</territory>
+			<territory type="030" draft="true">Ostasien</territory>
+			<territory type="035" draft="true">Sydostasien</territory>
+			<territory type="039" draft="true">Sydeuropa</territory>
+			<territory type="053" draft="true">Australien och Nya Zeeland</territory>
+			<territory type="054" draft="true">Melanesien</territory>
+			<territory type="057" draft="true">Mikronesien</territory>
+			<territory type="061" draft="true">Polynesien</territory>
+			<territory type="062" draft="true">Södra Centralasien</territory>
+			<territory type="142" draft="true">Asien</territory>
+			<territory type="145" draft="true">Västasien</territory>
+			<territory type="150" draft="true">Europa</territory>
+			<territory type="151" draft="true">Östeuropa</territory>
+			<territory type="154" draft="true">Norra Europa</territory>
+			<territory type="155" draft="true">Västeuropa</territory>
+			<territory type="830" draft="true">Kanalöarna</territory>
+			<territory type="833" draft="true">Isle of Man</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Förenade Arabemiraten</territory>
 			<territory type="AF" references="R1">Afghanistan</territory>
@@ -600,6 +629,7 @@
 			<territory type="AT">Österrike</territory>
 			<territory type="AU">Australien</territory>
 			<territory type="AW">Aruba</territory>
+			<territory type="AX" draft="true">Åland</territory>
 			<territory type="AZ">Azerbajdzjan</territory>
 			<territory type="BA">Bosnien och Hercegovina</territory>
 			<territory type="BB">Barbados</territory>
@@ -828,6 +858,7 @@
 			<territory type="ZA">Sydafrika</territory>
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabwe</territory>
+			<territory type="ZZ" draft="true">Yttre öar i Oceanien</territory>
 		</territories>
 		<variants>
 			<variant type="REVISED">Reviderad</variant>
@@ -1009,11 +1040,17 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="true">+HH.mm;-HH.mm</hourFormat>
+			<gmtFormat draft="true">UTC{0}</gmtFormat>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity draft="true">Sydpolen</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity draft="true">Dumont d'Urville</exemplarCity>
+			</zone>
+			<!-- Argentina -->
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity draft="true"> Rio Gallegos</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/ComodRivadavia">
 				<exemplarCity draft="true">Comod. Rivadavia</exemplarCity>
@@ -1096,6 +1133,9 @@
 				</short>
 				<exemplarCity>Tokyo</exemplarCity>
 			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity draft="true">Alma-Ata</exemplarCity>
+			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
 					<standard>Greenwichtid</standard>
@@ -1148,6 +1188,9 @@
 			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity draft="true">Kamtjatka</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity draft="true">Anadir</exemplarCity>
 			</zone>
 			<!-- Ukraine -->
 			<zone type="Europe/Uzhgorod">
@@ -1205,6 +1248,9 @@
 					<standard>MST</standard>
 					<daylight>MDT</daylight>
 				</short>
+			</zone>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity draft="true">North Dakota</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<long>
@@ -2104,5 +2150,37 @@ Comments without bases
  Svalbard and Jan Mayen 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Jan_Mayen"]
  Australia 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
  China 	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
+
+Comments without bases
+
+ Marshall Islands	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Kwajalein"]
+ Mali	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Bamako"]
+ Spain	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Ceuta"]
+ Russia	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Kaliningrad"]
+ Chile	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Santiago"]
+ Malaysia	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kuala_Lumpur"]
+ Ukraine	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Kiev"]
+ Canada	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Dawson"]
+ Micronesia	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Yap"]
+ Mexico	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Tijuana"]
+ United States Minor Outlying Islands	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Midway"]
+ Kiribati	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Enderbury"]
+ Ecuador	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Galapagos"]
+ Indonesia	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Jakarta"]
+ United States	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Adak"]
+ Kazakhstan	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Aqtau"]
+ Portugal	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Madeira"]
+ Brazil	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Eirunepe"]
+ Antarctica	 - was on: /ldml/dates/timeZoneNames/zone[@type="Antarctica/Rothera"]
+ Democratic Republic of the Congo	 - was on: /ldml/dates/timeZoneNames/zone[@type="Africa/Kinshasa"]
+ United Kingdom	 - was on: /ldml/dates/timeZoneNames/zone[@type="Europe/Belfast"]
+ French Polynesia	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Tahiti"]
+ New Zealand	 - was on: /ldml/dates/timeZoneNames/zone[@type="Pacific/Chatham"]
+ Mongolia	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Hovd"]
+ Greenland	 - was on: /ldml/dates/timeZoneNames/zone[@type="America/Thule"]
+ Svalbard and Jan Mayen	 - was on: /ldml/dates/timeZoneNames/zone[@type="Atlantic/Jan_Mayen"]
+ Uzbekistan	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Samarkand"]
+ Australia	 - was on: /ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]
+ China	 - was on: /ldml/dates/timeZoneNames/zone[@type="Asia/Kashgar"]
 -->
 

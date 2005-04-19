@@ -192,6 +192,7 @@ openOffice:followPageWord*) >
 <!ELEMENT openOffice:followPageWord (#PCDATA)>
 
 <!ELEMENT openOffice:format (#PCDATA)>
+<!ATTLIST openOffice:format %RefLocale; >
 <!ATTLIST openOffice:format openOffice:replaceFrom CDATA #IMPLIED>
 <!ATTLIST openOffice:format openOffice:replaceTo CDATA #IMPLIED>
 

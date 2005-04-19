@@ -600,7 +600,7 @@ public class CLDRTest extends TestFmwk {
 	 * @param postfix TODO
 	 */
 	private void checkTranslatedCode(CLDRFile cldrfile, StandardCodes codes, String type, String prefix, String postfix) {
-		Set codeItems = codes.getAvailableCodes(type);
+		Set codeItems = codes.getGoodAvailableCodes(type);
 		int count = 0;
 		Set exceptions = (Set) completionExceptions.get(type);
 		for (Iterator it = codeItems.iterator(); it.hasNext();) {
@@ -621,7 +621,7 @@ public class CLDRTest extends TestFmwk {
 				errln("Translation = code for:\t<" + type + " type=\""  + code + "\">" + rfcname + "</" + type + ">");
 				continue;
 			}
-			if (!translation.equalsIgnoreCase(rfcname)) {
+			if (false && !translation.equalsIgnoreCase(rfcname)) {
 				warnln(type + " translation differs from RFC, check: " + code + "\trfc: " + rfcname + "\tcldr: " + translation);
 			}
 		}
@@ -967,7 +967,13 @@ public class CLDRTest extends TestFmwk {
 			currencies.addAll((Collection)it.next());
 		}
         logln("Check that no illegal currencies are used");
-        Set legalCurrencies = sc.getAvailableCodes("currency");
+        Set legalCurrencies = new TreeSet(sc.getAvailableCodes("currency"));
+        // first remove non-ISO
+        for (Iterator it = legalCurrencies.iterator(); it.hasNext();) {
+        	String code = (String) it.next();
+        	List data = sc.getFullData("currency", code);
+        	if ("X".equals(data.get(3))) it.remove();
+        }
 		if (!legalCurrencies.containsAll(currencies)) {
 			TreeSet extras = new TreeSet(currencies);
 			extras.removeAll(legalCurrencies);

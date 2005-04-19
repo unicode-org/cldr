@@ -38,6 +38,7 @@ public class StandardCodes {
 	private Map type_name_codes = new TreeMap();
 	private Map type_code_preferred = new TreeMap();
 	private Map country_modernCurrency = new TreeMap();
+	private Map goodCodes = new TreeMap();
 	private String date;
 	
 	/**
@@ -59,7 +60,7 @@ public class StandardCodes {
 		if (list == null) return null;
 		return (String)list.get(0);
 	}
-	
+
 	/**
 	 * @return the full data for the type and code
 	 * For the data in lstreg, it is
@@ -115,6 +116,45 @@ public class StandardCodes {
 	}
 	
 	/**
+	 * Get all the available "real" codes for a given type
+	 * @param type
+	 * @return
+	 */
+	public Set getGoodAvailableCodes(String type) {
+		Set result = (Set) goodCodes.get(type);
+		if (result == null) {
+			Map code_name = (Map) type_code_data.get(type);
+			if (code_name == null) return null;
+			result = new TreeSet(code_name.keySet());
+			if (type.equals("currency")) {
+		        for (Iterator it = result.iterator(); it.hasNext();) {
+		        	String code = (String) it.next();
+		        	List data = getFullData(type, code);
+		        	if ("X".equals(data.get(3))) {
+		        		//System.out.println("Removing: " + code);
+		        		it.remove();
+		        	}
+		        }
+			} else if (!type.equals("tzid")) {
+		        for (Iterator it = result.iterator(); it.hasNext();) {
+		        	String code = (String) it.next();
+		        	if (code.equals("root") || code.equals("ZZ")) continue;
+		        	List data = getFullData(type, code);
+		        	if (data.size() < 3) System.out.println(code + "\t" + data);
+		        	if (data.get(0).equals("PRIVATE USE")
+		        			|| (!data.get(2).equals("") && !data.get(2).equals("--"))) {
+		        		//System.out.println("Removing: " + code);
+		        		it.remove();
+		        	}
+		        }
+			}
+			result = Collections.unmodifiableSet(result);
+			goodCodes.put(type, result);
+		}
+		return result;
+	}
+	
+	/**
 	 * Gets the modern currency.
 	 */
 	public Set getMainCurrencies(String countryCode) {
@@ -153,8 +193,6 @@ public class StandardCodes {
 	private StandardCodes() {
 		String[] files = {"lstreg.txt", "ISO4217.txt"}; // , "TZID.txt"
 		type_code_preferred.put("tzid", new TreeMap());
-		add("script", "Qaai", "Inherited");
-		add("script", "Zyyy", "Common");
 		add("language", "root", "Root");
 		String originalLine = null;
 		for (int fileIndex = 0; fileIndex < files.length; ++fileIndex) {
@@ -292,7 +330,19 @@ public class StandardCodes {
 	}
 
 	private void add(String type, String code, List otherData) {
+		// hack
+		if (type.equals("script")) {
+			if (code.equals("Qaai")) {
+				otherData = new ArrayList(otherData);
+				otherData.set(0,"Inherited");
+			} else if (code.equals("Zyyy")) {
+				otherData = new ArrayList(otherData);
+				otherData.set(0,"Common");
+			}
+		}
+
 		// assume name is the first item
+		
 		String name = (String) otherData.get(0);
 
 		// add to main list

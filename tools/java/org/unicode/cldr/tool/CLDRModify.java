@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -22,6 +23,7 @@ import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -77,15 +79,16 @@ public class CLDRModify {
 		+ "\twhere * in X' is replaced by X)." + XPathParts.NEWLINE
 		+ "\tExample:-jC:\\Unicode-CVS2\\cldr\\dropbox\\to_be_merged\\missing\\missing_*" + XPathParts.NEWLINE
 		+ "-i\tmerge arguments:" + XPathParts.NEWLINE
-		+ "\td\tmake draft" + XPathParts.NEWLINE
-		+ "\tc\tignore comments in <merge_dir> files" + XPathParts.NEWLINE
+		+ "\td\t make draft" + XPathParts.NEWLINE
+		+ "\tc\t ignore comments in <merge_dir> files" + XPathParts.NEWLINE
 		+ "-r\tto minimize the results (removing items that inherit from parent)." + XPathParts.NEWLINE
 		+ "-f\tto perform various fixes on the files (TBD: add argument to specify which ones)" + XPathParts.NEWLINE
-		+ "\tn\tfix numbers" + XPathParts.NEWLINE
-		+ "\tv\tvalidate codes" + XPathParts.NEWLINE
-		+ "\tc\tfix CS" + XPathParts.NEWLINE
-		+ "\ts\tfix stand-alone narrows" + XPathParts.NEWLINE
-		+ "\tr\tfix references and standards" + XPathParts.NEWLINE
+		+ "\tn\t fix numbers" + XPathParts.NEWLINE
+		+ "\tv\t validate codes" + XPathParts.NEWLINE
+		+ "\tc\t fix CS" + XPathParts.NEWLINE
+		+ "\ts\t fix stand-alone narrows" + XPathParts.NEWLINE
+		+ "\tr\t fix references and standards" + XPathParts.NEWLINE
+		+ "\tx\t remove illegal currencies (later, others)" + XPathParts.NEWLINE
 		+ "A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results.";
 	
 	/**
@@ -301,6 +304,43 @@ public class CLDRModify {
 		}
 	};
 	
+	static CLDRFilter fixUnwantedCodes = new CLDRFilter() {
+/*		Set legalCurrencies;
+		{		
+			StandardCodes sc = StandardCodes.make();
+	        legalCurrencies = new TreeSet(sc.getAvailableCodes("currency"));
+	        // first remove non-ISO
+	        for (Iterator it = legalCurrencies.iterator(); it.hasNext();) {
+	        	String code = (String) it.next();
+	        	List data = sc.getFullData("currency", code);
+	        	if ("X".equals(data.get(3))) it.remove();
+	        }
+		}
+*/
+		StandardCodes sc = StandardCodes.make();
+		String[] codeTypes = {"language", "script", "territory", "currency"};
+		public void handle(String xpath, Set removal, CLDRFile replacements) {
+			if (xpath.indexOf("/currency") < 0 
+					&& xpath.indexOf("/timeZoneNames") < 0 
+					&& xpath.indexOf("/localeDisplayNames") < 0) return;
+			parts.set(xpath);
+			String code;
+			for (int i = 0; i < codeTypes.length; ++i) {
+				code = parts.findAttributeValue(codeTypes[i], "type");
+				if (code != null) {
+					if (!sc.getGoodAvailableCodes(codeTypes[i]).contains(code)) removal.add(xpath);
+					return;
+				}
+			}
+			code = parts.findAttributeValue("zone", "type");
+			if (code != null) {
+				if (code.indexOf("/GMT") >= 0) removal.add(xpath);
+			}
+
+		}
+	};
+
+	
 	static CLDRFilter fixExemplars = new CLDRFilter() {
 		public void handle(String xpath, Set removal, CLDRFile replacements) {
 			if (xpath.indexOf("/exemplarCharacters") < 0) return;
@@ -450,6 +490,7 @@ public class CLDRModify {
 		fixNarrow.setFile(k);
 		fixReferences.setFile(k);
 		fixExemplars.setFile(k);
+		fixUnwantedCodes.setFile(k);
 		
 		for (Iterator it2 = k.keySet().iterator(); it2.hasNext();) {
 			String xpath = (String) it2.next();
@@ -472,7 +513,7 @@ public class CLDRModify {
 			=>
 			<territory type="CS" draft="true">Serbia</territory> <!-- should be serbia & montegro -->
 			*/
-			if (options.indexOf('c') >= 0) fixCS.handle(xpath, removal, replacements);
+			//if (options.indexOf('c') >= 0) fixCS.handle(xpath, removal, replacements);
 			
 			//Give best default for each language
 			//http://www.jtcsv.com/cgibin/locale-bugs?findid=282
@@ -488,6 +529,9 @@ public class CLDRModify {
 			// contents of standard and references. Number the standards S001, S002,... and the
 			// references R001, R002, etc. Emit
 			if (options.indexOf('r') >= 0) fixReferences.handle(xpath, removal, replacements);
+			
+			// remove illegal codes
+			if (options.indexOf('x') >= 0) fixUnwantedCodes.handle(xpath, removal, replacements);
 		}
 		
 		//remove bad attributes

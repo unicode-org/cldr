@@ -348,6 +348,7 @@ public class CLDRFile implements Lockable {
     		xpath_comments.setFinalComment(
     				Utility.joinWithSeparation(xpath_comments.getFinalComment(), XPathParts.NEWLINE, comment));
     	} else {
+        	xpath = getDistinguishingXPath(xpath);
 	        xpath_comments.add(type, xpath, comment);
     	}
     	return this;
@@ -370,7 +371,7 @@ public class CLDRFile implements Lockable {
     		xpath_value = temp;    		
     	} else if (conflict_resolution == MERGE_REPLACE_MINE) {
     		xpath_value.putAll(other.xpath_value);
-    	} else { // MERGE_ADD_ALTERNATE
+    	} else if (conflict_resolution == MERGE_ADD_ALTERNATE){
     		XPathParts parts = new XPathParts(null, null);
     		for (Iterator it = other.xpath_value.keySet().iterator(); it.hasNext();) {
     			String key = (String) it.next();
@@ -380,7 +381,8 @@ public class CLDRFile implements Lockable {
     				xpath_value.put(getDistinguishingXPath(otherValue.getFullXPath()), otherValue);
     			} else if (!myValue.equalsIgnoringDraft(otherValue) && !key.startsWith("/ldml/identity")){
     				for (int i = 0; ; ++i) {
-    					String fullPath = parts.set(otherValue.getFullXPath()).addAttribute("alt", "proposed" + i).toString();
+    					String prop = "proposed" + (i == 0 ? "" : String.valueOf(i));
+    					String fullPath = parts.set(otherValue.getFullXPath()).addAttribute("alt", prop).toString();
     					String path = getDistinguishingXPath(fullPath);
     					if (xpath_value.get(path) != null) continue;
     					xpath_value.put(path, new StringValue(otherValue.getStringValue(), fullPath));
@@ -388,7 +390,8 @@ public class CLDRFile implements Lockable {
     				}
     			}
     		}
-    	}
+    	} else throw new IllegalArgumentException("Illegal operand: " + conflict_resolution);
+    	
     	xpath_comments.setInitialComment(
     			Utility.joinWithSeparation(xpath_comments.getInitialComment(),
     					XPathParts.NEWLINE, 
@@ -723,7 +726,7 @@ private boolean isSupplemental;
 	    	CLDRFile result = (CLDRFile) cache.get(localeName);
 	    	if (result == null) {
 	    		if (!resolved) {
-	    			result = CLDRFile.make(localeName, sourceDirectory);
+	    			result = CLDRFile.make(localeName, localeName.equals(SUPPLEMENTAL_NAME) ? sourceDirectory + "../supplemental/" : sourceDirectory);
 	    		} else {
     				// this is a bit tricky because of aliases
     				result = (CLDRFile) make(localeName, false).clone();
@@ -1091,11 +1094,19 @@ private boolean isSupplemental;
                     throw e;
                 }
             }
+        
+        static char XML_LINESEPARATOR = (char)0xA;
+        static String XML_LINESEPARATOR_STRING = String.valueOf(XML_LINESEPARATOR);
+        
         public void characters(char[] ch, int start, int length)
             throws SAXException {
                 try {
                     String value = new String(ch,start,length);
                     Log.logln(SHOW_ALL, "characters:\t" + value);
+                    while (value.startsWith(XML_LINESEPARATOR_STRING) && lastChars.length() == 0) {
+                    	value = value.substring(1);
+                    }
+                    if (value.indexOf(XML_LINESEPARATOR) >= 0) value = value.replace(XML_LINESEPARATOR, '\u0020');
                     lastChars += value;
                     justPopped = false;
                 } catch (RuntimeException e) {
@@ -1524,7 +1535,7 @@ private boolean isSupplemental;
 			"weekendEnd", "eraNames", "eraAbbr", "era", "pattern",
 			"displayName", "hourFormat", "hoursFormat", "gmtFormat",
 			"regionFormat", "fallbackFormat", "abbreviationFallback",
-			"preferenceOrdering", "default", "calendar", "monthContext",
+			"preferenceOrdering", "singleCountries", "default", "calendar", "monthContext",
 			"monthWidth", "dayContext", "dayWidth", "dateFormatLength",
 			"dateFormat", "timeFormatLength", "timeFormat",
 			"dateTimeFormatLength", "dateTimeFormat", "zone", "long",
@@ -1550,6 +1561,7 @@ private boolean isSupplemental;
 			"before", "from", "to",
 			"number", "time",
 			"validSubLocales",
+			"list",
 			"uri",
 			"iso4217", "digits", "rounding",
 			"iso3166",

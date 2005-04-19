@@ -117,37 +117,37 @@ public class POSIXUtilities {
         return result.toString();
    }
 
-   public static String POSIXDateTimeFormat ( String s )
+   public static String POSIXDateTimeFormat ( String s , boolean UseAltDigits )
    {
 
       //  This is an array of the POSIX date / time field descriptors and their corresponding representations
       //  in LDML.  We use these to replace the LDML fields with POSIX field descriptors.
 
       String[][] FieldDescriptors = {
-           { "/",    "<SOLIDUS>" },
-           { "DDD",  "%j" },
-           { "EEEE", "%A" },
-           { "EEE",  "%a" },
-           { "G",    "%N" },
-           { "HH",   "%H" },
-           { "H",    "%H" },
-           { "MMMM", "%B" },
-           { "MMM",  "%b" },
-           { "MM",   "%m" },
-           { "M",    "%m" },
-           { "a",    "%p" },
-           { "dd",   "%d" },
-           { "d",    "%e" },
-           { "hh",   "%I" },
-           { "h",    "%I" },
-           { "mm",   "%M" },
-           { "yyyy", "%Y" },
-           { "yy",   "%y" },
-           { "zzzz", "%Z" },
-           { "zzz",  "%Z" },
-           { "zz",   "%Z" },
-           { "z",    "%Z" },
-           { "ss",   "%S" }
+           { "/",    "<SOLIDUS>" , "<SOLIDUS>" },
+           { "DDD",  "%j" , "%j" },
+           { "EEEE", "%A" , "%A" },
+           { "EEE",  "%a" , "%a" },
+           { "G",    "%N" , "%N" },
+           { "HH",   "%H" , "%OH" },
+           { "H",    "%H" , "%OH" },
+           { "MMMM", "%B" , "%B" },
+           { "MMM",  "%b" , "%b" },
+           { "MM",   "%m" , "%Om" },
+           { "M",    "%m" , "%Om" },
+           { "a",    "%p" , "%p" },
+           { "dd",   "%d" , "%Od" },
+           { "d",    "%e" , "%Oe" },
+           { "hh",   "%I" , "%OI" },
+           { "h",    "%I" , "%OI" },
+           { "mm",   "%M" , "%OM" },
+           { "yyyy", "%Y" , "%Oy" },
+           { "yy",   "%y" , "%Oy" },
+           { "zzzz", "%Z" , "%Z" },
+           { "zzz",  "%Z" , "%Z" },
+           { "zz",   "%Z" , "%Z" },
+           { "z",    "%Z" , "%Z" },
+           { "ss",   "%S" , "%OS" }
       };
 
       boolean inquotes = false;
@@ -160,7 +160,10 @@ public class POSIXUtilities {
          {
                if ( s.indexOf(FieldDescriptors[i][0],pos) == pos)
                {
-                  result.append(FieldDescriptors[i][1]);
+                  if ( UseAltDigits )
+                     result.append(FieldDescriptors[i][2]);
+                  else
+                     result.append(FieldDescriptors[i][1]);
                   replaced = true;
                   pos += FieldDescriptors[i][0].length();
                }

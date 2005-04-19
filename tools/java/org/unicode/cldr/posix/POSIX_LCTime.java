@@ -10,6 +10,7 @@
 package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
+import java.lang.Character;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -27,6 +28,7 @@ public class POSIX_LCTime {
    String t_fmt;
    String am_pm[];
    String t_fmt_ampm;
+   String alt_digits[];
 
 
    public POSIX_LCTime ( Document doc )
@@ -36,6 +38,8 @@ public class POSIX_LCTime {
       abmon = new String[12];
       mon = new String[12];
       am_pm = new String[2];
+      alt_digits = new String[100];
+
       String[] days = { "sun", "mon", "tue", "wed", "thu", "fri", "sat" };
       String SearchLocation;
       Node n;
@@ -66,11 +70,25 @@ public class POSIX_LCTime {
          mon[i] = POSIXUtilities.POSIXCharName(LDMLUtilities.getNodeValue(n));
       }
 
+      // alt_digits
+         SearchLocation = "//ldml/numbers/symbols/nativeZeroDigit";
+         n = LDMLUtilities.getNode(doc, SearchLocation);
+         if ( (n != null) && LDMLUtilities.getNodeValue(n) != "0" )
+         {
+            Character ThisDigit;
+            String NativeZeroDigit = LDMLUtilities.getNodeValue(n);
+            alt_digits[0] = POSIXUtilities.POSIXCharName(NativeZeroDigit);
+            char base_value = NativeZeroDigit.charAt(0);
+            for ( short i = 1 ; i < 10 ; i++ )
+                alt_digits[i] = POSIXUtilities.POSIXCharName(Character.toString(((char)((short)base_value + i))));
+            for ( short i = 10 ; i < 100 ; i++ )
+                alt_digits[i] = alt_digits[i/10] + alt_digits[i%10];
+         }
 
       // t_fmt - 
          SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/timeFormats/timeFormatLength[@type='medium']/timeFormat/pattern";
          n = LDMLUtilities.getNode(doc, SearchLocation);
-         t_fmt = POSIXUtilities.POSIXDateTimeFormat(LDMLUtilities.getNodeValue(n));
+         t_fmt = POSIXUtilities.POSIXDateTimeFormat(LDMLUtilities.getNodeValue(n),alt_digits[0].length()>0);
 
         
          if ( t_fmt.indexOf("%p") >= 0 )
@@ -81,7 +99,7 @@ public class POSIX_LCTime {
       // d_fmt - 
          SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='short']/dateFormat/pattern";
          n = LDMLUtilities.getNode(doc, SearchLocation);
-         d_fmt = POSIXUtilities.POSIXDateTimeFormat(LDMLUtilities.getNodeValue(n));
+         d_fmt = POSIXUtilities.POSIXDateTimeFormat(LDMLUtilities.getNodeValue(n),alt_digits[0].length()>0);
 
       // d_t_fmt - 
          SearchLocation = "//ldml/dates/calendars/calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength/dateTimeFormat/pattern";
@@ -97,7 +115,7 @@ public class POSIX_LCTime {
          n = LDMLUtilities.getNode(doc, SearchLocation);
          d_t_fmt = d_t_fmt.replaceAll("\\{1\\}",LDMLUtilities.getNodeValue(n));
 
-         d_t_fmt = POSIXUtilities.POSIXDateTimeFormat(d_t_fmt);
+         d_t_fmt = POSIXUtilities.POSIXDateTimeFormat(d_t_fmt,alt_digits[0].length()>0);
          d_t_fmt = POSIXUtilities.POSIXCharNameNP(d_t_fmt);
 
 
@@ -203,7 +221,22 @@ public class POSIX_LCTime {
       out.println("t_fmt_ampm  \"" + t_fmt_ampm + "\"");
       out.println();
 
-      out.println();
+      // alt_digits
+      if ( ! alt_digits[0].equals("") )
+      {
+         out.print("alt_digits \"");
+         for ( int i = 0 ; i < 100 ; i++ )
+         {
+            out.print(alt_digits[i]);
+            if ( i < 99 )
+            {
+               out.println("\";/");
+               out.print("           \"");
+            }
+            else
+               out.println("\"");
+         }
+      }
       out.println("END LC_TIME");
 
    }

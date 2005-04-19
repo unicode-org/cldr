@@ -11,8 +11,14 @@
     All trademarks and registered trademarks mentioned herein are the property of their respective owners.
 -->
 
-<!ELEMENT supplementalData ( alias?, currencyData?, territoryContainment?, languageData? ) >
+<!ELEMENT supplementalData ( version?, generation?, alias?, currencyData?, territoryContainment?, languageData? ) >
 <!ATTLIST supplementalData version CDATA #FIXED "1.3" >
+
+<!ELEMENT version ( #PCDATA ) >
+<!ATTLIST version number CDATA #REQUIRED >
+
+<!ELEMENT generation EMPTY >
+<!ATTLIST generation date CDATA #REQUIRED >
 
 <!ELEMENT alias ( languageAlias*,  scriptAlias*, territoryAlias*, variantAlias* ) >
 <!ATTLIST alias draft ( true | false ) #IMPLIED >

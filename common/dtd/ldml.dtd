@@ -65,6 +65,8 @@
 <!ELEMENT default (special*) >
 <!ATTLIST default type NMTOKEN #REQUIRED >
 <!ATTLIST default draft ( true | false ) #IMPLIED >
+<!ATTLIST default standard CDATA #IMPLIED >
+<!ATTLIST default references CDATA #IMPLIED >
 <!ATTLIST default alt CDATA #IMPLIED >
 
 <!ELEMENT special ANY >
@@ -143,7 +145,7 @@
 
 <!-- ######################################################### -->
 <!-- layout and orientation are script specific, so validSublocales attribute is not required -->
-<!ELEMENT layout ( alias | (orientation?, special*) ) >
+<!ELEMENT layout ( alias | (orientation*, special*) ) >
 <!ATTLIST layout draft ( true | false ) #IMPLIED >
 <!ATTLIST layout standard CDATA #IMPLIED >
 <!ATTLIST layout references CDATA #IMPLIED >
@@ -154,6 +156,7 @@
 <!ATTLIST orientation draft ( true | false ) #IMPLIED >
 <!ATTLIST orientation standard CDATA #IMPLIED >
 <!ATTLIST orientation references CDATA #IMPLIED >
+<!ATTLIST orientation alt CDATA #IMPLIED >
 
 <!-- ######################################################### -->
 
@@ -217,14 +220,14 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT measurement (alias | (measurementSystem?, paperSize?, special*)) >
+<!ELEMENT measurement (alias | (measurementSystem*, paperSize*, special*)) >
 <!ATTLIST measurement draft ( true | false ) #IMPLIED >
 <!ATTLIST measurement standard CDATA #IMPLIED >
 <!ATTLIST measurement references CDATA #IMPLIED >
 <!ATTLIST measurement alt CDATA #IMPLIED >
 <!ATTLIST measurement validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT paperSize (alias | (height?, width?, special*)) >
+<!ELEMENT paperSize (alias | (height*, width*, special*)) >
 <!ATTLIST paperSize draft ( true | false ) #IMPLIED >
 <!ATTLIST paperSize standard CDATA #IMPLIED >
 <!ATTLIST paperSize references CDATA #IMPLIED >
@@ -268,7 +271,7 @@
 <!ATTLIST localizedPatternChars alt CDATA #IMPLIED >
 <!ATTLIST localizedPatternChars validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT calendars (alias | (default?, calendar*, special*)) >
+<!ELEMENT calendars (alias | (default*, calendar*, special*)) >
 <!ATTLIST calendars draft ( true | false ) #IMPLIED >
 <!ATTLIST calendars validSubLocales CDATA #IMPLIED >
 
@@ -280,14 +283,14 @@
 <!ATTLIST calendar alt CDATA #IMPLIED >
 <!ATTLIST calendar validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT months ( alias | (default?, monthContext*, special*)) >
+<!ELEMENT months ( alias | (default*, monthContext*, special*)) >
 <!ATTLIST months draft ( true | false ) #IMPLIED >
 <!ATTLIST months standard CDATA #IMPLIED >
 <!ATTLIST months references CDATA #IMPLIED >
 <!ATTLIST months alt CDATA #IMPLIED >
 <!ATTLIST months validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT monthContext ( alias | (default?, monthWidth*, special*)) >
+<!ELEMENT monthContext ( alias | (default*, monthWidth*, special*)) >
 <!ATTLIST monthContext type ( format | stand-alone ) #REQUIRED >
 <!ATTLIST monthContext draft ( true | false ) #IMPLIED >
 <!ATTLIST monthContext standard CDATA #IMPLIED >
@@ -317,14 +320,14 @@
 <!ATTLIST monthAbbr draft ( true | false ) #IMPLIED >
 <!-- END_DEPRECATED-->
 
-<!ELEMENT days ( alias | (default?, dayContext*, special*)) >
+<!ELEMENT days ( alias | (default*, dayContext*, special*)) >
 <!ATTLIST days draft ( true | false ) #IMPLIED >
 <!ATTLIST days standard CDATA #IMPLIED >
 <!ATTLIST days references CDATA #IMPLIED >
 <!ATTLIST days alt CDATA #IMPLIED >
 <!ATTLIST days validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT dayContext ( alias | (default?, dayWidth*, special*)) >
+<!ELEMENT dayContext ( alias | (default*, dayWidth*, special*)) >
 <!ATTLIST dayContext draft ( true | false ) #IMPLIED >
 <!ATTLIST dayContext type ( format | stand-alone ) #REQUIRED >
 <!ATTLIST dayContext standard CDATA #IMPLIED >
@@ -356,7 +359,7 @@
 
 <!-- END_DEPRECATED-->
 
-<!ELEMENT week (alias | (minDays?, firstDay?, weekendStart?, weekendEnd?, special*)) >
+<!ELEMENT week (alias | (minDays*, firstDay*, weekendStart*, weekendEnd*, special*)) >
 <!ATTLIST week draft ( true | false ) #IMPLIED >
 <!ATTLIST week standard CDATA #IMPLIED >
 <!ATTLIST week references CDATA #IMPLIED >
@@ -426,11 +429,11 @@
 <!ATTLIST era references CDATA #IMPLIED >
 <!ATTLIST era alt CDATA #IMPLIED >
 
-<!ELEMENT dateFormats (alias | (default?, dateFormatLength*, special*)) >
+<!ELEMENT dateFormats (alias | (default*, dateFormatLength*, special*)) >
 <!ATTLIST dateFormats draft ( true | false ) #IMPLIED >
 <!ATTLIST dateFormats validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT dateFormatLength (alias | (default?, dateFormat*, special*)) >
+<!ELEMENT dateFormatLength (alias | (default*, dateFormat*, special*)) >
 <!ATTLIST dateFormatLength type ( full | long | medium | short ) #REQUIRED >
 <!ATTLIST dateFormatLength draft ( true | false ) #IMPLIED >
 <!ATTLIST dateFormatLength standard CDATA #IMPLIED >
@@ -438,7 +441,7 @@
 <!ATTLIST dateFormatLength alt CDATA #IMPLIED >
 <!ATTLIST dateFormatLength validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT dateFormat (alias | (pattern*, displayName?, special*))  >
+<!ELEMENT dateFormat (alias | (pattern*, displayName*, special*))  >
 <!ATTLIST dateFormat type NMTOKEN "standard">
 <!ATTLIST dateFormat draft ( true | false ) #IMPLIED >
 <!ATTLIST dateFormat standard CDATA #IMPLIED >
@@ -451,11 +454,11 @@
 <!ATTLIST displayName references CDATA #IMPLIED >
 <!ATTLIST displayName alt CDATA #IMPLIED >
 
-<!ELEMENT timeFormats (alias | (default?, timeFormatLength*, special*)) >
+<!ELEMENT timeFormats (alias | (default*, timeFormatLength*, special*)) >
 <!ATTLIST timeFormats draft ( true | false ) #IMPLIED >
 <!ATTLIST timeFormats validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT timeFormatLength (alias | (default?, timeFormat*, special*)) >
+<!ELEMENT timeFormatLength (alias | (default*, timeFormat*, special*)) >
 <!ATTLIST timeFormatLength type ( full | long | medium | short ) #REQUIRED >
 <!ATTLIST timeFormatLength draft ( true | false ) #IMPLIED >
 <!ATTLIST timeFormatLength standard CDATA #IMPLIED >
@@ -463,7 +466,7 @@
 <!ATTLIST timeFormatLength alt CDATA #IMPLIED >
 <!ATTLIST timeFormatLength validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT timeFormat (alias | (pattern*, displayName?, special*)) >
+<!ELEMENT timeFormat (alias | (pattern*, displayName*, special*)) >
 <!ATTLIST timeFormat type NMTOKEN "standard" >
 <!ATTLIST timeFormat draft ( true | false ) #IMPLIED >
 <!ATTLIST timeFormat standard CDATA #IMPLIED >
@@ -471,11 +474,11 @@
 <!ATTLIST timeFormat alt CDATA #IMPLIED >
 <!ATTLIST timeFormat validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT dateTimeFormats (alias | (default?, dateTimeFormatLength*, special*)) >
+<!ELEMENT dateTimeFormats (alias | (default*, dateTimeFormatLength*, special*)) >
 <!ATTLIST dateTimeFormats draft ( true | false ) #IMPLIED >
 <!ATTLIST dateTimeFormats validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT dateTimeFormatLength (alias | (default?, dateTimeFormat*, special*)) >
+<!ELEMENT dateTimeFormatLength (alias | (default*, dateTimeFormat*, special*)) >
 <!ATTLIST dateTimeFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST dateTimeFormatLength draft ( true | false ) #IMPLIED >
 <!ATTLIST dateTimeFormatLength standard CDATA #IMPLIED >
@@ -483,7 +486,7 @@
 <!ATTLIST dateTimeFormatLength alt CDATA #IMPLIED >
 <!ATTLIST dateTimeFormatLength validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT dateTimeFormat (alias | (pattern*, displayName?, special*)) >
+<!ELEMENT dateTimeFormat (alias | (pattern*, displayName*, special*)) >
 <!ATTLIST dateTimeFormat type NMTOKEN "standard"  >
 <!ATTLIST dateTimeFormat draft ( true | false ) #IMPLIED >
 <!ATTLIST dateTimeFormat standard CDATA #IMPLIED >
@@ -546,7 +549,7 @@
 <!ATTLIST zone alt CDATA #IMPLIED >
 <!ATTLIST zone validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT long (alias | (generic?, standard?, daylight?, special*)) >
+<!ELEMENT long (alias | (generic*, standard*, daylight*, special*)) >
 <!ATTLIST long draft ( true | false ) #IMPLIED >
 <!ATTLIST long references CDATA #IMPLIED >
 <!ATTLIST long alt CDATA #IMPLIED >
@@ -562,7 +565,7 @@
 <!ATTLIST standard references CDATA #IMPLIED >
 <!ATTLIST standard alt CDATA #IMPLIED >
 
-<!ELEMENT short (alias | (generic?, standard?, daylight?, special*)) >
+<!ELEMENT short (alias | (generic*, standard*, daylight*, special*)) >
 <!ATTLIST short draft ( true | false ) #IMPLIED >
 <!ATTLIST short references CDATA #IMPLIED >
 <!ATTLIST short alt CDATA #IMPLIED >
@@ -585,7 +588,7 @@
 <!ATTLIST fields alt CDATA #IMPLIED >
 <!ATTLIST fields validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT field ( alias | (displayName?, relative*, special*)) >
+<!ELEMENT field ( alias | (displayName*, relative*, special*)) >
 <!ATTLIST field type ( era | year | month | week | day | weekday | dayperiod | hour | minute | second | zone ) #IMPLIED >
 <!ATTLIST field draft ( true | false ) #IMPLIED >
 <!ATTLIST field standard CDATA #IMPLIED >
@@ -608,7 +611,7 @@
 <!ATTLIST numbers alt CDATA #IMPLIED >
 <!ATTLIST numbers validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT symbols (alias | (decimal?, group*, list?, percentSign?, nativeZeroDigit?, patternDigit?, plusSign?, minusSign?, exponential?, perMille?, infinity?, nan?, special*)) >
+<!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, exponential*, perMille*, infinity*, nan*, special*)) >
 <!ATTLIST symbols draft ( true | false ) #IMPLIED >
 <!ATTLIST symbols standard CDATA #IMPLIED >
 <!ATTLIST symbols references CDATA #IMPLIED >
@@ -681,11 +684,11 @@
 <!ATTLIST pattern references CDATA #IMPLIED >
 <!ATTLIST pattern alt CDATA #IMPLIED >
 
-<!ELEMENT decimalFormats (alias | (default?, decimalFormatLength*, special*)) >
+<!ELEMENT decimalFormats (alias | (default*, decimalFormatLength*, special*)) >
 <!ATTLIST decimalFormats draft ( true | false ) #IMPLIED >
 <!ATTLIST decimalFormats validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT decimalFormatLength (alias | (default?, decimalFormat*, special*)) >
+<!ELEMENT decimalFormatLength (alias | (default*, decimalFormat*, special*)) >
 <!ATTLIST decimalFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST decimalFormatLength draft ( true | false ) #IMPLIED >
 <!ATTLIST decimalFormatLength standard CDATA #IMPLIED >
@@ -701,11 +704,11 @@
 <!ATTLIST decimalFormat alt CDATA #IMPLIED >
 <!ATTLIST decimalFormat validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT scientificFormats (alias | (default?, scientificFormatLength*, special*)) >
+<!ELEMENT scientificFormats (alias | (default*, scientificFormatLength*, special*)) >
 <!ATTLIST scientificFormats draft ( true | false ) #IMPLIED >
 <!ATTLIST scientificFormats validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT scientificFormatLength (alias | (default?, scientificFormat*, special*)) >
+<!ELEMENT scientificFormatLength (alias | (default*, scientificFormat*, special*)) >
 <!ATTLIST scientificFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST scientificFormatLength draft ( true | false ) #IMPLIED >
 <!ATTLIST scientificFormatLength standard CDATA #IMPLIED >
@@ -721,11 +724,11 @@
 <!ATTLIST scientificFormat alt CDATA #IMPLIED >
 <!ATTLIST scientificFormat validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT percentFormats (alias | (default?, percentFormatLength*, special*)) >
+<!ELEMENT percentFormats (alias | (default*, percentFormatLength*, special*)) >
 <!ATTLIST percentFormats draft ( true | false ) #IMPLIED >
 <!ATTLIST percentFormats validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT percentFormatLength (alias | (default?, percentFormat*, special*)) >
+<!ELEMENT percentFormatLength (alias | (default*, percentFormat*, special*)) >
 <!ATTLIST percentFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST percentFormatLength draft ( true | false ) #IMPLIED >
 <!ATTLIST percentFormatLength standard CDATA #IMPLIED >
@@ -741,11 +744,11 @@
 <!ATTLIST percentFormat alt CDATA #IMPLIED >
 <!ATTLIST percentFormat validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT currencyFormats (alias | (default?, currencyFormatLength*, special*)) >
+<!ELEMENT currencyFormats (alias | (default*, currencyFormatLength*, special*)) >
 <!ATTLIST currencyFormats draft ( true | false ) #IMPLIED >
 <!ATTLIST currencyFormats validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT currencyFormatLength (alias | (default?, currencyFormat*, special*)) >
+<!ELEMENT currencyFormatLength (alias | (default*, currencyFormat*, special*)) >
 <!ATTLIST currencyFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ATTLIST currencyFormatLength draft ( true | false ) #IMPLIED >
 <!ATTLIST currencyFormatLength standard CDATA #IMPLIED >
@@ -761,7 +764,7 @@
 <!ATTLIST currencyFormat alt CDATA #IMPLIED >
 <!ATTLIST currencyFormat validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT currencies (alias | (default?, currency*, special*)) >
+<!ELEMENT currencies (alias | (default*, currency*, special*)) >
 <!ATTLIST currencies draft ( true | false ) #IMPLIED >
 <!ATTLIST currencies validSubLocales CDATA #IMPLIED >
 
@@ -781,12 +784,12 @@
 
 <!-- ######################################################### -->
 
-<!ELEMENT collations (alias | (default?, collation*, special*)) >
+<!ELEMENT collations (alias | (default*, collation*, special*)) >
 <!ATTLIST collations version NMTOKEN #IMPLIED >
 <!ATTLIST collations draft ( true | false ) #IMPLIED >
 <!ATTLIST collations validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT collation (alias | (base?, settings?, suppress_contractions?, optimize?, rules?, special*)) >
+<!ELEMENT collation (alias | (base*, settings*, suppress_contractions*, optimize*, rules*, special*)) >
 <!ATTLIST collation type NMTOKEN "standard" >
 <!ATTLIST collation draft ( true | false ) #IMPLIED >
 <!ATTLIST collation standard CDATA #IMPLIED >
@@ -795,6 +798,10 @@
 <!ATTLIST collation validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT base (alias|special) >
+<!ATTLIST base draft ( true | false ) #IMPLIED >
+<!ATTLIST base standard CDATA #IMPLIED >
+<!ATTLIST base references CDATA #IMPLIED >
+<!ATTLIST base alt CDATA #IMPLIED >
 
 <!ELEMENT settings (special*) >
 <!ATTLIST settings strength             ( primary | secondary | tertiary | quaternary | identical ) #IMPLIED >
@@ -805,15 +812,35 @@
 <!ATTLIST settings caseFirst            ( upper | lower | off ) #IMPLIED >
 <!ATTLIST settings hiraganaQuarternary  ( on | off ) #IMPLIED >
 <!ATTLIST settings numeric              ( on | off ) #IMPLIED >
+<!ATTLIST settings draft ( true | false ) #IMPLIED >
+<!ATTLIST settings standard CDATA #IMPLIED >
+<!ATTLIST settings references CDATA #IMPLIED >
+<!ATTLIST settings alt CDATA #IMPLIED >
 
 <!ELEMENT suppress_contractions (  #PCDATA | cp )* >
+<!ATTLIST suppress_contractions draft ( true | false ) #IMPLIED >
+<!ATTLIST suppress_contractions standard CDATA #IMPLIED >
+<!ATTLIST suppress_contractions references CDATA #IMPLIED >
+<!ATTLIST suppress_contractions alt CDATA #IMPLIED >
 
 <!ELEMENT optimize ( #PCDATA | cp )* >
+<!ATTLIST optimize draft ( true | false ) #IMPLIED >
+<!ATTLIST optimize standard CDATA #IMPLIED >
+<!ATTLIST optimize references CDATA #IMPLIED >
+<!ATTLIST optimize alt CDATA #IMPLIED >
 
 <!ELEMENT rules (alias | ( reset, ( reset | p | pc |  s | sc | t | tc | q | qc | i | ic | x)* )) >
+<!ATTLIST rules draft ( true | false ) #IMPLIED >
+<!ATTLIST rules standard CDATA #IMPLIED >
+<!ATTLIST rules references CDATA #IMPLIED >
+<!ATTLIST rules alt CDATA #IMPLIED >
 
 <!ELEMENT reset ( #PCDATA | cp  | first_variable| last_variable | first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable | last_secondary_ignorable | first_primary_ignorable | last_primary_ignorable | first_non_ignorable | last_non_ignorable | first_trailing | last_trailing )* >
 <!ATTLIST reset before NMTOKEN #IMPLIED >
+<!ATTLIST reset draft ( true | false ) #IMPLIED >
+<!ATTLIST reset standard CDATA #IMPLIED >
+<!ATTLIST reset references CDATA #IMPLIED >
+<!ATTLIST reset alt CDATA #IMPLIED >
 
 <!ELEMENT p  ( #PCDATA  | cp | last_variable )* >
 
@@ -856,23 +883,39 @@
 
 <!ELEMENT posix (alias | (messages*, special*)) >
 <!ATTLIST posix draft ( true | false ) #IMPLIED >
+<!ATTLIST posix standard CDATA #IMPLIED >
+<!ATTLIST posix references CDATA #IMPLIED >
+<!ATTLIST posix validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT messages (alias | ( yesstr*, nostr*, yesexpr*, noexpr*)) >
+<!ATTLIST messages draft ( true | false ) #IMPLIED >
+<!ATTLIST messages standard CDATA #IMPLIED >
+<!ATTLIST messages references CDATA #IMPLIED >
+<!ATTLIST messages alt CDATA #IMPLIED >
+<!ATTLIST messages validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT yesstr ( #PCDATA ) >
 <!ATTLIST yesstr draft ( true | false ) #IMPLIED >
+<!ATTLIST yesstr standard CDATA #IMPLIED >
+<!ATTLIST yesstr references CDATA #IMPLIED >
 <!ATTLIST yesstr alt CDATA #IMPLIED >
 
 <!ELEMENT nostr ( #PCDATA ) >
 <!ATTLIST nostr draft ( true | false ) #IMPLIED >
+<!ATTLIST nostr standard CDATA #IMPLIED >
+<!ATTLIST nostr references CDATA #IMPLIED >
 <!ATTLIST nostr alt CDATA #IMPLIED >
 
 <!ELEMENT yesexpr ( #PCDATA ) >
 <!ATTLIST yesexpr draft ( true | false ) #IMPLIED >
+<!ATTLIST yesexpr standard CDATA #IMPLIED >
+<!ATTLIST yesexpr references CDATA #IMPLIED >
 <!ATTLIST yesexpr alt CDATA #IMPLIED >
 
 <!ELEMENT noexpr ( #PCDATA ) >
 <!ATTLIST noexpr draft ( true | false ) #IMPLIED >
+<!ATTLIST noexpr standard CDATA #IMPLIED >
+<!ATTLIST noexpr references CDATA #IMPLIED >
 <!ATTLIST noexpr alt CDATA #IMPLIED >
 
 <!ELEMENT references ( reference* ) >

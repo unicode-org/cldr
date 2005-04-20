@@ -74,8 +74,8 @@ class SurveyMain {
         LDMLConstants.DATES + "/"
     };
     
-    public static String xMAIN = "main";
-    public static String xOTHER = "other";
+    public static String xMAIN = "General";
+    public static String xOTHER = "Misc";
     public static String xNODESET = "NodeSet@"; // pseudo-type used to store nodeSets in the hash
     public static String xREMOVE = "REMOVE";
     public UserRegistry reg = new UserRegistry(vetdata);
@@ -198,6 +198,7 @@ class SurveyMain {
     {
         ctx.println("<html>");
         ctx.println("<head>");
+        //ctx.println("<link rel='stylesheet' type='text/css' href='http://www.unicode.org/webscripts/standard_styles.css'>");
         ctx.println("<title>CLDR Vetting | ");
         if(ctx.locale != null) {
             ctx.print(ctx.locale.getDisplayName() + " | ");
@@ -208,15 +209,21 @@ class SurveyMain {
         ctx.println("<body>");
         
         
-        // STYLE - move to fyle
+        // STYLE - move to a separate file
         ctx.println("<style type=text/css>\n" +
                     "<!-- \n" + 
                     ".missing { background-color: #FF0000; } \n" +
                     ".fallback { background-color: #FFDDDD; } \n" +
                     ".draft { background-color: #88FFAA; } \n" +
                     ".proposed { background-color: #88DDAA; } \n" +
-                    ".sep { height: 5px; background-color: #44778C; } \n" +
+                    ".selected { foreground-color: #fff; background-color: #02D; } \n" +
+                    ".selected a:link      { color: #fff } \n" +
+                    ".selected a:visited  { color: #ddd } \n" +
+                    ".selected a:active   { color: #f00 } \n" +
+                    ".selected a:hover   {  color: #fDD } \n" +
+                    ".sep { height: 3px; overflow: hidden; background-color: #44778C; } \n" +
                     ".name { background-color: #EEEEFF; } \n" +
+                    ".pager { border: 1px solid gray; background-color:#FFEECC; margin: 5px; font-size: smaller; } \n" + 
                     ".inputbox { width: 100%; height: 100% } \n" +
                     ".list { border-collapse: collapse } \n" +
                     ".list.td .list.th { padding-top: 3px; padding-bottom: 4px; } \n" + 
@@ -255,6 +262,8 @@ class SurveyMain {
     public void printFooter(WebContext ctx)
     {
         ctx.println("</body>");
+        ctx.println("<hr>");
+        ctx.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='http://www.unicode.org/cldr'>Common Locale Data Repository</a> <br/>");
         ctx.println("</html>");
     }
     
@@ -354,7 +363,7 @@ class SurveyMain {
                     ctx.println("<a href=\"" + baseContext.url() + "&submit=preview\"><b>Submit Data</b></a>");
                 }
             }
-            ctx.println("<br/>");
+            ctx.println("<hr/>");
         }
 
         if(ctx.field("submit").length()>0) {
@@ -574,13 +583,14 @@ class SurveyMain {
     
     protected void printMenu(WebContext ctx, String which, String menu) {
         if(menu.equals(which)) {
-            ctx.println("<b>");
+            ctx.print("<b><span class='selected'>");
         }
-        ctx.println("<a href=\"" + ctx.url() +  "&x=" + menu +
+        ctx.print("<a href=\"" + ctx.url() +  "&x=" + menu +
             "\">" + menu + "</a>");
         if(menu.equals(which)) {
-            ctx.println("</b>");
+            ctx.print("</span></b>");
         }            
+        ctx.println("");
     }
     
     public void doVap(WebContext ctx)
@@ -1047,13 +1057,19 @@ class SurveyMain {
     public void showLocale(WebContext ctx, String which)
     {
         int i;
-        ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Go to a different Locale" + "</a></b><br/>");
-        ctx.println("<br/>");
-        ctx.println("<font size=+1><b>" + ctx.locale + "</b></font> " + ctx.locale.getDisplayName() + "<br/>");
-        ctx.println("<i>Switch to: </i> " );
-        for(i=1;i<ctx.docLocale.length;i++) {
-            ctx.println("<a href=\"" + ctx.url() + "&_=" + ctx.docLocale[i] + "\">" + ctx.docLocale[i] + "</a> ");
+        int j;
+        int n = ctx.docLocale.length;
+        ctx.println("<b><a href=\"" + ctx.url() + "\">" + "List of Locales" + "</a></b><br/>");
+        for(i=(n-1);i>0;i--) {
+            for(j=0;j<(n-i);j++) {
+                ctx.print(" &nbsp; ");
+            }
+            ctx.println("\u2517 <a href=\"" + ctx.url() + "&_=" + ctx.docLocale[i] + "\">" + ctx.docLocale[i] + "</a> " + new ULocale(ctx.docLocale[i]).getDisplayName() + "<br/>");
         }
+        for(j=0;j<n;j++) {
+            ctx.print(" &nbsp; ");
+        }
+        ctx.println("\u2517 <font size=+1><b>" + ctx.locale + "</b></font> " + ctx.locale.getDisplayName() + "<br/>");
         ctx.println("<hr/>");
         
         if((which == null) ||
@@ -1072,18 +1088,18 @@ class SurveyMain {
         subCtx.addQuery("_",ctx.locale.toString());
         printMenu(subCtx, which, xMAIN);
         subCtx.println("<br/>  Locale Display Names: ");
-        for(int n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+        for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
             printMenu(subCtx, which, LOCALEDISPLAYNAMES_ITEMS[n]);
         }
         subCtx.println("<br/>  Other Items: ");
-        for(int n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
+        for(n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
             printMenu(subCtx, which, OTHERROOTS_ITEMS[n]);
         }
         printMenu(subCtx, which, xOTHER);
 
         ctx.println("<br/>");
         subCtx.addQuery("x",which);
-        for(int n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+        for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
             if(LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
                 showLocaleCodeList(subCtx, which);
                 return;
@@ -1091,7 +1107,7 @@ class SurveyMain {
         }
         
         // handle from getNodeSet for these . . .
-        for(int j=0;j<OTHERROOTS_ITEMS.length;j++) {
+        for(j=0;j<OTHERROOTS_ITEMS.length;j++) {
             if(OTHERROOTS_ITEMS[j].equals(which)) {
                 doOtherList(subCtx, which);
                 return;
@@ -1191,11 +1207,11 @@ class SurveyMain {
      */
     NodeSet.NodeSetTexter getTexter(WebContext ctx, String which) {
         if(LDMLConstants.LANGUAGES.equals(which)) {
-            return getLanguagesTexter(inLocale);
+            return new StandardCodeTexter(which);
         } else if(LDMLConstants.SCRIPTS.equals(which)) {
-            return getScriptsTexter(inLocale);
+            return new StandardCodeTexter(which);
         } else if(LDMLConstants.TERRITORIES.equals(which)) {        
-            return getTerritoriesTexter(inLocale);
+            return new StandardCodeTexter(which);
         } else if(LDMLConstants.VARIANTS.equals(which)) {
             return getVariantsTexter(inLocale);  // no default variant list
         } else if(LDMLConstants.KEYS.equals(which)) {
@@ -1313,11 +1329,12 @@ class SurveyMain {
         showNodeList(ctx, LOCALEDISPLAYNAMES+which, getNodeSet(ctx, which), getTexter(ctx,which));
     }
     
+    final int CODES_PER_PAGE = 80;  // was 51
+
     /**
      * @param xpath null if 'individual paths'
      */
     public void showNodeList(WebContext ctx, String xpath, NodeSet mySet, NodeSet.NodeSetTexter tx) {
-        final int CODES_PER_PAGE = 80;  // was 51
         int count = 0;
         int dispCount = 0;
         int total = 0;
@@ -1338,44 +1355,8 @@ class SurveyMain {
         }
 
         // NAVIGATION .. calculate skips.. 
-        String str = ctx.field("skip");
-        if((str!=null)&&(str.length()>0)) {
-            skip = new Integer(str).intValue();
-        }
-        if(skip<=0) {
-            skip = 0;
-        } else {
-            int prevSkip = skip - CODES_PER_PAGE;
-            if(prevSkip<0) {
-                prevSkip = 0;
-            }
-                ctx.println("<a href=\"" + ctx.url() + 
-                        "&skip=" + new Integer(prevSkip) + "\">" +
-                        "Back..." +
-                        "</a><br/> ");
-            if(skip>=total) {
-                skip = 0;
-            }
-        }
+        skip = showSkipBox(ctx, total, sortedMap, tx);
 
-        // calculat nextSkip
-        int from = skip+1;
-        int nextSkip = skip + CODES_PER_PAGE; 
-        if(nextSkip >= total) {
-            nextSkip = -1;
-        } else {
-            ctx.println("<a href=\"" + ctx.url() + 
-                    "&skip=" + new Integer(nextSkip) + "\">" +
-                    "More..." +
-                    "</a> ");
-        }
-        int to = from + CODES_PER_PAGE-1;
-        if(to >= total) {
-            to = total;
-        }
-        
-        // Print navigation
-        ctx.println("Displaying items " + from + " to " + to + " of " + total + "<br/>");        
         {
             WebContext nuCtx = new WebContext(ctx);
             nuCtx.addQuery(PREF_SORTALPHA, !sortAlpha);
@@ -1543,17 +1524,21 @@ class SurveyMain {
             if(changes != null) {
            //     change = (String)changes.get(type + "//n");
             }
-            ctx.print("<input size=50 class='inputbox' ");
-            ctx.print("onblur=\"if (value == '') {value = '" + UNKNOWNCHANGE + "'}\" onfocus=\"if (value == '" + 
-                UNKNOWNCHANGE + "') {value =''}\" ");
-            ctx.print("value=\"" + 
-                  (  (newString!=null) ? newString : UNKNOWNCHANGE )
-                    + "\" name=\"" + fieldsToHtml(fieldName,fieldPath) + SUBNEW + "\">");
+            if((mainDraft>0) || (prop!=null)) {
+                ctx.print("<input size=50 class='inputbox' ");
+                ctx.print("onblur=\"if (value == '') {value = '" + UNKNOWNCHANGE + "'}\" onfocus=\"if (value == '" + 
+                    UNKNOWNCHANGE + "') {value =''}\" ");
+                ctx.print("value=\"" + 
+                      (  (newString!=null) ? newString : UNKNOWNCHANGE )
+                        + "\" name=\"" + fieldsToHtml(fieldName,fieldPath) + SUBNEW + "\">");
+            } else {
+                ctx.print("Item is incorrect.");
+            }
             ctx.println("</td>");
             ctx.println("</tr>");
             
 
-            ctx.println("<tr class='sep'><td class='sep' style='height: 3px; overflow: hidden;' colspan=4 bgcolor=\"#CCCCDD\"></td></tr>");
+            ctx.println("<tr class='sep'><td class='sep' colspan=4 bgcolor=\"#CCCCDD\"></td></tr>");
 
             // -----
             
@@ -1566,12 +1551,77 @@ class SurveyMain {
             ctx.println("<input type=submit value=Save>");
         }
         ctx.println("</form>");
-        if(nextSkip >= 0) {
-                ctx.println("<a href=\"" + ctx.url() + 
-                        "&skip=" + new Integer(nextSkip) + "\">" +
-                        "More..." +
-                        "</a> ");
+        /* skip = */ showSkipBox(ctx, total, sortedMap, tx);
+    }
+    
+    int showSkipBox(WebContext ctx, int total, Map m, NodeSet.NodeSetTexter tx) {
+        int skip;
+        ctx.println("<div class='pager'>");
+        String str = ctx.field("skip");
+        if((str!=null)&&(str.length()>0)) {
+            skip = new Integer(str).intValue();
+        } else {
+            skip = 0;
         }
+        if(skip<=0) {
+            skip = 0;
+        } else {
+            int prevSkip = skip - CODES_PER_PAGE;
+            if(prevSkip<0) {
+                prevSkip = 0;
+            }
+                ctx.println("<a href=\"" + ctx.url() + 
+                        "&skip=" + new Integer(prevSkip) + "\">" +
+                        "&lt;&lt;&lt; prev " + CODES_PER_PAGE + "" +
+                        "</a> &nbsp;");
+            if(skip>=total) {
+                skip = 0;
+            }
+        }
+
+        // calculat nextSkip
+        int from = skip+1;
+        int nextSkip = skip + CODES_PER_PAGE; 
+        if(nextSkip >= total) {
+            nextSkip = -1;
+        } else {
+            ctx.println("<a href=\"" + ctx.url() + 
+                    "&skip=" + new Integer(nextSkip) + "\">" +
+                    "next " + CODES_PER_PAGE + "&gt;&gt;&gt;" +
+                    "</a> ");
+        }
+        int to = from + CODES_PER_PAGE-1;
+        if(to >= total) {
+            to = total;
+        }
+        
+        // Print navigation
+        ctx.println("<br/>Displaying items " + from + " to " + to + " of " + total + "<br/>");        
+
+        if(total>=(CODES_PER_PAGE)) {
+            ctx.println("Jump to page: ");
+            for(int i=0;i<total;i+= CODES_PER_PAGE) {
+                int end = i + CODES_PER_PAGE-1;
+                if(end>=total) {
+                    end = total-1;
+                }
+                boolean isus = (i == skip);
+                if(isus) {
+                    ctx.println("<b>");
+                } else {
+                    ctx.println("<a href=\"" + ctx.url() + 
+                        "&skip=" + new Integer(i) + "\">");
+                }
+                ctx.println("[ " + i + "-" + end + " ] ");
+                if(isus) {
+                    ctx.println("</b> ");
+                } else {
+                    ctx.println("</a> ");
+                }
+            }
+        }
+        ctx.println("</div>");
+        return skip;
     }
     
 

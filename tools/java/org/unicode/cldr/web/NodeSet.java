@@ -231,20 +231,14 @@ public class NodeSet {
             traverseTree(ctx, s, null, roots[0], "/", false, null, null, filter);
         }
 
-/*        for(Iterator li = allXpaths.keySet().iterator();li.hasNext();) {
-            String ln = (String)li.next();
-            // throw out junk
-            if(ln.startsWith(LOCALEDISPLAYNAMES)) {
-                continue;
-            }
-            doLocaleCodeList(ctx, ln, null, null);
-            
-            NodeSet mySet = loadFromPath(ctx, ln, null);
-            if(mySet.isEmpty()) {
-                continue;
+        for(i=(roots.length)-1;i>0;i--) {
+            if(roots[0] != null) {
+                traverseTree(ctx, s, new ULocale(ctx.docLocale[i]), roots[i], "/", false, null, null, filter);
             }
         }
-    */
+        
+        // load all xpaths .. as dummies
+
         return s;
     }
     

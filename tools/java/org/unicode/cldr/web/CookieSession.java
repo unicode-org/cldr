@@ -46,6 +46,10 @@ public class CookieSession {
     static Hashtable gHash = new Hashtable();
     static Hashtable uHash = new Hashtable();
     
+    public static Iterator getAll() {
+        return uHash.values().iterator();
+    }
+    
     public static CookieSession retrieve(String s) {
         CookieSession c = (CookieSession)gHash.get(s);
         if(c != null) {
@@ -91,7 +95,7 @@ public class CookieSession {
     static int n = 4000;
     static int g = 8000;
     static int h = 90;
-    static String j = cheapEncode(System.currentTimeMillis());
+    public static String j = cheapEncode(System.currentTimeMillis());
     
     protected String newId(boolean isGuest) {  
         if(isGuest) {

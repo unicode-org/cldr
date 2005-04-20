@@ -37,13 +37,17 @@ public class DraftFirstTexter implements NodeSet.NodeSetTexter {
         subTexter = aTexter;
     }
     public String text(NodeSet.NodeSetEntry e) {
+        String n = "";
+        if(e.xpath != null) {
+            n = e.xpath;
+        }
         if( ((e.main != null)&&LDMLUtilities.isNodeDraft(e.main)) || // draft or
             (e.proposed != null) ) { // proposed
-            return "0" + subTexter.text(e);
+            return "0" + subTexter.text(e) + n;
         } else if ((e.main == null)&&(e.fallbackLocale == null)) { // missing
-            return "6" + subTexter.text(e);
+            return "6" + subTexter.text(e) + n;
         } else {
-            return "2" + subTexter.text(e); // normal
+            return "2" + subTexter.text(e) + n; // normal
         }
     }
     NodeSet.NodeSetTexter subTexter;

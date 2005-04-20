@@ -201,10 +201,14 @@ public class NodeSet {
             // any values here?
             String value = LDMLUtilities.getNodeValue(node);
             if((value != null) && (value.length()>0)) {
-///*srl*/            ctx.println("<tt>O " + newPath + " " + (draft?"<b>draft</b>":"") + " " + ((alt==null)?"":("<b>alt="+alt +"</b>")) + "</tt><br/>");
-///*srl*/            ctx.println("<tt>+ " + value + " #" + value.length() + "</tt><br/>");
                 if(filter.okay(newPath)) {
-                    s.addFromXpath(ctx, u, newPath, node, draft, alt, type);
+                    if(value.startsWith(" ") || value.startsWith("\n") || value.startsWith("\t") || 
+                        value.startsWith("\r")) {
+    ///*srl*/            ctx.println("<tt>O " + newPath + " " + (draft?"<b>draft</b>":"") + " " + ((alt==null)?"":("<b>alt="+alt +"</b>")) + "</tt><br/>");
+    ///*srl*/            ctx.println("<tt>+ (" + value + ") #" + value.length() + "</tt><br/>");
+                    } else {
+                        s.addFromXpath(ctx, u, newPath, node, draft, alt, type);
+                    }
                 }
             }
             

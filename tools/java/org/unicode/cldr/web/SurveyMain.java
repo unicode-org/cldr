@@ -41,34 +41,43 @@ class SurveyMain {
     public static final String NEW = "new";
     public static final String DRAFT = "draft";
     public static final String UNKNOWNCHANGE = "Click to suggest replacement";
-    public static final String vap = System.getProperty("CLDR_VAP");
-    public static final String vetdata = System.getProperty("CLDR_VET_DATA");
-    public static final String vetweb = System.getProperty("CLDR_VET_WEB");
-    public static final String LOGFILE = "cldr.log";
     
+    // SYSTEM PROPERTIES
+    public static final String vap = System.getProperty("CLDR_VAP"); // Vet Access Password
+    public static final String vetdata = System.getProperty("CLDR_VET_DATA"); // dir for vetted data
+    public static final String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for web data
+    public static final String cldrLoad = System.getProperty("CLDR_LOAD_ALL"); // preload all locales?
+    static String fileBase = System.getProperty("CLDR_COMMON") + "/main"; // not static - may change lager
+
+    public static final String LOGFILE = "cldr.log";        // log file of all changes
+    public static final ULocale inLocale = new ULocale("en"); // locale to use to 'localize' things
     
     static final String PREF_SHOWCODES = "p_codes";
     static final String PREF_SORTALPHA = "p_sorta";
-    static String fileBase = System.getProperty("CLDR_COMMON") + "/main"; // not static - may change lager
     
     // types of data
     static final String LOCALEDISPLAYNAMES = "//ldml/localeDisplayNames/";
 
-    // All of the data items under LOCALEDISPLAYNAMES
+    // All of the data items under LOCALEDISPLAYNAMES (menu items)
     static final String LOCALEDISPLAYNAMES_ITEMS[] = { 
         LDMLConstants.LANGUAGES, LDMLConstants.SCRIPTS, LDMLConstants.TERRITORIES,
         LDMLConstants.VARIANTS, LDMLConstants.KEYS, LDMLConstants.TYPES
     };
     
-    static final String OTHERROOTS_ITEMS[] = {
+    // 
+    public static final String OTHERROOTS_ITEMS[] = {
         LDMLConstants.CHARACTERS,
-        LDMLConstants.NUMBERS,
-        LDMLConstants.DATES
+        LDMLConstants.NUMBERS + "/currencies",
+        LDMLConstants.NUMBERS + "/",
+        LDMLConstants.DATES + "/timeZoneNames",
+        LDMLConstants.DATES + "/calendars",
+        LDMLConstants.DATES + "/"
     };
     
     public static String xMAIN = "main";
     public static String xOTHER = "other";
-
+    public static String xNODESET = "NodeSet@"; // pseudo-type used to store nodeSets in the hash
+    public static String xREMOVE = "REMOVE";
     public UserRegistry reg = new UserRegistry(vetdata);
     
     private int n = 0;
@@ -88,6 +97,8 @@ class SurveyMain {
         
         if(ctx.field("vap").equals(vap)) {  // if we have a Vetting Administration Password, special case
             doVap(ctx);
+        } else if(ctx.field("dump").equals(vap)) {
+            doDump(ctx);
         } else if(ctx.field("xpaths").length()>0) {
             doXpaths(ctx); 
         } else {
@@ -97,6 +108,37 @@ class SurveyMain {
         ctx.close();
     }
 
+    private void doDump(WebContext ctx)
+    {
+        printHeader(ctx, "Current Sessions");
+        ctx.println("<h1>Current Sessions</h1>");
+        ctx.println("<table border=1><tr><th>id</th><th>age (hours)</th><th>user</th><th>what</th></tr>");
+        for(Iterator li = CookieSession.getAll();li.hasNext();) {
+            CookieSession cs = (CookieSession)li.next();
+            long age = System.currentTimeMillis() - cs.last;
+            double hours = (age * 1.0) / 3600000.0;
+            ctx.println("<tr><td>" + cs.id + "</td>");
+            ctx.println("<td>" + hours + "</td>");
+            ctx.println("<td>" + cs.user.email + "<br/>" + 
+                                 cs.user.real + "<br/>" + 
+                                 cs.user.sponsor + "</td>");
+
+            ctx.println("<td>");
+            Hashtable lh = cs.getLocales();
+            Enumeration e = lh.keys();
+            if(e.hasMoreElements()) { 
+                for(;e.hasMoreElements();) {
+                    String k = e.nextElement().toString();
+                    ctx.println(new ULocale(k).getDisplayName() + " ");
+                }
+            }
+            ctx.println("</td>");
+            ctx.println("</tr>");
+        }
+        ctx.println("</table>");
+        
+        printFooter(ctx);
+    }
     
     private void doXpaths(WebContext ctx)
     {
@@ -289,7 +331,7 @@ class SurveyMain {
         // Not doing vetting admin --------
         
         WebContext baseContext = new WebContext(ctx);
-        if(ctx.field("submit").length()<=0) {
+        if((ctx.locale != null) && (ctx.field("submit").length()<=0)) {
             // unless we are submitting - process any pending form data.
             processChanges(ctx, which);
         }
@@ -297,7 +339,7 @@ class SurveyMain {
         // print 'shopping cart'
         {
             if(ctx.session.user != null) {
-                ctx.println("<b>Welcome " + ctx.session.user.real + "!</b> <a href=\"" + ctx.base() + "\">[Sign Out]</a><br/>");
+                ctx.println("<b>Welcome " + ctx.session.user.real + " (" + ctx.session.user.sponsor + ") !</b> <a href=\"" + ctx.base() + "\">[Sign Out]</a><br/>");
             }
             Hashtable lh = ctx.session.getLocales();
             Enumeration e = lh.keys();
@@ -644,6 +686,9 @@ class SurveyMain {
                 ctx.println("<hr/>");
                 ctx.println("<H3>" + 
                         displayName+ "</h3>");
+                if(!post) {
+                    ctx.println("<a href='" + ctx.url() + "&_=" + k + "&x=" + xREMOVE + "'>[Cancel This Edit]</a><br/>");
+                }
                 CLDRFile f = createCLDRFile(ctx, k, (Hashtable)lh.get(k));
                 
                 StringWriter sw = new StringWriter();
@@ -709,6 +754,9 @@ class SurveyMain {
         printFooter(ctx);
     }
     
+    /**
+     * Append codes to a CLDRFile 
+     **/
     private void appendCodeList(WebContext ctx, CLDRFile file, String xpath, String subtype, Hashtable data) {
         if(data == null) {
             return;
@@ -720,9 +768,18 @@ class SurveyMain {
                 String vet = (String)data.get(k);
                 // Now, what's happening? 
                 NodeSet.NodeSetEntry nse = (NodeSet.NodeSetEntry)data.get(type);
-                String newxpath = xpath + subtype + "[@type='" + type + "']";
-                if(nse.key != null) {
-                    newxpath = newxpath + "[@key='" + nse.key + "']";
+                String newxpath;
+                
+                if(xpath != null) {
+                    newxpath = xpath + subtype + "[@type='" + type + "']";
+                    if(nse.key != null) {
+                        newxpath = newxpath + "[@key='" + nse.key + "']";
+                    }
+                } else {
+                    newxpath = nse.xpath; // dritt
+                    if(type == null) {
+                        type=xpath + "/"; // for retrieval
+                    }
                 }
                 newxpath=newxpath.substring(1); // remove initial /     
                 if(vet.equals(DRAFT)) {
@@ -742,7 +799,7 @@ class SurveyMain {
                 } else if(vet.equals(PROPOSED)) {
                     file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.proposed));
                 } else if(vet.equals(NEW)) {
-                    String newString = (String)data.get(type + SUBNEW);
+                    String newString = (String)data.get(type + SUBNEW); //type could be xpath here
                     if(newString == null) {
                         newString = "";
                     }
@@ -750,11 +807,11 @@ class SurveyMain {
                        newxpath = newxpath + "[@alt='proposed']";
                     }
                     newxpath = newxpath + "[@draft='true']"; // always draft
-/*SRL*/                 ctx.println("<tt>CLDRFile.add(<b>" + newxpath + "</b>, \"\", blah);</tt><br/>");
+///*srl*/                 ctx.println("<tt>CLDRFile.add(<b>" + newxpath + "</b>, \"\", blah);</tt><br/>");
                     file.add(newxpath, newxpath, newString);
                     if(newString.length() ==0) {
                         file.addComment(newxpath, "Item marked as wrong:  " + type, XPathParts.Comments.POSTBLOCK);
-/*SRL*/                 ctx.println("<tt>CLDRFile.addComment(<b>" + newxpath + "</b>, blah, POSTBLOCK);</tt><br/>");
+///*srl*/                 ctx.println("<tt>CLDRFile.addComment(<b>" + newxpath + "</b>, blah, POSTBLOCK);</tt><br/>");
                     }
                 } else {
                     // ignored:  current, etc.
@@ -763,6 +820,9 @@ class SurveyMain {
         }
     }
     
+    /**
+     * Convert from the parent to a child type.  i.e. 'languages' -> 'language'
+     */
     public static final String typeToSubtype(String type)
     {
         String subtype = type;
@@ -785,11 +845,19 @@ class SurveyMain {
         return subtype;
     }
     
+    /**
+     * Append the codes for a certain hashtable into the CLDRFile 
+     */
     private void appendCodes(WebContext ctx, CLDRFile file, String xpath, String type, Hashtable data) {
         String fullXpath = xpath + type;
         Hashtable items = (Hashtable)data.get(fullXpath);
         String subtype = typeToSubtype(type);
         appendCodeList(ctx, file, xpath, subtype, items);
+    }
+
+    private void appendOtherCodes(WebContext ctx, CLDRFile file, Hashtable data) {
+        Hashtable items = (Hashtable)data.get(xOTHER);
+        appendCodeList(ctx, file, null, null, items);
     }
     
     private CLDRFile createCLDRFile(WebContext ctx, String locale, Hashtable data) {
@@ -816,67 +884,161 @@ class SurveyMain {
         for(int n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
             appendCodes(ctx, file, LOCALEDISPLAYNAMES, LOCALEDISPLAYNAMES_ITEMS[n], data);
         }
+        appendOtherCodes(ctx, file, data);
         return file;
     }
     
     /**
-     * process any form items needed.
+     * process (convert user field -> hashtable entries) any form items needed.
      * @param ctx context
      * @param which value of 'x' parameter.
      */
     public void processChanges(WebContext ctx, String which)
     {
-        StandardCodes standardCodes = StandardCodes.make();
+        NodeSet ns = getNodeSet(ctx, which);
         // locale display names
         for(int n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {
             if(which.equals(LOCALEDISPLAYNAMES_ITEMS[n])) {
-                processLocaleCodeList(ctx, LOCALEDISPLAYNAMES +LOCALEDISPLAYNAMES_ITEMS[n], 
-                    standardCodes.getAvailableCodes(typeToSubtype(which)));
+                processCodeListChanges(ctx, LOCALEDISPLAYNAMES +LOCALEDISPLAYNAMES_ITEMS[n], ns);
+                return;
             }
         }
         
-        // other
-        for(Iterator li = allXpaths.keySet().iterator();li.hasNext();) {
-            String ln = (String)li.next();
+        processOther(ctx, which, ns);
+    }
+
+    /**
+     * Parse query fields, update hashes, etc.
+     * later, we'll see if we can generalize this function.
+     */
+    public void processCodeListChanges(WebContext ctx, String xpath, NodeSet mySet) {
+            Hashtable changes = (Hashtable)ctx.getByLocale(xpath);
+            // prepare a new hashtable
+            if(changes==null) { 
+                changes = new Hashtable(); 
+            }
+        // process items..
+        for(Iterator e = mySet.iterator();e.hasNext();) {
+            NodeSet.NodeSetEntry f = (NodeSet.NodeSetEntry)e.next();
             
+            String type = f.type;
+            String main = null;
+            String mainFallback = null;
+            int mainDraft = 0; // count
+            String prop = null;
+            if(f.main != null) {
+                main = LDMLUtilities.getNodeValue(f.main);
+                if(f.mainDraft) {
+                    mainDraft = 1; // for now: one draft
+                }
+            }
+            // are we showing a fallback locale in the 'current' slot?
+            if( (f.fallback != null) && // if we have a fallback
+                ( (mainDraft > 0) || (f.main == null) ) ) {
+                mainFallback = f.fallbackLocale;
+            }
+            if(f.proposed != null) {
+                prop = LDMLUtilities.getNodeValue(f.proposed);
+            }
+            processUserInput(ctx, changes, xpath, type, f);            
         }
-        
+        if((changes!=null) && (!changes.isEmpty())) { 
+            ctx.putByLocale(xpath,changes); 
+        }
     }
     
-    private static final NodeSet.NodeSetTexter getLanguagesTexter(ULocale l) {
-        final ULocale inLocale = l;
-        return new NodeSet.NodeSetTexter() { 
-                    public String text(NodeSet.NodeSetEntry e) {
-                        return new ULocale(e.type).getDisplayLanguage(inLocale);
-                    }
-            };
+    /**
+     * process one of the 'other' (non localedisplay items)
+     */
+    void processOther(WebContext ctx, String which, NodeSet mySet) {
+        Hashtable changes = (Hashtable)ctx.getByLocale(xOTHER);
+        // prepare a new hashtable
+        if(changes==null) { 
+            changes = new Hashtable(); 
+        }
+        // process items..
+        for(Iterator e = mySet.iterator();e.hasNext();) {
+            NodeSet.NodeSetEntry f = (NodeSet.NodeSetEntry)e.next();
+            String type = f.type;
+            String main = null;
+            String mainFallback = null;
+            int mainDraft = 0; // count
+            String prop = null;
+            if(f.main != null) {
+                main = LDMLUtilities.getNodeValue(f.main);
+                if(f.mainDraft) {
+                    mainDraft = 1; // for now: one draft
+                }
+            }
+            // are we showing a fallback locale in the 'current' slot?
+            if( (f.fallback != null) && // if we have a fallback
+                ( (mainDraft > 0) || (f.main == null) ) ) {
+                mainFallback = f.fallbackLocale;
+            }
+            if(f.proposed != null) {
+                prop = LDMLUtilities.getNodeValue(f.proposed);
+            }
+
+            processUserInput(ctx, changes, f.xpath, null, f);
+        }
+        if((changes!=null) && (!changes.isEmpty())) { 
+            ctx.putByLocale(xOTHER,changes); 
+        }
     }
 
-    private static final NodeSet.NodeSetTexter getScriptsTexter(ULocale l) {
-        final ULocale inLocale = l;
-        return new NodeSet.NodeSetTexter() { 
-                    public String text(NodeSet.NodeSetEntry e) {
-                        return new ULocale("_"+e.type).getDisplayScript(inLocale);
-                    }
-            };
-    }
+    /**
+     * process user input (form field) for a single data item
+     * @param f opaque object to be inserted
+     */
+    void processUserInput(WebContext ctx, Hashtable changes, String xpath, String type, Object f) {
+        // Analyze user input.
+        String checked = null;  // What option has the user checked?
+        String newString = null;  // What option has the user checked?
+        String fieldBase = fieldsToHtml(xpath,type);
+        String hashBase;
+        if(type == null) {
+            type = "";
+            hashBase = xpath;
+        } else {
+            hashBase = type;
+        }
+        if(changes != null) {
+            checked = (String)changes.get(hashBase + SUBVETTING); // fetch VETTING data
+            newString = (String)changes.get(hashBase + SUBNEW); // fetch NEW data
+        }
+        if(checked == null) {
+            checked = NOCHANGE;
+        }
+        
+        String formChecked = ctx.field(fieldBase);
+        
+        if((formChecked != null) && (formChecked.length()>0)) {   
+            if(!checked.equals(formChecked)) {
+                checked = formChecked;
+                if(checked.equals(NOCHANGE)) {
+                    changes.remove(hashBase + SUBVETTING); // remove 'current' 
+                } else {
+/////*srl*/            ctx.println("<tt>Form: " + fieldBase + " - " + formChecked + " - " + xpath + "</tt><br/>");
+                    changes.put(hashBase + SUBVETTING, checked); // set
+                    changes.put(hashBase, f);
+                }
+            }
 
-    private static final NodeSet.NodeSetTexter getTerritoriesTexter(ULocale l) {
-        final ULocale inLocale = l;
-        return new NodeSet.NodeSetTexter() { 
-                    public String text(NodeSet.NodeSetEntry e) {
-                        return new ULocale("_"+e.type).getDisplayCountry(inLocale);
-                    }
-            };
+            // Don't consider the 'new text' form, unless we know the 'changes...' checkbox is present.
+            // this is because we can't distinguish between an empty and a missing field.
+            String formNew = ctx.field(fieldBase + SUBNEW );
+            if((formNew.length()>0) && !formNew.equals(UNKNOWNCHANGE)) {
+                changes.put(hashBase + SUBNEW, formNew);
+                changes.put(hashBase, f); // get the NodeSet in for later use
+                newString = formNew;
+            } else if((newString !=null) && (newString.length()>0)) {
+                changes.remove(hashBase + SUBNEW);
+                newString = null;
+            }
+        }
     }
-    private static final NodeSet.NodeSetTexter getVariantsTexter(ULocale l) {
-        final ULocale inLocale = l;
-        return new NodeSet.NodeSetTexter() { 
-                    public String text(NodeSet.NodeSetEntry e) {
-                        return new ULocale("__"+e.type).getDisplayVariant(inLocale);
-                    }
-            };
-    }
+    
+
     /**
      * show the actual locale data..
      * @param ctx context
@@ -898,6 +1060,13 @@ class SurveyMain {
             which.equals("")) {
             which = xMAIN;
         }
+        
+        if(which.equals(xREMOVE)) {
+            ctx.session.getLocales().remove(ctx.field("_"));
+            ctx.println("<h2>Your session for " + ctx.field("_") + " has been removed.</h2>");
+            doMain(ctx);
+            return;
+        }
 
         WebContext subCtx = new WebContext(ctx);
         subCtx.addQuery("_",ctx.locale.toString());
@@ -914,43 +1083,31 @@ class SurveyMain {
 
         ctx.println("<br/>");
         subCtx.addQuery("x",which);
-        final ULocale inLocale = new ULocale("en");
-        StandardCodes standardCodes = StandardCodes.make();
-        Set defaultSet = standardCodes.getAvailableCodes(typeToSubtype(which));
-        if(LDMLConstants.LANGUAGES.equals(which)) {
-            doLocaleCodeList(subCtx, LOCALEDISPLAYNAMES + which, getLanguagesTexter(inLocale),
-                standardCodes.getAvailableCodes(typeToSubtype(which)));
-        } else if(LDMLConstants.SCRIPTS.equals(which)) {
-            doLocaleCodeList(subCtx, LOCALEDISPLAYNAMES + which, getScriptsTexter(inLocale),
-                standardCodes.getAvailableCodes(typeToSubtype(which)));
-        } else if(LDMLConstants.TERRITORIES.equals(which)) {
-            doLocaleCodeList(subCtx,LOCALEDISPLAYNAMES + which, getTerritoriesTexter(inLocale),
-                defaultSet);
-        } else if(LDMLConstants.VARIANTS.equals(which)) {
-           doLocaleCodeList(subCtx, LOCALEDISPLAYNAMES + which, getVariantsTexter(inLocale),
-                defaultSet);  // no default variant list
-        } else if(LDMLConstants.KEYS.equals(which)) {
-                doLocaleCodeList(subCtx, LOCALEDISPLAYNAMES + which, new StandardCodeTexter(which),
-                defaultSet);  // no default  list
-        } else if(LDMLConstants.TYPES.equals(which)) {
-             doLocaleCodeList(subCtx, LOCALEDISPLAYNAMES + which, new StandardCodeTexter(which),
-                defaultSet);  // no default  list
+        for(int n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+            if(LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
+                showLocaleCodeList(subCtx, which);
+                return;
+            }
+        }
+        
+        // handle from getNodeSet for these . . .
+        for(int j=0;j<OTHERROOTS_ITEMS.length;j++) {
+            if(OTHERROOTS_ITEMS[j].equals(which)) {
+                doOtherList(subCtx, which);
+                return;
+            }
+        }
+        // fall through if wasn't one of the other roots
+        if(xOTHER.equals(which)) {
+            doOtherList(subCtx, which);
         } else {
-            for(int j=0;j<OTHERROOTS_ITEMS.length;j++) {
-                if(OTHERROOTS_ITEMS[j].equals(which)) {
-                    doOther(subCtx, which);
-                    return;
-                }
-            }
-            // fall through if wasn't one of the other roots
-            if(xOTHER.equals(which)) {
-                doOther(subCtx, which);
-            } else {
-                doMain(subCtx);
-            }
+            doMain(subCtx);
         }
     }
  
+    /**
+     * Show the 'main info about this locale' panel.
+     */
     public void doMain(WebContext ctx) {
         String ver = (String)docVersions.get(ctx.locale.toString());
         ctx.println("<hr/><p><p>");
@@ -980,119 +1137,186 @@ class SurveyMain {
         }
         return null;
     }
-    private void processUserInput(WebContext ctx, Hashtable changes, String xpath, String type, Object f) {
-        // Analyze user input.
-        String checked = null;  // What option has the user checked?
-        String newString = null;  // What option has the user checked?
-        if(changes != null) {
-            checked = (String)changes.get(type + SUBVETTING); // fetch VETTING data
-            newString = (String)changes.get(type + SUBNEW); // fetch NEW data
-        }
-        if(checked == null) {
-            checked = NOCHANGE;
-        }
-        
-        String formChecked = ctx.field(xpath + "/" + type);
-        
-        if((formChecked != null) && (formChecked.length()>0)) {   
-            if(!checked.equals(formChecked)) {
-                checked = formChecked;
-                if(checked.equals(NOCHANGE)) {
-                    changes.remove(type + SUBVETTING); // remove 'current' 
-                } else {
-                    changes.put(type + SUBVETTING, checked); // set
-                    changes.put(type, f);
-                }
-            }
-
-            // Don't consider the 'new text' form, unless we know the 'changes...' checkbox is present.
-            // this is because we can't distinguish between an empty and a missing field.
-            String formNew = ctx.field(xpath + "/" + type + SUBNEW );
-            if((formNew.length()>0) && !formNew.equals(UNKNOWNCHANGE)) {
-                changes.put(type + SUBNEW, formNew);
-                changes.put(type, f); // get the NodeSet in for later use
-                newString = formNew;
-            } else if((newString !=null) && (newString.length()>0)) {
-                changes.remove(type + SUBNEW);
-                newString = null;
-            }
-        }            
+    
+    /**
+     * Get a texter for a specific data type
+     */
+    private static final NodeSet.NodeSetTexter getLanguagesTexter(ULocale l) {
+        final ULocale inLocale = l;
+        return new NodeSet.NodeSetTexter() { 
+                    public String text(NodeSet.NodeSetEntry e) {
+                        return new ULocale(e.type).getDisplayLanguage(inLocale);
+                    }
+            };
     }
 
     /**
-     * Parse query fields, update hashes, etc.
-     * later, we'll see if we can generalize this function.
+     * Get a texter for a specific data type
      */
-    public void processLocaleCodeList(WebContext ctx, String xpath, Set fullSet) {
-            NodeSet mySet = NodeSet.loadFromPath(ctx, xpath, fullSet);
-            Hashtable changes = (Hashtable)ctx.getByLocale(xpath);
-            // prepare a new hashtable
-            if(changes==null) { 
-                changes = new Hashtable(); 
-            }
-        // process items..
-        for(Iterator e = mySet.iterator();e.hasNext();) {
-            NodeSet.NodeSetEntry f = (NodeSet.NodeSetEntry)e.next();
-            
-            String type = f.type;
-            String main = null;
-            String mainFallback = null;
-            int mainDraft = 0; // count
-            String prop = null;
-            if(f.main != null) {
-                main = LDMLUtilities.getNodeValue(f.main);
-                if(f.mainDraft) {
-                    mainDraft = 1; // for now: one draft
-                }
-            }
-            // are we showing a fallback locale in the 'current' slot?
-            if( (f.fallback != null) && // if we have a fallback
-                ( (mainDraft > 0) || (f.main == null) ) ) {
-                mainFallback = f.fallbackLocale;
-            }
-            if(f.proposed != null) {
-                prop = LDMLUtilities.getNodeValue(f.proposed);
-            }
+    private static final NodeSet.NodeSetTexter getScriptsTexter(ULocale l) {
+        final ULocale inLocale = l;
+        return new NodeSet.NodeSetTexter() { 
+                    public String text(NodeSet.NodeSetEntry e) {
+                        return new ULocale("_"+e.type).getDisplayScript(inLocale);
+                    }
+            };
+    }
 
-            processUserInput(ctx, changes, xpath, type, f);            
-        }
-        if((changes!=null) && (!changes.isEmpty())) { 
-            ctx.putByLocale(xpath,changes); 
+    /**
+     * Get a texter for a specific data type
+     */
+    private static final NodeSet.NodeSetTexter getTerritoriesTexter(ULocale l) {
+        final ULocale inLocale = l;
+        return new NodeSet.NodeSetTexter() { 
+                    public String text(NodeSet.NodeSetEntry e) {
+                        return new ULocale("_"+e.type).getDisplayCountry(inLocale);
+                    }
+            };
+    }
+
+    /**
+     * Get a texter for a specific data type
+     */
+    private static final NodeSet.NodeSetTexter getVariantsTexter(ULocale l) {
+        final ULocale inLocale = l;
+        return new NodeSet.NodeSetTexter() { 
+                    public String text(NodeSet.NodeSetEntry e) {
+                        return new ULocale("__"+e.type).getDisplayVariant(inLocale);
+                    }
+            };
+    }
+    
+    /**
+     * Get the appropriate texter for the type
+     */
+    NodeSet.NodeSetTexter getTexter(WebContext ctx, String which) {
+        if(LDMLConstants.LANGUAGES.equals(which)) {
+            return getLanguagesTexter(inLocale);
+        } else if(LDMLConstants.SCRIPTS.equals(which)) {
+            return getScriptsTexter(inLocale);
+        } else if(LDMLConstants.TERRITORIES.equals(which)) {        
+            return getTerritoriesTexter(inLocale);
+        } else if(LDMLConstants.VARIANTS.equals(which)) {
+            return getVariantsTexter(inLocale);  // no default variant list
+        } else if(LDMLConstants.KEYS.equals(which)) {
+            return new StandardCodeTexter(which);  // no default  list
+        } else if(LDMLConstants.TYPES.equals(which)) {
+            return new StandardCodeTexter(which);  // no default  list
+        } else {
+            return null;
         }
     }
     
-    void doOther(WebContext ctx, String root) {
-        final String myPrefix = "//ldml/" + root;
+    /** 
+     * Fetch the NodeSet  [ set of resolved items ] from the cache if possible
+     */
+    Hashtable nodeHash = new Hashtable();
+    NodeSet getNodeSet(WebContext ctx, String which) {
+        NodeSet ns = (NodeSet)nodeHash.get(ctx.locale.toString() + "/" + which);
+        if(ns != null) {
+            return ns;
+        }
+        
+        StandardCodes standardCodes = StandardCodes.make();
+        Set defaultSet = standardCodes.getAvailableCodes(typeToSubtype(which));
+        
+        // handle the 'locale display names' cases
+        for(int n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {    
+            if(LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
+                ns = getNodeSet(ctx, LOCALEDISPLAYNAMES + LOCALEDISPLAYNAMES_ITEMS[n], 
+                    null /* no texter */ , defaultSet);  // no default  list
+            }
+        }
+        if(ns == null) {
+            ns = getNodeSetOther(ctx, which);            
+        }
+        if(ns != null) {
+            nodeHash.put(ctx.locale.toString() + "/" + which, ns);
+        }
+        return ns;
+    }
+    
+    /**
+     * Get the node set for an xpath
+     */
+    NodeSet getNodeSet(WebContext ctx, String xpath, 
+                NodeSet.NodeSetTexter texter, Set defaultSet) {
+///*srl*/        ctx.println("<tt>load: " + xpath + ", " + defaultSet.size() + "</tt><br/>");
+        return NodeSet.loadFromPath(ctx, xpath, defaultSet);
+    }
+    
+    /**
+     * Get the node set for an 'other' type. 
+     */
+    NodeSet getNodeSetOther(WebContext ctx, String which) {
+        // handle 'other'
+        final String myPrefix = "//ldml/" + which;
         NodeSet.XpathFilter myFilter = null;
-        if(root.equals(xOTHER)) {
+        if(which.equals(xOTHER)) {
             myFilter = new NodeSet.XpathFilter() {
                 public boolean okay(String path) {
-                    return !path.startsWith(LOCALEDISPLAYNAMES); 
+                    if(path.startsWith(LOCALEDISPLAYNAMES)) {
+                        return false;
+                    }
+                    for(int i=0;i<OTHERROOTS_ITEMS.length;i++) {
+                        if(path.startsWith("//ldml/"+OTHERROOTS_ITEMS[i])) {
+                            return false;
+                        }
+                    }
+                    return true;
                 }
             };
         } else {
-            myFilter = new NodeSet.XpathFilter() {
-                public boolean okay(String path) {
-                    return path.startsWith(myPrefix); 
-                }
-            };
+            if(myPrefix.endsWith("/")) { // filter out all other prefixes..
+                myFilter = new NodeSet.XpathFilter() {
+                    public boolean okay(String path) {
+                        if(!path.startsWith(myPrefix)) {
+                            return false;
+                        }
+                        for(int i=0;i<OTHERROOTS_ITEMS.length;i++) {
+                            String aPath = "//ldml/"+OTHERROOTS_ITEMS[i];
+                            if(!myPrefix.equals(aPath)) {
+                                if(path.startsWith(aPath)) {
+                                    return false;
+                                }
+                            }
+                        }
+                        return true;
+                    }
+                };
+            } else {
+                myFilter = new NodeSet.XpathFilter() {
+                    public boolean okay(String path) {
+                        return path.startsWith(myPrefix); 
+                    }
+                };
+            }
         }
-        NodeSet mySet = NodeSet.loadFromXpaths(ctx, allXpaths, myFilter);
-        doList(ctx, root, mySet, null);
+        return NodeSet.loadFromXpaths(ctx, allXpaths, myFilter);
+    }
+
+    /**
+     * show the list for an 'other' item, i.e. not a locale data item
+     */
+    void doOtherList(WebContext ctx, String which) {
+        showNodeList(ctx, null, getNodeSet(ctx,which), null);
     }
     
     /**
+     * show the webpage for one of the 'locale codes' items.. 
      * @param ctx the web context
      * @param xpath xpath to the root of the structure
      * @param tx the texter to use for presentation of the items
      * @param fullSet the set of tags denoting the expected full-set, or null if none.
      */
-    public void doLocaleCodeList(WebContext ctx, String xpath, NodeSet.NodeSetTexter tx, Set fullSet) {
-        NodeSet mySet = NodeSet.loadFromPath(ctx, xpath, fullSet);
-        doList(ctx, xpath, mySet, tx);
+    public void showLocaleCodeList(WebContext ctx, String which) {
+        showNodeList(ctx, LOCALEDISPLAYNAMES+which, getNodeSet(ctx, which), getTexter(ctx,which));
     }
     
-    public void doList(WebContext ctx, String xpath, NodeSet mySet, NodeSet.NodeSetTexter tx) {
+    /**
+     * @param xpath null if 'individual paths'
+     */
+    public void showNodeList(WebContext ctx, String xpath, NodeSet mySet, NodeSet.NodeSetTexter tx) {
         final int CODES_PER_PAGE = 80;  // was 51
         int count = 0;
         int dispCount = 0;
@@ -1101,7 +1325,8 @@ class SurveyMain {
         total = mySet.count();
         boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
         Map sortedMap = mySet.getSorted(sortAlpha?tx:new DraftFirstTexter(tx));
-        Hashtable changes = (Hashtable)ctx.getByLocale(xpath);
+        String hashName = (xpath != null)?xpath:xOTHER;
+        Hashtable changes = (Hashtable)ctx.getByLocale(hashName);
         
         if(tx == null) {
             tx = new NullTexter();
@@ -1185,10 +1410,11 @@ class SurveyMain {
             dispCount++;
             
             if(f.xpath != null) {
-                ctx.println("<tr class='xpath'><td colspan=4>" + f.xpath + "</td></tr>");
+                ctx.println("<tr class='xpath'><td colspan=4>"+  f.xpath + "</td></tr>");
             }
             
             String type = f.type;
+            String base = ((xpath==null)?f.xpath:type);
             String main = null;
             String mainFallback = null;
             int mainDraft = 0; // count
@@ -1199,6 +1425,8 @@ class SurveyMain {
                     mainDraft = 1; // for now: one draft
                 }
             }
+            String fieldName = ((xpath!=null)?xpath:f.xpath);
+            String fieldPath = ((xpath!=null)?type:null);
             int nRows = 1;         // the 'new' line (user edited)
             nRows ++; // 'main'
             // are we showing a fallback locale in the 'current' slot?
@@ -1220,8 +1448,9 @@ class SurveyMain {
             String checked = null;  // What option has the user checked?
             String newString = null;  // What option has the user checked?
             if(changes != null) {
-                checked = (String)changes.get(type + SUBVETTING); // fetch VETTING data
-                newString = (String)changes.get(type + SUBNEW); // fetch NEW data
+                checked = (String)changes.get(base + SUBVETTING); // fetch VETTING data
+                newString = (String)changes.get(base + SUBNEW); // fetch NEW data
+///*srl*/                ctx.println(":"+base+SUBVETTING + ":");
             }
             if(checked == null) {
                 checked = NOCHANGE;
@@ -1241,9 +1470,9 @@ class SurveyMain {
                 ctx.println("<td align=right class='fallback'>");
                 ctx.println("from " + 
                         "<a href=\"" + ctx.base() + "?x=" + ctx.field("x") + "&_=" + mainFallback + "\">" + 
-                        new ULocale(mainFallback).getDisplayName(new ULocale("en_US")) +                        
+                        new ULocale(mainFallback).getDisplayName(inLocale) +                        
                         "</a>");
-                writeRadio(ctx,xpath,type,CURRENT,checked);
+                writeRadio(ctx,fieldName,fieldPath,CURRENT,checked);
                 ctx.println("</td>");
                 ctx.println("<td class='fallback'>");
                 ctx.println(LDMLUtilities.getNodeValue(f.fallback));
@@ -1251,7 +1480,7 @@ class SurveyMain {
             } else if((main!=null)&&(mainDraft==0)) {
                 ctx.println("<td align=right class='current'>");
                 ctx.println("current");
-                writeRadio(ctx,xpath,type,CURRENT,checked);
+                writeRadio(ctx,fieldName,fieldPath,CURRENT,checked);
                 ctx.println("</td>");
                 ctx.println("<td class='current'>");
                 ctx.println(main);
@@ -1259,7 +1488,7 @@ class SurveyMain {
             } else /*  if(main == null) */ {
                 ctx.println("<td align=right class='missing'>");
                 ctx.println("<i>current</i>");
-                writeRadio(ctx,xpath,type,CURRENT,checked);
+                writeRadio(ctx,fieldName,fieldPath,CURRENT,checked);
                 ctx.println("</td>");
                 ctx.println("<td title=\"Data missing - raw code shown.\" class='missing'><tt>");
                 ctx.println(type); // in typewriter <tt> to show that it is a code.
@@ -1273,7 +1502,7 @@ class SurveyMain {
             if(mainDraft > 0) {
                 ctx.println("<td align=right class='draft'>");
                 ctx.println("draft");
-                writeRadio(ctx,xpath,type,DRAFT,checked);
+                writeRadio(ctx,fieldName,fieldPath,DRAFT,checked);
                 ctx.println("</td>");
                 ctx.println("<td class='draft'>");
                 ctx.println(main);
@@ -1286,7 +1515,7 @@ class SurveyMain {
             if(prop != null) {
                 ctx.println("<td align=right class='proposed'>");
                 ctx.println("proposed");
-                writeRadio(ctx,xpath,type,PROPOSED,checked);
+                writeRadio(ctx,fieldName,fieldPath,PROPOSED,checked);
                 ctx.println("</td>");
                 ctx.println("<td class='proposed'>");
                 ctx.println(prop);
@@ -1300,14 +1529,14 @@ class SurveyMain {
             ctx.println("<tt>" + type + "</tt>");
             ctx.println("</th");
             ctx.println("<td class='nochange'>");
-            writeRadio(ctx,xpath,type,NOCHANGE,checked);
-            ctx.println("<font size=-2>No change</font>");
+            writeRadio(ctx,fieldName,fieldPath,NOCHANGE,checked);
+            ctx.println("<font size=-2>Don't care</font>");
             ctx.println("</td>");
 
             // edit text
             ctx.println("<td align=right class='new'>");
             ctx.println("change");
-            writeRadio(ctx,xpath,type,NEW,checked);
+            writeRadio(ctx,fieldName,fieldPath,NEW,checked);
             ctx.println("</td>");
             ctx.println("<td class='new'>");
             String change = "";
@@ -1319,7 +1548,7 @@ class SurveyMain {
                 UNKNOWNCHANGE + "') {value =''}\" ");
             ctx.print("value=\"" + 
                   (  (newString!=null) ? newString : UNKNOWNCHANGE )
-                    + "\" name=\"" + xpath +"/" + type + SUBNEW + "\">");
+                    + "\" name=\"" + fieldsToHtml(fieldName,fieldPath) + SUBNEW + "\">");
             ctx.println("</td>");
             ctx.println("</tr>");
             
@@ -1345,9 +1574,10 @@ class SurveyMain {
         }
     }
     
-    static String cldrLoad = System.getProperty("CLDR_LOAD_ALL");
 
-    
+    /**
+     * Main - setup, preload and listen..
+     */
     public static void main (String args[]) {
         int status = 0;
         appendLog("SurveyTool starting up.");
@@ -1444,8 +1674,9 @@ class SurveyMain {
     }
 
     void writeRadio(WebContext ctx,String xpath,String type,String value,boolean checked) {
-        ctx.println("<input type=radio name='" + xpath + "/" + type + "' value='" + value + "' " +
+        ctx.println("<input type=radio name='" + fieldsToHtml(xpath,type) + "' value='" + value + "' " +
             (checked?" CHECKED ":"") + "/>");
+///*srl*/        ctx.println("<sup><tt>" + fieldsToHtml(xpath,type) + "</tt></sup>");
     }
 
 
@@ -1536,6 +1767,7 @@ class SurveyMain {
     static final public String[] distinguishingAttributes =  { "key", "registry", "alt", "iso4217", "iso3166", "type", "default",
                     "measurementSystem", "mapping", "abbreviationFallback", "preferenceOrdering" };
 
+    static int xpathCode = 0;
     static void collectXpaths(Node root, String xpath) {
         for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
             if(node.getNodeType()!=Node.ELEMENT_NODE){
@@ -1552,11 +1784,21 @@ class SurveyMain {
                     newPath = newPath + "[@"+da+"='" + nodeAtt + "']";
                 }
             }
-            allXpaths.put(newPath, newPath);
+            allXpaths.put(newPath, CookieSession.j + "X" + CookieSession.cheapEncode(xpathCode++));
             collectXpaths(node, newPath);
         }
     }
-
-
-
+    
+    /**
+     * convert a XPATH:TYPE form to an html field.
+     * if type is null, means:  hash the xpath
+     */
+    static String fieldsToHtml(String xpath, String type)
+    {
+        if(type == null) {
+            return (String)allXpaths.get(xpath);
+        } else {
+            return xpath + "/" + type;
+        }
+    }
 }

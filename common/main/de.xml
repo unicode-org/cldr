@@ -826,6 +826,12 @@
 	<characters>
 		<exemplarCharacters>[a-z ä ö ü ß]</exemplarCharacters>
 	</characters>
+	<delimiters>
+		<quotationStart draft="true">‚</quotationStart>
+		<quotationEnd draft="true">‘</quotationEnd>
+		<alternateQuotationStart draft="true">„</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">“</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<localizedPatternChars>GjMtkHmsSEDFwWahKzJeugAZ</localizedPatternChars>
 		<calendars>
@@ -918,6 +924,10 @@
 				<am>vorm.</am>
 				<pm>nachm.</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="true">vor Christus</era>
+						<era type="1" draft="true">nach Christus</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">v. Chr.</era>
 						<era type="1">n. Chr.</era>

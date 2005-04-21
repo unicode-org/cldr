@@ -7,6 +7,24 @@
 		<language type="th"/>
 		<territory type="TH"/>
 	</identity>
+	<delimiters>
+		<quotationStart draft="true">'</quotationStart>
+		<quotationEnd draft="true">'</quotationEnd>
+		<alternateQuotationStart draft="true">&quot;</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">&quot;</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<eras>
+					<eraNames>
+						<era type="0" draft="true">ปีก่อนคริสตกาลที่</era>
+						<era type="1" draft="true">คริสตศักราช</era>
+					</eraNames>
+				</eras>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
 		<currencyFormats>
 			<currencyFormatLength>

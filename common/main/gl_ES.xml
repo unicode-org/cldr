@@ -7,12 +7,24 @@
 		<language type="gl"/>
 		<territory type="ES"/>
 	</identity>
+	<delimiters>
+		<quotationStart draft="true">‘</quotationStart>
+		<quotationEnd draft="true">’</quotationEnd>
+		<alternateQuotationStart draft="true">“</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">”</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
 				<week>
 					<firstDay day="mon"/>
 				</week>
+				<eras>
+					<eraNames>
+						<era type="0" draft="true">A.C.</era>
+						<era type="1" draft="true">D.C.</era>
+					</eraNames>
+				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>

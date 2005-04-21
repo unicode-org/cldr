@@ -145,7 +145,7 @@
 
 <!-- ######################################################### -->
 <!-- layout and orientation are script specific, so validSublocales attribute is not required -->
-<!ELEMENT layout ( alias | (orientation*, special*) ) >
+<!ELEMENT layout ( alias | (orientation*, inList*, special*) ) >
 <!ATTLIST layout draft ( true | false ) #IMPLIED >
 <!ATTLIST layout standard CDATA #IMPLIED >
 <!ATTLIST layout references CDATA #IMPLIED >
@@ -157,6 +157,13 @@
 <!ATTLIST orientation standard CDATA #IMPLIED >
 <!ATTLIST orientation references CDATA #IMPLIED >
 <!ATTLIST orientation alt CDATA #IMPLIED >
+
+<!ELEMENT inList ( special* ) >
+<!ATTLIST inList casing ( titlecase-words | titlecase-firstword ) #REQUIRED >
+<!ATTLIST inList draft ( true | false ) #IMPLIED >
+<!ATTLIST inList standard CDATA #IMPLIED >
+<!ATTLIST inList references CDATA #IMPLIED >
+<!ATTLIST inList alt CDATA #IMPLIED >
 
 <!-- ######################################################### -->
 

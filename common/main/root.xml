@@ -693,6 +693,36 @@
 					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="persian">
+				<months>
+					<default type="format"/>
+					<monthContext type="format">
+						<default type="wide"/>
+						<monthWidth type="abbreviated">
+							<alias source="locale" path="../monthWidth[@type='wide']"/>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Farvardin</month>
+							<month type="2">Ordibehesht</month>
+							<month type="3">Khordad</month>
+							<month type="4">Tir</month>
+							<month type="5">Mordad</month>
+							<month type="6">Shahrivar</month>
+							<month type="7">Mehr</month>
+							<month type="8">Aban</month>
+							<month type="9">Azar</month>
+							<month type="10">Dey</month>
+							<month type="11">Bahman</month>
+							<month type="12">Esfand</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraAbbr>
+						<era type="0">AP</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<hourFormat draft="true">+HH:mm;-HH:mm</hourFormat>

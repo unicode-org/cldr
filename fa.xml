@@ -600,67 +600,69 @@
 			<calendar type="persian">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="narrow">
-							<month type="1">ف</month>
-							<month type="2">ا</month>
-							<month type="3">خ</month>
-							<month type="4">ت</month>
-							<month type="5">م</month>
-							<month type="6">ش</month>
-							<month type="7">م</month>
-							<month type="8">آ</month>
-							<month type="9">آ</month>
-							<month type="10">د</month>
-							<month type="11">ب</month>
-							<month type="12">ا</month>
-						</monthWidth>
 						<monthWidth type="abbreviated">
-							<alias source="fa" path="../monthWidth[@type='wide']"/>
+							<alias source="fa" path="../monthWidth[@type='wide']" draft="true"/>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">فروردین</month>
-							<month type="2">اردیبهشت</month>
-							<month type="3">خرداد</month>
-							<month type="4">تیر</month>
-							<month type="5">مرداد</month>
-							<month type="6">شهریور</month>
-							<month type="7">مهر</month>
-							<month type="8">آبان</month>
-							<month type="9">آذر</month>
-							<month type="10">دی</month>
-							<month type="11">بهمن</month>
-							<month type="12">اسفند</month>
+							<month type="1" draft="true">فروردین</month>
+							<month type="2" draft="true">اردیبهشت</month>
+							<month type="3" draft="true">خرداد</month>
+							<month type="4" draft="true">تیر</month>
+							<month type="5" draft="true">مرداد</month>
+							<month type="6" draft="true">شهریور</month>
+							<month type="7" draft="true">مهر</month>
+							<month type="8" draft="true">آبان</month>
+							<month type="9" draft="true">آذر</month>
+							<month type="10" draft="true">دی</month>
+							<month type="11" draft="true">بهمن</month>
+							<month type="12" draft="true">اسفند</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" draft="true">ف</month>
+							<month type="2" draft="true">ا</month>
+							<month type="3" draft="true">خ</month>
+							<month type="4" draft="true">ت</month>
+							<month type="5" draft="true">م</month>
+							<month type="6" draft="true">ش</month>
+							<month type="7" draft="true">م</month>
+							<month type="8" draft="true">آ</month>
+							<month type="9" draft="true">آ</month>
+							<month type="10" draft="true">د</month>
+							<month type="11" draft="true">ب</month>
+							<month type="12" draft="true">ا</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<eras>
 					<eraNames>
-						<era type="0">هجری شمسی</era>
+						<era type="0" draft="true">هجری شمسی</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0">ه‍. ش.</era>
+						<era type="0" draft="true">ه‍. ش.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
-					<default type="medium"/>
+					<default type="medium" draft="true"/>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE d MMMM yyyy</pattern>
+							<pattern draft="true">EEEE d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM yyyy</pattern>
+							<pattern draft="true">d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>yyyy/M/d</pattern>
+							<pattern draft="true">yyyy/M/d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>yy/M/d</pattern>
+							<pattern draft="true">yy/M/d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>

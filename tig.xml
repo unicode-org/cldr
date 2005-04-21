@@ -309,20 +309,6 @@
 							<month type="11" draft="true">ኖቬም</month>
 							<month type="12" draft="true">ዲሴም</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="true">ጃ</month>
-							<month type="2" draft="true">ፌ</month>
-							<month type="3" draft="true">ማ</month>
-							<month type="4" draft="true">ኤ</month>
-							<month type="5" draft="true">ሜ</month>
-							<month type="6" draft="true">ጁ</month>
-							<month type="7" draft="true">ጁ</month>
-							<month type="8" draft="true">ኦ</month>
-							<month type="9" draft="true">ሴ</month>
-							<month type="10" draft="true">ኦ</month>
-							<month type="11" draft="true">ኖ</month>
-							<month type="12" draft="true">ዲ</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="true">ጃንዩወሪ</month>
 							<month type="2" draft="true">ፌብሩወሪ</month>
@@ -338,6 +324,22 @@
 							<month type="12" draft="true">ዲሴምበር</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" draft="true">ጃ</month>
+							<month type="2" draft="true">ፌ</month>
+							<month type="3" draft="true">ማ</month>
+							<month type="4" draft="true">ኤ</month>
+							<month type="5" draft="true">ሜ</month>
+							<month type="6" draft="true">ጁ</month>
+							<month type="7" draft="true">ጁ</month>
+							<month type="8" draft="true">ኦ</month>
+							<month type="9" draft="true">ሴ</month>
+							<month type="10" draft="true">ኦ</month>
+							<month type="11" draft="true">ኖ</month>
+							<month type="12" draft="true">ዲ</month>
+						</monthWidth>
+					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
@@ -350,15 +352,6 @@
 							<day type="fri" draft="true">ጅምዓ</day>
 							<day type="sat" draft="true">ሰ/ን</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="true">ሰ</day>
-							<day type="mon" draft="true">ሰ</day>
-							<day type="tue" draft="true">ታ</day>
-							<day type="wed" draft="true">ኣ</day>
-							<day type="thu" draft="true">ከ</day>
-							<day type="fri" draft="true">ጅ</day>
-							<day type="sat" draft="true">ሰ</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun" draft="true">ሰንበት ዓባይ</day>
 							<day type="mon" draft="true">ሰኖ</day>
@@ -367,6 +360,17 @@
 							<day type="thu" draft="true">ከሚሽ</day>
 							<day type="fri" draft="true">ጅምዓት</day>
 							<day type="sat" draft="true">ሰንበት ንኢሽ</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="true">ሰ</day>
+							<day type="mon" draft="true">ሰ</day>
+							<day type="tue" draft="true">ታ</day>
+							<day type="wed" draft="true">ኣ</day>
+							<day type="thu" draft="true">ከ</day>
+							<day type="fri" draft="true">ጅ</day>
+							<day type="sat" draft="true">ሰ</day>
 						</dayWidth>
 					</dayContext>
 				</days>

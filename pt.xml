@@ -805,20 +805,6 @@
 							<month type="11">nov</month>
 							<month type="12">dez</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">J</month>
-							<month type="2">F</month>
-							<month type="3">M</month>
-							<month type="4">A</month>
-							<month type="5">M</month>
-							<month type="6">J</month>
-							<month type="7">J</month>
-							<month type="8">A</month>
-							<month type="9">S</month>
-							<month type="10">O</month>
-							<month type="11">N</month>
-							<month type="12">D</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">janeiro</month>
 							<month type="2">fevereiro</month>
@@ -834,6 +820,22 @@
 							<month type="12">dezembro</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1">J</month>
+							<month type="2">F</month>
+							<month type="3">M</month>
+							<month type="4">A</month>
+							<month type="5">M</month>
+							<month type="6">J</month>
+							<month type="7">J</month>
+							<month type="8">A</month>
+							<month type="9">S</month>
+							<month type="10">O</month>
+							<month type="11">N</month>
+							<month type="12">D</month>
+						</monthWidth>
+					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
@@ -846,15 +848,6 @@
 							<day type="fri">sex</day>
 							<day type="sat">sáb</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">D</day>
-							<day type="mon">S</day>
-							<day type="tue">T</day>
-							<day type="wed">Q</day>
-							<day type="thu">Q</day>
-							<day type="fri">S</day>
-							<day type="sat">S</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">domingo</day>
 							<day type="mon">segunda-feira</day>
@@ -863,6 +856,17 @@
 							<day type="thu">quinta-feira</day>
 							<day type="fri">sexta-feira</day>
 							<day type="sat">sábado</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">D</day>
+							<day type="mon">S</day>
+							<day type="tue">T</day>
+							<day type="wed">Q</day>
+							<day type="thu">Q</day>
+							<day type="fri">S</day>
+							<day type="sat">S</day>
 						</dayWidth>
 					</dayContext>
 				</days>

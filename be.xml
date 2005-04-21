@@ -62,20 +62,6 @@
 							<month type="11">ліс</month>
 							<month type="12">сне</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="true">с</month>
-							<month type="2" draft="true">л</month>
-							<month type="3" draft="true">с</month>
-							<month type="4" draft="true">к</month>
-							<month type="5" draft="true">м</month>
-							<month type="6" draft="true">ч</month>
-							<month type="7" draft="true">л</month>
-							<month type="8" draft="true">ж</month>
-							<month type="9" draft="true">в</month>
-							<month type="10" draft="true">к</month>
-							<month type="11" draft="true">л</month>
-							<month type="12" draft="true">с</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">студзень</month>
 							<month type="2">люты</month>
@@ -91,6 +77,22 @@
 							<month type="12">снежань</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" draft="true">с</month>
+							<month type="2" draft="true">л</month>
+							<month type="3" draft="true">с</month>
+							<month type="4" draft="true">к</month>
+							<month type="5" draft="true">м</month>
+							<month type="6" draft="true">ч</month>
+							<month type="7" draft="true">л</month>
+							<month type="8" draft="true">ж</month>
+							<month type="9" draft="true">в</month>
+							<month type="10" draft="true">к</month>
+							<month type="11" draft="true">л</month>
+							<month type="12" draft="true">с</month>
+						</monthWidth>
+					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
@@ -103,15 +105,6 @@
 							<day type="fri">пт</day>
 							<day type="sat">сб</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="true">н</day>
-							<day type="mon" draft="true">п</day>
-							<day type="tue" draft="true">а</day>
-							<day type="wed" draft="true">с</day>
-							<day type="thu" draft="true">ч</day>
-							<day type="fri" draft="true">п</day>
-							<day type="sat" draft="true">с</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">нядзеля</day>
 							<day type="mon">панядзелак</day>
@@ -120,6 +113,17 @@
 							<day type="thu">чацвер</day>
 							<day type="fri">пятніца</day>
 							<day type="sat">субота</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="true">н</day>
+							<day type="mon" draft="true">п</day>
+							<day type="tue" draft="true">а</day>
+							<day type="wed" draft="true">с</day>
+							<day type="thu" draft="true">ч</day>
+							<day type="fri" draft="true">п</day>
+							<day type="sat" draft="true">с</day>
 						</dayWidth>
 					</dayContext>
 				</days>

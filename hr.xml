@@ -483,15 +483,6 @@
 							<day type="fri">pet</day>
 							<day type="sat">sub</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">n</day>
-							<day type="mon">p</day>
-							<day type="tue">u</day>
-							<day type="wed">s</day>
-							<day type="thu">č</day>
-							<day type="fri">p</day>
-							<day type="sat">s</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">nedjelja</day>
 							<day type="mon">ponedjeljak</day>
@@ -500,6 +491,17 @@
 							<day type="thu">četvrtak</day>
 							<day type="fri">petak</day>
 							<day type="sat">subota</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">n</day>
+							<day type="mon">p</day>
+							<day type="tue">u</day>
+							<day type="wed">s</day>
+							<day type="thu">č</day>
+							<day type="fri">p</day>
+							<day type="sat">s</day>
 						</dayWidth>
 					</dayContext>
 				</days>

@@ -910,20 +910,6 @@
 							<month type="11">nov</month>
 							<month type="12">dec</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">J</month>
-							<month type="2">F</month>
-							<month type="3">M</month>
-							<month type="4">A</month>
-							<month type="5">M</month>
-							<month type="6">J</month>
-							<month type="7">J</month>
-							<month type="8">A</month>
-							<month type="9">S</month>
-							<month type="10">O</month>
-							<month type="11">N</month>
-							<month type="12">D</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januari</month>
 							<month type="2">februari</month>
@@ -937,6 +923,22 @@
 							<month type="10">oktober</month>
 							<month type="11">november</month>
 							<month type="12">december</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1">J</month>
+							<month type="2">F</month>
+							<month type="3">M</month>
+							<month type="4">A</month>
+							<month type="5">M</month>
+							<month type="6">J</month>
+							<month type="7">J</month>
+							<month type="8">A</month>
+							<month type="9">S</month>
+							<month type="10">O</month>
+							<month type="11">N</month>
+							<month type="12">D</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -958,15 +960,6 @@
 							<day type="sat">lö</day>
 							<day type="sat" alt="proposed" references="R4" draft="true">lör</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">T</day>
-							<day type="wed">O</day>
-							<day type="thu">T</day>
-							<day type="fri">F</day>
-							<day type="sat">L</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">söndag</day>
 							<day type="mon">måndag</day>
@@ -975,6 +968,17 @@
 							<day type="thu">torsdag</day>
 							<day type="fri">fredag</day>
 							<day type="sat">lördag</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">S</day>
+							<day type="mon">M</day>
+							<day type="tue">T</day>
+							<day type="wed">O</day>
+							<day type="thu">T</day>
+							<day type="fri">F</day>
+							<day type="sat">L</day>
 						</dayWidth>
 					</dayContext>
 				</days>

@@ -606,20 +606,6 @@
 							<month type="11">Kas</month>
 							<month type="12">Ara</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">O</month>
-							<month type="2">Ş</month>
-							<month type="3">M</month>
-							<month type="4">N</month>
-							<month type="5">M</month>
-							<month type="6">H</month>
-							<month type="7">T</month>
-							<month type="8">A</month>
-							<month type="9">E</month>
-							<month type="10">E</month>
-							<month type="11">K</month>
-							<month type="12">A</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Ocak</month>
 							<month type="2">Şubat</month>
@@ -635,6 +621,22 @@
 							<month type="12">Aralık</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1">O</month>
+							<month type="2">Ş</month>
+							<month type="3">M</month>
+							<month type="4">N</month>
+							<month type="5">M</month>
+							<month type="6">H</month>
+							<month type="7">T</month>
+							<month type="8">A</month>
+							<month type="9">E</month>
+							<month type="10">E</month>
+							<month type="11">K</month>
+							<month type="12">A</month>
+						</monthWidth>
+					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
@@ -647,15 +649,6 @@
 							<day type="fri">Cum</day>
 							<day type="sat">Cmt</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">P</day>
-							<day type="mon">P</day>
-							<day type="tue">S</day>
-							<day type="wed">Ç</day>
-							<day type="thu">P</day>
-							<day type="fri">C</day>
-							<day type="sat">C</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Pazar</day>
 							<day type="mon">Pazartesi</day>
@@ -664,6 +657,17 @@
 							<day type="thu">Perşembe</day>
 							<day type="fri">Cuma</day>
 							<day type="sat">Cumartesi</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">P</day>
+							<day type="mon">P</day>
+							<day type="tue">S</day>
+							<day type="wed">Ç</day>
+							<day type="thu">P</day>
+							<day type="fri">C</day>
+							<day type="sat">C</day>
 						</dayWidth>
 					</dayContext>
 				</days>

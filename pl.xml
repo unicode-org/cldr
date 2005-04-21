@@ -490,15 +490,6 @@
 							<day type="sat">So</day>
 							<day type="sat" alt="proposed" draft="true">sob.</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">N</day>
-							<day type="mon">P</day>
-							<day type="tue">W</day>
-							<day type="wed">Ś</day>
-							<day type="thu">C</day>
-							<day type="fri">P</day>
-							<day type="sat">S</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">niedziela</day>
 							<day type="mon">poniedziałek</day>
@@ -507,6 +498,17 @@
 							<day type="thu">czwartek</day>
 							<day type="fri">piątek</day>
 							<day type="sat">sobota</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">N</day>
+							<day type="mon">P</day>
+							<day type="tue">W</day>
+							<day type="wed">Ś</day>
+							<day type="thu">C</day>
+							<day type="fri">P</day>
+							<day type="sat">S</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -538,7 +540,7 @@
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>yy-MM-dd</pattern>
-							<pattern draft="true" alt="proposed">dd.MM.yy</pattern>
+							<pattern alt="proposed" draft="true">dd.MM.yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>

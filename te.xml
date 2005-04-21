@@ -61,20 +61,6 @@
 							<month type="11">నవంబర్</month>
 							<month type="12">డిసెంబర్</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="true">జ</month>
-							<month type="2" draft="true">ఫి</month>
-							<month type="3" draft="true">మ</month>
-							<month type="4" draft="true">ఎ</month>
-							<month type="5" draft="true">మె</month>
-							<month type="6" draft="true">జు</month>
-							<month type="7" draft="true">జు</month>
-							<month type="8" draft="true">ఆ</month>
-							<month type="9" draft="true">సె</month>
-							<month type="10" draft="true">అ</month>
-							<month type="11" draft="true">న</month>
-							<month type="12" draft="true">డి</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">జనవరి</month>
 							<month type="2">ఫిబ్రవరి</month>
@@ -90,6 +76,22 @@
 							<month type="12">డిసెంబర్</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" draft="true">జ</month>
+							<month type="2" draft="true">ఫి</month>
+							<month type="3" draft="true">మ</month>
+							<month type="4" draft="true">ఎ</month>
+							<month type="5" draft="true">మె</month>
+							<month type="6" draft="true">జు</month>
+							<month type="7" draft="true">జు</month>
+							<month type="8" draft="true">ఆ</month>
+							<month type="9" draft="true">సె</month>
+							<month type="10" draft="true">అ</month>
+							<month type="11" draft="true">న</month>
+							<month type="12" draft="true">డి</month>
+						</monthWidth>
+					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
@@ -102,14 +104,6 @@
 							<day type="fri">శుక్ర</day>
 							<day type="sat">శని</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="true">ఆ</day>
-							<day type="tue" draft="true">సొ</day>
-							<day type="wed" draft="true">భు</day>
-							<day type="thu" draft="true">గు</day>
-							<day type="fri" draft="true">శు</day>
-							<day type="sat" draft="true">శ</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">ఆదివారం</day>
 							<day type="mon">సోమవారం</day>
@@ -118,6 +112,16 @@
 							<day type="thu">గురువారం</day>
 							<day type="fri">శుక్రవారం</day>
 							<day type="sat">శనివారం</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="true">ఆ</day>
+							<day type="tue" draft="true">సొ</day>
+							<day type="wed" draft="true">భు</day>
+							<day type="thu" draft="true">గు</day>
+							<day type="fri" draft="true">శు</day>
+							<day type="sat" draft="true">శ</day>
 						</dayWidth>
 					</dayContext>
 				</days>

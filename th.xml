@@ -507,20 +507,6 @@
 							<month type="11">พ.ย.</month>
 							<month type="12">ธ.ค.</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="true">ม.ค.</month>
-							<month type="2" draft="true">ก.พ.</month>
-							<month type="3" draft="true">มี.ค.</month>
-							<month type="4" draft="true">เม.ย.</month>
-							<month type="5" draft="true">พ.ค.</month>
-							<month type="6" draft="true">มิ.ย.</month>
-							<month type="7" draft="true">ก.ค.</month>
-							<month type="8" draft="true">ส.ค.</month>
-							<month type="9" draft="true">ก.ย.</month>
-							<month type="10" draft="true">ต.ค.</month>
-							<month type="11" draft="true">พ.ย.</month>
-							<month type="12" draft="true">ธ.ค.</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">มกราคม</month>
 							<month type="2">กุมภาพันธ์</month>
@@ -536,6 +522,22 @@
 							<month type="12">ธันวาคม</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" draft="true">ม.ค.</month>
+							<month type="2" draft="true">ก.พ.</month>
+							<month type="3" draft="true">มี.ค.</month>
+							<month type="4" draft="true">เม.ย.</month>
+							<month type="5" draft="true">พ.ค.</month>
+							<month type="6" draft="true">มิ.ย.</month>
+							<month type="7" draft="true">ก.ค.</month>
+							<month type="8" draft="true">ส.ค.</month>
+							<month type="9" draft="true">ก.ย.</month>
+							<month type="10" draft="true">ต.ค.</month>
+							<month type="11" draft="true">พ.ย.</month>
+							<month type="12" draft="true">ธ.ค.</month>
+						</monthWidth>
+					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
@@ -548,15 +550,6 @@
 							<day type="fri">ศ.</day>
 							<day type="sat">ส.</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="true">อ</day>
-							<day type="mon" draft="true">จ</day>
-							<day type="tue" draft="true">อ</day>
-							<day type="wed" draft="true">พ</day>
-							<day type="thu" draft="true">พ</day>
-							<day type="fri" draft="true">ศ</day>
-							<day type="sat" draft="true">ส</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">วันอาทิตย์</day>
 							<day type="mon">วันจันทร์</day>
@@ -565,6 +558,17 @@
 							<day type="thu">วันพฤหัสบดี</day>
 							<day type="fri">วันศุกร์</day>
 							<day type="sat">วันเสาร์</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="true">อ</day>
+							<day type="mon" draft="true">จ</day>
+							<day type="tue" draft="true">อ</day>
+							<day type="wed" draft="true">พ</day>
+							<day type="thu" draft="true">พ</day>
+							<day type="fri" draft="true">ศ</day>
+							<day type="sat" draft="true">ส</day>
 						</dayWidth>
 					</dayContext>
 				</days>

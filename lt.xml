@@ -525,20 +525,6 @@
 							<month type="11">Lap</month>
 							<month type="12">Grd</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="true">S</month>
-							<month type="2" draft="true">V</month>
-							<month type="3" draft="true">K</month>
-							<month type="4" draft="true">B</month>
-							<month type="5" draft="true">G</month>
-							<month type="6" draft="true">B</month>
-							<month type="7" draft="true">L</month>
-							<month type="8" draft="true">R</month>
-							<month type="9" draft="true">R</month>
-							<month type="10" draft="true">S</month>
-							<month type="11" draft="true">L</month>
-							<month type="12" draft="true">G</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Sausio</month>
 							<month type="1" alt="proposed" draft="true">sausio</month>
@@ -567,6 +553,20 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" draft="true">S</month>
+							<month type="2" draft="true">V</month>
+							<month type="3" draft="true">K</month>
+							<month type="4" draft="true">B</month>
+							<month type="5" draft="true">G</month>
+							<month type="6" draft="true">B</month>
+							<month type="7" draft="true">L</month>
+							<month type="8" draft="true">R</month>
+							<month type="9" draft="true">R</month>
+							<month type="10" draft="true">S</month>
+							<month type="11" draft="true">L</month>
+							<month type="12" draft="true">G</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="true">Sausis</month>
 							<month type="2" draft="true">Vasaris</month>
@@ -594,15 +594,6 @@
 							<day type="fri">Pn</day>
 							<day type="sat">Št</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="true">S</day>
-							<day type="mon" draft="true">P</day>
-							<day type="tue" draft="true">A</day>
-							<day type="wed" draft="true">T</day>
-							<day type="thu" draft="true">K</day>
-							<day type="fri" draft="true">P</day>
-							<day type="sat" draft="true">Š</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Sekmadienis</day>
 							<day type="sun" alt="proposed" draft="true">sekmadienis</day>
@@ -618,6 +609,17 @@
 							<day type="fri" alt="proposed" draft="true">penktadienis</day>
 							<day type="sat">Šeštadienis</day>
 							<day type="sat" alt="proposed" draft="true">šeštadienis</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="true">S</day>
+							<day type="mon" draft="true">P</day>
+							<day type="tue" draft="true">A</day>
+							<day type="wed" draft="true">T</day>
+							<day type="thu" draft="true">K</day>
+							<day type="fri" draft="true">P</day>
+							<day type="sat" draft="true">Š</day>
 						</dayWidth>
 					</dayContext>
 				</days>

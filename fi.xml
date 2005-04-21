@@ -1048,8 +1048,8 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a-z ä ö]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[a-z å ä ö š ž]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="true">[à á ã æ è é ë ï ô õ ø ü œ ç č ñ ř]</exemplarCharacters>
+		<exemplarCharacters alt="proposed" draft="true">[a-z å ä ö š ž]</exemplarCharacters>
 	</characters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZ</localizedPatternChars>
@@ -1071,20 +1071,6 @@
 							<month type="11">marras</month>
 							<month type="12">joulu</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">T</month>
-							<month type="2">H</month>
-							<month type="3">M</month>
-							<month type="4">H</month>
-							<month type="5">T</month>
-							<month type="6">K</month>
-							<month type="7">H</month>
-							<month type="8">E</month>
-							<month type="9">S</month>
-							<month type="10">L</month>
-							<month type="11">M</month>
-							<month type="12">J</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">tammikuu</month>
 							<month type="2">helmikuu</month>
@@ -1100,6 +1086,22 @@
 							<month type="12">joulukuu</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1">T</month>
+							<month type="2">H</month>
+							<month type="3">M</month>
+							<month type="4">H</month>
+							<month type="5">T</month>
+							<month type="6">K</month>
+							<month type="7">H</month>
+							<month type="8">E</month>
+							<month type="9">S</month>
+							<month type="10">L</month>
+							<month type="11">M</month>
+							<month type="12">J</month>
+						</monthWidth>
+					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
@@ -1112,15 +1114,6 @@
 							<day type="fri">pe</day>
 							<day type="sat">la</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">T</day>
-							<day type="wed">K</day>
-							<day type="thu">T</day>
-							<day type="fri">P</day>
-							<day type="sat">L</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">sunnuntai</day>
 							<day type="mon">maanantai</day>
@@ -1129,6 +1122,17 @@
 							<day type="thu">torstai</day>
 							<day type="fri">perjantai</day>
 							<day type="sat">lauantai</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">S</day>
+							<day type="mon">M</day>
+							<day type="tue">T</day>
+							<day type="wed">K</day>
+							<day type="thu">T</day>
+							<day type="fri">P</day>
+							<day type="sat">L</day>
 						</dayWidth>
 					</dayContext>
 				</days>

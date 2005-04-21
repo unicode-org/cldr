@@ -882,15 +882,6 @@
 							<day type="fri">金</day>
 							<day type="sat">土</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">日</day>
-							<day type="mon">月</day>
-							<day type="tue">火</day>
-							<day type="wed">水</day>
-							<day type="thu">木</day>
-							<day type="fri">金</day>
-							<day type="sat">土</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">日曜日</day>
 							<day type="mon">月曜日</day>
@@ -899,6 +890,17 @@
 							<day type="thu">木曜日</day>
 							<day type="fri">金曜日</day>
 							<day type="sat">土曜日</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">日</day>
+							<day type="mon">月</day>
+							<day type="tue">火</day>
+							<day type="wed">水</day>
+							<day type="thu">木</day>
+							<day type="fri">金</day>
+							<day type="sat">土</day>
 						</dayWidth>
 					</dayContext>
 				</days>

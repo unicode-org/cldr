@@ -365,15 +365,6 @@
 							<day type="sat">la</day>
 							<day type="sat" alt="proposed" references="R1" draft="true">la.</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="true">S</day>
-							<day type="mon" draft="true">M</day>
-							<day type="tue" draft="true">T</day>
-							<day type="wed" draft="true">O</day>
-							<day type="thu" draft="true">T</day>
-							<day type="fri" draft="true">F</day>
-							<day type="sat" draft="true">L</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">sundag</day>
 							<day type="mon">måndag</day>
@@ -382,6 +373,17 @@
 							<day type="thu">torsdag</day>
 							<day type="fri">fredag</day>
 							<day type="sat">laurdag</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="true">S</day>
+							<day type="mon" draft="true">M</day>
+							<day type="tue" draft="true">T</day>
+							<day type="wed" draft="true">O</day>
+							<day type="thu" draft="true">T</day>
+							<day type="fri" draft="true">F</day>
+							<day type="sat" draft="true">L</day>
 						</dayWidth>
 					</dayContext>
 				</days>

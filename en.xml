@@ -529,8 +529,9 @@
 			<script type="Egyh" draft="true">Egyptian hieratic</script>
 			<script type="Egyp" draft="true">Egyptian hieroglyphs</script>
 			<script type="Ethi">Ethiopic</script>
-			<script type="Geor">Georgian</script>
 			<script type="Geok">Khutsuri (Asomtavruli and Nuskhuri)</script>
+			<script type="Geor">Georgian</script>
+			<script type="Glag" draft="true">Glagolitic</script>
 			<script type="Goth">Gothic</script>
 			<script type="Grek">Greek</script>
 			<script type="Gujr">Gujarati</script>
@@ -568,7 +569,6 @@
 			<script type="Mong">Mongolian</script>
 			<script type="Mymr">Myanmar</script>
 			<script type="Nkoo">N’Ko</script>
-			<script type="Glag" draft="true">Glagolitic</script>
 			<script type="Ogam">Ogham</script>
 			<script type="Orkh" draft="true">Orkhon</script>
 			<script type="Orya">Oriya</script>
@@ -969,20 +969,6 @@
 							<month type="11">Nov</month>
 							<month type="12">Dec</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">J</month>
-							<month type="2">F</month>
-							<month type="3">M</month>
-							<month type="4">A</month>
-							<month type="5">M</month>
-							<month type="6">J</month>
-							<month type="7">J</month>
-							<month type="8">A</month>
-							<month type="9">S</month>
-							<month type="10">O</month>
-							<month type="11">N</month>
-							<month type="12">D</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">January</month>
 							<month type="2">February</month>
@@ -998,6 +984,22 @@
 							<month type="12">December</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1">J</month>
+							<month type="2">F</month>
+							<month type="3">M</month>
+							<month type="4">A</month>
+							<month type="5">M</month>
+							<month type="6">J</month>
+							<month type="7">J</month>
+							<month type="8">A</month>
+							<month type="9">S</month>
+							<month type="10">O</month>
+							<month type="11">N</month>
+							<month type="12">D</month>
+						</monthWidth>
+					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
@@ -1010,15 +1012,6 @@
 							<day type="fri">Fri</day>
 							<day type="sat">Sat</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">T</day>
-							<day type="wed">W</day>
-							<day type="thu">T</day>
-							<day type="fri">F</day>
-							<day type="sat">S</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Sunday</day>
 							<day type="mon">Monday</day>
@@ -1027,6 +1020,17 @@
 							<day type="thu">Thursday</day>
 							<day type="fri">Friday</day>
 							<day type="sat">Saturday</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">S</day>
+							<day type="mon">M</day>
+							<day type="tue">T</day>
+							<day type="wed">W</day>
+							<day type="thu">T</day>
+							<day type="fri">F</day>
+							<day type="sat">S</day>
 						</dayWidth>
 					</dayContext>
 				</days>

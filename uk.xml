@@ -600,15 +600,6 @@
 							<day type="fri">Пт</day>
 							<day type="sat">Сб</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">Н</day>
-							<day type="mon">П</day>
-							<day type="tue">В</day>
-							<day type="wed">С</day>
-							<day type="thu">Ч</day>
-							<day type="fri">П</day>
-							<day type="sat">С</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Неділя</day>
 							<day type="mon">Понеділок</day>
@@ -617,6 +608,17 @@
 							<day type="thu">Четвер</day>
 							<day type="fri">Пʼятниця</day>
 							<day type="sat">Субота</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">Н</day>
+							<day type="mon">П</day>
+							<day type="tue">В</day>
+							<day type="wed">С</day>
+							<day type="thu">Ч</day>
+							<day type="fri">П</day>
+							<day type="sat">С</day>
 						</dayWidth>
 					</dayContext>
 				</days>

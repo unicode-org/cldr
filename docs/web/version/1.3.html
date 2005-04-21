@@ -112,11 +112,12 @@ td.item     { background-color:#FFFFFF; border:none; }
       <tr>
         <td class="contents" valign="top">
         <div style="margin:1em">
-          <h1 style="margin-bottom: 1em">CLDR 1.3α Release Note</h1>
+          <h1 style="margin-bottom: 1em">CLDR 1.3β Release Note</h1>
           <div align="center">
             <center>
-            <table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+            <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
               <tr>
+                <th>Release</th>
                 <th>No.</th>
                 <th>Note</th>
                 <th>Delta</th>
@@ -125,26 +126,27 @@ td.item     { background-color:#FFFFFF; border:none; }
                 <th>CVS Tag</th>
               </tr>
               <tr>
-                <td style="background-color: #FFFF00">1.3α</td>
-                <td align="center" style="background-color: #FFFF00">
-                <a href="http://unicode.org/Public/cldr/1.3.0/readme.txt">readme.txt</a></td>
+                <th align="left" bgcolor="#FFFF00">Beta:</th>
+                <td style="background-color: #FFFF00">1.3β</td>
+                <td align="center" style="background-color: #FFFF00"><a href="1.3.html">Version1.3</a></td>
                 <td align="center" style="background-color: #FFFF00">n/a</td>
                 <td style="background-color: #FFFF00">
-                <a href="http://unicode.org/Public/cldr/1.3.0/">CLDR1.3α</a></td>
+                <a href="http://unicode.org/Public/cldr/1.3.0/">CLDR1.3β</a></td>
                 <td style="background-color: #FFFF00">
-                <a href="http://unicode.org/cldr/data/docs/web/tr35.html">LDML1.3α</a> </td>
-                <td style="background-color: #FFFF00"><code>release-1-3-alpha</code></td>
+                <a href="http://unicode.org/cldr/data/docs/web/tr35.html">LDML1.3β</a> </td>
+                <td style="background-color: #FFFF00"><code>release-1-3-beta</code></td>
               </tr>
             </table>
             </center>
           </div>
-          <p>The 1.3 version of CLDR is at alpha status.<br>
+          <p>The 1.3 version of CLDR is at <b>beta</b> status.<br>
           <br>
-          The alpha is <i>not</i> complete: it does not contain changes for all the additions to the 
+          The beta is not complete: it does not contain changes for all the additions to the 
           specification and additions/fixes to the data slated for CLDR 1.3, and should not be used 
-          in implementations. We do, however, encourage people to look at the data and provide 
-          feedback on the progress towards CLDR 1.3, especially on the new POSIX-format data and the 
-          changes in the specification.</p>
+          in implementations. It does contain all the planned additions of data (with a few 
+          exceptions).</p>
+          <p>We encourage people to look at the data and provide feedback on the progress towards 
+          CLDR 1.3, especially on the new POSIX-format data and the changes in the specification.</p>
           <p>The main features are:</p>
           <ul>
             <li>The addition of new data to support localization of timezones</li>
@@ -156,12 +158,14 @@ td.item     { background-color:#FFFFFF; border:none; }
             <li>The restriction of currency codes to ISO 4217 codes (past and present)</li>
             <li>The addition of number and data tests, for verifying that implementations correctly 
             implement the LDML specification using CLDR data.</li>
+            <li>The addition of metadata for LDML</li>
+            <li>The addition of mappings from language to script and territory</li>
             <li>Various other fixes and additions of data, and extensions to the specification.<br>
             <br>
             In the specification, please look at the changed areas (in yellow), especially those 
             starting with &quot;Issues:&quot;</li>
           </ul>
-          <p>NOTE: Feedback should not be provided via the online Unicode forms; instead, use
+          <p>NOTE: Feedback should <b>not</b> be provided via the online Unicode forms; instead, use
           <a href="http://unicode.org/cldr/filing_bug_reports.html">
           http://unicode.org/cldr/filing_bug_reports.html</a> </p>
           <p>&nbsp;</div>

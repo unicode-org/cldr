@@ -547,15 +547,6 @@
 							<day type="fri">pá</day>
 							<day type="sat">so</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="true">N</day>
-							<day type="mon" draft="true">P</day>
-							<day type="tue" draft="true">Ú</day>
-							<day type="wed" draft="true">S</day>
-							<day type="thu" draft="true">Č</day>
-							<day type="fri" draft="true">P</day>
-							<day type="sat" draft="true">S</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">neděle</day>
 							<day type="mon">pondělí</day>
@@ -564,6 +555,17 @@
 							<day type="thu">čtvrtek</day>
 							<day type="fri">pátek</day>
 							<day type="sat">sobota</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="true">N</day>
+							<day type="mon" draft="true">P</day>
+							<day type="tue" draft="true">Ú</day>
+							<day type="wed" draft="true">S</day>
+							<day type="thu" draft="true">Č</day>
+							<day type="fri" draft="true">P</day>
+							<day type="sat" draft="true">S</day>
 						</dayWidth>
 					</dayContext>
 				</days>

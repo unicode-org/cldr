@@ -499,15 +499,6 @@
 							<day type="fri">Παρ</day>
 							<day type="sat">Σαβ</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">Κ</day>
-							<day type="mon">Δ</day>
-							<day type="tue">Τ</day>
-							<day type="wed">Τ</day>
-							<day type="thu">Π</day>
-							<day type="fri">Π</day>
-							<day type="sat">Σ</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Κυριακή</day>
 							<day type="mon">Δευτέρα</day>
@@ -516,6 +507,17 @@
 							<day type="thu">Πέμπτη</day>
 							<day type="fri">Παρασκευή</day>
 							<day type="sat">Σάββατο</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">Κ</day>
+							<day type="mon">Δ</day>
+							<day type="tue">Τ</day>
+							<day type="wed">Τ</day>
+							<day type="thu">Π</day>
+							<day type="fri">Π</day>
+							<day type="sat">Σ</day>
 						</dayWidth>
 					</dayContext>
 				</days>

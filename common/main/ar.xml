@@ -353,20 +353,6 @@
 							<month type="11">نوفمبر</month>
 							<month type="12">ديسمبر</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">ي</month>
-							<month type="2">ف</month>
-							<month type="3">م</month>
-							<month type="4">آ</month>
-							<month type="5">و</month>
-							<month type="6">ن</month>
-							<month type="7">ل</month>
-							<month type="8">غ</month>
-							<month type="9">س</month>
-							<month type="10">ك</month>
-							<month type="11">ب</month>
-							<month type="12">د</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">يناير</month>
 							<month type="2">فبراير</month>
@@ -382,19 +368,26 @@
 							<month type="12">ديسمبر</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1">ي</month>
+							<month type="2">ف</month>
+							<month type="3">م</month>
+							<month type="4">آ</month>
+							<month type="5">و</month>
+							<month type="6">ن</month>
+							<month type="7">ل</month>
+							<month type="8">غ</month>
+							<month type="9">س</month>
+							<month type="10">ك</month>
+							<month type="11">ب</month>
+							<month type="12">د</month>
+						</monthWidth>
+					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun">ح</day>
-							<day type="mon">ن</day>
-							<day type="tue">ث</day>
-							<day type="wed">ر</day>
-							<day type="thu">خ</day>
-							<day type="fri">ج</day>
-							<day type="sat">س</day>
-						</dayWidth>
-						<dayWidth type="narrow">
 							<day type="sun">ح</day>
 							<day type="mon">ن</day>
 							<day type="tue">ث</day>
@@ -411,6 +404,17 @@
 							<day type="thu">الخميس</day>
 							<day type="fri">الجمعة</day>
 							<day type="sat">السبت</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">ح</day>
+							<day type="mon">ن</day>
+							<day type="tue">ث</day>
+							<day type="wed">ر</day>
+							<day type="thu">خ</day>
+							<day type="fri">ج</day>
+							<day type="sat">س</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1095,9 +1099,10 @@
 			</currencyFormatLength>
 		</currencyFormats>
 		<!-- Please note that the Arabic translated currency symbols include the Right to
-Left Marker <RLM> to position the dot properly on the boundary between
-Arabic
-and English XML tags. -->
+			 Left Marker <RLM> to position the dot properly on the boundary between
+			 Arabic
+			 and English XML tags.
+		-->
 		<currencies>
 			<currency type="AED">
 				<symbol>د.إ.‏</symbol>

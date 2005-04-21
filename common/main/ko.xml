@@ -817,7 +817,7 @@
 							<month type="11">11월</month>
 							<month type="12">12월</month>
 						</monthWidth>
-						<monthWidth type="narrow">
+						<monthWidth type="wide">
 							<month type="1">1월</month>
 							<month type="2">2월</month>
 							<month type="3">3월</month>
@@ -831,7 +831,9 @@
 							<month type="11">11월</month>
 							<month type="12">12월</month>
 						</monthWidth>
-						<monthWidth type="wide">
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
 							<month type="1">1월</month>
 							<month type="2">2월</month>
 							<month type="3">3월</month>
@@ -858,15 +860,6 @@
 							<day type="fri">금</day>
 							<day type="sat">토</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">일</day>
-							<day type="mon">월</day>
-							<day type="tue">화</day>
-							<day type="wed">수</day>
-							<day type="thu">목</day>
-							<day type="fri">금</day>
-							<day type="sat">토</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">일요일</day>
 							<day type="mon">월요일</day>
@@ -875,6 +868,17 @@
 							<day type="thu">목요일</day>
 							<day type="fri">금요일</day>
 							<day type="sat">토요일</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">일</day>
+							<day type="mon">월</day>
+							<day type="tue">화</day>
+							<day type="wed">수</day>
+							<day type="thu">목</day>
+							<day type="fri">금</day>
+							<day type="sat">토</day>
 						</dayWidth>
 					</dayContext>
 				</days>

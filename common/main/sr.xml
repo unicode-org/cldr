@@ -399,20 +399,6 @@
 							<month type="11">нов</month>
 							<month type="12">дец</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">ј</month>
-							<month type="2">ф</month>
-							<month type="3">м</month>
-							<month type="4">а</month>
-							<month type="5">м</month>
-							<month type="6">ј</month>
-							<month type="7">ј</month>
-							<month type="8">а</month>
-							<month type="9">с</month>
-							<month type="10">о</month>
-							<month type="11">н</month>
-							<month type="12">д</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">јануар</month>
 							<month type="2">фебруар</month>
@@ -428,6 +414,22 @@
 							<month type="12">децембар</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1">ј</month>
+							<month type="2">ф</month>
+							<month type="3">м</month>
+							<month type="4">а</month>
+							<month type="5">м</month>
+							<month type="6">ј</month>
+							<month type="7">ј</month>
+							<month type="8">а</month>
+							<month type="9">с</month>
+							<month type="10">о</month>
+							<month type="11">н</month>
+							<month type="12">д</month>
+						</monthWidth>
+					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
@@ -440,15 +442,6 @@
 							<day type="fri">пет</day>
 							<day type="sat">суб</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">н</day>
-							<day type="mon">п</day>
-							<day type="tue">у</day>
-							<day type="wed">с</day>
-							<day type="thu">ч</day>
-							<day type="fri">п</day>
-							<day type="sat">с</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">недеља</day>
 							<day type="mon">понедељак</day>
@@ -457,6 +450,17 @@
 							<day type="thu">четвртак</day>
 							<day type="fri">петак</day>
 							<day type="sat">субота</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">н</day>
+							<day type="mon">п</day>
+							<day type="tue">у</day>
+							<day type="wed">с</day>
+							<day type="thu">ч</day>
+							<day type="fri">п</day>
+							<day type="sat">с</day>
 						</dayWidth>
 					</dayContext>
 				</days>

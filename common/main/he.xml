@@ -418,15 +418,6 @@
 							<day type="fri">ו</day>
 							<day type="sat">ש</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">א</day>
-							<day type="mon">ב</day>
-							<day type="tue">ג</day>
-							<day type="wed">ד</day>
-							<day type="thu">ה</day>
-							<day type="fri">ו</day>
-							<day type="sat">ש</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">יום ראשון</day>
 							<day type="mon">יום שני</day>
@@ -435,6 +426,17 @@
 							<day type="thu">יום חמישי</day>
 							<day type="fri">יום שישי</day>
 							<day type="sat">שבת</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">א</day>
+							<day type="mon">ב</day>
+							<day type="tue">ג</day>
+							<day type="wed">ד</day>
+							<day type="thu">ה</day>
+							<day type="fri">ו</day>
+							<day type="sat">ש</day>
 						</dayWidth>
 					</dayContext>
 				</days>

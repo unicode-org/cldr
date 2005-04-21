@@ -74,7 +74,7 @@ class SurveyMain {
         LDMLConstants.DATES + "/"
     };
     
-    public static String xMAIN = "General";
+//    public static String xMAIN = "General";
     public static String xOTHER = "Misc";
     public static String xNODESET = "NodeSet@"; // pseudo-type used to store nodeSets in the hash
     public static String xREMOVE = "REMOVE";
@@ -212,19 +212,26 @@ class SurveyMain {
         // STYLE - move to a separate file
         ctx.println("<style type=text/css>\n" +
                     "<!-- \n" + 
+                    "hr { border: 1px dashed #ccd }\n" + 
                     ".missing { background-color: #FF0000; } \n" +
+                    ".xpath { font-size: smaller; } \n" +
                     ".fallback { background-color: #FFDDDD; } \n" +
                     ".draft { background-color: #88FFAA; } \n" +
                     ".proposed { background-color: #88DDAA; } \n" +
-                    ".selected { foreground-color: #fff; background-color: #02D; } \n" +
+                    ".selected { font-color: #fff; foreground-color: #fff; background-color: #02D; } \n" +
                     ".selected a:link      { color: #fff } \n" +
+                    "span.selected      { color: #fff } \n" +
                     ".selected a:visited  { color: #ddd } \n" +
                     ".selected a:active   { color: #f00 } \n" +
                     ".selected a:hover   {  color: #fDD } \n" +
                     ".sep { height: 3px; overflow: hidden; background-color: #44778C; } \n" +
                     ".name { background-color: #EEEEFF; } \n" +
-                    ".pager { border: 1px solid gray; background-color:#FFEECC; margin: 5px; font-size: smaller; } \n" + 
+                    ".pager { border: 1px solid gray; background-color:#FFEECC; " + 
+                            " padding: 1em 1em 1em 1em; font-size: smaller; } \n" + 
+                    ".localenav { border: 1px solid gray; background-color:#fff; " + 
+                            "margin: 5px; align: left; } \n" + 
                     ".inputbox { width: 100%; height: 100% } \n" +
+                    ".hang { text-indent: -3em; margin-left: 3em; } \n" +
                     ".list { border-collapse: collapse } \n" +
                     ".list.td .list.th { padding-top: 3px; padding-bottom: 4px; } \n" + 
                     "-->\n" +
@@ -350,21 +357,42 @@ class SurveyMain {
             if(ctx.session.user != null) {
                 ctx.println("<b>Welcome " + ctx.session.user.real + " (" + ctx.session.user.sponsor + ") !</b> <a href=\"" + ctx.base() + "\">[Sign Out]</a><br/>");
             }
-            Hashtable lh = ctx.session.getLocales();
-            Enumeration e = lh.keys();
-            if(e.hasMoreElements()) { 
-                ctx.println("<B>Changed locales: </B> ");
-                for(;e.hasMoreElements();) {
-                    String k = e.nextElement().toString();
-                    ctx.println("<a href=\"" + baseContext.url() + "&_=" + k + "\">" + 
-                            new ULocale(k).getDisplayName() + "</a> ");
+            ctx.println("<div style='font-size:large;'>");
+            ctx.printHelpLink("","Instructions"); // base help
+            ctx.println("</div>");
+            if(ctx.field("submit").length()==0) {
+                Hashtable lh = ctx.session.getLocales();
+                Enumeration e = lh.keys();
+                if(e.hasMoreElements()) { 
+                    ctx.println("<B>Changed locales: </B> ");
+                    for(;e.hasMoreElements();) {
+                        String k = e.nextElement().toString();
+                        ctx.println("<a href=\"" + baseContext.url() + "&_=" + k + "\">" + 
+                                new ULocale(k).getDisplayName() + "</a> ");
+                    }
+                    if(ctx.session.user != null) {
+                        ctx.println("<div style='float:right;'>");
+                        ctx.println("<form method=POST action='" + baseContext.base() + "'>");
+                        ctx.printUrlAsHiddenFields();
+                        ctx.println("<input name=submit value=preview type=hidden>");
+                        ctx.println("<input type=submit value='Submit Data'>");
+                        ctx.println("</form>");
+                        ctx.println("</div>");
+                    }
                 }
-                if(ctx.session.user != null) {
-                    ctx.println("<a href=\"" + baseContext.url() + "&submit=preview\"><b>Submit Data</b></a>");
+                if((ctx.session.user != null) && (ctx.locale != null)) {
+                    ctx.println("<form method=POST action='" + ctx.base() + "'>");
+                    ctx.println("<div align=right style='vertical-align: top float: right'>");
+                    ctx.println("<input type=submit value='Save changes to " + 
+                            ctx.locale.getDisplayName() +"'>");
+                    ctx.println("</div>");
                 }
+            } else {
+                ctx.println("<a href='" + ctx.url() + "'><b>List of Locales</b></a>");
             }
             ctx.println("<hr/>");
         }
+
 
         if(ctx.field("submit").length()>0) {
             doSubmit(ctx);
@@ -477,13 +505,14 @@ class SurveyMain {
     void doLocaleList(WebContext ctx, WebContext baseContext) {
         boolean showCodes = ctx.prefBool(PREF_SHOWCODES);
         
-        ctx.printHelpLink(""); // base help
         ctx.println("<h1>Locales</h1>");
         TreeMap lm = getLocaleListMap();
         {
             WebContext nuCtx = new WebContext(ctx);
             nuCtx.addQuery(PREF_SHOWCODES, !showCodes);
-            nuCtx.println("<a href='" + nuCtx.url() + "'>" + ((!showCodes)?"Show":"Hide") + " locale codes</a><br/>");
+            nuCtx.println("<div class='pager'>");
+            nuCtx.println("<div style='float:right;'><a href='" + nuCtx.url() + "'>" + ((!showCodes)?"Show":"Hide") + " locale codes</a></div>");
+            nuCtx.println("</div>");
         }
         ctx.println("<table border=1 class='list'>");
         int n=0;
@@ -586,11 +615,16 @@ class SurveyMain {
             ctx.print("<b><span class='selected'>");
         }
         ctx.print("<a href=\"" + ctx.url() +  "&x=" + menu +
-            "\">" + menu + "</a>");
+            "\">");
+        if(menu.endsWith("/")) {
+            ctx.print(menu + "<font size=-1>(other)</font>");
+        } else {
+            ctx.print(menu);
+        }
+        ctx.print("</a>");
         if(menu.equals(which)) {
             ctx.print("</span></b>");
         }            
-        ctx.println("");
     }
     
     public void doVap(WebContext ctx)
@@ -673,8 +707,8 @@ class SurveyMain {
         subContext.addQuery("submit","post");
         boolean post = (ctx.field("submit").equals("post"));
         if(post == false) {
-            ctx.println("<B>Please read the following carefully. If there are any errors, hit Back and correct them.  " + 
-                "The button to finalize the submission is at the very bottom of this page.</b><br/>");
+            ctx.println("<p class='hang'><B>Please read the following carefully. If there are any errors, hit Back and correct them.  " + 
+                "The button to finalize the submission is at the very bottom of this page.</b></p>");
         } else {
             ctx.println("Posting the following changes:<br/>");
         }
@@ -697,7 +731,7 @@ class SurveyMain {
                 ctx.println("<H3>" + 
                         displayName+ "</h3>");
                 if(!post) {
-                    ctx.println("<a href='" + ctx.url() + "&_=" + k + "&x=" + xREMOVE + "'>[Cancel This Edit]</a><br/>");
+                    ctx.println("<a class='pager' style='float: right;' href='" + ctx.url() + "&_=" + k + "&x=" + xREMOVE + "'>[Cancel This Edit]</a>");
                 }
                 CLDRFile f = createCLDRFile(ctx, k, (Hashtable)lh.get(k));
                 
@@ -1059,45 +1093,51 @@ class SurveyMain {
         int i;
         int j;
         int n = ctx.docLocale.length;
-        ctx.println("<b><a href=\"" + ctx.url() + "\">" + "List of Locales" + "</a></b><br/>");
-        for(i=(n-1);i>0;i--) {
-            for(j=0;j<(n-i);j++) {
-                ctx.print(" &nbsp; ");
-            }
-            ctx.println("\u2517 <a href=\"" + ctx.url() + "&_=" + ctx.docLocale[i] + "\">" + ctx.docLocale[i] + "</a> " + new ULocale(ctx.docLocale[i]).getDisplayName() + "<br/>");
-        }
-        for(j=0;j<n;j++) {
-            ctx.print(" &nbsp; ");
-        }
-        ctx.println("\u2517 <font size=+1><b>" + ctx.locale + "</b></font> " + ctx.locale.getDisplayName() + "<br/>");
-        ctx.println("<hr/>");
-        
-        if((which == null) ||
-            which.equals("")) {
-            which = xMAIN;
-        }
-        
         if(which.equals(xREMOVE)) {
+            ctx.println("<b><a href=\"" + ctx.url() + "\">" + "List of Locales" + "</a></b><br/>");
             ctx.session.getLocales().remove(ctx.field("_"));
             ctx.println("<h2>Your session for " + ctx.field("_") + " has been removed.</h2>");
             doMain(ctx);
             return;
         }
 
+        ctx.println("<table width='95%' border=0><tr><td width='25%'>");
+        ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
+        for(i=(n-1);i>0;i--) {
+            for(j=0;j<(n-i);j++) {
+                ctx.print("&nbsp;&nbsp;");
+            }
+            ctx.println("\u2517&nbsp;<a href=\"" + ctx.url() + "&_=" + ctx.docLocale[i] + "\">" + ctx.docLocale[i] + "</a> " + new ULocale(ctx.docLocale[i]).getDisplayName() + "<br/>");
+        }
+        for(j=0;j<n;j++) {
+            ctx.print("&nbsp;&nbsp;");
+        }
+        ctx.println("\u2517&nbsp;<font size=+2><b>" + ctx.locale + "</b></font> " + ctx.locale.getDisplayName() + "<br/>");
+        ctx.println("</td><td>");
+        
+        if((which == null) ||
+            which.equals("")) {
+            which = LOCALEDISPLAYNAMES_ITEMS[0]; // was xMAIN
+        }
+        
+
         WebContext subCtx = new WebContext(ctx);
         subCtx.addQuery("_",ctx.locale.toString());
-        printMenu(subCtx, which, xMAIN);
-        subCtx.println("<br/>  Locale Display Names: ");
+//        printMenu(subCtx, which, xMAIN);
+        subCtx.println("<p class='hang'> Locale Display: ");
         for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+            if(n>0) ctx.print(", ");
             printMenu(subCtx, which, LOCALEDISPLAYNAMES_ITEMS[n]);
         }
-        subCtx.println("<br/>  Other Items: ");
+        subCtx.println("</p> <p class='hang'>Other Items: ");
         for(n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
+            if(n>0) ctx.print(", ");
             printMenu(subCtx, which, OTHERROOTS_ITEMS[n]);
         }
+        ctx.print(", ");
         printMenu(subCtx, which, xOTHER);
+        subCtx.println("</td></tr></table>");
 
-        ctx.println("<br/>");
         subCtx.addQuery("x",which);
         for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
             if(LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
@@ -1315,7 +1355,17 @@ class SurveyMain {
      * show the list for an 'other' item, i.e. not a locale data item
      */
     void doOtherList(WebContext ctx, String which) {
-        showNodeList(ctx, null, getNodeSet(ctx,which), null);
+        showNodeList(ctx, null, getNodeSet(ctx,which), new NodeSet.NodeSetTexter() {
+            StandardCodes standardCodes = StandardCodes.make();
+
+            public String text(NodeSet.NodeSetEntry e) {
+                if(e.xpath.startsWith("//ldml/numbers/currencies/currency[@type='")) {
+                    return standardCodes.getData("currency", e.type);
+                } else {
+                    return e.type;
+                }
+            }
+        });
     }
     
     /**
@@ -1356,24 +1406,12 @@ class SurveyMain {
 
         // NAVIGATION .. calculate skips.. 
         skip = showSkipBox(ctx, total, sortedMap, tx);
-
-        {
-            WebContext nuCtx = new WebContext(ctx);
-            nuCtx.addQuery(PREF_SORTALPHA, !sortAlpha);
-            nuCtx.println("Sorted <a href='" + nuCtx.url() + "'>" + ((sortAlpha)?"Alphabetically":"Draft-first") +
-                    "</a><br/>");
-        }
-        
         
         // Form: 
-        ctx.println("<form method=POST action='" + ctx.base() + "'>");
         ctx.printUrlAsHiddenFields();
         ctx.println("<table class='list' border=1>");
-        if(ctx.session.user != null) {
-            ctx.println("<input type=submit value=Save>");
-        }
         ctx.println("<tr>");
-        ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=2>Name<br/><tt>Code</tt></th>");
+        ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=2>Name<br/><div style='border: 1px solid gray; width: 6em;' align=left><tt>Code</tt></span></th>");
         ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Best<br/>");
         ctx.printHelpLink("/Best");
         ctx.println("</th>");
@@ -1507,16 +1545,23 @@ class SurveyMain {
             
             //'nochange' and type
             ctx.println("<th class='type'>");
-            ctx.println("<tt>" + type + "</tt>");
+            int lastSlash = type.lastIndexOf('/');
+            String showType;
+            if(lastSlash != -1) {
+                showType = type.substring(lastSlash+1);
+            } else {
+                showType = type;
+            }
+            ctx.println("<tt>" + showType + "</tt>");
             ctx.println("</th");
             ctx.println("<td class='nochange'>");
+            ctx.println("Don't care");
             writeRadio(ctx,fieldName,fieldPath,NOCHANGE,checked);
-            ctx.println("<font size=-2>Don't care</font>");
             ctx.println("</td>");
 
             // edit text
             ctx.println("<td align=right class='new'>");
-            ctx.println("change");
+            ctx.println(((mainDraft>0) || (prop!=null))?"change":"incorrect");
             writeRadio(ctx,fieldName,fieldPath,NEW,checked);
             ctx.println("</td>");
             ctx.println("<td class='new'>");
@@ -1526,7 +1571,8 @@ class SurveyMain {
             }
             if((mainDraft>0) || (prop!=null)) {
                 ctx.print("<input size=50 class='inputbox' ");
-                ctx.print("onblur=\"if (value == '') {value = '" + UNKNOWNCHANGE + "'}\" onfocus=\"if (value == '" + 
+                ctx.print("onblur=\"if (value == '') {value = '" + UNKNOWNCHANGE + "'} " +  // this is mostly broken 
+                    " else {  document.forms[0].elements['" + fieldsToHtml(fieldName,fieldPath) + "'][3].checked=true;  }\" onfocus=\"if (value == '" + 
                     UNKNOWNCHANGE + "') {value =''}\" ");
                 ctx.print("value=\"" + 
                       (  (newString!=null) ? newString : UNKNOWNCHANGE )
@@ -1547,11 +1593,12 @@ class SurveyMain {
             }
         }
         ctx.println("</table>");
+        /* skip = */ showSkipBox(ctx, total, sortedMap, tx);
         if(ctx.session.user != null) {
-            ctx.println("<input type=submit value=Save>");
+            ctx.println("<div style='margin-top: 1em;' align=right><input type=submit value='Save changes to " + 
+                    ctx.locale.getDisplayName() +"'></div>");
         }
         ctx.println("</form>");
-        /* skip = */ showSkipBox(ctx, total, sortedMap, tx);
     }
     
     int showSkipBox(WebContext ctx, int total, Map m, NodeSet.NodeSetTexter tx) {
@@ -1565,7 +1612,23 @@ class SurveyMain {
         }
         if(skip<=0) {
             skip = 0;
-        } else {
+        } 
+
+        // calculate nextSkip
+        int from = skip+1;
+        int to = from + CODES_PER_PAGE-1;
+        if(to >= total) {
+            to = total;
+        }
+        
+        // Print navigation
+        ctx.println("Displaying items " + from + " to " + to + " of " + total);        
+
+        if(total>=(CODES_PER_PAGE)) {
+            ctx.println("<br/>");
+        }
+        
+        if(skip>0) {
             int prevSkip = skip - CODES_PER_PAGE;
             if(prevSkip<0) {
                 prevSkip = 0;
@@ -1579,27 +1642,7 @@ class SurveyMain {
             }
         }
 
-        // calculat nextSkip
-        int from = skip+1;
-        int nextSkip = skip + CODES_PER_PAGE; 
-        if(nextSkip >= total) {
-            nextSkip = -1;
-        } else {
-            ctx.println("<a href=\"" + ctx.url() + 
-                    "&skip=" + new Integer(nextSkip) + "\">" +
-                    "next " + CODES_PER_PAGE + "&gt;&gt;&gt;" +
-                    "</a> ");
-        }
-        int to = from + CODES_PER_PAGE-1;
-        if(to >= total) {
-            to = total;
-        }
-        
-        // Print navigation
-        ctx.println("<br/>Displaying items " + from + " to " + to + " of " + total + "<br/>");        
-
         if(total>=(CODES_PER_PAGE)) {
-            ctx.println("Jump to page: ");
             for(int i=0;i<total;i+= CODES_PER_PAGE) {
                 int end = i + CODES_PER_PAGE-1;
                 if(end>=total) {
@@ -1607,18 +1650,62 @@ class SurveyMain {
                 }
                 boolean isus = (i == skip);
                 if(isus) {
-                    ctx.println("<b>");
+                    ctx.println(" [ <b>");
                 } else {
-                    ctx.println("<a href=\"" + ctx.url() + 
+                    ctx.println(" [ <a href=\"" + ctx.url() + 
                         "&skip=" + new Integer(i) + "\">");
                 }
-                ctx.println("[ " + i + "-" + end + " ] ");
+                ctx.print( (i+1) + "-" + (end+1));
                 if(isus) {
-                    ctx.println("</b> ");
+                    ctx.println("</b> ] ");
                 } else {
-                    ctx.println("</a> ");
+                    ctx.println("</a> ] ");
                 }
             }
+        }
+        int nextSkip = skip + CODES_PER_PAGE; 
+        if(nextSkip >= total) {
+            nextSkip = -1;
+        } else {
+            ctx.println(" <a href=\"" + ctx.url() + 
+                    "&skip=" + new Integer(nextSkip) + "\">" +
+                    "next " + CODES_PER_PAGE + "&gt;&gt;&gt;" +
+                    "</a>");
+        }
+
+        {
+            WebContext nuCtx = new WebContext(ctx);
+            boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
+            nuCtx.addQuery(PREF_SORTALPHA, !sortAlpha);
+
+            nuCtx.println("<span style='float: right; margin-left: 3em;'> " + 
+                "Sorted ");
+            if(!sortAlpha) {
+                nuCtx.print("<a href='" + nuCtx.url() + "'>");
+            } else {
+                nuCtx.print("<span class='selected'>");
+            }
+            nuCtx.print("Alphabetically");
+            if(!sortAlpha) {
+                nuCtx.println("</a>");
+            } else {
+                nuCtx.println("</span>");
+            }
+            
+            nuCtx.println(" ");
+
+            if(sortAlpha) {
+                nuCtx.print("<a href='" + nuCtx.url() + "'>");
+            } else {
+                nuCtx.print("<span class='selected'>");
+            }
+            nuCtx.print("Draft-First");
+            if(sortAlpha) {
+                nuCtx.println("</a>");
+            } else {
+                nuCtx.println("</span>");
+            }
+            nuCtx.println("</span>");
         }
         ctx.println("</div>");
         return skip;

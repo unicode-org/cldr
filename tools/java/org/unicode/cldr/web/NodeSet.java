@@ -182,7 +182,11 @@ public class NodeSet {
             }
             String newType = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
             if(newType != null) {
-                type = newType;
+                if(type != null) {
+                    newType = type + "/" + newType; // a space. to allow breaks.
+                }
+            } else {
+                newType = type;
             }
             String newDraft = LDMLUtilities.getAttributeValue(node, LDMLConstants.DRAFT);
             if((newDraft != null)&&(newDraft.equals("true"))) {
@@ -207,12 +211,12 @@ public class NodeSet {
     ///*srl*/            ctx.println("<tt>O " + newPath + " " + (draft?"<b>draft</b>":"") + " " + ((alt==null)?"":("<b>alt="+alt +"</b>")) + "</tt><br/>");
     ///*srl*/            ctx.println("<tt>+ (" + value + ") #" + value.length() + "</tt><br/>");
                     } else {
-                        s.addFromXpath(ctx, u, newPath, node, draft, alt, type);
+                        s.addFromXpath(ctx, u, newPath, node, draft, alt, newType);
                     }
                 }
             }
             
-            traverseTree(ctx, s, u, node, newPath, draft, alt, type, filter);
+            traverseTree(ctx, s, u, node, newPath, draft, alt, newType, filter);
         }
     }
 

@@ -300,8 +300,10 @@
 			<language type="na">Nawuru</language>
 			<language type="nah">Naħwatil</language>
 			<language type="nai">Indjan tal-Amerika ta' Fuq (Oħra)</language>
+			<language alt="proposed" draft="true" type="nai">Indjan tal-Amerika ta’ Fuq (Oħra)</language>
 			<language type="nap">Neapolitan</language>
 			<language type="nb">Bokmahal Norveġiż</language>
+			<language alt="proposed" draft="true" type="nd">Ndebele, ta’ Fuq</language>
 			<language type="nd">Ndebele, ta' Fuq</language>
 			<language type="nds">Ġermaniż Komuni; Sassonu Komuni</language>
 			<language type="ne">Nepaliż</language>
@@ -317,6 +319,8 @@
 			<language type="non">Skandinav, Antik</language>
 			<language type="nr">Ndebele, t'Isfel</language>
 			<language type="nso">Soto, ta' Fuq</language>
+			<language draft="true" alt="proposed" type="nr">Ndebele, t’Isfel</language>
+			<language draft="true" alt="proposed" type="nso">Soto, ta’ Fuq</language>
 			<language type="nub">Lingwi Nubjani</language>
 			<language type="nv">Navaħo</language>
 			<language type="nwc">Classical Newari</language>
@@ -366,6 +370,7 @@
 			<language type="sad">Sandawe</language>
 			<language type="sah">Jakut</language>
 			<language type="sai">Indjan tal-Amerika t'Isfel (Oħra)</language>
+			<language draft="true" alt="proposed" type="sai">Indjan tal-Amerika t’Isfel (Oħra)</language>
 			<language type="sal">Salixan</language>
 			<language type="sam">Samritan</language>
 			<language type="sas">Saska</language>
@@ -374,6 +379,7 @@
 			<language type="sco">Skoċċiż</language>
 			<language type="sd">Sindi</language>
 			<language type="se">Sami ta' Fuq</language>
+			<language draft="true" alt="proposed" type="se">Sami ta’ Fuq</language>
 			<language type="sel">Selkup</language>
 			<language type="sem">Semitiku</language>
 			<language type="sg">Sango</language>
@@ -405,6 +411,7 @@
 			<language type="ss">Swati</language>
 			<language type="ssa">Nilo-Saħaram</language>
 			<language type="st">Soto, t'Isfel</language>
+			<language draft="true" alt="proposed" type="st">Soto, t’Isfel</language>
 			<language type="su">Sundaniż</language>
 			<language type="suk">Sukuma</language>
 			<language type="sus">Susu</language>
@@ -431,6 +438,7 @@
 			<language type="tmh">Tamaxek</language>
 			<language type="tn">Zwana</language>
 			<language type="to">Tongan (Gżejjer ta' Tonga)</language>
+			<language draft="true" alt="proposed" type="to">Tongan (Gżejjer ta’ Tonga)</language>
 			<language type="tog">Tonga (Njasa)</language>
 			<language type="tpi">Tok Pisin</language>
 			<language type="tr">Tork</language>
@@ -522,6 +530,7 @@
 			<territory type="CG">Kongo</territory>
 			<territory type="CH">Svizzera</territory>
 			<territory type="CI">Kosta ta' l-Avorju</territory>
+			<territory draft="true" alt="proposed" type="CI">Kosta ta’ l-Avorju</territory>
 			<territory type="CK">Cook Islands</territory>
 			<territory type="CL">Ċili</territory>
 			<territory type="CM">Kamerun</territory>
@@ -597,6 +606,8 @@
 			<territory type="KN">Saint Kitts and Nevis</territory>
 			<territory type="KP">Koreja ta' Fuq</territory>
 			<territory type="KR">Koreja t'Isfel</territory>
+			<territory draft="true" alt="proposed" type="KP">Koreja ta’ Fuq</territory>
+			<territory draft="true" alt="proposed" type="KR">Koreja t’Isfel</territory>
 			<territory type="KW">Kuwajt</territory>
 			<territory type="KY">Cayman Islands</territory>
 			<territory type="KZ">Każakstan</territory>
@@ -616,12 +627,14 @@
 			<territory type="MD">Maldova</territory>
 			<territory type="MG">Madagaskar</territory>
 			<territory type="MH">Gżejjer ta' Marshall</territory>
+			<territory draft="true" alt="proposed" type="MH">Gżejjer ta’ Marshall</territory>
 			<territory type="MK">Maċedonja</territory>
 			<territory type="ML">Mali</territory>
 			<territory type="MM">Mjanmar</territory>
 			<territory type="MN">Mongolja</territory>
 			<territory type="MO">Macao S.A.R., China</territory>
 			<territory type="MP">Gżejjer Marjana ta' Fuq</territory>
+			<territory draft="true" alt="proposed" type="MP">Gżejjer Marjana ta’ Fuq</territory>
 			<territory type="MQ">Martinik</territory>
 			<territory type="MR">Mawritanja</territory>
 			<territory type="MS">Montserrat</territory>
@@ -686,6 +699,7 @@
 			<territory type="TC">Turks and Caicos Islands</territory>
 			<territory type="TD">Ċad</territory>
 			<territory type="TF">Territorji Franċiżi ta' Nofsinhar</territory>
+			<territory alt="proposed" draft="true" type="TF">Territorji Franċiżi ta’ Nofsinhar</territory>
 			<territory type="TG">Togo</territory>
 			<territory type="TH">Tajlandja</territory>
 			<territory type="TJ">Taġikistan</territory>
@@ -717,6 +731,7 @@
 			<territory type="YE">Jemen</territory>
 			<territory type="YT">Majotte</territory>
 			<territory type="ZA">Afrika t'Isfel</territory>
+			<territory draft="true" alt="proposed" type="ZA">Afrika t’Isfel</territory>
 			<territory type="ZM">Żambja</territory>
 			<territory type="ZW">Żimbabwe</territory>
 		</territories>
@@ -794,11 +809,13 @@
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d 'ta''' MMMM yyyy</pattern>
+							<pattern alt="proposed" draft="true">EEEE, d 'ta’' MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>d 'ta''' MMMM yyyy</pattern>
+							<pattern alt="proposed" draft="true">d 'ta’' MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">

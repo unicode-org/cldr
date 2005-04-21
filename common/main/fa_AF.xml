@@ -167,63 +167,61 @@
 			<calendar type="persian">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="narrow">
-							<month type="1">ح</month>
-							<month type="2">ث</month>
-							<month type="3">ج</month>
-							<month type="4">س</month>
-							<month type="5">ا</month>
-							<month type="6">س</month>
-							<month type="7">م</month>
-							<month type="8">ع</month>
-							<month type="9">ق</month>
-							<month type="10">ج</month>
-							<month type="11">د</month>
-							<month type="12">ح</month>
-						</monthWidth>
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" draft="true"/>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">حمل</month>
-							<month type="2">ثور</month>
-							<month type="3">جوزا</month>
-							<month type="4">سرطان</month>
-							<month type="5">اسد</month>
-							<month type="6">سنبلهٔ</month>
-							<month type="7">میزان</month>
-							<month type="8">عقرب</month>
-							<month type="9">قوس</month>
-							<month type="10">جدی</month>
-							<month type="11">دلو</month>
-							<month type="12">حوت</month>
+							<month type="1" draft="true">حمل</month>
+							<month type="2" draft="true">ثور</month>
+							<month type="3" draft="true">جوزا</month>
+							<month type="4" draft="true">سرطان</month>
+							<month type="5" draft="true">اسد</month>
+							<month type="6" draft="true">سنبلهٔ</month>
+							<month type="7" draft="true">میزان</month>
+							<month type="8" draft="true">عقرب</month>
+							<month type="9" draft="true">قوس</month>
+							<month type="10" draft="true">جدی</month>
+							<month type="11" draft="true">دلو</month>
+							<month type="12" draft="true">حوت</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='narrow']"/>
-						</monthWidth>
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" draft="true"/>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='narrow']" draft="true"/>
+							<month type="1" draft="true">ح</month>
+							<month type="2" draft="true">ث</month>
+							<month type="3" draft="true">ج</month>
+							<month type="4" draft="true">س</month>
+							<month type="5" draft="true">ا</month>
+							<month type="6" draft="true">س</month>
+							<month type="7" draft="true">م</month>
+							<month type="8" draft="true">ع</month>
+							<month type="9" draft="true">ق</month>
+							<month type="10" draft="true">ج</month>
+							<month type="11" draft="true">د</month>
+							<month type="12" draft="true">ح</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">حمل</month>
-							<month type="2">ثور</month>
-							<month type="3">جوزا</month>
-							<month type="4">سرطان</month>
-							<month type="5">اسد</month>
-							<month type="6">سنبله</month>
-							<month type="7">میزان</month>
-							<month type="8">عقرب</month>
-							<month type="9">قوس</month>
-							<month type="10">جدی</month>
-							<month type="11">دلو</month>
-							<month type="12">حوت</month>
+							<month type="1" draft="true">حمل</month>
+							<month type="2" draft="true">ثور</month>
+							<month type="3" draft="true">جوزا</month>
+							<month type="4" draft="true">سرطان</month>
+							<month type="5" draft="true">اسد</month>
+							<month type="6" draft="true">سنبله</month>
+							<month type="7" draft="true">میزان</month>
+							<month type="8" draft="true">عقرب</month>
+							<month type="9" draft="true">قوس</month>
+							<month type="10" draft="true">جدی</month>
+							<month type="11" draft="true">دلو</month>
+							<month type="12" draft="true">حوت</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<week>
-					<firstDay day="sat"/>
+					<firstDay day="sat" draft="true"/>
 				</week>
 			</calendar>
 		</calendars>

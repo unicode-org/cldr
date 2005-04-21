@@ -164,7 +164,7 @@
 							<month type="11">11</month>
 							<month type="12">12</month>
 						</monthWidth>
-						<monthWidth type="narrow">
+						<monthWidth type="wide">
 							<month type="1">1</month>
 							<month type="2">2</month>
 							<month type="3">3</month>
@@ -178,7 +178,9 @@
 							<month type="11">11</month>
 							<month type="12">12</month>
 						</monthWidth>
-						<monthWidth type="wide">
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
 							<month type="1">1</month>
 							<month type="2">2</month>
 							<month type="3">3</month>
@@ -207,7 +209,7 @@
 							<day type="fri">6</day>
 							<day type="sat">7</day>
 						</dayWidth>
-						<dayWidth type="narrow">
+						<dayWidth type="wide">
 							<day type="sun">1</day>
 							<day type="mon">2</day>
 							<day type="tue">3</day>
@@ -216,7 +218,9 @@
 							<day type="fri">6</day>
 							<day type="sat">7</day>
 						</dayWidth>
-						<dayWidth type="wide">
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
 							<day type="sun">1</day>
 							<day type="mon">2</day>
 							<day type="tue">3</day>
@@ -695,31 +699,31 @@
 			</calendar>
 			<calendar type="persian">
 				<months>
-					<default type="format"/>
+					<default type="format" draft="true"/>
 					<monthContext type="format">
-						<default type="wide"/>
+						<default type="wide" draft="true"/>
 						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']" draft="true"/>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">Farvardin</month>
-							<month type="2">Ordibehesht</month>
-							<month type="3">Khordad</month>
-							<month type="4">Tir</month>
-							<month type="5">Mordad</month>
-							<month type="6">Shahrivar</month>
-							<month type="7">Mehr</month>
-							<month type="8">Aban</month>
-							<month type="9">Azar</month>
-							<month type="10">Dey</month>
-							<month type="11">Bahman</month>
-							<month type="12">Esfand</month>
+							<month type="1" draft="true">Farvardin</month>
+							<month type="2" draft="true">Ordibehesht</month>
+							<month type="3" draft="true">Khordad</month>
+							<month type="4" draft="true">Tir</month>
+							<month type="5" draft="true">Mordad</month>
+							<month type="6" draft="true">Shahrivar</month>
+							<month type="7" draft="true">Mehr</month>
+							<month type="8" draft="true">Aban</month>
+							<month type="9" draft="true">Azar</month>
+							<month type="10" draft="true">Dey</month>
+							<month type="11" draft="true">Bahman</month>
+							<month type="12" draft="true">Esfand</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="0">AP</era>
+						<era type="0" draft="true">AP</era>
 					</eraAbbr>
 				</eras>
 			</calendar>

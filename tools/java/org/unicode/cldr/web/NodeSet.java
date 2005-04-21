@@ -63,6 +63,10 @@ public class NodeSet {
             key = k;
         }
         
+        public void addFallback(String locale) {
+            fallbackLocale = locale;
+        }
+        
         public void add(Node node, String locale) {
             if(locale == null) {
                 add(node);
@@ -72,11 +76,11 @@ public class NodeSet {
             }
         }
 
-        public void add(Object obj, String locale) {
+/*        public void add(Object obj, String locale) {
             fallbackObject = obj;
             fallbackLocale = locale;
         }
-        
+*/
         public void add(Node node, boolean draft, String alt)
         {
             if((alt!=null)&&(alt.length()>0)) {
@@ -124,6 +128,16 @@ public class NodeSet {
         map.put(nse.type,nse);
     }
     
+    // add an empty for this xpath
+    public void addXpath(String xpath, String type) {
+        NodeSetEntry nse = (NodeSetEntry)map.get(xpath);
+        if(nse == null) {
+            nse = new NodeSetEntry((type!=null)?type:"");
+            nse.xpath = xpath;
+            map.put(xpath,nse);
+        }
+    }
+    
     public void add(Node node) {
         add(node, null);
     }
@@ -154,6 +168,8 @@ public class NodeSet {
         if(u != null) {
             if((draft==false)&&(alt==null)) {
                 nse.add(node, u.toString());
+            } else {
+                nse.addFallback(u.toString()); // mark that some fallback change will occur
             }
         } else {
 ///*srl*/            ctx.println(" - adding -<br/>");
@@ -236,7 +252,7 @@ public class NodeSet {
         }
 
         for(i=(roots.length)-1;i>0;i--) {
-            if(roots[0] != null) {
+            if(roots[i] != null) {
                 traverseTree(ctx, s, new ULocale(ctx.docLocale[i]), roots[i], "/", false, null, null, filter);
             }
         }
@@ -313,7 +329,9 @@ public class NodeSet {
         if(nst == null) {
             nst = new NullTexter();
         }
-        TreeMap m = new TreeMap();
+        com.ibm.icu.text.Collator myCollator = com.ibm.icu.text.Collator.getInstance(new ULocale("en"));
+        ((com.ibm.icu.text.RuleBasedCollator)myCollator).setNumericCollation(true);
+        TreeMap m = new TreeMap(myCollator);
         for(Iterator e = iterator();e.hasNext();) {
             NodeSet.NodeSetEntry f = (NodeSet.NodeSetEntry)e.next();
             m.put(nst.text(f),f);

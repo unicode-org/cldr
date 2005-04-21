@@ -57,7 +57,8 @@ class SurveyMain {
     
     // types of data
     static final String LOCALEDISPLAYNAMES = "//ldml/localeDisplayNames/";
-
+    public static final String NUMBERSCURRENCIES = LDMLConstants.NUMBERS + "/currencies";
+    public static final String CURRENCYTYPE = "//ldml/numbers/currencies/currency[@type='";
     // All of the data items under LOCALEDISPLAYNAMES (menu items)
     static final String LOCALEDISPLAYNAMES_ITEMS[] = { 
         LDMLConstants.LANGUAGES, LDMLConstants.SCRIPTS, LDMLConstants.TERRITORIES,
@@ -67,7 +68,7 @@ class SurveyMain {
     // 
     public static final String OTHERROOTS_ITEMS[] = {
         LDMLConstants.CHARACTERS,
-        LDMLConstants.NUMBERS + "/currencies",
+        NUMBERSCURRENCIES,
         LDMLConstants.NUMBERS + "/",
         LDMLConstants.DATES + "/timeZoneNames",
         LDMLConstants.DATES + "/calendars",
@@ -214,13 +215,17 @@ class SurveyMain {
                     "<!-- \n" + 
                     "hr { border: 1px dashed #ccd }\n" + 
                     ".missing { background-color: #FF0000; } \n" +
+                    ".missing a:link  { color: #fff } \n" +
+                    ".missing a:visited  { color: #ddd } \n" +
+                    ".missing a:active   { color: #f00 } \n" +
+                    ".missing a:hover   {  color: #fDD } \n" +
                     ".xpath { font-size: smaller; } \n" +
                     ".fallback { background-color: #FFDDDD; } \n" +
                     ".draft { background-color: #88FFAA; } \n" +
                     ".proposed { background-color: #88DDAA; } \n" +
+                    "span.selected      { color: #fff } \n" +
                     ".selected { font-color: #fff; foreground-color: #fff; background-color: #02D; } \n" +
                     ".selected a:link      { color: #fff } \n" +
-                    "span.selected      { color: #fff } \n" +
                     ".selected a:visited  { color: #ddd } \n" +
                     ".selected a:active   { color: #f00 } \n" +
                     ".selected a:hover   {  color: #fDD } \n" +
@@ -1054,9 +1059,30 @@ class SurveyMain {
             checked = NOCHANGE;
         }
         
+        if(fieldBase == null) {
+            ctx.print("<h1>SEVERE ERROR: f2h gave null in " + xpath + "|" + type + "</h1>");
+            return;
+        }
+        
         String formChecked = ctx.field(fieldBase);
         
         if((formChecked != null) && (formChecked.length()>0)) {   
+            // Don't consider the 'new text' form, unless we know the 'changes...' checkbox is present.
+            // this is because we can't distinguish between an empty and a missing field.
+            String formNew = ctx.field(fieldBase + SUBNEW );
+            if((formNew.length()>0) && !formNew.equals(UNKNOWNCHANGE)) {
+                changes.put(hashBase + SUBNEW, formNew);
+                changes.put(hashBase, f); // get the NodeSet in for later use
+                newString = formNew;
+                if(formChecked.equals(NOCHANGE)) {
+                    formChecked = NEW;
+                    changes.put(xOTHER + "/" + NEW, fieldBase);
+                }
+            } else if((newString !=null) && (newString.length()>0)) {
+                changes.remove(hashBase + SUBNEW);
+                newString = null;
+            }
+
             if(!checked.equals(formChecked)) {
                 checked = formChecked;
                 if(checked.equals(NOCHANGE)) {
@@ -1068,17 +1094,6 @@ class SurveyMain {
                 }
             }
 
-            // Don't consider the 'new text' form, unless we know the 'changes...' checkbox is present.
-            // this is because we can't distinguish between an empty and a missing field.
-            String formNew = ctx.field(fieldBase + SUBNEW );
-            if((formNew.length()>0) && !formNew.equals(UNKNOWNCHANGE)) {
-                changes.put(hashBase + SUBNEW, formNew);
-                changes.put(hashBase, f); // get the NodeSet in for later use
-                newString = formNew;
-            } else if((newString !=null) && (newString.length()>0)) {
-                changes.remove(hashBase + SUBNEW);
-                newString = null;
-            }
         }
     }
     
@@ -1230,6 +1245,23 @@ class SurveyMain {
             };
     }
 
+    private static final NodeSet.NodeSetTexter getXpathTexter(NodeSet.NodeSetTexter tx) {
+        final NodeSet.NodeSetTexter txl = tx;
+        if(tx == null)  {
+            return new NodeSet.NodeSetTexter() { 
+                        public String text(NodeSet.NodeSetEntry e) {
+                            return e.xpath;
+                        }
+                };
+        } else {
+            return new NodeSet.NodeSetTexter() { 
+                        public String text(NodeSet.NodeSetEntry e) {
+                            return txl.text(e) + "|" + e.xpath;
+                        }
+                };
+        }
+    }
+
     /**
      * Get a texter for a specific data type
      */
@@ -1348,7 +1380,24 @@ class SurveyMain {
                 };
             }
         }
-        return NodeSet.loadFromXpaths(ctx, allXpaths, myFilter);
+        NodeSet ns = NodeSet.loadFromXpaths(ctx, allXpaths, myFilter);
+        if(which.equals(NUMBERSCURRENCIES)) { // not using defaultSet because the default expansion is more complex..
+            StandardCodes standardCodes = StandardCodes.make();
+            Set s = standardCodes.getAvailableCodes("currency");
+            for(Iterator e = s.iterator();e.hasNext();) {
+                String f = (String)e.next();
+                ns.addXpath("//ldml/" + which + "/currency[@type='" + f + "']/displayName", f);
+                ns.addXpath("//ldml/" + which + "/currency[@type='" + f + "']/symbol", f);
+            }
+        } else if(which.equals("dates/timeZoneNames")) { // not using defaultSet because the default expansion is more complex..
+            StandardCodes standardCodes = StandardCodes.make();
+            Set s = standardCodes.getAvailableCodes("tzid");
+            for(Iterator e = s.iterator();e.hasNext();) {
+                String f = (String)e.next();
+                ns.addXpath("//ldml/" + which + "/zone[@type='" + f + "']/exemplarCity", f);
+            }
+        }
+        return ns;
     }
 
     /**
@@ -1359,7 +1408,7 @@ class SurveyMain {
             StandardCodes standardCodes = StandardCodes.make();
 
             public String text(NodeSet.NodeSetEntry e) {
-                if(e.xpath.startsWith("//ldml/numbers/currencies/currency[@type='")) {
+                if(e.xpath.startsWith(CURRENCYTYPE)) {
                     return standardCodes.getData("currency", e.type);
                 } else {
                     return e.type;
@@ -1391,7 +1440,19 @@ class SurveyMain {
         int skip = 0;
         total = mySet.count();
         boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
-        Map sortedMap = mySet.getSorted(sortAlpha?tx:new DraftFirstTexter(tx));
+        NodeSet.NodeSetTexter sortTexter;
+
+        if(sortAlpha) {
+            if(xpath == null) {
+                sortTexter = getXpathTexter(tx);
+            } else {
+                sortTexter = tx;
+            }
+        } else {
+            sortTexter = new DraftFirstTexter(tx);
+        }
+        
+        Map sortedMap = mySet.getSorted(sortTexter);
         String hashName = (xpath != null)?xpath:xOTHER;
         Hashtable changes = (Hashtable)ctx.getByLocale(hashName);
         
@@ -1400,12 +1461,18 @@ class SurveyMain {
         }
         
         // prepare a new hashtable
-        if(changes==null) { 
+        if(changes==null) {
             changes = new Hashtable();  // ?? TODO: do we need to create a hashtable here?
         }
 
         // NAVIGATION .. calculate skips.. 
         skip = showSkipBox(ctx, total, sortedMap, tx);
+        if(changes.get(xOTHER + "/" + NEW)!=null) {
+            changes.remove(xOTHER + "/" + NEW);
+            ctx.println("<div class='missing'><b>Warning: Remember to click the 'change' radio button after typing in a change.  Please check the status of change boxes below.</b></div><br/>");
+        }
+
+
         
         // Form: 
         ctx.printUrlAsHiddenFields();
@@ -1489,7 +1556,7 @@ class SurveyMain {
                 ctx.println("<td align=right class='fallback'>");
                 ctx.println("from " + 
                         "<a href=\"" + ctx.base() + "?x=" + ctx.field("x") + "&_=" + mainFallback + "\">" + 
-                        new ULocale(mainFallback).getDisplayName(inLocale) +                        
+                        new ULocale(mainFallback).getDisplayName() +                        
                         "</a>");
                 writeRadio(ctx,fieldName,fieldPath,CURRENT,checked);
                 ctx.println("</td>");
@@ -1506,8 +1573,16 @@ class SurveyMain {
                 ctx.println("</td>");
             } else /*  if(main == null) */ {
                 ctx.println("<td align=right class='missing'>");
-                ctx.println("<i>current</i>");
-                writeRadio(ctx,fieldName,fieldPath,CURRENT,checked);
+                
+                if(f.fallbackLocale != null) {
+                    ctx.println("see " + 
+                            "<a href=\"" + ctx.base() + "?x=" + ctx.field("x") + "&_=" + f.fallbackLocale + "\">" + 
+                            new ULocale(f.fallbackLocale).getDisplayName() +                        
+                            "</a>");
+                } else {
+                    ctx.println("<i>current</i>");
+                    writeRadio(ctx,fieldName,fieldPath,CURRENT,checked);
+                }
                 ctx.println("</td>");
                 ctx.println("<td title=\"Data missing - raw code shown.\" class='missing'><tt>");
                 ctx.println(type); // in typewriter <tt> to show that it is a code.
@@ -1570,9 +1645,11 @@ class SurveyMain {
            //     change = (String)changes.get(type + "//n");
             }
             if((mainDraft>0) || (prop!=null)) {
+                // this is supposed to Automatically check the 'change' button when user types something in.
+                // but it doesn't work.
+                String blurCheckScript = ""; //" else {  document.forms[0].elements['" + fieldsToHtml(fieldName,fieldPath) + "'][3].checked=true; "
                 ctx.print("<input size=50 class='inputbox' ");
-                ctx.print("onblur=\"if (value == '') {value = '" + UNKNOWNCHANGE + "'} " +  // this is mostly broken 
-                    " else {  document.forms[0].elements['" + fieldsToHtml(fieldName,fieldPath) + "'][3].checked=true;  }\" onfocus=\"if (value == '" + 
+                ctx.print("onblur=\"if (value == '') {value = '" + UNKNOWNCHANGE + "'} " + blurCheckScript + " }\" onfocus=\"if (value == '" + 
                     UNKNOWNCHANGE + "') {value =''}\" ");
                 ctx.print("value=\"" + 
                       (  (newString!=null) ? newString : UNKNOWNCHANGE )
@@ -1581,8 +1658,12 @@ class SurveyMain {
                 ctx.print("Item is incorrect.");
             }
             ctx.println("</td>");
+            /*
+            if((newString != null) && ((checked!=null)&&(!checked.equals(NEW)))) {
+                ctx.println("<td class='pager'><b>Don't forget to click \"change\" when submitting a change.</b></td>");
+            }
+            */
             ctx.println("</tr>");
-            
 
             ctx.println("<tr class='sep'><td class='sep' colspan=4 bgcolor=\"#CCCCDD\"></td></tr>");
 
@@ -1933,7 +2014,13 @@ class SurveyMain {
     static String fieldsToHtml(String xpath, String type)
     {
         if(type == null) {
-            return (String)allXpaths.get(xpath);
+            String r = (String)allXpaths.get(xpath);
+            if(r == null) {
+                // we've found a totally new xpath. Mint a new key.
+                r = CookieSession.j + "Y" + CookieSession.cheapEncode(xpathCode++);
+                allXpaths.put(xpath, r);
+            }
+            return r;
         } else {
             return xpath + "/" + type;
         }

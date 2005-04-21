@@ -1151,12 +1151,15 @@ root</pre>
   either <i>format</i> (the default), the form used within a date format string (such as &quot;Saturday, 
   November 12<sup>th</sup>&quot;, or <i>stand-alone</i>, the form used independently, such as in Calendar 
   headers. The width can be <i>wide</i> (the default), <i>abbreviated</i>, or <i>narrow</i>. The 
-  latter is the shortest possible width: it is typically used in calendar headers. The values in 
-  formats must be distinct; that is, &quot;S&quot; could not be used both for Saturday and for Sunday. The 
-  same is not true for stand-alone values; they might only be distinguished by context, especially 
-  in the narrow format.</p>
+  latter is the shortest possible width, no more than one character<span class="changedspan"> (or 
+  grapheme cluster)</span>: it is typically used in calendar headers. The values in formats must be 
+  distinct; that is, &quot;S&quot; could not be used both for Saturday and for Sunday. The same is not true 
+  for stand-alone values; they might only be distinguished by context, especially in the narrow 
+  format.</p>
   <p>If the stand-alone form does not exist (in the chain up to root), then it inherits from the 
-  format form. See <a href="#Multiple_Inheritance">Multiple Inheritance</a>.</p>
+  format form. See <a href="#Multiple_Inheritance">Multiple Inheritance</a>.<span class="changedspan"> 
+  If the narrow format does not exist, it inherits from the abbreviated form; if the abbreviated 
+  format does not exist, it inherits from the wide format.</span></p>
   <p>The older monthNames, dayNames, and monthAbbr, dayAbbr are maintained for backwards 
   compatibility. They are equivalent to: using the months element with the context type=&quot;<span style="color: blue">format</span>&quot; 
   and the width type=&quot;<span style="color: blue">wide</span>&quot; (for ...Names) and type=&quot;<span style="color: blue">narrow</span>&quot; 

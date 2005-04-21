@@ -322,20 +322,20 @@ public class CLDRTest extends TestFmwk {
 	 * Internal
 	 */
 	private UnicodeSet getFixedExemplarSet(String locale, CLDRFile cldrfile) {
-		UnicodeSet exemplars = getExemplarSet(cldrfile,"");
-		if (exemplars.size() == 0) {
-			errln(getLocaleAndName(locale) + " has empty exemplar set");
-		}
-		exemplars.addAll(getExemplarSet(cldrfile,"standard"));
-		UnicodeSet auxiliary = getExemplarSet(cldrfile,"auxiliary");
-		if (exemplars.containsSome(auxiliary)) {
-			errln(getLocaleAndName(locale) + "Auxiliary & main exemplars should be disjoint, but overlap with " +
-					new UnicodeSet(exemplars).retainAll(auxiliary) + 
-					": change auxiliary to " + auxiliary.removeAll(exemplars));
-		}
-		exemplars.addAll(auxiliary);
-		exemplars.addAll(commonAndInherited);
-		return exemplars;
+			UnicodeSet exemplars = getExemplarSet(cldrfile,"");
+			if (exemplars.size() == 0) {
+				errln(getLocaleAndName(locale) + " has empty exemplar set");
+			}
+			exemplars.addAll(getExemplarSet(cldrfile,"standard"));
+			UnicodeSet auxiliary = getExemplarSet(cldrfile,"auxiliary");
+			if (exemplars.containsSome(auxiliary)) {
+				errln(getLocaleAndName(locale) + "Auxiliary & main exemplars should be disjoint, but overlap with " +
+						new UnicodeSet(exemplars).retainAll(auxiliary) + 
+						": change auxiliary to " + auxiliary.removeAll(exemplars));
+			}
+			exemplars.addAll(auxiliary);
+			exemplars.addAll(commonAndInherited);
+			return exemplars;
 	}
 
 	/**
@@ -349,9 +349,16 @@ public class CLDRTest extends TestFmwk {
 		if (pattern.indexOf("[:") >= 0 || pattern.indexOf("\\p{") > 0) {
 			errln(getLocaleName(cldrfile.getKey()) + " exemplar pattern contains property: " + pattern);
 		}
-		UnicodeSet result = new UnicodeSet(v, UnicodeSet.CASE);
+		try {
+			UnicodeSet result = new UnicodeSet(v, UnicodeSet.CASE);
+			result.remove(0x20);
+			return result;
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			errln(getLocaleAndName(cldrfile.getKey()) + " has illegal exemplar set: <" + v + ">");
+			return new UnicodeSet();
+		}
 		//if (type.length() != 0) System.out.println("fetched set for " + type);
-		return result;
 	}
 	
 	public String getLocaleAndName(String locale) {

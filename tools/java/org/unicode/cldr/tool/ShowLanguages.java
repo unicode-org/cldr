@@ -8,12 +8,14 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
@@ -28,6 +30,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.FileUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.ULocale;
@@ -41,64 +44,55 @@ public class ShowLanguages {
 	public static void main(String[] args) throws IOException {
 		Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
 		english = cldrFactory.make("en", false);
-		printLanguageData(cldrFactory, "language_info.txt");
-		cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
-		printLanguageData(cldrFactory, "language_info2.txt");
+		printLanguageData(cldrFactory, "supplemental.html");
+		//cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
+		//printLanguageData(cldrFactory, "language_info2.txt");
 		System.out.println("Done");
 	}
 	
 	/**
 	 * 
 	 */
+	private static Map anchors = new LinkedHashMap();
+	
 	private static void printLanguageData(Factory cldrFactory, String filename) throws IOException {
 		LanguageInfo linfo = new LanguageInfo(cldrFactory);
-		PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, filename);
-		pw.println("=======================================");
-		pw.println("Extracted CLDR Supplemental Data");
-		pw.println("\tShows languages vs territories and scripts, plus UN containment relations");
-		pw.println("\tFor each territory, concentrates on official languages and languages of major commercial importance.");
-		pw.println("\tOthers are marked with *.");
-		pw.println();
-		pw.println("=======================================");
-		pw.println("\t\tLanguage => Territories");
-		pw.println("=======================================");
-		linfo.print(pw, CLDRFile.LANGUAGE_NAME, CLDRFile.TERRITORY_NAME);
-		pw.println();
-		pw.println("=======================================");
-		pw.println("\t\tTerritory => Language");
-		pw.println("=======================================");
-		linfo.print(pw, CLDRFile.TERRITORY_NAME, CLDRFile.LANGUAGE_NAME);
-		pw.println();
-		pw.println("=======================================");
-		pw.println("\t\tLanguage => Scripts");
-		pw.println("=======================================");
-		linfo.print(pw, CLDRFile.LANGUAGE_NAME, CLDRFile.SCRIPT_NAME);
-		pw.println();
-		pw.println("=======================================");
-		pw.println("\t\tScript => Language");
-		pw.println("=======================================");
-		linfo.print(pw, CLDRFile.SCRIPT_NAME, CLDRFile.LANGUAGE_NAME);
-		pw.println();
-		pw.println("=======================================");
-		pw.println("\t\tTerritories Not Represented");
-		pw.println("=======================================");
-		linfo.printMissing(pw, CLDRFile.TERRITORY_NAME);
-		pw.println();
-		pw.println("=======================================");
-		pw.println("\t\tScripts Not Represented");
-		pw.println("=======================================");
-		linfo.printMissing(pw, CLDRFile.SCRIPT_NAME);
-		pw.println();
-		pw.println("=======================================");
-		pw.println("\t\tLanguages Not Represented");
-		pw.println("=======================================");
-		linfo.printMissing(pw, CLDRFile.LANGUAGE_NAME);
-		pw.println();
-		pw.println("=======================================");
-		pw.println("\t\tTerritory Containment (UN M.49)");
-		pw.println("=======================================");
+		StringWriter sw = new StringWriter();
+		PrintWriter pw = new PrintWriter(sw);
+		pw.println("<div align='center'><table><tr><td>");
+		linfo.print(pw, "Language \u2192 Territories", CLDRFile.LANGUAGE_NAME, CLDRFile.TERRITORY_NAME);
+		pw.println("</td><td>");
+		linfo.print(pw, "Territory \u2192 Language", CLDRFile.TERRITORY_NAME, CLDRFile.LANGUAGE_NAME);
+		pw.println("</td></tr></table></div>");
+
+		pw.println("<div align='center'><table><tr><td>");
+		linfo.print(pw, "Language \u2192 Scripts", CLDRFile.LANGUAGE_NAME, CLDRFile.SCRIPT_NAME);
+		pw.println("</td><td>");
+		linfo.print(pw, "Script \u2192 Language", CLDRFile.SCRIPT_NAME, CLDRFile.LANGUAGE_NAME);
+		pw.println("</td></tr></table></div>");
+
+		pw.println("<div align='center'><table><tr><td>");
+		linfo.printMissing(pw, "Territories Not Represented", CLDRFile.TERRITORY_NAME);
+		pw.println("</td><td>");
+		linfo.printMissing(pw, "Scripts Not Represented", CLDRFile.SCRIPT_NAME);
+		pw.println("</td><td>");
+		linfo.printMissing(pw, "Languages Not Represented", CLDRFile.LANGUAGE_NAME);
+		pw.println("</td></tr></table></div>");
+		
 		linfo.printContains(pw);
+		
 		pw.close();
+		String contents = "<ul>";
+		for (Iterator it = anchors.keySet().iterator(); it.hasNext();) {
+			String title = (String) it.next();
+			String anchor = (String) anchors.get(title);
+			contents += "<li><a href='#" + anchor + "'>" + title + "</a></li>";
+		}
+		contents += "</ul>";
+		String[] replacements = {"%contents%", contents, "%data%", sw.toString()};
+		PrintWriter pw2 = BagFormatter.openUTF8Writer(Utility.COMMON_DIRECTORY + "../diff/supplemental/", filename);
+		FileUtilities.appendFile("org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
+		pw2.close();
 	}
 
 	static class LanguageInfo {
@@ -139,10 +133,23 @@ public class ShowLanguages {
 		}
 		
 		public void printContains(PrintWriter pw) {
-			printContains2(pw, "", "001");
+			String title = "Territory Containment (UN M.49)";
+			doTitle(pw, title);
+			printContains2(pw, "<tr>", "001", 0);
+			pw.println("</table></div>");
 		}
-		public void printContains2(PrintWriter pw, String lead, String start) {
-			pw.println(lead + getName(CLDRFile.TERRITORY_NAME, start, false));
+		/**
+		 * 
+		 */
+		private void doTitle(PrintWriter pw, String title) {
+			String anchor = FileUtilities.anchorize(title);
+			pw.println("<div align='center'><table><caption><a name='" + anchor + "'>" + title + "</a></caption>");
+			anchors.put(title, anchor);
+		}
+
+		public void printContains2(PrintWriter pw, String lead, String start, int depth) {
+			pw.println(lead + (depth == 3 ? "<td class='target'>" : "<td class='source'>")
+					+ getName(CLDRFile.TERRITORY_NAME, start, false) + "</td></tr>");
 			Collection contains = (Collection) group_contains.get(start);
 			if (contains != null) {
 				Collection contains2 = new TreeSet(territoryNameComparator);
@@ -150,16 +157,7 @@ public class ShowLanguages {
 				boolean first = true;
 				for (Iterator it = contains2.iterator(); it.hasNext();) {
 					String item = (String)it.next();
-					if (!lead.equals("\t\t\t")) {
-						printContains2(pw, lead + "\t", item);
-					} else {
-						if (first) {
-							pw.print(lead);
-							first = false;
-						}
-						else pw.print(", ");
-						pw.print(item);
-					}
+					printContains2(pw, lead + "<td>&nbsp;</td>", item, depth+1);
 				}
 			}
 		}
@@ -167,7 +165,7 @@ public class ShowLanguages {
 		/**
 		 * 
 		 */
-		public void printMissing(PrintWriter pw, int source) {
+		public void printMissing(PrintWriter pw, String title, int source) {
 			Set missingItems = new HashSet();
 			String type = null;
 			if (source == CLDRFile.TERRITORY_NAME) {
@@ -199,14 +197,16 @@ public class ShowLanguages {
 				String itemName = getName(source, item, true);
 				missingItemsNamed.add(itemName);
 			}
+			doTitle(pw, title);
 			for (Iterator it = missingItemsNamed.iterator(); it.hasNext();) {
-				pw.println("\t\t" + it.next());
+				pw.println("<tr><td class='target'>" + it.next() + "</td></tr>");
 			}
+			pw.println("</table>");
 		}
 
 		// source, eg english.TERRITORY_NAME
 		// target, eg english.LANGUAGE_NAME
-		public void print(PrintWriter pw, int source, int target) {
+		public void print(PrintWriter pw, String title, int source, int target) {
 			Map data = 
 				source == CLDRFile.TERRITORY_NAME && target == CLDRFile.LANGUAGE_NAME ? territory_languages
 				: source == CLDRFile.LANGUAGE_NAME && target == CLDRFile.TERRITORY_NAME ? language_territories
@@ -226,16 +226,17 @@ public class ShowLanguages {
 					s.add(languageName);
 				}
 			}
+			doTitle(pw, title);
 			for (Iterator it = territory_languageNames.keySet().iterator(); it.hasNext();) {
 				String territoryName = (String) it.next();
-				pw.println(territoryName);
+				pw.println("<tr><td class='source' colspan='2'>" + territoryName + "</td></tr>");
 				Set s = (Set) territory_languageNames.get(territoryName);
 				for (Iterator it2 = s.iterator(); it2.hasNext();) {
 					String languageName = (String) it2.next();
-					pw.println("\t\t\t\t" + languageName);
+					pw.println("<tr><td>&nbsp;</td><td class='target'>" + languageName + "</td></tr>");
 				}
 			}
-
+			pw.println("</table><br>");
 		}
 
 		/**

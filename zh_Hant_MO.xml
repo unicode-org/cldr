@@ -13,6 +13,12 @@
 			<territory type="MO">澳門特別行政區</territory>
 		</territories>
 	</localeDisplayNames>
+	<delimiters>
+		<quotationStart draft="true">「</quotationStart>
+		<quotationEnd draft="true">」</quotationEnd>
+		<alternateQuotationStart draft="true">『</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">』</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -34,6 +40,12 @@
 						</monthWidth>
 					</monthContext>
 				</months>
+				<eras>
+					<eraNames>
+						<era type="0" draft="true">西元前</era>
+						<era type="1" draft="true">西元</era>
+					</eraNames>
+				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>

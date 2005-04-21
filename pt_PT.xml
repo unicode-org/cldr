@@ -75,9 +75,21 @@
 			<territory type="YE">Iémen</territory>
 		</territories>
 	</localeDisplayNames>
+	<delimiters>
+		<quotationStart draft="true">‘</quotationStart>
+		<quotationEnd draft="true">’</quotationEnd>
+		<alternateQuotationStart draft="true">“</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">”</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
+				<eras>
+					<eraNames>
+						<era type="0" draft="true">BC</era>
+						<era type="1" draft="true">AD</era>
+					</eraNames>
+				</eras>
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>

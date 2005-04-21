@@ -7,6 +7,34 @@
 		<language type="ja"/>
 		<territory type="JP"/>
 	</identity>
+	<delimiters>
+		<quotationStart draft="true">‘</quotationStart>
+		<quotationEnd draft="true">’</quotationEnd>
+		<alternateQuotationStart draft="true">“</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">”</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<eras>
+					<eraNames>
+						<era type="0" draft="true">紀元前</era>
+						<era type="1" draft="true">西暦</era>
+					</eraNames>
+				</eras>
+			</calendar>
+			<calendar type="japanese">
+				<eras>
+					<eraNames>
+						<era type="232" draft="true">明治</era>
+						<era type="233" draft="true">大正</era>
+						<era type="234" draft="true">昭和</era>
+						<era type="235" draft="true">平成</era>
+					</eraNames>
+				</eras>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
 		<currencyFormats>
 			<currencyFormatLength>

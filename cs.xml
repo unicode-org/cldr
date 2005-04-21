@@ -442,6 +442,12 @@
 	<characters>
 		<exemplarCharacters>[a-z ý á é í ó ú ě ů č ď ň ř š ť ž]</exemplarCharacters>
 	</characters>
+	<delimiters>
+		<quotationStart draft="true">‚</quotationStart>
+		<quotationEnd draft="true">‘</quotationEnd>
+		<alternateQuotationStart draft="true">„</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">“</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<localizedPatternChars>GuMtkHmsSEDFwWahKzUeygAZ</localizedPatternChars>
 		<calendars>
@@ -575,6 +581,10 @@
 				<am>dop.</am>
 				<pm>odp.</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="true">př. Kr.</era>
+						<era type="1" draft="true">po Kr.</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">př.Kr.</era>
 						<era type="1">po Kr.</era>

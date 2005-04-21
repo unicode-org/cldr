@@ -950,6 +950,12 @@
 		<exemplarCharacters>[a-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="true">[áà éè íì óò úù âêîôû æœ äëïöüÿ āēīōū ăĕĭŏŭ åø çñß]</exemplarCharacters>
 	</characters>
+	<delimiters>
+		<quotationStart draft="true">‘</quotationStart>
+		<quotationEnd draft="true">’</quotationEnd>
+		<alternateQuotationStart draft="true">“</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">”</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -1035,6 +1041,10 @@
 					</dayContext>
 				</days>
 				<eras>
+					<eraNames>
+						<era type="0" draft="true">BC</era>
+						<era type="1" draft="true">AD</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">BC</era>
 						<era type="1">AD</era>

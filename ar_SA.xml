@@ -7,6 +7,12 @@
 		<language type="ar"/>
 		<territory type="SA"/>
 	</identity>
+	<delimiters>
+		<quotationStart draft="true">‘</quotationStart>
+		<quotationEnd draft="true">’</quotationEnd>
+		<alternateQuotationStart draft="true">&quot;</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">&quot;</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -23,6 +29,12 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<eras>
+					<eraNames>
+						<era type="0" draft="true">قبل الميلاد</era>
+						<era type="1" draft="true">ميلادي</era>
+					</eraNames>
+				</eras>
 			</calendar>
 		</calendars>
 	</dates>

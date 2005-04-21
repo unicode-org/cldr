@@ -7,6 +7,24 @@
 		<language type="hu"/>
 		<territory type="HU"/>
 	</identity>
+	<delimiters>
+		<quotationStart draft="true">»</quotationStart>
+		<quotationEnd draft="true">«</quotationEnd>
+		<alternateQuotationStart draft="true">„</alternateQuotationStart>
+		<alternateQuotationEnd draft="true">”</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<eras>
+					<eraNames>
+						<era type="0" draft="true">i. e.</era>
+						<era type="1" draft="true">i. sz.</era>
+					</eraNames>
+				</eras>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
 		<currencyFormats>
 			<currencyFormatLength>

@@ -71,9 +71,10 @@ public class POSIX_LCTime {
       }
 
       // alt_digits
+         alt_digits[0] = "";
          SearchLocation = "//ldml/numbers/symbols/nativeZeroDigit";
          n = LDMLUtilities.getNode(doc, SearchLocation);
-         if ( (n != null) && LDMLUtilities.getNodeValue(n) != "0" )
+         if ( (n != null) &&  !(LDMLUtilities.getNodeValue(n).equals("0")))
          {
             Character ThisDigit;
             String NativeZeroDigit = LDMLUtilities.getNodeValue(n);

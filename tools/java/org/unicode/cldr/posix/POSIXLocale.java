@@ -49,7 +49,7 @@ public class POSIXLocale {
       this.locale_name = locale_name;
       this.codeset = codeset;
       doc = LDMLUtilities.getFullyResolvedLDML ( cldr_data_location+File.separator+"main", locale_name, false, false, false );
-      supp = LDMLUtilities.parse ( cldr_data_location+File.separator+"main"+File.separator+"supplementalData.xml",  true );
+      supp = LDMLUtilities.parse ( cldr_data_location+File.separator+"supplemental"+File.separator+"supplementalData.xml",  true );
       collrules = LDMLUtilities.getFullyResolvedLDML ( cldr_data_location+File.separator+"collation", locale_name, true, true, true );
 
 

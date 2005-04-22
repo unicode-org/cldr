@@ -300,11 +300,11 @@
 			<language type="na">Nawuru</language>
 			<language type="nah">Naħwatil</language>
 			<language type="nai">Indjan tal-Amerika ta' Fuq (Oħra)</language>
-			<language alt="proposed" draft="true" type="nai">Indjan tal-Amerika ta’ Fuq (Oħra)</language>
+			<language type="nai" alt="proposed" draft="true">Indjan tal-Amerika ta’ Fuq (Oħra)</language>
 			<language type="nap">Neapolitan</language>
 			<language type="nb">Bokmahal Norveġiż</language>
-			<language alt="proposed" draft="true" type="nd">Ndebele, ta’ Fuq</language>
 			<language type="nd">Ndebele, ta' Fuq</language>
+			<language type="nd" alt="proposed" draft="true">Ndebele, ta’ Fuq</language>
 			<language type="nds">Ġermaniż Komuni; Sassonu Komuni</language>
 			<language type="ne">Nepaliż</language>
 			<language type="new">Newari</language>
@@ -318,9 +318,9 @@
 			<language type="nog">Nogai</language>
 			<language type="non">Skandinav, Antik</language>
 			<language type="nr">Ndebele, t'Isfel</language>
+			<language type="nr" alt="proposed" draft="true">Ndebele, t’Isfel</language>
 			<language type="nso">Soto, ta' Fuq</language>
-			<language draft="true" alt="proposed" type="nr">Ndebele, t’Isfel</language>
-			<language draft="true" alt="proposed" type="nso">Soto, ta’ Fuq</language>
+			<language type="nso" alt="proposed" draft="true">Soto, ta’ Fuq</language>
 			<language type="nub">Lingwi Nubjani</language>
 			<language type="nv">Navaħo</language>
 			<language type="nwc">Classical Newari</language>
@@ -370,7 +370,7 @@
 			<language type="sad">Sandawe</language>
 			<language type="sah">Jakut</language>
 			<language type="sai">Indjan tal-Amerika t'Isfel (Oħra)</language>
-			<language draft="true" alt="proposed" type="sai">Indjan tal-Amerika t’Isfel (Oħra)</language>
+			<language type="sai" alt="proposed" draft="true">Indjan tal-Amerika t’Isfel (Oħra)</language>
 			<language type="sal">Salixan</language>
 			<language type="sam">Samritan</language>
 			<language type="sas">Saska</language>
@@ -379,7 +379,7 @@
 			<language type="sco">Skoċċiż</language>
 			<language type="sd">Sindi</language>
 			<language type="se">Sami ta' Fuq</language>
-			<language draft="true" alt="proposed" type="se">Sami ta’ Fuq</language>
+			<language type="se" alt="proposed" draft="true">Sami ta’ Fuq</language>
 			<language type="sel">Selkup</language>
 			<language type="sem">Semitiku</language>
 			<language type="sg">Sango</language>
@@ -411,7 +411,7 @@
 			<language type="ss">Swati</language>
 			<language type="ssa">Nilo-Saħaram</language>
 			<language type="st">Soto, t'Isfel</language>
-			<language draft="true" alt="proposed" type="st">Soto, t’Isfel</language>
+			<language type="st" alt="proposed" draft="true">Soto, t’Isfel</language>
 			<language type="su">Sundaniż</language>
 			<language type="suk">Sukuma</language>
 			<language type="sus">Susu</language>
@@ -438,7 +438,7 @@
 			<language type="tmh">Tamaxek</language>
 			<language type="tn">Zwana</language>
 			<language type="to">Tongan (Gżejjer ta' Tonga)</language>
-			<language draft="true" alt="proposed" type="to">Tongan (Gżejjer ta’ Tonga)</language>
+			<language type="to" alt="proposed" draft="true">Tongan (Gżejjer ta’ Tonga)</language>
 			<language type="tog">Tonga (Njasa)</language>
 			<language type="tpi">Tok Pisin</language>
 			<language type="tr">Tork</language>
@@ -488,41 +488,39 @@
 			<language type="zun">Żuni</language>
 		</languages>
 		<territories>
-<!-- Territory codes 830 and 833 left unchanged on purpose. -->
-<territory draft="true" type="001">Dinja</territory>
-<territory draft="true" type="002">Affrika</territory>
-<territory draft="true" type="003">Amerika ta’ Fuq</territory>
-<territory draft="true" type="005">Amerika t’Isfel</territory>
-<territory draft="true" type="009">Oċejanja</territory>
-<territory draft="true" type="011">Affrika tal-Punent</territory>
-<territory draft="true" type="013">Amerika Ċentrali</territory>
-<territory draft="true" type="014">Affrika tal-Lvant</territory>
-<territory draft="true" type="015">Affrika ta’ Fuq</territory>
-<territory draft="true" type="017">Affrika Nofsani</territory>
-<territory draft="true" type="018">Affrika t’Isfel</territory>
-<territory draft="true" type="019">Amerika</territory>
-<territory draft="true" type="021">Amerika ta’ Fuq</territory>
-<territory draft="true" type="029">Karibew</territory>
-<territory draft="true" type="030">Asja tal-Lvant</territory>
-<territory draft="true" type="035">Asja tax-Xlokk </territory>
-<territory draft="true" type="039">Ewropa t’Isfel</territory>
-<territory draft="true" type="053">Awstralja u New Zealand</territory>
-<territory draft="true" type="054">Melanesja</territory>
-<territory draft="true" type="057">Mikronesja</territory>
-<territory draft="true" type="061">Polinesja</territory>
-<territory draft="true" type="062">Asja t’Isfel Ċentrali</territory>
-<territory draft="true" type="142">Asja</territory>
-<territory draft="true" type="145">Asja tal-Punent </territory>
-<territory draft="true" type="150">Ewropa</territory>
-<territory draft="true" type="151">Ewropa tal-Lvant </territory>
-<territory draft="true" type="154">Ewropa ta’ Fuq </territory>
-<territory draft="true" type="155">Ewropa tal-Punent </territory>
-<territory draft="true" type="172">Commonwealth tal-Istati Independenti</territory>
-<territory draft="true" type="419">Amerika Latina u l-Karibew</territory>
-<territory draft="true" type="830">Channel Islands</territory>
-<territory draft="true" type="833">Isle of Man</territory>
-
-
+			<!-- Territory codes 830 and 833 left unchanged on purpose. -->
+			<territory type="001" draft="true">Dinja</territory>
+			<territory type="002" draft="true">Affrika</territory>
+			<territory type="003" draft="true">Amerika ta’ Fuq</territory>
+			<territory type="005" draft="true">Amerika t’Isfel</territory>
+			<territory type="009" draft="true">Oċejanja</territory>
+			<territory type="011" draft="true">Affrika tal-Punent</territory>
+			<territory type="013" draft="true">Amerika Ċentrali</territory>
+			<territory type="014" draft="true">Affrika tal-Lvant</territory>
+			<territory type="015" draft="true">Affrika ta’ Fuq</territory>
+			<territory type="017" draft="true">Affrika Nofsani</territory>
+			<territory type="018" draft="true">Affrika t’Isfel</territory>
+			<territory type="019" draft="true">Amerika</territory>
+			<territory type="021" draft="true">Amerika ta’ Fuq</territory>
+			<territory type="029" draft="true">Karibew</territory>
+			<territory type="030" draft="true">Asja tal-Lvant</territory>
+			<territory type="035" draft="true">Asja tax-Xlokk </territory>
+			<territory type="039" draft="true">Ewropa t’Isfel</territory>
+			<territory type="053" draft="true">Awstralja u New Zealand</territory>
+			<territory type="054" draft="true">Melanesja</territory>
+			<territory type="057" draft="true">Mikronesja</territory>
+			<territory type="061" draft="true">Polinesja</territory>
+			<territory type="062" draft="true">Asja t’Isfel Ċentrali</territory>
+			<territory type="142" draft="true">Asja</territory>
+			<territory type="145" draft="true">Asja tal-Punent </territory>
+			<territory type="150" draft="true">Ewropa</territory>
+			<territory type="151" draft="true">Ewropa tal-Lvant </territory>
+			<territory type="154" draft="true">Ewropa ta’ Fuq </territory>
+			<territory type="155" draft="true">Ewropa tal-Punent </territory>
+			<territory type="172" draft="true">Commonwealth tal-Istati Independenti</territory>
+			<territory type="419" draft="true">Amerika Latina u l-Karibew</territory>
+			<territory type="830" draft="true">Channel Islands</territory>
+			<territory type="833" draft="true">Isle of Man</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Emirati Għarab Maqgħuda</territory>
 			<territory type="AF">Afganistan</territory>
@@ -565,7 +563,7 @@
 			<territory type="CG">Kongo</territory>
 			<territory type="CH">Svizzera</territory>
 			<territory type="CI">Kosta ta' l-Avorju</territory>
-			<territory draft="true" alt="proposed" type="CI">Kosta ta’ l-Avorju</territory>
+			<territory type="CI" alt="proposed" draft="true">Kosta ta’ l-Avorju</territory>
 			<territory type="CK">Cook Islands</territory>
 			<territory type="CL">Ċili</territory>
 			<territory type="CM">Kamerun</territory>
@@ -640,9 +638,9 @@
 			<territory type="KM">Komoros</territory>
 			<territory type="KN">Saint Kitts and Nevis</territory>
 			<territory type="KP">Koreja ta' Fuq</territory>
+			<territory type="KP" alt="proposed" draft="true">Koreja ta’ Fuq</territory>
 			<territory type="KR">Koreja t'Isfel</territory>
-			<territory draft="true" alt="proposed" type="KP">Koreja ta’ Fuq</territory>
-			<territory draft="true" alt="proposed" type="KR">Koreja t’Isfel</territory>
+			<territory type="KR" alt="proposed" draft="true">Koreja t’Isfel</territory>
 			<territory type="KW">Kuwajt</territory>
 			<territory type="KY">Cayman Islands</territory>
 			<territory type="KZ">Każakstan</territory>
@@ -662,14 +660,14 @@
 			<territory type="MD">Maldova</territory>
 			<territory type="MG">Madagaskar</territory>
 			<territory type="MH">Gżejjer ta' Marshall</territory>
-			<territory draft="true" alt="proposed" type="MH">Gżejjer ta’ Marshall</territory>
+			<territory type="MH" alt="proposed" draft="true">Gżejjer ta’ Marshall</territory>
 			<territory type="MK">Maċedonja</territory>
 			<territory type="ML">Mali</territory>
 			<territory type="MM">Mjanmar</territory>
 			<territory type="MN">Mongolja</territory>
 			<territory type="MO">Macao S.A.R., China</territory>
 			<territory type="MP">Gżejjer Marjana ta' Fuq</territory>
-			<territory draft="true" alt="proposed" type="MP">Gżejjer Marjana ta’ Fuq</territory>
+			<territory type="MP" alt="proposed" draft="true">Gżejjer Marjana ta’ Fuq</territory>
 			<territory type="MQ">Martinik</territory>
 			<territory type="MR">Mawritanja</territory>
 			<territory type="MS">Montserrat</territory>
@@ -734,7 +732,7 @@
 			<territory type="TC">Turks and Caicos Islands</territory>
 			<territory type="TD">Ċad</territory>
 			<territory type="TF">Territorji Franċiżi ta' Nofsinhar</territory>
-			<territory alt="proposed" draft="true" type="TF">Territorji Franċiżi ta’ Nofsinhar</territory>
+			<territory type="TF" alt="proposed" draft="true">Territorji Franċiżi ta’ Nofsinhar</territory>
 			<territory type="TG">Togo</territory>
 			<territory type="TH">Tajlandja</territory>
 			<territory type="TJ">Taġikistan</territory>
@@ -766,32 +764,30 @@
 			<territory type="YE">Jemen</territory>
 			<territory type="YT">Majotte</territory>
 			<territory type="ZA">Afrika t'Isfel</territory>
-			<territory draft="true" alt="proposed" type="ZA">Afrika t’Isfel</territory>
+			<territory type="ZA" alt="proposed" draft="true">Afrika t’Isfel</territory>
 			<territory type="ZM">Żambja</territory>
 			<territory type="ZW">Żimbabwe</territory>
 		</territories>
-
 		<keys>
-			<key draft="true" type="calendar">Kalendarju</key>
-			<key draft="true" type="collation">Kollazjoni</key> <!-- or Ordni - order -->
-			<key draft="true" type="currency">Munita</key>
+			<key type="calendar" draft="true">Kalendarju</key>
+			<key type="collation" draft="true">Kollazjoni</key>
+			<!-- or Ordni - order -->
+			<key type="currency" draft="true">Munita</key>
 		</keys>
 		<types>
-			<type draft="true" type="buddhist" key="calendar">Kalendarju Buddist</type>
-			<type draft="true" type="chinese" key="calendar">Kalendarju Ċiniż</type>
-			<type draft="true" type="direct" key="collation">Ordni Diretta</type>
-			<type draft="true" type="gregorian" key="calendar">Kalendarju Gregorjan</type>
-			<type draft="true" type="hebrew" key="calendar">Kalendarju Ebrajk</type>
-			<type draft="true" type="islamic" key="calendar">Kalendarju Islamiku</type>
-			<type draft="true" type="islamic-civil" key="calendar">Kalendarju Islamiku-Ċivili</type>
-			<type draft="true" type="japanese" key="calendar">Kalendarju Ġappuniż</type>
-			<type draft="true" type="phonebook" key="collation">Ordni Telefonika</type>
-			<type draft="true" type="pinyin" key="collation">Ordni tal-Pinyin</type>
-			<type draft="true" type="stroke" key="collation">Ordni Maħżuża</type>
-			<type draft="true" type="traditional" key="collation">Tradizzjonali</type>
+			<type type="buddhist" key="calendar" draft="true">Kalendarju Buddist</type>
+			<type type="chinese" key="calendar" draft="true">Kalendarju Ċiniż</type>
+			<type type="direct" key="collation" draft="true">Ordni Diretta</type>
+			<type type="gregorian" key="calendar" draft="true">Kalendarju Gregorjan</type>
+			<type type="hebrew" key="calendar" draft="true">Kalendarju Ebrajk</type>
+			<type type="islamic" key="calendar" draft="true">Kalendarju Islamiku</type>
+			<type type="islamic-civil" key="calendar" draft="true">Kalendarju Islamiku-Ċivili</type>
+			<type type="japanese" key="calendar" draft="true">Kalendarju Ġappuniż</type>
+			<type type="phonebook" key="collation" draft="true">Ordni Telefonika</type>
+			<type type="pinyin" key="collation" draft="true">Ordni tal-Pinyin</type>
+			<type type="stroke" key="collation" draft="true">Ordni Maħżuża</type>
+			<type type="traditional" key="collation" draft="true">Tradizzjonali</type>
 		</types>
-
-
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[[a-z à ì ù è ò ċ ġ ħ {għ} ż]-[cy]]</exemplarCharacters>
@@ -914,8 +910,10 @@
 		<messages>
 			<yesstr draft="true">iva:i</yesstr>
 			<nostr draft="true">le:l</nostr>
-			<yesexpr draft="true">^[yYiI]([eEvV][sSaA])?</yesexpr> <!-- allow English yes also -->
-			<noexpr draft="true">^[nNlL][oOeE]?</noexpr> <!-- allow English no also -->
+			<yesexpr draft="true">^[yYiI]([eEvV][sSaA])?</yesexpr>
+			<!-- allow English yes also -->
+			<noexpr draft="true">^[nNlL][oOeE]?</noexpr>
+			<!-- allow English no also -->
 		</messages>
 	</posix>
 </ldml>

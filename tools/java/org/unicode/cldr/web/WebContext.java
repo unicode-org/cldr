@@ -44,6 +44,14 @@ public class WebContext {
         
     }
     
+    public WebContext(boolean fake)throws IOException  {
+        dontCloseMe=false;
+        out=openUTF8Writer(System.err);
+        form_data = new Hashtable();
+    }
+    
+
+    
     // copy c'tor
     public WebContext( WebContext other) {
         doc = other.doc;

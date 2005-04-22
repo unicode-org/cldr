@@ -18,6 +18,15 @@ public class StandardCodeTexter implements NodeSet.NodeSetTexter {
         type = SurveyMain.typeToSubtype(superType);
     }
     public String text(NodeSet.NodeSetEntry e) {
-        return standardCodes.getData(type, e.type);
+        if(e.type == null) {
+            return "NULL";
+        } else {
+            String sc =  standardCodes.getData(type, e.type);
+            if(sc == null) {
+                return e.type;
+            } else {
+                return sc;
+            }
+        }
     }
 }

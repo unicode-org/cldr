@@ -45,7 +45,7 @@ public class NodeSet {
         public String key; // for types
         boolean mainDraft = false;
         Vector otherAlts = new Vector();
-
+        boolean isAlias = false;
         public Node main = null; // Main node. May be missing or draft.
 
         public Node proposed = null; // TODO: needs to be a list
@@ -120,6 +120,12 @@ public class NodeSet {
     /**
      * add a fallback
      */
+    public void add(String l, boolean isAlias, String locale) {
+        NodeSetEntry nse = new NodeSetEntry(l);
+        nse.isAlias = isAlias;
+        nse.fallbackLocale = locale;
+        add(nse);
+    }
     public void add(String l) {
         add(new NodeSetEntry(l));
     }
@@ -284,7 +290,11 @@ public class NodeSet {
                 if(node.getNodeType()!=Node.ELEMENT_NODE){
                     continue;
                 }
-                s.add(node); // add regular item
+                if(node.getNodeName().equals(LDMLConstants.ALIAS)) {
+                    s.add(" aliased to " + LDMLUtilities.getAttributeValue(node, LDMLConstants.SOURCE), true, LDMLUtilities.getAttributeValue(node, LDMLConstants.SOURCE));
+                } else {
+                    s.add(node); // add regular item
+                }
             }
         }
 
@@ -298,7 +308,11 @@ public class NodeSet {
                 if(LDMLUtilities.isNodeDraft(node)) {
                     continue;
                 }
-                s.add(node, ctx.docLocale[i]); // add an item as a fallback ( w/ a locale )
+                if(node.getNodeName().equals(LDMLConstants.ALIAS)) {
+                    s.add(ctx.docLocale[i] + ": aliased to " + LDMLUtilities.getAttributeValue(node, LDMLConstants.SOURCE), true, LDMLUtilities.getAttributeValue(node, LDMLConstants.SOURCE));
+                } else {
+                    s.add(node, ctx.docLocale[i]); // add an item as a fallback ( w/ a locale )
+                }
             }
         }
 

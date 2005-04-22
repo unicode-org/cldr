@@ -41,13 +41,16 @@ public class DraftFirstTexter implements NodeSet.NodeSetTexter {
         if(e.xpath != null) {
             n = e.xpath;
         }
-        if( ((e.main != null)&&LDMLUtilities.isNodeDraft(e.main)) || // draft or
+        String sub = subTexter.text(e) + n;
+        if (e.isAlias) {
+            return "0/" + sub;
+        } else if( ((e.main != null)&&LDMLUtilities.isNodeDraft(e.main)) || // draft or
             (e.proposed != null) ) { // proposed
-            return "0" + subTexter.text(e) + n;
+            return "1/" + sub;
         } else if ((e.main == null)&&(e.fallbackLocale == null)) { // missing
-            return "6" + subTexter.text(e) + n;
+            return "6/" + sub;
         } else {
-            return "2" + subTexter.text(e) + n; // normal
+            return "2/" + sub; // normal
         }
     }
     NodeSet.NodeSetTexter subTexter;

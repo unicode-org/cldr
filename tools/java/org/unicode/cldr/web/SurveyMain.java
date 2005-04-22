@@ -1499,6 +1499,16 @@ class SurveyMain {
                 ctx.println("<tr class='xpath'><td colspan=4>"+  f.xpath + "</td></tr>");
             }
             
+            if(f.isAlias == true) {
+                ctx.println("<tr class='alias'><td colspan=4>" + f.type +
+                        "<a href=\"" + ctx.base() + "?x=" + ctx.field("x") + "&_=" + f.fallbackLocale + "\">" + 
+                        new ULocale(f.fallbackLocale).getDisplayName() +                        
+                        "</a>");
+                ctx.println("</td></tr>");
+                continue;
+            }
+            
+            
             String type = f.type;
             String base = ((xpath==null)?f.xpath:type);
             String main = null;
@@ -1620,6 +1630,9 @@ class SurveyMain {
             
             //'nochange' and type
             ctx.println("<th class='type'>");
+            if(type == null) {
+                type = "NULL??";
+            }
             int lastSlash = type.lastIndexOf('/');
             String showType;
             if(lastSlash != -1) {
@@ -1805,7 +1818,7 @@ class SurveyMain {
             System.err.println("Couldn't load user registry - exiting.");
             System.exit(1);
         }
-        if((cldrLoad != null) && cldrLoad.equals("y")) {
+        if((cldrLoad != null) && cldrLoad.length()>0) {
             m.loadAll();
         }
         appendLog("SurveyTool ready for connections.");
@@ -1940,11 +1953,19 @@ class SurveyMain {
     }
         
     void loadAll() {   
+        boolean ultra = cldrLoad.startsWith("u");
         System.err.println("Pre-Loading cache...");
+        if(ultra) {
+            System.err.println("Ultra Mode [loading ALL nodesets]");
+        }
         File[] inFiles = getInFiles();
         int nrInFiles = inFiles.length;
+        int ti = 0;
         for(int i=0;i<nrInFiles;i++) {
             String localeName = inFiles[i].getName();
+            if(ultra) {
+                System.err.print(i + "/" + nrInFiles + ":      " + localeName + "      ");
+            }
             int dot = localeName.indexOf('.');
             if(dot !=  -1) {
                 localeName = localeName.substring(0,dot);
@@ -1952,6 +1973,29 @@ class SurveyMain {
                 System.err.flush();
                 try {
                     fetchDoc(localeName);
+                    if(ultra) {
+                        int j;
+                        WebContext ctx = new WebContext(false);
+                        ctx.setLocale(new ULocale(localeName));
+                        for(j =0 ; j < LOCALEDISPLAYNAMES_ITEMS.length; j++) {                                
+                            NodeSet ns = getNodeSet(ctx, LOCALEDISPLAYNAMES_ITEMS[j]);
+                            ti += ns.count();
+                            System.err.print("l");
+                            System.err.flush();
+                        }
+                        for(j =0 ; j < OTHERROOTS_ITEMS.length; j++) {                                
+                            NodeSet ns = getNodeSet(ctx, OTHERROOTS_ITEMS[j]);
+                            ti += ns.count();
+                            System.err.print("o");
+                            System.err.flush();
+                        }
+                        NodeSet ns = getNodeSet(ctx, xOTHER);
+                        ti += ns.count();
+                        System.err.print("O");
+                        System.err.flush();                    
+                        System.err.print("       " + ti + " nodes loaded..          \r");
+                    }
+//                    ctx.close();
                 } catch(Throwable t) {
                     System.err.println();
                     System.err.println(localeName + " - err: " + t.toString());

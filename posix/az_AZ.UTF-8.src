@@ -4794,6 +4794,8 @@ collating-symbol <X0005>
 collating-symbol <X0009>
 collating-symbol <X0069>
 collating-symbol <X0079>
+collating-symbol <X0086>
+collating-symbol <X0087>
 collating-symbol <X0089>
 collating-symbol <X008F>
 collating-symbol <X0091>
@@ -5012,6 +5014,8 @@ order_start forward;forward;forward;forward
 <X0009>
 <X0069>
 <X0079>
+<X0086>
+<X0087>
 <X0089>
 <X008F>
 <X0091>
@@ -5307,6 +5311,8 @@ order_start forward;forward;forward;forward
 <nine>                                                     <X2382>;<X0005>;<X0005>;IGNORE
 <a>                                                        <X2600>;<X0005>;<X0005>;IGNORE
 <A>                                                        <X2600>;<X0005>;<X008F>;IGNORE
+<LATIN_SMALL_LETTER_AE>                                    "<X2600><X2E00>";"<X0087><X0005>";"<X0005><X0005>";IGNORE
+<LATIN_CAPITAL_LETTER_AE>                                  "<X2600><X2E00>";"<X0087><X0005>";"<X0086><X0005>";IGNORE
 <b>                                                        <X2800>;<X0005>;<X0005>;IGNORE
 <B>                                                        <X2800>;<X0005>;<X008F>;IGNORE
 <c>                                                        <X2A00>;<X0005>;<X0005>;IGNORE
@@ -5623,7 +5629,7 @@ LC_NUMERIC
 *************
 
 decimal_point     "<COMMA>"
-thousands_sep     "<NO-BREAK_SPACE>"
+thousands_sep     "<space>"
 grouping          3
 
 END LC_NUMERIC
@@ -5634,9 +5640,9 @@ LC_MONETARY
 *************
 
 int_curr_symbol       "<A><Z><M><space>"
-currency_symbol       "<CYRILLIC_SMALL_LETTER_EM><CYRILLIC_SMALL_LETTER_A><CYRILLIC_SMALL_LETTER_EN><FULL_STOP>"
+currency_symbol       "<m><a><n><FULL_STOP>"
 mon_decimal_point     "<COMMA>"
-mon_thousands_sep     "<NO-BREAK_SPACE>"
+mon_thousands_sep     "<space>"
 mon_grouping          3
 positive_sign         ""
 negative_sign         "<HYPHEN-MINUS>"
@@ -5662,49 +5668,49 @@ END LC_MONETARY
 LC_TIME
 *************
 
-abday   "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>"
+abday   "<B><FULL_STOP>";/
+        "<B><FULL_STOP><e><FULL_STOP>";/
+        "<LATIN_CAPITAL_LETTER_C_WITH_CEDILLA><FULL_STOP><a><FULL_STOP>";/
+        "<LATIN_CAPITAL_LETTER_C_WITH_CEDILLA><FULL_STOP>";/
+        "<C><FULL_STOP><a><FULL_STOP>";/
+        "<C><FULL_STOP>";/
+        "<LATIN_CAPITAL_LETTER_S_WITH_CEDILLA><FULL_STOP>"
 
-day     "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>"
+day     "<b><a><z><a><r>";/
+        "<b><a><z><a><r><space><e><r><t><LATIN_SMALL_LETTER_SCHWA><s><i>";/
+        "<LATIN_SMALL_LETTER_C_WITH_CEDILLA><LATIN_SMALL_LETTER_SCHWA><r><LATIN_SMALL_LETTER_S_WITH_CEDILLA><LATIN_SMALL_LETTER_SCHWA><n><b><LATIN_SMALL_LETTER_SCHWA><space><a><x><LATIN_SMALL_LETTER_S_WITH_CEDILLA><a><m>";/
+        "<LATIN_SMALL_LETTER_C_WITH_CEDILLA><LATIN_SMALL_LETTER_SCHWA><r><LATIN_SMALL_LETTER_S_WITH_CEDILLA><LATIN_SMALL_LETTER_SCHWA><n><b><LATIN_SMALL_LETTER_SCHWA>";/
+        "<c><LATIN_SMALL_LETTER_U_WITH_DIAERESIS><m><LATIN_SMALL_LETTER_SCHWA><space><a><x><LATIN_SMALL_LETTER_S_WITH_CEDILLA><a><m><LATIN_SMALL_LETTER_DOTLESS_I>";/
+        "<c><LATIN_SMALL_LETTER_U_WITH_DIAERESIS><m><LATIN_SMALL_LETTER_SCHWA><space><a><x><LATIN_SMALL_LETTER_S_WITH_CEDILLA><a><m><LATIN_SMALL_LETTER_DOTLESS_I>";/
+        "<LATIN_SMALL_LETTER_S_WITH_CEDILLA><LATIN_SMALL_LETTER_SCHWA><n><b><LATIN_SMALL_LETTER_SCHWA>"
 
-abmon   "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>";/
-        "<eight>";/
-        "<nine>";/
-        "<one><zero>";/
-        "<one><one>";/
-        "<one><two>"
+abmon   "<y><a><n>";/
+        "<f><e><v>";/
+        "<m><a><r>";/
+        "<a><p><r>";/
+        "<m><a><y>";/
+        "<i><y><n>";/
+        "<i><y><l>";/
+        "<a><v><q>";/
+        "<s><e><n>";/
+        "<o><k><t>";/
+        "<n><o><y>";/
+        "<d><e><k>"
 
-mon     "<one>";/
-        "<two>";/
-        "<three>";/
-        "<four>";/
-        "<five>";/
-        "<six>";/
-        "<seven>";/
-        "<eight>";/
-        "<nine>";/
-        "<one><zero>";/
-        "<one><one>";/
-        "<one><two>"
+mon     "<Y><a><n><v><a><r>";/
+        "<F><e><v><r><a><l>";/
+        "<M><a><r><t>";/
+        "<A><p><r><e><l>";/
+        "<M><a><y>";/
+        "<LATIN_CAPITAL_LETTER_I_WITH_DOT_ABOVE><y><u><n>";/
+        "<LATIN_CAPITAL_LETTER_I_WITH_DOT_ABOVE><y><u><l>";/
+        "<A><v><q><u><s><t>";/
+        "<S><e><n><t><y><a><b><r>";/
+        "<O><k><t><y><a><b><r>";/
+        "<N><o><y><a><b><r>";/
+        "<D><e><k><a><b><r>"
 
-d_fmt    "%Y %b %e"
+d_fmt    "%y<SOLIDUS>%m<SOLIDUS>%d"
 
 t_fmt    "%H:%M:%S"
 
@@ -5714,19 +5720,18 @@ am_pm    "<A><M>";"<P><M>"
 
 t_fmt_ampm  ""
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "yes:y:Y"
+yesstr   "yes:y:YES:Y"
 
-nostr    "no:n:N"
+nostr    "no:n:NO:N"
 
-yesexpr  "^[yY]"
+yesexpr  "^[yY]([eE][sS])?"
 
-noexpr   "^[nN]"
+noexpr   "^[nN][oO]?"
 
 
 END LC_MESSAGES

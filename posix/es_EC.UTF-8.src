@@ -5369,8 +5369,8 @@ END LC_COLLATE
 LC_NUMERIC
 *************
 
-decimal_point     "<COMMA>"
-thousands_sep     "<FULL_STOP>"
+decimal_point     "<FULL_STOP>"
+thousands_sep     "<COMMA>"
 grouping          3
 
 END LC_NUMERIC
@@ -5382,8 +5382,8 @@ LC_MONETARY
 
 int_curr_symbol       "<U><S><D><space>"
 currency_symbol       "<U><S><DOLLAR_SIGN>"
-mon_decimal_point     "<COMMA>"
-mon_thousands_sep     "<FULL_STOP>"
+mon_decimal_point     "<FULL_STOP>"
+mon_thousands_sep     "<COMMA>"
 mon_grouping          3
 positive_sign         ""
 negative_sign         "<HYPHEN-MINUS>"
@@ -5461,15 +5461,14 @@ am_pm    "<A><M>";"<P><M>"
 
 t_fmt_ampm  ""
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "si:s<LATIN_SMALL_LETTER_I_WITH_ACUTE>:s"
+yesstr   "si:s<LATIN_SMALL_LETTER_I_WITH_ACUTE>:s:SI:S<LATIN_CAPITAL_LETTER_I_WITH_ACUTE>:S:yes:y:YES:Y"
 
-nostr    "no:n"
+nostr    "no:n:NO:N"
 
 yesexpr  "^([yY]([eE][sS])?)|([sS][iI<LATIN_SMALL_LETTER_I_WITH_ACUTE><LATIN_CAPITAL_LETTER_I_WITH_ACUTE>]?)"
 

@@ -5467,15 +5467,14 @@ am_pm    "<A><M>";"<P><M>"
 
 t_fmt_ampm  ""
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "da:d"
+yesstr   "da:d:DA:D:yes:y:YES:Y"
 
-nostr    "nu:n"
+nostr    "nu:n:NU:N:no:n:NO:N"
 
 yesexpr  "^([yY]([eE][sS])?)|([dD][aA]?)"
 

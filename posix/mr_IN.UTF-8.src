@@ -804,6 +804,7 @@ collating-symbol <X5200>
 collating-symbol <X5400>
 collating-symbol <X5600>
 collating-symbol <X5800>
+collating-symbol <X6220>
 collating-symbol <X6720>
 collating-symbol <X6722>
 collating-symbol <X6724>
@@ -877,6 +878,7 @@ collating-symbol <X67AA>
 collating-symbol <X67AC>
 collating-symbol <X67AE>
 collating-symbol <X67B0>
+collating-symbol <XE2E9>
 
 order_start forward;forward;forward;forward
 
@@ -972,6 +974,7 @@ order_start forward;forward;forward;forward
 <X5400>
 <X5600>
 <X5800>
+<X6220>
 <X6720>
 <X6722>
 <X6724>
@@ -1045,6 +1048,7 @@ order_start forward;forward;forward;forward
 <X67AC>
 <X67AE>
 <X67B0>
+<XE2E9>
 
 * assignment of characters to weights
 
@@ -1280,6 +1284,7 @@ order_start forward;forward;forward;forward
 <DEVANAGARI_VOWEL_SIGN_O>          <X67AC>;<X0005>;<X0005>;IGNORE
 <DEVANAGARI_VOWEL_SIGN_AU>         <X67AE>;<X0005>;<X0005>;IGNORE
 <DEVANAGARI_SIGN_VIRAMA>           <X67B0>;<X0005>;<X0005>;IGNORE
+<UNASSIGNED-097D>                  "<XE2E9><X6220>";<X0005>;"<X0005><X00C0>";IGNORE
 UNDEFINED                          IGNORE;IGNORE;IGNORE;...
 
 order_end
@@ -1381,15 +1386,14 @@ am_pm    "<DEVANAGARI_LETTER_MA><FULL_STOP><DEVANAGARI_LETTER_PA><DEVANAGARI_VOW
 
 t_fmt_ampm  "%I:%M:%S %p"
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "<DEVANAGARI_LETTER_HA><DEVANAGARI_VOWEL_SIGN_AA><DEVANAGARI_SIGN_ANUSVARA>"
+yesstr   "<DEVANAGARI_LETTER_HA><DEVANAGARI_VOWEL_SIGN_AA><DEVANAGARI_SIGN_ANUSVARA>:yes:y:YES:Y"
 
-nostr    "<DEVANAGARI_LETTER_NA><DEVANAGARI_VOWEL_SIGN_AA>"
+nostr    "<DEVANAGARI_LETTER_NA><DEVANAGARI_VOWEL_SIGN_AA>:no:n:NO:N"
 
 yesexpr  "^([yY]([eE][sS])?)|<DEVANAGARI_LETTER_HA><DEVANAGARI_VOWEL_SIGN_AA><DEVANAGARI_SIGN_ANUSVARA>"
 

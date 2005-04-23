@@ -4773,6 +4773,7 @@ order_start forward;forward;forward;forward
 <LATIN_SMALL_LETTER_I_WITH_DIAERESIS>                   <X3600>;"<X0005><X009D>";"<X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_I_WITH_DIAERESIS_AND_ACUTE>         <X3600>;"<X0005><X009D><X008D>";"<X0005><X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_I_WITH_TILDE>                       <X3600>;"<X0005><X00A1>";"<X0005><X0005>";IGNORE
+<i-COMBINING_DOT_ABOVE>                                 <X3600>;"<X0005><X00A3>";"<X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_I_WITH_OGONEK>                      <X3600>;"<X0005><X00A9>";"<X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_I_WITH_MACRON>                      <X3600>;"<X0005><X00AB>";"<X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_I_WITH_HOOK_ABOVE>                  <X3600>;"<X0005><X00AF>";"<X0005><X0005>";IGNORE
@@ -5467,15 +5468,14 @@ am_pm    "<A><M>";"<P><M>"
 
 t_fmt_ampm  ""
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "evet:e"
+yesstr   "evet:e:EVET:E:yes:y:YES:Y"
 
-nostr    "hay<LATIN_SMALL_LETTER_DOTLESS_I>r:hayir:h"
+nostr    "hay<LATIN_SMALL_LETTER_DOTLESS_I>r:hayir:h:HAYIR:HAY<LATIN_CAPITAL_LETTER_I_WITH_DOT_ABOVE>R:H:no:n:NO:N"
 
 yesexpr  "^([yY]([eE][sS])?)|([eE]([vV][eE][tT])?)"
 

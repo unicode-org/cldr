@@ -5475,25 +5475,24 @@ d_fmt    "%d<SOLIDUS>%m<SOLIDUS>%Y"
 
 t_fmt    "%H:%M:%S"
 
-d_t_fmt  "%e ta'' %B %Y %H:%M:%S %Z"
+d_t_fmt  "%e ta' %B %Y %H:%M:%S %Z"
 
 am_pm    "<A><M>";"<P><M>"
 
 t_fmt_ampm  ""
-
 
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "yes:y"
+yesstr   "iva:i:IVA:I:yes:y:YES:Y"
 
-nostr    "no:n"
+nostr    "le:l:LE:L:no:n:NO:N"
 
-yesexpr  "^[yY]([eE][sS])?"
+yesexpr  "^[yYiI]([eEvV][sSaA])?"
 
-noexpr   "^[nN][oO]?"
+noexpr   "^[nNlL][oOeE]?"
 
 
 END LC_MESSAGES

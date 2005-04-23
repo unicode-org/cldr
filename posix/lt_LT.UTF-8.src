@@ -5462,19 +5462,18 @@ t_fmt    "%H:%M:%S"
 
 d_t_fmt  "%Y m. %B %e d. %H:%M:%S %Z"
 
-am_pm    "<A><M>";"<P><M>"
+am_pm    "<p><r><i><e><LATIN_SMALL_LETTER_S_WITH_CARON><p><i><e><t>";"<p><o><p><i><e><t>"
 
 t_fmt_ampm  ""
-
 
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "taip:t"
+yesstr   "taip:t:TAIP:T:yes:y:YES:Y"
 
-nostr    "ne:n"
+nostr    "ne:n:NE:N:no:n:NO:N"
 
 yesexpr  "^([yY]([eE][sS])?)|([tT]([aA][iI][pP])?)"
 

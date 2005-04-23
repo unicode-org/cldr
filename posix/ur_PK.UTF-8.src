@@ -7031,7 +7031,6 @@ order_start forward;forward;forward;forward
 <START_OF_HEADING>                                                                    IGNORE;IGNORE;IGNORE;<START_OF_HEADING>
 <INFORMATION_SEPARATOR_THREE>                                                         IGNORE;IGNORE;IGNORE;<INFORMATION_SEPARATOR_THREE>
 <SHIFT_OUT>                                                                           IGNORE;IGNORE;IGNORE;<SHIFT_OUT>
-<ZERO_WIDTH_NON-JOINER>                                                               IGNORE;IGNORE;IGNORE;<ZERO_WIDTH_NON-JOINER>
 <ARABIC_SMALL_HIGH_DOTLESS_HEAD_OF_KHAH>                                              IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_DOTLESS_HEAD_OF_KHAH>
 <DEVICE_CONTROL_TWO>                                                                  IGNORE;IGNORE;IGNORE;<DEVICE_CONTROL_TWO>
 <END_OF_TEXT>                                                                         IGNORE;IGNORE;IGNORE;<END_OF_TEXT>
@@ -7050,7 +7049,6 @@ order_start forward;forward;forward;forward
 <BELL>                                                                                IGNORE;IGNORE;IGNORE;<BELL>
 <SYNCHRONOUS_IDLE>                                                                    IGNORE;IGNORE;IGNORE;<SYNCHRONOUS_IDLE>
 <ARABIC_SMALL_HIGH_MADDA>                                                             IGNORE;IGNORE;IGNORE;<ARABIC_SMALL_HIGH_MADDA>
-<ZERO_WIDTH_JOINER>                                                                   IGNORE;IGNORE;IGNORE;<ZERO_WIDTH_JOINER>
 <ARABIC_SIGN_SALLALLAHOU_ALAYHE_WASSALLAM>                                            IGNORE;IGNORE;IGNORE;<ARABIC_SIGN_SALLALLAHOU_ALAYHE_WASSALLAM>
 <ARABIC_SIGN_RADI_ALLAHOU_ANHU>                                                       IGNORE;IGNORE;IGNORE;<ARABIC_SIGN_RADI_ALLAHOU_ANHU>
 <NEGATIVE_ACKNOWLEDGE>                                                                IGNORE;IGNORE;IGNORE;<NEGATIVE_ACKNOWLEDGE>
@@ -8180,15 +8178,14 @@ am_pm    "<A><M>";"<P><M>"
 
 t_fmt_ampm  ""
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "yes:y"
+yesstr   "yes:y:YES:Y"
 
-nostr    "no:n"
+nostr    "no:n:NO:N"
 
 yesexpr  "^[yY]([eE][sS])?"
 

@@ -56040,15 +56040,14 @@ am_pm    "<HANGUL_SYLLABLE_O><HANGUL_SYLLABLE_JEON>";"<HANGUL_SYLLABLE_O><HANGUL
 
 t_fmt_ampm  "%p %I:%M:%S"
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "<HANGUL_SYLLABLE_YE>"
+yesstr   "<HANGUL_SYLLABLE_YE>:yes:y:YES:Y"
 
-nostr    "<HANGUL_SYLLABLE_A><HANGUL_SYLLABLE_NI><HANGUL_SYLLABLE_O>"
+nostr    "<HANGUL_SYLLABLE_A><HANGUL_SYLLABLE_NI><HANGUL_SYLLABLE_O>:no:n:NO:N"
 
 yesexpr  "^([yY]([eE][sS])?)|<HANGUL_SYLLABLE_YE>"
 

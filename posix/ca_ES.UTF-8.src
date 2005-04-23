@@ -5479,15 +5479,14 @@ am_pm    "<A><M>";"<P><M>"
 
 t_fmt_ampm  ""
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "s<LATIN_SMALL_LETTER_I_WITH_ACUTE>:si:s"
+yesstr   "s<LATIN_SMALL_LETTER_I_WITH_ACUTE>:si:s:S<LATIN_CAPITAL_LETTER_I_WITH_ACUTE>:SI:S:yes:y:YES:Y"
 
-nostr    "no:n"
+nostr    "no:n:NO:N"
 
 yesexpr  "^([yY]([eE][sS])?)|([sS][iI<LATIN_SMALL_LETTER_I_WITH_ACUTE><LATIN_CAPITAL_LETTER_I_WITH_ACUTE>]?)"
 

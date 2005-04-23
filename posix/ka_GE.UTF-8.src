@@ -3995,6 +3995,7 @@ collating-symbol <X0005>
 collating-symbol <X0086>
 collating-symbol <X0087>
 collating-symbol <X008F>
+collating-symbol <X00C0>
 collating-symbol <X0507>
 collating-symbol <X0509>
 collating-symbol <X050B>
@@ -4055,6 +4056,9 @@ collating-symbol <X3600>
 collating-symbol <X3800>
 collating-symbol <X3A00>
 collating-symbol <X3C00>
+collating-symbol <X3C04>
+collating-symbol <X3C20>
+collating-symbol <X3C58>
 collating-symbol <X3E00>
 collating-symbol <X4000>
 collating-symbol <X4200>
@@ -4110,6 +4114,46 @@ collating-symbol <X5D6A>
 collating-symbol <X5D6C>
 collating-symbol <X5D6E>
 collating-symbol <X5D70>
+collating-symbol <X683C>
+collating-symbol <X6858>
+collating-symbol <X6874>
+collating-symbol <X6890>
+collating-symbol <X68AC>
+collating-symbol <X68C8>
+collating-symbol <X68E4>
+collating-symbol <X6904>
+collating-symbol <X6920>
+collating-symbol <X693C>
+collating-symbol <X6958>
+collating-symbol <X6974>
+collating-symbol <X6990>
+collating-symbol <X69AC>
+collating-symbol <X69C8>
+collating-symbol <X69E4>
+collating-symbol <X6A04>
+collating-symbol <X6A20>
+collating-symbol <X6A3C>
+collating-symbol <X6A58>
+collating-symbol <X6A74>
+collating-symbol <X6A90>
+collating-symbol <X6AAC>
+collating-symbol <X6AC8>
+collating-symbol <X6AE4>
+collating-symbol <X6B04>
+collating-symbol <X6B20>
+collating-symbol <X6B3C>
+collating-symbol <X6B58>
+collating-symbol <X6B74>
+collating-symbol <X6B90>
+collating-symbol <X6BAC>
+collating-symbol <X6BC8>
+collating-symbol <X6BE4>
+collating-symbol <X6C04>
+collating-symbol <X6C20>
+collating-symbol <X6C3C>
+collating-symbol <X6C58>
+collating-symbol <XE2EA>
+collating-symbol <XE2ED>
 
 order_start forward;forward;forward;forward
 
@@ -4121,6 +4165,7 @@ order_start forward;forward;forward;forward
 <X0086>
 <X0087>
 <X008F>
+<X00C0>
 <X0507>
 <X0509>
 <X050B>
@@ -4181,6 +4226,9 @@ order_start forward;forward;forward;forward
 <X3800>
 <X3A00>
 <X3C00>
+<X3C04>
+<X3C20>
+<X3C58>
 <X3E00>
 <X4000>
 <X4200>
@@ -4236,6 +4284,46 @@ order_start forward;forward;forward;forward
 <X5D6C>
 <X5D6E>
 <X5D70>
+<X683C>
+<X6858>
+<X6874>
+<X6890>
+<X68AC>
+<X68C8>
+<X68E4>
+<X6904>
+<X6920>
+<X693C>
+<X6958>
+<X6974>
+<X6990>
+<X69AC>
+<X69C8>
+<X69E4>
+<X6A04>
+<X6A20>
+<X6A3C>
+<X6A58>
+<X6A74>
+<X6A90>
+<X6AAC>
+<X6AC8>
+<X6AE4>
+<X6B04>
+<X6B20>
+<X6B3C>
+<X6B58>
+<X6B74>
+<X6B90>
+<X6BAC>
+<X6BC8>
+<X6BE4>
+<X6C04>
+<X6C20>
+<X6C3C>
+<X6C58>
+<XE2EA>
+<XE2ED>
 
 * assignment of characters to weights
 
@@ -4448,6 +4536,47 @@ order_start forward;forward;forward;forward
 <GEORGIAN_LETTER_FI>           <X5D6C>;<X0005>;<X0005>;IGNORE
 <GEORGIAN_LETTER_YN>           <X5D6E>;<X0005>;<X0005>;IGNORE
 <GEORGIAN_LETTER_ELIFI>        <X5D70>;<X0005>;<X0005>;IGNORE
+<UNASSIGNED-10F9>              "<XE2EA><X3C04>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-10FA>              "<XE2EA><X3C20>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-10FC>              "<XE2EA><X3C58>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D00>              "<XE2ED><X683C>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D01>              "<XE2ED><X6858>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D02>              "<XE2ED><X6874>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D03>              "<XE2ED><X6890>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D04>              "<XE2ED><X68AC>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D05>              "<XE2ED><X68C8>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D06>              "<XE2ED><X68E4>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D07>              "<XE2ED><X6904>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D08>              "<XE2ED><X6920>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D09>              "<XE2ED><X693C>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D0A>              "<XE2ED><X6958>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D0B>              "<XE2ED><X6974>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D0C>              "<XE2ED><X6990>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D0D>              "<XE2ED><X69AC>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D0E>              "<XE2ED><X69C8>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D0F>              "<XE2ED><X69E4>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D10>              "<XE2ED><X6A04>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D11>              "<XE2ED><X6A20>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D12>              "<XE2ED><X6A3C>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D13>              "<XE2ED><X6A58>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D14>              "<XE2ED><X6A74>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D15>              "<XE2ED><X6A90>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D16>              "<XE2ED><X6AAC>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D17>              "<XE2ED><X6AC8>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D18>              "<XE2ED><X6AE4>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D19>              "<XE2ED><X6B04>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D1A>              "<XE2ED><X6B20>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D1B>              "<XE2ED><X6B3C>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D1C>              "<XE2ED><X6B58>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D1D>              "<XE2ED><X6B74>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D1E>              "<XE2ED><X6B90>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D1F>              "<XE2ED><X6BAC>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D20>              "<XE2ED><X6BC8>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D21>              "<XE2ED><X6BE4>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D22>              "<XE2ED><X6C04>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D23>              "<XE2ED><X6C20>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D24>              "<XE2ED><X6C3C>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-2D25>              "<XE2ED><X6C58>";<X0005>;"<X0005><X00C0>";IGNORE
 UNDEFINED                      IGNORE;IGNORE;IGNORE;...
 
 order_end
@@ -4549,15 +4678,14 @@ am_pm    "<A><M>";"<P><M>"
 
 t_fmt_ampm  ""
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "yes:y"
+yesstr   "yes:y:YES:Y"
 
-nostr    "no:n"
+nostr    "no:n:NO:N"
 
 yesexpr  "^[yY]([eE][sS])?"
 

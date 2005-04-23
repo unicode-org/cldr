@@ -5455,21 +5455,20 @@ d_fmt    "%e.%m.%Y"
 
 t_fmt    "%H:%M:%S"
 
-d_t_fmt  "%e. %Bta %Y %H:%M:%S %Z"
+d_t_fmt  "%e. %Bta %Y klo %H.%M.%S"
 
 am_pm    "<a><p><FULL_STOP>";"<i><p><FULL_STOP>"
 
 t_fmt_ampm  ""
-
 
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "kyll<LATIN_SMALL_LETTER_A_WITH_DIAERESIS>:kylla:k"
+yesstr   "kyll<LATIN_SMALL_LETTER_A_WITH_DIAERESIS>:kylla:k:KYLL<LATIN_CAPITAL_LETTER_A_WITH_DIAERESIS>:KYLLA:K:yes:y:YES:Y"
 
-nostr    "ei:e"
+nostr    "ei:e:EI:E:no:n:NO:N"
 
 yesexpr  "^([yY]([eE][sS])?)|([kK]([yY][lL][lL][aA<LATIN_SMALL_LETTER_A_WITH_DIAERESIS><LATIN_CAPITAL_LETTER_A_WITH_DIAERESIS>])?)"
 

@@ -5412,8 +5412,8 @@ END LC_NUMERIC
 LC_MONETARY
 *************
 
-int_curr_symbol       "<Y><U><M><space>"
-currency_symbol       "<Y><U><M>"
+int_curr_symbol       "<E><U><R><space>"
+currency_symbol       "<EURO_SIGN>"
 mon_decimal_point     "<FULL_STOP>"
 mon_thousands_sep     "<COMMA>"
 mon_grouping          3
@@ -5493,15 +5493,14 @@ am_pm    "<A><M>";"<P><M>"
 
 t_fmt_ampm  ""
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "da:d"
+yesstr   "da:d:DA:D:yes:y:YES:Y"
 
-nostr    "ne:n"
+nostr    "ne:n:NE:N:no:n:NO:N"
 
 yesexpr  "^([yY]([eE][sS])?)|([dD][aA]?)"
 

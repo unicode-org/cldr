@@ -4510,15 +4510,14 @@ am_pm    "<LAO_LETTER_KO><LAO_TONE_MAI_EK><LAO_LETTER_O><LAO_LETTER_NO><LAO_LETT
 
 t_fmt_ampm  ""
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "yes:y"
+yesstr   "yes:y:YES:Y"
 
-nostr    "no:n"
+nostr    "no:n:NO:N"
 
 yesexpr  "^[yY]([eE][sS])?"
 

@@ -752,6 +752,9 @@ collating-symbol <X6C78>
 collating-symbol <X6C7A>
 collating-symbol <X6C7C>
 collating-symbol <X6C7E>
+collating-symbol <XA158>
+collating-symbol <XA6AC>
+collating-symbol <XE2E9>
 
 order_start forward;forward;forward;forward
 
@@ -899,6 +902,9 @@ order_start forward;forward;forward;forward
 <X6C7A>
 <X6C7C>
 <X6C7E>
+<XA158>
+<XA6AC>
+<XE2E9>
 
 * assignment of characters to weights
 
@@ -1101,6 +1107,8 @@ order_start forward;forward;forward;forward
 <TAMIL_VOWEL_SIGN_AU>         <X6C7A>;<X0005>;<X0005>;IGNORE
 <TAMIL_SIGN_VIRAMA>           <X6C7C>;<X0005>;<X0005>;IGNORE
 <TAMIL_AU_LENGTH_MARK>        <X6C7E>;<X0005>;<X0005>;IGNORE
+<UNASSIGNED-0BB6>             "<XE2E9><XA158>";<X0005>;"<X0005><X00C0>";IGNORE
+<UNASSIGNED-0BE6>             "<XE2E9><XA6AC>";<X0005>;"<X0005><X00C0>";IGNORE
 UNDEFINED                     IGNORE;IGNORE;IGNORE;...
 
 order_end
@@ -1202,15 +1210,14 @@ am_pm    "<TAMIL_LETTER_KA><TAMIL_VOWEL_SIGN_AA><TAMIL_LETTER_LA><TAMIL_VOWEL_SI
 
 t_fmt_ampm  "%I:%M:%S %p"
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "<TAMIL_LETTER_AA><TAMIL_LETTER_MA><TAMIL_SIGN_VIRAMA>"
+yesstr   "<TAMIL_LETTER_AA><TAMIL_LETTER_MA><TAMIL_SIGN_VIRAMA>:yes:y:YES:Y"
 
-nostr    "<TAMIL_LETTER_I><TAMIL_LETTER_LA><TAMIL_SIGN_VIRAMA><TAMIL_LETTER_LA><TAMIL_VOWEL_SIGN_AI>"
+nostr    "<TAMIL_LETTER_I><TAMIL_LETTER_LA><TAMIL_SIGN_VIRAMA><TAMIL_LETTER_LA><TAMIL_VOWEL_SIGN_AI>:no:n:NO:N"
 
 yesexpr  "^([yY]([eE][sS])?)|<TAMIL_LETTER_AA><TAMIL_LETTER_MA><TAMIL_SIGN_VIRAMA>"
 

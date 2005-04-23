@@ -4160,6 +4160,8 @@ collating-symbol <X6898>
 collating-symbol <X689A>
 collating-symbol <X689C>
 collating-symbol <X689E>
+collating-symbol <X6B20>
+collating-symbol <XE2E9>
 
 order_start forward;forward;forward;forward
 
@@ -4324,6 +4326,8 @@ order_start forward;forward;forward;forward
 <X689A>
 <X689C>
 <X689E>
+<X6B20>
+<XE2E9>
 
 * assignment of characters to weights
 
@@ -4549,6 +4553,7 @@ order_start forward;forward;forward;forward
 <BENGALI_VOWEL_SIGN_AU>                                    <X689A>;<X0005>;<X0005>;IGNORE
 <BENGALI_SIGN_VIRAMA>                                      <X689C>;<X0005>;<X0005>;IGNORE
 <BENGALI_AU_LENGTH_MARK>                                   <X689E>;<X0005>;<X0005>;IGNORE
+<UNASSIGNED-09CE>                                          "<XE2E9><X6B20>";<X0005>;"<X0005><X00C0>";IGNORE
 UNDEFINED                                                  IGNORE;IGNORE;IGNORE;...
 
 order_end
@@ -4650,15 +4655,14 @@ am_pm    "<BENGALI_LETTER_PA><BENGALI_VOWEL_SIGN_UU><BENGALI_LETTER_RA_WITH_MIDD
 
 t_fmt_ampm  "%I.%M.%S %p"
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "yes:y"
+yesstr   "yes:y:YES:Y"
 
-nostr    "no:n"
+nostr    "no:n:NO:N"
 
 yesexpr  "^[yY]([eE][sS])?"
 

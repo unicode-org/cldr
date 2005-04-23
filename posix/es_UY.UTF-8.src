@@ -5381,7 +5381,7 @@ LC_MONETARY
 *************
 
 int_curr_symbol       "<U><Y><U><space>"
-currency_symbol       "<U><r><DOLLAR_SIGN>"
+currency_symbol       "<DOLLAR_SIGN>"
 mon_decimal_point     "<COMMA>"
 mon_thousands_sep     "<FULL_STOP>"
 mon_grouping          3
@@ -5461,15 +5461,14 @@ am_pm    "<A><M>";"<P><M>"
 
 t_fmt_ampm  "%I:%M:%S %p"
 
-
 END LC_TIME
 *************
 LC_MESSAGES
 *************
 
-yesstr   "si:s<LATIN_SMALL_LETTER_I_WITH_ACUTE>:s"
+yesstr   "si:s<LATIN_SMALL_LETTER_I_WITH_ACUTE>:s:SI:S<LATIN_CAPITAL_LETTER_I_WITH_ACUTE>:S:yes:y:YES:Y"
 
-nostr    "no:n"
+nostr    "no:n:NO:N"
 
 yesexpr  "^([yY]([eE][sS])?)|([sS][iI<LATIN_SMALL_LETTER_I_WITH_ACUTE><LATIN_CAPITAL_LETTER_I_WITH_ACUTE>]?)"
 

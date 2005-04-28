@@ -652,11 +652,78 @@ root</pre>
   <p>The resource bundle at &quot;de_DE&quot; will be searched for a resource element at the same position in 
   the tree with type &quot;collation&quot;. If not found there, then the resource bundle at &quot;de&quot; will be 
   searched, etc.</p>
-  <p><span>If the path attribute is present, then its value is an XPath that points to a different 
-  node in the tree. For example:</span></p>
+  <p><span>If the <b>path</b> attribute is present, then its value is an XPath that points to a 
+  different node in the tree. For example:</span></p>
   <pre><span>&lt;alias source=&quot;root&quot; path=&quot;../monthWidth[@type=&#39;wide&#39;]&quot;/&gt;</span></pre>
-  <p><span>The default value if the path is not present is the same position in the tree. For more 
-  details, see </span><span><a href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a>.</span></p>
+  <p><span>The default value if the path is not present is the same position in the tree.</span></p>
+  <p><span class="changedspan">There is a special value for the source attribute, the constant <b>
+  source=&quot;locale&quot;</b>, which is the default value. This special value is equivalent to the locale 
+  being resolved. For example, consider the following example, where locale data for &#39;de&#39; is being 
+  resolved:</span></p>
+  <div align="center">
+    <center>
+    <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber7">
+      <tr>
+        <th width="33%"><span class="changedspan">Root</span></th>
+        <th width="33%"><span class="changedspan">de</span></th>
+        <th width="33%"><span class="changedspan">de (resolved)</span></th>
+      </tr>
+      <tr>
+        <td>
+        <pre><span class="changedspan">  &lt;x&gt;
+    &lt;a&gt;1&lt;/a&gt;
+    &lt;b&gt;2&lt;/b&gt;
+    &lt;c&gt;3&lt;/c&gt;
+  &lt;/x&gt;</span></pre>
+        </td>
+        <td>
+        <pre><span class="changedspan">  &lt;x&gt;
+    &lt;a&gt;11&lt;/a&gt;
+    &lt;b&gt;12&lt;/b&gt;
+    &lt;d&gt;14&lt;/d&gt;
+  &lt;/x&gt;</span></pre>
+        </td>
+        <td>
+        <pre><span class="changedspan">  &lt;x&gt;
+    &lt;a&gt;11&lt;/a&gt;
+    &lt;b&gt;12&lt;/b&gt;
+    <span style="background-color: #CC0000">&lt;c&gt;3&lt;/c&gt;</span>
+    &lt;d&gt;14&lt;/d&gt;
+  &lt;/x&gt;</span></pre>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <pre><span class="changedspan">  &lt;y&gt;
+    &lt;alias path=&quot;../x&quot;&gt;
+  &lt;/y&gt;</span></pre>
+        </td>
+        <td>
+        <pre><span class="changedspan">  &lt;y&gt;
+    &lt;b&gt;22&lt;/b&gt;
+    &lt;e&gt;25&lt;/e&gt;
+  &lt;/y&gt;</span></pre>
+        </td>
+        <td>
+        <pre><span class="changedspan">  &lt;y&gt;
+    <span style="background-color: #CC0000">&lt;a&gt;11&lt;/a&gt;</span>
+    &lt;b&gt;22&lt;/b&gt;
+    <span style="background-color: #CC0000">&lt;c&gt;3&lt;/c&gt;</span>
+    <span style="background-color: #CC0000">&lt;d&gt;14&lt;/d&gt;</span>
+    &lt;e&gt;25&lt;/e&gt;
+  &lt;/y&gt;</span></pre>
+        </td>
+      </tr>
+    </table>
+    </center>
+  </div>
+  <p><span class="changedspan"><span>The first row shows the inheritance within the &lt;x&gt; element, 
+  whereby &lt;c&gt; is inherited from root. The second shows the inheritance within the &lt;y&gt; element, 
+  whereby &lt;a&gt;, &lt;c&gt;, and &lt;d&gt; are inherited also from root, but from an alias there. The alias in root 
+  is logically replaced not by the elements in root itself, but by elements in the &#39;target&#39; locale.</span></span></p>
+  <p><span class="changedspan"><span>All of the attributes in the XPath must be <i>distinguishing</i> 
+  elements. </span></span>For more details <span class="changedspan">on data resolution</span>, see
+  <a href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a>.</p>
   <p><span>It is an error to have a circular chain of aliases. That is, a collection of LDML XML 
   documents must not have situations where a sequence of alias lookups (including inheritance and 
   multiple inheritance) can be followed indefinitely without terminating.</span></p>
@@ -4102,12 +4169,6 @@ America/Kentucky/Monticello&quot;&gt;
   <h2><span>Appendix I: <a name="Inheritance_and_Validity">Inheritance and Validity</a></span></h2>
   <p><span>The following describes in more detail how to determine the exact inheritance of 
   elements, and the validity of a given element in </span><span>LDML</span><span>.</span></p>
-  <p><span>When any of the following definitions are applied, it is assumed that all aliases are 
-  resolved: that is, everything behaves as if the all children of the alias&#39;s parent element element 
-  were replaced by all the children of the element it points to. If the </span>
-  <span class="attribute">path</span><span> attribute of an </span><span class="element">alias</span><span> 
-  element is not present, then it defaults to the XPath of the enclosing element. All of the 
-  attributes in the XPath must be distinguishing elements (see below).</span></p>
   <h3><span>Definitions</span></h3>
   <p><span>Attributes that serve to distinguish multiple elements at the same level are called <i>
   distinguishing</i> attributes. These currently consist of </span><span class="attribute">key</span><span>,
@@ -4193,15 +4254,20 @@ America/Kentucky/Monticello&quot;&gt;
     <p><span>&lt;root, de, de-DE, de-DE-xxx&gt;</span></p>
   </blockquote>
   <h3><span>Resolved Data File</span></h3>
-  <p><span>To produce fully resolved locale data file from CLDR for a locale ID L, you start with 
-  root, and replace/add items from the child locales until you get down to L. More formally, this 
-  can be expressed as the following procedure.</span></p>
+  <p><span>To produce fully resolved locale data file from CLDR for a locale ID L, you start with
+  <span class="changedspan">L, and successively add unique</span> items from the
+  <span class="changedspan">parent</span> locales until you get <span class="changedspan">up to root</span>. 
+  More formally, this can be expressed as the following procedure.</span></p>
   <ol>
-    <li><span>Let Result be an empty </span><span>LDML</span><span> file.</span></li>
-    <li><span>For each Li in the locale chain for L</span><ol>
-      <li><span>For each element pair P in the </span><span>LDML</span><span> file for Li:</span><ol>
-        <li><span>If Result has an element pair Q with an equivalent element chain, remove Q.</span></li>
-        <li><span>Add P to Result.</span></li>
+    <li><span>Let Result be initially empty.</span></li>
+    <li><span>For each Li in the locale chain for L<span class="changedspan">, starting at L and 
+    going up to root:</span></span><ol>
+      <li><span class="changedspan"><span>Let Temp be a copy of the pairs in the LDML file for Li</span></span></li>
+      <li><span class="changedspan">Replace each alias in Temp by the list of pairs it points to.</span></li>
+      <li><span>For each element pair P in <span class="changedspan">Temp</span>:</span><ol>
+        <li><span class="changedspan">If </span><span><span class="changedspan">P does not contain a 
+        blocking element, and </span>Result <span class="changedspan">does not </span>have an 
+        element pair Q with an equivalent element chain, <span class="changedspan">add P to Result</span>.</span></li>
       </ol>
       </li>
     </ol>
@@ -4401,7 +4467,7 @@ America/Kentucky/Monticello&quot;&gt;
   <p><span>It is not necessary, but strongly encouraged, that the default type in root be<br>
   &#39;standard&#39;.</span></p>
   <p><span>For identifiers, such as language codes, script codes, region codes, variant codes, 
-  types, keywords, currency symbols or curreny display names, the default value is the identifier 
+  types, keywords, currency symbols or currency display names, the default value is the identifier 
   itself whenever if no value is found in the root. Thus if there is no display name for the region 
   code &#39;QA&#39; in root, then the display name is simply &#39;QA&#39;. </span></p>
   <h2><span>Appendix J: <a name="Time_Zone_Fallback">Time Zone Fallback</a></span></h2>

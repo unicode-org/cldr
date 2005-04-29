@@ -771,7 +771,7 @@
 <!ATTLIST currencyFormat alt CDATA #IMPLIED >
 <!ATTLIST currencyFormat validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT currencies (alias | (default*, currency*, special*)) >
+<!ELEMENT currencies (alias | (currency*, special*)) >
 <!ATTLIST currencies draft ( true | false ) #IMPLIED >
 <!ATTLIST currencies validSubLocales CDATA #IMPLIED >
 

@@ -48,6 +48,7 @@ class SurveyMain {
     public static final String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for web data
     public static final String cldrLoad = System.getProperty("CLDR_LOAD_ALL"); // preload all locales?
     static String fileBase = System.getProperty("CLDR_COMMON") + "/main"; // not static - may change lager
+    static String specialMessage = System.getProperty("CLDR_MESSAGE"); // not static - may change lager
 
     public static final String LOGFILE = "cldr.log";        // log file of all changes
     public static final ULocale inLocale = new ULocale("en"); // locale to use to 'localize' things
@@ -86,7 +87,10 @@ class SurveyMain {
         return n++;
     }
     
-    private SurveyMain() {}
+    long startTime = 0;
+    private SurveyMain() {
+        startTime = System.currentTimeMillis();
+    }
     
     /**
      * output MIME header, build context, and run code..
@@ -109,17 +113,56 @@ class SurveyMain {
         ctx.close();
     }
 
+    public static String timeDiff(long a) {
+        return timeDiff(a,System.currentTimeMillis());
+    }
+    
+    public static String timeDiff(long a, long b) {
+        com.ibm.icu.text.RuleBasedNumberFormat durationFormatter
+                    = new com.ibm.icu.text.RuleBasedNumberFormat(Locale.US,
+                    com.ibm.icu.text.RuleBasedNumberFormat.DURATION);
+
+        long age = b - a;
+        return durationFormatter.format(age/1000);
+        /*
+        double hours = (age * 1.0) / 3600000.0;
+        if(hours < 1.0) {
+            double mins = hours * 60.0;
+            if(mins < 1.0) {
+                double secs = hours * 60.0;
+                return new Double(secs).toString + "sec";
+            } else {
+                return new Double(mins).toString() + "min";
+            }
+        } else {
+            return new Double(hours).toString() + "hr";
+        }  
+        */
+    }
+
     private void doDump(WebContext ctx)
     {
         printHeader(ctx, "Current Sessions");
+        ctx.println("<h1>System info</h1>");
+        ctx.println("<div class='pager'>");
+        ctx.println("Uptime: " + timeDiff(startTime) + ", " + pages + " pages served.<br/>");
+        Runtime r = Runtime.getRuntime();
+        double total = r.totalMemory();
+        total = total / 1024;
+        double free = r.freeMemory();
+        free = free / 1024;
+        ctx.println("Free memory: " + free + "M / " + total + "M.<br/>");
+        r.gc();
+        ctx.println("Ran gc();<br/>");
+        ctx.println("Node hash has " + nodeHash.size() + " items. <br/>");
+        ctx.println("</div>");
+        ctx.println("<hr/>");
         ctx.println("<h1>Current Sessions</h1>");
-        ctx.println("<table border=1><tr><th>id</th><th>age (hours)</th><th>user</th><th>what</th></tr>");
+        ctx.println("<table border=1><tr><th>id</th><th>age (h:mm:ss)</th><th>user</th><th>what</th></tr>");
         for(Iterator li = CookieSession.getAll();li.hasNext();) {
             CookieSession cs = (CookieSession)li.next();
-            long age = System.currentTimeMillis() - cs.last;
-            double hours = (age * 1.0) / 3600000.0;
             ctx.println("<tr><td>" + cs.id + "</td>");
-            ctx.println("<td>" + hours + "</td>");
+            ctx.println("<td>" + timeDiff(cs.last) + "</td>");
             ctx.println("<td>" + cs.user.email + "<br/>" + 
                                  cs.user.real + "<br/>" + 
                                  cs.user.sponsor + "</td>");
@@ -209,6 +252,10 @@ class SurveyMain {
         ctx.println("</head>");
         ctx.println("<body>");
         
+        ctx.println("<script type='text/javascript'><!-- \n" +
+                    "function show(what)\n" +
+                    "{document.getElementById(what).style.display=\"block\";}\n" +
+                    "--></script>");
         
         // STYLE - move to a separate file
         ctx.println("<style type=text/css>\n" +
@@ -231,6 +278,7 @@ class SurveyMain {
                     ".selected a:hover   {  color: #fDD } \n" +
                     ".sep { height: 3px; overflow: hidden; background-color: #44778C; } \n" +
                     ".name { background-color: #EEEEFF; } \n" +
+                    ".warning { font-size: smaller; font-color: #F22; background-color: #FFFFFF; } \n" +
                     ".pager { border: 1px solid gray; background-color:#FFEECC; " + 
                             " padding: 1em 1em 1em 1em; font-size: smaller; } \n" + 
                     ".localenav { border: 1px solid gray; background-color:#fff; " + 
@@ -510,15 +558,15 @@ class SurveyMain {
     void doLocaleList(WebContext ctx, WebContext baseContext) {
         boolean showCodes = ctx.prefBool(PREF_SHOWCODES);
         
-        ctx.println("<h1>Locales</h1>");
-        TreeMap lm = getLocaleListMap();
         {
             WebContext nuCtx = new WebContext(ctx);
             nuCtx.addQuery(PREF_SHOWCODES, !showCodes);
-            nuCtx.println("<div class='pager'>");
-            nuCtx.println("<div style='float:right;'><a href='" + nuCtx.url() + "'>" + ((!showCodes)?"Show":"Hide") + " locale codes</a></div>");
+            nuCtx.println("<div class='pager' style='float: right;'>");
+            nuCtx.println("<a href='" + nuCtx.url() + "'>" + ((!showCodes)?"Show":"Hide") + " locale codes</a>");
             nuCtx.println("</div>");
         }
+        ctx.println("<h1>Locales</h1>");
+        TreeMap lm = getLocaleListMap();
         ctx.println("<table border=1 class='list'>");
         int n=0;
         for(Iterator li = lm.keySet().iterator();li.hasNext();) {
@@ -674,7 +722,7 @@ class SurveyMain {
     }
    
     void notifyUser(WebContext ctx, UserRegistry.User u, String requester) {
-        String body = requester + " at " + u.sponsor + " has created a CLDR vetting account for you.\n" +
+        String body = requester +  " has created a CLDR vetting account for you.\n" +
             "To access it, visit: \n" +
             "   http://" + ctx.serverName() + ctx.base() + "?uid=" + u.id + "&email=" + u.email + "\n" +
             "\n" +
@@ -699,10 +747,14 @@ class SurveyMain {
     public void doSubmit(WebContext ctx)
     {
         if((ctx.session.user == null) ||
-            (ctx.session.user.id == null)) {   
-            ctx.println("No Vetting Account found... please see this help link: ");
+            (ctx.session.user.id == null)) {  
+            ctx.println("Not logged in... please see this help link: ");
             ctx.printHelpLink("/NoUser");
-            ctx.println("<br/>");
+            ctx.println("<p>");
+            ctx.println("<i>Note: if you used the 'back' button on your browser, please instead use " + 
+                " the URL link that was emailed to you. </i>");
+            printFooter(ctx);
+            return;
         }
         UserRegistry.User u = ctx.session.user;
         if(u == null) {
@@ -794,7 +846,7 @@ class SurveyMain {
                 " (user ID " + u.id + ", session " + ctx.session.id + " )" );
             // destroy session
             ctx.println("<form method=GET action='" + ctx.base() + "'>");
-            ctx.println("<input type=hidden name=uid value='" + ctx.session.user.id + "'> " +
+            ctx.println("<input type=hidden name=uid value='" + ctx.session.user.id + "'> " + // NULL PTR
                         "<input type=hidden name=email value='" + ctx.session.user.email + "'>");
             ctx.println("<input type=submit value='Login Again'>");
             ctx.println("</form>");
@@ -840,13 +892,14 @@ class SurveyMain {
                 } else if(vet.equals(CURRENT)) {
                     if(nse.fallback != null)  {
                         file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.fallback));
-                    } else if(nse.main != null) {
+                    } else if((nse.main != null)&&!LDMLUtilities.isNodeDraft(nse.main)) {
                         file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.main));
                     } else {
                         file.add(newxpath, newxpath, type);
                     }
-                } else if(vet.equals(PROPOSED)) {
-                    file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.proposed));
+                } else if(vet.startsWith(PROPOSED)) {
+                    String whichProposed = vet.substring(PROPOSED.length());
+                    file.add(newxpath, newxpath, LDMLUtilities.getNodeValue((Node)nse.alts.get(whichProposed)));
                 } else if(vet.equals(NEW)) {
                     String newString = (String)data.get(type + SUBNEW); //type could be xpath here
                     if(newString == null) {
@@ -969,27 +1022,7 @@ class SurveyMain {
         // process items..
         for(Iterator e = mySet.iterator();e.hasNext();) {
             NodeSet.NodeSetEntry f = (NodeSet.NodeSetEntry)e.next();
-            
-            String type = f.type;
-            String main = null;
-            String mainFallback = null;
-            int mainDraft = 0; // count
-            String prop = null;
-            if(f.main != null) {
-                main = LDMLUtilities.getNodeValue(f.main);
-                if(f.mainDraft) {
-                    mainDraft = 1; // for now: one draft
-                }
-            }
-            // are we showing a fallback locale in the 'current' slot?
-            if( (f.fallback != null) && // if we have a fallback
-                ( (mainDraft > 0) || (f.main == null) ) ) {
-                mainFallback = f.fallbackLocale;
-            }
-            if(f.proposed != null) {
-                prop = LDMLUtilities.getNodeValue(f.proposed);
-            }
-            processUserInput(ctx, changes, xpath, type, f);            
+            processUserInput(ctx, changes, xpath, f.type, f); 
         }
         if((changes!=null) && (!changes.isEmpty())) { 
             ctx.putByLocale(xpath,changes); 
@@ -1008,26 +1041,6 @@ class SurveyMain {
         // process items..
         for(Iterator e = mySet.iterator();e.hasNext();) {
             NodeSet.NodeSetEntry f = (NodeSet.NodeSetEntry)e.next();
-            String type = f.type;
-            String main = null;
-            String mainFallback = null;
-            int mainDraft = 0; // count
-            String prop = null;
-            if(f.main != null) {
-                main = LDMLUtilities.getNodeValue(f.main);
-                if(f.mainDraft) {
-                    mainDraft = 1; // for now: one draft
-                }
-            }
-            // are we showing a fallback locale in the 'current' slot?
-            if( (f.fallback != null) && // if we have a fallback
-                ( (mainDraft > 0) || (f.main == null) ) ) {
-                mainFallback = f.fallbackLocale;
-            }
-            if(f.proposed != null) {
-                prop = LDMLUtilities.getNodeValue(f.proposed);
-            }
-
             processUserInput(ctx, changes, f.xpath, null, f);
         }
         if((changes!=null) && (!changes.isEmpty())) { 
@@ -1514,7 +1527,6 @@ class SurveyMain {
             String main = null;
             String mainFallback = null;
             int mainDraft = 0; // count
-            String prop = null;
             if(f.main != null) {
                 main = LDMLUtilities.getNodeValue(f.main);
                 if(f.mainDraft) {
@@ -1535,9 +1547,8 @@ class SurveyMain {
             }else if (mainDraft > 0) {
                 nRows ++; // for the Draft entry
             }
-            if(f.proposed != null) {
-                nRows ++;
-                prop = LDMLUtilities.getNodeValue(f.proposed);
+            if(f.alts != null) {
+                nRows += f.alts.size();
             }
 
             // Analyze user input.
@@ -1558,6 +1569,27 @@ class SurveyMain {
             if(f.key != null) {
                 ctx.println("<br/><tt>(" + f.key + ")</tt>");
             }
+            
+            // see if there's a warning.
+            String myxpath = f.xpath;
+            if(myxpath == null) {
+                myxpath = xpath;
+                if(f.main != null) {
+                    myxpath = myxpath + "/" + f.main.getNodeName();
+                } else {
+//                    ctx.println("<B>problem - missing item</B>");
+                    myxpath = null;
+                }
+                if(f.type != null) {
+                    myxpath = myxpath + "[@type='" + f.type + "']";
+                }
+                if(f.key != null) {
+                    myxpath = myxpath + "[@key='" + f.key + "']";
+                }
+                
+///*srl*/                ctx.println("[<tt>" + ctx.locale + " " + myxpath + "</tt>]");
+            }
+
             ctx.println("</th>");
             
             // Now there are a pair of columns for each of the following. 
@@ -1579,6 +1611,7 @@ class SurveyMain {
                 writeRadio(ctx,fieldName,fieldPath,CURRENT,checked);
                 ctx.println("</td>");
                 ctx.println("<td class='current'>");
+                printWarning(ctx, myxpath);
                 ctx.println(main);
                 ctx.println("</td>");
             } else /*  if(main == null) */ {
@@ -1616,16 +1649,21 @@ class SurveyMain {
             }
 
             // Proposed item
-            if(prop != null) {
-                ctx.println("<td align=right class='proposed'>");
-                ctx.println("proposed");
-                writeRadio(ctx,fieldName,fieldPath,PROPOSED,checked);
-                ctx.println("</td>");
-                ctx.println("<td class='proposed'>");
-                ctx.println(prop);
-                ctx.println("</td>");
-                ctx.println("</tr>");
-                ctx.println("<tr>");
+            if(f.alts != null) {
+                Enumeration ee = f.alts.keys();
+                for(;ee.hasMoreElements();) {
+                    String k = (String)(ee.nextElement());
+                    ctx.println("<td align=right class='proposed'>");
+                    ctx.println(k);
+                    writeRadio(ctx,fieldName,fieldPath,PROPOSED + k,checked);
+                    ctx.println("</td>");
+                    ctx.println("<td class='proposed'>");
+                    printWarning(ctx, myxpath+"[@alt='" + k + "']");
+                    ctx.println(LDMLUtilities.getNodeValue((Node)f.alts.get(k)));
+                    ctx.println("</td>");
+                    ctx.println("</tr>");
+                    ctx.println("<tr>");
+                }
             }
             
             //'nochange' and type
@@ -1641,7 +1679,7 @@ class SurveyMain {
                 showType = type;
             }
             ctx.println("<tt>" + showType + "</tt>");
-            ctx.println("</th");
+            ctx.println("</th>");
             ctx.println("<td class='nochange'>");
             ctx.println("Don't care");
             writeRadio(ctx,fieldName,fieldPath,NOCHANGE,checked);
@@ -1649,7 +1687,7 @@ class SurveyMain {
 
             // edit text
             ctx.println("<td align=right class='new'>");
-            ctx.println(((mainDraft>0) || (prop!=null))?"change":"incorrect");
+            ctx.println(((mainDraft>0) || ((f.alts)!=null))?"change":"incorrect");
             writeRadio(ctx,fieldName,fieldPath,NEW,checked);
             ctx.println("</td>");
             ctx.println("<td class='new'>");
@@ -1657,7 +1695,7 @@ class SurveyMain {
             if(changes != null) {
            //     change = (String)changes.get(type + "//n");
             }
-            if((mainDraft>0) || (prop!=null)) {
+            if((mainDraft>0) || ((f.alts)!=null)) {
                 // this is supposed to Automatically check the 'change' button when user types something in.
                 // but it doesn't work.
                 String blurCheckScript = ""; //" else {  document.forms[0].elements['" + fieldsToHtml(fieldName,fieldPath) + "'][3].checked=true; "
@@ -1698,7 +1736,43 @@ class SurveyMain {
     int showSkipBox(WebContext ctx, int total, Map m, NodeSet.NodeSetTexter tx) {
         int skip;
         ctx.println("<div class='pager'>");
-        String str = ctx.field("skip");
+ 
+        {
+            WebContext nuCtx = new WebContext(ctx);
+            boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
+            nuCtx.addQuery(PREF_SORTALPHA, !sortAlpha);
+
+            nuCtx.println("<p style='float: right; margin-left: 3em;'> " + 
+                "Sorted ");
+            if(!sortAlpha) {
+                nuCtx.print("<a href='" + nuCtx.url() + "'>");
+            } else {
+                nuCtx.print("<span class='selected'>");
+            }
+            nuCtx.print("Alphabetically");
+            if(!sortAlpha) {
+                nuCtx.println("</a>");
+            } else {
+                nuCtx.println("</span>");
+            }
+            
+            nuCtx.println(" ");
+
+            if(sortAlpha) {
+                nuCtx.print("<a href='" + nuCtx.url() + "'>");
+            } else {
+                nuCtx.print("<span class='selected'>");
+            }
+            nuCtx.print("Draft-First");
+            if(sortAlpha) {
+                nuCtx.println("</a>");
+            } else {
+                nuCtx.println("</span>");
+            }
+            nuCtx.println("</p>");
+        }
+
+       String str = ctx.field("skip");
         if((str!=null)&&(str.length()>0)) {
             skip = new Integer(str).intValue();
         } else {
@@ -1766,56 +1840,28 @@ class SurveyMain {
                     "next " + CODES_PER_PAGE + "&gt;&gt;&gt;" +
                     "</a>");
         }
-
-        {
-            WebContext nuCtx = new WebContext(ctx);
-            boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
-            nuCtx.addQuery(PREF_SORTALPHA, !sortAlpha);
-
-            nuCtx.println("<span style='float: right; margin-left: 3em;'> " + 
-                "Sorted ");
-            if(!sortAlpha) {
-                nuCtx.print("<a href='" + nuCtx.url() + "'>");
-            } else {
-                nuCtx.print("<span class='selected'>");
-            }
-            nuCtx.print("Alphabetically");
-            if(!sortAlpha) {
-                nuCtx.println("</a>");
-            } else {
-                nuCtx.println("</span>");
-            }
-            
-            nuCtx.println(" ");
-
-            if(sortAlpha) {
-                nuCtx.print("<a href='" + nuCtx.url() + "'>");
-            } else {
-                nuCtx.print("<span class='selected'>");
-            }
-            nuCtx.print("Draft-First");
-            if(sortAlpha) {
-                nuCtx.println("</a>");
-            } else {
-                nuCtx.println("</span>");
-            }
-            nuCtx.println("</span>");
-        }
         ctx.println("</div>");
         return skip;
     }
     
-
+    static int pages=0;
     /**
      * Main - setup, preload and listen..
      */
-    public static void main (String args[]) {
+    public static void main(String args[]) {
         int status = 0;
         appendLog("SurveyTool starting up.");
+        if ((specialMessage!=null)&&(specialMessage.length()>0)) {
+            appendLog("SurveyTool with CLDR_MESSAGE: " + specialMessage);
+        }
         SurveyMain m = new SurveyMain();
         if(!m.reg.read()) {
             appendLog("Couldn't load user registry - exiting");
             System.err.println("Couldn't load user registry - exiting.");
+            System.exit(1);
+        }
+        if(!readWarnings()) {
+            appendLog("Couldn't read warnings file surveyInfo.txt - exiting");
             System.exit(1);
         }
         if((cldrLoad != null) && cldrLoad.length()>0) {
@@ -1825,7 +1871,15 @@ class SurveyMain {
         while(new FCGIInterface().FCGIaccept()>= 0) {
             System.setErr(System.out);
             try {
-             m.runSurvey(System.out);
+                if ((specialMessage!=null)&&(specialMessage.length()>0)) {
+                    System.out.println("Content-type: text/html\n\n\n");
+                    System.out.println("<i>The survey tool is offline at present. Please try later.</i><p><p>");
+                    System.out.println(specialMessage);
+                    System.out.println("<hr>Email:  srloomis (at) unicode.org\n");
+                } else {                
+                    pages++;
+                    m.runSurvey(System.out);
+                }
             } catch(Throwable t) {
                 System.out.println("Content-type: text/html\n\n\n<pre>");
                 System.out.flush();
@@ -1913,6 +1967,10 @@ class SurveyMain {
 
     public static final com.ibm.icu.text.Transliterator hexXML = com.ibm.icu.text.Transliterator.getInstance(
         "[^\\u0009\\u000A\\u0020-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");
+
+    // like above, but quote " 
+    public static final com.ibm.icu.text.Transliterator quoteXML = com.ibm.icu.text.Transliterator.getInstance(
+        "[^\\u0009\\u000A\\u0020-\\u0021\\u0023-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");
         
     // cache of documents
     static Hashtable docTable = new Hashtable();
@@ -2025,7 +2083,7 @@ class SurveyMain {
     }
 
     static TreeMap allXpaths = new TreeMap();
-    
+
     static final public String[] distinguishingAttributes =  { "key", "registry", "alt", "iso4217", "iso3166", "type", "default",
                     "measurementSystem", "mapping", "abbreviationFallback", "preferenceOrdering" };
 
@@ -2069,4 +2127,61 @@ class SurveyMain {
             return xpath + "/" + type;
         }
     }
+
+    private void printWarning(WebContext ctx, String myxpath) {
+        if(myxpath == null) {
+            return;
+        }
+        String warnHash = "W"+fieldsToHtml(myxpath,null);
+        String warning = getWarning(ctx.locale.toString(), myxpath);
+        if(warning != null) {
+            String warningTitle = quoteXML.transliterate(warning);
+            ctx.println("<a href='javascript:show(\"" + warnHash + "\")'>" + 
+                "<img border=0 align=right src='/~srloomis/alrt.gif' width=16 height=16 alt=\"" +   
+                warningTitle + "\" title=\"" + warningTitle + "\"></a>");
+            ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
+                "<div style='display: none' class='warning' id='" + warnHash + "'>" +
+                warningTitle + "</div>");
+        } // else {
+///*srl*/                ctx.println("[<tt>" + ctx.locale + " " + myxpath + "</tt>]");
+//      }
+    }
+    
+    static Hashtable xpathWarnings = new Hashtable();
+    
+    static String getWarning(String locale, String xpath) {
+        return (String)xpathWarnings.get(locale+" "+xpath);
+    }
+
+
+    static boolean readWarnings() {
+        int lines  = 0;
+        try {
+            BufferedReader in
+               = BagFormatter.openUTF8Reader("./", "surveyInfo.txt");
+            String line;
+            while ((line = in.readLine())!=null) {
+                lines++;
+                if((line.length()<=0) ||
+                  (line.charAt(0)=='#')) {
+                    continue;
+                }
+                String[] result = line.split("\t");
+                // result[0];  locale
+                // result[1];  xpath
+                // result[2];  warning
+                xpathWarnings.put(result[0] + " /" + result[1], result[2]);
+            }
+        } catch (Throwable t) {
+            System.err.println(t.toString());
+            t.printStackTrace();
+            System.err.println("Can't read xpath warnings file.  surveyInfo.txt");
+            System.err.println("At least create an empty file there. Exitting.");
+            return false;
+        }
+//        System.err.println("xpathWarnings" + ": " + lines + " lines read.");
+        return true;
+    }
+
+    
 }

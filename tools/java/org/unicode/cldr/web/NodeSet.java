@@ -44,15 +44,13 @@ public class NodeSet {
         public String type;
         public String key; // for types
         boolean mainDraft = false;
-        Vector otherAlts = new Vector();
+        Hashtable alts = null;
         boolean isAlias = false;
         public Node main = null; // Main node. May be missing or draft.
-
-        public Node proposed = null; // TODO: needs to be a list
-
         public Node fallback = null; // fallback from somewhere
         public String fallbackLocale = null; // fallback info
         public Object fallbackObject = null; // In case there's no real node
+        boolean hasWarning = false;
         
         public NodeSetEntry(String t) {
             type = t;
@@ -84,11 +82,10 @@ public class NodeSet {
         public void add(Node node, boolean draft, String alt)
         {
             if((alt!=null)&&(alt.length()>0)) {
-                if(LDMLConstants.PROPOSED.equals(alt)) {
-                    proposed = node;
-                } else {
-                    otherAlts.add(node);
+                if(alts == null) {
+                    alts = new Hashtable();
                 }
+                alts.put(alt,node);
             } else {
                 if(main != null) {
                     throw new RuntimeException("dup main nodes- " + type + ", " + node.toString());
@@ -170,6 +167,7 @@ public class NodeSet {
             nse = new NodeSetEntry((type!=null)?type:"");
             nse.xpath = xpath;
             map.put(xpath, nse);
+            // calculate warning here??
         }
         if(u != null) {
             if((draft==false)&&(alt==null)) {
@@ -178,7 +176,6 @@ public class NodeSet {
                 nse.addFallback(u.toString()); // mark that some fallback change will occur
             }
         } else {
-///*srl*/            ctx.println(" - adding -<br/>");
             nse.add(node, draft, alt);
         }
     }
@@ -214,13 +211,10 @@ public class NodeSet {
             if((newDraft != null)&&(newDraft.equals("true"))) {
                 draft = true;
             }
-            
             for(int i=0;i<SurveyMain.distinguishingAttributes.length;i++) {
                 String da = SurveyMain.distinguishingAttributes[i];
                 String nodeAtt = LDMLUtilities.getAttributeValue(node,da);
-                if((nodeAtt != null) && 
-                    !(da.equals(LDMLConstants.ALT)
-                            /* &&nodeAtt.equals(LDMLConstants.PROPOSED) */ )) { // no alts for now
+                if((nodeAtt != null) && !(da.equals(LDMLConstants.ALT))) {
                     newPath = newPath + "[@"+da+"='" + nodeAtt + "']";
                 }
             }

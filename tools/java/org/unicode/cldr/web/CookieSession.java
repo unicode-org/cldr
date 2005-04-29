@@ -46,8 +46,21 @@ public class CookieSession {
     static Hashtable gHash = new Hashtable();
     static Hashtable uHash = new Hashtable();
     
+    /* all sessions. sorted by age. */
     public static Iterator getAll() {
-        return uHash.values().iterator();
+        TreeSet sessSet = new TreeSet(new Comparator() {
+              public int compare(Object a, Object b) {
+                CookieSession aa = (CookieSession)a;
+                CookieSession bb = (CookieSession)b;
+                if(aa==bb) return 0;
+                if(aa.last>bb.last) return -1;
+                if(aa.last<bb.last) return 1;
+                return 0; // same age
+               }
+            });
+        sessSet.addAll(uHash.values());
+        return sessSet.iterator();
+        //return uHash.values().iterator();
     }
     
     public static CookieSession retrieve(String s) {

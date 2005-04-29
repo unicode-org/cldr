@@ -96,7 +96,7 @@ public class UserRegistry {
         return (User)emails.get(email);
     }
     
-    User add(String email, String sponsor, String real, String requester) {
+    synchronized User add(String email, String sponsor, String real, String requester) {
         if(get(email) != null) {
             return null; // already exists.
         }
@@ -115,7 +115,7 @@ public class UserRegistry {
     /**
      * internal put
      */
-    private void put(User u) {
+    private synchronized void put(User u) {
         users.put(u.id,u);
         emails.put(u.email,u);
         userCount++;

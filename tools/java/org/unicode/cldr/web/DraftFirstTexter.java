@@ -45,7 +45,7 @@ public class DraftFirstTexter implements NodeSet.NodeSetTexter {
         if (e.isAlias) {
             return "0/" + sub;
         } else if( ((e.main != null)&&LDMLUtilities.isNodeDraft(e.main)) || // draft or
-            (e.proposed != null) ) { // proposed
+            (e.alts != null) ) { // proposed
             return "1/" + sub;
         } else if ((e.main == null)&&(e.fallbackLocale == null)) { // missing
             return "6/" + sub;

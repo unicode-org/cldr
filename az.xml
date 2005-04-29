@@ -8,14 +8,14 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="az" draft="true">Азәрбајҹан</language>
+			<language type="az" draft="true">azərbaycanca</language>
 		</languages>
 		<territories>
-			<territory type="AZ" draft="true">Азәрбајҹан</territory>
+			<territory type="AZ" draft="true">Azərbaycan</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters draft="true">[а-ик-хчшыјғҝүҹһәө]</exemplarCharacters>
+		<exemplarCharacters draft="true">[a-vxyzçəğıöşü]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="true">‘</quotationStart>
@@ -76,6 +76,7 @@
 							<day type="wed" draft="true">çərşənbə</day>
 							<day type="thu" draft="true">cümə axşamı</day>
 							<day type="fri" draft="true">cümə axşamı</day>
+							<day type="fri" draft="true" alt="proposed">cümə</day>
 							<day type="sat" draft="true">şənbə</day>
 						</dayWidth>
 					</dayContext>
@@ -96,15 +97,12 @@
 	<numbers>
 		<symbols>
 			<decimal draft="true">,</decimal>
-			<group draft="true"> </group>
-			<group alt="proposed" draft="true"> </group>
+			<group draft="true"> </group>
 		</symbols>
 		<currencies>
-			<default type="AZM" draft="true"/>
 			<currency type="AZM">
 				<displayName draft="true">Manat</displayName>
 				<symbol draft="true">man.</symbol>
-				<symbol alt="proposed" draft="true">ман.</symbol>
 			</currency>
 		</currencies>
 	</numbers>

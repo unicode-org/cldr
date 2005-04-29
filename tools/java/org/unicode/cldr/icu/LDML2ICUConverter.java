@@ -1134,9 +1134,13 @@ public class LDML2ICUConverter {
             String name = node.getNodeName();
             ICUResourceWriter.Resource res = null;
             if(name.equals(LDMLConstants.EXEMPLAR_CHARACTERS)){
-                if(!isDraft(node, xpath)&&!isAlternate(node)){
+                if((!isDraft(node, xpath)||writeDraft)&&!isAlternate(node)&&!isType(node,LDMLConstants.AUXILIARY)){
                     res = parseStringResource(node);
                     res.name = (String) keyNameMap.get(LDMLConstants.EXEMPLAR_CHARACTERS);
+                }
+                else if (isType(node,LDMLConstants.AUXILIARY)) {
+                	//TODO: Add this data to ICU eventually. A different name or structure is required though.
+                	printInfo("Skipping auxillary exemplar characters");
                 }
             }else if(name.equals(LDMLConstants.ALIAS)){
                 res = parseAliasResource(node, xpath);
@@ -1537,6 +1541,8 @@ public class LDML2ICUConverter {
             }else if(name.equals(LDMLConstants.ABBREVIATION_FALLBACK)){
 //              TODO
             }else if(name.equals(LDMLConstants.PREFERENCE_ORDERING)){
+//              TODO
+            }else if(name.equals(LDMLConstants.SINGLE_COUNTRIES)){
 //              TODO
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
@@ -3617,6 +3623,14 @@ public class LDML2ICUConverter {
         }
     }
 
+    private boolean isType(Node node, String type){
+        NamedNodeMap attributes = node.getAttributes();
+        Node attr = attributes.getNamedItem(LDMLConstants.TYPE);
+        if(attr!=null && attr.getNodeValue().equals(type)){
+            return true;
+        }
+        return false;
+    }
     private boolean isAlternate(Node node){
 
         NamedNodeMap attributes = node.getAttributes();

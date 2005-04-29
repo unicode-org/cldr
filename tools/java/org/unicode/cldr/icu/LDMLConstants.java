@@ -37,6 +37,7 @@ public class LDMLConstants {
     public static final String TERRITORY       = "territory";
     public static final String VARIANT         = "variant";
     public static final String TYPE            = "type";
+    public static final String AUXILIARY       = "auxiliary";
     public static final String NUMBER          = "number";
     public static final String GENERATION      = "generation";
     public static final String LANGUAGES       = "languages";
@@ -70,6 +71,7 @@ public class LDMLConstants {
     public static final String FALLBACK_FORMAT       = "fallbackFormat";
     public static final String ABBREVIATION_FALLBACK = "abbreviationFallback";
     public static final String PREFERENCE_ORDERING   = "preferenceOrdering";
+    public static final String SINGLE_COUNTRIES      = "singleCountries";
     public static final String ZONE            = "zone";
     public static final String EXEMPLAR_CITY   = "exemplarCity";
     public static final String LONG            = "long";

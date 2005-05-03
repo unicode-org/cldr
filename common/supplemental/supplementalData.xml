@@ -297,7 +297,8 @@ The printed version of ISO-4217:2001
         <region iso3166="CS">
             <currency iso4217="EUR" from="2003-02-04"/><!-- Montenegro -->
             <currency iso4217="CSD" from="2002-05-15"/><!-- Serbia -->
-            <currency iso4217="CSK" from="1953-06-01" to="1993-03"/><!-- Czechoslovakia -->
+            <currency iso4217="YUM" from="1994-01-24" to="2002-05-15"/><!-- Yugoslavian history. YU was renamed to CS. -->
+            <!-- currency iso4217="CSK" from="1953-06-01" to="1993-03"/ --><!-- Czechoslovakia (totally separate region with conflicting ISO code) -->
         </region>
         <region iso3166="CU">
             <currency iso4217="CUP" from="1859-01-01"/>
@@ -997,15 +998,16 @@ The printed version of ISO-4217:2001
             <currency iso4217="FRF" from="1976-02-23" to="2002-02-17"/>
             <currency iso4217="KMF" from="1975-01-01" to="1976-02-23"/>
         </region>
-        <region iso3166="YU">
-            <currency iso4217="YUM" from="1994-01-24" to="2002-05-15"/>
+        <!-- YU was renamed to CS -->
+        <!-- region iso3166="YU" -->
+            <!-- currency iso4217="YUM" from="1994-01-24" to="2002-05-15"/ -->
             <!-- Period of hyperinflation -->
             <!-- currency iso4217="YUG" from="1994-01-01" to="1994-07-22"/ --><!-- Not listed in the 2001 or 2004 list -->
             <!-- currency iso4217="YUO" from="1993-10-01" to="1993-12-31"/ --><!-- Not listed in the 2001 or 2004 list -->
             <!-- currency iso4217="YUR" from="1992-07-01" to="1993-10-01"/ --><!-- Not listed in the 2001 or 2004 list -->
-            <currency iso4217="YUN" from="1990-01-01" to="1992-07-24"/>
-            <currency iso4217="YUD" from="1966-01-01" to="1990-01-01"/>
-        </region>
+            <!-- currency iso4217="YUN" from="1990-01-01" to="1992-07-24"/ -->
+            <!-- currency iso4217="YUD" from="1966-01-01" to="1990-01-01"/ -->
+        <!-- /region -->
         <region iso3166="ZA">
             <currency iso4217="ZAR" from="1961-02-14"/>
         </region>

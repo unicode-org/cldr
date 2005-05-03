@@ -4,17 +4,17 @@
 	<version number="$Revision$"/>
 	<generation date="$Date$"/>
 	<alias>
-  		<languageAlias type="in" replacement="id"/>
-  		<languageAlias type="iw" replacement="he"/>
-  		<languageAlias type="ji" replacement="yi"/>
-  		<languageAlias type="jw" replacement="jv"/>
-  		<languageAlias type="sh_CS" replacement="sr_Latn_CS"/>
-  		<languageAlias type="sr_CS" replacement="sr_Cyrl_CS"/>
-  		<languageAlias type="zh_CN" replacement="zh_Hans_CN"/>
-  		<languageAlias type="zh_HK" replacement="zh_Hant_HK"/>
-  		<languageAlias type="zh_MO" replacement="zh_Hant_MO"/>
-  		<languageAlias type="zh_SG" replacement="zh_Hans_SG"/>
-  		<languageAlias type="zh_TW" replacement="zh_Hant_TW"/>
+		<languageAlias type="in" replacement="id"/>
+		<languageAlias type="iw" replacement="he"/>
+		<languageAlias type="ji" replacement="yi"/>
+		<languageAlias type="jw" replacement="jv"/>
+		<languageAlias type="sh_CS" replacement="sr_Latn_CS"/>
+		<languageAlias type="sr_CS" replacement="sr_Cyrl_CS"/>
+		<languageAlias type="zh_CN" replacement="zh_Hans_CN"/>
+		<languageAlias type="zh_HK" replacement="zh_Hant_HK"/>
+		<languageAlias type="zh_MO" replacement="zh_Hant_MO"/>
+		<languageAlias type="zh_SG" replacement="zh_Hans_SG"/>
+		<languageAlias type="zh_TW" replacement="zh_Hant_TW"/>
 		<territoryAlias type="BU" replacement="MM"/>
 		<territoryAlias type="DY" replacement="BJ"/>
 		<territoryAlias type="HV" replacement="BF"/>
@@ -1081,8 +1081,8 @@ XXX	Code for transations where no currency is involved
 		<group type="057" contains="FM GU KI MH MP NR PW"/> <!--Micronesia -->
 		<group type="061" contains="AS CK NU PF PN TK TO TV WF WS"/> <!--Polynesia -->
 		<group type="062" contains="AF BD BT IN IR KG KZ LK MV NP PK TJ TM UZ"/> <!--South-central Asia -->
-		<group type="009" contains="053 054 057 061 ZZ"/> <!--Oceania -->
-		<group type="ZZ" contains="AQ BV CC CX GS HM IO TF UM"/> <!--Outlying Oceania -->
+		<group type="009" contains="053 054 057 061 QO"/> <!--Oceania -->
+		<group type="QO" contains="AQ BV CC CX GS HM IO TF UM"/> <!--Outlying Oceania -->
 	</territoryContainment>
 	<languageData>
 		<language type="ab" scripts="Cyrl" territories="GE" alt="secondary"/>

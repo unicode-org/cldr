@@ -59,9 +59,7 @@ import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Utility;
 
 /**
- * Generated tests for CLDR. Currently, these are driven off of a version of ICU4J, and just
- * use the data from that.
- * TODO Get the data directly from the CLDR tree.
+ * Generated tests for CLDR.
  * @author medavis
  */
 
@@ -1452,7 +1450,7 @@ public class GenerateCldrTests {
     public static final CloseCodePoint CCCP = new CloseCodePoint() {
         Locale locale = Locale.ENGLISH;
         UnicodeSet NONE = new UnicodeSet();
-        UnicodeMap map = new UnicodeMap(new UnicodeSetComparator());
+        UnicodeMap map = new UnicodeMap(); // new UnicodeSetComparator()
 
         public UnicodeSet close(int cp, UnicodeSet toAddTo) {
             UnicodeSet result = (UnicodeSet) map.getValue(cp);

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -29,10 +30,14 @@ import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
+import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.FileUtilities;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 
@@ -59,6 +64,10 @@ public class ShowLanguages {
 		LanguageInfo linfo = new LanguageInfo(cldrFactory);
 		StringWriter sw = new StringWriter();
 		PrintWriter pw = new PrintWriter(sw);
+		
+		linfo.printAliases(pw);
+		linfo.printCurrency(pw);
+
 		pw.println("<div align='center'><table><tr><td>");
 		linfo.print(pw, "Language \u2192 Territories", CLDRFile.LANGUAGE_NAME, CLDRFile.TERRITORY_NAME);
 		pw.println("</td><td>");
@@ -89,7 +98,9 @@ public class ShowLanguages {
 			contents += "<li><a href='#" + anchor + "'>" + title + "</a></li>";
 		}
 		contents += "</ul>";
-		String[] replacements = {"%contents%", contents, "%data%", sw.toString()};
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm 'GMT'");
+		df.setTimeZone(TimeZone.getTimeZone("GMT"));
+		String[] replacements = {"%date%", df.format(new Date()), "%contents%", contents, "%data%", sw.toString()};
 		PrintWriter pw2 = BagFormatter.openUTF8Writer(Utility.COMMON_DIRECTORY + "../diff/supplemental/", filename);
 		FileUtilities.appendFile("org/unicode/cldr/tool/supplemental.html", "utf-8", pw2, replacements);
 		pw2.close();
@@ -101,37 +112,191 @@ public class ShowLanguages {
 		Map territory_languages;
 		Map script_languages;
 		Map group_contains = new TreeMap();
+		Set aliases = new TreeSet(new ArrayComparator(new Comparator[]{new UTF16.StringComparator(), col}));
+		Comparator col3 = new ArrayComparator(new Comparator[]{col, col, col});
+		Map currency_fractions = new TreeMap(col);
+		Map currency_territory = new TreeMap(col);
+		Map territory_currency = new TreeMap(col);
+		Set territoriesWithCurrencies = new TreeSet();
+		Set currenciesWithTerritories = new TreeSet();
+
+		String defaultDigits = null;
 
 		public LanguageInfo(Factory cldrFactory) {
 			CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
 			XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
 			for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
 				String path = (String) it.next();
+				parts.set(supp.getFullXPath(path));
 				if (path.indexOf("/territoryContainment") >= 0) {
-					parts.set(supp.getFullXPath(path));
 					Map attributes = parts.findAttributes("group");
 					String type = (String) attributes.get("type");
 					addTokens(type, (String) attributes.get("contains"), " ", group_contains);
 					continue;
 				}
 				
-				if (path.indexOf("/languageData") < 0) continue;
-				parts.set(supp.getFullXPath(path));
-				Map attributes = parts.findAttributes("language");
-				String language = (String) attributes.get("type");
-				String alt = (String) attributes.get("alt");
-				addTokens(language, (String) attributes.get("scripts"), " ", language_scripts);
-				// mark the territories
-				if (alt == null) ; // nothing
-				else if ("secondary".equals(alt)) language += "*";
-				else language += "*" + alt;
-				//<language type="af" scripts="Latn" territories="ZA"/>
-				addTokens(language, (String) attributes.get("territories"), " ", language_territories);
+				if (path.indexOf("/alias") >= 0) {
+					String element = parts.getElement(parts.size() - 1);
+					Map attributes = parts.getAttributes(parts.size() - 1);
+					String type = (String) attributes.get("type");
+					if (!element.endsWith("Alias")) throw new IllegalArgumentException("Unexpected alias element: " + element);
+					element = element.substring(0,element.length() - 5);
+					String replacement = (String) attributes.get("replacement");
+					if (element.equals("language")) {
+						aliases.add(new String[] {type, getName(replacement, false)});
+					} else {
+						int typeCode = CLDRFile.typeNameToCode(element);
+						aliases.add(new String[] {type, getName(typeCode, replacement, false)});
+					}
+					continue;
+				}
+
+				if (path.indexOf("/currencyData") >= 0) {
+					if (path.indexOf("/fractions") >= 0) {
+						//<info iso4217="ADP" digits="0" rounding="0"/>
+						String element = parts.getElement(parts.size() - 1);
+						if (!element.equals("info")) throw new IllegalArgumentException("Unexpected fractions element: " + element);
+						Map attributes = parts.getAttributes(parts.size() - 1);
+						String iso4217 = (String) attributes.get("iso4217");
+						String digits = (String) attributes.get("digits");
+						String rounding = (String) attributes.get("rounding");
+						digits = digits + (rounding.equals("0") ? "" : " (" + rounding + ")");
+						if (iso4217.equals("DEFAULT")) defaultDigits = digits;
+						else currency_fractions.put(getName(CLDRFile.CURRENCY_NAME, iso4217, false), digits);
+						continue;
+					}
+					//<region iso3166="AR">
+					//	<currency iso4217="ARS" from="1992-01-01"/>
+					if (path.indexOf("/region") >= 0) {
+						Map attributes = parts.getAttributes(parts.size() - 2);
+						String iso3166 = (String)attributes.get("iso3166");
+						attributes = parts.getAttributes(parts.size() - 1);						
+						String iso4217 = (String) attributes.get("iso4217");
+						String to = (String) attributes.get("to");
+						if (to == null) to = "\u221E";
+						String from = (String) attributes.get("from");
+						if (from == null) from = "-\u221E";
+						String countryName = getName(CLDRFile.TERRITORY_NAME, iso3166, false);
+						String currencyName = getName(CLDRFile.CURRENCY_NAME, iso4217, false);
+						Set info = (Set) territory_currency.get(countryName);
+						if (info == null) territory_currency.put(countryName, info = new TreeSet(col3));
+						info.add(new String[] {from, to, currencyName});
+						info = (Set) currency_territory.get(currencyName);
+						if (info == null) currency_territory.put(currencyName, info = new TreeSet(col));
+						info.add(countryName);
+						territoriesWithCurrencies.add(iso3166);
+						currenciesWithTerritories.add(iso4217);
+						continue;
+					}
+				}				
+				
+				if (path.indexOf("/languageData") >= 0) {
+					Map attributes = parts.findAttributes("language");
+					String language = (String) attributes.get("type");
+					String alt = (String) attributes.get("alt");
+					addTokens(language, (String) attributes.get("scripts"), " ", language_scripts);
+					// mark the territories
+					if (alt == null) ; // nothing
+					else if ("secondary".equals(alt)) language += "*";
+					else language += "*" + alt;
+					//<language type="af" scripts="Latn" territories="ZA"/>
+					addTokens(language, (String) attributes.get("territories"), " ", language_territories);
+					continue;
+				}
+				if (path.indexOf("/generation") >= 0 || path.indexOf("/version") >= 0) continue;
+				System.out.println("Unknown Element: " + path);
 			}
 			territory_languages = getInverse(language_territories);
 			script_languages = getInverse(language_scripts);
 		}
 		
+		/**
+		 * 
+		 */
+		public void printCurrency(PrintWriter pw) {
+			doTitle(pw, "Country \u2192 Currency");
+			pw.println("<tr><th class='source'>Territory</th><th class='target'>From</th><th class='target'>To</th><th class='target'>Currency</th></tr>");
+			for (Iterator it = territory_currency.keySet().iterator(); it.hasNext();) {
+				String territory = (String)it.next();
+				pw.println("<tr><td class='source'>" + territory + "</td></tr>");
+				Set info = (Set)territory_currency.get(territory);
+				for (Iterator it2 = info.iterator(); it2.hasNext();) {
+					String[] items = (String[]) it2.next();
+					pw.println("<tr><td>&nbsp;</td><td class='target'>" + items[0]
+							+ "</td><td class='target'>" + items[1]
+							+ "</td><td class='target'>" + items[2]
+							+ "</td></tr>");
+				}
+			}
+			pw.println("</table></div>");
+
+			doTitle(pw, "Currency Format Info");
+			pw.println("<tr><th class='source'>Currency</th><th class='target'>Digits</th><th class='target'>Countries</th></tr>");
+			Set currencyList = new TreeSet(col);
+			currencyList.addAll(currency_fractions.keySet());
+			currencyList.addAll(currency_territory.keySet());
+
+			for (Iterator it = currencyList.iterator(); it.hasNext();) {
+				String currency = (String)it.next();
+				String fractions = (String)currency_fractions.get(currency);
+				if (fractions == null) fractions = defaultDigits;
+				Set territories = (Set)currency_territory.get(currency);
+				pw.print("<tr><td class='source'>" + currency + "</td><td class='target'>" + fractions + "</td><td class='target'>");
+				if (territories != null) {
+					boolean first = true;
+					for (Iterator it2 = territories.iterator(); it2.hasNext();) {
+						if (first) first = false;
+						else pw.print(", ");
+						pw.print(it2.next());
+					}
+				}
+				pw.println("</td></tr>");
+			}
+			pw.println("</table></div>");
+			
+			if (false) {
+				doTitle(pw, "Territories Versus Currencies");
+				pw.println("<tr><th>Territories Without Currencies</th><th>Currencies Without Territories</th></tr>");
+				pw.println("<tr><td class='target'>");
+				Set territoriesWithoutCurrencies = new TreeSet();
+				territoriesWithoutCurrencies.addAll(sc.getGoodAvailableCodes("territory"));
+				territoriesWithoutCurrencies.removeAll(territoriesWithCurrencies);
+				territoriesWithoutCurrencies.removeAll(group_contains.keySet());
+				boolean first = true;
+				for (Iterator it = territoriesWithoutCurrencies.iterator(); it.hasNext();) {
+					if (first) first = false;
+					else pw.print(", ");
+					pw.print(english.getName(CLDRFile.TERRITORY_NAME, it.next().toString(), false));				
+				}
+				pw.println("</td><td class='target'>");
+				Set currenciesWithoutTerritories = new TreeSet();
+				currenciesWithoutTerritories.addAll(sc.getGoodAvailableCodes("currency"));
+				currenciesWithoutTerritories.removeAll(currenciesWithTerritories);
+				first = true;
+				for (Iterator it = currenciesWithoutTerritories.iterator(); it.hasNext();) {
+					if (first) first = false;
+					else pw.print(", ");
+					pw.print(english.getName(CLDRFile.CURRENCY_NAME, it.next().toString(), false));				
+				}
+				pw.println("</td></tr>");
+				pw.println("</table></div>");
+			}
+		}
+
+		/**
+		 * 
+		 */
+		public void printAliases(PrintWriter pw) {
+			doTitle(pw, "Aliases");
+			for (Iterator it = aliases.iterator(); it.hasNext();) {
+				String[] items = (String[])it.next();
+				pw.println("<tr><td class='source'>" + items[0] + "</td><td class='target'>" + items[1] + "</td></tr>");
+			}
+			pw.println("</table></div>");
+		}
+		
+		//<info iso4217="ADP" digits="0" rounding="0"/>
+
 		public void printContains(PrintWriter pw) {
 			String title = "Territory Containment (UN M.49)";
 			doTitle(pw, title);
@@ -250,6 +415,13 @@ public class ShowLanguages {
 			return codeFirst ? "[" + oldcode +"]\t" + (ename == null ? code : ename)
 					: (ename == null ? code : ename) + "\t[" + oldcode +"]";
 		}
+		
+		private String getName(String locale, boolean codeFirst) {
+			String ename = english.getName(locale, false);
+			return codeFirst ? "[" + locale +"]\t" + (ename == null ? locale : ename)
+					: (ename == null ? locale : ename) + "\t[" + locale +"]";
+		}
+		
 		
 		Comparator territoryNameComparator = new Comparator () {
 			public int compare(Object o1, Object o2) {

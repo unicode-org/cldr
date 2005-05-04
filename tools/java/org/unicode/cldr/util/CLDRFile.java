@@ -1437,7 +1437,7 @@ private boolean isSupplemental;
 	 * @param type
 	 * @return
 	 */
-	private static int typeNameToCode(String type) {
+	public static int typeNameToCode(String type) {
 		for (int i = 0; i < TYPE_NAME.length; ++i) {
 			if (type.equalsIgnoreCase(TYPE_NAME[i])) return i;
 		}

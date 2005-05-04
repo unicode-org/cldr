@@ -79,6 +79,8 @@ public class CLDRTest extends TestFmwk {
 	private static final String[] MONTHORDAYS = {"day", "month"};
 	private Map localeNameCache = new HashMap();
 	private CLDRFile english = null;
+	
+	private Set surveyInfo = new TreeSet();
 		
 	/**
 	 * TestFmwk boilerplate
@@ -97,7 +99,17 @@ public class CLDRTest extends TestFmwk {
         new CLDRTest().run(args);
         deltaTime = System.currentTimeMillis() - deltaTime;
         System.out.println("Seconds: " + deltaTime/1000);
+        
     }
+	
+	public void TestZZZZHack() throws IOException {
+		// hack to get file written at the end of run.
+        PrintWriter surveyFile = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, "surveyInfo.txt");
+        for (Iterator it = surveyInfo.iterator(); it.hasNext();) {
+        	surveyFile.println(it.next());
+        }
+        surveyFile.close();
+	}
 	
 	/**
 	 * TestFmwk boilerplate
@@ -300,7 +312,8 @@ public class CLDRTest extends TestFmwk {
 					count++;
 					UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
 					localeMissing.addAll(missing);
-					logln(getLocaleAndName(locale) + "\t" + xpath + "\t<" + value + "> contains " + missing + ", not in exemplars");					
+					logln(getLocaleAndName(locale) + "\t" + xpath + "\t<" + value + "> contains " + missing + ", not in exemplars");	
+					surveyInfo.add(locale + "\t" + xpath + "\t'" + value + "' contains characters " + missing.toPattern(false) + ", which are not in exemplars");
 				}
 			}
 			NumberFormat nf = new DecimalFormat("000");
@@ -498,6 +511,7 @@ public class CLDRTest extends TestFmwk {
 					continue;
 				}
 				collisions.add(CLDRFile.getNameTypeName(nameType) + "\t" + value + "\t" + xpath + "\t" + xpath2);
+				surveyInfo.add(locale + "\t" + xpath + "\t'" + value + "' is a duplicate of what is in " + xpath2);
 			}
 			String name = getLocaleAndName(locale) + "\t";
 			for (Iterator it2 = collisions.iterator(); it2.hasNext();) {
@@ -1146,6 +1160,7 @@ public class CLDRTest extends TestFmwk {
 					int end = getXGraphemeClusterBoundary(bi, value, 0);
 					if (end == value.length()) continue;
 					errln(getLocaleAndName(locale) + "\tillegal narrow value " + value + "\t path: " + xpath);
+					surveyInfo.add(locale + "\t" + xpath + "\t'" + value + "' is too wide for a \"narrow\" value.");
 				}
 			}
 		}

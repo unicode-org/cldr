@@ -655,7 +655,10 @@ root</pre>
   <p><span>If the <b>path</b> attribute is present, then its value is an XPath that points to a 
   different node in the tree. For example:</span></p>
   <pre><span>&lt;alias source=&quot;root&quot; path=&quot;../monthWidth[@type=&#39;wide&#39;]&quot;/&gt;</span></pre>
-  <p><span>The default value if the path is not present is the same position in the tree.</span></p>
+  <p><span>The default value if the path is not present is the same position in the tree. </span>
+  <span class="changedspan"><span>All of the attributes in the XPath must be <i>distinguishing</i> 
+  elements. </span></span>For more details, see <a href="#Inheritance_and_Validity">Appendix I: 
+  Inheritance and Validity</a>.</p>
   <p><span class="changedspan">There is a special value for the source attribute, the constant <b>
   source=&quot;locale&quot;</b>, which is the default value. This special value is equivalent to the locale 
   being resolved. For example, consider the following example, where locale data for &#39;de&#39; is being 
@@ -721,8 +724,7 @@ root</pre>
   whereby &lt;c&gt; is inherited from root. The second shows the inheritance within the &lt;y&gt; element, 
   whereby &lt;a&gt;, &lt;c&gt;, and &lt;d&gt; are inherited also from root, but from an alias there. The alias in root 
   is logically replaced not by the elements in root itself, but by elements in the &#39;target&#39; locale.</span></span></p>
-  <p><span class="changedspan"><span>All of the attributes in the XPath must be <i>distinguishing</i> 
-  elements. </span></span>For more details <span class="changedspan">on data resolution</span>, see
+  <p>For more details <span class="changedspan">on data resolution</span>, see
   <a href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a>.</p>
   <p><span>It is an error to have a circular chain of aliases. That is, a collection of LDML XML 
   documents must not have situations where a sequence of alias lookups (including inheritance and 

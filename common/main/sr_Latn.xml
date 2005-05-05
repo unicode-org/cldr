@@ -21,6 +21,7 @@
 			<language type="de">Nemački</language>
 			<language type="el">Grčki</language>
 			<language type="en">Engleski</language>
+			<language type="eo">Esperanto</language>
 			<language type="es">Španski</language>
 			<language type="et">Estonski</language>
 			<language type="eu">Baskijski</language>
@@ -29,6 +30,7 @@
 			<language type="fr">Francuski</language>
 			<language type="ga">Irski</language>
 			<language type="he">Hebrejski</language>
+			<language type="hi" draft="true">Hindi</language>
 			<language type="hr">Hrvatski</language>
 			<language type="hu">Mađarski</language>
 			<language type="hy">Armenski</language>
@@ -55,6 +57,7 @@
 			<language type="rm">Reto-Romanski</language>
 			<language type="ro">Rumunski</language>
 			<language type="ru">Ruski</language>
+			<language type="sa">Sanskrit</language>
 			<language type="sh">Srpsko-Hrvatski</language>
 			<language type="sk">Slovački</language>
 			<language type="sl">Slovenački</language>
@@ -63,7 +66,7 @@
 			<language type="sv">Švedski</language>
 			<language type="sw">Svahili</language>
 			<language type="tr">Turski</language>
-			<language type="uk">Ukrajnski</language>
+			<language type="uk">Ukrajinski</language>
 			<language type="vi">Vijetnamski</language>
 			<language type="yi">Jidiš</language>
 			<language type="zh">Kineski</language>
@@ -107,7 +110,7 @@
 			<territory type="039" draft="true">Južna Evropa</territory>
 			<territory type="053" draft="true">Australija i Novi Zeland</territory>
 			<territory type="054" draft="true">Melanezija</territory>
-			<territory type="057" draft="true">Micronezija</territory>
+			<territory type="057" draft="true">Mikronezija</territory>
 			<territory type="061" draft="true">Polinezija</territory>
 			<territory type="062" draft="true">Južno-centralna Azija</territory>
 			<territory type="142" draft="true">Azija</territory>
@@ -188,7 +191,7 @@
 			<territory type="ET">Etiopija</territory>
 			<territory type="FI">Finska</territory>
 			<territory type="FJ">Fidži</territory>
-			<territory type="FK">Folklendska Ostrva</territory>
+			<territory type="FK">Folklandska Ostrva</territory>
 			<territory type="FM">Mikronezija</territory>
 			<territory type="FO">Farska Ostrva</territory>
 			<territory type="FR">Francuska</territory>
@@ -229,7 +232,7 @@
 			<territory type="JO">Jordan</territory>
 			<territory type="JP">Japan</territory>
 			<territory type="KE">Kenija</territory>
-			<territory type="KG">Kirgistan</territory>
+			<territory type="KG">Kirgizstan</territory>
 			<territory type="KH">Kambodža</territory>
 			<territory type="KI">Kiribati</territory>
 			<territory type="KM">Komorska Ostrva</territory>
@@ -243,7 +246,7 @@
 			<territory type="LB">Liban</territory>
 			<territory type="LC">Sent Lucija</territory>
 			<territory type="LI">Lihtenštajn</territory>
-			<territory type="LK">Šrilanka</territory>
+			<territory type="LK">Šri Lanka</territory>
 			<territory type="LR">Liberija</territory>
 			<territory type="LS">Lesoto</territory>
 			<territory type="LT">Litvanija</territory>
@@ -263,7 +266,7 @@
 			<territory type="MP">Severna Marijanska Ostrva</territory>
 			<territory type="MQ">Martinik</territory>
 			<territory type="MR">Mauritanija</territory>
-			<territory type="MS">Montserrat</territory>
+			<territory type="MS">Monserat</territory>
 			<territory type="MT">Malta</territory>
 			<territory type="MU">Mauricius</territory>
 			<territory type="MV">Maldivi</territory>
@@ -305,14 +308,14 @@
 			<territory type="RU">Rusija</territory>
 			<territory type="RW">Ruanda</territory>
 			<territory type="SA">Saudijska Arabija</territory>
-			<territory type="SB">Solomon Islands</territory>
+			<territory type="SB">Solomonska Ostrva</territory>
 			<territory type="SC">Sejšeli</territory>
 			<territory type="SD">Sudan</territory>
 			<territory type="SE">Švedska</territory>
 			<territory type="SG">Singapur</territory>
-			<territory type="SH">Saint Helena</territory>
+			<territory type="SH">Sveta Jelena</territory>
 			<territory type="SI">Slovenija</territory>
-			<territory type="SJ">Svalbard i Jan Majen</territory>
+			<territory type="SJ">Svalbard i Janmajen Ostrva</territory>
 			<territory type="SK">Slovačka</territory>
 			<territory type="SL">Sijera Leone</territory>
 			<territory type="SM">San Marino</territory>
@@ -352,14 +355,33 @@
 			<territory type="VI">S.A.D. Devičanska Ostrva</territory>
 			<territory type="VN">Vijetnam</territory>
 			<territory type="VU">Vanuatu</territory>
-			<territory type="WF">Valis i Futuna</territory>
+			<territory type="WF">Valis i Futuna Ostrva</territory>
 			<territory type="WS">Samoa</territory>
 			<territory type="YE">Jemen</territory>
-			<territory type="YT">Mayotte</territory>
+			<territory type="YT">Majote</territory>
 			<territory type="ZA">Južna Afrika</territory>
 			<territory type="ZM">Zambija</territory>
 			<territory type="ZW">Zimbabve</territory>
 		</territories>
+		<keys>
+			<key type="calendar">Kalendar</key>
+			<key type="collation">Sortiranje</key>
+			<key type="currency">Valuta</key>
+		</keys>
+		<types>
+			<type type="buddhist" key="calendar">Budistički kalendar</type>
+			<type type="chinese" key="calendar">Kineski kalendar</type>
+			<type type="direct" key="collation">Direktno sortiranje</type>
+			<type type="gregorian" key="calendar">Gregorijanski kalendar</type>
+			<type type="hebrew" key="calendar">Hebrejski kalendar</type>
+			<type type="islamic" key="calendar">Islamski kalendar</type>
+			<type type="islamic-civil" key="calendar">Islamski civilni kalendar</type>
+			<type type="japanese" key="calendar">Japanski kalendar</type>
+			<type type="phonebook" key="collation">Sortiranje po azbuci</type>
+			<type type="pinyin" key="collation">Pinjin sortiranje</type>
+			<type type="stroke" key="collation">Sortiranje po broju crta</type>
+			<type type="traditional" key="collation">Tradicionalno sortiranje</type>
+		</types>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a-p r-v z đ ć č ž š {lj} {nj} {dž}]</exemplarCharacters>
@@ -448,6 +470,9 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<week>
+					<firstDay day="mon"/>
+				</week>
 				<eras>
 					<eraAbbr>
 						<era type="0">p. n. e.</era>
@@ -477,6 +502,9 @@
 			<zone type="Africa/Kinshasa">
 				<exemplarCity draft="true">Kinšasa</exemplarCity>
 			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity draft="true">Lubumbaši</exemplarCity>
+			</zone>
 			<!-- China -->
 			<zone type="Asia/Shanghai">
 				<exemplarCity draft="true">Šangaj</exemplarCity>
@@ -484,8 +512,12 @@
 			<zone type="Europe/Belgrade">
 				<long>
 					<standard>Centralno Evropsko Vreme</standard>
-					<daylight>Centralno Evropsko Letnje Vreme</daylight>
+					<daylight>Centralno Evropsko Vreme</daylight>
 				</long>
+				<short>
+					<standard>CET</standard>
+					<daylight>CET</daylight>
+				</short>
 			</zone>
 			<!-- Russia -->
 			<zone type="Europe/Moscow">
@@ -518,17 +550,118 @@
 	</dates>
 	<numbers>
 		<currencies>
+			<currency type="ATS">
+				<displayName>Austrijski šiling</displayName>
+			</currency>
+			<currency type="AUD">
+				<displayName>Australijski dolar</displayName>
+				<symbol>$A</symbol>
+			</currency>
+			<currency type="BAM">
+				<displayName>Konvertibilna marka</displayName>
+				<symbol>KM</symbol>
+			</currency>
+			<currency type="BEF">
+				<displayName>Belgijski franak</displayName>
+				<symbol>BF</symbol>
+			</currency>
 			<currency type="BRL">
 				<displayName draft="true">Brazilski Real</displayName>
 			</currency>
+			<currency type="CAD">
+				<displayName>Kanadski dolar</displayName>
+				<symbol>Can$</symbol>
+			</currency>
+			<currency type="CHF">
+				<displayName>Švajcarski franak</displayName>
+				<symbol>SwF</symbol>
+			</currency>
 			<currency type="CNY">
-				<displayName draft="true">Kineski Yuan Renminbi</displayName>
+				<displayName draft="true">Kineski Juan Renminbi</displayName>
+				<symbol draft="true">U</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName draft="true">Srpski Dinar</displayName>
+				<symbol draft="true">YUN</symbol>
+			</currency>
+			<currency type="DEM">
+				<displayName>Nemačka marka</displayName>
+			</currency>
+			<currency type="DKK">
+				<displayName>Danska kruna</displayName>
+				<symbol>DKr</symbol>
+			</currency>
+			<currency type="ESP">
+				<displayName>Španska pezeta</displayName>
+			</currency>
+			<currency type="EUR">
+				<displayName>EVRO</displayName>
+			</currency>
+			<currency type="FIM">
+				<displayName>Finska marka</displayName>
+			</currency>
+			<currency type="FRF">
+				<displayName>Francuski franak</displayName>
+			</currency>
+			<currency type="GBP">
+				<displayName>Funta sterlinga</displayName>
+			</currency>
+			<currency type="GRD">
+				<displayName>Drahma</displayName>
+			</currency>
+			<currency type="HRD">
+				<displayName>Hrvatski dinar</displayName>
+			</currency>
+			<currency type="HRK">
+				<displayName>Kuna</displayName>
+			</currency>
+			<currency type="IEP">
+				<displayName>Irska funta</displayName>
+				<symbol>IR£</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName draft="true">Indijski Rupi</displayName>
+				<symbol draft="true">INR</symbol>
+			</currency>
+			<currency type="ITL">
+				<displayName>Italijanska lira</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName>Jen</displayName>
+			</currency>
+			<currency type="KWD">
+				<displayName>Kuvajtski dinar</displayName>
+				<symbol>KD</symbol>
+			</currency>
+			<currency type="LUF">
+				<displayName>Luksemburški franak</displayName>
+			</currency>
+			<currency type="NLG">
+				<displayName>Holandski gulden</displayName>
+			</currency>
+			<currency type="NOK">
+				<displayName>Norveška kruna</displayName>
+				<symbol>NKr</symbol>
+			</currency>
+			<currency type="PTE">
+				<displayName>Portugalski eskudo</displayName>
+			</currency>
+			<currency type="RUB">
+				<displayName>Ruska rublja</displayName>
+			</currency>
+			<currency type="RUR">
+				<displayName>Ruska rublja (1991-1998)</displayName>
+			</currency>
+			<currency type="SEK">
+				<displayName>Švedska kruna</displayName>
+				<symbol>SKr</symbol>
+			</currency>
+			<currency type="SIT">
+				<displayName>Tolar</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName>Američki dolar</displayName>
+				<symbol>US$</symbol>
 			</currency>
 			<currency type="YUN">
 				<symbol>Din</symbol>
@@ -540,7 +673,7 @@
 			<yesstr draft="true">da:d</yesstr>
 			<nostr draft="true">ne:n</nostr>
 			<yesexpr draft="true">^([yY]([eE][sS])?)|([dD][aA]?)</yesexpr>
-			<noexpr draft="true">^[nN][oOeE]?</noexpr>
+			<noexpr draft="true">^([nN][oO]?)|([nN][eE]?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

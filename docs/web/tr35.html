@@ -3021,6 +3021,30 @@ America/Kentucky/Monticello&quot;&gt;
     </tr>
   </table>
   <p><span class="changedspan">In each case, multiple items are space-delimited.</span></p>
+  <h5><span class="changedspan">&lt;characters&gt;</span></h5>
+  <p><span class="changedspan">The characters element provides a way for non-Unicode systems, or 
+  systems that only support a subset of Unicode characters, to transform CLDR data. It gives a list 
+  of characters with alternative values that can be used if the main value is not available. For 
+  example:</span></p>
+  <pre><span class="changedspan">&lt;characters&gt;
+     &lt;fallback&gt;
+	&lt;character value = &quot;ß&quot;&gt;
+		&lt;alternate&gt;ss&lt;/alternate&gt;
+	&lt;/character&gt;
+	&lt;character value = &quot;Ø&quot;&gt;
+		&lt;alternate&gt;Ö&lt;/alternate&gt;
+		&lt;alternate&gt;O&lt;/alternate&gt;
+	&lt;/character&gt;
+	&lt;character value = &quot;<font SIZE="4">₧</font>&quot;&gt;
+		&lt;alternate&gt;Pts&lt;/alternate&gt;
+	&lt;/character&gt;
+	&lt;character value = &quot;<font SIZE="4">₣</font>&quot;&gt;
+		&lt;alternate&gt;Fr.&lt;/alternate&gt;
+	&lt;/character&gt;
+     &lt;/fallback&gt; 
+&lt;/characters&gt;</span></pre>
+  <p><span class="changedspan">The ordering of the alternate elements indicates the preference among 
+  them.</span></p>
   <h2>Appendix D: <a name="Language_and_Locale_IDs">Language and Locale IDs</a></h2>
   <p>People have very slippery notions of what distinguishes a language code vs. a locale code. The 
   problem is that both are somewhat nebulous concepts.</p>

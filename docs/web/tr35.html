@@ -269,9 +269,12 @@ span.attributeValue { font-weight: color: blue}
   </blockquote>
   <p>The field values are given in the following table. All field values are case-insensitive, 
   except for the <i>type</i>, which is case-sensitive. However, customarily the language code is 
-  lowercase, the territory and variant codes are uppercase, and the script code is titlecase (that 
-  is, first character uppercase and other characters lowercase). <span>The <i>type</i> may also be 
-  referred to as a <i>key-value</i>, for clarity.</span></p>
+  lowercase, the territory and variant codes are uppercase, the script code is titlecase (that is, 
+  first character uppercase and other characters lowercase), <span class="changedspan">and variants 
+  are uppercase. This convention is used in the file names, which may be case-sensitive depending on 
+  the operating system. Customarily the currency IDs are uppercase and timezone IDs are titlecase by 
+  field (as defined in the timezone database); other key and type codes are lowercase</span>. <span>
+  The <i>type</i> may also be referred to as a <i>key-value</i>, for clarity.</span></p>
   <table>
     <caption>Locale Field Definitions</caption>
     <tr>
@@ -379,15 +382,15 @@ de_DE@collation=phonebook,currency=<span>DDM</span></pre>
       <td><span>As defined in RFC 3066</span></td>
     </tr>
     <tr>
-      <td>bokmal</td>
+      <td>BOKMAL</td>
       <td>Bokmål, variant of Norwegian <span>(deprecated: use nb)</span></td>
     </tr>
     <tr>
-      <td>nynorsk</td>
+      <td>NYNORSK</td>
       <td>Nynorsk, variant of Norwegian <span>(deprecated: use nn)</span></td>
     </tr>
     <tr>
-      <td>aaland</td>
+      <td>AALAND</td>
       <td>Åland, variant of Swedish used in Finland <span>(deprecated: use AX) </span></td>
     </tr>
     <tr>
@@ -397,6 +400,10 @@ de_DE@collation=phonebook,currency=<span>DDM</span></pre>
     <tr>
       <td><span>REVISED</span></td>
       <td><span>For revised orthography</span></td>
+    </tr>
+    <tr>
+      <td class="changed">SAAHO</td>
+      <td class="changed">The Saaho variant of <b>Afar</b></td>
     </tr>
   </table>
   </center>
@@ -2840,13 +2847,13 @@ root</pre>
     </center>
   </div>
   <p><b><span class="changedspan">Note: </span></b><span class="changedspan">the above syntax with
-  <i>alt</i> and <i>before</i> is now deprecated. That means that it is still valid, but 
+  <i>alternate</i> and <i>before</i> is now deprecated. That means that it is still valid, but 
   discouraged. Instead, the following syntax is preferred:</span></p>
   <pre><span class="changedspan">    &lt;region iso3166=&quot;IT&quot;&gt; &lt;!-- Italy --&gt;
       &lt;currency iso4217=&quot;EUR&quot; from=&quot;2002-01-01&quot;/&gt;
       &lt;currency iso4217=&quot;ITL&quot; to=&quot;2001-12-31&quot;/&gt;
     &lt;/region&gt;</span></pre>
-  <p><span class="changedspan">That is, each currency element would list an interval in which it was 
+  <p><span class="changedspan">That is, each currency element wil list an interval in which it was 
   valid. The<i>ordering</i> of the elements in the list tells us which was the primary currency 
   during any period in time. Here is an example of such an overlap:</span></p>
   <p><span class="changedspan">&lt;currency iso4217=&quot;CSD&quot; to=&quot;05/15/2002&quot;/&gt;<br>
@@ -3536,22 +3543,6 @@ America/Kentucky/Monticello&quot;&gt;
   <p><span>All non-letter character represent themselves in a pattern, except for the single quote. 
   It is used to &#39;escape&#39; letters. Two single quotes in a row, whether inside or outside a quoted 
   sequence, represent a &#39;real&#39; single quote.</span></p>
-  <p><span class="changedspan">The punctuation marks &#39;/&#39; and &#39;:&#39; are treated as variables, and 
-  replaced by the contents of the following fields.</span></p>
-  <pre><span class="changedspan">    &lt;shortDateSeparator&gt;/&lt;/shortDateSeparator&gt;
-    &lt;shortTimeSeparator&gt;:&lt;/shortTimeSeparator&gt;</span></pre>
-  <p><span class="changedspan">In addition, the following elements provide alternative input for 
-  these characters:</span></p>
-  <pre><span class="changedspan">    &lt;input&gt;
-        &lt;shortDateSeparator&gt;-&lt;/shortDateSeparator&gt;
-        &lt;shortDateSeparator&gt;.&lt;/shortDateSeparator&gt;
-        &lt;shortTimeSeparator&gt;:&lt;/shortTimeSeparator&gt;
-    &lt;/input&gt;</span></pre>
-  <p><span class="changedspan">Issue: should we make these instead</span></p>
-  <pre><span class="changedspan">    &lt;shortDateSeparator type=&quot;input1&quot;&gt;-&lt;/shortDateSeparator&gt;
-    &lt;shortDateSeparator type=&quot;input2&quot;&gt;.&lt;/shortDateSeparator&gt;
-    &lt;shortTimeSeparator type=&quot;input1&quot;&gt;.&lt;/shortTimeSeparator&gt;</span></pre>
-  <p><span class="changedspan">Would probably make it easier to process.</span></p>
   <h3><a name="&lt;localizedPatternChars&gt;"><span>localizedPatternChars</span></a></h3>
   <p><span>These are characters that can be used when displaying a date pattern to an end user. This 
   can occur, for example, when a spreadsheet allows users to specify date patterns. Whatever is in 

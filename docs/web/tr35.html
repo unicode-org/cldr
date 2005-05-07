@@ -5332,6 +5332,8 @@ decimal?, group?, special*)) &gt;</span></pre>
     <li><span class="changedspan">All attributes with defaulted values are suppressed. See the
     <a href="http://www.unicode.org/cldr/data/docs/design/ldml_canonical_form.html#Defaulted_Values_Table">
     Defaulted Attributes Table</a></span></li>
+    <li><span class="changedspan">The draft and alt=&quot;proposed.*&quot; attributes are only on leaf 
+    elements.</span></li>
   </ol>
   <p><span class="changedspan"><i>Example:</i></span></p>
   <pre><span class="changedspan">&lt;ldml draft=&quot;true&quot; &gt;
@@ -5423,8 +5425,6 @@ decimal?, group?, special*)) &gt;</span></pre>
   appended to the final comment in the document.</span></p>
   <p><span class="changedspan">Multiline comments will have leading tabs stripped, so any 
   indentation should be done with spaces.</span></p>
-  <p><i><span class="changedspan"><b>Issue: </b>we need to determine how to canonicalize draft 
-  attributes.</span></i></p>
   <hr>
   <h3><span class="changedspan"><a name="Element_Order_Table">Element Order Table</a></span></h3>
   <p><span class="changedspan">The organization into bullets is purely for clarity; the ordering is 

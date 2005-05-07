@@ -37,7 +37,7 @@ span.attributeValue { font-weight: color: blue}
   <table border="1" cellpadding="2" style="border-collapse: collapse; border-width: 1" cellspacing="0" width="100%">
     <tr>
       <td>Version</td>
-      <td>1<span>.3<font color="#FF0000"> (draft)</font></span></td>
+      <td>1<span>.3<font color="#FF0000"> (draft $Revision$)</font></span></td>
     </tr>
     <tr>
       <td>Authors</td>
@@ -143,9 +143,7 @@ span.attributeValue { font-weight: color: blue}
       </ul>
       </li>
     </ul>
-    </li>
-    <li><u>Appendices</u><br>
-    A: <a href="#Sample_Special_Elements">Sample Special Elements</a>
+    <p>Appendix A: <a href="#Sample_Special_Elements">Sample Special Elements</a>
     <ul class="toc">
       <li>A.1 <a href="#ICU">ICU</a>
       <ul class="toc">
@@ -157,20 +155,21 @@ span.attributeValue { font-weight: color: blue}
       <li>A.2 <a href="#OpenOffice">openoffice.org</a></li>
     </ul>
     </li>
-    <li>B: <a href="#Transmitting_Locale_Information">Transmitting Locale Information</a>
+    <li>Appendix B: <a href="#Transmitting_Locale_Information">Transmitting Locale Information</a>
     <ul class="toc">
       <li>B.1 <a href="#Message_Formatting_and_Exceptions">Message Formatting and Exceptions</a></li>
     </ul>
     </li>
-    <li>C: <a href="#Supplemental_Data">Supplemental Data</a></li>
-    <li>D: <a href="#Language_and_Locale_IDs">Language and Locale IDs</a></li>
-    <li>E: <a href="#Unicode_Sets">Unicode Sets</a></li>
-    <li>F: <a href="#Date_Format_Patterns"><span>Date Format Patterns</span></a></li>
-    <li>G: <a href="#Number_Format_Patterns"><span>Number Format Patterns</span></a></li>
-    <li>H: <a href="#Choice_Patterns"><span>Choice Patterns</span></a></li>
-    <li>I: <a href="#Inheritance_and_Validity"><span>Inheritance and Validity</span></a></li>
-    <li>J: <a href="#Time_Zone_Fallback"><span>Time Zone Fallback</span></a></li>
-    <li>K: <span><a href="#valid_attribute_values">Valid Attribute Values</a></span></li>
+    <li>Appendix C: <a href="#Supplemental_Data">Supplemental Data</a></li>
+    <li>Appendix D: <a href="#Language_and_Locale_IDs">Language and Locale IDs</a></li>
+    <li>Appendix E: <a href="#Unicode_Sets">Unicode Sets</a></li>
+    <li>Appendix F: <a href="#Date_Format_Patterns"><span>Date Format Patterns</span></a></li>
+    <li>Appendix G: <a href="#Number_Format_Patterns"><span>Number Format Patterns</span></a></li>
+    <li>Appendix H: <a href="#Choice_Patterns"><span>Choice Patterns</span></a></li>
+    <li>Appendix I: <a href="#Inheritance_and_Validity"><span>Inheritance and Validity</span></a></li>
+    <li>Appendix J: <a href="#Time_Zone_Fallback"><span>Time Zone Fallback</span></a></li>
+    <li>Appendix K: <span><a href="#valid_attribute_values">Valid Attribute Values</a></span></li>
+    <li>Appendix L: <a href="#Canonical_Form">Canonical Form</a></li>
     <li><a href="#References">References</a></li>
     <li><a href="#Modifications"><span>Modifications</span></a></li>
   </ul>
@@ -1530,14 +1529,18 @@ root</pre>
   regionFormat*, fallbackFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, 
   default*, zone*, special*)) &gt;<br>
   &lt;!ELEMENT zone (alias | ( long*, short*, exemplarCity*, special*)) &gt;</span></p>
-  <p>The timezone IDs are language-independent, and follow the <i>Olson Data</i> [<a href="#Olson">Olson</a>]. 
-  However, the display names for those IDs can vary by locale. The generic time is so-called <i>
-  wall-time</i>; what clocks use when they are correctly switched from standard to daylight time at 
-  the mandated time of the year.</p>
-  <blockquote>
-    <p><span><b>Note: </b>The <i>type</i> field for each zone is the identification of that zone. It 
-    is not to be translated.</span></p>
-  </blockquote>
+  <p>The timezone IDs <span class="changedspan">(tzid) </span>are language-independent, and follow 
+  the <i>Olson timezone database</i> [<a href="#Olson">Olson</a>]. However, the display names for 
+  those IDs can vary by locale. The generic time is so-called <i>wall-time</i>; what clocks use when 
+  they are correctly switched from standard to daylight time at the mandated time of the year.</p>
+  <p><span class="changedspan">Unfortunately, the canonical tzid&#39;s (those in zone.tab) are not 
+  stable: may change in each release of the Olson Timezone database. In CLDR, however, stability of 
+  identifiers is very important. So the canonical IDs in CLDR are kept stable as described in 
+  Appendix L: <a href="#Canonical_Form">Canonical Form</a>.</span></p>
+  <p><span class="changedspan">The following is an example of timezone data. Although this is an 
+  example of possible data, in most cases only the exemplarCity is needs translation. And that does 
+  not even need to be present, if a country only has a single timezone. As always, t</span><span>he
+  <i>type</i> field for each zone is the identification of that zone. It is not to be translated.</span></p>
   <pre>&lt;zone type=&quot;<span style="color: blue">America/Los_Angeles</span>&quot; &gt;
     &lt;long&gt;
         &lt;generic&gt;<span style="color: blue">Pacific Time</span>&lt;/generic&gt;
@@ -5364,7 +5367,7 @@ decimal?, group?, special*)) &gt;</span></pre>
   (and in CVS) to detect differences when vetting changes, without those tools being confused. This 
   is not a requirement on other uses of LDML; just simply a way to manage repository data more 
   easily.</span></p>
-  <h2><span class="changedspan">Textual Content</span></h2>
+  <h2><span class="changedspan">Content</span></h2>
   <ol>
     <li><span class="changedspan">All start elements are on their own line, indented by <i>depth</i> 
     tabs.</span></li>
@@ -5391,6 +5394,19 @@ decimal?, group?, special*)) &gt;</span></pre>
     Defaulted Attributes Table</a></span></li>
     <li><span class="changedspan">The draft and alt=&quot;proposed.*&quot; attributes are only on leaf 
     elements.</span></li>
+    <li><span class="changedspan">The tzid are canonicalized in the following way:</span><ol>
+      <li type="a"><span class="changedspan">All tzids as of as CLDR 1.1 (2004.06.08) in zone.tab 
+      are canonical.</span></li>
+      <li><span class="changedspan">After that point, the first time a tzid is introduced, that is 
+      the canonical form.</span></li>
+    </ol>
+    <p><span class="changedspan">That is, new IDs are added, but existing ones keep the original 
+    form. The Olson timezone database keeps a set of equivalences in the &quot;backward&quot; file. These are 
+    used to map other tzids to the canonical form. For example, when <code>America/Argentina/Catamarca</code> 
+    was introduced as the new name for the previous <code>America/Catamarca</code>, a link was added 
+    in the backward file.<br>
+    <br>
+    <code>Link America/Argentina/Catamarca America/Catamarca</code></span></li>
   </ol>
   <p><span class="changedspan"><i>Example:</i></span></p>
   <pre><span class="changedspan">&lt;ldml draft=&quot;true&quot; &gt;

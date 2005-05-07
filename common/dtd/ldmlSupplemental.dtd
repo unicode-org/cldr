@@ -11,7 +11,7 @@
     All trademarks and registered trademarks mentioned herein are the property of their respective owners.
 -->
 
-<!ELEMENT supplementalData ( version?, generation?, alias?, currencyData?, territoryContainment?, languageData?, characters? ) >
+<!ELEMENT supplementalData ( version?, generation?, alias?, deprecated?, currencyData?, territoryContainment?, languageData?, characters? ) >
 <!ATTLIST supplementalData version CDATA #FIXED "1.3" >
 
 <!ELEMENT version ( #PCDATA ) >
@@ -38,6 +38,15 @@
 <!ELEMENT variantAlias EMPTY >
 <!ATTLIST variantAlias type NMTOKEN #IMPLIED >
 <!ATTLIST variantAlias replacement NMTOKEN #IMPLIED >
+
+<!ELEMENT deprecated ( deprecatedItems* ) >
+<!ATTLIST deprecated draft ( true | false ) #IMPLIED >
+
+<!ELEMENT deprecatedItems EMPTY >
+<!ATTLIST deprecatedItems draft ( true | false ) #IMPLIED >
+<!ATTLIST deprecatedItems elements NMTOKENS #IMPLIED >
+<!ATTLIST deprecatedItems attributes NMTOKENS #IMPLIED >
+<!ATTLIST deprecatedItems values CDATA #IMPLIED >
 
 <!ELEMENT currencyData ( fractions*, region+ ) >
 <!ATTLIST currencyData draft ( true | false ) #IMPLIED >

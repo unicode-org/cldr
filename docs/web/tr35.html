@@ -2972,7 +2972,50 @@ America/Kentucky/Monticello&quot;&gt;
   &lt;territory type=&quot;BU&quot; replacement=&quot;MM&quot;&gt;
 ...
 &lt;/alias&gt;</span></pre>
-  <pre>&nbsp;</pre>
+  <pre class="changed"><span class="dtd">&lt;!ELEMENT deprecated ( deprecatedItems* ) &gt;
+&lt;!ATTLIST deprecated draft ( true | false ) #IMPLIED &gt;
+
+&lt;!ELEMENT deprecatedItems EMPTY &gt;
+&lt;!ATTLIST deprecatedItems draft ( true | false ) #IMPLIED &gt;
+&lt;!ATTLIST deprecatedItems elements NMTOKENS #IMPLIED &gt;
+&lt;!ATTLIST deprecatedItems attributes NMTOKENS #IMPLIED &gt;
+&lt;!ATTLIST deprecatedItems values CDATA #IMPLIED &gt;</span></pre>
+  <p><span class="changedspan">The deprecated items can be used to indicate elements, attributes, 
+  and attribute values <font face="Lucida Sans Unicode">that are deprecated. This means that the 
+  items are valid, but that their usage is strongly discouraged. When the same deprecatedItems 
+  element contains combinations of elements, attributes, and values, then the &quot;least significant&quot; 
+  items are only deprecated if they occur with the &quot;more significant&quot; items. For example:</font></span></p>
+  <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber9">
+    <caption><span class="changedspan">Deprecated Items</span></caption>
+    <tr>
+      <td width="50%"><span class="changedspan"><span style="background-color: #FFFF00">
+      <font face="Lucida Sans Unicode"><code>&lt;deprecatedItems elements=&quot;A B&quot;&gt;</code></font></span></span></td>
+      <td width="50%"><span class="changedspan"><span style="background-color: #FFFF00">
+      <font face="Lucida Sans Unicode">A and B are deprecated</font></span></span></td>
+    </tr>
+    <tr>
+      <td width="50%"><span class="changedspan"><span style="background-color: #FFFF00">
+      <font face="Lucida Sans Unicode"><code>&lt;deprecatedItems attributes=&quot;C D&quot;&gt;</code></font></span></span></td>
+      <td width="50%"><span class="changedspan"><span style="background-color: #FFFF00">
+      <font face="Lucida Sans Unicode">C and D are deprecated on all elements</font></span></span></td>
+    </tr>
+    <tr>
+      <td width="50%"><span class="changedspan"><span style="background-color: #FFFF00">
+      <font face="Lucida Sans Unicode"><code>&lt;deprecatedItems elements=&quot;A B&quot; attributes=&quot;C D&quot;&gt;</code></font></span></span></td>
+      <td width="50%"><span class="changedspan"><span style="background-color: #FFFF00">
+      <font face="Lucida Sans Unicode">C and D are deprecated, but only if they occur on elements A 
+      or B.</font></span></span></td>
+    </tr>
+    <tr>
+      <td width="50%"><span class="changedspan"><span style="background-color: #FFFF00">
+      <font face="Lucida Sans Unicode"><code>&lt;deprecatedItems elements=&quot;A B&quot; attributes=&quot;C D&quot; 
+      values=&quot;E&quot;&gt;</code></font></span></span></td>
+      <td width="50%"><span class="changedspan"><span style="background-color: #FFFF00">
+      <font face="Lucida Sans Unicode">E is deprecated, but only if it is a value of C in an element 
+      A or B</font></span></span></td>
+    </tr>
+  </table>
+  <p><span class="changedspan">In each case, multiple items are space-delimited.</span></p>
   <h2>Appendix D: <a name="Language_and_Locale_IDs">Language and Locale IDs</a></h2>
   <p>People have very slippery notions of what distinguishes a language code vs. a locale code. The 
   problem is that both are somewhat nebulous concepts.</p>

@@ -1803,6 +1803,29 @@ root</pre>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;posix:noexpr&gt;<span style="color: blue">^[Nn].*</span>&lt;/posix:noexpr&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/posix:messages&gt;<br>
   &nbsp;&lt;posix&gt;</p>
+  <ol>
+    <li><span class="changedspan">The values for yesstr and nostr contain a colon-separated list of 
+    strings that would normally be recognized as &quot;yes&quot; and &quot;no&quot; responses. For cased languages, this 
+    shall include only the lowercase version. POSIX locale generation tools must generate the 
+    uppercase equivalents.</span></li>
+    <li><span class="changedspan">Values for yesstr and nostr should include the complete word for 
+    &quot;yes&quot; or &quot;no&quot;, as well any commonly used abbreviations for same. If a Latin script is used to 
+    render the language, this is usually the first letter of the word &quot;yes&quot; or &quot;no&quot;.</span></li>
+    <li><span class="changedspan">The values for yesexpr and noexpr contain a regular expression 
+    that matches only those strings that would be recognized as &quot;yes&quot; and &quot;no&quot; responses, in any 
+    case variation. The value of yesexpr and noexpr should match all the values in yesstr and nostr 
+    respectively.</span></li>
+  </ol>
+  <p><span class="changedspan">So for English, the appropriate strings and expressions would be as 
+  follows:</span></p>
+  <p><span class="changedspan">yesstr &quot;yes:y&quot;<br>
+  nostr &quot;no:n&quot;<br>
+  <br>
+  <code>yesexpr &quot;^[yY]([eE][sS])?&quot; <br>
+  </code>This would match y,Y,yes,yeS,yEs,yES,Yes,YeS,YEs,YES.<br>
+  <br>
+  noexpr &quot;^[nN][oO]?&quot;<br>
+  This would match n,N,no,nO,No,NO.</span></p>
   <h3><span class="changedspan">5.12 &lt;<a name="references_element">references</a>&gt;</span></h3>
   <p><span class="changedspan">&lt;!ELEMENT references ( reference* ) &gt;<br>
   &lt;!ELEMENT reference ( #PCDATA ) &gt;<br>

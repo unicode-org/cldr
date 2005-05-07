@@ -301,7 +301,19 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
           <blockquote>
             <p>The exact collation sequence for a given language may be difficult to determine. The 
             base ordering of characters can be fairly straightforward, but there are quite a few 
-            other complications involved. For more information, see
+            other complications involved. </p>
+            <p><span style="background-color: #FFFF00">Most standards that specify collation, such 
+            as DIN or CS, are not </span><span style="background-color: #FFFF00">targeted</span><span style="background-color: #FFFF00"> 
+            at algorithmic sorting, and are not fully complete algorithmic specifications. For 
+            example, </span><span style="background-color: #FFFF00">CSN</span><span style="background-color: #FFFF00"> 
+            97 6030 requires transliteration of foreign scripts, but there are many choices as to 
+            how to transliterate, and the exact mechanism is not specified. It also specifies that 
+            geometric shapes are sorted by the number of vertices and edges, which is, at a minimum, 
+            difficult to determine; and are subject to variation in glyphs.</span></p>
+            <p><span style="background-color: #FFFF00">With respect to sorting standards, the CLDR 
+            goals are to match the<br>
+            sorting of exemplar letters, numbers, and common punctuation and leave everything else 
+            to the standard UCA ordering. </span>For more information, see
             <a href="http://www.unicode.org/reports/tr10/#Introduction">UTS #10: Unicode Collation 
             Algorithm</a> (UCA).</p>
             <p>For readability, the rules are presented here in Java/ICU rule format, rather than 

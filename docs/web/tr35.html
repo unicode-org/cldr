@@ -1574,10 +1574,11 @@ root</pre>
     U.S.C. §6(IX)(260-7)).</p>
   </blockquote>
   <p class="note">Each region that has a different timezone or daylight savings time rules, either 
-  now or at any time in the past, is given a unique internal ID, such as <code>Europe/Paris</code>. 
-  As with currency codes, these are internal codes. <span class="changedspan">A localized string 
-  associated with these is provided for users</span> (such as in the Windows<i> Control 
-  Panels&gt;Date/Time&gt;Time Zone</i>).</p>
+  now or at any time <span class="changedspan">back to 1970</span>, is given a unique internal ID, 
+  such as <code>Europe/Paris</code>. <span class="changedspan">(Some IDs are also distinguished on 
+  the basis of differences before 1970.)</span> As with currency codes, these are internal codes.
+  <span class="changedspan">A localized string associated with these is provided for users</span> 
+  (such as in the Windows<i> Control Panels&gt;Date/Time&gt;Time Zone</i>).</p>
   <p class="note">Unfortunately, laws change over time, and will continue to change in the future, 
   both for the boundaries of timezone regions and the rules for daylight savings. Thus the Olson 
   data is continually being augmented. Any two implementations using the same version of the Olson 

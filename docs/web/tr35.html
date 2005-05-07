@@ -751,29 +751,29 @@ root</pre>
 &nbsp; &lt;c&gt;3&lt;/c&gt;<br>
         &lt;/x&gt;</code></span><code> </code></td>
         <td><span class="changedspan"><code>&lt;x&gt;<br>
-&nbsp;&lt;a&gt;11&lt;/a&gt;<br>
-&nbsp;&lt;b&gt;12&lt;/b&gt;<br>
-&nbsp;&lt;d&gt;14&lt;/d&gt;<br>
+        &nbsp;&lt;a&gt;11&lt;/a&gt;<br>
+        &nbsp;&lt;b&gt;12&lt;/b&gt;<br>
+        &nbsp;&lt;d&gt;14&lt;/d&gt;<br>
         &lt;/x&gt;</code></span><code> </code></td>
         <td bgcolor="#C0C0C0"><span class="changedspan"><code>&lt;x&gt;<br>
-&nbsp;&lt;a&gt;11&lt;/a&gt;<br>
-&nbsp;&lt;b&gt;12&lt;/b&gt;<br>
-&nbsp;<span style="background-color: #CC0000">&lt;c&gt;3&lt;/c&gt;<br>
+        &nbsp;&lt;a&gt;11&lt;/a&gt;<br>
+        &nbsp;&lt;b&gt;12&lt;/b&gt;<br>
+        &nbsp;<span style="background-color: #CC0000">&lt;c&gt;3&lt;/c&gt;<br>
         </span>&nbsp;&lt;d&gt;14&lt;/d&gt;<br>
         &lt;/x&gt;</code></span><code> </code></td>
       </tr>
       <tr>
         <td><span class="changedspan"><code>&lt;y&gt;<br>
-&nbsp;&lt;alias path=&quot;../x&quot;&gt;<br>
+        &nbsp;&lt;alias path=&quot;../x&quot;&gt;<br>
         &lt;/y&gt;</code></span><code> </code></td>
         <td><span class="changedspan"><code>&lt;y&gt;<br>
-&nbsp;&lt;b&gt;22&lt;/b&gt;<br>
-&nbsp;&lt;e&gt;25&lt;/e&gt;<br>
+        &nbsp;&lt;b&gt;22&lt;/b&gt;<br>
+        &nbsp;&lt;e&gt;25&lt;/e&gt;<br>
         &lt;/y&gt;</code></span><code> </code></td>
         <td bgcolor="#C0C0C0"><span class="changedspan"><code>&lt;y&gt;<br>
-&nbsp;<span style="background-color: #CC0000">&lt;a&gt;11&lt;/a&gt;<br>
+        &nbsp;<span style="background-color: #CC0000">&lt;a&gt;11&lt;/a&gt;<br>
         </span>&nbsp;&lt;b&gt;22&lt;/b&gt;<br>
-&nbsp;<span style="background-color: #CC0000">&lt;c&gt;3&lt;/c&gt;<br>
+        &nbsp;<span style="background-color: #CC0000">&lt;c&gt;3&lt;/c&gt;<br>
         </span>&nbsp;<span style="background-color: #CC0000">&lt;d&gt;14&lt;/d&gt;<br>
         </span>&nbsp;&lt;e&gt;25&lt;/e&gt;<br>
         &lt;/y&gt;</code></span><code> </code></td>
@@ -915,7 +915,7 @@ root</pre>
   leading or trailing spaces on each string are not significant. Examples:</p>
   <p><code>&lt;collation standard=&quot;<span style="color: blue">MSA 200:2002</span>&quot;&gt;<br>
   ...<br>
-  &lt;dateFormatStyle standard=”</code><a href="http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;ICS1=1&amp;ICS2=140&amp;ICS3=30" style="text-decoration: none"><code>http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;amp;ICS1=1&amp;amp;ICS2=140&amp;amp;ICS3=30</code></a><code>”&gt;</code></p>
+  &lt;dateFormatStyle standard=”</code><a href="http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&ICS1=1&ICS2=140&ICS3=30" style="text-decoration: none"><code>http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;amp;ICS1=1&amp;amp;ICS2=140&amp;amp;ICS3=30</code></a><code>”&gt;</code></p>
   <p>&lt;... <a name="references_attribute">references</a>=&quot;<span style="color: blue">...</span>&quot; ...&gt;</p>
   <p><span class="removedspan">The value of this attribute is a list of strings representing 
   background information about the element, other than standards. The strings are separated by 
@@ -1225,8 +1225,11 @@ root</pre>
   <pre>&lt;measurementSystem type=&quot;<span style="color: blue">US</span>&quot;/&gt;</pre>
   <p>The measurement system is the normal measurement system in common everyday use (except for 
   date/time). The values are &quot;metric&quot; (= ISO 1000), &quot;US&quot;, or &quot;UK&quot;; others may be added over time.
-  <span>The &quot;US&quot; value indicates the customary feet, inches, pints, quarts, etc. system. The &quot;UK&quot; 
-  value is also called the Imperial system: the pint, quart, etc. are different sizes than in &quot;US&quot;.</span></p>
+  <span>The &quot;US&quot; value indicates the customary <span class="changedspan">system of measurement with
+  </span>feet, inches, pints, quarts, etc. <span class="changedspan">as used in the United States</span>. 
+  The &quot;UK&quot; value <span class="changedspan">indicates the customary system of measurement with feet, 
+  inches, pints, quarts, etc. as used in the United Kingdom. It </span>is also called the Imperial 
+  system: the pint, quart, etc. are different sizes than in &quot;US&quot;.</span></p>
   <p class="note"><b>Note:</b> In the future, we may need to add display names for the particular 
   measurement units (millimeter vs millimetre vs whatever the Greek, Russian, etc are), and a 
   message format for position those with respect to numbers. E.g. &quot;{number} {unitName}&quot; in some 

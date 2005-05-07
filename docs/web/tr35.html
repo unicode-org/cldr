@@ -1514,16 +1514,17 @@ root</pre>
   <p><span class="dtd">&lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
   &lt;!ELEMENT field ( alias | (displayName?, relative*, special*)) &gt;</span></p>
   <p>Translations may be supplied for names of calendar fields, and for relative values of those 
-  fields.</p>
-  <pre>&lt;calendars&gt;
+  fields. <span class="changedspan">Where there is not a convenient, customary word or phrase in a 
+  particular language for a relative value, it should be omitted.</span></p>
+  <pre>&lt;calendar&gt;
   &lt;fields&gt;
    &lt;field type=&#39;day&#39;&gt;
     &lt;displayName&gt;Tag&lt;/displayName&gt;
-    &lt;relative type=&#39;-2&#39;&gt;Vorgestern&lt;/relative&gt;
-    &lt;relative type=&#39;-1&#39;&gt;Gestern&lt;/relative&gt;
-    &lt;relative type=&#39;0&#39;&gt;Heute&lt;/relative&gt;
-    &lt;relative type=&#39;1&#39;&gt;Morgen&lt;/relative&gt;
-    &lt;relative type=&#39;2&#39;&gt;Übermorgen&lt;/relative&gt;
+    &lt;relative type=&#39;-2&#39;&gt;Vorgestern&lt;/relative&gt;<span class="changedspan"> &lt;!-- 2 days ago      --&gt;</span>
+    &lt;relative type=&#39;-1&#39;&gt;Gestern&lt;/relative&gt;<span class="changedspan">    &lt;!-- yesterday       --&gt;</span>
+    &lt;relative type=&#39;0&#39;&gt;Heute&lt;/relative&gt;<span class="changedspan">       &lt;!-- today           --&gt;</span>
+    &lt;relative type=&#39;1&#39;&gt;Morgen&lt;/relative&gt;<span class="changedspan">      &lt;!-- tomorrow        --&gt;</span>
+    &lt;relative type=&#39;2&#39;&gt;Übermorgen&lt;/relative&gt;<span class="changedspan">  &lt;!-- 2 days from now --&gt;</span>
    &lt;/field&gt;
   &lt;/fields&gt;
 &lt;/calendars&gt;</pre>

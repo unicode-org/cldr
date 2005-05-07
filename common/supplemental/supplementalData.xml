@@ -24,6 +24,12 @@
 		<territoryAlias type="YU" replacement="CS"/>
 		<territoryAlias type="ZR" replacement="CD"/>
 	</alias>
+	<deprecated>
+		<deprecatedItems elements="monthNames monthAbbr localizedPatternChars"/>
+		<deprecatedItems attributes="standard"/>
+		<deprecatedItems elements="variant" attributes="type" values="BOKMAL NYNORSK AALAND"/>
+		<deprecatedItems type="supplemental" elements="alternate"/>
+	</deprecated>
     <currencyData draft="true">
         <fractions>
             <info iso4217="ADP" digits="0" rounding="0"/>

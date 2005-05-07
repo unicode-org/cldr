@@ -3,33 +3,6 @@
 <supplementalData version="1.3">
 	<version number="$Revision$"/>
 	<generation date="$Date$"/>
-	<alias>
-		<languageAlias type="in" replacement="id"/>
-		<languageAlias type="iw" replacement="he"/>
-		<languageAlias type="ji" replacement="yi"/>
-		<languageAlias type="jw" replacement="jv"/>
-		<languageAlias type="sh_CS" replacement="sr_Latn_CS"/>
-		<languageAlias type="sr_CS" replacement="sr_Cyrl_CS"/>
-		<languageAlias type="zh_CN" replacement="zh_Hans_CN"/>
-		<languageAlias type="zh_HK" replacement="zh_Hant_HK"/>
-		<languageAlias type="zh_MO" replacement="zh_Hant_MO"/>
-		<languageAlias type="zh_SG" replacement="zh_Hans_SG"/>
-		<languageAlias type="zh_TW" replacement="zh_Hant_TW"/>
-		<territoryAlias type="BU" replacement="MM"/>
-		<territoryAlias type="DY" replacement="BJ"/>
-		<territoryAlias type="HV" replacement="BF"/>
-		<territoryAlias type="NH" replacement="VU"/>
-		<territoryAlias type="RH" replacement="ZW"/>
-		<territoryAlias type="TP" replacement="TL"/>
-		<territoryAlias type="YU" replacement="CS"/>
-		<territoryAlias type="ZR" replacement="CD"/>
-	</alias>
-	<deprecated>
-		<deprecatedItems elements="monthNames monthAbbr localizedPatternChars"/>
-		<deprecatedItems attributes="standard"/>
-		<deprecatedItems elements="variant" attributes="type" values="BOKMAL NYNORSK AALAND"/>
-		<deprecatedItems type="supplemental" elements="alternate"/>
-	</deprecated>
     <currencyData draft="true">
         <fractions>
             <info iso4217="ADP" digits="0" rounding="0"/>
@@ -1276,4 +1249,33 @@ XXX	Code for transations where no currency is involved
 		<language type="zh" scripts="Bopo Hani Hans Hant" territories="CN CX HK MO SG TW"/>
 		<language type="zu" scripts="Latn" territories="LS ZA"/>
 	</languageData>
+	<metadata>
+	    <alias>
+		<languageAlias type="in" replacement="id"/>
+		<languageAlias type="iw" replacement="he"/>
+		<languageAlias type="ji" replacement="yi"/>
+		<languageAlias type="jw" replacement="jv"/>
+		<languageAlias type="sh_CS" replacement="sr_Latn_CS"/>
+		<languageAlias type="sr_CS" replacement="sr_Cyrl_CS"/>
+		<languageAlias type="zh_CN" replacement="zh_Hans_CN"/>
+		<languageAlias type="zh_HK" replacement="zh_Hant_HK"/>
+		<languageAlias type="zh_MO" replacement="zh_Hant_MO"/>
+		<languageAlias type="zh_SG" replacement="zh_Hans_SG"/>
+		<languageAlias type="zh_TW" replacement="zh_Hant_TW"/>
+		<territoryAlias type="BU" replacement="MM"/>
+		<territoryAlias type="DY" replacement="BJ"/>
+		<territoryAlias type="HV" replacement="BF"/>
+		<territoryAlias type="NH" replacement="VU"/>
+		<territoryAlias type="RH" replacement="ZW"/>
+		<territoryAlias type="TP" replacement="TL"/>
+		<territoryAlias type="YU" replacement="CS"/>
+		<territoryAlias type="ZR" replacement="CD"/>
+	    </alias>
+	    <deprecated>
+		<deprecatedItems elements="monthNames monthAbbr localizedPatternChars"/>
+		<deprecatedItems attributes="standard"/>
+		<deprecatedItems elements="variant" attributes="type" values="BOKMAL NYNORSK AALAND"/>
+		<deprecatedItems type="supplemental" elements="alternate"/>
+	    </deprecated>
+	<metadata>
 </supplementalData>

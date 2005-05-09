@@ -552,13 +552,13 @@ public class LDMLUtilities {
     }
     /**
      * 
-     * @param doc
+     * @param fullyResolvedDoc
      * @param sourceDir
      * @param thisLocale
      */
     // TODO guard against circular aliases
-    public static Document resolveAliases(Document doc, String sourceDir, String thisLocale){
-       Node[] array = getNodeArray(doc, LDMLConstants.ALIAS);
+    public static Document resolveAliases(Document fullyResolvedDoc, String sourceDir, String thisLocale){
+       Node[] array = getNodeArray(fullyResolvedDoc, LDMLConstants.ALIAS);
        
        // resolve all the aliases by iterating over
        // the list of nodes
@@ -585,7 +585,7 @@ public class LDMLUtilities {
                path = getAbsoluteXPath(node, type);
            }
            
-           if(source!=null && !source.equals(thisLocale)){
+           if(source!=null && !source.equals(thisLocale) && !source.equals("locale")){
                // if source is defined then path should not be 
                // relative 
                if(path.indexOf("..")>0){
@@ -608,7 +608,7 @@ public class LDMLUtilities {
                    // if yes then remove the identity from
                    // the current document!
                    if(path!=null && path.equals("//ldml/*")){
-                       Node[] identity = getNodeArray(doc, LDMLConstants.IDENTICAL);
+                       Node[] identity = getNodeArray(fullyResolvedDoc, LDMLConstants.IDENTICAL);
                        for(int j=0; j<identity.length; j++){
                            parent.removeChild(node);
                        }
@@ -617,7 +617,7 @@ public class LDMLUtilities {
                        // found an element node in the aliased resource
                        // add to the source
                        Node child = replacementList[j];
-                       Node childToImport = doc.importNode(child,true);
+                       Node childToImport = fullyResolvedDoc.importNode(child,true);
                        parent.appendChild(childToImport);
                    }
                }else{
@@ -625,7 +625,7 @@ public class LDMLUtilities {
                    for(Node child = replacement.getFirstChild(); child!=null; child=child.getNextSibling()){
                        // found an element node in the aliased resource
                        // add to the source
-                       Node childToImport = doc.importNode(child,true);
+                       Node childToImport = fullyResolvedDoc.importNode(child,true);
                        parent.appendChild(childToImport);
                    }
                }
@@ -637,7 +637,7 @@ public class LDMLUtilities {
 
            }
        }
-       return doc;
+       return fullyResolvedDoc;
     }
     //TODO add funtions for fetching legitimate children
     // for ICU 
@@ -720,6 +720,66 @@ public class LDMLUtilities {
             xpath.append("]");
         }
     }
+    private static boolean areChildNodesElements(Node node){
+        NodeList list = node.getChildNodes();
+        for(int i=0;i<list.getLength();i++){
+            if(list.item(i).getNodeType()==Node.ELEMENT_NODE){
+                return true;
+            }
+        }
+        return false;
+    }
+    private static boolean areSiblingsOfNodeElements(Node node){
+        NodeList list = node.getParentNode().getChildNodes();
+        int count = 0;
+        for(int i=0;i<list.getLength();i++){
+            Node item = list.item(i); 
+            if(item.getNodeType()==Node.ELEMENT_NODE){
+                count++;
+            }
+            // the first child node of type element of <ldml> should be <identity>
+            // here we figure out if any additional elements are there
+            if(count>1){
+                return true;
+            }
+        }
+        return false; 
+    }
+    /**
+     * Determines if the whole locale is marked draft. To accomplish this
+     * the method traverses all leaf nodes to determine if all nodes are marked draft
+     */
+    private static boolean seenElementsOtherThanIdentity = false;
+    public static final boolean isLocaleDraft(Node node){
+        boolean isDraft = true;
+        //fast path to check if <ldml> element is draft
+        if(isNodeDraft(node)==true){
+            return true;
+        }
+        for(Node child=node.getFirstChild(); child!=null; child=child.getNextSibling()){
+            if(child.getNodeType()!=Node.ELEMENT_NODE){
+                continue;
+            }
+            if(child.getNodeName().equals(LDMLConstants.IDENTITY)){
+                seenElementsOtherThanIdentity=areSiblingsOfNodeElements(child);
+                continue;
+            }
+            if(child.hasChildNodes() && areChildNodesElements(child)){
+                isDraft = isLocaleDraft(child);
+            }else{
+                if(isNodeDraft(child) == false){
+                    isDraft = false;
+                }
+            }
+            if(isDraft == false){
+                break;
+            }
+        }
+        if(!seenElementsOtherThanIdentity){
+            return false;
+        }
+        return isDraft;
+     }
     /**
      * Appends the attribute values that make differentiate 2 siblings
      * in LDML
@@ -1078,9 +1138,12 @@ public class LDMLUtilities {
      */
     public static String getAttributeValue(Node sNode, String attribName){
         String value=null;
-        Node attr = sNode.getAttributes().getNamedItem(attribName);
-        if(attr!=null){
-            value = attr.getNodeValue();
+        NamedNodeMap attrs = sNode.getAttributes();
+        if(attrs!=null){
+            Node attr = attrs.getNamedItem(attribName);
+            if(attr!=null){
+                value = attr.getNodeValue();
+            }
         }
         return value;
     }

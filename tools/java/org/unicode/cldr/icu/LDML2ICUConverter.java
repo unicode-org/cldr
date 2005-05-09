@@ -77,7 +77,7 @@ public class LDML2ICUConverter {
     private Document specialsDoc      = null;
     private String locName            = null;
 
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     HashMap overrideMap = new HashMap(); // list of locales to take regardless of draft status.  Written by writeDeprecated
 
@@ -355,7 +355,7 @@ public class LDML2ICUConverter {
             ICUResourceWriter.Resource res = null;
             if(name.equals(LDMLConstants.SUPPLEMENTAL_DATA) ){
                 if(LDMLUtilities.isNodeDraft(node) && writeDraft==false){
-                    printWarning(file,"The LDML file is marked draft! Not producing ICU file. ");
+                    printWarning(file,"The suuplementalData.xml file is marked draft! Not producing ICU file. ");
                     System.exit(-1);
                 }
                 node=node.getFirstChild();
@@ -674,7 +674,7 @@ public class LDML2ICUConverter {
             String name = ldml.getNodeName();
             if(name.equals(LDMLConstants.LDML) ){
                 ldmlVersion = LDMLUtilities.getAttributeValue(ldml, LDMLConstants.VERSION);
-                if(LDMLUtilities.isNodeDraft(ldml) && writeDraft==false){
+                if(LDMLUtilities.isLocaleDraft(ldml) && writeDraft==false){
                     System.err.println("WARNING: The LDML file "+sourceDir+"/"+locName+".xml is marked draft! Not producing ICU file. ");
                     System.exit(-1);
                 }
@@ -1610,26 +1610,27 @@ public class LDML2ICUConverter {
                 Node ssn = getVettedNode(node, LDMLConstants.STANDARD, xpath);
                 Node sdn = getVettedNode(node, LDMLConstants.DAYLIGHT, xpath);
                 if((ssn==null||sdn==null) && !writeDraft){
-                    System.err.println("ERROR: Could not get timeZone string for " + xpath.toString());
-                    System.exit(-1);
-                }
-                ss.val = LDMLUtilities.getNodeValue(ssn);
-                sd.val = LDMLUtilities.getNodeValue(sdn);
-                // ok the nodes are availble but
-                // the values are null .. so just set the values to empty strings
-                if(ss.val==null){
-                    ss.val = "";
-                }
-                if(sd.val==null){
-                    sd.val = "";
+                    System.err.println("WARNING: Could not get timeZone string for " + xpath.toString()+" not producing the resource.");
+                   // System.exit(-1);
+                }else{
+                    ss.val = LDMLUtilities.getNodeValue(ssn);
+                    sd.val = LDMLUtilities.getNodeValue(sdn);
+                    // ok the nodes are availble but
+                    // the values are null .. so just set the values to empty strings
+                    if(ss.val==null){
+                        ss.val = "";
+                    }
+                    if(sd.val==null){
+                        sd.val = "";
+                    }
                 }
             }else if(name.equals(LDMLConstants.LONG)){
                 /* get information about long */
                 Node lsn = getVettedNode(node, LDMLConstants.STANDARD, xpath);
                 Node ldn = getVettedNode(node, LDMLConstants.DAYLIGHT, xpath);
-                if((lsn == null && ldn != null) || (lsn != null && ldn ==null)){
-                    System.err.println("ERROR: Could not get timeZone string for " + xpath.toString());
-                    System.exit(-1);
+                if((lsn==null||ldn==null) && !writeDraft){
+                    System.err.println("WARNING: Could not get timeZone string for " + xpath.toString()+" not producing the resource.");
+                    //System.exit(-1);
                 }
                 if(lsn != null && ldn !=null){
                     ls.val = LDMLUtilities.getNodeValue(lsn);
@@ -1737,6 +1738,9 @@ public class LDML2ICUConverter {
                             ICUResourceWriter.ResourceString str1 = new ICUResourceWriter.ResourceString();
                             ICUResourceWriter.ResourceString str2 = new ICUResourceWriter.ResourceString();
                             str1.val = LDMLUtilities.getNodeValue(nonLeapSymbol);
+                            if(str1.val==null){
+                                str1.val = "";
+                            }
                             str2.val = LDMLUtilities.getNodeValue(leapSymbol);
                             arr.first = str1;
                             str1.next = str2;
@@ -2165,11 +2169,15 @@ public class LDML2ICUConverter {
             // fetch inherited to complete the resource..
             if(minDays == null) {
                 minDays = getVettedNode(root, LDMLConstants.MINDAYS , xpath);
-                printInfo("parseDTE: Pulled out from the fully-resolved minDays: " + minDays.toString());
+                if(minDays != null){
+                    printInfo("parseDTE: Pulled out from the fully-resolved minDays: " + minDays.toString());
+                }
             }
             if(firstDay == null) {
                 firstDay = getVettedNode(root, LDMLConstants.FIRSTDAY , xpath);
-                printInfo("parseDTE: Pulled out from the fully-resolved firstDay: " + firstDay.toString());
+                if(minDays != null){
+                    printInfo("parseDTE: Pulled out from the fully-resolved firstDay: " + firstDay.toString());
+                }
             }
         }
 
@@ -2185,7 +2193,8 @@ public class LDML2ICUConverter {
             int1.next = int2;
         }
         if((minDays==null && firstDay!=null) || (minDays!=null && firstDay==null)){
-            throw new RuntimeException("Could not find minDays="+minDays+" or firstDay="+firstDay +" from fullyResolved locale!!");
+            System.err.println("WARNING: Could not find minDays="+minDays+" or firstDay="+firstDay +" from fullyResolved locale. Not producing the resource.");
+            return null;
         }
         return dte;
     }
@@ -2556,7 +2565,8 @@ public class LDML2ICUConverter {
             ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
             Node temp = (Node)list.get(i);
             if(temp==null){
-                throw new RuntimeException("Did not get expected output for symbols!!");
+                System.err.println("WARNING: Did not get expected output for symbols. Not producing the resource.");
+                return null;
             }
             str.val = LDMLUtilities.getNodeValue(temp);
             if(str.val!=null){
@@ -3535,7 +3545,7 @@ public class LDML2ICUConverter {
             }
             String name = ldml.getNodeName();
             if(name.equals(LDMLConstants.LDML) ){
-                if(LDMLUtilities.isNodeDraft(ldml) && writeDraft==false){
+                if(LDMLUtilities.isLocaleDraft(ldml) && writeDraft==false){
                     System.err.println("WARNING: The LDML file "+sourceDir+"/"+locName+".xml is marked draft! Not producing ICU file. ");
                     System.exit(-1);
                 }
@@ -3778,7 +3788,7 @@ public class LDML2ICUConverter {
                                 //System.out.print(" " + inFiles[i].getName() + ":" );
                                 try {
                                     Document doc2 = LDMLUtilities.parse(inFiles[i].toString(), false);
-                                    if(parseDraft && LDMLUtilities.isDraft(doc2,new StringBuffer("//ldml"))) {
+                                    if(parseDraft && LDMLUtilities.isLocaleDraft(doc2)) {
                                         thisOK = false;
                                     }
                                     if(thisOK && parseSubLocale) {

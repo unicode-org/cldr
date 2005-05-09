@@ -802,7 +802,7 @@ public class LDML2ICUConverter {
     private ICUResourceWriter.Resource parseAliasResource(Node node, StringBuffer xpath){
 
         try{
-            if(node!=null){
+            if(node!=null && (!isDraft(node,xpath) || writeDraft)){
                 ICUResourceWriter.ResourceAlias alias = new ICUResourceWriter.ResourceAlias();
                 String val = LDMLUtilities.convertXPath2ICU(node, null, xpath);
                 alias.val = val;
@@ -1219,7 +1219,7 @@ public class LDML2ICUConverter {
             ICUResourceWriter.Resource res = null;
             if(name.equals(LDMLConstants.QS) || name.equals(LDMLConstants.QE)||
                name.equals(LDMLConstants.AQS)|| name.equals(LDMLConstants.AQE)){
-                if(!(isDraft(node, xpath) && !writeDraft)|| !isAlternate(node)){
+                if(!(isDraft(node, xpath) && !writeDraft)&& !isAlternate(node)){
                     res = parseStringResource(node);
                 }
             }else if(name.equals(LDMLConstants.ALIAS)){
@@ -1998,7 +1998,9 @@ public class LDML2ICUConverter {
         Node alias = LDMLUtilities.getNode(root,"alias", null, null);
         if(alias!=null){
             ICUResourceWriter.Resource res =  parseAliasResource(alias,xpath);
-            res.name = LDMLUtilities.getAttributeValue(root, LDMLConstants.TYPE);
+            if(res!=null){
+                res.name = LDMLUtilities.getAttributeValue(root, LDMLConstants.TYPE);
+            }
             return res;
         }
 

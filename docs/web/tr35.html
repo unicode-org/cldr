@@ -626,7 +626,7 @@ root</pre>
   attribute.</span></p>
   <h3>5.1 <a name="Common_Elements">Common Elements</a></h3>
   <p>At any level in any element, two special elements are allowed.</p>
-  <p class="element2">&lt;special xmlns:yyy=&quot;<span style="color: blue">xxx</span>&quot;&gt;</p>
+  <p class="element2">&lt;<a name="special">special</a> xmlns:yyy=&quot;<span style="color: blue">xxx</span>&quot;&gt;</p>
   <p>This element is designed to allow for arbitrary additional annotation and data that is 
   product-specific. It has one required attribute, which specifies the XML
   <a href="http://www.w3.org/TR/REC-xml-names/">namespace</a> of the special data. For example, the 
@@ -647,7 +647,7 @@ root</pre>
         &lt;/posix:messages&gt;
     &lt;/special&gt;
 &lt;/ldml&gt;</pre>
-  <p class="element2"><b>&lt;alias source=&quot;</b><span style="color: blue">&lt;locale_ID&gt;</span><b>&quot;<span>
+  <p class="element2"><b>&lt;<a name="alias">alias</a> source=&quot;</b><span style="color: blue">&lt;locale_ID&gt;</span><b>&quot;<span>
   <span>path=&quot;...&quot;</span>/</span>&gt;</b></p>
   <p>The contents of any element can be replaced by an alias, which points to another source for the 
   data. The elements in that source are to be fetched from the corresponding location in the other 
@@ -662,7 +662,9 @@ root</pre>
   <p>The resource bundle at &quot;de_DE&quot; will be searched for a resource element at the same position in 
   the tree with type &quot;collation&quot;. If not found there, then the resource bundle at &quot;de&quot; will be 
   searched, etc. <span class="changedspan">For an example of how this works with inheritance, look 
-  at the following table (where red indicates inherited items).</span></p>
+  at the following table (where <span style="background-color: #00FF00">green</span> indicates 
+  inherited items). <i>Note in particular that an alias &quot;reroutes&quot; the inheritance; nothing in the 
+  parent affects the contents of an item with an alias.</i></span></p>
   <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber8">
     <caption><span class="changedspan">Inheritance with Aliases</span></caption>
     <tr>
@@ -682,9 +684,9 @@ root</pre>
       <br>
       &lt;/x&gt;</code></span></td>
       <td width="20%" bgcolor="#C0C0C0"><span class="changedspan"><code>&lt;x&gt;<br>
-&nbsp; <span style="background-color: #CC0000">&lt;a&gt;01&lt;/a&gt;</span><br>
+&nbsp; <span style="background-color: #00FF00">&lt;a&gt;01&lt;/a&gt;</span><br>
 &nbsp; &lt;b&gt;12&lt;/b&gt;<br>
-&nbsp; <span style="background-color: #CC0000">&lt;c&gt;03&lt;/c&gt;</span><br>
+&nbsp; <span style="background-color: #00FF00">&lt;c&gt;03&lt;/c&gt;</span><br>
       &lt;/x&gt;</code></span></td>
     </tr>
     <tr>
@@ -699,7 +701,7 @@ root</pre>
 &nbsp; &lt;a&gt;21&lt;/a&gt;<br>
 &nbsp; &lt;b&gt;22&lt;/b&gt;<br>
 &nbsp; &lt;c&gt;23&lt;/c&gt;<br>
-&nbsp; &lt;d&gt;23&lt;/d&gt;<br>
+&nbsp; <span style="background-color: #FF0000">&lt;d&gt;23&lt;/d&gt;</span><br>
       &lt;/x&gt;</code></span></td>
       <td width="20%"><span class="changedspan"><code>&lt;x&gt;<br>
 &nbsp; &lt;alias source=&quot;en_US&quot;&gt;<br>
@@ -708,7 +710,6 @@ root</pre>
 &nbsp; &lt;a&gt;01&lt;/a&gt;<br>
 &nbsp; &lt;b&gt;12&lt;/b&gt;<br>
 &nbsp; &lt;c&gt;03&lt;/c&gt;<br>
-&nbsp; <span style="background-color: #CC0000">&lt;d&gt;23&lt;/d&gt;</span><br>
       &lt;/x&gt;</code></span></td>
       <td width="20%"><span class="changedspan"><code>&lt;x&gt;<br>
 &nbsp; &lt;a&gt;41&lt;/a&gt;<br>
@@ -718,9 +719,8 @@ root</pre>
       &lt;/x&gt;</code></span></td>
       <td width="20%" bgcolor="#C0C0C0"><span class="changedspan"><code>&lt;x&gt;<br>
 &nbsp; &lt;a&gt;41&lt;/a&gt;<br>
-&nbsp; <span style="background-color: #CC0000">&lt;b&gt;12&lt;/b&gt;</span><br>
-&nbsp; <span style="background-color: #CC0000">&lt;c&gt;03&lt;/c&gt;</span><br>
-&nbsp; <span style="background-color: #CC0000">&lt;d&gt;23&lt;/d&gt;</span><br>
+&nbsp; <span style="background-color: #00FF00">&lt;b&gt;12&lt;/b&gt;</span><br>
+&nbsp; <span style="background-color: #00FF00">&lt;c&gt;03&lt;/c&gt;</span><br>
       &lt;/x&gt;</code></span></td>
     </tr>
   </table>
@@ -758,7 +758,7 @@ root</pre>
         <td bgcolor="#C0C0C0"><span class="changedspan"><code>&lt;x&gt;<br>
         &nbsp;&lt;a&gt;11&lt;/a&gt;<br>
         &nbsp;&lt;b&gt;12&lt;/b&gt;<br>
-        &nbsp;<span style="background-color: #CC0000">&lt;c&gt;3&lt;/c&gt;<br>
+        &nbsp;<span style="background-color: #00FF00">&lt;c&gt;3&lt;/c&gt;</span><span style="background-color: #CC0000"><br>
         </span>&nbsp;&lt;d&gt;14&lt;/d&gt;<br>
         &lt;/x&gt;</code></span><code> </code></td>
       </tr>
@@ -771,10 +771,10 @@ root</pre>
         &nbsp;&lt;e&gt;25&lt;/e&gt;<br>
         &lt;/y&gt;</code></span><code> </code></td>
         <td bgcolor="#C0C0C0"><span class="changedspan"><code>&lt;y&gt;<br>
-        &nbsp;<span style="background-color: #CC0000">&lt;a&gt;11&lt;/a&gt;<br>
+        &nbsp;<span style="background-color: #00FF00">&lt;a&gt;11&lt;/a&gt;</span><span style="background-color: #CC0000"><br>
         </span>&nbsp;&lt;b&gt;22&lt;/b&gt;<br>
-        &nbsp;<span style="background-color: #CC0000">&lt;c&gt;3&lt;/c&gt;<br>
-        </span>&nbsp;<span style="background-color: #CC0000">&lt;d&gt;14&lt;/d&gt;<br>
+        &nbsp;<span style="background-color: #00FF00">&lt;c&gt;3&lt;/c&gt;</span><span style="background-color: #CC0000"><br>
+        </span>&nbsp;<span style="background-color: #00FF00">&lt;d&gt;14&lt;/d&gt;</span><span style="background-color: #CC0000"><br>
         </span>&nbsp;&lt;e&gt;25&lt;/e&gt;<br>
         &lt;/y&gt;</code></span><code> </code></td>
       </tr>

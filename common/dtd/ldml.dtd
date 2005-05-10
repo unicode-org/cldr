@@ -65,7 +65,6 @@
 <!ELEMENT default (special*) >
 <!ATTLIST default type NMTOKEN #REQUIRED >
 <!ATTLIST default draft ( true | false ) #IMPLIED >
-<!ATTLIST default standard CDATA #IMPLIED >
 <!ATTLIST default references CDATA #IMPLIED >
 <!ATTLIST default alt CDATA #IMPLIED >
 
@@ -796,7 +795,7 @@
 <!ATTLIST collations draft ( true | false ) #IMPLIED >
 <!ATTLIST collations validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT collation (alias | (base*, settings*, suppress_contractions*, optimize*, rules*, special*)) >
+<!ELEMENT collation (alias | (base?, settings?, suppress_contractions?, optimize?, rules?, special*)) >
 <!ATTLIST collation type NMTOKEN "standard" >
 <!ATTLIST collation draft ( true | false ) #IMPLIED >
 <!ATTLIST collation standard CDATA #IMPLIED >
@@ -805,10 +804,6 @@
 <!ATTLIST collation validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT base (alias|special) >
-<!ATTLIST base draft ( true | false ) #IMPLIED >
-<!ATTLIST base standard CDATA #IMPLIED >
-<!ATTLIST base references CDATA #IMPLIED >
-<!ATTLIST base alt CDATA #IMPLIED >
 
 <!ELEMENT settings (special*) >
 <!ATTLIST settings strength             ( primary | secondary | tertiary | quaternary | identical ) #IMPLIED >
@@ -819,35 +814,15 @@
 <!ATTLIST settings caseFirst            ( upper | lower | off ) #IMPLIED >
 <!ATTLIST settings hiraganaQuarternary  ( on | off ) #IMPLIED >
 <!ATTLIST settings numeric              ( on | off ) #IMPLIED >
-<!ATTLIST settings draft ( true | false ) #IMPLIED >
-<!ATTLIST settings standard CDATA #IMPLIED >
-<!ATTLIST settings references CDATA #IMPLIED >
-<!ATTLIST settings alt CDATA #IMPLIED >
 
 <!ELEMENT suppress_contractions (  #PCDATA | cp )* >
-<!ATTLIST suppress_contractions draft ( true | false ) #IMPLIED >
-<!ATTLIST suppress_contractions standard CDATA #IMPLIED >
-<!ATTLIST suppress_contractions references CDATA #IMPLIED >
-<!ATTLIST suppress_contractions alt CDATA #IMPLIED >
 
 <!ELEMENT optimize ( #PCDATA | cp )* >
-<!ATTLIST optimize draft ( true | false ) #IMPLIED >
-<!ATTLIST optimize standard CDATA #IMPLIED >
-<!ATTLIST optimize references CDATA #IMPLIED >
-<!ATTLIST optimize alt CDATA #IMPLIED >
 
 <!ELEMENT rules (alias | ( reset, ( reset | p | pc |  s | sc | t | tc | q | qc | i | ic | x)* )) >
-<!ATTLIST rules draft ( true | false ) #IMPLIED >
-<!ATTLIST rules standard CDATA #IMPLIED >
-<!ATTLIST rules references CDATA #IMPLIED >
-<!ATTLIST rules alt CDATA #IMPLIED >
 
 <!ELEMENT reset ( #PCDATA | cp  | first_variable| last_variable | first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable | last_secondary_ignorable | first_primary_ignorable | last_primary_ignorable | first_non_ignorable | last_non_ignorable | first_trailing | last_trailing )* >
 <!ATTLIST reset before NMTOKEN #IMPLIED >
-<!ATTLIST reset draft ( true | false ) #IMPLIED >
-<!ATTLIST reset standard CDATA #IMPLIED >
-<!ATTLIST reset references CDATA #IMPLIED >
-<!ATTLIST reset alt CDATA #IMPLIED >
 
 <!ELEMENT p  ( #PCDATA  | cp | last_variable )* >
 
@@ -890,38 +865,32 @@
 
 <!ELEMENT posix (alias | (messages*, special*)) >
 <!ATTLIST posix draft ( true | false ) #IMPLIED >
-<!ATTLIST posix standard CDATA #IMPLIED >
 <!ATTLIST posix references CDATA #IMPLIED >
 <!ATTLIST posix validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT messages (alias | ( yesstr*, nostr*, yesexpr*, noexpr*)) >
 <!ATTLIST messages draft ( true | false ) #IMPLIED >
-<!ATTLIST messages standard CDATA #IMPLIED >
 <!ATTLIST messages references CDATA #IMPLIED >
 <!ATTLIST messages alt CDATA #IMPLIED >
 <!ATTLIST messages validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT yesstr ( #PCDATA ) >
 <!ATTLIST yesstr draft ( true | false ) #IMPLIED >
-<!ATTLIST yesstr standard CDATA #IMPLIED >
 <!ATTLIST yesstr references CDATA #IMPLIED >
 <!ATTLIST yesstr alt CDATA #IMPLIED >
 
 <!ELEMENT nostr ( #PCDATA ) >
 <!ATTLIST nostr draft ( true | false ) #IMPLIED >
-<!ATTLIST nostr standard CDATA #IMPLIED >
 <!ATTLIST nostr references CDATA #IMPLIED >
 <!ATTLIST nostr alt CDATA #IMPLIED >
 
 <!ELEMENT yesexpr ( #PCDATA ) >
 <!ATTLIST yesexpr draft ( true | false ) #IMPLIED >
-<!ATTLIST yesexpr standard CDATA #IMPLIED >
 <!ATTLIST yesexpr references CDATA #IMPLIED >
 <!ATTLIST yesexpr alt CDATA #IMPLIED >
 
 <!ELEMENT noexpr ( #PCDATA ) >
 <!ATTLIST noexpr draft ( true | false ) #IMPLIED >
-<!ATTLIST noexpr standard CDATA #IMPLIED >
 <!ATTLIST noexpr references CDATA #IMPLIED >
 <!ATTLIST noexpr alt CDATA #IMPLIED >
 

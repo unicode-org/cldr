@@ -146,7 +146,6 @@
 <!-- layout and orientation are script specific, so validSublocales attribute is not required -->
 <!ELEMENT layout ( alias | (orientation*, inList*, special*) ) >
 <!ATTLIST layout draft ( true | false ) #IMPLIED >
-<!ATTLIST layout standard CDATA #IMPLIED >
 <!ATTLIST layout references CDATA #IMPLIED >
 
 <!ELEMENT orientation ( special* ) >

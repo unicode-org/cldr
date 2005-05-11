@@ -33,7 +33,7 @@
 			<calendar type="buddhist">
 				<eras>
 					<eraAbbr>
-						<era type="0">BE</era>
+						<era type="0">BE</era>  <!-- = 544 BC gregorian. See: http://dev.icu-project.org/cgi-bin/viewcvs.cgi/*checkout*/icu/source/i18n/buddhcal.cpp -->
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -361,7 +361,9 @@
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="0">AM</era>
+						<era type="0">AM</era> <!--  HY = Anno Mundi
+							= -180799862400000 milliseconds since 1/1/1970 AD
+							See: http://dev.icu-project.org/cgi-bin/viewcvs.cgi/*checkout*/icu/source/i18n/hebrwcal.cpp -->
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -391,7 +393,10 @@
 				</months>
 				<eras>
 					<eraAbbr>
-						<era type="0">AH</era>
+						<era type="0">AH</era> <!-- Anno Hijri,  =  7/16/622 AD 
+										= -42521587200000.0 millis since 1/1/1970
+										See: http://dev.icu-project.org/cgi-bin/viewcvs.cgi/*checkout*/icu/source/i18n/islamcal.cpp
+									-->
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -403,7 +408,8 @@
 					<eraAbbr>
 						<!-- These eras are numbered according to the data used
 							 by the ICU Japanese Calendar.
-							 http://oss.software.ibm.com/cvs/icu4j/icu4j/src/com/ibm/icu/util/JapaneseCalendar.java?rev=1.25   search for 'ERAS ='
+							 http://dev.icu-project.org/cgi-bin/viewcvs.cgi/*checkout*/icu/source/i18n/japancal.cpp
+							search for 'ERAS ='
 						-->
 						<era type="0">Taika</era>
 						<era type="1">Hakuchi</era>

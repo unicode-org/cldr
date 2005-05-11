@@ -11,12 +11,50 @@
 			<language type="uz" draft="true">Ўзбек</language>
 		</languages>
 		<territories>
+			<territory type="AF" draft="true">Афғонистон</territory>
 			<territory type="UZ" draft="true">Ўзбекистон</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters draft="true">[а-яёіѣѳѵў]</exemplarCharacters>
 	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1" draft="true">Муҳаррам</month>
+							<month type="2" draft="true">Сафар</month>
+							<month type="3" draft="true">Рабиул-аввал</month>
+							<month type="4" draft="true">Рабиул-охир</month>
+							<month type="5" draft="true">Жумодиул-уло</month>
+							<month type="6" draft="true">Жумодиул-ухро</month>
+							<month type="7" draft="true">Ражаб</month>
+							<month type="8" draft="true">Шаъбон</month>
+							<month type="9" draft="true">Рамазон</month>
+							<month type="10" draft="true">Шаввол</month>
+							<month type="11" draft="true">Зил-қаъда</month>
+							<month type="12" draft="true">Зил-ҳижжа</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="wide">
+							<day type="sun" draft="true">якшанба</day>
+							<day type="mon" draft="true">душанба</day>
+							<day type="tue" draft="true">сешанба</day>
+							<day type="wed" draft="true">чоршанба</day>
+							<day type="thu" draft="true">пайшанба</day>
+							<day type="fri" draft="true">жума</day>
+							<day type="sat" draft="true">шанба</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
 		<symbols>
 			<decimal draft="true">,</decimal>
@@ -25,6 +63,7 @@
 		<currencies>
 			<currency type="UZS">
 				<symbol draft="true">сўм</symbol>
+				<displayName draft="true">Ўзбекистон сўм</displayName>
 			</currency>
 		</currencies>
 	</numbers>

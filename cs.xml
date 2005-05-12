@@ -482,6 +482,20 @@
 							<month type="11">l</month>
 							<month type="12">p</month>
 						</monthWidth>
+						<monthWidth type="short">
+							<month type="1" draft="true">led</month>
+							<month type="2" draft="true">úno</month>
+							<month type="3" draft="true">bře</month>
+							<month type="4" draft="true">dub</month>
+							<month type="5" draft="true">kvě</month>
+							<month type="6" draft="true">črn</month>
+							<month type="7" draft="true">črc</month>
+							<month type="8" draft="true">srp</month>
+							<month type="9" draft="true">zář</month>
+							<month type="10" draft="true">říj</month>
+							<month type="11" draft="true">lis</month>
+							<month type="12" draft="true">pro</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">ledna</month>
 							<month type="2">února</month>
@@ -525,6 +539,20 @@
 							<month type="10">ř</month>
 							<month type="11">l</month>
 							<month type="12">p</month>
+						</monthWidth>
+						<monthWidth type="short">
+							<month type="1" draft="true">led</month>
+							<month type="2" draft="true">úno</month>
+							<month type="3" draft="true">bře</month>
+							<month type="4" draft="true">dub</month>
+							<month type="5" draft="true">kvě</month>
+							<month type="6" draft="true">črn</month>
+							<month type="7" draft="true">črc</month>
+							<month type="8" draft="true">srp</month>
+							<month type="9" draft="true">zář</month>
+							<month type="10" draft="true">říj</month>
+							<month type="11" draft="true">lis</month>
+							<month type="12" draft="true">pro</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">leden</month>
@@ -604,11 +632,13 @@
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>d.M.yyyy</pattern>
+							<pattern alt="proposed" draft="true">ccyy-mm-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>d.M.yy</pattern>
+							<pattern alt="proposed" draft="true">yy-mm-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -616,11 +646,13 @@
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>H:mm:ss z</pattern>
+							<pattern alt="proposed" draft="true">H:mm:ssZZ</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern>H:mm:ss z</pattern>
+							<pattern alt="proposed" draft="true">H:mm:ssZZ</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -724,6 +756,7 @@
 				<long>
 					<standard>Japonský standardní čas</standard>
 					<daylight>Japonský standardní čas</daylight>
+					<daylight alt="proposed" draft="true">Japonský letní čas</daylight>
 				</long>
 				<short>
 					<standard>JST</standard>
@@ -799,6 +832,7 @@
 				<long>
 					<standard>Havajský standardní čas</standard>
 					<daylight>Havajský standardní čas</daylight>
+					<daylight alt="proposed" draft="true">Havajský letní čas</daylight>
 				</long>
 				<short>
 					<standard>HST</standard>
@@ -829,6 +863,7 @@
 				<long>
 					<standard>Horský standardní čas</standard>
 					<daylight>Horský standardní čas</daylight>
+					<daylight alt="proposed" draft="true">Horský letní čas</daylight>
 				</long>
 				<short>
 					<standard>MST</standard>
@@ -859,6 +894,7 @@
 				<long>
 					<standard>Východní standardní čas</standard>
 					<daylight>Východní standardní čas</daylight>
+					<daylight alt="proposed" draft="true">Východní letní čas</daylight>
 				</long>
 				<short>
 					<standard>EST</standard>

@@ -53,12 +53,12 @@ public class NodeSet {
         boolean hasWarning = false;
         
         public NodeSetEntry(String t) {
-            type = t;
+            type = SurveyMain.pool(t);
             key = null;
         }
         public NodeSetEntry(String t, String k) {
-            type = t;
-            key = k;
+            type = SurveyMain.pool(t);
+            key = SurveyMain.pool(k);
         }
         
         public void addFallback(String locale) {
@@ -85,7 +85,7 @@ public class NodeSet {
                 if(alts == null) {
                     alts = new Hashtable();
                 }
-                alts.put(alt,node);
+                alts.put(SurveyMain.pool(alt),node);
             } else {
                 if(main != null) {
                     throw new RuntimeException("dup main nodes- " + type + ", " + node.toString());
@@ -136,8 +136,8 @@ public class NodeSet {
         NodeSetEntry nse = (NodeSetEntry)map.get(xpath);
         if(nse == null) {
             nse = new NodeSetEntry((type!=null)?type:"");
-            nse.xpath = xpath;
-            map.put(xpath,nse);
+            nse.xpath = SurveyMain.poolx(xpath);
+            map.put(nse.xpath,nse);
         }
     }
     
@@ -150,7 +150,7 @@ public class NodeSet {
         NodeSetEntry nse = (NodeSetEntry)map.get(type);
         if(nse == null) {
             nse = new NodeSetEntry(type, key);
-            map.put(type,nse);
+            map.put(nse.type,nse);
         }
         nse.add(node, locale);            
     }
@@ -165,8 +165,8 @@ public class NodeSet {
         NodeSetEntry nse = (NodeSetEntry)map.get(xpath);
         if(nse == null) {
             nse = new NodeSetEntry((type!=null)?type:"");
-            nse.xpath = xpath;
-            map.put(xpath, nse);
+            nse.xpath = SurveyMain.poolx(xpath);
+            map.put(nse.xpath, nse);
             // calculate warning here??
         }
         if(u != null) {
@@ -342,7 +342,7 @@ public class NodeSet {
         TreeMap m = new TreeMap(myCollator);
         for(Iterator e = iterator();e.hasNext();) {
             NodeSet.NodeSetEntry f = (NodeSet.NodeSetEntry)e.next();
-            m.put(nst.text(f),f);
+            m.put(nst.text(f),f); // don't pool this - it's ephemeral
         }
         return m;
     }

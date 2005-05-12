@@ -272,6 +272,6 @@ public class WebContext {
     
     public void printHelpLink(String what, String title)
     {
-        println("(<a href=\"http://bugs.icu-project.org/cgibin/cldrwiki.pl?SurveyToolHelp" + what + "\">" + title +"</a>)");
+        println("(<a href=\"" + SurveyMain.CLDR_HELP_LINK + what + "\">" + title +"</a>)");
     }
 }

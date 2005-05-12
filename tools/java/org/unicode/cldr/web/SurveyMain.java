@@ -8,6 +8,7 @@ package org.unicode.cldr.web;
 
 import java.io.*;
 import java.util.*;
+import java.lang.ref.SoftReference;
 
 // DOM imports
 import org.w3c.dom.Document;
@@ -33,6 +34,8 @@ import com.ibm.icu.lang.UCharacter;
 //import org.html.table.*;
 
 class SurveyMain {
+    public static final String CLDR_HELP_LINK = "http://bugs.icu-project.org/cgibin/cldrwiki.pl?SurveyToolHelp";
+    public static final String CLDR_ALERT_ICON = "/~srloomis/alrt.gif";
     public static final String SUBVETTING = "//v"; // vetting context
     public static final String SUBNEW = "//n"; // new context
     public static final String NOCHANGE = "nochange";
@@ -157,7 +160,20 @@ class SurveyMain {
         ctx.println("Free memory: " + free + "M / " + total + "M.<br/>");
         r.gc();
         ctx.println("Ran gc();<br/>");
-        ctx.println("Node hash has " + nodeHash.size() + " items. <br/>");
+        {
+            Hashtable nodeHash = getNodeHash();            
+            if(nodeHash != null) {
+                ctx.println("Node hash has " + nodeHash.size() + " items");
+            } else {
+                ctx.println("Node hash is null");
+            }
+            double avgPuts = ((double)nodeHashPuts)/((double)nodeHashCreates);
+            ctx.println(", and was created " +  nodeHashCreates + " times. <br/>");
+            ctx.println("(For " + nodeHashPuts + " puts, that's an average of " + avgPuts + ")<br/>");
+        }
+        ctx.println("String hash has " + stringHash.size() + " items.<br/>");
+        ctx.println("xString hash has " + xstringHash.size() + " items.<br/>");
+        ctx.println("xpath hash has " + allXpaths.size() + " items.<br/>");
         ctx.println("</div>");
         ctx.println("<hr/>");
         ctx.println("<h1>Current Sessions</h1>");
@@ -1377,13 +1393,32 @@ class SurveyMain {
     /** 
      * Fetch the NodeSet  [ set of resolved items ] from the cache if possible
      */
-    Hashtable nodeHash = new Hashtable();
+    private SoftReference nodeHashReference = null;
+    int nodeHashPuts = 0;
+    private final Hashtable getNodeHash() {
+        Hashtable nodeHash = null;
+        if((nodeHashReference == null) ||
+            ((nodeHash=(Hashtable)nodeHashReference.get())==null)) {
+            return null;
+        }
+        return nodeHash;
+    }
+    
+    int nodeHashCreates = 0;
     NodeSet getNodeSet(WebContext ctx, String which) {
-        NodeSet ns = (NodeSet)nodeHash.get(ctx.locale.toString() + "/" + which);
+        NodeSet ns = null;
+        
+        {
+            Hashtable nodeHash = getNodeHash();
+            if(nodeHash != null) {
+                ns = (NodeSet)nodeHash.get(ctx.locale.toString() + "/" + which);
+            } 
+        }
+
         if(ns != null) {
             return ns;
         }
-        
+
         StandardCodes standardCodes = StandardCodes.make();
         Set defaultSet = standardCodes.getAvailableCodes(typeToSubtype(which));
         
@@ -1398,6 +1433,15 @@ class SurveyMain {
             ns = getNodeSetOther(ctx, which);            
         }
         if(ns != null) {
+            Hashtable nodeHash = getNodeHash();
+            if(nodeHash == null) {
+                // create the nodehash
+                nodeHashReference = new SoftReference(nodeHash = new Hashtable());   
+                ++nodeHashCreates;
+   //             double avgPuts = ((double)nodeHashPuts)/((double)nodeHashCreates);
+   // /*srl*/            System.err.println("Created nodeHash [#" + nodeHashCreates + "] - avg p/h " + avgPuts + "\n");
+            }
+            ++nodeHashPuts;
             nodeHash.put(ctx.locale.toString() + "/" + which, ns);
         }
         return ns;
@@ -1941,7 +1985,8 @@ class SurveyMain {
         if((cldrLoad != null) && cldrLoad.length()>0) {
             m.loadAll();
         }
-        appendLog("SurveyTool ready for connections.");
+        appendLog("SurveyTool ready for connections. Memory in use: " + usedK());
+        System.err.println("SurveyTool ready for connections.  Goodbye, console.");
         while(new FCGIInterface().FCGIaccept()>= 0) {
             System.setErr(System.out);
             try {
@@ -1955,10 +2000,18 @@ class SurveyMain {
                     m.runSurvey(System.out);
                 }
             } catch(Throwable t) {
-                System.out.println("Content-type: text/html\n\n\n<pre>");
+                System.out.println("Content-type: text/html\n\n\n");
+                System.out.println("<title>CLDR Vetting | Survey Tool Internal Error</title><img style='float: right' src='" + CLDR_ALERT_ICON + "' alt='[Alert Icon]' width=128 height=128 align=right/>");
+                System.out.println("<pre>");
                 System.out.flush();
-                System.out.println("<B>err</B>: <pre>" + t.toString() + "</pre>");
+                System.out.println("</pre><h1>CLDR: Survey Tool Internal Error</h1> <pre>" + t.toString());
+                System.out.println("\n\nStack:\n");
+                appendLog("Exception: " + t.toString().replace('\n',' ') + " @ " + cgi_lib.MyFullURL() );
                 t.printStackTrace();
+                
+                System.out.println("</pre><b>I'm sorry, the Survey Tool is having a problem.</b><p>");
+                System.out.println("Your URL was: " + cgi_lib.MyFullURL() + "<p>");
+                System.out.println("Please see the <a href='" + CLDR_HELP_LINK +"'>CLDR Survey Tool Help Page</a><hr><a href=\"http://www.unicode.org/cldr\">CLDR Home Page</a>");
             }
         }
     }
@@ -2052,6 +2105,7 @@ class SurveyMain {
     
     public static Document fetchDoc( String locale) {
         Document doc = null;
+        locale = pool(locale);
         doc = (Document)docTable.get(locale);
         if(doc!=null) {
             return doc;
@@ -2063,7 +2117,7 @@ class SurveyMain {
         String res  = null; /* request.getParameter("res"); */ /* ALWAYS resolve */
         String ver = LDMLUtilities.getCVSVersion(fileBase, locale + ".xml");
         if(ver != null) {
-            docVersions.put(locale, ver);
+            docVersions.put(locale, pool(ver));
         }
         if((res!=null)&&(res.length()>0)) {
             // throws exception
@@ -2077,16 +2131,28 @@ class SurveyMain {
             docTable.put(locale, doc);
         }
         collectXpaths(doc, locale, "/");
-        if((cldrLoad != null) && cldrLoad.equals("y")) {
+        if((cldrLoad != null) && (cldrLoad.length()>0) && !cldrLoad.startsWith("u")) {
+            System.err.print('\b');
             System.err.print('x'); 
             System.err.flush();
         }
         return doc;
     }
+
+    static int usedK() {
+        Runtime r = Runtime.getRuntime();
+        double total = r.totalMemory();
+        total = total / 1024;
+        double free = r.freeMemory();
+        free = free / 1024;
+        return (int)(Math.floor(total-free));
+    }
+        
         
     void loadAll() {   
         boolean ultra = cldrLoad.startsWith("u");
-        System.err.println("Pre-Loading cache...");
+        System.err.println("Pre-Loading cache... " + usedK() + "K used so far.\n");
+        appendLog("SurveyTool pre-loading cache.");
         if(ultra) {
             System.err.println("Ultra Mode [loading ALL nodesets]");
         }
@@ -2096,15 +2162,19 @@ class SurveyMain {
         for(int i=0;i<nrInFiles;i++) {
             String localeName = inFiles[i].getName();
             if(ultra) {
-                System.err.print(i + "/" + nrInFiles + ":      " + localeName + "      ");
+                System.err.print(i + "/" + nrInFiles + ":           " + localeName + "           ");
             }
             int dot = localeName.indexOf('.');
             if(dot !=  -1) {
                 localeName = localeName.substring(0,dot);
+                if(!ultra && (i>0)&&((i%50)==0)) {
+                    System.err.println("   "+ i + "/" + nrInFiles + ". " + usedK() + "K mem used");
+                }
                 System.err.print('.');
                 System.err.flush();
                 try {
                     fetchDoc(localeName);
+                    
                     if(ultra) {
                         int j;
                         WebContext ctx = new WebContext(false);
@@ -2124,10 +2194,31 @@ class SurveyMain {
                         NodeSet ns = getNodeSet(ctx, xOTHER);
                         ti += ns.count();
                         System.err.print("O");
-                        System.err.flush();                    
-                        System.err.print("       " + ti + " nodes loaded..          \r");
+                        System.err.flush();
+                        String nodeHashInfo;
+                        {
+                            Hashtable nodeHash = getNodeHash();            
+                            if(nodeHash != null) {
+                                nodeHashInfo = "nh" + nodeHash.size();
+                            } else {
+                                nodeHashInfo = "nhNULL";
+                            }
+                        }
+                        System.err.print("           " + ti + " nodes loaded.. (sc" + stringHash.size() + 
+///*srl*/                            "[-" + stringHashHit + "=" + stringHashIdentity + "]" + 
+                            ", " + 
+                            "xsc" + xstringHash.size() + ", " + nodeHashInfo + ", nhc" + nodeHashCreates + ")         \r");
+                        //ctx.close();
+                        /* if you want to print otu the string cache for any reason, this is probably as good a place as any. */
+                      /*  {                        
+                            Enumeration e = stringHash.keys();
+                            for(;e.hasMoreElements();) {
+                                String k = e.nextElement().toString();
+                                System.err.print(k +",");
+                            }
+                            return; 
+                        } */
                     }
-//                    ctx.close();
                 } catch(Throwable t) {
                     System.err.println();
                     System.err.println(localeName + " - err: " + t.toString());
@@ -2138,14 +2229,31 @@ class SurveyMain {
         }
         System.err.println();
         System.err.println("Done. Fetched " + nrInFiles + " files.");
+        System.err.println(" " + usedK() + "K used so far.\n");
+        {
+            String nodeHashInfo;
+            {
+                Hashtable nodeHash = getNodeHash();            
+                if(nodeHash != null) {
+                    nodeHashInfo = "nh" + nodeHash.size();
+                } else {
+                    nodeHashInfo = "nhNULL";
+                }
+            }
+            System.err.println("Caches:  (sc" + stringHash.size() + 
+    ///*srl*/                            "[-" + stringHashHit + "=" + stringHashIdentity + "]" + 
+                ", " + 
+                "xsc" + xstringHash.size() + ", " + nodeHashInfo + ", nhc" + nodeHashCreates + ")");
+        }
     }
     
     private static synchronized void appendLog(String what) {
         try {
           OutputStream file = new FileOutputStream(new File(vetdata,LOGFILE), true); // Append
           PrintWriter pw = new PrintWriter(file);
+          String ipInfo =  WebContext.userIP();
           pw.println(new Date().toString()  + '\t' +
-                     WebContext.userIP() + '\t' + 
+                    ipInfo + '\t' + 
                      what);
          pw.close();
          file.close();
@@ -2185,7 +2293,7 @@ class SurveyMain {
                 draftSet.add(locale);
             }
                 
-            allXpaths.put(newPath, CookieSession.j + "X" + CookieSession.cheapEncode(xpathCode++));
+            allXpaths.put(poolx(newPath), CookieSession.j + "X" + CookieSession.cheapEncode(xpathCode++));
             collectXpaths(node, locale, newPath);
         }
     }
@@ -2201,7 +2309,7 @@ class SurveyMain {
             if(r == null) {
                 // we've found a totally new xpath. Mint a new key.
                 r = CookieSession.j + "Y" + CookieSession.cheapEncode(xpathCode++);
-                allXpaths.put(xpath, r);
+                allXpaths.put(poolx(xpath), r);
             }
             return r;
         } else {
@@ -2218,7 +2326,7 @@ class SurveyMain {
         if(warning != null) {
             String warningTitle = quoteXML.transliterate(warning);
             ctx.println("<a href='javascript:show(\"" + warnHash + "\")'>" + 
-                "<img border=0 align=right src='/~srloomis/alrt.gif' width=16 height=16 alt=\"" +   
+                "<img border=0 align=right src='" + CLDR_ALERT_ICON + "' width=16 height=16 alt=\"" +   
                 warningTitle + "\" title=\"" + warningTitle + "\"></a>");
             ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
                 "<div style='display: none' class='warning' id='" + warnHash + "'>" +
@@ -2264,5 +2372,38 @@ class SurveyMain {
         return true;
     }
 
+    private static Hashtable stringHash = new Hashtable();
+    private static Hashtable xstringHash = new Hashtable();
+    
+    static int stringHashIdentity = 0; // # of x==y hits
+    static int stringHashHit = 0;
+    
+    static final String pool(String x) {
+        if(x==null) {
+            return null;
+        }
+        String y = (String)stringHash.get(x);
+        if(y==null) {
+            stringHash.put(x,x);
+            return x;
+        } else {
+///*srl*/            if(x==y) { stringHashIdentity++; throw new RuntimeException("pool(x)==x"); }
+///*srl*/            stringHashHit++;
+            return y;
+        }
+    }
+    
+    static final String poolx(String x) {
+        if(x==null) {
+            return null;
+        }
+        String y = (String)xstringHash.get(x);
+        if(y==null) {
+            xstringHash.put(x,x);
+            return x;
+        } else {
+            return y;
+        }
+    }
     
 }

@@ -263,11 +263,19 @@ public class POSIX_LCCollate {
         .append(w.secondaries)
         .append(";")
         .append(w.tertiaries)
-        .append(";")
-        .append(nonUniqueWeights.contains(w)
-                ? POSIXUtilities.POSIXCharName(Normalizer.decompose(string,false))
-                : "IGNORE" );
+        .append(";");
         
+        if ( nonUniqueWeights.contains(w))
+        {
+            String decomposed = Normalizer.decompose(string,false);
+            if ( decomposed.length() > 1 )
+               result.append("\"");
+            result.append(POSIXUtilities.POSIXCharName(decomposed));
+            if ( decomposed.length() > 1 )
+               result.append("\"");
+        }
+        else
+           result.append("IGNORE");
 
         if (prefix.length() != 0) result.insert(0,prefix);
 		return result.toString();

@@ -47,5 +47,91 @@
 					<t>Œ</t>
 				</rules>
 			</collation  >
+			<collation type="standard" alt="proposed" draft="true">
+				<rules>
+					<!-- D and U+0335 -->
+					<reset>D ̵</reset>
+					<s>đ</s>
+					<t>Đ</t>
+					<!-- G and U+0335 -->
+					<reset>G ̵</reset>
+					<s>ǥ</s>
+					<t>Ǥ</t>
+					<!-- N and U+0335 -->
+					<reset>N ̵</reset>
+					<s>ŋ</s>
+					<t>Ŋ</t>
+					<!-- T and U+0335 -->
+					<reset>T ̵</reset>
+					<s>ŧ</s>
+					<t>Ŧ</t>
+					<reset>V</reset>
+					<s>w</s>
+					<t>W</t>
+					<reset>Y</reset>
+					<s>ü</s>
+					<t>Ü</t>
+					<!-- Z and U+0335 -->
+					<reset>Z ̵</reset>
+					<s>ʒ</s>
+					<t>Ʒ</t>
+					<s>ǯ</s>
+					<t>Ǯ</t>
+					<!-- U+0291, LATIN SMALL LETTER Z WITH CURL, the last Z-like character. -->
+					<reset>ʑ</reset>
+					<p>å</p>
+					<t>Å</t>
+					<p>ä</p>
+					<t>Ä</t>
+					<s>æ</s>
+					<t>Æ</t>
+					<p>ö</p>
+					<t>Ö</t>
+					<s>ø</s>
+					<t>Ø</t>
+				</rules>
+			</collation>
+			<!-- For the phonebook collation, the only change is to collate v and w as separate characters, i.e.: -->
+			<collation type="phonebook" draft="true">
+				<rules>
+					<!-- D and U+0335 -->
+					<reset>D ̵</reset>
+					<s>đ</s>
+					<t>Đ</t>
+					<!-- G and U+0335 -->
+					<reset>G ̵</reset>
+					<s>ǥ</s>
+					<t>Ǥ</t>
+					<!-- N and U+0335 -->
+					<reset>N ̵</reset>
+					<s>ŋ</s>
+					<t>Ŋ</t>
+					<!-- T and U+0335 -->
+					<reset>T ̵</reset>
+					<s>ŧ</s>
+					<t>Ŧ</t>
+					<reset>Y</reset>
+					<s>ü</s>
+					<t>Ü</t>
+					<!-- Z and U+0335 -->
+					<reset>Z ̵</reset>
+					<s>ʒ</s>
+					<t>Ʒ</t>
+					<s>ǯ</s>
+					<t>Ǯ</t>
+					<!-- U+0291, LATIN SMALL LETTER Z WITH CURL, the last Z-like character. -->
+					<reset>ʑ</reset>
+					<p>å</p>
+					<t>Å</t>
+					<p>ä</p>
+					<t>Ä</t>
+					<s>æ</s>
+					<t>Æ</t>
+					<p>ö</p>
+					<t>Ö</t>
+					<s>ø</s>
+					<t>Ø</t>
+				</rules>
+			</collation>
 		</collations>
 </ldml>

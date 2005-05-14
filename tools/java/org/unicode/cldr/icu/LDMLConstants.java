@@ -78,6 +78,7 @@ public class LDMLConstants {
     public static final String SHORT           = "short";
     public static final String DAYLIGHT        = "daylight";
     public static final String STANDARD        = "standard";
+    public static final String GENERIC         = "generic";
     public static final String WEEK            = "week";
     public static final String AM              = "am";
     public static final String PM              = "pm";

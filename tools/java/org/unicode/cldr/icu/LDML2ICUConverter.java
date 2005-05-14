@@ -99,7 +99,7 @@ public class LDML2ICUConverter {
             "-w [dir] or --write-deprecated [dir]   write data for deprecated locales. 'dir' is a directory of source xml files.\n"+
             "-h or -? or --help         this usage text.\n"+
             "-v or --verbose            print out verbose output.\n"+
-            "example: com.ibm.icu.dev.tool.cldr.LDML2ICUConverter -s xxx -d yyy en.xml");
+            "example: org.unicode.cldr.icu.LDML2ICUConverter -s xxx -d yyy en.xml");
         System.exit(-1);
     }
     private void printInfo(String message){
@@ -162,6 +162,7 @@ public class LDML2ICUConverter {
             writeDeprecated(); // actually just reads the alias
         }
         if(remainingArgc==0){
+            // TODO: reword, no options named -t or -c
            printError("",      "Either the file name to be processed is not "+
                                "specified or the it is specified after the -t/-c \n"+
                                "option which has an optional argument. Try rearranging "+
@@ -355,7 +356,7 @@ public class LDML2ICUConverter {
             ICUResourceWriter.Resource res = null;
             if(name.equals(LDMLConstants.SUPPLEMENTAL_DATA) ){
                 if(LDMLUtilities.isNodeDraft(node) && writeDraft==false){
-                    printWarning(file,"The suuplementalData.xml file is marked draft! Not producing ICU file. ");
+                    printWarning(file,"The supplementalData.xml file is marked draft! Not producing ICU file. ");
                     System.exit(-1);
                 }
                 node=node.getFirstChild();
@@ -1139,8 +1140,8 @@ public class LDML2ICUConverter {
                     res.name = (String) keyNameMap.get(LDMLConstants.EXEMPLAR_CHARACTERS);
                 }
                 else if (isType(node,LDMLConstants.AUXILIARY)) {
-                	//TODO: Add this data to ICU eventually. A different name or structure is required though.
-                	printInfo("Skipping auxillary exemplar characters");
+                        //TODO: Add this data to ICU eventually. A different name or structure is required though.
+                        printInfo("Skipping auxillary exemplar characters");
                 }
             }else if(name.equals(LDMLConstants.ALIAS)){
                 res = parseAliasResource(node, xpath);
@@ -1584,9 +1585,11 @@ public class LDML2ICUConverter {
 
         ICUResourceWriter.ResourceString ss = new ICUResourceWriter.ResourceString();
         ICUResourceWriter.ResourceString sd = new ICUResourceWriter.ResourceString();
+        ICUResourceWriter.ResourceString sg = new ICUResourceWriter.ResourceString();
 
         ICUResourceWriter.ResourceString ls = new ICUResourceWriter.ResourceString();
         ICUResourceWriter.ResourceString ld = new ICUResourceWriter.ResourceString();
+        ICUResourceWriter.ResourceString lg = new ICUResourceWriter.ResourceString();
 
         ICUResourceWriter.ResourceString exemplarCity = new ICUResourceWriter.ResourceString();
 
@@ -1609,12 +1612,20 @@ public class LDML2ICUConverter {
                 /* get information about long */
                 Node ssn = getVettedNode(node, LDMLConstants.STANDARD, xpath);
                 Node sdn = getVettedNode(node, LDMLConstants.DAYLIGHT, xpath);
+                Node sgn = getVettedNode(node, LDMLConstants.GENERIC, xpath);
+
                 if((ssn==null||sdn==null) && !writeDraft){
                     System.err.println("WARNING: Could not get timeZone string for " + xpath.toString()+" not producing the resource.");
-                   // System.exit(-1);
+                    //System.exit(-1);
                 }else{
                     ss.val = LDMLUtilities.getNodeValue(ssn);
                     sd.val = LDMLUtilities.getNodeValue(sdn);
+                    if (sgn != null) {
+                        sg.val = LDMLUtilities.getNodeValue(sgn);
+                        if(sg.val==null){
+                            sg.val = "";
+                        }
+                    }
                     // ok the nodes are availble but
                     // the values are null .. so just set the values to empty strings
                     if(ss.val==null){
@@ -1628,13 +1639,20 @@ public class LDML2ICUConverter {
                 /* get information about long */
                 Node lsn = getVettedNode(node, LDMLConstants.STANDARD, xpath);
                 Node ldn = getVettedNode(node, LDMLConstants.DAYLIGHT, xpath);
+                Node lgn = getVettedNode(node, LDMLConstants.GENERIC, xpath);
                 if((lsn==null||ldn==null) && !writeDraft){
                     System.err.println("WARNING: Could not get timeZone string for " + xpath.toString()+" not producing the resource.");
                     //System.exit(-1);
                 }
-                if(lsn != null && ldn !=null){
+                if(lsn != null && ldn !=null && lgn != null){
                     ls.val = LDMLUtilities.getNodeValue(lsn);
                     ld.val = LDMLUtilities.getNodeValue(ldn);
+                    if (lgn != null) {
+                        lg.val = LDMLUtilities.getNodeValue(lgn);
+                        if (lg.val==null){
+                            lg.val = "";
+                        }
+                    }
                     // ok the nodes are availble but
                     // the values are null .. so just set the values to empty strings
                     if(ls.val==null){
@@ -1677,6 +1695,13 @@ public class LDML2ICUConverter {
         }
         /* assemble the array */
         if(type.val!=null && ls.val!=null && ss.val!=null && ld.val!=null && sd.val!=null){
+            // array is length 
+            // 4 if no exemplar and no generic
+            // 5 if exemplar and no generic
+            // 6 if no exemplar and generic
+            // 7 if exemplar and generic
+            // so length of array defines what optional data we have
+
             array.first = type;     /* [0] == type */
 
             type.next = ls;         /* [1] == long name for Standard */
@@ -1685,6 +1710,15 @@ public class LDML2ICUConverter {
             ld.next = sd;           /* [4] == short name for standard */
             if(exemplarCity.val!=null){
                 sd.next = exemplarCity; /* [5] == exemplarCity */
+                if (lg.val != null && sg.val != null) {      
+                    exemplarCity.next = lg; /* [6] == long name for Generic */
+                    lg.next = sg;           /* [7] == short name for Generic */
+                }
+            } else {
+                if (lg.val != null && sg.val != null) {
+                    sd.next = lg;       /* [5] == long name for Generic */
+                    lg.next = sg;       /* [6] == short name for Generic */
+                }
             }
         }
         

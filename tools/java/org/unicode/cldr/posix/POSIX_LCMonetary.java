@@ -293,4 +293,4 @@ public class POSIX_LCMonetary {
       out.println();
 
    }
-};
+}

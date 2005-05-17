@@ -149,4 +149,4 @@ public class POSIXLocale {
 
    } // end write(PrintWriter out);
 
-};
+}

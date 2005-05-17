@@ -76,7 +76,7 @@ public class POSIX_LCTime {
          n = LDMLUtilities.getNode(doc, SearchLocation);
          if ( (n != null) &&  !(LDMLUtilities.getNodeValue(n).equals("0")))
          {
-            Character ThisDigit;
+            //Character ThisDigit;
             String NativeZeroDigit = LDMLUtilities.getNodeValue(n);
             alt_digits[0] = POSIXUtilities.POSIXCharName(NativeZeroDigit);
             char base_value = NativeZeroDigit.charAt(0);
@@ -241,4 +241,4 @@ public class POSIX_LCTime {
       out.println("END LC_TIME");
 
    }
-};
+}

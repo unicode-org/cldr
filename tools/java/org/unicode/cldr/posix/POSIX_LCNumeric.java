@@ -47,4 +47,4 @@ public class POSIX_LCNumeric {
       out.println();
 
    }
-};
+}

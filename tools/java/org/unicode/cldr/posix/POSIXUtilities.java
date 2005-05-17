@@ -222,10 +222,7 @@ public class POSIXUtilities {
    }
 
    public static boolean isBetween ( int a, int b, int c ) {
-     if ( ( a < b && b < c ) || ( c < b && b < a ) )
-        return true;
-     else
-        return false;
+     return ( ( a < b && b < c ) || ( c < b && b < a ) );
    }
 
    public static String CollationSettingString ( Node node ) {

@@ -1,6 +1,6 @@
 /*
 **********************************************************************
-* Copyright (c) 2002-2004, International Business Machines
+* Copyright (c) 2002-2005, International Business Machines
 * Corporation and others.  All Rights Reserved.
 **********************************************************************
 * Author: John Emmons
@@ -10,7 +10,6 @@
 package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
-import java.nio.charset.Charset;
 import java.util.BitSet;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -21,12 +20,9 @@ import java.util.Set;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import org.unicode.cldr.icu.SimpleConverter;
 import org.unicode.cldr.util.LDMLUtilities;
 
 import com.ibm.icu.impl.Utility;
-import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.CollationElementIterator;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -393,4 +389,4 @@ public class POSIX_LCCollate {
         if (!nakedID) result.append('>');
         return result;
 	}
-};
+}

@@ -64,4 +64,4 @@ public class POSIXVariant {
       this.platform = "common";
       this.yesno = "long";
    }   
-};
+}

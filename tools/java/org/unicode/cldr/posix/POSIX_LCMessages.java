@@ -134,4 +134,4 @@ public class POSIX_LCMessages {
       out.println();
       out.println("END LC_MESSAGES");
    }
-};
+}

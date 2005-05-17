@@ -1,6 +1,6 @@
 /*
 **********************************************************************
-* Copyright (c) 2002-2004, International Business Machines
+* Copyright (c) 2002-2005, International Business Machines
 * Corporation and others.  All Rights Reserved.
 **********************************************************************
 * Author: John Emmons
@@ -10,13 +10,10 @@
 package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
-import java.nio.charset.Charset;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-
-import org.unicode.cldr.icu.SimpleConverter;
 import org.unicode.cldr.util.LDMLUtilities;
 
 import com.ibm.icu.lang.UCharacter;
@@ -131,4 +128,4 @@ public class POSIX_LCCtype {
       out.println();
    }
 
-};
+}

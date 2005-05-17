@@ -7,7 +7,6 @@
 package org.unicode.cldr.test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -16,7 +15,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -31,7 +29,6 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 
 /**
@@ -329,7 +326,7 @@ public class FlexibleDateTime {
 			int eqPos = rule.indexOf('=');
 			name = rule.substring(0, eqPos).trim();
 			rule = rule.substring(eqPos+1);
-			boolean inVariable = false;
+			//boolean inVariable = false;
 			int startVariable = -1;
 			String formatPiece = "";
 			for (int i = 0; i < rule.length(); ++i) {
@@ -425,7 +422,7 @@ public class FlexibleDateTime {
 			return result.toString();
 		}
 
-		/**
+		/*
 		 * @param format2
 		 * @param key
 		 * @param value
@@ -553,7 +550,6 @@ k 1..2 24 Hour [1-24].
 	 */
 	private String getDateFormatPattern(String string) {
 		getParts(string);
-		String result;
 		main:
 	    while (true) {
 	    	// start from the beginning whenever we get a match
@@ -587,11 +583,11 @@ k 1..2 24 Hour [1-24].
 		FormatParser set(String string) {
 			items.clear();
 			if (string.length() == 0) return this;
-			int start = 1;
+			//int start = 1;
 			int lastPos = 0;
 			char last = string.charAt(lastPos);
 			boolean lastIsVar = isVariableField(last);
-			boolean inQuote = last == quoteChar;;
+			boolean inQuote = last == quoteChar;
 			// accumulate any sequence of unquoted ASCII letters as a variable
 			// anything else as a string (with quotes retained)
 			for (int i = 1; i < string.length(); ++i) {
@@ -621,8 +617,7 @@ k 1..2 24 Hour [1-24].
 			return this;
 		}
 		/**
-		 * @param pattern
-		 * @param newParam TODO
+		 * @param output
 		 * @return
 		 */
 		public Collection getFields(Collection output) {
@@ -672,15 +667,14 @@ k 1..2 24 Hour [1-24].
 	/**
 	 * See if string occurs in list
 	 * @param string
-	 * @param pieces
-	 * @return
+	 * @returns
 	 */
 	// TODO put in order, check for duplicates
 	private void getParts(String string) {
 		String[] weights = new String[VARIABLES.size()];
 		currentVariables.clear();
 		if (string.length() == 0) return;
-		int start = 1;
+		//int start = 1;
 		int lastPos = 0;
 		char last = string.charAt(lastPos);
 		for (int i = 1; i < string.length(); ++i) {
@@ -708,7 +702,7 @@ k 1..2 24 Hour [1-24].
 		}
 		/**
 		 * @param part
-		 * @return
+		 * @returns
 		 */
 		public void getPart(String part, String[] weights) {
 			int weight = find(part.charAt(0), part.length());

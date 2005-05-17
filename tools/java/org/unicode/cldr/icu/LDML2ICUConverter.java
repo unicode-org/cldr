@@ -2143,7 +2143,7 @@ public class LDML2ICUConverter {
        return  (hours * 60  + minutes ) * 60 * 1000;
     }
     private ICUResourceWriter.Resource parseWeekend(Node root, StringBuffer xpath){
-        boolean wasdraft = false;
+        //boolean wasdraft = false;
         // TODO: TIMEBOMB this - ignore draft
         // TODO: for now we get whatever node is there, even if draft
 //        Node wkendStart = getVettedNode(root, LDMLConstants.WENDSTART, xpath);

@@ -190,14 +190,12 @@ public class GenerateCldrTests {
 	static final UnicodeSet NON_LATIN = new UnicodeSet("[^[:latin:][:common:][:inherited:]]");
 	
 	/**
-	 * @param uloc
+	 * @param localeName
 	 * @param isDraft TODO
 	 * @param draftLanguages
 	 * @param draftCountries
 	 * @param draftNativeLanguages
 	 * @param draftNativeCountries
-	 * @param lang
-	 * @param country
 	 */
 	private static void addCounts(String localeName, boolean isDraft, Set draftLanguages, Set draftCountries,
 			Set draftNativeLanguages, Set draftNativeCountries) {
@@ -1436,7 +1434,7 @@ public class GenerateCldrTests {
 				if (ait.codepoint != bit.codepoint) {
 					return ait.codepoint < bit.codepoint ? -1 : 1;
 				}
-				if (ait.codepoint == ait.IS_STRING) {
+				if (ait.codepoint == UnicodeSetIterator.IS_STRING) {
 					int result = ait.string.compareTo(bit.string);
 					if (result != 0) return result;
 				} else if (ait.codepointEnd != bit.codepointEnd) {

@@ -971,14 +971,14 @@ public class GenerateSidewaysView {
             this.comment = comment;
         }
         /**
-         * @param string
-         * @param fixed
+         * @param attribute
+         * @param value
          */
         public void setAttribute(String attribute, String value) {
             attributes.set(elementName, attribute, value);
         }
         /**
-         * @param string
+         * @param attributeName
          * @return
          */
         public String getValue(String attributeName) {
@@ -1036,7 +1036,7 @@ public class GenerateSidewaysView {
         */
         /**
          * @param ignorelist
-         * @return
+         * @returns
          */
         public void removeAttributes(Set ignorelist) {
             attributes.removeAttributes(ignorelist);
@@ -1078,9 +1078,9 @@ public class GenerateSidewaysView {
         }
 
         /**
-         * @param string
-         * @param string2
-         * @param string3
+         * @param element
+         * @param attribute
+         * @param value
          */
         public void setAttribute(String element, String attribute, String value) {
             for (int i = 0; i < contexts.size(); ++i) {
@@ -1799,8 +1799,6 @@ public class GenerateSidewaysView {
             return null;
         }
         /**
-         * @param keys
-         * @param it
          * @param possibleFirst
          */
         private void removeEverywhere(Object possibleFirst) {
@@ -1996,7 +1994,7 @@ public class GenerateSidewaysView {
             else finalComment += NEWLINE + comment;
             if (DEBUG2) System.out.println("comment: " + comment);
         }
-    };
+    }
 
     String finalComment = null;
 

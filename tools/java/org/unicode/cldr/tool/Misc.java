@@ -1,3 +1,11 @@
+/*
+**********************************************************************
+* Copyright (c) 2004-2005, International Business Machines
+* Corporation and others.  All Rights Reserved.
+**********************************************************************
+* Author: Mark Davis
+**********************************************************************
+*/
 package org.unicode.cldr.tool;
 
 import java.io.BufferedReader;
@@ -22,8 +30,6 @@ import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.CLDRFile.Factory;
-
-import sun.java2d.loops.ScaledBlit;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.tool.UOption;
@@ -413,7 +419,7 @@ public class Misc {
 			reordered.put(countryName + "0" + zoneID, zoneID);
 		}
 		
-		String[] field = new String[tzf.TYPE_LIMIT];
+		String[] field = new String[TimezoneFormatter.TYPE_LIMIT];
 		boolean first = true;
 		int count = 0;
 		for (Iterator it = reordered.keySet().iterator(); it.hasNext();) {
@@ -431,15 +437,15 @@ public class Misc {
 			} else {
 				log.println("<tr><th>&nbsp;</th><th>generic</th><th>standard</th><th>daylight</th></tr>");
 			}
-			for (int i = 0; i < tzf.LENGTH_LIMIT; ++i) {
-				log.println("<tr><th>" + tzf.LENGTH.get(i) + "</th>");
-				for (int j = 0; j < tzf.TYPE_LIMIT; ++j) {
+			for (int i = 0; i < TimezoneFormatter.LENGTH_LIMIT; ++i) {
+				log.println("<tr><th>" + TimezoneFormatter.LENGTH.get(i) + "</th>");
+				for (int j = 0; j < TimezoneFormatter.TYPE_LIMIT; ++j) {
 					field[j] = BagFormatter.toHTML.transliterate(tzf.getFormattedZone(zoneID, i, j));
 				}
 				if (field[0].equals(field[1]) && field[1].equals(field[2])) {
 					log.println("<td colspan=\"3\">" + field[0] + "</td>");
 				} else {
-					for (int j = 0; j < tzf.TYPE_LIMIT; ++j) {
+					for (int j = 0; j < TimezoneFormatter.TYPE_LIMIT; ++j) {
 						log.println("<td>" + field[j] + "</td>");			
 					}
 				}

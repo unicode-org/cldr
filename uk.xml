@@ -626,6 +626,11 @@
 					<firstDay day="mon"/>
 				</week>
 				<eras>
+					<!-- These era names look like abbreviations and not full names. -->
+					<!-- eraNames>
+						<era type="0" draft="true">до н.е.</era>
+						<era type="1" draft="true">н.е.</era>
+					</eraNames -->
 					<eraAbbr>
 						<era type="0">до н.е.</era>
 						<era type="1">н.е.</era>

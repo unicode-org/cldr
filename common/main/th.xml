@@ -575,7 +575,12 @@
 				<am>ก่อนเที่ยง</am>
 				<pm>หลังเที่ยง</pm>
 				<eras>
+					<eraNames>
+						<era type="0" draft="true">ปีก่อนคริสตกาลที่</era>
+						<era type="1" draft="true">คริสตศักราช</era>
+					</eraNames>
 					<eraAbbr>
+						<!-- Warning: BC looks like a full name, and not the abbreviated name. -->
 						<era type="0">ปีก่อนคริสต์กาลที่</era>
 						<era type="1">ค.ศ.</era>
 					</eraAbbr>

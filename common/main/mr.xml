@@ -216,6 +216,17 @@
 				</days>
 				<am>म.पू.</am>
 				<pm>म.नं.</pm>
+				<eras>
+					<!-- These era names look like abbreviations and not full names. -->
+					<!-- eraNames>
+						<era type="0" draft="true">ईसापूर्व.</era>
+						<era type="1" draft="true">सन.</era>
+					</eraNames -->
+					<eraAbbr>
+						<era type="0">ईसापूर्व</era>
+						<era type="1">सन</era>
+					</eraAbbr>
+				</eras>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
@@ -248,18 +259,10 @@
 	</posix>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/mr.txt?only_with_tag=final-update-LDML
-
 jw { "\u091c\u093e\u0935\u0928\u0940\u0938\u094d" } // Use jv instead
-Eras {
-"BC",
-"AD",
-}
 "\u2030",
 "\u221e",
 "\ufffd"
 }
-        "Deva"        // ISO 15924 Name 
-Currency display names
 -->
 

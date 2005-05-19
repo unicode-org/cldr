@@ -26,6 +26,7 @@
 			<territory type="CM">Kamerun</territory>
 			<territory type="CN">Uchina</territory>
 			<territory type="CO">Kolombia</territory>
+			<territory type="CS">Serbiya da Montenegro</territory>
 			<territory type="CV">Rasi Verde</territory>
 			<territory type="CZ">Jamhuri ya Czech</territory>
 			<territory type="DE">Udachi</territory>
@@ -159,6 +160,10 @@
 					<firstDay day="sat"/>
 				</week>
 				<eras>
+					<eraNames>
+						<era type="0" draft="true">Kabla ya Kristo</era>
+						<era type="1" draft="true">Baada ya Kristo</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">KK</era>
 						<era type="1">BK</era>
@@ -193,20 +198,12 @@
 	</numbers>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/sw.txt?only_with_tag=final-update-LDML
-
 Date        Name        Description
 10/23/2000  grhoten     Initial version (source http://www.yale.edu/swahili/)
 Many of these names came from www.geonames.de
-CS { "Serbiya da Montenegro" }
         IL { "Uyahudi" } // This could be Israeli instead
         IR { "Uajemi" } // This could be Iran instead
 MG { "Madagascar" } // Could also be Buki or Malagasi
             "Saa za Africa Mashariki",  // East African Time
-      "Latn",  // ISO 15924 Name
-NumberElements{}
-AmPmMarkers{}
-localPatternChars{}
-Currency display names
 -->
 

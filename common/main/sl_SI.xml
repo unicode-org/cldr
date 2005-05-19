@@ -13,18 +13,6 @@
 		<alternateQuotationStart draft="true">„</alternateQuotationStart>
 		<alternateQuotationEnd draft="true">“</alternateQuotationEnd>
 	</delimiters>
-	<dates>
-		<calendars>
-			<calendar type="gregorian">
-				<eras>
-					<eraNames>
-						<era type="0" draft="true">pred našim štetjem</era>
-						<era type="1" draft="true">naše štetje</era>
-					</eraNames>
-				</eras>
-			</calendar>
-		</calendars>
-	</dates>
 	<numbers>
 		<currencyFormats>
 			<currencyFormatLength>
@@ -36,7 +24,6 @@
 	</numbers>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
-URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/sl_SI.txt?only_with_tag=final-update-LDML
 
 NumberPatterns { 
 "#,##0.###;-#,##0.###",

@@ -1,4 +1,4 @@
-/* Copyright (C) 2004, International Business Machines Corporation and   *
+/* Copyright (C) 2004-2005, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               */
 //
 //  CookieJar.java
@@ -10,27 +10,7 @@
 
 package org.unicode.cldr.web;
 
-import java.io.*;
 import java.util.*;
-
-// DOM imports
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.NodeList;
-
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.util.ULocale;
-import com.ibm.icu.lang.UCharacter;
-
-import org.unicode.cldr.util.*;
-import org.unicode.cldr.icu.*;
-
-
-import com.fastcgi.FCGIInterface;
-import com.fastcgi.FCGIGlobalDefs;
-import com.ibm.icu.lang.UCharacter;
 
 public class CookieSession {
     public String id;

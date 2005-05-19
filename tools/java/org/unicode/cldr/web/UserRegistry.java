@@ -20,7 +20,7 @@ public class UserRegistry {
         public String email;    // 1
         public String sponsor;  // 2
         public String real;     // 3
-    };
+    }
     public User getEmptyUser() {
         User u = new User();
         u.id = null;

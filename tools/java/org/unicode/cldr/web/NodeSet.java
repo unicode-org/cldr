@@ -8,25 +8,16 @@
 
 package org.unicode.cldr.web;
 
-import java.io.*;
 import java.util.*;
 
 // DOM imports
-import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.NodeList;
 
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.util.ULocale;
-import com.ibm.icu.lang.UCharacter;
 
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.icu.*;
 
-
-import com.ibm.icu.lang.UCharacter;
 
 public class NodeSet {
     public interface NodeSetTexter {
@@ -159,7 +150,7 @@ public class NodeSet {
      * @param ctx (for debugging)
      * @param xpath xpath of the node
      * @param node the node
-     * @param locale - null if this is the main (active) locale 
+     * @param u A locale - null if this is the main (active) locale 
      */
     public void addFromXpath(WebContext ctx, ULocale u, String xpath, Node node, boolean draft, String alt, String type) {
         NodeSetEntry nse = (NodeSetEntry)map.get(xpath);

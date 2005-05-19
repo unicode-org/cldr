@@ -9,7 +9,6 @@ package org.unicode.cldr.test;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
@@ -26,8 +25,6 @@ import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UCharacterCategory;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -38,7 +35,6 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
@@ -835,7 +831,6 @@ public class CLDRTest extends TestFmwk {
 	 * @param codes
 	 * @param missing
 	 * @param exemplarTest TODO
-	 * @param fragment
 	 *            TODO
 	 */
 	private void checkForItems(CLDRFile item, Set codes, int type, CLDRFile missing, int failureCount[], UnicodeSet exemplarTest) {
@@ -1059,7 +1054,7 @@ public class CLDRTest extends TestFmwk {
 		foo = new TreeSet(map2.keySet());
 		foo.removeAll(map1.keySet());
 		if (!foo.isEmpty()) errln("Missing Aliases: " + title + "\t" + foo);
-		foo = map2.keySet();;
+		foo = map2.keySet();
 		foo.retainAll(map1.keySet());
         for (Iterator it = foo.iterator(); it.hasNext();) {
         	Object key = it.next();

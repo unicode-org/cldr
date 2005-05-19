@@ -760,10 +760,16 @@ public class LDMLUtilities {
             if(child.getNodeType()!=Node.ELEMENT_NODE){
                 continue;
             }
-            if(child.getNodeName().equals(LDMLConstants.IDENTITY)){
+            String name = child.getNodeName();
+            //fast path to check if <ldml> element is draft
+            if(name.equals(LDMLConstants.LDML) && isNodeDraft(child)==true){
+                return true;
+            }
+            if(name.equals(LDMLConstants.IDENTITY)){
                 seenElementsOtherThanIdentity=areSiblingsOfNodeElements(child);
                 continue;
             }
+
             if(child.hasChildNodes() && areChildNodesElements(child)){
                 isDraft = isLocaleDraft(child);
             }else{
@@ -1245,6 +1251,7 @@ System.err.println(filename2 + ":" + e.getLineNumber() +  (col>=0?":" + col:"") 
             dfactory.setNamespaceAware(true);
             dfactory.setValidating(validating);
             dfactory.setIgnoringComments(false);
+            dfactory.setExpandEntityReferences(true);
             // Set other attributes here as needed
             //applyAttributes(dfactory, attributes);
             
@@ -1345,16 +1352,27 @@ System.err.println(filename2 + ":" + e.getLineNumber() +  (col>=0?":" + col:"") 
      * @param out
      * @throws IOException
      */
-    public static void printDOMTree(Node node, PrintWriter out) throws IOException 
+    public static void printDOMTree(Node node, PrintWriter out, String docType, boolean useDefaultDoctype) throws IOException 
     {
          try {
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
-            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-            transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "http://oss.software.ibm.com/cvs/icu/~checkout~/locale/ldml.dtd");
+
+            if(useDefaultDoctype){
+
+                transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, docType);
+                transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+            }else{
+                
+                transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+                out.print("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
+                out.print(docType);
+            }
+            
+            //transformer.setParameter(entityName, entityRef );
             //transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC, XLIFF_PUBLIC_NAME);
-            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
             transformer.transform(new DOMSource(node), new StreamResult(out));
         }
         catch (TransformerException te) {
@@ -1471,12 +1489,13 @@ System.err.println(filename2 + ":" + e.getLineNumber() +  (col>=0?":" + col:"") 
 //         }
 //     }
 
-
-    static public String getFullPath(boolean fileType, String fName, String sourceDir, String destDir){
-        String str;
+    public static final int XML = 0,
+                            TXT = 1;
+    public static  String getFullPath(int fileType, String fName, String dir){
+        String str=null;
         int lastIndex1 = fName.lastIndexOf(File.separator, fName.length()) + 1/* add  1 to skip past the separator */; 
         int lastIndex2 = fName.lastIndexOf('.', fName.length());
-        if (fileType == true) {
+        if (fileType == TXT) {
             if(lastIndex2 == -1){
                 fName = fName.trim() + ".txt";
             }else{
@@ -1484,12 +1503,12 @@ System.err.println(filename2 + ":" + e.getLineNumber() +  (col>=0?":" + col:"") 
                     fName =  fName.substring(lastIndex1,lastIndex2) + ".txt";
                 }
             }
-            if (destDir != null && fName != null) {
-                str = destDir + "/" + fName.trim();                   
+            if (dir != null && fName != null) {
+                str = dir + "/" + fName.trim();                   
             } else {
                 str = System.getProperty("user.dir") + "/" + fName.trim();
             }
-        } else {
+        } else if(fileType == XML){
             if(lastIndex2 == -1){
                 fName = fName.trim() + ".xml";
             }else{
@@ -1497,13 +1516,16 @@ System.err.println(filename2 + ":" + e.getLineNumber() +  (col>=0?":" + col:"") 
                     fName = fName.substring(lastIndex1,lastIndex2) + ".xml";
                 }
             }
-            if(sourceDir != null && fName != null) {
-                str = sourceDir + "/" + fName;
+            if(dir != null && fName != null) {
+                str = dir + "/" + fName;
             } else if (lastIndex1 > 0) {
                 str = fName;
             } else {
                 str = System.getProperty("user.dir") + "/" + fName;
             }
+        }else{
+            System.err.println("Invalid file type.");
+            System.exit(-1);
         }
         return str;
     } 

@@ -17,7 +17,7 @@
 ##
 
 ## Root of the CLDR directory (contains common, icu, ...)
-CLDR_ROOT=../../../locale
+CLDR_ROOT=../../../cldr
 ICU_XML=$(srcdir)/xml
 
 ## Arguments to the LDML2ICUConverter program
@@ -32,7 +32,7 @@ ICU_XML=$(srcdir)/xml
 LDML_CONVERTER=LDML2ICUConverter
 
 ## command line options to the ldml conversion tool. Shouldn't need to edit from here on down.
-LDML_OPTS_RES += -s $(CLDR_ROOT)/common/main -d $(LOCSRCDIR) -p $(ICU_XML)/main $(LDML_CONVERTER_OPTS)
+LDML_OPTS_RES += -s $(CLDR_ROOT)/common/main -d $(LOCSRCDIR) -p $(ICU_XML)/main -m $(CLDR_ROOT)/common/supplemental $(LDML_CONVERTER_OPTS)
 LDML_OPTS_COL += -s $(CLDR_ROOT)/common/collation -d $(COLSRCDIR) -p $(ICU_XML)/collation $(LDML_CONVERTER_OPTS)
 
 ## some aliases

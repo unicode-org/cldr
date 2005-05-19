@@ -113,7 +113,7 @@ public class LDMLNodesAdder {
             OutputStreamWriter writer = new
             OutputStreamWriter(new FileOutputStream(destfile),"UTF-8");
             PrintWriter pw = new PrintWriter(writer);
-            LDMLUtilities.printDOMTree(maindoc,pw);
+            LDMLUtilities.printDOMTree(maindoc,pw, "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", true);
             writer.flush(); 
          }catch( Exception e){ 
              e.printStackTrace();

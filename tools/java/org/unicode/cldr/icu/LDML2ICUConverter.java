@@ -42,8 +42,9 @@ public class LDML2ICUConverter {
     private static final int SPECIALSDIR = 4;
     private static final int WRITE_DEPRECATED = 5;
     private static final int WRITE_DRAFT = 6;
-    private static final int SUPPLEMENTAL = 7;
-    private static final int VERBOSE = 8;
+    private static final int SUPPLEMENTALDIR = 7;
+    private static final int SUPPLEMENTALONLY = 8;
+    private static final int VERBOSE = 9;
 
 
     private static final UOption[] options = new UOption[] {
@@ -54,7 +55,8 @@ public class LDML2ICUConverter {
         UOption.create("specialsdir", 'p', UOption.REQUIRES_ARG),
         UOption.create("write-deprecated", 'w', UOption.REQUIRES_ARG),
         UOption.create("write-draft", 'f', UOption.NO_ARG),
-        UOption.create("supplemental", 'l', UOption.NO_ARG),
+        UOption.create("supplementaldir", 'm', UOption.REQUIRES_ARG),
+        UOption.create("supplemental-only", 'l', UOption.NO_ARG),
         UOption.VERBOSE(),
     };
 
@@ -62,6 +64,7 @@ public class LDML2ICUConverter {
     private String  fileName          = null;
     private String  destDir           = null;
     private String  specialsDir       = null;
+    private String  supplementalDir   = null;
     private boolean writeDeprecated   = false;
     private boolean writeDraft        = false;
     private boolean writeSupplemental = false;
@@ -76,7 +79,8 @@ public class LDML2ICUConverter {
     private Document fullyResolvedDoc = null;
     private Document specialsDoc      = null;
     private String locName            = null;
-
+    private Document supplementalDoc = null;
+    private String supplementalFileName = null;
     private static final boolean DEBUG = false;
 
     HashMap overrideMap = new HashMap(); // list of locales to take regardless of draft status.  Written by writeDeprecated
@@ -95,7 +99,8 @@ public class LDML2ICUConverter {
             "-d or --destdir            destination directory, followed by the path, default is current directory.\n" +
             "-p or --specialsdir        source directory for files containing special data followed by the path. None if not spcified\n"+
             "-f or --write-draft        write data for LDML nodes marked draft.\n"+
-            "-l or --supplemental       read supplementalData.xml file from the given directory and write appropriate files to destination directory\n"+
+            "-m or --suplementaldir     source directory for finding the supplemental data.\n" +
+            "-l or --supplemental-only  read supplementalData.xml file from the given directory and write appropriate files to destination directory\n"+
             "-w [dir] or --write-deprecated [dir]   write data for deprecated locales. 'dir' is a directory of source xml files.\n"+
             "-h or -? or --help         this usage text.\n"+
             "-v or --verbose            print out verbose output.\n"+
@@ -138,7 +143,10 @@ public class LDML2ICUConverter {
         if(options[WRITE_DRAFT].doesOccur) {
             writeDraft = true;
         }
-        if(options[SUPPLEMENTAL].doesOccur) {
+        if(options[SUPPLEMENTALDIR].doesOccur) {
+            supplementalDir = options[SUPPLEMENTALDIR].value;
+        } 
+        if(options[SUPPLEMENTALONLY].doesOccur) {
             writeSupplemental = true;
         }
         if(options[VERBOSE].doesOccur) {
@@ -162,44 +170,37 @@ public class LDML2ICUConverter {
             writeDeprecated(); // actually just reads the alias
         }
         if(remainingArgc==0){
-            // TODO: reword, no options named -t or -c
-           printError("",      "Either the file name to be processed is not "+
-                               "specified or the it is specified after the -t/-c \n"+
-                               "option which has an optional argument. Try rearranging "+
-                               "the options.");
+            printError("",      "No files specified for processing. Please check the arguments and try again");
             usage();
         }
-        if(writeSupplemental==true){
+
+        if(supplementalDir != null){
+            supplementalFileName = LDMLUtilities.getFullPath(LDMLUtilities.XML, "supplementalData", supplementalDir);
+            supplementalDoc = createSupplementalDoc(supplementalFileName);
+        }else{
             int lastIndex = args[0].lastIndexOf(File.separator, args[0].length()) + 1 /* add  1 to skip past the separator */;
-            fileName = args[0].substring(lastIndex, args[0].length());
-            String xmlfileName = LDMLUtilities.getFullPath(false,args[0],sourceDir, destDir);
-            try {
+            args[0] = args[0].substring(lastIndex, args[0].length());
+            supplementalFileName = LDMLUtilities.getFullPath(LDMLUtilities.XML,args[0],sourceDir);
+            supplementalDoc = createSupplementalDoc(supplementalFileName);           
+        }
+        if(writeSupplemental==true){
 
-                printInfo("Parsing document "+xmlfileName);
-
-                Document doc = LDMLUtilities.parse(xmlfileName, false);
-                // Create the Resource linked list which will hold the
-                // data after parsing
-                // The assumption here is that the top
-                // level resource is always a table in ICU
-                ICUResourceWriter.Resource res = parseSupplemental(doc, xmlfileName);
-                res.name = "CurrencyData";
-                if(res!=null && ((ICUResourceWriter.ResourceTable)res).first!=null){
-                    // write out the bundle
-                    writeResource(res, xmlfileName);
-                }
-
-            }catch (Throwable se) {
-                printError(fileName , "(parsing supplemental) " + se.toString());
-                se.printStackTrace();
-                System.exit(1);
+            // Create the Resource linked list which will hold the
+            // data after parsing
+            // The assumption here is that the top
+            // level resource is always a table in ICU
+            ICUResourceWriter.Resource res = parseSupplemental(supplementalDoc, supplementalFileName);
+            res.name = "CurrencyData";
+            if(res!=null && ((ICUResourceWriter.ResourceTable)res).first!=null){
+                // write out the bundle
+                writeResource(res, supplementalFileName);
             }
         }else{
             for (int i = 0; i < remainingArgc; i++) {
                 long start = System.currentTimeMillis();
                 int lastIndex = args[i].lastIndexOf(File.separator, args[i].length()) + 1 /* add  1 to skip past the separator */;
                 fileName = args[i].substring(lastIndex, args[i].length());
-                String xmlfileName = LDMLUtilities.getFullPath(false,args[i],sourceDir, destDir);
+                String xmlfileName = LDMLUtilities.getFullPath(LDMLUtilities.XML,args[i],sourceDir);
                 /*
                  * debugging code
                  *
@@ -259,7 +260,18 @@ public class LDML2ICUConverter {
             }
         }
     }
-
+    private Document createSupplementalDoc(String  xmlfileName){
+        try {
+            printInfo("Parsing document "+xmlfileName);
+            Document doc = LDMLUtilities.parse(xmlfileName, false);
+            return doc;
+        }catch (Throwable se) {
+            printError(fileName , "Parsing: " + xmlfileName + " "+ se.toString());
+            se.printStackTrace();
+            System.exit(1);
+        }
+        return null;
+    }
     private void createResourceBundle(String xmlfileName) {
          try {
 
@@ -786,6 +798,23 @@ public class LDML2ICUConverter {
                     res = null;
                 }
             }
+        }
+        if(supplementalDoc !=null){
+            /* TODO: comment this out for now. We shall revisit when 
+             * we have information on how to present the script data
+             * with new API
+            ICUResourceWriter.Resource res = parseLocaleScript(supplementalDoc);
+            if(res!=null){
+                if(current == null){
+                    table.first = res;
+                    current = findLast(res);
+                }else{
+                    current.next = res;
+                    current = findLast(res);
+                }
+                res = null;
+            }
+            */
         }
         return table;
     }
@@ -1644,7 +1673,7 @@ public class LDML2ICUConverter {
                     System.err.println("WARNING: Could not get timeZone string for " + xpath.toString()+" not producing the resource.");
                     //System.exit(-1);
                 }
-                if(lsn != null && ldn !=null && lgn != null){
+                if(lsn != null && ldn !=null ){
                     ls.val = LDMLUtilities.getNodeValue(lsn);
                     ld.val = LDMLUtilities.getNodeValue(ldn);
                     if (lgn != null) {
@@ -2204,14 +2233,21 @@ public class LDML2ICUConverter {
         if((minDays != null) || (firstDay != null)) { // only if we have ONE or the other.
             // fetch inherited to complete the resource..
             if(minDays == null) {
-                minDays = getVettedNode(root, LDMLConstants.MINDAYS , xpath);
+                //TODO: timebomb
+                // minDays = getVettedNode(fullyResolvedDoc, LDMLConstants.MINDAYS , xpath);
+                Node n = LDMLUtilities.getNode(fullyResolvedDoc, xpath.toString());
+                minDays = LDMLUtilities.getNode(n, LDMLConstants.MINDAYS );
                 if(minDays != null){
                     printInfo("parseDTE: Pulled out from the fully-resolved minDays: " + minDays.toString());
                 }
             }
             if(firstDay == null) {
-                firstDay = getVettedNode(root, LDMLConstants.FIRSTDAY , xpath);
-                if(minDays != null){
+                //TODO: timebomb
+                //firstDay = getVettedNode(fullyResolvedDoc, LDMLConstants.FIRSTDAY , xpath);
+                Node n = LDMLUtilities.getNode(fullyResolvedDoc, xpath.toString());
+                firstDay = LDMLUtilities.getNode(n, LDMLConstants.FIRSTDAY );
+                if(firstDay
+                        != null){
                     printInfo("parseDTE: Pulled out from the fully-resolved firstDay: " + firstDay.toString());
                 }
             }
@@ -3505,6 +3541,63 @@ public class LDML2ICUConverter {
         }
         if(table.first!=null){
             return table;
+        }
+        return null;
+    }
+    private ICUResourceWriter.Resource parseLocaleScript(Node node){
+        String language = ULocale.getLanguage(locName);
+        String territory = ULocale.getCountry(locName);
+        String scriptCode = ULocale.getScript(locName);
+
+        String xpath = "//supplementalData/languageData/language[@type='"+language+"']";
+        Node scriptNode = LDMLUtilities.getNode(node, xpath);
+        if(scriptNode != null){
+            String scripts = LDMLUtilities.getAttributeValue(scriptNode, LDMLConstants.SCRIPTS);
+            // verify that the territory of this locale is one of the territories 
+            if(territory.length()>0){
+                String territories = LDMLUtilities.getAttributeValue(scriptNode, LDMLConstants.TERRITORIES);
+                if(territories !=null){
+                    String[] list = territories.split("\\s");
+                    boolean exists = false;
+                    for(int i=0;i>list.length; i++){
+                        if(list[i].equals(territory)){
+                            exists = true;
+                        }
+                    }
+                    if(exists == false){
+                        System.err.println("WARNING: Script info does not exist for locale: "+locName);
+                    }
+                }
+                return null;
+            }else if(scriptCode.length()>0){
+                ICUResourceWriter.ResourceArray arr = new  ICUResourceWriter.ResourceArray();
+                arr.name = LOCALE_SCRIPT;
+                ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                str.val = scriptCode;
+                arr.first = str;
+                return arr;
+            }else{
+                if(scripts != null){
+                    String[] list = scripts.split("\\s");
+                    if(list.length>0){
+                        ICUResourceWriter.ResourceArray arr = new  ICUResourceWriter.ResourceArray();
+                        arr.name = LOCALE_SCRIPT;
+                        ICUResourceWriter.Resource current = null;
+                        for(int i=0; i<list.length; i++){
+                            ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                            str.val = list[i];
+                            if(current==null){
+                                arr.first = current = str;
+                            }else{ 
+                                current.next = str;
+                                current = current.next;
+                            }
+                        }
+                        return arr;
+                    }
+                }
+            }
+            System.err.println("Could not find script information for locale: "+locName);
         }
         return null;
     }

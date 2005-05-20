@@ -1,0 +1,64 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="en-us">
+<title>Supplemental Data</title>
+<style>
+<!--
+td, th { vertical-align: top}
+td.source      { border-style:solid; border-width:1; background-color: #CCCCCC }
+td.target      { border-style:solid; border-width:1; background-color: #CCFFCC }
+caption           { font-size: 150%; margin-top: 2em }
+table {border-collapse: collapse; width: 100%}
+-->
+</style>
+</head>
+
+<body>
+
+<h1 align="center">Extracted CLDR Supplemental Data</h1>
+<p align="center"><i>Generated: %date%</i></p>
+<p>This set of tables shows the <i>supplemental</i> data contained in CLDR. This is data that is not 
+language-based, but is required for use with the language-based data in CLDR. If you are vetting 
+this data, please look over the tables to see how they are structured. Look for the countries and 
+languages that you are familiar with, and see if the data is correct. If not, or if there is missing 
+data, please file a <a href="http://www.jtcsv.com/cgibin/locale-bugs">bug</a>. When you do so, 
+please include references supporting the request.</p>
+<h2>Contents</h2>
+<p>%contents% </p>
+<h3>Notes:</h3>
+<ol>
+  <li><b>Aliases</b> show how to map deprecated codes onto the latest ones, or how to map missing 
+  script codes.<ul>
+    <li><i>Note: </i>Codes are shown in brackets before or after the English name, eg &quot;Vanuatu [VU]&quot;</li>
+  </ul>
+  </li>
+  <li>The <b>Country → Currency</b> table shows which countries used which currencies, during which 
+  times. The <b>Currency Format Info</b> table shows information organized by currency. The digits 
+  column shows the number of digits to use; if there is special rounding (such as for CH), that is 
+  in parentheses. The Countries column shows which countries the currency is
+  <font face="Lucida Sans Unicode">—</font> <i>or has been</i> <font face="Lucida Sans Unicode">—</font> 
+  used in, officially.</li>
+  <li>The <b>Language → Territories</b> and <b>Territory → Language</b> tables show modern official 
+  and major commercial languages for the territories in question. Cases where the language is used, 
+  but neither official nor a major commercial language are shown with *.</li>
+  <li>The <b>Language → Scripts</b> and <b>Script → Language</b> do the same for scripts.</li>
+  <li>The <b>Not Represented</b> tables list territories, scripts, and languages that are not 
+  represented in the above tables. These are for cross-checking. For example, &quot;[Glag] Glagolitic&quot; is 
+  found there because it is not in modern use. Other cases are there just because we don&#39;t yet have 
+  the data, for example, there is not yet language data for &quot;[830] Channel Islands&quot;.</li>
+  <li>The <b>Territory Containment</b> table shows the organization of territories and regions 
+  according to <a href="http://unstats.un.org/unsd/methods/m49/m49regin.htm">UN M.49</a>, starting 
+  with the World. (CLDR supplements this table with the ZZ code for outlying areas that would not 
+  otherwise be included.)</li>
+</ol>
+<h2>Tables</h2>
+<p>%data% </p>
+
+</body>
+
+</html>

@@ -173,6 +173,9 @@ Additive Settings</i> are equivalent, for example.</p>
     </td>
   </tr>
 </table>
+<p>The date and time tests are included for locales whose exemplar characters are non-draft, while 
+collation tests are included for all locales. Implementations that exclude additional data on the 
+basis of its being draft will need to skip some of these tests.</p>
 <h2><a href="#date" name="date">Date</a></h2>
 <p>For dates, the input value indicates what is to be formatted. It is represented in ISO 8601 
 format -- but the main format, without any variation, that is, always: yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;, and 

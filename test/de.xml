@@ -4,132 +4,260 @@
  <cldrTest version='1.2' base='de'>
  <!-- German [Deutsch] -->
   <number 
-locales='de de_AT de_BE de_DE de_LU'>
-<!-- German [Deutsch]; German (Austria) [Deutsch (Österreich)]; German (Belgium) [Deutsch (Belgien)]; German (Germany) [Deutsch (Deutschland)]; German (Luxembourg) [Deutsch (Luxemburg)] -->
-   <result input='0.0' numberType='standard'>0</result>
-   <result numberType='integer'>0</result>
+locales='de de_AT'>
+<!-- German [Deutsch]; German (Austria) [Deutsch (Österreich)] -->
+   <result input='0.0' numberType='integer'>0%</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
-   <result input='0.01' numberType='standard'>0,01</result>
-   <result numberType='integer'>0</result>
+   <result numberType='GBP'>£ 0,00</result>
+   <result input='0.01' numberType='integer'>1%</result>
    <result numberType='decimal'>0,01</result>
    <result numberType='percent'>1%</result>
    <result numberType='scientific'>1E-2</result>
-   <result input='-0.01' numberType='standard'>-0,01</result>
-   <result numberType='integer'>-0</result>
+   <result numberType='GBP'>£ 0,01</result>
+   <result input='-0.01' numberType='integer'>-1%</result>
    <result numberType='decimal'>-0,01</result>
    <result numberType='percent'>-1%</result>
    <result numberType='scientific'>-1E-2</result>
-   <result input='1.0' numberType='standard'>1</result>
-   <result numberType='integer'>1</result>
+   <result numberType='GBP'>-£ 0,01</result>
+   <result input='1.0' numberType='integer'>100%</result>
    <result numberType='decimal'>1</result>
    <result numberType='percent'>100%</result>
    <result numberType='scientific'>1E0</result>
-   <result input='-1.0' numberType='standard'>-1</result>
-   <result numberType='integer'>-1</result>
+   <result numberType='GBP'>£ 1,00</result>
+   <result input='-1.0' numberType='integer'>-100%</result>
    <result numberType='decimal'>-1</result>
    <result numberType='percent'>-100%</result>
    <result numberType='scientific'>-1E0</result>
-   <result input='123.456' numberType='standard'>123,456</result>
-   <result numberType='integer'>123</result>
+   <result numberType='GBP'>-£ 1,00</result>
+   <result input='123.456' numberType='integer'>12.346%</result>
    <result numberType='decimal'>123,456</result>
    <result numberType='percent'>12.346%</result>
    <result numberType='scientific'>1,23456E2</result>
-   <result input='-123.456' numberType='standard'>-123,456</result>
-   <result numberType='integer'>-123</result>
+   <result numberType='GBP'>£ 123,46</result>
+   <result input='-123.456' numberType='integer'>-12.346%</result>
    <result numberType='decimal'>-123,456</result>
    <result numberType='percent'>-12.346%</result>
    <result numberType='scientific'>-1,23456E2</result>
-   <result input='123456.78' numberType='standard'>123.456,78</result>
-   <result numberType='integer'>123.457</result>
+   <result numberType='GBP'>-£ 123,46</result>
+   <result input='123456.78' numberType='integer'>12.345.678%</result>
    <result numberType='decimal'>123.456,78</result>
    <result numberType='percent'>12.345.678%</result>
    <result numberType='scientific'>1,2345678E5</result>
-   <result input='-123456.78' numberType='standard'>-123.456,78</result>
-   <result numberType='integer'>-123.457</result>
+   <result numberType='GBP'>£ 123.456,78</result>
+   <result input='-123456.78' numberType='integer'>-12.345.678%</result>
    <result numberType='decimal'>-123.456,78</result>
    <result numberType='percent'>-12.345.678%</result>
    <result numberType='scientific'>-1,2345678E5</result>
-   <result input='Infinity' numberType='standard'>∞</result>
-   <result numberType='integer'>∞</result>
+   <result numberType='GBP'>-£ 123.456,78</result>
+   <result input='Infinity' numberType='integer'>∞%</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
-   <result input='-Infinity' numberType='standard'>-∞</result>
-   <result numberType='integer'>-∞</result>
+   <result numberType='GBP'>£ ∞</result>
+   <result input='-Infinity' numberType='integer'>-∞%</result>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='standard'>�</result>
-   <result numberType='integer'>�</result>
+   <result numberType='GBP'>-£ ∞</result>
+   <result input='NaN' numberType='integer'>�</result>
    <result numberType='decimal'>�</result>
    <result numberType='percent'>�</result>
    <result numberType='scientific'>�</result>
+   <result numberType='GBP'>�</result>
+  </number>
+  <number 
+locales='de_BE de_DE de_LU'>
+<!-- German (Belgium) [Deutsch (Belgien)]; German (Germany) [Deutsch (Deutschland)]; German (Luxembourg) [Deutsch (Luxemburg)] -->
+   <result input='0.0' numberType='integer'>0%</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result numberType='GBP'>0,00 £</result>
+   <result input='0.01' numberType='integer'>1%</result>
+   <result numberType='decimal'>0,01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result numberType='GBP'>0,01 £</result>
+   <result input='-0.01' numberType='integer'>-1%</result>
+   <result numberType='decimal'>-0,01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result numberType='GBP'>-0,01 £</result>
+   <result input='1.0' numberType='integer'>100%</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result numberType='GBP'>1,00 £</result>
+   <result input='-1.0' numberType='integer'>-100%</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result numberType='GBP'>-1,00 £</result>
+   <result input='123.456' numberType='integer'>12.346%</result>
+   <result numberType='decimal'>123,456</result>
+   <result numberType='percent'>12.346%</result>
+   <result numberType='scientific'>1,23456E2</result>
+   <result numberType='GBP'>123,46 £</result>
+   <result input='-123.456' numberType='integer'>-12.346%</result>
+   <result numberType='decimal'>-123,456</result>
+   <result numberType='percent'>-12.346%</result>
+   <result numberType='scientific'>-1,23456E2</result>
+   <result numberType='GBP'>-123,46 £</result>
+   <result input='123456.78' numberType='integer'>12.345.678%</result>
+   <result numberType='decimal'>123.456,78</result>
+   <result numberType='percent'>12.345.678%</result>
+   <result numberType='scientific'>1,2345678E5</result>
+   <result numberType='GBP'>123.456,78 £</result>
+   <result input='-123456.78' numberType='integer'>-12.345.678%</result>
+   <result numberType='decimal'>-123.456,78</result>
+   <result numberType='percent'>-12.345.678%</result>
+   <result numberType='scientific'>-1,2345678E5</result>
+   <result numberType='GBP'>-123.456,78 £</result>
+   <result input='Infinity' numberType='integer'>∞%</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result numberType='GBP'>∞ £</result>
+   <result input='-Infinity' numberType='integer'>-∞%</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result numberType='GBP'>-∞ £</result>
+   <result input='NaN' numberType='integer'>�</result>
+   <result numberType='decimal'>�</result>
+   <result numberType='percent'>�</result>
+   <result numberType='scientific'>�</result>
+   <result numberType='GBP'>�</result>
   </number>
   <number 
 locales='de_CH'>
 <!-- German (Switzerland) [Deutsch (Schweiz)] -->
-   <result input='0.0' numberType='standard'>0</result>
-   <result numberType='integer'>0</result>
+   <result input='0.0' numberType='integer'>0%</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
-   <result input='0.01' numberType='standard'>0.01</result>
-   <result numberType='integer'>0</result>
+   <result numberType='GBP'>£ 0.00</result>
+   <result input='0.01' numberType='integer'>1%</result>
    <result numberType='decimal'>0.01</result>
    <result numberType='percent'>1%</result>
    <result numberType='scientific'>1E-2</result>
-   <result input='-0.01' numberType='standard'>-0.01</result>
-   <result numberType='integer'>-0</result>
+   <result numberType='GBP'>£ 0.01</result>
+   <result input='-0.01' numberType='integer'>-1%</result>
    <result numberType='decimal'>-0.01</result>
    <result numberType='percent'>-1%</result>
    <result numberType='scientific'>-1E-2</result>
-   <result input='1.0' numberType='standard'>1</result>
-   <result numberType='integer'>1</result>
+   <result numberType='GBP'>£-0.01</result>
+   <result input='1.0' numberType='integer'>100%</result>
    <result numberType='decimal'>1</result>
    <result numberType='percent'>100%</result>
    <result numberType='scientific'>1E0</result>
-   <result input='-1.0' numberType='standard'>-1</result>
-   <result numberType='integer'>-1</result>
+   <result numberType='GBP'>£ 1.00</result>
+   <result input='-1.0' numberType='integer'>-100%</result>
    <result numberType='decimal'>-1</result>
    <result numberType='percent'>-100%</result>
    <result numberType='scientific'>-1E0</result>
-   <result input='123.456' numberType='standard'>123.456</result>
-   <result numberType='integer'>123</result>
+   <result numberType='GBP'>£-1.00</result>
+   <result input='123.456' numberType='integer'>12&apos;346%</result>
    <result numberType='decimal'>123.456</result>
    <result numberType='percent'>12&apos;346%</result>
    <result numberType='scientific'>1.23456E2</result>
-   <result input='-123.456' numberType='standard'>-123.456</result>
-   <result numberType='integer'>-123</result>
+   <result numberType='GBP'>£ 123.46</result>
+   <result input='-123.456' numberType='integer'>-12&apos;346%</result>
    <result numberType='decimal'>-123.456</result>
    <result numberType='percent'>-12&apos;346%</result>
    <result numberType='scientific'>-1.23456E2</result>
-   <result input='123456.78' numberType='standard'>123&apos;456.78</result>
-   <result numberType='integer'>123&apos;457</result>
+   <result numberType='GBP'>£-123.46</result>
+   <result input='123456.78' numberType='integer'>12&apos;345&apos;678%</result>
    <result numberType='decimal'>123&apos;456.78</result>
    <result numberType='percent'>12&apos;345&apos;678%</result>
    <result numberType='scientific'>1.2345678E5</result>
-   <result input='-123456.78' numberType='standard'>-123&apos;456.78</result>
-   <result numberType='integer'>-123&apos;457</result>
+   <result numberType='GBP'>£ 123&apos;456.78</result>
+   <result input='-123456.78' numberType='integer'>-12&apos;345&apos;678%</result>
    <result numberType='decimal'>-123&apos;456.78</result>
    <result numberType='percent'>-12&apos;345&apos;678%</result>
    <result numberType='scientific'>-1.2345678E5</result>
-   <result input='Infinity' numberType='standard'>∞</result>
-   <result numberType='integer'>∞</result>
+   <result numberType='GBP'>£-123&apos;456.78</result>
+   <result input='Infinity' numberType='integer'>∞%</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
-   <result input='-Infinity' numberType='standard'>-∞</result>
-   <result numberType='integer'>-∞</result>
+   <result numberType='GBP'>£ ∞</result>
+   <result input='-Infinity' numberType='integer'>-∞%</result>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='standard'>�</result>
-   <result numberType='integer'>�</result>
+   <result numberType='GBP'>£-∞</result>
+   <result input='NaN' numberType='integer'>�</result>
    <result numberType='decimal'>�</result>
    <result numberType='percent'>�</result>
    <result numberType='scientific'>�</result>
+   <result numberType='GBP'>�</result>
+  </number>
+  <number 
+locales='de_LI'>
+<!-- German (Liechtenstein) [Deutsch (Liechtenstein)] -->
+   <result input='0.0' numberType='integer'>0%</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result numberType='GBP'>£ 0.00</result>
+   <result input='0.01' numberType='integer'>1%</result>
+   <result numberType='decimal'>0.01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result numberType='GBP'>£ 0.01</result>
+   <result input='-0.01' numberType='integer'>-1%</result>
+   <result numberType='decimal'>-0.01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result numberType='GBP'>-£ 0.01</result>
+   <result input='1.0' numberType='integer'>100%</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result numberType='GBP'>£ 1.00</result>
+   <result input='-1.0' numberType='integer'>-100%</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result numberType='GBP'>-£ 1.00</result>
+   <result input='123.456' numberType='integer'>12&apos;346%</result>
+   <result numberType='decimal'>123.456</result>
+   <result numberType='percent'>12&apos;346%</result>
+   <result numberType='scientific'>1.23456E2</result>
+   <result numberType='GBP'>£ 123.46</result>
+   <result input='-123.456' numberType='integer'>-12&apos;346%</result>
+   <result numberType='decimal'>-123.456</result>
+   <result numberType='percent'>-12&apos;346%</result>
+   <result numberType='scientific'>-1.23456E2</result>
+   <result numberType='GBP'>-£ 123.46</result>
+   <result input='123456.78' numberType='integer'>12&apos;345&apos;678%</result>
+   <result numberType='decimal'>123&apos;456.78</result>
+   <result numberType='percent'>12&apos;345&apos;678%</result>
+   <result numberType='scientific'>1.2345678E5</result>
+   <result numberType='GBP'>£ 123&apos;456.78</result>
+   <result input='-123456.78' numberType='integer'>-12&apos;345&apos;678%</result>
+   <result numberType='decimal'>-123&apos;456.78</result>
+   <result numberType='percent'>-12&apos;345&apos;678%</result>
+   <result numberType='scientific'>-1.2345678E5</result>
+   <result numberType='GBP'>-£ 123&apos;456.78</result>
+   <result input='Infinity' numberType='integer'>∞%</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result numberType='GBP'>£ ∞</result>
+   <result input='-Infinity' numberType='integer'>-∞%</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result numberType='GBP'>-£ ∞</result>
+   <result input='NaN' numberType='integer'>�</result>
+   <result numberType='decimal'>�</result>
+   <result numberType='percent'>�</result>
+   <result numberType='scientific'>�</result>
+   <result numberType='GBP'>�</result>
   </number>
   <date 
 locales='de de_DE de_LU'>
@@ -1008,8 +1136,8 @@ locales='de_BE'>
    <result timeType='full'>Mittwoch 1 Dezember 2010 23 h 59 min 59 s GMT+00:00</result>
   </date>
   <date 
-locales='de_CH'>
-<!-- German (Switzerland) [Deutsch (Schweiz)] -->
+locales='de_CH de_LI'>
+<!-- German (Switzerland) [Deutsch (Schweiz)]; German (Liechtenstein) [Deutsch (Liechtenstein)] -->
    <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
@@ -1300,8 +1428,8 @@ locales='de_CH'>
    <result timeType='full'>Mittwoch, 1. Dezember 2010 23:59 Uhr GMT+00:00</result>
   </date>
   <collation 
-locales='de de_AT de_BE de_CH de_DE de_LU'>
-<!-- German [Deutsch]; German (Austria) [Deutsch (Österreich)]; German (Belgium) [Deutsch (Belgien)]; German (Switzerland) [Deutsch (Schweiz)]; German (Germany) [Deutsch (Deutschland)]; German (Luxembourg) [Deutsch (Luxemburg)] -->
+locales='de de_AT de_BE de_CH de_DE de_LI de_LU'>
+<!-- German [Deutsch]; German (Austria) [Deutsch (Österreich)]; German (Belgium) [Deutsch (Belgien)]; German (Switzerland) [Deutsch (Schweiz)]; German (Germany) [Deutsch (Deutschland)]; German (Liechtenstein) [Deutsch (Liechtenstein)]; German (Luxembourg) [Deutsch (Luxemburg)] -->
    <result>
 x 
 X 
@@ -1525,6 +1653,9 @@ x x
 x.
 X.
 x.x
+x͏̈
+X͏̈
+x͏̈x
 x0
 X0
 x0x

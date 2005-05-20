@@ -6,130 +6,130 @@
   <number 
 locales='te'>
 <!-- Telugu [తెలుగు] -->
-   <result input='0.0' numberType='standard'>౦</result>
-   <result numberType='integer'>౦</result>
+   <result input='0.0' numberType='integer'>౦%</result>
    <result numberType='decimal'>౦</result>
    <result numberType='percent'>౦%</result>
    <result numberType='scientific'>౦E౦</result>
-   <result input='0.01' numberType='standard'>౦.౦౧</result>
-   <result numberType='integer'>౦</result>
+   <result numberType='GBP'>£ ౦.౦౦</result>
+   <result input='0.01' numberType='integer'>౧%</result>
    <result numberType='decimal'>౦.౦౧</result>
    <result numberType='percent'>౧%</result>
    <result numberType='scientific'>౧E-౨</result>
-   <result input='-0.01' numberType='standard'>-౦.౦౧</result>
-   <result numberType='integer'>-౦</result>
+   <result numberType='GBP'>£ ౦.౦౧</result>
+   <result input='-0.01' numberType='integer'>-౧%</result>
    <result numberType='decimal'>-౦.౦౧</result>
    <result numberType='percent'>-౧%</result>
    <result numberType='scientific'>-౧E-౨</result>
-   <result input='1.0' numberType='standard'>౧</result>
-   <result numberType='integer'>౧</result>
+   <result numberType='GBP'>-£ ౦.౦౧</result>
+   <result input='1.0' numberType='integer'>౧౦౦%</result>
    <result numberType='decimal'>౧</result>
    <result numberType='percent'>౧౦౦%</result>
    <result numberType='scientific'>౧E౦</result>
-   <result input='-1.0' numberType='standard'>-౧</result>
-   <result numberType='integer'>-౧</result>
+   <result numberType='GBP'>£ ౧.౦౦</result>
+   <result input='-1.0' numberType='integer'>-౧౦౦%</result>
    <result numberType='decimal'>-౧</result>
    <result numberType='percent'>-౧౦౦%</result>
    <result numberType='scientific'>-౧E౦</result>
-   <result input='123.456' numberType='standard'>౧౨౩.౪౫౬</result>
-   <result numberType='integer'>౧౨౩</result>
+   <result numberType='GBP'>-£ ౧.౦౦</result>
+   <result input='123.456' numberType='integer'>౧౨,౩౪౬%</result>
    <result numberType='decimal'>౧౨౩.౪౫౬</result>
    <result numberType='percent'>౧౨,౩౪౬%</result>
    <result numberType='scientific'>౧.౨౩౪౫౬E౨</result>
-   <result input='-123.456' numberType='standard'>-౧౨౩.౪౫౬</result>
-   <result numberType='integer'>-౧౨౩</result>
+   <result numberType='GBP'>£ ౧౨౩.౪౬</result>
+   <result input='-123.456' numberType='integer'>-౧౨,౩౪౬%</result>
    <result numberType='decimal'>-౧౨౩.౪౫౬</result>
    <result numberType='percent'>-౧౨,౩౪౬%</result>
    <result numberType='scientific'>-౧.౨౩౪౫౬E౨</result>
-   <result input='123456.78' numberType='standard'>౧౨౩,౪౫౬.౭౮</result>
-   <result numberType='integer'>౧౨౩,౪౫౭</result>
+   <result numberType='GBP'>-£ ౧౨౩.౪౬</result>
+   <result input='123456.78' numberType='integer'>౧౨,౩౪౫,౬౭౮%</result>
    <result numberType='decimal'>౧౨౩,౪౫౬.౭౮</result>
    <result numberType='percent'>౧౨,౩౪౫,౬౭౮%</result>
    <result numberType='scientific'>౧.౨౩౪౫౬౭౮E౫</result>
-   <result input='-123456.78' numberType='standard'>-౧౨౩,౪౫౬.౭౮</result>
-   <result numberType='integer'>-౧౨౩,౪౫౭</result>
+   <result numberType='GBP'>£ ౧౨౩,౪౫౬.౭౮</result>
+   <result input='-123456.78' numberType='integer'>-౧౨,౩౪౫,౬౭౮%</result>
    <result numberType='decimal'>-౧౨౩,౪౫౬.౭౮</result>
    <result numberType='percent'>-౧౨,౩౪౫,౬౭౮%</result>
    <result numberType='scientific'>-౧.౨౩౪౫౬౭౮E౫</result>
-   <result input='Infinity' numberType='standard'>∞</result>
-   <result numberType='integer'>∞</result>
+   <result numberType='GBP'>-£ ౧౨౩,౪౫౬.౭౮</result>
+   <result input='Infinity' numberType='integer'>∞%</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
-   <result input='-Infinity' numberType='standard'>-∞</result>
-   <result numberType='integer'>-∞</result>
+   <result numberType='GBP'>£ ∞</result>
+   <result input='-Infinity' numberType='integer'>-∞%</result>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='standard'>�</result>
-   <result numberType='integer'>�</result>
+   <result numberType='GBP'>-£ ∞</result>
+   <result input='NaN' numberType='integer'>�</result>
    <result numberType='decimal'>�</result>
    <result numberType='percent'>�</result>
    <result numberType='scientific'>�</result>
+   <result numberType='GBP'>�</result>
   </number>
   <number 
 locales='te_IN'>
-<!-- Telugu (India) [తెలుగు (భారత దేళ౦)] -->
-   <result input='0.0' numberType='standard'>౦</result>
-   <result numberType='integer'>౦</result>
+<!-- Telugu (India) [తెలుగు (భారత దేళం)] -->
+   <result input='0.0' numberType='integer'>౦%</result>
    <result numberType='decimal'>౦</result>
    <result numberType='percent'>౦%</result>
    <result numberType='scientific'>౦E౦</result>
-   <result input='0.01' numberType='standard'>౦.౦౧</result>
-   <result numberType='integer'>౦</result>
+   <result numberType='GBP'>£ ౦.౦౦</result>
+   <result input='0.01' numberType='integer'>౧%</result>
    <result numberType='decimal'>౦.౦౧</result>
    <result numberType='percent'>౧%</result>
    <result numberType='scientific'>౧E-౨</result>
-   <result input='-0.01' numberType='standard'>-౦.౦౧</result>
-   <result numberType='integer'>-౦</result>
+   <result numberType='GBP'>£ ౦.౦౧</result>
+   <result input='-0.01' numberType='integer'>-౧%</result>
    <result numberType='decimal'>-౦.౦౧</result>
    <result numberType='percent'>-౧%</result>
    <result numberType='scientific'>-౧E-౨</result>
-   <result input='1.0' numberType='standard'>౧</result>
-   <result numberType='integer'>౧</result>
+   <result numberType='GBP'>-£ ౦.౦౧</result>
+   <result input='1.0' numberType='integer'>౧౦౦%</result>
    <result numberType='decimal'>౧</result>
    <result numberType='percent'>౧౦౦%</result>
    <result numberType='scientific'>౧E౦</result>
-   <result input='-1.0' numberType='standard'>-౧</result>
-   <result numberType='integer'>-౧</result>
+   <result numberType='GBP'>£ ౧.౦౦</result>
+   <result input='-1.0' numberType='integer'>-౧౦౦%</result>
    <result numberType='decimal'>-౧</result>
    <result numberType='percent'>-౧౦౦%</result>
    <result numberType='scientific'>-౧E౦</result>
-   <result input='123.456' numberType='standard'>౧౨౩.౪౫౬</result>
-   <result numberType='integer'>౧౨౩</result>
+   <result numberType='GBP'>-£ ౧.౦౦</result>
+   <result input='123.456' numberType='integer'>౧౨,౩౪౬%</result>
    <result numberType='decimal'>౧౨౩.౪౫౬</result>
    <result numberType='percent'>౧౨,౩౪౬%</result>
    <result numberType='scientific'>౧.౨౩౪౫౬E౨</result>
-   <result input='-123.456' numberType='standard'>-౧౨౩.౪౫౬</result>
-   <result numberType='integer'>-౧౨౩</result>
+   <result numberType='GBP'>£ ౧౨౩.౪౬</result>
+   <result input='-123.456' numberType='integer'>-౧౨,౩౪౬%</result>
    <result numberType='decimal'>-౧౨౩.౪౫౬</result>
    <result numberType='percent'>-౧౨,౩౪౬%</result>
    <result numberType='scientific'>-౧.౨౩౪౫౬E౨</result>
-   <result input='123456.78' numberType='standard'>౧,౨౩,౪౫౬.౭౮</result>
-   <result numberType='integer'>౧,౨౩,౪౫౭</result>
+   <result numberType='GBP'>-£ ౧౨౩.౪౬</result>
+   <result input='123456.78' numberType='integer'>౧,౨౩,౪౫,౬౭౮%</result>
    <result numberType='decimal'>౧,౨౩,౪౫౬.౭౮</result>
    <result numberType='percent'>౧,౨౩,౪౫,౬౭౮%</result>
    <result numberType='scientific'>౧.౨౩౪౫౬౭౮E౫</result>
-   <result input='-123456.78' numberType='standard'>-౧,౨౩,౪౫౬.౭౮</result>
-   <result numberType='integer'>-౧,౨౩,౪౫౭</result>
+   <result numberType='GBP'>£ ౧,౨౩,౪౫౬.౭౮</result>
+   <result input='-123456.78' numberType='integer'>-౧,౨౩,౪౫,౬౭౮%</result>
    <result numberType='decimal'>-౧,౨౩,౪౫౬.౭౮</result>
    <result numberType='percent'>-౧,౨౩,౪౫,౬౭౮%</result>
    <result numberType='scientific'>-౧.౨౩౪౫౬౭౮E౫</result>
-   <result input='Infinity' numberType='standard'>∞</result>
-   <result numberType='integer'>∞</result>
+   <result numberType='GBP'>-£ ౧,౨౩,౪౫౬.౭౮</result>
+   <result input='Infinity' numberType='integer'>∞%</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
-   <result input='-Infinity' numberType='standard'>-∞</result>
-   <result numberType='integer'>-∞</result>
+   <result numberType='GBP'>£ ∞</result>
+   <result input='-Infinity' numberType='integer'>-∞%</result>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='standard'>�</result>
-   <result numberType='integer'>�</result>
+   <result numberType='GBP'>-£ ∞</result>
+   <result input='NaN' numberType='integer'>�</result>
    <result numberType='decimal'>�</result>
    <result numberType='percent'>�</result>
    <result numberType='scientific'>�</result>
+   <result numberType='GBP'>�</result>
   </number>
   <date 
 locales='te'>
@@ -425,7 +425,7 @@ locales='te'>
   </date>
   <date 
 locales='te_IN'>
-<!-- Telugu (India) [తెలుగు (భారత దేళ౦)] -->
+<!-- Telugu (India) [తెలుగు (భారత దేళం)] -->
    <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>౧౨:౦౦ పూర్వాహ్న</result>
    <result timeType='medium'>౧౨:౦౦:౦౦ పూర్వాహ్న</result>
    <result timeType='long'>౧౨:౦౦:౦౦ పూర్వాహ్న GMT+౦౦:౦౦</result>
@@ -717,7 +717,7 @@ locales='te_IN'>
   </date>
   <collation 
 locales='te te_IN'>
-<!-- Telugu [తెలుగు]; Telugu (India) [తెలుగు (భారత దేళ౦)] -->
+<!-- Telugu [తెలుగు]; Telugu (India) [తెలుగు (భారత దేళం)] -->
    <result>
 x‍
 x‌

@@ -4,68 +4,132 @@
  <cldrTest version='1.2' base='am'>
  <!-- Amharic [አማርኛ] -->
   <number 
-locales='am am_ET'>
-<!-- Amharic [አማርኛ]; Amharic (Ethiopia) [አማርኛ (ኢትዮጵያ)] -->
-   <result input='0.0' numberType='standard'>0</result>
-   <result numberType='integer'>0</result>
+locales='am'>
+<!-- Amharic [አማርኛ] -->
+   <result input='0.0' numberType='integer'>0%</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
-   <result input='0.01' numberType='standard'>0.01</result>
-   <result numberType='integer'>0</result>
+   <result numberType='GBP'>£ 0.00</result>
+   <result input='0.01' numberType='integer'>1%</result>
    <result numberType='decimal'>0.01</result>
    <result numberType='percent'>1%</result>
    <result numberType='scientific'>1E-2</result>
-   <result input='-0.01' numberType='standard'>-0.01</result>
-   <result numberType='integer'>-0</result>
+   <result numberType='GBP'>£ 0.01</result>
+   <result input='-0.01' numberType='integer'>-1%</result>
    <result numberType='decimal'>-0.01</result>
    <result numberType='percent'>-1%</result>
    <result numberType='scientific'>-1E-2</result>
-   <result input='1.0' numberType='standard'>1</result>
-   <result numberType='integer'>1</result>
+   <result numberType='GBP'>-£ 0.01</result>
+   <result input='1.0' numberType='integer'>100%</result>
    <result numberType='decimal'>1</result>
    <result numberType='percent'>100%</result>
    <result numberType='scientific'>1E0</result>
-   <result input='-1.0' numberType='standard'>-1</result>
-   <result numberType='integer'>-1</result>
+   <result numberType='GBP'>£ 1.00</result>
+   <result input='-1.0' numberType='integer'>-100%</result>
    <result numberType='decimal'>-1</result>
    <result numberType='percent'>-100%</result>
    <result numberType='scientific'>-1E0</result>
-   <result input='123.456' numberType='standard'>123.456</result>
-   <result numberType='integer'>123</result>
+   <result numberType='GBP'>-£ 1.00</result>
+   <result input='123.456' numberType='integer'>12,346%</result>
    <result numberType='decimal'>123.456</result>
    <result numberType='percent'>12,346%</result>
    <result numberType='scientific'>1.23456E2</result>
-   <result input='-123.456' numberType='standard'>-123.456</result>
-   <result numberType='integer'>-123</result>
+   <result numberType='GBP'>£ 123.46</result>
+   <result input='-123.456' numberType='integer'>-12,346%</result>
    <result numberType='decimal'>-123.456</result>
    <result numberType='percent'>-12,346%</result>
    <result numberType='scientific'>-1.23456E2</result>
-   <result input='123456.78' numberType='standard'>123,456.78</result>
-   <result numberType='integer'>123,457</result>
+   <result numberType='GBP'>-£ 123.46</result>
+   <result input='123456.78' numberType='integer'>12,345,678%</result>
    <result numberType='decimal'>123,456.78</result>
    <result numberType='percent'>12,345,678%</result>
    <result numberType='scientific'>1.2345678E5</result>
-   <result input='-123456.78' numberType='standard'>-123,456.78</result>
-   <result numberType='integer'>-123,457</result>
+   <result numberType='GBP'>£ 123,456.78</result>
+   <result input='-123456.78' numberType='integer'>-12,345,678%</result>
    <result numberType='decimal'>-123,456.78</result>
    <result numberType='percent'>-12,345,678%</result>
    <result numberType='scientific'>-1.2345678E5</result>
-   <result input='Infinity' numberType='standard'>∞</result>
-   <result numberType='integer'>∞</result>
+   <result numberType='GBP'>-£ 123,456.78</result>
+   <result input='Infinity' numberType='integer'>∞%</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
-   <result input='-Infinity' numberType='standard'>-∞</result>
-   <result numberType='integer'>-∞</result>
+   <result numberType='GBP'>£ ∞</result>
+   <result input='-Infinity' numberType='integer'>-∞%</result>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='standard'>�</result>
-   <result numberType='integer'>�</result>
+   <result numberType='GBP'>-£ ∞</result>
+   <result input='NaN' numberType='integer'>�</result>
    <result numberType='decimal'>�</result>
    <result numberType='percent'>�</result>
    <result numberType='scientific'>�</result>
+   <result numberType='GBP'>�</result>
+  </number>
+  <number 
+locales='am_ET'>
+<!-- Amharic (Ethiopia) [አማርኛ (ኢትዮጵያ)] -->
+   <result input='0.0' numberType='integer'>0%</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result numberType='GBP'>£0.00</result>
+   <result input='0.01' numberType='integer'>1%</result>
+   <result numberType='decimal'>0.01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result numberType='GBP'>£0.01</result>
+   <result input='-0.01' numberType='integer'>-1%</result>
+   <result numberType='decimal'>-0.01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result numberType='GBP'>-£0.01</result>
+   <result input='1.0' numberType='integer'>100%</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result numberType='GBP'>£1.00</result>
+   <result input='-1.0' numberType='integer'>-100%</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result numberType='GBP'>-£1.00</result>
+   <result input='123.456' numberType='integer'>12,346%</result>
+   <result numberType='decimal'>123.456</result>
+   <result numberType='percent'>12,346%</result>
+   <result numberType='scientific'>1.23456E2</result>
+   <result numberType='GBP'>£123.46</result>
+   <result input='-123.456' numberType='integer'>-12,346%</result>
+   <result numberType='decimal'>-123.456</result>
+   <result numberType='percent'>-12,346%</result>
+   <result numberType='scientific'>-1.23456E2</result>
+   <result numberType='GBP'>-£123.46</result>
+   <result input='123456.78' numberType='integer'>12,345,678%</result>
+   <result numberType='decimal'>123,456.78</result>
+   <result numberType='percent'>12,345,678%</result>
+   <result numberType='scientific'>1.2345678E5</result>
+   <result numberType='GBP'>£123,456.78</result>
+   <result input='-123456.78' numberType='integer'>-12,345,678%</result>
+   <result numberType='decimal'>-123,456.78</result>
+   <result numberType='percent'>-12,345,678%</result>
+   <result numberType='scientific'>-1.2345678E5</result>
+   <result numberType='GBP'>-£123,456.78</result>
+   <result input='Infinity' numberType='integer'>∞%</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result numberType='GBP'>£∞</result>
+   <result input='-Infinity' numberType='integer'>-∞%</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result numberType='GBP'>-£∞</result>
+   <result input='NaN' numberType='integer'>�</result>
+   <result numberType='decimal'>�</result>
+   <result numberType='percent'>�</result>
+   <result numberType='scientific'>�</result>
+   <result numberType='GBP'>�</result>
   </number>
   <date 
 locales='am'>
@@ -651,4 +715,1408 @@ locales='am_ET'>
    <result timeType='long'>ረቡዕ፣ 01 ዲሴምበር ቀን 2010 ዓ/ም 11:59:59 ከሳዓት</result>
    <result timeType='full'>ረቡዕ፣ 01 ዲሴምበር ቀን 2010 ዓ/ም 11:59:59 ከሳዓት</result>
   </date>
+  <collation 
+locales='am am_ET'>
+<!-- Amharic [አማርኛ]; Amharic (Ethiopia) [አማርኛ (ኢትዮጵያ)] -->
+   <result>
+x 
+X 
+x x
+x፡
+X፡
+x፡x
+x፣
+X፣
+x፣x
+x፤
+X፤
+x፤x
+x፥
+X፥
+x፥x
+x፦
+X፦
+x፦x
+x፧
+X፧
+x፧x
+x.
+X.
+x.x
+x።
+X።
+x።x
+x፨
+X፨
+x፨x
+x፲
+X፲
+x፲x
+x፳
+X፳
+x፳x
+x፴
+X፴
+x፴x
+x፵
+X፵
+x፵x
+x፶
+X፶
+x፶x
+x፷
+X፷
+x፷x
+x፸
+X፸
+x፸x
+x፹
+X፹
+x፹x
+x፺
+X፺
+x፺x
+x፻
+X፻
+x፻x
+x፼
+X፼
+x፼x
+x0
+X0
+x0x
+x፩
+X፩
+x12
+X12
+x12x
+x፩x
+x2
+X2
+x፪
+X፪
+x2x
+x፪x
+x፫
+X፫
+x፫x
+x፬
+X፬
+x፬x
+x፭
+X፭
+x፭x
+x፮
+X፮
+x፮x
+x፯
+X፯
+x፯x
+x፰
+X፰
+x፰x
+x፱
+X፱
+x፱x
+xሀ
+Xሀ
+xሀx
+xሁ
+Xሁ
+xሁx
+xሂ
+Xሂ
+xሂx
+xሃ
+Xሃ
+xሃx
+xሄ
+Xሄ
+xሄx
+xህ
+Xህ
+xህx
+xሆ
+Xሆ
+xሆx
+xለ
+Xለ
+xለx
+xሉ
+Xሉ
+xሉx
+xሊ
+Xሊ
+xሊx
+xላ
+Xላ
+xላx
+xሌ
+Xሌ
+xሌx
+xል
+Xል
+xልx
+xሎ
+Xሎ
+xሎx
+xሏ
+Xሏ
+xሏx
+xሐ
+Xሐ
+xሐx
+xሑ
+Xሑ
+xሑx
+xሒ
+Xሒ
+xሒx
+xሓ
+Xሓ
+xሓx
+xሔ
+Xሔ
+xሔx
+xሕ
+Xሕ
+xሕx
+xሖ
+Xሖ
+xሖx
+xሗ
+Xሗ
+xሗx
+xመ
+Xመ
+xመx
+xሙ
+Xሙ
+xሙx
+xሚ
+Xሚ
+xሚx
+xማ
+Xማ
+xማx
+xሜ
+Xሜ
+xሜx
+xም
+Xም
+xምx
+xሞ
+Xሞ
+xሞx
+xሟ
+Xሟ
+xሟx
+xሠ
+Xሠ
+xሠx
+xሡ
+Xሡ
+xሡx
+xሢ
+Xሢ
+xሢx
+xሣ
+Xሣ
+xሣx
+xሤ
+Xሤ
+xሤx
+xሥ
+Xሥ
+xሥx
+xሦ
+Xሦ
+xሦx
+xሧ
+Xሧ
+xሧx
+xረ
+Xረ
+xረx
+xሩ
+Xሩ
+xሩx
+xሪ
+Xሪ
+xሪx
+xራ
+Xራ
+xራx
+xሬ
+Xሬ
+xሬx
+xር
+Xር
+xርx
+xሮ
+Xሮ
+xሮx
+xሯ
+Xሯ
+xሯx
+xሰ
+Xሰ
+xሰx
+xሱ
+Xሱ
+xሱx
+xሲ
+Xሲ
+xሲx
+xሳ
+Xሳ
+xሳx
+xሴ
+Xሴ
+xሴx
+xስ
+Xስ
+xስx
+xሶ
+Xሶ
+xሶx
+xሷ
+Xሷ
+xሷx
+xሸ
+Xሸ
+xሸx
+xሹ
+Xሹ
+xሹx
+xሺ
+Xሺ
+xሺx
+xሻ
+Xሻ
+xሻx
+xሼ
+Xሼ
+xሼx
+xሽ
+Xሽ
+xሽx
+xሾ
+Xሾ
+xሾx
+xሿ
+Xሿ
+xሿx
+xቀ
+Xቀ
+xቀx
+xቁ
+Xቁ
+xቁx
+xቂ
+Xቂ
+xቂx
+xቃ
+Xቃ
+xቃx
+xቄ
+Xቄ
+xቄx
+xቅ
+Xቅ
+xቅx
+xቆ
+Xቆ
+xቆx
+xቈ
+Xቈ
+xቈx
+xቊ
+Xቊ
+xቊx
+xቋ
+Xቋ
+xቋx
+xቌ
+Xቌ
+xቌx
+xቍ
+Xቍ
+xቍx
+xቐ
+Xቐ
+xቐx
+xቑ
+Xቑ
+xቑx
+xቒ
+Xቒ
+xቒx
+xቓ
+Xቓ
+xቓx
+xቔ
+Xቔ
+xቔx
+xቕ
+Xቕ
+xቕx
+xቖ
+Xቖ
+xቖx
+xቘ
+Xቘ
+xቘx
+xቚ
+Xቚ
+xቚx
+xቛ
+Xቛ
+xቛx
+xቜ
+Xቜ
+xቜx
+xቝ
+Xቝ
+xቝx
+xበ
+Xበ
+xበx
+xቡ
+Xቡ
+xቡx
+xቢ
+Xቢ
+xቢx
+xባ
+Xባ
+xባx
+xቤ
+Xቤ
+xቤx
+xብ
+Xብ
+xብx
+xቦ
+Xቦ
+xቦx
+xቧ
+Xቧ
+xቧx
+xቨ
+Xቨ
+xቨx
+xቩ
+Xቩ
+xቩx
+xቪ
+Xቪ
+xቪx
+xቫ
+Xቫ
+xቫx
+xቬ
+Xቬ
+xቬx
+xቭ
+Xቭ
+xቭx
+xቮ
+Xቮ
+xቮx
+xቯ
+Xቯ
+xቯx
+xተ
+Xተ
+xተx
+xቱ
+Xቱ
+xቱx
+xቲ
+Xቲ
+xቲx
+xታ
+Xታ
+xታx
+xቴ
+Xቴ
+xቴx
+xት
+Xት
+xትx
+xቶ
+Xቶ
+xቶx
+xቷ
+Xቷ
+xቷx
+xቸ
+Xቸ
+xቸx
+xቹ
+Xቹ
+xቹx
+xቺ
+Xቺ
+xቺx
+xቻ
+Xቻ
+xቻx
+xቼ
+Xቼ
+xቼx
+xች
+Xች
+xችx
+xቾ
+Xቾ
+xቾx
+xቿ
+Xቿ
+xቿx
+xኀ
+Xኀ
+xኀx
+xኁ
+Xኁ
+xኁx
+xኂ
+Xኂ
+xኂx
+xኃ
+Xኃ
+xኃx
+xኄ
+Xኄ
+xኄx
+xኅ
+Xኅ
+xኅx
+xኆ
+Xኆ
+xኆx
+xኈ
+Xኈ
+xኈx
+xኊ
+Xኊ
+xኊx
+xኋ
+Xኋ
+xኋx
+xኌ
+Xኌ
+xኌx
+xኍ
+Xኍ
+xኍx
+xነ
+Xነ
+xነx
+xኑ
+Xኑ
+xኑx
+xኒ
+Xኒ
+xኒx
+xና
+Xና
+xናx
+xኔ
+Xኔ
+xኔx
+xን
+Xን
+xንx
+xኖ
+Xኖ
+xኖx
+xኗ
+Xኗ
+xኗx
+xኘ
+Xኘ
+xኘx
+xኙ
+Xኙ
+xኙx
+xኚ
+Xኚ
+xኚx
+xኛ
+Xኛ
+xኛx
+xኜ
+Xኜ
+xኜx
+xኝ
+Xኝ
+xኝx
+xኞ
+Xኞ
+xኞx
+xኟ
+Xኟ
+xኟx
+xአ
+Xአ
+xአx
+xኡ
+Xኡ
+xኡx
+xኢ
+Xኢ
+xኢx
+xኣ
+Xኣ
+xኣx
+xኤ
+Xኤ
+xኤx
+xእ
+Xእ
+xእx
+xኦ
+Xኦ
+xኦx
+xኧ
+Xኧ
+xኧx
+xከ
+Xከ
+xከx
+xኩ
+Xኩ
+xኩx
+xኪ
+Xኪ
+xኪx
+xካ
+Xካ
+xካx
+xኬ
+Xኬ
+xኬx
+xክ
+Xክ
+xክx
+xኮ
+Xኮ
+xኮx
+xኰ
+Xኰ
+xኰx
+xኲ
+Xኲ
+xኲx
+xኳ
+Xኳ
+xኳx
+xኴ
+Xኴ
+xኴx
+xኵ
+Xኵ
+xኵx
+xኸ
+Xኸ
+xኸx
+xኹ
+Xኹ
+xኹx
+xኺ
+Xኺ
+xኺx
+xኻ
+Xኻ
+xኻx
+xኼ
+Xኼ
+xኼx
+xኽ
+Xኽ
+xኽx
+xኾ
+Xኾ
+xኾx
+xዀ
+Xዀ
+xዀx
+xዂ
+Xዂ
+xዂx
+xዃ
+Xዃ
+xዃx
+xዄ
+Xዄ
+xዄx
+xዅ
+Xዅ
+xዅx
+xወ
+Xወ
+xወx
+xዉ
+Xዉ
+xዉx
+xዊ
+Xዊ
+xዊx
+xዋ
+Xዋ
+xዋx
+xዌ
+Xዌ
+xዌx
+xው
+Xው
+xውx
+xዎ
+Xዎ
+xዎx
+xዐ
+Xዐ
+xዐx
+xዑ
+Xዑ
+xዑx
+xዒ
+Xዒ
+xዒx
+xዓ
+Xዓ
+xዓx
+xዔ
+Xዔ
+xዔx
+xዕ
+Xዕ
+xዕx
+xዖ
+Xዖ
+xዖx
+xዘ
+Xዘ
+xዘx
+xዙ
+Xዙ
+xዙx
+xዚ
+Xዚ
+xዚx
+xዛ
+Xዛ
+xዛx
+xዜ
+Xዜ
+xዜx
+xዝ
+Xዝ
+xዝx
+xዞ
+Xዞ
+xዞx
+xዟ
+Xዟ
+xዟx
+xዠ
+Xዠ
+xዠx
+xዡ
+Xዡ
+xዡx
+xዢ
+Xዢ
+xዢx
+xዣ
+Xዣ
+xዣx
+xዤ
+Xዤ
+xዤx
+xዥ
+Xዥ
+xዥx
+xዦ
+Xዦ
+xዦx
+xዧ
+Xዧ
+xዧx
+xየ
+Xየ
+xየx
+xዩ
+Xዩ
+xዩx
+xዪ
+Xዪ
+xዪx
+xያ
+Xያ
+xያx
+xዬ
+Xዬ
+xዬx
+xይ
+Xይ
+xይx
+xዮ
+Xዮ
+xዮx
+xደ
+Xደ
+xደx
+xዱ
+Xዱ
+xዱx
+xዲ
+Xዲ
+xዲx
+xዳ
+Xዳ
+xዳx
+xዴ
+Xዴ
+xዴx
+xድ
+Xድ
+xድx
+xዶ
+Xዶ
+xዶx
+xዷ
+Xዷ
+xዷx
+xዸ
+Xዸ
+xዸx
+xዹ
+Xዹ
+xዹx
+xዺ
+Xዺ
+xዺx
+xዻ
+Xዻ
+xዻx
+xዼ
+Xዼ
+xዼx
+xዽ
+Xዽ
+xዽx
+xዾ
+Xዾ
+xዾx
+xዿ
+Xዿ
+xዿx
+xጀ
+Xጀ
+xጀx
+xጁ
+Xጁ
+xጁx
+xጂ
+Xጂ
+xጂx
+xጃ
+Xጃ
+xጃx
+xጄ
+Xጄ
+xጄx
+xጅ
+Xጅ
+xጅx
+xጆ
+Xጆ
+xጆx
+xጇ
+Xጇ
+xጇx
+xገ
+Xገ
+xገx
+xጉ
+Xጉ
+xጉx
+xጊ
+Xጊ
+xጊx
+xጋ
+Xጋ
+xጋx
+xጌ
+Xጌ
+xጌx
+xግ
+Xግ
+xግx
+xጎ
+Xጎ
+xጎx
+xጐ
+Xጐ
+xጐx
+xጒ
+Xጒ
+xጒx
+xጓ
+Xጓ
+xጓx
+xጔ
+Xጔ
+xጔx
+xጕ
+Xጕ
+xጕx
+xጘ
+Xጘ
+xጘx
+xጙ
+Xጙ
+xጙx
+xጚ
+Xጚ
+xጚx
+xጛ
+Xጛ
+xጛx
+xጜ
+Xጜ
+xጜx
+xጝ
+Xጝ
+xጝx
+xጞ
+Xጞ
+xጞx
+xጠ
+Xጠ
+xጠx
+xጡ
+Xጡ
+xጡx
+xጢ
+Xጢ
+xጢx
+xጣ
+Xጣ
+xጣx
+xጤ
+Xጤ
+xጤx
+xጥ
+Xጥ
+xጥx
+xጦ
+Xጦ
+xጦx
+xጧ
+Xጧ
+xጧx
+xጨ
+Xጨ
+xጨx
+xጩ
+Xጩ
+xጩx
+xጪ
+Xጪ
+xጪx
+xጫ
+Xጫ
+xጫx
+xጬ
+Xጬ
+xጬx
+xጭ
+Xጭ
+xጭx
+xጮ
+Xጮ
+xጮx
+xጯ
+Xጯ
+xጯx
+xጰ
+Xጰ
+xጰx
+xጱ
+Xጱ
+xጱx
+xጲ
+Xጲ
+xጲx
+xጳ
+Xጳ
+xጳx
+xጴ
+Xጴ
+xጴx
+xጵ
+Xጵ
+xጵx
+xጶ
+Xጶ
+xጶx
+xጷ
+Xጷ
+xጷx
+xጸ
+Xጸ
+xጸx
+xጹ
+Xጹ
+xጹx
+xጺ
+Xጺ
+xጺx
+xጻ
+Xጻ
+xጻx
+xጼ
+Xጼ
+xጼx
+xጽ
+Xጽ
+xጽx
+xጾ
+Xጾ
+xጾx
+xጿ
+Xጿ
+xጿx
+xፀ
+Xፀ
+xፀx
+xፁ
+Xፁ
+xፁx
+xፂ
+Xፂ
+xፂx
+xፃ
+Xፃ
+xፃx
+xፄ
+Xፄ
+xፄx
+xፅ
+Xፅ
+xፅx
+xፆ
+Xፆ
+xፆx
+xፈ
+Xፈ
+xፈx
+xፉ
+Xፉ
+xፉx
+xፊ
+Xፊ
+xፊx
+xፋ
+Xፋ
+xፋx
+xፌ
+Xፌ
+xፌx
+xፍ
+Xፍ
+xፍx
+xፎ
+Xፎ
+xፎx
+xፏ
+Xፏ
+xፏx
+xፐ
+Xፐ
+xፐx
+xፑ
+Xፑ
+xፑx
+xፒ
+Xፒ
+xፒx
+xፓ
+Xፓ
+xፓx
+xፔ
+Xፔ
+xፔx
+xፕ
+Xፕ
+xፕx
+xፖ
+Xፖ
+xፖx
+xፗ
+Xፗ
+xፗx
+xፘ
+Xፘ
+xፘx
+xፙ
+Xፙ
+xፙx
+xፚ
+Xፚ
+xፚx
+xሇ
+Xሇ
+xሇx
+xቇ
+Xቇ
+xቇx
+xኇ
+Xኇ
+xኇx
+xኯ
+Xኯ
+xኯx
+xዏ
+Xዏ
+xዏx
+xዯ
+Xዯ
+xዯx
+xጏ
+Xጏ
+xጏx
+xጟ
+Xጟ
+xጟx
+xፇ
+Xፇ
+xፇx
+x፟
+X፟
+x፟x
+x፠
+X፠
+x፠x
+xᎀ
+Xᎀ
+xᎀx
+xᎁ
+Xᎁ
+xᎁx
+xᎂ
+Xᎂ
+xᎂx
+xᎃ
+Xᎃ
+xᎃx
+xᎄ
+Xᎄ
+xᎄx
+xᎅ
+Xᎅ
+xᎅx
+xᎆ
+Xᎆ
+xᎆx
+xᎇ
+Xᎇ
+xᎇx
+xᎈ
+Xᎈ
+xᎈx
+xᎉ
+Xᎉ
+xᎉx
+xᎊ
+Xᎊ
+xᎊx
+xᎋ
+Xᎋ
+xᎋx
+xᎌ
+Xᎌ
+xᎌx
+xᎍ
+Xᎍ
+xᎍx
+xᎎ
+Xᎎ
+xᎎx
+xᎏ
+Xᎏ
+xᎏx
+x᎐
+X᎐
+x᎐x
+x᎑
+X᎑
+x᎑x
+x᎒
+X᎒
+x᎒x
+x᎓
+X᎓
+x᎓x
+x᎔
+X᎔
+x᎔x
+x᎕
+X᎕
+x᎕x
+x᎖
+X᎖
+x᎖x
+x᎗
+X᎗
+x᎗x
+x᎘
+X᎘
+x᎘x
+x᎙
+X᎙
+x᎙x
+xⶀ
+Xⶀ
+xⶀx
+xⶁ
+Xⶁ
+xⶁx
+xⶂ
+Xⶂ
+xⶂx
+xⶃ
+Xⶃ
+xⶃx
+xⶄ
+Xⶄ
+xⶄx
+xⶅ
+Xⶅ
+xⶅx
+xⶆ
+Xⶆ
+xⶆx
+xⶇ
+Xⶇ
+xⶇx
+xⶈ
+Xⶈ
+xⶈx
+xⶉ
+Xⶉ
+xⶉx
+xⶊ
+Xⶊ
+xⶊx
+xⶋ
+Xⶋ
+xⶋx
+xⶌ
+Xⶌ
+xⶌx
+xⶍ
+Xⶍ
+xⶍx
+xⶎ
+Xⶎ
+xⶎx
+xⶏ
+Xⶏ
+xⶏx
+xⶐ
+Xⶐ
+xⶐx
+xⶑ
+Xⶑ
+xⶑx
+xⶒ
+Xⶒ
+xⶒx
+xⶓ
+Xⶓ
+xⶓx
+xⶔ
+Xⶔ
+xⶔx
+xⶕ
+Xⶕ
+xⶕx
+xⶖ
+Xⶖ
+xⶖx
+xⶠ
+Xⶠ
+xⶠx
+xⶡ
+Xⶡ
+xⶡx
+xⶢ
+Xⶢ
+xⶢx
+xⶣ
+Xⶣ
+xⶣx
+xⶤ
+Xⶤ
+xⶤx
+xⶥ
+Xⶥ
+xⶥx
+xⶦ
+Xⶦ
+xⶦx
+xⶨ
+Xⶨ
+xⶨx
+xⶩ
+Xⶩ
+xⶩx
+xⶪ
+Xⶪ
+xⶪx
+xⶫ
+Xⶫ
+xⶫx
+xⶬ
+Xⶬ
+xⶬx
+xⶭ
+Xⶭ
+xⶭx
+xⶮ
+Xⶮ
+xⶮx
+xⶰ
+Xⶰ
+xⶰx
+xⶱ
+Xⶱ
+xⶱx
+xⶲ
+Xⶲ
+xⶲx
+xⶳ
+Xⶳ
+xⶳx
+xⶴ
+Xⶴ
+xⶴx
+xⶵ
+Xⶵ
+xⶵx
+xⶶ
+Xⶶ
+xⶶx
+xⶸ
+Xⶸ
+xⶸx
+xⶹ
+Xⶹ
+xⶹx
+xⶺ
+Xⶺ
+xⶺx
+xⶻ
+Xⶻ
+xⶻx
+xⶼ
+Xⶼ
+xⶼx
+xⶽ
+Xⶽ
+xⶽx
+xⶾ
+Xⶾ
+xⶾx
+xⷀ
+Xⷀ
+xⷀx
+xⷁ
+Xⷁ
+xⷁx
+xⷂ
+Xⷂ
+xⷂx
+xⷃ
+Xⷃ
+xⷃx
+xⷄ
+Xⷄ
+xⷄx
+xⷅ
+Xⷅ
+xⷅx
+xⷆ
+Xⷆ
+xⷆx
+xⷈ
+Xⷈ
+xⷈx
+xⷉ
+Xⷉ
+xⷉx
+xⷊ
+Xⷊ
+xⷊx
+xⷋ
+Xⷋ
+xⷋx
+xⷌ
+Xⷌ
+xⷌx
+xⷍ
+Xⷍ
+xⷍx
+xⷎ
+Xⷎ
+xⷎx
+xⷐ
+Xⷐ
+xⷐx
+xⷑ
+Xⷑ
+xⷑx
+xⷒ
+Xⷒ
+xⷒx
+xⷓ
+Xⷓ
+xⷓx
+xⷔ
+Xⷔ
+xⷔx
+xⷕ
+Xⷕ
+xⷕx
+xⷖ
+Xⷖ
+xⷖx
+xⷘ
+Xⷘ
+xⷘx
+xⷙ
+Xⷙ
+xⷙx
+xⷚ
+Xⷚ
+xⷚx
+xⷛ
+Xⷛ
+xⷛx
+xⷜ
+Xⷜ
+xⷜx
+xⷝ
+Xⷝ
+xⷝx
+xⷞ
+Xⷞ
+xⷞx
+   </result>
+  </collation>
  </cldrTest>

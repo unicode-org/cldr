@@ -9,9 +9,14 @@
 package org.unicode.cldr.icu;
 
 import java.io.File;
+
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Utility;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -19,19 +24,24 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.Iterator;
+import java.util.TreeSet;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import org.unicode.cldr.test.CLDRTest;
+import org.unicode.cldr.tool.GenerateCldrTests;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
+import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.tool.UOption;
-import com.ibm.icu.impl.Utility;
+
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.NumberFormat;
@@ -45,65 +55,55 @@ import com.ibm.icu.text.UnicodeSet;
  * correctly. It has gotten out of sync with the format, so needs to be fixed.
  * @author medavis
  */
-public class TestCldr {
+public class TestCldr extends TestFmwk {
     static final boolean DEBUG = false;
 
     //ULocale uLocale = ULocale.ENGLISH;
     //Locale oLocale = Locale.ENGLISH; // TODO Drop once ICU4J has ULocale everywhere
-    static PrintWriter log;
+    //static PrintWriter log;
     SAXParser SAX;
 
-    private static final int
-        HELP1 = 0,
-        HELP2 = 1,
-        SOURCEDIR = 2,
-        LOGDIR = 3,
-        MATCH = 4;
-
-    private static final UOption[] options = {
-            UOption.HELP_H(),
-            UOption.HELP_QUESTION_MARK(),
-            UOption.SOURCEDIR().setDefault("C:\\ICU4C\\locale\\common\\test\\"),
-            UOption.create("log", 'l', UOption.REQUIRES_ARG).setDefault(""),
-            UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
-    };
-
     public static void main(String[] args) throws Exception {
-        UOption.parseArgs(args, options);
-        log = BagFormatter.openUTF8Writer(options[LOGDIR].value, "log.txt");
-        try {
-            TestCldr x = new TestCldr();
-            x.test();
-                 } finally {
-                    log.close();
-                    System.out.println("Done");
-                 }
+    	new TestCldr().run(args);
     }
 
-    public void test() throws Exception {
-        Set s = GenerateCldrTests.getMatchingXMLFiles(options[SOURCEDIR].value, options[MATCH].value);
+    String directory;
+    
+    public void TestFiles() throws SAXException, IOException {
+    	directory = Utility.TEST_DIR;
+    	/*
+        Set s = GenerateCldrTests.getMatchingXMLFiles(directory, ".*");
         for (Iterator it = s.iterator(); it.hasNext();) {
-            test((String) it.next());
-        }
-        /*
-//        test("hu");
-        File[] list = new File(options[SOURCEDIR].value).listFiles();
-        for (int i = 0; i < list.length; ++i) {
-            String name = list[i].getName();
-            if (!name.endsWith(".xml")) continue;
-            test(name.substring(0,name.length()-4));
+            _test((String) it.next());
         }
         */
+    	// only get ICU's locales
+        Set s = new TreeSet();
+        addLocales(NumberFormat.getAvailableULocales(), s);
+        addLocales(DateFormat.getAvailableULocales(), s);
+        addLocales(Collator.getAvailableULocales(), s);
+        
+        for (Iterator it = s.iterator(); it.hasNext();) {
+            _test((String)it.next());
+        }
+    }
+    
+    public void addLocales(ULocale[] list, Collection s) {
+    	LanguageTagParser lsp = new LanguageTagParser();
+    	for (int i = 0; i < list.length; ++i) {
+    		String loc = list[i].toString();
+    		s.add(lsp.set(loc).getLanguage());
+    	}
     }
 
-    public void test(String localeName) throws Exception {
+    public void _test(String localeName) throws SAXException, IOException {
         //uLocale = new ULocale(localeName);
         //oLocale = uLocale.toLocale();
 
-        File f = new File(options[SOURCEDIR].value + localeName + ".xml");
-        System.out.println("Testing " + f.getCanonicalPath());
-        log.println("Testing " + f.getCanonicalPath());
-        SAX.parse(f, DEFAULT_HANDLER);
+			File f = new File(directory + localeName + ".xml");
+			logln("Testing " + f.getCanonicalPath());
+			logln("Testing " + f.getCanonicalPath());
+			SAX.parse(f, DEFAULT_HANDLER);
     }
 
     static Transliterator toUnicode = Transliterator.getInstance("any-hex");
@@ -122,39 +122,40 @@ public class TestCldr {
             this.name = name;
         }
         void set(String attributeName, String attributeValue) {
-            //if (DEBUG) System.out.println(attributeName + " => " + attributeValue);
+            //if (DEBUG) logln(attributeName + " => " + attributeValue);
             settings.put(attributeName, attributeValue);
         }
         void checkResult(String value) {
+        	ULocale ul = new ULocale("xx");
             try {
                 for (int i = 0; i < currentLocales.size(); ++i) {
-                    ULocale ul = (ULocale)currentLocales.get(i);
-                    log.println("  Checking " + ul + "(" + ul.getDisplayName(ULocale.ENGLISH) + ")" + " for " + name);
+                    ul = (ULocale)currentLocales.get(i);
+                    //loglnSAX("  Checking " + ul + "(" + ul.getDisplayName(ULocale.ENGLISH) + ")" + " for " + name);
                     handleResult(ul, value);
                     if (failures != 0) {
-                        System.out.println("\tTotal Failures: " + failures + "\t" + ul + "(" + ul.getDisplayName(ULocale.ENGLISH) + ")");
+                        errln("\tTotal Failures: " + failures + "\t" + ul + "(" + ul.getDisplayName(ULocale.ENGLISH) + ")");
                         failures = 0;
                     }
                 }
             } catch (Exception e) {
-                logln("Exception with result: <" + value + ">");
-                e.printStackTrace(log);
+                errln("Exception: Locale: " + ul + ",\tValue: <" + value + ">");
+                //e.printStackTrace(log);
             }
         }
-        public void logln(String message) {
+        public void loglnSAX(String message) {
             String temp = message + "\t[" + name;
             for (Iterator it = settings.keySet().iterator(); it.hasNext();) {
                 String attributeName = (String) it.next();
                 String attributeValue = (String) settings.get(attributeName);
                 temp += " " + attributeName + "=<" + attributeValue + ">";
             }
-            log.println(temp + "]");
+            logln(temp + "]");
         }
         int lookupValue(Object x, Object[] list) {
             for (int i = 0; i < list.length; ++i) {
                 if (x.equals(list[i])) return i;
             }
-            logln("Unknown String: " + x);
+            loglnSAX("Unknown String: " + x);
             return -1;
         }
         abstract void handleResult(ULocale currentLocale, String value) throws Exception;
@@ -164,7 +165,7 @@ public class TestCldr {
         public void setAttributes(Attributes attributes) {
             String localeList = attributes.getValue("locales");
             String[] currentLocaleString = new String[50];
-            Utility.split(localeList, ' ', currentLocaleString);
+            com.ibm.icu.impl.Utility.split(localeList, ' ', currentLocaleString);
             currentLocales.clear();
             for (int i = 0; i < currentLocaleString.length; ++i) {
                 if (currentLocaleString[i].length() == 0) continue;
@@ -175,9 +176,9 @@ public class TestCldr {
     }
 
     public Handler getHandler(String name, Attributes attributes) {
-        if (DEBUG) System.out.println("Creating Handler: " + name);
+        if (DEBUG) logln("Creating Handler: " + name);
         Handler result = (Handler) RegisteredHandlers.get(name);
-        if (result == null) System.out.println("Unexpected test type: " + name);
+        if (result == null) logln("Unexpected test type: " + name);
         else {
             result.setAttributes(attributes);
         }
@@ -200,7 +201,7 @@ public class TestCldr {
     static int[] DateFormatValues = {-1, DateFormat.SHORT, DateFormat.MEDIUM, DateFormat.LONG, DateFormat.FULL};
     static String[] DateFormatNames = {"none", "short", "medium", "long", "full"};
 
-    static String[] NumberNames = {"standard", "integer", "decimal", "percent", "scientific"};
+    static String[] NumberNames = {"standard", "integer", "decimal", "percent", "scientific", "GBP"};
 
 
     // ============ Handler for Collation ============ 
@@ -232,11 +233,11 @@ public class TestCldr {
 						int comp = col.compare(lastLine, line);
 						if (comp > 0) {
 							failures++;
-							logln("\tLine " + (count + 1) + "\tFailure: "
+							errln("\tLine " + (count + 1) + "\tFailure: "
 									+ showString(lastLine) + " should be leq "
 									+ showString(line));
 						} else if (DEBUG) {
-							System.out.println("OK: " + line);
+							logln("OK: " + line);
 						}
 						lastLine = line;
 					}
@@ -267,11 +268,15 @@ public class TestCldr {
                     case 2: nf = NumberFormat.getNumberInstance(locale); break;
                     case 3: nf = NumberFormat.getPercentInstance(locale); break;
                     case 4: nf = NumberFormat.getScientificInstance(locale); break;
+                    default: nf = NumberFormat.getCurrencyInstance(locale); 
+                    	nf.setCurrency(Currency.getInstance(attributeValue)); break;
                     }
                     String temp = nf.format(v).trim();
                     result = result.trim(); // HACK because of SAX
                     if (!temp.equals(result)) {
-                        logln("Mismatched Number: CLDR: <" + result + ">, Host: <" + temp + ">");
+                        errln("Number: Locale: " + locale
+                        		+ ",\tType: " + attributeValue
+                        		+ ",\tCLDR: <" + result + ">, ICU: <" + temp + ">");
                     }
 
                 }
@@ -308,7 +313,10 @@ public class TestCldr {
                 String temp = dt.format(date).trim();
                 result = result.trim(); // HACK because of SAX
                 if (!temp.equals(result)) {
-                    logln("Mismatched DateTime: CLDR: <" + result + ">, Host: <" + temp + ">");
+                    errln("DateTime: Locale: " + locale 
+                    		+ ",\tDate: " + DateFormatNames[dateFormat]
+							+ ",\tTime: " + DateFormatNames[timeFormat]
+                    		+ ",\tCLDR: <" + result + ">, ICU: <" + temp + ">");
                 }
             }
         });
@@ -352,7 +360,7 @@ public class TestCldr {
                         handler = getHandler(qName, attributes);
                         //handler.set("locale", uLocale.toString());
                     }
-                    //if (DEBUG) System.out.println("startElement:\t" + contextStack);
+                    //if (DEBUG) logln("startElement:\t" + contextStack);
                     justPopped = false;
                 } catch (RuntimeException e) {
                     e.printStackTrace();
@@ -362,7 +370,7 @@ public class TestCldr {
         public void endElement(String uri, String localName, String qName)
             throws SAXException {
                 try {
-                    //if (DEBUG) System.out.println("endElement:\t" + contextStack);
+                    //if (DEBUG) logln("endElement:\t" + contextStack);
                     if (qName.equals("result")) handler.checkResult(lastChars.toString());
                     else if (qName.length() != 0) {
                         //logln("Unexpected contents of: " + qName + ", <" + lastChars + ">");
@@ -379,7 +387,7 @@ public class TestCldr {
             throws SAXException {
                 try {
                     String value = new String(ch,start,length);
-                    if (DEBUG) System.out.println("characters:\t" + value);
+                    if (DEBUG) logln("characters:\t" + value);
                     lastChars.append(value);
                     justPopped = false;
                 } catch (RuntimeException e) {
@@ -392,7 +400,7 @@ public class TestCldr {
 
         public void notationDecl (String name, String publicId, String systemId)
         throws SAXException {
-            System.out.println("notationDecl: " + name
+            logln("notationDecl: " + name
             + ", " + publicId
             + ", " + systemId
             );
@@ -400,20 +408,20 @@ public class TestCldr {
 
         public void processingInstruction (String target, String data)
         throws SAXException {
-            System.out.println("processingInstruction: " + target + ", " + data);
+            logln("processingInstruction: " + target + ", " + data);
         }
 
         public void skippedEntity (String name)
         throws SAXException
         {
-            System.out.println("skippedEntity: " + name
+            logln("skippedEntity: " + name
             );
         }
 
         public void unparsedEntityDecl (String name, String publicId,
                         String systemId, String notationName)
         throws SAXException {
-            System.out.println("unparsedEntityDecl: " + name
+            logln("unparsedEntityDecl: " + name
             + ", " + publicId
             + ", " + systemId
             + ", " + notationName

@@ -289,7 +289,7 @@ class GenerateCldrDateTimeTests {
 
         String prefix = "/ldml/numbers/";
         String type = NumberNames[i];
-        if (i < firstReal) type = NumberNames[2];
+        if (i < firstReal) type = NumberNames[firstReal];
         if (i >= firstCurrency) type = "currency";
         String path = prefix
 		+ type + "Formats/" 

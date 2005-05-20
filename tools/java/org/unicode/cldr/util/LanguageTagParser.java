@@ -106,6 +106,7 @@ public class LanguageTagParser {
 	private String region;
 	private List variants = new ArrayList();
 	private List extensions = new ArrayList();
+	private String localeExtensions = new String();
 	
 	private List frozenExtlangs = Collections.unmodifiableList(extlangs);
 	private List frozenVariants = Collections.unmodifiableList(variants);
@@ -138,6 +139,12 @@ public class LanguageTagParser {
 		variants.clear();
 		extensions.clear();
 		original = languageTag;
+		localeExtensions = "";
+		int localeExtensionsPosition = languageTag.indexOf('@');
+		if (localeExtensionsPosition >= 0) {
+			localeExtensions = languageTag.substring(localeExtensionsPosition);
+			languageTag = languageTag.substring(0, localeExtensionsPosition);
+		}
 		
 		// first test for grandfathered
 		if (grandfatheredCodes.contains(languageTag)) {
@@ -275,4 +282,10 @@ public class LanguageTagParser {
 		throw new IllegalArgumentException(errorText + ": " + subtag + " in " + original);
 	}
 
+	/**
+	 * @return Returns the localeExtensions.
+	 */
+	public String getLocaleExtensions() {
+		return localeExtensions;
+	}
 }

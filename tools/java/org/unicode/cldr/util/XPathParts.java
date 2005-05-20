@@ -23,6 +23,7 @@ import com.ibm.icu.dev.test.util.BagFormatter;
  * Parser for XPath
  */
 public class XPathParts {
+	private boolean DEBUGGING = false;
 	private List elements = new ArrayList();
 	Comparator attributeComparator;
 	Map suppressionMap;
@@ -206,7 +207,7 @@ public class XPathParts {
 	private XPathParts writeComment(PrintWriter pw, Comments xpath_comments, int index, int style) {
 		if (index == 0) return this;
 		String xpath = toString(index);
-		Log.logln("Checking for: " + xpath);
+		Log.logln(DEBUGGING, "Checking for: " + xpath);
 		String comment = (String) xpath_comments.remove(style, xpath);
 		if (comment != null) {
 			XPathParts.writeComment(pw, index-1, comment, style != Comments.LINE);

@@ -45,8 +45,8 @@ public class ICUResourceWriter {
         int noteLen = 0;
         String translate;
         String comment;
-        String name;
-        Resource next;
+        public String name;
+        public Resource next;
         boolean noSort = false;
         public StringBuffer escapeSyntaxChars(String val){
             // escape the embedded quotes
@@ -275,7 +275,7 @@ public class ICUResourceWriter {
     }
     
     public static class ResourceString extends Resource{
-        String val;
+        public String val;
         public void write(OutputStream writer, int numIndent, boolean bare){
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -360,7 +360,7 @@ public class ICUResourceWriter {
     }
     
     public static class ResourceTable extends Resource{
-        Resource first;
+        public Resource first;
         public void write(OutputStream writer, int numIndent, boolean bare){
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);

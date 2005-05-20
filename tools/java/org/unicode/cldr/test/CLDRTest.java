@@ -356,7 +356,7 @@ public class CLDRTest extends TestFmwk {
 		if (v == null) return new UnicodeSet();
 		String pattern = v;
 		if (pattern.indexOf("[:") >= 0 || pattern.indexOf("\\p{") > 0) {
-			errln(getLocaleName(cldrfile.getKey()) + " exemplar pattern contains property: " + pattern);
+			errln(getLocaleName(cldrfile.getLocaleID()) + " exemplar pattern contains property: " + pattern);
 		}
 		try {
 			UnicodeSet result = new UnicodeSet(v, UnicodeSet.CASE);
@@ -364,7 +364,7 @@ public class CLDRTest extends TestFmwk {
 			return result;
 		} catch (RuntimeException e) {
 			e.printStackTrace();
-			errln(getLocaleAndName(cldrfile.getKey()) + " has illegal exemplar set: <" + v + ">");
+			errln(getLocaleAndName(cldrfile.getLocaleID()) + " has illegal exemplar set: <" + v + ">");
 			return new UnicodeSet();
 		}
 		//if (type.length() != 0) System.out.println("fetched set for " + type);

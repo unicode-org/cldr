@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.tool.UOption;
@@ -52,7 +53,8 @@ public class CLDRModify {
 	    JOIN = 5,
 		MINIMIZE = 6,
 		FIX = 7,
-		JOIN_ARGS = 8
+		JOIN_ARGS = 8,
+		VET_ADD = 9
 		;
 	
 	private static final UOption[] options = {
@@ -65,6 +67,7 @@ public class CLDRModify {
 	    UOption.create("minimize", 'r', UOption.NO_ARG),
 	    UOption.create("fix", 'f', UOption.OPTIONAL_ARG),
 	    UOption.create("join-args", 'i', UOption.OPTIONAL_ARG),
+		UOption.create("vet", 'v', UOption.OPTIONAL_ARG).setDefault("C:\\vetweb")
 	};
 	
 	static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
@@ -100,124 +103,133 @@ public class CLDRModify {
         	System.out.println(HELP_TEXT);
         	return;
         }
+        
 		//String sourceDir = "C:\\ICU4C\\locale\\common\\main\\";
 		String mergeDir = options[JOIN].value;	// Utility.COMMON_DIRECTORY + "main/";
 		String sourceDir = options[SOURCEDIR].value;	// Utility.COMMON_DIRECTORY + "main/";
 		String targetDir = options[DESTDIR].value;	// Utility.GEN_DIRECTORY + "main/";
 		
-		SimpleLineComparator lineComparer = new SimpleLineComparator(
-				SimpleLineComparator.SKIP_SPACES + SimpleLineComparator.SKIP_EMPTY + SimpleLineComparator.SKIP_CVS_TAGS);
-		
 		Log.setLog(targetDir + "log.txt");
-		//String[] failureLines = new String[2];
-		Factory cldrFactory = Factory.make(sourceDir, ".*");
-		//testMinimize(cldrFactory);
-		//if (true) return;
-		
-		Factory mergeFactory = null;
-		String join_prefix = "", join_postfix = "";
-		if (options[JOIN].doesOccur) {
-			File temp = new File(mergeDir);
-			mergeDir = temp.getParent() + File.separator;
-			String filename = temp.getName();
-			join_prefix = join_postfix = "";
-			int pos = filename.indexOf("*");
-			if (pos >= 0) {
-				join_prefix = filename.substring(0,pos);
-				join_postfix = filename.substring(pos+1);
-			}
-			mergeFactory = Factory.make(mergeDir, ".*");
-		}
-		/*
-		Factory cldrFactory = Factory.make(sourceDir, ".*");
-		Set testSet = cldrFactory.getAvailable();
-		String[] quicktest = new String[] {
-				"de"
-				//"ar", "dz_BT",
-				// "sv", "en", "de"
-			};
-		if (quicktest.length > 0) {
-			testSet = new TreeSet(Arrays.asList(quicktest));
-		}
-		*/
-		Set locales = new TreeSet(cldrFactory.getAvailable());
-		if (mergeFactory != null) {
-			Set temp = new TreeSet(mergeFactory.getAvailable());
-			Set locales3 = new TreeSet();
-			for (Iterator it = temp.iterator(); it.hasNext();) {
-				String locale = (String)it.next();
-				if (!locale.startsWith(join_prefix) || !locale.endsWith(join_postfix)) continue;
-				locales3.add(locale.substring(join_prefix.length(), locale.length() - join_postfix.length()));
-			}
-			locales.retainAll(locales3);
-			System.out.println("Merging: " + locales3);
-		}
-		new Utility.MatcherFilter(options[MATCH].value).retainAll(locales);
-
-		for (Iterator it = locales.iterator(); it.hasNext();)
-		try {
-			String test = (String) it.next();
-			//testJavaSemantics();
+		try {		//String[] failureLines = new String[2];
+			SimpleLineComparator lineComparer = new SimpleLineComparator(
+						SimpleLineComparator.SKIP_SPACES + SimpleLineComparator.SKIP_EMPTY + SimpleLineComparator.SKIP_CVS_TAGS);
+				
+			Factory cldrFactory = Factory.make(sourceDir, ".*");
+	
+			if (options[VET_ADD].doesOccur) {
+	        	VettingAdder va = new VettingAdder(options[VET_ADD].value);
+	        	va.showFiles(cldrFactory);
+	        	return;
+	        }
+	
+			//testMinimize(cldrFactory);
+			//if (true) return;
 			
-			// TODO parameterize the directory and filter
-			//System.out.println("C:\\ICU4C\\locale\\common\\main\\fr.xml");
-			
-			CLDRFile k = (CLDRFile) cldrFactory.make(test, false).clone();
-			if (mergeFactory != null) {
-				CLDRFile toMergeIn = (CLDRFile) mergeFactory.make(join_prefix + test + join_postfix, false).clone();				
-				if (options[JOIN_ARGS].doesOccur) {
-					if (options[JOIN_ARGS].value.indexOf("d") >= 0) toMergeIn.makeDraft();
-					if (options[JOIN_ARGS].value.indexOf("c") >= 0) toMergeIn.clearComments();
-					if (options[JOIN_ARGS].value.indexOf("x") >= 0) removePosix(toMergeIn);
+			Factory mergeFactory = null;
+			String join_prefix = "", join_postfix = "";
+			if (options[JOIN].doesOccur) {
+				File temp = new File(mergeDir);
+				mergeDir = temp.getParent() + File.separator;
+				String filename = temp.getName();
+				join_prefix = join_postfix = "";
+				int pos = filename.indexOf("*");
+				if (pos >= 0) {
+					join_prefix = filename.substring(0,pos);
+					join_postfix = filename.substring(pos+1);
 				}
-				if (toMergeIn != null) {
-					k.putAll(toMergeIn, k.MERGE_ADD_ALTERNATE);
-				}
-				// special fix
-				k.removeComment(" The following are strings that are not found in the locale (currently), but need valid translations for localizing timezones. ");
+				mergeFactory = Factory.make(mergeDir, ".*");
 			}
-			if (options[FIX].doesOccur) {
-				fix(k, options[FIX].value.toLowerCase(), cldrFactory);
-			}
-			if (options[MINIMIZE].doesOccur) {
-				// TODO, fix identity
-				String parent = CLDRFile.getParent(test);
-				if (parent != null) {
-					CLDRFile toRemove = cldrFactory.make(parent, true);
-					k.removeDuplicates(toRemove, COMMENT_REMOVALS);
-				}
-			}
-			//System.out.println(CLDRFile.getAttributeOrder());
-			
-			/*if (false) {
-				Map tempComments = k.getXpath_comments();
-
-				for (Iterator it2 = tempComments.keySet().iterator(); it2.hasNext();) {
-					String key = (String) it2.next();
-					String comment = (String) tempComments.get(key);
-					Log.logln("Writing extra comment: " + key);
-					System.out.println(key + "\t comment: " + comment);
-				}
-			}*/
-
-			PrintWriter pw = BagFormatter.openUTF8Writer(targetDir, test + ".xml");
-			k.write(pw);
-			pw.println();
-			pw.close();
-			Utility.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
 			/*
-			boolean ok = Utility.areFileIdentical(sourceDir + test + ".xml", 
-					targetDir + test + ".xml", failureLines, Utility.TRIM + Utility.SKIP_SPACES);
-			if (!ok) {
-				System.out.println("Found differences at: ");
-				System.out.println("\t" + failureLines[0]);
-				System.out.println("\t" + failureLines[1]);
+			Factory cldrFactory = Factory.make(sourceDir, ".*");
+			Set testSet = cldrFactory.getAvailable();
+			String[] quicktest = new String[] {
+					"de"
+					//"ar", "dz_BT",
+					// "sv", "en", "de"
+				};
+			if (quicktest.length > 0) {
+				testSet = new TreeSet(Arrays.asList(quicktest));
 			}
 			*/
+			Set locales = new TreeSet(cldrFactory.getAvailable());
+			if (mergeFactory != null) {
+				Set temp = new TreeSet(mergeFactory.getAvailable());
+				Set locales3 = new TreeSet();
+				for (Iterator it = temp.iterator(); it.hasNext();) {
+					String locale = (String)it.next();
+					if (!locale.startsWith(join_prefix) || !locale.endsWith(join_postfix)) continue;
+					locales3.add(locale.substring(join_prefix.length(), locale.length() - join_postfix.length()));
+				}
+				locales.retainAll(locales3);
+				System.out.println("Merging: " + locales3);
+			}
+			new Utility.MatcherFilter(options[MATCH].value).retainAll(locales);
+	
+			for (Iterator it = locales.iterator(); it.hasNext();) {
+	
+				String test = (String) it.next();
+				//testJavaSemantics();
+				
+				// TODO parameterize the directory and filter
+				//System.out.println("C:\\ICU4C\\locale\\common\\main\\fr.xml");
+				
+				CLDRFile k = (CLDRFile) cldrFactory.make(test, false).clone();
+				if (mergeFactory != null) {
+					CLDRFile toMergeIn = (CLDRFile) mergeFactory.make(join_prefix + test + join_postfix, false).clone();				
+					if (options[JOIN_ARGS].doesOccur) {
+						if (options[JOIN_ARGS].value.indexOf("d") >= 0) toMergeIn.makeDraft();
+						if (options[JOIN_ARGS].value.indexOf("c") >= 0) toMergeIn.clearComments();
+						if (options[JOIN_ARGS].value.indexOf("x") >= 0) removePosix(toMergeIn);
+					}
+					if (toMergeIn != null) {
+						k.putAll(toMergeIn, k.MERGE_ADD_ALTERNATE);
+					}
+					// special fix
+					k.removeComment(" The following are strings that are not found in the locale (currently), but need valid translations for localizing timezones. ");
+				}
+				if (options[FIX].doesOccur) {
+					fix(k, options[FIX].value.toLowerCase(), cldrFactory);
+				}
+				if (options[MINIMIZE].doesOccur) {
+					// TODO, fix identity
+					String parent = CLDRFile.getParent(test);
+					if (parent != null) {
+						CLDRFile toRemove = cldrFactory.make(parent, true);
+						k.removeDuplicates(toRemove, COMMENT_REMOVALS);
+					}
+				}
+				//System.out.println(CLDRFile.getAttributeOrder());
+				
+				/*if (false) {
+					Map tempComments = k.getXpath_comments();
+	
+					for (Iterator it2 = tempComments.keySet().iterator(); it2.hasNext();) {
+						String key = (String) it2.next();
+						String comment = (String) tempComments.get(key);
+						Log.logln("Writing extra comment: " + key);
+						System.out.println(key + "\t comment: " + comment);
+					}
+				}*/
+	
+				PrintWriter pw = BagFormatter.openUTF8Writer(targetDir, test + ".xml");
+				k.write(pw);
+				pw.println();
+				pw.close();
+				Utility.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
+				/*
+				boolean ok = Utility.areFileIdentical(sourceDir + test + ".xml", 
+						targetDir + test + ".xml", failureLines, Utility.TRIM + Utility.SKIP_SPACES);
+				if (!ok) {
+					System.out.println("Found differences at: ");
+					System.out.println("\t" + failureLines[0]);
+					System.out.println("\t" + failureLines[1]);
+				}
+				*/
+			}
 		} finally {
 			Log.close();
+			System.out.println("Done");
 		}
-		System.out.println("Done");
 	}
 	
 	/**
@@ -297,7 +309,7 @@ public class CLDRModify {
 			if (type == CLDRTest.NOT_NUMERIC_TYPE) return;
 			String value = k.getStringValue(xpath);
 			// at this point, we only have currency formats
-			boolean isPOSIX = k.getKey().indexOf("POSIX") >= 0;
+			boolean isPOSIX = k.getLocaleID().indexOf("POSIX") >= 0;
 			String pattern = CLDRTest.getCanonicalPattern(value, type, isPOSIX);
 			if (pattern.equals(value)) return;
 			replacements.add(xpath, k.getFullXPath(xpath), pattern);
@@ -429,7 +441,7 @@ public class CLDRModify {
 	 * and add them.
 	 */
 	static void fixIdenticalChildren(CLDRFile.Factory cldrFactory, CLDRFile k, CLDRFile replacements) {
-		String key = k.getKey();
+		String key = k.getLocaleID();
 		Set availableChildren = cldrFactory.getAvailableWithParent(key, true);
 		if (availableChildren.size() == 0) return;
 		Set skipPaths = new HashSet();

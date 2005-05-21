@@ -975,9 +975,9 @@ root</pre>
       <td><span class="changedspan">modern</span></td>
       <td><span class="changedspan">Has complete localizations (or valid inheritance) for every<br>
       field in common modern use. That is, for this level only non-modern<br>
-      currencies, non-modern territories don&#39;t have to be there. Only languages<br>
-      that are official languages of some modern country need coverage. Only<br>
-      timezone exemplars for multi-zone countries need coverage.</span></td>
+      currencies, non-modern territories don&#39;t have to be there. Only languages that are official 
+      languages of some modern country need coverage. Only timezone exemplars for multi-zone 
+      countries need coverage.</span></td>
     </tr>
     <tr>
       <td><span class="changedspan">level 4</span></td>
@@ -1752,24 +1752,26 @@ root</pre>
   <p><span class="changedspan">When the currency symbol is substituted into a pattern, there may be 
   some further modifications, according to the following.</span></p>
   <pre><span class="changedspan">&lt;currencySpacing&gt;
-  &lt;before&gt;
-    &lt;currency&gt;[:letter:]&lt;/currency&gt;
-    &lt;pattern&gt;[:digit:]&lt;/pattern&gt;
-    &lt;result&gt; &lt;/result&gt;
-  &lt;/before&gt;
-  &lt;after&gt;
-    &lt;currency&gt;[:letter:]&lt;/currency&gt;
-    &lt;pattern&gt;[:digit:]&lt;/pattern&gt;
-    &lt;result&gt; &lt;/result&gt;
-  &lt;/after&gt;
-&lt;/codeFallback&gt;</span></pre>
+  &lt;beforeCurrency&gt;
+    &lt;currencyMatch&gt;[:letter:]&lt;/currencyMatch&gt;
+    &lt;surroundingMatch&gt;[:digit:]&lt;/surroundingMatch&gt;
+    &lt;insertBetween&gt; &lt;/insertBetween&gt;
+  &lt;/beforeCurrency&gt;
+  &lt;afterCurrency&gt;
+    &lt;currencyMatch&gt;[:letter:]&lt;/currencyMatch&gt;
+    &lt;surroundingMatch&gt;[:digit:]&lt;/surroundingMatch&gt;
+    &lt;insertBetween&gt; &lt;/insertBetween&gt;
+  &lt;/afterCurrency&gt;
+&lt;/currencySpacing&gt;</span>
+</pre>
   <p><span class="changedspan">This element controls whether additional characters are inserted on 
   the boundary between the symbol and the pattern. For example, in the above, inserting the symbol 
   &quot;US$&quot; into the pattern &quot;#,##0.00<font SIZE="4">¤&quot; would result in an extra space inserted before 
   the symbol, eg </font>&quot;#,##0.00<font SIZE="4"> US$&quot;, while inserting into the pattern </font>&quot;<font SIZE="4">¤</font>#,##0.00<font SIZE="4">&quot; 
-  would not, eg </font>&quot;<font SIZE="4">US$</font>#,##0.00<font SIZE="4">&quot;. That is because the <i>
-  after</i> condition matches and the <i>before</i> condition doesn&#39;t. For more information on the 
-  matching used in the <i>currency</i> and <i>pattern</i> elements, see Appendix </font>E:
+  would not, eg </font>&quot;<font SIZE="4">US$</font>#,##0.00<font SIZE="4">&quot;. That is because the
+  </font>afterCurrency <font SIZE="4">condition matches and the </font>beforeCurrency <font SIZE="4">
+  condition doesn&#39;t. For more information on the matching used in the </font>currencyMatch
+  <font SIZE="4">and </font>surroundingMatch <font SIZE="4">elements, see Appendix </font>E:
   <a href="#Unicode_Sets">Unicode Sets</a>.</span></p>
   <p>Currencies can also contain <span>optional</span> grouping, decimal data<span>, and pattern 
   elements</span>. This data is inherited from the &lt;symbols&gt; in the same locale data<span> (if not 

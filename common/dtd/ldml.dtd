@@ -749,9 +749,28 @@
 <!ATTLIST percentFormat alt CDATA #IMPLIED >
 <!ATTLIST percentFormat validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT currencyFormats (alias | (default*, currencyFormatLength*, special*)) >
+<!ELEMENT currencyFormats (alias | (default*, currencySpacing*, currencyFormatLength*, special*)) >
 <!ATTLIST currencyFormats draft ( true | false ) #IMPLIED >
 <!ATTLIST currencyFormats validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT currencySpacing (alias | (beforeCurrency*, afterCurrency*, special*)) >
+<!ELEMENT beforeCurrency (alias | (currencyMatch*, surroundingMatch*, insertBetween*)) >
+<!ELEMENT afterCurrency (alias | (currencyMatch*, surroundingMatch*, insertBetween*)) >
+
+<!ELEMENT surroundingMatch ( #PCDATA ) >
+<!ATTLIST surroundingMatch draft ( true | false ) #IMPLIED >
+<!ATTLIST surroundingMatch alt CDATA #IMPLIED >
+<!ATTLIST surroundingMatch references CDATA #IMPLIED >
+
+<!ELEMENT currencyMatch ( #PCDATA ) >
+<!ATTLIST currencyMatch draft ( true | false ) #IMPLIED >
+<!ATTLIST currencyMatch alt CDATA #IMPLIED >
+<!ATTLIST currencyMatch references CDATA #IMPLIED >
+
+<!ELEMENT insertBetween ( #PCDATA ) >
+<!ATTLIST insertBetween draft ( true | false ) #IMPLIED >
+<!ATTLIST insertBetween alt CDATA #IMPLIED >
+<!ATTLIST insertBetween references CDATA #IMPLIED >
 
 <!ELEMENT currencyFormatLength (alias | (default*, currencyFormat*, special*)) >
 <!ATTLIST currencyFormatLength type ( full | long | medium | short ) #IMPLIED >

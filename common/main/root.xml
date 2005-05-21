@@ -782,6 +782,18 @@
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
+		<currencySpacing>
+		  <beforeCurrency>
+		    <currencyMatch>[:letter:]</currencyMatch>
+		    <surroundingMatch>[:digit:]</surroundingMatch>
+		    <insertBetween> </insertBetween>
+		  </beforeCurrency>
+		  <afterCurrency>
+		    <currencyMatch>[:letter:]</currencyMatch>
+		    <surroundingMatch>[:digit:]</surroundingMatch>
+		    <insertBetween> </insertBetween>
+		  </afterCurrency>
+		</currencySpacing>
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>¤ #,##0.00</pattern>

@@ -340,7 +340,7 @@
 					<monthContext type="format">
 						<default type="wide"/>
 						<monthWidth type="abbreviated">
-							<alias source="root" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tishri</month>
@@ -373,7 +373,7 @@
 					<monthContext type="format">
 						<default type="wide"/>
 						<monthWidth type="abbreviated">
-							<alias source="root" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Muharram</month>
@@ -401,7 +401,7 @@
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
-				<alias source="root" path="../calendar[@type='islamic']"/>
+				<alias source="locale" path="../calendar[@type='islamic']"/>
 			</calendar>
 			<calendar type="japanese">
 				<eras>

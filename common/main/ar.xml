@@ -480,7 +480,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="ar" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">محرم</month>
@@ -506,10 +506,10 @@
 			</calendar>
 			<calendar type="islamic-civil">
 				<months>
-					<alias source="ar" path="../../calendar[@type='islamic']/months"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/months"/>
 				</months>
 				<eras>
-					<alias source="ar" path="../../calendar[@type='islamic']/eras"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/eras"/>
 				</eras>
 			</calendar>
 		</calendars>

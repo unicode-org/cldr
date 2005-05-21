@@ -1266,7 +1266,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="fi" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Muhárram</month>
@@ -1299,7 +1299,7 @@
 			</calendar>
 			<calendar type="islamic-civil">
 				<months>
-					<alias source="fi" path="../../calendar[@type='islamic']/months"/>
+					<alias source="locale" path="../../calendar[@type='islamic']/months"/>
 				</months>
 			</calendar>
 		</calendars>

@@ -970,7 +970,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="nl" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tisjrie</month>
@@ -989,7 +989,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="nl" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Moeharram</month>
@@ -1011,7 +1011,7 @@
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
-				<alias source="nl" path="../calendar[@type='islamic']"/>
+				<alias source="locale" path="../calendar[@type='islamic']"/>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

@@ -631,7 +631,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="hu" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tisri</month>
@@ -658,7 +658,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<alias source="hu" path="../monthWidth[@type='wide']"/>
+							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Moharrem</month>
@@ -682,7 +682,7 @@
 				</eras>
 			</calendar>
 			<calendar type="islamic-civil">
-				<alias source="hu" path="../calendar[@type='islamic']"/>
+				<alias source="locale" path="../calendar[@type='islamic']"/>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

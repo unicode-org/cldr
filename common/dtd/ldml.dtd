@@ -159,7 +159,6 @@
 <!ELEMENT inList ( special* ) >
 <!ATTLIST inList casing ( titlecase-words | titlecase-firstword ) #REQUIRED >
 <!ATTLIST inList draft ( true | false ) #IMPLIED >
-<!ATTLIST inList standard CDATA #IMPLIED >
 <!ATTLIST inList references CDATA #IMPLIED >
 <!ATTLIST inList alt CDATA #IMPLIED >
 

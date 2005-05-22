@@ -960,46 +960,6 @@ root</pre>
   <p class="element2">&lt;variant type=&quot;<span style="color: blue">nynorsk</span>&quot;/&gt;</p>
   <p>The variant code is the tertiary part of the specification of the locale id, with values as 
   described above.</p>
-  <p><span class="changedspan">&lt;coverage level=&quot;1&quot;/&gt; </span></p>
-  <p><span class="changedspan">The level provides an indication of the coverage of the data. The 
-  coverage may change over time, as new fields are added.</span></p>
-  <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber6">
-    <tr>
-      <td><span class="changedspan">level 10</span></td>
-      <td><span class="changedspan">comprehensive</span></td>
-      <td><span class="changedspan">Has complete localizations (or valid inheritance) for every 
-      possible field</span></td>
-    </tr>
-    <tr>
-      <td><span class="changedspan">level 8</span></td>
-      <td><span class="changedspan">modern</span></td>
-      <td><span class="changedspan">Has complete localizations (or valid inheritance) for every<br>
-      field in common modern use. That is, for this level only non-modern<br>
-      currencies, non-modern territories don&#39;t have to be there. Only languages that are official 
-      languages of some modern country need coverage. Only timezone exemplars for multi-zone 
-      countries need coverage.</span></td>
-    </tr>
-    <tr>
-      <td><span class="changedspan">level 4</span></td>
-      <td><span class="changedspan">basic</span></td>
-      <td><span class="changedspan">Has localization (or valid inheritance) as given by<br>
-      <a href="http://www.unicode.org/cldr/data_formats.html">
-      http://www.unicode.org/cldr/data_formats.html</a> &quot;Minimal Localization&quot;</span></td>
-    </tr>
-    <tr>
-      <td><span class="changedspan">level 2</span></td>
-      <td><span class="changedspan">posix</span></td>
-      <td><span class="changedspan">Only what is required for POSIX generation; example, only one<br>
-      country name, only one currency symbol, etc.</span></td>
-    </tr>
-    <tr>
-      <td><span class="changedspan">level 0</span></td>
-      <td><span class="changedspan">rudimentary</span></td>
-      <td><span class="changedspan">(default, if nothing specified) Doesn&#39;t even meet any of the 
-      above levels.</span></td>
-    </tr>
-  </table>
-  <p><span class="changedspan"><b>Issue: </b>use the numeric or the text values?</span></p>
   <h3>5.4 <a name="&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, 
   variants?, keys?, types?, special*)) &gt;</span></p>
@@ -1458,32 +1418,6 @@ root</pre>
   various ways. The main elements work like the dateFormats and timeFormats, except that the pattern 
   is of the form &quot;{0} {1}&quot;, where {0} is replaced by the date format, and {1} is replaced by the 
   time format.</span></p>
-  <p><span class="changedspan">In addition, there is a further element that allows for flexible 
-  combinations of dates, as in the following example. There can be any number of patterns, with the 
-  order being significant. These are used to get a best match for an input specification, as 
-  documented in <a href="#Date_Format_Patterns"><span>Appendix F: Date Format Patterns</span></a><span>.</span></span></p>
-  <pre><span class="changedspan">    &lt;flexibleFormats&gt;
-	&lt;pattern&gt;EEEE, d MMMM yyyy&lt;/pattern&gt;
-	&lt;pattern&gt;EEE d MMMM yyyy&lt;/pattern&gt;
-	&lt;pattern&gt;EEE dd/MMM yy&lt;/pattern&gt;
-	&lt;pattern&gt;EEE d MMM yy&lt;/pattern&gt;
-	&lt;pattern&gt;dd MMMM yyyy&lt;/pattern&gt;
-	&lt;pattern&gt;d. MMMM yyyy&lt;/pattern&gt;
-	&lt;pattern&gt;d. MMM. yyyy&lt;/pattern&gt;
-	&lt;pattern&gt;d MMM yy&lt;/pattern&gt;
-	&lt;pattern&gt;dd/MM/yyyy&lt;/pattern&gt;
-	&lt;pattern&gt;dd/MM/yy&lt;/pattern&gt;
-	&lt;pattern&gt;dd/MMM&lt;/pattern&gt;
-	&lt;pattern&gt;MM/yy&lt;/pattern&gt;
-	&lt;pattern&gt;MM-dd&lt;/pattern&gt;
-	&lt;pattern&gt;ww&lt;/pattern&gt;
-	&lt;pattern&gt;MMMM&lt;/pattern&gt;
-	&lt;pattern&gt;hh:mm:ss a&lt;/pattern&gt;
-	&lt;pattern&gt;mm:ss.SS&lt;/pattern&gt;
-	&lt;pattern&gt;HH:mm:ss&lt;/pattern&gt;
-	&lt;pattern&gt;hh:mm a&lt;/pattern&gt;
-	&lt;pattern&gt;HH:mm&lt;/pattern&gt;
-    &lt;/flexibleFormats&gt;</span></pre>
   <p><span><a name="week">&lt;week&gt;</a></span></p>
   <p><span class="dtd">&lt;!ELEMENT week (alias | (minDays?, firstDay?, weekendStart?, weekendEnd?, 
   special*))&gt;</span></p>
@@ -1766,13 +1700,11 @@ root</pre>
 </pre>
   <p><span class="changedspan">This element controls whether additional characters are inserted on 
   the boundary between the symbol and the pattern. For example, in the above, inserting the symbol 
-  &quot;US$&quot; into the pattern &quot;#,##0.00<font SIZE="4">¤&quot; would result in an extra space inserted before 
-  the symbol, eg </font>&quot;#,##0.00<font SIZE="4"> US$&quot;, while inserting into the pattern </font>&quot;<font SIZE="4">¤</font>#,##0.00<font SIZE="4">&quot; 
-  would not, eg </font>&quot;<font SIZE="4">US$</font>#,##0.00<font SIZE="4">&quot;. That is because the
-  </font>afterCurrency <font SIZE="4">condition matches and the </font>beforeCurrency <font SIZE="4">
-  condition doesn&#39;t. For more information on the matching used in the </font>currencyMatch
-  <font SIZE="4">and </font>surroundingMatch <font SIZE="4">elements, see Appendix </font>E:
-  <a href="#Unicode_Sets">Unicode Sets</a>.</span></p>
+  &quot;US$&quot; into the pattern &quot;#,##0.00¤&quot; would result in an extra space inserted before the symbol, eg 
+  &quot;#,##0.00 US$&quot;, while inserting into the pattern &quot;¤#,##0.00&quot; would not, eg &quot;US$#,##0.00&quot;. That is 
+  because the afterCurrency condition matches and the beforeCurrency condition doesn&#39;t. For more 
+  information on the matching used in the currencyMatch and surroundingMatch elements, see Appendix 
+  E: <a href="#Unicode_Sets">Unicode Sets</a>.</span></p>
   <p>Currencies can also contain <span>optional</span> grouping, decimal data<span>, and pattern 
   elements</span>. This data is inherited from the &lt;symbols&gt; in the same locale data<span> (if not 
   present in the chain up to root)</span>, so only the <i>differing</i> data will be present. <span>

@@ -128,6 +128,9 @@
 			<territory type="ZW">زیمبابوی</territory>
 		</territories>
 	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters type="auxiliary" draft="true">[\u064a\u067c\u0681\u0685\u0689\u0693\u0696\u069a\u06ab\u06bc\u06cd\u06d0\u0656\u0670]</exemplarCharacters>
+	</characters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -144,6 +147,9 @@
 							<month type="11">نوم</month>
 							<month type="12">دسم</month>
 						</monthWidth>
+						<monthWidth type="abbreviated" alt="proposed">
+							<alias source="locale" path="../monthWidth[@type='wide']" draft="true"/>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">جنوری</month>
 							<month type="2">فبروری</month>
@@ -159,9 +165,33 @@
 							<month type="12">دسمبر</month>
 						</monthWidth>
 					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" draft="true">ج</month>
+							<month type="2" draft="true">ف</month>
+							<month type="3" draft="true">م</month>
+							<month type="4" draft="true">ا</month>
+							<month type="5" draft="true">م</month>
+							<month type="6" draft="true">ج</month>
+							<month type="7" draft="true">ج</month>
+							<month type="8" draft="true">ا</month>
+							<month type="9" draft="true">س</month>
+							<month type="10" draft="true">ا</month>
+							<month type="11" draft="true">ن</month>
+							<month type="12" draft="true">د</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone" alt="proposed">
+						<alias source="locale" path="../monthContext[@type='format']" draft="true"/>
+					</monthContext>
 				</months>
 				<week>
 					<firstDay day="sat"/>
+				</week>
+			</calendar>
+			<calendar type="islamic">
+				<week>
+					<firstDay day="sat" draft="true"/>
 				</week>
 			</calendar>
 			<calendar type="persian">
@@ -202,6 +232,9 @@
 							<month type="11" draft="true">د</month>
 							<month type="12" draft="true">ح</month>
 						</monthWidth>
+						<monthWidth type="narrow" alt="proposed">
+							<alias source="fa_AF" path="../../monthContext[@type='format']/monthWidth[@type='narrow']" draft="true"/>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="true">حمل</month>
 							<month type="2" draft="true">ثور</month>
@@ -233,7 +266,6 @@
 					<standard>AFT</standard>
 					<daylight>AFT</daylight>
 				</short>
-				<exemplarCity>کابل</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
@@ -244,8 +276,14 @@
 			<percentSign>٪</percentSign>
 			<nativeZeroDigit>۰</nativeZeroDigit>
 			<minusSign>−</minusSign>
-			<exponential>×۱۰^</exponential>
 		</symbols>
+		<percentFormats>
+			<percentFormatLength>
+				<percentFormat>
+					<pattern draft="true">'‪'#,##0%'‬'</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -253,6 +291,50 @@
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
+		<currencies>
+			<currency type="AUD">
+				<displayName draft="true">دالر آسترالیا</displayName>
+			</currency>
+			<currency type="BND">
+				<displayName draft="true">دالر برونی</displayName>
+			</currency>
+			<currency type="BYR">
+				<displayName draft="true">روبل روسیهٔ سفید</displayName>
+			</currency>
+			<currency type="CAD">
+				<displayName draft="true">دالر کانادا</displayName>
+			</currency>
+			<currency type="CHF">
+				<displayName draft="true">فرانک سویس</displayName>
+			</currency>
+			<currency type="DKK">
+				<displayName draft="true">کرون دنمارک</displayName>
+			</currency>
+			<currency type="JPY">
+				<displayName draft="true">ین جاپان</displayName>
+			</currency>
+			<currency type="MXN">
+				<displayName draft="true">پزوی مکسیکو</displayName>
+			</currency>
+			<currency type="NLG">
+				<displayName draft="true">گیلدر هالند</displayName>
+			</currency>
+			<currency type="NOK">
+				<displayName draft="true">کرون ناروی</displayName>
+			</currency>
+			<currency type="SEK">
+				<displayName draft="true">کرون سویدن</displayName>
+			</currency>
+			<currency type="SGD">
+				<displayName draft="true">دالر سینگاپور</displayName>
+			</currency>
+			<currency type="TJS">
+				<displayName draft="true">سامانی تاجکستان</displayName>
+			</currency>
+			<currency type="USD">
+				<displayName draft="true">دالر امریکا</displayName>
+			</currency>
+		</currencies>
 	</numbers>
 </ldml>
 <!-- Old Comments. See root.xml for more info.

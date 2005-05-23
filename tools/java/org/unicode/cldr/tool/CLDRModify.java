@@ -366,18 +366,32 @@ public class CLDRModify {
 		}
 	};
 
+	static CLDRFilter fixZZ = new CLDRFilter() {
+		public void handle(String xpath, Set removal, CLDRFile replacements) {
+			if (xpath.indexOf("/exemplarCharacters") < 0) return;
+			String value = k.getStringValue(xpath);
+			if (value.indexOf("[:") < 0) return;
+			UnicodeSet s = new UnicodeSet(value);
+			s.add(0xFFFF);
+			s.remove(0xFFFF); // force flattening
+			// at this point, we only have currency formats
+			replacements.add(xpath, k.getFullXPath(xpath), s.toPattern(false));
+		}
+	};
+
 	static CLDRFilter fixReferences = new CLDRFilter() {
 		References standards = new References(true);
 		References references = new References(false);
 		public void setFile(CLDRFile k) {
 			super.setFile(k);
-			standards.clear();
-			references.clear();
+			standards.reset(k);
+			references.reset(k);
 		}
 		public void handle(String xpath, Set removal, CLDRFile replacements) {
 			String value = k.getStringValue(xpath);
 			String fullpath = k.getFullXPath(xpath);
 			if (fullpath.indexOf("[@references=\"") < 0 && fullpath.indexOf("[@standard=\"") < 0) return;
+			if (fullpath.indexOf("/references") >= 0) return;
 			fullparts.set(fullpath);
 			int fixCount = 0;
 			for (int i = 0; i < fullparts.size(); ++i) {
@@ -393,17 +407,40 @@ public class CLDRModify {
 		static String[][] keys = {{"standard", "S", "[@standard=\"true\"]"}, {"references", "R", ""}};
 		UnicodeSet digits = new UnicodeSet("[0-9]");
 		int referenceCounter = 0;
-		Map referencesMap = new TreeMap();
+		Map references_token = new TreeMap();
+		Set tokenSet = new HashSet();
 		String[] keys2;
+		boolean isStandard;
 		References(boolean standard) {
+			isStandard = standard;
 			keys2 = standard ? keys[0] : keys[1];
+		}
+		/**
+		 * 
+		 */
+		public void reset(CLDRFile k) {
+			clear();
+			XPathParts parts = new XPathParts(null, null);
+			for (Iterator it = k.keySet().iterator(); it.hasNext();) {
+				String path = (String) it.next();
+				if (path.indexOf("/reference") < 0) continue;
+				parts.set(k.getFullXPath(path));
+				if (!parts.getElement(2).equals("reference")) continue;
+				Map attributes = parts.getAttributes(2);
+				String token = (String) attributes.get("type");
+				boolean refIsStandard = "true".equals(attributes.get("standard"));
+				if (refIsStandard != isStandard) continue;
+				String references = k.getStringValue(path);
+				tokenSet.add(token);
+				references_token.put(references, token);
+			}			
 		}
 		/**
 		 * 
 		 */
 		public void clear() {
 			referenceCounter = 0;
-			referencesMap.clear();
+			references_token.clear();
 		}
 		private int fix(Map attributes, CLDRFile replacements) {
 			String references = (String) attributes.get(keys2[0]);
@@ -413,10 +450,13 @@ public class CLDRModify {
 				if (references.startsWith("S") || references.startsWith("R")) {
 					if (digits.containsAll(references.substring(1))) return 0;
 				}
-				String token = (String) referencesMap.get(references);
+				String token = (String) references_token.get(references);
 				if (token == null) {
-					token = keys2[1] + (++referenceCounter);
-					referencesMap.put(references, token);
+					while (true) {
+						token = keys2[1] + (++referenceCounter);
+						if (!tokenSet.contains(token)) break;
+					}
+					references_token.put(references, token);
 					System.out.println("Adding: " + token + "\t" + references);
 					replacements.add("/ldml/references/reference[@type=\"" + token + "\"]" + keys2[2], references);
 					result = 1;

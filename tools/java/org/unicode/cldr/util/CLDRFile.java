@@ -609,13 +609,26 @@ private boolean isSupplemental;
     
     private static String getNondraftXPath(String xpath) {
     	XPathParts parts = new XPathParts(null,null).set(xpath);
+    	String restore;
     	for (int i = 0; i < parts.size(); ++i) {
     		String element = parts.getElement(i);
     		Map attributes = parts.getAttributes(i);
+    		restore = null;
     		for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
     			String attribute = (String) it.next();
     			if (attribute.equals("draft")) it.remove();
+    			else if (attribute.equals("alt")) {
+    				String value = (String) attributes.get(attribute);		
+	    			int proposedPos = value.indexOf("proposed");
+	    			if (proposedPos > 0) {
+	    				it.remove();
+	    				if (proposedPos > 0) {
+	    					restore = value.substring(0, proposedPos-1); // is of form xxx-proposedyyy
+	    				}
+	    			}
+    			}
     		}
+    		if (restore != null) attributes.put("alt", restore);
     	}
     	return parts.toString();
     }
@@ -1575,7 +1588,12 @@ private boolean isSupplemental;
 			"scientificFormats", "percentFormats", "currencyFormats",
 			"currencies", "decimalFormatLength", "decimalFormat",
 			"scientificFormatLength", "scientificFormat",
-			"percentFormatLength", "percentFormat", "currencyFormatLength",
+			"percentFormatLength", "percentFormat",
+			
+			"currencySpacing", "beforeCurrency", "afterCurrency", 
+		    "currencyMatch", "surroundingMatch", "insertBetween",
+			
+			"currencyFormatLength",
 			"currencyFormat", "currency", "symbol", "decimal", "group",
 			"list", "percentSign", "nativeZeroDigit", "patternDigit",
 			"plusSign", "minusSign", "exponential", "perMille", "infinity",

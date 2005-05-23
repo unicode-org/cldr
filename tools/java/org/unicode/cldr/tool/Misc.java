@@ -254,15 +254,15 @@ public class Misc {
 	}
 
 	static void printWindowsZones() {
-		System.out.println("\t<timezoneInfo>");
+		System.out.println("\t<timezoneData>");
 		System.out.println("\t\t<mapTimezones type=\"windows\">");
 		for (int i = 0; i < ZONE_MAP.length; i += 3) {
 			System.out.println("\t\t\t<mapZone other=\"" + ZONE_MAP[i+1] 
 				+ "\" type=\"" + ZONE_MAP[i] 
-				+ "\"> <!-- " + ZONE_MAP[i+2] + "-->");
+				+ "\"/> <!-- " + ZONE_MAP[i+2] + "-->");
 		}
 		System.out.println("\t\t</mapTimezones>");
-		System.out.println("\t</timezoneInfo>");
+		System.out.println("\t</timezoneData>");
 		
 		for (int i = 0; i < ZONE_MAP.length; i += 3) {
 			int p1 = ZONE_MAP[i+2].indexOf('(');

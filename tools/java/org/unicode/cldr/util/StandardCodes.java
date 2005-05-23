@@ -260,7 +260,7 @@ public class StandardCodes {
 							for (; current.compareTo(end) <= 0; current = nextAlpha(current)) {
 								//System.out.println(">" + current);
 								add(type, current, data);
-							};
+							}
 						}
 						continue;
 					}

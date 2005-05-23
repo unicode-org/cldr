@@ -792,6 +792,8 @@
 <!ATTLIST currencies validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT currency (alias | (pattern*, displayName*, symbol*, pattern*, decimal*, group*, special*)) >
+<!-- warning: pattern appears twice in the above. The first is for consistency with all other cases of
+	pattern + displayName; the second is for backwards compatibility -->
 <!ATTLIST currency type NMTOKEN "standard" >
 <!ATTLIST currency draft ( true | false ) #IMPLIED >
 <!ATTLIST currency references CDATA #IMPLIED >

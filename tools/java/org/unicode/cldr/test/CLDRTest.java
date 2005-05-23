@@ -562,28 +562,32 @@ public class CLDRTest extends TestFmwk {
 	private static void checkValidity(String xpath, String element, String attribute, String avalue, Map results, Set xpathsFailing)  {
 		StandardCodes codes = StandardCodes.make();
 		if (attribute.equals("type")) {
-			if (element.equals("currency")) checkCodes(xpath, "currency", avalue, codes, results, xpathsFailing);
-			else if (element.equals("script")) checkCodes(xpath, "script", avalue, codes, results, xpathsFailing);
-			else if (element.equals("territory")) checkCodes(xpath, "territory", avalue, codes, results, xpathsFailing);
-			else if (element.equals("language")) checkCodes(xpath, "language", avalue, codes, results, xpathsFailing);
-			else if (element.equals("zone")) checkCodes(xpath, "tzid", avalue, codes, results, xpathsFailing);
+			boolean checkReplacements = xpath.indexOf("/identity") < 0;
+			if (element.equals("currency")) checkCodes(xpath, "currency", avalue, codes, results, xpathsFailing, checkReplacements);
+			else if (element.equals("script")) checkCodes(xpath, "script", avalue, codes, results, xpathsFailing, checkReplacements);
+			else if (element.equals("territory")) checkCodes(xpath, "territory", avalue, codes, results, xpathsFailing, checkReplacements);
+			else if (element.equals("language")) checkCodes(xpath, "language", avalue, codes, results, xpathsFailing, checkReplacements);
+			else if (element.equals("zone")) checkCodes(xpath, "tzid", avalue, codes, results, xpathsFailing, checkReplacements);
 		}
 	}
 
 	/**
 	 * Internal function
+	 * @param checkReplacements TODO
 	 */
-	private static void checkCodes(String xpath, String code, String avalue, StandardCodes codes, Map results, Set xpathFailures) {
-		if (codes.getData(code, avalue) == null) {
-			if (xpathFailures != null) xpathFailures.add(xpath);
-			if (results == null) return;
-			Set s = (Set) results.get(code);
-			if (s == null) {
-				s = new TreeSet();
-				results.put(code, s);
-			}
-			s.add(avalue);
+	private static void checkCodes(String xpath, String code, String avalue, StandardCodes codes, Map results, Set xpathFailures, boolean checkReplacements) {
+		// ok if code is found AND it has no replacement
+		if (codes.getData(code, avalue) != null 
+				&& (!checkReplacements || codes.getReplacement(code, avalue) == null)) return;
+			
+		if (xpathFailures != null) xpathFailures.add(xpath);
+		if (results == null) return;
+		Set s = (Set) results.get(code);
+		if (s == null) {
+			s = new TreeSet();
+			results.put(code, s);
 		}
+		s.add(avalue);
 	}
 
 	/**

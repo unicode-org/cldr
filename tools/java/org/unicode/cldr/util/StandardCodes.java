@@ -71,6 +71,21 @@ public class StandardCodes {
 		if (code_data == null) return null;
 		return (List)code_data.get(code);
 	}
+	
+	/**
+	 * Return a replacement code, if available. If not, return null.
+	 *
+	 */
+	public String getReplacement(String type, String code) {
+		if (type.equals("currency")) return null; // no replacement codes for currencies
+		List data = getFullData(type, code);
+		if (data == null) return null;
+		// if available, the replacement is a non-empty value other than --, in position 2.
+		if (data.size() < 3) return null;
+		String replacement = (String) data.get(2);
+		if (!replacement.equals("") && !replacement.equals("--")) return replacement;
+		return null;
+	}
 
 	
 	/**

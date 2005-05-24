@@ -1408,12 +1408,12 @@ System.err.println(filename2 + ":" + e.getLineNumber() +  (col>=0?":" + col:"") 
     
     public static final String getCVSLink(String locale)
     {
-        return "<a href=\"http://oss.software.ibm.com/cvs/icu/locale/common/main/" + locale + ".xml\">";
+        return "<a href=\"http://www.unicode.org/repository/cldr/common/main/" + locale + ".xml\">";
     }
     
     public static final String getCVSLink(String locale, String version)
     {
-        return "<a href=\"http://oss.software.ibm.com/cvs/icu/locale/common/main/" + locale + ".xml?rev=" +
+        return "<a href=\"http://www.unicode.org/repository/cldr/common/main/" + locale + ".xml?rev=" +
             version + "&content-type=text/x-cvsweb-markup\">";
     }
     static public String getCVSVersion(String fileName)

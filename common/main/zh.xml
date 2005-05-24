@@ -806,9 +806,11 @@
 			<key type="currency">货币</key>
 		</keys>
 		<types>
+			<type type="big5han" key="collation" draft="true">繁体中文(Big5)</type>
 			<type type="buddhist" key="calendar">佛教日历</type>
 			<type type="chinese" key="calendar">农历</type>
 			<type type="direct" key="collation">顺序</type>
+			<type type="gb2312han" key="collation" draft="true">简体中文(GB2312)</type>
 			<type type="gregorian" key="calendar">公历</type>
 			<type type="hebrew" key="calendar">希伯来日历</type>
 			<type type="islamic" key="calendar">伊斯兰日历</type>
@@ -818,8 +820,6 @@
 			<type type="pinyin" key="collation">拼音顺序</type>
 			<type type="stroke" key="collation">笔划顺序</type>
 			<type type="traditional" key="collation">传统历法</type>
-			<type type="big5han" key="collation" draft="true">繁体中文(Big5)</type>
-			<type type="gb2312han" key="collation" draft="true">简体中文(GB2312)</type>
 		</types>
 	</localeDisplayNames>
 	<characters>

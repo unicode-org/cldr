@@ -470,9 +470,6 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<week>
-					<firstDay day="mon"/>
-				</week>
 				<eras>
 					<eraNames>
 						<era type="0" draft="true">Pre Hrista</era>
@@ -506,9 +503,6 @@
 			<zone type="Africa/Kinshasa">
 				<exemplarCity draft="true">Kinšasa</exemplarCity>
 			</zone>
-			<zone type="Africa/Lubumbashi">
-				<exemplarCity draft="true">Lubumbaši</exemplarCity>
-			</zone>
 			<!-- China -->
 			<zone type="Asia/Shanghai">
 				<exemplarCity draft="true">Šangaj</exemplarCity>
@@ -518,10 +512,6 @@
 					<standard>Centralno Evropsko Vreme</standard>
 					<daylight>Centralno Evropsko Vreme</daylight>
 				</long>
-				<short>
-					<standard>CET</standard>
-					<daylight>CET</daylight>
-				</short>
 			</zone>
 			<!-- Russia -->
 			<zone type="Europe/Moscow">
@@ -559,26 +549,21 @@
 			</currency>
 			<currency type="AUD">
 				<displayName>Australijski dolar</displayName>
-				<symbol>$A</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Konvertibilna marka</displayName>
-				<symbol>KM</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>Belgijski franak</displayName>
-				<symbol>BF</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName draft="true">Brazilski Real</displayName>
 			</currency>
 			<currency type="CAD">
 				<displayName>Kanadski dolar</displayName>
-				<symbol>Can$</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Švajcarski franak</displayName>
-				<symbol>SwF</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName draft="true">Kineski Juan Renminbi</displayName>
@@ -586,14 +571,12 @@
 			</currency>
 			<currency type="CSD">
 				<displayName draft="true">Srpski Dinar</displayName>
-				<symbol draft="true">YUN</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Nemačka marka</displayName>
 			</currency>
 			<currency type="DKK">
 				<displayName>Danska kruna</displayName>
-				<symbol>DKr</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>Španska pezeta</displayName>
@@ -621,11 +604,9 @@
 			</currency>
 			<currency type="IEP">
 				<displayName>Irska funta</displayName>
-				<symbol>IR£</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName draft="true">Indijski Rupi</displayName>
-				<symbol draft="true">INR</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Italijanska lira</displayName>
@@ -635,7 +616,6 @@
 			</currency>
 			<currency type="KWD">
 				<displayName>Kuvajtski dinar</displayName>
-				<symbol>KD</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>Luksemburški franak</displayName>
@@ -645,7 +625,6 @@
 			</currency>
 			<currency type="NOK">
 				<displayName>Norveška kruna</displayName>
-				<symbol>NKr</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>Portugalski eskudo</displayName>
@@ -658,14 +637,12 @@
 			</currency>
 			<currency type="SEK">
 				<displayName>Švedska kruna</displayName>
-				<symbol>SKr</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Tolar</displayName>
 			</currency>
 			<currency type="USD">
 				<displayName>Američki dolar</displayName>
-				<symbol>US$</symbol>
 			</currency>
 			<currency type="YUN">
 				<symbol>Din</symbol>

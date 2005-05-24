@@ -591,10 +591,10 @@
 			<territory type="002">Afrika</territory>
 			<territory type="005">Sydamerika</territory>
 			<territory type="009">Oceanien</territory>
-			<territory type="011" draft="true">Västra Afrika</territory>
+			<territory type="011">Västafrika</territory>
 			<territory type="013">Centralamerika</territory>
-			<territory type="014" draft="true">Östra Afrika</territory>
-			<territory type="015" draft="true">Norra Afrika</territory>
+			<territory type="014">Östafrika</territory>
+			<territory type="015">Nordafrika</territory>
 			<territory type="017">Centralafrika</territory>
 			<territory type="018">Södra Afrika</territory>
 			<territory type="019">Nord- och Sydamerika</territory>
@@ -612,7 +612,7 @@
 			<territory type="145">Västasien</territory>
 			<territory type="150">Europa</territory>
 			<territory type="151">Östeuropa</territory>
-			<territory type="154" draft="true">Norra Europa</territory>
+			<territory type="154">Nordeuropa</territory>
 			<territory type="155">Västeuropa</territory>
 			<territory type="830">Kanalöarna</territory>
 			<territory type="833">Isle of Man</territory>
@@ -865,8 +865,7 @@
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
 		<variants>
-			<variant type="REVISED">Reviderad</variant>
-			<variant type="REVISED" alt="proposed" draft="true">reviderad</variant>
+			<variant type="REVISED">reviderad</variant>
 		</variants>
 		<keys>
 			<key type="calendar">kalender</key>
@@ -882,14 +881,10 @@
 			<type type="islamic" key="calendar">Islamisk kalender</type>
 			<type type="islamic-civil" key="calendar">Islamisk civil kalender</type>
 			<type type="japanese" key="calendar">Japansk kalender</type>
-			<type type="phonebook" key="collation">Telefonboksordning</type>
-			<type type="phonebook" key="collation" alt="proposed" draft="true">telefonboksordning</type>
-			<type type="pinyin" key="collation">Pinyinordning</type>
-			<type type="pinyin" key="collation" alt="proposed" draft="true">pinyinordning</type>
-			<type type="stroke" key="collation">Raderingsordning</type>
-			<type type="stroke" key="collation" alt="proposed" draft="true">raderingsordning</type>
-			<type type="traditional" key="collation">Traditionell ordning</type>
-			<type type="traditional" key="collation" alt="proposed" draft="true">traditionell ordning</type>
+			<type type="phonebook" key="collation">telefonboksordning</type>
+			<type type="pinyin" key="collation">pinyinordning</type>
+			<type type="stroke" key="collation">strecksortering</type>
+			<type type="traditional" key="collation">traditionell sortering</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -1987,7 +1982,7 @@
 				<symbol>TL</symbol>
 			</currency>
 			<currency type="TRY">
-				<displayName draft="true">Ny turkisk lira</displayName>
+				<displayName>Ny turkisk lira</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidadisk dollar</displayName>

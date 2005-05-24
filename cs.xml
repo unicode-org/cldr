@@ -172,7 +172,7 @@
 			<territory type="054">Melanésie</territory>
 			<territory type="057">Mikronésie</territory>
 			<territory type="061">Polynésie</territory>
-			<territory type="062" draft="true">Jižní centrální Asie</territory>
+			<territory type="062">Jižní a centrální Asie</territory>
 			<territory type="142">Asie</territory>
 			<territory type="145">Západní Asie</territory>
 			<territory type="150">Evropa</territory>
@@ -446,10 +446,10 @@
 		<exemplarCharacters>[a-z ý á é í ó ú ě ů č ď ň ř š ť ž]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart draft="true">‚</quotationStart>
-		<quotationEnd draft="true">‘</quotationEnd>
-		<alternateQuotationStart>„</alternateQuotationStart>
-		<alternateQuotationEnd>“</alternateQuotationEnd>
+		<quotationStart draft="true">„</quotationStart>
+		<quotationEnd draft="true">“</quotationEnd>
+		<alternateQuotationStart>‚</alternateQuotationStart>
+		<alternateQuotationEnd>‘</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GuMtkHmsSEDFwWahKzUeygAZ</localizedPatternChars>
@@ -734,7 +734,7 @@
 			</zone>
 			<!-- Indonesia -->
 			<zone type="Asia/Jakarta">
-				<exemplarCity draft="true">Džakarta</exemplarCity>
+				<exemplarCity>Jakarta</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
@@ -815,7 +815,7 @@
 			</zone>
 			<!-- Ukraine -->
 			<zone type="Europe/Uzhgorod">
-				<exemplarCity draft="true">Užgorod</exemplarCity>
+				<exemplarCity>Užhorod</exemplarCity>
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kyjev</exemplarCity>
@@ -1608,7 +1608,7 @@
 				<symbol>TL</symbol>
 			</currency>
 			<currency type="TRY">
-				<displayName draft="true">Nová turecká lira</displayName>
+				<displayName>Lira nová turecká</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Dolar Trinidad a Tobago</displayName>

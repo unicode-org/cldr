@@ -1,9 +1,13 @@
 /*
- * Created on May 11, 2005
+ *******************************************************************************
+ * Copyright (C) 2005, International Business Machines Corporation and         *
+ * others. All Rights Reserved.                                                *
+ *******************************************************************************
  *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Generation - Code and Comments
+ * Created on May 11, 2005
+ * @author Ram Viswanadha
  */
+
 package org.unicode.cldr.icu;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
@@ -12,18 +16,13 @@ import java.io.PrintWriter;
 import com.ibm.icu.dev.tool.UOption;
 
 import org.unicode.cldr.util.LDMLUtilities;
-import org.unicode.cldr.util.XPathTokenizer;
-import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /**
+ * This allows you to delete LDML nodes in CLDR.
+ * 
  * @author ram
- *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
  */
 public class LDMLNodesDeleter {
     /**

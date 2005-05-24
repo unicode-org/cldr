@@ -5,6 +5,7 @@
 //  Created by Steven R. Loomis on 3/24/2005.
 //  Copyright 2005 IBM. All rights reserved.
 //
+//  Needs this jar:  http://www.bitfolge.de/easysmtp-en-nojs.html
 
 package org.unicode.cldr.web;
 

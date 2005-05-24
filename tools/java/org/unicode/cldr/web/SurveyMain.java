@@ -26,6 +26,7 @@ import com.ibm.icu.dev.test.util.BagFormatter;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.icu.*;
 
+// from: http://www.fastcgi.com
 import com.fastcgi.FCGIInterface;
 import com.fastcgi.FCGIGlobalDefs;
 import com.ibm.icu.lang.UCharacter;
@@ -376,7 +377,7 @@ class SurveyMain {
         ctx.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='http://www.unicode.org/cldr'>Common Locale Data Repository</a> <br/>");
         ctx.println("</html>");
     }
-    
+        
     /**
      * process the '_' parameter, if present, and set the locale.
      */
@@ -951,16 +952,15 @@ class SurveyMain {
                 // Now, what's happening? 
                 NodeSet.NodeSetEntry nse = (NodeSet.NodeSetEntry)data.get(type);
                 String newxpath;
-                
                 if(xpath != null) {
                     newxpath = xpath + subtype + "[@type='" + type + "']";
                     if(nse.key != null) {
                         newxpath = newxpath + "[@key='" + nse.key + "']";
                     }
                 } else {
-                    newxpath = nse.xpath; // dritt
+                    newxpath = nse.xpath; 
                     if(type == null) {
-                        type=xpath + "/"; // for retrieval
+                        type = xpath + "/"; // FIXME: don't set the xpath this way!
                     }
                 }
                 newxpath=newxpath.substring(1); // remove initial /     
@@ -992,10 +992,10 @@ class SurveyMain {
                     }
                     newxpath = newxpath + "[@draft='true']"; // always draft
 ///*srl*/                 ctx.println("<tt>CLDRFile.add(<b>" + newxpath + "</b>, \"\", blah);</tt><br/>");
-                    file.add(newxpath, newxpath, newString);
+                    file.add(newxpath, newString);
                     if(newString.length() ==0) {
-                        file.addComment(newxpath, "Item marked as wrong:  " + type, XPathParts.Comments.POSTBLOCK);
-///*srl*/                 ctx.println("<tt>CLDRFile.addComment(<b>" + newxpath + "</b>, blah, POSTBLOCK);</tt><br/>");
+                        file.addComment(newxpath, "Item marked as wrong:  " + type, XPathParts.Comments.LINE);
+///*srl*/                 ctx.println("<tt>CLDRFile.addComment(<b>" + newxpath + "</b>, blah, LINE);</tt><br/>");
                     }
                 } else {
                     // ignored:  current, etc.
@@ -1991,10 +1991,17 @@ class SurveyMain {
             System.setErr(System.out);
             try {
                 if ((specialMessage!=null)&&(specialMessage.length()>0)) {
+                    specialMessage = specialMessage.replace('_',' ');
                     System.out.println("Content-type: text/html\n\n\n");
                     System.out.println("<i>The survey tool is offline at present. Please try later.</i><p><p>");
                     System.out.println(specialMessage);
-                    System.out.println("<hr>Email:  srloomis (at) unicode.org\n");
+                    System.out.println("<p><p><a href='" + 
+                            CLDR_HELP_LINK + "/Offline'>Click here for more information</a><p>");
+//                    System.out.println("<hr>Email:  srloomis (at) unicode.org\n");
+                    System.out.println("<hr>");
+                    System.out.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='http://www.unicode.org/cldr'>Common Locale Data Repository</a> <br/>");
+                    System.out.println("<p> Up: " + timeDiff(m.startTime) + ", " + (pages++) + " pages served.");
+                    System.out.println("</html>");
                 } else {                
                     pages++;
                     m.runSurvey(System.out);

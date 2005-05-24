@@ -165,7 +165,7 @@
 			<language type="grc">forngrekiska (till 1453)</language>
 			<language type="gu">gujarati</language>
 			<language type="gv">manx gaeliska</language>
-			<language type="gwi" draft="true">gwichʼin</language>
+			<language type="gwi">gwich'in</language>
 			<language type="ha">haussa</language>
 			<language type="hai">haida</language>
 			<language type="haw">hawaiiska</language>
@@ -588,34 +588,34 @@
 		</scripts>
 		<territories>
 			<territory type="001" draft="true">Världen</territory>
-			<territory type="002" draft="true">Afrika</territory>
-			<territory type="005" draft="true">Sydamerika</territory>
-			<territory type="009" draft="true">Oceanien</territory>
+			<territory type="002">Afrika</territory>
+			<territory type="005">Sydamerika</territory>
+			<territory type="009">Oceanien</territory>
 			<territory type="011" draft="true">Västra Afrika</territory>
-			<territory type="013" draft="true">Centralamerika</territory>
+			<territory type="013">Centralamerika</territory>
 			<territory type="014" draft="true">Östra Afrika</territory>
 			<territory type="015" draft="true">Norra Afrika</territory>
-			<territory type="017" draft="true">Centralafrika</territory>
-			<territory type="018" draft="true">Södra Afrika</territory>
-			<territory type="019" draft="true">Nord- och Sydamerika</territory>
-			<territory type="021" draft="true">Nordamerika</territory>
-			<territory type="029" draft="true">Karibien</territory>
-			<territory type="030" draft="true">Ostasien</territory>
-			<territory type="035" draft="true">Sydostasien</territory>
-			<territory type="039" draft="true">Sydeuropa</territory>
-			<territory type="053" draft="true">Australien och Nya Zeeland</territory>
-			<territory type="054" draft="true">Melanesien</territory>
-			<territory type="057" draft="true">Mikronesien</territory>
-			<territory type="061" draft="true">Polynesien</territory>
-			<territory type="062" draft="true">Södra Centralasien</territory>
-			<territory type="142" draft="true">Asien</territory>
-			<territory type="145" draft="true">Västasien</territory>
-			<territory type="150" draft="true">Europa</territory>
-			<territory type="151" draft="true">Östeuropa</territory>
+			<territory type="017">Centralafrika</territory>
+			<territory type="018">Södra Afrika</territory>
+			<territory type="019">Nord- och Sydamerika</territory>
+			<territory type="021">Nordamerika</territory>
+			<territory type="029">Karibien</territory>
+			<territory type="030">Ostasien</territory>
+			<territory type="035">Sydostasien</territory>
+			<territory type="039">Sydeuropa</territory>
+			<territory type="053">Australien och Nya Zeeland</territory>
+			<territory type="054">Melanesien</territory>
+			<territory type="057">Mikronesien</territory>
+			<territory type="061">Polynesien</territory>
+			<territory type="062">Södra Centralasien</territory>
+			<territory type="142">Asien</territory>
+			<territory type="145">Västasien</territory>
+			<territory type="150">Europa</territory>
+			<territory type="151">Östeuropa</territory>
 			<territory type="154" draft="true">Norra Europa</territory>
-			<territory type="155" draft="true">Västeuropa</territory>
-			<territory type="830" draft="true">Kanalöarna</territory>
-			<territory type="833" draft="true">Isle of Man</territory>
+			<territory type="155">Västeuropa</territory>
+			<territory type="830">Kanalöarna</territory>
+			<territory type="833">Isle of Man</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Förenade Arabemiraten</territory>
 			<territory type="AF" references="R1">Afghanistan</territory>
@@ -631,10 +631,9 @@
 			<territory type="AT">Österrike</territory>
 			<territory type="AU">Australien</territory>
 			<territory type="AW">Aruba</territory>
-			<territory type="AX" draft="true">Åland</territory>
+			<territory type="AX">Åland</territory>
 			<territory type="AZ">Azerbajdzjan</territory>
 			<territory type="BA">Bosnien och Hercegovina</territory>
-			<territory type="BA" alt="variant" draft="true">Bosnien och Herzegovina</territory>
 			<territory type="BB">Barbados</territory>
 			<territory type="BD">Bangladesh</territory>
 			<territory type="BE">Belgien</territory>
@@ -656,11 +655,9 @@
 			<territory type="CA">Kanada</territory>
 			<territory type="CC">Kokosöarna (Keelingöarna)</territory>
 			<territory type="CD">Demokratiska republiken Kongo</territory>
-			<territory type="CD" alt="variant" draft="true">Kongo-Kinshasa</territory>
 			<!-- Rarely used colloquial name -->
 			<territory type="CF">Centralafrikanska republiken</territory>
 			<territory type="CG">Kongo</territory>
-			<territory type="CG" alt="variant" draft="true">Kongo-Brazzaville</territory>
 			<!-- Rarely used colloquial name due to the CD name conflict -->
 			<territory type="CH">Schweiz</territory>
 			<territory type="CI">Elfenbenskusten</territory>
@@ -670,7 +667,7 @@
 			<territory type="CN">Kina</territory>
 			<territory type="CO">Colombia</territory>
 			<territory type="CR">Costa Rica</territory>
-			<territory type="CS" draft="true">Serbien och Montenegro</territory>
+			<territory type="CS">Serbien och Montenegro</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Kap Verde</territory>
 			<territory type="CX">Julön</territory>
@@ -803,7 +800,7 @@
 			<territory type="PW">Palau</territory>
 			<territory type="PY">Paraguay</territory>
 			<territory type="QA">Qatar</territory>
-			<territory type="QO" draft="true">Yttre öar i Oceanien</territory>
+			<territory type="QO">Yttre öar i Oceanien</territory>
 			<territory type="RE">Réunion</territory>
 			<territory type="RO">Rumänien</territory>
 			<territory type="RU">Ryssland</territory>
@@ -1004,19 +1001,16 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>'den 'd MMMM yyyy</pattern>
 							<pattern alt="proposed" references="R3" draft="true">EEEE d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>'den 'd MMM yyyy</pattern>
 							<pattern alt="proposed" references="R3" draft="true">EEEE d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>yyyy-MM-dd</pattern>
 							<pattern alt="proposed" references="R3" draft="true">d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
@@ -1051,23 +1045,23 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="true">+HH.mm;-HH.mm</hourFormat>
-			<gmtFormat draft="true">UTC{0}</gmtFormat>
+			<hourFormat>+HH.mm;-HH.mm</hourFormat>
+			<gmtFormat>GMT</gmtFormat>
 			<zone type="Antarctica/South_Pole">
-				<exemplarCity draft="true">Sydpolen</exemplarCity>
+				<exemplarCity>Sydpolen</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity draft="true">Dumont d'Urville</exemplarCity>
+				<exemplarCity>Dumont d'Urville</exemplarCity>
 			</zone>
 			<!-- Argentina -->
 			<zone type="America/Argentina/Rio_Gallegos">
 				<exemplarCity draft="true"> Rio Gallegos</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/ComodRivadavia">
-				<exemplarCity draft="true">Comod. Rivadavia</exemplarCity>
+				<exemplarCity>Comod. Rivadavia</exemplarCity>
 			</zone>
 			<zone type="America/Sao_Paulo">
-				<exemplarCity draft="true">São Paulo</exemplarCity>
+				<exemplarCity>São Paulo</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -1092,7 +1086,7 @@
 			</zone>
 			<!-- Chile -->
 			<zone type="Pacific/Easter">
-				<exemplarCity draft="true">Påskön</exemplarCity>
+				<exemplarCity>Påskön</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
@@ -1106,7 +1100,7 @@
 			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
-				<exemplarCity draft="true">Kanarieöarna</exemplarCity>
+				<exemplarCity>Kanarieöarna</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
@@ -1120,7 +1114,7 @@
 				<exemplarCity>Paris</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
-				<exemplarCity draft="true">Godthåb</exemplarCity>
+				<exemplarCity>Godthåb</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
@@ -1145,7 +1139,7 @@
 				<exemplarCity>Tokyo</exemplarCity>
 			</zone>
 			<zone type="Asia/Almaty">
-				<exemplarCity draft="true">Alma-Ata</exemplarCity>
+				<exemplarCity>Alma-Ata</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
 				<long>
@@ -1159,17 +1153,17 @@
 				<exemplarCity>Casablanca</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity draft="true">Ulan Bator</exemplarCity>
+				<exemplarCity>Ulan Bator</exemplarCity>
 			</zone>
 			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="true">Tjoibalsan</exemplarCity>
+				<exemplarCity>Tjoibalsan</exemplarCity>
 			</zone>
 			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
-				<exemplarCity draft="true">Azorerna</exemplarCity>
+				<exemplarCity>Azorerna</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
-				<exemplarCity draft="true">Lissabon</exemplarCity>
+				<exemplarCity>Lissabon</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
@@ -1183,32 +1177,32 @@
 				<exemplarCity>Bukarest</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
-				<exemplarCity draft="true">Moskva</exemplarCity>
+				<exemplarCity>Moskva</exemplarCity>
 			</zone>
 			<zone type="Asia/Yekaterinburg">
-				<exemplarCity draft="true">Jekaterinburg</exemplarCity>
+				<exemplarCity>Jekaterinburg</exemplarCity>
 			</zone>
 			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity draft="true">Krasnojarsk</exemplarCity>
+				<exemplarCity>Krasnojarsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Yakutsk">
-				<exemplarCity draft="true">Jakutsk</exemplarCity>
+				<exemplarCity>Jakutsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Sakhalin">
-				<exemplarCity draft="true">Sachalin</exemplarCity>
+				<exemplarCity>Sachalin</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
-				<exemplarCity draft="true">Kamtjatka</exemplarCity>
+				<exemplarCity>Kamtjatka</exemplarCity>
 			</zone>
 			<zone type="Asia/Anadyr">
-				<exemplarCity draft="true">Anadir</exemplarCity>
+				<exemplarCity>Anadir</exemplarCity>
 			</zone>
 			<!-- Ukraine -->
 			<zone type="Europe/Uzhgorod">
-				<exemplarCity draft="true">Uzjgorod</exemplarCity>
+				<exemplarCity>Uzjgorod</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
-				<exemplarCity draft="true">Zaporozjzja</exemplarCity>
+				<exemplarCity>Zaporozjzja</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
@@ -1261,7 +1255,7 @@
 				</short>
 			</zone>
 			<zone type="America/North_Dakota/Center">
-				<exemplarCity draft="true">North Dakota</exemplarCity>
+				<exemplarCity>North Dakota</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<long>
@@ -1294,7 +1288,7 @@
 				</short>
 			</zone>
 			<zone type="Asia/Tashkent">
-				<exemplarCity draft="true">Tasjkent</exemplarCity>
+				<exemplarCity>Tasjkent</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
@@ -1696,8 +1690,10 @@
 				<displayName>Kuwaitisk dinar</displayName>
 				<symbol>KD</symbol>
 			</currency>
+			<currency type="KYD">
+				<displayName references="R5">Cayman-dollar</displayName>
+			</currency>
 			<currency type="KYD" references="R5">
-				<displayName>Cayman-dollar</displayName>
 				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
@@ -2112,18 +2108,18 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">ja:j</yesstr>
-			<nostr draft="true">nej:n</nostr>
+			<yesstr>ja:j</yesstr>
+			<nostr>nej:n</nostr>
 			<yesexpr draft="true">^([yY]([eE][sS])?)|([jJ][aA]?)</yesexpr>
 			<noexpr draft="true">^[nN]([oO]|[eE][jJ])?</noexpr>
 		</messages>
 	</posix>
 	<references>
 		<reference type="R1">Utrikes namnbok</reference>
-		<reference type="R2" uri="http://www.ur.se/nyhetsjournalistik/3lan.html">Landskoder på Internet</reference>
-		<reference type="R3" uri="URN:ISBN:ISBN 47-04974-X">Svenska skrivregler</reference>
-		<reference type="R4" uri="http://www.spraknamnden.se">Svenska språknämnden</reference>
-		<reference type="R5" uri="http://europa.eu.int/comm/translation/currencies/svtable1.htm">Länder och valutor</reference>
+		<reference type="R2">Landskoder på Internet</reference>
+		<reference type="R3">Svenska skrivregler</reference>
+		<reference type="R4">Svenska språknämnden</reference>
+		<reference type="R5">Länder och valutor</reference>
 	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.

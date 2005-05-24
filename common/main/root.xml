@@ -14,10 +14,10 @@
 		<exemplarCharacters type="auxiliary" draft="true">[]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart draft="true">“</quotationStart>
-		<quotationEnd draft="true">”</quotationEnd>
-		<alternateQuotationStart draft="true">‘</alternateQuotationStart>
-		<alternateQuotationEnd draft="true">’</alternateQuotationEnd>
+		<quotationStart>“</quotationStart>
+		<quotationEnd>”</quotationEnd>
+		<alternateQuotationStart>‘</alternateQuotationStart>
+		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
 	<measurement>
 		<measurementSystem type="metric"/>
@@ -301,37 +301,37 @@
 				</dateTimeFormats>
 				<fields>
 					<field type="era">
-						<displayName draft="true">Era</displayName>
+						<displayName>Era</displayName>
 					</field>
 					<field type="year">
-						<displayName draft="true">Year</displayName>
+						<displayName>Year</displayName>
 					</field>
 					<field type="month">
-						<displayName draft="true">Month</displayName>
+						<displayName>Month</displayName>
 					</field>
 					<field type="week">
-						<displayName draft="true">Week</displayName>
+						<displayName>Week</displayName>
 					</field>
 					<field type="day">
-						<displayName draft="true">Day</displayName>
+						<displayName>Day</displayName>
 					</field>
 					<field type="weekday">
-						<displayName draft="true">Weekday</displayName>
+						<displayName>Day of the Week</displayName>
 					</field>
 					<field type="dayperiod">
-						<displayName draft="true">Dayperiod</displayName>
+						<displayName>Dayperiod</displayName>
 					</field>
 					<field type="hour">
-						<displayName draft="true">Hour</displayName>
+						<displayName>Hour</displayName>
 					</field>
 					<field type="minute">
-						<displayName draft="true">Minute</displayName>
+						<displayName>Minute</displayName>
 					</field>
 					<field type="second">
 						<displayName draft="true">Second</displayName>
 					</field>
 					<field type="zone">
-						<displayName draft="true">Zone</displayName>
+						<displayName>Zone</displayName>
 					</field>
 				</fields>
 			</calendar>
@@ -739,11 +739,11 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat draft="true">+HH:mm;-HH:mm</hourFormat>
-			<hoursFormat draft="true">{0}/{1}</hoursFormat>
-			<gmtFormat draft="true">GMT{0}</gmtFormat>
-			<regionFormat draft="true">{0}</regionFormat>
-			<fallbackFormat draft="true">{0} ({1})</fallbackFormat>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<hoursFormat>{0}/{1}</hoursFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
 			<abbreviationFallback type="standard" draft="true"/>
 			<preferenceOrdering type="" draft="true"/>
 			<singleCountries list="Africa/Bamako America/Godthab America/Santiago America/Guayaquil     Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur     Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti" draft="true"/>
@@ -833,10 +833,10 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">yes:y</yesstr>
-			<nostr draft="true">no:n</nostr>
-			<yesexpr draft="true">^[yY]([eE][sS])?</yesexpr>
-			<noexpr draft="true">^[nN][oO]?</noexpr>
+			<yesstr>yes:y</yesstr>
+			<nostr>no:n</nostr>
+			<yesexpr>^[yY]([eE][sS])?</yesexpr>
+			<noexpr>^[nN][oO]?</noexpr>
 		</messages>
 	</posix>
 </ldml>

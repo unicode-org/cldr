@@ -150,7 +150,7 @@
 			<language type="zu">zulu</language>
 		</languages>
 		<scripts>
-			<script type="Latn" draft="true">Latin</script>
+			<script type="Latn">Llatí</script>
 		</scripts>
 		<territories>
 			<territory type="AD">Andorra</territory>
@@ -195,7 +195,7 @@
 			<territory type="CN">Xina</territory>
 			<territory type="CO">Colòmbia</territory>
 			<territory type="CR">Costa Rica</territory>
-			<territory type="CS" draft="true">Sèrbia</territory>
+			<territory type="CS">Sèrbia i Montenegro</territory>
 			<territory type="CU">Cuba</territory>
 			<territory type="CV">Cap Verd</territory>
 			<territory type="CY">Xipre</territory>
@@ -230,7 +230,7 @@
 			<territory type="GT">Guatemala</territory>
 			<territory type="GW">Guinea Bissau</territory>
 			<territory type="GY">Guyana</territory>
-			<territory type="HK" draft="true">Hong Kong</territory>
+			<territory type="HK">Hong Kong</territory>
 			<territory type="HN">Hondures</territory>
 			<territory type="HR">Croàcia</territory>
 			<territory type="HT">Haití</territory>
@@ -363,8 +363,7 @@
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
 							<month type="1">gen.</month>
-							<month type="2">feb.</month>
-							<month type="2" alt="proposed" draft="true">febr.</month>
+							<month type="2">febr.</month>
 							<month type="3">març</month>
 							<month type="4">abr.</month>
 							<month type="5">maig</month>
@@ -419,20 +418,20 @@
 				</week>
 				<eras>
 					<eraAbbr>
-						<era type="0" references="R1" draft="true">aC</era>
-						<era type="1" references="R1" draft="true">dC</era>
+						<era type="0" references="R1">aC</era>
+						<era type="1" references="R1">dC</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE dd MMMM yyyy</pattern>
+							<pattern>EEEE d 'de' MMMM 'de' yyyy</pattern>
 							<pattern alt="proposed" draft="true">EEEE d 'd’'MMMM 'de' yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM yyyy</pattern>
+							<pattern>d 'de' MMMM 'de' yyyy</pattern>
 							<pattern alt="proposed" draft="true">d 'd’'MMMM 'de' yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
@@ -450,22 +449,22 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="true">H:mm:ss z</pattern>
+							<pattern>H:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="true">H:mm:ss z</pattern>
+							<pattern>H:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="true">H:mm:ss</pattern>
+							<pattern>H:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="true">H:mm</pattern>
+							<pattern>H:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -479,10 +478,10 @@
 		</symbols>
 		<currencies>
 			<currency type="BRL">
-				<displayName draft="true">Real brasiler</displayName>
+				<displayName>Real brasiler</displayName>
 			</currency>
 			<currency type="CNY">
-				<displayName draft="true">Iuan Renminbi xinès</displayName>
+				<displayName>Iuan renmimbi xinès</displayName>
 			</currency>
 			<currency type="ESP">
 				<pattern>¤ #,##0;-¤ #,##0</pattern>
@@ -491,22 +490,22 @@
 				<group>.</group>
 			</currency>
 			<currency type="EUR">
-				<displayName draft="true">Euro</displayName>
+				<displayName>Euro</displayName>
 			</currency>
 			<currency type="GBP">
-				<displayName draft="true">Lliura esterlina britànica</displayName>
+				<displayName>Lliura esterlina britànica</displayName>
 			</currency>
 			<currency type="INR">
-				<displayName draft="true">Rupia índia</displayName>
+				<displayName>Rupia índia</displayName>
 			</currency>
 			<currency type="JPY">
-				<displayName draft="true">Ien japonès</displayName>
+				<displayName>Ien japonès</displayName>
 			</currency>
 			<currency type="RUB">
-				<displayName draft="true">Ruble rus</displayName>
+				<displayName>Ruble rus</displayName>
 			</currency>
 			<currency type="USD">
-				<displayName draft="true">Dòlar USA</displayName>
+				<displayName>Dòlar EUA</displayName>
 			</currency>
 		</currencies>
 	</numbers>

@@ -163,7 +163,7 @@
 			<language type="grc">Græsk, Old- (til 1453)</language>
 			<language type="gu">Gujaratisk</language>
 			<language type="gv">Manx</language>
-			<language type="gwi" draft="true">Gwichʼin</language>
+			<language type="gwi">Gwichʼin</language>
 			<language type="ha">Hausa</language>
 			<language type="hai">Haida</language>
 			<language type="haw">Hawaiiansk</language>
@@ -538,7 +538,7 @@
 			<territory type="CN">Kina</territory>
 			<territory type="CO">Colombia</territory>
 			<territory type="CR">Costa Rica</territory>
-			<territory type="CS" draft="true">Serbien og Montenegro</territory>
+			<territory type="CS">Serbien og Montenegro</territory>
 			<territory type="CU">Cuba</territory>
 			<territory type="CV">Kap Verde</territory>
 			<territory type="CX">Juleøen</territory>
@@ -851,7 +851,7 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE dd MMMM yyyy</pattern>
+							<pattern>EEEE 'den' d. MMMM yyyy</pattern>
 							<pattern alt="proposed" references="R1" draft="true">EEEE 'den' dd. MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
@@ -862,13 +862,13 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dd-MM-yyyy</pattern>
+							<pattern>dd/MM/yyyy</pattern>
 							<pattern alt="proposed" references="R1" draft="true">dd/MM/yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>dd-MM-yy</pattern>
+							<pattern>dd/MM/yy</pattern>
 							<pattern alt="proposed" references="R1" draft="true">dd/MM/yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
@@ -876,22 +876,22 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern references="R1" draft="true">H.mm.ss z</pattern>
+							<pattern references="R1">H.mm.ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern references="R1" draft="true">H.mm.ss z</pattern>
+							<pattern references="R1">H.mm.ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern references="R1" draft="true">H.mm.ss</pattern>
+							<pattern references="R1">H.mm.ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern references="R1" draft="true">H.mm</pattern>
+							<pattern references="R1">H.mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -899,7 +899,7 @@
 		</calendars>
 		<timeZoneNames>
 			<zone type="Antarctica/South_Pole">
-				<exemplarCity draft="true">Sydpolen</exemplarCity>
+				<exemplarCity>Sydpolen</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -924,7 +924,7 @@
 			</zone>
 			<!-- Chile -->
 			<zone type="Pacific/Easter">
-				<exemplarCity draft="true">Påskeøerne</exemplarCity>
+				<exemplarCity>Påskeøen</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<long>
@@ -938,7 +938,7 @@
 			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
-				<exemplarCity draft="true">Kanarieøerne</exemplarCity>
+				<exemplarCity>De Kanariske Øer</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
@@ -952,7 +952,7 @@
 				<exemplarCity>Paris</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
-				<exemplarCity draft="true">Godthåb</exemplarCity>
+				<exemplarCity>Nuuk</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<long>
@@ -988,7 +988,7 @@
 				<exemplarCity>Casablanca</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
-				<exemplarCity draft="true">Lissabon</exemplarCity>
+				<exemplarCity>Lissabon</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
@@ -1002,7 +1002,7 @@
 				<exemplarCity>Bukarest</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
-				<exemplarCity draft="true">Moskva</exemplarCity>
+				<exemplarCity>Moskva</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
@@ -1767,7 +1767,7 @@
 				<symbol>TL</symbol>
 			</currency>
 			<currency type="TRY">
-				<displayName draft="true">Ny tyrkisk lira</displayName>
+				<displayName>Ny tyrkisk lira</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Dollar fra Trinidad og Tobago</displayName>
@@ -1888,10 +1888,10 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">ja:j</yesstr>
-			<nostr draft="true">nej:n</nostr>
-			<yesexpr draft="true">^([yY]([eE][sS])?)|([jJ][aA]?)</yesexpr>
-			<noexpr draft="true">^([nN]([oO]|([eE][jJ]))?)</noexpr>
+			<yesstr>ja:j</yesstr>
+			<nostr>nej:n</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([jJ][aA]?)</yesexpr>
+			<noexpr>^([nN]([oO]|([eE][jJ]))?)</noexpr>
 		</messages>
 	</posix>
 	<references>

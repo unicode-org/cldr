@@ -249,7 +249,7 @@
 			<territory type="PH">الفيلبين</territory>
 			<territory type="PK">الباكستان</territory>
 			<territory type="PL">بولندا</territory>
-			<territory type="PS" draft="true">فلسطين</territory>
+			<territory type="PS">فلسطين</territory>
 			<territory type="PT">البرتغال</territory>
 			<territory type="PW">بالاو</territory>
 			<territory type="PY">باراغواي</territory>
@@ -1178,9 +1178,7 @@
 			</currency>
 			<currency type="SDD">
 				<displayName draft="true">دينار سوداني</displayName>
-				<symbol draft="true">ج.س.‏</symbol>
-				<symbol alt="proposed" draft="true">.‏د.س</symbol>
-				<symbol alt="proposed0" draft="true">.‏د.س</symbol>
+				<symbol>.‏د.س</symbol>
 			</currency>
 			<currency type="SDP">
 				<symbol>ج.س.‏</symbol>
@@ -1212,8 +1210,8 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">نعم:ن</yesstr>
-			<nostr draft="true">لا:ل</nostr>
+			<yesstr>نعم:ن</yesstr>
+			<nostr>لا:ل</nostr>
 			<yesexpr draft="true">^([yY]([eE][sS])?)|ن|نعم</yesexpr>
 			<noexpr draft="true">^([nN][oO]?)|ل|لا</noexpr>
 		</messages>

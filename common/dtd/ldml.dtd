@@ -599,6 +599,10 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT relative (#PCDATA) >
 <!ATTLIST relative type NMTOKEN #IMPLIED >
+<!ATTLIST relative draft ( true | false ) #IMPLIED >
+<!ATTLIST relative references CDATA #IMPLIED >
+<!ATTLIST relative alt CDATA #IMPLIED >
+<!ATTLIST relative validSubLocales CDATA #IMPLIED >
 
 <!-- ######################################################### -->
 

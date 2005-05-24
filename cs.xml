@@ -149,39 +149,39 @@
 			<language type="zu">Zulu</language>
 		</languages>
 		<scripts>
-			<script type="Latn" draft="true">Latinka</script>
+			<script type="Latn">Latinka</script>
 		</scripts>
 		<territories>
-			<territory type="001" draft="true">Svět</territory>
-			<territory type="002" draft="true">Afrika</territory>
-			<territory type="005" draft="true">Jižní Amerika</territory>
-			<territory type="009" draft="true">Oceánie</territory>
-			<territory type="011" draft="true">Západní Afrika</territory>
-			<territory type="013" draft="true">Střední Amerika</territory>
-			<territory type="014" draft="true">Východní Afrika</territory>
-			<territory type="015" draft="true">Severní Afrika</territory>
-			<territory type="017" draft="true">Střední Afrika</territory>
-			<territory type="018" draft="true">Jižní Afrika</territory>
-			<territory type="019" draft="true">Amerika</territory>
-			<territory type="021" draft="true">Severní Amerika</territory>
-			<territory type="029" draft="true">Karibik</territory>
-			<territory type="030" draft="true">Východní Asie</territory>
-			<territory type="035" draft="true">Jihovýchodní Asie</territory>
-			<territory type="039" draft="true">Jižní Evropa</territory>
-			<territory type="053" draft="true">Austrálie a Nový Zéland</territory>
-			<territory type="054" draft="true">Melanésie</territory>
-			<territory type="057" draft="true">Mikronésie</territory>
-			<territory type="061" draft="true">Polynésie</territory>
+			<territory type="001">Svět</territory>
+			<territory type="002">Afrika</territory>
+			<territory type="005">Jižní Amerika</territory>
+			<territory type="009">Oceánie</territory>
+			<territory type="011">Západní Afrika</territory>
+			<territory type="013">Střední Amerika</territory>
+			<territory type="014">Východní Afrika</territory>
+			<territory type="015">Severní Afrika</territory>
+			<territory type="017">Střední Afrika</territory>
+			<territory type="018">Jižní Afrika</territory>
+			<territory type="019">Amerika</territory>
+			<territory type="021">Severní Amerika</territory>
+			<territory type="029">Karibik</territory>
+			<territory type="030">Východní Asie</territory>
+			<territory type="035">Jihovýchodní Asie</territory>
+			<territory type="039">Jižní Evropa</territory>
+			<territory type="053">Austrálie a Nový Zéland</territory>
+			<territory type="054">Melanésie</territory>
+			<territory type="057">Mikronésie</territory>
+			<territory type="061">Polynésie</territory>
 			<territory type="062" draft="true">Jižní centrální Asie</territory>
-			<territory type="142" draft="true">Asie</territory>
-			<territory type="145" draft="true">Západní Asie</territory>
-			<territory type="150" draft="true">Evropa</territory>
-			<territory type="151" draft="true">Východní Evropa</territory>
-			<territory type="154" draft="true">Severní Evropa</territory>
-			<territory type="155" draft="true">Západní Evropa</territory>
-			<territory type="200" draft="true">Česká republika</territory>
-			<territory type="830" draft="true">Normanské ostrovy</territory>
-			<territory type="833" draft="true">Ostrov Man</territory>
+			<territory type="142">Asie</territory>
+			<territory type="145">Západní Asie</territory>
+			<territory type="150">Evropa</territory>
+			<territory type="151">Východní Evropa</territory>
+			<territory type="154">Severní Evropa</territory>
+			<territory type="155">Západní Evropa</territory>
+			<territory type="200">Československo</territory>
+			<territory type="830">Normanské ostrovy</territory>
+			<territory type="833">Ostrov Man</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Spojené arabské emiráty</territory>
 			<territory type="AF">Afghánistán</territory>
@@ -197,7 +197,7 @@
 			<territory type="AT">Rakousko</territory>
 			<territory type="AU">Austrálie</territory>
 			<territory type="AW">Aruba</territory>
-			<territory type="AX" draft="true">Alandy</territory>
+			<territory type="AX">Alandy</territory>
 			<territory type="AZ">Ázerbájdžán</territory>
 			<territory type="BA">Bosna a Hercegovina</territory>
 			<territory type="BB">Barbados</territory>
@@ -231,7 +231,7 @@
 			<territory type="CN">Čína</territory>
 			<territory type="CO">Kolumbie</territory>
 			<territory type="CR">Kostarika</territory>
-			<territory type="CS" references="R1" draft="true">Srbsko a Černá Hora</territory>
+			<territory type="CS" references="R1">Srbsko a Černá Hora</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Kapverdy</territory>
 			<territory type="CX">Vánoční ostrovy</territory>
@@ -363,7 +363,7 @@
 			<territory type="PW">Palau</territory>
 			<territory type="PY">Paraguay</territory>
 			<territory type="QA">Katar</territory>
-			<territory type="QO" draft="true">Vnější Oceánie</territory>
+			<territory type="QO">Vnější Oceánie</territory>
 			<territory type="RE">Réunion</territory>
 			<territory type="RO">Rumunsko</territory>
 			<territory type="RU">Rusko</territory>
@@ -448,8 +448,8 @@
 	<delimiters>
 		<quotationStart draft="true">‚</quotationStart>
 		<quotationEnd draft="true">‘</quotationEnd>
-		<alternateQuotationStart draft="true">„</alternateQuotationStart>
-		<alternateQuotationEnd draft="true">“</alternateQuotationEnd>
+		<alternateQuotationStart>„</alternateQuotationStart>
+		<alternateQuotationEnd>“</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<localizedPatternChars>GuMtkHmsSEDFwWahKzUeygAZ</localizedPatternChars>
@@ -592,13 +592,13 @@
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="narrow">
-							<day type="sun" draft="true">N</day>
-							<day type="mon" draft="true">P</day>
-							<day type="tue" draft="true">Ú</day>
-							<day type="wed" draft="true">S</day>
-							<day type="thu" draft="true">Č</day>
-							<day type="fri" draft="true">P</day>
-							<day type="sat" draft="true">S</day>
+							<day type="sun">N</day>
+							<day type="mon">P</day>
+							<day type="tue">Ú</day>
+							<day type="wed">S</day>
+							<day type="thu">Č</day>
+							<day type="fri">P</day>
+							<day type="sat">S</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -665,10 +665,10 @@
 		</calendars>
 		<timeZoneNames>
 			<zone type="Antarctica/South_Pole">
-				<exemplarCity draft="true">Jižní pól</exemplarCity>
+				<exemplarCity>Jižní pól</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
-				<exemplarCity draft="true">Kordoba</exemplarCity>
+				<exemplarCity>Kordoba</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
 				<long>
@@ -695,7 +695,7 @@
 				 China
 			-->
 			<zone type="Asia/Kashgar">
-				<exemplarCity draft="true">Kašghar</exemplarCity>
+				<exemplarCity>Kašghar</exemplarCity>
 			</zone>
 			<!-- CDT is wrong. It conflicts with America/Chicago
 				 zone type="Asia/Shanghai">
@@ -712,11 +712,11 @@
 				 Ecuador
 			-->
 			<zone type="Pacific/Galapagos">
-				<exemplarCity draft="true">Galapágy</exemplarCity>
+				<exemplarCity>Galapágy</exemplarCity>
 			</zone>
 			<!-- Spain -->
 			<zone type="Atlantic/Canary">
-				<exemplarCity draft="true">Kanárské ostrovy</exemplarCity>
+				<exemplarCity>Kanárské ostrovy</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
@@ -730,7 +730,7 @@
 				<exemplarCity>Paříž</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<exemplarCity draft="true">Londýn</exemplarCity>
+				<exemplarCity>Londýn</exemplarCity>
 			</zone>
 			<!-- Indonesia -->
 			<zone type="Asia/Jakarta">
@@ -771,18 +771,18 @@
 				<exemplarCity>Casablanca</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
-				<exemplarCity draft="true">Ulánbátar</exemplarCity>
+				<exemplarCity>Ulánbátar</exemplarCity>
 			</zone>
 			<!-- Mexico -->
 			<zone type="America/Tijuana">
-				<exemplarCity draft="true">Tichuana</exemplarCity>
+				<exemplarCity>Tichuana</exemplarCity>
 			</zone>
 			<!-- Portugal -->
 			<zone type="Atlantic/Azores">
-				<exemplarCity draft="true">Azorské ostrovy</exemplarCity>
+				<exemplarCity>Azorské ostrovy</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
-				<exemplarCity draft="true">Lisabon</exemplarCity>
+				<exemplarCity>Lisabon</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<long>
@@ -796,32 +796,32 @@
 				<exemplarCity>Bukurešť</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
-				<exemplarCity draft="true">Moskva</exemplarCity>
+				<exemplarCity>Moskva</exemplarCity>
 			</zone>
 			<zone type="Asia/Yekaterinburg">
-				<exemplarCity draft="true">Jekatěrinburg</exemplarCity>
+				<exemplarCity>Jekatěrinburg</exemplarCity>
 			</zone>
 			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity draft="true">Krasnojarsk</exemplarCity>
+				<exemplarCity>Krasnojarsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Yakutsk">
-				<exemplarCity draft="true">Jakutsk</exemplarCity>
+				<exemplarCity>Jakutsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Sakhalin">
-				<exemplarCity draft="true">Sachalin</exemplarCity>
+				<exemplarCity>Sachalin</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
-				<exemplarCity draft="true">Kamčatka</exemplarCity>
+				<exemplarCity>Kamčatka</exemplarCity>
 			</zone>
 			<!-- Ukraine -->
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity draft="true">Užgorod</exemplarCity>
 			</zone>
 			<zone type="Europe/Kiev">
-				<exemplarCity draft="true">Kyjev</exemplarCity>
+				<exemplarCity>Kyjev</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
-				<exemplarCity draft="true">Záporoží</exemplarCity>
+				<exemplarCity>Záporoží</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<long>
@@ -907,7 +907,7 @@
 				</short>
 			</zone>
 			<zone type="Asia/Tashkent">
-				<exemplarCity draft="true">Taškent</exemplarCity>
+				<exemplarCity>Taškent</exemplarCity>
 			</zone>
 		</timeZoneNames>
 	</dates>
@@ -1747,10 +1747,10 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">ano:a</yesstr>
-			<nostr draft="true">ne:n</nostr>
-			<yesexpr draft="true">^([yY]([eE][sS])?)|([aA]([nN][oO])?)</yesexpr>
-			<noexpr draft="true">^([nN][oOeE]?)</noexpr>
+			<yesstr>ano:a</yesstr>
+			<nostr>ne:n</nostr>
+			<yesexpr>^([aA]([nN][oO])?)</yesexpr>
+			<noexpr>^([nN][eE]?)</noexpr>
 		</messages>
 	</posix>
 	<references>

@@ -8,21 +8,21 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="ar" draft="true">Arabisht</language>
-			<language type="de" draft="true">Gjermanisht</language>
-			<language type="en" draft="true">Anglisht</language>
-			<language type="es" draft="true">Spanjisht</language>
-			<language type="fr" draft="true">Frengjisht</language>
-			<language type="hi" draft="true">Hindi</language>
-			<language type="it" draft="true">Italisht</language>
-			<language type="ja" draft="true">Japanisht</language>
-			<language type="pt" draft="true">Portugeze</language>
-			<language type="ru" draft="true">Rusisht</language>
+			<language type="ar">Arabisht</language>
+			<language type="de">Gjermanisht</language>
+			<language type="en">Anglisht</language>
+			<language type="es">Spanjisht</language>
+			<language type="fr">Frengjisht</language>
+			<language type="hi">Hindi</language>
+			<language type="it">Italisht</language>
+			<language type="ja">Japanisht</language>
+			<language type="pt">Portugeze</language>
+			<language type="ru">Rusisht</language>
 			<language type="sq">shqipe</language>
-			<language type="zh" draft="true">Kineze</language>
+			<language type="zh">Kineze</language>
 		</languages>
 		<scripts>
-			<script type="Latn" draft="true">Latine</script>
+			<script type="Latn">Latine</script>
 		</scripts>
 		<territories>
 			<territory type="AD">Andorrë</territory>
@@ -42,7 +42,7 @@
 			<territory type="BH">Bahrein</territory>
 			<territory type="BN">Brunej</territory>
 			<territory type="BO">Bolivi</territory>
-			<territory type="BR" draft="true">Brazili</territory>
+			<territory type="BR">Brazili</territory>
 			<territory type="BT">Butan</territory>
 			<territory type="BW">Botsvana</territory>
 			<territory type="BY">Bjellorusi</territory>
@@ -56,7 +56,7 @@
 			<territory type="CN">Kinë</territory>
 			<territory type="CO">Kolumbi</territory>
 			<territory type="CR">Kosta Rika</territory>
-			<territory type="CS" draft="true">Serbië</territory>
+			<territory type="CS">Serbië en Montenegro</territory>
 			<territory type="CU">Kubë</territory>
 			<territory type="CV">Kap Verde</territory>
 			<territory type="CY">Qipro</territory>
@@ -221,18 +221,18 @@
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="narrow">
-							<month type="1" draft="true">J</month>
-							<month type="2" draft="true">S</month>
-							<month type="3" draft="true">M</month>
-							<month type="4" draft="true">P</month>
-							<month type="5" draft="true">M</month>
-							<month type="6" draft="true">Q</month>
-							<month type="7" draft="true">K</month>
-							<month type="8" draft="true">G</month>
-							<month type="9" draft="true">S</month>
-							<month type="10" draft="true">T</month>
-							<month type="11" draft="true">N</month>
-							<month type="12" draft="true">D</month>
+							<month type="1">J</month>
+							<month type="2">S</month>
+							<month type="3">M</month>
+							<month type="4">P</month>
+							<month type="5">M</month>
+							<month type="6">Q</month>
+							<month type="7">K</month>
+							<month type="8">G</month>
+							<month type="9">S</month>
+							<month type="10">T</month>
+							<month type="11">N</month>
+							<month type="12">D</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -259,13 +259,13 @@
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="narrow">
-							<day type="sun" draft="true">D</day>
-							<day type="mon" draft="true">H</day>
-							<day type="tue" draft="true">M</day>
-							<day type="wed" draft="true">M</day>
-							<day type="thu" draft="true">E</day>
-							<day type="fri" draft="true">P</day>
-							<day type="sat" draft="true">S</day>
+							<day type="sun">D</day>
+							<day type="mon">H</day>
+							<day type="tue">M</day>
+							<day type="wed">M</day>
+							<day type="thu">E</day>
+							<day type="fri">P</day>
+							<day type="sat">S</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -337,37 +337,37 @@
 				<symbol>Lek</symbol>
 			</currency>
 			<currency type="BRL">
-				<displayName draft="true">Real Brazilian</displayName>
+				<displayName>Real Brazilian</displayName>
 			</currency>
 			<currency type="CNY">
-				<displayName draft="true">Renminbi(Yuan) Kinez</displayName>
+				<displayName>Renminbi(Yuan) Kinez</displayName>
 			</currency>
 			<currency type="EUR">
-				<displayName draft="true">Euro</displayName>
+				<displayName>Euro</displayName>
 			</currency>
 			<currency type="GBP">
-				<displayName draft="true">Paund Sterlina Britanike</displayName>
+				<displayName>Paund Sterlina Britanike</displayName>
 			</currency>
 			<currency type="INR">
-				<displayName draft="true">Rupee indiane</displayName>
+				<displayName>Rupee indiane</displayName>
 			</currency>
 			<currency type="JPY">
-				<displayName draft="true">Jeni Japonez</displayName>
+				<displayName>Jeni Japonez</displayName>
 			</currency>
 			<currency type="RUB">
-				<displayName draft="true">Rubla ruse</displayName>
+				<displayName>Rubla ruse</displayName>
 			</currency>
 			<currency type="USD">
-				<displayName draft="true">Dollar amerikan</displayName>
+				<displayName>Dollar amerikan</displayName>
 			</currency>
 		</currencies>
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">po:p</yesstr>
-			<nostr draft="true">jo:j</nostr>
-			<yesexpr draft="true">^([yY]([eE][sS])?)|([pP][oO]?)</yesexpr>
-			<noexpr draft="true">^[nNjJ][oO]?</noexpr>
+			<yesstr>po:p</yesstr>
+			<nostr>jo:j</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([pP][oO]?)</yesexpr>
+			<noexpr>^[nNjJ][oO]?</noexpr>
 		</messages>
 	</posix>
 </ldml>

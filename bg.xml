@@ -221,35 +221,35 @@
 			<script type="Zyyy">Обща</script>
 		</scripts>
 		<territories>
-			<territory type="001" draft="true">Земята</territory>
-			<territory type="002" draft="true">Африка</territory>
-			<territory type="005" draft="true">Южна Америка</territory>
-			<territory type="009" draft="true">Океания</territory>
-			<territory type="011" draft="true">Западна Афирка</territory>
-			<territory type="013" draft="true">Централна Америка</territory>
-			<territory type="014" draft="true">Източна Африка</territory>
-			<territory type="015" draft="true">Северна Африка</territory>
-			<territory type="017" draft="true">Централна Африка</territory>
-			<territory type="018" draft="true">Южна Африка</territory>
-			<territory type="019" draft="true">Америка</territory>
-			<territory type="021" draft="true">Северна Америка</territory>
-			<territory type="029" draft="true">Карибски о-ви</territory>
-			<territory type="030" draft="true">Източна Азия</territory>
-			<territory type="035" draft="true">Югоизточна Азия</territory>
-			<territory type="039" draft="true">Южна Европа</territory>
-			<territory type="053" draft="true">Австралия и Нова Зеландия</territory>
-			<territory type="054" draft="true">Меланезия</territory>
-			<territory type="057" draft="true">Микронезия</territory>
-			<territory type="061" draft="true">Полинезия</territory>
-			<territory type="062" draft="true">Южна Азия</territory>
-			<territory type="142" draft="true">Азия</territory>
-			<territory type="145" draft="true">Западна Азия</territory>
-			<territory type="150" draft="true">Европа</territory>
-			<territory type="151" draft="true">Източна Европа</territory>
-			<territory type="154" draft="true">Северна Европа</territory>
-			<territory type="155" draft="true">Западна Европа</territory>
-			<territory type="830" draft="true">Нормандски о-ви</territory>
-			<territory type="833" draft="true">о.Ман</territory>
+			<territory type="001">Земята</territory>
+			<territory type="002">Африка</territory>
+			<territory type="005">Южна Америка</territory>
+			<territory type="009">Океания</territory>
+			<territory type="011">Западна Афирка</territory>
+			<territory type="013">Централна Америка</territory>
+			<territory type="014">Източна Африка</territory>
+			<territory type="015">Северна Африка</territory>
+			<territory type="017">Централна Африка</territory>
+			<territory type="018">Южна Африка</territory>
+			<territory type="019">Америка</territory>
+			<territory type="021">Северна Америка</territory>
+			<territory type="029">Карибски о-ви</territory>
+			<territory type="030">Източна Азия</territory>
+			<territory type="035">Югоизточна Азия</territory>
+			<territory type="039">Южна Европа</territory>
+			<territory type="053">Австралия и Нова Зеландия</territory>
+			<territory type="054">Меланезия</territory>
+			<territory type="057">Микронезия</territory>
+			<territory type="061">Полинезия</territory>
+			<territory type="062">Южна Азия</territory>
+			<territory type="142">Азия</territory>
+			<territory type="145">Западна Азия</territory>
+			<territory type="150">Европа</territory>
+			<territory type="151">Източна Европа</territory>
+			<territory type="154">Северна Европа</territory>
+			<territory type="155">Западна Европа</territory>
+			<territory type="830">Нормандски о-ви</territory>
+			<territory type="833">о.Ман</territory>
 			<territory type="AD">Андора</territory>
 			<territory type="AE">Обединени Арабски Емирства</territory>
 			<territory type="AF">Афганистан</territory>
@@ -265,7 +265,7 @@
 			<territory type="AT">Австрия</territory>
 			<territory type="AU">Австралия</territory>
 			<territory type="AW">Аруба</territory>
-			<territory type="AX" draft="true">Аландски о-ви</territory>
+			<territory type="AX">Аландски о-ви</territory>
 			<territory type="AZ">Азербайджан</territory>
 			<territory type="BA">Босна и Херцеговина</territory>
 			<territory type="BB">Барбадос</territory>
@@ -430,7 +430,7 @@
 			<territory type="PW">Палау</territory>
 			<territory type="PY">Парагвай</territory>
 			<territory type="QA">Катар</territory>
-			<territory type="QO" draft="true">Океания</territory>
+			<territory type="QO">Океания</territory>
 			<territory type="RE">Реюниън</territory>
 			<territory type="RO">Румъния</territory>
 			<territory type="RU">Руска Федерация</territory>
@@ -521,27 +521,18 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">ян.</month>
-							<month type="1" alt="proposed" draft="true">яну</month>
-							<month type="2">фев.</month>
-							<month type="2" alt="proposed" draft="true">фев</month>
-							<month type="3">март</month>
-							<month type="3" alt="proposed" draft="true">мар</month>
-							<month type="4">апр.</month>
-							<month type="4" alt="proposed" draft="true">апр</month>
+							<month type="1">яну</month>
+							<month type="2">фев</month>
+							<month type="3">мар</month>
+							<month type="4">апр</month>
 							<month type="5">май</month>
 							<month type="6">юни</month>
 							<month type="7">юли</month>
-							<month type="8">авг.</month>
-							<month type="8" alt="proposed" draft="true">авг</month>
-							<month type="9">сеп.</month>
-							<month type="9" alt="proposed" draft="true">сеп</month>
-							<month type="10">окт.</month>
-							<month type="10" alt="proposed" draft="true">окт</month>
-							<month type="11">ноем.</month>
-							<month type="11" alt="proposed" draft="true">ное</month>
-							<month type="12">дек.</month>
-							<month type="12" alt="proposed" draft="true">дек</month>
+							<month type="8">авг</month>
+							<month type="9">сеп</month>
+							<month type="10">окт</month>
+							<month type="11">ное</month>
+							<month type="12">дек</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">януари</month>
@@ -578,20 +569,13 @@
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun">нед.</day>
-							<day type="sun" alt="proposed" draft="true">нд</day>
-							<day type="mon">пон.</day>
-							<day type="mon" alt="proposed" draft="true">пн</day>
-							<day type="tue">вт.</day>
-							<day type="tue" alt="proposed" draft="true">вт</day>
-							<day type="wed">ср.</day>
-							<day type="wed" alt="proposed" draft="true">ср</day>
-							<day type="thu">четв.</day>
-							<day type="thu" alt="proposed" draft="true">чт</day>
-							<day type="fri">пет.</day>
-							<day type="fri" alt="proposed" draft="true">пт</day>
-							<day type="sat">съб.</day>
-							<day type="sat" alt="proposed" draft="true">сб</day>
+							<day type="sun">нд</day>
+							<day type="mon">пн</day>
+							<day type="tue">вт</day>
+							<day type="wed">ср</day>
+							<day type="thu">чт</day>
+							<day type="fri">пт</day>
+							<day type="sat">сб</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">неделя</day>
@@ -618,14 +602,12 @@
 				<week>
 					<firstDay day="mon"/>
 				</week>
-				<am draft="true">пр. об.</am>
-				<pm draft="true">сл. об.</pm>
+				<am>пр. об.</am>
+				<pm>сл. об.</pm>
 				<eras>
 					<eraAbbr>
-						<era type="0">пр.н.е.</era>
-						<era type="0" alt="proposed" draft="true">пр.Хр. </era>
-						<era type="1">н.е.</era>
-						<era type="1" alt="proposed" draft="true">сл.Хр. </era>
+						<era type="0">пр.Хр. </era>
+						<era type="1">сл.Хр. </era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1460,7 +1442,7 @@
 				<symbol>лв</symbol>
 			</currency>
 			<currency type="BGN">
-				<displayName draft="true">Български лев</displayName>
+				<displayName>Български лев</displayName>
 				<symbol>лв.</symbol>
 			</currency>
 			<currency type="BHD">
@@ -1906,7 +1888,7 @@
 			</currency>
 			<currency type="RUB">
 				<displayName>Руска рубла</displayName>
-				<symbol draft="true">Руб.</symbol>
+				<symbol>Руб.</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Руска рубла (1991-1998)</displayName>
@@ -2006,7 +1988,7 @@
 				<symbol>TL</symbol>
 			</currency>
 			<currency type="TRY">
-				<displayName draft="true">Нова турска лира</displayName>
+				<displayName>Нова турска лира</displayName>
 			</currency>
 			<currency type="TTD">
 				<displayName>Тринидат и Тобаго - долар</displayName>
@@ -2121,10 +2103,10 @@
 	</numbers>
 	<posix>
 		<messages>
-			<yesstr draft="true">да:д</yesstr>
-			<nostr draft="true">не:н</nostr>
-			<yesexpr draft="true">^([yY]([eE][sS])?)|([дД][аА]?)</yesexpr>
-			<noexpr draft="true">^([nN][oO]?)|([нН][еЕ]?)</noexpr>
+			<yesstr>да:д</yesstr>
+			<nostr>не:н</nostr>
+			<yesexpr>^([yY]([eE][sS])?)|([дД][аА]?)</yesexpr>
+			<noexpr>^([nN][oO]?)|([нН][еЕ]?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

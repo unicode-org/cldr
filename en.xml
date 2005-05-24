@@ -932,9 +932,11 @@
 			<key type="currency">Currency</key>
 		</keys>
 		<types>
+			<type type="big5han" key="collation" draft="true">Traditional Chinese(Big5)</type>
 			<type type="buddhist" key="calendar">Buddhist Calendar</type>
 			<type type="chinese" key="calendar">Chinese Calendar</type>
 			<type type="direct" key="collation">Direct Order</type>
+			<type type="gb2312han" key="collation" draft="true">Simplified Chinese(GB2312)</type>
 			<type type="gregorian" key="calendar">Gregorian Calendar</type>
 			<type type="hebrew" key="calendar">Hebrew Calendar</type>
 			<type type="islamic" key="calendar">Islamic Calendar</type>
@@ -944,8 +946,6 @@
 			<type type="pinyin" key="collation">Pinyin Order</type>
 			<type type="stroke" key="collation">Stroke Order</type>
 			<type type="traditional" key="collation">Traditional</type>
-			<type type="big5han" key="collation" draft="true">Traditional Chinese(Big5)</type>
-			<type type="gb2312han" key="collation" draft="true">Simplified Chinese(GB2312)</type>
 		</types>
 	</localeDisplayNames>
 	<characters>
@@ -1096,42 +1096,14 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<fields draft="true">
-					<field type="era">
-						<displayName>Era</displayName>
-					</field>
-					<field type="year">
-						<displayName>Year</displayName>
-					</field>
-					<field type="month">
-						<displayName>Month</displayName>
-					</field>
-					<field type="week">
-						<displayName>Week</displayName>
-					</field>
+				<fields>
 					<field type="day">
-						<displayName>Day</displayName>
-						<relative type="-1">Yesterday</relative>
-						<relative type="0">Today</relative>
-						<relative type="1">Tomorrow</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Weekday</displayName>
+						<relative type="0" draft="true">Today</relative>
+						<relative type="1" draft="true">Tomorrow</relative>
+						<relative type="-1" draft="true">Yesterday</relative>
 					</field>
 					<field type="dayperiod">
-						<displayName>AM/PM</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Hour</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minute</displayName>
-					</field>
-					<field type="second">
-						<displayName>Second</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Zone</displayName>
+						<displayName draft="true">AM/PM</displayName>
 					</field>
 				</fields>
 			</calendar>

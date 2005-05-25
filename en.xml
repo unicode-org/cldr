@@ -91,12 +91,9 @@
 			<language type="cmc">Chamic Languages</language>
 			<language type="co">Corsican</language>
 			<language type="cop">Coptic</language>
-			<language type="cpe">Creoles and Pidgins, English-based (Other)</language>
-			<language type="cpe" alt="proposed" draft="true">English-based Creoles and Pidgins</language>
-			<language type="cpf">Creoles and Pidgins, French-based (Other)</language>
-			<language type="cpf" alt="proposed" draft="true">French-based Creoles and Pidgins</language>
-			<language type="cpp">Creoles and pidgins, Portuguese-based (Other)</language>
-			<language type="cpp" alt="proposed" draft="true">Portuguese-based Creoles and Pidgins</language>
+			<language type="cpe">Other English-based Creoles and Pidgins</language>
+			<language type="cpf">Other French-based Creoles and Pidgins</language>
+			<language type="cpp">Other Portuguese-based Creoles and Pidgins</language>
 			<language type="cr">Cree</language>
 			<language type="crh">Crimean Turkish; Crimean Tatar</language>
 			<language type="crp">Creoles and Pidgins (Other)</language>
@@ -541,7 +538,7 @@
 			<script type="Latf">Latin (Fraktur variant)</script>
 			<script type="Latg">Latin (Gaelic variant)</script>
 			<script type="Latn">Latin</script>
-			<script type="Lepc" draft="true">Lepcha (Rong)</script>
+			<script type="Lepc">Lepcha (Róng)</script>
 			<script type="Limb">Limbu</script>
 			<script type="Lina">Linear A</script>
 			<script type="Linb">Linear B</script>
@@ -573,7 +570,7 @@
 			<script type="Syrn">Syriac (Eastern variant)</script>
 			<script type="Tagb">Tagbanwa</script>
 			<script type="Tale">Tai Le</script>
-			<script type="Talu" draft="true">Tai Lue</script>
+			<script type="Talu">New Tai Lue</script>
 			<script type="Taml">Tamil</script>
 			<script type="Telu">Telugu</script>
 			<script type="Teng">Tengwar</script>
@@ -585,7 +582,7 @@
 			<script type="Vaii">Vai</script>
 			<script type="Visp">Visible Speech</script>
 			<script type="Xpeo">Old Persian</script>
-			<script type="Xsux" draft="true">Cuneiform, Sumero-Akkadian</script>
+			<script type="Xsux">Sumero-Akkadian Cuneiform</script>
 			<script type="Yiii">Yi</script>
 			<script type="Zxxx">Code for unwritten languages</script>
 			<script type="Zyyy">Common</script>
@@ -603,7 +600,7 @@
 			<territory type="014">Eastern Africa</territory>
 			<territory type="015">Northern Africa</territory>
 			<territory type="017">Middle Africa</territory>
-			<territory type="018" draft="true">Southern Africa</territory>
+			<territory type="018">Southern Africa</territory>
 			<territory type="019">Americas</territory>
 			<territory type="021">Northern America</territory>
 			<territory type="029">Caribbean</territory>
@@ -885,19 +882,19 @@
 			<territory type="ZW">Zimbabwe</territory>
 		</territories>
 		<variants>
-			<variant type="1901" draft="true">Traditional German orthography</variant>
-			<variant type="1996" draft="true">German orthography of 1996</variant>
+			<variant type="1901">Traditional German orthography</variant>
+			<variant type="1996">German orthography of 1996</variant>
 			<variant type="POSIX">Computer</variant>
 			<variant type="REVISED">Revised Orthography</variant>
-			<variant type="boont" draft="true">Boontling</variant>
-			<variant type="gaulish" draft="true">Gaulish</variant>
-			<variant type="guoyu" draft="true">Mandarin or Standard Chinese</variant>
-			<variant type="hakka" draft="true">Hakka</variant>
-			<variant type="lojban" draft="true">Lojban</variant>
-			<variant type="nedis" draft="true">Natisone dialect</variant>
-			<variant type="rozaj" draft="true">Resian</variant>
-			<variant type="scouse" draft="true">Scouse</variant>
-			<variant type="xiang" draft="true">Xiang or Hunanese</variant>
+			<variant type="boont">Boontling</variant>
+			<variant type="gaulish">Gaulish</variant>
+			<variant type="guoyu">Mandarin or Standard Chinese</variant>
+			<variant type="hakka">Hakka</variant>
+			<variant type="lojban">Lojban</variant>
+			<variant type="nedis">Natisone dialect</variant>
+			<variant type="rozaj">Resian</variant>
+			<variant type="scouse">Scouse</variant>
+			<variant type="xiang">Xiang or Hunanese</variant>
 		</variants>
 		<keys>
 			<key type="calendar">Calendar</key>
@@ -905,11 +902,11 @@
 			<key type="currency">Currency</key>
 		</keys>
 		<types>
-			<type type="big5han" key="collation" draft="true">Traditional Chinese(Big5)</type>
+			<type type="big5han" key="collation">Traditional Chinese (Big5)</type>
 			<type type="buddhist" key="calendar">Buddhist Calendar</type>
 			<type type="chinese" key="calendar">Chinese Calendar</type>
 			<type type="direct" key="collation">Direct Order</type>
-			<type type="gb2312han" key="collation" draft="true">Simplified Chinese(GB2312)</type>
+			<type type="gb2312han" key="collation">Simplified Chinese (GB2312)</type>
 			<type type="gregorian" key="calendar">Gregorian Calendar</type>
 			<type type="hebrew" key="calendar">Hebrew Calendar</type>
 			<type type="islamic" key="calendar">Islamic Calendar</type>
@@ -1017,8 +1014,8 @@
 				</days>
 				<eras>
 					<eraNames>
-						<era type="0" draft="true">Before Christ</era>
-						<era type="1" draft="true">Anno Domini</era>
+						<era type="0">Before Christ</era>
+						<era type="1">Anno Domini</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">BC</era>
@@ -1071,12 +1068,12 @@
 				</timeFormats>
 				<fields>
 					<field type="day">
-						<relative type="0" draft="true">Today</relative>
-						<relative type="1" draft="true">Tomorrow</relative>
-						<relative type="-1" draft="true">Yesterday</relative>
+						<relative type="0">Today</relative>
+						<relative type="1">Tomorrow</relative>
+						<relative type="-1">Yesterday</relative>
 					</field>
 					<field type="dayperiod">
-						<displayName draft="true">AM/PM</displayName>
+						<displayName>AM/PM</displayName>
 					</field>
 				</fields>
 			</calendar>

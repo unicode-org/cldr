@@ -1447,21 +1447,35 @@ root</pre>
   <a name="Calendar_Fields"><span>Calendar Fields</span></a></p>
   <p><span class="dtd">&lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
   &lt;!ELEMENT field ( alias | (displayName?, relative*, special*)) &gt;</span></p>
-  <p>Translations may be supplied for names of calendar fields, and for relative values of those 
-  fields. <span class="changedspan">Where there is not a convenient, customary word or phrase in a 
+  <p><span class="changedspan">Translations may be supplied for names of calendar fields (elements 
+  of a calendar, such as Day, Month, Year, Hour, etc.), and for relative values for those fields 
+  (for example, the day with<br>
+  relative value -1 is &quot;Yesterday&quot;). Where there is not a convenient, customary word or phrase in a 
   particular language for a relative value, it should be omitted.</span></p>
-  <pre>&lt;calendar&gt;
+  <p><span class="changedspan">Here are examples for English and German. Notice that the German has 
+  more fields than the English does.</span></p>
+  <pre><span class="changedspan">&lt;calendar&gt;
   &lt;fields&gt;
    &lt;field type=&#39;day&#39;&gt;
     &lt;displayName&gt;Tag&lt;/displayName&gt;
-    &lt;relative type=&#39;-2&#39;&gt;Vorgestern&lt;/relative&gt;<span class="changedspan"> &lt;!-- 2 days ago      --&gt;</span>
-    &lt;relative type=&#39;-1&#39;&gt;Gestern&lt;/relative&gt;<span class="changedspan">    &lt;!-- yesterday       --&gt;</span>
-    &lt;relative type=&#39;0&#39;&gt;Heute&lt;/relative&gt;<span class="changedspan">       &lt;!-- today           --&gt;</span>
-    &lt;relative type=&#39;1&#39;&gt;Morgen&lt;/relative&gt;<span class="changedspan">      &lt;!-- tomorrow        --&gt;</span>
-    &lt;relative type=&#39;2&#39;&gt;Übermorgen&lt;/relative&gt;<span class="changedspan">  &lt;!-- 2 days from now --&gt;</span>
+    &lt;relative type=&#39;-1&#39;&gt;Yesterday&lt;/relative&gt;
+    &lt;relative type=&#39;0&#39;&gt;Today&lt;/relative&gt;
+    &lt;relative type=&#39;1&#39;&gt;Tomorrow&lt;/relative&gt;
    &lt;/field&gt;
   &lt;/fields&gt;
-&lt;/calendars&gt;</pre>
+&lt;/calendars&gt;</span></pre>
+  <pre><span class="changedspan">&lt;calendar&gt;
+  &lt;fields&gt;
+   &lt;field type=&#39;day&#39;&gt;
+    &lt;displayName&gt;Tag&lt;/displayName&gt;
+    &lt;relative type=&#39;-2&#39;&gt;Vorgestern&lt;/relative&gt; &lt;!-- 2 days ago -     --&gt;
+    &lt;relative type=&#39;-1&#39;&gt;Gestern&lt;/relative&gt;    &lt;!-- yesterday       --&gt;
+    &lt;relative type=&#39;0&#39;&gt;Heute&lt;/relative&gt;       &lt;!-- today           --&gt;
+    &lt;relative type=&#39;1&#39;&gt;Morgen&lt;/relative&gt;      &lt;!-- tomorrow        --&gt;
+    &lt;relative type=&#39;2&#39;&gt;Übermorgen&lt;/relative&gt;  &lt;!-- 2 days from now --&gt;
+   &lt;/field&gt;
+  &lt;/fields&gt;
+&lt;/calendars&gt;</span></pre>
   <h4>5.9.2 <a name="&lt;timeZoneNames&gt;">&lt;timeZoneNames&gt;</a></h4>
   <p><span class="dtd">&lt;!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*, 
   regionFormat*, fallbackFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, 

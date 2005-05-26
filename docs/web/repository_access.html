@@ -283,6 +283,19 @@ td.item     { background-color:#FFFFFF; border:none; }
           </ul>
           <p align="left"><b><i>Note: the data in the platform folders is provided for comparison 
           only, and is <u>not</u> to be viewed as authoritative or referenceable.</i></b></p>
+          <h2 align="left"><a name="POSIX_Data">POSIX Data</a></h2>
+          <p align="left">CLDR 1.3 includes reference versions of POSIX style locale source files 
+          that are generated using the default options for each supported locale. It should be noted 
+          that the reference versions of POSIX source information contain only those data fields 
+          that are included in the POSIX specification. Many operating system platforms provide 
+          extensions to the minimal POSIX required field set. As of the current release, the POSIX 
+          locale generation tools do not support the addition of platform-specific extensions. 
+          Because of this, users should treat the POSIX reference data as a &quot;good starting point&quot; 
+          for development of POSIX compatible locale source files based on CLDR data.</p>
+          <p align="left">Individual implementations may require addition of the platform specific 
+          fields or a non-default character repertoire in order to provide full functionality on a 
+          given POSIX compliant operating system. The POSIX locale generation tools can be modified 
+          support this.</p>
           <h2 align="left"><b><i><a name="CLDR_1.0_Release">CLDR 1.0 Release</a></i></b></h2>
           <p><i>The 1.0 version of CLDR was hosted on the OpenI18N site. There is a mirror of the 
           data and DTD on the Unicode site as well.</i></p>

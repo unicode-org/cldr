@@ -876,9 +876,9 @@ root</pre>
   <p>&lt;... <a name="alt_attribute">alt</a>=&quot;<span style="color: #0000FF">proposed</span>&quot; ...&gt;</p>
   <p>This attribute should only be present if draft=&quot;true&quot;. It indicates that the data is proposed 
   replacement data that has been added provisionally until the differences between it and the other 
-  data can be vetted. For example, suppose that the translation for September for some language is &quot;Settembru&quot;, 
-  and a bug report is filed that that should be &quot;Settembro&quot;. The new data can be entered in, but 
-  marked as <i>alt</i> until it is vetted. </p>
+  data can be vetted. For example, suppose that the translation for September for some language is 
+  &quot;Settembru&quot;, and a bug report is filed that that should be &quot;Settembro&quot;. The new data can be 
+  entered in, but marked as <i>alt</i> until it is vetted. </p>
   <pre>...
 &lt;month type=&quot;9&quot;&gt;Settembru&lt;/month&gt;
 &lt;month type=&quot;9&quot; draft=&quot;true&quot; alt=&quot;proposed&quot;&gt;Settembro&lt;/month&gt;
@@ -902,7 +902,8 @@ root</pre>
   leading or trailing spaces on each string are not significant. Examples:</p>
   <p><code>&lt;collation standard=&quot;<span style="color: blue">MSA 200:2002</span>&quot;&gt;<br>
   ...<br>
-  &lt;dateFormatStyle standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;amp;ICS1=1&amp;amp;ICS2=140&amp;amp;ICS3=30”&gt;</code></p>
+  &lt;dateFormatStyle 
+  standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;amp;ICS1=1&amp;amp;ICS2=140&amp;amp;ICS3=30”&gt;</code></p>
   <p>&lt;... <a name="references_attribute">references</a>=&quot;<span style="color: blue">...</span>&quot; ...&gt;</p>
   <p><span>The value of this attribute is a list of strings representing a reference for the 
   information in the element, including standards that it may conform to. The best format is a 
@@ -1094,8 +1095,8 @@ root</pre>
   common practice to spell those words without the accents. The exemplar character set for </span>
   <span>fr</span><span> (French), on the other hand, must contain those characters: [a-z </span>
   <span>é</span><span> </span><span>è</span><span> ù </span><span>ç</span><span> </span><span>à</span><span>
-  </span><span>â</span><span> </span><span>ê</span><span> î ô û æ œ </span><span>ë</span><span> ï ÿ].
-  </span></p>
+  </span><span>â</span><span> </span><span>ê</span><span> î ô û æ œ </span><span>ë</span><span> ï 
+  ÿ]. </span></p>
   <p><span>The list of characters is in the </span><a href="#Unicode_Sets"><span>Unicode Set</span></a><span> 
   format, which allows </span><span>boolean</span><span> combinations of sets of letters, including 
   those specified by Unicode properties.</span></p>
@@ -1588,8 +1589,8 @@ root</pre>
   <p><span class="dtd">&lt;!ELEMENT numbers (alias | (symbols?, decimalFormats?, scientificFormats?, 
   percentFormats?, currencyFormats?, currencies?, special*)) &gt;</span></p>
   <p>The numbers element supplies information for formatting and parsing numbers and currencies. It 
-  has the following sub-elements: &lt;symbols&gt;, &lt;decimalFormats&gt;, &lt;scientificFormats&gt;, &lt;percentFormats&gt;, 
-  &lt;currencyFormats&gt;, and &lt;currencies&gt;. The currency IDs are from [<a href="#ISO4217">ISO4217</a>]<span> 
+  has the following sub-elements: &lt;symbols&gt;, &lt;decimalFormats&gt;, &lt;scientificFormats&gt;, 
+  &lt;percentFormats&gt;, &lt;currencyFormats&gt;, and &lt;currencies&gt;. The currency IDs are from [<a href="#ISO4217">ISO4217</a>]<span> 
   (plus some additional common-use codes)</span>. For more information, including the pattern 
   structure<span>, see </span><a href="#Number_Format_Patterns"><span>Appendix G: Number Pattern 
   Format</span></a><span>.</span></p>
@@ -1768,8 +1769,8 @@ root</pre>
   <p><span>The references section supplies a central location for specifying references and 
   standards. The uri should be supplied if at all possible. If not online, then a ISBN number should 
   be supplied, such as in the following example:</span></p>
-  <p class="example"><span><font size="2">&lt;reference type=&quot;R2&quot; uri=&quot;http://www.ur.se/nyhetsjournalistik/3lan.html&quot;&gt;Landskoder 
-  på Internet&lt;/reference&gt;<br>
+  <p class="example"><span><font size="2">&lt;reference type=&quot;R2&quot; 
+  uri=&quot;http://www.ur.se/nyhetsjournalistik/3lan.html&quot;&gt;Landskoder på Internet&lt;/reference&gt;<br>
   &lt;reference type=&quot;R3&quot; uri=&quot;URN:ISBN:ISBN 47-04974-X&quot;&gt;Svenska skrivregler&lt;/reference&gt;</font></span></p>
   <h3>5.1<span>3</span> <a name="&lt;collations&gt;">&lt;collations&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT collations (alias | (default?, collation*, special*)) &gt;</span></p>
@@ -3031,9 +3032,9 @@ America/Kentucky/Monticello&quot;&gt;
   <p>Unicode property sets are specified by any Unicode property, such as [:Letter:], using the 
   PropertyAlias file and the PropertyValueAlias file. The syntax for specifying the property names 
   is an extension of either POSIX or Perl syntax with the addition of &quot;=value&quot;. For example, you can 
-  match letters by using the POSIX syntax <b>[:Letter:]</b>, or by using the Perl-style syntax <b>\p{Letter}</b>. 
-  The type can be omitted for the Category and Script properties, but is required for other 
-  properties.</p>
+  match letters by using the POSIX syntax <b>[:Letter:]</b>, or by using the Perl-style syntax <b>
+  \p{Letter}</b>. The type can be omitted for the Category and Script properties, but is required 
+  for other properties.</p>
   <p>The table below shows the two kinds of syntax: POSIX and Perl style. Also, the table shows the 
   &quot;Negative&quot;, which is a property that excludes all characters of a given kind. For example, <b>
   [:^Letter:]</b> matches all characters that are not <b>[:Letter:]</b>.</p>
@@ -3107,7 +3108,8 @@ America/Kentucky/Monticello&quot;&gt;
     <tr>
       <td>[:Lu:]&nbsp;</td>
       <td>The set of characters belonging to the given Unicode category, as defined by 
-      Character.getType(); in this case, Unicode uppercase letters. The long form for this is <b>[:UppercaseLetter:]</b>.&nbsp;</td>
+      Character.getType(); in this case, Unicode uppercase letters. The long form for this is <b>
+      [:UppercaseLetter:]</b>.&nbsp;</td>
     </tr>
     <tr>
       <td>[:L:]&nbsp;</td>
@@ -3253,7 +3255,7 @@ America/Kentucky/Monticello&quot;&gt;
       specifies the maximum length. Example:<br>
 &nbsp;</span></span><div align="center">
         <center>
-        <table border="0" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111">
+        <table border="0" cellpadding="2" cellspacing="0">
           <tr>
             <th>Year</th>
             <th style="text-align: right">y</th>
@@ -4594,8 +4596,8 @@ America/Kentucky/Monticello&quot;&gt;
       <!-- 10, 1-->
       <td><span>type</span></td>
       <!-- 10-->
-      <td><span>buddhist, chinese, gregorian, hebrew, islamic, islamic-civil, japanese, arabic[alias], 
-      civil-arabic[alias], thai-buddhist[alias], persian</span></td>
+      <td><span>buddhist, chinese, gregorian, hebrew, islamic, islamic-civil, japanese, 
+      arabic[alias], civil-arabic[alias], thai-buddhist[alias], persian</span></td>
     </tr>
     <tr>
       <td><span>collation</span></td>
@@ -4762,30 +4764,30 @@ America/Kentucky/Monticello&quot;&gt;
       <!-- 478, 1-->
       <td><span>type</span></td>
       <!-- 478-->
-      <td>aa, ab, ace, ach, ada, ady, ae, af, afa, afh, ak, akk, ale, alg, alt, am, an, ang, apa, ar, 
-      arc, arn, arp, art, arw, as, ast, ath, aus, av, awa, ay, az, ba, bad, bai, bal, ban, bas, bat, 
-      be, bej, bem, ber, bg, bh, bho, bi, bik, bin, bla, bm, bn, bnt, bo, br, bra, bs, btk, bua, 
-      bug, byn, ca, cad, cai, car, cau, ce, ceb, cel, ch, chb, chg, chk, chm, chn, cho, chp, chr, 
-      chy, cmc, co, cop, cpe, cpf, cpp, cr, crh, crp, cs, csb, cu, cus, cv, cy, da, dak, dar, day, 
-      de, del, den, dgr, din, doi, dra, dsb, dua, dum, dv, dyu, dz, ee, efi, egy, eka, el, elx, en, 
-      enm, eo, es, et, eu, ewo, fa, fan, fat, ff, fi, fil, fiu, fj, fo, fon, fr, frm, fro, fur, fy, 
-      ga, gaa, gay, gba, gd, gem, gez, gil, gl, gmh, gn, goh, gon, gor, got, grb, grc, gu, gv, gwi, 
-      ha, hai, haw, he, hi, hil, him, hit, hmn, ho, hr, hsb, ht, hu, hup, hy, hz, ia, iba, id, ie, 
-      ig, ii, ijo, ik, ilo, inc, ine, inh, io, ira, iro, is, it, iu, ja, jbo, jpr, jrb, jv, ka, kaa, 
-      kab, kac, kam, kar, kaw, kbd, kg, kha, khi, kho, ki, kj, kk, kl, km, kmb, kn, ko, kok, kos, 
-      kpe, kr, krc, kro, kru, ks, ku, kum, kut, kv, kw, ky, la, lad, lah, lam, lb, lez, lg, li, ln, 
-      lo, lol, loz, lt, lu, lua, lui, lun, luo, lus, lv, mad, mag, mai, mak, man, map, mas, mdf, mdr, 
-      men, mg, mga, mh, mi, mic, min, mis, mk, mkh, ml, mn, mnc, mni, mno, mo, moh, mos, mr, ms, mt, 
-      mul, mun, mus, mwl, mwr, my, myn, myv, na, nah, nai, nap, nb, nd, nds, ne, new, ng, nia, nic, 
-      niu, nl, nn, no, nog, non, nr, nso, nub, nv, nwc, ny, nym, nyn, nyo, nzi, oc, oj, om, or, os, 
-      osa, ota, oto, pa, paa, pag, pal, pam, pap, pau, peo, phi, phn, pi, pl, pon, pra, pro, ps, pt, 
-      qu, raj, rap, rar, rm, rn, ro, roa, rom, root, ru, rw, sa, sad, sah, sai, sal, sam, sas, sat, 
-      sc, scn, sco, sd, se, sel, sem, sg, sga, sgn, sh, shn, si, sid, sio, sit, sk, sl, sla, sm, sma, 
-      smi, smj, smn, sms, sn, snk, so, sog, son, sq, sr, srn, srr, ss, ssa, st, su, suk, sus, sux, 
-      sv, sw, syr, ta, tai, te, tem, ter, tet, tg, th, ti, tig, tiv, tk, tkl, tl, tlh, tli, tmh, tn, 
-      to, tog, tpi, tr, ts, tsi, tt, tum, tup, tut, tvl, tw, ty, tyv, udm, ug, uga, uk, umb, und, ur, 
-      uz, vai, ve, vi, vo, vot, wa, wak, wal, war, was, wen, wo, xal, xh, yao, yap, yi, yo, ypk, za, 
-      zap, zen, zh, znd, zu, zun, &lt;private use&gt;</td>
+      <td>aa, ab, ace, ach, ada, ady, ae, af, afa, afh, ak, akk, ale, alg, alt, am, an, ang, apa, 
+      ar, arc, arn, arp, art, arw, as, ast, ath, aus, av, awa, ay, az, ba, bad, bai, bal, ban, bas, 
+      bat, be, bej, bem, ber, bg, bh, bho, bi, bik, bin, bla, bm, bn, bnt, bo, br, bra, bs, btk, 
+      bua, bug, byn, ca, cad, cai, car, cau, ce, ceb, cel, ch, chb, chg, chk, chm, chn, cho, chp, 
+      chr, chy, cmc, co, cop, cpe, cpf, cpp, cr, crh, crp, cs, csb, cu, cus, cv, cy, da, dak, dar, 
+      day, de, del, den, dgr, din, doi, dra, dsb, dua, dum, dv, dyu, dz, ee, efi, egy, eka, el, elx, 
+      en, enm, eo, es, et, eu, ewo, fa, fan, fat, ff, fi, fil, fiu, fj, fo, fon, fr, frm, fro, fur, 
+      fy, ga, gaa, gay, gba, gd, gem, gez, gil, gl, gmh, gn, goh, gon, gor, got, grb, grc, gu, gv, 
+      gwi, ha, hai, haw, he, hi, hil, him, hit, hmn, ho, hr, hsb, ht, hu, hup, hy, hz, ia, iba, id, 
+      ie, ig, ii, ijo, ik, ilo, inc, ine, inh, io, ira, iro, is, it, iu, ja, jbo, jpr, jrb, jv, ka, 
+      kaa, kab, kac, kam, kar, kaw, kbd, kg, kha, khi, kho, ki, kj, kk, kl, km, kmb, kn, ko, kok, 
+      kos, kpe, kr, krc, kro, kru, ks, ku, kum, kut, kv, kw, ky, la, lad, lah, lam, lb, lez, lg, li, 
+      ln, lo, lol, loz, lt, lu, lua, lui, lun, luo, lus, lv, mad, mag, mai, mak, man, map, mas, mdf, 
+      mdr, men, mg, mga, mh, mi, mic, min, mis, mk, mkh, ml, mn, mnc, mni, mno, mo, moh, mos, mr, 
+      ms, mt, mul, mun, mus, mwl, mwr, my, myn, myv, na, nah, nai, nap, nb, nd, nds, ne, new, ng, 
+      nia, nic, niu, nl, nn, no, nog, non, nr, nso, nub, nv, nwc, ny, nym, nyn, nyo, nzi, oc, oj, 
+      om, or, os, osa, ota, oto, pa, paa, pag, pal, pam, pap, pau, peo, phi, phn, pi, pl, pon, pra, 
+      pro, ps, pt, qu, raj, rap, rar, rm, rn, ro, roa, rom, root, ru, rw, sa, sad, sah, sai, sal, 
+      sam, sas, sat, sc, scn, sco, sd, se, sel, sem, sg, sga, sgn, sh, shn, si, sid, sio, sit, sk, 
+      sl, sla, sm, sma, smi, smj, smn, sms, sn, snk, so, sog, son, sq, sr, srn, srr, ss, ssa, st, 
+      su, suk, sus, sux, sv, sw, syr, ta, tai, te, tem, ter, tet, tg, th, ti, tig, tiv, tk, tkl, tl, 
+      tlh, tli, tmh, tn, to, tog, tpi, tr, ts, tsi, tt, tum, tup, tut, tvl, tw, ty, tyv, udm, ug, 
+      uga, uk, umb, und, ur, uz, vai, ve, vi, vo, vot, wa, wak, wal, war, was, wen, wo, xal, xh, 
+      yao, yap, yi, yo, ypk, za, zap, zen, zh, znd, zu, zun, &lt;private use&gt;</td>
     </tr>
     <tr>
       <td><span>ldml</span></td>
@@ -4924,12 +4926,13 @@ America/Kentucky/Monticello&quot;&gt;
       <td><span>type</span></td>
       <!-- 103-->
       <td>Arab, Armn, Bali, Batk, Beng, Blis, Bopo, Brah, Brai, Bugi, Buhd, Cans, Cham, Cher, Cirt, 
-      Copt, Cprt, Cyrl, Cyrs, Deva, Dsrt, Egyd, Egyh, Egyp, Ethi, Geok, Geor, Glag, Goth, Grek, Gujr, 
-      Guru, Hang, Hani, Hano, Hans, Hant, Hebr, Hira, Hmng, Hrkt, Hung, Inds, Ital, Java, Kali, 
-      Kana, Khar, Khmr, Knda, Laoo, Latf, Latg, Latn, Lepc, Limb, Lina, Linb, Mand, Maya, Mero, Mlym, 
-      Mong, Mymr, Nkoo, Ogam, Orkh, Orya, Osma, Perm, Phag, Phnx, Plrd, Qaai, Roro, Runr, Sara, 
-      Shaw, Sinh, Sylo, Syrc, Syre, Syrj, Syrn, Tagb, Tale, Talu, Taml, Telu, Teng, Tfng, Tglg, Thaa, 
-      Thai, Tibt, Ugar, Vaii, Visp, Xpeo, Xsux, Yiii, Zxxx, Zyyy, Zzzz, &lt;private use&gt;</td>
+      Copt, Cprt, Cyrl, Cyrs, Deva, Dsrt, Egyd, Egyh, Egyp, Ethi, Geok, Geor, Glag, Goth, Grek, 
+      Gujr, Guru, Hang, Hani, Hano, Hans, Hant, Hebr, Hira, Hmng, Hrkt, Hung, Inds, Ital, Java, 
+      Kali, Kana, Khar, Khmr, Knda, Laoo, Latf, Latg, Latn, Lepc, Limb, Lina, Linb, Mand, Maya, 
+      Mero, Mlym, Mong, Mymr, Nkoo, Ogam, Orkh, Orya, Osma, Perm, Phag, Phnx, Plrd, Qaai, Roro, 
+      Runr, Sara, Shaw, Sinh, Sylo, Syrc, Syre, Syrj, Syrn, Tagb, Tale, Talu, Taml, Telu, Teng, 
+      Tfng, Tglg, Thaa, Thai, Tibt, Ugar, Vaii, Visp, Xpeo, Xsux, Yiii, Zxxx, Zyyy, Zzzz, &lt;private 
+      use&gt;</td>
     </tr>
     <tr>
       <td rowSpan="8"><span>settings*</span></td>
@@ -4992,10 +4995,10 @@ America/Kentucky/Monticello&quot;&gt;
       HK, HM, HN, HR, HT, HU, ID, IE, IL, IN, IO, IQ, IR, IS, IT, JM, JO, JP, JT, KE, KG, KH, KI, 
       KM, KN, KP, KR, KW, KY, KZ, LA, LB, LC, LI, LK, LR, LS, LT, LU, LV, LY, MA, MC, MD, MG, MH, 
       MI, MK, ML, MM, MN, MO, MP, MQ, MR, MS, MT, MU, MV, MW, MX, MY, MZ, NA, NC, NE, NF, NG, NI, 
-      NL, NO, NP, NQ, NR, NT, NU, NZ, OM, PA, PC, PE, PF, PG, PH, PK, PL, PM, PN, PR, PS, PT, PU, PW, 
-      PY, PZ, QA, QO, RE, RO, RU, RW, SA, SB, SC, SD, SE, SG, SH, SI, SJ, SK, SL, SM, SN, SO, SR, 
-      ST, SU, SV, SY, SZ, TC, TD, TF, TG, TH, TJ, TK, TL, TM, TN, TO, TR, TT, TV, TW, TZ, UA, UG, 
-      UM, US, UY, UZ, VA, VC, VD, VE, VG, VI, VN, VU, WF, WK, WS, YD, YE, YT, YU, ZA, ZM, ZW, 
+      NL, NO, NP, NQ, NR, NT, NU, NZ, OM, PA, PC, PE, PF, PG, PH, PK, PL, PM, PN, PR, PS, PT, PU, 
+      PW, PY, PZ, QA, QO, RE, RO, RU, RW, SA, SB, SC, SD, SE, SG, SH, SI, SJ, SK, SL, SM, SN, SO, 
+      SR, ST, SU, SV, SY, SZ, TC, TD, TF, TG, TH, TJ, TK, TL, TM, TN, TO, TR, TT, TV, TW, TZ, UA, 
+      UG, UM, US, UY, UZ, VA, VC, VD, VE, VG, VI, VN, VU, WF, WK, WS, YD, YE, YT, YU, ZA, ZM, ZW, 
       &lt;private use&gt;</td>
     </tr>
     <tr>
@@ -5071,16 +5074,17 @@ America/Kentucky/Monticello&quot;&gt;
       <td><span>Africa/Abidjan, Africa/Accra, Africa/Addis_Ababa, Africa/Algiers, Africa/Asmera, 
       Africa/Bamako, Africa/Bangui, Africa/Banjul, Africa/Bissau, Africa/Blantyre, 
       Africa/Brazzaville, Africa/Bujumbura, Africa/Cairo, Africa/Casablanca, Africa/Ceuta, 
-      Africa/Conakry, Africa/Dakar, Africa/Dar_es_Salaam, Africa/Djibouti, Africa/Douala, Africa/El_Aaiun, 
-      Africa/Freetown, Africa/Gaborone, Africa/Harare, Africa/Johannesburg, Africa/Kampala, 
-      Africa/Khartoum, Africa/Kigali, Africa/Kinshasa, Africa/Lagos, Africa/Libreville, Africa/Lome, 
-      Africa/Luanda, Africa/Lubumbashi, Africa/Lusaka, Africa/Malabo, Africa/Maputo, Africa/Maseru, 
-      Africa/Mbabane, Africa/Mogadishu, Africa/Monrovia, Africa/Nairobi, Africa/Ndjamena, 
-      Africa/Niamey, Africa/Nouakchott, Africa/Ouagadougou, Africa/Porto-Novo, Africa/Sao_Tome, 
-      Africa/Timbuktu, Africa/Tripoli, Africa/Tunis, Africa/Windhoek, America/Adak, 
-      America/Anchorage, America/Anguilla, America/Antigua, America/Araguaina, America/Aruba, 
-      America/Asuncion, America/Barbados, America/Belem, America/Belize, America/Boa_Vista, America/Bogota, 
-      America/Boise, America/Buenos_Aires, America/Cambridge_Bay, America/Cancun, America/Caracas, 
+      Africa/Conakry, Africa/Dakar, Africa/Dar_es_Salaam, Africa/Djibouti, Africa/Douala, 
+      Africa/El_Aaiun, Africa/Freetown, Africa/Gaborone, Africa/Harare, Africa/Johannesburg, 
+      Africa/Kampala, Africa/Khartoum, Africa/Kigali, Africa/Kinshasa, Africa/Lagos, 
+      Africa/Libreville, Africa/Lome, Africa/Luanda, Africa/Lubumbashi, Africa/Lusaka, 
+      Africa/Malabo, Africa/Maputo, Africa/Maseru, Africa/Mbabane, Africa/Mogadishu, 
+      Africa/Monrovia, Africa/Nairobi, Africa/Ndjamena, Africa/Niamey, Africa/Nouakchott, 
+      Africa/Ouagadougou, Africa/Porto-Novo, Africa/Sao_Tome, Africa/Timbuktu, Africa/Tripoli, 
+      Africa/Tunis, Africa/Windhoek, America/Adak, America/Anchorage, America/Anguilla, 
+      America/Antigua, America/Araguaina, America/Aruba, America/Asuncion, America/Barbados, 
+      America/Belem, America/Belize, America/Boa_Vista, America/Bogota, America/Boise, 
+      America/Buenos_Aires, America/Cambridge_Bay, America/Cancun, America/Caracas, 
       America/Catamarca, America/Cayenne, America/Cayman, America/Chicago, America/Chihuahua, 
       America/Cordoba, America/Costa_Rica, America/Cuiaba, America/Curacao, America/Danmarkshavn, 
       America/Dawson, America/Dawson_Creek, America/Denver, America/Detroit, America/Dominica, 
@@ -5089,22 +5093,24 @@ America/Kentucky/Monticello&quot;&gt;
       America/Guatemala, America/Guayaquil, America/Guyana, America/Halifax, America/Havana, 
       America/Hermosillo, America/Indiana/Knox, America/Indiana/Marengo, America/Indiana/Vevay, 
       America/Indianapolis, America/Inuvik, America/Iqaluit, America/Jamaica, America/Jujuy, 
-      America/Juneau, America/Kentucky/Monticello, America/La_Paz, America/Lima, America/Los_Angeles, 
-      America/Louisville, America/Maceio, America/Managua, America/Manaus, America/Martinique, 
-      America/Mazatlan, America/Mendoza, America/Menominee, America/Merida, America/Mexico_City, 
-      America/Miquelon, America/Monterrey, America/Montevideo, America/Montreal, America/Montserrat, 
-      America/Nassau, America/New_York, America/Nipigon, America/Nome, America/Noronha, America/North_Dakota/Center, 
-      America/Panama, America/Pangnirtung, America/Paramaribo, America/Phoenix, 
-      America/Port-au-Prince, America/Port_of_Spain, America/Porto_Velho, America/Puerto_Rico, 
-      America/Rainy_River, America/Rankin_Inlet, America/Recife, America/Regina, America/Rio_Branco, 
-      America/Santiago, America/Santo_Domingo, America/Sao_Paulo, America/Scoresbysund, America/St_Johns, 
-      America/St_Kitts, America/St_Lucia, America/St_Thomas, America/St_Vincent, America/Swift_Current, 
-      America/Tegucigalpa, America/Thule, America/Thunder_Bay, America/Tijuana, America/Tortola, 
-      America/Vancouver, America/Whitehorse, America/Winnipeg, America/Yakutat, America/Yellowknife, 
-      Antarctica/Casey, Antarctica/Davis, Antarctica/DumontDUrville, Antarctica/Mawson, Antarctica/McMurdo, 
-      Antarctica/Palmer, Antarctica/Rothera, Antarctica/Syowa, Antarctica/Vostok, Asia/Aden, Asia/Almaty, 
-      Asia/Amman, Asia/Anadyr, Asia/Aqtau, Asia/Aqtobe, Asia/Ashgabat, Asia/Baghdad, Asia/Bahrain, 
-      Asia/Baku, Asia/Bangkok, Asia/Beirut, Asia/Bishkek, Asia/Brunei, Asia/Calcutta, Asia/Choibalsan, 
+      America/Juneau, America/Kentucky/Monticello, America/La_Paz, America/Lima, 
+      America/Los_Angeles, America/Louisville, America/Maceio, America/Managua, America/Manaus, 
+      America/Martinique, America/Mazatlan, America/Mendoza, America/Menominee, America/Merida, 
+      America/Mexico_City, America/Miquelon, America/Monterrey, America/Montevideo, 
+      America/Montreal, America/Montserrat, America/Nassau, America/New_York, America/Nipigon, 
+      America/Nome, America/Noronha, America/North_Dakota/Center, America/Panama, 
+      America/Pangnirtung, America/Paramaribo, America/Phoenix, America/Port-au-Prince, 
+      America/Port_of_Spain, America/Porto_Velho, America/Puerto_Rico, America/Rainy_River, 
+      America/Rankin_Inlet, America/Recife, America/Regina, America/Rio_Branco, America/Santiago, 
+      America/Santo_Domingo, America/Sao_Paulo, America/Scoresbysund, America/St_Johns, 
+      America/St_Kitts, America/St_Lucia, America/St_Thomas, America/St_Vincent, 
+      America/Swift_Current, America/Tegucigalpa, America/Thule, America/Thunder_Bay, 
+      America/Tijuana, America/Tortola, America/Vancouver, America/Whitehorse, America/Winnipeg, 
+      America/Yakutat, America/Yellowknife, Antarctica/Casey, Antarctica/Davis, 
+      Antarctica/DumontDUrville, Antarctica/Mawson, Antarctica/McMurdo, Antarctica/Palmer, 
+      Antarctica/Rothera, Antarctica/Syowa, Antarctica/Vostok, Asia/Aden, Asia/Almaty, Asia/Amman, 
+      Asia/Anadyr, Asia/Aqtau, Asia/Aqtobe, Asia/Ashgabat, Asia/Baghdad, Asia/Bahrain, Asia/Baku, 
+      Asia/Bangkok, Asia/Beirut, Asia/Bishkek, Asia/Brunei, Asia/Calcutta, Asia/Choibalsan, 
       Asia/Chongqing, Asia/Colombo, Asia/Damascus, Asia/Dhaka, Asia/Dili, Asia/Dubai, Asia/Dushanbe, 
       Asia/Gaza, Asia/Harbin, Asia/Hong_Kong, Asia/Hovd, Asia/Irkutsk, Asia/Jakarta, Asia/Jayapura, 
       Asia/Jerusalem, Asia/Kabul, Asia/Kamchatka, Asia/Karachi, Asia/Kashgar, Asia/Katmandu, 
@@ -5131,17 +5137,17 @@ America/Kentucky/Monticello&quot;&gt;
       Europe/Moscow, Europe/Oslo, Europe/Paris, Europe/Prague, Europe/Riga, Europe/Rome, 
       Europe/Samara, Europe/San_Marino, Europe/Sarajevo, Europe/Simferopol, Europe/Skopje, 
       Europe/Sofia, Europe/Stockholm, Europe/Tallinn, Europe/Tirane, Europe/Uzhgorod, Europe/Vaduz, 
-      Europe/Vatican, Europe/Vienna, Europe/Vilnius, Europe/Warsaw, Europe/Zagreb, Europe/Zaporozhye, 
-      Europe/Zurich, Indian/Antananarivo, Indian/Chagos, Indian/Christmas, Indian/Cocos, 
-      Indian/Comoro, Indian/Kerguelen, Indian/Mahe, Indian/Maldives, Indian/Mauritius, Indian/Mayotte, 
-      Indian/Reunion, Pacific/Apia, Pacific/Auckland, Pacific/Chatham, Pacific/Easter, Pacific/Efate, 
-      Pacific/Enderbury, Pacific/Fakaofo, Pacific/Fiji, Pacific/Funafuti, Pacific/Galapagos, 
-      Pacific/Gambier, Pacific/Guadalcanal, Pacific/Guam, Pacific/Honolulu, Pacific/Johnston, 
-      Pacific/Kiritimati, Pacific/Kosrae, Pacific/Kwajalein, Pacific/Majuro, Pacific/Marquesas, 
-      Pacific/Midway, Pacific/Nauru, Pacific/Niue, Pacific/Norfolk, Pacific/Noumea, Pacific/Pago_Pago, 
-      Pacific/Palau, Pacific/Pitcairn, Pacific/Ponape, Pacific/Port_Moresby, Pacific/Rarotonga, 
-      Pacific/Saipan, Pacific/Tahiti, Pacific/Tarawa, Pacific/Tongatapu, Pacific/Truk, Pacific/Wake, 
-      Pacific/Wallis, Pacific/Yap</span></td>
+      Europe/Vatican, Europe/Vienna, Europe/Vilnius, Europe/Warsaw, Europe/Zagreb, 
+      Europe/Zaporozhye, Europe/Zurich, Indian/Antananarivo, Indian/Chagos, Indian/Christmas, 
+      Indian/Cocos, Indian/Comoro, Indian/Kerguelen, Indian/Mahe, Indian/Maldives, Indian/Mauritius, 
+      Indian/Mayotte, Indian/Reunion, Pacific/Apia, Pacific/Auckland, Pacific/Chatham, 
+      Pacific/Easter, Pacific/Efate, Pacific/Enderbury, Pacific/Fakaofo, Pacific/Fiji, 
+      Pacific/Funafuti, Pacific/Galapagos, Pacific/Gambier, Pacific/Guadalcanal, Pacific/Guam, 
+      Pacific/Honolulu, Pacific/Johnston, Pacific/Kiritimati, Pacific/Kosrae, Pacific/Kwajalein, 
+      Pacific/Majuro, Pacific/Marquesas, Pacific/Midway, Pacific/Nauru, Pacific/Niue, 
+      Pacific/Norfolk, Pacific/Noumea, Pacific/Pago_Pago, Pacific/Palau, Pacific/Pitcairn, 
+      Pacific/Ponape, Pacific/Port_Moresby, Pacific/Rarotonga, Pacific/Saipan, Pacific/Tahiti, 
+      Pacific/Tarawa, Pacific/Tongatapu, Pacific/Truk, Pacific/Wake, Pacific/Wallis, Pacific/Yap</span></td>
     </tr>
   </table>
   <h2>&nbsp;</h2>

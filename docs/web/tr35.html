@@ -13,7 +13,7 @@
 span.dtd         { font-family: monospace; font-size:90%; text-indent:-3em; margin-left:3em; background-color:#CCCCFF }
 span.element { font-weight: bold; color: red }
 span.attribute { font-weight: bold; color: maroon}
-span.attributeValue { font-weight: color: blue}
+span.attributeValue { font-weight: bold; color: blue}
 -->
 </style>
 </head>
@@ -33,7 +33,7 @@ span.attributeValue { font-weight: color: blue}
 <div class="body">
   <h2 align="center">Unicode Technical Standard #35</h2>
   <h1 align="right">Locale Data Markup Language (LDML)</h1>
-  <table border="1" cellpadding="2" style="border-collapse: collapse; border-width: 1" cellspacing="0" width="100%">
+  <table border="1" cellpadding="2" cellspacing="0" width="100%">
     <tr>
       <td>Version</td>
       <td>1<span>.3<font color="#FF0000"> (draft $Revision$)</font></span></td>
@@ -876,9 +876,9 @@ root</pre>
   <p>&lt;... <a name="alt_attribute">alt</a>=&quot;<span style="color: #0000FF">proposed</span>&quot; ...&gt;</p>
   <p>This attribute should only be present if draft=&quot;true&quot;. It indicates that the data is proposed 
   replacement data that has been added provisionally until the differences between it and the other 
-  data can be vetted. For example, suppose that the translation for September for some language is 
-  &quot;Settembru&quot;, and a bug report is filed that that should be &quot;Settembro&quot;. The new data can be 
-  entered in, but marked as <i>alt</i> until it is vetted. </p>
+  data can be vetted. For example, suppose that the translation for September for some language is &quot;Settembru&quot;, 
+  and a bug report is filed that that should be &quot;Settembro&quot;. The new data can be entered in, but 
+  marked as <i>alt</i> until it is vetted. </p>
   <pre>...
 &lt;month type=&quot;9&quot;&gt;Settembru&lt;/month&gt;
 &lt;month type=&quot;9&quot; draft=&quot;true&quot; alt=&quot;proposed&quot;&gt;Settembro&lt;/month&gt;
@@ -902,8 +902,7 @@ root</pre>
   leading or trailing spaces on each string are not significant. Examples:</p>
   <p><code>&lt;collation standard=&quot;<span style="color: blue">MSA 200:2002</span>&quot;&gt;<br>
   ...<br>
-  &lt;dateFormatStyle 
-  standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;amp;ICS1=1&amp;amp;ICS2=140&amp;amp;ICS3=30”&gt;</code></p>
+  &lt;dateFormatStyle standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;amp;ICS1=1&amp;amp;ICS2=140&amp;amp;ICS3=30”&gt;</code></p>
   <p>&lt;... <a name="references_attribute">references</a>=&quot;<span style="color: blue">...</span>&quot; ...&gt;</p>
   <p><span>The value of this attribute is a list of strings representing a reference for the 
   information in the element, including standards that it may conform to. The best format is a 
@@ -1095,8 +1094,8 @@ root</pre>
   common practice to spell those words without the accents. The exemplar character set for </span>
   <span>fr</span><span> (French), on the other hand, must contain those characters: [a-z </span>
   <span>é</span><span> </span><span>è</span><span> ù </span><span>ç</span><span> </span><span>à</span><span>
-  </span><span>â</span><span> </span><span>ê</span><span> î ô û æ œ </span><span>ë</span><span> ï 
-  ÿ]. </span></p>
+  </span><span>â</span><span> </span><span>ê</span><span> î ô û æ œ </span><span>ë</span><span> ï ÿ].
+  </span></p>
   <p><span>The list of characters is in the </span><a href="#Unicode_Sets"><span>Unicode Set</span></a><span> 
   format, which allows </span><span>boolean</span><span> combinations of sets of letters, including 
   those specified by Unicode properties.</span></p>
@@ -1589,8 +1588,8 @@ root</pre>
   <p><span class="dtd">&lt;!ELEMENT numbers (alias | (symbols?, decimalFormats?, scientificFormats?, 
   percentFormats?, currencyFormats?, currencies?, special*)) &gt;</span></p>
   <p>The numbers element supplies information for formatting and parsing numbers and currencies. It 
-  has the following sub-elements: &lt;symbols&gt;, &lt;decimalFormats&gt;, &lt;scientificFormats&gt;, 
-  &lt;percentFormats&gt;, &lt;currencyFormats&gt;, and &lt;currencies&gt;. The currency IDs are from [<a href="#ISO4217">ISO4217</a>]<span> 
+  has the following sub-elements: &lt;symbols&gt;, &lt;decimalFormats&gt;, &lt;scientificFormats&gt;, &lt;percentFormats&gt;, 
+  &lt;currencyFormats&gt;, and &lt;currencies&gt;. The currency IDs are from [<a href="#ISO4217">ISO4217</a>]<span> 
   (plus some additional common-use codes)</span>. For more information, including the pattern 
   structure<span>, see </span><a href="#Number_Format_Patterns"><span>Appendix G: Number Pattern 
   Format</span></a><span>.</span></p>
@@ -1769,8 +1768,8 @@ root</pre>
   <p><span>The references section supplies a central location for specifying references and 
   standards. The uri should be supplied if at all possible. If not online, then a ISBN number should 
   be supplied, such as in the following example:</span></p>
-  <p class="example"><span><font size="2">&lt;reference type=&quot;R2&quot; 
-  uri=&quot;http://www.ur.se/nyhetsjournalistik/3lan.html&quot;&gt;Landskoder på Internet&lt;/reference&gt;<br>
+  <p class="example"><span><font size="2">&lt;reference type=&quot;R2&quot; uri=&quot;http://www.ur.se/nyhetsjournalistik/3lan.html&quot;&gt;Landskoder 
+  på Internet&lt;/reference&gt;<br>
   &lt;reference type=&quot;R3&quot; uri=&quot;URN:ISBN:ISBN 47-04974-X&quot;&gt;Svenska skrivregler&lt;/reference&gt;</font></span></p>
   <h3>5.1<span>3</span> <a name="&lt;collations&gt;">&lt;collations&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT collations (alias | (default?, collation*, special*)) &gt;</span></p>
@@ -3032,9 +3031,9 @@ America/Kentucky/Monticello&quot;&gt;
   <p>Unicode property sets are specified by any Unicode property, such as [:Letter:], using the 
   PropertyAlias file and the PropertyValueAlias file. The syntax for specifying the property names 
   is an extension of either POSIX or Perl syntax with the addition of &quot;=value&quot;. For example, you can 
-  match letters by using the POSIX syntax <b>[:Letter:]</b>, or by using the Perl-style syntax <b>
-  \p{Letter}</b>. The type can be omitted for the Category and Script properties, but is required 
-  for other properties.</p>
+  match letters by using the POSIX syntax <b>[:Letter:]</b>, or by using the Perl-style syntax <b>\p{Letter}</b>. 
+  The type can be omitted for the Category and Script properties, but is required for other 
+  properties.</p>
   <p>The table below shows the two kinds of syntax: POSIX and Perl style. Also, the table shows the 
   &quot;Negative&quot;, which is a property that excludes all characters of a given kind. For example, <b>
   [:^Letter:]</b> matches all characters that are not <b>[:Letter:]</b>.</p>
@@ -3108,8 +3107,7 @@ America/Kentucky/Monticello&quot;&gt;
     <tr>
       <td>[:Lu:]&nbsp;</td>
       <td>The set of characters belonging to the given Unicode category, as defined by 
-      Character.getType(); in this case, Unicode uppercase letters. The long form for this is <b>
-      [:UppercaseLetter:]</b>.&nbsp;</td>
+      Character.getType(); in this case, Unicode uppercase letters. The long form for this is <b>[:UppercaseLetter:]</b>.&nbsp;</td>
     </tr>
     <tr>
       <td>[:L:]&nbsp;</td>
@@ -5471,7 +5469,7 @@ decimal?, group?, special*)) &gt;</span></pre>
   </blockquote>
   <p>&nbsp;</p>
   <h2><a name="References">References</a></h2>
-  <table style="border-collapse: collapse; border-width: 1; " cellpadding="4" cellspacing="0" class="noborder" border="0" width="894">
+  <table cellpadding="4" cellspacing="0" class="noborder" border="0">
     <tr>
       <th class="noborder" width="148">Ancillary Information</th>
       <td class="noborder" width="730"><i>To properly localize, parse, and format data requires 

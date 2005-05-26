@@ -54,10 +54,6 @@
         <td valign="top" class="navColCell"><a href="#prioritization">Prioritization</a></td>
       </tr>
       <tr>
-        <td valign="top" class="navColCell">&nbsp;</td>
-        <td valign="top" class="navColCell"><a href="#bulk_submissions">Bulk Submissions</a></td>
-      </tr>
-      <tr>
         <td valign="top" class="navColCell" colspan="2"><a href="#public_feedback">Public Feedback</a></td>
       </tr>
       <tr>
@@ -86,14 +82,14 @@
         <td valign="top" class="navColCell" colspan="2"><a href="index.html">CLDR Project</a></td>
       </tr>
       <tr>
+        <td valign="top" class="navColCell" colspan="2"><a href="repository_access.html">CLDR 
+        Releases</a></td>
+      </tr>
+      <tr>
         <td valign="top" class="navColCell" colspan="2">CLDR Technical Committee</td>
       </tr>
       <tr>
         <td valign="top" class="navColCell" colspan="2"><a href="procedures.html">CLDR-TC Procedures</a></td>
-      </tr>
-      <tr>
-        <td valign="top" class="navColCell" colspan="2"><a href="repository_access.html">Repository 
-        Access</a></td>
       </tr>
       <tr>
         <td valign="top" class="navColCell" colspan="2"><a href="data_formats.html">Data Formats</a></td>
@@ -215,23 +211,6 @@
           reference), the goal is to keep that data aligned with that standard. There is, however, 
           no guarantee that data will be tagged with any or all of the national standards that it 
           follows.</p>
-          <h3>2.3 <a name="bulk_submissions">Bulk Submissions</a></h3>
-          <p>To help our process for bulk submissions of data, such as whole locales or long lists 
-          of translated country names, we use the following process:</p>
-          <ol>
-            <li>Electronic source documents are required to accompany the bulk submission, for 
-            verification (these must be publicly-accessible URLs or scanned pages that we would 
-            archive).</li>
-            <li>The submission must be in valid LDML format. </li>
-            <li>We will then:<ol>
-              <li>Check in the data, marked as draft=&#39;true&#39;, with a reference to the given source 
-              document.</li>
-              <li>If there a previously existing item, it remains, and the new data is also marked 
-              with alt=&#39;proposed&#39; (this new attribute will be added to LDML 1.2).</li>
-              <li>Send notice to CLDR for review.</li>
-            </ol>
-            </li>
-          </ol>
           <h2>3. <a name="public_feedback">Public Feedback Process</a></h2>
           <p>The public can supply formal feedback into CLDR by filing a
           <a href="filing_bug_reports.html">Bug Report or Feature Request (RFE)</a>. Anyone can also 
@@ -276,10 +255,11 @@
               <td><b>Input Freeze</b></td>
               <td>Last date for new data or bug fixes in old data to be filed, for acceptance into 
               the current release under development. The only additional bug reports or features 
-              that would be accepted into CLDR 1.2 would be reports of problems in incorporating the 
-              accepted bug reports / bug fixes. The committee could allow some additional changes, 
-              but that would be on an exceptional basis. Bug reports that came in after the freeze 
-              would, of course, not be lost: they&#39;d be considered for the next version of CLDR.</td>
+              that would be accepted into the current development version of CLDR would be reports 
+              of problems in incorporating the accepted bug reports / bug fixes. The committee could 
+              allow some additional changes, but that would be on an exceptional basis. Bug reports 
+              that came in after the freeze would, of course, not be lost: they&#39;d be considered for 
+              the next version of CLDR.</td>
             </tr>
             <tr>
               <td><b>Alpha</b></td>
@@ -295,11 +275,6 @@
               <td>Released, stable, referenceable version.</td>
             </tr>
           </table>
-          <p>CLDR 1.1 was the first under the sponsorship of the Unicode Consortium, and designed to 
-          contain few changes over CLDR 1.0; the goal was to complete the transfer of the project 
-          without introducing a large number of changes, so there was limited opportunity for 
-          feedback and changes. CLDR 1.2, due in mid-October, will provide more opportunity to 
-          incorporate additional data.</p>
           <h2><a name="meetings"></a>Meetings and Communication</h2>
           <p>The currently-scheduled meetings are listed on the
           <a href="http://www.unicode.org/timesens/calendar.html">Unicode Calendar</a>. Meetings are 

@@ -91,7 +91,7 @@ class GenerateCldrDateTimeTests {
         String cpath = "/ldml/characters/exemplarCharacters";
         String path = cldrFile.getFullXPath(cpath);
         if (path == null) return;
-        if (path.indexOf("[@draft=") >= 0) System.out.println("Skipping draft: " + locale + ",\t" + path);
+        //if (path.indexOf("[@draft=") >= 0) System.out.println("Skipping draft: " + locale + ",\t" + path);
         String exemplars = cldrFile.getStringValue(cpath);
         UnicodeSet exemplarSet = new UnicodeSet(exemplars);
         UnicodeSet fixed = (UnicodeSet) uniqueExemplars.get(exemplarSet);
@@ -236,7 +236,7 @@ class GenerateCldrDateTimeTests {
 
     Map numberFormatCache = new HashMap();
     
-    static String[] NumberNames = {"integer", "decimal", "percent", "scientific", "GBP"}; //// "standard", , "INR", "CHF"
+    static String[] NumberNames = {"integer", "decimal", "percent", "scientific"}; //// "standard", , "INR", "CHF", "GBP"
     static int firstReal = 1;
     static int firstCurrency = 4;
     

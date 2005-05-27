@@ -14,6 +14,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Utility;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -138,8 +139,11 @@ public class TestCldr extends TestFmwk {
                     }
                 }
             } catch (Exception e) {
-                errln("Exception: Locale: " + ul + ",\tValue: <" + value + ">");
-                //e.printStackTrace(log);
+            	StringWriter sw = new StringWriter();
+            	PrintWriter pw = new PrintWriter(sw);
+                e.printStackTrace(pw);
+                pw.flush();
+                errln("Exception: Locale: " + ul + ",\tValue: <" + value + ">\r\n" + sw.toString());
             }
         }
         public void loglnSAX(String message) {
@@ -286,8 +290,8 @@ public class TestCldr extends TestFmwk {
         // ============ Handler for Dates ============
         addHandler("date", new Handler() {
             public void handleResult(ULocale locale, String result) throws ParseException {
-                int dateFormat = DateFormat.DEFAULT;
-                int timeFormat = DateFormat.DEFAULT;
+                int dateFormat = 0;
+                int timeFormat = 0;
                 Date date = new Date();
                 for (Iterator it = settings.keySet().iterator(); it.hasNext();) {
                     String attributeName = (String) it.next();
@@ -299,16 +303,15 @@ public class TestCldr extends TestFmwk {
                     }
                     // must be either dateType or timeType at this point
                     int index = lookupValue(attributeValue, DateFormatNames);
-                    int value = DateFormatValues[index];
                     if (attributeName.equals("dateType"))
-                        dateFormat = value;
+                        dateFormat = index;
                     else
-                        timeFormat = value;
+                        timeFormat = index;
 
                 }
-                DateFormat dt = dateFormat == -1 ? DateFormat.getTimeInstance(timeFormat, locale)
-                        : timeFormat == -1 ? DateFormat.getDateInstance(dateFormat, locale)
-                        : DateFormat.getDateTimeInstance(dateFormat, timeFormat, locale);
+                DateFormat dt = dateFormat == -1 ? DateFormat.getTimeInstance(DateFormatValues[timeFormat], locale)
+                        : timeFormat == -1 ? DateFormat.getDateInstance(DateFormatValues[dateFormat], locale)
+                        : DateFormat.getDateTimeInstance(DateFormatValues[dateFormat], DateFormatValues[timeFormat], locale);
                 dt.setTimeZone(utc);
                 String temp = dt.format(date).trim();
                 result = result.trim(); // HACK because of SAX

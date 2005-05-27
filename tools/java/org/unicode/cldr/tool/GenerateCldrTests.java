@@ -732,7 +732,7 @@ public class GenerateCldrTests {
         return s;
     }
 
-    public static boolean isDraft(Node node) {
+/*    public static boolean isDraft(Node node) {
         for (; node.getNodeType() != Node.DOCUMENT_NODE; node = node.getParentNode()){
             NamedNodeMap attributes = node.getAttributes();
             if (attributes == null) continue;
@@ -743,7 +743,7 @@ public class GenerateCldrTests {
         }
         return false;
     }
-
+*/
     public static String getXPath(Node node) {
         StringBuffer xpathFragment = new StringBuffer();
         StringBuffer xpath = new StringBuffer();

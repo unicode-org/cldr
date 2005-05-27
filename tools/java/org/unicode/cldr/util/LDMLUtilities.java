@@ -923,7 +923,7 @@ public class LDMLUtilities {
         
         if(!ignoreDraft) {
             val = getAttributeValue(node, LDMLConstants.DRAFT);
-            if(val!=null){
+            if(val!=null && !name.equals(LDMLConstants.LDML)){
                 if(isStart){
                     xpath.append("[");
                     isStart=false;

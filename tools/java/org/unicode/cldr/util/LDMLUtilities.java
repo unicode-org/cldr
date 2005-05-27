@@ -6,8 +6,6 @@
  *
  * Created on Jul 28, 2004
  *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Generation - Code and Comments
  */
 package org.unicode.cldr.util;
 import java.io.ByteArrayInputStream;
@@ -17,6 +15,7 @@ import java.io.PrintWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.util.HashMap;
 
 
 // DOM imports
@@ -26,6 +25,7 @@ import org.apache.xalan.serialize.Serializer;
 import org.apache.xalan.serialize.SerializerFactory;
 import org.apache.xalan.templates.OutputProperties;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
@@ -56,6 +56,9 @@ import org.xml.sax.SAXParseException;
  */
 public class LDMLUtilities {
 
+    public static final int XML = 0,
+                            TXT = 1;
+    private static final boolean DEBUG = true;
     /**
      * Creates a fully resolved locale starting with root and 
      * @param sourceDir
@@ -65,12 +68,23 @@ public class LDMLUtilities {
     public static Document getFullyResolvedLDML(String sourceDir, String locale, 
                                                 boolean ignoreRoot, boolean ignoreUnavailable, 
                                                 boolean ignoreIfNoneAvailable){
+        return getFullyResolvedLDML( sourceDir,  locale, ignoreRoot,  ignoreUnavailable, ignoreIfNoneAvailable, null);
+    }
+    private static Document getFullyResolvedLDML(String sourceDir, String locale, 
+            boolean ignoreRoot, boolean ignoreUnavailable, 
+            boolean ignoreIfNoneAvailable, HashMap stack){
         Document full =null;
+        if(stack != null){
+            //For guarding against cicular references
+            String key = "SRC:" + sourceDir+File.separator+locale+".xml";
+            if(stack.get(key)!=null){
+                System.err.println("Found circular aliases! " + key);
+                System.exit(-1);
+            }
+            stack.put(key, "");
+        }
         try{
             full = parse(sourceDir+File.separator+ "root.xml", ignoreRoot);
-            if(full!=null){
-                full = resolveAliases(full, sourceDir, "root");
-            }
            /*
             * Debugging
             *
@@ -92,7 +106,7 @@ public class LDMLUtilities {
             return full;
         }
         String[] constituents = locale.split("_");
-        String loc=null;
+        String loc=null, oldLoc =null;
         boolean isAvailable = false;
         //String lastLoc = "root";
         for(int i=0; i<constituents.length; i++){
@@ -111,7 +125,6 @@ public class LDMLUtilities {
             if(file.exists()){
                 isAvailable = true;
                 doc = parse(fileName, ignoreUnavailable);
-                doc = resolveAliases(doc, sourceDir, loc);
                 /*
                  * Debugging
                  *
@@ -147,24 +160,63 @@ public class LDMLUtilities {
             // TODO: investigate if we really need to revalidate the DOM tree!
             // full = revalidate(full, locale);
         }
-       if(ignoreIfNoneAvailable==true && isAvailable==false){
-           return null ;
-       }
-       /*
-        * debugging code 
-       try {
-            OutputStreamWriter writer = new OutputStreamWriter(
-                    new FileOutputStream("./" + File.separator + locale
-                            + "_debug.xml"), "UTF-8");
-            LDMLUtilities.printDOMTree(full, new PrintWriter(writer));
-            writer.flush();
-        } catch (IOException e) {
-            //throw the exceptionaway .. this is for debugging
+        // get the real locale name
+        locale = getLocaleName(full);
+        // Resolve the aliases once the data is built
+        full = resolveAliases(full, sourceDir, locale, stack);
+        
+        if(ignoreIfNoneAvailable==true && isAvailable==false){
+            return null ;
         }
-        */
+       if(DEBUG){
+           try {
+                java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
+                        new  java.io.FileOutputStream("./" + File.separator + locale
+                                + "_debug.xml"), "UTF-8");
+                LDMLUtilities.printDOMTree(full, new PrintWriter(writer),"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", true);
+                writer.flush();
+           } catch (IOException e) {
+                //throw the exceptionaway .. this is for debugging
+           }
+       }
        return full;
     }
-
+    public static String getLocaleName(Document doc){
+        Node ln = LDMLUtilities.getNode(doc, "//ldml/identity/language");
+        Node tn = LDMLUtilities.getNode(doc, "//ldml/identity/territory");
+        Node sn = LDMLUtilities.getNode(doc, "//ldml/identity/script");
+        Node vn = LDMLUtilities.getNode(doc, "//ldml/identity/variant");
+        
+        StringBuffer locName = new StringBuffer(); 
+        String lang = LDMLUtilities.getAttributeValue(ln, LDMLConstants.TYPE);
+        if(lang!=null){ 
+            locName.append(lang);
+        }else{
+            throw new IllegalArgumentException("Did not get any value for language node from identity.");
+        }
+        if(sn!=null){
+            String script = LDMLUtilities.getAttributeValue(sn, LDMLConstants.TYPE);
+            if(script!=null){
+                locName.append("_");
+                locName.append(script);
+            }
+        }
+        if(tn!=null){
+            String terr = LDMLUtilities.getAttributeValue(tn, LDMLConstants.TYPE);
+            if(terr!=null){
+                locName.append("_");
+                locName.append(terr);
+            }
+        }
+        if(vn!=null){
+            String variant = LDMLUtilities.getAttributeValue(vn, LDMLConstants.TYPE);
+            if(variant!=null && tn != null){
+                locName.append("_");
+                locName.append(variant);
+            }
+        }
+        return locName.toString();
+    }
     public static Document revalidate(Document doc, String fileName){
         // what a waste!!
         // to revalidate an in-memory DOM tree we need to first
@@ -206,7 +258,12 @@ public class LDMLUtilities {
                 XPathAPI.eval(context, xpath, namespaceNode);
             }
         }
-        icu.append(source);
+        if(source.equals(LDMLConstants.LOCALE)){
+            icu.append("/");
+            icu.append(source.toUpperCase());
+        }else{
+            icu.append(source);
+        }
         if(xpath!=null){
             StringBuffer resolved = XPathTokenizer.relativeToAbsolute(xpath, fullPath);
             // make sure that fullPath is not corrupted!
@@ -318,6 +375,10 @@ public class LDMLUtilities {
             return "abbreviated";
         }else if(token.indexOf(LDMLConstants.ERA) > -1){
             return getAttributeValue(token, LDMLConstants.TYPE);
+        }else if(token.indexOf(LDMLConstants.NUMBERS) > -1){
+            // TODO fix this
+        }else if(token.indexOf(LDMLConstants.SYMBOLS) > -1){
+            return "NumberElements";
         }else if(token.indexOf(LDMLConstants.DATE_FORMATS) > -1){
             // TODO fix this
         }else if(token.indexOf(LDMLConstants.DFL) > -1){
@@ -449,6 +510,10 @@ public class LDMLUtilities {
                 continue;
             }   
             String childName = child.getNodeName();
+            if(childName.equals(LDMLConstants.LDML)){
+                child = child.getFirstChild();
+                continue;
+            }
             int savedLength=xpath.length();
             xpath.append("/");
             xpath.append(childName);
@@ -557,8 +622,9 @@ public class LDMLUtilities {
      * @param thisLocale
      */
     // TODO guard against circular aliases
-    public static Document resolveAliases(Document fullyResolvedDoc, String sourceDir, String thisLocale){
+    public static Document resolveAliases(Document fullyResolvedDoc, String sourceDir, String thisLocale, HashMap stack){
        Node[] array = getNodeArray(fullyResolvedDoc, LDMLConstants.ALIAS);
+       
        
        // resolve all the aliases by iterating over
        // the list of nodes
@@ -569,23 +635,33 @@ public class LDMLUtilities {
        String type = null;
        for(int i=0; i < array.length ; i++){
            Node node = array[i];
+           //initialize the stack for every alias!
+           stack = new HashMap();
            if(node==null){
                System.err.println("list.item("+i+") returned null!. The list reports it's length as: "+array.length);
                //System.exit(-1);
                continue;
            }
+           parent = node.getParentNode();
+           boolean isDraft = isNodeDraft(node);
            source = getAttributeValue(node, LDMLConstants.SOURCE);
            path = getAttributeValue(node, LDMLConstants.PATH);
-           type = getAttributeValue(node, LDMLConstants.TYPE);
-           
-           parent = node.getParentNode();
-           
-           if(source!=null && path==null){
+           type = getAttributeValue(parent, LDMLConstants.TYPE);
+           if(parent.getParentNode()==null){
+               // some of the nodes were orphaned by the previous alias resolution .. just continue
+               continue;
+           }
+           if(source!=null && path==null ){
                //this LDML 1.1 style alias parse it
                path = getAbsoluteXPath(node, type);
            }
-           
-           if(source!=null && !source.equals(thisLocale) && !source.equals("locale")){
+           String key = "SRC:" + thisLocale + ";XPATH:"+getAbsoluteXPath(node, type);
+           if(stack.get(key)!=null){
+               throw new IllegalStateException("Found circular aliases! " + key);
+               
+           }
+           stack.put(key, "");
+           if(source!=null && !source.equals(thisLocale)&&  !source.equals(LDMLConstants.LOCALE)){
                // if source is defined then path should not be 
                // relative 
                if(path.indexOf("..")>0){
@@ -594,7 +670,7 @@ public class LDMLUtilities {
                                                       " from source locale: "+thisLocale);
                }
                // this is a is an absolute XPath
-               Document newDoc = parse(sourceDir + File.separator + source + ".xml", false);
+               Document newDoc = getFullyResolvedLDML(sourceDir, source, false, true, false, stack);
                replacementList = getNodeListAsArray(newDoc, path);
            }else{
                // path attribute is referencing another node in this DOM tree
@@ -612,20 +688,31 @@ public class LDMLUtilities {
                        for(int j=0; j<identity.length; j++){
                            parent.removeChild(node);
                        }
+                   }else{
+                       //remove all the children of the parent node
+                       removeChildNodes(parent);
                    }
                    for(int j=0; j<listLen; j++){
                        // found an element node in the aliased resource
                        // add to the source
                        Node child = replacementList[j];
                        Node childToImport = fullyResolvedDoc.importNode(child,true);
+                       if(isDraft==true && childToImport.getNodeType() == Node.ELEMENT_NODE){
+                           ((Element)childToImport).setAttribute("draft", "true");
+                       }
                        parent.appendChild(childToImport);
                    }
                }else{
                    Node replacement = replacementList[0];
+                   //remove all the children of the parent node
+                   removeChildNodes(parent);
                    for(Node child = replacement.getFirstChild(); child!=null; child=child.getNextSibling()){
                        // found an element node in the aliased resource
                        // add to the source
                        Node childToImport = fullyResolvedDoc.importNode(child,true);
+                       if(isDraft==true && childToImport.getNodeType() == Node.ELEMENT_NODE){
+                           ((Element)childToImport).setAttribute("draft", "true");
+                       }
                        parent.appendChild(childToImport);
                    }
                }
@@ -638,6 +725,12 @@ public class LDMLUtilities {
            }
        }
        return fullyResolvedDoc;
+    }
+    private static void removeChildNodes(Node parent){
+        Node[] children = toNodeArray(parent.getChildNodes());
+        for(int j=0; j<children.length; j++){ 
+            parent.removeChild(children[j]);
+        }
     }
     //TODO add funtions for fetching legitimate children
     // for ICU 
@@ -793,23 +886,26 @@ public class LDMLUtilities {
      * @param xpath
      */
     public static final void appendXPathAttribute(Node node, StringBuffer xpath){
-        appendXPathAttribute(node,xpath,false);
+        appendXPathAttribute(node,xpath,false,false);
     }
-    public static void appendXPathAttribute(Node node, StringBuffer xpath,boolean ignoreAlt){
+    public static void appendXPathAttribute(Node node, StringBuffer xpath, boolean ignoreAlt, boolean ignoreDraft){
         boolean terminate = false;
         String val = getAttributeValue(node, LDMLConstants.TYPE);
         String and =  "and";
         boolean isStart = true;
         String name = node.getNodeName();
         if(val!=null && !name.equals(LDMLConstants.DEFAULT)&& !name.equals(LDMLConstants.MS)){
-            if(isStart){
-                xpath.append("[");
-                isStart=false;
+            if(!(val.equals("standard")&& name.equals(LDMLConstants.PATTERN))){
+               
+                if(isStart){
+                    xpath.append("[");
+                    isStart=false;
+                }
+                xpath.append("@type='");
+                xpath.append(val);
+                xpath.append("'");
+                terminate = true;
             }
-            xpath.append("@type='");
-            xpath.append(val);
-            xpath.append("'");
-            terminate = true;
         }
         if(!ignoreAlt) {
             val = getAttributeValue(node, LDMLConstants.ALT);
@@ -825,7 +921,26 @@ public class LDMLUtilities {
                 xpath.append("'");
                 terminate = true;
             }
+            
         }
+        
+        if(!ignoreDraft) {
+            val = getAttributeValue(node, LDMLConstants.DRAFT);
+            if(val!=null){
+                if(isStart){
+                    xpath.append("[");
+                    isStart=false;
+                }else{
+                    xpath.append(and);
+                }
+                xpath.append("@draft='");
+                xpath.append(val);
+                xpath.append("'");
+                terminate = true;
+            }
+            
+        }
+        
         val = getAttributeValue(node, LDMLConstants.KEY);
         if(val!=null){
             if(isStart){
@@ -887,6 +1002,17 @@ public class LDMLUtilities {
             throw new RuntimeException(ex.getMessage());
         } 
     }
+    public static Node[] toNodeArray( NodeList list){
+        int length = list.getLength();
+        if(length>0){
+            Node[] array = new Node[length];
+            for(int i=0; i<length; i++){
+                array[i] = list.item(i);
+            }
+            return array;
+        }
+        return null;
+    }
     public static Node[] getElementsByTagName(Document doc, String tagName){
         try{
             NodeList list = doc.getElementsByTagName(tagName);
@@ -941,7 +1067,7 @@ public class LDMLUtilities {
     }
     public static Node getNonAltNodeLike(Node parent, Node child){
         StringBuffer childXpath = new StringBuffer(child.getNodeName());
-        appendXPathAttribute(child,childXpath,true);
+        appendXPathAttribute(child,childXpath,true,false);
         String childXPathString = childXpath.toString();
         for(Node other=parent.getFirstChild(); other!=null; other=other.getNextSibling() ){
             if((other.getNodeType()!=Node.ELEMENT_NODE)  || (other==child)) {
@@ -1017,6 +1143,61 @@ public class LDMLUtilities {
                 Node best = getNonAltNode(nl);
                 if(best != null) {
                     //System.err.println("Chose best node from " + xpath);
+                    return best;
+                }
+                /* else complain */
+                String all = ""; 
+                int i;
+                for(i=0;i<len;i++) {
+                    all = all + ", " + nl.item(i);
+                }
+                throw new IllegalArgumentException("The XPATH returned more than 1 node!. Check XPATH: "+xpath + " = " + all);   
+            }
+            if(len==0){
+                return null;
+            }
+            return nl.item(0);
+
+        }catch(TransformerException ex){
+            throw new RuntimeException(ex.getMessage());
+        }
+    }
+    public static Node getNode(Node node, String xpath, boolean preferDraft, boolean preferAlt){
+        try{
+            NodeList nl = XPathAPI.selectNodeList(node, xpath);
+            int len = nl.getLength();
+            //TODO watch for attribute "alt"
+            if(len>1){
+                Node best = null;
+                for(int i=0; i<len;i++){
+                    Node current = nl.item(i);
+                    if(!preferDraft && ! preferAlt){
+                        if(!isNodeDraft(current) && ! isAlternate(current)){
+                            best = current;
+                            break;
+                        }
+                        continue;
+                    }else if(preferDraft && !preferAlt){
+                        if(isNodeDraft(current) && ! isAlternate(current)){
+                            best = current;
+                            break;
+                        }
+                        continue;
+                    }else if(!preferDraft && preferAlt){
+                        if(!isNodeDraft(current) && isAlternate(current)){
+                            best = current;
+                            break;
+                        }
+                        continue;
+                    }else{
+                        if(isNodeDraft(current) || isAlternate(current)){
+                            best = current;
+                            break;
+                        }
+                        continue;
+                    }
+                }
+                if(best != null){
                     return best;
                 }
                 /* else complain */
@@ -1116,7 +1297,7 @@ public class LDMLUtilities {
     public static NodeList getNodeList(Node context, String resToFetch, Document fullyResolved, String xpath){
         String ctx = "./"+ resToFetch;
         NodeList list = getNodeList(context, ctx);
-        if(list == null && fullyResolved!=null){
+        if((list == null || list.getLength()>0) && fullyResolved!=null){
             // try from fully resolved
             String path = xpath+"/"+resToFetch;
             list = getNodeList(fullyResolved, path);
@@ -1135,6 +1316,13 @@ public class LDMLUtilities {
       short nodeType = n.getNodeType();
       return nodeType == Node.CDATA_SECTION_NODE || nodeType == Node.TEXT_NODE;
     }   
+    public static Node getAttributeNode(Node sNode, String attribName){
+        NamedNodeMap attrs = sNode.getAttributes();
+        if(attrs!=null){
+           return attrs.getNamedItem(attribName);
+        }
+        return null;
+    }
     /**
      * Utility method to fetch the attribute value from the given 
      * element node
@@ -1206,7 +1394,7 @@ public class LDMLUtilities {
         try{
             Document full = parse(sourceDir+File.separator+ locale, ignoreError);
             if(full!=null){
-                full = resolveAliases(full, sourceDir, locale );
+                full = resolveAliases(full, sourceDir, locale, null);
             }
            /*
             * Debugging
@@ -1489,8 +1677,6 @@ System.err.println(filename2 + ":" + e.getLineNumber() +  (col>=0?":" + col:"") 
 //         }
 //     }
 
-    public static final int XML = 0,
-                            TXT = 1;
     public static  String getFullPath(int fileType, String fName, String dir){
         String str=null;
         int lastIndex1 = fName.lastIndexOf(File.separator, fName.length()) + 1/* add  1 to skip past the separator */; 

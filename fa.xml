@@ -1156,9 +1156,6 @@
 			<calendar type="islamic">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']" draft="true"/>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" references="R6" draft="true">محرم</month>
 							<month type="2" references="R6" draft="true">صفر</month>
@@ -1239,9 +1236,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-			</calendar>
-			<calendar type="islamic-civil">
-				<alias source="locale" path="../calendar[@type='islamic']" draft="true"/>
 			</calendar>
 			<calendar type="persian">
 				<months>

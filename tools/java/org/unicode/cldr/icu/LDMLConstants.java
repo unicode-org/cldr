@@ -185,4 +185,5 @@ public class LDMLConstants {
     public static final String LANGUAGE_DATA = "languageData";
     public static final String TO = "to";
     public static final String FROM = "from";
+    public static final String LOCALE = "locale";
 }

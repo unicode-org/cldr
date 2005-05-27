@@ -1850,7 +1850,9 @@ public class LDML2ICUConverter {
 
             if(name.equals(LDMLConstants.ALIAS)){
                 res = parseAliasResource(node,xpath);
-                res.name =table.name;
+                if(res!=null){
+                    res.name =table.name;
+                }
                 return res;
             }else if(name.equals(LDMLConstants.DEFAULT)){
                 ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
@@ -2236,7 +2238,7 @@ public class LDML2ICUConverter {
                 //TODO: timebomb
                 // minDays = getVettedNode(fullyResolvedDoc, LDMLConstants.MINDAYS , xpath);
                 Node n = LDMLUtilities.getNode(fullyResolvedDoc, xpath.toString());
-                minDays = LDMLUtilities.getNode(n, LDMLConstants.MINDAYS );
+                minDays = LDMLUtilities.getNode(n, LDMLConstants.MINDAYS,  true,true );
                 if(minDays != null){
                     printInfo("parseDTE: Pulled out from the fully-resolved minDays: " + minDays.toString());
                 }
@@ -2433,8 +2435,10 @@ public class LDML2ICUConverter {
         int oldLength=xpath.length();
         Node ret = null;
 
-        if(list!=null){
-           ret = getVettedNode(list,xpath.append("/"+childName));
+        if(list != null && list.getLength()>0){
+            xpath.append("/");
+            xpath.append(childName);
+            ret = getVettedNode(list,xpath);
         }
         xpath.setLength(oldLength);
         return ret;

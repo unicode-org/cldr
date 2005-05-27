@@ -123,11 +123,9 @@ public class VettingAdder {
 		return locale_files.keySet();
 	}
 	
-	public void incorporateVetting(String locale, CLDRFile target) throws IOException {
+	public void incorporateVetting(String locale, String targetDir) throws IOException {
 		Set s = (Set) locale_files.get(locale);
-		Log.logln("");
 		Log.logln("Vetting Data for: " + locale);
-		Log.logln("");
 		VettingInfoSet accum = new VettingInfoSet();
 		for (Iterator it2 = s.iterator(); it2.hasNext(); ) {
 			String dir = (String)it2.next() + File.separator;
@@ -138,6 +136,11 @@ public class VettingAdder {
 				String path = (String) it3.next();
 				String value = (String) cldr.getStringValue(path);
 				String fullPath = (String) cldr.getFullXPath(path);
+				// skip bogus values
+				if (value.startsWith("//ldml") || value.length() == 0) {
+					Log.logln("Skipping: [" + value  + "] for " + fullPath);
+					continue;
+				}
 				accum.add(stripAlt(path), dir, stripAlt(fullPath), value);
 			}
 		}
@@ -145,6 +148,7 @@ public class VettingAdder {
 		// otherwise show
 		Set uniquePathAndValue = new TreeSet(PathAndValueComparator);
 		CLDRFile cldrDelta = CLDRFile.make(locale);
+		boolean gotOne = false;
 		for (Iterator it2 = accum.iterator(); it2.hasNext(); ) {
 			String path = (String) it2.next();
 			Collection c = accum.get(path);
@@ -153,11 +157,19 @@ public class VettingAdder {
 			if (uniquePathAndValue.size() == 1) { // no conflict
 				VettingInfo vi = (VettingInfo) uniquePathAndValue.iterator().next();
 				cldrDelta.add(path, vi.fullPath, vi.value);
+				gotOne = true;
 			} else { // there is a conflict
 				conflictSet.add(new Object[]{locale, path, c});
 			}
 		}
-		cldrDelta.write(Log.getLog());
+		if (gotOne) {
+			Log.logln("Writing: " + targetDir + locale + ".xml");
+			PrintWriter pw = BagFormatter.openUTF8Writer(targetDir, locale + ".xml");
+			cldrDelta.write(pw);
+			pw.close();
+		} else {
+			Log.logln("No data left in: " + targetDir + locale + ".xml");
+		}
 	}
 	
 	public void showSources() {
@@ -228,7 +240,7 @@ public class VettingAdder {
 	 * @throws IOException
 	 * 
 	 */
-	public void showFiles(Factory cldrFactory) throws IOException {
+	public void showFiles(Factory cldrFactory, String targetDir) throws IOException {
 		english  = cldrFactory.make("en",true);
 		
     	Log.logln("");
@@ -241,7 +253,7 @@ public class VettingAdder {
     	Log.logln("");
     	Set vettedLocales = keySet();
     	for (Iterator it = vettedLocales.iterator(); it.hasNext();) {
-    		incorporateVetting((String)it.next(), null);
+    		incorporateVetting((String)it.next(), targetDir);
     	}
     	
     	Log.logln("");

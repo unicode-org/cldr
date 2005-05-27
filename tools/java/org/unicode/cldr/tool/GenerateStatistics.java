@@ -158,12 +158,12 @@ class GenerateStatistics {
 
 				if (title.length() != 0)
 					title += "; ";
-				if (isLanguage) {
+/*				if (isLanguage) {
 					title += lang;
 				} else {
 					title += country;
 				}
-				if (!localName.equalsIgnoreCase(englishName)) {
+*/				if (!localName.equalsIgnoreCase(englishName)) {
 					needQualifier = true;
 					qualifiers += ", " + localName;
 

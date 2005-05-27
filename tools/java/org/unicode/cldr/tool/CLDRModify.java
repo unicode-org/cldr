@@ -70,6 +70,9 @@ public class CLDRModify {
 		UOption.create("vet", 'v', UOption.OPTIONAL_ARG).setDefault("C:\\vetweb")
 	};
 	
+	private static final UnicodeSet allMergeOptions = new UnicodeSet("[rc]");
+	private static final UnicodeSet allFixOptions = new UnicodeSet("[nvcsrx]");
+	
 	static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
 		+ "-h or -?\tfor this message" + XPathParts.NEWLINE
 		+ "-"+options[SOURCEDIR].shortName + "\tsource directory. Default = " 
@@ -82,16 +85,18 @@ public class CLDRModify {
 		+ "\twhere * in X' is replaced by X)." + XPathParts.NEWLINE
 		+ "\tExample:-jC:\\Unicode-CVS2\\cldr\\dropbox\\to_be_merged\\missing\\missing_*" + XPathParts.NEWLINE
 		+ "-i\tmerge arguments:" + XPathParts.NEWLINE
-		+ "\td\t make draft" + XPathParts.NEWLINE
+		+ "\tr\t replace contents (otherwise new data will be draft)" + XPathParts.NEWLINE
 		+ "\tc\t ignore comments in <merge_dir> files" + XPathParts.NEWLINE
 		+ "-r\tto minimize the results (removing items that inherit from parent)." + XPathParts.NEWLINE
 		+ "-f\tto perform various fixes on the files (TBD: add argument to specify which ones)" + XPathParts.NEWLINE
+		+ "\t fix options" + XPathParts.NEWLINE
 		+ "\tn\t fix numbers" + XPathParts.NEWLINE
 		+ "\tv\t validate codes" + XPathParts.NEWLINE
 		+ "\tc\t fix CS" + XPathParts.NEWLINE
 		+ "\ts\t fix stand-alone narrows" + XPathParts.NEWLINE
 		+ "\tr\t fix references and standards" + XPathParts.NEWLINE
 		+ "\tx\t remove illegal currencies (later, others)" + XPathParts.NEWLINE
+		+ "-v\t incorporate vetting information, and generate diff files." + XPathParts.NEWLINE
 		+ "A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results.";
 	
 	/**
@@ -99,11 +104,13 @@ public class CLDRModify {
 	 */
 	public static void main(String[] args) throws Exception {
         UOption.parseArgs(args, options);
-        if (options[HELP1].doesOccur || options[HELP1].doesOccur) {
+        if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
         	System.out.println(HELP_TEXT);
         	return;
         }
-        
+        checkSuboptions(options[FIX], allFixOptions);
+        checkSuboptions(options[JOIN_ARGS], allMergeOptions);
+
 		//String sourceDir = "C:\\ICU4C\\locale\\common\\main\\";
 		String mergeDir = options[JOIN].value;	// Utility.COMMON_DIRECTORY + "main/";
 		String sourceDir = options[SOURCEDIR].value;	// Utility.COMMON_DIRECTORY + "main/";
@@ -118,7 +125,7 @@ public class CLDRModify {
 	
 			if (options[VET_ADD].doesOccur) {
 	        	VettingAdder va = new VettingAdder(options[VET_ADD].value);
-	        	va.showFiles(cldrFactory);
+	        	va.showFiles(cldrFactory, targetDir);
 	        	return;
 	        }
 	
@@ -175,14 +182,16 @@ public class CLDRModify {
 				
 				CLDRFile k = (CLDRFile) cldrFactory.make(test, false).clone();
 				if (mergeFactory != null) {
+					int mergeOption = k.MERGE_ADD_ALTERNATE;
 					CLDRFile toMergeIn = (CLDRFile) mergeFactory.make(join_prefix + test + join_postfix, false).clone();				
-					if (options[JOIN_ARGS].doesOccur) {
-						if (options[JOIN_ARGS].value.indexOf("d") >= 0) toMergeIn.makeDraft();
-						if (options[JOIN_ARGS].value.indexOf("c") >= 0) toMergeIn.clearComments();
-						if (options[JOIN_ARGS].value.indexOf("x") >= 0) removePosix(toMergeIn);
-					}
 					if (toMergeIn != null) {
-						k.putAll(toMergeIn, k.MERGE_ADD_ALTERNATE);
+						if (options[JOIN_ARGS].doesOccur) {
+							if (options[JOIN_ARGS].value.indexOf("r") >= 0) mergeOption = k.MERGE_REPLACE_MY_DRAFT;
+							if (options[JOIN_ARGS].value.indexOf("c") >= 0) toMergeIn.clearComments();
+							if (options[JOIN_ARGS].value.indexOf("x") >= 0) removePosix(toMergeIn);
+						}
+						if (mergeOption == k.MERGE_ADD_ALTERNATE) toMergeIn.makeDraft();
+						k.putAll(toMergeIn, mergeOption);
 					}
 					// special fix
 					k.removeComment(" The following are strings that are not found in the locale (currently), but need valid translations for localizing timezones. ");
@@ -232,6 +241,19 @@ public class CLDRModify {
 		}
 	}
 	
+	/**
+	 * 
+	 */
+	private static void checkSuboptions(UOption givenOptions, UnicodeSet allowedOptions) {
+		if (givenOptions.doesOccur && !allowedOptions.containsAll(givenOptions.value)) {
+        	throw new IllegalArgumentException("Illegal sub-options for " 
+        			+ givenOptions.shortName 
+					+ ": "
+        			+ new UnicodeSet().addAll(givenOptions.value).removeAll(allowedOptions) 
+					+ "\r\nUse -? for help.");
+        }
+	}
+
 	/**
 	 * 
 	 */

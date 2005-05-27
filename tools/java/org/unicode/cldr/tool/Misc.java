@@ -60,7 +60,8 @@ public class Misc {
 	    CURRENT = 6,
 		WINDOWS = 7,
 		OBSOLETES = 8,
-		ALIASES = 9
+		ALIASES = 9,
+		INFO = 10
 		;
 	
 	private static final UOption[] options = {
@@ -74,6 +75,7 @@ public class Misc {
 	    UOption.create("windows", 'w', UOption.NO_ARG),
 	    UOption.create("obsoletes", 'o', UOption.NO_ARG),
 	    UOption.create("aliases", 'a', UOption.NO_ARG),
+	    UOption.create("info", 'i', UOption.NO_ARG),
 	};
 	
 	private static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
@@ -88,6 +90,7 @@ public class Misc {
 	+ "-w\tgenerates Windows timezone IDs" + XPathParts.NEWLINE
 	+ "-o\tlist display codes that are obsolete" + XPathParts.NEWLINE
 	+ "-o\tshows timezone aliases"
+	+ "-i\tgets element/attribute/value information"
 	;
 
 	/**
@@ -100,13 +103,13 @@ public class Misc {
 	        	System.out.println(HELP_TEXT);
 	        	return;
 	        }
-			cldrFactory = Factory.make(options[SOURCEDIR].value + "main\\", ".*");
+			cldrFactory = Factory.make(options[SOURCEDIR].value + "main\\", options[MATCH].value);
 			english = cldrFactory.make("en", false);
 			resolvedRoot = cldrFactory.make("root", true);
 			if (options[MATCH].value.equals("group1")) options[MATCH].value = "(en|fr|de|it|es|pt|ja|ko|zh)";
 			Set languages = new TreeSet(cldrFactory.getAvailableLanguages());
-			new Utility.MatcherFilter(options[MATCH].value).retainAll(languages);
-			new Utility.MatcherFilter("(sh|zh_Hans|sr_Cyrl)").removeAll(languages);
+			//new Utility.MatcherFilter(options[MATCH].value).retainAll(languages);
+			//new Utility.MatcherFilter("(sh|zh_Hans|sr_Cyrl)").removeAll(languages);
 			
 			if (options[CURRENT].doesOccur) {
 				printCurrentTimezoneLocalizations(languages);
@@ -121,6 +124,12 @@ public class Misc {
 			
 			if (options[WINDOWS].doesOccur) {
 				printWindowsZones();
+			}
+			
+			if (options[INFO].doesOccur) {
+				PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, "attributesAndValues.html");
+				new GenerateAttributeList(cldrFactory).show(pw);
+				pw.close();
 			}
 			
 			if (options[OBSOLETES].doesOccur) {

@@ -463,6 +463,21 @@ public class Utility {
 		}
 		return index;
 	}
+	
+    /**
+     * Replaces all occurances of piece with replacement, and returns new String
+     * Dumb implementation for now.
+     */
+    public static String replace(String source, String piece, String replacement) {
+        if (source == null || source.length() < piece.length()) return source;
+    	int pos = 0;
+        while (true) {
+            pos = source.indexOf(piece, pos);
+            if (pos < 0) return source;
+            source = source.substring(0,pos) + replacement + source.substring(pos + piece.length());
+            pos += replacement.length();
+        }
+    }
 
 	public static abstract class Transform {
 		public abstract Object transform(Object source);

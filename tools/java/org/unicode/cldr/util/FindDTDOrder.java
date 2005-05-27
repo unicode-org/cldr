@@ -201,7 +201,8 @@ class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         }
         public void attributeDecl(String eName, String aName, String type, String mode, String value) throws SAXException {
 			if (SHOW_ALL && log != null) log.println("attributeDecl");			
-            //if (SHOW_ALL && log != null) log.println("Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value);
+            // if (SHOW_ALL && log != null) log.println("Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value);
+			System.out.println("Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value);
         }
         public void internalEntityDecl(String name, String value) throws SAXException {
 			if (SHOW_ALL && log != null) log.println("internalEntityDecl");			

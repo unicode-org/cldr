@@ -370,7 +370,11 @@ public class CLDRFile implements Lockable {
     	return this;
     }
 
-    static final public int MERGE_KEEP_MINE = 0, MERGE_REPLACE_MINE = 1, MERGE_ADD_ALTERNATE = 2;
+    static final public int 
+		MERGE_KEEP_MINE = 0, 
+		MERGE_REPLACE_MINE = 1, 
+		MERGE_ADD_ALTERNATE = 2, 
+		MERGE_REPLACE_MY_DRAFT = 3;
     /**
      * Merges elements from another CLDR file. Note: when both have the same xpath key, 
      * the keepMine determines whether "my" values are kept
@@ -380,6 +384,7 @@ public class CLDRFile implements Lockable {
      */
     public CLDRFile putAll(CLDRFile other, int conflict_resolution) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+		XPathParts parts = new XPathParts(null, null);
     	if (conflict_resolution == MERGE_KEEP_MINE) {
     		Map temp = isSupplemental ? new TreeMap() : new TreeMap(ldmlComparator);
     		temp.putAll(other.xpath_value);
@@ -387,8 +392,46 @@ public class CLDRFile implements Lockable {
     		xpath_value = temp;    		
     	} else if (conflict_resolution == MERGE_REPLACE_MINE) {
     		xpath_value.putAll(other.xpath_value);
+    	} else if (conflict_resolution == MERGE_REPLACE_MY_DRAFT) {
+    		// first find all my alt=..proposed items
+    		Set hasDraftVersion = new HashSet();
+    		for (Iterator it = xpath_value.keySet().iterator(); it.hasNext();) {
+    			String cpath = (String) it.next();
+    			String fullpath = getFullXPath(cpath);
+    			if (fullpath.indexOf("[@draft") >= 0) {
+    				hasDraftVersion.add(getNondraftXPath(cpath)); // strips the alt and the draft
+    			}
+    		}
+    		// only replace draft items!
+    		// this is either an item with draft in the fullpath
+    		// or an item with draft and alt in the full path
+    		for (Iterator it = other.keySet().iterator(); it.hasNext();) {
+				String cpath = (String) it.next();
+				Value otherValueOld = (Value) other.xpath_value.get(cpath);
+				// fix the data
+				cpath = Utility.replace(cpath, "[@type=\"ZZ\"]", "[@type=\"QO\"]"); // fix because tag meaning changed after beta
+				cpath = getNondraftXPath(cpath);
+				String newValue = otherValueOld.getStringValue();
+				String newFullPath = getNondraftXPath(otherValueOld.fullXPath);
+				newFullPath = Utility.replace(newFullPath, "[@type=\"ZZ\"]", "[@type=\"QO\"]");
+				// another hack; need to add references back in
+				newFullPath = addReferencesIfNeeded(newFullPath, getFullXPath(cpath));
+				Value otherValue = new StringValue(newValue, newFullPath);
+
+				
+				if (!hasDraftVersion.contains(cpath)) {
+					if (cpath.startsWith("/ldml/identity/")) continue; // skip, since the error msg is not needed.
+					Value myVersion = (Value) xpath_value.get(cpath);
+					if (myVersion == null || !otherValue.getStringValue().equals(myVersion.getStringValue())) {
+						Log.logln(getLocaleID() + "\tDenied attempt to replace non-draft\r\n\tcurr: ["
+								+ myVersion + "]\r\n\twith: [" + otherValue + "]");
+						continue;
+					}
+				}
+				Log.logln(getLocaleID() + "\tVETTED: [" + otherValue + "]");
+				xpath_value.put(cpath, otherValue);
+    		}
     	} else if (conflict_resolution == MERGE_ADD_ALTERNATE){
-    		XPathParts parts = new XPathParts(null, null);
     		for (Iterator it = other.keySet().iterator(); it.hasNext();) {
     			String key = (String) it.next();
     			Value otherValue = (Value) other.xpath_value.get(key);
@@ -407,6 +450,26 @@ public class CLDRFile implements Lockable {
     			}
     		}
     	} else throw new IllegalArgumentException("Illegal operand: " + conflict_resolution);
+    	
+    	// throw out any alt=proposed values that are the same as the main
+    	for (Iterator it = xpath_value.keySet().iterator(); it.hasNext();) {
+    		String cpath = (String) it.next();
+    		if (cpath.indexOf("[@alt=") < 0) continue;
+    		String cpath2 = getNondraftXPath(cpath);
+    		String value = getStringValue(cpath);
+    		String value2 = getStringValue(cpath2);
+    		if (!value.equals(value2)) continue;
+    		// have to worry about cases where the info is not in the value!!
+       		String fullpath = getNondraftXPath(getFullXPath(cpath));
+    		String fullpath2 = getNondraftXPath(getFullXPath(cpath2));
+    		if (!fullpath.equals(fullpath2)) continue;
+    		Log.logln(getLocaleID() + "\tRemoving redundant alternate: " + getFullXPath(cpath) + " ;\t" + value);
+    		Log.logln("\t\tBecause of: " + getFullXPath(cpath2) + " ;\t" + value2);
+    		if (getFullXPath(cpath2).indexOf("[@references=") >= 0) {
+    			System.out.println("Warning: removing references: " + getFullXPath(cpath2));
+    		}
+    		it.remove();
+    	}
     	
     	xpath_comments.setInitialComment(
     			Utility.joinWithSeparation(xpath_comments.getInitialComment(),
@@ -429,6 +492,31 @@ private boolean isSupplemental;
     	return this;
     }
     
+	/**
+	 * 
+	 */
+	private String addReferencesIfNeeded(String newFullPath, String fullXPath) {
+		if (fullXPath == null || fullXPath.indexOf("[@references=") < 0) return newFullPath;
+		XPathParts parts = new XPathParts(null, null).set(fullXPath);
+		String accummulatedReferences = null;
+		for (int i = 0; i < parts.size(); ++i) {
+			Map attributes = parts.getAttributes(i);
+			String references = (String) attributes.get("references");
+			if (references == null) continue;
+			if (accummulatedReferences == null) accummulatedReferences = references;
+			else accummulatedReferences += ", " + references; 
+		}
+		if (accummulatedReferences == null) return newFullPath;
+		XPathParts newParts = new XPathParts(null, null).set(newFullPath);
+		Map attributes = newParts.getAttributes(newParts.size()-1);
+		String references = (String) attributes.get("references");
+		if (references == null) references = accummulatedReferences;
+		else references += ", " + accummulatedReferences;
+		attributes.put("references", references);
+		System.out.println("Changing " + newFullPath + " plus " + fullXPath + " to " + newParts.toString());
+		return newParts.toString();
+	}
+
 	/**
      * Removes an element from a CLDRFile.
      */
@@ -620,7 +708,7 @@ private boolean isSupplemental;
     			else if (attribute.equals("alt")) {
     				String value = (String) attributes.get(attribute);		
 	    			int proposedPos = value.indexOf("proposed");
-	    			if (proposedPos > 0) {
+	    			if (proposedPos >= 0) {
 	    				it.remove();
 	    				if (proposedPos > 0) {
 	    					restore = value.substring(0, proposedPos-1); // is of form xxx-proposedyyy
@@ -1676,6 +1764,23 @@ private boolean isSupplemental;
 			"hour", "minute", "second", "zone"}).lock();
     static Comparator zoneOrder = StandardCodes.make().getTZIDComparator();
     
+	/**
+	 * 
+	 */
+	public static Comparator getAttributeValueComparator(String element, String attribute) {
+		Comparator comp = valueOrdering;
+		if (attribute.equals("day")) { //  && (element.startsWith("weekend")
+			comp = dayValueOrder;
+		} else if (attribute.equals("type")) {
+			if (element.endsWith("FormatLength")) comp = lengthOrder;
+			else if (element.endsWith("Width")) comp = widthOrder;
+			else if (element.equals("day")) comp = dayValueOrder;
+			else if (element.equals("field")) comp = dateFieldOrder;
+			else if (element.equals("zone")) comp = zoneOrder;
+		}
+		return comp;
+	}		
+    
     /**
      * Comparator for attributes in CLDR files
      */
@@ -1726,16 +1831,7 @@ private boolean isSupplemental;
 						if (0 != (result = attributeOrdering.compare(akey, bkey))) return result;
 						String avalue = (String) am.get(akey);
 						String bvalue = (String) bm.get(bkey);
-						Comparator comp = valueOrdering;
-						if (akey.equals("day") && aname.startsWith("weekend")) {
-							comp = dayValueOrder;
-						} else if (akey.equals("type")) {
-							if (aname.endsWith("FormatLength ")) comp = lengthOrder;
-							else if (aname.endsWith("Width")) comp = widthOrder;
-							else if (aname.equals("day")) comp = dayValueOrder;
-							else if (aname.equals("field")) comp = dateFieldOrder;
-							else if (aname.equals("zone")) comp = zoneOrder;
-						}
+						Comparator comp = getAttributeValueComparator(aname, akey);
 						if (0 != (result = comp.compare(avalue, bvalue))) return result;
 					}
 				}
@@ -1745,7 +1841,7 @@ private boolean isSupplemental;
 			if (a.size() < b.size()) return -1;
 			if (a.size() > b.size()) return 1;
 			return 0;
-		}		
+		}
 	}
 	
 	private final static Map defaultSuppressionMap; 

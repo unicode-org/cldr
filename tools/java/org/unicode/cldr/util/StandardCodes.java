@@ -153,7 +153,7 @@ public class StandardCodes {
 			} else if (!type.equals("tzid")) {
 		        for (Iterator it = result.iterator(); it.hasNext();) {
 		        	String code = (String) it.next();
-		        	if (code.equals("root") || code.equals("ZZ")) continue;
+		        	if (code.equals("root") || code.equals("QO")) continue;
 		        	List data = getFullData(type, code);
 		        	if (data.size() < 3) System.out.println(code + "\t" + data);
 		        	if (data.get(0).equals("PRIVATE USE")

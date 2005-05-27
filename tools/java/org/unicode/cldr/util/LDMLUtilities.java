@@ -510,10 +510,7 @@ public class LDMLUtilities {
                 continue;
             }   
             String childName = child.getNodeName();
-            if(childName.equals(LDMLConstants.LDML)){
-                child = child.getFirstChild();
-                continue;
-            }
+
             int savedLength=xpath.length();
             xpath.append("/");
             xpath.append(childName);

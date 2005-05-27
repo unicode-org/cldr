@@ -8,7 +8,7 @@
 <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
 <meta name="keywords" content="Unicode, common locale data repository">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<title>CLDR - Data Formats</title>
+<title>Common Locale Data Repository - Data Formats</title>
 <link rel="stylesheet" type="text/css" href="http://www.unicode.org/webscripts/standard_styles.css">
 <style>
 <!--
@@ -78,13 +78,13 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
         <td valign="top" class="navColCell"><a href="index.html">CLDR Project</a></td>
       </tr>
       <tr>
-        <td valign="top" class="navColCell"><a href="repository_access.html">CLDR Releases</a></td>
-      </tr>
-      <tr>
         <td valign="top" class="navColCell"><a href="process.html">CLDR Technical Committee</a></td>
       </tr>
       <tr>
         <td valign="top" class="navColCell"><a href="procedures.html">CLDR-TC Procedures</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="repository_access.html">Repository Access</a></td>
       </tr>
       <tr>
         <td valign="top" class="navColCell">Data Formats</td>
@@ -169,114 +169,131 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
             <li>paste what you want to convert into <i>Input</i>, and click <i>Transform</i>.</li>
             <li>this will also give the NFC form of the text, which is preferred.</li>
           </ol>
-          <h2><span><a name="Minimum_Data">Minimum Recommended Localization Data</a></span></h2>
-          <p><span>The following describes the minimal data recommended before we consider a locale 
-          file for a language as a whole to have minimal data. (Of course, we would encourage more; 
-          this is just the minimum level.)</span></p>
-          <p><span>First define the following:</span></p>
+          <h2><span class="changed"><a name="Minimum_Data">Minimum Recommended Localization Data</a></span></h2>
+          <p><span class="changed">The following describes the minimal data recommended before we 
+          consider a locale file for a language as a whole to have minimal data. (Of course, we 
+          would encourage more; this is just the minimum level.)</span></p>
+          <p><span class="changed">First define the following:</span></p>
           <ul>
-            <li><span><span><i>Target-Language</i></span> is the language under consideration.</span></li>
-            <li><span><i>Target-Territories</i> is the list of territories found by looking up <span>
-            <i>Target-Language</i></span> in the &lt;languageData&gt; elements in
+            <li><span class="changed"><span style="background-color: #FFFF00"><i>Target-Language</i></span> 
+            is the language under consideration.</span></li>
+            <li><span class="changed"><i>Target-Territories</i> is the list of territories found by 
+            looking up <span style="background-color: #FFFF00"><i>Target-Language</i></span> in the 
+            &lt;languageData&gt; elements in
             <a href="http://unicode.org/cldr/data/common/main/supplementalData.xml">
             supplementalData.xml</a></span></li>
-            <li><span><i>Language-List</i> is <span><i>Target-Language</i></span>, plus</span><ul>
-              <li><span>Chinese, English, French, German, Italian, Japanese, Portuguese, Russian, 
-              Spanish (de, en, es, fr, it, ja, pt, ru, zh)</span></li>
+            <li><span class="changed"><i>Language-List</i> is
+            <span style="background-color: #FFFF00"><i>Target-Language</i></span>, plus</span><ul>
+              <li><span class="changed">Chinese, English, French, German, Italian, Japanese, 
+              Portuguese, Russian, Spanish (de, en, es, fr, it, ja, pt, ru, zh)</span></li>
             </ul>
             </li>
-            <li><span><i>Script-List</i> is the list of scripts in which <span><i>Target-Language</i></span> 
-            can be customarily written (found by looking up <span><i>Target-Language</i></span> in 
-            the &lt;languageData&gt; elements in
+            <li><span class="changed"><i>Script-List</i> is the list of scripts in which
+            <span style="background-color: #FFFF00"><i>Target-Language</i></span> can be customarily 
+            written (found by looking up <span style="background-color: #FFFF00"><i>Target-Language</i></span> 
+            in the &lt;languageData&gt; elements in
             <a href="http://unicode.org/cldr/data/common/main/supplementalData.xml">
             supplementalData.xml</a>), plus</span><ul>
-              <li><span>&nbsp;Latin (Latn)</span></li>
+              <li><span class="changed">&nbsp;Latin (Latn)</span></li>
             </ul>
             </li>
-            <li><span><i>Territory-List</i> is the list of territories formed by taking the <i>
-            Target-Territories</i> and adding the G6 and BRIC countries (Brazil, Russia, India, and 
-            China):</span><ul>
-              <li><span>Brazil, China, France, Germany, India, Italy, Japan, Russia, United Kingdom, 
-              United States (BR, CN, DE, GB, FR, IN, IT, JP, RU, US)</span></li>
+            <li><span class="changed"><i>Territory-List</i> is the list of territories formed by 
+            taking the <i>Target-Territories</i> and adding the G6 and BRIC countries (Brazil, 
+            Russia, India, and China):</span><ul>
+              <li><span class="changed">Brazil, China, France, Germany, India, Italy, Japan, Russia, 
+              United Kingdom, United States (BR, CN, DE, GB, FR, IN, IT, JP, RU, US)</span></li>
             </ul>
             </li>
-            <li><span><i>Currency-List</i> is the list of current official currencies used in any of 
-            the territories in <i>Territory-List</i>, found by looking at the region elements in
+            <li><span class="changed"><i>Currency-List</i> is the list of current official 
+            currencies used in any of the territories in <i>Territory-List</i>, found by looking at 
+            the region elements in
             <a href="http://unicode.org/cldr/data/common/main/supplementalData.xml">
             supplementalData.xml</a>.</span></li>
-            <li><span><i>Calendar-List</i> is the set of calendars in customary use in any of <i>
-            Target-Territories</i>, plus Gregorian.</span></li>
+            <li><span class="changed"><i>Calendar-List</i> is the set of calendars in customary use 
+            in any of <i>Target-Territories</i>, plus Gregorian.</span></li>
           </ul>
-          <p><span>The minimal data is then the following.</span></p>
+          <p><span class="changed">The minimal data is then the following.</span></p>
           <ol>
-            <li><span>identity</span></li>
-            <li><span>localeDisplayNames </span>
+            <li><span class="changed">identity</span></li>
+            <li><span class="changed">localeDisplayNames </span>
             <ol>
-              <li><span><i>languages: </i>localized names for all languages in <i>Language-List.</i></span></li>
-              <li><span><i>scripts:</i> localized names for all scripts in <i>Script-List</i>.</span></li>
-              <li><span><i>territories:</i> localized names for all territories in <i>Territory-List</i>.</span></li>
-              <li><span><i>variants, keys, types:</i> localized names for any in use in <i>
-              Target-Territories</i>; e.g. a translation for PHONEBOOK in a German locale.</span></li>
+              <li><span class="changed"><i>languages: </i>localized names for all languages in <i>
+              Language-List.</i></span></li>
+              <li><span class="changed"><i>scripts:</i> localized names for all scripts in <i>
+              Script-List</i>.</span></li>
+              <li><span class="changed"><i>territories:</i> localized names for all territories in
+              <i>Territory-List</i>.</span></li>
+              <li><span class="changed"><i>variants, keys, types:</i> localized names for any in use 
+              in <i>Target-Territories</i>; e.g. a translation for PHONEBOOK in a German locale.</span></li>
             </ol>
             </li>
-            <li><span>layout, orientation</span></li>
-            <li><span>exemplarCharacters</span></li>
-            <li><span>measurementSystem, paperSize</span></li>
-            <li><span>dates: all of the following for each calendar in <i>Calendar-List</i>.</span><ol>
-              <li><span>calendars: localized names</span></li>
-              <li><span>monthNames &amp; dayNames </span>
+            <li><span class="changed">layout, orientation</span></li>
+            <li><span class="changed">exemplarCharacters</span></li>
+            <li><span class="changed">measurementSystem, paperSize</span></li>
+            <li><span class="changed">dates: all of the following for each calendar in <i>
+            Calendar-List</i>.</span><ol>
+              <li><span class="changed">calendars: localized names</span></li>
+              <li><span class="changed">monthNames &amp; dayNames </span>
               <ul>
-                <li><span>context=format and width=narrow, wide, &amp; abbreviated</span></li>
-                <li><span>plus context=standAlone and width=narrow, wide, &amp; abbreviated, <i>if the 
-                grammatical forms of these are different than for context=format.</i></span></li>
+                <li><span class="changed">context=format and width=narrow, wide, &amp; abbreviated</span></li>
+                <li><span class="changed">plus context=standAlone and width=narrow, wide, &amp; 
+                abbreviated, <i>if the grammatical forms of these are different than for 
+                context=format.</i></span></li>
               </ul>
               </li>
-              <li><span>week: minDays, firstDay, weekendStart, weekendEnd</span><ul>
-                <li><span>if some of these vary in territories in <i>Territory-List</i>, include 
-                territory locales for those that do.</span></li>
+              <li><span class="changed">week: minDays, firstDay, weekendStart, weekendEnd</span><ul>
+                <li><span class="changed">if some of these vary in territories in <i>Territory-List</i>, 
+                include territory locales for those that do.</span></li>
               </ul>
               </li>
-              <li><span>am, pm, eraNames, eraAbbr</span></li>
-              <li><span>dateFormat, timeFormat: full, long, medium, short</span></li>
+              <li><span class="changed">am, pm, eraNames, eraAbbr</span></li>
+              <li><span class="changed">dateFormat, timeFormat: full, long, medium, short</span></li>
             </ol>
             </li>
-            <li><span>timeZoneNames:</span><ol>
-              <li><span>exemplar cities for the timezones in each territory in <i>Territory-List</i> 
-              that has more than one timezone</span></li>
-              <li><span>hourFormat, hoursFormat, gmtFormat, regionFormat, fallbackFormat</span></li>
+            <li><span class="changed">timeZoneNames:</span><ol>
+              <li><span class="changed">exemplar cities for the timezones in each territory in <i>
+              Territory-List</i> that has more than one timezone</span></li>
+              <li><span class="changed">hourFormat, hoursFormat, gmtFormat, regionFormat, 
+              fallbackFormat</span></li>
             </ol>
             </li>
-            <li><span>numbers: symbols, decimalFormats, scientificFormats, percentFormats, 
-            currencyFormats</span></li>
-            <li><span>currencies: displayName and symbol for all currencies in <i>Currency-List</i></span></li>
-            <li><span>collation sequence</span></li>
-            <li><span>yesstr, yesexpr, nostr, noexpr</span></li>
+            <li><span class="changed">numbers: symbols, decimalFormats, scientificFormats, 
+            percentFormats, currencyFormats</span></li>
+            <li><span class="changed">currencies: displayName and symbol for all currencies in <i>
+            Currency-List</i></span></li>
+            <li><span class="changed">collation sequence</span></li>
+            <li><span class="changed">yesstr, yesexpr, nostr, noexpr</span></li>
           </ol>
-          <p><span>Items should <i>only</i> be included if they are not the same as the default, 
-          which is:</span></p>
+          <p><span class="changed">Items should <i>only</i> be included if they are not the same as 
+          the default, which is:</span></p>
           <ul>
-            <li><span>what is in root, if there is something defined there.</span></li>
-            <li><span>for timezone IDs:</span><ul>
-              <li><span>if a territory has multiple zones, then the territory name</span></li>
-              <li><span>otherwise the field in the ID, after replacing _ by space.</span><ul>
-                <li><span>Eg, &quot;America/Los_Angeles&quot; =&gt; &quot;Los Angeles&quot;</span></li>
+            <li><span class="changed">what is in root, if there is something defined there.</span></li>
+            <li><span class="changed">for timezone IDs:</span><ul>
+              <li><span class="changed">if a territory has multiple zones, then the territory name</span></li>
+              <li><span class="changed">otherwise the field in the ID, after replacing _ by space.</span><ul>
+                <li><span class="changed">Eg, &quot;America/Los_Angeles&quot; =&gt; &quot;Los Angeles&quot;</span></li>
               </ul>
               </li>
             </ul>
             </li>
-            <li><span>for collation sequence, the UCA DUCET (Default Unicode Collation Element 
-            Table)</span><ul>
-              <li><span>however, in that case the locale must be added to the validSubLocale list in
+            <li><span class="changed">for collation sequence, the UCA DUCET (Default Unicode 
+            Collation Element Table)</span><ul>
+              <li><span class="changed">however, in that case the locale must be added to the 
+              validSubLocale list in
               <a href="http://unicode.org/cldr/data/common/collation/root.xml">collation/root.xml</a>.</span></li>
             </ul>
             </li>
-            <li><span>for currency symbol, language, territory, script names, variants, keys, types, 
-            the internal code identifiers are used, eg,</span><ul>
-              <li><span>currencies: EUR, USD, JPY, ...</span></li>
-              <li><span><span>languages: en, ja, ru, ...</span></span></li>
-              <li><span><span>territories: GB, JP, FR, ...</span></span></li>
-              <li><span><span>scripts: Latn, Thai, ...</span></span></li>
-              <li><span><span>variants: PHONEBOOK,...</span></span></li>
+            <li><span class="changed">for currency symbol, language, territory, script names, 
+            variants, keys, types, the internal code identifiers are used, eg,</span><ul>
+              <li><span class="changed">currencies: EUR, USD, JPY, ...</span></li>
+              <li><span class="changed"><span style="background-color: #FFFF00">languages: en, ja, 
+              ru, ...</span></span></li>
+              <li><span class="changed"><span style="background-color: #FFFF00">territories: GB, JP, 
+              FR, ...</span></span></li>
+              <li><span class="changed"><span style="background-color: #FFFF00">scripts: Latn, Thai, 
+              ...</span></span></li>
+              <li><span class="changed"><span style="background-color: #FFFF00">variants: 
+              PHONEBOOK,...</span></span></li>
             </ul>
             </li>
           </ul>
@@ -285,14 +302,16 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
             <p>The exact collation sequence for a given language may be difficult to determine. The 
             base ordering of characters can be fairly straightforward, but there are quite a few 
             other complications involved. </p>
-            <p><span>Most standards that specify collation, such as DIN or CS, are not </span><span>
-            targeted</span><span> at algorithmic sorting, and are not fully complete algorithmic 
-            specifications. For example, </span><span>CSN</span><span> 97 6030 requires 
-            transliteration of foreign scripts, but there are many choices as to how to 
-            transliterate, and the exact mechanism is not specified. It also specifies that 
+            <p><span style="background-color: #FFFF00">Most standards that specify collation, such 
+            as DIN or CS, are not </span><span style="background-color: #FFFF00">targeted</span><span style="background-color: #FFFF00"> 
+            at algorithmic sorting, and are not fully complete algorithmic specifications. For 
+            example, </span><span style="background-color: #FFFF00">CSN</span><span style="background-color: #FFFF00"> 
+            97 6030 requires transliteration of foreign scripts, but there are many choices as to 
+            how to transliterate, and the exact mechanism is not specified. It also specifies that 
             geometric shapes are sorted by the number of vertices and edges, which is, at a minimum, 
             difficult to determine; and are subject to variation in glyphs.</span></p>
-            <p><span>With respect to sorting standards, the CLDR goals are to match the<br>
+            <p><span style="background-color: #FFFF00">With respect to sorting standards, the CLDR 
+            goals are to match the<br>
             sorting of exemplar letters, numbers, and common punctuation and leave everything else 
             to the standard UCA ordering. </span>For more information, see
             <a href="http://www.unicode.org/reports/tr10/#Introduction">UTS #10: Unicode Collation 
@@ -610,8 +629,8 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
             <p><span>They are the shortest possible names (in terms of width in common fonts), and 
             are not guaranteed to be unique. Think of what you might find on a credit-card-sized 
             wallet or checkbook calendar, such as in English: <i>S M T W T F S</i></span></p>
-            <p><span><span>It is probably an error if a narrow field includes more than one Unicode 
-            base character.</span></span></p>
+            <p><span><span style="background-color: #FFFF00">It is probably an error if a narrow 
+            field includes more than one Unicode base character.</span></span></p>
           </blockquote>
           <h3>AM / PM</h3>
           <blockquote>

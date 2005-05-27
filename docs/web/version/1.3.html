@@ -49,13 +49,13 @@ td.item     { background-color:#FFFFFF; border:none; }
         <td valign="top" class="navColCell"><a href="index.html">CLDR Project</a></td>
       </tr>
       <tr>
-        <td valign="top" class="navColCell"><a href="../repository_access.html">CLDR Releases</a></td>
-      </tr>
-      <tr>
         <td valign="top" class="navColCell"><a href="process.html">CLDR Technical Committee</a></td>
       </tr>
       <tr>
         <td valign="top" class="navColCell"><a href="procedures.html">CLDR-TC Procedures</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="../repository_access.html">Repository Access</a></td>
       </tr>
       <tr>
         <td valign="top" class="navColCell"><a href="data_formats.html">Data Formats</a></td>
@@ -112,44 +112,42 @@ td.item     { background-color:#FFFFFF; border:none; }
       <tr>
         <td class="contents" valign="top">
         <div style="margin:1em">
-          <h1 style="margin-bottom: 1em">CLDR 1.3 Release Note</h1>
-          <p style="margin-bottom: 1em">The following are the files for this release. For a 
-          description of their purpose and format, see <a href="../repository_access.html">CLDR 
-          Releases</a>.</p>
+          <h1 style="margin-bottom: 1em">CLDR 1.3β Release Note</h1>
           <div align="center">
             <center>
             <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
               <tr>
+                <th>Release</th>
                 <th>No.</th>
                 <th>Note</th>
+                <th>Delta</th>
                 <th>Data</th>
                 <th>Spec</th>
-                <th>Delta</th>
                 <th>CVS Tag</th>
               </tr>
               <tr>
-                <td><b>1.3</b></td>
-                <td align="center"><b><a href="1.3.html">Version1.3</a></b></td>
-                <td><b><a href="http://unicode.org/Public/cldr/1.3.0/">CLDR1.3</a></b></td>
-                <td><b><a href="http://www.unicode.org/reports/tr35/tr35-5.html">LDML1.3</a> </b>
-                </td>
-                <td align="center"><b>
-                <a href="http://bugs.icu-project.org/cgibin/locale-bugs/closed?expression=target.*1.3">
-                Changes1.3</a></b></td>
-                <td><b><code>release-1-3</code></b></td>
+                <th align="left" bgcolor="#FFFF00">Beta:</th>
+                <td style="background-color: #FFFF00">1.3β</td>
+                <td align="center" style="background-color: #FFFF00"><a href="1.3.html">Version1.3</a></td>
+                <td align="center" style="background-color: #FFFF00">n/a</td>
+                <td style="background-color: #FFFF00">
+                <a href="http://unicode.org/Public/cldr/1.3.0/">CLDR1.3β</a></td>
+                <td style="background-color: #FFFF00">
+                <a href="http://unicode.org/cldr/data/docs/web/tr35.html">LDML1.3β</a> </td>
+                <td style="background-color: #FFFF00"><code>release-1-3-beta</code></td>
               </tr>
             </table>
             </center>
           </div>
-          <p>CLDR Version 1.3 contains contains data for <b>317</b> locales: <b>107</b> languages 
-          and <b>131</b> territories.</p>
-          <blockquote>
-            <p><i>This is a stable release and may be used as reference material or cited as a 
-            normative reference by other specifications. Although the data in this release will not 
-            be changed, feature requests for future versions filed at
-            <a href="file:///c:/Unicode-CVS2/cldr/docs/web/filing_bug_reports.html">Bug Reports</a>.</i></p>
-          </blockquote>
-          <p>In this release, the major additions to CLDR are: </p>
+          <p>The 1.3 version of CLDR is at <b>beta</b> status.<br>
+          <br>
+          The beta is not complete: it does not contain changes for all the additions to the 
+          specification and additions/fixes to the data slated for CLDR 1.3, and should not be used 
+          in implementations. It does contain all the planned additions of data (with a few 
+          exceptions).</p>
+          <p>We encourage people to look at the data and provide feedback on the progress towards 
+          CLDR 1.3, especially on the new POSIX-format data and the changes in the specification.</p>
+          <p>The main features are:</p>
           <ul>
             <li>The addition of new data to support localization of timezones</li>
             <li>The addition of data for UN M.49 regions, including continents and region.</li>
@@ -162,114 +160,19 @@ td.item     { background-color:#FFFFFF; border:none; }
             implement the LDML specification using CLDR data.</li>
             <li>The addition of metadata for LDML</li>
             <li>The addition of mappings from language to script and territory</li>
-            <li>Various other fixes and additions of data, and extensions to the specification.</li>
+            <li>Various other fixes and additions of data, and extensions to the specification.<br>
+            <br>
+            In the specification, please look at the changed areas (in yellow), especially those 
+            starting with &quot;Issues:&quot;</li>
           </ul>
-          <h3><a name="Languages_and_Territories">Languages and Territories</a></h3>
-          <p><b>Languages (107):</b> Afar (aa), Afrikaans, Albanian (sq, Shqipe),
-          <span title=", ʿēmarīnya">Amharic (am, አማርኛ)</span>, <span title=", ‎Ạlʿrbyẗ‎">Arabic (ar, 
-          ‎العربية‎)</span>, <span title=", Hayerēn; , Hayerēn">Armenian (hy, Հայերէն)</span>, 
-          Assamese, Azerbaijani (az; az_Cyrl; az_Latn), Basque (eu, Euskara),
-          <span title=", Belaruskí">Belarusian (be, Беларускі)</span>, <span title=", Bānlā">Bengali 
-          (bn, বাংলা)</span>, Blin, Bosnian, <span title=", Bʺlgarski">Bulgarian (bg, Български)</span>, 
-          Catalan (ca, Català), <span title=", Zhōng Wén; , Zhōng Wén">Chinese (zh, 中文; zh_Hant, 中文)</span>, 
-          Cornish (kw, Kernewek), Croatian (hr, Hrvatski), Czech (cs, Čeština), Danish (da, Dansk), 
-          Divehi, Dutch (nl, Nederlands), Dzongkha, English (en), Esperanto, Estonian (et, Eesti), 
-          Faroese (fo, Føroyskt), Finnish (fi, Suomi), French (fr, Français), Gallegan (gl, Galego), 
-          Geez, Georgian, German (de, Deutsch), <span title=", Ellēniká; , Ellēniká">Greek (el, 
-          Ελληνικά)</span>, <span title=", Gujarātī">Gujarati (gu, ગુજરાતી)</span>, Hawaiian,
-          <span title=", ‎ʻbryţ‎">Hebrew (he, ‎עברית‎)</span>, <span title=", Hindī">Hindi (hi, हिंदी)</span>, 
-          Hungarian (hu, Magyar), Icelandic (is, Íslenska), Indonesian (id, Bahasa Indonesia), 
-          Inuktitut, Irish (ga, Gaeilge), Italian (it, Italiano), Japanese (ja, 日本語), Kalaallisut,
-          <span title=", Kannaḍa">Kannada (kn, ಕನ್ನಡ)</span>, <span title=", Kˌazakˌ">Kazakh (kk, 
-          Қазақ)</span>, Khmer, Kirghiz, <span title=", Kōṅkaṇī">Konkani (kok, कोंकणी)</span>,
-          <span title=", Hangug" eo>Korean (ko, 한국어)</span>, Lao, Latvian (lv, Latviešu), Lithuanian 
-          (lt, Lietuvių), <span title=", Makedonski">Macedonian (mk, Македонски)</span>, Malay (ms, 
-          Bahasa Melayu), <span title=", Malayāḷaṁ">Malayalam (ml, മലയാളം)</span>, Maltese (mt, 
-          Malti), Manx (gv, Gaelg), <span title=", Marāṭhī">Marathi (mr, मराठी)</span>, Mongolian, 
-          Norwegian Bokmål (nb, Norsk Bokmål), Norwegian Nynorsk (nn, Norsk Nynorsk),
-          <span title=", Ōṛi" ā>Oriya (or, ଓଡ଼ିଆ)</span>, Oromo (om, Oromoo), <span title=", ‎Psˌtw‎">
-          Pashto (Pushto) (ps, ‎پښتو‎)</span>, <span title=", ‎Fạrsy̰‎">Persian (fa, ‎فارسی‎)</span>, 
-          Polish (pl, Polski), Portuguese (pt, Português), <span title=", Pajābī">Punjabi (pa, ਪੰਜਾਬੀ)</span>, 
-          Romanian (ro, Română), <span title=", Russkij">Russian (ru, Русский)</span>, Sanskrit,
-          <span title=", Srpski; ">Serbian (sr, Српски; sr_Latn, Srpski)</span>, Sidamo, Slovak (sk, 
-          Slovenský), Slovenian (sl, Slovenščina), Somali (so, Soomaali), Spanish (es, Español), 
-          Swahili (sw, Kiswahili), Swedish (sv, Svenska), Syriac, <span title=", Tamiḻ">Tamil (ta, 
-          தமிழ்)</span>, Tatar, <span title=", Telugu">Telugu (te, తెలుగు)</span>,
-          <span title=", Thịy">Thai (th, ไทย)</span>, Tigre, <span title=", Tīgīrīnya">Tigrinya (ti, 
-          ትግርኛ)</span>, Turkish (tr, Türkçe), <span title=", Ukraí̈nsʹka">Ukrainian (uk, Українська)</span>, 
-          Urdu, Uzbek (uz; uz_Arab; uz_Cyrl; uz_Latn), Vietnamese (vi, Tiếng Việt), Walamo, Welsh 
-          (cy, Cymraeg) </p>
-          <p><b>Countries (131):</b> <span title=", ‎Ạfgẖạnstạn‎; , ‎Ạfgẖạnstạn‎; ; ">Afghanistan (fa, 
-          ‎افغانستان‎; ps, ‎افغانستان‎; uz; uz_Arab)</span>, Albania (sq, Shqipëria),
-          <span title=", ‎Ạljzạỷr‎">Algeria (ar, ‎الجزائر‎)</span>, American Samoa, Argentina,
-          <span title=", Hayastani Hanrapetutʻiwn">Armenia (hy, Հայաստանի Հանրապետութիւն)</span>, 
-          Australia, Austria (de, Österreich), Azerbaijan (az; az_Cyrl; az_Latn),
-          <span title=", ‎Ạlbḥryn‎">Bahrain (ar, ‎البحرين‎)</span>, <span title=", Belarusʹ">Belarus 
-          (be, Беларусь)</span>, Belgium (de, Belgien; en; fr, Belgique; nl, België), Belize, 
-          Bhutan, Bolivia, <span title=", Bosna I Hercegovina; ">Bosnia and Herzegovina (bs; sr, 
-          Босна И Херцеговина; sr_Latn, Bosna I Hercegovina)</span>, Botswana, Brazil (pt, Brasil), 
-          Brunei, <span title=", Bʺlgariâ">Bulgaria (bg, България)</span>, Cambodia, Canada (en; 
-          fr), Chile, <span title=", Zhōng Guó">China (zh, 中国)</span>, Colombia, Costa Rica, Croatia 
-          (hr, Hrvatska), CS (sr; sr_Latn), <span title=", Kýpros">Cyprus (el, Κύπρος)</span>, Czech 
-          Republic (cs, Česká Republika), Denmark (da, Danmark), Djibouti (aa; so, Jabuuti), 
-          Dominican Republic (es, República Dominicana), Ecuador, <span title=", ‎Mṣr‎">Egypt (ar, ‎مصر‎)</span>, 
-          El Salvador, <span title=", ʿerītīra; ">Eritrea (aa; byn; gez; ti, ኤርትራ; tig)</span>, 
-          Estonia (et, Eesti), <span title=", ʿitīyophīya; ; ; ; ; , ʿitīyophīya; ">Ethiopia (aa; 
-          am, ኢትዮጵያ; gez; om, Itoophiyaa; sid; so, Itoobiya; ti, ኢትዮጵያ; wal)</span>, Faroe Islands (fo, 
-          Føroyar), Finland (fi, Suomi; sv), France, Georgia, Germany (de, Deutschland),
-          <span title=", Elláda">Greece (el, Ελλάδα)</span>, Greenland (kl, Kalaallit Nunaat), Guam, 
-          Guatemala, Honduras,
-          <span title=", Zhōng Huá Rén Mín Gòng Hé Guó Xiāng Gǎng Tè Bié Xíng Zhèng Qū">Hong Kong 
-          S.A.R. China (en; zh_Hant, 中華人民共和國香港特別行政區)</span>, Hungary (hu, Magyarország), Iceland 
-          (is, Ísland),
-          <span title=", ‎Ạlhnd‎; ; , Bhārata; ; , Bhārata; , Bhārata; , Bhārata; , Bhārata; , Intya; , Bhārata; , Bhārata; , Bhārata; ; , Intiyā; , Bhārata Dēḷaṁ">
-          India (ar, ‎الهند‎; as; bn, ভারত; en; gu, ભારત; hi, भारत; kn, ಭಾರತ; kok, भारत; ml, ഇന്ത്യ; 
-          mr, भारत; or, ଭାରତ; pa, ਭਾਰਤ; sa; ta, இந்தியா; te, భారత దేళం)</span>, Indonesia,
-          <span title=", ‎Ạy̰rạn‎">Iran (fa, ‎ایران‎)</span>, <span title=", ‎Ạlʿrạq‎">Iraq (ar, ‎العراق‎)</span>, 
-          Ireland (en; ga, Éire), <span title=", ‎Yşrʼl‎">Israel (he, ‎ישראל‎)</span>, Italy (it, 
-          Italia), Jamaica, Japan (ja, 日本), <span title=", ‎Ạlạrdn‎">Jordan (ar, ‎الاردن‎)</span>,
-          <span title=", Kˌazakˌstan">Kazakhstan (kk, Қазақстан)</span>, Kenya (om, Keeniyaa; so, 
-          Kiiniya; sw), <span title=", ‎Ạlkwyt‎">Kuwait (ar, ‎الكويت‎)</span>, Kyrgyzstan, Laos, 
-          Latvia (lv, Latvija), <span title=", ‎Lbnạn‎">Lebanon (ar, ‎لبنان‎)</span>,
-          <span title=", ‎Lybyạ‎">Libya (ar, ‎ليبيا‎)</span>, Liechtenstein, Lithuania (lt, Lietuva), 
-          Luxembourg (de, Luxemburg; fr), <span title=", Ào Mén Tè Bié Xíng Zhèng Qū">Macao S.A.R. 
-          China (zh_Hant, 澳門特別行政區)</span>, <span title=", Makedoniǰa">Macedonia (mk, Македонија)</span>, 
-          Malaysia, Maldives, Malta (en; mt), Marshall Islands, Mexico (es, México), Monaco, 
-          Mongolia, <span title=", ‎Ạlmgẖrb‎">Morocco (ar, ‎المغرب‎)</span>, Netherlands (nl, 
-          Nederland), New Zealand, Nicaragua, Northern Mariana Islands, Norway (nb, Norge; nn, Noreg),
-          <span title=", ‎ʿmạn‎">Oman (ar, ‎عمان‎)</span>, Pakistan (en; ur), Panama (es, Panamá), 
-          Paraguay, Peru (es, Perú), Philippines, Poland (pl, Polska), Portugal, Puerto Rico,
-          <span title=", ‎Qṭr‎">Qatar (ar, ‎قطر‎)</span>, Romania (ro, România),
-          <span title=", Rossiâ; ">Russia (ru, Россия; tt)</span>,
-          <span title=", ‎Ạlʿrbyẗ Ạlsʿwdyẗ‎">Saudi Arabia (ar, ‎العربية السعودية‎)</span>,
-          <span title=", Srbiǰa I Crna Gora">Serbia and Montenegro (sr_Latn, Srbija I Crna Gora; sr, 
-          Србија И Црна Гора)</span>, <span title=", Xīn Jiā Pō">Singapore (en; zh, 新加坡)</span>, 
-          Slovakia (sk, Slovenská Republika), Slovenia (sl, Slovenija), Somalia (so, Soomaaliya), 
-          South Africa (af, Suid-Afrika; en), <span title=", Daehanmingug">South Korea (ko, 대한민국)</span>, 
-          Spain (ca, Espanya; es, España; eu, Espainia; gl, España), <span title=", ‎Ạlswdạn‎">Sudan 
-          (ar, ‎السودان‎)</span>, Sweden (sv, Sverige), Switzerland (de, Schweiz; fr, Suisse; it, 
-          Svizzera), <span title=", ‎Swryẗ‎; ">Syria (ar, ‎سورية‎; syr)</span>,
-          <span title=", Tái Wān">Taiwan (zh_Hant, 臺灣)</span>, Tanzania,
-          <span title=", Pratheṣ̄thịy">Thailand (th, ประเทศไทย)</span>, Trinidad and Tobago,
-          <span title=", ‎Twns‎">Tunisia (ar, ‎تونس‎)</span>, Turkey (tr, Türkiye), U.S. Virgin 
-          Islands, <span title=", Ukraina; , Ukraí̈na">Ukraine (ru, Украина; uk, Україна)</span>,
-          <span title=", ‎Ạlạmạrạt Ạlʿrbyẗ Ạlmtḥdẗ‎">United Arab Emirates (ar, ‎الامارات العربية 
-          المتحدة‎)</span>, United Kingdom (cy, Prydain Fawr; en; gv, Rywvaneth Unys; kw, Rywvaneth 
-          Unys), United States (en; es, Estados Unidos; haw), United States Minor Outlying Islands, 
-          Uruguay, Uzbekistan (uz_Cyrl; uz_Latn; uz), Venezuela, Vietnam (vi, Việt Nam),
-          <span title=", ‎Ạlymn‎">Yemen (ar, ‎اليمن‎)</span>, Zimbabwe (zw)</p>
-          <p><font style="font-size: 90%;"><b>Notes: </b></font></p>
-          <ul>
-            <li><font style="font-size: 90%;">Territories with multiple locales may appear more than 
-            once.</font></li>
-            <li><font style="font-size: 90%;">Tooltips will show the Latin transliteration. (To set 
-            your tooltip font in IE, right click on the desktop, pick 
-            Properties&gt;Appearance&gt;Advanced&gt;Item: ToolTip, then set the font to Arial Unicode MS or 
-            other large font.)</font></li>
-            <li><font style="font-size: 90%;">If the above doesn&#39;t display in your browser, see
-            <a href="http://www.unicode.org/help/display_problems.html">Display Problems?</a></font></li>
-          </ul>
-        </div>
+          <p><b>Notes:</b> </p>
+          <ol>
+            <li>For more information on the organization of CLDR data, see
+            <a href="../repository_access.html">Repository Access</a></li>
+            <li>Feedback should <b>not</b> be provided via the online Unicode forms; instead, use
+            <a href="filing_bug_reports.html">Filing Bug Reports</a> </li>
+          </ol>
+          <p>&nbsp;</div>
         </td>
       </tr>
     </table>

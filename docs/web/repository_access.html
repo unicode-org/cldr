@@ -8,7 +8,7 @@
 <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
 <meta name="keywords" content="Unicode, common locale data repository">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<title>CLDR Releases</title>
+<title>Common Locale Data - Repository Access</title>
 <link rel="stylesheet" type="text/css" href="http://www.unicode.org/webscripts/standard_styles.css">
 <style>
 <!--
@@ -46,6 +46,10 @@ td.item     { background-color:#FFFFFF; border:none; }
         <td class="navColTitle" colspan="2">Contents</td>
       </tr>
       <tr>
+        <td valign="top" class="navColCell" colspan="2"><a href="#latest_version">Latest Release 
+        Version</a></td>
+      </tr>
+      <tr>
         <td valign="top" class="navColCell" colspan="2"><a href="#latest_draft_version">Latest Draft 
         Version</a></td>
       </tr>
@@ -64,14 +68,14 @@ td.item     { background-color:#FFFFFF; border:none; }
         <td valign="top" class="navColCell" colspan="2"><a href="index.html">CLDR Project</a></td>
       </tr>
       <tr>
-        <td valign="top" class="navColCell" colspan="2">CLDR Releases</td>
-      </tr>
-      <tr>
         <td valign="top" class="navColCell" colspan="2"><a href="process.html">CLDR Technical 
         Committee</a></td>
       </tr>
       <tr>
         <td valign="top" class="navColCell" colspan="2"><a href="procedures.html">CLDR-TC Procedures</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell" colspan="2">Repository Access</td>
       </tr>
       <tr>
         <td valign="top" class="navColCell" colspan="2"><a href="data_formats.html">Data Formats</a></td>
@@ -130,15 +134,7 @@ td.item     { background-color:#FFFFFF; border:none; }
       <tr>
         <td class="contents" valign="top">
         <div style="margin:1em">
-          <h1 style="margin-bottom: 1em">CLDR Releases</h1>
-          <blockquote>
-            <p><i>Each release of CLDR is a stable release and may be used as reference material or 
-            cited as a normative reference by other specifications. Once released, the data will not 
-            be changed. Bug reports and feature requests for subsequent versions may filed at
-            <a href="filing_bug_reports.html">Bug Reports</a>.</i></p>
-          </blockquote>
-          <p style="margin-bottom: 1em">The following table provides access to each released 
-          version.</p>
+          <h1 style="margin-bottom: 1em">Repository Access</h1>
           <div align="center">
             <center>
             <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
@@ -146,66 +142,85 @@ td.item     { background-color:#FFFFFF; border:none; }
                 <th>Release</th>
                 <th>No.</th>
                 <th>Note</th>
+                <th>Delta</th>
                 <th>Data</th>
                 <th>Spec</th>
-                <th>Delta</th>
                 <th>CVS Tag</th>
               </tr>
               <tr>
-                <th align="left">Latest:</th>
-                <td><b>1.3</b></td>
-                <td align="center"><b><a href="version/1.3.html">Version1.3</a></b></td>
-                <td><b><a href="http://unicode.org/Public/cldr/1.3.0/">CLDR1.3</a></b></td>
-                <td><b><a href="http://www.unicode.org/reports/tr35/tr35-5.html">LDML1.3</a> </b>
-                </td>
-                <td align="center"><b>
-                <a href="http://bugs.icu-project.org/cgibin/locale-bugs/closed?expression=target.*1.3">
-                Changes1.3</a></b></td>
-                <td><b><code>release-1-3</code></b></td>
-              </tr>
-              <tr>
-                <th align="left" rowspan="4">Previous: </th>
+                <th align="left">Latest: </th>
                 <td>1.2</td>
                 <td><a href="version/1.2.html">Version1.2</a></td>
-                <td><a href="http://www.unicode.org/Public/cldr/cldr1.2.zip">CLDR1.2</a></td>
-                <td><a href="http://www.unicode.org/reports/tr35/tr35-4.html">LDML1.2</a></td>
                 <td>
                 <a href="http://bugs.icu-project.org/cgibin/locale-bugs/closed?expression=target.*1.2">
                 Changes1.2</a></td>
+                <td><a href="http://www.unicode.org/Public/cldr/cldr1.2.zip">CLDR1.2</a></td>
+                <td><a href="http://www.unicode.org/reports/tr35/tr35-4.html">LDML1.2</a></td>
                 <td><code>release-1-2</code></td>
               </tr>
               <tr>
+                <th align="left" bgcolor="#FFFF00">Beta:</th>
+                <td style="background-color: #FFFF00">1.3β</td>
+                <td align="center" style="background-color: #FFFF00"><a href="version/1.3.html">
+                Version1.3</a></td>
+                <td align="center" style="background-color: #FFFF00">n/a</td>
+                <td style="background-color: #FFFF00">
+                <a href="http://unicode.org/Public/cldr/1.3.0/">CLDR1.3β</a></td>
+                <td style="background-color: #FFFF00">
+                <a href="http://unicode.org/cldr/data/docs/web/tr35.html">LDML1.3β</a> </td>
+                <td style="background-color: #FFFF00"><code>release-1-3-beta</code></td>
+              </tr>
+              <tr>
+                <th align="left">Latest Draft:</th>
+                <td>1.3δ</td>
+                <td align="center">n/a</td>
+                <td align="center">n/a</td>
+                <td><a href="http://www.unicode.org/cldr/data/common/">CLDR1.3δ</a> </td>
+                <td><a href="http://unicode.org/cldr/data/docs/web/tr35.html">LDML1.2δ</a></td>
+                <td><code>HEAD</code></td>
+              </tr>
+              <tr>
+                <th align="left" rowspan="3">Previous: </th>
                 <td>1.1.1</td>
+                <td align="center">n/a</td>
                 <td align="center">n/a</td>
                 <td><a href="http://www.unicode.org/Public/cldr/cldr1.1.1.zip">CLDR1.1.1</a></td>
                 <td><a href="http://www.unicode.org/reports/tr35/tr35-2.html">LDML1.1</a></td>
-                <td align="center">n/a</td>
                 <td><code>release-1-1-1</code></td>
               </tr>
               <tr>
                 <td>1.1</td>
                 <td align="center">n/a</td>
+                <td align="center">n/a</td>
                 <td><a href="http://www.unicode.org/Public/cldr/cldr1.1.zip">CLDR1.1</a></td>
                 <td><a href="http://www.unicode.org/reports/tr35/tr35-2.html">LDML1.1</a></td>
-                <td align="center">n/a</td>
                 <td><code>release-1-1</code></td>
               </tr>
               <tr>
                 <td>1.0</td>
-                <td align="center" colspan="4">See <a href="#CLDR_1.0_Release">CLDR 1.0 Release</a></td>
+                <td colspan="4" align="center">See <a href="#CLDR_1.0_Release">CLDR 1.0 Release</a></td>
                 <td><code>release-1-0</code></td>
               </tr>
             </table>
             </center>
           </div>
-          <p>The Release Note contains a general description of the contents of the release. The 
-          Data document is a zip file containing the contents of the release. The Spec is the 
-          version of <a href="http://www.unicode.org/reports/tr35/">UTS #35: LDML</a> that 
-          corresponds to the release. The Delta document points to a list of all the bug fixes and 
-          features in the release, listed under bug numbers. Most of these numbers also can be used 
-          to get the precise corresponding changes using
-          <a href="http://unicode.org/cgi-bin/bugdiffs.pl">BugDiffs</a>.) The CVS Tag can be used to 
-          in CVS to get the contents of the release, as described below.</p>
+          <p>Each release of CLDR is stable release and may be used as reference material or cited 
+          as a normative reference by other specifications. Once released, the data will not be 
+          changed. Bug reports or requests for feature enhancements for subsequent versions may 
+          filed at <a href="filing_bug_reports.html">Bug Reports</a>.</p>
+          <h2><a name="latest_version"></a>Latest Release Version</h2>
+          <p>The latest version of CLDR is Version 1.2. This new release contains data for 232 
+          locales, <a href="#Languages_and_Territories">covering</a> 72 languages and 108 
+          territories. There are also 63 draft locales in the process of being developed, covering 
+          an additional 27 languages and 28 territories.</p>
+          <p>See the <a href="version/1.2.html">Version1.2</a> for more information.</p>
+          <p>To see the list of all bugs fixes and additions for this release, go to
+          <a href="http://bugs.icu-project.org/cgibin/locale-bugs/closed?expression=target.*1.2">
+          Release Changes</a>. This is a view into the feature/bug database that presents only those 
+          closed in this release. To see individual changes, go to the bug diff viewer, at
+          <a href="http://unicode.org/cgi-bin/bugdiffs.pl">BugDiffs</a>. For example, using bug 
+          number 399 shows changes for that bug. Note: not all bugs will have recorded changes in
+          <a href="http://unicode.org/cgi-bin/bugdiffs.pl">BugDiffs</a>.</p>
           <h2><a name="latest_draft_version">Latest Draft Version</a></h2>
           <p class="first">The release data contains only the common data. Access to the latest 
           working snapshot of CLDR, and access to data collected for other platforms is available 
@@ -254,20 +269,26 @@ td.item     { background-color:#FFFFFF; border:none; }
           <p>At the top level there are a number of special folders, plus a number of platform 
           folders. The special folders are:</p>
           <ul>
-            <li><i>common</i> — CLDR data corresponding to the release<ul>
-              <li><i>collation</i> — collation LDML files</li>
-              <li><i>main</i> — main LDML files</li>
-              <li><i>posix</i> — generated POSIX files</li>
-              <li><i>supplemental</i> &nbsp;— additional files with non-linguistic data</li>
-              <li><i>test</i> — conformance test files for CLDR data. The format of the tests is 
-              explained in a readMe.html.</li>
+            <li><i>common</i> <font face="Lucida Sans Unicode">— CLDR data corresponding to the 
+            release</font><ul>
+              <li><i>collation</i> <font face="Lucida Sans Unicode">— collation LDML files</font></li>
+              <li><i>main</i> <font face="Lucida Sans Unicode">— main LDML files</font></li>
+              <li><i>posix</i> <font face="Lucida Sans Unicode">— generated POSIX files</font></li>
+              <li><i>supplemental </i>&nbsp;<font face="Lucida Sans Unicode">— additional files with 
+              non-linguistic data</font></li>
+              <li><i>test</i> <font face="Lucida Sans Unicode">— conformance test files for CLDR 
+              data</font></li>
             </ul>
             </li>
-            <li><i>diff</i> — generated files comparing different aspects of CLDR data</li>
-            <li><i>docs</i> — source files for the CLDR site, design docs, presentations, etc.</li>
-            <li><i>dropbox</i> — temporary files</li>
-            <li><i>dtd</i> — the latest dtd files for the release</li>
-            <li><i>tools</i> — source for internal tools for processing CLDR data</li>
+            <li><font face="Lucida Sans Unicode"><i>diff</i> — generated files comparing different 
+            aspects of CLDR data</font></li>
+            <li><i><font face="Lucida Sans Unicode">docs</font></i> <font face="Lucida Sans Unicode">
+            — source files for the CLDR site, design docs, presentations, etc.</font></li>
+            <li><font face="Lucida Sans Unicode"><i>dropbox</i> — temporary files</font></li>
+            <li><i><font face="Lucida Sans Unicode">dtd</font></i> <font face="Lucida Sans Unicode">
+            — the latest dtd files for the release</font></li>
+            <li><i><font face="Lucida Sans Unicode">tools</font></i>
+            <font face="Lucida Sans Unicode">— source for internal tools for processing CLDR data</font></li>
           </ul>
           <p>The other folders contain generated platform data in LDML format. Currently, that is:</p>
           <ul>
@@ -283,19 +304,6 @@ td.item     { background-color:#FFFFFF; border:none; }
           </ul>
           <p align="left"><b><i>Note: the data in the platform folders is provided for comparison 
           only, and is <u>not</u> to be viewed as authoritative or referenceable.</i></b></p>
-          <h2 align="left"><a name="POSIX_Data">POSIX Data</a></h2>
-          <p align="left">CLDR 1.3 includes reference versions of POSIX style locale source files 
-          that are generated using the default options for each supported locale. It should be noted 
-          that the reference versions of POSIX source information contain only those data fields 
-          that are included in the POSIX specification. Many operating system platforms provide 
-          extensions to the minimal POSIX required field set. As of the current release, the POSIX 
-          locale generation tools do not support the addition of platform-specific extensions. 
-          Because of this, users should treat the POSIX reference data as a &quot;good starting point&quot; 
-          for development of POSIX compatible locale source files based on CLDR data.</p>
-          <p align="left">Individual implementations may require addition of the platform specific 
-          fields or a non-default character repertoire in order to provide full functionality on a 
-          given POSIX compliant operating system. The POSIX locale generation tools can be modified 
-          support this.</p>
           <h2 align="left"><b><i><a name="CLDR_1.0_Release">CLDR 1.0 Release</a></i></b></h2>
           <p><i>The 1.0 version of CLDR was hosted on the OpenI18N site. There is a mirror of the 
           data and DTD on the Unicode site as well.</i></p>

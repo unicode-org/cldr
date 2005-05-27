@@ -4,132 +4,56 @@
  <cldrTest version='1.2' base='th'>
  <!-- Thai [ไทย] -->
   <number 
-locales='th'>
-<!-- Thai [ไทย] -->
+locales='th th_TH'>
+<!-- Thai [ไทย]; Thai (Thailand) [ไทย (ประเทศไทย)] -->
    <result input='0.0' numberType='integer'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
-   <result numberType='GBP'>\u00A3 0.00</result>
    <result input='0.01' numberType='integer'>0</result>
    <result numberType='decimal'>0.01</result>
    <result numberType='percent'>1%</result>
    <result numberType='scientific'>1E-2</result>
-   <result numberType='GBP'>\u00A3 0.01</result>
    <result input='-0.01' numberType='integer'>-0</result>
    <result numberType='decimal'>-0.01</result>
    <result numberType='percent'>-1%</result>
    <result numberType='scientific'>-1E-2</result>
-   <result numberType='GBP'>-\u00A3 0.01</result>
    <result input='1.0' numberType='integer'>1</result>
    <result numberType='decimal'>1</result>
    <result numberType='percent'>100%</result>
    <result numberType='scientific'>1E0</result>
-   <result numberType='GBP'>\u00A3 1.00</result>
    <result input='-1.0' numberType='integer'>-1</result>
    <result numberType='decimal'>-1</result>
    <result numberType='percent'>-100%</result>
    <result numberType='scientific'>-1E0</result>
-   <result numberType='GBP'>-\u00A3 1.00</result>
    <result input='123.456' numberType='integer'>123</result>
    <result numberType='decimal'>123.456</result>
    <result numberType='percent'>12,346%</result>
    <result numberType='scientific'>1.23456E2</result>
-   <result numberType='GBP'>\u00A3 123.46</result>
    <result input='-123.456' numberType='integer'>-123</result>
    <result numberType='decimal'>-123.456</result>
    <result numberType='percent'>-12,346%</result>
    <result numberType='scientific'>-1.23456E2</result>
-   <result numberType='GBP'>-\u00A3 123.46</result>
    <result input='123456.78' numberType='integer'>123,457</result>
    <result numberType='decimal'>123,456.78</result>
    <result numberType='percent'>12,345,678%</result>
    <result numberType='scientific'>1.2345678E5</result>
-   <result numberType='GBP'>\u00A3 123,456.78</result>
    <result input='-123456.78' numberType='integer'>-123,457</result>
    <result numberType='decimal'>-123,456.78</result>
    <result numberType='percent'>-12,345,678%</result>
    <result numberType='scientific'>-1.2345678E5</result>
-   <result numberType='GBP'>-\u00A3 123,456.78</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
-   <result numberType='GBP'>\u00A3 ∞</result>
    <result input='-Infinity' numberType='integer'>-∞</result>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result numberType='GBP'>-\u00A3 ∞</result>
    <result input='NaN' numberType='integer'>�</result>
    <result numberType='decimal'>�</result>
    <result numberType='percent'>�</result>
    <result numberType='scientific'>�</result>
-   <result numberType='GBP'>�</result>
-  </number>
-  <number 
-locales='th_TH'>
-<!-- Thai (Thailand) [ไทย (ประเทศไทย)] -->
-   <result input='0.0' numberType='integer'>0</result>
-   <result numberType='decimal'>0</result>
-   <result numberType='percent'>0%</result>
-   <result numberType='scientific'>0E0</result>
-   <result numberType='GBP'>\u00A30.00</result>
-   <result input='0.01' numberType='integer'>0</result>
-   <result numberType='decimal'>0.01</result>
-   <result numberType='percent'>1%</result>
-   <result numberType='scientific'>1E-2</result>
-   <result numberType='GBP'>\u00A30.01</result>
-   <result input='-0.01' numberType='integer'>-0</result>
-   <result numberType='decimal'>-0.01</result>
-   <result numberType='percent'>-1%</result>
-   <result numberType='scientific'>-1E-2</result>
-   <result numberType='GBP'>\u00A3-0.01</result>
-   <result input='1.0' numberType='integer'>1</result>
-   <result numberType='decimal'>1</result>
-   <result numberType='percent'>100%</result>
-   <result numberType='scientific'>1E0</result>
-   <result numberType='GBP'>\u00A31.00</result>
-   <result input='-1.0' numberType='integer'>-1</result>
-   <result numberType='decimal'>-1</result>
-   <result numberType='percent'>-100%</result>
-   <result numberType='scientific'>-1E0</result>
-   <result numberType='GBP'>\u00A3-1.00</result>
-   <result input='123.456' numberType='integer'>123</result>
-   <result numberType='decimal'>123.456</result>
-   <result numberType='percent'>12,346%</result>
-   <result numberType='scientific'>1.23456E2</result>
-   <result numberType='GBP'>\u00A3123.46</result>
-   <result input='-123.456' numberType='integer'>-123</result>
-   <result numberType='decimal'>-123.456</result>
-   <result numberType='percent'>-12,346%</result>
-   <result numberType='scientific'>-1.23456E2</result>
-   <result numberType='GBP'>\u00A3-123.46</result>
-   <result input='123456.78' numberType='integer'>123,457</result>
-   <result numberType='decimal'>123,456.78</result>
-   <result numberType='percent'>12,345,678%</result>
-   <result numberType='scientific'>1.2345678E5</result>
-   <result numberType='GBP'>\u00A3123,456.78</result>
-   <result input='-123456.78' numberType='integer'>-123,457</result>
-   <result numberType='decimal'>-123,456.78</result>
-   <result numberType='percent'>-12,345,678%</result>
-   <result numberType='scientific'>-1.2345678E5</result>
-   <result numberType='GBP'>\u00A3-123,456.78</result>
-   <result input='Infinity' numberType='integer'>∞</result>
-   <result numberType='decimal'>∞</result>
-   <result numberType='percent'>∞%</result>
-   <result numberType='scientific'>∞</result>
-   <result numberType='GBP'>\u00A3∞</result>
-   <result input='-Infinity' numberType='integer'>-∞</result>
-   <result numberType='decimal'>-∞</result>
-   <result numberType='percent'>-∞%</result>
-   <result numberType='scientific'>-∞</result>
-   <result numberType='GBP'>\u00A3-∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
-   <result numberType='GBP'>�</result>
   </number>
   <date 
 locales='th th_TH'>
@@ -490,11 +414,6 @@ x๊x
 x๋x
 x์x
 xํx
-xเx
-xแx
-xโx
-xใx
-xไx
 xก
 Xก
 xกx
@@ -674,14 +593,19 @@ Xฺ
 xฺx
 xเ
 Xเ
+xเx
 xแ
 Xแ
+xแx
 xโ
 Xโ
+xโx
 xใ
 Xใ
+xใx
 xไ
 Xไ
+xไx
 xๅ
 Xๅ
 xๅx

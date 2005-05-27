@@ -4,132 +4,56 @@
  <cldrTest version='1.2' base='ti'>
  <!-- Tigrinya [ትግርኛ] -->
   <number 
-locales='ti'>
-<!-- Tigrinya [ትግርኛ] -->
+locales='ti ti_ER ti_ET'>
+<!-- Tigrinya [ትግርኛ]; Tigrinya (Eritrea) [ትግርኛ (ኤርትራ)]; Tigrinya (Ethiopia) [ትግርኛ (ኢትዮጵያ)] -->
    <result input='0.0' numberType='integer'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
-   <result numberType='GBP'>£ 0.00</result>
    <result input='0.01' numberType='integer'>0</result>
    <result numberType='decimal'>0.01</result>
    <result numberType='percent'>1%</result>
    <result numberType='scientific'>1E-2</result>
-   <result numberType='GBP'>£ 0.01</result>
    <result input='-0.01' numberType='integer'>-0</result>
    <result numberType='decimal'>-0.01</result>
    <result numberType='percent'>-1%</result>
    <result numberType='scientific'>-1E-2</result>
-   <result numberType='GBP'>-£ 0.01</result>
    <result input='1.0' numberType='integer'>1</result>
    <result numberType='decimal'>1</result>
    <result numberType='percent'>100%</result>
    <result numberType='scientific'>1E0</result>
-   <result numberType='GBP'>£ 1.00</result>
    <result input='-1.0' numberType='integer'>-1</result>
    <result numberType='decimal'>-1</result>
    <result numberType='percent'>-100%</result>
    <result numberType='scientific'>-1E0</result>
-   <result numberType='GBP'>-£ 1.00</result>
    <result input='123.456' numberType='integer'>123</result>
    <result numberType='decimal'>123.456</result>
    <result numberType='percent'>12,346%</result>
    <result numberType='scientific'>1.23456E2</result>
-   <result numberType='GBP'>£ 123.46</result>
    <result input='-123.456' numberType='integer'>-123</result>
    <result numberType='decimal'>-123.456</result>
    <result numberType='percent'>-12,346%</result>
    <result numberType='scientific'>-1.23456E2</result>
-   <result numberType='GBP'>-£ 123.46</result>
    <result input='123456.78' numberType='integer'>123,457</result>
    <result numberType='decimal'>123,456.78</result>
    <result numberType='percent'>12,345,678%</result>
    <result numberType='scientific'>1.2345678E5</result>
-   <result numberType='GBP'>£ 123,456.78</result>
    <result input='-123456.78' numberType='integer'>-123,457</result>
    <result numberType='decimal'>-123,456.78</result>
    <result numberType='percent'>-12,345,678%</result>
    <result numberType='scientific'>-1.2345678E5</result>
-   <result numberType='GBP'>-£ 123,456.78</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
    <result numberType='scientific'>∞</result>
-   <result numberType='GBP'>£ ∞</result>
    <result input='-Infinity' numberType='integer'>-∞</result>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result numberType='GBP'>-£ ∞</result>
    <result input='NaN' numberType='integer'>�</result>
    <result numberType='decimal'>�</result>
    <result numberType='percent'>�</result>
    <result numberType='scientific'>�</result>
-   <result numberType='GBP'>�</result>
-  </number>
-  <number 
-locales='ti_ER ti_ET'>
-<!-- Tigrinya (Eritrea) [ትግርኛ (ኤርትራ)]; Tigrinya (Ethiopia) [ትግርኛ (ኢትዮጵያ)] -->
-   <result input='0.0' numberType='integer'>0</result>
-   <result numberType='decimal'>0</result>
-   <result numberType='percent'>0%</result>
-   <result numberType='scientific'>0E0</result>
-   <result numberType='GBP'>£0.00</result>
-   <result input='0.01' numberType='integer'>0</result>
-   <result numberType='decimal'>0.01</result>
-   <result numberType='percent'>1%</result>
-   <result numberType='scientific'>1E-2</result>
-   <result numberType='GBP'>£0.01</result>
-   <result input='-0.01' numberType='integer'>-0</result>
-   <result numberType='decimal'>-0.01</result>
-   <result numberType='percent'>-1%</result>
-   <result numberType='scientific'>-1E-2</result>
-   <result numberType='GBP'>-£0.01</result>
-   <result input='1.0' numberType='integer'>1</result>
-   <result numberType='decimal'>1</result>
-   <result numberType='percent'>100%</result>
-   <result numberType='scientific'>1E0</result>
-   <result numberType='GBP'>£1.00</result>
-   <result input='-1.0' numberType='integer'>-1</result>
-   <result numberType='decimal'>-1</result>
-   <result numberType='percent'>-100%</result>
-   <result numberType='scientific'>-1E0</result>
-   <result numberType='GBP'>-£1.00</result>
-   <result input='123.456' numberType='integer'>123</result>
-   <result numberType='decimal'>123.456</result>
-   <result numberType='percent'>12,346%</result>
-   <result numberType='scientific'>1.23456E2</result>
-   <result numberType='GBP'>£123.46</result>
-   <result input='-123.456' numberType='integer'>-123</result>
-   <result numberType='decimal'>-123.456</result>
-   <result numberType='percent'>-12,346%</result>
-   <result numberType='scientific'>-1.23456E2</result>
-   <result numberType='GBP'>-£123.46</result>
-   <result input='123456.78' numberType='integer'>123,457</result>
-   <result numberType='decimal'>123,456.78</result>
-   <result numberType='percent'>12,345,678%</result>
-   <result numberType='scientific'>1.2345678E5</result>
-   <result numberType='GBP'>£123,456.78</result>
-   <result input='-123456.78' numberType='integer'>-123,457</result>
-   <result numberType='decimal'>-123,456.78</result>
-   <result numberType='percent'>-12,345,678%</result>
-   <result numberType='scientific'>-1.2345678E5</result>
-   <result numberType='GBP'>-£123,456.78</result>
-   <result input='Infinity' numberType='integer'>∞</result>
-   <result numberType='decimal'>∞</result>
-   <result numberType='percent'>∞%</result>
-   <result numberType='scientific'>∞</result>
-   <result numberType='GBP'>£∞</result>
-   <result input='-Infinity' numberType='integer'>-∞</result>
-   <result numberType='decimal'>-∞</result>
-   <result numberType='percent'>-∞%</result>
-   <result numberType='scientific'>-∞</result>
-   <result numberType='GBP'>-£∞</result>
-   <result input='NaN' numberType='integer'>�</result>
-   <result numberType='decimal'>�</result>
-   <result numberType='percent'>�</result>
-   <result numberType='scientific'>�</result>
-   <result numberType='GBP'>�</result>
   </number>
   <date 
 locales='ti'>
@@ -1011,6 +935,8 @@ locales='ti_ET'>
 locales='ti ti_ER ti_ET'>
 <!-- Tigrinya [ትግርኛ]; Tigrinya (Eritrea) [ትግርኛ (ኤርትራ)]; Tigrinya (Ethiopia) [ትግርኛ (ኢትዮጵያ)] -->
    <result>
+x፟
+X፟
 x 
 X 
 x x
@@ -1038,9 +964,42 @@ x.x
 x።
 X።
 x።x
+x፠
+X፠
+x፠x
 x፨
 X፨
 x፨x
+x᎐
+X᎐
+x᎐x
+x᎑
+X᎑
+x᎑x
+x᎒
+X᎒
+x᎒x
+x᎓
+X᎓
+x᎓x
+x᎔
+X᎔
+x᎔x
+x᎕
+X᎕
+x᎕x
+x᎖
+X᎖
+x᎖x
+x᎗
+X᎗
+x᎗x
+x᎘
+X᎘
+x᎘x
+x᎙
+X᎙
+x᎙x
 x፲
 X፲
 x፲x
@@ -1110,6 +1069,7 @@ x፰x
 x፱
 X፱
 x፱x
+x፟x
 xሀ
 Xሀ
 xሀx
@@ -1131,6 +1091,9 @@ xህx
 xሆ
 Xሆ
 xሆx
+xሇ
+Xሇ
+xሇx
 xለ
 Xለ
 xለx
@@ -1155,6 +1118,9 @@ xሎx
 xሏ
 Xሏ
 xሏx
+xⶀ
+Xⶀ
+xⶀx
 xሐ
 Xሐ
 xሐx
@@ -1203,6 +1169,21 @@ xሞx
 xሟ
 Xሟ
 xሟx
+xᎀ
+Xᎀ
+xᎀx
+xᎁ
+Xᎁ
+xᎁx
+xᎂ
+Xᎂ
+xᎂx
+xᎃ
+Xᎃ
+xᎃx
+xⶁ
+Xⶁ
+xⶁx
 xሠ
 Xሠ
 xሠx
@@ -1251,6 +1232,9 @@ xሮx
 xሯ
 Xሯ
 xሯx
+xⶂ
+Xⶂ
+xⶂx
 xሰ
 Xሰ
 xሰx
@@ -1275,6 +1259,9 @@ xሶx
 xሷ
 Xሷ
 xሷx
+xⶃ
+Xⶃ
+xⶃx
 xሸ
 Xሸ
 xሸx
@@ -1299,6 +1286,9 @@ xሾx
 xሿ
 Xሿ
 xሿx
+xⶄ
+Xⶄ
+xⶄx
 xቀ
 Xቀ
 xቀx
@@ -1320,6 +1310,9 @@ xቅx
 xቆ
 Xቆ
 xቆx
+xቇ
+Xቇ
+xቇx
 xቈ
 Xቈ
 xቈx
@@ -1395,6 +1388,21 @@ xቦx
 xቧ
 Xቧ
 xቧx
+xᎄ
+Xᎄ
+xᎄx
+xᎅ
+Xᎅ
+xᎅx
+xᎆ
+Xᎆ
+xᎆx
+xᎇ
+Xᎇ
+xᎇx
+xⶅ
+Xⶅ
+xⶅx
 xቨ
 Xቨ
 xቨx
@@ -1443,6 +1451,9 @@ xቶx
 xቷ
 Xቷ
 xቷx
+xⶆ
+Xⶆ
+xⶆx
 xቸ
 Xቸ
 xቸx
@@ -1467,6 +1478,9 @@ xቾx
 xቿ
 Xቿ
 xቿx
+xⶇ
+Xⶇ
+xⶇx
 xኀ
 Xኀ
 xኀx
@@ -1488,6 +1502,9 @@ xኅx
 xኆ
 Xኆ
 xኆx
+xኇ
+Xኇ
+xኇx
 xኈ
 Xኈ
 xኈx
@@ -1527,6 +1544,9 @@ xኖx
 xኗ
 Xኗ
 xኗx
+xⶈ
+Xⶈ
+xⶈx
 xኘ
 Xኘ
 xኘx
@@ -1551,6 +1571,9 @@ xኞx
 xኟ
 Xኟ
 xኟx
+xⶉ
+Xⶉ
+xⶉx
 xአ
 Xአ
 xአx
@@ -1575,6 +1598,9 @@ xኦx
 xኧ
 Xኧ
 xኧx
+xⶊ
+Xⶊ
+xⶊx
 xከ
 Xከ
 xከx
@@ -1596,6 +1622,9 @@ xክx
 xኮ
 Xኮ
 xኮx
+xኯ
+Xኯ
+xኯx
 xኰ
 Xኰ
 xኰx
@@ -1668,6 +1697,9 @@ xውx
 xዎ
 Xዎ
 xዎx
+xዏ
+Xዏ
+xዏx
 xዐ
 Xዐ
 xዐx
@@ -1713,6 +1745,9 @@ xዞx
 xዟ
 Xዟ
 xዟx
+xⶋ
+Xⶋ
+xⶋx
 xዠ
 Xዠ
 xዠx
@@ -1758,6 +1793,9 @@ xይx
 xዮ
 Xዮ
 xዮx
+xዯ
+Xዯ
+xዯx
 xደ
 Xደ
 xደx
@@ -1782,6 +1820,9 @@ xዶx
 xዷ
 Xዷ
 xዷx
+xⶌ
+Xⶌ
+xⶌx
 xዸ
 Xዸ
 xዸx
@@ -1806,6 +1847,9 @@ xዾx
 xዿ
 Xዿ
 xዿx
+xⶍ
+Xⶍ
+xⶍx
 xጀ
 Xጀ
 xጀx
@@ -1830,6 +1874,9 @@ xጆx
 xጇ
 Xጇ
 xጇx
+xⶎ
+Xⶎ
+xⶎx
 xገ
 Xገ
 xገx
@@ -1851,6 +1898,9 @@ xግx
 xጎ
 Xጎ
 xጎx
+xጏ
+Xጏ
+xጏx
 xጐ
 Xጐ
 xጐx
@@ -1887,6 +1937,21 @@ xጝx
 xጞ
 Xጞ
 xጞx
+xጟ
+Xጟ
+xጟx
+xⶓ
+Xⶓ
+xⶓx
+xⶔ
+Xⶔ
+xⶔx
+xⶕ
+Xⶕ
+xⶕx
+xⶖ
+Xⶖ
+xⶖx
 xጠ
 Xጠ
 xጠx
@@ -1911,6 +1976,9 @@ xጦx
 xጧ
 Xጧ
 xጧx
+xⶏ
+Xⶏ
+xⶏx
 xጨ
 Xጨ
 xጨx
@@ -1935,6 +2003,9 @@ xጮx
 xጯ
 Xጯ
 xጯx
+xⶐ
+Xⶐ
+xⶐx
 xጰ
 Xጰ
 xጰx
@@ -1959,6 +2030,9 @@ xጶx
 xጷ
 Xጷ
 xጷx
+xⶑ
+Xⶑ
+xⶑx
 xጸ
 Xጸ
 xጸx
@@ -2004,6 +2078,9 @@ xፅx
 xፆ
 Xፆ
 xፆx
+xፇ
+Xፇ
+xፇx
 xፈ
 Xፈ
 xፈx
@@ -2028,6 +2105,18 @@ xፎx
 xፏ
 Xፏ
 xፏx
+xᎈ
+Xᎈ
+xᎈx
+xᎉ
+Xᎉ
+xᎉx
+xᎊ
+Xᎊ
+xᎊx
+xᎋ
+Xᎋ
+xᎋx
 xፐ
 Xፐ
 xፐx
@@ -2052,84 +2141,6 @@ xፖx
 xፗ
 Xፗ
 xፗx
-xፘ
-Xፘ
-xፘx
-xፙ
-Xፙ
-xፙx
-xፚ
-Xፚ
-xፚx
-xሇ
-Xሇ
-xሇx
-xቇ
-Xቇ
-xቇx
-xኇ
-Xኇ
-xኇx
-xኯ
-Xኯ
-xኯx
-xዏ
-Xዏ
-xዏx
-xዯ
-Xዯ
-xዯx
-xጏ
-Xጏ
-xጏx
-xጟ
-Xጟ
-xጟx
-xፇ
-Xፇ
-xፇx
-x፟
-X፟
-x፟x
-x፠
-X፠
-x፠x
-xᎀ
-Xᎀ
-xᎀx
-xᎁ
-Xᎁ
-xᎁx
-xᎂ
-Xᎂ
-xᎂx
-xᎃ
-Xᎃ
-xᎃx
-xᎄ
-Xᎄ
-xᎄx
-xᎅ
-Xᎅ
-xᎅx
-xᎆ
-Xᎆ
-xᎆx
-xᎇ
-Xᎇ
-xᎇx
-xᎈ
-Xᎈ
-xᎈx
-xᎉ
-Xᎉ
-xᎉx
-xᎊ
-Xᎊ
-xᎊx
-xᎋ
-Xᎋ
-xᎋx
 xᎌ
 Xᎌ
 xᎌx
@@ -2142,105 +2153,18 @@ xᎎx
 xᎏ
 Xᎏ
 xᎏx
-x᎐
-X᎐
-x᎐x
-x᎑
-X᎑
-x᎑x
-x᎒
-X᎒
-x᎒x
-x᎓
-X᎓
-x᎓x
-x᎔
-X᎔
-x᎔x
-x᎕
-X᎕
-x᎕x
-x᎖
-X᎖
-x᎖x
-x᎗
-X᎗
-x᎗x
-x᎘
-X᎘
-x᎘x
-x᎙
-X᎙
-x᎙x
-xⶀ
-Xⶀ
-xⶀx
-xⶁ
-Xⶁ
-xⶁx
-xⶂ
-Xⶂ
-xⶂx
-xⶃ
-Xⶃ
-xⶃx
-xⶄ
-Xⶄ
-xⶄx
-xⶅ
-Xⶅ
-xⶅx
-xⶆ
-Xⶆ
-xⶆx
-xⶇ
-Xⶇ
-xⶇx
-xⶈ
-Xⶈ
-xⶈx
-xⶉ
-Xⶉ
-xⶉx
-xⶊ
-Xⶊ
-xⶊx
-xⶋ
-Xⶋ
-xⶋx
-xⶌ
-Xⶌ
-xⶌx
-xⶍ
-Xⶍ
-xⶍx
-xⶎ
-Xⶎ
-xⶎx
-xⶏ
-Xⶏ
-xⶏx
-xⶐ
-Xⶐ
-xⶐx
-xⶑ
-Xⶑ
-xⶑx
 xⶒ
 Xⶒ
 xⶒx
-xⶓ
-Xⶓ
-xⶓx
-xⶔ
-Xⶔ
-xⶔx
-xⶕ
-Xⶕ
-xⶕx
-xⶖ
-Xⶖ
-xⶖx
+xፘ
+Xፘ
+xፘx
+xፙ
+Xፙ
+xፙx
+xፚ
+Xፚ
+xፚx
 xⶠ
 Xⶠ
 xⶠx

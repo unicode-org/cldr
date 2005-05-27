@@ -1,0 +1,822 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.2/beta/cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest version='1.2' base='dv'>
+ <!-- Divehi [Divehi] -->
+  <number 
+locales='dv dv_MV'>
+<!-- Divehi [Divehi]; Divehi (Maldives) [Divehi (Maldives)] -->
+   <result input='0.0' numberType='integer'>٠</result>
+   <result numberType='decimal'>٠</result>
+   <result numberType='percent'>٠%</result>
+   <result numberType='scientific'>٠E٠</result>
+   <result input='0.01' numberType='integer'>٠</result>
+   <result numberType='decimal'>٠.٠١</result>
+   <result numberType='percent'>١%</result>
+   <result numberType='scientific'>١E-٢</result>
+   <result input='-0.01' numberType='integer'>-٠</result>
+   <result numberType='decimal'>-٠.٠١</result>
+   <result numberType='percent'>-١%</result>
+   <result numberType='scientific'>-١E-٢</result>
+   <result input='1.0' numberType='integer'>١</result>
+   <result numberType='decimal'>١</result>
+   <result numberType='percent'>١٠٠%</result>
+   <result numberType='scientific'>١E٠</result>
+   <result input='-1.0' numberType='integer'>-١</result>
+   <result numberType='decimal'>-١</result>
+   <result numberType='percent'>-١٠٠%</result>
+   <result numberType='scientific'>-١E٠</result>
+   <result input='123.456' numberType='integer'>١٢٣</result>
+   <result numberType='decimal'>١٢٣.٤٥٦</result>
+   <result numberType='percent'>١٢,٣٤٦%</result>
+   <result numberType='scientific'>١.٢٣٤٥٦E٢</result>
+   <result input='-123.456' numberType='integer'>-١٢٣</result>
+   <result numberType='decimal'>-١٢٣.٤٥٦</result>
+   <result numberType='percent'>-١٢,٣٤٦%</result>
+   <result numberType='scientific'>-١.٢٣٤٥٦E٢</result>
+   <result input='123456.78' numberType='integer'>١,٢٣,٤٥٧</result>
+   <result numberType='decimal'>١,٢٣,٤٥٦.٧٨</result>
+   <result numberType='percent'>١,٢٣,٤٥,٦٧٨%</result>
+   <result numberType='scientific'>١.٢٣٤٥٦٧٨E٥</result>
+   <result input='-123456.78' numberType='integer'>-١,٢٣,٤٥٧</result>
+   <result numberType='decimal'>-١,٢٣,٤٥٦.٧٨</result>
+   <result numberType='percent'>-١,٢٣,٤٥,٦٧٨%</result>
+   <result numberType='scientific'>-١.٢٣٤٥٦٧٨E٥</result>
+   <result input='Infinity' numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='integer'>�</result>
+   <result numberType='decimal'>�</result>
+   <result numberType='percent'>�</result>
+   <result numberType='scientific'>�</result>
+  </number>
+  <date 
+locales='dv'>
+<!-- Divehi [Divehi] -->
+   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>٠٠:٠٠</result>
+   <result timeType='medium'>٠٠:٠٠:٠٠</result>
+   <result timeType='long'>٠٠:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠٠:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٠٠/٠١/٣١</result>
+   <result timeType='short'>٠٠/٠١/٣١ ٠٠:٠٠</result>
+   <result timeType='medium'>٠٠/٠١/٣١ ٠٠:٠٠:٠٠</result>
+   <result timeType='long'>٠٠/٠١/٣١ ٠٠:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠٠/٠١/٣١ ٠٠:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>١٩٠٠ Jan ٣١</result>
+   <result timeType='short'>١٩٠٠ Jan ٣١ ٠٠:٠٠</result>
+   <result timeType='medium'>١٩٠٠ Jan ٣١ ٠٠:٠٠:٠٠</result>
+   <result timeType='long'>١٩٠٠ Jan ٣١ ٠٠:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٠٠ Jan ٣١ ٠٠:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>١٩٠٠ January ٣١</result>
+   <result timeType='short'>١٩٠٠ January ٣١ ٠٠:٠٠</result>
+   <result timeType='medium'>١٩٠٠ January ٣١ ٠٠:٠٠:٠٠</result>
+   <result timeType='long'>١٩٠٠ January ٣١ ٠٠:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٠٠ January ٣١ ٠٠:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Wednesday, ١٩٠٠ January ٣١</result>
+   <result timeType='short'>Wednesday, ١٩٠٠ January ٣١ ٠٠:٠٠</result>
+   <result timeType='medium'>Wednesday, ١٩٠٠ January ٣١ ٠٠:٠٠:٠٠</result>
+   <result timeType='long'>Wednesday, ١٩٠٠ January ٣١ ٠٠:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>Wednesday, ١٩٠٠ January ٣١ ٠٠:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>٠٠:٠٠</result>
+   <result timeType='medium'>٠٠:٠٠:٠١</result>
+   <result timeType='long'>٠٠:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠٠:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٠٩/٠٢/٢٨</result>
+   <result timeType='short'>٠٩/٠٢/٢٨ ٠٠:٠٠</result>
+   <result timeType='medium'>٠٩/٠٢/٢٨ ٠٠:٠٠:٠١</result>
+   <result timeType='long'>٠٩/٠٢/٢٨ ٠٠:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠٩/٠٢/٢٨ ٠٠:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>١٩٠٩ Feb ٢٨</result>
+   <result timeType='short'>١٩٠٩ Feb ٢٨ ٠٠:٠٠</result>
+   <result timeType='medium'>١٩٠٩ Feb ٢٨ ٠٠:٠٠:٠١</result>
+   <result timeType='long'>١٩٠٩ Feb ٢٨ ٠٠:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٠٩ Feb ٢٨ ٠٠:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>١٩٠٩ February ٢٨</result>
+   <result timeType='short'>١٩٠٩ February ٢٨ ٠٠:٠٠</result>
+   <result timeType='medium'>١٩٠٩ February ٢٨ ٠٠:٠٠:٠١</result>
+   <result timeType='long'>١٩٠٩ February ٢٨ ٠٠:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٠٩ February ٢٨ ٠٠:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Sunday, ١٩٠٩ February ٢٨</result>
+   <result timeType='short'>Sunday, ١٩٠٩ February ٢٨ ٠٠:٠٠</result>
+   <result timeType='medium'>Sunday, ١٩٠٩ February ٢٨ ٠٠:٠٠:٠١</result>
+   <result timeType='long'>Sunday, ١٩٠٩ February ٢٨ ٠٠:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>Sunday, ١٩٠٩ February ٢٨ ٠٠:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>٠٠:٥٩</result>
+   <result timeType='medium'>٠٠:٥٩:٥٩</result>
+   <result timeType='long'>٠٠:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠٠:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>١٨/٠٣/٢٦</result>
+   <result timeType='short'>١٨/٠٣/٢٦ ٠٠:٥٩</result>
+   <result timeType='medium'>١٨/٠٣/٢٦ ٠٠:٥٩:٥٩</result>
+   <result timeType='long'>١٨/٠٣/٢٦ ٠٠:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٨/٠٣/٢٦ ٠٠:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>١٩١٨ Mar ٢٦</result>
+   <result timeType='short'>١٩١٨ Mar ٢٦ ٠٠:٥٩</result>
+   <result timeType='medium'>١٩١٨ Mar ٢٦ ٠٠:٥٩:٥٩</result>
+   <result timeType='long'>١٩١٨ Mar ٢٦ ٠٠:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩١٨ Mar ٢٦ ٠٠:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>١٩١٨ March ٢٦</result>
+   <result timeType='short'>١٩١٨ March ٢٦ ٠٠:٥٩</result>
+   <result timeType='medium'>١٩١٨ March ٢٦ ٠٠:٥٩:٥٩</result>
+   <result timeType='long'>١٩١٨ March ٢٦ ٠٠:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩١٨ March ٢٦ ٠٠:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Tuesday, ١٩١٨ March ٢٦</result>
+   <result timeType='short'>Tuesday, ١٩١٨ March ٢٦ ٠٠:٥٩</result>
+   <result timeType='medium'>Tuesday, ١٩١٨ March ٢٦ ٠٠:٥٩:٥٩</result>
+   <result timeType='long'>Tuesday, ١٩١٨ March ٢٦ ٠٠:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>Tuesday, ١٩١٨ March ٢٦ ٠٠:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>٠١:٠٠</result>
+   <result timeType='medium'>٠١:٠٠:٠٠</result>
+   <result timeType='long'>٠١:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠١:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٣٢/٠٤/٢٤</result>
+   <result timeType='short'>٣٢/٠٤/٢٤ ٠١:٠٠</result>
+   <result timeType='medium'>٣٢/٠٤/٢٤ ٠١:٠٠:٠٠</result>
+   <result timeType='long'>٣٢/٠٤/٢٤ ٠١:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٣٢/٠٤/٢٤ ٠١:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>١٩٣٢ Apr ٢٤</result>
+   <result timeType='short'>١٩٣٢ Apr ٢٤ ٠١:٠٠</result>
+   <result timeType='medium'>١٩٣٢ Apr ٢٤ ٠١:٠٠:٠٠</result>
+   <result timeType='long'>١٩٣٢ Apr ٢٤ ٠١:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٣٢ Apr ٢٤ ٠١:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>١٩٣٢ April ٢٤</result>
+   <result timeType='short'>١٩٣٢ April ٢٤ ٠١:٠٠</result>
+   <result timeType='medium'>١٩٣٢ April ٢٤ ٠١:٠٠:٠٠</result>
+   <result timeType='long'>١٩٣٢ April ٢٤ ٠١:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٣٢ April ٢٤ ٠١:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Sunday, ١٩٣٢ April ٢٤</result>
+   <result timeType='short'>Sunday, ١٩٣٢ April ٢٤ ٠١:٠٠</result>
+   <result timeType='medium'>Sunday, ١٩٣٢ April ٢٤ ٠١:٠٠:٠٠</result>
+   <result timeType='long'>Sunday, ١٩٣٢ April ٢٤ ٠١:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>Sunday, ١٩٣٢ April ٢٤ ٠١:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>٠١:٠٠</result>
+   <result timeType='medium'>٠١:٠٠:٠١</result>
+   <result timeType='long'>٠١:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠١:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٤٥/٠٥/٢٠</result>
+   <result timeType='short'>٤٥/٠٥/٢٠ ٠١:٠٠</result>
+   <result timeType='medium'>٤٥/٠٥/٢٠ ٠١:٠٠:٠١</result>
+   <result timeType='long'>٤٥/٠٥/٢٠ ٠١:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٤٥/٠٥/٢٠ ٠١:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>١٩٤٥ May ٢٠</result>
+   <result timeType='short'>١٩٤٥ May ٢٠ ٠١:٠٠</result>
+   <result timeType='medium'>١٩٤٥ May ٢٠ ٠١:٠٠:٠١</result>
+   <result timeType='long'>١٩٤٥ May ٢٠ ٠١:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٤٥ May ٢٠ ٠١:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>١٩٤٥ May ٢٠</result>
+   <result timeType='short'>١٩٤٥ May ٢٠ ٠١:٠٠</result>
+   <result timeType='medium'>١٩٤٥ May ٢٠ ٠١:٠٠:٠١</result>
+   <result timeType='long'>١٩٤٥ May ٢٠ ٠١:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٤٥ May ٢٠ ٠١:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Sunday, ١٩٤٥ May ٢٠</result>
+   <result timeType='short'>Sunday, ١٩٤٥ May ٢٠ ٠١:٠٠</result>
+   <result timeType='medium'>Sunday, ١٩٤٥ May ٢٠ ٠١:٠٠:٠١</result>
+   <result timeType='long'>Sunday, ١٩٤٥ May ٢٠ ٠١:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>Sunday, ١٩٤٥ May ٢٠ ٠١:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>١١:٥٩</result>
+   <result timeType='medium'>١١:٥٩:٥٩</result>
+   <result timeType='long'>١١:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١١:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٥٢/٠٦/١٨</result>
+   <result timeType='short'>٥٢/٠٦/١٨ ١١:٥٩</result>
+   <result timeType='medium'>٥٢/٠٦/١٨ ١١:٥٩:٥٩</result>
+   <result timeType='long'>٥٢/٠٦/١٨ ١١:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٥٢/٠٦/١٨ ١١:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>١٩٥٢ Jun ١٨</result>
+   <result timeType='short'>١٩٥٢ Jun ١٨ ١١:٥٩</result>
+   <result timeType='medium'>١٩٥٢ Jun ١٨ ١١:٥٩:٥٩</result>
+   <result timeType='long'>١٩٥٢ Jun ١٨ ١١:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٥٢ Jun ١٨ ١١:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>١٩٥٢ June ١٨</result>
+   <result timeType='short'>١٩٥٢ June ١٨ ١١:٥٩</result>
+   <result timeType='medium'>١٩٥٢ June ١٨ ١١:٥٩:٥٩</result>
+   <result timeType='long'>١٩٥٢ June ١٨ ١١:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٥٢ June ١٨ ١١:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Wednesday, ١٩٥٢ June ١٨</result>
+   <result timeType='short'>Wednesday, ١٩٥٢ June ١٨ ١١:٥٩</result>
+   <result timeType='medium'>Wednesday, ١٩٥٢ June ١٨ ١١:٥٩:٥٩</result>
+   <result timeType='long'>Wednesday, ١٩٥٢ June ١٨ ١١:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>Wednesday, ١٩٥٢ June ١٨ ١١:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>١٢:٠٠</result>
+   <result timeType='medium'>١٢:٠٠:٠٠</result>
+   <result timeType='long'>١٢:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٢:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٧٣/٠٧/١٦</result>
+   <result timeType='short'>٧٣/٠٧/١٦ ١٢:٠٠</result>
+   <result timeType='medium'>٧٣/٠٧/١٦ ١٢:٠٠:٠٠</result>
+   <result timeType='long'>٧٣/٠٧/١٦ ١٢:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٧٣/٠٧/١٦ ١٢:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>١٩٧٣ Jul ١٦</result>
+   <result timeType='short'>١٩٧٣ Jul ١٦ ١٢:٠٠</result>
+   <result timeType='medium'>١٩٧٣ Jul ١٦ ١٢:٠٠:٠٠</result>
+   <result timeType='long'>١٩٧٣ Jul ١٦ ١٢:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٧٣ Jul ١٦ ١٢:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>١٩٧٣ July ١٦</result>
+   <result timeType='short'>١٩٧٣ July ١٦ ١٢:٠٠</result>
+   <result timeType='medium'>١٩٧٣ July ١٦ ١٢:٠٠:٠٠</result>
+   <result timeType='long'>١٩٧٣ July ١٦ ١٢:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٧٣ July ١٦ ١٢:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Monday, ١٩٧٣ July ١٦</result>
+   <result timeType='short'>Monday, ١٩٧٣ July ١٦ ١٢:٠٠</result>
+   <result timeType='medium'>Monday, ١٩٧٣ July ١٦ ١٢:٠٠:٠٠</result>
+   <result timeType='long'>Monday, ١٩٧٣ July ١٦ ١٢:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>Monday, ١٩٧٣ July ١٦ ١٢:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>١٢:٠٠</result>
+   <result timeType='medium'>١٢:٠٠:٠١</result>
+   <result timeType='long'>١٢:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٢:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٩٩/٠٨/١٤</result>
+   <result timeType='short'>٩٩/٠٨/١٤ ١٢:٠٠</result>
+   <result timeType='medium'>٩٩/٠٨/١٤ ١٢:٠٠:٠١</result>
+   <result timeType='long'>٩٩/٠٨/١٤ ١٢:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٩٩/٠٨/١٤ ١٢:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>١٩٩٩ Aug ١٤</result>
+   <result timeType='short'>١٩٩٩ Aug ١٤ ١٢:٠٠</result>
+   <result timeType='medium'>١٩٩٩ Aug ١٤ ١٢:٠٠:٠١</result>
+   <result timeType='long'>١٩٩٩ Aug ١٤ ١٢:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٩٩ Aug ١٤ ١٢:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>١٩٩٩ August ١٤</result>
+   <result timeType='short'>١٩٩٩ August ١٤ ١٢:٠٠</result>
+   <result timeType='medium'>١٩٩٩ August ١٤ ١٢:٠٠:٠١</result>
+   <result timeType='long'>١٩٩٩ August ١٤ ١٢:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٩٩٩ August ١٤ ١٢:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Saturday, ١٩٩٩ August ١٤</result>
+   <result timeType='short'>Saturday, ١٩٩٩ August ١٤ ١٢:٠٠</result>
+   <result timeType='medium'>Saturday, ١٩٩٩ August ١٤ ١٢:٠٠:٠١</result>
+   <result timeType='long'>Saturday, ١٩٩٩ August ١٤ ١٢:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>Saturday, ١٩٩٩ August ١٤ ١٢:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>٢٢:٥٩</result>
+   <result timeType='medium'>٢٢:٥٩:٥٩</result>
+   <result timeType='long'>٢٢:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٢:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٠٠/٠٩/١٢</result>
+   <result timeType='short'>٠٠/٠٩/١٢ ٢٢:٥٩</result>
+   <result timeType='medium'>٠٠/٠٩/١٢ ٢٢:٥٩:٥٩</result>
+   <result timeType='long'>٠٠/٠٩/١٢ ٢٢:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠٠/٠٩/١٢ ٢٢:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>٢٠٠٠ Sep ١٢</result>
+   <result timeType='short'>٢٠٠٠ Sep ١٢ ٢٢:٥٩</result>
+   <result timeType='medium'>٢٠٠٠ Sep ١٢ ٢٢:٥٩:٥٩</result>
+   <result timeType='long'>٢٠٠٠ Sep ١٢ ٢٢:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٠٠٠ Sep ١٢ ٢٢:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>٢٠٠٠ September ١٢</result>
+   <result timeType='short'>٢٠٠٠ September ١٢ ٢٢:٥٩</result>
+   <result timeType='medium'>٢٠٠٠ September ١٢ ٢٢:٥٩:٥٩</result>
+   <result timeType='long'>٢٠٠٠ September ١٢ ٢٢:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٠٠٠ September ١٢ ٢٢:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Tuesday, ٢٠٠٠ September ١٢</result>
+   <result timeType='short'>Tuesday, ٢٠٠٠ September ١٢ ٢٢:٥٩</result>
+   <result timeType='medium'>Tuesday, ٢٠٠٠ September ١٢ ٢٢:٥٩:٥٩</result>
+   <result timeType='long'>Tuesday, ٢٠٠٠ September ١٢ ٢٢:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>Tuesday, ٢٠٠٠ September ١٢ ٢٢:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>٢٣:٠٠</result>
+   <result timeType='medium'>٢٣:٠٠:٠٠</result>
+   <result timeType='long'>٢٣:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٣:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٠١/١٠/٠٨</result>
+   <result timeType='short'>٠١/١٠/٠٨ ٢٣:٠٠</result>
+   <result timeType='medium'>٠١/١٠/٠٨ ٢٣:٠٠:٠٠</result>
+   <result timeType='long'>٠١/١٠/٠٨ ٢٣:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠١/١٠/٠٨ ٢٣:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>٢٠٠١ Oct ٨</result>
+   <result timeType='short'>٢٠٠١ Oct ٨ ٢٣:٠٠</result>
+   <result timeType='medium'>٢٠٠١ Oct ٨ ٢٣:٠٠:٠٠</result>
+   <result timeType='long'>٢٠٠١ Oct ٨ ٢٣:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٠٠١ Oct ٨ ٢٣:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>٢٠٠١ October ٨</result>
+   <result timeType='short'>٢٠٠١ October ٨ ٢٣:٠٠</result>
+   <result timeType='medium'>٢٠٠١ October ٨ ٢٣:٠٠:٠٠</result>
+   <result timeType='long'>٢٠٠١ October ٨ ٢٣:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٠٠١ October ٨ ٢٣:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Monday, ٢٠٠١ October ٠٨</result>
+   <result timeType='short'>Monday, ٢٠٠١ October ٠٨ ٢٣:٠٠</result>
+   <result timeType='medium'>Monday, ٢٠٠١ October ٠٨ ٢٣:٠٠:٠٠</result>
+   <result timeType='long'>Monday, ٢٠٠١ October ٠٨ ٢٣:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result timeType='full'>Monday, ٢٠٠١ October ٠٨ ٢٣:٠٠:٠٠ GMT+٠٠:٠٠</result>
+   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>٢٣:٠٠</result>
+   <result timeType='medium'>٢٣:٠٠:٠١</result>
+   <result timeType='long'>٢٣:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٣:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٠٤/١١/٠٤</result>
+   <result timeType='short'>٠٤/١١/٠٤ ٢٣:٠٠</result>
+   <result timeType='medium'>٠٤/١١/٠٤ ٢٣:٠٠:٠١</result>
+   <result timeType='long'>٠٤/١١/٠٤ ٢٣:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠٤/١١/٠٤ ٢٣:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>٢٠٠٤ Nov ٤</result>
+   <result timeType='short'>٢٠٠٤ Nov ٤ ٢٣:٠٠</result>
+   <result timeType='medium'>٢٠٠٤ Nov ٤ ٢٣:٠٠:٠١</result>
+   <result timeType='long'>٢٠٠٤ Nov ٤ ٢٣:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٠٠٤ Nov ٤ ٢٣:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>٢٠٠٤ November ٤</result>
+   <result timeType='short'>٢٠٠٤ November ٤ ٢٣:٠٠</result>
+   <result timeType='medium'>٢٠٠٤ November ٤ ٢٣:٠٠:٠١</result>
+   <result timeType='long'>٢٠٠٤ November ٤ ٢٣:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٠٠٤ November ٤ ٢٣:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Thursday, ٢٠٠٤ November ٠٤</result>
+   <result timeType='short'>Thursday, ٢٠٠٤ November ٠٤ ٢٣:٠٠</result>
+   <result timeType='medium'>Thursday, ٢٠٠٤ November ٠٤ ٢٣:٠٠:٠١</result>
+   <result timeType='long'>Thursday, ٢٠٠٤ November ٠٤ ٢٣:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result timeType='full'>Thursday, ٢٠٠٤ November ٠٤ ٢٣:٠٠:٠١ GMT+٠٠:٠٠</result>
+   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>٢٣:٥٩</result>
+   <result timeType='medium'>٢٣:٥٩:٥٩</result>
+   <result timeType='long'>٢٣:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٣:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>١٠/١٢/٠١</result>
+   <result timeType='short'>١٠/١٢/٠١ ٢٣:٥٩</result>
+   <result timeType='medium'>١٠/١٢/٠١ ٢٣:٥٩:٥٩</result>
+   <result timeType='long'>١٠/١٢/٠١ ٢٣:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٠/١٢/٠١ ٢٣:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>٢٠١٠ Dec ١</result>
+   <result timeType='short'>٢٠١٠ Dec ١ ٢٣:٥٩</result>
+   <result timeType='medium'>٢٠١٠ Dec ١ ٢٣:٥٩:٥٩</result>
+   <result timeType='long'>٢٠١٠ Dec ١ ٢٣:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٠١٠ Dec ١ ٢٣:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>٢٠١٠ December ١</result>
+   <result timeType='short'>٢٠١٠ December ١ ٢٣:٥٩</result>
+   <result timeType='medium'>٢٠١٠ December ١ ٢٣:٥٩:٥٩</result>
+   <result timeType='long'>٢٠١٠ December ١ ٢٣:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٠١٠ December ١ ٢٣:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Wednesday, ٢٠١٠ December ٠١</result>
+   <result timeType='short'>Wednesday, ٢٠١٠ December ٠١ ٢٣:٥٩</result>
+   <result timeType='medium'>Wednesday, ٢٠١٠ December ٠١ ٢٣:٥٩:٥٩</result>
+   <result timeType='long'>Wednesday, ٢٠١٠ December ٠١ ٢٣:٥٩:٥٩ GMT+٠٠:٠٠</result>
+   <result timeType='full'>Wednesday, ٢٠١٠ December ٠١ ٢٣:٥٩:٥٩ GMT+٠٠:٠٠</result>
+  </date>
+  <date 
+locales='dv_MV'>
+<!-- Divehi (Maldives) [Divehi (Maldives)] -->
+   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>١٢:٠٠ AM</result>
+   <result timeType='medium'>١٢:٠٠:٠٠ AM</result>
+   <result timeType='long'>١٢:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٢:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٣١-١-٠٠</result>
+   <result timeType='short'>٣١-١-٠٠ ١٢:٠٠ AM</result>
+   <result timeType='medium'>٣١-١-٠٠ ١٢:٠٠:٠٠ AM</result>
+   <result timeType='long'>٣١-١-٠٠ ١٢:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٣١-١-٠٠ ١٢:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>٣١-٠١-١٩٠٠</result>
+   <result timeType='short'>٣١-٠١-١٩٠٠ ١٢:٠٠ AM</result>
+   <result timeType='medium'>٣١-٠١-١٩٠٠ ١٢:٠٠:٠٠ AM</result>
+   <result timeType='long'>٣١-٠١-١٩٠٠ ١٢:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٣١-٠١-١٩٠٠ ١٢:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>٣١ January ١٩٠٠</result>
+   <result timeType='short'>٣١ January ١٩٠٠ ١٢:٠٠ AM</result>
+   <result timeType='medium'>٣١ January ١٩٠٠ ١٢:٠٠:٠٠ AM</result>
+   <result timeType='long'>٣١ January ١٩٠٠ ١٢:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٣١ January ١٩٠٠ ١٢:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Wednesday ٣١ January ١٩٠٠</result>
+   <result timeType='short'>Wednesday ٣١ January ١٩٠٠ ١٢:٠٠ AM</result>
+   <result timeType='medium'>Wednesday ٣١ January ١٩٠٠ ١٢:٠٠:٠٠ AM</result>
+   <result timeType='long'>Wednesday ٣١ January ١٩٠٠ ١٢:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>Wednesday ٣١ January ١٩٠٠ ١٢:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>١٢:٠٠ AM</result>
+   <result timeType='medium'>١٢:٠٠:٠١ AM</result>
+   <result timeType='long'>١٢:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٢:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٢٨-٢-٠٩</result>
+   <result timeType='short'>٢٨-٢-٠٩ ١٢:٠٠ AM</result>
+   <result timeType='medium'>٢٨-٢-٠٩ ١٢:٠٠:٠١ AM</result>
+   <result timeType='long'>٢٨-٢-٠٩ ١٢:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٨-٢-٠٩ ١٢:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>٢٨-٠٢-١٩٠٩</result>
+   <result timeType='short'>٢٨-٠٢-١٩٠٩ ١٢:٠٠ AM</result>
+   <result timeType='medium'>٢٨-٠٢-١٩٠٩ ١٢:٠٠:٠١ AM</result>
+   <result timeType='long'>٢٨-٠٢-١٩٠٩ ١٢:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٨-٠٢-١٩٠٩ ١٢:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>٢٨ February ١٩٠٩</result>
+   <result timeType='short'>٢٨ February ١٩٠٩ ١٢:٠٠ AM</result>
+   <result timeType='medium'>٢٨ February ١٩٠٩ ١٢:٠٠:٠١ AM</result>
+   <result timeType='long'>٢٨ February ١٩٠٩ ١٢:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٨ February ١٩٠٩ ١٢:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Sunday ٢٨ February ١٩٠٩</result>
+   <result timeType='short'>Sunday ٢٨ February ١٩٠٩ ١٢:٠٠ AM</result>
+   <result timeType='medium'>Sunday ٢٨ February ١٩٠٩ ١٢:٠٠:٠١ AM</result>
+   <result timeType='long'>Sunday ٢٨ February ١٩٠٩ ١٢:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>Sunday ٢٨ February ١٩٠٩ ١٢:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>١٢:٥٩ AM</result>
+   <result timeType='medium'>١٢:٥٩:٥٩ AM</result>
+   <result timeType='long'>١٢:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٢:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٢٦-٣-١٨</result>
+   <result timeType='short'>٢٦-٣-١٨ ١٢:٥٩ AM</result>
+   <result timeType='medium'>٢٦-٣-١٨ ١٢:٥٩:٥٩ AM</result>
+   <result timeType='long'>٢٦-٣-١٨ ١٢:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٦-٣-١٨ ١٢:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>٢٦-٠٣-١٩١٨</result>
+   <result timeType='short'>٢٦-٠٣-١٩١٨ ١٢:٥٩ AM</result>
+   <result timeType='medium'>٢٦-٠٣-١٩١٨ ١٢:٥٩:٥٩ AM</result>
+   <result timeType='long'>٢٦-٠٣-١٩١٨ ١٢:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٦-٠٣-١٩١٨ ١٢:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>٢٦ March ١٩١٨</result>
+   <result timeType='short'>٢٦ March ١٩١٨ ١٢:٥٩ AM</result>
+   <result timeType='medium'>٢٦ March ١٩١٨ ١٢:٥٩:٥٩ AM</result>
+   <result timeType='long'>٢٦ March ١٩١٨ ١٢:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٦ March ١٩١٨ ١٢:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Tuesday ٢٦ March ١٩١٨</result>
+   <result timeType='short'>Tuesday ٢٦ March ١٩١٨ ١٢:٥٩ AM</result>
+   <result timeType='medium'>Tuesday ٢٦ March ١٩١٨ ١٢:٥٩:٥٩ AM</result>
+   <result timeType='long'>Tuesday ٢٦ March ١٩١٨ ١٢:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>Tuesday ٢٦ March ١٩١٨ ١٢:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>٠١:٠٠ AM</result>
+   <result timeType='medium'>٠١:٠٠:٠٠ AM</result>
+   <result timeType='long'>٠١:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠١:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٢٤-٤-٣٢</result>
+   <result timeType='short'>٢٤-٤-٣٢ ٠١:٠٠ AM</result>
+   <result timeType='medium'>٢٤-٤-٣٢ ٠١:٠٠:٠٠ AM</result>
+   <result timeType='long'>٢٤-٤-٣٢ ٠١:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٤-٤-٣٢ ٠١:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>٢٤-٠٤-١٩٣٢</result>
+   <result timeType='short'>٢٤-٠٤-١٩٣٢ ٠١:٠٠ AM</result>
+   <result timeType='medium'>٢٤-٠٤-١٩٣٢ ٠١:٠٠:٠٠ AM</result>
+   <result timeType='long'>٢٤-٠٤-١٩٣٢ ٠١:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٤-٠٤-١٩٣٢ ٠١:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>٢٤ April ١٩٣٢</result>
+   <result timeType='short'>٢٤ April ١٩٣٢ ٠١:٠٠ AM</result>
+   <result timeType='medium'>٢٤ April ١٩٣٢ ٠١:٠٠:٠٠ AM</result>
+   <result timeType='long'>٢٤ April ١٩٣٢ ٠١:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٤ April ١٩٣٢ ٠١:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Sunday ٢٤ April ١٩٣٢</result>
+   <result timeType='short'>Sunday ٢٤ April ١٩٣٢ ٠١:٠٠ AM</result>
+   <result timeType='medium'>Sunday ٢٤ April ١٩٣٢ ٠١:٠٠:٠٠ AM</result>
+   <result timeType='long'>Sunday ٢٤ April ١٩٣٢ ٠١:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>Sunday ٢٤ April ١٩٣٢ ٠١:٠٠:٠٠ AM GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>٠١:٠٠ AM</result>
+   <result timeType='medium'>٠١:٠٠:٠١ AM</result>
+   <result timeType='long'>٠١:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠١:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٢٠-٥-٤٥</result>
+   <result timeType='short'>٢٠-٥-٤٥ ٠١:٠٠ AM</result>
+   <result timeType='medium'>٢٠-٥-٤٥ ٠١:٠٠:٠١ AM</result>
+   <result timeType='long'>٢٠-٥-٤٥ ٠١:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٠-٥-٤٥ ٠١:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>٢٠-٠٥-١٩٤٥</result>
+   <result timeType='short'>٢٠-٠٥-١٩٤٥ ٠١:٠٠ AM</result>
+   <result timeType='medium'>٢٠-٠٥-١٩٤٥ ٠١:٠٠:٠١ AM</result>
+   <result timeType='long'>٢٠-٠٥-١٩٤٥ ٠١:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٠-٠٥-١٩٤٥ ٠١:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>٢٠ May ١٩٤٥</result>
+   <result timeType='short'>٢٠ May ١٩٤٥ ٠١:٠٠ AM</result>
+   <result timeType='medium'>٢٠ May ١٩٤٥ ٠١:٠٠:٠١ AM</result>
+   <result timeType='long'>٢٠ May ١٩٤٥ ٠١:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٢٠ May ١٩٤٥ ٠١:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Sunday ٢٠ May ١٩٤٥</result>
+   <result timeType='short'>Sunday ٢٠ May ١٩٤٥ ٠١:٠٠ AM</result>
+   <result timeType='medium'>Sunday ٢٠ May ١٩٤٥ ٠١:٠٠:٠١ AM</result>
+   <result timeType='long'>Sunday ٢٠ May ١٩٤٥ ٠١:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>Sunday ٢٠ May ١٩٤٥ ٠١:٠٠:٠١ AM GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>١١:٥٩ AM</result>
+   <result timeType='medium'>١١:٥٩:٥٩ AM</result>
+   <result timeType='long'>١١:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١١:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>١٨-٦-٥٢</result>
+   <result timeType='short'>١٨-٦-٥٢ ١١:٥٩ AM</result>
+   <result timeType='medium'>١٨-٦-٥٢ ١١:٥٩:٥٩ AM</result>
+   <result timeType='long'>١٨-٦-٥٢ ١١:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٨-٦-٥٢ ١١:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>١٨-٠٦-١٩٥٢</result>
+   <result timeType='short'>١٨-٠٦-١٩٥٢ ١١:٥٩ AM</result>
+   <result timeType='medium'>١٨-٠٦-١٩٥٢ ١١:٥٩:٥٩ AM</result>
+   <result timeType='long'>١٨-٠٦-١٩٥٢ ١١:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٨-٠٦-١٩٥٢ ١١:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>١٨ June ١٩٥٢</result>
+   <result timeType='short'>١٨ June ١٩٥٢ ١١:٥٩ AM</result>
+   <result timeType='medium'>١٨ June ١٩٥٢ ١١:٥٩:٥٩ AM</result>
+   <result timeType='long'>١٨ June ١٩٥٢ ١١:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٨ June ١٩٥٢ ١١:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Wednesday ١٨ June ١٩٥٢</result>
+   <result timeType='short'>Wednesday ١٨ June ١٩٥٢ ١١:٥٩ AM</result>
+   <result timeType='medium'>Wednesday ١٨ June ١٩٥٢ ١١:٥٩:٥٩ AM</result>
+   <result timeType='long'>Wednesday ١٨ June ١٩٥٢ ١١:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result timeType='full'>Wednesday ١٨ June ١٩٥٢ ١١:٥٩:٥٩ AM GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>١٢:٠٠ PM</result>
+   <result timeType='medium'>١٢:٠٠:٠٠ PM</result>
+   <result timeType='long'>١٢:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٢:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>١٦-٧-٧٣</result>
+   <result timeType='short'>١٦-٧-٧٣ ١٢:٠٠ PM</result>
+   <result timeType='medium'>١٦-٧-٧٣ ١٢:٠٠:٠٠ PM</result>
+   <result timeType='long'>١٦-٧-٧٣ ١٢:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٦-٧-٧٣ ١٢:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>١٦-٠٧-١٩٧٣</result>
+   <result timeType='short'>١٦-٠٧-١٩٧٣ ١٢:٠٠ PM</result>
+   <result timeType='medium'>١٦-٠٧-١٩٧٣ ١٢:٠٠:٠٠ PM</result>
+   <result timeType='long'>١٦-٠٧-١٩٧٣ ١٢:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٦-٠٧-١٩٧٣ ١٢:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>١٦ July ١٩٧٣</result>
+   <result timeType='short'>١٦ July ١٩٧٣ ١٢:٠٠ PM</result>
+   <result timeType='medium'>١٦ July ١٩٧٣ ١٢:٠٠:٠٠ PM</result>
+   <result timeType='long'>١٦ July ١٩٧٣ ١٢:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٦ July ١٩٧٣ ١٢:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Monday ١٦ July ١٩٧٣</result>
+   <result timeType='short'>Monday ١٦ July ١٩٧٣ ١٢:٠٠ PM</result>
+   <result timeType='medium'>Monday ١٦ July ١٩٧٣ ١٢:٠٠:٠٠ PM</result>
+   <result timeType='long'>Monday ١٦ July ١٩٧٣ ١٢:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>Monday ١٦ July ١٩٧٣ ١٢:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>١٢:٠٠ PM</result>
+   <result timeType='medium'>١٢:٠٠:٠١ PM</result>
+   <result timeType='long'>١٢:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٢:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>١٤-٨-٩٩</result>
+   <result timeType='short'>١٤-٨-٩٩ ١٢:٠٠ PM</result>
+   <result timeType='medium'>١٤-٨-٩٩ ١٢:٠٠:٠١ PM</result>
+   <result timeType='long'>١٤-٨-٩٩ ١٢:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٤-٨-٩٩ ١٢:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>١٤-٠٨-١٩٩٩</result>
+   <result timeType='short'>١٤-٠٨-١٩٩٩ ١٢:٠٠ PM</result>
+   <result timeType='medium'>١٤-٠٨-١٩٩٩ ١٢:٠٠:٠١ PM</result>
+   <result timeType='long'>١٤-٠٨-١٩٩٩ ١٢:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٤-٠٨-١٩٩٩ ١٢:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>١٤ August ١٩٩٩</result>
+   <result timeType='short'>١٤ August ١٩٩٩ ١٢:٠٠ PM</result>
+   <result timeType='medium'>١٤ August ١٩٩٩ ١٢:٠٠:٠١ PM</result>
+   <result timeType='long'>١٤ August ١٩٩٩ ١٢:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٤ August ١٩٩٩ ١٢:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Saturday ١٤ August ١٩٩٩</result>
+   <result timeType='short'>Saturday ١٤ August ١٩٩٩ ١٢:٠٠ PM</result>
+   <result timeType='medium'>Saturday ١٤ August ١٩٩٩ ١٢:٠٠:٠١ PM</result>
+   <result timeType='long'>Saturday ١٤ August ١٩٩٩ ١٢:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>Saturday ١٤ August ١٩٩٩ ١٢:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>١٠:٥٩ PM</result>
+   <result timeType='medium'>١٠:٥٩:٥٩ PM</result>
+   <result timeType='long'>١٠:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٠:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>١٢-٩-٠٠</result>
+   <result timeType='short'>١٢-٩-٠٠ ١٠:٥٩ PM</result>
+   <result timeType='medium'>١٢-٩-٠٠ ١٠:٥٩:٥٩ PM</result>
+   <result timeType='long'>١٢-٩-٠٠ ١٠:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٢-٩-٠٠ ١٠:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>١٢-٠٩-٢٠٠٠</result>
+   <result timeType='short'>١٢-٠٩-٢٠٠٠ ١٠:٥٩ PM</result>
+   <result timeType='medium'>١٢-٠٩-٢٠٠٠ ١٠:٥٩:٥٩ PM</result>
+   <result timeType='long'>١٢-٠٩-٢٠٠٠ ١٠:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٢-٠٩-٢٠٠٠ ١٠:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>١٢ September ٢٠٠٠</result>
+   <result timeType='short'>١٢ September ٢٠٠٠ ١٠:٥٩ PM</result>
+   <result timeType='medium'>١٢ September ٢٠٠٠ ١٠:٥٩:٥٩ PM</result>
+   <result timeType='long'>١٢ September ٢٠٠٠ ١٠:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١٢ September ٢٠٠٠ ١٠:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Tuesday ١٢ September ٢٠٠٠</result>
+   <result timeType='short'>Tuesday ١٢ September ٢٠٠٠ ١٠:٥٩ PM</result>
+   <result timeType='medium'>Tuesday ١٢ September ٢٠٠٠ ١٠:٥٩:٥٩ PM</result>
+   <result timeType='long'>Tuesday ١٢ September ٢٠٠٠ ١٠:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>Tuesday ١٢ September ٢٠٠٠ ١٠:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>١١:٠٠ PM</result>
+   <result timeType='medium'>١١:٠٠:٠٠ PM</result>
+   <result timeType='long'>١١:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١١:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٨-١٠-٠١</result>
+   <result timeType='short'>٨-١٠-٠١ ١١:٠٠ PM</result>
+   <result timeType='medium'>٨-١٠-٠١ ١١:٠٠:٠٠ PM</result>
+   <result timeType='long'>٨-١٠-٠١ ١١:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٨-١٠-٠١ ١١:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>٠٨-١٠-٢٠٠١</result>
+   <result timeType='short'>٠٨-١٠-٢٠٠١ ١١:٠٠ PM</result>
+   <result timeType='medium'>٠٨-١٠-٢٠٠١ ١١:٠٠:٠٠ PM</result>
+   <result timeType='long'>٠٨-١٠-٢٠٠١ ١١:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠٨-١٠-٢٠٠١ ١١:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>٨ October ٢٠٠١</result>
+   <result timeType='short'>٨ October ٢٠٠١ ١١:٠٠ PM</result>
+   <result timeType='medium'>٨ October ٢٠٠١ ١١:٠٠:٠٠ PM</result>
+   <result timeType='long'>٨ October ٢٠٠١ ١١:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٨ October ٢٠٠١ ١١:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Monday ٨ October ٢٠٠١</result>
+   <result timeType='short'>Monday ٨ October ٢٠٠١ ١١:٠٠ PM</result>
+   <result timeType='medium'>Monday ٨ October ٢٠٠١ ١١:٠٠:٠٠ PM</result>
+   <result timeType='long'>Monday ٨ October ٢٠٠١ ١١:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>Monday ٨ October ٢٠٠١ ١١:٠٠:٠٠ PM GMT+٠٠:٠٠</result>
+   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>١١:٠٠ PM</result>
+   <result timeType='medium'>١١:٠٠:٠١ PM</result>
+   <result timeType='long'>١١:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١١:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>٤-١١-٠٤</result>
+   <result timeType='short'>٤-١١-٠٤ ١١:٠٠ PM</result>
+   <result timeType='medium'>٤-١١-٠٤ ١١:٠٠:٠١ PM</result>
+   <result timeType='long'>٤-١١-٠٤ ١١:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٤-١١-٠٤ ١١:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>٠٤-١١-٢٠٠٤</result>
+   <result timeType='short'>٠٤-١١-٢٠٠٤ ١١:٠٠ PM</result>
+   <result timeType='medium'>٠٤-١١-٢٠٠٤ ١١:٠٠:٠١ PM</result>
+   <result timeType='long'>٠٤-١١-٢٠٠٤ ١١:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠٤-١١-٢٠٠٤ ١١:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>٤ November ٢٠٠٤</result>
+   <result timeType='short'>٤ November ٢٠٠٤ ١١:٠٠ PM</result>
+   <result timeType='medium'>٤ November ٢٠٠٤ ١١:٠٠:٠١ PM</result>
+   <result timeType='long'>٤ November ٢٠٠٤ ١١:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٤ November ٢٠٠٤ ١١:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Thursday ٤ November ٢٠٠٤</result>
+   <result timeType='short'>Thursday ٤ November ٢٠٠٤ ١١:٠٠ PM</result>
+   <result timeType='medium'>Thursday ٤ November ٢٠٠٤ ١١:٠٠:٠١ PM</result>
+   <result timeType='long'>Thursday ٤ November ٢٠٠٤ ١١:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>Thursday ٤ November ٢٠٠٤ ١١:٠٠:٠١ PM GMT+٠٠:٠٠</result>
+   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>١١:٥٩ PM</result>
+   <result timeType='medium'>١١:٥٩:٥٩ PM</result>
+   <result timeType='long'>١١:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١١:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result dateType='short' timeType='none'>١-١٢-١٠</result>
+   <result timeType='short'>١-١٢-١٠ ١١:٥٩ PM</result>
+   <result timeType='medium'>١-١٢-١٠ ١١:٥٩:٥٩ PM</result>
+   <result timeType='long'>١-١٢-١٠ ١١:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١-١٢-١٠ ١١:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result dateType='medium' timeType='none'>٠١-١٢-٢٠١٠</result>
+   <result timeType='short'>٠١-١٢-٢٠١٠ ١١:٥٩ PM</result>
+   <result timeType='medium'>٠١-١٢-٢٠١٠ ١١:٥٩:٥٩ PM</result>
+   <result timeType='long'>٠١-١٢-٢٠١٠ ١١:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>٠١-١٢-٢٠١٠ ١١:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result dateType='long' timeType='none'>١ December ٢٠١٠</result>
+   <result timeType='short'>١ December ٢٠١٠ ١١:٥٩ PM</result>
+   <result timeType='medium'>١ December ٢٠١٠ ١١:٥٩:٥٩ PM</result>
+   <result timeType='long'>١ December ٢٠١٠ ١١:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>١ December ٢٠١٠ ١١:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result dateType='full' timeType='none'>Wednesday ١ December ٢٠١٠</result>
+   <result timeType='short'>Wednesday ١ December ٢٠١٠ ١١:٥٩ PM</result>
+   <result timeType='medium'>Wednesday ١ December ٢٠١٠ ١١:٥٩:٥٩ PM</result>
+   <result timeType='long'>Wednesday ١ December ٢٠١٠ ١١:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+   <result timeType='full'>Wednesday ١ December ٢٠١٠ ١١:٥٩:٥٩ PM GMT+٠٠:٠٠</result>
+  </date>
+  <collation 
+locales='dv dv_MV'>
+<!-- Divehi [Divehi]; Divehi (Maldives) [Divehi (Maldives)] -->
+   <result>
+x‍
+x‌
+x‍
+X‌
+X‍
+X‌
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+x‌x
+x‍x
+x‌x
+xހ
+Xހ
+xހx
+xޙ
+Xޙ
+xޙx
+xޚ
+Xޚ
+xޚx
+xށ
+Xށ
+xށx
+xނ
+Xނ
+xނx
+xރ
+Xރ
+xރx
+xޜ
+Xޜ
+xޜx
+xބ
+Xބ
+xބx
+xޅ
+Xޅ
+xޅx
+xކ
+Xކ
+xކx
+xއ
+Xއ
+xއx
+xޢ
+Xޢ
+xޢx
+xޣ
+Xޣ
+xޣx
+xވ
+Xވ
+xވx
+xޥ
+Xޥ
+xޥx
+xމ
+Xމ
+xމx
+xފ
+Xފ
+xފx
+xދ
+Xދ
+xދx
+xޛ
+Xޛ
+xޛx
+xތ
+Xތ
+xތx
+xޘ
+Xޘ
+xޘx
+xޠ
+Xޠ
+xޠx
+xޡ
+Xޡ
+xޡx
+xލ
+Xލ
+xލx
+xގ
+Xގ
+xގx
+xޤ
+Xޤ
+xޤx
+xޏ
+Xޏ
+xޏx
+xސ
+Xސ
+xސx
+xޝ
+Xޝ
+xޝx
+xޞ
+Xޞ
+xޞx
+xޟ
+Xޟ
+xޟx
+xޑ
+Xޑ
+xޑx
+xޒ
+Xޒ
+xޒx
+xޓ
+Xޓ
+xޓx
+xޔ
+Xޔ
+xޔx
+xޕ
+Xޕ
+xޕx
+xޖ
+Xޖ
+xޖx
+xޗ
+Xޗ
+xޗx
+xޱ
+Xޱ
+xޱx
+xަ
+Xަ
+xަx
+xާ
+Xާ
+xާx
+xި
+Xި
+xިx
+xީ
+Xީ
+xީx
+xު
+Xު
+xުx
+xޫ
+Xޫ
+xޫx
+xެ
+Xެ
+xެx
+xޭ
+Xޭ
+xޭx
+xޮ
+Xޮ
+xޮx
+xޯ
+Xޯ
+xޯx
+xް
+Xް
+xްx
+   </result>
+  </collation>
+ </cldrTest>

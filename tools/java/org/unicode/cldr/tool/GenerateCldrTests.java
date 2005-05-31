@@ -97,7 +97,8 @@ public class GenerateCldrTests {
             UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
             UOption.create("notresolved", 'n', UOption.NO_ARG),
             UOption.create("languages", 'g', UOption.NO_ARG),
-            UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault("C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
+            UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault(Utility.UTIL_DATA_DIR),
+            		// "C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
             UOption.create("show", 's', UOption.NO_ARG),
     };
 
@@ -123,9 +124,12 @@ public class GenerateCldrTests {
         //log = BagFormatter.openUTF8Writer(options[LOGDIR].value, "log.txt");
         try {
         	if (options[LANGUAGES].doesOccur) {
-        		GenerateStatistics.generateSize(options[GenerateCldrTests.LOGDIR].value, 
-        				options[GenerateCldrTests.SOURCEDIR].value, 
-        				options[TZADIR].value, true);
+        		GenerateStatistics.generateSize(
+        				options[GenerateCldrTests.SOURCEDIR].value + "main/", 
+        				options[GenerateCldrTests.LOGDIR].value, 
+        				options[TZADIR].value,
+						options[MATCH].value,
+						true);
         		return;
         	}
 			//compareAvailable();

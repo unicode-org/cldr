@@ -103,7 +103,6 @@ public class TestCldr extends TestFmwk {
 
 			File f = new File(directory + localeName + ".xml");
 			logln("Testing " + f.getCanonicalPath());
-			logln("Testing " + f.getCanonicalPath());
 			SAX.parse(f, DEFAULT_HANDLER);
     }
 
@@ -309,9 +308,7 @@ public class TestCldr extends TestFmwk {
                         timeFormat = index;
 
                 }
-                DateFormat dt = dateFormat == -1 ? DateFormat.getTimeInstance(DateFormatValues[timeFormat], locale)
-                        : timeFormat == -1 ? DateFormat.getDateInstance(DateFormatValues[dateFormat], locale)
-                        : DateFormat.getDateTimeInstance(DateFormatValues[dateFormat], DateFormatValues[timeFormat], locale);
+                SimpleDateFormat dt = getDateFormat(locale, dateFormat, timeFormat);
                 dt.setTimeZone(utc);
                 String temp = dt.format(date).trim();
                 result = result.trim(); // HACK because of SAX
@@ -322,6 +319,25 @@ public class TestCldr extends TestFmwk {
                     		+ ",\tCLDR: <" + result + ">, ICU: <" + temp + ">");
                 }
             }
+
+			/**
+			 * 
+			 */
+			private SimpleDateFormat getDateFormat(ULocale locale, int dateFormat, int timeFormat) {
+				DateFormat dt;
+				if (dateFormat == 0) {
+					dt = DateFormat.getTimeInstance(DateFormatValues[timeFormat], locale);
+					System.out.print("getTimeInstance");
+				} else if (timeFormat == 0) {
+					dt = DateFormat.getDateInstance(DateFormatValues[dateFormat], locale);
+					System.out.print("getDateInstance");
+				} else {
+                	dt = DateFormat.getDateTimeInstance(DateFormatValues[dateFormat], DateFormatValues[timeFormat], locale);
+					System.out.print("getDateTimeInstance");
+				}
+				System.out.println("\tinput:\t" + dateFormat + ", " + timeFormat + " => " + ((SimpleDateFormat)dt).toPattern());
+				return (SimpleDateFormat)dt;
+			}
         });
 
     }

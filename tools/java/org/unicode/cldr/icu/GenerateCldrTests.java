@@ -1152,7 +1152,7 @@ public class GenerateCldrTests {
             Document doc;
             if (options[FULLY_RESOLVED].doesOccur) {
                 doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale,
-                        false, false, false);
+                        false, false, false, false);
             } else {
                 doc = LDMLUtilities.parse(sourceDir + locale + ".xml", false);
             }
@@ -1285,7 +1285,7 @@ public class GenerateCldrTests {
 
         private void getCollationRules(String locale) throws Exception {
             System.out.println(locale);
-            Document doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale, false, false, false);
+            Document doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale, false, false, false, false);
             Node node = LDMLUtilities.getNode(doc, "//ldml/collations");
             LDML2ICUConverter cnv = new LDML2ICUConverter();
             StringBuffer stringBuffer = new StringBuffer();

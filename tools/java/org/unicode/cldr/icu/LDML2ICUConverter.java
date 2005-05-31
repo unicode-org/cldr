@@ -215,8 +215,9 @@ public class LDML2ICUConverter {
                  *      //throw the exceptionaway .. this is for debugging
                  * }
                  */
+                boolean ignoreDraft = false;
                 printInfo("Resolving: " + sourceDir+"/"+ args[i]);
-                fullyResolvedDoc =  LDMLUtilities.getFullyResolvedLDML(sourceDir, args[i], false, false, false);
+                fullyResolvedDoc =  LDMLUtilities.getFullyResolvedLDML(sourceDir, args[i], false, false, false, ignoreDraft);
                 locName = args[i];
                 int index = locName.indexOf(".xml");
                 if(index > -1){
@@ -231,7 +232,7 @@ public class LDML2ICUConverter {
                     String icuSpecialFile = specialsDir+"/"+ args[i];
                     if(new File(icuSpecialFile).exists()) {
                         printInfo("Parsing ICU specials from: " + icuSpecialFile);
-                        specialsDoc = LDMLUtilities.parseAndResolveAliases(args[i], specialsDir, true);
+                        specialsDoc = LDMLUtilities.parseAndResolveAliases(args[i], specialsDir, true, ignoreDraft);
                         /*
                         try{
                             OutputStreamWriter writer = new
@@ -687,7 +688,7 @@ public class LDML2ICUConverter {
             String name = ldml.getNodeName();
             if(name.equals(LDMLConstants.LDML) ){
                 ldmlVersion = LDMLUtilities.getAttributeValue(ldml, LDMLConstants.VERSION);
-                if(LDMLUtilities.isLocaleDraft(ldml) && writeDraft==false){
+                if(LDMLUtilities.isLocaleDraft(ldml) && overrideMap.containsKey(locName) && writeDraft==false){
                     System.err.println("WARNING: The LDML file "+sourceDir+"/"+locName+".xml is marked draft! Not producing ICU file. ");
                     System.exit(-1);
                 }
@@ -1642,11 +1643,15 @@ public class LDML2ICUConverter {
                 Node ssn = getVettedNode(node, LDMLConstants.STANDARD, xpath);
                 Node sdn = getVettedNode(node, LDMLConstants.DAYLIGHT, xpath);
                 Node sgn = getVettedNode(node, LDMLConstants.GENERIC, xpath);
-
-                if((ssn==null||sdn==null) && !writeDraft){
+                if(locName.equals("root")){
+                    sg.val = "";
+                    ss.val = "";
+                    sd.val = "";
+                }else if((ssn==null||sdn==null) && !writeDraft){
                     System.err.println("WARNING: Could not get timeZone string for " + xpath.toString()+" not producing the resource.");
                     //System.exit(-1);
-                }else{
+                }
+                if(ssn!=null && sdn!=null) {
                     ss.val = LDMLUtilities.getNodeValue(ssn);
                     sd.val = LDMLUtilities.getNodeValue(sdn);
                     if (sgn != null) {
@@ -1669,7 +1674,11 @@ public class LDML2ICUConverter {
                 Node lsn = getVettedNode(node, LDMLConstants.STANDARD, xpath);
                 Node ldn = getVettedNode(node, LDMLConstants.DAYLIGHT, xpath);
                 Node lgn = getVettedNode(node, LDMLConstants.GENERIC, xpath);
-                if((lsn==null||ldn==null) && !writeDraft){
+                if(locName.equals("root")){
+                    lg.val = "";
+                    ls.val = "";
+                    ld.val = "";
+                }else if((lsn==null||ldn==null) && !writeDraft ){
                     System.err.println("WARNING: Could not get timeZone string for " + xpath.toString()+" not producing the resource.");
                     //System.exit(-1);
                 }
@@ -1691,6 +1700,7 @@ public class LDML2ICUConverter {
                         ld.val = "";
                     }
                 }
+                
             }else if(name.equals(LDMLConstants.EXEMPLAR_CITY)){
                 if(isDraft(node, xpath)&& !writeDraft){
                     return null;

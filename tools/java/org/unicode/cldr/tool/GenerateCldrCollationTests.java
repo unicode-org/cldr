@@ -102,7 +102,7 @@ public class GenerateCldrCollationTests {
 
     private void getCollationRules(String locale) throws Exception {
         System.out.println(locale);
-        Document doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale, false, false, false);
+        Document doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale, false, false, false, true);
         Node node = LDMLUtilities.getNode(doc, "//ldml/collations");
         LDML2ICUConverter cnv = new LDML2ICUConverter();
         StringBuffer stringBuffer = new StringBuffer();

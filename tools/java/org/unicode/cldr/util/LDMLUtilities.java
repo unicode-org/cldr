@@ -67,12 +67,12 @@ public class LDMLUtilities {
      */
     public static Document getFullyResolvedLDML(String sourceDir, String locale, 
                                                 boolean ignoreRoot, boolean ignoreUnavailable, 
-                                                boolean ignoreIfNoneAvailable){
-        return getFullyResolvedLDML( sourceDir,  locale, ignoreRoot,  ignoreUnavailable, ignoreIfNoneAvailable, null);
+                                                boolean ignoreIfNoneAvailable, boolean ignoreDraft){
+        return getFullyResolvedLDML( sourceDir,  locale, ignoreRoot,  ignoreUnavailable, ignoreIfNoneAvailable, ignoreDraft, null);
     }
     private static Document getFullyResolvedLDML(String sourceDir, String locale, 
             boolean ignoreRoot, boolean ignoreUnavailable, 
-            boolean ignoreIfNoneAvailable, HashMap stack){
+            boolean ignoreIfNoneAvailable, boolean ignoreDraft, HashMap stack){
         Document full =null;
         if(stack != null){
             //For guarding against cicular references
@@ -137,7 +137,7 @@ public class LDMLUtilities {
                     full = doc;
                 }else{
                     StringBuffer xpath = new StringBuffer();
-                    mergeLDMLDocuments(full, doc, xpath, loc, sourceDir);
+                    mergeLDMLDocuments(full, doc, xpath, loc, sourceDir, ignoreDraft);
                 }
                 /*
                  * debugging
@@ -163,7 +163,7 @@ public class LDMLUtilities {
         // get the real locale name
         locale = getLocaleName(full);
         // Resolve the aliases once the data is built
-        full = resolveAliases(full, sourceDir, locale, stack);
+        full = resolveAliases(full, sourceDir, locale, ignoreDraft, stack);
         
         if(ignoreIfNoneAvailable==true && isAvailable==false){
             return null ;
@@ -478,7 +478,7 @@ public class LDMLUtilities {
      * @return the merged document
      */
     private static Node mergeLDMLDocuments(Document source, Node override, StringBuffer xpath, 
-                                          String thisName, String sourceDir){
+                                          String thisName, String sourceDir, boolean ignoreDraft){
         if(source==null){
             return override;
         }
@@ -514,7 +514,7 @@ public class LDMLUtilities {
             int savedLength=xpath.length();
             xpath.append("/");
             xpath.append(childName);
-            appendXPathAttribute(child,xpath);
+            appendXPathAttribute(child,xpath, false, true);
             Node nodeInSource = null;
             
             if(childName.indexOf(":")>-1){ 
@@ -554,7 +554,7 @@ public class LDMLUtilities {
 //                System.out.println(childName + ":" + childElementNodes + "/" + sourceElementNodes);
                 if(childElementNodes &&  sourceElementNodes){
                     //recurse to pickup any children!
-                    mergeLDMLDocuments(source, child, xpath, thisName, sourceDir);
+                    mergeLDMLDocuments(source, child, xpath, thisName, sourceDir, ignoreDraft);
                 }else{
                     // we have reached a leaf node now get the 
                     // replace to the source doc
@@ -619,7 +619,7 @@ public class LDMLUtilities {
      * @param thisLocale
      */
     // TODO guard against circular aliases
-    public static Document resolveAliases(Document fullyResolvedDoc, String sourceDir, String thisLocale, HashMap stack){
+    public static Document resolveAliases(Document fullyResolvedDoc, String sourceDir, String thisLocale,boolean ignoreDraft, HashMap stack){
        Node[] array = getNodeArray(fullyResolvedDoc, LDMLConstants.ALIAS);
        
        
@@ -667,7 +667,7 @@ public class LDMLUtilities {
                                                       " from source locale: "+thisLocale);
                }
                // this is a is an absolute XPath
-               Document newDoc = getFullyResolvedLDML(sourceDir, source, false, true, false, stack);
+               Document newDoc = getFullyResolvedLDML(sourceDir, source, false, true, false, ignoreDraft, stack);
                replacementList = getNodeListAsArray(newDoc, path);
            }else{
                // path attribute is referencing another node in this DOM tree
@@ -1387,11 +1387,11 @@ public class LDMLUtilities {
         String docURI = filenameToURL(filename);
         return parse(new InputSource(docURI),filename,ignoreError);
     }
-    public static Document parseAndResolveAliases(String locale, String sourceDir, boolean ignoreError){
+    public static Document parseAndResolveAliases(String locale, String sourceDir, boolean ignoreError, boolean ignoreDraft){
         try{
             Document full = parse(sourceDir+File.separator+ locale, ignoreError);
             if(full!=null){
-                full = resolveAliases(full, sourceDir, locale, null);
+                full = resolveAliases(full, sourceDir, locale, ignoreDraft, null);
             }
            /*
             * Debugging

@@ -883,7 +883,7 @@ public class LDMLComparator {
          String locale = fileName.substring(index+1, fileName.lastIndexOf("."));
          System.out.println("INFO: Creating fully resolved tree for : " + fileName);
 
-         Document doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale, true, true, true);
+         Document doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale, true, true, true, true);
          /*
           * debugging code
           *

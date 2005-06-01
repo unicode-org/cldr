@@ -5,7 +5,7 @@ escape_char /
 * POSIX Locale                                                                                  *
 * Generated automatically from the Unicode Character Database and Common Locale Data Repository *
 * see http://www.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap07.html                    *
-* Locale Name : sr_Latn_YU   Codeset : UTF-8
+* Locale Name : uz_Latn_UZ   Codeset : UTF-8
 *************************************************************************************************
 
 *************
@@ -951,7 +951,8 @@ alpha	<LATIN_LETTER_TWO_WITH_STROKE>;/
 	<LATIN_CAPITAL_LETTER_D_WITH_SMALL_LETTER_Z_WITH_CARON>;/
 	<LATIN_CAPITAL_LETTER_L_WITH_SMALL_LETTER_J>;/
 	<LATIN_CAPITAL_LETTER_N_WITH_SMALL_LETTER_J>;/
-	<LATIN_CAPITAL_LETTER_D_WITH_SMALL_LETTER_Z>
+	<LATIN_CAPITAL_LETTER_D_WITH_SMALL_LETTER_Z>;/
+	<MODIFIER_LETTER_LEFT_HALF_RING>
 
 space	<tab>;/
 	<newline>;/
@@ -1568,6 +1569,7 @@ graph	<EXCLAMATION_MARK>;/
 	<MODIFIER_LETTER_SMALL_CAPITAL_INVERTED_R>;/
 	<MODIFIER_LETTER_SMALL_W>;/
 	<MODIFIER_LETTER_SMALL_Y>;/
+	<MODIFIER_LETTER_LEFT_HALF_RING>;/
 	<MODIFIER_LETTER_SMALL_GAMMA>;/
 	<MODIFIER_LETTER_SMALL_L>;/
 	<MODIFIER_LETTER_SMALL_S>;/
@@ -2550,6 +2552,7 @@ print	<space>;/
 	<MODIFIER_LETTER_SMALL_CAPITAL_INVERTED_R>;/
 	<MODIFIER_LETTER_SMALL_W>;/
 	<MODIFIER_LETTER_SMALL_Y>;/
+	<MODIFIER_LETTER_LEFT_HALF_RING>;/
 	<MODIFIER_LETTER_SMALL_GAMMA>;/
 	<MODIFIER_LETTER_SMALL_L>;/
 	<MODIFIER_LETTER_SMALL_S>;/
@@ -4031,6 +4034,7 @@ collating-symbol <X5982>
 collating-symbol <X5986>
 collating-symbol <X598A>
 collating-symbol <X598C>
+collating-symbol <X598E>
 collating-symbol <X5992>
 collating-symbol <X5994>
 collating-symbol <X5996>
@@ -4328,6 +4332,7 @@ order_start forward;forward;forward;forward
 <X5986>
 <X598A>
 <X598C>
+<X598E>
 <X5992>
 <X5994>
 <X5996>
@@ -4454,8 +4459,8 @@ order_start forward;forward;forward;forward
 <LATIN_SMALL_LETTER_A_WITH_CARON>                       <X2600>;"<X0005><X0097>";"<X0005><X0005>";IGNORE
 <LATIN_CAPITAL_LETTER_A_WITH_CARON>                     <X2600>;"<X0005><X0097>";"<X008F><X0005>";IGNORE
 <LATIN_SMALL_LETTER_A_WITH_RING_ABOVE>                  <X2600>;"<X0005><X0099>";"<X0005><X0005>";IGNORE
-<LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE>                <X2600>;"<X0005><X0099>";"<X008F><X0005>";<A><COMBINING_RING_ABOVE>
-<ANGSTROM_SIGN>                                         <X2600>;"<X0005><X0099>";"<X008F><X0005>";<A><COMBINING_RING_ABOVE>
+<LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE>                <X2600>;"<X0005><X0099>";"<X008F><X0005>";"<A><COMBINING_RING_ABOVE>"
+<ANGSTROM_SIGN>                                         <X2600>;"<X0005><X0099>";"<X008F><X0005>";"<A><COMBINING_RING_ABOVE>"
 <LATIN_SMALL_LETTER_A_WITH_RING_ABOVE_AND_ACUTE>        <X2600>;"<X0005><X0099><X008D>";"<X0005><X0005><X0005>";IGNORE
 <LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE_AND_ACUTE>      <X2600>;"<X0005><X0099><X008D>";"<X008F><X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_A_WITH_DIAERESIS>                   <X2600>;"<X0005><X009D>";"<X0005><X0005>";IGNORE
@@ -4565,7 +4570,6 @@ order_start forward;forward;forward;forward
 <LATIN_SMALL_LETTER_DZ_DIGRAPH>                         "<X2C00><X5800>";"<X0005><X0005>";"<X0009><X0009>";<LATIN_SMALL_LETTER_DZ_DIGRAPH>
 <LATIN_CAPITAL_LETTER_D_WITH_SMALL_LETTER_Z>            "<X2C00><X5800>";"<X0005><X0005>";"<X0093><X0009>";IGNORE
 <LATIN_CAPITAL_LETTER_DZ>                               "<X2C00><X5800>";"<X0005><X0005>";"<X0093><X0093>";IGNORE
-<d-LATIN_SMALL_LETTER_Z_WITH_CARON>                     "<X2C00><X5800>";"<X0005><X0005><X0097>";"<X0005><X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_DZ_WITH_CARON>                      "<X2C00><X5800>";"<X0005><X0005><X0097>";"<X0009><X0009><X003D>";IGNORE
 <LATIN_CAPITAL_LETTER_D_WITH_SMALL_LETTER_Z_WITH_CARON> "<X2C00><X5800>";"<X0005><X0005><X0097>";"<X0093><X0009><X003D>";IGNORE
 <LATIN_CAPITAL_LETTER_DZ_WITH_CARON>                    "<X2C00><X5800>";"<X0005><X0005><X0097>";"<X0093><X0093><X003D>";IGNORE
@@ -4838,7 +4842,6 @@ order_start forward;forward;forward;forward
 <LATIN_CAPITAL_LETTER_L_WITH_LINE_BELOW>                <X3C00>;"<X0005><X00D1><X0011>";"<X008F><X0005><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_L_WITH_MIDDLE_DOT>                  "<X3C00><X081F>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_CAPITAL_LETTER_L_WITH_MIDDLE_DOT>                "<X3C00><X081F>";"<X0005><X0005>";"<X0093><X0009>";IGNORE
-<l-j>                                                   "<X3C00><X3800>";"<X0005><X0005>";"<X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_LJ>                                 "<X3C00><X3800>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_CAPITAL_LETTER_L_WITH_SMALL_LETTER_J>            "<X3C00><X3800>";"<X0005><X0005>";"<X0093><X0009>";IGNORE
 <LATIN_CAPITAL_LETTER_LJ>                               "<X3C00><X3800>";"<X0005><X0005>";"<X0093><X0093>";IGNORE
@@ -4894,7 +4897,6 @@ order_start forward;forward;forward;forward
 <LATIN_CAPITAL_LETTER_N_WITH_CIRCUMFLEX_BELOW>          <X4000>;"<X0005><X00D0><X00CD>";"<X008F><X0005><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_N_WITH_LINE_BELOW>                  <X4000>;"<X0005><X00D1><X0011>";"<X0005><X0005><X00C0>";IGNORE
 <LATIN_CAPITAL_LETTER_N_WITH_LINE_BELOW>                <X4000>;"<X0005><X00D1><X0011>";"<X008F><X0005><X00C0>";IGNORE
-<n-j>                                                   "<X4000><X3800>";"<X0005><X0005>";"<X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_NJ>                                 "<X4000><X3800>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_CAPITAL_LETTER_N_WITH_SMALL_LETTER_J>            "<X4000><X3800>";"<X0005><X0005>";"<X0093><X0009>";IGNORE
 <LATIN_CAPITAL_LETTER_NJ>                               "<X4000><X3800>";"<X0005><X0005>";"<X0093><X0093>";IGNORE
@@ -5347,6 +5349,7 @@ order_start forward;forward;forward;forward
 <LATIN_SMALL_LETTER_N_PRECEDED_BY_APOSTROPHE>           "<X5986><X4000>";"<X0005><X0005>";"<X0009><X0009>";IGNORE
 <LATIN_LETTER_PHARYNGEAL_VOICED_FRICATIVE>              <X598C>;<X0005>;<X0005>;IGNORE
 <MODIFIER_LETTER_SMALL_REVERSED_GLOTTAL_STOP>           <X598C>;<X0005>;<X0027>;IGNORE
+<MODIFIER_LETTER_LEFT_HALF_RING>                        <X598E>;<X0005>;<X0005>;IGNORE
 <LATIN_LETTER_VOICED_LARYNGEAL_SPIRANT>                 <X5992>;<X0005>;<X0005>;IGNORE
 <LATIN_LETTER_AIN>                                      <X5994>;<X0005>;<X0005>;IGNORE
 <MODIFIER_LETTER_SMALL_AIN>                             <X5994>;<X0005>;<X0027>;IGNORE
@@ -5371,7 +5374,7 @@ LC_NUMERIC
 *************
 
 decimal_point     "<COMMA>"
-thousands_sep     "<FULL_STOP>"
+thousands_sep     "<NO-BREAK_SPACE>"
 grouping          3
 
 END LC_NUMERIC
@@ -5381,10 +5384,10 @@ END LC_NUMERIC
 LC_MONETARY
 *************
 
-int_curr_symbol       "<E><U><R><space>"
-currency_symbol       "<EURO_SIGN>"
+int_curr_symbol       "<U><Z><S><space>"
+currency_symbol       "<s><o><MODIFIER_LETTER_LEFT_HALF_RING><m>"
 mon_decimal_point     "<COMMA>"
-mon_thousands_sep     "<FULL_STOP>"
+mon_thousands_sep     "<NO-BREAK_SPACE>"
 mon_grouping          3
 positive_sign         ""
 negative_sign         "<HYPHEN-MINUS>"
@@ -5410,53 +5413,53 @@ END LC_MONETARY
 LC_TIME
 *************
 
-abday   "<n><e><d>";/
-        "<p><o><n>";/
-        "<u><t><o>";/
-        "<s><r><e>";/
-        "<LATIN_SMALL_LETTER_C_WITH_CARON><e><t>";/
-        "<p><e><t>";/
-        "<s><u><b>"
+abday   "<Y><a><k><s><h>";/
+        "<D><u><s><h>";/
+        "<S><e><s><h>";/
+        "<C><h><o><r>";/
+        "<P><a><y>";/
+        "<J><u><m>";/
+        "<S><h><a><n>"
 
-day     "<n><e><d><e><l><j><a>";/
-        "<p><o><n><e><d><e><l><j><a><k>";/
-        "<u><t><o><r><a><k>";/
-        "<s><r><e><d><a>";/
-        "<LATIN_SMALL_LETTER_C_WITH_CARON><e><t><v><r><t><a><k>";/
-        "<p><e><t><a><k>";/
-        "<s><u><b><o><t><a>"
+day     "<y><a><k><s><h><a><n><b><a>";/
+        "<d><u><s><h><a><n><b><a>";/
+        "<s><e><s><h><a><n><b><a>";/
+        "<c><h><o><r><s><h><a><n><b><a>";/
+        "<p><a><y><s><h><a><n><b><a>";/
+        "<j><u><m><a>";/
+        "<s><h><a><n><b><a>"
 
-abmon   "<j><a><n>";/
-        "<f><e><b>";/
-        "<m><a><r>";/
-        "<a><p><r>";/
-        "<m><a><j>";/
-        "<j><u><n>";/
-        "<j><u><l>";/
-        "<a><v><g>";/
-        "<s><e><p>";/
-        "<o><k><t>";/
-        "<n><o><v>";/
-        "<d><e><c>"
+abmon   "<Y><a><n><v>";/
+        "<F><e><v>";/
+        "<M><a><r>";/
+        "<A><p><r>";/
+        "<M><a><y>";/
+        "<I><y><u><n>";/
+        "<I><y><u><l>";/
+        "<A><v><g>";/
+        "<S><e><n>";/
+        "<O><k><t>";/
+        "<N><o><y><a>";/
+        "<D><e><k>"
 
-mon     "<j><a><n><u><a><r>";/
-        "<f><e><b><r><u><a><r>";/
-        "<m><a><r><t>";/
-        "<a><p><r><i><l>";/
-        "<m><a><j>";/
-        "<j><u><n>";/
-        "<j><u><l>";/
-        "<a><v><g><u><s><t>";/
-        "<s><e><p><t><e><m><b><a><r>";/
-        "<o><k><t><o><b><a><r>";/
-        "<n><o><v><e><m><b><a><r>";/
-        "<d><e><c><e><m><b><a><r>"
+mon     "<M><u><h><a><r><r><a><m>";/
+        "<S><a><f><a><r>";/
+        "<R><a><b><i><u><l><HYPHEN-MINUS><a><v><v><a><l>";/
+        "<R><a><b><i><u><l><HYPHEN-MINUS><o><x><i><r>";/
+        "<J><u><m><o><d><i><u><l><HYPHEN-MINUS><u><l><o>";/
+        "<J><u><m><o><d><i><u><l><HYPHEN-MINUS><u><x><r><o>";/
+        "<R><a><j><a><b>";/
+        "<S><h><a><MODIFIER_LETTER_LEFT_HALF_RING><b><o><n>";/
+        "<R><a><m><a><z><o><n>";/
+        "<S><h><a><v><v><o><l>";/
+        "<Z><i><l><HYPHEN-MINUS><q><a><MODIFIER_LETTER_LEFT_HALF_RING><d><a>";/
+        "<Z><i><l><HYPHEN-MINUS><h><i><j><j><a>"
 
-d_fmt    "%e.%m.%y."
+d_fmt    "%y<SOLIDUS>%m<SOLIDUS>%d"
 
-t_fmt    "%H.%M.%S"
+t_fmt    "%H:%M:%S"
 
-d_t_fmt  "%A, %e.%m.%Y. %H.%M.%S %Z"
+d_t_fmt  "%Y %B %e %H:%M:%S %Z"
 
 am_pm    "<A><M>";"<P><M>"
 
@@ -5467,13 +5470,13 @@ END LC_TIME
 LC_MESSAGES
 *************
 
-yesstr   "da:d:DA:D:yes:y:YES:Y"
+yesstr   "yes:y:YES:Y"
 
-nostr    "ne:n:NE:N:no:n:NO:N"
+nostr    "no:n:NO:N"
 
-yesexpr  "^([yY]([eE][sS])?)|([dD][aA]?)"
+yesexpr  "^[yY]([eE][sS])?"
 
-noexpr   "^[nN][oOeE]?"
+noexpr   "^[nN][oO]?"
 
 
 END LC_MESSAGES

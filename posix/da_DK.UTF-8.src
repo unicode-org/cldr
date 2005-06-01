@@ -5324,8 +5324,8 @@ order_start forward;forward;forward;forward
 <LATIN_SMALL_LETTER_O_WITH_DOUBLE_ACUTE>                "<X5969><X0500>";<X0088>;"<X0005><X00C0>";IGNORE
 <LATIN_CAPITAL_LIGATURE_OE>                             "<X5969><X0500>";<X0089>;"<X0086><X00C0>";IGNORE
 <LATIN_SMALL_LIGATURE_OE>                               "<X5969><X0500>";<X0089>;"<X0005><X00C0>";IGNORE
-<LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE>                "<X5969><X0600>";<X0005>;"<X0086><X00C0>";<A><COMBINING_RING_ABOVE>
-<ANGSTROM_SIGN>                                         "<X5969><X0600>";<X0005>;"<X0086><X00C0>";<A><COMBINING_RING_ABOVE>
+<LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE>                "<X5969><X0600>";<X0005>;"<X0086><X00C0>";"<A><COMBINING_RING_ABOVE>"
+<ANGSTROM_SIGN>                                         "<X5969><X0600>";<X0005>;"<X0086><X00C0>";"<A><COMBINING_RING_ABOVE>"
 <A-A>                                                   "<X5969><X0600>";<X0005>;"<X0089><X00C0>";IGNORE
 <A-a>                                                   "<X5969><X0600>";<X0005>;"<X0048><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_A_WITH_RING_ABOVE>                  "<X5969><X0600>";<X0005>;"<X0005><X00C0>";IGNORE
@@ -5461,7 +5461,7 @@ mon     "<j><a><n><u><a><r>";/
         "<n><o><v><e><m><b><e><r>";/
         "<d><e><c><e><m><b><e><r>"
 
-d_fmt    "%d-%m-%y"
+d_fmt    "%d<SOLIDUS>%m<SOLIDUS>%y"
 
 t_fmt    "%H.%M.%S"
 

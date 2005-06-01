@@ -5320,8 +5320,8 @@ order_start forward;forward;forward;forward
 <LATIN_SMALL_LIGATURE_OE>                               "<X5969><X0500>";<X0089>;"<X0005><X00C0>";IGNORE
 <LATIN_CAPITAL_LIGATURE_OE>                             "<X5969><X0500>";<X0089>;"<X0086><X00C0>";IGNORE
 <LATIN_SMALL_LETTER_A_WITH_RING_ABOVE>                  "<X5969><X0600>";<X0005>;"<X0005><X00C0>";IGNORE
-<LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE>                "<X5969><X0600>";<X0005>;"<X0086><X00C0>";<A><COMBINING_RING_ABOVE>
-<ANGSTROM_SIGN>                                         "<X5969><X0600>";<X0005>;"<X0086><X00C0>";<A><COMBINING_RING_ABOVE>
+<LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE>                "<X5969><X0600>";<X0005>;"<X0086><X00C0>";"<A><COMBINING_RING_ABOVE>"
+<ANGSTROM_SIGN>                                         "<X5969><X0600>";<X0005>;"<X0086><X00C0>";"<A><COMBINING_RING_ABOVE>"
 <LATIN_SMALL_LETTER_A_WITH_RING_ABOVE_AND_ACUTE>        "<X5969><X0600>";"<X0005><X008D>";"<X0005><X00C0><X0005>";IGNORE
 <LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE_AND_ACUTE>      "<X5969><X0600>";"<X0005><X008D>";"<X0086><X00C0><X0005>";IGNORE
 <LATIN_SMALL_LETTER_EZH>                                <X596A>;<X0005>;<X0005>;IGNORE
@@ -5411,13 +5411,13 @@ END LC_MONETARY
 LC_TIME
 *************
 
-abday   "<s><LATIN_SMALL_LETTER_O_WITH_STROKE>";/
-        "<m><a>";/
-        "<t><i>";/
-        "<o><n>";/
-        "<t><o>";/
-        "<f><r>";/
-        "<l><LATIN_SMALL_LETTER_O_WITH_STROKE>"
+abday   "<s><LATIN_SMALL_LETTER_O_WITH_STROKE><FULL_STOP>";/
+        "<m><a><FULL_STOP>";/
+        "<t><i><FULL_STOP>";/
+        "<o><n><FULL_STOP>";/
+        "<t><o><FULL_STOP>";/
+        "<f><r><FULL_STOP>";/
+        "<l><LATIN_SMALL_LETTER_O_WITH_STROKE><FULL_STOP>"
 
 day     "<s><LATIN_SMALL_LETTER_O_WITH_STROKE><n><d><a><g>";/
         "<m><a><n><d><a><g>";/
@@ -5427,18 +5427,18 @@ day     "<s><LATIN_SMALL_LETTER_O_WITH_STROKE><n><d><a><g>";/
         "<f><r><e><d><a><g>";/
         "<l><LATIN_SMALL_LETTER_O_WITH_STROKE><r><d><a><g>"
 
-abmon   "<j><a><n>";/
-        "<f><e><b>";/
-        "<m><a><r>";/
-        "<a><p><r>";/
+abmon   "<j><a><n><FULL_STOP>";/
+        "<f><e><b><FULL_STOP>";/
+        "<m><a><r><s>";/
+        "<a><p><r><i><l>";/
         "<m><a><i>";/
-        "<j><u><n>";/
-        "<j><u><l>";/
-        "<a><u><g>";/
-        "<s><e><p>";/
-        "<o><k><t>";/
-        "<n><o><v>";/
-        "<d><e><s>"
+        "<j><u><n><i>";/
+        "<j><u><l><i>";/
+        "<a><u><g><FULL_STOP>";/
+        "<s><e><p><FULL_STOP>";/
+        "<o><k><t><FULL_STOP>";/
+        "<n><o><v><FULL_STOP>";/
+        "<d><e><s><FULL_STOP>"
 
 mon     "<j><a><n><u><a><r>";/
         "<f><e><b><r><u><a><r>";/

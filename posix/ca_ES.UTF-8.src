@@ -4470,8 +4470,8 @@ order_start forward;backward;forward;forward
 <LATIN_SMALL_LETTER_A_WITH_CARON>                       <X2600>;"<X0005><X0097>";"<X0005><X0005>";IGNORE
 <LATIN_CAPITAL_LETTER_A_WITH_CARON>                     <X2600>;"<X0005><X0097>";"<X008F><X0005>";IGNORE
 <LATIN_SMALL_LETTER_A_WITH_RING_ABOVE>                  <X2600>;"<X0005><X0099>";"<X0005><X0005>";IGNORE
-<LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE>                <X2600>;"<X0005><X0099>";"<X008F><X0005>";<A><COMBINING_RING_ABOVE>
-<ANGSTROM_SIGN>                                         <X2600>;"<X0005><X0099>";"<X008F><X0005>";<A><COMBINING_RING_ABOVE>
+<LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE>                <X2600>;"<X0005><X0099>";"<X008F><X0005>";"<A><COMBINING_RING_ABOVE>"
+<ANGSTROM_SIGN>                                         <X2600>;"<X0005><X0099>";"<X008F><X0005>";"<A><COMBINING_RING_ABOVE>"
 <LATIN_SMALL_LETTER_A_WITH_DIAERESIS>                   <X2600>;"<X0005><X009D>";"<X0005><X0005>";IGNORE
 <LATIN_CAPITAL_LETTER_A_WITH_DIAERESIS>                 <X2600>;"<X0005><X009D>";"<X008F><X0005>";IGNORE
 <LATIN_SMALL_LETTER_A_WITH_TILDE>                       <X2600>;"<X0005><X00A1>";"<X0005><X0005>";IGNORE
@@ -5444,7 +5444,7 @@ day     "<d><i><u><m><e><n><g><e>";/
         "<d><i><s><s><a><b><t><e>"
 
 abmon   "<g><e><n><FULL_STOP>";/
-        "<f><e><b><FULL_STOP>";/
+        "<f><e><b><r><FULL_STOP>";/
         "<m><a><r><LATIN_SMALL_LETTER_C_WITH_CEDILLA>";/
         "<a><b><r><FULL_STOP>";/
         "<m><a><i><g>";/
@@ -5473,7 +5473,7 @@ d_fmt    "%d<SOLIDUS>%m<SOLIDUS>%y"
 
 t_fmt    "%H:%M:%S"
 
-d_t_fmt  "%e %B %Y %H:%M:%S %Z"
+d_t_fmt  "%e de %B de %Y %H:%M:%S %Z"
 
 am_pm    "<A><M>";"<P><M>"
 

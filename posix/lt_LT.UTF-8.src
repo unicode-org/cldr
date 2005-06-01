@@ -4461,8 +4461,8 @@ order_start forward;forward;forward;forward
 <LATIN_SMALL_LETTER_A_WITH_CARON>                       <X2600>;"<X0005><X0097>";"<X0005><X0005>";IGNORE
 <LATIN_CAPITAL_LETTER_A_WITH_CARON>                     <X2600>;"<X0005><X0097>";"<X008F><X0005>";IGNORE
 <LATIN_SMALL_LETTER_A_WITH_RING_ABOVE>                  <X2600>;"<X0005><X0099>";"<X0005><X0005>";IGNORE
-<LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE>                <X2600>;"<X0005><X0099>";"<X008F><X0005>";<A><COMBINING_RING_ABOVE>
-<ANGSTROM_SIGN>                                         <X2600>;"<X0005><X0099>";"<X008F><X0005>";<A><COMBINING_RING_ABOVE>
+<LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE>                <X2600>;"<X0005><X0099>";"<X008F><X0005>";"<A><COMBINING_RING_ABOVE>"
+<ANGSTROM_SIGN>                                         <X2600>;"<X0005><X0099>";"<X008F><X0005>";"<A><COMBINING_RING_ABOVE>"
 <LATIN_SMALL_LETTER_A_WITH_RING_ABOVE_AND_ACUTE>        <X2600>;"<X0005><X0099><X008D>";"<X0005><X0005><X0005>";IGNORE
 <LATIN_CAPITAL_LETTER_A_WITH_RING_ABOVE_AND_ACUTE>      <X2600>;"<X0005><X0099><X008D>";"<X008F><X0005><X0005>";IGNORE
 <LATIN_SMALL_LETTER_A_WITH_DIAERESIS>                   <X2600>;"<X0005><X009D>";"<X0005><X0005>";IGNORE
@@ -5422,13 +5422,13 @@ abday   "<S><k>";/
         "<P><n>";/
         "<LATIN_CAPITAL_LETTER_S_WITH_CARON><t>"
 
-day     "<S><e><k><m><a><d><i><e><n><i><s>";/
-        "<P><i><r><m><a><d><i><e><n><i><s>";/
-        "<A><n><t><r><a><d><i><e><n><i><s>";/
-        "<T><r><e><LATIN_SMALL_LETTER_C_WITH_CARON><i><a><d><i><e><n><i><s>";/
-        "<K><e><t><v><i><r><t><a><d><i><e><n><i><s>";/
-        "<P><e><n><k><t><a><d><i><e><n><i><s>";/
-        "<LATIN_CAPITAL_LETTER_S_WITH_CARON><e><LATIN_SMALL_LETTER_S_WITH_CARON><t><a><d><i><e><n><i><s>"
+day     "<s><e><k><m><a><d><i><e><n><i><s>";/
+        "<p><i><r><m><a><d><i><e><n><i><s>";/
+        "<a><n><t><r><a><d><i><e><n><i><s>";/
+        "<t><r><e><LATIN_SMALL_LETTER_C_WITH_CARON><i><a><d><i><e><n><i><s>";/
+        "<k><e><t><v><i><r><t><a><d><i><e><n><i><s>";/
+        "<p><e><n><k><t><a><d><i><e><n><i><s>";/
+        "<LATIN_SMALL_LETTER_S_WITH_CARON><e><LATIN_SMALL_LETTER_S_WITH_CARON><t><a><d><i><e><n><i><s>"
 
 abmon   "<S><a><u>";/
         "<V><a><s>";/
@@ -5439,24 +5439,24 @@ abmon   "<S><a><u>";/
         "<L><i><e>";/
         "<R><g><p>";/
         "<R><g><s>";/
-        "<S><p><a>";/
+        "<S><p><l>";/
         "<L><a><p>";/
         "<G><r><d>"
 
-mon     "<S><a><u><s><i><o>";/
-        "<V><a><s><a><r><i><o>";/
-        "<K><o><v><o>";/
-        "<B><a><l><a><n><d><LATIN_SMALL_LETTER_Z_WITH_CARON><i><o>";/
-        "<G><e><g><u><LATIN_SMALL_LETTER_Z_WITH_CARON><LATIN_SMALL_LETTER_E_WITH_DOT_ABOVE><s>";/
-        "<B><i><r><LATIN_SMALL_LETTER_Z_WITH_CARON><e><l><i><o>";/
-        "<L><i><e><p><o><s>";/
-        "<R><u><g><p><j><LATIN_SMALL_LETTER_U_WITH_MACRON><LATIN_SMALL_LETTER_C_WITH_CARON><i><o>";/
-        "<R><u><g><s><LATIN_SMALL_LETTER_E_WITH_DOT_ABOVE><j><o>";/
-        "<S><p><a><l><i><o>";/
-        "<L><a><p><k><r><i><LATIN_SMALL_LETTER_C_WITH_CARON><i><o>";/
-        "<G><r><u><o><d><LATIN_SMALL_LETTER_Z_WITH_CARON><i><o>"
+mon     "<s><a><u><s><i><o>";/
+        "<v><a><s><a><r><i><o>";/
+        "<k><o><v><o>";/
+        "<b><a><l><a><n><d><LATIN_SMALL_LETTER_Z_WITH_CARON><i><o>";/
+        "<g><e><g><u><LATIN_SMALL_LETTER_Z_WITH_CARON><LATIN_SMALL_LETTER_E_WITH_DOT_ABOVE><s>";/
+        "<b><i><r><LATIN_SMALL_LETTER_Z_WITH_CARON><e><l><i><o>";/
+        "<l><i><e><p><o><s>";/
+        "<r><u><g><p><j><LATIN_SMALL_LETTER_U_WITH_MACRON><LATIN_SMALL_LETTER_C_WITH_CARON><i><o>";/
+        "<r><u><g><s><LATIN_SMALL_LETTER_E_WITH_DOT_ABOVE><j><o>";/
+        "<s><p><a><l><i><o>";/
+        "<l><a><p><k><r><i><LATIN_SMALL_LETTER_C_WITH_CARON><i><o>";/
+        "<g><r><u><o><d><LATIN_SMALL_LETTER_Z_WITH_CARON><i><o>"
 
-d_fmt    "%Y.%m.%d"
+d_fmt    "%Y-%m-%d"
 
 t_fmt    "%H:%M:%S"
 

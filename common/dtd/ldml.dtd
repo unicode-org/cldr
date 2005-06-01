@@ -788,7 +788,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST currencyFormat alt CDATA #IMPLIED >
 <!ATTLIST currencyFormat validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT currencies (alias | (currency*, special*)) >
+<!ELEMENT currencies (alias | (default?, currency*, special*)) >
 <!ATTLIST currencies draft ( true | false ) #IMPLIED >
 <!ATTLIST currencies validSubLocales CDATA #IMPLIED >
 

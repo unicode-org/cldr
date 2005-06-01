@@ -1165,7 +1165,8 @@ public class LDML2ICUConverter {
             String name = node.getNodeName();
             ICUResourceWriter.Resource res = null;
             if(name.equals(LDMLConstants.EXEMPLAR_CHARACTERS)){
-                if((!isDraft(node, xpath)||writeDraft)&&!isAlternate(node)&&!isType(node,LDMLConstants.AUXILIARY)){
+                //TODO timebomb this.  Turn off draft checking for now.
+                if(/*(!isDraft(node, xpath)||writeDraft)&&*/!isAlternate(node)&&!isType(node,LDMLConstants.AUXILIARY)){
                     res = parseStringResource(node);
                     res.name = (String) keyNameMap.get(LDMLConstants.EXEMPLAR_CHARACTERS);
                 }
@@ -2453,7 +2454,10 @@ public class LDML2ICUConverter {
         xpath.setLength(oldLength);
         return ret;
     }
-
+    private Node getNode(Node parent, String childName, StringBuffer xpath, boolean preferDraft, boolean preferAlt){
+        NodeList list = LDMLUtilities.getNodeList(parent, childName, fullyResolvedDoc, xpath.toString());
+        return LDMLUtilities.getNode(list, xpath.toString()+childName, preferDraft, preferAlt);
+    }
     private ICUResourceWriter.Resource parseAmPm(Node root, StringBuffer xpath){
         Node parent =root.getParentNode();
         Node amNode = getVettedNode(parent, LDMLConstants.AM, xpath);
@@ -2509,16 +2513,16 @@ public class LDML2ICUConverter {
         //TODO figure out what to do for alias
         Node parent = root.getParentNode();
         ArrayList list = new ArrayList();
-        list.add(getVettedNode(parent, "timeFormats/timeFormatLength[@type='full']/timeFormat[@type='standard']/pattern",  xpath));
-        list.add(getVettedNode(parent, "timeFormats/timeFormatLength[@type='long']/timeFormat[@type='standard']/pattern",  xpath));
-        list.add(getVettedNode(parent, "timeFormats/timeFormatLength[@type='medium']/timeFormat[@type='standard']/pattern", xpath));
-        list.add(getVettedNode(parent, "timeFormats/timeFormatLength[@type='short']/timeFormat[@type='standard']/pattern", xpath));
-        list.add(getVettedNode(parent, "dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern", xpath));
-        list.add(getVettedNode(parent, "dateFormats/dateFormatLength[@type='long']/dateFormat[@type='standard']/pattern", xpath));
-        list.add(getVettedNode(parent, "dateFormats/dateFormatLength[@type='medium']/dateFormat[@type='standard']/pattern", xpath));
-        list.add(getVettedNode(parent, "dateFormats/dateFormatLength[@type='short']/dateFormat[@type='standard']/pattern",  xpath));
+        list.add(getNode(parent, "timeFormats/timeFormatLength[@type='full']/timeFormat[@type='standard']/pattern",  xpath, true, true));
+        list.add(getNode(parent, "timeFormats/timeFormatLength[@type='long']/timeFormat[@type='standard']/pattern",  xpath, true, true));
+        list.add(getNode(parent, "timeFormats/timeFormatLength[@type='medium']/timeFormat[@type='standard']/pattern", xpath, true, true));
+        list.add(getNode(parent, "timeFormats/timeFormatLength[@type='short']/timeFormat[@type='standard']/pattern", xpath, true, true));
+        list.add(getNode(parent, "dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern", xpath, true, true));
+        list.add(getNode(parent, "dateFormats/dateFormatLength[@type='long']/dateFormat[@type='standard']/pattern", xpath, true, true));
+        list.add(getNode(parent, "dateFormats/dateFormatLength[@type='medium']/dateFormat[@type='standard']/pattern", xpath, true, true));
+        list.add(getNode(parent, "dateFormats/dateFormatLength[@type='short']/dateFormat[@type='standard']/pattern",  xpath, true, true));
         //TODO guard this against possible failure
-        list.add(getVettedNode(parent, "dateTimeFormats/dateTimeFormatLength/dateTimeFormat/pattern", xpath));
+        list.add(getNode(parent, "dateTimeFormats/dateTimeFormatLength/dateTimeFormat/pattern", xpath, true, true));
 
         if(list.size()<9){
             throw new RuntimeException("Did not get expected output for Date and Time patterns!!");

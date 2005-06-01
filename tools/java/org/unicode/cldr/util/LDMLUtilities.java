@@ -1162,57 +1162,61 @@ public class LDMLUtilities {
     public static Node getNode(Node node, String xpath, boolean preferDraft, boolean preferAlt){
         try{
             NodeList nl = XPathAPI.selectNodeList(node, xpath);
-            int len = nl.getLength();
-            //TODO watch for attribute "alt"
-            if(len>1){
-                Node best = null;
-                for(int i=0; i<len;i++){
-                    Node current = nl.item(i);
-                    if(!preferDraft && ! preferAlt){
-                        if(!isNodeDraft(current) && ! isAlternate(current)){
-                            best = current;
-                            break;
-                        }
-                        continue;
-                    }else if(preferDraft && !preferAlt){
-                        if(isNodeDraft(current) && ! isAlternate(current)){
-                            best = current;
-                            break;
-                        }
-                        continue;
-                    }else if(!preferDraft && preferAlt){
-                        if(!isNodeDraft(current) && isAlternate(current)){
-                            best = current;
-                            break;
-                        }
-                        continue;
-                    }else{
-                        if(isNodeDraft(current) || isAlternate(current)){
-                            best = current;
-                            break;
-                        }
-                        continue;
-                    }
-                }
-                if(best != null){
-                    return best;
-                }
-                /* else complain */
-                String all = ""; 
-                int i;
-                for(i=0;i<len;i++) {
-                    all = all + ", " + nl.item(i);
-                }
-                throw new IllegalArgumentException("The XPATH returned more than 1 node!. Check XPATH: "+xpath + " = " + all);   
-            }
-            if(len==0){
-                return null;
-            }
-            return nl.item(0);
+            return getNode(nl, xpath, preferDraft, preferAlt);
 
         }catch(TransformerException ex){
             throw new RuntimeException(ex.getMessage());
         }
+    }
+    public static Node getNode(NodeList nl, String xpath, boolean preferDraft, boolean preferAlt){
+        int len = nl.getLength();
+        //TODO watch for attribute "alt"
+        if(len>1){
+            Node best = null;
+            for(int i=0; i<len;i++){
+                Node current = nl.item(i);
+                if(!preferDraft && ! preferAlt){
+                    if(!isNodeDraft(current) && ! isAlternate(current)){
+                        best = current;
+                        break;
+                    }
+                    continue;
+                }else if(preferDraft && !preferAlt){
+                    if(isNodeDraft(current) && ! isAlternate(current)){
+                        best = current;
+                        break;
+                    }
+                    continue;
+                }else if(!preferDraft && preferAlt){
+                    if(!isNodeDraft(current) && isAlternate(current)){
+                        best = current;
+                        break;
+                    }
+                    continue;
+                }else{
+                    if(isNodeDraft(current) || isAlternate(current)){
+                        best = current;
+                        break;
+                    }
+                    continue;
+                }
+            }
+            if(best != null){
+                return best;
+            }
+            /* else complain */
+            String all = ""; 
+            int i;
+            for(i=0;i<len;i++) {
+                all = all + ", " + nl.item(i);
+            }
+            throw new IllegalArgumentException("The XPATH returned more than 1 node!. Check XPATH: "+xpath + " = " + all);   
+        }
+        if(len==0){
+            return null;
+        }
+        return nl.item(0);
+
     }
     /**
      * 

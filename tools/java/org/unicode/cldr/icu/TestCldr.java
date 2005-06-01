@@ -69,6 +69,7 @@ public class TestCldr extends TestFmwk {
     }
 
     String directory;
+    Set allLocales = new TreeSet();
     
     public void TestFiles() throws SAXException, IOException {
     	directory = Utility.TEST_DIR;
@@ -92,6 +93,7 @@ public class TestCldr extends TestFmwk {
     public void addLocales(ULocale[] list, Collection s) {
     	LanguageTagParser lsp = new LanguageTagParser();
     	for (int i = 0; i < list.length; ++i) {
+    		allLocales.add(list[i].toString());
     		String loc = list[i].toString();
     		s.add(lsp.set(loc).getLanguage());
     	}
@@ -172,9 +174,13 @@ public class TestCldr extends TestFmwk {
             currentLocales.clear();
             for (int i = 0; i < currentLocaleString.length; ++i) {
                 if (currentLocaleString[i].length() == 0) continue;
+                if (allLocales.contains("")) {
+                	logln("Skipping locale, not in ICU4J: " + currentLocaleString[i]);
+                	continue;
+                }
                 currentLocales.add(new ULocale(currentLocaleString[i]));
-
             }
+            if (DEBUG) logln("Setting locales: " + currentLocales);
         }
     }
 
@@ -265,6 +271,7 @@ public class TestCldr extends TestFmwk {
                     }
                     // must be either numberType at this point
                     int index = lookupValue(attributeValue, NumberNames);
+                    if (DEBUG) logln("Getting number format for " + locale);
                     switch(index) {
                     case 0: nf = NumberFormat.getInstance(locale); break;
                     case 1: nf = NumberFormat.getIntegerInstance(locale); break;
@@ -324,6 +331,10 @@ public class TestCldr extends TestFmwk {
 			 * 
 			 */
 			private SimpleDateFormat getDateFormat(ULocale locale, int dateFormat, int timeFormat) {
+                if (DEBUG) logln("Getting date/time format for " + locale);
+                if (DEBUG && "ar_EG".equals(locale.toString())) {
+                	System.out.println("debug here");
+                }
 				DateFormat dt;
 				if (dateFormat == 0) {
 					dt = DateFormat.getTimeInstance(DateFormatValues[timeFormat], locale);

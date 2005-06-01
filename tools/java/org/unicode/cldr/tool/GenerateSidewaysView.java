@@ -93,8 +93,7 @@ public class GenerateSidewaysView {
         	CLDRFile cldrFile = cldrFactory.make(localeID, false);
         	for (Iterator it2 = cldrFile.keySet().iterator(); it2.hasNext();) {
         		String path = (String) it2.next();
-        		String value = cldrFile.getStringValue(path);
-        		String fullPath = cldrFile.getFullXPath(path);
+        		String value = getValue(cldrFile, path);
         		Map value_locales = (Map) path_value_locales.get(path);
         		if (value_locales == null ) path_value_locales.put(path, value_locales = new TreeMap());
         		Set locales = (Set) value_locales.get(value);
@@ -129,7 +128,7 @@ public class GenerateSidewaysView {
         	Map value_locales = (Map) path_value_locales.get(path);
         	for (Iterator it2 = value_locales.keySet().iterator(); it2.hasNext();) {
             	String value = (String)it2.next();
-            	out.println("<tr><th width='1%' nowrap>" + value + "</th><td>");
+            	out.println("<tr><th width='1%'>" + value + "</th><td>");
             	Set locales = (Set) value_locales.get(value);
             	boolean first = true;
             	for (Iterator it3 = locales.iterator(); it3.hasNext();) {
@@ -144,6 +143,18 @@ public class GenerateSidewaysView {
         finish(out);
         System.out.println("Done");
     }
+
+	/**
+	 * 
+	 */
+	private static String getValue(CLDRFile cldrFile, String path) {
+		String value = cldrFile.getStringValue(path);
+		if (value.length() == 0) {
+			String fullPath = cldrFile.getFullXPath(path);
+			
+		}
+		return value;
+	}
 
 	/**
 	 * 
@@ -179,6 +190,8 @@ public class GenerateSidewaysView {
 		out.println("<html><head>");
 		out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
 		out.println("<title>" + title  + main + "</title>");
+		out.println("<link rel='stylesheet' type='text/css' href='by_type.css'>");
+		/*
 		out.println("<style>");
 		out.println("<!--");
 		out.println(".path        { background-color: #00FF00 }");
@@ -186,8 +199,8 @@ public class GenerateSidewaysView {
 		out.println("table        { border-collapse: collapse }");
 		out.println("-->");
 		out.println("</style>");
-		out.println("</head>");
-		out.println("<body><h1>" + title + "<i>" +  main + "</i></h1><p>");
+		*/
+		out.println("</head><body><h1>" + title + "<i>" +  main + "</i></h1><p>");
 		boolean first = true;
 		for (Iterator it = types.iterator(); it.hasNext();) {
 			String fileName = (String) it.next();

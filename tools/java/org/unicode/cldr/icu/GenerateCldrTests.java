@@ -107,7 +107,6 @@ public class GenerateCldrTests {
     }
 
 	public static void main(String[] args) throws Exception {
-		throw 
         UOption.parseArgs(args, options);
         log = BagFormatter.openUTF8Writer(options[LOGDIR].value, "log.txt");
         try {

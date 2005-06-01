@@ -331,7 +331,7 @@ public class CLDRTest extends TestFmwk {
 		logln("Total Count: " + totalCount);
 	}
 
-	static final long disableDate = new Date(2005-1900,5-1,31).getTime();
+	static final long disableDate = new Date(2005-1900,6-1,3).getTime();
 	/**
 	 * 
 	 */

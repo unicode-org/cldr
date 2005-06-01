@@ -393,6 +393,13 @@ public class XPathParts {
 		}
 		return result;
 	}
+	public String toString(int start, int limit) {
+		String result = "";
+		for (int i = start; i < limit; ++i) {
+			result += ((Element)elements.get(i)).toString(XPATH_STYLE);
+		}
+		return result;
+	}
 	/**
 	 * boilerplate
 	 */

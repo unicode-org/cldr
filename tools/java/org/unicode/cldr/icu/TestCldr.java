@@ -327,15 +327,15 @@ public class TestCldr extends TestFmwk {
 				DateFormat dt;
 				if (dateFormat == 0) {
 					dt = DateFormat.getTimeInstance(DateFormatValues[timeFormat], locale);
-					System.out.print("getTimeInstance");
+					if (DEBUG) System.out.print("getTimeInstance");
 				} else if (timeFormat == 0) {
 					dt = DateFormat.getDateInstance(DateFormatValues[dateFormat], locale);
-					System.out.print("getDateInstance");
+					if (DEBUG) System.out.print("getDateInstance");
 				} else {
                 	dt = DateFormat.getDateTimeInstance(DateFormatValues[dateFormat], DateFormatValues[timeFormat], locale);
-					System.out.print("getDateTimeInstance");
+                	if (DEBUG) System.out.print("getDateTimeInstance");
 				}
-				System.out.println("\tinput:\t" + dateFormat + ", " + timeFormat + " => " + ((SimpleDateFormat)dt).toPattern());
+				if (DEBUG) System.out.println("\tinput:\t" + dateFormat + ", " + timeFormat + " => " + ((SimpleDateFormat)dt).toPattern());
 				return (SimpleDateFormat)dt;
 			}
         });

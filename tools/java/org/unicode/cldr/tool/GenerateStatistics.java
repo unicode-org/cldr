@@ -58,10 +58,10 @@ class GenerateStatistics {
 		registerTransliteratorFromFile(tzadir, "Thaana-Latin");		
 		registerTransliteratorFromFile(tzadir, "Syriac-Latin");		
 		registerTransliteratorFromFile(tzadir, "Canadian_Aboriginal-Latin");
-		
-		// do nothing
-		registerTransliteratorFromFile(tzadir, "Tibetan-Latin");
 		registerTransliteratorFromFile(tzadir, "Georgian-Latin");
+		
+		// do nothing, too complicated to do quickly
+		registerTransliteratorFromFile(tzadir, "Tibetan-Latin");
 		registerTransliteratorFromFile(tzadir, "Khmer-Latin");
 		registerTransliteratorFromFile(tzadir, "Lao-Latin");
 		

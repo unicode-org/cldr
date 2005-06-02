@@ -72,26 +72,33 @@
 </table>
 <!-- BEGIN CONTENTS -->
 <blockquote>
-  <h1 align="center">CLDR Platform Comparison Charts</h1>
-  <p>The Common Locale Data Repository comparison charts (<a href="http://www.unicode.org/cldr/data/diff/main/index.html">main</a>,
-  <a href="http://www.unicode.org/cldr/data/diff/collation/index.html">collation</a>) provide 
-  comparisons between locale data from different sources. Other charts that may be of interest are 
-  the <a href="http://www.unicode.org/cldr/data/diff/by_type/index.html">By-Type Charts</a>, which 
-  provide a side-by-side comparison of the common data from different locales. </p>
+  <h1 align="center">CLDR Comparison Charts</h1>
+  <p>The Common Locale Data Repository comparison charts provide different ways to view the CLDR 
+  data. There are currently three types of charts:</p>
+  <blockquote>
+    <p><b><a href="http://www.unicode.org/cgi-bin/cldr-survey/">Survey Tool Charts</a></b> provide a 
+    view of the CLDR data designed for collecting and vetting data. During the data collection phase 
+    of each release, the tool allows the entry of new data; during the vetting phase, it allows for 
+    the data to be verified. Outside of those phases, it simply shows a view of the data.</p>
+    <p><b><a href="http://www.unicode.org/cldr/data/diff/by_type/index.html">By-Type Charts</a></b> 
+    provide a side-by-side comparison of data from different locales for each field.</p>
+    <p><b>Platform Comparison Charts (<a href="http://www.unicode.org/cldr/data/diff/main/index.html">main</a>,
+    <a href="http://www.unicode.org/cldr/data/diff/collation/index.html">collation</a>)</b> provide 
+    comparisons between locale data from different sources. The format is described below.</p>
+  </blockquote>
+  <p>For information on filing bug reports on the data, see <a href="filing_bug_reports.html">Filing 
+  Bug Reports</a>.</p>
+  <p>The format of many of the fields in the charts will be clear from the Name and ID, such as the 
+  months of the year. The format for others, such as the date or time formats, is structured and 
+  requires more interpretation. If you have any questions about the format, consult the overview in
+  <a href="data_formats.html">Data Formats</a>. See especially the notes on
+  <a href="data_formats.html#Collation">Collation</a>.</p>
+  <h2>Platform Comparison Charts</h2>
   <p>In the platform comparison charts, the files are organized by locale. In each file, the first 
   three columns identify the data item, while the subsequent columns contain data. There may be 
   different numbers of columns per locale, based on the available comparison data. The Common data 
   is in the first data column, with other data sources following (where available). The latter 
   sources are generated with public APIs.</p>
-  <h3>Field Formats</h3>
-  <p>The format of many of the fields in the comparison chart will be clear from the Name and ID, 
-  such as the months of the year. The format for others, such as the date or time formats, is 
-  structured and requires more interpretation. If you have any questions about the format, consult 
-  the overview in <a href="data_formats.html">Data Formats</a>. See especially the notes on
-  <a href="data_formats.html#Collation">Collation</a>.</p>
-  <h3>Bug Reports</h3>
-  <p>For information on filing bug reports on the data, see <a href="filing_bug_reports.html">Filing 
-  Bug Reports</a>.</p>
   <h3>Columns</h3>
   <p>The links within the top header cells point to the XML data files, either for this locale or 
   for a related locale (the parent or root). Each column is marked with a color at the top. The 
@@ -227,8 +234,9 @@
     </tr>
   </table>
   <h2>Collation</h2>
-  <p>The collation pages are separated off for easier viewing. There are only currently three 
-  comparison columns for collation.</p>
+  <p>The <b><a href="http://www.unicode.org/cldr/data/diff/collation/index.html">collation</a> </b>
+  pages are separated off for easier viewing. There are only currently three comparison columns for 
+  collation.</p>
   <table>
     <tr>
       <th class="borderad989d">COMMON (<a href="http://www.unicode.org/cldr/data/common/collation/da.xml">xml</a>

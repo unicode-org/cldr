@@ -207,6 +207,9 @@ public class Misc {
 				//System.out.println("Setting RTL for " + language);
 				rtlLanguages.add(language);
 				log.println("body { direction:rtl }");
+				log.println(".ID {background-color: silver; text-align:right; color: blue}");
+			} else {
+				log.println(".ID {background-color: silver; text-align:left; color: blue}");
 			}
 			log.println("--></style>");
 			log.println("<title>Time Zone Localizations for " + language + "</title><head><body>");
@@ -405,8 +408,7 @@ public class Misc {
 		StandardCodes sc = StandardCodes.make();
 		
 		Map linkNew_Old = sc.getZoneLinkNew_OldSet();
-		CLDRFile desiredLocaleFile = cldrFactory.make(locale, true);
-		TimezoneFormatter tzf = new TimezoneFormatter(desiredLocaleFile);
+		TimezoneFormatter tzf = new TimezoneFormatter(cldrFactory, locale);
 		/*
 		<hourFormat>+HHmm;-HHmm</hourFormat>
 		<hoursFormat>{0}/{1}</hoursFormat>
@@ -424,6 +426,8 @@ public class Misc {
 		Map countries_zoneSet = StandardCodes.make().getCountryToZoneSet();
 
 		Map reordered = new TreeMap(col);
+		CLDRFile desiredLocaleFile = cldrFactory.make(locale, true);
+
 		for (Iterator it = zone_countries.keySet().iterator(); it.hasNext();) {
 			String zoneID = (String) it.next();
 			String country = (String) zone_countries.get(zoneID);
@@ -441,9 +445,8 @@ public class Misc {
 			String country = (String) zone_countries.get(zoneID);
 			String countryName = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, false);
 			if (countryName == null) countryName = country;
-			log.println("<tr><th bgcolor=\"silver\" colspan=\"4\" align=\"left\"><font color=\"#0000FF\">"
-					+ BagFormatter.toHTML.transliterate((++count) + ". " + countryName + ": " + zoneID)
-					+ "</font>");
+			log.println("<tr><th class='ID' colspan=\"4\">"
+					+ BagFormatter.toHTML.transliterate((++count) + ". " + countryName + ": \u200E" + zoneID));
 			Set s = (Set) linkNew_Old.get(zoneID);
 			if (s != null) {
 				log.println("<font color=\"red\"> (Aliases:");
@@ -456,7 +459,7 @@ public class Misc {
 					else log.println("; ");
 					log.print(BagFormatter.toHTML.transliterate(alias));
 				}
-				log.print(")</font>");
+				log.print(")</font>\u200E");
 			}
 			log.print("</th></tr>");
 			if (first) {

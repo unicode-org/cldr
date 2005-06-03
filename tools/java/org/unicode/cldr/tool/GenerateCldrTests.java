@@ -59,6 +59,7 @@ import com.ibm.icu.dev.test.util.SortedBag;
 import com.ibm.icu.dev.tool.UOption;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Utility;
@@ -522,18 +523,19 @@ public class GenerateCldrTests {
            };
 
            ResultsPrinter rp = new ResultsPrinter();
+           ICUServiceBuilder icuServiceBuilder = cldrOthers.getICUServiceBuilder();
            for (int j = 0; j < samples.length; ++j) {
-               Date datetime = GenerateCldrDateTimeTests.iso.parse(samples[j]);
-               rp.set("input", GenerateCldrDateTimeTests.iso.format(datetime));
-               for (int i = 0; i < GenerateCldrDateTimeTests.DateFormatValues.length; ++i) {
-                   rp.set("dateType", GenerateCldrDateTimeTests.DateFormatNames[i]);
-                   for (int k = 0; k < GenerateCldrDateTimeTests.DateFormatValues.length; ++k) {
-                       if (GenerateCldrDateTimeTests.DateFormatValues[i] == -1 && GenerateCldrDateTimeTests.DateFormatValues[k] == -1) continue;
-                       rp.set("timeType", GenerateCldrDateTimeTests.DateFormatNames[k]);
-                       DateFormat df = cldrOthers.getDateFormat(locale, i, k);
+               Date datetime = ICUServiceBuilder.isoDateParse(samples[j]);
+               rp.set("input", ICUServiceBuilder.isoDateFormat(datetime));
+               for (int i = 0; i < ICUServiceBuilder.LIMIT_DATE_FORMAT_INDEX; ++i) {
+                   rp.set("dateType", icuServiceBuilder.getDateNames(i));
+                   for (int k = 0; k < ICUServiceBuilder.LIMIT_DATE_FORMAT_INDEX; ++k) {
+                       if (i == 0 && k == 0) continue;
+                       rp.set("timeType", icuServiceBuilder.getDateNames(k));
+                       DateFormat df = icuServiceBuilder.getDateFormat(locale.toString(), i, k);
                        if (false && i == 2 && k == 0) {
-                       		System.out.println("debug: date " + GenerateCldrDateTimeTests.DateFormatNames[i]
-								+ ", time " +GenerateCldrDateTimeTests.DateFormatNames[k]
+                       		System.out.println("debug: date " + icuServiceBuilder.getDateNames(i)
+								+ ", time " + icuServiceBuilder.getDateNames(k)
 								+ " = " + df.format(datetime));
                        }
                        rp.print(df.format(datetime));
@@ -558,12 +560,13 @@ public class GenerateCldrTests {
                 Double.NaN
         };
         ResultsPrinter rp = new ResultsPrinter();
+        ICUServiceBuilder icuServiceBuilder = cldrOthers.getICUServiceBuilder();
         for (int j = 0; j < samples.length; ++j) {
             double sample = samples[j];
             rp.set("input", String.valueOf(sample));
-            for (int i = 0; i < GenerateCldrDateTimeTests.NumberNames.length; ++i) {
-                rp.set("numberType", GenerateCldrDateTimeTests.NumberNames[i]);
-                DecimalFormat nf = cldrOthers.getNumberFormat(locale, i);
+            for (int i = 0; i < ICUServiceBuilder.LIMIT_NUMBER_INDEX; ++i) {
+                rp.set("numberType", icuServiceBuilder.getNumberNames(i));
+                DecimalFormat nf = icuServiceBuilder.getNumberFormat(locale.toString(), i);
                 rp.print(nf.format(sample));
             }
         }

@@ -19,6 +19,8 @@ import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
 
+import org.unicode.cldr.util.CLDRFile.Factory;
+
 /**
  * @author davis
  *
@@ -34,7 +36,7 @@ public class TimezoneFormatter {
 	private static final long D2005_01_02 = new Date(2005-1900,0,1).getTime();
 	private static final long D2005_06_02 = new Date(2005-1900,7,1).getTime();
 	
-	private DateFormat[] hourFormat = new DateFormat[2];
+	private SimpleDateFormat[] hourFormat = new SimpleDateFormat[2];
 	private MessageFormat hoursFormat, gmtFormat, regionFormat,
 			fallbackFormat;
 	private String abbreviationFallback, preferenceOrdering;
@@ -44,12 +46,16 @@ public class TimezoneFormatter {
 	private Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
 	private Set singleCountriesSet;
 
-	public TimezoneFormatter(CLDRFile desiredLocaleFile) {
+	public TimezoneFormatter(Factory cldrFactory, String localeID) {
+		CLDRFile desiredLocaleFile = cldrFactory.make(localeID, true);
 		this.desiredLocaleFile = desiredLocaleFile;
 		String hourFormatString = desiredLocaleFile.getStringValue("/ldml/dates/timeZoneNames/hourFormat");
 		String[] hourFormatStrings = Utility.splitArray(hourFormatString,';');
-		hourFormat[0] = new SimpleDateFormat(hourFormatStrings[0]);
-		hourFormat[1] = new SimpleDateFormat(hourFormatStrings[1]);
+		ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder().setCLDRFactory(cldrFactory);
+		hourFormat[0] = icuServiceBuilder.getDateFormat(localeID,0,1);
+		hourFormat[0].applyPattern(hourFormatStrings[0]);
+		hourFormat[1] = icuServiceBuilder.getDateFormat(localeID,0,1);
+		hourFormat[1].applyPattern(hourFormatStrings[1]);
 		hoursFormat = new MessageFormat(desiredLocaleFile.getStringValue(
 				"/ldml/dates/timeZoneNames/hoursFormat"));
 		gmtFormat = new MessageFormat(desiredLocaleFile.getStringValue(

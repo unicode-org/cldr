@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
@@ -41,6 +42,7 @@ public class TimezoneFormatter {
 	private Map zone_countries = StandardCodes.make().getZoneToCounty();
 	private Map countries_zoneSet = StandardCodes.make().getCountryToZoneSet();
 	private Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+	private Set singleCountriesSet;
 
 	public TimezoneFormatter(CLDRFile desiredLocaleFile) {
 		this.desiredLocaleFile = desiredLocaleFile;
@@ -61,8 +63,11 @@ public class TimezoneFormatter {
 				.findAttributes("abbreviationFallback").get("type");
 		String temp = desiredLocaleFile.getFullXPath("/ldml/dates/timeZoneNames/preferenceOrdering");
 		preferenceOrdering = (String) new XPathParts(null, null).set(
-				temp).findAttributes(
-				"preferenceOrdering").get("type");
+				temp).findAttributes("preferenceOrdering").get("type");
+		temp = desiredLocaleFile.getFullXPath("/ldml/dates/timeZoneNames/singleCountries");
+		String singleCountriesList = (String) new XPathParts(null, null).set(
+				temp).findAttributes("singleCountries").get("list");
+		singleCountriesSet = new TreeSet(Utility.splitList(singleCountriesList, ' '));
 	}
 	
 	public String getFormattedZone(String zoneid, int length, int type) {
@@ -117,7 +122,7 @@ public class TimezoneFormatter {
 		// 5. *Else if there is a country for the time zone, and a translation in the locale for the country name, and the country only has one (modern) timezone, use it with the region format :
 		//	Africa/Monrovia => LR => "Tampo de Liberja"
 		Set s = (Set) countries_zoneSet.get(country);
-		if (s != null && s.size() == 1) {
+		if (s != null && s.size() == 1 || singleCountriesSet.contains(zoneid)) {
 			result = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, false);
 			if (result != null) return regionFormat.format(new Object[]{result});
 		}

@@ -204,7 +204,7 @@ public class Misc {
 			log.println("<style type=\"text/css\"><!--");
 			log.println("td { text-align: center }");
 			if (rtl) {
-				System.out.println("Setting RTL for " + language);
+				//System.out.println("Setting RTL for " + language);
 				rtlLanguages.add(language);
 				log.println("body { direction:rtl }");
 			}
@@ -402,7 +402,9 @@ public class Misc {
 	 * 
 	 */
 	private static void printCurrentTimezoneLocalizations(PrintWriter log, String locale) throws IOException {
-
+		StandardCodes sc = StandardCodes.make();
+		
+		Map linkNew_Old = sc.getZoneLinkNew_OldSet();
 		CLDRFile desiredLocaleFile = cldrFactory.make(locale, true);
 		TimezoneFormatter tzf = new TimezoneFormatter(desiredLocaleFile);
 		/*
@@ -416,6 +418,8 @@ public class Misc {
 		*/
 		RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(new ULocale(locale));
 		col.setNumericCollation(true);
+		Set orderedAliases = new TreeSet(col);
+		
 		Map zone_countries = StandardCodes.make().getZoneToCounty();
 		Map countries_zoneSet = StandardCodes.make().getCountryToZoneSet();
 
@@ -439,7 +443,22 @@ public class Misc {
 			if (countryName == null) countryName = country;
 			log.println("<tr><th bgcolor=\"silver\" colspan=\"4\" align=\"left\"><font color=\"#0000FF\">"
 					+ BagFormatter.toHTML.transliterate((++count) + ". " + countryName + ": " + zoneID)
-					+ "</font></th></tr>");
+					+ "</font>");
+			Set s = (Set) linkNew_Old.get(zoneID);
+			if (s != null) {
+				log.println("<font color=\"red\"> (Aliases:");
+				orderedAliases.clear();
+				orderedAliases.addAll(s);
+				boolean first2 = true;
+				for (Iterator it9 = s.iterator(); it9.hasNext();) {
+					String alias = (String)it9.next();
+					if (first2) first2 = false;
+					else log.println("; ");
+					log.print(BagFormatter.toHTML.transliterate(alias));
+				}
+				log.print(")</font>");
+			}
+			log.print("</th></tr>");
 			if (first) {
 				first = false;
 				log.println("<tr><th width=\"25%\">&nbsp;</th><th width=\"25%\">generic</th><th width=\"25%\">standard</th><th width=\"25%\">daylight</th></tr>");				

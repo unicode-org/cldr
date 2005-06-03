@@ -666,7 +666,17 @@ public class StandardCodes {
 		    // now remove all links that are from canonical zones
 		    Utility.removeAll(linkold_new, zoneData.keySet());
 		    
+		    // generate list of new to old
+		    for (Iterator it = linkold_new.keySet().iterator(); it.hasNext();) {
+		    	String oldZone = (String) it.next();
+		    	String newZone = (String) linkold_new.get(oldZone);
+		    	Set s = (Set) linkNew_oldSet.get(newZone);
+		    	if (s == null) linkNew_oldSet.put(newZone, s = new HashSet());
+		    	s.add(oldZone);
+		    }
+		    
 		    // PROTECT EVERYTHING
+		    linkNew_oldSet = (Map) Utility.protectCollection(linkNew_oldSet);
 	    	linkold_new = (Map) Utility.protectCollection(linkold_new);
 	    	ruleID_rules = (Map) Utility.protectCollection(ruleID_rules);
 	    	zone_rules = (Map) Utility.protectCollection(zone_rules);
@@ -679,6 +689,7 @@ public class StandardCodes {
 	Map ruleID_rules = new TreeMap();
     Map zone_rules = new TreeMap();
     Map linkold_new = new TreeMap();
+    Map linkNew_oldSet = new TreeMap();
     
     public Comparator getTZIDComparator() {
     	return TZIDComparator;
@@ -776,6 +787,15 @@ public class StandardCodes {
 		getZoneData();
 		return linkold_new;
 	}
+
+	/**
+	 * @return Returns the linkold_new.
+	 */
+	public Map getZoneLinkNew_OldSet() {
+		getZoneData();
+		return linkNew_oldSet;
+	}
+
 	/**
 	 * @return Returns the ruleID_rules.
 	 */

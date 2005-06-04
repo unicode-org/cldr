@@ -199,7 +199,7 @@ public class Misc {
 			boolean rtl = orientation == null ? false
 					: orientation.indexOf("[@characters=\"right-to-left\"]") >= 0;
 			// <orientation characters="right-to-left"/>
-			PrintWriter log = BagFormatter.openUTF8Writer(options[DESTDIR].value + "", language + "_current.html");
+			PrintWriter log = BagFormatter.openUTF8Writer(options[DESTDIR].value + "", language + "_timezones.html");
 			log.println("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
 			log.println("<style type=\"text/css\"><!--");
 			log.println("td { text-align: center; vertical-align:top }");
@@ -455,7 +455,7 @@ public class Misc {
 					+ "</th><th class='I'>\u200E" +BagFormatter.toHTML.transliterate(zoneID));
 			Set s = (Set) linkNew_Old.get(zoneID);
 			if (s != null) {
-				log.println("\u200E</th><td class='A'>\u200EAliases:");
+				log.println("\u200E</th><td class='A'>\u200E");
 				orderedAliases.clear();
 				orderedAliases.addAll(s);
 				boolean first2 = true;

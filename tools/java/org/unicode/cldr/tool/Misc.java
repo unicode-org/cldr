@@ -202,15 +202,20 @@ public class Misc {
 			PrintWriter log = BagFormatter.openUTF8Writer(options[DESTDIR].value + "", language + "_current.html");
 			log.println("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
 			log.println("<style type=\"text/css\"><!--");
-			log.println("td { text-align: center }");
+			log.println("td { text-align: center; vertical-align:top }");
+			log.println("th { vertical-align:top }");
 			if (rtl) {
 				//System.out.println("Setting RTL for " + language);
 				rtlLanguages.add(language);
 				log.println("body { direction:rtl }");
-				log.println(".ID {background-color: silver; text-align:right; color: blue}");
+				log.println(".ID {background-color: silver; text-align:right;}");
+				log.println(".T {text-align:right; color: green}");
 			} else {
-				log.println(".ID {background-color: silver; text-align:left; color: blue}");
+				log.println(".ID {background-color: silver; text-align:left;}");
+				log.println(".T {text-align:left; color: green}");
 			}
+			log.println(".I {color: blue}");
+			log.println(".A {color: red}");
 			log.println("--></style>");
 			log.println("<title>Time Zone Localizations for " + language + "</title><head><body>");
 			log.println("<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse: collapse\">");
@@ -445,11 +450,12 @@ public class Misc {
 			String country = (String) zone_countries.get(zoneID);
 			String countryName = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, false);
 			if (countryName == null) countryName = country;
-			log.println("<tr><th class='ID' colspan=\"4\">"
-					+ BagFormatter.toHTML.transliterate((++count) + ". " + countryName + ": \u200E" + zoneID));
+			log.println("<tr><th class='ID' colspan=\"4\"><table><tr><th class='I'>"
+					+ (++count) + "</th><th class='T'>" + BagFormatter.toHTML.transliterate(countryName)
+					+ "</th><th class='I'>\u200E" +BagFormatter.toHTML.transliterate(zoneID));
 			Set s = (Set) linkNew_Old.get(zoneID);
 			if (s != null) {
-				log.println("<font color=\"red\"> (Aliases:");
+				log.println("\u200E</th><td class='A'>\u200EAliases:");
 				orderedAliases.clear();
 				orderedAliases.addAll(s);
 				boolean first2 = true;
@@ -459,9 +465,8 @@ public class Misc {
 					else log.println("; ");
 					log.print(BagFormatter.toHTML.transliterate(alias));
 				}
-				log.print(")</font>\u200E");
 			}
-			log.print("</th></tr>");
+			log.print("\u200E</td></tr></table></th></tr>");
 			if (first) {
 				first = false;
 				log.println("<tr><th width=\"25%\">&nbsp;</th><th width=\"25%\">generic</th><th width=\"25%\">standard</th><th width=\"25%\">daylight</th></tr>");				

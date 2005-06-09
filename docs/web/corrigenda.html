@@ -1,0 +1,626 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="VI60_defaultClientScript" content="JavaScript">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="keywords" content="Unicode, common locale data repository">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>CLDR - Corrigenda</title>
+<link rel="stylesheet" type="text/css" href="http://www.unicode.org/webscripts/standard_styles.css">
+<style>
+<!--
+span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
+.e{margin-left:1em;text-indent:-1em;margin-right:1em}
+.tx{font-weight:bold}
+.c{cursor:hand}
+.b{color:red;font-family:'Courier New';font-weight:bold;text-decoration:none}
+.m{color:blue}
+.t{color:#990000}
+td, th           { vertical-align: top; text-align: left}
+-->
+</style>
+</head>
+
+<body text="#330000">
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td colspan="2">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="icon"><a href="http://www.unicode.org/">
+        <img border="0" src="http://www.unicode.org/webscripts/logo60s2.gif" align="middle" alt="[Unicode]" width="34" height="33"></a>&nbsp;&nbsp;
+        <a class="bar" href="http://www.unicode.org/cldr/"><font size="3">Common Locale Data 
+        Repository</font></a></td>
+        <td class="bar"><a href="http://www.unicode.org" class="bar">Home</a> |
+        <a href="http://www.unicode.org/sitemap/" class="bar">Site Map</a> |
+        <a href="http://www.unicode.org/search/" class="bar">Search</a></td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="gray">&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top" width="25%" class="navCol">
+    <table class="navColTable" border="0" width="100%" cellspacing="4" cellpadding="0">
+      <tr>
+        <td class="navColTitle">CLDR</td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="index.html">CLDR Project</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="repository_access.html">CLDR Releases 
+        (Downloads)</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="process.html">CLDR Technical Committee</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="procedures.html">CLDR-TC Procedures</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell">Data Formats</td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="filing_bug_reports.html">Filing Bug Reports</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="comparison_charts.html">Comparison Charts</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/tr35/">UTS #35: 
+        Locale Data Markup Language (LDML)</a></td>
+      </tr>
+      <tr>
+        <td class="navColTitle">Related Links</td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell">Join the
+        <a href="http://www.unicode.org/consortium/consort.html">Unicode Consortium</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="http://www.unicode.org/reports/">Unicode 
+        Technical Reports</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell">
+        <a href="http://www.unicode.org/faq/reports_process.html">Technical Reports Development and 
+        Maintenance Process</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="http://www.unicode.org/consortium/utc.html">
+        Unicode Technical Committee</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="http://www.unicode.org/versions/">Versions of 
+        the Unicode Standard</a></td>
+      </tr>
+      <tr>
+        <td class="navColTitle">Other Publications</td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="http://www.unicode.org/standard/standard.html">
+        The Unicode Standard</a></td>
+      </tr>
+      <tr>
+        <td valign="top" class="navColCell"><a href="http://www.unicode.org/notes/">Unicode 
+        Technical Notes</a></td>
+      </tr>
+    </table>
+    <!-- BEGIN CONTENTS --></td>
+    <td>
+    <table>
+      <tr>
+        <td class="contents" valign="top">
+        <h1 align="center"><span style="font-weight: 400"><font size="6" color="#FF0000"><i>DRAFT</i></font></span></h1>
+        <h1 align="center">Corrigenda</h1>
+        <blockquote>
+          <p>This page lists corrigenda to different versions of CLDR. Implementations are 
+          encouraged to apply these corrigenda to their use of the respective versions.</p>
+          <h2>Corrigendum 1: Timezones</h2>
+          <p>In CLDR version 1.3, there were the following errata:</p>
+          <h3><b>A.</b> Policy and Data Correction</h3>
+          <p>The policy was that in a given locale (resolved), uniqueness is required for timezone 
+          display names. That is, if timezone ID X used display name Y, then a different timezone ID 
+          Z could not also use Y. This policy turns out to be overly strict, and did not allow for 
+          customary names in cases where it does not cause a problem. The committee has relaxed this 
+          policy so as to allow non-uniqueness of standard and daylight display names where the 
+          results of parsing results would be give the same GMT offset.</p>
+          <p>The short and long timezone names for Europe/London and Europe/Dublin had been changed 
+          because of the old policy. In accordance with this new policy, they are corrected by this 
+          corrigendum as follows:</p>
+          <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+            <tr>
+              <th width="50%">CLDR 1.3</th>
+              <th width="50%">Corrected</th>
+            </tr>
+            <tr>
+              <td width="50%">
+              <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a><font size="2">
+                <span class="m">&lt;</span><span class="t">zone type</span><span class="m">=&quot;</span><b>Europe/London</b></font><span class="m"><font size="2">&quot;&gt;</font></span></div>
+              <div>
+                <div class="e">
+                  <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                    <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a><font size="2">
+                    <span class="m">&lt;</span><span class="t">long</span></font><span class="m"><font size="2">&gt;</font></span></div>
+                  <div>
+                    <div class="e">
+                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
+                        <span class="m">&lt;</span><span class="t">generic</span><span class="m">&gt;</span><span class="tx">British 
+                        Time</span><span class="m">&lt;/</span><span class="t">generic</span><span class="m">&gt;</span>
+                        </font>
+                      </div>
+                    </div>
+                    <div class="e">
+                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
+                        <span class="m">&lt;</span><span class="t">standard</span><span class="m">&gt;</span><span class="tx">British 
+                        Standard Time</span><span class="m">&lt;/</span><span class="t">standard</span><span class="m">&gt;</span>
+                        </font>
+                      </div>
+                    </div>
+                    <div class="e">
+                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
+                        <span class="m">&lt;</span><span class="t">daylight</span><span class="m">&gt;</span><span class="tx">British 
+                        Daylight Time</span><span class="m">&lt;/</span><span class="t">daylight</span><span class="m">&gt;</span>
+                        </font>
+                      </div>
+                    </div>
+                    <div>
+                      <span class="b"><font size="2">&nbsp;</font></span><font size="2"> <span class="m">
+                      &lt;/</span><span class="t">long</span></font><span class="m"><font size="2">&gt;</font></span></div>
+                  </div>
+                </div>
+                <div class="e">
+                  <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                    <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a><font size="2">
+                    <span class="m">&lt;</span><span class="t">short</span></font><span class="m"><font size="2">&gt;</font></span></div>
+                  <div>
+                    <div class="e">
+                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
+                        <span class="m">&lt;</span><span class="t">generic</span><span class="m">&gt;</span><span class="tx">BT</span><span class="m">&lt;/</span><span class="t">generic</span><span class="m">&gt;</span>
+                        </font>
+                      </div>
+                    </div>
+                    <div class="e">
+                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
+                        <span class="m">&lt;</span><span class="t">standard</span><span class="m">&gt;</span><span class="tx">BST</span><span class="m">&lt;/</span><span class="t">standard</span><span class="m">&gt;</span>
+                        </font>
+                      </div>
+                    </div>
+                    <div class="e">
+                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
+                        <span class="m">&lt;</span><span class="t">daylight</span><span class="m">&gt;</span><span class="tx">BDT</span><span class="m">&lt;/</span><span class="t">daylight</span><span class="m">&gt;</span>
+                        </font>
+                      </div>
+                    </div>
+                    <div>
+                      <span class="b"><font size="2">&nbsp;</font></span><font size="2"> <span class="m">
+                      &lt;/</span><span class="t">short</span></font><span class="m"><font size="2">&gt;</font></span></div>
+                  </div>
+                </div>
+                <div>
+                  <font size="2"><span class="m">&lt;/</span><span class="t">zone</span></font><span class="m"><font size="2">&gt;</font></span></div>
+              </div>
+              </td>
+              <td width="50%">
+              <div class="e">
+                <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                  <font size="2"><span class="m">&lt;</span><span class="t">zone type</span><span class="m">=&quot;</span><b>Europe/London</b></font><span class="m"><font size="2">&quot;&gt;</font></span></div>
+                <div>
+                  <div class="e">
+                    <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                      <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a><font size="2">
+                      <span class="m">&lt;</span><span class="t">long</span></font><span class="m"><font size="2">&gt;</font></span><div class="e">
+                        <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                          <span class="b"><font size="2">&nbsp;</font></span><font size="2">
+                          <span class="m">&lt;</span><span class="t">standard</span><span class="m">&gt;</span><b><span class="changed">Greenwich 
+                          Mean</span></b><span class="tx"> Time</span><span class="m">&lt;/</span><span class="t">standard</span><span class="m">&gt;</span>
+                          </font>
+                        </div>
+                      </div>
+                      <div class="e">
+                        <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                          <span class="b"><font size="2">&nbsp;</font></span><font size="2">
+                          <span class="m">&lt;</span><span class="t">daylight</span><span class="m">&gt;</span><span class="tx">British
+                          </span><span class="changed"><span style="font-weight: 400">Summer</span></span><span class="tx"> 
+                          Time</span><span class="m">&lt;/</span><span class="t">daylight</span><span class="m">&gt;</span>
+                          </font>
+                        </div>
+                      </div>
+                      <div>
+                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
+                        <span class="m">&lt;/</span><span class="t">long</span></font><span class="m"><font size="2">&gt;</font></span></div>
+                    </div>
+                  </div>
+                  <div class="e">
+                    <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                      <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a><font size="2">
+                      <span class="m">&lt;</span><span class="t">short</span></font><span class="m"><font size="2">&gt;</font></span><div class="e">
+                        <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                          <span class="b"><font size="2">&nbsp;</font></span><font size="2">
+                          <span class="m">&lt;</span><span class="t">standard</span><span class="m">&gt;</span><b><span class="changed">GM</span></b><span class="tx">T</span><span class="m">&lt;/</span><span class="t">standard</span><span class="m">&gt;</span>
+                          </font>
+                        </div>
+                      </div>
+                      <div class="e">
+                        <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                          <span class="b"><font size="2">&nbsp;</font></span><font size="2">
+                          <span class="m">&lt;</span><span class="t">daylight</span><span class="m">&gt;</span><span class="tx">B</span><b><span class="changed">S</span></b><span class="tx">T</span><span class="m">&lt;/</span><span class="t">daylight</span><span class="m">&gt;</span>
+                          </font>
+                        </div>
+                      </div>
+                      <div>
+                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
+                        <span class="m">&lt;/</span><span class="t">short</span></font><span class="m"><font size="2">&gt;</font></span></div>
+                    </div>
+                  </div>
+                  <div>
+                    <font size="2"><span class="m">&lt;/</span><span class="t">zone</span></font><span class="m"><font size="2">&gt;</font></span></div>
+                </div>
+              </div>
+              </td>
+            </tr>
+            <tr>
+              <td width="50%">
+              <p style="text-align: center"><i>{omitted}</i></td>
+              <td width="50%">
+              <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                <span class="m"><font size="2">&lt;</font></span><font size="2"><span class="t">z</span><span class="changed">&lt;zone 
+                type=&quot;<b>Europe/Dublin</b>&quot;&gt;</span></font></div>
+              <div>
+                <div class="e">
+                  <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                    <span class="changed">
+                    <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a></span><font size="2"><span class="changed"> 
+                    &lt;long</span></font><span class="changed"><font size="2">&gt;</font></span><div class="e">
+                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                        <span class="changed"><font size="2">&nbsp;</font></span><font size="2"><span class="changed"> 
+                        &lt;standard&gt;Greenwich Mean Time&lt;/standard&gt; </span></font>
+                      </div>
+                    </div>
+                    <div class="e">
+                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                        <span class="changed"><font size="2">&nbsp;</font></span><font size="2"><span class="changed"> 
+                        &lt;daylight&gt;Irish Summer Time&lt;/daylight&gt; </span></font>
+                      </div>
+                    </div>
+                    <div>
+                      <span class="changed"><font size="2">&nbsp;</font></span><font size="2"><span class="changed"> 
+                      &lt;/long</span></font><span class="changed"><font size="2">&gt;</font></span></div>
+                  </div>
+                </div>
+                <div class="e">
+                  <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                    <span class="changed">
+                    <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a></span><font size="2"><span class="changed"> 
+                    &lt;short</span></font><span class="changed"><font size="2">&gt;</font></span><div class="e">
+                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                        <span class="changed"><font size="2">&nbsp;</font></span><font size="2"><span class="changed"> 
+                        &lt;standard&gt;GMT&lt;/standard&gt; </span></font>
+                      </div>
+                    </div>
+                    <div class="e">
+                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
+                        <span class="changed"><font size="2">&nbsp;</font></span><font size="2"><span class="changed"> 
+                        &lt;daylight&gt;IST&lt;/daylight&gt; </span></font>
+                      </div>
+                    </div>
+                    <div>
+                      <span class="changed"><font size="2">&nbsp;</font></span><font size="2"><span class="changed"> 
+                      &lt;/short</span></font><span class="changed"><font size="2">&gt;</font></span></div>
+                  </div>
+                </div>
+                <div>
+                  <font size="2"><span class="changed">&lt;/zone</span></font><span class="changed"><font size="2">&gt;</font></span></div>
+              </div>
+              </td>
+            </tr>
+          </table>
+          <h3>B. DateFormat Corrections</h3>
+          <p>The following are corrections to the date format pattern. The Stand-Alone months and 
+          days, although approved by the technical committee, had been omitted from the 
+          specification. The use of &#39;z&#39; is changed to preserve backwards compatibility with Java.</p>
+          <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+            <tr>
+              <th width="50%">CLDR 1.3</th>
+              <th width="50%">Corrected</th>
+            </tr>
+            <tr>
+              <th width="50%">
+              <table cellSpacing="0" cellPadding="2" border="1">
+                <tr>
+                  <th rowspan="4"><font size="2">month</font></th>
+                  <td rowspan="4" style="text-align: center"><font size="2">M</font></td>
+                  <td style="text-align: center"><font size="2">1..2</font></td>
+                  <td><font size="2">09</font></td>
+                  <td rowspan="4"><span><font size="2">Month - Use one or two for the numerical 
+                  month, three for the abbreviation, or four for the full name, or 5 for the narrow 
+                  name.</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><font size="2">3</font></td>
+                  <td><font size="2">Sept</font></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><font size="2">4</font></td>
+                  <td><font size="2">September</font></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><font size="2">5</font></td>
+                  <td><font size="2">S</font></td>
+                </tr>
+              </table>
+              </th>
+              <th width="50%">
+              <table cellSpacing="0" cellPadding="2" border="1">
+                <tr>
+                  <th rowspan="8"><font size="2">month</font></th>
+                  <td rowspan="4" style="text-align: center"><font size="2">M</font></td>
+                  <td style="text-align: center"><font size="2">1..2</font></td>
+                  <td><font size="2">09</font></td>
+                  <td rowspan="4"><span><font size="2">Month - Use one or two for the numerical 
+                  month, three for the abbreviation, or four for the full name, or 5 for the narrow 
+                  name.</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><font size="2">3</font></td>
+                  <td><font size="2">Sept</font></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><font size="2">4</font></td>
+                  <td><font size="2">September</font></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><font size="2">5</font></td>
+                  <td><font size="2">S</font></td>
+                </tr>
+                <tr>
+                  <td rowspan="4" style="text-align: center"><span class="changed"><font size="2">L</font></span></td>
+                  <td style="text-align: center"><span class="changed"><font size="2">1..2</font></span></td>
+                  <td><span class="changed"><font size="2">09</font></span></td>
+                  <td rowspan="4"><span class="changed"><span><b><font size="2">Stand-Alone</font></b><font size="2"> 
+                  Month - Use one or two for the numerical month, three for the abbreviation, or 
+                  four for the full name, or 5 for the narrow name.</font></span></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span class="changed"><font size="2">3</font></span></td>
+                  <td><span class="changed"><font size="2">Sept</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span class="changed"><font size="2">4</font></span></td>
+                  <td><span class="changed"><font size="2">September</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span class="changed"><font size="2">5</font></span></td>
+                  <td><span class="changed"><font size="2">S</font></span></td>
+                </tr>
+              </table>
+              </th>
+            </tr>
+            <tr>
+              <th width="50%">
+              <table cellSpacing="0" cellPadding="2" border="1">
+                <tr>
+                  <th rowspan="8"><font size="2">weekday</font></th>
+                  <td rowspan="4" style="text-align: center"><font size="2">E</font></td>
+                  <td style="text-align: center"><span><font size="2">1..2</font></span></td>
+                  <td><font size="2">3</font></td>
+                  <td rowspan="4"><span><font size="2">Day of week - Use three for the short day, or 
+                  four for the full name, or 5 for the narrow name. Sunday is always day 1</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span><font size="2">3</font></span></td>
+                  <td><span><font size="2">Tues</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span><font size="2">4</font></span></td>
+                  <td><span><font size="2">Tuesday</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span><font size="2">5</font></span></td>
+                  <td><span><font size="2">T</font></span></td>
+                </tr>
+                <tr>
+                  <td rowspan="4" style="text-align: center"><font size="2">e</font></td>
+                  <td style="text-align: center"><span><font size="2">1..2</font></span></td>
+                  <td><font size="2">2</font></td>
+                  <td rowspan="4"><font size="2">Local day of week. Same as E except numeric value 
+                  will depend on the local starting day of the week. For this example, Monday is the 
+                  first day of the week.</font></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span><font size="2">3</font></span></td>
+                  <td><span><font size="2">Tues</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span><font size="2">4</font></span></td>
+                  <td><span><font size="2">Tuesday</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span><font size="2">5</font></span></td>
+                  <td><span><font size="2">T</font></span></td>
+                </tr>
+              </table>
+              </th>
+              <th width="50%">
+              <table cellSpacing="0" cellPadding="2" border="1">
+                <tr>
+                  <th rowspan="12"><font size="2">weekday</font></th>
+                  <td rowspan="4" style="text-align: center"><font size="2">E</font></td>
+                  <td style="text-align: center"><span><font size="2">1..2</font></span></td>
+                  <td><font size="2">3</font></td>
+                  <td rowspan="4"><span><font size="2">Day of week - Use three for the short day, or 
+                  four for the full name, or 5 for the narrow name. Sunday is always day 1</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span><font size="2">3</font></span></td>
+                  <td><span><font size="2">Tues</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span><font size="2">4</font></span></td>
+                  <td><span><font size="2">Tuesday</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span><font size="2">5</font></span></td>
+                  <td><span><font size="2">T</font></span></td>
+                </tr>
+                <tr>
+                  <td rowspan="4" style="text-align: center"><font size="2">e</font></td>
+                  <td style="text-align: center"><span><font size="2">1..2</font></span></td>
+                  <td><font size="2">2</font></td>
+                  <td rowspan="4"><font size="2">Local day of week. Same as E except numeric value 
+                  will depend on the local starting day of the week. For this example, Monday is the 
+                  first day of the week.</font></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span><font size="2">3</font></span></td>
+                  <td><span><font size="2">Tues</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span><font size="2">4</font></span></td>
+                  <td><span><font size="2">Tuesday</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span><font size="2">5</font></span></td>
+                  <td><span><font size="2">T</font></span></td>
+                </tr>
+                <tr>
+                  <td rowspan="4" style="text-align: center"><span class="changed"><font size="2">c</font></span></td>
+                  <td style="text-align: center"><span class="changed"><span><font size="2">1..2</font></span></span></td>
+                  <td><span class="changed"><font size="2">2</font></span></td>
+                  <td rowspan="4"><span class="changed"><span><b><font size="2">Stand-Alone</font></b><font size="2"> 
+                  Day of week - Use three for the short day, or four for the full name, or 5 for the 
+                  narrow name. Sunday is always day 1</font></span></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span class="changed"><span><font size="2">3</font></span></span></td>
+                  <td><span class="changed"><span><font size="2">Tues</font></span></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span class="changed"><span><font size="2">4</font></span></span></td>
+                  <td><span class="changed"><span><font size="2">Tuesday</font></span></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span class="changed"><span><font size="2">5</font></span></span></td>
+                  <td><span class="changed"><span><font size="2">T</font></span></span></td>
+                </tr>
+              </table>
+              </th>
+            </tr>
+            <tr>
+              <td>
+              <table cellSpacing="0" cellPadding="2" border="1">
+                <tr>
+                  <th rowspan="6"><font size="2">zone</font></th>
+                  <td rowspan="4" style="text-align: center"><font size="2">z</font></td>
+                  <td style="text-align: center"><font size="2">1</font></td>
+                  <td><font size="2">PT</font></td>
+                  <td rowspan="4"><span><font size="2">Timezone. Use 1 for short wall (generic) 
+                  time, 2 for long wall time, 3 for the short timezone (i.e. PST) or 4 for the full 
+                  name (Pacific Standard Time). If there&#39;s no name for the zone, fallbacks may be 
+                  used, depending on available data.</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><font size="2">2</font></td>
+                  <td><font size="2">Pacific Time</font></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><font size="2">3</font></td>
+                  <td><font size="2">PDT</font></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><font size="2">4</font></td>
+                  <td><font size="2">Pacific Daylight Time</font></td>
+                </tr>
+                <tr>
+                  <td rowspan="2" style="text-align: center"><font size="2">Z</font></td>
+                  <td style="text-align: center"><font size="2">1</font></td>
+                  <td><font size="2">GMT-08:00</font></td>
+                  <td rowspan="2"><span><font size="2">Use 1 for GMT format, 2 for RFC 822</font></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><font size="2">2</font></td>
+                  <td><font size="2">-0800</font></td>
+                </tr>
+              </table>
+              </td>
+              <td width="50%">
+              <table cellSpacing="0" cellPadding="2" border="1">
+                <tr>
+                  <th rowspan="6"><font size="2">zone</font></th>
+                  <td rowspan="2"><font size="2">z</font></td>
+                  <td><span class="changed"><font size="2">1..</font></span><font size="2">3</font></td>
+                  <td><span class="changed"><font size="2">PDT</font></span></td>
+                  <td rowspan="2"><span class="changed"><span><font size="2">Timezone. Use 1..3 for 
+                  the short timezone or 4 for the full name. For more information, see </font>
+                  </span><font size="2">Appendix J: </font><a href="#Time_Zone_Fallback"><span>
+                  <font size="2">Time Zone Fallback</font></span></a></span></td>
+                </tr>
+                <tr>
+                  <td><font size="2">4</font></td>
+                  <td><font size="2">Pacific Daylight Time</font></td>
+                </tr>
+                <tr>
+                  <td rowspan="2"><font size="2">Z</font></td>
+                  <td><font size="2">1</font></td>
+                  <td><font size="2">GMT-08:00</font></td>
+                  <td rowspan="2"><span><font size="2">Use 1 for GMT format, 2 for RFC 822</font></span></td>
+                </tr>
+                <tr>
+                  <td><font size="2">2</font></td>
+                  <td><font size="2">-0800</font></td>
+                </tr>
+                <tr>
+                  <td rowspan="2"><span class="changed"><font size="2">v</font></span></td>
+                  <td><span class="changed"><font size="2">1</font></span></td>
+                  <td><span class="changed"><font size="2">PT</font></span></td>
+                  <td rowspan="2"><span class="changed"><span><font size="2">Use 1 for short wall 
+                  (generic) time, 4 for long wall time. For more information, see </font></span>
+                  <font size="2">Appendix J: </font><a href="#Time_Zone_Fallback"><span>
+                  <font size="2">Time Zone Fallback</font></span></a></span></td>
+                </tr>
+                <tr>
+                  <td><span class="changed"><font size="2">4</font></span></td>
+                  <td><span class="changed"><font size="2">Pacific Time</font></span></td>
+                </tr>
+              </table>
+              </td>
+            </tr>
+          </table>
+        </blockquote>
+        </td>
+      </tr>
+    </table>
+    <hr width="50%">
+    <div align="center">
+      <center>
+      <table cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td><a href="http://www.unicode.org/copyright.html">
+          <img src="http://www.unicode.org/img/hb_notice.gif" border="0" alt="Access to Copyright and terms of use" width="216" height="50"></a></td>
+        </tr>
+      </table>
+      <script language="Javascript" type="text/javascript" src="http://www.unicode.org/webscripts/lastModified.js">
+      </script>
+      </center>
+    </div>
+    </td>
+  </tr>
+</table>
+
+</body>
+
+</html>

@@ -123,16 +123,16 @@ td, th           { vertical-align: top; text-align: left}
         <blockquote>
           <p>This page lists corrigenda to different versions of CLDR. Implementations are 
           encouraged to apply these corrigenda to their use of the respective versions.</p>
-          <h2>Corrigendum 1: Timezone Policy and Data Correction</h2>
+          <h2>Corrigendum 1: Timezone and Date Format Pattern Correction</h2>
           <p>In CLDR version 1.3, the policy was that in a given locale (resolved), uniqueness is 
           required for timezone display names. That is, if timezone ID X used display name Y, then a 
           different timezone ID Z could not also use Y. This policy turns out to be overly strict, 
           and did not allow for customary names in cases where it does not cause a problem. The 
           committee has relaxed this policy so as to allow non-uniqueness of standard and daylight 
           display names where the results of parsing results would be give the same GMT offset.</p>
-          <p>The short and long timezone names for Europe/London and Europe/Dublin had been changed 
-          because of the old policy. In accordance with this new policy, they are corrected by this 
-          corrigendum as follows:</p>
+          <p>The short and long timezone names for Europe/London and Europe/Dublin in the <b><code>
+          en.xml</code></b> locale data file had been changed because of the old policy. In 
+          accordance with this new policy, they are corrected by this corrigendum as follows:</p>
           <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
             <tr>
               <th width="50%">CLDR 1.3</th>
@@ -140,196 +140,54 @@ td, th           { vertical-align: top; text-align: left}
             </tr>
             <tr>
               <td width="50%">
-              <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a><font size="2">
-                <span class="m">&lt;</span><span class="t">zone type</span><span class="m">=&quot;</span><b>Europe/London</b></font><span class="m"><font size="2">&quot;&gt;</font></span></div>
-              <div>
-                <div class="e">
-                  <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                    <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a><font size="2">
-                    <span class="m">&lt;</span><span class="t">long</span></font><span class="m"><font size="2">&gt;</font></span></div>
-                  <div>
-                    <div class="e">
-                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
-                        <span class="m">&lt;</span><span class="t">generic</span><span class="m">&gt;</span><span class="tx">British 
-                        Time</span><span class="m">&lt;/</span><span class="t">generic</span><span class="m">&gt;</span>
-                        </font>
-                      </div>
-                    </div>
-                    <div class="e">
-                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
-                        <span class="m">&lt;</span><span class="t">standard</span><span class="m">&gt;</span><span class="tx">British 
-                        Standard Time</span><span class="m">&lt;/</span><span class="t">standard</span><span class="m">&gt;</span>
-                        </font>
-                      </div>
-                    </div>
-                    <div class="e">
-                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
-                        <span class="m">&lt;</span><span class="t">daylight</span><span class="m">&gt;</span><span class="tx">British 
-                        Daylight Time</span><span class="m">&lt;/</span><span class="t">daylight</span><span class="m">&gt;</span>
-                        </font>
-                      </div>
-                    </div>
-                    <div>
-                      <span class="b"><font size="2">&nbsp;</font></span><font size="2"> <span class="m">
-                      &lt;/</span><span class="t">long</span></font><span class="m"><font size="2">&gt;</font></span></div>
-                  </div>
-                </div>
-                <div class="e">
-                  <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                    <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a><font size="2">
-                    <span class="m">&lt;</span><span class="t">short</span></font><span class="m"><font size="2">&gt;</font></span></div>
-                  <div>
-                    <div class="e">
-                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
-                        <span class="m">&lt;</span><span class="t">generic</span><span class="m">&gt;</span><span class="tx">BT</span><span class="m">&lt;/</span><span class="t">generic</span><span class="m">&gt;</span>
-                        </font>
-                      </div>
-                    </div>
-                    <div class="e">
-                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
-                        <span class="m">&lt;</span><span class="t">standard</span><span class="m">&gt;</span><span class="tx">BST</span><span class="m">&lt;/</span><span class="t">standard</span><span class="m">&gt;</span>
-                        </font>
-                      </div>
-                    </div>
-                    <div class="e">
-                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
-                        <span class="m">&lt;</span><span class="t">daylight</span><span class="m">&gt;</span><span class="tx">BDT</span><span class="m">&lt;/</span><span class="t">daylight</span><span class="m">&gt;</span>
-                        </font>
-                      </div>
-                    </div>
-                    <div>
-                      <span class="b"><font size="2">&nbsp;</font></span><font size="2"> <span class="m">
-                      &lt;/</span><span class="t">short</span></font><span class="m"><font size="2">&gt;</font></span></div>
-                  </div>
-                </div>
-                <div>
-                  <font size="2"><span class="m">&lt;/</span><span class="t">zone</span></font><span class="m"><font size="2">&gt;</font></span></div>
-              </div>
+              <pre>&lt;zone type=&quot;Europe/London&quot;&gt;
+  &lt;long&gt;
+    &lt;generic&gt;British Time&lt;/generic&gt; 
+    &lt;standard&gt;British Standard Time&lt;/standard&gt; 
+    &lt;daylight&gt;British Daylight Time&lt;/daylight&gt; 
+  &lt;/long&gt;
+  &lt;short&gt;
+    &lt;generic&gt;BT&lt;/generic&gt; 
+    &lt;standard&gt;BST&lt;/standard&gt; 
+    &lt;daylight&gt;BDT&lt;/daylight&gt; 
+  &lt;/short&gt;
+&lt;/zone&gt;</pre>
               </td>
               <td width="50%">
-              <div class="e">
-                <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                  <font size="2"><span class="m">&lt;</span><span class="t">zone type</span><span class="m">=&quot;</span><b>Europe/London</b></font><span class="m"><font size="2">&quot;&gt;</font></span></div>
-                <div>
-                  <div class="e">
-                    <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                      <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a><font size="2">
-                      <span class="m">&lt;</span><span class="t">long</span></font><span class="m"><font size="2">&gt;</font></span><div class="e">
-                        <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                          <span class="b"><font size="2">&nbsp;</font></span><font size="2">
-                          <span class="m">&lt;</span><span class="t">standard</span><span class="m">&gt;</span><b><span class="changed">Greenwich 
-                          Mean</span></b><span class="tx"> Time</span><span class="m">&lt;/</span><span class="t">standard</span><span class="m">&gt;</span>
-                          </font>
-                        </div>
-                      </div>
-                      <div class="e">
-                        <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                          <span class="b"><font size="2">&nbsp;</font></span><font size="2">
-                          <span class="m">&lt;</span><span class="t">daylight</span><span class="m">&gt;</span><span class="tx">British
-                          </span><span class="changed"><span style="font-weight: 400">Summer</span></span><span class="tx"> 
-                          Time</span><span class="m">&lt;/</span><span class="t">daylight</span><span class="m">&gt;</span>
-                          </font>
-                        </div>
-                      </div>
-                      <div>
-                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
-                        <span class="m">&lt;/</span><span class="t">long</span></font><span class="m"><font size="2">&gt;</font></span></div>
-                    </div>
-                  </div>
-                  <div class="e">
-                    <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                      <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a><font size="2">
-                      <span class="m">&lt;</span><span class="t">short</span></font><span class="m"><font size="2">&gt;</font></span><div class="e">
-                        <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                          <span class="b"><font size="2">&nbsp;</font></span><font size="2">
-                          <span class="m">&lt;</span><span class="t">standard</span><span class="m">&gt;</span><b><span class="changed">GM</span></b><span class="tx">T</span><span class="m">&lt;/</span><span class="t">standard</span><span class="m">&gt;</span>
-                          </font>
-                        </div>
-                      </div>
-                      <div class="e">
-                        <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                          <span class="b"><font size="2">&nbsp;</font></span><font size="2">
-                          <span class="m">&lt;</span><span class="t">daylight</span><span class="m">&gt;</span><span class="tx">B</span><b><span class="changed">S</span></b><span class="tx">T</span><span class="m">&lt;/</span><span class="t">daylight</span><span class="m">&gt;</span>
-                          </font>
-                        </div>
-                      </div>
-                      <div>
-                        <span class="b"><font size="2">&nbsp;</font></span><font size="2">
-                        <span class="m">&lt;/</span><span class="t">short</span></font><span class="m"><font size="2">&gt;</font></span></div>
-                    </div>
-                  </div>
-                  <div>
-                    <font size="2"><span class="m">&lt;/</span><span class="t">zone</span></font><span class="m"><font size="2">&gt;</font></span></div>
-                </div>
-              </div>
+              <pre>&lt;zone type=&quot;Europe/London&quot;&gt;
+  &lt;long&gt;
+    &lt;standard&gt;<span class="changed">Greenwich Mean</span> Time&lt;/standard&gt; 
+    &lt;daylight&gt;British <span class="changed">Summer</span> Time&lt;/daylight&gt; 
+  &lt;/long&gt;
+  &lt;short&gt;
+    &lt;standard&gt;<span class="changed">GM</span>T&lt;/standard&gt; 
+    &lt;daylight&gt;B<span class="changed">S</span>T&lt;/daylight&gt; 
+  &lt;/short&gt;
+&lt;/zone&gt;</pre>
               </td>
             </tr>
             <tr>
               <td width="50%">
-              <p style="text-align: center"><i>{omitted}</i></td>
+              <p style="text-align: center"><i><font size="2">{omitted}</font></i></td>
               <td width="50%">
-              <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                <span class="m"><font size="2">&lt;</font></span><font size="2"><span class="t">z</span><span class="changed">&lt;zone 
-                type=&quot;<b>Europe/Dublin</b>&quot;&gt;</span></font></div>
-              <div>
-                <div class="e">
-                  <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                    <span class="changed">
-                    <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a></span><font size="2"><span class="changed"> 
-                    &lt;long</span></font><span class="changed"><font size="2">&gt;</font></span><div class="e">
-                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                        <span class="changed"><font size="2">&nbsp;</font></span><font size="2"><span class="changed"> 
-                        &lt;standard&gt;Greenwich Mean Time&lt;/standard&gt; </span></font>
-                      </div>
-                    </div>
-                    <div class="e">
-                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                        <span class="changed"><font size="2">&nbsp;</font></span><font size="2"><span class="changed"> 
-                        &lt;daylight&gt;Irish Summer Time&lt;/daylight&gt; </span></font>
-                      </div>
-                    </div>
-                    <div>
-                      <span class="changed"><font size="2">&nbsp;</font></span><font size="2"><span class="changed"> 
-                      &lt;/long</span></font><span class="changed"><font size="2">&gt;</font></span></div>
-                  </div>
-                </div>
-                <div class="e">
-                  <div class="c" style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                    <span class="changed">
-                    <a class="b" onfocus="h()" onclick="return false" href="#"><font size="2">-</font></a></span><font size="2"><span class="changed"> 
-                    &lt;short</span></font><span class="changed"><font size="2">&gt;</font></span><div class="e">
-                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                        <span class="changed"><font size="2">&nbsp;</font></span><font size="2"><span class="changed"> 
-                        &lt;standard&gt;GMT&lt;/standard&gt; </span></font>
-                      </div>
-                    </div>
-                    <div class="e">
-                      <div style="MARGIN-LEFT: 1em; TEXT-INDENT: -2em">
-                        <span class="changed"><font size="2">&nbsp;</font></span><font size="2"><span class="changed"> 
-                        &lt;daylight&gt;IST&lt;/daylight&gt; </span></font>
-                      </div>
-                    </div>
-                    <div>
-                      <span class="changed"><font size="2">&nbsp;</font></span><font size="2"><span class="changed"> 
-                      &lt;/short</span></font><span class="changed"><font size="2">&gt;</font></span></div>
-                  </div>
-                </div>
-                <div>
-                  <font size="2"><span class="changed">&lt;/zone</span></font><span class="changed"><font size="2">&gt;</font></span></div>
-              </div>
+              <pre><span class="changed">&lt;zone type=&quot;Europe/Dublin&quot;&gt;
+  &lt;long&gt;
+&nbsp;   &lt;standard&gt;Greenwich Mean Time&lt;/standard&gt; 
+&nbsp;   &lt;daylight&gt;Irish Summer Time&lt;/daylight&gt; 
+&nbsp; &lt;/long&gt;
+  &lt;short&gt;
+&nbsp;   &lt;standard&gt;GMT&lt;/standard&gt; 
+&nbsp;   &lt;daylight&gt;IST&lt;/daylight&gt; 
+&nbsp; &lt;/short&gt;
+&lt;/zone&gt;</span></pre>
               </td>
             </tr>
           </table>
-          <h2>Corrigendum 2: Date Format Pattern Correction</h2>
-          <p>The following are corrections to the date format pattern in CLDR 1.3. The Stand-Alone 
-          months and days, although approved by the technical committee, had been omitted from the 
+          <p>The data reflecting the above correction is checked into CVS under the tag <b><code>
+          release-1-3-C1</code></b>. For information on the usage of this, see
+          <a href="repository_access.html">CLDR Releases (Downloads)</a>.</p>
+          <p>The following are corrections to the date format pattern. The Stand-Alone months and 
+          days, although approved by the technical committee, had been omitted from the 
           specification. The use of &#39;z&#39; is changed to preserve backwards compatibility with Java.</p>
           <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
             <tr>

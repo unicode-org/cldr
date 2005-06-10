@@ -188,7 +188,8 @@ td, th           { vertical-align: top; text-align: left}
           <a href="repository_access.html">CLDR Releases (Downloads)</a>.</p>
           <p>The following are corrections to the date format pattern. The Stand-Alone months and 
           days, although approved by the technical committee, had been omitted from the 
-          specification. The use of &#39;z&#39; is changed to preserve backwards compatibility with Java.</p>
+          specification. The use of &#39;z&#39;, &#39;Z&#39;, and &#39;E&#39; is changed to preserve backwards compatibility 
+          with Java.</p>
           <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
             <tr>
               <th width="50%">CLDR 1.3</th>
@@ -228,8 +229,8 @@ td, th           { vertical-align: top; text-align: left}
                   <td style="text-align: center"><font size="2">1..2</font></td>
                   <td><font size="2">09</font></td>
                   <td rowspan="4"><span><font size="2">Month - Use one or two for the numerical 
-                  month, three for the abbreviation, or four for the full name, or 5 for the narrow 
-                  name.</font></span></td>
+                  month, three for the abbreviation, or four for the full name, or five for the 
+                  narrow name.</font></span></td>
                 </tr>
                 <tr>
                   <td style="text-align: center"><font size="2">3</font></td>
@@ -319,8 +320,8 @@ td, th           { vertical-align: top; text-align: left}
                   <td style="text-align: center"><span><font size="2"><span class="changed">1..</span>3</font></span></td>
                   <td><span><font size="2">Tues</font></span></td>
                   <td rowspan="3"><span><font size="2">Day of week - Use one through three for the 
-                  short day, or four for the full name, or 5 for the narrow name. Sunday is always 
-                  day 1</font></span></td>
+                  short day, or four for the full name, or five for the narrow name. Sunday is 
+                  always day 1</font></span></td>
                 </tr>
                 <tr>
                   <td style="text-align: center"><span><font size="2">4</font></span></td>
@@ -335,7 +336,7 @@ td, th           { vertical-align: top; text-align: left}
                   <td style="text-align: center"><span><font size="2">1..2</font></span></td>
                   <td><font size="2">2</font></td>
                   <td rowspan="4"><font size="2">Local day of week. Same as E except
-                  <span class="changed">adds a</span> numeric value will depend on the local 
+                  <span class="changed">adds a</span> numeric value that will depend on the local 
                   starting day of the week. For this example, Monday is the first day of the week.</font></td>
                 </tr>
                 <tr>
@@ -355,8 +356,9 @@ td, th           { vertical-align: top; text-align: left}
                   <td style="text-align: center"><span class="changed"><span><font size="2">1..2</font></span></span></td>
                   <td><span class="changed"><font size="2">2</font></span></td>
                   <td rowspan="4"><span class="changed"><span><b><font size="2">Stand-Alone</font></b><font size="2"> 
-                  Day of week - Use three for the short day, or four for the full name, or 5 for the 
-                  narrow name. Sunday is always day 1</font></span></span></td>
+                  local day of week - Use one or two letters for the local numeric value (same as 
+                  &#39;e&#39;), three for the short day, or four for the full name, or five for the narrow 
+                  name. Sunday is always day 1</font></span></span></td>
                 </tr>
                 <tr>
                   <td style="text-align: center"><span class="changed"><span><font size="2">3</font></span></span></td>
@@ -417,7 +419,7 @@ td, th           { vertical-align: top; text-align: left}
                   <td rowspan="2"><font size="2">z</font></td>
                   <td><span class="changed"><font size="2">1..</font></span><font size="2">3</font></td>
                   <td><span class="changed"><font size="2">PDT</font></span></td>
-                  <td rowspan="2"><span class="changed"><span><font size="2">Timezone. Use 1..3 for 
+                  <td rowspan="2"><span class="changed"><span><font size="2">Timezone - Use 1..3 for 
                   the short timezone or 4 for the full name. For more information, see </font>
                   </span><font size="2">Appendix J: </font><a href="#Time_Zone_Fallback"><span>
                   <font size="2">Time Zone Fallback</font></span></a></span></td>
@@ -430,8 +432,9 @@ td, th           { vertical-align: top; text-align: left}
                   <td rowspan="2"><font size="2">Z</font></td>
                   <td><span class="changed"><font size="2">1..3</font></span></td>
                   <td><font size="2">-0800</font></td>
-                  <td rowspan="2"><span><font size="2">Use <span class="changed">4</span> for GMT 
-                  format, <span class="changed">1..3</span> for RFC 822</font></span></td>
+                  <td rowspan="2"><span><font size="2">Use <span class="changed">one to three 
+                  letters</span> for RFC 822, <span class="changed">four letters</span> for GMT 
+                  format.</font></span></td>
                 </tr>
                 <tr>
                   <td><span class="changed"><font size="2">4</font></span></td>
@@ -441,10 +444,10 @@ td, th           { vertical-align: top; text-align: left}
                   <td rowspan="2"><span class="changed"><font size="2">v</font></span></td>
                   <td><span class="changed"><font size="2">1</font></span></td>
                   <td><span class="changed"><font size="2">PT</font></span></td>
-                  <td rowspan="2"><span class="changed"><span><font size="2">Use 1 for short wall 
-                  (generic) time, 4 for long wall time. For more information, see </font></span>
-                  <font size="2">Appendix J: </font><a href="#Time_Zone_Fallback"><span>
-                  <font size="2">Time Zone Fallback</font></span></a></span></td>
+                  <td rowspan="2"><span class="changed"><span><font size="2">Use one letter for 
+                  short wall (generic) time, four for long wall time. For more information, see
+                  </font></span><font size="2">Appendix J: </font><a href="#Time_Zone_Fallback">
+                  <span><font size="2">Time Zone Fallback</font></span></a></span></td>
                 </tr>
                 <tr>
                   <td><span class="changed"><font size="2">4</font></span></td>

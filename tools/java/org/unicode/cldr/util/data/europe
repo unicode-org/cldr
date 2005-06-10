@@ -1,4 +1,4 @@
-# @(#)europe	7.90
+# @(#)europe	7.92
 
 # This data is by no means authoritative; if you think you know better,
 # go ahead and edit the file (and please send any changes to
@@ -254,6 +254,35 @@
 #
 #   "Timeball on the ballast office is down.  Dunsink time."
 #   -- James Joyce, Ulysses
+
+# From Joseph S. Myers (2005-01-26):
+# Irish laws are available online at www.irishstatutebook.ie.  These include 
+# various relating to legal time, for example:
+# 
+# ZZA13Y1923.html ZZA12Y1924.html ZZA8Y1925.html ZZSIV20PG1267.html
+# 
+# ZZSI71Y1947.html ZZSI128Y1948.html ZZSI23Y1949.html ZZSI41Y1950.html
+# ZZSI27Y1951.html ZZSI73Y1952.html
+# 
+# ZZSI11Y1961.html ZZSI232Y1961.html ZZSI182Y1962.html
+# ZZSI167Y1963.html ZZSI257Y1964.html ZZSI198Y1967.html
+# ZZA23Y1968.html ZZA17Y1971.html
+# 
+# ZZSI67Y1981.html ZZSI212Y1982.html ZZSI45Y1986.html
+# ZZSI264Y1988.html ZZSI52Y1990.html ZZSI371Y1992.html
+# ZZSI395Y1994.html ZZSI484Y1997.html ZZSI506Y2001.html
+#
+# [These are all relative to the root, e.g., the first is
+# <http://www.irishstatutebook.ie/ZZA13Y1923.html>.]
+# 
+# (These are those I found, but there could be more.  In any case these 
+# should allow various updates to the comments in the europe file to cover 
+# the laws applicable in Ireland.)
+# 
+# (Note that the time in the Republic of Ireland since 1968 has been defined 
+# in terms of standard time being GMT+1 with a period of winter time when it 
+# is GMT, rather than standard time being GMT with a period of summer time 
+# being GMT+1.)
 
 # From Paul Eggert (1999-03-28):
 # Clive Feather (<news:859845706.26043.0@office.demon.net>, 1997-03-31)
@@ -753,6 +782,11 @@ Zone Europe/Copenhagen	 0:50:20 -	LMT	1890
 Zone Atlantic/Faeroe	-0:27:04 -	LMT	1908 Jan 11	# Torshavn
 			 0:00	-	WET	1981
 			 0:00	EU	WE%sT
+#
+# From Paul Eggert (2004-10-31):
+# During World War II, Germany maintained secret manned weather stations in
+# East Greenland and Franz Josef Land, but we don't know their time zones.
+# My source for this is Wilhelm Dege's book mentioned under Svalbard.
 #
 # From Paul Eggert (1996-11-22):
 # Greenland joined the EU as part of Denmark, obtained home rule on 1979-05-01,
@@ -1633,7 +1667,7 @@ Zone	Europe/Oslo	0:43:00 -	LMT	1895 Jan  1
 # <http://www.svalbard.com/SvalbardFAQ.html> says that the Germans were
 # expelled on 1942-05-14.  However, small parties of Germans did return,
 # and according to Wilhelm Dege's book "War North of 80" (1954)
-# <http://www.utpress.utoronto.ca/publishing/rights/dege_warnorthof80.htm>
+# <http://www.ucalgary.ca/UofC/departments/UP/1-55238/1-55238-110-2.html>
 # the German armed forces at the Svalbard weather station code-named
 # Haudegen did not surrender to the Allies until September 1945.
 #

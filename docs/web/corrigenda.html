@@ -172,13 +172,13 @@ td, th           { vertical-align: top; text-align: left}
               <td width="50%">
               <pre><span class="changed">&lt;zone type=&quot;Europe/Dublin&quot;&gt;
   &lt;long&gt;
-&nbsp;   &lt;standard&gt;Greenwich Mean Time&lt;/standard&gt; 
-&nbsp;   &lt;daylight&gt;Irish Summer Time&lt;/daylight&gt; 
-&nbsp; &lt;/long&gt;
+    &lt;standard&gt;Greenwich Mean Time&lt;/standard&gt; 
+    &lt;daylight&gt;Irish Summer Time&lt;/daylight&gt; 
+  &lt;/long&gt;
   &lt;short&gt;
-&nbsp;   &lt;standard&gt;GMT&lt;/standard&gt; 
-&nbsp;   &lt;daylight&gt;IST&lt;/daylight&gt; 
-&nbsp; &lt;/short&gt;
+    &lt;standard&gt;GMT&lt;/standard&gt; 
+    &lt;daylight&gt;IST&lt;/daylight&gt; 
+  &lt;/short&gt;
 &lt;/zone&gt;</span></pre>
               </td>
             </tr>
@@ -314,16 +314,13 @@ td, th           { vertical-align: top; text-align: left}
               <th width="50%">
               <table cellSpacing="0" cellPadding="2" border="1">
                 <tr>
-                  <th rowspan="12"><font size="2">weekday</font></th>
-                  <td rowspan="4" style="text-align: center"><font size="2">E</font></td>
-                  <td style="text-align: center"><span><font size="2">1..2</font></span></td>
-                  <td><font size="2">3</font></td>
-                  <td rowspan="4"><span><font size="2">Day of week - Use three for the short day, or 
-                  four for the full name, or 5 for the narrow name. Sunday is always day 1</font></span></td>
-                </tr>
-                <tr>
-                  <td style="text-align: center"><span><font size="2">3</font></span></td>
+                  <th rowspan="11"><font size="2">weekday</font></th>
+                  <td rowspan="3" style="text-align: center"><font size="2">E</font></td>
+                  <td style="text-align: center"><span><font size="2"><span class="changed">1..</span>3</font></span></td>
                   <td><span><font size="2">Tues</font></span></td>
+                  <td rowspan="3"><span><font size="2">Day of week - Use one through three for the 
+                  short day, or four for the full name, or 5 for the narrow name. Sunday is always 
+                  day 1</font></span></td>
                 </tr>
                 <tr>
                   <td style="text-align: center"><span><font size="2">4</font></span></td>
@@ -337,9 +334,9 @@ td, th           { vertical-align: top; text-align: left}
                   <td rowspan="4" style="text-align: center"><font size="2">e</font></td>
                   <td style="text-align: center"><span><font size="2">1..2</font></span></td>
                   <td><font size="2">2</font></td>
-                  <td rowspan="4"><font size="2">Local day of week. Same as E except numeric value 
-                  will depend on the local starting day of the week. For this example, Monday is the 
-                  first day of the week.</font></td>
+                  <td rowspan="4"><font size="2">Local day of week. Same as E except
+                  <span class="changed">adds a</span> numeric value will depend on the local 
+                  starting day of the week. For this example, Monday is the first day of the week.</font></td>
                 </tr>
                 <tr>
                   <td style="text-align: center"><span><font size="2">3</font></span></td>
@@ -431,13 +428,14 @@ td, th           { vertical-align: top; text-align: left}
                 </tr>
                 <tr>
                   <td rowspan="2"><font size="2">Z</font></td>
-                  <td><font size="2">1</font></td>
-                  <td><font size="2">GMT-08:00</font></td>
-                  <td rowspan="2"><span><font size="2">Use 1 for GMT format, 2 for RFC 822</font></span></td>
+                  <td><span class="changed"><font size="2">1..3</font></span></td>
+                  <td><font size="2">-0800</font></td>
+                  <td rowspan="2"><span><font size="2">Use <span class="changed">4</span> for GMT 
+                  format, <span class="changed">1..3</span> for RFC 822</font></span></td>
                 </tr>
                 <tr>
-                  <td><font size="2">2</font></td>
-                  <td><font size="2">-0800</font></td>
+                  <td><span class="changed"><font size="2">4</font></span></td>
+                  <td><font size="2">GMT-08:00</font></td>
                 </tr>
                 <tr>
                   <td rowspan="2"><span class="changed"><font size="2">v</font></span></td>

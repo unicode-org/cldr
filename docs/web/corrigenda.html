@@ -122,75 +122,69 @@ td, th           { vertical-align: top; text-align: left}
         <h1 align="center">Corrigenda</h1>
         <blockquote>
           <p>This page lists corrigenda to different versions of CLDR. Implementations are 
-          encouraged to apply these corrigenda to their use of the respective versions.</p>
+          encouraged to apply these corrigenda to their use of the respective version.</p>
           <h2>Corrigendum 1: Timezone and Date Format Pattern Correction</h2>
-          <p>In CLDR version 1.3, the policy was that in a given locale (resolved), uniqueness is 
-          required for timezone display names. That is, if timezone ID X used display name Y, then a 
-          different timezone ID Z could not also use Y. This policy turns out to be overly strict, 
-          and did not allow for customary names in cases where it does not cause a problem. The 
-          committee has relaxed this policy so as to allow non-uniqueness of standard and daylight 
-          display names where the results of parsing results would be give the same GMT offset.</p>
+          <p>In CLDR version 1.3, the policy was that for a given (resolved) locale, uniqueness is 
+          required for timezone display names. That is, two different timezone IDs could not have 
+          the same display name. This policy turns out to be overly strict, and did not allow for 
+          customary names in cases where it does not cause a problem. The committee has relaxed this 
+          policy so that where the parsing results would give the same GMT offset, the standard and 
+          daylight display names can be the same across different timezone IDs.</p>
           <p>The short and long timezone names for Europe/London and Europe/Dublin in the <b><code>
           en.xml</code></b> locale data file had been changed because of the old policy. In 
           accordance with this new policy, they are corrected by this corrigendum as follows:</p>
-          <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+          <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
             <tr>
               <th width="50%">CLDR 1.3</th>
               <th width="50%">Corrected</th>
             </tr>
             <tr>
-              <td width="50%">
-              <pre>&lt;zone type=&quot;Europe/London&quot;&gt;
-  &lt;long&gt;
-    &lt;generic&gt;British Time&lt;/generic&gt; 
-    &lt;standard&gt;British Standard Time&lt;/standard&gt; 
-    &lt;daylight&gt;British Daylight Time&lt;/daylight&gt; 
-  &lt;/long&gt;
-  &lt;short&gt;
-    &lt;generic&gt;BT&lt;/generic&gt; 
-    &lt;standard&gt;BST&lt;/standard&gt; 
-    &lt;daylight&gt;BDT&lt;/daylight&gt; 
-  &lt;/short&gt;
-&lt;/zone&gt;</pre>
-              </td>
-              <td width="50%">
-              <pre>&lt;zone type=&quot;Europe/London&quot;&gt;
-  &lt;long&gt;
-    &lt;standard&gt;<span class="changed">Greenwich Mean</span> Time&lt;/standard&gt; 
-    &lt;daylight&gt;British <span class="changed">Summer</span> Time&lt;/daylight&gt; 
-  &lt;/long&gt;
-  &lt;short&gt;
-    &lt;standard&gt;<span class="changed">GM</span>T&lt;/standard&gt; 
-    &lt;daylight&gt;B<span class="changed">S</span>T&lt;/daylight&gt; 
-  &lt;/short&gt;
-&lt;/zone&gt;</pre>
-              </td>
+              <td width="50%"><code><font size="2">&lt;zone type=&quot;Europe/London&quot;&gt;<br>
+&nbsp; &lt;long&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;generic&gt;British Time&lt;/generic&gt; <br>
+&nbsp;&nbsp;&nbsp; &lt;standard&gt;British Standard Time&lt;/standard&gt; <br>
+&nbsp;&nbsp;&nbsp; &lt;daylight&gt;British Daylight Time&lt;/daylight&gt; <br>
+&nbsp; &lt;/long&gt;<br>
+&nbsp; &lt;short&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;generic&gt;BT&lt;/generic&gt; <br>
+&nbsp;&nbsp;&nbsp; &lt;standard&gt;BST&lt;/standard&gt; <br>
+&nbsp;&nbsp;&nbsp; &lt;daylight&gt;BDT&lt;/daylight&gt; <br>
+&nbsp; &lt;/short&gt;<br>
+              &lt;/zone&gt;</font></code></td>
+              <td width="50%"><code>&lt;zone type=&quot;Europe/London&quot;&gt;<br>
+&nbsp; &lt;long&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;standard&gt;<span class="changed">Greenwich Mean</span> Time&lt;/standard&gt; <br>
+&nbsp;&nbsp;&nbsp; &lt;daylight&gt;British <span class="changed">Summer</span> Time&lt;/daylight&gt; <br>
+&nbsp; &lt;/long&gt;<br>
+&nbsp; &lt;short&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;standard&gt;<span class="changed">GM</span>T&lt;/standard&gt; <br>
+&nbsp;&nbsp;&nbsp; &lt;daylight&gt;B<span class="changed">S</span>T&lt;/daylight&gt; <br>
+&nbsp; &lt;/short&gt;<br>
+              &lt;/zone&gt;</code></td>
             </tr>
             <tr>
               <td width="50%">
               <p style="text-align: center"><i><font size="2">{omitted}</font></i></td>
-              <td width="50%">
-              <pre><span class="changed">&lt;zone type=&quot;Europe/Dublin&quot;&gt;
-  &lt;long&gt;
-    &lt;standard&gt;Greenwich Mean Time&lt;/standard&gt; 
-    &lt;daylight&gt;Irish Summer Time&lt;/daylight&gt; 
-  &lt;/long&gt;
-  &lt;short&gt;
-    &lt;standard&gt;GMT&lt;/standard&gt; 
-    &lt;daylight&gt;IST&lt;/daylight&gt; 
-  &lt;/short&gt;
-&lt;/zone&gt;</span></pre>
-              </td>
+              <td width="50%"><span class="changed"><code>&lt;zone type=&quot;Europe/Dublin&quot;&gt;<br>
+&nbsp; &lt;long&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;standard&gt;Greenwich Mean Time&lt;/standard&gt; <br>
+&nbsp;&nbsp;&nbsp; &lt;daylight&gt;Irish Summer Time&lt;/daylight&gt; <br>
+&nbsp; &lt;/long&gt;<br>
+&nbsp; &lt;short&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;standard&gt;GMT&lt;/standard&gt; <br>
+&nbsp;&nbsp;&nbsp; &lt;daylight&gt;IST&lt;/daylight&gt; <br>
+&nbsp; &lt;/short&gt;<br>
+              &lt;/zone&gt;</code></span></td>
             </tr>
           </table>
           <p>The data reflecting the above correction is checked into CVS under the tag <b><code>
           release-1-3-C1</code></b>. For information on the usage of this, see
           <a href="repository_access.html">CLDR Releases (Downloads)</a>.</p>
           <p>The following are corrections to the date format pattern. The Stand-Alone months and 
-          days and long era names, although approved by the technical committee, had been omitted 
-          from the specification. The use of specific sequences of &#39;z&#39;, &#39;Z&#39;, and &#39;E&#39; is changed to 
-          preserve backwards compatibility with Java.</p>
-          <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+          days, and the long era names, although approved by the technical committee, had been 
+          omitted from the specification. The use of specific sequences of &#39;z&#39;, &#39;Z&#39;, and &#39;E&#39; is 
+          changed to preserve backwards compatibility with Java.</p>
+          <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
             <tr>
               <th width="50%" style="vertical-align: top; text-align: left">CLDR 1.3</th>
               <th width="50%" style="vertical-align: top; text-align: left">Corrected</th>
@@ -199,28 +193,28 @@ td, th           { vertical-align: top; text-align: left}
               <th width="50%">
               <table cellSpacing="0" cellPadding="2" border="1">
                 <tr>
-                  <th>era</th>
-                  <td style="text-align: center">G</td>
-                  <td style="text-align: center">1<span>..3</span></td>
-                  <td>AD</td>
-                  <td><span>Era - Replaced with the Era string for the current date.</span></td>
+                  <th><font size="2">era</font></th>
+                  <td style="text-align: center"><font size="2">G</font></td>
+                  <td style="text-align: center"><font size="2">1</font><span><font size="2">..3</font></span></td>
+                  <td><font size="2">AD</font></td>
+                  <td><span><font size="2">Era - Replaced with the Era string for the current date.</font></span></td>
                 </tr>
               </table>
               </th>
               <th width="50%">
               <table cellSpacing="0" cellPadding="2" border="1">
                 <tr>
-                  <th rowspan="2">era</th>
-                  <td style="text-align: center" rowspan="2">G</td>
-                  <td style="text-align: center">1<span>..3</span></td>
-                  <td>AD</td>
-                  <td rowspan="2"><span>Era - Replaced with the Era string for the current date.
-                  <span class="changed">One to three letters for the abbreviated form, four letters 
-                  for the long form.</span></span></td>
+                  <th rowspan="2"><font size="2">era</font></th>
+                  <td style="text-align: center" rowspan="2"><font size="2">G</font></td>
+                  <td style="text-align: center"><font size="2">1</font><span><font size="2">..3</font></span></td>
+                  <td><font size="2">AD</font></td>
+                  <td rowspan="2"><span><font size="2">Era - Replaced with the Era string for the 
+                  current date. </font><span class="changed"><font size="2">One to three letters for 
+                  the abbreviated form, four letters for the long form.</font></span></span></td>
                 </tr>
                 <tr>
-                  <td style="text-align: center"><span class="changed">4</span></td>
-                  <td><span class="changed">Anno Domini</span></td>
+                  <td style="text-align: center"><span class="changed"><font size="2">4</font></span></td>
+                  <td><span class="changed"><font size="2">Anno Domini</font></span></td>
                 </tr>
               </table>
               </th>
@@ -301,7 +295,8 @@ td, th           { vertical-align: top; text-align: left}
               <th width="50%">
               <table cellSpacing="0" cellPadding="2" border="1">
                 <tr>
-                  <th rowspan="8"><font size="2">weekday</font></th>
+                  <th rowspan="8"><font size="2">week<br>
+                  day</font></th>
                   <td rowspan="4" style="text-align: center"><font size="2">E</font></td>
                   <td style="text-align: center"><span><font size="2">1..2</font></span></td>
                   <td><font size="2">3</font></td>
@@ -345,7 +340,8 @@ td, th           { vertical-align: top; text-align: left}
               <th width="50%">
               <table cellSpacing="0" cellPadding="2" border="1">
                 <tr>
-                  <th rowspan="11"><font size="2">weekday</font></th>
+                  <th rowspan="11"><font size="2">week<br>
+                  day</font></th>
                   <td rowspan="3" style="text-align: center"><font size="2">E</font></td>
                   <td style="text-align: center"><span><font size="2"><span class="changed">1..</span>3</font></span></td>
                   <td><span><font size="2">Tues</font></span></td>
@@ -383,12 +379,12 @@ td, th           { vertical-align: top; text-align: left}
                 </tr>
                 <tr>
                   <td rowspan="4" style="text-align: center"><span class="changed"><font size="2">c</font></span></td>
-                  <td style="text-align: center"><span class="changed"><span><font size="2">1..2</font></span></span></td>
+                  <td style="text-align: center"><span class="changed"><span><font size="2">1</font></span></span></td>
                   <td><span class="changed"><font size="2">2</font></span></td>
                   <td rowspan="4"><span class="changed"><span><b><font size="2">Stand-Alone</font></b><font size="2"> 
-                  local day of week - Use one or two letters for the local numeric value (same as 
-                  &#39;e&#39;), three for the short day, or four for the full name, or five for the narrow 
-                  name. Sunday is always day 1</font></span></span></td>
+                  local day of week - Use one letter for the local numeric value (same as &#39;e&#39;), 
+                  three for the short day, or four for the full name, or five for the narrow name.
+                  </font></span></span></td>
                 </tr>
                 <tr>
                   <td style="text-align: center"><span class="changed"><span><font size="2">3</font></span></span></td>

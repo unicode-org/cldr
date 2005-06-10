@@ -192,8 +192,38 @@ td, th           { vertical-align: top; text-align: left}
           with Java.</p>
           <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
             <tr>
-              <th width="50%">CLDR 1.3</th>
-              <th width="50%">Corrected</th>
+              <th width="50%" style="vertical-align: top; text-align: left">CLDR 1.3</th>
+              <th width="50%" style="vertical-align: top; text-align: left">Corrected</th>
+            </tr>
+            <tr>
+              <th width="50%">
+              <table cellSpacing="0" cellPadding="2" border="1">
+                <tr>
+                  <th>era</th>
+                  <td style="text-align: center">G</td>
+                  <td style="text-align: center">1<span>..3</span></td>
+                  <td>AD</td>
+                  <td><span>Era - Replaced with the Era string for the current date.</span></td>
+                </tr>
+              </table>
+              </th>
+              <th width="50%">
+              <table cellSpacing="0" cellPadding="2" border="1">
+                <tr>
+                  <th rowspan="2">era</th>
+                  <td style="text-align: center" rowspan="2">G</td>
+                  <td style="text-align: center">1<span>..3</span></td>
+                  <td>AD</td>
+                  <td rowspan="2"><span>Era - Replaced with the Era string for the current date.
+                  <span class="changed">One to three letters for the abbreviated form, four letters 
+                  for the long form.</span></span></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span class="changed">4</span></td>
+                  <td><span class="changed">Anno Domini</span></td>
+                </tr>
+              </table>
+              </th>
             </tr>
             <tr>
               <th width="50%">

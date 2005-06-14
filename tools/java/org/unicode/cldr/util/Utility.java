@@ -30,6 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -209,63 +210,23 @@ public class Utility {
     public static void registerExtraTransliterators() {
     	String tzadir = UTIL_DATA_DIR;
 		// HACK around lack of Armenian, Ethiopic				
-		registerTransliteratorFromFile(tzadir, "Latin-Armenian");
-		registerTransliteratorFromFile(tzadir, "Latin-Ethiopic");
-		registerTransliteratorFromFile(tzadir, "Cyrillic-Latin");
-		registerTransliteratorFromFile(tzadir, "Arabic-Latin");	
+		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Armenian");
+		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Ethiopic");
+		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Cyrillic-Latin");
+		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Arabic-Latin");	
 		// needed
-		registerTransliteratorFromFile(tzadir, "Thaana-Latin");		
-		registerTransliteratorFromFile(tzadir, "Syriac-Latin");		
-		registerTransliteratorFromFile(tzadir, "Canadian_Aboriginal-Latin");
-		registerTransliteratorFromFile(tzadir, "Georgian-Latin");
+		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Thaana-Latin");		
+		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Syriac-Latin");		
+		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Canadian_Aboriginal-Latin");
+		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Georgian-Latin");
 		
 		// do nothing, too complicated to do quickly
-		registerTransliteratorFromFile(tzadir, "Tibetan-Latin");
-		registerTransliteratorFromFile(tzadir, "Khmer-Latin");
-		registerTransliteratorFromFile(tzadir, "Lao-Latin");
+		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Tibetan-Latin");
+		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Khmer-Latin");
+		TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Lao-Latin");
     }
     
-	static void registerTransliteratorFromFile(String dir, String id) {
-		try {
-			String filename = id.replace('-', '_');
-			BufferedReader br = BagFormatter.openUTF8Reader(dir, filename + ".txt");
-			StringBuffer buffer = new StringBuffer();
-			while (true) {
-				String line = br.readLine();
-				if (line == null) break;
-				if (line.length() > 0 && line.charAt(0) == '\uFEFF') line = line.substring(1);
-				buffer.append(line).append("\r\n");
-			}
-			br.close();
-			String rules = buffer.toString();
-			Transliterator t;
-			int pos = id.indexOf('-');
-			String rid;
-			if (pos < 0) {
-				rid = id + "-Any";
-				id = "Any-" + id;
-			} else {
-				rid = id.substring(pos+1) + "-" + id.substring(0, pos);
-			}
-			Transliterator.unregister(id);
-			t = Transliterator.createFromRules(id, rules, Transliterator.FORWARD);
-			Transliterator.registerInstance(t);
 
-			/*String test = "\u049A\u0430\u0437\u0430\u049B";
-			System.out.println(t.transliterate(test));
-			t = Transliterator.getInstance(id);
-			System.out.println(t.transliterate(test));
-			*/
-
-			Transliterator.unregister(rid);
-			t = Transliterator.createFromRules(rid, rules, Transliterator.REVERSE);
-			Transliterator.registerInstance(t);
-			System.out.println("Registered new Transliterator: " + id + ", " + rid);
-		} catch (IOException e) {
-			e.printStackTrace();
-			throw new IllegalArgumentException("Can't open " + dir + ", " + id);
-		}
-	}
 
     /*
     static String getLineWithoutFluff(BufferedReader br1, boolean first, int flags) throws IOException {

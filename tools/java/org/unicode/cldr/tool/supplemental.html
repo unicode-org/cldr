@@ -13,7 +13,12 @@ td, th { vertical-align: top}
 td.source      { border-style:solid; border-width:1; background-color: #CCCCCC }
 td.target      { border-style:solid; border-width:1; background-color: #CCFFCC }
 caption           { font-size: 150%; margin-top: 2em }
-table {border-collapse: collapse; width: 100%}
+table {border-collapse: collapse}
+td.z0      { border-style:solid; border-width:1; background-color: #CC33CC }
+td.z1      { border-style:solid; border-width:1; background-color: #CC66CC }
+td.z2      { border-style:solid; border-width:1; background-color: #CC99CC }
+td.z3      { border-style:solid; border-width:1; background-color: #CCCCCC }
+td.z4      { border-style:solid; border-width:1; background-color: #CCFFCC }
 -->
 </style>
 </head>
@@ -53,8 +58,10 @@ please include references supporting the request.</p>
   the data, for example, there is not yet language data for &quot;[830] Channel Islands&quot;.</li>
   <li>The <b>Territory Containment</b> table shows the organization of territories and regions 
   according to <a href="http://unstats.un.org/unsd/methods/m49/m49regin.htm">UN M.49</a>, starting 
-  with the World. (CLDR supplements this table with the ZZ code for outlying areas that would not 
-  otherwise be included.)</li>
+  with the World. (CLDR supplements this table with the QO code for outlying areas that would not 
+  otherwise be included.) As the last column, the timezone IDs for that country are listed.</li>
+<li>The <b>Windows-Tzid</b> table shows the mapping from Windows timezone IDs to the standard TZIDs.</li>
+<li>The <b>Deprecated Items</b> table shows CLDR items that are deprecated. Their usage remains valid, but they are strongly discouraged.</li>
 </ol>
 <h2>Tables</h2>
 <p>%data% </p>

@@ -9,6 +9,7 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
@@ -64,6 +65,7 @@ public class ShowLanguages {
 		PrintWriter pw = new PrintWriter(sw);
 		
 		linfo.printAliases(pw);
+		linfo.printDeprecatedItems(pw);
 		linfo.printCurrency(pw);
 
 		pw.println("<div align='center'><table><tr><td>");
@@ -88,6 +90,9 @@ public class ShowLanguages {
 		
 		linfo.printContains(pw);
 		
+		linfo.printWindows_Tzid(pw);
+		
+		
 		pw.close();
 		String contents = "<ul>";
 		for (Iterator it = anchors.keySet().iterator(); it.hasNext();) {
@@ -107,6 +112,8 @@ public class ShowLanguages {
 	static class LanguageInfo {
 		Map language_scripts = new TreeMap();
 		Map language_territories = new TreeMap();
+		Map windows_tzid = new TreeMap();
+		List deprecatedItems = new ArrayList();
 		Map territory_languages;
 		Map script_languages;
 		Map group_contains = new TreeMap();
@@ -201,6 +208,18 @@ public class ShowLanguages {
 					addTokens(language, (String) attributes.get("territories"), " ", language_territories);
 					continue;
 				}
+				
+				if (path.indexOf("/mapTimezones") >= 0) {
+					Map attributes = parts.findAttributes("mapZone");
+					String tzid = (String) attributes.get("type");
+					String other = (String) attributes.get("other");
+					windows_tzid.put(other, tzid);
+					continue;
+				}
+				if (path.indexOf("/deprecatedItems") >= 0) {
+					deprecatedItems.add(parts.findAttributes("deprecatedItems"));
+					continue;
+				}
 				if (path.indexOf("/generation") >= 0 || path.indexOf("/version") >= 0) continue;
 				System.out.println("Unknown Element: " + path);
 			}
@@ -212,15 +231,18 @@ public class ShowLanguages {
 		 * 
 		 */
 		public void printCurrency(PrintWriter pw) {
-			doTitle(pw, "Country \u2192 Currency");
+			doTitle(pw, "Territory \u2192 Currency");
 			pw.println("<tr><th class='source'>Territory</th><th class='target'>From</th><th class='target'>To</th><th class='target'>Currency</th></tr>");
 			for (Iterator it = territory_currency.keySet().iterator(); it.hasNext();) {
 				String territory = (String)it.next();
-				pw.println("<tr><td class='source'>" + territory + "</td></tr>");
 				Set info = (Set)territory_currency.get(territory);
+				pw.println("<tr><td class='source' rowSpan='" + info.size() + "'>" + territory + "</td>");
+				boolean first = true;
 				for (Iterator it2 = info.iterator(); it2.hasNext();) {
 					String[] items = (String[]) it2.next();
-					pw.println("<tr><td>&nbsp;</td><td class='target'>" + items[0]
+					if (first) first = false;
+					else pw.println("<tr>");
+					pw.println("<td class='target'>" + items[0]
 							+ "</td><td class='target'>" + items[1]
 							+ "</td><td class='target'>" + items[2]
 							+ "</td></tr>");
@@ -293,12 +315,39 @@ public class ShowLanguages {
 			pw.println("</table></div>");
 		}
 		
+		//deprecatedItems
+		public void printDeprecatedItems(PrintWriter pw) {
+			doTitle(pw, "Deprecated Items");
+			pw.print("<tr><td class='z0'><b>Type</b></td><td class='z1'><b>Elements</b></td><td class='z2'><b>Attributes</b></td><td class='z4'><b>Values</b></td>");
+			for (Iterator it = deprecatedItems.iterator(); it.hasNext();) {
+				Map source = (Map)it.next();
+				Object item;
+				pw.print("<tr>");
+				pw.print("<td class='z0'>" + ((item = source.get("type")) != null ? item : "<i>any</i>")  + "</td>");
+				pw.print("<td class='z1'>" + ((item = source.get("elements")) != null ? item : "<i>any</i>")  + "</td>");
+				pw.print("<td class='z2'>" + ((item = source.get("attributes")) != null ? item : "<i>any</i>") + "</td>");
+				pw.print("<td class='z4'>" + ((item = source.get("values")) != null ? item : "<i>any</i>") + "</td>");
+				pw.print("</tr>");
+			}
+			pw.println("</table></div>");
+		}
+		
+		public void printWindows_Tzid(PrintWriter pw) {
+			doTitle(pw, "Windows \u2192 Tzid");
+			for (Iterator it = windows_tzid.keySet().iterator(); it.hasNext();) {
+				String source = (String)it.next();
+				String target = (String)windows_tzid.get(source);
+				pw.println("<tr><td class='source'>" + source + "</td><td class='target'>" + target + "</td></tr>");
+			}
+			pw.println("</table></div>");
+		}
+		
 		//<info iso4217="ADP" digits="0" rounding="0"/>
 
 		public void printContains(PrintWriter pw) {
 			String title = "Territory Containment (UN M.49)";
 			doTitle(pw, title);
-			printContains2(pw, "<tr>", "001", 0);
+			printContains2(pw, "<tr>", "001", 0, true);
 			pw.println("</table></div>");
 		}
 		/**
@@ -310,17 +359,27 @@ public class ShowLanguages {
 			anchors.put(title, anchor);
 		}
 
-		public void printContains2(PrintWriter pw, String lead, String start, int depth) {
-			pw.println(lead + (depth == 3 ? "<td class='target'>" : "<td class='source'>")
-					+ getName(CLDRFile.TERRITORY_NAME, start, false) + "</td></tr>");
+		public void printContains2(PrintWriter pw, String lead, String start, int depth, boolean isFirst) {
+			String name = depth == 4 ? start : getName(CLDRFile.TERRITORY_NAME, start, false);
+			if (!isFirst) pw.print(lead);
+			pw.print("<td class='z" + depth + "'>" + name + "</td>"); // colSpan='" + (5 - depth) + "' 
+			if (depth == 4) pw.println("</tr>");
 			Collection contains = (Collection) group_contains.get(start);
+			if (contains == null) {
+				contains = (Collection) sc.getCountryToZoneSet().get(start);
+				if (contains == null && depth == 3 && start.compareTo("A") >= 0) {
+					contains = new TreeSet();
+					contains.add("<font color='red'>MISSING TZID</font>");
+				}
+			}
 			if (contains != null) {
 				Collection contains2 = new TreeSet(territoryNameComparator);
 				contains2.addAll(contains);
 				boolean first = true;
 				for (Iterator it = contains2.iterator(); it.hasNext();) {
 					String item = (String)it.next();
-					printContains2(pw, lead + "<td>&nbsp;</td>", item, depth+1);
+					printContains2(pw, lead + "<td>&nbsp;</td>", item, depth+1, first);
+					first = false;
 				}
 			}
 		}

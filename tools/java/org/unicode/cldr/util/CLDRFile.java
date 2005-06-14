@@ -728,7 +728,8 @@ private boolean isSupplemental;
 	 * @return
 	 */
 	private static boolean isDistinguishing(String elementName, String attribute) {
-		return attribute.equals("key") 
+		return
+			attribute.equals("key") 
 		|| attribute.equals("registry") 
 		|| attribute.equals("alt")
 		|| attribute.equals("iso4217")
@@ -738,7 +739,8 @@ private boolean isSupplemental;
 				&& !elementName.equals("measurementSystem") 
 				&& !elementName.equals("mapping")
 				&& !elementName.equals("abbreviationFallback")
-				&& !elementName.equals("preferenceOrdering"));
+				&& !elementName.equals("preferenceOrdering"))
+		|| elementName.equals("deprecatedItems");
 	}
 	
 	/**

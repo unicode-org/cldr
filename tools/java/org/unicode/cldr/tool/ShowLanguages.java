@@ -362,28 +362,51 @@ public class ShowLanguages {
 		public void printContains2(PrintWriter pw, String lead, String start, int depth, boolean isFirst) {
 			String name = depth == 4 ? start : getName(CLDRFile.TERRITORY_NAME, start, false);
 			if (!isFirst) pw.print(lead);
-			pw.print("<td class='z" + depth + "'>" + name + "</td>"); // colSpan='" + (5 - depth) + "' 
+			int count = getTotalContainedItems(start, depth);
+			pw.print("<td class='z" + depth + "' rowSpan='" + count + "'>" + name + "</td>"); // colSpan='" + (5 - depth) + "' 
 			if (depth == 4) pw.println("</tr>");
-			Collection contains = (Collection) group_contains.get(start);
-			if (contains == null) {
-				contains = (Collection) sc.getCountryToZoneSet().get(start);
-				if (contains == null && depth == 3 && start.compareTo("A") >= 0) {
-					contains = new TreeSet();
-					contains.add("<font color='red'>MISSING TZID</font>");
-				}
-			}
+			Collection contains = getContainedCollection(start, depth);
 			if (contains != null) {
 				Collection contains2 = new TreeSet(territoryNameComparator);
 				contains2.addAll(contains);
 				boolean first = true;
 				for (Iterator it = contains2.iterator(); it.hasNext();) {
 					String item = (String)it.next();
-					printContains2(pw, lead + "<td>&nbsp;</td>", item, depth+1, first);
+					printContains2(pw, lead, item, depth+1, first); //  + "<td>&nbsp;</td>"
 					first = false;
 				}
 			}
 		}
 		
+		private int getTotalContainedItems(String start, int depth) {
+			Collection c = getContainedCollection(start, depth);
+			if (c == null) return 1;
+			int sum = 0;
+			for (Iterator it = c.iterator(); it.hasNext();) {
+				sum += getTotalContainedItems((String)it.next(), depth + 1);
+			}
+			return sum;
+		}
+		
+		/**
+		 * 
+		 */
+		private Collection getContainedCollection(String start, int depth) {
+			Collection contains = (Collection) group_contains.get(start);
+			if (contains == null) {
+				contains = (Collection) sc.getCountryToZoneSet().get(start);
+				if (contains == null && depth == 3) {
+					contains = new TreeSet();
+					if (start.compareTo("A") >= 0) {
+						contains.add("<font color='red'>MISSING TZID</font>");
+					} else {
+						contains.add("<font color='red'>Not yet ISO code</font>");
+					}
+				}
+			}
+			return contains;
+		}
+
 		/**
 		 * 
 		 */

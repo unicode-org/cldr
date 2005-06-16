@@ -212,6 +212,7 @@ The printed version of ISO-4217:2001
             <currency iso4217="INR" from="1907"/>
             <currency iso4217="BTN" from="1974-04-16"/>
         </region>
+        <!-- Burma (BU) was renamed to Myanmar (MM). Look at "MM" for history. -->
         <region iso3166="BV"><!-- uninhabited territory of Norway -->
             <currency iso4217="NOK" from="1905-06-07"/>
         </region>
@@ -432,6 +433,7 @@ The printed version of ISO-4217:2001
         <region iso3166="GW">
             <currency iso4217="GWP" from="1976-02-28"/>
             <currency iso4217="XOF" from="1997-01-01"/>
+            <currency iso4217="GWE" from="1914-01-01" to="1976-02-28"/>
         </region>
         <region iso3166="GY">
             <currency iso4217="GYD" from="1966-05-26"/>
@@ -618,6 +620,7 @@ The printed version of ISO-4217:2001
         <region iso3166="MM">
             <currency iso4217="MMK" from="1989-06-18"/>
             <!-- currency iso4217="MMX" from="1993"/ --><!-- Not listed in the 2001 or 2004 list -->
+            <currency iso4217="BUK" from="1952-07-01" to="1989-06-18"/>
         </region>
         <region iso3166="MN">
             <currency iso4217="MNT" from="1915-03"/>
@@ -641,6 +644,7 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="MT">
             <currency iso4217="MTL" from="1968-06-07"/>
+            <currency iso4217="MTP" from="1914-08-13" to="1968-06-07"/>
         </region>
         <region iso3166="MU">
             <currency iso4217="MUR" from="1934-04-01"/>
@@ -653,12 +657,14 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="MX">
             <currency iso4217="MXN" from="1993-01-01"/>
+            <currency iso4217="MXP" from="1822" to="1992-12-31"/>
         </region>
         <region iso3166="MY">
             <currency iso4217="MYR" from="1963-9-16"/>
         </region>
         <region iso3166="MZ">
             <currency iso4217="MZM" from="1980-06-16"/>
+            <currency iso4217="MZE" from="1975-06-25" to="1980-06-16"/>
         </region>
         <region iso3166="NA">
             <currency iso4217="ZAR" from="1961-02-14"/>
@@ -875,6 +881,7 @@ The printed version of ISO-4217:2001
         </region>
         <region iso3166="TJ">
             <currency iso4217="TJS" from="2000-10-26"/>
+            <currency iso4217="TJR" from="1995-05-10" to="2000-10-25"/>
         </region>
         <region iso3166="TK">
             <currency iso4217="NZD" from="1967-07-10"/>

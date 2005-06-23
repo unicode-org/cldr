@@ -1162,6 +1162,17 @@
 					<daylight>CDT</daylight>
 				</short>
 			</zone>
+			<zone type="Europe/Dublin">
+				<long>              
+					<standard>Greenwich Mean Time</standard>
+					<daylight>Irish Summer Time</daylight>
+				</long>
+				<short>
+					<standard>GMT</standard>
+					<daylight>IST</daylight>
+				</short>
+				<exemplarCity>Dublin</exemplarCity>
+			</zone>
 			<zone type="Europe/Paris">
 				<long>
 					<generic>Central European Time</generic>
@@ -1177,14 +1188,12 @@
 			</zone>
 			<zone type="Europe/London">
 				<long>
-					<generic>British Time</generic>
-					<standard>British Standard Time</standard>
-					<daylight>British Daylight Time</daylight>
+					<standard>Greenwich Mean Time</standard>
+					<daylight>British Summer Time</daylight>
 				</long>
 				<short>
-					<generic>BT</generic>
-					<standard>BST</standard>
-					<daylight>BDT</daylight>
+					<standard>GMT</standard>
+					<daylight>BST</daylight>
 				</short>
 			</zone>
 			<!-- Note: the following is known to be sparse, and needs to be improved in the future -->

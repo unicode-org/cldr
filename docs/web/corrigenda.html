@@ -118,11 +118,15 @@ td, th           { vertical-align: top; text-align: left}
     <table>
       <tr>
         <td class="contents" valign="top">
-        <h1 align="center"><span style="font-weight: 400"><font size="6" color="#FF0000"><i>DRAFT</i></font></span></h1>
         <h1 align="center">Corrigenda</h1>
         <blockquote>
-          <p>This page lists corrigenda to different versions of CLDR. Implementations are 
-          encouraged to apply these corrigenda to their use of the respective version.</p>
+          <p>This page lists corrigenda to versions of CLDR. Each release of CLDR is a stable 
+          release and may be used as reference material or cited as a normative reference by other 
+          specifications. Each version, once published, is absolutely stable and will never change. 
+          However, implementations may<font face="Arial"> —</font> and are encouraged to
+          <font face="Arial">— </font>apply these corrigenda to their use of an appropriate version. 
+          For example, an implementation may claim conformance to <font face="Arial">“</font>CLDR 
+          1.3, as amended by Corrigendum 1<font face="Arial">”</font>. </p>
           <h2>Corrigendum 1: Timezone and Date Format Pattern Correction</h2>
           <p>In CLDR version 1.3, the policy was that for a given (resolved) locale, uniqueness is 
           required for timezone display names. That is, two different timezone IDs could not have 
@@ -180,10 +184,11 @@ td, th           { vertical-align: top; text-align: left}
           <p>The data reflecting the above correction is checked into CVS under the tag <b><code>
           release-1-3-C1</code></b>. For information on the usage of this, see
           <a href="repository_access.html">CLDR Releases (Downloads)</a>.</p>
-          <p>The following are corrections to the date format pattern. The Stand-Alone months and 
-          days, and the long era names, although approved by the technical committee, had been 
-          omitted from the specification. The use of specific sequences of &#39;z&#39;, &#39;Z&#39;, and &#39;E&#39; is 
-          changed to preserve backwards compatibility with Java.</p>
+          <p>The following are corrections to the date format pattern in
+          <a href="http://www.unicode.org/reports/tr35/">UTS #35: Locale Data Markup Language (LDML)</a>. 
+          The Stand-Alone months and days, and the long era names, although approved by the 
+          technical committee, had been omitted from the specification. The use of specific 
+          sequences of &#39;z&#39;, &#39;Z&#39;, and &#39;E&#39; is changed to preserve backwards compatibility with Java.</p>
           <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
             <tr>
               <th width="50%" style="vertical-align: top; text-align: left">CLDR 1.3</th>

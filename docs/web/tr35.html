@@ -14,6 +14,7 @@ span.dtd         { font-family: monospace; font-size:90%; text-indent:-3em; marg
 span.element { font-weight: bold; color: red }
 span.attribute { font-weight: bold; color: maroon}
 span.attributeValue { font-weight: bold; color: blue}
+span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
 -->
 </style>
 </head>
@@ -31,12 +32,13 @@ span.attributeValue { font-weight: bold; color: blue}
   </tr>
 </table>
 <div class="body">
-  <h2 align="center">Unicode Technical Standard #35</h2>
+  <h2 align="center"><i><font color="#FF3333">Working Draft </font></i>Unicode Technical Standard 
+  #35</h2>
   <h1 align="right">Locale Data Markup Language (LDML)</h1>
   <table border="1" cellpadding="2" cellspacing="0" width="100%">
     <tr>
       <td>Version</td>
-      <td>1<span>.3<a href="#1.3R1">R1</a></span></td>
+      <td>1<span>.4<i><font color="#FF3333"> (draft $Revision$)</font></i></span></td>
     </tr>
     <tr>
       <td>Authors</td>
@@ -44,17 +46,17 @@ span.attributeValue { font-weight: bold; color: blue}
     </tr>
     <tr>
       <td>Date</td>
-      <td>2005-06-02</td>
+      <td><i><font color="#FF3333">$Date$</font></i></td>
     </tr>
     <tr>
       <td>This Version</td>
-      <td><span><a href="http://unicode.org/reports/tr35/tr35-5.html">
-      http://unicode.org/reports/tr35/tr35-5.html</a></span></td>
+      <td><i><a href="http://unicode.org/cldr/data/docs/web/tr35.html">
+      http://unicode.org/cldr/data/docs/web/tr35.html</a></i></td>
     </tr>
     <tr>
       <td>Previous Version</td>
-      <td><span><a href="http://unicode.org/reports/tr35/tr35-4.html">
-      http://unicode.org/reports/tr35/tr35-4.html</a></span></td>
+      <td><span><a href="http://unicode.org/reports/tr35/tr35-5.html">
+      http://unicode.org/reports/tr35/tr35-5.html</a></span></td>
     </tr>
     <tr>
       <td>Latest Version</td>
@@ -83,7 +85,7 @@ span.attributeValue { font-weight: bold; color: blue}
     </tr>
     <tr>
       <td>Revision</td>
-      <td>5</td>
+      <td><a href="#Modifications">6</a></td>
     </tr>
   </table>
   <p><br>
@@ -956,8 +958,12 @@ root</pre>
   this element. These supply localized names for these items for use in user-interfaces for 
   displaying lists of locales and scripts. Examples are given below.</p>
   <p><span>Where present, the display names must be unique; that is, two distinct code would not get 
-  the same display name. Any translations should follow customary practice for the locale in 
-  question. For more information, see [<a href="#DataFormats">Data Formats</a>].</span></p>
+  the same display name. </span><span class="changedspan">There is one exception to this: in 
+  timezones, where parsing results would give the same GMT offset, the standard and daylight display 
+  names can be the same across different timezone IDs.</span><span><span class="changedspan"> </span>
+  </span></p>
+  <p><span>Any translations should follow customary practice for the locale in question. For more 
+  information, see [<a href="#DataFormats">Data Formats</a>].</span></p>
   <p class="element2">&lt;languages&gt;</p>
   <p>This contains a list of elements that provide the user-translated names for language codes from 
   [<a href="#ISO639">ISO639</a>], as described in <a href="#Locale_IDs">Locale_IDs</a>.</p>
@@ -3248,20 +3254,26 @@ America/Kentucky/Monticello&quot;&gt;
       <th><span>Description</span></th>
     </tr>
     <tr>
-      <th>era</th>
-      <td style="text-align: center">G</td>
-      <td style="text-align: center">1<span>..3</span></td>
-      <td>AD</td>
-      <td><span>Era - Replaced with the Era string for the current date.</span></td>
+      <th rowspan="2" style="vertical-align: top; text-align: left">era</th>
+      <td style="text-align: center; vertical-align: top" rowspan="2">G</td>
+      <td style="text-align: center; vertical-align: top">1<span>..3</span></td>
+      <td style="vertical-align: top; text-align: left">AD</td>
+      <td rowspan="2" style="vertical-align: top; text-align: left"><span>Era - Replaced with the 
+      Era string for the current date. <span class="changed">One to three letters for the 
+      abbreviated form, four letters for the long form.</span></span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; vertical-align: top"><span class="changed">4</span></td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">Anno Domini</span></td>
     </tr>
     <tr>
       <th rowspan="3">year</th>
       <td style="text-align: center">y</td>
       <td style="text-align: center">1..n</td>
       <td>1996</td>
-      <td>Year. <span><span>Normally the length specifies the padding, but for two letters it also 
+      <td>Year. <span>Normally the length specifies the padding, but for two letters it also 
       specifies the maximum length. Example:<br>
-&nbsp;</span></span><div align="center">
+&nbsp;</span><div align="center">
         <center>
         <table border="0" cellpadding="2" cellspacing="0">
           <tr>
@@ -3334,25 +3346,45 @@ America/Kentucky/Monticello&quot;&gt;
       assigns positive values to CE years and negative values to BCE years, with 1 BCE being year 0.</td>
     </tr>
     <tr>
-      <th rowspan="4">month</th>
-      <td rowspan="4" style="text-align: center">M</td>
-      <td style="text-align: center">1..2</td>
-      <td>09<br>
-&nbsp;</td>
-      <td rowspan="4"><span>Month - Use one or two for the numerical month, three for the 
-      abbreviation, or four for the full name, or 5 for the narrow name.</span></td>
+      <th rowspan="8" style="vertical-align: top; text-align: left">month</th>
+      <td rowspan="4" style="text-align: center; vertical-align: top">M</td>
+      <td style="text-align: center; vertical-align: top">1..2</td>
+      <td style="vertical-align: top; text-align: left">09</td>
+      <td rowspan="4" style="vertical-align: top; text-align: left"><span>Month - Use one or two for 
+      the numerical month, three for the abbreviation, or four for the full name, or five for the 
+      narrow name.</span></td>
     </tr>
     <tr>
-      <td style="text-align: center">3</td>
-      <td>Sept</td>
+      <td style="text-align: center; vertical-align: top">3</td>
+      <td style="vertical-align: top; text-align: left">Sept</td>
     </tr>
     <tr>
-      <td style="text-align: center">4</td>
-      <td>September</td>
+      <td style="text-align: center; vertical-align: top">4</td>
+      <td style="vertical-align: top; text-align: left">September</td>
     </tr>
     <tr>
-      <td style="text-align: center">5</td>
-      <td>S</td>
+      <td style="text-align: center; vertical-align: top">5</td>
+      <td style="vertical-align: top; text-align: left">S</td>
+    </tr>
+    <tr>
+      <td rowspan="4" style="text-align: center; vertical-align: top"><span class="changed">L</span></td>
+      <td style="text-align: center; vertical-align: top"><span class="changed">1..2</span></td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">09</span></td>
+      <td rowspan="4" style="vertical-align: top; text-align: left"><span class="changed"><span><b>
+      Stand-Alone</b> Month - Use one or two for the numerical month, three for the abbreviation, or 
+      four for the full name, or 5 for the narrow name.</span></span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; vertical-align: top"><span class="changed">3</span></td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">Sept</span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; vertical-align: top"><span class="changed">4</span></td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">September</span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; vertical-align: top"><span class="changed">5</span></td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">S</span></td>
     </tr>
     <tr>
       <th rowspan="2">week</th>
@@ -3397,43 +3429,64 @@ America/Kentucky/Monticello&quot;&gt;
       number that encompasses all the date-related fields.</td>
     </tr>
     <tr>
-      <th rowspan="8">weekday</th>
-      <td rowspan="4" style="text-align: center">E</td>
-      <td style="text-align: center"><span>1..2</span></td>
-      <td>3</td>
-      <td rowspan="4"><span>Day of week - Use three for the short day, or four for the full name, or 
-      5 for the narrow name. Sunday is always day 1</span></td>
+      <th rowspan="11" style="vertical-align: top; text-align: left">week<br>
+      day</th>
+      <td rowspan="3" style="text-align: center; vertical-align: top">E</td>
+      <td style="text-align: center; vertical-align: top"><span><span class="changed">1..</span>3</span></td>
+      <td style="vertical-align: top; text-align: left"><span>Tues</span></td>
+      <td rowspan="3" style="vertical-align: top; text-align: left"><span>Day of week - Use one 
+      through three letters for the short day, or four for the full name, or five for the narrow 
+      name.</span></td>
     </tr>
     <tr>
-      <td style="text-align: center"><span>3</span></td>
-      <td><span>Tues</span></td>
+      <td style="text-align: center; vertical-align: top"><span>4</span></td>
+      <td style="vertical-align: top; text-align: left"><span>Tuesday</span></td>
     </tr>
     <tr>
-      <td style="text-align: center"><span>4</span></td>
-      <td><span>Tuesday</span></td>
+      <td style="text-align: center; vertical-align: top"><span>5</span></td>
+      <td style="vertical-align: top; text-align: left"><span>T</span></td>
     </tr>
     <tr>
-      <td style="text-align: center"><span>5</span></td>
-      <td><span>T</span></td>
+      <td rowspan="4" style="text-align: center; vertical-align: top">e</td>
+      <td style="text-align: center; vertical-align: top"><span>1..2</span></td>
+      <td style="vertical-align: top; text-align: left">2</td>
+      <td rowspan="4" style="vertical-align: top; text-align: left">Local day of week. Same as E 
+      except <span class="changed">adds a</span> numeric value that will depend on the local 
+      starting day of the week, using one or two letters. For this example, Monday is the first day 
+      of the week.</td>
     </tr>
     <tr>
-      <td rowspan="4" style="text-align: center">e</td>
-      <td style="text-align: center"><span>1..2</span></td>
-      <td>2</td>
-      <td rowspan="4">Local day of week. Same as E except numeric value will depend on the local 
-      starting day of the week. For this example, Monday is the first day of the week.</td>
+      <td style="text-align: center; vertical-align: top"><span>3</span></td>
+      <td style="vertical-align: top; text-align: left"><span>Tues</span></td>
     </tr>
     <tr>
-      <td style="text-align: center"><span>3</span></td>
-      <td><span>Tues</span></td>
+      <td style="text-align: center; vertical-align: top"><span>4</span></td>
+      <td style="vertical-align: top; text-align: left"><span>Tuesday</span></td>
     </tr>
     <tr>
-      <td style="text-align: center"><span>4</span></td>
-      <td><span>Tuesday</span></td>
+      <td style="text-align: center; vertical-align: top"><span>5</span></td>
+      <td style="vertical-align: top; text-align: left"><span>T</span></td>
     </tr>
     <tr>
-      <td style="text-align: center"><span>5</span></td>
-      <td><span>T</span></td>
+      <td rowspan="4" style="text-align: center; vertical-align: top"><span class="changed">c</span></td>
+      <td style="text-align: center; vertical-align: top"><span class="changed"><span>1</span></span></td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">2</span></td>
+      <td rowspan="4" style="vertical-align: top; text-align: left"><span class="changed"><span><b>
+      Stand-Alone</b> local day of week - Use one letter for the local numeric value (same as &#39;e&#39;), 
+      three for the short day, or four for the full name, or five for the narrow name. </span>
+      </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; vertical-align: top"><span class="changed"><span>3</span></span></td>
+      <td style="vertical-align: top; text-align: left"><span class="changed"><span>Tues</span></span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; vertical-align: top"><span class="changed"><span>4</span></span></td>
+      <td style="vertical-align: top; text-align: left"><span class="changed"><span>Tuesday</span></span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; vertical-align: top"><span class="changed"><span>5</span></span></td>
+      <td style="vertical-align: top; text-align: left"><span class="changed"><span>T</span></span></td>
     </tr>
     <tr>
       <th>period</th>
@@ -3498,35 +3551,41 @@ America/Kentucky/Monticello&quot;&gt;
       the offset field to obtain a unique local time value.</td>
     </tr>
     <tr>
-      <th rowspan="6">zone</th>
-      <td rowspan="4" style="text-align: center">z</td>
-      <td style="text-align: center">1</td>
-      <td>PT</td>
-      <td rowspan="4"><span>Timezone. Use 1 for short wall (generic) time, 2 for long wall time, 3 
-      for the short timezone (i.e. PST) or 4 for the full name (Pacific Standard Time). If there&#39;s 
-      no name for the zone, fallbacks may be used, depending on available data.</span></td>
+      <th rowspan="6" style="vertical-align: top; text-align: left">zone</th>
+      <td rowspan="2" style="vertical-align: top; text-align: left">z</td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">1..</span>3</td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">PDT</span></td>
+      <td rowspan="2" style="vertical-align: top; text-align: left"><span class="changed"><span>
+      Timezone - Use one to three letters for the short timezone or four for the full name. For more 
+      information, see </span>Appendix J: <a href="#Time_Zone_Fallback"><span>Time Zone Fallback</span></a></span></td>
     </tr>
     <tr>
-      <td style="text-align: center">2</td>
-      <td>Pacific Time</td>
+      <td style="vertical-align: top; text-align: left">4</td>
+      <td style="vertical-align: top; text-align: left">Pacific Daylight Time</td>
     </tr>
     <tr>
-      <td style="text-align: center">3</td>
-      <td>PDT</td>
+      <td rowspan="2" style="vertical-align: top; text-align: left">Z</td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">1..3</span></td>
+      <td style="vertical-align: top; text-align: left">-0800</td>
+      <td rowspan="2" style="vertical-align: top; text-align: left"><span>Use <span class="changed">
+      one to three letters</span> for RFC 822, <span class="changed">four letters</span> for GMT 
+      format.</span></td>
     </tr>
     <tr>
-      <td style="text-align: center">4</td>
-      <td>Pacific Daylight Time</td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">4</span></td>
+      <td style="vertical-align: top; text-align: left">GMT-08:00</td>
     </tr>
     <tr>
-      <td rowspan="2" style="text-align: center">Z</td>
-      <td style="text-align: center">1</td>
-      <td>GMT-08:00</td>
-      <td rowspan="2"><span>Use 1 for GMT format, 2 for RFC 822</span></td>
+      <td rowspan="2" style="vertical-align: top; text-align: left"><span class="changed">v</span></td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">1</span></td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">PT</span></td>
+      <td rowspan="2" style="vertical-align: top; text-align: left"><span class="changed"><span>Use 
+      one letter for short wall (generic) time, four for long wall time. For more information, see
+      </span>Appendix J: <a href="#Time_Zone_Fallback"><span>Time Zone Fallback</span></a></span></td>
     </tr>
     <tr>
-      <td style="text-align: center">2</td>
-      <td>-0800</td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">4</span></td>
+      <td style="vertical-align: top; text-align: left"><span class="changed">Pacific Time</span></td>
     </tr>
   </table>
   <p><span>All non-letter character represent themselves in a pattern, except for the single quote. 
@@ -5856,6 +5915,12 @@ decimal?, group?, special*)) &gt;</span></pre>
   collation.</p>
   <h2><a name="Modifications">Modifications</a></h2>
   <p>The following summarizes modifications from the previous revision of this document.</p>
+  <h3>Revision 6</h3>
+  <ul>
+    <li>Incorporated Corrigendum 1 (see <a href="http://unicode.org/cldr/corrigenda.html">
+    http://unicode.org/cldr/corrigenda.html</a>)</li>
+  </ul>
+  <h3>Revision 5</h3>
   <ul>
     <li>The canonical form for variants is uppercase</li>
     <li>Addition of UN M.49 codes</li>

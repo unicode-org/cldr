@@ -179,8 +179,11 @@ public class StandardCodes {
 	private Map platform_locale_status = null;
 	
 	/**
-	 * Returns locales according to status.
-	 *
+	 * Returns locales according to status. It returns a Map of Maps,
+	 * key 1 is either IBM or Java (perhaps more later),
+	 * key 2 is the locale string
+	 * value is the status. For IBM, it is G0..G4,
+	 * while for Java it is Supported or Unsupported
 	 */
 	public Map getLocaleTypes() throws IOException {
 		if (platform_locale_status == null) {

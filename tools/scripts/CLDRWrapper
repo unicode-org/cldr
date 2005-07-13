@@ -37,11 +37,27 @@ then
   fi
 fi
 
-## no need to change below this line. 
-# base package 
-PKG=org.unicode.cldr.icu
+
 # root name of this script
 ME=`basename $0`
+
+## no need to change below this line. 
+# base package 
+case $ME
+in
+    "XMLValidator") PKG=org.unicode.cldr.tool;;
+    "LDML2ICUConverter") PKG=org.unicode.cldr.icu;;
+    *)  PKG=UNKNOWN;;
+esac
+
+#error check
+if [ $PKG = "UNKNOWN" ];
+then
+    echo "Unknown tool name $ME. Please set the package here.!"
+    exit -1
+fi
+        
+    
 
 if [ $ME = "CLDRWrapper" ];
 then

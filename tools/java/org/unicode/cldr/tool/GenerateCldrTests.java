@@ -62,6 +62,8 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
@@ -332,6 +334,7 @@ public class GenerateCldrTests {
                 + "] -->");
         generateItems(locale, allLocales, cldrOthers.NumberEquator, NumberShower);
         generateItems(locale, allLocales, cldrOthers.DateEquator, DateShower);
+        generateItems(locale, allLocales, cldrOthers.DateEquator, DateFieldShower);       
         generateItems(locale, collationLocales, CollationEquator, CollationShower);
         out.println(" </cldrTest>");
         out.close();
@@ -502,6 +505,44 @@ public class GenerateCldrTests {
                         + BagFormatter.toXML.transliterate(comment.toString())
                         + " -->");
     }
+    
+    DataShower DateFieldShower = new DataShower() {
+    	StandardCodes sc = StandardCodes.make();
+    	Set zones = new TreeSet(sc.getAvailableCodes("tzid"));
+    	String[] perZoneSamples = {"z", "zzzz", "v", "vvvv", "Z", "ZZZZ"};
+    	{
+    		zones.addAll(sc.getZoneLinkold_new().keySet());
+    		zones.add("Europe/Unknown");
+    	}
+    	public void show(ULocale first, Collection others) throws Exception {
+			// TODO Auto-generated method stub
+        	TimezoneFormatter tzf = new TimezoneFormatter(null, first.toString());
+			showLocales("dateFields", others);
+			ResultsPrinter rp = new ResultsPrinter();
+			ICUServiceBuilder icuServiceBuilder = cldrOthers.getICUServiceBuilder();
+			for (Iterator it = zones.iterator(); it.hasNext();) {
+				String tzid = (String) it.next();
+				rp.set("zone", tzid);
+				for (int i = 0; i < perZoneSamples.length; ++i) {
+					rp.set("field", perZoneSamples[i]);
+					int length = perZoneSamples[i].length() < 4 ? tzf.SHORT : tzf.LONG;
+					int type = perZoneSamples[i].startsWith("z") ? tzf.STANDARD
+							: perZoneSamples[i].startsWith("v") ? tzf.GENERIC
+							: perZoneSamples[i].startsWith("Z") ? tzf.GMT
+							: Integer.MIN_VALUE;
+					if (type == Integer.MIN_VALUE) throw new IllegalArgumentException("bogus");
+					rp.print(tzf.getFormattedZone(tzid, length,type));
+				}
+			}
+			/*
+			 *               Date datetime = ICUServiceBuilder.isoDateParse(samples[j]);
+               rp.set("input", ICUServiceBuilder.isoDateFormat(datetime));
+
+			 */
+			out.println("  </dateFields>");
+		}	
+    };
+    
 
     DataShower DateShower = new DataShower() {
         public void show(ULocale locale, Collection others) throws ParseException {

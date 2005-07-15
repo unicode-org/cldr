@@ -79,7 +79,7 @@ public class ShowLanguages {
 		pw.println("</td><td>");
 		linfo.print(pw, "Script \u2192 Language", CLDRFile.SCRIPT_NAME, CLDRFile.LANGUAGE_NAME);
 		pw.println("</td></tr></table></div>");
-
+		
 		pw.println("<div align='center'><table><tr><td>");
 		linfo.printMissing(pw, "Territories Not Represented", CLDRFile.TERRITORY_NAME);
 		pw.println("</td><td>");
@@ -87,6 +87,8 @@ public class ShowLanguages {
 		pw.println("</td><td>");
 		linfo.printMissing(pw, "Languages Not Represented", CLDRFile.LANGUAGE_NAME);
 		pw.println("</td></tr></table></div>");
+		
+		linfo.showCorrespondances();
 		
 		linfo.printContains(pw);
 		
@@ -227,6 +229,60 @@ public class ShowLanguages {
 			script_languages = getInverse(language_scripts);
 		}
 		
+		public void showCorrespondances() {
+			// show correspondances between language and script
+			Map name_script = new TreeMap();
+			for (Iterator it = sc.getAvailableCodes("script").iterator(); it.hasNext();) {
+				String script = (String) it.next();
+				String name = (String) english.getName(CLDRFile.SCRIPT_NAME, script, false);
+				if (name == null) name = script;
+				name_script.put(name, script);
+/*				source == CLDRFile.TERRITORY_NAME && target == CLDRFile.LANGUAGE_NAME ? territory_languages
+						: source == CLDRFile.LANGUAGE_NAME && target == CLDRFile.TERRITORY_NAME ? language_territories
+						: source == CLDRFile.SCRIPT_NAME && target == CLDRFile.LANGUAGE_NAME ? script_languages
+						: source == CLDRFile.LANGUAGE_NAME && target == CLDRFile.SCRIPT_NAME ? language_scripts
+*/			}
+			String delimiter = "\\P{L}+";
+			Map name_language = new TreeMap();
+			for (Iterator it = sc.getAvailableCodes("language").iterator(); it.hasNext();) {
+				String language = (String) it.next();
+				String names = english.getName(CLDRFile.LANGUAGE_NAME, language, false);
+				if (names == null) names = language;
+				name_language.put(names, language);
+			}
+			for (Iterator it = sc.getAvailableCodes("language").iterator(); it.hasNext();) {
+				String language = (String) it.next();
+				String names = english.getName(CLDRFile.LANGUAGE_NAME, language, false);
+				if (names == null) names = language;				
+				String[] words = names.split(delimiter);
+				if (words.length > 1) {
+					//System.out.println(names);
+				}
+				for (int i = 0; i < words.length; ++i) {
+					String name = words[i];
+					String script = (String) name_script.get(name);
+					if (script != null) {
+						Set langSet = (Set) script_languages.get(script);
+						if (langSet != null && langSet.contains(language)) System.out.print("*");
+						System.out.println("\t" + name + " [" + language + "]\t=> " + name + " [" + script + "]");
+					} else {
+						String language2 = (String)name_language.get(name);
+						if (language2 != null && !language.equals(language2)) {
+							Set langSet = (Set) language_scripts.get(language);
+							if (langSet != null) System.out.print("*");
+							System.out.print("?\tSame script?\t + " +
+								getName(CLDRFile.LANGUAGE_NAME, language, false) + "\t & " + 
+								getName(CLDRFile.LANGUAGE_NAME, language2, false));
+							langSet = (Set) language_scripts.get(language2);
+							if (langSet != null) System.out.print("*");
+							System.out.println();
+						}
+					}
+				}
+			}
+		}
+
+
 		/**
 		 * 
 		 */

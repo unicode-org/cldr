@@ -134,6 +134,36 @@ class GenerateCldrDateTimeTests {
         }
     };
 
+    
+    Equator ZoneEquator = new Equator() {
+
+		public boolean equals(Object o1, Object o2) {
+            ULocale loc1 = (ULocale) o1;
+            ULocale loc2 = (ULocale) o2;
+            // locales are equivalent they have the same zone resources.
+            CLDRFile cldrFile1 = cldrFactory.make(loc1.toString(),true);
+            CLDRFile cldrFile2 = cldrFactory.make(loc1.toString(),true);
+            for (int i = 0; i < ICUServiceBuilder.LIMIT_DATE_FORMAT_INDEX; ++i) {
+                for (int j = 0; j < ICUServiceBuilder.LIMIT_DATE_FORMAT_INDEX; ++j) {
+                    if (i == 0 && j == 0) continue; // skip null case
+                    DateFormat df1 = icuServiceBuilder.getDateFormat(loc1.toString(), i, j);
+                    NumberFormat nf = df1.getNumberFormat();
+                    nf.setCurrency(ICUServiceBuilder.NO_CURRENCY);
+                    df1.setNumberFormat(nf);
+                    DateFormat df2 = icuServiceBuilder.getDateFormat(loc2.toString(), i, j);
+                    nf = df2.getNumberFormat();
+                    nf.setCurrency(ICUServiceBuilder.NO_CURRENCY);
+                    df2.setNumberFormat(nf);
+                    if (!df1.equals(df2)) {
+                        df1.equals(df2);
+                        return false;
+                    }
+                }
+            }
+			return false;
+		}
+    };
+
     // ========== NUMBERS ==========
 
 

@@ -14,6 +14,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.Calendar;
@@ -28,10 +29,10 @@ import org.unicode.cldr.util.CLDRFile.Factory;
  * Window - Preferences - Java - Code Style - Code Templates
  */
 public class TimezoneFormatter {
-	public static final int GMT = 0, SHORT = 1, LONG = 2, LENGTH_LIMIT = 3;
-	public static final List LENGTH = Arrays.asList(new String[] {"gmt", "short", "long"});
-	public static final int GENERIC = 0, STANDARD = 1, DAYLIGHT = 2, TYPE_LIMIT = 3;
-	public static final List TYPE = Arrays.asList(new String[] {"generic", "standard", "daylight"});
+	public static final int SHORT = 0, LONG = 1, LENGTH_LIMIT = 2;
+	public static final List LENGTH = Arrays.asList(new String[] {"short", "long"});
+	public static final int GMT = 0, GENERIC = 1, STANDARD = 2, DAYLIGHT = 3, TYPE_LIMIT = 4;
+	public static final List TYPE = Arrays.asList(new String[] {"gmt", "generic", "standard", "daylight"});
 	
 	private static final long D2005_01_02 = new Date(2005-1900,0,1).getTime();
 	private static final long D2005_06_02 = new Date(2005-1900,7,1).getTime();
@@ -45,6 +46,7 @@ public class TimezoneFormatter {
 	private Map countries_zoneSet = StandardCodes.make().getCountryToZoneSet();
 	private Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
 	private Set singleCountriesSet;
+	private Map old_new = StandardCodes.make().getZoneLinkold_new();
 
 	public TimezoneFormatter(Factory cldrFactory, String localeID) {
 		CLDRFile desiredLocaleFile = cldrFactory.make(localeID, true);
@@ -76,8 +78,32 @@ public class TimezoneFormatter {
 		singleCountriesSet = new TreeSet(Utility.splitList(singleCountriesList, ' '));
 	}
 	
-	public String getFormattedZone(String zoneid, int length, int type) {
+	public String getFormattedZone(String zoneid, String pattern, boolean daylight) {
+		int length = pattern.length() < 4 ? SHORT : LONG;
+		int type = pattern.startsWith("z") ? (daylight ? DAYLIGHT : STANDARD)
+				: pattern.startsWith("Z") ? GMT
+				: GENERIC;
+		return getFormattedZone(zoneid, length, type);
+	}
+	
+	SimpleDateFormat rfc822Plus = new SimpleDateFormat("+HHmm");
+	SimpleDateFormat rfc822Minus = new SimpleDateFormat("-HHmm");
+	TimeZone gmt = TimeZone.getTimeZone("GMT");
+	{
+		rfc822Plus.setTimeZone(gmt);
+		rfc822Minus.setTimeZone(gmt);
+	}
+	
+	public String getFormattedZone(String inputZoneid, int length, int type) {
 		String result;
+		String zoneid = (String) old_new.get(inputZoneid);
+		if (zoneid == null) zoneid = inputZoneid;
+		
+		if (type == GMT && length < 4) { // just do the RFC, via Java; note that this will actually vary by date, but we hardcode for testing
+			TimeZone tz = TimeZone.getTimeZone(zoneid);
+			int offset = tz.getRawOffset();
+			return offset < 0 ? rfc822Minus.format(new Date(-offset)) : rfc822Plus.format(new Date(offset));
+		}
 /*
 <long>
 <generic>Alaska Time</generic>
@@ -92,14 +118,14 @@ public class TimezoneFormatter {
 */
 		String prefix = "/ldml/dates/timeZoneNames/zone[@type=\"" + zoneid + "\"]/";
 		// 1. If non-GMT format, and we have an explicit translation, use it
-		if (length != GMT) {
+		if (type != GMT) {
 			String formatValue = desiredLocaleFile.getStringValue(prefix + LENGTH.get(length) + "/" + TYPE.get(type));
 			if (formatValue != null) return formatValue;
 		}
 		
 		String country = (String) zone_countries.get(zoneid);
 		// 2. if GMT format or no country, use it
-		if (length == GMT || country.equals(StandardCodes.NO_COUNTRY)) {
+		if (type != GENERIC || country.equals(StandardCodes.NO_COUNTRY)) {
 			TimeZone tz = TimeZone.getTimeZone(zoneid);
 			long gmtOffset1 = tz.getOffset(D2005_01_02);
 			tz = TimeZone.getTimeZone(zoneid);
@@ -134,8 +160,6 @@ public class TimezoneFormatter {
 		}
 		// 6. Else if it is a perpetual alias for a "real" ID, and if there is an exact translation for that, try #1..#4 with that alias.
 		//	Europe/San_Marino => Europe/Rome => ... => "Tampo de Roma"
-		
-		// TODO
 		
 		// 7. Else fall back to the raw Olson ID (stripping off the prefix, and turning _ into space), using the fallback format. 
 		//	America/Goose_Bay => "Tampo de  «Goose Bay»"

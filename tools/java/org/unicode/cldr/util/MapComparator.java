@@ -18,6 +18,7 @@ import java.util.TreeMap;
 import java.util.Collection;
 
 
+import com.ibm.icu.dev.test.util.Lockable;
 import com.ibm.icu.text.UnicodeSet;
 
 public class MapComparator implements Comparator, Lockable {

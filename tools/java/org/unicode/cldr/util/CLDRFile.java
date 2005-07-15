@@ -48,6 +48,7 @@ import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.dev.test.util.Lockable;
 
 
 //import javax.xml.parsers.*;
@@ -599,14 +600,14 @@ private boolean isSupplemental;
 	private boolean locked;
 	
 	/**
-	 * @see org.unicode.cldr.util.Lockable#isLocked()
+	 * @see com.ibm.icu.dev.test.util.Lockable#isLocked()
 	 */
 	public synchronized boolean isLocked() {
 		return locked;
 	}
 
 	/**
-	 * @see org.unicode.cldr.util.Lockable#lock()
+	 * @see com.ibm.icu.dev.test.util.Lockable#lock()
 	 */
 	public synchronized Object lock() {
 		locked = true;

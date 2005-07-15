@@ -476,7 +476,7 @@ public class Misc {
 			for (int i = 0; i < TimezoneFormatter.LENGTH_LIMIT; ++i) {
 				log.println("<tr><th>" + TimezoneFormatter.LENGTH.get(i) + "</th>");
 				for (int j = 0; j < TimezoneFormatter.TYPE_LIMIT; ++j) {
-					field[j] = BagFormatter.toHTML.transliterate(tzf.getFormattedZone(zoneID, i, j));
+					field[j] = BagFormatter.toHTML.transliterate(tzf.getFormattedZone(zoneID, i, j, 0));
 				}
 				if (field[0].equals(field[1]) && field[1].equals(field[2])) {
 					log.println("<td colspan=\"3\">" + field[0] + "</td>");

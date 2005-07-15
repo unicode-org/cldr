@@ -78,20 +78,19 @@ public class TimezoneFormatter {
 		singleCountriesSet = new TreeSet(Utility.splitList(singleCountriesList, ' '));
 	}
 	
-	public String getFormattedZone(String zoneid, String pattern, Date date) {
-		int length = pattern.length() < 4 ? SHORT : LONG;
-		int type = pattern.startsWith("z") ? (daylight ? DAYLIGHT : STANDARD)
-				: pattern.startsWith("Z") ? GMT
-				: GENERIC;
-		return getFormattedZone(zoneid, length, type, date);
+	public String getFormattedZone(String zoneid, String pattern, long date) {
+		TimeZone tz = TimeZone.getTimeZone(zoneid);
+		long gmtOffset1 = tz.getOffset(date);
+		boolean daylight = tz.getRawOffset() == gmtOffset1;
+		return getFormattedZone(zoneid, pattern, daylight, date);
 	}
 	
-	public String getFormattedZone(String zoneid, String pattern, boolean daylight) {
+	public String getFormattedZone(String zoneid, String pattern, boolean daylight, int gmtOffset1) {
 		int length = pattern.length() < 4 ? SHORT : LONG;
 		int type = pattern.startsWith("z") ? (daylight ? DAYLIGHT : STANDARD)
 				: pattern.startsWith("Z") ? GMT
 				: GENERIC;
-		return getFormattedZone(zoneid, length, type);
+		return getFormattedZone(zoneid, length, type, gmtOffset1);
 	}
 	
 	SimpleDateFormat rfc822Plus = new SimpleDateFormat("+HHmm");
@@ -102,7 +101,7 @@ public class TimezoneFormatter {
 		rfc822Minus.setTimeZone(gmt);
 	}
 	
-	public String getFormattedZone(String inputZoneid, int length, int type) {
+	public String getFormattedZone(String inputZoneid, int length, int type, int gmtOffset1) {
 		String result;
 		String zoneid = (String) old_new.get(inputZoneid);
 		if (zoneid == null) zoneid = inputZoneid;
@@ -133,27 +132,14 @@ public class TimezoneFormatter {
 		
 		String country = (String) zone_countries.get(zoneid);
 		// 2. if GMT format or no country, use it
-		if (type != GENERIC || country.equals(StandardCodes.NO_COUNTRY)) {
-			TimeZone tz = TimeZone.getTimeZone(zoneid);
-			long gmtOffset1 = tz.getOffset(D2005_01_02);
-			tz = TimeZone.getTimeZone(zoneid);
-			long gmtOffset2 = tz.getOffset(D2005_06_02);
-			DateFormat format = hourFormat[gmtOffset1 >= 0 ? 0 : 1];
-			if (type == GENERIC && gmtOffset1 != gmtOffset2) {
-				calendar.setTimeInMillis(Math.abs(gmtOffset1));
-				String first = format.format(calendar);
-				calendar.setTimeInMillis(Math.abs(gmtOffset2));
-				String second = format.format(calendar);
-				result = hoursFormat.format(new Object[]{first, second});
-			} else {
-				gmtOffset1 = type == STANDARD ? Math.min(gmtOffset1, gmtOffset2) : Math.max(gmtOffset1, gmtOffset2);
-				calendar.setTimeInMillis(Math.abs(gmtOffset1));
-				result = format.format(calendar);
-			}
-			return gmtFormat.format(new Object[]{result});
-		}
 		// 3. Else for non-wall-time, use GMT format
 		//	America/Los_Angeles => "GMT-08:00"
+		if (type != GENERIC || country.equals(StandardCodes.NO_COUNTRY)) {
+			DateFormat format = hourFormat[gmtOffset1 >= 0 ? 0 : 1];
+			calendar.setTimeInMillis(Math.abs(gmtOffset1));
+			result = format.format(calendar);
+			return gmtFormat.format(new Object[]{result});
+		}
 
 		// 4. *Else if there is an exemplar city, use it with the region format. The exemplar city may not be the same as the Olson ID city, if another city is much more recognizable for whatever reason. 
 		// However, it is very strongly recommended that the same city be used.

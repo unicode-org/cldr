@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
@@ -506,14 +507,21 @@ public class GenerateCldrTests {
                         + " -->");
     }
     
-    DataShower DateFieldShower = new DataShower() {
+    DataShower ZoneFieldShower = new DataShower() {
     	StandardCodes sc = StandardCodes.make();
-    	Set zones = new TreeSet(sc.getAvailableCodes("tzid"));
-    	String[] perZoneSamples = {"z", "zzzz", "v", "vvvv", "Z", "ZZZZ"};
-    	{
-    		zones.addAll(sc.getZoneLinkold_new().keySet());
-    		zones.add("Europe/Unknown");
-    	}
+    	//Set zones = new TreeSet(sc.getAvailableCodes("tzid"));
+		List zones = Arrays.asList(new String[] {
+				"America/Los_Angeles",
+				"America/Argentina/Buenos_Aires",
+				"America/Buenos_Aires",
+				"America/Havana",
+				"Australia/ACT",
+				"Australia/Sydney",
+				"Europe/Unknown"
+		});
+		String[] perZoneSamples = {"z", "zzzz", "v", "vvvv", "Z", "ZZZZ"};
+		String[] dates = {"2001-01-15T12:00:00Z", "2001-07-15T12:00:00Z"};
+
     	public void show(ULocale first, Collection others) throws Exception {
 			// TODO Auto-generated method stub
         	TimezoneFormatter tzf = new TimezoneFormatter(null, first.toString());
@@ -523,15 +531,15 @@ public class GenerateCldrTests {
 			for (Iterator it = zones.iterator(); it.hasNext();) {
 				String tzid = (String) it.next();
 				rp.set("zone", tzid);
-				for (int i = 0; i < perZoneSamples.length; ++i) {
-					rp.set("field", perZoneSamples[i]);
-					int length = perZoneSamples[i].length() < 4 ? tzf.SHORT : tzf.LONG;
-					int type = perZoneSamples[i].startsWith("z") ? tzf.STANDARD
-							: perZoneSamples[i].startsWith("v") ? tzf.GENERIC
-							: perZoneSamples[i].startsWith("Z") ? tzf.GMT
-							: Integer.MIN_VALUE;
-					if (type == Integer.MIN_VALUE) throw new IllegalArgumentException("bogus");
-					rp.print(tzf.getFormattedZone(tzid, length,type));
+				for (int j = 0; j < dates.length; ++j) {
+					String date = dates[j];
+					Date datetime = ICUServiceBuilder.isoDateParse(date);
+					rp.set("date", date);
+					for (int i = 0; i < perZoneSamples.length; ++i) {
+						String field = perZoneSamples[i];
+						rp.set("field", field);
+						rp.print(tzf.getFormattedZone(tzid, field, datetime));
+					}
 				}
 			}
 			/*

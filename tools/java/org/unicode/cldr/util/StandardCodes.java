@@ -25,6 +25,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.dev.test.util.XEquivalenceClass;
 import com.ibm.icu.lang.UCharacter;
 
 /**
@@ -569,6 +571,7 @@ public class StandardCodes {
 		    // now get links
 		    String lastZone = "";
 		    Pattern whitespace = Pattern.compile("\\s+");
+		    XEquivalenceClass linkedItems = new XEquivalenceClass("None");
 		    for (int i = 0; i < TZFiles.length; ++i) {
 		    	in = BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR, TZFiles[i]);
 		    	while (true) {
@@ -617,11 +620,18 @@ public class StandardCodes {
 		    		} else if (items[0].equals("Link")) {
 		     			String old = items[2];
 		    			String newOne = items[1];
+		    			if (!SKIP_LINKS.contains(old) && !SKIP_LINKS.contains(newOne)) {
+		    				//System.out.println("Original " + old + "\t=>\t" + newOne);
+		    				linkedItems.add(old, newOne);
+		    			}
+		    			/*
 		    			String conflict = (String) linkold_new.get(old);
 		    			if (conflict != null) {
 		    				System.out.println("Conflict with old: " + old + " => " + conflict + ", " + newOne);
 		    			}
+		    			System.out.println(old + "\t=>\t" + newOne);
 		    			linkold_new.put(old, newOne);
+		    			*/
 		    		} else {
 		    			System.out.println("Unknown zone line: " + line);
 		    		}
@@ -629,21 +639,61 @@ public class StandardCodes {
 		    	in.close();
 		    }
 		    // add in stuff that should be links
-		    linkold_new.put("Etc/UTC", "Etc/GMT");
-		    linkold_new.put("Etc/UCT", "Etc/GMT");
+		    linkedItems.add("Etc/UTC", "Etc/GMT");
+		    linkedItems.add("Etc/UCT", "Etc/GMT");
+		    linkedItems.add("Navajo", "America/Shiprock");
 
-		    // fix the links from old to new, to remove chains
+		    Set isCanonical = zoneData.keySet();
+
+		    // walk through the sets, and
+		    // if any set contains two canonical items, split it.
+		    // if any contains one, make it the primary
+		    // if any contains zero, problem!
+		    for (Iterator it = linkedItems.getEquivalenceSets().iterator(); it.hasNext();) {
+		    	Set equivalents = (Set)it.next();
+		    	Set canonicals = new TreeSet(equivalents);
+		    	canonicals.retainAll(isCanonical);
+		    	if (canonicals.size() == 0) throw new IllegalArgumentException("No canonicals in: " + equivalents);
+		    	if (canonicals.size() > 1) {
+		    		System.out.println("Too many canonicals in: " + equivalents);
+		    		System.out.println("\t*Don't* put these into the same equivalence class: " + canonicals);
+		    		Set remainder = new TreeSet(equivalents);
+		    		remainder.removeAll(isCanonical);
+		    		if (remainder.size() != 0) System.out.println("\tThe following should be equivalent to others: " + remainder);		    		
+		    	}
+		    	{
+		    		Object newOne = canonicals.iterator().next();
+		    		for (Iterator it2 = equivalents.iterator(); it2.hasNext();) {
+		    			Object oldOne = it2.next();
+		    			if (canonicals.contains(oldOne)) continue;
+		    			//System.out.println("Mapping " + oldOne + "\t=>\t" + newOne);
+		    			linkold_new.put(oldOne, newOne);
+		    		}
+		    	}
+		    }
+		    
+		    
+/*		    // fix the links from old to new, to remove chains
 		    for (Iterator it = linkold_new.keySet().iterator(); it.hasNext();) {
 		    	Object oldItem = it.next();
 		    	Object newItem = linkold_new.get(oldItem);
 		    	while (true) {
 		    		Object linkItem = linkold_new.get(newItem);
 		    		if (linkItem == null) break;
-		    		if (false) System.out.println("Connecting link chain: " + oldItem + "\t=> " + newItem + "\t=> " + linkItem);
+		    		if (true) System.out.println("Connecting link chain: " + oldItem + "\t=> " + newItem + "\t=> " + linkItem);
 		    		newItem = linkItem;
 		    		linkold_new.put(oldItem, newItem);
 		    	}
 		    }
+		    
+		    // reverse the links *from* canonical names
+		    for (Iterator it = linkold_new.keySet().iterator(); it.hasNext();) {
+		    	Object oldItem = it.next();
+		    	if (!isCanonical.contains(oldItem)) continue;
+		    	Object newItem = linkold_new.get(oldItem);
+		    }		    
+		    
+
 		    // fix unstable TZIDs
 		    Set itemsToRemove = new HashSet();
 		    Map itemsToAdd = new HashMap();
@@ -667,7 +717,7 @@ public class StandardCodes {
 		    linkold_new.putAll(itemsToAdd);
 		    
 		    // now remove all links that are from canonical zones
-		    Utility.removeAll(linkold_new, zoneData.keySet());
+		    Utility.removeAll(linkold_new, zoneData.keySet());*/
 		    
 		    // generate list of new to old
 		    for (Iterator it = linkold_new.keySet().iterator(); it.hasNext();) {
@@ -751,6 +801,8 @@ public class StandardCodes {
     
     private static Map FIX_UNSTABLE_TZIDS;
     private static Map RESTORE_UNSTABLE_TZIDS;
+    private static Set SKIP_LINKS = new HashSet(Arrays.asList(new String[]{"Navajo", "America/Shiprock"}));
+
     static {
     	String[][] FIX_UNSTABLE_TZID_DATA = new String[][] {
     			{"America/Argentina/Buenos_Aires", "America/Buenos_Aires"},

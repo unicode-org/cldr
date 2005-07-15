@@ -78,6 +78,14 @@ public class TimezoneFormatter {
 		singleCountriesSet = new TreeSet(Utility.splitList(singleCountriesList, ' '));
 	}
 	
+	public String getFormattedZone(String zoneid, String pattern, Date date) {
+		int length = pattern.length() < 4 ? SHORT : LONG;
+		int type = pattern.startsWith("z") ? (daylight ? DAYLIGHT : STANDARD)
+				: pattern.startsWith("Z") ? GMT
+				: GENERIC;
+		return getFormattedZone(zoneid, length, type, date);
+	}
+	
 	public String getFormattedZone(String zoneid, String pattern, boolean daylight) {
 		int length = pattern.length() < 4 ? SHORT : LONG;
 		int type = pattern.startsWith("z") ? (daylight ? DAYLIGHT : STANDARD)
@@ -99,7 +107,7 @@ public class TimezoneFormatter {
 		String zoneid = (String) old_new.get(inputZoneid);
 		if (zoneid == null) zoneid = inputZoneid;
 		
-		if (type == GMT && length < 4) { // just do the RFC, via Java; note that this will actually vary by date, but we hardcode for testing
+		if (type == GMT && length == SHORT) { // just do the RFC, via Java; note that this will actually vary by date, but we hardcode for testing
 			TimeZone tz = TimeZone.getTimeZone(zoneid);
 			int offset = tz.getRawOffset();
 			return offset < 0 ? rfc822Minus.format(new Date(-offset)) : rfc822Plus.format(new Date(offset));

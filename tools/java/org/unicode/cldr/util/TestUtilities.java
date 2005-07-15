@@ -27,6 +27,7 @@ public class TestUtilities {
 	public static void main(String[] args) throws IOException {
 		printZoneSamples();
 		//printCurrencies();
+		System.out.println("Done");
 	}
 
 	/**
@@ -64,7 +65,7 @@ public class TestUtilities {
 		};
 		String[][] fields = {
 				{"daylight", "z", "zzzz"},
-				{"standard", "z", "zzzz", "Z", "ZZZZ", "v", "vvvv"}
+				{"standard", "z", "zzzz", "v", "vvvv", "Z", "ZZZZ"}
 		};
     	Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main" + File.separator, ".*");
     	PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, "timezone_samples.txt");
@@ -88,7 +89,10 @@ public class TestUtilities {
 						);
 					}
 				}
+				out.println();
 			}
+			out.println("==========");
+			out.println();
 		}
 		out.close();
 	}

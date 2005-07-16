@@ -9,6 +9,8 @@ package org.unicode.cldr.util;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -24,7 +26,7 @@ import com.ibm.icu.dev.test.util.BagFormatter;
  * Window - Preferences - Java - Code Style - Code Templates
  */
 public class TestUtilities {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		printZoneSamples();
 		//printCurrencies();
 		System.out.println("Done");
@@ -46,9 +48,10 @@ public class TestUtilities {
 
 	/**
 	 * @throws IOException
+	 * @throws ParseException
 	 * 
 	 */
-	private static void printZoneSamples() throws IOException {
+	private static void printZoneSamples() throws Exception {
 		String[] locales = {
 				"en",
 				"bg",
@@ -64,28 +67,33 @@ public class TestUtilities {
 				"Australia/Sydney",
 		};
 		String[][] fields = {
-				{"daylight", "z", "zzzz"},
-				{"standard", "z", "zzzz", "v", "vvvv", "Z", "ZZZZ"}
+				{"2004-01-15T00:00:00Z", "Z", "ZZZZ", "z", "zzzz"},
+				{"2004-07-15T00:00:00Z", "Z", "ZZZZ", "z", "zzzz", "v", "vvvv"}
 		};
     	Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main" + File.separator, ".*");
     	PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, "timezone_samples.txt");
-
+    	long[] offsetMillis = new long[1];
+    	
 		for (int i = 0; i < locales.length; ++i) {
 			String locale = locales[i];
-			TimezoneFormatter tzf = new TimezoneFormatter(mainCldrFactory, locale);
+			TimezoneFormatter tzf = new TimezoneFormatter(mainCldrFactory, locale).setSkipDraft(true);
 			for (int j = 0; j < zones.length; ++j) {
 				String zone = zones[j];
 				for (int k = 0; k < fields.length; ++k) {
 					String type = fields[k][0];
-					boolean daylight = type.equals("daylight");
+					Date datetime = ICUServiceBuilder.isoDateParse(type);
 					for (int m = 1; m < fields[k].length; ++m) {
 						String field = fields[k][m];
-						String formatted = tzf.getFormattedZone(zone, field, daylight);
+						String formatted = tzf.getFormattedZone(zone, field, datetime.getTime());
+						String parsed = tzf.parse(formatted,offsetMillis);
+						if (parsed == null) parsed = "FAILED PARSE";
+						else if (parsed.length() == 0) parsed = format(offsetMillis[0]);
 						out.println(locale
 							+ "\t" + zone
 							+ "\t" + type
 							+ "\t" + field
 							+ "\t" + formatted
+							+ "\t" + parsed
 						);
 					}
 				}
@@ -95,5 +103,19 @@ public class TestUtilities {
 			out.println();
 		}
 		out.close();
+	}
+
+	/**
+	 * quick & dirty format
+	 */
+	private static String format(long offsetMillis) {
+		offsetMillis /= 60*1000;
+		String sign = "+";
+		if (offsetMillis < 0) {
+			offsetMillis = -offsetMillis;
+			sign = "-";
+		}
+		return sign + String.valueOf(offsetMillis/60)
+		+ ":" + String.valueOf(100 + (offsetMillis%60)).substring(1,3);
 	}
 }

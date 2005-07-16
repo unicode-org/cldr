@@ -524,7 +524,7 @@ public class GenerateCldrTests {
 
     	public void show(ULocale first, Collection others) throws Exception {
 			// TODO Auto-generated method stub
-        	TimezoneFormatter tzf = new TimezoneFormatter(null, first.toString());
+        	TimezoneFormatter tzf = new TimezoneFormatter(null, first.toString(), true);
 			showLocales("dateFields", others);
 			ResultsPrinter rp = new ResultsPrinter();
 			ICUServiceBuilder icuServiceBuilder = cldrOthers.getICUServiceBuilder();

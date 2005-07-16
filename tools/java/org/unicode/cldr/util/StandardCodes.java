@@ -654,7 +654,7 @@ public class StandardCodes {
 		    	Set canonicals = new TreeSet(equivalents);
 		    	canonicals.retainAll(isCanonical);
 		    	if (canonicals.size() == 0) throw new IllegalArgumentException("No canonicals in: " + equivalents);
-		    	if (canonicals.size() > 1) {
+		    	if (false && canonicals.size() > 1) {
 		    		System.out.println("Too many canonicals in: " + equivalents);
 		    		System.out.println("\t*Don't* put these into the same equivalence class: " + canonicals);
 		    		Set remainder = new TreeSet(equivalents);

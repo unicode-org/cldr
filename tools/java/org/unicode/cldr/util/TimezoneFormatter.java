@@ -54,6 +54,8 @@ public class TimezoneFormatter {
 	private Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
 	private Set singleCountriesSet;
 	private boolean skipDraft;
+	
+	private static int PLUS_FORMAT = 0, MINUS_FORMAT = 1;
 
 	public TimezoneFormatter(Factory cldrFactory, String localeID) {
 		CLDRFile desiredLocaleFile = cldrFactory.make(localeID, true);
@@ -61,10 +63,10 @@ public class TimezoneFormatter {
 		String hourFormatString = desiredLocaleFile.getStringValue("/ldml/dates/timeZoneNames/hourFormat");
 		String[] hourFormatStrings = Utility.splitArray(hourFormatString,';');
 		ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder().setCLDRFactory(cldrFactory);
-		hourFormat[0] = icuServiceBuilder.getDateFormat(localeID,0,1);
-		hourFormat[0].applyPattern(hourFormatStrings[0]);
-		hourFormat[1] = icuServiceBuilder.getDateFormat(localeID,0,1);
-		hourFormat[1].applyPattern(hourFormatStrings[1]);
+		hourFormat[PLUS_FORMAT] = icuServiceBuilder.getDateFormat(localeID,0,1);
+		hourFormat[PLUS_FORMAT].applyPattern(hourFormatStrings[0]);
+		hourFormat[MINUS_FORMAT] = icuServiceBuilder.getDateFormat(localeID,0,1);
+		hourFormat[MINUS_FORMAT].applyPattern(hourFormatStrings[1]);
 		hoursFormat = new MessageFormat(desiredLocaleFile.getStringValue(
 				"/ldml/dates/timeZoneNames/hoursFormat"));
 		gmtFormat = new MessageFormat(desiredLocaleFile.getStringValue(
@@ -85,10 +87,12 @@ public class TimezoneFormatter {
 		singleCountriesSet = new TreeSet(Utility.splitList(singleCountriesList, ' '));
 	}
 	
-	public String getFormattedZone(String zoneid, String pattern, long date) {
+	public String getFormattedZone(String inputZoneid, String pattern, long date) {
+		String zoneid = (String) old_new.get(inputZoneid);
+		if (zoneid == null) zoneid = inputZoneid;
 		TimeZone tz = TimeZone.getTimeZone(zoneid);
 		int gmtOffset1 = tz.getOffset(date);
-		boolean daylight = tz.getRawOffset() == gmtOffset1;
+		boolean daylight = tz.getRawOffset() != gmtOffset1;
 		return getFormattedZone(zoneid, pattern, daylight, gmtOffset1);
 	}
 	
@@ -143,7 +147,7 @@ public class TimezoneFormatter {
 		// 3. Else for non-wall-time, use GMT format
 		//	America/Los_Angeles => "GMT-08:00"
 		if (type != GENERIC || country.equals(StandardCodes.NO_COUNTRY)) {
-			DateFormat format = hourFormat[gmtOffset1 >= 0 ? 0 : 1];
+			DateFormat format = hourFormat[gmtOffset1 < 0 ? MINUS_FORMAT : PLUS_FORMAT];
 			calendar.setTimeInMillis(Math.abs(gmtOffset1));
 			result = format.format(calendar);
 			return gmtFormat.format(new Object[]{result});

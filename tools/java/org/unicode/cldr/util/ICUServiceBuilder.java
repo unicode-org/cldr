@@ -62,7 +62,7 @@ public class ICUServiceBuilder {
     private SimpleDateFormat getDateFormat(CLDRFile cldrFile, int dateIndex, int timeIndex) {
     	String key = cldrFile.getLocaleID() + "," + dateIndex + "," + timeIndex;
     	SimpleDateFormat result = (SimpleDateFormat) dateFormatCache.get(key);
-    	if (result != null) return result;
+    	if (result != null) return (SimpleDateFormat) result.clone();
     	if (false && dateIndex == 2 && timeIndex == 0) {
     		System.out.println("");
     	}

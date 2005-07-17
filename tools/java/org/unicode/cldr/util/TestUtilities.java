@@ -54,7 +54,7 @@ public class TestUtilities {
 	private static void printZoneSamples() throws Exception {
 		String[] locales = {
 				"en",
-				"bg",
+				"fr",
 				"hi",
 				"as" // picked deliberately because it has few itesm
 		};
@@ -88,12 +88,13 @@ public class TestUtilities {
 						String parsed = tzf.parse(formatted,offsetMillis);
 						if (parsed == null) parsed = "FAILED PARSE";
 						else if (parsed.length() == 0) parsed = format(offsetMillis[0]);
-						out.println(locale
-							+ "\t" + zone
-							+ "\t" + type
-							+ "\t" + field
-							+ "\t" + formatted
-							+ "\t" + parsed
+						out.println("{\"" + locale
+							+ "\",\t\"" + zone
+							+ "\",\t\"" + type
+							+ "\",\t\"" + field
+							+ "\",\t\"" + formatted
+							//+ "\",\t\"" + parsed
+							+ "\"},"
 						);
 					}
 				}

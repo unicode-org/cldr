@@ -1,9 +1,12 @@
 /*
- * Created on Jan 27, 2005
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
+**********************************************************************
+* Copyright (c) 2002-2004, International Business Machines
+* Corporation and others.  All Rights Reserved.
+**********************************************************************
+* Author: Mark Davis
+**********************************************************************
+*/
+
 package org.unicode.cldr.util;
 
 import java.io.File;
@@ -54,7 +57,8 @@ public class TestUtilities {
 	private static void printZoneSamples() throws Exception {
 		String[] locales = {
 				"en",
-				"fr",
+				"de",
+				"zh",
 				"hi",
 				"as" // picked deliberately because it has few itesm
 		};
@@ -65,6 +69,8 @@ public class TestUtilities {
 				"America/Havana",
 				"Australia/ACT",
 				"Australia/Sydney",
+				"Europe/London",
+				"Etc/GMT+3"
 		};
 		String[][] fields = {
 				{"2004-01-15T00:00:00Z", "Z", "ZZZZ", "z", "zzzz"},
@@ -93,7 +99,7 @@ public class TestUtilities {
 							+ "\",\t\"" + type
 							+ "\",\t\"" + field
 							+ "\",\t\"" + formatted
-							//+ "\",\t\"" + parsed
+							+ "\",\t\"" + parsed
 							+ "\"},"
 						);
 					}

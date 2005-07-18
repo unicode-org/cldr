@@ -1009,7 +1009,7 @@ public class LDMLComparator {
         if((!element.index.equals(index)) ||
             (!element.node.equals(childNode)) ||
             (!element.parentNode.equals(parentNode))){
-              throw new RuntimeException("The retrieved object is not the same as the one trying to be saved");
+              throw new RuntimeException("The retrieved object is not the same as the one trying to be saved, id is " + id);
         }
 
         element.platformData.put(platformName, platformValue);
@@ -1673,7 +1673,7 @@ public class LDMLComparator {
                 (!ad.parentNode.equals(element.parentNode))) // ||
           //      (!ad.type.equals(element.type)))  type can be null so don't ceck its value
                 {
-                    throw new RuntimeException("The retrieved object is not the same as the one trying to be saved");
+                    throw new RuntimeException("The retrieved AccumulatedResults is not the same as the one trying to be saved - " + id);
                 }
                 else
                 {

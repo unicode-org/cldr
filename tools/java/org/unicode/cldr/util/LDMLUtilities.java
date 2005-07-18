@@ -1064,7 +1064,7 @@ public class LDMLUtilities {
     }
     public static Node getNonAltNodeLike(Node parent, Node child){
         StringBuffer childXpath = new StringBuffer(child.getNodeName());
-        appendXPathAttribute(child,childXpath,true,false);
+        appendXPathAttribute(child,childXpath,true/*ignore alt*/,true/*ignore draft*/);
         String childXPathString = childXpath.toString();
         for(Node other=parent.getFirstChild(); other!=null; other=other.getNextSibling() ){
             if((other.getNodeType()!=Node.ELEMENT_NODE)  || (other==child)) {

@@ -60,6 +60,8 @@ public class TestUtilities {
 				"de",
 				"zh",
 				"hi",
+				"bg",
+				"ja",
 				"as" // picked deliberately because it has few itesm
 		};
 		String[] zones = {

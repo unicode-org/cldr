@@ -247,7 +247,9 @@ public class TimezoneFormatter {
 		// if we haven't parsed before, build parsing info
 		if (!parseInfoBuilt) buildParsingInfo();
 		// there are the following possible formats
-		// explicit strings
+		
+		// Explicit strings
+		// If the result is a Long it is millis, otherwise it is the zoneID
 		Object result = localizedExplicit_zone.get(inputText);
 		if (result != null) {
 			if (result instanceof String) return (String)result;

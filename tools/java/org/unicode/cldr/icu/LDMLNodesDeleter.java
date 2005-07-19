@@ -17,6 +17,7 @@ import com.ibm.icu.dev.tool.UOption;
 
 import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /**
@@ -70,6 +71,9 @@ public class LDMLNodesDeleter {
 %icu;
 ]
 >*/
+    private static final String copyright = "<!--\n"+
+            " Copyright (c) 2002-2005 International Business Machines Corporation and others. All rights reserved.\n"+
+            "-->\n";
     private static final String docType = "<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd\"\n"+ 
         "[\n   <!ENTITY % icu SYSTEM \" http://www.unicode.org/cldr/dtd/1.3/ldmlICU.dtd\">\n   %icu;\n]\n>\n";
     private void processArgs(String[] args) {
@@ -114,16 +118,27 @@ public class LDMLNodesDeleter {
                     System.out.println("INFO: Deleting nodes with xpath: "+list[j]);
                     deleteNodes(source,  list[j]);
                 }
+                modifyIdentity(source);
                 source.normalize();
                 OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(destFN),"UTF-8");
                 PrintWriter pw = new PrintWriter(writer);
-                LDMLUtilities.printDOMTree(src,pw,docType, false);
+                LDMLUtilities.printDOMTree(src,pw,docType, copyright);
                 writer.flush(); 
              }catch( Exception e){ 
                  e.printStackTrace();
                  //System.exit(-1);
              }
         }
+    }
+    private void modifyIdentity(Document doc){
+        Node version = LDMLUtilities.getNode(doc,"//ldml/identity/version");
+        NamedNodeMap al = version.getAttributes();
+        Node number = al.getNamedItem(LDMLConstants.NUMBER);
+        number.setNodeValue("$Revision$");
+        Node gen = LDMLUtilities.getNode(doc,"//ldml/identity/generation");
+        al = gen.getAttributes();
+        Node date = al.getNamedItem("date");
+        date.setNodeValue("$Date$");
     }
     private void deleteNodes(Document doc, String xpath){
         NodeList list = LDMLUtilities.getNodeList(doc, xpath);

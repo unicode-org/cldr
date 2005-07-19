@@ -228,8 +228,9 @@ public class LDML2ICUConverter {
                     writeDraft = true;
                     // TODO: save/restore writeDraft
                 }
+                String icuSpecialFile ="";
                 if(specialsDir!=null){
-                    String icuSpecialFile = specialsDir+"/"+ args[i];
+                    icuSpecialFile = specialsDir+"/"+ args[i];
                     if(new File(icuSpecialFile).exists()) {
                         printInfo("Parsing ICU specials from: " + icuSpecialFile);
                         specialsDoc = LDMLUtilities.parseAndResolveAliases(args[i], specialsDir, true, ignoreDraft);
@@ -252,8 +253,9 @@ public class LDML2ICUConverter {
                             printInfo("ICU special " + icuSpecialFile + " not found, continuing.");
                         }
                     }
+
                 }
-                createResourceBundle(xmlfileName);
+                createResourceBundle(xmlfileName, icuSpecialFile);
                 long stop = System.currentTimeMillis();
                 long total = (stop-start);
                 double s = total/1000.;
@@ -273,25 +275,46 @@ public class LDML2ICUConverter {
         }
         return null;
     }
-    private void createResourceBundle(String xmlfileName) {
+    private void createResourceBundle(String xmlfileName, String icuSpecialFile) {
          try {
 
              printInfo("Parsing: "+xmlfileName);
 
              Document doc = LDMLUtilities.parse(xmlfileName, false);
+             if(specialsDoc !=null){
+                 StringBuffer xpath= new StringBuffer();
+                 doc = (Document)LDMLUtilities.mergeLDMLDocuments(doc, specialsDoc, xpath, icuSpecialFile, specialsDir, false, true);
+                 /*
+                 try{
+                     OutputStreamWriter writer = new
+                     OutputStreamWriter(new FileOutputStream("./"+File.separator+args[i]+"_debug.xml"),"UTF-8");
+                     LDMLUtilities.printDOMTree(fullyResolvedDoc,new PrintWriter(writer), "","");
+                     writer.flush();
+                 }catch( IOException e){
+                       //throw the exceptionaway .. this is for debugging
+                 }
+                 */
+             }
              // Create the Resource linked list which will hold the
              // data after parsing
              // The assumption here is that the top
              // level resource is always a table in ICU
              ICUResourceWriter.Resource res = parseBundle(doc);
              if(res!=null && ((ICUResourceWriter.ResourceTable)res).first!=null){
+                 if(specialsDoc != null){
+                     if(res.comment==null){
+                         res.comment =   " ICU <specials> source: " + specialsDir + "/"+ locName + ".xml";
+                     }else{
+                         res.comment =  res.comment + " ICU <specials> source: " + specialsDir + "/"+ locName + ".xml";
+                     }
+                 }
                  // write out the bundle
                  writeResource(res, xmlfileName);
              }
+  
 
            //  writeAliasedResource();
-          }
-         catch (Throwable se) {
+          }catch (Throwable se) {
              printError(xmlfileName, "(parsing and writing) " + se.toString());
              se.printStackTrace();
              System.exit(1);
@@ -333,6 +356,7 @@ public class LDML2ICUConverter {
     public static final String DTE              = "DateTimeElements";
 
     private static final HashMap keyNameMap = new HashMap();
+    private static final HashMap deprecatedTerritories = new HashMap();
     static{
         keyNameMap.put("days", "dayNames");
         keyNameMap.put("months", "monthNames");
@@ -345,13 +369,29 @@ public class LDML2ICUConverter {
         keyNameMap.put("types", "Types");
         keyNameMap.put("version", "Version");
         keyNameMap.put("exemplarCharacters", "ExemplarCharacters");
+        keyNameMap.put("auxiliary", "AuxExemplarCharacters");
         keyNameMap.put("timeZoneNames", "zoneStrings");
         keyNameMap.put("localizedPatternChars", "localPatternChars");
         keyNameMap.put("paperSize", "PaperSize");
         keyNameMap.put("measurementSystem", "MeasurementSystem");
         keyNameMap.put("fractions", "CurrencyData");
         keyNameMap.put("icu:breakDictionaryData", "BreakDictionaryData");
-
+        deprecatedTerritories.put(  "BQ" ,"");
+        deprecatedTerritories.put(  "CT" ,"");
+        deprecatedTerritories.put(  "DD" ,"");
+        deprecatedTerritories.put(  "FQ" ,"");
+        deprecatedTerritories.put(  "FX" ,"");
+        deprecatedTerritories.put(  "JT" ,"");
+        deprecatedTerritories.put(  "MI" ,"");
+        deprecatedTerritories.put(  "NQ" ,"");
+        deprecatedTerritories.put(  "NT" ,"");
+        deprecatedTerritories.put(  "PC" ,"");
+        deprecatedTerritories.put(  "PU" ,"");
+        deprecatedTerritories.put(  "PZ" ,"");
+        deprecatedTerritories.put(  "SU" ,"");
+        deprecatedTerritories.put(  "VD" ,"");
+        deprecatedTerritories.put(  "WK" ,"");
+        deprecatedTerritories.put(  "YD" ,"");
         //TODO: "FX",  "RO",  "TP",  "ZR",   /* obsolete country codes */
     }
     private ICUResourceWriter.Resource parseSupplemental(Node root, String file){
@@ -722,11 +762,7 @@ public class LDML2ICUConverter {
                 current = findLast(table.first);
                 continue;
             }else if (name.equals(LDMLConstants.SPECIAL)){
-                /*
-                 * IGNORE SPECIALS
-                 * FOR NOW
-                 */
-                continue;
+                res = parseSpecialElements(node, xpath);
             }else if(name.equals(LDMLConstants.LDN)){
                 res = parseLocaleDisplayNames(node, xpath);
             }else if(name.equals(LDMLConstants.LAYOUT)){
@@ -779,6 +815,7 @@ public class LDML2ICUConverter {
             System.out.println();
         }
         // now fetch the specials and append to the real bundle
+       /*
         if(specialsDir!=null ){
             if(specialsDoc == null) {
                printWarning(specialsDir + "/" + locName + ".xml","Writing ICU res bundle without specials, missing ");
@@ -800,6 +837,7 @@ public class LDML2ICUConverter {
                 }
             }
         }
+        */
         if(supplementalDoc !=null){
             /* TODO: comment this out for now. We shall revisit when 
              * we have information on how to present the script data
@@ -1038,9 +1076,12 @@ public class LDML2ICUConverter {
     }
     private ICUResourceWriter.Resource parseList(Node root, StringBuffer xpath){
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
-        table.name=(String) keyNameMap.get(root.getNodeName());
+        String rootNodeName = root.getNodeName();
+        table.name=(String) keyNameMap.get(rootNodeName);
         ICUResourceWriter.Resource current = null;
         int savedLength = xpath.length();
+        boolean uc = rootNodeName.equals(LDMLConstants.VARIANTS);
+        boolean prohibit = rootNodeName.equals(LDMLConstants.TERRITORIES);
 
         // if the whole list is marked draft
         // then donot output it.
@@ -1074,19 +1115,28 @@ public class LDML2ICUConverter {
             if(isAlternate(node)){
                 continue;
             }
-
+            
             getXPath(node, xpath);
-
-            if(current==null){
-                current = table.first = new ICUResourceWriter.ResourceString();
-            }else{
-                current.next = new ICUResourceWriter.ResourceString();
-                current = current.next;
+            ICUResourceWriter.ResourceString res = new ICUResourceWriter.ResourceString();
+            
+            res.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+            if(uc){
+                res.name = res.name.toUpperCase();
             }
-            current.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+            res.val  = LDMLUtilities.getNodeValue(node);
 
-            ((ICUResourceWriter.ResourceString)current).val  = LDMLUtilities.getNodeValue(node);
+            if(prohibit==true && deprecatedTerritories.get(res.name)!=null){
+                res = null;
+            }
             xpath.delete(oldLength, xpath.length());
+            if(res!=null){
+                if(current==null){
+                    current = table.first = res;
+                }else{
+                    current.next = res;
+                    current = current.next;
+                }
+            }
         }
         xpath.delete(savedLength, xpath.length());
         if(table.first!=null){
@@ -1169,10 +1219,9 @@ public class LDML2ICUConverter {
                 if(/*(!isDraft(node, xpath)||writeDraft)&&*/!isAlternate(node)&&!isType(node,LDMLConstants.AUXILIARY)){
                     res = parseStringResource(node);
                     res.name = (String) keyNameMap.get(LDMLConstants.EXEMPLAR_CHARACTERS);
-                }
-                else if (isType(node,LDMLConstants.AUXILIARY)) {
-                        //TODO: Add this data to ICU eventually. A different name or structure is required though.
-                        printInfo("Skipping auxillary exemplar characters");
+                }else if (isType(node,LDMLConstants.AUXILIARY)) {
+                    res = parseStringResource(node);
+                    res.name = (String) keyNameMap.get(LDMLConstants.AUXILIARY);
                 }
             }else if(name.equals(LDMLConstants.ALIAS)){
                 res = parseAliasResource(node, xpath);
@@ -2425,38 +2474,13 @@ public class LDML2ICUConverter {
         }
         return null;
     }
-    private Node getVettedNode(NodeList list, StringBuffer xpath){
-        // A vetted node is one which is not draft and does not have alternate
-        // attribute set
-        Node node =null;
-        for(int i =0; i<list.getLength(); i++){
-            node = list.item(i);
-            if(isDraft(node, xpath) && !writeDraft){
-                continue;
-            }
-            if(isAlternate(node)){
-                continue;
-            }
-            return node;
-        }
-        return null;
-    }
-    private Node getVettedNode(Node parent, String childName, StringBuffer xpath){
-        NodeList list = LDMLUtilities.getNodeList(parent, childName, fullyResolvedDoc, xpath.toString());
-        int oldLength=xpath.length();
-        Node ret = null;
 
-        if(list != null && list.getLength()>0){
-            xpath.append("/");
-            xpath.append(childName);
-            ret = getVettedNode(list,xpath);
-        }
-        xpath.setLength(oldLength);
-        return ret;
+    private Node getVettedNode(Node parent, String childName, StringBuffer xpath){
+        return LDMLUtilities.getVettedNode(fullyResolvedDoc, parent, childName, xpath, writeDraft);
     }
     private Node getNode(Node parent, String childName, StringBuffer xpath, boolean preferDraft, boolean preferAlt){
         NodeList list = LDMLUtilities.getNodeList(parent, childName, fullyResolvedDoc, xpath.toString());
-        return LDMLUtilities.getNode(list, xpath.toString()+childName, preferDraft, preferAlt);
+        return LDMLUtilities.getNode(list, xpath.toString()+"/"+childName, preferDraft, preferAlt);
     }
     private ICUResourceWriter.Resource parseAmPm(Node root, StringBuffer xpath){
         Node parent =root.getParentNode();
@@ -2513,16 +2537,16 @@ public class LDML2ICUConverter {
         //TODO figure out what to do for alias
         Node parent = root.getParentNode();
         ArrayList list = new ArrayList();
-        list.add(getNode(parent, "timeFormats/timeFormatLength[@type='full']/timeFormat[@type='standard']/pattern",  xpath, true, true));
-        list.add(getNode(parent, "timeFormats/timeFormatLength[@type='long']/timeFormat[@type='standard']/pattern",  xpath, true, true));
-        list.add(getNode(parent, "timeFormats/timeFormatLength[@type='medium']/timeFormat[@type='standard']/pattern", xpath, true, true));
-        list.add(getNode(parent, "timeFormats/timeFormatLength[@type='short']/timeFormat[@type='standard']/pattern", xpath, true, true));
-        list.add(getNode(parent, "dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern", xpath, true, true));
-        list.add(getNode(parent, "dateFormats/dateFormatLength[@type='long']/dateFormat[@type='standard']/pattern", xpath, true, true));
-        list.add(getNode(parent, "dateFormats/dateFormatLength[@type='medium']/dateFormat[@type='standard']/pattern", xpath, true, true));
-        list.add(getNode(parent, "dateFormats/dateFormatLength[@type='short']/dateFormat[@type='standard']/pattern",  xpath, true, true));
+        list.add(getNode(parent, "timeFormats/timeFormatLength[@type='full']/timeFormat[@type='standard']/pattern",  xpath, true, false));
+        list.add(getNode(parent, "timeFormats/timeFormatLength[@type='long']/timeFormat[@type='standard']/pattern",  xpath, true, false));
+        list.add(getNode(parent, "timeFormats/timeFormatLength[@type='medium']/timeFormat[@type='standard']/pattern", xpath, true, false));
+        list.add(getNode(parent, "timeFormats/timeFormatLength[@type='short']/timeFormat[@type='standard']/pattern", xpath, true, false));
+        list.add(getNode(parent, "dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern", xpath, true, false));
+        list.add(getNode(parent, "dateFormats/dateFormatLength[@type='long']/dateFormat[@type='standard']/pattern", xpath, true, false));
+        list.add(getNode(parent, "dateFormats/dateFormatLength[@type='medium']/dateFormat[@type='standard']/pattern", xpath, true, false));
+        list.add(getNode(parent, "dateFormats/dateFormatLength[@type='short']/dateFormat[@type='standard']/pattern",  xpath, true, false));
         //TODO guard this against possible failure
-        list.add(getNode(parent, "dateTimeFormats/dateTimeFormatLength/dateTimeFormat/pattern", xpath, true, true));
+        list.add(getNode(parent, "dateTimeFormats/dateTimeFormatLength/dateTimeFormat/pattern", xpath, true, false));
 
         if(list.size()<9){
             throw new RuntimeException("Did not get expected output for Date and Time patterns!!");

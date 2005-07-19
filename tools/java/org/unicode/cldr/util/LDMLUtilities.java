@@ -137,7 +137,7 @@ public class LDMLUtilities {
                     full = doc;
                 }else{
                     StringBuffer xpath = new StringBuffer();
-                    mergeLDMLDocuments(full, doc, xpath, loc, sourceDir, ignoreDraft);
+                    mergeLDMLDocuments(full, doc, xpath, loc, sourceDir, ignoreDraft, false);
                 }
                 /*
                  * debugging
@@ -160,20 +160,22 @@ public class LDMLUtilities {
             // TODO: investigate if we really need to revalidate the DOM tree!
             // full = revalidate(full, locale);
         }
-        // get the real locale name
-        locale = getLocaleName(full);
-        // Resolve the aliases once the data is built
-        full = resolveAliases(full, sourceDir, locale, ignoreDraft, stack);
         
         if(ignoreIfNoneAvailable==true && isAvailable==false){
             return null ;
         }
+        
+        // get the real locale name
+        locale = getLocaleName(full);
+        // Resolve the aliases once the data is built
+        full = resolveAliases(full, sourceDir, locale, ignoreDraft, stack);
+
        if(DEBUG){
            try {
                 java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
                         new  java.io.FileOutputStream("./" + File.separator + locale
                                 + "_debug.xml"), "UTF-8");
-                LDMLUtilities.printDOMTree(full, new PrintWriter(writer),"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", true);
+                LDMLUtilities.printDOMTree(full, new PrintWriter(writer),"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
                 writer.flush();
            } catch (IOException e) {
                 //throw the exceptionaway .. this is for debugging
@@ -182,6 +184,7 @@ public class LDMLUtilities {
        return full;
     }
     public static String getLocaleName(Document doc){
+
         Node ln = LDMLUtilities.getNode(doc, "//ldml/identity/language");
         Node tn = LDMLUtilities.getNode(doc, "//ldml/identity/territory");
         Node sn = LDMLUtilities.getNode(doc, "//ldml/identity/script");
@@ -477,8 +480,9 @@ public class LDMLUtilities {
      * @param override
      * @return the merged document
      */
-    private static Node mergeLDMLDocuments(Document source, Node override, StringBuffer xpath, 
-                                          String thisName, String sourceDir, boolean ignoreDraft){
+    public static Node mergeLDMLDocuments(Document source, Node override, StringBuffer xpath, 
+                                          String thisName, String sourceDir, boolean ignoreDraft,
+                                          boolean ignoreVersion){
         if(source==null){
             return override;
         }
@@ -540,8 +544,16 @@ public class LDMLUtilities {
                 
                 Node childToImport = source.importNode(child,true);
                 parentNodeInSource.appendChild(childToImport);
-            }else if( childName.equals(LDMLConstants.IDENTITY) ||
-                      childName.equals(LDMLConstants.COLLATION)){
+            }else if( childName.equals(LDMLConstants.IDENTITY)){
+                if(!ignoreVersion){
+                    // replace the source doc
+                    // none of the elements under collations are inherited
+                    // only the node as a whole!!
+                    parentNodeInSource = nodeInSource.getParentNode();
+                    Node childToImport = source.importNode(child,true);
+                    parentNodeInSource.replaceChild(childToImport, nodeInSource);
+                }
+            }else if( childName.equals(LDMLConstants.COLLATION)){
                 // replace the source doc
                 // none of the elements under collations are inherited
                 // only the node as a whole!!
@@ -554,13 +566,13 @@ public class LDMLUtilities {
 //                System.out.println(childName + ":" + childElementNodes + "/" + sourceElementNodes);
                 if(childElementNodes &&  sourceElementNodes){
                     //recurse to pickup any children!
-                    mergeLDMLDocuments(source, child, xpath, thisName, sourceDir, ignoreDraft);
+                    mergeLDMLDocuments(source, child, xpath, thisName, sourceDir, ignoreDraft, ignoreVersion);
                 }else{
                     // we have reached a leaf node now get the 
-                    // replace to the source doc
+                    // replace to the source doc 
                     parentNodeInSource = nodeInSource.getParentNode();
                     Node childToImport = source.importNode(child,true);
-                    parentNodeInSource.replaceChild(childToImport, nodeInSource);       
+                    parentNodeInSource.replaceChild(childToImport, nodeInSource);
                 }
             }
             xpath.delete(savedLength,xpath.length());
@@ -1168,6 +1180,35 @@ public class LDMLUtilities {
             throw new RuntimeException(ex.getMessage());
         }
     }
+    private static Node getVettedNode(NodeList list, StringBuffer xpath, boolean ignoreDraft){
+        // A vetted node is one which is not draft and does not have alternate
+        // attribute set
+        Node node =null;
+        for(int i =0; i<list.getLength(); i++){
+            node = list.item(i);
+            if(isDraft(node, xpath) && !ignoreDraft){
+                continue;
+            }
+            if(isAlternate(node)){
+                continue;
+            }
+            return node;
+        }
+        return null;
+    }
+    public static Node getVettedNode(Document fullyResolvedDoc, Node parent, String childName, StringBuffer xpath, boolean ignoreDraft){
+        NodeList list = getNodeList(parent, childName, fullyResolvedDoc, xpath.toString());
+        int oldLength=xpath.length();
+        Node ret = null;
+
+        if(list != null && list.getLength()>0){
+            xpath.append("/");
+            xpath.append(childName);
+            ret = getVettedNode(list,xpath, ignoreDraft);
+        }
+        xpath.setLength(oldLength);
+        return ret;
+    }
     public static Node getNode(NodeList nl, String xpath, boolean preferDraft, boolean preferAlt){
         int len = nl.getLength();
         //TODO watch for attribute "alt"
@@ -1200,6 +1241,9 @@ public class LDMLUtilities {
                     }
                     continue;
                 }
+            }
+            if(best==null && preferDraft==true){
+                best = getVettedNode(nl, new StringBuffer(xpath), false);
             }
             if(best != null){
                 return best;
@@ -1541,22 +1585,20 @@ System.err.println(filename2 + ":" + e.getLineNumber() +  (col>=0?":" + col:"") 
      * @param out
      * @throws IOException
      */
-    public static void printDOMTree(Node node, PrintWriter out, String docType, boolean useDefaultDoctype) throws IOException 
+    public static void printDOMTree(Node node, PrintWriter out, String docType, String copyright) throws IOException 
     {
          try {
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty(OutputKeys.METHOD, "xml");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-
-            if(useDefaultDoctype){
-
-                transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, docType);
-                transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
-            }else{
-                
-                transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-                out.print("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
+            
+            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+            out.print("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
+            if(copyright!=null){
+                out.print(copyright);
+            }
+            if(docType!=null){
                 out.print(docType);
             }
             

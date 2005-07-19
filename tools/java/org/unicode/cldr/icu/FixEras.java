@@ -96,7 +96,7 @@ public class FixEras {
                 String destfile = destdir+"/"+file;
                 OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(destfile),"UTF-8");
                 PrintWriter pw = new PrintWriter(writer);
-                LDMLUtilities.printDOMTree(maindoc,pw,"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd",true);
+                LDMLUtilities.printDOMTree(maindoc,pw,"http://www.unicode.org/cldr/dtd/1.3/ldml.dtd",null);
                 writer.flush(); 
                 writer.close();
              }catch( Exception e){ 

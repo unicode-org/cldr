@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.2/beta/cldrTest.dtd'>
+<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.2' base='mr'>
+ <cldrTest version='1.4' base='mr'>
  <!-- Marathi [मराठी] -->
   <number 
 locales='mr'>
@@ -110,7 +110,7 @@ locales='mr_IN'>
   <date 
 locales='mr'>
 <!-- Marathi [मराठी] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -134,7 +134,7 @@ locales='mr'>
    <result timeType='medium'>बुधवार, 1900 जानेवारी 31 00:00:00</result>
    <result timeType='long'>बुधवार, 1900 जानेवारी 31 00:00:00 GMT+00:00</result>
    <result timeType='full'>बुधवार, 1900 जानेवारी 31 00:00:00 GMT+00:00</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result timeType='long'>00:00:01 GMT+00:00</result>
    <result timeType='full'>00:00:01 GMT+00:00</result>
@@ -158,7 +158,7 @@ locales='mr'>
    <result timeType='medium'>रविवार, 1909 फेबृवारी 28 00:00:01</result>
    <result timeType='long'>रविवार, 1909 फेबृवारी 28 00:00:01 GMT+00:00</result>
    <result timeType='full'>रविवार, 1909 फेबृवारी 28 00:00:01 GMT+00:00</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>00:59</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result timeType='long'>00:59:59 GMT+00:00</result>
    <result timeType='full'>00:59:59 GMT+00:00</result>
@@ -182,7 +182,7 @@ locales='mr'>
    <result timeType='medium'>मंगळवार, 1918 मार्च 26 00:59:59</result>
    <result timeType='long'>मंगळवार, 1918 मार्च 26 00:59:59 GMT+00:00</result>
    <result timeType='full'>मंगळवार, 1918 मार्च 26 00:59:59 GMT+00:00</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>01:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result timeType='long'>01:00:00 GMT+00:00</result>
    <result timeType='full'>01:00:00 GMT+00:00</result>
@@ -206,7 +206,7 @@ locales='mr'>
    <result timeType='medium'>रविवार, 1932 एप्रिल 24 01:00:00</result>
    <result timeType='long'>रविवार, 1932 एप्रिल 24 01:00:00 GMT+00:00</result>
    <result timeType='full'>रविवार, 1932 एप्रिल 24 01:00:00 GMT+00:00</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>01:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result timeType='long'>01:00:01 GMT+00:00</result>
    <result timeType='full'>01:00:01 GMT+00:00</result>
@@ -230,7 +230,7 @@ locales='mr'>
    <result timeType='medium'>रविवार, 1945 मे 20 01:00:01</result>
    <result timeType='long'>रविवार, 1945 मे 20 01:00:01 GMT+00:00</result>
    <result timeType='full'>रविवार, 1945 मे 20 01:00:01 GMT+00:00</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result timeType='long'>11:59:59 GMT+00:00</result>
    <result timeType='full'>11:59:59 GMT+00:00</result>
@@ -254,7 +254,7 @@ locales='mr'>
    <result timeType='medium'>बुधवार, 1952 जून 18 11:59:59</result>
    <result timeType='long'>बुधवार, 1952 जून 18 11:59:59 GMT+00:00</result>
    <result timeType='full'>बुधवार, 1952 जून 18 11:59:59 GMT+00:00</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result timeType='long'>12:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 GMT+00:00</result>
@@ -278,7 +278,7 @@ locales='mr'>
    <result timeType='medium'>सोमवार, 1973 जुलै 16 12:00:00</result>
    <result timeType='long'>सोमवार, 1973 जुलै 16 12:00:00 GMT+00:00</result>
    <result timeType='full'>सोमवार, 1973 जुलै 16 12:00:00 GMT+00:00</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result timeType='long'>12:00:01 GMT+00:00</result>
    <result timeType='full'>12:00:01 GMT+00:00</result>
@@ -302,7 +302,7 @@ locales='mr'>
    <result timeType='medium'>शनिवार, 1999 ओगस्ट 14 12:00:01</result>
    <result timeType='long'>शनिवार, 1999 ओगस्ट 14 12:00:01 GMT+00:00</result>
    <result timeType='full'>शनिवार, 1999 ओगस्ट 14 12:00:01 GMT+00:00</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>22:59</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result timeType='long'>22:59:59 GMT+00:00</result>
    <result timeType='full'>22:59:59 GMT+00:00</result>
@@ -326,7 +326,7 @@ locales='mr'>
    <result timeType='medium'>मंगळवार, 2000 सेप्टेंबर 12 22:59:59</result>
    <result timeType='long'>मंगळवार, 2000 सेप्टेंबर 12 22:59:59 GMT+00:00</result>
    <result timeType='full'>मंगळवार, 2000 सेप्टेंबर 12 22:59:59 GMT+00:00</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>23:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result timeType='long'>23:00:00 GMT+00:00</result>
    <result timeType='full'>23:00:00 GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='mr'>
    <result timeType='medium'>सोमवार, 2001 ओक्टोबर 08 23:00:00</result>
    <result timeType='long'>सोमवार, 2001 ओक्टोबर 08 23:00:00 GMT+00:00</result>
    <result timeType='full'>सोमवार, 2001 ओक्टोबर 08 23:00:00 GMT+00:00</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>23:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result timeType='long'>23:00:01 GMT+00:00</result>
    <result timeType='full'>23:00:01 GMT+00:00</result>
@@ -374,7 +374,7 @@ locales='mr'>
    <result timeType='medium'>गुरुवार, 2004 नोव्हेंबर 04 23:00:01</result>
    <result timeType='long'>गुरुवार, 2004 नोव्हेंबर 04 23:00:01 GMT+00:00</result>
    <result timeType='full'>गुरुवार, 2004 नोव्हेंबर 04 23:00:01 GMT+00:00</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>23:59</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result timeType='long'>23:59:59 GMT+00:00</result>
    <result timeType='full'>23:59:59 GMT+00:00</result>
@@ -402,7 +402,7 @@ locales='mr'>
   <date 
 locales='mr_IN'>
 <!-- Marathi (India) [मराठी (भारत)] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>12:00 म.पू.</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 म.पू.</result>
    <result timeType='medium'>12:00:00 म.पू.</result>
    <result timeType='long'>12:00:00 म.पू. GMT+00:00</result>
    <result timeType='full'>12:00:00 म.पू. GMT+00:00</result>
@@ -426,7 +426,7 @@ locales='mr_IN'>
    <result timeType='medium'>बुधवार 31 जानेवारी 1900 12:00:00 म.पू.</result>
    <result timeType='long'>बुधवार 31 जानेवारी 1900 12:00:00 म.पू. GMT+00:00</result>
    <result timeType='full'>बुधवार 31 जानेवारी 1900 12:00:00 म.पू. GMT+00:00</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>12:00 म.पू.</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 म.पू.</result>
    <result timeType='medium'>12:00:01 म.पू.</result>
    <result timeType='long'>12:00:01 म.पू. GMT+00:00</result>
    <result timeType='full'>12:00:01 म.पू. GMT+00:00</result>
@@ -450,7 +450,7 @@ locales='mr_IN'>
    <result timeType='medium'>रविवार 28 फेबृवारी 1909 12:00:01 म.पू.</result>
    <result timeType='long'>रविवार 28 फेबृवारी 1909 12:00:01 म.पू. GMT+00:00</result>
    <result timeType='full'>रविवार 28 फेबृवारी 1909 12:00:01 म.पू. GMT+00:00</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>12:59 म.पू.</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 म.पू.</result>
    <result timeType='medium'>12:59:59 म.पू.</result>
    <result timeType='long'>12:59:59 म.पू. GMT+00:00</result>
    <result timeType='full'>12:59:59 म.पू. GMT+00:00</result>
@@ -474,7 +474,7 @@ locales='mr_IN'>
    <result timeType='medium'>मंगळवार 26 मार्च 1918 12:59:59 म.पू.</result>
    <result timeType='long'>मंगळवार 26 मार्च 1918 12:59:59 म.पू. GMT+00:00</result>
    <result timeType='full'>मंगळवार 26 मार्च 1918 12:59:59 म.पू. GMT+00:00</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>1:00 म.पू.</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 म.पू.</result>
    <result timeType='medium'>1:00:00 म.पू.</result>
    <result timeType='long'>1:00:00 म.पू. GMT+00:00</result>
    <result timeType='full'>1:00:00 म.पू. GMT+00:00</result>
@@ -498,7 +498,7 @@ locales='mr_IN'>
    <result timeType='medium'>रविवार 24 एप्रिल 1932 1:00:00 म.पू.</result>
    <result timeType='long'>रविवार 24 एप्रिल 1932 1:00:00 म.पू. GMT+00:00</result>
    <result timeType='full'>रविवार 24 एप्रिल 1932 1:00:00 म.पू. GMT+00:00</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>1:00 म.पू.</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 म.पू.</result>
    <result timeType='medium'>1:00:01 म.पू.</result>
    <result timeType='long'>1:00:01 म.पू. GMT+00:00</result>
    <result timeType='full'>1:00:01 म.पू. GMT+00:00</result>
@@ -522,7 +522,7 @@ locales='mr_IN'>
    <result timeType='medium'>रविवार 20 मे 1945 1:00:01 म.पू.</result>
    <result timeType='long'>रविवार 20 मे 1945 1:00:01 म.पू. GMT+00:00</result>
    <result timeType='full'>रविवार 20 मे 1945 1:00:01 म.पू. GMT+00:00</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59 म.पू.</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 म.पू.</result>
    <result timeType='medium'>11:59:59 म.पू.</result>
    <result timeType='long'>11:59:59 म.पू. GMT+00:00</result>
    <result timeType='full'>11:59:59 म.पू. GMT+00:00</result>
@@ -546,7 +546,7 @@ locales='mr_IN'>
    <result timeType='medium'>बुधवार 18 जून 1952 11:59:59 म.पू.</result>
    <result timeType='long'>बुधवार 18 जून 1952 11:59:59 म.पू. GMT+00:00</result>
    <result timeType='full'>बुधवार 18 जून 1952 11:59:59 म.पू. GMT+00:00</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00 म.नं.</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 म.नं.</result>
    <result timeType='medium'>12:00:00 म.नं.</result>
    <result timeType='long'>12:00:00 म.नं. GMT+00:00</result>
    <result timeType='full'>12:00:00 म.नं. GMT+00:00</result>
@@ -570,7 +570,7 @@ locales='mr_IN'>
    <result timeType='medium'>सोमवार 16 जुलै 1973 12:00:00 म.नं.</result>
    <result timeType='long'>सोमवार 16 जुलै 1973 12:00:00 म.नं. GMT+00:00</result>
    <result timeType='full'>सोमवार 16 जुलै 1973 12:00:00 म.नं. GMT+00:00</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00 म.नं.</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 म.नं.</result>
    <result timeType='medium'>12:00:01 म.नं.</result>
    <result timeType='long'>12:00:01 म.नं. GMT+00:00</result>
    <result timeType='full'>12:00:01 म.नं. GMT+00:00</result>
@@ -594,7 +594,7 @@ locales='mr_IN'>
    <result timeType='medium'>शनिवार 14 ओगस्ट 1999 12:00:01 म.नं.</result>
    <result timeType='long'>शनिवार 14 ओगस्ट 1999 12:00:01 म.नं. GMT+00:00</result>
    <result timeType='full'>शनिवार 14 ओगस्ट 1999 12:00:01 म.नं. GMT+00:00</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>10:59 म.नं.</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 म.नं.</result>
    <result timeType='medium'>10:59:59 म.नं.</result>
    <result timeType='long'>10:59:59 म.नं. GMT+00:00</result>
    <result timeType='full'>10:59:59 म.नं. GMT+00:00</result>
@@ -618,7 +618,7 @@ locales='mr_IN'>
    <result timeType='medium'>मंगळवार 12 सेप्टेंबर 2000 10:59:59 म.नं.</result>
    <result timeType='long'>मंगळवार 12 सेप्टेंबर 2000 10:59:59 म.नं. GMT+00:00</result>
    <result timeType='full'>मंगळवार 12 सेप्टेंबर 2000 10:59:59 म.नं. GMT+00:00</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>11:00 म.नं.</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 म.नं.</result>
    <result timeType='medium'>11:00:00 म.नं.</result>
    <result timeType='long'>11:00:00 म.नं. GMT+00:00</result>
    <result timeType='full'>11:00:00 म.नं. GMT+00:00</result>
@@ -642,7 +642,7 @@ locales='mr_IN'>
    <result timeType='medium'>सोमवार 8 ओक्टोबर 2001 11:00:00 म.नं.</result>
    <result timeType='long'>सोमवार 8 ओक्टोबर 2001 11:00:00 म.नं. GMT+00:00</result>
    <result timeType='full'>सोमवार 8 ओक्टोबर 2001 11:00:00 म.नं. GMT+00:00</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>11:00 म.नं.</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 म.नं.</result>
    <result timeType='medium'>11:00:01 म.नं.</result>
    <result timeType='long'>11:00:01 म.नं. GMT+00:00</result>
    <result timeType='full'>11:00:01 म.नं. GMT+00:00</result>
@@ -666,7 +666,7 @@ locales='mr_IN'>
    <result timeType='medium'>गुरुवार 4 नोव्हेंबर 2004 11:00:01 म.नं.</result>
    <result timeType='long'>गुरुवार 4 नोव्हेंबर 2004 11:00:01 म.नं. GMT+00:00</result>
    <result timeType='full'>गुरुवार 4 नोव्हेंबर 2004 11:00:01 म.नं. GMT+00:00</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>11:59 म.नं.</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 म.नं.</result>
    <result timeType='medium'>11:59:59 म.नं.</result>
    <result timeType='long'>11:59:59 म.नं. GMT+00:00</result>
    <result timeType='full'>11:59:59 म.नं. GMT+00:00</result>
@@ -691,6 +691,118 @@ locales='mr_IN'>
    <result timeType='long'>बुधवार 1 डिसेंबर 2010 11:59:59 म.नं. GMT+00:00</result>
    <result timeType='full'>बुधवार 1 डिसेंबर 2010 11:59:59 म.नं. GMT+00:00</result>
   </date>
+  <zoneFields 
+locales='mr mr_IN'>
+<!-- Marathi [मराठी]; Marathi (India) [मराठी (भारत)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result field='ZZZZ'>GMT-08:00</result>
+   <result field='z'>GMT-08:00</result>
+   <result field='zzzz'>GMT-08:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
+   <result field='vvvv'>Los Angeles (US)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-07:00</result>
+   <result field='z'>GMT-07:00</result>
+   <result field='zzzz'>GMT-07:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
+   <result field='vvvv'>Los Angeles (US)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-05:00</result>
+   <result field='z'>GMT-05:00</result>
+   <result field='zzzz'>GMT-05:00</result>
+   <result field='v' parse='America/Havana'>CU</result>
+   <result field='vvvv'>CU</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-04:00</result>
+   <result field='z'>GMT-04:00</result>
+   <result field='zzzz'>GMT-04:00</result>
+   <result field='v' parse='America/Havana'>CU</result>
+   <result field='vvvv'>CU</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+00:00</result>
+   <result field='z'>GMT+00:00</result>
+   <result field='zzzz'>GMT+00:00</result>
+   <result field='v' parse='Europe/London'>GB</result>
+   <result field='vvvv'>GB</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+01:00</result>
+   <result field='z'>GMT+01:00</result>
+   <result field='zzzz'>GMT+01:00</result>
+   <result field='v' parse='Europe/London'>GB</result>
+   <result field='vvvv'>GB</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+03:00</result>
+   <result field='z'>GMT+03:00</result>
+   <result field='zzzz'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
+   <result field='vvvv'>Moscow (RU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+04:00</result>
+   <result field='z'>GMT+04:00</result>
+   <result field='zzzz'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
+   <result field='vvvv'>Moscow (RU)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+  </zoneFields>
   <collation 
 locales='mr mr_IN'>
 <!-- Marathi [मराठी]; Marathi (India) [मराठी (भारत)] -->
@@ -1004,6 +1116,6 @@ xौx
 x्
 X्
 x्x
-   </result>
+</result>
   </collation>
  </cldrTest>

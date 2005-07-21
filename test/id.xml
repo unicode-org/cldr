@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.2/beta/cldrTest.dtd'>
+<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.2' base='id'>
+ <cldrTest version='1.4' base='id'>
  <!-- Indonesian [Bahasa Indonesia] -->
   <number 
 locales='id id_ID'>
@@ -58,7 +58,7 @@ locales='id id_ID'>
   <date 
 locales='id'>
 <!-- Indonesian [Bahasa Indonesia] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -82,7 +82,7 @@ locales='id'>
    <result timeType='medium'>Rabu, 1900 Januari 31 00:00:00</result>
    <result timeType='long'>Rabu, 1900 Januari 31 00:00:00 GMT+00:00</result>
    <result timeType='full'>Rabu, 1900 Januari 31 00:00:00 GMT+00:00</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result timeType='long'>00:00:01 GMT+00:00</result>
    <result timeType='full'>00:00:01 GMT+00:00</result>
@@ -106,7 +106,7 @@ locales='id'>
    <result timeType='medium'>Minggu, 1909 Februari 28 00:00:01</result>
    <result timeType='long'>Minggu, 1909 Februari 28 00:00:01 GMT+00:00</result>
    <result timeType='full'>Minggu, 1909 Februari 28 00:00:01 GMT+00:00</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>00:59</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result timeType='long'>00:59:59 GMT+00:00</result>
    <result timeType='full'>00:59:59 GMT+00:00</result>
@@ -130,7 +130,7 @@ locales='id'>
    <result timeType='medium'>Selasa, 1918 Maret 26 00:59:59</result>
    <result timeType='long'>Selasa, 1918 Maret 26 00:59:59 GMT+00:00</result>
    <result timeType='full'>Selasa, 1918 Maret 26 00:59:59 GMT+00:00</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>01:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result timeType='long'>01:00:00 GMT+00:00</result>
    <result timeType='full'>01:00:00 GMT+00:00</result>
@@ -154,7 +154,7 @@ locales='id'>
    <result timeType='medium'>Minggu, 1932 April 24 01:00:00</result>
    <result timeType='long'>Minggu, 1932 April 24 01:00:00 GMT+00:00</result>
    <result timeType='full'>Minggu, 1932 April 24 01:00:00 GMT+00:00</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>01:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result timeType='long'>01:00:01 GMT+00:00</result>
    <result timeType='full'>01:00:01 GMT+00:00</result>
@@ -178,7 +178,7 @@ locales='id'>
    <result timeType='medium'>Minggu, 1945 Mei 20 01:00:01</result>
    <result timeType='long'>Minggu, 1945 Mei 20 01:00:01 GMT+00:00</result>
    <result timeType='full'>Minggu, 1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result timeType='long'>11:59:59 GMT+00:00</result>
    <result timeType='full'>11:59:59 GMT+00:00</result>
@@ -202,7 +202,7 @@ locales='id'>
    <result timeType='medium'>Rabu, 1952 Juni 18 11:59:59</result>
    <result timeType='long'>Rabu, 1952 Juni 18 11:59:59 GMT+00:00</result>
    <result timeType='full'>Rabu, 1952 Juni 18 11:59:59 GMT+00:00</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result timeType='long'>12:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 GMT+00:00</result>
@@ -226,7 +226,7 @@ locales='id'>
    <result timeType='medium'>Senin, 1973 Juli 16 12:00:00</result>
    <result timeType='long'>Senin, 1973 Juli 16 12:00:00 GMT+00:00</result>
    <result timeType='full'>Senin, 1973 Juli 16 12:00:00 GMT+00:00</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result timeType='long'>12:00:01 GMT+00:00</result>
    <result timeType='full'>12:00:01 GMT+00:00</result>
@@ -250,7 +250,7 @@ locales='id'>
    <result timeType='medium'>Sabtu, 1999 Agustus 14 12:00:01</result>
    <result timeType='long'>Sabtu, 1999 Agustus 14 12:00:01 GMT+00:00</result>
    <result timeType='full'>Sabtu, 1999 Agustus 14 12:00:01 GMT+00:00</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>22:59</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result timeType='long'>22:59:59 GMT+00:00</result>
    <result timeType='full'>22:59:59 GMT+00:00</result>
@@ -274,7 +274,7 @@ locales='id'>
    <result timeType='medium'>Selasa, 2000 September 12 22:59:59</result>
    <result timeType='long'>Selasa, 2000 September 12 22:59:59 GMT+00:00</result>
    <result timeType='full'>Selasa, 2000 September 12 22:59:59 GMT+00:00</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>23:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result timeType='long'>23:00:00 GMT+00:00</result>
    <result timeType='full'>23:00:00 GMT+00:00</result>
@@ -298,7 +298,7 @@ locales='id'>
    <result timeType='medium'>Senin, 2001 Oktober 08 23:00:00</result>
    <result timeType='long'>Senin, 2001 Oktober 08 23:00:00 GMT+00:00</result>
    <result timeType='full'>Senin, 2001 Oktober 08 23:00:00 GMT+00:00</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>23:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result timeType='long'>23:00:01 GMT+00:00</result>
    <result timeType='full'>23:00:01 GMT+00:00</result>
@@ -322,7 +322,7 @@ locales='id'>
    <result timeType='medium'>Kamis, 2004 November 04 23:00:01</result>
    <result timeType='long'>Kamis, 2004 November 04 23:00:01 GMT+00:00</result>
    <result timeType='full'>Kamis, 2004 November 04 23:00:01 GMT+00:00</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>23:59</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result timeType='long'>23:59:59 GMT+00:00</result>
    <result timeType='full'>23:59:59 GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='id'>
   <date 
 locales='id_ID'>
 <!-- Indonesian (Indonesia) [Bahasa Indonesia (Indonesia)] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>0:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0:00:00</result>
    <result timeType='full'>0:00:00</result>
@@ -374,7 +374,7 @@ locales='id_ID'>
    <result timeType='medium'>Rabu 31 Januari 1900 0:00:00</result>
    <result timeType='long'>Rabu 31 Januari 1900 0:00:00</result>
    <result timeType='full'>Rabu 31 Januari 1900 0:00:00</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>0:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>0:00</result>
    <result timeType='medium'>0:00:01</result>
    <result timeType='long'>0:00:01</result>
    <result timeType='full'>0:00:01</result>
@@ -398,7 +398,7 @@ locales='id_ID'>
    <result timeType='medium'>Minggu 28 Februari 1909 0:00:01</result>
    <result timeType='long'>Minggu 28 Februari 1909 0:00:01</result>
    <result timeType='full'>Minggu 28 Februari 1909 0:00:01</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>0:59</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>0:59</result>
    <result timeType='medium'>0:59:59</result>
    <result timeType='long'>0:59:59</result>
    <result timeType='full'>0:59:59</result>
@@ -422,7 +422,7 @@ locales='id_ID'>
    <result timeType='medium'>Selasa 26 Maret 1918 0:59:59</result>
    <result timeType='long'>Selasa 26 Maret 1918 0:59:59</result>
    <result timeType='full'>Selasa 26 Maret 1918 0:59:59</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>1:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00</result>
    <result timeType='medium'>1:00:00</result>
    <result timeType='long'>1:00:00</result>
    <result timeType='full'>1:00:00</result>
@@ -446,7 +446,7 @@ locales='id_ID'>
    <result timeType='medium'>Minggu 24 April 1932 1:00:00</result>
    <result timeType='long'>Minggu 24 April 1932 1:00:00</result>
    <result timeType='full'>Minggu 24 April 1932 1:00:00</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>1:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00</result>
    <result timeType='medium'>1:00:01</result>
    <result timeType='long'>1:00:01</result>
    <result timeType='full'>1:00:01</result>
@@ -470,7 +470,7 @@ locales='id_ID'>
    <result timeType='medium'>Minggu 20 Mei 1945 1:00:01</result>
    <result timeType='long'>Minggu 20 Mei 1945 1:00:01</result>
    <result timeType='full'>Minggu 20 Mei 1945 1:00:01</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result timeType='long'>11:59:59</result>
    <result timeType='full'>11:59:59</result>
@@ -494,7 +494,7 @@ locales='id_ID'>
    <result timeType='medium'>Rabu 18 Juni 1952 11:59:59</result>
    <result timeType='long'>Rabu 18 Juni 1952 11:59:59</result>
    <result timeType='full'>Rabu 18 Juni 1952 11:59:59</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result timeType='long'>12:00:00</result>
    <result timeType='full'>12:00:00</result>
@@ -518,7 +518,7 @@ locales='id_ID'>
    <result timeType='medium'>Senin 16 Juli 1973 12:00:00</result>
    <result timeType='long'>Senin 16 Juli 1973 12:00:00</result>
    <result timeType='full'>Senin 16 Juli 1973 12:00:00</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result timeType='long'>12:00:01</result>
    <result timeType='full'>12:00:01</result>
@@ -542,7 +542,7 @@ locales='id_ID'>
    <result timeType='medium'>Sabtu 14 Agustus 1999 12:00:01</result>
    <result timeType='long'>Sabtu 14 Agustus 1999 12:00:01</result>
    <result timeType='full'>Sabtu 14 Agustus 1999 12:00:01</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>22:59</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result timeType='long'>22:59:59</result>
    <result timeType='full'>22:59:59</result>
@@ -566,7 +566,7 @@ locales='id_ID'>
    <result timeType='medium'>Selasa 12 September 2000 22:59:59</result>
    <result timeType='long'>Selasa 12 September 2000 22:59:59</result>
    <result timeType='full'>Selasa 12 September 2000 22:59:59</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>23:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result timeType='long'>23:00:00</result>
    <result timeType='full'>23:00:00</result>
@@ -590,7 +590,7 @@ locales='id_ID'>
    <result timeType='medium'>Senin 08 Oktober 2001 23:00:00</result>
    <result timeType='long'>Senin 08 Oktober 2001 23:00:00</result>
    <result timeType='full'>Senin 08 Oktober 2001 23:00:00</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>23:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result timeType='long'>23:00:01</result>
    <result timeType='full'>23:00:01</result>
@@ -614,7 +614,7 @@ locales='id_ID'>
    <result timeType='medium'>Kamis 04 November 2004 23:00:01</result>
    <result timeType='long'>Kamis 04 November 2004 23:00:01</result>
    <result timeType='full'>Kamis 04 November 2004 23:00:01</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>23:59</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result timeType='long'>23:59:59</result>
    <result timeType='full'>23:59:59</result>
@@ -639,6 +639,118 @@ locales='id_ID'>
    <result timeType='long'>Rabu 01 Desember 2010 23:59:59</result>
    <result timeType='full'>Rabu 01 Desember 2010 23:59:59</result>
   </date>
+  <zoneFields 
+locales='id id_ID'>
+<!-- Indonesian [Bahasa Indonesia]; Indonesian (Indonesia) [Bahasa Indonesia (Indonesia)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result field='ZZZZ'>GMT-08:00</result>
+   <result field='z'>GMT-08:00</result>
+   <result field='zzzz'>GMT-08:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (Amerika Serikat)</result>
+   <result field='vvvv'>Los Angeles (Amerika Serikat)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-07:00</result>
+   <result field='z'>GMT-07:00</result>
+   <result field='zzzz'>GMT-07:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (Amerika Serikat)</result>
+   <result field='vvvv'>Los Angeles (Amerika Serikat)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentina)</result>
+   <result field='vvvv'>Buenos Aires (Argentina)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentina)</result>
+   <result field='vvvv'>Buenos Aires (Argentina)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentina)</result>
+   <result field='vvvv'>Buenos Aires (Argentina)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentina)</result>
+   <result field='vvvv'>Buenos Aires (Argentina)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-05:00</result>
+   <result field='z'>GMT-05:00</result>
+   <result field='zzzz'>GMT-05:00</result>
+   <result field='v' parse='America/Havana'>Kuba</result>
+   <result field='vvvv'>Kuba</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-04:00</result>
+   <result field='z'>GMT-04:00</result>
+   <result field='zzzz'>GMT-04:00</result>
+   <result field='v' parse='America/Havana'>Kuba</result>
+   <result field='vvvv'>Kuba</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australia)</result>
+   <result field='vvvv'>Sydney (Australia)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australia)</result>
+   <result field='vvvv'>Sydney (Australia)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australia)</result>
+   <result field='vvvv'>Sydney (Australia)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australia)</result>
+   <result field='vvvv'>Sydney (Australia)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+00:00</result>
+   <result field='z'>GMT+00:00</result>
+   <result field='zzzz'>GMT+00:00</result>
+   <result field='v' parse='Europe/London'>Inggris Raya</result>
+   <result field='vvvv'>Inggris Raya</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+01:00</result>
+   <result field='z'>GMT+01:00</result>
+   <result field='zzzz'>GMT+01:00</result>
+   <result field='v' parse='Europe/London'>Inggris Raya</result>
+   <result field='vvvv'>Inggris Raya</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+03:00</result>
+   <result field='z'>GMT+03:00</result>
+   <result field='zzzz'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (Rusia)</result>
+   <result field='vvvv'>Moscow (Rusia)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+04:00</result>
+   <result field='z'>GMT+04:00</result>
+   <result field='zzzz'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (Rusia)</result>
+   <result field='vvvv'>Moscow (Rusia)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+  </zoneFields>
   <collation 
 locales='id id_ID'>
 <!-- Indonesian [Bahasa Indonesia]; Indonesian (Indonesia) [Bahasa Indonesia (Indonesia)] -->
@@ -814,6 +926,6 @@ Xz
 XZ
 xzx
 xZx
-   </result>
+</result>
   </collation>
  </cldrTest>

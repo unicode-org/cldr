@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.2/beta/cldrTest.dtd'>
+<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.2' base='sh'>
+ <cldrTest version='1.4' base='sh'>
  <!-- Serbo-Croatian [Srpsko-Hrvatski] -->
   <number 
 locales='sh sh_BA sh_CS sh_YU'>
@@ -58,7 +58,7 @@ locales='sh sh_BA sh_CS sh_YU'>
   <date 
 locales='sh sh_BA sh_CS sh_YU'>
 <!-- Serbo-Croatian [Srpsko-Hrvatski]; Serbo-Croatian (Bosnia and Herzegovina) [Srpsko-Hrvatski (Bosna i Hercegovina)]; Serbo-Croatian (Serbia And Montenegro) [Srpsko-Hrvatski (Srbija i Crna Gora)]; Serbo-Croatian (YU) [Srpsko-Hrvatski (YU)] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>00.00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00.00</result>
    <result timeType='medium'>00.00.00</result>
    <result timeType='long'>00.00.00 GMT+00:00</result>
    <result timeType='full'>00.00.00 GMT+00:00</result>
@@ -82,7 +82,7 @@ locales='sh sh_BA sh_CS sh_YU'>
    <result timeType='medium'>sreda, 31. januar 1900. 00.00.00</result>
    <result timeType='long'>sreda, 31. januar 1900. 00.00.00 GMT+00:00</result>
    <result timeType='full'>sreda, 31. januar 1900. 00.00.00 GMT+00:00</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>00.00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00.00</result>
    <result timeType='medium'>00.00.01</result>
    <result timeType='long'>00.00.01 GMT+00:00</result>
    <result timeType='full'>00.00.01 GMT+00:00</result>
@@ -106,7 +106,7 @@ locales='sh sh_BA sh_CS sh_YU'>
    <result timeType='medium'>nedelja, 28. februar 1909. 00.00.01</result>
    <result timeType='long'>nedelja, 28. februar 1909. 00.00.01 GMT+00:00</result>
    <result timeType='full'>nedelja, 28. februar 1909. 00.00.01 GMT+00:00</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>00.59</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00.59</result>
    <result timeType='medium'>00.59.59</result>
    <result timeType='long'>00.59.59 GMT+00:00</result>
    <result timeType='full'>00.59.59 GMT+00:00</result>
@@ -130,7 +130,7 @@ locales='sh sh_BA sh_CS sh_YU'>
    <result timeType='medium'>utorak, 26. mart 1918. 00.59.59</result>
    <result timeType='long'>utorak, 26. mart 1918. 00.59.59 GMT+00:00</result>
    <result timeType='full'>utorak, 26. mart 1918. 00.59.59 GMT+00:00</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>01.00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01.00</result>
    <result timeType='medium'>01.00.00</result>
    <result timeType='long'>01.00.00 GMT+00:00</result>
    <result timeType='full'>01.00.00 GMT+00:00</result>
@@ -154,7 +154,7 @@ locales='sh sh_BA sh_CS sh_YU'>
    <result timeType='medium'>nedelja, 24. april 1932. 01.00.00</result>
    <result timeType='long'>nedelja, 24. april 1932. 01.00.00 GMT+00:00</result>
    <result timeType='full'>nedelja, 24. april 1932. 01.00.00 GMT+00:00</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>01.00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01.00</result>
    <result timeType='medium'>01.00.01</result>
    <result timeType='long'>01.00.01 GMT+00:00</result>
    <result timeType='full'>01.00.01 GMT+00:00</result>
@@ -178,7 +178,7 @@ locales='sh sh_BA sh_CS sh_YU'>
    <result timeType='medium'>nedelja, 20. maj 1945. 01.00.01</result>
    <result timeType='long'>nedelja, 20. maj 1945. 01.00.01 GMT+00:00</result>
    <result timeType='full'>nedelja, 20. maj 1945. 01.00.01 GMT+00:00</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11.59</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11.59</result>
    <result timeType='medium'>11.59.59</result>
    <result timeType='long'>11.59.59 GMT+00:00</result>
    <result timeType='full'>11.59.59 GMT+00:00</result>
@@ -202,7 +202,7 @@ locales='sh sh_BA sh_CS sh_YU'>
    <result timeType='medium'>sreda, 18. jun 1952. 11.59.59</result>
    <result timeType='long'>sreda, 18. jun 1952. 11.59.59 GMT+00:00</result>
    <result timeType='full'>sreda, 18. jun 1952. 11.59.59 GMT+00:00</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12.00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12.00</result>
    <result timeType='medium'>12.00.00</result>
    <result timeType='long'>12.00.00 GMT+00:00</result>
    <result timeType='full'>12.00.00 GMT+00:00</result>
@@ -226,7 +226,7 @@ locales='sh sh_BA sh_CS sh_YU'>
    <result timeType='medium'>ponedeljak, 16. jul 1973. 12.00.00</result>
    <result timeType='long'>ponedeljak, 16. jul 1973. 12.00.00 GMT+00:00</result>
    <result timeType='full'>ponedeljak, 16. jul 1973. 12.00.00 GMT+00:00</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12.00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12.00</result>
    <result timeType='medium'>12.00.01</result>
    <result timeType='long'>12.00.01 GMT+00:00</result>
    <result timeType='full'>12.00.01 GMT+00:00</result>
@@ -250,7 +250,7 @@ locales='sh sh_BA sh_CS sh_YU'>
    <result timeType='medium'>subota, 14. avgust 1999. 12.00.01</result>
    <result timeType='long'>subota, 14. avgust 1999. 12.00.01 GMT+00:00</result>
    <result timeType='full'>subota, 14. avgust 1999. 12.00.01 GMT+00:00</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>22.59</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22.59</result>
    <result timeType='medium'>22.59.59</result>
    <result timeType='long'>22.59.59 GMT+00:00</result>
    <result timeType='full'>22.59.59 GMT+00:00</result>
@@ -274,7 +274,7 @@ locales='sh sh_BA sh_CS sh_YU'>
    <result timeType='medium'>utorak, 12. septembar 2000. 22.59.59</result>
    <result timeType='long'>utorak, 12. septembar 2000. 22.59.59 GMT+00:00</result>
    <result timeType='full'>utorak, 12. septembar 2000. 22.59.59 GMT+00:00</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>23.00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23.00</result>
    <result timeType='medium'>23.00.00</result>
    <result timeType='long'>23.00.00 GMT+00:00</result>
    <result timeType='full'>23.00.00 GMT+00:00</result>
@@ -298,7 +298,7 @@ locales='sh sh_BA sh_CS sh_YU'>
    <result timeType='medium'>ponedeljak, 08. oktobar 2001. 23.00.00</result>
    <result timeType='long'>ponedeljak, 08. oktobar 2001. 23.00.00 GMT+00:00</result>
    <result timeType='full'>ponedeljak, 08. oktobar 2001. 23.00.00 GMT+00:00</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>23.00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23.00</result>
    <result timeType='medium'>23.00.01</result>
    <result timeType='long'>23.00.01 GMT+00:00</result>
    <result timeType='full'>23.00.01 GMT+00:00</result>
@@ -322,7 +322,7 @@ locales='sh sh_BA sh_CS sh_YU'>
    <result timeType='medium'>četvrtak, 04. novembar 2004. 23.00.01</result>
    <result timeType='long'>četvrtak, 04. novembar 2004. 23.00.01 GMT+00:00</result>
    <result timeType='full'>četvrtak, 04. novembar 2004. 23.00.01 GMT+00:00</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>23.59</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23.59</result>
    <result timeType='medium'>23.59.59</result>
    <result timeType='long'>23.59.59 GMT+00:00</result>
    <result timeType='full'>23.59.59 GMT+00:00</result>
@@ -347,6 +347,118 @@ locales='sh sh_BA sh_CS sh_YU'>
    <result timeType='long'>sreda, 01. decembar 2010. 23.59.59 GMT+00:00</result>
    <result timeType='full'>sreda, 01. decembar 2010. 23.59.59 GMT+00:00</result>
   </date>
+  <zoneFields 
+locales='sh sh_BA sh_CS sh_YU'>
+<!-- Serbo-Croatian [Srpsko-Hrvatski]; Serbo-Croatian (Bosnia and Herzegovina) [Srpsko-Hrvatski (Bosna i Hercegovina)]; Serbo-Croatian (Serbia And Montenegro) [Srpsko-Hrvatski (Srbija i Crna Gora)]; Serbo-Croatian (YU) [Srpsko-Hrvatski (YU)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result field='ZZZZ'>GMT-0800</result>
+   <result field='z'>GMT-0800</result>
+   <result field='zzzz'>GMT-0800</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (Sjedinjene Američke Države)</result>
+   <result field='vvvv'>Los Angeles (Sjedinjene Američke Države)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-0700</result>
+   <result field='z'>GMT-0700</result>
+   <result field='zzzz'>GMT-0700</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (Sjedinjene Američke Države)</result>
+   <result field='vvvv'>Los Angeles (Sjedinjene Američke Države)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-0300</result>
+   <result field='z'>GMT-0300</result>
+   <result field='zzzz'>GMT-0300</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentina)</result>
+   <result field='vvvv'>Buenos Aires (Argentina)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-0300</result>
+   <result field='z'>GMT-0300</result>
+   <result field='zzzz'>GMT-0300</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentina)</result>
+   <result field='vvvv'>Buenos Aires (Argentina)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-0300</result>
+   <result field='z'>GMT-0300</result>
+   <result field='zzzz'>GMT-0300</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentina)</result>
+   <result field='vvvv'>Buenos Aires (Argentina)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-0300</result>
+   <result field='z'>GMT-0300</result>
+   <result field='zzzz'>GMT-0300</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentina)</result>
+   <result field='vvvv'>Buenos Aires (Argentina)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-0500</result>
+   <result field='z'>GMT-0500</result>
+   <result field='zzzz'>GMT-0500</result>
+   <result field='v' parse='America/Havana'>Kuba</result>
+   <result field='vvvv'>Kuba</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-0400</result>
+   <result field='z'>GMT-0400</result>
+   <result field='zzzz'>GMT-0400</result>
+   <result field='v' parse='America/Havana'>Kuba</result>
+   <result field='vvvv'>Kuba</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+1100</result>
+   <result field='z'>GMT+1100</result>
+   <result field='zzzz'>GMT+1100</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australija)</result>
+   <result field='vvvv'>Sydney (Australija)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+1000</result>
+   <result field='z'>GMT+1000</result>
+   <result field='zzzz'>GMT+1000</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australija)</result>
+   <result field='vvvv'>Sydney (Australija)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+1100</result>
+   <result field='z'>GMT+1100</result>
+   <result field='zzzz'>GMT+1100</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australija)</result>
+   <result field='vvvv'>Sydney (Australija)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+1000</result>
+   <result field='z'>GMT+1000</result>
+   <result field='zzzz'>GMT+1000</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australija)</result>
+   <result field='vvvv'>Sydney (Australija)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+0000</result>
+   <result field='z'>GMT+0000</result>
+   <result field='zzzz'>GMT+0000</result>
+   <result field='v' parse='Europe/London'>Velika Britanija</result>
+   <result field='vvvv'>Velika Britanija</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+0100</result>
+   <result field='z'>GMT+0100</result>
+   <result field='zzzz'>GMT+0100</result>
+   <result field='v' parse='Europe/London'>Velika Britanija</result>
+   <result field='vvvv'>Velika Britanija</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+0300</result>
+   <result field='z'>GMT+0300</result>
+   <result field='zzzz'>GMT+0300</result>
+   <result field='v' parse='Europe/Moscow'>Moskva (Rusija)</result>
+   <result field='vvvv'>Moskva (Rusija)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+0400</result>
+   <result field='z'>GMT+0400</result>
+   <result field='zzzz'>GMT+0400</result>
+   <result field='v' parse='Europe/Moscow'>Moskva (Rusija)</result>
+   <result field='vvvv'>Moskva (Rusija)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-0300</result>
+   <result field='z'>GMT-0300</result>
+   <result field='zzzz'>GMT-0300</result>
+   <result field='v'>GMT-0300</result>
+   <result field='vvvv'>GMT-0300</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-0300</result>
+   <result field='z'>GMT-0300</result>
+   <result field='zzzz'>GMT-0300</result>
+   <result field='v'>GMT-0300</result>
+   <result field='vvvv'>GMT-0300</result>
+  </zoneFields>
   <collation 
 locales='sh sh_BA sh_CS sh_YU'>
 <!-- Serbo-Croatian [Srpsko-Hrvatski]; Serbo-Croatian (Bosnia and Herzegovina) [Srpsko-Hrvatski (Bosna i Hercegovina)]; Serbo-Croatian (Serbia And Montenegro) [Srpsko-Hrvatski (Srbija i Crna Gora)]; Serbo-Croatian (YU) [Srpsko-Hrvatski (YU)] -->
@@ -564,6 +676,6 @@ Xž
 XŽ
 xžx
 xŽx
-   </result>
+</result>
   </collation>
  </cldrTest>

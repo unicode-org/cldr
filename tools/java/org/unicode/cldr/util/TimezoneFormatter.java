@@ -39,6 +39,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
  * @author davis
  */
 public class TimezoneFormatter {
+	public static boolean SHOW_DRAFT = false;
 	/**
 	 * Length parameter for formatting
 	 */
@@ -132,7 +133,8 @@ public class TimezoneFormatter {
 
 	private void checkForDraft(String cleanPath) {
 		String xpath = desiredLocaleFile.getFullXPath(cleanPath);
-		if (xpath != null && xpath.indexOf("[@draft=\"true\"]") >= 0) {
+		
+		if (SHOW_DRAFT && xpath != null && xpath.indexOf("[@draft=\"true\"]") >= 0) {
 			System.out.println("Draft in " + inputLocaleID + ":\t" + cleanPath);
 		}
 	}
@@ -239,6 +241,28 @@ public class TimezoneFormatter {
 	private transient final Map localizedExplicit_zone = new HashMap();
 	private transient final Map country_zone = new HashMap();
 	
+	/**
+	 * Returns zoneid. In case of an offset, returns "Etc/GMT+/-HH" or "Etc/GMT+/-HHmm".
+	 * Remember that Olson IDs have reversed signs!
+	 *
+	 */
+	public String parse(String inputText) {
+		long[] offsetMillisOutput = new long[1];
+		String result = parse(inputText, offsetMillisOutput);
+		if (result == null || result.length() != 0) return result;
+		long offsetMillis = offsetMillisOutput[0];
+		String sign = "Etc/GMT-";
+		if (offsetMillis < 0) {
+			offsetMillis = -offsetMillis;
+			sign = "Etc/GMT+";
+		}
+		long minutes = (offsetMillis + 30*1000) / (60*1000);
+		long hours = minutes / 60;
+		minutes = minutes % 60;
+		result = sign + String.valueOf(hours);
+		if (minutes != 0) result += ":" + String.valueOf(100 + minutes).substring(1,3);
+		return result;	
+	}
 	/**
 	 * Returns zoneid, or if a gmt offset, returns "" and a millis value in offsetMillis[0].
 	 * If we can't parse, return null

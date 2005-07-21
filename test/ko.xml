@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.2/beta/cldrTest.dtd'>
+<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.2' base='ko'>
+ <cldrTest version='1.4' base='ko'>
  <!-- Korean [한국어] -->
   <number 
 locales='ko ko_KR'>
@@ -58,7 +58,7 @@ locales='ko ko_KR'>
   <date 
 locales='ko'>
 <!-- Korean [한국어] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>오전 12시 00분</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>오전 12시 00분</result>
    <result timeType='medium'>오전 12시 00분</result>
    <result timeType='long'>오전 12시 00분 00초</result>
    <result timeType='full'>오전 12시 00분 00초 GMT+00:00</result>
@@ -82,7 +82,7 @@ locales='ko'>
    <result timeType='medium'>1900년 1월 31일 수요일 오전 12시 00분</result>
    <result timeType='long'>1900년 1월 31일 수요일 오전 12시 00분 00초</result>
    <result timeType='full'>1900년 1월 31일 수요일 오전 12시 00분 00초 GMT+00:00</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>오전 12시 00분</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>오전 12시 00분</result>
    <result timeType='medium'>오전 12시 00분</result>
    <result timeType='long'>오전 12시 00분 01초</result>
    <result timeType='full'>오전 12시 00분 01초 GMT+00:00</result>
@@ -106,7 +106,7 @@ locales='ko'>
    <result timeType='medium'>1909년 2월 28일 일요일 오전 12시 00분</result>
    <result timeType='long'>1909년 2월 28일 일요일 오전 12시 00분 01초</result>
    <result timeType='full'>1909년 2월 28일 일요일 오전 12시 00분 01초 GMT+00:00</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>오전 12시 59분</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>오전 12시 59분</result>
    <result timeType='medium'>오전 12시 59분</result>
    <result timeType='long'>오전 12시 59분 59초</result>
    <result timeType='full'>오전 12시 59분 59초 GMT+00:00</result>
@@ -130,7 +130,7 @@ locales='ko'>
    <result timeType='medium'>1918년 3월 26일 화요일 오전 12시 59분</result>
    <result timeType='long'>1918년 3월 26일 화요일 오전 12시 59분 59초</result>
    <result timeType='full'>1918년 3월 26일 화요일 오전 12시 59분 59초 GMT+00:00</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>오전 01시 00분</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>오전 01시 00분</result>
    <result timeType='medium'>오전 01시 00분</result>
    <result timeType='long'>오전 01시 00분 00초</result>
    <result timeType='full'>오전 01시 00분 00초 GMT+00:00</result>
@@ -154,7 +154,7 @@ locales='ko'>
    <result timeType='medium'>1932년 4월 24일 일요일 오전 01시 00분</result>
    <result timeType='long'>1932년 4월 24일 일요일 오전 01시 00분 00초</result>
    <result timeType='full'>1932년 4월 24일 일요일 오전 01시 00분 00초 GMT+00:00</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>오전 01시 00분</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>오전 01시 00분</result>
    <result timeType='medium'>오전 01시 00분</result>
    <result timeType='long'>오전 01시 00분 01초</result>
    <result timeType='full'>오전 01시 00분 01초 GMT+00:00</result>
@@ -178,7 +178,7 @@ locales='ko'>
    <result timeType='medium'>1945년 5월 20일 일요일 오전 01시 00분</result>
    <result timeType='long'>1945년 5월 20일 일요일 오전 01시 00분 01초</result>
    <result timeType='full'>1945년 5월 20일 일요일 오전 01시 00분 01초 GMT+00:00</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>오전 11시 59분</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>오전 11시 59분</result>
    <result timeType='medium'>오전 11시 59분</result>
    <result timeType='long'>오전 11시 59분 59초</result>
    <result timeType='full'>오전 11시 59분 59초 GMT+00:00</result>
@@ -202,7 +202,7 @@ locales='ko'>
    <result timeType='medium'>1952년 6월 18일 수요일 오전 11시 59분</result>
    <result timeType='long'>1952년 6월 18일 수요일 오전 11시 59분 59초</result>
    <result timeType='full'>1952년 6월 18일 수요일 오전 11시 59분 59초 GMT+00:00</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>오후 12시 00분</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>오후 12시 00분</result>
    <result timeType='medium'>오후 12시 00분</result>
    <result timeType='long'>오후 12시 00분 00초</result>
    <result timeType='full'>오후 12시 00분 00초 GMT+00:00</result>
@@ -226,7 +226,7 @@ locales='ko'>
    <result timeType='medium'>1973년 7월 16일 월요일 오후 12시 00분</result>
    <result timeType='long'>1973년 7월 16일 월요일 오후 12시 00분 00초</result>
    <result timeType='full'>1973년 7월 16일 월요일 오후 12시 00분 00초 GMT+00:00</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>오후 12시 00분</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>오후 12시 00분</result>
    <result timeType='medium'>오후 12시 00분</result>
    <result timeType='long'>오후 12시 00분 01초</result>
    <result timeType='full'>오후 12시 00분 01초 GMT+00:00</result>
@@ -250,7 +250,7 @@ locales='ko'>
    <result timeType='medium'>1999년 8월 14일 토요일 오후 12시 00분</result>
    <result timeType='long'>1999년 8월 14일 토요일 오후 12시 00분 01초</result>
    <result timeType='full'>1999년 8월 14일 토요일 오후 12시 00분 01초 GMT+00:00</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>오후 10시 59분</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>오후 10시 59분</result>
    <result timeType='medium'>오후 10시 59분</result>
    <result timeType='long'>오후 10시 59분 59초</result>
    <result timeType='full'>오후 10시 59분 59초 GMT+00:00</result>
@@ -274,7 +274,7 @@ locales='ko'>
    <result timeType='medium'>2000년 9월 12일 화요일 오후 10시 59분</result>
    <result timeType='long'>2000년 9월 12일 화요일 오후 10시 59분 59초</result>
    <result timeType='full'>2000년 9월 12일 화요일 오후 10시 59분 59초 GMT+00:00</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>오후 11시 00분</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>오후 11시 00분</result>
    <result timeType='medium'>오후 11시 00분</result>
    <result timeType='long'>오후 11시 00분 00초</result>
    <result timeType='full'>오후 11시 00분 00초 GMT+00:00</result>
@@ -298,7 +298,7 @@ locales='ko'>
    <result timeType='medium'>2001년 10월 8일 월요일 오후 11시 00분</result>
    <result timeType='long'>2001년 10월 8일 월요일 오후 11시 00분 00초</result>
    <result timeType='full'>2001년 10월 8일 월요일 오후 11시 00분 00초 GMT+00:00</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>오후 11시 00분</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>오후 11시 00분</result>
    <result timeType='medium'>오후 11시 00분</result>
    <result timeType='long'>오후 11시 00분 01초</result>
    <result timeType='full'>오후 11시 00분 01초 GMT+00:00</result>
@@ -322,7 +322,7 @@ locales='ko'>
    <result timeType='medium'>2004년 11월 4일 목요일 오후 11시 00분</result>
    <result timeType='long'>2004년 11월 4일 목요일 오후 11시 00분 01초</result>
    <result timeType='full'>2004년 11월 4일 목요일 오후 11시 00분 01초 GMT+00:00</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>오후 11시 59분</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>오후 11시 59분</result>
    <result timeType='medium'>오후 11시 59분</result>
    <result timeType='long'>오후 11시 59분 59초</result>
    <result timeType='full'>오후 11시 59분 59초 GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='ko'>
   <date 
 locales='ko_KR'>
 <!-- Korean (South Korea) [한국어 (대한민국)] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>오전 12:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>오전 12:00</result>
    <result timeType='medium'>오전 12:00:00</result>
    <result timeType='long'>오전 12시 00분 00초</result>
    <result timeType='full'>오전 12시 00분 00초 GMT+00:00</result>
@@ -374,7 +374,7 @@ locales='ko_KR'>
    <result timeType='medium'>1900년 1월 31일 수요일 오전 12:00:00</result>
    <result timeType='long'>1900년 1월 31일 수요일 오전 12시 00분 00초</result>
    <result timeType='full'>1900년 1월 31일 수요일 오전 12시 00분 00초 GMT+00:00</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>오전 12:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>오전 12:00</result>
    <result timeType='medium'>오전 12:00:01</result>
    <result timeType='long'>오전 12시 00분 01초</result>
    <result timeType='full'>오전 12시 00분 01초 GMT+00:00</result>
@@ -398,7 +398,7 @@ locales='ko_KR'>
    <result timeType='medium'>1909년 2월 28일 일요일 오전 12:00:01</result>
    <result timeType='long'>1909년 2월 28일 일요일 오전 12시 00분 01초</result>
    <result timeType='full'>1909년 2월 28일 일요일 오전 12시 00분 01초 GMT+00:00</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>오전 12:59</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>오전 12:59</result>
    <result timeType='medium'>오전 12:59:59</result>
    <result timeType='long'>오전 12시 59분 59초</result>
    <result timeType='full'>오전 12시 59분 59초 GMT+00:00</result>
@@ -422,7 +422,7 @@ locales='ko_KR'>
    <result timeType='medium'>1918년 3월 26일 화요일 오전 12:59:59</result>
    <result timeType='long'>1918년 3월 26일 화요일 오전 12시 59분 59초</result>
    <result timeType='full'>1918년 3월 26일 화요일 오전 12시 59분 59초 GMT+00:00</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>오전 1:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>오전 1:00</result>
    <result timeType='medium'>오전 1:00:00</result>
    <result timeType='long'>오전 01시 00분 00초</result>
    <result timeType='full'>오전 01시 00분 00초 GMT+00:00</result>
@@ -446,7 +446,7 @@ locales='ko_KR'>
    <result timeType='medium'>1932년 4월 24일 일요일 오전 1:00:00</result>
    <result timeType='long'>1932년 4월 24일 일요일 오전 01시 00분 00초</result>
    <result timeType='full'>1932년 4월 24일 일요일 오전 01시 00분 00초 GMT+00:00</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>오전 1:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>오전 1:00</result>
    <result timeType='medium'>오전 1:00:01</result>
    <result timeType='long'>오전 01시 00분 01초</result>
    <result timeType='full'>오전 01시 00분 01초 GMT+00:00</result>
@@ -470,7 +470,7 @@ locales='ko_KR'>
    <result timeType='medium'>1945년 5월 20일 일요일 오전 1:00:01</result>
    <result timeType='long'>1945년 5월 20일 일요일 오전 01시 00분 01초</result>
    <result timeType='full'>1945년 5월 20일 일요일 오전 01시 00분 01초 GMT+00:00</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>오전 11:59</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>오전 11:59</result>
    <result timeType='medium'>오전 11:59:59</result>
    <result timeType='long'>오전 11시 59분 59초</result>
    <result timeType='full'>오전 11시 59분 59초 GMT+00:00</result>
@@ -494,7 +494,7 @@ locales='ko_KR'>
    <result timeType='medium'>1952년 6월 18일 수요일 오전 11:59:59</result>
    <result timeType='long'>1952년 6월 18일 수요일 오전 11시 59분 59초</result>
    <result timeType='full'>1952년 6월 18일 수요일 오전 11시 59분 59초 GMT+00:00</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>오후 12:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>오후 12:00</result>
    <result timeType='medium'>오후 12:00:00</result>
    <result timeType='long'>오후 12시 00분 00초</result>
    <result timeType='full'>오후 12시 00분 00초 GMT+00:00</result>
@@ -518,7 +518,7 @@ locales='ko_KR'>
    <result timeType='medium'>1973년 7월 16일 월요일 오후 12:00:00</result>
    <result timeType='long'>1973년 7월 16일 월요일 오후 12시 00분 00초</result>
    <result timeType='full'>1973년 7월 16일 월요일 오후 12시 00분 00초 GMT+00:00</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>오후 12:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>오후 12:00</result>
    <result timeType='medium'>오후 12:00:01</result>
    <result timeType='long'>오후 12시 00분 01초</result>
    <result timeType='full'>오후 12시 00분 01초 GMT+00:00</result>
@@ -542,7 +542,7 @@ locales='ko_KR'>
    <result timeType='medium'>1999년 8월 14일 토요일 오후 12:00:01</result>
    <result timeType='long'>1999년 8월 14일 토요일 오후 12시 00분 01초</result>
    <result timeType='full'>1999년 8월 14일 토요일 오후 12시 00분 01초 GMT+00:00</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>오후 10:59</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>오후 10:59</result>
    <result timeType='medium'>오후 10:59:59</result>
    <result timeType='long'>오후 10시 59분 59초</result>
    <result timeType='full'>오후 10시 59분 59초 GMT+00:00</result>
@@ -566,7 +566,7 @@ locales='ko_KR'>
    <result timeType='medium'>2000년 9월 12일 화요일 오후 10:59:59</result>
    <result timeType='long'>2000년 9월 12일 화요일 오후 10시 59분 59초</result>
    <result timeType='full'>2000년 9월 12일 화요일 오후 10시 59분 59초 GMT+00:00</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>오후 11:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>오후 11:00</result>
    <result timeType='medium'>오후 11:00:00</result>
    <result timeType='long'>오후 11시 00분 00초</result>
    <result timeType='full'>오후 11시 00분 00초 GMT+00:00</result>
@@ -590,7 +590,7 @@ locales='ko_KR'>
    <result timeType='medium'>2001년 10월 8일 월요일 오후 11:00:00</result>
    <result timeType='long'>2001년 10월 8일 월요일 오후 11시 00분 00초</result>
    <result timeType='full'>2001년 10월 8일 월요일 오후 11시 00분 00초 GMT+00:00</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>오후 11:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>오후 11:00</result>
    <result timeType='medium'>오후 11:00:01</result>
    <result timeType='long'>오후 11시 00분 01초</result>
    <result timeType='full'>오후 11시 00분 01초 GMT+00:00</result>
@@ -614,7 +614,7 @@ locales='ko_KR'>
    <result timeType='medium'>2004년 11월 4일 목요일 오후 11:00:01</result>
    <result timeType='long'>2004년 11월 4일 목요일 오후 11시 00분 01초</result>
    <result timeType='full'>2004년 11월 4일 목요일 오후 11시 00분 01초 GMT+00:00</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>오후 11:59</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>오후 11:59</result>
    <result timeType='medium'>오후 11:59:59</result>
    <result timeType='long'>오후 11시 59분 59초</result>
    <result timeType='full'>오후 11시 59분 59초 GMT+00:00</result>
@@ -639,6 +639,118 @@ locales='ko_KR'>
    <result timeType='long'>2010년 12월 1일 수요일 오후 11시 59분 59초</result>
    <result timeType='full'>2010년 12월 1일 수요일 오후 11시 59분 59초 GMT+00:00</result>
   </date>
+  <zoneFields 
+locales='ko ko_KR'>
+<!-- Korean [한국어]; Korean (South Korea) [한국어 (대한민국)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result field='ZZZZ'>GMT-08:00</result>
+   <result field='z' parse='America/Los_Angeles'>PST</result>
+   <result field='zzzz'>태평양 표준시</result>
+   <result field='v'>로스앤젤레스 (미국)</result>
+   <result field='vvvv'>로스앤젤레스 (미국)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-07:00</result>
+   <result field='z' parse='America/Los_Angeles'>PDT</result>
+   <result field='zzzz'>태평양 기준시</result>
+   <result field='v'>로스앤젤레스 (미국)</result>
+   <result field='vvvv'>로스앤젤레스 (미국)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (아르헨티나)</result>
+   <result field='vvvv'>Buenos Aires (아르헨티나)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (아르헨티나)</result>
+   <result field='vvvv'>Buenos Aires (아르헨티나)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (아르헨티나)</result>
+   <result field='vvvv'>Buenos Aires (아르헨티나)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (아르헨티나)</result>
+   <result field='vvvv'>Buenos Aires (아르헨티나)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-05:00</result>
+   <result field='z'>GMT-05:00</result>
+   <result field='zzzz'>GMT-05:00</result>
+   <result field='v' parse='America/Havana'>쿠바</result>
+   <result field='vvvv'>쿠바</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-04:00</result>
+   <result field='z'>GMT-04:00</result>
+   <result field='zzzz'>GMT-04:00</result>
+   <result field='v' parse='America/Havana'>쿠바</result>
+   <result field='vvvv'>쿠바</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (오스트레일리아)</result>
+   <result field='vvvv'>Sydney (오스트레일리아)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (오스트레일리아)</result>
+   <result field='vvvv'>Sydney (오스트레일리아)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (오스트레일리아)</result>
+   <result field='vvvv'>Sydney (오스트레일리아)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (오스트레일리아)</result>
+   <result field='vvvv'>Sydney (오스트레일리아)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+00:00</result>
+   <result field='z'>GMT+00:00</result>
+   <result field='zzzz'>GMT+00:00</result>
+   <result field='v' parse='Europe/London'>영국</result>
+   <result field='vvvv'>영국</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+01:00</result>
+   <result field='z'>GMT+01:00</result>
+   <result field='zzzz'>GMT+01:00</result>
+   <result field='v' parse='Europe/London'>영국</result>
+   <result field='vvvv'>영국</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+03:00</result>
+   <result field='z'>GMT+03:00</result>
+   <result field='zzzz'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (러시아)</result>
+   <result field='vvvv'>Moscow (러시아)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+04:00</result>
+   <result field='z'>GMT+04:00</result>
+   <result field='zzzz'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (러시아)</result>
+   <result field='vvvv'>Moscow (러시아)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+  </zoneFields>
   <collation 
 locales='ko ko_KR'>
 <!-- Korean [한국어]; Korean (South Korea) [한국어 (대한민국)] -->
@@ -2404,6 +2516,6 @@ x힢x
 x힣
 X힣
 x힣x
-   </result>
+</result>
   </collation>
  </cldrTest>

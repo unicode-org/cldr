@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.2/beta/cldrTest.dtd'>
+<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.2' base='so'>
+ <cldrTest version='1.4' base='so'>
  <!-- Somali [Soomaali] -->
   <number 
 locales='so so_DJ so_ET so_KE so_SO'>
@@ -58,7 +58,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
   <date 
 locales='so so_DJ so_ET so_KE so_SO'>
 <!-- Somali [Soomaali]; Somali (Djibouti) [Soomaali (Jabuuti)]; Somali (Ethiopia) [Soomaali (Itoobiya)]; Somali (Kenya) [Soomaali (Kiiniya)]; Somali (Somalia) [Soomaali (Soomaaliya)] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>12:00 sn</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 sn</result>
    <result timeType='medium'>12:00:00 sn</result>
    <result timeType='long'>12:00:00 sn</result>
    <result timeType='full'>12:00:00 sn</result>
@@ -82,7 +82,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result timeType='medium'>Arbaco, Bisha Koobaad 31, 1900 12:00:00 sn</result>
    <result timeType='long'>Arbaco, Bisha Koobaad 31, 1900 12:00:00 sn</result>
    <result timeType='full'>Arbaco, Bisha Koobaad 31, 1900 12:00:00 sn</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>12:00 sn</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 sn</result>
    <result timeType='medium'>12:00:01 sn</result>
    <result timeType='long'>12:00:01 sn</result>
    <result timeType='full'>12:00:01 sn</result>
@@ -106,7 +106,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result timeType='medium'>Axad, Bisha Labaad 28, 1909 12:00:01 sn</result>
    <result timeType='long'>Axad, Bisha Labaad 28, 1909 12:00:01 sn</result>
    <result timeType='full'>Axad, Bisha Labaad 28, 1909 12:00:01 sn</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>12:59 sn</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 sn</result>
    <result timeType='medium'>12:59:59 sn</result>
    <result timeType='long'>12:59:59 sn</result>
    <result timeType='full'>12:59:59 sn</result>
@@ -130,7 +130,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result timeType='medium'>Salaaso, Bisha Saddexaad 26, 1918 12:59:59 sn</result>
    <result timeType='long'>Salaaso, Bisha Saddexaad 26, 1918 12:59:59 sn</result>
    <result timeType='full'>Salaaso, Bisha Saddexaad 26, 1918 12:59:59 sn</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>1:00 sn</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 sn</result>
    <result timeType='medium'>1:00:00 sn</result>
    <result timeType='long'>1:00:00 sn</result>
    <result timeType='full'>1:00:00 sn</result>
@@ -154,7 +154,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result timeType='medium'>Axad, Bisha Afraad 24, 1932 1:00:00 sn</result>
    <result timeType='long'>Axad, Bisha Afraad 24, 1932 1:00:00 sn</result>
    <result timeType='full'>Axad, Bisha Afraad 24, 1932 1:00:00 sn</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>1:00 sn</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 sn</result>
    <result timeType='medium'>1:00:01 sn</result>
    <result timeType='long'>1:00:01 sn</result>
    <result timeType='full'>1:00:01 sn</result>
@@ -178,7 +178,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result timeType='medium'>Axad, Bisha Shanaad 20, 1945 1:00:01 sn</result>
    <result timeType='long'>Axad, Bisha Shanaad 20, 1945 1:00:01 sn</result>
    <result timeType='full'>Axad, Bisha Shanaad 20, 1945 1:00:01 sn</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59 sn</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 sn</result>
    <result timeType='medium'>11:59:59 sn</result>
    <result timeType='long'>11:59:59 sn</result>
    <result timeType='full'>11:59:59 sn</result>
@@ -202,7 +202,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result timeType='medium'>Arbaco, Bisha Lixaad 18, 1952 11:59:59 sn</result>
    <result timeType='long'>Arbaco, Bisha Lixaad 18, 1952 11:59:59 sn</result>
    <result timeType='full'>Arbaco, Bisha Lixaad 18, 1952 11:59:59 sn</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00 gn</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 gn</result>
    <result timeType='medium'>12:00:00 gn</result>
    <result timeType='long'>12:00:00 gn</result>
    <result timeType='full'>12:00:00 gn</result>
@@ -226,7 +226,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result timeType='medium'>Isniin, Bisha Todobaad 16, 1973 12:00:00 gn</result>
    <result timeType='long'>Isniin, Bisha Todobaad 16, 1973 12:00:00 gn</result>
    <result timeType='full'>Isniin, Bisha Todobaad 16, 1973 12:00:00 gn</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00 gn</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 gn</result>
    <result timeType='medium'>12:00:01 gn</result>
    <result timeType='long'>12:00:01 gn</result>
    <result timeType='full'>12:00:01 gn</result>
@@ -250,7 +250,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result timeType='medium'>Sabti, Bisha Sideedaad 14, 1999 12:00:01 gn</result>
    <result timeType='long'>Sabti, Bisha Sideedaad 14, 1999 12:00:01 gn</result>
    <result timeType='full'>Sabti, Bisha Sideedaad 14, 1999 12:00:01 gn</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>10:59 gn</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 gn</result>
    <result timeType='medium'>10:59:59 gn</result>
    <result timeType='long'>10:59:59 gn</result>
    <result timeType='full'>10:59:59 gn</result>
@@ -274,7 +274,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result timeType='medium'>Salaaso, Bisha Sagaalaad 12, 2000 10:59:59 gn</result>
    <result timeType='long'>Salaaso, Bisha Sagaalaad 12, 2000 10:59:59 gn</result>
    <result timeType='full'>Salaaso, Bisha Sagaalaad 12, 2000 10:59:59 gn</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>11:00 gn</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 gn</result>
    <result timeType='medium'>11:00:00 gn</result>
    <result timeType='long'>11:00:00 gn</result>
    <result timeType='full'>11:00:00 gn</result>
@@ -298,7 +298,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result timeType='medium'>Isniin, Bisha Tobnaad 08, 2001 11:00:00 gn</result>
    <result timeType='long'>Isniin, Bisha Tobnaad 08, 2001 11:00:00 gn</result>
    <result timeType='full'>Isniin, Bisha Tobnaad 08, 2001 11:00:00 gn</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>11:00 gn</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 gn</result>
    <result timeType='medium'>11:00:01 gn</result>
    <result timeType='long'>11:00:01 gn</result>
    <result timeType='full'>11:00:01 gn</result>
@@ -322,7 +322,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result timeType='medium'>Khamiis, Bisha Kow iyo Tobnaad 04, 2004 11:00:01 gn</result>
    <result timeType='long'>Khamiis, Bisha Kow iyo Tobnaad 04, 2004 11:00:01 gn</result>
    <result timeType='full'>Khamiis, Bisha Kow iyo Tobnaad 04, 2004 11:00:01 gn</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>11:59 gn</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 gn</result>
    <result timeType='medium'>11:59:59 gn</result>
    <result timeType='long'>11:59:59 gn</result>
    <result timeType='full'>11:59:59 gn</result>
@@ -347,6 +347,118 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result timeType='long'>Arbaco, Bisha Laba iyo Tobnaad 01, 2010 11:59:59 gn</result>
    <result timeType='full'>Arbaco, Bisha Laba iyo Tobnaad 01, 2010 11:59:59 gn</result>
   </date>
+  <zoneFields 
+locales='so so_DJ so_ET so_KE so_SO'>
+<!-- Somali [Soomaali]; Somali (Djibouti) [Soomaali (Jabuuti)]; Somali (Ethiopia) [Soomaali (Itoobiya)]; Somali (Kenya) [Soomaali (Kiiniya)]; Somali (Somalia) [Soomaali (Soomaaliya)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result field='ZZZZ'>GMT-08:00</result>
+   <result field='z'>GMT-08:00</result>
+   <result field='zzzz'>GMT-08:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (Qaramada Midoobey ee Maraykanka)</result>
+   <result field='vvvv'>Los Angeles (Qaramada Midoobey ee Maraykanka)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-07:00</result>
+   <result field='z'>GMT-07:00</result>
+   <result field='zzzz'>GMT-07:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (Qaramada Midoobey ee Maraykanka)</result>
+   <result field='vvvv'>Los Angeles (Qaramada Midoobey ee Maraykanka)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-05:00</result>
+   <result field='z'>GMT-05:00</result>
+   <result field='zzzz'>GMT-05:00</result>
+   <result field='v' parse='America/Havana'>Kuuba</result>
+   <result field='vvvv'>Kuuba</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-04:00</result>
+   <result field='z'>GMT-04:00</result>
+   <result field='zzzz'>GMT-04:00</result>
+   <result field='v' parse='America/Havana'>Kuuba</result>
+   <result field='vvvv'>Kuuba</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Awstraaliya)</result>
+   <result field='vvvv'>Sydney (Awstraaliya)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Awstraaliya)</result>
+   <result field='vvvv'>Sydney (Awstraaliya)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Awstraaliya)</result>
+   <result field='vvvv'>Sydney (Awstraaliya)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Awstraaliya)</result>
+   <result field='vvvv'>Sydney (Awstraaliya)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+00:00</result>
+   <result field='z'>GMT+00:00</result>
+   <result field='zzzz'>GMT+00:00</result>
+   <result field='v' parse='Europe/London'>United Kingdom</result>
+   <result field='vvvv'>United Kingdom</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+01:00</result>
+   <result field='z'>GMT+01:00</result>
+   <result field='zzzz'>GMT+01:00</result>
+   <result field='v' parse='Europe/London'>United Kingdom</result>
+   <result field='vvvv'>United Kingdom</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+03:00</result>
+   <result field='z'>GMT+03:00</result>
+   <result field='zzzz'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (Ruush)</result>
+   <result field='vvvv'>Moscow (Ruush)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+04:00</result>
+   <result field='z'>GMT+04:00</result>
+   <result field='zzzz'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (Ruush)</result>
+   <result field='vvvv'>Moscow (Ruush)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+  </zoneFields>
   <collation 
 locales='so so_DJ so_ET so_KE so_SO'>
 <!-- Somali [Soomaali]; Somali (Djibouti) [Soomaali (Jabuuti)]; Somali (Ethiopia) [Soomaali (Itoobiya)]; Somali (Kenya) [Soomaali (Kiiniya)]; Somali (Somalia) [Soomaali (Soomaaliya)] -->
@@ -522,6 +634,6 @@ Xz
 XZ
 xzx
 xZx
-   </result>
+</result>
   </collation>
  </cldrTest>

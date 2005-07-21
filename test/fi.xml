@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.2/beta/cldrTest.dtd'>
+<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.2' base='fi'>
+ <cldrTest version='1.4' base='fi'>
  <!-- Finnish [suomi] -->
   <number 
 locales='fi fi_FI'>
@@ -58,7 +58,7 @@ locales='fi fi_FI'>
   <date 
 locales='fi fi_FI'>
 <!-- Finnish [suomi]; Finnish (Finland) [suomi (Suomi)] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>0.00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>0.00</result>
    <result timeType='medium'>0.00.00</result>
    <result timeType='long'>klo 0.00.00</result>
    <result timeType='full'>0.00.00 GMT+00:00</result>
@@ -82,7 +82,7 @@ locales='fi fi_FI'>
    <result timeType='medium'>keskiviikkona 31. tammikuuta 1900 0.00.00</result>
    <result timeType='long'>keskiviikkona 31. tammikuuta 1900 klo 0.00.00</result>
    <result timeType='full'>keskiviikkona 31. tammikuuta 1900 0.00.00 GMT+00:00</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>0.00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>0.00</result>
    <result timeType='medium'>0.00.01</result>
    <result timeType='long'>klo 0.00.01</result>
    <result timeType='full'>0.00.01 GMT+00:00</result>
@@ -106,7 +106,7 @@ locales='fi fi_FI'>
    <result timeType='medium'>sunnuntaina 28. helmikuuta 1909 0.00.01</result>
    <result timeType='long'>sunnuntaina 28. helmikuuta 1909 klo 0.00.01</result>
    <result timeType='full'>sunnuntaina 28. helmikuuta 1909 0.00.01 GMT+00:00</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>0.59</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>0.59</result>
    <result timeType='medium'>0.59.59</result>
    <result timeType='long'>klo 0.59.59</result>
    <result timeType='full'>0.59.59 GMT+00:00</result>
@@ -130,7 +130,7 @@ locales='fi fi_FI'>
    <result timeType='medium'>tiistaina 26. maaliskuuta 1918 0.59.59</result>
    <result timeType='long'>tiistaina 26. maaliskuuta 1918 klo 0.59.59</result>
    <result timeType='full'>tiistaina 26. maaliskuuta 1918 0.59.59 GMT+00:00</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>1.00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1.00</result>
    <result timeType='medium'>1.00.00</result>
    <result timeType='long'>klo 1.00.00</result>
    <result timeType='full'>1.00.00 GMT+00:00</result>
@@ -154,7 +154,7 @@ locales='fi fi_FI'>
    <result timeType='medium'>sunnuntaina 24. huhtikuuta 1932 1.00.00</result>
    <result timeType='long'>sunnuntaina 24. huhtikuuta 1932 klo 1.00.00</result>
    <result timeType='full'>sunnuntaina 24. huhtikuuta 1932 1.00.00 GMT+00:00</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>1.00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1.00</result>
    <result timeType='medium'>1.00.01</result>
    <result timeType='long'>klo 1.00.01</result>
    <result timeType='full'>1.00.01 GMT+00:00</result>
@@ -178,7 +178,7 @@ locales='fi fi_FI'>
    <result timeType='medium'>sunnuntaina 20. toukokuuta 1945 1.00.01</result>
    <result timeType='long'>sunnuntaina 20. toukokuuta 1945 klo 1.00.01</result>
    <result timeType='full'>sunnuntaina 20. toukokuuta 1945 1.00.01 GMT+00:00</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11.59</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11.59</result>
    <result timeType='medium'>11.59.59</result>
    <result timeType='long'>klo 11.59.59</result>
    <result timeType='full'>11.59.59 GMT+00:00</result>
@@ -202,7 +202,7 @@ locales='fi fi_FI'>
    <result timeType='medium'>keskiviikkona 18. kesäkuuta 1952 11.59.59</result>
    <result timeType='long'>keskiviikkona 18. kesäkuuta 1952 klo 11.59.59</result>
    <result timeType='full'>keskiviikkona 18. kesäkuuta 1952 11.59.59 GMT+00:00</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12.00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12.00</result>
    <result timeType='medium'>12.00.00</result>
    <result timeType='long'>klo 12.00.00</result>
    <result timeType='full'>12.00.00 GMT+00:00</result>
@@ -226,7 +226,7 @@ locales='fi fi_FI'>
    <result timeType='medium'>maanantaina 16. heinäkuuta 1973 12.00.00</result>
    <result timeType='long'>maanantaina 16. heinäkuuta 1973 klo 12.00.00</result>
    <result timeType='full'>maanantaina 16. heinäkuuta 1973 12.00.00 GMT+00:00</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12.00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12.00</result>
    <result timeType='medium'>12.00.01</result>
    <result timeType='long'>klo 12.00.01</result>
    <result timeType='full'>12.00.01 GMT+00:00</result>
@@ -250,7 +250,7 @@ locales='fi fi_FI'>
    <result timeType='medium'>lauantaina 14. elokuuta 1999 12.00.01</result>
    <result timeType='long'>lauantaina 14. elokuuta 1999 klo 12.00.01</result>
    <result timeType='full'>lauantaina 14. elokuuta 1999 12.00.01 GMT+00:00</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>22.59</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22.59</result>
    <result timeType='medium'>22.59.59</result>
    <result timeType='long'>klo 22.59.59</result>
    <result timeType='full'>22.59.59 GMT+00:00</result>
@@ -274,7 +274,7 @@ locales='fi fi_FI'>
    <result timeType='medium'>tiistaina 12. syyskuuta 2000 22.59.59</result>
    <result timeType='long'>tiistaina 12. syyskuuta 2000 klo 22.59.59</result>
    <result timeType='full'>tiistaina 12. syyskuuta 2000 22.59.59 GMT+00:00</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>23.00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23.00</result>
    <result timeType='medium'>23.00.00</result>
    <result timeType='long'>klo 23.00.00</result>
    <result timeType='full'>23.00.00 GMT+00:00</result>
@@ -298,7 +298,7 @@ locales='fi fi_FI'>
    <result timeType='medium'>maanantaina 8. lokakuuta 2001 23.00.00</result>
    <result timeType='long'>maanantaina 8. lokakuuta 2001 klo 23.00.00</result>
    <result timeType='full'>maanantaina 8. lokakuuta 2001 23.00.00 GMT+00:00</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>23.00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23.00</result>
    <result timeType='medium'>23.00.01</result>
    <result timeType='long'>klo 23.00.01</result>
    <result timeType='full'>23.00.01 GMT+00:00</result>
@@ -322,7 +322,7 @@ locales='fi fi_FI'>
    <result timeType='medium'>torstaina 4. marraskuuta 2004 23.00.01</result>
    <result timeType='long'>torstaina 4. marraskuuta 2004 klo 23.00.01</result>
    <result timeType='full'>torstaina 4. marraskuuta 2004 23.00.01 GMT+00:00</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>23.59</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23.59</result>
    <result timeType='medium'>23.59.59</result>
    <result timeType='long'>klo 23.59.59</result>
    <result timeType='full'>23.59.59 GMT+00:00</result>
@@ -347,9 +347,121 @@ locales='fi fi_FI'>
    <result timeType='long'>keskiviikkona 1. joulukuuta 2010 klo 23.59.59</result>
    <result timeType='full'>keskiviikkona 1. joulukuuta 2010 23.59.59 GMT+00:00</result>
   </date>
-  <collation 
+  <zoneFields 
 locales='fi fi_FI'>
 <!-- Finnish [suomi]; Finnish (Finland) [suomi (Suomi)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result field='ZZZZ'>GMT-08:00</result>
+   <result field='z' parse='America/Los_Angeles'>PST</result>
+   <result field='zzzz'>Yhdysvaltain Tyynenmeren normaaliaika</result>
+   <result field='v'>Los Angeles (Yhdysvallat)</result>
+   <result field='vvvv'>Los Angeles (Yhdysvallat)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-07:00</result>
+   <result field='z' parse='America/Los_Angeles'>PDT</result>
+   <result field='zzzz'>Yhdysvaltain Tyynenmeren kesäaika</result>
+   <result field='v'>Los Angeles (Yhdysvallat)</result>
+   <result field='vvvv'>Los Angeles (Yhdysvallat)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentiina)</result>
+   <result field='vvvv'>Buenos Aires (Argentiina)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentiina)</result>
+   <result field='vvvv'>Buenos Aires (Argentiina)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentiina)</result>
+   <result field='vvvv'>Buenos Aires (Argentiina)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentiina)</result>
+   <result field='vvvv'>Buenos Aires (Argentiina)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-05:00</result>
+   <result field='z'>GMT-05:00</result>
+   <result field='zzzz'>GMT-05:00</result>
+   <result field='v' parse='America/Havana'>Kuuba</result>
+   <result field='vvvv'>Kuuba</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-04:00</result>
+   <result field='z'>GMT-04:00</result>
+   <result field='zzzz'>GMT-04:00</result>
+   <result field='v' parse='America/Havana'>Kuuba</result>
+   <result field='vvvv'>Kuuba</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australia)</result>
+   <result field='vvvv'>Sydney (Australia)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australia)</result>
+   <result field='vvvv'>Sydney (Australia)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australia)</result>
+   <result field='vvvv'>Sydney (Australia)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australia)</result>
+   <result field='vvvv'>Sydney (Australia)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+00:00</result>
+   <result field='z'>GMT+00:00</result>
+   <result field='zzzz'>GMT+00:00</result>
+   <result field='v' parse='Europe/London'>Iso-Britannia</result>
+   <result field='vvvv'>Iso-Britannia</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+01:00</result>
+   <result field='z'>GMT+01:00</result>
+   <result field='zzzz'>GMT+01:00</result>
+   <result field='v' parse='Europe/London'>Iso-Britannia</result>
+   <result field='vvvv'>Iso-Britannia</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+03:00</result>
+   <result field='z'>GMT+03:00</result>
+   <result field='zzzz'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow'>Moskova (Venäjä)</result>
+   <result field='vvvv'>Moskova (Venäjä)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+04:00</result>
+   <result field='z'>GMT+04:00</result>
+   <result field='zzzz'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow'>Moskova (Venäjä)</result>
+   <result field='vvvv'>Moskova (Venäjä)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+  </zoneFields>
+  <collation 
+locales='fi'>
+<!-- Finnish [suomi] -->
    <result>
 x 
 X 
@@ -370,8 +482,26 @@ xa
 xA
 Xa
 XA
+xá
+xÁ
+Xá
+XÁ
+xà
+xÀ
+Xà
+XÀ
+xã
+xÃ
+Xã
+XÃ
 xax
 xAx
+xáx
+xÁx
+xàx
+xÀx
+xãx
+xÃx
 xb
 xB
 Xb
@@ -382,8 +512,20 @@ xc
 xC
 Xc
 XC
+xč
+xČ
+Xč
+XČ
+xç
+xÇ
+Xç
+XÇ
 xcx
 xCx
+xčx
+xČx
+xçx
+xÇx
 xd
 xD
 Xd
@@ -406,8 +548,26 @@ xe
 xE
 Xe
 XE
+xé
+xÉ
+Xé
+XÉ
+xè
+xÈ
+Xè
+XÈ
+xë
+xË
+Xë
+XË
 xex
 xEx
+xéx
+xÉx
+xèx
+xÈx
+xëx
+xËx
 xf
 xF
 Xf
@@ -430,8 +590,14 @@ xi
 xI
 Xi
 XI
+xï
+xÏ
+Xï
+XÏ
 xix
 xIx
+xïx
+xÏx
 xj
 xJ
 Xj
@@ -460,20 +626,32 @@ xn
 xN
 Xn
 XN
+xñ
+xÑ
+Xñ
+XÑ
 xŋ
 xŊ
 Xŋ
 XŊ
 xnx
 xNx
+xñx
+xÑx
 xŋx
 xŊx
 xo
 xO
 Xo
 XO
+xô
+xÔ
+Xô
+XÔ
 xox
 xOx
+xôx
+xÔx
 xp
 xP
 Xp
@@ -490,8 +668,14 @@ xr
 xR
 Xr
 XR
+xř
+xŘ
+Xř
+XŘ
 xrx
 xRx
+xřx
+xŘx
 xs
 xS
 Xs
@@ -618,6 +802,405 @@ xõx
 xÕx
 xœx
 xŒx
-   </result>
+</result>
+  </collation>
+  <collation 
+locales='fi_FI'>
+<!-- Finnish (Finland) [suomi (Suomi)] -->
+   <result>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xa
+xA
+Xa
+XA
+xá
+xÁ
+Xá
+XÁ
+xà
+xÀ
+Xà
+XÀ
+xâ
+xÂ
+Xâ
+XÂ
+xã
+xÃ
+Xã
+XÃ
+xax
+xAx
+xáx
+xÁx
+xàx
+xÀx
+xâx
+xÂx
+xãx
+xÃx
+xb
+xB
+Xb
+XB
+xbx
+xBx
+xc
+xC
+Xc
+XC
+xč
+xČ
+Xč
+XČ
+xç
+xÇ
+Xç
+XÇ
+xcx
+xCx
+xčx
+xČx
+xçx
+xÇx
+xd
+xD
+Xd
+XD
+xð
+xÐ
+Xð
+XÐ
+xđ
+xĐ
+Xđ
+XĐ
+xdx
+xDx
+xðx
+xÐx
+xđx
+xĐx
+xe
+xE
+Xe
+XE
+xé
+xÉ
+Xé
+XÉ
+xè
+xÈ
+Xè
+XÈ
+xë
+xË
+Xë
+XË
+xex
+xEx
+xéx
+xÉx
+xèx
+xÈx
+xëx
+xËx
+xf
+xF
+Xf
+XF
+xfx
+xFx
+xg
+xG
+Xg
+XG
+xǧ
+xǦ
+Xǧ
+XǦ
+xgx
+xGx
+xǧx
+xǦx
+xǥ
+xǤ
+Xǥ
+XǤ
+xǥx
+xǤx
+xh
+xH
+Xh
+XH
+xȟ
+xȞ
+Xȟ
+XȞ
+xhx
+xHx
+xȟx
+xȞx
+xi
+xI
+Xi
+XI
+xï
+xÏ
+Xï
+XÏ
+xix
+xIx
+xïx
+xÏx
+xj
+xJ
+Xj
+XJ
+xjx
+xJx
+xk
+xK
+Xk
+XK
+xǩ
+xǨ
+Xǩ
+XǨ
+xkx
+xKx
+xǩx
+xǨx
+xl
+xL
+Xl
+XL
+xlx
+xLx
+xm
+xM
+Xm
+XM
+xmx
+xMx
+xn
+xN
+Xn
+XN
+xń
+xŃ
+Xń
+XŃ
+xñ
+xÑ
+Xñ
+XÑ
+xŋ
+xŊ
+Xŋ
+XŊ
+xnx
+xNx
+xńx
+xŃx
+xñx
+xÑx
+xŋx
+xŊx
+xo
+xO
+Xo
+XO
+xô
+xÔ
+Xô
+XÔ
+xox
+xOx
+xôx
+xÔx
+xp
+xP
+Xp
+XP
+xpx
+xPx
+xq
+xQ
+Xq
+XQ
+xqx
+xQx
+xr
+xR
+Xr
+XR
+xř
+xŘ
+Xř
+XŘ
+xrx
+xRx
+xřx
+xŘx
+xs
+xS
+Xs
+XS
+xš
+xŠ
+Xš
+XŠ
+xsx
+xSx
+xšx
+xŠx
+xt
+xT
+Xt
+XT
+xþ
+xÞ
+Xþ
+XÞ
+xþx
+xÞx
+xtx
+xTx
+xŧ
+xŦ
+Xŧ
+XŦ
+xŧx
+xŦx
+xu
+xU
+Xu
+XU
+xux
+xUx
+xv
+xV
+Xv
+XV
+xw
+xW
+Xw
+XW
+xvx
+xVx
+xwx
+xWx
+xx
+xX
+Xx
+XX
+xxx
+xXx
+xy
+xY
+Xy
+XY
+xü
+xÜ
+Xü
+XÜ
+xű
+xŰ
+Xű
+XŰ
+xyx
+xYx
+xüx
+xÜx
+xűx
+xŰx
+xz
+xZ
+Xz
+XZ
+xž
+xŽ
+Xž
+XŽ
+xzx
+xZx
+xžx
+xŽx
+xå
+xÅ
+Xå
+XÅ
+xåx
+xÅx
+xä
+xÄ
+Xä
+XÄ
+xæ
+xÆ
+Xæ
+XÆ
+xäx
+xÄx
+xæx
+xÆx
+xö
+xÖ
+Xö
+XÖ
+xø
+xØ
+Xø
+XØ
+xő
+xŐ
+Xő
+XŐ
+xõ
+xÕ
+Xõ
+XÕ
+xœ
+xŒ
+Xœ
+XŒ
+xöx
+xÖx
+xøx
+xØx
+xőx
+xŐx
+xõx
+xÕx
+xœx
+xŒx
+xʒ
+xƷ
+Xʒ
+XƷ
+xǯ
+xǮ
+Xǯ
+XǮ
+xʒx
+xƷx
+xǯx
+xǮx
+</result>
   </collation>
  </cldrTest>

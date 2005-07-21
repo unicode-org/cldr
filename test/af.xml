@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.2/beta/cldrTest.dtd'>
+<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.2' base='af'>
+ <cldrTest version='1.4' base='af'>
  <!-- Afrikaans [Afrikaans] -->
   <number 
 locales='af af_ZA'>
@@ -58,7 +58,7 @@ locales='af af_ZA'>
   <date 
 locales='af'>
 <!-- Afrikaans [Afrikaans] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -82,7 +82,7 @@ locales='af'>
    <result timeType='medium'>Woensdag, 1900 Januarie 31 00:00:00</result>
    <result timeType='long'>Woensdag, 1900 Januarie 31 00:00:00 GMT+00:00</result>
    <result timeType='full'>Woensdag, 1900 Januarie 31 00:00:00 GMT+00:00</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result timeType='long'>00:00:01 GMT+00:00</result>
    <result timeType='full'>00:00:01 GMT+00:00</result>
@@ -106,7 +106,7 @@ locales='af'>
    <result timeType='medium'>Sondag, 1909 Februarie 28 00:00:01</result>
    <result timeType='long'>Sondag, 1909 Februarie 28 00:00:01 GMT+00:00</result>
    <result timeType='full'>Sondag, 1909 Februarie 28 00:00:01 GMT+00:00</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>00:59</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result timeType='long'>00:59:59 GMT+00:00</result>
    <result timeType='full'>00:59:59 GMT+00:00</result>
@@ -130,7 +130,7 @@ locales='af'>
    <result timeType='medium'>Dinsdag, 1918 Maart 26 00:59:59</result>
    <result timeType='long'>Dinsdag, 1918 Maart 26 00:59:59 GMT+00:00</result>
    <result timeType='full'>Dinsdag, 1918 Maart 26 00:59:59 GMT+00:00</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>01:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result timeType='long'>01:00:00 GMT+00:00</result>
    <result timeType='full'>01:00:00 GMT+00:00</result>
@@ -154,7 +154,7 @@ locales='af'>
    <result timeType='medium'>Sondag, 1932 April 24 01:00:00</result>
    <result timeType='long'>Sondag, 1932 April 24 01:00:00 GMT+00:00</result>
    <result timeType='full'>Sondag, 1932 April 24 01:00:00 GMT+00:00</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>01:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result timeType='long'>01:00:01 GMT+00:00</result>
    <result timeType='full'>01:00:01 GMT+00:00</result>
@@ -178,7 +178,7 @@ locales='af'>
    <result timeType='medium'>Sondag, 1945 Mei 20 01:00:01</result>
    <result timeType='long'>Sondag, 1945 Mei 20 01:00:01 GMT+00:00</result>
    <result timeType='full'>Sondag, 1945 Mei 20 01:00:01 GMT+00:00</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result timeType='long'>11:59:59 GMT+00:00</result>
    <result timeType='full'>11:59:59 GMT+00:00</result>
@@ -202,7 +202,7 @@ locales='af'>
    <result timeType='medium'>Woensdag, 1952 Junie 18 11:59:59</result>
    <result timeType='long'>Woensdag, 1952 Junie 18 11:59:59 GMT+00:00</result>
    <result timeType='full'>Woensdag, 1952 Junie 18 11:59:59 GMT+00:00</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result timeType='long'>12:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 GMT+00:00</result>
@@ -226,7 +226,7 @@ locales='af'>
    <result timeType='medium'>Maandag, 1973 Julie 16 12:00:00</result>
    <result timeType='long'>Maandag, 1973 Julie 16 12:00:00 GMT+00:00</result>
    <result timeType='full'>Maandag, 1973 Julie 16 12:00:00 GMT+00:00</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result timeType='long'>12:00:01 GMT+00:00</result>
    <result timeType='full'>12:00:01 GMT+00:00</result>
@@ -250,7 +250,7 @@ locales='af'>
    <result timeType='medium'>Saterdag, 1999 Augustus 14 12:00:01</result>
    <result timeType='long'>Saterdag, 1999 Augustus 14 12:00:01 GMT+00:00</result>
    <result timeType='full'>Saterdag, 1999 Augustus 14 12:00:01 GMT+00:00</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>22:59</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result timeType='long'>22:59:59 GMT+00:00</result>
    <result timeType='full'>22:59:59 GMT+00:00</result>
@@ -274,7 +274,7 @@ locales='af'>
    <result timeType='medium'>Dinsdag, 2000 September 12 22:59:59</result>
    <result timeType='long'>Dinsdag, 2000 September 12 22:59:59 GMT+00:00</result>
    <result timeType='full'>Dinsdag, 2000 September 12 22:59:59 GMT+00:00</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>23:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result timeType='long'>23:00:00 GMT+00:00</result>
    <result timeType='full'>23:00:00 GMT+00:00</result>
@@ -298,7 +298,7 @@ locales='af'>
    <result timeType='medium'>Maandag, 2001 Oktober 08 23:00:00</result>
    <result timeType='long'>Maandag, 2001 Oktober 08 23:00:00 GMT+00:00</result>
    <result timeType='full'>Maandag, 2001 Oktober 08 23:00:00 GMT+00:00</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>23:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result timeType='long'>23:00:01 GMT+00:00</result>
    <result timeType='full'>23:00:01 GMT+00:00</result>
@@ -322,7 +322,7 @@ locales='af'>
    <result timeType='medium'>Donderdag, 2004 November 04 23:00:01</result>
    <result timeType='long'>Donderdag, 2004 November 04 23:00:01 GMT+00:00</result>
    <result timeType='full'>Donderdag, 2004 November 04 23:00:01 GMT+00:00</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>23:59</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result timeType='long'>23:59:59 GMT+00:00</result>
    <result timeType='full'>23:59:59 GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='af'>
   <date 
 locales='af_ZA'>
 <!-- Afrikaans (South Africa) [Afrikaans (Suid-Afrika)] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>12:00 vm.</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 vm.</result>
    <result timeType='medium'>12:00:00 vm.</result>
    <result timeType='long'>12:00:00 vm.</result>
    <result timeType='full'>12:00:00 vm.</result>
@@ -374,7 +374,7 @@ locales='af_ZA'>
    <result timeType='medium'>Woensdag 31 Januarie 1900 12:00:00 vm.</result>
    <result timeType='long'>Woensdag 31 Januarie 1900 12:00:00 vm.</result>
    <result timeType='full'>Woensdag 31 Januarie 1900 12:00:00 vm.</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>12:00 vm.</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 vm.</result>
    <result timeType='medium'>12:00:01 vm.</result>
    <result timeType='long'>12:00:01 vm.</result>
    <result timeType='full'>12:00:01 vm.</result>
@@ -398,7 +398,7 @@ locales='af_ZA'>
    <result timeType='medium'>Sondag 28 Februarie 1909 12:00:01 vm.</result>
    <result timeType='long'>Sondag 28 Februarie 1909 12:00:01 vm.</result>
    <result timeType='full'>Sondag 28 Februarie 1909 12:00:01 vm.</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>12:59 vm.</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 vm.</result>
    <result timeType='medium'>12:59:59 vm.</result>
    <result timeType='long'>12:59:59 vm.</result>
    <result timeType='full'>12:59:59 vm.</result>
@@ -422,7 +422,7 @@ locales='af_ZA'>
    <result timeType='medium'>Dinsdag 26 Maart 1918 12:59:59 vm.</result>
    <result timeType='long'>Dinsdag 26 Maart 1918 12:59:59 vm.</result>
    <result timeType='full'>Dinsdag 26 Maart 1918 12:59:59 vm.</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>1:00 vm.</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 vm.</result>
    <result timeType='medium'>1:00:00 vm.</result>
    <result timeType='long'>1:00:00 vm.</result>
    <result timeType='full'>1:00:00 vm.</result>
@@ -446,7 +446,7 @@ locales='af_ZA'>
    <result timeType='medium'>Sondag 24 April 1932 1:00:00 vm.</result>
    <result timeType='long'>Sondag 24 April 1932 1:00:00 vm.</result>
    <result timeType='full'>Sondag 24 April 1932 1:00:00 vm.</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>1:00 vm.</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 vm.</result>
    <result timeType='medium'>1:00:01 vm.</result>
    <result timeType='long'>1:00:01 vm.</result>
    <result timeType='full'>1:00:01 vm.</result>
@@ -470,7 +470,7 @@ locales='af_ZA'>
    <result timeType='medium'>Sondag 20 Mei 1945 1:00:01 vm.</result>
    <result timeType='long'>Sondag 20 Mei 1945 1:00:01 vm.</result>
    <result timeType='full'>Sondag 20 Mei 1945 1:00:01 vm.</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59 vm.</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 vm.</result>
    <result timeType='medium'>11:59:59 vm.</result>
    <result timeType='long'>11:59:59 vm.</result>
    <result timeType='full'>11:59:59 vm.</result>
@@ -494,7 +494,7 @@ locales='af_ZA'>
    <result timeType='medium'>Woensdag 18 Junie 1952 11:59:59 vm.</result>
    <result timeType='long'>Woensdag 18 Junie 1952 11:59:59 vm.</result>
    <result timeType='full'>Woensdag 18 Junie 1952 11:59:59 vm.</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00 nm.</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 nm.</result>
    <result timeType='medium'>12:00:00 nm.</result>
    <result timeType='long'>12:00:00 nm.</result>
    <result timeType='full'>12:00:00 nm.</result>
@@ -518,7 +518,7 @@ locales='af_ZA'>
    <result timeType='medium'>Maandag 16 Julie 1973 12:00:00 nm.</result>
    <result timeType='long'>Maandag 16 Julie 1973 12:00:00 nm.</result>
    <result timeType='full'>Maandag 16 Julie 1973 12:00:00 nm.</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00 nm.</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 nm.</result>
    <result timeType='medium'>12:00:01 nm.</result>
    <result timeType='long'>12:00:01 nm.</result>
    <result timeType='full'>12:00:01 nm.</result>
@@ -542,7 +542,7 @@ locales='af_ZA'>
    <result timeType='medium'>Saterdag 14 Augustus 1999 12:00:01 nm.</result>
    <result timeType='long'>Saterdag 14 Augustus 1999 12:00:01 nm.</result>
    <result timeType='full'>Saterdag 14 Augustus 1999 12:00:01 nm.</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>10:59 nm.</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 nm.</result>
    <result timeType='medium'>10:59:59 nm.</result>
    <result timeType='long'>10:59:59 nm.</result>
    <result timeType='full'>10:59:59 nm.</result>
@@ -566,7 +566,7 @@ locales='af_ZA'>
    <result timeType='medium'>Dinsdag 12 September 2000 10:59:59 nm.</result>
    <result timeType='long'>Dinsdag 12 September 2000 10:59:59 nm.</result>
    <result timeType='full'>Dinsdag 12 September 2000 10:59:59 nm.</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>11:00 nm.</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 nm.</result>
    <result timeType='medium'>11:00:00 nm.</result>
    <result timeType='long'>11:00:00 nm.</result>
    <result timeType='full'>11:00:00 nm.</result>
@@ -590,7 +590,7 @@ locales='af_ZA'>
    <result timeType='medium'>Maandag 08 Oktober 2001 11:00:00 nm.</result>
    <result timeType='long'>Maandag 08 Oktober 2001 11:00:00 nm.</result>
    <result timeType='full'>Maandag 08 Oktober 2001 11:00:00 nm.</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>11:00 nm.</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 nm.</result>
    <result timeType='medium'>11:00:01 nm.</result>
    <result timeType='long'>11:00:01 nm.</result>
    <result timeType='full'>11:00:01 nm.</result>
@@ -614,7 +614,7 @@ locales='af_ZA'>
    <result timeType='medium'>Donderdag 04 November 2004 11:00:01 nm.</result>
    <result timeType='long'>Donderdag 04 November 2004 11:00:01 nm.</result>
    <result timeType='full'>Donderdag 04 November 2004 11:00:01 nm.</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>11:59 nm.</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 nm.</result>
    <result timeType='medium'>11:59:59 nm.</result>
    <result timeType='long'>11:59:59 nm.</result>
    <result timeType='full'>11:59:59 nm.</result>
@@ -639,6 +639,118 @@ locales='af_ZA'>
    <result timeType='long'>Woensdag 01 Desember 2010 11:59:59 nm.</result>
    <result timeType='full'>Woensdag 01 Desember 2010 11:59:59 nm.</result>
   </date>
+  <zoneFields 
+locales='af af_ZA'>
+<!-- Afrikaans [Afrikaans]; Afrikaans (South Africa) [Afrikaans (Suid-Afrika)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result field='ZZZZ'>GMT-08:00</result>
+   <result field='z'>GMT-08:00</result>
+   <result field='zzzz'>GMT-08:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (Verenigde State van Amerika)</result>
+   <result field='vvvv'>Los Angeles (Verenigde State van Amerika)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-07:00</result>
+   <result field='z'>GMT-07:00</result>
+   <result field='zzzz'>GMT-07:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (Verenigde State van Amerika)</result>
+   <result field='vvvv'>Los Angeles (Verenigde State van Amerika)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentinië)</result>
+   <result field='vvvv'>Buenos Aires (Argentinië)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentinië)</result>
+   <result field='vvvv'>Buenos Aires (Argentinië)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentinië)</result>
+   <result field='vvvv'>Buenos Aires (Argentinië)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (Argentinië)</result>
+   <result field='vvvv'>Buenos Aires (Argentinië)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-05:00</result>
+   <result field='z'>GMT-05:00</result>
+   <result field='zzzz'>GMT-05:00</result>
+   <result field='v' parse='America/Havana'>Kuba</result>
+   <result field='vvvv'>Kuba</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-04:00</result>
+   <result field='z'>GMT-04:00</result>
+   <result field='zzzz'>GMT-04:00</result>
+   <result field='v' parse='America/Havana'>Kuba</result>
+   <result field='vvvv'>Kuba</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australië)</result>
+   <result field='vvvv'>Sydney (Australië)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australië)</result>
+   <result field='vvvv'>Sydney (Australië)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australië)</result>
+   <result field='vvvv'>Sydney (Australië)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (Australië)</result>
+   <result field='vvvv'>Sydney (Australië)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+00:00</result>
+   <result field='z'>GMT+00:00</result>
+   <result field='zzzz'>GMT+00:00</result>
+   <result field='v' parse='Europe/London'>Groot-Brittanje</result>
+   <result field='vvvv'>Groot-Brittanje</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+01:00</result>
+   <result field='z'>GMT+01:00</result>
+   <result field='zzzz'>GMT+01:00</result>
+   <result field='v' parse='Europe/London'>Groot-Brittanje</result>
+   <result field='vvvv'>Groot-Brittanje</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+03:00</result>
+   <result field='z'>GMT+03:00</result>
+   <result field='zzzz'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (Rusland)</result>
+   <result field='vvvv'>Moscow (Rusland)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+04:00</result>
+   <result field='z'>GMT+04:00</result>
+   <result field='zzzz'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (Rusland)</result>
+   <result field='vvvv'>Moscow (Rusland)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+  </zoneFields>
   <collation 
 locales='af af_ZA'>
 <!-- Afrikaans [Afrikaans]; Afrikaans (South Africa) [Afrikaans (Suid-Afrika)] -->
@@ -886,6 +998,6 @@ XʼN
 Xŉ
 xʼNx
 xŉx
-   </result>
+</result>
   </collation>
  </cldrTest>

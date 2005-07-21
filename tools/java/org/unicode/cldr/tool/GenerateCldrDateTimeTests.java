@@ -17,7 +17,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.tool.GenerateCldrTests.DataShower;
-import org.unicode.cldr.tool.GenerateCldrTests.Equator;
+//import org.unicode.cldr.tool.GenerateCldrTests.Equator;
 import org.unicode.cldr.tool.GenerateCldrTests.ResultsPrinter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -106,10 +106,10 @@ class GenerateCldrDateTimeTests {
     }
     // ========== DATES ==========
 
-    Equator DateEquator = new Equator() {
-        /**
+/*    Equator DateEquator = new Equator() {
+        *//**
          * Must both be ULocales
-         */
+         *//*
         public boolean equals(Object o1, Object o2) {
             ULocale loc1 = (ULocale) o1;
             ULocale loc2 = (ULocale) o2;
@@ -133,9 +133,9 @@ class GenerateCldrDateTimeTests {
             return true;
         }
     };
-
+*/
     
-    Equator ZoneEquator = new Equator() {
+/*    Equator ZoneEquator = new Equator() {
 
 		public boolean equals(Object o1, Object o2) {
             ULocale loc1 = (ULocale) o1;
@@ -163,7 +163,7 @@ class GenerateCldrDateTimeTests {
 			return false;
 		}
     };
-
+*/
     // ========== NUMBERS ==========
 
 
@@ -195,10 +195,10 @@ class GenerateCldrDateTimeTests {
 
      */
 
-    Equator NumberEquator = new Equator() {
-        /**
+ /*   Equator NumberEquator = new Equator() {
+        *//**
          * Must both be ULocales
-         */
+         *//*
         public boolean equals(Object o1, Object o2) {
             ULocale loc1 = (ULocale) o1;
             ULocale loc2 = (ULocale) o2;
@@ -212,7 +212,7 @@ class GenerateCldrDateTimeTests {
             }
             return true;
         }
-    };
+    };*/
     
 	/**
 	 * 

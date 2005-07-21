@@ -85,7 +85,6 @@ public class TestCLDRTests extends TestFmwk {
     	}.transform(locales, new TreeSet());
     	languagesToTest.remove("th"); // JDK endless loop in collation
 
-//        test("hu");
         File[] list = new File(Utility.TEST_DIR).listFiles();
         for (int i = 0; i < list.length; ++i) {
         	String name = list[i].getName();

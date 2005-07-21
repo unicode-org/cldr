@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +21,8 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -68,7 +71,7 @@ import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
-import org.unicode.cldr.tool.GenerateCldrDateTimeTests;
+//import org.unicode.cldr.tool.GenerateCldrDateTimeTests;
 
 /**
  * Generated tests for CLDR.
@@ -286,10 +289,12 @@ public class GenerateCldrTests {
         
     }*/
 
-    GenerateCldrDateTimeTests cldrOthers;
-    
+    //GenerateCldrDateTimeTests cldrOthers;
+	Factory mainCldrFactory;
+	ICUServiceBuilder icuServiceBuilder;
+	
     void generate(String pat) throws Exception {
-    	Factory mainCldrFactory = Factory.make(options[SOURCEDIR].value + "main" + File.separator, pat);
+    	mainCldrFactory = Factory.make(options[SOURCEDIR].value + "main" + File.separator, pat);
     	Factory collationCldrFactory = Factory.make(options[SOURCEDIR].value + "collation" + File.separator, pat);
     	Factory supplementalCldrFactory = Factory.make(options[SOURCEDIR].value + "supplemental" + File.separator, ".*");
     	
@@ -304,11 +309,13 @@ public class GenerateCldrTests {
         for (Iterator it = cldrCollations.getAvailableSet().iterator(); it.hasNext();) {
         	collationLocales.add(it.next().toString());
         }
-
-        cldrOthers = new GenerateCldrDateTimeTests(options[SOURCEDIR].value + "main" + File.separator, pat, 
+        // TODO HACK
+        collationLocales.remove("ar_IN");
+        icuServiceBuilder = new ICUServiceBuilder().setCLDRFactory(mainCldrFactory);
+/*        cldrOthers = new GenerateCldrDateTimeTests(options[SOURCEDIR].value + "main" + File.separator, pat, 
         		!options[GenerateCldrTests.NOT_RESOLVED].doesOccur);
         if (options[SHOW].doesOccur) cldrOthers.show();
-
+*/
         //getLocaleList();
         
         for (Iterator it = collationLocales.iterator(); it.hasNext();) {
@@ -326,17 +333,17 @@ public class GenerateCldrTests {
     private void generate(ULocale locale) throws Exception {
         out = BagFormatter.openUTF8Writer(options[DESTDIR].value, locale + ".xml");
         out.println("<?xml version='1.0' encoding='UTF-8' ?>");
-        out.println("<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.2/beta/cldrTest.dtd'>");
+        out.println("<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>");
         out.println("<!-- For information, see readme.html -->");
-        out.println(" <cldrTest version='1.2' base='" + locale + "'>");
+        out.println(" <cldrTest version='1.4' base='" + locale + "'>");
         out.println(" <!-- " + BagFormatter.toXML.transliterate(
                 locale.getDisplayName(ULocale.ENGLISH) + " ["
                 + locale.getDisplayName(locale))
                 + "] -->");
-        generateItems(locale, allLocales, cldrOthers.NumberEquator, NumberShower);
-        generateItems(locale, allLocales, cldrOthers.DateEquator, DateShower);
-        generateItems(locale, allLocales, cldrOthers.DateEquator, DateFieldShower);       
-        generateItems(locale, collationLocales, CollationEquator, CollationShower);
+        generateItems(locale, allLocales, NumberShower);
+        generateItems(locale, allLocales, DateShower);
+        generateItems(locale, allLocales, ZoneFieldShower);       
+        generateItems(locale, collationLocales, CollationShower);
         out.println(" </cldrTest>");
         out.close();
         Utility.generateBat(options[SOURCEDIR].value + "test" + File.separator, locale + ".xml", 
@@ -409,8 +416,14 @@ public class GenerateCldrTests {
         String n = locale.toString();
         int pos = n.indexOf('@');
         if (pos >= 0) locale = new ULocale(n.substring(0,pos));
-        UnicodeSet result = cldrOthers.getExemplarSet(locale); // LocaleData.getExemplarSet(locale, options);
-        if (options == 0) result.closeOver(UnicodeSet.CASE);
+        CLDRFile cldrFile = mainCldrFactory.make(locale.toString(),true);
+		String v = cldrFile.getStringValue("/ldml/characters/exemplarCharacters");
+		UnicodeSet result = new UnicodeSet(v);
+		v = cldrFile.getStringValue("/ldml/characters/exemplarCharacters[@type=\"auxiliary\"]");
+		if (v != null) {
+			result.addAll(new UnicodeSet(v));
+		}
+		if (options == 0) result.closeOver(UnicodeSet.CASE);
         return result;
     }
 
@@ -420,10 +433,10 @@ public class GenerateCldrTests {
         }
     };
 
-    public interface Equator {
+/*    public interface Equator {
         public boolean equals(Object o1, Object o2);
     }
-
+*/
     static boolean intersects(Collection a, Collection b) {
         for (Iterator it = a.iterator(); it.hasNext();) {
             if (b.contains(it.next())) return true;
@@ -431,7 +444,7 @@ public class GenerateCldrTests {
         return false;
     }
 
-    static Collection extract(Object x, Collection a, Equator e, Collection output) {
+/*    static Collection extract(Object x, Collection a, Equator e, Collection output) {
         List itemsToRemove = new ArrayList();
         for (Iterator it = a.iterator(); it.hasNext();) {
             Object item = it.next();
@@ -443,41 +456,84 @@ public class GenerateCldrTests {
         a.removeAll(itemsToRemove);
         return output;
     }
-
+*/
     class ResultsPrinter {
-        Map settings = new TreeMap();
-        Map oldSettings = new TreeMap();
+    	Set listOfSettings = new LinkedHashSet();
+        LinkedHashMap settings = new LinkedHashMap();
         void set(String name, String value) {
             settings.put(name, value);
         }
-        void print(String result) {
-            out.print("   <result");
-            for (Iterator it = settings.keySet().iterator(); it.hasNext();) {
-                Object key = it.next();
-                Object value = settings.get(key);
-                if (!value.equals(oldSettings.get(key))) {
-                    out.print(" " + key + "='" + BagFormatter.toXML.transliterate(value.toString()) + "'");
-                    oldSettings.put(key, value);
-                }
-            }
-            out.println(">" + BagFormatter.toXML.transliterate(result) + "</result>");
+        void setResult(String result) {
+        	settings.put("result", result);
+        	listOfSettings.add(settings.clone());
+        }
+        void print() {
+            Map oldSettings = new TreeMap();
+        	for (Iterator it2 = listOfSettings.iterator(); it2.hasNext();) {
+	        	Map settings = (Map) it2.next();
+	        	String result = (String) settings.get("result");
+	            out.print("   <result");
+	            for (Iterator it = settings.keySet().iterator(); it.hasNext();) {
+	                Object key = it.next();
+	                if (key.equals("result")) continue;
+	                Object value = settings.get(key);
+	                if (!value.equals(oldSettings.get(key))) {
+	                    out.print(" " + key + "='" + BagFormatter.toXML.transliterate(value.toString()) + "'");
+	                }
+	            }
+	            out.println(">" + BagFormatter.toXML.transliterate(result) + "</result>");
+                oldSettings = settings;
+        	}
+        }
+        public boolean equals(Object other) {
+        	try {
+        		ResultsPrinter that = (ResultsPrinter) other;
+        		return listOfSettings.equals(that.listOfSettings);       		
+        	} catch (Exception e) {
+        		return false;
+        	}
+        }
+        public int hashCode() {
+        	throw new IllegalArgumentException();
         }
     }
 
     interface DataShower {
+        ResultsPrinter show(ULocale first) throws Exception;
+        String getElement();
+    }
+
+    interface DataShower2 {
         void show(ULocale first, Collection others) throws Exception;
     }
 
-    private void generateItems(ULocale locale, Collection onlyLocales, Equator test, DataShower generator) throws Exception {
-        Collection sublocales = parentToLocales.get(locale, new ArrayList());
+    private void generateItems(ULocale locale, Collection onlyLocales, DataShower generator) throws Exception {
+        Collection sublocales = new TreeSet(ULocaleComparator);
+        sublocales.add(locale);
+        parentToLocales.get(locale, sublocales);
         sublocales.retainAll(onlyLocales);
-        // get all the things that share the same behavior
-        while (sublocales.size() != 0) {
-            // start with the first one
-            ULocale first = (ULocale) sublocales.iterator().next();
-            Collection others = extract(first, sublocales, test, new ArrayList());
-            generator.show(first, others);
+        Map locale_results = new TreeMap(ULocaleComparator);
+        for (Iterator it = sublocales.iterator(); it.hasNext();) {
+        	ULocale current = (ULocale) it.next();
+        	locale_results.put(current, generator.show(current));
         }
+        // do it this way so that the locales stay in order
+    	Set matchingLocales = new TreeSet(ULocaleComparator);
+        while (sublocales.size() != 0) {
+        	ULocale first = (ULocale) sublocales.iterator().next();
+        	ResultsPrinter r = (ResultsPrinter) locale_results.get(first);
+	        for (Iterator it = sublocales.iterator(); it.hasNext();) {
+	        	ULocale other = (ULocale) it.next();
+	        	ResultsPrinter r2 = (ResultsPrinter) locale_results.get(other);
+	        	if (r2.equals(r)) matchingLocales.add(other);
+	        }
+			showLocales(generator.getElement(), matchingLocales);
+			r.print();
+			out.println("  </" + generator.getElement() + ">");
+			sublocales.removeAll(matchingLocales);
+        	matchingLocales.clear();
+        }
+        Comparator c;
     }
 
     public void showLocales(String elementName, Collection others) {
@@ -517,45 +573,50 @@ public class GenerateCldrTests {
 				"America/Havana",
 				"Australia/ACT",
 				"Australia/Sydney",
-				"Europe/Unknown"
+				"Europe/London",
+				"Europe/Moscow",
+				"Etc/GMT+3"
 		});
-		String[] perZoneSamples = {"z", "zzzz", "v", "vvvv", "Z", "ZZZZ"};
-		String[] dates = {"2001-01-15T12:00:00Z", "2001-07-15T12:00:00Z"};
+		String[] perZoneSamples = {"Z", "ZZZZ", "z", "zzzz", "v", "vvvv"};
+		String[] dates = {"2004-01-15T12:00:00Z", "2004-07-15T12:00:00Z"};
 
-    	public void show(ULocale first, Collection others) throws Exception {
+    	public ResultsPrinter show(ULocale first) throws Exception {
 			// TODO Auto-generated method stub
-        	TimezoneFormatter tzf = new TimezoneFormatter(null, first.toString(), true);
-			showLocales("dateFields", others);
+        	TimezoneFormatter tzf = new TimezoneFormatter(mainCldrFactory, first.toString());
 			ResultsPrinter rp = new ResultsPrinter();
-			ICUServiceBuilder icuServiceBuilder = cldrOthers.getICUServiceBuilder();
 			for (Iterator it = zones.iterator(); it.hasNext();) {
 				String tzid = (String) it.next();
 				rp.set("zone", tzid);
 				for (int j = 0; j < dates.length; ++j) {
 					String date = dates[j];
 					Date datetime = ICUServiceBuilder.isoDateParse(date);
-					rp.set("date", date);
+					rp.set("date", dates[j]);
 					for (int i = 0; i < perZoneSamples.length; ++i) {
 						String field = perZoneSamples[i];
 						rp.set("field", field);
-						rp.print(tzf.getFormattedZone(tzid, field, datetime));
+						String formatted = tzf.getFormattedZone(tzid, field, datetime.getTime());
+						String parsed = tzf.parse(formatted);
+						rp.set("parse", parsed);
+						rp.setResult(formatted);
 					}
 				}
 			}
+			return rp;
 			/*
 			 *               Date datetime = ICUServiceBuilder.isoDateParse(samples[j]);
                rp.set("input", ICUServiceBuilder.isoDateFormat(datetime));
 
 			 */
-			out.println("  </dateFields>");
+		}
+
+		public String getElement() {
+			return "zoneFields";
 		}	
     };
     
 
     DataShower DateShower = new DataShower() {
-        public void show(ULocale locale, Collection others) throws ParseException {
-           showLocales("date", others);
-
+        public ResultsPrinter show(ULocale locale) throws ParseException {
            String[] samples = {
                    "1900-01-31T00:00:00Z",
                    "1909-02-28T00:00:01Z",
@@ -572,7 +633,6 @@ public class GenerateCldrTests {
            };
 
            ResultsPrinter rp = new ResultsPrinter();
-           ICUServiceBuilder icuServiceBuilder = cldrOthers.getICUServiceBuilder();
            for (int j = 0; j < samples.length; ++j) {
                Date datetime = ICUServiceBuilder.isoDateParse(samples[j]);
                rp.set("input", ICUServiceBuilder.isoDateFormat(datetime));
@@ -587,48 +647,50 @@ public class GenerateCldrTests {
 								+ ", time " + icuServiceBuilder.getDateNames(k)
 								+ " = " + df.format(datetime));
                        }
-                       rp.print(df.format(datetime));
+                       rp.setResult(df.format(datetime));
                    }
                }
            }
-           out.println("  </date>");
-       }};
+           return rp;
+        }
+		public String getElement() {
+			return "date";
+		}	
+    };
 
 
     DataShower NumberShower = new DataShower() {
-        public void show(ULocale locale, Collection others) throws ParseException {
-        	showLocales("number", others);
+		public ResultsPrinter show(ULocale locale) throws ParseException {
 
-        double[] samples = {
-                0,
-                0.01, -0.01,
-                1, -1,
-                123.456, -123.456,
-                123456.78, -123456.78,
-                Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY,
-                Double.NaN
-        };
-        ResultsPrinter rp = new ResultsPrinter();
-        ICUServiceBuilder icuServiceBuilder = cldrOthers.getICUServiceBuilder();
-        for (int j = 0; j < samples.length; ++j) {
-            double sample = samples[j];
-            rp.set("input", String.valueOf(sample));
-            for (int i = 0; i < ICUServiceBuilder.LIMIT_NUMBER_INDEX; ++i) {
-                rp.set("numberType", icuServiceBuilder.getNumberNames(i));
-                DecimalFormat nf = icuServiceBuilder.getNumberFormat(locale.toString(), i);
-                rp.print(nf.format(sample));
-            }
-        }
-        out.println("  </number>");
-    }};
+			double[] samples = { 0, 0.01, -0.01, 1, -1, 123.456, -123.456,
+					123456.78, -123456.78, Double.POSITIVE_INFINITY,
+					Double.NEGATIVE_INFINITY, Double.NaN };
+			ResultsPrinter rp = new ResultsPrinter();
+			for (int j = 0; j < samples.length; ++j) {
+				double sample = samples[j];
+				rp.set("input", String.valueOf(sample));
+				for (int i = 0; i < ICUServiceBuilder.LIMIT_NUMBER_INDEX; ++i) {
+					rp.set("numberType", icuServiceBuilder.getNumberNames(i));
+					DecimalFormat nf = icuServiceBuilder.getNumberFormat(locale
+							.toString(), i);
+					rp.setResult(nf.format(sample));
+				}
+			}
+			return rp;
+		}
+
+		public String getElement() {
+			return "number";
+		}
+	};
 
 
     // ========== COLLATION ==========
 
-    Equator CollationEquator = new Equator() {
-        /**
-         * Must both be ULocales
-         */
+/*    Equator CollationEquator = new Equator() {
+        *//**
+		 * Must both be ULocales
+		 *//*
         public boolean equals(Object o1, Object o2) {
             try {
 				ULocale loc1 = (ULocale) o1;
@@ -641,14 +703,12 @@ public class GenerateCldrTests {
 			}        
 		}
     };
-    static ULocale zhHack = new ULocale("zh"); // FIXME hack for zh
+*/    static ULocale zhHack = new ULocale("zh"); // FIXME hack for zh
 
     DataShower CollationShower = new DataShower() {
-		public void show(ULocale locale, Collection others) {
-			if (locale.equals(zhHack)) return;
+		public ResultsPrinter show(ULocale locale) {
+			//if (locale.equals(zhHack)) return;
 			
-			showLocales("collation", others);
-
 			Collator col = cldrCollations.getInstance(locale); // Collator.getInstance(locale);
 
 			UnicodeSet tailored = col.getTailoredSet();
@@ -662,11 +722,6 @@ public class GenerateCldrTests {
 
 			UnicodeSet exemplars = getExemplarSet(locale, UnicodeSet.CASE);
 			// add all the exemplars
-			if (false)
-				for (Iterator it = others.iterator(); it.hasNext();) {
-					exemplars.addAll(getExemplarSet((ULocale) it.next(),
-							UnicodeSet.CASE));
-				}
 
 			exemplars = createCaseClosure(exemplars);
 			exemplars = nfc(exemplars);
@@ -687,8 +742,11 @@ public class GenerateCldrTests {
 			tailored.removeAll(SKIP_COLLATION_SET);
 
 			SortedBag bag = new SortedBag(col);
-			doCollationResult(col, tailored, bag);
-			out.println("  </collation>");
+			return doCollationResult(col, tailored, bag);
+		}
+
+		public String getElement() {
+			return "collation";
 		}
 	};
 /*
@@ -740,7 +798,7 @@ public class GenerateCldrTests {
      * @param tailored
      * @param bag
      */
-    private void doCollationResult(Collator col, UnicodeSet tailored, SortedBag bag) {
+    private ResultsPrinter doCollationResult(Collator col, UnicodeSet tailored, SortedBag bag) {
         for (UnicodeSetIterator usi = new UnicodeSetIterator(tailored); usi.next(); ) {
             String s = usi.getString();
             bag.add('x' + s);
@@ -755,22 +813,23 @@ public class GenerateCldrTests {
             out.println("   <other locale='" + uloc + "'/>");
         }
         */
-        out.println("   <result>");
         String last = "";
         boolean needEquals = false;
+        StringBuffer tempResult = new StringBuffer("\r\n");
         for (Iterator it = bag.iterator(); it.hasNext(); ) {
             String s = (String) it.next();
             if (col.compare(s, last) != 0) {
-                if (needEquals) out.println(last);
+                if (needEquals) tempResult.append(last).append("\r\n");
                 needEquals = false;
                 last = s;
             } else {
                 needEquals = true;
             }
-            out.println(BagFormatter.toXML.transliterate(s));
-
+            tempResult.append(BagFormatter.toXML.transliterate(s)).append("\r\n");
         }
-        out.println("   </result>");
+    	ResultsPrinter result = new ResultsPrinter();
+    	result.setResult(tempResult.toString());
+        return result;
     }
 
     static public Set getMatchingXMLFiles(String dir, String localeRegex) {

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.2/beta/cldrTest.dtd'>
+<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.2' base='om'>
+ <cldrTest version='1.4' base='om'>
  <!-- Oromo [Oromoo] -->
   <number 
 locales='om om_ET om_KE'>
@@ -58,7 +58,7 @@ locales='om om_ET om_KE'>
   <date 
 locales='om'>
 <!-- Oromo [Oromoo] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -82,7 +82,7 @@ locales='om'>
    <result timeType='medium'>Roobii, 1900 Amajjii 31 00:00:00</result>
    <result timeType='long'>Roobii, 1900 Amajjii 31 00:00:00 GMT+00:00</result>
    <result timeType='full'>Roobii, 1900 Amajjii 31 00:00:00 GMT+00:00</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result timeType='long'>00:00:01 GMT+00:00</result>
    <result timeType='full'>00:00:01 GMT+00:00</result>
@@ -106,7 +106,7 @@ locales='om'>
    <result timeType='medium'>Dilbata, 1909 Guraandhala 28 00:00:01</result>
    <result timeType='long'>Dilbata, 1909 Guraandhala 28 00:00:01 GMT+00:00</result>
    <result timeType='full'>Dilbata, 1909 Guraandhala 28 00:00:01 GMT+00:00</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>00:59</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result timeType='long'>00:59:59 GMT+00:00</result>
    <result timeType='full'>00:59:59 GMT+00:00</result>
@@ -130,7 +130,7 @@ locales='om'>
    <result timeType='medium'>Qibxata, 1918 Bitooteessa 26 00:59:59</result>
    <result timeType='long'>Qibxata, 1918 Bitooteessa 26 00:59:59 GMT+00:00</result>
    <result timeType='full'>Qibxata, 1918 Bitooteessa 26 00:59:59 GMT+00:00</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>01:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result timeType='long'>01:00:00 GMT+00:00</result>
    <result timeType='full'>01:00:00 GMT+00:00</result>
@@ -154,7 +154,7 @@ locales='om'>
    <result timeType='medium'>Dilbata, 1932 Elba 24 01:00:00</result>
    <result timeType='long'>Dilbata, 1932 Elba 24 01:00:00 GMT+00:00</result>
    <result timeType='full'>Dilbata, 1932 Elba 24 01:00:00 GMT+00:00</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>01:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result timeType='long'>01:00:01 GMT+00:00</result>
    <result timeType='full'>01:00:01 GMT+00:00</result>
@@ -178,7 +178,7 @@ locales='om'>
    <result timeType='medium'>Dilbata, 1945 Caamsa 20 01:00:01</result>
    <result timeType='long'>Dilbata, 1945 Caamsa 20 01:00:01 GMT+00:00</result>
    <result timeType='full'>Dilbata, 1945 Caamsa 20 01:00:01 GMT+00:00</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result timeType='long'>11:59:59 GMT+00:00</result>
    <result timeType='full'>11:59:59 GMT+00:00</result>
@@ -202,7 +202,7 @@ locales='om'>
    <result timeType='medium'>Roobii, 1952 Waxabajjii 18 11:59:59</result>
    <result timeType='long'>Roobii, 1952 Waxabajjii 18 11:59:59 GMT+00:00</result>
    <result timeType='full'>Roobii, 1952 Waxabajjii 18 11:59:59 GMT+00:00</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result timeType='long'>12:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 GMT+00:00</result>
@@ -226,7 +226,7 @@ locales='om'>
    <result timeType='medium'>Wiixata, 1973 Adooleessa 16 12:00:00</result>
    <result timeType='long'>Wiixata, 1973 Adooleessa 16 12:00:00 GMT+00:00</result>
    <result timeType='full'>Wiixata, 1973 Adooleessa 16 12:00:00 GMT+00:00</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result timeType='long'>12:00:01 GMT+00:00</result>
    <result timeType='full'>12:00:01 GMT+00:00</result>
@@ -250,7 +250,7 @@ locales='om'>
    <result timeType='medium'>Sanbata, 1999 Hagayya 14 12:00:01</result>
    <result timeType='long'>Sanbata, 1999 Hagayya 14 12:00:01 GMT+00:00</result>
    <result timeType='full'>Sanbata, 1999 Hagayya 14 12:00:01 GMT+00:00</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>22:59</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result timeType='long'>22:59:59 GMT+00:00</result>
    <result timeType='full'>22:59:59 GMT+00:00</result>
@@ -274,7 +274,7 @@ locales='om'>
    <result timeType='medium'>Qibxata, 2000 Fuulbana 12 22:59:59</result>
    <result timeType='long'>Qibxata, 2000 Fuulbana 12 22:59:59 GMT+00:00</result>
    <result timeType='full'>Qibxata, 2000 Fuulbana 12 22:59:59 GMT+00:00</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>23:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result timeType='long'>23:00:00 GMT+00:00</result>
    <result timeType='full'>23:00:00 GMT+00:00</result>
@@ -298,7 +298,7 @@ locales='om'>
    <result timeType='medium'>Wiixata, 2001 Onkololeessa 08 23:00:00</result>
    <result timeType='long'>Wiixata, 2001 Onkololeessa 08 23:00:00 GMT+00:00</result>
    <result timeType='full'>Wiixata, 2001 Onkololeessa 08 23:00:00 GMT+00:00</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>23:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result timeType='long'>23:00:01 GMT+00:00</result>
    <result timeType='full'>23:00:01 GMT+00:00</result>
@@ -322,7 +322,7 @@ locales='om'>
    <result timeType='medium'>Kamiisa, 2004 Sadaasa 04 23:00:01</result>
    <result timeType='long'>Kamiisa, 2004 Sadaasa 04 23:00:01 GMT+00:00</result>
    <result timeType='full'>Kamiisa, 2004 Sadaasa 04 23:00:01 GMT+00:00</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>23:59</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result timeType='long'>23:59:59 GMT+00:00</result>
    <result timeType='full'>23:59:59 GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='om'>
   <date 
 locales='om_ET om_KE'>
 <!-- Oromo (Ethiopia) [Oromoo (Itoophiyaa)]; Oromo (Kenya) [Oromoo (Keeniyaa)] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>12:00 WD</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 WD</result>
    <result timeType='medium'>12:00:00 WD</result>
    <result timeType='long'>12:00:00 WD</result>
    <result timeType='full'>12:00:00 WD</result>
@@ -374,7 +374,7 @@ locales='om_ET om_KE'>
    <result timeType='medium'>Roobii, Amajjii 31, 1900 12:00:00 WD</result>
    <result timeType='long'>Roobii, Amajjii 31, 1900 12:00:00 WD</result>
    <result timeType='full'>Roobii, Amajjii 31, 1900 12:00:00 WD</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>12:00 WD</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 WD</result>
    <result timeType='medium'>12:00:01 WD</result>
    <result timeType='long'>12:00:01 WD</result>
    <result timeType='full'>12:00:01 WD</result>
@@ -398,7 +398,7 @@ locales='om_ET om_KE'>
    <result timeType='medium'>Dilbata, Guraandhala 28, 1909 12:00:01 WD</result>
    <result timeType='long'>Dilbata, Guraandhala 28, 1909 12:00:01 WD</result>
    <result timeType='full'>Dilbata, Guraandhala 28, 1909 12:00:01 WD</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>12:59 WD</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 WD</result>
    <result timeType='medium'>12:59:59 WD</result>
    <result timeType='long'>12:59:59 WD</result>
    <result timeType='full'>12:59:59 WD</result>
@@ -422,7 +422,7 @@ locales='om_ET om_KE'>
    <result timeType='medium'>Qibxata, Bitooteessa 26, 1918 12:59:59 WD</result>
    <result timeType='long'>Qibxata, Bitooteessa 26, 1918 12:59:59 WD</result>
    <result timeType='full'>Qibxata, Bitooteessa 26, 1918 12:59:59 WD</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>1:00 WD</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 WD</result>
    <result timeType='medium'>1:00:00 WD</result>
    <result timeType='long'>1:00:00 WD</result>
    <result timeType='full'>1:00:00 WD</result>
@@ -446,7 +446,7 @@ locales='om_ET om_KE'>
    <result timeType='medium'>Dilbata, Elba 24, 1932 1:00:00 WD</result>
    <result timeType='long'>Dilbata, Elba 24, 1932 1:00:00 WD</result>
    <result timeType='full'>Dilbata, Elba 24, 1932 1:00:00 WD</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>1:00 WD</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 WD</result>
    <result timeType='medium'>1:00:01 WD</result>
    <result timeType='long'>1:00:01 WD</result>
    <result timeType='full'>1:00:01 WD</result>
@@ -470,7 +470,7 @@ locales='om_ET om_KE'>
    <result timeType='medium'>Dilbata, Caamsa 20, 1945 1:00:01 WD</result>
    <result timeType='long'>Dilbata, Caamsa 20, 1945 1:00:01 WD</result>
    <result timeType='full'>Dilbata, Caamsa 20, 1945 1:00:01 WD</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59 WD</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 WD</result>
    <result timeType='medium'>11:59:59 WD</result>
    <result timeType='long'>11:59:59 WD</result>
    <result timeType='full'>11:59:59 WD</result>
@@ -494,7 +494,7 @@ locales='om_ET om_KE'>
    <result timeType='medium'>Roobii, Waxabajjii 18, 1952 11:59:59 WD</result>
    <result timeType='long'>Roobii, Waxabajjii 18, 1952 11:59:59 WD</result>
    <result timeType='full'>Roobii, Waxabajjii 18, 1952 11:59:59 WD</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00 WB</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 WB</result>
    <result timeType='medium'>12:00:00 WB</result>
    <result timeType='long'>12:00:00 WB</result>
    <result timeType='full'>12:00:00 WB</result>
@@ -518,7 +518,7 @@ locales='om_ET om_KE'>
    <result timeType='medium'>Wiixata, Adooleessa 16, 1973 12:00:00 WB</result>
    <result timeType='long'>Wiixata, Adooleessa 16, 1973 12:00:00 WB</result>
    <result timeType='full'>Wiixata, Adooleessa 16, 1973 12:00:00 WB</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00 WB</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 WB</result>
    <result timeType='medium'>12:00:01 WB</result>
    <result timeType='long'>12:00:01 WB</result>
    <result timeType='full'>12:00:01 WB</result>
@@ -542,7 +542,7 @@ locales='om_ET om_KE'>
    <result timeType='medium'>Sanbata, Hagayya 14, 1999 12:00:01 WB</result>
    <result timeType='long'>Sanbata, Hagayya 14, 1999 12:00:01 WB</result>
    <result timeType='full'>Sanbata, Hagayya 14, 1999 12:00:01 WB</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>10:59 WB</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 WB</result>
    <result timeType='medium'>10:59:59 WB</result>
    <result timeType='long'>10:59:59 WB</result>
    <result timeType='full'>10:59:59 WB</result>
@@ -566,7 +566,7 @@ locales='om_ET om_KE'>
    <result timeType='medium'>Qibxata, Fuulbana 12, 2000 10:59:59 WB</result>
    <result timeType='long'>Qibxata, Fuulbana 12, 2000 10:59:59 WB</result>
    <result timeType='full'>Qibxata, Fuulbana 12, 2000 10:59:59 WB</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>11:00 WB</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 WB</result>
    <result timeType='medium'>11:00:00 WB</result>
    <result timeType='long'>11:00:00 WB</result>
    <result timeType='full'>11:00:00 WB</result>
@@ -590,7 +590,7 @@ locales='om_ET om_KE'>
    <result timeType='medium'>Wiixata, Onkololeessa 8, 2001 11:00:00 WB</result>
    <result timeType='long'>Wiixata, Onkololeessa 8, 2001 11:00:00 WB</result>
    <result timeType='full'>Wiixata, Onkololeessa 8, 2001 11:00:00 WB</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>11:00 WB</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 WB</result>
    <result timeType='medium'>11:00:01 WB</result>
    <result timeType='long'>11:00:01 WB</result>
    <result timeType='full'>11:00:01 WB</result>
@@ -614,7 +614,7 @@ locales='om_ET om_KE'>
    <result timeType='medium'>Kamiisa, Sadaasa 4, 2004 11:00:01 WB</result>
    <result timeType='long'>Kamiisa, Sadaasa 4, 2004 11:00:01 WB</result>
    <result timeType='full'>Kamiisa, Sadaasa 4, 2004 11:00:01 WB</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>11:59 WB</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 WB</result>
    <result timeType='medium'>11:59:59 WB</result>
    <result timeType='long'>11:59:59 WB</result>
    <result timeType='full'>11:59:59 WB</result>
@@ -639,6 +639,118 @@ locales='om_ET om_KE'>
    <result timeType='long'>Roobii, Muddee 1, 2010 11:59:59 WB</result>
    <result timeType='full'>Roobii, Muddee 1, 2010 11:59:59 WB</result>
   </date>
+  <zoneFields 
+locales='om om_ET om_KE'>
+<!-- Oromo [Oromoo]; Oromo (Ethiopia) [Oromoo (Itoophiyaa)]; Oromo (Kenya) [Oromoo (Keeniyaa)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result field='ZZZZ'>GMT-08:00</result>
+   <result field='z'>GMT-08:00</result>
+   <result field='zzzz'>GMT-08:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (United States)</result>
+   <result field='vvvv'>Los Angeles (United States)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-07:00</result>
+   <result field='z'>GMT-07:00</result>
+   <result field='zzzz'>GMT-07:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (United States)</result>
+   <result field='vvvv'>Los Angeles (United States)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-05:00</result>
+   <result field='z'>GMT-05:00</result>
+   <result field='zzzz'>GMT-05:00</result>
+   <result field='v' parse='America/Havana'>CU</result>
+   <result field='vvvv'>CU</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-04:00</result>
+   <result field='z'>GMT-04:00</result>
+   <result field='zzzz'>GMT-04:00</result>
+   <result field='v' parse='America/Havana'>CU</result>
+   <result field='vvvv'>CU</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+00:00</result>
+   <result field='z'>GMT+00:00</result>
+   <result field='zzzz'>GMT+00:00</result>
+   <result field='v' parse='Europe/London'>United Kingdom</result>
+   <result field='vvvv'>United Kingdom</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+01:00</result>
+   <result field='z'>GMT+01:00</result>
+   <result field='zzzz'>GMT+01:00</result>
+   <result field='v' parse='Europe/London'>United Kingdom</result>
+   <result field='vvvv'>United Kingdom</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+03:00</result>
+   <result field='z'>GMT+03:00</result>
+   <result field='zzzz'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (Russia)</result>
+   <result field='vvvv'>Moscow (Russia)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+04:00</result>
+   <result field='z'>GMT+04:00</result>
+   <result field='zzzz'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (Russia)</result>
+   <result field='vvvv'>Moscow (Russia)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+  </zoneFields>
   <collation 
 locales='om om_ET om_KE'>
 <!-- Oromo [Oromoo]; Oromo (Ethiopia) [Oromoo (Itoophiyaa)]; Oromo (Kenya) [Oromoo (Keeniyaa)] -->
@@ -886,6 +998,6 @@ Xsh
 XSh
 xshx
 xShx
-   </result>
+</result>
   </collation>
  </cldrTest>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.2/beta/cldrTest.dtd'>
+<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.2' base='az'>
+ <cldrTest version='1.4' base='az'>
  <!-- Azerbaijani [azərbaycanca] -->
   <number 
 locales='az az_AZ az_Cyrl az_Cyrl_AZ az_Latn az_Latn_AZ'>
@@ -58,7 +58,7 @@ locales='az az_AZ az_Cyrl az_Cyrl_AZ az_Latn az_Latn_AZ'>
   <date 
 locales='az az_AZ az_Latn az_Latn_AZ'>
 <!-- Azerbaijani [azərbaycanca]; Azerbaijani (Azerbaijan) [azərbaycanca (Azərbaycan)]; Azerbaijani (Latin) [azərbaycanca (Latn)]; Azerbaijani (Latin, Azerbaijan) [azərbaycanca (Latn, Azərbaycan)] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -82,7 +82,7 @@ locales='az az_AZ az_Latn az_Latn_AZ'>
    <result timeType='medium'>çərşənbə, 1900 Yanvar 31 00:00:00</result>
    <result timeType='long'>çərşənbə, 1900 Yanvar 31 00:00:00 GMT+00:00</result>
    <result timeType='full'>çərşənbə, 1900 Yanvar 31 00:00:00 GMT+00:00</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result timeType='long'>00:00:01 GMT+00:00</result>
    <result timeType='full'>00:00:01 GMT+00:00</result>
@@ -106,7 +106,7 @@ locales='az az_AZ az_Latn az_Latn_AZ'>
    <result timeType='medium'>bazar, 1909 Fevral 28 00:00:01</result>
    <result timeType='long'>bazar, 1909 Fevral 28 00:00:01 GMT+00:00</result>
    <result timeType='full'>bazar, 1909 Fevral 28 00:00:01 GMT+00:00</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>00:59</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result timeType='long'>00:59:59 GMT+00:00</result>
    <result timeType='full'>00:59:59 GMT+00:00</result>
@@ -130,7 +130,7 @@ locales='az az_AZ az_Latn az_Latn_AZ'>
    <result timeType='medium'>çərşənbə axşam, 1918 Mart 26 00:59:59</result>
    <result timeType='long'>çərşənbə axşam, 1918 Mart 26 00:59:59 GMT+00:00</result>
    <result timeType='full'>çərşənbə axşam, 1918 Mart 26 00:59:59 GMT+00:00</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>01:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result timeType='long'>01:00:00 GMT+00:00</result>
    <result timeType='full'>01:00:00 GMT+00:00</result>
@@ -154,7 +154,7 @@ locales='az az_AZ az_Latn az_Latn_AZ'>
    <result timeType='medium'>bazar, 1932 Aprel 24 01:00:00</result>
    <result timeType='long'>bazar, 1932 Aprel 24 01:00:00 GMT+00:00</result>
    <result timeType='full'>bazar, 1932 Aprel 24 01:00:00 GMT+00:00</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>01:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result timeType='long'>01:00:01 GMT+00:00</result>
    <result timeType='full'>01:00:01 GMT+00:00</result>
@@ -178,7 +178,7 @@ locales='az az_AZ az_Latn az_Latn_AZ'>
    <result timeType='medium'>bazar, 1945 May 20 01:00:01</result>
    <result timeType='long'>bazar, 1945 May 20 01:00:01 GMT+00:00</result>
    <result timeType='full'>bazar, 1945 May 20 01:00:01 GMT+00:00</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result timeType='long'>11:59:59 GMT+00:00</result>
    <result timeType='full'>11:59:59 GMT+00:00</result>
@@ -202,7 +202,7 @@ locales='az az_AZ az_Latn az_Latn_AZ'>
    <result timeType='medium'>çərşənbə, 1952 İyun 18 11:59:59</result>
    <result timeType='long'>çərşənbə, 1952 İyun 18 11:59:59 GMT+00:00</result>
    <result timeType='full'>çərşənbə, 1952 İyun 18 11:59:59 GMT+00:00</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result timeType='long'>12:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 GMT+00:00</result>
@@ -226,7 +226,7 @@ locales='az az_AZ az_Latn az_Latn_AZ'>
    <result timeType='medium'>bazar ertəsi, 1973 İyul 16 12:00:00</result>
    <result timeType='long'>bazar ertəsi, 1973 İyul 16 12:00:00 GMT+00:00</result>
    <result timeType='full'>bazar ertəsi, 1973 İyul 16 12:00:00 GMT+00:00</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result timeType='long'>12:00:01 GMT+00:00</result>
    <result timeType='full'>12:00:01 GMT+00:00</result>
@@ -250,7 +250,7 @@ locales='az az_AZ az_Latn az_Latn_AZ'>
    <result timeType='medium'>şənbə, 1999 Avqust 14 12:00:01</result>
    <result timeType='long'>şənbə, 1999 Avqust 14 12:00:01 GMT+00:00</result>
    <result timeType='full'>şənbə, 1999 Avqust 14 12:00:01 GMT+00:00</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>22:59</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result timeType='long'>22:59:59 GMT+00:00</result>
    <result timeType='full'>22:59:59 GMT+00:00</result>
@@ -274,7 +274,7 @@ locales='az az_AZ az_Latn az_Latn_AZ'>
    <result timeType='medium'>çərşənbə axşam, 2000 Sentyabr 12 22:59:59</result>
    <result timeType='long'>çərşənbə axşam, 2000 Sentyabr 12 22:59:59 GMT+00:00</result>
    <result timeType='full'>çərşənbə axşam, 2000 Sentyabr 12 22:59:59 GMT+00:00</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>23:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result timeType='long'>23:00:00 GMT+00:00</result>
    <result timeType='full'>23:00:00 GMT+00:00</result>
@@ -298,7 +298,7 @@ locales='az az_AZ az_Latn az_Latn_AZ'>
    <result timeType='medium'>bazar ertəsi, 2001 Oktyabr 08 23:00:00</result>
    <result timeType='long'>bazar ertəsi, 2001 Oktyabr 08 23:00:00 GMT+00:00</result>
    <result timeType='full'>bazar ertəsi, 2001 Oktyabr 08 23:00:00 GMT+00:00</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>23:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result timeType='long'>23:00:01 GMT+00:00</result>
    <result timeType='full'>23:00:01 GMT+00:00</result>
@@ -322,7 +322,7 @@ locales='az az_AZ az_Latn az_Latn_AZ'>
    <result timeType='medium'>cümə axşamı, 2004 Noyabr 04 23:00:01</result>
    <result timeType='long'>cümə axşamı, 2004 Noyabr 04 23:00:01 GMT+00:00</result>
    <result timeType='full'>cümə axşamı, 2004 Noyabr 04 23:00:01 GMT+00:00</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>23:59</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result timeType='long'>23:59:59 GMT+00:00</result>
    <result timeType='full'>23:59:59 GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='az az_AZ az_Latn az_Latn_AZ'>
   <date 
 locales='az_Cyrl az_Cyrl_AZ'>
 <!-- Azerbaijani (Cyrillic) [Азәрбајҹан (Cyrl)]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (Cyrl, Азәрбајҹан)] -->
-   <result dateType='none' input='1900-01-31T00:00:00Z' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -374,7 +374,7 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result timeType='medium'>чәршәнбә, 1900 јанвар 31 00:00:00</result>
    <result timeType='long'>чәршәнбә, 1900 јанвар 31 00:00:00 GMT+00:00</result>
    <result timeType='full'>чәршәнбә, 1900 јанвар 31 00:00:00 GMT+00:00</result>
-   <result dateType='none' input='1909-02-28T00:00:01Z' timeType='short'>00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result timeType='long'>00:00:01 GMT+00:00</result>
    <result timeType='full'>00:00:01 GMT+00:00</result>
@@ -398,7 +398,7 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result timeType='medium'>базар, 1909 феврал 28 00:00:01</result>
    <result timeType='long'>базар, 1909 феврал 28 00:00:01 GMT+00:00</result>
    <result timeType='full'>базар, 1909 феврал 28 00:00:01 GMT+00:00</result>
-   <result dateType='none' input='1918-03-26T00:59:59Z' timeType='short'>00:59</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result timeType='long'>00:59:59 GMT+00:00</result>
    <result timeType='full'>00:59:59 GMT+00:00</result>
@@ -422,7 +422,7 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result timeType='medium'>чәршәнбә ахшамы, 1918 март 26 00:59:59</result>
    <result timeType='long'>чәршәнбә ахшамы, 1918 март 26 00:59:59 GMT+00:00</result>
    <result timeType='full'>чәршәнбә ахшамы, 1918 март 26 00:59:59 GMT+00:00</result>
-   <result dateType='none' input='1932-04-24T01:00:00Z' timeType='short'>01:00</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result timeType='long'>01:00:00 GMT+00:00</result>
    <result timeType='full'>01:00:00 GMT+00:00</result>
@@ -446,7 +446,7 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result timeType='medium'>базар, 1932 апрел 24 01:00:00</result>
    <result timeType='long'>базар, 1932 апрел 24 01:00:00 GMT+00:00</result>
    <result timeType='full'>базар, 1932 апрел 24 01:00:00 GMT+00:00</result>
-   <result dateType='none' input='1945-05-20T01:00:01Z' timeType='short'>01:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result timeType='long'>01:00:01 GMT+00:00</result>
    <result timeType='full'>01:00:01 GMT+00:00</result>
@@ -470,7 +470,7 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result timeType='medium'>базар, 1945 май 20 01:00:01</result>
    <result timeType='long'>базар, 1945 май 20 01:00:01 GMT+00:00</result>
    <result timeType='full'>базар, 1945 май 20 01:00:01 GMT+00:00</result>
-   <result dateType='none' input='1952-06-18T11:59:59Z' timeType='short'>11:59</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result timeType='long'>11:59:59 GMT+00:00</result>
    <result timeType='full'>11:59:59 GMT+00:00</result>
@@ -494,7 +494,7 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result timeType='medium'>чәршәнбә, 1952 ијун 18 11:59:59</result>
    <result timeType='long'>чәршәнбә, 1952 ијун 18 11:59:59 GMT+00:00</result>
    <result timeType='full'>чәршәнбә, 1952 ијун 18 11:59:59 GMT+00:00</result>
-   <result dateType='none' input='1973-07-16T12:00:00Z' timeType='short'>12:00</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result timeType='long'>12:00:00 GMT+00:00</result>
    <result timeType='full'>12:00:00 GMT+00:00</result>
@@ -518,7 +518,7 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result timeType='medium'>базар ертәси, 1973 ијул 16 12:00:00</result>
    <result timeType='long'>базар ертәси, 1973 ијул 16 12:00:00 GMT+00:00</result>
    <result timeType='full'>базар ертәси, 1973 ијул 16 12:00:00 GMT+00:00</result>
-   <result dateType='none' input='1999-08-14T12:00:01Z' timeType='short'>12:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result timeType='long'>12:00:01 GMT+00:00</result>
    <result timeType='full'>12:00:01 GMT+00:00</result>
@@ -542,7 +542,7 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result timeType='medium'>шәнбә, 1999 август 14 12:00:01</result>
    <result timeType='long'>шәнбә, 1999 август 14 12:00:01 GMT+00:00</result>
    <result timeType='full'>шәнбә, 1999 август 14 12:00:01 GMT+00:00</result>
-   <result dateType='none' input='2000-09-12T22:59:59Z' timeType='short'>22:59</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result timeType='long'>22:59:59 GMT+00:00</result>
    <result timeType='full'>22:59:59 GMT+00:00</result>
@@ -566,7 +566,7 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result timeType='medium'>чәршәнбә ахшамы, 2000 сентјабр 12 22:59:59</result>
    <result timeType='long'>чәршәнбә ахшамы, 2000 сентјабр 12 22:59:59 GMT+00:00</result>
    <result timeType='full'>чәршәнбә ахшамы, 2000 сентјабр 12 22:59:59 GMT+00:00</result>
-   <result dateType='none' input='2001-10-08T23:00:00Z' timeType='short'>23:00</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result timeType='long'>23:00:00 GMT+00:00</result>
    <result timeType='full'>23:00:00 GMT+00:00</result>
@@ -590,7 +590,7 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result timeType='medium'>базар ертәси, 2001 октјабр 08 23:00:00</result>
    <result timeType='long'>базар ертәси, 2001 октјабр 08 23:00:00 GMT+00:00</result>
    <result timeType='full'>базар ертәси, 2001 октјабр 08 23:00:00 GMT+00:00</result>
-   <result dateType='none' input='2004-11-04T23:00:01Z' timeType='short'>23:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result timeType='long'>23:00:01 GMT+00:00</result>
    <result timeType='full'>23:00:01 GMT+00:00</result>
@@ -614,7 +614,7 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result timeType='medium'>ҹүмә ахшамы, 2004 нојабр 04 23:00:01</result>
    <result timeType='long'>ҹүмә ахшамы, 2004 нојабр 04 23:00:01 GMT+00:00</result>
    <result timeType='full'>ҹүмә ахшамы, 2004 нојабр 04 23:00:01 GMT+00:00</result>
-   <result dateType='none' input='2010-12-01T23:59:59Z' timeType='short'>23:59</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result timeType='long'>23:59:59 GMT+00:00</result>
    <result timeType='full'>23:59:59 GMT+00:00</result>
@@ -639,9 +639,121 @@ locales='az_Cyrl az_Cyrl_AZ'>
    <result timeType='long'>чәршәнбә, 2010 декабр 01 23:59:59 GMT+00:00</result>
    <result timeType='full'>чәршәнбә, 2010 декабр 01 23:59:59 GMT+00:00</result>
   </date>
-  <collation 
+  <zoneFields 
 locales='az az_AZ az_Cyrl az_Cyrl_AZ az_Latn az_Latn_AZ'>
 <!-- Azerbaijani [azərbaycanca]; Azerbaijani (Azerbaijan) [azərbaycanca (Azərbaycan)]; Azerbaijani (Cyrillic) [Азәрбајҹан (Cyrl)]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (Cyrl, Азәрбајҹан)]; Azerbaijani (Latin) [azərbaycanca (Latn)]; Azerbaijani (Latin, Azerbaijan) [azərbaycanca (Latn, Azərbaycan)] -->
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result field='ZZZZ'>GMT-08:00</result>
+   <result field='z'>GMT-08:00</result>
+   <result field='zzzz'>GMT-08:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
+   <result field='vvvv'>Los Angeles (US)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='ZZZZ'>GMT-07:00</result>
+   <result field='z'>GMT-07:00</result>
+   <result field='zzzz'>GMT-07:00</result>
+   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
+   <result field='vvvv'>Los Angeles (US)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='vvvv'>Buenos Aires (AR)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='ZZZZ'>GMT-05:00</result>
+   <result field='z'>GMT-05:00</result>
+   <result field='zzzz'>GMT-05:00</result>
+   <result field='v' parse='America/Havana'>CU</result>
+   <result field='vvvv'>CU</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='ZZZZ'>GMT-04:00</result>
+   <result field='z'>GMT-04:00</result>
+   <result field='zzzz'>GMT-04:00</result>
+   <result field='v' parse='America/Havana'>CU</result>
+   <result field='vvvv'>CU</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='ZZZZ'>GMT+11:00</result>
+   <result field='z'>GMT+11:00</result>
+   <result field='zzzz'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='ZZZZ'>GMT+10:00</result>
+   <result field='z'>GMT+10:00</result>
+   <result field='zzzz'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='vvvv'>Sydney (AU)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='ZZZZ'>GMT+00:00</result>
+   <result field='z'>GMT+00:00</result>
+   <result field='zzzz'>GMT+00:00</result>
+   <result field='v' parse='Europe/London'>GB</result>
+   <result field='vvvv'>GB</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='ZZZZ'>GMT+01:00</result>
+   <result field='z'>GMT+01:00</result>
+   <result field='zzzz'>GMT+01:00</result>
+   <result field='v' parse='Europe/London'>GB</result>
+   <result field='vvvv'>GB</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='ZZZZ'>GMT+03:00</result>
+   <result field='z'>GMT+03:00</result>
+   <result field='zzzz'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
+   <result field='vvvv'>Moscow (RU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='ZZZZ'>GMT+04:00</result>
+   <result field='z'>GMT+04:00</result>
+   <result field='zzzz'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
+   <result field='vvvv'>Moscow (RU)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
+   <result field='ZZZZ'>GMT-03:00</result>
+   <result field='z'>GMT-03:00</result>
+   <result field='zzzz'>GMT-03:00</result>
+   <result field='v'>GMT-03:00</result>
+   <result field='vvvv'>GMT-03:00</result>
+  </zoneFields>
+  <collation 
+locales='az az_AZ az_Latn az_Latn_AZ'>
+<!-- Azerbaijani [azərbaycanca]; Azerbaijani (Azerbaijan) [azərbaycanca (Azərbaycan)]; Azerbaijani (Latin) [azərbaycanca (Latn)]; Azerbaijani (Latin, Azerbaijan) [azərbaycanca (Latn, Azərbaycan)] -->
    <result>
 x 
 X 
@@ -853,6 +965,219 @@ Xz
 XZ
 xzx
 xZx
-   </result>
+</result>
+  </collation>
+  <collation 
+locales='az_Cyrl az_Cyrl_AZ'>
+<!-- Azerbaijani (Cyrillic) [Азәрбајҹан (Cyrl)]; Azerbaijani (Cyrillic, Azerbaijan) [Азәрбајҹан (Cyrl, Азәрбајҹан)] -->
+   <result>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xа
+xА
+Xа
+XА
+xаx
+xАx
+xә
+xӘ
+Xә
+XӘ
+xәx
+xӘx
+xб
+xБ
+Xб
+XБ
+xбx
+xБx
+xв
+xВ
+Xв
+XВ
+xвx
+xВx
+xг
+xГ
+Xг
+XГ
+xгx
+xГx
+xғ
+xҒ
+Xғ
+XҒ
+xғx
+xҒx
+xд
+xД
+Xд
+XД
+xдx
+xДx
+xе
+xЕ
+Xе
+XЕ
+xеx
+xЕx
+xж
+xЖ
+Xж
+XЖ
+xжx
+xЖx
+xз
+xЗ
+Xз
+XЗ
+xзx
+xЗx
+xи
+xИ
+Xи
+XИ
+xиx
+xИx
+xј
+xЈ
+Xј
+XЈ
+xјx
+xЈx
+xк
+xК
+Xк
+XК
+xкx
+xКx
+xҝ
+xҜ
+Xҝ
+XҜ
+xҝx
+xҜx
+xл
+xЛ
+Xл
+XЛ
+xлx
+xЛx
+xм
+xМ
+Xм
+XМ
+xмx
+xМx
+xн
+xН
+Xн
+XН
+xнx
+xНx
+xо
+xО
+Xо
+XО
+xоx
+xОx
+xө
+xӨ
+Xө
+XӨ
+xөx
+xӨx
+xп
+xП
+Xп
+XП
+xпx
+xПx
+xр
+xР
+Xр
+XР
+xрx
+xРx
+xс
+xС
+Xс
+XС
+xсx
+xСx
+xт
+xТ
+Xт
+XТ
+xтx
+xТx
+xу
+xУ
+Xу
+XУ
+xуx
+xУx
+xү
+xҮ
+Xү
+XҮ
+xүx
+xҮx
+xф
+xФ
+Xф
+XФ
+xфx
+xФx
+xх
+xХ
+Xх
+XХ
+xхx
+xХx
+xһ
+xҺ
+Xһ
+XҺ
+xһx
+xҺx
+xч
+xЧ
+Xч
+XЧ
+xчx
+xЧx
+xҹ
+xҸ
+Xҹ
+XҸ
+xҹx
+xҸx
+xш
+xШ
+Xш
+XШ
+xшx
+xШx
+xы
+xЫ
+Xы
+XЫ
+xыx
+xЫx
+</result>
   </collation>
  </cldrTest>

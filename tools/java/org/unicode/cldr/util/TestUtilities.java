@@ -61,6 +61,7 @@ public class TestUtilities {
 				"zh",
 				"hi",
 				"bg",
+				"ru",
 				"ja",
 				"as" // picked deliberately because it has few itesm
 		};
@@ -72,6 +73,7 @@ public class TestUtilities {
 				"Australia/ACT",
 				"Australia/Sydney",
 				"Europe/London",
+				"Europe/Moscow",
 				"Etc/GMT+3"
 		};
 		String[][] fields = {

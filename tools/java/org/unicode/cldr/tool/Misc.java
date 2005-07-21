@@ -413,7 +413,7 @@ public class Misc {
 		StandardCodes sc = StandardCodes.make();
 		
 		Map linkNew_Old = sc.getZoneLinkNew_OldSet();
-		TimezoneFormatter tzf = new TimezoneFormatter(cldrFactory, locale, true);
+		TimezoneFormatter tzf = new TimezoneFormatter(cldrFactory, locale);
 		/*
 		<hourFormat>+HHmm;-HHmm</hourFormat>
 		<hoursFormat>{0}/{1}</hoursFormat>

@@ -26,6 +26,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.Iterator;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -45,6 +47,7 @@ import com.ibm.icu.dev.tool.UOption;
 
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.Transliterator;
@@ -63,8 +66,13 @@ public class TestCldr extends TestFmwk {
     //Locale oLocale = Locale.ENGLISH; // TODO Drop once ICU4J has ULocale everywhere
     //static PrintWriter log;
     SAXParser SAX;
-
+    static String MATCH;
+    
     public static void main(String[] args) throws Exception {
+        MATCH = System.getProperty("XML_MATCH");
+        if (MATCH == null) MATCH = ".*";
+        else System.out.println("Resetting MATCH:" + MATCH);
+
     	new TestCldr().run(args);
     }
 
@@ -85,8 +93,11 @@ public class TestCldr extends TestFmwk {
         addLocales(DateFormat.getAvailableULocales(), s);
         addLocales(Collator.getAvailableULocales(), s);
         
+        Matcher m = Pattern.compile(MATCH).matcher("");
         for (Iterator it = s.iterator(); it.hasNext();) {
-            _test((String)it.next());
+        	String locale = (String)it.next();
+        	if (!m.reset(locale).matches()) continue;
+            _test(locale);
         }
     }
     
@@ -351,6 +362,43 @@ public class TestCldr extends TestFmwk {
 			}
         });
 
+        // ============ Handler for Zones ============
+        addHandler("zoneFields", new Handler() {
+            String date = "";
+            String zone = "";
+            String parse = "";
+            String pattern = "";
+            
+            public void handleResult(ULocale locale, String result) throws ParseException {
+                for (Iterator it = settings.keySet().iterator(); it.hasNext();) {
+                    String attributeName = (String) it.next();
+                    String attributeValue = (String) settings.get(attributeName);
+                    if (attributeName.equals("date")) {
+                        date = attributeValue;
+                    } else if (attributeName.equals("field")) {
+                    	pattern = attributeValue;
+                    } else if (attributeName.equals("zone")) {
+                    	zone = attributeValue;
+                    } else if (attributeName.equals("parse")) {
+                    	parse = attributeValue;
+                    }
+                }
+                Date dateValue = iso.parse(date);
+                SimpleDateFormat field = new SimpleDateFormat(pattern, locale);
+                field.setTimeZone(TimeZone.getTimeZone(zone));
+                String temp = field.format(dateValue).trim();
+                // SKIP PARSE FOR NOW
+                result = result.trim(); // HACK because of SAX
+                if (!temp.equals(result)) {
+                    errln("Zone Format: Locale: " + locale 
+                    		+ ", \tZone: " + zone
+                    		+ ", \tDate: " + date
+							+ ", \tField: " + pattern
+                    		+ ", \tCLDR: <" + result
+							+ ">, \tICU: <" + temp + ">");
+                }
+            }
+        });
     }
 
     // ============ Gorp for SAX ============

@@ -220,12 +220,6 @@ public class TimezoneFormatter {
 //		format.
 //		* Africa/Monrovia => LR => "Tampo de Liberja"
 //		* America/Havana => CU => "Tampo de CU" // if CU is not localized
-//
-//		In the above examples, for illustration the region format is "Tampo de {0}".
-//		The current root format is simply "{0}". If a language does require grammatical
-//		changes when composing strings, then it should either use a neutral format
-//		such as what is in root, or   put all exceptional cases in explicitly translated
-//		strings.
 		
 		String countryTranslation = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, skipDraft);
 		if (countryTranslation == null) countryTranslation = country;

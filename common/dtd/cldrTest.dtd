@@ -8,12 +8,14 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 -->
 
-<!ELEMENT cldrTest ((number | date | collation)*) >
+<!ELEMENT cldrTest ((number | date | zoneFields | collation)*) >
 <!ATTLIST cldrTest version CDATA #REQUIRED>
 
 <!ELEMENT number (result*) >
+<!ATTLIST number locales NMTOKENS #IMPLIED>
 
 <!ELEMENT date (result*) >
+<!ATTLIST date locales NMTOKENS #IMPLIED>
 
 <!ELEMENT collation (result*) >
 <!ATTLIST collation locales NMTOKENS #IMPLIED>
@@ -27,5 +29,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!-- date result attributes -->
 <!ATTLIST result dateType (none | short | medium | long | full) #IMPLIED>
 <!ATTLIST result timeType (none | short | medium | long | full) #IMPLIED>
+
+<!-- zoneFields result attributes -->
+<!ATTLIST result zone NMTOKEN #IMPLIED>
+<!ATTLIST result date NMTOKEN #IMPLIED>
+<!ATTLIST result field NMTOKEN #IMPLIED>
+<!ATTLIST result parse NMTOKEN #IMPLIED>
 
 

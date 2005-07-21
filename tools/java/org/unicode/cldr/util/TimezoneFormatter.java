@@ -168,23 +168,40 @@ public class TimezoneFormatter {
 	 */
 	public String getFormattedZone(String inputZoneid, int length, int type, int gmtOffset1) {
 		String result;
+		
+//		1.  Canonicalize the Olson ID according to the table in supplemental data.
+//		Use that canonical ID in each of the following steps.
+//		* America/Atka => America/Adak
+//		* Australia/ACT => Australia/Sydney
+		
 		String zoneid = (String) old_new.get(inputZoneid);
 		if (zoneid == null) zoneid = inputZoneid;
 		
-		if (type == GMT && length == SHORT) { // just do the RFC, via Java; note that this will actually vary by date, but we hardcode for testing
-			return gmtOffset1 < 0 ? rfc822Minus.format(new Date(-gmtOffset1)) : rfc822Plus.format(new Date(gmtOffset1));
-		}
+//		2. If there is an exact translation in the resolved locale, use it. (Note
+//		that this translation may not at all be literal: it would be what is most
+//		recognizable for people using the target language.)
+//		* America/Los_Angeles => "Tampo de Pacifica"
+		
 		String prefix = "/ldml/dates/timeZoneNames/zone[@type=\"" + zoneid + "\"]/";
-		// 1. If non-GMT format, and we have an explicit translation, use it
 		if (type != GMT) {
 			String formatValue = getStringValue(prefix + LENGTH.get(length) + "/" + TYPE.get(type));
 			if (formatValue != null) return formatValue;
 		}
 		
+//		2a. Else for RFC 822 format ("Z") follow the RFC.
+//		*  America/Los_Angeles => "-0800"
+		
+		if (type == GMT && length == SHORT) {
+			return gmtOffset1 < 0 ? rfc822Minus.format(new Date(-gmtOffset1)) : rfc822Plus.format(new Date(gmtOffset1));
+		}
+
+//		3. Else for non-wall-time (ie, GMT, daylight, or standard) or where there is
+//		no country for the zone (eg, Etc/GMT+3), use the localized GMT format.
+//		* America/Los_Angeles (standard time) => "GMT-08:00"
+//		* America/Los_Angeles (daylight time) => "HMG-07:00" // French localization
+//		* Etc/GMT+3 => "GMT-03:00" // note that Olson tzids have inverse polarity!
+		
 		String country = (String) zone_countries.get(zoneid);
-		// 2. if GMT format or no country, use GMT format
-		// 3. Else for non-wall-time, use GMT format
-		//	America/Los_Angeles => "GMT-08:00"
 		if (type != GENERIC || country.equals(StandardCodes.NO_COUNTRY)) {
 			DateFormat format = gmtOffset1 < 0 ? hourFormatMinus : hourFormatPlus;
 			calendar.setTimeInMillis(Math.abs(gmtOffset1));
@@ -192,22 +209,38 @@ public class TimezoneFormatter {
 			return gmtFormat.format(new Object[]{result});
 		}
 
-		// 4. *Else if there is an exemplar city, use it with the region format. The exemplar city may not be the same as the Olson ID city, if another city is much more recognizable for whatever reason. 
-		// However, it is very strongly recommended that the same city be used.
-		//	America/Los_Angeles => "Tampo de San Fransisko"
-
-		// 5. *Else if there is a country for the time zone, and a translation in the locale for the country name, and the country only has one (modern) timezone, use it with the region format :
-		//	Africa/Monrovia => LR => "Tampo de Liberja"
+//		Thus the remaining steps are only applicable to the generic format. In these
+//		steps, if the localized country is not available, use the country code. If
+//		the localized exemplar city is not available, fall back to the last field of the
+//		raw Olson ID (stripping off the prefix, and turning _ into space).
+//
+//		5. Else if the country for the zone only has one timezone or the zone id is
+//		in the singleCountries list, format the localized country with the region
+//		format.
+//		* Africa/Monrovia => LR => "Tampo de Liberja"
+//		* America/Havana => CU => "Tampo de CU" // if CU is not localized
+//
+//		In the above examples, for illustration the region format is "Tampo de {0}".
+//		The current root format is simply "{0}". If a language does require grammatical
+//		changes when composing strings, then it should either use a neutral format
+//		such as what is in root, or   put all exceptional cases in explicitly translated
+//		strings.
+		
+//		The getName method below returns the country code if unlocalized
+		
 		Set s = (Set) countries_zoneSet.get(country);
 		if (s != null && s.size() == 1 || singleCountriesSet.contains(zoneid)) {
 			result = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, skipDraft);
 			if (result != null) return regionFormat.format(new Object[]{result});
 		}
-		// 6. Else if it is a perpetual alias for a "real" ID, and if there is an exact translation for that, try #1..#4 with that alias.
-		//	Europe/San_Marino => Europe/Rome => ... => "Tampo de Roma"
-		
-		// 7. Else fall back to the raw Olson ID (stripping off the prefix, and turning _ into space), using the fallback format. 
-		//	America/Goose_Bay => "Tampo de  «Goose Bay»"
+
+//		7. Else get the exemplar city and localized country, and format them with
+//		the fallback format (as parameters 0 and 1, respectively).
+//		* America/Buenos_Aires => "??????-????? (?????????)"
+//		* America/Buenos_Aires => "??????-????? (AR)" // if Argentina isn't translated
+//		* America/Buenos_Aires => "Buenos Aires (?????????)" // if Buenos Aires isn't
+//		* America/Buenos_Aires => "Buenos Aires (AR)" // if both aren't
+
 		String exemplarValue = getStringValue(prefix + "exemplarCity");
 		if (exemplarValue != null) {
 			result = exemplarValue;
@@ -218,10 +251,6 @@ public class TimezoneFormatter {
 		String countryTranslation = getName(CLDRFile.TERRITORY_NAME, country, skipDraft);
 		if (countryTranslation == null) countryTranslation = country;
 		return fallbackFormat.format(new Object[]{result, countryTranslation});
-		
-		// 8. Else use the (possibly multi-offset) GMT format
-		//	America/Nome => "GMT-0900/-0800"
-		// NOP -- never get there.	
 	}
 	
 	/**

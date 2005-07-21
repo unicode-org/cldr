@@ -106,6 +106,7 @@ public class TimezoneFormatter {
 		String singleCountriesList = (String) new XPathParts(null, null).set(
 				temp).findAttributes("singleCountries").get("list");
 		singleCountriesSet = new TreeSet(Utility.splitList(singleCountriesList, ' '));
+
 		/* not needed
 		hoursFormat = new MessageFormat(desiredLocaleFile.getStringValue(
 				"/ldml/dates/timeZoneNames/hoursFormat"));
@@ -226,12 +227,12 @@ public class TimezoneFormatter {
 //		such as what is in root, or   put all exceptional cases in explicitly translated
 //		strings.
 		
-//		The getName method below returns the country code if unlocalized
+		String countryTranslation = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, skipDraft);
+		if (countryTranslation == null) countryTranslation = country;
 		
 		Set s = (Set) countries_zoneSet.get(country);
 		if (s != null && s.size() == 1 || singleCountriesSet.contains(zoneid)) {
-			result = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, skipDraft);
-			if (result != null) return regionFormat.format(new Object[]{result});
+			return regionFormat.format(new Object[]{countryTranslation});
 		}
 
 //		7. Else get the exemplar city and localized country, and format them with
@@ -242,15 +243,9 @@ public class TimezoneFormatter {
 //		* America/Buenos_Aires => "Buenos Aires (AR)" // if both aren't
 
 		String exemplarValue = getStringValue(prefix + "exemplarCity");
-		if (exemplarValue != null) {
-			result = exemplarValue;
-		} else {
-			result = getFallbackName(zoneid);
-		}
+		if (exemplarValue == null) exemplarValue = getFallbackName(zoneid);
 		
-		String countryTranslation = getName(CLDRFile.TERRITORY_NAME, country, skipDraft);
-		if (countryTranslation == null) countryTranslation = country;
-		return fallbackFormat.format(new Object[]{result, countryTranslation});
+		return fallbackFormat.format(new Object[]{exemplarValue, countryTranslation});
 	}
 	
 	/**

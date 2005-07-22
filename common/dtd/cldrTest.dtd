@@ -22,6 +22,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!-- common result attributes -->
 <!ATTLIST result input CDATA #IMPLIED>
+<!ATTLIST result draft (true | false | either) #IMPLIED>
 
 <!-- number result attributes -->
 <!ATTLIST result numberType (standard | integer | decimal | percent | scientific) #IMPLIED>

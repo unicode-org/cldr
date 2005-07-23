@@ -6,7 +6,7 @@
   <number 
 locales='km km_KH'>
 <!-- Khmer [Khmer]; Khmer (Cambodia) [Khmer (Cambodia)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='km km_KH'>
   <date 
 locales='km km_KH'>
 <!-- Khmer [Khmer]; Khmer (Cambodia) [Khmer (Cambodia)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>0:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0 ម៉ោង 0 នាទី 00 វិនាទី​</result>
    <result timeType='full'>0 ម៉ោង 0 នាទី 00 វិនាទី​ GMT+00:00</result>
@@ -350,79 +350,103 @@ locales='km km_KH'>
   <zoneFields 
 locales='km km_KH'>
 <!-- Khmer [Khmer]; Khmer (Cambodia) [Khmer (Cambodia)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (សហរដ្ឋអាមេរិក)</result>
-   <result field='vvvv'>Los Angeles (សហរដ្ឋអាមេរិក)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (សហរដ្ឋអាមេរិក)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result field='vvvv' draft='true'>Los Angeles (សហរដ្ឋអាមេរិក)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='either'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
    <result field='z'>GMT-07:00</result>
    <result field='zzzz'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (សហរដ្ឋអាមេរិក)</result>
-   <result field='vvvv'>Los Angeles (សហរដ្ឋអាមេរិក)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (សហរដ្ឋអាមេរិក)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result field='vvvv' draft='true'>Los Angeles (សហរដ្ឋអាមេរិក)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (អាហ្សង់ទីន)</result>
-   <result field='vvvv'>Buenos Aires (អាហ្សង់ទីន)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>Buenos Aires (អាហ្សង់ទីន)</result>
+   <result draft='false'>Buenos Aires (AR)</result>
+   <result field='vvvv' draft='true'>Buenos Aires (អាហ្សង់ទីន)</result>
+   <result draft='false'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (អាហ្សង់ទីន)</result>
-   <result field='vvvv'>Buenos Aires (អាហ្សង់ទីន)</result>
-   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>Buenos Aires (អាហ្សង់ទីន)</result>
+   <result draft='false'>Buenos Aires (AR)</result>
+   <result field='vvvv' draft='true'>Buenos Aires (អាហ្សង់ទីន)</result>
+   <result draft='false'>Buenos Aires (AR)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (អាហ្សង់ទីន)</result>
-   <result field='vvvv'>Buenos Aires (អាហ្សង់ទីន)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>Buenos Aires (អាហ្សង់ទីន)</result>
+   <result draft='false'>Buenos Aires (AR)</result>
+   <result field='vvvv' draft='true'>Buenos Aires (អាហ្សង់ទីន)</result>
+   <result draft='false'>Buenos Aires (AR)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (អាហ្សង់ទីន)</result>
-   <result field='vvvv'>Buenos Aires (អាហ្សង់ទីន)</result>
-   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>Buenos Aires (អាហ្សង់ទីន)</result>
+   <result draft='false'>Buenos Aires (AR)</result>
+   <result field='vvvv' draft='true'>Buenos Aires (អាហ្សង់ទីន)</result>
+   <result draft='false'>Buenos Aires (AR)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='either'>-0500</result>
    <result field='ZZZZ'>GMT-05:00</result>
    <result field='z'>GMT-05:00</result>
    <result field='zzzz'>GMT-05:00</result>
-   <result field='v' parse='America/Havana'>គុយបា</result>
-   <result field='vvvv'>គុយបា</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='v' parse='America/Havana' draft='true'>គុយបា</result>
+   <result draft='false'>CU</result>
+   <result field='vvvv' draft='true'>គុយបា</result>
+   <result draft='false'>CU</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4' draft='either'>-0400</result>
    <result field='ZZZZ'>GMT-04:00</result>
    <result field='z'>GMT-04:00</result>
    <result field='zzzz'>GMT-04:00</result>
-   <result field='v' parse='America/Havana'>គុយបា</result>
-   <result field='vvvv'>គុយបា</result>
-   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='v' parse='America/Havana' draft='true'>គុយបា</result>
+   <result draft='false'>CU</result>
+   <result field='vvvv' draft='true'>គុយបា</result>
+   <result draft='false'>CU</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='either'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (អូស្ត្រាលី)</result>
-   <result field='vvvv'>Sydney (អូស្ត្រាលី)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Sydney (អូស្ត្រាលី)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result field='vvvv' draft='true'>Sydney (អូស្ត្រាលី)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (អូស្ត្រាលី)</result>
-   <result field='vvvv'>Sydney (អូស្ត្រាលី)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Sydney (អូស្ត្រាលី)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result field='vvvv' draft='true'>Sydney (អូស្ត្រាលី)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='either'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (អូស្ត្រាលី)</result>
-   <result field='vvvv'>Sydney (អូស្ត្រាលី)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Sydney (អូស្ត្រាលី)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result field='vvvv' draft='true'>Sydney (អូស្ត្រាលី)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (អូស្ត្រាលី)</result>
-   <result field='vvvv'>Sydney (អូស្ត្រាលី)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Sydney (អូស្ត្រាលី)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result field='vvvv' draft='true'>Sydney (អូស្ត្រាលី)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='either'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
    <result field='zzzz'>GMT+00:00</result>
@@ -438,15 +462,19 @@ locales='km km_KH'>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (រូស្ស៊ី)</result>
-   <result field='vvvv'>Moscow (រូស្ស៊ី)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscow (រូស្ស៊ី)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result field='vvvv' draft='true'>Moscow (រូស្ស៊ី)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (រូស្ស៊ី)</result>
-   <result field='vvvv'>Moscow (រូស្ស៊ី)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscow (រូស្ស៊ី)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result field='vvvv' draft='true'>Moscow (រូស្ស៊ី)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
@@ -462,7 +490,7 @@ locales='km km_KH'>
   <collation 
 locales='km km_KH'>
 <!-- Khmer [Khmer]; Khmer (Cambodia) [Khmer (Cambodia)] -->
-   <result>
+   <result draft='true'>
 x​
 x឵
 x឴
@@ -889,6 +917,272 @@ xះx
 x្
 X្
 x្x
+</result>
+   <result draft='false'>
+x឵
+x឴
+x឵
+X឴
+X឵
+X឴
+x៎
+X៎
+x៏
+X៏
+x៑
+X៑
+x័
+X័
+xៈ
+Xៈ
+x៝
+X៝
+x់
+X់
+x៉
+X៉
+x៊
+X៊
+x៍
+X៍
+x 
+X 
+x x
+x.
+X.
+x.x
+xៗ
+Xៗ
+xៗx
+x៓
+X៓
+x៓x
+x។
+X។
+x។x
+x៕
+X៕
+x៕x
+x៖
+X៖
+x៖x
+x៘
+X៘
+x៘x
+x៙
+X៙
+x៙x
+x៚
+X៚
+x៚x
+xៜ
+Xៜ
+xៜx
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+x឵x
+x឴x
+x឵x
+x៎x
+x៏x
+x៑x
+x័x
+xៈx
+x៝x
+x់x
+x៉x
+x៊x
+x៍x
+xក៌
+Xក៌
+xក៌x
+xខ៌
+Xខ៌
+xខ៌x
+xគ៌
+Xគ៌
+xគ៌x
+xឃ៌
+Xឃ៌
+xឃ៌x
+xង៌
+Xង៌
+xង៌x
+xច៌
+Xច៌
+xច៌x
+xឆ៌
+Xឆ៌
+xឆ៌x
+xជ៌
+Xជ៌
+xជ៌x
+xឈ៌
+Xឈ៌
+xឈ៌x
+xញ៌
+Xញ៌
+xញ៌x
+xដ៌
+Xដ៌
+xដ៌x
+xឋ៌
+Xឋ៌
+xឋ៌x
+xឌ៌
+Xឌ៌
+xឌ៌x
+xឍ៌
+Xឍ៌
+xឍ៌x
+xណ៌
+Xណ៌
+xណ៌x
+xត៌
+Xត៌
+xត៌x
+xថ៌
+Xថ៌
+xថ៌x
+xទ៌
+Xទ៌
+xទ៌x
+xធ៌
+Xធ៌
+xធ៌x
+xន៌
+Xន៌
+xន៌x
+xប៌
+Xប៌
+xប៌x
+xផ៌
+Xផ៌
+xផ៌x
+xព៌
+Xព៌
+xព៌x
+xភ៌
+Xភ៌
+xភ៌x
+xម៌
+Xម៌
+xម៌x
+xយ៌
+Xយ៌
+xយ៌x
+xរ៌
+Xរ៌
+xរ៌x
+xឫ៌
+Xឫ៌
+xឫ៌x
+xឬ៌
+Xឬ៌
+xឬ៌x
+xល៌
+Xល៌
+xល៌x
+xឭ៌
+Xឭ៌
+xឭ៌x
+xឮ៌
+Xឮ៌
+xឮ៌x
+xវ៌
+Xវ៌
+xវ៌x
+xឝ៌
+Xឝ៌
+xឝ៌x
+xឞ៌
+Xឞ៌
+xឞ៌x
+xស៌
+Xស៌
+xស៌x
+xហ៌
+Xហ៌
+xហ៌x
+xឡ៌
+Xឡ៌
+xឡ៌x
+xអ៌
+xឣ៌
+Xអ៌
+Xឣ៌
+xអ៌x
+xឣ៌x
+xឫ
+Xឫ
+xឫx
+xឬ
+Xឬ
+xឬx
+xឭ
+Xឭ
+xឭx
+xឮ
+Xឮ
+xឮx
+xឣ
+Xឣ
+xឣx
+xឤ
+Xឤ
+xឤx
+xឥ
+Xឥ
+xឥx
+xឦ
+Xឦ
+xឦx
+xឧ
+xឨ
+Xឧ
+Xឨ
+xឧx
+xឨx
+xឪ
+Xឪ
+xឪx
+xឩ
+Xឩ
+xឩx
+xឯ
+Xឯ
+xឯx
+xឰ
+Xឰ
+xឰx
+xឱ
+xឲ
+Xឱ
+Xឲ
+xឱx
+xឲx
+xឳ
+Xឳ
+xឳx
+xុំ
+Xុំ
+xុំx
+xំ
+Xំ
+xំx
+xាំ
+Xាំ
+xាំx
+xះ
+Xះ
+xះx
 </result>
   </collation>
  </cldrTest>

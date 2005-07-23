@@ -6,7 +6,7 @@
   <number 
 locales='ko ko_KR'>
 <!-- Korean [한국어]; Korean (South Korea) [한국어 (대한민국)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='ko ko_KR'>
   <date 
 locales='ko'>
 <!-- Korean [한국어] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>오전 12시 00분</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>오전 12시 00분</result>
    <result timeType='medium'>오전 12시 00분</result>
    <result timeType='long'>오전 12시 00분 00초</result>
    <result timeType='full'>오전 12시 00분 00초 GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='ko'>
   <date 
 locales='ko_KR'>
 <!-- Korean (South Korea) [한국어 (대한민국)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>오전 12:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>오전 12:00</result>
    <result timeType='medium'>오전 12:00:00</result>
    <result timeType='long'>오전 12시 00분 00초</result>
    <result timeType='full'>오전 12시 00분 00초 GMT+00:00</result>
@@ -642,7 +642,7 @@ locales='ko_KR'>
   <zoneFields 
 locales='ko ko_KR'>
 <!-- Korean [한국어]; Korean (South Korea) [한국어 (대한민국)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z' parse='America/Los_Angeles'>PST</result>
    <result field='zzzz'>태평양 표준시</result>
@@ -754,7 +754,7 @@ locales='ko ko_KR'>
   <collation 
 locales='ko ko_KR'>
 <!-- Korean [한국어]; Korean (South Korea) [한국어 (대한민국)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x

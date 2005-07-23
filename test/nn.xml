@@ -6,7 +6,7 @@
   <number 
 locales='nn nn_NO'>
 <!-- Norwegian Nynorsk [norsk nynorsk]; Norwegian Nynorsk (Norway) [norsk nynorsk (Noreg)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='nn nn_NO'>
   <date 
 locales='nn nn_NO'>
 <!-- Norwegian Nynorsk [norsk nynorsk]; Norwegian Nynorsk (Norway) [norsk nynorsk (Noreg)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00.00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00.00</result>
    <result timeType='medium'>00.00.00</result>
    <result timeType='long'>00.00.00 GMT+00.00</result>
    <result timeType='full'>kl. 00.00.00 GMT+00.00</result>
@@ -350,7 +350,7 @@ locales='nn nn_NO'>
   <zoneFields 
 locales='nn nn_NO'>
 <!-- Norwegian Nynorsk [norsk nynorsk]; Norwegian Nynorsk (Norway) [norsk nynorsk (Noreg)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08.00</result>
    <result field='z'>GMT-08.00</result>
    <result field='zzzz'>GMT-08.00</result>
@@ -438,15 +438,19 @@ locales='nn nn_NO'>
    <result field='ZZZZ'>GMT+03.00</result>
    <result field='z'>GMT+03.00</result>
    <result field='zzzz'>GMT+03.00</result>
-   <result field='v' parse='Europe/Moscow'>Moskva (Den russiske føderasjon)</result>
-   <result field='vvvv'>Moskva (Den russiske føderasjon)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moskva (Den russiske føderasjon)</result>
+   <result draft='false'>Moscow (Den russiske føderasjon)</result>
+   <result field='vvvv' draft='true'>Moskva (Den russiske føderasjon)</result>
+   <result draft='false'>Moscow (Den russiske føderasjon)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
    <result field='ZZZZ'>GMT+04.00</result>
    <result field='z'>GMT+04.00</result>
    <result field='zzzz'>GMT+04.00</result>
-   <result field='v' parse='Europe/Moscow'>Moskva (Den russiske føderasjon)</result>
-   <result field='vvvv'>Moskva (Den russiske føderasjon)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moskva (Den russiske føderasjon)</result>
+   <result draft='false'>Moscow (Den russiske føderasjon)</result>
+   <result field='vvvv' draft='true'>Moskva (Den russiske føderasjon)</result>
+   <result draft='false'>Moscow (Den russiske føderasjon)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03.00</result>
    <result field='z'>GMT-03.00</result>
    <result field='zzzz'>GMT-03.00</result>
@@ -462,7 +466,7 @@ locales='nn nn_NO'>
   <collation 
 locales='nn nn_NO'>
 <!-- Norwegian Nynorsk [norsk nynorsk]; Norwegian Nynorsk (Norway) [norsk nynorsk (Noreg)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x

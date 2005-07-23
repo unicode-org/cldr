@@ -6,7 +6,7 @@
   <number 
 locales='kn'>
 <!-- Kannada [ಕನ್ನಡ] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='kn'>
   <number 
 locales='kn_IN'>
 <!-- Kannada (India) [ಕನ್ನಡ (ಭಾರತ)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -110,7 +110,7 @@ locales='kn_IN'>
   <date 
 locales='kn'>
 <!-- Kannada [ಕನ್ನಡ] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -402,7 +402,7 @@ locales='kn'>
   <date 
 locales='kn_IN'>
 <!-- Kannada (India) [ಕನ್ನಡ (ಭಾರತ)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 ಪೂರ್ವಾಹ್ನ</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 ಪೂರ್ವಾಹ್ನ</result>
    <result timeType='medium'>12:00:00 ಪೂರ್ವಾಹ್ನ</result>
    <result timeType='long'>12:00:00 ಪೂರ್ವಾಹ್ನ GMT+00:00</result>
    <result timeType='full'>12:00:00 ಪೂರ್ವಾಹ್ನ GMT+00:00</result>
@@ -694,7 +694,7 @@ locales='kn_IN'>
   <zoneFields 
 locales='kn kn_IN'>
 <!-- Kannada [ಕನ್ನಡ]; Kannada (India) [ಕನ್ನಡ (ಭಾರತ)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
@@ -806,7 +806,7 @@ locales='kn kn_IN'>
   <collation 
 locales='kn kn_IN'>
 <!-- Kannada [ಕನ್ನಡ]; Kannada (India) [ಕನ್ನಡ (ಭಾರತ)] -->
-   <result>
+   <result draft='either'>
 x಼
 X಼
 xಂ

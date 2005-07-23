@@ -6,7 +6,7 @@
   <number 
 locales='as'>
 <!-- Assamese [অসমীয়া] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='as'>
   <number 
 locales='as_IN'>
 <!-- Assamese (India) [অসমীয়া (ভাৰত)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -110,7 +110,7 @@ locales='as_IN'>
   <date 
 locales='as'>
 <!-- Assamese [অসমীয়া] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -402,7 +402,7 @@ locales='as'>
   <date 
 locales='as_IN'>
 <!-- Assamese (India) [অসমীয়া (ভাৰত)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12.00. পূৰ্বা</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12.00. পূৰ্বা</result>
    <result timeType='medium'>12.00.00 পূৰ্বা</result>
    <result timeType='long'>12.00.00 পূৰ্বা GMT+00:00</result>
    <result timeType='full'>12.00.00 পূৰ্বা GMT+00:00</result>
@@ -694,7 +694,7 @@ locales='as_IN'>
   <zoneFields 
 locales='as as_IN'>
 <!-- Assamese [অসমীয়া]; Assamese (India) [অসমীয়া (ভাৰত)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
@@ -806,7 +806,7 @@ locales='as as_IN'>
   <collation 
 locales='as as_IN'>
 <!-- Assamese [অসমীয়া]; Assamese (India) [অসমীয়া (ভাৰত)] -->
-   <result>
+   <result draft='true'>
 x‍
 x‌
 x‍
@@ -1047,6 +1047,23 @@ x্x
 xৗ
 Xৗ
 xৗx
+</result>
+   <result draft='false'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
 </result>
   </collation>
  </cldrTest>

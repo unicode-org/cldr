@@ -6,7 +6,7 @@
   <number 
 locales='am am_ET'>
 <!-- Amharic [አማርኛ]; Amharic (Ethiopia) [አማርኛ (ኢትዮጵያ)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='am am_ET'>
   <date 
 locales='am'>
 <!-- Amharic [አማርኛ] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+0000</result>
    <result timeType='full'>00:00:00 GMT+0000</result>
@@ -350,7 +350,7 @@ locales='am'>
   <date 
 locales='am_ET'>
 <!-- Amharic (Ethiopia) [አማርኛ (ኢትዮጵያ)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 ጡዋት</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 ጡዋት</result>
    <result timeType='medium'>12:00:00 ጡዋት</result>
    <result timeType='long'>12:00:00 ጡዋት</result>
    <result timeType='full'>12:00:00 ጡዋት</result>
@@ -642,79 +642,103 @@ locales='am_ET'>
   <zoneFields 
 locales='am am_ET'>
 <!-- Amharic [አማርኛ]; Amharic (Ethiopia) [አማርኛ (ኢትዮጵያ)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-0800</result>
    <result field='z'>GMT-0800</result>
    <result field='zzzz'>GMT-0800</result>
-   <result field='v' parse='America/Los_Angeles'>ሎስ አንጀለስ (አሜሪካ)</result>
-   <result field='vvvv'>ሎስ አንጀለስ (አሜሪካ)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>ሎስ አንጀለስ (አሜሪካ)</result>
+   <result draft='false'>Los Angeles (አሜሪካ)</result>
+   <result field='vvvv' draft='true'>ሎስ አንጀለስ (አሜሪካ)</result>
+   <result draft='false'>Los Angeles (አሜሪካ)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='either'>-0700</result>
    <result field='ZZZZ'>GMT-0700</result>
    <result field='z'>GMT-0700</result>
    <result field='zzzz'>GMT-0700</result>
-   <result field='v' parse='America/Los_Angeles'>ሎስ አንጀለስ (አሜሪካ)</result>
-   <result field='vvvv'>ሎስ አንጀለስ (አሜሪካ)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>ሎስ አንጀለስ (አሜሪካ)</result>
+   <result draft='false'>Los Angeles (አሜሪካ)</result>
+   <result field='vvvv' draft='true'>ሎስ አንጀለስ (አሜሪካ)</result>
+   <result draft='false'>Los Angeles (አሜሪካ)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-0300</result>
    <result field='z'>GMT-0300</result>
    <result field='zzzz'>GMT-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
-   <result field='vvvv'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
+   <result draft='false'>Buenos Aires (አርጀንቲና)</result>
+   <result field='vvvv' draft='true'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
+   <result draft='false'>Buenos Aires (አርጀንቲና)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-0300</result>
    <result field='z'>GMT-0300</result>
    <result field='zzzz'>GMT-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
-   <result field='vvvv'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
-   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
+   <result draft='false'>Buenos Aires (አርጀንቲና)</result>
+   <result field='vvvv' draft='true'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
+   <result draft='false'>Buenos Aires (አርጀንቲና)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-0300</result>
    <result field='z'>GMT-0300</result>
    <result field='zzzz'>GMT-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
-   <result field='vvvv'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
+   <result draft='false'>Buenos Aires (አርጀንቲና)</result>
+   <result field='vvvv' draft='true'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
+   <result draft='false'>Buenos Aires (አርጀንቲና)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-0300</result>
    <result field='z'>GMT-0300</result>
    <result field='zzzz'>GMT-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
-   <result field='vvvv'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
-   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
+   <result draft='false'>Buenos Aires (አርጀንቲና)</result>
+   <result field='vvvv' draft='true'>ቡኤኖስ-ኤይሪስ (አርጀንቲና)</result>
+   <result draft='false'>Buenos Aires (አርጀንቲና)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='either'>-0500</result>
    <result field='ZZZZ'>GMT-0500</result>
    <result field='z'>GMT-0500</result>
    <result field='zzzz'>GMT-0500</result>
-   <result field='v' parse='America/Havana'>ኩባ</result>
-   <result field='vvvv'>ኩባ</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
+   <result field='v' parse='America/Havana' draft='true'>ኩባ</result>
+   <result draft='false'>CU</result>
+   <result field='vvvv' draft='true'>ኩባ</result>
+   <result draft='false'>CU</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4' draft='either'>-0400</result>
    <result field='ZZZZ'>GMT-0400</result>
    <result field='z'>GMT-0400</result>
    <result field='zzzz'>GMT-0400</result>
-   <result field='v' parse='America/Havana'>ኩባ</result>
-   <result field='vvvv'>ኩባ</result>
-   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='v' parse='America/Havana' draft='true'>ኩባ</result>
+   <result draft='false'>CU</result>
+   <result field='vvvv' draft='true'>ኩባ</result>
+   <result draft='false'>CU</result>
+   <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='either'>+1100</result>
    <result field='ZZZZ'>GMT+1100</result>
    <result field='z'>GMT+1100</result>
    <result field='zzzz'>GMT+1100</result>
-   <result field='v' parse='Australia/Sydney'>ሲድኒ (አውስትሬሊያ)</result>
-   <result field='vvvv'>ሲድኒ (አውስትሬሊያ)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>ሲድኒ (አውስትሬሊያ)</result>
+   <result draft='false'>Sydney (አውስትሬሊያ)</result>
+   <result field='vvvv' draft='true'>ሲድኒ (አውስትሬሊያ)</result>
+   <result draft='false'>Sydney (አውስትሬሊያ)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
    <result field='ZZZZ'>GMT+1000</result>
    <result field='z'>GMT+1000</result>
    <result field='zzzz'>GMT+1000</result>
-   <result field='v' parse='Australia/Sydney'>ሲድኒ (አውስትሬሊያ)</result>
-   <result field='vvvv'>ሲድኒ (አውስትሬሊያ)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>ሲድኒ (አውስትሬሊያ)</result>
+   <result draft='false'>Sydney (አውስትሬሊያ)</result>
+   <result field='vvvv' draft='true'>ሲድኒ (አውስትሬሊያ)</result>
+   <result draft='false'>Sydney (አውስትሬሊያ)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='either'>+1100</result>
    <result field='ZZZZ'>GMT+1100</result>
    <result field='z'>GMT+1100</result>
    <result field='zzzz'>GMT+1100</result>
-   <result field='v' parse='Australia/Sydney'>ሲድኒ (አውስትሬሊያ)</result>
-   <result field='vvvv'>ሲድኒ (አውስትሬሊያ)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>ሲድኒ (አውስትሬሊያ)</result>
+   <result draft='false'>Sydney (አውስትሬሊያ)</result>
+   <result field='vvvv' draft='true'>ሲድኒ (አውስትሬሊያ)</result>
+   <result draft='false'>Sydney (አውስትሬሊያ)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
    <result field='ZZZZ'>GMT+1000</result>
    <result field='z'>GMT+1000</result>
    <result field='zzzz'>GMT+1000</result>
-   <result field='v' parse='Australia/Sydney'>ሲድኒ (አውስትሬሊያ)</result>
-   <result field='vvvv'>ሲድኒ (አውስትሬሊያ)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>ሲድኒ (አውስትሬሊያ)</result>
+   <result draft='false'>Sydney (አውስትሬሊያ)</result>
+   <result field='vvvv' draft='true'>ሲድኒ (አውስትሬሊያ)</result>
+   <result draft='false'>Sydney (አውስትሬሊያ)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='either'>+0000</result>
    <result field='ZZZZ'>GMT+0000</result>
    <result field='z'>GMT+0000</result>
    <result field='zzzz'>GMT+0000</result>
@@ -730,15 +754,19 @@ locales='am am_ET'>
    <result field='ZZZZ'>GMT+0300</result>
    <result field='z'>GMT+0300</result>
    <result field='zzzz'>GMT+0300</result>
-   <result field='v' parse='Europe/Moscow'>ማስኮ (ራሺያ)</result>
-   <result field='vvvv'>ማስኮ (ራሺያ)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>ማስኮ (ራሺያ)</result>
+   <result draft='false'>Moscow (ራሺያ)</result>
+   <result field='vvvv' draft='true'>ማስኮ (ራሺያ)</result>
+   <result draft='false'>Moscow (ራሺያ)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
    <result field='ZZZZ'>GMT+0400</result>
    <result field='z'>GMT+0400</result>
    <result field='zzzz'>GMT+0400</result>
-   <result field='v' parse='Europe/Moscow'>ማስኮ (ራሺያ)</result>
-   <result field='vvvv'>ማስኮ (ራሺያ)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>ማስኮ (ራሺያ)</result>
+   <result draft='false'>Moscow (ራሺያ)</result>
+   <result field='vvvv' draft='true'>ማስኮ (ራሺያ)</result>
+   <result draft='false'>Moscow (ራሺያ)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-0300</result>
    <result field='z'>GMT-0300</result>
    <result field='zzzz'>GMT-0300</result>
@@ -754,7 +782,7 @@ locales='am am_ET'>
   <collation 
 locales='am am_ET'>
 <!-- Amharic [አማርኛ]; Amharic (Ethiopia) [አማርኛ (ኢትዮጵያ)] -->
-   <result>
+   <result draft='either'>
 x፟
 X፟
 x 

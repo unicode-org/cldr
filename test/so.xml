@@ -6,7 +6,7 @@
   <number 
 locales='so so_DJ so_ET so_KE so_SO'>
 <!-- Somali [Soomaali]; Somali (Djibouti) [Soomaali (Jabuuti)]; Somali (Ethiopia) [Soomaali (Itoobiya)]; Somali (Kenya) [Soomaali (Kiiniya)]; Somali (Somalia) [Soomaali (Soomaaliya)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
   <date 
 locales='so so_DJ so_ET so_KE so_SO'>
 <!-- Somali [Soomaali]; Somali (Djibouti) [Soomaali (Jabuuti)]; Somali (Ethiopia) [Soomaali (Itoobiya)]; Somali (Kenya) [Soomaali (Kiiniya)]; Somali (Somalia) [Soomaali (Soomaaliya)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 sn</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 sn</result>
    <result timeType='medium'>12:00:00 sn</result>
    <result timeType='long'>12:00:00 sn</result>
    <result timeType='full'>12:00:00 sn</result>
@@ -350,7 +350,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
   <zoneFields 
 locales='so so_DJ so_ET so_KE so_SO'>
 <!-- Somali [Soomaali]; Somali (Djibouti) [Soomaali (Jabuuti)]; Somali (Ethiopia) [Soomaali (Itoobiya)]; Somali (Kenya) [Soomaali (Kiiniya)]; Somali (Somalia) [Soomaali (Soomaaliya)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
@@ -426,15 +426,19 @@ locales='so so_DJ so_ET so_KE so_SO'>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
    <result field='zzzz'>GMT+00:00</result>
-   <result field='v' parse='Europe/London'>United Kingdom</result>
-   <result field='vvvv'>United Kingdom</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='v' parse='Europe/London' draft='true'>United Kingdom</result>
+   <result draft='false'>GB</result>
+   <result field='vvvv' draft='true'>United Kingdom</result>
+   <result draft='false'>GB</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1' draft='either'>+0100</result>
    <result field='ZZZZ'>GMT+01:00</result>
    <result field='z'>GMT+01:00</result>
    <result field='zzzz'>GMT+01:00</result>
-   <result field='v' parse='Europe/London'>United Kingdom</result>
-   <result field='vvvv'>United Kingdom</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='v' parse='Europe/London' draft='true'>United Kingdom</result>
+   <result draft='false'>GB</result>
+   <result field='vvvv' draft='true'>United Kingdom</result>
+   <result draft='false'>GB</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='either'>+0300</result>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
@@ -462,7 +466,7 @@ locales='so so_DJ so_ET so_KE so_SO'>
   <collation 
 locales='so so_DJ so_ET so_KE so_SO'>
 <!-- Somali [Soomaali]; Somali (Djibouti) [Soomaali (Jabuuti)]; Somali (Ethiopia) [Soomaali (Itoobiya)]; Somali (Kenya) [Soomaali (Kiiniya)]; Somali (Somalia) [Soomaali (Soomaaliya)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x

@@ -6,7 +6,7 @@
   <number 
 locales='haw haw_US'>
 <!-- Hawaiian [Hawaiian]; Hawaiian (United States) [Hawaiian (United States)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='haw haw_US'>
   <date 
 locales='haw'>
 <!-- Hawaiian [Hawaiian] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='haw'>
   <date 
 locales='haw_US'>
 <!-- Hawaiian (United States) [Hawaiian (United States)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 AM</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 AM</result>
    <result timeType='medium'>12:00:00 AM</result>
    <result timeType='long'>12:00:00 AM GMT+00:00</result>
    <result timeType='full'>12:00:00 AM GMT+00:00</result>
@@ -642,19 +642,23 @@ locales='haw_US'>
   <zoneFields 
 locales='haw haw_US'>
 <!-- Hawaiian [Hawaiian]; Hawaiian (United States) [Hawaiian (United States)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (ʻAmelika Hui Pū ʻIa)</result>
-   <result field='vvvv'>Los Angeles (ʻAmelika Hui Pū ʻIa)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (ʻAmelika Hui Pū ʻIa)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result field='vvvv' draft='true'>Los Angeles (ʻAmelika Hui Pū ʻIa)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='either'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
    <result field='z'>GMT-07:00</result>
    <result field='zzzz'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (ʻAmelika Hui Pū ʻIa)</result>
-   <result field='vvvv'>Los Angeles (ʻAmelika Hui Pū ʻIa)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (ʻAmelika Hui Pū ʻIa)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result field='vvvv' draft='true'>Los Angeles (ʻAmelika Hui Pū ʻIa)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
@@ -694,51 +698,67 @@ locales='haw haw_US'>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Nūhōlani)</result>
-   <result field='vvvv'>Sydney (Nūhōlani)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Sydney (Nūhōlani)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result field='vvvv' draft='true'>Sydney (Nūhōlani)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Nūhōlani)</result>
-   <result field='vvvv'>Sydney (Nūhōlani)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Sydney (Nūhōlani)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result field='vvvv' draft='true'>Sydney (Nūhōlani)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='either'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Nūhōlani)</result>
-   <result field='vvvv'>Sydney (Nūhōlani)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Sydney (Nūhōlani)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result field='vvvv' draft='true'>Sydney (Nūhōlani)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (Nūhōlani)</result>
-   <result field='vvvv'>Sydney (Nūhōlani)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Sydney (Nūhōlani)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result field='vvvv' draft='true'>Sydney (Nūhōlani)</result>
+   <result draft='false'>Sydney (AU)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='either'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
    <result field='zzzz'>GMT+00:00</result>
-   <result field='v' parse='Europe/London'>Aupuni Mōʻī Hui Pū ʻIa</result>
-   <result field='vvvv'>Aupuni Mōʻī Hui Pū ʻIa</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='v' parse='Europe/London' draft='true'>Aupuni Mōʻī Hui Pū ʻIa</result>
+   <result draft='false'>GB</result>
+   <result field='vvvv' draft='true'>Aupuni Mōʻī Hui Pū ʻIa</result>
+   <result draft='false'>GB</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1' draft='either'>+0100</result>
    <result field='ZZZZ'>GMT+01:00</result>
    <result field='z'>GMT+01:00</result>
    <result field='zzzz'>GMT+01:00</result>
-   <result field='v' parse='Europe/London'>Aupuni Mōʻī Hui Pū ʻIa</result>
-   <result field='vvvv'>Aupuni Mōʻī Hui Pū ʻIa</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='v' parse='Europe/London' draft='true'>Aupuni Mōʻī Hui Pū ʻIa</result>
+   <result draft='false'>GB</result>
+   <result field='vvvv' draft='true'>Aupuni Mōʻī Hui Pū ʻIa</result>
+   <result draft='false'>GB</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='either'>+0300</result>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Lūkia)</result>
-   <result field='vvvv'>Moscow (Lūkia)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscow (Lūkia)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result field='vvvv' draft='true'>Moscow (Lūkia)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Lūkia)</result>
-   <result field='vvvv'>Moscow (Lūkia)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscow (Lūkia)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result field='vvvv' draft='true'>Moscow (Lūkia)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
@@ -754,7 +774,7 @@ locales='haw haw_US'>
   <collation 
 locales='haw haw_US'>
 <!-- Hawaiian [Hawaiian]; Hawaiian (United States) [Hawaiian (United States)] -->
-   <result>
+   <result draft='true'>
 x 
 X 
 x x
@@ -830,6 +850,98 @@ xux
 xUx
 xūx
 xŪx
+xh
+xH
+Xh
+XH
+xhx
+xHx
+xk
+xK
+Xk
+XK
+xkx
+xKx
+xl
+xL
+Xl
+XL
+xlx
+xLx
+xm
+xM
+Xm
+XM
+xmx
+xMx
+xn
+xN
+Xn
+XN
+xnx
+xNx
+xp
+xP
+Xp
+XP
+xpx
+xPx
+xw
+xW
+Xw
+XW
+xwx
+xWx
+xʻ
+Xʻ
+xʻx
+</result>
+   <result draft='false'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xa
+xA
+Xa
+XA
+xax
+xAx
+xe
+xE
+Xe
+XE
+xex
+xEx
+xi
+xI
+Xi
+XI
+xix
+xIx
+xo
+xO
+Xo
+XO
+xox
+xOx
+xu
+xU
+Xu
+XU
+xux
+xUx
 xh
 xH
 Xh

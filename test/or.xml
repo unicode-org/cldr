@@ -6,7 +6,7 @@
   <number 
 locales='or'>
 <!-- Oriya [ଓଡ଼ିଆ] -->
-   <result input='0.0' numberType='integer'>୦</result>
+   <result input='0.0' numberType='integer' draft='either'>୦</result>
    <result numberType='decimal'>୦</result>
    <result numberType='percent'>୦%</result>
    <result numberType='scientific'>୦E୦</result>
@@ -58,7 +58,7 @@ locales='or'>
   <number 
 locales='or_IN'>
 <!-- Oriya (India) [ଓଡ଼ିଆ (ଭାରତ)] -->
-   <result input='0.0' numberType='integer'>୦</result>
+   <result input='0.0' numberType='integer' draft='either'>୦</result>
    <result numberType='decimal'>୦</result>
    <result numberType='percent'>୦%</result>
    <result numberType='scientific'>୦E୦</result>
@@ -110,7 +110,7 @@ locales='or_IN'>
   <date 
 locales='or'>
 <!-- Oriya [ଓଡ଼ିଆ] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>୦୦:୦୦</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>୦୦:୦୦</result>
    <result timeType='medium'>୦୦:୦୦:୦୦</result>
    <result timeType='long'>୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
    <result timeType='full'>୦୦:୦୦:୦୦ GMT+୦୦:୦୦</result>
@@ -402,7 +402,7 @@ locales='or'>
   <date 
 locales='or_IN'>
 <!-- Oriya (India) [ଓଡ଼ିଆ (ଭାରତ)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>୧୨:୦୦ AM</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>୧୨:୦୦ AM</result>
    <result timeType='medium'>୧୨:୦୦:୦୦ AM</result>
    <result timeType='long'>୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
    <result timeType='full'>୧୨:୦୦:୦୦ AM GMT+୦୦:୦୦</result>
@@ -694,119 +694,177 @@ locales='or_IN'>
   <zoneFields 
 locales='or or_IN'>
 <!-- Oriya [ଓଡ଼ିଆ]; Oriya (India) [ଓଡ଼ିଆ (ଭାରତ)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
-   <result field='ZZZZ'>GMT-୦୮:୦୦</result>
-   <result field='z'>GMT-୦୮:୦୦</result>
-   <result field='zzzz'>GMT-୦୮:୦୦</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result field='ZZZZ' draft='true'>GMT-୦୮:୦୦</result>
+   <result draft='false'>GMT-08:00</result>
+   <result field='z' draft='true'>GMT-୦୮:୦୦</result>
+   <result draft='false'>GMT-08:00</result>
+   <result field='zzzz' draft='true'>GMT-୦୮:୦୦</result>
+   <result draft='false'>GMT-08:00</result>
+   <result field='v' parse='America/Los_Angeles' draft='either'>Los Angeles (US)</result>
    <result field='vvvv'>Los Angeles (US)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
-   <result field='ZZZZ'>GMT-୦୭:୦୦</result>
-   <result field='z'>GMT-୦୭:୦୦</result>
-   <result field='zzzz'>GMT-୦୭:୦୦</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (US)</result>
+   <result field='ZZZZ' draft='true'>GMT-୦୭:୦୦</result>
+   <result draft='false'>GMT-07:00</result>
+   <result field='z' draft='true'>GMT-୦୭:୦୦</result>
+   <result draft='false'>GMT-07:00</result>
+   <result field='zzzz' draft='true'>GMT-୦୭:୦୦</result>
+   <result draft='false'>GMT-07:00</result>
+   <result field='v' parse='America/Los_Angeles' draft='either'>Los Angeles (US)</result>
    <result field='vvvv'>Los Angeles (US)</result>
    <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-୦୩:୦୦</result>
-   <result field='z'>GMT-୦୩:୦୦</result>
-   <result field='zzzz'>GMT-୦୩:୦୦</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='ZZZZ' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>Buenos Aires (AR)</result>
    <result field='vvvv'>Buenos Aires (AR)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-୦୩:୦୦</result>
-   <result field='z'>GMT-୦୩:୦୦</result>
-   <result field='zzzz'>GMT-୦୩:୦୦</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='ZZZZ' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>Buenos Aires (AR)</result>
    <result field='vvvv'>Buenos Aires (AR)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-୦୩:୦୦</result>
-   <result field='z'>GMT-୦୩:୦୦</result>
-   <result field='zzzz'>GMT-୦୩:୦୦</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='ZZZZ' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>Buenos Aires (AR)</result>
    <result field='vvvv'>Buenos Aires (AR)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-୦୩:୦୦</result>
-   <result field='z'>GMT-୦୩:୦୦</result>
-   <result field='zzzz'>GMT-୦୩:୦୦</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='ZZZZ' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>Buenos Aires (AR)</result>
    <result field='vvvv'>Buenos Aires (AR)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
-   <result field='ZZZZ'>GMT-୦୫:୦୦</result>
-   <result field='z'>GMT-୦୫:୦୦</result>
-   <result field='zzzz'>GMT-୦୫:୦୦</result>
-   <result field='v' parse='America/Havana'>CU</result>
+   <result field='ZZZZ' draft='true'>GMT-୦୫:୦୦</result>
+   <result draft='false'>GMT-05:00</result>
+   <result field='z' draft='true'>GMT-୦୫:୦୦</result>
+   <result draft='false'>GMT-05:00</result>
+   <result field='zzzz' draft='true'>GMT-୦୫:୦୦</result>
+   <result draft='false'>GMT-05:00</result>
+   <result field='v' parse='America/Havana' draft='either'>CU</result>
    <result field='vvvv'>CU</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
-   <result field='ZZZZ'>GMT-୦୪:୦୦</result>
-   <result field='z'>GMT-୦୪:୦୦</result>
-   <result field='zzzz'>GMT-୦୪:୦୦</result>
-   <result field='v' parse='America/Havana'>CU</result>
+   <result field='ZZZZ' draft='true'>GMT-୦୪:୦୦</result>
+   <result draft='false'>GMT-04:00</result>
+   <result field='z' draft='true'>GMT-୦୪:୦୦</result>
+   <result draft='false'>GMT-04:00</result>
+   <result field='zzzz' draft='true'>GMT-୦୪:୦୦</result>
+   <result draft='false'>GMT-04:00</result>
+   <result field='v' parse='America/Havana' draft='either'>CU</result>
    <result field='vvvv'>CU</result>
    <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
-   <result field='ZZZZ'>GMT+୧୧:୦୦</result>
-   <result field='z'>GMT+୧୧:୦୦</result>
-   <result field='zzzz'>GMT+୧୧:୦୦</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='ZZZZ' draft='true'>GMT+୧୧:୦୦</result>
+   <result draft='false'>GMT+11:00</result>
+   <result field='z' draft='true'>GMT+୧୧:୦୦</result>
+   <result draft='false'>GMT+11:00</result>
+   <result field='zzzz' draft='true'>GMT+୧୧:୦୦</result>
+   <result draft='false'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney' draft='either'>Sydney (AU)</result>
    <result field='vvvv'>Sydney (AU)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
-   <result field='ZZZZ'>GMT+୧୦:୦୦</result>
-   <result field='z'>GMT+୧୦:୦୦</result>
-   <result field='zzzz'>GMT+୧୦:୦୦</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='ZZZZ' draft='true'>GMT+୧୦:୦୦</result>
+   <result draft='false'>GMT+10:00</result>
+   <result field='z' draft='true'>GMT+୧୦:୦୦</result>
+   <result draft='false'>GMT+10:00</result>
+   <result field='zzzz' draft='true'>GMT+୧୦:୦୦</result>
+   <result draft='false'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney' draft='either'>Sydney (AU)</result>
    <result field='vvvv'>Sydney (AU)</result>
    <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
-   <result field='ZZZZ'>GMT+୧୧:୦୦</result>
-   <result field='z'>GMT+୧୧:୦୦</result>
-   <result field='zzzz'>GMT+୧୧:୦୦</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='ZZZZ' draft='true'>GMT+୧୧:୦୦</result>
+   <result draft='false'>GMT+11:00</result>
+   <result field='z' draft='true'>GMT+୧୧:୦୦</result>
+   <result draft='false'>GMT+11:00</result>
+   <result field='zzzz' draft='true'>GMT+୧୧:୦୦</result>
+   <result draft='false'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney' draft='either'>Sydney (AU)</result>
    <result field='vvvv'>Sydney (AU)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
-   <result field='ZZZZ'>GMT+୧୦:୦୦</result>
-   <result field='z'>GMT+୧୦:୦୦</result>
-   <result field='zzzz'>GMT+୧୦:୦୦</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='ZZZZ' draft='true'>GMT+୧୦:୦୦</result>
+   <result draft='false'>GMT+10:00</result>
+   <result field='z' draft='true'>GMT+୧୦:୦୦</result>
+   <result draft='false'>GMT+10:00</result>
+   <result field='zzzz' draft='true'>GMT+୧୦:୦୦</result>
+   <result draft='false'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney' draft='either'>Sydney (AU)</result>
    <result field='vvvv'>Sydney (AU)</result>
    <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
-   <result field='ZZZZ'>GMT+୦୦:୦୦</result>
-   <result field='z'>GMT+୦୦:୦୦</result>
-   <result field='zzzz'>GMT+୦୦:୦୦</result>
-   <result field='v' parse='Europe/London'>GB</result>
+   <result field='ZZZZ' draft='true'>GMT+୦୦:୦୦</result>
+   <result draft='false'>GMT+00:00</result>
+   <result field='z' draft='true'>GMT+୦୦:୦୦</result>
+   <result draft='false'>GMT+00:00</result>
+   <result field='zzzz' draft='true'>GMT+୦୦:୦୦</result>
+   <result draft='false'>GMT+00:00</result>
+   <result field='v' parse='Europe/London' draft='either'>GB</result>
    <result field='vvvv'>GB</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
-   <result field='ZZZZ'>GMT+୦୧:୦୦</result>
-   <result field='z'>GMT+୦୧:୦୦</result>
-   <result field='zzzz'>GMT+୦୧:୦୦</result>
-   <result field='v' parse='Europe/London'>GB</result>
+   <result field='ZZZZ' draft='true'>GMT+୦୧:୦୦</result>
+   <result draft='false'>GMT+01:00</result>
+   <result field='z' draft='true'>GMT+୦୧:୦୦</result>
+   <result draft='false'>GMT+01:00</result>
+   <result field='zzzz' draft='true'>GMT+୦୧:୦୦</result>
+   <result draft='false'>GMT+01:00</result>
+   <result field='v' parse='Europe/London' draft='either'>GB</result>
    <result field='vvvv'>GB</result>
    <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
-   <result field='ZZZZ'>GMT+୦୩:୦୦</result>
-   <result field='z'>GMT+୦୩:୦୦</result>
-   <result field='zzzz'>GMT+୦୩:୦୦</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
+   <result field='ZZZZ' draft='true'>GMT+୦୩:୦୦</result>
+   <result draft='false'>GMT+03:00</result>
+   <result field='z' draft='true'>GMT+୦୩:୦୦</result>
+   <result draft='false'>GMT+03:00</result>
+   <result field='zzzz' draft='true'>GMT+୦୩:୦୦</result>
+   <result draft='false'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow' draft='either'>Moscow (RU)</result>
    <result field='vvvv'>Moscow (RU)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
-   <result field='ZZZZ'>GMT+୦୪:୦୦</result>
-   <result field='z'>GMT+୦୪:୦୦</result>
-   <result field='zzzz'>GMT+୦୪:୦୦</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (RU)</result>
+   <result field='ZZZZ' draft='true'>GMT+୦୪:୦୦</result>
+   <result draft='false'>GMT+04:00</result>
+   <result field='z' draft='true'>GMT+୦୪:୦୦</result>
+   <result draft='false'>GMT+04:00</result>
+   <result field='zzzz' draft='true'>GMT+୦୪:୦୦</result>
+   <result draft='false'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow' draft='either'>Moscow (RU)</result>
    <result field='vvvv'>Moscow (RU)</result>
    <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-୦୩:୦୦</result>
-   <result field='z'>GMT-୦୩:୦୦</result>
-   <result field='zzzz'>GMT-୦୩:୦୦</result>
-   <result field='v'>GMT-୦୩:୦୦</result>
-   <result field='vvvv'>GMT-୦୩:୦୦</result>
-   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
-   <result field='ZZZZ'>GMT-୦୩:୦୦</result>
-   <result field='z'>GMT-୦୩:୦୦</result>
-   <result field='zzzz'>GMT-୦୩:୦୦</result>
-   <result field='v'>GMT-୦୩:୦୦</result>
-   <result field='vvvv'>GMT-୦୩:୦୦</result>
+   <result field='ZZZZ' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='vvvv' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' draft='either'>-0300</result>
+   <result field='ZZZZ' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='vvvv' draft='true'>GMT-୦୩:୦୦</result>
+   <result draft='false'>GMT-03:00</result>
   </zoneFields>
   <collation 
 locales='or or_IN'>
 <!-- Oriya [ଓଡ଼ିଆ]; Oriya (India) [ଓଡ଼ିଆ (ଭାରତ)] -->
-   <result>
+   <result draft='true'>
 x 
 X 
 x x
@@ -1038,6 +1096,56 @@ xୖx
 xୗ
 Xୗ
 xୗx
+</result>
+   <result draft='false'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xକ୍ଷ
+Xକ୍ଷ
+xକ୍ଷx
+xଡ଼
+Xଡ଼
+xଡ଼x
+xଢ଼
+Xଢ଼
+xଢ଼x
+xୟ
+Xୟ
+xୟx
+xୱ
+Xୱ
+xୱx
+xଵ
+Xଵ
+xଵx
+xଂ
+Xଂ
+xଂx
+xଃ
+Xଃ
+xଃx
+xଁ
+Xଁ
+xଁx
+x୍
+X୍
+x୍x
+x଼
+X଼
+x଼x
 </result>
   </collation>
  </cldrTest>

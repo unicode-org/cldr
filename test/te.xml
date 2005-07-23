@@ -6,7 +6,7 @@
   <number 
 locales='te'>
 <!-- Telugu [తెలుగు] -->
-   <result input='0.0' numberType='integer'>౦</result>
+   <result input='0.0' numberType='integer' draft='either'>౦</result>
    <result numberType='decimal'>౦</result>
    <result numberType='percent'>౦%</result>
    <result numberType='scientific'>౦E౦</result>
@@ -58,7 +58,7 @@ locales='te'>
   <number 
 locales='te_IN'>
 <!-- Telugu (India) [తెలుగు (భారత దేళ౦)] -->
-   <result input='0.0' numberType='integer'>౦</result>
+   <result input='0.0' numberType='integer' draft='either'>౦</result>
    <result numberType='decimal'>౦</result>
    <result numberType='percent'>౦%</result>
    <result numberType='scientific'>౦E౦</result>
@@ -110,7 +110,7 @@ locales='te_IN'>
   <date 
 locales='te'>
 <!-- Telugu [తెలుగు] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>౦౦:౦౦</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>౦౦:౦౦</result>
    <result timeType='medium'>౦౦:౦౦:౦౦</result>
    <result timeType='long'>౦౦:౦౦:౦౦ GMT+౦౦:౦౦</result>
    <result timeType='full'>౦౦:౦౦:౦౦ GMT+౦౦:౦౦</result>
@@ -402,7 +402,7 @@ locales='te'>
   <date 
 locales='te_IN'>
 <!-- Telugu (India) [తెలుగు (భారత దేళ౦)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>౧౨:౦౦ పూర్వాహ్న</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>౧౨:౦౦ పూర్వాహ్న</result>
    <result timeType='medium'>౧౨:౦౦:౦౦ పూర్వాహ్న</result>
    <result timeType='long'>౧౨:౦౦:౦౦ పూర్వాహ్న GMT+౦౦:౦౦</result>
    <result timeType='full'>౧౨:౦౦:౦౦ పూర్వాహ్న GMT+౦౦:౦౦</result>
@@ -694,19 +694,23 @@ locales='te_IN'>
   <zoneFields 
 locales='te te_IN'>
 <!-- Telugu [తెలుగు]; Telugu (India) [తెలుగు (భారత దేళ౦)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-౦౮:౦౦</result>
    <result field='z'>GMT-౦౮:౦౦</result>
    <result field='zzzz'>GMT-౦౮:౦౦</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (ఐక్య రాష్ట్ర అమెరిక)</result>
-   <result field='vvvv'>Los Angeles (ఐక్య రాష్ట్ర అమెరిక)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (ఐక్య రాష్ట్ర అమెరిక)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result field='vvvv' draft='true'>Los Angeles (ఐక్య రాష్ట్ర అమెరిక)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='either'>-0700</result>
    <result field='ZZZZ'>GMT-౦౭:౦౦</result>
    <result field='z'>GMT-౦౭:౦౦</result>
    <result field='zzzz'>GMT-౦౭:౦౦</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (ఐక్య రాష్ట్ర అమెరిక)</result>
-   <result field='vvvv'>Los Angeles (ఐక్య రాష్ట్ర అమెరిక)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (ఐక్య రాష్ట్ర అమెరిక)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result field='vvvv' draft='true'>Los Angeles (ఐక్య రాష్ట్ర అమెరిక)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-౦౩:౦౦</result>
    <result field='z'>GMT-౦౩:౦౦</result>
    <result field='zzzz'>GMT-౦౩:౦౦</result>
@@ -770,27 +774,35 @@ locales='te te_IN'>
    <result field='ZZZZ'>GMT+౦౦:౦౦</result>
    <result field='z'>GMT+౦౦:౦౦</result>
    <result field='zzzz'>GMT+౦౦:౦౦</result>
-   <result field='v' parse='Europe/London'>బ్రిటన్</result>
-   <result field='vvvv'>బ్రిటన్</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='v' parse='Europe/London' draft='true'>బ్రిటన్</result>
+   <result draft='false'>GB</result>
+   <result field='vvvv' draft='true'>బ్రిటన్</result>
+   <result draft='false'>GB</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1' draft='either'>+0100</result>
    <result field='ZZZZ'>GMT+౦౧:౦౦</result>
    <result field='z'>GMT+౦౧:౦౦</result>
    <result field='zzzz'>GMT+౦౧:౦౦</result>
-   <result field='v' parse='Europe/London'>బ్రిటన్</result>
-   <result field='vvvv'>బ్రిటన్</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='v' parse='Europe/London' draft='true'>బ్రిటన్</result>
+   <result draft='false'>GB</result>
+   <result field='vvvv' draft='true'>బ్రిటన్</result>
+   <result draft='false'>GB</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='either'>+0300</result>
    <result field='ZZZZ'>GMT+౦౩:౦౦</result>
    <result field='z'>GMT+౦౩:౦౦</result>
    <result field='zzzz'>GMT+౦౩:౦౦</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (రష్య)</result>
-   <result field='vvvv'>Moscow (రష్య)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscow (రష్య)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result field='vvvv' draft='true'>Moscow (రష్య)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
    <result field='ZZZZ'>GMT+౦౪:౦౦</result>
    <result field='z'>GMT+౦౪:౦౦</result>
    <result field='zzzz'>GMT+౦౪:౦౦</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (రష్య)</result>
-   <result field='vvvv'>Moscow (రష్య)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscow (రష్య)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result field='vvvv' draft='true'>Moscow (రష్య)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-౦౩:౦౦</result>
    <result field='z'>GMT-౦౩:౦౦</result>
    <result field='zzzz'>GMT-౦౩:౦౦</result>
@@ -806,7 +818,7 @@ locales='te te_IN'>
   <collation 
 locales='te te_IN'>
 <!-- Telugu [తెలుగు]; Telugu (India) [తెలుగు (భారత దేళ౦)] -->
-   <result>
+   <result draft='either'>
 x‍
 x‌
 x‍

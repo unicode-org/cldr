@@ -6,7 +6,7 @@
   <number 
 locales='bg bg_BG'>
 <!-- Bulgarian [Български]; Bulgarian (Bulgaria) [Български (България)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='bg bg_BG'>
   <date 
 locales='bg bg_BG'>
 <!-- Bulgarian [Български]; Bulgarian (Bulgaria) [Български (България)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00</result>
    <result timeType='full'>00:00:00 Гриинуич+0000</result>
@@ -350,7 +350,7 @@ locales='bg bg_BG'>
   <zoneFields 
 locales='bg bg_BG'>
 <!-- Bulgarian [Български]; Bulgarian (Bulgaria) [Български (България)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>Гриинуич-0800</result>
    <result field='z' parse='America/Los_Angeles'>PST</result>
    <result field='zzzz'>Тихоокеанска часова зона</result>
@@ -366,27 +366,35 @@ locales='bg bg_BG'>
    <result field='ZZZZ'>Гриинуич-0300</result>
    <result field='z'>Гриинуич-0300</result>
    <result field='zzzz'>Гриинуич-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>Буенос Айрес (Аржентина)</result>
-   <result field='vvvv'>Буенос Айрес (Аржентина)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>Буенос Айрес (Аржентина)</result>
+   <result draft='false'>Buenos Aires (Аржентина)</result>
+   <result field='vvvv' draft='true'>Буенос Айрес (Аржентина)</result>
+   <result draft='false'>Buenos Aires (Аржентина)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>Гриинуич-0300</result>
    <result field='z'>Гриинуич-0300</result>
    <result field='zzzz'>Гриинуич-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>Буенос Айрес (Аржентина)</result>
-   <result field='vvvv'>Буенос Айрес (Аржентина)</result>
-   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>Буенос Айрес (Аржентина)</result>
+   <result draft='false'>Buenos Aires (Аржентина)</result>
+   <result field='vvvv' draft='true'>Буенос Айрес (Аржентина)</result>
+   <result draft='false'>Buenos Aires (Аржентина)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>Гриинуич-0300</result>
    <result field='z'>Гриинуич-0300</result>
    <result field='zzzz'>Гриинуич-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>Буенос Айрес (Аржентина)</result>
-   <result field='vvvv'>Буенос Айрес (Аржентина)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>Буенос Айрес (Аржентина)</result>
+   <result draft='false'>Buenos Aires (Аржентина)</result>
+   <result field='vvvv' draft='true'>Буенос Айрес (Аржентина)</result>
+   <result draft='false'>Buenos Aires (Аржентина)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>Гриинуич-0300</result>
    <result field='z'>Гриинуич-0300</result>
    <result field='zzzz'>Гриинуич-0300</result>
-   <result field='v' parse='America/Buenos_Aires'>Буенос Айрес (Аржентина)</result>
-   <result field='vvvv'>Буенос Айрес (Аржентина)</result>
-   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>Буенос Айрес (Аржентина)</result>
+   <result draft='false'>Buenos Aires (Аржентина)</result>
+   <result field='vvvv' draft='true'>Буенос Айрес (Аржентина)</result>
+   <result draft='false'>Buenos Aires (Аржентина)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='either'>-0500</result>
    <result field='ZZZZ'>Гриинуич-0500</result>
    <result field='z'>Гриинуич-0500</result>
    <result field='zzzz'>Гриинуич-0500</result>
@@ -402,27 +410,35 @@ locales='bg bg_BG'>
    <result field='ZZZZ'>Гриинуич+1100</result>
    <result field='z'>Гриинуич+1100</result>
    <result field='zzzz'>Гриинуич+1100</result>
-   <result field='v' parse='Australia/Sydney'>Сидни (Австралия)</result>
-   <result field='vvvv'>Сидни (Австралия)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Сидни (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result field='vvvv' draft='true'>Сидни (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
    <result field='ZZZZ'>Гриинуич+1000</result>
    <result field='z'>Гриинуич+1000</result>
    <result field='zzzz'>Гриинуич+1000</result>
-   <result field='v' parse='Australia/Sydney'>Сидни (Австралия)</result>
-   <result field='vvvv'>Сидни (Австралия)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Сидни (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result field='vvvv' draft='true'>Сидни (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='either'>+1100</result>
    <result field='ZZZZ'>Гриинуич+1100</result>
    <result field='z'>Гриинуич+1100</result>
    <result field='zzzz'>Гриинуич+1100</result>
-   <result field='v' parse='Australia/Sydney'>Сидни (Австралия)</result>
-   <result field='vvvv'>Сидни (Австралия)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Сидни (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result field='vvvv' draft='true'>Сидни (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
    <result field='ZZZZ'>Гриинуич+1000</result>
    <result field='z'>Гриинуич+1000</result>
    <result field='zzzz'>Гриинуич+1000</result>
-   <result field='v' parse='Australia/Sydney'>Сидни (Австралия)</result>
-   <result field='vvvv'>Сидни (Австралия)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Сидни (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result field='vvvv' draft='true'>Сидни (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='either'>+0000</result>
    <result field='ZZZZ'>Гриинуич+0000</result>
    <result field='z'>Гриинуич+0000</result>
    <result field='zzzz'>Гриинуич+0000</result>
@@ -438,15 +454,19 @@ locales='bg bg_BG'>
    <result field='ZZZZ'>Гриинуич+0300</result>
    <result field='z'>Гриинуич+0300</result>
    <result field='zzzz'>Гриинуич+0300</result>
-   <result field='v' parse='Europe/Moscow'>Москва (Руска Федерация)</result>
-   <result field='vvvv'>Москва (Руска Федерация)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Москва (Руска Федерация)</result>
+   <result draft='false'>Moscow (Руска Федерация)</result>
+   <result field='vvvv' draft='true'>Москва (Руска Федерация)</result>
+   <result draft='false'>Moscow (Руска Федерация)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
    <result field='ZZZZ'>Гриинуич+0400</result>
    <result field='z'>Гриинуич+0400</result>
    <result field='zzzz'>Гриинуич+0400</result>
-   <result field='v' parse='Europe/Moscow'>Москва (Руска Федерация)</result>
-   <result field='vvvv'>Москва (Руска Федерация)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Москва (Руска Федерация)</result>
+   <result draft='false'>Moscow (Руска Федерация)</result>
+   <result field='vvvv' draft='true'>Москва (Руска Федерация)</result>
+   <result draft='false'>Moscow (Руска Федерация)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>Гриинуич-0300</result>
    <result field='z'>Гриинуич-0300</result>
    <result field='zzzz'>Гриинуич-0300</result>
@@ -462,7 +482,7 @@ locales='bg bg_BG'>
   <collation 
 locales='bg bg_BG'>
 <!-- Bulgarian [Български]; Bulgarian (Bulgaria) [Български (България)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x

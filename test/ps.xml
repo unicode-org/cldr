@@ -6,7 +6,7 @@
   <number 
 locales='ps'>
 <!-- Pashto (Pushto) [پښتو] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='ps'>
   <number 
 locales='ps_AF'>
 <!-- Pashto (Pushto) (Afghanistan) [پښتو (افغانستان)] -->
-   <result input='0.0' numberType='integer'>۰</result>
+   <result input='0.0' numberType='integer' draft='either'>۰</result>
    <result numberType='decimal'>۰</result>
    <result numberType='percent'>۰٪</result>
    <result numberType='scientific'>۰×۱۰^۰</result>
@@ -110,7 +110,7 @@ locales='ps_AF'>
   <date 
 locales='ps'>
 <!-- Pashto (Pushto) [پښتو] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>0:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0:00:00 (GMT+00:00)</result>
    <result timeType='full'>0:00:00 (GMT+00:00)</result>
@@ -402,7 +402,7 @@ locales='ps'>
   <date 
 locales='ps_AF'>
 <!-- Pashto (Pushto) (Afghanistan) [پښتو (افغانستان)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>۰:۰۰</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>۰:۰۰</result>
    <result timeType='medium'>۰:۰۰:۰۰</result>
    <result timeType='long'>۰:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
    <result timeType='full'>۰:۰۰:۰۰ (GMT+۰۰:۰۰)</result>
@@ -694,7 +694,7 @@ locales='ps_AF'>
   <zoneFields 
 locales='ps'>
 <!-- Pashto (Pushto) [پښتو] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
@@ -806,7 +806,7 @@ locales='ps'>
   <zoneFields 
 locales='ps_AF'>
 <!-- Pashto (Pushto) (Afghanistan) [پښتو (افغانستان)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-۰۸:۰۰</result>
    <result field='z'>GMT-۰۸:۰۰</result>
    <result field='zzzz'>GMT-۰۸:۰۰</result>
@@ -918,7 +918,7 @@ locales='ps_AF'>
   <collation 
 locales='ps ps_AF'>
 <!-- Pashto (Pushto) [پښتو]; Pashto (Pushto) (Afghanistan) [پښتو (افغانستان)] -->
-   <result>
+   <result draft='either'>
 xَ
 Xَ
 xِ

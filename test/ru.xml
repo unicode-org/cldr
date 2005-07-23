@@ -6,7 +6,7 @@
   <number 
 locales='ru ru_RU ru_UA'>
 <!-- Russian [русский]; Russian (Russia) [русский (Россия)]; Russian (Ukraine) [русский (Украина)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='ru ru_RU ru_UA'>
   <date 
 locales='ru ru_RU'>
 <!-- Russian [русский]; Russian (Russia) [русский (Россия)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>0:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0:00:00 GMT+00:00</result>
    <result timeType='full'>0:00:00 GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='ru ru_RU'>
   <date 
 locales='ru_UA'>
 <!-- Russian (Ukraine) [русский (Украина)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -642,7 +642,7 @@ locales='ru_UA'>
   <zoneFields 
 locales='ru ru_RU ru_UA'>
 <!-- Russian [русский]; Russian (Russia) [русский (Россия)]; Russian (Ukraine) [русский (Украина)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00 </result>
    <result field='z'>GMT-08:00 </result>
    <result field='zzzz'>GMT-08:00 </result>
@@ -694,27 +694,35 @@ locales='ru ru_RU ru_UA'>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Сидней (Австралия)</result>
-   <result field='vvvv'>Сидней (Австралия)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Сидней (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result field='vvvv' draft='true'>Сидней (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Сидней (Австралия)</result>
-   <result field='vvvv'>Сидней (Австралия)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Сидней (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result field='vvvv' draft='true'>Сидней (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='either'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>Сидней (Австралия)</result>
-   <result field='vvvv'>Сидней (Австралия)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Сидней (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result field='vvvv' draft='true'>Сидней (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>Сидней (Австралия)</result>
-   <result field='vvvv'>Сидней (Австралия)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>Сидней (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result field='vvvv' draft='true'>Сидней (Австралия)</result>
+   <result draft='false'>Sydney (Австралия)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='either'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
    <result field='zzzz'>GMT+00:00</result>
@@ -730,15 +738,19 @@ locales='ru ru_RU ru_UA'>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Москва (Россия)</result>
-   <result field='vvvv'>Москва (Россия)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Москва (Россия)</result>
+   <result draft='false'>Moscow (Россия)</result>
+   <result field='vvvv' draft='true'>Москва (Россия)</result>
+   <result draft='false'>Moscow (Россия)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Москва (Россия)</result>
-   <result field='vvvv'>Москва (Россия)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Москва (Россия)</result>
+   <result draft='false'>Moscow (Россия)</result>
+   <result field='vvvv' draft='true'>Москва (Россия)</result>
+   <result draft='false'>Moscow (Россия)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00 </result>
    <result field='z'>GMT-03:00 </result>
    <result field='zzzz'>GMT-03:00 </result>
@@ -754,7 +766,7 @@ locales='ru ru_RU ru_UA'>
   <collation 
 locales='ru ru_RU ru_UA'>
 <!-- Russian [русский]; Russian (Russia) [русский (Россия)]; Russian (Ukraine) [русский (Украина)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x

@@ -6,7 +6,7 @@
   <number 
 locales='pa pa_IN'>
 <!-- Punjabi [ਪੰਜਾਬੀ]; Punjabi (India) [ਪੰਜਾਬੀ (ਭਾਰਤ)] -->
-   <result input='0.0' numberType='integer'>੦</result>
+   <result input='0.0' numberType='integer' draft='either'>੦</result>
    <result numberType='decimal'>੦</result>
    <result numberType='percent'>੦%</result>
    <result numberType='scientific'>੦E੦</result>
@@ -58,7 +58,7 @@ locales='pa pa_IN'>
   <date 
 locales='pa'>
 <!-- Punjabi [ਪੰਜਾਬੀ] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>੦੦:੦੦</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>੦੦:੦੦</result>
    <result timeType='medium'>੦੦:੦੦:੦੦</result>
    <result timeType='long'>੦੦:੦੦:੦੦ GMT+੦੦:੦੦</result>
    <result timeType='full'>੦੦:੦੦:੦੦ GMT+੦੦:੦੦</result>
@@ -350,7 +350,7 @@ locales='pa'>
   <date 
 locales='pa_IN'>
 <!-- Punjabi (India) [ਪੰਜਾਬੀ (ਭਾਰਤ)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>੧੨:੦੦ ਸਵੇਰੇ</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>੧੨:੦੦ ਸਵੇਰੇ</result>
    <result timeType='medium'>੧੨:੦੦:੦੦ ਸਵੇਰੇ</result>
    <result timeType='long'>੧੨:੦੦:੦੦ ਸਵੇਰੇ GMT+੦੦:੦੦</result>
    <result timeType='full'>੧੨:੦੦:੦੦ ਸਵੇਰੇ GMT+੦੦:੦੦</result>
@@ -642,7 +642,7 @@ locales='pa_IN'>
   <zoneFields 
 locales='pa pa_IN'>
 <!-- Punjabi [ਪੰਜਾਬੀ]; Punjabi (India) [ਪੰਜਾਬੀ (ਭਾਰਤ)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-੦੮:੦੦</result>
    <result field='z'>GMT-੦੮:੦੦</result>
    <result field='zzzz'>GMT-੦੮:੦੦</result>
@@ -754,7 +754,7 @@ locales='pa pa_IN'>
   <collation 
 locales='pa pa_IN'>
 <!-- Punjabi [ਪੰਜਾਬੀ]; Punjabi (India) [ਪੰਜਾਬੀ (ਭਾਰਤ)] -->
-   <result>
+   <result draft='either'>
 x‍
 x‌
 x‍

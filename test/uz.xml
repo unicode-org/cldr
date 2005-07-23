@@ -6,7 +6,7 @@
   <number 
 locales='uz uz_Cyrl uz_Cyrl_UZ uz_Latn uz_Latn_UZ uz_UZ'>
 <!-- Uzbek [Ўзбек]; Uzbek (Cyrillic) [Ўзбек (Кирил)]; Uzbek (Cyrillic, Uzbekistan) [Ўзбек (Кирил, Ўзбекистон)]; Uzbek (Latin) [oʿzbek (Lotin)]; Uzbek (Latin, Uzbekistan) [oʿzbek (Lotin, Oʿzbekiston)]; Uzbek (Uzbekistan) [Ўзбек (Ўзбекистон)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_Latn uz_Latn_UZ uz_UZ'>
   <number 
 locales='uz_AF uz_Arab uz_Arab_AF'>
 <!-- Uzbek (Afghanistan) [Ўзбек (Афғонистон)]; Uzbek (Arabic) [Ўзбек (Араб)]; Uzbek (Arabic, Afghanistan) [Ўзбек (Араб, Афғонистон)] -->
-   <result input='0.0' numberType='integer'>۰</result>
+   <result input='0.0' numberType='integer' draft='either'>۰</result>
    <result numberType='decimal'>۰</result>
    <result numberType='percent'>۰٪</result>
    <result numberType='scientific'>۰×۱۰^۰</result>
@@ -110,7 +110,7 @@ locales='uz_AF uz_Arab uz_Arab_AF'>
   <date 
 locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
 <!-- Uzbek [Ўзбек]; Uzbek (Cyrillic) [Ўзбек (Кирил)]; Uzbek (Cyrillic, Uzbekistan) [Ўзбек (Кирил, Ўзбекистон)]; Uzbek (Uzbekistan) [Ўзбек (Ўзбекистон)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -402,7 +402,7 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
   <date 
 locales='uz_AF uz_Arab uz_Arab_AF'>
 <!-- Uzbek (Afghanistan) [Ўзбек (Афғонистон)]; Uzbek (Arabic) [Ўзбек (Араб)]; Uzbek (Arabic, Afghanistan) [Ўзбек (Араб, Афғонистон)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>۰:۰۰</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>۰:۰۰</result>
    <result timeType='medium'>۰:۰۰:۰۰</result>
    <result timeType='long'>۰:۰۰:۰۰ (GMT+00:00)</result>
    <result timeType='full'>۰:۰۰:۰۰ (GMT+00:00)</result>
@@ -694,7 +694,7 @@ locales='uz_AF uz_Arab uz_Arab_AF'>
   <date 
 locales='uz_Latn uz_Latn_UZ'>
 <!-- Uzbek (Latin) [oʿzbek (Lotin)]; Uzbek (Latin, Uzbekistan) [oʿzbek (Lotin, Oʿzbekiston)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -986,19 +986,23 @@ locales='uz_Latn uz_Latn_UZ'>
   <zoneFields 
 locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
 <!-- Uzbek [Ўзбек]; Uzbek (Cyrillic) [Ўзбек (Кирил)]; Uzbek (Cyrillic, Uzbekistan) [Ўзбек (Кирил, Ўзбекистон)]; Uzbek (Uzbekistan) [Ўзбек (Ўзбекистон)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Қўшма Штатлар)</result>
-   <result field='vvvv'>Los Angeles (Қўшма Штатлар)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (Қўшма Штатлар)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result field='vvvv' draft='true'>Los Angeles (Қўшма Штатлар)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='either'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
    <result field='z'>GMT-07:00</result>
    <result field='zzzz'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Қўшма Штатлар)</result>
-   <result field='vvvv'>Los Angeles (Қўшма Штатлар)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (Қўшма Штатлар)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result field='vvvv' draft='true'>Los Angeles (Қўшма Штатлар)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
@@ -1062,27 +1066,35 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
    <result field='zzzz'>GMT+00:00</result>
-   <result field='v' parse='Europe/London'>Бирлашган Қироллик</result>
-   <result field='vvvv'>Бирлашган Қироллик</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='v' parse='Europe/London' draft='true'>Бирлашган Қироллик</result>
+   <result draft='false'>GB</result>
+   <result field='vvvv' draft='true'>Бирлашган Қироллик</result>
+   <result draft='false'>GB</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1' draft='either'>+0100</result>
    <result field='ZZZZ'>GMT+01:00</result>
    <result field='z'>GMT+01:00</result>
    <result field='zzzz'>GMT+01:00</result>
-   <result field='v' parse='Europe/London'>Бирлашган Қироллик</result>
-   <result field='vvvv'>Бирлашган Қироллик</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='v' parse='Europe/London' draft='true'>Бирлашган Қироллик</result>
+   <result draft='false'>GB</result>
+   <result field='vvvv' draft='true'>Бирлашган Қироллик</result>
+   <result draft='false'>GB</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='either'>+0300</result>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Россия)</result>
-   <result field='vvvv'>Moscow (Россия)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscow (Россия)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result field='vvvv' draft='true'>Moscow (Россия)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Россия)</result>
-   <result field='vvvv'>Moscow (Россия)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscow (Россия)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result field='vvvv' draft='true'>Moscow (Россия)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
@@ -1098,131 +1110,205 @@ locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
   <zoneFields 
 locales='uz_AF uz_Arab uz_Arab_AF'>
 <!-- Uzbek (Afghanistan) [Ўзбек (Афғонистон)]; Uzbek (Arabic) [Ўзбек (Араб)]; Uzbek (Arabic, Afghanistan) [Ўзбек (Араб, Афғонистон)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
-   <result field='ZZZZ'>GMT-۰۸:۰۰</result>
-   <result field='z'>GMT-۰۸:۰۰</result>
-   <result field='zzzz'>GMT-۰۸:۰۰</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Қўшма Штатлар)</result>
-   <result field='vvvv'>Los Angeles (Қўшма Штатлар)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
-   <result field='ZZZZ'>GMT-۰۷:۰۰</result>
-   <result field='z'>GMT-۰۷:۰۰</result>
-   <result field='zzzz'>GMT-۰۷:۰۰</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Қўшма Штатлар)</result>
-   <result field='vvvv'>Los Angeles (Қўшма Штатлар)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-۰۳:۰۰</result>
-   <result field='z'>GMT-۰۳:۰۰</result>
-   <result field='zzzz'>GMT-۰۳:۰۰</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
+   <result field='ZZZZ' draft='true'>GMT-۰۸:۰۰</result>
+   <result draft='false'>GMT-08:00</result>
+   <result field='z' draft='true'>GMT-۰۸:۰۰</result>
+   <result draft='false'>GMT-08:00</result>
+   <result field='zzzz' draft='true'>GMT-۰۸:۰۰</result>
+   <result draft='false'>GMT-08:00</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (Қўшма Штатлар)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result field='vvvv' draft='true'>Los Angeles (Қўшма Штатлар)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='either'>-0700</result>
+   <result field='ZZZZ' draft='true'>GMT-۰۷:۰۰</result>
+   <result draft='false'>GMT-07:00</result>
+   <result field='z' draft='true'>GMT-۰۷:۰۰</result>
+   <result draft='false'>GMT-07:00</result>
+   <result field='zzzz' draft='true'>GMT-۰۷:۰۰</result>
+   <result draft='false'>GMT-07:00</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (Қўшма Штатлар)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result field='vvvv' draft='true'>Los Angeles (Қўшма Штатлар)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='ZZZZ' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>Buenos Aires (AR)</result>
    <result field='vvvv'>Buenos Aires (AR)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-۰۳:۰۰</result>
-   <result field='z'>GMT-۰۳:۰۰</result>
-   <result field='zzzz'>GMT-۰۳:۰۰</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='ZZZZ' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>Buenos Aires (AR)</result>
    <result field='vvvv'>Buenos Aires (AR)</result>
    <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-۰۳:۰۰</result>
-   <result field='z'>GMT-۰۳:۰۰</result>
-   <result field='zzzz'>GMT-۰۳:۰۰</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='ZZZZ' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>Buenos Aires (AR)</result>
    <result field='vvvv'>Buenos Aires (AR)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-۰۳:۰۰</result>
-   <result field='z'>GMT-۰۳:۰۰</result>
-   <result field='zzzz'>GMT-۰۳:۰۰</result>
-   <result field='v' parse='America/Buenos_Aires'>Buenos Aires (AR)</result>
+   <result field='ZZZZ' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' parse='America/Buenos_Aires' draft='either'>Buenos Aires (AR)</result>
    <result field='vvvv'>Buenos Aires (AR)</result>
    <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
-   <result field='ZZZZ'>GMT-۰۵:۰۰</result>
-   <result field='z'>GMT-۰۵:۰۰</result>
-   <result field='zzzz'>GMT-۰۵:۰۰</result>
-   <result field='v' parse='America/Havana'>CU</result>
+   <result field='ZZZZ' draft='true'>GMT-۰۵:۰۰</result>
+   <result draft='false'>GMT-05:00</result>
+   <result field='z' draft='true'>GMT-۰۵:۰۰</result>
+   <result draft='false'>GMT-05:00</result>
+   <result field='zzzz' draft='true'>GMT-۰۵:۰۰</result>
+   <result draft='false'>GMT-05:00</result>
+   <result field='v' parse='America/Havana' draft='either'>CU</result>
    <result field='vvvv'>CU</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+4'>-0400</result>
-   <result field='ZZZZ'>GMT-۰۴:۰۰</result>
-   <result field='z'>GMT-۰۴:۰۰</result>
-   <result field='zzzz'>GMT-۰۴:۰۰</result>
-   <result field='v' parse='America/Havana'>CU</result>
+   <result field='ZZZZ' draft='true'>GMT-۰۴:۰۰</result>
+   <result draft='false'>GMT-04:00</result>
+   <result field='z' draft='true'>GMT-۰۴:۰۰</result>
+   <result draft='false'>GMT-04:00</result>
+   <result field='zzzz' draft='true'>GMT-۰۴:۰۰</result>
+   <result draft='false'>GMT-04:00</result>
+   <result field='v' parse='America/Havana' draft='either'>CU</result>
    <result field='vvvv'>CU</result>
    <result zone='Australia/ACT' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
-   <result field='ZZZZ'>GMT+۱۱:۰۰</result>
-   <result field='z'>GMT+۱۱:۰۰</result>
-   <result field='zzzz'>GMT+۱۱:۰۰</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='ZZZZ' draft='true'>GMT+۱۱:۰۰</result>
+   <result draft='false'>GMT+11:00</result>
+   <result field='z' draft='true'>GMT+۱۱:۰۰</result>
+   <result draft='false'>GMT+11:00</result>
+   <result field='zzzz' draft='true'>GMT+۱۱:۰۰</result>
+   <result draft='false'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney' draft='either'>Sydney (AU)</result>
    <result field='vvvv'>Sydney (AU)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
-   <result field='ZZZZ'>GMT+۱۰:۰۰</result>
-   <result field='z'>GMT+۱۰:۰۰</result>
-   <result field='zzzz'>GMT+۱۰:۰۰</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='ZZZZ' draft='true'>GMT+۱۰:۰۰</result>
+   <result draft='false'>GMT+10:00</result>
+   <result field='z' draft='true'>GMT+۱۰:۰۰</result>
+   <result draft='false'>GMT+10:00</result>
+   <result field='zzzz' draft='true'>GMT+۱۰:۰۰</result>
+   <result draft='false'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney' draft='either'>Sydney (AU)</result>
    <result field='vvvv'>Sydney (AU)</result>
    <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
-   <result field='ZZZZ'>GMT+۱۱:۰۰</result>
-   <result field='z'>GMT+۱۱:۰۰</result>
-   <result field='zzzz'>GMT+۱۱:۰۰</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='ZZZZ' draft='true'>GMT+۱۱:۰۰</result>
+   <result draft='false'>GMT+11:00</result>
+   <result field='z' draft='true'>GMT+۱۱:۰۰</result>
+   <result draft='false'>GMT+11:00</result>
+   <result field='zzzz' draft='true'>GMT+۱۱:۰۰</result>
+   <result draft='false'>GMT+11:00</result>
+   <result field='v' parse='Australia/Sydney' draft='either'>Sydney (AU)</result>
    <result field='vvvv'>Sydney (AU)</result>
    <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
-   <result field='ZZZZ'>GMT+۱۰:۰۰</result>
-   <result field='z'>GMT+۱۰:۰۰</result>
-   <result field='zzzz'>GMT+۱۰:۰۰</result>
-   <result field='v' parse='Australia/Sydney'>Sydney (AU)</result>
+   <result field='ZZZZ' draft='true'>GMT+۱۰:۰۰</result>
+   <result draft='false'>GMT+10:00</result>
+   <result field='z' draft='true'>GMT+۱۰:۰۰</result>
+   <result draft='false'>GMT+10:00</result>
+   <result field='zzzz' draft='true'>GMT+۱۰:۰۰</result>
+   <result draft='false'>GMT+10:00</result>
+   <result field='v' parse='Australia/Sydney' draft='either'>Sydney (AU)</result>
    <result field='vvvv'>Sydney (AU)</result>
    <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
-   <result field='ZZZZ'>GMT+۰۰:۰۰</result>
-   <result field='z'>GMT+۰۰:۰۰</result>
-   <result field='zzzz'>GMT+۰۰:۰۰</result>
-   <result field='v' parse='Europe/London'>Бирлашган Қироллик</result>
-   <result field='vvvv'>Бирлашган Қироллик</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
-   <result field='ZZZZ'>GMT+۰۱:۰۰</result>
-   <result field='z'>GMT+۰۱:۰۰</result>
-   <result field='zzzz'>GMT+۰۱:۰۰</result>
-   <result field='v' parse='Europe/London'>Бирлашган Қироллик</result>
-   <result field='vvvv'>Бирлашган Қироллик</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
-   <result field='ZZZZ'>GMT+۰۳:۰۰</result>
-   <result field='z'>GMT+۰۳:۰۰</result>
-   <result field='zzzz'>GMT+۰۳:۰۰</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Россия)</result>
-   <result field='vvvv'>Moscow (Россия)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
-   <result field='ZZZZ'>GMT+۰۴:۰۰</result>
-   <result field='z'>GMT+۰۴:۰۰</result>
-   <result field='zzzz'>GMT+۰۴:۰۰</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Россия)</result>
-   <result field='vvvv'>Moscow (Россия)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
-   <result field='ZZZZ'>GMT-۰۳:۰۰</result>
-   <result field='z'>GMT-۰۳:۰۰</result>
-   <result field='zzzz'>GMT-۰۳:۰۰</result>
-   <result field='v'>GMT-۰۳:۰۰</result>
-   <result field='vvvv'>GMT-۰۳:۰۰</result>
-   <result date='2004-07-15T12:00:00Z' field='Z'>-0300</result>
-   <result field='ZZZZ'>GMT-۰۳:۰۰</result>
-   <result field='z'>GMT-۰۳:۰۰</result>
-   <result field='zzzz'>GMT-۰۳:۰۰</result>
-   <result field='v'>GMT-۰۳:۰۰</result>
-   <result field='vvvv'>GMT-۰۳:۰۰</result>
+   <result field='ZZZZ' draft='true'>GMT+۰۰:۰۰</result>
+   <result draft='false'>GMT+00:00</result>
+   <result field='z' draft='true'>GMT+۰۰:۰۰</result>
+   <result draft='false'>GMT+00:00</result>
+   <result field='zzzz' draft='true'>GMT+۰۰:۰۰</result>
+   <result draft='false'>GMT+00:00</result>
+   <result field='v' parse='Europe/London' draft='true'>Бирлашган Қироллик</result>
+   <result draft='false'>GB</result>
+   <result field='vvvv' draft='true'>Бирлашган Қироллик</result>
+   <result draft='false'>GB</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1' draft='either'>+0100</result>
+   <result field='ZZZZ' draft='true'>GMT+۰۱:۰۰</result>
+   <result draft='false'>GMT+01:00</result>
+   <result field='z' draft='true'>GMT+۰۱:۰۰</result>
+   <result draft='false'>GMT+01:00</result>
+   <result field='zzzz' draft='true'>GMT+۰۱:۰۰</result>
+   <result draft='false'>GMT+01:00</result>
+   <result field='v' parse='Europe/London' draft='true'>Бирлашган Қироллик</result>
+   <result draft='false'>GB</result>
+   <result field='vvvv' draft='true'>Бирлашган Қироллик</result>
+   <result draft='false'>GB</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='either'>+0300</result>
+   <result field='ZZZZ' draft='true'>GMT+۰۳:۰۰</result>
+   <result draft='false'>GMT+03:00</result>
+   <result field='z' draft='true'>GMT+۰۳:۰۰</result>
+   <result draft='false'>GMT+03:00</result>
+   <result field='zzzz' draft='true'>GMT+۰۳:۰۰</result>
+   <result draft='false'>GMT+03:00</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscow (Россия)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result field='vvvv' draft='true'>Moscow (Россия)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
+   <result field='ZZZZ' draft='true'>GMT+۰۴:۰۰</result>
+   <result draft='false'>GMT+04:00</result>
+   <result field='z' draft='true'>GMT+۰۴:۰۰</result>
+   <result draft='false'>GMT+04:00</result>
+   <result field='zzzz' draft='true'>GMT+۰۴:۰۰</result>
+   <result draft='false'>GMT+04:00</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscow (Россия)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result field='vvvv' draft='true'>Moscow (Россия)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
+   <result field='ZZZZ' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='vvvv' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' draft='either'>-0300</result>
+   <result field='ZZZZ' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='z' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='zzzz' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='v' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
+   <result field='vvvv' draft='true'>GMT-۰۳:۰۰</result>
+   <result draft='false'>GMT-03:00</result>
   </zoneFields>
   <zoneFields 
 locales='uz_Latn uz_Latn_UZ'>
 <!-- Uzbek (Latin) [oʿzbek (Lotin)]; Uzbek (Latin, Uzbekistan) [oʿzbek (Lotin, Oʿzbekiston)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Qo&apos;shma Shtatlar)</result>
-   <result field='vvvv'>Los Angeles (Qo&apos;shma Shtatlar)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7'>-0700</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (Qo&apos;shma Shtatlar)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result field='vvvv' draft='true'>Los Angeles (Qo&apos;shma Shtatlar)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+7' draft='either'>-0700</result>
    <result field='ZZZZ'>GMT-07:00</result>
    <result field='z'>GMT-07:00</result>
    <result field='zzzz'>GMT-07:00</result>
-   <result field='v' parse='America/Los_Angeles'>Los Angeles (Qo&apos;shma Shtatlar)</result>
-   <result field='vvvv'>Los Angeles (Qo&apos;shma Shtatlar)</result>
-   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Los_Angeles' draft='true'>Los Angeles (Qo&apos;shma Shtatlar)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result field='vvvv' draft='true'>Los Angeles (Qo&apos;shma Shtatlar)</result>
+   <result draft='false'>Los Angeles (US)</result>
+   <result zone='America/Argentina/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
@@ -1286,27 +1372,35 @@ locales='uz_Latn uz_Latn_UZ'>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
    <result field='zzzz'>GMT+00:00</result>
-   <result field='v' parse='Europe/London'>Birlashgan Qirollik</result>
-   <result field='vvvv'>Birlashgan Qirollik</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1'>+0100</result>
+   <result field='v' parse='Europe/London' draft='true'>Birlashgan Qirollik</result>
+   <result draft='false'>GB</result>
+   <result field='vvvv' draft='true'>Birlashgan Qirollik</result>
+   <result draft='false'>GB</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-1' draft='either'>+0100</result>
    <result field='ZZZZ'>GMT+01:00</result>
    <result field='z'>GMT+01:00</result>
    <result field='zzzz'>GMT+01:00</result>
-   <result field='v' parse='Europe/London'>Birlashgan Qirollik</result>
-   <result field='vvvv'>Birlashgan Qirollik</result>
-   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3'>+0300</result>
+   <result field='v' parse='Europe/London' draft='true'>Birlashgan Qirollik</result>
+   <result draft='false'>GB</result>
+   <result field='vvvv' draft='true'>Birlashgan Qirollik</result>
+   <result draft='false'>GB</result>
+   <result zone='Europe/Moscow' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-3' draft='either'>+0300</result>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Rossiya)</result>
-   <result field='vvvv'>Moscow (Rossiya)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscow (Rossiya)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result field='vvvv' draft='true'>Moscow (Rossiya)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscow (Rossiya)</result>
-   <result field='vvvv'>Moscow (Rossiya)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscow (Rossiya)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result field='vvvv' draft='true'>Moscow (Rossiya)</result>
+   <result draft='false'>Moscow (RU)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
@@ -1322,7 +1416,7 @@ locales='uz_Latn uz_Latn_UZ'>
   <collation 
 locales='uz uz_Cyrl uz_Cyrl_UZ uz_UZ'>
 <!-- Uzbek [Ўзбек]; Uzbek (Cyrillic) [Ўзбек (Кирил)]; Uzbek (Cyrillic, Uzbekistan) [Ўзбек (Кирил, Ўзбекистон)]; Uzbek (Uzbekistan) [Ўзбек (Ўзбекистон)] -->
-   <result>
+   <result draft='true'>
 x 
 X 
 x x
@@ -1573,11 +1667,28 @@ XѴ
 xѵx
 xѴx
 </result>
+   <result draft='false'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+</result>
   </collation>
   <collation 
 locales='uz_AF uz_Arab uz_Arab_AF'>
 <!-- Uzbek (Afghanistan) [Ўзбек (Афғонистон)]; Uzbek (Arabic) [Ўзбек (Араб)]; Uzbek (Arabic, Afghanistan) [Ўзбек (Араб, Афғонистон)] -->
-   <result>
+   <result draft='true'>
 xً
 Xً
 xٌ
@@ -1780,11 +1891,28 @@ xې
 Xې
 xېx
 </result>
+   <result draft='false'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+</result>
   </collation>
   <collation 
 locales='uz_Latn uz_Latn_UZ'>
 <!-- Uzbek (Latin) [oʿzbek (Lotin)]; Uzbek (Latin, Uzbekistan) [oʿzbek (Lotin, Oʿzbekiston)] -->
-   <result>
+   <result draft='true'>
 x 
 X 
 x x
@@ -1953,6 +2081,23 @@ xZx
 xʿ
 Xʿ
 xʿx
+</result>
+   <result draft='false'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
 </result>
   </collation>
  </cldrTest>

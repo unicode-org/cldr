@@ -6,7 +6,7 @@
   <number 
 locales='zh zh_CN zh_HK zh_Hans zh_Hans_CN zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant_MO zh_Hant_TW zh_MO zh_SG zh_TW'>
 <!-- Chinese [中文]; Chinese (China) [中文 (中国)]; Chinese (Hong Kong S.A.R., China) [中文 (中華人民共和國香港特別行政區)]; Chinese (Simplified Han) [中文 (简体汉语)]; Chinese (Simplified Han, China) [中文 (简体汉语, 中国)]; Chinese (Simplified Han, Singapore) [中文 (简体汉语, 新加坡)]; Chinese (Traditional Han) [中文 (繁體漢語)]; Chinese (Traditional Han, Hong Kong S.A.R., China) [中文 (繁體漢語, 中華人民共和國香港特別行政區)]; Chinese (Traditional Han, Macao S.A.R., China) [中文 (繁體漢語, 澳門特別行政區)]; Chinese (Traditional Han, Taiwan) [中文 (繁體漢語, 臺灣)]; Chinese (Macao S.A.R., China) [中文 (澳門特別行政區)]; Chinese (Singapore) [中文 (新加坡)]; Chinese (Taiwan) [中文 (臺灣)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='zh zh_CN zh_HK zh_Hans zh_Hans_CN zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant
   <date 
 locales='zh zh_Hans'>
 <!-- Chinese [中文]; Chinese (Simplified Han) [中文 (简体汉语)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+0000</result>
    <result timeType='full'>00:00:00 GMT+0000</result>
@@ -350,7 +350,7 @@ locales='zh zh_Hans'>
   <date 
 locales='zh_CN zh_Hans_CN'>
 <!-- Chinese (China) [中文 (中国)]; Chinese (Simplified Han, China) [中文 (简体汉语, 中国)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>上午12:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>上午12:00</result>
    <result timeType='medium'>上午12:00:00</result>
    <result timeType='long'>上午12时00分00秒</result>
    <result timeType='full'>上午12时00分00秒 GMT+0000</result>
@@ -642,7 +642,7 @@ locales='zh_CN zh_Hans_CN'>
   <date 
 locales='zh_HK'>
 <!-- Chinese (Hong Kong S.A.R., China) [中文 (中華人民共和國香港特別行政區)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>上午12:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>上午12:00</result>
    <result timeType='medium'>上午12:00:00</result>
    <result timeType='long'>上午12時00分00秒</result>
    <result timeType='full'>上午12時00分00秒 GMT+0000</result>
@@ -934,7 +934,7 @@ locales='zh_HK'>
   <date 
 locales='zh_Hans_SG zh_SG'>
 <!-- Chinese (Simplified Han, Singapore) [中文 (简体汉语, 新加坡)]; Chinese (Singapore) [中文 (新加坡)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>上午 12:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>上午 12:00</result>
    <result timeType='medium'>上午 12:00</result>
    <result timeType='long'>上午 12:00:00</result>
    <result timeType='full'>上午 12:00:00</result>
@@ -1226,7 +1226,7 @@ locales='zh_Hans_SG zh_SG'>
   <date 
 locales='zh_Hant zh_Hant_TW'>
 <!-- Chinese (Traditional Han) [中文 (繁體漢語)]; Chinese (Traditional Han, Taiwan) [中文 (繁體漢語, 臺灣)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>上午 12:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>上午 12:00</result>
    <result timeType='medium'>上午 12:00:00</result>
    <result timeType='long'>上午12時00分00秒</result>
    <result timeType='full'>上午12時00分00秒 GMT+00:00</result>
@@ -1518,7 +1518,7 @@ locales='zh_Hant zh_Hant_TW'>
   <date 
 locales='zh_Hant_HK'>
 <!-- Chinese (Traditional Han, Hong Kong S.A.R., China) [中文 (繁體漢語, 中華人民共和國香港特別行政區)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>上午12:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>上午12:00</result>
    <result timeType='medium'>上午12:00:00</result>
    <result timeType='long'>上午12時00分00秒</result>
    <result timeType='full'>上午12時00分00秒 GMT+00:00</result>
@@ -1810,7 +1810,7 @@ locales='zh_Hant_HK'>
   <date 
 locales='zh_Hant_MO'>
 <!-- Chinese (Traditional Han, Macao S.A.R., China) [中文 (繁體漢語, 澳門特別行政區)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>上午12:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>上午12:00</result>
    <result timeType='medium'>上午12:00:00</result>
    <result timeType='long'>上午12時00分00秒</result>
    <result timeType='full'>上午12時00分00秒 GMT+00:00</result>
@@ -2102,7 +2102,7 @@ locales='zh_Hant_MO'>
   <date 
 locales='zh_MO'>
 <!-- Chinese (Macao S.A.R., China) [中文 (澳門特別行政區)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>上午12:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>上午12:00</result>
    <result timeType='medium'>上午12:00:00</result>
    <result timeType='long'>上午12時00分00秒</result>
    <result timeType='full'>上午12時00分00秒 GMT+0000</result>
@@ -2394,7 +2394,7 @@ locales='zh_MO'>
   <date 
 locales='zh_TW'>
 <!-- Chinese (Taiwan) [中文 (臺灣)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>上午 12:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>上午 12:00</result>
    <result timeType='medium'>上午 12:00:00</result>
    <result timeType='long'>上午12時00分00秒</result>
    <result timeType='full'>上午12時00分00秒 GMT+0000</result>
@@ -2686,7 +2686,7 @@ locales='zh_TW'>
   <zoneFields 
 locales='zh zh_CN zh_Hans zh_Hans_CN'>
 <!-- Chinese [中文]; Chinese (China) [中文 (中国)]; Chinese (Simplified Han) [中文 (简体汉语)]; Chinese (Simplified Han, China) [中文 (简体汉语, 中国)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-0800</result>
    <result field='z' parse='America/Los_Angeles'>PST</result>
    <result field='zzzz'>太平洋标准时间</result>
@@ -2798,7 +2798,7 @@ locales='zh zh_CN zh_Hans zh_Hans_CN'>
   <zoneFields 
 locales='zh_HK zh_Hant zh_Hant_HK zh_Hant_MO zh_Hant_TW zh_MO zh_TW'>
 <!-- Chinese (Hong Kong S.A.R., China) [中文 (中華人民共和國香港特別行政區)]; Chinese (Traditional Han) [中文 (繁體漢語)]; Chinese (Traditional Han, Hong Kong S.A.R., China) [中文 (繁體漢語, 中華人民共和國香港特別行政區)]; Chinese (Traditional Han, Macao S.A.R., China) [中文 (繁體漢語, 澳門特別行政區)]; Chinese (Traditional Han, Taiwan) [中文 (繁體漢語, 臺灣)]; Chinese (Macao S.A.R., China) [中文 (澳門特別行政區)]; Chinese (Taiwan) [中文 (臺灣)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z' parse='America/Los_Angeles'>PST</result>
    <result field='zzzz'>太平洋標準時間</result>
@@ -2814,27 +2814,35 @@ locales='zh_HK zh_Hant zh_Hant_HK zh_Hant_MO zh_Hant_TW zh_MO zh_TW'>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>布宜諾斯艾利斯 (阿根廷)</result>
-   <result field='vvvv'>布宜諾斯艾利斯 (阿根廷)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>布宜諾斯艾利斯 (阿根廷)</result>
+   <result draft='false'>布宜诺斯艾利斯 (阿根廷)</result>
+   <result field='vvvv' draft='true'>布宜諾斯艾利斯 (阿根廷)</result>
+   <result draft='false'>布宜诺斯艾利斯 (阿根廷)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>布宜諾斯艾利斯 (阿根廷)</result>
-   <result field='vvvv'>布宜諾斯艾利斯 (阿根廷)</result>
-   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>布宜諾斯艾利斯 (阿根廷)</result>
+   <result draft='false'>布宜诺斯艾利斯 (阿根廷)</result>
+   <result field='vvvv' draft='true'>布宜諾斯艾利斯 (阿根廷)</result>
+   <result draft='false'>布宜诺斯艾利斯 (阿根廷)</result>
+   <result zone='America/Buenos_Aires' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>布宜諾斯艾利斯 (阿根廷)</result>
-   <result field='vvvv'>布宜諾斯艾利斯 (阿根廷)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>布宜諾斯艾利斯 (阿根廷)</result>
+   <result draft='false'>布宜诺斯艾利斯 (阿根廷)</result>
+   <result field='vvvv' draft='true'>布宜諾斯艾利斯 (阿根廷)</result>
+   <result draft='false'>布宜诺斯艾利斯 (阿根廷)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
-   <result field='v' parse='America/Buenos_Aires'>布宜諾斯艾利斯 (阿根廷)</result>
-   <result field='vvvv'>布宜諾斯艾利斯 (阿根廷)</result>
-   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5'>-0500</result>
+   <result field='v' parse='America/Buenos_Aires' draft='true'>布宜諾斯艾利斯 (阿根廷)</result>
+   <result draft='false'>布宜诺斯艾利斯 (阿根廷)</result>
+   <result field='vvvv' draft='true'>布宜諾斯艾利斯 (阿根廷)</result>
+   <result draft='false'>布宜诺斯艾利斯 (阿根廷)</result>
+   <result zone='America/Havana' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+5' draft='either'>-0500</result>
    <result field='ZZZZ'>GMT-05:00</result>
    <result field='z'>GMT-05:00</result>
    <result field='zzzz'>GMT-05:00</result>
@@ -2850,27 +2858,35 @@ locales='zh_HK zh_Hant zh_Hant_HK zh_Hant_MO zh_Hant_TW zh_MO zh_TW'>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>雪梨 (澳洲)</result>
-   <result field='vvvv'>雪梨 (澳洲)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>雪梨 (澳洲)</result>
+   <result draft='false'>悉尼 (澳洲)</result>
+   <result field='vvvv' draft='true'>雪梨 (澳洲)</result>
+   <result draft='false'>悉尼 (澳洲)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>雪梨 (澳洲)</result>
-   <result field='vvvv'>雪梨 (澳洲)</result>
-   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11'>+1100</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>雪梨 (澳洲)</result>
+   <result draft='false'>悉尼 (澳洲)</result>
+   <result field='vvvv' draft='true'>雪梨 (澳洲)</result>
+   <result draft='false'>悉尼 (澳洲)</result>
+   <result zone='Australia/Sydney' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-11' draft='either'>+1100</result>
    <result field='ZZZZ'>GMT+11:00</result>
    <result field='z'>GMT+11:00</result>
    <result field='zzzz'>GMT+11:00</result>
-   <result field='v' parse='Australia/Sydney'>雪梨 (澳洲)</result>
-   <result field='vvvv'>雪梨 (澳洲)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10'>+1000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>雪梨 (澳洲)</result>
+   <result draft='false'>悉尼 (澳洲)</result>
+   <result field='vvvv' draft='true'>雪梨 (澳洲)</result>
+   <result draft='false'>悉尼 (澳洲)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-10' draft='either'>+1000</result>
    <result field='ZZZZ'>GMT+10:00</result>
    <result field='z'>GMT+10:00</result>
    <result field='zzzz'>GMT+10:00</result>
-   <result field='v' parse='Australia/Sydney'>雪梨 (澳洲)</result>
-   <result field='vvvv'>雪梨 (澳洲)</result>
-   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0'>+0000</result>
+   <result field='v' parse='Australia/Sydney' draft='true'>雪梨 (澳洲)</result>
+   <result draft='false'>悉尼 (澳洲)</result>
+   <result field='vvvv' draft='true'>雪梨 (澳洲)</result>
+   <result draft='false'>悉尼 (澳洲)</result>
+   <result zone='Europe/London' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT-0' draft='either'>+0000</result>
    <result field='ZZZZ'>GMT+00:00</result>
    <result field='z'>GMT+00:00</result>
    <result field='zzzz'>GMT+00:00</result>
@@ -2910,7 +2926,7 @@ locales='zh_HK zh_Hant zh_Hant_HK zh_Hant_MO zh_Hant_TW zh_MO zh_TW'>
   <zoneFields 
 locales='zh_Hans_SG zh_SG'>
 <!-- Chinese (Simplified Han, Singapore) [中文 (简体汉语, 新加坡)]; Chinese (Singapore) [中文 (新加坡)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-0800</result>
    <result field='z' parse='America/Los_Angeles'>PST</result>
    <result field='zzzz'>太平洋标准时间</result>
@@ -3022,7 +3038,7 @@ locales='zh_Hans_SG zh_SG'>
   <collation 
 locales='zh zh_CN zh_Hans zh_Hans_CN zh_Hans_SG zh_SG'>
 <!-- Chinese [中文]; Chinese (China) [中文 (中国)]; Chinese (Simplified Han) [中文 (简体汉语)]; Chinese (Simplified Han, China) [中文 (简体汉语, 中国)]; Chinese (Simplified Han, Singapore) [中文 (简体汉语, 新加坡)]; Chinese (Singapore) [中文 (新加坡)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x
@@ -3730,7 +3746,7 @@ x龟x
   <collation 
 locales='zh@collation=big5han zh_CN@collation=big5han zh_SG@collation=big5han'>
 <!-- Chinese (Collation=Traditional Chinese (Big5)) [中文 (对照=big5han)]; Chinese (China, Collation=Traditional Chinese (Big5)) [中文 (中国, 对照=big5han)]; Chinese (Singapore, Collation=Traditional Chinese (Big5)) [中文 (新加坡, 对照=big5han)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x
@@ -4927,7 +4943,7 @@ x龟x
   <collation 
 locales='zh@collation=gb2312han zh_CN@collation=gb2312han zh_SG@collation=gb2312han'>
 <!-- Chinese (Collation=Simplified Chinese (GB2312)) [中文 (对照=gb2312han)]; Chinese (China, Collation=Simplified Chinese (GB2312)) [中文 (中国, 对照=gb2312han)]; Chinese (Singapore, Collation=Simplified Chinese (GB2312)) [中文 (新加坡, 对照=gb2312han)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x
@@ -5893,7 +5909,7 @@ x齄x
   <collation 
 locales='zh@collation=pinyin zh_CN@collation=pinyin zh_HK@collation=pinyin zh_Hant@collation=pinyin zh_MO@collation=pinyin zh_SG@collation=pinyin zh_TW@collation=pinyin'>
 <!-- Chinese (Collation=Pinyin Order) [中文 (对照=拼音顺序)]; Chinese (China, Collation=Pinyin Order) [中文 (中国, 对照=拼音顺序)]; Chinese (Hong Kong S.A.R., China, Collation=Pinyin Order) [中文 (中華人民共和國香港特別行政區, 校對=拼音順序)]; Chinese (Traditional Han, Collation=Pinyin Order) [中文 (繁體漢語, 校對=拼音順序)]; Chinese (Macao S.A.R., China, Collation=Pinyin Order) [中文 (澳門特別行政區, 校對=拼音順序)]; Chinese (Singapore, Collation=Pinyin Order) [中文 (新加坡, 对照=拼音顺序)]; Chinese (Taiwan, Collation=Pinyin Order) [中文 (臺灣, 校對=拼音順序)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x
@@ -7825,7 +7841,7 @@ x齺x
   <collation 
 locales='zh@collation=stroke zh_CN@collation=stroke zh_SG@collation=stroke'>
 <!-- Chinese (Collation=Stroke Order) [中文 (对照=笔划顺序)]; Chinese (China, Collation=Stroke Order) [中文 (中国, 对照=笔划顺序)]; Chinese (Singapore, Collation=Stroke Order) [中文 (新加坡, 对照=笔划顺序)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x
@@ -9022,7 +9038,7 @@ x龟x
   <collation 
 locales='zh_HK zh_Hant zh_Hant_HK zh_Hant_MO zh_Hant_TW zh_MO zh_TW'>
 <!-- Chinese (Hong Kong S.A.R., China) [中文 (中華人民共和國香港特別行政區)]; Chinese (Traditional Han) [中文 (繁體漢語)]; Chinese (Traditional Han, Hong Kong S.A.R., China) [中文 (繁體漢語, 中華人民共和國香港特別行政區)]; Chinese (Traditional Han, Macao S.A.R., China) [中文 (繁體漢語, 澳門特別行政區)]; Chinese (Traditional Han, Taiwan) [中文 (繁體漢語, 臺灣)]; Chinese (Macao S.A.R., China) [中文 (澳門特別行政區)]; Chinese (Taiwan) [中文 (臺灣)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x
@@ -9649,7 +9665,7 @@ x龜x
   <collation 
 locales='zh_HK@collation=big5han zh_Hant@collation=big5han zh_MO@collation=big5han zh_TW@collation=big5han'>
 <!-- Chinese (Hong Kong S.A.R., China, Collation=Traditional Chinese (Big5)) [中文 (中華人民共和國香港特別行政區, 校對=big5han)]; Chinese (Traditional Han, Collation=Traditional Chinese (Big5)) [中文 (繁體漢語, 校對=big5han)]; Chinese (Macao S.A.R., China, Collation=Traditional Chinese (Big5)) [中文 (澳門特別行政區, 校對=big5han)]; Chinese (Taiwan, Collation=Traditional Chinese (Big5)) [中文 (臺灣, 校對=big5han)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x
@@ -10738,7 +10754,7 @@ x龘x
   <collation 
 locales='zh_HK@collation=gb2312han zh_Hant@collation=gb2312han zh_MO@collation=gb2312han zh_TW@collation=gb2312han'>
 <!-- Chinese (Hong Kong S.A.R., China, Collation=Simplified Chinese (GB2312)) [中文 (中華人民共和國香港特別行政區, 校對=gb2312han)]; Chinese (Traditional Han, Collation=Simplified Chinese (GB2312)) [中文 (繁體漢語, 校對=gb2312han)]; Chinese (Macao S.A.R., China, Collation=Simplified Chinese (GB2312)) [中文 (澳門特別行政區, 校對=gb2312han)]; Chinese (Taiwan, Collation=Simplified Chinese (GB2312)) [中文 (臺灣, 校對=gb2312han)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x
@@ -11734,7 +11750,7 @@ x龜x
   <collation 
 locales='zh_HK@collation=stroke zh_Hant@collation=stroke zh_MO@collation=stroke zh_TW@collation=stroke'>
 <!-- Chinese (Hong Kong S.A.R., China, Collation=Stroke Order) [中文 (中華人民共和國香港特別行政區, 校對=筆劃顺序)]; Chinese (Traditional Han, Collation=Stroke Order) [中文 (繁體漢語, 校對=筆劃顺序)]; Chinese (Macao S.A.R., China, Collation=Stroke Order) [中文 (澳門特別行政區, 校對=筆劃顺序)]; Chinese (Taiwan, Collation=Stroke Order) [中文 (臺灣, 校對=筆劃顺序)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x

@@ -6,7 +6,7 @@
   <number 
 locales='th th_TH'>
 <!-- Thai [ไทย]; Thai (Thailand) [ไทย (ประเทศไทย)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='th th_TH'>
   <date 
 locales='th th_TH'>
 <!-- Thai [ไทย]; Thai (Thailand) [ไทย (ประเทศไทย)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>0:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0 นาฬิกา 0 นาที</result>
    <result timeType='full'>0 นาฬิกา 0 นาที 00 วินาที</result>
@@ -350,7 +350,7 @@ locales='th th_TH'>
   <zoneFields 
 locales='th th_TH'>
 <!-- Thai [ไทย]; Thai (Thailand) [ไทย (ประเทศไทย)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-0800</result>
    <result field='z'>GMT-0800</result>
    <result field='zzzz'>GMT-0800</result>
@@ -438,15 +438,19 @@ locales='th th_TH'>
    <result field='ZZZZ'>GMT+0300</result>
    <result field='z'>GMT+0300</result>
    <result field='zzzz'>GMT+0300</result>
-   <result field='v' parse='Europe/Moscow'>มอสโค (รัสเซีย)</result>
-   <result field='vvvv'>มอสโค (รัสเซีย)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>มอสโค (รัสเซีย)</result>
+   <result draft='false'>Moscow (รัสเซีย)</result>
+   <result field='vvvv' draft='true'>มอสโค (รัสเซีย)</result>
+   <result draft='false'>Moscow (รัสเซีย)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
    <result field='ZZZZ'>GMT+0400</result>
    <result field='z'>GMT+0400</result>
    <result field='zzzz'>GMT+0400</result>
-   <result field='v' parse='Europe/Moscow'>มอสโค (รัสเซีย)</result>
-   <result field='vvvv'>มอสโค (รัสเซีย)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>มอสโค (รัสเซีย)</result>
+   <result draft='false'>Moscow (รัสเซีย)</result>
+   <result field='vvvv' draft='true'>มอสโค (รัสเซีย)</result>
+   <result draft='false'>Moscow (รัสเซีย)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-0300</result>
    <result field='z'>GMT-0300</result>
    <result field='zzzz'>GMT-0300</result>
@@ -462,7 +466,7 @@ locales='th th_TH'>
   <collation 
 locales='th th_TH'>
 <!-- Thai [ไทย]; Thai (Thailand) [ไทย (ประเทศไทย)] -->
-   <result>
+   <result draft='either'>
 x​
 x 
 x-

@@ -6,7 +6,7 @@
   <number 
 locales='sr sr_BA sr_CS sr_Cyrl sr_Cyrl_BA sr_Cyrl_CS sr_Cyrl_YU sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_YU sr_YU'>
 <!-- Serbian [Српски]; Serbian (Bosnia and Herzegovina) [Српски (Босна и Херцеговина)]; Serbian (Serbia And Montenegro) [Српски (Србија и Црна Гора)]; Serbian (Cyrillic) [Српски (Ћирилица)]; Serbian (Cyrillic, Bosnia and Herzegovina) [Српски (Ћирилица, Босна и Херцеговина)]; Serbian (Cyrillic, Serbia And Montenegro) [Српски (Ћирилица, Србија и Црна Гора)]; Serbian (Cyrillic, YU) [Српски (Ћирилица, YU)]; Serbian (Latin) [Srpski (Latinica)]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)]; Serbian (Latin, Serbia And Montenegro) [Srpski (Latinica, Srbija i Crna Gora)]; Serbian (Latin, YU) [Srpski (Latinica, YU)]; Serbian (YU) [Српски (YU)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='sr sr_BA sr_CS sr_Cyrl sr_Cyrl_BA sr_Cyrl_CS sr_Cyrl_YU sr_Latn sr_Latn
   <date 
 locales='sr sr_CS sr_Cyrl sr_Cyrl_CS sr_Cyrl_YU sr_YU'>
 <!-- Serbian [Српски]; Serbian (Serbia And Montenegro) [Српски (Србија и Црна Гора)]; Serbian (Cyrillic) [Српски (Ћирилица)]; Serbian (Cyrillic, Serbia And Montenegro) [Српски (Ћирилица, Србија и Црна Гора)]; Serbian (Cyrillic, YU) [Српски (Ћирилица, YU)]; Serbian (YU) [Српски (YU)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00.00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00.00</result>
    <result timeType='medium'>00.00.00</result>
    <result timeType='long'>00.00.00 GMT+0000</result>
    <result timeType='full'>00.00.00 GMT+0000</result>
@@ -350,7 +350,7 @@ locales='sr sr_CS sr_Cyrl sr_Cyrl_CS sr_Cyrl_YU sr_YU'>
   <date 
 locales='sr_BA sr_Cyrl_BA'>
 <!-- Serbian (Bosnia and Herzegovina) [Српски (Босна и Херцеговина)]; Serbian (Cyrillic, Bosnia and Herzegovina) [Српски (Ћирилица, Босна и Херцеговина)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00.00.00 GMT+0000</result>
    <result timeType='full'>00 часова, 00 минута, 00 секунди</result>
@@ -642,7 +642,7 @@ locales='sr_BA sr_Cyrl_BA'>
   <date 
 locales='sr_Latn sr_Latn_CS sr_Latn_YU'>
 <!-- Serbian (Latin) [Srpski (Latinica)]; Serbian (Latin, Serbia And Montenegro) [Srpski (Latinica, Srbija i Crna Gora)]; Serbian (Latin, YU) [Srpski (Latinica, YU)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00.00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00.00</result>
    <result timeType='medium'>00.00.00</result>
    <result timeType='long'>00.00.00 GMT+0000</result>
    <result timeType='full'>00.00.00 GMT+0000</result>
@@ -934,7 +934,7 @@ locales='sr_Latn sr_Latn_CS sr_Latn_YU'>
   <date 
 locales='sr_Latn_BA'>
 <!-- Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00.00.00 GMT+0000</result>
    <result timeType='full'>00 časova, 00 minuta, 00 sekundi</result>
@@ -1226,7 +1226,7 @@ locales='sr_Latn_BA'>
   <zoneFields 
 locales='sr sr_BA sr_CS sr_Cyrl sr_Cyrl_BA sr_Cyrl_CS sr_Cyrl_YU sr_YU'>
 <!-- Serbian [Српски]; Serbian (Bosnia and Herzegovina) [Српски (Босна и Херцеговина)]; Serbian (Serbia And Montenegro) [Српски (Србија и Црна Гора)]; Serbian (Cyrillic) [Српски (Ћирилица)]; Serbian (Cyrillic, Bosnia and Herzegovina) [Српски (Ћирилица, Босна и Херцеговина)]; Serbian (Cyrillic, Serbia And Montenegro) [Српски (Ћирилица, Србија и Црна Гора)]; Serbian (Cyrillic, YU) [Српски (Ћирилица, YU)]; Serbian (YU) [Српски (YU)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-0800</result>
    <result field='z'>GMT-0800</result>
    <result field='zzzz'>GMT-0800</result>
@@ -1338,7 +1338,7 @@ locales='sr sr_BA sr_CS sr_Cyrl sr_Cyrl_BA sr_Cyrl_CS sr_Cyrl_YU sr_YU'>
   <zoneFields 
 locales='sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_YU'>
 <!-- Serbian (Latin) [Srpski (Latinica)]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)]; Serbian (Latin, Serbia And Montenegro) [Srpski (Latinica, Srbija i Crna Gora)]; Serbian (Latin, YU) [Srpski (Latinica, YU)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-0800</result>
    <result field='z'>GMT-0800</result>
    <result field='zzzz'>GMT-0800</result>
@@ -1450,7 +1450,7 @@ locales='sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_YU'>
   <collation 
 locales='sr sr_BA sr_CS sr_Cyrl sr_Cyrl_BA sr_Cyrl_CS sr_Cyrl_YU sr_YU'>
 <!-- Serbian [Српски]; Serbian (Bosnia and Herzegovina) [Српски (Босна и Херцеговина)]; Serbian (Serbia And Montenegro) [Српски (Србија и Црна Гора)]; Serbian (Cyrillic) [Српски (Ћирилица)]; Serbian (Cyrillic, Bosnia and Herzegovina) [Српски (Ћирилица, Босна и Херцеговина)]; Serbian (Cyrillic, Serbia And Montenegro) [Српски (Ћирилица, Србија и Црна Гора)]; Serbian (Cyrillic, YU) [Српски (Ћирилица, YU)]; Serbian (YU) [Српски (YU)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x
@@ -1651,7 +1651,7 @@ xШx
   <collation 
 locales='sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_YU'>
 <!-- Serbian (Latin) [Srpski (Latinica)]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)]; Serbian (Latin, Serbia And Montenegro) [Srpski (Latinica, Srbija i Crna Gora)]; Serbian (Latin, YU) [Srpski (Latinica, YU)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x

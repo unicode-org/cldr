@@ -6,7 +6,7 @@
   <number 
 locales='et et_EE'>
 <!-- Estonian [Eesti]; Estonian (Estonia) [Eesti (Eesti)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='et et_EE'>
   <date 
 locales='et et_EE'>
 <!-- Estonian [Eesti]; Estonian (Estonia) [Eesti (Eesti)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>0:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0:00:00 GMT+00:00</result>
    <result timeType='full'>0:00:00 GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='et et_EE'>
   <zoneFields 
 locales='et et_EE'>
 <!-- Estonian [Eesti]; Estonian (Estonia) [Eesti (Eesti)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
@@ -462,7 +462,7 @@ locales='et et_EE'>
   <collation 
 locales='et et_EE'>
 <!-- Estonian [Eesti]; Estonian (Estonia) [Eesti (Eesti)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x

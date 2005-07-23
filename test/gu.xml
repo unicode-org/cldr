@@ -6,7 +6,7 @@
   <number 
 locales='gu'>
 <!-- Gujarati [ગુજરાતી] -->
-   <result input='0.0' numberType='integer'>૦</result>
+   <result input='0.0' numberType='integer' draft='either'>૦</result>
    <result numberType='decimal'>૦</result>
    <result numberType='percent'>૦%</result>
    <result numberType='scientific'>૦E૦</result>
@@ -58,7 +58,7 @@ locales='gu'>
   <number 
 locales='gu_IN'>
 <!-- Gujarati (India) [ગુજરાતી (ભારત)] -->
-   <result input='0.0' numberType='integer'>૦</result>
+   <result input='0.0' numberType='integer' draft='either'>૦</result>
    <result numberType='decimal'>૦</result>
    <result numberType='percent'>૦%</result>
    <result numberType='scientific'>૦E૦</result>
@@ -110,7 +110,7 @@ locales='gu_IN'>
   <date 
 locales='gu'>
 <!-- Gujarati [ગુજરાતી] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>૦૦:૦૦</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>૦૦:૦૦</result>
    <result timeType='medium'>૦૦:૦૦:૦૦</result>
    <result timeType='long'>૦૦:૦૦:૦૦ GMT+૦૦:૦૦</result>
    <result timeType='full'>૦૦:૦૦:૦૦ GMT+૦૦:૦૦</result>
@@ -402,7 +402,7 @@ locales='gu'>
   <date 
 locales='gu_IN'>
 <!-- Gujarati (India) [ગુજરાતી (ભારત)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>૧૨:૦૦ પૂર્વ મધ્યાહ્ન</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>૧૨:૦૦ પૂર્વ મધ્યાહ્ન</result>
    <result timeType='medium'>૧૨:૦૦:૦૦ પૂર્વ મધ્યાહ્ન</result>
    <result timeType='long'>૧૨:૦૦:૦૦ પૂર્વ મધ્યાહ્ન GMT+૦૦:૦૦</result>
    <result timeType='full'>૧૨:૦૦:૦૦ પૂર્વ મધ્યાહ્ન GMT+૦૦:૦૦</result>
@@ -694,7 +694,7 @@ locales='gu_IN'>
   <zoneFields 
 locales='gu gu_IN'>
 <!-- Gujarati [ગુજરાતી]; Gujarati (India) [ગુજરાતી (ભારત)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-૦૮:૦૦</result>
    <result field='z'>GMT-૦૮:૦૦</result>
    <result field='zzzz'>GMT-૦૮:૦૦</result>
@@ -806,7 +806,7 @@ locales='gu gu_IN'>
   <collation 
 locales='gu gu_IN'>
 <!-- Gujarati [ગુજરાતી]; Gujarati (India) [ગુજરાતી (ભારત)] -->
-   <result>
+   <result draft='either'>
 x‍
 x‌
 x‍

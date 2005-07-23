@@ -6,7 +6,7 @@
   <number 
 locales='pt pt_BR pt_PT'>
 <!-- Portuguese [português]; Portuguese (Brazil) [português (Brasil)]; Portuguese (Portugal) [português (Portugal)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='pt pt_BR pt_PT'>
   <date 
 locales='pt'>
 <!-- Portuguese [português] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00H00m00s GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='pt'>
   <date 
 locales='pt_BR'>
 <!-- Portuguese (Brazil) [português (Brasil)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>0h0min0s GMT+00:00</result>
    <result timeType='full'>00h00min00s GMT+00:00</result>
@@ -642,7 +642,7 @@ locales='pt_BR'>
   <date 
 locales='pt_PT'>
 <!-- Portuguese (Portugal) [português (Portugal)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00H00m00s GMT+00:00</result>
@@ -934,7 +934,7 @@ locales='pt_PT'>
   <zoneFields 
 locales='pt pt_BR'>
 <!-- Portuguese [português]; Portuguese (Brazil) [português (Brasil)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z' parse='America/Los_Angeles'>PST</result>
    <result field='zzzz'>Horário Padrão do Pacífico</result>
@@ -1022,15 +1022,19 @@ locales='pt pt_BR'>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscou (Rússia)</result>
-   <result field='vvvv'>Moscou (Rússia)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscou (Rússia)</result>
+   <result draft='false'>Moscow (Rússia)</result>
+   <result field='vvvv' draft='true'>Moscou (Rússia)</result>
+   <result draft='false'>Moscow (Rússia)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Moscou (Rússia)</result>
-   <result field='vvvv'>Moscou (Rússia)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moscou (Rússia)</result>
+   <result draft='false'>Moscow (Rússia)</result>
+   <result field='vvvv' draft='true'>Moscou (Rússia)</result>
+   <result draft='false'>Moscow (Rússia)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
@@ -1046,7 +1050,7 @@ locales='pt pt_BR'>
   <zoneFields 
 locales='pt_PT'>
 <!-- Portuguese (Portugal) [português (Portugal)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z' parse='America/Los_Angeles'>PST</result>
    <result field='zzzz'>Horário Padrão do Pacífico</result>
@@ -1158,7 +1162,7 @@ locales='pt_PT'>
   <collation 
 locales='pt pt_BR pt_PT'>
 <!-- Portuguese [português]; Portuguese (Brazil) [português (Brasil)]; Portuguese (Portugal) [português (Portugal)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x

@@ -6,7 +6,7 @@
   <number 
 locales='en en_AS en_AU en_BW en_BZ en_CA en_GB en_GU en_HK en_IE en_JM en_MH en_MP en_MT en_NZ en_PH en_SG en_TT en_UM en_US en_VI en_ZA en_ZW'>
 <!-- English [English]; English (American Samoa) [English (American Samoa)]; English (Australia) [English (Australia)]; English (Botswana) [English (Botswana)]; English (Belize) [English (Belize)]; English (Canada) [English (Canada)]; English (United Kingdom) [English (United Kingdom)]; English (Guam) [English (Guam)]; English (Hong Kong S.A.R., China) [English (Hong Kong S.A.R., China)]; English (Ireland) [English (Ireland)]; English (Jamaica) [English (Jamaica)]; English (Marshall Islands) [English (Marshall Islands)]; English (Northern Mariana Islands) [English (Northern Mariana Islands)]; English (Malta) [English (Malta)]; English (New Zealand) [English (New Zealand)]; English (Philippines) [English (Philippines)]; English (Singapore) [English (Singapore)]; English (Trinidad and Tobago) [English (Trinidad and Tobago)]; English (United States Minor Outlying Islands) [English (United States Minor Outlying Islands)]; English (United States) [English (United States)]; English (U.S. Virgin Islands) [English (U.S. Virgin Islands)]; English (South Africa) [English (South Africa)]; English (Zimbabwe) [English (Zimbabwe)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='en en_AS en_AU en_BW en_BZ en_CA en_GB en_GU en_HK en_IE en_JM en_MH en
   <number 
 locales='en_BE'>
 <!-- English (Belgium) [English (Belgium)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -110,7 +110,7 @@ locales='en_BE'>
   <number 
 locales='en_IN en_PK'>
 <!-- English (India) [English (India)]; English (Pakistan) [English (Pakistan)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -162,7 +162,7 @@ locales='en_IN en_PK'>
   <number 
 locales='en_US_POSIX'>
 <!-- English (United States, Computer) [English (United States, Computer)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0.000000E+000</result>
@@ -214,7 +214,7 @@ locales='en_US_POSIX'>
   <date 
 locales='en en_AS en_GU en_JM en_MH en_MP en_TT en_UM en_US en_US_POSIX en_VI'>
 <!-- English [English]; English (American Samoa) [English (American Samoa)]; English (Guam) [English (Guam)]; English (Jamaica) [English (Jamaica)]; English (Marshall Islands) [English (Marshall Islands)]; English (Northern Mariana Islands) [English (Northern Mariana Islands)]; English (Trinidad and Tobago) [English (Trinidad and Tobago)]; English (United States Minor Outlying Islands) [English (United States Minor Outlying Islands)]; English (United States) [English (United States)]; English (United States, Computer) [English (United States, Computer)]; English (U.S. Virgin Islands) [English (U.S. Virgin Islands)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 AM</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 AM</result>
    <result timeType='medium'>12:00:00 AM</result>
    <result timeType='long'>12:00:00 AM GMT+00:00</result>
    <result timeType='full'>12:00:00 AM GMT+00:00</result>
@@ -506,7 +506,7 @@ locales='en en_AS en_GU en_JM en_MH en_MP en_TT en_UM en_US en_US_POSIX en_VI'>
   <date 
 locales='en_AU'>
 <!-- English (Australia) [English (Australia)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 AM</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 AM</result>
    <result timeType='medium'>12:00:00 AM</result>
    <result timeType='long'>12:00:00 AM</result>
    <result timeType='full'>12:00:00 AM GMT+00:00</result>
@@ -798,7 +798,7 @@ locales='en_AU'>
   <date 
 locales='en_BE'>
 <!-- English (Belgium) [English (Belgium)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00 h 00 min 00 s GMT+00:00</result>
@@ -1090,7 +1090,7 @@ locales='en_BE'>
   <date 
 locales='en_BW'>
 <!-- English (Botswana) [English (Botswana)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 AM</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 AM</result>
    <result timeType='medium'>12:00:00 AM</result>
    <result timeType='long'>12:00:00 AM</result>
    <result timeType='full'>12:00:00 AM</result>
@@ -1382,7 +1382,7 @@ locales='en_BW'>
   <date 
 locales='en_BZ'>
 <!-- English (Belize) [English (Belize)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -1674,7 +1674,7 @@ locales='en_BZ'>
   <date 
 locales='en_CA'>
 <!-- English (Canada) [English (Canada)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 AM</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 AM</result>
    <result timeType='medium'>12:00:00 AM</result>
    <result timeType='long'>12:00:00 AM GMT+00:00</result>
    <result timeType='full'>12:00:00 AM GMT+00:00</result>
@@ -1966,7 +1966,7 @@ locales='en_CA'>
   <date 
 locales='en_GB'>
 <!-- English (United Kingdom) [English (United Kingdom)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -2258,7 +2258,7 @@ locales='en_GB'>
   <date 
 locales='en_HK'>
 <!-- English (Hong Kong S.A.R., China) [English (Hong Kong S.A.R., China)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 AM</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 AM</result>
    <result timeType='medium'>12:00:00 AM</result>
    <result timeType='long'>12:00:00 AM GMT+00:00</result>
    <result timeType='full'>12:00:00 AM GMT+00:00</result>
@@ -2550,7 +2550,7 @@ locales='en_HK'>
   <date 
 locales='en_IE'>
 <!-- English (Ireland) [English (Ireland)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -2842,7 +2842,7 @@ locales='en_IE'>
   <date 
 locales='en_IN en_PK'>
 <!-- English (India) [English (India)]; English (Pakistan) [English (Pakistan)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 AM</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 AM</result>
    <result timeType='medium'>12:00:00 AM</result>
    <result timeType='long'>12:00:00 AM GMT+00:00</result>
    <result timeType='full'>12:00:00 AM GMT+00:00</result>
@@ -3134,7 +3134,7 @@ locales='en_IN en_PK'>
   <date 
 locales='en_MT'>
 <!-- English (Malta) [English (Malta)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -3426,7 +3426,7 @@ locales='en_MT'>
   <date 
 locales='en_NZ'>
 <!-- English (New Zealand) [English (New Zealand)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 AM</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 AM</result>
    <result timeType='medium'>12:00:00 AM</result>
    <result timeType='long'>12:00:00 AM</result>
    <result timeType='full'>12:00:00 AM GMT+00:00</result>
@@ -3718,7 +3718,7 @@ locales='en_NZ'>
   <date 
 locales='en_PH'>
 <!-- English (Philippines) [English (Philippines)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 AM</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 AM</result>
    <result timeType='medium'>12:00:00 AM</result>
    <result timeType='long'>12:00:00 AM GMT+00:00</result>
    <result timeType='full'>12:00:00 AM GMT+00:00</result>
@@ -4010,7 +4010,7 @@ locales='en_PH'>
   <date 
 locales='en_SG'>
 <!-- English (Singapore) [English (Singapore)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>AM 12:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>AM 12:00</result>
    <result timeType='medium'>AM 12:00</result>
    <result timeType='long'>AM 12:00:00</result>
    <result timeType='full'>AM 12:00:00</result>
@@ -4302,7 +4302,7 @@ locales='en_SG'>
   <date 
 locales='en_ZA'>
 <!-- English (South Africa) [English (South Africa)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 AM</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 AM</result>
    <result timeType='medium'>12:00:00 AM</result>
    <result timeType='long'>12:00:00 AM</result>
    <result timeType='full'>12:00:00 AM</result>
@@ -4594,7 +4594,7 @@ locales='en_ZA'>
   <date 
 locales='en_ZW'>
 <!-- English (Zimbabwe) [English (Zimbabwe)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 AM</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 AM</result>
    <result timeType='medium'>12:00:00 AM</result>
    <result timeType='long'>12:00:00 AM</result>
    <result timeType='full'>12:00:00 AM</result>
@@ -4886,7 +4886,7 @@ locales='en_ZW'>
   <zoneFields 
 locales='en en_AS en_AU en_BE en_BW en_BZ en_CA en_GB en_GU en_HK en_IE en_IN en_JM en_MH en_MP en_MT en_NZ en_PH en_PK en_SG en_TT en_UM en_US en_US_POSIX en_VI en_ZA en_ZW'>
 <!-- English [English]; English (American Samoa) [English (American Samoa)]; English (Australia) [English (Australia)]; English (Belgium) [English (Belgium)]; English (Botswana) [English (Botswana)]; English (Belize) [English (Belize)]; English (Canada) [English (Canada)]; English (United Kingdom) [English (United Kingdom)]; English (Guam) [English (Guam)]; English (Hong Kong S.A.R., China) [English (Hong Kong S.A.R., China)]; English (Ireland) [English (Ireland)]; English (India) [English (India)]; English (Jamaica) [English (Jamaica)]; English (Marshall Islands) [English (Marshall Islands)]; English (Northern Mariana Islands) [English (Northern Mariana Islands)]; English (Malta) [English (Malta)]; English (New Zealand) [English (New Zealand)]; English (Philippines) [English (Philippines)]; English (Pakistan) [English (Pakistan)]; English (Singapore) [English (Singapore)]; English (Trinidad and Tobago) [English (Trinidad and Tobago)]; English (United States Minor Outlying Islands) [English (United States Minor Outlying Islands)]; English (United States) [English (United States)]; English (United States, Computer) [English (United States, Computer)]; English (U.S. Virgin Islands) [English (U.S. Virgin Islands)]; English (South Africa) [English (South Africa)]; English (Zimbabwe) [English (Zimbabwe)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z' parse='America/Los_Angeles'>PST</result>
    <result field='zzzz'>Pacific Standard Time</result>
@@ -4998,7 +4998,7 @@ locales='en en_AS en_AU en_BE en_BW en_BZ en_CA en_GB en_GU en_HK en_IE en_IN en
   <collation 
 locales='en en_AS en_AU en_BE en_BW en_BZ en_CA en_GB en_GU en_HK en_IE en_IN en_JM en_MH en_MP en_MT en_NZ en_PH en_PK en_SG en_TT en_UM en_US en_US_POSIX en_VI en_ZA en_ZW'>
 <!-- English [English]; English (American Samoa) [English (American Samoa)]; English (Australia) [English (Australia)]; English (Belgium) [English (Belgium)]; English (Botswana) [English (Botswana)]; English (Belize) [English (Belize)]; English (Canada) [English (Canada)]; English (United Kingdom) [English (United Kingdom)]; English (Guam) [English (Guam)]; English (Hong Kong S.A.R., China) [English (Hong Kong S.A.R., China)]; English (Ireland) [English (Ireland)]; English (India) [English (India)]; English (Jamaica) [English (Jamaica)]; English (Marshall Islands) [English (Marshall Islands)]; English (Northern Mariana Islands) [English (Northern Mariana Islands)]; English (Malta) [English (Malta)]; English (New Zealand) [English (New Zealand)]; English (Philippines) [English (Philippines)]; English (Pakistan) [English (Pakistan)]; English (Singapore) [English (Singapore)]; English (Trinidad and Tobago) [English (Trinidad and Tobago)]; English (United States Minor Outlying Islands) [English (United States Minor Outlying Islands)]; English (United States) [English (United States)]; English (United States, Computer) [English (United States, Computer)]; English (U.S. Virgin Islands) [English (U.S. Virgin Islands)]; English (South Africa) [English (South Africa)]; English (Zimbabwe) [English (Zimbabwe)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x

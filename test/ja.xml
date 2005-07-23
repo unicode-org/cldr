@@ -6,7 +6,7 @@
   <number 
 locales='ja ja_JP'>
 <!-- Japanese [日本語]; Japanese (Japan) [日本語 (日本)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='ja ja_JP'>
   <date 
 locales='ja ja_JP'>
 <!-- Japanese [日本語]; Japanese (Japan) [日本語 (日本)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>0:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>0:00</result>
    <result timeType='medium'>0:00:00</result>
    <result timeType='long'>0:00:00:GMT+0000</result>
    <result timeType='full'>0時00分00秒GMT+0000</result>
@@ -350,7 +350,7 @@ locales='ja ja_JP'>
   <zoneFields 
 locales='ja ja_JP'>
 <!-- Japanese [日本語]; Japanese (Japan) [日本語 (日本)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-0800</result>
    <result field='z' parse='America/Los_Angeles'>PST</result>
    <result field='zzzz'>太平洋標準時</result>
@@ -462,7 +462,7 @@ locales='ja ja_JP'>
   <collation 
 locales='ja ja_JP'>
 <!-- Japanese [日本語]; Japanese (Japan) [日本語 (日本)] -->
-   <result>
+   <result draft='either'>
 x゙
 X゙
 x゚

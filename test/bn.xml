@@ -6,7 +6,7 @@
   <number 
 locales='bn'>
 <!-- Bengali [বাংলা] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='bn'>
   <number 
 locales='bn_IN'>
 <!-- Bengali (India) [বাংলা (ভারত)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -110,7 +110,7 @@ locales='bn_IN'>
   <date 
 locales='bn'>
 <!-- Bengali [বাংলা] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -402,7 +402,7 @@ locales='bn'>
   <date 
 locales='bn_IN'>
 <!-- Bengali (India) [বাংলা (ভারত)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 পূর্বাহ্ণ</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 পূর্বাহ্ণ</result>
    <result timeType='medium'>12:00:00 পূর্বাহ্ণ</result>
    <result timeType='long'>12:00:00 পূর্বাহ্ণ GMT+00:00</result>
    <result timeType='full'>12:00:00 পূর্বাহ্ণ GMT+00:00</result>
@@ -694,7 +694,7 @@ locales='bn_IN'>
   <zoneFields 
 locales='bn bn_IN'>
 <!-- Bengali [বাংলা]; Bengali (India) [বাংলা (ভারত)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
@@ -806,7 +806,7 @@ locales='bn bn_IN'>
   <collation 
 locales='bn bn_IN'>
 <!-- Bengali [বাংলা]; Bengali (India) [বাংলা (ভারত)] -->
-   <result>
+   <result draft='either'>
 x‍
 x‌
 x‍

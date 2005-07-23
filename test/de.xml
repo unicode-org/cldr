@@ -6,7 +6,7 @@
   <number 
 locales='de de_AT de_BE de_DE de_LU'>
 <!-- German [Deutsch]; German (Austria) [Deutsch (Österreich)]; German (Belgium) [Deutsch (Belgien)]; German (Germany) [Deutsch (Deutschland)]; German (Luxembourg) [Deutsch (Luxemburg)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='de de_AT de_BE de_DE de_LU'>
   <number 
 locales='de_CH de_LI'>
 <!-- German (Switzerland) [Deutsch (Schweiz)]; German (Liechtenstein) [Deutsch (Liechtenstein)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -110,7 +110,7 @@ locales='de_CH de_LI'>
   <date 
 locales='de de_CH de_DE de_LI de_LU'>
 <!-- German [Deutsch]; German (Switzerland) [Deutsch (Schweiz)]; German (Germany) [Deutsch (Deutschland)]; German (Liechtenstein) [Deutsch (Liechtenstein)]; German (Luxembourg) [Deutsch (Luxemburg)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>0:00 Uhr GMT+00:00</result>
@@ -402,7 +402,7 @@ locales='de de_CH de_DE de_LI de_LU'>
   <date 
 locales='de_AT'>
 <!-- German (Austria) [Deutsch (Österreich)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00 Uhr GMT+00:00</result>
@@ -694,7 +694,7 @@ locales='de_AT'>
   <date 
 locales='de_BE'>
 <!-- German (Belgium) [Deutsch (Belgien)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00 h 00 min 00 s GMT+00:00</result>
@@ -986,7 +986,7 @@ locales='de_BE'>
   <zoneFields 
 locales='de de_AT de_BE de_DE de_LI de_LU'>
 <!-- German [Deutsch]; German (Austria) [Deutsch (Österreich)]; German (Belgium) [Deutsch (Belgien)]; German (Germany) [Deutsch (Deutschland)]; German (Liechtenstein) [Deutsch (Liechtenstein)]; German (Luxembourg) [Deutsch (Luxemburg)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
@@ -1098,7 +1098,7 @@ locales='de de_AT de_BE de_DE de_LI de_LU'>
   <zoneFields 
 locales='de_CH'>
 <!-- German (Switzerland) [Deutsch (Schweiz)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
@@ -1210,7 +1210,7 @@ locales='de_CH'>
   <collation 
 locales='de de_AT de_BE de_CH de_DE de_LI de_LU'>
 <!-- German [Deutsch]; German (Austria) [Deutsch (Österreich)]; German (Belgium) [Deutsch (Belgien)]; German (Switzerland) [Deutsch (Schweiz)]; German (Germany) [Deutsch (Deutschland)]; German (Liechtenstein) [Deutsch (Liechtenstein)]; German (Luxembourg) [Deutsch (Luxemburg)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x
@@ -1426,7 +1426,7 @@ xZx
   <collation 
 locales='de@collation=phonebook de_AT@collation=phonebook de_BE@collation=phonebook de_CH@collation=phonebook de_DE@collation=phonebook de_LU@collation=phonebook'>
 <!-- German (Collation=Phonebook Order) [Deutsch (Sortierung=Telefonbuch-Sortierregeln)]; German (Austria, Collation=Phonebook Order) [Deutsch (Österreich, Sortierung=Telefonbuch-Sortierregeln)]; German (Belgium, Collation=Phonebook Order) [Deutsch (Belgien, Sortierung=Telefonbuch-Sortierregeln)]; German (Switzerland, Collation=Phonebook Order) [Deutsch (Schweiz, Sortierung=Telefonbuch-Sortierregeln)]; German (Germany, Collation=Phonebook Order) [Deutsch (Deutschland, Sortierung=Telefonbuch-Sortierregeln)]; German (Luxembourg, Collation=Phonebook Order) [Deutsch (Luxemburg, Sortierung=Telefonbuch-Sortierregeln)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x

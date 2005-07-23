@@ -6,7 +6,7 @@
   <number 
 locales='hi'>
 <!-- Hindi [हिंदी] -->
-   <result input='0.0' numberType='integer'>०</result>
+   <result input='0.0' numberType='integer' draft='either'>०</result>
    <result numberType='decimal'>०</result>
    <result numberType='percent'>०%</result>
    <result numberType='scientific'>०E०</result>
@@ -58,7 +58,7 @@ locales='hi'>
   <number 
 locales='hi_IN'>
 <!-- Hindi (India) [हिंदी (भारत)] -->
-   <result input='0.0' numberType='integer'>०</result>
+   <result input='0.0' numberType='integer' draft='either'>०</result>
    <result numberType='decimal'>०</result>
    <result numberType='percent'>०%</result>
    <result numberType='scientific'>०E०</result>
@@ -110,7 +110,7 @@ locales='hi_IN'>
   <date 
 locales='hi'>
 <!-- Hindi [हिंदी] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>००:००</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>००:००</result>
    <result timeType='medium'>००:००:००</result>
    <result timeType='long'>००:००:०० GMT+००:००</result>
    <result timeType='full'>००:००:०० GMT+००:००</result>
@@ -402,7 +402,7 @@ locales='hi'>
   <date 
 locales='hi_IN'>
 <!-- Hindi (India) [हिंदी (भारत)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>१२:०० पूर्वाह्न</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>१२:०० पूर्वाह्न</result>
    <result timeType='medium'>१२:००:०० पूर्वाह्न</result>
    <result timeType='long'>१२:००:०० पूर्वाह्न GMT+००:००</result>
    <result timeType='full'>१२:००:०० पूर्वाह्न GMT+००:००</result>
@@ -694,7 +694,7 @@ locales='hi_IN'>
   <zoneFields 
 locales='hi hi_IN'>
 <!-- Hindi [हिंदी]; Hindi (India) [हिंदी (भारत)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-०८:००</result>
    <result field='z'>GMT-०८:००</result>
    <result field='zzzz'>GMT-०८:००</result>
@@ -806,7 +806,7 @@ locales='hi hi_IN'>
   <collation 
 locales='hi hi_IN'>
 <!-- Hindi [हिंदी]; Hindi (India) [हिंदी (भारत)] -->
-   <result>
+   <result draft='either'>
 x‍
 x‌
 x‍
@@ -1154,7 +1154,7 @@ xौx
   <collation 
 locales='hi@collation=direct hi_IN@collation=direct'>
 <!-- Hindi (Collation=Direct Order) [हिंदी (collation=direct)]; Hindi (India, Collation=Direct Order) [हिंदी (भारत, collation=direct)] -->
-   <result>
+   <result draft='either'>
 x‍
 x‌
 x‍

@@ -6,7 +6,7 @@
   <number 
 locales='kok'>
 <!-- Konkani [कोंकणी] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='kok'>
   <number 
 locales='kok_IN'>
 <!-- Konkani (India) [कोंकणी (भारत)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -110,7 +110,7 @@ locales='kok_IN'>
   <date 
 locales='kok'>
 <!-- Konkani [कोंकणी] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -402,7 +402,7 @@ locales='kok'>
   <date 
 locales='kok_IN'>
 <!-- Konkani (India) [कोंकणी (भारत)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>12:00 म.पू.</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>12:00 म.पू.</result>
    <result timeType='medium'>12:00:00 म.पू.</result>
    <result timeType='long'>12:00:00 म.पू. GMT+00:00</result>
    <result timeType='full'>12:00:00 म.पू. GMT+00:00</result>
@@ -694,7 +694,7 @@ locales='kok_IN'>
   <zoneFields 
 locales='kok kok_IN'>
 <!-- Konkani [कोंकणी]; Konkani (India) [कोंकणी (भारत)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
@@ -806,7 +806,7 @@ locales='kok kok_IN'>
   <collation 
 locales='kok kok_IN'>
 <!-- Konkani [कोंकणी]; Konkani (India) [कोंकणी (भारत)] -->
-   <result>
+   <result draft='either'>
 x‍
 x‌
 x‍

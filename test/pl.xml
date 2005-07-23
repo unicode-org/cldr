@@ -6,7 +6,7 @@
   <number 
 locales='pl pl_PL'>
 <!-- Polish [polski]; Polish (Poland) [polski (Polska)] -->
-   <result input='0.0' numberType='integer'>0</result>
+   <result input='0.0' numberType='integer' draft='either'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
@@ -58,7 +58,7 @@ locales='pl pl_PL'>
   <date 
 locales='pl pl_PL'>
 <!-- Polish [polski]; Polish (Poland) [polski (Polska)] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short'>00:00</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='either'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result timeType='long'>00:00:00 GMT+00:00</result>
    <result timeType='full'>00:00:00 GMT+00:00</result>
@@ -350,7 +350,7 @@ locales='pl pl_PL'>
   <zoneFields 
 locales='pl pl_PL'>
 <!-- Polish [polski]; Polish (Poland) [polski (Polska)] -->
-   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8'>-0800</result>
+   <result zone='America/Los_Angeles' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+8' draft='either'>-0800</result>
    <result field='ZZZZ'>GMT-08:00</result>
    <result field='z'>GMT-08:00</result>
    <result field='zzzz'>GMT-08:00</result>
@@ -438,15 +438,19 @@ locales='pl pl_PL'>
    <result field='ZZZZ'>GMT+03:00</result>
    <result field='z'>GMT+03:00</result>
    <result field='zzzz'>GMT+03:00</result>
-   <result field='v' parse='Europe/Moscow'>Moskwa (Federacja Rosyjska)</result>
-   <result field='vvvv'>Moskwa (Federacja Rosyjska)</result>
-   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4'>+0400</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moskwa (Federacja Rosyjska)</result>
+   <result draft='false'>Moscow (Federacja Rosyjska)</result>
+   <result field='vvvv' draft='true'>Moskwa (Federacja Rosyjska)</result>
+   <result draft='false'>Moscow (Federacja Rosyjska)</result>
+   <result date='2004-07-15T12:00:00Z' field='Z' parse='Etc/GMT-4' draft='either'>+0400</result>
    <result field='ZZZZ'>GMT+04:00</result>
    <result field='z'>GMT+04:00</result>
    <result field='zzzz'>GMT+04:00</result>
-   <result field='v' parse='Europe/Moscow'>Moskwa (Federacja Rosyjska)</result>
-   <result field='vvvv'>Moskwa (Federacja Rosyjska)</result>
-   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3'>-0300</result>
+   <result field='v' parse='Europe/Moscow' draft='true'>Moskwa (Federacja Rosyjska)</result>
+   <result draft='false'>Moscow (Federacja Rosyjska)</result>
+   <result field='vvvv' draft='true'>Moskwa (Federacja Rosyjska)</result>
+   <result draft='false'>Moscow (Federacja Rosyjska)</result>
+   <result zone='Etc/GMT+3' date='2004-01-15T12:00:00Z' field='Z' parse='Etc/GMT+3' draft='either'>-0300</result>
    <result field='ZZZZ'>GMT-03:00</result>
    <result field='z'>GMT-03:00</result>
    <result field='zzzz'>GMT-03:00</result>
@@ -462,7 +466,7 @@ locales='pl pl_PL'>
   <collation 
 locales='pl pl_PL'>
 <!-- Polish [polski]; Polish (Poland) [polski (Polska)] -->
-   <result>
+   <result draft='either'>
 x 
 X 
 x x

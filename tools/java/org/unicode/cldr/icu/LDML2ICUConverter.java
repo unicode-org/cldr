@@ -1783,7 +1783,19 @@ public class LDML2ICUConverter {
             }
         }
         /* assemble the array */
-        if(type.val!=null && ls.val!=null && ss.val!=null && ld.val!=null && sd.val!=null){
+        if(type.val!=null ){
+            if(ls.val==null){
+                ls.val ="";
+            }
+            if(ss.val==null){
+                ss.val ="";
+            }
+            if(ld.val==null){
+                ld.val ="";
+            }
+            if(sd.val==null){
+                sd.val ="";
+            }
             // array is length 
             // 4 if no exemplar and no generic
             // 5 if exemplar and no generic
@@ -2895,7 +2907,7 @@ public class LDML2ICUConverter {
             if(displayName != null){
                 displayName.next = elementsArr;
             }else{
-                System.out.println("WARNING: displayName and symbol not vetted/available for currency resource " +arr.name +" not generating the resource");
+                System.err.println("WARNING: displayName and symbol not vetted/available for currency resource " +arr.name +" not generating the resource");
             }
         }
         xpath.delete(savedLength, xpath.length());
@@ -4035,7 +4047,7 @@ public class LDML2ICUConverter {
                                         throw new IllegalArgumentException("Can't be both a synthetic alias locale AND XML - consider using <aliasLocale source=\"" + from + "\"/> instead. ");
                                     }
                                     if(!fromFiles.containsKey(toFileName+".xml")) {
-                                        System.out.println("WARNING: Alias from \"" + from + "\" not generated, because it would point to a nonexistent LDML file " + toFileName + ".xml" );
+                                        System.err.println("WARNING: Alias from \"" + from + "\" not generated, because it would point to a nonexistent LDML file " + toFileName + ".xml" );
                                     } else {
                                         // System.out.println("Had file " + toFileName + ".xml");
                                         generatedAliasFiles.put(from,new File(depF,from + ".xml"));
@@ -4051,7 +4063,7 @@ public class LDML2ICUConverter {
                                 } else if(aliasKind.equals("aliasLocale")) {
                                     String source = LDMLUtilities.getAttributeValue(alias,"locale");
                                     if(!fromFiles.containsKey(source+".xml")) {
-                                        System.out.println("WARNING: Alias file " + source + ".xml named in deprecates list but not present. Ignoring alias entry.");
+                                        System.err.println("WARNING: Alias file " + source + ".xml named in deprecates list but not present. Ignoring alias entry.");
                                     } else {
                                         aliasFromFiles.put(source+".xml",new File(depF,source+".xml"));
                                         fromFiles.remove(source+".xml");

@@ -311,7 +311,7 @@ public class GenerateCldrTests {
         }
         // TODO HACK
         collationLocales.remove("ar_IN");
-        icuServiceBuilder = new ICUServiceBuilder().setCLDRFactory(mainCldrFactory);
+        icuServiceBuilder = new ICUServiceBuilder();
 /*        cldrOthers = new GenerateCldrDateTimeTests(options[SOURCEDIR].value + "main" + File.separator, pat, 
         		!options[GenerateCldrTests.NOT_RESOLVED].doesOccur);
         if (options[SHOW].doesOccur) cldrOthers.show();
@@ -396,7 +396,7 @@ public class GenerateCldrTests {
         try {
             RuleBasedCollator col = cldrCollations.getInstance(locale); // (RuleBasedCollator) Collator.getInstance(locale);
             // for our purposes, separate locales if we are using different exemplars
-            String key = col.getRules() + "\uFFFF" + getExemplarSet(locale, 0);
+            String key = col.getRules() + "\uFFFF" + getExemplarSet(locale, 0, true);
             Set s = (Set) uniqueLocales.get(key);
             if (s == null) {
                 s = new TreeSet(ULocaleComparator);
@@ -412,11 +412,11 @@ public class GenerateCldrTests {
     /**
      * Work-around
      */
-    public UnicodeSet getExemplarSet(ULocale locale, int options) {
+    public UnicodeSet getExemplarSet(ULocale locale, int options, boolean includeDraft) {
         String n = locale.toString();
         int pos = n.indexOf('@');
         if (pos >= 0) locale = new ULocale(n.substring(0,pos));
-        CLDRFile cldrFile = mainCldrFactory.make(locale.toString(),true);
+        CLDRFile cldrFile = mainCldrFactory.make(locale.toString(),true, includeDraft);
 		String v = cldrFile.getStringValue("/ldml/characters/exemplarCharacters");
 		UnicodeSet result = new UnicodeSet(v);
 		v = cldrFile.getStringValue("/ldml/characters/exemplarCharacters[@type=\"auxiliary\"]");
@@ -458,8 +458,32 @@ public class GenerateCldrTests {
     }
 */
     class ResultsPrinter {
-    	Set listOfSettings = new LinkedHashSet();
-        LinkedHashMap settings = new LinkedHashMap();
+    	private Set listOfSettings = new LinkedHashSet();
+        private transient LinkedHashMap settings = new LinkedHashMap();
+        
+        ResultsPrinter() {}
+        ResultsPrinter (ResultsPrinter rpIncludeDraft, ResultsPrinter rpNoDraft) {
+            Set listOfSettings1 = rpIncludeDraft.listOfSettings;
+            Set listOfSettings2 = rpNoDraft.listOfSettings;
+            if (listOfSettings1.size() != listOfSettings2.size()) throw new InternalError("can't combine");
+            Iterator it1 = listOfSettings1.iterator();
+            Iterator it2 = listOfSettings2.iterator();
+            while (it1.hasNext()) {
+                Map settings1 = (Map) it1.next();
+                Map settings2 = (Map) it2.next();
+                if (settings1.equals(settings2)) {
+                    settings1.put("draft", "either");
+                	listOfSettings.add(settings1);
+                } else {
+                    // they should only differ by result!
+                	settings1.put("draft", "true");
+                    listOfSettings.add(settings1);
+                    settings2.put("draft", "false");
+                    listOfSettings.add(settings2);
+                }
+            }
+        }
+        
         void set(String name, String value) {
             settings.put(name, value);
         }
@@ -496,11 +520,19 @@ public class GenerateCldrTests {
         public int hashCode() {
         	throw new IllegalArgumentException();
         }
+		/**
+		 * 
+		 */
     }
 
-    interface DataShower {
-        ResultsPrinter show(ULocale first) throws Exception;
-        String getElement();
+    abstract class DataShower {
+        abstract ResultsPrinter show(ULocale first, boolean includeDraft) throws Exception;
+        ResultsPrinter show(ULocale first) throws Exception {
+        	ResultsPrinter rpIncludeDraft = show(first, true);
+            ResultsPrinter rpNoDraft = show(first, false);
+            return new ResultsPrinter(rpIncludeDraft, rpNoDraft);
+        }
+        abstract String getElement();
     }
 
     interface DataShower2 {
@@ -580,9 +612,9 @@ public class GenerateCldrTests {
 		String[] perZoneSamples = {"Z", "ZZZZ", "z", "zzzz", "v", "vvvv"};
 		String[] dates = {"2004-01-15T12:00:00Z", "2004-07-15T12:00:00Z"};
 
-    	public ResultsPrinter show(ULocale first) throws Exception {
+    	public ResultsPrinter show(ULocale first, boolean includeDraft) throws Exception {
 			// TODO Auto-generated method stub
-        	TimezoneFormatter tzf = new TimezoneFormatter(mainCldrFactory, first.toString());
+        	TimezoneFormatter tzf = new TimezoneFormatter(mainCldrFactory, first.toString(), includeDraft);
 			ResultsPrinter rp = new ResultsPrinter();
 			for (Iterator it = zones.iterator(); it.hasNext();) {
 				String tzid = (String) it.next();
@@ -616,7 +648,7 @@ public class GenerateCldrTests {
     
 
     DataShower DateShower = new DataShower() {
-        public ResultsPrinter show(ULocale locale) throws ParseException {
+        public ResultsPrinter show(ULocale locale, boolean includeDraft) throws ParseException {
            String[] samples = {
                    "1900-01-31T00:00:00Z",
                    "1909-02-28T00:00:01Z",
@@ -631,7 +663,7 @@ public class GenerateCldrTests {
                    "2004-11-04T23:00:01Z",
                    "2010-12-01T23:59:59Z",
            };
-
+           CLDRFile cldrFile = mainCldrFactory.make(locale.toString(), true, includeDraft);
            ResultsPrinter rp = new ResultsPrinter();
            for (int j = 0; j < samples.length; ++j) {
                Date datetime = ICUServiceBuilder.isoDateParse(samples[j]);
@@ -641,7 +673,7 @@ public class GenerateCldrTests {
                    for (int k = 0; k < ICUServiceBuilder.LIMIT_DATE_FORMAT_INDEX; ++k) {
                        if (i == 0 && k == 0) continue;
                        rp.set("timeType", icuServiceBuilder.getDateNames(k));
-                       DateFormat df = icuServiceBuilder.getDateFormat(locale.toString(), i, k);
+                       DateFormat df = icuServiceBuilder.getDateFormat(cldrFile, i, k);
                        if (false && i == 2 && k == 0) {
                        		System.out.println("debug: date " + icuServiceBuilder.getDateNames(i)
 								+ ", time " + icuServiceBuilder.getDateNames(k)
@@ -660,7 +692,8 @@ public class GenerateCldrTests {
 
 
     DataShower NumberShower = new DataShower() {
-		public ResultsPrinter show(ULocale locale) throws ParseException {
+		public ResultsPrinter show(ULocale locale, boolean includeDraft) throws ParseException {
+            CLDRFile cldrFile = mainCldrFactory.make(locale.toString(), true, includeDraft);
 
 			double[] samples = { 0, 0.01, -0.01, 1, -1, 123.456, -123.456,
 					123456.78, -123456.78, Double.POSITIVE_INFINITY,
@@ -671,8 +704,7 @@ public class GenerateCldrTests {
 				rp.set("input", String.valueOf(sample));
 				for (int i = 0; i < ICUServiceBuilder.LIMIT_NUMBER_INDEX; ++i) {
 					rp.set("numberType", icuServiceBuilder.getNumberNames(i));
-					DecimalFormat nf = icuServiceBuilder.getNumberFormat(locale
-							.toString(), i);
+					DecimalFormat nf = icuServiceBuilder.getNumberFormat(cldrFile, i);
 					rp.setResult(nf.format(sample));
 				}
 			}
@@ -706,7 +738,7 @@ public class GenerateCldrTests {
 */    static ULocale zhHack = new ULocale("zh"); // FIXME hack for zh
 
     DataShower CollationShower = new DataShower() {
-		public ResultsPrinter show(ULocale locale) {
+		public ResultsPrinter show(ULocale locale, boolean includeDraft) {
 			//if (locale.equals(zhHack)) return;
 			
 			Collator col = cldrCollations.getInstance(locale); // Collator.getInstance(locale);
@@ -720,7 +752,7 @@ public class GenerateCldrTests {
 			tailored = nfc(tailored);
 			//System.out.println(tailored.toPattern(true));
 
-			UnicodeSet exemplars = getExemplarSet(locale, UnicodeSet.CASE);
+			UnicodeSet exemplars = getExemplarSet(locale, UnicodeSet.CASE, includeDraft);
 			// add all the exemplars
 
 			exemplars = createCaseClosure(exemplars);

@@ -88,24 +88,30 @@ public class TimezoneFormatter {
 	 * Create from a cldrFactory and a locale id.
 	 * @see CLDRFile
 	 */
-	public TimezoneFormatter(Factory cldrFactory, String localeID) {
+	public TimezoneFormatter(Factory cldrFactory, String localeID, boolean includeDraft) {
 		inputLocaleID = localeID;
-		desiredLocaleFile = cldrFactory.make(localeID, true);
+		desiredLocaleFile = cldrFactory.make(localeID, true, includeDraft);
 		String hourFormatString = getStringValue("/ldml/dates/timeZoneNames/hourFormat");
 		String[] hourFormatStrings = Utility.splitArray(hourFormatString,';');
-		ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder().setCLDRFactory(cldrFactory);
-		hourFormatPlus = icuServiceBuilder.getDateFormat(localeID,0,1);
+		ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+		hourFormatPlus = icuServiceBuilder.getDateFormat(desiredLocaleFile,0,1);
 		hourFormatPlus.applyPattern(hourFormatStrings[0]);
-		hourFormatMinus = icuServiceBuilder.getDateFormat(localeID,0,1);
+		hourFormatMinus = icuServiceBuilder.getDateFormat(desiredLocaleFile,0,1);
 		hourFormatMinus.applyPattern(hourFormatStrings[1]);
 		gmtFormat = new MessageFormat(getStringValue("/ldml/dates/timeZoneNames/gmtFormat"));
 		regionFormat = new MessageFormat(getStringValue("/ldml/dates/timeZoneNames/regionFormat"));
 		fallbackFormat = new MessageFormat(getStringValue("/ldml/dates/timeZoneNames/fallbackFormat"));
 		checkForDraft("/ldml/dates/timeZoneNames/singleCountries");
+        // default value if not in root. Only needed for CLDR 1.3
+        String singleCountriesList = "Africa/Bamako America/Godthab America/Santiago America/Guayaquil" +
+                " Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon" +
+                " Europe/London Pacific/Auckland Pacific/Tahiti";
 		String temp = desiredLocaleFile.getFullXPath("/ldml/dates/timeZoneNames/singleCountries");
-		String singleCountriesList = (String) new XPathParts(null, null).set(
-				temp).findAttributes("singleCountries").get("list");
-		singleCountriesSet = new TreeSet(Utility.splitList(singleCountriesList, ' '));
+		if (temp != null) {
+			singleCountriesList = (String) new XPathParts(null, null).set(temp)
+					.findAttributes("singleCountries").get("list");
+		}
+        singleCountriesSet = new TreeSet(Utility.splitList(singleCountriesList, ' '));
 
 		/* not needed
 		hoursFormat = new MessageFormat(desiredLocaleFile.getStringValue(

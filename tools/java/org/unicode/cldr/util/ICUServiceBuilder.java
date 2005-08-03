@@ -29,19 +29,22 @@ public class ICUServiceBuilder {
     static public String isoDateFormat(Date date) {
     	return iso.format(date);
     }
-
+    public static String isoDateFormat(long value) {
+        // TODO Auto-generated method stub
+        return iso.format(new Date(value));
+    }
     static public Date isoDateParse(String date) throws ParseException {
     	return iso.parse(date);
     }
 
-    private Factory cldrFactory;
     private Map dateFormatCache = new HashMap();
 	
-	public ICUServiceBuilder setCLDRFactory(Factory cldrFactory) {
-		this.cldrFactory = cldrFactory;
-		dateFormatCache.clear();
-		return this; // for chaining
-	}
+//    private Factory cldrFactory;
+//	public ICUServiceBuilder setCLDRFactory(Factory cldrFactory) {
+//		this.cldrFactory = cldrFactory;
+//		dateFormatCache.clear();
+//		return this; // for chaining
+//	}
 	
     private static int[] DateFormatValues = {-1, DateFormat.SHORT, DateFormat.MEDIUM, DateFormat.LONG, DateFormat.FULL};
     private static String[] DateFormatNames = {"none", "short", "medium", "long", "full"};
@@ -54,12 +57,12 @@ public class ICUServiceBuilder {
     
     private static final String[] Days = {"sun", "mon", "tue", "wed", "thu", "fri", "sat"};
 
-    public SimpleDateFormat getDateFormat(String localeID, int dateIndex, int timeIndex) {
-    	CLDRFile cldrFile = cldrFactory.make(localeID.toString(), true);
-    	return getDateFormat(cldrFile, dateIndex, timeIndex);
-    }
+//    public SimpleDateFormat getDateFormat(CLDRFile cldrFile, int dateIndex, int timeIndex) {
+//    	//CLDRFile cldrFile = cldrFactory.make(localeID.toString(), true);
+//    	return getDateFormat(cldrFile, dateIndex, timeIndex);
+//    }
     
-    private SimpleDateFormat getDateFormat(CLDRFile cldrFile, int dateIndex, int timeIndex) {
+    public SimpleDateFormat getDateFormat(CLDRFile cldrFile, int dateIndex, int timeIndex) {
     	String key = cldrFile.getLocaleID() + "," + dateIndex + "," + timeIndex;
     	SimpleDateFormat result = (SimpleDateFormat) dateFormatCache.get(key);
     	if (result != null) return (SimpleDateFormat) result.clone();
@@ -99,7 +102,7 @@ public class ICUServiceBuilder {
         //formatData.setZoneStrings();   
         
         
-        DecimalFormat numberFormat = (DecimalFormat) getNumberFormat(cldrFile.getLocaleID(), 1);
+        DecimalFormat numberFormat = (DecimalFormat) getNumberFormat(cldrFile, 1);
         numberFormat.setGroupingUsed(false);
         numberFormat.setDecimalSeparatorAlwaysShown(false);
         numberFormat.setParseIntegerOnly(true); /* So that dd.MM.yy can be parsed */
@@ -213,13 +216,13 @@ public class ICUServiceBuilder {
         }
     }
     
-    public DecimalFormat getCurrencyFormat(String localeID, String currency) {
-        CLDRFile cldrFile = cldrFactory.make(localeID, true);
+    public DecimalFormat getCurrencyFormat(CLDRFile cldrFile, String currency) {
+        //CLDRFile cldrFile = cldrFactory.make(localeID, true);
     	return _getNumberFormat(cldrFile, currency, true);
     }
 
-    public DecimalFormat getNumberFormat(String localeID, int index) {
-        CLDRFile cldrFile = cldrFactory.make(localeID, true);
+    public DecimalFormat getNumberFormat(CLDRFile cldrFile, int index) {
+        //CLDRFile cldrFile = cldrFactory.make(localeID, true);
     	return _getNumberFormat(cldrFile, NumberNames[index], false);
     }
 
@@ -299,4 +302,5 @@ public class ICUServiceBuilder {
         numberFormatCache.put(key, result);
         return result;
     }
+
 }

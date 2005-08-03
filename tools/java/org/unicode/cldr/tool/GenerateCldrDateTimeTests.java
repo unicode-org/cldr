@@ -65,7 +65,7 @@ class GenerateCldrDateTimeTests {
 
     GenerateCldrDateTimeTests(String sourceDir, String localeRegex, boolean doResolved) {
     	this.cldrFactory = CLDRFile.Factory.make(sourceDir, ".*");
-    	icuServiceBuilder = new ICUServiceBuilder().setCLDRFactory(cldrFactory);
+    	icuServiceBuilder = new ICUServiceBuilder();
         Set s = GenerateCldrTests.getMatchingXMLFiles(sourceDir, localeRegex);
         for (Iterator it = s.iterator(); it.hasNext();) {
             getInfo((String) it.next(), doResolved);

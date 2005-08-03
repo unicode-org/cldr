@@ -275,6 +275,10 @@ public class Utility {
 		}
     }
     
+    static public void generateBat(String sourceDir, String sourceFile, String targetDir, String targetFile) {
+        generateBat( sourceDir,  sourceFile,  targetDir,  targetFile, new Utility.SimpleLineComparator(0)); 
+    }
+    
     static public void generateBat(String sourceDir, String sourceFile, String targetDir, String targetFile, LineComparer lineComparer) {
         try {
             String batDir = targetDir + "diff" + File.separator;

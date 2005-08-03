@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -32,9 +31,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.print.attribute.UnmodifiableSetException;
-
-import org.w3c.dom.Node;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.ErrorHandler;
@@ -49,7 +45,7 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Lockable;
-
+import com.ibm.icu.text.UnicodeSet;
 
 //import javax.xml.parsers.*;
 
@@ -72,7 +68,7 @@ http://lists.xml.org/archives/xml-dev/200007/msg00284.html
 http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
 public class CLDRFile implements Lockable {
-	private static final boolean SHOW_ALL = false;
+	private static final boolean SHOW_ALL = true;
 
 	public static boolean HACK_ORDER = false;
 	private static boolean DEBUG_LOGGING = false;
@@ -106,8 +102,8 @@ public class CLDRFile implements Lockable {
      * @param localeName
      * @param dir directory 
      */
-	public static CLDRFile make(String localeName, String dir) {
-		return makeFromFile(dir + localeName + ".xml", localeName);
+	public static CLDRFile make(String localeName, String dir, boolean includeDraft) {
+		return makeFromFile(dir + localeName + ".xml", localeName, includeDraft);
     }
 	
     /**
@@ -116,7 +112,7 @@ public class CLDRFile implements Lockable {
      * @param dir directory 
      */
     // TODO make the directory a URL
-    public static CLDRFile makeFromFile(String fullFileName, String localeName) {
+    public static CLDRFile makeFromFile(String fullFileName, String localeName, boolean includeDraft) {
         File f = new File(fullFileName);
         try {
         	fullFileName = f.getCanonicalPath();
@@ -125,7 +121,7 @@ public class CLDRFile implements Lockable {
              	Log.logln(SHOW_ALL, "Parsing: " + fullFileName);
     	    }
 			FileInputStream fis = new FileInputStream(f);
-	    	CLDRFile result = make(fullFileName, localeName, fis);
+	    	CLDRFile result = make(fullFileName, localeName, fis, includeDraft);
 			fis.close();
 			return result;
 		} catch (IOException e) {
@@ -139,12 +135,12 @@ public class CLDRFile implements Lockable {
      * @param localeName
      * @param fis
      */
-    public static CLDRFile make(String fileName, String localeName, InputStream fis) {
+    public static CLDRFile make(String fileName, String localeName, InputStream fis, boolean includeDraft) {
     	try {
     		fis = new StripUTF8BOMInputStream(fis);
     		CLDRFile result = make(localeName);
-			MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(result);
-			XMLReader xmlReader = createXMLReader(true);
+			MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(result, includeDraft);
+ 			XMLReader xmlReader = createXMLReader(true);
 			xmlReader.setContentHandler(DEFAULT_DECLHANDLER);
 			xmlReader.setErrorHandler(DEFAULT_DECLHANDLER);
 			xmlReader.setProperty("http://xml.org/sax/properties/lexical-handler", DEFAULT_DECLHANDLER);
@@ -787,6 +783,8 @@ private boolean isSupplemental;
 		private Set localeList = new TreeSet();
 		private Map mainCache = new TreeMap();
 		private Map resolvedCache = new TreeMap();  
+        private Map mainCacheNoDraft = new TreeMap();
+        private Map resolvedCacheNoDraft = new TreeMap();  
 		private Map supplementalCache = new TreeMap();
 		private Factory() {}		
 
@@ -837,12 +835,15 @@ private boolean isSupplemental;
 	    
 	    private boolean needToReadRoot = true;
 	    
+        public CLDRFile make(String localeName, boolean resolved) {
+        	return make(localeName, resolved, true);
+        }
 	    /**
 	     * Make a CLDR file. The result is a locked file, so that it can be cached. If you want to modify it,
 	     * use clone().
 	     */
 	    // TODO resolve aliases
-		public CLDRFile make(String localeName, boolean resolved) {
+		public CLDRFile make(String localeName, boolean resolved, boolean includeDraft) {
 			// TODO fix hack: 
 			// read root first so that we get the ordering right.
 /*			if (needToReadRoot) {
@@ -850,24 +851,25 @@ private boolean isSupplemental;
 				needToReadRoot = false;
 			}
 */			// end of hack
-	    	Map cache = resolved ? resolvedCache : mainCache;
+	    	Map cache = includeDraft ? (resolved ? resolvedCache : mainCache) 
+                    : (resolved ? resolvedCacheNoDraft : mainCacheNoDraft);
 	    	CLDRFile result = (CLDRFile) cache.get(localeName);
 	    	if (result == null) {
 	    		if (!resolved) {
-	    			result = CLDRFile.make(localeName, localeName.equals(SUPPLEMENTAL_NAME) ? sourceDirectory + "../supplemental/" : sourceDirectory);
+	    			result = CLDRFile.make(localeName, localeName.equals(SUPPLEMENTAL_NAME) ? sourceDirectory + "../supplemental/" : sourceDirectory, includeDraft);
 	    		} else {
     				// this is a bit tricky because of aliases
-    				result = (CLDRFile) make(localeName, false).clone();
-    				result.fixAliases(this);
+    				result = (CLDRFile) make(localeName, false, includeDraft).clone();
+    				result.fixAliases(this, includeDraft);
     				String currentName = localeName;
     				while (true) {
     					// we do it in this order, WITHOUT resolving the parent
     					// so that aliases work right
     					currentName = CLDRFile.getParent(currentName);
     					if (currentName == null) break;
-    					CLDRFile parent = make(currentName, false);
+    					CLDRFile parent = make(currentName, false, includeDraft);
     					result.putAll(parent, MERGE_KEEP_MINE);
-    					result.fixAliases(this);	    					
+    					result.fixAliases(this, includeDraft);	    					
     				}
     				// now add "constructed" items
     				if (constructedItems == null) {   					
@@ -1080,7 +1082,9 @@ private boolean isSupplemental;
     }*/
 
     private static class MyDeclHandler implements DeclHandler, ContentHandler, LexicalHandler, ErrorHandler {
-    	private static final boolean SHOW_START_END = false;
+        private static UnicodeSet whitespace = new UnicodeSet("[:whitespace:]");
+    	private boolean includeDraft;
+		private static final boolean SHOW_START_END = false;
     	private int commentStack;
     	private boolean justPopped = false;
     	private String lastChars = "";
@@ -1093,8 +1097,9 @@ private boolean isSupplemental;
     	private String lastLeafNode;
     	private boolean isSupplemental;
     	
-    	MyDeclHandler(CLDRFile target) {
+    	MyDeclHandler(CLDRFile target, boolean includeDraft) {
     		this.target = target;
+            this.includeDraft = includeDraft;
     		isSupplemental = target.localeID.equals(SUPPLEMENTAL_NAME);
     		if (!isSupplemental) attributeOrder = new TreeMap(attributeOrdering);
     		else attributeOrder = new TreeMap();
@@ -1114,7 +1119,10 @@ private boolean isSupplemental;
     	private void push(String qName, Attributes attributes) {
     		//SHOW_ALL && 
     		Log.logln(SHOW_ALL, "push\t" + qName + "\t" + show(attributes));
-        	if (lastChars.length() != 0) throw new IllegalArgumentException("Internal Error");
+        	if (lastChars.length() != 0) {
+                if (whitespace.containsAll(lastChars)) lastChars = "";
+                else throw new IllegalArgumentException("Internal Error");
+            }
     		currentXPath += "/" + qName;
     		currentFullXPath += "/" + qName;
     		//if (!isSupplemental) ldmlComparator.addElement(qName);
@@ -1155,9 +1163,11 @@ private boolean isSupplemental;
 		private void pop(String qName) {
 			Log.logln(SHOW_ALL, "pop\t" + qName);
             if (lastChars.length() != 0 || justPopped == false) {
-                target.add(currentXPath, currentFullXPath, lastChars);
+                if (includeDraft || currentFullXPath.indexOf("[@draft=\"true\"]") < 0) {
+                	target.add(currentXPath, currentFullXPath, lastChars);
+                    lastLeafNode = lastActiveLeafNode = currentXPath;
+                }
                 lastChars = "";
-                lastLeafNode = lastActiveLeafNode = currentXPath;
             } else {
             	Log.logln(SHOW_ALL && lastActiveLeafNode != null, "pop: zeroing last leafNode: " + lastActiveLeafNode);
             	lastActiveLeafNode = null;
@@ -1398,7 +1408,7 @@ private boolean isSupplemental;
 	/**
 	 * Only gets called on (mostly) resolved stuff
 	 */
-	private CLDRFile fixAliases(Factory factory) {
+	private CLDRFile fixAliases(Factory factory, boolean includeDraft) {
 		// walk through the entire tree. If we ever find an alias, 
 		// remove every peer of that alias,
 		// then add everything from the resolved source of the alias.
@@ -1438,7 +1448,7 @@ private boolean isSupplemental;
 				other = this; 
 			} else {				
 				try {
-					other = factory.make(source,true);
+					other = factory.make(source, true, includeDraft);
 				} catch (RuntimeException e) {
 					System.err.println("Bad alias");
 					e.printStackTrace();
@@ -1693,7 +1703,7 @@ private boolean isSupplemental;
 			"inList",
 			// at end
 			"references", "reference",
-			"special", }).lock();
+			"special", }).setErrorOnMissing(false).lock();
 	
 	static MapComparator attributeOrdering = (MapComparator) new MapComparator().add(new String[] {
 			"type", "key", "registry", "alt",
@@ -1711,7 +1721,7 @@ private boolean isSupplemental;
 			"iso3166",
 			"standard", "references",
 			"draft",
-			}).lock();
+			}).setErrorOnMissing(false).lock();
 	static MapComparator valueOrdering = (MapComparator) new MapComparator().setErrorOnMissing(false).lock();
 	/*
 	

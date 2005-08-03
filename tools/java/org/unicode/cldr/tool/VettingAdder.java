@@ -131,7 +131,7 @@ public class VettingAdder {
 			String dir = (String)it2.next() + File.separator;
 			String fixedLocale = "fixed-" + locale + ".xml";
 			fixXML(dir, locale + ".xml", dir, fixedLocale);
-			CLDRFile cldr = CLDRFile.makeFromFile(dir + fixedLocale, locale);
+			CLDRFile cldr = CLDRFile.makeFromFile(dir + fixedLocale, locale, true);
 			for (Iterator it3 = cldr.keySet().iterator(); it3.hasNext();) {
 				String path = (String) it3.next();
 				String value = (String) cldr.getStringValue(path);

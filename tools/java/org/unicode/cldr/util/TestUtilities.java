@@ -30,9 +30,36 @@ import com.ibm.icu.dev.test.util.BagFormatter;
  */
 public class TestUtilities {
 	public static void main(String[] args) throws Exception {
-		printZoneSamples();
+        printCountries();
+		//printZoneSamples();
 		//printCurrencies();
 		System.out.println("Done");
+	}
+
+	/**
+	 * @throws IOException
+	 * 
+	 */
+	private static void printCountries() throws IOException {
+        Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main" + File.separator, ".*");
+        CLDRFile english = mainCldrFactory.make("en", true);
+        PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, "country_language_names.txt");
+        StandardCodes sc = StandardCodes.make();
+        for(Iterator it = sc.getGoodAvailableCodes("language").iterator(); it.hasNext();) {
+            String code = (String)it.next();
+            out.println(code + "\t" + english.getName(CLDRFile.LANGUAGE_NAME, code, false));
+        }
+        out.println("****");
+        for(Iterator it = sc.getGoodAvailableCodes("territory").iterator(); it.hasNext();) {
+            String code = (String)it.next();
+            out.println(code + "\t" + english.getName(CLDRFile.TERRITORY_NAME, code, false));
+        }
+        out.println("****");
+        for(Iterator it = sc.getGoodAvailableCodes("script").iterator(); it.hasNext();) {
+            String code = (String)it.next();
+            out.println(code + "\t" + english.getName(CLDRFile.SCRIPT_NAME, code, false));
+        }
+		out.close();
 	}
 
 	/**
@@ -57,6 +84,7 @@ public class TestUtilities {
 	private static void printZoneSamples() throws Exception {
 		String[] locales = {
 				"en",
+                "en_GB",
 				"de",
 				"zh",
 				"hi",
@@ -86,7 +114,7 @@ public class TestUtilities {
     	
 		for (int i = 0; i < locales.length; ++i) {
 			String locale = locales[i];
-			TimezoneFormatter tzf = new TimezoneFormatter(mainCldrFactory, locale).setSkipDraft(true);
+			TimezoneFormatter tzf = new TimezoneFormatter(mainCldrFactory, locale, false).setSkipDraft(true);
 			for (int j = 0; j < zones.length; ++j) {
 				String zone = zones[j];
 				for (int k = 0; k < fields.length; ++k) {

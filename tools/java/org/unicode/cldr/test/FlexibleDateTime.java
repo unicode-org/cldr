@@ -3,7 +3,7 @@
  * Copyright (C) 2004, International Business Machines Corporation and        *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
-*/
+ */
 package org.unicode.cldr.test;
 
 import java.util.ArrayList;
@@ -27,545 +27,82 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
+import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Test class for trying different approaches to flexible date/time.
  * Internal Use.
  */
 public class FlexibleDateTime {
+	static final boolean DEBUG = false;
 	static boolean SHOW_MATCHING = false;
 	static boolean SHOW2 = false;
-
-	List rules = new ArrayList();
-	Map currentVariables = new LinkedHashMap();
-	
-	public String toString() {
-		StringBuffer buffer = new StringBuffer();
-		boolean first = true;
-		for(Iterator it = rules.iterator(); it.hasNext();) {
-			if (first) first = false;
-			else buffer.append("\r\n");
-			buffer.append(it.next());
-		}
-		return buffer.toString();
-	}
-
-	static class OOConverter {
-		FormatParser fp = new FormatParser();
-		
-		public String convertOODate(String source, String locale) {
-			if (source.length() == 0) return "";
-			source = source.replace('"', '\''); // fix quoting convention
-			StringBuffer buffer = new StringBuffer();
-			fp.set(source);
-			for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
-				Object item = it.next();
-				if (item instanceof VariableField) {
-					buffer.append(handleOODate(item.toString(), locale));
-				} else {
-					buffer.append(item);
-				}
-			}
-			return buffer.toString();
-		}
-	
-		private String handleOODate(String string, String locale) {
-			// preprocess hack for *localized* strings
-			if (locale.startsWith("de")) {
-				if (string.startsWith("T")) string = string.replace('T','D');
-				if (string.startsWith("J")) string = string.replace('J','Y');
-			} else if (locale.startsWith("nl")) {
-				if (string.startsWith("J")) string = string.replace('J','Y');
-			} else if (locale.startsWith("fi")) {
-				if (string.startsWith("K")) string = string.replace('K','M');
-				if (string.startsWith("V")) string = string.replace('V','Y');
-				if (string.startsWith("P")) string = string.replace('P','D');
-			} else if (locale.startsWith("fr")) {
-				if (string.startsWith("J")) string = string.replace('J','D');
-				if (string.startsWith("A")) string = string.replace('A','Y');
-			} else if (locale.startsWith("es") || locale.startsWith("pt")) {
-				if (string.startsWith("A")) string = string.replace('A','Y');
-			} else if (locale.startsWith("it")) {
-				if (string.startsWith("A")) string = string.replace('A','Y');
-				if (string.startsWith("G")) string = string.replace('G','D');
-			}
-			if (string.startsWith("M")) return string;
-			if (string.startsWith("A")) return string.replace('A','y'); // best we can do for now
-			if (string.startsWith("Y") || string.startsWith("W") || 
-					string.equals("D") || string.equals("DD")) return string.toLowerCase();
-			if (string.equals("DDD") || string.equals("NN")) return "EEE";
-			if (string.equals("DDDD") || string.equals("NNN")) return "EEEE";
-			if (string.equals("NNNN")) return "EEEE, ";
-			if (string.equals("G")) return "G"; // best we can do for now
-			if (string.equals("GG")) return "G";
-			if (string.equals("GGG")) return "G"; // best we can do for now
-			if (string.equals("E")) return "y";
-			if (string.equals("EE") || string.equals("R")) return "yy";
-			if (string.equals("RR")) return "Gyy";
-			if (string.startsWith("Q")) return '\'' + string + '\'';
-			char c = string.charAt(0);
-			if (c < 0x80 && UCharacter.isLetter(c)) return string.replace(c,'x');
-			return string;
-		}
-	
-		public String convertOOTime(String source, String locale) {
-			if (source.length() == 0) return "";
-			source = source.replace('"', '\''); // fix quoting convention
-			int isAM = source.indexOf("AM/PM");
-			if (isAM >= 0) {
-				source = source.substring(0,isAM) + "a" + source.substring(isAM+5);
-			}
-			StringBuffer buffer = new StringBuffer();
-			fp.set(source);
-			for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
-				Object item = it.next();
-				if (item instanceof VariableField) {
-					buffer.append(handleOOTime(item.toString(), locale, isAM >= 0));
-				} else {
-					buffer.append(item);
-				}
-			}
-			return buffer.toString();
-		}
-		
-		private String handleOOTime(String string, String locale, boolean isAM) {
-			char c = string.charAt(0);
-			switch (c) {
-			case 'h': case 'H': case 't': case 'T': case 'u': case 'U':
-				return string.replace(c, isAM ? 'h' : 'H');
-			case 'M': case 'S': return string.toLowerCase();
-			case '0': return string.replace('0','S'); // ought to be more sophisticated, but this should work for normal stuff.
-			case 'a': case 's': case 'm': return string; // ok as is
-			default: return "x"; // cause error
-			}
-		}
-		private String convertToRule(String string) {
-			fp.set(string);
-			StringBuffer buffer = new StringBuffer();
-			Set additions = new HashSet();
-			for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
-				Object item = it.next();
-				if (item instanceof VariableField) {
-					String s = item.toString();
-					if (s.startsWith("a")) {
-						buffer.append(s);
-					} else {
-						buffer.append('{' + s + '}');
-					}
-				} else {
-					buffer.append(item);
-				}
-			}
-			for (Iterator it = additions.iterator(); it.hasNext();) {
-				buffer.insert(0,it.next());
-			}
-			return buffer.toString();
-		}
-	}
-	static Date TEST_DATE = new Date(104,8,13,23,58,59);
-	
-	static Comparator VariableFieldComparator = new Comparator() {
-		public int compare(Object o1, Object o2) {
-			Collection a = (Collection)o1;
-			Collection b = (Collection)o2;
-			if (a.size() != b.size()) {
-				if (a.size() < b.size()) return 1;
-				return -1;
-			}
-			Iterator itb = b.iterator();
-			for (Iterator ita = a.iterator(); ita.hasNext();) {
-				String aa = (String) ita.next();
-				String bb = (String) itb.next();
-				int result = -aa.compareTo(bb);
-				if (result != 0) return result;
-			}
-			return 0;
-		}
-	};
-	
-	static void getOOData() {
-		OOConverter ooConverter = new OOConverter();
-		Factory cldrFactory = Factory.make(Utility.BASE_DIRECTORY + "open_office/main/", ".*");
-		Set locales = cldrFactory.getAvailable();
-		Map dateList = new TreeMap(VariableFieldComparator);
-		Map timeList = new TreeMap(VariableFieldComparator);
-		List ruleList = new ArrayList();
-		Map patterns = new LinkedHashMap();
-		FormatParser fp = new FormatParser();
-		for (Iterator it = locales.iterator(); it.hasNext();) {
-			String locale = (String)it.next();
-			System.out.println();
-			System.out.println(locale);
-			CLDRFile item = cldrFactory.make(locale, false);
-			timeList.clear();
-			dateList.clear();
-			patterns.clear();
-			for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
-				String xpath = (String) it2.next();
-				if (xpath.indexOf("/special") >= 0) continue;
-				boolean isDate = xpath.indexOf("/dateFormat/") >= 0 || xpath.indexOf("/dateFormat[@") >= 0;
-				boolean isTime = xpath.indexOf("/timeFormat/") >= 0 || xpath.indexOf("/timeFormat[@") >= 0;
-				if (isDate || isTime) {
-					String value = item.getStringValue(xpath);
-					String pattern = value;
-					String oldPattern = pattern;
-					if (oldPattern.indexOf('[') >= 0) continue;
-					pattern = isDate ? ooConverter.convertOODate(pattern, locale) 
-							: ooConverter.convertOOTime(pattern, locale);
-					if (SHOW2) System.out.print("\t" + (isDate ? "Date" : "Time") + ": " + oldPattern + "\t" + pattern + "\t");
-					try {
-						DateFormat d = new SimpleDateFormat(pattern);
-						if (SHOW2) System.out.print(d.format(TEST_DATE));
-						fp.set(pattern);
-						Object original;
-						Collection fields = fp.getFields(null);
-						if (fields.size() == 0) {
-							System.out.println("\tempty fields " + pattern);
-							continue;
-						}
-						if (isDate) original = putNoReplace(dateList, fields, pattern);
-						else original = putNoReplace(timeList, fields, pattern);
-						if (original != null) {
-							System.out.println("\tnot overriding " + original + " with " + pattern);
-							continue;
-						}
-						patterns.put(oldPattern, pattern);
-					} catch (Exception e) {
-						if (SHOW2) System.out.print(e.getLocalizedMessage());
-					}
-					if (SHOW2) System.out.println();
-				}
-			}
-			ruleList.clear();
-			for (Iterator it2 = dateList.keySet().iterator(); it2.hasNext();) {
-				String p = dateList.get(it2.next()).toString();
-				System.out.println("\t\t<pattern>" + p + "</pattern>");
-				ruleList.add("date=" + ooConverter.convertToRule(p));
-			}
-			for (Iterator it2 = timeList.keySet().iterator(); it2.hasNext();) {
-				String p = timeList.get(it2.next()).toString();
-				System.out.println("\t\t<pattern>" + p + "</pattern>");
-				ruleList.add("time=" + ooConverter.convertToRule(p));
-			}
-			FlexibleDateTime fdt = FlexibleDateTime.make(ruleList);
-			System.out.println(fdt);
-			for (Iterator it2 = patterns.keySet().iterator(); it2.hasNext();) {
-				String op = (String) it2.next();
-				String p = (String) patterns.get(op);
-				String key = fp.set(p).getFieldString();
-				if (key.length() == 0) continue;
-				try {
-					String result = fdt.getDateFormatPattern(key);
-					if (!p.equals(result)) { // .replace('h', 'H')
-						System.out.println("\tno round trip: " + op + "\t=>\t" + p + "\t=>\t" + key + "\t=>\t" + result);
-						boolean oldValue = SHOW_MATCHING;
-						SHOW_MATCHING = true;
-						result = fdt.getDateFormatPattern(key);
-						SHOW_MATCHING = oldValue;
-					} else {
-						try {
-							String formatted = new SimpleDateFormat(result).format(TEST_DATE);
-							System.out.println("testing: " + op + "\t=>\t" + p + "\t=>\t" + key + "\t=>\t" + result
-									+ "\t=>\t" + formatted);
-							//System.out.println(\t<datetimeFormatp + "\t=>\t" + key);
-						} catch (RuntimeException e1) {
-							System.out.println("testing: " + op + "\t=>\t" + p + "\t=>\t" + key + "\t=>\t" + result
-									+ "\t=>\t" + e1.getMessage());
-						}
-					}
-				} catch (RuntimeException e) {
-					System.out.println("\tfailure with " + op + "\t=>\t" + p + "\t=>\t" + key + "\t=>\t" + e.getMessage());
-				}
-			}				
-		}
-	}
-	
-	private static Object putNoReplace(Map m, Object key, Object value) {
-		Object current = m.get(key);
-		if (current != null) return current;
-		m.put(key, value);
-		return null;
-	}
-
-	/**
-	 * @param ruleList
-	 * @return
-	 */
-	private static FlexibleDateTime make(List ruleList) {
-		String[] data = new String[ruleList.size()];
-		ruleList.toArray(data);
-		return make(data);
-	}
-
-	private static class Variable {
-		String variable;
-		Variable(String variable) {
-			this.variable = variable;
-		}
-		public String toString() {
-			return "{" + variable + "}";
-		}
-	}
-
-	private class Rule {
-		String name;
-		String original;
-		List matchSet = new ArrayList();
-		List format = new ArrayList();
-		//boolean hasVariables;
-		
-		public String toString() {
-			return "{" + matchSet + "} in rule: " + name + " <= " + format + " (" + original + ")";
-		}
-		
-		private Rule(String rule) {
-			original = rule;
-			int eqPos = rule.indexOf('=');
-			name = rule.substring(0, eqPos).trim();
-			rule = rule.substring(eqPos+1);
-			//boolean inVariable = false;
-			int startVariable = -1;
-			String formatPiece = "";
-			for (int i = 0; i < rule.length(); ++i) {
-				char ch = rule.charAt(i); // ok to not use UTF16, since only care about {...}
-				if (startVariable >= 0) {
-					if (ch == '}') {
-						String variable = rule.substring(startVariable, i);
-						if (variable.startsWith("*")) {
-							variable = variable.substring(1);
-						} else {
-							format.add(new Variable(variable));
-						}
-						matchSet.add(variable);
-						//if (!hasVariables && isVariable(variable)) hasVariables = true;
-						startVariable = -1;
-					}
-				} else {
-					if (ch == '{') {
-						startVariable = i+1;
-						if (formatPiece.length() != 0) {
-							format.add(formatPiece);
-							formatPiece = "";
-						}						
-					} else {
-						formatPiece += ch;
-					}
-				}
-			}
-			if (formatPiece.length() != 0) format.add(formatPiece);
-		}
-		
-		private boolean process() {
-			// special check. If there are pieces, and 
-			// if there is a match, remove the items from the pieces, and reset the variable
-			Map foundSoFar = new HashMap();
-			for (int i = 0; i < matchSet.size(); ++i) {
-				String matchItem = (String) matchSet.get(i);
-				String part = matches(matchItem);
-				if (part == null) return false;
-				foundSoFar.put(matchItem, part); // e.g. h* -> hh
-			}
-			// special check. We don't replace a name unless it is either found in the parts, or empty.
-			if (foundSoFar.get(name) == null && currentVariables.get(name) != null) {
-				return false;
-			}
-			// special check. We don't match date/time unless all of it matches
-			if (name.equals("datetime")) {
-				if (foundSoFar.size() != currentVariables.size()) return false;
-			}
-			
-			Map old = null;
-			if (SHOW_MATCHING) {
-				old = new LinkedHashMap(currentVariables);
-			}
-			
-			// we have a complete match. So substitute in the format, remove from pieces, and set the variable
-			String format2 = replace(format, foundSoFar);
-			// remove all (should be on Map!)
-			for (Iterator it = foundSoFar.values().iterator(); it.hasNext();) {
-				currentVariables.remove(it.next());
-			}
-			addVariable(name, format2);
-
-			if (SHOW_MATCHING) {
-				//LinkedHashSet s = new LinkedHashSet(currentVariables.keySet());
-				//LinkedHashSet f = new LinkedHashSet(foundSoFar.values());
-				//s.removeAll(f);
-				System.out.println(old + ", \t" + foundSoFar.values() + " matched " + this + " \tResults: " + currentVariables);
-			}
-
-			return true;
-		}
-		
-		/**
-		 * Dumb implementation for now.
-		 * @param formatList
-		 * @param foundSoFar
-		 * @return
-		 */
-		private String replace(List formatList, Map foundSoFar) {
-			StringBuffer result = new StringBuffer();
-			for (Iterator it = formatList.iterator(); it.hasNext();) {
-				Object part = it.next();
-				if (part instanceof String) {
-					result.append(part);
-				} else {
-					String key = ((Variable)part).variable;
-					String value = (String) foundSoFar.get(key);
-					String variable = (String)currentVariables.get(value);
-					result.append(variable);
-				}
-			}
-			return result.toString();
-		}
-
-		/*
-		 * @param format2
-		 * @param key
-		 * @param value
-		 */
-		/*
-		private String replace(String format2, String key, String value) {
-			int pos = 0;
-			while (true) {
-				pos = format2.indexOf(key, pos);
-				if (pos < 0) return format2;
-				format2 = format2.substring(0, pos) + value + format2.substring(pos+key.length());
-				pos += value.length();
-			}
-		}
-		*/
-
-		private String matches(String matcher) {
-			Matcher m = Pattern.compile(matcher).matcher("");
-			for (Iterator it = currentVariables.keySet().iterator(); it.hasNext();) {
-				String part = (String)it.next();
-				if (m.reset(part).matches()) return part;
-			}
-			return null;
-		}
-
-	}
-	private FlexibleDateTime() {}
-	
-	static String[] FALLBACK_RULES ={
-			"date={G+|y+|Y+|u+|M+|w+|W+|d+|D+|F+|g+|E+}",
-			"date={date} {G+|y+|Y+|u+|M+|w+|W+|d+|D+|F+|g+|E+}",
-			"time={a+|H+|m+|s+|S+|A+|z+|Z+}",
-			"time={time} {a+|H+|m+|s+|S+|A+|z+|Z+}",
-			"datetime={time|date}",
-	};
-	
-	static FlexibleDateTime make (String[] data) {
-		FlexibleDateTime result = new FlexibleDateTime();
-		for (int i = 0; i < data.length; ++i) {
-			result.addRule(data[i]);
-		}
-		for (int i = 0; i < FALLBACK_RULES.length; ++i) {
-			result.addRule(FALLBACK_RULES[i]);
-		}
-		return result;
-	}
-
-	/**
-	 * @param string
-	 */
-	private void addRule(String string) {
-		rules.add(new Rule(string));
-	}
-
-	/* en
-	 * EEEE, MMMM d, yyyy
-	 * M/d/yy
-	 * h:mm:ss a z
-	 * 
-	 * da
-	 * EEEE dd MMMM yyyy
-	 * d. MMM yyyy
-	 * dd-MM-yyyy
-	 * 
-	 * ru
-	 * d MMMM yyyy '?.'
-	 * dd.MM.yyyy
-	 * H:mm:ss z
-	 * 
-	 * 
-	 * 
-h 1..2 11 Hour [1-12].  
-H 1..2 13 Hour [0-23]. 
-K 1..2 0 Hour [0-11]. 
-k 1..2 24 Hour [1-24]. 
-
-	 */
+    static boolean SHOW_DISTANCE = false;
+    static boolean SHOW_OO = true;
 	
 	/**
 	 * Test different ways of doing flexible date/times.
 	 * Internal Use.
 	 */
 	public static void main(String[] args) {
-		getOOData();
-		String[] data = {
-				"yyyy={*y+}yyyy", // force all years to be 4 letters
-				"time={s+}.{S+}",
-				"time={m+}:{time}",
-				"time={*H+}hh:{time} a",
-				"date={*d+}dd-{MM}-{y+}",
-				"date={d+}. {MMM}",
-				"date={d+} {M+}",
-				"date={d+} [{H+}]",
-				"date={date} {M+}",
-				"date={date} {y+}",
-				"date={date} {G+}",
-				"date={E+} {date}",
-				"datetime={date}, {time}",			
-		};
-		
-		String[] testData = {
-				"dMMy",
-				"HHmm",
-				"yyyyHHmm",
-				"MMdd",
-				"ddHH",
-				"yyyyMMMd",
-				"yyyyMMddHHmmss",
-				"GEEEEyyyyMMddHHmmss",
-				"GyyyyYYYYuuuuMMMMwwWddDDDFgEEEEaHHmmssSSSAAAAAAAzZ",
-		};
-		FlexibleDateTime fdt = FlexibleDateTime.make(data);
-		Date now = new Date(99,11,23,1,2,3);
-		for (int i = 0; i < testData.length; ++i) {
-			System.out.println("Raw pattern: " + testData[i]);
-			String dfpattern = fdt.getDateFormatPattern(testData[i]);
-			System.out.println("\t=>\tLocalized Pattern: " + dfpattern);
-			DateFormat df = new SimpleDateFormat(dfpattern);
-			System.out.println("\tSample Input: " + now + "\t=>\tSample Results: " + df.format(now));
-	}
-}
-	/**
-	 * @param string
-	 * @return
-	 */
-	private String getDateFormatPattern(String string) {
-		getParts(string);
-		main:
-	    while (true) {
-	    	// start from the beginning whenever we get a match
-			for (int i = 0; i < rules.size(); ++i) {
-				Rule r = (Rule) rules.get(i);
-				if (r.process()) {
-					continue main; // if we get a match, start over
+		if (false) {
+			DateTimeMatcher a = new DateTimeMatcher().set("HH:mm");
+			DateTimeMatcher b = new DateTimeMatcher().set("kkmm");
+			DistanceInfo missingFields = new DistanceInfo();
+			int distance = a.getDistance(b, -1, missingFields);
+		}
+        String filter = "en_US";
+        if (args.length > 0)
+            filter = args[0];
+
+		Factory cldrFactory = Factory.make(Utility.BASE_DIRECTORY
+				+ "open_office/main/", filter);
+		for (Iterator it = cldrFactory.getAvailable().iterator(); it.hasNext();) {
+			String locale = (String) it.next();
+			ULocale ulocale = new ULocale(locale);
+            System.out.println(ulocale.getDisplayName(ULocale.ENGLISH) + " (" + locale + ")");
+
+			SimpleDateFormat df = (SimpleDateFormat) DateFormat
+					.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT,
+							ulocale);
+
+			Collection list = getOOData(cldrFactory, locale);
+
+			String[] testData = { "YwE", // year, week of year, weekday
+					"yD", // year, day of year
+					"yMFE", // year, month, nth day of week in month
+					"eG", "dMMy", "kh", "GHHmm", "yyyyHHmm", "Kmm", "kmm",
+					"MMdd", "ddHH", "yyyyMMMd", "yyyyMMddHHmmss",
+					"GEEEEyyyyMMddHHmmss",
+					"GuuuuMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", };
+			DateTimePatternGenerator fdt = new DateTimePatternGenerator()
+					.add(list);
+			Date now = new Date(99, 11, 23, 1, 2, 3);
+			System.out.println("Sample Input: " + now);
+			for (int i = 0; i < testData.length; ++i) {
+				System.out.print("Input request: \t" + testData[i]);
+                System.out.print("\t Fields: \t" + fdt.getFields(testData[i]));
+				String dfpattern;
+				try {
+					dfpattern = fdt.getBest(testData[i]);
+				} catch (Exception e) {
+					System.out.println("\t " + e.getMessage());
+					continue;
 				}
+				System.out.print("\t Localized Pattern: \t" + dfpattern);
+				df.applyPattern(dfpattern);
+				System.out.println("\t Sample Results: \t«" + df.format(now) + "»");
 			}
-			break; // stop when we hit no matchs on the way through
-	    }
-		// we made it all the way through. There ought to be nothing but a datetime left.
-		if (currentVariables.size() != 1) throw new IllegalArgumentException("Failed generation: " + currentVariables);
-		
-		return (String) currentVariables.get("datetime");
+		}
 	}
+	
+
+	
 	
 	static class VariableField {
 		private String string;
@@ -576,6 +113,7 @@ k 1..2 24 Hour [1-24].
 			return string;
 		}
 	}
+	
 	static class FormatParser {
 		private List items = new ArrayList();
 		private char quoteChar = '\'';
@@ -623,20 +161,17 @@ k 1..2 24 Hour [1-24].
 		public Collection getFields(Collection output) {
 			if (output == null) output = new TreeSet();
 			main:
-			for (Iterator it = items.iterator(); it.hasNext();) {
-				Object item = it.next();
-				if (item instanceof VariableField) {
-					String s = item.toString();
-					switch(s.charAt(0)) {
+				for (Iterator it = items.iterator(); it.hasNext();) {
+					Object item = it.next();
+					if (item instanceof VariableField) {
+						String s = item.toString();
+						switch(s.charAt(0)) {
 						case 'Q': continue main; // HACK
 						case 'a': continue main; // remove
-						//case 'h': s = s.replace('h', 'H'); break;
-						case 'k': s = s.replace('k', 'H'); break;
-						case 'K': s = s.replace('K', 'h'); break;
+						}
+						output.add(s);
 					}
-					output.add(s);
 				}
-			}
 			//System.out.println(output);
 			return output;
 		}
@@ -664,91 +199,569 @@ k 1..2 24 Hour [1-24].
 		}
 	}
 	
-	/**
-	 * See if string occurs in list
-	 * @param string
-	 * @returns
-	 */
-	// TODO put in order, check for duplicates
-	private void getParts(String string) {
-		String[] weights = new String[VARIABLES.size()];
-		currentVariables.clear();
-		if (string.length() == 0) return;
-		//int start = 1;
-		int lastPos = 0;
-		char last = string.charAt(lastPos);
-		for (int i = 1; i < string.length(); ++i) {
-			char ch = string.charAt(i);
-			if (ch == last) continue;
-			VARIABLES.getPart(string.substring(lastPos, i), weights);
-			lastPos = i;
-			last = ch;			
-		}
-		VARIABLES.getPart(string.substring(lastPos, string.length()), weights);
-		// add to the list in REVERSE sorted order. Will unreverse later
-		for (int i = weights.length - 1; i >= 0; --i) {
-			if (weights[i] == null) continue;
-			addVariable(weights[i], weights[i]);
-		}
-	}
-	
-	static class VariableList {
-		String items = "";
-		int[] maxlengths = new int[50];
-		VariableList add(char c, int maxLen) {
-			maxlengths[items.length()] = maxLen;
-			items += c;
+	static class DateTimePatternGenerator {
+		private ArrayList list = new ArrayList(1); // items are in priority order
+        private transient DateTimeMatcher current = new DateTimeMatcher();
+		private transient FormatParser fp = new FormatParser();
+        private transient DistanceInfo _distanceInfo = new DistanceInfo();
+        private transient boolean isComplete = false;
+		
+		DateTimePatternGenerator add(String pattern) {
+			list.add(new DateTimeMatcher().set(pattern));
 			return this;
 		}
+		
+		DateTimePatternGenerator add(Collection list) {
+			for (Iterator it = list.iterator(); it.hasNext();) {
+				add((String)it.next());
+			}
+			return this;
+		}
+		
+		String getBest(String inputRequest) {
+            if (!isComplete) complete();
+			current.set(inputRequest);
+			String best = getBestRaw(current, -1, _distanceInfo);
+            if (_distanceInfo.missingFieldMask == 0 && _distanceInfo.extraFieldMask == 0) {
+            	// we have a good item. Adjust the field types
+            	return adjustFieldTypes(best, current);
+            }
+            int neededFields = current.getFieldMask();
+             // otherwise break up by date and time.
+            String datePattern = getBestAppending(neededFields & DATE_MASK);
+            String timePattern = getBestAppending(neededFields & TIME_MASK);
+
+            // later, MessageFormats from resource
+            if (datePattern == null) return timePattern == null ? "" : timePattern;
+            if (timePattern == null) return datePattern;
+            return MessageFormat.format("{0} {1}", new Object[]{datePattern, timePattern});
+		}
+		
 		/**
-		 * @param part
-		 * @returns
+		 * 
 		 */
-		public void getPart(String part, String[] weights) {
-			int weight = find(part.charAt(0), part.length());
-			if (weight < 0) throw new IllegalArgumentException("Illegal Field: " + part);
-			weights[weight] = part;
+		private String getBestAppending(int missingFields) {
+			String resultPattern = null;
+            if (missingFields != 0) {
+                resultPattern = getBestRaw(current, missingFields, _distanceInfo);
+                resultPattern = adjustFieldTypes(resultPattern, current);
+            	while (_distanceInfo.missingFieldMask != 0) { // precondition: EVERY single field must work!
+            		String temp = getBestRaw(current, _distanceInfo.missingFieldMask, _distanceInfo);
+            		temp = adjustFieldTypes(temp, current);
+                    resultPattern = MessageFormat.format("{0} [{1}]", new Object[]{resultPattern, temp});
+                }
+            }
+			return resultPattern;
 		}
-		int find(char c, int len) {
-			int weight = items.indexOf(c);
-			if (weight < 0) return -1;
-			if (len < 1 || len > maxlengths[weight]) return -1;
-			return weight;
+
+		/**
+		 * 
+		 */
+		private void complete() {
+			// make sure that every valid field occurs once, with a "default" length
+            // for now, just 1. Optimized later
+            boolean[] checked = new boolean[128];
+            checked['a'] = true; // skip 'a'
+            for (int i = 0; i < types.length; ++i) {
+                char c = (char)types[i][0];
+                if (checked[c]) continue;
+                checked[c] = true;
+                add(String.valueOf(c));
+            }
+            isComplete = true;
+            // and add a complete time, complete date. This is a hack for now;
+            // should be replaced by test on locale data.
+            //add("HH:mm:ss.SSS v");
+            //add("G yyyy-MM-dd"); // full normal day
+            //add("eee, G yyyy-MM-dd"); // full normal day with dow
 		}
-		int size() {
-			return items.length();
+
+		/**
+		 * 
+		 */
+		private String getBestRaw(DateTimeMatcher source, int includeMask, DistanceInfo missingFields) {
+            if (SHOW_DISTANCE) System.out.println("Searching for: " + source.pattern 
+                    + ", mask: " + showMask(includeMask));
+			DateTimeMatcher best = null;
+			int bestDistance = Integer.MAX_VALUE;
+            DistanceInfo tempInfo = new DistanceInfo();
+			int limit = list.size();
+            int missingCount = 0;
+			for (int i = 0; i < limit; ++i) {
+				DateTimeMatcher trial = (DateTimeMatcher) list.get(i);
+				int distance = source.getDistance(trial, includeMask, tempInfo);
+				if (SHOW_DISTANCE) System.out.println("\tDistance: " + trial.pattern + ":\t" 
+                        + distance + ",\tmissing fields: " + tempInfo);
+				if (distance < bestDistance) {
+					bestDistance = distance;
+					best = trial;
+                    missingFields.setTo(tempInfo);
+                    if (distance == 0) break;
+				}
+			}
+			return best.pattern;
 		}
+
+		public String replaceFieldTypes(String pattern, String inputRequest) {
+			return adjustFieldTypes(pattern, current.set(inputRequest));
+		}
+		
+		/**
+		 * 
+		 */
+		private String adjustFieldTypes(String pattern, DateTimeMatcher inputRequest) {
+			fp.set(pattern);
+			StringBuffer newPattern = new StringBuffer();
+			for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
+				Object item = it.next();
+				if (item instanceof String) {
+					newPattern.append((String)item);
+				} else {
+					String field = ((VariableField) item).string;
+					int canonicalIndex = getCanonicalIndex(field);
+					int type = types[canonicalIndex][1];
+					if (inputRequest.type[type] != 0) {
+						String newField = inputRequest.original[type];
+						// normally we just replace the field. However HOUR is special; we only change the length
+						if (type != HOUR) {
+							field = newField;
+						} else if (field.length() != newField.length()){
+							char c = field.charAt(0);
+							field = "";
+							for (int i = newField.length(); i > 0; --i) field += c;
+						}
+					}
+					newPattern.append(field);
+				}
+			}
+			if (SHOW_DISTANCE) System.out.println("\tRaw: " + pattern);
+			return newPattern.toString();
+		}
+        
+        String getFields(String pattern) {
+            fp.set(pattern);
+            StringBuffer newPattern = new StringBuffer();
+            for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
+                Object item = it.next();
+                if (item instanceof String) {
+                    newPattern.append((String)item);
+                } else {
+                    newPattern.append("{" + getName(item.toString()) + "}");
+                }
+            }
+            return newPattern.toString();
+        }
 	}
 	
-	static VariableList VARIABLES = new VariableList()
-		.add('G', 1)
-		.add('y', 5)
-		.add('Y', 5)
-		.add('u', 5)
-		.add('M', 5)
-		.add('w', 2)
-		.add('W', 1)
-		.add('d', 2)
-		.add('D', 3)
-		.add('F', 1)
-		.add('g', Integer.MAX_VALUE)
-		.add('E', 5)
-		.add('a', 1)
-		.add('H', 2)
-		.add('h', 2)
-		.add('m', 2)
-		.add('s', 2)
-		.add('S', Integer.MAX_VALUE)
-		.add('A', Integer.MAX_VALUE)
-		.add('z', 4)
-		.add('Z', 2);
+	private static class DateTimeMatcher {
+		// just for testing; fix to make multi-threaded later
+		static FormatParser fp = new FormatParser();
+		String pattern = null;
+		int[] type = new int[TYPE_LIMIT];
+		String[] original = new String[TYPE_LIMIT];
+		
+		DateTimeMatcher set(String pattern) {
+			for (int i = 0; i < TYPE_LIMIT; ++i) {
+				type[i] = NONE;
+				original[i] = null;
+			}
+			this.pattern = pattern;
+			fp.set(pattern);
+			for (Iterator it = fp.getFields(new ArrayList()).iterator(); it.hasNext();) {
+				String field = (String) it.next();
+				if (field.charAt(0) == 'a') continue; // skip day period, special cass
+				int canonicalIndex = getCanonicalIndex(field);
+				int[] row = types[canonicalIndex];
+				int typeValue = row[1];
+                if (original[typeValue] != null) {
+                    throw new IllegalArgumentException("Conflicting fields: "
+                            + original[typeValue] + ", " + field);
+                }
+				original[typeValue] = field;
+				int subTypeValue = row[2];
+				if (subTypeValue > 0) subTypeValue += field.length();
+				type[typeValue] = (byte) subTypeValue;
+			}
+			return this;
+		}
+		
+		/**
+		 * 
+		 */
+		public int getFieldMask() {
+            int result = 0;
+			for (int i = 0; i < type.length; ++i) {
+                if (type[i] != 0) result |= (1<<i);
+            }
+            return result;
+		}
 
-	/**
-	 * @param format2
-	 */
-	private void addVariable(String name, String format2) {
-		if (DEBUG) System.out.println("Adding " + name + "  " + format2);
-		currentVariables.put(name, format2);
+		/**
+		 * 
+		 */
+		public void extractFrom(DateTimeMatcher source, int fieldMask) {
+            pattern = source.pattern = null; // nuke the patterns, no longer valid
+			for (int i = 0; i < type.length; ++i) {
+                if ((fieldMask & (1<<i)) != 0) {
+                    type[i] = source.type[i];
+                    original[i] = source.original[i];
+                } else {
+                    type[i] = NONE;
+                    original[i] = null;
+                }
+            }
+		}
+        
+		int getDistance(DateTimeMatcher other, int includeMask, DistanceInfo distanceInfo) {
+			int result = 0;
+            distanceInfo.clear();
+			for (int i = 0; i < type.length; ++i) {
+                int myType = (includeMask & (1<<i)) == 0 ? 0 : type[i];
+                int otherType = other.type[i];
+				if (myType == otherType) continue; // identical (maybe both zero) add 0
+				if (myType == 0) { // and other is not
+                    result += EXTRA_FIELD;
+                    distanceInfo.addExtra(i);
+                } else if (otherType == 0) { // and mine is not
+                    result += MISSING_FIELD;
+                    distanceInfo.addMissing(i);
+                } else {
+                    result += Math.abs(myType - otherType); // square of mismatch
+                }
+			}
+			return result;
+		}		
 	}
-	static final boolean DEBUG = false;
+
+    static class DistanceInfo {
+        int missingFieldMask;
+        int extraFieldMask;
+        void clear() {
+            missingFieldMask = extraFieldMask = 0;
+        }
+        /**
+		 * 
+		 */
+		public void setTo(DistanceInfo other) {
+            missingFieldMask = other.missingFieldMask;
+            extraFieldMask = other.extraFieldMask;
+		}
+        void addMissing(int field) {
+            missingFieldMask |= (1<<field);
+        }
+        void addExtra(int field) {
+            extraFieldMask |= (1<<field);
+        }
+        public String toString() {
+        	return "missingFieldMask: " + showMask(missingFieldMask)
+            + ", extraFieldMask: " + showMask(extraFieldMask);
+        }
+    }
+
+    static String showMask(int mask) {
+    	String result = "";
+        for (int i = 0; i < TYPE_LIMIT; ++i) {
+        	if ((mask & (1<<i)) == 0) continue;
+            if (result.length() != 0) result += " | ";
+            result += FIELD_NAME[i] + " ";
+        }
+        return result;
+    }
+    
+    static private String[] FIELD_NAME = {
+            "Era", "Year", "Month", "Week_in_Year", "Week_in_Month", "Weekday", 
+            "Day", "Day_Of_Year", "Day_of_Week_on_Month", "Dayperiod", 
+            "Hour", "Minute", "Second", "Fractional_Second", "Zone"
+    };
+
+	static private int
+	ERA = 0,
+	YEAR = 1,
+	MONTH = 2,
+    WEEK_OF_YEAR = 3,
+    WEEK_OF_MONTH = 4,
+	WEEKDAY = 5,
+	DAY = 6,
+    DAY_OF_YEAR = 7,
+    DAY_OF_WEEK_IN_MONTH = 8,
+	DAYPERIOD = 9,
+	HOUR = 10,
+	MINUTE = 11,
+	SECOND = 12,
+	FRACTIONAL_SECOND = 13,
+	ZONE = 14,
+	TYPE_LIMIT = 15;
+    
+    static private int 
+    DATE_MASK = (1<<DAYPERIOD) - 1,
+    TIME_MASK = (1<<TYPE_LIMIT) - 1 - DATE_MASK;
+	
+	static private int // numbers are chosen to express 'distance'
+    DELTA = 0x10,
+    NUMERIC = 0x100,
+    NONE = 0,
+	NARROW = -0x100,
+	SHORT = -0x101,
+	LONG = -0x102,
+    EXTRA_FIELD =   0x10000,
+    MISSING_FIELD = 0x1000;
+    
+    private static String getName(String s) {
+        int i = getCanonicalIndex(s);
+        String name = FIELD_NAME[types[i][1]];
+        int subtype = types[i][2];
+        boolean string = subtype < 0;
+        if (string) subtype = -subtype;
+        if (subtype < 0) name += ":S";
+        else name += ":N";
+        return name;
+    }
+	
+    private static int getCanonicalIndex(String s) {
+        int len = s.length();
+        int ch = s.charAt(0);
+        for (int i = 0; i < types.length; ++i) {
+            int[] row = types[i];
+            if (row[0] != ch) continue;
+            if (row[3] > len) continue;
+            if (row[row.length-1] < len) continue;
+            return i;
+        }
+        return -1;
+    }
+
+	static private int[][] types = {
+            // the order here makes a difference only when searching for single field.
+			{'G', ERA, SHORT, 1, 3},
+			{'G', ERA, LONG, 4},
+            
+			{'y', YEAR, NUMERIC, 1, 20},
+			{'Y', YEAR, NUMERIC + DELTA, 1, 20},
+			{'u', YEAR, NUMERIC + 2*DELTA, 1, 20},
+            
+			{'M', MONTH, NUMERIC, 1, 2},
+			{'M', MONTH, SHORT, 3},
+			{'M', MONTH, LONG, 4},
+			{'M', MONTH, NARROW, 5},
+			{'L', MONTH, NUMERIC + DELTA, 1, 2},
+			{'L', MONTH, SHORT - DELTA, 3},
+			{'L', MONTH, LONG - DELTA, 4},
+			{'L', MONTH, NARROW - DELTA, 5},
+            
+			{'w', WEEK_OF_YEAR, NUMERIC, 1, 2},
+			{'W', WEEK_OF_MONTH, NUMERIC + DELTA, 1},
+            
+            {'e', WEEKDAY, NUMERIC + DELTA, 1, 2},
+            {'e', WEEKDAY, SHORT - DELTA, 3},
+            {'e', WEEKDAY, LONG - DELTA, 4},
+            {'e', WEEKDAY, NARROW - DELTA, 5},
+            {'E', WEEKDAY, SHORT, 1, 3},
+            {'E', WEEKDAY, LONG, 4},
+            {'E', WEEKDAY, NARROW, 5},
+            {'c', WEEKDAY, NUMERIC + 2*DELTA, 1, 2},
+            {'c', WEEKDAY, SHORT - 2*DELTA, 3},
+            {'c', WEEKDAY, LONG - 2*DELTA, 4},
+            {'c', WEEKDAY, NARROW - 2*DELTA, 5},
+            
+			{'d', DAY, NUMERIC, 1, 2},
+			{'D', DAY_OF_YEAR, NUMERIC + DELTA, 1, 3},
+			{'F', DAY_OF_WEEK_IN_MONTH, NUMERIC + 2*DELTA, 1},
+			{'g', DAY, NUMERIC + 3*DELTA, 1, 20}, // really internal use, so we don't care
+            
+			{'a', DAYPERIOD, SHORT, 1},
+            
+			{'H', HOUR, NUMERIC + 10*DELTA, 1, 2}, // 24 hour
+			{'k', HOUR, NUMERIC + 11*DELTA, 1, 2},
+            {'h', HOUR, NUMERIC, 1, 2}, // 12 hour
+            {'K', HOUR, NUMERIC + DELTA, 1, 2},
+            
+			{'m', MINUTE, NUMERIC, 1, 2},
+            
+			{'s', SECOND, NUMERIC, 1, 2},
+			{'S', FRACTIONAL_SECOND, NUMERIC + DELTA, 1, 1000},
+			{'A', SECOND, NUMERIC + 2*DELTA, 1, 1000},
+            
+            {'v', ZONE, SHORT - 2*DELTA, 1},
+            {'v', ZONE, LONG - 2*DELTA, 4},
+			{'z', ZONE, SHORT, 1, 3},
+			{'z', ZONE, LONG, 4},
+			{'Z', ZONE, SHORT - DELTA, 1, 3},
+			{'Z', ZONE, LONG - DELTA, 4},
+	};
+    
+    // =================
+    
+    static class OOConverter {
+        FormatParser fp = new FormatParser();
+        
+        public String convertOODate(String source, String locale) {
+            if (source.length() == 0) return "";
+            source = source.replace('"', '\''); // fix quoting convention
+            StringBuffer buffer = new StringBuffer();
+            fp.set(source);
+            for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
+                Object item = it.next();
+                if (item instanceof VariableField) {
+                    buffer.append(handleOODate(item.toString(), locale));
+                } else {
+                    buffer.append(item);
+                }
+            }
+            return buffer.toString();
+        }
+        
+        private String handleOODate(String string, String locale) {
+            // preprocess hack for *localized* strings
+            if (locale.startsWith("de")) {
+                if (string.startsWith("T")) string = string.replace('T','D');
+                if (string.startsWith("J")) string = string.replace('J','Y');
+            } else if (locale.startsWith("nl")) {
+                if (string.startsWith("J")) string = string.replace('J','Y');
+            } else if (locale.startsWith("fi")) {
+                if (string.startsWith("K")) string = string.replace('K','M');
+                if (string.startsWith("V")) string = string.replace('V','Y');
+                if (string.startsWith("P")) string = string.replace('P','D');
+            } else if (locale.startsWith("fr")) {
+                if (string.startsWith("J")) string = string.replace('J','D');
+                if (string.startsWith("A")) string = string.replace('A','Y');
+            } else if (locale.startsWith("es") || locale.startsWith("pt")) {
+                if (string.startsWith("A")) string = string.replace('A','Y');
+            } else if (locale.startsWith("it")) {
+                if (string.startsWith("A")) string = string.replace('A','Y');
+                if (string.startsWith("G")) string = string.replace('G','D');
+            }
+            if (string.startsWith("M")) return string;
+            if (string.startsWith("A")) return string.replace('A','y'); // best we can do for now
+            if (string.startsWith("Y") || string.startsWith("W") || 
+                    string.equals("D") || string.equals("DD")) return string.toLowerCase();
+            if (string.equals("DDD") || string.equals("NN")) return "EEE";
+            if (string.equals("DDDD") || string.equals("NNN")) return "EEEE";
+            if (string.equals("NNNN")) return "EEEE, ";
+            if (string.equals("G")) return "G"; // best we can do for now
+            if (string.equals("GG")) return "G";
+            if (string.equals("GGG")) return "G"; // best we can do for now
+            if (string.equals("E")) return "y";
+            if (string.equals("EE") || string.equals("R")) return "yy";
+            if (string.equals("RR")) return "Gyy";
+            if (string.startsWith("Q")) return '\'' + string + '\'';
+            char c = string.charAt(0);
+            if (c < 0x80 && UCharacter.isLetter(c)) return string.replace(c,'x');
+            return string;
+        }
+        
+        public String convertOOTime(String source, String locale) {
+            if (source.length() == 0) return "";
+            source = source.replace('"', '\''); // fix quoting convention
+            int isAM = source.indexOf("AM/PM");
+            if (isAM >= 0) {
+                source = source.substring(0,isAM) + "a" + source.substring(isAM+5);
+            }
+            StringBuffer buffer = new StringBuffer();
+            fp.set(source);
+            for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
+                Object item = it.next();
+                if (item instanceof VariableField) {
+                    buffer.append(handleOOTime(item.toString(), locale, isAM >= 0));
+                } else {
+                    buffer.append(item);
+                }
+            }
+            return buffer.toString();
+        }
+        
+        private String handleOOTime(String string, String locale, boolean isAM) {
+            char c = string.charAt(0);
+            switch (c) {
+            case 'h': case 'H': case 't': case 'T': case 'u': case 'U':
+                return string.replace(c, isAM ? 'h' : 'H');
+            case 'M': case 'S': return string.toLowerCase();
+            case '0': return string.replace('0','S'); // ought to be more sophisticated, but this should work for normal stuff.
+            case 'a': case 's': case 'm': return string; // ok as is
+            default: return "x"; // cause error
+            }
+        }
+        private String convertToRule(String string) {
+            fp.set(string);
+            StringBuffer buffer = new StringBuffer();
+            Set additions = new HashSet();
+            for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
+                Object item = it.next();
+                if (item instanceof VariableField) {
+                    String s = item.toString();
+                    if (s.startsWith("a")) {
+                        buffer.append(s);
+                    } else {
+                        buffer.append('{' + s + '}');
+                    }
+                } else {
+                    buffer.append(item);
+                }
+            }
+            for (Iterator it = additions.iterator(); it.hasNext();) {
+                buffer.insert(0,it.next());
+            }
+            return buffer.toString();
+        }
+    }
+    static Date TEST_DATE = new Date(104,8,13,23,58,59);
+    
+    static Comparator VariableFieldComparator = new Comparator() {
+        public int compare(Object o1, Object o2) {
+            Collection a = (Collection)o1;
+            Collection b = (Collection)o2;
+            if (a.size() != b.size()) {
+                if (a.size() < b.size()) return 1;
+                return -1;
+            }
+            Iterator itb = b.iterator();
+            for (Iterator ita = a.iterator(); ita.hasNext();) {
+                String aa = (String) ita.next();
+                String bb = (String) itb.next();
+                int result = -aa.compareTo(bb);
+                if (result != 0) return result;
+            }
+            return 0;
+        }
+    };
+    
+    static Collection getOOData(Factory cldrFactory, String locale) {
+        List result = new ArrayList();
+        OOConverter ooConverter = new OOConverter();
+        {
+            if (SHOW_OO) System.out.println();
+            CLDRFile item = cldrFactory.make(locale, false);
+            for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
+                String xpath = (String) it2.next();
+                if (xpath.indexOf("/special") >= 0) continue;
+                boolean isDate = xpath.indexOf("/dateFormat/") >= 0 || xpath.indexOf("/dateFormat[@") >= 0;
+                boolean isTime = xpath.indexOf("/timeFormat/") >= 0 || xpath.indexOf("/timeFormat[@") >= 0;
+                if (isDate || isTime) {
+                    String value = item.getStringValue(xpath);
+                    String pattern = value;
+                    String oldPattern = pattern;
+                    if (oldPattern.indexOf('[') >= 0) continue;
+                    pattern = isDate ? ooConverter.convertOODate(pattern, locale) 
+                            : ooConverter.convertOOTime(pattern, locale);
+                    if (SHOW2) System.out.print("\t" + (isDate ? "Date" : "Time") + ": " + oldPattern + "\t" + pattern + "\t");
+                    try {
+                        SimpleDateFormat d = new SimpleDateFormat(pattern);
+                        if (SHOW2) System.out.print(d.format(TEST_DATE));
+                        result.add(d.toPattern());
+                        if (SHOW_OO) System.out.println(d.toPattern());
+                    } catch (Exception e) {
+                        if (SHOW2) System.out.print(e.getLocalizedMessage());
+                    }
+                    if (SHOW2) System.out.println();
+                }
+            }
+            return result;
+        }
+    }
+    
+    private static Object putNoReplace(Map m, Object key, Object value) {
+        Object current = m.get(key);
+        if (current != null) return current;
+        m.put(key, value);
+        return null;
+    }
 }

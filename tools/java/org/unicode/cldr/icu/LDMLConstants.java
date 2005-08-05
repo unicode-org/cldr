@@ -186,4 +186,9 @@ public class LDMLConstants {
     public static final String TO = "to";
     public static final String FROM = "from";
     public static final String LOCALE = "locale";
+    public static final String TIME_ZONE_DATA = "timeZoneData";
+    public static final String META_DATA = "metaData";
+    public static final String LANGUAGE_ALIAS = "languageAlias";
+    public static final String TERRITORY_ALIAS = "territoryAlias";
+    public static final String REPLACEMENT = "replacement";
 }

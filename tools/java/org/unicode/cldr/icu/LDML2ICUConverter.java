@@ -431,6 +431,10 @@ public class LDML2ICUConverter {
                 //TODO:
             }else if(name.equals(LDMLConstants.LANGUAGE_DATA)){
                 //TODO:
+            }else if(name.equals(LDMLConstants.TIME_ZONE_DATA)){
+                //TODO:
+            }else if(name.equals(LDMLConstants.META_DATA)){
+                //TODO:
             }else{
                 printError(file,"Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);
@@ -814,30 +818,6 @@ public class LDML2ICUConverter {
         if(verbose) {
             System.out.println();
         }
-        // now fetch the specials and append to the real bundle
-       /*
-        if(specialsDir!=null ){
-            if(specialsDoc == null) {
-               printWarning(specialsDir + "/" + locName + ".xml","Writing ICU res bundle without specials, missing ");
-            } else {
-                if(table.comment == null) {
-                    table.comment = "";
-                }
-                ICUResourceWriter.Resource res = parseSpecialsDocucment(specialsDoc);
-                table.comment = table.comment + " ICU <specials> source: " + specialsDir + "/"+ locName + ".xml";
-                if(res!=null){
-                    if(current == null){
-                        table.first = res;
-                        current = findLast(res);
-                    }else{
-                        current.next = res;
-                        current = findLast(res);
-                    }
-                    res = null;
-                }
-            }
-        }
-        */
         if(supplementalDoc !=null){
             /* TODO: comment this out for now. We shall revisit when 
              * we have information on how to present the script data
@@ -854,6 +834,7 @@ public class LDML2ICUConverter {
                 res = null;
             }
             */
+            ICUResourceWriter.Resource res = parseMetaData(supplementalDoc);
         }
         return table;
     }
@@ -3598,6 +3579,49 @@ public class LDML2ICUConverter {
         }
         return null;
     }
+    private ICUResourceWriter.Resource parseMetaData(Node doc){
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+        table.name = "DeprecatedList";
+        String xpath = "//supplementalData/metadata/alias";
+        Node alias = LDMLUtilities.getNode(doc, xpath);
+        for(Node node=alias.getFirstChild(); node!=null; node=node.getNextSibling()){
+            if(node.getNodeType()!=Node.ELEMENT_NODE){
+                continue;
+            }
+            /*
+                DeprecatedList{
+                    in{ id{} }
+                    iw{ he{} }
+                    ji{ yi{} }
+                    BU{ MM{} }
+                    DY{ BJ{} }
+                    HV{ BF{} }
+                    NH{ VU{} }
+                    RH{ ZW{} }
+                    TP{ TL{} }
+                    YU{ CS{} }
+                }
+             */
+            String name = node.getNodeName();
+            ICUResourceWriter.Resource res = null;
+            if(name.equals(LDMLConstants.LANGUAGE_ALIAS)|| name.equals(LDMLConstants.TERRITORY_ALIAS)){
+                String deprecated = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+                String current = LDMLUtilities.getAttributeValue(node, LDMLConstants.REPLACEMENT);
+            
+                if(deprecated.indexOf('_')>=0){
+                    //TODO: generate a locale that is aliased to the replacement
+                    continue;
+                }
+                //TODO: Fix it after discussion with the team
+            }else{
+                
+            }
+        }
+        if(table.first != null){
+            return table;
+        }
+        return null;
+    }
     private ICUResourceWriter.Resource parseLocaleScript(Node node){
         String language = ULocale.getLanguage(locName);
         String territory = ULocale.getCountry(locName);
@@ -3655,6 +3679,7 @@ public class LDML2ICUConverter {
         }
         return null;
     }
+    
     private static final String ICU_IS_LEAP_MONTH = "icu:isLeapMonth";
     private ICUResourceWriter.Resource parseSpecialElements(Node root, StringBuffer xpath){
         ICUResourceWriter.Resource current = null, first = null;
@@ -3880,6 +3905,7 @@ public class LDML2ICUConverter {
         File f = new File(specialsDir + "/" + "..", DEPRECATED_LIST);
         String myTreeName = null;
         File depF = null;
+        
         if(writeDeprecated==true) {
             depF = new File(options[WRITE_DEPRECATED].value);
             if(!depF.isDirectory()) {
@@ -3944,7 +3970,7 @@ public class LDML2ICUConverter {
                         Map generatedAliasFiles = new TreeMap();  // ex:  th_TH_TRADITIONAL.xml -> File  Files generated directly from the alias list. (no XML actually exists)
                         Map aliasFromFiles = new TreeMap(); // ex: zh_MO.xml -> File  Files which actually exist in LDML and contain aliases
                         HashMap validSubMap = new HashMap();  // en -> "en_US en_GB ..."
-
+                        HashMap maybeValidAlias = new HashMap(); // for in -> id where id is a synthetic alias
                         // 1. get the list of input XML files
                         FileFilter myFilter = new FileFilter() {
                             public boolean accept(File f) {
@@ -4046,12 +4072,14 @@ public class LDML2ICUConverter {
                                     if(fromFiles.containsKey(from + ".xml")) {
                                         throw new IllegalArgumentException("Can't be both a synthetic alias locale AND XML - consider using <aliasLocale source=\"" + from + "\"/> instead. ");
                                     }
+                                    ULocale fromLocale = new ULocale(from);
                                     if(!fromFiles.containsKey(toFileName+".xml")) {
-                                        System.err.println("WARNING: Alias from \"" + from + "\" not generated, because it would point to a nonexistent LDML file " + toFileName + ".xml" );
+                                        maybeValidAlias.put(toFileName,from);
+                                        //System.err.println("WARNING: Alias from \"" + from + "\" not generated, because it would point to a nonexistent LDML file " + toFileName + ".xml" );
+                                        //writeSimpleLocale(from+".txt", fromLocale, new ULocale(to), xpath,null);
                                     } else {
                                         // System.out.println("Had file " + toFileName + ".xml");
                                         generatedAliasFiles.put(from,new File(depF,from + ".xml"));
-                                        ULocale fromLocale = new ULocale(from);
                                         fromToMap.put(fromLocale,new ULocale(to));
                                         if(xpath!=null) {
                                             fromXpathMap.put(fromLocale,xpath);
@@ -4111,10 +4139,27 @@ public class LDML2ICUConverter {
                                     }
                                     if(testSub != null) {
                                         emptyFromFiles.put(aSub + ".xml", new File(depF,aSub+".xml"));
-                                        writeSimpleLocale(aSub + ".txt", new ULocale(aSub), null, null,
+                                        ULocale aSubL = new ULocale(aSub);
+                                        if(maybeValidAlias.containsKey(aSub)){
+                                            String from = (String)maybeValidAlias.get(aSub);
+                                            //writeSimpleLocale(from+".txt", fromLocale, new ULocale(to), xpath,null);
+                                            writeSimpleLocale(from + ".txt", new ULocale(from), aSubL, null, null);
+                                            maybeValidAlias.remove(aSub);
+                                            generatedAliasFiles.put(from,new File(depF,from + ".xml"));
+                                        }
+                                        writeSimpleLocale(aSub + ".txt",aSubL , null, null,
                                             "validSubLocale of \"" + actualLocale + "\"");
                                     }
                                 }
+                            }
+                        }
+                        if(!maybeValidAlias.isEmpty()){
+                            Set keys = maybeValidAlias.keySet();
+                            Iterator iter = keys.iterator();
+                            while(iter.hasNext()){
+                                String to = (String) iter.next();
+                                String from = (String) maybeValidAlias.get(to);
+                                System.err.println("WARNING: Alias from \"" + from + "\" not generated, because it would point to a nonexistent LDML file " + to + ".xml" );
                             }
                         }
 
@@ -4217,12 +4262,12 @@ public class LDML2ICUConverter {
                     str.val = toLocale.toString();
                     table.first = str;
                 } else {
-            ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
-           str.name = "___";
-           str.val = "";
-           str.comment =  "so genrb doesn't issue warnings";
-           table.first = str;
-        }
+                   ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                   str.name = "___";
+                   str.val = "";
+                   str.comment =  "so genrb doesn't issue warnings";
+                   table.first = str;
+                }
                 set = table;
                 if( comment != null ) {
                     set.comment = comment;

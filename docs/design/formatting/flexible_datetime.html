@@ -11,272 +11,181 @@
 <body>
 
 <h1>Flexible Datetime</h1>
-<p>MED, 2004-12-10</p>
-<p>I've done some investigating on this issue, and here is my current recommendation for how to 
-handle flexible datetime formatting. The goal is to have a more flexible set of patterns available 
-to developers, so that calendaring software, for example, can retrieve the best pattern for say, 
-year and numeric month, that is available for a given locale.</p>
-<p>1. Make part of the patterns variable; in particular, '/' and ':'. They can be used to change 
-formats without having to duplicate information.</p>
-<pre>&lt;dateSymbols&gt;
-    &lt;shortDateSeparator&gt;/&lt;/shortDateSeparator&gt;
-    &lt;shortTimeSeparator&gt;:&lt;/shortTimeSeparator&gt;</pre>
-<p>2. Add alternatives for lenient input</p>
-<pre>    &lt;input&gt;
-        &lt;shortDateSeparator&gt;-&lt;/shortDateSeparator&gt;
-        &lt;shortDateSeparator&gt;.&lt;/shortDateSeparator&gt;
-        &lt;shortTimeSeparator&gt;:&lt;/shortTimeSeparator&gt;
-    &lt;/input&gt;</pre>
-<p>This is a &quot;atomic&quot; element, so it is treated as a single item vis-a-vis inheritance: its children 
-do not inherit. That means also that the items do not need to be distinguished by a type.</p>
-<p>3. Add a list of formats (this is a sample set taken from OpenOffice). The list is of arbitrary 
-length.</p>
-<pre>    &lt;flexibleFormats&gt;
-	&lt;pattern&gt;EEEE, d MMMM yyyy&lt;/pattern&gt;
-	&lt;pattern&gt;EEE d MMMM yyyy&lt;/pattern&gt;
-	&lt;pattern&gt;EEE dd/MMM yy&lt;/pattern&gt;
-	&lt;pattern&gt;EEE d MMM yy&lt;/pattern&gt;
-	&lt;pattern&gt;dd MMMM yyyy&lt;/pattern&gt;
-	&lt;pattern&gt;d. MMMM yyyy&lt;/pattern&gt;
-	&lt;pattern&gt;d. MMM. yyyy&lt;/pattern&gt;
-	&lt;pattern&gt;d MMM yy&lt;/pattern&gt;
-	&lt;pattern&gt;dd/MM/yyyy&lt;/pattern&gt;
-	&lt;pattern&gt;dd/MM/yy&lt;/pattern&gt;
-	&lt;pattern&gt;dd/MMM&lt;/pattern&gt;
-	&lt;pattern&gt;MM/yy&lt;/pattern&gt;
-	&lt;pattern&gt;MM-dd&lt;/pattern&gt;
-	&lt;pattern&gt;ww&lt;/pattern&gt;
-	&lt;pattern&gt;MMMM&lt;/pattern&gt;
-	&lt;pattern&gt;hh:mm:ss a&lt;/pattern&gt;
-	&lt;pattern&gt;mm:ss.SS&lt;/pattern&gt;
-	&lt;pattern&gt;HH:mm:ss&lt;/pattern&gt;
-	&lt;pattern&gt;hh:mm a&lt;/pattern&gt;
-	&lt;pattern&gt;HH:mm&lt;/pattern&gt;
-    &lt;/flexibleFormats&gt;</pre>
-<p>This provides a set of formats that can be used to produce a variety of different patterns. The 
-field letters are based on the table in
-<a href="http://www.unicode.org/reports/tr35/#Date_Format_Patterns">Date_Format_Patterns</a>, with 
-some restrictions listed below.</p>
-<p>A key feature is that localizers don't need to know any more than they currently do; all they 
-have to do is supply more formats for whatever is acceptable for their language.&nbsp; (The Survey 
-tools can make this even easier by not presenting this raw list; it can have more 
-translator-friendly methods of composing it.)</p>
-<p>The way this would work is that an API would take as a key the list of fields the the programmer 
-wants to display, such as &quot;HHmm&quot;. The list is searched for a match, and if an exact match is not 
-available, then the best match is used (or constructed). So the best match for the key &quot;HHmm&quot; might 
-be &quot;KK.mm&quot; for one locale, and &quot;hh:mm a&quot; for another. The resulting value can then be used as the 
-format string.</p>
-<hr>
-<h2>The Ugly Details</h2>
-<p>Before looking at the restrictions on the patterns and defining the interpretation of the list, 
-we first have some definitions.</p>
-<p>The <i>match set</i> for any pattern is the set of all fields in the pattern, excluding 'a' 
-fields. (Of course, any quoted characters are not counted as fields.) Since it is a set, the order 
-doesn't matter: in examples, we'll use alphabetical. Examples:</p>
-<ul>
-  <li>&quot;hh:mm:ss a&quot; <font face="Arial Unicode MS">&#8594; {hh mm ss}</font></li>
-  <li>&quot;yyyy-MM-dd&quot; <font face="Arial Unicode MS">&#8594; {dd MM yyyy}</font></li>
-  <li>&quot;MM/dd/yyyy&quot; <font face="Arial Unicode MS">&#8594; {dd MM yyyy}</font></li>
-  <li>&quot;MM/dd/'yyyy'&quot; <font face="Arial Unicode MS">&#8594; {dd MM}</font></li>
-</ul>
-<p>To <i>fix</i> a pattern means to replace all unquoted instances of / and : by the 
-shortDateSeparator and shortTimeSeparator, respectively.</p>
-<h3>Restrictions on the list of patterns</h3>
-<ol>
-  <li>You cannot have multiple fields with the same letter in the pattern,<ul>
-    <li>e.g. &quot;MM-dd-MMM&quot; is illegal.</li>
-  </ul>
-  </li>
-  <li>You cannot have multiple fields with similar letters in the pattern. These are field starting 
-  with the following {u y Y}, {h H k K}, {z Z}<ul>
-    <li>e.g. &quot;yyyy-MM-uuuu&quot; is illegal</li>
-  </ul>
-  </li>
-  <li>The match set for each pattern must be unique within the list<ul>
-    <li>Thus having both &quot;HH:mm&quot; and &quot;mm.HH&quot; in the list is illegal, because the match sets are both 
-    {HH mm}</li>
-  </ul>
-  </li>
-  <li>Note that / and : are variable, and may be replaced by shortDateSeparator and 
-  shortTimeSeparator, respectively. If a fixed value it desired, it must be quoted<ul>
-    <li>e.g. &quot;MM'/'dd'/'yyyy&quot;</li>
-  </ul>
-  </li>
-  <li>The characters { and } also have special meaning, and must be quoted if they are to have fixed 
-  values.</li>
-</ol>
-<h3>Generating the best match</h3>
-<p>The following is the interpretation given to the patterns. The set of patterns provides a way to 
-generate a date time format as described in
-<a href="http://www.unicode.org/reports/tr35/#Date_Format_Patterns">Date_Format_Patterns</a>, that 
-can be used to parse or format dates or times. The method provided here specifies the 
-interpretation, but not the API. That is, although the key below is described as, say {MM yyyy}, an 
-API could use a key in the form of a set, like {two-digit-numeric-month, four-digit-year}. The 
-description here is logical; it can certainly be optimized (and in any even, the result would 
-probably be cached so that subsequent accesses would be fast).</p>
-<ul>
-  <li>The input for selecting among the patterns is a match set.</li>
-  <li>If the key contains one of {h, H, k, K, y, Y, u, z, Z} (or any field starting with one of 
-  those), and <i>none</i> of the patterns do, then the key is altered by remapping each character in 
-  it with the following table. The replacements are in priority order from left to right.<ul>
-    <li>
-    <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2">
-      <tr>
-        <th>key</th>
-        <th colspan="3">replacements</th>
-      </tr>
-      <tr>
-        <td>h</td>
-        <td>K</td>
-        <td>H</td>
-        <td>k</td>
-      </tr>
-      <tr>
-        <td>H</td>
-        <td>k</td>
-        <td>h</td>
-        <td>K</td>
-      </tr>
-      <tr>
-        <td>k</td>
-        <td>H</td>
-        <td>K</td>
-        <td>h</td>
-      </tr>
-      <tr>
-        <td>K</td>
-        <td>h</td>
-        <td>k</td>
-        <td>H</td>
-      </tr>
-      <tr>
-        <td>y</td>
-        <td>u</td>
-        <td>Y</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>u</td>
-        <td>y</td>
-        <td>Y</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>Y</td>
-        <td>u</td>
-        <td>y</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>z</td>
-        <td>Z</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>Z</td>
-        <td>z</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table>
-    </li>
-  </ul>
-  </li>
-  <li>Compare the key match set to each pattern's match set, by computing a penalty (see below). If 
-  the penalty is ever zero, then the pattern is returned (after fixing).</li>
-  <li>If the penalty is over 1000, divide the key into two match sets, one with date fields and the 
-  other with time fields. If both are none-empty, match each against the patterns, compose the 
-  result with the dateTimeFormat pattern (already defined in CLDR 1.2), and return it.</li>
-  <li>Pick the best match from the patterns, the one with the smallest penalty. If there are 
-  multiple patterns with the same penalty, pick the first one in the list.</li>
-  <li>If all of the key fields are represented, return the format (after fixing).</li>
-  <li>Otherwise, pick the pattern, fix it, and remove its match set from the key. Get the matching 
-  pattern for the (now reduced) key, and append to the pattern with a space between.<ul>
-    <li>Alternatively, instead of a space, separate each append by the shortDateSeparator if it is a 
-    date field, and the shortTimeSeparator if it is a time field. Fix the result and return it.</li>
-  </ul>
-  </li>
-</ul>
-<h4>Penalty Function</h4>
-<p>Compute the penalty by comparing each of the fields in the two sets, and adding up the penalty.</p>
-<ol>
-  <li>Fields match exactly, penalty = 0</li>
-  <li>Field letter in Key, but not in Pattern, penalty = 1000</li>
-  <li>Field letter in Pattern, but not in Key, penalty = 100000</li>
-  <li>Fields match in letter, but not number, use following table:</li>
-</ol>
-<table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber3">
-  <tr>
-    <td>KeyField</td>
-    <td>PatternField</td>
-    <td>Penalty</td>
-  </tr>
-  <tr>
-    <td>MMM MMMM</td>
-    <td>M MM</td>
-    <td align="right">20</td>
-  </tr>
-  <tr>
-    <td>EEE EEEE</td>
-    <td>E EE</td>
-    <td align="right">20</td>
-  </tr>
-  <tr>
-    <td>M MM</td>
-    <td>MMM MMMM</td>
-    <td align="right">20</td>
-  </tr>
-  <tr>
-    <td>E EE</td>
-    <td>EEE EEEE</td>
-    <td align="right">20</td>
-  </tr>
-  <tr>
-    <td>otherwise</td>
-    <td>dddd</td>
-    <td align="right">sqr(length(KeyField) - length(PatternField))</td>
-  </tr>
-</table>
-<p>Example: key: {MMM yy}, pattern: {G MM yyyy}</p>
-<ul>
-  <li>G: case 3, +100000</li>
-  <li>MM vs MMM, +1</li>
-  <li>yy vs yyyy, +4</li>
-  <li>total: 100,005</li>
-</ul>
-<h3>Existing Formats</h3>
-<p>This supplements the existing formats that are already in CLDR.</p>
-<p><b>Option: </b>For the existing full, long, medium, short formats, we could have an alternative 
-fallback. If a type doesn't have a value, and the flexibleFormats do exist, then use the following 
-keys to get a pattern.</p>
-<table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
-  <tr>
-    <th align="left">&nbsp;</th>
-    <th>date</th>
-    <th>time</th>
-  </tr>
-  <tr>
-    <th align="left">full</th>
-    <td>EdMMMMyG</td>
-    <td>hmsSz</td>
-  </tr>
-  <tr>
-    <th align="left">long</th>
-    <td>EdMMMMy</td>
-    <td>hmsz</td>
-  </tr>
-  <tr>
-    <th align="left">medium</th>
-    <td>dMMMy</td>
-    <td>hms</td>
-  </tr>
-  <tr>
-    <th align="left">short</th>
-    <td>dMy</td>
-    <td>hm</td>
-  </tr>
-</table>
+<p>MED, 2005-08-09</p>
+<p>[From email of 2005-08-02]</p>
+<p>The basic design is that a localizer can put whatever formats they want into a list in CLDR.<br>
+The thing I like about this method over anything else we discussed is that<br>
+the burden on the localizer is small, since all they have to do is provide<br>
+lists of formats; there is no extra fancy-dancy scripting, variables,<br>
+whatever else that they would need to learn.<br>
+<br>
+For example, here is a list of formats for a particular locale from Open<br>
+Office.<br>
+<br>
+d. MMM yy<br>
+d. MMM yyyy<br>
+d. MMMM yyyy<br>
+EEE, d. MMM yy<br>
+EEE, d. MMMM yyyy<br>
+EEEE, d. MMMM yyyy<br>
+d. MMM. yyyy<br>
+d. MMMM yyyy<br>
+EEEE, d. MMMM yyyy<br>
+yy-MM-dd<br>
+EEE dd.MMM yy<br>
+yyyy-MM-dd<br>
+ww<br>
+MM.yy<br>
+dd.MMM<br>
+MMMM<br>
+'QQ' yy // Note: this is an artifact of my translation from OO, since CLDR<br>
+doesn't yet have quarters.<br>
+dd.MM.yyyy<br>
+dd.MM.yy<br>
+dd.MM.yy<br>
+MM-dd<br>
+HH:mm:ss<br>
+hh:mm:ss a<br>
+HH:mm<br>
+hh:mm a<br>
+mm:ss,SS<br>
+<br>
+This could go into a new subelement of &lt;dateTimeFormats&gt;, such as<br>
+<br>
+&lt;availableFormats&gt;<br>
+&nbsp; &lt;dateFormatItem&gt;d. MMM yy&lt;/dateFormatItem&gt;<br>
+&nbsp;&nbsp; ...<br>
+&nbsp; &lt;dateFormatItem&gt;hh:mm:ss a&lt;/dateFormatItem&gt;<br>
+&nbsp;&nbsp;&nbsp; ...<br>
+&lt;/availableFormats&gt;<br>
+<br>
+We can omit any that are already listed as patterns in dateFormats or<br>
+timeFormats. Notice that this is specific to a calendar, although one<br>
+calendar can alias this to another.<br>
+<br>
+With the API, the user can pass in a request script, like &quot;ymd&quot;. That<br>
+request just contains the field letters, with the requested length. Order is<br>
+irrelevant. The list is searched, and a match is adjusted to have the same<br>
+field widths as what is input. If there is not a good match (eg missing or<br>
+extra fields), the request is broken into date and time segments, and we try<br>
+again, putting the two results together with the datetimepattern (already in<br>
+CLDR). For each of those, if we fail, we get the best match that has the<br>
+most fields and try again with the remainder. We add the remainder onto the<br>
+original, again with a message format pattern that can be localized.<br>
+<br>
+What I do for matching is compute a 'distance' to each pattern, and pick the<br>
+smallest one. The total distance is the sum of the distances between the<br>
+individual fields. Currently I have a difference of 1 between different<br>
+lengths (eg mmm vs mmmmm), but a difference of 256 between numeric and<br>
+string (eg mm vs mmm), and a difference of 16 (or multiples) between<br>
+variants (like u vs y). If a field is missing or extra, a huge weight is<br>
+added.<br>
+All these weights are tunable per field, so we can modify it to suit. (I<br>
+also mechanically add all the single fields, since that isn't in the OO<br>
+data. For the single fields, the fields themselves in a 'default' length can<br>
+be used as defaults; if those didn't work a localizer could always have<br>
+explicit ones.)<br>
+<br>
+The code was pretty straightforward; if you are interested you can look at<br>
+org.unicode.cldr.test.FlexibleDateTime.java (not production level code, of<br>
+course!) or<br>
+<a href="http://unicode.org/cldr/data/tools/java/org/unicode/cldr/test/FlexibleDateTime.java">
+http://unicode.org/cldr/data/tools/java/org/unicode/cldr/test/FlexibleDateTime.java</a>.<br>
+The distance calculation is in getDistance, so you can search for that to<br>
+see the code and usage (ignore the first instance).<br>
+<br>
+The production code would want to cache the results, so that the next match<br>
+of the same input request (for the same locale!) would be fast.<br>
+<br>
+Anyway, here is a test run (look at this with a wide window: the fields are<br>
+tab separated).<br>
+<br>
+German (Germany) (de_DE)<br>
+Sample Input: Thu Dec 23 01:02:03 PST 1999<br>
+Input request:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dMMy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fields:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {Day:N}{Month:N}{Year:N}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Localized Pattern:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y-MM-d<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sample Results:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; «1999-12-23»<br>
+Input request:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fields:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {Hour:N}{Hour:N}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Conflicting fields: k, h<br>
+Input request:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GHHmm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fields:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {Era:N}{Hour:N}{Minute:N}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Localized Pattern:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; G HH:mm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sample Results:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; «n. Chr. 01:02»<br>
+Input request:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; yyyyHHmm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fields:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {Year:N}{Hour:N}{Minute:N}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Localized Pattern:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'QQ' yyyy HH:mm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sample Results:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; «QQ 1999 01:02»<br>
+Input request:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kmm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fields:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {Hour:N}{Minute:N}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Localized Pattern:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; h:mm a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sample Results:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; «1:02 vorm.»<br>
+Input request:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kmm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fields:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {Hour:N}{Minute:N}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Localized Pattern:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; H:mm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sample Results:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; «1:02»<br>
+Input request:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MMdd<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fields:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {Month:N}{Day:N}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Localized Pattern:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MM-dd<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sample Results:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; «12-23»<br>
+Input request:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ddHH<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fields:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {Day:N}{Hour:N}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Localized Pattern:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dd HH<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sample Results:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; «23 01»<br>
+Input request:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; yyyyMMMd<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fields:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {Year:N}{Month:N}{Day:N}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Localized Pattern:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; d. MMM yyyy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sample Results:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; «23. Dez 1999»<br>
+Input request:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; yyyyMMddHHmmss<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fields:<br>
+{Year:N}{Month:N}{Day:N}{Hour:N}{Minute:N}{Second:N}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Localized Pattern:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; yyyy-MM-dd HH:mm:ss<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sample Results:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; «1999-12-23 01:02:03»<br>
+Input request:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GEEEEyyyyMMddHHmmss<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fields:<br>
+{Era:N}{Weekday:N}{Year:N}{Month:N}{Day:N}{Hour:N}{Minute:N}{Second:N}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Localized Pattern:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EEEE, dd. MM yyyy [G] HH:mm:ss<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sample Results:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; «Donnerstag, 23. 12 1999 [n. Chr.]<br>
+01:02:03»<br>
+Input request:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GuuuuMMMMwwWddDDDFEEEEaHHmmssSSSvvvv<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fields:<br>
+{Era:N}{Year:N}{Month:N}{Week_in_Year:N}{Week_in_Month:N}{Day:N}{Day_Of_Year<br>
+:N}{Day_of_Week_on_Month:N}{Weekday:N}{Dayperiod:N}{Hour:N}{Minute:N}{Second<br>
+:N}{Fractional_Second:N}{Zone:N}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Localized Pattern:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EEEE, dd. MMMM uuuu [ww] [G] [W] [F]<br>
+[DDD] HH:mm:ss [vvvv] [SSS]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sample Results:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; «Donnerstag, 23. Dezember 1999 [51] [n.<br>
+Chr.] [4] [4] [357] 01:02:03 [Los Angeles (Vereinigte Staaten)] [000]»<br>
+<br>
+In these, the message format for appending extra fields if some are left<br>
+over is just &quot;{0} [{1}]&quot; -- for testing. This shows up in the last couple<br>
+items because there are no patterns with odd combinations like<br>
+day-of-week-in-month in German; but also no era. One possibility I thought<br>
+of is for appended fields we have the option of an localized, ordered<br>
+mapping from matched fields (when appending) to message formats to use to<br>
+perform the for appending, eg<br>
+<br>
+G =&gt; &quot;{0} {1}&quot;<br>
+w =&gt; &quot;{0} (Woche: {1})&quot;<br>
+...<br>
+<br>
+This could be in XML as:<br>
+&lt;availableFormats&gt;<br>
+&nbsp; &lt;appendItems request=&quot;G&quot;&gt;{0} {1}&lt;/appendItems&gt;<br>
+&nbsp; &lt;appendItems request=&quot;w&quot;&gt;{0} (Woche: {1})&lt;/appendItems&gt;<br>
+...<br>
+&lt;/availableFormats&gt;<br>
+<br>
+The request could be more than one letter. That would let us append missing<br>
+fields onto the best match, and give as good a results as we need (assuming<br>
+that the localizers have gotten the common cases -- we can start with the<br>
+data from OpenOffice).<br>
+<br>
+<br>
+<br>
+<br>
+&nbsp;</p>
 
 </body>
 

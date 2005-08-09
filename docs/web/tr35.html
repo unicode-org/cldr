@@ -15,6 +15,7 @@ span.element { font-weight: bold; color: red }
 span.attribute { font-weight: bold; color: maroon}
 span.attributeValue { font-weight: bold; color: blue}
 span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
+li, p, table           { margin-top: 0.5li; margin-bottom: 0.5li }
 -->
 </style>
 </head>
@@ -170,7 +171,7 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
     <li>Appendix G: <a href="#Number_Format_Patterns"><span>Number Format Patterns</span></a></li>
     <li>Appendix H: <a href="#Choice_Patterns"><span>Choice Patterns</span></a></li>
     <li>Appendix I: <a href="#Inheritance_and_Validity"><span>Inheritance and Validity</span></a></li>
-    <li>Appendix J: <a href="#Time_Zone_Fallback"><span>Time Zone Fallback</span></a></li>
+    <li>Appendix J: <a href="#Time_Zone_Fallback"><span>Time Zone Display Names</span></a></li>
     <li>Appendix K: <span><a href="#valid_attribute_values">Valid Attribute Values</a></span></li>
     <li>Appendix L: <a href="#Canonical_Form">Canonical Form</a></li>
     <li><a href="#Acknowledgments">Acknowledgments</a></li>
@@ -503,9 +504,9 @@ de_DE@collation=phonebook,currency=<span>DDM</span></pre>
     </tr>
     <tr>
       <td>timezone</td>
-      <td><i>Olson ID</i></td>
-      <td>Identification for timezone according to the Olson Database ID. See [<a href="#DataFormats">Data 
-      Formats</a>].</td>
+      <td><i><span class="changedspan">TZ</span>ID</i></td>
+      <td>Identification for timezone according to the <i><span class="changedspan">TZ </span></i>
+      Database. See [<a href="#DataFormats">Data Formats</a>].</td>
     </tr>
   </table>
   <p class="note"><span>For more information on the allowed attribute values, see the specific 
@@ -1474,14 +1475,15 @@ root</pre>
   regionFormat*, fallbackFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, 
   default*, zone*, special*)) &gt;<br>
   &lt;!ELEMENT zone (alias | ( long*, short*, exemplarCity*, special*)) &gt;</span></p>
-  <p>The timezone IDs <span>(tzid) </span>are language-independent, and follow the <i>Olson timezone 
-  database</i> [<a href="#Olson">Olson</a>]. However, the display names for those IDs can vary by 
-  locale. The generic time is so-called <i>wall-time</i>; what clocks use when they are correctly 
-  switched from standard to daylight time at the mandated time of the year.</p>
+  <p>The timezone IDs <span>(tzid) </span>are language-independent, and follow the <i>
+  <span class="changedspan">TZ</span> timezone database</i> [<a href="#Olson">Olson</a>]. However, 
+  the display names for those IDs can vary by locale. The generic time is so-called <i>wall-time</i>; 
+  what clocks use when they are correctly switched from standard to daylight time at the mandated 
+  time of the year.</p>
   <p><span>Unfortunately, the canonical tzid&#39;s (those in zone.tab) are not stable: may change in 
-  each release of the Olson Timezone database. In CLDR, however, stability of identifiers is very 
-  important. So the canonical IDs in CLDR are kept stable as described in Appendix L:
-  <a href="#Canonical_Form">Canonical Form</a>.</span></p>
+  each release of the </span><i><span class="changedspan">TZ</span></i><span> Timezone database. In 
+  CLDR, however, stability of identifiers is very important. So the canonical IDs in CLDR are kept 
+  stable as described in Appendix L: <a href="#Canonical_Form">Canonical Form</a>.</span></p>
   <p><span>The following is an example of timezone data. Although this is an example of possible 
   data, in most cases only the exemplarCity is needs translation. And that does not even need to be 
   present, if a country only has a single timezone. As always, t</span><span>he <i>type</i> field 
@@ -1514,9 +1516,9 @@ root</pre>
   see [<a href="#UTCInfo">UTCInfo</a>].)</p>
   <p class="note">The conversion from local time into UTC depends on the particular time zone rules, 
   which will vary by location. The standard data used for converting local time (sometimes called <i>
-  wall time</i>) to UTC and back is the <i>Olson Data</i> [<a href="#Olson">Olson</a>], used by 
-  UNIX, Java, ICU, and others. The data includes rules for matching the laws for time changes in 
-  different countries. For example, for the US it is:</p>
+  wall time</i>) to UTC and back is the <i><span class="changedspan">TZ</span> Data</i> [<a href="#Olson">Olson</a>], 
+  used by Linux, UNIX, Java, ICU, and others. The data includes rules for matching the laws for time 
+  changes in different countries. For example, for the US it is:</p>
   <blockquote>
     <p class="note">&quot;During the period commencing at 2 o&#39;clock antemeridian on the first Sunday of 
     April of each year and ending at 2 o&#39;clock antemeridian on the last Sunday of October of each 
@@ -1531,15 +1533,17 @@ root</pre>
   associated with these is provided for users</span> (such as in the Windows<i> Control 
   Panels&gt;Date/Time&gt;Time Zone</i>).</p>
   <p class="note">Unfortunately, laws change over time, and will continue to change in the future, 
-  both for the boundaries of timezone regions and the rules for daylight savings. Thus the Olson 
-  data is continually being augmented. Any two implementations using the same version of the Olson 
-  data will get the same results for the same IDs (assuming a correct implementation). However, if 
+  both for the boundaries of timezone regions and the rules for daylight savings. Thus the <i>
+  <span class="changedspan">TZ</span></i> data is continually being augmented. Any two 
+  implementations using the same version of the <i><span class="changedspan">TZ</span></i> data will 
+  get the same results for the same IDs (assuming a correct implementation). However, if 
   implementations use different versions of the data they may get different results. So if precise 
-  results are required then both the Olson ID and the Olson data version must be transmitted between 
-  the different implementations.</p>
+  results are required then both the <i><span class="changedspan">TZ</span></i> ID and the <i>
+  <span class="changedspan">TZ</span></i> data version must be transmitted between the different 
+  implementations.</p>
   <p class="note"><span>For more information, see [<a href="#DataFormats">Data Formats</a>].</span></p>
   <p>The following subelements of timezoneNames are used to control the fallback process described 
-  in <a href="#Time_Zone_Fallback"><span>Appendix J: Time Zone Fallback</span></a>.</p>
+  in <a href="#Time_Zone_Fallback"><span>Appendix J: Time Zone Display Names</span></a>.</p>
   <table cellSpacing="0" cellPadding="4" border="1">
     <tr>
       <th>Element Name</th>
@@ -2877,8 +2881,9 @@ America/Kentucky/Monticello&quot;&gt;
     </blockquote>
   </blockquote>
   <p><span>&lt;mapTimezones&gt;</span></p>
-  <p><span>The following data can be used to provide mappings between Olson tzids and other 
-  platforms. The purpose is to assist with migration and vetting.</span></p>
+  <p><span>The following data can be used to provide mappings between </span><i>
+  <span class="changedspan">TZ</span></i><span> IDs and other platforms. The purpose is to assist 
+  with migration and vetting.</span></p>
   <pre><span>&lt;mapTimezones type=&quot;windows&quot;&gt;
 			&lt;mapZone other=&quot;Dateline&quot; type=&quot;Etc/GMT+12&quot;&gt;
 			&lt;mapZone other=&quot;Samoa&quot; type=&quot;Pacific/Midway&quot;&gt;
@@ -2999,7 +3004,7 @@ America/Kentucky/Monticello&quot;&gt;
   <p>Notice also that <i>currency codes</i> are different than <i>currency localizations</i>. The 
   currency localizations should normally be in the language-based resource bundles, not in the 
   territory-based resource bundles. Thus, the resource bundle <i>en</i> contains the localized 
-  mappings in English for a range of different currency codes: USD =&gt; $, RUR =&gt; Rub, etc. (In 
+  mappings in English for a range of different currency codes: USD → $, RUR → Rub, etc. (In 
   protocols, the currency codes should always accompany any currency amounts; otherwise the data is 
   ambiguous, and software is forced to use the user&#39;s territory to guess at the currency. For some 
   informal discussion of this, see
@@ -3557,7 +3562,8 @@ America/Kentucky/Monticello&quot;&gt;
       <td style="vertical-align: top; text-align: left"><span class="changed">PDT</span></td>
       <td rowspan="2" style="vertical-align: top; text-align: left"><span class="changed"><span>
       Timezone - Use one to three letters for the short timezone or four for the full name. For more 
-      information, see </span>Appendix J: <a href="#Time_Zone_Fallback"><span>Time Zone Fallback</span></a></span></td>
+      information, see </span>Appendix J: <a href="#Time_Zone_Fallback"><span>Time Zone Display 
+      Names</span></a></span></td>
     </tr>
     <tr>
       <td style="vertical-align: top; text-align: left">4</td>
@@ -3581,7 +3587,7 @@ America/Kentucky/Monticello&quot;&gt;
       <td style="vertical-align: top; text-align: left"><span class="changed">PT</span></td>
       <td rowspan="2" style="vertical-align: top; text-align: left"><span class="changed"><span>Use 
       one letter for short wall (generic) time, four for long wall time. For more information, see
-      </span>Appendix J: <a href="#Time_Zone_Fallback"><span>Time Zone Fallback</span></a></span></td>
+      </span>Appendix J: <a href="#Time_Zone_Fallback"><span>Time Zone Display Names</span></a></span></td>
     </tr>
     <tr>
       <td style="vertical-align: top; text-align: left"><span class="changed">4</span></td>
@@ -4126,7 +4132,7 @@ America/Kentucky/Monticello&quot;&gt;
     <dd><span>- separates lists of numbers </span></dd>
     <dt><b><span>percentSign</span></b><span> </span></dt>
     <dd><span>- symbol used to indicate a percentage (1/100th) amount. (If present, the value is 
-    also multiplied by 100 before formatting. That way 1.23 =&gt; 123%) </span></dd>
+    also multiplied by 100 before formatting. That way 1.23 → 123%) </span></dd>
     <dt><b><span>nativeZeroDigit</span></b><span> </span></dt>
     <dd><span>- Symbol used to indicate a digit in the pattern, or zero if that place would 
     otherwise be empty. For example, with the digit of &#39;0&#39;, the pattern &quot;000&quot; would format &quot;34&quot; as 
@@ -4143,7 +4149,7 @@ America/Kentucky/Monticello&quot;&gt;
     <dd><span>- Symbol separating the mantissa and exponent values. </span></dd>
     <dt><b><span>perMille</span></b><span> </span></dt>
     <dd><span>- symbol used to indicate a per-mille (1/1000th) amount. (If present, the value is 
-    also multiplied by 1000 before formatting. That way 1.23 =&gt; 1230 [1/000]) </span></dd>
+    also multiplied by 1000 before formatting. That way 1.23 → 1230 [1/000]) </span></dd>
     <dt><b><span>infinity</span></b><span> </span></dt>
     <dd><span>- The infinity sign. Corresponds to the IEEE infinity bit pattern. </span></dd>
     <dt><b><span>nan - Not a number</span></b><span> </span></dt>
@@ -4498,67 +4504,149 @@ America/Kentucky/Monticello&quot;&gt;
   types, keywords, currency symbols or currency display names, the default value is the identifier 
   itself whenever if no value is found in the root. Thus if there is no display name for the region 
   code &#39;QA&#39; in root, then the display name is simply &#39;QA&#39;. </span></p>
-  <h2><span>Appendix J: <a name="Time_Zone_Fallback">Time Zone Fallback</a></span></h2>
-  <p>When a timezone is to be displayed, the following process is used. The starred items are 
-  skipped if &lt;abbreviationFallback type=&#39;GMT&#39;&gt; is present in the resolved locale data.</p>
+  <h2><span>Appendix J: <a name="Time_Zone_Fallback">Time Zone <span class="changedspan">Display 
+  Names</span></a></span></h2>
+  <p><span class="changedspan">There are three types of formats for zone identifiers: GMT, generic 
+  (wall time), and standard/daylight. Standard and daylight are equivalent to a particular offset 
+  from GMT, and can be represented by a GMT offset as a fallback. In general, this is not true for 
+  the generic format, which is used for picking<br>
+  timezones or for conveying a timezone for specifying a recurring time (such as a meeting in a 
+  calendar). For either purpose, a GMT offset would lose information.</span></p>
+  <p><span class="changedspan">When a timezone is to be displayed, the following process is used. It 
+  uses explicit display names where they are available, and otherwise uses a fallback to GMT for 
+  non-wall time (standard and daylight). For generic, it falls back to the exemplar city if 
+  available, otherwise the country if possible, and otherwise the last field of the zone ID.</span></p>
+  <p><span class="changedspan">Each step is followed until a &quot;return&quot; is reached. Some of the 
+  examples are drawn from real data, while for illustration the region format is &quot;Tampo de {0}&quot;. The 
+  fallback format is &quot;{0} ({1})&quot;, which is what is in root. </span></p>
   <ol>
-    <li>Canonicalize the Olson ID, mapping to one of the 407 &quot;real&quot; IDs.
-    <ul>
-      <li><i>America/Atka =&gt; America/Adak</i> </li>
-      <li>[TBD: point to the exact data used to do this]</li>
+    <li><span class="changedspan">Canonicalize the </span><i><span class="changedspan">TZ</span></i><span class="changedspan"> 
+    ID according to the &lt;timezoneData&gt; table in supplemental data. Use that canonical TZID in each 
+    of the following steps.</span><ul>
+      <li><span class="changedspan">America/Atka → America/Adak</span></li>
+      <li><span class="changedspan">Australia/ACT → Australia/Sydney</span></li>
     </ul>
     </li>
-    <li>If there is an exact translation in the resolved locale, use it. Note that this translation 
-    may not at all be literal, it would be what is most recognizable for people using the target 
-    language.
-    <ul>
-      <li><i>America/Los_Angeles =&gt; &quot;Tampo de Pacifica&quot;</i> </li>
+    <li><span class="changedspan">For RFC 822 format (&quot;Z&quot;) return the results according to the RFC.</span><ul>
+      <li><span class="changedspan">America/Los_Angeles → &quot;-0800&quot;</span></li>
     </ul>
     </li>
-    <li><span>Else for non-wall-time, use GMT format</span>
-    <ol>
-      <li><i><span>America/Los_Angeles =&gt; &quot;GMT-08:00&quot;</span></i> </li>
-    </ol>
-    </li>
-    <li><span>* </span>Else if there is an exemplar city, use it with the region format. The 
-    exemplar city may not be the same as the Olson ID city, if another city is much more 
-    recognizable for whatever reason. However, it is very strongly recommended that the same city be 
-    used.
-    <ul>
-      <li><i>America/Los_Angeles =&gt; &quot;Tampo de San Fransisko&quot;</i> </li>
+    <li><span class="changedspan">If there is an explicit translation for the TZID according to type 
+    (generic, standard, or daylight) in the resolved locale, return it.</span><ul>
+      <li><span class="changedspan">America/Los_Angeles → &quot;Heure du Pacifique (ÉUA)&quot; // generic</span></li>
+      <li><span class="changedspan">America/Los_Angeles → 太平洋標準時 // standard</span></li>
+      <li><span class="changedspan">America/Los_Angeles → Yhdysvaltain Tyynenmeren kesäaika // 
+      daylight</span></li>
+    </ul>
+    <p><span class="changedspan"><b>Note: </b>This translation may not at all be literal: it would 
+    be what is most recognizable for people using the target language.</span></li>
+    <li><span class="changedspan">For non-wall-time (ie, GMT, daylight, or standard) or where there 
+    is no country for the TZID (eg, Etc/GMT+3), use the localized GMT format.</span><ul>
+      <li><span class="changedspan">America/Los_Angeles → &quot;GMT-08:00&quot; //&nbsp; standard time</span></li>
+      <li><span class="changedspan">America/Los_Angeles → &quot;HMG-07:00&quot; //&nbsp; daylight time</span></li>
+      <li><span class="changedspan">Etc/GMT+3 → &quot;GMT-03.00&quot; // note that </span><i>
+      <span class="changedspan">TZ</span></i><span class="changedspan"> tzids have inverse polarity!</span></li>
     </ul>
     </li>
-    <li><span>* </span>Else if there is a country for the time zone, and a translation in the locale 
-    for the country name, and the country only has one (modern) timezone<span> or is in the 
-    singleCountries list</span>, use it with the region format :
-    <ul>
-      <li><i>Africa/Monrovia =&gt; LR =&gt; &quot;Tampo de Liberja&quot;</i> </li>
+    <li><span class="changedspan">Thus the remaining steps are only applicable to the generic 
+    format. In these steps, use as the country name the an explicitly localized country if 
+    available, otherwise the raw country code. If the localized exemplar city is not available, use 
+    as the exemplar city the last field of the raw TZID, stripping off the prefix and turning _ into 
+    space.</span><ul>
+      <li><span class="changedspan">CU → &quot;CU&quot; // no localized country name for Cuba</span></li>
+      <li><span class="changedspan">America/Los_Angeles → &quot;Los Angeles&quot; // no localized exemplar 
+      city</span></li>
     </ul>
     </li>
-    <li>Else if it is a perpetual alias for a &quot;real&quot; ID, and if there is an exact translation for 
-    that, try #1..#4 with that alias.
-    <ul>
-      <li><i>Europe/San_Marino =&gt; Europe/Rome =&gt; ... =&gt; &quot;Tampo de Roma&quot;</i> </li>
+    <li><span class="changedspan">From &lt;timezoneData&gt; get the country code for the zone, and 
+    determine whether there is only one timezone in the country. If there is only one timezone or 
+    the zone id is in the singleCountries list, format the country name with the region format, and 
+    return it.</span><ul>
+      <li><span class="changedspan">Africa/Monrovia → LR → &quot;Tampo de Liberja&quot;</span></li>
+      <li><span class="changedspan">America/Havana → CU → &quot;Tampo de CU&quot; // if CU is not localized</span></li>
+    </ul>
+    <p><span class="changedspan"><b>Note: </b>If a language does require grammatical changes when 
+    composing strings, then it should either use a neutral format such as what is in root, or put 
+    all exceptional cases in explicitly translated strings.</span></li>
+    <li><span class="changedspan">Get the exemplar city and country name, and format them with the 
+    fallback format (as parameters 0 and 1, respectively).</span><ul>
+      <li><span class="changedspan">America/Buenos_Aires → &quot;Буэнос-Айрес (Аргентина)&quot;</span></li>
+      <li><span class="changedspan">America/Buenos_Aires → &quot;Буэнос-Айрес (AR)&quot; // if Argentina isn&#39;t 
+      translated</span></li>
+      <li><span class="changedspan">America/Buenos_Aires → &quot;Buenos Aires (Аргентина)&quot; // if Buenos 
+      Aires isn&#39;t</span></li>
+      <li><span class="changedspan">America/Buenos_Aires → &quot;Buenos Aires (AR)&quot; // if both aren&#39;t</span></li>
+    </ul>
+    <p><span class="changedspan"><b>Note: </b>As with the region format, exceptional cases need to 
+    be explicitly translated.</span></li>
+  </ol>
+  <span class="changedspan">
+  <p>The supplemental data information referenced in the above has the following format:</span></p>
+  <p><span class="changedspan">&lt;supplementalData&gt;<br>
+&nbsp; &lt;timezoneData&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;zoneFormatting multizone=&quot;001 AQ AR AU BR CA CD CL CN EC ES FM GB GL ID KI KZ MH 
+  ML MN MX MY NZ PF PT RU SJ UA UM US UZ&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;zoneItem type=&quot;Africa/Abidjan&quot; territory=&quot;CI&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;zoneItem type=&quot;Africa/Accra&quot; territory=&quot;GH&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;zoneItem type=&quot;America/Adak&quot; territory=&quot;US&quot; aliases=&quot;America/Atka 
+  US/Aleutian&quot;/&gt;<br>
+  ...</span></p>
+  <p><span class="changedspan">The multizone attribute lists the territories that that have multiple 
+  TZIDs, which is used in #5 above. The zoneItem type is the canonical ID for CLDR. The aliases map 
+  to that canonical ID; this is used in step #1 above. The territory is used in step #5.</span></p>
+  <p><span class="changedspan">In parsing, an implementation will be able to either determine the 
+  zone id, or a simple offset from GMT for anything formatting according to the above process. The 
+  following process should be used, stopping in the first step that matches.</span></p>
+  <ol>
+    <li><span class="changedspan">Check for explicitly localized strings.</span><ul>
+      <li><span class="changedspan">&quot;Tampo de Pacifica&quot; → America/Los_Angeles</span></li>
     </ul>
     </li>
-    <li><span>* </span>Else fall back to the raw Olson ID (stripping off the prefix, and turning _ 
-    into space), using the fallback format.&nbsp;
-    <ul>
-      <li><i>America/Goose_Bay =&gt; &quot;Tampo de&nbsp; </i>«<i>Goose Bay</i>»&quot; </li>
+    <li><span class="changedspan">2. Check for RFC 822 and localized GMT formats</span><ul>
+      <li><span class="changedspan">&quot;-0800&quot; → Etc/GMT+8</span></li>
+      <li><span class="changedspan">&quot;GMT-03:00&quot; → Etc/GMT+3</span></li>
     </ul>
     </li>
-    <li>Else use the <span>(possibly multi-offset) </span>GMT format
-    <ul>
-      <li><i>America/Nome =&gt; &quot;GMT-0900/-0800&quot;</i> </li>
+    <li><span class="changedspan">Check for &lt;city, country&gt; using the fallback format. Remember to 
+    check for fallback localizations (last field of zone id and the raw country code).</span><ul>
+      <li><span class="changedspan">“Sydney (Australia)” → Australia/Sydney</span></li>
+    </ul>
+    </li>
+    <li><span class="changedspan">Check for localized &lt;country&gt; using the region format. Remember to 
+    check for fallback localizations (raw country code).</span><ul>
+      <li><span class="changedspan">&quot;Tampo de CU&quot; → America/Havana</span></li>
     </ul>
     </li>
   </ol>
+  <p><span class="changedspan">Using this process, a correct parse will roundtrip the generic format 
+  (v and vvvv) back to the canonical zoneid.</span></p>
+  <ul>
+    <li><span class="changedspan">Australia/ACT → Australia/Sydney → “Sydney (Australia)” → 
+    Australia/Sydney</span></li>
+  </ul>
+  <p><span class="changedspan">The GMT formats (Z and ZZZZ) will return back an offset, and thus 
+  lose the original canonical zone id.</span></p>
+  <ul>
+    <li><span class="changedspan">Australia/ACT → Australia/Sydney → &quot;GMT+11:00&quot; → GMT+11</span></li>
+  </ul>
+  <p><span class="changedspan">The daylight and standard time formats (z and zzzz) may either 
+  roundtrip back to the original canonical zone id, or to just an offset, depending on the available 
+  translation data. Thus:</span></p>
+  <ul>
+    <li><span class="changedspan">Australia/ACT → Australia/Sydney → &quot;GMT+11:00&quot; → GMT+11</span></li>
+    <li><span class="changedspan">PST8PDT → America/Los_Angeles → “PST” → America/Los_Angeles</span></li>
+  </ul>
+  <p><span class="changedspan">Parsing can be more lenient than the above, allowing for different 
+  spacing, punctuation, or other variation.</span></p>
   <p>Many time zone IDs only represent differences that are important historically, but do not make 
   any difference in modern times. The preferenceOrdering element can be used to select the preferred 
-  modern IDs when desired. (The choice of the interval to use when determining when two time zone 
-  IDs are equivalent is left to the implementation.</p>
+  modern IDs when desired<span class="changedspan">, either in presenting a list of localized 
+  timezone names in a user interface, or in formatting</span>. (The choice of the period to use
+  <span class="changedspan">as &quot;modern&quot;</span> when determining when two time zone IDs are 
+  equivalent is left to the implementation.)</p>
   <p>Whenever two timezone IDs are equivalent in effect and are in the same country, the preference 
-  ordering list is examined according to the following process:</p>
+  ordering list is examined according to the following process. <span class="changedspan">When used 
+  in formatting, this process is used to add additional canonicalization in Step 1 above.</span></p>
   <ol>
     <li>If x, y are in the list, then the earlier one in the list is preferred. </li>
     <li>Else if x is in the list and y isn&#39;t, then x is preferred </li>
@@ -4582,7 +4670,9 @@ America/Kentucky/Monticello&quot;&gt;
       <td><b>America/Tijuana</b></td>
     </tr>
   </table>
-  <h2>&nbsp;</h2>
+  <p><span class="changedspan"><b>Note: </b>The hoursFormat and abbreviationFallback used in earlier 
+  versions of this appendix are deprecated. </p>
+  </span>
   <h2><span><a name="valid_attribute_values"></a>Appendix K: Valid Attribute Values</span></h2>
   <p><span>The following list provides a list of the currently valid attributes and values, for all 
   elements except </span><span class="element">collation</span><span> &lt;</span><span class="element">rules</span><span>&gt; 
@@ -5216,9 +5306,8 @@ America/Kentucky/Monticello&quot;&gt;
   <h2>&nbsp;</h2>
   <h2><span><span>Appendix L: <a name="Canonical_Form">Canonical Form</a></span></span></h2>
   <p><span>The following are restrictions on the format of LDML files to allow for easier parsing 
-  and comparison of files. <br>
-  <br>
-  Peer elements have consistent order. That is, if the DTD or this specification requires the 
+  and comparison of files. </p>
+  <p>Peer elements have consistent order. That is, if the DTD or this specification requires the 
   following order in an element foo:</span></p>
   <pre><span>&lt;foo&gt;
   &lt;pattern&gt;
@@ -5264,13 +5353,12 @@ decimal?, group?, special*)) &gt;</span></pre>
       <li type="a"><span>All tzids as of as CLDR 1.1 (2004.06.08) in zone.tab are canonical.</span></li>
       <li><span>After that point, the first time a tzid is introduced, that is the canonical form.</span></li>
     </ol>
-    <p><span>That is, new IDs are added, but existing ones keep the original form. The Olson 
-    timezone database keeps a set of equivalences in the &quot;backward&quot; file. These are used to map 
-    other tzids to the canonical form. For example, when <code>America/Argentina/Catamarca</code> 
-    was introduced as the new name for the previous <code>America/Catamarca</code>, a link was added 
-    in the backward file.<br>
-    <br>
-    <code>Link America/Argentina/Catamarca America/Catamarca</code></span></li>
+    <p><span>That is, new IDs are added, but existing ones keep the original form. The </span><i>
+    <span class="changedspan">TZ</span></i><span> timezone database keeps a set of equivalences in 
+    the &quot;backward&quot; file. These are used to map other tzids to the canonical form. For example, when
+    <code>America/Argentina/Catamarca</code> was introduced as the new name for the previous <code>
+    America/Catamarca</code>, a link was added in the backward file. </p>
+    <p><code>Link America/Argentina/Catamarca America/Catamarca</code></span></li>
   </ol>
   <p><span><i>Example:</i></span></p>
   <pre><span>&lt;ldml draft=&quot;true&quot; &gt;
@@ -5461,8 +5549,8 @@ decimal?, group?, special*)) &gt;</span></pre>
         <td><span>zone</span></td>
         <td><span><i>The order for prefixes are: </i>America, Atlantic, Europe, Africa, Asia, 
         Indian, Australia, Pacific, Arctic, Antarctica, Etc. <i>Within the same prefix, sort first 
-        by longitude, then latitude (both given by the zone.tab file in the Olson database), then by 
-        full tzid.</i></span></td>
+        by longitude, then latitude (both given by the zone.tab file in the </i></span><i>
+        <span class="changedspan">TZ</span></i><span><i> database), then by full tzid.</i></span></td>
       </tr>
       <tr>
         <td colspan="3"><span><i>numeric order</i></span></td>
@@ -5588,7 +5676,8 @@ decimal?, group?, special*)) &gt;</span></pre>
     </tr>
     <tr>
       <td class="noborder" width="148">[<a name="Olson">Olson</a>]</td>
-      <td class="noborder" width="730">The Olson Data, aka TZID database<br>
+      <td class="noborder" width="730">The <i><span class="changedspan">TZ</span></i>ID Database (aka 
+      Olson timezone database)<br>
       Timezone and daylight savings information.<br>
       <a href="ftp://elsie.nci.nih.gov/pub/">ftp://elsie.nci.nih.gov/pub/</a><p>For archived data, 
       see <br>
@@ -5917,8 +6006,13 @@ decimal?, group?, special*)) &gt;</span></pre>
   <p>The following summarizes modifications from the previous revision of this document.</p>
   <h3>Revision 6</h3>
   <ul>
-    <li>Incorporated Corrigendum 1 (see <a href="http://unicode.org/cldr/corrigenda.html">
-    http://unicode.org/cldr/corrigenda.html</a>)</li>
+    <li><span class="changedspan">Incorporated Corrigendum 1 (see
+    <a href="http://unicode.org/cldr/corrigenda.html">http://unicode.org/cldr/corrigenda.html</a>) 
+    into Appendix F: <span><a href="#Date_Format_Patterns">Date Format Patterns</a> and Section
+    </span>5.4 <a href="#&lt;localeDisplayNames&gt;">&lt;localeDisplayNames&gt;</a></span></li>
+    <li><span class="changedspan">Revamped Appendix J: <a href="#Time_Zone_Fallback"><span>Time Zone 
+    Display Names</span></a>. Also changed &quot;Fallback&quot; to &quot;Display Names&quot; in the title of the 
+    Appendix, and &quot;Olson&quot; to &quot;TZ&quot; in other places in the document.</span></li>
   </ul>
   <h3>Revision 5</h3>
   <ul>

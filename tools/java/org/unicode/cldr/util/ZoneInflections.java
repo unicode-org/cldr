@@ -135,15 +135,15 @@ public class ZoneInflections implements Comparable {
         return compareTo((ZoneInflections) o, temp);
     }
     
-    static class InflectionPoint implements Comparable{
+    public static class InflectionPoint implements Comparable{
         static final long NONE = Long.MIN_VALUE;
-        long utcDateTime;
+        public long utcDateTime;
         long offset;
         
         public String toString() {
             return ICUServiceBuilder.isoDateFormat(new Date(utcDateTime)) + ";" + formatHours((int)offset);
         }
-        InflectionPoint(long utcDateTime, int offset) {
+        public InflectionPoint(long utcDateTime, int offset) {
             this.utcDateTime = utcDateTime;
             this.offset = offset;
         }

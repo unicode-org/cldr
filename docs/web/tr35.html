@@ -1237,10 +1237,12 @@ root</pre>
   either <i>format</i> (the default), the form used within a date format string (such as &quot;Saturday, 
   November 12<sup>th</sup>&quot;, or <i>stand-alone</i>, the form used independently, such as in Calendar 
   headers. The width can be <i>wide</i> (the default), <i>abbreviated</i>, or <i>narrow</i>. The 
-  latter is the shortest possible width, no more than one character<span> (or grapheme cluster)</span>: 
-  it is typically used in calendar headers. The values in formats must be distinct; that is, &quot;S&quot; 
-  could not be used both for Saturday and for Sunday. The same is not true for stand-alone values; 
-  they might only be distinguished by context, especially in the narrow format.</p>
+  format values must be distinct; that is, &quot;S&quot; could not be used both for Saturday and for Sunday. 
+  The same is not true for stand-alone values; they might only be distinguished by context, 
+  especially in the narrow format. That format is typically used in calendar headers; it must be the 
+  shortest possible width, no more than one character<span> (or grapheme cluster) in stand-alone 
+  values,<span class="changedspan"> and the shortest possible widths (in terms of grapheme clausers) 
+  in format values.</span></span></p>
   <p>If the stand-alone form does not exist (in the chain up to root), then it inherits from the 
   format form. See <a href="#Multiple_Inheritance">Multiple Inheritance</a>.<span> If the narrow 
   format does not exist, it inherits from the abbreviated form; if the abbreviated format does not 

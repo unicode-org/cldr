@@ -1132,11 +1132,12 @@ root</pre>
   exemplar characters simply contain a set of reasonably frequent characters for the language.</span></p>
   <p><span>The letters do not necessarily form a complete set (especially for languages using large 
   character sets, such as </span><span>CJK</span><span>). Nor does the list necessarily include 
-  letters that are used in common foreign words used in that language. This set is case insensitive; 
-  this means it only needs lower case characters. The ordering of these characters are irrelevant. 
-  For the special case of Turkish <span>and similar languages</span>, the dotted capital I should be 
-  included. </span><span>For more information, see [<a href="#DataFormats">Data Formats</a>]<span> 
-  and the discussion of Special Casing in the Unicode Character Database</span>.</span></p>
+  letters that are used in common foreign words used in that language. The ordering of the 
+  characters in the set is irrelevant. The set <span class="changedspan">should only contain lower 
+  case characters (except for the </span>special case of Turkish <span>and similar languages</span>, 
+  where the dotted capital I should be included<span class="changedspan">); the uppercase letters 
+  are to be mechanically added when the set is used</span>. </span><span>For more information, see [<a href="#DataFormats">Data 
+  Formats</a>]<span> and the discussion of Special Casing in the Unicode Character Database</span>.</span></p>
   <p>There can be more than two exemplarCharacters elements, with the second having the type 
   &quot;auxiliary&quot;. This element can be used for additional characters that are used in common foreign 
   words, dictionaries, etc. used in the locale.</p>

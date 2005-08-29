@@ -2708,8 +2708,8 @@
 		<messages>
 			<yesstr draft="true">はい:ハイ</yesstr>
 			<nostr draft="true">いいえ:イイエ</nostr>
-			<yesexpr draft="true">^([yY]([eE][sS])?)|([ｙＹ]([ｅＥ][ｓＳ])?)|はい|ハイ</yesexpr>
-			<noexpr draft="true">^([nN][oO]?)|([ｎＮ][ｏＯ]?)|いいえ|イイエ</noexpr>
+			<yesexpr draft="true">^(([yY]([eE][sS])?)|([ｙＹ]([ｅＥ][ｓＳ])?)|はい|ハイ)</yesexpr>
+			<noexpr draft="true">^(([nN][oO]?)|([ｎＮ][ｏＯ]?)|いいえ|イイエ)</noexpr>
 		</messages>
 	</posix>
 </ldml>

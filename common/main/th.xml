@@ -1014,8 +1014,8 @@
 		<messages>
 			<yesstr draft="true">ใช่</yesstr>
 			<nostr draft="true">ไม่</nostr>
-			<yesexpr draft="true">^([yY]([eE][sS])?)|ใช่</yesexpr>
-			<noexpr draft="true">^([nN][oO]?)|ไม่</noexpr>
+			<yesexpr draft="true">^(([yY]([eE][sS])?)|ใช่)</yesexpr>
+			<noexpr draft="true">^(([nN][oO]?)|ไม่)</noexpr>
 		</messages>
 	</posix>
 </ldml>

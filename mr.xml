@@ -254,8 +254,8 @@
 		<messages>
 			<yesstr draft="true">हां</yesstr>
 			<nostr draft="true">ना</nostr>
-			<yesexpr draft="true">^([yY]([eE][sS])?)|हां</yesexpr>
-			<noexpr draft="true">^([nN][oO]?)|ना</noexpr>
+			<yesexpr draft="true">^(([yY]([eE][sS])?)|हां)</yesexpr>
+			<noexpr draft="true">^(([nN][oO]?)|ना)</noexpr>
 		</messages>
 	</posix>
 </ldml>

@@ -2355,8 +2355,8 @@
 		<messages>
 			<yesstr draft="true">是:确定</yesstr>
 			<nostr draft="true">否:否定</nostr>
-			<yesexpr draft="true">^([yY]([eE][sS])?)|是|确定</yesexpr>
-			<noexpr draft="true">^([nN][oO]?)|否定?</noexpr>
+			<yesexpr draft="true">^(([yY]([eE][sS])?)|是|确定)</yesexpr>
+			<noexpr draft="true">^(([nN][oO]?)|否定?)</noexpr>
 		</messages>
 	</posix>
 </ldml>

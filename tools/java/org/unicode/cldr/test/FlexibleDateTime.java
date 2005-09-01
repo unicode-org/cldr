@@ -11,23 +11,17 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
-import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
@@ -37,6 +31,8 @@ import com.ibm.icu.util.ULocale;
 /**
  * Test class for trying different approaches to flexible date/time.
  * Internal Use.
+ * Once we figure out what approach to take, this should turn into the test file
+ * for the data.
  */
 public class FlexibleDateTime {
     static final boolean DEBUG = false;
@@ -44,18 +40,21 @@ public class FlexibleDateTime {
     static boolean SHOW2 = false;
     static boolean SHOW_DISTANCE = false;
     static boolean SHOW_OO = true;
+    static String SEPARATOR = "\r\n\t";
     
     /**
      * Test different ways of doing flexible date/times.
      * Internal Use.
      */
     public static void main(String[] args) {
-        if (false) {
+        if (false) { // just for testing simple cases
             DateTimeMatcher a = new DateTimeMatcher().set("HH:mm");
             DateTimeMatcher b = new DateTimeMatcher().set("kkmm");
             DistanceInfo missingFields = new DistanceInfo();
             int distance = a.getDistance(b, -1, missingFields);
         }
+        
+        // get the locale to use, with default
         String filter = "en_US";
         if (args.length > 0)
             filter = args[0];
@@ -79,24 +78,25 @@ public class FlexibleDateTime {
                     "eG", "dMMy", "kh", "GHHmm", "yyyyHHmm", "Kmm", "kmm",
                     "MMdd", "ddHH", "yyyyMMMd", "yyyyMMddHHmmss",
                     "GEEEEyyyyMMddHHmmss",
-                    "GuuuuMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", };
+                    "GuuuuMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
+                    };
             DateTimePatternGenerator fdt = new DateTimePatternGenerator()
             .add(list);
             Date now = new Date(99, 11, 23, 1, 2, 3);
             System.out.println("Sample Input: " + now);
             for (int i = 0; i < testData.length; ++i) {
                 System.out.print("Input request: \t" + testData[i]);
-                System.out.print("\t Fields: \t" + fdt.getFields(testData[i]));
+                System.out.print(SEPARATOR + "Fields: \t" + fdt.getFields(testData[i]));
                 String dfpattern;
                 try {
                     dfpattern = fdt.getBest(testData[i]);
                 } catch (Exception e) {
-                    System.out.println("\t " + e.getMessage());
+                    System.out.println(SEPARATOR + e.getMessage());
                     continue;
                 }
-                System.out.print("\t Localized Pattern: \t" + dfpattern);
+                System.out.print(SEPARATOR + "Localized Pattern: \t" + dfpattern);
                 df.applyPattern(dfpattern);
-                System.out.println("\t Sample Results: \t«" + df.format(now) + "»");
+                System.out.println(SEPARATOR + "Sample Results: \t«" + df.format(now) + "»");
             }
         }
     }
@@ -166,7 +166,7 @@ public class FlexibleDateTime {
                     if (item instanceof VariableField) {
                         String s = item.toString();
                         switch(s.charAt(0)) {
-                        case 'Q': continue main; // HACK
+                        //case 'Q': continue main; // HACK
                         case 'a': continue main; // remove
                         }
                         output.add(s);
@@ -231,11 +231,21 @@ public class FlexibleDateTime {
             String datePattern = getBestAppending(neededFields & DATE_MASK);
             String timePattern = getBestAppending(neededFields & TIME_MASK);
             
-            // later, MessageFormats from resource
+            
             if (datePattern == null) return timePattern == null ? "" : timePattern;
             if (timePattern == null) return datePattern;
-            return MessageFormat.format("{0} {1}", new Object[]{datePattern, timePattern});
+            return MessageFormat.format(getDateTimeFormat(), new Object[]{datePattern, timePattern});
         }
+
+        // TODO: get from resource
+		private String getDateTimeFormat() {
+			return "{0} {1}";
+		}
+        
+        // TODO: get from resource
+		private String getAppendFormat(int foundMask) {
+			return "{0} [''" + showMask(foundMask) + "'' {1}]";
+		}
         
         /**
          * 
@@ -246,9 +256,11 @@ public class FlexibleDateTime {
                 resultPattern = getBestRaw(current, missingFields, _distanceInfo);
                 resultPattern = adjustFieldTypes(resultPattern, current);
                 while (_distanceInfo.missingFieldMask != 0) { // precondition: EVERY single field must work!
+                	int startingMask = _distanceInfo.missingFieldMask;
                     String temp = getBestRaw(current, _distanceInfo.missingFieldMask, _distanceInfo);
                     temp = adjustFieldTypes(temp, current);
-                    resultPattern = MessageFormat.format("{0} [{1}]", new Object[]{resultPattern, temp});
+                    int foundMask = startingMask & ~_distanceInfo.missingFieldMask;
+                    resultPattern = MessageFormat.format(getAppendFormat(foundMask), new Object[]{resultPattern, temp});
                 }
             }
             return resultPattern;
@@ -469,28 +481,29 @@ public class FlexibleDateTime {
     }
     
     static private String[] FIELD_NAME = {
-            "Era", "Year", "Month", "Week_in_Year", "Week_in_Month", "Weekday", 
-            "Day", "Day_Of_Year", "Day_of_Week_on_Month", "Dayperiod", 
+            "Era", "Year", "Quarter", "Month", "Week_in_Year", "Week_in_Month", "Weekday", 
+            "Day", "Day_Of_Year", "Day_of_Week_in_Month", "Dayperiod", 
             "Hour", "Minute", "Second", "Fractional_Second", "Zone"
     };
     
     static private int
     ERA = 0,
     YEAR = 1,
-    MONTH = 2,
-    WEEK_OF_YEAR = 3,
-    WEEK_OF_MONTH = 4,
-    WEEKDAY = 5,
-    DAY = 6,
-    DAY_OF_YEAR = 7,
-    DAY_OF_WEEK_IN_MONTH = 8,
-    DAYPERIOD = 9,
-    HOUR = 10,
-    MINUTE = 11,
-    SECOND = 12,
-    FRACTIONAL_SECOND = 13,
-    ZONE = 14,
-    TYPE_LIMIT = 15;
+    QUARTER = 2,
+    MONTH = 3,
+    WEEK_OF_YEAR = 4,
+    WEEK_OF_MONTH = 5,
+    WEEKDAY = 6,
+    DAY = 7,
+    DAY_OF_YEAR = 8,
+    DAY_OF_WEEK_IN_MONTH = 9,
+    DAYPERIOD = 10,
+    HOUR = 11,
+    MINUTE = 12,
+    SECOND = 13,
+    FRACTIONAL_SECOND = 14,
+    ZONE = 15,
+    TYPE_LIMIT = 16;
     
     static private int 
     DATE_MASK = (1<<DAYPERIOD) - 1,
@@ -538,7 +551,11 @@ public class FlexibleDateTime {
             {'y', YEAR, NUMERIC, 1, 20},
             {'Y', YEAR, NUMERIC + DELTA, 1, 20},
             {'u', YEAR, NUMERIC + 2*DELTA, 1, 20},
-            
+
+            {'Q', QUARTER, NUMERIC, 1, 2},
+            {'Q', QUARTER, SHORT, 3},
+            {'Q', QUARTER, LONG, 4},
+
             {'M', MONTH, NUMERIC, 1, 2},
             {'M', MONTH, SHORT, 3},
             {'M', MONTH, LONG, 4},
@@ -643,7 +660,7 @@ public class FlexibleDateTime {
             if (string.equals("E")) return "y";
             if (string.equals("EE") || string.equals("R")) return "yy";
             if (string.equals("RR")) return "Gyy";
-            if (string.startsWith("Q")) return '\'' + string + '\'';
+            if (string.startsWith("Q")) return string; // '\'' + string + '\'';
             char c = string.charAt(0);
             if (c < 0x80 && UCharacter.isLetter(c)) return string.replace(c,'x');
             return string;

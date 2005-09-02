@@ -8,15 +8,23 @@ package org.unicode.cldr.test;
 
 import java.text.ParsePosition;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.ibm.icu.dev.test.util.ICUPropertyFactory;
+import com.ibm.icu.dev.test.util.UnicodeMap;
+import com.ibm.icu.dev.test.util.UnicodeProperty;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
@@ -32,11 +40,15 @@ public class TestSegments {
 	/**
 	 * If not null, maskes off the character properties so the UnicodeSets are easier to use when debugging.
 	 */
-	static final UnicodeSet DEBUG_RETAIN = new UnicodeSet("[\u0000-\u00FF\u0300-\u0310]"); // null;
+	private static final UnicodeSet DEBUG_RETAIN = null; // new UnicodeSet("[\u0000-\u00FF\u0300-\u0310]"); // null;
+	private static final UnicodeSet SUPPLEMENTARIES = new UnicodeSet(0x10000,0x10FFFF);
 	/**
 	 * Shows the rule that caused the result at each offset.
 	 */
-	static final boolean DEBUG_SHOW_MATCHES = false;
+	private static final boolean DEBUG_SHOW_MATCHES = false;
+	private static final int monkeyLimit = 100;
+	private static final int REGEX_FLAGS = Pattern.COMMENTS | Pattern.MULTILINE | Pattern.DOTALL;
+
 	
 	/**
 	 * Quick test of features for debugging
@@ -44,7 +56,7 @@ public class TestSegments {
 	 */
 	public static void main(String[] args) {
 		
-		//quickCheck();
+		// if (quickCheck()) return;
 		
 		// simple test data
 		
@@ -82,16 +94,18 @@ public class TestSegments {
 			"8) ( $LVT | $T) 	× 	$T",
 			"9) × 	$Extend",
 			"test",
-			"The qui\u0300ck 100 brown foxes."
+			"The qui\u0300ck 100 brown foxes.",
+			"compareGrapheme"
 		},{
 			"Word Break",
+			"$Format=\\p{Word_Break=Format}",
 			// GC stuff
 			"$CR=\\p{Grapheme_Cluster_Break=CR}",
 			"$LF=\\p{Grapheme_Cluster_Break=LF}",
 			"$Control=\\p{Grapheme_Cluster_Break=Control}",
+			"$Control=[$Control-$Format]", // subtract format, since we don't want to break before/after
 			"$Extend=\\p{Grapheme_Cluster_Break=Extend}",
 			// add format and extend to everything
-			"$Format=\\p{Word_Break=Format}",
 			"$X=[$Format $Extend]*",
 			"$Katakana=\\p{Word_Break=Katakana} $X",
 			"$ALetter=\\p{Word_Break=ALetter} $X",
@@ -105,6 +119,7 @@ public class TestSegments {
 			"3.5) ÷ 	( $Control | $CR | $LF )",
 			// don't need 6-8, since they are covered by the other rules
 			"3.9) × 	$Extend",
+			"4) × 	$Format",
 			// other rules
 			"5)$ALetter  	×  	$ALetter",
 			"6)$ALetter 	× 	$MidLetter $ALetter",
@@ -119,14 +134,17 @@ public class TestSegments {
 			"13.2)$ExtendNumLet 	× 	($ALetter | $Numeric | $Katakana)",
 
 			"test",
-			"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes."
+			"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes.",
+			"compareWord"
 		}};
 
 		// grab the rules above, build a RuleList, and run against the test samples.
 		
 		for (int i = 0; i < tests.length; ++i) {
 			RuleListBuilder rb = new RuleListBuilder();
-			System.out.println("Building: " + tests[i][0]);
+			String testName = tests[i][0];
+			System.out.println();
+			System.out.println("Building: " + testName);
 			int j = 1;
 			for (; j < tests[i].length; ++j) {
 				String line = tests[i][j];
@@ -138,6 +156,10 @@ public class TestSegments {
 			System.out.println(rl);
 			for (++j; j < tests[i].length; ++j) {
 				String line = tests[i][j];
+				if (line.startsWith("compare")) {
+					doCompare(rl, line);
+					break;
+				}
 				String showingBreaks = ""; // don't bother with surrogates yet
 				for (int k = 0; k <= line.length(); ++k) {
 					if (rl.breaksAt(line,k)) {
@@ -153,21 +175,90 @@ public class TestSegments {
 		}
 	}
 
+	private static void doCompare(RuleList rl, String line) {
+		RandomStringGenerator rsg;
+		BreakIterator icuBreak;
+		if (line.equals("compareGrapheme")) {
+			rsg = new RandomStringGenerator("GraphemeClusterBreak");
+			icuBreak = BreakIterator.getCharacterInstance();
+		} else {
+			rsg = new RandomStringGenerator("WordBreak");
+			icuBreak = BreakIterator.getWordInstance();
+		}
+		System.out.println("Monkey Test: " + line + "\t icuBreaks = $\t ruleBreaks =@");
+		for (int i = 0; i < monkeyLimit; ++i) {
+			System.out.print('.');
+			String test = rsg.next(10);
+			icuBreak.setText(test);
+			for (int j = 0; j <= test.length(); ++j) {
+				boolean icuBreakResults = icuBreak.isBoundary(j);
+				boolean ruleListResults = rl.breaksAt(test, j);
+				if (icuBreakResults == ruleListResults) continue;
+				System.out.println();
+				System.out.println(i + ") Mismatch " + rl.getBreakRule() + ": " + Utility.escape(test.substring(0,j))
+						+ "[" + (j > 0 ? rsg.getValue(UTF16.charAt(test,j-1)) : "") + "]"
+						+ (icuBreakResults ? "$" : "@")
+						+ "[" + (j < test.length() ? rsg.getValue(UTF16.charAt(test,j)) : "") + "]"
+						+ Utility.escape(test.substring(j)));
+				rl.breaksAt(test, j); // for debugging
+			}
+		}		
+	}
+	
+	private static class RandomStringGenerator {
+		private Random random = new Random(0);
+		private UnicodeSet[] sets;
+		private UnicodeMap map;
+		
+		RandomStringGenerator(String propertyName) {
+			this(ICUPropertyFactory.make().getProperty(propertyName).getUnicodeMap());
+		}		
+		RandomStringGenerator(UnicodeMap um) {
+			map = um;
+			List values = new ArrayList(um.getAvailableValues());
+			sets = new UnicodeSet[values.size()];
+			for (int i = 0; i < sets.length; ++i) {
+				sets[i] = um.getSet(values.get(i));
+				sets[i].removeAll(SUPPLEMENTARIES);
+				if (DEBUG_RETAIN != null) {
+					int first = sets[i].charAt(0);
+					sets[i].retainAll(DEBUG_RETAIN);
+					if (sets[i].size() == 0) sets[i].add(first);
+				}
+			}
+		}
+		String getValue(int cp) {
+			return (String)map.getValue(cp);
+		}
+		private String next(int len) {
+			StringBuffer result = new StringBuffer();
+			for (int i = 0; i < len; ++i) {
+				UnicodeSet us = sets[random.nextInt(sets.length)];
+				int cp = us.charAt(random.nextInt(us.size()));
+				UTF16.append(result, cp);
+			}
+			return result.toString();
+		}
+	}
+	
 	/**
 	 * For quickly checking regex syntax implications in Java
 	 */
-	private static void quickCheck() {
+	private static boolean quickCheck() {
 		String[][] rtests = {{
+			".*" + new UnicodeSet("[\\p{Grapheme_Cluster_Break=LVT}]").complement().complement(), "\u001E\uC237\u1123\n\uC91B"
+		},{
 			"(?<=a)b", "ab"
 		},{
 			"[$]\\p{Alpha}\\p{Alnum}*", "$Letter"
 		}};
 		for (int i = 0; i < rtests.length; ++i) {
-			Matcher m = Pattern.compile(rtests[i][0]).matcher("");
+			Matcher m = Pattern.compile(rtests[i][0], REGEX_FLAGS).matcher("");
 			m.reset(rtests[i][1]);
 			boolean matches = m.matches();
 			System.out.println(rtests[i][0] + ",\t" + rtests[i][1] + ",\t" + matches);
 		}
+		return false;
 	}
 	
 	/**
@@ -183,12 +274,13 @@ public class TestSegments {
 		 * @param before pattern for the text after the offset. All variables must be resolved.
 		 * @param result the break status to return when the rule is invoked
 		 * @param after pattern for the text before the offset. All variables must be resolved.
+		 * @param line 
 		 */
-		public Rule(String before, byte result, String after) {
+		public Rule(String before, byte result, String after, String line) {
 			breaks = result;
-			matchPrevious = Pattern.compile(".*" + before, Pattern.COMMENTS).matcher("");
-			matchSucceeding = Pattern.compile(after, Pattern.COMMENTS).matcher("");
-			name = before + (result == NO_BREAK ? " × " : " ÷ ") + after;
+			matchPrevious = Pattern.compile(".*" + before, REGEX_FLAGS).matcher("");
+			matchSucceeding = Pattern.compile(after, REGEX_FLAGS).matcher("");
+			name = line; // before + (result == NO_BREAK ? " × " : " ÷ ") + after;
 			// COMMENTS allows whitespace
 		}
 		/**
@@ -368,7 +460,7 @@ public class TestSegments {
 				if (relationPosition < 0) throw new IllegalArgumentException("Couldn't find =, ÷, or ×");
 				breaks = Rule.NO_BREAK;
 			}
-			addRule(order, line.substring(0,relationPosition).trim(), breaks, line.substring(relationPosition + 1).trim());		
+			addRule(order, line.substring(0,relationPosition).trim(), breaks, line.substring(relationPosition + 1).trim(), line);		
 			return this;
 		}
 		
@@ -394,10 +486,11 @@ public class TestSegments {
 		 * @param before
 		 * @param result
 		 * @param after
+		 * @param line 
 		 * @return
 		 */
-		RuleListBuilder addRule(Float order, String before, byte result, String after) {
-			rules.put(order, new Rule(replaceVariables(before), result, replaceVariables(after)));
+		RuleListBuilder addRule(Float order, String before, byte result, String after, String line) {
+			rules.put(order, new Rule(replaceVariables(before), result, replaceVariables(after), line));
 			return this;	
 		}
 		

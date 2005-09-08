@@ -1752,35 +1752,45 @@ root</pre>
   <p>For background information on currency names, see [CurrencyInfo].</p>
   <h3>5.11 <a name="&lt;posix&gt;">&lt;posix&gt;</a></h3>
   <p><span class="dtd">&lt;!ELEMENT posix (alias | (messages*, special*)) &gt;<br>
-  &lt;!ELEMENT messages (alias | ( yesstr?, nostr?, yesexpr?, noexpr?)) &gt;</span></p>
+  &lt;!ELEMENT messages (alias | ( yesstr?, nostr?</span><span class="removedspan">, yesexpr?, noexpr?</span><span class="dtd">)) 
+  &gt;</span></p>
   <p>The following are included for compatibility with POSIX.</p>
   <p>&nbsp;&lt;posix&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;posix:messages&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;posix:yesstr&gt;<span style="color: blue">Yes</span>&lt;/posix:yesstr&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;posix:nostr&gt;<span style="color: blue">No</span>&lt;/posix:nostr&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;posix:yesexpr&gt;<span style="color: blue">^[Yy].*</span>&lt;/posix:yesexpr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;posix:yesstr&gt;<span style="color: #0000FF">ja</span>&lt;/posix:yesstr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;posix:nostr&gt;<span style="color: #0000FF">nein</span>&lt;/posix:nostr&gt;<br>
+  <span class="removedspan">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;posix:yesexpr&gt;<span style="color: blue">^[Yy].*</span>&lt;/posix:yesexpr&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;posix:noexpr&gt;<span style="color: blue">^[Nn].*</span>&lt;/posix:noexpr&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/posix:messages&gt;<br>
+  </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/posix:messages&gt;<br>
   &nbsp;&lt;posix&gt;</p>
   <ol>
     <li><span>The values for yesstr and nostr contain a colon-separated list of strings that would 
     normally be recognized as &quot;yes&quot; and &quot;no&quot; responses. For cased languages, this shall include only 
-    the lowercase version. POSIX locale generation tools must generate the uppercase equivalents.</span></li>
-    <li><span>Values for yesstr and nostr should include the complete word for &quot;yes&quot; or &quot;no&quot;, as 
-    well any commonly used abbreviations for same. If a Latin script is used to render the language, 
-    this is usually the first letter of the word &quot;yes&quot; or &quot;no&quot;.</span></li>
-    <li><span>The values for yesexpr and noexpr contain a regular expression that matches only those 
-    strings that would be recognized as &quot;yes&quot; and &quot;no&quot; responses, in any case variation. The value 
-    of yesexpr and noexpr should match all the values in yesstr and nostr respectively.</span></li>
+    the lowercase version. POSIX locale generation tools must generate the uppercase equivalents<span class="changedspan">, 
+    and the abbreviated versions, and add the English words wherever they do not conflict. Examples:</span></span><ul>
+      <li><span><span class="changedspan">ja <font face="Lucida Sans Unicode">→</font> 
+      ja:Ja:j:J:yes:Yes:y:Y</span></span></li>
+      <li><span><span class="changedspan">ja <font face="Lucida Sans Unicode">→</font> 
+      ja:Ja:j:J:yes:Yes</span></span><span class="changedspan"> // exclude y:Y if it conflicts with 
+      the native &quot;no&quot;.</span></li>
+    </ul>
+    </li>
+    <li><span class="removedspan"><span>Values for yesstr and nostr should include the complete word 
+    for &quot;yes&quot; or &quot;no&quot;, as well any commonly used abbreviations for same. </span></span></li>
+    <li><span><span class="changedspan">The older elements yesexpr and noexpr are deprecated. They 
+    should instead be generated from yesstr and nostr so that they match all the responses.</span><span class="removedspan"> 
+    The values for yesexpr and noexpr contain a regular expression that matches only those strings 
+    that would be recognized as &quot;yes&quot; and &quot;no&quot; responses, in any case variation. The value of 
+    yesexpr and noexpr should match all the values in yesstr and nostr respectively.</span></span></li>
   </ol>
   <p><span>So for English, the appropriate strings and expressions would be as follows:</span></p>
   <p><span>yesstr &quot;yes:y&quot;<br>
-  nostr &quot;no:n&quot;<br>
-  <br>
-  <code>yesexpr &quot;^[yY]([eE][sS])?&quot; <br>
+  nostr &quot;no:n&quot;</span></p>
+  <p><span class="changedspan">The generated yesexpr and noexpr would be:</span></p>
+  <p><span><code>yesexpr &quot;^([yY]([eE][sS])?)&quot; <br>
   </code>This would match y,Y,yes,yeS,yEs,yES,Yes,YeS,YEs,YES.<br>
   <br>
-  noexpr &quot;^[nN][oO]?&quot;<br>
+  <code>noexpr &quot;^([nN][oO]?)&quot;</code><br>
   This would match n,N,no,nO,No,NO.</span></p>
   <h3><span>5.12 &lt;<a name="references_element">references</a>&gt;</span></h3>
   <p><span>&lt;!ELEMENT references ( reference* ) &gt;<br>
@@ -6017,6 +6027,7 @@ decimal?, group?, special*)) &gt;</span></pre>
     <li><span class="changedspan">Revamped Appendix J: <a href="#Time_Zone_Fallback"><span>Time Zone 
     Display Names</span></a>. Also changed &quot;Fallback&quot; to &quot;Display Names&quot; in the title of the 
     Appendix, and &quot;Olson&quot; to &quot;TZ&quot; in other places in the document.</span></li>
+    <li><span class="changedspan">Yesstr/nostr/yesexpr/noexpr changes.</span></li>
   </ul>
   <h3>Revision 5</h3>
   <ul>

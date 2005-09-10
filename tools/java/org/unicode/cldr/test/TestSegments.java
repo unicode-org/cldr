@@ -22,11 +22,13 @@ import java.util.regex.PatternSyntaxException;
 import com.ibm.icu.dev.test.util.ICUPropertyFactory;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.test.util.UnicodeProperty;
+import com.ibm.icu.impl.UCharacterProperty;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -48,7 +50,8 @@ public class TestSegments {
 	 */
 	private static final boolean DEBUG_SHOW_MATCHES = false;
 	private static final boolean SHOW_VAR_CONTENTS = false;
-	private static final int monkeyLimit = 100;
+	private static final boolean SHOW_RULE_LIST = false;
+	private static final int monkeyLimit = 1000;
 	private static final int REGEX_FLAGS = Pattern.COMMENTS | Pattern.MULTILINE | Pattern.DOTALL;
 
 	
@@ -249,7 +252,10 @@ public class TestSegments {
 			"# LB 1  Assign a line breaking class to each code point of the input. " +
 			"Resolve AI, CB, SA, SG, and XX into other line breaking classes depending on criteria outside the scope of this algorithm.",
 			"# NOTE: CB is ok to fall through, but must handle others here.",
+			"show $AL",
 			"$AL=[$AI $AL $XX $SA $SG]",
+			"show $AL",
+			"$oldAL=$AL", // for debugging
 			"# Fixes for Rule 7",
 			"# Treat X CM* as if it were X.",
 			"# Where X is any line break class except SP, BK, CR, LF, NL or ZW.",
@@ -285,7 +291,7 @@ public class TestSegments {
 			"$WJ=($WJ $X)",
 			"$XX=($XX $X)",
 			"# LB 7c  Treat any remaining combining mark as AL.",
-			"$AL=($AL | $CM)",
+			"$AL=($AL | ^ $CM | (?<=[$SP $BK $CR $LF $NL $ZW]) $CM)",
 
 			"# LB 3a  Always break after hard line breaks (but never between CR and LF).",
 			"3.1) $BK ÷",
@@ -341,6 +347,7 @@ public class TestSegments {
 			"15.03) × $NS",
 			"15.04) $BB ×",
 			"# LB 16  Do not break between two ellipses, or between letters or numbers and ellipsis.",
+			"show $AL",
 			"16.01) $AL × $IN",
 			"16.02) $ID × $IN",
 			"16.03) $IN × $IN",
@@ -351,6 +358,14 @@ public class TestSegments {
 			"17.03) $NU × $AL",
 			"# Using customization 7",
 			"# LB 18  Do not break between the following pairs of classes.",
+			"# LB 18-alternative: $PR? ( $OP | $HY )? $NU ($NU | $SY | $IS)* $CL? $PO?",
+			"# Insert × every place it could go. However, make sure that at least one thing is concrete, otherwise would cause $NU to not break before or after ",
+			"18.111) $PR × ( $OP | $HY )? $NU",
+			"18.112) ( $OP | $HY ) × $NU",
+			"18.113) $NU × ($NU | $SY | $IS)",
+			"18.114) $NU ($NU | $SY | $IS)* × ($NU | $SY | $IS)",
+			"18.115) $NU ($NU | $SY | $IS)* × $CL",
+			"18.115) $NU ($NU | $SY | $IS)* $CL? × $PO",
 			"#18.11) $CL × $PO",
 			"#18.12) $HY × $NU",
 			"#18.13) $IS × $NU",
@@ -362,14 +377,6 @@ public class TestSegments {
 			"#18.18) $PR × $NU",
 			"#18.19) $PR × $OP",
 			"#18.195) $SY × $NU",
-			"# LB 18-alternative: $PR? ( $OP | $HY )? $NU ($NU | $SY | $IS)* $CL? $PO?",
-			"# Insert × every place it could go. However, make sure that at least one thing is concrete, otherwise would cause $NU to not break before or after ",
-			"18.115) $PR × ( $OP | $HY )? $NU",
-			"18.125) ( $OP | $HY ) × $NU",
-			"18.135) $NU × ($NU | $SY | $IS)",
-			"18.145) $NU ($NU | $SY | $IS)* × ($NU | $SY | $IS)",
-			"18.155) $NU ($NU | $SY | $IS)* × $CL",
-			"18.165) $NU ($NU | $SY | $IS)* $CL? × $PO",
 			"#LB 18b Do not break a Korean syllable.",
 			"18.21) $JL  × $JL | $JV | $H2 | $H3",
 			"18.22) $JV | $H2 × $JV | $JT",
@@ -394,19 +401,22 @@ public class TestSegments {
 			RuleListBuilder rb = new RuleListBuilder();
 			String testName = tests[i][0];
 			System.out.println();
+			System.out.println();
 			System.out.println("Building: " + testName);
-			System.out.println("<segmentation type=\"" + testName + "\">");
 			int j = 1;
 			for (; j < tests[i].length; ++j) {
 				String line = tests[i][j];
 				if (line.equals("test")) break;
 				rb.addLine(line);
 			}
-			System.out.println("</segmentation>");
+			System.out.println(rb.toString(testName));
+			System.out.println();
 			System.out.println("Testing");
 			RuleList rl = rb.make();
-			System.out.println(rl);
+			if (false) debugRule(rb, rl);
+			if (SHOW_RULE_LIST) System.out.println(rl.toString(true));
 			for (++j; j < tests[i].length; ++j) {
+				System.out.println();
 				String line = tests[i][j];
 				if (line.startsWith("compare")) {
 					doCompare(rl, line);
@@ -428,6 +438,18 @@ public class TestSegments {
 		System.out.println("Done");
 	}
 
+	private static void debugRule(RuleListBuilder rb, RuleList rl) {
+		Rule rule = rl.get(16.01);
+		String oldAL = (String)rb.variables.get("$oldAL");
+		UnicodeSet oldALSet = new UnicodeSet(oldAL);
+		String testStr = "\uA80D/\u0745\u2026";
+		for (int k = 0; k < testStr.length(); ++k) {
+			boolean inside = oldALSet.contains(testStr.charAt(k));
+			System.out.println(k + ": " + inside + Utility.escape(""+testStr.charAt(k)));
+		}
+		byte m = rule.matches(testStr, 3);
+	}
+
 	private static void doCompare(RuleList rl, String line) {
 		RandomStringGenerator rsg;
 		BreakIterator icuBreak;
@@ -441,7 +463,7 @@ public class TestSegments {
 			rsg = new RandomStringGenerator("SentenceBreak");
 			icuBreak = BreakIterator.getSentenceInstance();
 		} else if (line.equals("compareLine")) {
-			rsg = new RandomStringGenerator("LineBreak");
+			rsg = new RandomStringGenerator("LineBreak", true);
 			icuBreak = BreakIterator.getLineInstance();
 		} else {
 			throw new IllegalArgumentException("Bad tag: " + line);
@@ -485,16 +507,23 @@ public class TestSegments {
 		private Random random = new Random(0);
 		private UnicodeSet[] sets;
 		private UnicodeMap map;
-		
+		private UnicodeMap shortMap;
+
 		RandomStringGenerator(String propertyName) {
-			this(ICUPropertyFactory.make().getProperty(propertyName).getUnicodeMap());
-		}		
-		RandomStringGenerator(UnicodeMap um) {
-			map = um;
-			List values = new ArrayList(um.getAvailableValues());
+			this(propertyName, false);
+		}
+		
+		RandomStringGenerator(String propertyName, boolean useShortName) {
+			this(ICUPropertyFactory.make().getProperty(propertyName).getUnicodeMap(),
+					useShortName ? ICUPropertyFactory.make().getProperty(propertyName).getUnicodeMap(true) : null);
+		}
+		RandomStringGenerator(UnicodeMap longNameMap, UnicodeMap shortNameMap) {
+			map = longNameMap;
+			shortMap = (shortNameMap == null ? longNameMap : shortNameMap);
+			List values = new ArrayList(map.getAvailableValues());
 			sets = new UnicodeSet[values.size()];
 			for (int i = 0; i < sets.length; ++i) {
-				sets[i] = um.getSet(values.get(i));
+				sets[i] = map.getSet(values.get(i));
 				sets[i].removeAll(SUPPLEMENTARIES);
 				if (DEBUG_RETAIN != null) {
 					int first = sets[i].charAt(0);
@@ -504,7 +533,7 @@ public class TestSegments {
 			}
 		}
 		String getValue(int cp) {
-			return (String)map.getValue(cp);
+			return (String)shortMap.getValue(cp);
 		}
 		private String next(int len) {
 			StringBuffer result = new StringBuffer();
@@ -570,7 +599,8 @@ public class TestSegments {
 				throw (RuntimeException)new IllegalArgumentException("On <" + line + ">, Can't parse: " + parsing)
 				.initCause(e);
 			}
-			name = line; // before + (result == NO_BREAK ? " × " : " ÷ ") + after;
+			name = line; 
+			resolved = Utility.escape(before) + (result == NO_BREAK ? " × " : " ÷ ") + Utility.escape(after);
 			// COMMENTS allows whitespace
 		}
 		
@@ -591,7 +621,10 @@ public class TestSegments {
 		 * Debugging aid
 		 */
 		public String toString() {
-			return name;
+			return toString(false);
+		}
+		public String toString(boolean showResolved) {
+			return showResolved ? resolved : name;
 		}
 		
 		//============== Internals ================
@@ -600,6 +633,7 @@ public class TestSegments {
 		private Matcher matchPrevious;
 		private Matcher matchSucceeding;
 		private String name;
+		private String resolved;
 		private byte breaks;		
 	}
 	
@@ -626,9 +660,9 @@ public class TestSegments {
 		/**
 		 * Certain rules are generated, and have artificial numbers
 		 */
-		public static final float SOT = -3, EOT = -2, ANY = -1;
+		public static final double SOT = -3, EOT = -2, ANY = -1;
 		/**
-		 * Convenience for formatting floats
+		 * Convenience for formatting doubles
 		 */
 		public static NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
 		static {
@@ -658,7 +692,7 @@ public class TestSegments {
 				}
 				byte result = rule.matches(text, position);
 				if (result != Rule.UNKNOWN_BREAK) {
-					breakRule = ((Float)orders.get(i)).floatValue();
+					breakRule = ((Double)orders.get(i)).doubleValue();
 					return result == Rule.BREAK;
 				}
 			}
@@ -670,25 +704,33 @@ public class TestSegments {
 		 * @param order
 		 * @param rule
 		 */
-		public void add(float order, Rule rule) {
-			orders.add(new Float(order));
+		public void add(double order, Rule rule) {
+			orders.add(new Double(order));
 			rules.add(rule);
+		}
+		public Rule get(double order) {
+			int loc = orders.indexOf(new Double(order));
+			if (loc < 0) return null;
+			return (Rule) rules.get(loc);
 		}
 		/**
 		 * Gets the rule number that matched at the point. Only valid after calling breaksAt
 		 * @return
 		 */
-		public float getBreakRule() {
+		public double getBreakRule() {
 			return breakRule;
 		}
 		/**
 		 * Debugging aid
 		 */
 		public String toString() {
+			return toString(false);
+		}
+		public String toString(boolean showResolved) {
 			String result = "";
 			for (int i = 0; i < rules.size(); ++i) {
 				if (i != 0) result += "\r\n";
-				result += orders.get(i) + ") " + rules.get(i);
+				result += orders.get(i) + ") " + ((Rule)rules.get(i)).toString(showResolved);
 			}
 			return result;
 		}
@@ -697,7 +739,7 @@ public class TestSegments {
 		
 		private List rules = new ArrayList(1);
 		private List orders = new ArrayList(1);
-		private float breakRule;
+		private double breakRule;
 	}
 	
 	/**
@@ -725,6 +767,28 @@ public class TestSegments {
 	 * any variables used in its value are resolved before adding, and (b) adding a rule sorts/overrides according to numeric value.
 	 */
 	static class RuleListBuilder {
+		private List rawVariables = new ArrayList();
+		private Map rawRules = new TreeMap();
+		private List lastComments = new ArrayList();
+		
+		public String toString(String testName) {
+			StringBuffer result = new StringBuffer();
+			result.append("<segmentation type=\"" + testName + "\">").append("\r\n");
+			result.append("\t<variables>").append("\r\n");
+			for (int i = 0; i < rawVariables.size(); ++i) {
+				result.append("\t\t").append(rawVariables.get(i)).append("\r\n");
+			}
+			result.append("\t</variables>").append("\r\n");
+			for (Iterator it = rawRules.keySet().iterator(); it.hasNext();) {
+				Object key = it.next();
+				result.append("\t").append(rawRules.get(key)).append("\r\n");
+			}
+			for (int i = 0; i < lastComments.size(); ++i) {
+				result.append("\t").append(lastComments.get(i)).append("\r\n");
+			}
+			result.append("</segmentation>").append("\r\n");
+			return result.toString();
+		}
 		
 		/**
 		 * Add a line. If contains a =, is a variable definition.
@@ -734,21 +798,28 @@ public class TestSegments {
 		 * @param line
 		 * @return
 		 */
-		RuleListBuilder addLine(String line) {
+		boolean addLine(String line) {
+			// for debugging
+			if (line.startsWith("show")) {
+				line = line.substring(4).trim();
+				System.out.println("# " + line + ": ");
+				System.out.println("\t" + replaceVariables(line));
+				return false;
+			}
 			// dumb parsing for now
 			if (line.startsWith("#")) {
-				System.out.println("\t<!-- " + line.substring(1).trim() + " -->");
-				return this;
+				lastComments.add("<!-- " + line.substring(1).trim() + " -->");
+				return false;
 			}
 			int relationPosition = line.indexOf('=');
 			if (relationPosition >= 0) {
 				addVariable(line.substring(0,relationPosition).trim(), line.substring(relationPosition+1).trim());
-				return this;
+				return false;
 			}
 			relationPosition = line.indexOf(')');
-			Float order;
+			Double order;
 			try {
-				order = new Float(Float.parseFloat(line.substring(0,relationPosition).trim()));
+				order = new Double(Double.parseDouble(line.substring(0,relationPosition).trim()));
 			} catch (Exception e) {
 				throw new IllegalArgumentException("Rule must be of form '1)...'");
 			}
@@ -761,7 +832,7 @@ public class TestSegments {
 				breaks = Rule.NO_BREAK;
 			}
 			addRule(order, line.substring(0,relationPosition).trim(), breaks, line.substring(relationPosition + 1).trim(), line);		
-			return this;
+			return true;
 		}
 		
 		private transient Matcher whiteSpace = Pattern.compile("\\s+", REGEX_FLAGS).matcher("");
@@ -775,7 +846,11 @@ public class TestSegments {
 		 * @return
 		 */
 		RuleListBuilder addVariable(String name, String value) {
-			System.out.println("\t<variable id=\"" + name + "\">" + value + "</variable>");
+			if (lastComments.size() != 0) {
+				rawVariables.addAll(lastComments);
+				lastComments.clear();
+			}
+			rawVariables.add("<variable id=\"" + name + "\">" + value + "</variable>");
 			if (!identifierMatcher.reset(name).matches()) {
 				throw new IllegalArgumentException("Variable name must be $id: '" + name + "'");
 			}
@@ -816,13 +891,23 @@ public class TestSegments {
 		 * @param line 
 		 * @return
 		 */
-		RuleListBuilder addRule(Float order, String before, byte result, String after, String line) {
+		RuleListBuilder addRule(Double order, String before, byte result, String after, String line) {
 			if (brokenIdentifierMatcher.reset(line).find()) {
 				int pos = brokenIdentifierMatcher.start();
 				throw new IllegalArgumentException("Illegal identifier at:" + line.substring(0,pos) + "<<>>" + line.substring(pos));
 			}
 			line = whiteSpace.reset(line).replaceAll(" ");
-			System.out.println("\t<rule id=\"" + RuleList.nf.format(order) + "\"> " + line + " </rule>");
+			// insert comments before current line, in order.
+			if (lastComments.size() != 0) {
+				double increment = 0.0001;
+				double temp = order.doubleValue() - increment*lastComments.size();
+				for (int i = 0; i < lastComments.size(); ++i) {
+					rawRules.put(new Double(temp), lastComments.get(i));
+					temp += increment;
+				}
+				lastComments.clear();
+			}
+			rawRules.put(order, "<rule id=\"" + RuleList.nf.format(order) + "\"> " + line + " </rule>");
 			rules.put(order, new Rule(replaceVariables(before), result, replaceVariables(after), line));
 			return this;	
 		}
@@ -834,8 +919,8 @@ public class TestSegments {
 		RuleList make() {
 			RuleList result = new RuleList();
 			for (Iterator it = rules.keySet().iterator(); it.hasNext();) {
-				Float key = (Float)it.next();
-				result.add(key.floatValue(), (Rule)rules.get(key));
+				Double key = (Double)it.next();
+				result.add(key.doubleValue(), (Rule)rules.get(key));
 			}
 			return result;
 		}
@@ -901,9 +986,41 @@ public class TestSegments {
 				temp.retainAll(DEBUG_RETAIN);
 				if (temp.size() == 0) temp.add(0xFFFF); // just so not empty
 			}
-			String insert = temp.toPattern(false);
-			insert = insert.replaceAll("#","\\u0023"); // hack to fix regex
-			return insert;
+			
+			String result = toPattern(temp, JavaRegexShower);
+			// double check the pattern!!
+			UnicodeSet reversal = new UnicodeSet(result);
+			if (!reversal.equals(temp)) throw new IllegalArgumentException("Failure on UnicodeSet print");
+			return result;
 		}
+
+		static UnicodeSet JavaRegex_uxxx = new UnicodeSet("[[:White_Space:][:defaultignorablecodepoint:]#]"); // hack to fix # in Java
+		static UnicodeSet JavaRegex_slash = new UnicodeSet("[[:Pattern_White_Space:]" +
+				"\\[\\]\\-\\^\\&\\\\\\{\\}\\$\\:]");		
+		static CodePointShower JavaRegexShower = new CodePointShower() {
+			public String show(int codePoint) {
+				if (JavaRegex_uxxx.contains(codePoint)) return "\\u" + Utility.hex(codePoint);
+				if (JavaRegex_slash.contains(codePoint)) return "\\" + UTF16.valueOf(codePoint);
+				return UTF16.valueOf(codePoint);
+			}
+		};
+		
+		private static String toPattern(UnicodeSet temp, CodePointShower shower) {
+			StringBuffer result = new StringBuffer();
+			result.append('[');
+			for (UnicodeSetIterator it = new UnicodeSetIterator(temp); it.nextRange();) {
+				// three cases: single, adjacent, range
+				int first = it.codepoint;
+				result.append(shower.show(first++));
+				if (first > it.codepointEnd) continue;
+				if (first != it.codepointEnd) result.append('-');
+				result.append(shower.show(it.codepointEnd));
+			}
+			result.append(']');
+			return result.toString();
+		}
+	}
+	static public interface CodePointShower {
+		String show(int codePoint);
 	}
 }

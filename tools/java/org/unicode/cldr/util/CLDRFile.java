@@ -1591,8 +1591,8 @@ private boolean isSupplemental;
 
 	LanguageTagParser lparser = new LanguageTagParser();
 	
-	public synchronized String getName(String locale, boolean skipDraft) {
-		lparser.set(locale);
+	public synchronized String getName(String localeOrTZID, boolean skipDraft) {
+		lparser.set(localeOrTZID);
 		String name = getName(LANGUAGE_NAME, lparser.getLanguage(), skipDraft);
 		String sname = lparser.getScript();
 		if (sname.length() != 0) name += " - " + getName(SCRIPT_NAME, sname, skipDraft);

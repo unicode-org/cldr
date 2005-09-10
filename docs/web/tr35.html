@@ -139,11 +139,13 @@ li, p, table           { margin-top: 0.5li; margin-bottom: 0.5li }
       </li>
       <li>5.10 <a href="#&lt;numbers&gt;">&lt;numbers&gt;</a> </li>
       <li>5.11 <a href="#&lt;posix&gt;">&lt;posix&gt;</a></li>
-      <li>5.12 <a href="#&lt;collations&gt;">&lt;collations&gt;</a>
+      <li>5.12 <a href="#references_element">&lt;references&gt;</a></li>
+      <li>5.13 <a href="#&lt;collations&gt;">&lt;collations&gt;</a>
       <ul class="toc">
-        <li>5.12.1 <a href="#&lt;collation&gt;">&lt;collation&gt;</a></li>
+        <li>5.13.1 <a href="#&lt;collation&gt;">&lt;collation&gt;</a></li>
       </ul>
       </li>
+      <li><span class="changedspan">5.14 <a href="#segmentations_element">&lt;segmentations&gt;</a></span></li>
     </ul>
     <p>Appendix A: <a href="#Sample_Special_Elements">Sample Special Elements</a>
     <ul class="toc">
@@ -2547,6 +2549,86 @@ root</pre>
         &lt;pc&gt;<span style="color: blue">鯵梓圧斡扱</span>&lt;/pc&gt;
   &lt;/rules&gt;
 &lt;/collation&gt;</pre>
+  <h3><span class="changedspan">5.13 <a name="segmentations_element">&lt;segmentations&gt;</a></span></h3>
+  <p><span class="changedspan">The segmentations provide for machine readable segmentation of text, 
+  following [<a href="#UAX29">UAX29</a>] notation. The rules in <i>root</i> implement the 
+  segmentations found in [<a href="#UAX29">UAX29</a>] and [<a href="#UAX14">UAX14</a>], for grapheme 
+  clusters, words, sentences, and lines. The structure follows those in the UAXs, with a list of 
+  variables (representing character classes) and a list of rules. Each must have an id attribute.</span></p>
+  <p><span class="changedspan">Here is an example:</span></p>
+  <pre><span class="changedspan">&lt;segmentations&gt;
+  &lt;segmentation type=&quot;GraphemeClusterBreak&quot;&gt;
+    &lt;variables&gt;
+      &lt;variable id=&quot;$CR&quot;&gt;\p{Grapheme_Cluster_Break=CR}&lt;/variable&gt;
+      &lt;variable id=&quot;$LF&quot;&gt;\p{Grapheme_Cluster_Break=LF}&lt;/variable&gt;
+      &lt;variable id=&quot;$Control&quot;&gt;\p{Grapheme_Cluster_Break=Control}&lt;/variable&gt;
+      &lt;variable id=&quot;$Extend&quot;&gt;\p{Grapheme_Cluster_Break=Extend}&lt;/variable&gt;
+      &lt;variable id=&quot;$L&quot;&gt;\p{Grapheme_Cluster_Break=L}&lt;/variable&gt;
+      &lt;variable id=&quot;$V&quot;&gt;\p{Grapheme_Cluster_Break=V}&lt;/variable&gt;
+      &lt;variable id=&quot;$T&quot;&gt;\p{Grapheme_Cluster_Break=T}&lt;/variable&gt;
+      &lt;variable id=&quot;$LV&quot;&gt;\p{Grapheme_Cluster_Break=LV}&lt;/variable&gt;
+      &lt;variable id=&quot;$LVT&quot;&gt;\p{Grapheme_Cluster_Break=LVT}&lt;/variable&gt;
+    &lt;/variables&gt;
+    &lt;segmentRules&gt;
+      &lt;rule id=&quot;3&quot;&gt; $CR × $LF &lt;/rule&gt;
+      &lt;rule id=&quot;4&quot;&gt; ( $Control | $CR | $LF ) ÷ &lt;/rule&gt;
+      &lt;rule id=&quot;5&quot;&gt; ÷ ( $Control | $CR | $LF ) &lt;/rule&gt;
+      &lt;rule id=&quot;6&quot; status=&quot;Hangul&quot;&gt; $L × ( $L | $V | $LV | $LVT ) &lt;/rule&gt;
+      &lt;rule id=&quot;7&quot; status=&quot;Hangul&quot;&gt; ( $LV | $V ) × ( $V | $T ) &lt;/rule&gt;
+      &lt;rule id=&quot;8&quot; status=&quot;Hangul&quot;&gt; ( $LVT | $T) × $T &lt;/rule&gt;
+      &lt;rule id=&quot;9&quot;&gt; × $Extend &lt;/rule&gt;
+    &lt;/segmentRules&gt;
+  &lt;/segmentation&gt;
+...</span></pre>
+  <p><span class="changedspan"><b>Variables: </b>All variable ids must start with a $, and be valid 
+  identifiers. The contents of a variable is a regular expression using variables and
+  <a href="#Unicode_Sets">UnicodeSet</a>s. The ordering of variables is important; they are 
+  evaluated in order from first to last (see Inheritance, below). It is an error to use a variable 
+  before it is defined.</span></p>
+  <p><span class="changedspan"><b>Rules: </b>The contents of a rule uses the syntax of [<a href="#UAX29">UAX29</a>]. 
+  The rules are evaluated in numeric id order (which may not be the order in which the appear in the 
+  file). The first rule that matches determines the status of a boundary position, that is, whether 
+  it breaks or not. Thus ÷ means a break is allowed; × means a break is forbidden. It is an error if 
+  the rule does not contain exactly one of these characters.</span></p>
+  <p><span class="changedspan">There are some implicit rules: </span></p>
+  <ul>
+    <li><span class="changedspan">The implicit initial rules are always &quot;start-of-text ÷&quot; and &quot;÷ 
+    end-of-text&quot;; these are not to be included explicitly.</span></li>
+    <li><span class="changedspan">The implicit final rule is always &quot;Any ÷ Any&quot;. This is not to be 
+    included explicitly.</span></li>
+  </ul>
+  <p><span class="changedspan">The status value is is an NMTOKEN. Whenever a rule matches, the 
+  status of the rule (if any) is set. The final status value is returned whenever there is a break.</span></p>
+  <blockquote>
+    <p><span class="changedspan"><b>Note: </b>A rule like X Format* -&gt; X in [<a href="#UAX29">UAX29</a>] 
+    and [<a href="#UAX14">UAX14</a>] is not supported. Instead, this needs to be expressed as normal 
+    regular expressions. A simple way to support this is to modify the variables, such as in the 
+    following example:</span></p>
+    <pre id="line870"><span class="changedspan">&lt;variable id=&quot;$Format&quot;&gt;\p{Word_Break=Format}&lt;/variable&gt;
+&lt;variable id=&quot;$Katakana&quot;&gt;\p{Word_Break=Katakana}&lt;/variable&gt;
+...
+&lt;!-- In place of rule 3, add format and extend to everything --&gt;
+&lt;variable id=&quot;$X&quot;&gt;[$Format $Extend]*&lt;/variable&gt;
+&lt;variable id=&quot;$Katakana&quot;&gt;($Katakana $X)&lt;/variable&gt;
+&lt;variable id=&quot;$ALetter&quot;&gt;($ALetter $X)&lt;/variable&gt;
+...</span></pre>
+  </blockquote>
+  <h4><span class="changedspan">5.14.1 Inheritance</span></h4>
+  <p><span class="changedspan">Variables and rules both inherit from the parent. </span></p>
+  <p><span class="changedspan"><b>Variables: </b>The child&#39;s variable list is logically appended to 
+  the parent&#39;s, and evaluated in that order. For example:</span></p>
+  <p><span class="changedspan"><font color="#0000FF">// in parent</font><br>
+  &lt;variable id=&quot;$AL&quot;&gt;[:linebreak=AL:]&lt;/variable&gt;<br>
+  &lt;variable id=&quot;$YY&quot;&gt;[[:linebreak=XX:]$AL]&lt;/variable&gt; <font color="#0000FF">// adds $AL</font></span></p>
+  <p><span class="changedspan"><font color="#0000FF">// in child</font><br>
+  &lt;variable id=&quot;$AL&quot;&gt;[$AL &amp;&amp; [^a-z]]&lt;/variable&gt; <font color="#0000FF">// changes $AL, doesn&#39;t affect 
+  $XX</font><br>
+  &lt;variable id=&quot;$ABC&quot;&gt;[abc]&lt;/variable&gt; <font color="#0000FF">// adds new rule</font></span></p>
+  <p><span class="changedspan"><b>Rules:</b> The rules are also logically appended to the parent&#39;s. 
+  Because rules are evaluated in numeric id order, to insert a rule in between others just requires 
+  using an intermediate number. For example, to insert a rule before id=&quot;10.1&quot; and after id=&quot;10.2&quot;, 
+  just use id=&quot;10.15&quot;. To delete a rule, use empty contents, such as:</span></p>
+  <p><span class="changedspan">&lt;rule id=&quot;3&quot;/&gt;<font color="#0000FF"> // deletes rule 3</font></span></p>
   <h2>Appendix A: <a name="Sample_Special_Elements">Sample Special Elements</a></h2>
   <p>The elements in this section are <i><b>not</b></i> part of the Locale Data Markup Language 1.0 
   specification. Instead, they are special elements used for application-specific data to be stored 
@@ -5901,6 +5983,16 @@ decimal?, group?, special*)) &gt;</span></pre>
       <td class="noborder" width="148">[<a name="UCAChart">UCAChart</a>]</td>
       <td class="noborder" width="730">Collation Chart<a href="http://unicode.org/charts/collation/"><br>
       http://unicode.org/charts/collation/</a></td>
+    </tr>
+    <tr>
+      <td class="noborder" width="148">[<a name="UAX14">UAX14</a>]</td>
+      <td class="noborder" width="730">UAX #14: Line Breaking Properties<br>
+      <a href="http://www.unicode.org/reports/tr14/">http://www.unicode.org/reports/tr14/</a> </td>
+    </tr>
+    <tr>
+      <td class="noborder" width="148">[<a name="UAX29">UAX29</a>]</td>
+      <td class="noborder" width="730">UAX #29: Text Boundaries<br>
+      <a href="http://www.unicode.org/reports/tr29/">http://www.unicode.org/reports/tr29/</a> </td>
     </tr>
     <tr>
       <td class="noborder" width="148">[<a name="URegex">URegex</a>]</td>

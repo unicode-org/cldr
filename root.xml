@@ -852,7 +852,7 @@
 				<variable id="$LV">\p{Grapheme_Cluster_Break=LV}</variable>
 				<variable id="$LVT">\p{Grapheme_Cluster_Break=LVT}</variable>
 			</variables>
-			<rules>
+			<segmentRules>
 				<rule id="3"> $CR × $LF </rule>
 				<rule id="4"> ( $Control | $CR | $LF ) ÷ </rule>
 				<rule id="5"> ÷ ( $Control | $CR | $LF ) </rule>
@@ -860,7 +860,7 @@
 				<rule id="7"> ( $LV | $V ) × ( $V | $T ) </rule>
 				<rule id="8"> ( $LVT | $T) × $T </rule>
 				<rule id="9"> × $Extend </rule>
-			</rules>
+			</segmentRules>
 		</segmentation>
 		<segmentation type="WordBreak">
 			<variables>
@@ -889,15 +889,15 @@
 				<variable id="$Numeric">($Numeric $X)</variable>
 				<variable id="$ExtendNumLet">($ExtendNumLet $X)</variable>
 			</variables>
-			<rules>
-				<!-- Keep GC together; don't need GC rules 6-8, since they are covered by the other rules -->
+			<segmentRules>
+				<!-- Keep GC together; don't need GC segmentRules 6-8, since they are covered by the other segmentRules -->
 				<rule id="3.3"> $CR × $LF </rule>
 				<rule id="3.4"> ( $Control | $CR | $LF ) ÷ </rule>
 				<rule id="3.5"> ÷ ( $Control | $CR | $LF ) </rule>
 				<rule id="3.9"> × $Extend </rule>
 				<!-- Don't break within X + Format. Otherwise Format is added because of variables below -->
 				<rule id="4"> × $Format </rule>
-				<!-- Vanilla rules -->
+				<!-- Vanilla segmentRules -->
 				<rule id="5"> $ALetter × $ALetter </rule>
 				<rule id="6"> $ALetter × $MidLetter $ALetter </rule>
 				<rule id="7"> $ALetter $MidLetter × $ALetter </rule>
@@ -909,7 +909,7 @@
 				<rule id="13"> $Katakana × $Katakana </rule>
 				<rule id="13.1"> ($ALetter | $Numeric | $Katakana | $ExtendNumLet) × $ExtendNumLet </rule>
 				<rule id="13.2"> $ExtendNumLet × ($ALetter | $Numeric | $Katakana) </rule>
-			</rules>
+			</segmentRules>
 		</segmentation>
 		<segmentation type="SentenceBreak">
 			<variables>
@@ -942,8 +942,8 @@
 				<variable id="$STerm">($STerm $X)</variable>
 				<variable id="$Close">($Close $X)</variable>
 			</variables>
-			<rules>
-				<!-- keep GC together; don't need 6-8, since they are covered by the other rules -->
+			<segmentRules>
+				<!-- keep GC together; don't need 6-8, since they are covered by the other segmentRules -->
 				<rule id="3.3"> $CR × $LF </rule>
 				<!-- Sep needs to be inserted here, to keep CRLF together. Needs fix in TR29 -->
 				<rule id="3.35"> $Sep ÷ </rule>
@@ -961,7 +961,7 @@
 				<rule id="11"> ( $STerm | $ATerm ) $Close* $Sp* $Sep? ÷ </rule>
 				<!-- Otherwise, do not break -->
 				<rule id="12"> × $Any </rule>
-			</rules>
+			</segmentRules>
 		</segmentation>
 		<segmentation type="LineBreak">
 			<variables>
@@ -1044,7 +1044,7 @@
 				<!-- LB 7c  Treat any remaining combining mark as AL. -->
 				<variable id="$AL">($AL | ^ $CM | (?&lt;=[$SP $BK $CR $LF $NL $ZW]) $CM)</variable>
 			</variables>
-			<rules>
+			<segmentRules>
 				<!-- LB 3a  Always break after hard line breaks (but never between CR and LF). -->
 				<rule id="3.1"> $BK ÷ </rule>
 				<!-- LB 3b  Treat CR followed by LF, as well as CR, LF and NL as hard line breaks. -->
@@ -1059,7 +1059,7 @@
 				<rule id="4.02"> × $ZW </rule>
 				<!-- LB 5  Break after zero-width space. -->
 				<rule id="5"> $ZW ÷ </rule>
-				<!-- LB 7b  Do not break a combining character sequence; treat it as if it has the LB class of the base character in all of the following rules. -->
+				<!-- LB 7b  Do not break a combining character sequence; treat it as if it has the LB class of the base character in all of the following segmentRules. -->
 				<rule id="7.2"> × $CM </rule>
 				<!-- LB 8  Do not break before ‘]’ or ‘!’ or ‘;’ or ‘/’, even after spaces. -->
 				<!-- Using customization 7. -->
@@ -1139,7 +1139,7 @@
 				<rule id="19"> $AL × $AL </rule>
 				<!-- LB 19b  Do not break between numeric punctuation and alphabetics ("e.g."). -->
 				<rule id="19.1"> $IS × $AL </rule>
-			</rules>
+			</segmentRules>
 		</segmentation>
 	</segmentations>
 </ldml>

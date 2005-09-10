@@ -8,7 +8,7 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 -->
 
-<!ELEMENT ldml (identity, (alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, references?, special*))) >
+<!ELEMENT ldml (identity, (alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, segmentations?, references?, special*))) >
 <!ATTLIST ldml
    version          CDATA              #FIXED "1.3"
 >
@@ -913,6 +913,33 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST noexpr draft ( true | false ) #IMPLIED >
 <!ATTLIST noexpr references CDATA #IMPLIED >
 <!ATTLIST noexpr alt CDATA #IMPLIED >
+
+<!ELEMENT segmentations ( alias | segmentation*) >
+<!ATTLIST segmentations draft ( true | false ) #IMPLIED >
+<!ATTLIST segmentations alt CDATA #IMPLIED >
+<!ATTLIST segmentations validSubLocales CDATA #IMPLIED >
+<!ATTLIST segmentations references CDATA #IMPLIED >
+
+<!ELEMENT segmentation ( alias | (variables?, rule*) | special*) >
+<!ATTLIST segmentation type NMTOKEN #REQUIRED >
+<!ATTLIST segmentation draft ( true | false ) #IMPLIED >
+<!ATTLIST segmentation alt CDATA #IMPLIED >
+<!ATTLIST segmentation validSubLocales CDATA #IMPLIED >
+<!ATTLIST segmentation references CDATA #IMPLIED >
+
+<!ELEMENT variables ( alias | variable*) >
+
+<!ELEMENT variable ( #PCDATA ) >
+<!ATTLIST variable id CDATA #REQUIRED >
+<!ATTLIST variable draft ( true | false ) #IMPLIED >
+<!ATTLIST variable alt CDATA #IMPLIED >
+<!ATTLIST variable references CDATA #IMPLIED >
+
+<!ELEMENT rule ( #PCDATA ) >
+<!ATTLIST rule id NMTOKEN #REQUIRED >
+<!ATTLIST rule draft ( true | false ) #IMPLIED >
+<!ATTLIST rule alt CDATA #IMPLIED >
+<!ATTLIST rule references CDATA #IMPLIED >
 
 <!ELEMENT references ( reference* ) >
 <!ELEMENT reference ( #PCDATA ) >

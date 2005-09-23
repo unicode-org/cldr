@@ -1837,7 +1837,7 @@ root</pre>
     for version 3.2 of Unicode. This has been changed by decision of the UTC, so that it will no 
     longer be necessary as of UCA 4.0. So for 4.0 and beyond, the version just has a single number.</i></p>
   </blockquote>
-  <h3>5.12.1 <a name="&lt;collation&gt;">&lt;collation</a>&gt;</h3>
+  <h3>5.13.1 <a name="&lt;collation&gt;">&lt;collation</a>&gt;</h3>
   <p><span class="dtd">&lt;!ELEMENT collation (alias | (base?, settings?, suppress_contractions?, 
   optimize?, rules?, special*)) &gt;</span></p>
   <p>Like the ICU rules, the tailoring syntax is designed to be independent of the actual weights 
@@ -2549,12 +2549,14 @@ root</pre>
         &lt;pc&gt;<span style="color: blue">鯵梓圧斡扱</span>&lt;/pc&gt;
   &lt;/rules&gt;
 &lt;/collation&gt;</pre>
-  <h3><span class="changedspan">5.13 <a name="segmentations_element">&lt;segmentations&gt;</a></span></h3>
-  <p><span class="changedspan">The segmentations provide for machine readable segmentation of text, 
-  following [<a href="#UAX29">UAX29</a>] notation. The rules in <i>root</i> implement the 
-  segmentations found in [<a href="#UAX29">UAX29</a>] and [<a href="#UAX14">UAX14</a>], for grapheme 
-  clusters, words, sentences, and lines. The structure follows those in the UAXs, with a list of 
-  variables (representing character classes) and a list of rules. Each must have an id attribute.</span></p>
+  <h3><span class="changedspan">5.14 <a name="segmentations_element">&lt;segmentations&gt;</a></span></h3>
+  <p><span class="changedspan">The segmentations element provides for segmentation of text into 
+  words, lines, or other segments. The structure is based on [<a href="#UAX29">UAX29</a>] notation, 
+  but adapted to be machine-readable. It uses a list of variables (representing character classes) 
+  and a list of rules. Each must have an id attribute.</span></p>
+  <p><span class="changedspan">The rules in <i>root</i> implement the segmentations found in [<a href="#UAX29">UAX29</a>] 
+  and [<a href="#UAX14">UAX14</a>], for grapheme clusters, words, sentences, and lines. They can be 
+  overriden by rules in child locales. </span></p>
   <p><span class="changedspan">Here is an example:</span></p>
   <pre><span class="changedspan">&lt;segmentations&gt;
   &lt;segmentation type=&quot;GraphemeClusterBreak&quot;&gt;
@@ -2573,23 +2575,24 @@ root</pre>
       &lt;rule id=&quot;3&quot;&gt; $CR × $LF &lt;/rule&gt;
       &lt;rule id=&quot;4&quot;&gt; ( $Control | $CR | $LF ) ÷ &lt;/rule&gt;
       &lt;rule id=&quot;5&quot;&gt; ÷ ( $Control | $CR | $LF ) &lt;/rule&gt;
-      &lt;rule id=&quot;6&quot; status=&quot;Hangul&quot;&gt; $L × ( $L | $V | $LV | $LVT ) &lt;/rule&gt;
-      &lt;rule id=&quot;7&quot; status=&quot;Hangul&quot;&gt; ( $LV | $V ) × ( $V | $T ) &lt;/rule&gt;
-      &lt;rule id=&quot;8&quot; status=&quot;Hangul&quot;&gt; ( $LVT | $T) × $T &lt;/rule&gt;
+      &lt;rule id=&quot;6&quot;&gt; $L × ( $L | $V | $LV | $LVT ) &lt;/rule&gt;
+      &lt;rule id=&quot;7&quot;&gt; ( $LV | $V ) × ( $V | $T ) &lt;/rule&gt;
+      &lt;rule id=&quot;8&quot;&gt; ( $LVT | $T) × $T &lt;/rule&gt;
       &lt;rule id=&quot;9&quot;&gt; × $Extend &lt;/rule&gt;
     &lt;/segmentRules&gt;
   &lt;/segmentation&gt;
 ...</span></pre>
-  <p><span class="changedspan"><b>Variables: </b>All variable ids must start with a $, and be valid 
-  identifiers. The contents of a variable is a regular expression using variables and
-  <a href="#Unicode_Sets">UnicodeSet</a>s. The ordering of variables is important; they are 
-  evaluated in order from first to last (see Inheritance, below). It is an error to use a variable 
-  before it is defined.</span></p>
+  <p><span class="changedspan"><b>Variables: </b>All variable ids must start with a $, and otherwise 
+  be valid identifiers according to the Unicode definitions in [<a href="#UAX31">UAX31</a>]. The 
+  contents of a variable is a regular expression using variables and <a href="#Unicode_Sets">
+  UnicodeSet</a>s. The ordering of variables is important; they are evaluated in order from first to 
+  last (see Inheritance, below). It is an error to use a variable before it is defined.</span></p>
   <p><span class="changedspan"><b>Rules: </b>The contents of a rule uses the syntax of [<a href="#UAX29">UAX29</a>]. 
   The rules are evaluated in numeric id order (which may not be the order in which the appear in the 
   file). The first rule that matches determines the status of a boundary position, that is, whether 
   it breaks or not. Thus ÷ means a break is allowed; × means a break is forbidden. It is an error if 
-  the rule does not contain exactly one of these characters.</span></p>
+  the rule does not contain exactly one of these characters (except where a rule has no contents at 
+  all, or if the rule uses a variable that has not been defined.</span></p>
   <p><span class="changedspan">There are some implicit rules: </span></p>
   <ul>
     <li><span class="changedspan">The implicit initial rules are always &quot;start-of-text ÷&quot; and &quot;÷ 
@@ -2597,12 +2600,10 @@ root</pre>
     <li><span class="changedspan">The implicit final rule is always &quot;Any ÷ Any&quot;. This is not to be 
     included explicitly.</span></li>
   </ul>
-  <p><span class="changedspan">The status value is is an NMTOKEN. Whenever a rule matches, the 
-  status of the rule (if any) is set. The final status value is returned whenever there is a break.</span></p>
   <blockquote>
     <p><span class="changedspan"><b>Note: </b>A rule like X Format* -&gt; X in [<a href="#UAX29">UAX29</a>] 
     and [<a href="#UAX14">UAX14</a>] is not supported. Instead, this needs to be expressed as normal 
-    regular expressions. A simple way to support this is to modify the variables, such as in the 
+    regular expressions. The normal way to support this is to modify the variables, such as in the 
     following example:</span></p>
     <pre id="line870"><span class="changedspan">&lt;variable id=&quot;$Format&quot;&gt;\p{Word_Break=Format}&lt;/variable&gt;
 &lt;variable id=&quot;$Katakana&quot;&gt;\p{Word_Break=Katakana}&lt;/variable&gt;
@@ -2622,7 +2623,7 @@ root</pre>
   &lt;variable id=&quot;$YY&quot;&gt;[[:linebreak=XX:]$AL]&lt;/variable&gt; <font color="#0000FF">// adds $AL</font></span></p>
   <p><span class="changedspan"><font color="#0000FF">// in child</font><br>
   &lt;variable id=&quot;$AL&quot;&gt;[$AL &amp;&amp; [^a-z]]&lt;/variable&gt; <font color="#0000FF">// changes $AL, doesn&#39;t affect 
-  $XX</font><br>
+  $YY</font><br>
   &lt;variable id=&quot;$ABC&quot;&gt;[abc]&lt;/variable&gt; <font color="#0000FF">// adds new rule</font></span></p>
   <p><span class="changedspan"><b>Rules:</b> The rules are also logically appended to the parent&#39;s. 
   Because rules are evaluated in numeric id order, to insert a rule in between others just requires 
@@ -5995,12 +5996,14 @@ decimal?, group?, special*)) &gt;</span></pre>
       <a href="http://www.unicode.org/reports/tr29/">http://www.unicode.org/reports/tr29/</a> </td>
     </tr>
     <tr>
+      <td class="noborder" vAlign="top" nowrap>[<a name="UAX31">UAX31</a>]</td>
+      <td class="noborder" vAlign="top">UAX #31: Identifier and Pattern Syntax<br>
+      <a href="http://www.unicode.org/reports/tr31/">http://www.unicode.org/reports/tr31/</a></td>
+    </tr>
+    <tr>
       <td class="noborder" width="148">[<a name="URegex">URegex</a>]</td>
       <td class="noborder" width="730">UTR #18: Unicode Regular Expression Guidelines<br>
-      <a href="http://unicode.org/reports/tr18/">http://unicode.org/reports/tr18/<br>
-      </a><i>UTS #18: Unicode Regular Expressions (Proposed Update)<br>
-      <a href="http://unicode.org/reports/tr18/tr18-7.html">
-      http://unicode.org/reports/tr18/tr18-7.html</a></i></td>
+      <a href="http://unicode.org/reports/tr18/">http://unicode.org/reports/tr18/</a></td>
     </tr>
     <tr>
       <td class="noborder" width="148">[<a name="UTCInfo">UTCInfo</a>]</td>
@@ -6120,6 +6123,7 @@ decimal?, group?, special*)) &gt;</span></pre>
     Display Names</span></a>. Also changed &quot;Fallback&quot; to &quot;Display Names&quot; in the title of the 
     Appendix, and &quot;Olson&quot; to &quot;TZ&quot; in other places in the document.</span></li>
     <li><span class="changedspan">Yesstr/nostr/yesexpr/noexpr changes.</span></li>
+    <li><span class="changedspan">Added segmentations.</span></li>
   </ul>
   <h3>Revision 5</h3>
   <ul>

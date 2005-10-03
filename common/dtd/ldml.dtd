@@ -6,8 +6,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
-$Revision: 1.60 $
-$Date: 2005-09-10 04:14:42 $
+$Revision: 1.61 $
+$Date: 2005-10-03 23:28:22 $
 -->
 
 <!ELEMENT ldml (identity, (alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, segmentations?, references?, special*))) >
@@ -477,7 +477,7 @@ $Date: 2005-09-10 04:14:42 $
 <!ATTLIST timeFormat alt CDATA #IMPLIED >
 <!ATTLIST timeFormat validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT dateTimeFormats (alias | (default*, dateTimeFormatLength*, special*)) >
+<!ELEMENT dateTimeFormats (alias | (default*, dateTimeFormatLength*, availableFormats*, special*)) >
 <!ATTLIST dateTimeFormats draft ( true | false ) #IMPLIED >
 <!ATTLIST dateTimeFormats validSubLocales CDATA #IMPLIED >
 
@@ -496,6 +496,23 @@ $Date: 2005-09-10 04:14:42 $
 <!ATTLIST dateTimeFormat references CDATA #IMPLIED >
 <!ATTLIST dateTimeFormat alt CDATA #IMPLIED >
 <!ATTLIST dateTimeFormat validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT availableFormats (alias | (dateFormatItem*, appendItem*, special*)) >
+<!ATTLIST availableFormats draft ( true | false ) #IMPLIED >
+<!ATTLIST availableFormats references CDATA #IMPLIED >
+<!ATTLIST availableFormats alt CDATA #IMPLIED >
+<!ATTLIST availableFormats validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT dateFormatItem ( #PCDATA ) >
+<!ATTLIST dateFormatItem draft ( true | false ) #IMPLIED >
+<!ATTLIST dateFormatItem references CDATA #IMPLIED >
+<!ATTLIST dateFormatItem alt CDATA #IMPLIED >
+
+<!ELEMENT appendItem ( #PCDATA ) >
+<!ATTLIST request CDATA #REQUIRED >
+<!ATTLIST appendItem draft ( true | false ) #IMPLIED >
+<!ATTLIST appendItem references CDATA #IMPLIED >
+<!ATTLIST appendItem alt CDATA #IMPLIED >
 
 <!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*, regionFormat*, fallbackFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, special*)) >
 <!ATTLIST timeZoneNames draft ( true | false ) #IMPLIED >

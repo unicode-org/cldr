@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldmlSupplemental.dtd">
-<supplementalData version="1.3">
+<!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
+<supplementalData version="1.4">
 	<version number="$Revision$"/>
 	<generation date="$Date$"/>
     <currencyData draft="true">
@@ -1335,6 +1335,480 @@ XXX	Code for transations where no currency is involved
 			<mapZone other="New Zealand" type="Pacific/Auckland"/> <!-- D (GMT+12:00) Auckland, Wellington-->
 			<mapZone other="Tonga" type="Pacific/Tongatapu"/> <!-- S (GMT+13:00) Nuku'alofa-->
 		</mapTimezones>
+		<zoneFormatting multizone="001 AQ AR AU BR CA CD CL CN EC ES FM GB GL ID KI
+KZ MH ML MN MX MY NZ PF PT RU SJ UA UM US UZ">
+			<zoneItem type="Africa/Abidjan" territory="CI"/>
+			<zoneItem type="Africa/Accra" territory="GH"/>
+			<zoneItem type="America/Adak" territory="US" aliases="America/Atka
+US/Aleutian"/>
+			<zoneItem type="Africa/Addis_Ababa" territory="ET"/>
+			<zoneItem type="Australia/Adelaide" territory="AU"
+aliases="Australia/South"/>
+			<zoneItem type="Asia/Aden" territory="YE"/>
+			<zoneItem type="Africa/Algiers" territory="DZ"/>
+			<zoneItem type="Asia/Almaty" territory="KZ"/>
+			<zoneItem type="Asia/Amman" territory="JO"/>
+			<zoneItem type="Europe/Amsterdam" territory="NL"/>
+			<zoneItem type="Asia/Anadyr" territory="RU"/>
+			<zoneItem type="America/Anchorage" territory="US" aliases="SystemV/YST9YDT
+US/Alaska"/>
+			<zoneItem type="Europe/Andorra" territory="AD"/>
+			<zoneItem type="America/Anguilla" territory="AI"/>
+			<zoneItem type="Indian/Antananarivo" territory="MG"/>
+			<zoneItem type="America/Antigua" territory="AG"/>
+			<zoneItem type="Pacific/Apia" territory="WS"/>
+			<zoneItem type="Asia/Aqtau" territory="KZ"/>
+			<zoneItem type="Asia/Aqtobe" territory="KZ"/>
+			<zoneItem type="America/Araguaina" territory="BR"/>
+			<zoneItem type="America/Aruba" territory="AW"/>
+			<zoneItem type="Asia/Ashgabat" territory="TM"
+aliases="Asia/Ashkhabad"/>
+			<zoneItem type="Africa/Asmera" territory="ER"/>
+			<zoneItem type="America/Asuncion" territory="PY"/>
+			<zoneItem type="Europe/Athens" territory="GR"/>
+			<zoneItem type="Pacific/Auckland" territory="NZ" aliases="NZ"/>
+			<zoneItem type="Atlantic/Azores" territory="PT"/>
+			<zoneItem type="Asia/Baghdad" territory="IQ"/>
+			<zoneItem type="America/Bahia" territory="BR"/>
+			<zoneItem type="Asia/Bahrain" territory="BH"/>
+			<zoneItem type="Asia/Baku" territory="AZ"/>
+			<zoneItem type="Africa/Bamako" territory="ML"/>
+			<zoneItem type="Asia/Bangkok" territory="TH"/>
+			<zoneItem type="Africa/Bangui" territory="CF"/>
+			<zoneItem type="Africa/Banjul" territory="GM"/>
+			<zoneItem type="America/Barbados" territory="BB"/>
+			<zoneItem type="Asia/Beirut" territory="LB"/>
+			<zoneItem type="America/Belem" territory="BR"/>
+			<zoneItem type="Europe/Belfast" territory="GB"/>
+			<zoneItem type="Europe/Belgrade" territory="CS"/>
+			<zoneItem type="America/Belize" territory="BZ"/>
+			<zoneItem type="Europe/Berlin" territory="DE"/>
+			<zoneItem type="Atlantic/Bermuda" territory="BM"/>
+			<zoneItem type="Asia/Bishkek" territory="KG"/>
+			<zoneItem type="Africa/Bissau" territory="GW"/>
+			<zoneItem type="Africa/Blantyre" territory="MW"/>
+			<zoneItem type="America/Boa_Vista" territory="BR"/>
+			<zoneItem type="America/Bogota" territory="CO"/>
+			<zoneItem type="America/Boise" territory="US"/>
+			<zoneItem type="Europe/Bratislava" territory="SK"/>
+			<zoneItem type="Africa/Brazzaville" territory="CG"/>
+			<zoneItem type="Australia/Brisbane" territory="AU"
+aliases="Australia/Queensland"/>
+			<zoneItem type="Australia/Broken_Hill" territory="AU"
+aliases="Australia/Yancowinna"/>
+			<zoneItem type="Asia/Brunei" territory="BN"/>
+			<zoneItem type="Europe/Brussels" territory="BE"/>
+			<zoneItem type="Europe/Bucharest" territory="RO"/>
+			<zoneItem type="Europe/Budapest" territory="HU"/>
+			<zoneItem type="America/Buenos_Aires" territory="AR"
+aliases="America/Argentina/Buenos_Aires"/>
+			<zoneItem type="Africa/Bujumbura" territory="BI"/>
+			<zoneItem type="Africa/Cairo" territory="EG" aliases="Egypt"/>
+			<zoneItem type="Asia/Calcutta" territory="IN"/>
+			<zoneItem type="America/Cambridge_Bay" territory="CA"/>
+			<zoneItem type="America/Campo_Grande" territory="BR"/>
+			<zoneItem type="Atlantic/Canary" territory="ES"/>
+			<zoneItem type="America/Cancun" territory="MX"/>
+			<zoneItem type="Atlantic/Cape_Verde" territory="CV"/>
+			<zoneItem type="America/Caracas" territory="VE"/>
+			<zoneItem type="Africa/Casablanca" territory="MA"/>
+			<zoneItem type="Antarctica/Casey" territory="AQ"/>
+			<zoneItem type="America/Catamarca" territory="AR"
+aliases="America/Argentina/Catamarca"/>
+			<zoneItem type="America/Cayenne" territory="GF"/>
+			<zoneItem type="America/Cayman" territory="KY"/>
+			<zoneItem type="America/North_Dakota/Center" territory="US"/>
+			<zoneItem type="Africa/Ceuta" territory="ES"/>
+			<zoneItem type="Indian/Chagos" territory="IO"/>
+			<zoneItem type="Pacific/Chatham" territory="NZ" aliases="NZ-CHAT"/>
+			<zoneItem type="America/Chicago" territory="US" aliases="CST6CDT
+SystemV/CST6CDT US/Central"/>
+			<zoneItem type="America/Chihuahua" territory="MX"/>
+			<zoneItem type="Europe/Chisinau" territory="MD"
+aliases="Europe/Tiraspol"/>
+			<zoneItem type="Asia/Choibalsan" territory="MN"/>
+			<zoneItem type="Asia/Chongqing" territory="CN"
+aliases="Asia/Chungking"/>
+			<zoneItem type="Indian/Christmas" territory="CX"/>
+			<zoneItem type="Indian/Cocos" territory="CC"/>
+			<zoneItem type="Asia/Colombo" territory="LK"/>
+			<zoneItem type="America/Argentina/ComodRivadavia" territory="AR"/>
+			<zoneItem type="Indian/Comoro" territory="KM"/>
+			<zoneItem type="Africa/Conakry" territory="GN"/>
+			<zoneItem type="Europe/Copenhagen" territory="DK"/>
+			<zoneItem type="America/Cordoba" territory="AR"
+aliases="America/Argentina/Cordoba America/Rosario"/>
+			<zoneItem type="America/Costa_Rica" territory="CR"/>
+			<zoneItem type="America/Cuiaba" territory="BR"/>
+			<zoneItem type="America/Curacao" territory="AN"/>
+			<zoneItem type="Africa/Dakar" territory="SN"/>
+			<zoneItem type="Asia/Damascus" territory="SY"/>
+			<zoneItem type="America/Danmarkshavn" territory="GL"/>
+			<zoneItem type="Africa/Dar_es_Salaam" territory="TZ"/>
+			<zoneItem type="Australia/Darwin" territory="AU"
+aliases="Australia/North"/>
+			<zoneItem type="Antarctica/Davis" territory="AQ"/>
+			<zoneItem type="America/Dawson" territory="CA"/>
+			<zoneItem type="America/Dawson_Creek" territory="CA"/>
+			<zoneItem type="America/Denver" territory="US" aliases="MST7MDT
+SystemV/MST7MDT US/Mountain"/>
+			<zoneItem type="America/Detroit" territory="US"
+aliases="US/Michigan"/>
+			<zoneItem type="Asia/Dhaka" territory="BD" aliases="Asia/Dacca"/>
+			<zoneItem type="Asia/Dili" territory="TL"/>
+			<zoneItem type="Africa/Djibouti" territory="DJ"/>
+			<zoneItem type="America/Dominica" territory="DM"/>
+			<zoneItem type="Africa/Douala" territory="CM"/>
+			<zoneItem type="Asia/Dubai" territory="AE"/>
+			<zoneItem type="Europe/Dublin" territory="IE" aliases="Eire"/>
+			<zoneItem type="Antarctica/DumontDUrville" territory="AQ"/>
+			<zoneItem type="Asia/Dushanbe" territory="TJ"/>
+			<zoneItem type="Pacific/Easter" territory="CL"
+aliases="Chile/EasterIsland"/>
+			<zoneItem type="America/Edmonton" territory="CA"
+aliases="Canada/Mountain"/>
+			<zoneItem type="Pacific/Efate" territory="VU"/>
+			<zoneItem type="America/Eirunepe" territory="BR"/>
+			<zoneItem type="Africa/El_Aaiun" territory="EH"/>
+			<zoneItem type="America/El_Salvador" territory="SV"/>
+			<zoneItem type="Pacific/Enderbury" territory="KI"/>
+			<zoneItem type="Atlantic/Faeroe" territory="FO"/>
+			<zoneItem type="Pacific/Fakaofo" territory="TK"/>
+			<zoneItem type="Pacific/Fiji" territory="FJ"/>
+			<zoneItem type="America/Fortaleza" territory="BR"/>
+			<zoneItem type="Africa/Freetown" territory="SL"/>
+			<zoneItem type="Pacific/Funafuti" territory="TV"/>
+			<zoneItem type="Africa/Gaborone" territory="BW"/>
+			<zoneItem type="Pacific/Galapagos" territory="EC"/>
+			<zoneItem type="Pacific/Gambier" territory="PF"
+aliases="SystemV/YST9"/>
+			<zoneItem type="Asia/Gaza" territory="PS"/>
+			<zoneItem type="Europe/Gibraltar" territory="GI"/>
+			<zoneItem type="America/Glace_Bay" territory="CA"/>
+			<zoneItem type="Etc/GMT" territory="001" aliases="Etc/GMT+0 Etc/GMT-0
+Etc/GMT0 Etc/Greenwich Etc/UCT Etc/UTC Etc/Universal Etc/Zulu GMT GMT+0 GMT-0
+GMT0 Greenwich UCT UTC Universal Zulu"/>
+			<zoneItem type="Etc/GMT-1" territory="001"/>
+			<zoneItem type="Etc/GMT-2" territory="001"/>
+			<zoneItem type="Etc/GMT-3" territory="001"/>
+			<zoneItem type="Etc/GMT-4" territory="001"/>
+			<zoneItem type="Etc/GMT-5" territory="001"/>
+			<zoneItem type="Etc/GMT-6" territory="001"/>
+			<zoneItem type="Etc/GMT-7" territory="001"/>
+			<zoneItem type="Etc/GMT-8" territory="001"/>
+			<zoneItem type="Etc/GMT-9" territory="001"/>
+			<zoneItem type="Etc/GMT-10" territory="001"/>
+			<zoneItem type="Etc/GMT-11" territory="001"/>
+			<zoneItem type="Etc/GMT-12" territory="001"/>
+			<zoneItem type="Etc/GMT-13" territory="001"/>
+			<zoneItem type="Etc/GMT-14" territory="001"/>
+			<zoneItem type="Etc/GMT+1" territory="001"/>
+			<zoneItem type="Etc/GMT+2" territory="001"/>
+			<zoneItem type="Etc/GMT+3" territory="001"/>
+			<zoneItem type="Etc/GMT+4" territory="001"/>
+			<zoneItem type="Etc/GMT+5" territory="001"/>
+			<zoneItem type="Etc/GMT+6" territory="001"/>
+			<zoneItem type="Etc/GMT+7" territory="001"/>
+			<zoneItem type="Etc/GMT+8" territory="001"/>
+			<zoneItem type="Etc/GMT+9" territory="001"/>
+			<zoneItem type="Etc/GMT+10" territory="001"/>
+			<zoneItem type="Etc/GMT+11" territory="001"/>
+			<zoneItem type="Etc/GMT+12" territory="001"/>
+			<zoneItem type="America/Godthab" territory="GL"/>
+			<zoneItem type="America/Goose_Bay" territory="CA"/>
+			<zoneItem type="America/Grand_Turk" territory="TC"/>
+			<zoneItem type="America/Grenada" territory="GD"/>
+			<zoneItem type="Pacific/Guadalcanal" territory="SB"/>
+			<zoneItem type="America/Guadeloupe" territory="GP"/>
+			<zoneItem type="Pacific/Guam" territory="GU"/>
+			<zoneItem type="America/Guatemala" territory="GT"/>
+			<zoneItem type="America/Guayaquil" territory="EC"/>
+			<zoneItem type="America/Guyana" territory="GY"/>
+			<zoneItem type="America/Halifax" territory="CA" aliases="Canada/Atlantic
+SystemV/AST4ADT"/>
+			<zoneItem type="Africa/Harare" territory="ZW"/>
+			<zoneItem type="Asia/Harbin" territory="CN"/>
+			<zoneItem type="America/Havana" territory="CU" aliases="Cuba"/>
+			<zoneItem type="Europe/Helsinki" territory="FI"/>
+			<zoneItem type="America/Hermosillo" territory="MX"/>
+			<zoneItem type="Australia/Hobart" territory="AU"
+aliases="Australia/Tasmania"/>
+			<zoneItem type="Asia/Hong_Kong" territory="HK" aliases="Hongkong"/>
+			<zoneItem type="Pacific/Honolulu" territory="US" aliases="HST
+SystemV/HST10 US/Hawaii"/>
+			<zoneItem type="Asia/Hovd" territory="MN"/>
+			<zoneItem type="America/Indianapolis" territory="US"
+aliases="America/Fort_Wayne America/Indiana/Indianapolis EST SystemV/EST5
+US/East-Indiana"/>
+			<zoneItem type="America/Inuvik" territory="CA"/>
+			<zoneItem type="America/Iqaluit" territory="CA"/>
+			<zoneItem type="Asia/Irkutsk" territory="RU"/>
+			<zoneItem type="Europe/Istanbul" territory="TR" aliases="Asia/Istanbul
+Turkey"/>
+			<zoneItem type="Asia/Jakarta" territory="ID"/>
+			<zoneItem type="America/Jamaica" territory="JM" aliases="Jamaica"/>
+			<zoneItem type="Atlantic/Jan_Mayen" territory="SJ"/>
+			<zoneItem type="Asia/Jayapura" territory="ID"/>
+			<zoneItem type="Asia/Jerusalem" territory="IL" aliases="Asia/Tel_Aviv
+Israel"/>
+			<zoneItem type="Africa/Johannesburg" territory="ZA"/>
+			<zoneItem type="Pacific/Johnston" territory="UM"/>
+			<zoneItem type="America/Jujuy" territory="AR"
+aliases="America/Argentina/Jujuy"/>
+			<zoneItem type="America/Juneau" territory="US"/>
+			<zoneItem type="Asia/Kabul" territory="AF"/>
+			<zoneItem type="Europe/Kaliningrad" territory="RU"/>
+			<zoneItem type="Asia/Kamchatka" territory="RU"/>
+			<zoneItem type="Africa/Kampala" territory="UG"/>
+			<zoneItem type="Asia/Karachi" territory="PK"/>
+			<zoneItem type="Asia/Kashgar" territory="CN"/>
+			<zoneItem type="Asia/Katmandu" territory="NP"/>
+			<zoneItem type="Indian/Kerguelen" territory="TF"/>
+			<zoneItem type="Africa/Khartoum" territory="SD"/>
+			<zoneItem type="Europe/Kiev" territory="UA"/>
+			<zoneItem type="Africa/Kigali" territory="RW"/>
+			<zoneItem type="Africa/Kinshasa" territory="CD"/>
+			<zoneItem type="Pacific/Kiritimati" territory="KI"/>
+			<zoneItem type="America/Indiana/Knox" territory="US"
+aliases="America/Knox_IN US/Indiana-Starke"/>
+			<zoneItem type="Pacific/Kosrae" territory="FM"/>
+			<zoneItem type="Asia/Krasnoyarsk" territory="RU"/>
+			<zoneItem type="Asia/Kuala_Lumpur" territory="MY"/>
+			<zoneItem type="Asia/Kuching" territory="MY"/>
+			<zoneItem type="Asia/Kuwait" territory="KW"/>
+			<zoneItem type="Pacific/Kwajalein" territory="MH"
+aliases="Kwajalein"/>
+			<zoneItem type="America/La_Paz" territory="BO"/>
+			<zoneItem type="America/Argentina/La_Rioja" territory="AR"/>
+			<zoneItem type="Africa/Lagos" territory="NG"/>
+			<zoneItem type="Africa/Libreville" territory="GA"/>
+			<zoneItem type="America/Lima" territory="PE"/>
+			<zoneItem type="Australia/Lindeman" territory="AU"/>
+			<zoneItem type="Europe/Lisbon" territory="PT" aliases="Portugal"/>
+			<zoneItem type="Europe/Ljubljana" territory="SI"/>
+			<zoneItem type="Africa/Lome" territory="TG"/>
+			<zoneItem type="Europe/London" territory="GB" aliases="GB GB-Eire"/>
+			<zoneItem type="Arctic/Longyearbyen" territory="SJ"/>
+			<zoneItem type="Australia/Lord_Howe" territory="AU"
+aliases="Australia/LHI"/>
+			<zoneItem type="America/Los_Angeles" territory="US" aliases="PST8PDT
+SystemV/PST8PDT US/Pacific US/Pacific-New"/>
+			<zoneItem type="America/Louisville" territory="US"
+aliases="America/Kentucky/Louisville"/>
+			<zoneItem type="Africa/Luanda" territory="AO"/>
+			<zoneItem type="Africa/Lubumbashi" territory="CD"/>
+			<zoneItem type="Africa/Lusaka" territory="ZM"/>
+			<zoneItem type="Europe/Luxembourg" territory="LU"/>
+			<zoneItem type="Asia/Macau" territory="MO" aliases="Asia/Macao"/>
+			<zoneItem type="America/Maceio" territory="BR"/>
+			<zoneItem type="Atlantic/Madeira" territory="PT"/>
+			<zoneItem type="Europe/Madrid" territory="ES"/>
+			<zoneItem type="Asia/Magadan" territory="RU"/>
+			<zoneItem type="Indian/Mahe" territory="SC"/>
+			<zoneItem type="Pacific/Majuro" territory="MH"/>
+			<zoneItem type="Asia/Makassar" territory="ID"
+aliases="Asia/Ujung_Pandang"/>
+			<zoneItem type="Africa/Malabo" territory="GQ"/>
+			<zoneItem type="Indian/Maldives" territory="MV"/>
+			<zoneItem type="Europe/Malta" territory="MT"/>
+			<zoneItem type="America/Managua" territory="NI"/>
+			<zoneItem type="America/Manaus" territory="BR" aliases="Brazil/West"/>
+			<zoneItem type="Asia/Manila" territory="PH"/>
+			<zoneItem type="Africa/Maputo" territory="MZ"/>
+			<zoneItem type="America/Indiana/Marengo" territory="US"/>
+			<zoneItem type="Europe/Mariehamn" territory="AX"/>
+			<zoneItem type="Pacific/Marquesas" territory="PF"/>
+			<zoneItem type="America/Martinique" territory="MQ"/>
+			<zoneItem type="Africa/Maseru" territory="LS"/>
+			<zoneItem type="Indian/Mauritius" territory="MU"/>
+			<zoneItem type="Antarctica/Mawson" territory="AQ"/>
+			<zoneItem type="Indian/Mayotte" territory="YT"/>
+			<zoneItem type="America/Mazatlan" territory="MX"
+aliases="Mexico/BajaSur"/>
+			<zoneItem type="Africa/Mbabane" territory="SZ"/>
+			<zoneItem type="Antarctica/McMurdo" territory="AQ"/>
+			<zoneItem type="Australia/Melbourne" territory="AU"
+aliases="Australia/Victoria"/>
+			<zoneItem type="America/Mendoza" territory="AR"
+aliases="America/Argentina/Mendoza"/>
+			<zoneItem type="America/Menominee" territory="US"/>
+			<zoneItem type="America/Merida" territory="MX"/>
+			<zoneItem type="America/Mexico_City" territory="MX"
+aliases="Mexico/General"/>
+			<zoneItem type="Pacific/Midway" territory="UM"/>
+			<zoneItem type="Europe/Minsk" territory="BY"/>
+			<zoneItem type="America/Miquelon" territory="PM"/>
+			<zoneItem type="Africa/Mogadishu" territory="SO"/>
+			<zoneItem type="Europe/Monaco" territory="MC"/>
+			<zoneItem type="Africa/Monrovia" territory="LR"/>
+			<zoneItem type="America/Monterrey" territory="MX"/>
+			<zoneItem type="America/Montevideo" territory="UY"/>
+			<zoneItem type="America/Kentucky/Monticello" territory="US"/>
+			<zoneItem type="America/Montreal" territory="CA"/>
+			<zoneItem type="America/Montserrat" territory="MS"/>
+			<zoneItem type="Europe/Moscow" territory="RU" aliases="W-SU"/>
+			<zoneItem type="Asia/Muscat" territory="OM"/>
+			<zoneItem type="Africa/Nairobi" territory="KE"/>
+			<zoneItem type="America/Nassau" territory="BS"/>
+			<zoneItem type="Pacific/Nauru" territory="NR"/>
+			<zoneItem type="Africa/Ndjamena" territory="TD"/>
+			<zoneItem type="America/New_York" territory="US" aliases="EST5EDT
+SystemV/EST5EDT US/Eastern"/>
+			<zoneItem type="Africa/Niamey" territory="NE"/>
+			<zoneItem type="Asia/Nicosia" territory="CY"
+aliases="Europe/Nicosia"/>
+			<zoneItem type="America/Nipigon" territory="CA"/>
+			<zoneItem type="Pacific/Niue" territory="NU"/>
+			<zoneItem type="America/Nome" territory="US"/>
+			<zoneItem type="Pacific/Norfolk" territory="NF"/>
+			<zoneItem type="America/Noronha" territory="BR"
+aliases="Brazil/DeNoronha"/>
+			<zoneItem type="Africa/Nouakchott" territory="MR"/>
+			<zoneItem type="Pacific/Noumea" territory="NC"/>
+			<zoneItem type="Asia/Novosibirsk" territory="RU"/>
+			<zoneItem type="Asia/Omsk" territory="RU"/>
+			<zoneItem type="Asia/Oral" territory="KZ"/>
+			<zoneItem type="Europe/Oslo" territory="NO"/>
+			<zoneItem type="Africa/Ouagadougou" territory="BF"/>
+			<zoneItem type="Pacific/Pago_Pago" territory="AS" aliases="Pacific/Samoa
+US/Samoa"/>
+			<zoneItem type="Pacific/Palau" territory="PW"/>
+			<zoneItem type="Antarctica/Palmer" territory="AQ"/>
+			<zoneItem type="America/Panama" territory="PA"/>
+			<zoneItem type="America/Pangnirtung" territory="CA"/>
+			<zoneItem type="America/Paramaribo" territory="SR"/>
+			<zoneItem type="Europe/Paris" territory="FR"/>
+			<zoneItem type="Australia/Perth" territory="AU"
+aliases="Australia/West"/>
+			<zoneItem type="Asia/Phnom_Penh" territory="KH"/>
+			<zoneItem type="America/Phoenix" territory="US" aliases="MST SystemV/MST7
+US/Arizona"/>
+			<zoneItem type="Pacific/Pitcairn" territory="PN"
+aliases="SystemV/PST8"/>
+			<zoneItem type="Pacific/Ponape" territory="FM"/>
+			<zoneItem type="Asia/Pontianak" territory="ID"/>
+			<zoneItem type="Pacific/Port_Moresby" territory="PG"/>
+			<zoneItem type="America/Port_of_Spain" territory="TT"/>
+			<zoneItem type="America/Port-au-Prince" territory="HT"/>
+			<zoneItem type="America/Porto_Velho" territory="BR"/>
+			<zoneItem type="Africa/Porto-Novo" territory="BJ"/>
+			<zoneItem type="Europe/Prague" territory="CZ"/>
+			<zoneItem type="America/Puerto_Rico" territory="PR"
+aliases="SystemV/AST4"/>
+			<zoneItem type="Asia/Pyongyang" territory="KP"/>
+			<zoneItem type="Asia/Qatar" territory="QA"/>
+			<zoneItem type="Asia/Qyzylorda" territory="KZ"/>
+			<zoneItem type="America/Rainy_River" territory="CA"/>
+			<zoneItem type="Asia/Rangoon" territory="MM"/>
+			<zoneItem type="America/Rankin_Inlet" territory="CA"/>
+			<zoneItem type="Pacific/Rarotonga" territory="CK"/>
+			<zoneItem type="America/Recife" territory="BR"/>
+			<zoneItem type="America/Regina" territory="CA"
+aliases="Canada/East-Saskatchewan Canada/Saskatchewan SystemV/CST6"/>
+			<zoneItem type="Indian/Reunion" territory="RE"/>
+			<zoneItem type="Atlantic/Reykjavik" territory="IS" aliases="Iceland"/>
+			<zoneItem type="Europe/Riga" territory="LV"/>
+			<zoneItem type="America/Rio_Branco" territory="BR"
+aliases="America/Porto_Acre Brazil/Acre"/>
+			<zoneItem type="America/Argentina/Rio_Gallegos" territory="AR"/>
+			<zoneItem type="Asia/Riyadh" territory="SA"/>
+			<zoneItem type="Europe/Rome" territory="IT"/>
+			<zoneItem type="Antarctica/Rothera" territory="AQ"/>
+			<zoneItem type="Asia/Saigon" territory="VN"/>
+			<zoneItem type="Pacific/Saipan" territory="MP"/>
+			<zoneItem type="Asia/Sakhalin" territory="RU"/>
+			<zoneItem type="Europe/Samara" territory="RU"/>
+			<zoneItem type="Asia/Samarkand" territory="UZ"/>
+			<zoneItem type="America/Argentina/San_Juan" territory="AR"/>
+			<zoneItem type="Europe/San_Marino" territory="SM"/>
+			<zoneItem type="America/Santiago" territory="CL"
+aliases="Chile/Continental"/>
+			<zoneItem type="America/Santo_Domingo" territory="DO"/>
+			<zoneItem type="America/Sao_Paulo" territory="BR"
+aliases="Brazil/East"/>
+			<zoneItem type="Africa/Sao_Tome" territory="ST"/>
+			<zoneItem type="Europe/Sarajevo" territory="BA"/>
+			<zoneItem type="America/Scoresbysund" territory="GL"/>
+			<zoneItem type="Asia/Seoul" territory="KR" aliases="ROK"/>
+			<zoneItem type="Asia/Shanghai" territory="CN" aliases="PRC"/>
+			<zoneItem type="America/Shiprock" territory="US" aliases="Navajo"/>
+			<zoneItem type="Europe/Simferopol" territory="UA"/>
+			<zoneItem type="Asia/Singapore" territory="SG" aliases="Singapore"/>
+			<zoneItem type="Europe/Skopje" territory="MK"/>
+			<zoneItem type="Europe/Sofia" territory="BG"/>
+			<zoneItem type="Atlantic/South_Georgia" territory="GS"/>
+			<zoneItem type="Antarctica/South_Pole" territory="AQ"/>
+			<zoneItem type="Atlantic/St_Helena" territory="SH"/>
+			<zoneItem type="America/St_Johns" territory="CA"
+aliases="Canada/Newfoundland"/>
+			<zoneItem type="America/St_Kitts" territory="KN"/>
+			<zoneItem type="America/St_Lucia" territory="LC"/>
+			<zoneItem type="America/St_Thomas" territory="VI"
+aliases="America/Virgin"/>
+			<zoneItem type="America/St_Vincent" territory="VC"/>
+			<zoneItem type="Atlantic/Stanley" territory="FK"/>
+			<zoneItem type="Europe/Stockholm" territory="SE"/>
+			<zoneItem type="America/Swift_Current" territory="CA"/>
+			<zoneItem type="Australia/Sydney" territory="AU" aliases="Australia/ACT
+Australia/Canberra Australia/NSW"/>
+			<zoneItem type="Antarctica/Syowa" territory="AQ"/>
+			<zoneItem type="Pacific/Tahiti" territory="PF"/>
+			<zoneItem type="Asia/Taipei" territory="TW" aliases="ROC"/>
+			<zoneItem type="Europe/Tallinn" territory="EE"/>
+			<zoneItem type="Pacific/Tarawa" territory="KI"/>
+			<zoneItem type="Asia/Tashkent" territory="UZ"/>
+			<zoneItem type="Asia/Tbilisi" territory="GE"/>
+			<zoneItem type="America/Tegucigalpa" territory="HN"/>
+			<zoneItem type="Asia/Tehran" territory="IR" aliases="Iran"/>
+			<zoneItem type="Asia/Thimphu" territory="BT" aliases="Asia/Thimbu"/>
+			<zoneItem type="America/Thule" territory="GL"/>
+			<zoneItem type="America/Thunder_Bay" territory="CA"/>
+			<zoneItem type="America/Tijuana" territory="MX" aliases="America/Ensenada
+Mexico/BajaNorte"/>
+			<zoneItem type="Africa/Timbuktu" territory="ML"/>
+			<zoneItem type="Europe/Tirane" territory="AL"/>
+			<zoneItem type="Asia/Tokyo" territory="JP" aliases="Japan"/>
+			<zoneItem type="Pacific/Tongatapu" territory="TO"/>
+			<zoneItem type="America/Toronto" territory="CA"
+aliases="Canada/Eastern"/>
+			<zoneItem type="America/Tortola" territory="VG"/>
+			<zoneItem type="Africa/Tripoli" territory="LY" aliases="Libya"/>
+			<zoneItem type="Pacific/Truk" territory="FM"/>
+			<zoneItem type="America/Argentina/Tucuman" territory="AR"/>
+			<zoneItem type="Africa/Tunis" territory="TN"/>
+			<zoneItem type="Asia/Ulaanbaatar" territory="MN"
+aliases="Asia/Ulan_Bator"/>
+			<zoneItem type="Asia/Urumqi" territory="CN"/>
+			<zoneItem type="America/Argentina/Ushuaia" territory="AR"/>
+			<zoneItem type="Europe/Uzhgorod" territory="UA"/>
+			<zoneItem type="Europe/Vaduz" territory="LI"/>
+			<zoneItem type="America/Vancouver" territory="CA"
+aliases="Canada/Pacific"/>
+			<zoneItem type="Europe/Vatican" territory="VA"/>
+			<zoneItem type="America/Indiana/Vevay" territory="US"/>
+			<zoneItem type="Europe/Vienna" territory="AT"/>
+			<zoneItem type="Asia/Vientiane" territory="LA"/>
+			<zoneItem type="Europe/Vilnius" territory="LT"/>
+			<zoneItem type="Asia/Vladivostok" territory="RU"/>
+			<zoneItem type="Antarctica/Vostok" territory="AQ"/>
+			<zoneItem type="Pacific/Wake" territory="UM"/>
+			<zoneItem type="Pacific/Wallis" territory="WF"/>
+			<zoneItem type="Europe/Warsaw" territory="PL" aliases="Poland"/>
+			<zoneItem type="America/Whitehorse" territory="CA"
+aliases="Canada/Yukon"/>
+			<zoneItem type="Africa/Windhoek" territory="NA"/>
+			<zoneItem type="America/Winnipeg" territory="CA"
+aliases="Canada/Central"/>
+			<zoneItem type="America/Yakutat" territory="US"/>
+			<zoneItem type="Asia/Yakutsk" territory="RU"/>
+			<zoneItem type="Pacific/Yap" territory="FM"/>
+			<zoneItem type="Asia/Yekaterinburg" territory="RU"/>
+			<zoneItem type="America/Yellowknife" territory="CA"/>
+			<zoneItem type="Asia/Yerevan" territory="AM"/>
+			<zoneItem type="Europe/Zagreb" territory="HR"/>
+			<zoneItem type="Europe/Zaporozhye" territory="UA"/>
+			<zoneItem type="Europe/Zurich" territory="CH"/>
+		</zoneFormatting>
 	</timezoneData>
 	<metadata>
 	    <alias>

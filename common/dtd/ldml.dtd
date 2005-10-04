@@ -6,8 +6,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
-$Revision: 1.61 $
-$Date: 2005-10-03 23:28:22 $
+$Revision: 1.62 $
+$Date: 2005-10-04 01:11:20 $
 -->
 
 <!ELEMENT ldml (identity, (alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, segmentations?, references?, special*))) >
@@ -78,7 +78,7 @@ $Date: 2005-10-03 23:28:22 $
 
 <!-- ######################################################### -->
 
-<!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, variants?, keys?, types?, special*)) >
+<!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, variants?, keys?, types?, measurementSystemNames?, special*)) >
 <!ATTLIST localeDisplayNames draft ( true | false ) #IMPLIED >
 
 <!-- Either 1 alias OR any specials, any order, zero or more language -->
@@ -135,6 +135,18 @@ $Date: 2005-10-03 23:28:22 $
 <!ATTLIST type draft ( true | false ) #IMPLIED >
 <!ATTLIST type references CDATA #IMPLIED >
 <!ATTLIST type alt CDATA #IMPLIED >
+
+<!-- Either 1 alias OR any specials, any order, zero or more measurementSystemName -->
+<!ELEMENT measurementSystemNames ( alias | (measurementSystemName | special)* ) >
+<!ATTLIST measurementSystemNames draft ( true | false ) #IMPLIED >
+<!ATTLIST measurementSystemNames references CDATA #IMPLIED >
+<!ATTLIST measurementSystemNames validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT measurementSystemName ( #PCDATA ) >
+<!ATTLIST measurementSystemName type ( US | metric | UK ) #REQUIRED >
+<!ATTLIST measurementSystemName draft ( true | false ) #IMPLIED >
+<!ATTLIST measurementSystemName references CDATA #IMPLIED >
+<!ATTLIST measurementSystemName alt CDATA #IMPLIED >
 
 
 

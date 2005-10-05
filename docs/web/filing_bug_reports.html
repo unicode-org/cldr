@@ -172,8 +172,6 @@
             Sources</a> if available.</li>
             <li>Wherever possible, include sample test data. <a href="#Collation_Bugs">This is 
             especially important for collation (sorting) rules</a>!</li>
-            <li>For bulk submissions, follow the requirements of
-            <a href="process.html#bulk_submissions">Bulk Submissions</a></li>
             <li>If the item is in the comparison chart:<ul>
               <li>The date the comparison chart was generated (at the bottom of the chart).</li>
               <li>The line(s) of data that are incorrect.</li>
@@ -182,15 +180,15 @@
             </ul>
             </li>
           </ul>
-          <p><i>Please group all bugs for a single locale into a single bug report, wherever 
-          possible.</i></p>
-          <p>Bugs may also be filed on the
-          <a href="http://www.unicode.org/cldr/data/dtd/supplementalData.xml">supplemental data</a>, 
-          which is only available in XML format. Note that the default currency for a given 
-          territory is in the supplemental data, not in the locale data. Similarly, the timezones 
-          for different regions are to be derived from Olson data, and are not in the locale data. 
-          The <i>localized names</i> for currencies and timezones, on the other hand, will be in the 
-          locale data (if available).</p>
+          <p><b><i>Please group all bugs for a single locale into a single bug report, wherever 
+          possible.</i></b></p>
+          <p>Bugs may also be filed on the Supplemental Data (see <a href="comparison_charts.html">
+          Comparison Charts</a>). Note that the default currency for a given territory is in the 
+          supplemental data, <i>not</i> in the main locale data<span style="background-color: #FFFF00">, 
+          which focuses on linguistic information</span>. Similarly, the timezones for different 
+          regions are to be derived from Olson data, and are not in the locale data. The <i>
+          localized names</i> for currencies and timezones, on the other hand, will be in the locale 
+          data (if available).</p>
           <p>We have tried to make the format of the comparison charts as useful as possible. If you 
           have suggestions for improvements, please also file it as a bug report.</p>
           <h2><a name="Collation_Bugs">Collation Bugs</a></h2>

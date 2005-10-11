@@ -85,7 +85,7 @@
             debug="on" deprecation="off"
             encoding="ascii"/>
     </target>
-        <target name="clean" depends="init" description="remove all build targets">
+    <target name="clean" depends="init" description="remove all build targets">
         <delete dir="${build.dir}"/>
         <delete file="${jar.file}"/>
     </target>
@@ -96,5 +96,104 @@
             includes="org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*"
             basedir="${build.dir}"/>
     </target>
+    
+    <!-- SurveyTool (web) stuff -->
+    <target name="webInit" depends="init">
+        <tstamp/>
+        <!-- Load environment variables -->
+        <property environment="env"/>
+        
+        <!-- for now: depends on tomcat (catalina) for servlet API. -->
+        <property name="tomcat.home"        value="${env.CATALINA_HOME}"/>
+        <property name="icu.home"           value="${env.ICU4J_HOME}"/>
+        
+        <property name="servlet.jar"        value="${tomcat.home}/common/lib/servlet-api.jar"/>
+        <property name="jsp.jar"            value="${tomcat.home}/common/lib/jsp-api.jar"/>
+        <property name="derby.jar"          value="${env.DERBY_HOME}/lib/derby.jar"/>
+        <property name="icu.jar"          value="${icu.home}/icu4j.jar"/>
+        <property name="utilities.jar"      value="${icu.home}/utilities.jar"/>
+
+        <!-- Configure the custom Ant tasks for the Manager application -->
+        <taskdef name="deploy"    classname="org.apache.catalina.ant.DeployTask"/>
+        <taskdef name="list"      classname="org.apache.catalina.ant.ListTask"/>
+        <taskdef name="reload"    classname="org.apache.catalina.ant.ReloadTask"/>
+        <taskdef name="resources" classname="org.apache.catalina.ant.ResourcesTask"/>
+        <taskdef name="roles"     classname="org.apache.catalina.ant.RolesTask"/>
+        <taskdef name="start"     classname="org.apache.catalina.ant.StartTask"/>
+        <taskdef name="stop"      classname="org.apache.catalina.ant.StopTask"/>
+        <taskdef name="undeploy"  classname="org.apache.catalina.ant.UndeployTask"/>
+
+        <!-- Configure the context path for this application -->
+        <property name="path"     value="/${ant.project.name}"/>
+
+        <!-- Configure properties to access the Manager application -->
+        <property name="url"      value="http://localhost:8080/manager"/>  <!-- TODO: support multiple, overrides -->
+        <property name="username" value="admin"/> <!-- TODO: support overrides -->
+        <!-- call ant with:  -Dpassword=adminpass to use the updating stuff --> 
+        
+        <property name="warfile" location="SurveyTool.war"/>
+
+        <path id="weblib.classpath">
+            <pathelement path="${servlet.jar}"/>
+<!--             <pathelement path="${jsp.jar}"/> -->
+            <pathelement path="${icu.jar}"/>
+            <pathelement path="${utilities.jar}"/>
+            <pathelement path="${derby.jar}"/> 
+        </path>
+
+        <echo message="weblib.classpath is set to = ${derby.jar}:${icu.jar}:${utilities.jar}:${servlet.jar}"/>
+        
+        <!--
+         Probably need this..
+        <condition property="is.icu4j.classes.set" >
+            <isset property="env.ICU4J_CLASSES" />
+        </condition > 
+        <fail unless="is.icu4j.classes.set" message="Please set the ICU4J_CLASSES environment variable."/>
+        -->                
+    </target>    
+    <target name="web" depends="webInit,util" description="build web classes">
+        <javac includes="org/unicode/cldr/web/**/*.java"
+            excludes="**/CVS/**/*"
+            srcdir="${src.dir}"
+            destdir="${build.dir}"
+            classpathref="weblib.classpath"
+            source="1.4"
+            debug="on" deprecation="off"
+            encoding="ascii"/>
+    </target>
+ 
+<!-- build as a WAR file -->
+<!-- todo: include CLDR as a jar? Only include certain classes? -->
+    <target name="war" depends="web" description="Build war">        
+        <war destfile="${warfile}" webxml="${src.dir}/data/surveytool/SurveyTool.xml">
+<!--             <pathelement path="${jsp.jar}"/> -->
+            <lib file="${icu.jar}"/>
+            <lib file="${utilities.jar}"/>
+            <lib file="${derby.jar}"/> 
+            <classes dir="${build.dir}"/>
+        </war>
+    </target>
+
+
+ <!-- targets for actually deploying on a server -->
+    <target name="deploy" depends="webInit,war">
+        <deploy url="${url}" username="${username}" password="${password}"
+            path="${path}" war="${warfile}"/>
+    </target>
+
+  <target name="reload" description="Reload SurveyTool application"
+          depends="webInit">
+    <reload  url="${url}" username="${username}" password="${password}"
+            path="${path}"/>
+  </target>
+
+  <target name="undeploy" description="Remove SurveyTool application" depends="webInit">
+    <undeploy url="${url}" username="${username}" password="${password}"
+            path="${path}"/>
+  </target>
+  
+  <target name="redeploy" description="Redeploy SurveyTool application" depends="webInit,war,undeploy,deploy">
+  </target>
+
 
 </project>

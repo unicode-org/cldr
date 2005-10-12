@@ -7,14 +7,19 @@ since we still have to work out how we want to do the architecture.
 
 The directory structure is:
 [./org/unicode/cldr..]
-icu	Tools for generating ICU-format data from CLDR
+icu  	Tools for generating ICU-format data from CLDR
 posix	Tools for generating POSIX-format data from CLDR
 test	Test tools for CLDR
 tool	Tools for manipulating CLDR files
 util	Utilities for handling CLDR files
+ooo 	OpenOffice.org tools for : 
+			- Converting OpenOffice.org format to LDML
+			- CLDR data to OpenOffice.org format 
+			- Comparing OpenOffice.org data
+
 [web is not listed and not documented]
 Each one of these should have a readme.txt
-[none has a readme]
+[none has a readme, except ooo]
 
 When you run any of the tools, you probably want to set up a DTD cache; that will speed things up.
 Include the following environment variable to do that.

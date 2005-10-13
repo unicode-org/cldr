@@ -1,0 +1,139 @@
+hr {
+	border: 1px dashed #ccd
+}
+
+tr.row0 {
+	background-color: #fff
+}
+
+tr.row1 {
+	background-color: #ddd
+}
+
+A.nodraft {
+	text-decoration: none
+}
+
+A.nodraft:link {
+	color: #4567b0
+}
+
+A.nodraft:active {
+	color: #f00
+}
+
+A.nodraft:visited {
+	color: #8372d2
+}
+
+.draftl {
+	font-weight: bold;
+	text-decoration: none
+}
+
+.missing {
+	background-color: #FF0000;
+}
+
+.missing a:link {
+	color: #fff
+}
+
+.missing a:visited {
+	color: #ddd
+}
+
+.missing a:active {
+	color: #f00
+}
+
+.missing a:hover {
+	color: #fDD
+}
+
+.xpath {
+	font-size: smaller;
+}
+
+.fallback {
+	background-color: #FFDDDD;
+}
+
+.draft {
+	background-color: #88FFAA;
+}
+
+.proposed {
+	background-color: #88DDAA;
+}
+
+.selected {
+	background-color: #444fd2;
+	color: #fff;
+	foreground-color: #fff;
+	margin: 1px;
+	text-weight: bold;
+	padding: 1px;
+	text-decoration: none;
+	border: 1px solid black
+}
+
+a.selected :link {
+	color: #fff
+}
+
+.notselected {
+	margin: 2px;
+	padding: 1px;
+	text-decoration: none;
+}
+
+.sep {
+	height: 3px;
+	overflow: hidden;
+	background-color: #44778C;
+}
+
+.name {
+	background-color: #EEEEFF;
+}
+
+.warning {
+	font-size: smaller;
+	font-color: #F22;
+	background-color: #FFFFFF;
+}
+
+.pager {
+	border: 1px solid gray;
+	background-color: #FFEECC;
+	padding: 1em 1em 1em 1em;
+	font-size: smaller;
+}
+
+.localenav {
+	border: 1px solid gray;
+	background-color: #fff;
+	margin: 5px;
+	align: left;
+}
+
+.inputbox {
+	width: 100%;
+	height: 100%
+}
+
+.hang {
+	text-indent: -3em;
+	margin-left: 3em;
+}
+
+.list {
+	border-collapse: collapse
+}
+
+.list.td .list.th {
+	padding-top: 3px;
+	padding-bottom: 4px;
+}
+

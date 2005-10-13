@@ -1,0 +1,32 @@
+<web-app>
+    <servlet>
+        <servlet-name>SurveyMain</servlet-name>
+        <servlet-class>
+            org.unicode.cldr.web.SurveyMain
+        </servlet-class>
+        <init-param>
+            <param-name>CLDR_VET_DATA</param-name>
+            <param-value>/Users/srl/C/vetdata</param-value>
+        </init-param>
+        <init-param>
+            <param-name>CLDR_VET_WEB</param-name>
+            <param-value>/Users/srl/C/vetweb</param-value>
+        </init-param>
+        <init-param>
+            <param-name>CLDR_VAP</param-name>
+            <param-value>vet4u</param-value>
+        </init-param>
+        <init-param>
+            <param-name>CLDR_COMMON</param-name>
+            <param-value>/xsrl/C/cldr/common</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SurveyMain</servlet-name>
+        <url-pattern>/ost/*</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
+

@@ -96,7 +96,7 @@ public class UserRegistry {
         return (User)emails.get(email);
     }
     
-    synchronized User add(String email, String sponsor, String real, String requester) {
+    synchronized User add(WebContext ctx, String email, String sponsor, String real, String requester) {
         if(get(email) != null) {
             return null; // already exists.
         }
@@ -107,7 +107,7 @@ public class UserRegistry {
         u.sponsor = sponsor;
         u.real = real;
         put(u); // add to hashtable
-        write(u, requester);
+        write(ctx, u, requester);
         
         return u;
     }
@@ -121,7 +121,7 @@ public class UserRegistry {
         userCount++;
     }
     
-    private synchronized void write(User u, String requester) {
+    private synchronized void write(WebContext ctx, User u, String requester) {
         try {
           OutputStream file = new FileOutputStream(filename, true); // Append
           PrintWriter pw = new PrintWriter(file);
@@ -134,7 +134,7 @@ public class UserRegistry {
           }
           pw.println("#---------------");
           pw.println("# Date: " + new Date().toString());
-          pw.println("# IP: " + WebContext.userIP());
+          pw.println("# IP: " + ctx.userIP());
           pw.println("# Requester: " + requester);
           pw.println(u.id + SEPARATOR + 
                      u.email + SEPARATOR +

@@ -12,6 +12,11 @@ import java.io.*;
 import java.util.*;
 import com.ibm.icu.util.ULocale;
 
+// servlet imports
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+
 public class WebContext {
 // USER fields
     public Document doc[]= new Document[0];
@@ -23,24 +28,19 @@ public class WebContext {
 // private fields
     protected PrintWriter out = null;
     Hashtable form_data = null;
-    String baseURL = cgi_lib.MyTinyURL();
     String outQuery = null;
     TreeMap outQueryMap = new TreeMap();
     boolean dontCloseMe = false;
 
+    HttpServletRequest request;
+    HttpServletResponse response;
+
     // New constructor
-    public WebContext(OutputStream ostr) throws IOException {
-        out = openUTF8Writer(ostr);
-        dontCloseMe = false;
-        
-        // set up cgi
-      form_data = cgi_lib.ReadParse(System.in);
-      if (cgi_lib.MethGet()) {
-//          System.out.println("REQUEST_METHOD=GET");
-          }
-      if (cgi_lib.MethPost()) { 
-//          System.out.println("REQUEST_METHOD=POST");
-       }
+    public WebContext(HttpServletRequest irq, HttpServletResponse irs) throws IOException {
+         request = irq;
+         response = irs;
+        out = response.getWriter();
+        dontCloseMe = true;
         
     }
     
@@ -58,13 +58,14 @@ public class WebContext {
         docLocale = other.docLocale;
         out = other.out;
         form_data = other.form_data;
-        baseURL = other.baseURL;
         outQuery = other.outQuery;
         locale = other.locale;
         localeName = other.localeName;
         session = other.session;
         outQueryMap = (TreeMap)other.outQueryMap.clone();
         dontCloseMe = true;
+        request = other.request;
+        response = other.response;
     }
     
 // More API
@@ -94,7 +95,8 @@ public class WebContext {
     }
     
     String field(String x) {
-        String res = (String)form_data.get(x);
+//        String res = (String)form_data.get(x);
+        String res = request.getParameter(x);
          if(res == null) {       
 //              System.err.println("[[ empty query string: " + x + "]]");
             res = "";   
@@ -139,15 +141,24 @@ public class WebContext {
 
     String url() {
         if(outQuery == null) {
-            return baseURL;
+            return base();
         } else {
-            return baseURL + "?" + outQuery;
+            return base() + "?" + outQuery;
         }
     }
     
     String base() { 
-        return baseURL;
+        return request.getContextPath() + request.getServletPath();
     }
+    
+    public String context() { 
+        return request.getContextPath();
+    }
+
+    public String context(String s) { 
+        return request.getContextPath() + "/" + s;
+    }
+    
     void printUrlAsHiddenFields() {
         for(Iterator e = outQueryMap.keySet().iterator();e.hasNext();) {
             String k = e.next().toString();
@@ -159,15 +170,15 @@ public class WebContext {
     /**
      * return the IP of the remote user.
      */
-    static String userIP() {
-        return cgi_lib.myGetProperty("REMOTE_ADDR");
+    String userIP() {
+        return request.getRemoteAddr();
     }
 
     /**
      * return the hostname of the web server
      */
     String serverName() {
-        return cgi_lib.myGetProperty("SERVER_NAME");
+        return request.getServerName();
     }
     
 // print api

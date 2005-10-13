@@ -1,3 +1,5 @@
+// TODO: fix this. currently disabled.
+
 //
 //  MailSender.java
 //  cldrtools
@@ -10,7 +12,7 @@
 package org.unicode.cldr.web;
 
 import java.util.*;
-import com.blankenhorn.net.mail.*;
+//import com.blankenhorn.net.mail.*;
 
 public class MailSender {
     static String from = System.getProperty("CLDR_FROM");
@@ -18,7 +20,7 @@ public class MailSender {
     
     public static void sendMail(String to, String subject, String body) {
         try {
-            EasySMTPConnection myConnection = new EasySMTPConnection(smtp);
+//            EasySMTPConnection myConnection = new EasySMTPConnection(smtp);
 
             String[] source= {
                 "From: CLDR Survey <" + from + ">", 
@@ -35,8 +37,8 @@ public class MailSender {
                 "If you have any questions about it, please do not hesitate to contact:   srl@icu-project.org",
                 ""
             };
-            Message msg = new Message(source);
-            myConnection.sendMessage(msg);
+  //          Message msg = new Message(source);
+    //        myConnection.sendMessage(msg);
         } catch(Throwable t) {  
             System.err.println(t.toString());
             t.printStackTrace();

@@ -1,4 +1,4 @@
-/*
+ /*
  ******************************************************************************
  * Copyright (C) 2004-2005, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
@@ -9,6 +9,10 @@ package org.unicode.cldr.web;
 import java.io.*;
 import java.util.*;
 import java.lang.ref.SoftReference;
+
+// servlet imports
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 // DOM imports
 import org.w3c.dom.Document;
@@ -26,15 +30,12 @@ import com.ibm.icu.dev.test.util.BagFormatter;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.icu.*;
 
-// from: http://www.fastcgi.com
-import com.fastcgi.FCGIInterface;
-import com.fastcgi.FCGIGlobalDefs;
 import com.ibm.icu.lang.UCharacter;
 //import org.html.*;
 //import org.html.utility.*;
 //import org.html.table.*;
 
-class SurveyMain {
+public class SurveyMain extends HttpServlet {
     public static final String CLDR_HELP_LINK = "http://bugs.icu-project.org/cgibin/cldrwiki.pl?SurveyToolHelp";
     public static final String CLDR_ALERT_ICON = "/~srloomis/alrt.gif";
     public static final String SUBVETTING = "//v"; // vetting context
@@ -47,12 +48,30 @@ class SurveyMain {
     public static final String UNKNOWNCHANGE = "Click to suggest replacement";
     
     // SYSTEM PROPERTIES
-    public static final String vap = System.getProperty("CLDR_VAP"); // Vet Access Password
-    public static final String vetdata = System.getProperty("CLDR_VET_DATA"); // dir for vetted data
-    public static final String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for web data
-    public static final String cldrLoad = System.getProperty("CLDR_LOAD_ALL"); // preload all locales?
+    public static  String vap = System.getProperty("CLDR_VAP"); // Vet Access Password
+    public static  String vetdata = System.getProperty("CLDR_VET_DATA"); // dir for vetted data
+    public static  String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for web data
+    public static  String cldrLoad = System.getProperty("CLDR_LOAD_ALL"); // preload all locales?
     static String fileBase = System.getProperty("CLDR_COMMON") + "/main"; // not static - may change lager
     static String specialMessage = System.getProperty("CLDR_MESSAGE"); // not static - may change lager
+
+    public final void init(final ServletConfig config)
+      throws ServletException {
+
+      super.init(config);
+
+        vap = config.getInitParameter("CLDR_VAP"); // Vet Access Password
+        vetdata = config.getInitParameter("CLDR_VET_DATA"); // dir for vetted data
+        System.out.println("CVD= " + vetdata);
+        vetweb = config.getInitParameter("CLDR_VET_WEB"); // dir for web data
+        cldrLoad = config.getInitParameter("CLDR_LOAD_ALL"); // preload all locales?
+        fileBase = config.getInitParameter("CLDR_COMMON") + "/main"; // not static - may change lager
+        specialMessage = config.getInitParameter("CLDR_MESSAGE"); // not static - may change lager
+
+        startTime = System.currentTimeMillis();
+        doStartup();
+//      throw new UnavailableException("Document path not set.");
+    }
 
     public static final String LOGFILE = "cldr.log";        // log file of all changes
     public static final ULocale inLocale = new ULocale("en"); // locale to use to 'localize' things
@@ -95,17 +114,33 @@ class SurveyMain {
     }
     
     long startTime = 0;
-    private SurveyMain() {
-        startTime = System.currentTimeMillis();
+    public SurveyMain() {
     }
     
     /**
      * output MIME header, build context, and run code..
      */
-    private void runSurvey(PrintStream out) throws IOException
+     public static String isBogus = null;
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws IOException, ServletException
     {
-        WebContext ctx = new WebContext(out);
-        ctx.println("Content-type: text/html; charset=\"utf-8\"\n\n");
+        response.setContentType("text/html; charset=utf-8");
+        
+        if(isBogus != null) {
+            PrintWriter out = response.getWriter();
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>CLDR tool broken</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>CLDR Survey Tool is down, because:</h1>");
+            out.println("<tt>" + isBogus + "</tt><br />");
+            out.println("<hr />");
+            return;        
+        }
+        
+        WebContext ctx = new WebContext(request,response);
+        pages++;
         
         if(ctx.field("vap").equals(vap)) {  // if we have a Vetting Administration Password, special case
             doVap(ctx);
@@ -262,7 +297,8 @@ class SurveyMain {
     {
         ctx.println("<html>");
         ctx.println("<head>");
-        //ctx.println("<link rel='stylesheet' type='text/css' href='http://www.unicode.org/webscripts/standard_styles.css'>");
+        ctx.println("<link rel='stylesheet' type='text/css' href='" + ctx.context("surveytool.css") + "' />");
+        // + "http://www.unicode.org/webscripts/standard_styles.css'>"
         ctx.println("<title>CLDR Vetting | ");
         if(ctx.locale != null) {
             ctx.print(ctx.locale.getDisplayName() + " | ");
@@ -277,97 +313,6 @@ class SurveyMain {
                     "{document.getElementById(what).style.display=\"block\";}\n" +
                     "--></script>");
         
-        // STYLE - move to a separate file
-        ctx.println("<style type=text/css>\n" +
-                    "<!-- \n" + 
-                    "hr { border: 1px dashed #ccd }\n" + 
-                    "tr.row0 { background-color: #fff }\n" + 
-                    "tr.row1 { background-color: #ddd }\n" + 
-                    "A.nodraft { text-decoration: none } \n" +
-//                    ".nodraft { font-color: #aaa; foreground-color: #000; background-color: #fff; } \n" +
-                    "A.nodraft:link  { color: #4567b0 } \n" +
-                    "A.nodraft:active  { color: #f00 } \n" +
-                    "A.nodraft:visited  { color: #8372d2 } \n" +
-//                    ".nodraft a:active   { color: #f00 } \n" +
-                    ".draftl { font-weight: bold;  text-decoration: none } \n" +
-//                    ".draftl a:hover   {  color: #fDD } \n" +
-//                    ".draftl { font-color: #00F; foreground-color: #000; background-color: #dfd; } \n" +
-//                    ".draftl a:link  { color: #aaf } \n" +
-//                    ".draftl a:visited  { color: #00D } \n" +
-//                    ".draftl a:active   { color: #f00 } \n" +
-//                    ".draftl a:hover   {  color: #fDD } \n" +
-                    ".missing { background-color: #FF0000; } \n" +
-                    ".missing a:link  { color: #fff } \n" +
-                    ".missing a:visited  { color: #ddd } \n" +
-                    ".missing a:active   { color: #f00 } \n" +
-                    ".missing a:hover   {  color: #fDD } \n" +
-                    ".xpath { font-size: smaller; } \n" +
-                    ".fallback { background-color: #FFDDDD; } \n" +
-                    ".draft { background-color: #88FFAA; } \n" +
-                    ".proposed { background-color: #88DDAA; } \n" +
-
-                    ".selected { background-color: #444fd2; color: #fff; foreground-color: #fff; "+
-                        " margin: 1px; text-weight: bold; padding: 1px; text-decoration: none; "+
-                        "border: 1px solid black } \n" +
-                    "a.selected :link {color: #fff } \n" +
-                    ".notselected { margin: 2px;  padding: 1px; text-decoration: none; "+
-                        " } \n" +
-/*
-                    ".selected { color: #fff; text-decoration: none; font-color: #fff; foreground-color: #fff; background-color: #02D; } \n" +
-//                    "a.selected:link      { color: #fff } \n" +
-                    ".selected a:link      { color: #fff } \n" +
-                    "a.selected:visited  { color: #ddd } \n" +
-                    "a.selected:active   { color: #f00 } \n" +
-                    "a.selected:hover   {  color: #fDD } \n" +
-
-                    ".notselected { text-decoration: none;  font-color: #000; foreground-color: #000; background-color: #dfd; } \n" +
-                    "a.notselected:link      { color: #00d } \n" +
-                    "a.notselected:visited  { color: #00b } \n" +
-                    "a.notselected:active   { color: #f00 } \n" +
-                    "a.notselected:hover   {  color: #faa } \n" +
-*/
-
-                    ".sep { height: 3px; overflow: hidden; background-color: #44778C; } \n" +
-                    ".name { background-color: #EEEEFF; } \n" +
-                    ".warning { font-size: smaller; font-color: #F22; background-color: #FFFFFF; } \n" +
-                    ".pager { border: 1px solid gray; background-color:#FFEECC; " + 
-                            " padding: 1em 1em 1em 1em; font-size: smaller; } \n" + 
-                    ".localenav { border: 1px solid gray; background-color:#fff; " + 
-                            "margin: 5px; align: left; } \n" + 
-                    ".inputbox { width: 100%; height: 100% } \n" +
-                    ".hang { text-indent: -3em; margin-left: 3em; } \n" +
-                    ".list { border-collapse: collapse } \n" +
-                    ".list.td .list.th { padding-top: 3px; padding-bottom: 4px; } \n" + 
-                    "-->\n" +
-                    "</style>\n");
-                    
-        /*
-          u_fprintf(lx->OUT, "%s",  "\r\n<style type=text/css>\r\n"
-            "<!--\r\n"
-            ".box0 { border: 1px inset gray; margin: 1px }\r\n"
-            ".box1 { border: 1px inset gray; margin: 1px; background-color: #CCEECC }\r\n"
-            ".wide        { width: 100% }\r\n"
-            ".high        { height: 100% }\r\n"
-            ".fill        { width: 100%; height: 100% }\r\n"
-            ".box0        { background-color: white; border: 1px inset gray; margin: 1px }\r\n"
-            ".box1        { background-color: #CCEECC; border: 1px inset gray; margin: 1px }\r\n");
-    u_fprintf(lx->OUT, "%s",    
-            "#main        { border-spacing: 0; border-collapse: collapse; border: 1px solid black }\r\n"
-            "#main tr th, #main tr td       { border-spacing: 0; border-collapse: collapse; font-family: \r\n"
-            "               'Lucida Sans Unicode', 'Arial Unicode MS', Arial, sans-serif; \r\n"
-            "               color: black; vertical-align: top; border: 1px solid black; \r\n"
-            "               padding: 5px }\r\n");
-        u_fprintf(lx->OUT, "%s",
-            ".noborder    { border: 1px none white }\r\n"
-            ".widenoborder { width: 100%; border: 1px none white }\r\n"
-            ".icustuff    { background-color: #AAEEAA; border: 1px none white }\r\n"
-            ".icugray     { background-color: #afa8af; height: 2px; border: 1px none white }\r\n"
-            ".icublack    { background-color: #000000; height: 2px; border: 1px none white }\r\n"
-            "tt.count { font-size: 80%; color: #0000FF }\r\n"
-            "tt.key { font-size: 70%; color: #666666 }\r\n"
-            "-->\r\n</style>\r\n");
-  
-        */
     }
 
     public void printFooter(WebContext ctx)
@@ -778,8 +723,8 @@ class SurveyMain {
             (name.length()<=0) ) {
             ctx.println("One or more of the Sponsor, Email, Name fields aren't filled out.  Please hit Back and try again.");
         } else {
-            u = reg.add(email, sponsor, name, requester);
-            appendLog("User added: " + name + " <" + email + ">, Sponsor: " + sponsor + " <" + requester + ">" + 
+            u = reg.add(ctx, email, sponsor, name, requester);
+            appendLog(ctx, "User added: " + name + " <" + email + ">, Sponsor: " + sponsor + " <" + requester + ">" + 
                 " (user ID " + u.id + " )" );
             notifyUser(ctx, u, requester);
         }
@@ -805,7 +750,7 @@ class SurveyMain {
                 body);
             ctx.println("Mail sent to " + u.email + " from " + from + " via " + smtp + "<br/>\n");
         }
-        appendLog("Login URL sent to " + u.email + " (#" + u.id + ") from " + from + " via " + smtp);
+        appendLog(ctx, "Login URL sent to " + u.email + " (#" + u.id + ") from " + from + " via " + smtp);
         /* some debugging. */
     }
 
@@ -884,7 +829,7 @@ class SurveyMain {
                 if(post) {
                     try {
                         changedList = changedList + " " + k;
-                        PrintWriter pw2 = BagFormatter.openUTF8Writer(xmlFile);
+                        PrintWriter pw2 = BagFormatter.openUTF8Writer(sessDir + File.separator, k+".xml");
                         f.write(pw2);
                         pw2.close();
                         ctx.println("<b>File Written.</b><br/>");
@@ -913,7 +858,7 @@ class SurveyMain {
                 ctx.println("<i>Not sending mail- SMTP disabled.</i><br/>");
             } else {
                 MailSender.sendMail(u.email, "CLDR: Receipt of your data submission ",
-                        "Submission from IP: " + WebContext.userIP() + "\n" + body  +
+                        "Submission from IP: " + ctx.userIP() + "\n" + body  +
                             "\n The files submitted are attached below: \n" + fullBody );
                 MailSender.sendMail(System.getProperty("CLDR_NOTIFY"), "CLDR: from " + u.sponsor + 
                         "/" + u.email + ": " + changedList,
@@ -921,7 +866,7 @@ class SurveyMain {
                         body);
                 ctx.println("Thank you..   An email has been sent to the CLDR Vetting List and to you at " + u.email + ".<br/>");
             }
-            appendLog("Data submitted: " + u.real + " <" + u.email + "> Sponsor: " + u.sponsor + ": " +
+            appendLog(ctx, "Data submitted: " + u.real + " <" + u.email + "> Sponsor: " + u.sponsor + ": " +
                 changedList + " " + 
                 " (user ID " + u.id + ", session " + ctx.session.id + " )" );
             // destroy session
@@ -1966,7 +1911,15 @@ class SurveyMain {
     /**
      * Main - setup, preload and listen..
      */
-    public static void main(String args[]) {
+    static  boolean isSetup = false;
+    public synchronized static void doStartup() {
+        
+        if(isSetup == true) {
+            return;
+        }
+        
+        isSetup = true;
+        
         int status = 0;
         appendLog("SurveyTool starting up.");
         if ((specialMessage!=null)&&(specialMessage.length()>0)) {
@@ -1976,51 +1929,19 @@ class SurveyMain {
         if(!m.reg.read()) {
             appendLog("Couldn't load user registry - exiting");
             System.err.println("Couldn't load user registry - exiting.");
-            System.exit(1);
+            isBogus = "Couldn't load user registry - exiting";
+            return;
         }
         if(!readWarnings()) {
             appendLog("Couldn't read warnings file surveyInfo.txt - exiting");
-            System.exit(1);
+            isBogus = "Couldn't read warnings file surveyInfo.txt - exiting";
+            return;
         }
         if((cldrLoad != null) && cldrLoad.length()>0) {
             m.loadAll();
         }
         appendLog("SurveyTool ready for connections. Memory in use: " + usedK());
-        System.err.println("SurveyTool ready for connections.  Goodbye, console.");
-        while(new FCGIInterface().FCGIaccept()>= 0) {
-            System.setErr(System.out);
-            try {
-                if ((specialMessage!=null)&&(specialMessage.length()>0)) {
-                    specialMessage = specialMessage.replace('_',' ');
-                    System.out.println("Content-type: text/html\n\n\n");
-                    System.out.println("<i>The survey tool is offline at present. Please try later.</i><p><p>");
-                    System.out.println(specialMessage);
-                    System.out.println("<p><p><a href='" + 
-                            CLDR_HELP_LINK + "/Offline'>Click here for more information</a><p>");
-//                    System.out.println("<hr>Email:  srloomis (at) unicode.org\n");
-                    System.out.println("<hr>");
-                    System.out.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='http://www.unicode.org/cldr'>Common Locale Data Repository</a> <br/>");
-                    System.out.println("<p> Up: " + timeDiff(m.startTime) + ", " + (pages++) + " pages served.");
-                    System.out.println("</html>");
-                } else {                
-                    pages++;
-                    m.runSurvey(System.out);
-                }
-            } catch(Throwable t) {
-                System.out.println("Content-type: text/html\n\n\n");
-                System.out.println("<title>CLDR Vetting | Survey Tool Internal Error</title><img style='float: right' src='" + CLDR_ALERT_ICON + "' alt='[Alert Icon]' width=128 height=128 align=right/>");
-                System.out.println("<pre>");
-                System.out.flush();
-                System.out.println("</pre><h1>CLDR: Survey Tool Internal Error</h1> <pre>" + t.toString());
-                System.out.println("\n\nStack:\n");
-                appendLog("Exception: " + t.toString().replace('\n',' ') + " @ " + cgi_lib.MyFullURL() );
-                t.printStackTrace();
-                
-                System.out.println("</pre><b>I'm sorry, the Survey Tool is having a problem.</b><p>");
-                System.out.println("Your URL was: " + cgi_lib.MyFullURL() + "<p>");
-                System.out.println("Please see the <a href='" + CLDR_HELP_LINK +"'>CLDR Survey Tool Help Page</a><hr><a href=\"http://www.unicode.org/cldr\">CLDR Home Page</a>");
-            }
-        }
+//        System.err.println("SurveyTool ready for connections.  Goodbye, console.");
     }
     
     protected void startCell(WebContext ctx, String background) {
@@ -2129,7 +2050,7 @@ class SurveyMain {
         if((res!=null)&&(res.length()>0)) {
             // throws exception
             doc = LDMLUtilities.getFullyResolvedLDML(fileBase, locale, 
-                   false, false, false);
+                   false, false, false, false);
         } else {
             doc = LDMLUtilities.parse(fileName, false);
         }
@@ -2253,12 +2174,21 @@ class SurveyMain {
                 "xsc" + xstringHash.size() + ", " + nodeHashInfo + ", nhc" + nodeHashCreates + ")");
         }
     }
+
+    private void appendLog(WebContext ctx, String what) {
+          String ipInfo =  ctx.userIP();
+          appendLog(what, ipInfo);
+    }
+
+    private static void appendLog(String what) {
+          appendLog(what, null);
+    }
     
-    private static synchronized void appendLog(String what) {
+    private static synchronized void appendLog(String what, String ipInfo) {
         try {
           OutputStream file = new FileOutputStream(new File(vetdata,LOGFILE), true); // Append
           PrintWriter pw = new PrintWriter(file);
-          String ipInfo =  WebContext.userIP();
+          if(ipInfo == null) { ipInfo = "?"; }
           pw.println(new Date().toString()  + '\t' +
                     ipInfo + '\t' + 
                      what);

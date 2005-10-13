@@ -1,23 +1,29 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004, International Business Machines Corporation and        *
+ * Copyright (C) 2005, International Business Machines Corporation and        *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
 */
 package org.unicode.cldr.test;
 
+import java.io.Serializable;
 import java.text.ParsePosition;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
+
+import org.unicode.cldr.util.StandardCodes;
 
 import com.ibm.icu.dev.test.util.ICUPropertyFactory;
 import com.ibm.icu.dev.test.util.UnicodeMap;
@@ -25,7 +31,9 @@ import com.ibm.icu.dev.test.util.UnicodeProperty;
 import com.ibm.icu.impl.UCharacterProperty;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.RuleBasedBreakIterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
@@ -54,352 +62,23 @@ public class TestSegments {
 	private static final int monkeyLimit = 1000;
 	private static final int REGEX_FLAGS = Pattern.COMMENTS | Pattern.MULTILINE | Pattern.DOTALL;
 
-	
+	private static final Matcher flagItems = Pattern.compile(
+			"[$](BK|CR|LF|CM|NL|WJ|ZW|GL|SP|CB)").matcher("");
+
 	/**
 	 * Quick test of features for debugging
 	 * @param args unused
 	 */
 	public static void main(String[] args) {
+		if (args.length == 0) args = new String[] {"GraphemeCluster", "WordBreak", "LineBreak", "SentenceBreak"};
+		List testChoice = Arrays.asList(args);
 		
-		// if (quickCheck()) return;
-		
-		// simple test data
-		
-		String[][] tests = {{
-//			"QuickCheck",
-//			"1) ÷ b",
-//			"2) × .",
-//			"0.5) a ×",
-//			"test",
-//			"abcbdb"
-//		},{
-//			"QuickCheck2",
-//			"$Letter=\\p{Alphabetic}",
-//			"$Digit=\\p{Digit}",
-//			"1) $Digit × $Digit",
-//			"2) $Letter × $Letter",
-//			"test",
-//			"The quick 100 brown foxes."
-//		},{
-			"GraphemeCluster",
-			"$CR=\\p{Grapheme_Cluster_Break=CR}",
-			"$LF=\\p{Grapheme_Cluster_Break=LF}",
-			"$Control=\\p{Grapheme_Cluster_Break=Control}",
-			"$Extend=\\p{Grapheme_Cluster_Break=Extend}",
-			"$L=\\p{Grapheme_Cluster_Break=L}",
-			"$V=\\p{Grapheme_Cluster_Break=V}",
-			"$T=\\p{Grapheme_Cluster_Break=T}",
-			"$LV=\\p{Grapheme_Cluster_Break=LV}",
-			"$LVT=\\p{Grapheme_Cluster_Break=LVT}",
-			"3) $CR  	×  	$LF",
-			"4) ( $Control | $CR | $LF ) 	÷",
-			"5) ÷ 	( $Control | $CR | $LF )",
-			"6) $L 	× 	( $L | $V | $LV | $LVT )",
-			"7) ( $LV | $V ) 	× 	( $V | $T )",
-			"8) ( $LVT | $T) 	× 	$T",
-			"9) × 	$Extend",
-			"test",
-			"The qui\u0300ck 100 brown foxes.",
-			"compareGrapheme"
-		},{
-			"WordBreak",
-			"# GC stuff",
-			"$CR=\\p{Grapheme_Cluster_Break=CR}",
-			"$LF=\\p{Grapheme_Cluster_Break=LF}",
-			"$Control=\\p{Grapheme_Cluster_Break=Control}",
-			"$Extend=\\p{Grapheme_Cluster_Break=Extend}",
-			"# Now normal variables",
-			"$Format=\\p{Word_Break=Format}",
-			"$Katakana=\\p{Word_Break=Katakana}",
-			"$ALetter=\\p{Word_Break=ALetter}",
-			"$MidLetter=\\p{Word_Break=MidLetter}",
-			"$MidNum=\\p{Word_Break=MidNum}",
-			"$Numeric=\\p{Word_Break=Numeric}",
-			"$ExtendNumLet=\\p{Word_Break=ExtendNumLet}",
-			
-			"# Fixes for GC, Format",
-			"# Subtract Format from Control, since we don't want to break before/after",
-			"$Control=[$Control-$Format]", 
-			"# Add format and extend to everything",
-			"$X=[$Format $Extend]*",
-			"$Katakana=($Katakana $X)",
-			"$ALetter=($ALetter $X)",
-			"$MidLetter=($MidLetter $X)",
-			"$MidNum=($MidNum $X)",
-			"$Numeric=($Numeric $X)",
-			"$ExtendNumLet=($ExtendNumLet $X)",
-			"# Keep GC together; don't need GC rules 6-8, since they are covered by the other rules",
-			"3.3) $CR  	×  	$LF",
-			"3.4) ( $Control | $CR | $LF ) 	÷",
-			"3.5) ÷ 	( $Control | $CR | $LF )",
-			"3.9) × 	$Extend",
-			"# Don't break within X + Format. Otherwise Format is added because of variables below",
-			"4) × 	$Format", 
-			"# Vanilla rules",
-			"5)$ALetter  	×  	$ALetter",
-			"6)$ALetter 	× 	$MidLetter $ALetter",
-			"7)$ALetter $MidLetter 	× 	$ALetter",
-			"8)$Numeric 	× 	$Numeric",
-			"9)$ALetter 	× 	$Numeric",
-			"10)$Numeric 	× 	$ALetter",
-			"11)$Numeric $MidNum 	× 	$Numeric",
-			"12)$Numeric 	× 	$MidNum $Numeric",
-			"13)$Katakana 	× 	$Katakana",
-			"13.1)($ALetter | $Numeric | $Katakana | $ExtendNumLet) 	× 	$ExtendNumLet",
-			"13.2)$ExtendNumLet 	× 	($ALetter | $Numeric | $Katakana)",
-
-			"test",
-			"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes.",
-			"compareWord"
-		},{
-			"SentenceBreak",
-			"# GC stuff",
-			"$CR=\\p{Grapheme_Cluster_Break=CR}",
-			"$LF=\\p{Grapheme_Cluster_Break=LF}",
-			//"$Control=\\p{Grapheme_Cluster_Break=Control}",
-			"$Extend=\\p{Grapheme_Cluster_Break=Extend}",
-			"# Normal variables",
-			"$Format=\\p{Sentence_Break=Format}",
-			"$Sep=\\p{Sentence_Break=Sep}",
-			"$Sp=\\p{Sentence_Break=Sp}",
-			"$Lower=\\p{Sentence_Break=Lower}",
-			"$Upper=\\p{Sentence_Break=Upper}",
-			"$OLetter=\\p{Sentence_Break=OLetter}",
-			"$Numeric=\\p{Sentence_Break=Numeric}",
-			"$ATerm=\\p{Sentence_Break=ATerm}",
-			"$STerm=\\p{Sentence_Break=STerm}",
-			"$Close=\\p{Sentence_Break=Close}",
-			"$Any=.",
-			//"# subtract Format from Control, since we don't want to break before/after",
-			//"$Control=[$Control-$Format]", 
-			"# Expresses the negation in rule 8; can't do this with normal regex, but works with UnicodeSet, which is all we need.",
-			"$NotStuff=[^$OLetter $Upper $Lower $Sep]",
-
-			"# Now add format and extend to everything but Sep",
-			"$X=[$Format $Extend]*",
-			"$Sp=($Sp $X)",
-			"$Lower=($Lower $X)",
-			"$Upper=($Upper $X)",
-			"$OLetter=($OLetter $X)",
-			"$Numeric=($Numeric $X)",
-			"$ATerm=($ATerm $X)",
-			"$STerm=($STerm $X)",
-			"$Close=($Close $X)",
-
-			"# keep GC together; don't need 6-8, since they are covered by the other rules",
-			"3.3) $CR  	×  	$LF",
-			"# Sep needs to be inserted here, to keep CRLF together. Needs fix in TR29",
-			"3.35) $Sep  	÷",
-			//"3.4) ( $Control | $CR | $LF ) 	÷",
-			//"3.5) ÷ 	( $Control | $CR | $LF )",
-			"3.9) × 	$Extend",
-			"4) × 	$Format", 
-			"# 4 means don't break within X + Format. Otherwise Format is added because of variables below",
-			"#Do not break after ambiguous terminators like period, if immediately followed by a number or lowercase letter, is between uppercase letters, or if the first following letter (optionally after certain punctuation) is lowercase. For example, a period may be an abbreviation or numeric period, and not mark the end of a sentence.",
-			"6) $ATerm 	× 	$Numeric",
-			"7) $Upper $ATerm 	× 	$Upper",
-			"8) $ATerm $Close* $Sp* 	× 	$NotStuff* $Lower",
-			"#Break after sentence terminators, but include closing punctuation, trailing spaces, and (optionally) a paragraph separator.",
-			"9) ( $STerm | $ATerm ) $Close* 	× 	( $Close | $Sp | $Sep )",
-			"# Note the fix to $Sp*, $Sep?",
-			"10) ( $STerm | $ATerm ) $Close* $Sp* 	× 	( $Sp | $Sep )",
-			"11) ( $STerm | $ATerm ) $Close* $Sp* $Sep? ÷",
-			"#Otherwise, do not break",
-			"12) × 	$Any",
-			"test",
-			"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
-			"compareSentence"
-		},{
-			"LineBreak",
-			"# Variables",
-			"$AI=\\p{Line_Break=Ambiguous}",
-			"$AL=\\p{Line_Break=Alphabetic}",
-			"$B2=\\p{Line_Break=Break_Both}",
-			"$BA=\\p{Line_Break=Break_After}",
-			"$BB=\\p{Line_Break=Break_Before}",
-			"$BK=\\p{Line_Break=Mandatory_Break}",
-			"$CB=\\p{Line_Break=Contingent_Break}",
-			"$CL=\\p{Line_Break=Close_Punctuation}",
-			"$CM=\\p{Line_Break=Combining_Mark}",
-			"$CR=\\p{Line_Break=Carriage_Return}",
-			"$EX=\\p{Line_Break=Exclamation}",
-			"$GL=\\p{Line_Break=Glue}",
-			"$H2=\\p{Line_Break=H2}",
-			"$H3=\\p{Line_Break=H3}",
-			"$HY=\\p{Line_Break=Hyphen}",
-			"$ID=\\p{Line_Break=Ideographic}",
-			"$IN=\\p{Line_Break=Inseparable}",
-			"$IS=\\p{Line_Break=Infix_Numeric}",
-			"$JL=\\p{Line_Break=JL}",
-			"$JT=\\p{Line_Break=JT}",
-			"$JV=\\p{Line_Break=JV}",
-			"$LF=\\p{Line_Break=Line_Feed}",
-			"$NL=\\p{Line_Break=Next_Line}",
-			"$NS=\\p{Line_Break=Nonstarter}",
-			"$NU=\\p{Line_Break=Numeric}",
-			"$OP=\\p{Line_Break=Open_Punctuation}",
-			"$PO=\\p{Line_Break=Postfix_Numeric}",
-			"$PR=\\p{Line_Break=Prefix_Numeric}",
-			"$QU=\\p{Line_Break=Quotation}",
-			"$SA=\\p{Line_Break=Complex_Context}",
-			"$SG=\\p{Line_Break=Surrogate}",
-			"$SP=\\p{Line_Break=Space}",
-			"$SY=\\p{Line_Break=Break_Symbols}",
-			"$WJ=\\p{Line_Break=Word_Joiner}",
-			"$XX=\\p{Line_Break=Unknown}",
-			"$ZW=\\p{Line_Break=ZWSpace}",
-			"$NotNL=[^$NL]",
-			"# LB 1  Assign a line breaking class to each code point of the input. " +
-			"Resolve AI, CB, SA, SG, and XX into other line breaking classes depending on criteria outside the scope of this algorithm.",
-			"# NOTE: CB is ok to fall through, but must handle others here.",
-			"show $AL",
-			"$AL=[$AI $AL $XX $SA $SG]",
-			"show $AL",
-			"$oldAL=$AL", // for debugging
-			"# Fixes for Rule 7",
-			"# Treat X CM* as if it were X.",
-			"# Where X is any line break class except SP, BK, CR, LF, NL or ZW.",
-			"$X=$CM*",
-			"$AI=($AI $X)",
-			"$AL=($AL $X)",
-			"$B2=($B2 $X)",
-			"$BA=($BA $X)",
-			"$BB=($BB $X)",
-			"$CB=($CB $X)",
-			"$CL=($CL $X)",
-			"$CM=($CM $X)",
-			"$CM=($CM $X)",
-			"$GL=($GL $X)",
-			"$H2=($H2 $X)",
-			"$H3=($H3 $X)",
-			"$HY=($HY $X)",
-			"$ID=($ID $X)",
-			"$IN=($IN $X)",
-			"$IS=($IS $X)",
-			"$JL=($JL $X)",
-			"$JT=($JT $X)",
-			"$JV=($JV $X)",
-			"$NS=($NS $X)",
-			"$NU=($NU $X)",
-			"$OP=($OP $X)",
-			"$PO=($PO $X)",
-			"$PR=($PR $X)",
-			"$QU=($QU $X)",
-			"$SA=($SA $X)",
-			"$SG=($SG $X)",
-			"$SY=($SY $X)",
-			"$WJ=($WJ $X)",
-			"$XX=($XX $X)",
-			"# LB 7c  Treat any remaining combining mark as AL.",
-			"$AL=($AL | ^ $CM | (?<=[$SP $BK $CR $LF $NL $ZW]) $CM)",
-
-			"# LB 3a  Always break after hard line breaks (but never between CR and LF).",
-			"3.1) $BK ÷",
-			"# LB 3b  Treat CR followed by LF, as well as CR, LF and NL as hard line breaks.",
-			"3.21) $CR × $LF",
-			"3.22) $CR ÷",
-			"3.23) $LF ÷",
-			"3.24) $NL ÷",
-			"# LB 3c  Do not break before hard line breaks.",
-			"3.3) × ( $BK | $CR | $LF | $NL )",
-			"# LB 4  Do not break before spaces or zero-width space.",
-			"4.01) × $SP",
-			"4.02) × $ZW",
-			"# LB 5  Break after zero-width space.",
-			"5) $ZW ÷",
-			"# LB 7b  Do not break a combining character sequence; treat it as if it has the LB class of the base character in all of the following rules.",
-			"7.2) × $CM",
-			"# LB 8  Do not break before ‘]’ or ‘!’ or ‘;’ or ‘/’, even after spaces.",
-			"# Using customization 7.",
-			"8.01) $NotNL × $CL",
-			"8.02) × $EX",
-			"8.03) $NotNL × $IS",
-			"8.04) $NotNL × $SY",
-			"#8.01) × $CL",
-			"#8.02) × $EX",
-			"#8.03) × $IS",
-			"#8.04) × $SY",
-			"#LB 9  Do not break after ‘[’, even after spaces.",
-			"9) $OP $SP* ×",
-			"# LB 10  Do not break within ‘\"[’, even with intervening spaces.",
-			"10) $QU $SP* × $OP",
-			"# LB 11  Do not break within ‘]h’, even with intervening spaces.",
-			"11) $CL $SP* × $NS",
-			"# LB 11a  Do not break within ‘——’, even with intervening spaces.",
-			"11.1) $B2 $SP* × $B2",
-			"# LB 11b  Do not break before or after WORD JOINER and related characters.",
-			"11.21) × $WJ",
-			"11.22) $WJ ×",
-			"# LB 12  Break after spaces.",
-			"12) $SP ÷",
-			"# LB 13  Do not break before or after NBSP and related characters.",
-			"13.01) × $GL",
-			"13.02) $GL ×",
-			"# LB 14  Do not break before or after ‘\"’.",
-			"14.01)  × $QU",
-			"14.02) $QU ×",
-			"# LB 14a  Break before and after unresolved CB.",
-			"14.12)  ÷ $CB",
-			"14.13) $CB ÷",
-			"# LB 15  Do not break before hyphen-minus, other hyphens, fixed-width spaces, small kana and other non-starters, or after acute accents.",
-			"15.01) × $BA",
-			"15.02) × $HY",
-			"15.03) × $NS",
-			"15.04) $BB ×",
-			"# LB 16  Do not break between two ellipses, or between letters or numbers and ellipsis.",
-			"show $AL",
-			"16.01) $AL × $IN",
-			"16.02) $ID × $IN",
-			"16.03) $IN × $IN",
-			"16.04) $NU × $IN",
-			"# LB 17  Do not break within ‘a9’, ‘3a’, or ‘H%’.",
-			"17.01) $ID × $PO",
-			"17.02) $AL × $NU",
-			"17.03) $NU × $AL",
-			"# Using customization 7",
-			"# LB 18  Do not break between the following pairs of classes.",
-			"# LB 18-alternative: $PR? ( $OP | $HY )? $NU ($NU | $SY | $IS)* $CL? $PO?",
-			"# Insert × every place it could go. However, make sure that at least one thing is concrete, otherwise would cause $NU to not break before or after ",
-			"18.111) $PR × ( $OP | $HY )? $NU",
-			"18.112) ( $OP | $HY ) × $NU",
-			"18.113) $NU × ($NU | $SY | $IS)",
-			"18.114) $NU ($NU | $SY | $IS)* × ($NU | $SY | $IS)",
-			"18.115) $NU ($NU | $SY | $IS)* × $CL",
-			"18.115) $NU ($NU | $SY | $IS)* $CL? × $PO",
-			"#18.11) $CL × $PO",
-			"#18.12) $HY × $NU",
-			"#18.13) $IS × $NU",
-			"#18.13) $NU × $NU",
-			"#18.14) $NU × $PO",
-			"18.15) $PR × $AL",
-			"#18.16) $PR × $HY",
-			"18.17) $PR × $ID",
-			"#18.18) $PR × $NU",
-			"#18.19) $PR × $OP",
-			"#18.195) $SY × $NU",
-			"#LB 18b Do not break a Korean syllable.",
-			"18.21) $JL  × $JL | $JV | $H2 | $H3",
-			"18.22) $JV | $H2 × $JV | $JT",
-			"18.23) $JT | $H3 × $JT",
-			"# LB 18c Treat a Korean Syllable Block the same as ID.",
-			"18.31) $JL | $JV | $JT | $H2 | $H3 × $IN",
-			"18.32) $JL | $JV | $JT | $H2 | $H3  × $PO",
-			"18.33) $PR × $JL | $JV | $JT | $H2 | $H3",
-			"# LB 19  Do not break between alphabetics (\"at\").",
-			"19) $AL × $AL",
-			"# LB 19b  Do not break between numeric punctuation and alphabetics (\"e.g.\").",
-			"19.1) $IS × $AL",
-			"test",
-			"\uCD40\u1185",
-			"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
-			"compareLine"
-		}};
-
-		// grab the rules above, build a RuleList, and run against the test samples.
+		// grab the rules, build a RuleList, and run against the test samples.
 		
 		for (int i = 0; i < tests.length; ++i) {
-			RuleListBuilder rb = new RuleListBuilder();
 			String testName = tests[i][0];
+			if (!testChoice.contains(testName)) continue;
+			RuleListBuilder rb = new RuleListBuilder();
 			System.out.println();
 			System.out.println();
 			System.out.println("Building: " + testName);
@@ -452,19 +131,19 @@ public class TestSegments {
 
 	private static void doCompare(RuleList rl, String line) {
 		RandomStringGenerator rsg;
-		BreakIterator icuBreak;
+		RuleBasedBreakIterator icuBreak;
 		if (line.equals("compareGrapheme")) {
 			rsg = new RandomStringGenerator("GraphemeClusterBreak");
-			icuBreak = BreakIterator.getCharacterInstance();
+			icuBreak = (RuleBasedBreakIterator) BreakIterator.getCharacterInstance();
 		} else if (line.equals("compareWord")) {
-			rsg = new RandomStringGenerator("WordBreak");
-			icuBreak = BreakIterator.getWordInstance();
+			rsg = new RandomStringGenerator("WordBreak", false, true);
+			icuBreak = (RuleBasedBreakIterator) BreakIterator.getWordInstance();
 		} else if (line.equals("compareSentence")) {
-			rsg = new RandomStringGenerator("SentenceBreak");
-			icuBreak = BreakIterator.getSentenceInstance();
+			rsg = new RandomStringGenerator("SentenceBreak", false, true);
+			icuBreak = (RuleBasedBreakIterator) BreakIterator.getSentenceInstance();
 		} else if (line.equals("compareLine")) {
-			rsg = new RandomStringGenerator("LineBreak", true);
-			icuBreak = BreakIterator.getLineInstance();
+			rsg = new RandomStringGenerator("LineBreak", true, false);
+			icuBreak = (RuleBasedBreakIterator) BreakIterator.getLineInstance();
 		} else {
 			throw new IllegalArgumentException("Bad tag: " + line);
 		}
@@ -475,6 +154,8 @@ public class TestSegments {
 			gotDot = true;
 			String test = rsg.next(10);
 			icuBreak.setText(test);
+			int[] icuStatus = new int[20];
+			int[] ruleStatus = new int[20];
 			for (int j = 0; j <= test.length(); ++j) {
 				boolean icuBreakResults = icuBreak.isBoundary(j);
 				boolean ruleListResults = rl.breaksAt(test, j);
@@ -484,22 +165,39 @@ public class TestSegments {
 					gotDot = false;
 				}
 				System.out.println(i + ") Mismatch " + rl.getBreakRule() + ": "
-						+ showResults(test, j, rsg, icuBreakResults)
+					+ showResults(test, j, rsg, icuBreakResults)
 				);
 				rl.breaksAt(test, j); // for debugging
 			}
 		}		
 	}
 	
+	private static String showStatus(int[] icuStatus, int icuStatusLen) {
+		String result = "";
+		for (int i = 0; i < icuStatusLen; ++i) {
+			if (result.length() != 0) result += ", ";
+			result += icuStatus[i];
+		}
+		return "[" + result + "]";
+	}
+
+	static boolean equalStatus(int[] status1, int len1, int[] status2, int len2) {
+		if (len1 != len2) return false;
+		for (int i = 0; i < len1; ++i) {
+			if (status1[i] != status2[i]) return false;
+		}
+		return true;
+	}
+	
 	private static String showResults(String test, int j, RandomStringGenerator rsg, boolean icuBreakResults) {
 		StringBuffer results = new StringBuffer();
 		int cp;
 		for (int i = 0; i < test.length(); i += UTF16.getCharCount(cp)) {
-			if (i == j) results.append(icuBreakResults ? "< $ >" : "< @ >");
+			if (i == j) results.append(icuBreakResults ? "<\r\n$ >" : "<\r\n@ >");
 			cp = UTF16.charAt(test, i);
 			results.append("[" + rsg.getValue(cp) + ":" + Utility.escape(UTF16.valueOf(cp)) + "]");
 		}
-		if (test.length() == j) results.append(icuBreakResults ? "< $ >" : "< @ >");
+		if (test.length() == j) results.append(icuBreakResults ? "<\r\n$ >" : "<\r\n@ >");
 		return results.toString();
 	}
 	
@@ -508,18 +206,31 @@ public class TestSegments {
 		private UnicodeSet[] sets;
 		private UnicodeMap map;
 		private UnicodeMap shortMap;
+		private static UnicodeMap extendedMap;
+		static {
+			extendedMap = new UnicodeMap();
+			UnicodeMap tempMap = ICUPropertyFactory.make().getProperty("GraphemeClusterBreak").getUnicodeMap();
+			extendedMap.putAll(tempMap.getSet("CR"), "CR");
+			extendedMap.putAll(tempMap.getSet("LF"), "LF");
+			extendedMap.putAll(tempMap.getSet("Extend"), "GCExtend");
+			extendedMap.putAll(tempMap.getSet("Control"), "GCControl");
+		}
 
 		RandomStringGenerator(String propertyName) {
-			this(propertyName, false);
+			this(propertyName, false, false);
 		}
 		
-		RandomStringGenerator(String propertyName, boolean useShortName) {
+		RandomStringGenerator(String propertyName, boolean useShortName, boolean addGCStuff) {
 			this(ICUPropertyFactory.make().getProperty(propertyName).getUnicodeMap(),
-					useShortName ? ICUPropertyFactory.make().getProperty(propertyName).getUnicodeMap(true) : null);
+					useShortName ? ICUPropertyFactory.make().getProperty(propertyName).getUnicodeMap(true) : null,
+					addGCStuff);
 		}
-		RandomStringGenerator(UnicodeMap longNameMap, UnicodeMap shortNameMap) {
-			map = longNameMap;
-			shortMap = (shortNameMap == null ? longNameMap : shortNameMap);
+		RandomStringGenerator(UnicodeMap longNameMap, UnicodeMap shortNameMap, boolean addGCStuff) {
+			map = !addGCStuff ? longNameMap 
+					: longNameMap.composeWith(extendedMap, MyComposer);
+			shortMap = (shortNameMap == null ? longNameMap 
+					: !addGCStuff ? shortNameMap 
+							: shortNameMap.composeWith(extendedMap, MyComposer));
 			List values = new ArrayList(map.getAvailableValues());
 			sets = new UnicodeSet[values.size()];
 			for (int i = 0; i < sets.length; ++i) {
@@ -532,6 +243,13 @@ public class TestSegments {
 				}
 			}
 		}
+		static UnicodeMap.Composer MyComposer = new UnicodeMap.Composer(){
+			public Object compose(int codePoint, Object a, Object b) {
+				if (a == null) return b;
+				if (b == null) return a;
+				return a + "_" + b;
+			}		
+		};
 		String getValue(int cp) {
 			return (String)shortMap.getValue(cp);
 		}
@@ -624,7 +342,9 @@ public class TestSegments {
 			return toString(false);
 		}
 		public String toString(boolean showResolved) {
-			return showResolved ? resolved : name;
+			String result = name;
+			if (showResolved) result += ": " + resolved;
+			return result;
 		}
 		
 		//============== Internals ================
@@ -698,6 +418,10 @@ public class TestSegments {
 			}
 			breakRule = ANY;
 			return true; // default
+		}
+		public int getRuleStatusVec(int[] ruleStatus) {
+			ruleStatus[0] = 0;
+			return 1;
 		}
 		/**
 		 * Add a numbered rule.
@@ -773,20 +497,22 @@ public class TestSegments {
 		
 		public String toString(String testName) {
 			StringBuffer result = new StringBuffer();
-			result.append("<segmentation type=\"" + testName + "\">").append("\r\n");
-			result.append("\t<variables>").append("\r\n");
+			result.append("\t\t<segmentation type=\"" + testName + "\">").append("\r\n");
+			result.append("\t\t\t<variables>").append("\r\n");
 			for (int i = 0; i < rawVariables.size(); ++i) {
-				result.append("\t\t").append(rawVariables.get(i)).append("\r\n");
+				result.append("\t\t\t\t").append(rawVariables.get(i)).append("\r\n");
 			}
-			result.append("\t</variables>").append("\r\n");
+			result.append("\t\t\t</variables>").append("\r\n");
+			result.append("\t\t\t<rules>").append("\r\n");
 			for (Iterator it = rawRules.keySet().iterator(); it.hasNext();) {
 				Object key = it.next();
-				result.append("\t").append(rawRules.get(key)).append("\r\n");
+				result.append("\t\t\t\t").append(rawRules.get(key)).append("\r\n");
 			}
+			result.append("\t\t\t</rules>").append("\r\n");
 			for (int i = 0; i < lastComments.size(); ++i) {
-				result.append("\t").append(lastComments.get(i)).append("\r\n");
+				result.append("\t\t\t").append(lastComments.get(i)).append("\r\n");
 			}
-			result.append("</segmentation>").append("\r\n");
+			result.append("\t\t</segmentation>").append("\r\n");
 			return result.toString();
 		}
 		
@@ -821,7 +547,7 @@ public class TestSegments {
 			try {
 				order = new Double(Double.parseDouble(line.substring(0,relationPosition).trim()));
 			} catch (Exception e) {
-				throw new IllegalArgumentException("Rule must be of form '1)...'");
+				throw new IllegalArgumentException("Rule must be of form '1)...': " + line);
 			}
 			line = line.substring(relationPosition + 1).trim();
 			relationPosition = line.indexOf('÷');
@@ -907,7 +633,9 @@ public class TestSegments {
 				}
 				lastComments.clear();
 			}
-			rawRules.put(order, "<rule id=\"" + RuleList.nf.format(order) + "\"> " + line + " </rule>");
+			rawRules.put(order, "<rule id=\"" + RuleList.nf.format(order) + "\""
+					+ (flagItems.reset(line).find() ? " normative=\"true\"" : "")
+					+ "> " + line + " </rule>");
 			rules.put(order, new Rule(replaceVariables(before), result, replaceVariables(after), line));
 			return this;	
 		}
@@ -1023,4 +751,344 @@ public class TestSegments {
 	static public interface CodePointShower {
 		String show(int codePoint);
 	}
+	
+	static final String[][] tests = {{
+		"QuickCheck",
+		"1) ÷ b",
+		"2) × .",
+		"0.5) a ×",
+		"test",
+		"abcbdb"
+	},{
+		"QuickCheck2",
+		"$Letter=\\p{Alphabetic}",
+		"$Digit=\\p{Digit}",
+		"1) $Digit × $Digit",
+		"2) $Letter × $Letter",
+		"test",
+		"The quick 100 brown foxes."
+	},{
+		"GraphemeCluster",
+		"$CR=\\p{Grapheme_Cluster_Break=CR}",
+		"$LF=\\p{Grapheme_Cluster_Break=LF}",
+		"$Control=\\p{Grapheme_Cluster_Break=Control}",
+		"$Extend=\\p{Grapheme_Cluster_Break=Extend}",
+		"$L=\\p{Grapheme_Cluster_Break=L}",
+		"$V=\\p{Grapheme_Cluster_Break=V}",
+		"$T=\\p{Grapheme_Cluster_Break=T}",
+		"$LV=\\p{Grapheme_Cluster_Break=LV}",
+		"$LVT=\\p{Grapheme_Cluster_Break=LVT}",
+		"3) $CR  	×  	$LF",
+		"4) ( $Control | $CR | $LF ) 	÷",
+		"5) ÷ 	( $Control | $CR | $LF )",
+		"6) $L 	× 	( $L | $V | $LV | $LVT )",
+		"7) ( $LV | $V ) 	× 	( $V | $T )",
+		"8) ( $LVT | $T) 	× 	$T",
+		"9) × 	$Extend",
+		"test",
+		"The qui\u0300ck 100 brown foxes.",
+		"compareGrapheme"
+	},{
+		"WordBreak",
+		"# GC stuff",
+		"$GCCR=\\p{Grapheme_Cluster_Break=CR}",
+		"$GCLF=\\p{Grapheme_Cluster_Break=LF}",
+		"$GCControl=\\p{Grapheme_Cluster_Break=Control}",
+		"$GCExtend=\\p{Grapheme_Cluster_Break=Extend}",
+		"# Now normal variables",
+		"$Format=\\p{Word_Break=Format}",
+		"$Katakana=\\p{Word_Break=Katakana}",
+		"$ALetter=\\p{Word_Break=ALetter}",
+		"$MidLetter=\\p{Word_Break=MidLetter}",
+		"$MidNum=\\p{Word_Break=MidNum}",
+		"$Numeric=\\p{Word_Break=Numeric}",
+		"$ExtendNumLet=\\p{Word_Break=ExtendNumLet}",
+		
+		"# Fixes for GC, Format",
+		"# Subtract Format from Control, since we don't want to break before/after",
+		//"$GCControl=[$GCControl-$Format]", 
+		"# Add format and extend to everything",
+		//"$X=[$Format $GCExtend]*",
+		"$X= $GCExtend* $Format*",
+		"$Katakana=($Katakana $X)",
+		"$ALetter=($ALetter $X)",
+		"$MidLetter=($MidLetter $X)",
+		"$MidNum=($MidNum $X)",
+		"$Numeric=($Numeric $X)",
+		"$ExtendNumLet=($ExtendNumLet $X)",
+		"# Keep GC together; don't need GC rules 6-8, since they are covered by the other rules",
+		"3.3) $GCCR  	×  	$GCLF",
+		//"3.4) ( $Control | $CR | $LF ) 	÷",
+		//"3.5) ÷ 	( $Control | $CR | $LF )",
+		//"3.9) × 	$Extend",
+		"3.91) [^$GCControl | $GCCR | $GCLF] × 	$GCExtend",
+		"# Don't break within X + Format. Otherwise Format is added because of variables below",
+		"4) × 	$Format", 
+		"# Vanilla rules",
+		"5)$ALetter  	×  	$ALetter",
+		"6)$ALetter 	× 	$MidLetter $ALetter",
+		"7)$ALetter $MidLetter 	× 	$ALetter",
+		"8)$Numeric 	× 	$Numeric",
+		"9)$ALetter 	× 	$Numeric",
+		"10)$Numeric 	× 	$ALetter",
+		"11)$Numeric $MidNum 	× 	$Numeric",
+		"12)$Numeric 	× 	$MidNum $Numeric",
+		"13)$Katakana 	× 	$Katakana",
+		"13.1)($ALetter | $Numeric | $Katakana | $ExtendNumLet) 	× 	$ExtendNumLet",
+		"13.2)$ExtendNumLet 	× 	($ALetter | $Numeric | $Katakana)",
+		"#15.1,100)$ALetter ÷",
+		"#15.1,100)$Numeric ÷",
+		"#15.1,100)$Katakana ÷",
+		"#15.1,100)$Ideographic ÷",
+
+
+		"test",
+		"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes.",
+		"compareWord"
+	},{
+		"SentenceBreak",
+		"# GC stuff",
+		"$GCCR=\\p{Grapheme_Cluster_Break=CR}",
+		"$GCLF=\\p{Grapheme_Cluster_Break=LF}",
+		"$GCControl=\\p{Grapheme_Cluster_Break=Control}",
+		"$GCExtend=\\p{Grapheme_Cluster_Break=Extend}",
+		"# Normal variables",
+		"$Format=\\p{Sentence_Break=Format}",
+		"$Sep=\\p{Sentence_Break=Sep}",
+		"$Sp=\\p{Sentence_Break=Sp}",
+		"$Lower=\\p{Sentence_Break=Lower}",
+		"$Upper=\\p{Sentence_Break=Upper}",
+		"$OLetter=\\p{Sentence_Break=OLetter}",
+		"$Numeric=\\p{Sentence_Break=Numeric}",
+		"$ATerm=\\p{Sentence_Break=ATerm}",
+		"$STerm=\\p{Sentence_Break=STerm}",
+		"$Close=\\p{Sentence_Break=Close}",
+		"$Any=.",
+		//"# subtract Format from Control, since we don't want to break before/after",
+		//"$Control=[$Control-$Format]", 
+		"# Expresses the negation in rule 8; can't do this with normal regex, but works with UnicodeSet, which is all we need.",
+		"$NotStuff=[^$OLetter $Upper $Lower $Sep]",
+
+		"# Now add format and extend to everything but Sep",
+		"$X=[$Format $GCExtend]*",
+		"$Sp=($Sp $X)",
+		"$Lower=($Lower $X)",
+		"$Upper=($Upper $X)",
+		"$OLetter=($OLetter $X)",
+		"$Numeric=($Numeric $X)",
+		"$ATerm=($ATerm $X)",
+		"$STerm=($STerm $X)",
+		"$Close=($Close $X)",
+
+		"# keep GC together; don't need 6-8, since they are covered by the other rules",
+		"3.3) $GCCR  	×  	$GCLF",
+		"# Sep needs to be inserted here, to keep CRLF together. Needs fix in TR29",
+		"3.35) $Sep  	÷",
+		//"3.4) ( $Control | $CR | $LF ) 	÷",
+		//"3.5) ÷ 	( $Control | $CR | $LF )",
+		"3.91) [^$GCControl | $GCCR | $GCLF] × 	$GCExtend",
+		"4) × 	$Format", 
+		"# 4 means don't break within X + Format. Otherwise Format is added because of variables below",
+		"#Do not break after ambiguous terminators like period, if immediately followed by a number or lowercase letter, is between uppercase letters, or if the first following letter (optionally after certain punctuation) is lowercase. For example, a period may be an abbreviation or numeric period, and not mark the end of a sentence.",
+		"6) $ATerm 	× 	$Numeric",
+		"7) $Upper $ATerm 	× 	$Upper",
+		"8) $ATerm $Close* $Sp* 	× 	$NotStuff* $Lower",
+		"#Break after sentence terminators, but include closing punctuation, trailing spaces, and (optionally) a paragraph separator.",
+		"9) ( $STerm | $ATerm ) $Close* 	× 	( $Close | $Sp | $Sep )",
+		"# Note the fix to $Sp*, $Sep?",
+		"10) ( $STerm | $ATerm ) $Close* $Sp* 	× 	( $Sp | $Sep )",
+		"11) ( $STerm | $ATerm ) $Close* $Sp* $Sep? ÷",
+		"#Otherwise, do not break",
+		"12) × 	$Any",
+		"test",
+		"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
+		"compareSentence"
+	},{
+		"LineBreak",
+		"# Variables",
+		"$AI=\\p{Line_Break=Ambiguous}",
+		"$AL=\\p{Line_Break=Alphabetic}",
+		"$B2=\\p{Line_Break=Break_Both}",
+		"$BA=\\p{Line_Break=Break_After}",
+		"$BB=\\p{Line_Break=Break_Before}",
+		"$BK=\\p{Line_Break=Mandatory_Break}",
+		"$CB=\\p{Line_Break=Contingent_Break}",
+		"$CL=\\p{Line_Break=Close_Punctuation}",
+		"$CM=\\p{Line_Break=Combining_Mark}",
+		"$CR=\\p{Line_Break=Carriage_Return}",
+		"$EX=\\p{Line_Break=Exclamation}",
+		"$GL=\\p{Line_Break=Glue}",
+		"$H2=\\p{Line_Break=H2}",
+		"$H3=\\p{Line_Break=H3}",
+		"$HY=\\p{Line_Break=Hyphen}",
+		"$ID=\\p{Line_Break=Ideographic}",
+		"$IN=\\p{Line_Break=Inseparable}",
+		"$IS=\\p{Line_Break=Infix_Numeric}",
+		"$JL=\\p{Line_Break=JL}",
+		"$JT=\\p{Line_Break=JT}",
+		"$JV=\\p{Line_Break=JV}",
+		"$LF=\\p{Line_Break=Line_Feed}",
+		"$NL=\\p{Line_Break=Next_Line}",
+		"$NS=\\p{Line_Break=Nonstarter}",
+		"$NU=\\p{Line_Break=Numeric}",
+		"$OP=\\p{Line_Break=Open_Punctuation}",
+		"$PO=\\p{Line_Break=Postfix_Numeric}",
+		"$PR=\\p{Line_Break=Prefix_Numeric}",
+		"$QU=\\p{Line_Break=Quotation}",
+		"$SA=\\p{Line_Break=Complex_Context}",
+		"$SG=\\p{Line_Break=Surrogate}",
+		"$SP=\\p{Line_Break=Space}",
+		"$SY=\\p{Line_Break=Break_Symbols}",
+		"$WJ=\\p{Line_Break=Word_Joiner}",
+		"$XX=\\p{Line_Break=Unknown}",
+		"$ZW=\\p{Line_Break=ZWSpace}",
+		//"$NotNL=[^$NL]",
+		"# LB 1  Assign a line breaking class to each code point of the input. " +
+		"Resolve AI, CB, SA, SG, and XX into other line breaking classes depending on criteria outside the scope of this algorithm.",
+		"# NOTE: CB is ok to fall through, but must handle others here.",
+		//"show $AL",
+		"$AL=[$AI $AL $XX $SA $SG]",
+		//"show $AL",
+		//"$oldAL=$AL", // for debugging
+		"# Fixes for Rule 7",
+		"# Treat X CM* as if it were X.",
+		"# Where X is any line break class except SP, BK, CR, LF, NL or ZW.",
+		"$X=$CM*",
+		"$AI=($AI $X)",
+		"$AL=($AL $X)",
+		"$B2=($B2 $X)",
+		"$BA=($BA $X)",
+		"$BB=($BB $X)",
+		"$CB=($CB $X)",
+		"$CL=($CL $X)",
+		"$CM=($CM $X)",
+		"$CM=($CM $X)",
+		"$GL=($GL $X)",
+		"$H2=($H2 $X)",
+		"$H3=($H3 $X)",
+		"$HY=($HY $X)",
+		"$ID=($ID $X)",
+		"$IN=($IN $X)",
+		"$IS=($IS $X)",
+		"$JL=($JL $X)",
+		"$JT=($JT $X)",
+		"$JV=($JV $X)",
+		"$NS=($NS $X)",
+		"$NU=($NU $X)",
+		"$OP=($OP $X)",
+		"$PO=($PO $X)",
+		"$PR=($PR $X)",
+		"$QU=($QU $X)",
+		"$SA=($SA $X)",
+		"$SG=($SG $X)",
+		"$SY=($SY $X)",
+		"$WJ=($WJ $X)",
+		"$XX=($XX $X)",
+		"# LB 7c  Treat any remaining combining mark as AL.",
+		"$AL=($AL | ^ $CM | (?<=[$SP $BK $CR $LF $NL $ZW]) $CM)",
+
+		"# LB 3a  Always break after hard line breaks (but never between CR and LF).",
+		"3.1) $BK ÷",
+		"# LB 3b  Treat CR followed by LF, as well as CR, LF and NL as hard line breaks.",
+		"3.21) $CR × $LF",
+		"3.22) $CR ÷",
+		"3.23) $LF ÷",
+		"3.24) $NL ÷",
+		"# LB 3c  Do not break before hard line breaks.",
+		"3.3) × ( $BK | $CR | $LF | $NL )",
+		"# LB 4  Do not break before spaces or zero-width space.",
+		"4.01) × $SP",
+		"4.02) × $ZW",
+		"# LB 5  Break after zero-width space.",
+		"5) $ZW ÷",
+		"# LB 7b  Do not break a combining character sequence; treat it as if it has the LB class of the base character" +
+		" in all of the following rules. (Where X is any line break class except SP, BK, CR, LF, NL or ZW.)",
+		"7.2) × $CM",
+		"#WARNING: this is done by modifying the variable values for all but SP.... That is, $AL is really ($AI $CM*)!",
+		"# LB 8  Do not break before ‘]’ or ‘!’ or ‘;’ or ‘/’, even after spaces.",
+		"# Using customization 7.",
+		//"8.01) $NotNL × $CL",
+		//"8.02) × $EX",
+		//"8.03) $NotNL × $IS",
+		//"8.04) $NotNL × $SY",
+		"8.01) × $CL",
+		"8.02) × $EX",
+		"8.03) × $IS",
+		"8.04) × $SY",
+		"#LB 9  Do not break after ‘[’, even after spaces.",
+		"9) $OP $SP* ×",
+		"# LB 10  Do not break within ‘\"[’, even with intervening spaces.",
+		"10) $QU $SP* × $OP",
+		"# LB 11  Do not break within ‘]h’, even with intervening spaces.",
+		"11) $CL $SP* × $NS",
+		"# LB 11a  Do not break within ‘——’, even with intervening spaces.",
+		"11.1) $B2 $SP* × $B2",
+		"# LB 11b  Do not break before or after WORD JOINER and related characters.",
+		"11.21) × $WJ",
+		"11.22) $WJ ×",
+		"# LB 12  Break after spaces.",
+		"12) $SP ÷",
+		"# LB 13  Do not break before or after NBSP and related characters.",
+		"13.01) × $GL",
+		"13.02) $GL ×",
+		"# LB 14  Do not break before or after ‘\"’.",
+		"14.01)  × $QU",
+		"14.02) $QU ×",
+		"# LB 14a  Break before and after unresolved CB.",
+		"14.12)  ÷ $CB",
+		"14.13) $CB ÷",
+		"# LB 15  Do not break before hyphen-minus, other hyphens, fixed-width spaces, small kana and other non-starters, or after acute accents.",
+		"15.01) × $BA",
+		"15.02) × $HY",
+		"15.03) × $NS",
+		"15.04) $BB ×",
+		"# LB 16  Do not break between two ellipses, or between letters or numbers and ellipsis.",
+		//"show $AL",
+		"16.01) $AL × $IN",
+		"16.02) $ID × $IN",
+		"16.03) $IN × $IN",
+		"16.04) $NU × $IN",
+		"# LB 17  Do not break within ‘a9’, ‘3a’, or ‘H%’.",
+		"17.01) $ID × $PO",
+		"17.02) $AL × $NU",
+		"17.03) $NU × $AL",
+		"# Using customization 7",
+		"# LB 18  Do not break between the following pairs of classes.",
+		"# LB 18-alternative: $PR? ( $OP | $HY )? $NU ($NU | $SY | $IS)* $CL? $PO?",
+		"# Insert × every place it could go. However, make sure that at least one thing is concrete, otherwise would cause $NU to not break before or after ",
+		"18.111) $PR × ( $OP | $HY )? $NU",
+		"18.112) ( $OP | $HY ) × $NU",
+		"18.113) $NU × ($NU | $SY | $IS)",
+		"18.114) $NU ($NU | $SY | $IS)* × ($NU | $SY | $IS)",
+		"18.115) $NU ($NU | $SY | $IS)* × $CL",
+		"18.115) $NU ($NU | $SY | $IS)* $CL? × $PO",
+		"#18.11) $CL × $PO",
+		"#18.12) $HY × $NU",
+		"#18.13) $IS × $NU",
+		"#18.13) $NU × $NU",
+		"#18.14) $NU × $PO",
+		"18.15) $PR × $AL",
+		"#18.16) $PR × $HY",
+		"18.17) $PR × $ID",
+		"#18.18) $PR × $NU",
+		"#18.19) $PR × $OP",
+		"#18.195) $SY × $NU",
+		"#LB 18b Do not break a Korean syllable.",
+		"18.21) $JL  × $JL | $JV | $H2 | $H3",
+		"18.22) $JV | $H2 × $JV | $JT",
+		"18.23) $JT | $H3 × $JT",
+		"# LB 18c Treat a Korean Syllable Block the same as ID.",
+		"18.31) $JL | $JV | $JT | $H2 | $H3 × $IN",
+		"18.32) $JL | $JV | $JT | $H2 | $H3  × $PO",
+		"18.33) $PR × $JL | $JV | $JT | $H2 | $H3",
+		"# LB 19  Do not break between alphabetics (\"at\").",
+		"19) $AL × $AL",
+		"# LB 19b  Do not break between numeric punctuation and alphabetics (\"e.g.\").",
+		"19.1) $IS × $AL",
+		"test",
+		"\uCD40\u1185",
+		"http://www.cs.tut.fi/%7Ejkorpela/html/nobr.html?abcd=high&hijk=low#anchor",
+		"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
+		"compareLine"
+	}};
 }

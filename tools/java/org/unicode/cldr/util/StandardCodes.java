@@ -24,7 +24,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
 import com.ibm.icu.lang.UCharacter;
@@ -191,7 +190,7 @@ public class StandardCodes {
 		if (platform_locale_status == null) {
 			platform_locale_status = new TreeMap();
 			String line;
-			BufferedReader lstreg = BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR, "Locales.txt");
+			BufferedReader lstreg = Utility.getUTF8Data( "Locales.txt");
 			while (true) {
 				line = lstreg.readLine();
 				if (line == null) break;
@@ -217,7 +216,7 @@ public class StandardCodes {
 		String originalLine = null;
 		for (int fileIndex = 0; fileIndex < files.length; ++fileIndex) {
 			try {
-				BufferedReader lstreg = BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR, files[fileIndex]);
+				BufferedReader lstreg = Utility.getUTF8Data(files[fileIndex]);
 				while (true) {
 					String line = originalLine = lstreg.readLine();
 					if (line == null) break;
@@ -465,7 +464,7 @@ public class StandardCodes {
         if (bogusZones == null) {
             try {
                 bogusZones = new TreeMap();
-                BufferedReader in = BagFormatter.openUTF8Reader(DATA_DIR, "TimeZoneAliases.txt");
+                BufferedReader in = Utility.getUTF8Data"TimeZoneAliases.txt");
                 while (true) {
                     String line = in.readLine();
                     if (line == null) break;
@@ -510,7 +509,7 @@ public class StandardCodes {
         if (zoneData == null) makeZoneData();
         return zoneData;
     }
-    
+         
     /**
 	 * 
 	 */
@@ -520,7 +519,7 @@ public class StandardCodes {
 			String deg = "([+-])([0-9][0-9][0-9]?)([0-9][0-9])([0-9][0-9])?";//
 			Matcher m = Pattern.compile(deg+deg).matcher("");
 			zoneData = new TreeMap();
-		    BufferedReader in = BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR, "zone.tab");
+		    BufferedReader in = Utility.getUTF8Data("zone.tab");
 		    while (true) {
 		        String line = in.readLine();
 		        if (line == null) break;
@@ -568,14 +567,15 @@ public class StandardCodes {
 		    }
 		    zoneData = (Map) Utility.protectCollection(zoneData); // protect for later
 		    
+            
 		    // now get links
 		    String lastZone = "";
 		    Pattern whitespace = Pattern.compile("\\s+");
 		    XEquivalenceClass linkedItems = new XEquivalenceClass("None");
 		    for (int i = 0; i < TZFiles.length; ++i) {
-		    	in = BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR, TZFiles[i]);
-		    	while (true) {
-		    		String line = in.readLine();
+                in = Utility.getUTF8Data(TZFiles[i]);
+                while (true) {
+                    String line = in.readLine();
 		    		if (line == null) break;
 		    		if (line.startsWith("#") || line.trim().length() == 0) continue;
 					String[] items = whitespace.split(line);
@@ -735,7 +735,7 @@ public class StandardCodes {
 	    	zone_rules = (Map) Utility.protectCollection(zone_rules);
 		    // TODO protect zone info later
 		} catch (IOException e) {
-		    throw (IllegalArgumentException) new IllegalArgumentException("Can't find timezone aliases").initCause(e);
+		    throw (IllegalArgumentException) new IllegalArgumentException("Can't find timezone aliases: " + e.toString()).initCause(e);
 		}
 	}
 

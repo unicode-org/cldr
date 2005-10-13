@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -79,7 +80,8 @@ public class Utility {
 	static final boolean DEBUG_SHOW_BAT = false;
 	/** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
 	public static final String BASE_DIRECTORY = "../../";	// get up to <CLDR>
-	public static final String UTIL_DATA_DIR = 	"./org/unicode/cldr/util/";		// "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
+	public static final String UTIL_DATA_DIR = 	"./org/unicode/cldr/util/data";		// "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
+    public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
 	public static final String COMMON_DIRECTORY = BASE_DIRECTORY + "common/";
 	public static final String MAIN_DIRECTORY = COMMON_DIRECTORY + "main/";
 	public static final String GEN_DIRECTORY = COMMON_DIRECTORY + "gen/";
@@ -548,5 +550,25 @@ public class Utility {
 			return matcher.reset(o.toString()).matches();
 		}		
 	}
+
+    /**
+     * Fetch data from jar
+     * @param name name of thing to load (org.unicode.cldr.util.name)
+     */
+    static public BufferedReader getUTF8Data(String name) throws java.io.IOException {
+      java.io.InputStream is = null;
+      try {
+        is = 
+            com.ibm.icu.impl.ICUData.getRequiredStream(Class.forName(Utility.UTIL_CLASS_DIR+".Utility"), "data/" + name);
+       } catch (ClassNotFoundException cnf) { 
+          
+        throw new FileNotFoundException("Couldn't load " + Utility.UTIL_CLASS_DIR + "." + name + " - ClassNotFoundException." + cnf.toString());
+//            .initCause(cnf);
+       } catch (java.util.MissingResourceException mre) {
+        // try file
+         return BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR + File.separator, name);
+       }
+       return new java.io.BufferedReader(   new java.io.InputStreamReader(is,"UTF-8") );
+    }
 	
 }

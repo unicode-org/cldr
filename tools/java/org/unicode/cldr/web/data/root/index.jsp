@@ -50,7 +50,8 @@
 							<td class="contents" valign="top">
 								<h1>CLDR Web Applications</h1>
 								<ol>
-									<li><a href="ost/">Old Survey Tool</a></li>
+									<li><a href="ost/">Current Survey Tool</a></li>
+									<li><font color='#CCCCCC'>New Survey Tool (coming soon)</font></li>
 								</ol>
                             </td>
 						</tr>

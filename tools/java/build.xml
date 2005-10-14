@@ -133,7 +133,7 @@
         <property name="derby.jar"          value="${env.DERBY_HOME}/lib/derby.jar"/>
         <property name="icu.jar"          value="${icu.home}/icu4j.jar"/>
         <property name="utilities.jar"      value="${icu.home}/utilities.jar"/>
-        <property name="wardata" value="${src.dir}/data/surveytool"/>
+        <property name="wardata" value="${src.dir}/org/unicode/cldr/web/data"/>
         <!-- Configure the custom Ant tasks for the Manager application -->
         <taskdef name="deploy"    classname="org.apache.catalina.ant.DeployTask"/>
         <taskdef name="list"      classname="org.apache.catalina.ant.ListTask"/>
@@ -204,7 +204,6 @@
             <!-- certain jars that we want --> 
             <lib file="${icu.jar}"/>
             <lib file="${utilities.jar}"/>  <!-- CLDR utilities -->
-            <lib file="${derby.jar}"/>  <!-- Derby DB -->
             <!-- May want this later. -->
             <!--  <pathelement path="${jsp.jar}"/> -->
             

@@ -48,29 +48,53 @@ public class SurveyMain extends HttpServlet {
     public static final String UNKNOWNCHANGE = "Click to suggest replacement";
     
     // SYSTEM PROPERTIES
+    public static String cldrprops = null;
     public static  String vap = System.getProperty("CLDR_VAP"); // Vet Access Password
     public static  String vetdata = System.getProperty("CLDR_VET_DATA"); // dir for vetted data
     public static  String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for web data
     public static  String cldrLoad = System.getProperty("CLDR_LOAD_ALL"); // preload all locales?
     static String fileBase = System.getProperty("CLDR_COMMON") + "/main"; // not static - may change lager
     static String specialMessage = System.getProperty("CLDR_MESSAGE"); // not static - may change lager
-
+    public static java.util.Properties survprops = null;
+    
     public final void init(final ServletConfig config)
       throws ServletException {
+        super.init(config);
 
-      super.init(config);
+        survprops = new java.util.Properties(); 
+        String cprops = config.getInitParameter("cldr.properties");
+        if(cprops == null) {
+            /* throw new UnavailableException */
+            busted("Please set 'cldr.properties' parameter to the path to cldr.properties");
+            return;
+        }
+        try {
+            java.io.FileInputStream is = new java.io.FileInputStream(new java.io.File(cprops, "cldr.properties"));
+            survprops.load(is);
+            is.close();
+        } catch(java.io.IOException ioe) {
+            /*throw new UnavailableException*/
+            busted("Couldn't load cldr.properties file from '" + cprops + "/cldr.properties': "
+                + ioe.toString()); /* .initCause(ioe);*/
+            return;
+        }
 
-        vap = config.getInitParameter("CLDR_VAP"); // Vet Access Password
-        vetdata = config.getInitParameter("CLDR_VET_DATA"); // dir for vetted data
+        vap = survprops.getProperty("CLDR_VAP"); // Vet Access Password
+        if((vap==null)||(vap.length()==0)) {
+            /*throw new UnavailableException*/
+            busted("No vetting password set. (CLDR_VAP in cldr.properties)");
+            return;
+        }
+        vetdata = survprops.getProperty("CLDR_VET_DATA", cprops+"/vetdata"); // dir for vetted data
         System.out.println("CVD= " + vetdata);
-        vetweb = config.getInitParameter("CLDR_VET_WEB"); // dir for web data
-        cldrLoad = config.getInitParameter("CLDR_LOAD_ALL"); // preload all locales?
-        fileBase = config.getInitParameter("CLDR_COMMON") + "/main"; // not static - may change lager
-        specialMessage = config.getInitParameter("CLDR_MESSAGE"); // not static - may change lager
+        vetweb = survprops.getProperty("CLDR_VET_WEB",cprops+"/vetdata"); // dir for web data
+        cldrLoad = survprops.getProperty("CLDR_LOAD_ALL"); // preload all locales?
+        fileBase = survprops.getProperty("CLDR_COMMON",cprops+"/common") + "/main"; // not static - may change lager
+        specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
 
         startTime = System.currentTimeMillis();
         doStartup();
-//      throw new UnavailableException("Document path not set.");
+        //      throw new UnavailableException("Document path not set.");
     }
 
     public static final String LOGFILE = "cldr.log";        // log file of all changes
@@ -125,6 +149,8 @@ public class SurveyMain extends HttpServlet {
     throws IOException, ServletException
     {
         response.setContentType("text/html; charset=utf-8");
+
+        pages++;
         
         if(isBogus != null) {
             PrintWriter out = response.getWriter();
@@ -136,11 +162,12 @@ public class SurveyMain extends HttpServlet {
             out.println("<h1>CLDR Survey Tool is down, because:</h1>");
             out.println("<tt>" + isBogus + "</tt><br />");
             out.println("<hr />");
+            out.println("<i>Note: to prevent thrashing, this servlet is down until someone reloads it. " + 
+                " (you are unhappy visitor #" + pages + ")</i>");
             return;        
         }
         
         WebContext ctx = new WebContext(request,response);
-        pages++;
         
         if(ctx.field("vap").equals(vap)) {  // if we have a Vetting Administration Password, special case
             doVap(ctx);
@@ -533,6 +560,10 @@ public class SurveyMain extends HttpServlet {
             localeListMap = new TreeMap();
             subLocales = new Hashtable();
             File inFiles[] = getInFiles();
+            if(inFiles == null) {
+                busted("Can't load CLDR data files from " + fileBase);
+                throw new RuntimeException("Can't load CLDR data files from " + fileBase);
+            }
             int nrInFiles = inFiles.length;
             
             for(int i=0;i<nrInFiles;i++) {
@@ -574,6 +605,10 @@ public class SurveyMain extends HttpServlet {
         }
         ctx.println("<h1>Locales</h1>");
         TreeMap lm = getLocaleListMap();
+        if(lm == null) {
+            busted("Can't load CLDR data files from " + fileBase);
+            throw new RuntimeException("Can't load CLDR data files from " + fileBase);
+        }
         ctx.println("<table border=1 class='list'>");
         int n=0;
         for(Iterator li = lm.keySet().iterator();li.hasNext();) {
@@ -1912,7 +1947,7 @@ public class SurveyMain extends HttpServlet {
      * Main - setup, preload and listen..
      */
     static  boolean isSetup = false;
-    public synchronized static void doStartup() {
+    public synchronized void doStartup() {
         
         if(isSetup == true) {
             return;
@@ -1927,14 +1962,11 @@ public class SurveyMain extends HttpServlet {
         }
         SurveyMain m = new SurveyMain();
         if(!m.reg.read()) {
-            appendLog("Couldn't load user registry - exiting");
-            System.err.println("Couldn't load user registry - exiting.");
-            isBogus = "Couldn't load user registry - exiting";
+            busted("Couldn't load user registry (" + vetdata + "/" + UserRegistry.REGISTRY +") [at least put an empty file there]   - exiting");
             return;
         }
         if(!readWarnings()) {
-            appendLog("Couldn't read warnings file surveyInfo.txt - exiting");
-            isBogus = "Couldn't read warnings file surveyInfo.txt - exiting";
+            busted("Couldn't read warnings file surveyInfo.txt - exiting");
             return;
         }
         if((cldrLoad != null) && cldrLoad.length()>0) {
@@ -2086,6 +2118,10 @@ public class SurveyMain extends HttpServlet {
         }
         File[] inFiles = getInFiles();
         int nrInFiles = inFiles.length;
+        if(inFiles == null) {
+            busted("Can't load CLDR data files from " + fileBase);
+            return;
+        }
         int ti = 0;
         for(int i=0;i<nrInFiles;i++) {
             String localeName = inFiles[i].getName();
@@ -2173,6 +2209,12 @@ public class SurveyMain extends HttpServlet {
                 ", " + 
                 "xsc" + xstringHash.size() + ", " + nodeHashInfo + ", nhc" + nodeHashCreates + ")");
         }
+    }
+    
+    private void busted(String what) {
+        appendLog(what);
+        System.err.println("SurveyTool busted: " + what);
+        isBogus = what;
     }
 
     private void appendLog(WebContext ctx, String what) {

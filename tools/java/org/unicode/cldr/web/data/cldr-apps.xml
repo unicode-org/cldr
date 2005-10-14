@@ -1,24 +1,16 @@
 <web-app>
+    <display-name>CLDR Web Applications</display-name>
+    <description>Applications used by the CLDR project ( http://www.unicode.org/cldr )</description>
     <servlet>
         <servlet-name>SurveyMain</servlet-name>
         <servlet-class>
             org.unicode.cldr.web.SurveyMain
         </servlet-class>
         <init-param>
-            <param-name>CLDR_VET_DATA</param-name>
-            <param-value>/Users/srl/C/vetdata</param-value>
-        </init-param>
-        <init-param>
-            <param-name>CLDR_VET_WEB</param-name>
-            <param-value>/Users/srl/C/vetweb</param-value>
-        </init-param>
-        <init-param>
-            <param-name>CLDR_VAP</param-name>
-            <param-value>vet4u</param-value>
-        </init-param>
-        <init-param>
-            <param-name>CLDR_COMMON</param-name>
-            <param-value>/xsrl/C/cldr/common</param-value>
+            <param-name>cldr.properties</param-name>
+            <param-value>../cldr</param-value>
+            <description>This is the location of the cldr.properties file. It is assumed to
+                be relative to the tomcat 'bin' directory.</description>
         </init-param>
     </servlet>
     <servlet-mapping>

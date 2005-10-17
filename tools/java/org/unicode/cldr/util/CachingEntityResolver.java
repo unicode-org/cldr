@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004, International Business Machines Corporation and        *
+ * Copyright (C) 2004-2005, International Business Machines Corporation and        *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  * 
@@ -41,7 +41,28 @@ public class CachingEntityResolver implements EntityResolver {
     private static String gCacheDir = null;
     private static boolean gCheckedEnv = false;
     
-    // TODO: synch
+    // TODO: synch?
+    
+    /**
+     * Create the cache dir if it doesn't exist.
+     * delete all regular files within the cache dir.
+     */
+    public static void createAndEmptyCacheDir() {
+        if(getCacheDir() == null) {
+            return;
+        }
+        File cacheDir = new File(getCacheDir());
+        cacheDir.mkdir();
+        File cachedFiles[] = cacheDir.listFiles();
+        if(cachedFiles != null) {
+            for(int i=0;i<cachedFiles.length;i++) {
+                if(cachedFiles[i].isFile()) {
+                    cachedFiles[i].delete();
+                }
+            }
+        }
+    }
+    
     public static void setCacheDir(String s) {
         gCacheDir = s;
         if((gCacheDir==null)||(gCacheDir.length()<=0)) {

@@ -30,6 +30,16 @@ import com.ibm.icu.dev.test.util.BagFormatter;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.icu.*;
 
+// sql imports
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import java.util.Properties;
+
+
 import com.ibm.icu.lang.UCharacter;
 //import org.html.*;
 //import org.html.utility.*;
@@ -48,7 +58,6 @@ public class SurveyMain extends HttpServlet {
     public static final String UNKNOWNCHANGE = "Click to suggest replacement";
     
     // SYSTEM PROPERTIES
-    public static String cldrprops = null;
     public static  String vap = System.getProperty("CLDR_VAP"); // Vet Access Password
     public static  String vetdata = System.getProperty("CLDR_VET_DATA"); // dir for vetted data
     public static  String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for web data
@@ -56,25 +65,35 @@ public class SurveyMain extends HttpServlet {
     static String fileBase = System.getProperty("CLDR_COMMON") + "/main"; // not static - may change lager
     static String specialMessage = System.getProperty("CLDR_MESSAGE"); // not static - may change lager
     public static java.util.Properties survprops = null;
+    public static String cldrHome = null;
     
     public final void init(final ServletConfig config)
       throws ServletException {
         super.init(config);
 
         survprops = new java.util.Properties(); 
-        String cprops = config.getInitParameter("cldr.properties");
-        if(cprops == null) {
-            /* throw new UnavailableException */
-            busted("Please set 'cldr.properties' parameter to the path to cldr.properties");
-            return;
+        cldrHome = config.getInitParameter("cldr.home");
+        if(cldrHome == null) {
+            cldrHome = System.getProperty("catalina.home");
+            if(cldrHome == null) {  
+                busted("no $(catalina.home) set - please use it or set a servlet parameter cldr.home");
+                return;
+            } 
+            File homeFile = new File(cldrHome, "cldr");
+            if(!homeFile.isDirectory()) {
+                busted("$(catalina.home)/cldr isn't working as a CLDR home. Not a directory: " + homeFile.getAbsolutePath());
+                return;
+            }
+            cldrHome = homeFile.getAbsolutePath();
         }
+
         try {
-            java.io.FileInputStream is = new java.io.FileInputStream(new java.io.File(cprops, "cldr.properties"));
+            java.io.FileInputStream is = new java.io.FileInputStream(new java.io.File(cldrHome, "cldr.properties"));
             survprops.load(is);
             is.close();
         } catch(java.io.IOException ioe) {
             /*throw new UnavailableException*/
-            busted("Couldn't load cldr.properties file from '" + cprops + "/cldr.properties': "
+            busted("Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': "
                 + ioe.toString()); /* .initCause(ioe);*/
             return;
         }
@@ -85,16 +104,35 @@ public class SurveyMain extends HttpServlet {
             busted("No vetting password set. (CLDR_VAP in cldr.properties)");
             return;
         }
-        vetdata = survprops.getProperty("CLDR_VET_DATA", cprops+"/vetdata"); // dir for vetted data
+        vetdata = survprops.getProperty("CLDR_VET_DATA", cldrHome+"/vetdata"); // dir for vetted data
         System.out.println("CVD= " + vetdata);
-        vetweb = survprops.getProperty("CLDR_VET_WEB",cprops+"/vetdata"); // dir for web data
+        vetweb = survprops.getProperty("CLDR_VET_WEB",cldrHome+"/vetdata"); // dir for web data
         cldrLoad = survprops.getProperty("CLDR_LOAD_ALL"); // preload all locales?
-        fileBase = survprops.getProperty("CLDR_COMMON",cprops+"/common") + "/main"; // not static - may change lager
+        fileBase = survprops.getProperty("CLDR_COMMON",cldrHome+"/common") + "/main"; // not static - may change lager
         specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
+
+        if(!new File(fileBase).isDirectory()) {
+            busted("CLDR_COMMON isn't a directory: " + fileBase);
+            return;
+        }
+
+        if(!new File(vetdata).isDirectory()) {
+            busted("CLDR_VET_DATA isn't a directory: " + vetdata);
+            return;
+        }
+        if(!new File(vetweb).isDirectory()) {
+            busted("CLDR_VET_WEB isn't a directory: " + vetweb);
+            return;
+        }
 
         startTime = System.currentTimeMillis();
         doStartup();
         //      throw new UnavailableException("Document path not set.");
+        
+        File cacheDir = new File(cldrHome, "cache");
+        appendLog("Cache Dir: " + cacheDir.getAbsolutePath() + " - creating and emptying..");
+        CachingEntityResolver.setCacheDir(cacheDir.getAbsolutePath());
+        CachingEntityResolver.createAndEmptyCacheDir();
     }
 
     public static final String LOGFILE = "cldr.log";        // log file of all changes
@@ -127,7 +165,7 @@ public class SurveyMain extends HttpServlet {
     public static String xOTHER = "Misc";
     public static String xNODESET = "NodeSet@"; // pseudo-type used to store nodeSets in the hash
     public static String xREMOVE = "REMOVE";
-    public UserRegistry reg = new UserRegistry(vetdata);
+    public UserRegistry reg = null;
     
     public static String xREVIEW = "Review and Submit";
     public static String xSAVE = "Add Changes on This Page";
@@ -161,6 +199,8 @@ public class SurveyMain extends HttpServlet {
             out.println("<body>");
             out.println("<h1>CLDR Survey Tool is down, because:</h1>");
             out.println("<tt>" + isBogus + "</tt><br />");
+            out.println("<hr />");
+            out.println("Please try this link for info: <a href='http://dev.icu-project.org/cgi-bin/cldrwiki.pl?SurveyTool/Status'>http://dev.icu-project.org/cgi-bin/cldrwiki.pl?SurveyTool/Status</a><br />");
             out.println("<hr />");
             out.println("<i>Note: to prevent thrashing, this servlet is down until someone reloads it. " + 
                 " (you are unhappy visitor #" + pages + ")</i>");
@@ -334,7 +374,7 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
         ctx.println("</head>");
         ctx.println("<body>");
-        
+            
         ctx.println("<script type='text/javascript'><!-- \n" +
                     "function show(what)\n" +
                     "{document.getElementById(what).style.display=\"block\";}\n" +
@@ -346,6 +386,7 @@ public class SurveyMain extends HttpServlet {
     {
         ctx.println("</body>");
         ctx.println("<hr>");
+        ctx.println("<div style='float: right'>" + pages + "</div>");
         ctx.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='http://www.unicode.org/cldr'>Common Locale Data Repository</a> <br/>");
         ctx.println("</html>");
     }
@@ -775,8 +816,8 @@ public class SurveyMain extends HttpServlet {
             " \n";
         ctx.println("<hr/><pre>" + body + "</pre><hr/>");
     
-        String from = System.getProperty("CLDR_FROM");
-        String smtp = System.getProperty("CLDR_SMTP");
+        String from = survprops.getProperty("CLDR_FROM","nobody@example.com");
+        String smtp = survprops.getProperty("CLDR_SMTP","127.0.0.1");
          if(smtp == null) {
             ctx.println("<i>Not sending mail- SMTP disabled.</i><br/>");
             smtp = "NONE";
@@ -888,16 +929,16 @@ public class SurveyMain extends HttpServlet {
             String body = "User:  " + u.real + " <" + u.email + "> for  " + u.sponsor + "\n" +
              "Submitted data for: " + changedList + "\n" +
              "Session ID: " + ctx.session.id + "\n";
-            String smtp = System.getProperty("CLDR_SMTP");
+            String smtp = survprops.getProperty("CLDR_SMTP","127.0.0.1");
             if(smtp == null) {
                 ctx.println("<i>Not sending mail- SMTP disabled.</i><br/>");
             } else {
                 MailSender.sendMail(u.email, "CLDR: Receipt of your data submission ",
                         "Submission from IP: " + ctx.userIP() + "\n" + body  +
                             "\n The files submitted are attached below: \n" + fullBody );
-                MailSender.sendMail(System.getProperty("CLDR_NOTIFY"), "CLDR: from " + u.sponsor + 
+                MailSender.sendMail(survprops.getProperty("CLDR_NOTIFY"), "CLDR: from " + u.sponsor + 
                         "/" + u.email + ": " + changedList,
-                        "URL: " + System.getProperty("CLDR_VET_WEB_URL") + u.email + "/" + ctx.session.id + "\n" +
+                        "URL: " + survprops.getProperty("CLDR_VET_WEB_URL","file:///dev/null") + u.email + "/" + ctx.session.id + "\n" +
                         body);
                 ctx.println("Thank you..   An email has been sent to the CLDR Vetting List and to you at " + u.email + ".<br/>");
             }
@@ -1956,24 +1997,34 @@ public class SurveyMain extends HttpServlet {
         isSetup = true;
         
         int status = 0;
-        appendLog("SurveyTool starting up.");
+        appendLog("SurveyTool starting up. root=" + new File(cldrHome).getAbsolutePath());
         if ((specialMessage!=null)&&(specialMessage.length()>0)) {
             appendLog("SurveyTool with CLDR_MESSAGE: " + specialMessage);
         }
         SurveyMain m = new SurveyMain();
+/*
         if(!m.reg.read()) {
-            busted("Couldn't load user registry (" + vetdata + "/" + UserRegistry.REGISTRY +") [at least put an empty file there]   - exiting");
+            busted("Couldn't load user registry [at least put an empty file there]   - exiting");
             return;
         }
+        */
         if(!readWarnings()) {
-            busted("Couldn't read warnings file surveyInfo.txt - exiting");
+            // already busted
             return;
         }
         if((cldrLoad != null) && cldrLoad.length()>0) {
             m.loadAll();
         }
-        appendLog("SurveyTool ready for connections. Memory in use: " + usedK());
-//        System.err.println("SurveyTool ready for connections.  Goodbye, console.");
+        doStartupDB();
+        
+        appendLog("SurveyTool ready for requests. Memory in use: " + usedK());
+    }
+    
+    public void destroy() {
+        appendLog("SurveyTool shutting down..");
+        doShutdownDB();
+        busted("servlet destroyed");
+        super.destroy();
     }
     
     protected void startCell(WebContext ctx, String background) {
@@ -2212,9 +2263,9 @@ public class SurveyMain extends HttpServlet {
     }
     
     private void busted(String what) {
-        appendLog(what);
         System.err.println("SurveyTool busted: " + what);
         isBogus = what;
+        appendLog(what); // in case the log writing fails.
     }
 
     private void appendLog(WebContext ctx, String what) {
@@ -2222,11 +2273,11 @@ public class SurveyMain extends HttpServlet {
           appendLog(what, ipInfo);
     }
 
-    private static void appendLog(String what) {
+    public void appendLog(String what) {
           appendLog(what, null);
     }
     
-    private static synchronized void appendLog(String what, String ipInfo) {
+    public synchronized void appendLog(String what, String ipInfo) {
         try {
           OutputStream file = new FileOutputStream(new File(vetdata,LOGFILE), true); // Append
           PrintWriter pw = new PrintWriter(file);
@@ -2239,7 +2290,8 @@ public class SurveyMain extends HttpServlet {
         }
         catch(IOException exception){
           System.err.println(exception);
-          // TODO: log this ... 
+          isBogus = "Failed to write to log file!" + exception.toString() + " (original message: " + what + "/" + ipInfo + ")";
+          System.err.println("CLDR: fatal: " + isBogus);
         }
     }
 
@@ -2315,18 +2367,18 @@ public class SurveyMain extends HttpServlet {
 //      }
     }
     
-    static Hashtable xpathWarnings = new Hashtable();
+    Hashtable xpathWarnings = new Hashtable();
     
-    static String getWarning(String locale, String xpath) {
+    String getWarning(String locale, String xpath) {
         return (String)xpathWarnings.get(locale+" "+xpath);
     }
 
 
-    static boolean readWarnings() {
+    boolean readWarnings() {
         int lines  = 0;
         try {
             BufferedReader in
-               = BagFormatter.openUTF8Reader("./", "surveyInfo.txt");
+               = BagFormatter.openUTF8Reader(cldrHome, "surveyInfo.txt");
             String line;
             while ((line = in.readLine())!=null) {
                 lines++;
@@ -2340,13 +2392,18 @@ public class SurveyMain extends HttpServlet {
                 // result[2];  warning
                 xpathWarnings.put(result[0] + " /" + result[1], result[2]);
             }
-        } catch (Throwable t) {
+        } catch (java.io.FileNotFoundException t) {
+//            System.err.println(t.toString());
+//            t.printStackTrace();
+            appendLog("Warning: Can't read xpath warnings file.  " + cldrHome + "/surveyInfo.txt - To remove this warning, create an empty file there.");
+            return true;
+        }  catch (java.io.IOException t) {
             System.err.println(t.toString());
             t.printStackTrace();
-            System.err.println("Can't read xpath warnings file.  surveyInfo.txt");
-            System.err.println("At least create an empty file there. Exitting.");
-            return false;
+            busted("Error: trying to read xpath warnings file.  " + cldrHome + "/surveyInfo.txt");
+            return true;
         }
+
 //        System.err.println("xpathWarnings" + ": " + lines + " lines read.");
         return true;
     }
@@ -2384,5 +2441,109 @@ public class SurveyMain extends HttpServlet {
             return y;
         }
     }
+
+    // DB stuff
+    public String db_driver = "org.apache.derby.jdbc.EmbeddedDriver";
+    public String db_protocol = "jdbc:derby:";
+    public static final String CLDR_DB = "cldrdb";
+    public String cldrdb = null;
+   
+    private Connection getDBConnection()
+    {
+        return getDBConnection("");
+    }
     
+    private Connection getDBConnection(String options)
+    {
+        try{ 
+            Properties props = new Properties();
+            props.put("user", "cldr_user");
+            props.put("password", "cldr_password");
+            cldrdb =  dbDir.getAbsolutePath();
+            return DriverManager.getConnection(db_protocol +
+                    cldrdb + options, props);
+        } catch (SQLException se) {
+            busted("Fatal in getDBConnection: " + unchainSqlException(se));
+            return null;
+        }
+    }
+    
+    File dbDir = null;
+     
+    private void doStartupDB()
+    {
+        dbDir = new File(cldrHome,CLDR_DB);
+        boolean doesExist = dbDir.isDirectory();
+        
+        appendLog("SurveyTool setting up database.. " + dbDir.getAbsolutePath());
+        try
+        {
+            Class.forName(db_driver).newInstance();
+            appendLog("loaded driver");
+            Connection conn = getDBConnection(";create=true");
+
+            System.out.println("Connected to database " + cldrdb);
+
+            conn.setAutoCommit(false);
+
+            if(doesExist == false) {
+                appendLog("DB didn't exist - initializing...");
+                Statement s = conn.createStatement();
+                s.execute("create table junk(num int, addr varchar(40))");
+                appendLog("DB: Created table junk");
+                s.close();
+                UserRegistry.setupDB(this, conn);
+                conn.commit();
+            }
+            
+            conn.close();
+            appendLog("DB: Committed");
+            appendLog("DB: done.");
+        }
+        catch (SQLException e)
+        {
+            busted("On DB startup: " + unchainSqlException(e));
+        }
+        catch (Throwable t)
+        {
+            busted("Some error on DB startup: " + t.toString());
+            t.printStackTrace();
+        }
+        
+        // set up subsidiaries
+        reg = new UserRegistry(this, getDBConnection());
+
+    }    
+    
+    public static final String unchainSqlException(SQLException e) {
+        String echain = "SQL exception: ";
+        while(e!=null) {
+            echain = echain + " * " + e.toString();
+            e = e.getNextException();
+        }
+        return echain;
+    }
+    
+    void doShutdownDB() {
+        boolean gotSQLExc = false;
+
+            try
+            {
+                DriverManager.getConnection("jdbc:derby:;shutdown=true");
+            }
+            catch (SQLException se)
+            {
+                gotSQLExc = true;
+                appendLog("DB: while shutting down: " + se.toString());
+            }
+
+            if (!gotSQLExc)
+            {
+                appendLog("Database did not shut down normally");
+            }
+            else
+            {
+                appendLog("Database shut down normally");
+            }
+        }
 }

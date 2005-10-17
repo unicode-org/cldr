@@ -21,6 +21,9 @@ under your tomcat home directory (sibling to 'bin') create a 'cldr' directory. I
 	vetweb    (output dir for web pages. can be an empty dir)
 	cldr.properties  (see below)
 
+(If not on tomcat, see surveytool.xml or the web.xml in the WAR.) 
+(Note on Windows: you may have to modify the owner and permissions of cldr to allow tomcat to create dirs and files there.)
+
 
 # cldr.properties should contain at least the Vetting Access Password:
 CLDR_VAP=password 

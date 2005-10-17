@@ -16,6 +16,8 @@ import com.ibm.icu.util.ULocale;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+// sql imports
+import java.sql.Connection;
 
 public class WebContext {
 // USER fields
@@ -24,10 +26,10 @@ public class WebContext {
     public String docLocale[] = new String[0];
     public String localeName = null; 
     public CookieSession session = null;
-
+    public Connection conn = null;
+    
 // private fields
     protected PrintWriter out = null;
-    Hashtable form_data = null;
     String outQuery = null;
     TreeMap outQueryMap = new TreeMap();
     boolean dontCloseMe = false;
@@ -47,17 +49,13 @@ public class WebContext {
     public WebContext(boolean fake)throws IOException  {
         dontCloseMe=false;
         out=openUTF8Writer(System.err);
-        form_data = new Hashtable();
     }
-    
-
     
     // copy c'tor
     public WebContext( WebContext other) {
         doc = other.doc;
         docLocale = other.docLocale;
         out = other.out;
-        form_data = other.form_data;
         outQuery = other.outQuery;
         locale = other.locale;
         localeName = other.localeName;
@@ -66,6 +64,7 @@ public class WebContext {
         dontCloseMe = true;
         request = other.request;
         response = other.response;
+        conn = other.conn;
     }
     
 // More API
@@ -95,7 +94,6 @@ public class WebContext {
     }
     
     String field(String x) {
-//        String res = (String)form_data.get(x);
         String res = request.getParameter(x);
          if(res == null) {       
 //              System.err.println("[[ empty query string: " + x + "]]");

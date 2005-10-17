@@ -6,12 +6,14 @@
         <servlet-class>
             org.unicode.cldr.web.SurveyMain
         </servlet-class>
+<!--
         <init-param>
-            <param-name>cldr.properties</param-name>
-            <param-value>../cldr</param-value>
-            <description>This is the location of the cldr.properties file. It is assumed to
-                be relative to the tomcat 'bin' directory.</description>
-        </init-param>
+            <param-name>cldr.home</param-name>
+            <param-value>somewhere/cldr</param-value>
+            <description>This is the location of the cldr.properties file. 
+                By default it is $(catalina.home)/cldr directory.</description>
+        </init-param> 
+  -->
     </servlet>
     <servlet-mapping>
         <servlet-name>SurveyMain</servlet-name>

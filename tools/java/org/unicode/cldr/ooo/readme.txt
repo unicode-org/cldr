@@ -79,7 +79,7 @@ echo "-----2. Validating the LDML data created in the previous step -------"
 java -Dhttp.proxyHost=$PROXY -Dhttp.proxyPort=$PROXY_PORT -DCLDR_DTD_CACHE=$CER_DIR org.unicode.cldr.util.XMLValidator $DEST_DIR/*.xml
 
 echo "-----3. Converting Bulk LDML to OpenOffice.org format-----"
-java -Dhttp.proxyHost=$PROXY -Dhttp.proxyPort=$PROXY_PORT -DCLDR_DTD_CACHE=$CER_DIR  org.unicode.cldr.ooo.LDMLToOOConverter -s $CLDR_DIR/cldr/common/supplemental -c $CLDR_DIR/cldr/common/main -t $OO_DATE_OUT_DIR -o $DEST_DIR 
+java -Dhttp.proxyHost=$PROXY -Dhttp.proxyPort=$PROXY_PORT -DCLDR_DTD_CACHE=$CER_DIR  org.unicode.cldr.ooo.LDMLToOOConverter -s $CLDR_DIR/common/supplemental -c $CLDR_DIR/common/main -t $OO_DATE_OUT_DIR -o $DEST_DIR 
 
 echo "-----4. Validating the OpenOffice.org data  created in the previous step------"
 java -Dhttp.proxyHost=$PROXY -Dhttp.proxyPort=$PROXY_PORT -DCLDR_DTD_CACHE=$CER_DIR org.unicode.cldr.util.XMLValidator $OO_DATE_OUT_DIR/*.xml
@@ -91,7 +91,7 @@ java -Dhttp.proxyHost=$PROXY -Dhttp.proxyPort=$PROXY_PORT -DCLDR_DTD_CACHE=$CER_
 
 # perform this step to generate brand new locale from CLDR (will not contain OpenOffice.org specific elements)
 #echo "-----Generating new OpenOffice.org locale from CLDR-----"
-# java -Dhttp.proxyHost=$PROXY -Dhttp.proxyPort=$PROXY_PORT -DCLDR_DTD_CACHE=$CER_DIR  org.unicode.cldr.ooo.LDMLToOOConverter -s $CLDR_DIR/cldr/common/supplemental -locale ga_IE -c $CLDR_DIR/cldr/common/main -t $OO_DATE_OUT_DIR 
+# java -Dhttp.proxyHost=$PROXY -Dhttp.proxyPort=$PROXY_PORT -DCLDR_DTD_CACHE=$CER_DIR  org.unicode.cldr.ooo.LDMLToOOConverter -s $CLDR_DIR/cldr/common/supplemental -l ga_IE -c $CLDR_DIR/cldr/common/main -t $OO_DATE_OUT_DIR 
 
 
 

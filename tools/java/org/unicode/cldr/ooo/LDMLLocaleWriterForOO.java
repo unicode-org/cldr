@@ -114,6 +114,8 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         Hashtable wideDays = (Hashtable) data.get(LDMLConstants.DAY_WIDTH + " " + LDMLConstants.WIDE);
         Hashtable abbrMonths = (Hashtable) data.get(LDMLConstants.MONTH_WIDTH + " " + LDMLConstants.ABBREVIATED);
         Hashtable wideMonths = (Hashtable) data.get(LDMLConstants.MONTH_WIDTH + " " + LDMLConstants.WIDE);
+        Hashtable abbrQuarters = (Hashtable) data.get(LDMLConstants.QUARTER_WIDTH + " " + LDMLConstants.ABBREVIATED);
+        Hashtable wideQuarters = (Hashtable) data.get(LDMLConstants.QUARTER_WIDTH + " " + LDMLConstants.WIDE);        
         Hashtable abbrEras = (Hashtable) data.get(LDMLConstants.ERAABBR);
         Hashtable wideEras = (Hashtable) data.get(LDMLConstants.ERANAMES);
         Hashtable startDaysOfWeek = (Hashtable) data.get(LDMLConstants.FIRSTDAY);
@@ -236,6 +238,41 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
             else
                 Logging.Log3("\tNo abbreviated or wide Days to write for calendar : " + calendar);
             
+            //quarters
+            Hashtable abbrQuartersI = null;
+            if (abbrQuarters != null)
+            {
+                abbrQuartersI = (Hashtable) abbrQuarters.get((Object)calendar);
+            }
+            Hashtable wideQuartersI = null;
+            if (wideQuarters != null)
+            {
+                wideQuartersI = (Hashtable) wideQuarters.get((Object)calendar);
+            }
+            if ((abbrQuartersI != null) || (wideQuartersI != null))
+            {
+                println(LDMLConstants.QUARTERS_O);
+                indent();
+                println("<" + LDMLConstants.QUARTER_CONTEXT + " " + LDMLConstants.TYPE + "=\"" + LDMLConstants.FORMAT + "\">");
+                indent();
+                if (abbrQuartersI != null)
+                    writeQuarterWidth(abbrQuartersI, LDMLConstants.ABBREVIATED);
+                else
+                    Logging.Log3("No abbreviated Quarters to write for calendar : " + calendar);
+                
+                if (wideQuartersI != null)
+                    writeQuarterWidth(wideQuartersI, LDMLConstants.WIDE);
+                else
+                    Logging.Log3("No wide Quarters to write for calendar : " + calendar);
+                
+                outdent();
+                println(LDMLConstants.QUARTER_CONTEXT_C);
+                outdent();
+                println(LDMLConstants.QUARTERS_C);
+            }
+            else
+                Logging.Log3("No abbreviated or wide Quarters to write for calendar : " + calendar);
+            
             
             //StartDayOfWeek and MinDays in week
             String startDayOfWeek = null;
@@ -248,6 +285,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
             writeWeek(minDaysInFirstWeek, startDayOfWeek, null, null, calendar);
             
             //am  - as am and pm are generic and not specific to calendar type in OO , write them to all calendar types in LDML
+            //TODO : this is a bug, should only write to gregorian, all cals inherit from gregorian
             writeAmPm(am, pm, calendar);
             
             //Eras

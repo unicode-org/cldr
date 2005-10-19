@@ -286,6 +286,12 @@ public class ConvertOOLocale
         Hashtable wideMonths = OOToLDMLMapper.MapMonths(reader.m_WideMonths);
         if (wideMonths!=null) data.put(LDMLConstants.MONTH_WIDTH + " " + LDMLConstants.WIDE, wideMonths);
         
+        //reservedWords contains quarters, true/false, above/below
+  /*      Hashtable wideQuarters = OOToLDMLMapper.MapWideQuarters(reader.m_ReservedWords);
+        if (wideQuarters != null) data.put(LDMLConstants.QUARTER_WIDTH+ " " + LDMLConstants.WIDE, wideQuarters);
+        Hashtable abbrQuarters = OOToLDMLMapper.MapAbbrQuarters(reader.m_ReservedWords);
+        if (abbrQuarters != null) data.put(LDMLConstants.QUARTER_WIDTH+ " " + LDMLConstants.ABBREVIATED, abbrQuarters);
+  */
         Hashtable abbrEras = OOToLDMLMapper.MapEras(reader.m_AbbrEras);
         if (abbrEras!=null) data.put(LDMLConstants.ERAABBR, abbrEras);
         
@@ -305,6 +311,7 @@ public class ConvertOOLocale
         Hashtable formatElements_date = new Hashtable();
         Hashtable formatCodes_date = new Hashtable();
         Hashtable formatDefaultNames_date = new Hashtable();
+        
         OOToLDMLMapper.MapFormatElements(reader.m_FormatElements,
         reader.m_FormatCodes,
         reader.m_FormatDefaultNames,
@@ -444,6 +451,7 @@ public class ConvertOOLocale
         Hashtable forbiddenChars = OOToLDMLMapper.MapFirstCharToLowerCase(reader.m_ForbiddenChars);
         if (forbiddenChars != null) data.put(OpenOfficeLDMLConstants.FORBIDDEN_CHARACTERS, forbiddenChars);
         
+        //reservedWords contains quarters, true/false, above/below
         Hashtable reservedWords = OOToLDMLMapper.MapFirstCharToLowerCase(reader.m_ReservedWords);
         if (reservedWords != null) data.put(OpenOfficeLDMLConstants.RESERVED_WORDS, reservedWords);
         

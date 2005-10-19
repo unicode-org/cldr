@@ -453,11 +453,7 @@ public class OOComparator
     // Given 2+ OOLocaleReader ojects, compare a specified string variable.
     private int compareString(PrintWriter writer, int cntDiff, String parent, String attribute, String id, OOLocaleReader[] readers, String OOLocaleReaderVarName)
     {
-        // First, please all 4 values in an array.
-        if ( OOLocaleReaderVarName.compareTo("m_ReplaceFrom")==0)
-        {
-            int xx = 0;
-        }
+        // First, put all 4 values in an array.
         String[] values = new String[m_CurrNumFiles];
         boolean diff = false;
         

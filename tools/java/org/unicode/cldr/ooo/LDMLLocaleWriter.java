@@ -209,7 +209,7 @@ public class LDMLLocaleWriter extends XMLWriter
             String language = "<" + LDMLConstants.SCRIPT + " " + LDMLConstants.TYPE + "=\"" + script_type + "\"/>";
             println(language);
         }
-        if (territory_type != "")
+        if ((territory_type != null) && (territory_type != ""))
         {
             String territory = "<" + LDMLConstants.TERRITORY + " " + LDMLConstants.TYPE + "=\"" + territory_type + "\"/>";
             println(territory);
@@ -430,6 +430,46 @@ public class LDMLLocaleWriter extends XMLWriter
         println(LDMLConstants.MONTH_WIDTH_C);
     }
     
+    protected void writeQuarterWidth(Hashtable data, String widthType)
+    {
+        //check inputs and widthType value which is #REQUIRED
+        if ((data == null) || (widthType == null) || (widthType.compareTo( "")==0))
+            return;
+        
+        String widthString = "<" + LDMLConstants.QUARTER_WIDTH + " type =\"" + widthType + "\">";
+        println(widthString);
+        indent();
+        
+        //write the days in ordered fashion, starting at Sunday
+        
+        String quarterStr = null;
+        String quarter = (String) data.get(LDMLConstants.Q_1);
+        if (quarter != null)
+        {
+            quarterStr = "<" + LDMLConstants.QUARTER + " " + LDMLConstants.TYPE + "=\"" + LDMLConstants.Q_1 + "\">" + quarter + LDMLConstants.QUARTER_C;
+            println(quarterStr);
+        }
+        quarter = (String) data.get(LDMLConstants.Q_2);
+        if (quarter != null)
+        {
+            quarterStr = "<" + LDMLConstants.QUARTER + " " + LDMLConstants.TYPE + "=\"" + LDMLConstants.Q_2 + "\">" + quarter + LDMLConstants.QUARTER_C;
+            println(quarterStr);
+        }
+        quarter = (String) data.get(LDMLConstants.Q_3);
+        if (quarter != null)
+        {
+            quarterStr = "<" + LDMLConstants.QUARTER + " " + LDMLConstants.TYPE + "=\"" + LDMLConstants.Q_3 + "\">" + quarter + LDMLConstants.QUARTER_C;
+            println(quarterStr);
+        }
+        quarter = (String) data.get(LDMLConstants.Q_4);
+        if (quarter != null)
+        {
+            quarterStr = "<" + LDMLConstants.QUARTER + " " + LDMLConstants.TYPE + "=\"" + LDMLConstants.Q_4 + "\">" + quarter + LDMLConstants.QUARTER_C;
+            println(quarterStr);
+        }
+        outdent();
+        println(LDMLConstants.QUARTER_WIDTH_C);
+    }
     
     protected void writeEras(Hashtable eras)
     {

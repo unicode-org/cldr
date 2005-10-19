@@ -219,7 +219,7 @@ public class LDMLToOOConverter
         if (cldr_file != null) cldr_f = new File (cldr_file); 
         File ooo_ldml_f = null;
         if (ooo_ldml_file != null) ooo_ldml_f = new File (ooo_ldml_file); 
-        
+
         if( ((cldr_f==null) || (! cldr_f.exists())) && ((ooo_ldml_f==null) || (! ooo_ldml_f.exists())))
         {
             printWarning("Skipping this locale " + locale + " as no source OpenOffice.org LDML or CLDR file were not found");
@@ -452,6 +452,7 @@ public class LDMLToOOConverter
         
         //###### write LC_CALENDAR ######
         data.clear();
+        
         Vector outCalendarTypes = new Vector();
         LDMLToOOMapper.MapCalendar(reader_cldr.m_CalendarTypes, outCalendarTypes, locale);
         if (outCalendarTypes.size()>0)
@@ -482,8 +483,13 @@ public class LDMLToOOConverter
         // Eras   //workaround on long `era names until CLDR gets updated
         if  ( ((reader_ooo_ldml.m_EraNames != null) && (reader_ooo_ldml.m_EraNames.size()>0)) || ((reader_cldr.m_AbbrEras != null) && (reader_cldr.m_AbbrEras.size()>0)) )
         {
-            Hashtable eras = LDMLToOOMapper.MapEras(reader_ooo_ldml.m_EraNames, reader_cldr.m_AbbrEras, locale);
-            if ((eras != null) && (eras.size()>0)) data.put(OOConstants.ERAS, eras);
+            Hashtable eras = null;
+            //workaround : CLDR deosn't have ROC calendar yet
+            if (locale.compareTo("zh_TW")==0)
+                eras = LDMLToOOMapper.MapEras(reader_ooo_ldml.m_EraNames, reader_ooo_ldml.m_AbbrEras, locale);
+            else
+                eras = LDMLToOOMapper.MapEras(reader_ooo_ldml.m_EraNames, reader_cldr.m_AbbrEras, locale);
+            if ((eras != null) && (eras.size()>0)) data.put(OOConstants.ERAS, eras);    
         }
         
         if ((reader_cldr.m_StartOfWeeks != null) && (reader_cldr.m_StartOfWeeks.size() >0))

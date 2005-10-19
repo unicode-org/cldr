@@ -96,6 +96,58 @@ public class OOToLDMLMapper
         
     }
     
+        /*  output = Hashtable of Hasdhtables, outer key = calendar type (always gregoirian) , inner key = quarter type (1 to 4)
+         *  LDML uses LDMLConstants.Q_1 -> Q_4 to identify 
+         */
+    public static Hashtable MapWideQuarters(Hashtable OOData)
+    {
+        if ((OOData == null) || (OOData.size()==0))
+            return null;
+        
+        Hashtable LDMLData = new Hashtable();
+        Hashtable innerLDMLData = new Hashtable();
+        
+        String q1Word = (String) OOData.get(OpenOfficeLDMLConstants.QUARTER_1_WORD);
+        if (q1Word != null) innerLDMLData.put(LDMLConstants.Q_1, q1Word);
+        String q2Word = (String) OOData.get(OpenOfficeLDMLConstants.QUARTER_2_WORD);
+        if (q2Word != null) innerLDMLData.put(LDMLConstants.Q_2, q2Word);
+        String q3Word = (String) OOData.get(OpenOfficeLDMLConstants.QUARTER_3_WORD);
+        if (q3Word != null) innerLDMLData.put(LDMLConstants.Q_3, q3Word);
+        String q4Word = (String) OOData.get(OpenOfficeLDMLConstants.QUARTER_4_WORD);
+        if (q4Word != null) innerLDMLData.put(LDMLConstants.Q_4, q4Word);
+
+        if (innerLDMLData.size() >0)
+            LDMLData.put( LDMLConstants.GREGORIAN, innerLDMLData);   //OOO data is cal independent
+        return LDMLData;   
+    }
+    
+    
+           /*  output = Hashtable of Hasdhtables, outer key = calendar type (always gregoirian) , inner key = quarter type (1 to 4)
+         *  LDML uses LDMLConstants.Q_1 -> Q_4 to identify 
+         */
+    public static Hashtable MapAbbrQuarters(Hashtable OOData)
+    {
+        if ((OOData == null) || (OOData.size()==0))
+            return null;
+        
+        Hashtable LDMLData = new Hashtable();
+        Hashtable innerLDMLData = new Hashtable();
+        
+        String q1Abbr = (String) OOData.get(OpenOfficeLDMLConstants.QUARTER_1_ABBREVIATION);
+        if (q1Abbr != null) innerLDMLData.put(LDMLConstants.Q_1, q1Abbr);
+        String q2Abbr = (String) OOData.get(OpenOfficeLDMLConstants.QUARTER_2_ABBREVIATION);
+        if (q2Abbr != null) innerLDMLData.put(LDMLConstants.Q_2, q2Abbr);
+        String q3Abbr = (String) OOData.get(OpenOfficeLDMLConstants.QUARTER_3_ABBREVIATION);
+        if (q3Abbr != null) innerLDMLData.put(LDMLConstants.Q_3, q3Abbr);
+        String q4Abbr = (String) OOData.get(OpenOfficeLDMLConstants.QUARTER_4_ABBREVIATION);
+        if (q4Abbr != null) innerLDMLData.put(LDMLConstants.Q_4, q4Abbr);
+
+        if (innerLDMLData.size() >0)
+            LDMLData.put( LDMLConstants.GREGORIAN, innerLDMLData);   //OOO data is cal independent
+        
+        return LDMLData;   
+    }
+    
   /* input (and output) = Hashtable of Hasdhtables, outer key = calendar type (i.e. gregoirian) , inner key = month type (i.e. jan or 1)
    * OO uses OOConstants.JAN -> OOConstants.DEC to identify months
    *  LDML uses LDMLConstants.MONTH_1 -> LDMLConstants.MONTH_13

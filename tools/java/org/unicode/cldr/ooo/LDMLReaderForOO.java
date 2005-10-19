@@ -289,8 +289,8 @@ public class LDMLReaderForOO
         if (versionDTD != null) m_LocaleInfo.put(OpenOfficeLDMLConstants.VERSION_DTD, versionDTD);
              
         // Get default language & territory names, specific to OpenOffice.
-        m_LangDefaultName = m_domWrapper.getTextFromElementWithAttrib(XMLNamespace.OPEN_OFFICE+":"+OpenOfficeLDMLConstants.DEFAULT_NAME, LDMLConstants.TYPE, m_LangID, LDMLConstants.SPECIAL, LDMLConstants.LANGUAGES);
-        m_TerritoryDefaultName = m_domWrapper.getTextFromElementWithAttrib(XMLNamespace.OPEN_OFFICE+":"+OpenOfficeLDMLConstants.DEFAULT_NAME, LDMLConstants.TYPE, m_TerritoryID, LDMLConstants.SPECIAL, LDMLConstants.TERRITORIES);
+        if (m_LangID !=null) m_LangDefaultName = m_domWrapper.getTextFromElementWithAttrib(XMLNamespace.OPEN_OFFICE+":"+OpenOfficeLDMLConstants.DEFAULT_NAME, LDMLConstants.TYPE, m_LangID, LDMLConstants.SPECIAL, LDMLConstants.LANGUAGES);
+        if (m_TerritoryID !=null) m_TerritoryDefaultName = m_domWrapper.getTextFromElementWithAttrib(XMLNamespace.OPEN_OFFICE+":"+OpenOfficeLDMLConstants.DEFAULT_NAME, LDMLConstants.TYPE, m_TerritoryID, LDMLConstants.SPECIAL, LDMLConstants.TERRITORIES);
         m_PlatformID = m_domWrapper.getTextFromElement(LDMLConstants.SPECIAL, XMLNamespace.OPEN_OFFICE+":"+OpenOfficeLDMLConstants.PLATFORM_ID);
         m_Variant = m_domWrapper.getAttributeFromElement(LDMLConstants.IDENTITY, LDMLConstants.VARIANT, LDMLConstants.TYPE);
         

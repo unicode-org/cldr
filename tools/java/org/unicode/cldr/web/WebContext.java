@@ -16,11 +16,15 @@ import com.ibm.icu.util.ULocale;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+
 // sql imports
 import java.sql.Connection;
 
 public class WebContext {
+    public static java.util.logging.Logger logger = SurveyMain.logger;
 // USER fields
+    public SurveyMain sm = null;
+    public XPathTable xpt = null;
     public Document doc[]= new Document[0];
     public ULocale locale = null;
     public String docLocale[] = new String[0];
@@ -65,6 +69,8 @@ public class WebContext {
         request = other.request;
         response = other.response;
         conn = other.conn;
+        xpt = other.xpt;
+        sm = other.sm;
     }
     
 // More API
@@ -157,6 +163,10 @@ public class WebContext {
         return request.getContextPath() + "/" + s;
     }
     
+    public String jspLink(String s) {
+        return context(s)+"?a=" + base() + "&" + outQuery;
+     }
+    
     void printUrlAsHiddenFields() {
         for(Iterator e = outQueryMap.keySet().iterator();e.hasNext();) {
             String k = e.next().toString();
@@ -215,17 +225,18 @@ public class WebContext {
         parents = l.toString();
         do {
             try {
-                Document d = SurveyMain.fetchDoc(parents);
+                Document d = sm.fetchDoc(parents);
                 localesVector.add(parents);
                 docsVector.add(d);
             } catch(Throwable t) {
-                println("Error fetching " + parents + "<br/>");
+                logger.log(java.util.logging.Level.SEVERE,"Error fetching " + parents + "<br/>",t);
                 // error is shown elsewhere.
             }
             parents = getParent(parents);
         } while(parents != null);
         doc = (Document[])docsVector.toArray(doc);
         docLocale = (String[])localesVector.toArray(docLocale);
+        logger.info("Fetched locale: " + l.toString() + ", count: " + doc.length);
     }
         
 // locale hash api

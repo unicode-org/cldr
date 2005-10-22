@@ -61,7 +61,7 @@ public class CookieSession {
     
     public void setUser(UserRegistry.User u) {
         user = u;
-        uHash.put(user.id, this); // replaces any existing session by this user.
+        uHash.put(user.password, this); // replaces any existing session by this user.
     }
     
     public CookieSession(boolean isGuest) {
@@ -76,7 +76,7 @@ public class CookieSession {
     
     public void remove() {
         if(user != null) {
-            uHash.remove(user.id);
+            uHash.remove(user.password);
         }
         gHash.remove(id);
     }

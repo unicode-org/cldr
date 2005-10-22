@@ -123,11 +123,11 @@ public class NodeSet {
     }
     
     // add an empty for this xpath
-    public void addXpath(String xpath, String type) {
+    public void addXpath(WebContext ctx, String xpath, String type) {
         NodeSetEntry nse = (NodeSetEntry)map.get(xpath);
         if(nse == null) {
             nse = new NodeSetEntry((type!=null)?type:"");
-            nse.xpath = SurveyMain.poolx(xpath);
+            nse.xpath = ctx.xpt.poolx(xpath);
             map.put(nse.xpath,nse);
         }
     }
@@ -156,7 +156,7 @@ public class NodeSet {
         NodeSetEntry nse = (NodeSetEntry)map.get(xpath);
         if(nse == null) {
             nse = new NodeSetEntry((type!=null)?type:"");
-            nse.xpath = SurveyMain.poolx(xpath);
+            nse.xpath = ctx.xpt.poolx(xpath);
             map.put(nse.xpath, nse);
             // calculate warning here??
         }
@@ -229,6 +229,9 @@ public class NodeSet {
 
     static public NodeSet loadFromXpaths(WebContext ctx, TreeMap allXpaths, XpathFilter filter) {
         NodeSet s = new NodeSet();
+        if(ctx.doc.length == 0) {
+            System.out.println("ctx.doc.length = 0!!");
+        }
         Node roots[] = new Node[ctx.doc.length];
         int i;
         // Load the doc root for each item. 

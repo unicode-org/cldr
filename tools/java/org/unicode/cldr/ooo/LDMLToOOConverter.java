@@ -10,6 +10,25 @@
  *    this is the step to perform when it is desired to generate OO data from CLDR
  * 3. Conversion of CLDR data only to OpenOffice.org format.
  *    this is the step to perform when generating a brand new OpenOffice.org locale
+ *
+ * for step 2 above these is some data which comes from the OO.o LDML which may migrate to CLDR in the future :
+ * - LC_INFO                 (country and lang IDs should be same anyway, DefaultNames are onlo info so leave the Oo.o ones)
+ * - quarters                (new in CLDR 1.4)
+ * - date and time formats   (new in CLDR 1.4)
+ * - delimiters              (date only becoming avaialble in CLDR 1.3 althoiugh structure already there)
+ * - wide eras               (date only becoming avaialble in CLDR 1.3 althoiugh structure already there)
+ *
+ * - workarounds (look for "workaround" in processSingle () ) :
+ *      - zh_TW ROC eras    (not in CLDR 1.3, probably in 1.4)
+ *      - eo Currency       (Esperanto doesn't have a currency but OO.o wants it so just write back the Oo.o currency)
+ *      - ka_GE             (CLDR 1.3 data incomplete so jsut write back OO.o data regardless)
+ *      - ja_JP             use OO.o data for calendars as :
+ *                              OO.o needs English days,months for gregorian and English months for gengou calendars
+ *                              OO.o gengou calendar has a DUMMY era, no such thing in CLDR
+ *      - ko_KR             use OO.o data for calendars as :
+ *                               OO.o gregorian calendar needs English months
+ *                               OO.o has hanja calendar, no such thing in CLDR so use OO.o data
+ *
  */
 
 package org.unicode.cldr.ooo;
@@ -229,6 +248,7 @@ public class LDMLToOOConverter
         
         LDMLReaderForOO reader_ooo_ldml = null;
         LDMLReaderForOO reader_cldr = null;
+        LDMLReaderForOO reader_cldr_temp = null;  //used for OO.o specific workarounds
         
         if ((cldr_file != null) && (cldr_f.exists()))
         {
@@ -254,7 +274,12 @@ public class LDMLToOOConverter
                 printWarning("Failed to read OpenOffice.org LDML file: " + ooo_ldml_file);
                 return false;
             }
+            
+           //workaround CLDR 1.3 is incomplete for ka_GE so just write back OO.o data
+           if (locale.compareTo("ka_GE")==0)  m_bRoundTrip = true;
+            
             if (m_bRoundTrip == true) reader_cldr = reader_ooo_ldml;
+            
         }
         else
         {   //read it form CLDR only i.e. 
@@ -287,16 +312,17 @@ public class LDMLToOOConverter
 
         //###### write LC_INFO ######
         //data.put(OOContants.Version, reader.m_Version);
+        //use the OO.o data , CLDR should be same for lang + territory anyway, but defaultNames are alle nglish in OO.o
         if (reader_ooo_ldml.m_LangDefaultName != null) data.put(OOConstants.LANGUAGE, reader_ooo_ldml.m_LangDefaultName);
-        if (reader_cldr.m_LangID != null) data.put(OOConstants.LANG_ID, reader_cldr.m_LangID);
+        if (reader_ooo_ldml.m_LangID != null) data.put(OOConstants.LANG_ID, reader_ooo_ldml.m_LangID);
         if (reader_ooo_ldml.m_TerritoryDefaultName != null) data.put(OOConstants.COUNTRY, reader_ooo_ldml.m_TerritoryDefaultName);
-        if (reader_cldr.m_TerritoryID != null) data.put(OOConstants.COUNTRY_ID, reader_cldr.m_TerritoryID);
+        if (reader_ooo_ldml.m_TerritoryID != null) data.put(OOConstants.COUNTRY_ID, reader_ooo_ldml.m_TerritoryID);
         if ((reader_ooo_ldml.m_PlatformID != null) && (reader_ooo_ldml.m_PlatformID.length()>0))
             data.put(OOConstants.PLATFORM_ID, reader_ooo_ldml.m_PlatformID);
         if ((reader_ooo_ldml.m_Variant != null) && (reader_ooo_ldml.m_Variant.length()>0))
             data.put(OOConstants.VARIANT, reader_ooo_ldml.m_Variant);
         writer.writeLC_INFO(data);
-        
+
         //###### write LC_CTYPE ######
         data.clear();
         
@@ -345,9 +371,9 @@ public class LDMLToOOConverter
             data.put(OOConstants.TIME_PM, reader_cldr.m_TimePM);
         
         // MeasurementSystem
-        if (reader_ooo_ldml.m_MeasurementSystem != null)
+        if (reader_cldr.m_MeasurementSystem != null)
         {
-            String ms = LDMLToOOMapper.MapMeasurementSystem(reader_ooo_ldml.m_MeasurementSystem);
+            String ms = LDMLToOOMapper.MapMeasurementSystem(reader_cldr.m_MeasurementSystem);
             if ((ms != null) && (ms.length()>0))
                 data.put(OOConstants.MEASUREMENT_SYSTEM, ms);
         }
@@ -359,7 +385,7 @@ public class LDMLToOOConverter
         /*
          *Assumption taken with reading LDML format elements (e.g. decimalFormat):
          *The format element's type attribute will contain the exact same string
-         *as its subelement "special"'s attribute openOffice:msgtype.
+         *as its subelement "sp/org/unicode/cldr/util/ecial"'s attribute openOffice:msgtype.
          */
         data.clear();
         
@@ -453,6 +479,13 @@ public class LDMLToOOConverter
         //###### write LC_CALENDAR ######
         data.clear();
         
+        //workaround : lots of calendar issues, see comments at top fo this file
+        if ((locale.compareTo("ja_JP")==0) || (locale.compareTo("ko_KR")==0))
+        {
+            reader_cldr_temp = reader_cldr;
+            reader_cldr = reader_ooo_ldml;
+        }
+        
         Vector outCalendarTypes = new Vector();
         LDMLToOOMapper.MapCalendar(reader_cldr.m_CalendarTypes, outCalendarTypes, locale);
         if (outCalendarTypes.size()>0)
@@ -460,6 +493,7 @@ public class LDMLToOOConverter
         String defaultCalendar = LDMLToOOMapper.MapDefaultCalendar(reader_cldr.m_CalendarDefaultAttribs);
         if ((defaultCalendar != null) && (defaultCalendar.length()>0))
             data.put(OOConstants.DEFAULT, defaultCalendar);
+
         if ((reader_cldr.m_AbbrDays != null) && (reader_cldr.m_AbbrDays.size()>0))
         {
             Hashtable abbrDays = LDMLToOOMapper.MapDays(reader_cldr.m_AbbrDays, locale);
@@ -507,9 +541,23 @@ public class LDMLToOOConverter
         if (data.size()>0)
             writer.writeLC_CALENDAR(data);
         
+        //undo the above workaround
+        if ((locale.compareTo("ja_JP")==0) || (locale.compareTo("ko_KR")==0))
+            reader_cldr = reader_cldr_temp;
+        
+        
         //###### write LC_CURRENCY ######
         data.clear();
-        if ((reader_cldr.m_CurrenciesAtts != null) && (reader_cldr.m_CurrenciesAtts.size()>0))
+        
+        // workaround eo in CLDR has no currency but fdoes in OO.o
+        if ((locale.compareTo("eo")==0)|| (locale.compareTo("eo_EO")==0))  
+        {
+            reader_cldr_temp = reader_cldr;
+            reader_cldr = reader_ooo_ldml;
+            m_bRoundTrip = true;  //it's a round trip on the currency data
+        }
+        
+        if ((reader_cldr!= null) && (reader_cldr.m_CurrenciesAtts != null) && (reader_cldr.m_CurrenciesAtts.size()>0))
         {
             //validCurrencyTypes will list only the valid currencies for this locale, the first entry is the default
             Vector validCurrencyTypes = LDMLToOOMapper.ExtractLDMLCurrencyTypes(reader_cldr.m_CurrenciesAtts, m_suppData, locale, m_bRoundTrip);
@@ -527,6 +575,9 @@ public class LDMLToOOConverter
             writer.WriteLC_CURRENCY(validCurrencyTypes, defCurr , reader_cldr.m_CurrDisplayNames, reader_cldr.m_CurrSymbols, reader_ooo_ldml.m_CurrIDs, reader_ooo_ldml.m_CurrCompatibleFormatCodes, m_suppData, m_bRoundTrip);
             m_bRoundTrip = false;  //reset it
         }
+ 
+        if ((locale.compareTo("eo")==0)|| (locale.compareTo("eo_EO")==0))   //end of workaround
+            reader_cldr = reader_cldr_temp;
         
         //###### write LC_TRANSLITERATIONS ######
         Vector transliterations = null;

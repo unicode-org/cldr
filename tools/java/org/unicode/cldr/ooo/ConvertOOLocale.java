@@ -15,6 +15,10 @@ import java.util.*;
  *      - calls LDMLLocaleWriterForOO which writes this data to file in LDML
  *
  * depending on the args will convert single files or full directories
+ *
+ * areas of overlap bwtween OO.o special elements and CLDR .14 standardf elements :
+ * - quarters
+ * - flexible date and time
  */
 
 public class ConvertOOLocale

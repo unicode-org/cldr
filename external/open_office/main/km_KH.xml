@@ -8,7 +8,7 @@
 <ldml>
     <identity>
         <version number="1.2">Generated from ConvertOOLocale</version>
-        <generation date="2005-4-19"/>
+        <generation date="2005-10-26"/>
         <language type="km"/>
         <territory type="KH"/>
     </identity>
@@ -85,7 +85,7 @@
                             <day type="mon">ថ្ងៃច័ន្ទ</day>
                             <day type="tue">ថ្ងៃអង្គារ</day>
                             <day type="wed">ថ្ងៃពុធ</day>
-                            <day type="thu">ថ្ងព្រហស្បត៍</day>
+                            <day type="thu">ថ្ងៃព្រហស្បត៍</day>
                             <day type="fri">ថ្ងៃសុក្រ</day>
                             <day type="sat">ថ្ងៃសៅរ៍</day>
                         </dayWidth>
@@ -111,54 +111,54 @@
                     <dateFormatLength type="long">
                         <default type="DateFormatskey9"/>
                         <dateFormat type="DateFormatskey17">
-                            <pattern>D. MMMM YYYY</pattern>
+                            <pattern>d. MMMM yy</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="26" default="false" openOffice:msgtype="DateFormatskey17" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey16">
-                            <pattern>D. MMM. YYYY</pattern>
+                            <pattern>d. MMM. yy</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="24" default="false" openOffice:msgtype="DateFormatskey16" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey15">
-                            <pattern>NNNN "ថ្ងៃទី" D "ខែ" MMM "ឆ្នាំ" YYYY</pattern>
+                            <pattern>[NatNum1]EEEE, 'ទី' D 'ខែ' MMM 'ឆ្នាំ' yy</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="30" default="false" openOffice:msgtype="DateFormatskey15" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey14">
-                            <pattern>NN "ថ្ងៃទី" D "ខែ" MMMM "ឆ្នាំ" YYYY</pattern>
+                            <pattern>[NatNum1]EEE 'ថ្ងៃទី' D 'ខែ' MMMM 'ឆ្នាំ' yy</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="29" default="false" openOffice:msgtype="DateFormatskey14" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey13">
-                            <pattern>NN "ថ្ងៃទី" D "ខែ" MMM "ឆ្នាំ" YY</pattern>
+                            <pattern>[NatNum1]EEE 'ថ្ងៃទី' D 'ខែ' MMM 'ឆ្នាំ' y</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="27" default="false" openOffice:msgtype="DateFormatskey13" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey12">
-                            <pattern>"ថ្ងៃទី" D "ខែ" MMMM "ឆ្នាំ" YYYY</pattern>
+                            <pattern>[NatNum1]'ថ្ងៃទី' d 'ខែ' MMMM 'ឆ្នាំ' yy</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="25" default="false" openOffice:msgtype="DateFormatskey12" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey11">
-                            <pattern>"ថ្ងៃទី" D "ខែ" MMM "ឆ្នាំ" YYYY</pattern>
+                            <pattern>[NatNum1]'ថ្ងៃទី' d 'ខែ' MMM 'ឆ្នាំ' yy</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="23" default="false" openOffice:msgtype="DateFormatskey11" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey10">
-                            <pattern>"ថ្ងៃទី" D "ខែ" MMM "ឆ្នាំ" YY</pattern>
+                            <pattern>[NatNum1]'ថ្ងៃទី' d 'ខែ' MMM 'ឆ្នាំ' y</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="22" default="false" openOffice:msgtype="DateFormatskey10" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey9">
-                            <pattern>NNNN "ថ្ងៃទី" DD "ខែ" MMMM "ឆ្នាំ" YYYY</pattern>
+                            <pattern>[NatNum1]EEEE, 'ទី' DD 'ខែ' MMMM 'ឆ្នាំ' yy</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="19" default="true" openOffice:msgtype="DateFormatskey9" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                     </dateFormatLength>
                     <dateFormatLength type="medium">
                         <default type="DateFormatskey1"/>
                         <dateFormat type="DateFormatskey8">
-                            <pattern>DD/MM/YY</pattern>
+                            <pattern>dd/MM/y</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="20" default="true" openOffice:msgtype="DateFormatskey8" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey7">
-                            <pattern>DD/MM/YYYY</pattern>
+                            <pattern>dd/MM/yy</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="21" default="false" openOffice:msgtype="DateFormatskey7" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey6">
-                            <pattern>QQ YY</pattern>
+                            <pattern>QQQQ y</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="37" default="false" openOffice:msgtype="DateFormatskey6" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey5">
@@ -166,29 +166,29 @@
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="36" default="false" openOffice:msgtype="DateFormatskey5" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey4">
-                            <pattern>DD MMM</pattern>
+                            <pattern>dd MMM</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="35" default="false" openOffice:msgtype="DateFormatskey4" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey3">
-                            <pattern>MM/YY</pattern>
+                            <pattern>MM/y</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="34" default="false" openOffice:msgtype="DateFormatskey3" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey2">
-                            <pattern>NN DD/MMM YY</pattern>
+                            <pattern>EEE DD/MMM y</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="28" default="false" openOffice:msgtype="DateFormatskey2" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey21">
-                            <pattern>WW</pattern>
+                            <pattern>ww</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="38" default="false" openOffice:msgtype="DateFormatskey21" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey20">
-                            <pattern>YYYY-MM-DD</pattern>
+                            <pattern>yy-MM-dd</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="33" default="false" openOffice:msgtype="DateFormatskey20" type="medium" openOffice:usage="DATE">
                                 <openOffice:defaultName>ISO 8601</openOffice:defaultName>
                             </special>
                         </dateFormat>
                         <dateFormat type="DateFormatskey19">
-                            <pattern>YY-MM-DD</pattern>
+                            <pattern>y-MM-dd</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="32" default="false" openOffice:msgtype="DateFormatskey19" type="medium" openOffice:usage="DATE">
                                 <openOffice:defaultName>ISO 8601</openOffice:defaultName>
                             </special>
@@ -197,11 +197,11 @@
                     <dateFormatLength type="short">
                         <default type="DateFormatskey1"/>
                         <dateFormat type="DateFormatskey18">
-                            <pattern>DD-MM</pattern>
+                            <pattern>dd-MM</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="31" default="false" openOffice:msgtype="DateFormatskey18" type="short" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey1">
-                            <pattern>D/M/YY</pattern>
+                            <pattern>d/M/y</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="18" default="true" openOffice:msgtype="DateFormatskey1" type="short" openOffice:usage="DATE"/>
                         </dateFormat>
                     </dateFormatLength>
@@ -212,34 +212,34 @@
                     <timeFormatLength type="medium">
                         <default type="TimeFormatskey3"/>
                         <timeFormat type="TimeFormatskey7">
-                            <pattern>[HH]:MM:SS,00</pattern>
+                            <pattern>[HH]:mm:ss,SS</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="45" default="false" openOffice:msgtype="TimeFormatskey7" type="medium" openOffice:usage="TIME"/>
                         </timeFormat>
                         <timeFormat type="TimeFormatskey5">
-                            <pattern>[HH]:MM:SS</pattern>
+                            <pattern>[HH]:mm:ss</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="43" default="false" openOffice:msgtype="TimeFormatskey5" type="medium" openOffice:usage="TIME"/>
                         </timeFormat>
                         <timeFormat type="TimeFormatskey4">
-                            <pattern>HH:MM:SS AM/PM</pattern>
+                            <pattern>KK:mm:ss a</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="42" default="true" openOffice:msgtype="TimeFormatskey4" type="medium" openOffice:usage="TIME"/>
                         </timeFormat>
                         <timeFormat type="TimeFormatskey2">
-                            <pattern>HH:MM:SS</pattern>
+                            <pattern>HH:mm:ss</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="40" default="false" openOffice:msgtype="TimeFormatskey2" type="medium" openOffice:usage="TIME"/>
                         </timeFormat>
                     </timeFormatLength>
                     <timeFormatLength type="short">
                         <default type="TimeFormatskey3"/>
                         <timeFormat type="TimeFormatskey6">
-                            <pattern>MM:SS,00</pattern>
+                            <pattern>mm:ss,SS</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="44" default="false" openOffice:msgtype="TimeFormatskey6" type="short" openOffice:usage="TIME"/>
                         </timeFormat>
                         <timeFormat type="TimeFormatskey3">
-                            <pattern>HH:MM AM/PM</pattern>
+                            <pattern>KK:mm a</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="41" default="true" openOffice:msgtype="TimeFormatskey3" type="short" openOffice:usage="TIME"/>
                         </timeFormat>
                         <timeFormat type="TimeFormatskey1">
-                            <pattern>HH:MM</pattern>
+                            <pattern>HH:mm</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="39" default="false" openOffice:msgtype="TimeFormatskey1" type="short" openOffice:usage="TIME"/>
                         </timeFormat>
                     </timeFormatLength>
@@ -250,11 +250,11 @@
                     <dateTimeFormatLength type="medium">
                         <default type="DateTimeFormatskey1"/>
                         <dateTimeFormat type="DateTimeFormatskey2">
-                            <pattern>DD/MM/YYYY HH:MM:SS</pattern>
+                            <pattern>dd/MM/yy HH:mm:ss</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="47" default="false" openOffice:msgtype="DateTimeFormatskey2" type="medium" openOffice:usage="DATE_TIME"/>
                         </dateTimeFormat>
                         <dateTimeFormat type="DateTimeFormatskey1">
-                            <pattern>DD/MM/YY HH:MM AM/PM</pattern>
+                            <pattern>dd/MM/y KK:mm a</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="46" default="true" openOffice:msgtype="DateTimeFormatskey1" type="medium" openOffice:usage="DATE_TIME"/>
                         </dateTimeFormat>
                     </dateTimeFormatLength>
@@ -284,14 +284,6 @@
             </decimalFormatLength>
             <decimalFormatLength type="medium">
                 <default type="FixedFormatskey1"/>
-                <decimalFormat type="FixedFormatskey6">
-                    <pattern>#.###,00</pattern>
-                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="5" default="false" openOffice:msgtype="FixedFormatskey6" type="medium" openOffice:usage="FIXED_NUMBER"/>
-                </decimalFormat>
-                <decimalFormat type="FixedFormatskey5">
-                    <pattern>#.##0,00</pattern>
-                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="4" default="false" openOffice:msgtype="FixedFormatskey5" type="medium" openOffice:usage="FIXED_NUMBER"/>
-                </decimalFormat>
                 <decimalFormat type="FixedFormatskey3">
                     <pattern>0,00</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="2" default="false" openOffice:msgtype="FixedFormatskey3" type="medium" openOffice:usage="FIXED_NUMBER"/>
@@ -300,16 +292,36 @@
                     <pattern>General</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="0" default="true" openOffice:msgtype="FixedFormatskey1" type="medium" openOffice:usage="FIXED_NUMBER"/>
                 </decimalFormat>
+                <decimalFormat type="FixedFormatskey9">
+                    <pattern>[NatNum1]#.###,00</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="54" default="false" openOffice:msgtype="FixedFormatskey9" type="medium" openOffice:usage="FIXED_NUMBER"/>
+                </decimalFormat>
+                <decimalFormat type="FixedFormatskey8">
+                    <pattern>[NatNum1]0,00</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="53" default="false" openOffice:msgtype="FixedFormatskey8" type="medium" openOffice:usage="FIXED_NUMBER"/>
+                </decimalFormat>
+                <decimalFormat type="FixedFormatskey6">
+                    <pattern>#.###,00</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="5" default="false" openOffice:msgtype="FixedFormatskey6" type="medium" openOffice:usage="FIXED_NUMBER"/>
+                </decimalFormat>
+                <decimalFormat type="FixedFormatskey5">
+                    <pattern>#.##0,00</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="4" default="false" openOffice:msgtype="FixedFormatskey5" type="medium" openOffice:usage="FIXED_NUMBER"/>
+                </decimalFormat>
             </decimalFormatLength>
             <decimalFormatLength type="short">
                 <default type="FixedFormatskey2"/>
-                <decimalFormat type="FixedFormatskey4">
-                    <pattern>#.##0</pattern>
-                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="3" default="false" openOffice:msgtype="FixedFormatskey4" type="short" openOffice:usage="FIXED_NUMBER"/>
-                </decimalFormat>
                 <decimalFormat type="FixedFormatskey2">
                     <pattern>0</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="1" default="true" openOffice:msgtype="FixedFormatskey2" type="short" openOffice:usage="FIXED_NUMBER"/>
+                </decimalFormat>
+                <decimalFormat type="FixedFormatskey7">
+                    <pattern>[NatNum1]0</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="52" default="false" openOffice:msgtype="FixedFormatskey7" type="short" openOffice:usage="FIXED_NUMBER"/>
+                </decimalFormat>
+                <decimalFormat type="FixedFormatskey4">
+                    <pattern>#.##0</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="3" default="false" openOffice:msgtype="FixedFormatskey4" type="short" openOffice:usage="FIXED_NUMBER"/>
                 </decimalFormat>
             </decimalFormatLength>
         </decimalFormats>
@@ -333,6 +345,10 @@
         <percentFormats>
             <percentFormatLength type="long">
                 <default type="PercentFormatskey2"/>
+                <percentFormat type="PercentFormatskey4">
+                    <pattern>[NatNum1]0,00%</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="59" default="false" openOffice:msgtype="PercentFormatskey4" type="long" openOffice:usage="PERCENT_NUMBER"/>
+                </percentFormat>
                 <percentFormat type="PercentFormatskey2">
                     <pattern>0,00%</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="9" default="true" openOffice:msgtype="PercentFormatskey2" type="long" openOffice:usage="PERCENT_NUMBER"/>
@@ -346,6 +362,10 @@
                     <pattern>0%</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="8" default="true" openOffice:msgtype="PercentFormatskey1" type="short" openOffice:usage="PERCENT_NUMBER"/>
                 </percentFormat>
+                <percentFormat type="PercentFormatskey3">
+                    <pattern>[NatNum1]0%</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="58" default="false" openOffice:msgtype="PercentFormatskey3" type="short" openOffice:usage="PERCENT_NUMBER"/>
+                </percentFormat>
             </percentFormatLength>
         </percentFormats>
         <currencyFormats>
@@ -353,6 +373,22 @@
             </currencyFormatLength>
             <currencyFormatLength type="medium">
                 <default type="CurrencyFormatskey3"/>
+                <currencyFormat type="CurrencyFormatskey3">
+                    <pattern>#.##0[CURRENCY];[RED]-#.##0[CURRENCY]</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="14" default="true" openOffice:msgtype="CurrencyFormatskey3" type="medium" openOffice:usage="CURRENCY"/>
+                </currencyFormat>
+                <currencyFormat type="CurrencyFormatskey2">
+                    <pattern>#.##0,00[CURRENCY];-#.##0,00[CURRENCY]</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="13" default="false" openOffice:msgtype="CurrencyFormatskey2" type="medium" openOffice:usage="CURRENCY"/>
+                </currencyFormat>
+                <currencyFormat type="CurrencyFormatskey9">
+                    <pattern>[NatNum1]#.##0,00[CURRENCY];[RED]-#.##0,00[CURRENCY]</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="57" default="false" openOffice:msgtype="CurrencyFormatskey9" type="medium" openOffice:usage="CURRENCY"/>
+                </currencyFormat>
+                <currencyFormat type="CurrencyFormatskey8">
+                    <pattern>[NatNum1]#.##0[CURRENCY].--;[RED]-#.##0[CURRENCY].--</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="56" default="false" openOffice:msgtype="CurrencyFormatskey8" type="medium" openOffice:usage="CURRENCY"/>
+                </currencyFormat>
                 <currencyFormat type="CurrencyFormatskey6">
                     <pattern>#.##0[CURRENCY].--;[RED]-#.##0[CURRENCY].--</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="17" default="false" openOffice:msgtype="CurrencyFormatskey6" type="medium" openOffice:usage="CURRENCY"/>
@@ -365,20 +401,16 @@
                     <pattern>#.##0,00[CURRENCY];[RED]-#.##0,00[CURRENCY]</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="15" default="false" openOffice:msgtype="CurrencyFormatskey4" type="medium" openOffice:usage="CURRENCY"/>
                 </currencyFormat>
-                <currencyFormat type="CurrencyFormatskey3">
-                    <pattern>#.##0[CURRENCY];[RED]-#.##0[CURRENCY]</pattern>
-                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="14" default="true" openOffice:msgtype="CurrencyFormatskey3" type="medium" openOffice:usage="CURRENCY"/>
-                </currencyFormat>
-                <currencyFormat type="CurrencyFormatskey2">
-                    <pattern>#.##0,00[CURRENCY];-#.##0,00[CURRENCY]</pattern>
-                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="13" default="false" openOffice:msgtype="CurrencyFormatskey2" type="medium" openOffice:usage="CURRENCY"/>
-                </currencyFormat>
             </currencyFormatLength>
             <currencyFormatLength type="short">
                 <default type="CurrencyFormatskey1"/>
                 <currencyFormat type="CurrencyFormatskey1">
                     <pattern>#.##0[CURRENCY];-#.##0[CURRENCY]</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="12" default="true" openOffice:msgtype="CurrencyFormatskey1" type="short" openOffice:usage="CURRENCY"/>
+                </currencyFormat>
+                <currencyFormat type="CurrencyFormatskey7">
+                    <pattern>[NatNum1]#.##0[CURRENCY];-#.##0[CURRENCY]</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="55" default="false" openOffice:msgtype="CurrencyFormatskey7" type="short" openOffice:usage="CURRENCY"/>
                 </currencyFormat>
             </currencyFormatLength>
         </currencyFormats>
@@ -411,8 +443,74 @@
             <openOffice:quarter3Abbreviation>ត្រី៣</openOffice:quarter3Abbreviation>
             <openOffice:quarter4Abbreviation>ត្រី៤</openOffice:quarter4Abbreviation>
         </openOffice:reservedWords>
-        <openOffice:numberingLevels openOffice:ref="en_US"/>
-        <openOffice:outLineNumberingLevels openOffice:ref="en_US"/>
+        <openOffice:numberingLevels>
+            <openOffice:numberingLevel openOffice:numType="12" openOffice:prefix=" " openOffice:suffix="."/>
+            <openOffice:numberingLevel openOffice:numType="12" openOffice:prefix=" " openOffice:suffix=")"/>
+            <openOffice:numberingLevel openOffice:numType="4" openOffice:prefix=" " openOffice:suffix="."/>
+            <openOffice:numberingLevel openOffice:numType="4" openOffice:prefix=" " openOffice:suffix=")"/>
+            <openOffice:numberingLevel openOffice:numType="0" openOffice:prefix=" " openOffice:suffix="."/>
+            <openOffice:numberingLevel openOffice:numType="0" openOffice:prefix=" " openOffice:suffix=")"/>
+            <openOffice:numberingLevel openOffice:numType="1" openOffice:prefix="(" openOffice:suffix=")"/>
+            <openOffice:numberingLevel openOffice:numType="2" openOffice:prefix=" " openOffice:suffix=")"/>
+        </openOffice:numberingLevels>
+        <openOffice:outLineNumberingLevels>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="1" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="2" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="3" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="4" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix=" "/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="12" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="1" openOffice:numType="12" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="2" openOffice:numType="12" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="3" openOffice:numType="12" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="4" openOffice:numType="12" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix=" "/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="12" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="12" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="12" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="12" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="12" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="1" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="1" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix=")"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="6" openOffice:bulletFontName="StarSymbol" openOffice:bulletChar="2022" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="6" openOffice:bulletFontName="StarSymbol" openOffice:bulletChar="2022" openOffice:prefix=" " openOffice:suffix=" "/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="1" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix="(" openOffice:suffix=")"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="3" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="0" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="6" openOffice:bulletFontName="StarSymbol" openOffice:bulletChar="2022" openOffice:prefix=" " openOffice:suffix="."/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="2" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="0" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="3" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="1" openOffice:bulletFontName="" openOffice:bulletChar="0020" openOffice:prefix=" " openOffice:suffix=")"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="6" openOffice:bulletFontName="StarSymbol" openOffice:bulletChar="2022" openOffice:prefix=" " openOffice:suffix=" "/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="6" openOffice:bulletFontName="StarSymbol" openOffice:bulletChar="27A2" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="6" openOffice:bulletFontName="StarSymbol" openOffice:bulletChar="E006" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="6" openOffice:bulletFontName="StarSymbol" openOffice:bulletChar="E004" openOffice:prefix=" " openOffice:suffix=")"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="6" openOffice:bulletFontName="StarSymbol" openOffice:bulletChar="2022" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="6" openOffice:bulletFontName="StarSymbol" openOffice:bulletChar="2022" openOffice:prefix=" " openOffice:suffix=" "/>
+            </openOffice:outlineStyle>
+        </openOffice:outLineNumberingLevels>
         <openOffice:transliterations>
             <openOffice:transliteration openOffice:unoid="LOWERCASE_UPPERCASE"/>
             <openOffice:transliteration openOffice:unoid="UPPERCASE_LOWERCASE"/>
@@ -424,13 +522,13 @@
             </openOffice:searchOptions>
         </openOffice:search>
         <openOffice:index>
-            <openOffice:indexKey openOffice:phonetic="false" default="true" openOffice:unoid="alphanumeric">ក-្</openOffice:indexKey>
+            <openOffice:indexKey openOffice:phonetic="false" default="true" openOffice:unoid="alphanumeric">ក-វ ស-អ</openOffice:indexKey>
             <openOffice:unicodeScript>35</openOffice:unicodeScript>
             <openOffice:followPageWord>p.</openOffice:followPageWord>
             <openOffice:followPageWord>pp.</openOffice:followPageWord>
         </openOffice:index>
         <openOffice:collations>
-            <openOffice:collator default="true" openOffice:unoid="alphanumeric"/>
+            <openOffice:collator default="true" openOffice:unoid="charset"/>
             <openOffice:collationOptions>
                 <openOffice:transliterationModules>IGNORE_CASE</openOffice:transliterationModules>
             </openOffice:collationOptions>

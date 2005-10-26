@@ -9,21 +9,18 @@
     <identity>
         <version number="1.2">Generated from ConvertOOLocale</version>
         <generation date="2005-10-26"/>
-        <language type="es"/>
-        <territory type="HN"/>
-        <special xmlns:openOffice="http://www.openOffice.org">
-            <openOffice:platformId>generic</openOffice:platformId>
-        </special>
+        <language type="bn"/>
+        <territory type="IN"/>
     </identity>
     <localeDisplayNames>
         <languages>
             <special xmlns:openOffice="http://www.openOffice.org">
-                <openOffice:defaultName type="es">Spanish</openOffice:defaultName>
+                <openOffice:defaultName type="bn">Bengali</openOffice:defaultName>
             </special>
         </languages>
         <territories>
             <special xmlns:openOffice="http://www.openOffice.org">
-                <openOffice:defaultName type="HN">Honduras</openOffice:defaultName>
+                <openOffice:defaultName type="IN">India</openOffice:defaultName>
             </special>
         </territories>
     </localeDisplayNames>
@@ -43,125 +40,127 @@
                 <months>
                     <monthContext type="format">
                         <monthWidth type ="abbreviated">
-                            <month type="1">ene</month>
-                            <month type="2">feb</month>
-                            <month type="3">mar</month>
-                            <month type="4">abr</month>
-                            <month type="5">may</month>
-                            <month type="6">jun</month>
-                            <month type="7">jul</month>
-                            <month type="8">ago</month>
-                            <month type="9">sep</month>
-                            <month type="10">oct</month>
-                            <month type="11">nov</month>
-                            <month type="12">dic</month>
+                            <month type="1">জান</month>
+                            <month type="2">ফেব</month>
+                            <month type="3">মার্চ</month>
+                            <month type="4">এপ্র</month>
+                            <month type="5">মে</month>
+                            <month type="6">জুন</month>
+                            <month type="7">জুল</month>
+                            <month type="8">আগ</month>
+                            <month type="9">সেপ</month>
+                            <month type="10">অক্ট</month>
+                            <month type="11">নভেম</month>
+                            <month type="12">ডিস</month>
                         </monthWidth>
                         <monthWidth type ="wide">
-                            <month type="1">enero</month>
-                            <month type="2">febrero</month>
-                            <month type="3">marzo</month>
-                            <month type="4">abril</month>
-                            <month type="5">mayo</month>
-                            <month type="6">junio</month>
-                            <month type="7">julio</month>
-                            <month type="8">agosto</month>
-                            <month type="9">septiembre</month>
-                            <month type="10">octubre</month>
-                            <month type="11">noviembre</month>
-                            <month type="12">diciembre</month>
+                            <month type="1">জানুয়ারি</month>
+                            <month type="2">ফেব্রুয়ারি</month>
+                            <month type="3">মার্চ</month>
+                            <month type="4">এপ্রিল</month>
+                            <month type="5">মে</month>
+                            <month type="6">জুন</month>
+                            <month type="7">জুলাই</month>
+                            <month type="8">আগস্ট</month>
+                            <month type="9">সেপ্টেম্বার</month>
+                            <month type="10">অক্টোবার</month>
+                            <month type="11">নভেম্বার</month>
+                            <month type="12">ডিসেম্বার</month>
                         </monthWidth>
                     </monthContext>
                 </months>
                 <days>
                     <dayContext type="format">
                         <dayWidth type ="abbreviated">
-                            <day type="sun">dom</day>
-                            <day type="mon">lun</day>
-                            <day type="tue">mar</day>
-                            <day type="wed">mié</day>
-                            <day type="thu">jue</day>
-                            <day type="fri">vie</day>
-                            <day type="sat">sáb</day>
+                            <day type="sun">রবি</day>
+                            <day type="mon">সোম</day>
+                            <day type="tue">মঙ্গল</day>
+                            <day type="wed">বুধ</day>
+                            <day type="thu">বৃহস্পতি</day>
+                            <day type="fri">শুক্র</day>
+                            <day type="sat">শনি</day>
                         </dayWidth>
                         <dayWidth type ="wide">
-                            <day type="sun">domingo</day>
-                            <day type="mon">lunes</day>
-                            <day type="tue">martes</day>
-                            <day type="wed">miércoles</day>
-                            <day type="thu">jueves</day>
-                            <day type="fri">viernes</day>
-                            <day type="sat">sábado</day>
+                            <day type="sun">রবিবার</day>
+                            <day type="mon">সোমবার</day>
+                            <day type="tue">মঙ্গলবার</day>
+                            <day type="wed">বুধবার</day>
+                            <day type="thu">বৃহস্পতিবার</day>
+                            <day type="fri">শুক্রবার</day>
+                            <day type="sat">শনিবার</day>
                         </dayWidth>
                     </dayContext>
                 </days>
                 <week>
                     <minDays count="1"/>
-                    <firstDay day="mon"/>
+                    <firstDay day="sun"/>
                 </week>
-                <am>a.m.</am>
-                <pm>p.m.</pm>
+                <am>পূর্বাহ্ণ</am>
+                <pm>অপরাহ্ণ</pm>
                 <eras>
                     <eraNames>
-                        <era type="1">d.C.</era>
-                        <era type="0">a.C.</era>
+                        <era type="1">খ্রিস্টাব্দ</era>
+                        <era type="0">খৃস্ট-পূর্ব</era>
                     </eraNames>
                     <eraAbbr>
-                        <era type="1">d.C.</era>
-                        <era type="0">a.C.</era>
+                        <era type="1">খ্রি</era>
+                        <era type="0">খৃ</era>
                     </eraAbbr>
                 </eras>
                 <dateFormats>
                     <dateFormatLength type="long">
-                        <default type="DateFormatskey9"/>
+                        <default type="DateFormatskey15"/>
                         <dateFormat type="DateFormatskey17">
-                            <pattern>d. MMMM yy</pattern>
+                            <pattern>[NatNum1]d. MMMM yy</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="26" default="false" openOffice:msgtype="DateFormatskey17" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey16">
-                            <pattern>d. MMM. yy</pattern>
+                            <pattern>[NatNum1]d. MMM. yy</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="24" default="false" openOffice:msgtype="DateFormatskey16" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey15">
-                            <pattern>EEEE,D 'de' MMMM 'de' yy</pattern>
-                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="30" default="false" openOffice:msgtype="DateFormatskey15" type="long" openOffice:usage="DATE"/>
+                            <pattern>[NatNum1]EEEE,MMMM D, yy</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="30" default="true" openOffice:msgtype="DateFormatskey15" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey14">
-                            <pattern>EEE D 'de' MMMM 'de' yy</pattern>
-                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="29" default="false" openOffice:msgtype="DateFormatskey14" type="long" openOffice:usage="DATE"/>
+                            <pattern>[NatNum1]EEE, MMMM D, yy</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="29" default="false" openOffice:msgtype="DateFormatskey14" type="long" openOffice:usage="DATE">
+                                <openOffice:defaultName>29</openOffice:defaultName>
+                            </special>
                         </dateFormat>
                         <dateFormat type="DateFormatskey13">
-                            <pattern>EEE D 'de' MMM 'de' y</pattern>
+                            <pattern>[NatNum1]EEE, MMM D, y</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="27" default="false" openOffice:msgtype="DateFormatskey13" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey12">
-                            <pattern>d 'de' MMMM 'de' yy</pattern>
+                            <pattern>[NatNum1]MMMM d, yy</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="25" default="false" openOffice:msgtype="DateFormatskey12" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey11">
-                            <pattern>d 'de' MMM 'de' yy</pattern>
+                            <pattern>[NatNum1]MMM, d yy</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="23" default="false" openOffice:msgtype="DateFormatskey11" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey10">
-                            <pattern>d 'de' MMM 'de' y</pattern>
+                            <pattern>[NatNum1]MMM d, y</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="22" default="false" openOffice:msgtype="DateFormatskey10" type="long" openOffice:usage="DATE"/>
-                        </dateFormat>
-                        <dateFormat type="DateFormatskey9">
-                            <pattern>EEEE,D 'de' MMMM 'de' yy</pattern>
-                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="19" default="true" openOffice:msgtype="DateFormatskey9" type="long" openOffice:usage="DATE"/>
                         </dateFormat>
                     </dateFormatLength>
                     <dateFormatLength type="medium">
                         <default type="DateFormatskey1"/>
+                        <dateFormat type="DateFormatskey9">
+                            <pattern>[NatNum1]EEEE,DD MMMM GGGGy</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="19" default="false" openOffice:msgtype="DateFormatskey9" type="medium" openOffice:usage="DATE"/>
+                        </dateFormat>
                         <dateFormat type="DateFormatskey8">
-                            <pattern>dd/MM/y</pattern>
-                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="20" default="true" openOffice:msgtype="DateFormatskey8" type="medium" openOffice:usage="DATE"/>
+                            <pattern>[NatNum1]dd-MM-y</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="20" default="false" openOffice:msgtype="DateFormatskey8" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey7">
-                            <pattern>dd/MM/yy</pattern>
-                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="21" default="false" openOffice:msgtype="DateFormatskey7" type="medium" openOffice:usage="DATE"/>
+                            <pattern>[NatNum1]dd-MM-yy</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="21" default="true" openOffice:msgtype="DateFormatskey7" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey6">
-                            <pattern>QQQQ y</pattern>
+                            <pattern>[NatNum1]QQQQ y</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="37" default="false" openOffice:msgtype="DateFormatskey6" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey5">
@@ -169,15 +168,15 @@
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="36" default="false" openOffice:msgtype="DateFormatskey5" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey4">
-                            <pattern>dd/MMM</pattern>
+                            <pattern>[NatNum1]dd MMM</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="35" default="false" openOffice:msgtype="DateFormatskey4" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey3">
-                            <pattern>MM/y</pattern>
+                            <pattern>[NatNum1]MM-y</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="34" default="false" openOffice:msgtype="DateFormatskey3" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey2">
-                            <pattern>EEE DD/MMM y</pattern>
+                            <pattern>[NatNum1]EEE DD-MMM y</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="28" default="false" openOffice:msgtype="DateFormatskey2" type="medium" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey21">
@@ -200,11 +199,11 @@
                     <dateFormatLength type="short">
                         <default type="DateFormatskey1"/>
                         <dateFormat type="DateFormatskey18">
-                            <pattern>MM-dd</pattern>
+                            <pattern>[NatNum1]MM-dd</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="31" default="false" openOffice:msgtype="DateFormatskey18" type="short" openOffice:usage="DATE"/>
                         </dateFormat>
                         <dateFormat type="DateFormatskey1">
-                            <pattern>d/MM/y</pattern>
+                            <pattern>[NatNum1]d-M-y</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="18" default="true" openOffice:msgtype="DateFormatskey1" type="short" openOffice:usage="DATE"/>
                         </dateFormat>
                     </dateFormatLength>
@@ -215,34 +214,34 @@
                     <timeFormatLength type="medium">
                         <default type="TimeFormatskey2"/>
                         <timeFormat type="TimeFormatskey7">
-                            <pattern>[HH]:mm:ss.SS</pattern>
+                            <pattern>[NatNum1][HH]:mm:ss.SS</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="45" default="false" openOffice:msgtype="TimeFormatskey7" type="medium" openOffice:usage="TIME"/>
                         </timeFormat>
                         <timeFormat type="TimeFormatskey5">
-                            <pattern>[HH]:mm:ss</pattern>
+                            <pattern>[NatNum1][HH]:mm:ss</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="43" default="false" openOffice:msgtype="TimeFormatskey5" type="medium" openOffice:usage="TIME"/>
                         </timeFormat>
                         <timeFormat type="TimeFormatskey4">
-                            <pattern>HH:mm:ss Ym/Pm</pattern>
+                            <pattern>[NatNum1]KK:mm:ss a</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="42" default="false" openOffice:msgtype="TimeFormatskey4" type="medium" openOffice:usage="TIME"/>
                         </timeFormat>
                         <timeFormat type="TimeFormatskey2">
-                            <pattern>HH:mm:ss</pattern>
+                            <pattern>[NatNum1]HH:mm:ss</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="40" default="true" openOffice:msgtype="TimeFormatskey2" type="medium" openOffice:usage="TIME"/>
                         </timeFormat>
                     </timeFormatLength>
                     <timeFormatLength type="short">
                         <default type="TimeFormatskey1"/>
                         <timeFormat type="TimeFormatskey6">
-                            <pattern>mm:ss.SS</pattern>
+                            <pattern>[NatNum1]mm:ss.SS</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="44" default="false" openOffice:msgtype="TimeFormatskey6" type="short" openOffice:usage="TIME"/>
                         </timeFormat>
                         <timeFormat type="TimeFormatskey3">
-                            <pattern>HH:mm Ym/Pm</pattern>
+                            <pattern>[NatNum1]KK:mm a</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="41" default="false" openOffice:msgtype="TimeFormatskey3" type="short" openOffice:usage="TIME"/>
                         </timeFormat>
                         <timeFormat type="TimeFormatskey1">
-                            <pattern>HH:mm</pattern>
+                            <pattern>[NatNum1]HH:mm</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="39" default="true" openOffice:msgtype="TimeFormatskey1" type="short" openOffice:usage="TIME"/>
                         </timeFormat>
                     </timeFormatLength>
@@ -253,11 +252,11 @@
                     <dateTimeFormatLength type="medium">
                         <default type="DateTimeFormatskey1"/>
                         <dateTimeFormat type="DateTimeFormatskey2">
-                            <pattern>dd/MM/yy HH:mm:ss</pattern>
+                            <pattern>[NatNum1]MM-dd-yy HH:mm:ss</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="47" default="false" openOffice:msgtype="DateTimeFormatskey2" type="medium" openOffice:usage="DATE_TIME"/>
                         </dateTimeFormat>
                         <dateTimeFormat type="DateTimeFormatskey1">
-                            <pattern>dd/MM/y HH:mm</pattern>
+                            <pattern>[NatNum1]MM-dd-y KK:mm a</pattern>
                             <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="46" default="true" openOffice:msgtype="DateTimeFormatskey1" type="medium" openOffice:usage="DATE_TIME"/>
                         </dateTimeFormat>
                     </dateTimeFormatLength>
@@ -277,8 +276,8 @@
                 <openOffice:timeSeparator>:</openOffice:timeSeparator>
                 <openOffice:time100SecSeparator>.</openOffice:time100SecSeparator>
                 <openOffice:longDateDayOfWeekSeparator> </openOffice:longDateDayOfWeekSeparator>
-                <openOffice:longDateDaySeparator> de </openOffice:longDateDaySeparator>
-                <openOffice:longDateMonthSeparator> de </openOffice:longDateMonthSeparator>
+                <openOffice:longDateDaySeparator> </openOffice:longDateDaySeparator>
+                <openOffice:longDateMonthSeparator> </openOffice:longDateMonthSeparator>
                 <openOffice:longDateYearSeparator> </openOffice:longDateYearSeparator>
             </special>
         </symbols>
@@ -300,7 +299,7 @@
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="2" default="false" openOffice:msgtype="FixedFormatskey3" type="medium" openOffice:usage="FIXED_NUMBER"/>
                 </decimalFormat>
                 <decimalFormat type="FixedFormatskey1">
-                    <pattern>Estandar</pattern>
+                    <pattern>Standard</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="0" default="true" openOffice:msgtype="FixedFormatskey1" type="medium" openOffice:usage="FIXED_NUMBER"/>
                 </decimalFormat>
             </decimalFormatLength>
@@ -308,7 +307,9 @@
                 <default type="FixedFormatskey2"/>
                 <decimalFormat type="FixedFormatskey4">
                     <pattern>#,##0</pattern>
-                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="3" default="false" openOffice:msgtype="FixedFormatskey4" type="short" openOffice:usage="FIXED_NUMBER"/>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="3" default="false" openOffice:msgtype="FixedFormatskey4" type="short" openOffice:usage="FIXED_NUMBER">
+                        <openOffice:defaultName>3</openOffice:defaultName>
+                    </special>
                 </decimalFormat>
                 <decimalFormat type="FixedFormatskey2">
                     <pattern>0</pattern>
@@ -326,7 +327,7 @@
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="7" default="false" openOffice:msgtype="ScientificFormatskey2" type="medium" openOffice:usage="SCIENTIFIC_NUMBER"/>
                 </scientificFormat>
                 <scientificFormat type="ScientificFormatskey1">
-                    <pattern>0.00E+000</pattern>
+                    <pattern>0.00E+00</pattern>
                     <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="6" default="true" openOffice:msgtype="ScientificFormatskey1" type="medium" openOffice:usage="SCIENTIFIC_NUMBER"/>
                 </scientificFormat>
             </scientificFormatLength>
@@ -386,13 +387,13 @@
             </currencyFormatLength>
         </currencyFormats>
         <currencies>
-            <default type="HNL"/>
-            <currency type="HNL">
-                <displayName>Lempira</displayName>
-                <symbol>L</symbol>
+            <default type="INR"/>
+            <currency type="INR">
+                <displayName>Rupee</displayName>
+                <symbol>৳</symbol>
                 <special xmlns:openOffice="http://www.openOffice.org">
                     <openOffice:currency openOffice:usedInCompatibleFormatCodes="true">
-                        <openOffice:currencyId>L</openOffice:currencyId>
+                        <openOffice:currencyId>INR</openOffice:currencyId>
                     </openOffice:currency>
                 </special>
             </currency>
@@ -401,23 +402,23 @@
     <special xmlns:openOffice="http://www.openOffice.org">
         <openOffice:locale openOffice:versionDTD="2.0" openOffice:allowUpdateFromCLDR="no" openOffice:version="1.2"/>
         <openOffice:reservedWords>
-            <openOffice:trueWord>verdadero</openOffice:trueWord>
-            <openOffice:falseWord>falso</openOffice:falseWord>
-            <openOffice:quarter1Word>1er trimestre</openOffice:quarter1Word>
-            <openOffice:quarter2Word>2º trimestre</openOffice:quarter2Word>
-            <openOffice:quarter3Word>3er trimestre</openOffice:quarter3Word>
-            <openOffice:quarter4Word>4º trimestre</openOffice:quarter4Word>
-            <openOffice:aboveWord>arriba</openOffice:aboveWord>
-            <openOffice:belowWord>abajo</openOffice:belowWord>
-            <openOffice:quarter1Abbreviation>T1</openOffice:quarter1Abbreviation>
-            <openOffice:quarter2Abbreviation>T2</openOffice:quarter2Abbreviation>
-            <openOffice:quarter3Abbreviation>T3</openOffice:quarter3Abbreviation>
-            <openOffice:quarter4Abbreviation>T4</openOffice:quarter4Abbreviation>
+            <openOffice:trueWord>সত্য</openOffice:trueWord>
+            <openOffice:falseWord>মিথ্যা</openOffice:falseWord>
+            <openOffice:quarter1Word>Q1</openOffice:quarter1Word>
+            <openOffice:quarter2Word>Q2</openOffice:quarter2Word>
+            <openOffice:quarter3Word>Q3</openOffice:quarter3Word>
+            <openOffice:quarter4Word>Q4</openOffice:quarter4Word>
+            <openOffice:aboveWord>উপর</openOffice:aboveWord>
+            <openOffice:belowWord>নিচ</openOffice:belowWord>
+            <openOffice:quarter1Abbreviation>Q1</openOffice:quarter1Abbreviation>
+            <openOffice:quarter2Abbreviation>Q2</openOffice:quarter2Abbreviation>
+            <openOffice:quarter3Abbreviation>Q3</openOffice:quarter3Abbreviation>
+            <openOffice:quarter4Abbreviation>Q4</openOffice:quarter4Abbreviation>
         </openOffice:reservedWords>
         <openOffice:numberingLevels>
-            <openOffice:numberingLevel openOffice:numType="4" openOffice:prefix=" " openOffice:suffix=")"/>
-            <openOffice:numberingLevel openOffice:numType="4" openOffice:prefix=" " openOffice:suffix="."/>
-            <openOffice:numberingLevel openOffice:numType="4" openOffice:prefix="(" openOffice:suffix=")"/>
+            <openOffice:numberingLevel openOffice:numType="12" openOffice:prefix=" " openOffice:suffix=")"/>
+            <openOffice:numberingLevel openOffice:numType="12" openOffice:prefix=" " openOffice:suffix="."/>
+            <openOffice:numberingLevel openOffice:numType="12" openOffice:prefix="(" openOffice:suffix=")"/>
             <openOffice:numberingLevel openOffice:numType="2" openOffice:prefix=" " openOffice:suffix="."/>
             <openOffice:numberingLevel openOffice:numType="0" openOffice:prefix=" " openOffice:suffix=")"/>
             <openOffice:numberingLevel openOffice:numType="1" openOffice:prefix=" " openOffice:suffix=")"/>
@@ -493,11 +494,10 @@
             </openOffice:searchOptions>
         </openOffice:search>
         <openOffice:index>
-            <openOffice:indexKey openOffice:phonetic="false" default="true" openOffice:unoid="alphanumeric">A-Z Ñ Ó</openOffice:indexKey>
-            <openOffice:unicodeScript>0</openOffice:unicodeScript>
-            <openOffice:unicodeScript>1</openOffice:unicodeScript>
-            <openOffice:followPageWord> s.</openOffice:followPageWord>
-            <openOffice:followPageWord> ss.</openOffice:followPageWord>
+            <openOffice:indexKey default="true" openOffice:phonetic="false" openOffice:unoid="alphanumeric">ক-ন প-র ল শ-হ</openOffice:indexKey>
+            <openOffice:unicodeScript>15</openOffice:unicodeScript>
+            <openOffice:followPageWord>পরবর্তী পৃষ্ঠা</openOffice:followPageWord>
+            <openOffice:followPageWord>শেষ পৃষ্ঠা</openOffice:followPageWord>
         </openOffice:index>
         <openOffice:collations>
             <openOffice:collator default="true" openOffice:unoid="alphanumeric"/>
@@ -505,6 +505,6 @@
                 <openOffice:transliterationModules>IGNORE_CASE</openOffice:transliterationModules>
             </openOffice:collationOptions>
         </openOffice:collations>
-        <openOffice:format openOffice:replaceFrom="[CURRENCY]" openOffice:replaceTo="[$L-480A]"/>
+        <openOffice:format openOffice:replaceFrom="[CURRENCY]" openOffice:replaceTo="[$৳-445]"/>
     </special>
 </ldml>

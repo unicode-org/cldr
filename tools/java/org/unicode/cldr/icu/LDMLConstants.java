@@ -259,6 +259,16 @@ public class LDMLConstants {
     public static final String KOREAN          = "korean";
     public static final String INTERNATIONAL   = "international";
 
+    //quarters 
+    public static final String QUARTERS         = "quarters";
+    public static final String QUARTER_CONTEXT = "quarterContext";
+    public static final String QUARTER_WIDTH    = "quarterWidth";
+    public static final String QUARTER          = "quarter";
+    public static final String Q_1              = "1";
+    public static final String Q_2              = "2";
+    public static final String Q_3              = "3";
+    public static final String Q_4              = "4";
+    
     //PN added - Open and Close tags
     public static final String VERSION_C       = "</" + VERSION + ">";
     public static final String GENERATION_C    = "</" + GENERATION + ">";
@@ -444,4 +454,14 @@ public class LDMLConstants {
     public static final String PERCENT_FORMAT_O       =  "<" + PERCENT_FORMAT + ">";
     public static final String PERCENT_FORMAT_C       =  "</" + PERCENT_FORMAT + ">";
 
+    public static final String QUARTERS_O             =  "<" + QUARTERS + ">";
+    public static final String QUARTERS_C             =  "</" + QUARTERS + ">";
+    public static final String QUARTER_CONTEXT_O     =  "<" + QUARTER_CONTEXT + ">";
+    public static final String QUARTER_CONTEXT_C     =  "</" + QUARTER_CONTEXT + ">";
+    public static final String QUARTER_WIDTH_O        =  "<" + QUARTER_WIDTH + ">";
+    public static final String QUARTER_WIDTH_C        =  "</" + QUARTER_WIDTH + ">";
+    public static final String QUARTER_O              =  "<" + QUARTER + ">";
+    public static final String QUARTER_C              =  "</" + QUARTER + ">";
+            
+            
 }

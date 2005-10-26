@@ -443,7 +443,8 @@
 		<inList casing="titlecase-firstword"/>
 	</layout>
 	<characters>
-		<exemplarCharacters>[a-z ý á é í ó ú ě ů č ď ň ř š ť ž {ch}]</exemplarCharacters>
+		<exemplarCharacters>[a-z ý á é í ó ú ě ů č ď ň ř š ť ž]</exemplarCharacters>
+		<exemplarCharacters draft="true" alt="proposed">[a-z ý á é í ó ú ě ů č ď ň ř š ť ž {ch}]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="true">„</quotationStart>

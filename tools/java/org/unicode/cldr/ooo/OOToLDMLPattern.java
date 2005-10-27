@@ -33,7 +33,9 @@ package org.unicode.cldr.ooo;
  * y            E               Number of the year within an era, without a leading zero for single-digit years
  * yy           EE or R 	Number of the year within an era, with a leading zero for single-digit years
  * GGGGyy       RR or GGGEE 	Era, full name and year
- * AAA or AAAA  AAA or AAAA 	Arabic Islamic format (wotkaround)
+ *              AAA or AAAA 	Arabic Islamic format, 
+ *                              AAA only used in es,fr,it,pt and ja locales (OO.o m134 data) so not an issue for now
+ *                                                  
  *
  * Seems to be no way to get AD/BC
  *
@@ -53,6 +55,13 @@ package org.unicode.cldr.ooo;
  *
  * Unclear how to get hours 1-24, 1-12 (k and K in LDML)
  *
+ *
+ * localisaed pattern characters used in OO.o are : 
+ *  A G J K O P T U V X
+ * of these there is potential conflict with A and P as they share with  AM/PM so 
+ * the very first thing to do with any pattern string is to convert AM/PM to a
+ *
+ *
  * Contraints and Assumptions:
  * 1. some chars have special meaning for both OO and LDML, so order of replacement is important
  * 2. check that data in not in quotes before translating
@@ -68,6 +77,7 @@ public class OOToLDMLPattern
 
     private String m_localeStr = null;
     private String m_type = null;
+    private boolean m_bIsAmPM = false;
     
     OOToLDMLPattern(String localeStr)
     {
@@ -80,8 +90,24 @@ public class OOToLDMLPattern
         if (OOPattern == null)
             return null;
         
+   /* incopmplete    if (validatePattern (OOPattern) == false)
+        {
+            System.err.println ("Skipping invalid pattern : " + OOPattern + " in " + m_localeStr);
+            return null;
+        }*/
+        
         m_type = type;
-        String LDMLPattern = deLocalisePattern(OOPattern);
+        String LDMLPattern = OOPattern;
+          
+        //do AM/PM first as the Ms in AM/PM can be ambiguous
+        // and A and P can be used for localised patterns also
+        if (translate(LDMLPattern, "AM/PM"))
+        {
+            LDMLPattern = LDMLPattern.replaceAll("AM/PM", "a");   
+            m_bIsAmPM = true;
+        }
+
+        LDMLPattern = deLocalisePattern(LDMLPattern);
         
         if (m_type.compareTo(OOConstants.FEU_DATE)==0)
         {
@@ -99,6 +125,66 @@ public class OOToLDMLPattern
         
         LDMLPattern = LDMLPattern.replaceAll("\"", "'");
         return LDMLPattern;
+    }
+    
+    //check that chars not in "" are valid OO specials
+    private boolean validatePattern (String OOPattern)
+    {
+        StringBuffer buf = new StringBuffer ();
+        boolean bInQuotes = false;
+        boolean bInSquare = false;
+        
+        for (int i=0; i < OOPattern.length(); i++)
+        {
+            if (bInQuotes == true)
+            {
+                if (OOPattern.charAt(i) == '"') bInQuotes = false;
+                continue;
+            }
+            if (bInSquare == true)
+            {
+                if (OOPattern.charAt(i) == ']') bInSquare = false;
+                continue;
+            }
+            
+            //not in quotes or brackets
+            if (OOPattern.charAt(i) == '"')
+            {
+                bInQuotes = true;
+            }
+            else if (OOPattern.charAt(i) == '[')
+            {
+                bInSquare = true;
+            }
+            else
+            {
+                buf.append(OOPattern.charAt(i));
+            }
+        }
+        
+        boolean bIsValid = false;
+        //System.err.println (buf.toString());
+        String validChars = "AGJKOPTUVXMDNYWQGMTSHERAHhMmSs0[]/,.:-() 月日年時分秒";
+        for (int i=0; i < buf.length(); i++)
+        {
+            bIsValid = false;
+            for (int j=0; j < validChars.length(); j++)
+            {
+                if (validChars.charAt(j) == buf.charAt(i))
+                {
+                    bIsValid = true;
+                    break;
+                }
+            }
+            if (bIsValid == false)
+            {
+                System.err.println (buf.charAt(i));
+                System.err.println (buf.toString());
+                break;
+            }
+        }
+        
+        return bIsValid;
     }
     
     
@@ -182,15 +268,7 @@ public class OOToLDMLPattern
     
     //order of things are done is important
     private String mapTime(String LDMLPattern)
-    {
-        boolean bIsAmPM = false;
-        //do AM/PM first as the Ms in AM/PM can be ambiguous
-        if (translate(LDMLPattern, "AM/PM"))
-        {
-            LDMLPattern = LDMLPattern.replaceAll("AM/PM", "a");
-            bIsAmPM = true;
-        }
-        
+    {   
         if (m_type.compareTo(OOConstants.FEU_DATE_TIME)==0)
         {
             LDMLPattern = doMinutes(LDMLPattern);
@@ -206,14 +284,14 @@ public class OOToLDMLPattern
         //hours
         if (translate(LDMLPattern, "h"))
         {   //takes care of h and hh
-            if (bIsAmPM == true)
+            if (m_bIsAmPM == true)
                 LDMLPattern = LDMLPattern.replace('h', 'K');
             else
                 LDMLPattern = LDMLPattern.replace('h', 'H');
         }
         else if (translate(LDMLPattern, "H"))
         {   //takes care of H and HH where AM/PM is present, apttern is same if not present
-            if (bIsAmPM == true)
+            if (m_bIsAmPM == true)
                 LDMLPattern = LDMLPattern.replace('H', 'K');
         }
         
@@ -300,7 +378,8 @@ public class OOToLDMLPattern
             OOPattern = OOPattern.replace('G', 'D');
         }
         else if ((m_localeStr.startsWith("pt"))
-        || (m_localeStr.startsWith("es")))
+        || (m_localeStr.startsWith("es"))
+        || (m_localeStr.startsWith("ja")))   //ja_JP has AAAA even though it's not documented
         {
             OOPattern = OOPattern.replace('A', 'Y');
         }
@@ -308,8 +387,7 @@ public class OOToLDMLPattern
         || (m_localeStr.startsWith("nb"))
         || (m_localeStr.startsWith("nn"))
         || (m_localeStr.startsWith("no"))
-        || (m_localeStr.startsWith("sv"))
-        || (m_localeStr.startsWith("fi")))
+        || (m_localeStr.startsWith("sv")))
         {
             OOPattern = OOPattern.replace('T', 'H');
         }
@@ -318,6 +396,7 @@ public class OOToLDMLPattern
             OOPattern = OOPattern.replace('V', 'Y');
             OOPattern = OOPattern.replace('K', 'M');
             OOPattern = OOPattern.replace('P', 'D');
+            OOPattern = OOPattern.replace('T', 'H');
         }
         
         return OOPattern;
@@ -328,7 +407,7 @@ public class OOToLDMLPattern
     private String doMinutes(String pattern)
     {
         //a bit of a hack:
-        //if M has a H before it then it means minutes, have verified this
+        //if M has a H before it then it means minutes, have verified this is the case for all DateTime patterns
         // +> the first M encountered after H is minutes
    
         int pos_H = pattern.indexOf('H');

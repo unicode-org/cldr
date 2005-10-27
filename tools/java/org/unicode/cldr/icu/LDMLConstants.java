@@ -269,6 +269,12 @@ public class LDMLConstants {
     public static final String Q_3              = "3";
     public static final String Q_4              = "4";
     
+    //felxible date time
+    public static final String AVAIL_FMTS       = "availableFormats";
+    public static final String DATE_FMT_ITEM    = "dateFormatItem";
+    public static final String APPEND_ITEMS     = "appendItems";
+    public static final String REQUEST          = "request";
+    
     //PN added - Open and Close tags
     public static final String VERSION_C       = "</" + VERSION + ">";
     public static final String GENERATION_C    = "</" + GENERATION + ">";
@@ -463,5 +469,11 @@ public class LDMLConstants {
     public static final String QUARTER_O              =  "<" + QUARTER + ">";
     public static final String QUARTER_C              =  "</" + QUARTER + ">";
             
-            
+    public static final String AVAIL_FMTS_O           = "<" + AVAIL_FMTS + ">";
+    public static final String AVAIL_FMTS_C           = "</" + AVAIL_FMTS + ">";
+    public static final String DATE_FMT_ITEM_O        = "<" + DATE_FMT_ITEM + ">";
+    public static final String DATE_FMT_ITEM_C        = "</" + DATE_FMT_ITEM + ">";
+    public static final String APPEND_ITEMS_O         = "<" + APPEND_ITEMS + ">";
+    public static final String APPEND_ITEMS_C         = "</" + APPEND_ITEMS + ">";
+
 }

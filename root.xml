@@ -241,6 +241,9 @@
 				<am>AM</am>
 				<pm>PM</pm>
 				<eras>
+					<eraNames>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">BCE</era>
 						<era type="1">CE</era>

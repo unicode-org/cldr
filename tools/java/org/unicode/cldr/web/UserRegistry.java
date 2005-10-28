@@ -26,6 +26,28 @@ public class UserRegistry {
     public static final int STREET  = 10;
     public static final int LOCKED  = 999;
     
+    public static final int ALL_LEVELS[] = { // for UI presentation
+        ADMIN, TC, VETTER, STREET, LOCKED };
+    
+
+    public static String levelToStr(WebContext ctx, int level) {
+        String thestr = null;
+        if(level <= ADMIN) { 
+            thestr = "ADMIN";
+        } else if(level <= TC) {
+            thestr = "TC";
+        } else if (level <= VETTER) {
+            thestr = "VETTER";
+        } else if (level <= STREET) {
+            thestr = "STREET";
+        } else if (level == LOCKED) {
+            thestr = "LOCKED";
+        } else {
+            thestr = "??";
+        }
+        return level + ": (" + thestr + ")";
+    }
+    
     java.sql.PreparedStatement insertStmt = null;
     java.sql.PreparedStatement importStmt = null;
     java.sql.PreparedStatement queryStmt = null;
@@ -221,6 +243,8 @@ public class UserRegistry {
         logger = xlogger;
         conn = ourConn;
     }
+
+    // ------- special things for "list" mode:
     
     public java.sql.ResultSet list(String organization) throws SQLException {
         ResultSet rs = null;
@@ -241,4 +265,80 @@ public class UserRegistry {
         
         return rs;
     }
+
+    String setUserLevel(WebContext ctx, int theirId, String theirEmail, int newLevel) {
+        if((newLevel < ctx.session.user.userlevel) || (ctx.session.user.userlevel > TC)) {
+            return ("[Permission Denied]");
+        }
+
+        String orgConstraint = null;
+        String msg = "";
+        if(ctx.session.user.userlevel == ADMIN) {
+            orgConstraint = ""; // no constraint
+        } else {
+            orgConstraint = " AND org=\"" + ctx.session.user.org + "\"";
+        }
+        synchronized(conn) {
+            try {
+                Statement s = conn.createStatement();
+                String theSql = "UPDATE " + CLDR_USERS + " SET userlevel=" + newLevel + 
+                    " WHERE id=" + theirId + /* " AND email=\"" + theirEmail + "G\" "  + */ orgConstraint;
+                // msg = msg + " (<br /><pre> " + theSql + " </pre><br />) ";
+                logger.info("Attempt user update by " + ctx.session.user.email + ": " + theSql);
+                int n = s.executeUpdate(theSql);
+                if(n == 0) {
+                    msg = msg + " [Error: no users were updated!] ";
+                    logger.severe("Error: 0 records updated.");
+                } else if(n != 1) {
+                    msg = msg + " [Error in updating users!] ";
+                    logger.severe("Error: " + n + " records updated!");
+                } else {
+                    msg = msg + " [completed OK]";
+                }
+            } catch (SQLException se) {
+                msg = msg + " exception: " + SurveyMain.unchainSqlException(se);
+            } catch (Throwable t) {
+                msg = msg + " exception: " + t.toString();
+            } finally  {
+              //  s.close();
+            }
+        }
+        
+        return msg;
+    }
+
+    public String getPassword(WebContext ctx, int theirId)  {
+        ResultSet rs = null;
+        Statement s = null;
+        String result = null;
+        synchronized(conn) {
+            logger.info("UR: Attempt getPassword by " + ctx.session.user.email + ": of #" + theirId);
+            try {
+                s = conn.createStatement();
+                rs = s.executeQuery("SELECT password FROM " + CLDR_USERS + " WHERE id=" + theirId);
+                if(!rs.next()) {
+                    ctx.println("Couldn't find user.");
+                    return null;
+                }
+                result = rs.getString(1);
+                if(rs.next()) {
+                    ctx.println("Matched duplicate user (?)");
+                    return null;
+                }                
+            } catch (SQLException se) {
+                logger.severe("UR:  exception: " + SurveyMain.unchainSqlException(se));
+                ctx.println(" An error occured: " + SurveyMain.unchainSqlException(se));
+            } catch (Throwable t) {
+                logger.severe("UR:  exception: " + t.toString());
+                ctx.println(" An error occured: " + t.toString());
+            } finally {
+            //    if(rs != null ) rs.close();
+            //    if(s != null) s.close();
+            }
+        }
+        
+        return result;
+    }
+
+
 }

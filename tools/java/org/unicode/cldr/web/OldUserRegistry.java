@@ -34,6 +34,9 @@ public class OldUserRegistry {
     int userCount = 0;
     
     Hashtable users = new Hashtable();
+    public Hashtable getEmails() {
+        return emails;
+    }
     Hashtable emails = new Hashtable();
     /**
      * returns false if there was a failure reading. 

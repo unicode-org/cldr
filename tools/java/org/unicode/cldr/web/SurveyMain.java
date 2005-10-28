@@ -534,13 +534,30 @@ public class SurveyMain extends HttpServlet {
                 return;
             }
             ctx.println("<table border='2'>");
-            ctx.println(" <tr><th>Level</th><th>Name</th><th>Email</th><th>Organization</th></tr>");
+            ctx.println(" <tr><th>ID</th><th>Level</th><th>Name</th><th>Email</th><th>Organization</th><th>Change</th></tr>");
             while(rs.next()) {
+                int theirId = rs.getInt(1);
+                int theirLevel = rs.getInt(2);
+                String theirName = rs.getString(3);
+                String theirEmail = rs.getString(4);
+                String theirOrg = rs.getString(5);
                 ctx.println("  <tr>");
-                ctx.println("    <td>" + rs.getInt(1) + "</td>");
-                ctx.println("    <td>" + rs.getString(2) + "</td>");
-                ctx.println("    <td>" + rs.getString(3) + "</td>");
-                ctx.println("    <td>" + rs.getString(4) + "</td>");
+                ctx.println("    <th>#" + theirId + "</th>");
+                ctx.println("    <td>" + theirLevel + "</td>");
+                ctx.println("    <td>" + theirName + "</td>");
+                ctx.println("    <td>" + theirEmail + "</td>");
+                ctx.println("    <td>" + theirOrg + "</td>");
+                
+                boolean havePermToChange = 
+                    ( ctx.session.user.userlevel <= UserRegistry.TC) &&  // are  at least TC and
+                    ( theirLevel != 0) && // they aren't an admin
+                    ( theirLevel >= ctx.session.user.userlevel );
+                    
+                if(havePermToChange) {
+                    ctx.println("    <td><select name='" + theirId + "_" + theirEmail + "'>");
+                    ctx.println(      "</td>");
+                }
+                
                 ctx.println("  </tr>");
             }
             ctx.println("</table>");
@@ -2609,6 +2626,9 @@ public class SurveyMain extends HttpServlet {
         // now other tables..
         try {
             reg = UserRegistry.createRegistry(logger, getDBConnection(), !doesExist);
+            if(!doesExist) { // only import users on first run through..
+                reg.importOldUsers(vetdata);
+            }
         } catch (SQLException e) {
             busted("On UserRegistry startup: " + unchainSqlException(e));
         }

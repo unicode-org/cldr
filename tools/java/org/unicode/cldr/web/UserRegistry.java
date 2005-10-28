@@ -27,6 +27,7 @@ public class UserRegistry {
     public static final int LOCKED  = 999;
     
     java.sql.PreparedStatement insertStmt = null;
+    java.sql.PreparedStatement importStmt = null;
     java.sql.PreparedStatement queryStmt = null;
     java.sql.PreparedStatement queryIdStmt = null;
     
@@ -94,7 +95,44 @@ public class UserRegistry {
                                                     "'admin@'," +
                                                     "'" + sm.vap +"')");
             logger.info("DB: added user Admin");
+            
             s.close();
+        }
+    }
+    
+    public void importOldUsers(String dir) throws SQLException
+    {
+        int nUsers = 0;
+        synchronized(conn) {
+            try {
+                logger.info("Importing old users...");
+                  importStmt = conn.prepareStatement("INSERT  INTO " + CLDR_USERS +" (userlevel,password,email,org,name,audit) " +
+                    " VALUES(999,?,?,?,?,'Imported')");       
+                    
+                OldUserRegistry our = new OldUserRegistry(dir);
+                if(!our.read()) {
+                    logger.severe("Couldn't import old user registry from " + dir);
+                    return;
+                }
+                Hashtable emails = our.getEmails();
+                Iterator e = emails.values().iterator();
+                while(e.hasNext()) {
+                    OldUserRegistry.User u = (OldUserRegistry.User)e.next();
+                    importStmt.setString(1,u.id);
+                    importStmt.setString(2,u.email);
+                    importStmt.setString(3,u.sponsor);
+                    importStmt.setString(4,u.real);
+                    importStmt.execute();
+                    nUsers++;   
+                }
+                
+            } finally {
+                logger.info("Imported " + nUsers + " users.");
+                if(importStmt != null) {
+                    importStmt.close();
+                    importStmt = null;
+                }
+            }
         }
     }
     
@@ -192,9 +230,9 @@ public class UserRegistry {
 //            try {
                 s = conn.createStatement();
                 if(organization == null) {
-                    rs = s.executeQuery("SELECT userlevel,name,email,org FROM " + CLDR_USERS + ORDER);
+                    rs = s.executeQuery("SELECT id,userlevel,name,email,org FROM " + CLDR_USERS + ORDER);
                 } else {
-                    rs = s.executeQuery("SELECT userlevel,name,email,org FROM " + CLDR_USERS + " WHERE org='" + organization + "'" + ORDER);
+                    rs = s.executeQuery("SELECT id,userlevel,name,email,org FROM " + CLDR_USERS + " WHERE org='" + organization + "'" + ORDER);
                 }
 //            } finally  {
 //                s.close();

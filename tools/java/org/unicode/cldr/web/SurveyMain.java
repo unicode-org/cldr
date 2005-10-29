@@ -456,13 +456,14 @@ public class SurveyMain extends HttpServlet {
         if(user != null) {
             mySession = CookieSession.retrieveUser(user.email);
             if(mySession != null) {
-                message = "Reconnecting your session: " + myNum;
+  //              message = "Reconnecting your session: " + myNum;
             }
         }
         if((mySession == null) && (myNum != null) && (myNum.length()>0)) {
             mySession = CookieSession.retrieve(myNum);
             if(mySession == null) {
-                message = "ignoring expired session: " + myNum;
+                message = "<i>(Sorry, This session has expired. You will have to log in again.)</i><br />";
+//                message = "ignoring expired session: " + myNum;
             }
         }
         if(mySession == null) {
@@ -513,7 +514,50 @@ public class SurveyMain extends HttpServlet {
         printUserMenu(ctx);
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool main</b></a><hr />");
         
+        String new_name = ctx.field("new_name");
+        String new_email = ctx.field("new_email");
+        String new_org = ctx.field("new_org");
+        String new_userlevel = ctx.field("new_userlevel");
         
+        if(ctx.session.user.userlevel > UserRegistry.ADMIN) { // if not admin
+            new_org = ctx.session.user.org; // same org
+        }
+        
+        if((new_name == null) || (new_name.length()<=0)) {
+            ctx.println("<div class='sterrmsg'>Please fill in a name.. hit the Back button and try again.</div>");
+        } else if((new_email == null) ||
+         (new_email.length()<=0) ||
+          ((-1==new_email.indexOf('@'))||(-1==new_email.indexOf('.')))  ) {
+            ctx.println("<div class='sterrmsg'>Please fill in an <b>email</b>.. hit the Back button and try again.</div>");
+        } else if((new_org == null) || (new_org.length()<=0)) { // for ADMIN
+            ctx.println("<div class='sterrmsg'>Please fill in an <b>Organization</b>.. hit the Back button and try again.</div>");
+        } else if((new_userlevel == null) || (new_userlevel.length()<=0)) {
+            ctx.println("<div class='sterrmsg'>Please fill in a <b>user level</b>.. hit the Back button and try again.</div>");
+        } else {
+            UserRegistry.User u = reg.getEmptyUser();
+
+            u.name = new_name;
+            u.userlevel = new Integer(new_userlevel).intValue();
+            if(u.userlevel < ctx.session.user.userlevel) { // pin to creator
+                u.userlevel = ctx.session.user.userlevel;
+            }
+            u.email = new_email;
+            u.org = new_org;
+            u.password = UserRegistry.makePassword(u.email+u.org+ctx.session.user.email);
+        
+            u = reg.newUser(ctx, u);
+            
+            if(u == null) {
+                if(reg.get(new_email) != null) { // throw away resultant User
+                    ctx.println("<div class='sterrmsg'>A user with that email, <tt>" + new_email + "</tt> already exists. Couldn't add user. </div>");                
+                } else {
+                    ctx.println("<div class='sterrmsg'>Couldn't add user <tt>" + new_email + "</tt> - an unknown error occured.</div>");
+                }
+            } else {
+                ctx.println("<i>user added.</i>");
+                u.printPasswordLink(ctx);
+            }
+        }
         
         printFooter(ctx);
     }
@@ -521,8 +565,11 @@ public class SurveyMain extends HttpServlet {
     static final String LIST_ACTION_SETLEVEL = "set_userlevel_";
     static final String LIST_ACTION_NONE = "-";
     static final String LIST_ACTION_PASSWORD = "password_";
+    static final String LIST_ACTION_DELETE0 = "delete0_";
+    static final String LIST_ACTION_DELETE1 = "delete_";
         
     public void doList(WebContext ctx) {
+        int n=0;
         printHeader(ctx, "List Users");
         printUserMenu(ctx);
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool main</b></a><hr />");
@@ -548,19 +595,20 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("<input type='submit' name='doBtn' value='Change' />");
                 ctx.println("<input type='hidden' name='do' value='list' />");
             }
-            ctx.println("<table border='2'>");
-            ctx.println(" <tr><th>ID</th><th>Level</th><th>Name</th><th>Email</th><th>Organization</th><th>Actions</th></tr>");
+            ctx.println("<table class='userlist' border='2'>");
+            ctx.println(" <tr><th>Level</th><th>Name</th><th>Email</th><th>Organization</th><th>Actions</th></tr>");
             while(rs.next()) {
+                n++;
                 int theirId = rs.getInt(1);
                 int theirLevel = rs.getInt(2);
                 String theirName = rs.getString(3);
                 String theirEmail = rs.getString(4);
                 String theirOrg = rs.getString(5);
-                ctx.println("  <tr>");
-                ctx.println("    <th>#" + theirId + "</th>");
-                ctx.println("    <td>" + UserRegistry.levelToStr(ctx,theirLevel) + "</td>");
+                ctx.println("  <tr class='user" + theirLevel + "'>");
+//                ctx.println("    <th>#" + theirId + "</th>");
+                ctx.println("    <td align='right'>" + UserRegistry.levelToStr(ctx,theirLevel) + "</td>");
                 ctx.println("    <td>" + theirName + "</td>");
-                ctx.println("    <td>" + theirEmail + "</td>");
+                ctx.println("    <td>" + "<a href='mailto:" + theirEmail + "'>" + theirEmail + "</a>" + "</td>");
                 ctx.println("    <td>" + theirOrg + "</td>");
                 
                 boolean havePermToChange = 
@@ -571,20 +619,29 @@ public class SurveyMain extends HttpServlet {
                     
                 if(havePermToChange) {
                     // Was something requested?
-                    String theirTag = theirId + "_" + theirEmail;
+                    String theirTag = theirId + "_" + theirEmail; // ID+email - prevents stale data. (i.e. delete of user 3 if the rows change..)
+                    String action = ctx.field(theirTag);
                     ctx.println("    <td><select name='" + theirTag + "'>");
                     // set user to VETTER
                     ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
                     for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
                         doChangeUserOption(ctx, UserRegistry.ALL_LEVELS[i],     theirLevel);
                     }
-                    ctx.println("   <option value='" + LIST_ACTION_PASSWORD + "'>Resend password...</option>");
+                    ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
+                    ctx.println("   <option value='" + LIST_ACTION_PASSWORD + "'>Show/resend password...</option>");
+                    if(theirLevel > ourLevel) {
+                        ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
+                        if((action!=null) && action.equals(LIST_ACTION_DELETE0)) {
+                            ctx.println("   <option value='" + LIST_ACTION_DELETE1 +"' SELECTED>Confirm delete</option>");
+                        } else {
+                            ctx.println("   <option value='" + LIST_ACTION_DELETE0 +"'>Delete user..</option>");
+                        }
+                    }
                     ctx.println("    </select>");
                     ctx.println(      "</td>");
 
 
                     String msg = null;
-                    String action = ctx.field(theirTag);
                     
                     if((action!=null)&&(action.length()>0)&&(!action.equals(LIST_ACTION_NONE))) {
                         ctx.println("<td>");
@@ -601,10 +658,15 @@ public class SurveyMain extends HttpServlet {
                         if(action.equals(LIST_ACTION_PASSWORD)) {
                             String pass = reg.getPassword(ctx, theirId);
                             if(pass != null) {
-                                ctx.println("<a href='" + ctx.base() + "?email=" + theirEmail + "&uid=" + pass + "'>Login for " + 
-                                    theirEmail + "</a>");
+                                UserRegistry.printPasswordLink(ctx, theirEmail, pass);
                             }
-                            ctx.println(" <i style='font-size: 40%'>Note: no email sent, not implemented yet</i> ");
+                            ctx.println("<br /> <i style='font-size: 40%'>Note: no email sent, not implemented yet</i> ");
+                        } else if(action.equals(LIST_ACTION_DELETE0)) {
+                            ctx.println("Ensure that 'confirm delete' is chosen at left and click Change again to delete..");
+                        } else if((theirLevel >= ourLevel) && (action.equals(LIST_ACTION_DELETE1))) {
+                            msg = reg.delete(ctx, theirId, theirEmail);
+                            ctx.println("<strong style='font-color: red'>Deleting...</strong><br />");
+                            ctx.println(msg);
                         }
 //                        ctx.println("Change to " + action);
                         ctx.println("</td>");
@@ -616,6 +678,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("  </tr>");
             }
             ctx.println("</table>");
+            ctx.println("<div style='font-size: 70%'>Number of users shown: " + n +"</div><br />");
             if(ourLevel <= UserRegistry.TC) {
                 ctx.println("<input type='submit' name='doBtn' value='Change'>");
                 ctx.println("</form>");
@@ -635,7 +698,7 @@ public class SurveyMain extends HttpServlet {
         if((newLevel >= ourLevel) && // new level is equal to or greater than our level
             (theirLevel >= ourLevel) && // double check
             (newLevel != theirLevel) ) { // not existing level 
-            ctx.println("    <option value='" + LIST_ACTION_SETLEVEL + newLevel + "'>" +
+            ctx.println("    <option value='" + LIST_ACTION_SETLEVEL + newLevel + "'>Make " +
                 UserRegistry.levelToStr(ctx,newLevel) + "</option>");
         }
     }
@@ -676,7 +739,7 @@ public class SurveyMain extends HttpServlet {
             }
         }
         if(sessionMessage != null) {
-            ctx.println("<!-- " + sessionMessage + "-->");
+            ctx.println(sessionMessage);
         }
         // Not doing vetting admin --------
         
@@ -702,7 +765,7 @@ public class SurveyMain extends HttpServlet {
             if(ctx.field("submit").length()==0) {
                 Hashtable lh = ctx.session.getLocales();
                 Enumeration e = lh.keys();
-                if((ctx.session.user != null) && (ctx.locale != null) ) {
+                if((ctx.session.user != null) && (ctx.locale != null) && ( ctx.session.user.userlevel <= UserRegistry.STREET)  ) { // at least street level
                     if(ctx.field("submit").length()==0) {
                         ctx.println("<div>");
                         ctx.println("<input type=submit value='" + xSAVE + "'>");
@@ -716,7 +779,7 @@ public class SurveyMain extends HttpServlet {
                         ctx.println("<a href=\"" + baseContext.url() + "&_=" + k + "\">" + 
                                 new ULocale(k).getDisplayName() + "</a> ");
                     }
-                    if(ctx.session.user != null) {
+                    if((ctx.session.user != null)  && ( ctx.session.user.userlevel <= UserRegistry.STREET) ) {
                         ctx.println("<div>");
                         ctx.println("Your changes are <b><font color=red>not</font></b> permanently saved until you: ");
                         ctx.println("<input name=submit type=submit value='" + xREVIEW +"'>");
@@ -2195,7 +2258,7 @@ public class SurveyMain extends HttpServlet {
         return skip;
     }
     
-    static int pages=0;
+    public static int pages=0;
     /**
      * Main - setup, preload and listen..
      */

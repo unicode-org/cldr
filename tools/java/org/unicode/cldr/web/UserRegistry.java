@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
 
 
 public class UserRegistry {
@@ -48,10 +49,11 @@ public class UserRegistry {
         return level + ": (" + thestr + ")";
     }
     
-    java.sql.PreparedStatement insertStmt = null;
-    java.sql.PreparedStatement importStmt = null;
-    java.sql.PreparedStatement queryStmt = null;
-    java.sql.PreparedStatement queryIdStmt = null;
+    PreparedStatement insertStmt = null;
+    PreparedStatement importStmt = null;
+    PreparedStatement queryStmt = null;
+    PreparedStatement queryIdStmt = null;
+    PreparedStatement queryEmailStmt = null;
     
     public class User {
         public int    id;  // id number
@@ -61,6 +63,16 @@ public class UserRegistry {
         public String org;  // organization
         public String name;     // full name
         public Date last_connect;
+
+        public void printPasswordLink(WebContext ctx) {
+            UserRegistry.printPasswordLink(ctx, email, password);
+        }
+        
+    }
+        
+    public static void printPasswordLink(WebContext ctx, String email, String password) {
+        ctx.println("<a href='" + ctx.base() + "?email=" + email + "&uid=" + password + "'>Login for " + 
+            email + "</a>");
     }
     
     private static final String CLDR_USERS = "cldr_users";
@@ -161,13 +173,18 @@ public class UserRegistry {
     private void myinit() throws SQLException {
      try {
         synchronized(conn) {
-//        insertStmt = 
+          insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
+                                                    "VALUES(?,?,?,?,?)" );
+
           queryStmt = conn.prepareStatement("SELECT id,name,userlevel,org from " + CLDR_USERS +" where email=? AND password=?");
-//        queryIdStmt
+          queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org from " + CLDR_USERS +" where email=?");
         }
       }finally{
         if(queryStmt == null) {
             logger.severe("queryStmt failed to initialize");
+        }
+        if(insertStmt == null) {
+            logger.severe("insertStmt failed to initialize");
         }
       }
     }
@@ -176,11 +193,19 @@ public class UserRegistry {
         ResultSet rs = null;
         synchronized(conn) {
             try{ 
-                logger.info("Looking up " + email + " : " + pass);
-                queryStmt.setString(1,email);
-                queryStmt.setString(2,pass);
+                PreparedStatement pstmt = null;
+                if(pass != null) {
+                    logger.info("Looking up " + email + " : " + pass);
+                    pstmt = queryStmt;
+                    pstmt.setString(1,email);
+                    pstmt.setString(2,pass);
+                } else {
+                    logger.info("Looking up " + email);
+                    pstmt = queryEmailStmt;
+                    pstmt.setString(1,email);
+                }
                 // First, try to query it back from the DB.
-                rs = queryStmt.executeQuery();                
+                rs = pstmt.executeQuery();                
                 if(!rs.next()) {
                     logger.info(".. no match.");
                     return null;
@@ -224,10 +249,17 @@ public class UserRegistry {
     } // end get
 
     public UserRegistry.User get(String email) {
-        return null;
+        return get(null,email);
     }
     public UserRegistry.User getEmptyUser() {
-        return null;
+        User u = new User();
+        u.id = -1;
+        u.name = "UNKNOWN";
+        u.email = "UN@KNOWN.example.com";
+        u.org = "NONE"; 
+        u.password = null;
+        
+       return u;   
     }
     public UserRegistry.User add(WebContext ctx, String email, String sponsor, String name, String requester) {
         return null;
@@ -276,14 +308,14 @@ public class UserRegistry {
         if(ctx.session.user.userlevel == ADMIN) {
             orgConstraint = ""; // no constraint
         } else {
-            orgConstraint = " AND org=\"" + ctx.session.user.org + "\"";
+            orgConstraint = " AND org='" + ctx.session.user.org + "' ";
         }
         synchronized(conn) {
             try {
                 Statement s = conn.createStatement();
                 String theSql = "UPDATE " + CLDR_USERS + " SET userlevel=" + newLevel + 
-                    " WHERE id=" + theirId + /* " AND email=\"" + theirEmail + "G\" "  + */ orgConstraint;
-                // msg = msg + " (<br /><pre> " + theSql + " </pre><br />) ";
+                    " WHERE id=" + theirId + " AND email='" + theirEmail + "' "  + orgConstraint;
+      //           msg = msg + " (<br /><pre> " + theSql + " </pre><br />) ";
                 logger.info("Attempt user update by " + ctx.session.user.email + ": " + theSql);
                 int n = s.executeUpdate(theSql);
                 if(n == 0) {
@@ -294,6 +326,48 @@ public class UserRegistry {
                     logger.severe("Error: " + n + " records updated!");
                 } else {
                     msg = msg + " [completed OK]";
+                }
+            } catch (SQLException se) {
+                msg = msg + " exception: " + SurveyMain.unchainSqlException(se);
+            } catch (Throwable t) {
+                msg = msg + " exception: " + t.toString();
+            } finally  {
+              //  s.close();
+            }
+        }
+        
+        return msg;
+    }
+
+
+    String delete(WebContext ctx, int theirId, String theirEmail) {
+        if(ctx.session.user.userlevel > TC) {
+            return ("[Permission Denied]");
+        }
+
+        String orgConstraint = null; // keep org constraint in place
+        String msg = "";
+        if(ctx.session.user.userlevel == ADMIN) {
+            orgConstraint = ""; // no constraint
+        } else {
+            orgConstraint = " AND org='" + ctx.session.user.org + "' ";
+        }
+        synchronized(conn) {
+            try {
+                Statement s = conn.createStatement();
+                String theSql = "DELETE FROM " + CLDR_USERS + 
+                    " WHERE id=" + theirId + " AND email='" + theirEmail + "' "  + orgConstraint;
+//                 msg = msg + " (<br /><pre> " + theSql + " </pre><br />) ";
+                logger.info("Attempt user DELETE by " + ctx.session.user.email + ": " + theSql);
+                int n = s.executeUpdate(theSql);
+                if(n == 0) {
+                    msg = msg + " [Error: no users were removed!] ";
+                    logger.severe("Error: 0 users removed.");
+                } else if(n != 1) {
+                    msg = msg + " [Error in removing users!] ";
+                    logger.severe("Error: " + n + " records removed!");
+                } else {
+                    msg = msg + " [removed OK]";
                 }
             } catch (SQLException se) {
                 msg = msg + " exception: " + SurveyMain.unchainSqlException(se);
@@ -340,5 +414,41 @@ public class UserRegistry {
         return result;
     }
 
+    public static String makePassword(String email) {
+        return  CookieSession.cheapEncode((System.currentTimeMillis()*100) + SurveyMain.pages) + "x" + 
+            CookieSession.cheapEncode(email.hashCode() * SurveyMain.vap.hashCode());
+    }
 
+    public User newUser(WebContext ctx, User u) {
+        if(ctx.session.user.userlevel > TC) {
+            return null;
+        }
+
+        synchronized(conn) {
+            try {
+                logger.info("UR: Attempt newuser by " + ctx.session.user.email + ": of " + u.email);
+                insertStmt.setInt(1, u.userlevel);
+                insertStmt.setString(2, u.name);
+                insertStmt.setString(3, u.org);
+                insertStmt.setString(4, u.email);
+                insertStmt.setString(5, u.password);
+                if(!insertStmt.execute()) {
+                    logger.info("Added.");
+                    ctx.println("<p>Added user.<p>");
+                    return get(u.password, u.email); // throw away old user
+                } else {
+                    ctx.println("Couldn't add user.");
+                    return null;
+                }
+            } catch (SQLException se) {
+                logger.severe("UR: Adding: exception: " + SurveyMain.unchainSqlException(se));
+            } catch (Throwable t) {
+                logger.severe("UR: Adding: exception: " + t.toString());
+            } finally  {
+              //  s.close();
+            }
+        }
+        
+        return null;
+    }
 }

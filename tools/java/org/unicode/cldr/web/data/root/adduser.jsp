@@ -11,7 +11,7 @@
 			<label>Name: <input size=40 name="new_name" /></label><br/>
 			<label>Email: <input size=40 name="new_email" /></label><br/>
 			<label>Organization: <input name="new_org" /></label>   (note: leave blank if same as yours)<br/>
-			<label>Userlevel: <input name="new_userlevel" value="5" /></label>   (5=vetter, 10=street, ...)<br/>
+			<label>Userlevel: <input name="new_userlevel" value="5" /></label>   (1=TC, 5=Vetter, 10=Street, ...)<br/>
 			<input type="submit" value="Add" />
 		</form>
 		<hr/>

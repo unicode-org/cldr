@@ -189,14 +189,14 @@ public class CLDRModify {
 				// TODO parameterize the directory and filter
 				//System.out.println("C:\\ICU4C\\locale\\common\\main\\fr.xml");
 				
-				CLDRFile k = (CLDRFile) cldrFactory.make(test, makeResolved).clone();
+				CLDRFile k = (CLDRFile) cldrFactory.make(test, makeResolved).cloneAsThawed();
 //				System.out.println(k);
 //				String s1 = "//ldml/segmentations/segmentation[@type=\"LineBreak\"]/variables/variable[@_q=\"0061\"][@id=\"$CB\"] ";
 //				String s2 = "//ldml/segmentations/segmentation[@type=\"LineBreak\"]/variables/variable[@_q=\"003A\"][@id=\"$CB\"]";
 //				System.out.println(k.ldmlComparator.compare(s1, s2));
 				if (mergeFactory != null) {
 					int mergeOption = k.MERGE_ADD_ALTERNATE;
-					CLDRFile toMergeIn = (CLDRFile) mergeFactory.make(join_prefix + test + join_postfix, false).clone();				
+					CLDRFile toMergeIn = (CLDRFile) mergeFactory.make(join_prefix + test + join_postfix, false).cloneAsThawed();				
 					if (toMergeIn != null) {
 						if (options[JOIN_ARGS].doesOccur) {
 							if (options[JOIN_ARGS].value.indexOf("r") >= 0) mergeOption = k.MERGE_REPLACE_MY_DRAFT;

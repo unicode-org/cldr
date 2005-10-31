@@ -821,7 +821,7 @@ public class Misc {
 	private static void printSupplementalData(String locale) throws IOException {
 		
 		PrintWriter log = null; // BagFormatter.openUTF8Writer(options[DESTDIR].value + "", locale + "_timezonelist.xml");
-		CLDRFile desiredLocaleFile = (CLDRFile) cldrFactory.make(locale, true).clone();
+		CLDRFile desiredLocaleFile = (CLDRFile) cldrFactory.make(locale, true).cloneAsThawed();
 		desiredLocaleFile.removeDuplicates(resolvedRoot, false);
 		
 		CLDRFile english = cldrFactory.make("en", true);

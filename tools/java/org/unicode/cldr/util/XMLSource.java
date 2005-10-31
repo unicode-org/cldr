@@ -17,9 +17,9 @@ import java.util.Set;
 
 import org.unicode.cldr.util.XPathParts.Comments;
 
-import com.ibm.icu.dev.test.util.Lockable;
+import com.ibm.icu.util.Freezable;
 
-public abstract class XMLSource implements Lockable {
+public abstract class XMLSource implements Freezable {
 	private String localeID;
 	private boolean isSupplemental;
 	protected boolean locked;
@@ -59,7 +59,7 @@ public abstract class XMLSource implements Lockable {
 		return parts.set(fullpath).containsAttribute("draft");
 	}
 	
-	public boolean isLocked() {
+	public boolean isFrozen() {
 		return locked;
 	}
 	
@@ -154,7 +154,7 @@ public abstract class XMLSource implements Lockable {
 	/**
 	 * Warning: must be overriden
 	 */
-	public Object clone() { 
+	public Object cloneAsThawed() { 
 		try {
 			XMLSource result = (XMLSource) super.clone();
 			result.locked = false;

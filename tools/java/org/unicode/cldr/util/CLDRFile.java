@@ -48,8 +48,8 @@ import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
-import com.ibm.icu.dev.test.util.Lockable;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Freezable;
 
 //import javax.xml.parsers.*;
 
@@ -71,7 +71,7 @@ http://developers.sun.com/dev/coolstuff/xml/readme.html
 http://lists.xml.org/archives/xml-dev/200007/msg00284.html
 http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
-public class CLDRFile implements Lockable {
+public class CLDRFile implements Freezable {
 	private static final boolean SHOW_ALL = true;
 
 	public static boolean HACK_ORDER = false;
@@ -128,12 +128,12 @@ public class CLDRFile implements Lockable {
 		public Set keySet() { // must be unmodifiable or locked
 			return Collections.unmodifiableSet(xpath_value.keySet());
 		}
-		public Object lock() {
+		public Object freeze() {
 			locked = true;
 			return this;
 		}
-		public Object clone() {
-			SimpleXMLSource result = (SimpleXMLSource) super.clone();
+		public Object cloneAsThawed() {
+			SimpleXMLSource result = (SimpleXMLSource) super.cloneAsThawed();
 			result.xpath_comments = (Comments) result.xpath_comments.clone();
 			result.xpath_fullXPath = (HashMap) result.xpath_fullXPath.clone();
 			result.xpath_value = (HashMap) result.xpath_value.clone();
@@ -383,7 +383,7 @@ public class CLDRFile implements Lockable {
 		public void remove(String xpath) {
 			throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");
 		}
-		public Object lock() {
+		public Object freeze() {
 			throw new UnsupportedOperationException("Resolved CLDRFiles can't be locked");
 		}
 		public ResolvingSource(Factory factory, XMLSource source) {
@@ -426,7 +426,7 @@ public class CLDRFile implements Lockable {
 					constructedItems.putPathValue(fullpath, value);
 				}
 			}
-			constructedItems.lock();
+			constructedItems.freeze();
 	    	//System.out.println("constructedItems: " + constructedItems);
 		}
 		public XMLSource make(String localeID) {
@@ -530,11 +530,11 @@ public class CLDRFile implements Lockable {
     /**
      * Clone the object. Produces unlocked version (see Lockable).
      */
-    public Object clone() {
+    public Object cloneAsThawed() {
     	try {
 			CLDRFile result = (CLDRFile) super.clone();
 			result.locked = false;
-			result.dataSource = (XMLSource)result.dataSource.clone();
+			result.dataSource = (XMLSource)result.dataSource.cloneAsThawed();
 			return result;
 		} catch (CloneNotSupportedException e) {
 			throw new InternalError("should never happen");
@@ -953,18 +953,18 @@ private boolean isSupplemental;
 	}
 
 	/**
-	 * @see com.ibm.icu.dev.test.util.Lockable#isLocked()
+	 * @see com.ibm.icu.util.Freezable#isFrozen()
 	 */
-	public synchronized boolean isLocked() {
+	public synchronized boolean isFrozen() {
 		return locked;
 	}
 
 	/**
-	 * @see com.ibm.icu.dev.test.util.Lockable#lock()
+	 * @see com.ibm.icu.util.Freezable#freeze()
 	 */
-	public synchronized Object lock() {
+	public synchronized Object freeze() {
 		locked = true;
-		dataSource.lock();
+		dataSource.freeze();
 		return this;
 	}
 	
@@ -1233,7 +1233,7 @@ private boolean isSupplemental;
     				XMLSource temp = new ResolvingSource(this, result.dataSource);
     				result.dataSource = temp;
 	    		} else {
-		    		result.lock();	    			
+		    		result.freeze();	    			
 	    		}
 	    		cache.put(localeName, result);
 	    	}
@@ -1923,7 +1923,7 @@ private boolean isSupplemental;
 			"segmentRules",
 			// at end
 			"references", "reference",
-			"special", }).setErrorOnMissing(false).lock();
+			"special", }).setErrorOnMissing(false).freeze();
 	
 	static MapComparator attributeOrdering = (MapComparator) new MapComparator().add(new String[] {
 			"_q",
@@ -1942,8 +1942,8 @@ private boolean isSupplemental;
 			"iso3166",
 			"standard", "references",
 			"draft",
-			}).setErrorOnMissing(false).lock();
-	static MapComparator valueOrdering = (MapComparator) new MapComparator().setErrorOnMissing(false).lock();
+			}).setErrorOnMissing(false).freeze();
+	static MapComparator valueOrdering = (MapComparator) new MapComparator().setErrorOnMissing(false).freeze();
 	/*
 	
 	//RuleBasedCollator valueOrdering = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
@@ -1988,14 +1988,14 @@ private boolean isSupplemental;
     }
     */
     static MapComparator dayValueOrder = (MapComparator) new MapComparator().add(new String[] {
-    		"sun", "mon", "tue", "wed", "thu", "fri", "sat"}).lock();
+    		"sun", "mon", "tue", "wed", "thu", "fri", "sat"}).freeze();
     static MapComparator widthOrder = (MapComparator) new MapComparator().add(new String[] {
-    		"abbreviated", "narrow", "wide"}).lock();
+    		"abbreviated", "narrow", "wide"}).freeze();
     static MapComparator lengthOrder = (MapComparator) new MapComparator().add(new String[] {
-    		"full", "long", "medium", "short"}).lock();
+    		"full", "long", "medium", "short"}).freeze();
     static MapComparator dateFieldOrder = (MapComparator) new MapComparator().add(new String[] {
     		"era", "year", "month", "week", "day", "weekday", "dayperiod",
-			"hour", "minute", "second", "zone"}).lock();
+			"hour", "minute", "second", "zone"}).freeze();
     static Comparator zoneOrder = StandardCodes.make().getTZIDComparator();
     
     static Set orderedElements = new HashSet(java.util.Arrays.asList(new String[]{"variable"}));

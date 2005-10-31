@@ -18,10 +18,10 @@ import java.util.TreeMap;
 import java.util.Collection;
 
 
-import com.ibm.icu.dev.test.util.Lockable;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Freezable;
 
-public class MapComparator implements Comparator, Lockable {
+public class MapComparator implements Comparator, Freezable {
     private Map ordering = new TreeMap(); // maps from name to rank
     private List rankToName = new ArrayList();
     private boolean errorOnMissing = true;
@@ -125,20 +125,20 @@ public class MapComparator implements Comparator, Lockable {
 	/* (non-Javadoc)
 	 * @see org.unicode.cldr.util.Lockable#isLocked()
 	 */
-	public boolean isLocked() {
+	public boolean isFrozen() {
 		return locked;
 	}
 	/* (non-Javadoc)
 	 * @see org.unicode.cldr.util.Lockable#lock()
 	 */
-	public Object lock() {
+	public Object freeze() {
 		locked = true;	
 		return this;
 	}
 	/* (non-Javadoc)
 	 * @see org.unicode.cldr.util.Lockable#clone()
 	 */
-	public Object clone() {
+	public Object cloneAsThawed() {
     	try {
     		MapComparator result = (MapComparator) super.clone();
 			result.locked = false;

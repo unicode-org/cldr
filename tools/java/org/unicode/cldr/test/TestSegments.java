@@ -48,6 +48,7 @@ import com.ibm.icu.util.ULocale;
  */
 
 public class TestSegments {
+	private static final boolean JDK4HACK = true;
 	/**
 	 * If not null, maskes off the character properties so the UnicodeSets are easier to use when debugging.
 	 */
@@ -59,7 +60,7 @@ public class TestSegments {
 	private static final boolean DEBUG_SHOW_MATCHES = false;
 	private static final boolean SHOW_VAR_CONTENTS = false;
 	private static final boolean SHOW_RULE_LIST = false;
-	private static final int monkeyLimit = 1000;
+	private static final int monkeyLimit = 1000000, monkeyStringCount = 10;
 	private static final int REGEX_FLAGS = Pattern.COMMENTS | Pattern.MULTILINE | Pattern.DOTALL;
 
 	private static final Matcher flagItems = Pattern.compile(
@@ -114,6 +115,7 @@ public class TestSegments {
 				System.out.println(showingBreaks);
 			}
 		}
+		System.out.println();
 		System.out.println("Done");
 	}
 
@@ -149,10 +151,16 @@ public class TestSegments {
 		}
 		System.out.println("Monkey Test: " + line + "\t icuBreaks = $\t ruleBreaks =@");
 		boolean gotDot = false;
-		for (int i = 0; i < monkeyLimit; ++i) {
+		int limit = monkeyLimit/monkeyStringCount;
+		for (int i = 0; i < limit; ++i) {
+			if ((i % 100) == 0) {
+				System.out.println(); System.out.flush();
+				System.out.print(i*monkeyStringCount);
+			}
 			System.out.print('.');
 			gotDot = true;
-			String test = rsg.next(10);
+
+			String test = rsg.next(monkeyStringCount);
 			icuBreak.setText(test);
 			int[] icuStatus = new int[20];
 			int[] ruleStatus = new int[20];
@@ -164,9 +172,11 @@ public class TestSegments {
 					System.out.println();
 					gotDot = false;
 				}
-				System.out.println(i + ") Mismatch " + rl.getBreakRule() + ": "
-					+ showResults(test, j, rsg, icuBreakResults)
-				);
+				System.out.println(line + "\tMismatch at Line\t" + i 
+						+ ",\toffset\t" + j 
+						+ ",\twith Rule\t" + rl.getBreakRule()
+						+ ":\t" + (icuBreakResults ? "ICU Breaks, CLDR Doesn't" : "CLDR Breaks, ICU Doesn't"));
+				System.out.println(showResults(test, j, rsg, icuBreakResults));
 				rl.breaksAt(test, j); // for debugging
 			}
 		}		
@@ -380,7 +390,7 @@ public class TestSegments {
 		/**
 		 * Certain rules are generated, and have artificial numbers
 		 */
-		public static final double SOT = -3, EOT = -2, ANY = -1;
+		public static final double INSIDE_SUPPLEMENTARY = -4, SOT = -3, EOT = -2, ANY = -1;
 		/**
 		 * Convenience for formatting doubles
 		 */
@@ -404,6 +414,11 @@ public class TestSegments {
 			if (position == text.length()) {
 				breakRule = EOT;
 				return true;
+			}
+			// don't break in middle of surrogate
+			if (UTF16.isLeadSurrogate(text.charAt(position-1)) && UTF16.isTrailSurrogate(text.charAt(position))) {
+				breakRule = INSIDE_SUPPLEMENTARY;
+				return false;
 			}
 			for (int i = 0; i < rules.size(); ++i) {
 				Rule rule = (Rule)rules.get(i);
@@ -709,7 +724,7 @@ public class TestSegments {
 		 */
 		private String getInsertablePattern(UnicodeSet temp) {
 			temp.complement().complement();
-			temp.remove(0x10000,0x10FFFF); // TODO Fix with Hack
+			if (JDK4HACK) temp.remove(0x10000,0x10FFFF); // TODO Fix with Hack
 			if (DEBUG_RETAIN != null) {
 				temp.retainAll(DEBUG_RETAIN);
 				if (temp.size() == 0) temp.add(0xFFFF); // just so not empty
@@ -727,7 +742,13 @@ public class TestSegments {
 				"\\[\\]\\-\\^\\&\\\\\\{\\}\\$\\:]");		
 		static CodePointShower JavaRegexShower = new CodePointShower() {
 			public String show(int codePoint) {
-				if (JavaRegex_uxxx.contains(codePoint)) return "\\u" + Utility.hex(codePoint);
+				if (JavaRegex_uxxx.contains(codePoint)) {
+					if (codePoint > 0xFFFF) {
+						return "\\u" + Utility.hex(UTF16.getLeadSurrogate(codePoint))
+						+ "\\u" + Utility.hex(UTF16.getTrailSurrogate(codePoint));
+					}
+					return "\\u" + Utility.hex(codePoint);
+				}
 				if (JavaRegex_slash.contains(codePoint)) return "\\" + UTF16.valueOf(codePoint);
 				return UTF16.valueOf(codePoint);
 			}
@@ -846,64 +867,6 @@ public class TestSegments {
 		"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes.",
 		"compareWord"
 	},{
-		"SentenceBreak",
-		"# GC stuff",
-		"$GCCR=\\p{Grapheme_Cluster_Break=CR}",
-		"$GCLF=\\p{Grapheme_Cluster_Break=LF}",
-		"$GCControl=\\p{Grapheme_Cluster_Break=Control}",
-		"$GCExtend=\\p{Grapheme_Cluster_Break=Extend}",
-		"# Normal variables",
-		"$Format=\\p{Sentence_Break=Format}",
-		"$Sep=\\p{Sentence_Break=Sep}",
-		"$Sp=\\p{Sentence_Break=Sp}",
-		"$Lower=\\p{Sentence_Break=Lower}",
-		"$Upper=\\p{Sentence_Break=Upper}",
-		"$OLetter=\\p{Sentence_Break=OLetter}",
-		"$Numeric=\\p{Sentence_Break=Numeric}",
-		"$ATerm=\\p{Sentence_Break=ATerm}",
-		"$STerm=\\p{Sentence_Break=STerm}",
-		"$Close=\\p{Sentence_Break=Close}",
-		"$Any=.",
-		//"# subtract Format from Control, since we don't want to break before/after",
-		//"$Control=[$Control-$Format]", 
-		"# Expresses the negation in rule 8; can't do this with normal regex, but works with UnicodeSet, which is all we need.",
-		"$NotStuff=[^$OLetter $Upper $Lower $Sep]",
-
-		"# Now add format and extend to everything but Sep",
-		"$X=[$Format $GCExtend]*",
-		"$Sp=($Sp $X)",
-		"$Lower=($Lower $X)",
-		"$Upper=($Upper $X)",
-		"$OLetter=($OLetter $X)",
-		"$Numeric=($Numeric $X)",
-		"$ATerm=($ATerm $X)",
-		"$STerm=($STerm $X)",
-		"$Close=($Close $X)",
-
-		"# keep GC together; don't need 6-8, since they are covered by the other rules",
-		"3.3) $GCCR  	×  	$GCLF",
-		"# Sep needs to be inserted here, to keep CRLF together. Needs fix in TR29",
-		"3.35) $Sep  	÷",
-		//"3.4) ( $Control | $CR | $LF ) 	÷",
-		//"3.5) ÷ 	( $Control | $CR | $LF )",
-		"3.91) [^$GCControl | $GCCR | $GCLF] × 	$GCExtend",
-		"4) × 	$Format", 
-		"# 4 means don't break within X + Format. Otherwise Format is added because of variables below",
-		"#Do not break after ambiguous terminators like period, if immediately followed by a number or lowercase letter, is between uppercase letters, or if the first following letter (optionally after certain punctuation) is lowercase. For example, a period may be an abbreviation or numeric period, and not mark the end of a sentence.",
-		"6) $ATerm 	× 	$Numeric",
-		"7) $Upper $ATerm 	× 	$Upper",
-		"8) $ATerm $Close* $Sp* 	× 	$NotStuff* $Lower",
-		"#Break after sentence terminators, but include closing punctuation, trailing spaces, and (optionally) a paragraph separator.",
-		"9) ( $STerm | $ATerm ) $Close* 	× 	( $Close | $Sp | $Sep )",
-		"# Note the fix to $Sp*, $Sep?",
-		"10) ( $STerm | $ATerm ) $Close* $Sp* 	× 	( $Sp | $Sep )",
-		"11) ( $STerm | $ATerm ) $Close* $Sp* $Sep? ÷",
-		"#Otherwise, do not break",
-		"12) × 	$Any",
-		"test",
-		"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
-		"compareSentence"
-	},{
 		"LineBreak",
 		"# Variables",
 		"$AI=\\p{Line_Break=Ambiguous}",
@@ -1003,7 +966,7 @@ public class TestSegments {
 		"5) $ZW ÷",
 		"# LB 7b  Do not break a combining character sequence; treat it as if it has the LB class of the base character" +
 		" in all of the following rules. (Where X is any line break class except SP, BK, CR, LF, NL or ZW.)",
-		"7.2) × $CM",
+		"7.2) [^$SP $BK $CR $LF $NL $ZW] × $CM",
 		"#WARNING: this is done by modifying the variable values for all but SP.... That is, $AL is really ($AI $CM*)!",
 		"# LB 8  Do not break before ‘]’ or ‘!’ or ‘;’ or ‘/’, even after spaces.",
 		"# Using customization 7.",
@@ -1090,5 +1053,64 @@ public class TestSegments {
 		"http://www.cs.tut.fi/%7Ejkorpela/html/nobr.html?abcd=high&hijk=low#anchor",
 		"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
 		"compareLine"
+	},{
+		"SentenceBreak",
+		"# GC stuff",
+		"$GCCR=\\p{Grapheme_Cluster_Break=CR}",
+		"$GCLF=\\p{Grapheme_Cluster_Break=LF}",
+		"$GCControl=\\p{Grapheme_Cluster_Break=Control}",
+		"$GCExtend=\\p{Grapheme_Cluster_Break=Extend}",
+		"# Normal variables",
+		"$Format=\\p{Sentence_Break=Format}",
+		"$Sep=\\p{Sentence_Break=Sep}",
+		"$Sp=\\p{Sentence_Break=Sp}",
+		"$Lower=\\p{Sentence_Break=Lower}",
+		"$Upper=\\p{Sentence_Break=Upper}",
+		"$OLetter=\\p{Sentence_Break=OLetter}",
+		"$Numeric=\\p{Sentence_Break=Numeric}",
+		"$ATerm=\\p{Sentence_Break=ATerm}",
+		"$STerm=\\p{Sentence_Break=STerm}",
+		"$Close=\\p{Sentence_Break=Close}",
+		"$Any=.",
+		//"# subtract Format from Control, since we don't want to break before/after",
+		//"$Control=[$Control-$Format]", 
+		"# Expresses the negation in rule 8; can't do this with normal regex, but works with UnicodeSet, which is all we need.",
+		"$NotStuff=[^$OLetter $Upper $Lower $Sep $ATerm $STerm]",
+		"# $ATerm and $Sterm are temporary, to match ICU until UTC decides.",
+
+		"# Now add format and extend to everything but Sep and controls",
+		"$X=$GCExtend* $Format*",
+		"$Sp=(($Sp | [$Sp - $GCControl] $GCExtend*) $Format*)",
+		"$Lower=($Lower $X)",
+		"$Upper=($Upper $X)",
+		"$OLetter=($OLetter $X)",
+		"$Numeric=($Numeric $X)",
+		"$ATerm=($ATerm $X)",
+		"$STerm=($STerm $X)",
+		"$Close=($Close $X)",
+
+		"# keep GC together; don't need 6-8, since they are covered by the other rules",
+		"3.3) $GCCR  	×  	$GCLF",
+		"# Sep needs to be inserted here, to keep CRLF together. Needs fix in TR29",
+		"3.35) $Sep  	÷",
+		//"3.4) ( $Control | $CR | $LF ) 	÷",
+		//"3.5) ÷ 	( $Control | $CR | $LF )",
+		"3.91) [^$GCControl | $GCCR | $GCLF] × 	$GCExtend",
+		"4) × 	$Format", 
+		"# 4 means don't break within X + Format. Otherwise Format is added because of variables below",
+		"#Do not break after ambiguous terminators like period, if immediately followed by a number or lowercase letter, is between uppercase letters, or if the first following letter (optionally after certain punctuation) is lowercase. For example, a period may be an abbreviation or numeric period, and not mark the end of a sentence.",
+		"6) $ATerm 	× 	$Numeric",
+		"7) $Upper $ATerm 	× 	$Upper",
+		"8) $ATerm $Close* $Sp* 	× 	$NotStuff* $Lower",
+		"#Break after sentence terminators, but include closing punctuation, trailing spaces, and (optionally) a paragraph separator.",
+		"9) ( $STerm | $ATerm ) $Close* 	× 	( $Close | $Sp | $Sep )",
+		"# Note the fix to $Sp*, $Sep?",
+		"10) ( $STerm | $ATerm ) $Close* $Sp* 	× 	( $Sp | $Sep )",
+		"11) ( $STerm | $ATerm ) $Close* $Sp* $Sep? ÷",
+		"#Otherwise, do not break",
+		"12) × 	$Any",
+		"test",
+		"T\u0300he qui\u0300ck 100.1 brown\r\n\u0300foxes. And the beginning. \"Hi?\" Nope! or not.",
+		"compareSentence"
 	}};
 }

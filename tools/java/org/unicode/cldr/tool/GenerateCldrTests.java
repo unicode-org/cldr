@@ -417,9 +417,9 @@ public class GenerateCldrTests {
         int pos = n.indexOf('@');
         if (pos >= 0) locale = new ULocale(n.substring(0,pos));
         CLDRFile cldrFile = mainCldrFactory.make(locale.toString(),true, includeDraft);
-		String v = cldrFile.getStringValue("/ldml/characters/exemplarCharacters");
+		String v = cldrFile.getStringValue("//ldml/characters/exemplarCharacters");
 		UnicodeSet result = new UnicodeSet(v);
-		v = cldrFile.getStringValue("/ldml/characters/exemplarCharacters[@type=\"auxiliary\"]");
+		v = cldrFile.getStringValue("//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]");
 		if (v != null) {
 			result.addAll(new UnicodeSet(v));
 		}

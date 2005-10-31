@@ -33,7 +33,7 @@ public class GenerateKaraList {
 		printCodes(log, locales, codes.getAvailableCodes("language"), CLDRFile.LANGUAGE_NAME);
 		printCodes(log, locales, codes.getAvailableCodes("territory"), CLDRFile.TERRITORY_NAME);
 		printCodes(log, locales, codes.getAvailableCodes("currency"), CLDRFile.CURRENCY_NAME);
-		//printCodes(log, locales, codes.getAvailableCodes("script"), "/ldml/localeDisplayNames/scripts/script", "script");
+		//printCodes(log, locales, codes.getAvailableCodes("script"), "//ldml/localeDisplayNames/scripts/script", "script");
 		log.println("</root>");
 		log.close();
 		System.out.println("Done");
@@ -45,11 +45,11 @@ public class GenerateKaraList {
 	/*
 	static final int LANGUAGE_NAME = 0, SCRIPT_NAME = 1, TERRITORY_NAME = 2, CURRENCY_NAME = 3, CURRENCY_SYMBOL = 4;
 	static final String[][] NameTable = {
-			{"/ldml/localeDisplayNames/languages/language[@type=\"", "\"]", "language"},
-			{"/ldml/localeDisplayNames/scripts/script[@type=\"", "\"]", "script"},
-			{"/ldml/localeDisplayNames/territories/territory[@type=\"", "\"]", "territory"},
-			{"/ldml/numbers/currencies/currency[@type=\"", "\"]/displayName", "currency"},
-			{"/ldml/numbers/currencies/currency[@type=\"", "\"]/symbol", "currency-symbol"}
+			{"//ldml/localeDisplayNames/languages/language[@type=\"", "\"]", "language"},
+			{"//ldml/localeDisplayNames/scripts/script[@type=\"", "\"]", "script"},
+			{"//ldml/localeDisplayNames/territories/territory[@type=\"", "\"]", "territory"},
+			{"//ldml/numbers/currencies/currency[@type=\"", "\"]/displayName", "currency"},
+			{"//ldml/numbers/currencies/currency[@type=\"", "\"]/symbol", "currency-symbol"}
 	};
 	
 	private static String getName(CLDRFile english, int choice, String type, boolean skipDraft) {

@@ -17,10 +17,12 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.util.ULocale;
 
 /**
  * @author davis
@@ -30,10 +32,37 @@ import com.ibm.icu.dev.test.util.BagFormatter;
  */
 public class TestUtilities {
 	public static void main(String[] args) throws Exception {
-        printCountries();
+		checkLanguages();
+		//printCountries();
 		//printZoneSamples();
 		//printCurrencies();
 		System.out.println("Done");
+	}
+
+	private static void checkLanguages() {
+		// TODO Auto-generated method stub
+
+		Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main" + File.separator, ".*");
+		Set availableLocales = mainCldrFactory.getAvailable();
+		Set available = new TreeSet();
+		LocaleIDParser lip = new LocaleIDParser();
+		for (Iterator it = availableLocales.iterator(); it.hasNext();) {
+			available.add(lip.set((String)it.next()).getLanguage());
+		}
+		Set langHack = new TreeSet();
+		for (int i = 0; i < language_territory_hack.length; ++i) {
+			String lang = language_territory_hack[i][0];
+			langHack.add(lang);
+		}
+		if (langHack.containsAll(available)) System.out.println("All ok");
+		else {
+			available.removeAll(langHack);
+			for (Iterator it = available.iterator(); it.hasNext();) {
+				String item = (String) it.next();
+				System.out.println("{\"" + item + "\", \"XXX\"},/t//"
+						+ ULocale.getDisplayLanguage(item, ULocale.ENGLISH));
+			}
+		}
 	}
 
 	/**
@@ -157,4 +186,162 @@ public class TestUtilities {
 		return sign + String.valueOf(offsetMillis/60)
 		+ ":" + String.valueOf(100 + (offsetMillis%60)).substring(1,3);
 	}
+	
+	private static final String[][] language_territory_hack = {
+		{"af", "ZA"},
+		{"am", "ET"},
+		{"ar", "SA"},
+		{"as", "IN"},
+		{"ay", "PE"},
+		{"az", "AZ"},
+		{"bal", "PK"},
+		{"be", "BY"},
+		{"bg", "BG"},
+		{"bn", "IN"},
+		{"bs", "BA"},
+		{"ca", "ES"},
+		{"ch", "MP"},
+		{"cpe", "SL"},
+		{"cs", "CZ"},
+		{"cy", "GB"},
+		{"da", "DK"},
+		{"de", "DE"},
+		{"dv", "MV"},
+		{"dz", "BT"},
+		{"el", "GR"},
+		{"en", "US"},
+		{"es", "ES"},
+		{"et", "EE"},
+		{"eu", "ES"},
+		{"fa", "IR"},
+		{"fi", "FI"},
+		{"fil", "PH"},
+		{"fj", "FJ"},
+		{"fo", "FO"},
+		{"fr", "FR"},
+		{"ga", "IE"},
+		{"gd", "GB"},
+		{"gl", "ES"},
+		{"gn", "PY"},
+		{"gu", "IN"},
+		{"gv", "GB"},
+		{"ha", "NG"},
+		{"he", "IL"},
+		{"hi", "IN"},
+		{"ho", "PG"},
+		{"hr", "HR"},
+		{"ht", "HT"},
+		{"hu", "HU"},
+		{"hy", "AM"},
+		{"id", "ID"},
+		{"is", "IS"},
+		{"it", "IT"},
+		{"ja", "JP"},
+		{"ka", "GE"},
+		{"kk", "KZ"},
+		{"kl", "GL"},
+		{"km", "KH"},
+		{"kn", "IN"},
+		{"ko", "KR"},
+		{"kok", "IN"},
+		{"ks", "IN"},
+		{"ku", "TR"},
+		{"ky", "KG"},
+		{"la", "VA"},
+		{"lb", "LU"},
+		{"ln", "CG"},
+		{"lo", "LA"},
+		{"lt", "LT"},
+		{"lv", "LV"},
+		{"mai", "IN"},
+		{"men", "GN"},
+		{"mg", "MG"},
+		{"mh", "MH"},
+		{"mk", "MK"},
+		{"ml", "IN"},
+		{"mn", "MN"},
+		{"mni", "IN"},
+		{"mo", "MD"},
+		{"mr", "IN"},
+		{"ms", "MY"},
+		{"mt", "MT"},
+		{"my", "MM"},
+		{"na", "NR"},
+		{"nb", "NO"},
+		{"nd", "ZA"},
+		{"ne", "NP"},
+		{"niu", "NU"},
+		{"nl", "NL"},
+		{"nn", "NO"},
+		{"no", "NO"},
+		{"nr", "ZA"},
+		{"nso", "ZA"},
+		{"ny", "MW"},
+		{"om", "KE"},
+		{"or", "IN"},
+		{"pa", "IN"},
+		{"pau", "PW"},
+		{"pl", "PL"},
+		{"ps", "PK"},
+		{"pt", "BR"},
+		{"qu", "PE"},
+		{"rn", "BI"},
+		{"ro", "RO"},
+		{"ru", "RU"},
+		{"rw", "RW"},
+		{"sd", "IN"},
+		{"sg", "CF"},
+		{"si", "LK"},
+		{"sk", "SK"},
+		{"sl", "SI"},
+		{"sm", "WS"},
+		{"so", "DJ"},
+		{"sq", "CS"},
+		{"sr", "CS"},
+		{"ss", "ZA"},
+		{"st", "ZA"},
+		{"sv", "SE"},
+		{"sw", "KE"},
+		{"ta", "IN"},
+		{"te", "IN"},
+		{"tem", "SL"},
+		{"tet", "TL"},
+		{"th", "TH"},
+		{"ti", "ET"},
+		{"tg", "TJ"},
+		{"tk", "TM"},
+		{"tkl", "TK"},
+		{"tvl", "TV"},
+		{"tl", "PH"},
+		{"tn", "ZA"},
+		{"to", "TO"},
+		{"tpi", "PG"},
+		{"tr", "TR"},
+		{"ts", "ZA"},
+		{"uk", "UA"},
+		{"ur", "IN"},
+		{"uz", "UZ"},
+		{"ve", "ZA"},
+		{"vi", "VN"},
+		{"wo", "SN"},
+		{"xh", "ZA"},
+		{"zh", "CN"},
+		{"zh_Hant", "TW"},
+		{"zu", "ZA"},
+		{"aa", "ET"},
+		{"byn", "ER"},
+		{"eo", "DE"},
+		{"gez", "ET"},
+		{"haw", "US"},
+		{"iu", "CA"},
+		{"kw", "GB"},
+		{"sa", "IN"},
+		{"sh", "HR"},
+		{"sid", "ET"},
+		{"syr", "SY"},
+		{"tig", "ER"},
+		{"tt", "RU"},
+		{"wal", "ET"},
+		};
+
 }

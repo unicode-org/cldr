@@ -8,6 +8,8 @@ package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -18,6 +20,7 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.tool.UOption;
 
 import org.unicode.cldr.test.CLDRTest;
@@ -54,7 +57,8 @@ public class CLDRModify {
 		MINIMIZE = 6,
 		FIX = 7,
 		JOIN_ARGS = 8,
-		VET_ADD = 9
+		VET_ADD = 9,
+		RESOLVE = 10
 		;
 	
 	private static final UOption[] options = {
@@ -67,7 +71,8 @@ public class CLDRModify {
 	    UOption.create("minimize", 'r', UOption.NO_ARG),
 	    UOption.create("fix", 'f', UOption.OPTIONAL_ARG),
 	    UOption.create("join-args", 'i', UOption.OPTIONAL_ARG),
-		UOption.create("vet", 'v', UOption.OPTIONAL_ARG).setDefault("C:\\vetweb")
+		UOption.create("vet", 'v', UOption.OPTIONAL_ARG).setDefault("C:\\vetweb"),
+	    UOption.create("resolve", 'z', UOption.OPTIONAL_ARG),
 	};
 	
 	private static final UnicodeSet allMergeOptions = new UnicodeSet("[rc]");
@@ -97,12 +102,15 @@ public class CLDRModify {
 		+ "\tr\t fix references and standards" + XPathParts.NEWLINE
 		+ "\tx\t remove illegal currencies (later, others)" + XPathParts.NEWLINE
 		+ "-v\t incorporate vetting information, and generate diff files." + XPathParts.NEWLINE
-		+ "A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results.";
+		+ "-z\t generate resolved files" + XPathParts.NEWLINE
+		+ "A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results."
+		;
 	
 	/**
 	 * Picks options and executes. Use -h to see options.
 	 */
 	public static void main(String[] args) throws Exception {
+		long startTime = System.currentTimeMillis();
         UOption.parseArgs(args, options);
         if (options[HELP1].doesOccur || options[HELP2].doesOccur) {
         	System.out.println(HELP_TEXT);
@@ -115,6 +123,7 @@ public class CLDRModify {
 		String mergeDir = options[JOIN].value;	// Utility.COMMON_DIRECTORY + "main/";
 		String sourceDir = options[SOURCEDIR].value;	// Utility.COMMON_DIRECTORY + "main/";
 		String targetDir = options[DESTDIR].value;	// Utility.GEN_DIRECTORY + "main/";
+		boolean makeResolved = options[RESOLVE].doesOccur;	// Utility.COMMON_DIRECTORY + "main/";
 		
 		Log.setLog(targetDir + "log.txt");
 		try {		//String[] failureLines = new String[2];
@@ -180,7 +189,11 @@ public class CLDRModify {
 				// TODO parameterize the directory and filter
 				//System.out.println("C:\\ICU4C\\locale\\common\\main\\fr.xml");
 				
-				CLDRFile k = (CLDRFile) cldrFactory.make(test, false).clone();
+				CLDRFile k = (CLDRFile) cldrFactory.make(test, makeResolved).clone();
+//				System.out.println(k);
+//				String s1 = "//ldml/segmentations/segmentation[@type=\"LineBreak\"]/variables/variable[@_q=\"0061\"][@id=\"$CB\"] ";
+//				String s2 = "//ldml/segmentations/segmentation[@type=\"LineBreak\"]/variables/variable[@_q=\"003A\"][@id=\"$CB\"]";
+//				System.out.println(k.ldmlComparator.compare(s1, s2));
 				if (mergeFactory != null) {
 					int mergeOption = k.MERGE_ADD_ALTERNATE;
 					CLDRFile toMergeIn = (CLDRFile) mergeFactory.make(join_prefix + test + join_postfix, false).clone();				
@@ -221,6 +234,35 @@ public class CLDRModify {
 				}*/
 	
 				PrintWriter pw = BagFormatter.openUTF8Writer(targetDir, test + ".xml");
+				String testPath = "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"1\"]";
+				if (false) {
+					System.out.println("Printing Raw File:");
+					testPath = "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/alias";
+					System.out.println(k.getStringValue(testPath));
+					//System.out.println(k.getFullXPath(testPath));
+					k.keySet();
+					Iterator it4 = k.keySet().iterator();
+					Set s = (Set)CollectionUtilities.addAll(new TreeSet(), it4);
+					
+					System.out.println(k.getStringValue(testPath));
+					//if (true) return;
+					Set orderedSet = new TreeSet(CLDRFile.ldmlComparator);
+					orderedSet.addAll(k.keySet());
+					for (Iterator it3 = orderedSet.iterator(); it3.hasNext();) {
+						String path = (String) it3.next();
+						//System.out.println(path);
+						if (path.equals(testPath)) {
+							System.out.println("huh?");
+						}
+						String value = k.getStringValue(path);
+						String fullpath = k.getFullXPath(path);
+						System.out.println("\t=\t" + fullpath);
+						System.out.println("\t=\t" + value);
+					}
+					System.out.println("Done Printing Raw File:");
+				}
+
+				
 				k.write(pw);
 				pw.println();
 				pw.close();
@@ -237,7 +279,7 @@ public class CLDRModify {
 			}
 		} finally {
 			Log.close();
-			System.out.println("Done");
+			System.out.println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime)/60000.0) + " minutes");
 		}
 	}
 	
@@ -261,7 +303,7 @@ public class CLDRModify {
 		Set toRemove = new HashSet();
 		for (Iterator it = toMergeIn.keySet().iterator(); it.hasNext();) {
 			String xpath = (String) it.next();
-			if (xpath.startsWith("/ldml/posix")) toRemove.add(xpath);
+			if (xpath.startsWith("//ldml/posix")) toRemove.add(xpath);
 		}
 		toMergeIn.removeAll(toRemove, false);
 	}
@@ -279,7 +321,7 @@ public class CLDRModify {
 	
 	static CLDRFilter fixCS = new CLDRFilter() {
 		public void handle(String xpath, Set removal, CLDRFile replacements) {
-			if (!xpath.startsWith("/ldml/localeDisplayNames/territories/territory")) return;
+			if (!xpath.startsWith("//ldml/localeDisplayNames/territories/territory")) return;
 			String type = parts.set(xpath).findAttributeValue("territory", "type");
 			if ("CS".equals(type) || "SP".equals(type)) {
 				String v = k.getStringValue(xpath);
@@ -480,7 +522,7 @@ public class CLDRModify {
 					}
 					references_token.put(references, token);
 					System.out.println("Adding: " + token + "\t" + references);
-					replacements.add("/ldml/references/reference[@type=\"" + token + "\"]" + keys2[2], references);
+					replacements.add("//ldml/references/reference[@type=\"" + token + "\"]" + keys2[2], references);
 					result = 1;
 				}
 				attributes.put(keys2[0], token);
@@ -519,7 +561,7 @@ public class CLDRModify {
 				if (skipPaths.contains(xpath)) continue;
 				// skip certain elements
 				if (xpath.indexOf("/identity") >= 0) continue;
-				if (xpath.startsWith("/ldml/numbers/currencies/currency")) continue;
+				if (xpath.startsWith("//ldml/numbers/currencies/currency")) continue;
 				if (xpath.indexOf("[@alt") >= 0) continue;
 
 				// must be string vale

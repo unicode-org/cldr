@@ -78,7 +78,7 @@ public class MapComparator implements Comparator, Lockable {
         return this;
     }
     
-    private static final UnicodeSet numbers = new UnicodeSet("[0-9]");
+    private static final UnicodeSet numbers = new UnicodeSet("[0-9.]");
     
     public int compare(Object a, Object b) {
 		if (false && (a.equals("lines") || b.equals("lines"))) {
@@ -98,8 +98,8 @@ public class MapComparator implements Comparator, Lockable {
         boolean anumeric = numbers.containsAll((String)a);
         boolean bnumeric = numbers.containsAll((String)b);
         if (anumeric && bnumeric) {
-        	long an = Long.parseLong((String)a);
-        	long bn = Long.parseLong((String)b);
+        	double an = Double.parseDouble((String)a);
+        	double bn = Double.parseDouble((String)b);
         	if (an < bn) return -1;
         	if (an > bn) return 1;
         	return 0;

@@ -91,7 +91,7 @@ class GenerateCldrDateTimeTests {
         locales.add(new ULocale(locale));
         CLDRFile cldrFile = cldrFactory.make(locale, doResolved);
         //Node node = LDMLUtilities.getNode(doc, "//ldml/characters/exemplarCharacters");
-        String cpath = "/ldml/characters/exemplarCharacters";
+        String cpath = "//ldml/characters/exemplarCharacters";
         String path = cldrFile.getFullXPath(cpath);
         if (path == null) return;
         //if (path.indexOf("[@draft=") >= 0) System.out.println("Skipping draft: " + locale + ",\t" + path);

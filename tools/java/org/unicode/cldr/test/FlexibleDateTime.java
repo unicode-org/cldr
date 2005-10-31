@@ -6,26 +6,37 @@
  */
 package org.unicode.cldr.test;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Utility;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
+import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -39,22 +50,218 @@ public class FlexibleDateTime {
     static boolean SHOW_MATCHING = false;
     static boolean SHOW2 = false;
     static boolean SHOW_DISTANCE = false;
-    static boolean SHOW_OO = true;
+    static boolean SHOW_OO = false;
     static String SEPARATOR = "\r\n\t";
     
     /**
      * Test different ways of doing flexible date/times.
      * Internal Use.
+     * @throws IOException 
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         if (false) { // just for testing simple cases
             DateTimeMatcher a = new DateTimeMatcher().set("HH:mm");
             DateTimeMatcher b = new DateTimeMatcher().set("kkmm");
             DistanceInfo missingFields = new DistanceInfo();
             int distance = a.getDistance(b, -1, missingFields);
         }
+        generate(args);
+        //test(args);
+    }
+
+    public static PrintWriter log;
+	private static void generate(String[] args) throws IOException {
+		log = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", "log.txt");
+        String filter = ".*";
+        if (args.length > 0)
+            filter = args[0];
         
-        // get the locale to use, with default
+        Factory cldrFactory = Factory.make(Utility.BASE_DIRECTORY
+                + "open_office/main/", filter);
+        Factory mainCLDRFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+        FormatParser fp = new FormatParser();
+        // fix locale list
+        Collection ooLocales = new LinkedHashSet(cldrFactory.getAvailable());
+        ooLocales.remove("nb_NO"); // hack, since no_NO is the main one, and subsumes nb
+        Map localeMap = new LocaleIDFixer().fixLocales(ooLocales, new TreeMap());
+        //pw.println(localeMap);
+
+        for (Iterator it = localeMap.keySet().iterator(); it.hasNext();) {
+            String sourceLocale = (String) it.next();
+            String targetLocale = (String) localeMap.get(sourceLocale);
+            ULocale uSourceLocale = new ULocale(sourceLocale);
+            ULocale uTargetLocale = new ULocale(targetLocale);
+            log.println();
+            log.println(uTargetLocale.getDisplayName(ULocale.ENGLISH) + " (" + uTargetLocale + ")");
+            System.out.println(sourceLocale + "\t=>" + uTargetLocale.getDisplayName(ULocale.ENGLISH) + " (" + uTargetLocale + ")");
+            if (!sourceLocale.equals(targetLocale)) {
+            	log.println("[oo: " + uSourceLocale.getDisplayName(ULocale.ENGLISH) + " (" + sourceLocale + ")]");
+            }
+            Collection list = getOOData(cldrFactory, sourceLocale);
+            // get the current values
+            Collection currentList = getDateFormats(mainCLDRFactory, targetLocale);
+            list.removeAll(currentList);
+            
+            if (list.size() == 0) {
+            	log.println(sourceLocale + "\tEMPTY!"); // skip empty
+            	continue;
+            }
+            CLDRFile temp = CLDRFile.make(targetLocale);
+            String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"";
+
+            for (Iterator it2 = list.iterator(); it2.hasNext();) {
+            	String pattern = (String) it2.next();
+            	new SimpleDateFormat(pattern); // check that compiles
+            	fp.set(pattern);
+            	String id = fp.getFieldString();
+            	if (!allowedDateTimeCharacters.containsAll(id)) throw new IllegalArgumentException("Illegal characters in: " + pattern);
+            	if (id.length() == 0) throw new IllegalArgumentException("Empty id for: " + pattern);
+            	String path = prefix + id + "\"]";
+            	temp.add(path, pattern);
+            }
+    		PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", targetLocale + ".xml");
+            temp.write(pw);
+            pw.close();
+            log.flush();
+        }
+        System.out.println("done");
+        log.close();
+	}
+
+	private static Collection getDateFormats(Factory mainCLDRFactory, String targetLocale) {
+		List result = new ArrayList();
+		XPathParts parts = new XPathParts(null, null);
+        CLDRFile currentFile = null;
+        String oldTargetLocale = targetLocale;
+        // do fallback
+        do {
+			try {
+				currentFile = mainCLDRFactory.make(targetLocale, true);
+			} catch (RuntimeException e) {
+				targetLocale = LocaleIDParser.getParent(targetLocale);
+				if (targetLocale == null) {
+					throw (IllegalArgumentException) new IllegalArgumentException("Couldn't open " + oldTargetLocale).initCause(e);
+				}
+				log.println("FALLING BACK TO " + targetLocale + " from " + oldTargetLocale);
+			}
+        } while (currentFile == null);
+        for (Iterator it = currentFile.keySet().iterator(); it.hasNext(); ) {
+        	String path = (String) it.next();
+        	if (!isGregorianPattern(path, parts)) continue;
+        	String value = currentFile.getStringValue(path);
+        	result.add(value);
+        	//log.println("adding " + path + "\t" + value);
+        }
+        return result;
+	}
+	
+	private static boolean isGregorianPattern(String path, XPathParts parts) {
+    	if (path.indexOf("Formats") < 0) return false; // quick exclude
+    	parts.set(path);
+    	if (parts.size() < 8 || !parts.getElement(7).equals("pattern")) return false;
+    	if (!parts.containsAttributeValue("type","gregorian")) return false;
+    	return true;
+	}
+
+	static class LocaleIDFixer {
+		LocaleIDParser lip = new LocaleIDParser();
+	    static final Set mainLocales = new HashSet(Arrays.asList(new String[]
+	    {"ar_EG", "de_DE", "en_US", "es_ES", "fr_FR", "it_IT", "nl_NL", "pt_BR", "sv_SE", "zh_TW"}));
+	    DeprecatedCodeFixer dcf = new DeprecatedCodeFixer();
+	
+		Map fixLocales(Collection available, Map result) {
+			// find the multi-country locales
+			Map language_locales = new HashMap();
+			for (Iterator it = available.iterator(); it.hasNext();) {
+				String locale = (String) it.next();
+				String fixedLocale = dcf.fixLocale(locale);
+				result.put(locale, fixedLocale);
+				String language = lip.set(fixedLocale).getLanguageScript();
+				Set locales = (Set) language_locales.get(language);
+				if (locales == null) language_locales.put(language, locales = new HashSet());
+				locales.add(locale);
+			}
+			// if a language has a single locale, use it
+			// otherwise use main
+			for (Iterator it = language_locales.keySet().iterator(); it.hasNext();) {
+				String language = (String) it.next();
+				Set locales = (Set) language_locales.get(language);
+				if (locales.size() == 1) {
+					result.put(locales.iterator().next(), language);
+					continue;
+				}
+				Set intersect = new HashSet(mainLocales);
+				intersect.retainAll(locales);
+				if (intersect.size() == 1) {
+					// the intersection is the parent, so overwrite it
+					result.put(intersect.iterator().next(), language);
+					continue;
+				}
+				if (locales.contains("zh_CN")) { // special case, not worth extra code
+					result.put("zh_CN", "zh");
+					continue;
+				}
+				throw new IllegalArgumentException("Need parent locale: " + locales);
+			}
+			return result;
+		}
+	}
+	
+	static class DeprecatedCodeFixer {
+	    Map languageAlias = new HashMap();
+	    Map territoryAlias = new HashMap();
+	    {
+	    	Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+	    	CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
+	    	XPathParts parts = new XPathParts(null, null);
+	    	for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
+	    		String path = (String) it.next();
+	    		//System.out.println(path);
+	    		if (!path.startsWith("//supplementalData/metadata/alias/")) continue;
+	    		parts.set(supp.getFullXPath(path));
+	    		Map attributes = parts.getAttributes(3);
+	    		String type = (String) attributes.get("type");
+	    		String replacement = (String) attributes.get("replacement");
+	    		if (parts.getElement(3).equals("languageAlias")) {
+	    			languageAlias.put(type, replacement);
+	    		} else if (parts.getElement(3).equals("territoryAlias")) {
+	    			territoryAlias.put(type, replacement);
+	    		} else throw new IllegalArgumentException("Unexpected type: " + path);
+	    	}
+	    	// special hack for OpenOffice
+	    	territoryAlias.put("CB", "029");
+	    	languageAlias.put("no", "nb");
+	    }
+	    LocaleIDParser lip = new LocaleIDParser();
+	    
+	    String fixLocale(String locale) {
+	    	String oldLocale = locale;
+	    	lip.set(locale);
+	    	String territory = lip.getRegion();
+	    	String replacement = (String) territoryAlias.get(territory);
+	    	if (replacement != null) {
+	    		lip.setRegion(replacement);
+	    	}
+	    	locale = lip.toString();
+	    	for (Iterator it = languageAlias.keySet().iterator(); it.hasNext();) {
+	    		String old = (String) it.next();
+	    		if (!locale.startsWith(old)) continue;
+	    		if (locale.length() == old.length()) {
+	    			locale = (String) languageAlias.get(old);
+	    			break;
+	    		}
+	    		else if (locale.charAt(old.length())=='_') {
+	    			locale = (String) languageAlias.get(old) + locale.substring(old.length());
+	    			break;
+	    		}
+	    	}
+	    	//if (!oldLocale.equals(locale)) System.out.println(oldLocale + " => " + locale);
+	    	return locale;
+	    }
+	}
+
+	private static void test(String[] args) {
+		// get the locale to use, with default
         String filter = "en_US";
         if (args.length > 0)
             filter = args[0];
@@ -71,6 +278,7 @@ public class FlexibleDateTime {
                     ulocale);
             
             Collection list = getOOData(cldrFactory, locale);
+            
             
             String[] testData = { "YwE", // year, week of year, weekday
                     "yD", // year, day of year
@@ -99,7 +307,7 @@ public class FlexibleDateTime {
                 System.out.println(SEPARATOR + "Sample Results: \t«" + df.format(now) + "»");
             }
         }
-    }
+	}
     
     
     
@@ -647,22 +855,25 @@ public class FlexibleDateTime {
                 if (string.startsWith("A")) string = string.replace('A','Y');
                 if (string.startsWith("G")) string = string.replace('G','D');
             }
-            if (string.startsWith("M")) return string;
-            if (string.startsWith("A")) return string.replace('A','y'); // best we can do for now
-            if (string.startsWith("Y") || string.startsWith("W") || 
-                    string.equals("D") || string.equals("DD")) return string.toLowerCase();
-            if (string.equals("DDD") || string.equals("NN")) return "EEE";
-            if (string.equals("DDDD") || string.equals("NNN")) return "EEEE";
-            if (string.equals("NNNN")) return "EEEE, ";
-            if (string.equals("G")) return "G"; // best we can do for now
-            if (string.equals("GG")) return "G";
-            if (string.equals("GGG")) return "G"; // best we can do for now
-            if (string.equals("E")) return "y";
-            if (string.equals("EE") || string.equals("R")) return "yy";
-            if (string.equals("RR")) return "Gyy";
-            if (string.startsWith("Q")) return string; // '\'' + string + '\'';
-            char c = string.charAt(0);
-            if (c < 0x80 && UCharacter.isLetter(c)) return string.replace(c,'x');
+            //if (string.startsWith("M")) return string;
+            if (string.startsWith("A")) string = string.replace('A','y'); // best we can do for now
+            else if (string.startsWith("Y") || string.startsWith("W") || 
+                    string.equals("D") || string.equals("DD")) string = string.toLowerCase();
+            else if (string.equals("DDD") || string.equals("NN")) string = "EEE";
+            else if (string.equals("DDDD") || string.equals("NNN")) string = "EEEE";
+            else if (string.equals("NNNN")) return "EEEE, "; // RETURN WITHOUT TEST
+            else if (string.equals("G")) string = "G"; // best we can do for now
+            else if (string.equals("GG")) string = "G";
+            else if (string.equals("GGG")) string = "G"; // best we can do for now
+            else if (string.equals("E")) string = "y";
+            else if (string.equals("EE") || string.equals("R")) string = "yy";
+            else if (string.equals("RR")) string = "Gyy";
+            //if (string.startsWith("Q")) string = string; // '\'' + string + '\'';
+            //char c = string.charAt(0);
+            //if (c < 0x80 && UCharacter.isLetter(c)else if rn string.replace(c,'x');
+            if (!allowedDateTimeCharacters.containsAll(string)) {
+            	throw new IllegalArgumentException("bad char in: " + string);
+            }
             return string;
         }
         
@@ -690,12 +901,17 @@ public class FlexibleDateTime {
             char c = string.charAt(0);
             switch (c) {
             case 'h': case 'H': case 't': case 'T': case 'u': case 'U':
-                return string.replace(c, isAM ? 'h' : 'H');
-            case 'M': case 'S': return string.toLowerCase();
-            case '0': return string.replace('0','S'); // ought to be more sophisticated, but this should work for normal stuff.
-            case 'a': case 's': case 'm': return string; // ok as is
-            default: return "x"; // cause error
+                string = string.replace(c, isAM ? 'h' : 'H');
+                break;
+            case 'M': case 'S': string =  string.toLowerCase(); break;
+            case '0': string = string.replace('0','S'); break; // ought to be more sophisticated, but this should work for normal stuff.
+            //case 'a': case 's': case 'm': return string; // ok as is
+            //default: return "x"; // cause error
             }
+            if (!allowedDateTimeCharacters.containsAll(string)) {
+            	throw new IllegalArgumentException("bad char in: " + string);
+            }
+            return string;
         }
         private String convertToRule(String string) {
             fp.set(string);
@@ -741,24 +957,37 @@ public class FlexibleDateTime {
         }
     };
     
+    public static UnicodeSet allowedDateTimeCharacters = new UnicodeSet("[A a c D d E e F G g h H K k L m M q Q s S u v W w Y y z Z]");
+    
     static Collection getOOData(Factory cldrFactory, String locale) {
         List result = new ArrayList();
+        XPathParts parts = new XPathParts(null, null);
         OOConverter ooConverter = new OOConverter();
         {
             if (SHOW_OO) System.out.println();
             CLDRFile item = cldrFactory.make(locale, false);
             for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
                 String xpath = (String) it2.next();
-                if (xpath.indexOf("/special") >= 0) continue;
-                boolean isDate = xpath.indexOf("/dateFormat/") >= 0 || xpath.indexOf("/dateFormat[@") >= 0;
-                boolean isTime = xpath.indexOf("/timeFormat/") >= 0 || xpath.indexOf("/timeFormat[@") >= 0;
+            	if (!isGregorianPattern(xpath, parts)) continue;
+                boolean isDate = parts.getElement(4).equals("dateFormats");
+                boolean isTime = parts.getElement(4).equals("timeFormats");
+                String value = item.getStringValue(xpath);
                 if (isDate || isTime) {
-                    String value = item.getStringValue(xpath);
                     String pattern = value;
                     String oldPattern = pattern;
-                    if (oldPattern.indexOf('[') >= 0) continue;
-                    pattern = isDate ? ooConverter.convertOODate(pattern, locale) 
-                            : ooConverter.convertOOTime(pattern, locale);
+                    if (oldPattern.indexOf('[') >= 0) {
+                    	log.println(locale + "\tSkipping [:\t" + xpath + "\t" + value);
+                    	continue;
+                    }
+                    try {
+						pattern = isDate ? ooConverter.convertOODate(pattern, locale) 
+						        : ooConverter.convertOOTime(pattern, locale);
+					} catch (RuntimeException e1) {
+						log.println(locale + "\tSkipping unknown char:\t" + xpath + "\t" + value);
+						continue;
+					}
+                    
+                    //System.out.println(xpath + "\t" + pattern);
                     if (SHOW2) System.out.print("\t" + (isDate ? "Date" : "Time") + ": " + oldPattern + "\t" + pattern + "\t");
                     try {
                         SimpleDateFormat d = new SimpleDateFormat(pattern);
@@ -769,6 +998,8 @@ public class FlexibleDateTime {
                         if (SHOW2) System.out.print(e.getLocalizedMessage());
                     }
                     if (SHOW2) System.out.println();
+                } else {
+                	log.println(locale + "\tSkipping datetime:\t" + xpath + "\t" + value);
                 }
             }
             return result;

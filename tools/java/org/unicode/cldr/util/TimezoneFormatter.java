@@ -91,22 +91,22 @@ public class TimezoneFormatter {
 	public TimezoneFormatter(Factory cldrFactory, String localeID, boolean includeDraft) {
 		inputLocaleID = localeID;
 		desiredLocaleFile = cldrFactory.make(localeID, true, includeDraft);
-		String hourFormatString = getStringValue("/ldml/dates/timeZoneNames/hourFormat");
+		String hourFormatString = getStringValue("//ldml/dates/timeZoneNames/hourFormat");
 		String[] hourFormatStrings = Utility.splitArray(hourFormatString,';');
 		ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
 		hourFormatPlus = icuServiceBuilder.getDateFormat(desiredLocaleFile,0,1);
 		hourFormatPlus.applyPattern(hourFormatStrings[0]);
 		hourFormatMinus = icuServiceBuilder.getDateFormat(desiredLocaleFile,0,1);
 		hourFormatMinus.applyPattern(hourFormatStrings[1]);
-		gmtFormat = new MessageFormat(getStringValue("/ldml/dates/timeZoneNames/gmtFormat"));
-		regionFormat = new MessageFormat(getStringValue("/ldml/dates/timeZoneNames/regionFormat"));
-		fallbackFormat = new MessageFormat(getStringValue("/ldml/dates/timeZoneNames/fallbackFormat"));
-		checkForDraft("/ldml/dates/timeZoneNames/singleCountries");
+		gmtFormat = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/gmtFormat"));
+		regionFormat = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
+		fallbackFormat = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/fallbackFormat"));
+		checkForDraft("//ldml/dates/timeZoneNames/singleCountries");
         // default value if not in root. Only needed for CLDR 1.3
         String singleCountriesList = "Africa/Bamako America/Godthab America/Santiago America/Guayaquil" +
                 " Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon" +
                 " Europe/London Pacific/Auckland Pacific/Tahiti";
-		String temp = desiredLocaleFile.getFullXPath("/ldml/dates/timeZoneNames/singleCountries");
+		String temp = desiredLocaleFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
 		if (temp != null) {
 			singleCountriesList = (String) new XPathParts(null, null).set(temp)
 					.findAttributes("singleCountries").get("list");
@@ -115,11 +115,11 @@ public class TimezoneFormatter {
 
 		/* not needed
 		hoursFormat = new MessageFormat(desiredLocaleFile.getStringValue(
-				"/ldml/dates/timeZoneNames/hoursFormat"));
+				"//ldml/dates/timeZoneNames/hoursFormat"));
 		abbreviationFallback = (String) new XPathParts(null, null).set(
-				desiredLocaleFile.getFullXPath("/ldml/dates/timeZoneNames/abbreviationFallback"))
+				desiredLocaleFile.getFullXPath("//ldml/dates/timeZoneNames/abbreviationFallback"))
 				.findAttributes("abbreviationFallback").get("type");
-		temp = desiredLocaleFile.getFullXPath("/ldml/dates/timeZoneNames/preferenceOrdering");
+		temp = desiredLocaleFile.getFullXPath("//ldml/dates/timeZoneNames/preferenceOrdering");
 		preferenceOrdering = (String) new XPathParts(null, null).set(
 				temp).findAttributes("preferenceOrdering").get("type");
 		*/
@@ -189,7 +189,7 @@ public class TimezoneFormatter {
 //		recognizable for people using the target language.)
 //		* America/Los_Angeles => "Tampo de Pacifica"
 		
-		String prefix = "/ldml/dates/timeZoneNames/zone[@type=\"" + zoneid + "\"]/";
+		String prefix = "//ldml/dates/timeZoneNames/zone[@type=\"" + zoneid + "\"]/";
 		if (type != GMT) {
 			String formatValue = getStringValue(prefix + LENGTH.get(length) + "/" + TYPE.get(type));
 			if (formatValue != null) return formatValue;
@@ -381,8 +381,8 @@ public class TimezoneFormatter {
 		}
 		
 		// now add exemplar cities, AND pick up explicit strings, AND localized countries
-		String prefix = "/ldml/dates/timeZoneNames/zone[@type=\"";
-		String countryPrefix = "/ldml/localeDisplayNames/territories/territory[@type=\"";
+		String prefix = "//ldml/dates/timeZoneNames/zone[@type=\"";
+		String countryPrefix = "//ldml/localeDisplayNames/territories/territory[@type=\"";
 		Map localizedNonWall = new HashMap();
 		Set skipDuplicates = new HashSet();
 		for (Iterator it = desiredLocaleFile.keySet().iterator(); it.hasNext();) {

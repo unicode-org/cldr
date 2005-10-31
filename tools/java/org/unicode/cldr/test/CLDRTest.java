@@ -131,8 +131,8 @@ public class CLDRTest extends TestFmwk {
 	 * Check to make sure that the currency formats are kosher.
 	 */
 	public void TestCurrencyFormats() {
-	    //String decimal = "/ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"standard\"]/";
-	    //String currency = "/ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/";
+	    //String decimal = "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type=\"standard\"]/";
+	    //String currency = "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/";
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String locale = (String)it.next();
 			boolean isPOSIX = locale.indexOf("POSIX") >= 0;
@@ -158,18 +158,18 @@ public class CLDRTest extends TestFmwk {
 	 * @return the numeric type, for use by getCanonicalPattern
 	 */
 	public static byte getNumericType(String xpath) {
-		if (!xpath.startsWith("/ldml/numbers/") || xpath.indexOf("/pattern") < 0) {
+		if (!xpath.startsWith("//ldml/numbers/") || xpath.indexOf("/pattern") < 0) {
 			return NOT_NUMERIC_TYPE;
 		}
-		if (xpath.startsWith("/ldml/numbers/currencyFormats/")) {
+		if (xpath.startsWith("//ldml/numbers/currencyFormats/")) {
 			return CURRENCY_TYPE;
-		} else if (xpath.startsWith("/ldml/numbers/decimalFormats/")) {
+		} else if (xpath.startsWith("//ldml/numbers/decimalFormats/")) {
 			return DECIMAL_TYPE;
-		} else if (xpath.startsWith("/ldml/numbers/percentFormats/")) {
+		} else if (xpath.startsWith("//ldml/numbers/percentFormats/")) {
 			return PERCENT_TYPE;
-		} else if (xpath.startsWith("/ldml/numbers/scientificFormats/")) {
+		} else if (xpath.startsWith("//ldml/numbers/scientificFormats/")) {
 			return SCIENTIFIC_TYPE;
-		} else if (xpath.startsWith("/ldml/numbers/currencies/currency/")
+		} else if (xpath.startsWith("//ldml/numbers/currencies/currency/")
 				) {
 			return CURRENCY_TYPE;
 		} else {
@@ -234,7 +234,7 @@ public class CLDRTest extends TestFmwk {
 				for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
 					String xpath = (String) it2.next();
 					if (okValues.contains(xpath)) continue;
-					if (xpath.startsWith("/ldml/identity/")) continue; // skip identity elements
+					if (xpath.startsWith("//ldml/identity/")) continue; // skip identity elements
 					String v = item.getStringValue(xpath);
 					ValueCount last = (ValueCount) currentValues.get(xpath);
 					if (last == null) {
@@ -286,6 +286,7 @@ public class CLDRTest extends TestFmwk {
 	 * Check that the exemplars include all characters in the data.
 	 */
 	public void TestThatExemplarsContainAll() {
+		UnicodeSet allExemplars = new UnicodeSet();
 		if (disableUntilLater("TestThatExemplarsContainAll")) return;
 		Set counts = new TreeSet();
 		int totalCount = 0;
@@ -293,7 +294,7 @@ public class CLDRTest extends TestFmwk {
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String locale = (String)it.next();
 			if (locale.equals("root")) continue; 
-			CLDRFile resolved = cldrFactory.make(locale, true);
+			CLDRFile resolved = cldrFactory.make(locale, false); // FIX LATER
 			UnicodeSet exemplars = getFixedExemplarSet(locale, resolved);
 			CLDRFile plain = cldrFactory.make(locale, false);
 			int count = 0;
@@ -304,10 +305,13 @@ public class CLDRTest extends TestFmwk {
 				for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
 					if (xpath.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) continue file; // skip some items.
 				}
-				String fullxpath = plain.getFullXPath(xpath);
-				if (SKIP_DRAFT && fullxpath.indexOf("[@draft=\"true\"") > 0) continue;
-				if (xpath.startsWith("/ldml/posix/messages")) continue;
+				if (SKIP_DRAFT) {
+					String fullxpath = plain.getFullXPath(xpath);
+					if (fullxpath.indexOf("[@draft=\"true\"") > 0) continue;
+				}
+				if (xpath.startsWith("//ldml/posix/messages")) continue;
 				String value = plain.getStringValue(xpath);
+				allExemplars.addAll(value);
 				if (!exemplars.containsAll(value)) {
 					count++;
 					UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
@@ -329,6 +333,7 @@ public class CLDRTest extends TestFmwk {
 			logln(it.next().toString());
 		}
 		logln("Total Count: " + totalCount);
+		System.out.println("All exemplars: " + allExemplars.toPattern(true));
 	}
 
 	static final long disableDate = new Date(2005-1900,6-1,3).getTime();
@@ -366,7 +371,7 @@ public class CLDRTest extends TestFmwk {
 	 */
 	public UnicodeSet getExemplarSet(CLDRFile cldrfile, String type) {
 		if (type.length() != 0) type = "[@type=\"" + type + "\"]";
-		String v = cldrfile.getStringValue("/ldml/characters/exemplarCharacters" + type);
+		String v = cldrfile.getStringValue("//ldml/characters/exemplarCharacters" + type);
 		if (v == null) return new UnicodeSet();
 		String pattern = v;
 		if (pattern.indexOf("[:") >= 0 || pattern.indexOf("\\p{") > 0) {
@@ -450,7 +455,7 @@ public class CLDRTest extends TestFmwk {
 	 * Internal
 	 */
 	private String getName(CLDRFile english, String kind, String type) {
-		String v = english.getStringValue("/ldml/localeDisplayNames/" + kind + "[@type=\"" + type + "\"]");
+		String v = english.getStringValue("//ldml/localeDisplayNames/" + kind + "[@type=\"" + type + "\"]");
 		if (v == null) return "<" + type + ">";
 		return v;
 	}
@@ -621,13 +626,13 @@ public class CLDRTest extends TestFmwk {
 	 */
 	private void checkTranslatedCodes(CLDRFile cldrfile)  {
 		StandardCodes codes = StandardCodes.make();
-		checkTranslatedCode(cldrfile, codes, "currency", "/ldml/numbers/currencies/currency", "/displayName");
+		checkTranslatedCode(cldrfile, codes, "currency", "//ldml/numbers/currencies/currency", "/displayName");
 		// can't check timezones for English.
-		// checkTranslatedCode(cldrfile, codes, "tzid", "/ldml/dates/timeZoneNames/zone", "");
-		checkTranslatedCode(cldrfile, codes, "language", "/ldml/localeDisplayNames/languages/language", "");
-		checkTranslatedCode(cldrfile, codes, "script", "/ldml/localeDisplayNames/scripts/script", "");
-		checkTranslatedCode(cldrfile, codes, "territory", "/ldml/localeDisplayNames/territories/territory", "");
-		checkTranslatedCode(cldrfile, codes, "variant", "/ldml/localeDisplayNames/variants/variant", "");
+		// checkTranslatedCode(cldrfile, codes, "tzid", "//ldml/dates/timeZoneNames/zone", "");
+		checkTranslatedCode(cldrfile, codes, "language", "//ldml/localeDisplayNames/languages/language", "");
+		checkTranslatedCode(cldrfile, codes, "script", "//ldml/localeDisplayNames/scripts/script", "");
+		checkTranslatedCode(cldrfile, codes, "territory", "//ldml/localeDisplayNames/territories/territory", "");
+		checkTranslatedCode(cldrfile, codes, "variant", "//ldml/localeDisplayNames/variants/variant", "");
 	}
 
 	/**
@@ -681,59 +686,63 @@ public class CLDRTest extends TestFmwk {
 		XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
 		for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
 			String path = (String) it.next();
-			parts.set(supp.getFullXPath(path));
-			Map m;
-			String type = "";
-			if (aliases != null && parts.findElement("alias") >= 0) {
-				m = parts.findAttributes(type = "languageAlias");
-				if (m == null) m = parts.findAttributes(type = "territoryAlias");
-				if (m != null) {
-					Map top = (Map)aliases.get(type);
-					if (top == null) aliases.put(type, top = new TreeMap());
-					top.put(m.get("type"), m.get("replacement"));
+			try {
+				parts.set(supp.getFullXPath(path));
+				Map m;
+				String type = "";
+				if (aliases != null && parts.findElement("alias") >= 0) {
+					m = parts.findAttributes(type = "languageAlias");
+					if (m == null) m = parts.findAttributes(type = "territoryAlias");
+					if (m != null) {
+						Map top = (Map)aliases.get(type);
+						if (top == null) aliases.put(type, top = new TreeMap());
+						top.put(m.get("type"), m.get("replacement"));
+					}
 				}
-			}
-			if (territory_currencies != null) {
-				m = parts.findAttributes("region");
-				if (m != null) {
-					String region = (String) m.get("iso3166");
-					Set s = (Set) territory_currencies.get(region);
-					if (s == null) territory_currencies.put(region, s = new LinkedHashSet());
-					m = parts.findAttributes("currency");
-					if (m == null) {
-						warnln("missing currency for region: " + path);
+				if (territory_currencies != null) {
+					m = parts.findAttributes("region");
+					if (m != null) {
+						String region = (String) m.get("iso3166");
+						Set s = (Set) territory_currencies.get(region);
+						if (s == null) territory_currencies.put(region, s = new LinkedHashSet());
+						m = parts.findAttributes("currency");
+						if (m == null) {
+							warnln("missing currency for region: " + path);
+							continue;
+						}
+						String currency = (String) m.get("iso4217");
+						s.add(currency);
+						m = parts.findAttributes("alternate");
+						String alternate = m == null ? null : (String) m.get("iso4217");
+						if (alternate != null) s.add(alternate);
 						continue;
 					}
-					String currency = (String) m.get("iso4217");
-					s.add(currency);
-					m = parts.findAttributes("alternate");
-					String alternate = m == null ? null : (String) m.get("iso4217");
-					if (alternate != null) s.add(alternate);
+				}
+				m = parts.findAttributes("group");
+				if (m != null) {
+					if (group_territory == null) continue;
+					type = (String) m.get("type");
+					String contains = (String) m.get("contains");
+					group_territory.put(type, new TreeSet(Utility.splitList(contains,' ', true)));
 					continue;
 				}
-			}
-			m = parts.findAttributes("group");
-			if (m != null) {
-				if (group_territory == null) continue;
-				type = (String) m.get("type");
-				String contains = (String) m.get("contains");
-				group_territory.put(type, new TreeSet(Utility.splitList(contains,' ', true)));
-				continue;
-			}
-			m = parts.findAttributes("language");
-			if (m == null) continue;
-			String language = (String) m.get("type");
-			String scripts = (String) m.get("scripts");
-			if (scripts == null) language_scripts.put(language, new TreeSet());
-			else {
-				language_scripts.put(language, new TreeSet(Utility.splitList(scripts,' ', true)));
-				if (SHOW) System.out.println(getIDAndLocalization(language) + "\t\t" + getIDAndLocalization((Set)language_scripts.get(language)));
-			}
-			String territories = (String) m.get("territories");
-			if (territories == null)  language_territories.put(language, new TreeSet());
-			else {
-				language_territories.put(language, new TreeSet(Utility.splitList(territories,' ', true)));
-				if (SHOW) System.out.println(getIDAndLocalization(language) + "\t\t" + getIDAndLocalization((Set)language_territories.get(language)));
+				m = parts.findAttributes("language");
+				if (m == null) continue;
+				String language = (String) m.get("type");
+				String scripts = (String) m.get("scripts");
+				if (scripts == null) language_scripts.put(language, new TreeSet());
+				else {
+					language_scripts.put(language, new TreeSet(Utility.splitList(scripts,' ', true)));
+					if (SHOW) System.out.println(getIDAndLocalization(language) + "\t\t" + getIDAndLocalization((Set)language_scripts.get(language)));
+				}
+				String territories = (String) m.get("territories");
+				if (territories == null)  language_territories.put(language, new TreeSet());
+				else {
+					language_territories.put(language, new TreeSet(Utility.splitList(territories,' ', true)));
+					if (SHOW) System.out.println(getIDAndLocalization(language) + "\t\t" + getIDAndLocalization((Set)language_territories.get(language)));
+				}
+			} catch (RuntimeException e) {
+				throw (IllegalArgumentException) new IllegalArgumentException("Failure with: " + path).initCause(e);
 			}
 		}
 	}
@@ -777,9 +786,9 @@ public class CLDRTest extends TestFmwk {
 			
 			checkForItems(item, languages, CLDRFile.LANGUAGE_NAME, missing, failureCount, null);
 			
-/*			checkTranslatedCode(cldrfile, codes, "currency", "/ldml/numbers/currencies/currency");
-			checkTranslatedCode(cldrfile, codes, "tzid", "/ldml/dates/timeZoneNames/zone");
-			checkTranslatedCode(cldrfile, codes, "variant", "/ldml/localeDisplayNames/variants/variant");
+/*			checkTranslatedCode(cldrfile, codes, "currency", "//ldml/numbers/currencies/currency");
+			checkTranslatedCode(cldrfile, codes, "tzid", "//ldml/dates/timeZoneNames/zone");
+			checkTranslatedCode(cldrfile, codes, "variant", "//ldml/localeDisplayNames/variants/variant");
 */
 			
 			Set scripts = new TreeSet();
@@ -835,7 +844,7 @@ public class CLDRTest extends TestFmwk {
 	 */
 	private String getDateKey(String monthOrDay, String width, String code) {
 		// String context = width.equals("narrow") ? "format" : "stand-alone";
-		return "/ldml/dates/calendars/calendar[@type=\"gregorian\"]/"
+		return "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/"
 				+ monthOrDay + "s/" + monthOrDay + "Context[@type=\"format\"]/"
 				+ monthOrDay + "Width[@type=\"" + width + "\"]/" + monthOrDay
 				+ "[@type=\"" + code + "\"]";

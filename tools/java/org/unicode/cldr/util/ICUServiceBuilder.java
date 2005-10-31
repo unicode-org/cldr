@@ -84,7 +84,7 @@ public class ICUServiceBuilder {
         }
         
         DateFormatSymbols formatData = new DateFormatSymbols();
-        String prefix = "/ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]";
+        String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]";
         formatData.setAmPmStrings(new String[] {
         		cldrFile.getStringValue(prefix + "/am"),
 				cldrFile.getStringValue(prefix + "/pm")});
@@ -121,7 +121,7 @@ public class ICUServiceBuilder {
 	 */
 	private static String getDateTimePattern(CLDRFile cldrFile, String dateOrTime, String type) {
 		if (type.length() > 0) type = "[@type=\"" + type + "\"]";
-		String key = "/ldml/dates/calendars/calendar[@type=\"gregorian\"]/"
+		String key = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/"
 			+ dateOrTime + "Formats/" 
 			+ dateOrTime + "FormatLength"
 			+ type + "/" + dateOrTime + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]";
@@ -232,7 +232,7 @@ public class ICUServiceBuilder {
     	DecimalFormat result = (DecimalFormat) numberFormatCache.get(key);
     	if (result != null) return result;
 
-        String prefix = "/ldml/numbers/";
+        String prefix = "//ldml/numbers/";
         String type = key1;
         if (isCurrency) type = "currency";
         else if (key1.equals("integer")) type = "decimal";
@@ -247,25 +247,25 @@ public class ICUServiceBuilder {
         DecimalFormatSymbols symbols = new DecimalFormatSymbols();
         
         // currently constants
-        // symbols.setPadEscape(cldrFile.getStringValue("/ldml/numbers/symbols/xxx"));
-        // symbols.setSignificantDigit(cldrFile.getStringValue("/ldml/numbers/symbols/patternDigit"));
+        // symbols.setPadEscape(cldrFile.getStringValue("//ldml/numbers/symbols/xxx"));
+        // symbols.setSignificantDigit(cldrFile.getStringValue("//ldml/numbers/symbols/patternDigit"));
 
-        symbols.setDecimalSeparator(cldrFile.getStringValue("/ldml/numbers/symbols/decimal").charAt(0));
-        symbols.setDigit(cldrFile.getStringValue("/ldml/numbers/symbols/patternDigit").charAt(0));
-        symbols.setExponentSeparator(cldrFile.getStringValue("/ldml/numbers/symbols/exponential"));
-        symbols.setGroupingSeparator(cldrFile.getStringValue("/ldml/numbers/symbols/group").charAt(0));
-        symbols.setInfinity(cldrFile.getStringValue("/ldml/numbers/symbols/infinity"));
-        symbols.setMinusSign(cldrFile.getStringValue("/ldml/numbers/symbols/minusSign").charAt(0));
-        symbols.setNaN(cldrFile.getStringValue("/ldml/numbers/symbols/nan"));
-        symbols.setPatternSeparator(cldrFile.getStringValue("/ldml/numbers/symbols/list").charAt(0));
-        symbols.setPercent(cldrFile.getStringValue("/ldml/numbers/symbols/percentSign").charAt(0));
-        symbols.setPerMill(cldrFile.getStringValue("/ldml/numbers/symbols/perMille").charAt(0));
-        symbols.setPlusSign(cldrFile.getStringValue("/ldml/numbers/symbols/plusSign").charAt(0));
-        symbols.setZeroDigit(cldrFile.getStringValue("/ldml/numbers/symbols/nativeZeroDigit").charAt(0));
+        symbols.setDecimalSeparator(cldrFile.getStringValue("//ldml/numbers/symbols/decimal").charAt(0));
+        symbols.setDigit(cldrFile.getStringValue("//ldml/numbers/symbols/patternDigit").charAt(0));
+        symbols.setExponentSeparator(cldrFile.getStringValue("//ldml/numbers/symbols/exponential"));
+        symbols.setGroupingSeparator(cldrFile.getStringValue("//ldml/numbers/symbols/group").charAt(0));
+        symbols.setInfinity(cldrFile.getStringValue("//ldml/numbers/symbols/infinity"));
+        symbols.setMinusSign(cldrFile.getStringValue("//ldml/numbers/symbols/minusSign").charAt(0));
+        symbols.setNaN(cldrFile.getStringValue("//ldml/numbers/symbols/nan"));
+        symbols.setPatternSeparator(cldrFile.getStringValue("//ldml/numbers/symbols/list").charAt(0));
+        symbols.setPercent(cldrFile.getStringValue("//ldml/numbers/symbols/percentSign").charAt(0));
+        symbols.setPerMill(cldrFile.getStringValue("//ldml/numbers/symbols/perMille").charAt(0));
+        symbols.setPlusSign(cldrFile.getStringValue("//ldml/numbers/symbols/plusSign").charAt(0));
+        symbols.setZeroDigit(cldrFile.getStringValue("//ldml/numbers/symbols/nativeZeroDigit").charAt(0));
 
         MyCurrency mc = null;
         if (isCurrency) {
-         	prefix = "/ldml/numbers/currencies/currency[@type=\"" + key1 + "\"]/";
+         	prefix = "//ldml/numbers/currencies/currency[@type=\"" + key1 + "\"]/";
         	// /ldml/numbers/currencies/currency[@type="GBP"]/symbol
          	// /ldml/numbers/currencies/currency[@type="GBP"]
          	

@@ -9,8 +9,10 @@ package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -34,6 +36,7 @@ import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.ICUPropertyFactory;
+import com.ibm.icu.dev.test.util.Tabber;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.test.util.UnicodeMap.Composer;
 import com.ibm.icu.lang.UCharacter;
@@ -68,8 +71,27 @@ public class CountItems {
         }
 	}
     
-    private static void getZoneEquivalences() {
-        StandardCodes sc = StandardCodes.make();
+    private static void getZoneEquivalences() throws IOException {
+//    	String tzid = "America/Argentina/ComodRivadavia";
+//    	TimeZone tz = TimeZone.getTimeZone(tzid);
+//    	int offset = tz.getOffset(new Date().getTime());
+//    	System.out.println(tzid + ":\t" + offset);
+//    	System.out.println("in available? " + Arrays.asList(TimeZone.getAvailableIDs()).contains(tzid));
+//    	System.out.println(new TreeSet(Arrays.asList(TimeZone.getAvailableIDs())));
+
+    	String needsTranslationString = "America/Buenos_Aires America/Rio_Branco "
+				+ "America/Campo_Grande America/Sao_Paulo "
+				+ "Australia/Perth, Australia/Darwin, Australia/Brisbane, Australia/Adelaide, Australia/Sydney, Australia/Hobart "
+				+ "America/Vancouver, America/Edmonton, America/Regina, America/Winnipeg, America/Toronto, America/Halifax, America/St_Johns "
+				+ "Asia/Jakarta "
+				+ "America/Tijuana, America/Hermosillo, America/Chihuahua, America/Mexico_City "
+				+ "Europe/Moscow "
+				+ "Pacific/Honolulu, America/Anchorage, America/Los_Angeles, America/Phoenix, America/Denver, America/Chicago, America/Indianapolis, America/New_York";
+    	Set needsTranslation = new TreeSet(Arrays.asList(needsTranslationString.split("[,]?\\s+")));
+    	Set singleCountries = new TreeSet(Arrays.asList("Africa/Bamako America/Godthab America/Santiago America/Guayaquil     Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti".split("\\s")));
+    	Set defaultItems = new TreeSet(Arrays.asList("Antarctica/McMurdo America/Buenos_Aires Australia/Sydney America/Sao_Paulo America/Toronto Africa/Kinshasa America/Santiago Asia/Shanghai America/Guayaquil Europe/Madrid Europe/London America/Godthab Asia/Jakarta Africa/Bamako America/Mexico_City Asia/Kuala_Lumpur Pacific/Auckland Europe/Lisbon Europe/Moscow Europe/Kiev America/New_York Asia/Tashkent Pacific/Tahiti Pacific/Kosrae Pacific/Tarawa Asia/Almaty Pacific/Majuro Asia/Ulaanbaatar Arctic/Longyearbyen Pacific/Midway".split("\\s")));
+    	
+    	StandardCodes sc = StandardCodes.make();
         Collection codes = sc.getGoodAvailableCodes("tzid");
         ArrayComparator ac = new ArrayComparator(new Comparator[] {ArrayComparator.COMPARABLE,ArrayComparator.COMPARABLE,ArrayComparator.COMPARABLE});
         Map zone_countries = sc.getZoneToCounty();
@@ -78,32 +100,81 @@ public class CountItems {
         for (Iterator it = codes.iterator(); it.hasNext();) {
             String zoneID = (String) it.next();
             String country = (String) zone_countries.get(zoneID);
-            java.util.TimeZone zone = java.util.TimeZone.getTimeZone(zoneID);            
+            TimeZone zone = TimeZone.getTimeZone(zoneID);            
             ZoneInflections zip = new ZoneInflections(zone);
             country_inflection_names.add(new Object[]{country, zip, zoneID});
         }
-        System.out.println("Modern Equivalents");
+        PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY,"modernTimezoneEquivalents.html");
+        out.println("<html>" +
+        		"<head>" +
+        		"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>" +
+        		"<title>Modern Equivalent Timezones</title><style>");
+        out.println("td.top,td.topr { border-top: 3px solid #0000FF }");
+        out.println("td.r,td.topr { text-align:right }");
+        out.println("</style>" +
+        		"</head>" +
+        		"<body>" +
+        		"<table border='1' style='border-collapse: collapse'>");
+        Tabber.HTMLTabber tabber1 = new Tabber.HTMLTabber();
+        tabber1.setParameters(3, "class='r'");
+        tabber1.setParameters(4, "class='r'");
+        Tabber.HTMLTabber tabber2 = new Tabber.HTMLTabber();
+        tabber2.setParameters(0, "class='top'");
+        tabber2.setParameters(1, "class='top'");
+        tabber2.setParameters(2, "class='top'");
+        tabber2.setParameters(3, "class='topr'");
+        tabber2.setParameters(4, "class='topr'");
+        out.println("<h1>Modern Equivalent Timezones: <a target='_blank' href='instructions.html'>Instructions</a></h1>");
+        out.println("<p>$Date$, $Revision$, MED</p>");
         String lastCountry = "";
         ZoneInflections lastZip = null;
         ZoneInflections.OutputLong diff = new ZoneInflections.OutputLong(0);
+        Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+        TimezoneFormatter tzf = new TimezoneFormatter(cldrFactory, "en", true);
+        long minimumDate = new Date(1999-1900,5,1).getTime();
+        Map country_zoneSet = sc.getCountryToZoneSet();
+        boolean shortList = true;
+        boolean first = true;
         for (Iterator it = country_inflection_names.iterator(); it.hasNext();) {
             Object[] row = (Object[]) it.next();
             String country = (String) row[0];
+            if (country.equals("001")) continue;
+            if (shortList && ((Set)country_zoneSet.get(country)).size() < 2) continue;
             ZoneInflections zip = (ZoneInflections) row[1];
             String zoneID = (String) row[2];
             int zipComp = zip.compareTo(lastZip, diff);
             
-            if (!country.equals(lastCountry)) System.out.println();
-            else if (diff.value != Long.MIN_VALUE) System.out.println("\t\t" + ICUServiceBuilder.isoDateFormat(diff.value));
-            
-            if (country.equals(lastCountry) && zipComp == 0) System.out.print("X");
-            System.out.println("\t" + country + "\t" + zoneID
-                    + "\t" + zip.formatHours(zip.getMinOffset())
-                    + "\t" + zip.formatHours(zip.getMaxOffset())
-                    );
+            Tabber tabber = tabber1;
+            if (!country.equals(lastCountry)) {
+            	if (first) first = false;
+            	else out.println("<tr><td colspan='5' bgcolor='silver'>&nbsp;</td></tr>");
+            }
+            else if (diff.value >= minimumDate) {
+            	//out.println(tabber.process("\tDiffers at:\t" + ICUServiceBuilder.isoDateFormat(diff.value)));
+            	tabber=tabber2;
+            }
+            String zoneIDShown = zoneID;
+            if (needsTranslation.contains(zoneID)) {
+            	zoneIDShown = "<b>" + zoneIDShown + " ¹</b>";
+            }
+            if (singleCountries.contains(zoneID)) {
+            	zoneIDShown = "<i>" + zoneIDShown + "</i> ²";
+            }
+            if (defaultItems.contains(zoneID)) {
+            	zoneIDShown = "<span style='background-color: #FFFF00'>" + zoneIDShown + "</span> ³";
+            }
+            //if (country.equals(lastCountry) && diff.value >= minimumDate) System.out.print("X");
+            out.println(tabber.process(country 
+            		+ "\t" + zoneIDShown
+            		+ "\t" + tzf.getFormattedZone(zoneID, "vvvv", minimumDate)
+                    + "\t" + zip.formatHours(zip.getMinOffset(minimumDate))
+                    + "\t" + zip.formatHours(zip.getMaxOffset(minimumDate))   
+                    ));
             lastCountry = country;
             lastZip = zip;
         }
+        out.println("</table></body></html>");
+        out.close();
     }
     /**
      * 
@@ -159,7 +230,7 @@ public class CountItems {
             System.out.print('.');
             String locale = (String)it.next();
             CLDRFile cldrfile = cldrFactory.make(locale, false);
-            String v = cldrfile.getStringValue("/ldml/characters/exemplarCharacters");
+            String v = cldrfile.getStringValue("//ldml/characters/exemplarCharacters");
             if (v == null) continue;
             UnicodeSet exemplars = new UnicodeSet(v);
             if (exemplars.size() != 0 && exemplars.size() < 500) {
@@ -310,7 +381,7 @@ public class CountItems {
 
         Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main" + File.separator, ".*");
         CLDRFile desiredLocaleFile = mainCldrFactory.make("root", true);
-        String temp = desiredLocaleFile.getFullXPath("/ldml/dates/timeZoneNames/singleCountries");
+        String temp = desiredLocaleFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
         String singleCountriesList = (String) new XPathParts(null, null).set(
                 temp).findAttributes("singleCountries").get("list");
         Set singleCountriesSet = new TreeSet(Utility.splitList(singleCountriesList, ' '));

@@ -195,7 +195,7 @@ public class Misc {
 		for (Iterator it = languages.iterator(); it.hasNext();) {
 			String language = (String)it.next();
 			CLDRFile desiredLocaleFile = cldrFactory.make(language, true);
-			String orientation = desiredLocaleFile.getFullXPath("/ldml/layout/orientation");
+			String orientation = desiredLocaleFile.getFullXPath("//ldml/layout/orientation");
 			boolean rtl = orientation == null ? false
 					: orientation.indexOf("[@characters=\"right-to-left\"]") >= 0;
 			// <orientation characters="right-to-left"/>
@@ -894,7 +894,7 @@ public class Misc {
 		PrintWriter log2 = BagFormatter.openUTF8Writer(options[DESTDIR].value + "", 
 				localization.getLocaleID() + "_to_localize.xml");
 		log2.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-		log2.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/" + CLDRFile.GEN_VERSION + "/ldml.dtd\">");
+		log2.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/" + CLDRFile.GEN_VERSION + "//ldml.dtd\">");
 		log2.println("<ldml><identity><version number=\"" + CLDRFile.GEN_VERSION + "\"/><generation date=\"2005-01-01\"/><language type=\""
 				+ BagFormatter.toXML.transliterate(localization.getLocaleID())+"\"/></identity>");
 		log2.println("<!-- The following are strings that are not found in the locale (currently), " +
@@ -988,7 +988,7 @@ public class Misc {
 		String name;
 		int pos = key.lastIndexOf('/');
 		if (pos >= 0) {
-			String v = localization.getStringValue("/ldml/dates/timeZoneNames/zone[@type=\"" + key + "\"]/exemplarCity");
+			String v = localization.getStringValue("//ldml/dates/timeZoneNames/zone[@type=\"" + key + "\"]/exemplarCity");
 			if (v != null) name = v;
 			else {
 			
@@ -1070,4 +1070,6 @@ public class Misc {
 		inTexButNotCLDR.removeAll(cldr);
 		System.out.println(" inTexButNotCLDR " + inTexButNotCLDR);
 	}
+	
+	
 }

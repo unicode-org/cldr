@@ -106,7 +106,7 @@ public class XPathParts {
 			comments[PREBLOCK] = new HashMap();
 			comments[POSTBLOCK] = new HashMap();
 		}
-		public Comments add(int style, String xpath, String comment) {
+		public Comments addComment(int style, String xpath, String comment) {
 			String existing = (String) comments[style].get(xpath);
 	        if (existing != null) {
 	        	comment = existing + XPathParts.NEWLINE + comment;
@@ -114,12 +114,12 @@ public class XPathParts {
 			comments[style].put(xpath, comment);
 			return this;
 		}
-		public String remove(int style, String xPath) {
+		public String removeComment(int style, String xPath) {
 			String result = (String) comments[style].get(xPath);
 			if (result != null) comments[style].remove(xPath);
 			return result;
 		}
-		public List removeFinal() {
+		public List extractCommentsWithoutBase() {
 			List result = new ArrayList();
 			for (int i = 0; i < comments.length; ++i) {
 				for (Iterator it = comments[i].keySet().iterator(); it.hasNext();) {
@@ -208,7 +208,7 @@ public class XPathParts {
 		if (index == 0) return this;
 		String xpath = toString(index);
 		Log.logln(DEBUGGING, "Checking for: " + xpath);
-		String comment = (String) xpath_comments.remove(style, xpath);
+		String comment = (String) xpath_comments.removeComment(style, xpath);
 		if (comment != null) {
 			XPathParts.writeComment(pw, index-1, comment, style != Comments.LINE);
 		}
@@ -319,18 +319,22 @@ public class XPathParts {
 	 * @return
 	 */
 	public XPathParts set(String xPath) {
-    	elements.clear();
-    	return setInternal(xPath);
+    	return addInternal(xPath, true);
 	}
 	
-	private XPathParts setInternal(String xPath) {
+	private XPathParts addInternal(String xPath, boolean initial) {
     	String lastAttributeName = "";
-    	if (xPath.length() == 0) return this;
-		if (xPath.charAt(0) != '/') return parseError(xPath, 0);
-		int stringStart = 1;
+    	//if (xPath.length() == 0) return this;
+    	String requiredPrefix = "/";
+    	if (initial) {
+        	elements.clear();
+        	requiredPrefix = "//";
+    	}
+    	if (!xPath.startsWith(requiredPrefix)) return parseError(xPath, 0);
+    	int stringStart = requiredPrefix.length(); // skip prefix
 		char state = 'p';
 		// since only ascii chars are relevant, use char
-		for (int i = 1; i < xPath.length(); ++i) {
+		for (int i = 2; i < xPath.length(); ++i) {
 			char cp = xPath.charAt(i);
 			if (cp != state && (state == '\"' || state == '\'')) continue; // stay in quotation
 			switch(cp) {
@@ -387,7 +391,7 @@ public class XPathParts {
 	}
 	
 	public String toString(int limit) {
-		String result = "";
+		String result = "/";
 		for (int i = 0; i < limit; ++i) {
 			result += ((Element)elements.get(i)).toString(XPATH_STYLE);
 		}
@@ -508,9 +512,13 @@ public class XPathParts {
 				String value = (String) attributes.get(attribute);
 				if (removeLDMLExtras && suppressionMap != null) {
 					Map attribute_value = (Map) suppressionMap.get(element);
+					if (attribute_value == null) attribute_value = (Map) suppressionMap.get("*");
 					if (attribute_value != null) {
 						Object suppressValue = attribute_value.get(attribute);
-						if (suppressValue != null && value.equals(suppressValue)) continue;
+						if (suppressValue == null) suppressValue = attribute_value.get("*");
+						if (suppressValue != null) {
+							if (value.equals(suppressValue) || suppressValue.equals("*")) continue;
+						}
 					}
 				}
 				result.append(prefix).append(attribute).append("=\"")
@@ -555,7 +563,7 @@ public class XPathParts {
 			}
 			if (!path.startsWith("/")) path = "/" + path;
 		}
-		return setInternal(path);
+		return addInternal(path, false);
 	}
 	/**
 	 */

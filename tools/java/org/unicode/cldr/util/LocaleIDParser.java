@@ -111,4 +111,31 @@ public class LocaleIDParser {
 	    if (localeName.equals("root") || localeName.equals(CLDRFile.SUPPLEMENTAL_NAME)) return null;
 	    return "root";
 	}
+	public LocaleIDParser setLanguage(String language) {
+		this.language = language;
+		return this;
+	}
+	public LocaleIDParser setRegion(String region) {
+		this.region = region;
+		return this;
+	}
+	public LocaleIDParser setScript(String script) {
+		this.script = script;
+		return this;
+	}
+	public LocaleIDParser setVariants(String[] variants) {
+		this.variants = (String[]) variants.clone();
+		return this;
+	}
+	public String toString() {
+		StringBuffer result = new StringBuffer(language);
+		if (script.length() != 0) result.append('_').append(script);
+		if (region.length() != 0) result.append('_').append(region);
+		if (variants != null) {
+			for (int i = 0; i < variants.length; ++i) {
+				result.append('_').append(variants[i]);
+			}
+		}
+		return result.toString();
+	}
 }

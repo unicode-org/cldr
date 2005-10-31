@@ -8,12 +8,13 @@
  */
 package org.unicode.cldr.util;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
+
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.ULocale;
 
 public class ZoneInflections implements Comparable {
     static private final long SECOND = 1000;
@@ -31,13 +32,31 @@ public class ZoneInflections implements Comparable {
     // computed below
     private int minOffset;
     private int maxOffset;    
-    List inflectionPoints = new ArrayList();
+    List inflectionPoints = new ArrayList(); // ordered most recently first
     
     public int getMaxOffset() {
         return maxOffset;
     }
     public int getMinOffset() {
         return minOffset;
+    }
+    public int getMaxOffset(long afterDateTime) {
+    	long minSoFar = Integer.MAX_VALUE;
+        for (int i = 0; i < inflectionPoints.size(); ++i) {
+        	InflectionPoint ip = (InflectionPoint) inflectionPoints.get(i);
+        	if (ip.utcDateTime < afterDateTime) break;
+        	if (ip.offset < minSoFar) minSoFar = ip.offset;
+        }
+        return (int)minSoFar;
+    }
+    public int getMinOffset(long afterDateTime) {
+    	long maxSoFar = Integer.MIN_VALUE;
+        for (int i = 0; i < inflectionPoints.size(); ++i) {
+        	InflectionPoint ip = (InflectionPoint) inflectionPoints.get(i);
+        	if (ip.utcDateTime < afterDateTime) break;
+        	if (ip.offset > maxSoFar) maxSoFar = ip.offset;
+        }
+        return (int)maxSoFar;
     }
     public String toString() {
         return inflectionPoints.toString();
@@ -170,7 +189,7 @@ public class ZoneInflections implements Comparable {
         return new Date(year-1900,month-1,day).getTime();
     }
     
-    static private final NumberFormat nf = NumberFormat.getInstance(Locale.US);
+    static private final NumberFormat nf = NumberFormat.getInstance(ULocale.US);
     
     static public String formatHours(int hours) {
         return nf.format(hours/ZoneInflections.DHOUR);

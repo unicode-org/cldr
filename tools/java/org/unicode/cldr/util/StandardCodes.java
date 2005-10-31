@@ -24,6 +24,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
 import com.ibm.icu.lang.UCharacter;
@@ -220,6 +221,7 @@ public class StandardCodes {
 				while (true) {
 					String line = originalLine = lstreg.readLine();
 					if (line == null) break;
+					line = line.trim();
 					int commentPos = line.indexOf('#');
 					String comment = "";
 					if (commentPos >= 0) {
@@ -864,5 +866,54 @@ public class StandardCodes {
 	public Map getZone_rules() {
 		getZoneData();
 		return zone_rules;
+	}
+	
+	private Map WorldBankInfo;
+	
+	public Map getWorldBankInfo() {
+		if (WorldBankInfo == null) {
+			List temp = fillFromCommaFile(Utility.UTIL_DATA_DIR, "WorldBankInfo.txt");
+			WorldBankInfo = new HashMap();
+			for (Iterator it = temp.iterator(); it.hasNext();) {
+				String line = (String)it.next();
+				List row = Utility.splitList(line, ';', true);
+				String key = (String)row.get(0);
+				row.remove(0);
+				WorldBankInfo.put(key, row);
+			}
+			Utility.protectCollection(WorldBankInfo);
+		}
+		return WorldBankInfo;
+	}
+	
+	Set MainTimeZones;
+	public Set getMainTimeZones() {
+		if (MainTimeZones == null) {
+			List temp = fillFromCommaFile(Utility.UTIL_DATA_DIR, "MainTimeZones.txt");
+			MainTimeZones = new TreeSet();
+			MainTimeZones.addAll(temp);
+			Utility.protectCollection(MainTimeZones);
+		}
+		return MainTimeZones;
+	}
+	
+	// produces a list of the 'clean' lines
+	private List fillFromCommaFile(String dir, String filename) {
+		try {
+			List result = new ArrayList();
+			String line;
+			BufferedReader lstreg = BagFormatter.openUTF8Reader(dir, filename);
+			while (true) {
+				line = lstreg.readLine();
+				if (line == null) break;
+				int commentPos = line.indexOf('#');
+				if (commentPos >= 0) line = line.substring(0, commentPos);
+				if (line.length() == 0) continue;
+				result.add(line);
+			}
+			return result;
+		} catch (Exception e) {
+			throw (RuntimeException) new IllegalArgumentException("Can't process file: " + dir + filename).initCause(e);
+		}
 	}
 }

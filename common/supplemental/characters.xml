@@ -9,17 +9,32 @@
 			<character value = " ">
 				<substitute> </substitute>
 			</character>
+			<character value = "©">
+				<substitute>(C)</substitute>
+			</character>
+			<character value = "«">
+				<substitute>&lt;&lt;</substitute>
+			</character>
 			<character value = "­">
 				<substitute>-</substitute>
 			</character>
+			<character value = "®">
+				<substitute>(R)</substitute>
+			</character>
+			<character value = "µ">
+				<substitute>μ</substitute>
+			</character>
+			<character value = "»">
+				<substitute>&gt;&gt;</substitute>
+			</character>
 			<character value = "¼">
-				<substitute>1/4</substitute>
+				<substitute> 1/4</substitute>
 			</character>
 			<character value = "½">
-				<substitute>1/2</substitute>
+				<substitute> 1/2</substitute>
 			</character>
 			<character value = "¾">
-				<substitute>3/4</substitute>
+				<substitute> 3/4</substitute>
 			</character>
 			<character value = "Æ">
 				<substitute>AE</substitute>
@@ -83,6 +98,9 @@
 			</character>
 			<character value = "ǳ">
 				<substitute>dz</substitute>
+			</character>
+			<character value = ";">
+				<substitute>;</substitute>
 			</character>
 			<character value = "‐">
 				<substitute>-</substitute>
@@ -161,6 +179,7 @@
 				<substitute>ILS</substitute>
 			</character>
 			<character value = "₫">
+				<substitute>đ</substitute>
 				<substitute>VND</substitute>
 			</character>
 			<character value = "€">
@@ -224,43 +243,43 @@
 				<substitute>FAX</substitute>
 			</character>
 			<character value = "⅓">
-				<substitute>1/3</substitute>
+				<substitute> 1/3</substitute>
 			</character>
 			<character value = "⅔">
-				<substitute>2/3</substitute>
+				<substitute> 2/3</substitute>
 			</character>
 			<character value = "⅕">
-				<substitute>1/5</substitute>
+				<substitute> 1/5</substitute>
 			</character>
 			<character value = "⅖">
-				<substitute>2/5</substitute>
+				<substitute> 2/5</substitute>
 			</character>
 			<character value = "⅗">
-				<substitute>3/5</substitute>
+				<substitute> 3/5</substitute>
 			</character>
 			<character value = "⅘">
-				<substitute>4/5</substitute>
+				<substitute> 4/5</substitute>
 			</character>
 			<character value = "⅙">
-				<substitute>1/6</substitute>
+				<substitute> 1/6</substitute>
 			</character>
 			<character value = "⅚">
-				<substitute>5/6</substitute>
+				<substitute> 5/6</substitute>
 			</character>
 			<character value = "⅛">
-				<substitute>1/8</substitute>
+				<substitute> 1/8</substitute>
 			</character>
 			<character value = "⅜">
-				<substitute>3/8</substitute>
+				<substitute> 3/8</substitute>
 			</character>
 			<character value = "⅝">
-				<substitute>5/8</substitute>
+				<substitute> 5/8</substitute>
 			</character>
 			<character value = "⅞">
-				<substitute>7/8</substitute>
+				<substitute> 7/8</substitute>
 			</character>
 			<character value = "⅟">
-				<substitute>1/</substitute>
+				<substitute> 1/</substitute>
 			</character>
 			<character value = "Ⅰ">
 				<substitute>I</substitute>
@@ -358,11 +377,27 @@
 			<character value = "ⅿ">
 				<substitute>m</substitute>
 			</character>
+			<character value = "∏">
+				<substitute>Π</substitute>
+			</character>
+			<character value = "∑">
+				<substitute>Σ</substitute>
+			</character>
 			<character value = "−">
 				<substitute>-</substitute>
 			</character>
 			<character value = "∕">
 				<substitute>/</substitute>
+			</character>
+			<character value = "∖">
+				<substitute>\</substitute>
+			</character>
+			<character value = "∣">
+				<substitute>|</substitute>
+			</character>
+			<character value = "∥">
+				<substitute>‖</substitute>
+				<substitute>||</substitute>
 			</character>
 			<character value = "⑴">
 				<substitute>(1)</substitute>

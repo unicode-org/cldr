@@ -90,8 +90,9 @@ public class CLDRFile implements Freezable {
 		private Comments xpath_comments = new Comments(); // map from paths to comments.
 		private Factory factory; // for now, fix later
 		
-		SimpleXMLSource(Factory factory) {
+		SimpleXMLSource(Factory factory, String localeID) {
 			this.factory = factory;
+			this.setLocaleID(localeID);
 		}
 		public String getValue(String xpath) {
 			return (String)xpath_value.get(xpath);
@@ -191,27 +192,6 @@ public class CLDRFile implements Freezable {
 			}
 		}
 
-//		public void addAliasPaths(XMLSource mySource, List aliases2, Set result) {
-//			for (Iterator it = mySource.keySet().iterator(); it.hasNext();) {
-//				String path = (String)it.next();
-//				for (Iterator it2 = aliases2.iterator(); it2.hasNext();) {
-//					Alias alias = (Alias) it2.next();
-//					if (path.startsWith(alias.newPath)) {
-//						String newPath = alias.oldPath + path.substring(alias.newPath.length());
-//						if (TRACE_VALUE) {
-//							System.out.println("source: " + mySource.getLocaleID());
-//							System.out.println("\tPath: " + path);
-//							System.out.println("\tAlias: " + alias);
-//							System.out.println("\tNew Path: " + newPath);
-//						}
-//						if (alias.newLocaleID == null) result.add(newPath);
-//						else {
-//							addAliasPaths(make(alias.newLocaleID), aliases2, result);
-//						}
-//					}
-//				}
-//			}			
-//		}
 		/*
 		 * If there is an alias, then inheritance gets tricky.
 		 * If there is a path //ldml/xyz/.../uvw/alias[@path=...][@source=...]
@@ -395,7 +375,7 @@ public class CLDRFile implements Freezable {
 			return mySource.getLocaleID();
 		}
 		
-		static XMLSource constructedItems = new SimpleXMLSource(null);
+		static XMLSource constructedItems = new SimpleXMLSource(null, null);
 		static {
 			StandardCodes sc = StandardCodes.make();
 			Map countries_zoneSet = sc.getCountryToZoneSet();
@@ -449,9 +429,9 @@ public class CLDRFile implements Freezable {
 		return dataSource.isSupplemental();
 	}
 
-	private CLDRFile(boolean isSupplemental){
-    	SimpleXMLSource source = new SimpleXMLSource(null);
-    	dataSource = source;
+	private CLDRFile(XMLSource dataSource){
+    	if (dataSource == null) dataSource = new SimpleXMLSource(null, null);
+    	this.dataSource = dataSource;
     	//source.xpath_value = isSupplemental ? new TreeMap() : new TreeMap(ldmlComparator);
     }
 	
@@ -460,7 +440,7 @@ public class CLDRFile implements Freezable {
      * @param localeName
      */
     public static CLDRFile make(String localeName) {
-    	CLDRFile result = new CLDRFile(localeName.equals(SUPPLEMENTAL_NAME));
+    	CLDRFile result = new CLDRFile(null);
 		result.dataSource.setLocaleID(localeName);
 		return result;
     }

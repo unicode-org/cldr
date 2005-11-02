@@ -1757,6 +1757,13 @@ private boolean isSupplemental;
 		return NameTable[type][0] + code + NameTable[type][1];
 	}
 	/**
+	 * @return the code used to access  data of a given type from the path. Null if not found.
+	 */
+	public static String getCode(String path) {
+		int type = getNameType(path);
+		return path.substring(NameTable[type][0].length(), path.length() - NameTable[type][1].length());
+	}
+	/**
 	 * Utility for getting the name, given a code.
 	 * @param type
 	 * @param code
@@ -2152,4 +2159,17 @@ private boolean isSupplemental;
     	}
 		return this;
 	}
+	
+	public UnicodeSet getExemplarSet(String type) {
+		if (type.length() != 0) type = "[@type=\"" + type + "\"]";
+		String v = getStringValue("//ldml/characters/exemplarCharacters" + type);
+		try {
+			UnicodeSet result = new UnicodeSet(v, UnicodeSet.CASE);
+			result.remove(0x20);
+			return result;
+		} catch (RuntimeException e) {
+			return null;
+		}
+	}
+
 }

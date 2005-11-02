@@ -263,16 +263,18 @@ public class XPathParts {
 	}
 	
 	/**
-	 * Get the nth element
+	 * Get the nth element. Negative values are from end
 	 */
 	public String getElement(int elementIndex) {
+		if (elementIndex < 0) elementIndex += size();
 		return ((Element)elements.get(elementIndex)).element;
 	}
 	
 	/**
-	 * Get the attributes for the nth element. Returns null or an empty map if there's nothing.
+	 * Get the attributes for the nth element (negative index is from end). Returns null or an empty map if there's nothing.
 	 */
 	public Map getAttributes(int elementIndex) {
+		if (elementIndex < 0) elementIndex += size();
 		return ((Element)elements.get(elementIndex)).attributes;
 	}
 	
@@ -319,6 +321,16 @@ public class XPathParts {
 	 * @return
 	 */
 	public XPathParts set(String xPath) {
+    	return addInternal(xPath, true);
+	}
+	
+	/**
+	 * Set an xpath, but ONLY if 'this' is clear (size = 0)
+	 * @param xPath
+	 * @return
+	 */
+	public XPathParts initialize(String xPath) {
+		if (size() != 0) return this;
     	return addInternal(xPath, true);
 	}
 	

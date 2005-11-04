@@ -5,7 +5,10 @@ import java.util.List;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XPathParts;
 
+import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 
 public class CheckForExemplars extends CheckCLDR {
 	private final UnicodeSet commonAndInherited = new UnicodeSet("[[:script=common:][:script=inherited:][:alphabetic=false:]]");
@@ -13,24 +16,32 @@ public class CheckForExemplars extends CheckCLDR {
 
 	UnicodeSet exemplars;
 	boolean skip;
+	Collator col;
+	Collator spaceCol;
 	
-	public CheckCLDR setCldrFileToCheck(CLDRFile cldrfile, List possibleErrors) {
-		if (cldrfile == null) return this;
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, List possibleErrors) {
+		if (cldrFile == null) return this;
 		skip = true;
-		super.setCldrFileToCheck(cldrfile, possibleErrors);
-		if (cldrfile.getLocaleID().equals("root")) {
+		super.setCldrFileToCheck(cldrFile, possibleErrors);
+		if (cldrFile.getLocaleID().equals("root")) {
 			return this;
 		}
-		exemplars = cldrfile.getExemplarSet("");
+		String locale = cldrFileToCheck.getLocaleID();
+        col = Collator.getInstance(new ULocale(locale));
+        spaceCol = Collator.getInstance(new ULocale(locale));
+        spaceCol.setStrength(col.PRIMARY);
+
+		CLDRFile resolvedFile = cldrFile.getResolved();
+		exemplars = resolvedFile.getExemplarSet("");
 		if (exemplars == null) {
 			CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
 			.setMessage("Failure to Initialize: {0} (need resolved locale)", new Object[]{this.getClass().getName()});
 			possibleErrors.add(item);
 			return this;
 		}
-		UnicodeSet temp = cldrfile.getExemplarSet("standard");
+		UnicodeSet temp = resolvedFile.getExemplarSet("standard");
 		if (temp != null) exemplars.addAll(temp);
-		UnicodeSet auxiliary = cldrfile.getExemplarSet("auxiliary");
+		UnicodeSet auxiliary = resolvedFile.getExemplarSet("auxiliary");
 		if (auxiliary != null) exemplars.addAll(auxiliary);
 		exemplars.addAll(commonAndInherited);
 		skip = false;
@@ -46,7 +57,9 @@ public class CheckForExemplars extends CheckCLDR {
 
 		if (exemplars.containsAll(value)) return this;
 		UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
-		CheckStatus item = new CheckStatus().setType(CheckStatus.errorType).setMessage("Not in exemplars: " + missing.toPattern(false));
+		String fixedMissing = CollectionUtilities.prettyPrint(missing, col, col, true);
+		CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
+			.setMessage("Not in exemplars: {0}", new Object[]{fixedMissing});
 		result.add(item);
 		return this;
 	}

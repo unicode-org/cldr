@@ -38,7 +38,8 @@ public class CheckExemplars extends CheckCLDR {
     	UnicodeSet exemplar1 = new UnicodeSet(v);
     	String fixedExemplar1 = CollectionUtilities.prettyPrint(exemplar1, col, col, true);
     	if (exemplar1.equals(fixedExemplar1)) return;
-    	CheckStatus item = new CheckStatus().setType(CheckStatus.warningType).setMessage("Should be formatted as {0}", new Object[]{fixedExemplar1});
+    	CheckStatus item = new CheckStatus().setType(CheckStatus.warningType)
+    	.setMessage("Should be formatted as {0}", new Object[]{fixedExemplar1});
     	result.add(item);
 	}
 }

@@ -216,7 +216,7 @@ public class CLDRFile implements Freezable {
 	    		if (parentAndPath.parentID == null) {
 	    			return constructedItems.getValue(xpath);
 	    		}
-	    		currentSource = factory.make(parentAndPath.parentID, false).dataSource;
+	    		currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
 				if (TRACE_VALUE) System.out.println("xpath: " + parentAndPath.path
 						+ "\r\n\tsource: " + currentSource.getClass().getName()
 						+ "\r\n\tlocale: " + currentSource.getLocaleID()
@@ -238,7 +238,7 @@ public class CLDRFile implements Freezable {
 	    		if (parentAndPath.parentID == null) {
 	    			return constructedItems.getFullXPath(xpath);
 	    		}
-	    		currentSource = factory.make(parentAndPath.parentID, false).dataSource;
+	    		currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
 	    		result = currentSource.getValue(parentAndPath.path);
 	    		if (result != null) {
 	    			result = currentSource.getFullXPath(parentAndPath.path);
@@ -296,7 +296,7 @@ public class CLDRFile implements Freezable {
 				}
 				XMLSource parentSource = constructedItems; // default
 	    		String parentID = LocaleIDParser.getParent(currentSource.getLocaleID());
-	    		if (parentID != null) parentSource = factory.make(parentID, false).dataSource;
+	    		if (parentID != null) parentSource = make(parentID); // factory.make(parentID, false).dataSource;
 	    		if (collectedAliases != null) {
 	    			if (excludedAliases == null) excludedAliases = new ArrayList();
 	    			else excludedAliases.addAll(collectedAliases);
@@ -313,7 +313,7 @@ public class CLDRFile implements Freezable {
     			// this is important. If the new source is null, use *this* (the desired locale)
     			XMLSource aliasSource = mySource;
     			if (foundAlias.newLocaleID != null) {
-    				aliasSource = factory.make(foundAlias.newLocaleID, false).dataSource;
+    				aliasSource = make(foundAlias.newLocaleID); // factory.make(foundAlias.newLocaleID, false).dataSource;
     			}
     			fillKeys(level+1, aliasSource, foundAlias, null, resultKeySet);
     		}
@@ -366,9 +366,9 @@ public class CLDRFile implements Freezable {
 		public Object freeze() {
 			throw new UnsupportedOperationException("Resolved CLDRFiles can't be locked");
 		}
-		public ResolvingSource(Factory factory, XMLSource source) {
+		public ResolvingSource(/*Factory factory, */XMLSource source) {
 			super();
-			this.factory = factory;
+			//this.factory = factory;
 			mySource = source;
 		}
 		public String getLocaleID() {
@@ -410,8 +410,7 @@ public class CLDRFile implements Freezable {
 	    	//System.out.println("constructedItems: " + constructedItems);
 		}
 		public XMLSource make(String localeID) {
-			// TODO Auto-generated method stub
-			return null;
+			return mySource.make(localeID);
 		}
 	}
 	
@@ -1210,7 +1209,7 @@ private boolean isSupplemental;
     			result = CLDRFile.make(localeName, localeName.equals(SUPPLEMENTAL_NAME) ? sourceDirectory + "../supplemental/" : sourceDirectory, includeDraft);
     	    	((SimpleXMLSource)result.dataSource).factory = this;
     			if (resolved) {
-    				XMLSource temp = new ResolvingSource(this, result.dataSource);
+    				XMLSource temp = new ResolvingSource(/*this, */ result.dataSource);
     				result.dataSource = temp;
 	    		} else {
 		    		result.freeze();	    			
@@ -2170,6 +2169,15 @@ private boolean isSupplemental;
 		} catch (RuntimeException e) {
 			return null;
 		}
+	}
+
+	transient CLDRFile resolvedVersion;
+	public CLDRFile getResolved() {
+		if (dataSource instanceof ResolvingSource) return this;
+		if (resolvedVersion == null) {
+			resolvedVersion = new CLDRFile(new ResolvingSource(dataSource));
+		}
+		return resolvedVersion;
 	}
 
 }

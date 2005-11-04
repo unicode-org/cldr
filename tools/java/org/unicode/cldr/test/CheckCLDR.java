@@ -71,7 +71,9 @@ abstract public class CheckCLDR {
 				String fullPath = file.getFullXPath(path);
 				checkCldr.check(path, fullPath, value, pathParts, fullPathParts, result);
 				for (Iterator it3 = result.iterator(); it3.hasNext();) {
-					System.out.println(com.ibm.icu.impl.Utility.escape(it3.next().toString()) + "\t" + com.ibm.icu.impl.Utility.escape(value) + "\t" + fullPath);
+					CheckStatus status = (CheckStatus) it3.next();
+					System.out.println(com.ibm.icu.impl.Utility.escape(status.toString()) + "\t" + com.ibm.icu.impl.Utility.escape(value) + "\t" + fullPath);
+					if (status.hasHTMLMessage()) System.out.println(status.getHTMLMessage());
 				}
 			}
 		}
@@ -85,6 +87,10 @@ abstract public class CheckCLDR {
 	 */
 	public CLDRFile getCldrFileToCheck() {
 		return cldrFileToCheck;
+	}
+
+	public CLDRFile getResolvedCldrFileToCheck() {
+		return cldrFileToCheck.getResolved();
 	}
 	/**
 	 * Set the CLDRFile. Must be done before calling check. If null is called, just skip
@@ -107,6 +113,7 @@ abstract public class CheckCLDR {
 		private String type;
 		private String messageFormat;
 		private Object[] parameters;
+		private String htmlMessage;
 		
 		public String getType() {
 			return type;
@@ -119,7 +126,15 @@ abstract public class CheckCLDR {
 			return MessageFormat.format(messageFormat, parameters);
 		}
 		public String getHTMLMessage() {
-			return getMessage(); // default
+			if (htmlMessage == null) return getMessage();
+			return htmlMessage;
+		}
+		public boolean hasHTMLMessage() {
+			return (htmlMessage != null);
+		}
+		public CheckStatus setHTMLMessage(String message) {
+			htmlMessage = message;
+			return this;
 		}
 		public CheckStatus setMessage(String message) {
 			this.messageFormat = message;
@@ -180,14 +195,30 @@ abstract public class CheckCLDR {
 				XPathParts pathParts, XPathParts fullPathParts, List result) {
 			for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
 				CheckCLDR item = (CheckCLDR) it.next();
-				item._check(path, fullPath, value, pathParts, fullPathParts, result);
+				try {
+					item._check(path, fullPath, value, pathParts, fullPathParts, result);
+				} catch (RuntimeException e) {
+			    	CheckStatus status = new CheckStatus().setType(CheckStatus.warningType)
+			    	.setMessage("Internal error in {0}. Exception: {1}, Message: {2}", 
+			    			new Object[]{item.getClass().getName(), e.getClass().getName(), e.getMessage()});
+			    	result.add(status);
+			    	return this;
+				}
 			}
 			return this;
 		}
 		public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
 			for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
 				CheckCLDR item = (CheckCLDR) it.next();
-				item.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
+				try {
+					item.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
+				} catch (RuntimeException e) {
+			    	CheckStatus status = new CheckStatus().setType(CheckStatus.warningType)
+			    	.setMessage("Internal error in {0}. Exception: {1}, Message: {2}", 
+			    			new Object[]{item.getClass().getName(), e.getClass().getName(), e.getMessage()});
+			    	possibleErrors.add(status);
+			    	return this;
+				}
 			}
 			return this;
 		}
@@ -220,6 +251,8 @@ abstract public class CheckCLDR {
 			.setFilter(Pattern.compile(nameMatcher).matcher(""))
 			.add(new CheckForExemplars())
 			.add(new CheckDisplayCollisions())
+			.add(new CheckExemplars())
+			.add(new CheckNumbers())
 		;
 	}
 	

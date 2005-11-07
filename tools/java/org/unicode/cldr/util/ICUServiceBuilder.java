@@ -1,8 +1,12 @@
 package org.unicode.cldr.util;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.TreeSet;
 
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
@@ -11,6 +15,9 @@ import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
@@ -62,8 +69,8 @@ public class ICUServiceBuilder {
 //    	return getDateFormat(cldrFile, dateIndex, timeIndex);
 //    }
     
-    public SimpleDateFormat getDateFormat(CLDRFile cldrFile, int dateIndex, int timeIndex) {
-    	String key = cldrFile.getLocaleID() + "," + dateIndex + "," + timeIndex;
+    public SimpleDateFormat getDateFormat(CLDRFile cldrFile, String calendar, int dateIndex, int timeIndex) {
+    	String key = cldrFile.getLocaleID() + "," + calendar + "," + dateIndex + "," + timeIndex;
     	SimpleDateFormat result = (SimpleDateFormat) dateFormatCache.get(key);
     	if (result != null) return (SimpleDateFormat) result.clone();
     	if (false && dateIndex == 2 && timeIndex == 0) {
@@ -73,32 +80,90 @@ public class ICUServiceBuilder {
         //Document doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale.toString(), false, false, false);
         //Node dates = LDMLUtilities.getNode(doc, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]");
 
-        String pattern;
-        if (DateFormatValues[timeIndex] == -1) pattern = getDateTimePattern(cldrFile, "date", DateFormatNames[dateIndex]);
-        else if (DateFormatValues[dateIndex] == -1) pattern = getDateTimePattern(cldrFile, "time", DateFormatNames[timeIndex]);
-        else {
-        	String p1 = getDateTimePattern(cldrFile, "date", DateFormatNames[dateIndex]);
-        	String p2 = getDateTimePattern(cldrFile, "time", DateFormatNames[timeIndex]);
-        	String p3 = getDateTimePattern(cldrFile, "dateTime", "");
-        	pattern = MessageFormat.format(p3, new String[]{p2, p1});
+        String pattern = getPattern(cldrFile, calendar, dateIndex, timeIndex);
+        
+        result = getFullFormat(cldrFile, calendar, pattern);
+		dateFormatCache.put(key, result);
+		//System.out.println("created " + key);
+        return result;
+    }
+
+    public SimpleDateFormat getDateFormat(CLDRFile cldrFile, String calendar, String pattern) {
+    	String key = cldrFile.getLocaleID() + "," + calendar + ",," + pattern;
+    	SimpleDateFormat result = (SimpleDateFormat) dateFormatCache.get(key);
+    	if (result != null) return (SimpleDateFormat) result.clone();
+        result = getFullFormat(cldrFile, calendar, pattern);
+		dateFormatCache.put(key, result);
+		//System.out.println("created " + key);
+        return result;
+    }
+
+    private SimpleDateFormat getFullFormat(CLDRFile cldrFile, String calendar, String pattern) {
+    	SimpleDateFormat gregorianBackup = null;
+    	boolean notGregorian = !calendar.equals("gregorian");
+    	
+		SimpleDateFormat result = new SimpleDateFormat(pattern, new ULocale(cldrFile.getLocaleID())); // formatData
+		// TODO Serious Hack, until #4915 is fixed
+        Calendar cal = Calendar.getInstance(new ULocale("en@calendar=" + calendar));
+        // TODO look these up and set them
+        //cal.setFirstDayOfWeek()
+        //cal.setMinimalDaysInFirstWeek()
+        cal.setTimeZone(utc);
+        result.setCalendar(cal);
+        String[] last = null;
+        
+		DateFormatSymbols formatData = new DateFormatSymbols();
+		String prefix = "//ldml/dates/calendars/calendar[@type=\""+ calendar + "\"]/";
+        formatData.setAmPmStrings(last = new String[] {
+        		cldrFile.getStringValue(prefix + "am"),
+				cldrFile.getStringValue(prefix + "pm")});
+        if (last[0] == null && notGregorian) {
+        	if (gregorianBackup == null) gregorianBackup = getFullFormat(cldrFile, "gregorian", pattern);
+        	formatData.setAmPmStrings(last = gregorianBackup.getDateFormatSymbols().getAmPmStrings());
         }
         
-        DateFormatSymbols formatData = new DateFormatSymbols();
-        String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]";
-        formatData.setAmPmStrings(new String[] {
-        		cldrFile.getStringValue(prefix + "/am"),
-				cldrFile.getStringValue(prefix + "/pm")});
+        List temp = getArray(cldrFile, prefix + "eras/eraAbbr/era[@type=\"", 0, null, "\"]", 2);
+        formatData.setEras(last = (String[])temp.toArray(new String[temp.size()]));
+        if (temp.size() < 2 && notGregorian) {
+        	if (gregorianBackup == null) gregorianBackup = getFullFormat(cldrFile, "gregorian", pattern);
+        	formatData.setEras(last = gregorianBackup.getDateFormatSymbols().getEras());
+        }
+         
+        temp = getArray(cldrFile, prefix + "eras/eraNames/era[@type=\"", 0, null, "\"]", 2);
+        formatData.setEraNames(last = (String[])temp.toArray(new String[temp.size()]));
+        if (temp.size() < 2 && notGregorian) {
+        	if (gregorianBackup == null) gregorianBackup = getFullFormat(cldrFile, "gregorian", pattern);
+        	formatData.setEraNames(last = gregorianBackup.getDateFormatSymbols().getEraNames());
+        }
+         
+        formatData.setMonths(last = getArray(cldrFile, prefix, "month", "format", "wide", null), DateFormatSymbols.FORMAT, DateFormatSymbols.WIDE);
+        if (last == null && notGregorian) {
+        	if (gregorianBackup == null) gregorianBackup = getFullFormat(cldrFile, "gregorian", pattern);
+        	formatData.setMonths(last = gregorianBackup.getDateFormatSymbols().getMonths());
+        }
         
-        formatData.setEras(new String[] {
-        		cldrFile.getStringValue(prefix + "/eras/eraAbbr/era[@type=\"0\"]"),
-				cldrFile.getStringValue(prefix + "/eras/eraAbbr/era[@type=\"1\"]")});
-        
-        //formatData.setLocalPatternChars("");
-        
-        formatData.setMonths(getArray(cldrFile, prefix, "month", "wide"));
-        formatData.setShortMonths(getArray(cldrFile, prefix, "month", "narrow"));
-        formatData.setShortWeekdays(getArray(cldrFile, prefix, "day", "narrow"));
-        formatData.setWeekdays(getArray(cldrFile, prefix, "day", "wide"));
+        formatData.setMonths(last = getArray(cldrFile, prefix, "month", "format", "abbreviated", last), DateFormatSymbols.FORMAT, DateFormatSymbols.ABBREVIATED);
+        formatData.setMonths(last = getArray(cldrFile, prefix, "month", "format", "narrow", last), DateFormatSymbols.FORMAT, DateFormatSymbols.NARROW);
+
+        formatData.setMonths(last = getArray(cldrFile, prefix, "month", "stand-alone", "wide", last), DateFormatSymbols.STANDALONE, DateFormatSymbols.WIDE);
+        formatData.setMonths(last = getArray(cldrFile, prefix, "month", "stand-alone", "abbreviated", last), DateFormatSymbols.STANDALONE, DateFormatSymbols.ABBREVIATED);
+        formatData.setMonths(last = getArray(cldrFile, prefix, "month", "stand-alone", "narrow", last), DateFormatSymbols.STANDALONE, DateFormatSymbols.NARROW);
+
+        //formatData.setWeekdays(last = getArray(cldrFile, prefix, "day", "format", "wide", null), DateFormatSymbols.FORMAT, DateFormatSymbols.WIDE);
+        formatData.setWeekdays(last = getArray(cldrFile, prefix, "day", "format", "wide", null));
+        if (last == null && notGregorian) {
+        	if (gregorianBackup == null) gregorianBackup = getFullFormat(cldrFile, "gregorian", pattern);
+        	formatData.setWeekdays(last = gregorianBackup.getDateFormatSymbols().getWeekdays());
+        }
+ 
+        formatData.setWeekdays(last = getArray(cldrFile, prefix, "day", "format", "abbreviated", last), DateFormatSymbols.FORMAT, DateFormatSymbols.ABBREVIATED);
+        formatData.setWeekdays(last = getArray(cldrFile, prefix, "day", "format", "narrow", last), DateFormatSymbols.FORMAT, DateFormatSymbols.NARROW);
+
+        formatData.setWeekdays(last = getArray(cldrFile, prefix, "day", "stand-alone", "wide", last), DateFormatSymbols.STANDALONE, DateFormatSymbols.WIDE);
+        formatData.setWeekdays(last = getArray(cldrFile, prefix, "day", "stand-alone", "abbreviated", last), DateFormatSymbols.STANDALONE, DateFormatSymbols.ABBREVIATED);
+        formatData.setWeekdays(last = getArray(cldrFile, prefix, "day", "stand-alone", "narrow", last), DateFormatSymbols.STANDALONE, DateFormatSymbols.NARROW);
+
+        result.setDateFormatSymbols(formatData);
         //formatData.setZoneStrings();   
         
         
@@ -108,20 +173,29 @@ public class ICUServiceBuilder {
         numberFormat.setParseIntegerOnly(true); /* So that dd.MM.yy can be parsed */
         numberFormat.setMinimumFractionDigits(0); // To prevent "Jan 1.00, 1997.00"
         
-		result = new SimpleDateFormat(pattern, new ULocale(cldrFile.getLocaleID())); // formatData
 		result.setNumberFormat((NumberFormat)numberFormat.clone());
-        result.setTimeZone(utc);
-		dateFormatCache.put(key, result);
-		//System.out.println("created " + key);
-        return result;
-    }
+		return result;
+	}
+	private String getPattern(CLDRFile cldrFile, String calendar, int dateIndex, int timeIndex) {
+		String pattern;
+        if (DateFormatValues[timeIndex] == -1) pattern = getDateTimePattern(cldrFile, calendar, "date", DateFormatNames[dateIndex]);
+        else if (DateFormatValues[dateIndex] == -1) pattern = getDateTimePattern(cldrFile, calendar, "time", DateFormatNames[timeIndex]);
+        else {
+        	String p1 = getDateTimePattern(cldrFile, calendar, "date", DateFormatNames[dateIndex]);
+        	String p2 = getDateTimePattern(cldrFile, calendar, "time", DateFormatNames[timeIndex]);
+        	String p3 = getDateTimePattern(cldrFile, calendar, "dateTime", "");
+        	pattern = MessageFormat.format(p3, new String[]{p2, p1});
+        }
+		return pattern;
+	}
 
     /**
+     * @param calendar TODO
 	 * 
 	 */
-	private static String getDateTimePattern(CLDRFile cldrFile, String dateOrTime, String type) {
+	private static String getDateTimePattern(CLDRFile cldrFile, String calendar, String dateOrTime, String type) {
 		if (type.length() > 0) type = "[@type=\"" + type + "\"]";
-		String key = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/"
+		String key = "//ldml/dates/calendars/calendar[@type=\"" + calendar + "\"]/"
 			+ dateOrTime + "Formats/" 
 			+ dateOrTime + "FormatLength"
 			+ type + "/" + dateOrTime + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]";
@@ -130,18 +204,38 @@ public class ICUServiceBuilder {
 		if (value == null) throw new IllegalArgumentException("locale: " + cldrFile.getLocaleID() + "\tpath: " + key + "\r\nvalue: " + value);
 		return value;
 	}
+
+    private String[] getArray(CLDRFile cldrFile, String key, String type, String context, String width, String[] fallback) {
+		String prefix = key + type + "s/" 
+				+ type + "Context[@type=\"" + context + "\"]/"
+				+ type + "Width[@type=\"" + width + "\"]/"
+				+ type + "[@type=\"";
+		String postfix = "\"]";
+		boolean isDay = type.equals("day");
+		List temp = getArray(cldrFile, prefix, isDay ? 0 : 1, isDay ? Days : null, postfix, isDay ? 7 : 12);
+		if (isDay) temp.add(0,"");
+		String[] result = (String[])temp.toArray(new String[temp.size()]);
+		if (result.length == 0 && fallback != null) {
+			result = (String[])fallback.clone();
+		}
+		return result;
+    }
     
-    private String[] getArray(CLDRFile cldrFile, String key, String type, String width) {
-    	boolean isMonth = type.equals("month");
-    	int length = isMonth ? 12 : 7;
-    	String[] result = new String[length];
-    	for (int i = 0; i < length; ++i) {
-    		String lastType = isMonth ? String.valueOf(i) : Days[i];
-    		String item = cldrFile.getStringValue(key +
-    				"/" + type + "s/"
-					+ type + "Context[@type=\"format\"]/"
-					+ type + "Width[@type=\"" + width + "\"]/"
-					+ type + "[@type=\"" + lastType + "\"]");
+    private List getArray(CLDRFile cldrFile, String prefix, int firstIndex, String[] itemNames, String postfix, int minimumSize) {
+    	//int length = isMonth ? 12 : 7;
+    	//String[] result = new String[length];
+    	ArrayList result = new ArrayList();
+    	String lastType;
+    	for (int i = firstIndex; ; ++i) {
+    		lastType = itemNames != null && i < itemNames.length ? itemNames[i] : String.valueOf(i);
+    		String item = cldrFile.getStringValue(prefix + lastType + postfix);
+    		if (item == null) break;
+    		result.add(item);
+    	}
+    	if (result.size() < minimumSize) {
+    		Collection s = cldrFile.keySet(".*gregorian.*months.*", new TreeSet());
+    		String item = cldrFile.getStringValue(prefix + lastType + postfix);
+    		//throw new IllegalArgumentException("Can't find enough items");
     	}
     	/* <months>
 		<monthContext type="format">
@@ -185,7 +279,17 @@ public class ICUServiceBuilder {
     				: nameStyle == 2 ? displayName
     				: null;
     	    if (result == null) throw new IllegalArgumentException();
-    	    isChoiceFormat[0] = result.indexOf('|') >= 0; // hack, but should work
+    	    // snagged from currency
+    	    isChoiceFormat[0] = false;
+            int i=0;
+            while (i < result.length() && result.charAt(i) == '=' && i < 2) {
+                ++i;
+            }
+            isChoiceFormat[0]= (i == 1);
+            if (i != 0) {
+                // Skip over first mark
+                result = result.substring(1);
+            }
     	    return result;
     	}
     	
@@ -216,33 +320,30 @@ public class ICUServiceBuilder {
         }
     }
     
+    static int CURRENCY = 0, OTHER_KEY = 1, PATTERN = 2;
+    
     public DecimalFormat getCurrencyFormat(CLDRFile cldrFile, String currency) {
         //CLDRFile cldrFile = cldrFactory.make(localeID, true);
-    	return _getNumberFormat(cldrFile, currency, true);
+    	return _getNumberFormat(cldrFile, currency, CURRENCY);
     }
 
     public DecimalFormat getNumberFormat(CLDRFile cldrFile, int index) {
         //CLDRFile cldrFile = cldrFactory.make(localeID, true);
-    	return _getNumberFormat(cldrFile, NumberNames[index], false);
+    	return _getNumberFormat(cldrFile, NumberNames[index], OTHER_KEY);
     }
 
-    private DecimalFormat _getNumberFormat(CLDRFile cldrFile, String key1, boolean isCurrency) {
+    public DecimalFormat getNumberFormat(CLDRFile cldrFile, String pattern) {
+        //CLDRFile cldrFile = cldrFactory.make(localeID, true);
+    	return _getNumberFormat(cldrFile, pattern, PATTERN);
+    }
+
+    private DecimalFormat _getNumberFormat(CLDRFile cldrFile, String key1, int kind) {
     	ULocale ulocale = new ULocale(cldrFile.getLocaleID());
-    	String key = ulocale + "," + key1;
+    	String key = ulocale + "/" + key1 + "/" + kind;
     	DecimalFormat result = (DecimalFormat) numberFormatCache.get(key);
     	if (result != null) return result;
 
-        String prefix = "//ldml/numbers/";
-        String type = key1;
-        if (isCurrency) type = "currency";
-        else if (key1.equals("integer")) type = "decimal";
-        String path = prefix
-		+ type + "Formats/" 
-		+ type + "FormatLength/"
-		+ type + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]";
-        
-        String pattern = cldrFile.getStringValue(path);
-        if (pattern == null) throw new IllegalArgumentException("locale: " + ulocale + "\tpath: " + path);
+        String pattern = kind == PATTERN ? key1 : getPattern(cldrFile, key1, kind);
         
         DecimalFormatSymbols symbols = new DecimalFormatSymbols();
         
@@ -264,13 +365,44 @@ public class ICUServiceBuilder {
         symbols.setZeroDigit(cldrFile.getStringValue("//ldml/numbers/symbols/nativeZeroDigit").charAt(0));
 
         MyCurrency mc = null;
-        if (isCurrency) {
-         	prefix = "//ldml/numbers/currencies/currency[@type=\"" + key1 + "\"]/";
+        if (kind == CURRENCY) {
+        	String prefix = "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/";
+        	UnicodeSet beforeCurrencyMatch = new UnicodeSet(cldrFile.getStringValue(prefix + "currencyMatch"));
+        	UnicodeSet beforeSurroundingMatch = new UnicodeSet(cldrFile.getStringValue(prefix + "surroundingMatch"));
+        	String beforeInsertBetween = cldrFile.getStringValue(prefix + "insertBetween");
+        	prefix = "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/";
+        	UnicodeSet afterCurrencyMatch = new UnicodeSet(cldrFile.getStringValue(prefix + "currencyMatch"));
+        	UnicodeSet afterSurroundingMatch = new UnicodeSet(cldrFile.getStringValue(prefix + "surroundingMatch"));
+        	String afterInsertBetween = cldrFile.getStringValue(prefix + "insertBetween");
+        	
+        	prefix = "//ldml/numbers/currencies/currency[@type=\"" + key1 + "\"]/";
         	// /ldml/numbers/currencies/currency[@type="GBP"]/symbol
          	// /ldml/numbers/currencies/currency[@type="GBP"]
+        	
+        	String symbol = cldrFile.getStringValue(prefix + "symbol");
+        	
+        	// TODO This is a hack for now, since I am ignoring the possibility of quoted text next to the symbol
+        	int startPos = pattern.indexOf('¤');
+        	if (startPos > 0 
+        			&& beforeCurrencyMatch.contains(UTF16.charAt(symbol,0))) {
+        		int ch = UTF16.charAt(pattern, startPos-1);
+        		if (ch == '#') ch = '0';// fix pattern
+        		if (beforeSurroundingMatch.contains(ch)) {
+        			pattern = pattern.substring(0,startPos) + beforeInsertBetween + pattern.substring(startPos);
+        		}
+        	}
+        	int endPos = pattern.lastIndexOf('¤') + 1;
+        	if (endPos < pattern.length() 
+        			&& afterCurrencyMatch.contains(UTF16.charAt(symbol,symbol.length()-1))) {
+        		int ch = UTF16.charAt(pattern, endPos);
+        		if (ch == '#') ch = '0';// fix pattern
+        		if (afterSurroundingMatch.contains(ch)) {
+        			pattern = pattern.substring(0,endPos) + afterInsertBetween + pattern.substring(endPos);
+        		}
+        	}
          	
         	mc = new MyCurrency(key1, 
-        			cldrFile.getStringValue(prefix + "symbol"), 
+        			symbol, 
         			cldrFile.getStringValue(prefix + "displayName"),
 					null, null);
         	
@@ -294,7 +426,7 @@ public class ICUServiceBuilder {
 	        DecimalFormat n2 = (DecimalFormat) NumberFormat.getScientificInstance(ulocale);
 	        System.out.println("\tresult: " + n2.toPattern() + "\t0=>" + n2.format(0));
 	        }
-        if (key1.equals("integer")) {
+        if (kind == OTHER_KEY && key1.equals("integer")) {
         	result.setMaximumFractionDigits(0);
         	result.setDecimalSeparatorAlwaysShown(false);
         	result.setParseIntegerOnly(true);
@@ -302,5 +434,19 @@ public class ICUServiceBuilder {
         numberFormatCache.put(key, result);
         return result;
     }
+	private String getPattern(CLDRFile cldrFile, String key1, int isCurrency) {
+		String prefix = "//ldml/numbers/";
+        String type = key1;
+        if (isCurrency == CURRENCY) type = "currency";
+        else if (key1.equals("integer")) type = "decimal";
+        String path = prefix
+		+ type + "Formats/" 
+		+ type + "FormatLength/"
+		+ type + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]";
+        
+        String pattern = cldrFile.getStringValue(path);
+        if (pattern == null) throw new IllegalArgumentException("locale: " + cldrFile.getLocaleID() + "\tpath: " + path);
+		return pattern;
+	}
 
 }

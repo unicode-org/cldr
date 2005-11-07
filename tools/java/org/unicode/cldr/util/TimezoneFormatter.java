@@ -94,9 +94,9 @@ public class TimezoneFormatter {
 		String hourFormatString = getStringValue("//ldml/dates/timeZoneNames/hourFormat");
 		String[] hourFormatStrings = Utility.splitArray(hourFormatString,';');
 		ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
-		hourFormatPlus = icuServiceBuilder.getDateFormat(desiredLocaleFile,0,1);
+		hourFormatPlus = icuServiceBuilder.getDateFormat(desiredLocaleFile,"gregorian",0, 1);
 		hourFormatPlus.applyPattern(hourFormatStrings[0]);
-		hourFormatMinus = icuServiceBuilder.getDateFormat(desiredLocaleFile,0,1);
+		hourFormatMinus = icuServiceBuilder.getDateFormat(desiredLocaleFile,"gregorian",0, 1);
 		hourFormatMinus.applyPattern(hourFormatStrings[1]);
 		gmtFormat = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/gmtFormat"));
 		regionFormat = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/regionFormat"));

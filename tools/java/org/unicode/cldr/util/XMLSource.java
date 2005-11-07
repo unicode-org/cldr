@@ -151,6 +151,7 @@ public abstract class XMLSource implements Freezable {
 	abstract public void remove(String xpath);
 	abstract public Set keySet();
 	abstract public XMLSource make(String localeID);
+	abstract public Set getAvailableLocales();
 	/**
 	 * Warning: must be overriden
 	 */

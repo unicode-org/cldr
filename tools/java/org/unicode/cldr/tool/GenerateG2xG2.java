@@ -159,7 +159,7 @@ public class GenerateG2xG2 {
 			String v = sourceData.getStringValue("//ldml/characters/exemplarCharacters");
 			UnicodeSet exemplars = new UnicodeSet(v);
 			if (exemplars.contains('a', 'z')) continue;
-			checkItems(pw, title, sourceData, sourceData.TZID, targetTZSet);
+			checkItems(pw, title, sourceData, sourceData.TZ_EXEMPLAR, targetTZSet);
 		}
 		pw.println();
 		pw.println("Sizes - incremental");
@@ -315,7 +315,7 @@ private static void showExample(RuleBasedCollator col) {
 	}
 	private static int getType(String item) {
 		int type = CLDRFile.LANGUAGE_NAME;
-		if (item.indexOf('/') >= 0) type = CLDRFile.TZID; // America/Los_Angeles
+		if (item.indexOf('/') >= 0) type = CLDRFile.TZ_EXEMPLAR; // America/Los_Angeles
 		else if (item.length() == 4) type = CLDRFile.SCRIPT_NAME; // Hant
 		else if (item.charAt(0) <= '9') type = CLDRFile.TERRITORY_NAME; // 001
 		else if (item.charAt(0) < 'a') {
@@ -327,7 +327,7 @@ private static void showExample(RuleBasedCollator col) {
 	private static String getTypeName(String item) {
 		switch(getType(item)) {
 		case CLDRFile.LANGUAGE_NAME: return "Lang";
-		case CLDRFile.TZID: return "Zone";
+		case CLDRFile.TZ_EXEMPLAR: return "Zone";
 		case CLDRFile.SCRIPT_NAME: return "Script";
 		case CLDRFile.TERRITORY_NAME: return "Region";
 		case CLDRFile.CURRENCY_NAME: return "Curr.";
@@ -338,7 +338,7 @@ private static void showExample(RuleBasedCollator col) {
 		String result;
 		if (type == data.LANGUAGE_NAME) {
 			result = data.getName(item, false);
-		} else if (type != data.TZID) {
+		} else if (type != data.TZ_EXEMPLAR) {
 			result = data.getName(type, item, false);
 		} else {
 			String prefix = "//ldml/dates/timeZoneNames/zone[@type=\"" + item + "\"]/exemplarCity";

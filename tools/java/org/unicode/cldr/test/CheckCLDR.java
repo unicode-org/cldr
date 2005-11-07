@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,7 +17,8 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import com.ibm.icu.text.MessageFormat;
 
 abstract public class CheckCLDR {
-	protected CLDRFile cldrFileToCheck;
+	private CLDRFile cldrFileToCheck;
+	private CLDRFile resolvedCldrFileToCheck;
 	private static CLDRFile displayInformation;
 	
 	/**
@@ -30,7 +32,7 @@ abstract public class CheckCLDR {
 	public static void setDisplayInformation(CLDRFile displayInformation) {
 		CheckCLDR.displayInformation = displayInformation;
 	}
-		
+	
 	/**
 	 * This will be the test framework way of using these tests. It is preliminary for now.
 	 * The Survey Tool will call setDisplayInformation, and getCheckAll.
@@ -56,6 +58,7 @@ abstract public class CheckCLDR {
 		List result = new ArrayList();
 		XPathParts pathParts = new XPathParts(null, null);
 		XPathParts fullPathParts = new XPathParts(null, null);
+		Set paths = new TreeSet(CLDRFile.ldmlComparator);
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String localeID = (String) it.next();
 			System.out.println(getLocaleAndName(localeID));
@@ -64,7 +67,8 @@ abstract public class CheckCLDR {
 			for (Iterator it3 = result.iterator(); it3.hasNext();) {
 				System.out.println(it3.next().toString());
 			}
-			Set paths = file.keySet();
+			paths.clear();
+			paths.addAll(file.keySet());
 			for (Iterator it2 = paths.iterator(); it2.hasNext();) {
 				String path = (String) it2.next();
 				String value = file.getStringValue(path);
@@ -72,8 +76,16 @@ abstract public class CheckCLDR {
 				checkCldr.check(path, fullPath, value, pathParts, fullPathParts, result);
 				for (Iterator it3 = result.iterator(); it3.hasNext();) {
 					CheckStatus status = (CheckStatus) it3.next();
-					System.out.println(com.ibm.icu.impl.Utility.escape(status.toString()) + "\t" + com.ibm.icu.impl.Utility.escape(value) + "\t" + fullPath);
-					if (status.hasHTMLMessage()) System.out.println(status.getHTMLMessage());
+					String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
+					System.out.println("Value: " + value + "\t Full Path: " + fullPath);
+					System.out.println("\t" + statusString);
+					Object[] parameters = status.getParameters();
+					for (int i = 0; i < parameters.length; ++i) {
+						if (parameters[i] instanceof Throwable) {
+							((Throwable)parameters[i]).printStackTrace();
+						}
+					}
+					// survey tool will use: if (status.hasHTMLMessage()) System.out.println(status.getHTMLMessage());
 				}
 			}
 		}
@@ -90,7 +102,8 @@ abstract public class CheckCLDR {
 	}
 
 	public CLDRFile getResolvedCldrFileToCheck() {
-		return cldrFileToCheck.getResolved();
+		if (resolvedCldrFileToCheck == null) resolvedCldrFileToCheck = cldrFileToCheck.getResolved();
+		return resolvedCldrFileToCheck;
 	}
 	/**
 	 * Set the CLDRFile. Must be done before calling check. If null is called, just skip
@@ -103,6 +116,7 @@ abstract public class CheckCLDR {
 	 */
 	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
 		this.cldrFileToCheck = cldrFileToCheck;
+		resolvedCldrFileToCheck = null;
 		return this;
 	}
 	/**
@@ -147,6 +161,12 @@ abstract public class CheckCLDR {
 		}
 		public String toString() {
 			return getType() + ": " + getMessage();
+		}
+		public Object[] getParameters() {
+			return (Object[]) parameters.clone();
+		}
+		public void setParameters(Object[] parameters) {
+			this.parameters = parameters;
 		}
 	}
 	/**
@@ -198,6 +218,7 @@ abstract public class CheckCLDR {
 				try {
 					item._check(path, fullPath, value, pathParts, fullPathParts, result);
 				} catch (RuntimeException e) {
+					e.printStackTrace();
 			    	CheckStatus status = new CheckStatus().setType(CheckStatus.warningType)
 			    	.setMessage("Internal error in {0}. Exception: {1}, Message: {2}", 
 			    			new Object[]{item.getClass().getName(), e.getClass().getName(), e.getMessage()});
@@ -253,6 +274,8 @@ abstract public class CheckCLDR {
 			.add(new CheckDisplayCollisions())
 			.add(new CheckExemplars())
 			.add(new CheckNumbers())
+			.add(new CheckChildren())
+			.add(new CheckDates())
 		;
 	}
 	

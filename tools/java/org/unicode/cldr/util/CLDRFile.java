@@ -152,10 +152,13 @@ public class CLDRFile implements Freezable {
 			if (file == null) return null;
 			return file.dataSource;
 		}
+		public Set getAvailableLocales() {
+			return factory.getAvailable();
+		}
 	}
 	
 	private static class ResolvingSource extends XMLSource {
-		private Factory factory;
+//		private Factory factory;
 		private XMLSource mySource;
 		private transient ParentAndPath parentAndPath = new ParentAndPath();
 		
@@ -273,7 +276,7 @@ public class CLDRFile implements Freezable {
 					}
     			}
     			if (excludedAliases != null && startsWith(path, excludedAliases)) {
-    				System.out.println("Skipping: " + path);
+    				//System.out.println("Skipping: " + path);
     				continue;
     			}
     			if (path.indexOf("/alias") >= 0) { // quick check
@@ -382,11 +385,13 @@ public class CLDRFile implements Freezable {
 			Map zone_countries = sc.getZoneToCounty();
 			
 			//Set types = sc.getAvailableTypes();
-			for (int typeNo = 0; typeNo < LIMIT_TYPES; ++typeNo ) {
-				String type = TYPE_NAME[typeNo];
+			for (int typeNo = 0; typeNo <= TZ_START; ++typeNo ) {
+				String type = getNameName(typeNo);
 				//int typeNo = typeNameToCode(type);
 				//if (typeNo < 0) continue;
-				String type2 = (typeNo == CURRENCY_SYMBOL) ? TYPE_NAME[CURRENCY_NAME] : type;
+				String type2 = (typeNo == CURRENCY_SYMBOL) ? getNameName(CURRENCY_NAME)
+						: (typeNo >= TZ_START) ? "tzid"
+						: type;				
 				Set codes = sc.getAvailableCodes(type2);
 				String prefix = NameTable[typeNo][0];
 				String postfix = NameTable[typeNo][1];
@@ -394,7 +399,7 @@ public class CLDRFile implements Freezable {
 				for (Iterator codeIt = codes.iterator(); codeIt.hasNext(); ) {
 					String code = (String)codeIt.next();
 					String value = code;
-					if (typeNo == TZID) { // skip single-zone countries
+					if (typeNo == TZ_EXEMPLAR) { // skip single-zone countries
 						String country = (String) zone_countries.get(code);
 						Set s = (Set) countries_zoneSet.get(country);
 						if (s != null && s.size() == 1) continue;
@@ -412,6 +417,9 @@ public class CLDRFile implements Freezable {
 		public XMLSource make(String localeID) {
 			return mySource.make(localeID);
 		}
+		public Set getAvailableLocales() {
+			return mySource.getAvailableLocales();
+		}
 	}
 	
 	public String toString() {
@@ -428,8 +436,14 @@ public class CLDRFile implements Freezable {
 		return dataSource.isSupplemental();
 	}
 
-	private CLDRFile(XMLSource dataSource){
+	public CLDRFile(XMLSource dataSource, boolean resolved){
     	if (dataSource == null) dataSource = new SimpleXMLSource(null, null);
+    	if (resolved && !(dataSource instanceof ResolvingSource)) {
+    		dataSource = new ResolvingSource(dataSource);
+    	}
+    	if (!resolved && (dataSource instanceof ResolvingSource)) {
+    		dataSource = ((ResolvingSource)dataSource).mySource;
+    	}
     	this.dataSource = dataSource;
     	//source.xpath_value = isSupplemental ? new TreeMap() : new TreeMap(ldmlComparator);
     }
@@ -439,7 +453,7 @@ public class CLDRFile implements Freezable {
      * @param localeName
      */
     public static CLDRFile make(String localeName) {
-    	CLDRFile result = new CLDRFile(null);
+    	CLDRFile result = new CLDRFile(null, false);
 		result.dataSource.setLocaleID(localeName);
 		return result;
     }
@@ -1704,11 +1718,18 @@ private boolean isSupplemental;
 	}
 	
 	public Collection keySet(Matcher regexMatcher, Collection output) {
+		if (output == null) output = new ArrayList(0);
 		for (Iterator it = keySet().iterator(); it.hasNext();) {
 			String path = (String)it.next();
-			if (regexMatcher.reset(path).matches()) output.add(path);
+			if (regexMatcher.reset(path).matches()) {
+				output.add(path);
+			}
 		}
 		return output;
+	}
+	
+	public Collection keySet(String regexPattern, Collection output) {
+		return keySet(Pattern.compile(regexPattern).matcher(""), output);
 	}
 	
 	/**
@@ -1729,12 +1750,21 @@ private boolean isSupplemental;
 	 */
 	public static String getNameTypeName(int index) {
 		try {
-			return TYPE_NAME[index];
+			return getNameName(index);
 		} catch (Exception e) {
 			return "Illegal Type Name: " + index;
 		}
 	}
 	
+	public static final int NO_NAME = -1, LANGUAGE_NAME = 0, SCRIPT_NAME = 1, TERRITORY_NAME = 2, VARIANT_NAME = 3,
+	CURRENCY_NAME = 4, CURRENCY_SYMBOL = 5, 
+	TZ_EXEMPLAR = 6, TZ_START = TZ_EXEMPLAR,
+	TZ_GENERIC_LONG = 7, TZ_GENERIC_SHORT = 8,
+	TZ_STANDARD_LONG = 9, TZ_STANDARD_SHORT = 10,
+	TZ_DAYLIGHT_LONG = 11, TZ_DAYLIGHT_SHORT = 12,
+	TZ_LIMIT = 13,
+	LIMIT_TYPES = 13;
+
 	private static final String[][] NameTable = {
 			{"//ldml/localeDisplayNames/languages/language[@type=\"", "\"]", "language"},
 			{"//ldml/localeDisplayNames/scripts/script[@type=\"", "\"]", "script"},
@@ -1742,12 +1772,32 @@ private boolean isSupplemental;
 			{"//ldml/localeDisplayNames/variants/variant[@type=\"", "\"]", "variant"},
 			{"//ldml/numbers/currencies/currency[@type=\"", "\"]/displayName", "currency"},
 			{"//ldml/numbers/currencies/currency[@type=\"", "\"]/symbol", "currency-symbol"},
-			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/exemplarCity", "tzid"},
+			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/exemplarCity", "exemplar-city"},
+			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/generic", "tz-generic-long"},
+			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/generic", "tz-generic-short"},
+			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/standard/", "tz-standard-long"},
+			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/standard", "tz-standard-short"},
+			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/daylight", "tz-daylight-long"},
+			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/daylight", "tz-daylight-short"},
+			
+			/**
+			 * <long>
+<generic>Newfoundland Time</generic>
+<standard>Newfoundland Standard Time</standard>
+<daylight>Newfoundland Daylight Time</daylight>
+</long>
+-
+	<short>
+<generic>NT</generic>
+<standard>NST</standard>
+<daylight>NDT</daylight>
+</short>
+			 */
 	};
 
-	public static final int NO_NAME = -1, LANGUAGE_NAME = 0, SCRIPT_NAME = 1, TERRITORY_NAME = 2, VARIANT_NAME = 3,
-		CURRENCY_NAME = 4, CURRENCY_SYMBOL = 5, TZID = 6, LIMIT_TYPES = 7;
-	private static final String[] TYPE_NAME = {"language", "script", "territory", "variant", "currency", "currency-symbol", "tzid"};
+//	private static final String[] TYPE_NAME = {"language", "script", "territory", "variant", "currency", "currency-symbol",
+//		"tz-exemplar",
+//		"tz-generic-long", "tz-generic-short"};
 	
 	/**
 	 * @return the key used to access  data of a given type
@@ -1787,8 +1837,8 @@ private boolean isSupplemental;
 	 * @return
 	 */
 	public static int typeNameToCode(String type) {
-		for (int i = 0; i < TYPE_NAME.length; ++i) {
-			if (type.equalsIgnoreCase(TYPE_NAME[i])) return i;
+		for (int i = 0; i < LIMIT_TYPES; ++i) {
+			if (type.equalsIgnoreCase(getNameName(i))) return i;
 		}
 		return -1;
 	}
@@ -1817,7 +1867,7 @@ private boolean isSupplemental;
 	/**
 	 * Returns the name of a type.
 	 */
-	public String getNameName(int choice) {
+	public static String getNameName(int choice) {
 		return NameTable[choice][2];
 	}
 	
@@ -2172,12 +2222,22 @@ private boolean isSupplemental;
 	}
 
 	transient CLDRFile resolvedVersion;
+	
 	public CLDRFile getResolved() {
 		if (dataSource instanceof ResolvingSource) return this;
 		if (resolvedVersion == null) {
-			resolvedVersion = new CLDRFile(new ResolvingSource(dataSource));
+			resolvedVersion = new CLDRFile(dataSource, true);
 		}
 		return resolvedVersion;
+	}
+
+	public Set getAvailableLocales() {
+		return dataSource.getAvailableLocales();
+	}
+
+	public CLDRFile make(String locale, boolean resolved) {
+		if (dataSource == null) throw new UnsupportedOperationException("Make not supported");
+		return new CLDRFile(dataSource.make(locale), resolved);
 	}
 
 }

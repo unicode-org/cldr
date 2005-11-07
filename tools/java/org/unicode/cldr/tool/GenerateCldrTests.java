@@ -673,7 +673,7 @@ public class GenerateCldrTests {
                    for (int k = 0; k < ICUServiceBuilder.LIMIT_DATE_FORMAT_INDEX; ++k) {
                        if (i == 0 && k == 0) continue;
                        rp.set("timeType", icuServiceBuilder.getDateNames(k));
-                       DateFormat df = icuServiceBuilder.getDateFormat(cldrFile, i, k);
+                       DateFormat df = icuServiceBuilder.getDateFormat(cldrFile, "gregorian", i, k);
                        if (false && i == 2 && k == 0) {
                        		System.out.println("debug: date " + icuServiceBuilder.getDateNames(i)
 								+ ", time " + icuServiceBuilder.getDateNames(k)

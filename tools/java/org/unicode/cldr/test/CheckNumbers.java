@@ -26,12 +26,12 @@ public class CheckNumbers extends CheckCLDR {
 			if (path.indexOf("/pattern") >= 0 && path.indexOf("/patternDigit") < 0) {
 				checkPattern(path, fullPath, value, pathParts, fullPathParts, result);
 			}
-			if (path.indexOf("/currencies") >= 0 && path.indexOf("/displayName") < 0) {
+			if (path.indexOf("/currencies") >= 0 && path.endsWith("/symbol")) {
 				checkCurrencyFormats(path, fullPath, value, pathParts, fullPathParts, result);
 			}
 		} catch (Exception e) {
 			CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
-			.setMessage("Error in creating number format", new Object[]{e});    	
+			.setMessage("Error in creating number format {0}; {1}", new Object[]{e.getClass().getName(), e});    	
 			result.add(item);
 		}
 		return this;

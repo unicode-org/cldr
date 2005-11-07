@@ -61,7 +61,7 @@ abstract public class CheckCLDR {
 		Set paths = new TreeSet(CLDRFile.ldmlComparator);
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String localeID = (String) it.next();
-			System.out.println(getLocaleAndName(localeID));
+			System.out.println("Locale:\t" + getLocaleAndName(localeID));
 			CLDRFile file = cldrFactory.make(localeID, false);
 			checkCldr.setCldrFileToCheck(file, result);
 			for (Iterator it3 = result.iterator(); it3.hasNext();) {
@@ -76,6 +76,7 @@ abstract public class CheckCLDR {
 				checkCldr.check(path, fullPath, value, pathParts, fullPathParts, result);
 				for (Iterator it3 = result.iterator(); it3.hasNext();) {
 					CheckStatus status = (CheckStatus) it3.next();
+					if (status.getType().equals(status.exampleType)) continue;
 					String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
 					System.out.println("Value: " + value + "\t Full Path: " + fullPath);
 					System.out.println("\t" + statusString);

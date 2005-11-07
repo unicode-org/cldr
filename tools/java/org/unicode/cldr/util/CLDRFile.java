@@ -1740,7 +1740,8 @@ private boolean isSupplemental;
 	 */
 	public static int getNameType(String xpath) {
 		for (int i = 0; i < NameTable.length; ++i) {
-			if (xpath.startsWith(NameTable[i][0]) && xpath.endsWith(NameTable[i][1])) return i;
+			if (!xpath.startsWith(NameTable[i][0])) continue;
+			if (xpath.indexOf(NameTable[i][1], NameTable[i][0].length()) >= 0) return i;
 		}
 		return -1;
 	}
@@ -1775,7 +1776,7 @@ private boolean isSupplemental;
 			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/exemplarCity", "exemplar-city"},
 			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/generic", "tz-generic-long"},
 			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/generic", "tz-generic-short"},
-			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/standard/", "tz-standard-long"},
+			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/standard", "tz-standard-long"},
 			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/standard", "tz-standard-short"},
 			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/daylight", "tz-daylight-long"},
 			{"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/daylight", "tz-daylight-short"},
@@ -1810,7 +1811,12 @@ private boolean isSupplemental;
 	 */
 	public static String getCode(String path) {
 		int type = getNameType(path);
-		return path.substring(NameTable[type][0].length(), path.length() - NameTable[type][1].length());
+		if (type < 0) {
+			throw new IllegalArgumentException("Illegal type in path: " + path);
+		}
+		int start = NameTable[type][0].length();
+		int end = path.indexOf(NameTable[type][1], start);
+		return path.substring(start, end);
 	}
 	/**
 	 * Utility for getting the name, given a code.

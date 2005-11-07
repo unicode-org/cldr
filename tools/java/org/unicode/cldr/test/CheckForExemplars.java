@@ -26,7 +26,7 @@ public class CheckForExemplars extends CheckCLDR {
 		if (cldrFile.getLocaleID().equals("root")) {
 			return this;
 		}
-		String locale = cldrFileToCheck.getLocaleID();
+		String locale = cldrFile.getLocaleID();
         col = Collator.getInstance(new ULocale(locale));
         spaceCol = Collator.getInstance(new ULocale(locale));
         spaceCol.setStrength(col.PRIMARY);

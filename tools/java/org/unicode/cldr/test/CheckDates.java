@@ -67,15 +67,15 @@ public class CheckDates extends CheckCLDR {
 			String result2 = y.format(dateSource);
 			Date backAgain = y.parse(result2);
 			String isoBackAgain = isoBC.format(backAgain);
-			if (year != backAgain.getYear()) {
+			if (path.indexOf("/dateFormat") >= 0 && year != backAgain.getYear()) {
 				CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
-				.setMessage("Full Format doesn't preserve year: {0} => {1}", new Object[]{trial, isoBackAgain});			
+				.setMessage("Need Era (G) in full format: {0} => {1}", new Object[]{trial, isoBackAgain});			
 				result.add(item);			
 			}
 			// TODO fix this up.
-			if (y.toPattern().indexOf("v") < 0) {
+			if (path.indexOf("/timeFormat") >= 0 && y.toPattern().indexOf("v") < 0) {
 				CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
-				.setMessage("Full Format doesn't preserve full timezone", new Object[]{});			
+				.setMessage("Need full zone (v) in full format", new Object[]{});			
 				result.add(item);			
 			}
 		}

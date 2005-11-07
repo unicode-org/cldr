@@ -137,7 +137,7 @@ abstract public class CheckCLDR {
 			return this;
 		}
 		public String getMessage() {
-			return MessageFormat.format(messageFormat, parameters);
+			return MessageFormat.format(MessageFormat.autoQuoteApostrophe(messageFormat), parameters);
 		}
 		public String getHTMLMessage() {
 			if (htmlMessage == null) return getMessage();
@@ -217,11 +217,11 @@ abstract public class CheckCLDR {
 				CheckCLDR item = (CheckCLDR) it.next();
 				try {
 					item._check(path, fullPath, value, pathParts, fullPathParts, result);
-				} catch (RuntimeException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
-			    	CheckStatus status = new CheckStatus().setType(CheckStatus.warningType)
+			    	CheckStatus status = new CheckStatus().setType(CheckStatus.errorType)
 			    	.setMessage("Internal error in {0}. Exception: {1}, Message: {2}", 
-			    			new Object[]{item.getClass().getName(), e.getClass().getName(), e.getMessage()});
+			    			new Object[]{item.getClass().getName(), e.getClass().getName(), e});
 			    	result.add(status);
 			    	return this;
 				}

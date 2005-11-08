@@ -354,7 +354,7 @@ private static void showExample(RuleBasedCollator col) {
 			Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
 			CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
 			XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
-			for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
+			for (Iterator it = supp.iterator(); it.hasNext();) {
 				String path = (String) it.next();
 				if (path.indexOf("/currencyData") >= 0) {
 					//<region iso3166="AR">

@@ -132,7 +132,7 @@ public class VettingAdder {
 			String fixedLocale = "fixed-" + locale + ".xml";
 			fixXML(dir, locale + ".xml", dir, fixedLocale);
 			CLDRFile cldr = CLDRFile.makeFromFile(dir + fixedLocale, locale, true);
-			for (Iterator it3 = cldr.keySet().iterator(); it3.hasNext();) {
+			for (Iterator it3 = cldr.iterator(); it3.hasNext();) {
 				String path = (String) it3.next();
 				String value = (String) cldr.getStringValue(path);
 				String fullPath = (String) cldr.getFullXPath(path);
@@ -271,7 +271,7 @@ public class VettingAdder {
     	for (Iterator it = availableLocales.iterator(); it.hasNext();) {
     		String locale = (String)it.next();
     		CLDRFile cldr = cldrFactory.make(locale, false);
-    		for (Iterator it2 = cldr.keySet().iterator(); it2.hasNext();) {
+    		for (Iterator it2 = cldr.iterator(); it2.hasNext();) {
     			String path = (String) it2.next();
     			String fullPath = cldr.getFullXPath(path);
     			if (fullPath.indexOf("[@draft=") >= 0) {

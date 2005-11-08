@@ -7,7 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.DecimalFormat;
@@ -221,6 +224,8 @@ public class ICUServiceBuilder {
 		return result;
     }
     
+    static final Matcher gregorianMonthsMatcher = Pattern.compile(".*gregorian.*months.*").matcher("");
+    
     private List getArray(CLDRFile cldrFile, String prefix, int firstIndex, String[] itemNames, String postfix, int minimumSize) {
     	//int length = isMonth ? 12 : 7;
     	//String[] result = new String[length];
@@ -233,7 +238,7 @@ public class ICUServiceBuilder {
     		result.add(item);
     	}
     	if (result.size() < minimumSize) {
-    		Collection s = cldrFile.keySet(".*gregorian.*months.*", new TreeSet());
+    		Collection s = CollectionUtilities.addAll(cldrFile.iterator(), new TreeSet());//cldrFile.keySet(".*gregorian.*months.*", );
     		String item = cldrFile.getStringValue(prefix + lastType + postfix);
     		//throw new IllegalArgumentException("Can't find enough items");
     	}

@@ -828,7 +828,7 @@ public class Misc {
 		Collator col = Collator.getInstance(new ULocale(locale));
 		CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
 		XPathParts parts = new XPathParts(null, null);
-		for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
+		for (Iterator it = supp.iterator(); it.hasNext();) {
 			String path = (String) it.next();
 			parts.set(supp.getFullXPath(path));
 			Map m = parts.findAttributes("language");
@@ -841,7 +841,7 @@ public class Misc {
 		
 		// territories
 		Map groups = new TreeMap();
-		for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
+		for (Iterator it = supp.iterator(); it.hasNext();) {
 			String path = (String) it.next();
 			parts.set(supp.getFullXPath(path));
 			Map m = parts.findAttributes("territoryContainment");

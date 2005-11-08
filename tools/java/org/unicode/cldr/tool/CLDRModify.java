@@ -240,14 +240,13 @@ public class CLDRModify {
 					testPath = "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/alias";
 					System.out.println(k.getStringValue(testPath));
 					//System.out.println(k.getFullXPath(testPath));
-					k.keySet();
-					Iterator it4 = k.keySet().iterator();
-					Set s = (Set)CollectionUtilities.addAll(new TreeSet(), it4);
+					Iterator it4 = k.iterator();
+					Set s = (Set)CollectionUtilities.addAll(it4, new TreeSet());
 					
 					System.out.println(k.getStringValue(testPath));
 					//if (true) return;
 					Set orderedSet = new TreeSet(CLDRFile.ldmlComparator);
-					orderedSet.addAll(k.keySet());
+					CollectionUtilities.addAll(k.iterator(), orderedSet);
 					for (Iterator it3 = orderedSet.iterator(); it3.hasNext();) {
 						String path = (String) it3.next();
 						//System.out.println(path);
@@ -301,7 +300,7 @@ public class CLDRModify {
 	 */
 	private static void removePosix(CLDRFile toMergeIn) {
 		Set toRemove = new HashSet();
-		for (Iterator it = toMergeIn.keySet().iterator(); it.hasNext();) {
+		for (Iterator it = toMergeIn.iterator(); it.hasNext();) {
 			String xpath = (String) it.next();
 			if (xpath.startsWith("//ldml/posix")) toRemove.add(xpath);
 		}
@@ -485,7 +484,7 @@ public class CLDRModify {
 		public void reset(CLDRFile k) {
 			clear();
 			XPathParts parts = new XPathParts(null, null);
-			for (Iterator it = k.keySet().iterator(); it.hasNext();) {
+			for (Iterator it = k.iterator(); it.hasNext();) {
 				String path = (String) it.next();
 				if (path.indexOf("/reference") < 0) continue;
 				parts.set(k.getFullXPath(path));
@@ -551,12 +550,12 @@ public class CLDRModify {
 		Set skipPaths = new HashSet();
 		Map haveSameValues = new TreeMap();
 		CLDRFile resolvedFile = cldrFactory.make(key, true);
-		skipPaths.addAll(k.keySet());
+		CollectionUtilities.addAll(k.iterator(), skipPaths);
 		for (Iterator it1 = availableChildren.iterator(); it1.hasNext();) {
 			String locale = (String)it1.next();
 			if (locale.indexOf("POSIX") >= 0) continue;
 			CLDRFile item = cldrFactory.make(locale, true);
-			for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
+			for (Iterator it2 = item.iterator(); it2.hasNext();) {
 				String xpath = (String) it2.next();
 				if (skipPaths.contains(xpath)) continue;
 				// skip certain elements
@@ -608,7 +607,7 @@ public class CLDRModify {
 		fixExemplars.setFile(k);
 		fixUnwantedCodes.setFile(k);
 		
-		for (Iterator it2 = k.keySet().iterator(); it2.hasNext();) {
+		for (Iterator it2 = k.iterator(); it2.hasNext();) {
 			String xpath = (String) it2.next();
 
 			// Fix number problems across locales

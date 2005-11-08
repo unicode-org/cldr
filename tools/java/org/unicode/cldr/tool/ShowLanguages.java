@@ -132,7 +132,7 @@ public class ShowLanguages {
 		public LanguageInfo(Factory cldrFactory) {
 			CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
 			XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
-			for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
+			for (Iterator it = supp.iterator(); it.hasNext();) {
 				String path = (String) it.next();
 				parts.set(supp.getFullXPath(path));
 				if (path.indexOf("/territoryContainment") >= 0) {

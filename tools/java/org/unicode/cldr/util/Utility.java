@@ -144,14 +144,22 @@ public class Utility {
 			if (line1.equals(line2)) return LINES_SAME;
 			
 			// if not equal, see if we are skipping spaces
-			if ((flags & SKIP_CVS_TAGS) != 0 && line1.indexOf('$') >= 0 && line2.indexOf('$') >= 0) {
-				line1 = stripTags(line1);
-				line2 = stripTags(line2);
-				if (line1.equals(line2)) return LINES_SAME;
+			if ((flags & SKIP_CVS_TAGS) != 0) {
+				if (line1.indexOf('$') >= 0 && line2.indexOf('$') >= 0) {
+					line1 = stripTags(line1);
+					line2 = stripTags(line2);
+					if (line1.equals(line2)) return LINES_SAME;
+				} else if (line1.startsWith("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/")
+						&& line2.startsWith("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/")) {
+					return LINES_SAME;
+				}
 			}
 			if ((flags & SKIP_SPACES) != 0 && si1.set(line1).matches(si2.set(line2))) return LINES_SAME;
 			return LINES_DIFFERENT;
 		}
+		
+//		private Matcher dtdMatcher = Pattern.compile(
+//				"\\Q<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/\\E.*\\Q/ldml.dtd\">\\E").matcher("");
 		
 		private String[] CVS_TAGS = {"Revision", "Date"};
 		

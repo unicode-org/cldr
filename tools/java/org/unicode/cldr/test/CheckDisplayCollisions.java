@@ -47,7 +47,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
 		
 		// put key,value pairs into equivalence map
 		
-		for (Iterator it2 = cldrFileToCheck.keySet().iterator(); it2.hasNext();) {
+		for (Iterator it2 = cldrFileToCheck.iterator(); it2.hasNext();) {
 			String xpath = (String) it2.next();
 			int nameType = CLDRFile.getNameType(xpath);
 			if (nameType < 0) continue;

@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import java.text.FieldPosition;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -14,6 +15,7 @@ import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.text.MessageFormat;
 
 abstract public class CheckCLDR {
@@ -68,7 +70,7 @@ abstract public class CheckCLDR {
 				System.out.println(it3.next().toString());
 			}
 			paths.clear();
-			paths.addAll(file.keySet());
+			CollectionUtilities.addAll(file.iterator(), paths);
 			for (Iterator it2 = paths.iterator(); it2.hasNext();) {
 				String path = (String) it2.next();
 				String value = file.getStringValue(path);

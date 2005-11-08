@@ -145,7 +145,7 @@ public class FlexibleDateTime {
 				log.println("FALLING BACK TO " + targetLocale + " from " + oldTargetLocale);
 			}
         } while (currentFile == null);
-        for (Iterator it = currentFile.keySet().iterator(); it.hasNext(); ) {
+        for (Iterator it = currentFile.iterator(); it.hasNext(); ) {
         	String path = (String) it.next();
         	if (!isGregorianPattern(path, parts)) continue;
         	String value = currentFile.getStringValue(path);
@@ -214,7 +214,7 @@ public class FlexibleDateTime {
 	    	Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
 	    	CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
 	    	XPathParts parts = new XPathParts(null, null);
-	    	for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
+	    	for (Iterator it = supp.iterator(); it.hasNext();) {
 	    		String path = (String) it.next();
 	    		//System.out.println(path);
 	    		if (!path.startsWith("//supplementalData/metadata/alias/")) continue;
@@ -966,7 +966,7 @@ public class FlexibleDateTime {
         {
             if (SHOW_OO) System.out.println();
             CLDRFile item = cldrFactory.make(locale, false);
-            for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
+            for (Iterator it2 = item.iterator(); it2.hasNext();) {
                 String xpath = (String) it2.next();
             	if (!isGregorianPattern(xpath, parts)) continue;
                 boolean isDate = parts.getElement(4).equals("dateFormats");

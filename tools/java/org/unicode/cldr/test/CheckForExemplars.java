@@ -11,7 +11,8 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class CheckForExemplars extends CheckCLDR {
-	private final UnicodeSet commonAndInherited = new UnicodeSet("[[:script=common:][:script=inherited:][:alphabetic=false:]]");
+	//private final UnicodeSet commonAndInherited = new UnicodeSet(CheckExemplars.Allowed).complement(); 
+	// "[[:script=common:][:script=inherited:][:alphabetic=false:]]");
 	static String[] EXEMPLAR_SKIPS = {"/hourFormat", "/exemplarCharacters", "/pattern", "/localizedPatternChars", "/segmentations"};
 
 	UnicodeSet exemplars;
@@ -43,7 +44,7 @@ public class CheckForExemplars extends CheckCLDR {
 		if (temp != null) exemplars.addAll(temp);
 		UnicodeSet auxiliary = resolvedFile.getExemplarSet("auxiliary");
 		if (auxiliary != null) exemplars.addAll(auxiliary);
-		exemplars.addAll(commonAndInherited);
+		exemplars.addAll(CheckExemplars.AlwaysOK);
 		skip = false;
 		return this;
 	}

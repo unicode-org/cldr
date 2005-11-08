@@ -48,6 +48,7 @@ import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.dev.test.util.CollectionUtilities.FilteredIterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
 
@@ -126,8 +127,8 @@ public class CLDRFile implements Freezable {
 			xpath_value.remove(distinguishingXPath);
 			xpath_fullXPath.remove(distinguishingXPath);
 		}
-		public Set keySet() { // must be unmodifiable or locked
-			return Collections.unmodifiableSet(xpath_value.keySet());
+		public Iterator iterator() { // must be unmodifiable or locked
+			return Collections.unmodifiableSet(xpath_value.keySet()).iterator();
 		}
 		public Object freeze() {
 			locked = true;
@@ -156,271 +157,8 @@ public class CLDRFile implements Freezable {
 			return factory.getAvailable();
 		}
 	}
-	
-	private static class ResolvingSource extends XMLSource {
-//		private Factory factory;
-		private XMLSource mySource;
-		private transient ParentAndPath parentAndPath = new ParentAndPath();
 		
-		private static class ParentAndPath {
-			String parentID;
-			String path;
-			XMLSource source;
-			String desiredLocaleID;
-			transient List aliases = new ArrayList();
-			
-			public ParentAndPath set(String xpath, XMLSource source, String desiredLocaleID) {
-				parentID = source.getLocaleID();
-				path = xpath;
-				this.source = source;
-				this.desiredLocaleID = desiredLocaleID;
-				return this;
-			}
-			public ParentAndPath next() {
-				aliases.clear();
-				source.addAliases(aliases);
-				if (aliases.size() != 0) for (Iterator it = aliases.iterator(); it.hasNext();) {
-					Alias alias = (Alias)it.next();
-					if (!path.startsWith(alias.oldPath)) continue;
-					// TODO fix parent, path, and return
-					parentID = alias.newLocaleID;
-					if (parentID == null) parentID = desiredLocaleID;
-					source = source.make(parentID);
-					path = alias.newPath + path.substring(alias.oldPath.length());
-					return this;
-				}
-				parentID = LocaleIDParser.getParent(parentID);
-				source = parentID == null ? null : source.make(parentID);
-				return this;
-			}
-		}
 
-		/*
-		 * If there is an alias, then inheritance gets tricky.
-		 * If there is a path //ldml/xyz/.../uvw/alias[@path=...][@source=...]
-		 * then the parent for //ldml/xyz/.../uvw/abc/.../def/
-		 * is source, and the path to search for is really: //ldml/xyz/.../uvw/path/abc/.../def/
-		 */
-		public static final boolean TRACE_VALUE = false;
-		
-		public String getValue(String xpath) {
-			XMLSource currentSource = mySource;
-			if (TRACE_VALUE) System.out.println("xpath: " + xpath
-					+ "\r\n\tsource: " + currentSource.getClass().getName()
-					+ "\r\n\tlocale: " + currentSource.getLocaleID()
-					);
-	    	String result = currentSource.getValue(xpath);
-	    	if (result != null) {
-	    		if (TRACE_VALUE) System.out.println("result: " + result);
-	    		return result;
-	    	}
-	    	parentAndPath.set(xpath, currentSource, getLocaleID()).next();
-	    	while (true) {
-	    		if (parentAndPath.parentID == null) {
-	    			return constructedItems.getValue(xpath);
-	    		}
-	    		currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
-				if (TRACE_VALUE) System.out.println("xpath: " + parentAndPath.path
-						+ "\r\n\tsource: " + currentSource.getClass().getName()
-						+ "\r\n\tlocale: " + currentSource.getLocaleID()
-						);
-	    		result = currentSource.getValue(parentAndPath.path);
-	    		if (result != null) {
-		    		if (TRACE_VALUE) System.out.println("result: " + result);
-		    		return result;
-		    	}
-	    		parentAndPath.next();
-	    	}
-		}
-		public String getFullXPath(String xpath) {
-			XMLSource currentSource = mySource;
-	    	String result = currentSource.getValue(xpath);
-	    	if (result != null) return currentSource.getFullXPath(xpath);
-	    	parentAndPath.set(xpath, currentSource, getLocaleID()).next();
-	    	while (true) {
-	    		if (parentAndPath.parentID == null) {
-	    			return constructedItems.getFullXPath(xpath);
-	    		}
-	    		currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
-	    		result = currentSource.getValue(parentAndPath.path);
-	    		if (result != null) {
-	    			result = currentSource.getFullXPath(parentAndPath.path);
-	    			return Alias.changeNewToOld(result, parentAndPath.path, xpath);
-	    		}
-	    		parentAndPath.next();
-	    	}
-		}
-		/**
-		 * We have to go through the source, add all the paths, then recurse to parents
-		 * However, aliases are tricky, so watch it.
-		 */
-		static final boolean TRACE_FILL = false;
-		private void fillKeys(int level, XMLSource currentSource, Alias alias, List excludedAliases, Set resultKeySet) {
-			if (TRACE_FILL) {
-				if (level > 10) throw new IllegalArgumentException("Stack overflow");
-				System.out.println(Utility.repeat("\t",level) + "mySource.getLocaleID(): " + currentSource.getLocaleID());
-				System.out.println(Utility.repeat("\t",level) + "currentSource.getClass().getName(): " + currentSource.getClass().getName());
-				System.out.println(Utility.repeat("\t",level) + "alias: " + alias);
-				System.out.println(Utility.repeat("\t",level) + "cachedKeySet.size(): " + resultKeySet.size());
-				System.out.println(Utility.repeat("\t",level) + "excludedAliases: " + excludedAliases);
-			}
-			List collectedAliases = null;
-			// make a pass through, filling all the direct paths, excluding aliases, and collecting others
-			for (Iterator it = currentSource.keySet().iterator(); it.hasNext();) {
-    			String path = (String) it.next();
-    			String originalPath = path;
-    			if (alias != null) {
-    				if (!path.startsWith(alias.newPath)) continue; // skip unless matches alias
-					if (!alias.oldPath.equals(alias.newPath)) { // substitute OLD path
-						path = alias.oldPath + path.substring(alias.newPath.length());
-					}
-    			}
-    			if (excludedAliases != null && startsWith(path, excludedAliases)) {
-    				//System.out.println("Skipping: " + path);
-    				continue;
-    			}
-    			if (path.indexOf("/alias") >= 0) { // quick check
-    				String fullPath = currentSource.getFullXPath(originalPath);
-    				// it's ok that the fullpath is not mapped to the old path, since 
-    				// the only thing the Alias.make cares about is the last bit
-	    			Alias possibleAlias = Alias.make(fullPath);
-	    			if (possibleAlias != null) {
-	    				if (collectedAliases == null) collectedAliases = new ArrayList();
-	    				collectedAliases.add(possibleAlias);
-	    			}
-    			}
-    			resultKeySet.add(path); // Note: we add the aliases
-			}
-			
-			// recurse on the parent, unless at the end of the line (constructedItems
-			if (currentSource != constructedItems) { // end of the line?
-				if (TRACE_FILL) {
-					System.out.println(Utility.repeat("\t",level) + "Recursing on Parent: ");
-				}
-				XMLSource parentSource = constructedItems; // default
-	    		String parentID = LocaleIDParser.getParent(currentSource.getLocaleID());
-	    		if (parentID != null) parentSource = make(parentID); // factory.make(parentID, false).dataSource;
-	    		if (collectedAliases != null) {
-	    			if (excludedAliases == null) excludedAliases = new ArrayList();
-	    			else excludedAliases.addAll(collectedAliases);
-	    		}
-	    		fillKeys(level+1, parentSource, alias, excludedAliases, resultKeySet);
-			}
-    		
-    		// now recurse on the aliases we found
-			if (collectedAliases != null) for (Iterator it = collectedAliases.iterator(); it.hasNext();) {
-    			if (TRACE_FILL) {
-    				System.out.println(Utility.repeat("\t",level) + "Recursing on Alias: ");
-    			}
-    			Alias foundAlias = (Alias)it.next();
-    			// this is important. If the new source is null, use *this* (the desired locale)
-    			XMLSource aliasSource = mySource;
-    			if (foundAlias.newLocaleID != null) {
-    				aliasSource = make(foundAlias.newLocaleID); // factory.make(foundAlias.newLocaleID, false).dataSource;
-    			}
-    			fillKeys(level+1, aliasSource, foundAlias, null, resultKeySet);
-    		}
-			if (TRACE_FILL) System.out.println(Utility.repeat("\t",level) + "=> cachedKeySet.size(): " + resultKeySet.size());
-		}
-		
-		transient Set cachedKeySet = null;
-		/**
-		 * This function is kinda tricky. What it does it come up with the set of all the paths that
-		 * would return a value, fully resolved. This wouldn't be a problem but for aliases.
-		 * Whenever there is an alias oldpath = p relativePath = x source=y
-		 * Then you have to *not* add any of the oldpath... from the normal inheritance heirarchy
-		 * Instead from source, you see everything that matches oldpath+relativePath + z, and for each one
-		 * add oldpath+z
-		 */
-		public Set keySet() {
-			if (cachedKeySet == null) {
-				cachedKeySet = new HashSet();
-				fillKeys(0, mySource, null, null, cachedKeySet);
-		    	//System.out.println("CachedKeySet: " + cachedKeySet);
-		    	//cachedKeySet.addAll(constructedItems.keySet());
-		    	cachedKeySet = Collections.unmodifiableSet(cachedKeySet);
-			}
-	    	return cachedKeySet;
-		}
-		private static boolean startsWith(String path, List aliasPaths) {
-    		for (Iterator it = aliasPaths.iterator(); it.hasNext();) {
-    			if (path.startsWith(((Alias)it.next()).oldPath)) return true;
-    		}
-    		return false;
-		}
-		public int size() {
-			return keySet().size();
-		}
-		protected void putFullPath(String distinguishingXPath, String fullxpath) {
-			throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");
-		}
-		protected void putValue(String distinguishingXPath, String value) {
-			throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");
-		}
-		public Comments getXpathComments() {
-			return mySource.getXpathComments();
-		}
-		public void setXpathComments(Comments path) {
-			throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");		
-		}
-		public void remove(String xpath) {
-			throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");
-		}
-		public Object freeze() {
-			throw new UnsupportedOperationException("Resolved CLDRFiles can't be locked");
-		}
-		public ResolvingSource(/*Factory factory, */XMLSource source) {
-			super();
-			//this.factory = factory;
-			mySource = source;
-		}
-		public String getLocaleID() {
-			return mySource.getLocaleID();
-		}
-		
-		static XMLSource constructedItems = new SimpleXMLSource(null, null);
-		static {
-			StandardCodes sc = StandardCodes.make();
-			Map countries_zoneSet = sc.getCountryToZoneSet();
-			Map zone_countries = sc.getZoneToCounty();
-			
-			//Set types = sc.getAvailableTypes();
-			for (int typeNo = 0; typeNo <= TZ_START; ++typeNo ) {
-				String type = getNameName(typeNo);
-				//int typeNo = typeNameToCode(type);
-				//if (typeNo < 0) continue;
-				String type2 = (typeNo == CURRENCY_SYMBOL) ? getNameName(CURRENCY_NAME)
-						: (typeNo >= TZ_START) ? "tzid"
-						: type;				
-				Set codes = sc.getAvailableCodes(type2);
-				String prefix = NameTable[typeNo][0];
-				String postfix = NameTable[typeNo][1];
-				String prefix2 = "//ldml" + prefix.substring(6); // [@version=\"" + GEN_VERSION + "\"]
-				for (Iterator codeIt = codes.iterator(); codeIt.hasNext(); ) {
-					String code = (String)codeIt.next();
-					String value = code;
-					if (typeNo == TZ_EXEMPLAR) { // skip single-zone countries
-						String country = (String) zone_countries.get(code);
-						Set s = (Set) countries_zoneSet.get(country);
-						if (s != null && s.size() == 1) continue;
-						value = TimezoneFormatter.getFallbackName(value);
-					}
-					String path = prefix + code + postfix;
-					String fullpath = prefix2 + code + postfix;
-					//System.out.println(fullpath + "\t=> " + code);
-					constructedItems.putPathValue(fullpath, value);
-				}
-			}
-			constructedItems.freeze();
-	    	//System.out.println("constructedItems: " + constructedItems);
-		}
-		public XMLSource make(String localeID) {
-			return mySource.make(localeID);
-		}
-		public Set getAvailableLocales() {
-			return mySource.getAvailableLocales();
-		}
-	}
 	
 	public String toString() {
 		return "locked: " + locked + "\r\n" + dataSource;
@@ -438,11 +176,11 @@ public class CLDRFile implements Freezable {
 
 	public CLDRFile(XMLSource dataSource, boolean resolved){
     	if (dataSource == null) dataSource = new SimpleXMLSource(null, null);
-    	if (resolved && !(dataSource instanceof ResolvingSource)) {
-    		dataSource = new ResolvingSource(dataSource);
+    	if (resolved && !dataSource.isResolving()) {
+    		dataSource = dataSource.getResolving();
     	}
-    	if (!resolved && (dataSource instanceof ResolvingSource)) {
-    		dataSource = ((ResolvingSource)dataSource).mySource;
+    	if (!resolved && dataSource.isResolving()) {
+    		throw new IllegalArgumentException("Can't create unresolved file from resolved one");
     	}
     	this.dataSource = dataSource;
     	//source.xpath_value = isSupplemental ? new TreeMap() : new TreeMap(ldmlComparator);
@@ -539,7 +277,7 @@ public class CLDRFile implements Freezable {
      *
      */
     public CLDRFile show() {
-		for (Iterator it2 = keySet().iterator(); it2.hasNext();) {
+		for (Iterator it2 = iterator(); it2.hasNext();) {
 			String xpath = (String)it2.next();
 			System.out.println(getFullXPath(xpath) + " =>\t" + getStringValue(xpath));
 		}
@@ -557,7 +295,7 @@ public class CLDRFile implements Freezable {
 	 */
 	public CLDRFile write(PrintWriter pw) {
 		Set orderedSet = new TreeSet(ldmlComparator);
-		orderedSet.addAll(dataSource.keySet());
+		CollectionUtilities.addAll(dataSource.iterator(), orderedSet);
 
 		pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
 		pw.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/" + GEN_VERSION + "/ldml.dtd\">");
@@ -682,6 +420,13 @@ public class CLDRFile implements Freezable {
     	return dataSource.getFullXPath(xpath);
     }
     
+	/**
+	 * Find out where the value was found (for resolving locales)
+	 */
+    public String getSourceLocaleID(String xpath) {
+    	return dataSource.getSourceLocaleID(xpath);
+    }
+    
     /**
      * Add a new element to a CLDRFile.
      * @param xpath
@@ -738,7 +483,7 @@ public class CLDRFile implements Freezable {
     	} else if (conflict_resolution == MERGE_REPLACE_MY_DRAFT) {
     		// first find all my alt=..proposed items
     		Set hasDraftVersion = new HashSet();
-    		for (Iterator it = dataSource.keySet().iterator(); it.hasNext();) {
+    		for (Iterator it = dataSource.iterator(); it.hasNext();) {
     			String cpath = (String) it.next();
     			String fullpath = getFullXPath(cpath);
     			if (fullpath.indexOf("[@draft") >= 0) {
@@ -748,7 +493,7 @@ public class CLDRFile implements Freezable {
     		// only replace draft items!
     		// this is either an item with draft in the fullpath
     		// or an item with draft and alt in the full path
-    		for (Iterator it = other.keySet().iterator(); it.hasNext();) {
+    		for (Iterator it = other.iterator(); it.hasNext();) {
 				String cpath = (String) it.next();
 				//Value otherValueOld = (Value) other.getXpath_value().get(cpath);
 				// fix the data
@@ -774,7 +519,7 @@ public class CLDRFile implements Freezable {
 				dataSource.putPathValue(newFullPath, newValue);
     		}
     	} else if (conflict_resolution == MERGE_ADD_ALTERNATE){
-    		for (Iterator it = other.keySet().iterator(); it.hasNext();) {
+    		for (Iterator it = other.iterator(); it.hasNext();) {
     			String key = (String) it.next();
     			String otherValue = other.getStringValue(key);
     			String myValue = dataSource.getValue(key);
@@ -797,7 +542,7 @@ public class CLDRFile implements Freezable {
     	
     	// throw out any alt=proposed values that are the same as the main
     	HashSet toRemove = new HashSet();
-    	for (Iterator it = dataSource.keySet().iterator(); it.hasNext();) {
+    	for (Iterator it = dataSource.iterator(); it.hasNext();) {
     		String cpath = (String) it.next();
     		if (cpath.indexOf("[@alt=") < 0) continue;
     		String cpath2 = getNondraftXPath(cpath);
@@ -902,7 +647,7 @@ private boolean isSupplemental;
     public CLDRFile removeDuplicates(CLDRFile other, boolean butComment) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	boolean first = true;
-    	for (Iterator it = other.keySet().iterator(); it.hasNext();) {
+    	for (Iterator it = other.iterator(); it.hasNext();) {
     		String xpath = (String)it.next();
     		String currentValue = dataSource.getValue(xpath);
     		if (currentValue == null) continue;
@@ -1017,10 +762,18 @@ private boolean isSupplemental;
     /**
      * Returns a collection containing the keys for this file.
       */
-    public Set keySet() {
-    	return dataSource.keySet();
-     }
+//    public Set keySet() {
+//    	return (Set) CollectionUtilities.addAll(dataSource.iterator(), new HashSet());
+//     }
     
+    public Iterator iterator() {
+    	return dataSource.iterator();
+     }
+
+    public int size() {
+    	return dataSource.size();
+     }
+
     private static Map distinguishingMap = new HashMap();
     private static XPathParts distinguishingParts = new XPathParts(null,null);
     
@@ -1223,8 +976,7 @@ private boolean isSupplemental;
     			result = CLDRFile.make(localeName, localeName.equals(SUPPLEMENTAL_NAME) ? sourceDirectory + "../supplemental/" : sourceDirectory, includeDraft);
     	    	((SimpleXMLSource)result.dataSource).factory = this;
     			if (resolved) {
-    				XMLSource temp = new ResolvingSource(/*this, */ result.dataSource);
-    				result.dataSource = temp;
+    				result.dataSource = result.dataSource.getResolving();
 	    		} else {
 		    		result.freeze();	    			
 	    		}
@@ -1612,7 +1364,7 @@ private boolean isSupplemental;
 		// remove every peer of that alias,
 		// then add everything from the resolved source of the alias.
 		List aliases = new ArrayList();
-		for (Iterator it = keySet().iterator(); it.hasNext();) {
+		for (Iterator it = iterator(); it.hasNext();) {
 			String xpath = (String) it.next();
 			if (xpath.indexOf("/alias") >= 0) { // quick check; have more rigorous one later.
 				aliases.add(xpath);
@@ -1671,7 +1423,7 @@ private boolean isSupplemental;
 		XPathParts temp = new XPathParts(attributeOrdering, defaultSuppressionMap);
 		XPathParts fullTemp = new XPathParts(attributeOrdering, defaultSuppressionMap);
 		Map stuffToAdd = new HashMap();
-		for (Iterator it = other.keySet().iterator(); it.hasNext();) {
+		for (Iterator it = other.iterator(); it.hasNext();) {
 			String path = (String)it.next();
 			if (path.startsWith(otherPath)) {
 				//Value value = (Value) other.getXpath_value().get(path);
@@ -1698,7 +1450,7 @@ private boolean isSupplemental;
 	private CLDRFile removeChildren(XPathParts parts) {
 		String mypath = parts + "/";
 		Set temp = new HashSet();
-		for (Iterator it = keySet().iterator(); it.hasNext();) {
+		for (Iterator it = iterator(); it.hasNext();) {
 			String path = (String)it.next();
 			if (path.startsWith(mypath)) {
 				//if (false) System.out.println("Removing: " + getXpath_value().get(path));
@@ -1713,24 +1465,24 @@ private boolean isSupplemental;
 	 * Says whether the whole file is draft
 	 */
 	public boolean isDraft() {
-		String item = (String) keySet().iterator().next();
+		String item = (String) iterator().next();
 		return item.startsWith("//ldml[@draft=\"true\"]");
 	}
 	
-	public Collection keySet(Matcher regexMatcher, Collection output) {
-		if (output == null) output = new ArrayList(0);
-		for (Iterator it = keySet().iterator(); it.hasNext();) {
-			String path = (String)it.next();
-			if (regexMatcher.reset(path).matches()) {
-				output.add(path);
-			}
-		}
-		return output;
-	}
+//	public Collection keySet(Matcher regexMatcher, Collection output) {
+//		if (output == null) output = new ArrayList(0);
+//		for (Iterator it = keySet().iterator(); it.hasNext();) {
+//			String path = (String)it.next();
+//			if (regexMatcher.reset(path).matches()) {
+//				output.add(path);
+//			}
+//		}
+//		return output;
+//	}
 	
-	public Collection keySet(String regexPattern, Collection output) {
-		return keySet(Pattern.compile(regexPattern).matcher(""), output);
-	}
+//	public Collection keySet(String regexPattern, Collection output) {
+//		return keySet(Pattern.compile(regexPattern).matcher(""), output);
+//	}
 	
 	/**
 	 * Gets the type of a given xpath, eg script, territory, ...
@@ -2205,7 +1957,7 @@ private boolean isSupplemental;
 	public CLDRFile makeDraft() {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	XPathParts parts = new XPathParts(null,null);
-    	for (Iterator it = dataSource.keySet().iterator(); it.hasNext();) {
+    	for (Iterator it = dataSource.iterator(); it.hasNext();) {
     		String path = (String) it.next();
     		//Value v = (Value) getXpath_value().get(path);
     		//if (!(v instanceof StringValue)) continue;
@@ -2230,7 +1982,7 @@ private boolean isSupplemental;
 	transient CLDRFile resolvedVersion;
 	
 	public CLDRFile getResolved() {
-		if (dataSource instanceof ResolvingSource) return this;
+		if (dataSource.isResolving()) return this;
 		if (resolvedVersion == null) {
 			resolvedVersion = new CLDRFile(dataSource, true);
 		}

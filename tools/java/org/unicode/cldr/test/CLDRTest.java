@@ -138,7 +138,7 @@ public class CLDRTest extends TestFmwk {
 			boolean isPOSIX = locale.indexOf("POSIX") >= 0;
 			logln("Testing: " + locale);
 			CLDRFile item = cldrFactory.make(locale, false);
-			for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
+			for (Iterator it2 = item.iterator(); it2.hasNext();) {
 				String xpath = (String) it2.next();
 				byte type = getNumericType(xpath);
 				if (type == NOT_NUMERIC_TYPE) continue;
@@ -231,7 +231,7 @@ public class CLDRTest extends TestFmwk {
 				CLDRFile item = cldrFactory.make(locale, false);
 				// Walk through all the xpaths, adding to currentValues
 				// Whenever two values for the same xpath are different, we remove from currentValues, and add to okValues
-				for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
+				for (Iterator it2 = item.iterator(); it2.hasNext();) {
 					String xpath = (String) it2.next();
 					if (okValues.contains(xpath)) continue;
 					if (xpath.startsWith("//ldml/identity/")) continue; // skip identity elements
@@ -300,7 +300,7 @@ public class CLDRTest extends TestFmwk {
 			int count = 0;
 			localeMissing.clear();
 			file:
-			for (Iterator it2 = plain.keySet().iterator(); it2.hasNext();) {
+			for (Iterator it2 = plain.iterator(); it2.hasNext();) {
 				String xpath = (String) it2.next();
 				for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
 					if (xpath.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) continue file; // skip some items.
@@ -517,7 +517,7 @@ public class CLDRTest extends TestFmwk {
 			for (int i = 0; i < maps.length; ++i) maps[i].clear();
 			collisions.clear();
 			
-			for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
+			for (Iterator it2 = item.iterator(); it2.hasNext();) {
 				String xpath = (String) it2.next();
 				int nameType = CLDRFile.getNameType(xpath);
 				if (nameType < 0) continue;
@@ -546,7 +546,7 @@ public class CLDRTest extends TestFmwk {
 	 */
 	public static void checkAttributeValidity(CLDRFile item, Map badCodes, Set xpathFailures) {
 		XPathParts parts = new XPathParts(null, null);
-		for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
+		for (Iterator it2 = item.iterator(); it2.hasNext();) {
 			String xpath = (String) it2.next();
 			parts.set(item.getFullXPath(xpath));
 			for (int i = 0; i < parts.size(); ++i) {
@@ -684,7 +684,7 @@ public class CLDRTest extends TestFmwk {
 		Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
 		CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
 		XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
-		for (Iterator it = supp.keySet().iterator(); it.hasNext();) {
+		for (Iterator it = supp.iterator(); it.hasNext();) {
 			String path = (String) it.next();
 			try {
 				parts.set(supp.getFullXPath(path));
@@ -1180,7 +1180,7 @@ public class CLDRTest extends TestFmwk {
 			CLDRFile item = cldrFactory.make(locale, false);
 			// Walk through all the xpaths, adding to currentValues
 			// Whenever two values for the same xpath are different, we remove from currentValues, and add to okValues
-			for (Iterator it2 = item.keySet().iterator(); it2.hasNext();) {
+			for (Iterator it2 = item.iterator(); it2.hasNext();) {
 				String xpath = (String) it2.next();
 				if (xpath.indexOf("[@type=\"narrow\"]") >= 0) {
 					String value = item.getStringValue(xpath);

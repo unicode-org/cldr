@@ -424,8 +424,8 @@ public class CountItems {
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String locale = (String)it.next();
 			CLDRFile item = cldrFactory.make(locale, resolved);
-			keys.addAll(item.keySet());
-			int current = item.keySet().size();
+			CollectionUtilities.addAll(item.iterator(), keys);
+			int current = item.size();
 			System.out.println(locale + "\t" + current);
 			count += current;
 		}

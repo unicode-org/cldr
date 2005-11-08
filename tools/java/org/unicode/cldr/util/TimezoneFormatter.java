@@ -385,7 +385,7 @@ public class TimezoneFormatter {
 		String countryPrefix = "//ldml/localeDisplayNames/territories/territory[@type=\"";
 		Map localizedNonWall = new HashMap();
 		Set skipDuplicates = new HashSet();
-		for (Iterator it = desiredLocaleFile.keySet().iterator(); it.hasNext();) {
+		for (Iterator it = desiredLocaleFile.iterator(); it.hasNext();) {
 			String path = (String) it.next();
 			// dumb, simple implementation
 			if (path.startsWith(prefix)) {

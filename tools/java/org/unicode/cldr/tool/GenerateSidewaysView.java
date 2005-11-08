@@ -112,7 +112,7 @@ public class GenerateSidewaysView {
         	String localeID = (String) it.next();
         	System.out.println("Loading: " + localeID);
         	CLDRFile cldrFile = cldrFactory.make(localeID, localeID.equals("root"));
-        	for (Iterator it2 = cldrFile.keySet().iterator(); it2.hasNext();) {
+        	for (Iterator it2 = cldrFile.iterator(); it2.hasNext();) {
         		String path = (String) it2.next();
         		String cleanPath = fixPath(path, postFix);
     			String fullPath = cldrFile.getFullXPath(path);

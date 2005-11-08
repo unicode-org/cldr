@@ -19,9 +19,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST special xmlns:openOffice CDATA #IMPLIED>
 <!ATTLIST special openOffice:formatindex NMTOKEN #IMPLIED >
 <!ATTLIST special openOffice:msgtype NMTOKEN #IMPLIED >
-<!ATTLIST special openOffice:usage NMTOKEN #IMPLIED >
-<!ATTLIST special default NMTOKEN #IMPLIED>
-<!ATTLIST special type NMTOKEN #IMPLIED>
+<!ATTLIST special openOffice:usage  (FIXED_NUMBER|FRACTION_NUMBER|PERCENT_NUMBER|SCIENTIFIC_NUMBER|CURRENCY|DATE|TIME|DATE_TIME) #IMPLIED >
+<!ATTLIST special default (true|false) #IMPLIED>
+<!ATTLIST special type  (short|medium|long) #IMPLIED>
 <!ATTLIST special openOffice:unoid NMTOKEN #IMPLIED>
 <!ATTLIST special %RefLocale; >
 
@@ -64,8 +64,7 @@ openOffice:collationOptions?) >
 <!ATTLIST openOffice:collations %RefLocale; >
 <!ELEMENT openOffice:collator EMPTY >
 <!ATTLIST openOffice:collator %UNOModule; >
-<!ATTLIST openOffice:collator type CDATA #IMPLIED      >
-<!ATTLIST openOffice:collator default CDATA #IMPLIED >
+<!ATTLIST openOffice:collator default (true|false) #REQUIRED >
 <!ELEMENT openOffice:collationOptions (openOffice:transliterationModules+)
 >
 <!ELEMENT openOffice:transliterationModules (#PCDATA) >
@@ -74,21 +73,15 @@ openOffice:collationOptions?) >
 <!ATTLIST openOffice:search %RefLocale; >
 <!ELEMENT openOffice:searchOptions (openOffice:transliterationModules+) >
 
-<!ELEMENT openOffice:currency ( openOffice:separators?, openOffice:currencyId)>
-<!ATTLIST openOffice:currency default CDATA #IMPLIED >
-<!ATTLIST openOffice:currency openOffice:usedInCompatibleFormatCodes CDATA #IMPLIED >
+<!ELEMENT openOffice:currency (openOffice:currencyId)>
+<!ATTLIST openOffice:currency openOffice:usedInCompatibleFormatCodes (true|false) #REQUIRED>
 <!ELEMENT openOffice:currencyId  (#PCDATA)>
 
-<!-- Additional validation elements -->
-
 <!ELEMENT openOffice:separators ( openOffice:dateSeparator,
-openOffice:thousandSeparator, openOffice:decimalSeparator,
 openOffice:timeSeparator, openOffice:longDateDayOfWeekSeparator,
 openOffice:longDateDaySeparator, openOffice:longDateMonthSeparator,
 openOffice:longDateYearSeparator, openOffice:time100SecSeparator) >
 <!ELEMENT openOffice:dateSeparator (#PCDATA)>
-<!ELEMENT openOffice:thousandSeparator (#PCDATA)>
-<!ELEMENT openOffice:decimalSeparator (#PCDATA)>
 <!ELEMENT openOffice:timeSeparator (#PCDATA)>
 <!ELEMENT openOffice:longDateDayOfWeekSeparator (#PCDATA)>
 <!ELEMENT openOffice:longDateDaySeparator (#PCDATA)>
@@ -134,9 +127,9 @@ the parameter numType can have one of the following values:
 <!ELEMENT openOffice:numberingLevels (openOffice:numberingLevel*) >
 <!ATTLIST openOffice:numberingLevels %RefLocale; >
 <!ELEMENT openOffice:numberingLevel ( #PCDATA) >
-<!ATTLIST openOffice:numberingLevel openOffice:prefix CDATA #IMPLIED>
-<!ATTLIST openOffice:numberingLevel openOffice:numType NMTOKEN #IMPLIED>
-<!ATTLIST openOffice:numberingLevel openOffice:suffix CDATA #IMPLIED>
+<!ATTLIST openOffice:numberingLevel openOffice:prefix CDATA #REQUIRED>
+<!ATTLIST openOffice:numberingLevel openOffice:numType NMTOKEN #REQUIRED>
+<!ATTLIST openOffice:numberingLevel openOffice:suffix CDATA #REQUIRED>
 <!ATTLIST openOffice:numberingLevel openOffice:transliteration CDATA #IMPLIED>
 <!ATTLIST openOffice:numberingLevel openOffice:natNum CDATA #IMPLIED >
 
@@ -144,21 +137,21 @@ the parameter numType can have one of the following values:
 <!ATTLIST openOffice:outLineNumberingLevels %RefLocale; >
 <!ELEMENT openOffice:outlineStyle (openOffice:outLineNumberingLevel+) >
 <!ELEMENT openOffice:outLineNumberingLevel ( #PCDATA) >
-<!ATTLIST openOffice:outLineNumberingLevel openOffice:prefix CDATA #IMPLIED>
-<!ATTLIST openOffice:outLineNumberingLevel openOffice:numType CDATA #IMPLIED>
-<!ATTLIST openOffice:outLineNumberingLevel openOffice:suffix CDATA #IMPLIED>
-<!ATTLIST openOffice:outLineNumberingLevel openOffice:bulletChar CDATA #IMPLIED>
-<!ATTLIST openOffice:outLineNumberingLevel openOffice:bulletFontName CDATA #IMPLIED >
-<!ATTLIST openOffice:outLineNumberingLevel openOffice:parentNumbering CDATA #IMPLIED >
-<!ATTLIST openOffice:outLineNumberingLevel openOffice:leftMargin CDATA #IMPLIED>
-<!ATTLIST openOffice:outLineNumberingLevel openOffice:symbolTextDistance CDATA #IMPLIED >
-<!ATTLIST openOffice:outLineNumberingLevel openOffice:firstLineOffset CDATA #IMPLIED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:prefix CDATA #REQUIRED>
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:numType CDATA #REQUIRED>
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:suffix CDATA #REQUIRED>
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:bulletChar CDATA #REQUIRED>
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:bulletFontName CDATA #REQUIRED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:parentNumbering CDATA #REQUIRED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:leftMargin CDATA #REQUIRED>
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:symbolTextDistance CDATA #REQUIRED >
+<!ATTLIST openOffice:outLineNumberingLevel openOffice:firstLineOffset CDATA #REQUIRED >
 <!ATTLIST openOffice:outLineNumberingLevel openOffice:transliteration CDATA #IMPLIED >
 <!ATTLIST openOffice:outLineNumberingLevel openOffice:natNum CDATA #IMPLIED>
 
 <!-- new fields -->
 
-<!ELEMENT openOffice:platformId ( #PCDATA) >
+<!ELEMENT openOffice:platformId (generic|unix|win32|macos) >
 
 <!ELEMENT openOffice:index    (openOffice:indexKey*,
 openOffice:unicodeScript*,
@@ -166,8 +159,8 @@ openOffice:followPageWord*) >
 <!ATTLIST openOffice:index %RefLocale; >
 <!ELEMENT openOffice:indexKey (#PCDATA)>
 <!ATTLIST openOffice:indexKey  %UNOModule;>
-<!ATTLIST openOffice:indexKey  default CDATA #REQUIRED >
-<!ATTLIST openOffice:indexKey  openOffice:phonetic CDATA #REQUIRED >
+<!ATTLIST openOffice:indexKey  default (true|false) #REQUIRED>
+<!ATTLIST openOffice:indexKey  openOffice:phonetic (true|false) #REQUIRED>
 <!ELEMENT openOffice:unicodeScript (#PCDATA)>
 <!ELEMENT openOffice:followPageWord (#PCDATA)>
 

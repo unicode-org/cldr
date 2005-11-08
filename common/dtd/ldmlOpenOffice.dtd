@@ -151,7 +151,7 @@ the parameter numType can have one of the following values:
 
 <!-- new fields -->
 
-<!ELEMENT openOffice:platformId (generic|unix|win32|macos) >
+<!ELEMENT openOffice:platformId ( #PCDATA)>
 
 <!ELEMENT openOffice:index    (openOffice:indexKey*,
 openOffice:unicodeScript*,

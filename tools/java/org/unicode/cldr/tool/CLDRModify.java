@@ -76,7 +76,7 @@ public class CLDRModify {
 	};
 	
 	private static final UnicodeSet allMergeOptions = new UnicodeSet("[rc]");
-	private static final UnicodeSet allFixOptions = new UnicodeSet("[nvcsrx]");
+	private static final UnicodeSet allFixOptions = new UnicodeSet("[envcsrx]");
 	
 	static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
 		+ "-h or -?\tfor this message" + XPathParts.NEWLINE
@@ -96,6 +96,7 @@ public class CLDRModify {
 		+ "-f\tto perform various fixes on the files (TBD: add argument to specify which ones)" + XPathParts.NEWLINE
 		+ "\t fix options" + XPathParts.NEWLINE
 		+ "\tn\t fix numbers" + XPathParts.NEWLINE
+		+ "\te\t fix exemplars" + XPathParts.NEWLINE
 		+ "\tv\t validate codes" + XPathParts.NEWLINE
 		+ "\tc\t fix CS" + XPathParts.NEWLINE
 		+ "\ts\t fix stand-alone narrows" + XPathParts.NEWLINE
@@ -415,17 +416,27 @@ public class CLDRModify {
 		}
 	};
 
-	
 	static CLDRFilter fixExemplars = new CLDRFilter() {
+		Collator col;
+		Collator spaceCol;
+
+		public void setFile(CLDRFile k) {
+			super.setFile(k);
+			String locale = k.getLocaleID();
+			col = Collator.getInstance(new ULocale(locale));
+			spaceCol = Collator.getInstance(new ULocale(locale));
+			spaceCol.setStrength(col.PRIMARY);
+		}
 		public void handle(String xpath, Set removal, CLDRFile replacements) {
 			if (xpath.indexOf("/exemplarCharacters") < 0) return;
 			String value = k.getStringValue(xpath);
-			if (value.indexOf("[:") < 0) return;
 			UnicodeSet s = new UnicodeSet(value);
-			s.add(0xFFFF);
-			s.remove(0xFFFF); // force flattening
-			// at this point, we only have currency formats
-			replacements.add(k.getFullXPath(xpath), s.toPattern(false));
+			
+	    	String fixedExemplar1 = CollectionUtilities.prettyPrint(s, col, col, true);
+	    	UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar1);
+	    	if (!doubleCheck.equals(s)) throw new IllegalArgumentException("Internal error printing exemplar set");
+	    	
+	    	if (!value.equals(fixedExemplar1)) replacements.add(k.getFullXPath(xpath), fixedExemplar1);
 		}
 	};
 

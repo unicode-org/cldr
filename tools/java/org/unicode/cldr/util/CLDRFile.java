@@ -791,7 +791,7 @@ private boolean isSupplemental;
 	    		String newXPath = distinguishingParts.toString();
 	    		if (!newXPath.equals(xpath)) {
 	    			normalizedPathMap.put(xpath, newXPath); // store differences
-	    			System.err.println("fixing " + xpath + " => " + newXPath);
+	    			//System.err.println("fixing " + xpath + " => " + newXPath);
 	    		}
 	    	}
 	    	for (int i = 0; i < distinguishingParts.size(); ++i) {

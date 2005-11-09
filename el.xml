@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -392,7 +392,7 @@
 		</types>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[ΐά-ώ]</exemplarCharacters>
+		<exemplarCharacters>[α ά β-ε έ ζ η ή θ ι ί ϊ ΐ κ-ο ό π ρ σ ς τ υ ύ ϋ ΰ φ-ω ώ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
@@ -960,9 +960,7 @@
 			<currency type="CYP">
 				<displayName>Λίρα Κύπρου</displayName>
 				<symbol>£</symbol>
-			</currency>
-			<currency type="CYP" alt="proposed">
-				<symbol draft="true">C£</symbol>
+				<symbol alt="proposed" draft="true">C£</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>Κορόνα Τσέχικης Δημοκρατίας</displayName>
@@ -1058,11 +1056,9 @@
 			</currency>
 			<currency type="GRD">
 				<displayName>Δρχ</displayName>
+				<displayName alt="proposed" draft="true">Δραχμή Ελλάδας</displayName>
 				<symbol>Δρχ</symbol>
-			</currency>
-			<currency type="GRD" alt="proposed">
-				<displayName draft="true">Δραχμή Ελλάδας</displayName>
-				<symbol draft="true">GRD</symbol>
+				<symbol alt="proposed" draft="true">GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Quetzal Γουατεμάλα</displayName>

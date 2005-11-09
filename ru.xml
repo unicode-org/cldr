@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -745,7 +745,7 @@
 		<inList casing="titlecase-firstword"/>
 	</layout>
 	<characters>
-		<exemplarCharacters>[а-я ё і]</exemplarCharacters>
+		<exemplarCharacters>[а-е ё ж-й і к-я]</exemplarCharacters>
 	</characters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
@@ -1977,13 +1977,13 @@
 			<currency type="RUB">
 				<displayName>Российский рубль</displayName>
 				<symbol>руб.</symbol>
-				<symbol draft="true" alt="proposed">р.</symbol>
+				<symbol alt="proposed" draft="true">р.</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Российский рубль (1991-1998)</displayName>
 				<!-- changed to something else, according to 786 - ср. for old ruble -->
 				<symbol>р.</symbol>
-				<symbol draft="true" alt="proposed">ср.</symbol>
+				<symbol alt="proposed" draft="true">ср.</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Франк Руанды</displayName>

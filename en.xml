@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -18,7 +18,7 @@
 			<language type="af">Afrikaans</language>
 			<language type="afa">Afro-Asiatic (Other)</language>
 			<language type="afh">Afrihili</language>
- 			<language type="ain" alt="proposed" draft="true">Ainu</language>
+			<language type="ain" alt="proposed" draft="true">Ainu</language>
 			<language type="ak">Akan</language>
 			<language type="akk">Akkadian</language>
 			<language type="ale">Aleut</language>
@@ -157,8 +157,8 @@
 			<language type="gem">Germanic (Other)</language>
 			<language type="gez">Geez</language>
 			<language type="gil">Gilbertese</language>
- 			<language type="gl">Gallegan</language>
- 			<language type="gl" alt="proposed" draft="true">Galician</language>
+			<language type="gl">Gallegan</language>
+			<language type="gl" alt="proposed" draft="true">Galician</language>
 			<language type="gmh">Middle High German</language>
 			<language type="gn">Guarani</language>
 			<language type="goh">Old High German</language>
@@ -886,14 +886,14 @@
 		<variants>
 			<variant type="1901">Traditional German orthography</variant>
 			<variant type="1996">German orthography of 1996</variant>
-			<variant type="POSIX">Computer</variant>
-			<variant type="REVISED">Revised Orthography</variant>
 			<variant type="BOONT">Boontling</variant>
 			<variant type="GAULISH">Gaulish</variant>
 			<variant type="GUOYU">Mandarin or Standard Chinese</variant>
 			<variant type="HAKKA">Hakka</variant>
 			<variant type="LOJBAN">Lojban</variant>
 			<variant type="NEDIS">Natisone dialect</variant>
+			<variant type="POSIX">Computer</variant>
+			<variant type="REVISED">Revised Orthography</variant>
 			<variant type="ROZAJ">Resian</variant>
 			<variant type="SCOUSE">Scouse</variant>
 			<variant type="XIANG">Xiang or Hunanese</variant>
@@ -922,7 +922,7 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a-z]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[áà éè íì óò úù âêîôû æœ äëïöüÿ āēīōū ăĕĭŏŭ åø çñß]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[á à ă â å ä ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ß ú ù ŭ û ü ū ÿ]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>‘</quotationStart>
@@ -1164,17 +1164,6 @@
 					<daylight>CDT</daylight>
 				</short>
 			</zone>
-			<zone type="Europe/Dublin">
-				<long>              
-					<standard>Greenwich Mean Time</standard>
-					<daylight>Irish Summer Time</daylight>
-				</long>
-				<short>
-					<standard>GMT</standard>
-					<daylight>IST</daylight>
-				</short>
-				<exemplarCity>Dublin</exemplarCity>
-			</zone>
 			<zone type="Europe/Paris">
 				<long>
 					<generic>Central European Time</generic>
@@ -1197,6 +1186,17 @@
 					<standard>GMT</standard>
 					<daylight>BST</daylight>
 				</short>
+			</zone>
+			<zone type="Europe/Dublin">
+				<long>
+					<standard>Greenwich Mean Time</standard>
+					<daylight>Irish Summer Time</daylight>
+				</long>
+				<short>
+					<standard>GMT</standard>
+					<daylight>IST</daylight>
+				</short>
+				<exemplarCity>Dublin</exemplarCity>
 			</zone>
 			<!-- Note: the following is known to be sparse, and needs to be improved in the future -->
 			<zone type="Asia/Jerusalem">

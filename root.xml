@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -865,107 +865,6 @@
 				<rule id="9"> × $Extend </rule>
 			</segmentRules>
 		</segmentation>
-		<segmentation type="WordBreak">
-			<variables>
-				<!-- GC stuff -->
-				<variable id="$CR">\p{Grapheme_Cluster_Break=CR}</variable>
-				<variable id="$LF">\p{Grapheme_Cluster_Break=LF}</variable>
-				<variable id="$Control">\p{Grapheme_Cluster_Break=Control}</variable>
-				<variable id="$Extend">\p{Grapheme_Cluster_Break=Extend}</variable>
-				<!-- Now normal variables -->
-				<variable id="$Format">\p{Word_Break=Format}</variable>
-				<variable id="$Katakana">\p{Word_Break=Katakana}</variable>
-				<variable id="$ALetter">\p{Word_Break=ALetter}</variable>
-				<variable id="$MidLetter">\p{Word_Break=MidLetter}</variable>
-				<variable id="$MidNum">\p{Word_Break=MidNum}</variable>
-				<variable id="$Numeric">\p{Word_Break=Numeric}</variable>
-				<variable id="$ExtendNumLet">\p{Word_Break=ExtendNumLet}</variable>
-				<!-- Fixes for GC, Format -->
-				<!-- Subtract Format from Control, since we don't want to break before/after -->
-				<variable id="$Control">[$Control-$Format]</variable>
-				<!-- Add format and extend to everything -->
-				<variable id="$X">[$Format $Extend]*</variable>
-				<variable id="$Katakana">($Katakana $X)</variable>
-				<variable id="$ALetter">($ALetter $X)</variable>
-				<variable id="$MidLetter">($MidLetter $X)</variable>
-				<variable id="$MidNum">($MidNum $X)</variable>
-				<variable id="$Numeric">($Numeric $X)</variable>
-				<variable id="$ExtendNumLet">($ExtendNumLet $X)</variable>
-			</variables>
-			<segmentRules>
-				<!-- Keep GC together; don't need GC segmentRules 6-8, since they are covered by the other segmentRules -->
-				<rule id="3.3"> $CR × $LF </rule>
-				<rule id="3.4"> ( $Control | $CR | $LF ) ÷ </rule>
-				<rule id="3.5"> ÷ ( $Control | $CR | $LF ) </rule>
-				<rule id="3.9"> × $Extend </rule>
-				<!-- Don't break within X + Format. Otherwise Format is added because of variables below -->
-				<rule id="4"> × $Format </rule>
-				<!-- Vanilla segmentRules -->
-				<rule id="5"> $ALetter × $ALetter </rule>
-				<rule id="6"> $ALetter × $MidLetter $ALetter </rule>
-				<rule id="7"> $ALetter $MidLetter × $ALetter </rule>
-				<rule id="8"> $Numeric × $Numeric </rule>
-				<rule id="9"> $ALetter × $Numeric </rule>
-				<rule id="10"> $Numeric × $ALetter </rule>
-				<rule id="11"> $Numeric $MidNum × $Numeric </rule>
-				<rule id="12"> $Numeric × $MidNum $Numeric </rule>
-				<rule id="13"> $Katakana × $Katakana </rule>
-				<rule id="13.1"> ($ALetter | $Numeric | $Katakana | $ExtendNumLet) × $ExtendNumLet </rule>
-				<rule id="13.2"> $ExtendNumLet × ($ALetter | $Numeric | $Katakana) </rule>
-			</segmentRules>
-		</segmentation>
-		<segmentation type="SentenceBreak">
-			<variables>
-				<!-- GC stuff -->
-				<variable id="$CR">\p{Grapheme_Cluster_Break=CR}</variable>
-				<variable id="$LF">\p{Grapheme_Cluster_Break=LF}</variable>
-				<variable id="$Extend">\p{Grapheme_Cluster_Break=Extend}</variable>
-				<!-- Normal variables -->
-				<variable id="$Format">\p{Sentence_Break=Format}</variable>
-				<variable id="$Sep">\p{Sentence_Break=Sep}</variable>
-				<variable id="$Sp">\p{Sentence_Break=Sp}</variable>
-				<variable id="$Lower">\p{Sentence_Break=Lower}</variable>
-				<variable id="$Upper">\p{Sentence_Break=Upper}</variable>
-				<variable id="$OLetter">\p{Sentence_Break=OLetter}</variable>
-				<variable id="$Numeric">\p{Sentence_Break=Numeric}</variable>
-				<variable id="$ATerm">\p{Sentence_Break=ATerm}</variable>
-				<variable id="$STerm">\p{Sentence_Break=STerm}</variable>
-				<variable id="$Close">\p{Sentence_Break=Close}</variable>
-				<variable id="$Any">.</variable>
-				<!-- Expresses the negation in rule 8; can't do this with normal regex, but works with UnicodeSet, which is all we need. -->
-				<variable id="$NotStuff">[^$OLetter $Upper $Lower $Sep]</variable>
-				<!-- Now add format and extend to everything but Sep -->
-				<variable id="$X">[$Format $Extend]*</variable>
-				<variable id="$Sp">($Sp $X)</variable>
-				<variable id="$Lower">($Lower $X)</variable>
-				<variable id="$Upper">($Upper $X)</variable>
-				<variable id="$OLetter">($OLetter $X)</variable>
-				<variable id="$Numeric">($Numeric $X)</variable>
-				<variable id="$ATerm">($ATerm $X)</variable>
-				<variable id="$STerm">($STerm $X)</variable>
-				<variable id="$Close">($Close $X)</variable>
-			</variables>
-			<segmentRules>
-				<!-- keep GC together; don't need 6-8, since they are covered by the other segmentRules -->
-				<rule id="3.3"> $CR × $LF </rule>
-				<!-- Sep needs to be inserted here, to keep CRLF together. Needs fix in TR29 -->
-				<rule id="3.35"> $Sep ÷ </rule>
-				<rule id="3.9"> × $Extend </rule>
-				<rule id="4"> × $Format </rule>
-				<!-- 4 means don't break within X + Format. Otherwise Format is added because of variables below -->
-				<!-- Do not break after ambiguous terminators like period, if immediately followed by a number or lowercase letter, is between uppercase letters, or if the first following letter (optionally after certain punctuation) is lowercase. For example, a period may be an abbreviation or numeric period, and not mark the end of a sentence. -->
-				<rule id="6"> $ATerm × $Numeric </rule>
-				<rule id="7"> $Upper $ATerm × $Upper </rule>
-				<rule id="8"> $ATerm $Close* $Sp* × $NotStuff* $Lower </rule>
-				<!-- Break after sentence terminators, but include closing punctuation, trailing spaces, and (optionally) a paragraph separator. -->
-				<rule id="9"> ( $STerm | $ATerm ) $Close* × ( $Close | $Sp | $Sep ) </rule>
-				<!-- Note the fix to $Sp*, $Sep? -->
-				<rule id="10"> ( $STerm | $ATerm ) $Close* $Sp* × ( $Sp | $Sep ) </rule>
-				<rule id="11"> ( $STerm | $ATerm ) $Close* $Sp* $Sep? ÷ </rule>
-				<!-- Otherwise, do not break -->
-				<rule id="12"> × $Any </rule>
-			</segmentRules>
-		</segmentation>
 		<segmentation type="LineBreak">
 			<variables>
 				<!-- Variables -->
@@ -1006,13 +905,15 @@
 				<variable id="$XX">\p{Line_Break=Unknown}</variable>
 				<variable id="$ZW">\p{Line_Break=ZWSpace}</variable>
 				<variable id="$NotNL">[^$NL]</variable>
-				<!-- LB 1  Assign a line breaking class to each code point of the input. Resolve AI, CB, SA, SG, and XX into other line breaking classes depending on criteria outside the scope of this algorithm. -->
-				<!-- NOTE: CB is ok to fall through, but must handle others here. -->
+				<!-- LB 1  Assign a line breaking class to each code point of the input. Resolve AI, CB, SA, SG, and XX into other line breaking classes depending on criteria outside the scope of this algorithm.
+					 NOTE: CB is ok to fall through, but must handle others here.
+				-->
 				<variable id="$AL">[$AI $AL $XX $SA $SG]</variable>
 				<variable id="$oldAL">$AL</variable>
-				<!-- Fixes for Rule 7 -->
-				<!-- Treat X CM* as if it were X. -->
-				<!-- Where X is any line break class except SP, BK, CR, LF, NL or ZW. -->
+				<!-- Fixes for Rule 7
+					 Treat X CM* as if it were X.
+					 Where X is any line break class except SP, BK, CR, LF, NL or ZW.
+				-->
 				<variable id="$X">$CM*</variable>
 				<variable id="$AI">($AI $X)</variable>
 				<variable id="$AL">($AL $X)</variable>
@@ -1064,17 +965,19 @@
 				<rule id="5"> $ZW ÷ </rule>
 				<!-- LB 7b  Do not break a combining character sequence; treat it as if it has the LB class of the base character in all of the following segmentRules. -->
 				<rule id="7.2"> × $CM </rule>
-				<!-- LB 8  Do not break before ‘]’ or ‘!’ or ‘;’ or ‘/’, even after spaces. -->
-				<!-- Using customization 7. -->
+				<!-- LB 8  Do not break before ‘]’ or ‘!’ or ‘;’ or ‘/’, even after spaces.
+					 Using customization 7.
+				-->
 				<rule id="8.01"> $NotNL × $CL </rule>
 				<rule id="8.02"> × $EX </rule>
 				<rule id="8.03"> $NotNL × $IS </rule>
 				<rule id="8.04"> $NotNL × $SY </rule>
-				<!-- 8.01) × $CL -->
-				<!-- 8.02) × $EX -->
-				<!-- 8.03) × $IS -->
-				<!-- 8.04) × $SY -->
-				<!-- LB 9  Do not break after ‘[’, even after spaces. -->
+				<!-- 8.01) × $CL
+					 8.02) × $EX
+					 8.03) × $IS
+					 8.04) × $SY
+					 LB 9  Do not break after ‘[’, even after spaces.
+				-->
 				<rule id="9"> $OP $SP* × </rule>
 				<!-- LB 10  Do not break within ‘"[’, even with intervening spaces. -->
 				<rule id="10"> $QU $SP* × $OP </rule>
@@ -1110,27 +1013,30 @@
 				<rule id="17.01"> $ID × $PO </rule>
 				<rule id="17.02"> $AL × $NU </rule>
 				<rule id="17.03"> $NU × $AL </rule>
-				<!-- Using customization 7 -->
-				<!-- LB 18  Do not break between the following pairs of classes. -->
-				<!-- LB 18-alternative: $PR? ( $OP | $HY )? $NU ($NU | $SY | $IS)* $CL? $PO? -->
-				<!-- Insert × every place it could go. However, make sure that at least one thing is concrete, otherwise would cause $NU to not break before or after -->
+				<!-- Using customization 7
+					 LB 18  Do not break between the following pairs of classes.
+					 LB 18-alternative: $PR? ( $OP | $HY )? $NU ($NU | $SY | $IS)* $CL? $PO?
+					 Insert × every place it could go. However, make sure that at least one thing is concrete, otherwise would cause $NU to not break before or after
+				-->
 				<rule id="18.111"> $PR × ( $OP | $HY )? $NU </rule>
 				<rule id="18.112"> ( $OP | $HY ) × $NU </rule>
 				<rule id="18.113"> $NU × ($NU | $SY | $IS) </rule>
 				<rule id="18.114"> $NU ($NU | $SY | $IS)* × ($NU | $SY | $IS) </rule>
 				<rule id="18.115"> $NU ($NU | $SY | $IS)* $CL? × $PO </rule>
-				<!-- 18.11) $CL × $PO -->
-				<!-- 18.12) $HY × $NU -->
-				<!-- 18.13) $IS × $NU -->
-				<!-- 18.13) $NU × $NU -->
-				<!-- 18.14) $NU × $PO -->
+				<!-- 18.11) $CL × $PO
+					 18.12) $HY × $NU
+					 18.13) $IS × $NU
+					 18.13) $NU × $NU
+					 18.14) $NU × $PO
+				-->
 				<rule id="18.15"> $PR × $AL </rule>
 				<!-- 18.16) $PR × $HY -->
 				<rule id="18.17"> $PR × $ID </rule>
-				<!-- 18.18) $PR × $NU -->
-				<!-- 18.19) $PR × $OP -->
-				<!-- 18.195) $SY × $NU -->
-				<!-- LB 18b Do not break a Korean syllable. -->
+				<!-- 18.18) $PR × $NU
+					 18.19) $PR × $OP
+					 18.195) $SY × $NU
+					 LB 18b Do not break a Korean syllable.
+				-->
 				<rule id="18.21"> $JL × $JL | $JV | $H2 | $H3 </rule>
 				<rule id="18.22"> $JV | $H2 × $JV | $JT </rule>
 				<rule id="18.23"> $JT | $H3 × $JT </rule>
@@ -1142,6 +1048,109 @@
 				<rule id="19"> $AL × $AL </rule>
 				<!-- LB 19b  Do not break between numeric punctuation and alphabetics ("e.g."). -->
 				<rule id="19.1"> $IS × $AL </rule>
+			</segmentRules>
+		</segmentation>
+		<segmentation type="SentenceBreak">
+			<variables>
+				<!-- GC stuff -->
+				<variable id="$CR">\p{Grapheme_Cluster_Break=CR}</variable>
+				<variable id="$LF">\p{Grapheme_Cluster_Break=LF}</variable>
+				<variable id="$Extend">\p{Grapheme_Cluster_Break=Extend}</variable>
+				<!-- Normal variables -->
+				<variable id="$Format">\p{Sentence_Break=Format}</variable>
+				<variable id="$Sep">\p{Sentence_Break=Sep}</variable>
+				<variable id="$Sp">\p{Sentence_Break=Sp}</variable>
+				<variable id="$Lower">\p{Sentence_Break=Lower}</variable>
+				<variable id="$Upper">\p{Sentence_Break=Upper}</variable>
+				<variable id="$OLetter">\p{Sentence_Break=OLetter}</variable>
+				<variable id="$Numeric">\p{Sentence_Break=Numeric}</variable>
+				<variable id="$ATerm">\p{Sentence_Break=ATerm}</variable>
+				<variable id="$STerm">\p{Sentence_Break=STerm}</variable>
+				<variable id="$Close">\p{Sentence_Break=Close}</variable>
+				<variable id="$Any">.</variable>
+				<!-- Expresses the negation in rule 8; can't do this with normal regex, but works with UnicodeSet, which is all we need. -->
+				<variable id="$NotStuff">[^$OLetter $Upper $Lower $Sep]</variable>
+				<!-- Now add format and extend to everything but Sep -->
+				<variable id="$X">[$Format $Extend]*</variable>
+				<variable id="$Sp">($Sp $X)</variable>
+				<variable id="$Lower">($Lower $X)</variable>
+				<variable id="$Upper">($Upper $X)</variable>
+				<variable id="$OLetter">($OLetter $X)</variable>
+				<variable id="$Numeric">($Numeric $X)</variable>
+				<variable id="$ATerm">($ATerm $X)</variable>
+				<variable id="$STerm">($STerm $X)</variable>
+				<variable id="$Close">($Close $X)</variable>
+			</variables>
+			<segmentRules>
+				<!-- keep GC together; don't need 6-8, since they are covered by the other segmentRules -->
+				<rule id="3.3"> $CR × $LF </rule>
+				<!-- Sep needs to be inserted here, to keep CRLF together. Needs fix in TR29 -->
+				<rule id="3.35"> $Sep ÷ </rule>
+				<rule id="3.9"> × $Extend </rule>
+				<rule id="4"> × $Format </rule>
+				<!-- 4 means don't break within X + Format. Otherwise Format is added because of variables below
+					 Do not break after ambiguous terminators like period, if immediately followed by a number or lowercase letter, is between uppercase letters, or if the first following letter (optionally after certain punctuation) is lowercase. For example, a period may be an abbreviation or numeric period, and not mark the end of a sentence.
+				-->
+				<rule id="6"> $ATerm × $Numeric </rule>
+				<rule id="7"> $Upper $ATerm × $Upper </rule>
+				<rule id="8"> $ATerm $Close* $Sp* × $NotStuff* $Lower </rule>
+				<!-- Break after sentence terminators, but include closing punctuation, trailing spaces, and (optionally) a paragraph separator. -->
+				<rule id="9"> ( $STerm | $ATerm ) $Close* × ( $Close | $Sp | $Sep ) </rule>
+				<!-- Note the fix to $Sp*, $Sep? -->
+				<rule id="10"> ( $STerm | $ATerm ) $Close* $Sp* × ( $Sp | $Sep ) </rule>
+				<rule id="11"> ( $STerm | $ATerm ) $Close* $Sp* $Sep? ÷ </rule>
+				<!-- Otherwise, do not break -->
+				<rule id="12"> × $Any </rule>
+			</segmentRules>
+		</segmentation>
+		<segmentation type="WordBreak">
+			<variables>
+				<!-- GC stuff -->
+				<variable id="$CR">\p{Grapheme_Cluster_Break=CR}</variable>
+				<variable id="$LF">\p{Grapheme_Cluster_Break=LF}</variable>
+				<variable id="$Control">\p{Grapheme_Cluster_Break=Control}</variable>
+				<variable id="$Extend">\p{Grapheme_Cluster_Break=Extend}</variable>
+				<!-- Now normal variables -->
+				<variable id="$Format">\p{Word_Break=Format}</variable>
+				<variable id="$Katakana">\p{Word_Break=Katakana}</variable>
+				<variable id="$ALetter">\p{Word_Break=ALetter}</variable>
+				<variable id="$MidLetter">\p{Word_Break=MidLetter}</variable>
+				<variable id="$MidNum">\p{Word_Break=MidNum}</variable>
+				<variable id="$Numeric">\p{Word_Break=Numeric}</variable>
+				<variable id="$ExtendNumLet">\p{Word_Break=ExtendNumLet}</variable>
+				<!-- Fixes for GC, Format
+					 Subtract Format from Control, since we don't want to break before/after
+				-->
+				<variable id="$Control">[$Control-$Format]</variable>
+				<!-- Add format and extend to everything -->
+				<variable id="$X">[$Format $Extend]*</variable>
+				<variable id="$Katakana">($Katakana $X)</variable>
+				<variable id="$ALetter">($ALetter $X)</variable>
+				<variable id="$MidLetter">($MidLetter $X)</variable>
+				<variable id="$MidNum">($MidNum $X)</variable>
+				<variable id="$Numeric">($Numeric $X)</variable>
+				<variable id="$ExtendNumLet">($ExtendNumLet $X)</variable>
+			</variables>
+			<segmentRules>
+				<!-- Keep GC together; don't need GC segmentRules 6-8, since they are covered by the other segmentRules -->
+				<rule id="3.3"> $CR × $LF </rule>
+				<rule id="3.4"> ( $Control | $CR | $LF ) ÷ </rule>
+				<rule id="3.5"> ÷ ( $Control | $CR | $LF ) </rule>
+				<rule id="3.9"> × $Extend </rule>
+				<!-- Don't break within X + Format. Otherwise Format is added because of variables below -->
+				<rule id="4"> × $Format </rule>
+				<!-- Vanilla segmentRules -->
+				<rule id="5"> $ALetter × $ALetter </rule>
+				<rule id="6"> $ALetter × $MidLetter $ALetter </rule>
+				<rule id="7"> $ALetter $MidLetter × $ALetter </rule>
+				<rule id="8"> $Numeric × $Numeric </rule>
+				<rule id="9"> $ALetter × $Numeric </rule>
+				<rule id="10"> $Numeric × $ALetter </rule>
+				<rule id="11"> $Numeric $MidNum × $Numeric </rule>
+				<rule id="12"> $Numeric × $MidNum $Numeric </rule>
+				<rule id="13"> $Katakana × $Katakana </rule>
+				<rule id="13.1"> ($ALetter | $Numeric | $Katakana | $ExtendNumLet) × $ExtendNumLet </rule>
+				<rule id="13.2"> $ExtendNumLet × ($ALetter | $Numeric | $Katakana) </rule>
 			</segmentRules>
 		</segmentation>
 	</segmentations>

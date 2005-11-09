@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -888,7 +888,7 @@
 		</types>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a-zäöåàéëü]</exemplarCharacters>
+		<exemplarCharacters>[ ̀ a-e é ë f-y ü z å ä ö]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -945,19 +945,19 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">sö</day>
-							<day type="sun" alt="proposed" references="R4" draft="true">sön</day>
+							<day type="sun" references="R4" alt="proposed" draft="true">sön</day>
 							<day type="mon">må</day>
-							<day type="mon" alt="proposed" references="R4" draft="true">mån</day>
+							<day type="mon" references="R4" alt="proposed" draft="true">mån</day>
 							<day type="tue">ti</day>
-							<day type="tue" alt="proposed" references="R4" draft="true">tis</day>
+							<day type="tue" references="R4" alt="proposed" draft="true">tis</day>
 							<day type="wed">on</day>
-							<day type="wed" alt="proposed" references="R4" draft="true">ons</day>
+							<day type="wed" references="R4" alt="proposed" draft="true">ons</day>
 							<day type="thu">to</day>
-							<day type="thu" alt="proposed" references="R4" draft="true">tors</day>
+							<day type="thu" references="R4" alt="proposed" draft="true">tors</day>
 							<day type="fri">fr</day>
-							<day type="fri" alt="proposed" references="R4" draft="true">fre</day>
+							<day type="fri" references="R4" alt="proposed" draft="true">fre</day>
 							<day type="sat">lö</day>
-							<day type="sat" alt="proposed" references="R4" draft="true">lör</day>
+							<day type="sat" references="R4" alt="proposed" draft="true">lör</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">söndag</day>
@@ -996,17 +996,17 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern alt="proposed" references="R3" draft="true">EEEE d MMMM yyyy</pattern>
+							<pattern references="R3" alt="proposed" draft="true">EEEE d MMMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern alt="proposed" references="R3" draft="true">EEEE d MMM yyyy</pattern>
+							<pattern references="R3" alt="proposed" draft="true">EEEE d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern alt="proposed" references="R3" draft="true">d MMM yyyy</pattern>
+							<pattern references="R3" alt="proposed" draft="true">d MMM yyyy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">

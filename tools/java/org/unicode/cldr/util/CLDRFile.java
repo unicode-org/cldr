@@ -80,7 +80,7 @@ public class CLDRFile implements Freezable {
 	private static boolean SHOW_ALIAS_FIXES = false;
 	
 	public static final String SUPPLEMENTAL_NAME = "supplementalData";
-	public static final String GEN_VERSION = "1.3";
+	public static final String GEN_VERSION = "1.4";
 	
 	private boolean locked;
 	private XMLSource dataSource;

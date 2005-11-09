@@ -16,7 +16,7 @@ public class CheckExemplars extends CheckCLDR {
 	Collator col;
 	Collator spaceCol;
 	static final UnicodeSet HangulSyllables = new UnicodeSet("[[:Hangul_Syllable_Type=LVT:][:Hangul_Syllable_Type=LV:]]");
-	static final UnicodeSet AlwaysOK = new UnicodeSet("[[:script=common:][:script=inherited:]]"); // [:script=common:][:script=inherited:]
+	static final UnicodeSet AlwaysOK = new UnicodeSet("[[:script=common:][:script=inherited:]-[:Default_Ignorable_Code_Point:]]"); // [:script=common:][:script=inherited:]
 	static final UnicodeSet AllowedInExemplars = new UnicodeSet(AlwaysOK).complement()
 		.removeAll(new UnicodeSet("[[:Uppercase:]-[\u0130]]"))
 		.addAll(new UnicodeSet("[:Mn:]"));
@@ -44,7 +44,7 @@ public class CheckExemplars extends CheckCLDR {
         		if (overlap.size() != 0) {
         			String fixedExemplar1 = CollectionUtilities.prettyPrint(overlap, col, col, true);
         	    	result.add(new CheckStatus().setType(CheckStatus.warningType)
-        	    	.setMessage("Auxilliary overlaps with main {0}", new Object[]{overlap}));   			
+        	    	.setMessage("Auxilliary overlaps with main {0}", new Object[]{fixedExemplar1}));   			
         		}
         	}
         }
@@ -69,7 +69,7 @@ public class CheckExemplars extends CheckCLDR {
     		if (exemplar1.size() != 0) {
     		fixedExemplar1 = CollectionUtilities.prettyPrint(exemplar1, col, col, true);
 	    	result.add(new CheckStatus().setType(CheckStatus.warningType)
-	    	.setMessage("Should be limited to (specific-script - uppercase + \u0130); thus not contain: {0}",
+	    	.setMessage("Should be limited to (specific-script - uppercase - invisibles + \u0130); thus not contain: {0}",
 	    			new Object[]{fixedExemplar1}));
     		}
     	}

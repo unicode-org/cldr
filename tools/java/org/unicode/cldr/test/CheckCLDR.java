@@ -64,7 +64,6 @@ abstract public class CheckCLDR {
 		Set paths = new TreeSet(CLDRFile.ldmlComparator);
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String localeID = (String) it.next();
-			System.out.println("Locale:\t" + getLocaleAndName(localeID));
 			CLDRFile file = cldrFactory.make(localeID, false);
 			checkCldr.setCldrFileToCheck(file, result);
 			for (Iterator it3 = result.iterator(); it3.hasNext();) {
@@ -82,7 +81,9 @@ abstract public class CheckCLDR {
 					CheckStatus status = (CheckStatus) it3.next();
 					if (status.getType().equals(status.exampleType)) continue;
 					String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
+					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 					System.out.println("Value: " + value + "\t Full Path: " + fullPath);
+					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 					System.out.println("\t" + statusString);
 					Object[] parameters = status.getParameters();
 					for (int i = 0; i < parameters.length; ++i) {
@@ -97,12 +98,13 @@ abstract public class CheckCLDR {
 				}
 			}
 			if (missingExemplars.size() != 0) {
-				System.out.println("$$$\t" + localeID + "\t" + missingExemplars);
+				System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
+				System.out.println("Total missing:\t" + missingExemplars);
 			}
 		}
 		
         deltaTime = System.currentTimeMillis() - deltaTime;
-        System.out.println("Elapsed: " + deltaTime/1000);
+        System.out.println("Elapsed: " + deltaTime/60000 + " minutes");
 	}
 	/**
 	 * Get the CLDRFile.

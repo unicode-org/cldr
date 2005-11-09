@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -40,9 +40,9 @@
 			<language type="awa">awadhi</language>
 			<language type="ay">aymara</language>
 			<language type="az">azeri</language>
-			<language type="az" alt="proposed" references="R1" draft="true">azeri</language>
+			<language type="az" references="R1" alt="proposed" draft="true">azeri</language>
 			<language type="ba">baškiiri</language>
-			<language type="ba" alt="proposed" references="R1" draft="true">baski</language>
+			<language type="ba" references="R1" alt="proposed" draft="true">baski</language>
 			<language type="bad">banda</language>
 			<language type="bai">bamileke-kielet</language>
 			<language type="bal">belutši</language>
@@ -165,7 +165,7 @@
 			<language type="grb">grebo</language>
 			<language type="grc">muinaiskreikka</language>
 			<language type="gu">gujarati</language>
-			<language type="gu" alt="proposed" references="R1" draft="true">gudžarati</language>
+			<language type="gu" references="R1" alt="proposed" draft="true">gudžarati</language>
 			<language type="gv">manx</language>
 			<language type="gwi">gwich’in</language>
 			<language type="ha">hausa</language>
@@ -179,7 +179,7 @@
 			<language type="hmn">hmong</language>
 			<language type="ho">hiri-motu</language>
 			<language type="hr">kroatia</language>
-			<language type="hr" alt="proposed" references="R1" draft="true">kroatia</language>
+			<language type="hr" references="R1" alt="proposed" draft="true">kroatia</language>
 			<language type="hsb">yläsorbi</language>
 			<language type="ht">haiti</language>
 			<language type="hu">unkari</language>
@@ -620,7 +620,7 @@
 			<territory type="AW">Aruba</territory>
 			<territory type="AX">Ahvenanmaa</territory>
 			<territory type="AZ">Azerbaidžan</territory>
-			<territory type="AZ" alt="proposed" references="R2" draft="true">Azerbaidžan</territory>
+			<territory type="AZ" references="R2" alt="proposed" draft="true">Azerbaidžan</territory>
 			<territory type="BA">Bosnia ja Hertsegovina</territory>
 			<territory type="BB">Barbados</territory>
 			<territory type="BD">Bangladesh</territory>
@@ -659,7 +659,7 @@
 			<territory type="CX">Joulusaari</territory>
 			<territory type="CY">Kypros</territory>
 			<territory type="CZ">Tšekki</territory>
-			<territory type="CZ" alt="proposed" references="R2" draft="true">Tšekki</territory>
+			<territory type="CZ" references="R2" alt="proposed" draft="true">Tšekki</territory>
 			<territory type="DE">Saksa</territory>
 			<territory type="DJ">Djibouti</territory>
 			<territory type="DK">Tanska</territory>
@@ -675,7 +675,7 @@
 			<territory type="ET">Etiopia</territory>
 			<territory type="FI">Suomi</territory>
 			<territory type="FJ">Fidži</territory>
-			<territory type="FJ" alt="proposed" references="R2" draft="true">Fidži</territory>
+			<territory type="FJ" references="R2" alt="proposed" draft="true">Fidži</territory>
 			<territory type="FK">Falklandinsaaret</territory>
 			<territory type="FM">Mikronesia</territory>
 			<territory type="FO">Färsaaret</territory>
@@ -719,7 +719,7 @@
 			<territory type="KE">Kenia</territory>
 			<territory type="KG">Kirgisia</territory>
 			<territory type="KH">Kambodža</territory>
-			<territory type="KH" alt="proposed" references="R2" draft="true">Kambodža</territory>
+			<territory type="KH" references="R2" alt="proposed" draft="true">Kambodža</territory>
 			<territory type="KI">Kiribati</territory>
 			<territory type="KM">Komorit</territory>
 			<territory type="KN">Saint Kitts ja Nevis</territory>
@@ -809,18 +809,18 @@
 			<territory type="SO">Somalia</territory>
 			<territory type="SR">Surinam</territory>
 			<territory type="ST">São Tomé ja Príncipe</territory>
-			<territory type="ST" alt="proposed" references="R2" draft="true">São Tomé ja Príncipe</territory>
+			<territory type="ST" references="R2" alt="proposed" draft="true">São Tomé ja Príncipe</territory>
 			<territory type="SV">El Salvador</territory>
 			<territory type="SY">Syyria</territory>
 			<territory type="SZ">Swazimaa</territory>
 			<territory type="TC">Turks- ja Caicossaaret</territory>
 			<territory type="TD">Tšad</territory>
-			<territory type="TD" alt="proposed" references="R2" draft="true">Tšad</territory>
+			<territory type="TD" references="R2" alt="proposed" draft="true">Tšad</territory>
 			<territory type="TF">Ranskan ulkopuoliset eteläiset alueet</territory>
 			<territory type="TG">Togo</territory>
 			<territory type="TH">Thaimaa</territory>
 			<territory type="TJ">Tadžikistan</territory>
-			<territory type="TJ" alt="proposed" references="R2" draft="true">Tadžikistan</territory>
+			<territory type="TJ" references="R2" alt="proposed" draft="true">Tadžikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Itä-Timor</territory>
 			<territory type="TM">Turkmenistan</territory>
@@ -873,8 +873,8 @@
 		</types>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a-z å ä ö š ž]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[à á ã æ è é ë ï ô õ ø ü œ ç č ñ ř]</exemplarCharacters>
+		<exemplarCharacters>[a-s š t-z ž å ä ö]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[á à ã č ç é è ë ï ñ ô ř ü æ ø õ œ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>
@@ -1063,9 +1063,6 @@
 			<calendar type="islamic">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">muhárram</month>
 							<month type="2">sáfar</month>
@@ -1291,7 +1288,7 @@
 			</zone>
 			<zone type="America/Chicago">
 				<long>
-					<standard>Yhdysvaltain keskinen normaaliaika></standard>
+					<standard>Yhdysvaltain keskinen normaaliaika&gt;</standard>
 					<daylight>Yhdysvaltain keskinen kesäaika</daylight>
 				</long>
 				<short>

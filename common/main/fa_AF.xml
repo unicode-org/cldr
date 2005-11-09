@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -129,7 +129,7 @@
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters type="auxiliary" draft="true">[\u064a\u067c\u0681\u0685\u0689\u0693\u0696\u069a\u06ab\u06bc\u06cd\u06d0\u0656\u0670]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="true">[ ٖ  ٰ ټ ځ څ ډ ړ ږ ښ ګ ڼ ي ې ۍ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -147,9 +147,6 @@
 							<month type="11">نوم</month>
 							<month type="12">دسم</month>
 						</monthWidth>
-						<monthWidth type="abbreviated" alt="proposed">
-							<alias source="locale" path="../monthWidth[@type='wide']" draft="true"/>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">جنوری</month>
 							<month type="2">فبروری</month>
@@ -166,6 +163,7 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<alias source="locale" path="../monthContext[@type='format']" alt="proposed" draft="true"/>
 						<monthWidth type="narrow">
 							<month type="1" draft="true">ج</month>
 							<month type="2" draft="true">ف</month>
@@ -181,9 +179,6 @@
 							<month type="12" draft="true">د</month>
 						</monthWidth>
 					</monthContext>
-					<monthContext type="stand-alone" alt="proposed">
-						<alias source="locale" path="../monthContext[@type='format']" draft="true"/>
-					</monthContext>
 				</months>
 				<week>
 					<firstDay day="sat"/>
@@ -197,9 +192,6 @@
 			<calendar type="persian">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']" draft="true"/>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="true">حمل</month>
 							<month type="2" draft="true">ثور</month>

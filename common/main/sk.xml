@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -339,8 +339,8 @@
 		</types>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a-z ý á é í ó ú ä ô ĺ ŕ č ď ľ ň š ť ž]</exemplarCharacters>
-		<exemplarCharacters draft="true" alt="proposed">[a-z ý á é í ó ú ä ô ĺ ŕ č ď ľ ň š ť ž {ch}]</exemplarCharacters>
+		<exemplarCharacters>[a á ä b c č d ď e é f-i í j-l ĺ ľ m n ň o ó ô p-r ŕ s š t ť u ú v-y ý z ž]</exemplarCharacters>
+		<exemplarCharacters alt="proposed" draft="true">[a á ä b c č d ď e é f-h {ch} i í j-l ĺ ľ m n ň o ó ô p-r ŕ s š t ť u ú v-y ý z ž]</exemplarCharacters>
 	</characters>
 	<dates>
 		<localizedPatternChars>GanjkHmsSEDFwWxhKzAeugXZvcL</localizedPatternChars>

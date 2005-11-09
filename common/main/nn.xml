@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -299,7 +299,7 @@
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a-zæåøéóôàüǎ]</exemplarCharacters>
+		<exemplarCharacters>[a à ǎ b-e é f-o ó ô p-y ü z æ ø å]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -308,28 +308,28 @@
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
 							<month type="1">jan</month>
-							<month type="1" alt="proposed" references="R1" draft="true">jan.</month>
+							<month type="1" references="R1" alt="proposed" draft="true">jan.</month>
 							<month type="2">feb</month>
-							<month type="2" alt="proposed" references="R1" draft="true">feb.</month>
+							<month type="2" references="R1" alt="proposed" draft="true">feb.</month>
 							<month type="3">mar</month>
-							<month type="3" alt="proposed" references="R1" draft="true">mars</month>
+							<month type="3" references="R1" alt="proposed" draft="true">mars</month>
 							<month type="4">apr</month>
-							<month type="4" alt="proposed" references="R1" draft="true">april</month>
+							<month type="4" references="R1" alt="proposed" draft="true">april</month>
 							<month type="5" references="R1">mai</month>
 							<month type="6">jun</month>
-							<month type="6" alt="proposed" references="R1" draft="true">juni</month>
+							<month type="6" references="R1" alt="proposed" draft="true">juni</month>
 							<month type="7">jul</month>
-							<month type="7" alt="proposed" references="R1" draft="true">juli</month>
+							<month type="7" references="R1" alt="proposed" draft="true">juli</month>
 							<month type="8">aug</month>
-							<month type="8" alt="proposed" references="R1" draft="true">aug.</month>
+							<month type="8" references="R1" alt="proposed" draft="true">aug.</month>
 							<month type="9">sep</month>
-							<month type="9" alt="proposed" references="R1" draft="true">sep.</month>
+							<month type="9" references="R1" alt="proposed" draft="true">sep.</month>
 							<month type="10">okt</month>
-							<month type="10" alt="proposed" references="R1" draft="true">okt.</month>
+							<month type="10" references="R1" alt="proposed" draft="true">okt.</month>
 							<month type="11">nov</month>
-							<month type="11" alt="proposed" references="R1" draft="true">nov.</month>
+							<month type="11" references="R1" alt="proposed" draft="true">nov.</month>
 							<month type="12">des</month>
-							<month type="12" alt="proposed" references="R1" draft="true">des.</month>
+							<month type="12" references="R1" alt="proposed" draft="true">des.</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januar</month>
@@ -351,19 +351,19 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">su</day>
-							<day type="sun" alt="proposed" references="R1" draft="true">su.</day>
+							<day type="sun" references="R1" alt="proposed" draft="true">su.</day>
 							<day type="mon">må</day>
-							<day type="mon" alt="proposed" references="R1" draft="true">må.</day>
+							<day type="mon" references="R1" alt="proposed" draft="true">må.</day>
 							<day type="tue">ty</day>
-							<day type="tue" alt="proposed" references="R1" draft="true">ty.</day>
+							<day type="tue" references="R1" alt="proposed" draft="true">ty.</day>
 							<day type="wed">on</day>
-							<day type="wed" alt="proposed" references="R1" draft="true">on.</day>
+							<day type="wed" references="R1" alt="proposed" draft="true">on.</day>
 							<day type="thu">to</day>
-							<day type="thu" alt="proposed" references="R1" draft="true">to.</day>
+							<day type="thu" references="R1" alt="proposed" draft="true">to.</day>
 							<day type="fri">fr</day>
-							<day type="fri" alt="proposed" references="R1" draft="true">fr.</day>
+							<day type="fri" references="R1" alt="proposed" draft="true">fr.</day>
 							<day type="sat">la</day>
-							<day type="sat" alt="proposed" references="R1" draft="true">la.</day>
+							<day type="sat" references="R1" alt="proposed" draft="true">la.</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">sundag</day>
@@ -534,10 +534,8 @@
 				<displayName draft="true">Indiske rupi</displayName>
 			</currency>
 			<currency type="NOK">
+				<displayName alt="proposed" draft="true">Norske kroner</displayName>
 				<symbol>kr</symbol>
-			</currency>
-			<currency type="NOK" alt="proposed">
-				<displayName draft="true">Norske kroner</displayName>
 			</currency>
 			<currency type="RUB">
 				<displayName draft="true">Russiske rubler</displayName>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -170,7 +170,7 @@
 		</types>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters draft="true">[α-ω Α-Ω ά ὰ ᾶ ἀ ἁ ἄ ἅ ἂ ἃ ἆ ἇ έ ὲ ἐ ἑ ἔ ἕ ἒ ἓ ή ὴ ῆ ἠ ἡ ἤ ἥ ἢ ἣ ἦ ἧ ί ὶ ῖ ἰ ἱ ἴ ἵ ἲ ἳ ἶ ἷ ϊ ΐ ῒ ῗ ό ὸ ὄ ὂ ὂ ὃ ύ ὺ ῦ ὐ ὑ ὔ ὕ ὒ ὓ ὖ ὗ ϋ ΰ ῢ ῧ ώ ὼ ῶ ὤ ὥ ὢ ὣ ὦ ὧ]</exemplarCharacters>
+		<exemplarCharacters draft="true">[α Α ἀ ἄ ἂ ἆ ἁ ἅ ἃ ἇ ά ὰ ᾶ β Β γ Γ δ Δ ε Ε ἐ ἔ ἒ ἑ ἕ ἓ έ ὲ ζ Ζ η Η ἠ ἤ ἢ ἦ ἡ ἥ ἣ ἧ ή ὴ ῆ θ Θ ι Ι ἰ ἴ ἲ ἶ ἱ ἵ ἳ ἷ ί ὶ ῖ ϊ ΐ ῒ ῗ κ Κ λ Λ μ Μ ν Ν ξ Ξ ο Ο ὄ ὂ ὃ ό ὸ π Π ρ Ρ σ Σ ς τ Τ υ Υ ὐ ὔ ὒ ὖ ὑ ὕ ὓ ὗ ύ ὺ ῦ ϋ ΰ ῢ ῧ φ Φ χ Χ ψ Ψ ω Ω ὤ ὢ ὦ ὥ ὣ ὧ ώ ὼ ῶ ΢]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="true">«</quotationStart>
@@ -356,8 +356,8 @@
 			<currency type="GQE">
 				<displayName draft="true">Ekwele Guineana Ἰσημερινῆς Γουινέας</displayName>
 			</currency>
-			<currency type="GRD" alt="proposed">
-				<displayName draft="true">Δραχμὴ Ἑλλάδας</displayName>
+			<currency type="GRD">
+				<displayName alt="proposed" draft="true">Δραχμὴ Ἑλλάδας</displayName>
 			</currency>
 			<currency type="GTQ">
 				<displayName draft="true">Quetzal Γουατεμάλας</displayName>

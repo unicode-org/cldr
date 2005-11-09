@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -828,8 +828,8 @@
 		</types>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a-záéíóúäëïöüĳ]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[a-záéíóúäëïöüÿ{ij}]</exemplarCharacters>
+		<exemplarCharacters>[a á ä b-e é ë f-i í ï ĳ j-o ó ö p-u ú ü v-z]</exemplarCharacters>
+		<exemplarCharacters alt="proposed" draft="true">[a á ä b-e é ë f-i í ï {ij} j-o ó ö p-u ú ü v-y ÿ z]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -969,9 +969,6 @@
 			<calendar type="hebrew">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tisjrie</month>
 							<month type="2">Chesjwan</month>
@@ -988,9 +985,6 @@
 			<calendar type="islamic">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<alias source="locale" path="../monthWidth[@type='wide']"/>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Moeharram</month>
 							<month type="3">Rabiʻa al awal</month>
@@ -1009,9 +1003,6 @@
 						<era type="0">Saʻna Hizjria</era>
 					</eraAbbr>
 				</eras>
-			</calendar>
-			<calendar type="islamic-civil">
-				<alias source="locale" path="../calendar[@type='islamic']"/>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

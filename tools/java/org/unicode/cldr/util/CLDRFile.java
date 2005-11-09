@@ -95,10 +95,10 @@ public class CLDRFile implements Freezable {
 			this.factory = factory;
 			this.setLocaleID(localeID);
 		}
-		public String getValue(String xpath) {
+		public String getValueAtDPath(String xpath) {
 			return (String)xpath_value.get(xpath);
 		}
-		public String getFullXPath(String xpath) {
+		public String getFullPathAtDPath(String xpath) {
 			String result = (String) xpath_fullXPath.get(xpath);
 			if (result != null) return result;
 			if (xpath_value.get(xpath) != null) return xpath; // we don't store duplicates
@@ -113,17 +113,15 @@ public class CLDRFile implements Freezable {
 		public int size() {
 			return xpath_value.size();
 		}
-		public void putPathValue(String xpath, String value) {
-			if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-			String distinguishingXPath = CLDRFile.getDistinguishingXPath(xpath);	
-			xpath_value.put(distinguishingXPath, value);
-			if (!xpath.equals(distinguishingXPath)) {
-				xpath_fullXPath.put(distinguishingXPath, xpath);
-			}
-		}
-		public void remove(String xpath) {
-			if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-			String distinguishingXPath = CLDRFile.getDistinguishingXPath(xpath);
+//		public void putPathValue(String xpath, String value) {
+//			if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+//			String distinguishingXPath = CLDRFile.getDistinguishingXPath(xpath, fixedPath);	
+//			xpath_value.put(distinguishingXPath, value);
+//			if (!fixedPath[0].equals(distinguishingXPath)) {
+//				xpath_fullXPath.put(distinguishingXPath, fixedPath[0]);
+//			}
+//		}
+		public void removeValueAtDPath(String distinguishingXPath) {
 			xpath_value.remove(distinguishingXPath);
 			xpath_fullXPath.remove(distinguishingXPath);
 		}
@@ -141,10 +139,10 @@ public class CLDRFile implements Freezable {
 			result.xpath_value = (HashMap) result.xpath_value.clone();
 			return result;
 		}
-		protected void putFullPath(String distinguishingXPath, String fullxpath) {
+		public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
 			xpath_fullXPath.put(distinguishingXPath, fullxpath);
 		}
-		protected void putValue(String distinguishingXPath, String value) {
+		public void putValueAtDPath(String distinguishingXPath, String value) {
 			xpath_value.put(distinguishingXPath, value);
 		}
 		public XMLSource make(String localeID) {
@@ -398,26 +396,17 @@ public class CLDRFile implements Freezable {
 	}
 
 	/**
-	 * @param fullxpath
-	 * @param value
-	 */
-	public CLDRFile add(String fullxpath, String value) {
-		add(getDistinguishingXPath(fullxpath), fullxpath, value);
-		return this;
-	}
-
-	/**
 	 * Get a string value from an xpath.
 	 */
     public String getStringValue(String xpath) {
-    	return dataSource.getValue(xpath);
+    	return dataSource.getValueAtPath(xpath);
     }
     
 	/**
 	 * Get a string value from an xpath.
 	 */
     public String getFullXPath(String xpath) {
-    	return dataSource.getFullXPath(xpath);
+    	return dataSource.getFullPath(xpath);
     }
     
 	/**
@@ -429,17 +418,16 @@ public class CLDRFile implements Freezable {
     
     /**
      * Add a new element to a CLDRFile.
-     * @param xpath
      * @param currentFullXPath
      * @param value
      */
-    public CLDRFile add(String xpath, String currentFullXPath, String value) {
+    public CLDRFile add(String currentFullXPath, String value) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	//StringValue v = new StringValue(value, currentFullXPath);
     	Log.logln(SHOW_ALL, "ADDING: \t" + currentFullXPath + " \t" + value + "\t" + currentFullXPath);
     	//xpath = xpath.intern();
         try {
-			dataSource.putPathValue(currentFullXPath, value);
+			dataSource.putValueAtPath(currentFullXPath, value);
 		} catch (RuntimeException e) {
 			throw (IllegalArgumentException) new IllegalArgumentException("failed adding " + currentFullXPath + ",\t" + value).initCause(e);
 		}
@@ -454,7 +442,7 @@ public class CLDRFile implements Freezable {
     		dataSource.getXpathComments().setFinalComment(
     				Utility.joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
     	} else {
-        	xpath = getDistinguishingXPath(xpath);
+         	xpath = getDistinguishingXPath(xpath, null);
 	        dataSource.getXpathComments().addComment(type, xpath, comment);
     	}
     	return this;
@@ -516,24 +504,24 @@ public class CLDRFile implements Freezable {
 					}
 				}
 				Log.logln(getLocaleID() + "\tVETTED: [" + newFullPath + ",\t" + newValue + "]");
-				dataSource.putPathValue(newFullPath, newValue);
+				dataSource.putValueAtPath(newFullPath, newValue);
     		}
     	} else if (conflict_resolution == MERGE_ADD_ALTERNATE){
     		for (Iterator it = other.iterator(); it.hasNext();) {
     			String key = (String) it.next();
     			String otherValue = other.getStringValue(key);
-    			String myValue = dataSource.getValue(key);
+    			String myValue = dataSource.getValueAtPath(key);
     			if (myValue == null) {
-    				dataSource.putPathValue(other.getFullXPath(key), otherValue);
+    				dataSource.putValueAtPath(other.getFullXPath(key), otherValue);
     			} else if (!(myValue.equals(otherValue) 
     						&& equalsIgnoringDraft(getFullXPath(key), other.getFullXPath(key)))
     					&& !key.startsWith("//ldml/identity")){
     				for (int i = 0; ; ++i) {
     					String prop = "proposed" + (i == 0 ? "" : String.valueOf(i));
     					String fullPath = parts.set(other.getFullXPath(key)).addAttribute("alt", prop).toString();
-    					String path = getDistinguishingXPath(fullPath);
-    					if (dataSource.getValue(path) != null) continue;
-    					dataSource.putPathValue(fullPath, otherValue);
+    					String path = getDistinguishingXPath(fullPath, null);
+    					if (dataSource.getValueAtPath(path) != null) continue;
+    					dataSource.putValueAtPath(fullPath, otherValue);
     					break;
     				}
     			}
@@ -623,9 +611,9 @@ private boolean isSupplemental;
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	if (butComment) {
     		//CLDRFile.Value v = getValue(xpath);
-    		appendFinalComment(dataSource.getFullXPath(xpath)+ "::<" + dataSource.getValue(xpath) + ">");
+    		appendFinalComment(dataSource.getFullPath(xpath)+ "::<" + dataSource.getValueAtPath(xpath) + ">");
     	}
-    	dataSource.remove(xpath);
+    	dataSource.removeValueAtPath(xpath);
     	return this;
     }
     
@@ -649,12 +637,12 @@ private boolean isSupplemental;
     	boolean first = true;
     	for (Iterator it = other.iterator(); it.hasNext();) {
     		String xpath = (String)it.next();
-    		String currentValue = dataSource.getValue(xpath);
+    		String currentValue = dataSource.getValueAtPath(xpath);
     		if (currentValue == null) continue;
-    		String otherValue = other.dataSource.getValue(xpath);
+    		String otherValue = other.dataSource.getValueAtPath(xpath);
     		if (!currentValue.equals(otherValue)) continue;
-    		String currentFullXPath = dataSource.getFullXPath(xpath);
-    		String otherFullXPath = other.dataSource.getFullXPath(xpath);
+    		String currentFullXPath = dataSource.getFullPath(xpath);
+    		String otherFullXPath = other.dataSource.getFullPath(xpath);
     		if (!getNondraftXPath(currentFullXPath).equals(getNondraftXPath(otherFullXPath))) continue;
     		if (first) {
     			first = false;
@@ -775,12 +763,37 @@ private boolean isSupplemental;
      }
 
     private static Map distinguishingMap = new HashMap();
-    private static XPathParts distinguishingParts = new XPathParts(null,null);
+    private static Map normalizedPathMap = new HashMap();
     
-    public static String getDistinguishingXPath(String xpath) {
+    public static String getDistinguishingXPath(String xpath, String[] normalizedPath) {
     	String result = (String) distinguishingMap.get(xpath);
     	if (result == null) {
 	    	distinguishingParts.set(xpath);
+	    	String draft = null;
+	    	String alt = null;
+	    	for (int i = 0; i < distinguishingParts.size(); ++i) {
+	    		Map attributes = distinguishingParts.getAttributes(i);
+	    		for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
+	    			String attribute = (String) it.next();
+	    			if (attribute.equals("draft")) {
+	    				draft = (String) attributes.get(attribute);
+	    				it.remove();
+	    			} else if (attribute.equals("alt")) {
+	    				alt = (String) attributes.get(attribute);
+	    				it.remove();
+	    			}
+	    		}
+	    	}
+	    	if (draft != null || alt != null) {
+	    		Map attributes = distinguishingParts.getAttributes(distinguishingParts.size() - 1);
+	    		if (draft != null) attributes.put("draft", draft);
+	    		if (alt != null) attributes.put("alt", alt);
+	    		String newXPath = distinguishingParts.toString();
+	    		if (!newXPath.equals(xpath)) {
+	    			normalizedPathMap.put(xpath, newXPath); // store differences
+	    			System.err.println("fixing " + xpath + " => " + newXPath);
+	    		}
+	    	}
 	    	for (int i = 0; i < distinguishingParts.size(); ++i) {
 	    		String element = distinguishingParts.getElement(i);
 	    		Map attributes = distinguishingParts.getAttributes(i);
@@ -791,8 +804,12 @@ private boolean isSupplemental;
 	    			}
 	    		}
 	    	}
-	    	result = distinguishingParts.toString(); // .intern();
+	    	result = distinguishingParts.toString();
 	    	distinguishingMap.put(xpath, result);
+    	}
+    	if (normalizedPath != null) {
+    		normalizedPath[0] = (String) normalizedPathMap.get(xpath);
+    		if (normalizedPath[0] == null) normalizedPath[0] = xpath;
     	}
     	return result;
     }
@@ -1382,7 +1399,7 @@ private boolean isSupplemental;
 			int index = parts.findElement("alias"); // can have no children
 			if (index < 0) continue;
 			parts.trimLast();
-			fullParts.set(dataSource.getFullXPath(xpathKey));
+			fullParts.set(dataSource.getFullPath(xpathKey));
 			Map attributes = fullParts.getAttributes(index);
 			fullParts.trimLast();
 			// <alias source="<locale_ID>" path="..."/>
@@ -1429,13 +1446,13 @@ private boolean isSupplemental;
 				//Value value = (Value) other.getXpath_value().get(path);
 				//temp.set(path);
 				//temp.replace(otherParts.size(), parts);
-				fullTemp.set(other.dataSource.getFullXPath(path));
+				fullTemp.set(other.dataSource.getFullPath(path));
 				fullTemp.replace(otherParts.size(), fullParts);
 				String newPath = fullTemp.toString();
-				String value = dataSource.getValue(path);
+				String value = dataSource.getValueAtPath(path);
 				//value = value.changePath(fullTemp.toString());
 				if (SHOW_ALIAS_FIXES) System.out.println("Adding*: " + path + ";\r\n\t" + newPath + ";\r\n\t" 
-						+ dataSource.getValue(path));
+						+ dataSource.getValueAtPath(path));
 				stuffToAdd.put(newPath, value);
 				// to do, fix path
 			}
@@ -1721,7 +1738,7 @@ private boolean isSupplemental;
 	
 	static MapComparator attributeOrdering = (MapComparator) new MapComparator().add(new String[] {
 			"_q",
-			"type", "key", "registry", "alt",
+			"type", "key", "registry",
 			"source", "path",
 			"day", "date",
 			"version", "count",
@@ -1735,9 +1752,11 @@ private boolean isSupplemental;
 			"iso4217", "digits", "rounding",
 			"iso3166",
 			"standard", "references",
-			"draft",
+			// these are always at the end
+			 "alt", "draft",
 			}).setErrorOnMissing(false).freeze();
 	static MapComparator valueOrdering = (MapComparator) new MapComparator().setErrorOnMissing(false).freeze();
+    private static XPathParts distinguishingParts = new XPathParts(attributeOrdering,null);
 	/*
 	
 	//RuleBasedCollator valueOrdering = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
@@ -1961,8 +1980,8 @@ private boolean isSupplemental;
     		String path = (String) it.next();
     		//Value v = (Value) getXpath_value().get(path);
     		//if (!(v instanceof StringValue)) continue;
-    		parts.set(dataSource.getFullXPath(path)).addAttribute("draft", "true");
-    		dataSource.putPathValue(parts.toString(), dataSource.getValue(path));
+    		parts.set(dataSource.getFullPath(path)).addAttribute("draft", "true");
+    		dataSource.putValueAtPath(parts.toString(), dataSource.getValueAtPath(path));
     	}
 		return this;
 	}

@@ -17,6 +17,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.UnicodeSet;
 
 abstract public class CheckCLDR {
 	private CLDRFile cldrFileToCheck;
@@ -71,6 +72,7 @@ abstract public class CheckCLDR {
 			}
 			paths.clear();
 			CollectionUtilities.addAll(file.iterator(), paths);
+			UnicodeSet missingExemplars = new UnicodeSet();
 			for (Iterator it2 = paths.iterator(); it2.hasNext();) {
 				String path = (String) it2.next();
 				String value = file.getStringValue(path);
@@ -87,9 +89,15 @@ abstract public class CheckCLDR {
 						if (parameters[i] instanceof Throwable) {
 							((Throwable)parameters[i]).printStackTrace();
 						}
+						if (status.getMessage().startsWith("Not in exemplars")) {
+							missingExemplars.addAll(new UnicodeSet(parameters[i].toString()));
+						}
 					}
 					// survey tool will use: if (status.hasHTMLMessage()) System.out.println(status.getHTMLMessage());
 				}
+			}
+			if (missingExemplars.size() != 0) {
+				System.out.println("$$$\t" + localeID + "\t" + missingExemplars);
 			}
 		}
 		

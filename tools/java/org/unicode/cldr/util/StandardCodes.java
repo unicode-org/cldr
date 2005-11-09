@@ -315,7 +315,7 @@ public class StandardCodes {
 	 * @param current
 	 * @return
 	 */
-	private String nextAlpha(String current) {
+	private static String nextAlpha(String current) {
 		// Don't care that this is inefficient
 		int value = 0;
 		for (int i = 0; i < current.length(); ++i) {
@@ -915,5 +915,79 @@ public class StandardCodes {
 		} catch (Exception e) {
 			throw (RuntimeException) new IllegalArgumentException("Can't process file: " + dir + filename).initCause(e);
 		}
+	}
+	
+	public static Map getLStreg() {
+		Map result = new TreeMap();
+		try {
+			String line;
+			BufferedReader lstreg = Utility.getUTF8Data("draft-ietf-ltru-initial-06.txt");
+			boolean started = false;
+			String lastType = null;
+			String lastTag = null;
+			Map subtagData = null;
+			List currentData = null;
+			String[] lastPieces = null;
+			while (true) {
+				line = lstreg.readLine();
+				if (line == null) break;
+				if (line.length() == 0) continue; // skip blanks
+				if (line.startsWith("4.  Omitted Code Elements")) break;
+				if (!started) {
+					if (line.startsWith("   File-Date: ")) {
+						started = true;
+					}
+					continue;
+				}
+				if (!line.startsWith("   ")) continue; // skip page header/footer
+				if (line.startsWith("   %%")) continue; // skip separators (ok, since data starts with Type:
+				if (line.startsWith("     ")) {
+					lastPieces[1] = lastPieces[1] + " " + line.trim();
+					continue;
+				}
+				/*
+   Type: language
+   Subtag: aa
+   Description: Afar
+   Added: 2005-10-16
+   Suppress-Script: Latn
+				 */
+				String[] pieces = Utility.splitArray(line,':', true);
+				if (pieces[0].equalsIgnoreCase("Type")) {
+					subtagData = (Map) result.get(lastType = pieces[1]);
+					if (subtagData == null) result.put(pieces[1], subtagData = new TreeMap());
+				} else if (pieces[0].equalsIgnoreCase("Subtag") || pieces[0].equalsIgnoreCase("Tag")) {
+					lastTag = pieces[1];
+					String endTag = null;
+					int pos = lastTag.indexOf("..");
+					if (pos >= 0) {
+						endTag = lastTag.substring(pos + 2);
+						lastTag = lastTag.substring(0,pos);						
+					}
+					currentData = (List) subtagData.get(lastTag);
+					if (currentData != null) throw new IllegalArgumentException("Duplicate tag: " + lastTag);
+					if (endTag == null) {
+						subtagData.put(lastTag, currentData = new ArrayList(0));
+					} else {
+						for (; lastTag.compareTo(endTag) <= 0; lastTag = nextAlpha(lastTag)) {
+							//System.out.println(">" + current);
+							subtagData.put(lastTag, currentData = new ArrayList(0));
+						}
+
+					}
+				} else if (pieces[0].equalsIgnoreCase("Added") || pieces[0].equalsIgnoreCase("Suppress-Script")) {
+					// skip
+				} else if (pieces.length < 2) {
+					System.out.println("Odd Line: " + lastType + "\t" + lastTag + "\t" + line);
+				} else {
+					lastPieces = pieces;
+					pieces[1] = BagFormatter.fromXML.transliterate(pieces[1]);
+					currentData.add(pieces);
+				}
+			}
+		} catch (Exception e) {
+			throw (RuntimeException) new IllegalArgumentException("Can't process file: " + Utility.UTIL_DATA_DIR + "draft-ietf-ltru-initial-06.txt").initCause(e);
+		}
+		return result;
 	}
 }

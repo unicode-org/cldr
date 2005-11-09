@@ -156,7 +156,7 @@ public class VettingAdder {
 			uniquePathAndValue.addAll(c);
 			if (uniquePathAndValue.size() == 1) { // no conflict
 				VettingInfo vi = (VettingInfo) uniquePathAndValue.iterator().next();
-				cldrDelta.add(path, vi.fullPath, vi.value);
+				cldrDelta.add(vi.fullPath, vi.value);
 				gotOne = true;
 			} else { // there is a conflict
 				conflictSet.add(new Object[]{locale, path, c});
@@ -305,7 +305,7 @@ public class VettingAdder {
     			cldr = cldrFactory.make(lastLocale, false);
     			entry = "==========" + "\r\n" + lastLocale + "\r\n";
     		}
-    		String path = CLDRFile.getDistinguishingXPath((String)items[1]);
+    		String path = CLDRFile.getDistinguishingXPath((String)items[1], null);
        		String current = cldr.getStringValue(path);
     		entry += "\tpath:\t" + path + "\r\n\tcurrent value:\t" + getValue(any_latin, current) + "\r\n";
     		

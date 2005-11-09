@@ -30,6 +30,7 @@ public abstract class XMLSource implements Freezable {
 	private String localeID;
 	private boolean isSupplemental;
 	protected boolean locked;
+	static transient String[] fixedPath = new String[1];
 	
 	public String getLocaleID() {
 		return localeID;
@@ -41,27 +42,27 @@ public abstract class XMLSource implements Freezable {
 	public void putAll(Map tempMap, int conflict_resolution) {
 		for (Iterator it = tempMap.keySet().iterator(); it.hasNext();) {
 			String path = (String) it.next();
-			if (conflict_resolution == CLDRFile.MERGE_KEEP_MINE && getValue(path) != null) continue;
-			putPathValue(path, (String) tempMap.get(path));
+			if (conflict_resolution == CLDRFile.MERGE_KEEP_MINE && getValueAtDPath(path) != null) continue;
+			putValueAtPath(path, (String) tempMap.get(path));
 		}
 	}
 	public void putAll(XMLSource otherSource, int conflict_resolution) {
 		for (Iterator it = otherSource.iterator(); it.hasNext();) {
 			String path = (String) it.next();
-			if (conflict_resolution == CLDRFile.MERGE_KEEP_MINE && getValue(path) != null) continue;
-			putPathValue(otherSource.getFullXPath(path), otherSource.getValue(path));
+			if (conflict_resolution == CLDRFile.MERGE_KEEP_MINE && getValueAtDPath(path) != null) continue;
+			putValueAtPath(otherSource.getFullPathAtDPath(path), otherSource.getValueAtDPath(path));
 		}
 	}
 	
 	public void removeAll(Collection xpaths) {
 		for (Iterator it = xpaths.iterator(); it.hasNext();) {
-			remove((String) it.next());
+			removeValueAtDPath((String) it.next());
 		}
 	}
 	transient XPathParts parts = new XPathParts(null, null);
 	
 	public boolean isDraft(String path) {
-		String fullpath = getFullXPath(path);
+		String fullpath = getFullPath(path);
 		if (fullpath.indexOf("[@draft") < 0) return false;
 		return parts.set(fullpath).containsAttribute("draft");
 	}
@@ -70,12 +71,12 @@ public abstract class XMLSource implements Freezable {
 		return locked;
 	}
 	
-	public void putPathValue(String xpath, String value) {
+	public void putValueAtPath(String xpath, String value) {
 		if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-		String distinguishingXPath = CLDRFile.getDistinguishingXPath(xpath);		
-		putValue(distinguishingXPath, value);
-		if (!xpath.equals(distinguishingXPath)) {
-			putFullPath(distinguishingXPath, xpath);
+		String distinguishingXPath = CLDRFile.getDistinguishingXPath(xpath, fixedPath);	
+		putValueAtDPath(distinguishingXPath, value);
+		if (!fixedPath[0].equals(distinguishingXPath)) {
+			putFullPathAtDPath(distinguishingXPath, fixedPath[0]);
 		}
 	}
 	
@@ -138,7 +139,7 @@ public abstract class XMLSource implements Freezable {
 	public List addAliases(List output) {
 		for (Iterator it = iterator(); it.hasNext();) {
 			String path = (String) it.next();
-			String fullPath = getFullXPath(path);
+			String fullPath = getFullPathAtDPath(path);
 			Alias temp = Alias.make(fullPath);
 			if (temp == null) continue;
 			output.add(temp);
@@ -156,17 +157,41 @@ public abstract class XMLSource implements Freezable {
 		return getLocaleID();
 	}
 	
+	public void removeValueAtPath(String xpath) {
+		if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+		removeValueAtDPath(CLDRFile.getDistinguishingXPath(xpath, null));
+	}
+
+	public String getValueAtPath(String xpath) {
+		return getValueAtDPath(CLDRFile.getDistinguishingXPath(xpath, null));
+	}
+	public String getFullPath(String xpath) {
+		return getFullPathAtDPath(CLDRFile.getDistinguishingXPath(xpath, null));
+	}
+
 	// must be overriden
 	
-	abstract protected void putFullPath(String distinguishingXPath, String fullxpath);
-	abstract protected void putValue(String distinguishingXPath, String value);
-	abstract public String getValue(String path);
-	abstract public String getFullXPath(String path);
+	 // only call with distinguishing paths
+	abstract public void putFullPathAtDPath(String distinguishingXPath, String fullxpath);
+	abstract public void putValueAtDPath(String distinguishingXPath, String value);
+	abstract public void removeValueAtDPath(String distinguishingXPath);
+	
+	abstract public String getValueAtDPath(String path);
+	abstract public String getFullPathAtDPath(String path);
+	
 	abstract public Comments getXpathComments();
-	abstract public void setXpathComments(Comments path);
-	abstract public void remove(String xpath);
+	abstract public void setXpathComments(Comments comments);
+	/**
+	 * @return an iterator over the distinguished paths
+	 */
 	abstract public Iterator iterator();
+	/**
+	 * @return an XMLSource for the given localeID; null if unavailable
+	 */
 	abstract public XMLSource make(String localeID);
+	/**
+	 * @return all localeIDs for which make(...) returns a non-null value
+	 */
 	abstract public Set getAvailableLocales();
 
 	// normally overridden for efficiency
@@ -213,8 +238,8 @@ public abstract class XMLSource implements Freezable {
 		StringBuffer result = new StringBuffer();
 		for (Iterator it = iterator(); it.hasNext();) {
 			String path = (String) it.next();
-			String value = getValue(path);
-			String fullpath = getFullXPath(path);
+			String value = getValueAtDPath(path);
+			String fullpath = getFullPathAtDPath(path);
 			result.append(fullpath).append(" =\t ").append(value).append("\r\n");
 		}
 		return result.toString();
@@ -277,13 +302,13 @@ public abstract class XMLSource implements Freezable {
 		 */
 		public static final boolean TRACE_VALUE = false;
 		
-		public String getValue(String xpath) {
+		public String getValueAtDPath(String xpath) {
 			XMLSource currentSource = mySource;
 			if (TRACE_VALUE) System.out.println("xpath: " + xpath
 					+ "\r\n\tsource: " + currentSource.getClass().getName()
 					+ "\r\n\tlocale: " + currentSource.getLocaleID()
 					);
-	    	String result = currentSource.getValue(xpath);
+	    	String result = currentSource.getValueAtDPath(xpath);
 	    	if (result != null) {
 	    		if (TRACE_VALUE) System.out.println("result: " + result);
 	    		return result;
@@ -291,14 +316,14 @@ public abstract class XMLSource implements Freezable {
 	    	parentAndPath.set(xpath, currentSource, getLocaleID()).next();
 	    	while (true) {
 	    		if (parentAndPath.parentID == null) {
-	    			return constructedItems.getValue(xpath);
+	    			return constructedItems.getValueAtDPath(xpath);
 	    		}
 	    		currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
 				if (TRACE_VALUE) System.out.println("xpath: " + parentAndPath.path
 						+ "\r\n\tsource: " + currentSource.getClass().getName()
 						+ "\r\n\tlocale: " + currentSource.getLocaleID()
 						);
-	    		result = currentSource.getValue(parentAndPath.path);
+	    		result = currentSource.getValueAtDPath(parentAndPath.path);
 	    		if (result != null) {
 		    		if (TRACE_VALUE) System.out.println("result: " + result);
 		    		return result;
@@ -306,27 +331,28 @@ public abstract class XMLSource implements Freezable {
 	    		parentAndPath.next();
 	    	}
 		}
-		public String getFullXPath(String xpath) {
+		public String getFullPathAtDPath(String xpath) {
 			XMLSource currentSource = mySource;
-	    	String result = currentSource.getValue(xpath);
-	    	if (result != null) return currentSource.getFullXPath(xpath);
+	    	String result = currentSource.getValueAtDPath(xpath);
+	    	if (result != null) return currentSource.getFullPathAtDPath(xpath);
 	    	parentAndPath.set(xpath, currentSource, getLocaleID()).next();
 	    	while (true) {
 	    		if (parentAndPath.parentID == null) {
-	    			return constructedItems.getFullXPath(xpath);
+	    			return constructedItems.getFullPathAtDPath(xpath);
 	    		}
 	    		currentSource = make(parentAndPath.parentID); // factory.make(parentAndPath.parentID, false).dataSource;
-	    		result = currentSource.getValue(parentAndPath.path);
+	    		result = currentSource.getValueAtDPath(parentAndPath.path);
 	    		if (result != null) {
-	    			result = currentSource.getFullXPath(parentAndPath.path);
+	    			result = currentSource.getFullPathAtDPath(parentAndPath.path);
 	    			return Alias.changeNewToOld(result, parentAndPath.path, xpath);
 	    		}
 	    		parentAndPath.next();
 	    	}
 		}
 		public String getSourceLocaleID(String xpath) {
+			xpath = CLDRFile.getDistinguishingXPath(xpath, null);
 			XMLSource currentSource = mySource;
-	    	String result = currentSource.getValue(xpath);
+	    	String result = currentSource.getValueAtDPath(xpath);
 	    	if (result != null) return mySource.getLocaleID();
 	    	parentAndPath.set(xpath, currentSource, getLocaleID()).next();
 	    	while (true) {
@@ -334,9 +360,9 @@ public abstract class XMLSource implements Freezable {
 	    			return CODE_FALLBACK_ID;
 	    		}
 	    		currentSource = make(parentAndPath.parentID);
-	    		result = currentSource.getValue(parentAndPath.path);
+	    		result = currentSource.getValueAtDPath(parentAndPath.path);
 	    		if (result != null) {
-	    			result = currentSource.getFullXPath(parentAndPath.path);
+	    			result = currentSource.getFullPathAtDPath(parentAndPath.path);
 	    			return currentSource.getLocaleID();
 	    		}
 	    		parentAndPath.next();
@@ -372,7 +398,7 @@ public abstract class XMLSource implements Freezable {
     				continue;
     			}
     			if (path.indexOf("/alias") >= 0) { // quick check
-    				String fullPath = currentSource.getFullXPath(originalPath);
+    				String fullPath = currentSource.getFullPathAtDPath(originalPath);
     				// it's ok that the fullpath is not mapped to the old path, since 
     				// the only thing the Alias.make cares about is the last bit
 	    			Alias possibleAlias = Alias.make(fullPath);
@@ -446,10 +472,10 @@ public abstract class XMLSource implements Freezable {
 		public int size() {
 			return getCachedKeySet().size();
 		}
-		protected void putFullPath(String distinguishingXPath, String fullxpath) {
+		public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
 			throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");
 		}
-		protected void putValue(String distinguishingXPath, String value) {
+		public void putValueAtDPath(String distinguishingXPath, String value) {
 			throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");
 		}
 		public Comments getXpathComments() {
@@ -458,7 +484,7 @@ public abstract class XMLSource implements Freezable {
 		public void setXpathComments(Comments path) {
 			throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");		
 		}
-		public void remove(String xpath) {
+		public void removeValueAtDPath(String xpath) {
 			throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");
 		}
 		public Object freeze() {
@@ -503,7 +529,7 @@ public abstract class XMLSource implements Freezable {
 					//String path = prefix + code + postfix;
 					String fullpath = CLDRFile.getKey(typeNo, code);
 					//System.out.println(fullpath + "\t=> " + code);
-					constructedItems.putPathValue(fullpath, value);
+					constructedItems.putValueAtPath(fullpath, value);
 				}
 			}
 			constructedItems.freeze();

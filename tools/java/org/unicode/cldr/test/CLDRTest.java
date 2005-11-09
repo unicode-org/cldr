@@ -884,7 +884,7 @@ public class CLDRTest extends TestFmwk {
 				} else {
 					transValue = code;
 				}
-				missing.add(key, key, "TODO " + transValue);
+				missing.add(key, "TODO " + transValue);
 				failureCount[0]++;
 			} else {
 				logln("\t" + code + "\t" + v);

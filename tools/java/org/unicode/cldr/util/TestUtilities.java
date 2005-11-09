@@ -13,9 +13,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -32,11 +34,75 @@ import com.ibm.icu.util.ULocale;
  */
 public class TestUtilities {
 	public static void main(String[] args) throws Exception {
-		checkLanguages();
+		checkStandardCodes();
+		//checkLanguages();
 		//printCountries();
 		//printZoneSamples();
 		//printCurrencies();
 		System.out.println("Done");
+	}
+
+	private static void checkStandardCodes() {
+		StandardCodes sc = StandardCodes.make();
+		Map m = StandardCodes.getLStreg();
+		for (Iterator it = m.keySet().iterator(); it.hasNext();) {
+			String type = (String) it.next();
+			Map subtagData = (Map) m.get(type);
+
+			String oldType = type.equals("region") ? "territory" : type;
+			Set allCodes = sc.getAvailableCodes(oldType);
+			Set temp = new TreeSet(subtagData.keySet());
+			temp.removeAll(allCodes);
+			System.out.println(type + "\t in new but not old\t" + temp);
+			
+			temp = new TreeSet(allCodes);
+			temp.removeAll(subtagData.keySet());
+			System.out.println(type + "\t in old but not new\t" + temp);
+		}
+		for (Iterator it = m.keySet().iterator(); it.hasNext();) {
+			String type = (String) it.next();
+			Map subtagData = (Map) m.get(type);
+			String oldType = type.equals("region") ? "territory" : type;
+			Set goodCodes = sc.getGoodAvailableCodes(oldType);
+			
+			for (Iterator it2 = subtagData.keySet().iterator(); it2.hasNext();) {
+				String tag = (String)it2.next();
+				List data = (List) subtagData.get(tag);
+				List sdata = sc.getFullData(oldType, tag);
+				if (sdata == null) {
+					if (true) continue;
+					System.out.println("new in ltru");
+					for (Iterator it3 = data.iterator(); it3.hasNext();) {
+						String[] item = (String[])it3.next();
+						System.out.println("\t" + type + "\t" + tag + "\t" + Arrays.asList(item));
+					}
+					continue;
+				}
+				String description = (String) sdata.get(0);
+				boolean deprecated = !goodCodes.contains(tag);
+				if (description.equals("PRIVATE USE")) {
+					description = "";
+					deprecated = false;
+				}
+				String newDescription = "";
+				boolean newDeprecated = false;
+				for (Iterator it3 = data.iterator(); it3.hasNext();) {
+					String[] item = (String[])it3.next();
+					if (item[0].equals("Description")) {
+						if (newDescription.length() == 0) newDescription = item[1];
+						else newDescription += "; " + item[1];
+					} else if (item[0].equals("Deprecated")) {
+						newDeprecated = true;
+					}
+				}
+				if (!description.equals(newDescription)) {
+					System.out.println(type + "\t" + tag + "\tDescriptions differ: {" + description + "} ### {" + newDescription + "}");
+				}
+				if (deprecated != newDeprecated) {
+					System.out.println(type + "\t" + tag + "\tDeprecated differs: {" + deprecated + "} ### {" + newDeprecated+ "}");
+				}
+			}
+		}
 	}
 
 	private static void checkLanguages() {

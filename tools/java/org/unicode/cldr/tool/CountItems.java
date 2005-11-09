@@ -111,6 +111,7 @@ public class CountItems {
         		"<title>Modern Equivalent Timezones</title><style>");
         out.println("td.top,td.topr { border-top: 3px solid #0000FF }");
         out.println("td.r,td.topr { text-align:right }");
+        out.println("td.gap { border-top: 3px solid #0000FF; border-bottom: 3px solid #0000FF; background-color: #CCCCCC }");
         out.println("</style>" +
         		"</head>" +
         		"<body>" +
@@ -147,7 +148,7 @@ public class CountItems {
             Tabber tabber = tabber1;
             if (!country.equals(lastCountry)) {
             	if (first) first = false;
-            	else out.println("<tr><td colspan='5' bgcolor='silver'>&nbsp;</td></tr>");
+            	out.println("<tr><td colspan='5' class='gap'>&nbsp;</td></tr>");
             }
             else if (diff.value >= minimumDate) {
             	//out.println(tabber.process("\tDiffers at:\t" + ICUServiceBuilder.isoDateFormat(diff.value)));
@@ -173,6 +174,7 @@ public class CountItems {
             lastCountry = country;
             lastZip = zip;
         }
+    	out.println("<tr><td colspan='5' class='gap'>&nbsp;</td></tr>");
         out.println("</table></body></html>");
         out.close();
     }

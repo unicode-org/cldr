@@ -1262,22 +1262,22 @@ public class SurveyMain extends HttpServlet {
                 newxpath=newxpath.substring(1); // remove initial /     
                 if(vet.equals(DRAFT)) {
                     if((nse.main != null) && nse.mainDraft) {
-                        file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.main));
+                        file.add(newxpath, LDMLUtilities.getNodeValue(nse.main));
                     } else {
                         file.addComment(newxpath, "Can't find draft data! " + type, XPathParts.Comments.POSTBLOCK);
                     }
                 } else if(vet.equals(CURRENT)) {
                     if(nse.fallback != null)  {
-                        file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.fallback));
+                        file.add(newxpath, LDMLUtilities.getNodeValue(nse.fallback));
                     } else if((nse.main != null)&&!LDMLUtilities.isNodeDraft(nse.main)) {
-                        file.add(newxpath, newxpath, LDMLUtilities.getNodeValue(nse.main));
+                        file.add(newxpath, LDMLUtilities.getNodeValue(nse.main));
                     } else {
-                        file.add(newxpath, newxpath, type);
+                        file.add(newxpath, type);
                     }
                 } else if(vet.startsWith(PROPOSED)) {
                     String whichProposed = vet.substring(PROPOSED.length());
                     newxpath=newxpath+"[@alt='" + whichProposed + "']"; // append alt if user selected.
-                    file.add(newxpath, newxpath, LDMLUtilities.getNodeValue((Node)nse.alts.get(whichProposed)));
+                    file.add(newxpath, LDMLUtilities.getNodeValue((Node)nse.alts.get(whichProposed)));
                 } else if(vet.equals(NEW)) {
                     String newString = (String)data.get(type + SUBNEW); //type could be xpath here
                     if(newString == null) {

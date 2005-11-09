@@ -335,7 +335,7 @@ public class CLDRModify {
 					parts.setAttribute("territory", "draft", "true");
 					fullparts.setAttribute("territory", "draft", "true");
 				}
-				replacements.add(parts.toString(), fullparts.toString(), v);
+				replacements.add(fullparts.toString(), v);
 				removal.add(xpath);
 			}
 		}		
@@ -360,7 +360,7 @@ public class CLDRModify {
 			String fullXPath = k.getFullXPath(xpath);
 			fullparts.set(fullXPath);
 			fullparts.setAttribute(element, "type", "stand-alone");
-			replacements.add(parts.toString(), fullparts.toString(), v);
+			replacements.add(fullparts.toString(), v);
 			removal.add(xpath);
 		}		
 	};
@@ -375,7 +375,7 @@ public class CLDRModify {
 			boolean isPOSIX = k.getLocaleID().indexOf("POSIX") >= 0;
 			String pattern = CLDRTest.getCanonicalPattern(value, type, isPOSIX);
 			if (pattern.equals(value)) return;
-			replacements.add(xpath, k.getFullXPath(xpath), pattern);
+			replacements.add(k.getFullXPath(xpath), pattern);
 		}
 	};
 	
@@ -425,7 +425,7 @@ public class CLDRModify {
 			s.add(0xFFFF);
 			s.remove(0xFFFF); // force flattening
 			// at this point, we only have currency formats
-			replacements.add(xpath, k.getFullXPath(xpath), s.toPattern(false));
+			replacements.add(k.getFullXPath(xpath), s.toPattern(false));
 		}
 	};
 
@@ -438,7 +438,7 @@ public class CLDRModify {
 			s.add(0xFFFF);
 			s.remove(0xFFFF); // force flattening
 			// at this point, we only have currency formats
-			replacements.add(xpath, k.getFullXPath(xpath), s.toPattern(false));
+			replacements.add(k.getFullXPath(xpath), s.toPattern(false));
 		}
 	};
 
@@ -583,7 +583,7 @@ public class CLDRModify {
 			ValuePair v = (ValuePair) haveSameValues.get(xpath);
 			if (v.value.equals(resolvedFile.getStringValue(xpath))
 					&& v.fullxpath.equals(resolvedFile.getFullXPath(xpath))) continue;
-			replacements.add(xpath, v.fullxpath, v.value);
+			replacements.add(v.fullxpath, v.value);
 		}
 	}
 

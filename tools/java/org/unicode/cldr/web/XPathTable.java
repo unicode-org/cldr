@@ -20,7 +20,7 @@ import java.sql.ResultSet;
 public class XPathTable {
     private static java.util.logging.Logger logger;
     
-    private static final String CLDR_XPATHS = "cldr_xpaths";
+    public static final String CLDR_XPATHS = "cldr_xpaths";
     
     /** 
      * Called by SM to create the reg
@@ -57,7 +57,7 @@ public class XPathTable {
         synchronized(conn) {
             Statement s = conn.createStatement();
             s.execute("create table " + CLDR_XPATHS + "(id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
-                                                    "xpath varchar(150) not null, " +
+                                                    "xpath varchar(1024) not null, " +
                                                     "unique(xpath))");
             s.execute("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS +"(xpath)");
             s.close();
@@ -101,9 +101,10 @@ public class XPathTable {
     }
 
     /**
-     * Bottleneck 
+     * Bottleneck for adding xpaths
+     * @return the xpath's id (as an Integer)
      */
-    private void addXpath(String xpath)
+    private Integer addXpath(String xpath)
     {
         synchronized(conn) {
             try {
@@ -113,6 +114,7 @@ public class XPathTable {
                     if(!rs.next()) {
                         insertStmt.setString(1, xpath);
                         insertStmt.execute();
+                        conn.commit();
                         // TODO: Shouldn't there be a way to get the new row's id back??
     //                    logger.info("xpt: added " + xpath);
                         rs = queryStmt.executeQuery();
@@ -132,15 +134,18 @@ public class XPathTable {
     //                logger.info("Mapped " + id + " back to " + xpath);
                     rs.close();
                     stat_allAdds++;
+                    return nid;
             } catch(SQLException sqe) {
                 logger.severe("XPathTable: Failed in addXPath("+xpath+"): " + SurveyMain.unchainSqlException(sqe));
     //            sm.busted("XPathTable: Failed in addXPath: " + SurveyMain.unchainSqlException(sqe));
             }
         }
+        return null; // an exception occured.
     }
     
     /** 
      * needs a new name..
+     * This uses the string pool and also adds it to the table
      */
     final String poolx(String x) {
         if(x==null) {
@@ -172,8 +177,6 @@ public class XPathTable {
                                     
                     String str = rs.getString(1);
                     Integer nid = new Integer(id);
-    /*                idToString.put(nid,xpath);
-                    stringToId.put(xpath,nid); */
                     rs.close();
                     return poolx(str); // adds to idtostring and stringtoid
                     // TODO optimize
@@ -194,5 +197,27 @@ public class XPathTable {
             return s;
         }
         return fetchByID(id);
+    }
+    
+    /**
+     * API for get by string
+     */
+    public final int getByXpath(String xpath) {
+        Integer nid = (Integer)stringToId.get(xpath);
+        if(nid == null) {
+            synchronized(conn) {
+                nid = (Integer)stringToId.get(xpath); // double check
+                if(nid == null) {
+                    // OK, go get it
+                    nid = addXpath(xpath);
+                }
+            }
+        }
+        if(nid != null) {
+            return nid.intValue();
+        }
+        // Failing it.
+        logger.severe("Coudln't get xpath for " + xpath);
+        throw new InternalError("Couldn't get xpath for " + xpath);
     }
 }

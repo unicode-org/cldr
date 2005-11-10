@@ -63,6 +63,7 @@ public class UserRegistry {
         public String org;  // organization
         public String name;     // full name
         public Date last_connect;
+        public String locales;
 
         public void printPasswordLink(WebContext ctx) {
             UserRegistry.printPasswordLink(ctx, email, password);
@@ -120,6 +121,7 @@ public class UserRegistry {
                                                     "org varchar(20) not null, " +
                                                     "password varchar(20) not null, " +
                                                     "audit varchar(20) , " +
+                                                    "locales varchar(20) , " +
                                                     "prefs varchar(20) , " +
                                                     "primary key(id))");
             s.execute("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
@@ -131,6 +133,7 @@ public class UserRegistry {
             logger.info("DB: added user Admin");
             
             s.close();
+            conn.commit();
         }
     }
     
@@ -166,6 +169,7 @@ public class UserRegistry {
                     importStmt.close();
                     importStmt = null;
                 }
+                conn.commit();
             }
         }
     }
@@ -173,11 +177,11 @@ public class UserRegistry {
     private void myinit() throws SQLException {
      try {
         synchronized(conn) {
-          insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
-                                                    "VALUES(?,?,?,?,?)" );
+          insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password,locales) " +
+                                                    "VALUES(?,?,?,?,?,?)" );
 
-          queryStmt = conn.prepareStatement("SELECT id,name,userlevel,org from " + CLDR_USERS +" where email=? AND password=?");
-          queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org from " + CLDR_USERS +" where email=?");
+          queryStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales from " + CLDR_USERS +" where email=? AND password=?");
+          queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales from " + CLDR_USERS +" where email=?");
         }
       }finally{
         if(queryStmt == null) {
@@ -215,11 +219,12 @@ public class UserRegistry {
                 // from params:
                 u.password = pass;
                 u.email = email;
-                // from db:   (id,name,userlevel,org)
+                // from db:   (id,name,userlevel,org,locales)
                 u.id = rs.getInt(1);
                 u.name = rs.getString(2);
                 u.userlevel = rs.getInt(3);
                 u.org = rs.getString(4);
+                u.locales = rs.getString(5);
                 
                 // good so far..
                 
@@ -258,15 +263,18 @@ public class UserRegistry {
         u.email = "UN@KNOWN.example.com";
         u.org = "NONE"; 
         u.password = null;
+        u.locales="";
         
        return u;   
     }
+    /*
     public UserRegistry.User add(WebContext ctx, String email, String sponsor, String name, String requester) {
         return null;
     }
     public boolean read() {
         return false; // always broken
     }
+    */
     
     Connection conn = null;
     SurveyMain sm = null;
@@ -286,9 +294,9 @@ public class UserRegistry {
 //            try {
                 s = conn.createStatement();
                 if(organization == null) {
-                    rs = s.executeQuery("SELECT id,userlevel,name,email,org FROM " + CLDR_USERS + ORDER);
+                    rs = s.executeQuery("SELECT id,userlevel,name,email,org,locales FROM " + CLDR_USERS + ORDER);
                 } else {
-                    rs = s.executeQuery("SELECT id,userlevel,name,email,org FROM " + CLDR_USERS + " WHERE org='" + organization + "'" + ORDER);
+                    rs = s.executeQuery("SELECT id,userlevel,name,email,org,locales FROM " + CLDR_USERS + " WHERE org='" + organization + "'" + ORDER);
                 }
 //            } finally  {
 //                s.close();
@@ -318,6 +326,49 @@ public class UserRegistry {
       //           msg = msg + " (<br /><pre> " + theSql + " </pre><br />) ";
                 logger.info("Attempt user update by " + ctx.session.user.email + ": " + theSql);
                 int n = s.executeUpdate(theSql);
+                conn.commit();
+                if(n == 0) {
+                    msg = msg + " [Error: no users were updated!] ";
+                    logger.severe("Error: 0 records updated.");
+                } else if(n != 1) {
+                    msg = msg + " [Error in updating users!] ";
+                    logger.severe("Error: " + n + " records updated!");
+                } else {
+                    msg = msg + " [completed OK]";
+                }
+            } catch (SQLException se) {
+                msg = msg + " exception: " + SurveyMain.unchainSqlException(se);
+            } catch (Throwable t) {
+                msg = msg + " exception: " + t.toString();
+            } finally  {
+              //  s.close();
+            }
+        }
+        
+        return msg;
+    }
+
+    String setLocales(WebContext ctx, int theirId, String theirEmail, String newLocales) {
+        if(ctx.session.user.userlevel > TC) { // Note- we dont' check that a TC isn't modifying an Admin's locale. 
+            return ("[Permission Denied]");
+        }
+
+        String orgConstraint = null;
+        String msg = "";
+        if(ctx.session.user.userlevel == ADMIN) {
+            orgConstraint = ""; // no constraint
+        } else {
+            orgConstraint = " AND org='" + ctx.session.user.org + "' ";
+        }
+        synchronized(conn) {
+            try {
+                String theSql = "UPDATE " + CLDR_USERS + " SET locales=? WHERE id=" + theirId + " AND email='" + theirEmail + "' "  + orgConstraint;
+                PreparedStatement ps = conn.prepareStatement(theSql);
+      //           msg = msg + " (<br /><pre> " + theSql + " </pre><br />) ";
+                logger.info("Attempt user locales update by " + ctx.session.user.email + ": " + theSql + " - " + newLocales);
+                ps.setString(1, newLocales);
+                int n = ps.executeUpdate();
+                conn.commit();
                 if(n == 0) {
                     msg = msg + " [Error: no users were updated!] ";
                     logger.severe("Error: 0 records updated.");
@@ -360,6 +411,7 @@ public class UserRegistry {
 //                 msg = msg + " (<br /><pre> " + theSql + " </pre><br />) ";
                 logger.info("Attempt user DELETE by " + ctx.session.user.email + ": " + theSql);
                 int n = s.executeUpdate(theSql);
+                conn.commit();
                 if(n == 0) {
                     msg = msg + " [Error: no users were removed!] ";
                     logger.severe("Error: 0 users removed.");
@@ -423,6 +475,11 @@ public class UserRegistry {
         if(ctx.session.user.userlevel > TC) {
             return null;
         }
+        // prepare quotes 
+        u.email = u.email.replace('\'', '_');
+        u.org = u.org.replace('\'', '_');
+        u.name = u.name.replace('\'', '_');
+        u.locales = u.locales.replace('\'', '_');
 
         synchronized(conn) {
             try {
@@ -432,12 +489,15 @@ public class UserRegistry {
                 insertStmt.setString(3, u.org);
                 insertStmt.setString(4, u.email);
                 insertStmt.setString(5, u.password);
+                insertStmt.setString(6, u.locales);
                 if(!insertStmt.execute()) {
                     logger.info("Added.");
+                    conn.commit();
                     ctx.println("<p>Added user.<p>");
                     return get(u.password, u.email); // throw away old user
                 } else {
                     ctx.println("Couldn't add user.");
+                    conn.commit();
                     return null;
                 }
             } catch (SQLException se) {

@@ -11,11 +11,13 @@
 			<label>Name: <input size=40 name="new_name" /></label><br/>
 			<label>Email: <input size=40 name="new_email" /></label><br/>
 			<label>Organization: <input name="new_org" /></label>   (note: leave blank if same as yours)<br/>
-			<label>Userlevel: <input name="new_userlevel" value="5" /></label>   (1=TC, 5=Vetter, 10=Street, ...)<br/>
+			<label>Userlevel: <input name="new_userlevel" value="5" /></label>   (Space separated. Examples: "en de fr" or  "de_CH".  )<br/>
+			<label>Locales responsible: <input name="new_locales" value="" /></label>   (1=TC, 5=Vetter, 10=Street, ...)<br/>
 			<input type="submit" value="Add" />
 		</form>
 		<hr/>
 		<a href="<%= request.getParameter("a") %>?s=<%= request.getParameter("s") %>">Cancel, return to Survey Tool</a> |
-		<a href="./index.jsp">Return to CLDR Applications</a>
+		<a href="./index.jsp">Return to CLDR Applications</a> |
+		<a target="_new" href="http://dev.icu-project.org/cgi-bin/cldrwiki.pl?SurveyTool/AddModifyUser">Help on this page (in a new window)</a>
 	</body>
 </html>

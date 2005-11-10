@@ -24,7 +24,7 @@ public class WebContext {
     public static java.util.logging.Logger logger = SurveyMain.logger;
 // USER fields
     public SurveyMain sm = null;
-    public XPathTable xpt = null;
+    public CLDRDBSource dbsrc = null;
     public Document doc[]= new Document[0];
     public ULocale locale = null;
     public String docLocale[] = new String[0];
@@ -69,7 +69,7 @@ public class WebContext {
         request = other.request;
         response = other.response;
         conn = other.conn;
-        xpt = other.xpt;
+        dbsrc = other.dbsrc;
         sm = other.sm;
     }
     
@@ -86,6 +86,19 @@ public class WebContext {
                 return true;
             } else {
                 return false;
+            }
+        } else {
+            return def;
+        }
+    }
+
+    int fieldInt(String x, int def) {
+        String f;
+        if((f=field(x)).length()>0) {
+            try {
+                return new Integer(f).intValue();
+            } catch(Throwable t) {
+                return def;
             }
         } else {
             return def;
@@ -223,20 +236,31 @@ public class WebContext {
         Vector localesVector = new Vector();
         Vector docsVector = new Vector();
         parents = l.toString();
-        do {
-            try {
-                Document d = sm.fetchDoc(parents);
+        if(false) { // TODO: change
+            do {
+                try {
+                    Document d = sm.fetchDoc(parents);
+                    localesVector.add(parents);
+                    docsVector.add(d);
+                } catch(Throwable t) {
+                    logger.log(java.util.logging.Level.SEVERE,"Error fetching " + parents + "<br/>",t);
+                    // error is shown elsewhere.
+                }
+                parents = getParent(parents);
+            } while(parents != null);
+            doc = (Document[])docsVector.toArray(doc);
+            docLocale = (String[])localesVector.toArray(docLocale);
+            logger.info("Fetched locale: " + l.toString() + ", count: " + doc.length);
+        } else {
+            // at least set up the docLocale tree
+            do {
                 localesVector.add(parents);
-                docsVector.add(d);
-            } catch(Throwable t) {
-                logger.log(java.util.logging.Level.SEVERE,"Error fetching " + parents + "<br/>",t);
-                // error is shown elsewhere.
-            }
-            parents = getParent(parents);
-        } while(parents != null);
-        doc = (Document[])docsVector.toArray(doc);
-        docLocale = (String[])localesVector.toArray(docLocale);
-        logger.info("Fetched locale: " + l.toString() + ", count: " + doc.length);
+                parents = getParent(parents);
+            } while(parents != null);
+            docLocale = (String[])localesVector.toArray(docLocale);        
+        
+            logger.info("NOT NOT NOT fetching locale: " + l.toString() + ", count: " + doc.length);
+        }
     }
         
 // locale hash api

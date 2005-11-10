@@ -93,7 +93,7 @@ public class CookieSession {
     protected String newId(boolean isGuest) {  
         if(isGuest) {
             // no reason, just a different set of hashes
-            return cheapEncode(h+=2)+"w"+cheapEncode(g++);
+            return cheapEncode(h+=2)+"w"+cheapEncode(j.hashCode()+g++);
         } else {
             return cheapEncode((n+=(j.hashCode()%444))+n) +"y" + j;
         }

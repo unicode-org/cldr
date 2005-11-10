@@ -127,7 +127,8 @@ public class NodeSet {
         NodeSetEntry nse = (NodeSetEntry)map.get(xpath);
         if(nse == null) {
             nse = new NodeSetEntry((type!=null)?type:"");
-            nse.xpath = ctx.xpt.poolx(xpath);
+//            nse.xpath = ctx.xpt.poolx(xpath);
+            nse.xpath = xpath; // TODO: replace..
             map.put(nse.xpath,nse);
         }
     }
@@ -156,7 +157,8 @@ public class NodeSet {
         NodeSetEntry nse = (NodeSetEntry)map.get(xpath);
         if(nse == null) {
             nse = new NodeSetEntry((type!=null)?type:"");
-            nse.xpath = ctx.xpt.poolx(xpath);
+//            nse.xpath = ctx.xpt.poolx(xpath);
+            nse.xpath = xpath; // TODO: replace
             map.put(nse.xpath, nse);
             // calculate warning here??
         }

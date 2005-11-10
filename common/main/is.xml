@@ -857,6 +857,22 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="true">F1</quarter>
+							<quarter type="2" draft="true">F2</quarter>
+							<quarter type="3" draft="true">F3</quarter>
+							<quarter type="4" draft="true">F4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="true">1st fjórðungur</quarter>
+							<quarter type="2" draft="true">2nd fjórðungur</quarter>
+							<quarter type="3" draft="true">3rd fjórðungur</quarter>
+							<quarter type="4" draft="true">4th fjórðungur</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>

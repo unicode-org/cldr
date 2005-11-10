@@ -684,6 +684,22 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="true">1季</quarter>
+							<quarter type="2" draft="true">2季</quarter>
+							<quarter type="3" draft="true">3季</quarter>
+							<quarter type="4" draft="true">4季</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="true">第1季</quarter>
+							<quarter type="2" draft="true">第2季</quarter>
+							<quarter type="3" draft="true">第3季</quarter>
+							<quarter type="4" draft="true">第4季</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<eras>
 					<eraNames>
 						<era type="0" draft="true">西元前</era>

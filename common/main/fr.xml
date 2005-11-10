@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd">
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -928,6 +928,22 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="true">T1</quarter>
+							<quarter type="2" draft="true">T2</quarter>
+							<quarter type="3" draft="true">T3</quarter>
+							<quarter type="4" draft="true">T4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="true">1er trimestre</quarter>
+							<quarter type="2" draft="true">2e trimestre</quarter>
+							<quarter type="3" draft="true">3e trimestre</quarter>
+							<quarter type="4" draft="true">4e trimestre</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<week>
 					<minDays count="4" draft="true"/>
 					<firstDay day="mon" draft="true"/>

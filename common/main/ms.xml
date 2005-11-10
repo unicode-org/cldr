@@ -312,6 +312,22 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="true">S1</quarter>
+							<quarter type="2" draft="true">S2</quarter>
+							<quarter type="3" draft="true">S3</quarter>
+							<quarter type="4" draft="true">S4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="true">suku pertama</quarter>
+							<quarter type="2" draft="true">suku kedua</quarter>
+							<quarter type="3" draft="true">suku ketiga</quarter>
+							<quarter type="4" draft="true">suku keempat</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<week>
 					<firstDay day="mon" draft="true"/>
 				</week>

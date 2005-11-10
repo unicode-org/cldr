@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -69,11 +71,15 @@ abstract public class CheckCLDR {
 		XPathParts pathParts = new XPathParts(null, null);
 		XPathParts fullPathParts = new XPathParts(null, null);
 		Set paths = new TreeSet(CLDRFile.ldmlComparator);
+		Map m = new TreeMap();
+		double testNumber = 0;
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String localeID = (String) it.next();
+			System.out.println("Locale:\t" + getLocaleAndName(localeID) + "\t");
 			CLDRFile file = cldrFactory.make(localeID, false);
 			checkCldr.setCldrFileToCheck(file, result);
 			for (Iterator it3 = result.iterator(); it3.hasNext();) {
+				System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 				System.out.println(it3.next().toString());
 			}
 			paths.clear();
@@ -86,7 +92,18 @@ abstract public class CheckCLDR {
 				checkCldr.check(path, fullPath, value, pathParts, fullPathParts, result);
 				for (Iterator it3 = result.iterator(); it3.hasNext();) {
 					CheckStatus status = (CheckStatus) it3.next();
-					if (status.getType().equals(status.exampleType)) continue;
+					if (status.getType().equals(status.exampleType)) {
+						System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
+						System.out.println("\t" + status);
+						System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
+						System.out.println(status.getHTMLMessage());
+						SimpleDemo d = status.getDemo();
+						m.clear();
+						// for now, assume CheckNumber
+						m.put("T1", String.valueOf(testNumber += Math.PI));
+						if (d.processPost(m)) System.out.println(m);
+						continue;
+					}
 					String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
 					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 					System.out.println("Value: " + value + "\t Full Path: " + fullPath);
@@ -159,12 +176,12 @@ abstract public class CheckCLDR {
 		public String getMessage() {
 			return MessageFormat.format(MessageFormat.autoQuoteApostrophe(messageFormat), parameters);
 		}
+		/*
+		 * If this is not null, wrap it in a <form>...</form> and display. When you get a submit, call getDemo
+		 * to get a demo that you can call to change values of the fields. See CheckNumbers for an example. 
+		 */
 		public String getHTMLMessage() {
-			if (htmlMessage == null) return getMessage();
 			return htmlMessage;
-		}
-		public boolean hasHTMLMessage() {
-			return (htmlMessage != null);
 		}
 		public CheckStatus setHTMLMessage(String message) {
 			htmlMessage = message;
@@ -188,7 +205,28 @@ abstract public class CheckCLDR {
 		public void setParameters(Object[] parameters) {
 			this.parameters = parameters;
 		}
+		public SimpleDemo getDemo() {
+			return null;
+		}
 	}
+	public static class SimpleDemo {
+		/**
+		 * If the getHTMLMessage is not null, then call this in response to a submit.
+		 * @param PostArguments A read-write map containing post-style arguments. eg TEXTBOX=abcd, etc.
+		 * @return true if the map has been changed
+		 */ 
+		public boolean processPost(Map PostArguments) {
+			return false;
+		}
+		/**
+		 * Utility for setting map. Use the paradigm in CheckNumbers.
+		 */
+		public boolean putIfDifferent(Map inout, String key, String value) {
+			Object oldValue = inout.put(key, value);
+			return !value.equals(oldValue);
+		}
+	}
+
 	/**
 	 * Checks the path/value in the cldrFileToCheck for correctness, according to some criterion.
 	 * If the path is relevant to the check, there is an alert or warning, then a CheckStatus is added to List.
@@ -233,6 +271,7 @@ abstract public class CheckCLDR {
 		}
 		public CheckCLDR _check(String path, String fullPath, String value,
 				XPathParts pathParts, XPathParts fullPathParts, List result) {
+			result.clear();
 			for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
 				CheckCLDR item = (CheckCLDR) it.next();
 				try {
@@ -249,6 +288,7 @@ abstract public class CheckCLDR {
 			return this;
 		}
 		public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
+			possibleErrors.clear();
 			for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
 				CheckCLDR item = (CheckCLDR) it.next();
 				try {

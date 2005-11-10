@@ -369,6 +369,13 @@ public class ICUServiceBuilder {
         symbols.setPlusSign(cldrFile.getStringValue("//ldml/numbers/symbols/plusSign").charAt(0));
         symbols.setZeroDigit(cldrFile.getStringValue("//ldml/numbers/symbols/nativeZeroDigit").charAt(0));
 
+        symbols.setMonetaryDecimalSeparator(symbols.getDecimalSeparator());
+        /*
+        currencySymbol.equals(other.currencySymbol) &&
+        intlCurrencySymbol.equals(other.intlCurrencySymbol) &&
+        padEscape == other.padEscape && // [NEW]
+        monetarySeparator == other.monetarySeparator);
+         */
         MyCurrency mc = null;
         if (kind == CURRENCY) {
         	String prefix = "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/";
@@ -385,6 +392,20 @@ public class ICUServiceBuilder {
          	// /ldml/numbers/currencies/currency[@type="GBP"]
         	
         	String symbol = cldrFile.getStringValue(prefix + "symbol");
+        	String currencyDecimal = cldrFile.getStringValue(prefix + "decimal");
+        	if (currencyDecimal != null) {
+        		symbols.setMonetaryDecimalSeparator(currencyDecimal.charAt(0));
+        	}
+        	String currencyPattern = cldrFile.getStringValue(prefix + "pattern");
+        	if (currencyPattern != null) {
+        		pattern = currencyPattern;
+        	}
+        	
+        	// TODO USE once ICU has available
+        	String currencyGrouping = cldrFile.getStringValue(prefix + "decimal");
+        	
+        	//<decimal>,</decimal>
+        	//<group>.</group>
         	
         	// TODO This is a hack for now, since I am ignoring the possibility of quoted text next to the symbol
         	int startPos = pattern.indexOf('¤');

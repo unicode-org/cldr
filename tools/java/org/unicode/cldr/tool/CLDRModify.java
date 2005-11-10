@@ -129,7 +129,9 @@ public class CLDRModify {
 		Log.setLog(targetDir + "log.txt");
 		try {		//String[] failureLines = new String[2];
 			SimpleLineComparator lineComparer = new SimpleLineComparator(
-						SimpleLineComparator.SKIP_SPACES + SimpleLineComparator.SKIP_EMPTY + SimpleLineComparator.SKIP_CVS_TAGS);
+						//SimpleLineComparator.SKIP_SPACES + 
+						SimpleLineComparator.TRIM +
+						SimpleLineComparator.SKIP_EMPTY + SimpleLineComparator.SKIP_CVS_TAGS);
 				
 			Factory cldrFactory = Factory.make(sourceDir, ".*");
 	
@@ -419,6 +421,7 @@ public class CLDRModify {
 	static CLDRFilter fixExemplars = new CLDRFilter() {
 		Collator col;
 		Collator spaceCol;
+		UnicodeSet uppercase = new UnicodeSet("[[:Uppercase:]-[\u0130]]");
 
 		public void setFile(CLDRFile k) {
 			super.setFile(k);
@@ -430,11 +433,13 @@ public class CLDRModify {
 		public void handle(String xpath, Set removal, CLDRFile replacements) {
 			if (xpath.indexOf("/exemplarCharacters") < 0) return;
 			String value = k.getStringValue(xpath);
-			UnicodeSet s = new UnicodeSet(value);
+			String fixedValue = value.replaceAll("- ", "-"); // TODO fix hack
+			if (!fixedValue.equals(value)) {
+				System.out.println("Changing: " + value);
+			}
+			UnicodeSet s = new UnicodeSet(fixedValue).removeAll(uppercase);
 			
 	    	String fixedExemplar1 = CollectionUtilities.prettyPrint(s, col, col, true);
-	    	UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar1);
-	    	if (!doubleCheck.equals(s)) throw new IllegalArgumentException("Internal error printing exemplar set");
 	    	
 	    	if (!value.equals(fixedExemplar1)) replacements.add(k.getFullXPath(xpath), fixedExemplar1);
 		}

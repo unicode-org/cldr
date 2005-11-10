@@ -30,7 +30,7 @@ public abstract class XMLSource implements Freezable {
 	private String localeID;
 	private boolean isSupplemental;
 	protected boolean locked;
-	static transient String[] fixedPath = new String[1];
+	transient String[] fixedPath = new String[1];
 	
 	public String getLocaleID() {
 		return localeID;
@@ -80,26 +80,26 @@ public abstract class XMLSource implements Freezable {
 		}
 	}
 	
-	public static class Alias {
+	private static class Alias {
 		//public String oldLocaleID;
 		public String oldPath;
 		public String newLocaleID;
 		public String newPath;
 		
-		private static XPathParts tempParts = new XPathParts(null, null);
-		
 		public static Alias make(String aliasPath) {
+			XPathParts tempAliasParts = new XPathParts(null, null);
+			
 			int pos = aliasPath.indexOf("/alias");
 			if (pos < 0) return null; // quickcheck
-			if (!tempParts.set(aliasPath).containsElement("alias")) return null;
+			if (!tempAliasParts.set(aliasPath).containsElement("alias")) return null;
 			Alias result = new Alias();
 			result.oldPath = aliasPath.substring(0,pos); // this is safe
-			Map attributes = tempParts.getAttributes(tempParts.size()-1);
+			Map attributes = tempAliasParts.getAttributes(tempAliasParts.size()-1);
 			result.newLocaleID = (String) attributes.get("source");
 			if (result.newLocaleID != null && result.newLocaleID.equals("locale")) result.newLocaleID = null;
 			String relativePath = (String) attributes.get("path");
 			if (relativePath == null) result.newPath = result.oldPath;
-			else result.newPath = tempParts.trimLast().addRelative(relativePath).toString();
+			else result.newPath = tempAliasParts.trimLast().addRelative(relativePath).toString();
 			if (result.newPath.equals(result.oldPath) && result.newLocaleID == null) {
 				throw new IllegalArgumentException("Alias must have different path or different source");
 			}

@@ -59,6 +59,7 @@ abstract public class CheckCLDR {
         String checkFilter = args.length <= 1 ? ".*" : args[1]; // eg .*Collision.* 
         System.out.println("factoryFilter: " + factoryFilter);
         System.out.println("checkFilter: " + checkFilter);
+        boolean showExamples = false;
         
         // set up the test
 		Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, factoryFilter);
@@ -93,15 +94,18 @@ abstract public class CheckCLDR {
 				for (Iterator it3 = result.iterator(); it3.hasNext();) {
 					CheckStatus status = (CheckStatus) it3.next();
 					if (status.getType().equals(status.exampleType)) {
+						if (!showExamples) continue;
 						System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 						System.out.println("\t" + status);
 						System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 						System.out.println(status.getHTMLMessage());
 						SimpleDemo d = status.getDemo();
-						m.clear();
-						// for now, assume CheckNumber
-						m.put("T1", String.valueOf(testNumber += Math.PI));
-						if (d.processPost(m)) System.out.println(m);
+						if (d != null) {
+							m.clear();
+							// for now, assume CheckNumber
+							m.put("T1", String.valueOf(testNumber += Math.PI));
+							if (d.processPost(m)) System.out.println(m);
+						}
 						continue;
 					}
 					String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(

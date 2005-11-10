@@ -13,9 +13,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
-import java.lang.reflect.Constructor;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -26,14 +23,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TimeZone;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.xml.utils.UnImplNode;
-import org.unicode.cldr.util.XMLSource.Alias;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
@@ -48,7 +42,6 @@ import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
-import com.ibm.icu.dev.test.util.CollectionUtilities.FilteredIterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
 
@@ -280,11 +273,6 @@ public class CLDRFile implements Freezable {
 			System.out.println(getFullXPath(xpath) + " =>\t" + getStringValue(xpath));
 		}
 		return this;
-    }
-
-    static DateFormat myDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");  
-    static {
-        myDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
     }
 
 	/**
@@ -761,57 +749,67 @@ private boolean isSupplemental;
     public int size() {
     	return dataSource.size();
      }
-
-    private static Map distinguishingMap = new HashMap();
-    private static Map normalizedPathMap = new HashMap();
     
+    private static class DistinguishedXPath {
+    	private static Map distinguishingMap = new HashMap();
+    	private static Map normalizedPathMap = new HashMap();
+    	private static XPathParts distinguishingParts = new XPathParts(attributeOrdering,null);
+    	
+    	public static String getDistinguishingXPath(String xpath, String[] normalizedPath) {
+    		synchronized (distinguishingMap) {
+    			String result = (String) distinguishingMap.get(xpath);
+    			if (result == null) {
+    				distinguishingParts.set(xpath);
+    				String draft = null;
+    				String alt = null;
+    				for (int i = 0; i < distinguishingParts.size(); ++i) {
+    					Map attributes = distinguishingParts.getAttributes(i);
+    					for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
+    						String attribute = (String) it.next();
+    						if (attribute.equals("draft")) {
+    							draft = (String) attributes.get(attribute);
+    							it.remove();
+    						} else if (attribute.equals("alt")) {
+    							alt = (String) attributes.get(attribute);
+    							it.remove();
+    						}
+    					}
+    				}
+    				if (draft != null || alt != null) {
+    					Map attributes = distinguishingParts.getAttributes(distinguishingParts.size() - 1);
+    					if (draft != null) attributes.put("draft", draft);
+    					if (alt != null) attributes.put("alt", alt);
+    					String newXPath = distinguishingParts.toString();
+    					if (!newXPath.equals(xpath)) {
+    						normalizedPathMap.put(xpath, newXPath); // store differences
+    						//System.err.println("fixing " + xpath + " => " + newXPath);
+    					}
+    				}
+    				for (int i = 0; i < distinguishingParts.size(); ++i) {
+    					String element = distinguishingParts.getElement(i);
+    					Map attributes = distinguishingParts.getAttributes(i);
+    					for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
+    						String attribute = (String) it.next();
+    						if (!isDistinguishing(element, attribute)) {
+    							it.remove();
+    						}
+    					}
+    				}
+    				result = distinguishingParts.toString();
+    				distinguishingMap.put(xpath, result);
+    			}
+    			if (normalizedPath != null) {
+    				normalizedPath[0] = (String) normalizedPathMap.get(xpath);
+    				if (normalizedPath[0] == null) normalizedPath[0] = xpath;
+    			}
+    			return result;
+    		}
+    	}
+    }
+    
+    private static final DistinguishedXPath distinguishedXPath = new DistinguishedXPath();
     public static String getDistinguishingXPath(String xpath, String[] normalizedPath) {
-    	String result = (String) distinguishingMap.get(xpath);
-    	if (result == null) {
-	    	distinguishingParts.set(xpath);
-	    	String draft = null;
-	    	String alt = null;
-	    	for (int i = 0; i < distinguishingParts.size(); ++i) {
-	    		Map attributes = distinguishingParts.getAttributes(i);
-	    		for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-	    			String attribute = (String) it.next();
-	    			if (attribute.equals("draft")) {
-	    				draft = (String) attributes.get(attribute);
-	    				it.remove();
-	    			} else if (attribute.equals("alt")) {
-	    				alt = (String) attributes.get(attribute);
-	    				it.remove();
-	    			}
-	    		}
-	    	}
-	    	if (draft != null || alt != null) {
-	    		Map attributes = distinguishingParts.getAttributes(distinguishingParts.size() - 1);
-	    		if (draft != null) attributes.put("draft", draft);
-	    		if (alt != null) attributes.put("alt", alt);
-	    		String newXPath = distinguishingParts.toString();
-	    		if (!newXPath.equals(xpath)) {
-	    			normalizedPathMap.put(xpath, newXPath); // store differences
-	    			//System.err.println("fixing " + xpath + " => " + newXPath);
-	    		}
-	    	}
-	    	for (int i = 0; i < distinguishingParts.size(); ++i) {
-	    		String element = distinguishingParts.getElement(i);
-	    		Map attributes = distinguishingParts.getAttributes(i);
-	    		for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-	    			String attribute = (String) it.next();
-	    			if (!isDistinguishing(element, attribute)) {
-	    				it.remove();
-	    			}
-	    		}
-	    	}
-	    	result = distinguishingParts.toString();
-	    	distinguishingMap.put(xpath, result);
-    	}
-    	if (normalizedPath != null) {
-    		normalizedPath[0] = (String) normalizedPathMap.get(xpath);
-    		if (normalizedPath[0] == null) normalizedPath[0] = xpath;
-    	}
-    	return result;
+    	return distinguishedXPath.getDistinguishingXPath(xpath, normalizedPath);
     }
     
     private static boolean equalsIgnoringDraft(String path1, String path2) {
@@ -1200,8 +1198,8 @@ private boolean isSupplemental;
                 }
             }
         
-        static char XML_LINESEPARATOR = (char)0xA;
-        static String XML_LINESEPARATOR_STRING = String.valueOf(XML_LINESEPARATOR);
+        static final char XML_LINESEPARATOR = (char)0xA;
+        static final String XML_LINESEPARATOR_STRING = String.valueOf(XML_LINESEPARATOR);
         
         public void characters(char[] ch, int start, int length)
             throws SAXException {
@@ -1622,21 +1620,28 @@ private boolean isSupplemental;
 	
 	public synchronized String getName(String localeOrTZID, boolean skipDraft) {
 		lparser.set(localeOrTZID);
-		String name = getName(LANGUAGE_NAME, lparser.getLanguage(), skipDraft);
-		String sname = lparser.getScript();
-		if (sname.length() != 0) name += " - " + getName(SCRIPT_NAME, sname, skipDraft);
+		String original;
+		String name = getName(LANGUAGE_NAME, original = lparser.getLanguage(), skipDraft);
+		if (name == null) name = original;
+		String sname = original = lparser.getScript();
+		if (sname.length() != 0) {
+			sname = getName(SCRIPT_NAME, sname, skipDraft);
+			name += " - " + (sname == null ? original : sname);
+		}
 		String extras = "";
-		sname = lparser.getRegion();
+		original = sname = lparser.getRegion();
 		if (sname.length() != 0) {
 			if (extras.length() != 0) extras += ", ";
-			extras += getName(TERRITORY_NAME, sname, skipDraft);
+			sname = getName(TERRITORY_NAME, sname, skipDraft);
+			extras += (sname == null ? original : sname);
 		}
 		List variants = lparser.getVariants();
 		for (int i = 0; i < variants.size(); ++i) {
 			if (extras.length() != 0) extras += ", ";
-			extras += getName(VARIANT_NAME, (String)variants.get(i), skipDraft);
+			sname = getName(VARIANT_NAME, original = (String)variants.get(i), skipDraft);
+			extras += (sname == null ? original : sname);
 		}
-		return name + (extras.length() == 0 ? "" : "(" + extras + ")");
+		return name + (extras.length() == 0 ? "" : " (" + extras + ")");
 	}
 	
 	/**
@@ -1691,72 +1696,80 @@ private boolean isSupplemental;
 	    return "root";
 	}
 
-	private static MapComparator elementOrdering = (MapComparator) new MapComparator().add(new String[] {
-			"ldml", "identity", "alias",
-			"localeDisplayNames", "layout", "characters", "delimiters",
-			"measurement", "dates", "numbers", "collations", "posix",
-			"version", "generation", "language", "script", "territory",
-			"variant", "languages", "scripts", "territories", "variants",
-			"keys", "types", "key", "type", "orientation",
-			"exemplarCharacters", "mapping", "cp", "quotationStart",
-			"quotationEnd", "alternateQuotationStart",
-			"alternateQuotationEnd", "measurementSystem", "paperSize",
-			"height", "width", "localizedPatternChars", "calendars",
-			"timeZoneNames", "months", "monthNames", "monthAbbr", "days",
-			"dayNames", "dayAbbr", "quarters", "week", "am", "pm", "eras",
-			"dateFormats", "timeFormats", "dateTimeFormats", "fields",
-			"month", "day", "minDays", "firstDay", "weekendStart",
-			"weekendEnd", "eraNames", "eraAbbr", "era", "pattern",
-			"displayName", "hourFormat", "hoursFormat", "gmtFormat",
-			"regionFormat", "fallbackFormat", "abbreviationFallback",
-			"preferenceOrdering", "singleCountries", "default", "calendar", "monthContext",
-			"monthWidth", "dayContext", "dayWidth", "dateFormatLength",
-			"dateFormat", "timeFormatLength", "timeFormat",
-			"dateTimeFormatLength", "dateTimeFormat", "zone", "long",
-			"short", "exemplarCity", "generic", "standard", "daylight",
-			"field", "relative", "symbols", "decimalFormats",
-			"scientificFormats", "percentFormats", "currencyFormats",
-			"currencies", "decimalFormatLength", "decimalFormat",
-			"scientificFormatLength", "scientificFormat",
-			"percentFormatLength", "percentFormat",
-			
-			"currencySpacing", "beforeCurrency", "afterCurrency", 
-		    "currencyMatch", "surroundingMatch", "insertBetween",
-			
-			"currencyFormatLength",
-			"currencyFormat", "currency", "symbol", "decimal", "group",
-			"list", "percentSign", "nativeZeroDigit", "patternDigit",
-			"plusSign", "minusSign", "exponential", "perMille", "infinity",
-			"nan", "collation", "messages", "yesstr", "nostr",
-			"yesexpr", "noexpr", 
-			"inList",
-			"variables",
-			"segmentRules",
-			// at end
-			"references", "reference",
-			"special", }).setErrorOnMissing(false).freeze();
+	// note: run FindDTDOrder to get this list
 	
-	static MapComparator attributeOrdering = (MapComparator) new MapComparator().add(new String[] {
-			"_q",
-			"type", "key", "registry",
-			"source", "path",
-			"day", "date",
-			"version", "count",
-			"lines", "characters",
-			"before", "from", "to",
-			"number", "time",
-			"casing",
-			"validSubLocales",
-			"list",
-			"uri",
-			"iso4217", "digits", "rounding",
-			"iso3166",
-			"standard", "references",
-			// these are always at the end
-			 "alt", "draft",
-			}).setErrorOnMissing(false).freeze();
+	static MapComparator elementOrdering = (MapComparator) new MapComparator()
+			.add(
+					new String[] { "ldml", "identity", "alias",
+							"localeDisplayNames", "layout", "characters",
+							"delimiters", "measurement", "dates", "numbers",
+							"collations", "posix", "segmentations",
+							"references", "version", "generation", "language",
+							"script", "territory", "variant", "languages",
+							"scripts", "territories", "variants", "keys",
+							"types", "measurementSystemNames", "key", "type",
+							"measurementSystemName", "orientation", "inList",
+							"exemplarCharacters", "mapping", "quotationStart",
+							"quotationEnd", "alternateQuotationStart",
+							"alternateQuotationEnd", "measurementSystem",
+							"paperSize", "height", "width",
+							"localizedPatternChars", "calendars",
+							"timeZoneNames", "months", "monthNames",
+							"monthAbbr", "days", "dayNames", "dayAbbr",
+							"quarters", "week", "am", "pm", "eras",
+							"dateFormats", "timeFormats", "dateTimeFormats",
+							"fields", "month", "day", "quarter", "minDays",
+							"firstDay", "weekendStart", "weekendEnd",
+							"eraNames", "eraAbbr", "era", "pattern",
+							"displayName", "dateFormatItem", "appendItem",
+							"hourFormat", "hoursFormat", "gmtFormat",
+							"regionFormat", "fallbackFormat",
+							"abbreviationFallback", "preferenceOrdering",
+							"singleCountries", "default", "calendar",
+							"monthContext", "monthWidth", "dayContext",
+							"dayWidth", "quarterContext", "quarterWidth",
+							"dateFormatLength", "dateFormat",
+							"timeFormatLength", "timeFormat",
+							"dateTimeFormatLength", "availableFormats",
+							"appendItems", "dateTimeFormat", "zone", "long",
+							"short", "exemplarCity", "generic", "standard",
+							"daylight", "field", "relative", "symbols",
+							"decimalFormats", "scientificFormats",
+							"percentFormats", "currencyFormats", "currencies",
+							"decimalFormatLength", "decimalFormat",
+							"scientificFormatLength", "scientificFormat",
+							"percentFormatLength", "percentFormat",
+							"currencySpacing", "currencyFormatLength",
+							"beforeCurrency", "afterCurrency", "currencyMatch",
+							"surroundingMatch", "insertBetween",
+							"currencyFormat", "currency", "symbol", "decimal",
+							"group", "list", "percentSign", "nativeZeroDigit",
+							"patternDigit", "plusSign", "minusSign",
+							"exponential", "perMille", "infinity", "nan",
+							"collation", "messages", "yesstr", "nostr",
+							"yesexpr", "noexpr", "segmentation", "variables",
+							"segmentRules", "special", "variable", "rule" })
+			.setErrorOnMissing(false).freeze();
+	
+	static MapComparator attributeOrdering = (MapComparator) new MapComparator()
+			.add(new String[] { "_q", "type", 
+							// always after
+						    "key", "registry", "source",
+							"path", "day", "date", "version", "count", "lines",
+							"characters", "before", "from", "to", "number",
+							"time", "casing", "list", "uri",
+							"iso4217", "digits", "rounding", "iso3166", "hex",
+							"id", "request",
+							// collation stuff
+							"alternate", "backwards", "caseFirst", "caseLevel",
+							"hiraganaQuarternary", "hiraganaQuaternary",
+							"normalization", "numeric", "strength",
+							// always near the end
+							"validSubLocales", "standard", "references",
+							// these are always at the end
+							"alt", "draft", }).setErrorOnMissing(false)
+			.freeze();
 	static MapComparator valueOrdering = (MapComparator) new MapComparator().setErrorOnMissing(false).freeze();
-    private static XPathParts distinguishingParts = new XPathParts(attributeOrdering,null);
 	/*
 	
 	//RuleBasedCollator valueOrdering = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
@@ -1989,13 +2002,10 @@ private boolean isSupplemental;
 	public UnicodeSet getExemplarSet(String type) {
 		if (type.length() != 0) type = "[@type=\"" + type + "\"]";
 		String v = getStringValue("//ldml/characters/exemplarCharacters" + type);
-		try {
-			UnicodeSet result = new UnicodeSet(v, UnicodeSet.CASE);
-			result.remove(0x20);
-			return result;
-		} catch (RuntimeException e) {
-			return null;
-		}
+		if (v == null) return null;
+		UnicodeSet result = new UnicodeSet(v, UnicodeSet.CASE);
+		result.remove(0x20);
+		return result;
 	}
 
 	transient CLDRFile resolvedVersion;

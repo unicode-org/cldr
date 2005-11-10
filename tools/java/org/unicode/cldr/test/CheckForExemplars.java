@@ -42,7 +42,7 @@ public class CheckForExemplars extends CheckCLDR {
 		exemplars = resolvedFile.getExemplarSet("");
 		if (exemplars == null) {
 			CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
-			.setMessage("Failure to Initialize: {0} (need resolved locale)", new Object[]{this.getClass().getName()});
+			.setMessage("No Exemplar Characters: {0}", new Object[]{this.getClass().getName()});
 			possibleErrors.add(item);
 			return this;
 		}

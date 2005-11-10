@@ -1703,7 +1703,7 @@ private boolean isSupplemental;
 			"alternateQuotationEnd", "measurementSystem", "paperSize",
 			"height", "width", "localizedPatternChars", "calendars",
 			"timeZoneNames", "months", "monthNames", "monthAbbr", "days",
-			"dayNames", "dayAbbr", "week", "am", "pm", "eras",
+			"dayNames", "dayAbbr", "quarters", "week", "am", "pm", "eras",
 			"dateFormats", "timeFormats", "dateTimeFormats", "fields",
 			"month", "day", "minDays", "firstDay", "weekendStart",
 			"weekendEnd", "eraNames", "eraAbbr", "era", "pattern",

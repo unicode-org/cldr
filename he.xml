@@ -535,6 +535,16 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="true">רבעון ראשון</quarter>
+							<quarter type="2" draft="true">רבעון שני</quarter>
+							<quarter type="3" draft="true">רבעון שלישי</quarter>
+							<quarter type="4" draft="true">רבעון רביעי</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<week>
 					<weekendStart day="fri"/>
 					<weekendEnd day="sat"/>

@@ -418,6 +418,22 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="true">الربع الأول</quarter>
+							<quarter type="2" draft="true">الربع الثاني</quarter>
+							<quarter type="3" draft="true">الربع الثالث</quarter>
+							<quarter type="4" draft="true">الربع الرابع</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="true">الربع الأول</quarter>
+							<quarter type="2" draft="true">الربع الثاني</quarter>
+							<quarter type="3" draft="true">الربع الثالث</quarter>
+							<quarter type="4" draft="true">الربع الرابع</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<week>
 					<firstDay day="sat"/>
 					<weekendStart day="thu"/>

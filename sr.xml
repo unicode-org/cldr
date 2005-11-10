@@ -464,6 +464,22 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="true">К1</quarter>
+							<quarter type="2" draft="true">К2</quarter>
+							<quarter type="3" draft="true">К3</quarter>
+							<quarter type="4" draft="true">К4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="true">Први квартал године</quarter>
+							<quarter type="2" draft="true">Други квартал године</quarter>
+							<quarter type="3" draft="true">Трећи квартал године</quarter>
+							<quarter type="4" draft="true">Четврти квартал године</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<week>
 					<firstDay day="mon"/>
 				</week>

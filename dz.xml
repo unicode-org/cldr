@@ -242,6 +242,22 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="true">བཞི་དཔྱ་༡</quarter>
+							<quarter type="2" draft="true">བཞི་དཔྱ་༢</quarter>
+							<quarter type="3" draft="true">བཞི་དཔྱ་༣</quarter>
+							<quarter type="4" draft="true">བཞི་དཔྱ་༤</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="true">བཞི་དཔྱ་དང་པ་</quarter>
+							<quarter type="2" draft="true">བཞི་དཔྱ་གཉིས་པ་</quarter>
+							<quarter type="3" draft="true">བཞི་དཔྱ་གསུམ་པ་</quarter>
+							<quarter type="4" draft="true">བཞི་དཔྱ་བཞི་པ་</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<week>
 					<firstDay day="mon" draft="true"/>
 				</week>

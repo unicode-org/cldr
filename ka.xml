@@ -207,6 +207,28 @@
 	<characters>
 		<exemplarCharacters draft="true">[ა ⴀ Ⴀ ბ ⴁ Ⴁ გ ⴂ Ⴂ დ ⴃ Ⴃ ე ⴄ Ⴄ ვ ⴅ Ⴅ ზ ⴆ Ⴆ ჱ ⴡ Ⴡ თ ⴇ Ⴇ ი ⴈ Ⴈ კ ⴉ Ⴉ ლ ⴊ Ⴊ მ ⴋ Ⴋ ნ ჼ ⴌ Ⴌ ჲ ⴢ Ⴢ ო ⴍ Ⴍ პ ⴎ Ⴎ ჟ ⴏ Ⴏ რ ⴐ Ⴐ ს ⴑ Ⴑ ტ ⴒ Ⴒ ჳ ⴣ Ⴣ უ ⴓ Ⴓ ფ ⴔ Ⴔ ქ ⴕ Ⴕ ღ ⴖ Ⴖ ყ ⴗ Ⴗ შ ⴘ Ⴘ ჩ ⴙ Ⴙ ც ⴚ Ⴚ ძ ⴛ Ⴛ წ ⴜ Ⴜ ჭ ⴝ Ⴝ ხ ⴞ Ⴞ ჴ ⴤ Ⴤ ჯ ⴟ Ⴟ ჰ ⴠ Ⴠ ჵ ⴥ Ⴥ ჶ-ჺ]</exemplarCharacters>
 	</characters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="true">I კვ.</quarter>
+							<quarter type="2" draft="true">II კვ.</quarter>
+							<quarter type="3" draft="true">III კვ.</quarter>
+							<quarter type="4" draft="true">IV კვ.</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="true">1-ლი კვარტალი</quarter>
+							<quarter type="2" draft="true">მე-2 კვარტალი</quarter>
+							<quarter type="3" draft="true">მე-3 კვარტალი</quarter>
+							<quarter type="4" draft="true">მე-4 კვარტალი</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
+		</calendars>
+	</dates>
 	<numbers>
 		<symbols>
 			<decimal draft="true">,</decimal>

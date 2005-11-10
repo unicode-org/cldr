@@ -569,6 +569,22 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="true">N1</quarter>
+							<quarter type="2" draft="true">N2</quarter>
+							<quarter type="3" draft="true">N3</quarter>
+							<quarter type="4" draft="true">N4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="true">I. negyedév</quarter>
+							<quarter type="2" draft="true">II. negyedév</quarter>
+							<quarter type="3" draft="true">III. negyedév</quarter>
+							<quarter type="4" draft="true">IV. negyedév</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<week>
 					<firstDay day="mon"/>
 				</week>

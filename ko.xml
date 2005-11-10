@@ -882,6 +882,22 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="true">일</quarter>
+							<quarter type="2" draft="true">이</quarter>
+							<quarter type="3" draft="true">삼</quarter>
+							<quarter type="4" draft="true">사</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="true">1</quarter>
+							<quarter type="2" draft="true">2</quarter>
+							<quarter type="3" draft="true">3</quarter>
+							<quarter type="4" draft="true">4</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<am>오전</am>
 				<pm>오후</pm>
 				<eras>

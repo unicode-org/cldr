@@ -342,6 +342,22 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="true">C1</quarter>
+							<quarter type="2" draft="true">C2</quarter>
+							<quarter type="3" draft="true">C3</quarter>
+							<quarter type="4" draft="true">C4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="true">1. ceturksnis</quarter>
+							<quarter type="2" draft="true">2. ceturksnis</quarter>
+							<quarter type="3" draft="true">3. ceturksnis</quarter>
+							<quarter type="4" draft="true">4. ceturksnis</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<week>
 					<firstDay day="mon"/>
 				</week>

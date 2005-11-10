@@ -1,3 +1,9 @@
+/*
+ ******************************************************************************
+ * Copyright (C) 2005, International Business Machines Corporation and        *
+ * others. All Rights Reserved.                                               *
+ ******************************************************************************
+*/
 package org.unicode.cldr.test;
 
 import java.util.List;

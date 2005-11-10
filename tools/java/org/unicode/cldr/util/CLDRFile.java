@@ -200,7 +200,7 @@ public class CLDRFile implements Freezable {
      * @param dir directory 
      */
 	public static CLDRFile make(String localeName, String dir, boolean includeDraft) {
-		return makeFromFile(dir + localeName + ".xml", localeName, includeDraft);
+		return makeFromFile(dir + File.separator + localeName + ".xml", localeName, includeDraft);
     }
 	
     /**

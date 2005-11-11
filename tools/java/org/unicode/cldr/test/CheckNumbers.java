@@ -26,6 +26,13 @@ public class CheckNumbers extends CheckCLDR {
 	
 	static String SampleList = "{0} => {1} => {2}";
 	
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
+		if (cldrFileToCheck == null) return this;
+		super.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
+		icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());
+		return this;
+	}
+
 	public CheckCLDR _check(String path, String fullPath, String value, XPathParts pathParts, XPathParts fullPathParts, List result) {
 		if (path.indexOf("/numbers") < 0) return this;
 		try {
@@ -44,12 +51,12 @@ public class CheckNumbers extends CheckCLDR {
 	}
 	
 	private void checkPattern(String path, String fullPath, String value, XPathParts pathParts, XPathParts fullPathParts, List result) throws ParseException {
-		DecimalFormat x = icuServiceBuilder.getNumberFormat(getResolvedCldrFileToCheck(), value);
+		DecimalFormat x = icuServiceBuilder.getNumberFormat(value);
 		addSamples(x, result);
 	}
 	
 	private void checkCurrencyFormats(String path, String fullPath, String value, XPathParts pathParts, XPathParts fullPathParts, List result) throws ParseException {
-		DecimalFormat x = icuServiceBuilder.getCurrencyFormat(getResolvedCldrFileToCheck(), CLDRFile.getCode(path));
+		DecimalFormat x = icuServiceBuilder.getCurrencyFormat(CLDRFile.getCode(path));
 		addSamples(x, result);
 	}
 

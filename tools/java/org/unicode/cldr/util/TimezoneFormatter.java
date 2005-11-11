@@ -93,10 +93,10 @@ public class TimezoneFormatter {
 		desiredLocaleFile = cldrFactory.make(localeID, true, includeDraft);
 		String hourFormatString = getStringValue("//ldml/dates/timeZoneNames/hourFormat");
 		String[] hourFormatStrings = Utility.splitArray(hourFormatString,';');
-		ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
-		hourFormatPlus = icuServiceBuilder.getDateFormat(desiredLocaleFile,"gregorian",0, 1);
+		ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder().setCldrFile(desiredLocaleFile);
+		hourFormatPlus = icuServiceBuilder.getDateFormat("gregorian",0, 1);
 		hourFormatPlus.applyPattern(hourFormatStrings[0]);
-		hourFormatMinus = icuServiceBuilder.getDateFormat(desiredLocaleFile,"gregorian",0, 1);
+		hourFormatMinus = icuServiceBuilder.getDateFormat("gregorian",0, 1);
 		hourFormatMinus.applyPattern(hourFormatStrings[1]);
 		gmtFormat = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/gmtFormat"));
 		regionFormat = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/regionFormat"));

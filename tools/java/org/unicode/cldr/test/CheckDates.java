@@ -29,6 +29,13 @@ public class CheckDates extends CheckCLDR {
 		"AD 2100-07-11T10:15:16Z",}; // keep aligned with following
 	static String SampleList = "Samples:\r\n\t{0}\r\n\t{1}\r\n\t{2}\r\n\t{3}"; // keep aligned with previous
 	
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
+		if (cldrFileToCheck == null) return this;
+		super.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
+		icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());
+		return this;
+	}
+
 	public CheckCLDR _check(String path, String fullPath, String value, XPathParts pathParts, XPathParts fullPathParts, List result) {
 		if (path.indexOf("/dates") < 0 || path.indexOf("gregorian") < 0) return this;
 		try {
@@ -50,12 +57,12 @@ public class CheckDates extends CheckCLDR {
 	private void checkPattern(String path, String fullPath, String value, XPathParts pathParts, XPathParts fullPathParts, List result) throws ParseException {
 		pathParts.initialize(path);
 		String calendar = pathParts.findAttributeValue("calendar", "type");
-		DateFormat x = icuServiceBuilder.getDateFormat(getResolvedCldrFileToCheck(), calendar, value);
+		DateFormat x = icuServiceBuilder.getDateFormat(calendar, value);
 		addSamples(x, path.indexOf("/dateFormat") >= 0, result);
 		if (path.indexOf("\"full\"") >= 0) {
 			// for date, check that era is preserved
 			// TODO fix naked constants
-			SimpleDateFormat y = icuServiceBuilder.getDateFormat(getResolvedCldrFileToCheck(), calendar, 4, 4);
+			SimpleDateFormat y = icuServiceBuilder.getDateFormat(calendar, 4, 4);
 			String trial = "BC 4004-10-23T2:00:00Z";
 			Date dateSource = isoBC.parse(trial);
 			int year = dateSource.getYear() + 1900;

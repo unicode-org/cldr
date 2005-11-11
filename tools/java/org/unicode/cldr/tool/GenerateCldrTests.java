@@ -664,6 +664,7 @@ public class GenerateCldrTests {
                    "2010-12-01T23:59:59Z",
            };
            CLDRFile cldrFile = mainCldrFactory.make(locale.toString(), true, includeDraft);
+           icuServiceBuilder.setCldrFile(cldrFile);
            ResultsPrinter rp = new ResultsPrinter();
            for (int j = 0; j < samples.length; ++j) {
                Date datetime = ICUServiceBuilder.isoDateParse(samples[j]);
@@ -673,7 +674,7 @@ public class GenerateCldrTests {
                    for (int k = 0; k < ICUServiceBuilder.LIMIT_DATE_FORMAT_INDEX; ++k) {
                        if (i == 0 && k == 0) continue;
                        rp.set("timeType", icuServiceBuilder.getDateNames(k));
-                       DateFormat df = icuServiceBuilder.getDateFormat(cldrFile, "gregorian", i, k);
+                       DateFormat df = icuServiceBuilder.getDateFormat("gregorian", i, k);
                        if (false && i == 2 && k == 0) {
                        		System.out.println("debug: date " + icuServiceBuilder.getDateNames(i)
 								+ ", time " + icuServiceBuilder.getDateNames(k)
@@ -694,7 +695,8 @@ public class GenerateCldrTests {
     DataShower NumberShower = new DataShower() {
 		public ResultsPrinter show(ULocale locale, boolean includeDraft) throws ParseException {
             CLDRFile cldrFile = mainCldrFactory.make(locale.toString(), true, includeDraft);
-
+            icuServiceBuilder.setCldrFile(cldrFile);
+            
 			double[] samples = { 0, 0.01, -0.01, 1, -1, 123.456, -123.456,
 					123456.78, -123456.78, Double.POSITIVE_INFINITY,
 					Double.NEGATIVE_INFINITY, Double.NaN };
@@ -704,7 +706,7 @@ public class GenerateCldrTests {
 				rp.set("input", String.valueOf(sample));
 				for (int i = 0; i < ICUServiceBuilder.LIMIT_NUMBER_INDEX; ++i) {
 					rp.set("numberType", icuServiceBuilder.getNumberNames(i));
-					DecimalFormat nf = icuServiceBuilder.getNumberFormat(cldrFile, i);
+					DecimalFormat nf = icuServiceBuilder.getNumberFormat(i);
 					rp.setResult(nf.format(sample));
 				}
 			}

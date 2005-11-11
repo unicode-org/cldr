@@ -240,6 +240,9 @@ abstract public class CheckCLDR {
 	
 	public CheckCLDR check(String path, String fullPath, String value,
 			XPathParts pathParts, XPathParts fullPathParts, List result) {
+		if (path == null || value == null || fullPath == null) {
+			throw new InternalError("XMLSource problem: path, value, fullpath must not be null");
+		}
 		pathParts.clear();
 		fullPathParts.clear();
 		result.clear();

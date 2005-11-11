@@ -22,10 +22,12 @@ import com.ibm.icu.dev.test.util.CollectionUtilities.PrefixIterator;
 import org.unicode.cldr.util.CLDRFile.SimpleXMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
 
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
 
 public abstract class XMLSource implements Freezable {
 	public static final String CODE_FALLBACK_ID = "code-fallback";
+	private transient XPathParts parts = new XPathParts(null, null);
 
 	private String localeID;
 	private boolean isSupplemental;
@@ -39,13 +41,24 @@ public abstract class XMLSource implements Freezable {
 	public void setLocaleID(String localeID) {
 		this.localeID = localeID;
 	}
+	/**
+	 * Adds all the path,value pairs in tempMap.
+	 * The paths must be Full Paths.
+	 * @param tempMap
+	 * @param conflict_resolution
+	 */
 	public void putAll(Map tempMap, int conflict_resolution) {
 		for (Iterator it = tempMap.keySet().iterator(); it.hasNext();) {
 			String path = (String) it.next();
-			if (conflict_resolution == CLDRFile.MERGE_KEEP_MINE && getValueAtDPath(path) != null) continue;
+			if (conflict_resolution == CLDRFile.MERGE_KEEP_MINE && getValueAtPath(path) != null) continue;
 			putValueAtPath(path, (String) tempMap.get(path));
 		}
 	}
+	/**
+	 * Adds all the path, value pairs in otherSource.
+	 * @param otherSource
+	 * @param conflict_resolution
+	 */
 	public void putAll(XMLSource otherSource, int conflict_resolution) {
 		for (Iterator it = otherSource.iterator(); it.hasNext();) {
 			String path = (String) it.next();
@@ -54,13 +67,22 @@ public abstract class XMLSource implements Freezable {
 		}
 	}
 	
+	/**
+	 * Removes all the paths in the collection.
+	 * WARNING: must be distinguishedPaths
+	 * @param xpaths
+	 */
 	public void removeAll(Collection xpaths) {
 		for (Iterator it = xpaths.iterator(); it.hasNext();) {
 			removeValueAtDPath((String) it.next());
 		}
 	}
-	transient XPathParts parts = new XPathParts(null, null);
 	
+	/**
+	 * Tests whether the full path for this dpath is draft or now.
+	 * @param path
+	 * @return
+	 */
 	public boolean isDraft(String path) {
 		String fullpath = getFullPath(path);
 		if (fullpath.indexOf("[@draft") < 0) return false;
@@ -71,6 +93,11 @@ public abstract class XMLSource implements Freezable {
 		return locked;
 	}
 	
+	/**
+	 * Adds the path,value pair. The path must be full path.
+	 * @param xpath
+	 * @param value
+	 */
 	public void putValueAtPath(String xpath, String value) {
 		if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
 		String distinguishingXPath = CLDRFile.getDistinguishingXPath(xpath, fixedPath);	
@@ -80,6 +107,9 @@ public abstract class XMLSource implements Freezable {
 		}
 	}
 	
+	/**
+	 * Internal class
+	 */
 	private static class Alias {
 		//public String oldLocaleID;
 		public String oldPath;
@@ -147,9 +177,9 @@ public abstract class XMLSource implements Freezable {
 		return output;
 	}
 	
-	// must be overridden in a resolving locale
 	/**
 	 * Return the localeID of the XMLSource where the path was found
+	 * SUBCLASSING: must be overridden in a resolving locale
 	 * @param path
 	 * @return
 	 */
@@ -157,29 +187,78 @@ public abstract class XMLSource implements Freezable {
 		return getLocaleID();
 	}
 	
+	/**
+	 * Remove the value.
+	 * SUBCLASSING: must be overridden in a resolving locale
+	 * @param xpath
+	 */
 	public void removeValueAtPath(String xpath) {
 		if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
 		removeValueAtDPath(CLDRFile.getDistinguishingXPath(xpath, null));
 	}
-
+	/**
+	 * Get the value.
+	 * SUBCLASSING: must be overridden in a resolving locale
+	 * @param xpath
+	 * @return
+	 */
 	public String getValueAtPath(String xpath) {
 		return getValueAtDPath(CLDRFile.getDistinguishingXPath(xpath, null));
 	}
+	/**
+	 * Get the full path for a distinguishing path
+	 * SUBCLASSING: must be overridden in a resolving locale
+	 * @param xpath
+	 * @return
+	 */
 	public String getFullPath(String xpath) {
 		return getFullPathAtDPath(CLDRFile.getDistinguishingXPath(xpath, null));
 	}
 
-	// must be overriden
-	
-	 // only call with distinguishing paths
+	/**
+	 * Put the full path for this distinguishing path
+	 * The caller will have processed the path, and only call this with the distinguishing path
+	 * SUBCLASSING: must be overridden
+	 */
 	abstract public void putFullPathAtDPath(String distinguishingXPath, String fullxpath);
+	/**
+	 * Put the distinguishing path, value.
+	 * The caller will have processed the path, and only call this with the distinguishing path
+	 * SUBCLASSING: must be overridden
+	 */
 	abstract public void putValueAtDPath(String distinguishingXPath, String value);
+	/**
+	 * Remove the path, and the full path, and value corresponding to the path.
+	 * The caller will have processed the path, and only call this with the distinguishing path
+	 * SUBCLASSING: must be overridden
+	 */
 	abstract public void removeValueAtDPath(String distinguishingXPath);
 	
+	/**
+	 * Get the value at the given distinguishing path
+	 * The caller will have processed the path, and only call this with the distinguishing path
+	 * SUBCLASSING: must be overridden
+	 */
 	abstract public String getValueAtDPath(String path);
+
+	/**
+	 * Get the full path at the given distinguishing path
+	 * The caller will have processed the path, and only call this with the distinguishing path
+	 * SUBCLASSING: must be overridden
+	 */
 	abstract public String getFullPathAtDPath(String path);
 	
+	/**
+	 * Get the comments for the source.
+	 * TODO: integrate the Comments class directly into this class
+	 * SUBCLASSING: must be overridden
+	 */
 	abstract public Comments getXpathComments();
+	/**
+	 * Set the comments for the source.
+	 * TODO: integrate the Comments class directly into this class
+	 * SUBCLASSING: must be overridden
+	 */
 	abstract public void setXpathComments(Comments comments);
 	/**
 	 * @return an iterator over the distinguished paths
@@ -194,33 +273,33 @@ public abstract class XMLSource implements Freezable {
 	 */
 	abstract public Set getAvailableLocales();
 
-	// normally overridden for efficiency
-	
+	/**
+	 * @return an iterator over the distinguished paths that start with the prefix.
+	 * SUBCLASSING: Normally overridden for efficiency
+	 */
 	public Iterator iterator(String prefix) {
 		return new com.ibm.icu.dev.test.util.CollectionUtilities.PrefixIterator().set(iterator(), prefix);
 	}
 
-	public int size() {
-		return com.ibm.icu.dev.test.util.CollectionUtilities.size(iterator());
-	}
-
-	public int size(String prefix) {
-		return com.ibm.icu.dev.test.util.CollectionUtilities.size(iterator(prefix));
-	}
-	
-	// special; must be overridden for resolving
-	
+	/**
+	 * @return returns whether resolving or not
+	 * SUBCLASSING: Only changed for resolving subclasses
+	 */
 	public boolean isResolving() {
 		return false;
 	}
 	
+	/**
+	 * @return returns a resolving class (same one if we are resolving already)
+	 * SUBCLASSING: Don't override; there should be only one ResolvingSource
+	 */
 	public XMLSource getResolving() {
 		if (isResolving()) return this;
 		return new ResolvingSource(this);
 	}
 
 	/**
-	 * Warning: must be overriden
+	 * SUBCLASSING: must be overridden
 	 */
 	public Object cloneAsThawed() { 
 		try {
@@ -245,14 +324,25 @@ public abstract class XMLSource implements Freezable {
 		return result.toString();
 	}
 
+	/**
+	 * @return returns whether supplemental or not
+	 */
 	public boolean isSupplemental() {
 		return isSupplemental;
 	}
 
+	/**
+	 * @return sets whether supplemental. Normally only called internall.
+	 */
 	public void setSupplemental(boolean isSupplemental) {
 		this.isSupplemental = isSupplemental;
 	}
 	
+	/**
+	 * Internal class for doing resolution
+	 * @author davis
+	 *
+	 */
 	private static class ResolvingSource extends XMLSource {
 		private XMLSource mySource;
 		private transient ParentAndPath parentAndPath = new ParentAndPath();
@@ -468,9 +558,6 @@ public abstract class XMLSource implements Freezable {
     			if (path.startsWith(((Alias)it.next()).oldPath)) return true;
     		}
     		return false;
-		}
-		public int size() {
-			return getCachedKeySet().size();
 		}
 		public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
 			throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");

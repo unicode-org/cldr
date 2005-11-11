@@ -25,7 +25,7 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 
-import com.ibm.icu.dev.demo.translit.Differ;
+import com.ibm.icu.dev.test.util.Differ;
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
 import com.ibm.icu.dev.test.util.XEquivalenceMap;
 

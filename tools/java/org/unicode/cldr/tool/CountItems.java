@@ -52,20 +52,21 @@ import com.ibm.icu.util.ULocale;
  * Simple program to count the amount of data in CLDR. Internal Use.
  */
 public class CountItems {
-	private static Set keys = new HashSet();
 	/**
 	 * Count the data.
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
         try {
-            getZoneEquivalences();
+            countItems();
             if (true) return;
+            
+            getZoneEquivalences();
+            
             getPatternBlocks();
             showExemplars();
             genSupplementalZoneData(true);
             showZoneInfo();
-            countItems();
         } finally{
             System.out.println("Done");
         }
@@ -268,12 +269,8 @@ public class CountItems {
     private static void countItems() {
         //CLDRKey.main(new String[]{"-mde.*"});
         Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, ".*");
-        int count = countItems(cldrFactory, false);
-		System.out.println("Count (core): " + count);
-		count = countItems(cldrFactory, true);
-		System.out.println("Count (resolved): " + count);
-		System.out.println("Unique XPaths: " + keys.size());
-    }
+        countItems(cldrFactory, false);
+   }
     
     public static void genSupplementalZoneData(boolean skipUnaliased) {
         RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance();
@@ -422,15 +419,45 @@ public class CountItems {
 	 */
 	private static int countItems(Factory cldrFactory, boolean resolved) {
 		int count = 0;
+		int resolvedCount = 0;
 		Set locales = cldrFactory.getAvailable();
+		Set keys = new HashSet();
+		Set values = new HashSet();
+		Set fullpaths = new HashSet();
+
+		Set temp = new HashSet();
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String locale = (String)it.next();
-			CLDRFile item = cldrFactory.make(locale, resolved);
-			CollectionUtilities.addAll(item.iterator(), keys);
-			int current = item.size();
-			System.out.println(locale + "\t" + current);
+			CLDRFile item = cldrFactory.make(locale, false);
+			
+			temp.clear();
+			for (Iterator it2 = item.iterator(); it2.hasNext();) {
+				String path = (String)it2.next();
+				temp.add(path);
+				keys.add(path);
+				values.add(item.getStringValue(path));
+				fullpaths.add(item.getFullXPath(path));
+			}
+			int current = temp.size();
+
+			CLDRFile itemResolved = cldrFactory.make(locale, true);
+			temp.clear();
+			CollectionUtilities.addAll(itemResolved.iterator(), temp);
+			int resolvedCurrent = temp.size();
+			
+			System.out.println(locale + "\tPlain:\t" + current 
+					+ "\tResolved:\t" + resolvedCurrent
+					+ "\tUnique Paths:\t" + keys.size()
+					+ "\tUnique Values:\t" + values.size()
+					+ "\tUnique Full Paths:\t" + fullpaths.size()
+					);
 			count += current;
+			resolvedCount += resolvedCurrent;
 		}
+		System.out.println("Total Items\t" + count + "\tTotal Resolved Items\t" + resolvedCount);
+		System.out.println("Unique Paths\t" + keys.size());
+		System.out.println("Unique Values\t" + values.size());
+		System.out.println("Unique Full Paths\t" + fullpaths.size());
 		return count;
 	}
 

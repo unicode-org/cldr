@@ -103,9 +103,6 @@ public class CLDRFile implements Freezable {
 		public void setXpathComments(Comments xpath_comments) {
 			this.xpath_comments = xpath_comments;
 		}
-		public int size() {
-			return xpath_value.size();
-		}
 //		public void putPathValue(String xpath, String value) {
 //			if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
 //			String distinguishingXPath = CLDRFile.getDistinguishingXPath(xpath, fixedPath);	
@@ -746,10 +743,6 @@ private boolean isSupplemental;
     	return dataSource.iterator();
      }
 
-    public int size() {
-    	return dataSource.size();
-     }
-    
     private static class DistinguishedXPath {
     	private static Map distinguishingMap = new HashMap();
     	private static Map normalizedPathMap = new HashMap();

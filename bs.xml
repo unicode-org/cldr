@@ -5,8 +5,11 @@
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
 		<language type="bs"/>
-		<!-- <territory type="BA"/> -->
 	</identity>
+	<characters>
+		<exemplarCharacters alt="proposed" draft="true">[a-c ć č d đ {dž} e-l {lj} m n {nj} o p r s š t-v z ž]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" alt="proposed" draft="true">[qwxy]</exemplarCharacters>
+	</characters>
 	<delimiters>
 		<quotationStart draft="true">‘</quotationStart>
 		<quotationEnd draft="true">’</quotationEnd>

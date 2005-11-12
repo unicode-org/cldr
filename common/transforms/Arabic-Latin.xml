@@ -30,11 +30,12 @@
 			<comment># ڥ ↔ v $disambig ; # ARABIC LETTER FEH WITH THREE DOTS BELOW</comment>
 			<comment># ڢ ↔ f $disambig ; # ARABIC LETTER FEH WITH DOT MOVED BELOW</comment>
 			<comment># fallbacks</comment>
-			<tRule>:: [[:Arabic:] [‎ⁿ،؛؟ـً-ٕ٠-٬۰-۹﷼]] ;</tRule>
+			<tRule>:: [[:Arabic:] [‎ⁿ،؛؟ـً-ٕ٠-٬۰-۹﷼ښ]] ;</tRule>
 			<tRule>:: NFKD (NFC);</tRule>
 			<tRule>$disambig =  ̱ ;</tRule>
 			<tRule>$disambig2 =  ̰ ;</tRule>
 			<tRule>$under =  ̣ ;</tRule>
+			<tRule>$descender = ˌ;</tRule>
 			<tRule>$notAbove = [[:^ccc=0:]§[:^ccc=230:]];</tRule>
 			<tRule>٫ ↔ '.' $disambig ; # ARABIC DECIMAL SEPARATOR</tRule>
 			<tRule>٬ ↔ ',' $disambig ; # ARABIC THOUSANDS SEPARATOR</tRule>
@@ -79,6 +80,7 @@
 			<tRule>ڭ ↔ n $disambig g ; # ARABIC LETTER NG</tRule>
 			<tRule>ۋ ↔ v $disambig ; # ARABIC LETTER VE</tRule>
 			<tRule>ی ↔ y $disambig2 ; # ARABIC LETTER FARSI YEH</tRule>
+			<tRule>ښ ↔ s $descender;</tRule>
 			<tRule>ء ↔ ʾ ; # ARABIC LETTER HAMZA</tRule>
 			<tRule>ا ↔ a $under; # ARABIC LETTER ALEF</tRule>
 			<tRule>ب ↔ b ; # ARABIC LETTER BEH</tRule>
@@ -125,7 +127,7 @@
 			<tRule>| n ← ‎ⁿ;</tRule>
 			<tRule>:: (lower) ;</tRule>
 			<tRule>::NFC (NFD);</tRule>
-			<tRule>:: ( [[:Latin:] [%,.0-9;?ʾ-ʿ̂-̄̈-̣̰̊-̱̹;]] );</tRule>
+			<tRule>:: ( [[:Latin:] [%,.0-9;?ʾ-ʿ̂-̄̈-̣̰̊-̱̹;ˌ]] );</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

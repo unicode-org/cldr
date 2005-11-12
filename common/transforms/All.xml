@@ -37,29 +37,43 @@
 			<comment># While it could be done, we need to determine whether a prefix &quot;al&quot; could</comment>
 			<comment># occur other than as the definite article (since no space is used).</comment>
 			<comment># non-letters</comment>
+			<comment># non-letters</comment>
 			<comment>#  ٭ ↔ ; # ARABIC FIVE POINTED STAR // no need to transliterate</comment>
+			<comment>#  ٭ ↔ ; # ARABIC FIVE POINTED STAR // no need to transliterate</comment>
+			<comment># letters</comment>
 			<comment># letters</comment>
 			<comment># long vowels</comment>
 			<comment># longer items moved here to prevent masking</comment>
+			<comment># longer items moved here to prevent masking</comment>
+			<comment># WARNING: special case</comment>
 			<comment># WARNING: special case</comment>
 			<comment># ←t, umlaut, half-ring below→ will be canonically ordered as ←t, half-ring below, umlaut→</comment>
 			<comment># so on the return, we have to skip over (but preserve) the half-ring below (or others like it)</comment>
 			<comment># ةٕ ← ẗ̹ ; # LATIN SMALL LETTER T, COMBINING RIGHT HALF RING BELOW, COMBINING DIAERESIS</comment>
 			<comment># non-Arabic language</comment>
+			<comment># non-Arabic language</comment>
+			<comment># Arabic language</comment>
 			<comment># Arabic language</comment>
 			<comment># special combining marks</comment>
+			<comment># special combining marks</comment>
+			<comment># Some non-Arabic language (not in UNGEGN)</comment>
 			<comment># Some non-Arabic language (not in UNGEGN)</comment>
 			<comment># ڥ ↔ v $disambig ; # ARABIC LETTER FEH WITH THREE DOTS BELOW</comment>
 			<comment># ڢ ↔ f $disambig ; # ARABIC LETTER FEH WITH DOT MOVED BELOW</comment>
+			<comment># ڥ ↔ v $disambig ; # ARABIC LETTER FEH WITH THREE DOTS BELOW</comment>
+			<comment># ڢ ↔ f $disambig ; # ARABIC LETTER FEH WITH DOT MOVED BELOW</comment>
 			<comment># fallbacks</comment>
-			<tRule>:: [[:Arabic:] [‎ⁿ،؛؟ـً-ٕ٠-٬۰-۹﷼]] ;</tRule>
+			<tRule>:: [[:Arabic:] [‎ⁿ،؛؟ـً-ٕ٠-٬۰-۹﷼ښ]] ;</tRule>
 			<tRule>:: NFKD (NFC);</tRule>
 			<tRule>$disambig =  ̱ ;</tRule>
 			<tRule>$disambig2 =  ̰ ;</tRule>
 			<tRule>$under =  ̣ ;</tRule>
+			<tRule>$descender = ˌ;</tRule>
 			<tRule>$notAbove = [[:^ccc=0:]§[:^ccc=230:]];</tRule>
 			<tRule>٫ ↔ '.' $disambig ; # ARABIC DECIMAL SEPARATOR</tRule>
+			<tRule>٫ ↔ '.' $disambig ; # ARABIC DECIMAL SEPARATOR</tRule>
 			<tRule>٬ ↔ ',' $disambig ; # ARABIC THOUSANDS SEPARATOR</tRule>
+			<tRule>، ↔ ',' ; # ARABIC COMMA</tRule>
 			<tRule>، ↔ ',' ; # ARABIC COMMA</tRule>
 			<tRule>؛ ↔ ';' ; # ARABIC SEMICOLON</tRule>
 			<tRule>؟ ↔ '?' ; # ARABIC QUESTION MARK</tRule>
@@ -85,8 +99,10 @@
 			<tRule>٨ ↔ 8 ; # ARABIC-INDIC DIGIT EIGHT</tRule>
 			<tRule>٩ ↔ 9 ; # ARABIC-INDIC DIGIT NINE</tRule>
 			<tRule>َا↔ ā ; # ARABIC FATHA, ARABIC LETTER ALEF</tRule>
+			<tRule>َا↔ ā ; # ARABIC FATHA, ARABIC LETTER ALEF</tRule>
 			<tRule>ُو ↔ ū ; # ARABIC DAMMA, ARABIC LETTER WAW</tRule>
 			<tRule>ِي ↔ ī ; # ARABIC KASRA, ARABIC LETTER YEH</tRule>
+			<tRule>ث ↔ t h $disambig ; # ARABIC LETTER THEH</tRule>
 			<tRule>ث ↔ t h $disambig ; # ARABIC LETTER THEH</tRule>
 			<tRule>ذ ↔ d h $disambig ; # ARABIC LETTER THAL</tRule>
 			<tRule>ش ↔ s h $disambig ; # ARABIC LETTER SHEEN</tRule>
@@ -96,11 +112,15 @@
 			<tRule>ظ ↔ z $under ; # ARABIC LETTER ZAH</tRule>
 			<tRule>غ ↔ g h $disambig ; # ARABIC LETTER GHAIN</tRule>
 			<tRule>ة ↔ t ̈ ; # ARABIC LETTER TEH MARBUTA</tRule>
+			<tRule>ة ↔ t ̈ ; # ARABIC LETTER TEH MARBUTA</tRule>
 			<tRule>ة | $1 ← t ($notAbove+) ̈ ; # ARABIC LETTER TEH MARBUTA</tRule>
+			<tRule>ژ ↔ z h $disambig ; # ARABIC LETTER JEH</tRule>
 			<tRule>ژ ↔ z h $disambig ; # ARABIC LETTER JEH</tRule>
 			<tRule>ڭ ↔ n $disambig g ; # ARABIC LETTER NG</tRule>
 			<tRule>ۋ ↔ v $disambig ; # ARABIC LETTER VE</tRule>
 			<tRule>ی ↔ y $disambig2 ; # ARABIC LETTER FARSI YEH</tRule>
+			<tRule>ښ ↔ s $descender;</tRule>
+			<tRule>ا ↔ a $under; # ARABIC LETTER ALEF</tRule>
 			<tRule>ء ↔ ʾ ; # ARABIC LETTER HAMZA</tRule>
 			<tRule>ا ↔ a $under; # ARABIC LETTER ALEF</tRule>
 			<tRule>ب ↔ b ; # ARABIC LETTER BEH</tRule>
@@ -132,13 +152,17 @@
 			<tRule>ِ ↔ i ; # ARABIC KASRA</tRule>
 			<tRule>ّ ↔   ̃ ; # ARABIC SHADDA</tRule>
 			<tRule>ْ ↔   ̊ ; # ARABIC SUKUN</tRule>
+			<tRule>ٔ ↔  ̉ ; # ARABIC HAMZA ABOVE</tRule>
 			<tRule>ٓ ↔  ̂ ; # ARABIC MADDAH ABOVE</tRule>
 			<tRule>ٔ ↔  ̉ ; # ARABIC HAMZA ABOVE</tRule>
 			<tRule>ٕ ↔  ̹ ; # ARABIC HAMZA BELOW</tRule>
+			<tRule>چ ↔ c h $disambig ; # ARABIC LETTER TCHEH</tRule>
 			<tRule>پ ↔ p ; # ARABIC LETTER PEH</tRule>
 			<tRule>چ ↔ c h $disambig ; # ARABIC LETTER TCHEH</tRule>
 			<tRule>ڤ ↔ v ; # ARABIC LETTER VEH</tRule>
 			<tRule>گ ↔ g ; # ARABIC LETTER GAF</tRule>
+			<tRule>گ ↔ g ; # ARABIC LETTER GAF</tRule>
+			<tRule>| k ← c ;</tRule>
 			<tRule>| s ← c } [eiy];</tRule>
 			<tRule>| k ← c ;</tRule>
 			<tRule>| i ← e ;</tRule>
@@ -147,7 +171,7 @@
 			<tRule>| n ← ‎ⁿ;</tRule>
 			<tRule>:: (lower) ;</tRule>
 			<tRule>::NFC (NFD);</tRule>
-			<tRule>:: ( [[:Latin:] [%,.0-9;?ʾ-ʿ̂-̄̈-̣̰̊-̱̹;]] );</tRule>
+			<tRule>:: ( [[:Latin:] [%,.0-9;?ʾ-ʿ̂-̄̈-̣̰̊-̱̹;ˌ]] );</tRule>
 		</transform>
 		<transform source="Bengali" target="Devanagari" direction="forward">
 			<tRule>::[।-॥ঁ-ঃঅ-ঌএ-ঐও-নপ-রলশ-হ়-ৄে-ৈো-্ৗড়-ঢ়য়-ৣ০-৺ৎ];</tRule>
@@ -311,6 +335,190 @@
 			<tRule>::InterIndic-Telugu;</tRule>
 			<tRule>::NFC;</tRule>
 		</transform>
+		<transform source="CanadianAboriginal" target="Latin" direction="both">
+			<tRule>šwê ↔ ᔗ ;</tRule>
+			<tRule>šwî ↔ ᔛ ;</tRule>
+			<tRule>šwi ↔ ᔙ ;</tRule>
+			<tRule>šwô ↔ ᔟ ;</tRule>
+			<tRule>šwo ↔ ᔝ ;</tRule>
+			<tRule>šwâ ↔ ᔣ ;</tRule>
+			<tRule>šwa ↔ ᔡ ;</tRule>
+			<tRule>pwê ↔ ᐺ ;</tRule>
+			<tRule>pwî ↔ ᐾ ;</tRule>
+			<tRule>pwi ↔ ᐼ ;</tRule>
+			<tRule>pwô ↔ ᑂ ;</tRule>
+			<tRule>pwo ↔ ᑀ ;</tRule>
+			<tRule>pwâ ↔ ᑆ ;</tRule>
+			<tRule>pwa ↔ ᑄ ;</tRule>
+			<tRule>twê ↔ ᑗ ;</tRule>
+			<tRule>twî ↔ ᑛ ;</tRule>
+			<tRule>twi ↔ ᑙ ;</tRule>
+			<tRule>twô ↔ ᑟ ;</tRule>
+			<tRule>two ↔ ᑝ ;</tRule>
+			<tRule>twâ ↔ ᑣ ;</tRule>
+			<tRule>twa ↔ ᑡ ;</tRule>
+			<tRule>kwê ↔ ᑴ ;</tRule>
+			<tRule>kwî ↔ ᑸ ;</tRule>
+			<tRule>kwi ↔ ᑶ ;</tRule>
+			<tRule>kwô ↔ ᑼ ;</tRule>
+			<tRule>kwo ↔ ᑺ ;</tRule>
+			<tRule>kwâ ↔ ᒀ ;</tRule>
+			<tRule>kwa ↔ ᑾ ;</tRule>
+			<tRule>cwê ↔ ᒒ ;</tRule>
+			<tRule>cwî ↔ ᒖ ;</tRule>
+			<tRule>cwi ↔ ᒔ ;</tRule>
+			<tRule>cwô ↔ ᒚ ;</tRule>
+			<tRule>cwo ↔ ᒘ ;</tRule>
+			<tRule>cwâ ↔ ᒞ ;</tRule>
+			<tRule>cwa ↔ ᒜ ;</tRule>
+			<tRule>mwê ↔ ᒬ ;</tRule>
+			<tRule>mwî ↔ ᒰ ;</tRule>
+			<tRule>mwi ↔ ᒮ ;</tRule>
+			<tRule>mwô ↔ ᒴ ;</tRule>
+			<tRule>mwo ↔ ᒲ ;</tRule>
+			<tRule>mwâ ↔ ᒸ ;</tRule>
+			<tRule>mwa ↔ ᒶ ;</tRule>
+			<tRule>nwê ↔ ᓉ ;</tRule>
+			<tRule>nwâ ↔ ᓍ ;</tRule>
+			<tRule>nwa ↔ ᓋ ;</tRule>
+			<tRule>lwê ↔ ᓜ ;</tRule>
+			<tRule>lwî ↔ ᓠ ;</tRule>
+			<tRule>lwi ↔ ᓞ ;</tRule>
+			<tRule>lwô ↔ ᓤ ;</tRule>
+			<tRule>lwo ↔ ᓢ ;</tRule>
+			<tRule>lwâ ↔ ᓨ ;</tRule>
+			<tRule>lwa ↔ ᓦ ;</tRule>
+			<tRule>swê ↔ ᓶ ;</tRule>
+			<tRule>swî ↔ ᓺ ;</tRule>
+			<tRule>swi ↔ ᓸ ;</tRule>
+			<tRule>swô ↔ ᓾ ;</tRule>
+			<tRule>swo ↔ ᓼ ;</tRule>
+			<tRule>swâ ↔ ᔂ ;</tRule>
+			<tRule>swa ↔ ᔀ ;</tRule>
+			<tRule>ywê ↔ ᔯ ;</tRule>
+			<tRule>ywî ↔ ᔳ ;</tRule>
+			<tRule>ywi ↔ ᔱ ;</tRule>
+			<tRule>ywô ↔ ᔷ ;</tRule>
+			<tRule>ywo ↔ ᔵ ;</tRule>
+			<tRule>ywâ ↔ ᔻ ;</tRule>
+			<tRule>ywa ↔ ᔹ ;</tRule>
+			<tRule>rwâ ↔ ᕎ ;</tRule>
+			<tRule>hk ↔ ᕽ ;</tRule>
+			<tRule>thê ↔ ᖧ ;</tRule>
+			<tRule>thî ↔ ᖩ ;</tRule>
+			<tRule>thi ↔ ᖨ ;</tRule>
+			<tRule>thô ↔ ᖫ ;</tRule>
+			<tRule>tho ↔ ᖪ ;</tRule>
+			<tRule>thâ ↔ ᖭ ;</tRule>
+			<tRule>tha ↔ ᖬ ;</tRule>
+			<tRule>th ↔ ᖮ ;</tRule>
+			<tRule>šê ↔ ᔐ ;</tRule>
+			<tRule>šî ↔ ᔑ ;</tRule>
+			<tRule>ši ↔ ᔒ ;</tRule>
+			<tRule>šô ↔ ᔓ ;</tRule>
+			<tRule>šo ↔ ᔔ ;</tRule>
+			<tRule>šâ ↔ ᔕ ;</tRule>
+			<tRule>ša ↔ ᔖ ;</tRule>
+			<tRule>š ↔ ᔥ ;</tRule>
+			<tRule>wê ↔ ᐌ ;</tRule>
+			<tRule>wî ↔ ᐐ ;</tRule>
+			<tRule>wi ↔ ᐎ ;</tRule>
+			<tRule>wô ↔ ᐔ ;</tRule>
+			<tRule>wo ↔ ᐒ ;</tRule>
+			<tRule>wâ ↔ ᐙ ;</tRule>
+			<tRule>wa ↔ ᐗ ;</tRule>
+			<tRule>w ↔ ᐤ ;</tRule>
+			<tRule>pê ↔ ᐯ ;</tRule>
+			<tRule>pî ↔ ᐲ ;</tRule>
+			<tRule>pi ↔ ᐱ ;</tRule>
+			<tRule>pô ↔ ᐴ ;</tRule>
+			<tRule>po ↔ ᐳ ;</tRule>
+			<tRule>pâ ↔ ᐹ ;</tRule>
+			<tRule>pa ↔ ᐸ ;</tRule>
+			<tRule>p ↔ ᑉ ;</tRule>
+			<tRule>tê ↔ ᑌ ;</tRule>
+			<tRule>tî ↔ ᑏ ;</tRule>
+			<tRule>ti ↔ ᑎ ;</tRule>
+			<tRule>tô ↔ ᑑ ;</tRule>
+			<tRule>to ↔ ᑐ ;</tRule>
+			<tRule>tâ ↔ ᑖ ;</tRule>
+			<tRule>ta ↔ ᑕ ;</tRule>
+			<tRule>t ↔ ᑦ ;</tRule>
+			<tRule>kê ↔ ᑫ ;</tRule>
+			<tRule>kî ↔ ᑮ ;</tRule>
+			<tRule>ki ↔ ᑭ ;</tRule>
+			<tRule>kô ↔ ᑰ ;</tRule>
+			<tRule>ko ↔ ᑯ ;</tRule>
+			<tRule>kâ ↔ ᑳ ;</tRule>
+			<tRule>ka ↔ ᑲ ;</tRule>
+			<tRule>kw ↔ ᒄ ;</tRule>
+			<tRule>k ↔ ᒃ ;</tRule>
+			<tRule>cê ↔ ᒉ ;</tRule>
+			<tRule>cî ↔ ᒌ ;</tRule>
+			<tRule>ci ↔ ᒋ ;</tRule>
+			<tRule>cô ↔ ᒎ ;</tRule>
+			<tRule>co ↔ ᒍ ;</tRule>
+			<tRule>câ ↔ ᒑ ;</tRule>
+			<tRule>ca ↔ ᒐ ;</tRule>
+			<tRule>c ↔ ᒡ ;</tRule>
+			<tRule>mê ↔ ᒣ ;</tRule>
+			<tRule>mî ↔ ᒦ ;</tRule>
+			<tRule>mi ↔ ᒥ ;</tRule>
+			<tRule>mô ↔ ᒨ ;</tRule>
+			<tRule>mo ↔ ᒧ ;</tRule>
+			<tRule>mâ ↔ ᒫ ;</tRule>
+			<tRule>ma ↔ ᒪ ;</tRule>
+			<tRule>m ↔ ᒻ ;</tRule>
+			<tRule>nê ↔ ᓀ ;</tRule>
+			<tRule>nî ↔ ᓃ ;</tRule>
+			<tRule>ni ↔ ᓂ ;</tRule>
+			<tRule>nô ↔ ᓅ ;</tRule>
+			<tRule>no ↔ ᓄ ;</tRule>
+			<tRule>nâ ↔ ᓈ ;</tRule>
+			<tRule>na ↔ ᓇ ;</tRule>
+			<tRule>n ↔ ᓐ ;</tRule>
+			<tRule>lê ↔ ᓓ ;</tRule>
+			<tRule>lî ↔ ᓖ ;</tRule>
+			<tRule>li ↔ ᓕ ;</tRule>
+			<tRule>lô ↔ ᓘ ;</tRule>
+			<tRule>lo ↔ ᓗ ;</tRule>
+			<tRule>lâ ↔ ᓛ ;</tRule>
+			<tRule>la ↔ ᓚ ;</tRule>
+			<tRule>l ↔ ᓪ ;</tRule>
+			<tRule>sê ↔ ᓭ ;</tRule>
+			<tRule>sî ↔ ᓰ ;</tRule>
+			<tRule>si ↔ ᓯ ;</tRule>
+			<tRule>sô ↔ ᓲ ;</tRule>
+			<tRule>so ↔ ᓱ ;</tRule>
+			<tRule>sâ ↔ ᓵ ;</tRule>
+			<tRule>sa ↔ ᓴ ;</tRule>
+			<tRule>s ↔ ᔅ ;</tRule>
+			<tRule>yê ↔ ᔦ ;</tRule>
+			<tRule>yî ↔ ᔩ ;</tRule>
+			<tRule>yi ↔ ᔨ ;</tRule>
+			<tRule>yô ↔ ᔫ ;</tRule>
+			<tRule>yo ↔ ᔪ ;</tRule>
+			<tRule>yâ ↔ ᔮ ;</tRule>
+			<tRule>ya ↔ ᔭ ;</tRule>
+			<tRule>y ↔ ᔾ ;</tRule>
+			<tRule>rê ↔ ᕂ ;</tRule>
+			<tRule>rî ↔ ᕇ ;</tRule>
+			<tRule>ri ↔ ᕆ ;</tRule>
+			<tRule>rô ↔ ᕉ ;</tRule>
+			<tRule>ro ↔ ᕈ ;</tRule>
+			<tRule>râ ↔ ᕌ ;</tRule>
+			<tRule>ra ↔ ᕋ ;</tRule>
+			<tRule>r ↔ ᕐ ;</tRule>
+			<tRule>hê ↔ ᐁ ;</tRule>
+			<tRule>hî ↔ ᐄ ;</tRule>
+			<tRule>hi ↔ ᐃ ;</tRule>
+			<tRule>hô ↔ ᐆ ;</tRule>
+			<tRule>ho ↔ ᐅ ;</tRule>
+			<tRule>hâ ↔ ᐋ ;</tRule>
+			<tRule>ha ↔ ᐊ ;</tRule>
+			<tRule>h ↔ ᐦ ;</tRule>
+			<tRule>'.' ↔ ᙮ ;</tRule>
+		</transform>
 		<transform source="ConjoiningJamo" target="Latin" direction="forward">
 			<tRule>::['ᄀ-하-ᅵᆨ-ᇂ가-힣];</tRule>
 			<tRule>::NFD;</tRule>
@@ -326,6 +534,8 @@
 			<comment>### WARNING, ̈ must be added to the generated filters, in both directions ###</comment>
 			<comment># MINIMAL FILTER</comment>
 			<comment># move up so not masked</comment>
+			<comment># move up so not masked</comment>
+			<comment># ҷ ↔ XXX ; # CYRILLIC SMALL LETTER CHE WITH DESCENDER</comment>
 			<comment># ҷ ↔ XXX ; # CYRILLIC SMALL LETTER CHE WITH DESCENDER</comment>
 			<comment># Ҷ ↔ XXX ; # CYRILLIC CAPITAL LETTER CHE WITH DESCENDER</comment>
 			<comment># ӌ ↔ XXX ; # CYRILLIC SMALL LETTER KHAKASSIAN CHE</comment>
@@ -333,12 +543,16 @@
 			<comment># ҹ ↔ XXX ; # CYRILLIC SMALL LETTER CHE WITH VERTICAL STROKE</comment>
 			<comment># Ҹ ↔ XXX ; # CYRILLIC CAPITAL LETTER CHE WITH VERTICAL STROKE</comment>
 			<comment># ӡ ↔ XXX ; # CYRILLIC SMALL LETTER ABKHASIAN DZE</comment>
+			<comment># ӡ ↔ XXX ; # CYRILLIC SMALL LETTER ABKHASIAN DZE</comment>
 			<comment># Ӡ ↔ XXX ; # CYRILLIC CAPITAL LETTER ABKHASIAN DZE</comment>
 			<comment># Normal order</comment>
+			<comment># Normal order</comment>
+			<comment># җ ↔ XXX ; # CYRILLIC SMALL LETTER ZHE WITH DESCENDER</comment>
 			<comment># җ ↔ XXX ; # CYRILLIC SMALL LETTER ZHE WITH DESCENDER</comment>
 			<comment># Җ ↔ XXX ; # CYRILLIC CAPITAL LETTER ZHE WITH DESCENDER</comment>
 			<comment># қ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH DESCENDER</comment>
 			<comment># Қ ↔ XXX ; # CYRILLIC CAPITAL LETTER KA WITH DESCENDER</comment>
+			<comment># ӄ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH HOOK</comment>
 			<comment># ӄ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH HOOK</comment>
 			<comment># Ӄ ↔ XXX ; # CYRILLIC CAPITAL LETTER KA WITH HOOK</comment>
 			<comment># ҡ ↔ XXX ; # CYRILLIC SMALL LETTER BASHKIR KA</comment>
@@ -348,29 +562,37 @@
 			<comment># ҝ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH VERTICAL STROKE</comment>
 			<comment># Ҝ ↔ XXX ; # CYRILLIC CAPITAL LETTER KA WITH VERTICAL STROKE</comment>
 			<comment># ң ↔ XXX ; # CYRILLIC SMALL LETTER EN WITH DESCENDER</comment>
+			<comment># ң ↔ XXX ; # CYRILLIC SMALL LETTER EN WITH DESCENDER</comment>
 			<comment># Ң ↔ XXX ; # CYRILLIC CAPITAL LETTER EN WITH DESCENDER</comment>
 			<comment># ӈ ↔ XXX ; # CYRILLIC SMALL LETTER EN WITH HOOK</comment>
 			<comment># Ӈ ↔ XXX ; # CYRILLIC CAPITAL LETTER EN WITH HOOK</comment>
 			<comment># ҥ ↔ XXX ; # CYRILLIC SMALL LIGATURE EN GHE</comment>
 			<comment># Ҥ ↔ XXX ; # CYRILLIC CAPITAL LIGATURE EN GHE</comment>
 			<comment># ө ↔ XXX ; # CYRILLIC SMALL LETTER BARRED O</comment>
+			<comment># ө ↔ XXX ; # CYRILLIC SMALL LETTER BARRED O</comment>
 			<comment># Ө ↔ XXX ; # CYRILLIC CAPITAL LETTER BARRED O</comment>
+			<comment># ҧ ↔ XXX ; # CYRILLIC SMALL LETTER PE WITH MIDDLE HOOK</comment>
 			<comment># ҧ ↔ XXX ; # CYRILLIC SMALL LETTER PE WITH MIDDLE HOOK</comment>
 			<comment># Ҧ ↔ XXX ; # CYRILLIC CAPITAL LETTER PE WITH MIDDLE HOOK</comment>
 			<comment># ҁ ↔ XXX ; # CYRILLIC SMALL LETTER KOPPA</comment>
 			<comment># Ҁ ↔ XXX ; # CYRILLIC CAPITAL LETTER KOPPA</comment>
 			<comment># ҏ ↔ XXX ; # CYRILLIC SMALL LETTER ER WITH TICK</comment>
+			<comment># ҏ ↔ XXX ; # CYRILLIC SMALL LETTER ER WITH TICK</comment>
 			<comment># Ҏ ↔ XXX ; # CYRILLIC CAPITAL LETTER ER WITH TICK</comment>
+			<comment># ҫ ↔ XXX ; # CYRILLIC SMALL LETTER ES WITH DESCENDER</comment>
 			<comment># ҫ ↔ XXX ; # CYRILLIC SMALL LETTER ES WITH DESCENDER</comment>
 			<comment># Ҫ ↔ XXX ; # CYRILLIC CAPITAL LETTER ES WITH DESCENDER</comment>
 			<comment># ҭ ↔ XXX ; # CYRILLIC SMALL LETTER TE WITH DESCENDER</comment>
+			<comment># ҭ ↔ XXX ; # CYRILLIC SMALL LETTER TE WITH DESCENDER</comment>
 			<comment># Ҭ ↔ XXX ; # CYRILLIC CAPITAL LETTER TE WITH DESCENDER</comment>
+			<comment># ү ↔ XXX ; # CYRILLIC SMALL LETTER STRAIGHT U</comment>
 			<comment># ү ↔ XXX ; # CYRILLIC SMALL LETTER STRAIGHT U</comment>
 			<comment># Ү ↔ XXX ; # CYRILLIC CAPITAL LETTER STRAIGHT U</comment>
 			<comment># ұ ↔ XXX ; # CYRILLIC SMALL LETTER STRAIGHT U WITH STROKE</comment>
 			<comment># Ұ ↔ XXX ; # CYRILLIC CAPITAL LETTER STRAIGHT U WITH STROKE</comment>
 			<comment># ѹ ↔ XXX ; # CYRILLIC SMALL LETTER UK</comment>
 			<comment># Ѹ ↔ XXX ; # CYRILLIC CAPITAL LETTER UK</comment>
+			<comment># ҳ ↔ XXX ; # CYRILLIC SMALL LETTER HA WITH DESCENDER</comment>
 			<comment># ҳ ↔ XXX ; # CYRILLIC SMALL LETTER HA WITH DESCENDER</comment>
 			<comment># Ҳ ↔ XXX ; # CYRILLIC CAPITAL LETTER HA WITH DESCENDER</comment>
 			<comment># һ ↔ XXX ; # CYRILLIC SMALL LETTER SHHA</comment>
@@ -384,11 +606,13 @@
 			<comment># ѻ ↔ XXX ; # CYRILLIC SMALL LETTER ROUND OMEGA</comment>
 			<comment># Ѻ ↔ XXX ; # CYRILLIC CAPITAL LETTER ROUND OMEGA</comment>
 			<comment># ҵ ↔ XXX ; # CYRILLIC SMALL LIGATURE TE TSE</comment>
+			<comment># ҵ ↔ XXX ; # CYRILLIC SMALL LIGATURE TE TSE</comment>
 			<comment># Ҵ ↔ XXX ; # CYRILLIC CAPITAL LIGATURE TE TSE</comment>
 			<comment># ҽ ↔ XXX ; # CYRILLIC SMALL LETTER ABKHASIAN CHE</comment>
 			<comment># Ҽ ↔ XXX ; # CYRILLIC CAPITAL LETTER ABKHASIAN CHE</comment>
 			<comment># ҿ ↔ XXX ; # CYRILLIC SMALL LETTER ABKHASIAN CHE WITH DESCENDER</comment>
 			<comment># Ҿ ↔ XXX ; # CYRILLIC CAPITAL LETTER ABKHASIAN CHE WITH DESCENDER</comment>
+			<comment># ҍ ↔ XXX ; # CYRILLIC SMALL LETTER SEMISOFT SIGN</comment>
 			<comment># ҍ ↔ XXX ; # CYRILLIC SMALL LETTER SEMISOFT SIGN</comment>
 			<comment># Ҍ ↔ XXX ; # CYRILLIC CAPITAL LETTER SEMISOFT SIGN</comment>
 			<comment># ѣ ↔ XXX ; # CYRILLIC SMALL LETTER YAT</comment>
@@ -466,9 +690,10 @@
 			<comment>### Ѷ ↔ XXX ; # CYRILLIC CAPITAL LETTER IZHITSA</comment>
 			<comment># Completeness</comment>
 			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
+			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
 			<comment># :: ([\u0000-\u007E ʹ ʺ [:Cyrillic:] [:Latin:] [:nonspacing mark:]]);</comment>
 			<comment># MINIMAL FILTER: Latin-Cyrillic</comment>
-			<tRule>:: [̈Ă-ăĔ-ĕĞ-ğĬ-ĭŎ-ŏŬ-ŭ̆Ѐ-џҐ-ҕҘ-ҙӁ-ӂӐ-ӟӢ-ӧӬ-ӵӸ-ӹḜ-ḝẮ-ặᾰᾸῐῘῠῨ] ;</tRule>
+			<tRule>:: [Ққ̈Ă-ăĔ-ĕĞ-ğĬ-ĭŎ-ŏŬ-ŭ̆Ѐ-џҐ-ҕҘ-ҙӁ-ӂӐ-ӟӢ-ӧӬ-ӵӸ-ӹḜ-ḝẮ-ặᾰᾸῐῘῠῨ] ;</tRule>
 			<tRule>:: NFD (NFC) ;</tRule>
 			<tRule>$modprime = ʹ;</tRule>
 			<tRule>$modprime2 = ʺ;</tRule>
@@ -480,10 +705,13 @@
 			<tRule>$caron = ̌ ;</tRule>
 			<tRule>$comma = ̦ ;</tRule>
 			<tRule>$under = ̱ ;</tRule>
+			<tRule>$descender = ˌ;</tRule>
+			<tRule>я ↔ a  $hat ; # CYRILLIC SMALL LETTER YA</tRule>
 			<tRule>я ↔ a  $hat ; # CYRILLIC SMALL LETTER YA</tRule>
 			<tRule>Я ↔  A $hat ; # CYRILLIC CAPITAL LETTER YA</tRule>
 			<tRule>ч ↔ c $caron ; # CYRILLIC SMALL LETTER CHE</tRule>
 			<tRule>Ч ↔ C $caron; # CYRILLIC CAPITAL LETTER CHE</tRule>
+			<tRule>э ↔ e $acute; # CYRILLIC SMALL LETTER E</tRule>
 			<tRule>э ↔ e $acute; # CYRILLIC SMALL LETTER E</tRule>
 			<tRule>Э ↔ E $acute; # CYRILLIC CAPITAL LETTER E</tRule>
 			<tRule>є ↔ e $hat; # CYRILLIC SMALL LETTER UKRAINIAN IE</tRule>
@@ -494,6 +722,7 @@
 			<tRule>Щ ↔ S $hat; # CYRILLIC CAPITAL LETTER SHCHA</tRule>
 			<tRule>ѕ ↔ z $hat ; # CYRILLIC SMALL LETTER DZE</tRule>
 			<tRule>Ѕ ↔ Z $hat; # CYRILLIC CAPITAL LETTER DZE</tRule>
+			<tRule>ю ↔ u $hat ; # CYRILLIC SMALL LETTER YU</tRule>
 			<tRule>ю ↔ u $hat ; # CYRILLIC SMALL LETTER YU</tRule>
 			<tRule>Ю ↔  U $hat ; # CYRILLIC CAPITAL LETTER YU</tRule>
 			<tRule>і ↔ i $acute; # CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I</tRule>
@@ -508,6 +737,7 @@
 			<tRule>Ћ ↔ C $acute ; # CYRILLIC CAPITAL LETTER TSHE</tRule>
 			<tRule>џ ↔ d $hat ; # CYRILLIC SMALL LETTER DZHE</tRule>
 			<tRule>Џ ↔ D $hat ; # CYRILLIC CAPITAL LETTER DZHE</tRule>
+			<tRule>а ↔ a ; # CYRILLIC SMALL LETTER A</tRule>
 			<tRule>а ↔ a ; # CYRILLIC SMALL LETTER A</tRule>
 			<tRule>А ↔ A ; # CYRILLIC CAPITAL LETTER A</tRule>
 			<tRule>ә ↔  ə ; # CYRILLIC SMALL LETTER SCHWA</tRule>
@@ -537,13 +767,17 @@
 			<tRule>ж ↔ z $caron; # CYRILLIC SMALL LETTER ZHE</tRule>
 			<tRule>Ж ↔ Z $caron; # CYRILLIC CAPITAL LETTER ZHE</tRule>
 			<tRule>з ↔ z ; # CYRILLIC SMALL LETTER ZE</tRule>
+			<tRule>з ↔ z ; # CYRILLIC SMALL LETTER ZE</tRule>
 			<tRule>З ↔ Z; # CYRILLIC CAPITAL LETTER ZE</tRule>
 			<tRule>й ↔ j ; # CYRILLIC SMALL LETTER I</tRule>
 			<tRule>Й ↔ J ; # CYRILLIC CAPITAL LETTER I</tRule>
 			<tRule>и ↔ i ; # CYRILLIC SMALL LETTER I</tRule>
 			<tRule>И ↔ I ; # CYRILLIC CAPITAL LETTER I</tRule>
+			<tRule>қ ↔ k $descender ; # CYRILLIC SMALL LETTER KA WITH DESCENDER</tRule>
+			<tRule>Қ ↔ K $descender ; # CYRILLIC CAPITAL LETTER KA WITH DESCENDER</tRule>
 			<tRule>к ↔ k ; # CYRILLIC SMALL LETTER KA</tRule>
 			<tRule>К ↔ K; # CYRILLIC CAPITAL LETTER KA</tRule>
+			<tRule>л ↔ l ; # CYRILLIC SMALL LETTER EL</tRule>
 			<tRule>л ↔ l ; # CYRILLIC SMALL LETTER EL</tRule>
 			<tRule>Л ↔ L; # CYRILLIC CAPITAL LETTER EL</tRule>
 			<tRule>м ↔ m ; # CYRILLIC SMALL LETTER EM</tRule>
@@ -551,29 +785,39 @@
 			<tRule>н ↔ n ; # CYRILLIC SMALL LETTER EN</tRule>
 			<tRule>Н ↔ N; # CYRILLIC CAPITAL LETTER EN</tRule>
 			<tRule>о ↔ o ; # CYRILLIC SMALL LETTER O</tRule>
+			<tRule>о ↔ o ; # CYRILLIC SMALL LETTER O</tRule>
 			<tRule>О ↔ O ; # CYRILLIC CAPITAL LETTER O</tRule>
+			<tRule>п ↔ p ; # CYRILLIC SMALL LETTER PE</tRule>
 			<tRule>п ↔ p ; # CYRILLIC SMALL LETTER PE</tRule>
 			<tRule>П ↔ P ; # CYRILLIC CAPITAL LETTER PE</tRule>
 			<tRule>р ↔ r ; # CYRILLIC SMALL LETTER ER</tRule>
+			<tRule>р ↔ r ; # CYRILLIC SMALL LETTER ER</tRule>
 			<tRule>Р ↔ R ; # CYRILLIC CAPITAL LETTER ER</tRule>
+			<tRule>с ↔ s ; # CYRILLIC SMALL LETTER ES</tRule>
 			<tRule>с ↔ s ; # CYRILLIC SMALL LETTER ES</tRule>
 			<tRule>С ↔ S ; # CYRILLIC CAPITAL LETTER ES</tRule>
 			<tRule>т ↔ t ; # CYRILLIC SMALL LETTER TE</tRule>
+			<tRule>т ↔ t ; # CYRILLIC SMALL LETTER TE</tRule>
 			<tRule>Т ↔ T ; # CYRILLIC CAPITAL LETTER TE</tRule>
 			<tRule>у ↔ u ; # CYRILLIC SMALL LETTER U</tRule>
+			<tRule>у ↔ u ; # CYRILLIC SMALL LETTER U</tRule>
 			<tRule>У ↔ U ; # CYRILLIC CAPITAL LETTER U</tRule>
+			<tRule>ф ↔ f ; # CYRILLIC SMALL LETTER EF</tRule>
 			<tRule>ф ↔ f ; # CYRILLIC SMALL LETTER EF</tRule>
 			<tRule>Ф ↔ F ; # CYRILLIC CAPITAL LETTER EF</tRule>
 			<tRule>х ↔ h ; # CYRILLIC SMALL LETTER HA</tRule>
 			<tRule>Х ↔ H; # CYRILLIC CAPITAL LETTER HA</tRule>
 			<tRule>ц ↔ c ; # CYRILLIC SMALL LETTER TSE</tRule>
+			<tRule>ц ↔ c ; # CYRILLIC SMALL LETTER TSE</tRule>
 			<tRule>Ц ↔ C; # CYRILLIC CAPITAL LETTER TSE</tRule>
+			<tRule>Ъ ↔ $modprime2 $under ; # CYRILLIC CAPITAL LETTER HARD SIGN</tRule>
 			<tRule>Ъ ↔ $modprime2 $under ; # CYRILLIC CAPITAL LETTER HARD SIGN</tRule>
 			<tRule>ъ ↔  $modprime2 ; # CYRILLIC SMALL LETTER HARD SIGN</tRule>
 			<tRule>Ь ↔ $modprime $under ; # CYRILLIC CAPITAL LETTER SOFT SIGN</tRule>
 			<tRule>ь ↔  $modprime ; # CYRILLIC SMALL LETTER SOFT SIGN</tRule>
 			<tRule>ы ↔ y ; # CYRILLIC SMALL LETTER YERU</tRule>
 			<tRule>Ы ↔ Y ; # CYRILLIC CAPITAL LETTER YERU</tRule>
+			<tRule>$ignore = [[:Mark:]''] * ;</tRule>
 			<tRule>$ignore = [[:Mark:]''] * ;</tRule>
 			<tRule>| k ← q ;</tRule>
 			<tRule>| K ← Q ;</tRule>
@@ -585,6 +829,7 @@
 			<tRule>| ks ← x ;</tRule>
 			<tRule>:: NFC (NFD) ;</tRule>
 			<tRule>:: ( [̈A-Za-zÀ-ÏÑ-ÖÙ-Ýà-ïñ-öù-ýÿ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƏƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǰǴ-ǵǸ-țȞ-ȟȦ-ȳəʹ-ʺ̀-̂̆-̦̱̇̌̀-́̈́ʹ΅-ΆΈ-ΊΌΎ-ΐά-ΰό-ώϓЀЃЌ-ЎЙйѐѓќ-ўӁ-ӂӐ-ӑӖ-ӗḀ-ẙẛẠ-ỹἂ-ἅἊ-Ἅἒ-ἕἚ-Ἕἢ-ἥἪ-Ἥἲ-ἵἺ-Ἵὂ-ὅὊ-Ὅὒ-ὕὛὝὢ-ὥὪ-Ὥὰ-ώᾂ-ᾅᾊ-ᾍᾒ-ᾕᾚ-ᾝᾢ-ᾥᾪ-ᾭᾰᾲᾴᾸᾺ-ΆῂῄῈ-Ή῍-῎ῐῒ-ΐῘῚ-Ί῝-῞ῠῢ-ΰῨῪ-Ύ῭-΅ῲῴῸ-ΏK-Å] ) ;</tRule>
+			<tRule>:: ( [ˌ̈A-Za-zÀ-ÏÑ-ÖÙ-Ýà-ïñ-öù-ýÿ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƏƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǰǴ-ǵǸ-țȞ-ȟȦ-ȳəʹ-ʺ̀-̂̆-̦̱̇̌̀-́̈́ʹ΅-ΆΈ-ΊΌΎ-ΐά-ΰό-ώϓЀЃЌ-ЎЙйѐѓќ-ўӁ-ӂӐ-ӑӖ-ӗḀ-ẙẛẠ-ỹἂ-ἅἊ-Ἅἒ-ἕἚ-Ἕἢ-ἥἪ-Ἥἲ-ἵἺ-Ἵὂ-ὅὊ-Ὅὒ-ὕὛὝὢ-ὥὪ-Ὥὰ-ώᾂ-ᾅᾊ-ᾍᾒ-ᾕᾚ-ᾝᾢ-ᾥᾪ-ᾭᾰᾲᾴᾸᾺ-ΆῂῄῈ-Ή῍-῎ῐῒ-ΐῘῚ-Ί῝-῞ῠῢ-ΰῨῪ-Ύ῭-΅ῲῴῸ-ΏK-Å] ) ;</tRule>
 		</transform>
 		<transform source="Devanagari" target="Bengali" direction="forward">
 			<tRule>::[ँ-ःऄअ-ह़-्ॐ-॔क़-९ॽ];</tRule>
@@ -1021,6 +1266,59 @@
 			<tRule>↓↔￬; # to HALFWIDTH DOWNWARDS ARROW</tRule>
 			<tRule>■↔￭; # to HALFWIDTH BLACK SQUARE</tRule>
 			<tRule>○↔￮; # to HALFWIDTH WHITE CIRCLE</tRule>
+		</transform>
+		<transform source="Georgian" target="Latin" direction="both">
+			<comment># long items moved up</comment>
+			<comment># normal order</comment>
+			<comment>#კ ↔ kʼ ;</comment>
+			<comment>#პ ↔ pʼ ;</comment>
+			<comment>#ჟ ↔ zh ;</comment>
+			<comment>#ტ ↔ tʼ ;</comment>
+			<comment>#ღ ↔ gh ;</comment>
+			<comment>#ყ ↔ qʼ ;</comment>
+			<comment>#შ ↔ sh ;</comment>
+			<comment>#ჩ ↔ ch ;</comment>
+			<comment>#ც ↔ ts ;</comment>
+			<comment>#ძ ↔ dz ;</comment>
+			<comment>#წ ↔ tsʼ ;</comment>
+			<comment>#ჭ ↔ chʼ ;</comment>
+			<comment>#ხ ↔ kh ;</comment>
+			<comment>#ჳ ↔ ŭi ;</comment>
+			<tRule>წ ↔ tsʼ ;</tRule>
+			<tRule>კ ↔ kʼ ;</tRule>
+			<tRule>პ ↔ pʼ ;</tRule>
+			<tRule>ჟ ↔ zh ;</tRule>
+			<tRule>ტ ↔ tʼ ;</tRule>
+			<tRule>ღ ↔ gh ;</tRule>
+			<tRule>ყ ↔ qʼ ;</tRule>
+			<tRule>შ ↔ sh ;</tRule>
+			<tRule>ჭ ↔ chʼ ;</tRule>
+			<tRule>ჩ ↔ ch ;</tRule>
+			<tRule>ც ↔ ts ;</tRule>
+			<tRule>ძ ↔ dz ;</tRule>
+			<tRule>ხ ↔ kh ;</tRule>
+			<tRule>ჳ ↔ ŭi ;</tRule>
+			<tRule>ა ↔ a ;</tRule>
+			<tRule>ბ ↔ b ;</tRule>
+			<tRule>გ ↔ g ;</tRule>
+			<tRule>დ ↔ d ;</tRule>
+			<tRule>ე ↔ e ;</tRule>
+			<tRule>ვ ↔ v ;</tRule>
+			<tRule>ზ ↔ z ;</tRule>
+			<tRule>თ ↔ t ;</tRule>
+			<tRule>ი ↔ i ;</tRule>
+			<tRule>ლ ↔ l ;</tRule>
+			<tRule>მ ↔ m ;</tRule>
+			<tRule>ნ ↔ n ;</tRule>
+			<tRule>ო ↔ o ;</tRule>
+			<tRule>რ ↔ r ;</tRule>
+			<tRule>ს ↔ s ;</tRule>
+			<tRule>უ ↔ u ;</tRule>
+			<tRule>ფ ↔ p ;</tRule>
+			<tRule>ქ ↔ k ;</tRule>
+			<tRule>ჯ ↔ j ;</tRule>
+			<tRule>ჰ ↔ h ;</tRule>
+			<tRule>ჴ ↔ q ;</tRule>
 		</transform>
 		<transform source="Greek" target="Latin" direction="both">
 			<comment># For modern Greek, based on UNGEGN rules.</comment>
@@ -5237,6 +5535,90 @@
 			<tRule>::InterIndic-Telugu;</tRule>
 			<tRule>::NFC;</tRule>
 		</transform>
+		<transform source="Latin" target="Armenian" direction="both">
+			<tRule>::NFD(NFC);</tRule>
+			<tRule>ev ↔ և ;</tRule>
+			<tRule>tʻ ↔ թ ;</tRule>
+			<tRule>čʻ ↔ չ ;</tRule>
+			<tRule>cʻ ↔ ց ;</tRule>
+			<tRule>pʻ ↔ փ ;</tRule>
+			<tRule>kʻ ↔ ք ;</tRule>
+			<tRule>u ↔ ու ;</tRule>
+			<tRule>a ↔ ա ;</tRule>
+			<tRule>b ↔ բ ;</tRule>
+			<tRule>g ↔ գ ;</tRule>
+			<tRule>d ↔ դ ;</tRule>
+			<tRule>e ↔ ե ;</tRule>
+			<tRule>z ↔ զ ;</tRule>
+			<tRule>ē ↔ է ;</tRule>
+			<tRule>ə ↔ ը ;</tRule>
+			<tRule>ž ↔ ժ ;</tRule>
+			<tRule>i ↔ ի ;</tRule>
+			<tRule>l ↔ լ ;</tRule>
+			<tRule>x ↔ խ ;</tRule>
+			<tRule>c ↔ ծ ;</tRule>
+			<tRule>k ↔ կ ;</tRule>
+			<tRule>h ↔ հ ;</tRule>
+			<tRule>j ↔ ձ ;</tRule>
+			<tRule>ġ ↔ ղ ;</tRule>
+			<tRule>č ↔ ճ ;</tRule>
+			<tRule>m ↔ մ ;</tRule>
+			<tRule>y ↔ յ ;</tRule>
+			<tRule>n ↔ ն ;</tRule>
+			<tRule>š ↔ շ ;</tRule>
+			<tRule>o ↔ ո ;</tRule>
+			<tRule>p ↔ պ ;</tRule>
+			<tRule>ǰ ↔ ջ ;</tRule>
+			<tRule>ṙ ↔ ռ ;</tRule>
+			<tRule>s ↔ ս ;</tRule>
+			<tRule>v ↔ վ ;</tRule>
+			<tRule>t ↔ տ ;</tRule>
+			<tRule>r ↔ ր ;</tRule>
+			<tRule>w ↔ ւ ;</tRule>
+			<tRule>ō ↔ օ ;</tRule>
+			<tRule>f ↔ ֆ ;</tRule>
+			<tRule>U ↔ ՈՒ ;</tRule>
+			<tRule>EV ↔ ԵՒ ;</tRule>
+			<tRule>J̌ ↔ Ջ ;</tRule>
+			<tRule>Pʻ ↔ Փ ;</tRule>
+			<tRule>Kʻ ↔ Ք ;</tRule>
+			<tRule>Tʻ ↔ Թ ;</tRule>
+			<tRule>Čʻ ↔ Չ ;</tRule>
+			<tRule>Cʻ ↔ Ց ;</tRule>
+			<tRule>A ↔ Ա ;</tRule>
+			<tRule>B ↔ Բ ;</tRule>
+			<tRule>G ↔ Գ ;</tRule>
+			<tRule>D ↔ Դ ;</tRule>
+			<tRule>E ↔ Ե ;</tRule>
+			<tRule>Z ↔ Զ ;</tRule>
+			<tRule>Ē ↔ Է ;</tRule>
+			<tRule>Ə ↔ Ը ;</tRule>
+			<tRule>Ž ↔ Ժ ;</tRule>
+			<tRule>I ↔ Ի ;</tRule>
+			<tRule>L ↔ Լ ;</tRule>
+			<tRule>X ↔ Խ ;</tRule>
+			<tRule>C ↔ Ծ ;</tRule>
+			<tRule>K ↔ Կ ;</tRule>
+			<tRule>H ↔ Հ ;</tRule>
+			<tRule>J ↔ Ձ ;</tRule>
+			<tRule>Ġ ↔ Ղ ;</tRule>
+			<tRule>Č ↔ Ճ ;</tRule>
+			<tRule>M ↔ Մ ;</tRule>
+			<tRule>Y ↔ Յ ;</tRule>
+			<tRule>N ↔ Ն ;</tRule>
+			<tRule>Š ↔ Շ ;</tRule>
+			<tRule>O ↔ Ո ;</tRule>
+			<tRule>P ↔ Պ ;</tRule>
+			<tRule>Ṙ ↔ Ռ ;</tRule>
+			<tRule>S ↔ Ս ;</tRule>
+			<tRule>V ↔ Վ ;</tRule>
+			<tRule>T ↔ Տ ;</tRule>
+			<tRule>R ↔ Ր ;</tRule>
+			<tRule>W ↔ Ւ ;</tRule>
+			<tRule>Ō ↔ Օ ;</tRule>
+			<tRule>F ↔ Ֆ ;</tRule>
+			<tRule>::NFC(NFD);</tRule>
+		</transform>
 		<transform source="Latin" target="Bengali" direction="forward">
 			<tRule>::['.0-9A-Za-z~À-ÅÇ-ÏÑ-ÖÙ-Ýà-åç-ïñ-öù-ýÿ-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǭǰǴ-ǵǸ-țȞ-ȟȦ-ȳʔ́̃-̄̆-̇̐̔-̣̥̱́̈́̕΅-ΆΈ-ΊΌΎ-ΐά-ΰό-ώϓЃЌЎЙйѓќўӁ-ӂӐ-ӑӖ-ӗӢ-ӣӮ-ӯḀ-ẙẠ-ỹἁἃ-ἅἇἉἋ-ἍἏἑἓ-ἕἙἛ-Ἕἡἣ-ἥἧἩἫ-ἭἯἱἳ-ἵἷἹἻ-ἽἿὁὃ-ὅὉὋ-Ὅὑὓ-ὕὗὙὛὝὟὡὣ-ὥὧὩὫ-ὭὯάέήίόύώᾁᾃ-ᾅᾇᾉᾋ-ᾍᾏᾑᾓ-ᾕᾗᾙᾛ-ᾝᾟᾡᾣ-ᾥᾧᾩᾫ-ᾭᾯ-ᾱᾴᾸ-ᾹΆῄΈΉ῎ῐ-ῑΐῘ-ῙΊ῞ῠ-ῡΰῥῨ-ῩΎ-Ῥ΅ῴΌΏK-Å\uE04D\uE064];</tRule>
 			<tRule>::NFD;</tRule>
@@ -5692,6 +6074,357 @@
 			<tRule>::Latin-InterIndic;</tRule>
 			<tRule>::InterIndic-Devanagari;</tRule>
 			<tRule>::NFC;</tRule>
+		</transform>
+		<transform source="Latin" target="Ethiopic" direction="both">
+			<comment>#by Mark Williamson, dehua_andrew_chen@hotmail.com</comment>
+			<comment>#comments appreciated</comment>
+			<comment>#syllabary</comment>
+			<comment>#punctuation</comment>
+			<comment>#numerals</comment>
+			<tRule>ha↔ሀ;</tRule>
+			<tRule>ha ← ሃ;</tRule>
+			<tRule>he↔ሄ;</tRule>
+			<tRule>hi↔ሂ;</tRule>
+			<tRule>hī↔ህ;</tRule>
+			<tRule>hu↔?;</tRule>
+			<tRule>ho↔ሆ;</tRule>
+			<tRule>hha↔?;</tRule>
+			<tRule>hha ← ሓ;</tRule>
+			<tRule>hhe↔ሔ;</tRule>
+			<tRule>hhi↔ሒ;</tRule>
+			<tRule>hhī↔ሕ;</tRule>
+			<tRule>hhu↔ሑ;</tRule>
+			<tRule>hho↔ሖ;</tRule>
+			<tRule>hhwa↔ሗ;</tRule>
+			<tRule>ʿa↔ኣ;</tRule>
+			<tRule>ʿē↔አ;</tRule>
+			<tRule>ʿe↔ኤ;</tRule>
+			<tRule>ʿi↔ኢ;</tRule>
+			<tRule>ʿī↔እ;</tRule>
+			<tRule>ʿu↔ኡ;</tRule>
+			<tRule>ʿo↔ኦ;</tRule>
+			<tRule>ʿwa↔ኧ;</tRule>
+			<tRule>ʾa↔ዓ;</tRule>
+			<tRule>ʾē↔?;</tRule>
+			<tRule>ʾe↔ዔ;</tRule>
+			<tRule>ʾi↔ዒ;</tRule>
+			<tRule>ʾī↔ዕ;</tRule>
+			<tRule>ʾu↔ዑ;</tRule>
+			<tRule>ʾo↔ዖ;</tRule>
+			<tRule>qha↔ቓ;</tRule>
+			<tRule>qhē↔?;</tRule>
+			<tRule>qhe↔ቔ;</tRule>
+			<tRule>qhi↔ቒ;</tRule>
+			<tRule>qhī↔ቕ;</tRule>
+			<tRule>qhu↔ቑ;</tRule>
+			<tRule>qho↔ቖ;</tRule>
+			<tRule>qhwa↔ቛ;</tRule>
+			<tRule>qhwē↔ቘ;</tRule>
+			<tRule>qhwe↔ቜ;</tRule>
+			<tRule>qhwi↔ቚ;</tRule>
+			<tRule>qhwī↔?;</tRule>
+			<tRule>q a↔ቃ;</tRule>
+			<tRule>qē↔ቀ;</tRule>
+			<tRule>qe↔ቄ;</tRule>
+			<tRule>qi↔ቂ;</tRule>
+			<tRule>qī↔ቅ;</tRule>
+			<tRule>qu↔?;</tRule>
+			<tRule>qo↔ቆ;</tRule>
+			<tRule>qwa↔ቋ;</tRule>
+			<tRule>qwē↔ቈ;</tRule>
+			<tRule>qwe↔ቌ;</tRule>
+			<tRule>qwi↔ቊ;</tRule>
+			<tRule>qwī↔?;</tRule>
+			<tRule>ka↔ካ;</tRule>
+			<tRule>kē↔ከ;</tRule>
+			<tRule>ke↔ኬ;</tRule>
+			<tRule>ki↔ኪ;</tRule>
+			<tRule>kī↔ክ;</tRule>
+			<tRule>ku↔ኩ;</tRule>
+			<tRule>kwa↔ኳ;</tRule>
+			<tRule>kwē↔ኮ;</tRule>
+			<tRule>kwe↔ኴ;</tRule>
+			<tRule>kwi↔ኰ;</tRule>
+			<tRule>kwī↔ኵ;</tRule>
+			<tRule>kxa↔ኻ;</tRule>
+			<tRule>kxē↔ኸ;</tRule>
+			<tRule>kxe↔ኼ;</tRule>
+			<tRule>kxi↔ኺ;</tRule>
+			<tRule>kxī↔ኽ;</tRule>
+			<tRule>kxu↔ኹ;</tRule>
+			<tRule>kxo↔ኾ;</tRule>
+			<tRule>kxwa↔ዃ;</tRule>
+			<tRule>kxwē↔ዀ;</tRule>
+			<tRule>kxwe↔ዄ;</tRule>
+			<tRule>kxwi↔ዂ;</tRule>
+			<tRule>kxwī↔ዅ;</tRule>
+			<tRule>xa↔ኃ;</tRule>
+			<tRule>xē↔ኀ;</tRule>
+			<tRule>xe↔ኄ;</tRule>
+			<tRule>xi↔ኂ;</tRule>
+			<tRule>xī↔ኅ;</tRule>
+			<tRule>xu↔?;</tRule>
+			<tRule>xo↔ኆ;</tRule>
+			<tRule>xwa↔ኋ;</tRule>
+			<tRule>xwē↔ኈ;</tRule>
+			<tRule>xwe↔ኌ;</tRule>
+			<tRule>xwi↔ኊ;</tRule>
+			<tRule>xwī↔?;</tRule>
+			<tRule>gga↔ጛ;</tRule>
+			<tRule>ggē↔ጘ;</tRule>
+			<tRule>gge↔ጜ;</tRule>
+			<tRule>ggi↔ጚ;</tRule>
+			<tRule>ggī↔?;</tRule>
+			<tRule>ggu↔ጙ;</tRule>
+			<tRule>ggo↔ጞ;</tRule>
+			<tRule>ga↔ጋ;</tRule>
+			<tRule>gē↔ገ;</tRule>
+			<tRule>ge↔ጌ;</tRule>
+			<tRule>gi↔ጊ;</tRule>
+			<tRule>gī↔?;</tRule>
+			<tRule>gu↔ጉ;</tRule>
+			<tRule>go↔ጎ;</tRule>
+			<tRule>gwa↔ጓ;</tRule>
+			<tRule>gwē↔?;</tRule>
+			<tRule>gwe↔ጔ;</tRule>
+			<tRule>gwi↔ጒ;</tRule>
+			<tRule>gwī↔ጕ;</tRule>
+			<tRule>ca↔ቻ;</tRule>
+			<tRule>cē↔ቸ;</tRule>
+			<tRule>ce↔ቼ;</tRule>
+			<tRule>ci↔ቺ;</tRule>
+			<tRule>cī↔ች;</tRule>
+			<tRule>cu↔ቹ;</tRule>
+			<tRule>co↔ቾ;</tRule>
+			<tRule>cwa↔ቿ;</tRule>
+			<tRule>cha↔ጫ;</tRule>
+			<tRule>chē↔ጨ;</tRule>
+			<tRule>che↔ጬ;</tRule>
+			<tRule>chi↔ጪ;</tRule>
+			<tRule>chī↔ጭ;</tRule>
+			<tRule>chu↔ጩ;</tRule>
+			<tRule>cho↔ጮ;</tRule>
+			<tRule>chwa↔ጯ;</tRule>
+			<tRule>ja↔ጃ;</tRule>
+			<tRule>jē↔ጀ;</tRule>
+			<tRule>je↔ጄ;</tRule>
+			<tRule>ji↔ጂ;</tRule>
+			<tRule>jī↔ጅ;</tRule>
+			<tRule>ju↔?;</tRule>
+			<tRule>jo↔ጆ;</tRule>
+			<tRule>jwa↔ጇ;</tRule>
+			<tRule>za↔ዛ;</tRule>
+			<tRule>zē↔ዘ;</tRule>
+			<tRule>ze↔ዜ;</tRule>
+			<tRule>zi↔ዚ;</tRule>
+			<tRule>zī↔?;</tRule>
+			<tRule>zu↔ዙ;</tRule>
+			<tRule>zo↔ዞ;</tRule>
+			<tRule>zwa↔ዟ;</tRule>
+			<tRule>zha↔ዣ;</tRule>
+			<tRule>zhē↔ዠ;</tRule>
+			<tRule>zhe↔ዤ;</tRule>
+			<tRule>zhi↔ዢ;</tRule>
+			<tRule>zhī↔ዥ;</tRule>
+			<tRule>zhu↔ዡ;</tRule>
+			<tRule>zho↔ዦ;</tRule>
+			<tRule>zhwa↔ዧ;</tRule>
+			<tRule>sa↔ሳ;</tRule>
+			<tRule>sē↔ሰ;</tRule>
+			<tRule>se↔ሴ;</tRule>
+			<tRule>si↔ሲ;</tRule>
+			<tRule>sī↔ስ;</tRule>
+			<tRule>su↔ሱ;</tRule>
+			<tRule>so↔ሶ;</tRule>
+			<tRule>swa↔ሷ;</tRule>
+			<tRule>sha↔ሻ;</tRule>
+			<tRule>shē↔ሸ;</tRule>
+			<tRule>she↔ሼ;</tRule>
+			<tRule>shi↔ሺ;</tRule>
+			<tRule>shī↔ሽ;</tRule>
+			<tRule>shu↔ሹ;</tRule>
+			<tRule>sho↔ሾ;</tRule>
+			<tRule>shwa↔ሿ;</tRule>
+			<tRule>sza↔ሣ;</tRule>
+			<tRule>szē↔ሠ;</tRule>
+			<tRule>sze↔ሤ;</tRule>
+			<tRule>szi↔ሢ;</tRule>
+			<tRule>szī↔ሥ;</tRule>
+			<tRule>szu↔ሡ;</tRule>
+			<tRule>szo↔ሦ;</tRule>
+			<tRule>szwa↔ሧ;</tRule>
+			<tRule>tsa↔ጻ;</tRule>
+			<tRule>tsē↔ጸ;</tRule>
+			<tRule>tse↔ጼ;</tRule>
+			<tRule>tsi↔ጺ;</tRule>
+			<tRule>tsī↔ጽ;</tRule>
+			<tRule>tsu↔ጹ;</tRule>
+			<tRule>tso↔ጾ;</tRule>
+			<tRule>tswa↔ጿ;</tRule>
+			<tRule>tza↔?;</tRule>
+			<tRule>tzē↔?;</tRule>
+			<tRule>tze↔?;</tRule>
+			<tRule>tzi↔?;</tRule>
+			<tRule>tzī↔?;</tRule>
+			<tRule>tzu↔??;</tRule>
+			<tRule>tzo↔?;</tRule>
+			<tRule>tha↔ጣ;</tRule>
+			<tRule>thē↔ጠ;</tRule>
+			<tRule>the↔ጤ;</tRule>
+			<tRule>thi↔ጢ;</tRule>
+			<tRule>thī↔ጥ;</tRule>
+			<tRule>thu↔ጡ;</tRule>
+			<tRule>tho↔ጦ;</tRule>
+			<tRule>thwa↔ጧ;</tRule>
+			<tRule>ta↔ታ;</tRule>
+			<tRule>tē↔ተ;</tRule>
+			<tRule>te↔ቴ;</tRule>
+			<tRule>ti↔ቲ;</tRule>
+			<tRule>tī↔ት;</tRule>
+			<tRule>tu↔ቱ;</tRule>
+			<tRule>to↔ቶ;</tRule>
+			<tRule>twa↔ቷ;</tRule>
+			<tRule>dda↔ዻ;</tRule>
+			<tRule>ddē↔ዸ;</tRule>
+			<tRule>dde↔ዼ;</tRule>
+			<tRule>ddi↔ዺ;</tRule>
+			<tRule>ddī↔ዽ;</tRule>
+			<tRule>ddu↔ዹ;</tRule>
+			<tRule>ddo↔ዾ;</tRule>
+			<tRule>ddwa↔ዿ;</tRule>
+			<tRule>da↔ዳ;</tRule>
+			<tRule>dē↔ደ;</tRule>
+			<tRule>de↔ዴ;</tRule>
+			<tRule>di↔ዲ;</tRule>
+			<tRule>dī↔ድ;</tRule>
+			<tRule>du↔ዱ;</tRule>
+			<tRule>do↔ዶ;</tRule>
+			<tRule>dwa↔ዷ;</tRule>
+			<tRule>na↔ና;</tRule>
+			<tRule>nē↔?;</tRule>
+			<tRule>ne↔ኔ;</tRule>
+			<tRule>ni↔ኒ;</tRule>
+			<tRule>nī↔ን;</tRule>
+			<tRule>nu↔ኑ;</tRule>
+			<tRule>no↔ኖ;</tRule>
+			<tRule>nwa↔ኗ;</tRule>
+			<tRule>nya↔ኛ;</tRule>
+			<tRule>nyē↔ኘ;</tRule>
+			<tRule>nye↔ኜ;</tRule>
+			<tRule>nyi↔ኚ;</tRule>
+			<tRule>nyī↔?;</tRule>
+			<tRule>nyu↔ኙ;</tRule>
+			<tRule>nyo↔ኞ;</tRule>
+			<tRule>nywa↔ኟ;</tRule>
+			<tRule>ya↔ያ;</tRule>
+			<tRule>yē↔የ;</tRule>
+			<tRule>ye↔ዬ;</tRule>
+			<tRule>yi↔ዪ;</tRule>
+			<tRule>yī↔ይ;</tRule>
+			<tRule>yu↔ዩ;</tRule>
+			<tRule>yo↔ዮ;</tRule>
+			<tRule>ra↔ራ;</tRule>
+			<tRule>rē↔ረ;</tRule>
+			<tRule>re↔ሬ;</tRule>
+			<tRule>ri↔ሪ;</tRule>
+			<tRule>rī↔ር;</tRule>
+			<tRule>ru↔ሩ;</tRule>
+			<tRule>ro↔ሮ;</tRule>
+			<tRule>rwa↔ሯ;</tRule>
+			<tRule>rya↔?;</tRule>
+			<tRule>la↔ላ;</tRule>
+			<tRule>lē↔ለ;</tRule>
+			<tRule>le↔ሌ;</tRule>
+			<tRule>li↔ሊ;</tRule>
+			<tRule>lī↔?;</tRule>
+			<tRule>lu↔ሉ;</tRule>
+			<tRule>lo↔ሎ;</tRule>
+			<tRule>lwa↔?;</tRule>
+			<tRule>ma↔ማ;</tRule>
+			<tRule>mē↔መ;</tRule>
+			<tRule>me↔ሜ;</tRule>
+			<tRule>mi↔ሚ;</tRule>
+			<tRule>mī↔?;</tRule>
+			<tRule>mu↔ሙ;</tRule>
+			<tRule>mo↔ሞ;</tRule>
+			<tRule>mwa↔ሟ;</tRule>
+			<tRule>mya↔?;</tRule>
+			<tRule>ba↔ባ;</tRule>
+			<tRule>bē↔በ;</tRule>
+			<tRule>be↔ቤ;</tRule>
+			<tRule>bi↔ቢ;</tRule>
+			<tRule>bī↔ብ;</tRule>
+			<tRule>bu↔ቡ;</tRule>
+			<tRule>bo↔ቦ;</tRule>
+			<tRule>bwa↔ቧ;</tRule>
+			<tRule>pa↔?;</tRule>
+			<tRule>pē↔??;</tRule>
+			<tRule>pe↔?;</tRule>
+			<tRule>pi↔?;</tRule>
+			<tRule>pī↔?;</tRule>
+			<tRule>pu↔?;</tRule>
+			<tRule>po↔?;</tRule>
+			<tRule>pwa↔?;</tRule>
+			<tRule>pha↔ጳ;</tRule>
+			<tRule>phē↔ጰ;</tRule>
+			<tRule>phe↔ጴ;</tRule>
+			<tRule>phi↔ጲ;</tRule>
+			<tRule>phī↔ጵ;</tRule>
+			<tRule>phu↔ጱ;</tRule>
+			<tRule>pho↔ጶ;</tRule>
+			<tRule>phwa↔ጷ;</tRule>
+			<tRule>fa↔?;</tRule>
+			<tRule>fē↔?;</tRule>
+			<tRule>fe↔?;</tRule>
+			<tRule>fi↔?;</tRule>
+			<tRule>fī↔??;</tRule>
+			<tRule>fu↔?;</tRule>
+			<tRule>fo↔?;</tRule>
+			<tRule>fwa↔??;</tRule>
+			<tRule>fya↔?;</tRule>
+			<tRule>va↔ቫ;</tRule>
+			<tRule>vē↔ቨ;</tRule>
+			<tRule>ve↔ቬ;</tRule>
+			<tRule>vi↔ቪ;</tRule>
+			<tRule>vī↔ቭ;</tRule>
+			<tRule>vu↔ቩ;</tRule>
+			<tRule>vo↔ቮ;</tRule>
+			<tRule>vwa↔ቯ;</tRule>
+			<tRule>wa↔ዋ;</tRule>
+			<tRule>wē↔ወ;</tRule>
+			<tRule>we↔ዌ;</tRule>
+			<tRule>wi↔ዊ;</tRule>
+			<tRule>wī↔?;</tRule>
+			<tRule>wu↔ዉ;</tRule>
+			<tRule>wo↔ዎ;</tRule>
+			<tRule>'.'↔?;</tRule>
+			<tRule>','↔?;</tRule>
+			<tRule>';'↔?;</tRule>
+			<tRule>':'↔?;</tRule>
+			<tRule>':-' ← ?;</tRule>
+			<tRule>'?'↔?;</tRule>
+			<tRule>'¶'↔?;</tRule>
+			<tRule>1↔?;</tRule>
+			<tRule>2↔?;</tRule>
+			<tRule>3↔?;</tRule>
+			<tRule>4↔?;</tRule>
+			<tRule>5↔?;</tRule>
+			<tRule>6↔?;</tRule>
+			<tRule>7↔?;</tRule>
+			<tRule>8↔?;</tRule>
+			<tRule>9↔?;</tRule>
+			<tRule>⑩↔?;</tRule>
+			<tRule>⑳↔?;</tRule>
+			<tRule>(30)↔?;</tRule>
+			<tRule>(40)↔?;</tRule>
+			<tRule>(50)↔?;</tRule>
+			<tRule>(60)↔?;</tRule>
+			<tRule>(70)↔?;</tRule>
+			<tRule>(80)↔?;</tRule>
+			<tRule>(90)↔?;</tRule>
+			<tRule>(100)↔?;</tRule>
+			<tRule>(10000)↔?;</tRule>
+			<tRule>' ' ↔ ? ;</tRule>
 		</transform>
 		<transform source="Latin" target="Gujarati" direction="forward">
 			<tRule>::['.0-9A-Za-z~À-ÅÇ-ÏÑ-ÖÙ-Ýà-åç-ïñ-öù-ýÿ-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǭǰǴ-ǵǸ-țȞ-ȟȦ-ȳʔ́̃-̄̆-̇̐̔-̣̥̱́̈́̕΅-ΆΈ-ΊΌΎ-ΐά-ΰό-ώϓЃЌЎЙйѓќўӁ-ӂӐ-ӑӖ-ӗӢ-ӣӮ-ӯḀ-ẙẠ-ỹἁἃ-ἅἇἉἋ-ἍἏἑἓ-ἕἙἛ-Ἕἡἣ-ἥἧἩἫ-ἭἯἱἳ-ἵἷἹἻ-ἽἿὁὃ-ὅὉὋ-Ὅὑὓ-ὕὗὙὛὝὟὡὣ-ὥὧὩὫ-ὭὯάέήίόύώᾁᾃ-ᾅᾇᾉᾋ-ᾍᾏᾑᾓ-ᾕᾗᾙᾛ-ᾝᾟᾡᾣ-ᾥᾧᾩᾫ-ᾭᾯ-ᾱᾴᾸ-ᾹΆῄΈΉ῎ῐ-ῑΐῘ-ῙΊ῞ῠ-ῡΰῥῨ-ῩΎ-Ῥ΅ῴΌΏK-Å\uE04D\uE064];</tRule>
@@ -6860,6 +7593,58 @@
 		<transform source="Spacedhan" target="Han" direction="forward" visibility="internal">
 			<tRule>::null;</tRule>
 		</transform>
+		<transform source="Syriac" target="Latin" direction="both">
+			<comment># Consonants</comment>
+			<comment># Vowels</comment>
+			<comment># Punctuation</comment>
+			<tRule>ܫ ↔ sh;</tRule>
+			<tRule>ܞ → yh;</tRule>
+			<tRule>ܖ ↔ dr;</tRule>
+			<tRule>ܐ ↔ ʾ;</tRule>
+			<tRule>ܑ  → ʾ;</tRule>
+			<tRule>ܒ ↔ b;</tRule>
+			<tRule>ܓ ↔ g;</tRule>
+			<tRule>ܔ → g;</tRule>
+			<tRule>ܕ ↔ d;</tRule>
+			<tRule>ܗ ↔ h;</tRule>
+			<tRule>ܘ ↔ w;</tRule>
+			<tRule>ܙ ↔ z;</tRule>
+			<tRule>ܚ ↔ ḥ;</tRule>
+			<tRule>ܛ ↔ ṭ;</tRule>
+			<tRule>ܜ → ṭ;</tRule>
+			<tRule>ܝ ↔ y;</tRule>
+			<tRule>ܟ ↔ k;</tRule>
+			<tRule>ܠ ↔ l;</tRule>
+			<tRule>ܡ ↔ m;</tRule>
+			<tRule>ܢ ↔ n;</tRule>
+			<tRule>ܣ ↔ s;</tRule>
+			<tRule>ܤ → s;</tRule>
+			<tRule>ܥ → ʿ;</tRule>
+			<tRule>ܦ ↔ p;</tRule>
+			<tRule>ܧ → p;</tRule>
+			<tRule>ܨ ↔ ṣ;</tRule>
+			<tRule>ܩ ↔ q;</tRule>
+			<tRule>ܪ ↔ r;</tRule>
+			<tRule>ܬ ↔ t;</tRule>
+			<tRule>ܰ → a;</tRule>
+			<tRule>ܱ → a;</tRule>
+			<tRule>ܲ ↔ a;</tRule>
+			<tRule>ܳ → o;</tRule>
+			<tRule>ܴ → o;</tRule>
+			<tRule>ܵ → a;</tRule>
+			<tRule>ܶ → e;</tRule>
+			<tRule>ܷ → e;</tRule>
+			<tRule>ܸ ↔ e;</tRule>
+			<tRule>ܹ ↔ ē;</tRule>
+			<tRule>ܺ → i;</tRule>
+			<tRule>ܻ → i;</tRule>
+			<tRule>݂ ↔ i;</tRule>
+			<tRule>ܽ → u;</tRule>
+			<tRule>ܾ → u;</tRule>
+			<tRule>ܼ ↔ u;</tRule>
+			<tRule>ܿ ↔ o;</tRule>
+			<tRule>܍ → \*;</tRule>
+		</transform>
 		<transform source="Tamil" target="Bengali" direction="forward">
 			<tRule>::[0ஂ-ஃஅ-ஊஎ-ஐஒ-கங-சஜஞ-டண-தந-பம-வஷ-ஹா-ூெ-ைொ-்ௗ௧-௲ஶ];</tRule>
 			<tRule>::NFD;</tRule>
@@ -7142,6 +7927,439 @@
 			<tRule>::Telugu-InterIndic;</tRule>
 			<tRule>::InterIndic-Tamil;</tRule>
 			<tRule>::NFC;</tRule>
+		</transform>
+		<transform source="Thaana" target="Latin" direction="both">
+			<tRule>tta ↔ ޘަ ;</tRule>
+			<tRule>ḥa ↔ ޙަ ;</tRule>
+			<tRule>kha ↔ ޚަ ;</tRule>
+			<tRule>dha ↔ ޛަ ;</tRule>
+			<tRule>ša ← ޝަ ;</tRule>
+			<tRule>ṣa ↔ ޞަ ;</tRule>
+			<tRule>ḏa ↔ ޟަ ;</tRule>
+			<tRule>t̤a ↔ ޠަ ;</tRule>
+			<tRule>ʿa ↔ ޢަ ;</tRule>
+			<tRule>ǧa ↔ ޣަ ;</tRule>
+			<tRule>qa ↔ ޤަ ;</tRule>
+			<tRule>ha ↔ ހަ ;</tRule>
+			<tRule>ša ↔ ށަ ;</tRule>
+			<tRule>na ↔ ނަ ;</tRule>
+			<tRule>ra ↔ ރަ ;</tRule>
+			<tRule>ba ↔ ބަ ;</tRule>
+			<tRule>ḷa ↔ ޅަ ;</tRule>
+			<tRule>ka ↔ ކަ ;</tRule>
+			<tRule>‘a ↔ އަ ;</tRule>
+			<tRule>va ↔ ވަ ;</tRule>
+			<tRule>ma ↔ މަ ;</tRule>
+			<tRule>fa ↔ ފަ ;</tRule>
+			<tRule>da ↔ ދަ ;</tRule>
+			<tRule>ta ↔ ތަ ;</tRule>
+			<tRule>la ↔ ލަ ;</tRule>
+			<tRule>ga ↔ ގަ ;</tRule>
+			<tRule>ña ↔ ޏަ ;</tRule>
+			<tRule>sa ↔ ސަ ;</tRule>
+			<tRule>ḍa ↔ ޑަ ;</tRule>
+			<tRule>ja ↔ ޖަ ;</tRule>
+			<tRule>ča ↔ ޗަ ;</tRule>
+			<tRule>za ↔ ޒަ ;</tRule>
+			<tRule>ṭa ↔ ޓަ ;</tRule>
+			<tRule>pa ↔ ޕަ ;</tRule>
+			<tRule>ya ↔ ޔަ ;</tRule>
+			<tRule>ttā ↔ ޘާ ;</tRule>
+			<tRule>ḥā ↔ ޙާ ;</tRule>
+			<tRule>khā ↔ ޚާ ;</tRule>
+			<tRule>dhā ↔ ޛާ ;</tRule>
+			<tRule>šā ← ޝާ ;</tRule>
+			<tRule>ṣā ↔ ޞާ ;</tRule>
+			<tRule>ḏā ↔ ޟާ ;</tRule>
+			<tRule>t̤ā ↔ ޠާ ;</tRule>
+			<tRule>ʿā ↔ ޢާ ;</tRule>
+			<tRule>ǧā ↔ ޣާ ;</tRule>
+			<tRule>qā ↔ ޤާ ;</tRule>
+			<tRule>hā ↔ ހާ ;</tRule>
+			<tRule>šā ↔ ށާ ;</tRule>
+			<tRule>nā ↔ ނާ ;</tRule>
+			<tRule>rā ↔ ރާ ;</tRule>
+			<tRule>bā ↔ ބާ ;</tRule>
+			<tRule>ḷā ↔ ޅާ ;</tRule>
+			<tRule>kā ↔ ކާ ;</tRule>
+			<tRule>‘ā ↔ އާ ;</tRule>
+			<tRule>vā ↔ ވާ ;</tRule>
+			<tRule>mā ↔ މާ ;</tRule>
+			<tRule>fā ↔ ފާ ;</tRule>
+			<tRule>dā ↔ ދާ ;</tRule>
+			<tRule>tā ↔ ތާ ;</tRule>
+			<tRule>lā ↔ ލާ ;</tRule>
+			<tRule>gā ↔ ގާ ;</tRule>
+			<tRule>ñā ↔ ޏާ ;</tRule>
+			<tRule>sā ↔ ސާ ;</tRule>
+			<tRule>ḍā ↔ ޑާ ;</tRule>
+			<tRule>jā ↔ ޖާ ;</tRule>
+			<tRule>čā ↔ ޗާ ;</tRule>
+			<tRule>zā ↔ ޒާ ;</tRule>
+			<tRule>ṭā ↔ ޓާ ;</tRule>
+			<tRule>pā ↔ ޕާ ;</tRule>
+			<tRule>yā ↔ ޔާ ;</tRule>
+			<tRule>tti ↔ ޘި ;</tRule>
+			<tRule>ḥi ↔ ޙި ;</tRule>
+			<tRule>khi ↔ ޚި ;</tRule>
+			<tRule>dhi ↔ ޛި ;</tRule>
+			<tRule>ši ← ޝި ;</tRule>
+			<tRule>ṣi ↔ ޞި ;</tRule>
+			<tRule>ḏi ↔ ޟި ;</tRule>
+			<tRule>t̤i ↔ ޠި ;</tRule>
+			<tRule>ʿi ↔ ޢި ;</tRule>
+			<tRule>ǧi ↔ ޣި ;</tRule>
+			<tRule>qi ↔ ޤި ;</tRule>
+			<tRule>hi ↔ ހި ;</tRule>
+			<tRule>ši ↔ ށި ;</tRule>
+			<tRule>ni ↔ ނި ;</tRule>
+			<tRule>ri ↔ ރި ;</tRule>
+			<tRule>bi ↔ ބި ;</tRule>
+			<tRule>ḷi ↔ ޅި ;</tRule>
+			<tRule>ki ↔ ކި ;</tRule>
+			<tRule>‘i ↔ އި ;</tRule>
+			<tRule>vi ↔ ވި ;</tRule>
+			<tRule>mi ↔ މި ;</tRule>
+			<tRule>fi ↔ ފި ;</tRule>
+			<tRule>di ↔ ދި ;</tRule>
+			<tRule>ti ↔ ތި ;</tRule>
+			<tRule>li ↔ ލި ;</tRule>
+			<tRule>gi ↔ ގި ;</tRule>
+			<tRule>ñi ↔ ޏި ;</tRule>
+			<tRule>si ↔ ސި ;</tRule>
+			<tRule>ḍi ↔ ޑި ;</tRule>
+			<tRule>ji ↔ ޖި ;</tRule>
+			<tRule>či ↔ ޗި ;</tRule>
+			<tRule>zi ↔ ޒި ;</tRule>
+			<tRule>ṭi ↔ ޓި ;</tRule>
+			<tRule>pi ↔ ޕި ;</tRule>
+			<tRule>yi ↔ ޔި ;</tRule>
+			<tRule>ttī ↔ ޘީ ;</tRule>
+			<tRule>ḥī ↔ ޙީ ;</tRule>
+			<tRule>khī ↔ ޚީ ;</tRule>
+			<tRule>dhī ↔ ޛީ ;</tRule>
+			<tRule>šī ← ޝީ ;</tRule>
+			<tRule>ṣī ↔ ޞީ ;</tRule>
+			<tRule>ḏī ↔ ޟީ ;</tRule>
+			<tRule>t̤ī ↔ ޠީ ;</tRule>
+			<tRule>ʿī ↔ ޢީ ;</tRule>
+			<tRule>ǧī ↔ ޣީ ;</tRule>
+			<tRule>qī ↔ ޤީ ;</tRule>
+			<tRule>hī ↔ ހީ ;</tRule>
+			<tRule>šī ↔ ށީ ;</tRule>
+			<tRule>nī ↔ ނީ ;</tRule>
+			<tRule>rī ↔ ރީ ;</tRule>
+			<tRule>bī ↔ ބީ ;</tRule>
+			<tRule>ḷī ↔ ޅީ ;</tRule>
+			<tRule>kī ↔ ކީ ;</tRule>
+			<tRule>‘ī ↔ އީ ;</tRule>
+			<tRule>vī ↔ ވީ ;</tRule>
+			<tRule>mī ↔ މީ ;</tRule>
+			<tRule>fī ↔ ފީ ;</tRule>
+			<tRule>dī ↔ ދީ ;</tRule>
+			<tRule>tī ↔ ތީ ;</tRule>
+			<tRule>lī ↔ ލީ ;</tRule>
+			<tRule>gī ↔ ގީ ;</tRule>
+			<tRule>ñī ↔ ޏީ ;</tRule>
+			<tRule>sī ↔ ސީ ;</tRule>
+			<tRule>ḍī ↔ ޑީ ;</tRule>
+			<tRule>jī ↔ ޖީ ;</tRule>
+			<tRule>čī ↔ ޗީ ;</tRule>
+			<tRule>zī ↔ ޒީ ;</tRule>
+			<tRule>ṭī ↔ ޓީ ;</tRule>
+			<tRule>pī ↔ ޕީ ;</tRule>
+			<tRule>yī ↔ ޔީ ;</tRule>
+			<tRule>ttu ↔ ޘު ;</tRule>
+			<tRule>ḥu ↔ ޙު ;</tRule>
+			<tRule>khu ↔ ޚު ;</tRule>
+			<tRule>dhu ↔ ޛު ;</tRule>
+			<tRule>šu ← ޝު ;</tRule>
+			<tRule>ṣu ↔ ޞު ;</tRule>
+			<tRule>ḏu ↔ ޟު ;</tRule>
+			<tRule>t̤u ↔ ޠު ;</tRule>
+			<tRule>ʿu ↔ ޢު ;</tRule>
+			<tRule>ǧu ↔ ޣު ;</tRule>
+			<tRule>qu ↔ ޤު ;</tRule>
+			<tRule>hu ↔ ހު ;</tRule>
+			<tRule>šu ↔ ށު ;</tRule>
+			<tRule>nu ↔ ނު ;</tRule>
+			<tRule>ru ↔ ރު ;</tRule>
+			<tRule>bu ↔ ބު ;</tRule>
+			<tRule>ḷu ↔ ޅު ;</tRule>
+			<tRule>ku ↔ ކު ;</tRule>
+			<tRule>‘u ↔ އު ;</tRule>
+			<tRule>vu ↔ ވު ;</tRule>
+			<tRule>mu ↔ މު ;</tRule>
+			<tRule>fu ↔ ފު ;</tRule>
+			<tRule>du ↔ ދު ;</tRule>
+			<tRule>tu ↔ ތު ;</tRule>
+			<tRule>lu ↔ ލު ;</tRule>
+			<tRule>gu ↔ ގު ;</tRule>
+			<tRule>ñu ↔ ޏު ;</tRule>
+			<tRule>su ↔ ސު ;</tRule>
+			<tRule>ḍu ↔ ޑު ;</tRule>
+			<tRule>ju ↔ ޖު ;</tRule>
+			<tRule>ču ↔ ޗު ;</tRule>
+			<tRule>zu ↔ ޒު ;</tRule>
+			<tRule>ṭu ↔ ޓު ;</tRule>
+			<tRule>pu ↔ ޕު ;</tRule>
+			<tRule>yu ↔ ޔު ;</tRule>
+			<tRule>ttū ↔ ޘޫ ;</tRule>
+			<tRule>ḥū ↔ ޙޫ ;</tRule>
+			<tRule>khū ↔ ޚޫ ;</tRule>
+			<tRule>dhū ↔ ޛޫ ;</tRule>
+			<tRule>šū ← ޝޫ ;</tRule>
+			<tRule>ṣū ↔ ޞޫ ;</tRule>
+			<tRule>ḏū ↔ ޟޫ ;</tRule>
+			<tRule>t̤ū ↔ ޠޫ ;</tRule>
+			<tRule>ʿū ↔ ޢޫ ;</tRule>
+			<tRule>ǧū ↔ ޣޫ ;</tRule>
+			<tRule>qū ↔ ޤޫ ;</tRule>
+			<tRule>hū ↔ ހޫ ;</tRule>
+			<tRule>šū ↔ ށޫ ;</tRule>
+			<tRule>nū ↔ ނޫ ;</tRule>
+			<tRule>rū ↔ ރޫ ;</tRule>
+			<tRule>bū ↔ ބޫ ;</tRule>
+			<tRule>ḷū ↔ ޅޫ ;</tRule>
+			<tRule>kū ↔ ކޫ ;</tRule>
+			<tRule>‘ū ↔ އޫ ;</tRule>
+			<tRule>vū ↔ ވޫ ;</tRule>
+			<tRule>mū ↔ މޫ ;</tRule>
+			<tRule>fū ↔ ފޫ ;</tRule>
+			<tRule>dū ↔ ދޫ ;</tRule>
+			<tRule>tū ↔ ތޫ ;</tRule>
+			<tRule>lū ↔ ލޫ ;</tRule>
+			<tRule>gū ↔ ގޫ ;</tRule>
+			<tRule>ñū ↔ ޏޫ ;</tRule>
+			<tRule>sū ↔ ސޫ ;</tRule>
+			<tRule>ḍū ↔ ޑޫ ;</tRule>
+			<tRule>jū ↔ ޖޫ ;</tRule>
+			<tRule>čū ↔ ޗޫ ;</tRule>
+			<tRule>zū ↔ ޒޫ ;</tRule>
+			<tRule>ṭū ↔ ޓޫ ;</tRule>
+			<tRule>pū ↔ ޕޫ ;</tRule>
+			<tRule>yū ↔ ޔޫ ;</tRule>
+			<tRule>tte ↔ ޘެ ;</tRule>
+			<tRule>ḥe ↔ ޙެ ;</tRule>
+			<tRule>khe ↔ ޚެ ;</tRule>
+			<tRule>dhe ↔ ޛެ ;</tRule>
+			<tRule>še ← ޝެ ;</tRule>
+			<tRule>ṣe ↔ ޞެ ;</tRule>
+			<tRule>ḏe ↔ ޟެ ;</tRule>
+			<tRule>t̤e ↔ ޠެ ;</tRule>
+			<tRule>ʿe ↔ ޢެ ;</tRule>
+			<tRule>ǧe ↔ ޣެ ;</tRule>
+			<tRule>qe ↔ ޤެ ;</tRule>
+			<tRule>he ↔ ހެ ;</tRule>
+			<tRule>še ↔ ށެ ;</tRule>
+			<tRule>ne ↔ ނެ ;</tRule>
+			<tRule>re ↔ ރެ ;</tRule>
+			<tRule>be ↔ ބެ ;</tRule>
+			<tRule>ḷe ↔ ޅެ ;</tRule>
+			<tRule>ke ↔ ކެ ;</tRule>
+			<tRule>‘e ↔ އެ ;</tRule>
+			<tRule>ve ↔ ވެ ;</tRule>
+			<tRule>me ↔ މެ ;</tRule>
+			<tRule>fe ↔ ފެ ;</tRule>
+			<tRule>de ↔ ދެ ;</tRule>
+			<tRule>te ↔ ތެ ;</tRule>
+			<tRule>le ↔ ލެ ;</tRule>
+			<tRule>ge ↔ ގެ ;</tRule>
+			<tRule>ñe ↔ ޏެ ;</tRule>
+			<tRule>se ↔ ސެ ;</tRule>
+			<tRule>ḍe ↔ ޑެ ;</tRule>
+			<tRule>je ↔ ޖެ ;</tRule>
+			<tRule>če ↔ ޗެ ;</tRule>
+			<tRule>ze ↔ ޒެ ;</tRule>
+			<tRule>ṭe ↔ ޓެ ;</tRule>
+			<tRule>pe ↔ ޕެ ;</tRule>
+			<tRule>ye ↔ ޔެ ;</tRule>
+			<tRule>ttē ↔ ޘޭ ;</tRule>
+			<tRule>ḥē ↔ ޙޭ ;</tRule>
+			<tRule>khē ↔ ޚޭ ;</tRule>
+			<tRule>dhē ↔ ޛޭ ;</tRule>
+			<tRule>šē ← ޝޭ ;</tRule>
+			<tRule>ṣē ↔ ޞޭ ;</tRule>
+			<tRule>ḏē ↔ ޟޭ ;</tRule>
+			<tRule>t̤ē ↔ ޠޭ ;</tRule>
+			<tRule>ʿē ↔ ޢޭ ;</tRule>
+			<tRule>ǧē ↔ ޣޭ ;</tRule>
+			<tRule>qē ↔ ޤޭ ;</tRule>
+			<tRule>hē ↔ ހޭ ;</tRule>
+			<tRule>šē ↔ ށޭ ;</tRule>
+			<tRule>nē ↔ ނޭ ;</tRule>
+			<tRule>rē ↔ ރޭ ;</tRule>
+			<tRule>bē ↔ ބޭ ;</tRule>
+			<tRule>ḷē ↔ ޅޭ ;</tRule>
+			<tRule>kē ↔ ކޭ ;</tRule>
+			<tRule>‘ē ↔ އޭ ;</tRule>
+			<tRule>vē ↔ ވޭ ;</tRule>
+			<tRule>mē ↔ މޭ ;</tRule>
+			<tRule>fē ↔ ފޭ ;</tRule>
+			<tRule>dē ↔ ދޭ ;</tRule>
+			<tRule>tē ↔ ތޭ ;</tRule>
+			<tRule>lē ↔ ލޭ ;</tRule>
+			<tRule>gē ↔ ގޭ ;</tRule>
+			<tRule>ñē ↔ ޏޭ ;</tRule>
+			<tRule>sē ↔ ސޭ ;</tRule>
+			<tRule>ḍē ↔ ޑޭ ;</tRule>
+			<tRule>jē ↔ ޖޭ ;</tRule>
+			<tRule>čē ↔ ޗޭ ;</tRule>
+			<tRule>zē ↔ ޒޭ ;</tRule>
+			<tRule>ṭē ↔ ޓޭ ;</tRule>
+			<tRule>pē ↔ ޕޭ ;</tRule>
+			<tRule>yē ↔ ޔޭ ;</tRule>
+			<tRule>tto ↔ ޘޮ ;</tRule>
+			<tRule>ḥo ↔ ޙޮ ;</tRule>
+			<tRule>kho ↔ ޚޮ ;</tRule>
+			<tRule>dho ↔ ޛޮ ;</tRule>
+			<tRule>šo ← ޝޮ ;</tRule>
+			<tRule>ṣo ↔ ޞޮ ;</tRule>
+			<tRule>ḏo ↔ ޟޮ ;</tRule>
+			<tRule>t̤o ↔ ޠޮ ;</tRule>
+			<tRule>ʿo ↔ ޢޮ ;</tRule>
+			<tRule>ǧo ↔ ޣޮ ;</tRule>
+			<tRule>qo ↔ ޤޮ ;</tRule>
+			<tRule>ho ↔ ހޮ ;</tRule>
+			<tRule>šo ↔ ށޮ ;</tRule>
+			<tRule>no ↔ ނޮ ;</tRule>
+			<tRule>ro ↔ ރޮ ;</tRule>
+			<tRule>bo ↔ ބޮ ;</tRule>
+			<tRule>ḷo ↔ ޅޮ ;</tRule>
+			<tRule>ko ↔ ކޮ ;</tRule>
+			<tRule>‘o ↔ އޮ ;</tRule>
+			<tRule>vo ↔ ވޮ ;</tRule>
+			<tRule>mo ↔ މޮ ;</tRule>
+			<tRule>fo ↔ ފޮ ;</tRule>
+			<tRule>do ↔ ދޮ ;</tRule>
+			<tRule>to ↔ ތޮ ;</tRule>
+			<tRule>lo ↔ ލޮ ;</tRule>
+			<tRule>go ↔ ގޮ ;</tRule>
+			<tRule>ño ↔ ޏޮ ;</tRule>
+			<tRule>so ↔ ސޮ ;</tRule>
+			<tRule>ḍo ↔ ޑޮ ;</tRule>
+			<tRule>jo ↔ ޖޮ ;</tRule>
+			<tRule>čo ↔ ޗޮ ;</tRule>
+			<tRule>zo ↔ ޒޮ ;</tRule>
+			<tRule>ṭo ↔ ޓޮ ;</tRule>
+			<tRule>po ↔ ޕޮ ;</tRule>
+			<tRule>yo ↔ ޔޮ ;</tRule>
+			<tRule>ttō ↔ ޘޯ ;</tRule>
+			<tRule>ḥō ↔ ޙޯ ;</tRule>
+			<tRule>khō ↔ ޚޯ ;</tRule>
+			<tRule>dhō ↔ ޛޯ ;</tRule>
+			<tRule>šō ← ޝޯ ;</tRule>
+			<tRule>ṣō ↔ ޞޯ ;</tRule>
+			<tRule>ḏō ↔ ޟޯ ;</tRule>
+			<tRule>t̤ō ↔ ޠޯ ;</tRule>
+			<tRule>ʿō ↔ ޢޯ ;</tRule>
+			<tRule>ǧō ↔ ޣޯ ;</tRule>
+			<tRule>qō ↔ ޤޯ ;</tRule>
+			<tRule>hō ↔ ހޯ ;</tRule>
+			<tRule>šō ↔ ށޯ ;</tRule>
+			<tRule>nō ↔ ނޯ ;</tRule>
+			<tRule>rō ↔ ރޯ ;</tRule>
+			<tRule>bō ↔ ބޯ ;</tRule>
+			<tRule>ḷō ↔ ޅޯ ;</tRule>
+			<tRule>kō ↔ ކޯ ;</tRule>
+			<tRule>‘ō ↔ އޯ ;</tRule>
+			<tRule>vō ↔ ވޯ ;</tRule>
+			<tRule>mō ↔ މޯ ;</tRule>
+			<tRule>fō ↔ ފޯ ;</tRule>
+			<tRule>dō ↔ ދޯ ;</tRule>
+			<tRule>tō ↔ ތޯ ;</tRule>
+			<tRule>lō ↔ ލޯ ;</tRule>
+			<tRule>gō ↔ ގޯ ;</tRule>
+			<tRule>ñō ↔ ޏޯ ;</tRule>
+			<tRule>sō ↔ ސޯ ;</tRule>
+			<tRule>ḍō ↔ ޑޯ ;</tRule>
+			<tRule>jō ↔ ޖޯ ;</tRule>
+			<tRule>čō ↔ ޗޯ ;</tRule>
+			<tRule>zō ↔ ޒޯ ;</tRule>
+			<tRule>ṭō ↔ ޓޯ ;</tRule>
+			<tRule>pō ↔ ޕޯ ;</tRule>
+			<tRule>yō ↔ ޔޯ ;</tRule>
+			<tRule>tt ↔ ޘް ;</tRule>
+			<tRule>ḥ ↔ ޙް ;</tRule>
+			<tRule>kh ↔ ޚް ;</tRule>
+			<tRule>dh ↔ ޛް ;</tRule>
+			<tRule>š ← ޝް ;</tRule>
+			<tRule>ṣ ↔ ޞް ;</tRule>
+			<tRule>ḏ ↔ ޟް ;</tRule>
+			<tRule>t̤ ↔ ޠް ;</tRule>
+			<tRule>ʿ ↔ ޢް ;</tRule>
+			<tRule>ǧ ↔ ޣް ;</tRule>
+			<tRule>q ↔ ޤް ;</tRule>
+			<tRule>h ↔ ހް ;</tRule>
+			<tRule>š ↔ ށް ;</tRule>
+			<tRule>n ↔ ން ;</tRule>
+			<tRule>r ↔ ރް ;</tRule>
+			<tRule>b ↔ ބް ;</tRule>
+			<tRule>ḷ ↔ ޅް ;</tRule>
+			<tRule>k ↔ ކް ;</tRule>
+			<tRule>‘ ↔ އް ;</tRule>
+			<tRule>v ↔ ވް ;</tRule>
+			<tRule>m ↔ މް ;</tRule>
+			<tRule>f ↔ ފް ;</tRule>
+			<tRule>d ↔ ދް ;</tRule>
+			<tRule>t ↔ ތް ;</tRule>
+			<tRule>l ↔ ލް ;</tRule>
+			<tRule>g ↔ ގް ;</tRule>
+			<tRule>ñ ↔ ޏް ;</tRule>
+			<tRule>s ↔ ސް ;</tRule>
+			<tRule>ḍ ↔ ޑް ;</tRule>
+			<tRule>j ↔ ޖް ;</tRule>
+			<tRule>č ↔ ޗް ;</tRule>
+			<tRule>z ↔ ޒް ;</tRule>
+			<tRule>ṭ ↔ ޓް ;</tRule>
+			<tRule>p ↔ ޕް ;</tRule>
+			<tRule>y ↔ ޔް ;</tRule>
+			<tRule>h ← ހ ;</tRule>
+			<tRule>š ← ށ ;</tRule>
+			<tRule>n ← ނ ;</tRule>
+			<tRule>r ← ރ ;</tRule>
+			<tRule>b ← ބ ;</tRule>
+			<tRule>ḷ ← ޅ ;</tRule>
+			<tRule>k ← ކ ;</tRule>
+			<tRule>‘ ← އ ;</tRule>
+			<tRule>v ← ވ ;</tRule>
+			<tRule>m ← މ ;</tRule>
+			<tRule>f ← ފ ;</tRule>
+			<tRule>d ← ދ ;</tRule>
+			<tRule>t ← ތ ;</tRule>
+			<tRule>l ← ލ ;</tRule>
+			<tRule>g ← ގ ;</tRule>
+			<tRule>ñ ← ޏ ;</tRule>
+			<tRule>s ← ސ ;</tRule>
+			<tRule>ḍ ← ޑ ;</tRule>
+			<tRule>j ← ޖ ;</tRule>
+			<tRule>č ← ޗ ;</tRule>
+			<tRule>z ← ޒ ;</tRule>
+			<tRule>ṭ ← ޓ ;</tRule>
+			<tRule>p ← ޕ ;</tRule>
+			<tRule>y ← ޔ ;</tRule>
+			<tRule>tt ← ޘ ;</tRule>
+			<tRule>ḥ ← ޙ ;</tRule>
+			<tRule>kh ← ޚ ;</tRule>
+			<tRule>dh ← ޛ ;</tRule>
+			<tRule>š ← ޝ ;</tRule>
+			<tRule>ṣ ← ޞ ;</tRule>
+			<tRule>ḏ ← ޟ ;</tRule>
+			<tRule>t̤ ← ޠ ;</tRule>
+			<tRule>ʿ ← ޢ ;</tRule>
+			<tRule>ǧ ← ޣ ;</tRule>
+			<tRule>q ← ޤ ;</tRule>
+			<tRule>a ↔ ަ ;</tRule>
+			<tRule>ā ↔ ާ ;</tRule>
+			<tRule>i ↔ ި ;</tRule>
+			<tRule>ī ↔ ީ ;</tRule>
+			<tRule>u ↔ ު ;</tRule>
+			<tRule>ū ↔ ޫ ;</tRule>
+			<tRule>e ↔ ެ ;</tRule>
+			<tRule>ē ↔ ޭ ;</tRule>
+			<tRule>o ↔ ޮ ;</tRule>
+			<tRule>ō ↔ ޯ ;</tRule>
+			<tRule>← ް ;</tRule>
 		</transform>
 		<transform source="Thai" target="Latin" direction="forward">
 			<tRule>::[[:thai:] ก-ฺเ-๛];</tRule>

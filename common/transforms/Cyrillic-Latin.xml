@@ -24,8 +24,6 @@
 			<comment># Normal order</comment>
 			<comment># җ ↔ XXX ; # CYRILLIC SMALL LETTER ZHE WITH DESCENDER</comment>
 			<comment># Җ ↔ XXX ; # CYRILLIC CAPITAL LETTER ZHE WITH DESCENDER</comment>
-			<comment># қ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH DESCENDER</comment>
-			<comment># Қ ↔ XXX ; # CYRILLIC CAPITAL LETTER KA WITH DESCENDER</comment>
 			<comment># ӄ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH HOOK</comment>
 			<comment># Ӄ ↔ XXX ; # CYRILLIC CAPITAL LETTER KA WITH HOOK</comment>
 			<comment># ҡ ↔ XXX ; # CYRILLIC SMALL LETTER BASHKIR KA</comment>
@@ -155,7 +153,7 @@
 			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
 			<comment># :: ([\u0000-\u007E ʹ ʺ [:Cyrillic:] [:Latin:] [:nonspacing mark:]]);</comment>
 			<comment># MINIMAL FILTER: Latin-Cyrillic</comment>
-			<tRule>:: [̈Ă-ăĔ-ĕĞ-ğĬ-ĭŎ-ŏŬ-ŭ̆Ѐ-џҐ-ҕҘ-ҙӁ-ӂӐ-ӟӢ-ӧӬ-ӵӸ-ӹḜ-ḝẮ-ặᾰᾸῐῘῠῨ] ;</tRule>
+			<tRule>:: [Ққ̈Ă-ăĔ-ĕĞ-ğĬ-ĭŎ-ŏŬ-ŭ̆Ѐ-џҐ-ҕҘ-ҙӁ-ӂӐ-ӟӢ-ӧӬ-ӵӸ-ӹḜ-ḝẮ-ặᾰᾸῐῘῠῨ] ;</tRule>
 			<tRule>:: NFD (NFC) ;</tRule>
 			<tRule>$modprime = ʹ;</tRule>
 			<tRule>$modprime2 = ʺ;</tRule>
@@ -167,6 +165,7 @@
 			<tRule>$caron = ̌ ;</tRule>
 			<tRule>$comma = ̦ ;</tRule>
 			<tRule>$under = ̱ ;</tRule>
+			<tRule>$descender = ˌ;</tRule>
 			<tRule>я ↔ a  $hat ; # CYRILLIC SMALL LETTER YA</tRule>
 			<tRule>Я ↔  A $hat ; # CYRILLIC CAPITAL LETTER YA</tRule>
 			<tRule>ч ↔ c $caron ; # CYRILLIC SMALL LETTER CHE</tRule>
@@ -229,6 +228,8 @@
 			<tRule>Й ↔ J ; # CYRILLIC CAPITAL LETTER I</tRule>
 			<tRule>и ↔ i ; # CYRILLIC SMALL LETTER I</tRule>
 			<tRule>И ↔ I ; # CYRILLIC CAPITAL LETTER I</tRule>
+			<tRule>қ ↔ k $descender ; # CYRILLIC SMALL LETTER KA WITH DESCENDER</tRule>
+			<tRule>Қ ↔ K $descender ; # CYRILLIC CAPITAL LETTER KA WITH DESCENDER</tRule>
 			<tRule>к ↔ k ; # CYRILLIC SMALL LETTER KA</tRule>
 			<tRule>К ↔ K; # CYRILLIC CAPITAL LETTER KA</tRule>
 			<tRule>л ↔ l ; # CYRILLIC SMALL LETTER EL</tRule>
@@ -271,7 +272,7 @@
 			<tRule>| Ks ← X ;</tRule>
 			<tRule>| ks ← x ;</tRule>
 			<tRule>:: NFC (NFD) ;</tRule>
-			<tRule>:: ( [̈A-Za-zÀ-ÏÑ-ÖÙ-Ýà-ïñ-öù-ýÿ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƏƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǰǴ-ǵǸ-țȞ-ȟȦ-ȳəʹ-ʺ̀-̂̆-̦̱̇̌̀-́̈́ʹ΅-ΆΈ-ΊΌΎ-ΐά-ΰό-ώϓЀЃЌ-ЎЙйѐѓќ-ўӁ-ӂӐ-ӑӖ-ӗḀ-ẙẛẠ-ỹἂ-ἅἊ-Ἅἒ-ἕἚ-Ἕἢ-ἥἪ-Ἥἲ-ἵἺ-Ἵὂ-ὅὊ-Ὅὒ-ὕὛὝὢ-ὥὪ-Ὥὰ-ώᾂ-ᾅᾊ-ᾍᾒ-ᾕᾚ-ᾝᾢ-ᾥᾪ-ᾭᾰᾲᾴᾸᾺ-ΆῂῄῈ-Ή῍-῎ῐῒ-ΐῘῚ-Ί῝-῞ῠῢ-ΰῨῪ-Ύ῭-΅ῲῴῸ-ΏK-Å] ) ;</tRule>
+			<tRule>:: ( [ˌ̈A-Za-zÀ-ÏÑ-ÖÙ-Ýà-ïñ-öù-ýÿ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƏƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǰǴ-ǵǸ-țȞ-ȟȦ-ȳəʹ-ʺ̀-̂̆-̦̱̇̌̀-́̈́ʹ΅-ΆΈ-ΊΌΎ-ΐά-ΰό-ώϓЀЃЌ-ЎЙйѐѓќ-ўӁ-ӂӐ-ӑӖ-ӗḀ-ẙẛẠ-ỹἂ-ἅἊ-Ἅἒ-ἕἚ-Ἕἢ-ἥἪ-Ἥἲ-ἵἺ-Ἵὂ-ὅὊ-Ὅὒ-ὕὛὝὢ-ὥὪ-Ὥὰ-ώᾂ-ᾅᾊ-ᾍᾒ-ᾕᾚ-ᾝᾢ-ᾥᾪ-ᾭᾰᾲᾴᾸᾺ-ΆῂῄῈ-Ή῍-῎ῐῒ-ΐῘῚ-Ί῝-῞ῠῢ-ΰῨῪ-Ύ῭-΅ῲῴῸ-ΏK-Å] ) ;</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

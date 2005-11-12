@@ -257,7 +257,6 @@ public class TimezoneFormatter {
 			"\"]/long/daylight", "\"]/short/daylight"};
 
 	private transient Matcher m = Pattern.compile("([-+])([0-9][0-9])([0-9][0-9])").matcher("");
-	private transient ParsePosition parsePosition = new ParsePosition(0);
 
 	private transient boolean parseInfoBuilt;
 	private transient final Map localizedCountry_countryCode= new HashMap();
@@ -270,9 +269,9 @@ public class TimezoneFormatter {
 	 * Remember that Olson IDs have reversed signs!
 	 *
 	 */
-	public String parse(String inputText) {
+	public String parse(String inputText, ParsePosition parsePosition) {
 		long[] offsetMillisOutput = new long[1];
-		String result = parse(inputText, offsetMillisOutput);
+		String result = parse(inputText, parsePosition, offsetMillisOutput);
 		if (result == null || result.length() != 0) return result;
 		long offsetMillis = offsetMillisOutput[0];
 		String sign = "Etc/GMT-";
@@ -291,9 +290,10 @@ public class TimezoneFormatter {
 	 * Returns zoneid, or if a gmt offset, returns "" and a millis value in offsetMillis[0].
 	 * If we can't parse, return null
 	 */
-	public String parse(String inputText, long[] offsetMillis) {
+	public String parse(String inputText, ParsePosition parsePosition, long[] offsetMillis) {
 		// if we haven't parsed before, build parsing info
 		if (!parseInfoBuilt) buildParsingInfo();
+		int startOffset = parsePosition.getIndex();
 		// there are the following possible formats
 		
 		// Explicit strings
@@ -317,7 +317,6 @@ public class TimezoneFormatter {
 		
 		// GMT-style (also fallback for daylight/standard)
 
-		parsePosition.setIndex(0);
 		Object[] results = gmtFormat.parse(inputText, parsePosition);
 		if (results != null) {
 			String hours = (String) results[0];
@@ -338,7 +337,7 @@ public class TimezoneFormatter {
 		//	Generic fallback, example: city or city (country)	
 
 		String city = null, country = null;
-		parsePosition.setIndex(0);
+		parsePosition.setIndex(startOffset);
 		Object[] x = fallbackFormat.parse(inputText, parsePosition);
 		if (x != null) {
 			city = (String) x[0];
@@ -347,16 +346,16 @@ public class TimezoneFormatter {
 			// the city could be the last field of a zone, or could be an exemplar city
 			// we have built the map so that both work
 			return (String) exemplar_zone.get(city);
-		} else {
-			parsePosition.setIndex(0);
-			x = regionFormat.parse(inputText, parsePosition);
-			if (x == null) return null; // can't find anything
-			country = (String) x[0];
-			// see if the string is a localized country
-			String countryCode = (String) localizedCountry_countryCode.get(country);
-			if (countryCode == null) countryCode = country; // if not, try raw code
-			return (String) country_zone.get(countryCode);
 		}
+		
+		parsePosition.setIndex(startOffset);
+		x = regionFormat.parse(inputText, parsePosition);
+		if (x == null) return null; // can't find anything
+		country = (String) x[0];
+		// see if the string is a localized country
+		String countryCode = (String) localizedCountry_countryCode.get(country);
+		if (countryCode == null) countryCode = country; // if not, try raw code
+		return (String) country_zone.get(countryCode);
 	}
 
 	/**

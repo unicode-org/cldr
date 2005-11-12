@@ -155,11 +155,11 @@ public class CLDRFile implements Freezable {
     // for refactoring
     
 	private void setSupplemental(boolean isSupplemental) {
-		dataSource.setSupplemental(isSupplemental);
+		dataSource.setNonInheriting(isSupplemental);
 	}
 
 	private boolean isSupplemental() {
-		return dataSource.isSupplemental();
+		return dataSource.isNonInheriting();
 	}
 
 	public CLDRFile(XMLSource dataSource, boolean resolved){
@@ -181,6 +181,17 @@ public class CLDRFile implements Freezable {
     public static CLDRFile make(String localeName) {
     	CLDRFile result = new CLDRFile(null, false);
 		result.dataSource.setLocaleID(localeName);
+		return result;
+    }
+
+    /**
+     * Create a CLDRFile for the given localename. (Normally a Factory is used to create CLDRFiles.)
+     * @param localeName
+     */
+    public static CLDRFile makeSupplemental(String localeName) {
+    	CLDRFile result = new CLDRFile(null, false);
+		result.dataSource.setLocaleID(localeName);
+		result.setSupplemental(true);
 		return result;
     }
     
@@ -281,42 +292,49 @@ public class CLDRFile implements Freezable {
 		CollectionUtilities.addAll(dataSource.iterator(), orderedSet);
 
 		pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-		pw.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/" + GEN_VERSION + "/ldml.dtd\">");
+		pw.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/" + GEN_VERSION + "/ldml" 
+				+ (isSupplemental() ? "Supplemental" : "")
+				+ ".dtd\">");
 		/*
 <identity>
 <version number="1.2"/>
 <generation date="2004-08-27"/>
 <language type="en"/>
 		 */
-		// if ldml has any attributes, get them.		
-		String ldml_identity = "//ldml/identity";
-		if (orderedSet.size() > 0) {
-			String firstPath = (String) orderedSet.iterator().next();
-			//Value firstValue = (Value) getXpath_value().get(firstPath);
-			String firstFullPath = getFullXPath(firstPath);
-			XPathParts parts = new XPathParts(null,null).set(firstFullPath);
-			if (firstFullPath.indexOf("/identity") >= 0) {
-				ldml_identity = parts.toString(2);
-			} else {
-				ldml_identity = parts.toString(1) + "/identity";			
-			}
-		}
-		
+		// if ldml has any attributes, get them.
 		Set identitySet = new TreeSet(ldmlComparator);
-		identitySet.add(ldml_identity + "/version[@number=\"$Revision$\"]");
-		identitySet.add(ldml_identity + "/generation[@date=\"$Date$\"]");
-		LocaleIDParser lip = new LocaleIDParser();
-		lip.set(dataSource.getLocaleID());
-		identitySet.add(ldml_identity + "/language[@type=\"" + lip.getLanguage() + "\"]");
-		if (lip.getScript().length() != 0) {
-			identitySet.add(ldml_identity + "/script[@type=\"" + lip.getScript() + "\"]");
-		}
-		if (lip.getRegion().length() != 0) {
-			identitySet.add(ldml_identity + "/territory[@type=\"" + lip.getRegion() + "\"]");
-		}
-		String[] variants = lip.getVariants();
-		for (int i = 0; i < variants.length; ++i) {
-			identitySet.add(ldml_identity + "/variant[@type=\"" + variants[i] + "\"]");
+		if (isSupplemental()) {
+			identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/version[@number=\"$Revision$\"]");
+			identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/generation[@date=\"$Date$\"]");
+		} else {
+			String ldml_identity = "//ldml/identity";
+			if (orderedSet.size() > 0) {
+				String firstPath = (String) orderedSet.iterator().next();
+				//Value firstValue = (Value) getXpath_value().get(firstPath);
+				String firstFullPath = getFullXPath(firstPath);
+				XPathParts parts = new XPathParts(null,null).set(firstFullPath);
+				if (firstFullPath.indexOf("/identity") >= 0) {
+					ldml_identity = parts.toString(2);
+				} else {
+					ldml_identity = parts.toString(1) + "/identity";			
+				}
+			}
+			
+			identitySet.add(ldml_identity + "/version[@number=\"$Revision$\"]");
+			identitySet.add(ldml_identity + "/generation[@date=\"$Date$\"]");
+			LocaleIDParser lip = new LocaleIDParser();
+			lip.set(dataSource.getLocaleID());
+			identitySet.add(ldml_identity + "/language[@type=\"" + lip.getLanguage() + "\"]");
+			if (lip.getScript().length() != 0) {
+				identitySet.add(ldml_identity + "/script[@type=\"" + lip.getScript() + "\"]");
+			}
+			if (lip.getRegion().length() != 0) {
+				identitySet.add(ldml_identity + "/territory[@type=\"" + lip.getRegion() + "\"]");
+			}
+			String[] variants = lip.getVariants();
+			for (int i = 0; i < variants.length; ++i) {
+				identitySet.add(ldml_identity + "/variant[@type=\"" + variants[i] + "\"]");
+			}
 		}
 		// now do the rest
 		
@@ -427,7 +445,7 @@ public class CLDRFile implements Freezable {
     		dataSource.getXpathComments().setFinalComment(
     				Utility.joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
     	} else {
-         	xpath = getDistinguishingXPath(xpath, null);
+         	xpath = getDistinguishingXPath(xpath, null, false);
 	        dataSource.getXpathComments().addComment(type, xpath, comment);
     	}
     	return this;
@@ -504,7 +522,7 @@ public class CLDRFile implements Freezable {
     				for (int i = 0; ; ++i) {
     					String prop = "proposed" + (i == 0 ? "" : String.valueOf(i));
     					String fullPath = parts.set(other.getFullXPath(key)).addAttribute("alt", prop).toString();
-    					String path = getDistinguishingXPath(fullPath, null);
+    					String path = getDistinguishingXPath(fullPath, null, false);
     					if (dataSource.getValueAtPath(path) != null) continue;
     					dataSource.putValueAtPath(fullPath, otherValue);
     					break;
@@ -748,11 +766,14 @@ private boolean isSupplemental;
     	private static Map normalizedPathMap = new HashMap();
     	private static XPathParts distinguishingParts = new XPathParts(attributeOrdering,null);
     	
-    	public static String getDistinguishingXPath(String xpath, String[] normalizedPath) {
+    	public static String getDistinguishingXPath(String xpath, String[] normalizedPath, boolean nonInheriting) {
     		synchronized (distinguishingMap) {
     			String result = (String) distinguishingMap.get(xpath);
     			if (result == null) {
     				distinguishingParts.set(xpath);
+    				
+    				// first clean up draft and alt
+    				
     				String draft = null;
     				String alt = null;
     				for (int i = 0; i < distinguishingParts.size(); ++i) {
@@ -778,16 +799,22 @@ private boolean isSupplemental;
     						//System.err.println("fixing " + xpath + " => " + newXPath);
     					}
     				}
-    				for (int i = 0; i < distinguishingParts.size(); ++i) {
-    					String element = distinguishingParts.getElement(i);
-    					Map attributes = distinguishingParts.getAttributes(i);
-    					for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-    						String attribute = (String) it.next();
-    						if (!isDistinguishing(element, attribute)) {
-    							it.remove();
+    				
+    				// now remove non-distinguishing attributes (if non-inheriting)
+    				
+    				if (!nonInheriting) {
+    					for (int i = 0; i < distinguishingParts.size(); ++i) {
+    						String element = distinguishingParts.getElement(i);
+    						Map attributes = distinguishingParts.getAttributes(i);
+    						for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
+    							String attribute = (String) it.next();
+    							if (!isDistinguishing(element, attribute)) {
+    								it.remove();
+    							}
     						}
     					}
     				}
+    				
     				result = distinguishingParts.toString();
     				distinguishingMap.put(xpath, result);
     			}
@@ -801,8 +828,8 @@ private boolean isSupplemental;
     }
     
     private static final DistinguishedXPath distinguishedXPath = new DistinguishedXPath();
-    public static String getDistinguishingXPath(String xpath, String[] normalizedPath) {
-    	return distinguishedXPath.getDistinguishingXPath(xpath, normalizedPath);
+    public static String getDistinguishingXPath(String xpath, String[] normalizedPath, boolean nonInheriting) {
+    	return distinguishedXPath.getDistinguishingXPath(xpath, normalizedPath, nonInheriting);
     }
     
     private static boolean equalsIgnoringDraft(String path1, String path2) {
@@ -1741,18 +1768,19 @@ private boolean isSupplemental;
 							"exponential", "perMille", "infinity", "nan",
 							"collation", "messages", "yesstr", "nostr",
 							"yesexpr", "noexpr", "segmentation", "variables",
-							"segmentRules", "special", "variable", "rule" })
+							"segmentRules", "special", "variable", "rule", "comment" })
 			.setErrorOnMissing(false).freeze();
 	
 	static MapComparator attributeOrdering = (MapComparator) new MapComparator()
 			.add(new String[] { "_q", "type", 
 							// always after
-						    "key", "registry", "source",
+						    "key", "registry", "source", "target",
 							"path", "day", "date", "version", "count", "lines",
 							"characters", "before", "from", "to", "number",
 							"time", "casing", "list", "uri",
 							"iso4217", "digits", "rounding", "iso3166", "hex",
 							"id", "request",
+							"direction",
 							// collation stuff
 							"alternate", "backwards", "caseFirst", "caseLevel",
 							"hiraganaQuarternary", "hiraganaQuaternary",
@@ -1817,7 +1845,7 @@ private boolean isSupplemental;
 			"hour", "minute", "second", "zone"}).freeze();
     static Comparator zoneOrder = StandardCodes.make().getTZIDComparator();
     
-    static Set orderedElements = new HashSet(java.util.Arrays.asList(new String[]{"variable"}));
+    static Set orderedElements = new HashSet(java.util.Arrays.asList(new String[]{"variable", "comment", "tRule"}));
 	/**
 	 * 
 	 */

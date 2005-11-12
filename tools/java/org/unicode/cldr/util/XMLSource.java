@@ -30,7 +30,7 @@ public abstract class XMLSource implements Freezable {
 	private transient XPathParts parts = new XPathParts(null, null);
 
 	private String localeID;
-	private boolean isSupplemental;
+	private boolean nonInheriting;
 	protected boolean locked;
 	transient String[] fixedPath = new String[1];
 	
@@ -100,7 +100,7 @@ public abstract class XMLSource implements Freezable {
 	 */
 	public void putValueAtPath(String xpath, String value) {
 		if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-		String distinguishingXPath = CLDRFile.getDistinguishingXPath(xpath, fixedPath);	
+		String distinguishingXPath = CLDRFile.getDistinguishingXPath(xpath, fixedPath, nonInheriting);	
 		putValueAtDPath(distinguishingXPath, value);
 		if (!fixedPath[0].equals(distinguishingXPath)) {
 			putFullPathAtDPath(distinguishingXPath, fixedPath[0]);
@@ -194,7 +194,7 @@ public abstract class XMLSource implements Freezable {
 	 */
 	public void removeValueAtPath(String xpath) {
 		if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-		removeValueAtDPath(CLDRFile.getDistinguishingXPath(xpath, null));
+		removeValueAtDPath(CLDRFile.getDistinguishingXPath(xpath, null, nonInheriting));
 	}
 	/**
 	 * Get the value.
@@ -203,7 +203,7 @@ public abstract class XMLSource implements Freezable {
 	 * @return
 	 */
 	public String getValueAtPath(String xpath) {
-		return getValueAtDPath(CLDRFile.getDistinguishingXPath(xpath, null));
+		return getValueAtDPath(CLDRFile.getDistinguishingXPath(xpath, null, nonInheriting));
 	}
 	/**
 	 * Get the full path for a distinguishing path
@@ -212,7 +212,7 @@ public abstract class XMLSource implements Freezable {
 	 * @return
 	 */
 	public String getFullPath(String xpath) {
-		return getFullPathAtDPath(CLDRFile.getDistinguishingXPath(xpath, null));
+		return getFullPathAtDPath(CLDRFile.getDistinguishingXPath(xpath, null, nonInheriting));
 	}
 
 	/**
@@ -327,15 +327,15 @@ public abstract class XMLSource implements Freezable {
 	/**
 	 * @return returns whether supplemental or not
 	 */
-	public boolean isSupplemental() {
-		return isSupplemental;
+	public boolean isNonInheriting() {
+		return nonInheriting;
 	}
 
 	/**
 	 * @return sets whether supplemental. Normally only called internall.
 	 */
-	public void setSupplemental(boolean isSupplemental) {
-		this.isSupplemental = isSupplemental;
+	public void setNonInheriting(boolean nonInheriting) {
+		this.nonInheriting = nonInheriting;
 	}
 	
 	/**
@@ -440,7 +440,7 @@ public abstract class XMLSource implements Freezable {
 	    	}
 		}
 		public String getSourceLocaleID(String xpath) {
-			xpath = CLDRFile.getDistinguishingXPath(xpath, null);
+			xpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
 			XMLSource currentSource = mySource;
 	    	String result = currentSource.getValueAtDPath(xpath);
 	    	if (result != null) return mySource.getLocaleID();

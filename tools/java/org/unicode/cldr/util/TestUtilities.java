@@ -9,22 +9,36 @@
 
 package org.unicode.cldr.util;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
+import java.text.ParsePosition;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.impl.ICUResourceBundle;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.RuleBasedBreakIterator;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.UResourceBundle;
 
 /**
  * @author davis
@@ -34,12 +48,73 @@ import com.ibm.icu.util.ULocale;
  */
 public class TestUtilities {
 	public static void main(String[] args) throws Exception {
-		checkStandardCodes();
+		//testBreakIterator("&#x61;\n&#255;&#256;");
+		//checkStandardCodes();
 		//checkLanguages();
 		//printCountries();
 		//printZoneSamples();
 		//printCurrencies();
 		System.out.println("Done");
+	}
+	
+	public static void testBreakIterator(String text) {
+		System.out.println(text);
+		String choice = "Line";
+
+String BASE_RULES =
+  	"'<' > '&lt;' ;" +
+    "'<' < '&'[lL][Tt]';' ;" +
+    "'&' > '&amp;' ;" +
+    "'&' < '&'[aA][mM][pP]';' ;" +
+    "'>' < '&'[gG][tT]';' ;" +
+    "'\"' < '&'[qQ][uU][oO][tT]';' ; " +
+    "'' < '&'[aA][pP][oO][sS]';' ; ";
+
+String CONTENT_RULES =
+    "'>' > '&gt;' ;";
+
+String HTML_RULES = BASE_RULES + CONTENT_RULES + 
+"'\"' > '&quot;' ; ";
+
+String HTML_RULES_CONTROLS = HTML_RULES + 
+"([[:C:][:Z:][:whitespace:][:Default_Ignorable_Code_Point:][\\u0080-\\U0010FFFF]]) > &hex/xml($1) ; ";
+
+Transliterator toHTML = Transliterator.createFromRules(
+        "any-xml", HTML_RULES_CONTROLS, Transliterator.FORWARD);
+		
+RuleBasedBreakIterator b;
+if (choice.equals("Word")) b = (RuleBasedBreakIterator) BreakIterator.getWordInstance();
+else if (choice.equals("Line")) b = (RuleBasedBreakIterator) BreakIterator.getLineInstance();
+else if (choice.equals("Sentence")) b = (RuleBasedBreakIterator) BreakIterator.getSentenceInstance();
+else b = (RuleBasedBreakIterator) BreakIterator.getCharacterInstance();
+
+Matcher decimalEscapes = Pattern.compile("&#(x?)([0-9]+);").matcher(text);
+// quick hack, since hex-any doesn't do decimal escapes
+int start = 0;
+StringBuffer result2 = new StringBuffer();
+while (decimalEscapes.find(start)) {
+	int radix = decimalEscapes.group(2).length() == 0 ? 10 : 16;
+	int code = Integer.parseInt(decimalEscapes.group(2), radix);
+	result2.append(text.substring(start,decimalEscapes.start()) + UTF16.valueOf(code));
+	start = decimalEscapes.end();
+}
+result2.append(text.substring(start));
+text = result2.toString();
+
+int lastBreak = 0;
+StringBuffer result = new StringBuffer();
+b.setText(text);
+b.first();
+for (int nextBreak = b.next(); nextBreak != b.DONE; nextBreak = b.next()) {
+	int status = b.getRuleStatus();
+	String piece = text.substring(lastBreak, nextBreak);
+	piece = toHTML.transliterate(piece);
+	piece = piece.replaceAll("&#xA;","<br>");
+	result.append("<span class='break'>").append(piece).append("</span>");
+	lastBreak = nextBreak;
+}
+		
+		System.out.println(result);
 	}
 
 	private static void checkStandardCodes() {
@@ -206,6 +281,7 @@ public class TestUtilities {
     	Factory mainCldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "main" + File.separator, ".*");
     	PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY, "timezone_samples.txt");
     	long[] offsetMillis = new long[1];
+    	ParsePosition parsePosition = new ParsePosition(0);
     	
 		for (int i = 0; i < locales.length; ++i) {
 			String locale = locales[i];
@@ -218,7 +294,8 @@ public class TestUtilities {
 					for (int m = 1; m < fields[k].length; ++m) {
 						String field = fields[k][m];
 						String formatted = tzf.getFormattedZone(zone, field, datetime.getTime());
-						String parsed = tzf.parse(formatted,offsetMillis);
+						parsePosition.setIndex(0);
+						String parsed = tzf.parse(formatted, parsePosition, offsetMillis);
 						if (parsed == null) parsed = "FAILED PARSE";
 						else if (parsed.length() == 0) parsed = format(offsetMillis[0]);
 						out.println("{\"" + locale
@@ -409,5 +486,6 @@ public class TestUtilities {
 		{"tt", "RU"},
 		{"wal", "ET"},
 		};
+	
 
 }

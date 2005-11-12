@@ -9,10 +9,12 @@
 package org.unicode.cldr.tool;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -1071,5 +1073,31 @@ public class Misc {
 		System.out.println(" inTexButNotCLDR " + inTexButNotCLDR);
 	}
 	
-	
+	void generateTransliterators() throws IOException {
+		File translitSource = new File("C:\\ICU\\icu\\source\\data\\translit");
+		Matcher m = Pattern.compile(".*Hebrew.*").matcher("");
+		File[] list = translitSource.listFiles();
+		for (int i = 0; i < list.length; ++i) {
+			File file = list[i];
+			String name = file.getName();
+			if (!m.reset(name).matches()) continue;
+			if (!name.endsWith(".txt")) continue;
+			String fixedName = name.substring(name.length()-4);
+			BufferedReader input = BagFormatter.openUTF8Reader(file.getParent() + File.pathSeparator, name);
+			CLDRFile outFile = new CLDRFile(null, false);
+			int count = 0;
+			while (true) {
+				String line = input.readLine();
+				String contents = line;
+				if (line == null) break;
+				if (line.length() == 0) continue;
+				count++;
+				outFile.add("//supplementalData/transforms/transform/line[@_q=\"" + count + "\"]", line);
+			}
+			PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/translit/", fixedName + ".xml");
+			outFile.write(pw);
+			pw.close();
+		}
+
+	}
 }

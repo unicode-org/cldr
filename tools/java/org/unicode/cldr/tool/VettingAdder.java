@@ -305,7 +305,7 @@ public class VettingAdder {
     			cldr = cldrFactory.make(lastLocale, false);
     			entry = "==========" + "\r\n" + lastLocale + "\r\n";
     		}
-    		String path = CLDRFile.getDistinguishingXPath((String)items[1], null);
+    		String path = CLDRFile.getDistinguishingXPath((String)items[1], null, false);
        		String current = cldr.getStringValue(path);
     		entry += "\tpath:\t" + path + "\r\n\tcurrent value:\t" + getValue(any_latin, current) + "\r\n";
     		

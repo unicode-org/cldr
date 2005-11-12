@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.ParseException;
+import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -616,6 +617,7 @@ public class GenerateCldrTests {
 			// TODO Auto-generated method stub
         	TimezoneFormatter tzf = new TimezoneFormatter(mainCldrFactory, first.toString(), includeDraft);
 			ResultsPrinter rp = new ResultsPrinter();
+			ParsePosition parsePosition = new ParsePosition(0);
 			for (Iterator it = zones.iterator(); it.hasNext();) {
 				String tzid = (String) it.next();
 				rp.set("zone", tzid);
@@ -627,7 +629,8 @@ public class GenerateCldrTests {
 						String field = perZoneSamples[i];
 						rp.set("field", field);
 						String formatted = tzf.getFormattedZone(tzid, field, datetime.getTime());
-						String parsed = tzf.parse(formatted);
+						parsePosition.setIndex(0);
+						String parsed = tzf.parse(formatted, parsePosition);
 						rp.set("parse", parsed);
 						rp.setResult(formatted);
 					}

@@ -217,6 +217,9 @@ public class POSIXUtilities {
          }
       }
 
+   if ( result.length() == 0 )
+      result = "-1";
+
    return result;
 
    }

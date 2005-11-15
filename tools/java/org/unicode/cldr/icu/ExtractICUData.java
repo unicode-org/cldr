@@ -364,7 +364,7 @@ public class ExtractICUData {
 		//System.out.println("Test: " + fixTransRule("\\u0061"));
 		UnicodeSet s = new UnicodeSet("[^[:script=common:][:script=inherited:]]");
 		UnicodeSet quoting = new UnicodeSet("[[:Mn:][:Me:]]");
-		String ss = new PrettyPrinter(true, quoting, null, null).toPattern(s);
+		String ss = new PrettyPrinter().setToQuote(quoting).toPattern(s);
 		System.out.println("test: " + ss);
 	}
 }

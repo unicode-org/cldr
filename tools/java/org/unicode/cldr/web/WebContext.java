@@ -31,6 +31,7 @@ public class WebContext {
     public String localeName = null; 
     public CookieSession session = null;
     public Connection conn = null;
+    public com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = null;
     
 // private fields
     protected PrintWriter out = null;
@@ -295,6 +296,14 @@ public class WebContext {
         }
         localeHash.put(key, value);
     }
+    
+    public void removeByLocale(String key) {
+        Hashtable localeHash = getLocaleHash();
+        if(localeHash != null) {
+            localeHash.remove(key);
+        }
+    }
+    
 // Internal Utils
 
     // from BagFormatter

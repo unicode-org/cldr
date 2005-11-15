@@ -60,6 +60,8 @@ public class XPathTable {
                                                     "xpath varchar(1024) not null, " +
                                                     "unique(xpath))");
             s.execute("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS +"(xpath)");
+            s.execute("CREATE INDEX "+CLDR_XPATHS+"_xpath on " + CLDR_XPATHS +"(xpath)");
+            s.execute("CREATE INDEX "+CLDR_XPATHS+"_id on " + CLDR_XPATHS +"(id)");
             s.close();
             conn.commit();
         }

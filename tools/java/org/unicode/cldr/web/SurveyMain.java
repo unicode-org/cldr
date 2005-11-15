@@ -37,6 +37,7 @@ import org.unicode.cldr.icu.*;
 
 // sql imports
 import java.sql.Connection;
+import java.sql.ResultSetMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -132,7 +133,10 @@ public class SurveyMain extends HttpServlet {
     }
     
     long startTime = 0;
+    com.ibm.icu.dev.test.util.ElapsedTimer startupTime = new com.ibm.icu.dev.test.util.ElapsedTimer();
+    
     public SurveyMain() {
+        // null
     }
     
     /**
@@ -147,6 +151,11 @@ public class SurveyMain extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
+        if(startupTime != null) {
+            logger.info("Startup time till first GET/POST = " + startupTime);
+            startupTime = null;
+        }
+/**/ com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();  try {
         response.setContentType("text/html; charset=utf-8");
 
         pages++;
@@ -169,19 +178,22 @@ public class SurveyMain extends HttpServlet {
         }
         
         WebContext ctx = new WebContext(request,response);
+        ctx.reqTimer = reqTimer;
 //        ctx.xpt = xpt;
         // TODO: ctx.dbsrc..
         ctx.sm = this;
         
         if(ctx.field("dump").equals(vap)) {
             doDump(ctx);
+        } else if(ctx.field("sql").equals(vap)) {
+            doSql(ctx);
         } else if(ctx.field("xpaths").length()>0) {
             doXpaths(ctx); 
         } else {
             doSession(ctx); // Session-based Survey main
         }
-
         ctx.close();
+/**/       } finally { logger.info("REQ in: " + reqTimer ); }
     }
 
     public static String timeDiff(long a) {
@@ -209,6 +221,75 @@ public class SurveyMain extends HttpServlet {
             return new Double(hours).toString() + "hr";
         }  
         */
+    }
+
+    private void doSql(WebContext ctx)
+    {
+        printHeader(ctx, "Raw SQL");
+        String q = ctx.field("q");
+        ctx.println("<h1>raw sql</h1>");
+        ctx.println("<form method=POST action='" + ctx.base() + "'>");
+        ctx.println("<input type=hidden name=sql value='" + vap + "'>");
+        ctx.println("SQL: <input name=q size=80 cols=80 value='" + q + "'>");
+        ctx.println("Show all? <input type=checkbox name=unltd>");
+        ctx.println("<input type=submit name=do value=Query>");
+        ctx.println("</form>");
+        if(q.length()>0) {
+            logger.severe("Raw SQL: " + q);
+            ctx.println("<hr />");
+            ctx.println("query: <tt>" + q + "</tt><br /><br />");
+            try {
+                int i,j;
+                
+com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
+
+                Connection conn = getDBConnection();
+                Statement s = conn.createStatement();
+                ResultSet rs = s.executeQuery(q); 
+                conn.commit();
+                
+                ResultSetMetaData rsm = rs.getMetaData();
+                int cc = rsm.getColumnCount();
+                
+                ctx.println("<table class='list' border='2'><tr><th>#</th>");
+                for(i=1;i<=cc;i++) {
+                    ctx.println("<th style='font-size: 50%'>"+rsm.getColumnName(i)+"</th>");
+                }
+                ctx.println("</tr>");
+                int limit = 30;
+                if(ctx.field("unltd").length()>0) {
+                    limit = 99999;
+                }
+                for(j=0;rs.next()&&(j<limit);j++) {
+                    ctx.println("<tr><th>" + j + "</th>");
+                    for(i=1;i<=cc;i++) {
+                        String v = rs.getString(i);
+                        if(v != null) {
+                            ctx.println("<td>" + v + "</td>");
+                        } else {
+                            ctx.println("<td style='background-color: gray'></td>");
+                        }
+                    }
+                    ctx.println("</tr>");
+                }
+                
+                ctx.println("</table>");
+                
+
+                ctx.println("elapsed time: " + et + "<br />");
+                //conn.close();     (auto close)
+            } catch(SQLException se) {
+                String complaint = "SQL err: " + unchainSqlException(se);
+                
+                ctx.println("<pre style='border: 1px solid red; margin: 1em; padding: 1em;'>" + complaint + "</pre>" );
+                logger.severe(complaint);
+            } catch(Throwable t) {
+                String complaint = t.toString();
+                ctx.println("<pre style='border: 1px solid red; margin: 1em; padding: 1em;'>" + complaint + "</pre>" );
+                logger.severe("Err in SQL execute: " + complaint);
+            }
+        }
+        printFooter(ctx);
     }
 
     private void doDump(WebContext ctx)
@@ -348,7 +429,7 @@ public class SurveyMain extends HttpServlet {
     {
         ctx.println("</body>");
         ctx.println("<hr>");
-        ctx.println("<div style='float: right'>" + pages + "</div>");
+        ctx.println("<div style='float: right; text-size: 60%;'>#" + pages + " served in " + ctx.reqTimer + "</div>");
         ctx.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='http://www.unicode.org/cldr'>Common Locale Data Repository</a> <br/>");
         ctx.println("</html>");
     }
@@ -1465,6 +1546,7 @@ public class SurveyMain extends HttpServlet {
     }
     
     private static final String CHECKCLDR = "_CheckCLDR";  // key for CheckCLDR objects by locale
+    private static final String CHECKCLDR_RES = "_CheckCLDR_RES";  // key for CheckCLDR objects by locale
 
     /**
      * show the actual locale data..
@@ -1483,123 +1565,144 @@ public class SurveyMain extends HttpServlet {
             doMain(ctx);
             return;
         }
-
         
-        // New stuff
-        ctx.println("<hr />");
         CLDRFile cf = getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
-        ctx.println("<i>We've got a CLDRFile for " + ctx.locale + ".</i><br />");
-        
-     if(TEST_MENU_ITEM.equals(which)) {
-        // Some stuff to run checks against the locale
-        CheckCLDR checkCldr =  (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
-        if (checkCldr == null)  {
-            checkCldr = CheckCLDR.getCheckAll(".*");
-            CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
-            ctx.putByLocale(USER_FILE + CHECKCLDR, checkCldr);
-            checkCldr.setDisplayInformation(ourSrc.factory.make("en", true));
-            // call on the files
-        }
-        if(checkCldr != null) { // print the results
-            CLDRFile file = cf;
-            List result = new ArrayList();
-            ctx.println("<pre style='border: 1px dashed olive; padding: 1em; background-color: cream;''>");
-//            Set locales = ourSrc.getAvailable();
-                XPathParts pathParts = new XPathParts(null, null);
-                XPathParts fullPathParts = new XPathParts(null, null);
-//            for (Iterator it = locales.iterator(); it.hasNext();) {
-                String localeID = ctx.locale.toString();
-                ctx.println(checkCldr.getLocaleAndName(localeID));
-//                CLDRFile file = ourSrc.factory.make(localeID, false);
-                checkCldr.setCldrFileToCheck(file, result); // TODO: when does this get updated?
-                for (Iterator it3 = result.iterator(); it3.hasNext();) {
-                    ctx.println(it3.next().toString());
+        CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
+        synchronized (ourSrc) {
+            // Set up checks
+            CheckCLDR checkCldr =  (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
+            List checkCldrResult = new ArrayList();
+            if (true /*checkCldr == null*/)  {
+                long t0 = System.currentTimeMillis();
+                checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
+                ctx.putByLocale(USER_FILE + CHECKCLDR, checkCldr);
+                checkCldr.setDisplayInformation(getEnglishFile(ourSrc));
+                checkCldr.setCldrFileToCheck(cf, checkCldrResult); // TODO: when does this get updated?
+                ctx.putByLocale(USER_FILE + CHECKCLDR_RES, checkCldrResult);
+                long t2 = System.currentTimeMillis();
+                logger.info("Time to init tests: " + (t2-t0));
+            }
+            
+            // Locale menu
+            ctx.println("<table width='95%' border=0><tr><td width='25%'>");
+            ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
+            for(i=(n-1);i>0;i--) {
+                for(j=0;j<(n-i);j++) {
+                    ctx.print("&nbsp;&nbsp;");
                 }
-                for (Iterator it2 = file.iterator(); it2.hasNext();) {
-                    String path = (String) it2.next();
-                    String value = file.getStringValue(path);
-                    String fullPath = file.getFullXPath(path);
-                    checkCldr.check(path, fullPath, value, pathParts, fullPathParts, result);
-                    for (Iterator it3 = result.iterator(); it3.hasNext();) {
-                        ctx.println(it3.next().toString() + "\t" + value + "\t" + fullPath);
-                    }
-                }
-//            }
-            ctx.println("</pre>");
-        }
-    }else { ctx.println("<i>skipping CheckCLDR tests</i>"); }
-        
-        ctx.println("<hr />");
-        // OLD stuff
-        ctx.println("<table width='95%' border=0><tr><td width='25%'>");
-        ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
-        for(i=(n-1);i>0;i--) {
-            for(j=0;j<(n-i);j++) {
+                ctx.println("\u2517&nbsp;<a href=\"" + ctx.url() + "&_=" + ctx.docLocale[i] + "\">" + ctx.docLocale[i] + "</a> " + new ULocale(ctx.docLocale[i]).getDisplayName() + "<br/>");
+            }
+            for(j=0;j<n;j++) {
                 ctx.print("&nbsp;&nbsp;");
             }
-            ctx.println("\u2517&nbsp;<a href=\"" + ctx.url() + "&_=" + ctx.docLocale[i] + "\">" + ctx.docLocale[i] + "</a> " + new ULocale(ctx.docLocale[i]).getDisplayName() + "<br/>");
-        }
-        for(j=0;j<n;j++) {
-            ctx.print("&nbsp;&nbsp;");
-        }
-        ctx.println("\u2517&nbsp;<font size=+2><b>" + ctx.locale + "</b></font> " + ctx.locale.getDisplayName() + "<br/>");
-        ctx.println("</td><td>");
-        
-        if((which == null) ||
-            which.equals("")) {
-            //which = RAW_MENU_ITEM;
-            which = LOCALEDISPLAYNAMES_ITEMS[0]; // was xMAIN
-        }
-        
-
-        WebContext subCtx = new WebContext(ctx);
-        subCtx.addQuery("_",ctx.locale.toString());
-//        printMenu(subCtx, which, xMAIN);
-        subCtx.println("<p class='hang'> Locale Display: ");
-        for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
-            //if(n>0) ctx.print(", ");
-            printMenu(subCtx, which, LOCALEDISPLAYNAMES_ITEMS[n]);
-        }
-        subCtx.println("</p> <p class='hang'>Other Items: ");
-        for(n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
-            if(n>0) ctx.print(" ");
-            printMenu(subCtx, which, OTHERROOTS_ITEMS[n]);
-        }
-        ctx.print(" ");
-        printMenu(subCtx, which, xOTHER);
-        printMenu(subCtx, which, TEST_MENU_ITEM);
-        printMenu(subCtx, which, RAW_MENU_ITEM);
-        subCtx.println("</td></tr></table>");
-
-        subCtx.addQuery("x",which);
-        for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
-            if(LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
-                showLocaleCodeList(subCtx, which);
-                return;
+            ctx.println("\u2517&nbsp;<font size=+2><b>" + ctx.locale + "</b></font> " + ctx.locale.getDisplayName() + "<br/>");
+            ctx.println("</td><td>");
+            
+            if((which == null) ||
+               which.equals("")) {
+                //which = RAW_MENU_ITEM;
+                which = LOCALEDISPLAYNAMES_ITEMS[0]; // was xMAIN
             }
-        }
-        
-        // handle from getNodeSet for these . . .
-        for(j=0;j<OTHERROOTS_ITEMS.length;j++) {
-            if(OTHERROOTS_ITEMS[j].equals(which)) {
+            
+            
+            WebContext subCtx = new WebContext(ctx);
+            subCtx.addQuery("_",ctx.locale.toString());
+            // printMenu(subCtx, which, xMAIN);
+            subCtx.println("<p class='hang'> Locale Display: ");
+            for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+                //if(n>0) ctx.print(", ");
+                printMenu(subCtx, which, LOCALEDISPLAYNAMES_ITEMS[n]);
+            }
+            subCtx.println("</p> <p class='hang'>Other Items: ");
+            
+            subCtx.println("(<i>note: missing items here..</i>)  ");
+            /*  TODO: reenable this
+                for(n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
+                    if(n>0) ctx.print(" ");
+                    printMenu(subCtx, which, OTHERROOTS_ITEMS[n]);
+                }
+            ctx.print(" ");
+            printMenu(subCtx, which, xOTHER);
+            */
+            printMenu(subCtx, which, TEST_MENU_ITEM);
+            printMenu(subCtx, which, RAW_MENU_ITEM);
+            subCtx.println("</td></tr></table>");
+            
+            subCtx.addQuery("x",which);
+            for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+                if(LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
+                    showLocaleCodeList(subCtx, which);
+                    return;
+                }
+            }
+            
+            // handle from getNodeSet for these . . .
+            for(j=0;j<OTHERROOTS_ITEMS.length;j++) {
+                if(OTHERROOTS_ITEMS[j].equals(which)) {
+                    doOtherList(subCtx, which);
+                    return;
+                }
+            }
+            // fall through if wasn't one of the other roots
+            if(xOTHER.equals(which)) {
                 doOtherList(subCtx, which);
-                return;
+            } else if(RAW_MENU_ITEM.equals(which)) {
+                doRaw(subCtx);
+            } else if((checkCldr != null) && (TEST_MENU_ITEM.equals(which))) { // print the results
+                CLDRFile file = cf;
+                ctx.println("<pre style='border: 1px dashed olive; padding: 1em; background-color: cream; overflow: auto;'>");
+                //            Set locales = ourSrc.getAvailable();
+                XPathParts pathParts = new XPathParts(null, null);
+                XPathParts fullPathParts = new XPathParts(null, null);
+                //            for (Iterator it = locales.iterator(); it.hasNext();) {
+                String localeID = ctx.locale.toString();
+                ctx.println(checkCldr.getLocaleAndName(localeID));
+                //                CLDRFile file = ourSrc.factory.make(localeID, false);
+                ctx.println(" <h4>Test Results</h4>");
+                ctx.println(" - - - possible problems - - -");
+                for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
+                    ctx.println(it3.next().toString());
+                }
+                ctx.println(" - - - path specific stuff follows - - -");
+                for (Iterator it2 = file.iterator(); it2.hasNext();) {
+                    String path = (String) it2.next();
+                    //System.out.println("P: " + path);
+                    
+                    String value = file.getStringValue(path);
+                    String fullPath = file.getFullXPath(path);
+                    checkCldr.check(path, fullPath, value, pathParts, fullPathParts, checkCldrResult);
+                    for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
+                        ctx.println(it3.next().toString() + "\t" + value + "\t" + fullPath);
+                    }            
+                }
+                
+                System.out.println(" done with tests ");
+                
+                
+                //            }
+                ctx.println("</pre>");
+            } else  {
+                doMain(subCtx);
             }
         }
-        // fall through if wasn't one of the other roots
-        if(xOTHER.equals(which)) {
-            doOtherList(subCtx, which);
-        } else if(RAW_MENU_ITEM.equals(which)) {
-            doRaw(subCtx);
-        } else {
-            doMain(subCtx);
-        }
+        // ?
+        ctx.removeByLocale(USER_FILE + CHECKCLDR);
+        ctx.removeByLocale(USER_FILE + CHECKCLDR_RES);
     }
     
     public void doRaw(WebContext ctx) {
         ctx.println("<h3>Raw output of the locale's CLDRFile</h3>");
         ctx.println("<pre style='border: 2px solid olive; margin: 1em;'>");
 //        ((CLDRFile)ctx.getByLocale(USER_FILE)).show(ctx.out);
+
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        ((CLDRFile)ctx.getByLocale(USER_FILE)).write(pw);
+        String asString = sw.toString();
+//                fullBody = fullBody + "-------------" + "\n" + k + ".xml - " + displayName + "\n" + 
+//                    hexXML.transliterate(asString);
+        String asHtml = BagFormatter.toHTML.transliterate(asString);
+        ctx.println(asHtml);
         ctx.println("</pre>");
     }
  
@@ -1742,6 +1845,16 @@ public class SurveyMain extends HttpServlet {
  
     public static final String USER_FILE = "UserFile";
     public static final String CLDRDBSRC = "_source";
+    
+    private static CLDRFile gEnglishFile = null;
+
+    protected synchronized CLDRFile getEnglishFile(CLDRDBSource ourSrc) {
+        if(gEnglishFile == null) {
+            gEnglishFile = ourSrc.factory.make("en", false);
+            gEnglishFile.freeze(); // so it can be shared
+        }
+        return gEnglishFile;
+    }
     
     CLDRFile getUserFile(WebContext ctx, UserRegistry.User user, ULocale locale) {
         CLDRFile file = (CLDRFile)ctx.getByLocale(USER_FILE);
@@ -1917,13 +2030,20 @@ public class SurveyMain extends HttpServlet {
         int skip = 0;
  //       total = mySet.count();
         boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
-
         CLDRFile cf = getUserFile(ctx, ctx.session.user, ctx.locale);
         CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
+        CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
+        XPathParts pathParts = new XPathParts(null, null);
+        XPathParts fullPathParts = new XPathParts(null, null);
+        List checkCldrResult = new ArrayList();
+        
         synchronized(ourSrc) { // because it has a connection..
             StandardCodes standardCodes = StandardCodes.make();
             Set defaultSet = standardCodes.getAvailableCodes(lastElement); // TODO: 2 nonstandard types?
-            
+            if(defaultSet == null ) {
+                // ctcx.println("<hr/><i>Err: 0 items in defaultSet</i><hr/>");
+                defaultSet = new HashSet();
+            }
             // NAVIGATION .. calculate skips.. 
             skip = showSkipBox(ctx, defaultSet.size());
 //            if(changes.get(xOTHER + "/" + NEW)!=null) {
@@ -1963,7 +2083,7 @@ public class SurveyMain extends HttpServlet {
                 
                 String locale = ctx.locale.toString();
                 String theLocale = locale;
-                
+
                 do {
                     java.sql.ResultSet rs = ourSrc.listForType(xpt.getByXpath(xpath+"/"+lastElement), type, theLocale);
 
@@ -1979,6 +2099,8 @@ public class SurveyMain extends HttpServlet {
                             String at = rs.getString(2);
                             String ap = rs.getString(3);
                             String val = rs.getString(1);
+                            String subXpath = xpt.getById(rs.getInt(5));
+                            String fullPath = xpt.getById(rs.getInt(6));
 
                             if((theLocale==locale)||((at==null)&&(ap==null))) {
                                 String rowclass="current";
@@ -1994,6 +2116,19 @@ public class SurveyMain extends HttpServlet {
                                 if(theLocale != locale) {
                                     ctx.println("<td><b>" + theLocale + "</b></td>");
                                 }
+                                
+                                ctx.println("<td>");
+                                pathParts.clear();
+                                fullPathParts.clear();
+                                checkCldrResult.clear();
+                                checkCldr.check(subXpath, fullPath, val, pathParts, fullPathParts, checkCldrResult);
+                                for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
+                                    ctx.println(it3.next().toString() + "<br/>");
+                                }                                            
+                                ctx.println("</td>");
+
+                                
+                                
                                 ctx.println("</tr>");
                             /*
                                 if(theLocale!=locale) {
@@ -2741,9 +2876,9 @@ public class SurveyMain extends HttpServlet {
             busted("CLDR_VET_DATA isn't a directory: " + vetdata);
             return;
         }
-        if(loggingHandler == null) {
+        if(false && (loggingHandler == null)) { // TODO: switch? Java docs seem to be broken.. following doesn't work.
             try {
-                loggingHandler = new java.util.logging.FileHandler(vetdata + "/"+LOGFILE,true);
+                loggingHandler = new java.util.logging.FileHandler(vetdata + "/"+LOGFILE,0,1,true);
                 loggingHandler.setFormatter(new java.util.logging.SimpleFormatter());
                 logger.addHandler(loggingHandler);
                 logger.setUseParentHandlers(false);
@@ -2775,6 +2910,7 @@ public class SurveyMain extends HttpServlet {
         }
 
         startTime = System.currentTimeMillis();
+        logger.info("Startup time till T0 = " + startupTime);
         File cacheDir = new File(cldrHome, "cache");
         logger.info("Cache Dir: " + cacheDir.getAbsolutePath() + " - creating and emptying..");
         CachingEntityResolver.setCacheDir(cacheDir.getAbsolutePath());
@@ -2810,7 +2946,7 @@ public class SurveyMain extends HttpServlet {
         }
         doStartupDB();
         
-        logger.info("SurveyTool ready for requests. Memory in use: " + usedK());
+        logger.info("SurveyTool ready for requests. Memory in use: " + usedK() + " time: " + startupTime);
     }
     
     public void destroy() {
@@ -3352,7 +3488,13 @@ public class SurveyMain extends HttpServlet {
             CLDRDBSource dbSource = CLDRDBSource.createInstance(sm.fileBase, sm.xpt, new ULocale(arg[0]),
                 sm.getDBConnection(), null);            
             System.out.println("dbSource created.");
-            new CLDRFile(dbSource,false);
+            CLDRFile my = new CLDRFile(dbSource,false);
+            System.out.println("file created ");
+            CheckCLDR check = CheckCLDR.getCheckAll("(?!.*Collision.*).*");
+            System.out.println("check created");
+            List result = new ArrayList();
+            check.setCldrFileToCheck(my, result); // TODO: when does this get updated?
+            System.out.println("file set");
         }
         
         sm.doShutdownDB();

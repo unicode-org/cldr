@@ -191,7 +191,6 @@ public class LDMLConstants {
     public static final String LANGUAGE_ALIAS = "languageAlias";
     public static final String TERRITORY_ALIAS = "territoryAlias";
     public static final String REPLACEMENT = "replacement";
-    
         //PN added
     public static final String MEDIUM          = "medium";
     public static final String DECFL           = "decimalFormatLength";
@@ -475,5 +474,4 @@ public class LDMLConstants {
     public static final String DATE_FMT_ITEM_C        = "</" + DATE_FMT_ITEM + ">";
     public static final String APPEND_ITEMS_O         = "<" + APPEND_ITEMS + ">";
     public static final String APPEND_ITEMS_C         = "</" + APPEND_ITEMS + ">";
-
 }

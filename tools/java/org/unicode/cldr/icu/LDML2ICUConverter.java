@@ -1559,9 +1559,9 @@ public class LDML2ICUConverter {
     }
 
     private ICUResourceWriter.Resource parseTimeZoneNames(Node root, StringBuffer xpath){
-        ICUResourceWriter.ResourceArray array = new ICUResourceWriter.ResourceArray();
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.Resource current = null;
-        array.name = (String)keyNameMap.get(root.getNodeName());
+        table.name = (String)keyNameMap.get(root.getNodeName());
 
         if(isDraft(root, xpath)&& !writeDraft){
             return null;
@@ -1581,7 +1581,7 @@ public class LDML2ICUConverter {
 
             if(name.equals(LDMLConstants.ALIAS)){
                 res = parseAliasResource(node,xpath);
-                res.name =array.name;
+                res.name =table.name;
                 return res;
             }else if(name.equals(LDMLConstants.DEFAULT)){
                 ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
@@ -1590,29 +1590,56 @@ public class LDML2ICUConverter {
                 res = str;
             }else if(name.equals(LDMLConstants.ZONE)){
                 res = parseZone(node, xpath);
-            }else if(name.equals(LDMLConstants.HOUR_FORMAT)){
-//              TODO
-            }else if(name.equals(LDMLConstants.HOURS_FORMAT)){
-//              TODO
-            }else if(name.equals(LDMLConstants.GMT_FORMAT)){
-//              TODO 
-            }else if(name.equals(LDMLConstants.REGION_FORMAT)){
-//              TODO
-            }else if(name.equals(LDMLConstants.FALLBACK_FORMAT)){
-//              TODO
+            }else if(name.equals(LDMLConstants.HOUR_FORMAT) ||
+                    name.equals(LDMLConstants.HOURS_FORMAT) ||
+                    name.equals(LDMLConstants.GMT_FORMAT)   ||
+                    name.equals(LDMLConstants.REGION_FORMAT)||
+                    name.equals(LDMLConstants.FALLBACK_FORMAT)){
+                ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                str.name=name;
+                str.val=LDMLUtilities.getNodeValue(node);
+                if(str.val!=null){
+                    res = str;
+                }
             }else if(name.equals(LDMLConstants.ABBREVIATION_FALLBACK)){
-//              TODO
-            }else if(name.equals(LDMLConstants.PREFERENCE_ORDERING)){
-//              TODO
-            }else if(name.equals(LDMLConstants.SINGLE_COUNTRIES)){
-//              TODO
+                ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                str.name=name;
+                str.val=LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+                if(str.val!=null){
+                    res = str;
+                }                
+            }else if(name.equals(LDMLConstants.PREFERENCE_ORDERING)||
+                    name.equals(LDMLConstants.SINGLE_COUNTRIES)){
+                ICUResourceWriter.ResourceArray arr = new ICUResourceWriter.ResourceArray();
+                arr.name=name;
+                ICUResourceWriter.Resource c = null;
+                String[] values = null;
+                if(name.equals(LDMLConstants.SINGLE_COUNTRIES)){
+                    values = LDMLUtilities.getAttributeValue(node, LDMLConstants.LIST).split(" ");
+                }else{
+                    values = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE).split(" ");
+                }
+                
+                for(int i=0; i<values.length;i++){
+                    ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                    str.val=values[i];
+                    if(c==null){
+                        arr.first = c = str;
+                    }else{
+                        c.next = str;
+                        c = c.next;
+                    }
+                }
+                if(arr.first!=null){
+                    res = arr;
+                }
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);
             }
             if(res!=null){
                 if(current == null){
-                    current = array.first = res;
+                    current = table.first = res;
                 }else{
                     current.next = res;
                     current = current.next;
@@ -1622,17 +1649,31 @@ public class LDML2ICUConverter {
             xpath.delete(oldLength, xpath.length());
         }
         xpath.delete(savedLength, xpath.length());
-        if(array.first!=null){
-            return array;
+        if(table.first!=null){
+            return table;
         }
         return null;
     }
 
-
+    private ICUResourceWriter.Resource getStringResource(String name, Node node, ICUResourceWriter.Resource res){
+        ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+        str.name = name;
+        str.val = LDMLUtilities.getNodeValue(node);
+        if(res == null){
+            res = str;
+        }else{
+            findLast(res).next = str;
+        }
+        if(str.val==null){
+            str.val="";
+        }
+        return res;
+    }
     private ICUResourceWriter.Resource parseZone(Node root, StringBuffer xpath){
-        ICUResourceWriter.ResourceArray array = new ICUResourceWriter.ResourceArray();
-        //ICUResourceWriter.Resource current = null;
-
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+        
+        boolean writtenEC = false;
+        boolean isECDraft = false;
         if(isDraft(root, xpath)&& !writeDraft){
             return null;
         }
@@ -1642,171 +1683,96 @@ public class LDML2ICUConverter {
         int savedLength = xpath.length();
         getXPath(root, xpath);
         int oldLength = xpath.length();
-        ICUResourceWriter.ResourceString type = new ICUResourceWriter.ResourceString();
+        String id = LDMLUtilities.getAttributeValue(root,LDMLConstants.TYPE) ;
 
-        ICUResourceWriter.ResourceString ss = new ICUResourceWriter.ResourceString();
-        ICUResourceWriter.ResourceString sd = new ICUResourceWriter.ResourceString();
-        ICUResourceWriter.ResourceString sg = new ICUResourceWriter.ResourceString();
-
-        ICUResourceWriter.ResourceString ls = new ICUResourceWriter.ResourceString();
-        ICUResourceWriter.ResourceString ld = new ICUResourceWriter.ResourceString();
-        ICUResourceWriter.ResourceString lg = new ICUResourceWriter.ResourceString();
-
-        ICUResourceWriter.ResourceString exemplarCity = new ICUResourceWriter.ResourceString();
-
+        table.name = "\"" + id + "\"";
+        table.name = table.name.replace('/', ':');
+        ICUResourceWriter.Resource current = null;
         for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
             if(node.getNodeType()!=Node.ELEMENT_NODE){
                 continue;
             }
             String name = node.getNodeName();
             ICUResourceWriter.Resource res = null;
-            getXPath(node, xpath);
+            // a ceratain element of the list
+            // is marked draft .. just dont
+            // output that item
+            if(isDraft(node, xpath)&& !writeDraft){
+                if(name.equals(LDMLConstants.EXEMPLAR_CITY)){
+                    isECDraft = true;
+                }
+                continue;
+            }
+            //the alt atrribute is set .. so ignore the resource
+            if(isAlternate(node)){
+                continue;
+            }
             if(name.equals(LDMLConstants.ALIAS)){
-                res = parseAliasResource(node, xpath);
+                res = parseAliasResource(node,xpath);
+                if(res!=null){
+                    res.name =table.name;
+                }
                 return res;
             }else if(name.equals(LDMLConstants.DEFAULT)){
                 ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
                 str.name = name;
                 str.val = LDMLUtilities.getAttributeValue(node,LDMLConstants.TYPE);
                 res = str;
-            }else if(name.equals(LDMLConstants.SHORT)){
-                /* get information about long */
-                Node ssn = getVettedNode(node, LDMLConstants.STANDARD, xpath);
-                Node sdn = getVettedNode(node, LDMLConstants.DAYLIGHT, xpath);
-                Node sgn = getVettedNode(node, LDMLConstants.GENERIC, xpath);
-                if(locName.equals("root")){
-                    sg.val = "";
-                    ss.val = "";
-                    sd.val = "";
-                }else if((ssn==null||sdn==null) && !writeDraft){
-                    System.err.println("WARNING: Could not get timeZone string for " + xpath.toString()+" not producing the resource.");
-                    //System.exit(-1);
+            }else if(name.equals(LDMLConstants.LONG) || name.equals(LDMLConstants.SHORT)){
+                Node standard = LDMLUtilities.getNode(node,LDMLConstants.STANDARD);
+                Node generic  = LDMLUtilities.getNode(node,LDMLConstants.GENERIC);
+                Node daylight  = LDMLUtilities.getNode(node,LDMLConstants.DAYLIGHT);
+                if(standard != null ){
+                    res = getStringResource(name.charAt(0)+"s", standard, res);
                 }
-                if(ssn!=null && sdn!=null) {
-                    ss.val = LDMLUtilities.getNodeValue(ssn);
-                    sd.val = LDMLUtilities.getNodeValue(sdn);
-                    if (sgn != null) {
-                        sg.val = LDMLUtilities.getNodeValue(sgn);
-                        if(sg.val==null){
-                            sg.val = "";
-                        }
-                    }
-                    // ok the nodes are availble but
-                    // the values are null .. so just set the values to empty strings
-                    if(ss.val==null){
-                        ss.val = "";
-                    }
-                    if(sd.val==null){
-                        sd.val = "";
-                    }
+                if(generic != null ){
+                    res = getStringResource(name.charAt(0)+"g", generic, res);
                 }
-            }else if(name.equals(LDMLConstants.LONG)){
-                /* get information about long */
-                Node lsn = getVettedNode(node, LDMLConstants.STANDARD, xpath);
-                Node ldn = getVettedNode(node, LDMLConstants.DAYLIGHT, xpath);
-                Node lgn = getVettedNode(node, LDMLConstants.GENERIC, xpath);
-                if(locName.equals("root")){
-                    lg.val = "";
-                    ls.val = "";
-                    ld.val = "";
-                }else if((lsn==null||ldn==null) && !writeDraft ){
-                    System.err.println("WARNING: Could not get timeZone string for " + xpath.toString()+" not producing the resource.");
-                    //System.exit(-1);
-                }
-                if(lsn != null && ldn !=null ){
-                    ls.val = LDMLUtilities.getNodeValue(lsn);
-                    ld.val = LDMLUtilities.getNodeValue(ldn);
-                    if (lgn != null) {
-                        lg.val = LDMLUtilities.getNodeValue(lgn);
-                        if (lg.val==null){
-                            lg.val = "";
-                        }
-                    }
-                    // ok the nodes are availble but
-                    // the values are null .. so just set the values to empty strings
-                    if(ls.val==null){
-                        ls.val = "";
-                    }
-                    if(ld.val==null){
-                        ld.val = "";
-                    }
+                if(daylight != null ){
+                    res = getStringResource(name.charAt(0)+"d", daylight, res);
+                }            
+            }else if(name.equals(LDMLConstants.EXEMPLAR_CITY)){
+                String ec = LDMLUtilities.getNodeValue(node);
+                if(ec!=null){
+                    ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                    str.name = "ec";
+                    str.val = ec;
+                    res = str;
+                    writtenEC = true;
                 }
                 
-            }else if(name.equals(LDMLConstants.EXEMPLAR_CITY)){
-                if(isDraft(node, xpath)&& !writeDraft){
-                    return null;
-                }
-                if(isAlternate(node)){
-                    return null;
-                }
-                exemplarCity.val = LDMLUtilities.getNodeValue(node);
-                if(exemplarCity.val==null){
-                    exemplarCity.val = "";
-                }
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);
             }
-            
+            if(res!=null){
+                if(current == null){
+                    table.first = res;
+                    current = findLast(res);
+                }else{
+                    current.next = res;
+                    current = findLast(res);
+                }
+                res = null;
+            }
             xpath.delete(oldLength, xpath.length());
         }
-        type.val = LDMLUtilities.getAttributeValue(root, LDMLConstants.TYPE);
-        if(type.val==null){
-            type.val="";
-        }
-        if(exemplarCity.val==null){
-            Node ecn = LDMLUtilities.getNode(root, LDMLConstants.EXEMPLAR_CITY, fullyResolvedDoc, xpath.toString());
-            //TODO: Fix this when zoneStrings format c
-            if(ecn!=null){
-                exemplarCity.val = LDMLUtilities.getNodeValue(ecn);
+        //TODO fix this hack once CLDR data is fixed.
+        if(writtenEC == false && isECDraft==false){
+            //try to fetch the exemplar city name from the id
+            ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+            str.name = "ec";
+            str.val = id.replaceAll(".*?/(.*)", "$1").replaceAll("_"," ");
+            if(current==null){
+                table.first = str;
             }else{
-                exemplarCity.val = type.val.replaceAll(".*?/(.*)", "$1").replaceAll("_"," ");
-            }
-        }
-        /* assemble the array */
-        if(type.val!=null ){
-            if(ls.val==null){
-                ls.val ="";
-            }
-            if(ss.val==null){
-                ss.val ="";
-            }
-            if(ld.val==null){
-                ld.val ="";
-            }
-            if(sd.val==null){
-                sd.val ="";
-            }
-            // array is length 
-            // 4 if no exemplar and no generic
-            // 5 if exemplar and no generic
-            // 6 if no exemplar and generic
-            // 7 if exemplar and generic
-            // so length of array defines what optional data we have
-
-            array.first = type;     /* [0] == type */
-
-            type.next = ls;         /* [1] == long name for Standard */
-            ls.next = ss;           /* [2] == short name for standard */
-            ss.next = ld;           /* [3] == long name for daylight */
-            ld.next = sd;           /* [4] == short name for standard */
-            if(exemplarCity.val!=null){
-                sd.next = exemplarCity; /* [5] == exemplarCity */
-                if (lg.val != null && sg.val != null) {      
-                    exemplarCity.next = lg; /* [6] == long name for Generic */
-                    lg.next = sg;           /* [7] == short name for Generic */
-                }
-            } else {
-                if (lg.val != null && sg.val != null) {
-                    sd.next = lg;       /* [5] == long name for Generic */
-                    lg.next = sg;       /* [6] == short name for Generic */
-                }
+                current.next = str;
             }
         }
         
         xpath.delete(savedLength, xpath.length());
-        if(array.first!=null){
-            return array;
+        if(table.first!=null){
+            return table;
         }
         return null;
     }

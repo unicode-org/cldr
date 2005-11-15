@@ -123,7 +123,7 @@ public class ICUResourceWriter {
             String line =  ((name==null)? EMPTY: name)+COLON+ALIAS+ OPENBRACE+QUOTE+escapeSyntaxChars(val)+QUOTE+CLOSEBRACE;
             if(bare==true){
                 if(name!=null){
-                    throw new RuntimeException("Bare option is set to true but the resource has a name!");
+                    throw new RuntimeException("Bare option is set to true but the resource has a name! "+ name);
                 }
                 write(writer,line); 
             }else{
@@ -139,7 +139,7 @@ public class ICUResourceWriter {
             String line =  ((name==null)? EMPTY: name)+COLON+INCLUDE+ OPENBRACE+QUOTE+escapeSyntaxChars(val)+QUOTE+CLOSEBRACE;
             if(bare==true){
                 if(name!=null){
-                    throw new RuntimeException("Bare option is set to true but the resource has a name!");
+                    throw new RuntimeException("Bare option is set to true but the resource has a name! "+ name);
                 }
                 write(writer,line); 
             }else{
@@ -157,7 +157,7 @@ public class ICUResourceWriter {
                              OPENPAREN + ext + CLOSEPAREN + OPENBRACE+QUOTE+escapeSyntaxChars(val)+QUOTE+CLOSEBRACE;
             if(bare==true){
                 if(name!=null){
-                    throw new RuntimeException("Bare option is set to true but the resource has a name!");
+                    throw new RuntimeException("Bare option is set to true but the resource has a name! " + name);
                 }
                 write(writer,line); 
             }else{
@@ -173,7 +173,7 @@ public class ICUResourceWriter {
             String line =  ((name==null)? EMPTY: name)+COLON+IMPORT+ OPENBRACE+QUOTE+escapeSyntaxChars(val)+QUOTE+CLOSEBRACE;
             if(bare==true){
                 if(name!=null){
-                    throw new RuntimeException("Bare option is set to true but the resource has a name!");
+                    throw new RuntimeException("Bare option is set to true but the resource has a name! " + name);
                 }
                 write(writer,line); 
             }else{
@@ -182,7 +182,7 @@ public class ICUResourceWriter {
         }
     }
     public static class  ResourceArray extends Resource{
-        Resource first;
+        public Resource first;
         public void write(OutputStream writer, int numIndent, boolean bare){
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
@@ -281,7 +281,7 @@ public class ICUResourceWriter {
             writeIndent(writer, numIndent);
             if(bare==true){
                 if(name!=null){
-                    throw new RuntimeException("Bare option is set to true but the resource has a name!");
+                    throw new RuntimeException("Bare option is set to true but the resource has a name! " + name);
                 }
                 
                 write(writer,QUOTE+escapeSyntaxChars(val)+QUOTE); 

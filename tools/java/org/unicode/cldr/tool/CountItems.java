@@ -34,11 +34,11 @@ import org.unicode.cldr.util.ZoneInflections.OutputLong;
 
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.ICUPropertyFactory;
 import com.ibm.icu.dev.test.util.Tabber;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.test.util.UnicodeMap.Composer;
+import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -244,7 +244,7 @@ public class CountItems {
 //                String fixedFull = CollectionUtilities.prettyPrint(exemplars, col, false);
 //                System.out.println(" =>\t" + fixedFull);
 //                verifyEquality(exemplars, new UnicodeSet(fixedFull));
-                String fixed = CollectionUtilities.prettyPrint(exemplars, col, spaceCol, true);
+                String fixed = CollectionUtilities.prettyPrint(exemplars, true, null, null, col, spaceCol);
                 out.println(" =>\t\u200E" + fixed + '\u200E');
                
                 verifyEquality(exemplars, new UnicodeSet(fixed));

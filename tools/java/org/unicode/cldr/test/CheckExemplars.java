@@ -6,7 +6,7 @@ import java.util.List;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UnicodeSet;
@@ -42,7 +42,7 @@ public class CheckExemplars extends CheckCLDR {
         	if (exemplar2.containsSome(exemplar1)) {
         		UnicodeSet overlap = new UnicodeSet(exemplar1).retainAll(exemplar2).removeAll(HangulSyllables);
         		if (overlap.size() != 0) {
-        			String fixedExemplar1 = CollectionUtilities.prettyPrint(overlap, col, col, true);
+        			String fixedExemplar1 = CollectionUtilities.prettyPrint(overlap, true, null, null, col, col);
         	    	result.add(new CheckStatus().setType(CheckStatus.warningType)
         	    	.setMessage("Auxilliary overlaps with main {0}", new Object[]{fixedExemplar1}));   			
         		}
@@ -54,7 +54,7 @@ public class CheckExemplars extends CheckCLDR {
 	private void checkExemplar(String v, List result) {
 		if (v == null) return;
     	UnicodeSet exemplar1 = new UnicodeSet(v);
-    	String fixedExemplar1 = CollectionUtilities.prettyPrint(exemplar1, col, col, true);
+    	String fixedExemplar1 = CollectionUtilities.prettyPrint(exemplar1, true, null, null, col, col);
     	UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar1);
     	if (!doubleCheck.equals(exemplar1)) {
 	    	result.add(new CheckStatus().setType(CheckStatus.errorType)
@@ -67,7 +67,7 @@ public class CheckExemplars extends CheckCLDR {
     	if (!AllowedInExemplars.containsAll(exemplar1)) {
     		exemplar1 = CollectionUtilities.flatten(exemplar1).removeAll(AllowedInExemplars);
     		if (exemplar1.size() != 0) {
-    		fixedExemplar1 = CollectionUtilities.prettyPrint(exemplar1, col, col, true);
+    		fixedExemplar1 = CollectionUtilities.prettyPrint(exemplar1, true, null, null, col, col);
 	    	result.add(new CheckStatus().setType(CheckStatus.warningType)
 	    	.setMessage("Should be limited to (specific-script - uppercase - invisibles + \u0130); thus not contain: {0}",
 	    			new Object[]{fixedExemplar1}));

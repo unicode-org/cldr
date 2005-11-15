@@ -41,7 +41,7 @@ import org.xml.sax.ext.DeclHandler;
 import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
-import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
 
@@ -759,6 +759,10 @@ private boolean isSupplemental;
     
     public Iterator iterator() {
     	return dataSource.iterator();
+     }
+
+    public Iterator iterator(String prefix) {
+    	return dataSource.iterator(prefix);
      }
 
     private static class DistinguishedXPath {

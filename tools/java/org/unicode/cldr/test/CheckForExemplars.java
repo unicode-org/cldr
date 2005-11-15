@@ -11,7 +11,7 @@ import java.util.List;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -64,7 +64,7 @@ public class CheckForExemplars extends CheckCLDR {
 
 		if (exemplars.containsAll(value)) return this;
 		UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
-		String fixedMissing = CollectionUtilities.prettyPrint(missing, col, col, true);
+		String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
 		CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
 			.setMessage("Not in exemplars: {0}", new Object[]{fixedMissing});
 		result.add(item);

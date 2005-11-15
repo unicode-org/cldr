@@ -17,21 +17,38 @@ import com.ibm.icu.dev.test.util.XEquivalenceMap;
 import com.ibm.icu.util.TimeZone;
 
 public class CheckDisplayCollisions extends CheckCLDR {
+	String[] typesICareAbout = {
+			"//ldml/localeDisplayNames/languages/language[@type=\"",
+			"//ldml/localeDisplayNames/scripts/script[@type=\"",
+			"//ldml/localeDisplayNames/territories/territory[@type=\"",
+			"//ldml/localeDisplayNames/variants/variant[@type=\"",
+			"//ldml/numbers/currencies/currency[@type=\"", "\"]/displayName", "currency",
+			"//ldml/dates/timeZoneNames/zone[@type=\""	
+	};
+	boolean[] builtCollisions;;
+	
 	private transient XEquivalenceMap[] collisions = new XEquivalenceMap[CLDRFile.LIMIT_TYPES];
 	private Map hasCollisions = new HashMap();
 	{
 		for (int i = 0; i < collisions.length; ++i) collisions[i] = new XEquivalenceMap();
+		clear();
 	}
 	
 	public CheckCLDR _check(String path, String fullPath, String value, XPathParts pathParts, XPathParts fullPathParts, List result) {
-		Set codes = (Set) hasCollisions.get(path);
-		if (codes != null) {
-			//String code = CLDRFile.getCode(path);
-			//Set codes = new TreeSet(s);
-			//codes.remove(code); // don't show self
-			CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
-			.setMessage("Collision with {0}", new Object[]{codes.toString()});
-			result.add(item);
+		for (int i = 0; i < typesICareAbout.length; ++i) {
+			if (path.startsWith(typesICareAbout[i])) {
+				if (!builtCollisions[i]) buildCollisions(i);
+				Set codes = (Set) hasCollisions.get(path);
+				if (codes != null) {
+					//String code = CLDRFile.getCode(path);
+					//Set codes = new TreeSet(s);
+					//codes.remove(code); // don't show self
+					CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
+					.setMessage("Collision with {0}", new Object[]{codes.toString()});
+					result.add(item);
+				}
+				break;
+			}
 		}
 		return this;
 	}
@@ -42,12 +59,24 @@ public class CheckDisplayCollisions extends CheckCLDR {
 		super.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
 		
 		// clear old status
+		clear();
+		return this;
+	}
+
+	private void clear() {
 		hasCollisions.clear();
+		builtCollisions = new boolean[typesICareAbout.length];
 		for (int itemType = 0; itemType < collisions.length; ++itemType) collisions[itemType].clear();
-		
+	}
+	
+	// quick rewrite to make it lazy-evaluated
+	
+	private void buildCollisions(int ii) {
+		builtCollisions[ii] = true; // mark done
 		// put key,value pairs into equivalence map
+		CLDRFile cldrFileToCheck = getCldrFileToCheck();
 		
-		for (Iterator it2 = cldrFileToCheck.iterator(); it2.hasNext();) {
+		for (Iterator it2 = cldrFileToCheck.iterator(typesICareAbout[ii]); it2.hasNext();) {
 			String xpath = (String) it2.next();
 			int nameType = CLDRFile.getNameType(xpath);
 			if (nameType < 0) continue;
@@ -57,6 +86,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
 			String value = cldrFileToCheck.getStringValue(xpath);
 			collisions[nameType].add(xpath, value);
 		}
+		
 		// now get just the types, and store them in sets
 		HashMap mapItems = new HashMap();
 		for (int itemType = 0; itemType < collisions.length; ++itemType) {
@@ -114,7 +144,6 @@ public class CheckDisplayCollisions extends CheckCLDR {
 		}
 		// throw this stuff away so it gets garbage collected.
 		for (int i = 0; i < collisions.length; ++i) collisions[i].clear();
-		return this;
 	}
 
 	transient static final int[] pathOffsets = new int[2];

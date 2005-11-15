@@ -20,8 +20,8 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.impl.CollectionUtilities;
 
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.util.CLDRFile;
@@ -439,7 +439,7 @@ public class CLDRModify {
 			}
 			UnicodeSet s = new UnicodeSet(fixedValue).removeAll(uppercase);
 			
-	    	String fixedExemplar1 = CollectionUtilities.prettyPrint(s, col, col, true);
+	    	String fixedExemplar1 = CollectionUtilities.prettyPrint(s, true, null, null, col, col);
 	    	
 	    	if (!value.equals(fixedExemplar1)) replacements.add(k.getFullXPath(xpath), fixedExemplar1);
 		}

@@ -24,7 +24,7 @@ import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
-import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 

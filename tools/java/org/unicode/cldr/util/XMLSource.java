@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.ibm.icu.dev.test.util.CollectionUtilities.PrefixIterator;
+import com.ibm.icu.impl.CollectionUtilities.PrefixIterator;
 
 import org.unicode.cldr.util.CLDRFile.SimpleXMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
@@ -278,7 +278,7 @@ public abstract class XMLSource implements Freezable {
 	 * SUBCLASSING: Normally overridden for efficiency
 	 */
 	public Iterator iterator(String prefix) {
-		return new com.ibm.icu.dev.test.util.CollectionUtilities.PrefixIterator().set(iterator(), prefix);
+		return new com.ibm.icu.impl.CollectionUtilities.PrefixIterator().set(iterator(), prefix);
 	}
 
 	/**

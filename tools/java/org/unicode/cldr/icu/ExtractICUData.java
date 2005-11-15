@@ -11,12 +11,16 @@ package org.unicode.cldr.icu;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,14 +29,24 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Utility;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.impl.ICUResourceBundle;
+import com.ibm.icu.impl.PrettyPrinter;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.UResourceBundle;
 
 public class ExtractICUData {
 	public static void main(String[] args) throws Exception {
-		generateTransliterators();
+		checkPrettyPrint();
+		//testProps();
+		// generateTransliterators();
 	}
 	
 	static Set skipLines = new HashSet(Arrays.asList(new String[]{
@@ -49,7 +63,6 @@ public class ExtractICUData {
 			"root"
 	}));
 	static void generateTransliterators() throws IOException {
-		//System.out.println("Test: " + fixTransRule("\\u0061"));
 		Matcher fileFilter = Pattern.compile(".*").matcher("");
 
 		CLDRFile accumulatedItems = CLDRFile.makeSupplemental("allItems");
@@ -283,5 +296,75 @@ public class ExtractICUData {
 		if (name.equals("LowerLatin")) return "Latin";
 
 		return name;
+	}
+	static void testProps() {
+		int[][] ranges = {{UProperty.BINARY_START, UProperty.BINARY_LIMIT},
+				{UProperty.INT_START, UProperty.INT_LIMIT},
+				{UProperty.DOUBLE_START, UProperty.DOUBLE_START},
+				{UProperty.STRING_START, UProperty.STRING_LIMIT},
+		};
+		Collator col = Collator.getInstance(ULocale.ROOT);
+		((RuleBasedCollator)col).setNumericCollation(true);
+		Map alpha = new TreeMap(col);
+
+		for (int range = 0; range < ranges.length; ++range) {
+			for (int propIndex = ranges[range][0]; propIndex < ranges[range][1]; ++propIndex) {
+				String propName = UCharacter.getPropertyName(propIndex, UProperty.NameChoice.LONG);
+				String shortPropName = UCharacter.getPropertyName(propIndex, UProperty.NameChoice.SHORT);
+				propName = getName(propIndex, propName, shortPropName);
+				Set valueOrder = new TreeSet(col);
+				alpha.put(propName, valueOrder);
+				switch (range) {
+				case 0: valueOrder.add("[binary]"); break;
+				case 2: valueOrder.add("[double]"); break;
+				case 3: valueOrder.add("[string]"); break;
+				case 1: for (int valueIndex = 0; valueIndex < 256; ++valueIndex) {
+					try {
+						String valueName = UCharacter.getPropertyValueName(propIndex, valueIndex, UProperty.NameChoice.LONG);
+						String shortValueName = UCharacter.getPropertyValueName(propIndex, valueIndex, UProperty.NameChoice.SHORT);
+						valueName = getName(valueIndex, valueName, shortValueName);
+						valueOrder.add(valueName);
+					} catch (RuntimeException e) {
+						// just skip
+					}
+				} break;
+				}
+			}
+		}
+		PrintStream out = System.out;
+		
+		for (Iterator it = alpha.keySet().iterator(); it.hasNext();) {
+			String propName = (String) it.next();
+			Set values = (Set) alpha.get(propName);
+			out.println("<tr><td>" + propName + "</td>");
+			out.println("<td><table>");
+			for (Iterator it2 = values.iterator(); it2.hasNext();) {
+				String propValue = (String) it2.next();
+				System.out.println("<tr><td>" + propValue + "</td></tr>");
+			}
+			out.println("</table></td></tr>");
+		}
+
+//        int enumValue = UCharacter.getIntPropertyValue(codePoint, propEnum);
+//        return UCharacter.getPropertyValueName(propEnum,enumValue, (int)nameChoice);
+
+	}
+
+	private static String getName(int index, String valueName, String shortValueName) {
+		if (valueName == null) {
+			if (shortValueName == null) return String.valueOf(index);
+			return shortValueName;
+		}
+		if (shortValueName == null) return valueName;
+		if (valueName.equals(shortValueName)) return valueName;
+		return valueName + "\u00A0(" + shortValueName + ")";
+	}
+	
+	private static void checkPrettyPrint() {
+		//System.out.println("Test: " + fixTransRule("\\u0061"));
+		UnicodeSet s = new UnicodeSet("[^[:script=common:][:script=inherited:]]");
+		UnicodeSet quoting = new UnicodeSet("[[:Mn:][:Me:]]");
+		String ss = new PrettyPrinter(true, quoting, null, null).toPattern(s);
+		System.out.println("test: " + ss);
 	}
 }

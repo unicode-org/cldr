@@ -25,8 +25,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
+import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 
 /**

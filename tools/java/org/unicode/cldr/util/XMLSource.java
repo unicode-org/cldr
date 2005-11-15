@@ -110,7 +110,7 @@ public abstract class XMLSource implements Freezable {
 	/**
 	 * Internal class
 	 */
-	private static class Alias {
+	protected static class Alias {
 		//public String oldLocaleID;
 		public String oldPath;
 		public String newLocaleID;
@@ -131,7 +131,7 @@ public abstract class XMLSource implements Freezable {
 			if (relativePath == null) result.newPath = result.oldPath;
 			else result.newPath = tempAliasParts.trimLast().addRelative(relativePath).toString();
 			if (result.newPath.equals(result.oldPath) && result.newLocaleID == null) {
-				throw new IllegalArgumentException("Alias must have different path or different source");
+				throw new IllegalArgumentException("Alias must have different path or different source. AliasPath: " + aliasPath + ", Alias: " + result.toString());
 			}
 			return result;
 		}

@@ -325,25 +325,77 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
           </blockquote>
           <h2><a name="Exemplar">Exemplar Characters</a></h2>
           <blockquote>
-            <p>The exemplar character set contains the commonly used letters for a given modern form 
-            of a language, which can be for testing and for determining the appropriate repertoire 
-            of letters for charset conversion or collation. For more information, see&nbsp;
+            <p>The exemplar character sets contain the customary letters for a given modern form of 
+            a language, which can be for testing and for determining the appropriate repertoire of 
+            letters for charset conversion or collation. For more information, see&nbsp;
             <a href="http://www.unicode.org/reports/tr35/#&lt;characters&gt;">Exemplar Characters</a> 
             in Section 5.6 and Appendix E:
-            <a href="http://www.unicode.org/reports/tr35/#Unicode_Sets">Unicode Sets</a>. </p>
-            <p><span>The auxiliary exemplar set is designed to encompass those non-native characters 
-            that could normally occur in common publications. So, for example, if Irish newspapers 
-            and magazines would commonly have Danish names using å, for example, then it would be 
-            appropriate to include å in the auxiliary exemplar characters; just not in the <i>main</i> 
-            exemplar set.</span></p>
-            <p><span>All of the translated data in an LDML file must be in the union of the 
-            following sets:</span></p>
-            <ul>
-              <li><span>The main exemplar characters</span></li>
-              <li><span>The auxiliary exemplar characters</span></li>
-              <li><span>Non-alphabetic characters (Unicode properties Alphabetic=false, 
-              Script=Inherited, Script=Common).</span></li>
-            </ul>
+            <a href="http://www.unicode.org/reports/tr35/#Unicode_Sets">Unicode Sets</a>.</p>
+            <p><span class="changed">There are two sets: the <i>main</i> set should contain the 
+            minimal set required for users of the language; factors determining the composition of 
+            this set include what is commonly taught in schools as the &quot;alphabet&quot;, and what is 
+            typical in legacy charsets for the language.</span></p>
+            <p><span>The <i>auxiliary</i> exemplar set is designed to encompass additional 
+            characters: those non-native <span class="changed">or historical </span>characters that 
+            could customarily occur in common publications<span class="changed">, dictionaries, and 
+            so on</span>. So, for example, if Irish newspapers and magazines would commonly have 
+            Danish names using å, for example, then it would be appropriate to include å in the 
+            auxiliary exemplar characters; just not in the <i>main</i> exemplar set.
+            <span class="changed">Major style guidelines are good references for this set.</span></span></p>
+            <p><span class="changed">Thus for English we have [a-z] in the main set, and [á à ă â å 
+            ä ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ß ú ù ŭ û ü ū ÿ] in the auxiliary set.</span></p>
+            <p><span class="changed"><b>Note: </b>Order does not matter in a UnicodeSet, but for 
+            readability in the XML file the characters should be in sorted order according to the 
+            locale&#39;s conventions.</span></p>
+            <h3><span class="changed">Character Sequences</span></h3>
+            <p><span class="changed">If a character is only ever used in a very small number of 
+            combinations, then we tend to list those separately. This is especially true of 
+            combining marks. For example, if the orthography has a-z plus é, but doesn&#39;t use j and 
+            w, then the main set could be: [a-i é k-v x-z].</span></p>
+            <p><span class="changed">If the sequence can&#39;t be represented as an NFC character, then 
+            it needs the be represented with {}. So for x-umlaut, one would use [a-i é k-v x {ẍ} 
+            y-z]. On input, it is always safe to use {} or escapes where there is any doubt. Thus 
+            the input set [abcde{e\u0308}{x\u0308}] will resolve to [a-e é {ẍ}].</span></p>
+            <p><span class="changed">Similarly, if the letter &#39;z&#39; were only ever used in the 
+            combination &#39;tz&#39;, then we might have [a-y {tz}] in the main set. (The language would 
+            probably have plain &#39;z&#39; in the auxiliary set, for use in foreign words.) </span></p>
+            <p><span class="changed">There is some judgment involved in all this. For English one 
+            could possibly have [a-p {qu} r-z] in the main set, with q in the auxiliary set (for 
+            loan words like Qatar). However, this doesn&#39;t match what is commonly accepted as the 
+            alphabet, and thus [a-z] is used.</span></p>
+            <p><span class="changed">If characters can be used productively in combination with a 
+            large number of others (such as say Indic matras), then we don&#39;t enumerate all the 
+            possible combinations, we just list them separately, such as: </span></p>
+            <p><span class="changed">[‌ ‍ ॐ ०-९ ऄ-ऋ ॠ ऌ ॡ ऍ-क क़ ख ख़ ग ग़ घ-ज ज़ झ-ड ड़ ढ ढ़ ण-फ फ़ ब-य य़ 
+            र-ह ़ ँ-ः ॑-॔ ऽ ् ॽ ा-ॄ ॢ ॣ ॅ-ौ] </span></p>
+            <h3>Restrictions</h3>
+            <ol>
+              <li><span class="changed">The sets should be restricted to those letters with a 
+              specific <a href="http://unicode.org/Public/UNIDATA/Scripts.txt">Script </a>character 
+              property (that is, not the values Common or Inherited) or required
+              <a href="http://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">
+              Default_Ignorable_Code_Point</a> characters (such as a non-joiner), or combining 
+              marks.</span></li>
+              <li><span class="changed">They must not contain uppercase letters (except for the 
+              uppercase dotted İ): users of the set will close the set under the case operation.</span></li>
+              <li><span class="changed">The auxiliary set should not overlap with the main set. 
+              There is one exception to this: Hangul Syllables and CJK Ideographs can overlap 
+              between the sets.</span></li>
+              <li><span class="changed">Any
+              <a href="http://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">
+              Default_Ignorable_Code_Point</a>s should be in the auxiliary set.</span></li>
+              <li><span>All of the translated data in an LDML file must be in the union of the 
+              following sets<span class="changed"> (closed under casing)</span>:</span><ol>
+                <li><span>The main exemplar characters</span></li>
+                <li><span>The auxiliary exemplar characters</span></li>
+                <li><span>Non-<span class="changed">script-specific</span> characters (</span><a href="http://unicode.org/Public/UNIDATA/Scripts.txt">Script</a><span>=Inherited 
+                or </span><a href="http://unicode.org/Public/UNIDATA/Scripts.txt">Script</a><span>=Common<span class="changed"> 
+                but not </span></span><span class="changed">
+                <a href="http://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">
+                Default_Ignorable_Code_Point</a></span><span>).</span></li>
+              </ol>
+              </li>
+            </ol>
           </blockquote>
           <h2><a name="Display_Names">Display Names</a>: Languages, Scripts, Territories, 
           Currencies, Time Zones</h2>

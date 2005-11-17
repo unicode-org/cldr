@@ -353,9 +353,9 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
             combining marks. For example, if the orthography has a-z plus é, but doesn&#39;t use j and 
             w, then the main set could be: [a-i é k-v x-z].</span></p>
             <p><span class="changed">If the sequence can&#39;t be represented as an NFC character, then 
-            it needs the be represented with {}. So for x-umlaut, one would use [a-i é k-v x {ẍ} 
-            y-z]. On input, it is always safe to use {} or escapes where there is any doubt. Thus 
-            the input set [abcde{e\u0308}{x\u0308}] will resolve to [a-e é {ẍ}].</span></p>
+            it needs the be represented with {}. So for <i>x-grave</i>, one would use [a-i é k-v x 
+            {x̀} y-z]. On input, it is always safe to use {} or \u escapes where there is any doubt. 
+            Thus the input set [abcde {e\u0300} {x\u0300}] will resolve to [a-e è {x̀}].</span></p>
             <p><span class="changed">Similarly, if the letter &#39;z&#39; were only ever used in the 
             combination &#39;tz&#39;, then we might have [a-y {tz}] in the main set. (The language would 
             probably have plain &#39;z&#39; in the auxiliary set, for use in foreign words.) </span></p>
@@ -375,8 +375,11 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
               property (that is, not the values Common or Inherited) or required
               <a href="http://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">
               Default_Ignorable_Code_Point</a> characters (such as a non-joiner), or combining 
-              marks.</span></li>
-              <li><span class="changed">They must not contain uppercase letters (except for the 
+              marks, or the
+              <a href="http://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt">
+              Word_Break</a> properties <a name="Katakana">Katakana</a>, <a name="ALetter">ALetter</a>, 
+              or <a name="MidLetter">MidLetter</a>.</span></li>
+              <li><span class="changed">They should not contain uppercase letters (except for the 
               uppercase dotted İ): users of the set will close the set under the case operation.</span></li>
               <li><span class="changed">The auxiliary set should not overlap with the main set. 
               There is one exception to this: Hangul Syllables and CJK Ideographs can overlap 
@@ -384,8 +387,8 @@ span.changed {order-style: dotted; border-width: 1; background-color: #FFFF00}
               <li><span class="changed">Any
               <a href="http://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">
               Default_Ignorable_Code_Point</a>s should be in the auxiliary set.</span></li>
-              <li><span>All of the translated data in an LDML file must be in the union of the 
-              following sets<span class="changed"> (closed under casing)</span>:</span><ol>
+              <li><span>All of the translated data in an LDML file<span class="changed">, when 
+              lowercased,</span> must be in the union of the following sets:</span><ol>
                 <li><span>The main exemplar characters</span></li>
                 <li><span>The auxiliary exemplar characters</span></li>
                 <li><span>Non-<span class="changed">script-specific</span> characters (</span><a href="http://unicode.org/Public/UNIDATA/Scripts.txt">Script</a><span>=Inherited 

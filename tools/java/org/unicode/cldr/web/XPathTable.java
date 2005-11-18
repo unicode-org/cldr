@@ -17,6 +17,9 @@ import java.sql.Statement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 
+import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.icu.LDMLConstants;
+
 public class XPathTable {
     private static java.util.logging.Logger logger;
     
@@ -222,4 +225,35 @@ public class XPathTable {
         logger.severe("Coudln't get xpath for " + xpath);
         throw new InternalError("Couldn't get xpath for " + xpath);
     }
+    
+    public String pathToTinyXpath(String path) {
+        return pathToTinyXpath(path, new XPathParts(null,null));
+    }
+    
+    public String pathToTinyXpath(String path, XPathParts xpp) {
+        typeFromPathToTinyXpath(path, xpp);
+        return xpp.toString();
+    }
+    
+    public String typeFromPathToTinyXpath(String path, XPathParts xpp) {
+        xpp.clear();
+        xpp.initialize(path);
+        Map lastAtts = xpp.getAttributes(-1);
+        lastAtts.remove(LDMLConstants.ALT);
+        lastAtts.remove(LDMLConstants.DRAFT);
+        String type = (String)lastAtts.remove(LDMLConstants.TYPE);
+        if((type == null) && (path.indexOf(LDMLConstants.TYPE)>=0)) try {
+            // less common case - type isn't the last
+            for(int n=-2;(type==null);n--) {
+                lastAtts = xpp.getAttributes(n);
+                if(lastAtts != null) {
+                    type = (String)lastAtts.remove(LDMLConstants.TYPE);
+                }
+            }
+        } catch(ArrayIndexOutOfBoundsException aioobe) {
+            // means we ran out of elements.
+        }
+        return type;
+    }
+
 }

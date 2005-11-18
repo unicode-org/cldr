@@ -241,19 +241,14 @@ public class CLDRDBSource extends XMLSource {
                 xpp.clear();
                 xpp.initialize(oxpath);
                 String lelement = xpp.getElement(-1);
-                String eType = xpp.findAttributeValue(lelement,LDMLConstants.TYPE);
+                /* all of these are always at the end */
                 String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
                 String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
-
-                // now, cut out the parts we dont want
-                xpp.clear();
-                xpp.initialize(xpath);
-                Map lastAtts = xpp.getAttributes(-1);
-                lastAtts.remove(LDMLConstants.TYPE);
-                lastAtts.remove(LDMLConstants.ALT);
-                lastAtts.remove(LDMLConstants.DRAFT);
-                
+    
+                /* special func to find this */
+                String eType = xpt.typeFromPathToTinyXpath(xpath, xpp);
                 String tinyXpath = xpp.toString();
+                
                 int txpid = xpt.getByXpath(tinyXpath);
                 
                 /*SRL*/ 

@@ -109,7 +109,7 @@ public class SurveyMain extends HttpServlet {
         LDMLConstants.CHARACTERS,
         NUMBERSCURRENCIES,
         LDMLConstants.NUMBERS + "/",
-        LDMLConstants.DATES + "/timeZoneNames",
+        "timeZoneNames",
         LDMLConstants.DATES + "/calendars",
         LDMLConstants.DATES + "/"
     };
@@ -501,6 +501,9 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         if(ctx.session.user.userlevel <= UserRegistry.ADMIN) {
             ctx.println("<b>You are an Admin:</b> ");
             ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "'>[Stats]</a>");
+            if(ctx.session.user.id == 1) {
+                ctx.println("<a href='" + ctx.base() + "?sql=" + vap + "'>[Raw SQL]</a>");
+            }
             ctx.println("<br/>");
         }
         if(ctx.session.user.userlevel <= UserRegistry.TC) {
@@ -1615,19 +1618,30 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             }
             subCtx.println("</p> <p class='hang'>Other Items: ");
             
-            subCtx.println("(<i>note: missing items here..</i>)  ");
-            /*  TODO: reenable this
-                for(n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
-                    if(n>0) ctx.print(" ");
-                    printMenu(subCtx, which, OTHERROOTS_ITEMS[n]);
-                }
+            for(n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
+                if(n>0) ctx.print(" ");
+                printMenu(subCtx, which, OTHERROOTS_ITEMS[n]);
+            }
             ctx.print(" ");
             printMenu(subCtx, which, xOTHER);
-            */
             printMenu(subCtx, which, TEST_MENU_ITEM);
             printMenu(subCtx, which, RAW_MENU_ITEM);
             subCtx.println("</td></tr></table>");
             
+            if( (!checkCldrResult.isEmpty()) && 
+                (/* true || */ (checkCldr != null) && (TEST_MENU_ITEM.equals(which))) ) {
+                ctx.println("<hr /><h4>Possible problems with locale:</h4>");
+                ctx.println("<pre style='border: 1px dashed olive; padding: 1em; background-color: cream; overflow: auto;'>");
+                for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
+					CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                    if (!status.getType().equals(status.exampleType)) {
+                        ctx.println(status.toString() + "<br />");
+                    } else {
+                        ctx.println("<i>example available</i><br />");
+                    }
+                }
+                ctx.println("</pre><hr />");
+            }
             subCtx.addQuery("x",which);
             for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
                 if(LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
@@ -1639,7 +1653,11 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             // handle from getNodeSet for these . . .
             for(j=0;j<OTHERROOTS_ITEMS.length;j++) {
                 if(OTHERROOTS_ITEMS[j].equals(which)) {
-                    doOtherList(subCtx, which);
+                    if(which.equals("timeZoneNames")) {
+                        showZoneList(subCtx);
+                    } else {
+                        showPathList(subCtx, OTHERROOTS_ITEMS[j], null);
+                    }
                     return;
                 }
             }
@@ -1659,11 +1677,6 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 ctx.println(checkCldr.getLocaleAndName(localeID));
                 //                CLDRFile file = ourSrc.factory.make(localeID, false);
                 ctx.println(" <h4>Test Results</h4>");
-                ctx.println(" - - - possible problems - - -");
-                for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
-                    ctx.println(it3.next().toString());
-                }
-                ctx.println(" - - - path specific stuff follows - - -");
                 for (Iterator it2 = file.iterator(); it2.hasNext();) {
                     String path = (String) it2.next();
                     //System.out.println("P: " + path);
@@ -1672,7 +1685,12 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                     String fullPath = file.getFullXPath(path);
                     checkCldr.check(path, fullPath, value, pathParts, fullPathParts, checkCldrResult);
                     for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
-                        ctx.println(it3.next().toString() + "\t" + value + "\t" + fullPath);
+                        CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                        if (!status.getType().equals(status.exampleType)) {
+                            ctx.println(status.toString() + "\t" + value + "\t" + fullPath);
+                        } //else {
+                            //ctx.println("<i>example available</i><br />");
+                        //}
                     }            
                 }
                 
@@ -2020,15 +2038,22 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
     
     final int CODES_PER_PAGE = 80;  // was 51
 
-    /**
-     * cribbed from showNodeList
-     */
-    public void showPathList(WebContext ctx, String xpath, String lastElement) {
+    public void showZoneList(WebContext ctx) {
         int count = 0;
         int dispCount = 0;
         int total = 0;
         int skip = 0;
- //       total = mySet.count();
+        
+        final String TZ_MOST = "//ldml/dates/timeZoneNames/zone/";
+        final String TZ_LENGTHS[] = { "short", "long" };
+        final String TZ_TYPES[] = { "generic", "standard", "daylight" };
+        final String TZ_EXEMPLAR = "exemplarCity";
+        
+        boolean isTz = xpath.equals("timeZoneNames");
+        if(lastElement == null) {
+            fullThing = xpath;
+        }
+        //       total = mySet.count();
         boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
         CLDRFile cf = getUserFile(ctx, ctx.session.user, ctx.locale);
         CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
@@ -2037,56 +2062,62 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         XPathParts fullPathParts = new XPathParts(null, null);
         List checkCldrResult = new ArrayList();
         
+        Iterator theIterator = null;
+        
         synchronized(ourSrc) { // because it has a connection..
             StandardCodes standardCodes = StandardCodes.make();
-            Set defaultSet = standardCodes.getAvailableCodes(lastElement); // TODO: 2 nonstandard types?
+            Set defaultSet = standardCodes.getAvailableCodes("tzid");
+            
             if(defaultSet == null ) {
                 // ctcx.println("<hr/><i>Err: 0 items in defaultSet</i><hr/>");
                 defaultSet = new HashSet();
+                theIterator = cf.iterator(fullThing);
+            } else { 
+                theIterator = defaultSet.iterator();
             }
             // NAVIGATION .. calculate skips.. 
             skip = showSkipBox(ctx, defaultSet.size());
-//            if(changes.get(xOTHER + "/" + NEW)!=null) {
-//                changes.remove(xOTHER + "/" + NEW);
-//                ctx.println("<div class='missing'><b>Warning: Remember to click the 'change' radio button after typing in a change.  Please check the status of change boxes below.</b></div><br/>");
-//            }
-
+            //            if(changes.get(xOTHER + "/" + NEW)!=null) {
+            //                changes.remove(xOTHER + "/" + NEW);
+            //                ctx.println("<div class='missing'><b>Warning: Remember to click the 'change' radio button after typing in a change.  Please check the status of change boxes below.</b></div><br/>");
+            //            }
             
-            ctx.println(" Printing dump for " + xpath+"/"+lastElement + ", #" + xpt.getByXpath(xpath+"/"+lastElement) + "<br />");
-
-
-        // Form: 
-        ctx.printUrlAsHiddenFields();
-        ctx.println("<table class='list' border=1>");
-        ctx.println("<tr>");
-        ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=2>Name<br/><div style='border: 1px solid gray; width: 6em;' align=left><tt>Code</tt></span></th>");
-        ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Best<br/>");
-        ctx.printHelpLink("/Best");
-        ctx.println("</th>");
-        ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Contents</th>");
-        ctx.println("</tr>");
-
             
-            for(Iterator e = defaultSet.iterator();e.hasNext();) {
+            ctx.println(" Printing dump for " + fullThing + ", #" + xpt.getByXpath(fullThing) + "<br />");
+            
+            
+            // Form: 
+            ctx.printUrlAsHiddenFields();
+            ctx.println("<table class='list' border=1>");
+            ctx.println("<tr>");
+            ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=2>Name<br/><div style='border: 1px solid gray; width: 6em;' align=left><tt>Code</tt></span></th>");
+            ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Best<br/>");
+            ctx.printHelpLink("/Best");
+            ctx.println("</th>");
+            ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Contents</th>");
+            ctx.println("</tr>");
+            
+            
+            for(Iterator e = theIterator;e.hasNext();) {
                 String type = (String)e.next();
-
+                
                 count++;
                 if(skip > 0) {
                     --skip;
                     continue;
                 }
                 dispCount++;
-
+                
                 boolean first = true;
                 
                 boolean gotNonDraft = false;
                 
                 String locale = ctx.locale.toString();
                 String theLocale = locale;
-
+                
                 do {
-                    java.sql.ResultSet rs = ourSrc.listForType(xpt.getByXpath(xpath+"/"+lastElement), type, theLocale);
-
+                    java.sql.ResultSet rs = ourSrc.listForType(xpt.getByXpath(fullThing), type, theLocale);
+                    
                     try {
                         while(rs.next()) {
                             if(first) {
@@ -2101,7 +2132,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                             String val = rs.getString(1);
                             String subXpath = xpt.getById(rs.getInt(5));
                             String fullPath = xpt.getById(rs.getInt(6));
-
+                            
                             if((theLocale==locale)||((at==null)&&(ap==null))) {
                                 String rowclass="current";
                                 if((at!=null)&&(at.equals("proposed"))) {
@@ -2110,8 +2141,8 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                                     rowclass = "fallback";
                                 }
                                 ctx.println("<tr class='" + rowclass + "'><td>" + val + "</td>" +
-                                            "<td>"+ at + "<br />" + 
-                                                ap + "</td>" + 
+                                            "<td>"+ ((at!=null)?at:"") + "<br />" + 
+                                            ((ap!=null)?ap:"") + "</td>" + 
                                             "");
                                 if(theLocale != locale) {
                                     ctx.println("<td><b>" + theLocale + "</b></td>");
@@ -2123,238 +2154,19 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                                 checkCldrResult.clear();
                                 checkCldr.check(subXpath, fullPath, val, pathParts, fullPathParts, checkCldrResult);
                                 for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
-                                    ctx.println(it3.next().toString() + "<br/>");
+                                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                                    if (!status.getType().equals(status.exampleType)) {
+                                        ctx.println(status.toString() + "\t" + val + "\t" + fullPath);
+                                    } else {
+                                        ctx.println("<i>example available</i><br />");
+                                    }
                                 }                                            
                                 ctx.println("</td>");
-
-                                
+                                                                
                                 
                                 ctx.println("</tr>");
-                            /*
-                                if(theLocale!=locale) {
-                                    ctx.println(" ("+ theLocale+") ");
-                                }
                                 
-                                ctx.println("at:" + at + "," +
-                                            "ap:" + ap + "," + 
-                                            "sub:" + submitId + 
-                                             "  = <span style='border: 1px solid gray'>" + val+"</span><br />");*/
-
-/*                            if(f.xpath != null) {
-                                ctx.println("<tr class='xpath'><td colspan=4>"+  f.xpath + "</td></tr>");
-                            }*/
-            
- /*           if(f.isAlias == true) {
-                ctx.println("<tr class='alias'><td colspan=4>" + f.type +
-                        "<a href=\"" + ctx.base() + "?x=" + ctx.field("x") + "&_=" + f.fallbackLocale + "\">" + 
-                        new ULocale(f.fallbackLocale).getDisplayName() +                        
-                        "</a>");
-                ctx.println("</td></tr>");
-                continue;
-            }*/
-            
-            
-            /*
-            String base = ((xpath==null)?f.xpath:type);
-            String main = val;
-            String mainFallback = null;
-            int mainDraft = 0; // count
-//            if(f.mainDraft) {
-//                mainDraft = 1; // for now: one draft
-//            }
-            String fieldName = ((xpath!=null)?xpath:f.xpath);
-            String fieldPath = ((xpath!=null)?type:null);
-            int nRows = 1;         // the 'new' line (user edited)
-            nRows ++; // 'main'
-            // are we showing a fallback locale in the 'current' slot?
-            if( (f.fallback != null) && // if we have a fallback
-                ( (mainDraft > 0) || (f.main == null) ) ) {
-                mainFallback = f.fallbackLocale;
-                if(mainDraft > 0) {
-                    nRows ++; // fallback
-                }
-            }else if (mainDraft > 0) {
-                nRows ++; // for the Draft entry
-            }
-            if(f.alts != null) {
-                nRows += f.alts.size();
-            }
-
-            // Analyze user input.
-            String checked = null;  // What option has the user checked?
-            String newString = null;  // What option has the user checked?
-            if(changes != null) {
-                checked = (String)changes.get(base + SUBVETTING); // fetch VETTING data
-                newString = (String)changes.get(base + SUBNEW); // fetch NEW data
-////               ctx.println(":"+base+SUBVETTING + ":");
-            }
-            if(checked == null) {
-                checked = NOCHANGE;
-            }
-            */
-            /*
-            ctx.println("<tr>");
-            // 1. name/code
-            String tx_text = type;//tx.text(f)
-            ctx.println("<th valign=top align=left class='name' colspan=2 rowspan=" + (nRows-1) + ">" + tx_text + "");
-            if(type != null) {
-                ctx.println("<br/><tt>(" + type + ")</tt>");
-            }
-            */
-            /*
-            // see if there's a warning.
-            String myxpath = f.xpath;
-            if(myxpath == null) {
-                myxpath = xpath;
-                if(f.main != null) {
-                    myxpath = myxpath + "/" + f.main.getNodeName();
-                } else {
-//                    ctx.println("<B>problem - missing item</B>");
-                    myxpath = null;
-                }
-                if(f.type != null) {
-                    myxpath = myxpath + "[@type='" + f.type + "']";
-                }
-                if(f.key != null) {
-                    myxpath = myxpath + "[@key='" + f.key + "']";
-                }
-                
-//                ctx.println("[<tt>" + ctx.locale + " " + myxpath + "</tt>]");
-            }
-*/
-
-//            ctx.println("</th>");
-
-/*
-            // Now there are a pair of columns for each of the following. 
-            // 2. fallback
-            if(mainFallback != null) {
-                ctx.println("<td align=right class='fallback'>");
-                ctx.println("from " + 
-                        "<a href=\"" + ctx.base() + "?x=" + ctx.field("x") + "&_=" + mainFallback + "\">" + 
-                        new ULocale(mainFallback).getDisplayName() +                        
-                        "</a>");
-                writeRadio(ctx,fieldName,fieldPath,CURRENT,checked);
-                ctx.println("</td>");
-                ctx.println("<td class='fallback'>");
-                ctx.println(LDMLUtilities.getNodeValue(f.fallback));
-                ctx.println("</td>");
-            } else if((main!=null)&&(mainDraft==0)) {
-                ctx.println("<td align=right class='current'>");
-                ctx.println("current");
-                writeRadio(ctx,fieldName,fieldPath,CURRENT,checked);
-                ctx.println("</td>");
-                ctx.println("<td class='current'>");
-                printWarning(ctx, myxpath);
-                ctx.println(main);
-                ctx.println("</td>");
-            } else //  if(main == null) 
-             {
-                ctx.println("<td align=right class='missing'>");
-                
-                if(f.fallbackLocale != null) {
-                    ctx.println("see " + 
-                            "<a href=\"" + ctx.base() + "?x=" + ctx.field("x") + "&_=" + f.fallbackLocale + "\">" + 
-                            new ULocale(f.fallbackLocale).getDisplayName() +                        
-                            "</a>");
-                } else {
-                    ctx.println("<i>current</i>");
-                    writeRadio(ctx,fieldName,fieldPath,CURRENT,checked);
-                }
-                ctx.println("</td>");
-                ctx.println("<td title=\"Data missing - raw code shown.\" class='missing'><tt>");
-                ctx.println(type); // in typewriter <tt> to show that it is a code.
-                ctx.println("</tt></td>");
-            }
-            ctx.println("</tr>");
-            
-            ctx.println("<tr>");
-
-            // Draft item
-            if(mainDraft > 0) {
-                ctx.println("<td align=right class='draft'>");
-                ctx.println("draft");
-                writeRadio(ctx,fieldName,fieldPath,DRAFT,checked);
-                ctx.println("</td>");
-                ctx.println("<td class='draft'>");
-                ctx.println(main);
-                ctx.println("</td>");
-                ctx.println("</tr>");
-                ctx.println("<tr>");
-            }
-
-            // Proposed item
-            if(f.alts != null) {
-                Enumeration ee = f.alts.keys();
-                for(;ee.hasMoreElements();) {
-                    String k = (String)(ee.nextElement());
-                    ctx.println("<td align=right class='proposed'>");
-                    ctx.println(k);
-                    writeRadio(ctx,fieldName,fieldPath,PROPOSED + k,checked);
-                    ctx.println("</td>");
-                    ctx.println("<td class='proposed'>");
-                    printWarning(ctx, myxpath+"[@alt='" + k + "']");
-                    ctx.println(LDMLUtilities.getNodeValue((Node)f.alts.get(k)));
-                    ctx.println("</td>");
-                    ctx.println("</tr>");
-                    ctx.println("<tr>");
-                }
-            }
-            
-            //'nochange' and type
-            ctx.println("<th class='type'>");
-            if(type == null) {
-                type = "NULL??";
-            }
-            int lastSlash = type.lastIndexOf('/');
-            String showType;
-            if(lastSlash != -1) {
-                showType = type.substring(lastSlash+1);
-            } else {
-                showType = type;
-            }
-            ctx.println("<tt>" + showType + "</tt>");
-            ctx.println("</th>");
-            ctx.println("<td class='nochange'>");
-            ctx.println("Don't care");
-            writeRadio(ctx,fieldName,fieldPath,NOCHANGE,checked);
-            ctx.println("</td>");
-
-            // edit text
-            ctx.println("<td align=right class='new'>");
-            ctx.println(((mainDraft>0) || ((f.alts)!=null))?"change":"incorrect");
-            writeRadio(ctx,fieldName,fieldPath,NEW,checked);
-            ctx.println("</td>");
-            ctx.println("<td class='new'>");
-            String change = "";
-            if(changes != null) {
-           //     change = (String)changes.get(type + "//n");
-            }
-            if((mainDraft>0) || ((f.alts)!=null)) {
-                // this is supposed to Automatically check the 'change' button when user types something in.
-                // but it doesn't work.
-                String blurCheckScript = ""; //" else {  document.forms[0].elements['" + fieldsToHtml(fieldName,fieldPath) + "'][3].checked=true; "
-                ctx.print("<input size=50 class='inputbox' ");
-                ctx.print("onblur=\"if (value == '') {value = '" + UNKNOWNCHANGE + "'} " + blurCheckScript + " }\" onfocus=\"if (value == '" + 
-                    UNKNOWNCHANGE + "') {value =''}\" ");
-                ctx.print("value=\"" + 
-                      (  (newString!=null) ? newString : UNKNOWNCHANGE )
-                        + "\" name=\"" + fieldsToHtml(fieldName,fieldPath) + SUBNEW + "\">");
-            } else {
-                ctx.print("Item is incorrect.");
-            }
-            ctx.println("</td>");
-            
-            //if((newString != null) && ((checked!=null)&&(!checked.equals(NEW)))) {
-            //    ctx.println("<td class='pager'><b>Don't forget to click \"change\" when submitting a change.</b></td>");
-            //}
-            
-            ctx.println("</tr>");
-
-            ctx.println("<tr class='sep'><td class='sep' colspan=4 bgcolor=\"#CCCCDD\"></td></tr>");
-*/                                             
-                                             
-                                             
+                                
                                 if((at==null)&&(at==null)) {
                                     gotNonDraft=true;
                                 }
@@ -2366,41 +2178,428 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                     }
                     theLocale = WebContext.getParent(theLocale);
                 } while((theLocale != null)&&(gotNonDraft==false));
-                                
+                
                 if(dispCount >= CODES_PER_PAGE) {
                     break;
                 }
-
+                
             } // end loop
         } // end synch
-
+        
         ctx.println("</table>");
         // skip =
-            //showSkipBox(ctx, total, sortedMap, tx);
+        //showSkipBox(ctx, total, sortedMap, tx);
         if(ctx.session.user != null) {
             ctx.println("<div style='margin-top: 1em;' align=right><input type=submit value='" + xSAVE + " for " + 
-                    ctx.locale.getDisplayName() +"'></div>");
+                        ctx.locale.getDisplayName() +"'></div>");
         }
         ctx.println("</form>");
         
-/*        
-        java.sql.ResultSet rs = ourSrc.listPrefix(xpath);
+    }
+
+    /**
+     * cribbed from showNodeList
+     */
+    public void showPathList(WebContext ctx, String xpath, String lastElement) {
+        int count = 0;
+        int dispCount = 0;
+        int total = 0;
+        int skip = 0;
+        String fullThing = xpath + "/" + lastElement;
+        boolean isTz = xpath.equals("timeZoneNames");
+        if(lastElement == null) {
+            fullThing = xpath;
+        }
+        //       total = mySet.count();
+        boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
+        CLDRFile cf = getUserFile(ctx, ctx.session.user, ctx.locale);
+        CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
+        CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
+        XPathParts pathParts = new XPathParts(null, null);
+        XPathParts fullPathParts = new XPathParts(null, null);
+        List checkCldrResult = new ArrayList();
+        
+        Iterator theIterator = null;
+        
+        synchronized(ourSrc) { // because it has a connection..
+            StandardCodes standardCodes = StandardCodes.make();
+            Set defaultSet = null;
+            if(lastElement != null) {
+                defaultSet = standardCodes.getAvailableCodes(lastElement); // TODO: 2 nonstandard types?
+            } else if(isTz) {
+                defaultSet = standardCodes.getAvailableCodes("tzid");
+                fullThing = "//ldml/dates/timeZoneNames/zone/short/standard";
+            }
+            
+            if(defaultSet == null ) {
+                // ctcx.println("<hr/><i>Err: 0 items in defaultSet</i><hr/>");
+                defaultSet = new HashSet();
+                theIterator = cf.iterator(fullThing);
+            } else { 
+                theIterator = defaultSet.iterator();
+            }
+            // NAVIGATION .. calculate skips.. 
+            skip = showSkipBox(ctx, defaultSet.size());
+            //            if(changes.get(xOTHER + "/" + NEW)!=null) {
+            //                changes.remove(xOTHER + "/" + NEW);
+            //                ctx.println("<div class='missing'><b>Warning: Remember to click the 'change' radio button after typing in a change.  Please check the status of change boxes below.</b></div><br/>");
+            //            }
+            
+            
+            ctx.println(" Printing dump for " + fullThing + ", #" + xpt.getByXpath(fullThing) + "<br />");
+            
+            
+            // Form: 
+            ctx.printUrlAsHiddenFields();
+            ctx.println("<table class='list' border=1>");
+            ctx.println("<tr>");
+            ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=2>Name<br/><div style='border: 1px solid gray; width: 6em;' align=left><tt>Code</tt></span></th>");
+            ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Best<br/>");
+            ctx.printHelpLink("/Best");
+            ctx.println("</th>");
+            ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Contents</th>");
+            ctx.println("</tr>");
+            
+            
+            for(Iterator e = theIterator;e.hasNext();) {
+                String type = (String)e.next();
+                
+                count++;
+                if(skip > 0) {
+                    --skip;
+                    continue;
+                }
+                dispCount++;
+                
+                boolean first = true;
+                
+                boolean gotNonDraft = false;
+                
+                String locale = ctx.locale.toString();
+                String theLocale = locale;
+                
+                do {
+                    java.sql.ResultSet rs = ourSrc.listForType(xpt.getByXpath(fullThing), type, theLocale);
+                    
+                    try {
+                        while(rs.next()) {
+                            if(first) {
+                                ctx.println("<tr><th colspan='3' valign='left'>" + type + "</th></tr>");
+                                first = false;
+                            }
+                            int submitId = rs.getInt(4);
+                            if(rs.wasNull()) submitId = -1; //  null submitter
+                            
+                            String at = rs.getString(2);
+                            String ap = rs.getString(3);
+                            String val = rs.getString(1);
+                            String subXpath = xpt.getById(rs.getInt(5));
+                            String fullPath = xpt.getById(rs.getInt(6));
+                            
+                            if((theLocale==locale)||((at==null)&&(ap==null))) {
+                                String rowclass="current";
+                                if((at!=null)&&(at.equals("proposed"))) {
+                                    rowclass = "proposed";
+                                } else if(theLocale != locale) {
+                                    rowclass = "fallback";
+                                }
+                                ctx.println("<tr class='" + rowclass + "'><td>" + val + "</td>" +
+                                            "<td>"+ ((at!=null)?at:"") + "<br />" + 
+                                            ((ap!=null)?ap:"") + "</td>" + 
+                                            "");
+                                if(theLocale != locale) {
+                                    ctx.println("<td><b>" + theLocale + "</b></td>");
+                                }
+                                
+                                ctx.println("<td>");
+                                pathParts.clear();
+                                fullPathParts.clear();
+                                checkCldrResult.clear();
+                                checkCldr.check(subXpath, fullPath, val, pathParts, fullPathParts, checkCldrResult);
+                                for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
+                                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                                    if (!status.getType().equals(status.exampleType)) {
+                                        ctx.println(status.toString() + "\t" + val + "\t" + fullPath);
+                                    } else {
+                                        ctx.println("<i>example available</i><br />");
+                                    }
+                                }                                            
+                                ctx.println("</td>");
+                                
+                                
+                                
+                                ctx.println("</tr>");
+                                /*
+                                 if(theLocale!=locale) {
+                                     ctx.println(" ("+ theLocale+") ");
+                                 }
+                                 
+                                 ctx.println("at:" + at + "," +
+                                             "ap:" + ap + "," + 
+                                             "sub:" + submitId + 
+                                             "  = <span style='border: 1px solid gray'>" + val+"</span><br />");*/
+                                
+                                /*                            if(f.xpath != null) {
+                                    ctx.println("<tr class='xpath'><td colspan=4>"+  f.xpath + "</td></tr>");
+                                }*/
+                                
+                                /*           if(f.isAlias == true) {
+                                    ctx.println("<tr class='alias'><td colspan=4>" + f.type +
+                                                "<a href=\"" + ctx.base() + "?x=" + ctx.field("x") + "&_=" + f.fallbackLocale + "\">" + 
+                                                new ULocale(f.fallbackLocale).getDisplayName() +                        
+                                                "</a>");
+                                ctx.println("</td></tr>");
+                                continue;
+                                }*/
+                                
+                                
+                                /*
+                                 String base = ((xpath==null)?f.xpath:type);
+                                 String main = val;
+                                 String mainFallback = null;
+                                 int mainDraft = 0; // count
+                                                    //            if(f.mainDraft) {
+                                                    //                mainDraft = 1; // for now: one draft
+                                                    //            }
+                                 String fieldName = ((xpath!=null)?xpath:f.xpath);
+                                 String fieldPath = ((xpath!=null)?type:null);
+                                 int nRows = 1;         // the 'new' line (user edited)
+                                 nRows ++; // 'main'
+                                           // are we showing a fallback locale in the 'current' slot?
+                                 if( (f.fallback != null) && // if we have a fallback
+                                     ( (mainDraft > 0) || (f.main == null) ) ) {
+                                     mainFallback = f.fallbackLocale;
+                                     if(mainDraft > 0) {
+                                         nRows ++; // fallback
+                                     }
+                                 }else if (mainDraft > 0) {
+                                     nRows ++; // for the Draft entry
+                                 }
+                                 if(f.alts != null) {
+                                     nRows += f.alts.size();
+                                 }
+                                 
+                                 // Analyze user input.
+                                 String checked = null;  // What option has the user checked?
+                                 String newString = null;  // What option has the user checked?
+                                 if(changes != null) {
+                                     checked = (String)changes.get(base + SUBVETTING); // fetch VETTING data
+                                     newString = (String)changes.get(base + SUBNEW); // fetch NEW data
+                                                                                     ////               ctx.println(":"+base+SUBVETTING + ":");
+                                 }
+                                 if(checked == null) {
+                                     checked = NOCHANGE;
+                                 }
+                                 */
+                                /*
+                                 ctx.println("<tr>");
+                                 // 1. name/code
+                                 String tx_text = type;//tx.text(f)
+                                 ctx.println("<th valign=top align=left class='name' colspan=2 rowspan=" + (nRows-1) + ">" + tx_text + "");
+                                 if(type != null) {
+                                     ctx.println("<br/><tt>(" + type + ")</tt>");
+                                 }
+                                 */
+                                /*
+                                 // see if there's a warning.
+                                 String myxpath = f.xpath;
+                                 if(myxpath == null) {
+                                     myxpath = xpath;
+                                     if(f.main != null) {
+                                         myxpath = myxpath + "/" + f.main.getNodeName();
+                                     } else {
+                                         //                    ctx.println("<B>problem - missing item</B>");
+                                         myxpath = null;
+                                     }
+                                     if(f.type != null) {
+                                         myxpath = myxpath + "[@type='" + f.type + "']";
+                                     }
+                                     if(f.key != null) {
+                                         myxpath = myxpath + "[@key='" + f.key + "']";
+                                     }
+                                     
+                                     //                ctx.println("[<tt>" + ctx.locale + " " + myxpath + "</tt>]");
+                                 }
+                                 */
+                                
+                                //            ctx.println("</th>");
+                                
+                                /*
+                                 // Now there are a pair of columns for each of the following. 
+                                 // 2. fallback
+                                 if(mainFallback != null) {
+                                     ctx.println("<td align=right class='fallback'>");
+                                     ctx.println("from " + 
+                                                 "<a href=\"" + ctx.base() + "?x=" + ctx.field("x") + "&_=" + mainFallback + "\">" + 
+                                                 new ULocale(mainFallback).getDisplayName() +                        
+                                                 "</a>");
+                                     writeRadio(ctx,fieldName,fieldPath,CURRENT,checked);
+                                     ctx.println("</td>");
+                                     ctx.println("<td class='fallback'>");
+                                     ctx.println(LDMLUtilities.getNodeValue(f.fallback));
+                                     ctx.println("</td>");
+                                 } else if((main!=null)&&(mainDraft==0)) {
+                                     ctx.println("<td align=right class='current'>");
+                                     ctx.println("current");
+                                     writeRadio(ctx,fieldName,fieldPath,CURRENT,checked);
+                                     ctx.println("</td>");
+                                     ctx.println("<td class='current'>");
+                                     printWarning(ctx, myxpath);
+                                     ctx.println(main);
+                                     ctx.println("</td>");
+                                 } else //  if(main == null) 
+                                 {
+                                     ctx.println("<td align=right class='missing'>");
+                                     
+                                     if(f.fallbackLocale != null) {
+                                         ctx.println("see " + 
+                                                     "<a href=\"" + ctx.base() + "?x=" + ctx.field("x") + "&_=" + f.fallbackLocale + "\">" + 
+                                                     new ULocale(f.fallbackLocale).getDisplayName() +                        
+                                                     "</a>");
+                                     } else {
+                                         ctx.println("<i>current</i>");
+                                         writeRadio(ctx,fieldName,fieldPath,CURRENT,checked);
+                                     }
+                                     ctx.println("</td>");
+                                     ctx.println("<td title=\"Data missing - raw code shown.\" class='missing'><tt>");
+                                     ctx.println(type); // in typewriter <tt> to show that it is a code.
+                                     ctx.println("</tt></td>");
+                                 }
+                                 ctx.println("</tr>");
+                                 
+                                 ctx.println("<tr>");
+                                 
+                                 // Draft item
+                                 if(mainDraft > 0) {
+                                     ctx.println("<td align=right class='draft'>");
+                                     ctx.println("draft");
+                                     writeRadio(ctx,fieldName,fieldPath,DRAFT,checked);
+                                     ctx.println("</td>");
+                                     ctx.println("<td class='draft'>");
+                                     ctx.println(main);
+                                     ctx.println("</td>");
+                                     ctx.println("</tr>");
+                                     ctx.println("<tr>");
+                                 }
+                                 
+                                 // Proposed item
+                                 if(f.alts != null) {
+                                     Enumeration ee = f.alts.keys();
+                                     for(;ee.hasMoreElements();) {
+                                         String k = (String)(ee.nextElement());
+                                         ctx.println("<td align=right class='proposed'>");
+                                         ctx.println(k);
+                                         writeRadio(ctx,fieldName,fieldPath,PROPOSED + k,checked);
+                                         ctx.println("</td>");
+                                         ctx.println("<td class='proposed'>");
+                                         printWarning(ctx, myxpath+"[@alt='" + k + "']");
+                                         ctx.println(LDMLUtilities.getNodeValue((Node)f.alts.get(k)));
+                                         ctx.println("</td>");
+                                         ctx.println("</tr>");
+                                         ctx.println("<tr>");
+                                     }
+                                 }
+                                 
+                                 //'nochange' and type
+                                 ctx.println("<th class='type'>");
+                                 if(type == null) {
+                                     type = "NULL??";
+                                 }
+                                 int lastSlash = type.lastIndexOf('/');
+                                 String showType;
+                                 if(lastSlash != -1) {
+                                     showType = type.substring(lastSlash+1);
+                                 } else {
+                                     showType = type;
+                                 }
+                                 ctx.println("<tt>" + showType + "</tt>");
+                                 ctx.println("</th>");
+                                 ctx.println("<td class='nochange'>");
+                                 ctx.println("Don't care");
+                                 writeRadio(ctx,fieldName,fieldPath,NOCHANGE,checked);
+                                 ctx.println("</td>");
+                                 
+                                 // edit text
+                                 ctx.println("<td align=right class='new'>");
+                                 ctx.println(((mainDraft>0) || ((f.alts)!=null))?"change":"incorrect");
+                                 writeRadio(ctx,fieldName,fieldPath,NEW,checked);
+                                 ctx.println("</td>");
+                                 ctx.println("<td class='new'>");
+                                 String change = "";
+                                 if(changes != null) {
+                                     //     change = (String)changes.get(type + "//n");
+                                 }
+                                 if((mainDraft>0) || ((f.alts)!=null)) {
+                                     // this is supposed to Automatically check the 'change' button when user types something in.
+                                     // but it doesn't work.
+                                     String blurCheckScript = ""; //" else {  document.forms[0].elements['" + fieldsToHtml(fieldName,fieldPath) + "'][3].checked=true; "
+                                     ctx.print("<input size=50 class='inputbox' ");
+                                     ctx.print("onblur=\"if (value == '') {value = '" + UNKNOWNCHANGE + "'} " + blurCheckScript + " }\" onfocus=\"if (value == '" + 
+                                               UNKNOWNCHANGE + "') {value =''}\" ");
+                                     ctx.print("value=\"" + 
+                                               (  (newString!=null) ? newString : UNKNOWNCHANGE )
+                                               + "\" name=\"" + fieldsToHtml(fieldName,fieldPath) + SUBNEW + "\">");
+                                 } else {
+                                     ctx.print("Item is incorrect.");
+                                 }
+                                 ctx.println("</td>");
+                                 
+                                 //if((newString != null) && ((checked!=null)&&(!checked.equals(NEW)))) {
+                                 //    ctx.println("<td class='pager'><b>Don't forget to click \"change\" when submitting a change.</b></td>");
+                                 //}
+                                 
+                                 ctx.println("</tr>");
+                                 
+                                 ctx.println("<tr class='sep'><td class='sep' colspan=4 bgcolor=\"#CCCCDD\"></td></tr>");
+                                 */                                             
+                                
+                                
+                                if((at==null)&&(at==null)) {
+                                    gotNonDraft=true;
+                                }
+                            }
+                        }
+                        rs.close();
+                    } catch(SQLException se) {
+                        ctx.println("err in showPathList 0: " + unchainSqlException(se));
+                    }
+                    theLocale = WebContext.getParent(theLocale);
+                } while((theLocale != null)&&(gotNonDraft==false));
+                
+                if(dispCount >= CODES_PER_PAGE) {
+                    break;
+                }
+                
+            } // end loop
+        } // end synch
+        
+        ctx.println("</table>");
+        // skip =
+        //showSkipBox(ctx, total, sortedMap, tx);
+        if(ctx.session.user != null) {
+            ctx.println("<div style='margin-top: 1em;' align=right><input type=submit value='" + xSAVE + " for " + 
+                        ctx.locale.getDisplayName() +"'></div>");
+        }
+        ctx.println("</form>");
+        
+        /*        
+            java.sql.ResultSet rs = ourSrc.listPrefix(xpath);
         Set s = new HashSet();
         try {
             while(rs.next()) {
-//XPathTable.CLDR_XPATHS+".xpath," +CLDR_DATA+".value,"+CLDR_DATA+".type,"+CLDR_DATA+".alt_type,"+CLDR_DATA+".alt_proposed,"+CLDR_DATA+".submitter" +
-            
+                //XPathTable.CLDR_XPATHS+".xpath," +CLDR_DATA+".value,"+CLDR_DATA+".type,"+CLDR_DATA+".alt_type,"+CLDR_DATA+".alt_proposed,"+CLDR_DATA+".submitter" +
+                
                 int txpath = rs.getInt(1);
                 String atxpath = xpt.getById(txpath);
                 s.add(atxpath);
-        
+                
                 String apath = rs.getString(1);
                 String value = rs.getString(2);
                 String type = rs.getString(3);
                 String alt_type = rs.getString(4);
                 String alt_proposed = rs.getString(5);
                 int submitter = rs.getInt(6);
-
+                
                 ctx.println("<tt>" + apath + "</tt><br />");
                 ctx.println("  t:" + type + ", v:" + value +"<br />");
                 
@@ -2413,7 +2612,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         } catch(SQLException se) {
             ctx.println("err in showPathList: " + unchainSqlException(se));
         }
-
+        
         */
     }
 

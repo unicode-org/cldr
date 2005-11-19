@@ -90,7 +90,7 @@ public class CookieSession {
     static int h = 90;
     public static String j = cheapEncode(System.currentTimeMillis());
     
-    protected String newId(boolean isGuest) {  
+    protected synchronized String newId(boolean isGuest) {  
         if(isGuest) {
             // no reason, just a different set of hashes
             return cheapEncode(h+=2)+"w"+cheapEncode(j.hashCode()+g++);
@@ -129,8 +129,13 @@ public class CookieSession {
         }
         return l;
     }
-    
-    static String cheapEncode(long l) {
+
+    /**
+     * utility function for doing a hash
+     * @param l number
+     * @return string
+     */
+    public static String cheapEncode(long l) {
         String out = "";
         if(l < 0) {
             l = 0 - l;

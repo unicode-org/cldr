@@ -2049,10 +2049,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         final String TZ_TYPES[] = { "generic", "standard", "daylight" };
         final String TZ_EXEMPLAR = "exemplarCity";
         
-        boolean isTz = xpath.equals("timeZoneNames");
-        if(lastElement == null) {
-            fullThing = xpath;
-        }
+        boolean isTz = true;
         //       total = mySet.count();
         boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
         CLDRFile cf = getUserFile(ctx, ctx.session.user, ctx.locale);
@@ -2068,13 +2065,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             StandardCodes standardCodes = StandardCodes.make();
             Set defaultSet = standardCodes.getAvailableCodes("tzid");
             
-            if(defaultSet == null ) {
-                // ctcx.println("<hr/><i>Err: 0 items in defaultSet</i><hr/>");
-                defaultSet = new HashSet();
-                theIterator = cf.iterator(fullThing);
-            } else { 
-                theIterator = defaultSet.iterator();
-            }
+            theIterator = defaultSet.iterator();
             // NAVIGATION .. calculate skips.. 
             skip = showSkipBox(ctx, defaultSet.size());
             //            if(changes.get(xOTHER + "/" + NEW)!=null) {
@@ -2083,7 +2074,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             //            }
             
             
-            ctx.println(" Printing dump for " + fullThing + ", #" + xpt.getByXpath(fullThing) + "<br />");
+     //       ctx.println(" Printing dump for " + fullThing + ", #" + xpt.getByXpath(fullThing) + "<br />");
             
             
             // Form: 
@@ -2108,12 +2099,14 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 }
                 dispCount++;
                 
-                boolean first = true;
-                
-                boolean gotNonDraft = false;
-                
                 String locale = ctx.locale.toString();
+                boolean first = true;
+//                int isExemplar
+                for(int whichType = 0;whichType < TZ_TYPES.length;whichType++) {
+                    for(int whichLength = 0;whichLength < TZ_LENGTHS.length;whichLength++) {
                 String theLocale = locale;
+                String fullThing = TZ_MOST + TZ_LENGTHS[whichLength] + "/" + TZ_TYPES[whichType];
+                boolean gotNonDraft = false;
                 
                 do {
                     java.sql.ResultSet rs = ourSrc.listForType(xpt.getByXpath(fullThing), type, theLocale);
@@ -2140,7 +2133,9 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                                 } else if(theLocale != locale) {
                                     rowclass = "fallback";
                                 }
-                                ctx.println("<tr class='" + rowclass + "'><td>" + val + "</td>" +
+                                ctx.println("<tr class='" + rowclass + "'><td>" +
+                "<font size='-2'>"+TZ_LENGTHS[whichLength] + "/" + TZ_TYPES[whichType] + "</font><br/>" +
+                                         val + "</td>" +
                                             "<td>"+ ((at!=null)?at:"") + "<br />" + 
                                             ((ap!=null)?ap:"") + "</td>" + 
                                             "");
@@ -2178,7 +2173,8 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                     }
                     theLocale = WebContext.getParent(theLocale);
                 } while((theLocale != null)&&(gotNonDraft==false));
-                
+                }
+                } /* end type and len */
                 if(dispCount >= CODES_PER_PAGE) {
                     break;
                 }

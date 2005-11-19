@@ -28,10 +28,42 @@ import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 
+/**
+ * This class provides a foundation for both console-driven CLDR tests, and Survey Tool Tests.
+ * <p>To add a test, subclass CLDRFile and override handleCheck and possibly setCldrFileToCheck.
+ * Then put the test into getCheckAll.
+ * <p>To use the test, take a look at the main below. Note that you need to call setDisplayInformation
+ * with the CLDRFile for the locale that you want the display information (eg names for codes) to be in.
+ * <p>TODO
+ * <br>add CheckCoverage
+ * <br>add CheckAttributeValue
+ * @author davis
+ */
 abstract public class CheckCLDR {
 	private CLDRFile cldrFileToCheck;
 	private CLDRFile resolvedCldrFileToCheck;
 	private static CLDRFile displayInformation;
+	
+	static boolean SHOW_LOCALE = true;
+    static boolean SHOW_EXAMPLES = false;
+	
+	/**
+	 * Here is where the list of all checks is found. 
+	 * @param nameMatcher Regex pattern that determines which checks are run,
+	 * based on their class name (such as .* for all checks, .*Collisions.* for CheckDisplayCollisions, etc.)
+	 * @return
+	 */
+	public static CompoundCheckCLDR getCheckAll(String nameMatcher) {
+		return new CompoundCheckCLDR()
+			.setFilter(Pattern.compile(nameMatcher).matcher(""))
+			.add(new CheckForExemplars())
+			.add(new CheckDisplayCollisions())
+			.add(new CheckExemplars())
+			.add(new CheckNumbers())
+			.add(new CheckChildren())
+			.add(new CheckDates())
+		;
+	}
 	
 	/**
 	 * These determine what language is used to display information. Must be set before use.
@@ -59,7 +91,6 @@ abstract public class CheckCLDR {
         String checkFilter = args.length <= 1 ? ".*" : args[1]; // eg .*Collision.* 
         System.out.println("factoryFilter: " + factoryFilter);
         System.out.println("checkFilter: " + checkFilter);
-        boolean showExamples = false;
         
         // set up the test
 		Factory cldrFactory = CLDRFile.Factory.make(Utility.MAIN_DIRECTORY, factoryFilter);
@@ -76,7 +107,7 @@ abstract public class CheckCLDR {
 		double testNumber = 0;
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String localeID = (String) it.next();
-			System.out.println("Locale:\t" + getLocaleAndName(localeID) + "\t");
+			if (SHOW_LOCALE) System.out.println("Locale:\t" + getLocaleAndName(localeID) + "\t");
 			CLDRFile file = cldrFactory.make(localeID, false);
 			checkCldr.setCldrFileToCheck(file, result);
 			for (Iterator it3 = result.iterator(); it3.hasNext();) {
@@ -94,7 +125,7 @@ abstract public class CheckCLDR {
 				for (Iterator it3 = result.iterator(); it3.hasNext();) {
 					CheckStatus status = (CheckStatus) it3.next();
 					if (status.getType().equals(status.exampleType)) {
-						if (!showExamples) continue;
+						if (!SHOW_EXAMPLES) continue;
 						System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 						System.out.println("\t" + status);
 						System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
@@ -114,7 +145,7 @@ abstract public class CheckCLDR {
 					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 					System.out.println("\t" + statusString);
 					Object[] parameters = status.getParameters();
-					for (int i = 0; i < parameters.length; ++i) {
+					if (parameters != null) for (int i = 0; i < parameters.length; ++i) {
 						if (parameters[i] instanceof Throwable) {
 							((Throwable)parameters[i]).printStackTrace();
 						}
@@ -138,11 +169,11 @@ abstract public class CheckCLDR {
 	 * Get the CLDRFile.
 	 * @param cldrFileToCheck
 	 */
-	public CLDRFile getCldrFileToCheck() {
+	public final CLDRFile getCldrFileToCheck() {
 		return cldrFileToCheck;
 	}
 
-	public CLDRFile getResolvedCldrFileToCheck() {
+	public final CLDRFile getResolvedCldrFileToCheck() {
 		if (resolvedCldrFileToCheck == null) resolvedCldrFileToCheck = cldrFileToCheck.getResolved();
 		return resolvedCldrFileToCheck;
 	}
@@ -203,9 +234,15 @@ abstract public class CheckCLDR {
 		public String toString() {
 			return getType() + ": " + getMessage();
 		}
+		/**
+		 * Warning: don't change the contents of the parameters after retrieving.
+		 */
 		public Object[] getParameters() {
-			return (Object[]) parameters.clone();
+			return parameters;
 		}
+		/**
+		 * Warning: don't change the contents of the parameters after passing in.
+		 */
 		public void setParameters(Object[] parameters) {
 			this.parameters = parameters;
 		}
@@ -213,6 +250,7 @@ abstract public class CheckCLDR {
 			return null;
 		}
 	}
+	
 	public static class SimpleDemo {
 		/**
 		 * If the getHTMLMessage is not null, then call this in response to a submit.
@@ -237,8 +275,7 @@ abstract public class CheckCLDR {
 	 * @param path
 	 * @param result
 	 */
-	
-	public CheckCLDR check(String path, String fullPath, String value,
+	public final CheckCLDR check(String path, String fullPath, String value,
 			XPathParts pathParts, XPathParts fullPathParts, List result) {
 		if (path == null || value == null || fullPath == null) {
 			throw new InternalError("XMLSource problem: path, value, fullpath must not be null");
@@ -246,16 +283,24 @@ abstract public class CheckCLDR {
 		pathParts.clear();
 		fullPathParts.clear();
 		result.clear();
-		return _check(path, fullPath, value, pathParts, fullPathParts, result);
+		return handleCheck(path, fullPath, value, result);
 	}
 
 	/**
-	 * This is what the subclasses override. If they ever use pathParts or fullPathParts, they need to call initialize() with the respective
+	 * This is what the subclasses override.
+	 * If they ever use pathParts or fullPathParts, they need to call initialize() with the respective
 	 * path. Otherwise they must NOT change pathParts or fullPathParts.
-	 * If something is found, a CheckStatus is added to result.
+	 * <p>If something is found, a CheckStatus is added to result. This can be done multiple times in one call,
+	 * if multiple errors or warnings are found. The CheckStatus may return warnings, errors,
+	 * examples, or demos. We may expand that in the future.
+	 * <p>The code to add the CheckStatus will look something like::
+	 * <pre> result.add(new CheckStatus()
+	 * 		.setType(CheckStatus.errorType)
+	 *		.setMessage("Value should be {0}", new Object[]{pattern}));				
+	 * </pre>
 	 */
-	abstract public CheckCLDR _check(String path, String fullPath, String value,
-			XPathParts pathParts, XPathParts fullPathParts, List result);
+	abstract public CheckCLDR handleCheck(String path, String fullPath, String value,
+			List result);
 	
 	/**
 	 * Internal class used to bundle up a number of Checks.
@@ -276,13 +321,13 @@ abstract public class CheckCLDR {
 			}
 			return this;
 		}
-		public CheckCLDR _check(String path, String fullPath, String value,
-				XPathParts pathParts, XPathParts fullPathParts, List result) {
+		public CheckCLDR handleCheck(String path, String fullPath, String value,
+				List result) {
 			result.clear();
 			for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
 				CheckCLDR item = (CheckCLDR) it.next();
 				try {
-					item._check(path, fullPath, value, pathParts, fullPathParts, result);
+					item.handleCheck(path, fullPath, value, result);
 				} catch (Exception e) {
 					e.printStackTrace();
 			    	CheckStatus status = new CheckStatus().setType(CheckStatus.errorType)
@@ -326,24 +371,6 @@ abstract public class CheckCLDR {
 			}
 			return this;
 		}
-	}
-	
-	/**
-	 * Here is where the list of all checks is found. 
-	 * @param nameMatcher Regex pattern that determines which checks are run,
-	 * based on their class name (such as .* for all checks, .*Collisions.* for CheckDisplayCollisions, etc.)
-	 * @return
-	 */
-	public static CompoundCheckCLDR getCheckAll(String nameMatcher) {
-		return new CompoundCheckCLDR()
-			.setFilter(Pattern.compile(nameMatcher).matcher(""))
-			.add(new CheckForExemplars())
-			.add(new CheckDisplayCollisions())
-			.add(new CheckExemplars())
-			.add(new CheckNumbers())
-			.add(new CheckChildren())
-			.add(new CheckDates())
-		;
 	}
 	
 	/**

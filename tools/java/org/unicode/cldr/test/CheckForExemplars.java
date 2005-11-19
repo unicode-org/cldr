@@ -9,7 +9,6 @@ package org.unicode.cldr.test;
 import java.util.List;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.Collator;
@@ -46,16 +45,16 @@ public class CheckForExemplars extends CheckCLDR {
 			possibleErrors.add(item);
 			return this;
 		}
-		UnicodeSet temp = resolvedFile.getExemplarSet("standard");
-		if (temp != null) exemplars.addAll(temp);
+		//UnicodeSet temp = resolvedFile.getExemplarSet("standard");
+		//if (temp != null) exemplars.addAll(temp);
 		UnicodeSet auxiliary = resolvedFile.getExemplarSet("auxiliary");
 		if (auxiliary != null) exemplars.addAll(auxiliary);
 		exemplars.addAll(CheckExemplars.AlwaysOK);
 		skip = false;
 		return this;
 	}
-	public CheckCLDR _check(String path, String fullPath, String value,
-			XPathParts pathParts, XPathParts fullPathParts, List result) {
+	public CheckCLDR handleCheck(String path, String fullPath, String value,
+			List result) {
 		if (skip) return this;
 		for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
 			if (path.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) return this; // skip some items.

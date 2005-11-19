@@ -12,14 +12,13 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.XPathParts;
 
 public class CheckChildren extends CheckCLDR {
 	CLDRFile[] immediateChildren;
 	Map tempSet = new HashMap();
 	
-	public CheckCLDR _check(String path, String fullPath, String value,
-			XPathParts pathParts, XPathParts fullPathParts, List result) {
+	public CheckCLDR handleCheck(String path, String fullPath, String value,
+			List result) {
 		if (immediateChildren == null) return this; // skip
 		String current = getResolvedCldrFileToCheck().getStringValue(path);
 		tempSet.clear();

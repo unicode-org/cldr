@@ -294,19 +294,22 @@ public class Utility {
             String batDir = targetDir + "diff" + File.separator;
             String batName = targetFile + ".bat";
             String[] failureLines = new String[2];
+            
+            String fullSource = sourceDir + File.separator + sourceFile;
+            String fullTarget = targetDir + File.separator + targetFile;
 
-            if (!new File(sourceDir + sourceFile).exists()) {
+            if (!new File(sourceDir + File.separator + sourceFile).exists()) {
                 File f = new File(batDir + batName);
                 if (f.exists()) {
                     if (DEBUG_SHOW_BAT) System.out.println("*Deleting old " + f.getCanonicalPath());
                     f.delete();
                 }
-            } else if (!areFileIdentical(sourceDir + sourceFile, targetDir + targetFile, failureLines, lineComparer)) {
+            } else if (!areFileIdentical(fullSource, fullTarget, failureLines, lineComparer)) {
                 PrintWriter bat = BagFormatter.openUTF8Writer(batDir, batName);
                 try {
                 	bat.println(COMPARE_PROGRAM + " " +
-                        new File(sourceDir + sourceFile).getCanonicalPath() + " " +
-                        new File(targetDir + targetFile).getCanonicalPath());               
+                        new File(fullSource).getCanonicalPath() + " " +
+                        new File(fullTarget).getCanonicalPath());               
                 } finally {
                 	bat.close();
                 }
@@ -316,9 +319,9 @@ public class Utility {
                     if (DEBUG_SHOW_BAT) System.out.println("*Deleting old " + f.getCanonicalPath());
                     f.delete();
                 }
-                f = new File(targetDir + targetFile);
+                f = new File(fullTarget);
                 if (BagFormatter.SHOW_FILES) System.out.println("*Renaming old " + f.getCanonicalPath());
-                f.renameTo(new File(targetDir + "_unchanged_" + targetFile));
+                f.renameTo(new File(targetDir + File.separator + "_unchanged_" + targetFile));
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block

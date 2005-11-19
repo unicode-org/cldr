@@ -154,11 +154,11 @@ public class CLDRFile implements Freezable {
 	
     // for refactoring
     
-	private void setSupplemental(boolean isSupplemental) {
+	private void setNonInheriting(boolean isSupplemental) {
 		dataSource.setNonInheriting(isSupplemental);
 	}
 
-	private boolean isSupplemental() {
+	private boolean isNonInheriting() {
 		return dataSource.isNonInheriting();
 	}
 
@@ -191,7 +191,7 @@ public class CLDRFile implements Freezable {
     public static CLDRFile makeSupplemental(String localeName) {
     	CLDRFile result = new CLDRFile(null, false);
 		result.dataSource.setLocaleID(localeName);
-		result.setSupplemental(true);
+		result.setNonInheriting(true);
 		return result;
     }
     
@@ -293,7 +293,7 @@ public class CLDRFile implements Freezable {
 
 		pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
 		pw.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/" + GEN_VERSION + "/ldml" 
-				+ (isSupplemental() ? "Supplemental" : "")
+				+ (isNonInheriting() ? "Supplemental" : "")
 				+ ".dtd\">");
 		/*
 <identity>
@@ -303,7 +303,7 @@ public class CLDRFile implements Freezable {
 		 */
 		// if ldml has any attributes, get them.
 		Set identitySet = new TreeSet(ldmlComparator);
-		if (isSupplemental()) {
+		if (isNonInheriting()) {
 			identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/version[@number=\"$Revision$\"]");
 			identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/generation[@date=\"$Date$\"]");
 		} else {
@@ -467,7 +467,7 @@ public class CLDRFile implements Freezable {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
 		XPathParts parts = new XPathParts(null, null);
     	if (conflict_resolution == MERGE_KEEP_MINE) {
-    		Map temp = isSupplemental() ? new TreeMap() : new TreeMap(ldmlComparator);
+    		Map temp = isNonInheriting() ? new TreeMap() : new TreeMap(ldmlComparator);
     		dataSource.putAll(other.dataSource, MERGE_KEEP_MINE);
     	} else if (conflict_resolution == MERGE_REPLACE_MINE) {
     		dataSource.putAll(other.dataSource, MERGE_REPLACE_MINE);
@@ -794,7 +794,14 @@ private boolean isSupplemental;
     					}
     				}
     				if (draft != null || alt != null) {
-    					Map attributes = distinguishingParts.getAttributes(distinguishingParts.size() - 1);
+    					// get the last element that is not ordered.
+    					int placementIndex = distinguishingParts.size() - 1;
+    					while (true) {
+    						String element = distinguishingParts.getElement(placementIndex);
+    						if (!orderedElements.contains(element)) break;
+    						--placementIndex;
+    					}
+    					Map attributes = distinguishingParts.getAttributes(placementIndex);
     					if (draft != null) attributes.put("draft", draft);
     					if (alt != null) attributes.put("alt", alt);
     					String newXPath = distinguishingParts.toString();
@@ -1772,7 +1779,9 @@ private boolean isSupplemental;
 							"exponential", "perMille", "infinity", "nan",
 							"collation", "messages", "yesstr", "nostr",
 							"yesexpr", "noexpr", "segmentation", "variables",
-							"segmentRules", "special", "variable", "rule", "comment" })
+							"segmentRules", "special", "variable", "rule", "comment",
+							// collation
+							"base", "settings", "suppress_contractions", "optimize", "rules"})
 			.setErrorOnMissing(false).freeze();
 	
 	static MapComparator attributeOrdering = (MapComparator) new MapComparator()
@@ -1849,7 +1858,17 @@ private boolean isSupplemental;
 			"hour", "minute", "second", "zone"}).freeze();
     static Comparator zoneOrder = StandardCodes.make().getTZIDComparator();
     
-    static Set orderedElements = new HashSet(java.util.Arrays.asList(new String[]{"variable", "comment", "tRule"}));
+    static Set orderedElements = new HashSet(java.util.Arrays
+			.asList(new String[] {
+					"variable", "comment", "tRule",
+			// collation
+					"reset", "p", "pc", "s", "sc", "t", "tc", "q", "qc", "i",
+					"ic", "x", "extend", "first_variable", "last_variable",
+					"first_tertiary_ignorable", "last_tertiary_ignorable",
+					"first_secondary_ignorable", "last_secondary_ignorable",
+					"first_primary_ignorable", "last_primary_ignorable",
+					"first_non_ignorable", "last_non_ignorable",
+					"first_trailing", "last_trailing" }));
 	/**
 	 * 
 	 */
@@ -1903,7 +1922,9 @@ private boolean isSupplemental;
 			for (int i = 0; i < minSize; ++i) {
 				String aname = a.getElement(i);
 				String bname = b.getElement(i);
-				if (0 != (result = elementOrdering.compare(aname, bname))) return result;
+				if (!(orderedElements.contains(aname) 
+						&& orderedElements.contains(bname))
+						&& 0 != (result = elementOrdering.compare(aname, bname))) return result;
 				Map am = a.getAttributes(i);
 				Map bm = b.getAttributes(i);
 				int minMapSize = am.size();

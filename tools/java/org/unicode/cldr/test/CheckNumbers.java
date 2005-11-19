@@ -9,7 +9,6 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.SimpleDemo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
-import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.text.DecimalFormat;
@@ -26,22 +25,35 @@ public class CheckNumbers extends CheckCLDR {
 	
 	static String SampleList = "{0} => {1} => {2}";
 	
+	boolean isPOSIX;
 	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
 		if (cldrFileToCheck == null) return this;
 		super.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
 		icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());
+		isPOSIX = cldrFileToCheck.getLocaleID().indexOf("POSIX") >= 0;
 		return this;
 	}
 
-	public CheckCLDR _check(String path, String fullPath, String value, XPathParts pathParts, XPathParts fullPathParts, List result) {
+	public CheckCLDR handleCheck(String path, String fullPath, String value, List result) {
 		if (path.indexOf("/numbers") < 0) return this;
 		try {
 			if (path.indexOf("/pattern") >= 0 && path.indexOf("/patternDigit") < 0) {
-				checkPattern(path, fullPath, value, pathParts, fullPathParts, result);
+				checkPattern(path, fullPath, value, result);
 			}
 			if (path.indexOf("/currencies") >= 0 && path.endsWith("/symbol")) {
-				checkCurrencyFormats(path, fullPath, value, pathParts, fullPathParts, result);
+				checkCurrencyFormats(path, fullPath, value, result);
 			}
+			
+			byte type = getNumericType(path);
+			if (type != NOT_NUMERIC_TYPE) {
+				String pattern = getCanonicalPattern(value, type, isPOSIX);
+				if (!pattern.equals(value)) {
+					result.add(new CheckStatus()
+							.setType(CheckStatus.errorType)
+							.setMessage("Value should be {0}", new Object[]{pattern}));				
+				}
+			}
+
 		} catch (Exception e) {
 			CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
 			.setMessage("Error in creating number format {0}; {1}", new Object[]{e.getClass().getName(), e});    	
@@ -50,12 +62,12 @@ public class CheckNumbers extends CheckCLDR {
 		return this;
 	}
 	
-	private void checkPattern(String path, String fullPath, String value, XPathParts pathParts, XPathParts fullPathParts, List result) throws ParseException {
+	private void checkPattern(String path, String fullPath, String value, List result) throws ParseException {
 		DecimalFormat x = icuServiceBuilder.getNumberFormat(value);
 		addSamples(x, result);
 	}
 	
-	private void checkCurrencyFormats(String path, String fullPath, String value, XPathParts pathParts, XPathParts fullPathParts, List result) throws ParseException {
+	private void checkCurrencyFormats(String path, String fullPath, String value, List result) throws ParseException {
 		DecimalFormat x = icuServiceBuilder.getCurrencyFormat(CLDRFile.getCode(path));
 		addSamples(x, result);
 	}
@@ -141,4 +153,41 @@ public class CheckNumbers extends CheckCLDR {
 	static String pattern4 = "'></td>"
 		+ "</tr>"
 		+ "</table>";
+	
+	private static int[][] DIGIT_COUNT = {{1,2,2}, {1,0,3}, {1,0,0}, {0,0,0}};
+	private static int[][] POSIX_DIGIT_COUNT = {{1,2,2}, {1,0,6}, {1,0,0}, {1,6,6}};
+	public static String getCanonicalPattern(String inpattern, byte type, boolean isPOSIX) {
+		// TODO fix later to properly handle quoted ;
+		DecimalFormat df = new DecimalFormat(inpattern);
+		int[] digits = isPOSIX ? POSIX_DIGIT_COUNT[type] : DIGIT_COUNT[type];
+		df.setMinimumIntegerDigits(digits[0]);
+		df.setMinimumFractionDigits(digits[1]);
+		df.setMaximumFractionDigits(digits[2]);
+		String pattern = df.toPattern();
+
+		//int pos = pattern.indexOf(';');
+		//if (pos < 0) return pattern + ";-" + pattern;
+		return pattern;
+	}
+	public static final byte NOT_NUMERIC_TYPE = -1, CURRENCY_TYPE = 0, DECIMAL_TYPE = 1, PERCENT_TYPE = 2, SCIENTIFIC_TYPE = 3;
+	public static final String[] TYPE_NAME = {"currency", "decimal", "percent", "scientific"};
+
+	public static byte getNumericType(String xpath) {
+		if (xpath.indexOf("/pattern") < 0) {
+			return NOT_NUMERIC_TYPE;
+		} else if (xpath.startsWith("//ldml/numbers/currencyFormats/")) {
+			return CURRENCY_TYPE;
+		} else if (xpath.startsWith("//ldml/numbers/decimalFormats/")) {
+			return DECIMAL_TYPE;
+		} else if (xpath.startsWith("//ldml/numbers/percentFormats/")) {
+			return PERCENT_TYPE;
+		} else if (xpath.startsWith("//ldml/numbers/scientificFormats/")) {
+			return SCIENTIFIC_TYPE;
+		} else if (xpath.startsWith("//ldml/numbers/currencies/currency/")) {
+			return CURRENCY_TYPE;
+		} else {
+			return NOT_NUMERIC_TYPE;
+		}
+	}
+
 }

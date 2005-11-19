@@ -10,7 +10,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
 import com.ibm.icu.dev.test.util.XEquivalenceMap;
@@ -34,7 +33,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
 		clear();
 	}
 	
-	public CheckCLDR _check(String path, String fullPath, String value, XPathParts pathParts, XPathParts fullPathParts, List result) {
+	public CheckCLDR handleCheck(String path, String fullPath, String value, List result) {
 		for (int i = 0; i < typesICareAbout.length; ++i) {
 			if (path.startsWith(typesICareAbout[i])) {
 				if (!builtCollisions[i]) buildCollisions(i);

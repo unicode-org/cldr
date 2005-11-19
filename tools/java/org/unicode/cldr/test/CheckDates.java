@@ -2,18 +2,23 @@ package org.unicode.cldr.test;
 
 import java.text.ParseException;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
@@ -33,14 +38,26 @@ public class CheckDates extends CheckCLDR {
 		if (cldrFileToCheck == null) return this;
 		super.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
 		icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());
+		bi = BreakIterator.getCharacterInstance(new ULocale(cldrFileToCheck.getLocaleID()));
 		return this;
 	}
+	BreakIterator bi;
 
-	public CheckCLDR _check(String path, String fullPath, String value, XPathParts pathParts, XPathParts fullPathParts, List result) {
+	public CheckCLDR handleCheck(String path, String fullPath, String value, List result) {
 		if (path.indexOf("/dates") < 0 || path.indexOf("gregorian") < 0) return this;
 		try {
+			if (path.indexOf("[@type=\"narrow\"]") >= 0) {
+				int end = getFirstGraphemeClusterBoundary(value);
+				if (end != value.length()) {
+					result.add(new CheckStatus()
+								.setType(CheckStatus.errorType)
+								.setMessage(
+										"Illegal narrow value. Must be only one grapheme cluster {0}~{1}",
+										new Object[]{value.substring(0,end), value.substring(end)}));
+				}
+			}
 			if (path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0) {
-				checkPattern(path, fullPath, value, pathParts, fullPathParts, result);
+				checkPattern(path, fullPath, value, result);
 			}
 		} catch (Exception e) {
 			CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
@@ -53,9 +70,10 @@ public class CheckDates extends CheckCLDR {
 	//Calendar myCal = Calendar.getInstance(TimeZone.getTimeZone("America/Denver"));
 	TimeZone denver = TimeZone.getTimeZone("America/Denver");
 	SimpleDateFormat isoBC = new SimpleDateFormat("GGG yyyy-MM-dd'T'HH:mm:ss'Z'", ULocale.ENGLISH);
+	XPathParts pathParts = new XPathParts(null, null);
 
-	private void checkPattern(String path, String fullPath, String value, XPathParts pathParts, XPathParts fullPathParts, List result) throws ParseException {
-		pathParts.initialize(path);
+	private void checkPattern(String path, String fullPath, String value, List result) throws ParseException {
+		pathParts.set(path);
 		String calendar = pathParts.findAttributeValue("calendar", "type");
 		DateFormat x = icuServiceBuilder.getDateFormat(calendar, value);
 		addSamples(x, path.indexOf("/dateFormat") >= 0, result);
@@ -114,4 +132,23 @@ public class CheckDates extends CheckCLDR {
 		
 		result.add(item);
 	}
+	private int getFirstGraphemeClusterBoundary(String value) {
+		if (value.length() <= 1) return value.length();
+		int current = 0;
+		// skip any leading digits, for CJK
+		//current = Utility.scan(DIGIT, value, current);		
+		bi.setText(value);
+		if (current != 0) bi.preceding(current+1); // get safe spot, possibly before
+		current = bi.next();
+		// continue collecting any additional characters that are M or grapheme extend
+		current = Utility.scan(XGRAPHEME, value, current);
+		// special case: allow 11 or 12
+		//current = Utility.scan(DIGIT, value, current);		
+		if (current != value.length() && DIGIT.containsAll(value) && value.length() == 2) {
+			return value.length();
+		}
+		return current;
+	}
+	static final UnicodeSet XGRAPHEME = new UnicodeSet("[[:mark:][:grapheme_extend:]]");
+	static final UnicodeSet DIGIT = new UnicodeSet("[:decimal_number:]");
 }

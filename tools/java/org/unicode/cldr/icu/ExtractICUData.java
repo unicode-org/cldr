@@ -1,11 +1,11 @@
 /*
-**********************************************************************
-* Copyright (c) 2002-2004, International Business Machines
-* Corporation and others.  All Rights Reserved.
-**********************************************************************
-* Author: Mark Davis
-**********************************************************************
-*/
+ **********************************************************************
+ * Copyright (c) 2002-2004, International Business Machines
+ * Corporation and others.  All Rights Reserved.
+ **********************************************************************
+ * Author: Mark Davis
+ **********************************************************************
+ */
 package org.unicode.cldr.icu;
 
 import java.io.BufferedReader;
@@ -15,6 +15,7 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -28,25 +29,28 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Utility;
 
+import com.ibm.icu.dev.demo.translit.CaseIterator;
 import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.impl.CollectionUtilities;
+import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.impl.ICUResourceBundle;
 import com.ibm.icu.impl.PrettyPrinter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.CanonicalIterator;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.UResourceBundle;
 
 public class ExtractICUData {
 	public static void main(String[] args) throws Exception {
-		checkPrettyPrint();
-		//testProps();
-		// generateTransliterators();
+
+		generateTransliterators();
 	}
 	
 	static Set skipLines = new HashSet(Arrays.asList(new String[]{
@@ -64,10 +68,10 @@ public class ExtractICUData {
 	}));
 	static void generateTransliterators() throws IOException {
 		Matcher fileFilter = Pattern.compile(".*").matcher("");
-
+		
 		CLDRFile accumulatedItems = CLDRFile.makeSupplemental("allItems");
 		getTranslitIndex(accumulatedItems);
-
+		
 		File translitSource = new File("C:\\ICU\\icu\\source\\data\\translit");
 		List list = new ArrayList(Arrays.asList(translitSource.listFiles()));
 		
@@ -92,12 +96,12 @@ public class ExtractICUData {
 			String id = fixTransID(coreName, attributesOut);
 			String outName = id.replace('/', '-');
 			String attributes = attributesOut[0];
-            attributes += "[@direction=\"both\"]";
-            
+			attributes += "[@direction=\"both\"]";
+			
 			System.out.println(coreName + "\t=>\t" + outName + " => " + attributes);
-
+			
 			if (!fileFilter.reset(fileName).matches()) continue;
-
+			
 			BufferedReader input;
 			if (file instanceof File) {
 				//if (true) continue;
@@ -110,7 +114,7 @@ public class ExtractICUData {
 			String prefixBase = "//supplementalData[@version=\"" + CLDRFile.GEN_VERSION + "\"]/transforms/transform" + attributes;
 			String rulePrefix = prefixBase + "/tRule[@_q=\"";
 			String commentPrefix = prefixBase + "/comment[@_q=\"";
-
+			
 			StringBuffer accumulatedLines = new StringBuffer();
 			while (true) {
 				String line = input.readLine();
@@ -121,7 +125,7 @@ public class ExtractICUData {
 				if (line.length() == 0) continue;
 				String fixedLine = fixTransRule(line);
 				//if (accumulatedLines.length() == 0) 
-					accumulatedLines.append("\n\t\t");
+				accumulatedLines.append("\n\t\t");
 				accumulatedLines.append(fixedLine);
 				String prefix = (line.startsWith("#")) ? commentPrefix : rulePrefix;
 				addInTwo(outFile, accumulatedItems, prefix + (++count) + "\"]", fixedLine);
@@ -142,7 +146,7 @@ public class ExtractICUData {
 		outFile.add(path, value);
 		accumulatedItems.add(path, value);
 	}
-
+	
 	private static String fixTransRule(String line) {
 		String fixedLine = line;
 //		fixedLine = fixedLine.replaceAll("<>", "\u2194");
@@ -154,85 +158,85 @@ public class ExtractICUData {
 	}
 	
 	static String fixLineRules = 
-			"'<>' > '\u2194';" +
-			"'<' > '\u2190';" +
-			"'>' > '\u2192';" +
-			"'&' > '§';" +
-			"('\\u00'[0-7][0-9A-Fa-f]) > $1;" + // leave ASCII alone
-			"('\\u'[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]) > |@&hex-any/java($1);" +
-			"([[:whitespace:][:Default_Ignorable_Code_Point:][:C:]-[\\u0020\\u200E\\0009]]) > &any-hex/java($1);"
-			
-	;
+		"'<>' > '\u2194';" +
+		"'<' > '\u2190';" +
+		"'>' > '\u2192';" +
+		"'&' > '§';" +
+		"('\\u00'[0-7][0-9A-Fa-f]) > $1;" + // leave ASCII alone
+		"('\\u'[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]) > |@&hex-any/java($1);" +
+		"([[:whitespace:][:Default_Ignorable_Code_Point:][:C:]-[\\u0020\\u200E\\0009]]) > &any-hex/java($1);"
+		
+		;
 	static Transliterator fixLine = Transliterator.createFromRules("foo", fixLineRules, Transliterator.FORWARD);
-
-    private static final String INDEX = "index",
-    	RB_RULE_BASED_IDS ="RuleBasedTransliteratorIDs";
-
+	
+	private static final String INDEX = "index",
+	RB_RULE_BASED_IDS ="RuleBasedTransliteratorIDs";
+	
 	private static void getTranslitIndex(CLDRFile accumulatedItems) throws IOException {
 		CLDRFile outFile = CLDRFile.makeSupplemental("transformAliases");
-
-        ICUResourceBundle bundle, transIDs, colBund;
-        bundle = (ICUResourceBundle)UResourceBundle.getBundleInstance(ICUResourceBundle.ICU_TRANSLIT_BASE_NAME, INDEX);
-        transIDs = bundle.get(RB_RULE_BASED_IDS);
- 
+		
+		ICUResourceBundle bundle, transIDs, colBund;
+		bundle = (ICUResourceBundle)UResourceBundle.getBundleInstance(ICUResourceBundle.ICU_TRANSLIT_BASE_NAME, INDEX);
+		transIDs = bundle.get(RB_RULE_BASED_IDS);
+		
 		String[] attributesOut = new String[1];
 		int count = 0;
 		
 		int maxRows = transIDs.getSize();
-        for (int row = 0; row < maxRows; row++) {
-            colBund = transIDs.get(row);
-            String ID = colBund.getKey();
-            ICUResourceBundle res = colBund.get(0);
-            String type = res.getKey();
-            if (type.equals("file") || type.equals("internal")) {
-//                // Rest of line is <resource>:<encoding>:<direction>
-//                //                pos       colon      c2
-//                String resString = res.getString("resource");
-//                String direction = res.getString("direction");
-//                result.add(Arrays.asList(new Object[]{ID,
-//                             resString, // resource
-//                             "UTF-16", // encoding
-//                             direction,
-//                             type}));
-            } else if (type.equals("alias")) {
-                //'alias'; row[2]=createInstance argument
-            	ID = fixTransID(ID, attributesOut);
-            	String outName = ID.replace('/', '-');
-                String attributes = attributesOut[0];
-                attributes += "[@direction=\"forward\"]";
-                System.out.println(ID + " => " + attributes);
-                String prefix = "//supplementalData[@version=\"" + CLDRFile.GEN_VERSION + "\"]/transforms/transform"
-                	+ attributes + "/tRule[@_q=\"";
-                String resString = res.getString();
-                if (!instanceMatcher.reset(resString).matches()) {
-                	System.out.println("Doesn't match id: " + resString);
-                } else {
-                	String filter = instanceMatcher.group(1);
-                	if (filter != null) {
-                		filter = fixTransRule(filter);
-                		outFile.add(prefix + (++count) + "\"]", "::" + filter + ";");
-                		accumulatedItems.add(prefix + (++count) + "\"]", "::" + filter + ";");
-                	}
-                	String rest = instanceMatcher.group(2);
-                	String[] pieces = rest.split(";");
-                	for (int i = 0; i < pieces.length; ++i) {
-                		String piece = pieces[i].trim();
-                		if (piece.length() == 0) continue;
-                		piece = fixTransID(piece, null);
-                    	outFile.add(prefix + (++count) + "\"]", "::" + piece + ";");
-                    	accumulatedItems.add(prefix + (++count) + "\"]", "::" + piece + ";");
-                	}
-                }
-        		PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/translit/", outName + ".xml");
-        		outFile.write(pw);
-        		pw.close();				
-            } else {
-                // Unknown type
-                throw new RuntimeException("Unknown type: " + type);
-            }
-        }
+		for (int row = 0; row < maxRows; row++) {
+			colBund = transIDs.get(row);
+			String ID = colBund.getKey();
+			ICUResourceBundle res = colBund.get(0);
+			String type = res.getKey();
+			if (type.equals("file") || type.equals("internal")) {
+//				// Rest of line is <resource>:<encoding>:<direction>
+//				//                pos       colon      c2
+//				String resString = res.getString("resource");
+//				String direction = res.getString("direction");
+//				result.add(Arrays.asList(new Object[]{ID,
+//				resString, // resource
+//				"UTF-16", // encoding
+//				direction,
+//				type}));
+			} else if (type.equals("alias")) {
+				//'alias'; row[2]=createInstance argument
+				ID = fixTransID(ID, attributesOut);
+				String outName = ID.replace('/', '-');
+				String attributes = attributesOut[0];
+				attributes += "[@direction=\"forward\"]";
+				System.out.println(ID + " => " + attributes);
+				String prefix = "//supplementalData[@version=\"" + CLDRFile.GEN_VERSION + "\"]/transforms/transform"
+				+ attributes + "/tRule[@_q=\"";
+				String resString = res.getString();
+				if (!instanceMatcher.reset(resString).matches()) {
+					System.out.println("Doesn't match id: " + resString);
+				} else {
+					String filter = instanceMatcher.group(1);
+					if (filter != null) {
+						filter = fixTransRule(filter);
+						outFile.add(prefix + (++count) + "\"]", "::" + filter + ";");
+						accumulatedItems.add(prefix + (++count) + "\"]", "::" + filter + ";");
+					}
+					String rest = instanceMatcher.group(2);
+					String[] pieces = rest.split(";");
+					for (int i = 0; i < pieces.length; ++i) {
+						String piece = pieces[i].trim();
+						if (piece.length() == 0) continue;
+						piece = fixTransID(piece, null);
+						outFile.add(prefix + (++count) + "\"]", "::" + piece + ";");
+						accumulatedItems.add(prefix + (++count) + "\"]", "::" + piece + ";");
+					}
+				}
+				PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/translit/", outName + ".xml");
+				outFile.write(pw);
+				pw.close();				
+			} else {
+				// Unknown type
+				throw new RuntimeException("Unknown type: " + type);
+			}
+		}
 	}
-
+	
 	private static String fixTransID(String id, String[] attributesOut) {
 		if (!idMatcher.reset(id).matches()) {
 			System.out.println("Doesn't match id:: " + id);
@@ -247,31 +251,31 @@ public class ExtractICUData {
 				+ (variant == null ? "" : "[@variant=\"" + variant + "\"]");
 				if (privateFiles.reset(id).matches()) attributesOut[0] += "[@visibility=\"internal\"]";
 			}
-
+			
 			if (target == null) target = ""; else target = "-" + target;
 			if (variant == null) variant = ""; else variant = "/" + variant;
 			id = source + target + variant;
 		}
 		return id;
 	}
-
+	
 	static String idPattern = "\\s*(\\p{L}+)(?:[_-](\\p{L}+))?(?:\\[_/](\\p{L}+))?";
 	static Matcher idMatcher = Pattern.compile(idPattern).matcher("");
 	static Matcher instanceMatcher = Pattern.compile("\\s*(\\[.*\\]\\s*)?(.*)").matcher("");
-
+	
 //	private static String fixTransName(String name, String[] attributesOut, String separator) {
-//		String[] pieces = name.split(separator);
-//		String source = fixTransIDPart(pieces[0]);
-//		String target = fixTransIDPart(pieces[1]);
-//		String variant = null;
-//		if (pieces.length > 2) {
-//			variant = pieces[2].toUpperCase();
-//		}
-//		attributesOut[0] = "[@source=\"" + source + "\"]"
-//		+ "[@target=\"" + target + "\"]"
-//		+ (variant == null ? "" : "[@variant=\"" + variant + "\"]");
-//		if (privateFiles.reset(name).matches()) attributesOut[0] += "[@visibility=\"internal\"]";
-//		return source + (target == null ? "" : "-") + target + (variant == null ? "" : "/" + variant);
+//	String[] pieces = name.split(separator);
+//	String source = fixTransIDPart(pieces[0]);
+//	String target = fixTransIDPart(pieces[1]);
+//	String variant = null;
+//	if (pieces.length > 2) {
+//	variant = pieces[2].toUpperCase();
+//	}
+//	attributesOut[0] = "[@source=\"" + source + "\"]"
+//	+ "[@target=\"" + target + "\"]"
+//	+ (variant == null ? "" : "[@variant=\"" + variant + "\"]");
+//	if (privateFiles.reset(name).matches()) attributesOut[0] += "[@visibility=\"internal\"]";
+//	return source + (target == null ? "" : "-") + target + (variant == null ? "" : "/" + variant);
 //	}
 	
 	static Matcher privateFiles = Pattern.compile(".*(Spacedhan|InterIndic|ThaiLogical|ThaiSemi).*").matcher("");
@@ -285,16 +289,16 @@ public class ExtractICUData {
 		if (code < 0) {
 			collectedNames.add(name);
 //			if (!privateFiles.reset(name).matches() && !allowNames.reset(name).matches()) {
-//				System.out.println("\tCan't convert: " + name);
+//			System.out.println("\tCan't convert: " + name);
 //			}
 //			return "x_" + name;
 		}
-
+		
 		if (name.equals("Tone")) return "Pinyin";
 		if (name.equals("Digit")) return "NumericPinyin";
 		if (name.equals("Jamo")) return "ConjoiningJamo";
 		if (name.equals("LowerLatin")) return "Latin";
-
+		
 		return name;
 	}
 	static void testProps() {
@@ -306,7 +310,7 @@ public class ExtractICUData {
 		Collator col = Collator.getInstance(ULocale.ROOT);
 		((RuleBasedCollator)col).setNumericCollation(true);
 		Map alpha = new TreeMap(col);
-
+		
 		for (int range = 0; range < ranges.length; ++range) {
 			for (int propIndex = ranges[range][0]; propIndex < ranges[range][1]; ++propIndex) {
 				String propName = UCharacter.getPropertyName(propIndex, UProperty.NameChoice.LONG);
@@ -344,12 +348,12 @@ public class ExtractICUData {
 			}
 			out.println("</table></td></tr>");
 		}
-
-//        int enumValue = UCharacter.getIntPropertyValue(codePoint, propEnum);
-//        return UCharacter.getPropertyValueName(propEnum,enumValue, (int)nameChoice);
-
+		
+//		int enumValue = UCharacter.getIntPropertyValue(codePoint, propEnum);
+//		return UCharacter.getPropertyValueName(propEnum,enumValue, (int)nameChoice);
+		
 	}
-
+	
 	private static String getName(int index, String valueName, String shortValueName) {
 		if (valueName == null) {
 			if (shortValueName == null) return String.valueOf(index);
@@ -358,13 +362,5 @@ public class ExtractICUData {
 		if (shortValueName == null) return valueName;
 		if (valueName.equals(shortValueName)) return valueName;
 		return valueName + "\u00A0(" + shortValueName + ")";
-	}
-	
-	private static void checkPrettyPrint() {
-		//System.out.println("Test: " + fixTransRule("\\u0061"));
-		UnicodeSet s = new UnicodeSet("[^[:script=common:][:script=inherited:]]");
-		UnicodeSet quoting = new UnicodeSet("[[:Mn:][:Me:]]");
-		String ss = new PrettyPrinter().setToQuote(quoting).toPattern(s);
-		System.out.println("test: " + ss);
 	}
 }

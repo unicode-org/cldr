@@ -28,8 +28,18 @@
     </target>
 
     <!-- build everything but dist-related stuff -->
-    <target name="all" depends="util,tool,posix,icu,test,ooo" description="build all primary targets"/>
-
+    <target name="all" depends="util,tool,posix,icu,test,ooo,ant-plugin" description="build all primary targets"/>
+    <target name="ant-plugin" depends="init" description="build utility classes">
+        <javac includes="org/unicode/cldr/ant/**/*.java"
+            excludes="**/CVS/**/*"
+            srcdir="${src.dir}"
+            destdir="${build.dir}"
+            classpathref="build.classpath"
+            classpath="${icu4j.binaries}"
+            source="1.4"
+            debug="on" deprecation="off"
+            encoding="ascii"/>
+    </target>
     <target name="util" depends="init" description="build utility classes">
         <javac includes="org/unicode/cldr/util/**/*.java"
             excludes="**/CVS/**/*"
@@ -236,4 +246,8 @@
     <target name="redeploy" description="Redeploy SurveyTool application" 
         depends="webInit,war,undeploy,deploy">
     </target>
+  <!-- for testing and development -->
+  <target name="icu4c" depends="init, ant-plugin, icu">
+    <ant dir="${env.ICU4C_DIR}/source/data" antfile="build.xml" target="all" />
+  </target>   
 </project>

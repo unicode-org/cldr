@@ -118,7 +118,7 @@ public class LDML2ICUConverter {
     private void printError(String fileName, String message){
         System.err.println(fileName + ": ERROR : "+message);
     }
-    private void processArgs(String[] args) {
+    public void processArgs(String[] args) {
         int remainingArgc = 0;
         try{
             remainingArgc = UOption.parseArgs(args, options);
@@ -163,7 +163,7 @@ public class LDML2ICUConverter {
                 return; // NOTREACHED
             }
             writeDeprecated();
-            System.exit(0);
+            return;
         }
         if((writeDraft == false) && (specialsDir != null)) {
             printInfo("Reading alias table searching for draft overrides");
@@ -216,7 +216,7 @@ public class LDML2ICUConverter {
                  * }
                  */
                 boolean ignoreDraft = false;
-                printInfo("Resolving: " + sourceDir+"/"+ args[i]);
+                System.out.println("Processing: " + sourceDir+"/"+ args[i]);
                 fullyResolvedDoc =  LDMLUtilities.getFullyResolvedLDML(sourceDir, args[i], false, false, false, ignoreDraft);
                 locName = args[i];
                 int index = locName.indexOf(".xml");
@@ -255,6 +255,7 @@ public class LDML2ICUConverter {
                     }
 
                 }
+               // System.out.println("Creating the resource bundle.");
                 createResourceBundle(xmlfileName, icuSpecialFile);
                 long stop = System.currentTimeMillis();
                 long total = (stop-start);
@@ -434,6 +435,14 @@ public class LDML2ICUConverter {
             }else if(name.equals(LDMLConstants.TIME_ZONE_DATA)){
                 //TODO:
             }else if(name.equals(LDMLConstants.META_DATA)){
+                //TODO:
+            }else if(name.equals(LDMLConstants.VERSION)){
+                //TODO:
+            }else if(name.equals(LDMLConstants.GENERATION)){
+                //TODO:
+            }else if(name.equals(LDMLConstants.TIMEZONE_DATA)){
+                //TODO:
+            }else if(name.equals(LDMLConstants.METADATA)){
                 //TODO:
             }else{
                 printError(file,"Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
@@ -632,14 +641,12 @@ public class LDML2ICUConverter {
 
                 ICUResourceWriter.ResourceIntVector fromRes = getSeconds(LDMLUtilities.getAttributeValue(node, LDMLConstants.FROM));
                 ICUResourceWriter.ResourceIntVector toRes =  getSeconds(LDMLUtilities.getAttributeValue(node, LDMLConstants.TO));
-                if(fromRes == null){
-                    System.err.println("Could not get from attribute for region code: " +table.name+ "iso4127: "+curr.name);
-                    System.exit(-1); 
-                }
 
-                fromRes.name = LDMLConstants.FROM;
-                curr.first = id;
-                id.next = fromRes;
+                if(fromRes != null){
+                    fromRes.name = LDMLConstants.FROM;
+                    curr.first = id;
+                    id.next = fromRes;
+                }
                 if(toRes != null){
                     toRes.name = LDMLConstants.TO;
                     fromRes.next = toRes;
@@ -744,7 +751,7 @@ public class LDML2ICUConverter {
             throw new RuntimeException("ERROR: no <ldml> node found in parseBundle()");
         }
         if(verbose) {
-            System.out.print("INFO: ");
+            printInfo("INFO: ");
         }
         for(Node node=ldml.getFirstChild(); node!=null; node=node.getNextSibling()){
             if(node.getNodeType()!=Node.ELEMENT_NODE){
@@ -794,6 +801,8 @@ public class LDML2ICUConverter {
                 }
             }else if(name.equals(LDMLConstants.POSIX)){
                 res = parsePosix(node, xpath);
+            }else if(name.equals(LDMLConstants.SEGMENTATIONS)){
+               // TODO: FIX ME with parseSegmentations();
             }else if(name.indexOf("icu:")>-1|| name.indexOf("openOffice:")>-1){
                 //TODO: these are specials .. ignore for now ... figure out
                 // what to do later
@@ -1904,6 +1913,8 @@ public class LDML2ICUConverter {
                 res = parseSpecialElements(node, xpath);
             }else if(name.equals(LDMLConstants.FIELDS)){
                 //TODO write a method to parse fields
+            }else if(name.equals(LDMLConstants.QUARTERS)){
+                    //TODO write a method to parse fields
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);
@@ -2365,9 +2376,19 @@ public class LDML2ICUConverter {
         if(isAlternate(root)){
             return null;
         }
-
         int savedLength = xpath.length();
         getXPath(root, xpath);
+        
+        Node alias = LDMLUtilities.getNode(root,"alias", null, null);
+        if(alias!=null){
+            ICUResourceWriter.Resource res =  parseAliasResource(alias,xpath);
+            if(res!=null){
+                res.name = LDMLUtilities.getAttributeValue(root, LDMLConstants.TYPE);
+            }
+            res.name = name;
+            return res;
+        }
+        
         HashMap map = getElementsMap(root, xpath);
 
         if(map.size()>0){
@@ -3871,11 +3892,12 @@ public class LDML2ICUConverter {
         File f = new File(specialsDir + "/" + "..", DEPRECATED_LIST);
         String myTreeName = null;
         File depF = null;
-        
+        File destD = new File(destDir); 
+        final File[] destFiles = destD.listFiles();
         if(writeDeprecated==true) {
             depF = new File(options[WRITE_DEPRECATED].value);
             if(!depF.isDirectory()) {
-                System.err.println("Error:  " + options[WRITE_DEPRECATED].value + " isn't a directory.");
+                printError("LDML2ICUConverter" ,  options[WRITE_DEPRECATED].value + " isn't a directory.");
                 usage();
                 return; // NOTREACHED
             }
@@ -3944,14 +3966,26 @@ public class LDML2ICUConverter {
                                 return(!f.isDirectory()
                                        &&n.endsWith(".xml")
                                        &&!n.startsWith("supplementalData") // not a locale
-                                       /*&&!n.startsWith("root")*/); // root is implied, will be included elsewhere.
+                                       /*&&!n.startsWith("root")*/
+                                       && isInDest(n)); // root is implied, will be included elsewhere.
+                            }
+                            public boolean isInDest(String n){
+                                String name = n.substring(0,n.indexOf('.'));
+                                for(int i=0; i<destFiles.length; i++){
+                                    String dest = destFiles[i].getName();
+                                    if(dest.indexOf(name)==0){
+                                        return true;
+                                    }
+                                }
+                                return false;
                             }
                         };
+                       // File destFiles[] = 
                         File inFiles[] = depF.listFiles(myFilter);
 
                         int nrInFiles = inFiles.length;
                         if(parseThem) {
-                            System.out.print("Parsing: " + nrInFiles + " LDML locale files to check " +
+                            System.out.println("Parsing: " + nrInFiles + " LDML locale files to check " +
                                 (parseDraft?"draft, ":"") +
                                 (parseSubLocale?"valid-sub-locales, ":"") );
                         }
@@ -4141,7 +4175,7 @@ public class LDML2ICUConverter {
                         // Now- write the actual items (resfiles.mk, etc)
                         writeResourceMakefile(myTreeName,generatedAliasList,aliasFilesList,inFileText,emptyFileText);
 
-                        System.exit(0);
+                       // System.exit(0);
                         return;
                     }
 
@@ -4157,7 +4191,7 @@ public class LDML2ICUConverter {
         }
         System.out.println("done.");
         System.err.println("Error: did not find tree " + myTreeName + " in the deprecated alias table.");
-        System.exit(0);
+       // System.exit(0);
     }
 
     private static String fileMapToList(Map files)

@@ -83,6 +83,7 @@ public class LDMLUtilities {
             }
             stack.put(key, "");
         }
+        //System.err.println("In getFullyResolvedLDML "+sourceDir + " " + locale);
         try{
             full = parse(sourceDir+File.separator+ "root.xml", ignoreRoot);
            /*
@@ -1458,16 +1459,25 @@ public class LDMLUtilities {
 
     }
     
-    private static ErrorHandler getNullErrorHandler(final String filename2){
+    private static ErrorHandler getNullErrorHandler(final String filename2) {
         // Local class: cheap non-printing ErrorHandler
         // This is used to suppress validation warnings
         ErrorHandler nullHandler = new ErrorHandler() {
-            public void warning(SAXParseException e) throws SAXException {                int col = e.getColumnNumber();
- System.err.println(filename2 + ":" + e.getLineNumber() +  (col>=0?":" + col:"") + ": WARNING: " + e.getMessage());}
-            public void error(SAXParseException e) throws SAXException {                int col = e.getColumnNumber();
-System.err.println(filename2 + ":" + e.getLineNumber() +  (col>=0?":" + col:"") + ": ERROR: " + e.getMessage());}
-            public void fatalError(SAXParseException e) throws SAXException 
-            {
+            public void warning(SAXParseException e) throws SAXException {
+                int col = e.getColumnNumber();
+                System.err.println(filename2 + ":" + e.getLineNumber()
+                        + (col >= 0 ? ":" + col : "") + ": WARNING: "
+                        + e.getMessage());
+            }
+
+            public void error(SAXParseException e) throws SAXException {
+                int col = e.getColumnNumber();
+                System.err.println(filename2 + ":" + e.getLineNumber()
+                        + (col >= 0 ? ":" + col : "") + ": ERROR: "
+                        + e.getMessage());
+            }
+
+            public void fatalError(SAXParseException e) throws SAXException {
                 throw e;
             }
         };

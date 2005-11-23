@@ -170,6 +170,7 @@ public class LDMLConstants {
     public static final String CONTEXT         = "context";
     public static final String EXTEND          = "extend";
     public static final String FIELDS          = "fields";
+   
     // supplemental data
     public static final String SUPPLEMENTAL_DATA = "supplementalData";
     public static final String CURRENCY_DATA     = "currencyData";
@@ -191,7 +192,11 @@ public class LDMLConstants {
     public static final String LANGUAGE_ALIAS = "languageAlias";
     public static final String TERRITORY_ALIAS = "territoryAlias";
     public static final String REPLACEMENT = "replacement";
-        //PN added
+    public static final String SEGMENTATIONS = "segmentations";
+    public static final String TIMEZONE_DATA = "timezoneData";
+    public static final String METADATA = "metadata";
+    
+    //PN added
     public static final String MEDIUM          = "medium";
     public static final String DECFL           = "decimalFormatLength";
     public static final String DECIMAL_FORMAT  = "decimalFormat";
@@ -474,4 +479,5 @@ public class LDMLConstants {
     public static final String DATE_FMT_ITEM_C        = "</" + DATE_FMT_ITEM + ">";
     public static final String APPEND_ITEMS_O         = "<" + APPEND_ITEMS + ">";
     public static final String APPEND_ITEMS_C         = "</" + APPEND_ITEMS + ">";
+
 }

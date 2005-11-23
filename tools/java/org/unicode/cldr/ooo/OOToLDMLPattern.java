@@ -4,7 +4,6 @@
 
 package org.unicode.cldr.ooo;
 
-
 /**
  *
  * class to map OO date and time patterns to LDML
@@ -406,31 +405,103 @@ public class OOToLDMLPattern
     //method to check if M or MM are for months or minutes, translates minutes if found
     private String doMinutes(String pattern)
     {
-        //a bit of a hack:
-        //if M has a H before it then it means minutes, have verified this is the case for all DateTime patterns
-        // +> the first M encountered after H is minutes
-   
-        int pos_H = pattern.indexOf('H');
-        if (pos_H == -1)
-            pos_H = pattern.indexOf('h');
+   //temp diagnostics      String orig = pattern;
         
-        //can be M or MM
-        if (pos_H != -1)
+        //from Eike :
+        //Solely determined by context. The numberformatter does it by inspecting
+        //the previous respectively next keyword. If the previous keyword is H or
+        //HH, or the next keyword is S or SS, or a '[' character directly precedes
+        //the M or MM, then minutes are used, else month.
+
+        // if the first special char encountered before or after the M or MM is H or S then it's minutes
+        //the logic assumes date is before time
+        String dateChars = "DNYWQGERA";
+        boolean bIsTime = false;
+        boolean bInQuotes = false;
+        int i =0;
+        int start = 0;
+        int pos_M = 0;
+        while ((pos_M = pattern.indexOf('M',start)) != -1)  //there could be both Months and minutes in the pattern
         {
-            int index1 = pattern.indexOf('M', pos_H);
-            int index2 = pattern.indexOf("MM", pos_H);
-            char [] ca = pattern.toCharArray();
+                //search preceding chars for the first special
+                for (i=pos_M; i >0; i--)
+                {
+                    //skip stuff in quotes
+                    if (pattern.charAt(i) == '"')
+                    {
+                        if (bInQuotes == false)
+                            bInQuotes = true;
+                        else
+                            bInQuotes = false;
+                        continue;
+                    }
+                    
+                    //now check if first preceding special is a date char
+                    if (dateChars.indexOf(pattern.charAt(i)) != -1)
+                    {  //first preceding char is a date special
+                        break;
+                    }
+                    else if ((pattern.charAt(i) == 'H') || (pattern.charAt(i) == 'S')
+                        || (pattern.charAt(i) == 'h') || (pattern.charAt(i) == 's'))
+                    {
+                        bIsTime = true;
+                        break;
+                    }
+                }
+                
+                //if first preceding special was not a time special then we still don't know so look after the M
+                if (bIsTime == false)
+                {
+                    bInQuotes = false;
+                    for (i=pos_M; i<pattern.length();i++)
+                    {
+                        //skip stuff in quotes
+                        if (pattern.charAt(i) == '"')
+                        {
+                            bInQuotes = (bInQuotes == false ? true : false);
+                            continue;
+                        }
+                        
+                        //now check if first next special is a date char
+                        if (dateChars.indexOf(pattern.charAt(i)) != -1)
+                        {  //first next char is a date special
+                            break;
+                        }
+                        else if ((pattern.charAt(i) == 'H') || (pattern.charAt(i) == 'S')
+                        || (pattern.charAt(i) == 'h') || (pattern.charAt(i) == 's'))
+                        {
+                            bIsTime = true;
+                            break;
+                        }
+                    }
+                }
             
-            if (index2 != -1)
-            {
-                ca [index2] = 'm';
-                ca [index2+1] = 'm';
+            if (bIsTime == true)
+            {  
+                break;
             }
-            else if (index1 != -1)
-                ca [index1] = 'm';
+            
+            //skip to next occurance of M or MM
+            start = pos_M +1;
+            if (pattern.charAt(pos_M+1)=='M') start++;
+        }
+        
+        if (bIsTime == true)
+        { //can be M or MM
+            char [] ca = pattern.toCharArray();
+            ca [pos_M] = 'm';
+            if ((pos_M < pattern.length()-1) &&  (pattern.charAt(pos_M+1) == 'M'))
+                ca [pos_M+1] = 'm';
             
             pattern = String.copyValueOf(ca);
         }
+           
+  /*temp diagnostics          try {
+        BufferedWriter out = new BufferedWriter(new FileWriter("date_time",true));
+        out.write("LDML fmt = " + pattern + "\t\t OO.o fmt = " + orig +"\n");
+        out.close();
+    } catch (IOException e) {
+    }*/
         return pattern;
     }
 }

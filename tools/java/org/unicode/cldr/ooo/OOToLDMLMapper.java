@@ -7,6 +7,7 @@ package org.unicode.cldr.ooo;
 import org.unicode.cldr.icu.LDMLConstants;
 import java.util.*;
 
+import java.io.*;
 /**
  *
  * class has static methods to map in memory OO data to in memory LDML data
@@ -545,9 +546,9 @@ public class OOToLDMLMapper
     Hashtable inFormatCodes,
     Hashtable inFormatDefaultNames,
     Hashtable outFormatElements,
-    Hashtable outFormatCodes,
+    Hashtable outFormatCodes,   //for OO.o Format Codes
     Hashtable outFormatDefaultNames,
-    String fmtElementUsage, String localeStr, boolean bConvertDateTime)  //i.e. it_IT
+    String fmtElementUsage, String localeStr /*i.e. it_IT*/, boolean bConvertDateTime, Hashtable outFlexDateTime)  
     {
         if ((inFormatElements==null) || (inFormatCodes==null) || (inFormatDefaultNames==null))
             return;
@@ -606,27 +607,81 @@ public class OOToLDMLMapper
                 
                 String fmtCode = (String) inFormatCodes.get(key);
                 //map the OO pattern to LDML compliant pattern
-                String LDMLPattern  = null;
+                String LDMLPattern  = null;   //for flex date and time
+                String outPattern = null;   //for OO.o FormatCode
                 
-                if (bConvertDateTime == true)
+                OOToLDMLPattern mapper = new OOToLDMLPattern(localeStr);
+                
+                //temp for diagnostics
+              /*  String buff = "";
+                for (int ii=0; ii < (50-fmtCode.length());ii++)
+                    buff += " ";*/
+                
+                if (fmtElementUsage.compareTo(OOConstants.FEU_DATE)==0)
                 {
-                    OOToLDMLPattern mapper = new OOToLDMLPattern(localeStr);
-                    if (fmtElementUsage.compareTo(OOConstants.FEU_DATE)==0)
-                        LDMLPattern  = mapper.map(fmtCode, OOConstants.FEU_DATE);
-                    else if (fmtElementUsage.compareTo(OOConstants.FEU_TIME)==0)
-                        LDMLPattern  = mapper.map(fmtCode, OOConstants.FEU_TIME);
-                    else if (fmtElementUsage.compareTo(OOConstants.FEU_DATE_TIME)==0)
-                        LDMLPattern  = mapper.map(fmtCode, OOConstants.FEU_DATE_TIME);
-                    else
-                        LDMLPattern = fmtCode;   //currency, percentage, numbers etc
+                    LDMLPattern  = mapper.map(fmtCode, OOConstants.FEU_DATE);
+                    if (LDMLPattern != null)
+                        outFlexDateTime.put(key, LDMLPattern);
+                 //   System.err.println (fmtCode + "\t\t" + LDMLPattern );
+                /*    try
+                    {
+                        BufferedWriter out = new BufferedWriter(new FileWriter("date_time",true));
+                        if (LDMLPattern.indexOf('[')== -1) 
+                            out.write(fmtCode + buff + " " + LDMLPattern +"\n");
+                        else
+                            out.write(fmtCode + buff + " " + "SKIPPED" +"\n");
+                        out.close();
+                    }
+                    catch (IOException e)
+                    {}  */
+                }
+                else if (fmtElementUsage.compareTo(OOConstants.FEU_TIME)==0)
+                {
+                    LDMLPattern  = mapper.map(fmtCode, OOConstants.FEU_TIME);
+                    if (LDMLPattern != null) outFlexDateTime.put(key, LDMLPattern);
+               //     System.err.println (fmtCode + "\t\t" + LDMLPattern );
+                /*    try
+                    {
+                        BufferedWriter out = new BufferedWriter(new FileWriter("date_time",true));
+                       if (LDMLPattern.indexOf('[')== -1) 
+                            out.write(fmtCode + buff + " " + LDMLPattern +"\n");
+                        else
+                            out.write(fmtCode + buff + " " + "SKIPPED" +"\n");
+                        out.close();
+                    }
+                    catch (IOException e)
+                    {}*/
+                }
+                else if (fmtElementUsage.compareTo(OOConstants.FEU_DATE_TIME)==0)
+                {
+                    LDMLPattern  = mapper.map(fmtCode, OOConstants.FEU_DATE_TIME);
+                    if (LDMLPattern != null) outFlexDateTime.put(key, LDMLPattern);
+               //     System.err.println (fmtCode + "\t\t" + LDMLPattern );
+            /*        try
+                    {
+                        BufferedWriter out = new BufferedWriter(new FileWriter("date_time",true));
+                       if (LDMLPattern.indexOf('[')== -1) 
+                            out.write(fmtCode + buff + " " + LDMLPattern +"\n");
+                        else
+                            out.write(fmtCode + buff + " " + "SKIPPED" +"\n");
+                        out.close();
+                    }
+                    catch (IOException e)
+                    {}*/
                 }
                 else
-                {   //we choose not to write data in LDML format
-                    LDMLPattern = fmtCode;
-                }
+                    LDMLPattern = fmtCode;   //currency, percentage, numbers etc
+                   
+                if (bConvertDateTime == true)
+                    outPattern = LDMLPattern;
+                else //we choose not to write data in LDML format
+                    outPattern = fmtCode;
                 
-                if (LDMLPattern != null)
-                    outFormatCodes.put(key, LDMLPattern);
+                if (outPattern != null)
+                    outFormatCodes.put(key, outPattern);
+                else
+                    System.err.println ("WARNING : pattern " + fmtCode + " not written");
+                
                 
                 String fmtName = (String) inFormatDefaultNames.get(key);
                 if (fmtName != null) outFormatDefaultNames.put(key, fmtName);

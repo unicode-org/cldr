@@ -16,6 +16,8 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
 {
     private Hashtable m_Aliases = null;   //key = eleement name, data = value of "ref" attribute
     
+    private Vector m_flexDateTimePatterns = null;  //holds all date/time patterns for writing to availableFormats
+    
     public LDMLLocaleWriterForOO(PrintStream out)
     {
         super(out);
@@ -135,11 +137,14 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         Hashtable formatCodes_date_time = (Hashtable) data.get(LDMLConstants.DATE_TIME_FORMAT + " " + LDMLConstants.PATTERN);
         Hashtable formatDefaultNames_date_time = (Hashtable) data.get(LDMLConstants.DATE_TIME_FORMAT + OpenOfficeLDMLConstants.DEFAULT_NAME);
         
+        m_flexDateTimePatterns = (Vector) data.get(LDMLConstants.AVAIL_FMTS);
+       
         //if there's nothing to write then return
         if ((calendars == null) && (abbrDays == null) && (wideDays==null) && (abbrMonths==null)
         && (wideMonths==null) && (abbrEras==null) && (wideEras==null) && (startDaysOfWeek==null)
         && (minDayssInFirstWeek==null) && (am==null) && (pm==null)
-        && (formatElements_date==null) && (formatElements_time==null) && (formatElements_date_time==null))
+        && (formatElements_date==null) && (formatElements_time==null) && (formatElements_date_time==null)
+        && (m_flexDateTimePatterns==null))
         {
             Logging.Log1("No LDML calendar data to write ");
             return;
@@ -331,9 +336,9 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
             //only write special Format elements once
             if (i==0)
             {
-                writeFormats(formatElements_date, formatCodes_date, formatDefaultNames_date, LDMLConstants.DATE_FORMATS, LDMLConstants.DFL, LDMLConstants.DATE_FORMAT);
-                writeFormats(formatElements_time, formatCodes_time, formatDefaultNames_time, LDMLConstants.TIME_FORMATS, LDMLConstants.TFL, LDMLConstants.TIME_FORMAT);
-                writeFormats(formatElements_date_time, formatCodes_date_time, formatDefaultNames_date_time, LDMLConstants.DATE_TIME_FORMATS, LDMLConstants.DTFL, LDMLConstants.DATE_TIME_FORMAT);
+                writeFormats(formatElements_date, formatCodes_date, formatDefaultNames_date, LDMLConstants.DATE_FORMATS, LDMLConstants.DFL, LDMLConstants.DATE_FORMAT, calendar);
+                writeFormats(formatElements_time, formatCodes_time, formatDefaultNames_time, LDMLConstants.TIME_FORMATS, LDMLConstants.TFL, LDMLConstants.TIME_FORMAT, calendar);
+                writeFormats(formatElements_date_time, formatCodes_date_time, formatDefaultNames_date_time, LDMLConstants.DATE_TIME_FORMATS, LDMLConstants.DTFL, LDMLConstants.DATE_TIME_FORMAT, calendar);
             }
             
             outdent();
@@ -387,10 +392,10 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         
         writeSymbols(symbols);
         
-        writeFormats(formatElements_fn, formatCodes_fn, formatDefaultNames_fn, LDMLConstants.DECIMAL_FORMATS, LDMLConstants.DECFL, LDMLConstants.DECIMAL_FORMAT);
-        writeFormats(formatElements_sn, formatCodes_sn, formatDefaultNames_sn, LDMLConstants.SCIENTIFIC_FORMATS, LDMLConstants.SCIFL, LDMLConstants.SCIENTIFIC_FORMAT);
-        writeFormats(formatElements_pn, formatCodes_pn, formatDefaultNames_pn, LDMLConstants.PERCENT_FORMATS, LDMLConstants.PERFL, LDMLConstants.PERCENT_FORMAT);
-        writeFormats(formatElements_c, formatCodes_c, formatDefaultNames_c, LDMLConstants.CURRENCY_FORMATS, LDMLConstants.CURFL, LDMLConstants.CURRENCY_FORMAT);
+        writeFormats(formatElements_fn, formatCodes_fn, formatDefaultNames_fn, LDMLConstants.DECIMAL_FORMATS, LDMLConstants.DECFL, LDMLConstants.DECIMAL_FORMAT, null);
+        writeFormats(formatElements_sn, formatCodes_sn, formatDefaultNames_sn, LDMLConstants.SCIENTIFIC_FORMATS, LDMLConstants.SCIFL, LDMLConstants.SCIENTIFIC_FORMAT, null);
+        writeFormats(formatElements_pn, formatCodes_pn, formatDefaultNames_pn, LDMLConstants.PERCENT_FORMATS, LDMLConstants.PERFL, LDMLConstants.PERCENT_FORMAT, null);
+        writeFormats(formatElements_c, formatCodes_c, formatDefaultNames_c, LDMLConstants.CURRENCY_FORMATS, LDMLConstants.CURFL, LDMLConstants.CURRENCY_FORMAT, null);
         
         writeCurrencies(currencies, symbols);
         outdent();
@@ -1205,8 +1210,9 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
     /* method will handle dateFormat, timeFormat, dateTimeFormat, currencyformat, decimalFormat, scientificFormat,
      *  percentFormat
      */
-    protected void writeFormats(Hashtable formatElements, Hashtable patterns, Hashtable defaultNames, String fmts, String fmtLength, String fmt)
-    {
+    protected void writeFormats(Hashtable formatElements, Hashtable patterns, Hashtable defaultNames, String fmts, String fmtLength, String fmt, String calendar)
+    {  //calendar param only used in writeFlexibleDateTime
+        
          if ((String) m_Aliases.get(OpenOfficeLDMLConstants.FORMAT) != null)
              return;  //there's a ref="xx_YY" for LC_FORMAT so there's nothing to write here
 
@@ -1220,16 +1226,28 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
             return;
         }
         
-        println("<" + fmts + ">");
-        indent();
+         //uncoment for generating flex date time only
+       //  if (fmts.compareTo (LDMLConstants.DATE_TIME_FORMATS) == 0)
+      //   {
+             println("<" + fmts + ">");
+            indent();
+      //   }
         
         //get the "long", "medium" and "short"
         writeFormatLengths(formatElements, patterns, defaultNames, LDMLConstants.LONG, fmtLength, fmt);
         writeFormatLengths(formatElements, patterns, defaultNames, LDMLConstants.MEDIUM, fmtLength, fmt);
         writeFormatLengths(formatElements, patterns, defaultNames, LDMLConstants.SHORT, fmtLength, fmt);
+
+        if (fmts.compareTo (LDMLConstants.DATE_TIME_FORMATS) == 0)
+        {
+            writeFlexibleDateTime (m_flexDateTimePatterns, calendar);
+        }
         
-        outdent();
-        println("</" + fmts + ">");
+    //    if (fmts.compareTo(LDMLConstants.DATE_TIME_FORMATS) == 0)
+    //    {
+            outdent();
+            println("</" + fmts + ">");
+    //    }
     }
     
     protected void writeFormatLengths(Hashtable formatElements, Hashtable patterns, Hashtable defaultNames, String type, String fmtLength, String fmt)
@@ -1307,6 +1325,38 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         outdent();
         println("</" + fmtLength + ">");
     }
+    
+    //wirte <availableFormats> and <appendItems>
+    protected void writeFlexibleDateTime (Vector patterns, String calendar)
+    {
+        if (patterns == null) 
+        {
+            Logging.Log3("Not writing flexible date time formsts (N.B. this is a CLDR 1.4 feature)");
+            return;
+        }
+        
+        //OO.o formats belong to different calendar types so make sure to write to appropriate places
+        // look for [~hijri]  ][~jewish]  >[~hanja]  [~buddhist]
+        //skip ones with [HH] or [NatNum1] [natnum1] etc
+        
+        println(LDMLConstants.AVAIL_FMTS_O);
+        indent();
+        
+        for (int i=0; i < patterns.size(); i++)
+        {
+            String pattern = (String) patterns.elementAt(i);
+            if ((pattern != null) && (pattern.indexOf('[') == -1))  // no [] => gregorian
+            {
+                print(LDMLConstants.DATE_FMT_ITEM_O);
+                print(pattern);
+                println(LDMLConstants.DATE_FMT_ITEM_C);
+            }
+        }
+        
+        outdent();
+        println(LDMLConstants.AVAIL_FMTS_C);
+    }
+    
     
     //writes the format replaceTo and replaceFrom (if present) to LDML
     // input Vector has 1 entry qwhich is a hashtable

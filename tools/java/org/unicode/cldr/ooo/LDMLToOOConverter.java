@@ -18,6 +18,11 @@
  * - delimiters              (date only becoming avaialble in CLDR 1.3 althoiugh structure already there)
  * - wide eras               (date only becoming avaialble in CLDR 1.3 althoiugh structure already there)
  *
+ * Design Decisions :
+ * - CurrencyID             the OO.o data is used, if unavailable the ISO code is used
+ * - finish ....
+ *
+ * 
  * - workarounds (look for "workaround" in processSingle () ) :
  *      - zh_TW ROC eras    (not in CLDR 1.3, probably in 1.4)
  *      - eo Currency       (Esperanto doesn't have a currency but OO.o wants it so just write back the Oo.o currency)

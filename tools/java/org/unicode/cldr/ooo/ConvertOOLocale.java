@@ -181,7 +181,7 @@ public class ConvertOOLocale
                         result |= OPT_INVALID;
                 }
                 
-                if ((option.compareTo(DTD_DIR)==0)
+                if ((option.compareTo(CLDR_VER)==0)
                 && (j < (options.length-1)))
                 {
                     m_cldr_ver = options [++j];
@@ -291,11 +291,15 @@ public class ConvertOOLocale
         if (wideMonths!=null) data.put(LDMLConstants.MONTH_WIDTH + " " + LDMLConstants.WIDE, wideMonths);
         
         //reservedWords contains quarters, true/false, above/below
-  /*      Hashtable wideQuarters = OOToLDMLMapper.MapWideQuarters(reader.m_ReservedWords);
-        if (wideQuarters != null) data.put(LDMLConstants.QUARTER_WIDTH+ " " + LDMLConstants.WIDE, wideQuarters);
-        Hashtable abbrQuarters = OOToLDMLMapper.MapAbbrQuarters(reader.m_ReservedWords);
-        if (abbrQuarters != null) data.put(LDMLConstants.QUARTER_WIDTH+ " " + LDMLConstants.ABBREVIATED, abbrQuarters);
-  */
+        //Quarters now part of CLDR 1.4 standard
+        if (Float.parseFloat(m_cldr_ver) > 1.3999)
+        {
+            Hashtable wideQuarters = OOToLDMLMapper.MapWideQuarters(reader.m_ReservedWords);
+            if (wideQuarters != null) data.put(LDMLConstants.QUARTER_WIDTH+ " " + LDMLConstants.WIDE, wideQuarters);
+            Hashtable abbrQuarters = OOToLDMLMapper.MapAbbrQuarters(reader.m_ReservedWords);
+            if (abbrQuarters != null) data.put(LDMLConstants.QUARTER_WIDTH+ " " + LDMLConstants.ABBREVIATED, abbrQuarters);
+        }
+        
         Hashtable abbrEras = OOToLDMLMapper.MapEras(reader.m_AbbrEras);
         if (abbrEras!=null) data.put(LDMLConstants.ERAABBR, abbrEras);
         
@@ -311,10 +315,21 @@ public class ConvertOOLocale
         if (reader.m_TimeAM!=null) data.put(LDMLConstants.AM, reader.m_TimeAM);
         if (reader.m_TimePM!=null) data.put(LDMLConstants.PM, reader.m_TimePM);
         
+        
+        try
+        {
+            BufferedWriter out = new BufferedWriter(new FileWriter("date_time",true));
+            out.write(m_localeStr + "\n");
+            out.close();
+        }
+        catch (IOException e)
+        {}
+        
         //get the DATE FormatElements
         Hashtable formatElements_date = new Hashtable();
         Hashtable formatCodes_date = new Hashtable();
         Hashtable formatDefaultNames_date = new Hashtable();
+        Hashtable flexDate = new Hashtable ();
         
         OOToLDMLMapper.MapFormatElements(reader.m_FormatElements,
         reader.m_FormatCodes,
@@ -322,7 +337,7 @@ public class ConvertOOLocale
         formatElements_date,
         formatCodes_date,    //the patterns
         formatDefaultNames_date,
-        OOConstants.FEU_DATE, m_localeStr, m_bConvertDateTime);
+        OOConstants.FEU_DATE, m_localeStr, m_bConvertDateTime, flexDate);
         
         data.put(LDMLConstants.DATE_FORMAT, formatElements_date);
         data.put(LDMLConstants.DATE_FORMAT + " " + LDMLConstants.PATTERN, formatCodes_date);
@@ -332,13 +347,14 @@ public class ConvertOOLocale
         Hashtable formatElements_time = new Hashtable();
         Hashtable formatCodes_time = new Hashtable();
         Hashtable formatDefaultNames_time = new Hashtable();
+        Hashtable flexTime = new Hashtable ();
         OOToLDMLMapper.MapFormatElements(reader.m_FormatElements,
         reader.m_FormatCodes,
         reader.m_FormatDefaultNames,
         formatElements_time,
         formatCodes_time,    //the patterns
         formatDefaultNames_time,
-        OOConstants.FEU_TIME, m_localeStr, m_bConvertDateTime);
+        OOConstants.FEU_TIME, m_localeStr, m_bConvertDateTime, flexTime);
         
         data.put(LDMLConstants.TIME_FORMAT, formatElements_time);
         data.put(LDMLConstants.TIME_FORMAT + " " + LDMLConstants.PATTERN, formatCodes_time);
@@ -348,17 +364,32 @@ public class ConvertOOLocale
         Hashtable formatElements_date_time = new Hashtable();
         Hashtable formatCodes_date_time = new Hashtable();
         Hashtable formatDefaultNames_date_time = new Hashtable();
+        Hashtable flexDateTime = new Hashtable ();
         OOToLDMLMapper.MapFormatElements(reader.m_FormatElements,
         reader.m_FormatCodes,
         reader.m_FormatDefaultNames,
         formatElements_date_time,
         formatCodes_date_time,    //the patterns
         formatDefaultNames_date_time,
-        OOConstants.FEU_DATE_TIME, m_localeStr, m_bConvertDateTime);
+        OOConstants.FEU_DATE_TIME, m_localeStr, m_bConvertDateTime, flexDateTime);
         
         data.put(LDMLConstants.DATE_TIME_FORMAT, formatElements_date_time);
         data.put(LDMLConstants.DATE_TIME_FORMAT + " " + LDMLConstants.PATTERN, formatCodes_date_time);
         data.put(LDMLConstants.DATE_TIME_FORMAT + OpenOfficeLDMLConstants.DEFAULT_NAME, formatDefaultNames_date_time);
+        
+        //fill a vector of flexible date time patterns
+    // flex data time new in 1.4 standard
+        if (Float.parseFloat(m_cldr_ver) > 1.3999)
+        {
+            Vector flexDateTimePatterms = new Vector();
+            Collection coll = flexDate.values();
+            flexDateTimePatterms.addAll(coll);
+            coll = flexDate.values();
+            flexDateTimePatterms.addAll(coll);
+            coll = flexDateTime.values();
+            flexDateTimePatterms.addAll(coll);
+            data.put(LDMLConstants.AVAIL_FMTS, flexDateTimePatterms);
+        }
         
         m_LDMLLocaleWriterForOO.writeDates(data);
         data.clear();
@@ -387,7 +418,7 @@ public class ConvertOOLocale
         formatElements_fn,
         formatCodes_fn,
         formatDefaultNames_fn,
-        OOConstants.FEU_FIXED_NUMBER, m_localeStr, m_bConvertDateTime);
+        OOConstants.FEU_FIXED_NUMBER, m_localeStr, m_bConvertDateTime, null);
         
         data.put(LDMLConstants.DECIMAL_FORMATS, formatElements_fn);
         data.put(LDMLConstants.DECIMAL_FORMATS + " " + LDMLConstants.PATTERN, formatCodes_fn);
@@ -403,7 +434,7 @@ public class ConvertOOLocale
         formatElements_sn,
         formatCodes_sn,
         formatDefaultNames_sn,
-        OOConstants.FEU_SCIENTIFIC_NUMBER, m_localeStr, m_bConvertDateTime);
+        OOConstants.FEU_SCIENTIFIC_NUMBER, m_localeStr, m_bConvertDateTime, null);
         
         data.put(LDMLConstants.SCIENTIFIC_FORMATS, formatElements_sn);
         data.put(LDMLConstants.SCIENTIFIC_FORMATS + " " + LDMLConstants.PATTERN, formatCodes_sn);
@@ -419,7 +450,7 @@ public class ConvertOOLocale
         formatElements_pn,
         formatCodes_pn,
         formatDefaultNames_pn,
-        OOConstants.FEU_PERCENT_NUMBER, m_localeStr, m_bConvertDateTime);
+        OOConstants.FEU_PERCENT_NUMBER, m_localeStr, m_bConvertDateTime, null);
         
         data.put(LDMLConstants.PERCENT_FORMATS, formatElements_pn);
         data.put(LDMLConstants.PERCENT_FORMATS + " " + LDMLConstants.PATTERN, formatCodes_pn);
@@ -435,8 +466,8 @@ public class ConvertOOLocale
         formatElements_c,
         formatCodes_c,
         formatDefaultNames_c,
-        OOConstants.FEU_CURRENCY, m_localeStr, m_bConvertDateTime);
-        
+        OOConstants.FEU_CURRENCY, m_localeStr, m_bConvertDateTime, null);
+            
         data.put(LDMLConstants.CURRENCY_FORMATS, formatElements_c);
         data.put(LDMLConstants.CURRENCY_FORMATS + " " + LDMLConstants.PATTERN, formatCodes_c);
         data.put(LDMLConstants.CURRENCY_FORMATS + OpenOfficeLDMLConstants.DEFAULT_NAME, formatDefaultNames_c);

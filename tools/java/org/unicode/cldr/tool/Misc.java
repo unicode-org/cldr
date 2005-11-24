@@ -34,6 +34,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
@@ -453,8 +454,8 @@ public class Misc {
 			String countryName = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, country, false);
 			if (countryName == null) countryName = country;
 			log.println("<tr><th class='ID' colspan=\"4\"><table><tr><th class='I'>"
-					+ (++count) + "</th><th class='T'>" + BagFormatter.toHTML.transliterate(countryName)
-					+ "</th><th class='I'>\u200E" +BagFormatter.toHTML.transliterate(zoneID));
+					+ (++count) + "</th><th class='T'>" + TransliteratorUtilities.toHTML.transliterate(countryName)
+					+ "</th><th class='I'>\u200E" +TransliteratorUtilities.toHTML.transliterate(zoneID));
 			Set s = (Set) linkNew_Old.get(zoneID);
 			if (s != null) {
 				log.println("\u200E</th><td class='A'>\u200E");
@@ -465,7 +466,7 @@ public class Misc {
 					String alias = (String)it9.next();
 					if (first2) first2 = false;
 					else log.println("; ");
-					log.print(BagFormatter.toHTML.transliterate(alias));
+					log.print(TransliteratorUtilities.toHTML.transliterate(alias));
 				}
 			}
 			log.print("\u200E</td></tr></table></th></tr>");
@@ -478,7 +479,7 @@ public class Misc {
 			for (int i = 0; i < TimezoneFormatter.LENGTH_LIMIT; ++i) {
 				log.println("<tr><th>" + TimezoneFormatter.LENGTH.get(i) + "</th>");
 				for (int j = 0; j < TimezoneFormatter.TYPE_LIMIT; ++j) {
-					field[j] = BagFormatter.toHTML.transliterate(tzf.getFormattedZone(zoneID, i, j, 0));
+					field[j] = TransliteratorUtilities.toHTML.transliterate(tzf.getFormattedZone(zoneID, i, j, 0));
 				}
 				if (field[0].equals(field[1]) && field[1].equals(field[2])) {
 					log.println("<td colspan=\"3\">" + field[0] + "</td>");
@@ -898,7 +899,7 @@ public class Misc {
 		log2.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
 		log2.println("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/" + CLDRFile.GEN_VERSION + "//ldml.dtd\">");
 		log2.println("<ldml><identity><version number=\"" + CLDRFile.GEN_VERSION + "\"/><generation date=\"2005-01-01\"/><language type=\""
-				+ BagFormatter.toXML.transliterate(localization.getLocaleID())+"\"/></identity>");
+				+ TransliteratorUtilities.toXML.transliterate(localization.getLocaleID())+"\"/></identity>");
 		log2.println("<!-- The following are strings that are not found in the locale (currently), " +
 				"but need valid translations for localizing timezones. -->");
 		if (missing[0].size() != 0) {
@@ -906,7 +907,7 @@ public class Misc {
 			for (Iterator it = missing[0].iterator(); it.hasNext();) {
 				String key = (String)it.next();
 				log2.println("\t<territory type=\"" + key + "\" draft=\"true\">"+ 
-						BagFormatter.toXML.transliterate("TODO " + english.getName(CLDRFile.TERRITORY_NAME, key, false))
+						TransliteratorUtilities.toXML.transliterate("TODO " + english.getName(CLDRFile.TERRITORY_NAME, key, false))
 						+ "</territory>");
 			}
 			log2.println("</territories></localeDisplayNames>");
@@ -929,7 +930,7 @@ public class Misc {
 					log2.println("\t<!-- " + country + "-->");
 				}
 				log2.println("\t<zone type=\"" + key + "\"><exemplarCity draft=\"true\">"
-						+ BagFormatter.toXML.transliterate("TODO " + getName(english,key,null))
+						+ TransliteratorUtilities.toXML.transliterate("TODO " + getName(english,key,null))
 						+ "</exemplarCity></zone>");
 			}
 			log2.println("</timeZoneNames></dates>");

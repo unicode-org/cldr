@@ -27,6 +27,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
@@ -143,7 +144,7 @@ public class GenerateSidewaysView {
         System.out.println("Printing files");
         Utility.registerExtraTransliterators();
     	Transliterator toLatin = Transliterator.getInstance("any-latin");
-    	Transliterator toHTML = BagFormatter.toHTML;
+    	Transliterator toHTML = TransliteratorUtilities.toHTML;
     	UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]");
     	
         for (Iterator it = path_value_locales.keySet().iterator(); it.hasNext();) {       	

@@ -154,11 +154,13 @@ public class CLDRFile implements Freezable {
 	
     // for refactoring
     
-	private void setNonInheriting(boolean isSupplemental) {
+	public CLDRFile setNonInheriting(boolean isSupplemental) {
+    	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
 		dataSource.setNonInheriting(isSupplemental);
+		return this;
 	}
 
-	private boolean isNonInheriting() {
+	public boolean isNonInheriting() {
 		return dataSource.isNonInheriting();
 	}
 
@@ -1032,10 +1034,10 @@ private boolean isSupplemental;
 	    }
 	}
 	
-	static String[] keys = {"calendar", "collation", "currency"};
-	
-	static String[] calendar_keys = {"buddhist", "chinese", "gregorian", "hebrew", "islamic", "islamic-civil", "japanese"};
-	static String[] collation_keys = {"phonebook", "traditional", "direct", "pinyin", "stroke", "posix", "big5han", "gb2312han"};
+//	static String[] keys = {"calendar", "collation", "currency"};
+//	
+//	static String[] calendar_keys = {"buddhist", "chinese", "gregorian", "hebrew", "islamic", "islamic-civil", "japanese"};
+//	static String[] collation_keys = {"phonebook", "traditional", "direct", "pinyin", "stroke", "posix", "big5han", "gb2312han"};
 	
 	
 /*    *//**
@@ -1800,6 +1802,7 @@ private boolean isSupplemental;
 							"normalization", "numeric", "strength",
 							// always near the end
 							"validSubLocales", "standard", "references",
+							"elements","element","attributes","attribute",
 							// these are always at the end
 							"alt", "draft", }).setErrorOnMissing(false)
 			.freeze();

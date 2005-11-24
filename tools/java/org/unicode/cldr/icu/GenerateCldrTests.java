@@ -34,6 +34,7 @@ import org.w3c.dom.NamedNodeMap;
 
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 //import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
@@ -399,7 +400,7 @@ public class GenerateCldrTests {
 			}
 			String before = "", after = "";
 			if (title.length() != 0) {
-				before = "<span title=\'" + BagFormatter.toHTML.transliterate(title) + "'>";
+				before = "<span title=\'" + TransliteratorUtilities.toHTML.transliterate(title) + "'>";
 				after = "</span>";
 			}
 			if (!needQualifier) qualifiers = "";
@@ -410,7 +411,7 @@ public class GenerateCldrTests {
 				englishName = englishName.substring(0,englishName.length() - ", China".length()) + " China";
 			}
 			
-			result.append(before).append(BagFormatter.toHTML.transliterate(englishName + qualifiers)).append(after);
+			result.append(before).append(TransliteratorUtilities.toHTML.transliterate(englishName + qualifiers)).append(after);
 		}
 		return result.toString();
 	}
@@ -617,7 +618,7 @@ public class GenerateCldrTests {
         out.println("<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.2/beta/cldrTest.dtd'>");
         out.println("<!-- For information, see readme.html -->");
         out.println(" <cldrTest version='1.2' base='" + locale + "'>");
-        out.println(" <!-- " + BagFormatter.toXML.transliterate(
+        out.println(" <!-- " + TransliteratorUtilities.toXML.transliterate(
                 locale.getDisplayName(ULocale.ENGLISH) + " ["
                 + locale.getDisplayName(locale))
                 + "] -->");
@@ -743,11 +744,11 @@ public class GenerateCldrTests {
                 Object key = it.next();
                 Object value = settings.get(key);
                 if (!value.equals(oldSettings.get(key))) {
-                    out.print(" " + key + "='" + BagFormatter.toXML.transliterate(value.toString()) + "'");
+                    out.print(" " + key + "='" + TransliteratorUtilities.toXML.transliterate(value.toString()) + "'");
                     oldSettings.put(key, value);
                 }
             }
-            out.println(">" + BagFormatter.toXML.transliterate(result) + "</result>");
+            out.println(">" + TransliteratorUtilities.toXML.transliterate(result) + "</result>");
         }
     }
 
@@ -790,7 +791,7 @@ public class GenerateCldrTests {
         }
         out.println(">");
         out.println("<!-- "
-                        + BagFormatter.toXML.transliterate(comment.toString())
+                        + TransliteratorUtilities.toXML.transliterate(comment.toString())
                         + " -->");
     }
 
@@ -1083,7 +1084,7 @@ public class GenerateCldrTests {
             } else {
                 needEquals = true;
             }
-            out.println(BagFormatter.toXML.transliterate(s));
+            out.println(TransliteratorUtilities.toXML.transliterate(s));
 
         }
         out.println("   </result>");

@@ -43,11 +43,13 @@ public class GenerateAttributeList {
 	Set allElements = new TreeSet();
 	Map defaults = new HashMap();
 	
-	GenerateAttributeList(Factory cldrFactory) throws IOException {
+	public GenerateAttributeList(Factory cldrFactory) throws IOException {
 		addFromStandardCodes();
-		addFromDTD();
+		addFromDTD(Utility.COMMON_DIRECTORY + "main/en.xml");
+		addFromDTD(Utility.COMMON_DIRECTORY + "supplemental/characters.xml");
 		addFromDirectory(Utility.COMMON_DIRECTORY + "collation/");
 		addFromDirectory(Utility.COMMON_DIRECTORY + "main/");
+		addFromDirectory(Utility.COMMON_DIRECTORY  + "supplemental/");
 		/*
 		Set seenAlready = new HashSet();
 		for (Iterator it = cldrFactory.getAvailable().iterator(); it.hasNext();) {
@@ -105,10 +107,10 @@ public class GenerateAttributeList {
 	 * @throws IOException
 	 * 
 	 */
-	private void addFromDTD() throws IOException {
+	private void addFromDTD(String filename) throws IOException {
          	//StringBufferInputStream fis = new StringBufferInputStream(
         		//"<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.2/ldml.dtd\"><ldml></ldml>");
-		FileInputStream fis = new FileInputStream(Utility.COMMON_DIRECTORY + "main/en.xml");
+		FileInputStream fis = new FileInputStream(filename);
     	try {
 			InputSource is = new InputSource(fis);
 			MyDeclHandler me = new MyDeclHandler();
@@ -382,5 +384,8 @@ public class GenerateAttributeList {
     			add(qName, attribute, value, false);
     		}
 		}		
+	}
+	public Map getElement_attribute_valueSet() {
+		return element_attribute_valueSet;
 	}
 }

@@ -61,6 +61,7 @@ abstract public class CheckCLDR {
 			.add(new CheckExemplars())
 			.add(new CheckNumbers())
 			.add(new CheckChildren())
+			.add(new CheckAttributeValues())
 			.add(new CheckDates())
 		;
 	}

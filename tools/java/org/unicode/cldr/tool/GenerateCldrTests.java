@@ -39,6 +39,7 @@ import org.w3c.dom.NamedNodeMap;
 
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 //import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
@@ -337,7 +338,7 @@ public class GenerateCldrTests {
         out.println("<!DOCTYPE ldml SYSTEM 'http://www.unicode.org/cldr/dtd/1.4/cldrTest.dtd'>");
         out.println("<!-- For information, see readme.html -->");
         out.println(" <cldrTest version='1.4' base='" + locale + "'>");
-        out.println(" <!-- " + BagFormatter.toXML.transliterate(
+        out.println(" <!-- " + TransliteratorUtilities.toXML.transliterate(
                 locale.getDisplayName(ULocale.ENGLISH) + " ["
                 + locale.getDisplayName(locale))
                 + "] -->");
@@ -503,10 +504,10 @@ public class GenerateCldrTests {
 	                if (key.equals("result")) continue;
 	                Object value = settings.get(key);
 	                if (!value.equals(oldSettings.get(key))) {
-	                    out.print(" " + key + "='" + BagFormatter.toXML.transliterate(value.toString()) + "'");
+	                    out.print(" " + key + "='" + TransliteratorUtilities.toXML.transliterate(value.toString()) + "'");
 	                }
 	            }
-	            out.println(">" + BagFormatter.toXML.transliterate(result) + "</result>");
+	            out.println(">" + TransliteratorUtilities.toXML.transliterate(result) + "</result>");
                 oldSettings = settings;
         	}
         }
@@ -592,7 +593,7 @@ public class GenerateCldrTests {
         }
         out.println(">");
         out.println("<!-- "
-                        + BagFormatter.toXML.transliterate(comment.toString())
+                        + TransliteratorUtilities.toXML.transliterate(comment.toString())
                         + " -->");
     }
     
@@ -862,7 +863,7 @@ public class GenerateCldrTests {
             } else {
                 needEquals = true;
             }
-            tempResult.append(BagFormatter.toXML.transliterate(s)).append("\r\n");
+            tempResult.append(TransliteratorUtilities.toXML.transliterate(s)).append("\r\n");
         }
     	ResultsPrinter result = new ResultsPrinter();
     	result.setResult(tempResult.toString());

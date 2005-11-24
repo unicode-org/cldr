@@ -11,7 +11,8 @@ import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.dev.test.util.UnicodeProperty.PatternMatcher;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DecimalFormat;
@@ -26,6 +27,7 @@ import com.ibm.icu.util.ULocale;
 public class CheckDates extends CheckCLDR {
 	ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
 	NumberFormat english = NumberFormat.getNumberInstance(ULocale.ENGLISH);
+	PatternMatcher m;
 	
 	static String[] samples = {
 		"AD 1970-01-01T00:00:00Z",
@@ -118,11 +120,11 @@ public class CheckDates extends CheckCLDR {
 			String resource = isoBC.format(parsed);
 			arguments[i] = source + " => " + formatted + " => " + resource;
 			htmlMessage.append("<tr><td>")
-			.append(BagFormatter.toXML.transliterate(source))
+			.append(TransliteratorUtilities.toXML.transliterate(source))
 			.append("</td><td>")
-			.append(BagFormatter.toXML.transliterate(formatted))
+			.append(TransliteratorUtilities.toXML.transliterate(formatted))
 			.append("</td><td>")
-			.append(BagFormatter.toXML.transliterate(resource))
+			.append(TransliteratorUtilities.toXML.transliterate(resource))
 			.append("</td></tr>");
 		}
 		htmlMessage.append("</table>");

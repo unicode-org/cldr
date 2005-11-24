@@ -12,6 +12,7 @@ package org.unicode.cldr.util;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.ParsePosition;
@@ -28,15 +29,24 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.tool.GenerateAttributeList;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.xml.sax.XMLFilter;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.impl.ICUResourceBundle;
+import com.ibm.icu.impl.UCharacterProperty;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.RuleBasedBreakIterator;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.UResourceBundle;
 
@@ -48,8 +58,14 @@ import com.ibm.icu.util.UResourceBundle;
  */
 public class TestUtilities {
 	public static void main(String[] args) throws Exception {
+		System.out.println("LVT_Syllable count: " + new UnicodeSet("[:Hangul_Syllable_Type=LVT_Syllable:]").size());
+		System.out.println("LV_Syllable count: " + new UnicodeSet("[:Hangul_Syllable_Type=LV_Syllable:]").size());
+		System.out.println("AC00 value: " + UCharacter.getIntPropertyValue('\uAC00', UProperty.HANGUL_SYLLABLE_TYPE));
+		//checkTranslit();
+		//writeMetaData();
+		//testXMLFileReader();
 		//testBreakIterator("&#x61;\n&#255;&#256;");
-		//checkStandardCodes();
+		checkStandardCodes();
 		//checkLanguages();
 		//printCountries();
 		//printZoneSamples();
@@ -57,6 +73,282 @@ public class TestUtilities {
 		System.out.println("Done");
 	}
 	
+	private static void checkTranslit() {
+		
+		Set unicodeProps = new HashSet(Arrays.asList(new String[] {
+				"Numeric_Value", "Bidi_Mirroring_Glyph", "Case_Folding",
+				"Decomposition_Mapping", "FC_NFKC_Closure",
+				"Lowercase_Mapping", "Special_Case_Condition",
+				"Simple_Case_Folding", "Simple_Lowercase_Mapping",
+				"Simple_Titlecase_Mapping", "Simple_Uppercase_Mapping",
+				"Titlecase_Mapping", "Uppercase_Mapping", "ISO_Comment",
+				"Name", "Unicode_1_Name", "Unicode_Radical_Stroke", "Age",
+				"Block", "Script", "Bidi_Class", "Canonical_Combining_Class",
+				"Decomposition_Type", "East_Asian_Width", "General_Category",
+				"Grapheme_Cluster_Break", "Hangul_Syllable_Type",
+				"Joining_Group", "Joining_Type", "Line_Break",
+				"NFC_Quick_Check", "NFD_Quick_Check", "NFKC_Quick_Check",
+				"NFKD_Quick_Check", "Numeric_Type", "Sentence_Break",
+				"Word_Break", "ASCII_Hex_Digit", "Alphabetic", "Bidi_Control",
+				"Bidi_Mirrored", "Composition_Exclusion",
+				"Full_Composition_Exclusion", "Dash", "Deprecated",
+				"Default_Ignorable_Code_Point", "Diacritic", "Extender",
+				"Grapheme_Base", "Grapheme_Extend", "Grapheme_Link",
+				"Hex_Digit", "Hyphen", "ID_Continue", "Ideographic",
+				"ID_Start", "IDS_Binary_Operator", "IDS_Trinary_Operator",
+				"Join_Control", "Logical_Order_Exception", "Lowercase", "Math",
+				"Noncharacter_Code_Point", "Other_Alphabetic",
+				"Other_Default_Ignorable_Code_Point", "Other_Grapheme_Extend",
+				"Other_ID_Continue", "Other_ID_Start", "Other_Lowercase",
+				"Other_Math", "Other_Uppercase", "Pattern_Syntax",
+				"Pattern_White_Space", "Quotation_Mark", "Radical",
+				"Soft_Dotted", "STerm", "Terminal_Punctuation",
+				"Unified_Ideograph", "Uppercase", "Variation_Selector",
+				"space", "XID_Continue", "XID_Start", "Expands_On_NFC",
+				"Expands_On_NFD", "Expands_On_NFKC", "Expands_On_NFKD" }));
+		for (int i = 0; i < 0xFFFF; ++i) {
+			checkTranslit(UTF16.valueOf(i));
+		}
+		PrintStream out = System.out;
+		Transliterator toHTML = TransliteratorUtilities.toHTML;
+		UnicodeSet a_out = new UnicodeSet("[:whitespace:]");
+		for (UnicodeSetIterator it = new UnicodeSetIterator(a_out); it.next();) {
+			int s = it.codepoint;
+			String literal = toHTML.transliterate(UTF16.valueOf(s));
+			out.println(com.ibm.icu.impl.Utility.hex(s,4) + " (" + literal
+					+ ") " + UCharacter.getName(s));
+		}
+	}
+
+	private static void checkTranslit(String string) {
+		String html = TransliteratorUtilities.toHTML.transliterate(string);
+		String reverse = TransliteratorUtilities.fromHTML.transliterate(html);
+		if (!reverse.equals(string)) System.out.println(string + "\t=>\t" + html + "\t=>\t" + reverse + (!reverse.equals(string) ? " FAIL" : ""));
+		String htmlAscii = TransliteratorUtilities.toHTMLAscii.transliterate(string);
+		String reverseAscii = TransliteratorUtilities.fromHTML.transliterate(htmlAscii);
+		if (!reverseAscii.equals(string)) System.out.println(string + "\t=>\t" + htmlAscii + "\t=>\t" + reverseAscii + (!reverseAscii.equals(string) ? " FAIL" : ""));
+	}
+
+	private static void writeMetaData() throws IOException {
+		CLDRFile meta = CLDRFile.make("metaData").setNonInheriting(true);
+		String[] elements = new String[] { "ldml", "identity", "alias",
+				"localeDisplayNames", "layout", "characters",
+				"delimiters", "measurement", "dates", "numbers",
+				"collations", "posix", "segmentations",
+				"references", "version", "generation", "language",
+				"script", "territory", "variant", "languages",
+				"scripts", "territories", "variants", "keys",
+				"types", "measurementSystemNames", "key", "type",
+				"measurementSystemName", "orientation", "inList",
+				"exemplarCharacters", "mapping", "quotationStart",
+				"quotationEnd", "alternateQuotationStart",
+				"alternateQuotationEnd", "measurementSystem",
+				"paperSize", "height", "width",
+				"localizedPatternChars", "calendars",
+				"timeZoneNames", "months", "monthNames",
+				"monthAbbr", "days", "dayNames", "dayAbbr",
+				"quarters", "week", "am", "pm", "eras",
+				"dateFormats", "timeFormats", "dateTimeFormats",
+				"fields", "month", "day", "quarter", "minDays",
+				"firstDay", "weekendStart", "weekendEnd",
+				"eraNames", "eraAbbr", "era", "pattern",
+				"displayName", "dateFormatItem", "appendItem",
+				"hourFormat", "hoursFormat", "gmtFormat",
+				"regionFormat", "fallbackFormat",
+				"abbreviationFallback", "preferenceOrdering",
+				"singleCountries", "default", "calendar",
+				"monthContext", "monthWidth", "dayContext",
+				"dayWidth", "quarterContext", "quarterWidth",
+				"dateFormatLength", "dateFormat",
+				"timeFormatLength", "timeFormat",
+				"dateTimeFormatLength", "availableFormats",
+				"appendItems", "dateTimeFormat", "zone", "long",
+				"short", "exemplarCity", "generic", "standard",
+				"daylight", "field", "relative", "symbols",
+				"decimalFormats", "scientificFormats",
+				"percentFormats", "currencyFormats", "currencies",
+				"decimalFormatLength", "decimalFormat",
+				"scientificFormatLength", "scientificFormat",
+				"percentFormatLength", "percentFormat",
+				"currencySpacing", "currencyFormatLength",
+				"beforeCurrency", "afterCurrency", "currencyMatch",
+				"surroundingMatch", "insertBetween",
+				"currencyFormat", "currency", "symbol", "decimal",
+				"group", "list", "percentSign", "nativeZeroDigit",
+				"patternDigit", "plusSign", "minusSign",
+				"exponential", "perMille", "infinity", "nan",
+				"collation", "messages", "yesstr", "nostr",
+				"yesexpr", "noexpr", "segmentation", "variables",
+				"segmentRules", "special", "variable", "rule", "comment",
+				// collation
+				"base", "settings", "suppress_contractions", "optimize", "rules"};
+		String list = CollectionUtilities.join(elements, " ");
+		String prefix = "//supplementalData[@version=\"1.4\"]/metaData/";
+		meta.add(prefix + "elementOrder", list);
+		
+		String[] attOrder = new String[] { "_q", "type", 
+				// always after
+			    "key", "registry", "source", "target",
+				"path", "day", "date", "version", "count", "lines",
+				"characters", "before", "from", "to", "number",
+				"time", "casing", "list", "uri",
+				"iso4217", "digits", "rounding", "iso3166", "hex",
+				"id", "request",
+				"direction",
+				// collation stuff
+				"alternate", "backwards", "caseFirst", "caseLevel",
+				"hiraganaQuarternary", "hiraganaQuaternary",
+				"normalization", "numeric", "strength",
+				// always near the end
+				"validSubLocales", "standard", "references",
+				"elements","element","attributes","attribute",
+				// these are always at the end
+				"alt", "draft", };		
+		meta.add(prefix + "attributeOrder", CollectionUtilities.join(attOrder, " "));
+		
+	    String[] serialElements = new String[] {
+						"variable", "comment", "tRule",
+				// collation
+						"reset", "p", "pc", "s", "sc", "t", "tc", "q", "qc", "i",
+						"ic", "x", "extend", "first_variable", "last_variable",
+						"first_tertiary_ignorable", "last_tertiary_ignorable",
+						"first_secondary_ignorable", "last_secondary_ignorable",
+						"first_primary_ignorable", "last_primary_ignorable",
+						"first_non_ignorable", "last_non_ignorable",
+						"first_trailing", "last_trailing" };
+		meta.add(prefix + "serialElements", CollectionUtilities.join(serialElements, " "));
+		/*
+		 * 
+		 *   <attributeValues elements="weekendStart weekendEnd" attributes="day" order="given">
+		 *   sun mon tue wed thu fri sat</attributeValues>
+		 *   
+		 * 		if (attribute.equals("day")) { //  && (element.startsWith("weekend")
+			comp = dayValueOrder;
+		} else if (attribute.equals("type")) {
+
+			else if (element.equals("day")) comp = dayValueOrder;
+
+			else if (element.equals("zone")) comp = zoneOrder;
+		 */
+		Factory cldrFactory = Factory.make(Utility.MAIN_DIRECTORY, ".*");
+		GenerateAttributeList attributes = new GenerateAttributeList(cldrFactory);
+		Map element_attribute_valueSet = attributes.getElement_attribute_valueSet();
+		for (Iterator it = element_attribute_valueSet.keySet().iterator(); it.hasNext();) {
+			String element = (String)it.next();
+			Map attribute_valueSet = (Map) element_attribute_valueSet.get(element);
+			int size = attribute_valueSet.size();
+			if (size == 0) continue;
+			for (Iterator it2 = attribute_valueSet.keySet().iterator(); it2.hasNext();) {
+				String attribute = (String)it2.next();
+				Set[] valueSets = (Set[]) attribute_valueSet.get(attribute);
+				for (int i = 0; i < 2; ++i) {
+					meta.add(prefix + "valid/attributeValues"
+			    		+ "[@elements=\"" + element + "\"]" +
+			    		"[@attributes=\"" + attribute + "\"]" +
+			    		(i == 1 ? "[@x=\"true\"]" : ""),
+			    		CollectionUtilities.join(valueSets[i], " "));
+				}
+			}
+		}
+
+		String[] dayValueOrder = new String[] {
+	    		"sun", "mon", "tue", "wed", "thu", "fri", "sat"};	    
+	    meta.add(prefix + "valid/attributeValues[@order=\"given\"][@attributes=\"type\"][@elements=\"" + 
+	    		"day" + "\"]", CollectionUtilities.join(dayValueOrder, " "));
+	    meta.add(prefix + "valid/attributeValues[@order=\"given\"][@attributes=\"" + 
+	    		"day" + "\"][@elements=\"" + 
+	    			    		"firstDay weekendEnd weekendStart" + "\"]", CollectionUtilities.join(dayValueOrder, " "));
+	    
+	    String[] widths = {"monthWidth", "dayWidth", "quarterWidth"};
+	    String[] widthOrder = new String[] {
+	    		"abbreviated", "narrow", "wide"};
+	    meta.add(prefix + "valid/attributeValues[@order=\"given\"][@attributes=\"type\"][@elements=\"" + 
+	    		CollectionUtilities.join(widths, " ") + "\"]", CollectionUtilities.join(widthOrder, " "));
+	    
+	    String[] formatLengths = { "dateFormatLength", "timeFormatLength",
+				"dateTimeFormatLength", "decimalFormatLength",
+				"scientificFormatLength", "percentFormatLength",
+				"currencyFormatLength" };
+	    String[] lengthOrder = new String[] {
+	    		"full", "long", "medium", "short"};
+	    meta.add(prefix + "valid/attributeValues[@order=\"given\"][@attributes=\"type\"][@elements=\"" + 
+	    		CollectionUtilities.join(formatLengths, " ") + "\"]", CollectionUtilities.join(lengthOrder, " "));
+
+	    String[] dateFieldOrder = new String[] {
+	    		"era", "year", "month", "week", "day", "weekday", "dayperiod",
+				"hour", "minute", "second", "zone"};
+	    meta.add(prefix + "valid/attributeValues[@order=\"given\"][@attributes=\"type\"][@elements=\"field\"]", CollectionUtilities.join(dateFieldOrder, " "));
+	    		
+		String[][] suppressData = {
+				{"ldml", "version", "*"},
+				{"orientation", "characters", "left-to-right"},
+				{"orientation", "lines", "top-to-bottom"},
+				{"weekendStart", "time", "00:00"},
+				{"weekendEnd", "time", "24:00"},
+				{"dateFormat", "type", "standard"},
+				{"timeFormat", "type", "standard"},
+				{"dateTimeFormat", "type", "standard"},
+				{"decimalFormat", "type", "standard"},
+				{"scientificFormat", "type", "standard"},
+				{"percentFormat", "type", "standard"},
+				{"currencyFormat", "type", "standard"},
+				{"pattern", "type", "standard"},
+				{"currency", "type", "standard"},
+				{"collation", "type", "standard"},
+				{"*", "_q", "*"},
+		};
+		for (int i = 0; i < suppressData.length; ++i) {
+		    meta.add(prefix + "suppress/attributes"
+		    		+ "[@element=\"" + suppressData[i][0]
+		    		+ "\"][@attribute=\"" + suppressData[i][1]
+		    		+ "\"][@attributeValue=\"" + suppressData[i][2]
+		    		+ "\"]", "");
+		}
+		// write out and look at
+		PrintWriter out = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "meta/", "metaData.xml");
+		meta.write(out);
+		out.close();
+		XMLFileReader xfr = new XMLFileReader().setHandler(new MyHandler());
+		xfr.read(Utility.GEN_DIRECTORY + "meta/metaData.xml", 
+				XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER, false);
+	}
+
+	private static void testXMLFileReader() {
+		XMLFileReader xfr = new XMLFileReader().setHandler(new MyHandler());
+		xfr.read(Utility.MAIN_DIRECTORY + "root.xml", -1, true);
+	}
+	static class MyHandler extends XMLFileReader.SimpleHandler {
+
+		public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
+			System.out.println(
+					"eName: " + eName
+					+ ",\t aName: " + aName
+					+ ",\t type: " + type
+					+ ",\t mode: " + mode
+					+ ",\t value: " + value
+					);
+		}
+
+		public void handleElementDecl(String name, String model) {
+			System.out.println(
+					"name: " + name
+					+ ",\t model: " + model);
+		}
+
+		public void handlePathValue(String path, String value) {
+			System.out.println(
+					"path: " + path
+					+ ",\t value: " + value);
+		}
+
+		public void handleComment(String path, String comment) {
+			System.out.println(
+					"path: " + path
+					+ ",\t comment: " + comment);
+		}
+		
+	}
+
 	public static void testBreakIterator(String text) {
 		System.out.println(text);
 		String choice = "Line";
@@ -119,7 +411,26 @@ for (int nextBreak = b.next(); nextBreak != b.DONE; nextBreak = b.next()) {
 
 	private static void checkStandardCodes() {
 		StandardCodes sc = StandardCodes.make();
+		Set zones = sc.getGoodAvailableCodes("tzid");
+		System.out.println(CollectionUtilities.join(zones, " "));
+		Set currencies = sc.getGoodAvailableCodes("currency");
+		System.out.println(CollectionUtilities.join(currencies, " "));
 		Map m = StandardCodes.getLStreg();
+		// print lstreg first
+		if (false) {
+			System.out.println("Printing Data");
+			for (Iterator it = m.keySet().iterator(); it.hasNext();) {
+				String type = (String) it.next();
+				Map subtagData = (Map) m.get(type);
+				for (Iterator it2 = subtagData.keySet().iterator(); it2
+						.hasNext();) {
+					String subtag = (String) it2.next();
+					Map labelData = (Map) subtagData.get(subtag);
+					System.out.println(type + "\t " + subtag + "\t "
+							+ labelData);
+				}
+			}
+		}
 		for (Iterator it = m.keySet().iterator(); it.hasNext();) {
 			String type = (String) it.next();
 			Map subtagData = (Map) m.get(type);
@@ -129,7 +440,7 @@ for (int nextBreak = b.next(); nextBreak != b.DONE; nextBreak = b.next()) {
 			Set temp = new TreeSet(subtagData.keySet());
 			temp.removeAll(allCodes);
 			System.out.println(type + "\t in new but not old\t" + temp);
-			
+
 			temp = new TreeSet(allCodes);
 			temp.removeAll(subtagData.keySet());
 			System.out.println(type + "\t in old but not new\t" + temp);
@@ -139,44 +450,78 @@ for (int nextBreak = b.next(); nextBreak != b.DONE; nextBreak = b.next()) {
 			Map subtagData = (Map) m.get(type);
 			String oldType = type.equals("region") ? "territory" : type;
 			Set goodCodes = sc.getGoodAvailableCodes(oldType);
-			
+
 			for (Iterator it2 = subtagData.keySet().iterator(); it2.hasNext();) {
-				String tag = (String)it2.next();
-				List data = (List) subtagData.get(tag);
+				String tag = (String) it2.next();
+				Map data = (Map) subtagData.get(tag);
 				List sdata = sc.getFullData(oldType, tag);
 				if (sdata == null) {
-					if (true) continue;
+					if (true)
+						continue;
 					System.out.println("new in ltru");
-					for (Iterator it3 = data.iterator(); it3.hasNext();) {
-						String[] item = (String[])it3.next();
-						System.out.println("\t" + type + "\t" + tag + "\t" + Arrays.asList(item));
-					}
+					System.out.println("\t" + type + "\t" + tag + "\t" + data);
 					continue;
 				}
 				String description = (String) sdata.get(0);
 				boolean deprecated = !goodCodes.contains(tag);
 				if (description.equals("PRIVATE USE")) {
-					description = "";
+					// description = "";
 					deprecated = false;
 				}
-				String newDescription = "";
-				boolean newDeprecated = false;
-				for (Iterator it3 = data.iterator(); it3.hasNext();) {
-					String[] item = (String[])it3.next();
-					if (item[0].equals("Description")) {
-						if (newDescription.length() == 0) newDescription = item[1];
-						else newDescription += "; " + item[1];
-					} else if (item[0].equals("Deprecated")) {
-						newDeprecated = true;
-					}
-				}
+				String newDescription = (String) data.get("Description");
+				boolean newDeprecated = data.get("Deprecated") != null;
 				if (!description.equals(newDescription)) {
-					System.out.println(type + "\t" + tag + "\tDescriptions differ: {" + description + "} ### {" + newDescription + "}");
+					System.out.println(type + "\t" + tag
+							+ "\tDescriptions differ: {" + description
+							+ "} ### {" + newDescription + "}");
 				}
 				if (deprecated != newDeprecated) {
-					System.out.println(type + "\t" + tag + "\tDeprecated differs: {" + deprecated + "} ### {" + newDeprecated+ "}");
+					System.out.println(type + "\t" + tag
+							+ "\tDeprecated differs: {" + deprecated
+							+ "} ### {" + newDeprecated + "}");
 				}
 			}
+		}
+		// print metadata
+		for (Iterator it = m.keySet().iterator(); it.hasNext();) {
+			String type = (String) it.next();
+			Map subtagData = (Map) m.get(type);
+			String oldType = type.equals("region") ? "territory" : type;
+			
+			String aliasType = oldType.equals("grandfathered") ? "language" : oldType;
+			Set allCodes = new TreeSet();
+			Set deprecatedCodes = new TreeSet();
+
+			for (Iterator it2 = subtagData.keySet().iterator(); it2.hasNext();) {
+				String tag = (String) it2.next();
+				Map data = (Map) subtagData.get(tag);
+				if (data.get("Deprecated") != null) {
+					String preferred = (String) data.get("Preferred-Value");
+					String cldr = null != data.get("CLDR") ? "CLDR: " : "";
+					System.out.println("\t\t\t<" + aliasType + "Alias type=\""
+							+ tag + "\""+
+							(preferred == null || preferred.length() == 0 ? "" : " replacement=\"" + preferred + "\"")
+							+"/> <!-- " + cldr + data.get("Description") + " -->");
+					deprecatedCodes.add(tag);
+				} else {
+					allCodes.add(tag);
+				}
+			}
+			// get old ones
+			Set goodCodes = sc.getAvailableCodes(oldType);
+			TreeSet oldAndNotNew = new TreeSet(goodCodes);
+			oldAndNotNew.removeAll(allCodes);
+			oldAndNotNew.removeAll(deprecatedCodes);
+			for (Iterator it2 = oldAndNotNew.iterator(); it2.hasNext();) {
+				String tag = (String)it2.next();
+				List sdata = sc.getFullData(oldType, tag);
+				String preferred = (String) sdata.get(2);			
+				System.out.println("\t\t\t<" + aliasType + "Alias type=\""
+						+ tag + "\" replacement=\"" + preferred + "\"/> <!-- CLDR:" + sdata.get(0) + " -->");
+			}
+			String allCodeString = CollectionUtilities.join(allCodes, " ");
+			System.out.println("\t\t\t<variable id=\"$" + oldType
+					+ "\" type=\"list\">" + allCodeString + "</variable>");
 		}
 	}
 

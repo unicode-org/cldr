@@ -27,6 +27,7 @@ import org.unicode.cldr.util.Log;
 
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Transliterator;
@@ -242,7 +243,7 @@ class GenerateStatistics {
 			String before = "", after = "";
 			if (title.length() != 0) {
 				before = "<span title=\'"
-						+ BagFormatter.toHTML.transliterate(title) + "'>";
+						+ TransliteratorUtilities.toHTML.transliterate(title) + "'>";
 				after = "</span>";
 			}
 			String qualifiers = qualifierSet.toString();
@@ -259,7 +260,7 @@ class GenerateStatistics {
 
 			result.append(before)
 					.append(
-							BagFormatter.toHTML.transliterate(englishName
+							TransliteratorUtilities.toHTML.transliterate(englishName
 									+ qualifiers)).append(after);
 		}
 		return result.toString();

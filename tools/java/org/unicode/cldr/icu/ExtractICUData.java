@@ -49,7 +49,6 @@ import com.ibm.icu.util.UResourceBundle;
 
 public class ExtractICUData {
 	public static void main(String[] args) throws Exception {
-
 		generateTransliterators();
 	}
 	

@@ -42,6 +42,7 @@ import org.xml.sax.XMLReader;
 import org.unicode.cldr.util.CachingEntityResolver;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.ICUResourceBundle;
 import com.ibm.icu.impl.Utility;
@@ -544,9 +545,9 @@ public class GenerateSidewaysView {
         public String toString() {return toString(true);}
         public String toString(boolean path) {
             if (path) {
-                return "[@" + name + "='" + BagFormatter.toHTML.transliterate(value) + "']";
+                return "[@" + name + "='" + TransliteratorUtilities.toHTML.transliterate(value) + "']";
             } else {
-                return " " + name + "=\"" + BagFormatter.toXML.transliterate(value) + "\"";
+                return " " + name + "=\"" + TransliteratorUtilities.toXML.transliterate(value) + "\"";
             }
         }
         public int compareTo(Object o) {
@@ -764,7 +765,7 @@ public class GenerateSidewaysView {
                         String value = (String) it3.next();
                         if (newSet) newSet = false;
                         else out.print(", ");
-                        out.print(BagFormatter.toHTML.transliterate("\"" + value + "\""));
+                        out.print(TransliteratorUtilities.toHTML.transliterate("\"" + value + "\""));
                     }
                     out.println("</td></tr>");
                     /*
@@ -1461,7 +1462,7 @@ public class GenerateSidewaysView {
             return toString(Element.PATH);
         }
         public String toString(int type) {
-            if (string != null) return BagFormatter.toHTML.transliterate(string);
+            if (string != null) return TransliteratorUtilities.toHTML.transliterate(string);
             return attributes.toString(); // TO FIX type==Element.PATH
         }
         /*
@@ -1580,7 +1581,7 @@ public class GenerateSidewaysView {
                 out.println("<tr><td colspan='2' class='head'>" +
                         "<a href='#" + lineCounter + "' name='" + lineCounter + "'>"
                         + lineCounter + "</a>&nbsp;" +
-                        BagFormatter.toHTML.transliterate(key) + "</td></tr>");
+                        TransliteratorUtilities.toHTML.transliterate(key) + "</td></tr>");
                 Map dataToFile = (Map) contextCache.get(stack);
                 // walk through once, and gather all the filenames
                 Set remainingFiles = new TreeSet(fileNames);
@@ -1607,7 +1608,7 @@ public class GenerateSidewaysView {
 							extra = GenerateCldrTests.toLatin.transliterate(data.string);
 	                    	untransliteratedCharacters.addAll(extra);
 	                    	if (extra.equals(data.string)) extra = "";
-	                  		else extra = "<br>(\"" + BagFormatter.toHTML.transliterate(extra) + "\")";                      	
+	                  		else extra = "<br>(\"" + TransliteratorUtilities.toHTML.transliterate(extra) + "\")";                      	
 						} catch (RuntimeException e) {
 							translitErrors.add(e.getMessage());
 						}
@@ -1662,7 +1663,7 @@ public class GenerateSidewaysView {
             PrintWriter out = BagFormatter.openUTF8Writer(options[DESTDIR].value, "by_type" + File.separator + fileName);
             out.println("<html><head>");
             out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>");
-            out.println("<title>Comparison By Type: " + BagFormatter.toHTML.transliterate(type) + "</title>");
+            out.println("<title>Comparison By Type: " + TransliteratorUtilities.toHTML.transliterate(type) + "</title>");
             out.println("<link rel='stylesheet' type='text/css' href='http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/common.css'>");
             out.println("<link rel='stylesheet' type='text/css' href='by_type.css'>");
             out.println("</head>");

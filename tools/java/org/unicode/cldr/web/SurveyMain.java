@@ -30,6 +30,7 @@ import com.ibm.icu.util.ULocale;
 import com.ibm.icu.lang.UCharacter;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 
 import org.unicode.cldr.test.*;
 import org.unicode.cldr.util.*;
@@ -1230,7 +1231,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 String asString = sw.toString();
                 fullBody = fullBody + "-------------" + "\n" + k + ".xml - " + displayName + "\n" + 
                     hexXML.transliterate(asString);
-                String asHtml = BagFormatter.toHTML.transliterate(asString);
+                String asHtml = TransliteratorUtilities.toHTML.transliterate(asString);
                 ctx.println("<pre>" + asHtml + "</pre>");
                 File xmlFile = new File(sessDir, k + ".xml");
                 if(post) {
@@ -1719,7 +1720,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         String asString = sw.toString();
 //                fullBody = fullBody + "-------------" + "\n" + k + ".xml - " + displayName + "\n" + 
 //                    hexXML.transliterate(asString);
-        String asHtml = BagFormatter.toHTML.transliterate(asString);
+        String asHtml = TransliteratorUtilities.toHTML.transliterate(asString);
         ctx.println(asHtml);
         ctx.println("</pre>");
     }

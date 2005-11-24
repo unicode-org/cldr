@@ -7,6 +7,8 @@ import java.util.Set;
 
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
@@ -99,15 +101,15 @@ public class GenerateKaraList {
 			if (ename == null) ename = "[untranslated: " + id + "]";
 			System.out.println(id + "\t" + ename);
 			log.println("\t<entry>");
-			log.println("\t\t<hdterm>" + BagFormatter.toXML.transliterate(ename) + "</hdterm>\t<!-- "
-					+ BagFormatter.toXML.transliterate(english.getNameName(choice)) + ": " + id + " -->"); // English name
+			log.println("\t\t<hdterm>" + TransliteratorUtilities.toXML.transliterate(ename) + "</hdterm>\t<!-- "
+					+ TransliteratorUtilities.toXML.transliterate(english.getNameName(choice)) + ": " + id + " -->"); // English name
 			log.println("\t\t<hom>");
 			log.println("\t\t\t<epos>n</epos>"); //  this is the part of speech value. It is fixed.
 			log.println("\t\t\t<sense>");
 			if (hasAbbreviation) {  // only applicable for the currency entries
 				String aename = english.getName(CLDRFile.CURRENCY_SYMBOL, id, true);
 				if (aename != null) {
-					log.println("\t\t\t\t<eabbr>" + BagFormatter.toXML.transliterate(aename) + "</eabbr>");
+					log.println("\t\t\t\t<eabbr>" + TransliteratorUtilities.toXML.transliterate(aename) + "</eabbr>");
 				}
 			}
 			for (Iterator it2 = locales.iterator(); it2.hasNext();) {
@@ -119,12 +121,12 @@ public class GenerateKaraList {
 					log.println("\t\t\t\t<target>");	// one target block for each language
 					//String etrans = getName(english, "languages/language", locale, true);
 					log.println("\t\t\t\t\t<tlanguage>" + locale + "</tlanguage>\t<!-- "
-							+ BagFormatter.toXML.transliterate(english.getName(locale,true)) + " -->");	// We do use non-ISO values but  you can populate this with the 2 character code from the top of each xml file and we will do necessary mapping afterwards.
-					log.println("\t\t\t\t\t<trans>" + BagFormatter.toXML.transliterate(trans) + "</trans>");
+							+ TransliteratorUtilities.toXML.transliterate(english.getName(locale,true)) + " -->");	// We do use non-ISO values but  you can populate this with the 2 character code from the top of each xml file and we will do necessary mapping afterwards.
+					log.println("\t\t\t\t\t<trans>" + TransliteratorUtilities.toXML.transliterate(trans) + "</trans>");
 					if (hasAbbreviation) {
 						String aename = cldrfile.getName(CLDRFile.CURRENCY_SYMBOL, id, true);
 						if (aename != null && !aename.equals(id)) {
-							log.println("\t\t\t\t\t<tabbr>" + BagFormatter.toXML.transliterate(aename) + "</tabbr>");
+							log.println("\t\t\t\t\t<tabbr>" + TransliteratorUtilities.toXML.transliterate(aename) + "</tabbr>");
 						}
 					}
 					log.println("\t\t\t\t</target>");

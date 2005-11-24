@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 
 /**
  * Parser for XPath
@@ -86,7 +86,7 @@ public class XPathParts {
 			pw.print(e.toString(XML_NO_VALUE));
 		} else {
 			pw.print(e.toString(XML_OPEN));
-			pw.print(BagFormatter.toHTML.transliterate(eValue));
+			pw.print(TransliteratorUtilities.toHTML.transliterate(eValue));
 			pw.print(e.toString(XML_CLOSE));
 		}
 		filteredXPath.writeComment(pw, xpath_comments, size(), Comments.LINE);

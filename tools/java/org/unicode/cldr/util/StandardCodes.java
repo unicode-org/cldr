@@ -25,6 +25,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
 import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
@@ -917,8 +918,48 @@ public class StandardCodes {
 		}
 	}
 	
+	// return a complex map. language -> arn -> {"Comments" -> "x", "Description->y,...}
+	static String[][] extras = {
+		{"language", "root", "Description", "Root", "CLDR", "True"},
+		{"variant", "POLYTONI", "Description", "Polytonic Greek", "CLDR", "True"},
+		{"variant", "REVISED", "Description", "Revised Orthography", "CLDR", "True"},
+		{"variant", "SAAHO", "Description", "Dialect", "CLDR", "True"},			   
+		{"region", "003", "Description", "North America", "CLDR", "True"},			   
+		{"region", "062", "Description", "South-central Asia", "CLDR", "True"},			   
+		{"region", "200", "Description", "Czechoslovakia", "CLDR", "True"},			   
+		{"region", "830", "Description", "Channel Islands", "CLDR", "True"},			   
+		{"region", "833", "Description", "Isle of Man", "CLDR", "True"},
+		
+//		{"region", "NT", "Description", "Neutral Zone (formerly between Saudi Arabia & Iraq)", "CLDR", "True", "Deprecated", "True"},
+//		{"region", "SU", "Description", "Union of Soviet Socialist Republics", "CLDR", "True", "Deprecated", "True"},
+		{"region", "BQ", "Description", "British Antarctic Territory", "Preferred-Value", "AQ", "CLDR", "True", "Deprecated", "True"},
+		{"region", "CT", "Description", "Canton and Enderbury Islands", "Preferred-Value", "KI", "CLDR", "True", "Deprecated", "True"},
+		{"region", "FQ", "Description", "French Southern and Antarctic Territories (now split between AQ and TF)", "CLDR", "True", "Deprecated", "True"},
+		{"region", "JT", "Description", "Johnston Island", "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
+		{"region", "MI", "Description", "Midway Islands", "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
+		{"region", "NQ", "Description", "Dronning Maud Land", "Preferred-Value", "AQ", "CLDR", "True", "Deprecated", "True"},
+		{"region", "PC", "Description", "Pacific Islands Trust Territory (divided into FM, MH, MP, and PW)", "Preferred-Value", "AQ", "CLDR", "True", "Deprecated", "True"},
+		{"region", "PU", "Description", "U.S. Miscellaneous Pacific Islands", "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
+		{"region", "PZ", "Description", "Panama Canal Zone", "Preferred-Value", "PA", "CLDR", "True", "Deprecated", "True"},
+		{"region", "VD", "Description", "North Vietnam", "Preferred-Value", "VN", "CLDR", "True", "Deprecated", "True"},
+		{"region", "WK", "Description", "Wake Island", "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
+	};
+
 	public static Map getLStreg() {
+		
 		Map result = new TreeMap();
+		// add extras
+		for (int i = 0; i < extras.length; ++i) {
+			Map subtagData = (Map) result.get(extras[i][0]);
+			if (subtagData == null) result.put(extras[i][0], subtagData = new TreeMap());
+			Map labelData = new TreeMap();
+			for (int j = 2; j < extras[i].length; j += 2) {
+				labelData.put(extras[i][j], extras[i][j+1]);
+			}
+			subtagData.put(extras[i][1], labelData);
+		}
+		
+		Set funnyTags = new TreeSet();
 		try {
 			String line;
 			BufferedReader lstreg = Utility.getUTF8Data("draft-ietf-ltru-initial-06.txt");
@@ -926,8 +967,9 @@ public class StandardCodes {
 			String lastType = null;
 			String lastTag = null;
 			Map subtagData = null;
-			List currentData = null;
-			String[] lastPieces = null;
+			Map currentData = null;
+			String lastLabel = null;
+			String lastRest = null;
 			while (true) {
 				line = lstreg.readLine();
 				if (line == null) break;
@@ -942,7 +984,7 @@ public class StandardCodes {
 				if (!line.startsWith("   ")) continue; // skip page header/footer
 				if (line.startsWith("   %%")) continue; // skip separators (ok, since data starts with Type:
 				if (line.startsWith("     ")) {
-					lastPieces[1] = lastPieces[1] + " " + line.trim();
+					currentData.put(lastLabel, lastRest + " " + line.trim());
 					continue;
 				}
 				/*
@@ -952,41 +994,46 @@ public class StandardCodes {
    Added: 2005-10-16
    Suppress-Script: Latn
 				 */
-				String[] pieces = Utility.splitArray(line,':', true);
-				if (pieces[0].equalsIgnoreCase("Type")) {
-					subtagData = (Map) result.get(lastType = pieces[1]);
-					if (subtagData == null) result.put(pieces[1], subtagData = new TreeMap());
-				} else if (pieces[0].equalsIgnoreCase("Subtag") || pieces[0].equalsIgnoreCase("Tag")) {
-					lastTag = pieces[1];
+				int pos2 = line.indexOf(':');
+				String label = line.substring(0, pos2).trim();
+				String rest = line.substring(pos2+1).trim();
+				if (label.equalsIgnoreCase("Type")) {
+					subtagData = (Map) result.get(lastType = rest);
+					if (subtagData == null) result.put(rest, subtagData = new TreeMap());
+				} else if (label.equalsIgnoreCase("Subtag") || label.equalsIgnoreCase("Tag")) {
+					lastTag = rest;
 					String endTag = null;
 					int pos = lastTag.indexOf("..");
 					if (pos >= 0) {
 						endTag = lastTag.substring(pos + 2);
 						lastTag = lastTag.substring(0,pos);						
 					}
-					currentData = (List) subtagData.get(lastTag);
+					currentData = (Map) subtagData.get(lastTag);
 					if (currentData != null) throw new IllegalArgumentException("Duplicate tag: " + lastTag);
+					currentData = new TreeMap();
 					if (endTag == null) {
-						subtagData.put(lastTag, currentData = new ArrayList(0));
+						subtagData.put(lastTag, currentData);
 					} else {
 						for (; lastTag.compareTo(endTag) <= 0; lastTag = nextAlpha(lastTag)) {
 							//System.out.println(">" + current);
-							subtagData.put(lastTag, currentData = new ArrayList(0));
+							subtagData.put(lastTag, currentData);
 						}
 
 					}
-				} else if (pieces[0].equalsIgnoreCase("Added") || pieces[0].equalsIgnoreCase("Suppress-Script")) {
+						//label.equalsIgnoreCase("Added") || label.equalsIgnoreCase("Suppress-Script")) {
 					// skip
-				} else if (pieces.length < 2) {
-					System.out.println("Odd Line: " + lastType + "\t" + lastTag + "\t" + line);
+				//} else if (pieces.length < 2) {
+				//	System.out.println("Odd Line: " + lastType + "\t" + lastTag + "\t" + line);
 				} else {
-					lastPieces = pieces;
-					pieces[1] = BagFormatter.fromXML.transliterate(pieces[1]);
-					currentData.add(pieces);
+					lastLabel = label;
+					lastRest = TransliteratorUtilities.fromXML.transliterate(rest);
+					currentData.put(lastLabel, lastRest);
 				}
 			}
 		} catch (Exception e) {
 			throw (RuntimeException) new IllegalArgumentException("Can't process file: " + Utility.UTIL_DATA_DIR + "draft-ietf-ltru-initial-06.txt").initCause(e);
+		} finally {
+			System.out.println("Funny tags: " + funnyTags);
 		}
 		return result;
 	}

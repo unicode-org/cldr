@@ -10,7 +10,7 @@ import org.unicode.cldr.test.CheckCLDR.SimpleDemo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
@@ -82,11 +82,11 @@ public class CheckNumbers extends CheckCLDR {
 		arguments[1] = formatted;
 		arguments[2] = english.format(parsed);
 		htmlMessage.append(pattern1)
-		.append(BagFormatter.toXML.transliterate(String.valueOf(sample)))
+		.append(TransliteratorUtilities.toXML.transliterate(String.valueOf(sample)))
 		.append(pattern2)
-		.append(BagFormatter.toXML.transliterate(formatted))
+		.append(TransliteratorUtilities.toXML.transliterate(formatted))
 		.append(pattern3)
-		.append(BagFormatter.toXML.transliterate(String.valueOf(parsed)))
+		.append(TransliteratorUtilities.toXML.transliterate(String.valueOf(parsed)))
 		.append(pattern4);
 		result.add(new MyCheckStatus()
 				.setFormat(x)

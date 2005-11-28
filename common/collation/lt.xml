@@ -25,5 +25,23 @@
 					<t>Ž</t>
 				</rules>
 			</collation  >
+			<collation type="standard" draft="true" alt="proposed" >
+				<rules>
+					<reset>̨</reset>
+					<s>̇</s>
+					<reset before="primary">D</reset>
+					<p>č</p>
+					<t>Č</t>
+					<rese>I</reset>
+					<s>y</s>
+					<t>Y</t>
+					<reset before="primary">T</reset>
+					<p>š</p>
+					<t>Š</t>
+					<reset before="primary">Ʒ</reset>
+					<p>ž</p>
+					<t>Ž</t>
+				</rules>
+			</collation  >
 		</collations>
 </ldml>

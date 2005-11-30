@@ -316,14 +316,14 @@ public class ConvertOOLocale
         if (reader.m_TimePM!=null) data.put(LDMLConstants.PM, reader.m_TimePM);
         
         
-        try
+     /*   try
         {
             BufferedWriter out = new BufferedWriter(new FileWriter("date_time",true));
             out.write(m_localeStr + "\n");
             out.close();
         }
         catch (IOException e)
-        {}
+        {}*/
         
         //get the DATE FormatElements
         Hashtable formatElements_date = new Hashtable();

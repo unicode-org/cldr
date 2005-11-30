@@ -30,9 +30,9 @@ public class OOLocaleReader
     public Hashtable m_Refs2 = new Hashtable();  //key = OOConstant, date is contentts of ref attrib (i.e. not fully resolved)
     
     // LC_INFO
-    public String m_LangId = null;
+    public static String m_LangId = null;
     public String m_Language_DefaultName = null;
-    public String m_Country_CountryID = null;
+    public static String m_Country_CountryID = null;
     public String m_Country_DefaultName = null;
     public String m_PlatformID = null;
     public String m_Varient = null;

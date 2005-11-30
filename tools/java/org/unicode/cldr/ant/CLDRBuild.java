@@ -1,10 +1,8 @@
 package org.unicode.cldr.ant;
 import java.io.File;
 import java.io.FileFilter;
-import java.io.FilenameFilter;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.TreeMap;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Vector;
@@ -25,7 +23,6 @@ public class CLDRBuild extends Task{
     private UOption destDir = UOption.DESTDIR();
     
     private static final String ALL  = ".*";
-    private static final String MAIN = "main";
     private static final char FILE_EXT_SEPARATOR = '.';
     public class Filter implements FileFilter{
         private String filePattern;
@@ -41,12 +38,12 @@ public class CLDRBuild extends Task{
             return false;
         }
     }
-    public ArrayList getLocalesList(Config config, String src, String dest){
+    public TreeMap getLocalesList(Config config, String src, String dest){
         File srcdir = new File(src);
         File[] srcFiles = srcdir.listFiles(new Filter(srcFile));
         File destdir = new File(dest);
         File[] destFiles = destdir.listFiles(new Filter(destFile));
-        ArrayList ret = new ArrayList();
+        TreeMap ret = new TreeMap();
         
         if(config !=null){
             Locales locs = config.getLocales();
@@ -59,7 +56,7 @@ public class CLDRBuild extends Task{
                 //fast path for .*
                 if(inc.locale.equals(ALL)){
                     for(int j=0; j<srcFiles.length;j++){
-                        ret.add(srcFiles[j].getName());
+                        ret.put(srcFiles[j].getName(), inc.draft);
                     }
                     continue;
                 }
@@ -69,7 +66,7 @@ public class CLDRBuild extends Task{
                 for(int j=0; j<srcFiles.length; j++){
                     String fileName = srcFiles[j].getName(); 
                     if(fileName.matches(inc.locale)|| (fileName.indexOf(inc.locale)==0)){
-                        ret.add(fileName);
+                        ret.put(fileName, inc.draft);
                         filesMissing = false;
                         break;
                     }
@@ -84,22 +81,17 @@ public class CLDRBuild extends Task{
                 Exclude exc = (Exclude)exclude.get(i);
                 //fast path for .*
                 if(exc.locale.equals(ALL)){
-                    ret.removeAll((ArrayList)ret.clone());
                     if(exclude.size()>1){
                         errln("Exclude definition excludes all files and more. Please check the config.", true);
                     }
+                    ret.clear();
                     continue;
                 }
-                for(int j=0; j<ret.size(); j++){
-                    String file = (String)ret.get(j);
-                    if(file.matches(exc.locale)){
-                        ret.remove(file);
-                    }
-                }
+                ret.remove(exc.locale);
             }
         }else{
             if(srcFiles.length==1 && destFiles.length==1){
-                ret.add(srcFiles[0].getName());
+                ret.put(srcFiles[0].getName(),".*");
             }
         }
         // only build the files that need to be built
@@ -179,15 +171,15 @@ public class CLDRBuild extends Task{
             Config config = run.getConfig();
             Hashtable runArgs = run.getArgs(null);
             
-            ArrayList list = getLocalesList(config, getDirString(runArgs, srcDir), getDirString(runArgs, destDir));
+            TreeMap localesMap = getLocalesList(config, getDirString(runArgs, srcDir), getDirString(runArgs, destDir));
             
-            if(list==null){
+            if(localesMap==null){
                 continue;
             }
-            if(list.size()==0 && noArgs==false){
+            if(localesMap.size()==0 && noArgs==false){
                 continue;
             }
-            String[] args = new String[runArgs.size()*2 + list.size()];
+            String[] args = new String[runArgs.size()*2];
             
             // create the args list
             int i=0;
@@ -204,41 +196,33 @@ public class CLDRBuild extends Task{
                 printArgs.append(value);
                 printArgs.append(" ");
             }
-            for(int j=0; j<list.size(); j++){
-                args[i++] = (String) list.get(j);
-                printArgs.append((String) list.get(j));
-                printArgs.append(" ");
-            }
             for(;i<args.length;i++){
                 args[i]="";
             }
-            String methodName =  "processArgs";
-            System.out.println("Invoking " + methodName +" " + printArgs);
-            Object tool = createObject(toolName);
-            Method method = getMethod(tool, methodName, new Class[]{String[].class});
-            invoke(tool, method, new Object[]{args});
+            Object obj = createObject(toolName);
+            if(obj instanceof CLDRConverterTool){
+                CLDRConverterTool tool = (CLDRConverterTool) obj;
+                tool.setLocalesMap(localesMap);
+                if(run.deprecates!=null){
+                    tool.setAliasLocaleList(run.deprecates.aliasLocaleList);
+                    tool.setAliasMap(run.deprecates.aliasMap);
+                    tool.setEmptyLocaleList(run.deprecates.emptyLocaleList);
+                }
+                if(run.config!=null && run.config.paths!=null){
+                    tool.setXPathExcludeMap(run.config.paths.getXPathExcludeMap());
+                    tool.setXPathIncludeMap(run.config.paths.getXPathIncludeMap());
+                }
+                tool.processArgs(args);
+            }else{
+                errln(toolName+" not a subclass of CLDRConverterTool! Cannot execute. Exiting", true);
+            }
+            // Method method = getMethod(tool, methodName, new Class[]{String[].class});
+            // invoke(tool, method, new Object[]{args});
             System.out.println("");
         }
         
     }
-    private static void invoke(Object tool, Method method, Object[] arguments){
-        try{
-            method.invoke(tool, arguments);
-        }catch (IllegalAccessException e) {
-            errln(e.getMessage(), true);
-        } catch (InvocationTargetException e) {
-            errln(e.getMessage(), true);
-        }
-    }
-    private static Method getMethod(Object obj, String methodName, Class[] paramTypes ){
-        Method method=null;
-        try {
-          method = obj.getClass().getMethod(methodName, paramTypes);
-        } catch (NoSuchMethodException e) {
-            errln(e.getMessage(), true);
-        } 
-        return method;
-    }
+
     private static Object createObject(String className) {
         Object object = null;
         try {
@@ -275,6 +259,7 @@ public class CLDRBuild extends Task{
         private String type;
         private Args args;
         private Config config; 
+        private Deprecates deprecates;
         public void setType(String type){
             this.type = type;
         }
@@ -283,6 +268,9 @@ public class CLDRBuild extends Task{
         }
         public void addConfiguredConfig(Config conf){
             config = conf;
+        }
+        public void addConfiguredDeprecates(Deprecates dep){
+            this.deprecates = dep;
         }
         public Hashtable getArgs(Hashtable hash){
             if(hash==null){
@@ -294,6 +282,9 @@ public class CLDRBuild extends Task{
         }
         public Config getConfig(){
             return config;
+        }
+        public String getType(){
+            return type;
         }
     }
     
@@ -347,17 +338,26 @@ public class CLDRBuild extends Task{
         public void setType(String type){
             this.type = type;
         }
-       public Locales getLocales(){
+        public Locales getLocales(){
            return locales;
+        }
+        public String getType(){
+            return type;
         }
     }
     public static class Locales extends Task{
         private Vector include = new Vector();
         private Vector exclude = new Vector();
         public void addConfiguredInclude(Include inc){
+            if(include.contains(inc)){
+                errln("This build does not support multiple <include> or <exclude> elements with same locale attribute: "+inc.locale, true);
+            }
             include.add(inc);
         }
         public void addConfiguredExclude(Exclude ex){
+            if(exclude.contains(ex)){
+                errln("This build does not support multiple <include> or <exclude> elements with same locale attribute: "+ex.locale, true);
+            }
             exclude.add(ex);
         }
         public Vector getIncludeList(){
@@ -377,14 +377,95 @@ public class CLDRBuild extends Task{
             draft = ds;
         }
         public void setLocale(String loc){
+            if(xpath!=null){
+                errln("Both xpath and locale attributes cannot be set on the same element! xpath=\""+xpath+"\" locale=\""+loc+"\"", true);
+            }
             locale = loc;
         }
         public void setXpath(String xp){
+            if(locale!=null){
+                errln("Both xpath and locale attributes cannot be set on the same element! xpath=\""+xp+"\" locale=\""+locale+"\"", true);
+            }
             xpath = xp;
+        }
+        public void setPreferAlt(String pa){
+            preferAlt = pa;
+        }
+        public boolean equals(Object o){
+            if(!(o instanceof Include)){
+                return false;
+            }
+            Include other = (Include) o;
+            if(o==this){
+                return true;
+            }
+            if(locale.equals(other.locale)&&
+                (draft==other.draft || (draft!=null && other.draft!=null && draft.equals(other.draft))) &&
+                (xpath==other.xpath || (xpath!=null && other.xpath!=null && xpath.equals(other.xpath))) &&
+                (preferAlt==other.preferAlt || (preferAlt!=null && other.preferAlt!=null && preferAlt.equals(other.preferAlt)))
+               ){
+                return true;
+            }
+            return false;
+        }
+        public int hashCode(){
+            return locale.hashCode() + 
+                   draft!=null? draft.hashCode():0+
+                   xpath!=null? xpath.hashCode():0+
+                   preferAlt!=null? preferAlt.hashCode():0;
         }
     }
     public static class Exclude extends Include{
         // all data & methods are identical to Include class 
+    }
+    
+    public static class Deprecates extends Task{
+        protected ArrayList aliasLocaleList    = null;
+        protected ArrayList emptyLocaleList    = null;
+        protected TreeMap   aliasMap           = null;
+        public void addConfiguredAlias(Alias alias){
+            if(aliasMap==null){
+                aliasMap= new TreeMap();
+            }
+            aliasMap.put(alias.from, new CLDRConverterTool.Alias(alias.to, alias.xpath));
+        }
+        public void addConfiguredEmptyLocale(EmptyLocale alias){
+            if(emptyLocaleList==null){
+                emptyLocaleList = new ArrayList();
+            }
+            emptyLocaleList.add(alias.locale);
+        }
+        public void addConfiguredAliasLocale(AliasLocale alias){
+            if(aliasLocaleList==null){
+                aliasLocaleList = new ArrayList();
+            }
+            aliasLocaleList.add(alias.locale);            
+        }
+    }
+    public static class Alias extends Task{
+        String from;
+        String to;
+        String xpath;
+        public void setFrom(String from){
+            this.from = from;
+        }
+        public void setTo(String to){
+            this.to = to;
+        }
+        public void setXpath(String xp){
+            xpath = xp;
+        }
+        
+    }
+    public static class AliasLocale extends Task{
+        String locale;
+        public void setLocale(String loc){
+            locale = loc;
+        }
+    }
+    
+    public static class EmptyLocale extends AliasLocale{
+        // all data & methods are identical to AliasLocale class 
     }
     
     public static class Paths extends Task{
@@ -395,6 +476,20 @@ public class CLDRBuild extends Task{
         }
         public void addConfiguredExclude(Exclude ex){
             exclude.add(ex);
+        }
+        public TreeMap getXPathIncludeMap(){
+            return getXPathMap(include);
+        }
+        public TreeMap getXPathExcludeMap(){
+            return getXPathMap(exclude);
+        }
+        private TreeMap getXPathMap(Vector vec){
+            TreeMap map = new TreeMap();
+            for(int i=0; i<vec.size(); i++){
+                Include inc = (Include) vec.get(i);
+                map.put(inc.xpath, new CLDRConverterTool.Preferences(inc.preferAlt, inc.draft));
+            }
+            return map;
         }
     }
     

@@ -1335,12 +1335,50 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
             return;
         }
         
+        //temp for merge
+    /*    String file = OOLocaleReader.m_LangId;
+        if (OOLocaleReader.m_Country_CountryID != null) file = file + "_" + OOLocaleReader.m_Country_CountryID;
+        file += ".xml";
+        try
+        {
+            BufferedWriter out = new BufferedWriter(new FileWriter("./ldml2/"+file,true));
+            out.write ("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
+            out.write ("<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.4/ldml.dtd\">\n");
+            out.write ("<ldml>\n");
+            out.write ("    <identity>\n");
+            out.write ("        <version number=\"1.4\"/>\n");
+            out.write ("        <generation date=\"23-11-05\"/>\n");
+            out.write ("        <language type=\"" + OOLocaleReader.m_LangId + "\"/>\n");
+            if (OOLocaleReader.m_Country_CountryID != null)
+                out.write ("         <territory type=\"" + OOLocaleReader.m_Country_CountryID + "\"/>\n");
+            out.write ("    </identity>\n");
+            out.write ("    <dates>\n");
+            out.write ("        <calendars>\n");
+            out.write ("            <calendar type=\"gregorian\">\n");
+            out.write ("                <dateTimeFormats>\n");
+            out.write  ("                    <availableFormats draft=\"true\">\n");                   
+            out.close();
+        }
+        catch (IOException e)
+        {}  */
+            
         //OO.o formats belong to different calendar types so make sure to write to appropriate places
         // look for [~hijri]  ][~jewish]  >[~hanja]  [~buddhist]
         //skip ones with [HH] or [NatNum1] [natnum1] etc
         
         println(LDMLConstants.AVAIL_FMTS_O);
         indent();
+        
+        //remove duplicates
+        Vector patterns_no_dups = new Vector ();
+        for (int i=0; i < patterns.size(); i++)
+        {
+            String pattern = (String) patterns.elementAt(i);
+            if (patterns_no_dups.contains(pattern) == false)
+                patterns_no_dups.add (pattern);
+            else
+                System.err.println ("INDO: Skipping duplicate pattern : " + pattern + " for availableFormats");
+        }
         
         for (int i=0; i < patterns.size(); i++)
         {
@@ -1350,11 +1388,36 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 print(LDMLConstants.DATE_FMT_ITEM_O);
                 print(pattern);
                 println(LDMLConstants.DATE_FMT_ITEM_C);
+                
+                //temp for merge
+          /*      try
+                {
+                    BufferedWriter out = new BufferedWriter(new FileWriter("./ldml2/"+file,true));
+                    out.write("                       </dateFormatItem>" + pattern + "</dateFormatItem>\n");
+                    out.close ();
+                }
+                catch (IOException e)
+                {}*/
             }
         }
         
         outdent();
         println(LDMLConstants.AVAIL_FMTS_C);
+        
+        //temp for merge to cLDR 1.4
+    /*    try
+        {
+            BufferedWriter out = new BufferedWriter(new FileWriter("./ldml2/"+file,true));
+            out.write ("                    </availableFormats>\n");
+            out.write ("                </dateTimeFormats>\n");
+            out.write ("            </calendar>\n");
+            out.write ("        </calendars>\n");
+            out.write ("    </dates>\n");
+            out.write ("</ldml>\n");
+            out.close ();
+        }
+        catch (IOException e)
+        {}  */
     }
     
     

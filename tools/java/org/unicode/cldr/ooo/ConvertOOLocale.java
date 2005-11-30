@@ -384,7 +384,7 @@ public class ConvertOOLocale
             Vector flexDateTimePatterms = new Vector();
             Collection coll = flexDate.values();
             flexDateTimePatterms.addAll(coll);
-            coll = flexDate.values();
+            coll = flexTime.values();
             flexDateTimePatterms.addAll(coll);
             coll = flexDateTime.values();
             flexDateTimePatterms.addAll(coll);

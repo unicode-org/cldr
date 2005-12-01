@@ -1960,7 +1960,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }else if(name.equals(LDMLConstants.FIELDS)){
                 //TODO write a method to parse fields
             }else if(name.equals(LDMLConstants.QUARTERS)){
-                    //TODO write a method to parse fields
+                //TODO write a method to parse quarters
             }else{
                 System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
                 System.exit(-1);

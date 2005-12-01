@@ -120,7 +120,7 @@
     <target name="jar" depends="all" description="build full 'cldr.jar' jar file">
         <jar jarfile="${jar.file}"
             compress="true"
-            includes="org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*, org/unicode/cldr/ooo/**/*"
+            includes="org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*,org/unicode/cldr/ooo/**/*,org/unicode/cldr/ant/**/*"
             basedir="${build.dir}"/>
     </target>
     

@@ -236,18 +236,25 @@ public class XPathTable {
     }
     
     public String typeFromPathToTinyXpath(String path, XPathParts xpp) {
+        return whatFromPathToTinyXpath(path, xpp, LDMLConstants.TYPE);
+    }
+    public String altFromPathToTinyXpath(String path, XPathParts xpp) {
+        return whatFromPathToTinyXpath(path, xpp, LDMLConstants.ALT);
+    }
+    public String whatFromPathToTinyXpath(String path, XPathParts xpp, String what) {
         xpp.clear();
         xpp.initialize(path);
         Map lastAtts = xpp.getAttributes(-1);
+        String type = (String)lastAtts.remove(what);
         lastAtts.remove(LDMLConstants.ALT);
+        lastAtts.remove(LDMLConstants.TYPE);
         lastAtts.remove(LDMLConstants.DRAFT);
-        String type = (String)lastAtts.remove(LDMLConstants.TYPE);
-        if((type == null) && (path.indexOf(LDMLConstants.TYPE)>=0)) try {
+        if((type == null) && (path.indexOf(what)>=0)) try {
             // less common case - type isn't the last
             for(int n=-2;(type==null);n--) {
                 lastAtts = xpp.getAttributes(n);
                 if(lastAtts != null) {
-                    type = (String)lastAtts.remove(LDMLConstants.TYPE);
+                    type = (String)lastAtts.remove(what);
                 }
             }
         } catch(ArrayIndexOutOfBoundsException aioobe) {

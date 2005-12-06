@@ -23,51 +23,74 @@ public class CookieSession {
         id = s;
     }
     
-    static Hashtable gHash = new Hashtable();
-    static Hashtable uHash = new Hashtable();
+    static Hashtable gHash = new Hashtable(); // hash by sess ID
+    static Hashtable uHash = new Hashtable(); // hash by user ID
     
     /* all sessions. sorted by age. */
     public static Iterator getAll() {
-        TreeSet sessSet = new TreeSet(new Comparator() {
-              public int compare(Object a, Object b) {
-                CookieSession aa = (CookieSession)a;
-                CookieSession bb = (CookieSession)b;
-                if(aa==bb) return 0;
-                if(aa.last>bb.last) return -1;
-                if(aa.last<bb.last) return 1;
-                return 0; // same age
-               }
-            });
-        sessSet.addAll(uHash.values());
-        return sessSet.iterator();
-        //return uHash.values().iterator();
+        synchronized(gHash) {
+            TreeSet sessSet = new TreeSet(new Comparator() {
+                  public int compare(Object a, Object b) {
+                    CookieSession aa = (CookieSession)a;
+                    CookieSession bb = (CookieSession)b;
+                    if(aa==bb) return 0;
+                    if(aa.last>bb.last) return -1;
+                    if(aa.last<bb.last) return 1;
+                    return 0; // same age
+                   }
+                });
+    //      sessSet.addAll(uHash.values()); // all users (reg'd)
+            sessSet.addAll(gHash.values()); // ALL sessions
+            return sessSet.iterator();
+            //return uHash.values().iterator();
+        }
     }
     
-    public static CookieSession retrieve(String s) {
-        CookieSession c = (CookieSession)gHash.get(s);
+    public static CookieSession retrieve(String sessionid) {
+        CookieSession c = retrieveWithoutTouch(sessionid);
         if(c != null) {
             c.touch();
         }
         return c;
     }
-    
-    public static CookieSession retrieveUser(String id) {
-        CookieSession c = (CookieSession)uHash.get(id);
-        if(c != null) {
-            c.touch();
+
+    public static CookieSession retrieveWithoutTouch(String sessionid) {
+        synchronized (gHash) {
+            CookieSession c = (CookieSession)gHash.get(sessionid);
+            return c;
         }
-        return c;
+    }
+    
+    public static CookieSession retrieveUserWithoutTouch(String email) {
+        synchronized (gHash) {
+            CookieSession c = (CookieSession)uHash.get(email);
+            return c;
+        }
+    }
+    
+    public static CookieSession retrieveUser(String email) {
+        synchronized(gHash) {
+            CookieSession c = retrieveUserWithoutTouch(email);
+            if(c != null) {
+                c.touch();
+            }
+            return c;
+        }
     }
     
     public void setUser(UserRegistry.User u) {
         user = u;
-        uHash.put(user.password, this); // replaces any existing session by this user.
+        synchronized(gHash) {
+            uHash.put(user.email, this); // replaces any existing session by this user.
+        }
     }
     
     public CookieSession(boolean isGuest) {
         id = newId(isGuest);
         touch();
-        gHash.put(id,this);
+        synchronized(gHash) {
+            gHash.put(id,this);
+        }
     }
     
     protected void touch() {
@@ -75,10 +98,12 @@ public class CookieSession {
     }
     
     public void remove() {
-        if(user != null) {
-            uHash.remove(user.password);
+        synchronized(gHash) {
+            if(user != null) {
+                uHash.remove(user.email);
+            }
+            gHash.remove(id);
         }
-        gHash.remove(id);
     }
     
     protected long age() {
@@ -116,9 +141,22 @@ public class CookieSession {
             return b.booleanValue();
         }
     }
+
+    String prefGet(String key) { 
+        String b = (String)prefs.get(key);
+        if(b == null) {
+            return null;
+        } else {
+            return b;
+        }
+    }
     
     void prefPut(String key, boolean value) {
         prefs.put(key,new Boolean(value));
+    }
+
+    void prefPut(String key, String value) {
+        prefs.put(key,value);
     }
     
     public Hashtable getLocales() {
@@ -151,5 +189,51 @@ public class CookieSession {
             l /= 26;
         }
         return out;
+    }
+    
+    
+    // Reaping. 
+    // For now, we just reap *guest* sessions and not regular users. 
+    static final int MILLIS_IN_MIN = 1000*60; // 1 minute = 60,000 milliseconds
+// testing:
+//    static final int GUEST_TO =  3 * 60 * MILLIS_IN_MIN; // Expire Guest sessions after three hours
+//    static final int USER_TO =  30000; // soon.
+//    static final int REAP_TO = 1000; //often.
+// production:
+    static final int GUEST_TO =  3 * 60 * MILLIS_IN_MIN; // Expire Guest sessions after three hours
+    static final int USER_TO =  7 * 24 * 60 * MILLIS_IN_MIN; // Expire non-guest sessions after a week
+    static final int REAP_TO = 30 * MILLIS_IN_MIN; // Only once every half hour.
+
+    static long lastReap = System.currentTimeMillis();
+    
+    public static void reap() {        
+        synchronized(gHash) {
+            // reap..
+            if((System.currentTimeMillis()-lastReap) < REAP_TO) {
+                return;
+            }
+            lastReap=System.currentTimeMillis();
+           // System.out.println("reaping..");
+            // step 0: reap all guests older than time
+            for(Iterator i = gHash.values().iterator();i.hasNext();) {
+                CookieSession cs = (CookieSession)i.next();
+                
+                if(cs.user == null) {
+                    if(cs.age() > GUEST_TO) {
+                        System.out.println("Reaped guest session: " + cs.id + " after  " + SurveyMain.timeDiff(cs.last) +" inactivity.");
+                        cs.remove();
+                        // concurrent modify . . . (i.e. rescan.)
+                        i = gHash.values().iterator();
+                    }
+                } else {
+                    if(cs.age() > USER_TO) {
+                        System.out.println("Reaped users session: " + cs.id + " (" + cs.user.email + ") after  " + SurveyMain.timeDiff(cs.last) +" inactivity.");
+                        cs.remove();
+                        // concurrent modify . . . (i.e. rescan.)
+                        i = gHash.values().iterator();
+                    }
+                }
+            }
+        }
     }
 }

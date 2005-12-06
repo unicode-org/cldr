@@ -194,24 +194,30 @@ public class UserRegistry {
     }
     
     public  UserRegistry.User get(String pass, String email) {
+        if((email == null)||(email.length()<=0)) {
+            return null; // nothing to do
+        }
+        if((pass == null)||(pass.length()<=0)) {
+            return null; // nothing to do
+        }
         ResultSet rs = null;
         synchronized(conn) {
             try{ 
                 PreparedStatement pstmt = null;
                 if(pass != null) {
-                    logger.info("Looking up " + email + " : " + pass);
+//                    logger.info("Looking up " + email + " : " + pass);
                     pstmt = queryStmt;
                     pstmt.setString(1,email);
                     pstmt.setString(2,pass);
                 } else {
-                    logger.info("Looking up " + email);
+//                    logger.info("Looking up " + email);
                     pstmt = queryEmailStmt;
                     pstmt.setString(1,email);
                 }
                 // First, try to query it back from the DB.
                 rs = pstmt.executeQuery();                
                 if(!rs.next()) {
-                    logger.info(".. no match.");
+                    logger.info("Unknown user or bad login: " + email);
                     return null;
                 }
                 User u = new UserRegistry.User();
@@ -233,6 +239,7 @@ public class UserRegistry {
                     logger.severe("Duplicate user for " + email + " - ids " + u.id + " and " + rs.getInt(1));
                     return null;
                 }
+                logger.info("Login: " + email);
                 return u;
             } catch (SQLException se) {
                 logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to get " + email + " - " + SurveyMain.unchainSqlException(se),se);

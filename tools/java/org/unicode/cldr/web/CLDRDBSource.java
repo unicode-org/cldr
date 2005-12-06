@@ -43,7 +43,7 @@ public class CLDRDBSource extends XMLSource {
     
     private String tree = "main";
     
-    protected XPathTable xpt = null;         // XPathTable (shared) that is keyed to this database.
+    public XPathTable xpt = null;         // XPathTable (shared) that is keyed to this database.
     protected UserRegistry.User user= null; // User this File belongs to (or null)
     protected Connection conn = null;
     /** 
@@ -562,14 +562,14 @@ logger.info(key + " - =" + r);
     }
     
     
-    int n = 0;
+    private int n = 0;
     
     public XMLSource make(String localeID) {
         if(localeID == null) return null; // ???
         if(localeID.equals(CLDRFile.SUPPLEMENTAL_NAME)) return null;  // nothing, now.
         
         n++;
-        if((n%100)==0) {
+        if((n%500)==0) {
             logger.info(n + " CLDRDBSources have been make()'ed");
 //            if(n==500) {
 //                throw new InternalError("TOO MANY! :-)");

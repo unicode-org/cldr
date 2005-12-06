@@ -93,8 +93,12 @@ public class SurveyMain extends HttpServlet {
     public static final ULocale inLocale = new ULocale("en"); // locale to use to 'localize' things
     
     static final String PREF_SHOWCODES = "p_codes";
-    static final String PREF_SORTALPHA = "p_sorta";
-    
+    static final String PREF_SORTMODE = "p_sort";
+    static final String PREF_SORTMODE_CODE = "code";
+    static final String PREF_SORTMODE_ALPHA = "alpha";
+    static final String PREF_SORTMODE_WARNING = "interest";
+    static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
+//    static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_WARNING;
     // types of data
     static final String LOCALEDISPLAYNAMES = "//ldml/localeDisplayNames/";
     public static final String NUMBERSCURRENCIES = LDMLConstants.NUMBERS + "/currencies";
@@ -124,6 +128,7 @@ public class SurveyMain extends HttpServlet {
     public static String xREMOVE = "REMOVE";
     public UserRegistry reg = null;
     public XPathTable   xpt = null;
+    public LocaleChangeRegistry lcr = new LocaleChangeRegistry();
     
     public static String xREVIEW = "Review and Submit";
     public static String xSAVE = "Add Changes on This Page";
@@ -152,8 +157,10 @@ public class SurveyMain extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
+        String startupMsg = null;
         if(startupTime != null) {
-            logger.info("Startup time till first GET/POST = " + startupTime);
+            startupMsg = ("Startup time until the start of first GET/POST = " + startupTime);
+            logger.info(startupMsg);
             startupTime = null;
         }
 /**/ com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();  try {
@@ -295,7 +302,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
 
     private void doDump(WebContext ctx)
     {
-        printHeader(ctx, "Current Sessions");
+        printHeader(ctx, "Dump System Info");
         ctx.println("<h1>System info</h1>");
         ctx.println("<div class='pager'>");
         ctx.println("Uptime: " + timeDiff(startTime) + ", " + pages + " pages served.<br/>");
@@ -329,10 +336,13 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             CookieSession cs = (CookieSession)li.next();
             ctx.println("<tr><td>" + cs.id + "</td>");
             ctx.println("<td>" + timeDiff(cs.last) + "</td>");
-            ctx.println("<td>" + cs.user.email + "<br/>" + 
-                                 cs.user.name + "<br/>" + 
-                                 cs.user.org + "</td>");
-
+            if(cs.user != null) {
+                ctx.println("<td>" + cs.user.email + "<br/>" + 
+                                     cs.user.name + "<br/>" + 
+                                     cs.user.org + "</td>");
+            } else {
+                ctx.println("<td><i>Guest</i></td>");
+            }
             ctx.println("<td>");
             Hashtable lh = cs.getLocales();
             Enumeration e = lh.keys();
@@ -343,11 +353,28 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 }
             }
             ctx.println("</td>");
+            
+            ctx.println("<td>");
+            printZapMenu(ctx, cs);
+            if(cs.id.equals(ctx.field("unlink"))) {
+                cs.remove();
+                ctx.println("<br /><b>Removed.</b>");
+            }
+            ctx.println("</td>");
+            
             ctx.println("</tr>");
         }
         ctx.println("</table>");
         
         printFooter(ctx);
+    }
+    
+    /* 
+     * print menu of stuff to 'zap' a live user session..
+     */
+    private void printZapMenu(WebContext ctx, CookieSession cs) {
+        ctx.println("<a href='" + ctx.base() + "?&s=" + cs.id + "'>" + "become" + "</a> |");
+        ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&unlink=" + cs.id + "'>" + "logout" + "</a>");
     }
     
     private void doXpaths(WebContext ctx)
@@ -455,7 +482,6 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
     /**
      * set the session.
      */
-     
     String setSession(WebContext ctx) {
         String message = null;
         // get the context
@@ -469,20 +495,23 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         user = reg.get(uid,email);
         
         if(user != null) {
+            ctx.println("Got user: " + user.toString() + ", u.email = '" + user.email + "', meail= '" + email + "', ...<br />");
             mySession = CookieSession.retrieveUser(user.email);
             if(mySession != null) {
+                ctx.println("<i>reconnectiong..</i>");
   //              message = "Reconnecting your session: " + myNum;
             }
         }
         if((mySession == null) && (myNum != null) && (myNum.length()>0)) {
             mySession = CookieSession.retrieve(myNum);
             if(mySession == null) {
-                message = "<i>(Sorry, This session has expired. You will have to log in again.)</i><br />";
+                message = "<i>(Sorry, This session has expired. You may have to log in again.)</i><br />";
 //                message = "ignoring expired session: " + myNum;
             }
         }
         if(mySession == null) {
             mySession = new CookieSession(user==null);
+            ctx.println("New session: " + mySession.id + "<br />");
         }
         ctx.session = mySession;
         ctx.addQuery("s", mySession.id);
@@ -493,6 +522,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 ctx.println("<strong>login failed.</strong><br />");
             }
         }
+        CookieSession.reap();
         return message;
     }
     
@@ -585,7 +615,8 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
     
     static final String LIST_ACTION_SETLEVEL = "set_userlevel_";
     static final String LIST_ACTION_NONE = "-";
-    static final String LIST_ACTION_PASSWORD = "password_";
+    static final String LIST_ACTION_SHOW_PASSWORD = "showpassword_";
+    static final String LIST_ACTION_SEND_PASSWORD = "sendpassword_";
     static final String LIST_ACTION_SETLOCALES = "set_locales_";
     static final String LIST_ACTION_DELETE0 = "delete0_";
     static final String LIST_ACTION_DELETE1 = "delete_";
@@ -611,6 +642,10 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 org = "ALL"; // all
             }
             ctx.println("<h2>Users for " + org + "</h2>");
+            if(ourLevel <= UserRegistry.TC) {
+                ctx.println("<b><font size='+2'>NOTE: Changing user level or locales while a user is active (below) in will result in  " +
+                    " destruction of their session, losing all data.</font></b>");
+            }
             // Preset box
             boolean preFormed = false;
             if(ourLevel <= UserRegistry.TC) {
@@ -635,7 +670,8 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
                 ctx.println("   <option value='" + LIST_ACTION_DELETE0 +"'>Delete user..</option>");
                 ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-                ctx.println("   <option value='" + LIST_ACTION_PASSWORD + "'>Show/resend password...</option>");
+                ctx.println("   <option value='" + LIST_ACTION_SHOW_PASSWORD + "'>Show password URL...</option>");
+                ctx.println("   <option value='" + LIST_ACTION_SEND_PASSWORD + "'>Resend password...</option>");
                 ctx.println("   <option value='" + LIST_ACTION_SETLOCALES + "'>Set locales...</option>");
                 ctx.println("</select></label> <br />");
                 ctx.println("<input type='submit' name='do' value='list'></form>");
@@ -672,6 +708,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 String theirEmail = rs.getString(4);
                 String theirOrg = rs.getString(5);
                 String theirLocales = rs.getString(6);
+                CookieSession theUser = CookieSession.retrieveUserWithoutTouch(theirEmail);
                 ctx.println("  <tr class='user" + theirLevel + "'>");
 //              ctx.println("    <th>#" + theirId + "</th>");
                 ctx.println("    <td align='right'>" + UserRegistry.levelToStr(ctx,theirLevel) + "</td>");
@@ -703,11 +740,23 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                             (preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SETLEVEL + lev) );
                     }
                     ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
+                    
+                    
+                    
                     ctx.println("   <option ");
-                    if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_PASSWORD)) {
+                    if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SHOW_PASSWORD)) {
                         ctx.println(" SELECTED ");
                     }
-                    ctx.println(" value='" + LIST_ACTION_PASSWORD + "'>Show/resend password...</option>");
+                    ctx.println(" value='" + LIST_ACTION_SHOW_PASSWORD + "'>Show password...</option>");
+                    
+                    
+                    
+                    ctx.println("   <option ");
+                    if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SEND_PASSWORD)) {
+                        ctx.println(" SELECTED ");
+                    }
+                    ctx.println(" value='" + LIST_ACTION_SEND_PASSWORD + "'>Send password...</option>");
+                    
                     if(theirLevel > UserRegistry.TC) {
                         ctx.println("   <option ");
                         if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SETLOCALES)) {
@@ -733,9 +782,15 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
 
                     String msg = null;
                     if(ctx.field(LIST_ACTION_SETLOCALES + theirTag).length()>0) {
+                        ctx.println("<td>");
                            String newLocales = ctx.field(LIST_ACTION_SETLOCALES + theirTag);
                             msg = reg.setLocales(ctx, theirId, theirEmail, newLocales);
                             ctx.println(msg);
+                            if(theUser != null) {
+                                ctx.println("<br/><i>Logging out user session " + theUser.id + " and deleting all unsaved changes</i>");
+                                theUser.remove();
+                            }
+                        ctx.println("</td>");
                     } else if((action!=null)&&(action.length()>0)&&(!action.equals(LIST_ACTION_NONE))) {
                         ctx.println("<td>");
                         
@@ -745,10 +800,19 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                                 msg = reg.setUserLevel(ctx, theirId, theirEmail, UserRegistry.ALL_LEVELS[i]);
                                 ctx.println("Setting to level " + UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i]));
                                 ctx.println(": " + msg);
+                                if(theUser != null) {
+                                    ctx.println("<br/><i>Logging out user session " + theUser.id + " and deleting all unsaved changes</i>");
+                                    theUser.remove();
+                                }
                             }
                         }
                         
-                        if(action.equals(LIST_ACTION_PASSWORD)) {
+                        if(action.equals(LIST_ACTION_SHOW_PASSWORD)) {
+                            String pass = reg.getPassword(ctx, theirId);
+                            if(pass != null) {
+                                UserRegistry.printPasswordLink(ctx, theirEmail, pass);
+                            }
+                        } else if(action.equals(LIST_ACTION_SEND_PASSWORD)) {
                             String pass = reg.getPassword(ctx, theirId);
                             if(pass != null) {
                                 UserRegistry.printPasswordLink(ctx, theirEmail, pass);
@@ -773,6 +837,20 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
 
                 }
                 
+                // are they logged in?
+                if((theUser != null) && (ourLevel <= UserRegistry.TC)) {
+                    if(!havePermToChange) {
+                        ctx.println("<td></td>");
+                    }
+                    ctx.println("<td>");
+                    ctx.println("<b>Active as of " + timeDiff(theUser.last) + "</b>");
+                    if(ourLevel<=UserRegistry.ADMIN) {
+                        ctx.print("<br/>");
+                        printZapMenu(ctx, theUser);
+                    }
+                    ctx.println("</td>");
+                }
+
                 ctx.println("  </tr>");
             }
             ctx.println("</table>");
@@ -1549,8 +1627,8 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         }
     }
     
-    private static final String CHECKCLDR = "_CheckCLDR";  // key for CheckCLDR objects by locale
-    private static final String CHECKCLDR_RES = "_CheckCLDR_RES";  // key for CheckCLDR objects by locale
+    public static final String CHECKCLDR = "_CheckCLDR";  // key for CheckCLDR objects by locale
+    public static final String CHECKCLDR_RES = "_CheckCLDR_RES";  // key for CheckCLDR objects by locale
 
     /**
      * show the actual locale data..
@@ -1576,13 +1654,15 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             // Set up checks
             CheckCLDR checkCldr =  (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
             List checkCldrResult = new ArrayList();
-            if (true /*checkCldr == null*/)  {
+            if (checkCldr == null)  {
                 long t0 = System.currentTimeMillis();
                 checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
                 ctx.putByLocale(USER_FILE + CHECKCLDR, checkCldr);
                 checkCldr.setDisplayInformation(getEnglishFile(ourSrc));
                 checkCldr.setCldrFileToCheck(cf, checkCldrResult); // TODO: when does this get updated?
-                ctx.putByLocale(USER_FILE + CHECKCLDR_RES, checkCldrResult);
+                if(!checkCldrResult.isEmpty()) {
+                    ctx.putByLocale(USER_FILE + CHECKCLDR_RES, checkCldrResult); // don't bother if empty . . .
+                }
                 long t2 = System.currentTimeMillis();
                 logger.info("Time to init tests: " + (t2-t0));
             }
@@ -1710,13 +1790,19 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
     }
     
     public void doRaw(WebContext ctx) {
+        CLDRFile file = (CLDRFile)ctx.getByLocale(USER_FILE);
+//        ctx.println("<h3>list output of the locale's CLDRFile</h3>");
+//        ctx.println("<pre style='border: 2px solid olive; margin: 1em;'>");
+        
+//        ctx.println("</pre>");
+        
         ctx.println("<h3>Raw output of the locale's CLDRFile</h3>");
         ctx.println("<pre style='border: 2px solid olive; margin: 1em;'>");
 //        ((CLDRFile)ctx.getByLocale(USER_FILE)).show(ctx.out);
 
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
-        ((CLDRFile)ctx.getByLocale(USER_FILE)).write(pw);
+        file.write(pw);
         String asString = sw.toString();
 //                fullBody = fullBody + "-------------" + "\n" + k + ".xml - " + displayName + "\n" + 
 //                    hexXML.transliterate(asString);
@@ -2052,7 +2138,8 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         
         boolean isTz = true;
         //       total = mySet.count();
-        boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
+        String sortMode = ctx.pref(PREF_SORTMODE);
+        boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
         CLDRFile cf = getUserFile(ctx, ctx.session.user, ctx.locale);
         CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
         CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
@@ -2208,7 +2295,8 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             fullThing = xpath;
         }
         //       total = mySet.count();
-        boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
+        String sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
+//        boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
         CLDRFile cf = getUserFile(ctx, ctx.session.user, ctx.locale);
         CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
         CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
@@ -2219,6 +2307,57 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         Iterator theIterator = null;
         
         synchronized(ourSrc) { // because it has a connection..
+            // Podder
+            DataPod dp = ctx.getPod(fullThing);
+            List peas = dp.getList(sortMode);
+            ctx.println("<hr />");
+            // -----
+            skip = showSkipBox(ctx, peas.size(), dp.getDisplayList(sortMode));
+    
+            ctx.printUrlAsHiddenFields();
+            ctx.println("<table class='list' border=1>");
+            ctx.println("<tr>");
+            ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=2>Name<br/>" +
+                "<div style='border: 1px solid gray; width: 6em;' align=left><tt>Code</tt></div></th>");
+            ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Best<br/>");
+            ctx.printHelpLink("/Best");
+            ctx.println("</th>");
+            ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Contents</th>");
+            ctx.println("</tr>");
+            
+            for(ListIterator i = peas.listIterator(skip);(count<CODES_PER_PAGE)&&i.hasNext();count++) {
+            
+                DataPod.Pea p = (DataPod.Pea)i.next();
+                ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
+                for(Iterator j = p.items.iterator();j.hasNext();) {
+                    DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+                    ctx.print("<tr><th></th>");
+                    if(item.altProposed != null) {
+                        ctx.print("<td class='proposed'>" + item.altProposed);
+                    } else {
+                        ctx.println("<td>");
+                    }
+                    ctx.print("</td><td>" + item.value + "</td>");
+                    if(item.tests != null) {
+                        ctx.println("<td class='warning'><span class='warning'>");
+                        for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
+                            CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                            if (!status.getType().equals(status.exampleType)) {
+                                ctx.println(status.toString() + "<br/>");
+                            } else {
+                                ctx.println("<i>example available</i><br />");
+                            }
+                        }                                                                            
+                        ctx.println("</span></td>");
+                    }
+                    ctx.println("</tr>");
+                }
+            }
+
+            ctx.println("</table>");
+            
+        if(true) { return; } // =====================
+        else {
             StandardCodes standardCodes = StandardCodes.make();
             Set defaultSet = null;
             if(lastElement != null) {
@@ -2311,18 +2450,19 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                                 ctx.println("<td>");
                                 pathParts.clear();
                                 fullPathParts.clear();
-                                checkCldrResult.clear();
-                                checkCldr.check(subXpath, fullPath, val, pathParts, fullPathParts, checkCldrResult);
-                                for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
-                                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                                    if (!status.getType().equals(status.exampleType)) {
-                                        ctx.println(status.toString() + "\t" + val + "\t" + fullPath);
-                                    } else {
-                                        ctx.println("<i>example available</i><br />");
-                                    }
-                                }                                            
+                                if(checkCldr != null)  {
+                                    checkCldrResult.clear();
+                                    checkCldr.check(subXpath, fullPath, val, pathParts, fullPathParts, checkCldrResult);
+                                    for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
+                                        CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                                        if (!status.getType().equals(status.exampleType)) {
+                                            ctx.println(status.toString() + "\t" + val + "\t" + fullPath);
+                                        } else {
+                                            ctx.println("<i>example available</i><br />");
+                                        }
+                                    }                                                                            
+                                }
                                 ctx.println("</td>");
-                                
                                 
                                 
                                 ctx.println("</tr>");
@@ -2568,6 +2708,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 }
                 
             } // end loop
+          } //end false
         } // end synch
         
         ctx.println("</table>");
@@ -2623,7 +2764,8 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         int total = 0;
         int skip = 0;
         total = mySet.count();
-        boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
+        String sortMode = ctx.pref(PREF_SORTMODE);
+        boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
         NodeSet.NodeSetTexter sortTexter;
 
         if(sortAlpha) {
@@ -2903,52 +3045,46 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         }
         ctx.println("</form>");
     }
-    
+    void showSkipBox_menu(WebContext ctx, String sortMode, String aMode, String aDesc) {
+        WebContext nuCtx = new WebContext(ctx);
+        nuCtx.addQuery(PREF_SORTMODE, aMode);
+        if(!sortMode.equals(aMode)) {
+            nuCtx.print("<a class='notselected' href='" + nuCtx.url() + "'>");
+        } else {
+            nuCtx.print("<span class='selected'>");
+        }
+        nuCtx.print(aDesc);
+        if(!sortMode.equals(aMode)) {
+            nuCtx.println("</a>");
+        } else {
+            nuCtx.println("</span>");
+        }
+        
+        nuCtx.println(" ");
+    }
     // TODO: remove this. 
     int showSkipBox(WebContext ctx, int total, Map m, NodeSet.NodeSetTexter tx) {
         return showSkipBox(ctx, total);
     }
     int showSkipBox(WebContext ctx, int total) {
+        return showSkipBox(ctx, total, null);
+    }
+    int showSkipBox(WebContext ctx, int total, List displayList) {
         int skip;
-        ctx.println("<div class='pager'>");
- 
-        {
-            WebContext nuCtx = new WebContext(ctx);
-            boolean sortAlpha = ctx.prefBool(PREF_SORTALPHA);
-            nuCtx.addQuery(PREF_SORTALPHA, !sortAlpha);
-
-            nuCtx.println("<p style='float: right; margin-left: 3em;'> " + 
+        ctx.println("<div class='pager' style='margin: 2px'>");
+            ctx.println(/*"<p style='float: right; margin-left: 3em;'> " + */
                 "Sorted ");
-            if(!sortAlpha) {
-                nuCtx.print("<a class='notselected' href='" + nuCtx.url() + "'>");
-            } else {
-                nuCtx.print("<span class='selected'>");
-            }
-            nuCtx.print("Alphabetically");
-            if(!sortAlpha) {
-                nuCtx.println("</a>");
-            } else {
-                nuCtx.println("</span>");
-            }
-            
-            nuCtx.println(" ");
+        {
+            String sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
+            boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
 
-            if(sortAlpha) {
-                nuCtx.print("<a class='notselected' href='" + nuCtx.url() + "'>");
-            } else {
-                nuCtx.print("<span class='selected'>");
-            }
-            nuCtx.print("Draft-First");
-            if(sortAlpha) {
-                nuCtx.println("</a>");
-            } else {
-                nuCtx.println("</span>");
-            }
-            nuCtx.println("</p>");
+//            showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
+            showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
+            showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Interest");
         }
 
         // TODO: replace with ctx.fieldValue("skip",-1)
-       String str = ctx.field("skip");
+        String str = ctx.field("skip");
         if((str!=null)&&(str.length()>0)) {
             skip = new Integer(str).intValue();
         } else {
@@ -2979,8 +3115,8 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             }
                 ctx.println("<a href=\"" + ctx.url() + 
                         "&skip=" + new Integer(prevSkip) + "\">" +
-                        "&lt;&lt;&lt; prev " + CODES_PER_PAGE + "" +
-                        "</a> &nbsp;");
+                        "&lt;&lt;&lt; prev " + CODES_PER_PAGE + "");
+                ctx.println("</a> &nbsp;");
             if(skip>=total) {
                 skip = 0;
             }
@@ -3002,7 +3138,14 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                     ctx.println(" <a class='notselected' href=\"" + ctx.url() + 
                         "&skip=" + new Integer(i) + "\">");
                 }
-                ctx.print( (i+1) + "-" + (end+1));
+                if(displayList != null) {
+                    ctx.print("" +displayList.get(i).toString() + "");
+                    ctx.print("\u2026"); // ...
+                    ctx.print("" +displayList.get(end).toString() + "");
+                } else {
+                    ctx.print( ""+(i+1) );
+                    ctx.print( "-" + (end+1));
+                }
                 if(isus) {
                     ctx.println("</b> ");
                 } else {
@@ -3024,6 +3167,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                     "next " + CODES_PER_PAGE + "&gt;&gt;&gt;" +
                     "</a>");
         }
+//        ctx.println("</p>");
         ctx.println("</div>");
         return skip;
     }

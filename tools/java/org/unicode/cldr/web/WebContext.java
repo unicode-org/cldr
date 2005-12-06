@@ -113,11 +113,34 @@ public class WebContext {
         return ret;
     }
     
-    String field(String x) {
+    /**
+     * get a pref that is a string, 
+     * @param x the field name and pref name
+     */
+    String pref(String x) {
+        return pref(x, ""); // should be null?
+    }
+    
+    String pref(String x, String def)
+    {
+        String ret = field(x, session.prefGet(x));
+        if(ret != null) {
+            session.prefPut(x, ret);
+        }
+        if((ret == null) || (ret.length()<=0)) {
+            ret = def;
+        }
+        return ret;
+    }
+    
+    public final String field(String x) {
+        return field(x, "");
+    }
+    public String field(String x, String def) {
         String res = request.getParameter(x);
          if(res == null) {       
 //              System.err.println("[[ empty query string: " + x + "]]");
-            res = "";   
+            return def;    // don't try to transcode null.
         }
         
         byte asBytes[] = new byte[res.length()];
@@ -268,20 +291,32 @@ public class WebContext {
     // get the hashtable of modified locales
 
     Hashtable localeHash = null;
-    public Hashtable getLocaleHash() {
+    public final Hashtable getLocaleHash() {
+		return getLocaleHash(locale.toString());
+	}
+
+    public Hashtable getLocaleHash(String aLocale) {
         if(session == null) {
             throw new RuntimeException("Session is null in WebContext.getLocaleHash()!");
         }
         if(localeHash == null) {
-            Hashtable localesHash = session.getLocales();
-            if(localesHash == null) { return null; }
-            localeHash = (Hashtable)localesHash.get(locale);
+            synchronized(session) {
+                Hashtable localesHash = session.getLocales();
+                if(localesHash == null) {
+                    return null;
+                }
+                localeHash = (Hashtable)localesHash.get(aLocale);
+            }
         }
         return localeHash;
     }
     
-    public Object getByLocale(String key) {
-        Hashtable localeHash = getLocaleHash();
+    public final Object getByLocale(String key) {
+		return getByLocale(key, locale.toString());
+	}
+	
+    public Object getByLocale(String key, String aLocale) {
+        Hashtable localeHash = getLocaleHash(aLocale);
         if(localeHash != null) {
             return localeHash.get(key);
         }
@@ -289,27 +324,56 @@ public class WebContext {
     }
 
     public void putByLocale(String key, Object value) {
-        Hashtable localeHash = getLocaleHash();
-        if(localeHash == null) {
-            localeHash = new Hashtable();
-            session.getLocales().put(locale,localeHash);
+        synchronized(session) {
+            Hashtable localeHash = getLocaleHash();
+            if(localeHash == null) {
+                localeHash = new Hashtable();
+                session.getLocales().put(locale,localeHash);
+            }
+            localeHash.put(key, value);
         }
-        localeHash.put(key, value);
     }
     
     public void removeByLocale(String key) {
-        Hashtable localeHash = getLocaleHash();
-        if(localeHash != null) {
-            localeHash.remove(key);
+        synchronized(session) {
+            Hashtable localeHash = getLocaleHash();
+            if(localeHash != null) {
+                localeHash.remove(key);
+            }
         }
     }
     
+// DataPod functions
+    private static final String DATA_POD = "DataPod_";
+    DataPod getPod(String prefix) {
+        synchronized(this) {
+//            logger.info("Get POD: " + prefix);
+            DataPod pod = (DataPod)getByLocale(DATA_POD+prefix);
+            if((pod != null) && (!pod.isValid(sm.lcr))) {
+//                logger.info("expired POD: " +  pod.toString());
+                pod = null;
+                println("<i>Note: some data has changed, reloading..</i><br/>");
+            }
+            if(pod == null) {
+//                logger.info("remaking POD: " + prefix);
+                pod = DataPod.make(this, locale.toString(), prefix, true);
+//                logger.info("registering POD: " +  pod.toString());
+                pod.register(sm.lcr);
+//                logger.info("putting POD: " +  pod.toString());
+                putByLocale(DATA_POD+prefix, pod);
+            }
+//            logger.info("returning POD: " +  pod.toString());
+            return pod;
+        }
+    }
+
 // Internal Utils
 
     // from BagFormatter
     private static PrintWriter openUTF8Writer(OutputStream out) throws IOException {
         return openWriter(out,"UTF-8");
     }
+    
     private static PrintWriter openWriter(OutputStream out, String encoding) throws IOException {
         return new PrintWriter(
             new BufferedWriter(

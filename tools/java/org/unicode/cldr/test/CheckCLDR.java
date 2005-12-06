@@ -195,7 +195,7 @@ abstract public class CheckCLDR {
 	/**
 	 * Status value returned from check
 	 */
-	static class CheckStatus {
+	public static class CheckStatus {
 		public static final String alertType = "Comment", warningType = "Warning", errorType = "Error", exampleType = "Example";
 		private String type;
 		private String messageFormat;

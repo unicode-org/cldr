@@ -4,6 +4,9 @@
 
 package org.unicode.cldr.ooo;
 
+import com.ibm.icu.lang.UCharacter;
+import java.io.*;
+
 /**
  *
  * class to map OO date and time patterns to LDML
@@ -21,8 +24,8 @@ package org.unicode.cldr.ooo;
  * EEE          NN or DDD 	Day as Sun-Sat
  * EEEE 	NNN or DDDD 	Day as Sunday to Saturday
  * EEEE, 	NNNN            Day followed by comma, as in "Sunday,"
- * y            YY              Year as 00-99
- * yy           YYYY            Year as 1900-2078
+ * yy            YY              Year as 00-99
+ * yyyy         YYYY            Year as 1900-2078
  * ww           WW              Calendar week
  * QQQ   	Q               Quarterly as Q1 to Q4
  * QQQQ 	QQ              Quarterly as 1st quarter to 4th quarter
@@ -42,8 +45,8 @@ package org.unicode.cldr.ooo;
  *
  * H            h or H          Hours as 0-23
  * HH           hh or HH        Hours as 00-23
- * K            h with AM/PM    Hours as 0-11
- * KK           hh with AM/PM   Hours as 00-21
+ * K            h with AM/PM    Hours as 0-11 (this is my assumption, OO.o doesn't say anything about 12 hour clock)
+ * KK           hh with AM/PM   Hours as 00-11
  * m            m or M          Minutes as 0-59
  * mm           mm or MM        Minutes as 00-59
  * s            s or S          Seconds as 0-59
@@ -123,11 +126,79 @@ public class OOToLDMLPattern
         }
         
         LDMLPattern = LDMLPattern.replaceAll("\"", "'");
+        LDMLPattern = quoteIt (LDMLPattern);
         return LDMLPattern;
     }
     
+    private String quoteIt (String LDMLPattern)
+    {
+        String temp = LDMLPattern;
+        StringBuffer sb = new StringBuffer();
+
+          //non ascii chars in OO.o date don't seem to be in quotes, so need to quote them now
+        boolean bStartedQuotes = false;
+        for (int i=0; i < LDMLPattern.length(); i++)
+        {
+            //assuming OO.o has put latin and latin 1 in quotes, seems to be true
+            if (LDMLPattern.charAt(i) > 255)
+            {
+                //if not in quotes then  quote it
+                int quotes=0;
+                for (int j=0; j < i; j++)
+                {
+                    if (LDMLPattern.charAt(j) == '\'') quotes++;
+                }
+                if ((quotes % 2) ==0)
+                {  //it's not in quotes so quote it
+                    if (bStartedQuotes == false)
+                    {
+                        sb.append ('\'');
+                        bStartedQuotes = true;
+                    }
+                }
+                sb.append(LDMLPattern.charAt(i));
+             
+           /*     try
+                {
+                    BufferedWriter out = new BufferedWriter(new FileWriter("chars",true));
+                    out.write(LDMLPattern + "  " + Integer.toString( UCharacter.getCodePoint(LDMLPattern.charAt(i)))  + "\n");
+                    out.close();
+                }
+                catch (IOException e)
+                {}*/
+           //     System.err.println (LDMLPattern + "  " + Integer.toString( UCharacter.getCodePoint(LDMLPattern.charAt(i) )));
+            }
+            else 
+            {
+                if (bStartedQuotes == true) 
+                {
+                    sb.append ('\'');
+                    bStartedQuotes = false;
+                }
+                sb.append (LDMLPattern.charAt(i));
+            }
+       
+        }
+        
+        //final check
+        if (bStartedQuotes == true)
+        {
+            sb.append('\'');
+            bStartedQuotes = false;
+        }
+        
+        LDMLPattern = sb.toString();
+                
+        if (temp.compareTo(LDMLPattern) != 0)
+            System.err.println ("replacing :" + temp + "   with :" + LDMLPattern);
+        
+        return LDMLPattern;
+    }
+    
+    
     //check that chars not in "" are valid OO specials
-    private boolean validatePattern (String OOPattern)
+    //not used , not finished
+   /* private boolean validatePattern (String OOPattern)
     {
         StringBuffer buf = new StringBuffer ();
         boolean bInQuotes = false;
@@ -184,7 +255,7 @@ public class OOToLDMLPattern
         }
         
         return bIsValid;
-    }
+    }*/
     
     
     //the order in which replacements are done is important
@@ -225,10 +296,10 @@ public class OOToLDMLPattern
             LDMLPattern = LDMLPattern.replaceAll("E", "y");
         
         else if (translate(LDMLPattern, "YYYY"))
-            LDMLPattern = LDMLPattern.replaceAll("YYYY", "yy");
+            LDMLPattern = LDMLPattern.replaceAll("YYYY", "yyyy");
         
         else if (translate(LDMLPattern, "YY"))
-            LDMLPattern = LDMLPattern.replaceAll("YY", "y");
+            LDMLPattern = LDMLPattern.replaceAll("YY", "yy");
         
         //month patterns are same , do nothing
         

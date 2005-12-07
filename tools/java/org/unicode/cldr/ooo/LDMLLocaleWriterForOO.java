@@ -1336,7 +1336,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         }
         
         //temp for merge
-    /*    String file = OOLocaleReader.m_LangId;
+/*        String file = OOLocaleReader.m_LangId;
         if (OOLocaleReader.m_Country_CountryID != null) file = file + "_" + OOLocaleReader.m_Country_CountryID;
         file += ".xml";
         try
@@ -1375,14 +1375,17 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         {
             String pattern = (String) patterns.elementAt(i);
             if (patterns_no_dups.contains(pattern) == false)
+            {
                 patterns_no_dups.add (pattern);
+         //       System.err.println ("INDO: Adding pattern : " + pattern );
+            }
             else
                 System.err.println ("INDO: Skipping duplicate pattern : " + pattern + " for availableFormats");
         }
         
-        for (int i=0; i < patterns.size(); i++)
+        for (int i=0; i < patterns_no_dups.size(); i++)
         {
-            String pattern = (String) patterns.elementAt(i);
+            String pattern = (String) patterns_no_dups.elementAt(i);
             if ((pattern != null) && (pattern.indexOf('[') == -1))  // no [] => gregorian
             {
                 print(LDMLConstants.DATE_FMT_ITEM_O);
@@ -1390,10 +1393,10 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 println(LDMLConstants.DATE_FMT_ITEM_C);
                 
                 //temp for merge
-          /*      try
+       /*         try
                 {
                     BufferedWriter out = new BufferedWriter(new FileWriter("./ldml2/"+file,true));
-                    out.write("                       </dateFormatItem>" + pattern + "</dateFormatItem>\n");
+                    out.write("                       <dateFormatItem>" + pattern + "</dateFormatItem>\n");
                     out.close ();
                 }
                 catch (IOException e)

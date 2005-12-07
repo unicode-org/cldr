@@ -613,7 +613,7 @@ public class OOToLDMLMapper
                 OOToLDMLPattern mapper = new OOToLDMLPattern(localeStr);
                 
                 //temp for diagnostics
-              /*  String buff = "";
+         /*       String buff = "";
                 for (int ii=0; ii < (50-fmtCode.length());ii++)
                     buff += " ";*/
                 
@@ -623,7 +623,7 @@ public class OOToLDMLMapper
                     if (LDMLPattern != null)
                         outFlexDateTime.put(key, LDMLPattern);
                  //   System.err.println (fmtCode + "\t\t" + LDMLPattern );
-                /*    try
+            /*        try
                     {
                         BufferedWriter out = new BufferedWriter(new FileWriter("date_time",true));
                         if (LDMLPattern.indexOf('[')== -1) 
@@ -633,14 +633,14 @@ public class OOToLDMLMapper
                         out.close();
                     }
                     catch (IOException e)
-                    {}  */
+                    {} */
                 }
                 else if (fmtElementUsage.compareTo(OOConstants.FEU_TIME)==0)
                 {
                     LDMLPattern  = mapper.map(fmtCode, OOConstants.FEU_TIME);
                     if (LDMLPattern != null) outFlexDateTime.put(key, LDMLPattern);
                //     System.err.println (fmtCode + "\t\t" + LDMLPattern );
-                /*    try
+             /*       try
                     {
                         BufferedWriter out = new BufferedWriter(new FileWriter("date_time",true));
                        if (LDMLPattern.indexOf('[')== -1) 

@@ -11,6 +11,7 @@
 			<language type="ar">Arabų</language>
 			<language type="bg">Bulgarų</language>
 			<language type="cs">Čekų</language>
+			<language type="cs" draft="true" alt="proposed">Čekų</language>
 			<language type="da">Danų</language>
 			<language type="de">Vokiečių</language>
 			<language type="el">Graikų</language>
@@ -89,6 +90,8 @@
 			<territory type="CG">Kongas</territory>
 			<territory type="CH">Šveicarija</territory>
 			<territory type="CI">Dramblio Kaulo Krantas</territory>
+			<territory type="CI" draft="true" alt="proposed long">Dramblio Kaulo Kranto Respublika</territory>
+			<territory type="CI" draft="true" alt="proposed short">Dramblio KKR</territory>
 			<territory type="CK">Kuko salos</territory>
 			<territory type="CL">Čilė</territory>
 			<territory type="CM">Kamerūnas</territory>
@@ -135,12 +138,16 @@
 			<territory type="GR">Graikija</territory>
 			<territory type="GS">Rytų Džordžija ir Rytų Sandwich salos</territory>
 			<territory type="GS" alt="proposed" draft="true">Pietų Georgijos ir Pietų Sandwicho Salos</territory>
+			<territory type="GS" alt="proposed short" draft="true">PGPSS</territory>
 			<territory type="GT">Gvatemala</territory>
 			<territory type="GU">Guamas</territory>
 			<territory type="GW">Bisau Gvinėja</territory>
 			<territory type="GY">Gajana</territory>
 			<territory type="HK">Kinijos S.A.R.Honkongas</territory>
+			<territory type="HK" draft="true" alt="proposed">Honkongas</territory>
 			<territory type="HM">Heardo salos</territory>
+			<territory type="HM" draft="true" alt="proposed long">Heardo ir McDonaldo Salų Sritis</territory>
+			<territory type="HM" draft="true" alt="proposed short">Heardo Sritis</territory>
 			<territory type="HN">Hondūras</territory>
 			<territory type="HR">Kroatija</territory>
 			<territory type="HT">Haitis</territory>
@@ -150,8 +157,10 @@
 			<territory type="IL">Izraelis</territory>
 			<territory type="IN">Indija</territory>
 			<territory type="IO">Indijos vandenyno britų sritis</territory>
+			<territory type="IO" draft="true" alt="proposed">IVB sritis</territory>
 			<territory type="IQ">Irakas</territory>
 			<territory type="IR">Iranas</territory>
+			<territory type="IR" draft="true" alt="proposed">Irano Islamo Respublika</territory>
 			<territory type="IS">Islandija</territory>
 			<territory type="IT">Italija</territory>
 			<territory type="JM">Jamaika</territory>
@@ -163,6 +172,8 @@
 			<territory type="KI">Kiribatis</territory>
 			<territory type="KM">Komorai</territory>
 			<territory type="KN">Sent Kitsas ir Nevis</territory>
+			<territory type="KN" draft="true" alt="proposed">Sent Kristoferis ir Nevis</territory>
+			<territory type="KN" draft="true" alt="short">Sent Kristoferis</territory>
 			<territory type="KP">Šiaurės Korėja</territory>
 			<territory type="KR">Pietų Korėja</territory>
 			<territory type="KW">Kuveitas</territory>
@@ -180,6 +191,7 @@
 			<territory type="LU">Liuksemburgas</territory>
 			<territory type="LV">Latvija</territory>
 			<territory type="LY">Libija</territory>
+			<territory type="LY" draft="true" alt="proposed">Libijos Didžioji Liaudies Socialistinė Arabų Respublika</territory>
 			<territory type="MA">Marokas</territory>
 			<territory type="MC">Monakas</territory>
 			<territory type="MD">Moldova</territory>
@@ -188,9 +200,12 @@
 			<territory type="MK">Makedonija</territory>
 			<territory type="ML">Malis</territory>
 			<territory type="MM">Mianmaras</territory>
+			<territory type="MM" draft="true" alt="proposed">Mianmaro Sąjunga</territory>
 			<territory type="MN">Mongolija</territory>
-			<territory type="MO">Kinijos S.A.R. Makao</territory>
+			<territory type="MO" draft="true" alt="proposed">Kinijos S.A.R. Makao</territory>
+			<territory type="MO">Macao</territory>
 			<territory type="MP">Marianos šiaurinės salos</territory>
+			<territory type="MP" draft="true" alt="proposed">Marianos salos</territory>
 			<territory type="MQ">Martinika</territory>
 			<territory type="MR">Mauritanija</territory>
 			<territory type="MS">Montserratas</territory>
@@ -232,6 +247,7 @@
 			<territory type="PY">Paragvajus</territory>
 			<territory type="QA">Kataras</territory>
 			<territory type="RE">Rejunjonas</territory>
+			<territory type="RE" alt="proposed" draft="true">Reunionas</territory>
 			<territory type="RO">Rumunija</territory>
 			<territory type="RU">Rusijos Federacija</territory>
 			<territory type="RU" alt="proposed" draft="true">Rusija</territory>
@@ -276,15 +292,25 @@
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Jungtinių Valstijų mažosios aplinkinės salos</territory>
+			<territory type="UM" alt="proposed" draft="true">Jungtinės Minoro Valstijos ir aplinkinės salos</territory>
+			<territory type="UM" alt="short" draft="true">JMV</territory>
 			<territory type="US">Jungtinės Valstijos</territory>
 			<territory type="US" alt="proposed" draft="true">Jungtinės Valstijos US</territory>
+			<territory type="US" alt="long" draft="true">Jungtinės Amerikos Valstijos</territory>
+			<territory type="US" alt="short" draft="true">JAV</territory>
 			<territory type="UY">Urugvajus</territory>
 			<territory type="UZ">Uzbekistanas</territory>
 			<territory type="VA">Vatikanas</territory>
+			<territory type="VA" alt="proposed" draft="true">Vatikano Miesto Valstybė, Šventasis Sostas</territory>
 			<territory type="VC">Šventasis Vincentas ir Grenadinai</territory>
+			<territory type="VC" alt="proposed" draft="true">Sent Vinsentas ir Grenadinai</territory>
+			<territory type="VC" alt="short" draft="true">S.Vinsentas</territory>
 			<territory type="VE">Venesuela</territory>
 			<territory type="VG">Didžiosios Britanijos Mergelių salos</territory>
+			<territory type="VG" alt="proposed" draft="true">Mergelės Salos (Britų)</territory>
+			<territory type="VG" alt="short" draft="true">Br. Mergelės S.</territory>
 			<territory type="VI">Mergelių salos (JAV)</territory>
+			<territory type="VI" alt="proposed" draft="true">JAV Mergelės S.</territory>
 			<territory type="VN">Vietnamas</territory>
 			<territory type="VU">Vanuatu</territory>
 			<territory type="WF">Wallisas ir Futuna</territory>

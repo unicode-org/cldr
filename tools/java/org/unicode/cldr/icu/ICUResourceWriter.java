@@ -360,11 +360,17 @@ public class ICUResourceWriter {
     }
     
     public static class ResourceTable extends Resource{
+        public String annotation;
         public Resource first;
+        public static final String NO_FALLBACK= "no fallback";
         public void write(OutputStream writer, int numIndent, boolean bare){
             writeComments(writer, numIndent);
             writeIndent(writer, numIndent);
-            write(writer, name+OPENBRACE+LINESEP);
+            if(annotation==null){
+                write(writer, name+OPENBRACE+LINESEP);
+            }else{
+                write(writer, name+OPENPAREN+annotation+CLOSEPAREN+OPENBRACE+LINESEP);
+            }
             numIndent++;
             Resource current = first;
             while(current != null){

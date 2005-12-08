@@ -47,48 +47,47 @@ public class CLDRBuild extends Task{
         
         if(config !=null){
             Locales locs = config.getLocales();
-            Vector include = locs.getIncludeList();
-            Vector exclude = locs.getExcludeList();
+            Vector locsList = locs.getList();
             // walk down the include list and 
             // add the stuff to return list 
-            for(int i=0; i<include.size(); i++){
-                Include inc = (Include)include.get(i);
-                //fast path for .*
-                if(inc.locale.equals(ALL)){
-                    for(int j=0; j<srcFiles.length;j++){
-                        ret.put(srcFiles[j].getName(), inc.draft);
+            for(int i=0; i<locsList.size(); i++){
+                Object obj = locsList.get(i);
+                if(obj instanceof Exclude){
+                    Exclude exc = (Exclude) obj;
+                    // fast path for .*
+                    if(exc.locale.equals(ALL)){
+                        for(int j=0; j<srcFiles.length;j++){
+                            ret.remove(srcFiles[j].getName());
+                        }
+                        continue;
                     }
-                    continue;
-                }
-                // now make sure the files that
-                // the files really exist
-                boolean filesMissing = true;
-                for(int j=0; j<srcFiles.length; j++){
-                    String fileName = srcFiles[j].getName(); 
-                    if(fileName.matches(inc.locale)|| (fileName.indexOf(inc.locale)==0)){
-                        ret.put(fileName, inc.draft);
-                        filesMissing = false;
-                        break;
+                    for(int j=0; j<srcFiles.length; j++){
+                        String fileName = srcFiles[j].getName(); 
+                        if(fileName.matches(exc.locale)|| (fileName.indexOf(exc.locale)==0)){
+                            ret.remove(fileName);
+                            break;
+                        }
                     }
-                }
-                if(filesMissing){
-                    //errln("Files in include list do not exist. Please check the config file!", true);
+                }else if(obj instanceof Include){
+                    Include inc = (Include) obj;
+                    //fast path for .*
+                    if(inc.locale.equals(ALL)){
+                        for(int j=0; j<srcFiles.length;j++){
+                            ret.put(srcFiles[j].getName(), inc.draft);
+                        }
+                        continue;
+                    }
+                    
+                    for(int j=0; j<srcFiles.length; j++){
+                        String fileName = srcFiles[j].getName(); 
+                        if(fileName.matches(inc.locale)|| (fileName.indexOf(inc.locale)==0)){
+                            ret.put(fileName, inc.draft);
+                            break;
+                        }
+                    }
                 }
             }
-            // now walk down the exlude list and start removing
-            // files from the working list
-            for(int i=0; i<exclude.size(); i++){
-                Exclude exc = (Exclude)exclude.get(i);
-                //fast path for .*
-                if(exc.locale.equals(ALL)){
-                    if(exclude.size()>1){
-                        errln("Exclude definition excludes all files and more. Please check the config.", true);
-                    }
-                    ret.clear();
-                    continue;
-                }
-                ret.remove(exc.locale);
-            }
+          
         }else{
             if(srcFiles.length==1 && destFiles.length==1){
                 ret.put(srcFiles[0].getName(),".*");
@@ -209,8 +208,7 @@ public class CLDRBuild extends Task{
                     tool.setEmptyLocaleList(run.deprecates.emptyLocaleList);
                 }
                 if(run.config!=null && run.config.paths!=null){
-                    tool.setXPathExcludeMap(run.config.paths.getXPathExcludeMap());
-                    tool.setXPathIncludeMap(run.config.paths.getXPathIncludeMap());
+                    tool.setPathList(run.config.paths.pathList);
                 }
                 tool.processArgs(args);
             }else{
@@ -346,33 +344,23 @@ public class CLDRBuild extends Task{
         }
     }
     public static class Locales extends Task{
-        private Vector include = new Vector();
-        private Vector exclude = new Vector();
+        private Vector localesList = new Vector();
         public void addConfiguredInclude(Include inc){
-            if(include.contains(inc)){
-                errln("This build does not support multiple <include> or <exclude> elements with same locale attribute: "+inc.locale, true);
-            }
-            include.add(inc);
+            localesList.add(inc);
         }
         public void addConfiguredExclude(Exclude ex){
-            if(exclude.contains(ex)){
-                errln("This build does not support multiple <include> or <exclude> elements with same locale attribute: "+ex.locale, true);
-            }
-            exclude.add(ex);
+            localesList.add(ex);
         }
-        public Vector getIncludeList(){
-            return include;
-        }
-        public Vector getExcludeList(){
-            return exclude;
+        public Vector getList(){
+            return localesList;
         }
     }
     
     public static class Include extends Task{
-        String draft;
-        String locale;
-        String xpath;
-        String preferAlt;
+        public String draft;
+        public String locale;
+        public String xpath;
+        public String preferAlt;
         public void setDraft(String ds){
             draft = ds;
         }
@@ -469,27 +457,12 @@ public class CLDRBuild extends Task{
     }
     
     public static class Paths extends Task{
-        private Vector include = new Vector();
-        private Vector exclude = new Vector();
+        private Vector pathList = new Vector();
         public void addConfiguredInclude(Include inc){
-            include.add(inc);
+            pathList.add(inc);
         }
         public void addConfiguredExclude(Exclude ex){
-            exclude.add(ex);
-        }
-        public TreeMap getXPathIncludeMap(){
-            return getXPathMap(include);
-        }
-        public TreeMap getXPathExcludeMap(){
-            return getXPathMap(exclude);
-        }
-        private TreeMap getXPathMap(Vector vec){
-            TreeMap map = new TreeMap();
-            for(int i=0; i<vec.size(); i++){
-                Include inc = (Include) vec.get(i);
-                map.put(inc.xpath, new CLDRConverterTool.Preferences(inc.preferAlt, inc.draft));
-            }
-            return map;
+            pathList.add(ex);
         }
     }
     

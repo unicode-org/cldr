@@ -228,6 +228,34 @@ public class XPathParts {
 		}
 		return min;
 	}
+    /**
+     * Checks if the new xpath given is like the this one. 
+     * The only diffrence may be extra alt and draft attributes but the
+     * value of type attribute is the same
+     * @param last
+     * @return
+     */
+    public boolean isLike(XPathParts last) {
+        int min = elements.size();
+        if (last.elements.size() < min) min = last.elements.size();
+        for (int i = 0; i < min; ++i) {
+            Element e1 = (Element) elements.get(i);
+            Element e2 = (Element) last.elements.get(i);
+            if (!e1.equals(e2)){
+                /* is the current element the last one*/
+                if(i == min-1 ){
+                    String et1 = (String)e1.attributes.get("type");
+                    String et2 = (String)e2.attributes.get("type");
+                    if(et1.equals(et2)){
+                        return true;
+                    }
+                }else{
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
 	/**
 	 * Does this xpath contain the attribute at all?
 	 */

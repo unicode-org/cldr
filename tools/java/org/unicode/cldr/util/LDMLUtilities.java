@@ -901,7 +901,7 @@ public class LDMLUtilities {
     public static void appendXPathAttribute(Node node, StringBuffer xpath, boolean ignoreAlt, boolean ignoreDraft){
         boolean terminate = false;
         String val = getAttributeValue(node, LDMLConstants.TYPE);
-        String and =  "and";
+        String and =  "][";//" and ";
         boolean isStart = true;
         String name = node.getNodeName();
         if(val!=null && !name.equals(LDMLConstants.DEFAULT)&& !name.equals(LDMLConstants.MS)){

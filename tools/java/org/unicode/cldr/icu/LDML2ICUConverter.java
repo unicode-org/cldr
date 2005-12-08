@@ -319,7 +319,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         makeXPathList((Node)doc,null);
         
         Collections.sort(xpathList);
-        //if(DEBUG){
+        if(DEBUG){
             try{
                 PrintWriter log1 = new PrintWriter(new FileOutputStream("log1.txt"));
                 log1.println("BEGIN: Before computeConvertibleXPaths");
@@ -332,10 +332,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }catch(Exception ex){
                 // debugging throw away.
             }
-        //}
+        }
         // Ok now figure out which XPaths should be converted
         xpathList = computeConvertibleXPaths(xpathList, locName);
-        //if(DEBUG){
+        if(DEBUG){
             try{
                 PrintWriter log2 = new PrintWriter(new FileOutputStream("log2.txt"));
                 log2.println("BEGIN: After computeConvertibleXPaths");
@@ -348,7 +348,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }catch(Exception ex){
                 // debugging throw away.
             }
-        //}
+        }
     }
     private Document createSupplementalDoc(String  xmlfileName){
         try {

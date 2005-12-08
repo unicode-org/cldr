@@ -388,7 +388,7 @@ locales
         
         
         
-        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;includePath xpath="//ldml/.*" draft="false"/&gt; <br>            &lt;!--<br>            draft=true|false|.* <br>            Only incldude data from nodes that are not marked draft. <br>            --&gt;<br>        &lt;excludePath xpath="//ldml/.*/weekendData/.*" draft=".*"/&gt;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;include xpath="//ldml/.*" draft="false"/&gt; <br>            &lt;!--<br>            draft=true|false|.* <br>            Only incldude data from nodes that are not marked draft. <br>            --&gt;<br>        &lt;exclude xpath="//ldml/.*/weekendData/.*" draft=".*"/&gt;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
 
 
 
@@ -403,7 +403,7 @@ specifed locales
         
         
         
-        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;includePath xpath="//ldml/.*" draft="false"/&gt; <br>        &lt;excludePath xpath="//ldml/.*/weekendData/.*" draft=".*"&gt;<br>            &lt;locales&gt;<br>                &lt;include locale="de.*"/&gt;<br>                &lt;exclude locale="fi"/&gt;<br>            &lt;/locales&gt;<br>        &lt;/excludePath&gt;<br>        &lt;!--<br>        Ignore draft status on node weekendData but only for the locales specified<br>        --&gt;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;include xpath="//ldml/.*" draft="false"/&gt; <br>        &lt;exclude xpath="//ldml/.*/weekendData/.*" draft=".*" locale="de be_IN bla" /&gt;<br>        &lt;!--<br>        Ignore draft status on node weekendData but only for the locales specified<br>        --&gt;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
 
 
 
@@ -447,7 +447,7 @@ of the draft status<br>
         
         
         
-        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*" draft="false"&gt;<br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;excludePath xpath="//ldml/.*/fields/.*"/&gt;<br>        &lt;includePath xpath="//ldml/.*"/&gt;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*" draft="false"&gt;<br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;exclude xpath="//ldml/.*/fields/.*"/&gt;<br>        &lt;include xpath="//ldml/.*"/&gt;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
 
 
 
@@ -462,7 +462,7 @@ irrespective of the draft status
         
         
         
-        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;excludePath xpath="//ldml/.*/fields/.*" draft=".*"&gt;<br>            &lt;locales&gt;<br>               &lt;exclude locale="fi*"/&gt;<br>               &lt;exclude locale="en*"/&gt;<br>               &lt;include locale=".*"/&gt;<br>           &lt;/locales&gt;<br>        &lt;/excludePath&gt;<br>        &lt;includePath xpath="//ldml/.*" draft="false"/&gt; <br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;exclude xpath="//ldml/.*/fields/.*" draft=".*" locale="en fi"/&gt;<br>        &lt;include xpath="//ldml/.*" draft="false"/&gt; <br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
 
 
       </li>
@@ -495,12 +495,12 @@ irrespective of the draft status
         
         
         
-        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*" draft="false"&gt;<br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;excludePath xpath="//ldml/.*/fields/.*"/&gt;<br>        &lt;includePath xpath="//ldml/.*" preferAlt="variant proposed default" draft=".*"/&gt;<br>        &lt;!-- preferAlt=variant, proposed, default,.*. <br>             The value of this attribute is a preference list.<br>             The ordering of values determines which node will be picked.<br>        --&gt;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*" draft="false"&gt;<br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;exclude xpath="//ldml/.*/fields/.*"/&gt;<br>        &lt;include xpath="//ldml/.*" preferAlt="variant proposed default" draft=".*"/&gt;<br>        &lt;!-- preferAlt=variant, proposed, default,.*. <br>             The value of this attribute is a preference list.<br>             The ordering of values determines which node will be picked.<br>        --&gt;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
       </li>
 
 
       <li> Prefer only the nodes that are marked alt.
-        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;excludePath xpath="//ldml/.*/languages/.*" preferAlt="variant" draft=".*"/&gt;       <br>        &lt;excludePath xpath="//ldml/.*/countries/.*" preferAlt="proposed" draft=".*"/&gt;      <br>        &lt;includePath xpath="//ldml/.*" draft="false"/&gt;&nbsp;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;exclude xpath="//ldml/.*/languages/.*" preferAlt="variant" draft=".*"/&gt;       <br>        &lt;exclude xpath="//ldml/.*/countries/.*" preferAlt="proposed" draft=".*"/&gt;      <br>        &lt;include xpath="//ldml/.*" draft="false"/&gt;&nbsp;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
 
 
       </li>
@@ -517,8 +517,11 @@ irrespective of the draft status
 
 
 
-  <li> For generating stub files for deprecated locales we hard
-code the data for alias generation in the
+  <li>Override mechanism for the default fallback or explicit fallback in the data at build time.
+    <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;exclude xpath="//ldml/.*/delimiters/.*" preferAlt="variant" draft=".*"/&gt;       <br>        &lt;exclude xpath="//ldml/.*/measurements/.*" preferAlt="proposed" draft=".*"/&gt;      <br>        &lt;include xpath="//ldml/.*" draft="false"/&gt; <br>    &lt;/paths&gt;<br>    &lt;overrideFallback fallback="se_NO no_NO"&gt;<br>        &lt;locales&gt;<br>            &lt;include locale="sms_FI" allDraft="false"&gt; <br>        &lt;/locales&gt;<br>        &lt;paths&gt;<br>            &lt;include xpath="//ldml/displayNames"/&gt;<br>            &lt;include xpath="//ldml/dates/timeZoneNames"/&gt;            <br>        &lt;/paths&gt;<br>    &lt;/overrideFallback&gt;    <br>&lt;/config&gt;</pre>
+  </li>
+  <li> For generating stub files for deprecated locales we hard code
+the data for alias generation in the
 configuration file. A test will be wirtten for veryfing that the list
 of &nbsp;aliases are in synch with list in supplementalData.xml.
     <pre style="margin-left: 40px;">&lt;!-- collation aliases --&gt;<br>&lt;deprecates type="collation"&gt;<br>    &lt;alias from="de__PHONEBOOK" to="de@collation=phonebook" xpath="//ldml/collations/default[@type='phonebook']"/&gt;<br>    &lt;alias from="es__TRADITIONAL" to="es@collation=traditional" xpath="//ldml/collations/default[@type='traditional']"/&gt;<br>    &lt;alias from="in" to="id" /&gt; <br>    ...<br>&lt;/deprecates&gt;<br>&lt;!-- locale aliases (main) --&gt;<br>&lt;deprecates type="main" &gt;<br>    &lt;alias from="in" to="id" /&gt;<br>    &lt;alias from="in_ID" to="id_ID" /&gt;<br>    &lt;alias from="iw" to="he" /&gt; <br>    ...<br>&lt;/deprecates&gt;</pre>

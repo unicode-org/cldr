@@ -126,11 +126,15 @@ public class CookieSession {
     
     // convenience functions
     Object get(String key) { 
-        return stuff.get(key);
+        synchronized (stuff) {
+            return stuff.get(key);
+        }
     }
     
     void put(String key, Object value) {
-        stuff.put(key,value);
+        synchronized(stuff) {
+            stuff.put(key,value);
+        }
     }
 
     boolean prefGetBool(String key) { 
@@ -167,7 +171,38 @@ public class CookieSession {
         }
         return l;
     }
+    
+    public final Object getByLocale(String key, String aLocale) {
+        synchronized(stuff) {
+            Hashtable f = (Hashtable)getLocales().get(aLocale);
+            if(f != null) {
+                return f.get(key);
+            } else {
+                return null;
+            }
+        }
+    }
 
+    public void putByLocale(String key, String aLocale, Object value) {
+        synchronized(stuff) {
+            Hashtable f = (Hashtable)getLocales().get(aLocale);
+            if(f == null) {
+                f = new Hashtable();
+                getLocales().put(aLocale, f);
+            }
+            f.put(key,value);
+        }
+    }
+        
+    public final void removeByLocale(String key, String aLocale) {
+        synchronized(stuff) {
+            Hashtable f = (Hashtable)getLocales().get(aLocale);
+            if(f != null) {
+                f.remove(key);
+            }
+        }
+    }
+    
     /**
      * utility function for doing a hash
      * @param l number

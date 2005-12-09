@@ -138,8 +138,8 @@ public class SurveyMain extends HttpServlet {
         return n++;
     }
     
-    long startTime = 0;
-    com.ibm.icu.dev.test.util.ElapsedTimer startupTime = new com.ibm.icu.dev.test.util.ElapsedTimer();
+    com.ibm.icu.dev.test.util.ElapsedTimer uptime = new com.ibm.icu.dev.test.util.ElapsedTimer("ST uptime: {0}");
+    com.ibm.icu.dev.test.util.ElapsedTimer startupTime = new com.ibm.icu.dev.test.util.ElapsedTimer("{0} until first GET/POST");
     
     public SurveyMain() {
         // null
@@ -159,11 +159,12 @@ public class SurveyMain extends HttpServlet {
     {
         String startupMsg = null;
         if(startupTime != null) {
-            startupMsg = ("Startup time until the start of first GET/POST = " + startupTime);
+            startupMsg = (startupTime.toString());
             logger.info(startupMsg);
             startupTime = null;
         }
-/**/ com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();  try {
+        com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
+
         response.setContentType("text/html; charset=utf-8");
 
         pages++;
@@ -187,7 +188,6 @@ public class SurveyMain extends HttpServlet {
         
         WebContext ctx = new WebContext(request,response);
         ctx.reqTimer = reqTimer;
-//        ctx.xpt = xpt;
         // TODO: ctx.dbsrc..
         ctx.sm = this;
         
@@ -195,13 +195,10 @@ public class SurveyMain extends HttpServlet {
             doDump(ctx);
         } else if(ctx.field("sql").equals(vap)) {
             doSql(ctx);
-        } else if(ctx.field("xpaths").length()>0) {
-            doXpaths(ctx); 
         } else {
             doSession(ctx); // Session-based Survey main
         }
         ctx.close();
-/**/       } finally { logger.info("REQ in: " + reqTimer ); }
     }
 
     public static String timeDiff(long a) {
@@ -285,7 +282,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 
 
                 ctx.println("elapsed time: " + et + "<br />");
-                //conn.close();     (auto close)
+                //     (auto close)
             } catch(SQLException se) {
                 String complaint = "SQL err: " + unchainSqlException(se);
                 
@@ -305,7 +302,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         printHeader(ctx, "Dump System Info");
         ctx.println("<h1>System info</h1>");
         ctx.println("<div class='pager'>");
-        ctx.println("Uptime: " + timeDiff(startTime) + ", " + pages + " pages served.<br/>");
+        ctx.println(uptime + ", " + pages + " pages served.<br/>");
         Runtime r = Runtime.getRuntime();
         double total = r.totalMemory();
         total = total / 1024;
@@ -327,7 +324,6 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         }
         ctx.println("String hash has " + stringHash.size() + " items.<br/>");
         ctx.println("xString hash info: " + xpt.statistics() +"<br />");
-        ctx.println("xpath hash has " + allXpaths.size() + " items.<br/>");
         ctx.println("</div>");
         ctx.println("<hr/>");
         ctx.println("<h1>Current Sessions</h1>");
@@ -366,6 +362,38 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         }
         ctx.println("</table>");
         
+        
+        if(ctx.field("loadAll").equals("all")) {
+            com.ibm.icu.dev.test.util.ElapsedTimer allTime = new com.ibm.icu.dev.test.util.ElapsedTimer("Time to load all: {0}");
+            logger.info("Loading all..");            
+            File[] inFiles = getInFiles();
+            int nrInFiles = inFiles.length;
+            int ti = 0;
+            for(int i=0;i<nrInFiles;i++) {
+                String localeName = inFiles[i].getName();
+                int dot = localeName.indexOf('.');
+                if(dot !=  -1) {
+                    localeName = localeName.substring(0,dot);
+                    if((i>0)&&((i%50)==0)) {
+                        logger.info("   "+ i + "/" + nrInFiles + ". " + usedK() + "K mem used");
+                        ctx.println("   "+ i + "/" + nrInFiles + ". " + usedK() + "K mem used<br />");
+                    }
+                    try {
+                        ULocale locale = new ULocale(localeName);
+//                        WebContext xctx = new WebContext(false);
+//                        xctx.setLocale(locale);
+                        makeCLDRFile(makeDBSource(null, locale));
+                    } catch(Throwable t) {
+                        String complaint = ("Error loading: " + localeName + " - " + t.toString() + " ...");
+                        logger.severe("loading all: " + complaint);
+                        ctx.println(complaint + "<br />");
+                    }
+                }
+            }
+            logger.info("Loaded all. " + allTime);
+            ctx.println("Loaded all." + allTime + "<br />");
+        }
+        
         printFooter(ctx);
     }
     
@@ -376,24 +404,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         ctx.println("<a href='" + ctx.base() + "?&s=" + cs.id + "'>" + "become" + "</a> |");
         ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "&unlink=" + cs.id + "'>" + "logout" + "</a>");
     }
-    
-    private void doXpaths(WebContext ctx)
-    {
-        printHeader(ctx, "Xpaths");
-        ctx.println("<h1>Xpaths</h1>");
-        ctx.println("<table border=1>");
-        for(Iterator li = allXpaths.keySet().iterator();li.hasNext();) {
-            String ln = (String)li.next();
-//            String l = (String)allXpaths.get(ln);
-            ctx.println("<tr>");
-            ctx.println(" <td>" + ln + "</td>");
-//            ctx.println(" <td>" + l + "</td>");
-            ctx.println("</tr>");
-        }
-        ctx.println("</table>");
-        printFooter(ctx);
-    }
- 
+     
     private static void dumpIt(WebContext ctx, Node root, int level)
     {
         ctx.println("<br>"); // <li>
@@ -401,7 +412,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         
         NamedNodeMap attr = root.getAttributes();
         if((attr!=null) && attr.getLength()>0){ //TODO: make this a fcn
-                                                  // add an element for each attribute different for each attribute
+                                                // add an element for each attribute different for each attribute
             for(int i=0; i<attr.getLength(); i++){
                 Node item = attr.item(i);
                 String attrName =item.getNodeName();
@@ -495,18 +506,18 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         user = reg.get(uid,email);
         
         if(user != null) {
-            ctx.println("Got user: " + user.toString() + ", u.email = '" + user.email + "', meail= '" + email + "', ...<br />");
+            //  ctx.println("Got user: " + user.toString() + ", u.email = '" + user.email + "', meail= '" + email + "', ...<br />");
             mySession = CookieSession.retrieveUser(user.email);
             if(mySession != null) {
-                ctx.println("<i>reconnectiong..</i>");
-  //              message = "Reconnecting your session: " + myNum;
+                //  ctx.println("<i>reconnectiong..</i>");
+                //    message = "Reconnecting your session: " + myNum;
+                message = "<i>Reconnecting to your previous session.</i>";
             }
         }
         if((mySession == null) && (myNum != null) && (myNum.length()>0)) {
             mySession = CookieSession.retrieve(myNum);
             if(mySession == null) {
                 message = "<i>(Sorry, This session has expired. You may have to log in again.)</i><br />";
-//                message = "ignoring expired session: " + myNum;
             }
         }
         if(mySession == null) {
@@ -569,8 +580,8 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         String new_org = ctx.field("new_org");
         int new_userlevel = ctx.fieldInt("new_userlevel",-1);
         
-        if(ctx.session.user.userlevel > UserRegistry.ADMIN) { // if not admin
-            new_org = ctx.session.user.org; // same org
+        if(ctx.session.user.userlevel > UserRegistry.ADMIN) {
+            new_org = ctx.session.user.org; // if not admin, must create user in the same org
         }
         
         if((new_name == null) || (new_name.length()<=0)) {
@@ -596,17 +607,17 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             u.locales = new_locales;
             u.password = UserRegistry.makePassword(u.email+u.org+ctx.session.user.email);
         
-            u = reg.newUser(ctx, u);
+            UserRegistry.User registeredUser = reg.newUser(ctx, u);
             
-            if(u == null) {
-                if(reg.get(new_email) != null) { // throw away resultant User
+            if(registeredUser == null) {
+                if(reg.get(new_email) != null) { // already exists..
                     ctx.println("<div class='sterrmsg'>A user with that email, <tt>" + new_email + "</tt> already exists. Couldn't add user. </div>");                
                 } else {
                     ctx.println("<div class='sterrmsg'>Couldn't add user <tt>" + new_email + "</tt> - an unknown error occured.</div>");
                 }
             } else {
                 ctx.println("<i>user added.</i>");
-                u.printPasswordLink(ctx);
+                registeredUser.printPasswordLink(ctx);
             }
         }
         
@@ -643,8 +654,8 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             }
             ctx.println("<h2>Users for " + org + "</h2>");
             if(ourLevel <= UserRegistry.TC) {
-                ctx.println("<b><font size='+2'>NOTE: Changing user level or locales while a user is active (below) in will result in  " +
-                    " destruction of their session, losing all data.</font></b>");
+                ctx.println("<div class='warning' style='border: 1px solid black; padding: 1em; margin: 1em'><b><font size='+2'>NOTE: Changing user level or locales while a user is active (below) in will result in  " +
+                    " destruction of their session, losing all data.</font></b></div>");
             }
             // Preset box
             boolean preFormed = false;
@@ -683,8 +694,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 }
                 ctx.println("</div>");
             }
-//            String preset_from = ctx.field("preset_from");
-            int preset_fromint = ctx.fieldInt("preset_from",-1);
+            int preset_fromint = ctx.fieldInt("preset_from", -1);
             String preset_do = ctx.field("preset_do");
             if(preset_do.equals(LIST_ACTION_NONE)) {
                 preset_do="nothing";
@@ -699,7 +709,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 ctx.println("<input type='submit' name='doBtn' value='Change' />");
             }
             ctx.println("<table class='userlist' border='2'>");
-            ctx.println(" <tr><th>Level</th><th>Name</th><th>Email</th><th>Organization</th><th>Locales</th><th>Actions</th></tr>");
+            ctx.println(" <tr><th>Level</th><th>Name/Email</th><th>Organization</th><th>Locales</th><th>Actions</th></tr>");
             while(rs.next()) {
                 n++;
                 int theirId = rs.getInt(1);
@@ -710,10 +720,9 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 String theirLocales = rs.getString(6);
                 CookieSession theUser = CookieSession.retrieveUserWithoutTouch(theirEmail);
                 ctx.println("  <tr class='user" + theirLevel + "'>");
-//              ctx.println("    <th>#" + theirId + "</th>");
                 ctx.println("    <td align='right'>" + UserRegistry.levelToStr(ctx,theirLevel) + "</td>");
-                ctx.println("    <td>" + theirName + "</td>");
-                ctx.println("    <td>" + "<a href='mailto:" + theirEmail + "'>" + theirEmail + "</a>" + "</td>");
+                ctx.println("    <td><font size='-1'>#" + theirId + " </font>" +  theirName + "<br />");
+                ctx.println("    " + "<a href='mailto:" + theirEmail + "'>" + theirEmail + "</a>" + "</td>");
                 ctx.println("    <td>" + theirOrg + "</td>");
                 if(theirLevel <= UserRegistry.TC) {
                     ctx.println("   <td><i>all</i></td> ");
@@ -843,7 +852,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                         ctx.println("<td></td>");
                     }
                     ctx.println("<td>");
-                    ctx.println("<b>Active as of " + timeDiff(theUser.last) + "</b>");
+                    ctx.println("<b>Active " + timeDiff(theUser.last) + " ago</b>");
                     if(ourLevel<=UserRegistry.ADMIN) {
                         ctx.print("<br/>");
                         printZapMenu(ctx, theUser);
@@ -949,7 +958,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                     }
                 }
                 if(e.hasMoreElements()) { 
-                    ctx.println("<B>Changed locales: </B> ");
+                    ctx.println("<B>Visited locales: </B> ");
                     for(;e.hasMoreElements();) {
                         String k = e.nextElement().toString();
                         ctx.println("<a href=\"" + baseContext.url() + "&_=" + k + "\">" + 
@@ -1522,7 +1531,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             
             processOther(ctx, which, ns);
         } else {
-            logger.severe("NOTE:  NOT doing processChanges()."); // TODO: 0 fix to use sql
+//            logger.severe("NOTE:  NOT doing processChanges()."); // TODO: 0 fix to use sql
         }
     }
 
@@ -1649,7 +1658,13 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         }
         
         CLDRFile cf = getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.locale);
+        if(cf == null) {
+            throw new InternalError("CLDRFile is null!");
+        }
         CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
+        if(ourSrc == null) {
+            throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.locale );
+        }
         synchronized (ourSrc) {
             // Set up checks
             CheckCLDR checkCldr =  (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
@@ -1658,7 +1673,14 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                 long t0 = System.currentTimeMillis();
                 checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
                 ctx.putByLocale(USER_FILE + CHECKCLDR, checkCldr);
-                checkCldr.setDisplayInformation(getEnglishFile(ourSrc));
+                {
+                    CheckCLDR subCheckCldr = (CheckCLDR)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CHECKCLDR);
+                    if(subCheckCldr == null) {
+                        throw new InternalError("subCheckCldr == null");
+                    }
+                }
+
+                checkCldr.setDisplayInformation(getEnglishFile());
                 checkCldr.setCldrFileToCheck(cf, checkCldrResult); // TODO: when does this get updated?
                 if(!checkCldrResult.isEmpty()) {
                     ctx.putByLocale(USER_FILE + CHECKCLDR_RES, checkCldrResult); // don't bother if empty . . .
@@ -1670,6 +1692,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             // Locale menu
             ctx.println("<table width='95%' border=0><tr><td width='25%'>");
             ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
+            ctx.println("<i>Note: The first time a locale is loaded takes approx. 20 seconds, please be patient.</i>");
             for(i=(n-1);i>0;i--) {
                 for(j=0;j<(n-i);j++) {
                     ctx.print("&nbsp;&nbsp;");
@@ -1952,28 +1975,58 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
     public static final String CLDRDBSRC = "_source";
     
     private static CLDRFile gEnglishFile = null;
+    
+    private CLDRFile.Factory gFactory = null;
+    
+    private synchronized CLDRFile.Factory getFactory() {
+        if(gFactory == null) {
+            gFactory = CLDRFile.Factory.make(fileBase,".*");
+        }
+        return gFactory;
+    }
 
-    protected synchronized CLDRFile getEnglishFile(CLDRDBSource ourSrc) {
+    public synchronized CLDRFile getEnglishFile(/*CLDRDBSource ourSrc*/) {
         if(gEnglishFile == null) {
-            gEnglishFile = ourSrc.factory.make("en", false);
+            gEnglishFile = getFactory().make("en", false);
             gEnglishFile.freeze(); // so it can be shared
         }
         return gEnglishFile;
     }
     
+    public synchronized String getDirectionFor(ULocale locale) {
+        // Hackness:
+        String locStr = locale.toString();
+        if(locStr.startsWith("ps") ||
+            locStr.startsWith("fa") ||
+            locStr.startsWith("ar") ||
+            locStr.startsWith("syr") ||
+            locStr.startsWith("he") ||
+            locStr.startsWith("uz_Arab")) {
+            return "rtl";
+        } else {
+            return "ltr";
+        }
+    }
+    
     CLDRFile getUserFile(WebContext ctx, UserRegistry.User user, ULocale locale) {
         CLDRFile file = (CLDRFile)ctx.getByLocale(USER_FILE);
-        // prepare a new hashtable
-        if(file==null) { 
-            CLDRDBSource dbSource = CLDRDBSource.createInstance(fileBase, xpt, locale,
-                getDBConnection(), user);
-            file = new CLDRFile(dbSource,false);
-            if(file!=null) { 
-                ctx.putByLocale(USER_FILE,file); 
-                ctx.putByLocale(USER_FILE + CLDRDBSRC,dbSource);  // TODO: remove. for debugging.
-            }
+        if(file == null) {
+            CLDRDBSource dbSource = makeDBSource(user, locale);
+            file = makeCLDRFile(dbSource);
+            
+            ctx.putByLocale(USER_FILE,file); 
+            String srcKey = USER_FILE + CLDRDBSRC;
+            ctx.putByLocale(srcKey,dbSource);  // TODO: remove. for debugging.
         }
         return file;
+    }
+    CLDRDBSource makeDBSource(UserRegistry.User user, ULocale locale) {
+        CLDRDBSource dbSource = CLDRDBSource.createInstance(fileBase, xpt, locale,
+                    getDBConnection(), user);
+        return dbSource;
+    }
+    static CLDRFile makeCLDRFile(CLDRDBSource dbSource) {
+        return new CLDRFile(dbSource,false);
     }
     
     NodeSet getNodeSet(WebContext ctx, String which) {
@@ -2303,8 +2356,9 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
         List checkCldrResult = new ArrayList();
-        
         Iterator theIterator = null;
+
+        String ourDir = getDirectionFor(ctx.locale);
         
         synchronized(ourSrc) { // because it has a connection..
             // Podder
@@ -2319,7 +2373,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             ctx.println("<tr>");
             ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=2>Name<br/>" +
                 "<div style='border: 1px solid gray; width: 6em;' align=left><tt>Code</tt></div></th>");
-            ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Best<br/>");
+            ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Best choice (?)<br/>");
             ctx.printHelpLink("/Best");
             ctx.println("</th>");
             ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Contents</th>");
@@ -2337,7 +2391,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
                     } else {
                         ctx.println("<td>");
                     }
-                    ctx.print("</td><td>" + item.value + "</td>");
+                    ctx.print("</td><td dir='" + ourDir +"'>" + item.value + "</td>");
                     if(item.tests != null) {
                         ctx.println("<td class='warning'><span class='warning'>");
                         for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
@@ -3078,7 +3132,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             String sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
             boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
 
-//            showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
+//          showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
             showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
             showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Interest");
         }
@@ -3249,8 +3303,6 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
             return;
         }
 
-        startTime = System.currentTimeMillis();
-        logger.info("Startup time till T0 = " + startupTime);
         File cacheDir = new File(cldrHome, "cache");
         logger.info("Cache Dir: " + cacheDir.getAbsolutePath() + " - creating and emptying..");
         CachingEntityResolver.setCacheDir(cacheDir.getAbsolutePath());
@@ -3269,6 +3321,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         logger.info("SurveyTool starting up. root=" + new File(cldrHome).getAbsolutePath());
         if ((specialMessage!=null)&&(specialMessage.length()>0)) {
             logger.warning("SurveyTool with CLDR_MESSAGE: " + specialMessage);
+            busted("message: " + specialMessage);
         }
         SurveyMain m = new SurveyMain();
 /*
@@ -3286,7 +3339,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
         }
         doStartupDB();
         
-        logger.info("SurveyTool ready for requests. Memory in use: " + usedK() + " time: " + startupTime);
+        logger.info("SurveyTool ready for requests. Memory in use: " + usedK());
     }
     
     public void destroy() {
@@ -3811,7 +3864,7 @@ com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.Elapse
     public static void main(String arg[]) {
      System.out.println("Starting some test of SurveyTool locally....");
      try{
-        cldrHome="/xsrl/T/cldr";
+        cldrHome="/data/jakarta/cldr";
         vap="NO_VAP";
         SurveyMain sm=new SurveyMain();
         sm.doStartup();

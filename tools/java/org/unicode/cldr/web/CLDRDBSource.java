@@ -69,7 +69,7 @@ public class CLDRDBSource extends XMLSource {
                                                     "alt_proposed varchar(50), " +
                                                     "alt_type varchar(50), " +
                                                     "type varchar(50), " +
-                                                    "value varchar(2048) not null, " +
+                                                    "value varchar(29000) not null, " +
                                                     "submitter INT, " +
                                                     "modtime TIMESTAMP )";
 //            System.out.println(sql);
@@ -207,118 +207,125 @@ public class CLDRDBSource extends XMLSource {
     }
     
     boolean loadAndValidate(String locale, WebContext forUser) {
-        int srcId = getSourceId(tree, locale);
+            int srcId = getSourceId(tree, locale);
 
-        if(srcId != -1) { 
-            return true;  // common case.
-        }
-        
-        if(conn == null) {
-            throw new InternalError("loadAndValidate: failed, no DB connection");
-        }
+            if(srcId != -1) { 
+                return true;  // common case.
+            }
 
-        synchronized(conn) {            
+        synchronized(xpt) {
+            // double check..
+            srcId = getSourceId(tree, locale);
+            if(srcId != -1) { 
+                return true;  // common case.
+            }
+            
+            if(conn == null) {
+                throw new InternalError("loadAndValidate: failed, no DB connection");
+            }
             String rev=LDMLUtilities.getCVSVersion(dir, locale+".xml");
             srcId = setSourceId(tree, locale, rev); // TODO: we had better fill it in..
-            logger.info("adding rev: " + rev + " for " + dir + ":" + locale+".xml");
-            logger.info("srcid: " + srcId);
-            
-            CLDRFile file = factory.make(locale, false, true);
-            if(file == null) {
-                logger.severe("Couldn't load CLDRFile for " + locale);
-                return false ;
-            }
-            
-            logger.info("Loaded CLDRFile for " + locale);
-            // Now, start loading stuff in
-            XPathParts xpp=new XPathParts(null,null);
-            for (Iterator it = file.iterator(); it.hasNext();) {
-                String xpath = (String) it.next();
-                String oxpath = file.getFullXPath(xpath);
-                int xpid = xpt.getByXpath(xpath);
-                int oxpid = xpt.getByXpath(oxpath);
-                String value = file.getStringValue(xpath);
-                xpp.clear();
-                xpp.initialize(oxpath);
-                String lelement = xpp.getElement(-1);
-                /* all of these are always at the end */
-                String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
-                String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
-    
-                /* special func to find this */
-                String eType = xpt.typeFromPathToTinyXpath(xpath, xpp);
-                String tinyXpath = xpp.toString();
+            synchronized(conn) {            
+    //            logger.info("srcid: " + srcId);
                 
-                int txpid = xpt.getByXpath(tinyXpath);
-                
-                /*SRL*/ 
-//                System.out.println(xpath + " l: " + locale);
-//                System.out.println(" <- " + oxpath);
-//                System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" + eDraft);
-//                System.out.println(" => "+txpid+"#" + tinyXpath);
-                  
-                try {
-                    stmts.insert.setInt(1,xpid); // full
-                    stmts.insert.setString(2,locale);
-                    stmts.insert.setInt(3,srcId);
-                    stmts.insert.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
-                    stmts.insert.setString(5,value);
-                    stmts.insert.setString(6,eType);
-                    stmts.insert.setString(7,eAlt);
-                    stmts.insert.setInt(8,txpid); // tiny
-
-                    stmts.insert.execute();
-                } catch(SQLException se) {
-                    String complaint = "CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
-                    logger.severe(complaint);
-                    throw new InternalError(complaint);
+                CLDRFile file = factory.make(locale, false, true);
+                if(file == null) {
+                    logger.severe("Couldn't load CLDRFile for " + locale);
+                    return false ;
                 }
+                
+                logger.info("loading rev: " + rev + " for " + dir + ":" + locale+".xml");
+                // Now, start loading stuff in
+                XPathParts xpp=new XPathParts(null,null);
+                for (Iterator it = file.iterator(); it.hasNext();) {
+                    String xpath = (String) it.next();
+                    String oxpath = file.getFullXPath(xpath);
+                    int xpid = xpt.getByXpath(xpath);
+                    int oxpid = xpt.getByXpath(oxpath);
+                    String value = file.getStringValue(xpath);
+                    xpp.clear();
+                    xpp.initialize(oxpath);
+                    String lelement = xpp.getElement(-1);
+                    /* all of these are always at the end */
+                    String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
+                    String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
+        
+                    /* special func to find this */
+                    String eType = xpt.typeFromPathToTinyXpath(xpath, xpp);
+                    String tinyXpath = xpp.toString();
+                    
+                    int txpid = xpt.getByXpath(tinyXpath);
+                    
+                    /*SRL*/ 
+    //                System.out.println(xpath + " l: " + locale);
+    //                System.out.println(" <- " + oxpath);
+    //                System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" + eDraft);
+    //                System.out.println(" => "+txpid+"#" + tinyXpath);
+                      
+                    try {
+                        stmts.insert.setInt(1,xpid); // full
+                        stmts.insert.setString(2,locale);
+                        stmts.insert.setInt(3,srcId);
+                        stmts.insert.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
+                        stmts.insert.setString(5,value);
+                        stmts.insert.setString(6,eType);
+                        stmts.insert.setString(7,eAlt);
+                        stmts.insert.setInt(8,txpid); // tiny
+
+                        stmts.insert.execute();
+                    } catch(SQLException se) {
+                        String complaint = "CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+                        logger.severe(complaint);
+                        throw new InternalError(complaint);
+                    }
+                }
+                
+                try{
+                        conn.commit();
+                } catch(SQLException se) {
+                        String complaint = "CLDRDBSource: Couldn't commit " + locale + ":" + SurveyMain.unchainSqlException(se);
+                        logger.severe(complaint);
+                        throw new InternalError(complaint);
+                }
+                
+                return true;
             }
-            
-            try{
-                    conn.commit();
-            } catch(SQLException se) {
-                    String complaint = "CLDRDBSource: Couldn't commit " + locale + ":" + SurveyMain.unchainSqlException(se);
-                    logger.severe(complaint);
-                    throw new InternalError(complaint);
-            }
-            
-            return true;
-        }
+        } // synch xpt
     }
     
     Hashtable srcHash = new Hashtable(); 
     
     int getSourceId(String tree, String locale) {
         String key = tree + "_" + locale;
-        synchronized (srcHash) {
-            Integer r = null;
-            r = (Integer)srcHash.get(key);
-            if(r != null) return r.intValue(); // quick check
-            
-            synchronized (conn) {
-                try {
-                    stmts.querySource.setString(1,locale);
-                    stmts.querySource.setString(2,tree);
-                    ResultSet rs = stmts.querySource.executeQuery();
-                    if(!rs.next()) {
+            synchronized (srcHash) {
+                Integer r = null;
+                r = (Integer)srcHash.get(key);
+                if(r != null) return r.intValue(); // quick check
+             synchronized(xpt) {
+                synchronized (conn) {
+                    try {
+                        stmts.querySource.setString(1,locale);
+                        stmts.querySource.setString(2,tree);
+                        ResultSet rs = stmts.querySource.executeQuery();
+                        if(!rs.next()) {
+                            rs.close();
+                            return -1;
+                        }
+                        int result = rs.getInt(1);
+                        if(rs.next()) {
+                            logger.severe("Source returns two results: " + tree + "/" + locale);
+                            return -1;
+                        }
                         rs.close();
+                        
+                        r = new Integer(result);
+                        srcHash.put(key,r); // add back to hash
+    //logger.info(key + " - =" + r);
+                        return result;
+                    } catch(SQLException se) {
+                        logger.severe("CLDRDBSource: Failed to find source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
                         return -1;
                     }
-                    int result = rs.getInt(1);
-                    if(rs.next()) {
-                        logger.severe("Source returns two results: " + tree + "/" + locale);
-                        return -1;
-                    }
-                    rs.close();
-                    
-                    r = new Integer(result);
-                    srcHash.put(key,r); // add back to hash
-logger.info(key + " - =" + r);
-                    return result;
-                } catch(SQLException se) {
-                    logger.severe("CLDRDBSource: Failed to find source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
-                    return -1;
                 }
             }
         }
@@ -326,21 +333,23 @@ logger.info(key + " - =" + r);
     
     int setSourceId(String tree, String locale, String rev) {
         synchronized (conn) {
-            try {
-                stmts.insertSource.setString(1,locale);
-                stmts.insertSource.setString(2,tree);
-                stmts.insertSource.setString(3,rev);
-                if(!stmts.insertSource.execute()) {
-                    conn.commit();
-                    return getSourceId(tree, locale); // adds to hash
-                } else {
-                    conn.commit();
-                    logger.severe("CLDRDBSource: SQL failed to set source ("+tree + "/" + locale +")");
+            synchronized(xpt) {
+                try {
+                    stmts.insertSource.setString(1,locale);
+                    stmts.insertSource.setString(2,tree);
+                    stmts.insertSource.setString(3,rev);
+                    if(!stmts.insertSource.execute()) {
+                        conn.commit();
+                        return getSourceId(tree, locale); // adds to hash
+                    } else {
+                        conn.commit();
+                        logger.severe("CLDRDBSource: SQL failed to set source ("+tree + "/" + locale +")");
+                        return -1;
+                    }
+                } catch(SQLException se) {
+                    logger.severe("CLDRDBSource: Failed to set source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
                     return -1;
                 }
-            } catch(SQLException se) {
-                logger.severe("CLDRDBSource: Failed to set source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
-                return -1;
             }
         }
     }
@@ -561,31 +570,14 @@ logger.info(key + " - =" + r);
         }
     }
     
-    
-    private int n = 0;
-    
     public XMLSource make(String localeID) {
         if(localeID == null) return null; // ???
         if(localeID.equals(CLDRFile.SUPPLEMENTAL_NAME)) return null;  // nothing, now.
         
-        n++;
-        if((n%500)==0) {
-            logger.info(n + " CLDRDBSources have been make()'ed");
-//            if(n==500) {
-//                throw new InternalError("TOO MANY! :-)");
-//            }
-        }
-        
-        
         CLDRDBSource result = (CLDRDBSource)clone();
         if(!localeID.equals(result.getLocaleID())) {
             result.setLocaleID(localeID);
-//com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
-//logger.info("Begin initConn.." + localeID);
             result.initConn(conn, factory); // set up connection & prepared statements. conn/factory may be set twice.
-//logger.info("Made " + localeID + " in " + et);
-        } else {
-//logger.info("Skipping initConn - same locale " + localeID);
         }
         return result;
     }

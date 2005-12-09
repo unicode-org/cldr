@@ -164,6 +164,9 @@ public class DataPod {
 		if(simple==true) {
             CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CLDRDBSRC, locale);
             CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CHECKCLDR);
+            if(checkCldr == null) {
+                throw new InternalError("checkCldr == null");
+            }
             pod.populateFrom(ourSrc, checkCldr);
 		} else {
 			throw new InternalError("non-simple pods not supported");
@@ -200,7 +203,9 @@ public class DataPod {
                 // p.altType, etc..
                 addPea(p);
             }
-            checkCldr.check(xpath, fullPath, value, pathParts, fullPathParts, checkCldrResult);
+            if(checkCldr != null) {
+                checkCldr.check(xpath, fullPath, value, pathParts, fullPathParts, checkCldrResult);
+            }
             if(checkCldrResult.isEmpty()) {
                 p.addItem( value,  altProposed, null);
             } else {

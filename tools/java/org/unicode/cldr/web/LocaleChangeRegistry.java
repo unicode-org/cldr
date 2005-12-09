@@ -43,14 +43,10 @@ public class LocaleChangeRegistry {
      * @param locale - the locale to register. Note, parent locales will automatically be registered.
      */
     public void register(/* other params: tree, etc.., */ String locale, String key, Object what) {
-    System.out.println("presynch " + what.toString());
         synchronized(this) {
-    System.out.println("insynch " + what.toString());
             while(locale != null ) {
-    System.out.println("putting  " + what.toString() + " into " + locale);
                 internalGetHash(locale).put(key, what);
                 locale = WebContext.getParent(locale);
-    System.out.println("trying  " + what.toString() + " into " + locale);
             }
         }
     }

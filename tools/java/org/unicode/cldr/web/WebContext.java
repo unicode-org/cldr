@@ -283,86 +283,48 @@ public class WebContext {
             } while(parents != null);
             docLocale = (String[])localesVector.toArray(docLocale);        
         
-            logger.info("NOT NOT NOT fetching locale: " + l.toString() + ", count: " + doc.length);
+           // logger.info("NOT NOT NOT fetching locale: " + l.toString() + ", count: " + doc.length);
         }
+    }
+
+    // convenience.	
+    public final Object getByLocale(String key, String aLocale) {
+        return session.getByLocale(key,aLocale);
+    }
+
+    public final void putByLocale(String key, String locale, Object value) {
+        session.putByLocale(key,locale,value);
     }
         
-// locale hash api
-    // get the hashtable of modified locales
-
-    Hashtable localeHash = null;
-    public final Hashtable getLocaleHash() {
-		return getLocaleHash(locale.toString());
-	}
-
-    public Hashtable getLocaleHash(String aLocale) {
-        if(session == null) {
-            throw new RuntimeException("Session is null in WebContext.getLocaleHash()!");
-        }
-        if(localeHash == null) {
-            synchronized(session) {
-                Hashtable localesHash = session.getLocales();
-                if(localesHash == null) {
-                    return null;
-                }
-                localeHash = (Hashtable)localesHash.get(aLocale);
-            }
-        }
-        return localeHash;
-    }
     
+    public final void removeByLocale(String key, String aLocale) {
+        session.removeByLocale(key,aLocale);
+    }
+    // ultra conveniences
+    public final void removeByLocale(String key) {
+        removeByLocale(key, locale.toString());
+    }
+    public final void putByLocale(String key, Object value) {
+        putByLocale(key, locale.toString(), value);
+    }
     public final Object getByLocale(String key) {
 		return getByLocale(key, locale.toString());
 	}
-	
-    public Object getByLocale(String key, String aLocale) {
-        Hashtable localeHash = getLocaleHash(aLocale);
-        if(localeHash != null) {
-            return localeHash.get(key);
-        }
-        return null;
-    }
-
-    public void putByLocale(String key, Object value) {
-        synchronized(session) {
-            Hashtable localeHash = getLocaleHash();
-            if(localeHash == null) {
-                localeHash = new Hashtable();
-                session.getLocales().put(locale,localeHash);
-            }
-            localeHash.put(key, value);
-        }
-    }
-    
-    public void removeByLocale(String key) {
-        synchronized(session) {
-            Hashtable localeHash = getLocaleHash();
-            if(localeHash != null) {
-                localeHash.remove(key);
-            }
-        }
-    }
     
 // DataPod functions
     private static final String DATA_POD = "DataPod_";
     DataPod getPod(String prefix) {
         synchronized(this) {
-//            logger.info("Get POD: " + prefix);
             DataPod pod = (DataPod)getByLocale(DATA_POD+prefix);
             if((pod != null) && (!pod.isValid(sm.lcr))) {
-//                logger.info("expired POD: " +  pod.toString());
                 pod = null;
                 println("<i>Note: some data has changed, reloading..</i><br/>");
             }
             if(pod == null) {
-//                logger.info("remaking POD: " + prefix);
                 pod = DataPod.make(this, locale.toString(), prefix, true);
-//                logger.info("registering POD: " +  pod.toString());
                 pod.register(sm.lcr);
-//                logger.info("putting POD: " +  pod.toString());
                 putByLocale(DATA_POD+prefix, pod);
             }
-//            logger.info("returning POD: " +  pod.toString());
             return pod;
         }
     }

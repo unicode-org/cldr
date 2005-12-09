@@ -224,7 +224,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
         }
     }
-    private ArrayList xpathList = null;
+    private List xpathList = null;
     private void processFile(String fileName){
         long start = System.currentTimeMillis();
         int lastIndex = fileName.lastIndexOf(File.separator, fileName.length()) + 1 /* add  1 to skip past the separator */;
@@ -518,7 +518,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             if(name.equals(LDMLConstants.SUPPLEMENTAL_DATA) ){
                 if(isNodeNotConvertible(node,xpath) && writeDraft==false){
                     printWarning(file,"The supplementalData.xml file is marked draft! Not producing ICU file. ");
-                    System.exit(-1);
+                    //System.exit(-1);
+                    return null;
                 }
                 node=node.getFirstChild();
                 continue;
@@ -843,7 +844,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 ldmlVersion = LDMLUtilities.getAttributeValue(ldml, LDMLConstants.VERSION);
                 if(LDMLUtilities.isLocaleDraft(ldml) && !isDraftStatusOverridable(locName) && writeDraft==false){
                     System.err.println("WARNING: The LDML file "+sourceDir+"/"+locName+".xml is marked draft! Not producing ICU file. ");
-                    System.exit(-1);
+                    //System.exit(-1);
+                    return null;
                 }
                 break;
             }

@@ -82,7 +82,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private String locName            = null;
     private Document supplementalDoc = null;
     private String supplementalFileName = null;
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     //TreeMap overrideMap = new TreeMap(); // list of locales to take regardless of draft status.  Written by writeDeprecated
 
@@ -963,12 +963,15 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     private ICUResourceWriter.Resource parseAliasResource(Node node, StringBuffer xpath){
 
+        int saveLength = xpath.length();
+        getXPath(node, xpath);
         try{
             if(node!=null && (!isNodeNotConvertible(node,xpath))){
                 ICUResourceWriter.ResourceAlias alias = new ICUResourceWriter.ResourceAlias();
                 String val = LDMLUtilities.convertXPath2ICU(node, null, xpath);
                 alias.val = val;
                 alias.name = node.getParentNode().getNodeName();
+                xpath.setLength(saveLength);
                 return alias;
             }
         }catch(TransformerException ex){
@@ -980,7 +983,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             ex.printStackTrace();
             System.exit(-1);
         }
-            // TODO update when XPATH is integrated into LDML
+        xpath.setLength(saveLength);
+        // TODO update when XPATH is integrated into LDML
         return null;
     }
 
@@ -2223,7 +2227,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
             getXPath(node, xpath);
             if(isNodeNotConvertible(node, xpath)){
-                
+               xpath.setLength(saveLength);
                continue;
             }
 

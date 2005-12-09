@@ -1,6 +1,7 @@
 package org.unicode.cldr.ant;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.Vector;
@@ -9,8 +10,17 @@ import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.XPathParts;
 
 /**
- * All tools thtat would like to make use of CLDR Build process 
- * throought the ant plugin should implement this interface.
+ * All tools that would like to make use of CLDR Build process 
+ * through the ant plugin should extend this class. For implementing
+ * the processArgs method basically move the implementation of main into
+ * this method and add code to deal with situation where localesMap field 
+ * is set (see LDML2ICUConverter).
+ * @see LDML2ICUConverter#processArgs(String[])
+ * The subclasses are also expected to invoke computeConvertibleXPaths method
+ * for all the xpaths in the file that they are currently processing and at 
+ * every leaf node should verify if an XPath is convertible or not. Please see
+ * @see LDML2ICUConverter#isNodeNotConvertible(Node, StringBuffer)
+ * 
  * @author ram
  *
  */
@@ -124,11 +134,11 @@ public abstract class CLDRConverterTool {
     /**
      * Computes the convertible xpaths by walking through the xpathList given and applying the rules
      * in children of <path> elements. 
-     * @param xpathList
-     * @param localeName
-     * @return the computed convertible xpaths
+     * @param xpathList A sorted list of all xpaths for the current run
+     * @param localeName The name of locale being processed
+     * @return an ArrayList of the computed convertible xpaths
      */
-    protected ArrayList computeConvertibleXPaths(ArrayList xpathList, String localeName){
+    protected List computeConvertibleXPaths(List xpathList, String localeName){
         /*
          * Assumptions:
          * 1. Vetted nodes do not have draft attribute

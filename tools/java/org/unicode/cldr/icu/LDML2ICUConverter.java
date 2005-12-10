@@ -21,7 +21,6 @@ import com.ibm.icu.util.ULocale;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.XPathTokenizer;
 import org.unicode.cldr.ant.CLDRConverterTool;
-import org.unicode.cldr.util.XPathParts;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NamedNodeMap;
@@ -82,7 +81,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private String locName            = null;
     private Document supplementalDoc = null;
     private String supplementalFileName = null;
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     //TreeMap overrideMap = new TreeMap(); // list of locales to take regardless of draft status.  Written by writeDeprecated
 
@@ -192,7 +191,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             supplementalDoc = createSupplementalDoc(supplementalFileName);           
         }
         if(writeSupplemental==true){
-
+            makeXPathList(supplementalDoc);
             // Create the Resource linked list which will hold the
             // data after parsing
             // The assumption here is that the top
@@ -224,7 +223,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
         }
     }
-    private List xpathList = null;
+    
+    private List xpathList = new ArrayList();
+    
     private void processFile(String fileName){
         long start = System.currentTimeMillis();
         int lastIndex = fileName.lastIndexOf(File.separator, fileName.length()) + 1 /* add  1 to skip past the separator */;
@@ -246,7 +247,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
          */
         boolean ignoreDraft = false;
         System.out.println("Processing: " + sourceDir+"/"+ fileName);
-        xpathList = new ArrayList();
         fullyResolvedDoc =  LDMLUtilities.getFullyResolvedLDML(sourceDir, fileName, false, false, false, ignoreDraft);
         locName = fileName;
         int index = locName.indexOf(".xml");
@@ -486,20 +486,19 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         deprecatedTerritories.put(  "YD" ,"");
         //TODO: "FX",  "RO",  "TP",  "ZR",   /* obsolete country codes */
     }
-    private static final String commentForCurrencyMeta ="// Currency metadata.  Unlike the \"Currencies\" element, this is"+
-                                                        "// NOT true locale data.  It exists only in root.  The two"+
-                                                        "// integers are the fraction digits for each currency, and the"+
-                                                        "// rounding increment.  The fraction digits must be an integer"+
-                                                        "// from 0..9.  If there is no rounding, the rounding increment is"+
-                                                        "// zero.  Otherwise the rounding increment is given in units of"+
-                                                        "// 10^(-fraction_digits).  The special tag \"DEFAULT\" gives the"+
-                                                        "// meta data for all currencies not otherwise listed."+
-                                                        "// Last update: Tue Apr  8 16:57:42 2003";
+    private static final String commentForCurrencyMeta ="Currency metadata.  Unlike the \"Currencies\" element, this is \n"+
+                                                        "NOT true locale data.  It exists only in root.  The two \n"+
+                                                        "integers are the fraction digits for each currency, and the \n"+
+                                                        "rounding increment.  The fraction digits must be an integer \n"+
+                                                        "from 0..9.  If there is no rounding, the rounding increment is \n"+
+                                                        "zero.  Otherwise the rounding increment is given in units of \n"+
+                                                        "10^(-fraction_digits).  The special tag \"DEFAULT\" gives the \n"+
+                                                        "meta data for all currencies not otherwise listed.";
 
 
-    private static final String commentForCurrencyMap = "// Map from ISO 3166 country codes to ISO 4217 currency codes"+
-                                                        "// NOTE: This is not true locale data; it exists only in ROOT"+
-                                                        "// Last update: Tue Apr  8 16:57:42 2003";
+    private static final String commentForCurrencyMap = "Map from ISO 3166 country codes to ISO 4217 currency codes \n"+
+                                                        "NOTE: This is not true locale data; it exists only in ROOT";
+    
     private ICUResourceWriter.Resource parseSupplemental(Node root, String file){
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.Resource current = null;
@@ -546,7 +545,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }else if(name.equals(LDMLConstants.GENERATION)){
                 //TODO:
             }else if(name.equals(LDMLConstants.TIMEZONE_DATA)){
-                //TODO:
+                res = parseTimeZoneData(node, xpath);
             }else if(name.equals(LDMLConstants.METADATA)){
                 //TODO:
             }else{
@@ -568,6 +567,150 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         return table;
     }
+    private ICUResourceWriter.Resource parseTimeZoneData(Node root, StringBuffer xpath){
+        ICUResourceWriter.Resource current = null;
+        ICUResourceWriter.Resource first = null;
+        int savedLength = xpath.length();
+        getXPath(root, xpath);
+        int oldLength = xpath.length();
+        
+        //if the whole node is marked draft then
+        //dont write anything
+        if(isNodeNotConvertible(root, xpath)){
+            xpath.setLength(savedLength);
+            return null;
+        }
+
+        for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
+            if(node.getNodeType()!=Node.ELEMENT_NODE){
+                continue;
+            }
+            String name = node.getNodeName();
+            ICUResourceWriter.Resource res = null;
+            
+            if(name.equals(LDMLConstants.ALIAS)){
+                res = parseAliasResource(node, xpath);
+                res.name = name;
+                return res;
+            }else if(name.equals(LDMLConstants.DEFAULT)){
+                ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                str.name = name;
+                str.val = LDMLUtilities.getAttributeValue(node,LDMLConstants.TYPE);
+                res = str;
+            }else if(name.equals(LDMLConstants.MAP_TIMEZONE)){
+                //TODO
+            }else if(name.equals(LDMLConstants.ZONE_FORMATTING)){
+                res = parseZoneFormatting(node, xpath);
+            }else{
+                System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
+                System.exit(-1);
+            }
+            if(res!=null){
+                if(current == null){
+                    first = res;
+                    current = findLast(res);
+                }else{
+                    current.next = res;
+                    current = findLast(res);
+                }
+                res = null;
+            }
+            xpath.delete(oldLength, xpath.length());
+        }
+        xpath.delete(savedLength, xpath.length());
+        if(first!=null){
+            return first;
+        }
+        return null;
+    }    
+    private ICUResourceWriter.Resource parseZoneFormatting(Node root, StringBuffer xpath){
+        ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
+        ICUResourceWriter.Resource current = null;
+
+        int savedLength = xpath.length();
+        getXPath(root, xpath);
+        int oldLength = xpath.length();
+        
+        //if the whole node is marked draft then
+        //dont write anything
+        if(isNodeNotConvertible(root, xpath)){
+            xpath.setLength(savedLength);
+            return null;
+        }
+
+        table.name = "zoneFormatting";
+        table.noSort = true;
+        for(Node node=root.getFirstChild(); node!=null; node=node.getNextSibling()){
+            if(node.getNodeType()!=Node.ELEMENT_NODE){
+                continue;
+            }
+            String name = node.getNodeName();
+            ICUResourceWriter.Resource res = null;
+            getXPath(node, xpath);
+            if(isNodeNotConvertible(node, xpath)){
+                xpath.setLength(oldLength);
+                continue;
+            }
+            
+            if(name.equals(LDMLConstants.ALIAS)){
+                res = parseAliasResource(node, xpath);
+                res.name = name;
+                return res;
+            }else if(name.equals(LDMLConstants.DEFAULT)){
+                ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                str.name = name;
+                str.val = LDMLUtilities.getAttributeValue(node,LDMLConstants.TYPE);
+                res = str;
+            }else if(name.equals(LDMLConstants.ZONE_ITEM)){
+
+                ICUResourceWriter.ResourceTable zi = new ICUResourceWriter.ResourceTable();
+                zi.name = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+                String territory = LDMLUtilities.getAttributeValue(node, LDMLConstants.TERRITORY);
+                ICUResourceWriter.ResourceString ter = new ICUResourceWriter.ResourceString();
+                ter.name =  LDMLConstants.TERRITORY;
+                ter.val = territory;
+                zi.first = ter;
+                String aliases = LDMLUtilities.getAttributeValue(node, LDMLConstants.ALIASES);
+                if(aliases!=null){
+                    String[] arr = aliases.split("\\s+");
+                    ICUResourceWriter.ResourceArray als = new ICUResourceWriter.ResourceArray();
+                    als.name = LDMLConstants.ALIASES;
+                    ICUResourceWriter.Resource cur=null;
+                    for(int i=0; i<arr.length; i++){
+                        ICUResourceWriter.ResourceString str = new ICUResourceWriter.ResourceString();
+                        str.val = arr[i];
+                        if(cur==null){
+                            als.first = cur = str;
+                        }else{
+                            cur.next = str;
+                            cur = cur.next;
+                        }
+                    }
+                    ter.next = als;
+                }
+                res = zi;
+            }else{
+                System.err.println("Encountered unknown <"+root.getNodeName()+"> subelement: "+name);
+                System.exit(-1);
+            }
+            if(res!=null){
+                if(current == null){
+                    table.first = res;
+                    current = findLast(res);
+                }else{
+                    current.next = res;
+                    current = findLast(res);
+                }
+                res = null;
+            }
+            xpath.delete(oldLength, xpath.length());
+        }
+        xpath.delete(savedLength, xpath.length());
+        if(table.first!=null){
+            return table;
+        }
+        return null;
+    }     
     private ICUResourceWriter.Resource parseCurrencyFraction(Node root, StringBuffer xpath){
         ICUResourceWriter.ResourceTable table = new ICUResourceWriter.ResourceTable();
         ICUResourceWriter.Resource current = null;
@@ -593,6 +736,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             ICUResourceWriter.Resource res = null;
             getXPath(node, xpath);
             if(isNodeNotConvertible(node, xpath)){
+                xpath.setLength(oldLength);
                 continue;
             }
             
@@ -688,7 +832,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         if(DEBUG){
             top = Integer.parseInt(int1.val);
             bottom = Integer.parseInt(int2.val);
-            long full = (((long)top) << 32 )+ bottom;
+            long bot =  0xffffffffL & bottom;
+            long full = ((long)(top) << 32 );
+            full+=(long)bot;
             if(full != millis){
                 System.out.println("Did not get the value back.");
             }
@@ -728,7 +874,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 str.val = LDMLUtilities.getAttributeValue(node,LDMLConstants.TYPE);
                 res = str;
             }else if(name.equals(LDMLConstants.CURRENCY)){
-                getXPath(node, xpath);
+                //getXPath(node, xpath);
                 if(isNodeNotConvertible(node, xpath)){
                     xpath.setLength(oldLength);
                     continue;
@@ -798,7 +944,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
             String name = node.getNodeName();
             ICUResourceWriter.Resource res = null;
-            getXPath(node, xpath);
+            //getXPath(node, xpath);
             if(name.equals(LDMLConstants.REGION)){
                 res = parseCurrencyRegion(node, xpath);
                if(res!=null){
@@ -1284,7 +1430,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
 
     private static final String ICU_SCRIPTS = "icu:scripts";
-    private static final String ICU_SCRIPT = "icu:script";
+    //private static final String ICU_SCRIPT = "icu:script";
     private ICUResourceWriter.Resource parseCharacters(Node root, StringBuffer xpath){
         ICUResourceWriter.Resource current = null, first=null;
 
@@ -1708,7 +1854,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 if(name.equals(LDMLConstants.SINGLE_COUNTRIES)){
                     values = LDMLUtilities.getAttributeValue(node, LDMLConstants.LIST).split(" ");
                 }else{
-                    values = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE).split(" ");
+                    values = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE).split("\\s+");
                 }
                 
                 for(int i=0; i<values.length;i++){

@@ -95,10 +95,20 @@ public class ICUResourceWriter {
                 
                 // print comment if any
                 if(comment!=null){
+                    int index = comment.indexOf('\n');
+                    if(index>-1){
+                        StringBuffer indent = new StringBuffer("\n");
+                        for(int i=0; i<numIndent; i++){
+                            indent.append(INDENT);
+                        }
+                        indent.append(COMMENTMIDDLE);
+                        comment = comment.replaceAll("\n", indent.toString());
+                    }
                     writeIndent(writer, numIndent);
                     write(writer, COMMENTMIDDLE);
                     write(writer, comment);
                     write(writer, LINESEP);
+                    
                 }
                   
                 // terminate the comment
@@ -369,7 +379,7 @@ public class ICUResourceWriter {
             if(annotation==null){
                 write(writer, name+OPENBRACE+LINESEP);
             }else{
-                write(writer, name+OPENPAREN+annotation+CLOSEPAREN+OPENBRACE+LINESEP);
+                write(writer, name+COLON+TABLE+OPENPAREN+annotation+CLOSEPAREN+OPENBRACE+LINESEP);
             }
             numIndent++;
             Resource current = first;

@@ -183,17 +183,22 @@ public class LDMLConstants {
     public static final String ISO_3166          = "iso3166";
     public static final String VALID_SUBLOCALE   = "validSubLocales";
     public static final String TERRITORY_CONTAINMENT = "territoryContainment";
-    public static final String LANGUAGE_DATA = "languageData";
-    public static final String TO = "to";
-    public static final String FROM = "from";
-    public static final String LOCALE = "locale";
-    public static final String META_DATA = "metaData";
-    public static final String LANGUAGE_ALIAS = "languageAlias";
-    public static final String TERRITORY_ALIAS = "territoryAlias";
-    public static final String REPLACEMENT = "replacement";
-    public static final String SEGMENTATIONS = "segmentations";
-    public static final String TIMEZONE_DATA = "timezoneData";
-    public static final String METADATA = "metadata";
+    public static final String LANGUAGE_DATA     = "languageData";
+    public static final String TO                = "to";
+    public static final String FROM              = "from";
+    public static final String LOCALE            = "locale";
+    public static final String META_DATA         = "metaData";
+    public static final String LANGUAGE_ALIAS    = "languageAlias";
+    public static final String TERRITORY_ALIAS   = "territoryAlias";
+    public static final String REPLACEMENT       = "replacement";
+    public static final String SEGMENTATIONS     = "segmentations";
+    public static final String TIMEZONE_DATA     = "timezoneData";
+    public static final String ZONE_ITEM         = "zoneItem";
+    public static final String ALIASES           = "aliases";
+    public static final String MAP_TIMEZONE      = "mapTimezones";
+    public static final String MAP_ZONE          = "mapZone";
+    public static final String ZONE_FORMATTING   = "zoneFormatting";
+    public static final String METADATA          = "metadata";
     
     //PN added
     public static final String MEDIUM          = "medium";
@@ -264,7 +269,7 @@ public class LDMLConstants {
 
     //quarters 
     public static final String QUARTERS         = "quarters";
-    public static final String QUARTER_CONTEXT = "quarterContext";
+    public static final String QUARTER_CONTEXT  = "quarterContext";
     public static final String QUARTER_WIDTH    = "quarterWidth";
     public static final String QUARTER          = "quarter";
     public static final String Q_1              = "1";
@@ -423,8 +428,8 @@ public class LDMLConstants {
     public static final String SPECIAL_O          =  "<" + SPECIAL + ">";
     public static final String SPECIAL_C          =  "</" + SPECIAL + ">";
 
-    public static final String LPC_O              =  "<" + LPC + ">";
-    public static final String LPC_C              =  "</" + LPC + ">";
+    public static final String LPC_O                  =  "<" + LPC + ">";
+    public static final String LPC_C                  =  "</" + LPC + ">";
 
     public static final String PERCENT_SIGN_O         =  "<" + PERCENT_SIGN + ">";
     public static final String PERCENT_SIGN_C         =  "</" + PERCENT_SIGN + ">";
@@ -465,8 +470,8 @@ public class LDMLConstants {
 
     public static final String QUARTERS_O             =  "<" + QUARTERS + ">";
     public static final String QUARTERS_C             =  "</" + QUARTERS + ">";
-    public static final String QUARTER_CONTEXT_O     =  "<" + QUARTER_CONTEXT + ">";
-    public static final String QUARTER_CONTEXT_C     =  "</" + QUARTER_CONTEXT + ">";
+    public static final String QUARTER_CONTEXT_O      =  "<" + QUARTER_CONTEXT + ">";
+    public static final String QUARTER_CONTEXT_C      =  "</" + QUARTER_CONTEXT + ">";
     public static final String QUARTER_WIDTH_O        =  "<" + QUARTER_WIDTH + ">";
     public static final String QUARTER_WIDTH_C        =  "</" + QUARTER_WIDTH + ">";
     public static final String QUARTER_O              =  "<" + QUARTER + ">";

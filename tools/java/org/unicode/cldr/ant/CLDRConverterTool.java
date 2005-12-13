@@ -148,10 +148,14 @@ public abstract class CLDRConverterTool {
          *
          *  
          */
-
+        
+        if(pathList==null){
+            // include everything!
+            return xpathList;
+        }
         XPathParts parts = new XPathParts(null, null);
         ArrayList myXPathList = new ArrayList(xpathList.size());
-        
+
         // iterator of xpaths of the current CLDR file being processed
         // this map only contains xpaths of the leaf nodes
         for(int i=0; i<xpathList.size();i++){
@@ -164,7 +168,7 @@ public abstract class CLDRConverterTool {
                 if(obj instanceof CLDRBuild.Exclude){
                     CLDRBuild.Exclude exc = (CLDRBuild.Exclude)obj;
                     //fast path if locale attribute is set
-                    if(exc.locale!=null && exc.locale.indexOf(localeName)<0){
+                    if(exc.locales!=null && CLDRBuild.matchesLocale(exc.locales, localeName)==false){
                         continue;
                     }
                     if(exc.xpath!=null && xpath.matches(exc.xpath)){
@@ -242,12 +246,15 @@ public abstract class CLDRConverterTool {
                             }else{
                                 include = true;
                             }
+                        }else{
+                            //draft attribute not specified so exclude by default
+                            include = false;
                         }
                     } 
                 }else if(obj  instanceof CLDRBuild.Include){
                     CLDRBuild.Include inc = (CLDRBuild.Include)obj;
                     //fast path if locale attribute is set
-                    if(inc.locale!=null && inc.locale.indexOf(localeName)<0){
+                    if(inc.locales!=null && CLDRBuild.matchesLocale(inc.locales, localeName)==false){
                         continue;
                     }
                     if(inc.xpath!=null && xpath.matches(inc.xpath)){

@@ -38,6 +38,19 @@ public class CLDRBuild extends Task{
             return false;
         }
     }
+    public static boolean matchesFileName(String locales, String fileName){
+        String locale = fileName.substring(0,fileName.indexOf(".xml"));
+        return matchesLocale(locales, locale);
+    }
+    public static boolean matchesLocale(String locales, String locale){
+        String[] arr = locales.split("\\s+");
+        for(int i=0; i<arr.length; i++){
+            if(locale.matches(arr[i]) || locale.equals(arr[i])){
+                return true;
+            }
+        }
+        return false;
+    }
     public TreeMap getLocalesList(Config config, String src, String dest){
         File srcdir = new File(src);
         File[] srcFiles = srcdir.listFiles(new Filter(srcFile));
@@ -54,8 +67,11 @@ public class CLDRBuild extends Task{
                 Object obj = locsList.get(i);
                 if(obj instanceof Exclude){
                     Exclude exc = (Exclude) obj;
+                    if(exc.locales == null){
+                        errln("locales attribute not set for exclude element!", true);
+                    }
                     // fast path for .*
-                    if(exc.locale.equals(ALL)){
+                    if(exc.locales.equals(ALL)){
                         for(int j=0; j<srcFiles.length;j++){
                             ret.remove(srcFiles[j].getName());
                         }
@@ -63,15 +79,18 @@ public class CLDRBuild extends Task{
                     }
                     for(int j=0; j<srcFiles.length; j++){
                         String fileName = srcFiles[j].getName(); 
-                        if(fileName.matches(exc.locale)|| (fileName.indexOf(exc.locale)==0)){
+                        if(matchesFileName(exc.locales, fileName)){
                             ret.remove(fileName);
                             break;
                         }
                     }
                 }else if(obj instanceof Include){
                     Include inc = (Include) obj;
+                    if(inc.locales == null){
+                        errln("locales attribute not set for include element!", true);
+                    }
                     //fast path for .*
-                    if(inc.locale.equals(ALL)){
+                    if(inc.locales.equals(ALL)){
                         for(int j=0; j<srcFiles.length;j++){
                             ret.put(srcFiles[j].getName(), inc.draft);
                         }
@@ -80,7 +99,7 @@ public class CLDRBuild extends Task{
                     
                     for(int j=0; j<srcFiles.length; j++){
                         String fileName = srcFiles[j].getName(); 
-                        if(fileName.matches(inc.locale)|| (fileName.indexOf(inc.locale)==0)){
+                        if(matchesFileName(inc.locales, fileName)){
                             ret.put(fileName, inc.draft);
                             break;
                         }
@@ -358,21 +377,21 @@ public class CLDRBuild extends Task{
     
     public static class Include extends Task{
         public String draft;
-        public String locale;
+        public String locales;
         public String xpath;
         public String preferAlt;
         public void setDraft(String ds){
             draft = ds;
         }
-        public void setLocale(String loc){
+        public void setLocales(String locs){
             if(xpath!=null){
-                errln("Both xpath and locale attributes cannot be set on the same element! xpath=\""+xpath+"\" locale=\""+loc+"\"", true);
+                errln("Both xpath and locale attributes cannot be set on the same element! xpath=\""+xpath+"\" locale=\""+locs+"\"", true);
             }
-            locale = loc;
+            locales = locs;
         }
         public void setXpath(String xp){
-            if(locale!=null){
-                errln("Both xpath and locale attributes cannot be set on the same element! xpath=\""+xp+"\" locale=\""+locale+"\"", true);
+            if(locales!=null){
+                errln("Both xpath and locale attributes cannot be set on the same element! xpath=\""+xp+"\" locale=\""+locales+"\"", true);
             }
             xpath = xp;
         }
@@ -387,7 +406,7 @@ public class CLDRBuild extends Task{
             if(o==this){
                 return true;
             }
-            if(locale.equals(other.locale)&&
+            if(locales.equals(other.locales)&&
                 (draft==other.draft || (draft!=null && other.draft!=null && draft.equals(other.draft))) &&
                 (xpath==other.xpath || (xpath!=null && other.xpath!=null && xpath.equals(other.xpath))) &&
                 (preferAlt==other.preferAlt || (preferAlt!=null && other.preferAlt!=null && preferAlt.equals(other.preferAlt)))
@@ -397,7 +416,7 @@ public class CLDRBuild extends Task{
             return false;
         }
         public int hashCode(){
-            return locale.hashCode() + 
+            return locales.hashCode() + 
                    draft!=null? draft.hashCode():0+
                    xpath!=null? xpath.hashCode():0+
                    preferAlt!=null? preferAlt.hashCode():0;

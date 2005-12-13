@@ -302,11 +302,15 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             if(child.getNodeType()!=Node.ELEMENT_NODE){
                 continue;
             }
+            String name = child.getNodeName();
             int savedLength=xpath.length();
             xpath.append("/");
-            xpath.append(child.getNodeName());
+            xpath.append(name);
             LDMLUtilities.appendXPathAttribute(child, xpath, false, false);
-            if(LDMLUtilities.areChildrenElementNodes(child)){
+            if(name.equals("collation")){
+                // special case for collation: draft attribute is set on the top level element
+                xpathList.add(xpath.toString());
+            }else if(LDMLUtilities.areChildrenElementNodes(child)){
                 makeXPathList(child, xpath);
             }else{
                 //reached leaf node add to list
@@ -1116,6 +1120,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         try{
             if(node!=null && (!isNodeNotConvertible(node,xpath))){
                 ICUResourceWriter.ResourceAlias alias = new ICUResourceWriter.ResourceAlias();
+                xpath.setLength(saveLength);
                 String val = LDMLUtilities.convertXPath2ICU(node, null, xpath);
                 alias.val = val;
                 alias.name = node.getParentNode().getNodeName();
@@ -2618,19 +2623,59 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return null;
 
     }
-
     private boolean isNodeNotConvertible(Node node, StringBuffer xpath){
+        return isNodeNotConvertible(node, xpath, false);
+    }
+    private boolean isNodeNotConvertible(Node node, StringBuffer xpath, boolean isCollation){
         // only deal with leaf nodes!
         // Here we assume that the CLDR files are normalized
         // and that the draft attributes are only on leaf nodes
-        if(LDMLUtilities.areChildrenElementNodes(node)){
+        if(LDMLUtilities.areChildrenElementNodes(node) && !isCollation){
             return false;
         }
         return !xpathList.contains(xpath.toString());
 
     }
     private Node getVettedNode(Node parent, String childName, StringBuffer xpath){
-        return LDMLUtilities.getVettedNode(fullyResolvedDoc, parent, childName, xpath, writeDraft);
+        return getVettedNode(fullyResolvedDoc, parent, childName, xpath, true);
+    }
+    public Node getVettedNode(Document fullyResolvedDoc, Node parent, String childName, StringBuffer xpath, boolean ignoreDraft){
+        //NodeList list = LDMLUtilities.getNodeList(parent, childName, fullyResolvedDoc, xpath.toString());
+        String ctx = "./"+ childName;
+        NodeList list = LDMLUtilities.getNodeList(parent, ctx);
+        
+        int oldLength=xpath.length();
+        xpath.append("/");
+        xpath.append(childName);
+        Node ret = null;
+        if((list == null || list.getLength()<0) ){
+            if(fullyResolvedDoc!=null){
+                // try from fully resolved
+                list = LDMLUtilities.getNodeList(fullyResolvedDoc, xpath.toString());
+                // we can't depend on isNodeNotConvertible to return the correct
+                // data since xpathList will not contain xpaths of nodes from
+                // parent so we just return the first one we encounter.
+                // This has a side effect of ignoring the config specifiation!
+                if(list!=null && list.getLength()>0 ){
+                    ret = list.item(0);
+                }
+            }
+        }else{
+            ret = getVettedNode(list, xpath, ignoreDraft);
+        }
+        xpath.setLength(oldLength);
+        return ret;
+    }
+    private Node getVettedNode(NodeList list, StringBuffer xpath, boolean ignoreDraft){
+        Node node =null;
+        for(int i =0; i<list.getLength(); i++){
+            node = list.item(i);
+            if(isNodeNotConvertible(node, xpath)){
+                continue;
+            }
+            return node;
+        }
+        return null;
     }
     private Node getNode(Node parent, String childName, StringBuffer xpath, boolean preferDraft, boolean preferAlt){
         NodeList list = LDMLUtilities.getNodeList(parent, childName, fullyResolvedDoc, xpath.toString());
@@ -2864,10 +2909,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         //TODO figure out what to do for alias, draft and alt elements
         Node parent = root.getParentNode();
         ArrayList list = new ArrayList();
-        list.add(getVettedNode(parent, "decimalFormats/decimalFormatLength/decimalFormat/pattern",  xpath));
-        list.add(getVettedNode(parent, "currencyFormats/currencyFormatLength/currencyFormat/pattern",  xpath));
-        list.add(getVettedNode(parent, "percentFormats/percentFormatLength/percentFormat/pattern",  xpath));
-        list.add(getVettedNode(parent, "scientificFormats/scientificFormatLength/scientificFormat/pattern",  xpath));
+        list.add(getVettedNode(parent, "decimalFormats/decimalFormatLength/decimalFormat[@type='standard']/pattern",  xpath));
+        list.add(getVettedNode(parent, "currencyFormats/currencyFormatLength/currencyFormat[@type='standard']/pattern",  xpath));
+        list.add(getVettedNode(parent, "percentFormats/percentFormatLength/percentFormat[@type='standard']/pattern",  xpath));
+        list.add(getVettedNode(parent, "scientificFormats/scientificFormatLength/scientificFormat[@type='standard']/pattern",  xpath));
 
         ICUResourceWriter.ResourceArray arr = new ICUResourceWriter.ResourceArray();
         arr.name = NUMBER_PATTERNS;
@@ -3150,7 +3195,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             xpath.delete(oldLength, xpath.length());
         }
         xpath.delete(savedLength, xpath.length());
-        return table;
+        if(table.first!=null){
+            return table;
+        }
+        return null;
     }
 
     public ICUResourceWriter.Resource parseCollations(Node root, StringBuffer xpath){
@@ -3164,7 +3212,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         
         //if the whole collatoin node is marked draft then
         //dont write anything
-        if((isNodeNotConvertible(root, xpath)) ){
+        if(isNodeNotConvertible(root, xpath)){
             xpath.setLength(savedLength);
             return null;
         }
@@ -3246,7 +3294,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         
         //if the whole collatoin node is marked draft then
         //dont write anything
-        if((isNodeNotConvertible(root, xpath))){
+        if(isNodeNotConvertible(root, xpath, true)){
             xpath.setLength(savedLength);
             return null;
         }

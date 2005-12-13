@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.XPathParts;
+import org.w3c.dom.Node;
 
 /**
  * All tools that would like to make use of CLDR Build process 
@@ -53,6 +54,11 @@ public abstract class CLDRConverterTool {
      * 
      */     
     protected Vector pathList = null;
+    
+    /**
+     * Override fallbacks list
+     */
+    protected List ofbList = null;
     
     /**
      * Object that holds information about aliases on the
@@ -130,6 +136,27 @@ public abstract class CLDRConverterTool {
      */
     public void setPathList(Vector list){
         pathList = list;
+    }
+    /**
+     * Set the fallback override list
+     */
+    public void setOverrideFallbackList(List list){
+        ofbList = list;
+    }
+    /**
+     * 
+     * @param main
+     * @param locale
+     * @return
+     */
+    protected Node mergeOverrideFallbackNodes(Node main, String locale){
+        for(int i=0; i<ofbList.size();i++){
+            CLDRBuild.Paths path = (CLDRBuild.Paths) ofbList.get(i);
+            if(CLDRBuild.matchesLocale(path.locales, locale)){
+                //TODO write the merging algorithm
+            }
+        }
+        return main;
     }
     /**
      * Computes the convertible xpaths by walking through the xpathList given and applying the rules

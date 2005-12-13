@@ -226,9 +226,15 @@ public class CLDRBuild extends Task{
                     tool.setAliasMap(run.deprecates.aliasMap);
                     tool.setEmptyLocaleList(run.deprecates.emptyLocaleList);
                 }
-                if(run.config!=null && run.config.paths!=null){
-                    tool.setPathList(run.config.paths.pathList);
+                if(run.config!=null){
+                    if(run.config.paths!=null){
+                        tool.setPathList(run.config.paths.pathList);
+                    }
+                    if(run.config.ofb!=null){
+                        tool.setOverrideFallbackList(run.config.ofb.list);
+                    }
                 }
+                
                 tool.processArgs(args);
             }else{
                 errln(toolName+" not a subclass of CLDRConverterTool! Cannot execute. Exiting", true);
@@ -335,7 +341,7 @@ public class CLDRBuild extends Task{
     public static class Config extends Task{
         protected Locales locales;
         protected Paths paths;
-        private Vector ofbs = new Vector();
+        private OverrideFallback ofb =null;
         private String type;
         public void addConfiguredLocales(Locales loc){
             if(locales!=null){
@@ -350,7 +356,10 @@ public class CLDRBuild extends Task{
             paths = ps;
         }
         public void addConfiguredOverrideFallback(OverrideFallback ofb){
-            ofbs.add(ofb);
+            if(this.ofb!=null){
+                errln("Multiple <overrideFallback> elements not allowed!", true);
+            }
+            this.ofb = ofb;
         }
         public void setType(String type){
             this.type = type;
@@ -380,19 +389,14 @@ public class CLDRBuild extends Task{
         public String locales;
         public String xpath;
         public String preferAlt;
+        
         public void setDraft(String ds){
             draft = ds;
         }
         public void setLocales(String locs){
-            if(xpath!=null){
-                errln("Both xpath and locale attributes cannot be set on the same element! xpath=\""+xpath+"\" locale=\""+locs+"\"", true);
-            }
             locales = locs;
         }
         public void setXpath(String xp){
-            if(locales!=null){
-                errln("Both xpath and locale attributes cannot be set on the same element! xpath=\""+xp+"\" locale=\""+locales+"\"", true);
-            }
             xpath = xp;
         }
         public void setPreferAlt(String pa){
@@ -476,22 +480,33 @@ public class CLDRBuild extends Task{
     }
     
     public static class Paths extends Task{
+        public String fallback;
+        public String locales;
+        public String draft;
+        
         private Vector pathList = new Vector();
+        
         public void addConfiguredInclude(Include inc){
             pathList.add(inc);
         }
         public void addConfiguredExclude(Exclude ex){
             pathList.add(ex);
         }
+        public void setFallback(String fb){
+            fallback = fb;
+        }
+        public void setLocales(String locs){
+            locales = locs;
+        }
+        public void setDraft(String dft){
+            draft =dft;
+        }   
     }
     
-    public static class OverrideFallback extends Config{
-        private String fallbacks;
-        public void setFallback(String fb){
-            fallbacks = fb;
-        }
-        public String getFallbacks(){
-            return fallbacks;
+    public static class OverrideFallback extends Task{
+        private ArrayList list = new ArrayList();
+        public void addConfiguredPaths(Paths paths){
+            list.add(paths);
         }
     }
 }

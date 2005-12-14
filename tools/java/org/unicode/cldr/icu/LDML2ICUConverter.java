@@ -2332,7 +2332,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         if((resName.equals(LDMLConstants.DAY) && map.size()<7) ||
             (resName.equals(LDMLConstants.MONTH)&& map.size()<12)){
             root = LDMLUtilities.getNode(fullyResolvedDoc,xpath.toString() );
-            map = getElementsMap(root, xpath);
+            map = getElementsMap(root, xpath, true);
+            if((resName.equals(LDMLConstants.DAY) && map.size()<7) ||
+            (resName.equals(LDMLConstants.MONTH)&& map.size()<12)){
+                printError("", "Could not get full month names or day names array. Fatal error exiting");
+            }
         }
         if(map.size()>0){
             for(int i=0; i<map.size(); i++){
@@ -2371,6 +2375,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return null;
     }
     private TreeMap getElementsMap(Node root, StringBuffer xpath){
+        return getElementsMap(root, xpath, false);
+    }
+    private TreeMap getElementsMap(Node root, StringBuffer xpath, boolean isNodeFromRoot){
         TreeMap map = new TreeMap();
         int saveLength = xpath.length();
         
@@ -2379,7 +2386,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 continue;
             }
             getXPath(node, xpath);
-            if(isNodeNotConvertible(node, xpath)){
+            if(isNodeFromRoot==false && isNodeNotConvertible(node, xpath)){
                xpath.setLength(saveLength);
                continue;
             }
@@ -2624,13 +2631,16 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     }
     private boolean isNodeNotConvertible(Node node, StringBuffer xpath){
-        return isNodeNotConvertible(node, xpath, false);
+        return isNodeNotConvertible(node, xpath, false, false);
     }
-    private boolean isNodeNotConvertible(Node node, StringBuffer xpath, boolean isCollation){
+    private boolean isNodeNotConvertible(Node node, StringBuffer xpath, boolean isCollation, boolean isNodeFromParent){
         // only deal with leaf nodes!
         // Here we assume that the CLDR files are normalized
         // and that the draft attributes are only on leaf nodes
         if(LDMLUtilities.areChildrenElementNodes(node) && !isCollation){
+            return false;
+        }
+        if(isNodeFromParent){
             return false;
         }
         return !xpathList.contains(xpath.toString());
@@ -3294,7 +3304,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         
         //if the whole collatoin node is marked draft then
         //dont write anything
-        if(isNodeNotConvertible(root, xpath, true)){
+        if(isNodeNotConvertible(root, xpath, true, false)){
             xpath.setLength(savedLength);
             return null;
         }

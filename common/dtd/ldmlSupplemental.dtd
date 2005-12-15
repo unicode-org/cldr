@@ -7,8 +7,8 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.19 $
-    $Date: 2005-10-03 23:50:39 $
+    $Revision: 1.20 $
+    $Date: 2005-12-15 22:17:46 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, timezoneData, characters?, metadata? ) >
@@ -61,6 +61,13 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST language draft ( true | false ) #IMPLIED >
 <!ATTLIST language alt NMTOKENS #IMPLIED >
 
+<!ELEMENT calendarData ( calendar* ) >
+<!ELEMENT calendar EMPTY >
+<!ATTLIST calendar type NMTOKENS #REQUIRED >
+<!ATTLIST calendar territories NMTOKENS #IMPLIED >
+<!ATTLIST calendar draft ( true | false ) #IMPLIED >
+<!ATTLIST calendar alt NMTOKENS #IMPLIED >
+
 <!ELEMENT timezoneData ( mapTimezones*, zoneFormatting* ) >
 <!ELEMENT mapTimezones ( mapZone* ) >
 <!ATTLIST mapTimezones type NMTOKEN #REQUIRED >
@@ -91,8 +98,40 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST substitute references CDATA #IMPLIED >
 <!ATTLIST substitute alt CDATA #IMPLIED >
 
-<!ELEMENT metadata (  alias?, deprecated? ) >
+<!ELEMENT metadata (  attributeOrder?, elementOrder?, serialElements?, suppress?, validity?, alias?, deprecated?, coverageAdditions?, ) >
 <!ATTLIST metadata draft ( true | false ) #IMPLIED >
+
+<!ELEMENT attributeOrder ( CDATA ) >
+<!ATTLIST attributeOrder draft ( true | false ) #IMPLIED >
+
+<!ELEMENT elementOrder ( CDATA ) >
+<!ATTLIST elementOrder draft ( true | false ) #IMPLIED >
+
+<!ELEMENT serialElements ( CDATA ) >
+<!ATTLIST serialElements draft ( true | false ) #IMPLIED >
+
+<!ELEMENT suppress (  attributes  ) >
+<!ATTLIST suppress draft ( true | false ) #IMPLIED >
+
+<!ELEMENT attributes (  EMPTY ) >
+<!ATTLIST attributes draft ( true | false ) #IMPLIED >
+<!ATTLIST attributes element NMTOKENS #IMPLIED >
+<!ATTLIST attributes attribute NMTOKENS #IMPLIED >
+<!ATTLIST attributes attributeValue CDATA #IMPLIED >
+
+<!ELEMENT validity (  variable*,  attributeValues* ) >
+<!ATTLIST validity draft ( true | false ) #IMPLIED >
+
+<!ELEMENT variable ( CDATA ) >
+<!ATTLIST variable draft ( true | false ) #IMPLIED >
+<!ATTLIST variable id CDATA #IMPLIED >
+<!ATTLIST variable type NMTOKEN #IMPLIED >
+
+<!ELEMENT attributeValues (  EMPTY ) >
+<!ATTLIST attributeValues draft ( true | false ) #IMPLIED >
+<!ATTLIST attributeValues elements NMTOKENS #IMPLIED >
+<!ATTLIST attributeValues attributes NMTOKENS #IMPLIED >
+<!ATTLIST attributeValues type NMTOKEN #IMPLIED >
 
 <!ELEMENT alias ( languageAlias*,  scriptAlias*, territoryAlias*, variantAlias* ) >
 <!ATTLIST alias draft ( true | false ) #IMPLIED >
@@ -123,3 +162,25 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST deprecatedItems attributes NMTOKENS #IMPLIED >
 <!ATTLIST deprecatedItems values CDATA #IMPLIED >
 
+<!ELEMENT coverageAdditions (  languageCoverage*,  scriptCoverage*, territoryCoverage*, timezoneCoverage* ) >
+<!ATTLIST coverageAdditions draft ( true | false ) #IMPLIED >
+
+<!ELEMENT languageCoverage ( CDATA ) >
+<!ATTLIST languageCoverage draft ( true | false ) #IMPLIED >
+<!ATTLIST languageCoverage type NMTOKEN #IMPLIED >
+<!ATTLIST languageCoverage values NMTOKENS #IMPLIED >
+
+<!ELEMENT scriptCoverage ( CDATA ) >
+<!ATTLIST scriptCoverage draft ( true | false ) #IMPLIED >
+<!ATTLIST scriptCoverage type NMTOKEN #IMPLIED >
+<!ATTLIST scriptCoverage values NMTOKENS #IMPLIED >
+
+<!ELEMENT territoryCoverage ( CDATA ) >
+<!ATTLIST territoryCoverage draft ( true | false ) #IMPLIED >
+<!ATTLIST territoryCoverage type NMTOKEN #IMPLIED >
+<!ATTLIST territoryCoverage values NMTOKENS #IMPLIED >
+
+<!ELEMENT timezoneCoverage ( CDATA ) >
+<!ATTLIST timezoneCoverage draft ( true | false ) #IMPLIED >
+<!ATTLIST timezoneCoverage type NMTOKEN #IMPLIED >
+<!ATTLIST timezoneCoverage values CDATA #IMPLIED > <!-- would be NMTOKENS, but needs to allow / -->

@@ -181,5 +181,21 @@
 			<deprecatedItems elements="variant" attributes="type" values="BOKMAL NYNORSK AALAND"/>
 			<deprecatedItems type="supplemental" elements="alternate"/>
 	    </deprecated>
+		<coverageAdditions>
+			<languageCoverage type="basic" values="de en es fr it ja pt ru zh"/>
+			<languageCoverage type="moderate" values="ar hi ko in nl bn tr th pl"/>
+			<!-- <languageCoverage type="moderate" subtype="EU" values="da el fi sv cs et lv lt hu mt sk sl"/> -->
+			<!-- <languageCoverage type="modern" values="sr"/> from languageInfo -->
+			<scriptCoverage type="basic" values="Latn Hans Hant Cyrl Arab"/>
+			<territoryCoverage type="basic" values="BR CN DE GB FR IN IT JP RU US"/>
+			<territoryCoverage type="moderate" values="ES BE SE TR AT ID SA NO DK PL ZA GR FI IE PT TH HK TW"/>		
+			<timezoneCoverage type="moderate" values="America/Buenos_Aires America/Rio_Branco America/Campo_Grande America/Sao_Paulo
+				Australia/Perth Australia/Darwin Australia/Brisbane Australia/Adelaide Australia/Sydney Australia/Hobart
+				America/Vancouver America/Edmonton America/Regina America/Winnipeg America/Toronto America/Halifax America/St_Johns
+				America/Tijuana America/Hermosillo America/Chihuahua America/Mexico_City
+				Pacific/Honolulu America/Anchorage America/Los_Angeles America/Phoenix America/Denver America/Chicago America/Indianapolis America/New_York"	/>	
+
+
+		</coverageAdditions>
 	</metaData>
 </supplementalData>

@@ -110,23 +110,42 @@ public class DataPod {
                         public int compare(Object o1, Object o2){
                             Pea p1 = (Pea) o1;
                             Pea p2 = (Pea) o2;
+                            
+                            if(p1==p2) {
+                                return 0;
+                            }
+                            
+                            int rv = 0; // neg:  a < b.  pos: a> b
+                            if(p1.hasTests) {
+                                rv -= 1000;
+                            }
+                            if(p2.hasTests) {
+                                rv += 1000;
+                            }
+                            if(p1.items.size() != 0) {
+                                rv -= 100; // 0 items last
+                            }
+                            if(p2.items.size() != 0) {
+                                rv += 100; // 0 items last
+                            }
+                            
+                            if(rv != 0) {
+                                return rv;
+                            } else {                            
+                                return myCollator.compare(p1.type, p2.type);
+                            }
+                        }
+                    });
+                } else if(sortMode.equals(SurveyMain.PREF_SORTMODE_NAME)) {
+                    newSet = new TreeSet(new Comparator() {
+                        com.ibm.icu.text.Collator myCollator = com.ibm.icu.text.Collator.getInstance();
+                        public int compare(Object o1, Object o2){
+                            Pea p1 = (Pea) o1;
+                            Pea p2 = (Pea) o2;
                             if(p1==p2) { 
                                 return 0;
                             }
-                            if(!(p1.hasTests&&p2.hasTests)) {
-                                if(p1.hasTests) {
-                                    return -1;
-                                }
-                                if(p2.hasTests) {
-                                    return 1;
-                                }
-                            }
-                            if(p1.items.size() > p2.items.size()) {
-                                return -1;
-                            } else if(p1.items.size() < p2.items.size()) {
-                                return 1;
-                            }
-                            return myCollator.compare(p1.type, p2.type);
+                            return myCollator.compare(p1.displayName, p2.displayName);
                         }
                     });
                 } else {
@@ -162,6 +181,7 @@ public class DataPod {
 	public static DataPod make(WebContext ctx, String locale,String prefix, boolean simple) {
 		DataPod pod = new DataPod(locale, prefix);
 		if(simple==true) {
+            pod.loadStandard(ctx.sm.getEnglishFile()); //load standardcodes + english        
             CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CLDRDBSRC, locale);
             CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CHECKCLDR);
             if(checkCldr == null) {
@@ -173,6 +193,29 @@ public class DataPod {
 		}
 		return pod;
 	}
+    
+    private void loadStandard(CLDRFile engf)
+    {
+        XPathParts xpp = new XPathParts(null,null);
+        xpp.initialize(xpathPrefix);
+        String subtype = xpp.getElement(-1);
+        StandardCodes standardCodes = StandardCodes.make();
+        Set defaultSet = standardCodes.getAvailableCodes(subtype);
+        if(defaultSet != null) {
+            for(Iterator i = defaultSet.iterator();i.hasNext();)
+            {
+                String code = (String)i.next();
+                Pea p = getPea(code);
+                if(p == null) {
+                    p = new Pea();
+                    p.type = code;
+                    // p.altType, etc..
+                    addPea(p);
+                }
+                p.displayName = standardCodes.getData(subtype, code); /* Hack - should use English. */
+            }
+        }
+    }
     
     private void populateFrom(CLDRDBSource src, CheckCLDR checkCldr) {
         XPathParts xpp = new XPathParts(null,null);

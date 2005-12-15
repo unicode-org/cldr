@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
@@ -36,16 +37,16 @@ public class CheckDates extends CheckCLDR {
 		"AD 2100-07-11T10:15:16Z",}; // keep aligned with following
 	static String SampleList = "Samples:\r\n\t{0}\r\n\t{1}\r\n\t{2}\r\n\t{3}"; // keep aligned with previous
 	
-	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
 		if (cldrFileToCheck == null) return this;
-		super.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
+		super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 		icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());
 		bi = BreakIterator.getCharacterInstance(new ULocale(cldrFileToCheck.getLocaleID()));
 		return this;
 	}
 	BreakIterator bi;
 
-	public CheckCLDR handleCheck(String path, String fullPath, String value, List result) {
+	public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
 		if (path.indexOf("/dates") < 0 || path.indexOf("gregorian") < 0) return this;
 		try {
 			if (path.indexOf("[@type=\"narrow\"]") >= 0) {

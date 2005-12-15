@@ -26,15 +26,15 @@ public class CheckNumbers extends CheckCLDR {
 	static String SampleList = "{0} => {1} => {2}";
 	
 	boolean isPOSIX;
-	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
 		if (cldrFileToCheck == null) return this;
-		super.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
+		super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 		icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());
 		isPOSIX = cldrFileToCheck.getLocaleID().indexOf("POSIX") >= 0;
 		return this;
 	}
 
-	public CheckCLDR handleCheck(String path, String fullPath, String value, List result) {
+	public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
 		if (path.indexOf("/numbers") < 0) return this;
 		try {
 			if (path.indexOf("/pattern") >= 0 && path.indexOf("/patternDigit") < 0) {

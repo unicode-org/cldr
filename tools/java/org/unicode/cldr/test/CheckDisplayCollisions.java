@@ -33,7 +33,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
 		clear();
 	}
 	
-	public CheckCLDR handleCheck(String path, String fullPath, String value, List result) {
+	public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
 		for (int i = 0; i < typesICareAbout.length; ++i) {
 			if (path.startsWith(typesICareAbout[i])) {
 				if (!builtCollisions[i]) buildCollisions(i);
@@ -52,10 +52,10 @@ public class CheckDisplayCollisions extends CheckCLDR {
 		return this;
 	}
 
-	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
 		if (cldrFileToCheck == null) return this;
 		cldrFileToCheck = cldrFileToCheck.getResolved(); // check resolved cases
-		super.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
+		super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 		
 		// clear old status
 		clear();

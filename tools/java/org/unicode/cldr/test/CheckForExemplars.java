@@ -7,6 +7,7 @@
 package org.unicode.cldr.test;
 
 import java.util.List;
+import java.util.Map;
 
 import org.unicode.cldr.util.CLDRFile;
 
@@ -25,10 +26,10 @@ public class CheckForExemplars extends CheckCLDR {
 	Collator col;
 	Collator spaceCol;
 	
-	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, List possibleErrors) {
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map options, List possibleErrors) {
 		if (cldrFile == null) return this;
 		skip = true;
-		super.setCldrFileToCheck(cldrFile, possibleErrors);
+		super.setCldrFileToCheck(cldrFile, options, possibleErrors);
 		if (cldrFile.getLocaleID().equals("root")) {
 			return this;
 		}
@@ -54,7 +55,7 @@ public class CheckForExemplars extends CheckCLDR {
 		return this;
 	}
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
-			List result) {
+			Map options, List result) {
 		if (skip) return this;
 		for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
 			if (path.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) return this; // skip some items.

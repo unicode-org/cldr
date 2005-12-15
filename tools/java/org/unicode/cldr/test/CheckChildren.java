@@ -18,7 +18,7 @@ public class CheckChildren extends CheckCLDR {
 	Map tempSet = new HashMap();
 	
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
-			List result) {
+			Map options, List result) {
 		if (immediateChildren == null) return this; // skip
 		String current = getResolvedCldrFileToCheck().getStringValue(path);
 		tempSet.clear();
@@ -39,9 +39,9 @@ public class CheckChildren extends CheckCLDR {
 		return this;
 	}
 
-	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
 		if (cldrFileToCheck == null) return this;
-		super.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
+		super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 		Matcher myLocalePlus = Pattern.compile(cldrFileToCheck.getLocaleID() + "_[^_]*").matcher("");
 		Set children = cldrFileToCheck.getAvailableLocales();
 		List iChildren = new ArrayList();

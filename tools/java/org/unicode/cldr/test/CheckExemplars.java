@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 import org.unicode.cldr.util.CLDRFile;
 
@@ -22,9 +23,9 @@ public class CheckExemplars extends CheckCLDR {
 		.addAll(new UnicodeSet("[[:Mn:][:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:]]"));
 	//Allowed[:script=common:][:script=inherited:][:alphabetic=false:]
 	
-	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
 		if (cldrFileToCheck == null) return this;
-		super.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
+		super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 		String locale = cldrFileToCheck.getLocaleID();
         col = Collator.getInstance(new ULocale(locale));
         spaceCol = Collator.getInstance(new ULocale(locale));
@@ -33,7 +34,7 @@ public class CheckExemplars extends CheckCLDR {
 		return this;
 	}
 
-	public CheckCLDR handleCheck(String path, String fullPath, String value, List result) {
+	public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
 		if (path.indexOf("/exemplarCharacters") < 0) return this;
         checkExemplar(value, result);
         // check relation to auxiliary set

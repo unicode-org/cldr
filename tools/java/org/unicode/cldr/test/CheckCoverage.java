@@ -28,7 +28,7 @@ public class CheckCoverage extends CheckCLDR {
     private CLDRFile resolved;
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
-            List result) {
+            Map options, List result) {
         // for now, skip all but localeDisplayNames
         if (resolved == null) return this;
         if (path.indexOf("localeDisplayNames") < 0 && path.indexOf("currencies") < 0) return this;
@@ -50,13 +50,13 @@ public class CheckCoverage extends CheckCLDR {
     }
 
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck,
-            List possibleErrors) {
+            Map options, List possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        super.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
+        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         resolved = null;
         if (cldrFileToCheck.getLocaleID().equals("root")) return this;
         resolved = getResolvedCldrFileToCheck();
-        coverageLevel.setFile(cldrFileToCheck);
+        coverageLevel.setFile(cldrFileToCheck, options);
         return this;
     }
 
@@ -179,7 +179,7 @@ public class CheckCoverage extends CheckCLDR {
         static Map locale_requiredLevel = new TreeMap();
         boolean latinScript = false;
 
-        public void setFile(CLDRFile file) {
+        public void setFile(CLDRFile file, Map options) {
             init();
             UnicodeSet exemplars = file.getExemplarSet("");
             UnicodeSet auxexemplars = file.getExemplarSet("auxiliary");

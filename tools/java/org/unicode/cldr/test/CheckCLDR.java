@@ -111,7 +111,7 @@ abstract public class CheckCLDR {
 			String localeID = (String) it.next();
 			if (SHOW_LOCALE) System.out.println("Locale:\t" + getLocaleAndName(localeID) + "\t");
 			CLDRFile file = cldrFactory.make(localeID, true);
-			checkCldr.setCldrFileToCheck(file, result);
+			checkCldr.setCldrFileToCheck(file, null, result);
 			for (Iterator it3 = result.iterator(); it3.hasNext();) {
 				System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 				System.out.println(it3.next().toString());
@@ -186,9 +186,10 @@ abstract public class CheckCLDR {
 	 * 		super.setCldrFileToCheck(cldrFileToCheck);
 	 * 		do stuff
 	 * @param cldrFileToCheck
+	 * @param options TODO
 	 * @param possibleErrors TODO
 	 */
-	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
 		this.cldrFileToCheck = cldrFileToCheck;
 		resolvedCldrFileToCheck = null;
 		return this;
@@ -288,7 +289,7 @@ abstract public class CheckCLDR {
 		pathParts.clear();
 		fullPathParts.clear();
 		result.clear();
-		return handleCheck(path, fullPath, value, result);
+		return handleCheck(path, fullPath, value, null, result);
 	}
 
 	/**
@@ -303,9 +304,10 @@ abstract public class CheckCLDR {
 	 * 		.setType(CheckStatus.errorType)
 	 *		.setMessage("Value should be {0}", new Object[]{pattern}));				
 	 * </pre>
+	 * @param options TODO
 	 */
 	abstract public CheckCLDR handleCheck(String path, String fullPath, String value,
-			List result);
+			Map options, List result);
 	
 	/**
 	 * Internal class used to bundle up a number of Checks.
@@ -322,17 +324,17 @@ abstract public class CheckCLDR {
 			checkList.add(item);
 			if (filter == null || filter.reset(item.getClass().getName()).matches()) {
 				filteredCheckList.add(item);
-				item.setCldrFileToCheck(cldrFileToCheck, null);
+				item.setCldrFileToCheck(cldrFileToCheck, null, null);
 			}
 			return this;
 		}
 		public CheckCLDR handleCheck(String path, String fullPath, String value,
-				List result) {
+				Map options, List result) {
 			result.clear();
 			for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
 				CheckCLDR item = (CheckCLDR) it.next();
 				try {
-					item.handleCheck(path, fullPath, value, result);
+					item.handleCheck(path, fullPath, value, null, result);
 				} catch (Exception e) {
 					e.printStackTrace();
 			    	CheckStatus status = new CheckStatus().setType(CheckStatus.errorType)
@@ -344,12 +346,12 @@ abstract public class CheckCLDR {
 			}
 			return this;
 		}
-		public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
+		public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
 			possibleErrors.clear();
 			for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
 				CheckCLDR item = (CheckCLDR) it.next();
 				try {
-					item.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
+					item.setCldrFileToCheck(cldrFileToCheck, null, possibleErrors);
 				} catch (RuntimeException e) {
 			    	CheckStatus status = new CheckStatus().setType(CheckStatus.warningType)
 			    	.setMessage("Internal error in {0}. Exception: {1}, Message: {2}", 
@@ -371,7 +373,7 @@ abstract public class CheckCLDR {
 				CheckCLDR item = (CheckCLDR) it.next();
 				if (filter == null || filter.reset(item.getClass().getName()).matches()) {
 					filteredCheckList.add(item);
-					item.setCldrFileToCheck(cldrFileToCheck, null);
+					item.setCldrFileToCheck(cldrFileToCheck, null, null);
 				}
 			}
 			return this;

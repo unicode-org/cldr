@@ -1605,7 +1605,7 @@ subtype = subtype.substring(0,subtype.length()-1);
                 }
                 
                 checkCldr.setDisplayInformation(getEnglishFile());
-                checkCldr.setCldrFileToCheck(cf, checkCldrResult); // TODO: when does this get updated?
+                checkCldr.setCldrFileToCheck(cf, null, checkCldrResult); // TODO: when does this get updated?
                 if(!checkCldrResult.isEmpty()) {
                     ctx.putByLocale(USER_FILE + CHECKCLDR_RES, checkCldrResult); // don't bother if empty . . .
                 }
@@ -3154,7 +3154,7 @@ public static final String unchainSqlException(SQLException e) {
                 CheckCLDR check = CheckCLDR.getCheckAll("(?!.*Collision.*).*");
                 System.out.println("check created");
                 List result = new ArrayList();
-                check.setCldrFileToCheck(my, result); // TODO: when does this get updated?
+                check.setCldrFileToCheck(my, null, result); // TODO: when does this get updated?
                 System.out.println("file set");
             }
             

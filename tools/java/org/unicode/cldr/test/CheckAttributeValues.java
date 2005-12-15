@@ -38,7 +38,7 @@ public class CheckAttributeValues extends CheckCLDR {
 	static LocaleMatcher localeMatcher;
 
 	XPathParts parts = new XPathParts(null, null);
-	public CheckCLDR handleCheck(String path, String fullPath, String value, List result) {
+	public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
 		parts.set(fullPath);
 		for (int i = 0; i < parts.size(); ++i) {
 			Map attributes = parts.getAttributes(i);
@@ -68,9 +68,9 @@ public class CheckAttributeValues extends CheckCLDR {
 						 new Object[]{attribute, attributeValue, matcherPattern.matcher.getClass().getName(), matcherPattern.pattern}));
 	}
 	
-	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, List possibleErrors) {
+	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
 		if (cldrFileToCheck == null) return this;
-		super.setCldrFileToCheck(cldrFileToCheck, possibleErrors);
+		super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 		synchronized (elementOrder) {
 			if (!initialized) {
 				XMLFileReader xfr = new XMLFileReader().setHandler(new MetaDataHandler());

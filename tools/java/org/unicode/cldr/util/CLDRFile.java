@@ -767,80 +767,7 @@ private boolean isSupplemental;
     	return dataSource.iterator(prefix);
      }
 
-    private static class DistinguishedXPath {
-    	private static Map distinguishingMap = new HashMap();
-    	private static Map normalizedPathMap = new HashMap();
-    	private static XPathParts distinguishingParts = new XPathParts(attributeOrdering,null);
-    	
-    	public static String getDistinguishingXPath(String xpath, String[] normalizedPath, boolean nonInheriting) {
-    		synchronized (distinguishingMap) {
-    			String result = (String) distinguishingMap.get(xpath);
-    			if (result == null) {
-    				distinguishingParts.set(xpath);
-    				
-    				// first clean up draft and alt
-    				
-    				String draft = null;
-    				String alt = null;
-    				for (int i = 0; i < distinguishingParts.size(); ++i) {
-    					Map attributes = distinguishingParts.getAttributes(i);
-    					for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-    						String attribute = (String) it.next();
-    						if (attribute.equals("draft")) {
-    							draft = (String) attributes.get(attribute);
-    							it.remove();
-    						} else if (attribute.equals("alt")) {
-    							alt = (String) attributes.get(attribute);
-    							it.remove();
-    						}
-    					}
-    				}
-    				if (draft != null || alt != null) {
-    					// get the last element that is not ordered.
-    					int placementIndex = distinguishingParts.size() - 1;
-    					while (true) {
-    						String element = distinguishingParts.getElement(placementIndex);
-    						if (!orderedElements.contains(element)) break;
-    						--placementIndex;
-    					}
-    					Map attributes = distinguishingParts.getAttributes(placementIndex);
-    					if (draft != null) attributes.put("draft", draft);
-    					if (alt != null) attributes.put("alt", alt);
-    					String newXPath = distinguishingParts.toString();
-    					if (!newXPath.equals(xpath)) {
-    						normalizedPathMap.put(xpath, newXPath); // store differences
-    						//System.err.println("fixing " + xpath + " => " + newXPath);
-    					}
-    				}
-    				
-    				// now remove non-distinguishing attributes (if non-inheriting)
-    				
-    				if (!nonInheriting) {
-    					for (int i = 0; i < distinguishingParts.size(); ++i) {
-    						String element = distinguishingParts.getElement(i);
-    						Map attributes = distinguishingParts.getAttributes(i);
-    						for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-    							String attribute = (String) it.next();
-    							if (!isDistinguishing(element, attribute)) {
-    								it.remove();
-    							}
-    						}
-    					}
-    				}
-    				
-    				result = distinguishingParts.toString();
-    				distinguishingMap.put(xpath, result);
-    			}
-    			if (normalizedPath != null) {
-    				normalizedPath[0] = (String) normalizedPathMap.get(xpath);
-    				if (normalizedPath[0] == null) normalizedPath[0] = xpath;
-    			}
-    			return result;
-    		}
-    	}
-    }
-    
-    private static final DistinguishedXPath distinguishedXPath = new DistinguishedXPath();
+ 
     public static String getDistinguishingXPath(String xpath, String[] normalizedPath, boolean nonInheriting) {
     	return distinguishedXPath.getDistinguishingXPath(xpath, normalizedPath, nonInheriting);
     }
@@ -2075,5 +2002,84 @@ private boolean isSupplemental;
 		if (dataSource == null) throw new UnsupportedOperationException("Make not supported");
 		return new CLDRFile(dataSource.make(locale), resolved);
 	}
+    
+    // WARNING: this must go AFTER attributeOrdering is set; otherwise it uses a null comparator!!
+    private static final DistinguishedXPath distinguishedXPath = new DistinguishedXPath();
 
+    private static class DistinguishedXPath {
+        private static Map distinguishingMap = new HashMap();
+        private static Map normalizedPathMap = new HashMap();
+        private static XPathParts distinguishingParts;
+        static { 
+            distinguishingParts = new XPathParts(attributeOrdering,null);
+        }
+        
+        public static String getDistinguishingXPath(String xpath, String[] normalizedPath, boolean nonInheriting) {
+            synchronized (distinguishingMap) {
+                String result = (String) distinguishingMap.get(xpath);
+                if (result == null) {
+                    distinguishingParts.set(xpath);
+                    
+                    // first clean up draft and alt
+                    
+                    String draft = null;
+                    String alt = null;
+                    for (int i = 0; i < distinguishingParts.size(); ++i) {
+                        Map attributes = distinguishingParts.getAttributes(i);
+                        for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
+                            String attribute = (String) it.next();
+                            if (attribute.equals("draft")) {
+                                draft = (String) attributes.get(attribute);
+                                it.remove();
+                            } else if (attribute.equals("alt")) {
+                                alt = (String) attributes.get(attribute);
+                                it.remove();
+                            }
+                        }
+                    }
+                    if (draft != null || alt != null) {
+                        // get the last element that is not ordered.
+                        int placementIndex = distinguishingParts.size() - 1;
+                        while (true) {
+                            String element = distinguishingParts.getElement(placementIndex);
+                            if (!orderedElements.contains(element)) break;
+                            --placementIndex;
+                        }
+                        Map attributes = distinguishingParts.getAttributes(placementIndex);
+                        if (draft != null) attributes.put("draft", draft);
+                        if (alt != null) attributes.put("alt", alt);
+                        String newXPath = distinguishingParts.toString();
+                        if (!newXPath.equals(xpath)) {
+                            normalizedPathMap.put(xpath, newXPath); // store differences
+                            //System.err.println("fixing " + xpath + " => " + newXPath);
+                        }
+                    }
+                    
+                    // now remove non-distinguishing attributes (if non-inheriting)
+                    
+                    if (!nonInheriting) {
+                        for (int i = 0; i < distinguishingParts.size(); ++i) {
+                            String element = distinguishingParts.getElement(i);
+                            Map attributes = distinguishingParts.getAttributes(i);
+                            for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
+                                String attribute = (String) it.next();
+                                if (!isDistinguishing(element, attribute)) {
+                                    it.remove();
+                                }
+                            }
+                        }
+                    }
+                    
+                    result = distinguishingParts.toString();
+                    distinguishingMap.put(xpath, result);
+                }
+                if (normalizedPath != null) {
+                    normalizedPath[0] = (String) normalizedPathMap.get(xpath);
+                    if (normalizedPath[0] == null) normalizedPath[0] = xpath;
+                }
+                return result;
+            }
+        }
+    }
+   
 }

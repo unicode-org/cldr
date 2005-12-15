@@ -519,6 +519,16 @@ public class Utility {
         }
     }
 
+    public static void addTreeMapChain(Map coverageData, Object[] objects) {
+        Map base = coverageData;
+        for (int i = 0; i < objects.length-2; ++i) {
+            Map nextOne = (Map) base.get(objects[i]);
+            if (nextOne == null) base.put(objects[i], nextOne = new TreeMap());
+            base = nextOne;
+        }
+        base.put(objects[objects.length-2], objects[objects.length-1]);
+    }
+    
 	public static abstract class Transform {
 		public abstract Object transform(Object source);
 		public Collection transform(Collection input, Collection output) {
@@ -580,6 +590,22 @@ public class Utility {
          return BagFormatter.openUTF8Reader(Utility.UTIL_DATA_DIR + File.separator, name);
        }
        return new java.io.BufferedReader(   new java.io.InputStreamReader(is,"UTF-8") );
+    }
+
+    /**
+     * Takes a Map that goes from Object to Set, and fills in the transpose
+     * @param source_key_valueSet
+     * @param output_value_key
+     */
+    public static void putAllTransposed(Map source_key_valueSet, Map output_value_key) {
+        for (Iterator it = source_key_valueSet.keySet().iterator(); it.hasNext();) {
+            Object key = it.next();
+            Set values = (Set) source_key_valueSet.get(key);
+            for (Iterator it2 = values.iterator(); it2.hasNext();) {
+                Object value = it2.next();
+                output_value_key.put(value, key);
+            }
+        }
     }
 	
 }

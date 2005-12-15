@@ -115,6 +115,9 @@ public abstract class XMLSource implements Freezable {
 		public String oldPath;
 		public String newLocaleID;
 		public String newPath;
+        XPathParts partsOld = new XPathParts(null, null);
+        XPathParts partsNew = new XPathParts(null, null);
+        XPathParts partsFull = new XPathParts(null, null);
 		
 		public static Alias make(String aliasPath) {
 			XPathParts tempAliasParts = new XPathParts(null, null);
@@ -144,22 +147,49 @@ public abstract class XMLSource implements Freezable {
 		}
 		/**
 		 * This function is called on the full path, when we know the distinguishing path matches the oldPath.
-		 * So we just want to modify the 
+		 * So we just want to modify the base of the path
 		 * @param oldPath 
 		 * @param newPath 
 		 * @param result
 		 * @return
 		 */
-		public static String changeNewToOld(String fullPath, String newPath, String oldPath) {
-			// for now, just assume check that there are no goofy bits
-			if (!fullPath.startsWith(newPath)) {
-				throw new IllegalArgumentException("Failure to fix path. "
-						+ "\r\n\tfullPath: " + fullPath
-						+ "\r\n\toldPath: " + oldPath
-						+ "\r\n\tnewPath: " + newPath
-						);
-			}
-			return oldPath + fullPath.substring(newPath.length());
+		public String changeNewToOld(String fullPath, String newPath, String oldPath) {
+            // do common case quickly
+            if (fullPath.startsWith(newPath)) {
+                return oldPath + fullPath.substring(newPath.length());
+            }
+                
+            // fullPath will be the same as newPath, except for some attributes at the end.
+            // add those attributes to oldPath, starting from the end.
+            partsOld.set(oldPath);
+            partsNew.set(newPath);
+            partsFull.set(fullPath);
+            Map attributesFull = partsFull.getAttributes(-1);
+            Map attributesNew = partsNew.getAttributes(-1);
+            Map attributesOld = partsOld.getAttributes(-1);
+            for (Iterator it = attributesFull.keySet().iterator(); it.hasNext();) {
+                Object attribute = it.next();
+                if (attributesNew.containsKey(attribute)) continue;
+                attributesOld.put(attribute, attributesFull.get(attribute));
+            }
+            String result = partsOld.toString();
+            
+            // for now, just assume check that there are no goofy bits
+			//if (!fullPath.startsWith(newPath)) {
+//            if (false) {
+//				throw new IllegalArgumentException("Failure to fix path. "
+//						+ "\r\n\tfullPath: " + fullPath
+//						+ "\r\n\toldPath: " + oldPath
+//						+ "\r\n\tnewPath: " + newPath
+//						);
+//			}
+//			String tempResult = oldPath + fullPath.substring(newPath.length());
+//            if (!result.equals(tempResult)) {
+//                System.err.println("fullPath: " + fullPath + "\r\n\toldPath: "
+//                        + oldPath + "\r\n\tnewPath: " + newPath
+//                        + "\r\n\tnewPath: " + result);
+//            }
+            return result;
 		}
 	}
 	// should be overriden 
@@ -346,10 +376,13 @@ public abstract class XMLSource implements Freezable {
 	private static class ResolvingSource extends XMLSource {
 		private XMLSource mySource;
 		private transient ParentAndPath parentAndPath = new ParentAndPath();
+        private Alias tempAlias = new Alias();
 		
 		private static class ParentAndPath {
 			String parentID;
 			String path;
+            //String aliasPart;
+            //String newPart;
 			XMLSource source;
 			String desiredLocaleID;
 			transient List aliases = new ArrayList();
@@ -371,7 +404,7 @@ public abstract class XMLSource implements Freezable {
 					parentID = alias.newLocaleID;
 					if (parentID == null) parentID = desiredLocaleID;
 					source = source.make(parentID);
-					path = alias.newPath + path.substring(alias.oldPath.length());
+					path =  alias.newPath + path.substring(alias.oldPath.length());
 					return this;
 				}
 				parentID = LocaleIDParser.getParent(parentID);
@@ -434,7 +467,7 @@ public abstract class XMLSource implements Freezable {
 	    		result = currentSource.getValueAtDPath(parentAndPath.path);
 	    		if (result != null) {
 	    			result = currentSource.getFullPathAtDPath(parentAndPath.path);
-	    			return Alias.changeNewToOld(result, parentAndPath.path, xpath);
+	    			return tempAlias.changeNewToOld(result, parentAndPath.path, xpath);
 	    		}
 	    		parentAndPath.next();
 	    	}

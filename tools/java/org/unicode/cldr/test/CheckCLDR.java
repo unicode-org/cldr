@@ -63,6 +63,7 @@ abstract public class CheckCLDR {
 			.add(new CheckChildren())
 			.add(new CheckAttributeValues())
 			.add(new CheckDates())
+			.add(new CheckCoverage())
 		;
 	}
 	
@@ -109,7 +110,7 @@ abstract public class CheckCLDR {
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String localeID = (String) it.next();
 			if (SHOW_LOCALE) System.out.println("Locale:\t" + getLocaleAndName(localeID) + "\t");
-			CLDRFile file = cldrFactory.make(localeID, false);
+			CLDRFile file = cldrFactory.make(localeID, true);
 			checkCldr.setCldrFileToCheck(file, result);
 			for (Iterator it3 = result.iterator(); it3.hasNext();) {
 				System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
@@ -196,7 +197,10 @@ abstract public class CheckCLDR {
 	 * Status value returned from check
 	 */
 	public static class CheckStatus {
-		public static final String alertType = "Comment", warningType = "Warning", errorType = "Error", exampleType = "Example";
+		public static final String alertType = "Comment", 
+            warningType = "Warning", 
+            errorType = "Error", 
+            exampleType = "Example";
 		private String type;
 		private String messageFormat;
 		private Object[] parameters;

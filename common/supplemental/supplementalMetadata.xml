@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
+<!DOCTYPE supplementalData SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
 <supplementalData version="1.4">
 	<version number="$Revision$"/>
 	<generation date="$Date$"/>
-	<metaData>
+	<metadata>
 		<attributeOrder>_q type key registry source target path day date version count lines characters before from to number time casing list uri iso4217 digits rounding iso3166 hex id request direction alternate backwards caseFirst caseLevel hiraganaQuarternary hiraganaQuaternary normalization numeric strength validSubLocales standard references elements element attributes attribute alt draft</attributeOrder>
 		<elementOrder>ldml identity alias localeDisplayNames layout characters delimiters measurement dates numbers collations posix segmentations references version generation language script territory variant languages scripts territories variants keys types measurementSystemNames key type measurementSystemName orientation inList exemplarCharacters mapping quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd measurementSystem paperSize height width localizedPatternChars calendars timeZoneNames months monthNames monthAbbr days dayNames dayAbbr quarters week am pm eras dateFormats timeFormats dateTimeFormats fields month day quarter minDays firstDay weekendStart weekendEnd eraNames eraAbbr era pattern displayName dateFormatItem appendItem hourFormat hoursFormat gmtFormat regionFormat fallbackFormat abbreviationFallback preferenceOrdering singleCountries default calendar monthContext monthWidth dayContext dayWidth quarterContext quarterWidth dateFormatLength dateFormat timeFormatLength timeFormat dateTimeFormatLength availableFormats appendItems dateTimeFormat zone long short exemplarCity generic standard daylight field relative symbols decimalFormats scientificFormats percentFormats currencyFormats currencies decimalFormatLength decimalFormat scientificFormatLength scientificFormat percentFormatLength percentFormat currencySpacing currencyFormatLength beforeCurrency afterCurrency currencyMatch surroundingMatch insertBetween currencyFormat currency symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan collation messages yesstr nostr yesexpr noexpr segmentation variables segmentRules special variable rule comment base settings suppress_contractions optimize rules</elementOrder>
 		<serialElements>variable comment tRule reset p pc s sc t tc q qc i ic x extend first_variable last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing</serialElements>
@@ -197,5 +197,5 @@
 
 
 		</coverageAdditions>
-	</metaData>
+	</metadata>
 </supplementalData>

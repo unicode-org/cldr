@@ -39,8 +39,9 @@ public class CheckExemplars extends CheckCLDR {
         checkExemplar(value, result);
         // check relation to auxiliary set
        	if (path.indexOf("auxiliary") < 0) {
+            // check for auxiliary anyway
            	UnicodeSet auxiliarySet = getResolvedCldrFileToCheck().getExemplarSet("auxiliary");
-       		if (auxiliarySet == null || auxiliarySet.size() == 0) {
+       		if (auxiliarySet == null) {
        			result.add(new CheckStatus().setType(CheckStatus.errorType)
        					.setMessage("Missing Auxiliary Set")
        					.setHTMLMessage("Missing Auxiliary Set:" +

@@ -1099,6 +1099,5 @@ public class Misc {
 			outFile.write(pw);
 			pw.close();
 		}
-
 	}
 }

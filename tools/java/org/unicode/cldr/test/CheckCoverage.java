@@ -21,26 +21,40 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.text.UnicodeSet;
 
+/**
+ * Checks locale data for coverage.<br>
+ * Options:<br>
+ * CheckCoverage.requiredLevel=value to override the required level. values: comprehensive, modern, moderate, basic<br>
+ * CheckCoverage.skip=true to skip a locale. For console testing, you want to skip the non-language locales, since
+ * they don't typically add, just replace. See CheckCLDR for an example.
+ * @author davis
+ *
+ */
 public class CheckCoverage extends CheckCLDR {
     static final boolean DEBUG = false;
     private static CoverageLevel coverageLevel = new CoverageLevel();
 
-    private CLDRFile resolved;
+    private boolean skip; // set to null if we should not be checking this file
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
             Map options, List result) {
         // for now, skip all but localeDisplayNames
-        if (resolved == null) return this;
+        if (skip) return this;
         if (path.indexOf("localeDisplayNames") < 0 && path.indexOf("currencies") < 0) return this;
 
         // skip all items that are in anything but raw codes
-        String source = resolved.getSourceLocaleID(path);
+        String source = getCldrFileToCheck().getSourceLocaleID(path);
         if (!source.equals(XMLSource.CODE_FALLBACK_ID)) return this;
         
         // check to see if the level is good enough
         Level level = coverageLevel.getCoverageLevel(path, fullPath, value);
         if (level == Level.SKIP) return this;
-        if (coverageLevel.getRequiredLevel().compareTo(level) >= 0) {
+        Level requiredLevel = coverageLevel.getRequiredLevel();
+        if (options != null) {
+            String optionLevel = (String) options.get("CheckCoverage.requiredLevel");
+            if (level != null) requiredLevel = Level.get(optionLevel);
+        }
+        if (requiredLevel.compareTo(level) >= 0) {
             result.add(new CheckStatus().setType(CheckStatus.errorType)
                     .setMessage("Needed to meet {0} coverage level.", new Object[] { level }));
         } else if (DEBUG) {
@@ -52,11 +66,14 @@ public class CheckCoverage extends CheckCLDR {
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck,
             Map options, List possibleErrors) {
         if (cldrFileToCheck == null) return this;
+        skip = true;
+        if (options != null && options.get("CheckCoverage.skip") != null) return this;
+        
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-        resolved = null;
+
         if (cldrFileToCheck.getLocaleID().equals("root")) return this;
-        resolved = getResolvedCldrFileToCheck();
         coverageLevel.setFile(cldrFileToCheck, options);
+        skip = false;
         return this;
     }
 
@@ -81,7 +98,7 @@ public class CheckCoverage extends CheckCLDR {
         public static Level get(String name) {
             for (int i = 0; i < all.size(); ++i) {
                 Level item = (Level) all.get(i);
-                if (item.name.equals(name)) return item;
+                if (item.name.equalsIgnoreCase(name)) return item;
             }
             return SKIP;
         }
@@ -178,13 +195,25 @@ public class CheckCoverage extends CheckCLDR {
         
         static Map locale_requiredLevel = new TreeMap();
         boolean latinScript = false;
+        
+        static Map territory_currency = new TreeMap();
+        static Set modernCurrencies = new TreeSet();
+        
 
         public void setFile(CLDRFile file, Map options) {
-            init();
+            synchronized (sync) {
+                if (!initialized) {
+                    init(file);
+                    initialized = true;
+                }
+            }
+            latinScript = false;
             UnicodeSet exemplars = file.getExemplarSet("");
-            UnicodeSet auxexemplars = file.getExemplarSet("auxiliary");
-            if (auxexemplars != null) exemplars.addAll(auxexemplars);
-            latinScript = exemplars.contains('A','Z');
+            if (exemplars != null) {
+                UnicodeSet auxexemplars = file.getExemplarSet("auxiliary");
+                if (auxexemplars != null) exemplars.addAll(auxexemplars);
+                latinScript = exemplars.contains('A','Z');
+            }
             
             parser.set(file.getLocaleID());
             String language = parser.getLanguage();
@@ -279,180 +308,157 @@ public class CheckCoverage extends CheckCLDR {
         
         // ========== Initialization Stuff ===================
 
-        public void init() {
-            synchronized (sync) {
-                if (!initialized) {
-                    try {
-                        XMLFileReader xfr = new XMLFileReader()
-                                .setHandler(new MetaDataHandler());
-                        xfr.read(Utility.COMMON_DIRECTORY
-                                + "/supplemental/metaData.xml",
-                                xfr.CONTENT_HANDLER, true);
+        public void init(CLDRFile file) {
+            try {
+                CLDRFile metadata = file.make("supplementalMetadata", false);
+                getMetadata(metadata);
 
-                        xfr = new XMLFileReader()
-                                .setHandler(new SupplementalHandler());
-                        xfr.read(Utility.COMMON_DIRECTORY
-                                + "/supplemental/supplementalData.xml",
-                                xfr.CONTENT_HANDLER, true);
-                        
-                        // put into an easier form to use
-                        
-                        Map type_languages = (Map) coverageData.get("languageCoverage");
-                        Utility.putAllTransposed(type_languages, base_language_level);
-                        Map type_scripts = (Map) coverageData.get("scriptCoverage");
-                        Utility.putAllTransposed(type_scripts, base_script_level);
-                        Map type_territories = (Map) coverageData.get("territoryCoverage");
-                        Utility.putAllTransposed(type_territories, base_territory_level);
+                CLDRFile data = file.make("supplementalData", false);
+                getData(metadata);
 
-                        // add the modern stuff, after doing both of the above
-                        
-                        modernLanguages.removeAll(base_language_level.keySet());
-                        putAll(base_language_level, modernLanguages, Level.MODERN);
-
-                        modernScripts.removeAll(base_script_level.keySet());
-                        putAll(base_script_level, modernScripts, Level.MODERN);
-
-                        modernTerritories.removeAll(base_territory_level.keySet());
-                        putAll(base_territory_level, modernTerritories, Level.MODERN);
-                        
-                        // set up the required levels
-                        try {
-                            // just for now
-                            Map platform_local_level = sc.getLocaleTypes();
-                            Map locale_level = (Map) platform_local_level.get("IBM");
-                            for (Iterator it = locale_level.keySet().iterator(); it.hasNext();) {
-                                String locale = (String) it.next();
-                                parser.set(locale);
-                                String level = (String) locale_level.get(locale);
-                                requiredLevel = Level.BASIC;
-                                if ("G0".equals(level)) requiredLevel = Level.COMPREHENSIVE;
-                                else if ("G1".equals(level)) requiredLevel = Level.MODERN;
-                                else if ("G2".equals(level)) requiredLevel = Level.MODERATE;
-                                String key = parser.getLanguage();
-                                Level old = (Level) locale_requiredLevel.get(key);
-                                if (old == null || old.compareTo(requiredLevel) > 0) {
-                                    locale_requiredLevel.put(key, requiredLevel);
-                                }
-                                String oldKey = key;
-                                key = parser.getLanguageScript();
-                                if (!key.equals(oldKey)) {
-                                    old = (Level) locale_requiredLevel.get(key);
-                                    if (old == null || old.compareTo(requiredLevel) > 0) {
-                                        locale_requiredLevel.put(key, requiredLevel);
-                                    }
-                                }
-                            }
-                         } catch (IOException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
+                // put into an easier form to use
+                
+                Map type_languages = (Map) coverageData.get("languageCoverage");
+                Utility.putAllTransposed(type_languages, base_language_level);
+                Map type_scripts = (Map) coverageData.get("scriptCoverage");
+                Utility.putAllTransposed(type_scripts, base_script_level);
+                Map type_territories = (Map) coverageData.get("territoryCoverage");
+                Utility.putAllTransposed(type_territories, base_territory_level);
+                
+                // add the modern stuff, after doing both of the above
+                
+                modernLanguages.removeAll(base_language_level.keySet());
+                putAll(base_language_level, modernLanguages, Level.MODERN);
+                
+                modernScripts.removeAll(base_script_level.keySet());
+                putAll(base_script_level, modernScripts, Level.MODERN);
+                
+                modernTerritories.removeAll(base_territory_level.keySet());
+                putAll(base_territory_level, modernTerritories, Level.MODERN);
+                
+                // set up the required levels
+                try {
+                    // just for now
+                    Map platform_local_level = sc.getLocaleTypes();
+                    Map locale_level = (Map) platform_local_level.get("IBM");
+                    for (Iterator it = locale_level.keySet().iterator(); it.hasNext();) {
+                        String locale = (String) it.next();
+                        parser.set(locale);
+                        String level = (String) locale_level.get(locale);
+                        requiredLevel = Level.BASIC;
+                        if ("G0".equals(level)) requiredLevel = Level.COMPREHENSIVE;
+                        else if ("G1".equals(level)) requiredLevel = Level.MODERN;
+                        else if ("G2".equals(level)) requiredLevel = Level.MODERATE;
+                        String key = parser.getLanguage();
+                        Level old = (Level) locale_requiredLevel.get(key);
+                        if (old == null || old.compareTo(requiredLevel) > 0) {
+                            locale_requiredLevel.put(key, requiredLevel);
                         }
-
-                         if (DEBUG) {
-                             System.out.println(base_language_level);               
-                             System.out.println(base_script_level);
-                             System.out.println(base_territory_level);
-                             System.out.println("common info set");
-                             System.out.flush();
-                         }
-                        initialized = true;
-                    } catch (RuntimeException e) {
-                        throw e; // just for debugging
+                        String oldKey = key;
+                        key = parser.getLanguageScript();
+                        if (!key.equals(oldKey)) {
+                            old = (Level) locale_requiredLevel.get(key);
+                            if (old == null || old.compareTo(requiredLevel) > 0) {
+                                locale_requiredLevel.put(key, requiredLevel);
+                            }
+                        }
                     }
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
                 }
+                
+                if (DEBUG) {
+                    System.out.println(base_language_level);               
+                    System.out.println(base_script_level);
+                    System.out.println(base_territory_level);
+                    System.out.println("common info set");
+                    System.out.flush();
+                }
+            } catch (RuntimeException e) {
+                throw e; // just for debugging
             }
         }
 
-        static class MetaDataHandler extends XMLFileReader.SimpleHandler {
-            XPathParts parts = new XPathParts(null, null);
-
-            public void handlePathValue(String path, String value) {
-                try {
-                    if (path.indexOf("coverageAdditions") < 0) return;
+        private void getMetadata(CLDRFile metadata) {
+            for (Iterator it = metadata.iterator(); it.hasNext();) {
+                String path = (String) it.next();
+                if (path.indexOf("coverageAdditions") < 0) continue;
+                // System.out.println(path);
+                // System.out.flush();
+                //String value = metadata.getStringValue(path);
+                path = metadata.getFullXPath(path);
+                parts.set(path);
+                String lastElement = parts.getElement(-1);
+                Map attributes = parts.getAttributes(-1);
+                // <languageCoverage type="basic" values="de en es fr it ja
+                // pt ru zh"/>
+                Level type = Level.get((String) attributes.get("type"));
+                String values = (String) attributes.get("values");
+                Utility.addTreeMapChain(coverageData, new Object[] {
+                        lastElement, type,
+                        new TreeSet(Arrays.asList(values.split("\\s+"))) });
+                
+            }
+        }
+        
+        private void getData(CLDRFile metadata) {
+            for (Iterator it = metadata.iterator(); it.hasNext();) {
+                String path = (String) it.next();
+                //String value = metadata.getStringValue(path);
+                path = metadata.getFullXPath(path);
+                parts.set(path);
+                String lastElement = parts.getElement(-1);
+                Map attributes = parts.getAttributes(-1);
+                String type = (String) attributes.get("type");
+                if (parts.containsElement("calendarData")) {
                     // System.out.println(path);
                     // System.out.flush();
-                    parts.set(path);
-                    String lastElement = parts.getElement(-1);
-                    Map attributes = parts.getAttributes(-1);
-                    // <languageCoverage type="basic" values="de en es fr it ja
-                    // pt ru zh"/>
-                    Level type = Level.get((String) attributes.get("type"));
-                    String values = (String) attributes.get("values");
+                    // we have element, type, subtype, and values
+                    Set values = new TreeSet(
+                            Arrays.asList(((String) attributes
+                                    .get("territories")).split("\\s+")));
                     Utility.addTreeMapChain(coverageData, new Object[] {
-                            lastElement, type,
-                            new TreeSet(Arrays.asList(values.split("\\s+"))) });
-                } catch (RuntimeException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        static Map territory_currency = new TreeMap();
-        static Set modernCurrencies = new TreeSet();
-        
-        static class SupplementalHandler extends XMLFileReader.SimpleHandler {
-            XPathParts parts = new XPathParts(null, null);
-
-            public void handlePathValue(String path, String value) {
-                try {
-//                    if (path.indexOf("calendarData") < 0
-//                            && path.indexOf("languageData") < 0) return;
-                    parts.set(path);
-                    String lastElement = parts.getElement(-1);
-                    Map attributes = parts.getAttributes(-1);
-                    String type = (String) attributes.get("type");
-                    if (parts.containsElement("calendarData")) {
-                        // System.out.println(path);
-                        // System.out.flush();
-                        // we have element, type, subtype, and values
-                        Set values = new TreeSet(
-                                Arrays.asList(((String) attributes
-                                        .get("territories")).split("\\s+")));
-                        Utility.addTreeMapChain(coverageData, new Object[] {
-                                lastElement, type, values });
-                    } else if (parts.containsElement("languageData")) {
-                        // <language type="ab" scripts="Cyrl" territories="GE"
-                        // alt="secondary"/>
-                        String alt = (String) attributes.get("alt");
-                        if (alt != null) return;
-                        modernLanguages.add(type);
-                        String scripts = (String) attributes.get("scripts");
-                        if (scripts != null) {
-                            Set scriptSet = new TreeSet(Arrays.asList(scripts
-                                    .split("\\s+")));
-                            modernScripts.addAll(scriptSet);
-                            Utility.addTreeMapChain(language_scripts,
-                                    new Object[] {type, scriptSet});
-                        }
-                        String territories = (String) attributes
-                                .get("territories");
-                        if (territories != null) {
-                            Set territorySet = new TreeSet(Arrays
-                                    .asList(territories
-                                            .split("\\s+")));
-                            modernTerritories.addAll(territorySet);
-                            Utility.addTreeMapChain(language_territories,
-                                    new Object[] {type, territorySet});
-                        }
-                    } else if (parts.containsElement("currencyData") && lastElement.equals("currency")) {
-                        //         <region iso3166="AM"><currency iso4217="AMD" from="1993-11-22"/>
-                        // if the 'to' value is less than 10 years, it is not modern
-                        String to = (String) attributes.get("to");
-                        String currency = (String) attributes.get("iso4217");
-                        if (to == null || to.compareTo("1995") >= 0) {
-                            modernCurrencies.add(currency);
-                            // only add current currencies to must have list
-                            if (to == null) {
-                                String region = (String) parts.getAttributes(-2).get("iso3166");
-                                Set currencies = (Set) territory_currency.get(region);
-                                if (currencies == null) territory_currency.put(region, currencies = new TreeSet());
-                                currencies.add(currency);
-                            }
+                            lastElement, type, values });
+                } else if (parts.containsElement("languageData")) {
+                    // <language type="ab" scripts="Cyrl" territories="GE"
+                    // alt="secondary"/>
+                    String alt = (String) attributes.get("alt");
+                    if (alt != null) return;
+                    modernLanguages.add(type);
+                    String scripts = (String) attributes.get("scripts");
+                    if (scripts != null) {
+                        Set scriptSet = new TreeSet(Arrays.asList(scripts
+                                .split("\\s+")));
+                        modernScripts.addAll(scriptSet);
+                        Utility.addTreeMapChain(language_scripts,
+                                new Object[] {type, scriptSet});
+                    }
+                    String territories = (String) attributes
+                            .get("territories");
+                    if (territories != null) {
+                        Set territorySet = new TreeSet(Arrays
+                                .asList(territories
+                                        .split("\\s+")));
+                        modernTerritories.addAll(territorySet);
+                        Utility.addTreeMapChain(language_territories,
+                                new Object[] {type, territorySet});
+                    }
+                } else if (parts.containsElement("currencyData") && lastElement.equals("currency")) {
+                    //         <region iso3166="AM"><currency iso4217="AMD" from="1993-11-22"/>
+                    // if the 'to' value is less than 10 years, it is not modern
+                    String to = (String) attributes.get("to");
+                    String currency = (String) attributes.get("iso4217");
+                    if (to == null || to.compareTo("1995") >= 0) {
+                        modernCurrencies.add(currency);
+                        // only add current currencies to must have list
+                        if (to == null) {
+                            String region = (String) parts.getAttributes(-2).get("iso3166");
+                            Set currencies = (Set) territory_currency.get(region);
+                            if (currencies == null) territory_currency.put(region, currencies = new TreeSet());
+                            currencies.add(currency);
                         }
                     }
-                } catch (RuntimeException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
                 }
             }
         }

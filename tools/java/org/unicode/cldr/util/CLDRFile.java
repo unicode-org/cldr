@@ -66,13 +66,15 @@ http://lists.xml.org/archives/xml-dev/200007/msg00284.html
 http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
 public class CLDRFile implements Freezable {
-	private static final boolean SHOW_ALL = true;
+	private static boolean LOG_PROGRESS = false;
 
 	public static boolean HACK_ORDER = false;
 	private static boolean DEBUG_LOGGING = false;
 	private static boolean SHOW_ALIAS_FIXES = false;
 	
-	public static final String SUPPLEMENTAL_NAME = "supplementalData";
+    public static final String SUPPLEMENTAL_NAME = "supplementalData";
+    public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
+    public static final String SUPPLEMENTAL_PREFIX = "supplemental";
 	public static final String GEN_VERSION = "1.4";
 	
 	private boolean locked;
@@ -218,7 +220,7 @@ public class CLDRFile implements Freezable {
         	fullFileName = f.getCanonicalPath();
             if (DEBUG_LOGGING) {
              	System.out.println("Parsing: " + fullFileName);
-             	Log.logln(SHOW_ALL, "Parsing: " + fullFileName);
+             	Log.logln(LOG_PROGRESS, "Parsing: " + fullFileName);
     	    }
 			FileInputStream fis = new FileInputStream(f);
 	    	CLDRFile result = make(fullFileName, localeName, fis, includeDraft);
@@ -248,6 +250,7 @@ public class CLDRFile implements Freezable {
 			InputSource is = new InputSource(fis);
 			is.setSystemId(fileName);
 			xmlReader.parse(is);
+            result.setNonInheriting(DEFAULT_DECLHANDLER.isSupplemental);
 			return result;
     	} catch (SAXParseException e) {
     		System.out.println(CLDRFile.showSAX(e));
@@ -306,8 +309,8 @@ public class CLDRFile implements Freezable {
 		// if ldml has any attributes, get them.
 		Set identitySet = new TreeSet(ldmlComparator);
 		if (isNonInheriting()) {
-			identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/version[@number=\"$Revision$\"]");
-			identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/generation[@date=\"$Date$\"]");
+			//identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/version[@number=\"$Revision$\"]");
+			//identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/generation[@date=\"$Date$\"]");
 		} else {
 			String ldml_identity = "//ldml/identity";
 			if (orderedSet.size() > 0) {
@@ -429,7 +432,7 @@ public class CLDRFile implements Freezable {
     public CLDRFile add(String currentFullXPath, String value) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	//StringValue v = new StringValue(value, currentFullXPath);
-    	Log.logln(SHOW_ALL, "ADDING: \t" + currentFullXPath + " \t" + value + "\t" + currentFullXPath);
+    	Log.logln(LOG_PROGRESS, "ADDING: \t" + currentFullXPath + " \t" + value + "\t" + currentFullXPath);
     	//xpath = xpath.intern();
         try {
 			dataSource.putValueAtPath(currentFullXPath, value);
@@ -442,7 +445,7 @@ public class CLDRFile implements Freezable {
     public CLDRFile addComment(String xpath, String comment, int type) {
     	if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     	// System.out.println("Adding comment: <" + xpath + "> '" + comment + "'");
-    	Log.logln(SHOW_ALL, "ADDING Comment: \t" + type + "\t" + xpath + " \t" + comment);
+    	Log.logln(LOG_PROGRESS, "ADDING Comment: \t" + type + "\t" + xpath + " \t" + comment);
     	if (xpath == null || xpath.length() == 0) {
     		dataSource.getXpathComments().setFinalComment(
     				Utility.joinWithSeparation(dataSource.getXpathComments().getFinalComment(), XPathParts.NEWLINE, comment));
@@ -737,16 +740,15 @@ private boolean isSupplemental;
 	 * Utility to restrict to files matching a given regular expression. The expression does not contain ".xml".
 	 * Note that supplementalData is always skipped, and root is always included.
 	 */
-    public static Set getMatchingXMLFiles(String sourceDir, String localeRegex) {
-        Matcher m = Pattern.compile(localeRegex).matcher("");
+    public static Set getMatchingXMLFiles(String sourceDir, Matcher m) {
         Set s = new TreeSet();
         File[] files = new File(sourceDir).listFiles();
         for (int i = 0; i < files.length; ++i) {
             String name = files[i].getName();
             if (!name.endsWith(".xml")) continue;
-            if (name.startsWith(SUPPLEMENTAL_NAME)) continue;
+            //if (name.startsWith(SUPPLEMENTAL_NAME)) continue;
             String locale = name.substring(0,name.length()-4); // drop .xml
-            if (!locale.equals("root") && !m.reset(locale).matches()) continue;
+            if (!m.reset(locale).matches()) continue;
             s.add(locale);
         }
         return s;
@@ -765,6 +767,16 @@ private boolean isSupplemental;
 
     public Iterator iterator(String prefix) {
     	return dataSource.iterator(prefix);
+     }
+
+    public Iterator iterator(String prefix, Comparator comparator) {
+        Iterator it = (prefix == null || prefix.length() == 0) 
+            ? dataSource.iterator() 
+            : dataSource.iterator(prefix);
+        if (comparator == null) return it;
+        Set orderedSet = new TreeSet(CLDRFile.ldmlComparator);
+        CollectionUtilities.addAll(it, orderedSet);
+        return orderedSet.iterator();
      }
 
  
@@ -889,7 +901,9 @@ private boolean isSupplemental;
 			Factory result = new Factory();
 			result.sourceDirectory = sourceDirectory;
 			result.matchString = matchString;
-			result.localeList = getMatchingXMLFiles(sourceDirectory, matchString);
+            Matcher m = Pattern.compile(matchString).matcher("");
+			result.localeList = getMatchingXMLFiles(sourceDirectory, m);
+            result.localeList.addAll(getMatchingXMLFiles(sourceDirectory + "/../supplemental/", m));
 			return result;
 		}
 
@@ -948,7 +962,7 @@ private boolean isSupplemental;
                     : (resolved ? resolvedCacheNoDraft : mainCacheNoDraft);
 	    	CLDRFile result = (CLDRFile) cache.get(localeName);
 	    	if (result == null) {
-    			result = CLDRFile.make(localeName, localeName.equals(SUPPLEMENTAL_NAME) ? sourceDirectory + "../supplemental/" : sourceDirectory, includeDraft);
+    			result = CLDRFile.make(localeName, isSupplementalName(localeName) ? sourceDirectory + "../supplemental/" : sourceDirectory, includeDraft);
     	    	((SimpleXMLSource)result.dataSource).factory = this;
     			if (resolved) {
     				result.dataSource = result.dataSource.getResolving();
@@ -959,8 +973,13 @@ private boolean isSupplemental;
 	    	}
 	    	return result;
 	    }
+
 	}
 	
+    public static boolean isSupplementalName(String localeName) {
+        return localeName.startsWith(SUPPLEMENTAL_PREFIX) || localeName.equals("characters");
+    }
+
 //	static String[] keys = {"calendar", "collation", "currency"};
 //	
 //	static String[] calendar_keys = {"buddhist", "chinese", "gregorian", "hebrew", "islamic", "islamic-civil", "japanese"};
@@ -1023,7 +1042,7 @@ private boolean isSupplemental;
     	MyDeclHandler(CLDRFile target, boolean includeDraft) {
     		this.target = target;
             this.includeDraft = includeDraft;
-    		isSupplemental = target.getLocaleID().equals(SUPPLEMENTAL_NAME);
+    		isSupplemental = isSupplementalName(target.getLocaleID());
     		if (!isSupplemental) attributeOrder = new TreeMap(attributeOrdering);
     		else attributeOrder = new TreeMap();
      	}
@@ -1041,7 +1060,7 @@ private boolean isSupplemental;
     	
     	private void push(String qName, Attributes attributes) {
     		//SHOW_ALL && 
-    		Log.logln(SHOW_ALL, "push\t" + qName + "\t" + show(attributes));
+    		Log.logln(LOG_PROGRESS, "push\t" + qName + "\t" + show(attributes));
         	if (lastChars.length() != 0) {
                 if (whitespace.containsAll(lastChars)) lastChars = "";
                 else throw new IllegalArgumentException("Internal Error");
@@ -1083,11 +1102,11 @@ private boolean isSupplemental;
     		}
             justPopped = false;
             lastActiveLeafNode = null;
-    		Log.logln(SHOW_ALL, "currentFullXPath\t" + currentFullXPath);
+    		Log.logln(LOG_PROGRESS, "currentFullXPath\t" + currentFullXPath);
     	}
     	
 		private void pop(String qName) {
-			Log.logln(SHOW_ALL, "pop\t" + qName);
+			Log.logln(LOG_PROGRESS, "pop\t" + qName);
             if (lastChars.length() != 0 || justPopped == false) {
                 if (includeDraft || currentFullXPath.indexOf("[@draft=\"true\"]") < 0) {
                 	target.add(currentFullXPath, lastChars);
@@ -1095,7 +1114,7 @@ private boolean isSupplemental;
                 }
                 lastChars = "";
             } else {
-            	Log.logln(SHOW_ALL && lastActiveLeafNode != null, "pop: zeroing last leafNode: " + lastActiveLeafNode);
+            	Log.logln(LOG_PROGRESS && lastActiveLeafNode != null, "pop: zeroing last leafNode: " + lastActiveLeafNode);
             	lastActiveLeafNode = null;
         		if (comment != null) {
         			target.addComment(lastLeafNode, comment, XPathParts.Comments.POSTBLOCK);
@@ -1134,7 +1153,7 @@ private boolean isSupplemental;
             String qName,
             Attributes attributes)
             throws SAXException {
-        		Log.logln(SHOW_ALL || SHOW_START_END, "startElement uri\t" + uri
+        		Log.logln(LOG_PROGRESS || SHOW_START_END, "startElement uri\t" + uri
         				+ "\tlocalName " + localName
         				+ "\tqName " + qName
         				+ "\tattributes " + show(attributes)
@@ -1148,7 +1167,7 @@ private boolean isSupplemental;
         }
         public void endElement(String uri, String localName, String qName)
             throws SAXException {
-    			Log.logln(SHOW_ALL || SHOW_START_END, "endElement uri\t" + uri + "\tlocalName " + localName
+    			Log.logln(LOG_PROGRESS || SHOW_START_END, "endElement uri\t" + uri + "\tlocalName " + localName
     				+ "\tqName " + qName);
                 try {
                     pop(qName);
@@ -1165,7 +1184,7 @@ private boolean isSupplemental;
             throws SAXException {
                 try {
                     String value = new String(ch,start,length);
-                    Log.logln(SHOW_ALL, "characters:\t" + value);
+                    Log.logln(LOG_PROGRESS, "characters:\t" + value);
                     while (value.startsWith(XML_LINESEPARATOR_STRING) && lastChars.length() == 0) {
                     	value = value.substring(1);
                     }
@@ -1179,19 +1198,19 @@ private boolean isSupplemental;
             }
 
         public void startDTD(String name, String publicId, String systemId) throws SAXException {
-            Log.logln(SHOW_ALL, "startDTD name: " + name
+            Log.logln(LOG_PROGRESS, "startDTD name: " + name
                     + ", publicId: " + publicId
                     + ", systemId: " + systemId
             );
             commentStack++;
         }
         public void endDTD() throws SAXException {
-            Log.logln(SHOW_ALL, "endDTD");
+            Log.logln(LOG_PROGRESS, "endDTD");
             commentStack--;
         }
         
         public void comment(char[] ch, int start, int length) throws SAXException {
-            Log.logln(SHOW_ALL, commentStack + " comment " + new String(ch, start,length));
+            Log.logln(LOG_PROGRESS, commentStack + " comment " + new String(ch, start,length));
             try {
 				if (commentStack != 0) return;
 				String comment0 = new String(ch, start,length);
@@ -1207,21 +1226,21 @@ private boolean isSupplemental;
         }
         
         public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
-            Log.logln(SHOW_ALL, "ignorableWhitespace length: " + length);
+            Log.logln(LOG_PROGRESS, "ignorableWhitespace length: " + length);
             for (int i = 0; i < ch.length; ++i) {
             	if (ch[i] == '\n') {
-            		Log.logln(SHOW_ALL && lastActiveLeafNode != null, "\\n: zeroing last leafNode: " + lastActiveLeafNode);
+            		Log.logln(LOG_PROGRESS && lastActiveLeafNode != null, "\\n: zeroing last leafNode: " + lastActiveLeafNode);
             		lastActiveLeafNode = null;
             	}
             }
         }
         public void startDocument() throws SAXException {
-            Log.logln(SHOW_ALL, "startDocument");
+            Log.logln(LOG_PROGRESS, "startDocument");
             commentStack = 0; // initialize
         }
 
         public void endDocument() throws SAXException {
-            Log.logln(SHOW_ALL, "endDocument");
+            Log.logln(LOG_PROGRESS, "endDocument");
             try {
 				if (comment != null) target.addComment(null, comment, XPathParts.Comments.LINE);
 			} catch (RuntimeException e) {
@@ -1233,20 +1252,20 @@ private boolean isSupplemental;
         // ==== The following are just for debuggin =====
 
 		public void elementDecl(String name, String model) throws SAXException {
-        	Log.logln(SHOW_ALL, "Attribute\t" + name + "\t" + model);
+        	Log.logln(LOG_PROGRESS, "Attribute\t" + name + "\t" + model);
         }
         public void attributeDecl(String eName, String aName, String type, String mode, String value) throws SAXException {
-            Log.logln(SHOW_ALL, "Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value);
+            Log.logln(LOG_PROGRESS, "Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value);
         }
         public void internalEntityDecl(String name, String value) throws SAXException {
-        	Log.logln(SHOW_ALL, "Internal Entity\t" + name + "\t" + value);
+        	Log.logln(LOG_PROGRESS, "Internal Entity\t" + name + "\t" + value);
         }
         public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
-        	Log.logln(SHOW_ALL, "Internal Entity\t" + name + "\t" + publicId + "\t" + systemId);
+        	Log.logln(LOG_PROGRESS, "Internal Entity\t" + name + "\t" + publicId + "\t" + systemId);
         }
 
         public void notationDecl (String name, String publicId, String systemId){
-            Log.logln(SHOW_ALL, "notationDecl: " + name
+            Log.logln(LOG_PROGRESS, "notationDecl: " + name
             + ", " + publicId
             + ", " + systemId
             );
@@ -1254,17 +1273,17 @@ private boolean isSupplemental;
 
         public void processingInstruction (String target, String data)
         throws SAXException {
-            Log.logln(SHOW_ALL, "processingInstruction: " + target + ", " + data);
+            Log.logln(LOG_PROGRESS, "processingInstruction: " + target + ", " + data);
         }
 
         public void skippedEntity (String name)
         throws SAXException {
-            Log.logln(SHOW_ALL, "skippedEntity: " + name);
+            Log.logln(LOG_PROGRESS, "skippedEntity: " + name);
         }
 
         public void unparsedEntityDecl (String name, String publicId,
                         String systemId, String notationName) {
-            Log.logln(SHOW_ALL, "unparsedEntityDecl: " + name
+            Log.logln(LOG_PROGRESS, "unparsedEntityDecl: " + name
             + ", " + publicId
             + ", " + systemId
             + ", " + notationName
@@ -1272,33 +1291,33 @@ private boolean isSupplemental;
         }
         
         public void setDocumentLocator(Locator locator) {
-            Log.logln(SHOW_ALL, "setDocumentLocator Locator " + locator);
+            Log.logln(LOG_PROGRESS, "setDocumentLocator Locator " + locator);
         }
         public void startPrefixMapping(String prefix, String uri) throws SAXException {
-            Log.logln(SHOW_ALL, "startPrefixMapping prefix: " + prefix +
+            Log.logln(LOG_PROGRESS, "startPrefixMapping prefix: " + prefix +
                     ", uri: " + uri);
         }
         public void endPrefixMapping(String prefix) throws SAXException {
-            Log.logln(SHOW_ALL, "endPrefixMapping prefix: " + prefix);
+            Log.logln(LOG_PROGRESS, "endPrefixMapping prefix: " + prefix);
         }
         public void startEntity(String name) throws SAXException {
-            Log.logln(SHOW_ALL, "startEntity name: " + name);
+            Log.logln(LOG_PROGRESS, "startEntity name: " + name);
         }
         public void endEntity(String name) throws SAXException {
-            Log.logln(SHOW_ALL, "endEntity name: " + name);
+            Log.logln(LOG_PROGRESS, "endEntity name: " + name);
         }
         public void startCDATA() throws SAXException {
-            Log.logln(SHOW_ALL, "startCDATA");
+            Log.logln(LOG_PROGRESS, "startCDATA");
         }
         public void endCDATA() throws SAXException {
-            Log.logln(SHOW_ALL, "endCDATA");
+            Log.logln(LOG_PROGRESS, "endCDATA");
         }
 
 		/* (non-Javadoc)
 		 * @see org.xml.sax.ErrorHandler#error(org.xml.sax.SAXParseException)
 		 */
 		public void error(SAXParseException exception) throws SAXException {
-			Log.logln(SHOW_ALL, "error: " + showSAX(exception));
+			Log.logln(LOG_PROGRESS || true, "error: " + showSAX(exception));
 			throw exception;
 		}
 
@@ -1306,7 +1325,7 @@ private boolean isSupplemental;
 		 * @see org.xml.sax.ErrorHandler#fatalError(org.xml.sax.SAXParseException)
 		 */
 		public void fatalError(SAXParseException exception) throws SAXException {
-			Log.logln(SHOW_ALL, "fatalError: " + showSAX(exception));
+			Log.logln(LOG_PROGRESS, "fatalError: " + showSAX(exception));
 			throw exception;
 		}
 
@@ -1314,7 +1333,7 @@ private boolean isSupplemental;
 		 * @see org.xml.sax.ErrorHandler#warning(org.xml.sax.SAXParseException)
 		 */
 		public void warning(SAXParseException exception) throws SAXException {
-			Log.logln(SHOW_ALL, "warning: " + showSAX(exception));
+			Log.logln(LOG_PROGRESS, "warning: " + showSAX(exception));
 			throw exception;
 		}
     }
@@ -1718,9 +1737,9 @@ private boolean isSupplemental;
 							// always after
 						    "key", "registry", "source", "target",
 							"path", "day", "date", "version", "count", "lines",
-							"characters", "before", "from", "to", "number",
+							"characters", "before", "iso4217", "from", "to", "number",
 							"time", "casing", "list", "uri",
-							"iso4217", "digits", "rounding", "iso3166", "hex",
+							"digits", "rounding", "iso3166", "hex",
 							"id", "request",
 							"direction",
 							// collation stuff
@@ -1730,6 +1749,7 @@ private boolean isSupplemental;
 							// always near the end
 							"validSubLocales", "standard", "references",
 							"elements","element","attributes","attribute",
+                            "scripts", "mostPopulousTerritory", "territories", 
 							// these are always at the end
 							"alt", "draft", }).setErrorOnMissing(false)
 			.freeze();
@@ -1790,7 +1810,7 @@ private boolean isSupplemental;
     
     static Set orderedElements = new HashSet(java.util.Arrays
 			.asList(new String[] {
-					"variable", "comment", "tRule",
+					"variable", "comment", "tRule", "attributeValues",
 			// collation
 					"reset", "p", "pc", "s", "sc", "t", "tc", "q", "qc", "i",
 					"ic", "x", "extend", "first_variable", "last_variable",
@@ -2080,6 +2100,16 @@ private boolean isSupplemental;
                 return result;
             }
         }
+    }
+
+
+
+    public static boolean isLOG_PROGRESS() {
+        return LOG_PROGRESS;
+    }
+
+    public static void setLOG_PROGRESS(boolean log_progress) {
+        LOG_PROGRESS = log_progress;
     }
    
 }

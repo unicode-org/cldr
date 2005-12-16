@@ -7,9 +7,9 @@
 
 package org.unicode.cldr.test;
 
-import java.text.FieldPosition;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +20,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -102,16 +103,21 @@ abstract public class CheckCLDR {
 		// call on the files
 		Set locales = cldrFactory.getAvailable();
 		List result = new ArrayList();
-		XPathParts pathParts = new XPathParts(null, null);
-		XPathParts fullPathParts = new XPathParts(null, null);
 		Set paths = new TreeSet(CLDRFile.ldmlComparator);
 		Map m = new TreeMap();
 		double testNumber = 0;
+        Map options = new HashMap();
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String localeID = (String) it.next();
+            if (CLDRFile.isSupplementalName(localeID)) continue;
 			if (SHOW_LOCALE) System.out.println("Locale:\t" + getLocaleAndName(localeID) + "\t");
-			CLDRFile file = cldrFactory.make(localeID, true);
-			checkCldr.setCldrFileToCheck(file, null, result);
+            boolean onlyLanguageLocale = localeID.equals(new LocaleIDParser().set(localeID).getLanguageScript());
+            options.clear();
+            if (!onlyLanguageLocale) options.put("CheckCoverage.skip","true"); 
+            //options.put("CheckCoverage.requiredLevel","comprehensive");
+
+			CLDRFile file = cldrFactory.make(localeID, onlyLanguageLocale);
+			checkCldr.setCldrFileToCheck(file, options, result);
 			for (Iterator it3 = result.iterator(); it3.hasNext();) {
 				System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 				System.out.println(it3.next().toString());
@@ -123,7 +129,7 @@ abstract public class CheckCLDR {
 				String path = (String) it2.next();
 				String value = file.getStringValue(path);
 				String fullPath = file.getFullXPath(path);
-				checkCldr.check(path, fullPath, value, pathParts, fullPathParts, result);
+				checkCldr.check(path, fullPath, value, options, result);
 				for (Iterator it3 = result.iterator(); it3.hasNext();) {
 					CheckStatus status = (CheckStatus) it3.next();
 					if (status.getType().equals(status.exampleType)) {
@@ -281,15 +287,12 @@ abstract public class CheckCLDR {
 	 * @param path
 	 * @param result
 	 */
-	public final CheckCLDR check(String path, String fullPath, String value,
-			XPathParts pathParts, XPathParts fullPathParts, List result) {
+	public final CheckCLDR check(String path, String fullPath, String value, Map options, List result) {
 		if (path == null || value == null || fullPath == null) {
 			throw new InternalError("XMLSource problem: path, value, fullpath must not be null");
 		}
-		pathParts.clear();
-		fullPathParts.clear();
 		result.clear();
-		return handleCheck(path, fullPath, value, null, result);
+		return handleCheck(path, fullPath, value, options, result);
 	}
 
 	/**
@@ -334,29 +337,28 @@ abstract public class CheckCLDR {
 			for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
 				CheckCLDR item = (CheckCLDR) it.next();
 				try {
-					item.handleCheck(path, fullPath, value, null, result);
+					item.handleCheck(path, fullPath, value, options, result);
 				} catch (Exception e) {
-					e.printStackTrace();
-			    	CheckStatus status = new CheckStatus().setType(CheckStatus.errorType)
-			    	.setMessage("Internal error in {0}. Exception: {1}, Message: {2}", 
-			    			new Object[]{item.getClass().getName(), e.getClass().getName(), e});
-			    	result.add(status);
+			    	addError(result, item, e);
 			    	return this;
 				}
 			}
 			return this;
 		}
+        private void addError(List result, CheckCLDR item, Exception e) {
+            result.add(new CheckStatus().setType(CheckStatus.errorType)
+                    .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}", 
+                            new Object[]{item.getClass().getName(), e.getClass().getName(), e, 
+                                Arrays.asList(e.getStackTrace())}));
+        }
 		public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
 			possibleErrors.clear();
 			for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
 				CheckCLDR item = (CheckCLDR) it.next();
 				try {
-					item.setCldrFileToCheck(cldrFileToCheck, null, possibleErrors);
+					item.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 				} catch (RuntimeException e) {
-			    	CheckStatus status = new CheckStatus().setType(CheckStatus.warningType)
-			    	.setMessage("Internal error in {0}. Exception: {1}, Message: {2}", 
-			    			new Object[]{item.getClass().getName(), e.getClass().getName(), e.getMessage()});
-			    	possibleErrors.add(status);
+                    addError(possibleErrors, item, e);
 			    	return this;
 				}
 			}

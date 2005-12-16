@@ -269,9 +269,12 @@ public class LanguageTagParser {
 	 */
 	private String getSubtag(StringTokenizer st) {
 		String result = st.nextToken();
-		if (result.length() < 1 || result.length() > 8 || !ALPHANUM.containsAll(result)) {
-			throwError(result, "Illegal subtag");
-		}
+        if (result.length() < 1 || result.length() > 8) {
+            throwError(result, "Illegal length (must be 1..8)");
+        }
+        if (!ALPHANUM.containsAll(result)) {
+            throwError(result, "Illegal characters (" + new UnicodeSet().addAll(result).removeAll(ALPHANUM) + ")");
+        }
 		return result;
 	}
 	

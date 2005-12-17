@@ -20,6 +20,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Utility;
 import org.unicode.cldr.util.XPathParts;
@@ -107,6 +108,8 @@ abstract public class CheckCLDR {
 		Map m = new TreeMap();
 		double testNumber = 0;
         Map options = new HashMap();
+        Counter totalCount = new Counter();
+        Counter subtotalCount = new Counter();
 		for (Iterator it = locales.iterator(); it.hasNext();) {
 			String localeID = (String) it.next();
             if (CLDRFile.isSupplementalName(localeID)) continue;
@@ -125,6 +128,7 @@ abstract public class CheckCLDR {
 			paths.clear();
 			CollectionUtilities.addAll(file.iterator(), paths);
 			UnicodeSet missingExemplars = new UnicodeSet();
+            subtotalCount.clear();
 			for (Iterator it2 = paths.iterator(); it2.hasNext();) {
 				String path = (String) it2.next();
 				String value = file.getStringValue(path);
@@ -148,6 +152,8 @@ abstract public class CheckCLDR {
 						continue;
 					}
 					String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
+                    subtotalCount.add(status.type, 1);
+                    totalCount.add(status.type, 1);
 					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 					System.out.println("Value: " + value + "\t Full Path: " + fullPath);
 					System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
@@ -168,7 +174,15 @@ abstract public class CheckCLDR {
 				System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 				System.out.println("Total missing:\t" + missingExemplars);
 			}
+            for (Iterator it2 = new TreeSet(subtotalCount.keySet()).iterator(); it2.hasNext();) {
+                String type = (String)it2.next();
+                System.out.println("Locale:\t" + getLocaleAndName(localeID) + "\tSubtotal " + type + ":\t" + subtotalCount.getCount(type));
+            }
 		}
+        for (Iterator it2 = new TreeSet(totalCount.keySet()).iterator(); it2.hasNext();) {
+            String type = (String)it2.next();
+            System.out.println("Total " + type + ":\t" + totalCount.getCount(type));
+        }
 		
         deltaTime = System.currentTimeMillis() - deltaTime;
         System.out.println("Elapsed: " + deltaTime/60000 + " minutes");

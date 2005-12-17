@@ -242,7 +242,11 @@ public class CLDRFile implements Freezable {
     		fis = new StripUTF8BOMInputStream(fis);
     		CLDRFile result = make(localeName);
 			MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(result, includeDraft);
- 			XMLReader xmlReader = createXMLReader(true);
+            result.setNonInheriting(DEFAULT_DECLHANDLER.isSupplemental);
+
+            // now fill it.
+            
+            XMLReader xmlReader = createXMLReader(true);
 			xmlReader.setContentHandler(DEFAULT_DECLHANDLER);
 			xmlReader.setErrorHandler(DEFAULT_DECLHANDLER);
 			xmlReader.setProperty("http://xml.org/sax/properties/lexical-handler", DEFAULT_DECLHANDLER);
@@ -250,7 +254,6 @@ public class CLDRFile implements Freezable {
 			InputSource is = new InputSource(fis);
 			is.setSystemId(fileName);
 			xmlReader.parse(is);
-            result.setNonInheriting(DEFAULT_DECLHANDLER.isSupplemental);
 			return result;
     	} catch (SAXParseException e) {
     		System.out.println(CLDRFile.showSAX(e));

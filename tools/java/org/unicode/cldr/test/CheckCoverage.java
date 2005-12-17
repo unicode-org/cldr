@@ -40,7 +40,7 @@ public class CheckCoverage extends CheckCLDR {
             Map options, List result) {
         // for now, skip all but localeDisplayNames
         if (skip) return this;
-        if (path.indexOf("localeDisplayNames") < 0 && path.indexOf("currencies") < 0) return this;
+        if (path.indexOf("localeDisplayNames") < 0 && path.indexOf("currencies") < 0 && path.indexOf("exemplarCity") < 0) return this;
 
         // skip all items that are in anything but raw codes
         String source = getCldrFileToCheck().getSourceLocaleID(path);
@@ -52,7 +52,7 @@ public class CheckCoverage extends CheckCLDR {
         Level requiredLevel = coverageLevel.getRequiredLevel();
         if (options != null) {
             String optionLevel = (String) options.get("CheckCoverage.requiredLevel");
-            if (level != null) requiredLevel = Level.get(optionLevel);
+            if (optionLevel != null) requiredLevel = Level.get(optionLevel);
         }
         if (requiredLevel.compareTo(level) >= 0) {
             result.add(new CheckStatus().setType(CheckStatus.errorType)
@@ -163,10 +163,12 @@ public class CheckCoverage extends CheckCLDR {
     static public class CoverageLevel {
         private static Object sync = new Object();
 
+        // commmon stuff, set once
         private static Map coverageData = new TreeMap();
         private static Map base_language_level = new TreeMap();
         private static Map base_script_level = new TreeMap();
         private static Map base_territory_level = new TreeMap();
+        private static Set minimalTimezones;
 
         private static Map language_scripts = new TreeMap();
 
@@ -175,7 +177,13 @@ public class CheckCoverage extends CheckCLDR {
         private static Set modernLanguages = new TreeSet();
         private static Set modernScripts = new TreeSet();
         private static Set modernTerritories = new TreeSet();
-
+        private static Map locale_requiredLevel = new TreeMap();
+        private static Map territory_currency = new TreeMap();
+        private static Map territory_timezone = new TreeMap();
+        private static Set modernCurrencies = new TreeSet();
+         
+        // current stuff, set according to file
+  
         private boolean initialized = false;
 
         private transient LocaleIDParser parser = new LocaleIDParser();
@@ -187,18 +195,14 @@ public class CheckCoverage extends CheckCLDR {
         private Level requiredLevel;
 
         private Map script_level = new TreeMap();
+        private Map zone_level = new TreeMap();
 
         private Map territory_level = new TreeMap();
         private Map currency_level = new TreeMap();
         
         StandardCodes sc = StandardCodes.make();
         
-        static Map locale_requiredLevel = new TreeMap();
         boolean latinScript = false;
-        
-        static Map territory_currency = new TreeMap();
-        static Set modernCurrencies = new TreeSet();
-        
 
         public void setFile(CLDRFile file, Map options) {
             synchronized (sync) {
@@ -234,7 +238,7 @@ public class CheckCoverage extends CheckCLDR {
             territory_level.putAll(base_territory_level);
             putAll(territory_level, (Set) language_territories.get(language), Level.BASIC);
             
-            // set currencies according to territory level
+            // set currencies, timezones according to territory level
             currency_level.clear();
             putAll(currency_level, modernCurrencies, Level.MODERN);
             for (Iterator it = territory_level.keySet().iterator(); it.hasNext();) {
@@ -242,6 +246,12 @@ public class CheckCoverage extends CheckCLDR {
                 Level level = (Level) territory_level.get(territory);
                 Set currencies = (Set) territory_currency.get(territory);
                 setIfBetter(currencies, level, currency_level);
+                Set timezones = (Set) territory_timezone.get(territory);
+                if (timezones != null) {
+                // only worry about the ones that are "moderate"
+                    timezones.retainAll(minimalTimezones);
+                    setIfBetter(timezones, level, zone_level);
+                }
             }
 
             if (DEBUG) {
@@ -280,15 +290,20 @@ public class CheckCoverage extends CheckCLDR {
             String type = (String) parts.getAttributes(-1).get("type");
             Level result = null;
             String part1 = parts.getElement(1);
-            if (part1.equals("localeDisplayNames")) {
+            if (lastElement.equals("exemplarCity")) {
+                if (latinScript) {
+                    result = Level.SKIP;
+                } else {
+                    type = (String) parts.getAttributes(-2).get("type"); // it's one level up
+                    result = (Level) zone_level.get(type);
+                }
+            } else if (part1.equals("localeDisplayNames")) {
                 if (lastElement.equals("language")) {
                     // <language type=\"aa\">Afar</language>"
                     result = (Level) language_level.get(type);
                 } else if (lastElement.equals("territory")) {
-                    // <language type=\"aa\">Afar</language>"
                     result = (Level) territory_level.get(type);
                 } else if (lastElement.equals("script")) {
-                    // <language type=\"aa\">Afar</language>"
                     result = (Level) script_level.get(type);
                 }
             } else if (part1.equals("numbers")) {
@@ -314,7 +329,7 @@ public class CheckCoverage extends CheckCLDR {
                 getMetadata(metadata);
 
                 CLDRFile data = file.make("supplementalData", false);
-                getData(metadata);
+                getData(data);
 
                 // put into an easier form to use
                 
@@ -324,6 +339,9 @@ public class CheckCoverage extends CheckCLDR {
                 Utility.putAllTransposed(type_scripts, base_script_level);
                 Map type_territories = (Map) coverageData.get("territoryCoverage");
                 Utility.putAllTransposed(type_territories, base_territory_level);
+                
+                Map type_timezones = (Map) coverageData.get("timezoneCoverage");
+                minimalTimezones = (Set) type_timezones.get(Level.MODERATE);
                 
                 // add the modern stuff, after doing both of the above
                 
@@ -383,35 +401,51 @@ public class CheckCoverage extends CheckCLDR {
         private void getMetadata(CLDRFile metadata) {
             for (Iterator it = metadata.iterator(); it.hasNext();) {
                 String path = (String) it.next();
-                if (path.indexOf("coverageAdditions") < 0) continue;
-                // System.out.println(path);
-                // System.out.flush();
-                //String value = metadata.getStringValue(path);
-                path = metadata.getFullXPath(path);
-                parts.set(path);
-                String lastElement = parts.getElement(-1);
-                Map attributes = parts.getAttributes(-1);
-                // <languageCoverage type="basic" values="de en es fr it ja
-                // pt ru zh"/>
-                Level type = Level.get((String) attributes.get("type"));
-                String values = (String) attributes.get("values");
-                Utility.addTreeMapChain(coverageData, new Object[] {
-                        lastElement, type,
-                        new TreeSet(Arrays.asList(values.split("\\s+"))) });
-                
-            }
-        }
-        
-        private void getData(CLDRFile metadata) {
-            for (Iterator it = metadata.iterator(); it.hasNext();) {
-                String path = (String) it.next();
-                //String value = metadata.getStringValue(path);
                 path = metadata.getFullXPath(path);
                 parts.set(path);
                 String lastElement = parts.getElement(-1);
                 Map attributes = parts.getAttributes(-1);
                 String type = (String) attributes.get("type");
-                if (parts.containsElement("calendarData")) {
+                if (parts.containsElement("coverageAdditions")) {
+                    // System.out.println(path);
+                    // System.out.flush();
+                    //String value = metadata.getStringValue(path);
+                    // <languageCoverage type="basic" values="de en es fr it ja
+                    // pt ru zh"/>
+                    Level level = Level.get(type);
+                    String values = (String) attributes.get("values");
+                    Utility.addTreeMapChain(coverageData, new Object[] {
+                            lastElement, level,
+                            new TreeSet(Arrays.asList(values.split("\\s+"))) });
+                }
+            }
+        }
+        
+        Set multizoneTerritories = null;
+        
+        private void getData(CLDRFile data) {
+            for (Iterator it = data.iterator(null, CLDRFile.ldmlComparator); it.hasNext();) {
+                String path = (String) it.next();
+                //String value = metadata.getStringValue(path);
+                path = data.getFullXPath(path);
+                parts.set(path);
+                String lastElement = parts.getElement(-1);
+                Map attributes = parts.getAttributes(-1);
+                String type = (String) attributes.get("type");
+                //System.out.println(path);
+                if (lastElement.equals("zoneItem")) {
+                    if (multizoneTerritories == null) {
+                        Map multiAttributes = parts.getAttributes(-2);
+                        String multizone = (String) multiAttributes.get("multizone");
+                        multizoneTerritories = new TreeSet(Arrays.asList(multizone.split("\\s+")));
+                    }
+                    //<zoneItem type="Africa/Abidjan" territory="CI"/>
+                    String territory = (String) attributes.get("territory");
+                    if (!multizoneTerritories.contains(territory)) continue;
+                    Set territories = (Set) territory_timezone.get(territory);
+                    if (territories == null) territory_timezone.put(territory, territories = new TreeSet());
+                    territories.add(type);
+                } else if (parts.containsElement("calendarData")) {
                     // System.out.println(path);
                     // System.out.flush();
                     // we have element, type, subtype, and values
@@ -424,7 +458,7 @@ public class CheckCoverage extends CheckCLDR {
                     // <language type="ab" scripts="Cyrl" territories="GE"
                     // alt="secondary"/>
                     String alt = (String) attributes.get("alt");
-                    if (alt != null) return;
+                    if (alt != null) continue;
                     modernLanguages.add(type);
                     String scripts = (String) attributes.get("scripts");
                     if (scripts != null) {

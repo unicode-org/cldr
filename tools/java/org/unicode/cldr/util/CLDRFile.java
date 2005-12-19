@@ -86,7 +86,7 @@ public class CLDRFile implements Freezable {
 		private Comments xpath_comments = new Comments(); // map from paths to comments.
 		private Factory factory; // for now, fix later
 		
-		SimpleXMLSource(Factory factory, String localeID) {
+		public SimpleXMLSource(Factory factory, String localeID) {
 			this.factory = factory;
 			this.setLocaleID(localeID);
 		}
@@ -965,7 +965,7 @@ private boolean isSupplemental;
                     : (resolved ? resolvedCacheNoDraft : mainCacheNoDraft);
 	    	CLDRFile result = (CLDRFile) cache.get(localeName);
 	    	if (result == null) {
-    			result = CLDRFile.make(localeName, isSupplementalName(localeName) ? sourceDirectory + "../supplemental/" : sourceDirectory, includeDraft);
+    			result = CLDRFile.make(localeName, isSupplementalName(localeName) ? sourceDirectory + File.separator + "../supplemental/" : sourceDirectory, includeDraft);
     	    	((SimpleXMLSource)result.dataSource).factory = this;
     			if (resolved) {
     				result.dataSource = result.dataSource.getResolving();

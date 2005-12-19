@@ -619,6 +619,26 @@ public abstract class XMLSource implements Freezable {
 			return mySource.getLocaleID();
 		}
 		
+        private static final String [] keyDisplayNames = {
+            "calendar",
+            "collation",
+            "currency"
+        };
+        private static final String[][] typeDisplayNames = {
+                { "big5han", "collation" },
+                { "buddhist", "calendar" },
+                { "chinese", "calendar" },
+                { "direct", "collation" },
+                { "gb2312han", "collation" },
+                { "gregorian", "calendar" },
+                { "hebrew", "calendar" },
+                { "islamic", "calendar" },
+                { "islamic-civil", "calendar" },
+                { "japanese", "calendar" },
+                { "phonebook", "collation" },
+                { "pinyin", "collation" },
+                { "stroke", "collation" },
+                { "traditional", "collation" } };
 		static XMLSource constructedItems = new SimpleXMLSource(null, null);
 		static {
 			StandardCodes sc = StandardCodes.make();
@@ -652,6 +672,19 @@ public abstract class XMLSource implements Freezable {
 					constructedItems.putValueAtPath(fullpath, value);
 				}
 			}
+            for (int i = 0; i < keyDisplayNames.length; ++i) {
+                constructedItems.putValueAtPath(
+                        "//ldml/localeDisplayNames/keys/key" +
+                        "[@type=\"" + keyDisplayNames[i] + "\"]",
+                        keyDisplayNames[i]);
+            }
+            for (int i = 0; i < typeDisplayNames.length; ++i) {
+                constructedItems.putValueAtPath(
+                        "//ldml/localeDisplayNames/types/type"
+                        + "[@type=\"" + typeDisplayNames[i][0] + "\"]"
+                        + "[@key=\"" + typeDisplayNames[i][1] + "\"]",
+                        typeDisplayNames[i][0]);
+            }
 			constructedItems.freeze();
 	    	//System.out.println("constructedItems: " + constructedItems);
 		}

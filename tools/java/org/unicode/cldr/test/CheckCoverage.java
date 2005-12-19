@@ -20,6 +20,7 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Checks locale data for coverage.<br>
@@ -32,6 +33,7 @@ import com.ibm.icu.text.UnicodeSet;
  */
 public class CheckCoverage extends CheckCLDR {
     static final boolean DEBUG = false;
+    static final boolean DEBUG_SET = false;
     private static CoverageLevel coverageLevel = new CoverageLevel();
 
     private boolean skip; // set to null if we should not be checking this file
@@ -72,7 +74,7 @@ public class CheckCoverage extends CheckCLDR {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 
         if (cldrFileToCheck.getLocaleID().equals("root")) return this;
-        coverageLevel.setFile(cldrFileToCheck, options);
+        coverageLevel.setFile(cldrFileToCheck, options, possibleErrors);
         skip = false;
         return this;
     }
@@ -169,10 +171,13 @@ public class CheckCoverage extends CheckCLDR {
         private static Map base_script_level = new TreeMap();
         private static Map base_territory_level = new TreeMap();
         private static Set minimalTimezones;
+        private static Set euroCountries;
+        private static Set euroLanguages = new TreeSet();
 
         private static Map language_scripts = new TreeMap();
 
         private static Map language_territories = new TreeMap();
+        private static Map territory_languages = new TreeMap();
         
         private static Set modernLanguages = new TreeSet();
         private static Set modernScripts = new TreeSet();
@@ -180,6 +185,7 @@ public class CheckCoverage extends CheckCLDR {
         private static Map locale_requiredLevel = new TreeMap();
         private static Map territory_currency = new TreeMap();
         private static Map territory_timezone = new TreeMap();
+        private static Map territory_calendar = new TreeMap();
         private static Set modernCurrencies = new TreeSet();
          
         // current stuff, set according to file
@@ -199,12 +205,13 @@ public class CheckCoverage extends CheckCLDR {
 
         private Map territory_level = new TreeMap();
         private Map currency_level = new TreeMap();
+        private Map calendar_level = new TreeMap();
         
         StandardCodes sc = StandardCodes.make();
         
         boolean latinScript = false;
 
-        public void setFile(CLDRFile file, Map options) {
+        public void setFile(CLDRFile file, Map options, List possibleErrors) {
             synchronized (sync) {
                 if (!initialized) {
                     init(file);
@@ -228,6 +235,9 @@ public class CheckCoverage extends CheckCLDR {
             // do the work of putting together the coverage info
             language_level.clear();
             script_level.clear();
+            currency_level.clear();
+            zone_level.clear();
+            calendar_level.clear();
 
             language_level.putAll(base_language_level);
             language_level.put(language, Level.BASIC);
@@ -238,28 +248,48 @@ public class CheckCoverage extends CheckCLDR {
             territory_level.putAll(base_territory_level);
             putAll(territory_level, (Set) language_territories.get(language), Level.BASIC);
             
+            // special cases for EU
+            if (euroLanguages.contains(language)) {
+                setIfBetter(language_level, euroLanguages, Level.MODERATE, true);
+                setIfBetter(territory_level, euroCountries, Level.MODERATE, true);
+            }
+            
             // set currencies, timezones according to territory level
-            currency_level.clear();
             putAll(currency_level, modernCurrencies, Level.MODERN);
             for (Iterator it = territory_level.keySet().iterator(); it.hasNext();) {
                 String territory = (String) it.next();
                 Level level = (Level) territory_level.get(territory);
                 Set currencies = (Set) territory_currency.get(territory);
-                setIfBetter(currencies, level, currency_level);
+                setIfBetter(currency_level, currencies, level, false);
                 Set timezones = (Set) territory_timezone.get(territory);
                 if (timezones != null) {
                 // only worry about the ones that are "moderate"
                     timezones.retainAll(minimalTimezones);
-                    setIfBetter(timezones, level, zone_level);
+                    setIfBetter(zone_level, timezones, level, false);
                 }
             }
+            
+            // set the calendars only by the direct territories for the language
+            calendar_level.put("gregorian", Level.BASIC);
+            Set territories = ((Set)language_territories.get(language));
+            if (territories == null) {
+                possibleErrors.add(new CheckStatus()
+                        .setType(CheckStatus.errorType)
+                        .setMessage("Missing language->territory information in supplemental data!"));
+            } else for (Iterator it = territories.iterator(); it.hasNext();) {
+                String territory = (String) it.next();
+                setIfBetter(calendar_level, (Collection) territory_calendar.get(territory), Level.BASIC, true);
+            }
 
+            
             if (DEBUG) {
                 System.out.println("Required Level: " + requiredLevel);
                 System.out.println(language_level);               
                 System.out.println(script_level);
                 System.out.println(territory_level);
                 System.out.println(currency_level);
+                System.out.println("euroCountries: " + euroCountries);
+                System.out.println("euroLanguages: " + euroLanguages);
                 System.out.println("file-specific info set");
                 System.out.flush();
             }
@@ -271,14 +301,31 @@ public class CheckCoverage extends CheckCLDR {
                 targetMap.put(it2.next(), value);
             }
         }
+        
+        private void addAllToCollectionValue(Map targetMap, Collection keyset, Object value, Class classForNew) {
+            if (keyset == null) return;
+            for (Iterator it2 = keyset.iterator(); it2.hasNext();) {
+                addToValueSet(targetMap, it2.next(), value, classForNew);
+            }
+        }
 
-        private void setIfBetter(Set keySet, Level level, Map targetMap) {
-            if (keySet == null) return;
-            for (Iterator it2 = keySet.iterator(); it2.hasNext();) {
+        private void addToValueSet(Map targetMap, Object key, Object value, Class classForNew) {
+            Collection valueSet = (Collection) targetMap.get(key);
+            if (valueSet == null) try {
+                targetMap.put(key, valueSet = (Collection)classForNew.newInstance());
+            } catch (Exception e) {
+                throw new IllegalArgumentException("Cannot create collection with " + classForNew.getName());
+            }
+            valueSet.add(value);
+        }
+
+        private void setIfBetter(Map targetMap, Collection keyCollection, Level level, boolean show) {
+            if (keyCollection == null) return;
+            for (Iterator it2 = keyCollection.iterator(); it2.hasNext();) {
                 Object script = it2.next();
                 Level old = (Level) targetMap.get(script);
                 if (old == null || level.compareTo(old) < 0) {
-                    //System.out.println("\t" + script + "\t(" + old + ")");
+                    if (DEBUG_SET && show) System.out.println("\t" + script + "\t(" + old + " => " + level + ")");
                     targetMap.put(script, level);
                 }
             }
@@ -287,7 +334,8 @@ public class CheckCoverage extends CheckCLDR {
         public Level getCoverageLevel(String path, String fullPath, String value) {
             parts.set(fullPath);
             String lastElement = parts.getElement(-1);
-            String type = (String) parts.getAttributes(-1).get("type");
+            Map attributes = parts.getAttributes(-1);
+            String type = (String)attributes.get("type");
             Level result = null;
             String part1 = parts.getElement(1);
             if (lastElement.equals("exemplarCity")) {
@@ -305,7 +353,13 @@ public class CheckCoverage extends CheckCLDR {
                     result = (Level) territory_level.get(type);
                 } else if (lastElement.equals("script")) {
                     result = (Level) script_level.get(type);
+                } else if (lastElement.equals("type")) {
+                    String key = (String)attributes.get("key");
+                    if (key.equals("calendar")) {
+                        result = (Level) calendar_level.get(type);
+                    }
                 }
+                // <types><type type="big5han" key="collation">Traditional Chinese (Big5)</type>
             } else if (part1.equals("numbers")) {
                 /*
                  * <numbers> ? <currencies> ? <currency type="BRL"> <displayName draft="true">Brazilian Real</displayName>
@@ -381,6 +435,36 @@ public class CheckCoverage extends CheckCLDR {
                             }
                         }
                     }
+                    
+                    for (Iterator it = euroCountries.iterator(); it.hasNext();) {
+                        String territory = (String) it.next();
+                        Collection languages = (Collection)territory_languages.get(territory);
+                        euroLanguages.addAll(languages);
+                    }
+                    
+                    if (false) {
+                        for (Iterator it = territory_currency.keySet().iterator(); it
+                                .hasNext();) {
+                            String territory = (String) it.next();
+                            System.out.print(ULocale.getDisplayCountry("und_"
+                                    + territory, ULocale.ENGLISH)
+                                    + "\t" + territory
+                                    + "\t=>\t");
+                            Collection languages = (Collection) territory_languages.get(territory);
+                            if (languages == null || languages.size() == 0) {
+                                System.out.print("-NONE-");
+                            } else for (Iterator it2 = languages.iterator(); it2.hasNext();) {
+                                String language = (String) it2.next();
+                                System.out.print(ULocale.getDisplayLanguage(
+                                        language, ULocale.ENGLISH)
+                                        + " (" + language + ")"
+                                        + ";\t");
+                            }
+                            System.out.println();
+                        }
+                    }
+
+
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -454,6 +538,7 @@ public class CheckCoverage extends CheckCLDR {
                                     .get("territories")).split("\\s+")));
                     Utility.addTreeMapChain(coverageData, new Object[] {
                             lastElement, type, values });
+                    addAllToCollectionValue(territory_calendar,values,type,TreeSet.class);
                 } else if (parts.containsElement("languageData")) {
                     // <language type="ab" scripts="Cyrl" territories="GE"
                     // alt="secondary"/>
@@ -477,6 +562,7 @@ public class CheckCoverage extends CheckCLDR {
                         modernTerritories.addAll(territorySet);
                         Utility.addTreeMapChain(language_territories,
                                 new Object[] {type, territorySet});
+                        addAllToCollectionValue(territory_languages, territorySet, type, ArrayList.class);
                     }
                 } else if (parts.containsElement("currencyData") && lastElement.equals("currency")) {
                     //         <region iso3166="AM"><currency iso4217="AMD" from="1993-11-22"/>
@@ -492,6 +578,10 @@ public class CheckCoverage extends CheckCLDR {
                             if (currencies == null) territory_currency.put(region, currencies = new TreeSet());
                             currencies.add(currency);
                         }
+                    }
+                } else if (parts.containsElement("territoryContainment")) {
+                    if (type.equals("QE")) {
+                        euroCountries = new TreeSet(Arrays.asList(((String)attributes.get("contains")).split("\\s+")));
                     }
                 }
             }

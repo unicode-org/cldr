@@ -7,8 +7,8 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 
-    $Revision: 1.22 $
-    $Date: 2005-12-16 17:28:05 $
+    $Revision: 1.23 $
+    $Date: 2005-12-19 22:01:14 $
 -->
 
 <!ELEMENT supplementalData ( version?, generation?, currencyData?, territoryContainment?, languageData?, calendarData?, timezoneData?, characters?, metadata? ) >
@@ -98,7 +98,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST substitute references CDATA #IMPLIED >
 <!ATTLIST substitute alt CDATA #IMPLIED >
 
-<!ELEMENT metadata (  attributeOrder?, elementOrder?, serialElements?, suppress?, validity?, alias?, deprecated?, coverageAdditions?, ) >
+<!ELEMENT metadata ( attributeOrder?, elementOrder?, serialElements?, suppress?, validity?, alias?, deprecated?, coverageAdditions? ) >
 <!ATTLIST metadata draft ( true | false ) #IMPLIED >
 
 <!ELEMENT attributeOrder ( #PCDATA ) >

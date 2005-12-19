@@ -302,8 +302,14 @@ abstract public class CheckCLDR {
 	 * @param result
 	 */
 	public final CheckCLDR check(String path, String fullPath, String value, Map options, List result) {
-		if (path == null || value == null || fullPath == null) {
-			throw new InternalError("XMLSource problem: path, value, fullpath must not be null");
+		if (path == null) {
+			throw new InternalError("XMLSource problem: path must not be null");
+		}
+		if (fullPath == null) {
+			throw new InternalError("XMLSource problem: fullPath must not be null");
+		}
+		if (value == null) {
+			throw new InternalError("XMLSource problem: value must not be null");
 		}
 		result.clear();
 		return handleCheck(path, fullPath, value, options, result);

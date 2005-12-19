@@ -470,7 +470,7 @@ public class XPathParts {
 	// ========== Privates ==========
 	
 	private XPathParts parseError(String s, int i) {
-		throw new IllegalArgumentException("Malformed xPath " + s + " at " + i);
+		throw new IllegalArgumentException("Malformed xPath '" + s + "' at " + i);
 	}
 
 	public static final int XPATH_STYLE = 0, XML_OPEN = 1, XML_CLOSE = 2, XML_NO_VALUE = 3;

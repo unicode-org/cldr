@@ -1072,8 +1072,6 @@ XXX	Code for transations where no currency is involved
 		<group type="009" contains="053 054 057 061 QO"/> <!--Oceania -->
 		<group type="QO" contains="AQ BV CC CX GS HM IO TF UM"/> <!--Outlying Oceania -->
 		<group type="QE" contains="AT BE CY CZ DE DK EE ES FR GB GR HU IE IT LT LU LV MT NL PL PT SE SI SK"/> <!-- European Union -->
-		<group type="QZ" contains="AT BE DE ES FR GR IE IT LU NL PT"/> <!-- Euro zone -->
-		<group type="QQ" contains="AT BE CH CZ DE DK ES FR GB GR HU IE IS IT LU NL NO PL PT SE SK TR JP KR CA US MX VI AU CC CX HM NF NZ"/> <!-- OECD -->
 	</territoryContainment>
 	<languageData>
 		<language type="ab" scripts="Cyrl" territories="GE" alt="secondary"/>
@@ -1263,7 +1261,8 @@ XXX	Code for transations where no currency is involved
 	<calendarData>
 		<!-- gregorian is assumed, so these are all in addition -->
 		<calendar type="japanese" territories="JP"/>
-		<calendar type="islamic islamic-civil" territories="AE BH DJ DZ EG EH ER IL IQ JO KM KW LB LY MA MR OM PS QA SA SD SY TD TN YE AF IR"/>
+		<calendar type="islamic-civil" territories="AE BH DJ DZ EG EH ER IL IQ JO KM KW LB LY MA MR OM PS QA SA SD SY TD TN YE AF IR"/>
+		<calendar type="islamic" territories="AE BH DJ DZ EG EH ER IL IQ JO KM KW LB LY MA MR OM PS QA SA SD SY TD TN YE AF IR"/>
 		<calendar type="chinese" territories="CN CX HK MO SG TW"/>
 		<calendar type="hebrew" territories="IL"/>
 		<calendar type="buddhist" territories="TH"/>

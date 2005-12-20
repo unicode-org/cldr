@@ -95,14 +95,24 @@ a.selected :link {
 }
 
 .name {
-	background-color: #EEEEFF;
+	background-color: #eef;
 }
 
 .warning {
 	font-size: smaller;
 	font-color: #F22;
 	color: #F22;
-	background-color: #ffeeee;
+	background-color: #fee;
+}
+
+td.warncell {
+    border-left: 1px solid #ddd;
+}
+
+tr.warnrow {
+    font-color: #f22;
+    color: #f22;
+    background-color: #fee;
 }
 
 .pager {
@@ -121,7 +131,7 @@ a.selected :link {
 
 .inputbox {
 	width: 100%;
-	height: 100%
+	height: 100%;
 }
 
 .hang {
@@ -186,6 +196,30 @@ table.userlist {
 .user999 {
 	color: #dddddd;
 	background: #5d3cff;
+}
+
+tr.topbar {
+    border-top: 3px solid #040
+}
+
+th.botgray {
+    border-bottom: 1px solid #ddd
+}
+
+tr.heading {
+    background: #ddd; 
+}
+
+tt.codebox {
+ border: 1px solid gray; 
+ padding: 2px; 
+ margin-top:0px
+}
+
+.dashbox {
+    color: #000;
+    background: #ddd;
+    font-size: 80%; border: 1px dashed gray; padding: 1px; margin-top:0px
 }
 
 /*</group>*/

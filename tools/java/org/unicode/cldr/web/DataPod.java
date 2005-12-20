@@ -47,6 +47,8 @@ public class DataPod {
         public String displayName = null;
         public String altType = null; // alt type (NOT to be confused with -proposedn)
         boolean hasTests = false;
+        boolean hasProps = false;
+        boolean hasInherited = false;
         public class Item {
             public String altProposed = null; // proposed part of the name (or NULL for nondraft)
             public String value = null; // actual value
@@ -78,8 +80,28 @@ public class DataPod {
             items.add(pi);
 //            System.out.println("  v: " + pi.value);
         }
+        
+        Hashtable subPeas = null;
+        
+        public Pea getSubPea(String altType) {
+            if(altType == null) {
+                return this;
+            }
+            if(subPeas == null) {
+                subPeas = new Hashtable();
+            }
+
+            Pea p = (Pea)subPeas.get(altType);
+            if(p==null) {
+                p = new Pea();
+                p.type = type;
+                p.altType = altType;
+                subPeas.put(altType, p);
+            }
+            return p;
+        }
     }
-	
+
     Hashtable peasHash = new Hashtable();
     String oldSortMode = null;
     List peas = null;
@@ -116,23 +138,49 @@ public class DataPod {
                             }
                             
                             int rv = 0; // neg:  a < b.  pos: a> b
-                            if(p1.hasTests) {
-                                rv -= 1000;
-                            }
-                            if(p2.hasTests) {
-                                rv += 1000;
-                            }
-                            if(p1.items.size() != 0) {
-                                rv -= 100; // 0 items last
-                            }
-                            if(p2.items.size() != 0) {
-                                rv += 100; // 0 items last
+                            
+                            if(rv == 0) {
+                                if(p1.hasTests) {
+                                    rv -= 1000;
+                                }
+                                if(p2.hasTests) {
+                                    rv += 1000;
+                                }
                             }
                             
-                            if(rv != 0) {
-                                return rv;
-                            } else {                            
-                                return myCollator.compare(p1.type, p2.type);
+                            if(rv == 0) {
+                                if(p1.hasProps) {
+                                    rv -= 100; // 0 items last
+                                }
+                                if(p2.hasProps) {
+                                    rv += 100; // 0 items last
+                                }
+                            }
+                            
+                            if(rv == 0) {
+                                if(!p1.hasInherited) {
+                                    rv -= 10; // 0 items last
+                                }
+                                if(!p2.hasInherited) {
+                                    rv += 10; // 0 items last
+                                }
+                            }
+
+                           if(rv == 0) { // try to avoid a compare
+                                int crv = myCollator.compare(p1.type, p2.type);
+                                if(crv < 0) {
+                                    rv -= 1;
+                                } else if(crv > 0) {
+                                    rv += 1;
+                                }
+                            }
+                            
+                            if(rv < 0) {
+                                return -1;
+                            } else if(rv > 0) {
+                                return 1;
+                            } else {
+                                return 0;
                             }
                         }
                     });
@@ -197,6 +245,7 @@ public class DataPod {
     private void loadStandard(CLDRFile engf)
     {
         XPathParts xpp = new XPathParts(null,null);
+        System.out.println("Loading with prefix: '" + xpathPrefix + "'");
         xpp.initialize(xpathPrefix);
         String subtype = xpp.getElement(-1);
         StandardCodes standardCodes = StandardCodes.make();
@@ -212,6 +261,7 @@ public class DataPod {
                     // p.altType, etc..
                     addPea(p);
                 }
+                p.hasInherited=true;
                 p.displayName = standardCodes.getData(subtype, code); /* Hack - should use English. */
             }
         }
@@ -221,6 +271,7 @@ public class DataPod {
         XPathParts xpp = new XPathParts(null,null);
         System.out.println("[] initting from pod  with pref " + xpathPrefix);
         CLDRFile aFile = new CLDRFile(src, false);
+        Map options = new TreeMap();
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
 /*
@@ -234,26 +285,52 @@ public class DataPod {
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
             String xpath = (String)it.next();
             String type = src.xpt.typeFromPathToTinyXpath(xpath, xpp);
+            if(type == null) {
+                type = "\'" + xpath + "\'"; // HACK
+            }
             String value = aFile.getStringValue(xpath);
+            if(value == null) {
+//                throw new InternalError("Value of " + xpath + " is null.");
+                  System.err.println("Value of " + xpath + " is null.");
+                 value = "(NOTHING)";
+            }
             String fullPath = aFile.getFullXPath(xpath);
 //            System.out.println("* T=" + type + ", X= " + xpath);
             String alt = src.xpt.altFromPathToTinyXpath(xpath, xpp);
-            String altProposed = alt; // TODO: 0 should be a PARSE
-            Pea p = getPea(type);
-            if(p == null) {
-                p = new Pea();
-                p.type = type;
-                // p.altType, etc..
-                addPea(p);
+            String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
+            String altProposed = typeAndProposed[1];
+            String altType = typeAndProposed[0];
+            Pea p = getPea(type, altType);
+            Pea superP = getPea(type);
+            
+            superP.hasInherited=false;
+            p.hasInherited=false;
+            
+            if(altProposed != null) {
+                p.hasProps = true;
+                superP.hasProps = true;
             }
-            if(checkCldr != null) {
-                checkCldr.check(xpath, fullPath, value, pathParts, fullPathParts, checkCldrResult);
+
+            if((checkCldr != null)&&(altProposed == null)) {
+                checkCldr.check(xpath, fullPath, value, options, checkCldrResult);
             }
             if(checkCldrResult.isEmpty()) {
                 p.addItem( value,  altProposed, null);
             } else {
                 p.addItem( value, altProposed, checkCldrResult);
-                p.hasTests = true;
+                // only consider non-example tests as notable.
+                boolean weHaveTests = false;
+                for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
+                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                    if(!status.getType().equals(status.exampleType)) {
+                        weHaveTests = true;
+                    }
+                }
+                if(weHaveTests) {
+                    p.hasTests = true;
+                    superP.hasTests = true;
+                }
+                // set the parent
                 checkCldrResult = new ArrayList(); // can't reuse it if nonempty
             }
         }
@@ -261,7 +338,28 @@ public class DataPod {
 //        aFile.close();
     }
     private Pea getPea(String type) {
-        return (Pea)peasHash.get(type);
+        if(type == null) {
+            throw new InternalError("type is null");
+        }
+        if(peasHash == null) {
+            throw new InternalError("peasHash is null");
+        }
+        Pea p = (Pea)peasHash.get(type);
+        if(p == null) {
+            p = new Pea();
+            p.type = type;
+            addPea(p);
+        }
+        return p;
+    }
+    
+    private Pea getPea(String type, String altType) {
+        if(altType == null) {
+            return getPea(type);
+        } else {
+            Pea superPea = getPea(type);
+            return superPea.getSubPea(altType);
+        }
     }
     
     void addPea(Pea p) {

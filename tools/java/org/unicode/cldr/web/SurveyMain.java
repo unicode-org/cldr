@@ -115,10 +115,10 @@ public class SurveyMain extends HttpServlet {
     public static final String OTHERROOTS_ITEMS[] = {
         LDMLConstants.CHARACTERS,
         NUMBERSCURRENCIES,
-        LDMLConstants.NUMBERS + "/",
+        LDMLConstants.NUMBERS /*+ "/" */,
         "timeZoneNames",
         LDMLConstants.DATES + "/calendars",
-        LDMLConstants.DATES + "/"
+        LDMLConstants.DATES /* + "/" */
     };
     public static final String RAW_MENU_ITEM = "raw";
     public static final String TEST_MENU_ITEM = "test";
@@ -416,7 +416,7 @@ public class SurveyMain extends HttpServlet {
         
         ctx.println("<script type='text/javascript'><!-- \n" +
                     "function show(what)\n" +
-                    "{document.getElementById(what).style.display=\"block\";}\n" +
+                    "{document.getElementById(what).style.display=\"block\";\ndocument.getElementById(\"h_\"+what).style.display=\"none\";}\n" +
                     "--></script>");
         
     }
@@ -1594,6 +1594,7 @@ subtype = subtype.substring(0,subtype.length()-1);
             CheckCLDR checkCldr =  (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
             List checkCldrResult = new ArrayList();
             if (checkCldr == null)  {
+                logger.info("Initting tests . . .");
                 long t0 = System.currentTimeMillis();
                 checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
                 ctx.putByLocale(USER_FILE + CHECKCLDR, checkCldr);
@@ -1684,7 +1685,7 @@ subtype = subtype.substring(0,subtype.length()-1);
                     if(which.equals("timeZoneNames")) {
                         showZoneList(subCtx);
                     } else {
-                        showPathList(subCtx, OTHERROOTS_ITEMS[j], null);
+                        showPathList(subCtx, "//ldml/"+OTHERROOTS_ITEMS[j], null);
                     }
                     return;
                 }
@@ -1694,7 +1695,7 @@ subtype = subtype.substring(0,subtype.length()-1);
                 //                doOtherList(subCtx, which);
             } else if(RAW_MENU_ITEM.equals(which)) {
                 doRaw(subCtx);
-            } else if((checkCldr != null) && (TEST_MENU_ITEM.equals(which))) { // print the results
+      /*      } else if((checkCldr != null) && (TEST_MENU_ITEM.equals(which))) { // print the results
                 CLDRFile file = cf;
                 ctx.println("<pre style='border: 1px dashed olive; padding: 1em; background-color: cream; overflow: auto;'>");
                 //            Set locales = ourSrc.getAvailable();
@@ -1727,6 +1728,7 @@ subtype = subtype.substring(0,subtype.length()-1);
                 
                 //            }
                 ctx.println("</pre>");
+        */
             } else  {
                 doMain(subCtx);
             }
@@ -2199,7 +2201,7 @@ public void showZoneList(WebContext ctx) {
                                         pathParts.clear();
                                         fullPathParts.clear();
                                         checkCldrResult.clear();
-                                        checkCldr.check(subXpath, fullPath, val, pathParts, fullPathParts, checkCldrResult);
+//                                        checkCldr.check(subXpath, fullPath, val, pathParts, fullPathParts, checkCldrResult);
                                         for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                                             CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
                                             if (!status.getType().equals(status.exampleType)) {
@@ -2246,6 +2248,71 @@ public void showZoneList(WebContext ctx) {
 }
 
 /**
+ NHTML
+ 
+<tr class='heading'>
+    <th colspan=2>
+    </th>
+    <th >action</th>
+    <th >data</th>
+    <th >alerts</th>
+</tr>
+
+<tr class='topbar'>
+    <th colspan='1' align='left'  >
+        <tt class='codebox'>af</tt>
+                <!-- class='codebox' -->
+    </th>
+    <th colspan='4' align='left' class='botgray' >
+        Afrikaans
+    </th>
+</tr>
+<tr>
+    <th colspan='2'>
+    </th>
+    <td colspan="1" align="right">
+        <input type='radio'>
+    </td>
+    <td dir='ltr'>
+         Afrikaans
+    </td>
+    <td  class='warncell'>
+        I don't like it.
+    </td>
+</tr>
+
+<tr class='proposed' >
+    <td colspan=3 align="right">			
+                <span class='dashbox' >proposed-srl</span>
+        <input type="radio">
+    </td>
+    <td dir="ltr">Farik-aniz</td>
+    <td></td>
+</tr>
+
+<tr class='warnrow'>
+    <td colspan='3' align="right" >
+        <span class='dashbox' >inherited</span>
+        <input type="radio"
+    </td>
+    <td dir='ltr'>
+        <tt>af</tt>
+    </td>
+    <td class='warncell'>
+            Inherited code.
+    </td>
+</tr>
+<tr>
+    <td>Don't care<input type='radio' checked></td>
+    <td bgcolor='gray'></td>
+    <td>change<input type='radio'></td>
+    <td colspan='2'><input size=20'></td>
+</tr>
+
+
+**/
+
+/**
 * This is the main function for showing lists of items (pods).
  */
 public void showPathList(WebContext ctx, String xpath, String lastElement) {
@@ -2274,6 +2341,7 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
     
     synchronized(ourSrc) { // because it has a connection..
                            // Podder
+        System.out.println("Pod's full thing: " + fullThing);
         DataPod dp = ctx.getPod(fullThing);
         List peas = dp.getList(sortMode);
         ctx.println("<hr />");
@@ -2281,84 +2349,24 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
         skip = showSkipBox(ctx, peas.size(), dp.getDisplayList(sortMode));
         
         ctx.printUrlAsHiddenFields();   
-        ctx.println("<table class='list' border=1>");
-/*
-        ctx.println("<tr>");
-        ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=2>Name<br/>" +
-                    "<div style='border: 1px solid gray; width: 6em;' align=left><tt>Code</tt></div></th>");
-        ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Best choice (?)<br/>");
-        ctx.printHelpLink("/Best");
-        ctx.println("</th>");
-        ctx.println(" <th class='heading' bgcolor='#DDDDDD' colspan=1>Contents</th>");
-        ctx.println("</tr>");
-*/
+        ctx.println("<table class='list' border='0'>");
+
+        ctx.println("<tr class='heading'>\n"+
+                    " <th colspan=2>\n"+
+                    " </th>\n"+
+                    "<th> action</th>\n"+
+                    "<th> data</th>\n"+
+                    "<th> alerts</th>\n"+
+                    "</tr>");
+                    
         for(ListIterator i = peas.listIterator(skip);(count<CODES_PER_PAGE)&&i.hasNext();count++) {
             DataPod.Pea p = (DataPod.Pea)i.next();
-//            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
-            
-            ctx.println("<tr>");
-            ctx.println("<th colspan='1' align='left' style='border-top: 3px solid green' ><tt style='border: 1px solid gray; padding: 2px; margin-top:0px'>"
-                        + p.type + 
-                        "</tt></th>");
-            ctx.println("<th colspan='3' align='left' style='border-top: 3px solid green' >");
-            if(p.displayName != null) {
-                ctx.println(p.displayName);
-            }
-            ctx.println("</th> </tr>");
-            if(true) { // dont care
-                String pClass = "";
-                ctx.print("<tr " + pClass + "><td colspan='2'>");
-                ctx.println("Don't Care");
-                ctx.println("</td>");
-                ctx.println("<td dir='" + ourDir +"'>");
-                ctx.println("<input type='radio' CHECKED />");
-                ctx.println("" + "</td>");
-            }
-            if((p.items.size() == 0) && (p.type != null)) { // by code
-                String pClass = "class='warning'";
-                ctx.print("<tr " + pClass + "><td colspan='2'>");
-                ctx.println("missing");
-                ctx.println("</td>");
-                ctx.println("<td dir='" + ourDir +"'>");
-                ctx.println("<input type='radio' />");
-                ctx.println(p.type + "</td>");
-            }
-            for(Iterator j = p.items.iterator();j.hasNext();) {
-                DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
-                String pClass ="";
-                if(item.altProposed != null) {
-                    pClass = "class='proposed'";
+            showPea(ctx, p, ourDir);
+            if(p.subPeas != null) {
+                for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
+                    DataPod.Pea f = (DataPod.Pea)e.next();
+                    showPea(ctx, f, ourDir);
                 }
-                ctx.print("<tr " + pClass + "><td colspan='2'>");
-                if(item.altProposed != null) {
-                    ctx.println(item.altProposed);
-                }
-                ctx.println("</td>");
-                ctx.println("<td dir='" + ourDir +"'>");
-                ctx.println("<input type='radio' />");
-                ctx.println(item.value + "</td>");
-                if(item.tests != null) {
-                    ctx.println("<td class='warning'><span class='warning'>");
-                    for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
-                        CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                        if (!status.getType().equals(status.exampleType)) {
-                            ctx.println(status.toString() + "<br/>");
-                        } else {
-                            ctx.println("<i>example available</i><br />");
-                        }
-                    }                                                                            
-                    ctx.println("</span></td>");
-                }
-                ctx.println("</tr>");
-            }
-            if(true) { // other
-                String pClass = "";
-                ctx.print("<tr " + pClass + "><td colspan='2'>");
-                ctx.println("incorrect");
-                ctx.println("</td>");
-                ctx.println("<td dir='" + ourDir +"'>");
-                ctx.println("<input type='radio'  />");
-                ctx.println("<i>Item is Incorrect</i>" + "</td>");
             }
         }
         
@@ -2366,6 +2374,83 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
     }
     
 }
+
+void showPea(WebContext ctx, DataPod.Pea p, String ourDir) {
+    //            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
+
+    /*  TOP BAR */
+    ctx.println("<tr class='topbar'>");
+    ctx.println("<th colspan='1' align='left'><tt class='codebox'>"
+                + p.type + 
+                "</tt>");
+    if(p.altType != null) {
+        ctx.println(" ("+p.altType+")");
+    }
+    ctx.println("</th>");
+    ctx.println("<th colspan='4' align='left' class='botgray'>");
+    if(p.displayName != null) {
+        ctx.println(p.displayName);
+    }
+    ctx.println("</th> </tr>");
+    if((p.items.size() == 0) && (p.type != null)) { // by code
+        String pClass = "class='warnrow'";
+        ctx.print("<tr " + pClass + "><td colspan='3' align='right'>");
+        ctx.print("<span class='dashbox'>missing</span>");
+        ctx.print("<input type='radio' /><tt>");
+        ctx.println("</td>");
+        ctx.println("<td dir='" + ourDir +"'>");
+        ctx.println(p.type + "</tt></td>");
+        ctx.println("<td class='warncell'>Missing, using code.</td>");
+        ctx.println("</tr>");
+    }
+    for(Iterator j = p.items.iterator();j.hasNext();) {
+        DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+        String pClass ="";
+        if(item.altProposed != null) {
+            pClass = "class='proposed'";
+        }
+        ctx.print("<tr " + pClass + "><td colspan='2'></td><td colspan='1' align='right'>");
+        if(item.altProposed != null) {
+            ctx.print("<span class='dashbox'>" + item.altProposed + "</span>");
+        }
+        ctx.print("<input type='radio' />");
+        ctx.println("</td>");
+        ctx.println("<td dir='" + ourDir +"'>");
+        ctx.println(item.value + "</td>");
+        if(item.tests != null) {
+            ctx.println("<td class='warncell'>");
+            for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
+                CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                if (!status.getType().equals(status.exampleType)) {
+                    
+                    ctx.println("<span class='warning'>");
+                    printShortened(ctx,status.toString());
+                    ctx.println("</span><br />");
+                } else {
+                    ctx.println("<pre>"+status.toString()+"</pre><br />");
+                }
+            }                                                                            
+            ctx.println("</td>");
+        }
+        ctx.println("</tr>");
+    }
+    if(true) {
+        String pClass = "";
+         // dont care
+        ctx.print("<tr " + pClass + "><td colspan>");
+        ctx.print("<span class='dashbox'>Don't Care</span>");
+        ctx.print("<input type='radio' CHECKED />");
+        ctx.println("</td>");
+        ctx.println("<td bgcolor='gray'></td>");
+        // change
+        ctx.print("<td align='right'><span class='dashbox'>change</span>");
+        ctx.print("<input type='radio'  />");
+        ctx.println("</td>");
+        ctx.println("<td colspan='2'><input class='inputbox'></td>");
+        ctx.println("</tr>");
+    }
+}
+
 void showSkipBox_menu(WebContext ctx, String sortMode, String aMode, String aDesc) {
     WebContext nuCtx = new WebContext(ctx);
     nuCtx.addQuery(PREF_SORTMODE, aMode);
@@ -2401,7 +2486,7 @@ int showSkipBox(WebContext ctx, int total, List displayList) {
     
     //          showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
     showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
-    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Interest");
+    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Priority");
     showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, "Name");
 }
 
@@ -2942,6 +3027,27 @@ private void printWarning(WebContext ctx, String myxpath) {
       ///*srl*/                ctx.println("[<tt>" + ctx.locale + " " + myxpath + "</tt>]");
       //      }
 }
+
+static long shortN = 0;
+static final int MAX_CHARS = 100;
+
+private synchronized void printShortened(WebContext ctx, String str) {
+    if(str.length()<MAX_CHARS) {
+        ctx.println(str);
+    } else {
+        String key = CookieSession.cheapEncode(shortN++);
+        printShortened(ctx,str.substring(0,MAX_CHARS), str, key); 
+    }
+}
+
+private void printShortened(WebContext ctx, String shortStr, String longStr, String warnHash ) {
+        ctx.println("<span id='h_"+warnHash+"'>" + shortStr + "... <a href='javascript:show(\"" + warnHash + "\")'>" + 
+                    "(Click to show entire warning.)</a></span>");
+        ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
+                    "<span style='display: none'  id='" + warnHash + "'>" +
+                    longStr + "</span>");
+}
+
 
 Hashtable xpathWarnings = new Hashtable();
 

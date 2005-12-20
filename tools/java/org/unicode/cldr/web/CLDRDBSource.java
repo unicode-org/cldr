@@ -238,8 +238,16 @@ public class CLDRDBSource extends XMLSource {
                 // Now, start loading stuff in
                 XPathParts xpp=new XPathParts(null,null);
                 for (Iterator it = file.iterator(); it.hasNext();) {
-                    String xpath = (String) it.next();
+                    String rawXpath = (String) it.next();
+                    // Make it distinguished
+                    String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);
+                    if(!xpath.equals(rawXpath)) {
+                        logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
+                    }
                     String oxpath = file.getFullXPath(xpath);
+                    if(!oxpath.equals(file.getFullXPath(rawXpath))) {
+                        throw new InternalError("UHOH: oxpath and file.getFullXPath(raw) are different: " + oxpath + " VS. " + file.getFullXPath(rawXpath));
+                    }
                     int xpid = xpt.getByXpath(xpath);
                     int oxpid = xpt.getByXpath(oxpath);
                     String value = file.getStringValue(xpath);
@@ -572,7 +580,11 @@ public class CLDRDBSource extends XMLSource {
     
     public XMLSource make(String localeID) {
         if(localeID == null) return null; // ???
-        if(localeID.equals(CLDRFile.SUPPLEMENTAL_NAME)) return null;  // nothing, now.
+        if(localeID.startsWith(CLDRFile.SUPPLEMENTAL_PREFIX)) {
+            XMLSource msource = new CLDRFile.SimpleXMLSource(factory, localeID).make(localeID);
+            System.err.println("Getting simpleXMLSource for " + localeID);
+            return msource; 
+        }
         
         CLDRDBSource result = (CLDRDBSource)clone();
         if(!localeID.equals(result.getLocaleID())) {

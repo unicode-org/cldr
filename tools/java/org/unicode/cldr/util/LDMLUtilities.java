@@ -47,6 +47,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
+import org.unicode.cldr.icu.LDMLConstants;
 
 /**
  * @author ram
@@ -1778,5 +1779,81 @@ public class LDMLUtilities {
         if (!locale.equals("root")) return "root";
         return null;
     }
+    
+    /** split an alt= tag into pieces. Any piece can be missing (== null)
+     * Piece 0:  'alt type'.    null means this is the normal (non-alt) item.  Possible values are 'alternate', 'colloquial', etc.
+     * Piece 1:  'proposed type'.  If non-null, this is a string beginning with 'proposed' and containing arbitrary other text.
+     * 
+     * STRING        0            1
+     * -------------------------------
+     * ""/null      null         null
+     * something    something    null
+     * something-proposed   something   proposed
+     * something-proposed3   something   proposed3
+     * proposed      null     proposed
+     * somethingproposed  somethingproposed  null
+     * 
+     *
+     * @param alt the alt tag to parse
+     * @return a 2-element array containing piece 0 and piece 1
+     * @see formatAlt
+     */
+    public static String[] parseAlt(String alt) {
+        String[] ret = new String[2];
+        if(alt==null) {
+            ret[0]=null;
+            ret[1]=null;
+        } else {
+            int l = alt.indexOf(LDMLConstants.PROPOSED);
+            if(l==-1) { /* no PROPOSED */
+                ret[0]=alt;  // all alt, 
+                ret[1]=null; // no kind
+            } else if(l==0) { /* begins with */
+                ret[0]=null;  // all properties 
+                ret[1]=alt;
+            } else {
+                if(alt.charAt(l-1) != '-') {
+                    throw new InternalError("Expected '-' before " + LDMLConstants.PROPOSED + " in " + alt);
+                }
+                ret[0]=alt.substring(0,l-1);
+                ret[1]=alt.substring(l);
+                
+                if(ret[0].length()==0) {
+                    ret[0] = null;
+                }
+                if(ret[1].length()==0) {
+                    ret[1] = null;
+                }
+            }
+        }
+        return ret;
+    }
+    
+    /**
+     * Format aan alt string from components.
+     * @param altType optional alternate type (i.e. 'alternate' or 'colloquial').
+     * @param proposedType  
+     * @see parseAlt
+     */
+    String formatAlt(String altType, String proposedType) {
+
+        if(((altType == null) || (altType.length()==0))  &&
+           ((proposedType == null) || (proposedType.length()==0))) {
+                return null;
+        }
+        
+        if((proposedType==null)||(proposedType.length()==0)) {
+            return altType; // no proposed type:  'alternate'
+        } else if(!proposedType.startsWith(LDMLConstants.PROPOSED)) {
+            throw new InternalError("proposedType must begin with " + LDMLConstants.PROPOSED);
+        }
+        
+        if((altType==null)||(altType.length()==0)) {
+            return proposedType; // Just a proposed type:  "proposed" or "proposed-3"
+        } else {        
+            return altType + "-" + proposedType; // 'alternate-proposed'
+        }
+    }
+    
 
 }

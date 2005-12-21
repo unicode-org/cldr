@@ -40,7 +40,9 @@ public class CheckAttributeValues extends CheckCLDR {
     static Map variables = new TreeMap();
     static boolean initialized = false;
     static LocaleMatcher localeMatcher;
-    
+    static Map code_type_replacement = new TreeMap();
+    boolean isEnglish;
+
     XPathParts parts = new XPathParts(null, null);
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
         parts.set(fullPath);
@@ -66,15 +68,49 @@ public class CheckAttributeValues extends CheckCLDR {
         MatcherPattern matcherPattern = (MatcherPattern) attribute_validity.get(attribute);
         if (matcherPattern == null) return; // no test
         if (matcherPattern.matcher.matches(attributeValue)) return;
-        result.add(new CheckStatus()
-                .setType(CheckStatus.errorType)
-                .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}", 
-                        new Object[]{attribute, attributeValue, matcherPattern.pattern}));
+        // special check for deprecated codes
+        String replacement = getReplacement(matcherPattern.value, attributeValue);
+        if (replacement != null) {
+            if (isEnglish) return; // don't flag English
+            if (replacement.length() == 0) {
+                result.add(new CheckStatus()
+                        .setType(CheckStatus.warningType)
+                        .setMessage("Deprecated Attribute Value {0}={1}. Consider removing.", 
+                                new Object[]{attribute, attributeValue}));
+            } else {
+                result.add(new CheckStatus()
+                        .setType(CheckStatus.warningType)
+                        .setMessage("Deprecated Attribute Value {0}={1}. Consider removing, and possibly modifying the related value for {2}.", 
+                                new Object[]{attribute, attributeValue, replacement}));
+            }
+        } else {
+            result.add(new CheckStatus()
+                    .setType(CheckStatus.errorType)
+                    .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}", 
+                            new Object[]{attribute, attributeValue, matcherPattern.pattern}));
+        }
     }
+    
+    /**
+     * Returns replacement, or null if there is none. "" if the code is deprecated, but without a replacement.
+     * Input is of the form $language
+     * @return
+     */
+    String getReplacement(String value, String attributeValue) {
+        Map type_replacement = (Map) code_type_replacement.get(value);
+        if (type_replacement == null) {
+            return null;
+        }
+        String result = (String) type_replacement.get(attributeValue);
+        return result;
+    }
+    
+    LocaleIDParser localeIDParser = new LocaleIDParser();
     
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        isEnglish = "en".equals(localeIDParser.set(cldrFileToCheck.getLocaleID()).getLanguage());
         synchronized (elementOrder) {
             if (!initialized) {
                 CLDRFile metadata = cldrFileToCheck.make("supplementalMetadata", false);
@@ -166,8 +202,15 @@ public class CheckAttributeValues extends CheckCLDR {
                 // skip for now
             } else if (lastElement.equals("generation")) {
                 // skip for now
-            } else if (lastElement.equals("languageAlias")) {
-                // skip for now
+            } else if (lastElement.endsWith("Alias")) {
+               String code = "$" + lastElement.substring(0,lastElement.length()-5);
+                Map type_replacement = (Map)code_type_replacement.get(code);
+                if (type_replacement == null) code_type_replacement.put(code, type_replacement = new TreeMap());
+                Map attributes = parts.getAttributes(-1);
+                String type = (String) attributes.get("type");
+                String replacement = (String) attributes.get("replacement");
+                if (replacement == null) replacement = "";
+                type_replacement.put(type, replacement);
             } else if (lastElement.equals("territoryAlias")) {
                 // skip for now
             } else if (lastElement.equals("deprecatedItems")) {
@@ -231,17 +274,22 @@ public class CheckAttributeValues extends CheckCLDR {
         String typeAttribute = (String) attributes.get("type");
         MatcherPattern result = (MatcherPattern) variables.get(value);
         if (result != null) {
+            MatcherPattern temp = new MatcherPattern();
+            temp.pattern = result.pattern;
+            temp.matcher = result.matcher;
+            temp.type = typeAttribute;
+            temp.value = value;
+            result = temp;
             if ("list".equals(typeAttribute)) {
-                MatcherPattern temp = new MatcherPattern();
-                temp.pattern = value;
                 temp.matcher = new ListMatcher().set(result.matcher);
-                result = temp;
             }
             return result;
         }
         
         result = new MatcherPattern();
         result.pattern = value;
+        result.type = typeAttribute;
+        result.value = value;
         if ("choice".equals(typeAttribute)
                 || "given".equals(attributes.get("order"))) {
             result.matcher = new CollectionMatcher().set(new HashSet(Arrays.asList(value.split(" "))));
@@ -271,8 +319,10 @@ public class CheckAttributeValues extends CheckCLDR {
     }
     
     private static class MatcherPattern {
+        public String value;
         ObjectMatcher matcher;
         String pattern;
+        String type;
         public String toString() {
             return matcher.getClass().getName() + "\t" + pattern;
         }

@@ -86,6 +86,7 @@ public class CoverageLevel {
     private static Map base_territory_level = new TreeMap();
     private static Set minimalTimezones;
     private static Set euroCountries;
+    private static Set territoryContainment = new TreeSet();
     private static Set euroLanguages = new TreeSet();
 
     private static Map language_scripts = new TreeMap();
@@ -198,6 +199,8 @@ public class CoverageLevel {
             setIfBetter(language_level, euroLanguages, CoverageLevel.Level.MODERATE, true);
             setIfBetter(territory_level, euroCountries, CoverageLevel.Level.MODERATE, true);
         }
+        
+        setIfBetter(territory_level, territoryContainment, CoverageLevel.Level.MODERATE, true);
         
         // set currencies, timezones according to territory level
         putAll(currency_level, modernCurrencies, CoverageLevel.Level.MODERN);
@@ -527,6 +530,9 @@ public class CoverageLevel {
                     }
                 }
             } else if (parts.containsElement("territoryContainment")) {
+                if (!type.equals("172")) {
+                    territoryContainment.add(type);
+                }
                 if (type.equals("QE")) {
                     euroCountries = new TreeSet(Arrays.asList(((String)attributes.get("contains")).split("\\s+")));
                 }

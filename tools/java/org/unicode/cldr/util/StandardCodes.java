@@ -326,6 +326,9 @@ public class StandardCodes {
                     if (pref == null) pref = ""; else pref = "deprecated";
                 }
                 data.add(pref);
+                if (type.equals("variant")) {
+                    code = code.toUpperCase();
+                }
                 //data.add(mm.get("Recommended_Prefix"));
                 //      {"region", "BQ", "Description", "British Antarctic Territory", "Preferred-Value", "AQ", "CLDR", "True", "Deprecated", "True"},
                 add(type2, code, data);
@@ -950,7 +953,9 @@ public class StandardCodes {
 		{"language", "root", "Description", "Root", "CLDR", "True"},
 		{"variant", "POLYTONI", "Description", "Polytonic Greek", "CLDR", "True"},
 		{"variant", "REVISED", "Description", "Revised Orthography", "CLDR", "True"},
-		{"variant", "SAAHO", "Description", "Dialect", "CLDR", "True"},			   
+        {"variant", "SAAHO", "Description", "Dialect", "CLDR", "True"},            
+        {"region", "172", "Description", "Commonwealth of Independent States", "CLDR", "True"},            
+        {"region", "QE", "Description", "European Union", "CLDR", "True"},            
 		//{"region", "003", "Description", "North America", "CLDR", "True"},			   
 		//{"region", "062", "Description", "South-central Asia", "CLDR", "True"},			   
 		//{"region", "200", "Description", "Czechoslovakia", "CLDR", "True"},			   

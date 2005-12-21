@@ -226,7 +226,7 @@ public class CLDRFile implements Freezable {
 	    	CLDRFile result = make(fullFileName, localeName, fis, includeDraft);
 			fis.close();
 			return result;
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + fullFileName).initCause(e);
 		}
@@ -1112,6 +1112,9 @@ private boolean isSupplemental;
 			Log.logln(LOG_PROGRESS, "pop\t" + qName);
             if (lastChars.length() != 0 || justPopped == false) {
                 if (includeDraft || currentFullXPath.indexOf("[@draft=\"true\"]") < 0) {
+                    if (false && currentFullXPath.indexOf("i-klingon") >= 0) {
+                        System.out.println(currentFullXPath);
+                    }
                 	target.add(currentFullXPath, lastChars);
                     lastLeafNode = lastActiveLeafNode = currentFullXPath;
                 }
@@ -1848,6 +1851,8 @@ private boolean isSupplemental;
 
 		transient XPathParts a = new XPathParts(attributeOrdering, null);
 		transient XPathParts b = new XPathParts(attributeOrdering, null);
+        transient Set attSet1 = new TreeSet(attributeOrdering);
+        transient Set attSet2 = new TreeSet(attributeOrdering);
 		
 		public void addElement(String a) {
 			//elementOrdering.add(a);
@@ -1863,6 +1868,7 @@ private boolean isSupplemental;
 			//valueOrdering.add(a);
 		}
 		public int compare(Object o1, Object o2) {
+            if (o1 == o2) return 0; // quick test for common case
 			int result;
 			if (false && (o1.toString().indexOf("alt") >= 0 ||
 					o2.toString().indexOf("alt") >= 0)) {
@@ -1875,9 +1881,19 @@ private boolean isSupplemental;
 			for (int i = 0; i < minSize; ++i) {
 				String aname = a.getElement(i);
 				String bname = b.getElement(i);
-				if (!(orderedElements.contains(aname) 
-						&& orderedElements.contains(bname))
-						&& 0 != (result = elementOrdering.compare(aname, bname))) return result;
+				if (0 != (result = elementOrdering.compare(aname, bname))) {
+                    // if they are different, then 
+                    // all ordered items are equal, and > than all unordered
+                    boolean aOrdered = orderedElements.contains(aname);
+                    boolean bOrdered = orderedElements.contains(bname);
+                    // if both ordered, continue, return result
+                    if (aOrdered && bOrdered) {
+                        // continue with comparison
+                    } else {
+                        if (aOrdered == bOrdered) return result; // both off
+                        return aOrdered ? 1 : 0;
+                    }
+                }
 				Map am = a.getAttributes(i);
 				Map bm = b.getAttributes(i);
 				int minMapSize = am.size();
@@ -2042,6 +2058,7 @@ private boolean isSupplemental;
                 String result = (String) distinguishingMap.get(xpath);
                 if (result == null) {
                     distinguishingParts.set(xpath);
+                    boolean inheriting = distinguishingParts.getElement(0).equals("ldml");
                     
                     // first clean up draft and alt
                     
@@ -2080,7 +2097,7 @@ private boolean isSupplemental;
                     
                     // now remove non-distinguishing attributes (if non-inheriting)
                     
-                    if (!nonInheriting) {
+                    if (inheriting) {
                         for (int i = 0; i < distinguishingParts.size(); ++i) {
                             String element = distinguishingParts.getElement(i);
                             Map attributes = distinguishingParts.getAttributes(i);

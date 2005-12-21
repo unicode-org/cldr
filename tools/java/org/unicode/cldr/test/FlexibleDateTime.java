@@ -166,7 +166,7 @@ public class FlexibleDateTime {
 	static class LocaleIDFixer {
 		LocaleIDParser lip = new LocaleIDParser();
 	    static final Set mainLocales = new HashSet(Arrays.asList(new String[]
-	    {"ar_EG", "de_DE", "en_US", "es_ES", "fr_FR", "it_IT", "nl_NL", "pt_BR", "sv_SE", "zh_TW"}));
+	    {"ar_EG", "bn_IN", "de_DE", "en_US", "es_ES", "fr_FR", "it_IT", "nl_NL", "pt_BR", "sv_SE", "zh_TW"}));
 	    DeprecatedCodeFixer dcf = new DeprecatedCodeFixer();
 	
 		Map fixLocales(Collection available, Map result) {

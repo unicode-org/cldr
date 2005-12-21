@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.XMLSource;
 
 import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.Collator;
@@ -19,7 +20,7 @@ import com.ibm.icu.util.ULocale;
 public class CheckForExemplars extends CheckCLDR {
 	//private final UnicodeSet commonAndInherited = new UnicodeSet(CheckExemplars.Allowed).complement(); 
 	// "[[:script=common:][:script=inherited:][:alphabetic=false:]]");
-	static String[] EXEMPLAR_SKIPS = {"/hourFormat", "/exemplarCharacters", "/pattern", "/localizedPatternChars", "/segmentations"};
+	static String[] EXEMPLAR_SKIPS = {"/currencySpacing", "/hourFormat", "/exemplarCharacters", "/pattern", "/localizedPatternChars", "/segmentations"};
 
 	UnicodeSet exemplars;
 	boolean skip;
@@ -57,6 +58,13 @@ public class CheckForExemplars extends CheckCLDR {
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
 			Map options, List result) {
 		if (skip) return this;
+        String sourceLocale = getCldrFileToCheck().getSourceLocaleID(path);
+        if (XMLSource.CODE_FALLBACK_ID.equals(sourceLocale)) {
+            return this;
+        } else if ("root".equals(sourceLocale)) {
+            // skip eras for non-gregorian
+            if (path.indexOf("/calendar") >= 0 && path.indexOf("gregorian") <= 0) return this;
+        }
 		for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
 			if (path.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) return this; // skip some items.
 		}

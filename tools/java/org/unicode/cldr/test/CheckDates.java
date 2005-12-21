@@ -95,7 +95,7 @@ public class CheckDates extends CheckCLDR {
 			String result2 = y.format(dateSource);
 			Date backAgain = y.parse(result2);
 			String isoBackAgain = isoBC.format(backAgain);
-			if (path.indexOf("/dateFormat") >= 0 && year != backAgain.getYear()) {
+			if (false && path.indexOf("/dateFormat") >= 0 && year != backAgain.getYear()) {
 				CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
 				.setMessage("Need Era (G) in full format: {0} => {1}", new Object[]{trial, isoBackAgain});			
 				result.add(item);			

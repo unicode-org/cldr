@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.XEquivalenceClass;
 import com.ibm.icu.dev.test.util.XEquivalenceMap;
@@ -150,6 +151,8 @@ public class CheckDisplayCollisions extends CheckCLDR {
 	private boolean isEquivalent(int itemType, String path, String otherPath) {
 		if (path.equals(otherPath))
 			return true;
+        // if the paths are the same except for alt-proposed, then they are equivalent.
+        if (sameExceptProposed(path, otherPath)) return true;
 		switch (itemType) {
 		case CLDRFile.CURRENCY_SYMBOL:
 			return CLDRFile.getCode(path).equals(CLDRFile.getCode(otherPath));
@@ -180,7 +183,39 @@ public class CheckDisplayCollisions extends CheckCLDR {
 		return false;
 	}
 
-	// TODO probably need to fix this to be more accurate over time
+    private XPathParts parts1 = new XPathParts(null, null);
+    private XPathParts parts2 = new XPathParts(null, null);
+	private boolean sameExceptProposed(String path, String otherPath) {
+        parts1.set(path);
+        parts2.set(otherPath);
+        if (parts1.size() != parts2.size()) return false;
+        for (int i = 0; i < parts1.size(); ++i) {
+            if (!parts1.getElement(i).equals(parts2.getElement(i))) return false;
+            Map attributes1 = parts1.getAttributes(i);
+            Map attributes2 = parts2.getAttributes(i);
+            if (attributes1.size() == 0 && attributes2.size() == 0) continue;
+            Set s1 = attributes1.keySet();
+            Set s2 = attributes2.keySet();
+            if (s1.contains("alt")) { // WARNING: we have to copy so as to not modify map
+                s1 = new HashSet(s1);
+                s1.remove("alt");
+            }
+            if (s2.contains("alt")) { // WARNING: we have to copy so as to not modify map
+                s2 = new HashSet(s2);
+                s2.remove("alt");
+            }
+            if (!s1.equals(s2)) return false;
+            for (Iterator it = s1.iterator(); it.hasNext();) {
+                Object key = it.next();
+                Object v1 = attributes1.get(key);
+                Object v2 = attributes2.get(key);
+                if (!v1.equals(v2)) return false;
+            }
+        }
+        return true;
+    }
+
+    // TODO probably need to fix this to be more accurate over time
 	static long year = (long)(365.2425 * 86400 * 1000); // can be approximate
 	static long startDate = new Date(1995-1900, 1 - 1, 15).getTime(); // can be approximate
 	static long endDate = new Date(2011-1900, 1 - 1, 15).getTime(); // can be approximate

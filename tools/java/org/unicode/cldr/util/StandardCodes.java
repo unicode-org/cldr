@@ -212,7 +212,7 @@ public class StandardCodes {
 	// ========== PRIVATES ==========
 
 	private StandardCodes() {
-		String[] files = {"lstreg.txt", "ISO4217.txt"}; // , "TZID.txt"
+		String[] files = {/*"lstreg.txt",*/ "ISO4217.txt"}; // , "TZID.txt"
 		type_code_preferred.put("tzid", new TreeMap());
 		add("language", "root", "Root");
 		String originalLine = null;
@@ -305,6 +305,33 @@ public class StandardCodes {
 			}
 			Utility.protectCollection(country_modernCurrency);
 		}
+        
+        //data is: description | date | canonical_value | recommended_prefix # comments
+        // HACK, just rework
+        
+        Map lmap = getLStreg();
+        for (Iterator it = lmap.keySet().iterator(); it.hasNext();) {
+            String type = (String) it.next();
+            String type2 = type.equals("region") ? "territory" : type;
+            Map m = (Map) lmap.get(type);
+            for (Iterator it2 = m.keySet().iterator(); it2.hasNext();) {
+                String code = (String) it2.next();
+                Map mm = (Map) m.get(code);
+                List data = new ArrayList(0);
+                data.add(mm.get("Description"));
+                data.add(mm.get("Added"));
+                String pref = (String) mm.get("Preferred-Value");
+                if (pref == null) {
+                    pref = (String) mm.get("Deprecated");
+                    if (pref == null) pref = ""; else pref = "deprecated";
+                }
+                data.add(pref);
+                //data.add(mm.get("Recommended_Prefix"));
+                //      {"region", "BQ", "Description", "British Antarctic Territory", "Preferred-Value", "AQ", "CLDR", "True", "Deprecated", "True"},
+                add(type2, code, data);
+            }
+        }
+        
 		Map m = getZoneData();
 		for (Iterator it = m.keySet().iterator(); it.hasNext();) {
 			String code = (String) it.next();
@@ -924,25 +951,25 @@ public class StandardCodes {
 		{"variant", "POLYTONI", "Description", "Polytonic Greek", "CLDR", "True"},
 		{"variant", "REVISED", "Description", "Revised Orthography", "CLDR", "True"},
 		{"variant", "SAAHO", "Description", "Dialect", "CLDR", "True"},			   
-		{"region", "003", "Description", "North America", "CLDR", "True"},			   
-		{"region", "062", "Description", "South-central Asia", "CLDR", "True"},			   
-		{"region", "200", "Description", "Czechoslovakia", "CLDR", "True"},			   
-		{"region", "830", "Description", "Channel Islands", "CLDR", "True"},			   
-		{"region", "833", "Description", "Isle of Man", "CLDR", "True"},
+		//{"region", "003", "Description", "North America", "CLDR", "True"},			   
+		//{"region", "062", "Description", "South-central Asia", "CLDR", "True"},			   
+		//{"region", "200", "Description", "Czechoslovakia", "CLDR", "True"},			   
+		//{"region", "830", "Description", "Channel Islands", "CLDR", "True"},			   
+		//{"region", "833", "Description", "Isle of Man", "CLDR", "True"},
 		
 //		{"region", "NT", "Description", "Neutral Zone (formerly between Saudi Arabia & Iraq)", "CLDR", "True", "Deprecated", "True"},
 //		{"region", "SU", "Description", "Union of Soviet Socialist Republics", "CLDR", "True", "Deprecated", "True"},
-		{"region", "BQ", "Description", "British Antarctic Territory", "Preferred-Value", "AQ", "CLDR", "True", "Deprecated", "True"},
-		{"region", "CT", "Description", "Canton and Enderbury Islands", "Preferred-Value", "KI", "CLDR", "True", "Deprecated", "True"},
-		{"region", "FQ", "Description", "French Southern and Antarctic Territories (now split between AQ and TF)", "CLDR", "True", "Deprecated", "True"},
-		{"region", "JT", "Description", "Johnston Island", "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
-		{"region", "MI", "Description", "Midway Islands", "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
-		{"region", "NQ", "Description", "Dronning Maud Land", "Preferred-Value", "AQ", "CLDR", "True", "Deprecated", "True"},
-		{"region", "PC", "Description", "Pacific Islands Trust Territory (divided into FM, MH, MP, and PW)", "Preferred-Value", "AQ", "CLDR", "True", "Deprecated", "True"},
-		{"region", "PU", "Description", "U.S. Miscellaneous Pacific Islands", "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
-		{"region", "PZ", "Description", "Panama Canal Zone", "Preferred-Value", "PA", "CLDR", "True", "Deprecated", "True"},
-		{"region", "VD", "Description", "North Vietnam", "Preferred-Value", "VN", "CLDR", "True", "Deprecated", "True"},
-		{"region", "WK", "Description", "Wake Island", "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
+//		{"region", "BQ", "Description", "British Antarctic Territory", "Preferred-Value", "AQ", "CLDR", "True", "Deprecated", "True"},
+//		{"region", "CT", "Description", "Canton and Enderbury Islands", "Preferred-Value", "KI", "CLDR", "True", "Deprecated", "True"},
+//		{"region", "FQ", "Description", "French Southern and Antarctic Territories (now split between AQ and TF)", "CLDR", "True", "Deprecated", "True"},
+//		{"region", "JT", "Description", "Johnston Island", "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
+//		{"region", "MI", "Description", "Midway Islands", "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
+//		{"region", "NQ", "Description", "Dronning Maud Land", "Preferred-Value", "AQ", "CLDR", "True", "Deprecated", "True"},
+//		{"region", "PC", "Description", "Pacific Islands Trust Territory (divided into FM, MH, MP, and PW)", "Preferred-Value", "AQ", "CLDR", "True", "Deprecated", "True"},
+//		{"region", "PU", "Description", "U.S. Miscellaneous Pacific Islands", "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
+//		{"region", "PZ", "Description", "Panama Canal Zone", "Preferred-Value", "PA", "CLDR", "True", "Deprecated", "True"},
+//		{"region", "VD", "Description", "North Vietnam", "Preferred-Value", "VN", "CLDR", "True", "Deprecated", "True"},
+//		{"region", "WK", "Description", "Wake Island", "Preferred-Value", "UM", "CLDR", "True", "Deprecated", "True"},
 	};
 
 	public static Map getLStreg() {

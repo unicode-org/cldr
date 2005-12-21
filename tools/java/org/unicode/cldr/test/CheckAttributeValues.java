@@ -1,13 +1,16 @@
 package org.unicode.cldr.test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -94,12 +97,18 @@ public class CheckAttributeValues extends CheckCLDR {
     }
     
     private void getMetadata(CLDRFile metadata) {
+        String lastPath = "//ldml";
+        //checkTransitivity(metadata.iterator(), CLDRFile.ldmlComparator);
         for (Iterator it = metadata.iterator(null, CLDRFile.ldmlComparator); it.hasNext();) {
             String path = (String) it.next();
             String value = metadata.getStringValue(path);
             path = metadata.getFullXPath(path);
-            //System.out.println(path);
-            //System.out.flush();
+            if (false) {
+                int comp = CLDRFile.ldmlComparator.compare(lastPath, path);
+                System.out.println(comp + "\t" + path);
+                System.out.flush();
+                lastPath = path;
+            }
             parts.set(path);
             String lastElement = parts.getElement(-1);
             if (lastElement.equals("elementOrder")) {
@@ -126,7 +135,7 @@ public class CheckAttributeValues extends CheckCLDR {
                     
                     MatcherPattern mp = getMatcherPattern(value, attributes, path);
                     if (mp == null) {
-                        System.out.println("Failed to make matcher for: " + value + "\t" + path);
+                        //System.out.println("Failed to make matcher for: " + value + "\t" + path);
                         continue;
                     }
                     String[] attributeList = ((String) attributes
@@ -170,6 +179,52 @@ public class CheckAttributeValues extends CheckCLDR {
             }
         }        
     }
+    private void checkTransitivity(Iterator iterator, Comparator ldmlComparator) {
+        Set set1 = new TreeSet();
+        CollectionUtilities.addAll(iterator, set1);
+        for (Iterator it = set1.iterator(); it.hasNext();) {
+            System.out.println(it.next());
+        }
+        System.out.flush();
+        Set set = new TreeSet(ldmlComparator);
+        set.addAll(set1);
+        ArrayList l = new ArrayList(set);
+        String a, b, c;
+        for (int i = 1; i < l.size(); ++i) {
+            a = (String) l.get(i-1);
+            b = (String) l.get(i);
+            int comp = ldmlComparator.compare(a, b);
+            System.out.println(comp + "\t" + b);
+            if (comp > 0) {
+                System.out.println("FAILED");
+                ldmlComparator.compare(a, b);
+            }
+        }
+        System.out.flush();
+        // transitivity means A <= B && B <= C implies A <= C
+        // that is, a bad case is A <= B && B <= C && A > C
+        // we just see if we can find some case, with brute force
+        Random r = new Random();
+        a = (String) l.get(r.nextInt(l.size()));
+        b = (String) l.get(r.nextInt(l.size()));
+        for (int i = 0; i < 1000000; ++i) {
+            c = b;
+            b = a;
+            a = (String) l.get(r.nextInt(l.size()));
+            if (ldmlComparator.compare(a, b) <= 0
+                    && ldmlComparator.compare(b, c) <= 0
+                    && ldmlComparator.compare(a, c) > 0) {
+                System.out.println("FAILED");
+                System.out.println(a);
+                System.out.println(b);
+                System.out.println(c);
+                ldmlComparator.compare(a, b);
+                ldmlComparator.compare(b, c);
+                ldmlComparator.compare(a, c);
+            }
+        }
+        System.out.flush();
+    }
     static Set missing = new TreeSet();
     
     private MatcherPattern getMatcherPattern(String value, Map attributes, String path) {
@@ -194,6 +249,8 @@ public class CheckAttributeValues extends CheckCLDR {
             result.matcher = new RegexMatcher().set(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace	
         } else if ("locale".equals(typeAttribute)) {
             result.matcher = LocaleMatcher.make();
+        } else if ("notDoneYet".equals(typeAttribute) || "notDoneYet".equals(value)) {
+           result.matcher = new RegexMatcher().set(".*", Pattern.COMMENTS);
         } else {
             System.out.println("unknown type; value: <" + value + ">,\t" + attributes + ",\t" + path);
             return null;

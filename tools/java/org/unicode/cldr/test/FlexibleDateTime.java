@@ -111,16 +111,27 @@ public class FlexibleDateTime {
             	continue;
             }
             CLDRFile temp = CLDRFile.make(targetLocale);
-            String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"";
+            String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@_q=\"";
 
+            int count = 0;
+            Map previousID = new HashMap();
             for (Iterator it2 = list.iterator(); it2.hasNext();) {
             	String pattern = (String) it2.next();
             	new SimpleDateFormat(pattern); // check that compiles
             	fp.set(pattern);
             	String id = fp.getFieldString();
             	if (!allowedDateTimeCharacters.containsAll(id)) throw new IllegalArgumentException("Illegal characters in: " + pattern);
-            	if (id.length() == 0) throw new IllegalArgumentException("Empty id for: " + pattern);
-            	String path = prefix + id + "\"]";
+            	if (id.length() == 0) {
+                    throw new IllegalArgumentException("Empty id for: " + pattern);
+                }
+                String previous = (String) previousID.get(id);
+                if (previous != null) {
+                    log.println("Skipping Duplicate pattern: " + pattern + " (already have " + previous + ")");
+                    continue;
+                } else {
+                    previousID.put(id, pattern);
+                }
+            	String path = prefix + (count++) + "\"]";
             	temp.add(path, pattern);
             }
     		PrintWriter pw = BagFormatter.openUTF8Writer(Utility.GEN_DIRECTORY + "/flex/", targetLocale + ".xml");

@@ -190,6 +190,7 @@ public class StandardCodes {
 	 */
 	public Map getLocaleTypes() throws IOException {
 		if (platform_locale_status == null) {
+            LocaleIDParser parser = new LocaleIDParser();
 			platform_locale_status = new TreeMap();
 			String line;
 			BufferedReader lstreg = Utility.getUTF8Data( "Locales.txt");
@@ -202,7 +203,13 @@ public class StandardCodes {
 				List stuff = Utility.splitList(line, ';', true);
 				Map locale_status = (Map) platform_locale_status.get(stuff.get(0));
 				if (locale_status == null)  platform_locale_status.put(stuff.get(0), locale_status = new TreeMap());
-				locale_status.put(stuff.get(1), stuff.get(2));
+                String locale = (String) stuff.get(1);
+				locale_status.put(locale, stuff.get(2));
+                parser.set(locale);
+                String scriptLoc = parser.getLanguageScript();
+                if (locale_status.get(scriptLoc) == null) locale_status.put(scriptLoc, stuff.get(2));
+                String lang = parser.getLanguage();
+                if (locale_status.get(lang) == null) locale_status.put(lang, stuff.get(2));
 			}
 			Utility.protectCollection(platform_locale_status);
 		}

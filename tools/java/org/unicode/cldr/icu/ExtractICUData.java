@@ -172,7 +172,6 @@ public class ExtractICUData {
 	RB_RULE_BASED_IDS ="RuleBasedTransliteratorIDs";
 	
 	private static void getTranslitIndex(CLDRFile accumulatedItems) throws IOException {
-		CLDRFile outFile = CLDRFile.makeSupplemental("transformAliases");
 		
 		ICUResourceBundle bundle, transIDs, colBund;
 		bundle = (ICUResourceBundle)UResourceBundle.getBundleInstance(ICUResourceBundle.ICU_TRANSLIT_BASE_NAME, INDEX);
@@ -198,6 +197,7 @@ public class ExtractICUData {
 //				direction,
 //				type}));
 			} else if (type.equals("alias")) {
+                CLDRFile outFile = CLDRFile.makeSupplemental("transformAliases");
 				//'alias'; row[2]=createInstance argument
 				ID = fixTransID(ID, attributesOut);
 				String outName = ID.replace('/', '-');

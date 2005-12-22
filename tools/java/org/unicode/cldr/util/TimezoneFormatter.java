@@ -9,6 +9,7 @@
 
 package org.unicode.cldr.util;
 
+import java.text.FieldPosition;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.util.Arrays;
@@ -27,7 +28,9 @@ import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UFormat;
 import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.CurrencyAmount;
 import com.ibm.icu.util.TimeZone;
 
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -38,7 +41,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
  * fixing.
  * @author davis
  */
-public class TimezoneFormatter {
+public class TimezoneFormatter extends UFormat  {
 	public static boolean SHOW_DRAFT = false;
 	/**
 	 * Length parameter for formatting
@@ -484,4 +487,16 @@ public class TimezoneFormatter {
 		this.skipDraft = skipDraft;
 		return this;
 	}
+
+    public Object parseObject(String source, ParsePosition pos) {
+        TimeZone foo;
+        CurrencyAmount fii;
+        com.ibm.icu.text.UnicodeSet fuu;
+        return null;
+    }
+
+    public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

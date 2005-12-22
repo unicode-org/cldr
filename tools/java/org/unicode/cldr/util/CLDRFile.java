@@ -227,7 +227,7 @@ public class CLDRFile implements Freezable {
 			fis.close();
 			return result;
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 			throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + fullFileName).initCause(e);
 		}
     }
@@ -1816,7 +1816,7 @@ private boolean isSupplemental;
     
     static Set orderedElements = new HashSet(java.util.Arrays
 			.asList(new String[] {
-					"variable", "comment", "tRule", "attributeValues", "dateFormatItem",
+					"variable", "comment", "tRule", "attributeValues",
 			// collation
 					"reset", "p", "pc", "s", "sc", "t", "tc", "q", "qc", "i",
 					"ic", "x", "extend", "first_variable", "last_variable",

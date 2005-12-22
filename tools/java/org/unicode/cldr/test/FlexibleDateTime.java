@@ -99,8 +99,12 @@ public class FlexibleDateTime {
             }
             Collection list = getOOData(cldrFactory, sourceLocale);
             // get the current values
-            Collection currentList = getDateFormats(mainCLDRFactory, targetLocale);
-            list.removeAll(currentList);
+            try {
+                Collection currentList = getDateFormats(mainCLDRFactory, targetLocale);
+                list.removeAll(currentList);
+            } catch (RuntimeException e) {
+                // ignore
+            }
             
             if (list.size() == 0) {
             	log.println(sourceLocale + "\tEMPTY!"); // skip empty

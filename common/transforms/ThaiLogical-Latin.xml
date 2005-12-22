@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
 <supplementalData version="1.4">
-	<version number="$Revision$"/>
-	<generation date="$Date$"/>
 	<transforms>
 		<transform source="ThaiLogical" target="Latin" direction="both" visibility="internal">
 			<comment># Thai-Latin</comment>
@@ -24,22 +22,13 @@
 			<comment>#{ ( $consonant ) } [^$vowel \uE000] → | $1 \uE000 ;</comment>
 			<comment>#\uE000 → ọ ;</comment>
 			<comment># ← ọ ;</comment>
+			<tRule>$notAbove = [^\p{ccc=0}\p{ccc=above}] ;</tRule>
+			<tRule>$notBelow = [^\p{ccc=0}\p{ccc=below}] ;</tRule>
 			<comment># Consonants</comment>
 			<comment># Warning: the 'h's need to be handled carefully!</comment>
 			<comment># What we really want to say is the following, but we can't</comment>
 			<comment># $notHAccent = !($notAbove*   ̄ | $notBelow*   ̣) ;</comment>
 			<comment># Since the only accents we care about that could cause problems are free-standing accents below, we use instead:</comment>
-			<comment>#Note: TO PATAK deviates from ISO since t-dotunder + h would be ambigous. So it uses vertical tick.</comment>
-			<comment># since there is no singleton g (generated), don't worry about that.</comment>
-			<comment># vowels</comment>
-			<comment># We deviate from ISO for SARA AM for disambiguation</comment>
-			<comment># ฿ ↔ XXX ; # THAI CURRENCY SYMBOL BAHT</comment>
-			<comment># We deviate from ISO for disambiguation</comment>
-			<comment># moved down to make shorter first</comment>
-			<comment>#Note: PHINTHU deviates from ISO since underring causes canonical problems. So it uses spacing tick below.</comment>
-			<comment># fallbacks</comment>
-			<tRule>$notAbove = [^\p{ccc=0}\p{ccc=above}] ;</tRule>
-			<tRule>$notBelow = [^\p{ccc=0}\p{ccc=below}] ;</tRule>
 			<tRule>$freeStandingBelow = [̥  ];</tRule>
 			<tRule>$hAccent =  [   ̄     ̣];</tRule>
 			<tRule>$notHAccent0 = [^$freeStandingBelow$hAccent];</tRule>
@@ -71,8 +60,10 @@
 			<tRule>ธ ↔ ṭh ; # THAI CHARACTER THO THONG</tRule>
 			<tRule>ท ← th } $notHAccent1 ; # THAI CHARACTER THO THAHAN</tRule>
 			<tRule>ท ↔ th } $notHAccent0 ; # THAI CHARACTER THO THAHAN</tRule>
+			<comment>#Note: TO PATAK deviates from ISO since t-dotunder + h would be ambigous. So it uses vertical tick.</comment>
 			<tRule>ฏ ↔ t̩ ; # THAI CHARACTER TO PATAK</tRule>
 			<tRule>ต ↔ t ; # THAI CHARACTER TO TAO</tRule>
+			<comment># since there is no singleton g (generated), don't worry about that.</comment>
 			<tRule>ง ↔ ng ; # THAI CHARACTER NGO NGU</tRule>
 			<tRule>ณ ↔ ṇ ; # THAI CHARACTER NO NEN</tRule>
 			<tRule>น ↔ n ; # THAI CHARACTER NO NU</tRule>
@@ -98,9 +89,11 @@
 			<tRule>ฟ ↔ f ; # THAI CHARACTER FO FAN</tRule>
 			<tRule>อ ↔ x ; # THAI CHARACTER O ANG</tRule>
 			<tRule>ซ ↔ s ; # THAI CHARACTER SO SO</tRule>
+			<comment># vowels</comment>
 			<tRule>ั ↔ ạ ; # THAI CHARACTER MAI HAN-AKAT</tRule>
 			<tRule>า → ā ; # THAI CHARACTER SARA AA</tRule>
 			<tRule>า | $1 ← a ($notAbove*)    ̄; # backward case, account for reordering</tRule>
+			<comment># We deviate from ISO for SARA AM for disambiguation</comment>
 			<tRule>ำ → a  ̉; # THAI CHARACTER SARA AM</tRule>
 			<tRule>ำ | $1 ← a ($notAbove*)  ̉ ; # backward case, account for reordering</tRule>
 			<tRule>ะ ↔ a ; # THAI CHARACTER SARA A</tRule>
@@ -113,6 +106,7 @@
 			<tRule>ู | $1 ← u  ($notAbove*)    ̄  ; # backward case, account for reordering</tRule>
 			<tRule>ุ ↔ u ; # THAI CHARACTER SARA U</tRule>
 			<tRule>ฯ ↔ ‡ ; # THAI CHARACTER PAIYANNOI</tRule>
+			<comment># ฿ ↔ XXX ; # THAI CURRENCY SYMBOL BAHT</comment>
 			<tRule>เ ↔ e ; # THAI CHARACTER SARA E</tRule>
 			<tRule>แ ↔ æ ; # THAI CHARACTER SARA AE</tRule>
 			<tRule>โ ↔ o ; # THAI CHARACTER SARA O</tRule>
@@ -126,6 +120,7 @@
 			<tRule>๋ ↔ ̌ ; # THAI CHARACTER MAI CHATTAWA</tRule>
 			<tRule>์ ↔ ̒ ; # THAI CHARACTER THANTHAKHAT</tRule>
 			<tRule>๎ ↔ '~' ; # THAI CHARACTER YAMAKKAN</tRule>
+			<comment># We deviate from ISO for disambiguation</comment>
 			<tRule>ํ ↔  ̊ ; # THAI CHARACTER NIKHAHIT</tRule>
 			<tRule>๏ ↔ § ; # THAI CHARACTER FONGMAN</tRule>
 			<tRule>๐ ↔ 0 ; # THAI DIGIT ZERO</tRule>
@@ -141,8 +136,11 @@
 			<tRule>๚ ↔ '||' ; # THAI CHARACTER ANGKHANKHU</tRule>
 			<tRule>๛ ↔ » ; # THAI CHARACTER KHOMUT</tRule>
 			<tRule>ๆ ↔ « ; # THAI CHARACTER MAIYAMOK</tRule>
+			<comment># moved down to make shorter first</comment>
+			<comment>#Note: PHINTHU deviates from ISO since underring causes canonical problems. So it uses spacing tick below.</comment>
 			<tRule>ฺ ↔ ˌ ; # THAI CHARACTER PHINTHU</tRule>
 			<tRule>ิ ↔ i ; # THAI CHARACTER SARA I</tRule>
+			<comment># fallbacks</comment>
 			<tRule>| k ← g ;</tRule>
 			<tRule>| k ← h ;</tRule>
 			<tRule>| c ← j ;</tRule>

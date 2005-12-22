@@ -1,48 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
 <supplementalData version="1.4">
-	<version number="$Revision$"/>
-	<generation date="$Date$"/>
 	<transforms>
 		<transform source="InterIndic" target="Latin" direction="both" visibility="internal">
 			<comment># InterIndic-Latin</comment>
 			<comment>#\u0E00 reserved</comment>
 			<comment>#consonants</comment>
-			<comment>#\u0E004 reserved</comment>
-			<comment># w←vowel→ represents the stand-alone form</comment>
-			<comment>#\u093A Reserved</comment>
-			<comment>#\u093B Reserved</comment>
-			<comment># ←vowel→ represents the dependent form</comment>
-			<comment># \u094E Reserved</comment>
-			<comment># \u094F Reserved</comment>
-			<comment>#urdu compatibity forms</comment>
-			<comment># Glottal stop</comment>
-			<comment>#Khanda-ta</comment>
-			<comment># ॰→; # UNMAPPED ABBREVIATION SIGN</comment>
-			<comment># $x was originally called '§'; $z was '%'</comment>
-			<comment>######################################################################</comment>
-			<comment># convert from Native letters to Latin letters</comment>
-			<comment>######################################################################</comment>
-			<comment>#transliterations for anusvara</comment>
-			<comment># Urdu compatibility</comment>
-			<comment># normal consonants</comment>
-			<comment>#for gurmukhi</comment>
-			<comment># dependent vowels (should never occur except following consonants)</comment>
-			<comment>#extra vowels</comment>
-			<comment>#extra vowels</comment>
-			<comment>#dependent vowels when following independent vowels. Generally Illegal only for roundtripping</comment>
-			<comment>#extra vowels</comment>
-			<comment># independent vowels when preceeded by vowels</comment>
-			<comment>#extra vowels</comment>
-			<comment># independent vowels (otherwise)</comment>
-			<comment>#extra vowels</comment>
-			<comment>#stress marks</comment>
-			<comment>#numbers</comment>
-			<comment># LETTER RA WITH MIDDLE DIAGONAL</comment>
-			<comment># LETTER RA WITH LOWER DIAGONAL</comment>
 			<tRule>$chandrabindu=\uE001;</tRule>
 			<tRule>$anusvara=\uE002;</tRule>
 			<tRule>$visarga=\uE003;</tRule>
+			<comment>#\u0E004 reserved</comment>
+			<comment># w←vowel→ represents the stand-alone form</comment>
 			<tRule>$wa=\uE005;</tRule>
 			<tRule>$waa=\uE006;</tRule>
 			<tRule>$wi=\uE007;</tRule>
@@ -97,8 +65,11 @@
 			<tRule>$ssa=\uE037;</tRule>
 			<tRule>$sa=\uE038;</tRule>
 			<tRule>$ha=\uE039;</tRule>
+			<comment>#\u093A Reserved</comment>
+			<comment>#\u093B Reserved</comment>
 			<tRule>$nukta=\uE03C;</tRule>
 			<tRule>$avagraha=\uE03D; # SIGN AVAGRAHA</tRule>
+			<comment># ←vowel→ represents the dependent form</comment>
 			<tRule>$aa=\uE03E;</tRule>
 			<tRule>$i=\uE03F;</tRule>
 			<tRule>$ii=\uE040;</tRule>
@@ -115,6 +86,8 @@
 			<tRule>$o=\uE04B;  # ो</tRule>
 			<tRule>$au=\uE04C;</tRule>
 			<tRule>$virama=\uE04D;</tRule>
+			<comment># \u094E Reserved</comment>
+			<comment># \u094F Reserved</comment>
 			<tRule>$om=\uE050; # OM</tRule>
 			<tRule>\uE051→;        # UNMAPPED STRESS SIGN UDATTA</tRule>
 			<tRule>\uE052→;        # UNMAPPED STRESS SIGN ANUDATTA</tRule>
@@ -123,6 +96,7 @@
 			<tRule>$lm = \uE055;#  Telugu Length Mark</tRule>
 			<tRule>$ailm=\uE056;#  AI Length Mark</tRule>
 			<tRule>$aulm=\uE057;#  AU Length Mark</tRule>
+			<comment>#urdu compatibity forms</comment>
 			<tRule>$uka=\uE058;</tRule>
 			<tRule>$ukha=\uE059;</tRule>
 			<tRule>$ugha=\uE05A;</tRule>
@@ -147,14 +121,22 @@
 			<tRule>$seven=\uE06D;    # DIGIT SEVEN</tRule>
 			<tRule>$eight=\uE06E;    # DIGIT EIGHT</tRule>
 			<tRule>$nine=\uE06F;     # DIGIT NINE</tRule>
+			<comment># Glottal stop</comment>
 			<tRule>$dgs=\uE082;</tRule>
+			<comment>#Khanda-ta</comment>
 			<tRule>$kta=\uE083;</tRule>
+			<comment># ॰→; # UNMAPPED ABBREVIATION SIGN</comment>
 			<tRule>$depVowelAbove=[\uE03E-\uE040\uE045-\uE04C];</tRule>
 			<tRule>$depVowelBelow=[\uE041-\uE044];</tRule>
+			<comment># $x was originally called '§'; $z was '%'</comment>
 			<tRule>$x=[$aa$ai$au$ii$i$uu$u$rrh$rh$lh$llh$e$o$se$ce$so$co];</tRule>
 			<tRule>$z=[bcdfghjklmnpqrstvwxyz];</tRule>
 			<tRule>$vowels=[aeiour̥̄̆];</tRule>
 			<tRule>$forceIndependentMatra = [^[[:L:][̀-͌]]];</tRule>
+			<comment>######################################################################</comment>
+			<comment># convert from Native letters to Latin letters</comment>
+			<comment>######################################################################</comment>
+			<comment>#transliterations for anusvara</comment>
 			<tRule>$anusvara} [$ka$kha$ga$gha$nga]             → ṅ;</tRule>
 			<tRule>$anusvara} [$ca$cha$ja$jha$nya]             → n̄;</tRule>
 			<tRule>$anusvara} [$tta$ttha$dda$ddha$nna]         → ṇ;</tRule>
@@ -162,6 +144,7 @@
 			<tRule>$anusvara} [$pa$pha$ba$bha$ma]              → m;</tRule>
 			<tRule>$anusvara} [$ya$ra$lla$la$va$ssa$sha$sa$ha] → n;</tRule>
 			<tRule>$anusvara→ ṁ;</tRule>
+			<comment># Urdu compatibility</comment>
 			<tRule>$ya$nukta}$x        → ẏ;</tRule>
 			<tRule>$ya$nukta$virama    → ẏ;</tRule>
 			<tRule>$ya$nukta           → ẏa;</tRule>
@@ -219,6 +202,7 @@
 			<tRule>$uya}$x             → ẏ;</tRule>
 			<tRule>$uya$virama         → ẏ;</tRule>
 			<tRule>$uya                → ẏa;</tRule>
+			<comment># normal consonants</comment>
 			<tRule>$ka$virama}$ha→k'';</tRule>
 			<tRule>$ka}$x→k;</tRule>
 			<tRule>$ka$virama→k;</tRule>
@@ -345,6 +329,7 @@
 			<tRule>$sa$virama}$sa→s'';</tRule>
 			<tRule>$sa}$x→s;</tRule>
 			<tRule>$sa$virama→s;</tRule>
+			<comment>#for gurmukhi</comment>
 			<tRule>$sa$nukta}$x→ś;</tRule>
 			<tRule>$sa$nukta$virama→ś;</tRule>
 			<tRule>$sa$nukta→śa;</tRule>
@@ -358,6 +343,7 @@
 			<tRule>$ha}$x→h;</tRule>
 			<tRule>$ha$virama→h;</tRule>
 			<tRule>$ha→ha;</tRule>
+			<comment># dependent vowels (should never occur except following consonants)</comment>
 			<tRule>$forceIndependentMatra{$aa  → ̔ā;</tRule>
 			<tRule>$forceIndependentMatra{$ai  → ̔ai;</tRule>
 			<tRule>$forceIndependentMatra{$au  → ̔au;</tRule>
@@ -371,6 +357,7 @@
 			<tRule>$forceIndependentMatra{$lh  → ̔l̥;</tRule>
 			<tRule>$forceIndependentMatra{$e   → ̔ē;</tRule>
 			<tRule>$forceIndependentMatra{$o   → ̔ō;</tRule>
+			<comment>#extra vowels</comment>
 			<tRule>$forceIndependentMatra{$ce  → ̔ĕ;</tRule>
 			<tRule>$forceIndependentMatra{$co  → ̔ŏ;</tRule>
 			<tRule>$forceIndependentMatra{$se  → ̔e;</tRule>
@@ -390,10 +377,12 @@
 			<tRule>$lh  → l̥;</tRule>
 			<tRule>$e   → ē;</tRule>
 			<tRule>$o   → ō;</tRule>
+			<comment>#extra vowels</comment>
 			<tRule>$ce  → ĕ;</tRule>
 			<tRule>$co  → ŏ;</tRule>
 			<tRule>$se  → e;</tRule>
 			<tRule>$so  → o;</tRule>
+			<comment>#dependent vowels when following independent vowels. Generally Illegal only for roundtripping</comment>
 			<tRule>$waa} $x → ā̔;</tRule>
 			<tRule>$wai} $x → ai̔;</tRule>
 			<tRule>$wau} $x → au̔;</tRule>
@@ -408,11 +397,13 @@
 			<tRule>$we } $x → ē̔;</tRule>
 			<tRule>$wo } $x → ō̔;</tRule>
 			<tRule>$wa } $x → a̔;</tRule>
+			<comment>#extra vowels</comment>
 			<tRule>$wce} $x → ĕ̔;</tRule>
 			<tRule>$wco} $x → ŏ̔;</tRule>
 			<tRule>$wse} $x → e̔;</tRule>
 			<tRule>$wso} $x → o̔;</tRule>
 			<tRule>$om} $x → ''om̔;</tRule>
+			<comment># independent vowels when preceeded by vowels</comment>
 			<tRule>$vowels{$waa  → ''ā;</tRule>
 			<tRule>$vowels{$wai  → ''ai;</tRule>
 			<tRule>$vowels{$wau  → ''au;</tRule>
@@ -427,10 +418,12 @@
 			<tRule>$vowels{$we   → ''ē;</tRule>
 			<tRule>$vowels{$wo   → ''ō;</tRule>
 			<tRule>$vowels{$wa   → ''a;</tRule>
+			<comment>#extra vowels</comment>
 			<tRule>$vowels{$wce  → ''ĕ;</tRule>
 			<tRule>$vowels{$wco  → ''ŏ;</tRule>
 			<tRule>$vowels{$wse  → ''e;</tRule>
 			<tRule>$vowels{$wso  → ''o;</tRule>
+			<comment># independent vowels (otherwise)</comment>
 			<tRule>$waa → ā;</tRule>
 			<tRule>$wai → ai;</tRule>
 			<tRule>$wau → au;</tRule>
@@ -445,15 +438,18 @@
 			<tRule>$we  → ē;</tRule>
 			<tRule>$wo  → ō;</tRule>
 			<tRule>$wa  → a;</tRule>
+			<comment>#extra vowels</comment>
 			<tRule>$wce → ĕ;</tRule>
 			<tRule>$wco → ŏ;</tRule>
 			<tRule>$wse → e;</tRule>
 			<tRule>$wso → o;</tRule>
 			<tRule>$om → ''om;</tRule>
+			<comment>#stress marks</comment>
 			<tRule>$avagraha → ̕;</tRule>
 			<tRule>$chandrabindu$anusvara→̃;</tRule>
 			<tRule>$chandrabindu → m̐;</tRule>
 			<tRule>$visarga→ḥ;</tRule>
+			<comment>#numbers</comment>
 			<tRule>$zero  → 0;</tRule>
 			<tRule>$one   → 1;</tRule>
 			<tRule>$two   → 2;</tRule>
@@ -472,9 +468,11 @@
 			<tRule>$danda→'.';</tRule>
 			<tRule>$doubleDanda→'.';</tRule>
 			<tRule>\uE070→;       # ABBREVIATION SIGN</tRule>
+			<comment># LETTER RA WITH MIDDLE DIAGONAL</comment>
 			<tRule>\uE071}$x→ra;</tRule>
 			<tRule>\uE071$virama→r;</tRule>
 			<tRule>\uE071→ra;</tRule>
+			<comment># LETTER RA WITH LOWER DIAGONAL</comment>
 			<tRule>\uE072}$x→ra;</tRule>
 			<tRule>\uE072$virama→r;</tRule>
 			<tRule>\uE072→ra;</tRule>

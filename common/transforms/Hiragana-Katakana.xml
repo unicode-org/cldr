@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
 <supplementalData version="1.4">
-	<version number="$Revision$"/>
-	<generation date="$Date$"/>
 	<transforms>
 		<transform source="Hiragana" target="Katakana" direction="both">
 			<comment># note: a global filter is more efficient, but MUST include all source chars</comment>
+			<tRule>:: [\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟー[:Hiragana:] [:Katakana:] [:nonspacing mark:]] ;</tRule>
+			<tRule>:: NFKC ();</tRule>
 			<comment># Hiragana-Katakana</comment>
 			<comment># This is largely a one-to-one mapping, but it has a</comment>
 			<comment># few kinks:</comment>
@@ -32,36 +32,13 @@
 			<comment># they provide naturalistic results that should conform</comment>
 			<comment># to user expectations.</comment>
 			<comment># Combining equivalents va/vi/ve/vo</comment>
-			<comment># One-to-one mappings, main block</comment>
-			<comment># 3041:3094 ↔ 30A1:30F4</comment>
-			<comment># 309D,E ↔ 30FD,E</comment>
-			<comment># One-way Katakana-Hiragana xform of small K ka/ke to</comment>
-			<comment># normal H ka/ke.</comment>
-			<comment># Katakana followed by a prolonged sound mark 30FC has</comment>
-			<comment># its final vowel doubled.  This is a Katakana-Hiragana</comment>
-			<comment># one-way information-losing transformation.  We</comment>
-			<comment># include the small Katakana (e.g., small A 3041) and</comment>
-			<comment># do not distinguish them from their large</comment>
-			<comment># counterparts.  It doesn't make sense to double a</comment>
-			<comment># small counterpart vowel as a small Hiragana vowel, so</comment>
-			<comment># we don't do so.  In natural text this should never</comment>
-			<comment># occur anyway.  If a 30FC is seen without a preceding</comment>
-			<comment># vowel sound (e.g., after n 30F3) we do not change it.</comment>
-			<comment>### $long = ー;</comment>
-			<comment># The following categories are Hiragana, not Katakana</comment>
-			<comment># as might be expected, since by the time we get to the</comment>
-			<comment># 30FC, the preceding character will have already been</comment>
-			<comment># transformed to Hiragana.</comment>
-			<comment># {The following mechanically generated from the</comment>
-			<comment># Unicode 3.0 data:}</comment>
-			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
-			<comment># eof</comment>
-			<tRule>:: [\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟー[:Hiragana:] [:Katakana:] [:nonspacing mark:]] ;</tRule>
-			<tRule>:: NFKC ();</tRule>
 			<tRule>わ゙ ↔ ヷ;</tRule>
 			<tRule>ゐ゙ ↔ ヸ;</tRule>
 			<tRule>ゑ゙ ↔ ヹ;</tRule>
 			<tRule>を゙ ↔ ヺ;</tRule>
+			<comment># One-to-one mappings, main block</comment>
+			<comment># 3041:3094 ↔ 30A1:30F4</comment>
+			<comment># 309D,E ↔ 30FD,E</comment>
 			<tRule>ぁ ↔ ァ;</tRule>
 			<tRule>あ ↔ ア;</tRule>
 			<tRule>ぃ ↔ ィ;</tRule>
@@ -148,8 +125,27 @@
 			<tRule>ゔ ↔ ヴ;</tRule>
 			<tRule>ゝ ↔ ヽ;</tRule>
 			<tRule>ゞ ↔ ヾ;</tRule>
+			<comment># One-way Katakana-Hiragana xform of small K ka/ke to</comment>
+			<comment># normal H ka/ke.</comment>
 			<tRule>か ← ヵ;</tRule>
 			<tRule>け ← ヶ;</tRule>
+			<comment># Katakana followed by a prolonged sound mark 30FC has</comment>
+			<comment># its final vowel doubled.  This is a Katakana-Hiragana</comment>
+			<comment># one-way information-losing transformation.  We</comment>
+			<comment># include the small Katakana (e.g., small A 3041) and</comment>
+			<comment># do not distinguish them from their large</comment>
+			<comment># counterparts.  It doesn't make sense to double a</comment>
+			<comment># small counterpart vowel as a small Hiragana vowel, so</comment>
+			<comment># we don't do so.  In natural text this should never</comment>
+			<comment># occur anyway.  If a 30FC is seen without a preceding</comment>
+			<comment># vowel sound (e.g., after n 30F3) we do not change it.</comment>
+			<comment>### $long = ー;</comment>
+			<comment># The following categories are Hiragana, not Katakana</comment>
+			<comment># as might be expected, since by the time we get to the</comment>
+			<comment># 30FC, the preceding character will have already been</comment>
+			<comment># transformed to Hiragana.</comment>
+			<comment># {The following mechanically generated from the</comment>
+			<comment># Unicode 3.0 data:}</comment>
 			<tRule>$xa = [ \</tRule>
 			<tRule>ぁ あ か が さ ざ \</tRule>
 			<tRule>た だ な は ば ぱ \</tRule>
@@ -181,7 +177,9 @@
 			<tRule>え ← $xe {ー};</tRule>
 			<tRule>お ← $xo {ー};</tRule>
 			<tRule>:: (NFKC) ;</tRule>
+			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
 			<tRule>:: ([\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟー[:Hiragana:] [:Katakana:] [:nonspacing mark:]]);</tRule>
+			<comment># eof</comment>
 		</transform>
 	</transforms>
 </supplementalData>

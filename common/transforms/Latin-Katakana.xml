@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
 <supplementalData version="1.4">
-	<version number="$Revision$"/>
-	<generation date="$Date$"/>
 	<transforms>
 		<transform source="Latin" target="Katakana" direction="both">
 			<comment># note: a global filter is more efficient, but MUST include all source chars</comment>
 			<comment>#:: [\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟ [:Latin:][:Katakana:] [:nonspacing mark:]] ;</comment>
 			<comment># MINIMAL FILTER GENERATED FOR: Latin-Katakana</comment>
 			<comment>### WARNING -- must add width filter, both here and below!!! ###</comment>
+			<tRule>:: [[ᄀ-ᄒᄚᄡ\u1160-ᅵᆪᆬ-ᆭᆰ-ᆵ←-↓│■○\u3000-。「-」゙-゚ァ-ロワヲ-ヴヷヺ-ー！-～￠-￦][',.A-Za-z~À-ÖØ-öø-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǭǰǴ-ǵǸ-țȞ-ȟȦ-ȳ̄Ӣ-ӣӮ-ӯḀ-ẙẠ-ỹᾱᾹῑῙῡῩK-Å]] ;</tRule>
+			<tRule>:: [:Latin:] fullwidth-halfwidth ();</tRule>
+			<tRule>:: NFD (NFC);</tRule>
+			<tRule>:: Lower ();    # whenever transliterating from cased to uncased script, include this</tRule>
 			<comment># :: NFD () ;   # this would catch the odd cases where a lowercase is not in NFD, but none are important for Japanese</comment>
 			<comment># Uses modified Hepburn. Small changes to make  unambiguous.</comment>
 			<comment># | Kunrei-shiki: Hepburn/MHepburn</comment>
@@ -54,76 +56,10 @@
 			<comment># explicit small forms are given with ~a, ~ya, etc.</comment>
 			<comment>#------------------------------------------------------</comment>
 			<comment># Variables</comment>
-			<comment># Variables used for doubled-consonants with tsu</comment>
-			<comment># if ン is followed by $n_quoter, then it needs an</comment>
-			<comment># apostrophe after its romaji form to disambiguate it.</comment>
-			<comment># e.g., ン ア ! =  ナ, so represent as &quot;n'a&quot;, not &quot;na&quot;.</comment>
-			<comment>#------------------------------------------------------</comment>
-			<comment># katakana rules</comment>
-			<comment># Punctuation</comment>
-			<comment># ' ' } [a-z] → ; # delete spaces before latin</comment>
-			<comment># ' ' ← [^' '゠-ヿ] {} ['゠-ヿ] ; #insert spaces before hiragana</comment>
-			<comment># Iteration Mark</comment>
-			<comment># Copy previous letter § marks</comment>
-			<comment># TODO</comment>
-			<comment># | $1 $1 ← ($kana [[:M:]$voice$semivoice]?) $iteration</comment>
-			<comment># Specials for katakana -- not shared with hiragana</comment>
-			<comment># ~~~ begin shared rules ~~~</comment>
-			<comment>#special</comment>
-			<comment>#normal</comment>
-			<comment># TODO: QUESTION: use ĵĴżŻ instead of dj, dz</comment>
-			<comment># j  } $vowel → ジ | '~y' ;</comment>
-			<comment># f | '~' ← フ } $small_y ;</comment>
-			<comment># f } $vowel → フ | '~' ;</comment>
-			<comment># v  } $vowel → ヴ | '~' ;</comment>
-			<comment>#'v~a' ← ヴァ ; # liu</comment>
-			<comment>#'v~i' ← ヴィ ; # liu</comment>
-			<comment>#'v~e' ← ヴェ ; # liu</comment>
-			<comment>#'v~o' ← ヴォ ; # liu</comment>
-			<comment># w  } $vowel → ウ | '~' ;</comment>
-			<comment># double consonants</comment>
-			<comment>#specials</comment>
-			<comment>#voiced</comment>
-			<comment># v } v ↔ ッ } [ワヰウヱヲう]  $voice ;</comment>
-			<comment># normal</comment>
-			<comment># completeness</comment>
-			<comment># y } y → ッ ;</comment>
-			<comment># w } w → ッ ;</comment>
-			<comment># prolonged vowel mark. this indicates a doubling of</comment>
-			<comment># the preceding vowel sound</comment>
-			<comment>#a ← a { ー ; # liu</comment>
-			<comment>#e ← e { ー ; # liu</comment>
-			<comment>#i ← i { ー ; # liu</comment>
-			<comment>#o ← o { ー ; # liu</comment>
-			<comment>#u ← u { ー ; # liu</comment>
-			<comment># small forms</comment>
-			<comment># iteration marks</comment>
-			<comment># TODO: make more accurate</comment>
-			<comment># h- rule: lengthens vowel if not followed by a vowel</comment>
-			<comment># one-way latin- → kana rules. these do not occur in</comment>
-			<comment># well-formed romaji representing actual japanese text.</comment>
-			<comment># their purpose is to make all romaji map to kana of</comment>
-			<comment># some sort.</comment>
-			<comment># the following are not really necessary, but produce</comment>
-			<comment># slightly more natural results.</comment>
-			<comment># isolated consonants listed here so as not to mask</comment>
-			<comment># longer rules above.</comment>
-			<comment># simple substitutions using backup</comment>
-			<comment># ~~~ END shared rules ~~~</comment>
-			<comment>#------------------------------------------------------</comment>
-			<comment># Final cleanup</comment>
-			<comment># [ʾ[:Nonspacing Mark:]-[゙-゜]] → ; # delete any non-spacing marks that we didn't use</comment>
-			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
-			<comment>#:: ([\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟ [:Latin:][:Katakana:] [:nonspacing mark:]]);</comment>
-			<comment># MINIMAL FILTER GENERATED FOR: Latin-Katakana BACKWARD</comment>
-			<comment># eof</comment>
-			<tRule>:: [[ᄀ-ᄒᄚᄡ\u1160-ᅵᆪᆬ-ᆭᆰ-ᆵ←-↓│■○\u3000-。「-」゙-゚ァ-ロワヲ-ヴヷヺ-ー！-～￠-￦][',.A-Za-z~À-ÖØ-öø-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǭǰǴ-ǵǸ-țȞ-ȟȦ-ȳ̄Ӣ-ӣӮ-ӯḀ-ẙẠ-ỹᾱᾹῑῙῡῩK-Å]] ;</tRule>
-			<tRule>:: [:Latin:] fullwidth-halfwidth ();</tRule>
-			<tRule>:: NFD (NFC);</tRule>
-			<tRule>:: Lower ();    # whenever transliterating from cased to uncased script, include this</tRule>
 			<tRule>$vowel = [aeiou] ;</tRule>
 			<tRule>$consonant = [bcdfghjklmnpqrstvwxyz] ;</tRule>
 			<tRule>$macron = ̄ ;</tRule>
+			<comment># Variables used for doubled-consonants with tsu</comment>
 			<tRule>$kana = [ぁ-ゔ] ;</tRule>
 			<tRule>$voice = [゙゛];</tRule>
 			<tRule>$semivoice = [゚゜];</tRule>
@@ -139,22 +75,38 @@
 			<tRule>$r_start = [ラリルレロらりるれろ] ;</tRule>
 			<tRule>$w_start = [ワヰヱヲわゐゑを] ;</tRule>
 			<tRule>$v_start = [ワヰヱヲ]゙ ;</tRule>
+			<comment># if ン is followed by $n_quoter, then it needs an</comment>
+			<comment># apostrophe after its romaji form to disambiguate it.</comment>
+			<comment># e.g., ン ア ! =  ナ, so represent as &quot;n'a&quot;, not &quot;na&quot;.</comment>
 			<tRule>$n_quoter  =  [ア イ ウ エ オ ナ ニ ヌ ネ ノ ヤ ユ ヨ ン] ;</tRule>
 			<tRule>$small_y = [ャィュェョ] ;</tRule>
 			<tRule>$iteration = ゝ ;</tRule>
+			<comment>#------------------------------------------------------</comment>
+			<comment># katakana rules</comment>
+			<comment># Punctuation</comment>
 			<tRule>'.' ↔ 。;</tRule>
 			<tRule>',' ↔ 、;</tRule>
+			<comment># ' ' } [a-z] → ; # delete spaces before latin</comment>
+			<comment># ' ' ← [^' '゠-ヿ] {} ['゠-ヿ] ; #insert spaces before hiragana</comment>
+			<comment># Iteration Mark</comment>
+			<comment># Copy previous letter § marks</comment>
+			<comment># TODO</comment>
+			<comment># | $1 $1 ← ($kana [[:M:]$voice$semivoice]?) $iteration</comment>
+			<comment># Specials for katakana -- not shared with hiragana</comment>
 			<tRule>va ↔ ヷ ;</tRule>
 			<tRule>vi ↔ ヸ ;</tRule>
 			<tRule>ve ↔ ヹ ;</tRule>
 			<tRule>vo ↔ ヺ ;</tRule>
 			<tRule>'~ka' ↔ ヵ ;</tRule>
 			<tRule>'~ke' ↔ ヶ ;</tRule>
+			<comment># ~~~ begin shared rules ~~~</comment>
+			<comment>#special</comment>
 			<tRule>ya ← '~'ャ;</tRule>
 			<tRule>yi ← '~'ィ ;</tRule>
 			<tRule>yu ← '~'ュ;</tRule>
 			<tRule>ye ← '~'ェ;</tRule>
 			<tRule>yo ← '~'ョ;</tRule>
+			<comment>#normal</comment>
 			<tRule>a ↔ ア ;</tRule>
 			<tRule>b | '~' ← ヒ ゙} $small_y ;</tRule>
 			<tRule>by } $vowel → ビ | '~y' ;</tRule>
@@ -178,6 +130,7 @@
 			<tRule>djo ← ヂョ ;</tRule>
 			<tRule>dji ↔ ヂ ;</tRule>
 			<tRule>dj  } $vowel → ヂ | '~y' ;</tRule>
+			<comment># TODO: QUESTION: use ĵĴżŻ instead of dj, dz</comment>
 			<tRule>cha ← チャ ;</tRule>
 			<tRule>chi'~i' ← チィ ; # liu</tRule>
 			<tRule>chu ← チュ ;</tRule>
@@ -194,6 +147,7 @@
 			<tRule>ge ↔ ゲ ;</tRule>
 			<tRule>go ↔ ゴ ;</tRule>
 			<tRule>i ↔ イ ;</tRule>
+			<comment># j  } $vowel → ジ | '~y' ;</comment>
 			<tRule>ja ↔ ジャ ;</tRule>
 			<tRule>ji'~i' ← ジィ ; # liu</tRule>
 			<tRule>ju ↔ ジュ ;</tRule>
@@ -237,6 +191,8 @@
 			<tRule>hu ↔ ヘゥ ;</tRule>
 			<tRule>he ↔ ヘ ;</tRule>
 			<tRule>ho ↔ ホ ;</tRule>
+			<comment># f | '~' ← フ } $small_y ;</comment>
+			<comment># f } $vowel → フ | '~' ;</comment>
 			<tRule>fa ↔ ファ ;</tRule>
 			<tRule>fi ↔ フィ ;</tRule>
 			<tRule>fe ↔ フェ ;</tRule>
@@ -272,8 +228,14 @@
 			<tRule>te ↔ テ ;</tRule>
 			<tRule>to ↔ ト ;</tRule>
 			<tRule>tsu ↔ ツ ;</tRule>
+			<comment># v  } $vowel → ヴ | '~' ;</comment>
+			<comment>#'v~a' ← ヴァ ; # liu</comment>
+			<comment>#'v~i' ← ヴィ ; # liu</comment>
+			<comment>#'v~e' ← ヴェ ; # liu</comment>
+			<comment>#'v~o' ← ヴォ ; # liu</comment>
 			<tRule>vu ↔ ヴ ;</tRule>
 			<tRule>u ↔ ウ ;</tRule>
+			<comment># w  } $vowel → ウ | '~' ;</comment>
 			<tRule>wa ↔ ワ ;</tRule>
 			<tRule>wi ↔ ヰ ;</tRule>
 			<tRule>wu → ウ ;</tRule>
@@ -284,15 +246,20 @@
 			<tRule>yu ↔ ユ ;</tRule>
 			<tRule>ye → エ ;</tRule>
 			<tRule>yo ↔ ヨ ;</tRule>
+			<comment># double consonants</comment>
+			<comment>#specials</comment>
 			<tRule>s } sh → ッ ;</tRule>
 			<tRule>t } ch → ッ ;</tRule>
+			<comment>#voiced</comment>
 			<tRule>j } j ↔ ッ } $j_start ;</tRule>
 			<tRule>b } b ↔ ッ } [$h_start$f_start] $voice;</tRule>
 			<tRule>d } d ↔ ッ } $t_start $voice;</tRule>
 			<tRule>g } g ↔ ッ } $k_start $voice;</tRule>
 			<tRule>p } p ↔ ッ } [$h_start$f_start] $semivoice;</tRule>
+			<comment># v } v ↔ ッ } [ワヰウヱヲう]  $voice ;</comment>
 			<tRule>z } z ↔ ッ } $s_start $voice;</tRule>
 			<tRule>v } v ↔ ッ } $v_start;</tRule>
+			<comment># normal</comment>
 			<tRule>k } k ↔ ッ } $k_start ;</tRule>
 			<tRule>m } m ↔ ッ } $m_start ;</tRule>
 			<tRule>n } n ↔ ッ } $n_start ;</tRule>
@@ -303,13 +270,24 @@
 			<tRule>s } s ↔ ッ } $s_start ;</tRule>
 			<tRule>w } w  ↔ ッ } $w_start;</tRule>
 			<tRule>y } y ↔ ッ } $y_start;</tRule>
+			<comment># completeness</comment>
 			<tRule>x } x → ッ ;</tRule>
 			<tRule>c } k → ッ ;</tRule>
 			<tRule>c } c → ッ ;</tRule>
 			<tRule>c } q → ッ ;</tRule>
 			<tRule>l } l → ッ ;</tRule>
 			<tRule>q } q → ッ ;</tRule>
+			<comment># y } y → ッ ;</comment>
+			<comment># w } w → ッ ;</comment>
+			<comment># prolonged vowel mark. this indicates a doubling of</comment>
+			<comment># the preceding vowel sound</comment>
+			<comment>#a ← a { ー ; # liu</comment>
+			<comment>#e ← e { ー ; # liu</comment>
+			<comment>#i ← i { ー ; # liu</comment>
+			<comment>#o ← o { ー ; # liu</comment>
+			<comment>#u ← u { ー ; # liu</comment>
 			<tRule>$macron ↔ ー ;</tRule>
+			<comment># small forms</comment>
 			<tRule>'~a' ↔ ァ ;</tRule>
 			<tRule>'~i' ↔ ィ ;</tRule>
 			<tRule>'~u' ↔ ゥ ;</tRule>
@@ -322,6 +300,8 @@
 			<tRule>'~yu' ↔ ュ ;</tRule>
 			<tRule>'~ye' → ェ ;</tRule>
 			<tRule>'~yo' ↔ ョ ;</tRule>
+			<comment># iteration marks</comment>
+			<comment># TODO: make more accurate</comment>
 			<tRule>j $1 ← sh (y* $vowel) {ヽ$voice ;</tRule>
 			<tRule>dj $1 ← ch (y* $vowel) {ヽ$voice ;</tRule>
 			<tRule>dz $1 ← ts (y* $vowel) {ヽ$voice ;</tRule>
@@ -339,7 +319,14 @@
 			<tRule>$1 ← ($consonant y* $vowel) {ヽ$voice? ;</tRule>
 			<tRule>$1 ← (.) {ヽ $voice? ; # otherwise repeat last character</tRule>
 			<tRule>← ヽ $voice? ; # delete if no characters found</tRule>
+			<comment># h- rule: lengthens vowel if not followed by a vowel</comment>
 			<tRule>[aeiou] } h → ー ;</tRule>
+			<comment># one-way latin- → kana rules. these do not occur in</comment>
+			<comment># well-formed romaji representing actual japanese text.</comment>
+			<comment># their purpose is to make all romaji map to kana of</comment>
+			<comment># some sort.</comment>
+			<comment># the following are not really necessary, but produce</comment>
+			<comment># slightly more natural results.</comment>
 			<tRule>cy → セィ ;</tRule>
 			<tRule>dy → ディ ;</tRule>
 			<tRule>hy → ヒ ;</tRule>
@@ -347,6 +334,8 @@
 			<tRule>ty → ティ ;</tRule>
 			<tRule>zy → ゼィ ;</tRule>
 			<tRule>h → ヘ ;</tRule>
+			<comment># isolated consonants listed here so as not to mask</comment>
+			<comment># longer rules above.</comment>
 			<tRule>ch → チ;</tRule>
 			<tRule>sh → シ ;</tRule>
 			<tRule>dz → ヅ ;</tRule>
@@ -373,15 +362,24 @@
 			<tRule>ð → | d ;</tRule>
 			<tRule>ø → | u ;</tRule>
 			<tRule>þ → | th ;</tRule>
+			<comment># simple substitutions using backup</comment>
 			<tRule>c → | k ;</tRule>
 			<tRule>l → | r ;</tRule>
 			<tRule>q → | k ;</tRule>
 			<tRule>x → | ks ;</tRule>
+			<comment># ~~~ END shared rules ~~~</comment>
+			<comment>#------------------------------------------------------</comment>
+			<comment># Final cleanup</comment>
 			<tRule>'~' → ; # delete stray tildes between letters</tRule>
 			<tRule>[:Katakana:] { '' } [:Latin:] → ; # delete stray quotes between letters</tRule>
+			<comment># [ʾ[:Nonspacing Mark:]-[゙-゜]] → ; # delete any non-spacing marks that we didn't use</comment>
 			<tRule>:: NFC (NFD) ;</tRule>
 			<tRule>:: ([:Katakana:] halfwidth-fullwidth);</tRule>
+			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
+			<comment>#:: ([\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟ [:Latin:][:Katakana:] [:nonspacing mark:]]);</comment>
+			<comment># MINIMAL FILTER GENERATED FOR: Latin-Katakana BACKWARD</comment>
 			<tRule>:: ( [[\ -~¢-£¥-¦¬̄₩｡-ﾾￂ-ￇￊ-ￏￒ-ￗￚ-ￜ￨-￮][~、-。がぎぐげござじずぜぞだぢづでどば-ぱび-ぴぶ-ぷべ-ぺぼ-ぽゔ゙-゛ゞァ-ヺー-ヾ]] ) ;</tRule>
+			<comment># eof</comment>
 		</transform>
 	</transforms>
 </supplementalData>

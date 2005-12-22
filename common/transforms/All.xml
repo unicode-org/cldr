@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
 <supplementalData version="1.4">
-	<version number="$Revision$"/>
-	<generation date="$Date$"/>
 	<transforms>
 		<transform source="Any" target="Publishing" direction="both">
 			<comment># Test case</comment>
 			<comment># &quot;The&quot; &quot;(quick)&quot; ('brown') `fox' ` jumped --     &quot;over?&quot;</comment>
 			<comment># Variables</comment>
-			<comment># fix UNIX quotes</comment>
-			<comment># fix typewriter quotes, by context</comment>
-			<comment># fix multiple spaces and hyphens</comment>
 			<tRule>$single = \' ;</tRule>
 			<tRule>$space = ' ' ;</tRule>
 			<tRule>$double = \&quot; ;</tRule>
 			<tRule>$back = \` ;</tRule>
 			<tRule>$tab = '\u0008' ;</tRule>
 			<tRule>$makeRight = [[:Z:][:Ps:][:Pi:]$] ;</tRule>
+			<comment># fix UNIX quotes</comment>
 			<tRule>$back $back → “ ;</tRule>
 			<tRule>$back → ‘ ;</tRule>
+			<comment># fix typewriter quotes, by context</comment>
 			<tRule>$makeRight {$double} ↔ “ ;</tRule>
 			<tRule>$double ↔ ” ;</tRule>
 			<tRule>$makeRight {$single} ↔ ‘ ;</tRule>
 			<tRule>$single ↔ ’;</tRule>
+			<comment># fix multiple spaces and hyphens</comment>
 			<tRule>$space {$space} → ;</tRule>
 			<tRule>'--' ↔ — ;</tRule>
 		</transform>
@@ -36,33 +34,6 @@
 			<comment># Does *not* do assimilation of &quot;al&quot;, nor hyphenation.</comment>
 			<comment># While it could be done, we need to determine whether a prefix &quot;al&quot; could</comment>
 			<comment># occur other than as the definite article (since no space is used).</comment>
-			<comment># non-letters</comment>
-			<comment># non-letters</comment>
-			<comment>#  ٭ ↔ ; # ARABIC FIVE POINTED STAR // no need to transliterate</comment>
-			<comment>#  ٭ ↔ ; # ARABIC FIVE POINTED STAR // no need to transliterate</comment>
-			<comment># letters</comment>
-			<comment># letters</comment>
-			<comment># long vowels</comment>
-			<comment># longer items moved here to prevent masking</comment>
-			<comment># longer items moved here to prevent masking</comment>
-			<comment># WARNING: special case</comment>
-			<comment># WARNING: special case</comment>
-			<comment># ←t, umlaut, half-ring below→ will be canonically ordered as ←t, half-ring below, umlaut→</comment>
-			<comment># so on the return, we have to skip over (but preserve) the half-ring below (or others like it)</comment>
-			<comment># ةٕ ← ẗ̹ ; # LATIN SMALL LETTER T, COMBINING RIGHT HALF RING BELOW, COMBINING DIAERESIS</comment>
-			<comment># non-Arabic language</comment>
-			<comment># non-Arabic language</comment>
-			<comment># Arabic language</comment>
-			<comment># Arabic language</comment>
-			<comment># special combining marks</comment>
-			<comment># special combining marks</comment>
-			<comment># Some non-Arabic language (not in UNGEGN)</comment>
-			<comment># Some non-Arabic language (not in UNGEGN)</comment>
-			<comment># ڥ ↔ v $disambig ; # ARABIC LETTER FEH WITH THREE DOTS BELOW</comment>
-			<comment># ڢ ↔ f $disambig ; # ARABIC LETTER FEH WITH DOT MOVED BELOW</comment>
-			<comment># ڥ ↔ v $disambig ; # ARABIC LETTER FEH WITH THREE DOTS BELOW</comment>
-			<comment># ڢ ↔ f $disambig ; # ARABIC LETTER FEH WITH DOT MOVED BELOW</comment>
-			<comment># fallbacks</comment>
 			<tRule>:: [[:Arabic:] [‎ⁿ،؛؟ـً-ٕ٠-٬۰-۹﷼ښ]] ;</tRule>
 			<tRule>:: NFKD (NFC);</tRule>
 			<tRule>$disambig =  ̱ ;</tRule>
@@ -73,7 +44,7 @@
 			<tRule>٫ ↔ '.' $disambig ; # ARABIC DECIMAL SEPARATOR</tRule>
 			<tRule>٫ ↔ '.' $disambig ; # ARABIC DECIMAL SEPARATOR</tRule>
 			<tRule>٬ ↔ ',' $disambig ; # ARABIC THOUSANDS SEPARATOR</tRule>
-			<tRule>، ↔ ',' ; # ARABIC COMMA</tRule>
+			<comment>#  ٭ ↔ ; # ARABIC FIVE POINTED STAR // no need to transliterate</comment>
 			<tRule>، ↔ ',' ; # ARABIC COMMA</tRule>
 			<tRule>؛ ↔ ';' ; # ARABIC SEMICOLON</tRule>
 			<tRule>؟ ↔ '?' ; # ARABIC QUESTION MARK</tRule>
@@ -97,12 +68,13 @@
 			<tRule>٦ ↔ 6 ; # ARABIC-INDIC DIGIT SIX</tRule>
 			<tRule>٧ ↔ 7 ; # ARABIC-INDIC DIGIT SEVEN</tRule>
 			<tRule>٨ ↔ 8 ; # ARABIC-INDIC DIGIT EIGHT</tRule>
-			<tRule>٩ ↔ 9 ; # ARABIC-INDIC DIGIT NINE</tRule>
+			<comment># letters</comment>
+			<comment># letters</comment>
 			<tRule>َا↔ ā ; # ARABIC FATHA, ARABIC LETTER ALEF</tRule>
 			<tRule>َا↔ ā ; # ARABIC FATHA, ARABIC LETTER ALEF</tRule>
 			<tRule>ُو ↔ ū ; # ARABIC DAMMA, ARABIC LETTER WAW</tRule>
-			<tRule>ِي ↔ ī ; # ARABIC KASRA, ARABIC LETTER YEH</tRule>
-			<tRule>ث ↔ t h $disambig ; # ARABIC LETTER THEH</tRule>
+			<comment># longer items moved here to prevent masking</comment>
+			<comment># longer items moved here to prevent masking</comment>
 			<tRule>ث ↔ t h $disambig ; # ARABIC LETTER THEH</tRule>
 			<tRule>ذ ↔ d h $disambig ; # ARABIC LETTER THAL</tRule>
 			<tRule>ش ↔ s h $disambig ; # ARABIC LETTER SHEEN</tRule>
@@ -110,17 +82,20 @@
 			<tRule>ض ↔ d $under ; # ARABIC LETTER DAD</tRule>
 			<tRule>ط ↔ t $under ; # ARABIC LETTER TAH</tRule>
 			<tRule>ظ ↔ z $under ; # ARABIC LETTER ZAH</tRule>
-			<tRule>غ ↔ g h $disambig ; # ARABIC LETTER GHAIN</tRule>
+			<comment># WARNING: special case</comment>
+			<comment># WARNING: special case</comment>
+			<comment># ←t, umlaut, half-ring below→ will be canonically ordered as ←t, half-ring below, umlaut→</comment>
+			<comment># so on the return, we have to skip over (but preserve) the half-ring below (or others like it)</comment>
 			<tRule>ة ↔ t ̈ ; # ARABIC LETTER TEH MARBUTA</tRule>
 			<tRule>ة ↔ t ̈ ; # ARABIC LETTER TEH MARBUTA</tRule>
 			<tRule>ة | $1 ← t ($notAbove+) ̈ ; # ARABIC LETTER TEH MARBUTA</tRule>
-			<tRule>ژ ↔ z h $disambig ; # ARABIC LETTER JEH</tRule>
+			<comment># non-Arabic language</comment>
 			<tRule>ژ ↔ z h $disambig ; # ARABIC LETTER JEH</tRule>
 			<tRule>ڭ ↔ n $disambig g ; # ARABIC LETTER NG</tRule>
 			<tRule>ۋ ↔ v $disambig ; # ARABIC LETTER VE</tRule>
 			<tRule>ی ↔ y $disambig2 ; # ARABIC LETTER FARSI YEH</tRule>
 			<tRule>ښ ↔ s $descender;</tRule>
-			<tRule>ا ↔ a $under; # ARABIC LETTER ALEF</tRule>
+			<comment># Arabic language</comment>
 			<tRule>ء ↔ ʾ ; # ARABIC LETTER HAMZA</tRule>
 			<tRule>ا ↔ a $under; # ARABIC LETTER ALEF</tRule>
 			<tRule>ب ↔ b ; # ARABIC LETTER BEH</tRule>
@@ -152,17 +127,18 @@
 			<tRule>ِ ↔ i ; # ARABIC KASRA</tRule>
 			<tRule>ّ ↔   ̃ ; # ARABIC SHADDA</tRule>
 			<tRule>ْ ↔   ̊ ; # ARABIC SUKUN</tRule>
-			<tRule>ٔ ↔  ̉ ; # ARABIC HAMZA ABOVE</tRule>
+			<comment># special combining marks</comment>
 			<tRule>ٓ ↔  ̂ ; # ARABIC MADDAH ABOVE</tRule>
 			<tRule>ٔ ↔  ̉ ; # ARABIC HAMZA ABOVE</tRule>
 			<tRule>ٕ ↔  ̹ ; # ARABIC HAMZA BELOW</tRule>
 			<tRule>چ ↔ c h $disambig ; # ARABIC LETTER TCHEH</tRule>
 			<tRule>پ ↔ p ; # ARABIC LETTER PEH</tRule>
 			<tRule>چ ↔ c h $disambig ; # ARABIC LETTER TCHEH</tRule>
-			<tRule>ڤ ↔ v ; # ARABIC LETTER VEH</tRule>
+			<comment># ڢ ↔ f $disambig ; # ARABIC LETTER FEH WITH DOT MOVED BELOW</comment>
+			<comment># ڥ ↔ v $disambig ; # ARABIC LETTER FEH WITH THREE DOTS BELOW</comment>
+			<comment># ڢ ↔ f $disambig ; # ARABIC LETTER FEH WITH DOT MOVED BELOW</comment>
 			<tRule>گ ↔ g ; # ARABIC LETTER GAF</tRule>
-			<tRule>گ ↔ g ; # ARABIC LETTER GAF</tRule>
-			<tRule>| k ← c ;</tRule>
+			<comment># fallbacks</comment>
 			<tRule>| s ← c } [eiy];</tRule>
 			<tRule>| k ← c ;</tRule>
 			<tRule>| i ← e ;</tRule>
@@ -196,10 +172,6 @@
 		</transform>
 		<transform source="Bengali" target="InterIndic" direction="both" visibility="internal">
 			<comment># Bengali-InterIndic</comment>
-			<comment>#</comment>
-			<comment>#</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>ো→\uE04B; # VOWEL SIGN O</tRule>
 			<tRule>ৌ→\uE04C; # VOWEL SIGN AU</tRule>
 			<tRule>ঁ→\uE001; # SIGN CANDRABINDU</tRule>
@@ -262,9 +234,11 @@
 			<tRule>ৈ→\uE048; # VOWEL SIGN AI</tRule>
 			<tRule>ো→\uE04B;</tRule>
 			<tRule>ৌ→\uE04C;</tRule>
+			<comment>#</comment>
 			<tRule>্→\uE04D; # SIGN VIRAMA</tRule>
 			<tRule>ৎ→\uE083; # Khanda-ta</tRule>
 			<tRule>ৗ→\uE057; # AU LENGTH MARK</tRule>
+			<comment>#</comment>
 			<tRule>ৠ→\uE060; # LETTER VOCALIC RR</tRule>
 			<tRule>ৡ→\uE061; # LETTER VOCALIC LL</tRule>
 			<tRule>ৢ→\uE062; # VOWEL SIGN VOCALIC L</tRule>
@@ -292,6 +266,8 @@
 			<tRule>৺→\uE07B; # ISSHAR</tRule>
 			<tRule>।→\uE064;        # DANDA</tRule>
 			<tRule>॥→\uE065;        # DOUBLE DANDA</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="Bengali" target="Kannada" direction="forward">
 			<tRule>::[।-॥ঁ-ঃঅ-ঌএ-ঐও-নপ-রলশ-হ়-ৄে-ৈো-্ৗড়-ঢ়য়-ৣ০-৺ৎ];</tRule>
@@ -533,8 +509,23 @@
 			<comment># :: [\u0000-\u007E ʹ ʺ [:Cyrillic:] [:Latin:] [:nonspacing mark:]] ;</comment>
 			<comment>### WARNING, ̈ must be added to the generated filters, in both directions ###</comment>
 			<comment># MINIMAL FILTER</comment>
+			<tRule>:: [Ққ̈Ă-ăĔ-ĕĞ-ğĬ-ĭŎ-ŏŬ-ŭ̆Ѐ-џҐ-ҕҘ-ҙӁ-ӂӐ-ӟӢ-ӧӬ-ӵӸ-ӹḜ-ḝẮ-ặᾰᾸῐῘῠῨ] ;</tRule>
+			<tRule>:: NFD (NFC) ;</tRule>
+			<tRule>$modprime = ʹ;</tRule>
+			<tRule>$modprime2 = ʺ;</tRule>
+			<tRule>$grave = ̀;</tRule>
+			<tRule>$acute = ́;</tRule>
+			<tRule>$hat = ̂;</tRule>
+			<tRule>$breve = ̆ ;</tRule>
+			<tRule>$dot = ̇ ;</tRule>
+			<tRule>$caron = ̌ ;</tRule>
+			<tRule>$comma = ̦ ;</tRule>
+			<tRule>$under = ̱ ;</tRule>
 			<comment># move up so not masked</comment>
-			<comment># move up so not masked</comment>
+			<tRule>я ↔ a  $hat ; # CYRILLIC SMALL LETTER YA</tRule>
+			<tRule>я ↔ a  $hat ; # CYRILLIC SMALL LETTER YA</tRule>
+			<tRule>Я ↔  A $hat ; # CYRILLIC CAPITAL LETTER YA</tRule>
+			<tRule>ч ↔ c $caron ; # CYRILLIC SMALL LETTER CHE</tRule>
 			<comment># ҷ ↔ XXX ; # CYRILLIC SMALL LETTER CHE WITH DESCENDER</comment>
 			<comment># ҷ ↔ XXX ; # CYRILLIC SMALL LETTER CHE WITH DESCENDER</comment>
 			<comment># Ҷ ↔ XXX ; # CYRILLIC CAPITAL LETTER CHE WITH DESCENDER</comment>
@@ -542,17 +533,73 @@
 			<comment># Ӌ ↔ XXX ; # CYRILLIC CAPITAL LETTER KHAKASSIAN CHE</comment>
 			<comment># ҹ ↔ XXX ; # CYRILLIC SMALL LETTER CHE WITH VERTICAL STROKE</comment>
 			<comment># Ҹ ↔ XXX ; # CYRILLIC CAPITAL LETTER CHE WITH VERTICAL STROKE</comment>
+			<tRule>э ↔ e $acute; # CYRILLIC SMALL LETTER E</tRule>
+			<tRule>Э ↔ E $acute; # CYRILLIC CAPITAL LETTER E</tRule>
+			<tRule>є ↔ e $hat; # CYRILLIC SMALL LETTER UKRAINIAN IE</tRule>
+			<tRule>Є ↔ E $hat; # CYRILLIC CAPITAL LETTER UKRAINIAN IE</tRule>
+			<tRule>ш ↔ s $caron ; # CYRILLIC SMALL LETTER SHA</tRule>
+			<tRule>Ш ↔ S $caron ; # CYRILLIC CAPITAL LETTER SHA</tRule>
+			<tRule>щ ↔ s $hat ; # CYRILLIC SMALL LETTER SHCHA</tRule>
+			<tRule>Щ ↔ S $hat; # CYRILLIC CAPITAL LETTER SHCHA</tRule>
+			<tRule>ѕ ↔ z $hat ; # CYRILLIC SMALL LETTER DZE</tRule>
+			<tRule>Ѕ ↔ Z $hat; # CYRILLIC CAPITAL LETTER DZE</tRule>
 			<comment># ӡ ↔ XXX ; # CYRILLIC SMALL LETTER ABKHASIAN DZE</comment>
-			<comment># ӡ ↔ XXX ; # CYRILLIC SMALL LETTER ABKHASIAN DZE</comment>
-			<comment># Ӡ ↔ XXX ; # CYRILLIC CAPITAL LETTER ABKHASIAN DZE</comment>
+			<tRule>ю ↔ u $hat ; # CYRILLIC SMALL LETTER YU</tRule>
+			<tRule>ю ↔ u $hat ; # CYRILLIC SMALL LETTER YU</tRule>
+			<tRule>Ю ↔  U $hat ; # CYRILLIC CAPITAL LETTER YU</tRule>
+			<tRule>і ↔ i $acute; # CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I</tRule>
+			<tRule>І ↔ I $acute; # CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I</tRule>
+			<tRule>ј ↔ j $caron; # CYRILLIC SMALL LETTER JE</tRule>
+			<tRule>Ј ↔ J $caron; # CYRILLIC CAPITAL LETTER JE</tRule>
+			<tRule>љ ↔ l $hat ; # CYRILLIC SMALL LETTER LJE</tRule>
+			<tRule>Љ ↔ L $hat ; # CYRILLIC CAPITAL LETTER LJE</tRule>
+			<tRule>њ ↔ n $hat ; # CYRILLIC SMALL LETTER NJE</tRule>
+			<tRule>Њ ↔ N $hat ; # CYRILLIC CAPITAL LETTER NJE</tRule>
+			<tRule>ћ ↔ c $acute ; # CYRILLIC SMALL LETTER TSHE</tRule>
+			<tRule>Ћ ↔ C $acute ; # CYRILLIC CAPITAL LETTER TSHE</tRule>
+			<tRule>џ ↔ d $hat ; # CYRILLIC SMALL LETTER DZHE</tRule>
 			<comment># Normal order</comment>
-			<comment># Normal order</comment>
+			<tRule>а ↔ a ; # CYRILLIC SMALL LETTER A</tRule>
+			<tRule>а ↔ a ; # CYRILLIC SMALL LETTER A</tRule>
+			<tRule>А ↔ A ; # CYRILLIC CAPITAL LETTER A</tRule>
+			<tRule>ә ↔  ə ; # CYRILLIC SMALL LETTER SCHWA</tRule>
+			<tRule>Ә ↔ Ə ; # CYRILLIC CAPITAL LETTER SCHWA</tRule>
+			<tRule>ӕ ↔ æ ; # CYRILLIC SMALL LIGATURE A IE</tRule>
+			<tRule>Ӕ ↔ Æ ; # CYRILLIC CAPITAL LIGATURE A IE</tRule>
+			<tRule>б ↔ b ; # CYRILLIC SMALL LETTER BE</tRule>
+			<tRule>Б ↔ B ; # CYRILLIC CAPITAL LETTER BE</tRule>
+			<tRule>в ↔ v ; # CYRILLIC SMALL LETTER VE</tRule>
+			<tRule>В ↔ V ; # CYRILLIC CAPITAL LETTER VE</tRule>
+			<tRule>ґ ↔ g $grave ; # CYRILLIC SMALL LETTER GHE WITH UPTURN</tRule>
+			<tRule>Ґ ↔ G $grave ; # CYRILLIC CAPITAL LETTER GHE WITH UPTURN</tRule>
+			<tRule>ғ ↔ g $dot ; # CYRILLIC SMALL LETTER GHE WITH STROKE</tRule>
+			<tRule>Ғ ↔ G $dot; # CYRILLIC CAPITAL LETTER GHE WITH STROKE</tRule>
+			<tRule>ҕ ↔ g $breve; # CYRILLIC SMALL LETTER GHE WITH MIDDLE HOOK</tRule>
+			<tRule>Ҕ ↔ G $breve; # CYRILLIC CAPITAL LETTER GHE WITH MIDDLE HOOK</tRule>
+			<tRule>г ↔ g ; # CYRILLIC SMALL LETTER GHE</tRule>
+			<tRule>Г ↔ G ; # CYRILLIC CAPITAL LETTER GHE</tRule>
+			<tRule>д ↔ d; # CYRILLIC SMALL LETTER DE</tRule>
+			<tRule>Д ↔ D; # CYRILLIC CAPITAL LETTER DE</tRule>
+			<tRule>ђ ↔ đ ; # CYRILLIC SMALL LETTER DJE</tRule>
+			<tRule>Ђ ↔ Đ ; # CYRILLIC CAPITAL LETTER DJE</tRule>
+			<tRule>ҙ ↔ z $comma ; # CYRILLIC SMALL LETTER ZE WITH DESCENDER</tRule>
+			<tRule>Ҙ ↔ Z $comma ; # CYRILLIC CAPITAL LETTER ZE WITH DESCENDER</tRule>
+			<tRule>е ↔ e ; # CYRILLIC SMALL LETTER IE</tRule>
+			<tRule>Е ↔ E; # CYRILLIC CAPITAL LETTER IE</tRule>
+			<tRule>ж ↔ z $caron; # CYRILLIC SMALL LETTER ZHE</tRule>
 			<comment># җ ↔ XXX ; # CYRILLIC SMALL LETTER ZHE WITH DESCENDER</comment>
 			<comment># җ ↔ XXX ; # CYRILLIC SMALL LETTER ZHE WITH DESCENDER</comment>
-			<comment># Җ ↔ XXX ; # CYRILLIC CAPITAL LETTER ZHE WITH DESCENDER</comment>
-			<comment># қ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH DESCENDER</comment>
+			<tRule>з ↔ z ; # CYRILLIC SMALL LETTER ZE</tRule>
+			<tRule>з ↔ z ; # CYRILLIC SMALL LETTER ZE</tRule>
+			<tRule>З ↔ Z; # CYRILLIC CAPITAL LETTER ZE</tRule>
+			<tRule>й ↔ j ; # CYRILLIC SMALL LETTER I</tRule>
+			<tRule>Й ↔ J ; # CYRILLIC CAPITAL LETTER I</tRule>
+			<tRule>и ↔ i ; # CYRILLIC SMALL LETTER I</tRule>
+			<tRule>И ↔ I ; # CYRILLIC CAPITAL LETTER I</tRule>
+			<tRule>қ ↔ k $descender ; # CYRILLIC SMALL LETTER KA WITH DESCENDER</tRule>
+			<tRule>Қ ↔ K $descender ; # CYRILLIC CAPITAL LETTER KA WITH DESCENDER</tRule>
 			<comment># Қ ↔ XXX ; # CYRILLIC CAPITAL LETTER KA WITH DESCENDER</comment>
-			<comment># ӄ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH HOOK</comment>
+			<tRule>К ↔ K; # CYRILLIC CAPITAL LETTER KA</tRule>
 			<comment># ӄ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH HOOK</comment>
 			<comment># Ӄ ↔ XXX ; # CYRILLIC CAPITAL LETTER KA WITH HOOK</comment>
 			<comment># ҡ ↔ XXX ; # CYRILLIC SMALL LETTER BASHKIR KA</comment>
@@ -560,38 +607,52 @@
 			<comment># ҟ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH STROKE</comment>
 			<comment># Ҟ ↔ XXX ; # CYRILLIC CAPITAL LETTER KA WITH STROKE</comment>
 			<comment># ҝ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH VERTICAL STROKE</comment>
-			<comment># Ҝ ↔ XXX ; # CYRILLIC CAPITAL LETTER KA WITH VERTICAL STROKE</comment>
-			<comment># ң ↔ XXX ; # CYRILLIC SMALL LETTER EN WITH DESCENDER</comment>
+			<tRule>л ↔ l ; # CYRILLIC SMALL LETTER EL</tRule>
+			<tRule>л ↔ l ; # CYRILLIC SMALL LETTER EL</tRule>
+			<tRule>Л ↔ L; # CYRILLIC CAPITAL LETTER EL</tRule>
+			<tRule>м ↔ m ; # CYRILLIC SMALL LETTER EM</tRule>
+			<tRule>М ↔ M ; # CYRILLIC CAPITAL LETTER EM</tRule>
+			<tRule>н ↔ n ; # CYRILLIC SMALL LETTER EN</tRule>
+			<tRule>Н ↔ N; # CYRILLIC CAPITAL LETTER EN</tRule>
 			<comment># ң ↔ XXX ; # CYRILLIC SMALL LETTER EN WITH DESCENDER</comment>
 			<comment># Ң ↔ XXX ; # CYRILLIC CAPITAL LETTER EN WITH DESCENDER</comment>
 			<comment># ӈ ↔ XXX ; # CYRILLIC SMALL LETTER EN WITH HOOK</comment>
 			<comment># Ӈ ↔ XXX ; # CYRILLIC CAPITAL LETTER EN WITH HOOK</comment>
 			<comment># ҥ ↔ XXX ; # CYRILLIC SMALL LIGATURE EN GHE</comment>
-			<comment># Ҥ ↔ XXX ; # CYRILLIC CAPITAL LIGATURE EN GHE</comment>
+			<tRule>о ↔ o ; # CYRILLIC SMALL LETTER O</tRule>
+			<tRule>о ↔ o ; # CYRILLIC SMALL LETTER O</tRule>
 			<comment># ө ↔ XXX ; # CYRILLIC SMALL LETTER BARRED O</comment>
 			<comment># ө ↔ XXX ; # CYRILLIC SMALL LETTER BARRED O</comment>
-			<comment># Ө ↔ XXX ; # CYRILLIC CAPITAL LETTER BARRED O</comment>
-			<comment># ҧ ↔ XXX ; # CYRILLIC SMALL LETTER PE WITH MIDDLE HOOK</comment>
+			<tRule>п ↔ p ; # CYRILLIC SMALL LETTER PE</tRule>
+			<tRule>п ↔ p ; # CYRILLIC SMALL LETTER PE</tRule>
+			<tRule>П ↔ P ; # CYRILLIC CAPITAL LETTER PE</tRule>
 			<comment># ҧ ↔ XXX ; # CYRILLIC SMALL LETTER PE WITH MIDDLE HOOK</comment>
 			<comment># Ҧ ↔ XXX ; # CYRILLIC CAPITAL LETTER PE WITH MIDDLE HOOK</comment>
 			<comment># ҁ ↔ XXX ; # CYRILLIC SMALL LETTER KOPPA</comment>
 			<comment># Ҁ ↔ XXX ; # CYRILLIC CAPITAL LETTER KOPPA</comment>
+			<tRule>р ↔ r ; # CYRILLIC SMALL LETTER ER</tRule>
 			<comment># ҏ ↔ XXX ; # CYRILLIC SMALL LETTER ER WITH TICK</comment>
 			<comment># ҏ ↔ XXX ; # CYRILLIC SMALL LETTER ER WITH TICK</comment>
-			<comment># Ҏ ↔ XXX ; # CYRILLIC CAPITAL LETTER ER WITH TICK</comment>
+			<tRule>с ↔ s ; # CYRILLIC SMALL LETTER ES</tRule>
+			<tRule>с ↔ s ; # CYRILLIC SMALL LETTER ES</tRule>
 			<comment># ҫ ↔ XXX ; # CYRILLIC SMALL LETTER ES WITH DESCENDER</comment>
 			<comment># ҫ ↔ XXX ; # CYRILLIC SMALL LETTER ES WITH DESCENDER</comment>
-			<comment># Ҫ ↔ XXX ; # CYRILLIC CAPITAL LETTER ES WITH DESCENDER</comment>
+			<tRule>т ↔ t ; # CYRILLIC SMALL LETTER TE</tRule>
+			<tRule>т ↔ t ; # CYRILLIC SMALL LETTER TE</tRule>
 			<comment># ҭ ↔ XXX ; # CYRILLIC SMALL LETTER TE WITH DESCENDER</comment>
 			<comment># ҭ ↔ XXX ; # CYRILLIC SMALL LETTER TE WITH DESCENDER</comment>
 			<comment># Ҭ ↔ XXX ; # CYRILLIC CAPITAL LETTER TE WITH DESCENDER</comment>
+			<tRule>у ↔ u ; # CYRILLIC SMALL LETTER U</tRule>
 			<comment># ү ↔ XXX ; # CYRILLIC SMALL LETTER STRAIGHT U</comment>
 			<comment># ү ↔ XXX ; # CYRILLIC SMALL LETTER STRAIGHT U</comment>
 			<comment># Ү ↔ XXX ; # CYRILLIC CAPITAL LETTER STRAIGHT U</comment>
 			<comment># ұ ↔ XXX ; # CYRILLIC SMALL LETTER STRAIGHT U WITH STROKE</comment>
 			<comment># Ұ ↔ XXX ; # CYRILLIC CAPITAL LETTER STRAIGHT U WITH STROKE</comment>
 			<comment># ѹ ↔ XXX ; # CYRILLIC SMALL LETTER UK</comment>
-			<comment># Ѹ ↔ XXX ; # CYRILLIC CAPITAL LETTER UK</comment>
+			<tRule>ф ↔ f ; # CYRILLIC SMALL LETTER EF</tRule>
+			<tRule>ф ↔ f ; # CYRILLIC SMALL LETTER EF</tRule>
+			<tRule>Ф ↔ F ; # CYRILLIC CAPITAL LETTER EF</tRule>
+			<tRule>х ↔ h ; # CYRILLIC SMALL LETTER HA</tRule>
 			<comment># ҳ ↔ XXX ; # CYRILLIC SMALL LETTER HA WITH DESCENDER</comment>
 			<comment># ҳ ↔ XXX ; # CYRILLIC SMALL LETTER HA WITH DESCENDER</comment>
 			<comment># Ҳ ↔ XXX ; # CYRILLIC CAPITAL LETTER HA WITH DESCENDER</comment>
@@ -604,15 +665,21 @@
 			<comment># ѽ ↔ XXX ; # CYRILLIC SMALL LETTER OMEGA WITH TITLO</comment>
 			<comment># Ѽ ↔ XXX ; # CYRILLIC CAPITAL LETTER OMEGA WITH TITLO</comment>
 			<comment># ѻ ↔ XXX ; # CYRILLIC SMALL LETTER ROUND OMEGA</comment>
-			<comment># Ѻ ↔ XXX ; # CYRILLIC CAPITAL LETTER ROUND OMEGA</comment>
-			<comment># ҵ ↔ XXX ; # CYRILLIC SMALL LIGATURE TE TSE</comment>
+			<tRule>ц ↔ c ; # CYRILLIC SMALL LETTER TSE</tRule>
+			<tRule>ц ↔ c ; # CYRILLIC SMALL LETTER TSE</tRule>
+			<tRule>Ц ↔ C; # CYRILLIC CAPITAL LETTER TSE</tRule>
 			<comment># ҵ ↔ XXX ; # CYRILLIC SMALL LIGATURE TE TSE</comment>
 			<comment># Ҵ ↔ XXX ; # CYRILLIC CAPITAL LIGATURE TE TSE</comment>
 			<comment># ҽ ↔ XXX ; # CYRILLIC SMALL LETTER ABKHASIAN CHE</comment>
 			<comment># Ҽ ↔ XXX ; # CYRILLIC CAPITAL LETTER ABKHASIAN CHE</comment>
 			<comment># ҿ ↔ XXX ; # CYRILLIC SMALL LETTER ABKHASIAN CHE WITH DESCENDER</comment>
-			<comment># Ҿ ↔ XXX ; # CYRILLIC CAPITAL LETTER ABKHASIAN CHE WITH DESCENDER</comment>
-			<comment># ҍ ↔ XXX ; # CYRILLIC SMALL LETTER SEMISOFT SIGN</comment>
+			<tRule>Ъ ↔ $modprime2 $under ; # CYRILLIC CAPITAL LETTER HARD SIGN</tRule>
+			<tRule>Ъ ↔ $modprime2 $under ; # CYRILLIC CAPITAL LETTER HARD SIGN</tRule>
+			<tRule>ъ ↔  $modprime2 ; # CYRILLIC SMALL LETTER HARD SIGN</tRule>
+			<tRule>Ь ↔ $modprime $under ; # CYRILLIC CAPITAL LETTER SOFT SIGN</tRule>
+			<tRule>ь ↔  $modprime ; # CYRILLIC SMALL LETTER SOFT SIGN</tRule>
+			<tRule>ы ↔ y ; # CYRILLIC SMALL LETTER YERU</tRule>
+			<tRule>Ы ↔ Y ; # CYRILLIC CAPITAL LETTER YERU</tRule>
 			<comment># ҍ ↔ XXX ; # CYRILLIC SMALL LETTER SEMISOFT SIGN</comment>
 			<comment># Ҍ ↔ XXX ; # CYRILLIC CAPITAL LETTER SEMISOFT SIGN</comment>
 			<comment># ѣ ↔ XXX ; # CYRILLIC SMALL LETTER YAT</comment>
@@ -689,135 +756,6 @@
 			<comment>### ѷ ↔ XXX ; # CYRILLIC SMALL LETTER IZHITSA</comment>
 			<comment>### Ѷ ↔ XXX ; # CYRILLIC CAPITAL LETTER IZHITSA</comment>
 			<comment># Completeness</comment>
-			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
-			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
-			<comment># :: ([\u0000-\u007E ʹ ʺ [:Cyrillic:] [:Latin:] [:nonspacing mark:]]);</comment>
-			<comment># MINIMAL FILTER: Latin-Cyrillic</comment>
-			<tRule>:: [Ққ̈Ă-ăĔ-ĕĞ-ğĬ-ĭŎ-ŏŬ-ŭ̆Ѐ-џҐ-ҕҘ-ҙӁ-ӂӐ-ӟӢ-ӧӬ-ӵӸ-ӹḜ-ḝẮ-ặᾰᾸῐῘῠῨ] ;</tRule>
-			<tRule>:: NFD (NFC) ;</tRule>
-			<tRule>$modprime = ʹ;</tRule>
-			<tRule>$modprime2 = ʺ;</tRule>
-			<tRule>$grave = ̀;</tRule>
-			<tRule>$acute = ́;</tRule>
-			<tRule>$hat = ̂;</tRule>
-			<tRule>$breve = ̆ ;</tRule>
-			<tRule>$dot = ̇ ;</tRule>
-			<tRule>$caron = ̌ ;</tRule>
-			<tRule>$comma = ̦ ;</tRule>
-			<tRule>$under = ̱ ;</tRule>
-			<tRule>$descender = ˌ;</tRule>
-			<tRule>я ↔ a  $hat ; # CYRILLIC SMALL LETTER YA</tRule>
-			<tRule>я ↔ a  $hat ; # CYRILLIC SMALL LETTER YA</tRule>
-			<tRule>Я ↔  A $hat ; # CYRILLIC CAPITAL LETTER YA</tRule>
-			<tRule>ч ↔ c $caron ; # CYRILLIC SMALL LETTER CHE</tRule>
-			<tRule>Ч ↔ C $caron; # CYRILLIC CAPITAL LETTER CHE</tRule>
-			<tRule>э ↔ e $acute; # CYRILLIC SMALL LETTER E</tRule>
-			<tRule>э ↔ e $acute; # CYRILLIC SMALL LETTER E</tRule>
-			<tRule>Э ↔ E $acute; # CYRILLIC CAPITAL LETTER E</tRule>
-			<tRule>є ↔ e $hat; # CYRILLIC SMALL LETTER UKRAINIAN IE</tRule>
-			<tRule>Є ↔ E $hat; # CYRILLIC CAPITAL LETTER UKRAINIAN IE</tRule>
-			<tRule>ш ↔ s $caron ; # CYRILLIC SMALL LETTER SHA</tRule>
-			<tRule>Ш ↔ S $caron ; # CYRILLIC CAPITAL LETTER SHA</tRule>
-			<tRule>щ ↔ s $hat ; # CYRILLIC SMALL LETTER SHCHA</tRule>
-			<tRule>Щ ↔ S $hat; # CYRILLIC CAPITAL LETTER SHCHA</tRule>
-			<tRule>ѕ ↔ z $hat ; # CYRILLIC SMALL LETTER DZE</tRule>
-			<tRule>Ѕ ↔ Z $hat; # CYRILLIC CAPITAL LETTER DZE</tRule>
-			<tRule>ю ↔ u $hat ; # CYRILLIC SMALL LETTER YU</tRule>
-			<tRule>ю ↔ u $hat ; # CYRILLIC SMALL LETTER YU</tRule>
-			<tRule>Ю ↔  U $hat ; # CYRILLIC CAPITAL LETTER YU</tRule>
-			<tRule>і ↔ i $acute; # CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I</tRule>
-			<tRule>І ↔ I $acute; # CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I</tRule>
-			<tRule>ј ↔ j $caron; # CYRILLIC SMALL LETTER JE</tRule>
-			<tRule>Ј ↔ J $caron; # CYRILLIC CAPITAL LETTER JE</tRule>
-			<tRule>љ ↔ l $hat ; # CYRILLIC SMALL LETTER LJE</tRule>
-			<tRule>Љ ↔ L $hat ; # CYRILLIC CAPITAL LETTER LJE</tRule>
-			<tRule>њ ↔ n $hat ; # CYRILLIC SMALL LETTER NJE</tRule>
-			<tRule>Њ ↔ N $hat ; # CYRILLIC CAPITAL LETTER NJE</tRule>
-			<tRule>ћ ↔ c $acute ; # CYRILLIC SMALL LETTER TSHE</tRule>
-			<tRule>Ћ ↔ C $acute ; # CYRILLIC CAPITAL LETTER TSHE</tRule>
-			<tRule>џ ↔ d $hat ; # CYRILLIC SMALL LETTER DZHE</tRule>
-			<tRule>Џ ↔ D $hat ; # CYRILLIC CAPITAL LETTER DZHE</tRule>
-			<tRule>а ↔ a ; # CYRILLIC SMALL LETTER A</tRule>
-			<tRule>а ↔ a ; # CYRILLIC SMALL LETTER A</tRule>
-			<tRule>А ↔ A ; # CYRILLIC CAPITAL LETTER A</tRule>
-			<tRule>ә ↔  ə ; # CYRILLIC SMALL LETTER SCHWA</tRule>
-			<tRule>Ә ↔ Ə ; # CYRILLIC CAPITAL LETTER SCHWA</tRule>
-			<tRule>ӕ ↔ æ ; # CYRILLIC SMALL LIGATURE A IE</tRule>
-			<tRule>Ӕ ↔ Æ ; # CYRILLIC CAPITAL LIGATURE A IE</tRule>
-			<tRule>б ↔ b ; # CYRILLIC SMALL LETTER BE</tRule>
-			<tRule>Б ↔ B ; # CYRILLIC CAPITAL LETTER BE</tRule>
-			<tRule>в ↔ v ; # CYRILLIC SMALL LETTER VE</tRule>
-			<tRule>В ↔ V ; # CYRILLIC CAPITAL LETTER VE</tRule>
-			<tRule>ґ ↔ g $grave ; # CYRILLIC SMALL LETTER GHE WITH UPTURN</tRule>
-			<tRule>Ґ ↔ G $grave ; # CYRILLIC CAPITAL LETTER GHE WITH UPTURN</tRule>
-			<tRule>ғ ↔ g $dot ; # CYRILLIC SMALL LETTER GHE WITH STROKE</tRule>
-			<tRule>Ғ ↔ G $dot; # CYRILLIC CAPITAL LETTER GHE WITH STROKE</tRule>
-			<tRule>ҕ ↔ g $breve; # CYRILLIC SMALL LETTER GHE WITH MIDDLE HOOK</tRule>
-			<tRule>Ҕ ↔ G $breve; # CYRILLIC CAPITAL LETTER GHE WITH MIDDLE HOOK</tRule>
-			<tRule>г ↔ g ; # CYRILLIC SMALL LETTER GHE</tRule>
-			<tRule>Г ↔ G ; # CYRILLIC CAPITAL LETTER GHE</tRule>
-			<tRule>д ↔ d; # CYRILLIC SMALL LETTER DE</tRule>
-			<tRule>Д ↔ D; # CYRILLIC CAPITAL LETTER DE</tRule>
-			<tRule>ђ ↔ đ ; # CYRILLIC SMALL LETTER DJE</tRule>
-			<tRule>Ђ ↔ Đ ; # CYRILLIC CAPITAL LETTER DJE</tRule>
-			<tRule>ҙ ↔ z $comma ; # CYRILLIC SMALL LETTER ZE WITH DESCENDER</tRule>
-			<tRule>Ҙ ↔ Z $comma ; # CYRILLIC CAPITAL LETTER ZE WITH DESCENDER</tRule>
-			<tRule>е ↔ e ; # CYRILLIC SMALL LETTER IE</tRule>
-			<tRule>Е ↔ E; # CYRILLIC CAPITAL LETTER IE</tRule>
-			<tRule>ж ↔ z $caron; # CYRILLIC SMALL LETTER ZHE</tRule>
-			<tRule>Ж ↔ Z $caron; # CYRILLIC CAPITAL LETTER ZHE</tRule>
-			<tRule>з ↔ z ; # CYRILLIC SMALL LETTER ZE</tRule>
-			<tRule>з ↔ z ; # CYRILLIC SMALL LETTER ZE</tRule>
-			<tRule>З ↔ Z; # CYRILLIC CAPITAL LETTER ZE</tRule>
-			<tRule>й ↔ j ; # CYRILLIC SMALL LETTER I</tRule>
-			<tRule>Й ↔ J ; # CYRILLIC CAPITAL LETTER I</tRule>
-			<tRule>и ↔ i ; # CYRILLIC SMALL LETTER I</tRule>
-			<tRule>И ↔ I ; # CYRILLIC CAPITAL LETTER I</tRule>
-			<tRule>қ ↔ k $descender ; # CYRILLIC SMALL LETTER KA WITH DESCENDER</tRule>
-			<tRule>Қ ↔ K $descender ; # CYRILLIC CAPITAL LETTER KA WITH DESCENDER</tRule>
-			<tRule>к ↔ k ; # CYRILLIC SMALL LETTER KA</tRule>
-			<tRule>К ↔ K; # CYRILLIC CAPITAL LETTER KA</tRule>
-			<tRule>л ↔ l ; # CYRILLIC SMALL LETTER EL</tRule>
-			<tRule>л ↔ l ; # CYRILLIC SMALL LETTER EL</tRule>
-			<tRule>Л ↔ L; # CYRILLIC CAPITAL LETTER EL</tRule>
-			<tRule>м ↔ m ; # CYRILLIC SMALL LETTER EM</tRule>
-			<tRule>М ↔ M ; # CYRILLIC CAPITAL LETTER EM</tRule>
-			<tRule>н ↔ n ; # CYRILLIC SMALL LETTER EN</tRule>
-			<tRule>Н ↔ N; # CYRILLIC CAPITAL LETTER EN</tRule>
-			<tRule>о ↔ o ; # CYRILLIC SMALL LETTER O</tRule>
-			<tRule>о ↔ o ; # CYRILLIC SMALL LETTER O</tRule>
-			<tRule>О ↔ O ; # CYRILLIC CAPITAL LETTER O</tRule>
-			<tRule>п ↔ p ; # CYRILLIC SMALL LETTER PE</tRule>
-			<tRule>п ↔ p ; # CYRILLIC SMALL LETTER PE</tRule>
-			<tRule>П ↔ P ; # CYRILLIC CAPITAL LETTER PE</tRule>
-			<tRule>р ↔ r ; # CYRILLIC SMALL LETTER ER</tRule>
-			<tRule>р ↔ r ; # CYRILLIC SMALL LETTER ER</tRule>
-			<tRule>Р ↔ R ; # CYRILLIC CAPITAL LETTER ER</tRule>
-			<tRule>с ↔ s ; # CYRILLIC SMALL LETTER ES</tRule>
-			<tRule>с ↔ s ; # CYRILLIC SMALL LETTER ES</tRule>
-			<tRule>С ↔ S ; # CYRILLIC CAPITAL LETTER ES</tRule>
-			<tRule>т ↔ t ; # CYRILLIC SMALL LETTER TE</tRule>
-			<tRule>т ↔ t ; # CYRILLIC SMALL LETTER TE</tRule>
-			<tRule>Т ↔ T ; # CYRILLIC CAPITAL LETTER TE</tRule>
-			<tRule>у ↔ u ; # CYRILLIC SMALL LETTER U</tRule>
-			<tRule>у ↔ u ; # CYRILLIC SMALL LETTER U</tRule>
-			<tRule>У ↔ U ; # CYRILLIC CAPITAL LETTER U</tRule>
-			<tRule>ф ↔ f ; # CYRILLIC SMALL LETTER EF</tRule>
-			<tRule>ф ↔ f ; # CYRILLIC SMALL LETTER EF</tRule>
-			<tRule>Ф ↔ F ; # CYRILLIC CAPITAL LETTER EF</tRule>
-			<tRule>х ↔ h ; # CYRILLIC SMALL LETTER HA</tRule>
-			<tRule>Х ↔ H; # CYRILLIC CAPITAL LETTER HA</tRule>
-			<tRule>ц ↔ c ; # CYRILLIC SMALL LETTER TSE</tRule>
-			<tRule>ц ↔ c ; # CYRILLIC SMALL LETTER TSE</tRule>
-			<tRule>Ц ↔ C; # CYRILLIC CAPITAL LETTER TSE</tRule>
-			<tRule>Ъ ↔ $modprime2 $under ; # CYRILLIC CAPITAL LETTER HARD SIGN</tRule>
-			<tRule>Ъ ↔ $modprime2 $under ; # CYRILLIC CAPITAL LETTER HARD SIGN</tRule>
-			<tRule>ъ ↔  $modprime2 ; # CYRILLIC SMALL LETTER HARD SIGN</tRule>
-			<tRule>Ь ↔ $modprime $under ; # CYRILLIC CAPITAL LETTER SOFT SIGN</tRule>
-			<tRule>ь ↔  $modprime ; # CYRILLIC SMALL LETTER SOFT SIGN</tRule>
-			<tRule>ы ↔ y ; # CYRILLIC SMALL LETTER YERU</tRule>
-			<tRule>Ы ↔ Y ; # CYRILLIC CAPITAL LETTER YERU</tRule>
-			<tRule>$ignore = [[:Mark:]''] * ;</tRule>
 			<tRule>$ignore = [[:Mark:]''] * ;</tRule>
 			<tRule>| k ← q ;</tRule>
 			<tRule>| K ← Q ;</tRule>
@@ -827,8 +765,10 @@
 			<tRule>| KS ← [:UppercaseLetter:] $ignore { X ;</tRule>
 			<tRule>| Ks ← X ;</tRule>
 			<tRule>| ks ← x ;</tRule>
-			<tRule>:: NFC (NFD) ;</tRule>
-			<tRule>:: ( [̈A-Za-zÀ-ÏÑ-ÖÙ-Ýà-ïñ-öù-ýÿ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƏƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǰǴ-ǵǸ-țȞ-ȟȦ-ȳəʹ-ʺ̀-̂̆-̦̱̇̌̀-́̈́ʹ΅-ΆΈ-ΊΌΎ-ΐά-ΰό-ώϓЀЃЌ-ЎЙйѐѓќ-ўӁ-ӂӐ-ӑӖ-ӗḀ-ẙẛẠ-ỹἂ-ἅἊ-Ἅἒ-ἕἚ-Ἕἢ-ἥἪ-Ἥἲ-ἵἺ-Ἵὂ-ὅὊ-Ὅὒ-ὕὛὝὢ-ὥὪ-Ὥὰ-ώᾂ-ᾅᾊ-ᾍᾒ-ᾕᾚ-ᾝᾢ-ᾥᾪ-ᾭᾰᾲᾴᾸᾺ-ΆῂῄῈ-Ή῍-῎ῐῒ-ΐῘῚ-Ί῝-῞ῠῢ-ΰῨῪ-Ύ῭-΅ῲῴῸ-ΏK-Å] ) ;</tRule>
+			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
+			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
+			<comment># :: ([\u0000-\u007E ʹ ʺ [:Cyrillic:] [:Latin:] [:nonspacing mark:]]);</comment>
+			<comment># MINIMAL FILTER: Latin-Cyrillic</comment>
 			<tRule>:: ( [ˌ̈A-Za-zÀ-ÏÑ-ÖÙ-Ýà-ïñ-öù-ýÿ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƏƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǰǴ-ǵǸ-țȞ-ȟȦ-ȳəʹ-ʺ̀-̂̆-̦̱̇̌̀-́̈́ʹ΅-ΆΈ-ΊΌΎ-ΐά-ΰό-ώϓЀЃЌ-ЎЙйѐѓќ-ўӁ-ӂӐ-ӑӖ-ӗḀ-ẙẛẠ-ỹἂ-ἅἊ-Ἅἒ-ἕἚ-Ἕἢ-ἥἪ-Ἥἲ-ἵἺ-Ἵὂ-ὅὊ-Ὅὒ-ὕὛὝὢ-ὥὪ-Ὥὰ-ώᾂ-ᾅᾊ-ᾍᾒ-ᾕᾚ-ᾝᾢ-ᾥᾪ-ᾭᾰᾲᾴᾸᾺ-ΆῂῄῈ-Ή῍-῎ῐῒ-ΐῘῚ-Ί῝-῞ῠῢ-ΰῨῪ-Ύ῭-΅ῲῴῸ-ΏK-Å] ) ;</tRule>
 		</transform>
 		<transform source="Devanagari" target="Bengali" direction="forward">
@@ -856,7 +796,6 @@
 			<comment># Devanagari-InterIndic</comment>
 			<comment># :: NFD;</comment>
 			<comment>#Rules for Decomposed characters</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
 			<tRule>ँ→\uE001;  # SIGN CANDRABINDU</tRule>
 			<tRule>ं→\uE002;  # SIGN ANUSVARA</tRule>
 			<tRule>ः→\uE003;  # SIGN VISARGA</tRule>
@@ -963,6 +902,7 @@
 			<tRule>९→\uE06F;  # DIGIT NINE</tRule>
 			<tRule>॰→\uE070;  # Devanagari-InterIndic: ABBREVIATION SIGN</tRule>
 			<tRule>ॽ→\uE082;  # Devanagari Glottal Stop</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
 		</transform>
 		<transform source="Devanagari" target="Kannada" direction="forward">
 			<tRule>::[ँ-ःऄअ-ह़-्ॐ-॔क़-९ॽ];</tRule>
@@ -1012,8 +952,6 @@
 			<comment># IDEOGRAPHIC SPACE then added, and</comment>
 			<comment># FULLWIDTH MACRON changed to map to MACRON, not SPACE + COMBINING MACRON</comment>
 			<comment># multicharacter</comment>
-			<comment># single character</comment>
-			<comment># eof</comment>
 			<tRule>ガ↔ｶﾞ; # to KATAKANA LETTER GA</tRule>
 			<tRule>ギ↔ｷﾞ; # to KATAKANA LETTER GI</tRule>
 			<tRule>グ↔ｸﾞ; # to KATAKANA LETTER GU</tRule>
@@ -1042,6 +980,7 @@
 			<tRule>ヴ↔ｳﾞ; # to KATAKANA LETTER VU</tRule>
 			<tRule>ヷ↔ﾜﾞ; # to KATAKANA LETTER VA</tRule>
 			<tRule>ヺ↔ｦﾞ; # to KATAKANA LETTER VO</tRule>
+			<comment># single character</comment>
 			<tRule>！↔'!'; # from FULLWIDTH EXCLAMATION MARK</tRule>
 			<tRule>＂↔'\&quot;'; # from FULLWIDTH QUOTATION MARK</tRule>
 			<tRule>＃↔'#'; # from FULLWIDTH NUMBER SIGN</tRule>
@@ -1266,24 +1205,10 @@
 			<tRule>↓↔￬; # to HALFWIDTH DOWNWARDS ARROW</tRule>
 			<tRule>■↔￭; # to HALFWIDTH BLACK SQUARE</tRule>
 			<tRule>○↔￮; # to HALFWIDTH WHITE CIRCLE</tRule>
+			<comment># eof</comment>
 		</transform>
 		<transform source="Georgian" target="Latin" direction="both">
 			<comment># long items moved up</comment>
-			<comment># normal order</comment>
-			<comment>#კ ↔ kʼ ;</comment>
-			<comment>#პ ↔ pʼ ;</comment>
-			<comment>#ჟ ↔ zh ;</comment>
-			<comment>#ტ ↔ tʼ ;</comment>
-			<comment>#ღ ↔ gh ;</comment>
-			<comment>#ყ ↔ qʼ ;</comment>
-			<comment>#შ ↔ sh ;</comment>
-			<comment>#ჩ ↔ ch ;</comment>
-			<comment>#ც ↔ ts ;</comment>
-			<comment>#ძ ↔ dz ;</comment>
-			<comment>#წ ↔ tsʼ ;</comment>
-			<comment>#ჭ ↔ chʼ ;</comment>
-			<comment>#ხ ↔ kh ;</comment>
-			<comment>#ჳ ↔ ŭi ;</comment>
 			<tRule>წ ↔ tsʼ ;</tRule>
 			<tRule>კ ↔ kʼ ;</tRule>
 			<tRule>პ ↔ pʼ ;</tRule>
@@ -1298,6 +1223,7 @@
 			<tRule>ძ ↔ dz ;</tRule>
 			<tRule>ხ ↔ kh ;</tRule>
 			<tRule>ჳ ↔ ŭi ;</tRule>
+			<comment># normal order</comment>
 			<tRule>ა ↔ a ;</tRule>
 			<tRule>ბ ↔ b ;</tRule>
 			<tRule>გ ↔ g ;</tRule>
@@ -1307,100 +1233,53 @@
 			<tRule>ზ ↔ z ;</tRule>
 			<tRule>თ ↔ t ;</tRule>
 			<tRule>ი ↔ i ;</tRule>
+			<comment>#კ ↔ kʼ ;</comment>
 			<tRule>ლ ↔ l ;</tRule>
 			<tRule>მ ↔ m ;</tRule>
 			<tRule>ნ ↔ n ;</tRule>
 			<tRule>ო ↔ o ;</tRule>
+			<comment>#პ ↔ pʼ ;</comment>
+			<comment>#ჟ ↔ zh ;</comment>
 			<tRule>რ ↔ r ;</tRule>
 			<tRule>ს ↔ s ;</tRule>
+			<comment>#ტ ↔ tʼ ;</comment>
 			<tRule>უ ↔ u ;</tRule>
 			<tRule>ფ ↔ p ;</tRule>
 			<tRule>ქ ↔ k ;</tRule>
+			<comment>#ღ ↔ gh ;</comment>
+			<comment>#ყ ↔ qʼ ;</comment>
+			<comment>#შ ↔ sh ;</comment>
+			<comment>#ჩ ↔ ch ;</comment>
+			<comment>#ც ↔ ts ;</comment>
+			<comment>#ძ ↔ dz ;</comment>
+			<comment>#წ ↔ tsʼ ;</comment>
+			<comment>#ჭ ↔ chʼ ;</comment>
+			<comment>#ხ ↔ kh ;</comment>
 			<tRule>ჯ ↔ j ;</tRule>
 			<tRule>ჰ ↔ h ;</tRule>
+			<comment>#ჳ ↔ ŭi ;</comment>
 			<tRule>ჴ ↔ q ;</tRule>
 		</transform>
 		<transform source="Greek" target="Latin" direction="both">
 			<comment># For modern Greek, based on UNGEGN rules.</comment>
 			<comment># Rules are predicated on running NFD first, and NFC afterwards</comment>
 			<comment># MINIMAL FILTER GENERATED FOR: Greek-Latin/UNGEGN</comment>
-			<comment># WARNING: need to add accents to both filters ###</comment>
+			<tRule>:: [;µ·ÄËÏÖÜäëïöüÿ-āĒ-ēĪ-īŌ-ōŪ-ūŸǕ-ǜǞ-ǣǬ-ǭȪ-ȭȰ-ȳ̄̈̓-̔͂-ͅͺ;Ά-ΊΌΎ-ΡΣ-ώϐ-ϗϛϝϟϡϣϥϧϩϫϭϯ-ϵϷ-\u07FBЁЇёїӒ-ӓӚ-ӟӢ-ӧӪ-ӱӴ-ӵӸ-ӹḔ-ḗḠ-ḡḦ-ḧḮ-ḯḸ-ḹṎ-ṓṜ-ṝṺ-ṻẄ-ẅẌ-ẍẗἀ-ἕἘ-Ἕἠ-ὅὈ-Ὅὐ-ὗὙὛὝὟ-ώᾀ-ᾴᾶ-ᾼι῁-ῄῆ-ῌ῏-ΐῖ-Ί῟-Ῥῲ-ῴῶ-ῼΩϹ] ;</tRule>
 			<comment># :: [́̄̆̈;µ·ÀÂÈÊÌÎÒÔÙÛàâèêìîòôùûĈ-ĉĜ-ĝĤ-ĥĴ-ĵŜ-ŝŴ-ŷǛ-ǜǸ-ǹ̀̂̓-̔̀͂-̓ͅͺ;Ά-ΊΌΎ-ΡΣ-ώϐ-ϖϰ-ϵЀЍѐѝḔ-ḕṐ-ṑẀ-ẁẐ-ẑẤ-ậẰ-ằẾ-ệỐ-ộỜ-ờỪ-ừỲ-ỳἀ-ἕἘ-Ἕἠ-ὅὈ-Ὅὐ-ὗὙὛὝὟ-ώᾀ-ᾴᾶ-ᾼι῁-ῄῆ-῍῏-ΐῖ-Ί῝῟-῭ῲ-ῴῶ-ῼΩϷ-\u07FBϹ] ;</comment>
 			<comment># TEST CASES</comment>
 			<comment># Ὀλίγοι ἔμφονες πολλῶν ἀφρόνων φοβερώτεροι — Πλάτωνος</comment>
 			<comment># Useful variables</comment>
-			<comment># ᾳ ῃ ῳ ὃ ὄ</comment>
-			<comment># ὠς ὡς ὢς ὣς</comment>
-			<comment># Ὠς Ὡς Ὢς Ὣς</comment>
-			<comment># ὨΣ ὩΣ ὪΣ ὫΣ</comment>
-			<comment># Ạ, ạ, Ẹ, ẹ, Ọ, ọ</comment>
-			<comment># Useful variables</comment>
-			<comment># NOTE: restrict to just the Greek § Latin accents that we care about</comment>
-			<comment># TODO: broaden out once interation is fixed</comment>
-			<comment># Fix punctuation</comment>
-			<comment># preserve orginal</comment>
-			<comment># Fix any ancient characters that creep in</comment>
-			<comment># need to have these up here so the rules don't mask</comment>
-			<comment># preserve original</comment>
-			<comment># CIRCUMFLEX: convert greek circumflex to normal one. Could use tilde or inverted breve</comment>
-			<comment># at begining or end of word, convert mp to b</comment>
-			<comment># first make previous alpha long!</comment>
-			<comment># now convert to uppercase if after uppercase, ow to lowercase</comment>
-			<comment># handle diphthongs ending with upsilon</comment>
-			<comment># BREATHING</comment>
-			<comment># Convert rough breathing to h, and move before letters.</comment>
-			<comment># Make A ` x = → H a x</comment>
-			<comment># Make A x ` = → H a x</comment>
-			<comment># NORMAL</comment>
-			<comment>#Otherwise, make x ` into h x and X ` into H X</comment>
-			<comment># Go backwards with H</comment>
-			<comment># titlecase, have to fix individually</comment>
-			<comment># in the future, we should add §uppercase() to make this easier</comment>
-			<comment># Now do smooth</comment>
-			<comment>#delete smooth breathing for Latin</comment>
-			<comment># insert separator before things that turn into s</comment>
-			<comment># the assumption is that all Marks are on letters.</comment>
-			<comment># special S variants</comment>
-			<comment># TODO: preserve smooth/rough breathing if not</comment>
-			<comment># on initial vowel sequence</comment>
-			<comment># Caron means exception</comment>
-			<comment># before a letter, initial</comment>
-			<comment># otherwise, after a letter = final</comment>
-			<comment># otherwise (isolated) = initial</comment>
-			<comment># [Pp] { Σ ↔ \'S ;</comment>
-			<comment># NORMAL</comment>
-			<comment># Completeness for ASCII</comment>
-			<comment># $ignore = [[:Mark:]''] * ;</comment>
-			<comment># Completeness for Greek</comment>
-			<comment># delete any trailing ' marks used for roundtripping</comment>
-			<comment># MINIMAL FILTER GENERATED FOR: Latin-Greek/UNGEGN BACKWARD</comment>
-			<comment># special S variants</comment>
-			<comment># underbar means exception</comment>
-			<comment># before a letter, initial</comment>
-			<comment># otherwise, after a letter = final</comment>
-			<comment># otherwise (isolated) = initial</comment>
-			<comment># [Pp] { Σ ↔ \'S ;</comment>
-			<comment># Completeness for ASCII</comment>
-			<comment># Completeness for Greek</comment>
-			<comment># delete any trailing ' marks used for roundtripping</comment>
-			<comment># ([\u0000-\u007F [:Latin:] [:Greek:] [:nonspacing mark:]]) ;</comment>
-			<comment># ([\u0000-\u007F · [:Latin:] [:nonspacing mark:]]) ;</comment>
-			<comment># MINIMAL FILTER GENERATED FOR: Latin-Greek BACKWARD</comment>
-			<tRule>:: [;µ·ÄËÏÖÜäëïöüÿ-āĒ-ēĪ-īŌ-ōŪ-ūŸǕ-ǜǞ-ǣǬ-ǭȪ-ȭȰ-ȳ̄̈̓-̔͂-ͅͺ;Ά-ΊΌΎ-ΡΣ-ώϐ-ϗϛϝϟϡϣϥϧϩϫϭϯ-ϵϷ-\u07FBЁЇёїӒ-ӓӚ-ӟӢ-ӧӪ-ӱӴ-ӵӸ-ӹḔ-ḗḠ-ḡḦ-ḧḮ-ḯḸ-ḹṎ-ṓṜ-ṝṺ-ṻẄ-ẅẌ-ẍẗἀ-ἕἘ-Ἕἠ-ὅὈ-Ὅὐ-ὗὙὛὝὟ-ώᾀ-ᾴᾶ-ᾼι῁-ῄῆ-ῌ῏-ΐῖ-Ί῟-Ῥῲ-ῴῶ-ῼΩϹ] ;</tRule>
-			<tRule>:: NFD (NFC) ;</tRule>
-			<tRule>:: [[[:Greek:][:Mn:][:Me:]] [\:-;?·;·]] ;</tRule>
-			<tRule>::NFD (NFC) ;</tRule>
 			<tRule>$lower = [[:latin:][:greek:] § [:Ll:]] ;</tRule>
 			<tRule>$upper = [[:latin:][:greek:] § [:Lu:]] ;</tRule>
 			<tRule>$accent = [[:Mn:][:Me:]] ;</tRule>
 			<tRule>$macron = ̄ ;</tRule>
 			<tRule>$ddot = ̈ ;</tRule>
-			<tRule>$lcgvowel = [αεηιουω] ;</tRule>
+			<comment># Useful variables</comment>
 			<tRule>$ucgvowel = [ΑΕΗΙΟΥΩ] ;</tRule>
 			<tRule>$gvowel = [$lcgvowel $ucgvowel] ;</tRule>
 			<tRule>$lcgvowelC = [$lcgvowel $accent] ;</tRule>
 			<tRule>$evowel = [aeiouyAEIOUY];</tRule>
-			<tRule>$vowel = [ $evowel $gvowel] ;</tRule>
+			<comment># NOTE: restrict to just the Greek § Latin accents that we care about</comment>
 			<tRule>$beforeLower = $accent * $lower ;</tRule>
 			<tRule>$gammaLike = [ΓΚΞΧγκξχϰ] ;</tRule>
 			<tRule>$egammaLike = [GKXCgkxc] ;</tRule>
@@ -1412,7 +1291,7 @@
 			<tRule>$caron = ̌;</tRule>
 			<tRule>$afterLetter = [:L:] [\'$accent]* ;</tRule>
 			<tRule>$beforeLetter = [\'$accent]* [:L:] ;</tRule>
-			<tRule>$vowel = [ $evowel $gvowel] ;</tRule>
+			<comment># Fix punctuation</comment>
 			<tRule>$gammaLike = [ΓΚΞΧγκξχϰ] ;</tRule>
 			<tRule>\: ↔ \: $under ;</tRule>
 			<tRule>\? ↔ \? $under ;</tRule>
@@ -1426,6 +1305,7 @@
 			<tRule>$rough → ;</tRule>
 			<tRule>$iotasub → ;</tRule>
 			<tRule>ͺ → ;</tRule>
+			<comment># need to have these up here so the rules don't mask</comment>
 			<tRule>η ↔ i $under ;</tRule>
 			<tRule>Η ↔ I $under ;</tRule>
 			<tRule>Ψ } $beforeLower ↔ Ps ;</tRule>
@@ -1433,14 +1313,15 @@
 			<tRule>ψ ↔ ps ;</tRule>
 			<tRule>ω ↔ o $under ;</tRule>
 			<tRule>Ω ↔  O $under;</tRule>
-			<tRule>[^[:L:]$accent] { μπ → b ;</tRule>
+			<comment># at begining or end of word, convert mp to b</comment>
+			<comment># first make previous alpha long!</comment>
 			<tRule>μπ } [^[:L:]$accent] → b ;</tRule>
 			<tRule>[^[:L:]$accent] { [Μμ][Ππ] → B ;</tRule>
 			<tRule>[Μμ][Ππ] } [^[:L:]$accent] → B ;</tRule>
 			<tRule>μπ ← b ;</tRule>
 			<tRule>Μπ ← B } $beforeLower ;</tRule>
 			<tRule>ΜΠ ← B ;</tRule>
-			<tRule>| $1 $iotasub ← ($evowel $macron $accentMinus *) i ;</tRule>
+			<comment># handle diphthongs ending with upsilon</comment>
 			<tRule>ου ↔ ou ;</tRule>
 			<tRule>ΟΥ ↔ OU ;</tRule>
 			<tRule>Ου ↔ Ou ;</tRule>
@@ -1470,7 +1351,7 @@
 			<tRule>Ε ↔ E ;</tRule>
 			<tRule>ζ ↔ z ;</tRule>
 			<tRule>Ζ ↔ Z ;</tRule>
-			<tRule>θ ↔ th ;</tRule>
+			<comment># titlecase, have to fix individually</comment>
 			<tRule>Θ } $beforeLower ↔ Th ;</tRule>
 			<tRule>Θ ↔ TH ;</tRule>
 			<tRule>ι ↔ i ;</tRule>
@@ -1491,20 +1372,23 @@
 			<tRule>Ο ↔ O ;</tRule>
 			<tRule>π ↔ p ;</tRule>
 			<tRule>Π ↔ P ;</tRule>
-			<tRule>ρ ↔ r ;</tRule>
+			<comment>#delete smooth breathing for Latin</comment>
 			<tRule>Ρ ↔ R ;</tRule>
-			<tRule>[Pp] { } [ςσΣϷϸϺϻ] → \' ;</tRule>
+			<comment># insert separator before things that turn into s</comment>
+			<comment># the assumption is that all Marks are on letters.</comment>
 			<tRule>| $1 $smooth ← $notLetter { ([rR]) } [^hH$smooth$rough] ;</tRule>
 			<tRule>Ϸ ↔ Š ; # Ϸ GREEK CAPITAL LETTER SHO Uppercase_Letter Grek - L</tRule>
 			<tRule>ϸ ↔ š ; #ϸ GREEK SMALL LETTER SHO Lowercase_Letter Grek - L</tRule>
-			<tRule>Ϻ ↔ Ŝ ; # Ϻ GREEK CAPITAL LETTER SAN Uppercase_Letter Grek - L</tRule>
-			<tRule>ϻ ↔ ŝ ; # ϻ GREEK SMALL LETTER SAN Lowercase_Letter Grek - L</tRule>
+			<comment># TODO: preserve smooth/rough breathing if not</comment>
+			<comment># on initial vowel sequence</comment>
+			<comment># Caron means exception</comment>
+			<comment># before a letter, initial</comment>
 			<tRule>ς } $beforeLetter ↔ s $under } $beforeLetter;</tRule>
 			<tRule>σ } $beforeLetter ↔ s } $beforeLetter;</tRule>
 			<tRule>η ↔ e $macron ;</tRule>
 			<tRule>$afterLetter { σ ↔ $afterLetter { s $under;</tRule>
 			<tRule>$afterLetter { ς ↔ $afterLetter { s ;</tRule>
-			<tRule>Ψ } $beforeLower ↔ Ps ;</tRule>
+			<comment># otherwise (isolated) = initial</comment>
 			<tRule>ς ↔ s $under;</tRule>
 			<tRule>σ ↔ s ;</tRule>
 			<tRule>Φ ↔ PH ;</tRule>
@@ -1516,7 +1400,7 @@
 			<tRule>χ ↔ ch ;</tRule>
 			<tRule>Χ } $beforeLower ↔ Ch ;</tRule>
 			<tRule>Χ ↔ CH ;</tRule>
-			<tRule>γ } $gammaLike ↔ n } $egammaLike ;</tRule>
+			<comment># Completeness for ASCII</comment>
 			<tRule>γ ↔ g ;</tRule>
 			<tRule>| ch ← h ;</tRule>
 			<tRule>| k  ← c ;</tRule>
@@ -1534,7 +1418,7 @@
 			<tRule>| B ← U } $vowel ;</tRule>
 			<tRule>| Y ← W ;</tRule>
 			<tRule>| Y ← U ;</tRule>
-			<tRule>Λ ↔ L ;</tRule>
+			<comment># Completeness for Greek</comment>
 			<tRule>ϐ → | β ;</tRule>
 			<tRule>ϑ → | θ ;</tRule>
 			<tRule>ϒ → | Υ ;</tRule>
@@ -1552,17 +1436,24 @@
 			<tRule>← [Ππ] { \' } [Ss] ;</tRule>
 			<tRule>← [Νν] { \' } $egammaLike ;</tRule>
 			<tRule>::NFC (NFD) ;</tRule>
+			<comment># MINIMAL FILTER GENERATED FOR: Latin-Greek/UNGEGN BACKWARD</comment>
 			<tRule>:: ([[[:Latin:][:Mn:][:Me:]] ['\:?]]) ;</tRule>
+			<comment># special S variants</comment>
 			<tRule>Ϸ ↔ Š ; # Ϸ GREEK CAPITAL LETTER SHO Uppercase_Letter Grek - L</tRule>
 			<tRule>ϸ ↔ š ; #ϸ GREEK SMALL LETTER SHO Lowercase_Letter Grek - L</tRule>
 			<tRule>Ϻ ↔ Ŝ ; # Ϻ GREEK CAPITAL LETTER SAN Uppercase_Letter Grek - L</tRule>
 			<tRule>ϻ ↔ ŝ ; # ϻ GREEK SMALL LETTER SAN Lowercase_Letter Grek - L</tRule>
+			<comment># underbar means exception</comment>
+			<comment># before a letter, initial</comment>
 			<tRule>ς } $beforeLetter ↔ s $underbar } $beforeLetter;</tRule>
 			<tRule>σ } $beforeLetter ↔ s } $beforeLetter;</tRule>
+			<comment># otherwise, after a letter = final</comment>
 			<tRule>$afterLetter { σ ↔ $afterLetter { s $underbar;</tRule>
 			<tRule>$afterLetter { ς ↔ $afterLetter { s ;</tRule>
+			<comment># otherwise (isolated) = initial</comment>
 			<tRule>ς ↔ s $underbar;</tRule>
 			<tRule>σ ↔ s ;</tRule>
+			<comment># [Pp] { Σ ↔ \'S ;</comment>
 			<tRule>Σ ↔ S ;</tRule>
 			<tRule>τ ↔ t ;</tRule>
 			<tRule>Τ ↔ T ;</tRule>
@@ -1573,6 +1464,7 @@
 			<tRule>χ ↔ ch ;</tRule>
 			<tRule>Χ } $beforeLower ↔ Ch ;</tRule>
 			<tRule>Χ ↔ CH ;</tRule>
+			<comment># Completeness for ASCII</comment>
 			<tRule>$ignore = [[:Mark:]''] * ;</tRule>
 			<tRule>| k  ← c ;</tRule>
 			<tRule>| ph ← f ;</tRule>
@@ -1594,6 +1486,7 @@
 			<tRule>$ignore [:UppercaseLetter:] { $rough → H ;</tRule>
 			<tRule>$rough ← H ;</tRule>
 			<tRule>$rough ↔ h ;</tRule>
+			<comment># Completeness for Greek</comment>
 			<tRule>ϐ → | β ;</tRule>
 			<tRule>ϑ → | θ ;</tRule>
 			<tRule>ϒ → | Υ ;</tRule>
@@ -1608,9 +1501,13 @@
 			<tRule>ϵ → | ε ;</tRule>
 			<tRule>µ → | μ ;</tRule>
 			<tRule>ͺ → i;</tRule>
+			<comment># delete any trailing ' marks used for roundtripping</comment>
 			<tRule>← [Ππ] { \' } [Ss] ;</tRule>
 			<tRule>← [Νν] { \' } $egammaLike ;</tRule>
 			<tRule>::NFC (NFD) ;</tRule>
+			<comment># ([\u0000-\u007F [:Latin:] [:Greek:] [:nonspacing mark:]]) ;</comment>
+			<comment># ([\u0000-\u007F · [:Latin:] [:nonspacing mark:]]) ;</comment>
+			<comment># MINIMAL FILTER GENERATED FOR: Latin-Greek BACKWARD</comment>
 			<tRule>:: ( [':?A-Za-zÀ-ÅÇ-ÏÑ-ÖÙ-Ýà-åç-ïñ-öù-ýÿ-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǰǴ-ǵǸ-țȞ-ȟȦ-ȳ̀-̷̹-ͅ΅-ΆΈ-ΊΌΎ-ΐΪ-ΰϊ-ώϓ-ϔЀ-ЁЃЇЌ-ЎЙйѐ-ёѓїќ-ўѶ-ѷӁ-ӂӐ-ӓӖ-ӗӚ-ӟӢ-ӧӪ-ӵӸ-ӹḀ-ẙẛẠ-ỹἀ-ἕἘ-Ἕἠ-ὅὈ-Ὅὐ-ὗὙὛὝὟ-ώᾀ-ᾴᾶ-ᾼ῁-ῄῆ-ΐῖ-Ί῝-΅ῲ-ῴῶ-ῼK-Å] ) ;</tRule>
 		</transform>
 		<transform source="Gujarati" target="Bengali" direction="forward">
@@ -1637,8 +1534,6 @@
 		<transform source="Gujarati" target="InterIndic" direction="both" visibility="internal">
 			<comment># Gujarati-InterIndic</comment>
 			<comment>#:: NFD (NFC) ;</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>ઁ→\uE001; # SIGN CANDRABINDU</tRule>
 			<tRule>ં→\uE002; # SIGN ANUSVARA</tRule>
 			<tRule>ઃ→\uE003; # SIGN VISARGA</tRule>
@@ -1721,6 +1616,8 @@
 			<tRule>૯→\uE06F; # DIGIT NINE</tRule>
 			<tRule>।→\uE064;        # DANDA</tRule>
 			<tRule>॥→\uE065;        # DOUBLE DANDA</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="Gujarati" target="Kannada" direction="forward">
 			<tRule>::[।-॥ઁ-ઃઅ-ઍએ-ઑઓ-નપ-રલ-ળવ-હ઼-ૅે-ૉો-્ૐૠૡ૦-૯];</tRule>
@@ -1794,8 +1691,6 @@
 			<comment>#ਸ਼→\uE036; # LETTER SHA</comment>
 			<comment>#ਲ਼→\uE033; # LETTER LLA</comment>
 			<comment>#ਫ਼→\uE05E; # LETTER FA</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>ਁ→\uE001;  # SIGN CHANDRABINDU</tRule>
 			<tRule>ਂ→\uE002;  # SIGN BINDI</tRule>
 			<tRule>ਅ→\uE005;  # LETTER A</tRule>
@@ -1872,6 +1767,8 @@
 			<tRule>ੴ→\uE080;  # EK ONKAR</tRule>
 			<tRule>।→\uE064;        # DANDA</tRule>
 			<tRule>॥→\uE065;        # DOUBLE DANDA</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="Gurmukhi" target="Kannada" direction="forward">
 			<tRule>::[।-॥ਁਂਅ-ਊਏ-ਐਓ-ਨਪ-ਰਲ-ਲ਼ਵ-ਸ਼ਸ-ਹ਼ਾ-ੂੇ-ੈੋ-੍ਖ਼-ੜਫ਼੦-ੴ];</tRule>
@@ -1918,35 +1815,8 @@
 		<transform source="Han" target="Latin" direction="both">
 			<comment># Warning: does not do round-trip mapping!!</comment>
 			<comment># Convert CJK characters</comment>
-			<comment># Start RAW data for converting CJK characters</comment>
-			<comment># End RAW data for converting CJK characters</comment>
-			<comment># fallbacks</comment>
-			<comment>## | yi ← i;</comment>
-			<comment>## | wu ← u;</comment>
-			<comment>## | bi ← b;</comment>
-			<comment>## | ci ← c;</comment>
-			<comment>## | di ← d;</comment>
-			<comment>## | fu ← f;</comment>
-			<comment>## | gu ← g;</comment>
-			<comment>## | he ← h;</comment>
-			<comment>## | ji ← j;</comment>
-			<comment>## | ku ← k;</comment>
-			<comment>## | li ← l;</comment>
-			<comment>## | mi ← m;</comment>
-			<comment>## | pi ← p;</comment>
-			<comment>## | qi ← q;</comment>
-			<comment>## | l ← r;</comment>
-			<comment>## | si ← s;</comment>
-			<comment>## | ti ← t;</comment>
-			<comment>## | f ← v;</comment>
-			<comment>## | wa ← w;</comment>
-			<comment>## | xi ← x;</comment>
-			<comment>## | yi ← y;</comment>
-			<comment>## | zi ← z;</comment>
-			<comment># filter out the half-width hangul</comment>
-			<comment># :: [^ﾾ-￮] fullwidth-halfwidth ();</comment>
-			<comment>## :: (lower) ;</comment>
 			<tRule>::Han-Spacedhan();</tRule>
+			<comment># Start RAW data for converting CJK characters</comment>
 			<tRule>[吖呵錒锕阿]→ā;</tRule>
 			<tRule>嗄→á;</tRule>
 			<tRule>啊→a;</tRule>
@@ -3346,18 +3216,45 @@
 			<tRule>[㸲䎰䝫䞰昨椊琢秨稓筰葃鈼]→zuó;</tRule>
 			<tRule>[㝾佐咗唨左毑繓]→zuǒ;</tRule>
 			<tRule>[㑅㘀㘴㛗㭮䋏䔘作侳做唑坐夎岝岞座怍柞祚糳胙葄袏酢阼]→zuò;</tRule>
+			<comment># End RAW data for converting CJK characters</comment>
+			<comment># fallbacks</comment>
+			<comment>## | yi ← i;</comment>
+			<comment>## | wu ← u;</comment>
+			<comment>## | bi ← b;</comment>
+			<comment>## | ci ← c;</comment>
+			<comment>## | di ← d;</comment>
+			<comment>## | fu ← f;</comment>
+			<comment>## | gu ← g;</comment>
+			<comment>## | he ← h;</comment>
+			<comment>## | ji ← j;</comment>
+			<comment>## | ku ← k;</comment>
+			<comment>## | li ← l;</comment>
+			<comment>## | mi ← m;</comment>
+			<comment>## | pi ← p;</comment>
+			<comment>## | qi ← q;</comment>
+			<comment>## | l ← r;</comment>
+			<comment>## | si ← s;</comment>
+			<comment>## | ti ← t;</comment>
+			<comment>## | f ← v;</comment>
+			<comment>## | wa ← w;</comment>
+			<comment>## | xi ← x;</comment>
+			<comment>## | yi ← y;</comment>
+			<comment>## | zi ← z;</comment>
+			<comment># filter out the half-width hangul</comment>
+			<comment># :: [^ﾾ-￮] fullwidth-halfwidth ();</comment>
+			<comment>## :: (lower) ;</comment>
 		</transform>
 		<transform source="Han" target="Spacedhan" direction="both" visibility="internal">
 			<comment># Only intended for internal use</comment>
-			<comment># add space between any Han or terminal punctuation and letters, and</comment>
-			<comment># between letters and Han or initial punct</comment>
-			<comment># remove spacing between ideographs and other letters</comment>
 			<tRule>:: fullwidth-halfwidth;</tRule>
 			<tRule>｡ → '.';</tRule>
 			<tRule>$terminalPunct = [\.\,\:\;\?\!．，：？！｡、；[:Pe:][:Pf:]];</tRule>
 			<tRule>$initialPunct = [:Ps:][:Pi:];</tRule>
+			<comment># add space between any Han or terminal punctuation and letters, and</comment>
+			<comment># between letters and Han or initial punct</comment>
 			<tRule>[[:Ideographic:] $terminalPunct] {} [:Letter:] → ' ' ;</tRule>
 			<tRule>[:Letter:] [:Mark:]* {} [[:Ideographic:] $initialPunct] → ' ' ;</tRule>
+			<comment># remove spacing between ideographs and other letters</comment>
 			<tRule>← [:Ideographic:] { ' ' } [:Letter:] ;</tRule>
 			<tRule>← [:Letter:] [:Mark:]* { ' ' } [:Ideographic:] ;</tRule>
 		</transform>
@@ -3387,12 +3284,10 @@
 			<comment>#</comment>
 			<comment># For more information, see&quot;</comment>
 			<comment>#   http://icu.sourceforge.net/userguide/Transform.html</comment>
-			<comment># move longer items here to avoid masking</comment>
-			<comment># points</comment>
-			<comment># fallbacks</comment>
 			<tRule>:: [[:Hebrew:] [:^ccc=0:] [ְ-ֹֻ-ּׁ-ׂℵ-ℸֿ̄] - [ֽ]] ;</tRule>
 			<tRule>:: nfkd (nfc) ;</tRule>
 			<tRule>$letterAfter = [:M:]* [:L:] ;</tRule>
+			<comment># move longer items here to avoid masking</comment>
 			<tRule>ח ↔ ẖ ;</tRule>
 			<tRule>צ ↔ ẕ } $letterAfter;</tRule>
 			<tRule>ץ ↔ ẕ ;</tRule>
@@ -3426,6 +3321,7 @@
 			<tRule>ּ ↔ ̇ ; # dagesh just goes to overdot for now</tRule>
 			<tRule>ׁ ↔ ̌ ; # shin dot -→ sh</tRule>
 			<tRule>ׂ ↔ ̂ ; # sin dot -→ s</tRule>
+			<comment># points</comment>
 			<tRule>$above = [^[:ccc=0:][:ccc=230:]]*;</tRule>
 			<tRule>‎ֲ‎ → à ;</tRule>
 			<tRule>‎ֲ‎ $1← a ($above)  ̀;</tRule>
@@ -3445,6 +3341,7 @@
 			<tRule>ֶ ↔ e ;</tRule>
 			<tRule>ֳ ↔ o ;</tRule>
 			<tRule>ֿ ↔   ̄ ;</tRule>
+			<comment># fallbacks</comment>
 			<tRule>ק ← c ;</tRule>
 			<tRule>פ ← f } $letterAfter;</tRule>
 			<tRule>ף ← f ;</tRule>
@@ -3457,6 +3354,8 @@
 		</transform>
 		<transform source="Hiragana" target="Katakana" direction="both">
 			<comment># note: a global filter is more efficient, but MUST include all source chars</comment>
+			<tRule>:: [\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟー[:Hiragana:] [:Katakana:] [:nonspacing mark:]] ;</tRule>
+			<tRule>:: NFKC ();</tRule>
 			<comment># Hiragana-Katakana</comment>
 			<comment># This is largely a one-to-one mapping, but it has a</comment>
 			<comment># few kinks:</comment>
@@ -3483,36 +3382,13 @@
 			<comment># they provide naturalistic results that should conform</comment>
 			<comment># to user expectations.</comment>
 			<comment># Combining equivalents va/vi/ve/vo</comment>
-			<comment># One-to-one mappings, main block</comment>
-			<comment># 3041:3094 ↔ 30A1:30F4</comment>
-			<comment># 309D,E ↔ 30FD,E</comment>
-			<comment># One-way Katakana-Hiragana xform of small K ka/ke to</comment>
-			<comment># normal H ka/ke.</comment>
-			<comment># Katakana followed by a prolonged sound mark 30FC has</comment>
-			<comment># its final vowel doubled.  This is a Katakana-Hiragana</comment>
-			<comment># one-way information-losing transformation.  We</comment>
-			<comment># include the small Katakana (e.g., small A 3041) and</comment>
-			<comment># do not distinguish them from their large</comment>
-			<comment># counterparts.  It doesn't make sense to double a</comment>
-			<comment># small counterpart vowel as a small Hiragana vowel, so</comment>
-			<comment># we don't do so.  In natural text this should never</comment>
-			<comment># occur anyway.  If a 30FC is seen without a preceding</comment>
-			<comment># vowel sound (e.g., after n 30F3) we do not change it.</comment>
-			<comment>### $long = ー;</comment>
-			<comment># The following categories are Hiragana, not Katakana</comment>
-			<comment># as might be expected, since by the time we get to the</comment>
-			<comment># 30FC, the preceding character will have already been</comment>
-			<comment># transformed to Hiragana.</comment>
-			<comment># {The following mechanically generated from the</comment>
-			<comment># Unicode 3.0 data:}</comment>
-			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
-			<comment># eof</comment>
-			<tRule>:: [\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟー[:Hiragana:] [:Katakana:] [:nonspacing mark:]] ;</tRule>
-			<tRule>:: NFKC ();</tRule>
 			<tRule>わ゙ ↔ ヷ;</tRule>
 			<tRule>ゐ゙ ↔ ヸ;</tRule>
 			<tRule>ゑ゙ ↔ ヹ;</tRule>
 			<tRule>を゙ ↔ ヺ;</tRule>
+			<comment># One-to-one mappings, main block</comment>
+			<comment># 3041:3094 ↔ 30A1:30F4</comment>
+			<comment># 309D,E ↔ 30FD,E</comment>
 			<tRule>ぁ ↔ ァ;</tRule>
 			<tRule>あ ↔ ア;</tRule>
 			<tRule>ぃ ↔ ィ;</tRule>
@@ -3599,8 +3475,27 @@
 			<tRule>ゔ ↔ ヴ;</tRule>
 			<tRule>ゝ ↔ ヽ;</tRule>
 			<tRule>ゞ ↔ ヾ;</tRule>
+			<comment># One-way Katakana-Hiragana xform of small K ka/ke to</comment>
+			<comment># normal H ka/ke.</comment>
 			<tRule>か ← ヵ;</tRule>
 			<tRule>け ← ヶ;</tRule>
+			<comment># Katakana followed by a prolonged sound mark 30FC has</comment>
+			<comment># its final vowel doubled.  This is a Katakana-Hiragana</comment>
+			<comment># one-way information-losing transformation.  We</comment>
+			<comment># include the small Katakana (e.g., small A 3041) and</comment>
+			<comment># do not distinguish them from their large</comment>
+			<comment># counterparts.  It doesn't make sense to double a</comment>
+			<comment># small counterpart vowel as a small Hiragana vowel, so</comment>
+			<comment># we don't do so.  In natural text this should never</comment>
+			<comment># occur anyway.  If a 30FC is seen without a preceding</comment>
+			<comment># vowel sound (e.g., after n 30F3) we do not change it.</comment>
+			<comment>### $long = ー;</comment>
+			<comment># The following categories are Hiragana, not Katakana</comment>
+			<comment># as might be expected, since by the time we get to the</comment>
+			<comment># 30FC, the preceding character will have already been</comment>
+			<comment># transformed to Hiragana.</comment>
+			<comment># {The following mechanically generated from the</comment>
+			<comment># Unicode 3.0 data:}</comment>
 			<tRule>$xa = [ \</tRule>
 			<tRule>ぁ あ か が さ ざ \</tRule>
 			<tRule>た だ な は ば ぱ \</tRule>
@@ -3632,7 +3527,9 @@
 			<tRule>え ← $xe {ー};</tRule>
 			<tRule>お ← $xo {ー};</tRule>
 			<tRule>:: (NFKC) ;</tRule>
+			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
 			<tRule>:: ([\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟー[:Hiragana:] [:Katakana:] [:nonspacing mark:]]);</tRule>
+			<comment># eof</comment>
 		</transform>
 		<transform source="Hiragana" target="Latin" direction="both">
 			<tRule>:: [ぁ-ゔ゙ゝ-ゞガギグゲゴザジズゼゾダヂヅデドバビブベボヴヷ-ヺヾ] ;</tRule>
@@ -3646,8 +3543,6 @@
 		<transform source="InterIndic" target="Bengali" direction="both" visibility="internal">
 			<comment># InterIndic-Bengali</comment>
 			<comment>#:: NFD (NFC) ;</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>\uE001→ঁ;          # SIGN CANDRABINDU</tRule>
 			<tRule>\uE002→ং;          # SIGN ANUSVARA</tRule>
 			<tRule>\uE003→ঃ;          # SIGN VISARGA</tRule>
@@ -3777,17 +3672,13 @@
 			<tRule>\uE083→ৎ;          # Khanda-ta</tRule>
 			<tRule>0 → ০;             # FALLBACK FOR TAMIL</tRule>
 			<tRule>1 → ১;</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="InterIndic" target="Devanagari" direction="both" visibility="internal">
 			<comment># InterIndic-Devanagari</comment>
 			<comment>#:: NFD (NFC) ;</comment>
 			<comment>#Rules for Decomposed characters</comment>
-			<comment>#Decomposed compatibility transliterations</comment>
-			<comment>#\uE031 →  र;</comment>
-			<comment>#\uE034 →  ळ;</comment>
-			<comment>#         ॰  # UNMAPPED Devanagari-InterIndic: ABBREVIATION SIGN</comment>
-			<comment>#    :: NFC;</comment>
-			<comment># eof</comment>
 			<tRule>\uE028\uE03C → ऩ;  #\uE029</tRule>
 			<tRule>\uE030\uE03C → ऱ;  #\uE031</tRule>
 			<tRule>\uE033\uE03C → ऴ;  #\uE034</tRule>
@@ -3799,6 +3690,7 @@
 			<tRule>\uE022\uE03C → ढ़;  #\uE05D LETTER RHA   (pronounced RRHA)</tRule>
 			<tRule>\uE02B\uE03C → फ़;  #\uE05E LETTER FA</tRule>
 			<tRule>\uE02F\uE03C → य़;  #\uE05F LETTER YYA</tRule>
+			<comment>#Decomposed compatibility transliterations</comment>
 			<tRule>\uE012\uE057→औ;   # FALLBACK FOR TAMIL AU</tRule>
 			<tRule>0 → ०;       # FALLBACK FOR TAMIL</tRule>
 			<tRule>1 → १;</tRule>
@@ -3854,9 +3746,11 @@
 			<tRule>\uE02F →  य;  # LETTER YA</tRule>
 			<tRule>\uE030 →  र;  # LETTER RA</tRule>
 			<tRule>\uE031 →  ऱ;  # LETTER RRA (Eyelash RA for Southern scripts)</tRule>
+			<comment>#\uE031 →  र;</comment>
 			<tRule>\uE032 →  ल;  # LETTER LA</tRule>
 			<tRule>\uE033 →  ळ;  # LETTER LLA</tRule>
 			<tRule>\uE034 →  ऴ;  # LETTER LLLA (LLLA for Southern scripts)</tRule>
+			<comment>#\uE034 →  ळ;</comment>
 			<tRule>\uE035 →  व;  # LETTER VA</tRule>
 			<tRule>\uE036 →  श;  # LETTER SHA</tRule>
 			<tRule>\uE037 →  ष;  # LETTER SSA</tRule>
@@ -3929,13 +3823,13 @@
 			<tRule>\uE081→व;\u0009\u0009  # FALLBACK FOR ORIYA LETTER WA</tRule>
 			<tRule>\uE082→ॽ;     # Devanagari Glottal Sign</tRule>
 			<tRule>\uE083→त्;  # Bengali Khanda-ta</tRule>
+			<comment>#         ॰  # UNMAPPED Devanagari-InterIndic: ABBREVIATION SIGN</comment>
+			<comment>#    :: NFC;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="InterIndic" target="Gujarati" direction="both" visibility="internal">
 			<comment># InterIndic-Gujarati</comment>
 			<comment>#:: NFD (NFC) ;</comment>
-			<comment>#\uE080→; # UNMAPPED InterIndic-Gujarati: ISSHAR</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>\uE001→ઁ; # SIGN CANDRABINDU</tRule>
 			<tRule>\uE002→ં; # SIGN ANUSVARA</tRule>
 			<tRule>\uE003→ઃ; # SIGN VISARGA</tRule>
@@ -4065,19 +3959,20 @@
 			<tRule>\uE083→ત્;  # Bengali Khanda-ta</tRule>
 			<tRule>0 → ૦;        # FALLBACK FOR TAMIL</tRule>
 			<tRule>1 → ૧;</tRule>
+			<comment>#\uE080→; # UNMAPPED InterIndic-Gujarati: ISSHAR</comment>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="InterIndic" target="Gurmukhi" direction="both" visibility="internal">
 			<comment># InterIndic-Gurmukhi</comment>
 			<comment>#:: NFD (NFC) ;</comment>
-			<comment>#rules for BINDI</comment>
-			<comment># Anusvara is equivalent to BINDI when preceeded by a vowel</comment>
-			<comment># else is equivalent to TIPPI</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>$vowel = [ਅ-ਔ ਾ-੍];</tRule>
 			<tRule>$consonant = [ਕ-ਹ];</tRule>
 			<tRule>\uE001→ਁ;       # SIGN CHANDRABINDU</tRule>
+			<comment>#rules for BINDI</comment>
+			<comment># Anusvara is equivalent to BINDI when preceeded by a vowel</comment>
 			<tRule>$vowel{\uE002→ਂ; # SIGN ANUSVARA (ਂ = SIGN BINDI)</tRule>
+			<comment># else is equivalent to TIPPI</comment>
 			<tRule>$consonant{\uE002→ੰ; # SIGN TIPPI</tRule>
 			<tRule>\uE002→ਂ;</tRule>
 			<tRule>\uE003→;       # FALLBACK BLOW AWAY SIGN VISARGA</tRule>
@@ -4207,12 +4102,12 @@
 			<tRule>\uE083→ਤ੍;  # Bengali Khanda-ta</tRule>
 			<tRule>0 → ੦;       # FALLBACK FOR TAMIL</tRule>
 			<tRule>1 → ੧;</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="InterIndic" target="Kannada" direction="both" visibility="internal">
 			<comment># InterIndic-Kannada</comment>
 			<comment>#:: NFD (NFC) ;</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>\uE033\uE03C→ೞ; # LETTER FA</tRule>
 			<tRule>\uE001→ಂ; # REMAP (indicExceptions.txt): \u0C81→ಂ = SIGN CANDRABINDU→SIGN ANUSVARA</tRule>
 			<tRule>\uE002→ಂ; # SIGN ANUSVARA</tRule>
@@ -4344,46 +4239,18 @@
 			<tRule>\uE083→ತ್;  # Bengali Khanda-ta</tRule>
 			<tRule>0 → ೦;    # FALLBACK FOR TAMIL</tRule>
 			<tRule>1 → ೧;</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="InterIndic" target="Latin" direction="both" visibility="internal">
 			<comment># InterIndic-Latin</comment>
 			<comment>#\u0E00 reserved</comment>
 			<comment>#consonants</comment>
-			<comment>#\u0E004 reserved</comment>
-			<comment># w←vowel→ represents the stand-alone form</comment>
-			<comment>#\u093A Reserved</comment>
-			<comment>#\u093B Reserved</comment>
-			<comment># ←vowel→ represents the dependent form</comment>
-			<comment># \u094E Reserved</comment>
-			<comment># \u094F Reserved</comment>
-			<comment>#urdu compatibity forms</comment>
-			<comment># Glottal stop</comment>
-			<comment>#Khanda-ta</comment>
-			<comment># ॰→; # UNMAPPED ABBREVIATION SIGN</comment>
-			<comment># $x was originally called '§'; $z was '%'</comment>
-			<comment>######################################################################</comment>
-			<comment># convert from Native letters to Latin letters</comment>
-			<comment>######################################################################</comment>
-			<comment>#transliterations for anusvara</comment>
-			<comment># Urdu compatibility</comment>
-			<comment># normal consonants</comment>
-			<comment>#for gurmukhi</comment>
-			<comment># dependent vowels (should never occur except following consonants)</comment>
-			<comment>#extra vowels</comment>
-			<comment>#extra vowels</comment>
-			<comment>#dependent vowels when following independent vowels. Generally Illegal only for roundtripping</comment>
-			<comment>#extra vowels</comment>
-			<comment># independent vowels when preceeded by vowels</comment>
-			<comment>#extra vowels</comment>
-			<comment># independent vowels (otherwise)</comment>
-			<comment>#extra vowels</comment>
-			<comment>#stress marks</comment>
-			<comment>#numbers</comment>
-			<comment># LETTER RA WITH MIDDLE DIAGONAL</comment>
-			<comment># LETTER RA WITH LOWER DIAGONAL</comment>
 			<tRule>$chandrabindu=\uE001;</tRule>
 			<tRule>$anusvara=\uE002;</tRule>
 			<tRule>$visarga=\uE003;</tRule>
+			<comment>#\u0E004 reserved</comment>
+			<comment># w←vowel→ represents the stand-alone form</comment>
 			<tRule>$wa=\uE005;</tRule>
 			<tRule>$waa=\uE006;</tRule>
 			<tRule>$wi=\uE007;</tRule>
@@ -4438,8 +4305,11 @@
 			<tRule>$ssa=\uE037;</tRule>
 			<tRule>$sa=\uE038;</tRule>
 			<tRule>$ha=\uE039;</tRule>
+			<comment>#\u093A Reserved</comment>
+			<comment>#\u093B Reserved</comment>
 			<tRule>$nukta=\uE03C;</tRule>
 			<tRule>$avagraha=\uE03D; # SIGN AVAGRAHA</tRule>
+			<comment># ←vowel→ represents the dependent form</comment>
 			<tRule>$aa=\uE03E;</tRule>
 			<tRule>$i=\uE03F;</tRule>
 			<tRule>$ii=\uE040;</tRule>
@@ -4456,6 +4326,8 @@
 			<tRule>$o=\uE04B;  # ो</tRule>
 			<tRule>$au=\uE04C;</tRule>
 			<tRule>$virama=\uE04D;</tRule>
+			<comment># \u094E Reserved</comment>
+			<comment># \u094F Reserved</comment>
 			<tRule>$om=\uE050; # OM</tRule>
 			<tRule>\uE051→;        # UNMAPPED STRESS SIGN UDATTA</tRule>
 			<tRule>\uE052→;        # UNMAPPED STRESS SIGN ANUDATTA</tRule>
@@ -4464,6 +4336,7 @@
 			<tRule>$lm = \uE055;#  Telugu Length Mark</tRule>
 			<tRule>$ailm=\uE056;#  AI Length Mark</tRule>
 			<tRule>$aulm=\uE057;#  AU Length Mark</tRule>
+			<comment>#urdu compatibity forms</comment>
 			<tRule>$uka=\uE058;</tRule>
 			<tRule>$ukha=\uE059;</tRule>
 			<tRule>$ugha=\uE05A;</tRule>
@@ -4488,14 +4361,22 @@
 			<tRule>$seven=\uE06D;    # DIGIT SEVEN</tRule>
 			<tRule>$eight=\uE06E;    # DIGIT EIGHT</tRule>
 			<tRule>$nine=\uE06F;     # DIGIT NINE</tRule>
+			<comment># Glottal stop</comment>
 			<tRule>$dgs=\uE082;</tRule>
+			<comment>#Khanda-ta</comment>
 			<tRule>$kta=\uE083;</tRule>
+			<comment># ॰→; # UNMAPPED ABBREVIATION SIGN</comment>
 			<tRule>$depVowelAbove=[\uE03E-\uE040\uE045-\uE04C];</tRule>
 			<tRule>$depVowelBelow=[\uE041-\uE044];</tRule>
+			<comment># $x was originally called '§'; $z was '%'</comment>
 			<tRule>$x=[$aa$ai$au$ii$i$uu$u$rrh$rh$lh$llh$e$o$se$ce$so$co];</tRule>
 			<tRule>$z=[bcdfghjklmnpqrstvwxyz];</tRule>
 			<tRule>$vowels=[aeiour̥̄̆];</tRule>
 			<tRule>$forceIndependentMatra = [^[[:L:][̀-͌]]];</tRule>
+			<comment>######################################################################</comment>
+			<comment># convert from Native letters to Latin letters</comment>
+			<comment>######################################################################</comment>
+			<comment>#transliterations for anusvara</comment>
 			<tRule>$anusvara} [$ka$kha$ga$gha$nga]             → ṅ;</tRule>
 			<tRule>$anusvara} [$ca$cha$ja$jha$nya]             → n̄;</tRule>
 			<tRule>$anusvara} [$tta$ttha$dda$ddha$nna]         → ṇ;</tRule>
@@ -4503,6 +4384,7 @@
 			<tRule>$anusvara} [$pa$pha$ba$bha$ma]              → m;</tRule>
 			<tRule>$anusvara} [$ya$ra$lla$la$va$ssa$sha$sa$ha] → n;</tRule>
 			<tRule>$anusvara→ ṁ;</tRule>
+			<comment># Urdu compatibility</comment>
 			<tRule>$ya$nukta}$x        → ẏ;</tRule>
 			<tRule>$ya$nukta$virama    → ẏ;</tRule>
 			<tRule>$ya$nukta           → ẏa;</tRule>
@@ -4560,6 +4442,7 @@
 			<tRule>$uya}$x             → ẏ;</tRule>
 			<tRule>$uya$virama         → ẏ;</tRule>
 			<tRule>$uya                → ẏa;</tRule>
+			<comment># normal consonants</comment>
 			<tRule>$ka$virama}$ha→k'';</tRule>
 			<tRule>$ka}$x→k;</tRule>
 			<tRule>$ka$virama→k;</tRule>
@@ -4686,6 +4569,7 @@
 			<tRule>$sa$virama}$sa→s'';</tRule>
 			<tRule>$sa}$x→s;</tRule>
 			<tRule>$sa$virama→s;</tRule>
+			<comment>#for gurmukhi</comment>
 			<tRule>$sa$nukta}$x→ś;</tRule>
 			<tRule>$sa$nukta$virama→ś;</tRule>
 			<tRule>$sa$nukta→śa;</tRule>
@@ -4699,6 +4583,7 @@
 			<tRule>$ha}$x→h;</tRule>
 			<tRule>$ha$virama→h;</tRule>
 			<tRule>$ha→ha;</tRule>
+			<comment># dependent vowels (should never occur except following consonants)</comment>
 			<tRule>$forceIndependentMatra{$aa  → ̔ā;</tRule>
 			<tRule>$forceIndependentMatra{$ai  → ̔ai;</tRule>
 			<tRule>$forceIndependentMatra{$au  → ̔au;</tRule>
@@ -4712,6 +4597,7 @@
 			<tRule>$forceIndependentMatra{$lh  → ̔l̥;</tRule>
 			<tRule>$forceIndependentMatra{$e   → ̔ē;</tRule>
 			<tRule>$forceIndependentMatra{$o   → ̔ō;</tRule>
+			<comment>#extra vowels</comment>
 			<tRule>$forceIndependentMatra{$ce  → ̔ĕ;</tRule>
 			<tRule>$forceIndependentMatra{$co  → ̔ŏ;</tRule>
 			<tRule>$forceIndependentMatra{$se  → ̔e;</tRule>
@@ -4731,10 +4617,12 @@
 			<tRule>$lh  → l̥;</tRule>
 			<tRule>$e   → ē;</tRule>
 			<tRule>$o   → ō;</tRule>
+			<comment>#extra vowels</comment>
 			<tRule>$ce  → ĕ;</tRule>
 			<tRule>$co  → ŏ;</tRule>
 			<tRule>$se  → e;</tRule>
 			<tRule>$so  → o;</tRule>
+			<comment>#dependent vowels when following independent vowels. Generally Illegal only for roundtripping</comment>
 			<tRule>$waa} $x → ā̔;</tRule>
 			<tRule>$wai} $x → ai̔;</tRule>
 			<tRule>$wau} $x → au̔;</tRule>
@@ -4749,11 +4637,13 @@
 			<tRule>$we } $x → ē̔;</tRule>
 			<tRule>$wo } $x → ō̔;</tRule>
 			<tRule>$wa } $x → a̔;</tRule>
+			<comment>#extra vowels</comment>
 			<tRule>$wce} $x → ĕ̔;</tRule>
 			<tRule>$wco} $x → ŏ̔;</tRule>
 			<tRule>$wse} $x → e̔;</tRule>
 			<tRule>$wso} $x → o̔;</tRule>
 			<tRule>$om} $x → ''om̔;</tRule>
+			<comment># independent vowels when preceeded by vowels</comment>
 			<tRule>$vowels{$waa  → ''ā;</tRule>
 			<tRule>$vowels{$wai  → ''ai;</tRule>
 			<tRule>$vowels{$wau  → ''au;</tRule>
@@ -4768,10 +4658,12 @@
 			<tRule>$vowels{$we   → ''ē;</tRule>
 			<tRule>$vowels{$wo   → ''ō;</tRule>
 			<tRule>$vowels{$wa   → ''a;</tRule>
+			<comment>#extra vowels</comment>
 			<tRule>$vowels{$wce  → ''ĕ;</tRule>
 			<tRule>$vowels{$wco  → ''ŏ;</tRule>
 			<tRule>$vowels{$wse  → ''e;</tRule>
 			<tRule>$vowels{$wso  → ''o;</tRule>
+			<comment># independent vowels (otherwise)</comment>
 			<tRule>$waa → ā;</tRule>
 			<tRule>$wai → ai;</tRule>
 			<tRule>$wau → au;</tRule>
@@ -4786,15 +4678,18 @@
 			<tRule>$we  → ē;</tRule>
 			<tRule>$wo  → ō;</tRule>
 			<tRule>$wa  → a;</tRule>
+			<comment>#extra vowels</comment>
 			<tRule>$wce → ĕ;</tRule>
 			<tRule>$wco → ŏ;</tRule>
 			<tRule>$wse → e;</tRule>
 			<tRule>$wso → o;</tRule>
 			<tRule>$om → ''om;</tRule>
+			<comment>#stress marks</comment>
 			<tRule>$avagraha → ̕;</tRule>
 			<tRule>$chandrabindu$anusvara→̃;</tRule>
 			<tRule>$chandrabindu → m̐;</tRule>
 			<tRule>$visarga→ḥ;</tRule>
+			<comment>#numbers</comment>
 			<tRule>$zero  → 0;</tRule>
 			<tRule>$one   → 1;</tRule>
 			<tRule>$two   → 2;</tRule>
@@ -4813,9 +4708,11 @@
 			<tRule>$danda→'.';</tRule>
 			<tRule>$doubleDanda→'.';</tRule>
 			<tRule>\uE070→;       # ABBREVIATION SIGN</tRule>
+			<comment># LETTER RA WITH MIDDLE DIAGONAL</comment>
 			<tRule>\uE071}$x→ra;</tRule>
 			<tRule>\uE071$virama→r;</tRule>
 			<tRule>\uE071→ra;</tRule>
+			<comment># LETTER RA WITH LOWER DIAGONAL</comment>
 			<tRule>\uE072}$x→ra;</tRule>
 			<tRule>\uE072$virama→r;</tRule>
 			<tRule>\uE072→ra;</tRule>
@@ -4838,8 +4735,6 @@
 		<transform source="InterIndic" target="Malayalam" direction="both" visibility="internal">
 			<comment># InterIndic-Malayalam</comment>
 			<comment>#:: NFD (NFC) ;</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>\uE001→ം; # REMAP (indicExceptions.txt): \u0D01→ം = SIGN CANDRABINDU→SIGN ANUSVARA</tRule>
 			<tRule>\uE002→ം; # SIGN ANUSVARA</tRule>
 			<tRule>\uE003→ഃ; # SIGN VISARGA</tRule>
@@ -4971,12 +4866,12 @@
 			<tRule>\uE083→ത്;  # Bengali Khanda-ta</tRule>
 			<tRule>0 → ൦;    # FALLBACK FOR TAMIL</tRule>
 			<tRule>1 → ൧;</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="InterIndic" target="Oriya" direction="both" visibility="internal">
 			<comment># InterIndic-Oriya</comment>
 			<comment>#:: NFD (NFC) ;</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>\uE001→ଁ; # SIGN CANDRABINDU</tRule>
 			<tRule>\uE002→ଂ; # SIGN ANUSVARA</tRule>
 			<tRule>\uE003→ଃ; # SIGN VISARGA</tRule>
@@ -5106,12 +5001,12 @@
 			<tRule>\uE083→ତ୍;  # Bengali Khanda-ta</tRule>
 			<tRule>0 → ୦;    # FALLBACK FOR TAMIL</tRule>
 			<tRule>1 → ୧;</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="InterIndic" target="Tamil" direction="both" visibility="internal">
 			<comment># InterIndic-Tamil</comment>
 			<comment>#:: NFD (NFC) ;</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>\uE001→ஂ; # FALLBACK SIGN CANDRABINDU</tRule>
 			<tRule>\uE002→ஂ; # SIGN ANUSVARA</tRule>
 			<tRule>\uE003→ஃ; # SIGN VISARGA</tRule>
@@ -5248,12 +5143,12 @@
 			<tRule>1000  →௲; # NUMBER ONE THOUSAND</tRule>
 			<tRule>100   →௱; # NUMBER ONE HUNDRED</tRule>
 			<tRule>10    →௰; # NUMBER TEN</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="InterIndic" target="Telugu" direction="both" visibility="internal">
 			<comment># InterIndic-Telugu</comment>
 			<comment>#:: NFD (NFC) ;</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>\uE001→ఁ; # SIGN CANDRABINDU</tRule>
 			<tRule>\uE002→ం; # SIGN ANUSVARA</tRule>
 			<tRule>\uE003→ః; # SIGN VISARGA</tRule>
@@ -5384,6 +5279,8 @@
 			<tRule>\uE083→త్;  # Bengali Khanda-ta</tRule>
 			<tRule>0 → ౦;    # FALLBACK FOR TAMIL</tRule>
 			<tRule>1 → ౧;</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="Kannada" target="Bengali" direction="forward">
 			<tRule>::[ಂ-ಃಅ-ಌಎ-ಐಒ-ನಪ-ಳವ-ಹ಼ಽಾ-ೄೆ-ೈೊ-್ೕ-ೖೞೠ-ೡ೦-೯];</tRule>
@@ -5415,7 +5312,6 @@
 		</transform>
 		<transform source="Kannada" target="InterIndic" direction="both" visibility="internal">
 			<comment># Kannada-InterIndic</comment>
-			<comment># eof</comment>
 			<tRule>ೇ→\uE047;        # VOWEL SIGN EE</tRule>
 			<tRule>ೆ್ೖ→\uE048\uE04D;        # VOWEL SIGN AI</tRule>
 			<tRule>ೈ→\uE048;        # VOWEL SIGN AI</tRule>
@@ -5499,6 +5395,7 @@
 			<tRule>೭→\uE06D;              # DIGIT SEVEN</tRule>
 			<tRule>೮→\uE06E;              # DIGIT EIGHT</tRule>
 			<tRule>೯→\uE06F;              # DIGIT NINE</tRule>
+			<comment># eof</comment>
 		</transform>
 		<transform source="Kannada" target="Latin" direction="forward">
 			<tRule>::[ಂ-ಃಅ-ಌಎ-ಐಒ-ನಪ-ಳವ-ಹ಼-ೄೆ-ೈೊ-್ೕ-ೖೞೠ-ೡ೦-೯];</tRule>
@@ -5682,142 +5579,6 @@
 			<comment>#   Initial only: IEUNG BB DD JJ R</comment>
 			<comment>#   Final only: BS GS L LB LG LH LM LP LS LT NG NH NJ</comment>
 			<comment>#   Initial and Final: B C D G GG H J K M N P S SS T</comment>
-			<comment># Any character in the latin transliteration of a medial</comment>
-			<comment># The last character of the latin transliteration of a medial</comment>
-			<comment># Disambiguation separator</comment>
-			<comment>#----------------------------------------------------------------------</comment>
-			<comment># Jamo-Latin</comment>
-			<comment># Jamo to latin is relatively simple, since it is the latin that is</comment>
-			<comment># ambiguous.  Most rules are straightforward, and we encode them below</comment>
-			<comment># as simple add-on back rule, e.g.:</comment>
-			<comment>#   $jamoMedial {bs} → $BS;</comment>
-			<comment># becomes</comment>
-			<comment>#   $jamoMedial {bs} ↔ $BS;</comment>
-			<comment># Furthermore, we don't care about the ordering for Jamo-Latin because</comment>
-			<comment># we are going from single characters, so we can very easily piggyback</comment>
-			<comment># on the Latin-Jamo.</comment>
-			<comment># The main issue with Jamo-Latin is when to insert separators.</comment>
-			<comment># Separators are inserted to obtain correct round trip behavior.  For</comment>
-			<comment># example, the sequence Ki A Gf Gi E, if transliterated to &quot;kagge&quot;,</comment>
-			<comment># would then round trip to Ki A GGi E.  To prevent this, we insert a</comment>
-			<comment># separator: &quot;kag-ge&quot;.  IMPORTANT: The need for separators depends</comment>
-			<comment># very specifically on the behavior of the Latin-Jamo rules.  A change</comment>
-			<comment># in the Latin-Jamo behavior can completely change the way the</comment>
-			<comment># separator insertion must be done.</comment>
-			<comment># First try to preserve actual separators in the jamo text by doubling</comment>
-			<comment># them.  This fixes problems like:</comment>
-			<comment># (Di)(A)(Ji)(U)(NG)-(IEUNG)(YEO)(Nf)(Gi)(YEO)(L) =→ dajung-yeongyeol</comment>
-			<comment># =→ (Di)(A)(Ji)(U)(NG)(IEUNG)(YEO)(Nf)(Gi)(YEO)(L).  This is optional</comment>
-			<comment># -- if we don't care about losing separators in the jamo, we can delete</comment>
-			<comment># this rule.</comment>
-			<comment># Triple consonants.  For three consonants &quot;axxx&quot; we insert a</comment>
-			<comment># separator between the first and second &quot;x&quot; if XXf, Xf, and Xi all</comment>
-			<comment># exist, and we have A Xf XXi.  This prevents the reverse</comment>
-			<comment># transliteration to A XXf Xi.</comment>
-			<comment># For vowels the rule is similar.  If there is a vowel &quot;ae&quot; such that</comment>
-			<comment># &quot;a&quot; by itself and &quot;e&quot; by itself are vowels, then we want to map A E</comment>
-			<comment># to &quot;a-e&quot; so as not to round trip to AE.  However, in the text Ki EO</comment>
-			<comment># IEUNG E we don't need to map to &quot;keo-e&quot;.  &quot;keoe&quot; suffices.  For</comment>
-			<comment># vowels of the form &quot;aei&quot;, both &quot;ae&quot; + &quot;i&quot; and &quot;a&quot; + &quot;ei&quot; must be</comment>
-			<comment># tested.  NOTE: These rules used to have a left context of</comment>
-			<comment># $latinInitial instead of [^$latinMedial].  The problem with this is</comment>
-			<comment># sequences where an initial IEUNG is transliterated away:</comment>
-			<comment>#   (IEUNG)(A)(IEUNG)(EO) =→ aeo =→ (IEUNG)(AE)(IEUNG)(O)</comment>
-			<comment># Similar to the above, but with an intervening $IEUNG.</comment>
-			<comment># Single finals followed by IEUNG.  The jamo sequence A Xf IEUNG E,</comment>
-			<comment># where Xi also exists, must be transliterated as &quot;ax-e&quot; to prevent</comment>
-			<comment># the round trip conversion to A Xi E.</comment>
-			<comment># Double finals followed by IEUNG.  Similar to the single finals</comment>
-			<comment># followed by IEUNG.  Any latin consonant pair X Y, between medials,</comment>
-			<comment># that we would split by Latin-Jamo, we must handle when it occurs as</comment>
-			<comment># part of A XYf IEUNG E, to prevent round trip conversion to A Xf Yi</comment>
-			<comment># E.</comment>
-			<comment># Split doubles.  Text of the form A Xi Xf E, where XXi also occurs,</comment>
-			<comment># we transliterate as &quot;ax-xe&quot; to prevent round trip transliteration as</comment>
-			<comment># A XXi E.</comment>
-			<comment># XYY.  This corresponds to the XYY rule in Latin-Jamo.  By default</comment>
-			<comment># Latin-Jamo maps &quot;xyy&quot; to Xf YYi, to keep YY together.  As a result,</comment>
-			<comment># &quot;xyy&quot; forms that correspond to XYf Yi must be transliterated as</comment>
-			<comment># &quot;xy-y&quot;.</comment>
-			<comment># Deletion of IEUNG is handled below.</comment>
-			<comment>#----------------------------------------------------------------------</comment>
-			<comment># Latin-Jamo</comment>
-			<comment># [Basic, context-free Jamo-Latin rules are embedded here too.  See</comment>
-			<comment># above.]</comment>
-			<comment># Split digraphs: Text of the form 'axye', where 'xy' is a final</comment>
-			<comment># digraph, 'x' is a final (by itself), 'y' is an initial, and 'a' and</comment>
-			<comment># 'e' are medials, we want to transliterate this as A Xf Yi E rather</comment>
-			<comment># than A XYf IEUNG E.  We do NOT include text of the form &quot;axxe&quot;,</comment>
-			<comment># since that is handled differently below.  These rules are generated</comment>
-			<comment># programmatically from the jamo data.</comment>
-			<comment># Single consonants are initials: Text of the form 'axe', where 'x'</comment>
-			<comment># can be an initial or a final, and 'a' and 'e' are medials, we want</comment>
-			<comment># to transliterate as A Xi E rather than A Xf IEUNG E.</comment>
-			<comment># Doubled initials.  The sequence &quot;axxe&quot;, where XX exists as an initial</comment>
-			<comment># (XXi), and also Xi and Xf exist (true of all digraphs XX), we want</comment>
-			<comment># to transliterate as A XXi E, rather than split to A Xf Xi E.</comment>
-			<comment># XYY.  Because doubled consonants bind more strongly than XY</comment>
-			<comment># consonants, we must handle the sequence &quot;axyy&quot; specially.  Here XYf</comment>
-			<comment># and YYi must exist.  In these cases, we map to Xf YYi rather than</comment>
-			<comment># XYf.</comment>
-			<comment># Finals: Attach consonant with preceding medial to preceding medial.</comment>
-			<comment># Do this BEFORE mapping consonants to initials.  Longer keys must</comment>
-			<comment># precede shorter keys that they start with, e.g., the rule for 'bs'</comment>
-			<comment># must precede 'b'.</comment>
-			<comment># [BASIC Jamo-Latin FINALS handled here.  Order irrelevant within this</comment>
-			<comment># block for Jamo-Latin.]</comment>
-			<comment># Initials: Attach single consonant to following medial.  Do this</comment>
-			<comment># AFTER mapping finals.  Longer keys must precede shorter keys that</comment>
-			<comment># they start with, e.g., the rule for 'gg' must precede 'g'.</comment>
-			<comment># [BASIC Jamo-Latin INITIALS handled here.  Order irrelevant within</comment>
-			<comment># this block for Jamo-Latin.]</comment>
-			<comment># 'r' in final position.  Because of the equivalency of the 'l' and</comment>
-			<comment># 'r' jamo (the glyphs are the same), we try to provide the same</comment>
-			<comment># equivalency in Latin-Jamo.  The 'l' to 'r' conversion is handled</comment>
-			<comment># below.  If we see an 'r' in an apparent final position, treat it</comment>
-			<comment># like 'l'.  For example, &quot;karka&quot; =→ Ki A R EU Ki A without this rule.</comment>
-			<comment># Instead, we want Ki A L Ki A.</comment>
-			<comment># Initial + Final: If we match the next rule, we have initial then</comment>
-			<comment># final consonant with no intervening medial.  We insert the null</comment>
-			<comment># vowel BEFORE it to create a well-formed syllable.  (In the next rule</comment>
-			<comment># we insert a null vowel AFTER an anomalous initial.)</comment>
-			<comment># Initial + X: This block matches an initial consonant not followed by</comment>
-			<comment># a medial.  We insert the null vowel after it.  We handle double</comment>
-			<comment># initials explicitly here; for single initial consonants we insert EU</comment>
-			<comment># (as Latin) after them and let standard rules do the rest.</comment>
-			<comment># BREAKS ROUND TRIP INTEGRITY</comment>
-			<comment># X + Final: Finally we have to deal with a consonant that can only be</comment>
-			<comment># interpreted as a final (not an initial) and which is preceded</comment>
-			<comment># neither by an initial nor a medial.  It is the start of the</comment>
-			<comment># syllable, but cannot be.  Most of these will already be handled by</comment>
-			<comment># the above rules.  'bs' splits into Bi EU Sf.  Similar for 'gs' 'ng'</comment>
-			<comment># 'nh' 'nj'.  The only problem is 'l' and digraphs starting with 'l'.</comment>
-			<comment># For this isolated case, we could add a null initial and medial,</comment>
-			<comment># which would give &quot;la&quot; =→ IEUNG EU L IEUNG A, for example.  A more</comment>
-			<comment># economical solution is to transliterate isolated &quot;l&quot; (that is,</comment>
-			<comment># initial &quot;l&quot;) to &quot;r&quot;.  (Other similar conversions of consonants that</comment>
-			<comment># occur neither as initials nor as finals are handled below.)</comment>
-			<comment># Medials.  If a medial is preceded by an initial, then we proceed</comment>
-			<comment># normally.  As usual, longer keys must precede shorter ones.</comment>
-			<comment># [BASIC Jamo-Latin MEDIALS handled here.  Order irrelevant within</comment>
-			<comment># this block for Jamo-Latin.]</comment>
-			<comment># We may see an anomalous isolated 'w' or 'y'.  In that case, we</comment>
-			<comment># interpret it as 'wi' and 'yu', respectively.</comment>
-			<comment># BREAKS ROUND TRIP INTEGRITY</comment>
-			<comment># Otherwise, insert a null consonant IEUNG before the medial (which is</comment>
-			<comment># still an untransliterated latin vowel).</comment>
-			<comment># Convert non-jamo latin consonants to equivalents.  These occur as</comment>
-			<comment># neither initials nor finals in jamo.  'l' occurs as a final, but not</comment>
-			<comment># an initial; it is handled above.  The following letters (left hand</comment>
-			<comment># side) will never be output by Jamo-Latin.</comment>
-			<comment># Delete separators (Latin-Jamo).</comment>
-			<comment># Delete null consonants (Jamo-Latin).  Do NOT delete null EU vowels,</comment>
-			<comment># since these may also occur in text.</comment>
-			<comment>#- N.B. DO NOT put any filters, NFD, etc. here -- those are aliased in</comment>
-			<comment>#- the INDEX file.  This transliterator is, by itself, not</comment>
-			<comment>#- instantiated.  It is used as a part of Latin-Jamo, Latin-Hangul, or</comment>
-			<comment>#- inverses thereof.</comment>
-			<comment># eof</comment>
 			<tRule>$Gi = ᄀ;</tRule>
 			<tRule>$GGi = ᄁ;</tRule>
 			<tRule>$Ni = ᄂ;</tRule>
@@ -5888,20 +5649,65 @@
 			<tRule>$jamoInitial = [ᄀ-ᄒ];</tRule>
 			<tRule>$jamoMedial = [ᅡ-ᅵ];</tRule>
 			<tRule>$latinInitial = [bcdghjkmnprst];</tRule>
+			<comment># Any character in the latin transliteration of a medial</comment>
 			<tRule>$latinMedial = [aeiouwy];</tRule>
+			<comment># The last character of the latin transliteration of a medial</comment>
 			<tRule>$latinMedialEnd = [aeiou];</tRule>
+			<comment># Disambiguation separator</comment>
 			<tRule>$sep = \';</tRule>
+			<comment>#----------------------------------------------------------------------</comment>
+			<comment># Jamo-Latin</comment>
+			<comment># Jamo to latin is relatively simple, since it is the latin that is</comment>
+			<comment># ambiguous.  Most rules are straightforward, and we encode them below</comment>
+			<comment># as simple add-on back rule, e.g.:</comment>
+			<comment>#   $jamoMedial {bs} → $BS;</comment>
+			<comment># becomes</comment>
+			<comment>#   $jamoMedial {bs} ↔ $BS;</comment>
+			<comment># Furthermore, we don't care about the ordering for Jamo-Latin because</comment>
+			<comment># we are going from single characters, so we can very easily piggyback</comment>
+			<comment># on the Latin-Jamo.</comment>
+			<comment># The main issue with Jamo-Latin is when to insert separators.</comment>
+			<comment># Separators are inserted to obtain correct round trip behavior.  For</comment>
+			<comment># example, the sequence Ki A Gf Gi E, if transliterated to &quot;kagge&quot;,</comment>
+			<comment># would then round trip to Ki A GGi E.  To prevent this, we insert a</comment>
+			<comment># separator: &quot;kag-ge&quot;.  IMPORTANT: The need for separators depends</comment>
+			<comment># very specifically on the behavior of the Latin-Jamo rules.  A change</comment>
+			<comment># in the Latin-Jamo behavior can completely change the way the</comment>
+			<comment># separator insertion must be done.</comment>
+			<comment># First try to preserve actual separators in the jamo text by doubling</comment>
+			<comment># them.  This fixes problems like:</comment>
+			<comment># (Di)(A)(Ji)(U)(NG)-(IEUNG)(YEO)(Nf)(Gi)(YEO)(L) =→ dajung-yeongyeol</comment>
+			<comment># =→ (Di)(A)(Ji)(U)(NG)(IEUNG)(YEO)(Nf)(Gi)(YEO)(L).  This is optional</comment>
+			<comment># -- if we don't care about losing separators in the jamo, we can delete</comment>
+			<comment># this rule.</comment>
 			<tRule>$sep $sep ↔ $sep;</tRule>
+			<comment># Triple consonants.  For three consonants &quot;axxx&quot; we insert a</comment>
+			<comment># separator between the first and second &quot;x&quot; if XXf, Xf, and Xi all</comment>
+			<comment># exist, and we have A Xf XXi.  This prevents the reverse</comment>
+			<comment># transliteration to A XXf Xi.</comment>
 			<tRule>$sep ← $latinMedialEnd g {} $GGi;</tRule>
 			<tRule>$sep ← $latinMedialEnd s {} $SSi;</tRule>
+			<comment># For vowels the rule is similar.  If there is a vowel &quot;ae&quot; such that</comment>
+			<comment># &quot;a&quot; by itself and &quot;e&quot; by itself are vowels, then we want to map A E</comment>
+			<comment># to &quot;a-e&quot; so as not to round trip to AE.  However, in the text Ki EO</comment>
+			<comment># IEUNG E we don't need to map to &quot;keo-e&quot;.  &quot;keoe&quot; suffices.  For</comment>
+			<comment># vowels of the form &quot;aei&quot;, both &quot;ae&quot; + &quot;i&quot; and &quot;a&quot; + &quot;ei&quot; must be</comment>
+			<comment># tested.  NOTE: These rules used to have a left context of</comment>
+			<comment># $latinInitial instead of [^$latinMedial].  The problem with this is</comment>
+			<comment># sequences where an initial IEUNG is transliterated away:</comment>
+			<comment>#   (IEUNG)(A)(IEUNG)(EO) =→ aeo =→ (IEUNG)(AE)(IEUNG)(O)</comment>
 			<tRule>$sep ← [^$latinMedial] [y w] e {} [$O $OE];</tRule>
 			<tRule>$sep ← [^$latinMedial] e {} [$O $OE $U];</tRule>
 			<tRule>$sep ← [^$latinMedial] [o a] {} [$E $EO $EU];</tRule>
 			<tRule>$sep ← [^$latinMedial] [w y] a {} [$E $EO $EU];</tRule>
+			<comment># Similar to the above, but with an intervening $IEUNG.</comment>
 			<tRule>$sep ← [^$latinMedial] [y w] e {} $IEUNG [$O $OE];</tRule>
 			<tRule>$sep ← [^$latinMedial] e {} $IEUNG [$O $OE $U];</tRule>
 			<tRule>$sep ← [^$latinMedial] [o a] {} $IEUNG [$E $EO $EU];</tRule>
 			<tRule>$sep ← [^$latinMedial] [w y] a {} $IEUNG [$E $EO $EU];</tRule>
+			<comment># Single finals followed by IEUNG.  The jamo sequence A Xf IEUNG E,</comment>
+			<comment># where Xi also exists, must be transliterated as &quot;ax-e&quot; to prevent</comment>
+			<comment># the round trip conversion to A Xi E.</comment>
 			<tRule>$sep ← $latinMedialEnd b {} $IEUNG $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd c {} $IEUNG $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd d {} $IEUNG $jamoMedial;</tRule>
@@ -5914,6 +5720,11 @@
 			<tRule>$sep ← $latinMedialEnd p {} $IEUNG $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd s {} $IEUNG $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd t {} $IEUNG $jamoMedial;</tRule>
+			<comment># Double finals followed by IEUNG.  Similar to the single finals</comment>
+			<comment># followed by IEUNG.  Any latin consonant pair X Y, between medials,</comment>
+			<comment># that we would split by Latin-Jamo, we must handle when it occurs as</comment>
+			<comment># part of A XYf IEUNG E, to prevent round trip conversion to A Xf Yi</comment>
+			<comment># E.</comment>
 			<tRule>$sep ← $latinMedialEnd b s {} $IEUNG $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd g g {} $IEUNG $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd g s {} $IEUNG $jamoMedial;</tRule>
@@ -5928,11 +5739,18 @@
 			<tRule>$sep ← $latinMedialEnd n h {} $IEUNG $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd n j {} $IEUNG $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd s s {} $IEUNG $jamoMedial;</tRule>
+			<comment># Split doubles.  Text of the form A Xi Xf E, where XXi also occurs,</comment>
+			<comment># we transliterate as &quot;ax-xe&quot; to prevent round trip transliteration as</comment>
+			<comment># A XXi E.</comment>
 			<tRule>$sep ← $latinMedialEnd b {} $Bi $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd d {} $Di $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd j {} $Ji $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd g {} $Gi $jamoMedial;</tRule>
 			<tRule>$sep ← $latinMedialEnd s {} $Si $jamoMedial;</tRule>
+			<comment># XYY.  This corresponds to the XYY rule in Latin-Jamo.  By default</comment>
+			<comment># Latin-Jamo maps &quot;xyy&quot; to Xf YYi, to keep YY together.  As a result,</comment>
+			<comment># &quot;xyy&quot; forms that correspond to XYf Yi must be transliterated as</comment>
+			<comment># &quot;xy-y&quot;.</comment>
 			<tRule>$sep ← $latinMedialEnd b s {} [$Si $SSi];</tRule>
 			<tRule>$sep ← $latinMedialEnd g s {} [$Si $SSi];</tRule>
 			<tRule>$sep ← $latinMedialEnd l b {} [$Bi $BB];</tRule>
@@ -5940,6 +5758,17 @@
 			<tRule>$sep ← $latinMedialEnd l s {} [$Si $SSi];</tRule>
 			<tRule>$sep ← $latinMedialEnd n g {} [$Gi $GGi];</tRule>
 			<tRule>$sep ← $latinMedialEnd n j {} [$Ji $JJ];</tRule>
+			<comment># Deletion of IEUNG is handled below.</comment>
+			<comment>#----------------------------------------------------------------------</comment>
+			<comment># Latin-Jamo</comment>
+			<comment># [Basic, context-free Jamo-Latin rules are embedded here too.  See</comment>
+			<comment># above.]</comment>
+			<comment># Split digraphs: Text of the form 'axye', where 'xy' is a final</comment>
+			<comment># digraph, 'x' is a final (by itself), 'y' is an initial, and 'a' and</comment>
+			<comment># 'e' are medials, we want to transliterate this as A Xf Yi E rather</comment>
+			<comment># than A XYf IEUNG E.  We do NOT include text of the form &quot;axxe&quot;,</comment>
+			<comment># since that is handled differently below.  These rules are generated</comment>
+			<comment># programmatically from the jamo data.</comment>
 			<tRule>$jamoMedial {b s} $latinMedial → $Bf $Si;</tRule>
 			<tRule>$jamoMedial {g s} $latinMedial → $Gf $Si;</tRule>
 			<tRule>$jamoMedial {l b} $latinMedial → $L $Bi;</tRule>
@@ -5952,6 +5781,9 @@
 			<tRule>$jamoMedial {n g} $latinMedial → $Nf $Gi;</tRule>
 			<tRule>$jamoMedial {n h} $latinMedial → $Nf $Hi;</tRule>
 			<tRule>$jamoMedial {n j} $latinMedial → $Nf $Ji;</tRule>
+			<comment># Single consonants are initials: Text of the form 'axe', where 'x'</comment>
+			<comment># can be an initial or a final, and 'a' and 'e' are medials, we want</comment>
+			<comment># to transliterate as A Xi E rather than A Xf IEUNG E.</comment>
 			<tRule>$jamoMedial {b} $latinMedial → $Bi;</tRule>
 			<tRule>$jamoMedial {c} $latinMedial → $Ci;</tRule>
 			<tRule>$jamoMedial {d} $latinMedial → $Di;</tRule>
@@ -5964,11 +5796,18 @@
 			<tRule>$jamoMedial {p} $latinMedial → $Pi;</tRule>
 			<tRule>$jamoMedial {s} $latinMedial → $Si;</tRule>
 			<tRule>$jamoMedial {t} $latinMedial → $Ti;</tRule>
+			<comment># Doubled initials.  The sequence &quot;axxe&quot;, where XX exists as an initial</comment>
+			<comment># (XXi), and also Xi and Xf exist (true of all digraphs XX), we want</comment>
+			<comment># to transliterate as A XXi E, rather than split to A Xf Xi E.</comment>
 			<tRule>$jamoMedial {b b} $latinMedial → $BB;</tRule>
 			<tRule>$jamoMedial {d d} $latinMedial → $DD;</tRule>
 			<tRule>$jamoMedial {j j} $latinMedial → $JJ;</tRule>
 			<tRule>$jamoMedial {g g} $latinMedial → $GGi;</tRule>
 			<tRule>$jamoMedial {s s} $latinMedial → $SSi;</tRule>
+			<comment># XYY.  Because doubled consonants bind more strongly than XY</comment>
+			<comment># consonants, we must handle the sequence &quot;axyy&quot; specially.  Here XYf</comment>
+			<comment># and YYi must exist.  In these cases, we map to Xf YYi rather than</comment>
+			<comment># XYf.</comment>
 			<tRule>$jamoMedial {b} s s → $Bf;</tRule>
 			<tRule>$jamoMedial {g} s s → $Gf;</tRule>
 			<tRule>$jamoMedial {l} b b → $L;</tRule>
@@ -5976,6 +5815,12 @@
 			<tRule>$jamoMedial {l} s s → $L;</tRule>
 			<tRule>$jamoMedial {n} g g → $Nf;</tRule>
 			<tRule>$jamoMedial {n} j j → $Nf;</tRule>
+			<comment># Finals: Attach consonant with preceding medial to preceding medial.</comment>
+			<comment># Do this BEFORE mapping consonants to initials.  Longer keys must</comment>
+			<comment># precede shorter keys that they start with, e.g., the rule for 'bs'</comment>
+			<comment># must precede 'b'.</comment>
+			<comment># [BASIC Jamo-Latin FINALS handled here.  Order irrelevant within this</comment>
+			<comment># block for Jamo-Latin.]</comment>
 			<tRule>$jamoMedial {bs} ↔ $BS;</tRule>
 			<tRule>$jamoMedial {b} ↔ $Bf;</tRule>
 			<tRule>$jamoMedial {c} ↔ $Cf;</tRule>
@@ -6002,6 +5847,11 @@
 			<tRule>$jamoMedial {ss} ↔ $SSf;</tRule>
 			<tRule>$jamoMedial {s} ↔ $Sf;</tRule>
 			<tRule>$jamoMedial {t} ↔ $Tf;</tRule>
+			<comment># Initials: Attach single consonant to following medial.  Do this</comment>
+			<comment># AFTER mapping finals.  Longer keys must precede shorter keys that</comment>
+			<comment># they start with, e.g., the rule for 'gg' must precede 'g'.</comment>
+			<comment># [BASIC Jamo-Latin INITIALS handled here.  Order irrelevant within</comment>
+			<comment># this block for Jamo-Latin.]</comment>
 			<tRule>{gg} $latinMedial ↔ $GGi;</tRule>
 			<tRule>{g} $latinMedial ↔ $Gi;</tRule>
 			<tRule>{n} $latinMedial ↔ $Ni;</tRule>
@@ -6020,15 +5870,45 @@
 			<tRule>{t} $latinMedial ↔ $Ti;</tRule>
 			<tRule>{p} $latinMedial ↔ $Pi;</tRule>
 			<tRule>{h} $latinMedial ↔ $Hi;</tRule>
+			<comment># 'r' in final position.  Because of the equivalency of the 'l' and</comment>
+			<comment># 'r' jamo (the glyphs are the same), we try to provide the same</comment>
+			<comment># equivalency in Latin-Jamo.  The 'l' to 'r' conversion is handled</comment>
+			<comment># below.  If we see an 'r' in an apparent final position, treat it</comment>
+			<comment># like 'l'.  For example, &quot;karka&quot; =→ Ki A R EU Ki A without this rule.</comment>
+			<comment># Instead, we want Ki A L Ki A.</comment>
 			<tRule>$jamoMedial {r} $latinInitial → | l;</tRule>
+			<comment># Initial + Final: If we match the next rule, we have initial then</comment>
+			<comment># final consonant with no intervening medial.  We insert the null</comment>
+			<comment># vowel BEFORE it to create a well-formed syllable.  (In the next rule</comment>
+			<comment># we insert a null vowel AFTER an anomalous initial.)</comment>
 			<tRule>$jamoInitial {} [bcdghjklmnpst] → $EU;</tRule>
+			<comment># Initial + X: This block matches an initial consonant not followed by</comment>
+			<comment># a medial.  We insert the null vowel after it.  We handle double</comment>
+			<comment># initials explicitly here; for single initial consonants we insert EU</comment>
+			<comment># (as Latin) after them and let standard rules do the rest.</comment>
+			<comment># BREAKS ROUND TRIP INTEGRITY</comment>
 			<tRule>gg → $GGi $EU;</tRule>
 			<tRule>dd → $DD $EU;</tRule>
 			<tRule>bb → $BB $EU;</tRule>
 			<tRule>ss → $SSi $EU;</tRule>
 			<tRule>jj → $JJ $EU;</tRule>
 			<tRule>([bcdghjkmnprst]) → | $1 eu;</tRule>
+			<comment># X + Final: Finally we have to deal with a consonant that can only be</comment>
+			<comment># interpreted as a final (not an initial) and which is preceded</comment>
+			<comment># neither by an initial nor a medial.  It is the start of the</comment>
+			<comment># syllable, but cannot be.  Most of these will already be handled by</comment>
+			<comment># the above rules.  'bs' splits into Bi EU Sf.  Similar for 'gs' 'ng'</comment>
+			<comment># 'nh' 'nj'.  The only problem is 'l' and digraphs starting with 'l'.</comment>
+			<comment># For this isolated case, we could add a null initial and medial,</comment>
+			<comment># which would give &quot;la&quot; =→ IEUNG EU L IEUNG A, for example.  A more</comment>
+			<comment># economical solution is to transliterate isolated &quot;l&quot; (that is,</comment>
+			<comment># initial &quot;l&quot;) to &quot;r&quot;.  (Other similar conversions of consonants that</comment>
+			<comment># occur neither as initials nor as finals are handled below.)</comment>
 			<tRule>l → | r;</tRule>
+			<comment># Medials.  If a medial is preceded by an initial, then we proceed</comment>
+			<comment># normally.  As usual, longer keys must precede shorter ones.</comment>
+			<comment># [BASIC Jamo-Latin MEDIALS handled here.  Order irrelevant within</comment>
+			<comment># this block for Jamo-Latin.]</comment>
 			<tRule>$jamoInitial {ae} ↔ $AE;</tRule>
 			<tRule>$jamoInitial {a} ↔ $A;</tRule>
 			<tRule>$jamoInitial {eo} ↔ $EO;</tRule>
@@ -6050,16 +5930,33 @@
 			<tRule>$jamoInitial {yi} ↔ $YI;</tRule>
 			<tRule>$jamoInitial {yo} ↔ $YO;</tRule>
 			<tRule>$jamoInitial {yu} ↔ $YU;</tRule>
+			<comment># We may see an anomalous isolated 'w' or 'y'.  In that case, we</comment>
+			<comment># interpret it as 'wi' and 'yu', respectively.</comment>
+			<comment># BREAKS ROUND TRIP INTEGRITY</comment>
 			<tRule>$jamoInitial {w} → | wi;</tRule>
 			<tRule>$jamoInitial {y} → | yu;</tRule>
+			<comment># Otherwise, insert a null consonant IEUNG before the medial (which is</comment>
+			<comment># still an untransliterated latin vowel).</comment>
 			<tRule>($latinMedial) → $IEUNG | $1;</tRule>
+			<comment># Convert non-jamo latin consonants to equivalents.  These occur as</comment>
+			<comment># neither initials nor finals in jamo.  'l' occurs as a final, but not</comment>
+			<comment># an initial; it is handled above.  The following letters (left hand</comment>
+			<comment># side) will never be output by Jamo-Latin.</comment>
 			<tRule>f → | p;</tRule>
 			<tRule>q → | k;</tRule>
 			<tRule>v → | b;</tRule>
 			<tRule>x → | ks;</tRule>
 			<tRule>z → | s;</tRule>
+			<comment># Delete separators (Latin-Jamo).</comment>
 			<tRule>$sep → ;</tRule>
+			<comment># Delete null consonants (Jamo-Latin).  Do NOT delete null EU vowels,</comment>
+			<comment># since these may also occur in text.</comment>
 			<tRule>← $IEUNG;</tRule>
+			<comment>#- N.B. DO NOT put any filters, NFD, etc. here -- those are aliased in</comment>
+			<comment>#- the INDEX file.  This transliterator is, by itself, not</comment>
+			<comment>#- instantiated.  It is used as a part of Latin-Jamo, Latin-Hangul, or</comment>
+			<comment>#- inverses thereof.</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="Latin" target="ConjoiningJamo" direction="forward">
 			<tRule>::['A-Za-zÀ-ÅÇ-ÏÑ-ÖÙ-Ýà-åç-ïñ-öù-ýÿ-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǡǦ-ǭǰǴ-ǵǸ-ǻȀ-țȞ-ȟȦ-ȳḀ-ẙẠ-ỹK-Å];</tRule>
@@ -6079,8 +5976,6 @@
 			<comment>#by Mark Williamson, dehua_andrew_chen@hotmail.com</comment>
 			<comment>#comments appreciated</comment>
 			<comment>#syllabary</comment>
-			<comment>#punctuation</comment>
-			<comment>#numerals</comment>
 			<tRule>ha↔ሀ;</tRule>
 			<tRule>ha ← ሃ;</tRule>
 			<tRule>he↔ሄ;</tRule>
@@ -6397,6 +6292,7 @@
 			<tRule>wī↔?;</tRule>
 			<tRule>wu↔ዉ;</tRule>
 			<tRule>wo↔ዎ;</tRule>
+			<comment>#punctuation</comment>
 			<tRule>'.'↔?;</tRule>
 			<tRule>','↔?;</tRule>
 			<tRule>';'↔?;</tRule>
@@ -6404,6 +6300,7 @@
 			<tRule>':-' ← ?;</tRule>
 			<tRule>'?'↔?;</tRule>
 			<tRule>'¶'↔?;</tRule>
+			<comment>#numerals</comment>
 			<tRule>1↔?;</tRule>
 			<tRule>2↔?;</tRule>
 			<tRule>3↔?;</tRule>
@@ -6457,47 +6354,11 @@
 			<comment>#:: NFD;</comment>
 			<comment>#\u0E00 reserved</comment>
 			<comment>#consonants</comment>
-			<comment>#\u0E004 reserved</comment>
-			<comment># w←vowel→ represents the stand-alone form</comment>
-			<comment>#\u093A Reserved</comment>
-			<comment>#\u093B Reserved</comment>
-			<comment># ←vowel→ represents the dependent form</comment>
-			<comment># \u094E Reserved</comment>
-			<comment># \u094F Reserved</comment>
-			<comment># ॑→;        # UNMAPPED STRESS SIGN UDATTA</comment>
-			<comment># ॒→;        # UNMAPPED STRESS SIGN ANUDATTA</comment>
-			<comment># ॓→;        # UNMAPPED GRAVE ACCENT</comment>
-			<comment># ॔→;        # UNMAPPED ACUTE ACCENT</comment>
-			<comment>#urdu compatibity forms</comment>
-			<comment># For all other scripts</comment>
-			<comment># Khanda-ta</comment>
-			<comment># ॰→; # UNMAPPED ABBREVIATION SIGN</comment>
-			<comment># $x was originally called '§'; $z was '%'</comment>
-			<comment># convert to independent forms at start of word or syllable:</comment>
-			<comment># dependent forms for roundtrip</comment>
-			<comment># preceeded by consonants</comment>
-			<comment># e.g. keai -→ {ka}{e}{wai}; k'ai -→ {ka}{wai}; (ai) -→ ({wai})</comment>
-			<comment># rules for anusvara</comment>
-			<comment>#urdu compatibility</comment>
-			<comment># dev</comment>
-			<comment># convert to dependent forms after consonant with no vowel:</comment>
-			<comment># e.g. kai -→ {ka}{virama}ai -→ {ka}{ai}</comment>
-			<comment>#$virama aa→$aa;</comment>
-			<comment>#$virama uu→$uu;</comment>
-			<comment>#$virama rrh→$rrh;</comment>
-			<comment>#$virama rh→$rh;</comment>
-			<comment># otherwise convert independent forms when separated by ': k'ai -→ {ka}{virama}{wai}</comment>
-			<comment>#$virama''aa→$waa;</comment>
-			<comment>#$virama''ii→$wii;</comment>
-			<comment>#$virama''uu→$wuu;</comment>
-			<comment>#$virama''rrh→$wrr;</comment>
-			<comment>#$virama''rh→$wr;</comment>
-			<comment>#$virama''lh→$wl;</comment>
-			<comment># no virama</comment>
-			<comment>#:: NFC (NFD) ;</comment>
 			<tRule>$chandrabindu=\uE001;</tRule>
 			<tRule>$anusvara=\uE002;</tRule>
 			<tRule>$visarga=\uE003;</tRule>
+			<comment>#\u0E004 reserved</comment>
+			<comment># w←vowel→ represents the stand-alone form</comment>
 			<tRule>$wa=\uE005;</tRule>
 			<tRule>$waa=\uE006;</tRule>
 			<tRule>$wi=\uE007;</tRule>
@@ -6552,8 +6413,11 @@
 			<tRule>$ssa=\uE037;</tRule>
 			<tRule>$sa=\uE038;</tRule>
 			<tRule>$ha=\uE039;</tRule>
+			<comment>#\u093A Reserved</comment>
+			<comment>#\u093B Reserved</comment>
 			<tRule>$nukta=\uE03C;</tRule>
 			<tRule>$avagraha=\uE03D; # SIGN AVAGRAHA</tRule>
+			<comment># ←vowel→ represents the dependent form</comment>
 			<tRule>$aa=\uE03E;</tRule>
 			<tRule>$i=\uE03F;</tRule>
 			<tRule>$ii=\uE040;</tRule>
@@ -6570,10 +6434,17 @@
 			<tRule>$o=\uE04B;  # ो</tRule>
 			<tRule>$au=\uE04C;</tRule>
 			<tRule>$virama=\uE04D;</tRule>
+			<comment># \u094E Reserved</comment>
+			<comment># \u094F Reserved</comment>
 			<tRule>$om = \uE050; # OM</tRule>
+			<comment># ॑→;        # UNMAPPED STRESS SIGN UDATTA</comment>
+			<comment># ॒→;        # UNMAPPED STRESS SIGN ANUDATTA</comment>
+			<comment># ॓→;        # UNMAPPED GRAVE ACCENT</comment>
+			<comment># ॔→;        # UNMAPPED ACUTE ACCENT</comment>
 			<tRule>$lm = \uE055;#  Telugu Length Mark</tRule>
 			<tRule>$ailm=\uE056;#  AI Length Mark</tRule>
 			<tRule>$aulm=\uE057;#  AU Length Mark</tRule>
+			<comment>#urdu compatibity forms</comment>
 			<tRule>$uka=\uE058;</tRule>
 			<tRule>$ukha=\uE059;</tRule>
 			<tRule>$ugha=\uE05A;</tRule>
@@ -6599,6 +6470,7 @@
 			<tRule>$eight=\uE06E;    # DIGIT EIGHT</tRule>
 			<tRule>$nine=\uE06F;     # DIGIT NINE</tRule>
 			<tRule>$dgs=\uE082;</tRule>
+			<comment># For all other scripts</comment>
 			<tRule>$ecp0=\uE070;</tRule>
 			<tRule>$ecp1=\uE071;</tRule>
 			<tRule>$ecp2=\uE072;</tRule>
@@ -6615,10 +6487,13 @@
 			<tRule>$ecpD=\uE07D;</tRule>
 			<tRule>$ecpE=\uE07E;</tRule>
 			<tRule>$ecpF=\uE07F;</tRule>
+			<comment># Khanda-ta</comment>
 			<tRule>$kta=\uE083;</tRule>
+			<comment># ॰→; # UNMAPPED ABBREVIATION SIGN</comment>
 			<tRule>$depVowelAbove=[\uE03E-\uE040\uE045-\uE04C];</tRule>
 			<tRule>$depVowelBelow=[\uE041-\uE044];</tRule>
 			<tRule>$endThing=[$danda$doubleDanda];</tRule>
+			<comment># $x was originally called '§'; $z was '%'</comment>
 			<tRule>$x=[$virama$aa$ai$au$ii$i$uu$u$rrh$rh$lh$e$o$se$ce$so$co];</tRule>
 			<tRule>$z=[bcdfghjklmnpqrstvwxyz];</tRule>
 			<tRule>$consonants=[[$ka-$ha]$z[क-ह][ক-হ][ਕ-ਹ][ક-હ][କ-ହ][க-ஹ][క-హ][ಕ-ಹ][ക-ഹ]];</tRule>
@@ -6627,6 +6502,8 @@
 			<tRule>m̐→$chandrabindu;</tRule>
 			<tRule>ḥ→$visarga;</tRule>
 			<tRule>x→$ka$virama$sa;</tRule>
+			<comment># convert to independent forms at start of word or syllable:</comment>
+			<comment># dependent forms for roundtrip</comment>
 			<tRule>̔ā→$aa;</tRule>
 			<tRule>̔ai→$ai;</tRule>
 			<tRule>̔au→$au;</tRule>
@@ -6647,6 +6524,7 @@
 			<tRule>̔ŏ→$co;</tRule>
 			<tRule>̔e→$se;</tRule>
 			<tRule>̔o→$so;</tRule>
+			<comment># preceeded by consonants</comment>
 			<tRule>$consonants{ ā→$aa;</tRule>
 			<tRule>$consonants{ ai→$ai;</tRule>
 			<tRule>$consonants{ au→$au;</tRule>
@@ -6667,6 +6545,7 @@
 			<tRule>$consonants{ ŏ→$co;</tRule>
 			<tRule>$consonants{ e→$se;</tRule>
 			<tRule>$consonants{ o→$so;</tRule>
+			<comment># e.g. keai -→ {ka}{e}{wai}; k'ai -→ {ka}{wai}; (ai) -→ ({wai})</comment>
 			<tRule>ā→$waa;</tRule>
 			<tRule>ai→$wai;</tRule>
 			<tRule>au→$wau;</tRule>
@@ -6687,6 +6566,7 @@
 			<tRule>e→$wse;</tRule>
 			<tRule>''om→$om;</tRule>
 			<tRule>o→$wso;</tRule>
+			<comment># rules for anusvara</comment>
 			<tRule>n}r̥           → $na|$virama;</tRule>
 			<tRule>n}l̥           → $na|$virama;</tRule>
 			<tRule>n}na                → $na|$virama;</tRule>
@@ -6699,12 +6579,14 @@
 			<tRule>m}[pbm]             → $anusvara;</tRule>
 			<tRule>n}[ylvshr]          → $anusvara;</tRule>
 			<tRule>ṁ             → $anusvara;</tRule>
+			<comment>#urdu compatibility</comment>
 			<tRule>q→$uka|$virama;</tRule>
 			<tRule>ḵẖ→$ukha |$virama;</tRule>
 			<tRule>ġ→ $ugha | $virama;</tRule>
 			<tRule>z → $ujha |$virama;</tRule>
 			<tRule>f → $ufa|$virama;</tRule>
 			<tRule>ṯ→$kta;</tRule>
+			<comment># dev</comment>
 			<tRule>ẏ→$uya|$virama;</tRule>
 			<tRule>ḻ→$ela|$virama;</tRule>
 			<tRule>ṉ→$ena|$virama;</tRule>
@@ -6756,15 +6638,21 @@
 			<tRule>$danda'.'→$doubleDanda;</tRule>
 			<tRule>$depVowelAbove{'~'→$anusvara;</tRule>
 			<tRule>$depVowelBelow{'~'→$chandrabindu;</tRule>
+			<comment># convert to dependent forms after consonant with no vowel:</comment>
+			<comment># e.g. kai -→ {ka}{virama}ai -→ {ka}{ai}</comment>
+			<comment>#$virama aa→$aa;</comment>
 			<tRule>$virama ā→$aa;</tRule>
 			<tRule>$virama ai→$ai;</tRule>
 			<tRule>$virama au→$au;</tRule>
 			<tRule>$virama ii→$ii;</tRule>
 			<tRule>$virama ī→$ii;</tRule>
 			<tRule>$virama i→$i;</tRule>
+			<comment>#$virama uu→$uu;</comment>
 			<tRule>$virama ū→$uu;</tRule>
 			<tRule>$virama u→$u;</tRule>
+			<comment>#$virama rrh→$rrh;</comment>
 			<tRule>$virama r̥̄→$rrh;</tRule>
+			<comment>#$virama rh→$rh;</comment>
 			<tRule>$virama r̥a→$rh;</tRule>
 			<tRule>$virama r̥→$rh;</tRule>
 			<tRule>$virama l̥̄→$llh;</tRule>
@@ -6777,16 +6665,23 @@
 			<tRule>$virama ŏ→$co;</tRule>
 			<tRule>$virama e→$se;</tRule>
 			<tRule>$virama o→$so;</tRule>
+			<comment># otherwise convert independent forms when separated by ': k'ai -→ {ka}{virama}{wai}</comment>
+			<comment>#$virama''aa→$waa;</comment>
 			<tRule>$virama''ā→$waa;</tRule>
 			<tRule>$virama''ai→$wai;</tRule>
 			<tRule>$virama''au→$wau;</tRule>
+			<comment>#$virama''ii→$wii;</comment>
 			<tRule>$virama''ī→$wii;</tRule>
 			<tRule>$virama''i→$wi;</tRule>
+			<comment>#$virama''uu→$wuu;</comment>
 			<tRule>$virama''ū→$wuu;</tRule>
 			<tRule>$virama''u→$wu;</tRule>
+			<comment>#$virama''rrh→$wrr;</comment>
 			<tRule>$virama''r̥̄→$wrr;</tRule>
+			<comment>#$virama''rh→$wr;</comment>
 			<tRule>$virama''r̥→$wr;</tRule>
 			<tRule>$virama''l̥̄→$wll;</tRule>
+			<comment>#$virama''lh→$wl;</comment>
 			<tRule>$virama''l̥→$wl;</tRule>
 			<tRule>$virama''ē→$we;</tRule>
 			<tRule>$virama''ō→$wo;</tRule>
@@ -6795,6 +6690,7 @@
 			<tRule>$virama''ŏ→$wco;</tRule>
 			<tRule>$virama''e→$wse;</tRule>
 			<tRule>$virama''o→$wso;</tRule>
+			<comment># no virama</comment>
 			<tRule>''ā→$waa;</tRule>
 			<tRule>''ai→$wai;</tRule>
 			<tRule>''au→$wau;</tRule>
@@ -6828,6 +6724,7 @@
 			<tRule>8→$eight;</tRule>
 			<tRule>9→$nine;</tRule>
 			<tRule>''→;</tRule>
+			<comment>#:: NFC (NFD) ;</comment>
 		</transform>
 		<transform source="Latin" target="Kannada" direction="forward">
 			<tRule>::['.0-9A-Za-z~À-ÅÇ-ÏÑ-ÖÙ-Ýà-åç-ïñ-öù-ýÿ-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǭǰǴ-ǵǸ-țȞ-ȟȦ-ȳʔ́̃-̄̆-̇̐̔-̣̥̱́̈́̕΅-ΆΈ-ΊΌΎ-ΐά-ΰό-ώϓЃЌЎЙйѓќўӁ-ӂӐ-ӑӖ-ӗӢ-ӣӮ-ӯḀ-ẙẠ-ỹἁἃ-ἅἇἉἋ-ἍἏἑἓ-ἕἙἛ-Ἕἡἣ-ἥἧἩἫ-ἭἯἱἳ-ἵἷἹἻ-ἽἿὁὃ-ὅὉὋ-Ὅὑὓ-ὕὗὙὛὝὟὡὣ-ὥὧὩὫ-ὭὯάέήίόύώᾁᾃ-ᾅᾇᾉᾋ-ᾍᾏᾑᾓ-ᾕᾗᾙᾛ-ᾝᾟᾡᾣ-ᾥᾧᾩᾫ-ᾭᾯ-ᾱᾴᾸ-ᾹΆῄΈΉ῎ῐ-ῑΐῘ-ῙΊ῞ῠ-ῡΰῥῨ-ῩΎ-Ῥ΅ῴΌΏK-Å\uE04D\uE064];</tRule>
@@ -6842,6 +6739,10 @@
 			<comment>#:: [\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟ [:Latin:][:Katakana:] [:nonspacing mark:]] ;</comment>
 			<comment># MINIMAL FILTER GENERATED FOR: Latin-Katakana</comment>
 			<comment>### WARNING -- must add width filter, both here and below!!! ###</comment>
+			<tRule>:: [[ᄀ-ᄒᄚᄡ\u1160-ᅵᆪᆬ-ᆭᆰ-ᆵ←-↓│■○\u3000-。「-」゙-゚ァ-ロワヲ-ヴヷヺ-ー！-～￠-￦][',.A-Za-z~À-ÖØ-öø-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǭǰǴ-ǵǸ-țȞ-ȟȦ-ȳ̄Ӣ-ӣӮ-ӯḀ-ẙẠ-ỹᾱᾹῑῙῡῩK-Å]] ;</tRule>
+			<tRule>:: [:Latin:] fullwidth-halfwidth ();</tRule>
+			<tRule>:: NFD (NFC);</tRule>
+			<tRule>:: Lower ();    # whenever transliterating from cased to uncased script, include this</tRule>
 			<comment># :: NFD () ;   # this would catch the odd cases where a lowercase is not in NFD, but none are important for Japanese</comment>
 			<comment># Uses modified Hepburn. Small changes to make  unambiguous.</comment>
 			<comment># | Kunrei-shiki: Hepburn/MHepburn</comment>
@@ -6887,76 +6788,10 @@
 			<comment># explicit small forms are given with ~a, ~ya, etc.</comment>
 			<comment>#------------------------------------------------------</comment>
 			<comment># Variables</comment>
-			<comment># Variables used for doubled-consonants with tsu</comment>
-			<comment># if ン is followed by $n_quoter, then it needs an</comment>
-			<comment># apostrophe after its romaji form to disambiguate it.</comment>
-			<comment># e.g., ン ア ! =  ナ, so represent as &quot;n'a&quot;, not &quot;na&quot;.</comment>
-			<comment>#------------------------------------------------------</comment>
-			<comment># katakana rules</comment>
-			<comment># Punctuation</comment>
-			<comment># ' ' } [a-z] → ; # delete spaces before latin</comment>
-			<comment># ' ' ← [^' '゠-ヿ] {} ['゠-ヿ] ; #insert spaces before hiragana</comment>
-			<comment># Iteration Mark</comment>
-			<comment># Copy previous letter § marks</comment>
-			<comment># TODO</comment>
-			<comment># | $1 $1 ← ($kana [[:M:]$voice$semivoice]?) $iteration</comment>
-			<comment># Specials for katakana -- not shared with hiragana</comment>
-			<comment># ~~~ begin shared rules ~~~</comment>
-			<comment>#special</comment>
-			<comment>#normal</comment>
-			<comment># TODO: QUESTION: use ĵĴżŻ instead of dj, dz</comment>
-			<comment># j  } $vowel → ジ | '~y' ;</comment>
-			<comment># f | '~' ← フ } $small_y ;</comment>
-			<comment># f } $vowel → フ | '~' ;</comment>
-			<comment># v  } $vowel → ヴ | '~' ;</comment>
-			<comment>#'v~a' ← ヴァ ; # liu</comment>
-			<comment>#'v~i' ← ヴィ ; # liu</comment>
-			<comment>#'v~e' ← ヴェ ; # liu</comment>
-			<comment>#'v~o' ← ヴォ ; # liu</comment>
-			<comment># w  } $vowel → ウ | '~' ;</comment>
-			<comment># double consonants</comment>
-			<comment>#specials</comment>
-			<comment>#voiced</comment>
-			<comment># v } v ↔ ッ } [ワヰウヱヲう]  $voice ;</comment>
-			<comment># normal</comment>
-			<comment># completeness</comment>
-			<comment># y } y → ッ ;</comment>
-			<comment># w } w → ッ ;</comment>
-			<comment># prolonged vowel mark. this indicates a doubling of</comment>
-			<comment># the preceding vowel sound</comment>
-			<comment>#a ← a { ー ; # liu</comment>
-			<comment>#e ← e { ー ; # liu</comment>
-			<comment>#i ← i { ー ; # liu</comment>
-			<comment>#o ← o { ー ; # liu</comment>
-			<comment>#u ← u { ー ; # liu</comment>
-			<comment># small forms</comment>
-			<comment># iteration marks</comment>
-			<comment># TODO: make more accurate</comment>
-			<comment># h- rule: lengthens vowel if not followed by a vowel</comment>
-			<comment># one-way latin- → kana rules. these do not occur in</comment>
-			<comment># well-formed romaji representing actual japanese text.</comment>
-			<comment># their purpose is to make all romaji map to kana of</comment>
-			<comment># some sort.</comment>
-			<comment># the following are not really necessary, but produce</comment>
-			<comment># slightly more natural results.</comment>
-			<comment># isolated consonants listed here so as not to mask</comment>
-			<comment># longer rules above.</comment>
-			<comment># simple substitutions using backup</comment>
-			<comment># ~~~ END shared rules ~~~</comment>
-			<comment>#------------------------------------------------------</comment>
-			<comment># Final cleanup</comment>
-			<comment># [ʾ[:Nonspacing Mark:]-[゙-゜]] → ; # delete any non-spacing marks that we didn't use</comment>
-			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
-			<comment>#:: ([\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟ [:Latin:][:Katakana:] [:nonspacing mark:]]);</comment>
-			<comment># MINIMAL FILTER GENERATED FOR: Latin-Katakana BACKWARD</comment>
-			<comment># eof</comment>
-			<tRule>:: [[ᄀ-ᄒᄚᄡ\u1160-ᅵᆪᆬ-ᆭᆰ-ᆵ←-↓│■○\u3000-。「-」゙-゚ァ-ロワヲ-ヴヷヺ-ー！-～￠-￦][',.A-Za-z~À-ÖØ-öø-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǭǰǴ-ǵǸ-țȞ-ȟȦ-ȳ̄Ӣ-ӣӮ-ӯḀ-ẙẠ-ỹᾱᾹῑῙῡῩK-Å]] ;</tRule>
-			<tRule>:: [:Latin:] fullwidth-halfwidth ();</tRule>
-			<tRule>:: NFD (NFC);</tRule>
-			<tRule>:: Lower ();    # whenever transliterating from cased to uncased script, include this</tRule>
 			<tRule>$vowel = [aeiou] ;</tRule>
 			<tRule>$consonant = [bcdfghjklmnpqrstvwxyz] ;</tRule>
 			<tRule>$macron = ̄ ;</tRule>
+			<comment># Variables used for doubled-consonants with tsu</comment>
 			<tRule>$kana = [ぁ-ゔ] ;</tRule>
 			<tRule>$voice = [゙゛];</tRule>
 			<tRule>$semivoice = [゚゜];</tRule>
@@ -6972,22 +6807,38 @@
 			<tRule>$r_start = [ラリルレロらりるれろ] ;</tRule>
 			<tRule>$w_start = [ワヰヱヲわゐゑを] ;</tRule>
 			<tRule>$v_start = [ワヰヱヲ]゙ ;</tRule>
+			<comment># if ン is followed by $n_quoter, then it needs an</comment>
+			<comment># apostrophe after its romaji form to disambiguate it.</comment>
+			<comment># e.g., ン ア ! =  ナ, so represent as &quot;n'a&quot;, not &quot;na&quot;.</comment>
 			<tRule>$n_quoter  =  [ア イ ウ エ オ ナ ニ ヌ ネ ノ ヤ ユ ヨ ン] ;</tRule>
 			<tRule>$small_y = [ャィュェョ] ;</tRule>
 			<tRule>$iteration = ゝ ;</tRule>
+			<comment>#------------------------------------------------------</comment>
+			<comment># katakana rules</comment>
+			<comment># Punctuation</comment>
 			<tRule>'.' ↔ 。;</tRule>
 			<tRule>',' ↔ 、;</tRule>
+			<comment># ' ' } [a-z] → ; # delete spaces before latin</comment>
+			<comment># ' ' ← [^' '゠-ヿ] {} ['゠-ヿ] ; #insert spaces before hiragana</comment>
+			<comment># Iteration Mark</comment>
+			<comment># Copy previous letter § marks</comment>
+			<comment># TODO</comment>
+			<comment># | $1 $1 ← ($kana [[:M:]$voice$semivoice]?) $iteration</comment>
+			<comment># Specials for katakana -- not shared with hiragana</comment>
 			<tRule>va ↔ ヷ ;</tRule>
 			<tRule>vi ↔ ヸ ;</tRule>
 			<tRule>ve ↔ ヹ ;</tRule>
 			<tRule>vo ↔ ヺ ;</tRule>
 			<tRule>'~ka' ↔ ヵ ;</tRule>
 			<tRule>'~ke' ↔ ヶ ;</tRule>
+			<comment># ~~~ begin shared rules ~~~</comment>
+			<comment>#special</comment>
 			<tRule>ya ← '~'ャ;</tRule>
 			<tRule>yi ← '~'ィ ;</tRule>
 			<tRule>yu ← '~'ュ;</tRule>
 			<tRule>ye ← '~'ェ;</tRule>
 			<tRule>yo ← '~'ョ;</tRule>
+			<comment>#normal</comment>
 			<tRule>a ↔ ア ;</tRule>
 			<tRule>b | '~' ← ヒ ゙} $small_y ;</tRule>
 			<tRule>by } $vowel → ビ | '~y' ;</tRule>
@@ -7011,6 +6862,7 @@
 			<tRule>djo ← ヂョ ;</tRule>
 			<tRule>dji ↔ ヂ ;</tRule>
 			<tRule>dj  } $vowel → ヂ | '~y' ;</tRule>
+			<comment># TODO: QUESTION: use ĵĴżŻ instead of dj, dz</comment>
 			<tRule>cha ← チャ ;</tRule>
 			<tRule>chi'~i' ← チィ ; # liu</tRule>
 			<tRule>chu ← チュ ;</tRule>
@@ -7027,6 +6879,7 @@
 			<tRule>ge ↔ ゲ ;</tRule>
 			<tRule>go ↔ ゴ ;</tRule>
 			<tRule>i ↔ イ ;</tRule>
+			<comment># j  } $vowel → ジ | '~y' ;</comment>
 			<tRule>ja ↔ ジャ ;</tRule>
 			<tRule>ji'~i' ← ジィ ; # liu</tRule>
 			<tRule>ju ↔ ジュ ;</tRule>
@@ -7070,6 +6923,8 @@
 			<tRule>hu ↔ ヘゥ ;</tRule>
 			<tRule>he ↔ ヘ ;</tRule>
 			<tRule>ho ↔ ホ ;</tRule>
+			<comment># f | '~' ← フ } $small_y ;</comment>
+			<comment># f } $vowel → フ | '~' ;</comment>
 			<tRule>fa ↔ ファ ;</tRule>
 			<tRule>fi ↔ フィ ;</tRule>
 			<tRule>fe ↔ フェ ;</tRule>
@@ -7105,8 +6960,14 @@
 			<tRule>te ↔ テ ;</tRule>
 			<tRule>to ↔ ト ;</tRule>
 			<tRule>tsu ↔ ツ ;</tRule>
+			<comment># v  } $vowel → ヴ | '~' ;</comment>
+			<comment>#'v~a' ← ヴァ ; # liu</comment>
+			<comment>#'v~i' ← ヴィ ; # liu</comment>
+			<comment>#'v~e' ← ヴェ ; # liu</comment>
+			<comment>#'v~o' ← ヴォ ; # liu</comment>
 			<tRule>vu ↔ ヴ ;</tRule>
 			<tRule>u ↔ ウ ;</tRule>
+			<comment># w  } $vowel → ウ | '~' ;</comment>
 			<tRule>wa ↔ ワ ;</tRule>
 			<tRule>wi ↔ ヰ ;</tRule>
 			<tRule>wu → ウ ;</tRule>
@@ -7117,15 +6978,20 @@
 			<tRule>yu ↔ ユ ;</tRule>
 			<tRule>ye → エ ;</tRule>
 			<tRule>yo ↔ ヨ ;</tRule>
+			<comment># double consonants</comment>
+			<comment>#specials</comment>
 			<tRule>s } sh → ッ ;</tRule>
 			<tRule>t } ch → ッ ;</tRule>
+			<comment>#voiced</comment>
 			<tRule>j } j ↔ ッ } $j_start ;</tRule>
 			<tRule>b } b ↔ ッ } [$h_start$f_start] $voice;</tRule>
 			<tRule>d } d ↔ ッ } $t_start $voice;</tRule>
 			<tRule>g } g ↔ ッ } $k_start $voice;</tRule>
 			<tRule>p } p ↔ ッ } [$h_start$f_start] $semivoice;</tRule>
+			<comment># v } v ↔ ッ } [ワヰウヱヲう]  $voice ;</comment>
 			<tRule>z } z ↔ ッ } $s_start $voice;</tRule>
 			<tRule>v } v ↔ ッ } $v_start;</tRule>
+			<comment># normal</comment>
 			<tRule>k } k ↔ ッ } $k_start ;</tRule>
 			<tRule>m } m ↔ ッ } $m_start ;</tRule>
 			<tRule>n } n ↔ ッ } $n_start ;</tRule>
@@ -7136,13 +7002,24 @@
 			<tRule>s } s ↔ ッ } $s_start ;</tRule>
 			<tRule>w } w  ↔ ッ } $w_start;</tRule>
 			<tRule>y } y ↔ ッ } $y_start;</tRule>
+			<comment># completeness</comment>
 			<tRule>x } x → ッ ;</tRule>
 			<tRule>c } k → ッ ;</tRule>
 			<tRule>c } c → ッ ;</tRule>
 			<tRule>c } q → ッ ;</tRule>
 			<tRule>l } l → ッ ;</tRule>
 			<tRule>q } q → ッ ;</tRule>
+			<comment># y } y → ッ ;</comment>
+			<comment># w } w → ッ ;</comment>
+			<comment># prolonged vowel mark. this indicates a doubling of</comment>
+			<comment># the preceding vowel sound</comment>
+			<comment>#a ← a { ー ; # liu</comment>
+			<comment>#e ← e { ー ; # liu</comment>
+			<comment>#i ← i { ー ; # liu</comment>
+			<comment>#o ← o { ー ; # liu</comment>
+			<comment>#u ← u { ー ; # liu</comment>
 			<tRule>$macron ↔ ー ;</tRule>
+			<comment># small forms</comment>
 			<tRule>'~a' ↔ ァ ;</tRule>
 			<tRule>'~i' ↔ ィ ;</tRule>
 			<tRule>'~u' ↔ ゥ ;</tRule>
@@ -7155,6 +7032,8 @@
 			<tRule>'~yu' ↔ ュ ;</tRule>
 			<tRule>'~ye' → ェ ;</tRule>
 			<tRule>'~yo' ↔ ョ ;</tRule>
+			<comment># iteration marks</comment>
+			<comment># TODO: make more accurate</comment>
 			<tRule>j $1 ← sh (y* $vowel) {ヽ$voice ;</tRule>
 			<tRule>dj $1 ← ch (y* $vowel) {ヽ$voice ;</tRule>
 			<tRule>dz $1 ← ts (y* $vowel) {ヽ$voice ;</tRule>
@@ -7172,7 +7051,14 @@
 			<tRule>$1 ← ($consonant y* $vowel) {ヽ$voice? ;</tRule>
 			<tRule>$1 ← (.) {ヽ $voice? ; # otherwise repeat last character</tRule>
 			<tRule>← ヽ $voice? ; # delete if no characters found</tRule>
+			<comment># h- rule: lengthens vowel if not followed by a vowel</comment>
 			<tRule>[aeiou] } h → ー ;</tRule>
+			<comment># one-way latin- → kana rules. these do not occur in</comment>
+			<comment># well-formed romaji representing actual japanese text.</comment>
+			<comment># their purpose is to make all romaji map to kana of</comment>
+			<comment># some sort.</comment>
+			<comment># the following are not really necessary, but produce</comment>
+			<comment># slightly more natural results.</comment>
 			<tRule>cy → セィ ;</tRule>
 			<tRule>dy → ディ ;</tRule>
 			<tRule>hy → ヒ ;</tRule>
@@ -7180,6 +7066,8 @@
 			<tRule>ty → ティ ;</tRule>
 			<tRule>zy → ゼィ ;</tRule>
 			<tRule>h → ヘ ;</tRule>
+			<comment># isolated consonants listed here so as not to mask</comment>
+			<comment># longer rules above.</comment>
 			<tRule>ch → チ;</tRule>
 			<tRule>sh → シ ;</tRule>
 			<tRule>dz → ヅ ;</tRule>
@@ -7206,15 +7094,24 @@
 			<tRule>ð → | d ;</tRule>
 			<tRule>ø → | u ;</tRule>
 			<tRule>þ → | th ;</tRule>
+			<comment># simple substitutions using backup</comment>
 			<tRule>c → | k ;</tRule>
 			<tRule>l → | r ;</tRule>
 			<tRule>q → | k ;</tRule>
 			<tRule>x → | ks ;</tRule>
+			<comment># ~~~ END shared rules ~~~</comment>
+			<comment>#------------------------------------------------------</comment>
+			<comment># Final cleanup</comment>
 			<tRule>'~' → ; # delete stray tildes between letters</tRule>
 			<tRule>[:Katakana:] { '' } [:Latin:] → ; # delete stray quotes between letters</tRule>
+			<comment># [ʾ[:Nonspacing Mark:]-[゙-゜]] → ; # delete any non-spacing marks that we didn't use</comment>
 			<tRule>:: NFC (NFD) ;</tRule>
 			<tRule>:: ([:Katakana:] halfwidth-fullwidth);</tRule>
+			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
+			<comment>#:: ([\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟ [:Latin:][:Katakana:] [:nonspacing mark:]]);</comment>
+			<comment># MINIMAL FILTER GENERATED FOR: Latin-Katakana BACKWARD</comment>
 			<tRule>:: ( [[\ -~¢-£¥-¦¬̄₩｡-ﾾￂ-ￇￊ-ￏￒ-ￗￚ-ￜ￨-￮][~、-。がぎぐげござじずぜぞだぢづでどば-ぱび-ぴぶ-ぷべ-ぺぼ-ぽゔ゙-゛ゞァ-ヺー-ヾ]] ) ;</tRule>
+			<comment># eof</comment>
 		</transform>
 		<transform source="Latin" target="Malayalam" direction="forward">
 			<tRule>::['.0-9A-Za-z~À-ÅÇ-ÏÑ-ÖÙ-Ýà-åç-ïñ-öù-ýÿ-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǭǰǴ-ǵǸ-țȞ-ȟȦ-ȳʔ́̃-̄̆-̇̐̔-̣̥̱́̈́̕΅-ΆΈ-ΊΌΎ-ΐά-ΰό-ώϓЃЌЎЙйѓќўӁ-ӂӐ-ӑӖ-ӗӢ-ӣӮ-ӯḀ-ẙẠ-ỹἁἃ-ἅἇἉἋ-ἍἏἑἓ-ἕἙἛ-Ἕἡἣ-ἥἧἩἫ-ἭἯἱἳ-ἵἷἹἻ-ἽἿὁὃ-ὅὉὋ-Ὅὑὓ-ὕὗὙὛὝὟὡὣ-ὥὧὩὫ-ὭὯάέήίόύώᾁᾃ-ᾅᾇᾉᾋ-ᾍᾏᾑᾓ-ᾕᾗᾙᾛ-ᾝᾟᾡᾣ-ᾥᾧᾩᾫ-ᾭᾯ-ᾱᾴᾸ-ᾹΆῄΈΉ῎ῐ-ῑΐῘ-ῙΊ῞ῠ-ῡΰῥῨ-ῩΎ-Ῥ΅ῴΌΏK-Å\uE04D\uE064];</tRule>
@@ -7237,13 +7134,13 @@
 			<comment>#         &quot;u&quot;, &quot;ua&quot;, &quot;uo&quot;, &quot;uai&quot;, &quot;ui&quot;, &quot;uan&quot;, &quot;un&quot;, &quot;uang&quot;, &quot;ueng&quot;,</comment>
 			<comment>#         &quot;ü&quot;, &quot;üe&quot;, &quot;üan&quot;, &quot;ün&quot;</comment>
 			<comment># so the letters the tone will 'hop' are:</comment>
-			<comment># Move the tone to the end of a syllable, and convert to number</comment>
-			<comment># The following backs up until it finds the right vowel, then deposits the tone</comment>
 			<tRule>::NFD (NFC);</tRule>
 			<tRule>$tone = [̄́̌̀̆] ;</tRule>
+			<comment># Move the tone to the end of a syllable, and convert to number</comment>
 			<tRule>e {($tone) r} → r §tone-digit($1);</tRule>
 			<tRule>($tone) ( [i o n u {o n} {n g}]) → $2 §tone-digit($1);</tRule>
 			<tRule>($tone) → §tone-digit($1);</tRule>
+			<comment># The following backs up until it finds the right vowel, then deposits the tone</comment>
 			<tRule>$vowel = [aAeEiIoOuUüÜ {ü} {Ü} ];</tRule>
 			<tRule>$consonant = [[a-z A-Z] - [$vowel]];</tRule>
 			<tRule>$digit = [1-5];</tRule>
@@ -7315,8 +7212,6 @@
 		<transform source="Malayalam" target="InterIndic" direction="both" visibility="internal">
 			<comment># Malayalam-InterIndic</comment>
 			<comment>#:: NFD (NFC) ;</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>ം→\uE002;      # SIGN ANUSVARA</tRule>
 			<tRule>ഃ→\uE003;      # SIGN VISARGA</tRule>
 			<tRule>അ→\uE005;      # LETTER A</tRule>
@@ -7392,6 +7287,8 @@
 			<tRule>൭→\uE06D;      # DIGIT SEVEN</tRule>
 			<tRule>൮→\uE06E;      # DIGIT EIGHT</tRule>
 			<tRule>൯→\uE06F;      # DIGIT NINE</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="Malayalam" target="Kannada" direction="forward">
 			<tRule>::[ം-ഃഅ-ഌഎ-ഐഒ-നപ-ഹാ-ൃെ-ൈൊ-്ൗൠ-ൡ൦-൯];</tRule>
@@ -7461,10 +7358,6 @@
 			<comment>#:: NFD (NFC) ;</comment>
 			<comment>#ଡ଼→\uE05C;# LETTER RRA</comment>
 			<comment>#ଢ଼→\uE05D;# LETTER RHA</comment>
-			<comment>#</comment>
-			<comment>#</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>ୈ→\uE048;# VOWEL SIGN AI</tRule>
 			<tRule>ୋ→\uE04B;# VOWEL SIGN O</tRule>
 			<tRule>ୌ→\uE04C;# VOWEL SIGN AU</tRule>
@@ -7526,11 +7419,13 @@
 			<tRule>ୂ→\uE042;      # VOWEL SIGN UU</tRule>
 			<tRule>ୃ→\uE043;      # VOWEL SIGN VOCALIC R</tRule>
 			<tRule>େ→\uE047;      # VOWEL SIGN E</tRule>
+			<comment>#</comment>
 			<tRule>୍→\uE04D;      # SIGN VIRAMA</tRule>
 			<tRule>ୖ→\uE056;      # AI LENGTH MARK</tRule>
 			<tRule>ୗ→\uE057;      # AU LENGTH MARK</tRule>
 			<tRule>।→\uE064;      # DANDA</tRule>
 			<tRule>॥→\uE065;      # DOUBLE DANDA</tRule>
+			<comment>#</comment>
 			<tRule>ୟ→\uE05F;      # LETTER YYA</tRule>
 			<tRule>ୠ→\uE060;      # LETTER VOCALIC RR</tRule>
 			<tRule>ୡ→\uE061;      # LETTER VOCALIC LL</tRule>
@@ -7546,6 +7441,8 @@
 			<tRule>୯→\uE06F;      # DIGIT NINE</tRule>
 			<tRule>୰→\uE07B;      # ISSHAR</tRule>
 			<tRule>ୱ→\uE081;      # LETTER WA</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="Oriya" target="Kannada" direction="forward">
 			<tRule>::[ଁ-ଃଅ-ଌଏ-ଐଓ-ନପ-ରଲ-ଳଵ-ହ଼-ୃେ-ୈୋ-୍ୖ-ୗଡ଼-ଢ଼ୟ-ୡ୦-ୱ];</tRule>
@@ -7595,8 +7492,6 @@
 		</transform>
 		<transform source="Syriac" target="Latin" direction="both">
 			<comment># Consonants</comment>
-			<comment># Vowels</comment>
-			<comment># Punctuation</comment>
 			<tRule>ܫ ↔ sh;</tRule>
 			<tRule>ܞ → yh;</tRule>
 			<tRule>ܖ ↔ dr;</tRule>
@@ -7626,6 +7521,7 @@
 			<tRule>ܩ ↔ q;</tRule>
 			<tRule>ܪ ↔ r;</tRule>
 			<tRule>ܬ ↔ t;</tRule>
+			<comment># Vowels</comment>
 			<tRule>ܰ → a;</tRule>
 			<tRule>ܱ → a;</tRule>
 			<tRule>ܲ ↔ a;</tRule>
@@ -7643,6 +7539,7 @@
 			<tRule>ܾ → u;</tRule>
 			<tRule>ܼ ↔ u;</tRule>
 			<tRule>ܿ ↔ o;</tRule>
+			<comment># Punctuation</comment>
 			<tRule>܍ → \*;</tRule>
 		</transform>
 		<transform source="Tamil" target="Bengali" direction="forward">
@@ -7676,8 +7573,6 @@
 		<transform source="Tamil" target="InterIndic" direction="both" visibility="internal">
 			<comment># Tamil-InterIndic</comment>
 			<comment>#:: NFD (NFC) ;</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>ொ→\uE04A;# VOWEL SIGN O</tRule>
 			<tRule>ோ→\uE04B;# VOWEL SIGN OO</tRule>
 			<tRule>ௌ→\uE04C;# VOWEL SIGN AU</tRule>
@@ -7742,6 +7637,8 @@
 			<tRule>௱→\uE067\uE066\uE066;     \u0009# UNMAPPED Tamil-InterIndic: NUMBER ONE HUNDRED</tRule>
 			<tRule>௲→\uE067\uE066\uE066\uE066;# UNMAPPED Tamil-InterIndic: NUMBER ONE THOUSAND</tRule>
 			<tRule>0→\uE066;</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="Tamil" target="Kannada" direction="forward">
 			<tRule>::[0ஂ-ஃஅ-ஊஎ-ஐஒ-கங-சஜஞ-டண-தந-பம-வஷ-ஹா-ூெ-ைொ-்ௗ௧-௲ஶ];</tRule>
@@ -7809,8 +7706,6 @@
 		<transform source="Telugu" target="InterIndic" direction="both" visibility="internal">
 			<comment># Telugu-InterIndic</comment>
 			<comment>#:: NFD (NFC) ;</comment>
-			<comment>#    :: NFC (NFD) ;</comment>
-			<comment># eof</comment>
 			<tRule>ై్→\uE048\uE04D;</tRule>
 			<tRule>ై→\uE048;# VOWEL SIGN AI</tRule>
 			<tRule>ఁ→\uE001;      # SIGN CANDRABINDU</tRule>
@@ -7892,6 +7787,8 @@
 			<tRule>౭→\uE06D;      # DIGIT SEVEN</tRule>
 			<tRule>౮→\uE06E;      # DIGIT EIGHT</tRule>
 			<tRule>౯→\uE06F;      # DIGIT NINE</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
 		</transform>
 		<transform source="Telugu" target="Kannada" direction="forward">
 			<tRule>::[ఁ-ఃఅ-ఌఎ-ఐఒ-నప-ళవ-హా-ౄె-ైొ-్ౕ-ౖౠ-ౡ౦-౯];</tRule>
@@ -8374,16 +8271,16 @@
 			<comment># This reverses the Thai LogicalOrderException vowels, and does (part of) spaces</comment>
 			<comment># The rules that convert space into semicolon are in another file;</comment>
 			<comment># since they have to come BEFORE the break iterator</comment>
-			<comment># First convert the semicolon back</comment>
-			<comment># Remove any other spaces between thai letters</comment>
-			<comment># Now vowels</comment>
-			<comment># other direction</comment>
 			<tRule>$thai = [[:thai:] ก-ฺเ-๛] ;</tRule>
+			<comment># First convert the semicolon back</comment>
 			<tRule>' '  ← $thai { '; '  } $thai;</tRule>
+			<comment># Remove any other spaces between thai letters</comment>
 			<tRule>← $thai { ' ' } $thai;</tRule>
+			<comment># Now vowels</comment>
 			<tRule>$thai_reversing = [[:Logical_Order_Exception:] § $thai];</tRule>
 			<tRule>$thai_non_reversing = [$thai - $thai_reversing ];</tRule>
 			<tRule>( $thai_reversing ) ( $thai_non_reversing ) → $2 $1;</tRule>
+			<comment># other direction</comment>
 			<tRule>$2 $1 ← ( $thai_non_reversing ) ( $thai_reversing ) ;</tRule>
 		</transform>
 		<transform source="Thai" target="ThaiSemi" direction="both" visibility="internal">
@@ -8412,22 +8309,13 @@
 			<comment>#{ ( $consonant ) } [^$vowel \uE000] → | $1 \uE000 ;</comment>
 			<comment>#\uE000 → ọ ;</comment>
 			<comment># ← ọ ;</comment>
+			<tRule>$notAbove = [^\p{ccc=0}\p{ccc=above}] ;</tRule>
+			<tRule>$notBelow = [^\p{ccc=0}\p{ccc=below}] ;</tRule>
 			<comment># Consonants</comment>
 			<comment># Warning: the 'h's need to be handled carefully!</comment>
 			<comment># What we really want to say is the following, but we can't</comment>
 			<comment># $notHAccent = !($notAbove*   ̄ | $notBelow*   ̣) ;</comment>
 			<comment># Since the only accents we care about that could cause problems are free-standing accents below, we use instead:</comment>
-			<comment>#Note: TO PATAK deviates from ISO since t-dotunder + h would be ambigous. So it uses vertical tick.</comment>
-			<comment># since there is no singleton g (generated), don't worry about that.</comment>
-			<comment># vowels</comment>
-			<comment># We deviate from ISO for SARA AM for disambiguation</comment>
-			<comment># ฿ ↔ XXX ; # THAI CURRENCY SYMBOL BAHT</comment>
-			<comment># We deviate from ISO for disambiguation</comment>
-			<comment># moved down to make shorter first</comment>
-			<comment>#Note: PHINTHU deviates from ISO since underring causes canonical problems. So it uses spacing tick below.</comment>
-			<comment># fallbacks</comment>
-			<tRule>$notAbove = [^\p{ccc=0}\p{ccc=above}] ;</tRule>
-			<tRule>$notBelow = [^\p{ccc=0}\p{ccc=below}] ;</tRule>
 			<tRule>$freeStandingBelow = [̥  ];</tRule>
 			<tRule>$hAccent =  [   ̄     ̣];</tRule>
 			<tRule>$notHAccent0 = [^$freeStandingBelow$hAccent];</tRule>
@@ -8459,8 +8347,10 @@
 			<tRule>ธ ↔ ṭh ; # THAI CHARACTER THO THONG</tRule>
 			<tRule>ท ← th } $notHAccent1 ; # THAI CHARACTER THO THAHAN</tRule>
 			<tRule>ท ↔ th } $notHAccent0 ; # THAI CHARACTER THO THAHAN</tRule>
+			<comment>#Note: TO PATAK deviates from ISO since t-dotunder + h would be ambigous. So it uses vertical tick.</comment>
 			<tRule>ฏ ↔ t̩ ; # THAI CHARACTER TO PATAK</tRule>
 			<tRule>ต ↔ t ; # THAI CHARACTER TO TAO</tRule>
+			<comment># since there is no singleton g (generated), don't worry about that.</comment>
 			<tRule>ง ↔ ng ; # THAI CHARACTER NGO NGU</tRule>
 			<tRule>ณ ↔ ṇ ; # THAI CHARACTER NO NEN</tRule>
 			<tRule>น ↔ n ; # THAI CHARACTER NO NU</tRule>
@@ -8486,9 +8376,11 @@
 			<tRule>ฟ ↔ f ; # THAI CHARACTER FO FAN</tRule>
 			<tRule>อ ↔ x ; # THAI CHARACTER O ANG</tRule>
 			<tRule>ซ ↔ s ; # THAI CHARACTER SO SO</tRule>
+			<comment># vowels</comment>
 			<tRule>ั ↔ ạ ; # THAI CHARACTER MAI HAN-AKAT</tRule>
 			<tRule>า → ā ; # THAI CHARACTER SARA AA</tRule>
 			<tRule>า | $1 ← a ($notAbove*)    ̄; # backward case, account for reordering</tRule>
+			<comment># We deviate from ISO for SARA AM for disambiguation</comment>
 			<tRule>ำ → a  ̉; # THAI CHARACTER SARA AM</tRule>
 			<tRule>ำ | $1 ← a ($notAbove*)  ̉ ; # backward case, account for reordering</tRule>
 			<tRule>ะ ↔ a ; # THAI CHARACTER SARA A</tRule>
@@ -8501,6 +8393,7 @@
 			<tRule>ู | $1 ← u  ($notAbove*)    ̄  ; # backward case, account for reordering</tRule>
 			<tRule>ุ ↔ u ; # THAI CHARACTER SARA U</tRule>
 			<tRule>ฯ ↔ ‡ ; # THAI CHARACTER PAIYANNOI</tRule>
+			<comment># ฿ ↔ XXX ; # THAI CURRENCY SYMBOL BAHT</comment>
 			<tRule>เ ↔ e ; # THAI CHARACTER SARA E</tRule>
 			<tRule>แ ↔ æ ; # THAI CHARACTER SARA AE</tRule>
 			<tRule>โ ↔ o ; # THAI CHARACTER SARA O</tRule>
@@ -8514,6 +8407,7 @@
 			<tRule>๋ ↔ ̌ ; # THAI CHARACTER MAI CHATTAWA</tRule>
 			<tRule>์ ↔ ̒ ; # THAI CHARACTER THANTHAKHAT</tRule>
 			<tRule>๎ ↔ '~' ; # THAI CHARACTER YAMAKKAN</tRule>
+			<comment># We deviate from ISO for disambiguation</comment>
 			<tRule>ํ ↔  ̊ ; # THAI CHARACTER NIKHAHIT</tRule>
 			<tRule>๏ ↔ § ; # THAI CHARACTER FONGMAN</tRule>
 			<tRule>๐ ↔ 0 ; # THAI DIGIT ZERO</tRule>
@@ -8529,8 +8423,11 @@
 			<tRule>๚ ↔ '||' ; # THAI CHARACTER ANGKHANKHU</tRule>
 			<tRule>๛ ↔ » ; # THAI CHARACTER KHOMUT</tRule>
 			<tRule>ๆ ↔ « ; # THAI CHARACTER MAIYAMOK</tRule>
+			<comment># moved down to make shorter first</comment>
+			<comment>#Note: PHINTHU deviates from ISO since underring causes canonical problems. So it uses spacing tick below.</comment>
 			<tRule>ฺ ↔ ˌ ; # THAI CHARACTER PHINTHU</tRule>
 			<tRule>ิ ↔ i ; # THAI CHARACTER SARA I</tRule>
+			<comment># fallbacks</comment>
 			<tRule>| k ← g ;</tRule>
 			<tRule>| k ← h ;</tRule>
 			<tRule>| c ← j ;</tRule>

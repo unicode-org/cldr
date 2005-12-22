@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
 <supplementalData version="1.4">
-	<version number="$Revision$"/>
-	<generation date="$Date$"/>
 	<transforms>
 		<transform source="Han" target="Spacedhan" direction="both" visibility="internal">
 			<comment># Only intended for internal use</comment>
-			<comment># add space between any Han or terminal punctuation and letters, and</comment>
-			<comment># between letters and Han or initial punct</comment>
-			<comment># remove spacing between ideographs and other letters</comment>
 			<tRule>:: fullwidth-halfwidth;</tRule>
 			<tRule>｡ → '.';</tRule>
 			<tRule>$terminalPunct = [\.\,\:\;\?\!．，：？！｡、；[:Pe:][:Pf:]];</tRule>
 			<tRule>$initialPunct = [:Ps:][:Pi:];</tRule>
+			<comment># add space between any Han or terminal punctuation and letters, and</comment>
+			<comment># between letters and Han or initial punct</comment>
 			<tRule>[[:Ideographic:] $terminalPunct] {} [:Letter:] → ' ' ;</tRule>
 			<tRule>[:Letter:] [:Mark:]* {} [[:Ideographic:] $initialPunct] → ' ' ;</tRule>
+			<comment># remove spacing between ideographs and other letters</comment>
 			<tRule>← [:Ideographic:] { ' ' } [:Letter:] ;</tRule>
 			<tRule>← [:Letter:] [:Mark:]* { ' ' } [:Ideographic:] ;</tRule>
 		</transform>

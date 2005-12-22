@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
 <supplementalData version="1.4">
-	<version number="$Revision$"/>
-	<generation date="$Date$"/>
 	<transforms>
 		<transform source="InterIndic" target="Devanagari" direction="both" visibility="internal">
 			<comment># InterIndic-Devanagari</comment>
 			<comment>#:: NFD (NFC) ;</comment>
 			<comment>#Rules for Decomposed characters</comment>
-			<comment>#Decomposed compatibility transliterations</comment>
-			<comment>#\uE031 →  र;</comment>
-			<comment>#\uE034 →  ळ;</comment>
-			<comment>#         ॰  # UNMAPPED Devanagari-InterIndic: ABBREVIATION SIGN</comment>
-			<comment>#    :: NFC;</comment>
-			<comment># eof</comment>
 			<tRule>\uE028\uE03C → ऩ;  #\uE029</tRule>
 			<tRule>\uE030\uE03C → ऱ;  #\uE031</tRule>
 			<tRule>\uE033\uE03C → ऴ;  #\uE034</tRule>
@@ -25,6 +17,7 @@
 			<tRule>\uE022\uE03C → ढ़;  #\uE05D LETTER RHA   (pronounced RRHA)</tRule>
 			<tRule>\uE02B\uE03C → फ़;  #\uE05E LETTER FA</tRule>
 			<tRule>\uE02F\uE03C → य़;  #\uE05F LETTER YYA</tRule>
+			<comment>#Decomposed compatibility transliterations</comment>
 			<tRule>\uE012\uE057→औ;   # FALLBACK FOR TAMIL AU</tRule>
 			<tRule>0 → ०;       # FALLBACK FOR TAMIL</tRule>
 			<tRule>1 → १;</tRule>
@@ -80,9 +73,11 @@
 			<tRule>\uE02F →  य;  # LETTER YA</tRule>
 			<tRule>\uE030 →  र;  # LETTER RA</tRule>
 			<tRule>\uE031 →  ऱ;  # LETTER RRA (Eyelash RA for Southern scripts)</tRule>
+			<comment>#\uE031 →  र;</comment>
 			<tRule>\uE032 →  ल;  # LETTER LA</tRule>
 			<tRule>\uE033 →  ळ;  # LETTER LLA</tRule>
 			<tRule>\uE034 →  ऴ;  # LETTER LLLA (LLLA for Southern scripts)</tRule>
+			<comment>#\uE034 →  ळ;</comment>
 			<tRule>\uE035 →  व;  # LETTER VA</tRule>
 			<tRule>\uE036 →  श;  # LETTER SHA</tRule>
 			<tRule>\uE037 →  ष;  # LETTER SSA</tRule>
@@ -155,6 +150,9 @@
 			<tRule>\uE081→व;\u0009\u0009  # FALLBACK FOR ORIYA LETTER WA</tRule>
 			<tRule>\uE082→ॽ;     # Devanagari Glottal Sign</tRule>
 			<tRule>\uE083→त्;  # Bengali Khanda-ta</tRule>
+			<comment>#         ॰  # UNMAPPED Devanagari-InterIndic: ABBREVIATION SIGN</comment>
+			<comment>#    :: NFC;</comment>
+			<comment># eof</comment>
 		</transform>
 	</transforms>
 </supplementalData>

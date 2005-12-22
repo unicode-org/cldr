@@ -1,41 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
 <supplementalData version="1.4">
-	<version number="$Revision$"/>
-	<generation date="$Date$"/>
 	<transforms>
 		<transform source="Han" target="Latin" direction="both">
 			<comment># Warning: does not do round-trip mapping!!</comment>
 			<comment># Convert CJK characters</comment>
-			<comment># Start RAW data for converting CJK characters</comment>
-			<comment># End RAW data for converting CJK characters</comment>
-			<comment># fallbacks</comment>
-			<comment>## | yi ← i;</comment>
-			<comment>## | wu ← u;</comment>
-			<comment>## | bi ← b;</comment>
-			<comment>## | ci ← c;</comment>
-			<comment>## | di ← d;</comment>
-			<comment>## | fu ← f;</comment>
-			<comment>## | gu ← g;</comment>
-			<comment>## | he ← h;</comment>
-			<comment>## | ji ← j;</comment>
-			<comment>## | ku ← k;</comment>
-			<comment>## | li ← l;</comment>
-			<comment>## | mi ← m;</comment>
-			<comment>## | pi ← p;</comment>
-			<comment>## | qi ← q;</comment>
-			<comment>## | l ← r;</comment>
-			<comment>## | si ← s;</comment>
-			<comment>## | ti ← t;</comment>
-			<comment>## | f ← v;</comment>
-			<comment>## | wa ← w;</comment>
-			<comment>## | xi ← x;</comment>
-			<comment>## | yi ← y;</comment>
-			<comment>## | zi ← z;</comment>
-			<comment># filter out the half-width hangul</comment>
-			<comment># :: [^ﾾ-￮] fullwidth-halfwidth ();</comment>
-			<comment>## :: (lower) ;</comment>
 			<tRule>::Han-Spacedhan();</tRule>
+			<comment># Start RAW data for converting CJK characters</comment>
 			<tRule>[吖呵錒锕阿]→ā;</tRule>
 			<tRule>嗄→á;</tRule>
 			<tRule>啊→a;</tRule>
@@ -1435,6 +1406,33 @@
 			<tRule>[㸲䎰䝫䞰昨椊琢秨稓筰葃鈼]→zuó;</tRule>
 			<tRule>[㝾佐咗唨左毑繓]→zuǒ;</tRule>
 			<tRule>[㑅㘀㘴㛗㭮䋏䔘作侳做唑坐夎岝岞座怍柞祚糳胙葄袏酢阼]→zuò;</tRule>
+			<comment># End RAW data for converting CJK characters</comment>
+			<comment># fallbacks</comment>
+			<comment>## | yi ← i;</comment>
+			<comment>## | wu ← u;</comment>
+			<comment>## | bi ← b;</comment>
+			<comment>## | ci ← c;</comment>
+			<comment>## | di ← d;</comment>
+			<comment>## | fu ← f;</comment>
+			<comment>## | gu ← g;</comment>
+			<comment>## | he ← h;</comment>
+			<comment>## | ji ← j;</comment>
+			<comment>## | ku ← k;</comment>
+			<comment>## | li ← l;</comment>
+			<comment>## | mi ← m;</comment>
+			<comment>## | pi ← p;</comment>
+			<comment>## | qi ← q;</comment>
+			<comment>## | l ← r;</comment>
+			<comment>## | si ← s;</comment>
+			<comment>## | ti ← t;</comment>
+			<comment>## | f ← v;</comment>
+			<comment>## | wa ← w;</comment>
+			<comment>## | xi ← x;</comment>
+			<comment>## | yi ← y;</comment>
+			<comment>## | zi ← z;</comment>
+			<comment># filter out the half-width hangul</comment>
+			<comment># :: [^ﾾ-￮] fullwidth-halfwidth ();</comment>
+			<comment>## :: (lower) ;</comment>
 		</transform>
 	</transforms>
 </supplementalData>

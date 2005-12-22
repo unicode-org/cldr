@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.4/ldmlSupplemental.dtd">
 <supplementalData version="1.4">
-	<version number="$Revision$"/>
-	<generation date="$Date$"/>
 	<transforms>
 		<transform source="Hebrew" target="Latin" direction="both">
 			<comment># Transliteration table for Hebrew</comment>
@@ -24,12 +22,10 @@
 			<comment>#</comment>
 			<comment># For more information, see&quot;</comment>
 			<comment>#   http://icu.sourceforge.net/userguide/Transform.html</comment>
-			<comment># move longer items here to avoid masking</comment>
-			<comment># points</comment>
-			<comment># fallbacks</comment>
 			<tRule>:: [[:Hebrew:] [:^ccc=0:] [ְ-ֹֻ-ּׁ-ׂℵ-ℸֿ̄] - [ֽ]] ;</tRule>
 			<tRule>:: nfkd (nfc) ;</tRule>
 			<tRule>$letterAfter = [:M:]* [:L:] ;</tRule>
+			<comment># move longer items here to avoid masking</comment>
 			<tRule>ח ↔ ẖ ;</tRule>
 			<tRule>צ ↔ ẕ } $letterAfter;</tRule>
 			<tRule>ץ ↔ ẕ ;</tRule>
@@ -63,6 +59,7 @@
 			<tRule>ּ ↔ ̇ ; # dagesh just goes to overdot for now</tRule>
 			<tRule>ׁ ↔ ̌ ; # shin dot -→ sh</tRule>
 			<tRule>ׂ ↔ ̂ ; # sin dot -→ s</tRule>
+			<comment># points</comment>
 			<tRule>$above = [^[:ccc=0:][:ccc=230:]]*;</tRule>
 			<tRule>‎ֲ‎ → à ;</tRule>
 			<tRule>‎ֲ‎ $1← a ($above)  ̀;</tRule>
@@ -82,6 +79,7 @@
 			<tRule>ֶ ↔ e ;</tRule>
 			<tRule>ֳ ↔ o ;</tRule>
 			<tRule>ֿ ↔   ̄ ;</tRule>
+			<comment># fallbacks</comment>
 			<tRule>ק ← c ;</tRule>
 			<tRule>פ ← f } $letterAfter;</tRule>
 			<tRule>ף ← f ;</tRule>

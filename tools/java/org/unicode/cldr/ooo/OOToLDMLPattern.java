@@ -303,23 +303,21 @@ public class OOToLDMLPattern
         
         //month patterns are same , do nothing
         
-        //day patterns
+        //day patterns - day names
         if (translate(LDMLPattern, "NNNN"))
             LDMLPattern = LDMLPattern.replaceAll("NNNN", "EEEE,");
-        
         else if (translate(LDMLPattern, "DDDD"))
             LDMLPattern = LDMLPattern.replaceAll("DDDD", "EEEE");
         else if (translate(LDMLPattern, "NNN"))
             LDMLPattern = LDMLPattern.replaceAll("NNN", "EEEE");
-        
         else if (translate(LDMLPattern, "DDD"))
             LDMLPattern = LDMLPattern.replaceAll("DDD", "EEE");
         else if (translate(LDMLPattern, "NN"))
             LDMLPattern = LDMLPattern.replaceAll("NN", "EEE");
         
-        else if (translate(LDMLPattern, "DD"))
+        //day patterns - day of the month
+        if (translate(LDMLPattern, "DD"))
             LDMLPattern = LDMLPattern.replaceAll("DD", "dd");
-        
         else if (translate(LDMLPattern, "D"))
             LDMLPattern = LDMLPattern.replaceAll("D", "d");
         

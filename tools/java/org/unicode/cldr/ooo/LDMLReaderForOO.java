@@ -144,6 +144,8 @@ public class LDMLReaderForOO
     public String m_OutlineNumberingRefLocale = null;
     public Vector m_OutlineNumberingLevels = null; // vector of vectors of hashtables.
     
+    public Vector m_DateFormatItems = null;   //simple Vecotr of flexible date/time pattern strings
+    
     
     /** Creates a new instance of LDMLReaderForOO */
     public LDMLReaderForOO(String filename)
@@ -275,6 +277,8 @@ public class LDMLReaderForOO
         m_CurrDisplayNames = m_domWrapper.getTextFromElementsAndParentAttrib(LDMLConstants.CURRENCY, LDMLConstants.DISPLAY_NAME, LDMLConstants.TYPE);
         m_CurrSymbols = m_domWrapper.getTextFromElementsAndParentAttrib(LDMLConstants.CURRENCY, LDMLConstants.SYMBOL, LDMLConstants.TYPE);
         
+        
+        m_DateFormatItems = m_domWrapper.getTextFromAllElements (LDMLConstants.AVAIL_FMTS, LDMLConstants.DATE_FMT_ITEM);
     }
     
     //reads OO specials only

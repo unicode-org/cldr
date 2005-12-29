@@ -13,6 +13,16 @@ Stuff to put into your server's lib directory: (common/lib on tomcat):
  * derby.jar ( from http://derby.apache.org )
  * icu4j.jar, utilities.jar ( to speed up loading) 
 
+TO DO MAIL:
+Stuff to put in shared/lib:
+ mail.jar,  activation.jar  (from javamail and java beans activation framework)
+
+Stuff to add to catalina.policy:
+    grant codeBase "file:${catalina.home}/shared/lib/activation.jar" {
+       permission java.io.FilePermission "file:${catalina.home}/shared/lib/mail.jar","read";
+    };
+
+
 SETUP:
 under your tomcat home directory (sibling to 'bin') create a 'cldr' directory. Inside it, place:
 	common   (symlink or copy of CLDR common data)
@@ -27,3 +37,8 @@ under your tomcat home directory (sibling to 'bin') create a 'cldr' directory. I
 
 # cldr.properties should contain at least the Vetting Access Password:
 CLDR_VAP=password 
+
+for mail (above):
+CLDR_SMTP=  smtp_host.example.com
+CLDR_FROM=  your@email.com
+

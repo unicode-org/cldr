@@ -130,8 +130,8 @@ public class CLDRDBSource extends XMLSource {
         MyStatements(Connection conn) {
             insert = prepareStatement("insert",
                         "INSERT INTO " + CLDR_DATA +
-                        " (xpath,locale,source,origxpath,value,type,alt_type,txpath) " +
-                        "VALUES (?,?,?,?,?,?,?,?)");
+                        " (xpath,locale,source,origxpath,value,type,alt_type,txpath,submitter) " +
+                        "VALUES (?,?,?,?,?,?,?,?,?)");
                         
                     // xpath - contains type, no draft
                     // origxpath - original xpath (full) - 
@@ -139,7 +139,7 @@ public class CLDRDBSource extends XMLSource {
 
             queryXpathPrefixes = prepareStatement("queryXpathPrefixes",
                 "select "+XPathTable.CLDR_XPATHS+".id from "+
-                        XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".txpath="+
+                        XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".xpath="+
                         XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ? AND "+CLDR_DATA+".locale=?");
 
             queryXpathTypes = prepareStatement("queryXpathTypes",
@@ -206,8 +206,10 @@ public class CLDRDBSource extends XMLSource {
         }
     }
     
+    public int srcId = -1; 
+
     boolean loadAndValidate(String locale, WebContext forUser) {
-            int srcId = getSourceId(tree, locale);
+            srcId = getSourceId(tree, locale);
 
             if(srcId != -1) { 
                 return true;  // common case.
@@ -279,6 +281,7 @@ public class CLDRDBSource extends XMLSource {
                         stmts.insert.setString(6,eType);
                         stmts.insert.setString(7,eAlt);
                         stmts.insert.setInt(8,txpid); // tiny
+                        stmts.insert.setNull(9, java.sql.Types.INTEGER);
 
                         stmts.insert.execute();
                     } catch(SQLException se) {
@@ -502,6 +505,14 @@ public class CLDRDBSource extends XMLSource {
         return i;
     }
 
+
+    public Iterator iterator(String prefix) {
+//com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
+        Iterator i =  prefixKeySet(prefix).iterator();
+//logger.info(et + " for iterator on " + getLocaleID());
+        return i;
+    }
+
     /**
      * @deprecated
      * TODO: rewrite as iterator
@@ -515,10 +526,16 @@ public class CLDRDBSource extends XMLSource {
                 
                 // TODO: is there a better way to map a ResultSet into a Set?
                 Set s = new HashSet();
+//                System.err.println("@001: " + "BEGIN");
                 while(rs.next()) {
-                    s.add(xpt.getById(rs.getInt(1))); // xpath
+                    String xpath = (xpt.getById(rs.getInt(1)));
+//                    if(-1!=xpath.indexOf("001")) {
+//                        System.err.println("@001: " + xpath);
+//                    }
+                    s.add(xpath); // xpath
                     //rs.getString(2); // origXpath
                 }
+//                System.err.println("@001: " + "END");
                 return Collections.unmodifiableSet(s);
                 // TODO: 0
                 // TODO: ???
@@ -528,6 +545,36 @@ public class CLDRDBSource extends XMLSource {
             }
 //        }
     }
+
+    private Set prefixKeySet(String prefix) {
+//        String locale = getLocaleID();
+//        synchronized (conn) {
+            try {
+//                stmts.keySet.setString(1,locale);
+                ResultSet rs = getPrefixKeySet(prefix);
+                
+                // TODO: is there a better way to map a ResultSet into a Set?
+                Set s = new HashSet();
+//                System.err.println("@001: " + "BEGIN");
+                while(rs.next()) {
+                    String xpath = (xpt.getById(rs.getInt(1)));
+//                    if(-1!=xpath.indexOf("001")) {
+//                        System.err.println("@001: " + xpath);
+//                    }
+                    s.add(xpath); // xpath
+                    //rs.getString(2); // origXpath
+                }
+//                System.err.println("@001: " + "END");
+                return Collections.unmodifiableSet(s);
+                // TODO: 0
+                // TODO: ???
+            } catch(SQLException se) {
+                logger.severe("CLDRDBSource: Failed to query source ("+tree + "/" + getLocaleID() +"): " + SurveyMain.unchainSqlException(se));
+                return null;
+            }
+//        }
+    }
+
     
 
     private Hashtable aliasTable = new Hashtable();
@@ -636,7 +683,7 @@ public class CLDRDBSource extends XMLSource {
     
     
     // TODO: remove this, implement as iterator( stringPrefix)
-    public java.sql.ResultSet listPrefix(String prefix) {
+    public java.sql.ResultSet getPrefixKeySet(String prefix) {
         String locale = getLocaleID();
         ResultSet rs = null;
         synchronized(conn) {
@@ -645,7 +692,7 @@ public class CLDRDBSource extends XMLSource {
                 stmts.queryXpathPrefixes.setString(2,locale);
                 rs = stmts.queryXpathPrefixes.executeQuery();
             } catch(SQLException se) {
-                logger.severe("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
+                logger.severe("CLDRDBSource: Failed to getPrefixKeySet ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
                 return null;
             }
         }
@@ -685,5 +732,102 @@ public class CLDRDBSource extends XMLSource {
         };
         File baseDir = new File(dir);
         return baseDir.listFiles(myFilter);
+    }
+    
+    /**
+     * Add new data to the next sequentially available slot. 
+     * This does perform a linear search, however it is only active when we are adding data, so should not
+     * be an issue. 
+     * returns: the entire altProposed which succeeded or NULL/throw for failure.
+     */
+    public String addDataToNextSlot(CLDRFile file, String locale, String fullXpathMinusAlt, 
+                                    String altType, String altProposedPrefix, int submitterId, String value) {
+        XPathParts xpp = new XPathParts(null,null);
+        // prepare for slot check
+        for(int slot=1;slot<100;slot++) {
+            String altProposed = altProposedPrefix+slot; // proposed-u123-4 
+            String alt = LDMLUtilities.formatAlt(altType, altProposed);
+            String rawXpath = fullXpathMinusAlt + "[@alt='" + alt + "']";
+            logger.info("addDataToNextSlot:  rawXpath = " + rawXpath);
+            String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);
+            if(!xpath.equals(rawXpath)) {
+                logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
+            }
+            String oxpath = xpath;
+            int xpid = xpt.getByXpath(xpath);
+            
+            // Check to see if this slot is in use.
+        synchronized(conn) {
+            try {
+                stmts.queryValue.setString(1,locale);
+                stmts.queryValue.setInt(2,xpid);
+                ResultSet rs = stmts.queryValue.executeQuery();
+                if(rs.next()) {
+                    // already taken..
+                    logger.info("Taken: " + altProposed);
+                    rs.close();
+                    continue;
+                }
+                rs.close();
+            } catch(SQLException se) {
+                String complaint = "CLDRDBSource: Couldn't search for empty slot " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+                logger.severe(complaint);
+                throw new InternalError(complaint);
+            }
+        }
+            
+            
+            
+            int oxpid = xpt.getByXpath(oxpath);
+            xpp.clear();
+            xpp.initialize(oxpath);
+            String lelement = xpp.getElement(-1);
+            /* all of these are always at the end */
+            String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
+            String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
+            
+            /* special func to find this */
+            String eType = xpt.typeFromPathToTinyXpath(xpath, xpp);
+            String tinyXpath = xpp.toString();
+            
+            int txpid = xpt.getByXpath(tinyXpath);
+            
+            /*SRL*/ 
+            //                System.out.println(xpath + " l: " + locale);
+            //                System.out.println(" <- " + oxpath);
+            //                System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" + eDraft);
+            //                System.out.println(" => "+txpid+"#" + tinyXpath);
+            
+        synchronized(conn) {
+            try {
+                stmts.insert.setInt(1,xpid); // full
+                stmts.insert.setString(2,locale);
+                stmts.insert.setInt(3,srcId); // assumes homogenous srcId
+                stmts.insert.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
+                stmts.insert.setString(5,value);
+                stmts.insert.setString(6,eType);
+                stmts.insert.setString(7,eAlt);
+                stmts.insert.setInt(8,txpid); // tiny
+                stmts.insert.setInt(9,submitterId); // submitter
+                stmts.insert.execute();
+                
+            } catch(SQLException se) {
+                String complaint = "CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+                logger.severe(complaint);
+                throw new InternalError(complaint);
+            }
+
+            try{
+                    conn.commit();
+                    return altProposed; // success
+            } catch(SQLException se) {
+                    String complaint = "CLDRDBSource: Couldn't commit " + locale + ":" + SurveyMain.unchainSqlException(se);
+                    logger.severe(complaint);
+                    throw new InternalError(complaint);
+            }
+         }
+
+        } // end for
+        return null; // couldn't find a slot..
     }
 }

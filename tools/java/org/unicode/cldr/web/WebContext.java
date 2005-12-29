@@ -20,6 +20,8 @@ import javax.servlet.http.*;
 // sql imports
 import java.sql.Connection;
 
+import com.ibm.icu.dev.test.util.ElapsedTimer;
+
 public class WebContext {
     public static java.util.logging.Logger logger = SurveyMain.logger;
 // USER fields
@@ -31,7 +33,7 @@ public class WebContext {
     public String localeName = null; 
     public CookieSession session = null;
     public Connection conn = null;
-    public com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = null;
+    public ElapsedTimer reqTimer = null;
     
 // private fields
     protected PrintWriter out = null;
@@ -314,14 +316,20 @@ public class WebContext {
 // DataPod functions
     private static final String DATA_POD = "DataPod_";
     DataPod getPod(String prefix) {
+        String loadString = "data was loaded.";
         synchronized(this) {
             DataPod pod = (DataPod)getByLocale(DATA_POD+prefix);
             if((pod != null) && (!pod.isValid(sm.lcr))) {
                 pod = null;
-                println("<i>Note: some data has changed, reloading..</i><br/>");
+                loadString = "data was re-loaded due to a new user submission.";
             }
             if(pod == null) {
+                long t0 = System.currentTimeMillis();
+                ElapsedTimer podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
                 pod = DataPod.make(this, locale.toString(), prefix, true);
+                if((System.currentTimeMillis()-t0) > 10 * 1000) {
+                    println("<i><b>" + podTimer + "</b></i><br/>");
+                }
                 pod.register(sm.lcr);
                 putByLocale(DATA_POD+prefix, pod);
             }

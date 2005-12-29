@@ -8,6 +8,7 @@
 
 package org.unicode.cldr.web;
 import org.unicode.cldr.util.*;
+import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.*;
 import java.util.*;
 
@@ -19,11 +20,39 @@ import java.util.*;
 public class DataPod {
     public String locale = null;
     public String xpathPrefix = null;
+    
+    private String fieldHash; // prefix string used for calculating html fields
 
-    DataPod(String loc, String pref) {
+    DataPod(SurveyMain sm, String loc, String pref) {
         locale = loc;
         xpathPrefix = pref;
+        fieldHash =  CookieSession.cheapEncode(sm.xpt.getByXpath(pref));
     }
+    
+    /* get a short key for use in fields */
+    public String fieldHash(Pea p) {
+        return fieldHash + p.fieldHash();
+    }
+
+    public String xpath(Pea p) {
+        String path = xpathPrefix;
+        if(path == null) {
+            throw new InternalError("Can't handle mixed peas with no prefix");
+        }
+        if(p.xpathSuffix == null) {
+            if(p.type != null) {
+                path = path + "[@type='" + p.type +"']";
+            }
+            if(p.altType != null) {
+                path = path + "[@alt='" + p.altType +"']";
+            }
+        } else {
+            throw new InternalError("Can't handle mixed peas with no suffix");
+        }
+        
+        return path;
+    }
+        
     
     /** The unit of data within the pod.  contains all data of the specified Type. */
     boolean valid = true;
@@ -49,6 +78,7 @@ public class DataPod {
         boolean hasTests = false;
         boolean hasProps = false;
         boolean hasInherited = false;
+        String inheritFrom = null;
         public class Item {
             public String altProposed = null; // proposed part of the name (or NULL for nondraft)
             public String value = null; // actual value
@@ -79,6 +109,24 @@ public class DataPod {
             pi.tests = tests;
             items.add(pi);
 //            System.out.println("  v: " + pi.value);
+        }
+        
+        String myFieldHash = null;
+        public synchronized String fieldHash() {
+            if(myFieldHash == null) {
+                String ret = "";
+                if(type != null) {
+                    ret = ret + ":" + type;
+                }
+                if(xpathSuffix != null) {
+                    ret = ret + ":" + xpathSuffix;
+                }
+                if(altType != null) {
+                    ret = ret + ":" + altType;
+                }
+                myFieldHash = ret;
+            }
+            return myFieldHash;
         }
         
         Hashtable subPeas = null;
@@ -114,9 +162,15 @@ public class DataPod {
         
             if((peas == null) /* || sortMode != curSortMode... */ ) {
                 Set newSet;
+                
+                final com.ibm.icu.text.RuleBasedCollator rbc = 
+                    ((com.ibm.icu.text.RuleBasedCollator)com.ibm.icu.text.Collator.getInstance());
+                rbc.setNumericCollation(true);
+
+                
                 if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
                     newSet = new TreeSet(new Comparator() {
-                        com.ibm.icu.text.Collator myCollator = com.ibm.icu.text.Collator.getInstance();
+                        com.ibm.icu.text.Collator myCollator = rbc;
                         public int compare(Object o1, Object o2){
                             Pea p1 = (Pea) o1;
                             Pea p2 = (Pea) o2;
@@ -128,7 +182,7 @@ public class DataPod {
                     });
                 } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
                     newSet = new TreeSet(new Comparator() {
-                        com.ibm.icu.text.Collator myCollator = com.ibm.icu.text.Collator.getInstance();
+                        com.ibm.icu.text.Collator myCollator = rbc;
                         public int compare(Object o1, Object o2){
                             Pea p1 = (Pea) o1;
                             Pea p2 = (Pea) o2;
@@ -186,7 +240,7 @@ public class DataPod {
                     });
                 } else if(sortMode.equals(SurveyMain.PREF_SORTMODE_NAME)) {
                     newSet = new TreeSet(new Comparator() {
-                        com.ibm.icu.text.Collator myCollator = com.ibm.icu.text.Collator.getInstance();
+                        com.ibm.icu.text.Collator myCollator = rbc;
                         public int compare(Object o1, Object o2){
                             Pea p1 = (Pea) o1;
                             Pea p2 = (Pea) o2;
@@ -227,21 +281,24 @@ public class DataPod {
 	 * @param simple if true, means that data is simply xpath+type. If false, all xpaths under prefix.
 	 */
 	public static DataPod make(WebContext ctx, String locale,String prefix, boolean simple) {
-		DataPod pod = new DataPod(locale, prefix);
+		DataPod pod = new DataPod(ctx.sm, locale, prefix);
 		if(simple==true) {
-            pod.loadStandard(ctx.sm.getEnglishFile()); //load standardcodes + english        
+//            pod.loadStandard(ctx.sm.getEnglishFile()); //load standardcodes + english        
             CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CLDRDBSRC, locale);
             CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CHECKCLDR);
             if(checkCldr == null) {
                 throw new InternalError("checkCldr == null");
             }
-            pod.populateFrom(ourSrc, checkCldr);
+            com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
+            System.err.println("DP: Starting populate of " + locale + " // " + prefix);
+            pod.populateFrom(ourSrc, checkCldr, ctx.sm.getEnglishFile());
+            System.err.println("DP: Time to populate " + locale + " // " + prefix + " = " + et);
 		} else {
 			throw new InternalError("non-simple pods not supported");
 		}
 		return pod;
 	}
-    
+    /*
     private void loadStandard(CLDRFile engf)
     {
         XPathParts xpp = new XPathParts(null,null);
@@ -262,15 +319,16 @@ public class DataPod {
                     addPea(p);
                 }
                 p.hasInherited=true;
-                p.displayName = standardCodes.getData(subtype, code); /* Hack - should use English. */
+                p.displayName = engf.get
+//                p.displayName = standardCodes.getData(subtype, code); // Hack - should use English. 
             }
         }
-    }
+    }*/
     
-    private void populateFrom(CLDRDBSource src, CheckCLDR checkCldr) {
+    private void populateFrom(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile engFile) {
         XPathParts xpp = new XPathParts(null,null);
-        System.out.println("[] initting from pod  with pref " + xpathPrefix);
-        CLDRFile aFile = new CLDRFile(src, false);
+        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
+        CLDRFile aFile = new CLDRFile(src, true);
         Map options = new TreeMap();
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
@@ -284,9 +342,17 @@ public class DataPod {
         List checkCldrResult = new ArrayList();
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
             String xpath = (String)it.next();
+            if(-1!=xpath.indexOf("001")) {
+                System.err.println("001:: " + xpath + aFile.getSourceLocaleID(xpath));
+//                if(aFile.getSourceLocaleID(xpath).equals("code-fallback")) {
+//                    throw new InternalError("No err!");
+//                }
+            }
             String type = src.xpt.typeFromPathToTinyXpath(xpath, xpp);
+            boolean mixedType = false;
             if(type == null) {
-                type = "\'" + xpath + "\'"; // HACK
+                type = xpath.substring(xpathPrefix.length(),xpath.length());
+                mixedType = true;
             }
             String value = aFile.getStringValue(xpath);
             if(value == null) {
@@ -297,16 +363,58 @@ public class DataPod {
             String fullPath = aFile.getFullXPath(xpath);
 //            System.out.println("* T=" + type + ", X= " + xpath);
             String alt = src.xpt.altFromPathToTinyXpath(xpath, xpp);
+
+            xpp.clear();
+            xpp.initialize(xpath);
+            String lelement = xpp.getElement(-1);
+            /* all of these are always at the end */
+            String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
+            String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
+
             String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
             String altProposed = typeAndProposed[1];
             String altType = typeAndProposed[0];
             Pea p = getPea(type, altType);
             Pea superP = getPea(type);
             
-            superP.hasInherited=false;
-            p.hasInherited=false;
+            if(altProposed == null) {
+                // just work on the supers
+                if(superP.displayName == null) {
+                    if(xpathPrefix.startsWith("//ldml/localeDisplayNames/")) {
+                        if(mixedType == false) {
+                            superP.displayName = engFile.getStringValue(xpathPrefix+"[@type=\""+type+"\"]");
+                        } else {
+                            superP.displayName = engFile.getStringValue(xpathPrefix);
+                        }
+                    }
+                }
+                if(superP.displayName == null) {
+                    superP.displayName = "'"+type+"'";
+                }
+            }
             
-            if(altProposed != null) {
+            // If it is draft and not proposed.. make it proposed-draft 
+            if( ((eDraft!=null)&&(!eDraft.equals("false"))) &&
+                (altProposed == null) ) {
+                altProposed = SurveyMain.PROPOSED_DRAFT;
+            }
+            
+            // Inherit display names.
+            if((superP != p) && (p.displayName == null)) {
+                p.displayName = superP.displayName;
+            }
+            String sourceLocale = aFile.getSourceLocaleID(xpath);
+            boolean isInherited = !(sourceLocale.equals(locale));
+            
+            if(altProposed == null) {
+                if(!isInherited) {
+                    superP.hasInherited=false;
+                    p.hasInherited=false;
+                } else {
+                    p.hasInherited = true;
+                    p.inheritFrom = sourceLocale;
+                }
+            } else {
                 p.hasProps = true;
                 superP.hasProps = true;
             }

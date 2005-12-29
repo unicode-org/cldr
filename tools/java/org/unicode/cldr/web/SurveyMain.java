@@ -73,6 +73,10 @@ public class SurveyMain extends HttpServlet {
     public static final String NEW = "new";
     public static final String DRAFT = "draft";
     public static final String UNKNOWNCHANGE = "Click to suggest replacement";
+    public static final String DONTCARE = "abstain";
+    public static final String CONFIRM = "confirm";
+    public static final String CHANGETO = "change to";
+    public static final String PROPOSED_DRAFT = "proposed-draft";
 
     // SYSTEM PROPERTIES
     public static  String vap = System.getProperty("CLDR_VAP"); // Vet Access Password
@@ -80,7 +84,8 @@ public class SurveyMain extends HttpServlet {
     public static  String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for web data
     public static  String cldrLoad = System.getProperty("CLDR_LOAD_ALL"); // preload all locales?
     static String fileBase = System.getProperty("CLDR_COMMON") + "/main"; // not static - may change lager
-    static String specialMessage = System.getProperty("CLDR_MESSAGE"); // not static - may change lager
+    static String specialMessage = System.getProperty("CLDR_MESSAGE"); //  static - may change later
+    static String specialHeader = System.getProperty("CLDR_HEADER"); //  static - may change later
     public static java.util.Properties survprops = null;
     public static String cldrHome = null;
 
@@ -224,8 +229,9 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<h1>raw sql</h1>");
         ctx.println("<form method=POST action='" + ctx.base() + "'>");
         ctx.println("<input type=hidden name=sql value='" + vap + "'>");
-        ctx.println("SQL: <input name=q size=80 cols=80 value='" + q + "'>");
-        ctx.println("Show all? <input type=checkbox name=unltd>");
+        ctx.println("SQL: <input class='inputbox' name=q size=80 cols=80 value='" + q + "'><br />");
+        ctx.println("<label style='border: 1px'><input type=checkbox name=unltd>Show all?</label> ");
+        ctx.println("<label style='border: 1px'><input type=checkbox name=isUpdate>U/I/D?</label> ");
         ctx.println("<input type=submit name=do value=Query>");
         ctx.println("</form>");
         if(q.length()>0) {
@@ -239,36 +245,41 @@ public class SurveyMain extends HttpServlet {
                 
                 Connection conn = getDBConnection();
                 Statement s = conn.createStatement();
-                ResultSet rs = s.executeQuery(q); 
-                conn.commit();
-                
-                ResultSetMetaData rsm = rs.getMetaData();
-                int cc = rsm.getColumnCount();
-                
-                ctx.println("<table class='list' border='2'><tr><th>#</th>");
-                for(i=1;i<=cc;i++) {
-                    ctx.println("<th style='font-size: 50%'>"+rsm.getColumnName(i)+"</th>");
-                }
-                ctx.println("</tr>");
-                int limit = 30;
-                if(ctx.field("unltd").length()>0) {
-                    limit = 99999;
-                }
-                for(j=0;rs.next()&&(j<limit);j++) {
-                    ctx.println("<tr><th>" + j + "</th>");
+                if(ctx.field("isUpdate").length()>0) {
+                    int rc = s.executeUpdate(q);
+                    conn.commit();
+                    ctx.println("<br />Result: " + rc + " row(s) affected.<br />");
+                } else {
+                    ResultSet rs = s.executeQuery(q); 
+                    conn.commit();
+                    
+                    ResultSetMetaData rsm = rs.getMetaData();
+                    int cc = rsm.getColumnCount();
+                    
+                    ctx.println("<table class='list' border='2'><tr><th>#</th>");
                     for(i=1;i<=cc;i++) {
-                        String v = rs.getString(i);
-                        if(v != null) {
-                            ctx.println("<td>" + v + "</td>");
-                        } else {
-                            ctx.println("<td style='background-color: gray'></td>");
-                        }
+                        ctx.println("<th style='font-size: 50%'>"+rsm.getColumnName(i)+"</th>");
                     }
                     ctx.println("</tr>");
+                    int limit = 30;
+                    if(ctx.field("unltd").length()>0) {
+                        limit = 99999;
+                    }
+                    for(j=0;rs.next()&&(j<limit);j++) {
+                        ctx.println("<tr><th>" + j + "</th>");
+                        for(i=1;i<=cc;i++) {
+                            String v = rs.getString(i);
+                            if(v != null) {
+                                ctx.println("<td>" + v + "</td>");
+                            } else {
+                                ctx.println("<td style='background-color: gray'></td>");
+                            }
+                        }
+                        ctx.println("</tr>");
+                    }
+                    
+                    ctx.println("</table>");
                 }
-                
-                ctx.println("</table>");
-                
                 
                 ctx.println("elapsed time: " + et + "<br />");
                 //     (auto close)
@@ -413,10 +424,14 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
         ctx.println("</head>");
         ctx.println("<body>");
-        
+        if((specialHeader != null) && (specialHeader.length()>0)) {
+            ctx.println("<div style='border: 2px solid gray; margin: 0.5 em; padding: 0.5 em;'>" + specialHeader + "</div><br />");
+        }
         ctx.println("<script type='text/javascript'><!-- \n" +
                     "function show(what)\n" +
                     "{document.getElementById(what).style.display=\"block\";\ndocument.getElementById(\"h_\"+what).style.display=\"none\";}\n" +
+                    "function hide(what)\n" +
+                    "{document.getElementById(what).style.display=\"none\";\ndocument.getElementById(\"h_\"+what).style.display=\"block\";}\n" +
                     "--></script>");
         
     }
@@ -790,8 +805,8 @@ public class SurveyMain extends HttpServlet {
                             String pass = reg.getPassword(ctx, theirId);
                             if(pass != null) {
                                 UserRegistry.printPasswordLink(ctx, theirEmail, pass);
-                            }
-                            ctx.println("<br /> <i style='font-size: 40%'>Note: no email sent, not implemented yet</i> ");
+                                notifyUser(ctx, theirEmail, pass);                                
+                            }                            
                         } else if(action.equals(LIST_ACTION_DELETE0)) {
                             ctx.println("Ensure that 'confirm delete' is chosen at left and click Change again to delete..");
                         } else if((theirLevel >= ourLevel) && (action.equals(LIST_ACTION_DELETE1))) {
@@ -929,12 +944,13 @@ public class SurveyMain extends HttpServlet {
                         ctx.println("<a href=\"" + baseContext.url() + "&_=" + k + "\">" + 
                                     new ULocale(k).getDisplayName() + "</a> ");
                     }
-                    if((ctx.session.user != null)  && ( ctx.session.user.userlevel <= UserRegistry.STREET) ) {
+                    
+                /*   if((ctx.session.user != null)  && ( ctx.session.user.userlevel <= UserRegistry.STREET) ) {
                         ctx.println("<div>");
                         ctx.println("Your changes are <b><font color=red>not</font></b> permanently saved until you: ");
                         ctx.println("<input name=submit type=submit value='" + xREVIEW +"'>");
                         ctx.println("</div>");
-                    }
+                    }*/
                 }
             } else {
                 ctx.println("<a href='" + ctx.url() + "'><b>List of Locales</b></a>");
@@ -1150,26 +1166,27 @@ public class SurveyMain extends HttpServlet {
         }
     }
     
-    void notifyUser(WebContext ctx, UserRegistry.User u, String requester) {
-        String body = requester +  " has created a CLDR vetting account for you.\n" +
+    void notifyUser(WebContext ctx, String theirEmail, String pass) {
+        String requester = ctx.session.user.name + " <" + ctx.session.user.email + ">";
+        String body = requester +  " is notifying you of the CLDR vetting account for you.\n" +
         "To access it, visit: \n" +
-        "   http://" + ctx.serverName() + ctx.base() + "?uid=" + u.id + "&email=" + u.email + "\n" +
+        "   http://" + ctx.serverName() + ctx.base() + "?uid=" + pass + "&email=" + theirEmail + "\n" +
         "\n" +
         " Please keep this link to yourself. Thanks.\n" +
         " \n";
-        ctx.println("<hr/><pre>" + body + "</pre><hr/>");
         
         String from = survprops.getProperty("CLDR_FROM","nobody@example.com");
-        String smtp = survprops.getProperty("CLDR_SMTP","127.0.0.1");
+        String smtp = survprops.getProperty("CLDR_SMTP",null);
         if(smtp == null) {
             ctx.println("<i>Not sending mail- SMTP disabled.</i><br/>");
+            ctx.println("<hr/><pre>" + body + "</pre><hr/>");
             smtp = "NONE";
         } else {
-            MailSender.sendMail(u.email, "CLDR Registration for " + u.email,
+            MailSender.sendMail(smtp, from, theirEmail, "CLDR Registration for " + theirEmail,
                                 body);
-            ctx.println("Mail sent to " + u.email + " from " + from + " via " + smtp + "<br/>\n");
+            ctx.println("Mail sent to " + theirEmail + " from " + from + " via " + smtp + "<br/>\n");
         }
-        logger.info( "Login URL sent to " + u.email + " (#" + u.id + ") from " + from + " via " + smtp);
+        logger.info( "Login URL sent to " + theirEmail + "  from " + from + " via " + smtp);
         /* some debugging. */
     }
     
@@ -2342,13 +2359,14 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
     synchronized(ourSrc) { // because it has a connection..
                            // Podder
         System.out.println("Pod's full thing: " + fullThing);
-        DataPod dp = ctx.getPod(fullThing);
-        List peas = dp.getList(sortMode);
+        DataPod pod = ctx.getPod(fullThing);
+        List peas = pod.getList(sortMode);
         ctx.println("<hr />");
         // -----
-        skip = showSkipBox(ctx, peas.size(), dp.getDisplayList(sortMode));
+        skip = showSkipBox(ctx, peas.size(), pod.getDisplayList(sortMode));
         
         ctx.printUrlAsHiddenFields();   
+        ctx.println("<input type='hidden' name='skip' value='"+ctx.field("skip")+"' />");
         ctx.println("<table class='list' border='0'>");
 
         ctx.println("<tr class='heading'>\n"+
@@ -2361,11 +2379,11 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
                     
         for(ListIterator i = peas.listIterator(skip);(count<CODES_PER_PAGE)&&i.hasNext();count++) {
             DataPod.Pea p = (DataPod.Pea)i.next();
-            showPea(ctx, p, ourDir);
+            showPea(ctx, pod, p, ourDir, cf, ourSrc);
             if(p.subPeas != null) {
                 for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
-                    DataPod.Pea f = (DataPod.Pea)e.next();
-                    showPea(ctx, f, ourDir);
+                    DataPod.Pea subPea = (DataPod.Pea)e.next();
+                    showPea(ctx, pod, subPea, ourDir, cf, ourSrc);
                 }
             }
         }
@@ -2375,28 +2393,50 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
     
 }
 
-void showPea(WebContext ctx, DataPod.Pea p, String ourDir) {
+void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, CLDRDBSource ourSrc) {
     //            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
 
+    String fieldHash = pod.fieldHash(p);
     /*  TOP BAR */
     ctx.println("<tr class='topbar'>");
-    ctx.println("<th colspan='1' align='left'><tt class='codebox'>"
-                + p.type + 
-                "</tt>");
+    ctx.println("<th nowrap colspan='1' valign='top' align='left'>");
+    if(p.displayName != null) {
+        ctx.println("<tt class='codebox'>"
+                    + p.type + 
+                    "</tt>");
+    }
     if(p.altType != null) {
         ctx.println(" ("+p.altType+")");
     }
     ctx.println("</th>");
-    ctx.println("<th colspan='4' align='left' class='botgray'>");
+    ctx.println("<th nowrap colspan='4' valign='top' align='left' class='botgray'>");
     if(p.displayName != null) {
         ctx.println(p.displayName);
+    } else {
+        ctx.println("<tt>"+p.type+"</tt>");
     }
     ctx.println("</th> </tr>");
-    if((p.items.size() == 0) && (p.type != null)) { // by code
+    
+    // do modification here. 
+    String choice = ctx.field(fieldHash); // checkmark choice
+    String choice_v = ctx.field(fieldHash+"_v"); // choice + value
+    
+    if(choice.equals(CHANGETO) &&
+        choice_v.length()>0) {
+        String fullPathFull = pod.xpath(p);
+        String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
+        String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, fullPathMinusAlt, p.altType, 
+            "proposed-u"+ctx.session.user.id+"-", ctx.session.user.id, choice_v);
+        ctx.println("<tr><td colspan='4'>CHANGE TO: " + choice_v + " : " + newProp + "</td></tr>");
+        lcr.invalidateLocale(pod.locale); // throw out this pod next time.
+    }
+    
+    
+    if((p.hasInherited == true) && (p.type != null) && (p.inheritFrom == null)) { // by code
         String pClass = "class='warnrow'";
-        ctx.print("<tr " + pClass + "><td colspan='3' align='right'>");
-        ctx.print("<span class='dashbox'>missing</span>");
-        ctx.print("<input type='radio' /><tt>");
+        ctx.print("<tr " + pClass + "><td nowrap colspan='3' valign='top' align='right'>");
+        ctx.print("<span class='actionbox'>missing</span>");
+        ctx.print("<input name='"+fieldHash+"' value='"+"0"+"' type='radio' /><tt>");
         ctx.println("</td>");
         ctx.println("<td dir='" + ourDir +"'>");
         ctx.println(p.type + "</tt></td>");
@@ -2408,14 +2448,22 @@ void showPea(WebContext ctx, DataPod.Pea p, String ourDir) {
         String pClass ="";
         if(item.altProposed != null) {
             pClass = "class='proposed'";
-        }
-        ctx.print("<tr " + pClass + "><td colspan='2'></td><td colspan='1' align='right'>");
+        } else if(p.inheritFrom != null) {
+            pClass = "class='missing'";
+        } 
+        ctx.print("<tr><td colspan='2'></td><td nowrap "+pClass+" colspan='1' valign='top' align='right'>");
         if(item.altProposed != null) {
-            ctx.print("<span class='dashbox'>" + item.altProposed + "</span>");
+            ctx.print("<span class='actionbox'>" + item.altProposed + "</span>");
+        } else {
+            if(p.inheritFrom != null) {
+                ctx.print("<span class='actionbox'>inherited " + p.inheritFrom + "</span>");
+            } else {
+                ctx.print("<span class='actionbox'>" + CONFIRM + "</span>");
+            }
         }
-        ctx.print("<input type='radio' />");
+        ctx.print("<input name='"+fieldHash+"'  value='"+((item.altProposed!=null)?item.altProposed:"0")+"' type='radio' />");
         ctx.println("</td>");
-        ctx.println("<td dir='" + ourDir +"'>");
+        ctx.println("<td valign='top' nowrap dir='" + ourDir +"'>");
         ctx.println(item.value + "</td>");
         if(item.tests != null) {
             ctx.println("<td class='warncell'>");
@@ -2437,16 +2485,16 @@ void showPea(WebContext ctx, DataPod.Pea p, String ourDir) {
     if(true) {
         String pClass = "";
          // dont care
-        ctx.print("<tr " + pClass + "><td colspan>");
-        ctx.print("<span class='dashbox'>Don't Care</span>");
-        ctx.print("<input type='radio' CHECKED />");
+        ctx.print("<tr " + pClass + "><td nowrap colspan>");
+        ctx.print("<span class='actionbox'>" + DONTCARE + "</span>");
+        ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' CHECKED />");
         ctx.println("</td>");
         ctx.println("<td bgcolor='gray'></td>");
         // change
-        ctx.print("<td align='right'><span class='dashbox'>change</span>");
-        ctx.print("<input type='radio'  />");
+        ctx.print("<td nowrap valign='top' align='right'><span class='actionbox'>" + CHANGETO + "</span>");
+        ctx.print("<input name='"+fieldHash+"' value='"+CHANGETO+"' type='radio'  />");
         ctx.println("</td>");
-        ctx.println("<td colspan='2'><input class='inputbox'></td>");
+        ctx.println("<td colspan='2'><input name='"+fieldHash+"_v'  class='inputbox'></td>");
         ctx.println("</tr>");
     }
 }
@@ -2645,6 +2693,7 @@ vetweb = survprops.getProperty("CLDR_VET_WEB",cldrHome+"/vetdata"); // dir for w
 cldrLoad = survprops.getProperty("CLDR_LOAD_ALL"); // preload all locales?
 fileBase = survprops.getProperty("CLDR_COMMON",cldrHome+"/common") + "/main"; // not static - may change lager
 specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
+specialHeader = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
 
 if(!new File(fileBase).isDirectory()) {
     busted("CLDR_COMMON isn't a directory: " + fileBase);
@@ -3041,11 +3090,13 @@ private synchronized void printShortened(WebContext ctx, String str) {
 }
 
 private void printShortened(WebContext ctx, String shortStr, String longStr, String warnHash ) {
-        ctx.println("<span id='h_"+warnHash+"'>" + shortStr + "... <a href='javascript:show(\"" + warnHash + "\")'>" + 
+        ctx.println("<span id='h_"+warnHash+"'>" + shortStr + "... ");
+        ctx.print("<a href='javascript:show(\"" + warnHash + "\")'>" + 
                     "(Click to show entire warning.)</a></span>");
         ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
                     "<span style='display: none'  id='" + warnHash + "'>" +
-                    longStr + "</span>");
+                    longStr + "<a href='javascript:hide(\"" + warnHash + "\")'>" + 
+                    "(hide.)</a></span>");
 }
 
 
@@ -3114,6 +3165,8 @@ static final String pool(String x) {
 // DB stuff
 public String db_driver = "org.apache.derby.jdbc.EmbeddedDriver";
 public String db_protocol = "jdbc:derby:";
+public static final String CLDR_DB_U = "cldrdb_user";
+public String cldrdb_u = null;
 public static final String CLDR_DB = "cldrdb";
 public String cldrdb = null;
 
@@ -3121,6 +3174,12 @@ private Connection getDBConnection()
 {
     return getDBConnection("");
 }
+
+private Connection getU_DBConnection()
+{
+    return getU_DBConnection("");
+}
+
 
 private Connection getDBConnection(String options)
 {
@@ -3139,12 +3198,32 @@ private Connection getDBConnection(String options)
     }
 }
 
+private Connection getU_DBConnection(String options)
+{
+    try{ 
+        Properties props = new Properties();
+        props.put("user", "cldr_user");
+        props.put("password", "cldr_password");
+        cldrdb_u =  dbDir_u.getAbsolutePath();
+        Connection nc =  DriverManager.getConnection(db_protocol +
+                                                     cldrdb_u + options, props);
+        nc.setAutoCommit(false);
+        return nc;
+    } catch (SQLException se) {
+        busted("Fatal in getDBConnection: " + unchainSqlException(se));
+        return null;
+    }
+}
+
 File dbDir = null;
+File dbDir_u = null;
 
 private void doStartupDB()
 {
     dbDir = new File(cldrHome,CLDR_DB);
+    dbDir_u = new File(cldrHome,CLDR_DB_U);
     boolean doesExist = dbDir.isDirectory();
+    boolean doesExist_u = dbDir_u.isDirectory();
     
     logger.info("SurveyTool setting up database.. " + dbDir.getAbsolutePath());
     try
@@ -3152,14 +3231,18 @@ private void doStartupDB()
         Class.forName(db_driver).newInstance();
         Connection conn = getDBConnection(";create=true");
         logger.info("Connected to database " + cldrdb);
+        Connection conn_u = getU_DBConnection(";create=true");
+        logger.info("Connected to user database " + cldrdb_u);
         
         // set up our main tables.
         if(doesExist == false) {
             // nothing to setup.
         }
-        conn.commit();
+        conn.commit();        
+        conn.close(); 
         
-        conn.close();            
+        conn_u.commit();
+        conn_u.close();
     }
     catch (SQLException e)
     {
@@ -3172,8 +3255,8 @@ private void doStartupDB()
     }
     // now other tables..
     try {
-        reg = UserRegistry.createRegistry(logger, getDBConnection(), !doesExist);
-        if(!doesExist) { // only import users on first run through..
+        reg = UserRegistry.createRegistry(logger, getU_DBConnection(), !doesExist_u);
+        if(!doesExist_u) { // only import users on first run through..
             reg.importOldUsers(vetdata);
         }
     } catch (SQLException e) {

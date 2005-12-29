@@ -241,6 +241,18 @@ public class XPathTable {
     public String altFromPathToTinyXpath(String path, XPathParts xpp) {
         return whatFromPathToTinyXpath(path, xpp, LDMLConstants.ALT);
     }
+    
+    public static String removeAlt(String path) {
+        return removeAlt(path, new XPathParts(null,null));
+    }
+    public static String removeAlt(String path, XPathParts xpp) {
+        xpp.clear();
+        xpp.initialize(path);
+        Map lastAtts = xpp.getAttributes(-1);
+        lastAtts.remove(LDMLConstants.ALT);
+        return xpp.toString();
+    }
+    
     public String whatFromPathToTinyXpath(String path, XPathParts xpp, String what) {
         xpp.clear();
         xpp.initialize(path);

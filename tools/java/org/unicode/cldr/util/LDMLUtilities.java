@@ -1835,7 +1835,7 @@ public class LDMLUtilities {
      * @param proposedType  
      * @see parseAlt
      */
-    String formatAlt(String altType, String proposedType) {
+    public static String formatAlt(String altType, String proposedType) {
 
         if(((altType == null) || (altType.length()==0))  &&
            ((proposedType == null) || (proposedType.length()==0))) {

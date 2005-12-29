@@ -1072,7 +1072,9 @@ public class StandardCodes {
 		} catch (Exception e) {
 			throw (RuntimeException) new IllegalArgumentException("Can't process file: " + Utility.UTIL_DATA_DIR + "draft-ietf-ltru-initial-06.txt").initCause(e);
 		} finally {
-			System.out.println("Funny tags: " + funnyTags);
+			if(!funnyTags.isEmpty()) {
+                System.out.println("Funny tags: " + funnyTags);
+            }
 		}
 		return result;
 	}

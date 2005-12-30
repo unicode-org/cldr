@@ -730,6 +730,7 @@ public class StandardCodes {
                             System.out.println("\tThe following should be equivalent to others: " + remainder);
                         }
                     }
+                }
 		    	{
 		    		Object newOne = canonicals.iterator().next();
 		    		for (Iterator it2 = equivalents.iterator(); it2.hasNext();) {

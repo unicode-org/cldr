@@ -185,6 +185,7 @@
 			</calendar>
 			<calendar type="islamic">
 				<week>
+                    <minDays count="1"/>
 					<firstDay day="sat" draft="true"/>
 				</week>
 			</calendar>
@@ -240,6 +241,7 @@
 					</monthContext>
 				</months>
 				<week>
+                    <minDays count="1"/>
 					<firstDay day="sat" draft="true"/>
 				</week>
 			</calendar>

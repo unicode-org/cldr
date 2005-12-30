@@ -500,9 +500,42 @@ public class CLDRBuild extends Task{
         }
         public void setDraft(String dft){
             draft =dft;
-        }   
+        } 
+        
+        public void addConfiguredCoverageLevel(CoverageLevel level){
+            //make sure all fields are set
+            if((level.group!=null && level.org==null)|| (level.org!=null && level.group==null)){
+                errln("Invalid specification of coverageLevel element. org && group not set!", true);
+            }
+            if(level.level==null){
+                errln("Invalid specification of coverageLevel element. level not set!", true);
+            }
+            pathList.add(level);
+        }
     }
-    
+    public static class CoverageLevel extends Task{
+        public String group;
+        public String level;
+        public String locales;
+        public String draft;
+        public String org;
+        
+        public void setDraft(String dft){
+            draft = dft;
+        } 
+        public void setLevel(String lvl){
+            level = lvl;
+        } 
+        public void setLocales(String locs){
+            locales = locs;
+        } 
+        public void setOrg(String o){
+            org = o;
+        } 
+        public void setGroup(String g){
+            group = g;
+        } 
+    }
     public static class OverrideFallback extends Task{
         private ArrayList list = new ArrayList();
         public void addConfiguredPaths(Paths paths){

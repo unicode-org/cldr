@@ -15,7 +15,10 @@ public class LDMLConstants {
     public static final String LDN             = "localeDisplayNames";
     public static final String LAYOUT          = "layout";
     public static final String ORIENTATION     = "orientation";
+    public static final String INLIST          = "inList";
     public static final String CHARACTERS      = "characters";
+    public static final String CASING          = "casing";
+    public static final String LINES           = "lines";
     public static final String DELIMITERS      = "delimiters";
     public static final String MEASUREMENT     = "measurement";
     public static final String DATES           = "dates";
@@ -170,7 +173,8 @@ public class LDMLConstants {
     public static final String CONTEXT         = "context";
     public static final String EXTEND          = "extend";
     public static final String FIELDS          = "fields";
-   
+    public static final String FIELD           = "field";
+    public static final String RELATIVE        = "relative";
     // supplemental data
     public static final String SUPPLEMENTAL_DATA = "supplementalData";
     public static final String CURRENCY_DATA     = "currencyData";
@@ -183,22 +187,27 @@ public class LDMLConstants {
     public static final String ISO_3166          = "iso3166";
     public static final String VALID_SUBLOCALE   = "validSubLocales";
     public static final String TERRITORY_CONTAINMENT = "territoryContainment";
+    public static final String CONTAINS          = "contains";
     public static final String LANGUAGE_DATA     = "languageData";
+    public static final String TERRITORY_DATA    = "territoryData";
+    public static final String MPT               = "mostPopulousTerritory";
+    public static final String MPTZ              = "mostPopulousTimezone";
     public static final String TO                = "to";
     public static final String FROM              = "from";
     public static final String LOCALE            = "locale";
-    public static final String META_DATA         = "metaData";
+    public static final String META_DATA         = "metadata";
     public static final String LANGUAGE_ALIAS    = "languageAlias";
     public static final String TERRITORY_ALIAS   = "territoryAlias";
     public static final String REPLACEMENT       = "replacement";
     public static final String SEGMENTATIONS     = "segmentations";
     public static final String TIMEZONE_DATA     = "timezoneData";
+    public static final String CALENDAR_DATA     = "calendarData";
     public static final String ZONE_ITEM         = "zoneItem";
     public static final String ALIASES           = "aliases";
-    public static final String MAP_TIMEZONE      = "mapTimezones";
+    public static final String MAP_TIMEZONES     = "mapTimezones";
     public static final String MAP_ZONE          = "mapZone";
+    public static final String OTHER             = "other";
     public static final String ZONE_FORMATTING   = "zoneFormatting";
-    public static final String METADATA          = "metadata";
     
     //PN added
     public static final String MEDIUM          = "medium";

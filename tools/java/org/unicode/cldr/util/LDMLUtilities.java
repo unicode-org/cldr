@@ -105,6 +105,7 @@ public class LDMLUtilities {
             locale = locale.substring(0,index);
         }
         if(locale.equals("root")){
+            full = resolveAliases(full, sourceDir, locale, ignoreDraft, stack);
             return full;
         }
         String[] constituents = locale.split("_");
@@ -654,7 +655,7 @@ public class LDMLUtilities {
                continue;
            }
            parent = node.getParentNode();
-           boolean isDraft = isNodeDraft(node);
+          // boolean isDraft = isNodeDraft(node);
            source = getAttributeValue(node, LDMLConstants.SOURCE);
            path = getAttributeValue(node, LDMLConstants.PATH);
            type = getAttributeValue(parent, LDMLConstants.TYPE);
@@ -708,9 +709,9 @@ public class LDMLUtilities {
                        // add to the source
                        Node child = replacementList[j];
                        Node childToImport = fullyResolvedDoc.importNode(child,true);
-                       if(isDraft==true && childToImport.getNodeType() == Node.ELEMENT_NODE){
-                           ((Element)childToImport).setAttribute("draft", "true");
-                       }
+                      // if(isDraft==true && childToImport.getNodeType() == Node.ELEMENT_NODE){
+                      //     ((Element)childToImport).setAttribute("draft", "true");
+                      // }
                        parent.appendChild(childToImport);
                    }
                }else{
@@ -721,9 +722,9 @@ public class LDMLUtilities {
                        // found an element node in the aliased resource
                        // add to the source
                        Node childToImport = fullyResolvedDoc.importNode(child,true);
-                       if(isDraft==true && childToImport.getNodeType() == Node.ELEMENT_NODE){
-                           ((Element)childToImport).setAttribute("draft", "true");
-                       }
+                      // if(isDraft==true && childToImport.getNodeType() == Node.ELEMENT_NODE){
+                      //     ((Element)childToImport).setAttribute("draft", "true");
+                      // }
                        parent.appendChild(childToImport);
                    }
                }

@@ -7,7 +7,11 @@ import java.util.TreeMap;
 import java.util.Vector;
 
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.test.CoverageLevel;
 import org.w3c.dom.Node;
 
 /**
@@ -158,6 +162,18 @@ public abstract class CLDRConverterTool {
         }
         return main;
     }
+    private CoverageLevel coverageLevel = null;
+    
+    private void initCoverageLevel(String localeName, boolean exemplarsContainA_Z, String supplementalDir){
+        if(coverageLevel==null){
+            CLDRFile sd = CLDRFile.make(CLDRFile.SUPPLEMENTAL_NAME, supplementalDir, true);
+            CLDRFile smd = CLDRFile.make(CLDRFile.SUPPLEMENTAL_METADATA, supplementalDir, true);
+            coverageLevel = new CoverageLevel();
+            coverageLevel.init(sd, smd);
+            ArrayList errors = new ArrayList();
+            coverageLevel.setFile(localeName, exemplarsContainA_Z, null, errors);
+        }
+    }
     /**
      * Computes the convertible xpaths by walking through the xpathList given and applying the rules
      * in children of <path> elements. 
@@ -165,7 +181,7 @@ public abstract class CLDRConverterTool {
      * @param localeName The name of locale being processed
      * @return an ArrayList of the computed convertible xpaths
      */
-    protected List computeConvertibleXPaths(List xpathList, String localeName){
+    protected List computeConvertibleXPaths(List xpathList, boolean exemplarsContainA_Z, String localeName, String supplementalDir){
         /*
          * Assumptions:
          * 1. Vetted nodes do not have draft attribute
@@ -182,17 +198,47 @@ public abstract class CLDRConverterTool {
         }
         XPathParts parts = new XPathParts(null, null);
         ArrayList myXPathList = new ArrayList(xpathList.size());
-
+        StandardCodes sc = StandardCodes.make();
         // iterator of xpaths of the current CLDR file being processed
         // this map only contains xpaths of the leaf nodes
         for(int i=0; i<xpathList.size();i++){
             String xpath = (String) xpathList.get(i);
             parts = parts.set(xpath);
+            Map attr = parts.getAttributes(parts.size()-1);
             
             boolean include = false;
             for(int j=0; j<pathList.size(); j++){
                 Object obj = pathList.get(j);
-                if(obj instanceof CLDRBuild.Exclude){
+                if(obj instanceof CLDRBuild.CoverageLevel){
+                    initCoverageLevel(localeName, exemplarsContainA_Z, supplementalDir);
+                    CLDRBuild.CoverageLevel level = (CLDRBuild.CoverageLevel) obj;
+                    if(level.locales!=null && CLDRBuild.matchesLocale(level.locales, localeName)==false){
+                        continue;
+                    }
+                    //process further only if the current locale is part of the given group and org
+                    if(level.group!=null && !sc.isLocaleInGroup(localeName, level.group, level.org) ){
+                        continue;
+                    }
+                    CoverageLevel.Level cv = CoverageLevel.Level.get(level.level);   
+                    if(coverageLevel.getCoverageLevel(xpath).equals(cv)){
+                        String draftVal = (String)attr.get(LDMLConstants.DRAFT);
+                        if(level.draft!=null){
+                            if(   draftVal==null && 
+                                (level.draft.equals("false")|| level.draft.equals(".*")) 
+                              ){
+                               include = true;
+                           }else if(draftVal!=null && draftVal.matches(level.draft)){
+                               include = true;
+                           }else{
+                               include = false;
+                           }
+                        }else{
+                            if(draftVal==null){
+                                include = true;
+                            }
+                        }
+                    }
+                }else if(obj instanceof CLDRBuild.Exclude){
                     CLDRBuild.Exclude exc = (CLDRBuild.Exclude)obj;
                     //fast path if locale attribute is set
                     if(exc.locales!=null && CLDRBuild.matchesLocale(exc.locales, localeName)==false){
@@ -235,7 +281,6 @@ public abstract class CLDRConverterTool {
                          *          if xp is //ldml/localeDisplayNames/languages/language[@type='en' and draft='true'] then
                          *              include = true
                          */
-                        Map attr = parts.getAttributes(parts.size()-1);
                         String draftVal = (String)attr.get(LDMLConstants.DRAFT);
                         String altVal = (String)attr.get(LDMLConstants.ALT);
                         if(exc.preferAlt!=null){
@@ -320,7 +365,6 @@ public abstract class CLDRConverterTool {
                          *          if xp is //ldml/localeDisplayNames/languages/language[@type='en' and draft='true'] then
                          *              include = false
                          */
-                        Map attr = parts.getAttributes(parts.size()-1);
                         String draftVal = (String)attr.get(LDMLConstants.DRAFT);
                         String altVal = (String)attr.get(LDMLConstants.ALT);
                         if(inc.preferAlt!=null){
@@ -358,6 +402,9 @@ public abstract class CLDRConverterTool {
                             }else{
                                 include = false;
                             }
+                        }
+                        if(inc.preferAlt==null && altVal!=null){
+                            include = false;
                         }
                     }       
                 }else{

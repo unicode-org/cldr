@@ -43,7 +43,7 @@ public class StandardCodes {
 	private Map country_modernCurrency = new TreeMap();
 	private Map goodCodes = new TreeMap();
 	private String date;
-	
+	private static final boolean DEBUG = false;
 	/**
 	 * Get the singleton copy of the standard codes.
 	 */
@@ -158,7 +158,9 @@ public class StandardCodes {
 		        	String code = (String) it.next();
 		        	if (code.equals("root") || code.equals("QO")) continue;
 		        	List data = getFullData(type, code);
-		        	if (data.size() < 3) System.out.println(code + "\t" + data);
+		        	if (data.size() < 3) {
+                        if(DEBUG) System.out.println(code + "\t" + data);
+                    }
 		        	if (data.get(0).equals("PRIVATE USE")
 		        			|| (!data.get(2).equals("") && !data.get(2).equals("--"))) {
 		        		//System.out.println("Removing: " + code);
@@ -215,7 +217,29 @@ public class StandardCodes {
 		}
 		return platform_locale_status;
 	}
-	
+	/**
+     * Ascertain that the given locale in in the given group specified by the 
+     * organization
+     * @param locale
+     * @param group
+     * @param org
+     * @return boolean
+	 */
+    public boolean isLocaleInGroup(String locale, String group, String org){
+        try{
+            Map map = getLocaleTypes();
+            Map locMap = (Map) map.get(org);
+            if(locMap!=null){
+                String gp = (String)locMap.get(locale);
+                if(gp!=null && gp.equals(group)){
+                    return true;
+                }
+            }
+            return false;
+        }catch( IOException ex){
+            return false;
+        }
+    }
 	// ========== PRIVATES ==========
 
 	private StandardCodes() {
@@ -673,7 +697,7 @@ public class StandardCodes {
 		    			linkold_new.put(old, newOne);
 		    			*/
 		    		} else {
-		    			System.out.println("Unknown zone line: " + line);
+		    			if(DEBUG) System.out.println("Unknown zone line: " + line);
 		    		}
 		    	}
 		    	in.close();
@@ -695,12 +719,17 @@ public class StandardCodes {
 		    	canonicals.retainAll(isCanonical);
 		    	if (canonicals.size() == 0) throw new IllegalArgumentException("No canonicals in: " + equivalents);
 		    	if (false && canonicals.size() > 1) {
-		    		System.out.println("Too many canonicals in: " + equivalents);
-		    		System.out.println("\t*Don't* put these into the same equivalence class: " + canonicals);
+		    		if(DEBUG){
+                        System.out.println("Too many canonicals in: " + equivalents);
+		    		    System.out.println("\t*Don't* put these into the same equivalence class: " + canonicals);
+                    }
 		    		Set remainder = new TreeSet(equivalents);
 		    		remainder.removeAll(isCanonical);
-		    		if (remainder.size() != 0) System.out.println("\tThe following should be equivalent to others: " + remainder);		    		
-		    	}
+		    		if (remainder.size() != 0){
+                        if(DEBUG){
+                            System.out.println("\tThe following should be equivalent to others: " + remainder);
+                        }
+                    }
 		    	{
 		    		Object newOne = canonicals.iterator().next();
 		    		for (Iterator it2 = equivalents.iterator(); it2.hasNext();) {
@@ -1073,7 +1102,7 @@ public class StandardCodes {
 			throw (RuntimeException) new IllegalArgumentException("Can't process file: " + Utility.UTIL_DATA_DIR + "draft-ietf-ltru-initial-06.txt").initCause(e);
 		} finally {
 			if(!funnyTags.isEmpty()) {
-                System.out.println("Funny tags: " + funnyTags);
+               if(DEBUG) System.out.println("Funny tags: " + funnyTags);
             }
 		}
 		return result;

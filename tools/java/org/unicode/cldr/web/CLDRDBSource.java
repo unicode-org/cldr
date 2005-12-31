@@ -756,7 +756,7 @@ public class CLDRDBSource extends XMLSource {
             String oxpath = xpath;
             int xpid = xpt.getByXpath(xpath);
             
-            // Check to see if this slot is in use.
+        // Check to see if this slot is in use.
         synchronized(conn) {
             try {
                 stmts.queryValue.setString(1,locale);

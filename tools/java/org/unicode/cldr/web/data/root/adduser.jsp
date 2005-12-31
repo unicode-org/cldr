@@ -11,8 +11,8 @@
 			<label>Name: <input size=40 name="new_name" /></label><br/>
 			<label>Email: <input size=40 name="new_email" /></label><br/>
 			<label>Organization: <input name="new_org" /></label>   (note: leave blank if same as yours)<br/>
-			<label>Userlevel: <input name="new_userlevel" value="5" /></label>   (Space separated. Examples: "en de fr" or  "de_CH".  )<br/>
-			<label>Locales responsible: <input name="new_locales" value="" /></label>   (1=TC, 5=Vetter, 10=Street, ...)<br/>
+			<label>Userlevel: <input name="new_userlevel" value="5" /></label>    (1=TC, 5=Vetter, 10=Street, ...) <br/>
+			<label>Locales responsible: <input name="new_locales" value="" /></label>   (Space separated. Examples: "en de fr" or  "de_CH".  )<br/>
 			<input type="submit" value="Add" />
 		</form>
 		<hr/>

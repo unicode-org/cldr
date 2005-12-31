@@ -116,13 +116,13 @@ public class UserRegistry {
             Statement s = conn.createStatement();
             s.execute("create table " + CLDR_USERS + "(id INT NOT NULL GENERATED ALWAYS AS IDENTITY, " +
                                                     "userlevel int not null, " +
-                                                    "name varchar(40) not null, " +
-                                                    "email varchar(40) not null UNIQUE, " +
-                                                    "org varchar(20) not null, " +
-                                                    "password varchar(20) not null, " +
-                                                    "audit varchar(20) , " +
-                                                    "locales varchar(20) , " +
-                                                    "prefs varchar(20) , " +
+                                                    "name varchar(256) not null, " +
+                                                    "email varchar(256) not null UNIQUE, " +
+                                                    "org varchar(256) not null, " +
+                                                    "password varchar(100) not null, " +
+                                                    "audit varchar(1024) , " +
+                                                    "locales varchar(1024) , " +
+                                                    "prefs varchar(1024) , " +
                                                     "primary key(id))");
             s.execute("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
                                                     "VALUES(" + ADMIN +"," + 
@@ -136,6 +136,8 @@ public class UserRegistry {
             conn.commit();
         }
     }
+    static final int ADMIN_ID = 1;
+    static final int ALL_ID = -1;
     
     public void importOldUsers(String dir) throws SQLException
     {
@@ -181,16 +183,77 @@ public class UserRegistry {
                                                     "VALUES(?,?,?,?,?,?)" );
 
           queryStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales from " + CLDR_USERS +" where email=? AND password=?");
+          queryIdStmt = conn.prepareStatement("SELECT name,org,email from " + CLDR_USERS +" where id=?");
           queryEmailStmt = conn.prepareStatement("SELECT id,name,userlevel,org,locales from " + CLDR_USERS +" where email=?");
         }
       }finally{
         if(queryStmt == null) {
             logger.severe("queryStmt failed to initialize");
         }
+        if(queryIdStmt == null) {
+            logger.severe("queryIdStmt failed to initialize");
+        }
         if(insertStmt == null) {
             logger.severe("insertStmt failed to initialize");
         }
       }
+    }
+    
+    /**
+     * info = name/email/org
+     * immutable info, keep it in a separate list for quick lookup.
+     */
+    ArrayList infoArray = new ArrayList();
+    
+    public UserRegistry.User getInfo(int id) {
+        synchronized(infoArray) {
+            User ret = (User)infoArray.get(id);
+            if(ret == null) synchronized(conn) {
+//          queryIdStmt = conn.prepareStatement("SELECT name,org,email from " + CLDR_USERS +" where id=?");
+                ResultSet rs = null;
+                try{ 
+                    PreparedStatement pstmt = null;
+                    pstmt = queryIdStmt;
+                    pstmt.setInt(1,id);
+                    // First, try to query it back from the DB.
+                    rs = pstmt.executeQuery();                
+                    if(!rs.next()) {
+                        logger.severe("Unknown user#:" + id);
+                        return null;
+                    }
+                    User u = new UserRegistry.User();                    
+                    // from params:
+                    u.id = id;
+                    u.name = rs.getString(1);
+                    u.org = rs.getString(2);
+                    u.email = rs.getString(3);
+                    infoArray.add(id,u);
+                    logger.info("Loaded info for U#"+u.id + " - "+u.name +"/"+u.org+"/"+u.email);
+                    // good so far..
+                    if(rs.next()) {
+                        // dup returned!
+                        throw new InternalError("Dup user id # " + id);
+                    }
+                    ret = u; // let it finish..
+                } catch (SQLException se) {
+                    logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to get #" + id + " - " + SurveyMain.unchainSqlException(se),se);
+                    return null;
+                } catch (Throwable t) {
+                    logger.log(java.util.logging.Level.SEVERE, "UserRegistry: some error trying to get #" + id,t);
+                    return null;
+                } finally {
+                    // close out the RS
+                    try {
+                        if(rs!=null) {
+                            rs.close();
+                        }
+                    } catch(SQLException se) {
+                        logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to close resultset for: #" + id + " - " + SurveyMain.unchainSqlException(se),se);
+                    }
+                } // end try
+            }
+            return ret;
+        }
     }
     
     public  UserRegistry.User get(String pass, String email) {
@@ -517,5 +580,116 @@ public class UserRegistry {
         }
         
         return null;
+    }
+    
+    // All of the userlevel policy is concentrated here, or in above functions (search for 'userlevel')
+    
+    // * user types
+    static final boolean userIsAdmin(User u) {
+        return (u.userlevel <= UserRegistry.ADMIN);
+    }
+    static final boolean userIsTC(User u) {
+        return (u.userlevel <= UserRegistry.TC);
+    }
+    static final boolean userIsVetter(User u) {
+        return (u.userlevel <= UserRegistry.VETTER);
+    }
+    static final boolean userIsStreet(User u) {
+        return (u.userlevel <= UserRegistry.STREET);
+    }
+    static final boolean userIsLocked(User u) {
+        return (u.userlevel == UserRegistry.LOCKED);
+    }
+    // * user rights
+    /** can create a user in a different organization? */
+    static final boolean userCreateOtherOrgs(User u) {
+        return userIsAdmin(u);
+    }
+    /** What level can the new user be, given requested? */
+    static final int userCanCreateUserOfLevel(User u, int requestedLevel) {
+        if(requestedLevel < 0) {
+            requestedLevel = 0;
+        }
+        if(requestedLevel < u.userlevel) { // pin to creator
+            requestedLevel = u.userlevel;
+        }
+        return requestedLevel;
+    }
+    /** Can the user modify anyone's level? */
+    static final boolean userCanModifyUsers(User u) {
+        return userIsTC(u);
+    }
+    /** can the user modify this particular user? */
+    static final boolean userCanModifyUser(User u, int theirId, int theirLevel) {
+        return (  userCanModifyUsers(u) &&
+                 (theirId != ADMIN_ID) &&
+                 (theirId != u.id) &&
+                 (theirLevel >= u.userlevel) );
+    }
+    static final boolean userCanDeleteUser(User u, int theirId, int theirLevel) {
+        return (userCanModifyUser(u,theirId,theirLevel) &&
+                theirLevel > u.userlevel); // must be at a lower level
+    }
+    static final boolean userCanChangeLevel(User u, int theirLevel, int newLevel) {
+        int ourLevel = u.userlevel;
+        return (userCanModifyUser(u, ALL_ID, theirLevel) &&
+            (newLevel >= ourLevel) && // new level is equal to or greater than our level
+           (newLevel != theirLevel) ); // not existing level 
+    }
+    static final boolean userCanDoList(User u) {
+        return (userIsVetter(u));
+    }
+    static final boolean userCanCreateUsers(User u) {
+        return (userIsTC(u));
+    }
+    static final boolean userCanSubmit(User u) {
+        return((u!=null) && userIsStreet(u));
+    }
+    
+    static final boolean userCanModifyLocale(User u, String locale) {
+        if(u==null) return false; // no user, no dice
+        if(userIsTC(u)) return true; // TC can modify all
+        
+        if(u.locales == null) return true; // empty = ALL
+        String localeArray[] = tokenizeLocale(u.locales);
+        if(localeArray.length == 0) {
+            return true; // all 
+        }
+        
+        for(int i=0;i<localeArray.length;i++) {
+            if(locale.startsWith(localeArray[i])) { // prefix match
+                return true;
+            }
+        }
+        return false; // no match
+    }
+    
+    static final String LOCALE_PATTERN = "[, ]+"; // whitespace
+    
+    static String[] tokenizeLocale(String localeList) {
+        if(localeList == null) {
+//            System.err.println("TKL: null input");
+            return new String[0];
+        }
+        return localeList.trim().split(LOCALE_PATTERN);
+    }
+     
+    /**
+     * take a locale string and convert it to HTML. 
+     */
+    static String prettyPrintLocale(String localeList) {
+//        System.err.println("TKL: ppl - " + localeList);
+        String[] localeArray = tokenizeLocale(localeList);
+        String ret = "";
+        if((localeList == null) || (localeArray.length == 0)) {
+//            System.err.println("TKL: null output");
+            ret = ("<i>all locales</i>");
+        } else {
+            for(int i=0;i<localeArray.length;i++) {
+                ret = ret + " <tt class='codebox'>"+localeArray[i]+"</tt> ";
+            }
+        }
+//        return ret + " [" + localeList + "]";
+        return ret;
     }
 }

@@ -1,4 +1,5 @@
 About the Survey Tool and the org.unicode.cldr.web.* classes
+Steven R. Loomis srl@icu-project.org
 ------------------------------------------------------------
 
 Very briefly:
@@ -11,7 +12,7 @@ Very briefly:
 Stuff to put into your server's lib directory: (common/lib on tomcat):
  * xalan.jar, xercesImpl.jar,xml-apis.jar  (from http://xalan.apache.org )
  * derby.jar ( from http://derby.apache.org )
- * icu4j.jar, utilities.jar ( to speed up loading) 
+ * icu4j.jar ( from ICU ) 
 
 TO DO MAIL:
 Stuff to put in shared/lib:
@@ -42,3 +43,24 @@ for mail (above):
 CLDR_SMTP=  smtp_host.example.com
 CLDR_FROM=  your@email.com
 
+Tomcat startup:
+I put this in startup.sh:
+export CATALINA_OPTS=-Dderby.system.home=/xsrl/derby\ -Dderby.storage.fileSyncTransactionLog=true\ -Djava.util.logging.FileHandler.formatter=java.util.logging.SimpleFormatter
+  derby.system.home: a home dir for derby and its logs and properties file (see below)
+  derby.storage.**: workaround for a known MacOSX JDK 1.5 bug
+  java.util.logging*:  use a simplified log file format instead of XML.
+
+SQL modifications:
+------
+* the 'raw sql' panel is quite powerful/dangerous.  Derby docs: http://db.apache.org/derby/docs/
+also: http://db.apache.org/derby/faq.html
+Here are some things that can be done:
+ - schema updates.   for example,   ALTER TABLE CLDR_USERS ALTER locales SET DATA TYPE VARCHAR(1024)
+   to update an existing database. You'll need to check UserDB for this one because it is on the user db side.
+By default, derby timesout fairly quickly. I added the following to derby.properties ( in the derby home dir):
+
+derby.locks.waitTimeout=240
+derby.locks.deadlockTimeout=120
+
+Most normal user operations shouldn't need these timeouts.
+Symptom: "could not aquire lock in the specified time"

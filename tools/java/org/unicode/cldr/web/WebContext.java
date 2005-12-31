@@ -315,10 +315,26 @@ public class WebContext {
     
 // DataPod functions
     private static final String DATA_POD = "DataPod_";
+    
+    /**
+     * Get a pod.. even if it may be no longer invalid.
+     * May be null.
+     */
+    DataPod getExistingPod(String prefix) {
+        synchronized(this) {
+            return (DataPod)getByLocale(DATA_POD+prefix);
+        }
+    }
+    
+    /** 
+     * Get a currently valid pod.. creating it if need be.
+     * UI: does write informative notes to the ctx in case of a long delay.
+     
+     */
     DataPod getPod(String prefix) {
         String loadString = "data was loaded.";
         synchronized(this) {
-            DataPod pod = (DataPod)getByLocale(DATA_POD+prefix);
+            DataPod pod = getExistingPod(prefix);
             if((pod != null) && (!pod.isValid(sm.lcr))) {
                 pod = null;
                 loadString = "data was re-loaded due to a new user submission.";

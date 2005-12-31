@@ -78,6 +78,8 @@ public class SurveyMain extends HttpServlet {
     public static final String CHANGETO = "change to";
     public static final String PROPOSED_DRAFT = "proposed-draft";
 
+    public static final String MODIFY_THING = "<span title='You are allowed to modify this locale.'>\uF802</span>";            
+
     // SYSTEM PROPERTIES
     public static  String vap = System.getProperty("CLDR_VAP"); // Vet Access Password
     public static  String vetdata = System.getProperty("CLDR_VET_DATA"); // dir for vetted data
@@ -232,6 +234,7 @@ public class SurveyMain extends HttpServlet {
         ctx.println("SQL: <input class='inputbox' name=q size=80 cols=80 value='" + q + "'><br />");
         ctx.println("<label style='border: 1px'><input type=checkbox name=unltd>Show all?</label> ");
         ctx.println("<label style='border: 1px'><input type=checkbox name=isUpdate>U/I/D?</label> ");
+        ctx.println("<label style='border: 1px'><input type=checkbox name=isUser>UserDB?</label> ");
         ctx.println("<input type=submit name=do value=Query>");
         ctx.println("</form>");
         if(q.length()>0) {
@@ -243,8 +246,14 @@ public class SurveyMain extends HttpServlet {
                 
                 com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
                 
-                Connection conn = getDBConnection();
+                Connection conn = null;
+                if(ctx.field("isUser").length()>0) {
+                    conn = getU_DBConnection();
+                } else {
+                    conn = getDBConnection();
+                }
                 Statement s = conn.createStatement();
+                //s.setQueryTimeout(120); // 2 minute timeout. Not supported by derby..
                 if(ctx.field("isUpdate").length()>0) {
                     int rc = s.executeUpdate(q);
                     conn.commit();
@@ -258,7 +267,16 @@ public class SurveyMain extends HttpServlet {
                     
                     ctx.println("<table class='list' border='2'><tr><th>#</th>");
                     for(i=1;i<=cc;i++) {
-                        ctx.println("<th style='font-size: 50%'>"+rsm.getColumnName(i)+"</th>");
+                        ctx.println("<th style='font-size: 50%'>"+rsm.getColumnName(i)+ "<br />");
+                        int t = rsm.getColumnType(i);
+                        switch(t) {
+                            case java.sql.Types.VARCHAR: ctx.println("VARCHAR"); break;
+                            case java.sql.Types.INTEGER: ctx.println("INTEGER"); break;
+                            case java.sql.Types.BLOB: ctx.println("BLOB"); break;
+                            default: ctx.println("type#"+t); break;
+                        }
+                        ctx.println("("+rsm.getColumnDisplaySize(i)+")");
+                        ctx.println("</th>");
                     }
                     ctx.println("</tr>");
                     int limit = 30;
@@ -282,6 +300,7 @@ public class SurveyMain extends HttpServlet {
                 }
                 
                 ctx.println("elapsed time: " + et + "<br />");
+                //conn.close(); 
                 //     (auto close)
             } catch(SQLException se) {
                 String complaint = "SQL err: " + unchainSqlException(se);
@@ -515,7 +534,7 @@ public class SurveyMain extends HttpServlet {
     public void printUserMenu(WebContext ctx) {
         ctx.println("<b>Welcome " + ctx.session.user.name + " (" + ctx.session.user.org + ") !</b>");
         ctx.println("<a href=\"" + ctx.base() + "\">[Sign Out]</a><br/>");
-        if(ctx.session.user.userlevel <= UserRegistry.ADMIN) {
+        if(UserRegistry.userIsAdmin(ctx.session.user)) {
             ctx.println("<b>You are an Admin:</b> ");
             ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "'>[Stats]</a>");
             if(ctx.session.user.id == 1) {
@@ -523,20 +542,20 @@ public class SurveyMain extends HttpServlet {
             }
             ctx.println("<br/>");
         }
-        if(ctx.session.user.userlevel <= UserRegistry.TC) {
+        if(UserRegistry.userIsTC(ctx.session.user)) {
             ctx.println("You are: <b>A CLDR TC Member:</b> ");
             ctx.println("<a href='" + ctx.jspLink("adduser.jsp") +"'>[Add User]</a> | ");
             ctx.println("<a href='" + ctx.url() + "&do=list'>[Manage " + ctx.session.user.org + " Users]</a>");
             ctx.println("<br/>");
         } else {
-            if(ctx.session.user.userlevel <= UserRegistry.VETTER) {
+            if(UserRegistry.userIsVetter(ctx.session.user)) {
                 ctx.println("You are a: <b>Vetter:</b> ");
                 ctx.println("<a href='" + ctx.url() + "&do=list'>[List " + ctx.session.user.org + " Users]</a>");
                 ctx.println("<br/>");
-            } else if(ctx.session.user.userlevel <= UserRegistry.STREET) {
+            } else if(UserRegistry.userIsStreet(ctx.session.user)) {
                 ctx.println("You are a: <b>Guest Contributor</b> ");
                 ctx.println("<br/>");
-            } else if(ctx.session.user.userlevel == UserRegistry.LOCKED) {
+            } else if(UserRegistry.userIsLocked(ctx.session.user)) {
                 ctx.println("<b>LOCKED: Note: your account is currently locked. Please contact " + ctx.session.user.org + "'s CLDR Technical Committee member.</b> ");
                 ctx.println("<br/>");
             }
@@ -557,7 +576,7 @@ public class SurveyMain extends HttpServlet {
         String new_org = ctx.field("new_org");
         int new_userlevel = ctx.fieldInt("new_userlevel",-1);
         
-        if(ctx.session.user.userlevel > UserRegistry.ADMIN) {
+        if(!UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
             new_org = ctx.session.user.org; // if not admin, must create user in the same org
         }
         
@@ -575,10 +594,7 @@ public class SurveyMain extends HttpServlet {
             UserRegistry.User u = reg.getEmptyUser();
             
             u.name = new_name;
-            u.userlevel = new_userlevel;
-            if(u.userlevel < ctx.session.user.userlevel) { // pin to creator
-                u.userlevel = ctx.session.user.userlevel;
-            }
+            u.userlevel = UserRegistry.userCanCreateUserOfLevel(ctx.session.user, new_userlevel);
             u.email = new_email;
             u.org = new_org;
             u.locales = new_locales;
@@ -619,8 +635,7 @@ public class SurveyMain extends HttpServlet {
         ctx.printHelpLink("/AddModifyUser");
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool main</b></a><hr />");
         String org = ctx.session.user.org;
-        int ourLevel = ctx.session.user.userlevel;
-        if(ourLevel <= UserRegistry.ADMIN) {
+        if(UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
             org = null; // all
         }
         try { synchronized(reg) {
@@ -629,17 +644,17 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("<i>No results...</i>");
                 return;
             }
-            if(ourLevel <= UserRegistry.ADMIN) {
+            if(UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
                 org = "ALL"; // all
             }
             ctx.println("<h2>Users for " + org + "</h2>");
-            if(ourLevel <= UserRegistry.TC) {
+            if(UserRegistry.userCanModifyUsers(ctx.session.user)) {
                 ctx.println("<div class='warning' style='border: 1px solid black; padding: 1em; margin: 1em'><b><font size='+2'>NOTE: Changing user level or locales while a user is active (below) in will result in  " +
                             " destruction of their session, losing all data.</font></b></div>");
             }
             // Preset box
             boolean preFormed = false;
-            if(ourLevel <= UserRegistry.TC) {
+            if(UserRegistry.userCanModifyUsers(ctx.session.user)) {
                 ctx.println("<div class='pager' style='align: right; float: right; margin-left: 4px;'>");
                 ctx.println("<form method=POST action='" + ctx.base() + "'>");
                 ctx.printUrlAsHiddenFields();
@@ -679,11 +694,11 @@ public class SurveyMain extends HttpServlet {
             if(preset_do.equals(LIST_ACTION_NONE)) {
                 preset_do="nothing";
             }
-            if((ourLevel <= UserRegistry.TC) &&
+            if(((UserRegistry.userCanModifyUsers(ctx.session.user))) &&
                !preFormed) { // form was already started, above
                 ctx.println("<form method=POST action='" + ctx.base() + "'>");
             }
-            if(ourLevel <= UserRegistry.TC) {
+            if(UserRegistry.userCanModifyUsers(ctx.session.user)) {
                 ctx.printUrlAsHiddenFields();
                 ctx.println("<input type='hidden' name='do' value='list' />");
                 ctx.println("<input type='submit' name='doBtn' value='Change' />");
@@ -705,16 +720,12 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("    " + "<a href='mailto:" + theirEmail + "'>" + theirEmail + "</a>" + "</td>");
                 ctx.println("    <td>" + theirOrg + "</td>");
                 if(theirLevel <= UserRegistry.TC) {
-                    ctx.println("   <td><i>all</i></td> ");
+                    ctx.println("   <td>" + UserRegistry.prettyPrintLocale(null) + "</td> ");
                 } else {
-                    ctx.println("    <td>" + theirLocales + "</td>");
+                    ctx.println("    <td>" + UserRegistry.prettyPrintLocale(theirLocales) + "</td>");
                 }
                 
-                boolean havePermToChange = 
-                    ( ourLevel <= UserRegistry.TC) &&  // are  at least TC and
-                    ( theirId != 1) && // they aren't admin 0
-                    ( theirId != ctx.session.user.id) && // they aren't us
-                    ( theirLevel >= ourLevel );
+                boolean havePermToChange = UserRegistry.userCanModifyUser(ctx.session.user, theirId, theirLevel);
                 
                 if(havePermToChange) {
                     // Was something requested?
@@ -753,7 +764,7 @@ public class SurveyMain extends HttpServlet {
                         }
                         ctx.println(" value='" + LIST_ACTION_SETLOCALES + "'>Set locales...</option>");
                     }
-                    if(theirLevel > ourLevel) {
+                    if(UserRegistry.userCanDeleteUser(ctx.session.user,theirId,theirLevel)) {
                         ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
                         if((action!=null) && action.equals(LIST_ACTION_DELETE0)) {
                             ctx.println("   <option value='" + LIST_ACTION_DELETE1 +"' SELECTED>Confirm delete</option>");
@@ -809,15 +820,15 @@ public class SurveyMain extends HttpServlet {
                             }                            
                         } else if(action.equals(LIST_ACTION_DELETE0)) {
                             ctx.println("Ensure that 'confirm delete' is chosen at left and click Change again to delete..");
-                        } else if((theirLevel >= ourLevel) && (action.equals(LIST_ACTION_DELETE1))) {
+                        } else if((UserRegistry.userCanDeleteUser(ctx.session.user,theirId,theirLevel)) && (action.equals(LIST_ACTION_DELETE1))) {
                             msg = reg.delete(ctx, theirId, theirEmail);
                             ctx.println("<strong style='font-color: red'>Deleting...</strong><br />");
                             ctx.println(msg);
-                        } else if((theirLevel >= ourLevel) && (action.equals(LIST_ACTION_SETLOCALES))) {
+                        } else if((UserRegistry.userCanModifyUser(ctx.session.user,theirId,theirLevel)) && (action.equals(LIST_ACTION_SETLOCALES))) {
                             if(theirLocales == null) {
                                 theirLocales = "";
                             }
-                            ctx.println("<label>Locales:<input name='" + LIST_ACTION_SETLOCALES + theirTag + "' value='" + theirLocales + "'></label>"); 
+                            ctx.println("<label>Locales: (space separated) <input name='" + LIST_ACTION_SETLOCALES + theirTag + "' value='" + theirLocales + "'></label>"); 
                         }
                         // ctx.println("Change to " + action);
                         ctx.println("</td>");
@@ -827,13 +838,13 @@ public class SurveyMain extends HttpServlet {
                 }
                 
                 // are they logged in?
-                if((theUser != null) && (ourLevel <= UserRegistry.TC)) {
+                if((theUser != null) && UserRegistry.userCanModifyUsers(ctx.session.user)) {
                     if(!havePermToChange) {
                         ctx.println("<td></td>");
                     }
                     ctx.println("<td>");
                     ctx.println("<b>Active " + timeDiff(theUser.last) + " ago</b>");
-                    if(ourLevel<=UserRegistry.ADMIN) {
+                    if(UserRegistry.userIsAdmin(ctx.session.user)) {
                         ctx.print("<br/>");
                         printLiveUserMenu(ctx, theUser);
                     }
@@ -844,7 +855,7 @@ public class SurveyMain extends HttpServlet {
             }
             ctx.println("</table>");
             ctx.println("<div style='font-size: 70%'>Number of users shown: " + n +"</div><br />");
-            if(ourLevel <= UserRegistry.TC) {
+            if(UserRegistry.userCanModifyUsers(ctx.session.user)) {
                 ctx.println("<input type='submit' name='doBtn' value='Change'>");
                 ctx.println("</form>");
             }
@@ -859,10 +870,7 @@ public class SurveyMain extends HttpServlet {
     
     private void doChangeUserOption(WebContext ctx, int newLevel, int theirLevel, boolean selected)
     {
-        int ourLevel = ctx.session.user.userlevel;
-        if((newLevel >= ourLevel) && // new level is equal to or greater than our level
-           (theirLevel >= ourLevel) && // double check
-           (newLevel != theirLevel) ) { // not existing level 
+        if(UserRegistry.userCanChangeLevel(ctx.session.user, theirLevel, newLevel)) {
             ctx.println("    <option " + (selected?" SELECTED ":"") + "value='" + LIST_ACTION_SETLEVEL + newLevel + "'>Make " +
                         UserRegistry.levelToStr(ctx,newLevel) + "</option>");
         }
@@ -880,9 +888,9 @@ public class SurveyMain extends HttpServlet {
         // admin things
         if((ctx.session.user != null) && (ctx.field("do").length()>0)) {
             String doWhat = ctx.field("do");
-            if(doWhat.equals("list")  && (ctx.session.user.userlevel <= UserRegistry.VETTER)  ) {
+            if(doWhat.equals("list")  && (UserRegistry.userCanDoList(ctx.session.user))  ) {
                 doList(ctx);
-            } else if(doWhat.equals("new") && (ctx.session.user.userlevel <= UserRegistry.TC) ) {
+            } else if(doWhat.equals("new") && (UserRegistry.userCanCreateUsers(ctx.session.user)) ) {
                 doNew(ctx);
             } else {
                 printHeader(ctx,doWhat + "?");
@@ -930,7 +938,7 @@ public class SurveyMain extends HttpServlet {
             if(ctx.field("submit").length()==0) {
                 Hashtable lh = ctx.session.getLocales();
                 Enumeration e = lh.keys();
-                if((ctx.session.user != null) && (ctx.locale != null) && ( ctx.session.user.userlevel <= UserRegistry.STREET)  ) { // at least street level
+                if((ctx.locale != null) && UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString())) { // at least street level
                     if(ctx.field("submit").length()==0) {
                         ctx.println("<div>");
                         ctx.println("<input type=submit value='" + xSAVE + "'>");
@@ -941,11 +949,16 @@ public class SurveyMain extends HttpServlet {
                     ctx.println("<B>Visited locales: </B> ");
                     for(;e.hasMoreElements();) {
                         String k = e.nextElement().toString();
-                        ctx.println("<a href=\"" + baseContext.url() + "&_=" + k + "\">" + 
-                                    new ULocale(k).getDisplayName() + "</a> ");
+                        boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,k);
+                        ctx.print("<a href=\"" + baseContext.url() + "&_=" + k + "\">" + 
+                                    new ULocale(k).getDisplayName());
+                        if(canModify) {
+                            ctx.print(MODIFY_THING);
+                        }
+                        ctx.println("</a> ");
                     }
                     
-                /*   if((ctx.session.user != null)  && ( ctx.session.user.userlevel <= UserRegistry.STREET) ) {
+                /*   if(  UserRegistry.userCanSubmit(ctx.session.user) ) {
                         ctx.println("<div>");
                         ctx.println("Your changes are <b><font color=red>not</font></b> permanently saved until you: ");
                         ctx.println("<input name=submit type=submit value='" + xREVIEW +"'>");
@@ -1071,7 +1084,12 @@ public class SurveyMain extends HttpServlet {
         ctx.print("<a " + (hasDraft?"class='draftl'":"class='nodraft'") 
                   +" title='" + localeName + "' href=\"" + ctx.url() 
                   + "&" + "_=" + localeName + "\">" +
-                  n + "</a>");
+                  n);
+        boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,localeName);
+        if(canModify) {
+            ctx.print("<span title='You are allowed to submit changes for this locale.'>\uF802</span>");
+        }
+        ctx.print("</a>");
         ctx.print(hasDraft?"</b>":"") ;
     }
     
@@ -1097,18 +1115,18 @@ public class SurveyMain extends HttpServlet {
         for(Iterator li = lm.keySet().iterator();li.hasNext();) {
             n++;
             String ln = (String)li.next();
-            String l = (String)lm.get(ln);
+            String aLocale = (String)lm.get(ln);
             ctx.print("<tr class='row" + (n%2) + "'>");
             ctx.print(" <td>");
-            printLocaleLink(baseContext, l, ln);
+            printLocaleLink(baseContext, aLocale, ln);
             ctx.println(" </td>");
             if(showCodes) {
                 ctx.print(" <td>");
-                ctx.println("<tt>" + l + "</tt>");
+                ctx.println("<tt>" + aLocale + "</tt>");
                 ctx.println(" </td>");
             }
             
-            TreeMap sm = (TreeMap)subLocales.get(l);
+            TreeMap sm = (TreeMap)subLocales.get(aLocale);
             
             ctx.println("<td>");
             int j = 0;
@@ -1117,11 +1135,11 @@ public class SurveyMain extends HttpServlet {
                     ctx.println(", ");
                 }
                 String sn = (String)si.next();
-                String s = (String)sm.get(sn);
-                if(s.length()>0) {
-                    printLocaleLink(baseContext, s, sn);
+                String subLocale = (String)sm.get(sn);
+                if(subLocale.length()>0) {
+                    printLocaleLink(baseContext, subLocale, sn);
                     if(showCodes) {
-                        ctx.println("&nbsp;-&nbsp;<tt>" + s + "</tt>");
+                        ctx.println("&nbsp;-&nbsp;<tt>" + subLocale + "</tt>");
                     }
                 }
                 j++;
@@ -1638,12 +1656,24 @@ subtype = subtype.substring(0,subtype.length()-1);
                 for(j=0;j<(n-i);j++) {
                     ctx.print("&nbsp;&nbsp;");
                 }
-                ctx.println("\u2517&nbsp;<a href=\"" + ctx.url() + "&_=" + ctx.docLocale[i] + "\">" + ctx.docLocale[i] + "</a> " + new ULocale(ctx.docLocale[i]).getDisplayName() + "<br/>");
+                boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
+                ctx.println("\u2517&nbsp;<a href=\"" + ctx.url() + "&_=" + ctx.docLocale[i] + 
+                    "\">" + ctx.docLocale[i] + "</a> " + new ULocale(ctx.docLocale[i]).getDisplayName() );
+                if(canModify) {
+                    ctx.print(MODIFY_THING);
+                }
+                ctx.println("<br/>");
             }
             for(j=0;j<n;j++) {
                 ctx.print("&nbsp;&nbsp;");
             }
-            ctx.println("\u2517&nbsp;<font size=+2><b>" + ctx.locale + "</b></font> " + ctx.locale.getDisplayName() + "<br/>");
+            boolean canModifyL = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString());
+            ctx.print("\u2517&nbsp;<font size=+2><b>" + ctx.locale + "</b>");
+            if(canModifyL) {
+                ctx.print(MODIFY_THING);
+            }
+            ctx.println("</font> " + 
+                ctx.locale.getDisplayName() + "<br/>");
             ctx.println("</td><td>");
             
             if((which == null) ||
@@ -2355,10 +2385,27 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
     Iterator theIterator = null;
     
     String ourDir = getDirectionFor(ctx.locale);
+    boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
     
     synchronized(ourSrc) { // because it has a connection..
                            // Podder
-        System.out.println("Pod's full thing: " + fullThing);
+        // first, do submissions.
+        if(canModify) {
+            DataPod oldPod = ctx.getExistingPod(fullThing);
+            if(oldPod != null) {
+                for(Iterator i = oldPod.getAll().iterator();i.hasNext();) {
+                    DataPod.Pea p = (DataPod.Pea)i.next();
+                    processPeaChanges(ctx, oldPod, p, ourDir, cf, ourSrc);
+                    if(p.subPeas != null) {
+                        for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
+                            DataPod.Pea subPea = (DataPod.Pea)e.next();
+                            processPeaChanges(ctx, oldPod, subPea, ourDir, cf, ourSrc);
+                        }
+                    }
+                }            
+            }
+        }
+//        System.out.println("Pod's full thing: " + fullThing);
         DataPod pod = ctx.getPod(fullThing);
         List peas = pod.getList(sortMode);
         ctx.println("<hr />");
@@ -2379,21 +2426,49 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
                     
         for(ListIterator i = peas.listIterator(skip);(count<CODES_PER_PAGE)&&i.hasNext();count++) {
             DataPod.Pea p = (DataPod.Pea)i.next();
-            showPea(ctx, pod, p, ourDir, cf, ourSrc);
+            showPea(ctx, pod, p, ourDir, cf, ourSrc, canModify);
             if(p.subPeas != null) {
                 for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
                     DataPod.Pea subPea = (DataPod.Pea)e.next();
-                    showPea(ctx, pod, subPea, ourDir, cf, ourSrc);
+                    showPea(ctx, pod, subPea, ourDir, cf, ourSrc, canModify);
                 }
             }
         }
         
         ctx.println("</table>");
     }
-    
+    if(!canModify) {
+        ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
+    }
 }
 
-void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, CLDRDBSource ourSrc) {
+void processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, CLDRDBSource ourSrc) {
+    String fieldHash = pod.fieldHash(p);
+    // do modification here. 
+    String choice = ctx.field(fieldHash); // checkmark choice
+    String choice_v = ctx.field(fieldHash+"_v"); // choice + value
+    
+    // TODO: load.. 
+    if(choice.length()==0) {
+        return; // nothing to see..
+    }
+    
+    if(choice.equals(CHANGETO) &&
+        choice_v.length()>0) {
+        String fullPathFull = pod.xpath(p);
+        String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
+        String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, fullPathMinusAlt, p.altType, 
+            "proposed-u"+ctx.session.user.id+"-", ctx.session.user.id, choice_v);
+        ctx.println("<tt class='codebox'>" + p.displayName + "</tt> <b>change: " + choice_v + " : " + newProp + "<br />");
+        lcr.invalidateLocale(pod.locale); // throw out this pod next time.
+    } else if(!choice.equals(DONTCARE)) {
+        ctx.println("<tt class='codebox'>" + p.displayName + "</tt> Note: <i>" + choice + "</i> not supported yet. <br />");
+    }
+}
+
+// TODO: trim unused params
+void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile cf, 
+    CLDRDBSource ourSrc, boolean canModify) {
     //            ctx.println("<tr><th colspan='3' align='left'><tt>" + p.type + "</tt></th></tr>");
 
     String fieldHash = pod.fieldHash(p);
@@ -2417,26 +2492,15 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     }
     ctx.println("</th> </tr>");
     
-    // do modification here. 
-    String choice = ctx.field(fieldHash); // checkmark choice
-    String choice_v = ctx.field(fieldHash+"_v"); // choice + value
-    
-    if(choice.equals(CHANGETO) &&
-        choice_v.length()>0) {
-        String fullPathFull = pod.xpath(p);
-        String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
-        String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, fullPathMinusAlt, p.altType, 
-            "proposed-u"+ctx.session.user.id+"-", ctx.session.user.id, choice_v);
-        ctx.println("<tr><td colspan='4'>CHANGE TO: " + choice_v + " : " + newProp + "</td></tr>");
-        lcr.invalidateLocale(pod.locale); // throw out this pod next time.
-    }
-    
     
     if((p.hasInherited == true) && (p.type != null) && (p.inheritFrom == null)) { // by code
         String pClass = "class='warnrow'";
         ctx.print("<tr " + pClass + "><td nowrap colspan='3' valign='top' align='right'>");
         ctx.print("<span class='actionbox'>missing</span>");
-        ctx.print("<input name='"+fieldHash+"' value='"+"0"+"' type='radio' /><tt>");
+        if(canModify) {
+            ctx.print("<input name='"+fieldHash+"' value='"+"0"+"' type='radio' />");
+        }
+        ctx.print("<tt>");
         ctx.println("</td>");
         ctx.println("<td dir='" + ourDir +"'>");
         ctx.println(p.type + "</tt></td>");
@@ -2461,7 +2525,9 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                 ctx.print("<span class='actionbox'>" + CONFIRM + "</span>");
             }
         }
-        ctx.print("<input name='"+fieldHash+"'  value='"+((item.altProposed!=null)?item.altProposed:"0")+"' type='radio' />");
+        if(canModify) {
+            ctx.print("<input name='"+fieldHash+"'  value='"+((item.altProposed!=null)?item.altProposed:"0")+"' type='radio' />");
+        }
         ctx.println("</td>");
         ctx.println("<td valign='top' nowrap dir='" + ourDir +"'>");
         ctx.println(item.value + "</td>");
@@ -2486,15 +2552,22 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         String pClass = "";
          // dont care
         ctx.print("<tr " + pClass + "><td nowrap colspan>");
-        ctx.print("<span class='actionbox'>" + DONTCARE + "</span>");
-        ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' CHECKED />");
+        if(canModify) {
+            ctx.print("<span class='actionbox'>" + DONTCARE + "</span>");
+            ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' CHECKED />");
+        }
         ctx.println("</td>");
         ctx.println("<td bgcolor='gray'></td>");
         // change
-        ctx.print("<td nowrap valign='top' align='right'><span class='actionbox'>" + CHANGETO + "</span>");
-        ctx.print("<input name='"+fieldHash+"' value='"+CHANGETO+"' type='radio'  />");
+        ctx.print("<td nowrap valign='top' align='right'>");
+        if(canModify) {
+            ctx.print("<span class='actionbox'>" + CHANGETO + "</span>");
+            ctx.print("<input name='"+fieldHash+"' value='"+CHANGETO+"' type='radio'  />");
+        }
         ctx.println("</td>");
-        ctx.println("<td colspan='2'><input name='"+fieldHash+"_v'  class='inputbox'></td>");
+        if(canModify) {
+            ctx.println("<td colspan='2'><input name='"+fieldHash+"_v'  class='inputbox'></td>");
+        }
         ctx.println("</tr>");
     }
 }
@@ -2528,103 +2601,103 @@ int showSkipBox(WebContext ctx, int total, List displayList) {
     ctx.println("<div class='pager' style='margin: 2px'>");
     ctx.println(/*"<p style='float: right; margin-left: 3em;'> " + */
         "Sorted ");
-{
-    String sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
-    boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
-    
-    //          showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
-    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
-    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Priority");
-    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, "Name");
-}
-
-// TODO: replace with ctx.fieldValue("skip",-1)
-String str = ctx.field("skip");
-if((str!=null)&&(str.length()>0)) {
-    skip = new Integer(str).intValue();
-} else {
-    skip = 0;
-}
-if(skip<=0) {
-    skip = 0;
-} 
-
-// calculate nextSkip\
-int from = skip+1;
-int to = from + CODES_PER_PAGE-1;
-if(to >= total) {
-    to = total;
-}
-
-// Print navigation
-ctx.println("Displaying items " + from + " to " + to + " of " + total);        
-
-if(total>=(CODES_PER_PAGE)) {
-    ctx.println("<br/>");
-}
-
-if(skip>0) {
-    int prevSkip = skip - CODES_PER_PAGE;
-    if(prevSkip<0) {
-        prevSkip = 0;
+    {
+        String sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
+        boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
+        
+        //          showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
+        showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
+        showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Priority");
+        showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, "Name");
     }
-    ctx.println("<a href=\"" + ctx.url() + 
-                "&skip=" + new Integer(prevSkip) + "\">" +
-                "&lt;&lt;&lt; prev " + CODES_PER_PAGE + "");
-    ctx.println("</a> &nbsp;");
-    if(skip>=total) {
+
+    // TODO: replace with ctx.fieldValue("skip",-1)
+    String str = ctx.field("skip");
+    if((str!=null)&&(str.length()>0)) {
+        skip = new Integer(str).intValue();
+    } else {
         skip = 0;
     }
-} else if(total>=(CODES_PER_PAGE)) {
-    ctx.println("<span>&lt;&lt;&lt; prev " + CODES_PER_PAGE + "" +
-                "</span> &nbsp;");        
-}
+    if(skip<=0) {
+        skip = 0;
+    } 
 
-if(total>=(CODES_PER_PAGE)) {
-    for(int i=0;i<total;i+= CODES_PER_PAGE) {
-        int end = i + CODES_PER_PAGE-1;
-        if(end>=total) {
-            end = total-1;
-        }
-        boolean isus = (i == skip);
-        if(isus) {
-            ctx.println(" <b class='selected'>");
-        } else {
-            ctx.println(" <a class='notselected' href=\"" + ctx.url() + 
-                        "&skip=" + new Integer(i) + "\">");
-        }
-        if(displayList != null) {
-            ctx.print("" +displayList.get(i).toString() + "");
-            ctx.print("\u2026"); // ...
-            ctx.print("" +displayList.get(end).toString() + "");
-        } else {
-            ctx.print( ""+(i+1) );
-            ctx.print( "-" + (end+1));
-        }
-        if(isus) {
-            ctx.println("</b> ");
-        } else {
-            ctx.println("</a> ");
-        }
+    // calculate nextSkip\
+    int from = skip+1;
+    int to = from + CODES_PER_PAGE-1;
+    if(to >= total) {
+        to = total;
     }
-}
-int nextSkip = skip + CODES_PER_PAGE; 
-if(nextSkip >= total) {
-    nextSkip = -1;
+
+    // Print navigation
+    ctx.println("Displaying items " + from + " to " + to + " of " + total);        
+
     if(total>=(CODES_PER_PAGE)) {
-        ctx.println(" <span >" +
-                    "next " + CODES_PER_PAGE + "&gt;&gt;&gt;" +
-                    "</span>");
+        ctx.println("<br/>");
     }
-} else {
-    ctx.println(" <a href=\"" + ctx.url() + 
-                "&skip=" + new Integer(nextSkip) + "\">" +
-                "next " + CODES_PER_PAGE + "&gt;&gt;&gt;" +
-                "</a>");
-}
-//        ctx.println("</p>");
-ctx.println("</div>");
-return skip;
+
+    if(skip>0) {
+        int prevSkip = skip - CODES_PER_PAGE;
+        if(prevSkip<0) {
+            prevSkip = 0;
+        }
+        ctx.println("<a href=\"" + ctx.url() + 
+                    "&skip=" + new Integer(prevSkip) + "\">" +
+                    "&lt;&lt;&lt; prev " + CODES_PER_PAGE + "");
+        ctx.println("</a> &nbsp;");
+        if(skip>=total) {
+            skip = 0;
+        }
+    } else if(total>=(CODES_PER_PAGE)) {
+        ctx.println("<span>&lt;&lt;&lt; prev " + CODES_PER_PAGE + "" +
+                    "</span> &nbsp;");        
+    }
+
+    if(total>=(CODES_PER_PAGE)) {
+        for(int i=0;i<total;i+= CODES_PER_PAGE) {
+            int end = i + CODES_PER_PAGE-1;
+            if(end>=total) {
+                end = total-1;
+            }
+            boolean isus = (i == skip);
+            if(isus) {
+                ctx.println(" <b class='selected'>");
+            } else {
+                ctx.println(" <a class='notselected' href=\"" + ctx.url() + 
+                            "&skip=" + new Integer(i) + "\">");
+            }
+            if(displayList != null) {
+                ctx.print("" +displayList.get(i).toString() + "");
+                ctx.print("\u2026"); // ...
+                ctx.print("" +displayList.get(end).toString() + "");
+            } else {
+                ctx.print( ""+(i+1) );
+                ctx.print( "-" + (end+1));
+            }
+            if(isus) {
+                ctx.println("</b> ");
+            } else {
+                ctx.println("</a> ");
+            }
+        }
+    }
+    int nextSkip = skip + CODES_PER_PAGE; 
+    if(nextSkip >= total) {
+        nextSkip = -1;
+        if(total>=(CODES_PER_PAGE)) {
+            ctx.println(" <span >" +
+                        "next " + CODES_PER_PAGE + "&gt;&gt;&gt;" +
+                        "</span>");
+        }
+    } else {
+        ctx.println(" <a href=\"" + ctx.url() + 
+                    "&skip=" + new Integer(nextSkip) + "\">" +
+                    "next " + CODES_PER_PAGE + "&gt;&gt;&gt;" +
+                    "</a>");
+    }
+    //        ctx.println("</p>");
+    ctx.println("</div>");
+    return skip;
 }
 
 public static int pages=0;

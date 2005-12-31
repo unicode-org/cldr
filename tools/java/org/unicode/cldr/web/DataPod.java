@@ -12,6 +12,9 @@ import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.*;
 import java.util.*;
 
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
+
 /** A data pod represents a group of related data that will be displayed to users in a list
  * such as, "all of the language display names contained in the en_US locale".
  * It is sortable, as well, and has some level of persistence.
@@ -69,6 +72,15 @@ public class DataPod {
         lcr.register(locale, key, this);
     }
     private String key = LocaleChangeRegistry.newKey(); // key for this item
+
+    static Collator getOurCollator() {
+        RuleBasedCollator rbc = 
+            ((RuleBasedCollator)Collator.getInstance());
+        rbc.setNumericCollation(true);
+        return rbc;
+    }
+    
+    final Collator myCollator = getOurCollator();
     
     public class Pea {
         public String type = null;
@@ -89,7 +101,6 @@ public class DataPod {
         
         public Set items = new TreeSet(new Comparator() {
                     public int compare(Object o1, Object o2){
-                        //com.ibm.icu.text.Collator myCollator = com.ibm.icu.text.Collator.getInstance();
                         Item p1 = (Item) o1;
                         Item p2 = (Item) o2;
                         if(p1==p2) { 
@@ -98,8 +109,7 @@ public class DataPod {
                         if((p1.altProposed==null)&&(p2.altProposed==null)) return 0;
                         if(p1.altProposed == null) return -1;
                         if(p2.altProposed == null) return 1;
-                       // return myCollator.compare(p1.type, p2.type);
-                       return 0;
+                        return myCollator.compare(p1.altProposed, p2.altProposed);
                     }
                 });
         void addItem(String value, String altProposed, List tests) {
@@ -153,24 +163,36 @@ public class DataPod {
     Hashtable peasHash = new Hashtable();
     String oldSortMode = null;
     List peas = null;
-
+ 
+    /**
+     * get all peas.. unsorted.
+     */
+    public Collection getAll() {
+        synchronized(peasHash) {
+            return peasHash.values();
+        }
+    }
+    
+    /**
+     * get a List of peas, in sorted order 
+     */
     public List getList(String sortMode) {
         synchronized(peasHash) {
             if(!sortMode.equals(oldSortMode)) {
-                peas = null; /* invalid */
+                peas = null; /* throw out the old list - it's in the wrong order. */
             }
         
             if((peas == null) /* || sortMode != curSortMode... */ ) {
                 Set newSet;
                 
-                final com.ibm.icu.text.RuleBasedCollator rbc = 
-                    ((com.ibm.icu.text.RuleBasedCollator)com.ibm.icu.text.Collator.getInstance());
-                rbc.setNumericCollation(true);
+//                final com.ibm.icu.text.RuleBasedCollator rbc = 
+//                    ((com.ibm.icu.text.RuleBasedCollator)com.ibm.icu.text.Collator.getInstance());
+//                rbc.setNumericCollation(true);
 
                 
                 if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
                     newSet = new TreeSet(new Comparator() {
-                        com.ibm.icu.text.Collator myCollator = rbc;
+//                        com.ibm.icu.text.Collator myCollator = rbc;
                         public int compare(Object o1, Object o2){
                             Pea p1 = (Pea) o1;
                             Pea p2 = (Pea) o2;
@@ -182,7 +204,7 @@ public class DataPod {
                     });
                 } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
                     newSet = new TreeSet(new Comparator() {
-                        com.ibm.icu.text.Collator myCollator = rbc;
+//                        com.ibm.icu.text.Collator myCollator = rbc;
                         public int compare(Object o1, Object o2){
                             Pea p1 = (Pea) o1;
                             Pea p2 = (Pea) o2;
@@ -240,7 +262,7 @@ public class DataPod {
                     });
                 } else if(sortMode.equals(SurveyMain.PREF_SORTMODE_NAME)) {
                     newSet = new TreeSet(new Comparator() {
-                        com.ibm.icu.text.Collator myCollator = rbc;
+//                        com.ibm.icu.text.Collator myCollator = rbc;
                         public int compare(Object o1, Object o2){
                             Pea p1 = (Pea) o1;
                             Pea p2 = (Pea) o2;
@@ -399,6 +421,13 @@ public class DataPod {
                 altProposed = SurveyMain.PROPOSED_DRAFT;
             }
             
+/*srl*/            if(-1!=xpath.indexOf("ain")) {
+                System.err.println("ain:: " + xpath + aFile.getSourceLocaleID(xpath) + " - AP:" + altProposed + " - AT: " + altType );
+//                if(aFile.getSourceLocaleID(xpath).equals("code-fallback")) {
+//                    throw new InternalError("No err!");
+//                }
+            }
+
             // Inherit display names.
             if((superP != p) && (p.displayName == null)) {
                 p.displayName = superP.displayName;
@@ -422,8 +451,11 @@ public class DataPod {
             if((checkCldr != null)&&(altProposed == null)) {
                 checkCldr.check(xpath, fullPath, value, options, checkCldrResult);
             }
+/*srl*/     if(-1!=xpath.indexOf("ain")) {
+                System.err.println("ain+- was have " + p.items.size() + " Items ");
+            }
             if(checkCldrResult.isEmpty()) {
-                p.addItem( value,  altProposed, null);
+                p.addItem( value, altProposed, null);
             } else {
                 p.addItem( value, altProposed, checkCldrResult);
                 // only consider non-example tests as notable.
@@ -440,6 +472,9 @@ public class DataPod {
                 }
                 // set the parent
                 checkCldrResult = new ArrayList(); // can't reuse it if nonempty
+            }
+/*srl*/     if(-1!=xpath.indexOf("ain")) {
+                System.err.println("ain+: now have " + p.items.size() + " Items ");
             }
         }
         

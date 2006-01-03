@@ -9,66 +9,66 @@
 	<localeDisplayNames>
 		<languages>
 			<language type="ar">arabský</language>
+			<language type="ar" alt="proposed" draft="true">arabčina</language>
 			<language type="bg">bulharský</language>
+			<language type="bg" alt="proposed" draft="true">bulharčina</language>
 			<language type="cs">český</language>
+			<language type="cs" alt="proposed" draft="true">čeština</language>
 			<language type="da">dánsky</language>
+			<language type="da" alt="proposed" draft="true">dánčina</language>
 			<language type="de">nemecký</language>
+			<language type="de" alt="proposed" draft="true">nemčina</language>
 			<language type="el">grécky</language>
+			<language type="el" alt="proposed" draft="true">gréčtina</language>
 			<language type="en">anglický</language>
+			<language type="en" alt="proposed" draft="true">angličtina</language>
 			<language type="es">španielsky</language>
+			<language type="es" alt="proposed" draft="true">španielčina</language>
 			<language type="et">estónsky</language>
+			<language type="et" alt="proposed" draft="true">estónčina</language>
 			<language type="fi">fínsky</language>
+			<language type="fi" alt="proposed" draft="true">fínčina</language>
 			<language type="fr">francúzsky</language>
+			<language type="fr" alt="proposed" draft="true">francúzština</language>
 			<language type="he">hebrejský</language>
+			<language type="he" alt="proposed" draft="true">hebrejčina</language>
 			<language type="hr">chorvátsky</language>
+			<language type="hr" alt="proposed" draft="true">chorvátčina</language>
 			<language type="hu">maďarský</language>
+			<language type="hu" alt="proposed" draft="true">maďarčina</language>
 			<language type="it">taliansky</language>
+			<language type="it" alt="proposed" draft="true">taliančina</language>
 			<language type="ja">japonský</language>
+			<language type="ja" alt="proposed" draft="true">japončina</language>
 			<language type="ko">kórejský</language>
+			<language type="ko" alt="proposed" draft="true">kórejčina</language>
 			<language type="lt">litovský</language>
+			<language type="lt" alt="proposed" draft="true">litovčina</language>
 			<language type="lv">lotyšský</language>
+			<language type="lv" alt="proposed" draft="true">lotyština</language>
+			<language type="mt" alt="proposed" draft="true">maltčina</language>
 			<language type="nl">holandský</language>
+			<language type="nl" alt="proposed" draft="true">holandčina</language>
 			<language type="no">nórsky</language>
+			<language type="no" alt="proposed" draft="true">nórčina</language>
 			<language type="pl">poľský</language>
+			<language type="pl" alt="proposed" draft="true">poľština</language>
 			<language type="pt">portugalský</language>
+			<language type="pt" alt="proposed" draft="true">portugalčina</language>
 			<language type="ro">rumunský</language>
+			<language type="ro" alt="proposed" draft="true">rumunčina</language>
 			<language type="ru">ruský</language>
+			<language type="ru" alt="proposed" draft="true">ruština</language>
 			<language type="sk">slovenský</language>
+			<language type="sk" alt="proposed" draft="true">slovenčina</language>
 			<language type="sl">slovinský</language>
+			<language type="sl" alt="proposed" draft="true">slovinčina</language>
 			<language type="sv">švédsky</language>
+			<language type="sv" alt="proposed" draft="true">švédčina</language>
 			<language type="tr">turecký</language>
+			<language type="tr" alt="proposed" draft="true">turečtina</language>
 			<language type="zh">čínsky</language>
-			<language type="ar" draft="true" alt="proposed">arabčina</language>
-			<language type="bg" draft="true" alt="proposed">bulharčina</language>
-			<language type="cs" draft="true" alt="proposed">čeština</language>
-			<language type="da" draft="true" alt="proposed">dánčina</language>
-			<language type="de" draft="true" alt="proposed">nemčina</language>
-			<language type="el" draft="true" alt="proposed">gréčtina</language>
-			<language type="en" draft="true" alt="proposed">angličtina</language>
-			<language type="es" draft="true" alt="proposed">španielčina</language>
-			<language type="et" draft="true" alt="proposed">estónčina</language>
-			<language type="fi" draft="true" alt="proposed">fínčina</language>
-			<language type="fr" draft="true" alt="proposed">francúzština</language>
-			<language type="he" draft="true" alt="proposed">hebrejčina</language>
-			<language type="hr" draft="true" alt="proposed">chorvátčina</language>
-			<language type="hu" draft="true" alt="proposed">maďarčina</language>
-			<language type="it" draft="true" alt="proposed">taliančina</language>
-			<language type="ja" draft="true" alt="proposed">japončina</language>
-			<language type="ko" draft="true" alt="proposed">kórejčina</language>
-			<language type="lt" draft="true" alt="proposed">litovčina</language>
-			<language type="lv" draft="true" alt="proposed">lotyština</language>
-			<language type="mt" draft="true" alt="proposed">maltčina</language>
-			<language type="nl" draft="true" alt="proposed">holandčina</language>
-			<language type="no" draft="true" alt="proposed">nórčina</language>
-			<language type="pl" draft="true" alt="proposed">poľština</language>
-			<language type="pt" draft="true" alt="proposed">portugalčina</language>
-			<language type="ro" draft="true" alt="proposed">rumunčina</language>
-			<language type="ru" draft="true" alt="proposed">ruština</language>
-			<language type="sk" draft="true" alt="proposed">slovenčina</language>
-			<language type="sl" draft="true" alt="proposed">slovinčina</language>
-			<language type="sv" draft="true" alt="proposed">švédčina</language>
-			<language type="tr" draft="true" alt="proposed">turečtina</language>
-			<language type="zh" draft="true" alt="proposed">čínština</language>
+			<language type="zh" alt="proposed" draft="true">čínština</language>
 		</languages>
 		<scripts>
 			<script type="Arab">Arabský</script>
@@ -528,6 +528,38 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats draft="true">
+						<dateFormatItem>MM-dd</dateFormatItem>
+						<dateFormatItem>d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>d. MMM yyyy</dateFormatItem>
+						<dateFormatItem>EEEE,MMMM d. yyyy</dateFormatItem>
+						<dateFormatItem>EEE, MMMM d. yyyy</dateFormatItem>
+						<dateFormatItem>EEE, MMM d. yy</dateFormatItem>
+						<dateFormatItem>MMMM d. yyyy</dateFormatItem>
+						<dateFormatItem>MMM d. yyyy</dateFormatItem>
+						<dateFormatItem>MMM d. yy</dateFormatItem>
+						<dateFormatItem>EEEE,MMMM dd. yyyy</dateFormatItem>
+						<dateFormatItem>dd.MM.yy</dateFormatItem>
+						<dateFormatItem>dd.MM.yyyy</dateFormatItem>
+						<dateFormatItem>QQQQ yy</dateFormatItem>
+						<dateFormatItem>MMMM</dateFormatItem>
+						<dateFormatItem>MMM dd</dateFormatItem>
+						<dateFormatItem>MM yy</dateFormatItem>
+						<dateFormatItem>EEE, dd. MMM yy</dateFormatItem>
+						<dateFormatItem>d.M.yy</dateFormatItem>
+						<dateFormatItem>ww</dateFormatItem>
+						<dateFormatItem>yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem>yy-MM-dd</dateFormatItem>
+						<dateFormatItem>mm:ss,SS</dateFormatItem>
+						<dateFormatItem>KK:mm:ss a</dateFormatItem>
+						<dateFormatItem>KK:mm a</dateFormatItem>
+						<dateFormatItem>HH:mm:ss</dateFormatItem>
+						<dateFormatItem>HH:mm</dateFormatItem>
+						<dateFormatItem>dd.MM.yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem>dd.MM.yy HH:mm</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

@@ -111,7 +111,7 @@
 			<language type="de">German</language>
 			<language type="del">Delaware</language>
 			<language type="den">Slave</language>
-			<language type="den" draft="true" alt="proposed">Slavey</language>
+			<language type="den" alt="proposed" draft="true">Slavey</language>
 			<language type="dgr">Dogrib</language>
 			<language type="din">Dinka</language>
 			<language type="doi">Dogri</language>
@@ -610,13 +610,13 @@
 			<territory type="021">Northern America</territory>
 			<territory type="029">Caribbean</territory>
 			<territory type="030">Eastern Asia</territory>
+			<territory type="034">Southern Asia</territory>
 			<territory type="035">South-eastern Asia</territory>
 			<territory type="039">Southern Europe</territory>
 			<territory type="053">Australia and New Zealand</territory>
 			<territory type="054">Melanesia</territory>
 			<territory type="057">Micronesian Region</territory>
 			<territory type="061">Polynesia</territory>
-			<territory type="034">Southern Asia</territory>
 			<territory type="142">Asia</territory>
 			<territory type="143">Central Asia</territory>
 			<territory type="145">Western Asia</territory>
@@ -1083,6 +1083,38 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats draft="true">
+						<dateFormatItem>MM-dd</dateFormatItem>
+						<dateFormatItem>d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem>EEEE,MMMM d, yyyy</dateFormatItem>
+						<dateFormatItem>EEE, MMMM d, yyyy</dateFormatItem>
+						<dateFormatItem>EEE, MMM d, yy</dateFormatItem>
+						<dateFormatItem>MMMM d, yyyy</dateFormatItem>
+						<dateFormatItem>MMM d, yyyy</dateFormatItem>
+						<dateFormatItem>MMM d, yy</dateFormatItem>
+						<dateFormatItem>EEEE,MMMM dd, yyyy</dateFormatItem>
+						<dateFormatItem>MM/dd/yy</dateFormatItem>
+						<dateFormatItem>MM/dd/yyyy</dateFormatItem>
+						<dateFormatItem>QQQQ yy</dateFormatItem>
+						<dateFormatItem>MMMM</dateFormatItem>
+						<dateFormatItem>MMM dd</dateFormatItem>
+						<dateFormatItem>MM/yy</dateFormatItem>
+						<dateFormatItem>EEE dd/MMM yy</dateFormatItem>
+						<dateFormatItem>M/d/yy</dateFormatItem>
+						<dateFormatItem>ww</dateFormatItem>
+						<dateFormatItem>yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem>yy-MM-dd</dateFormatItem>
+						<dateFormatItem>mm:ss.SS</dateFormatItem>
+						<dateFormatItem>KK:mm:ss a</dateFormatItem>
+						<dateFormatItem>KK:mm a</dateFormatItem>
+						<dateFormatItem>HH:mm:ss</dateFormatItem>
+						<dateFormatItem>HH:mm</dateFormatItem>
+						<dateFormatItem>MM/dd/yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem>MM/dd/yy KK:mm a</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 				<fields>
 					<field type="day">
 						<relative type="0">Today</relative>

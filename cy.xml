@@ -298,9 +298,9 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a á à â ä b-e é è ê ë f-i í ì î ï j-o ó ò ô ö p-u ú ù û ü v w ẃ ẁ ŵ ẅ x y ý ỳ ŷ ÿ z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" alt="proposed" draft="true">[jkqvxz]</exemplarCharacters>
 		<exemplarCharacters alt="proposed" draft="true">[́ a á à â ä b c {ch} d {dd} e é è ê ë f {ff} g-i í ì î ï j-l {ll} m n {ng} o ó ò ô ö p {ph} q r {rh} s t {th} u ú ù û ü v w ẃ ẁ ŵ ẅ x y ý ỳ ŷ ÿ z]</exemplarCharacters>
 		<exemplarCharacters alt="proposed2" draft="true">[a á à â ä b c {ch} d {dd} e é è ê ë f {ff} g-i í ì î ï l {ll} m n {ng} o ó ò ô ö p {ph} r {rh} s t {th} u ú ù û ü w ẃ ẁ ŵ ẅ y ý ỳ ŷ ÿ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" alt="proposed" draft="true">[jkqvxz]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -386,6 +386,37 @@
 						</dayWidth>
 					</dayContext>
 				</days>
+				<dateTimeFormats>
+					<availableFormats draft="true">
+						<dateFormatItem>MM-dd</dateFormatItem>
+						<dateFormatItem>d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem>EEEE,d MMMM yyyy</dateFormatItem>
+						<dateFormatItem>EEE d MMMM yyyy</dateFormatItem>
+						<dateFormatItem>EEE d MMM yy</dateFormatItem>
+						<dateFormatItem>d MMMM yyyy</dateFormatItem>
+						<dateFormatItem>d MMM yyyy</dateFormatItem>
+						<dateFormatItem>d MMM yy</dateFormatItem>
+						<dateFormatItem>dd MMMM yyyy</dateFormatItem>
+						<dateFormatItem>dd/MM/yy</dateFormatItem>
+						<dateFormatItem>dd/MM/yyyy</dateFormatItem>
+						<dateFormatItem>QQQQ yy</dateFormatItem>
+						<dateFormatItem>MMMM</dateFormatItem>
+						<dateFormatItem>dd/MMM</dateFormatItem>
+						<dateFormatItem>MM/yy</dateFormatItem>
+						<dateFormatItem>EEE dd/MMM yy</dateFormatItem>
+						<dateFormatItem>ww</dateFormatItem>
+						<dateFormatItem>yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem>yy-MM-dd</dateFormatItem>
+						<dateFormatItem>mm:ss.SS</dateFormatItem>
+						<dateFormatItem>KK:mm:ss a</dateFormatItem>
+						<dateFormatItem>KK:mm a</dateFormatItem>
+						<dateFormatItem>HH:mm:ss</dateFormatItem>
+						<dateFormatItem>HH:mm</dateFormatItem>
+						<dateFormatItem>dd/MM/yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem>dd/MM/yy HH:mm</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

@@ -97,7 +97,7 @@
 			<language type="crh">crimean turkish; crimean tatar</language>
 			<language type="crp">crioulos e pídgins (outros)</language>
 			<language type="cs">tcheco</language>
-			<language type="cs" draft="true" alt="proposed">checo</language>
+			<language type="cs" alt="proposed" draft="true">checo</language>
 			<language type="csb">kashubian</language>
 			<language type="cu">eslavo eclesiástico</language>
 			<language type="cus">cuxitas (outros)</language>
@@ -131,7 +131,7 @@
 			<language type="eo">esperanto</language>
 			<language type="es">espanhol</language>
 			<language type="et">estoniano</language>
-			<language type="et" draft="true" alt="proposed">estónio</language>
+			<language type="et" alt="proposed" draft="true">estónio</language>
 			<language type="eu">basco</language>
 			<language type="ewo">ewondo</language>
 			<language type="fa">persa</language>
@@ -310,7 +310,7 @@
 			<language type="nic">niger - kordofanian (other)</language>
 			<language type="niu">niueano</language>
 			<language type="nl">holandês</language>
-			<language type="nl" draft="true" alt="proposed">neerlandês</language>
+			<language type="nl" alt="proposed" draft="true">neerlandês</language>
 			<language type="nn">nynorsk norueguês</language>
 			<language type="no">norueguês</language>
 			<language type="nog">nogai</language>
@@ -344,7 +344,7 @@
 			<language type="phn">fenício</language>
 			<language type="pi">páli</language>
 			<language type="pl">polonês</language>
-			<language type="pl" draft="true" alt="proposed">polaco</language>
+			<language type="pl" alt="proposed" draft="true">polaco</language>
 			<language type="pon">pohnpeian</language>
 			<language type="pra">idiomas prácrito</language>
 			<language type="pro">provençal, arcaico (até 1500)</language>
@@ -386,7 +386,7 @@
 			<language type="sit">sino-tibetanos (outros)</language>
 			<language type="sk">eslovaco</language>
 			<language type="sl">eslovênio</language>
-			<language type="sl" draft="true" alt="proposed">esloveno</language>
+			<language type="sl" alt="proposed" draft="true">esloveno</language>
 			<language type="so">somali</language>
 			<language type="sog">sogdien</language>
 			<language type="son">songai</language>
@@ -929,6 +929,36 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats draft="true">
+						<dateFormatItem>MM-dd</dateFormatItem>
+						<dateFormatItem>d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem>EEEE,d 'de' MMMM 'de' yyyy</dateFormatItem>
+						<dateFormatItem>EEE, d 'de' MMMM 'de' yyyy</dateFormatItem>
+						<dateFormatItem>EEE, d 'de' MMM 'de' yy</dateFormatItem>
+						<dateFormatItem>d 'de' MMMM 'de' yyyy</dateFormatItem>
+						<dateFormatItem>d 'de' MMM 'de' yyyy</dateFormatItem>
+						<dateFormatItem>d 'de' MMM 'de' yy</dateFormatItem>
+						<dateFormatItem>dd/MM/yy</dateFormatItem>
+						<dateFormatItem>dd/MM/yyyy</dateFormatItem>
+						<dateFormatItem>QQQQ yy</dateFormatItem>
+						<dateFormatItem>MMMM</dateFormatItem>
+						<dateFormatItem>dd/MMM</dateFormatItem>
+						<dateFormatItem>MM/yy</dateFormatItem>
+						<dateFormatItem>EEE dd/MMM yy</dateFormatItem>
+						<dateFormatItem>ww</dateFormatItem>
+						<dateFormatItem>yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem>yy-MM-dd</dateFormatItem>
+						<dateFormatItem>mm:ss,SS</dateFormatItem>
+						<dateFormatItem>KK:mm:ss a</dateFormatItem>
+						<dateFormatItem>KK:mm a</dateFormatItem>
+						<dateFormatItem>HH:mm:ss</dateFormatItem>
+						<dateFormatItem>HH:mm</dateFormatItem>
+						<dateFormatItem>dd/MM/yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem>dd/MM/yy HH:mm</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

@@ -136,7 +136,7 @@
 			<language type="fat">fanti</language>
 			<language type="ff">fula</language>
 			<language type="fi">finlandés</language>
-			<language type="fi" draft="true" alt="proposed">finés</language>
+			<language type="fi" alt="proposed" draft="true">finés</language>
 			<language type="fiu">finougrias (otras)</language>
 			<language type="fj">fidji</language>
 			<language type="fo">feroés</language>
@@ -308,7 +308,7 @@
 			<language type="nic">níger-kordofanianas (otras)</language>
 			<language type="niu">niueano</language>
 			<language type="nl">holandés</language>
-			<language type="nl" draft="true" alt="proposed">neerlandés</language>
+			<language type="nl" alt="proposed" draft="true">neerlandés</language>
 			<language type="nn">nynorsk noruego</language>
 			<language type="no">noruego</language>
 			<language type="nog">nogai</language>
@@ -795,8 +795,8 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a á b-e é f-i í j-n ñ o ó p-u ú ü v-z]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[a á b-e é f-i í j-n ñ o ó p-u ú v-z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" alt="proposed" draft="true">[ü]</exemplarCharacters>
+		<exemplarCharacters alt="proposed" draft="true">[a á b-e é f-i í j-n ñ o ó p-u ú v-z]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="true">‘</quotationStart>
@@ -943,6 +943,37 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats draft="true">
+						<dateFormatItem>MM-dd</dateFormatItem>
+						<dateFormatItem>d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem>EEEE,d 'de' MMMM 'de' yyyy</dateFormatItem>
+						<dateFormatItem>EEE d 'de' MMMM 'de' yyyy</dateFormatItem>
+						<dateFormatItem>EEE d 'de' MMM 'de' yy</dateFormatItem>
+						<dateFormatItem>d 'de' MMMM 'de' yyyy</dateFormatItem>
+						<dateFormatItem>d 'de' MMM 'de' yyyy</dateFormatItem>
+						<dateFormatItem>d 'de' MMM 'de' yy</dateFormatItem>
+						<dateFormatItem>dd/MM/yy</dateFormatItem>
+						<dateFormatItem>dd/MM/yyyy</dateFormatItem>
+						<dateFormatItem>QQQQ yy</dateFormatItem>
+						<dateFormatItem>MMMM</dateFormatItem>
+						<dateFormatItem>dd/MMM</dateFormatItem>
+						<dateFormatItem>MM/yy</dateFormatItem>
+						<dateFormatItem>EEE dd/MMM yy</dateFormatItem>
+						<dateFormatItem>d/MM/yy</dateFormatItem>
+						<dateFormatItem>ww</dateFormatItem>
+						<dateFormatItem>yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem>yy-MM-dd</dateFormatItem>
+						<dateFormatItem>mm:ss,SS</dateFormatItem>
+						<dateFormatItem>KK:mm:ss a</dateFormatItem>
+						<dateFormatItem>KK:mm a</dateFormatItem>
+						<dateFormatItem>HH:mm:ss</dateFormatItem>
+						<dateFormatItem>HH:mm</dateFormatItem>
+						<dateFormatItem>dd/MM/yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem>dd/MM/yy HH:mm</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

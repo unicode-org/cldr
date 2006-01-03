@@ -8,13 +8,13 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="bs" draft="true" alt="proposed">bosanski</language>
+			<language type="bs" alt="proposed" draft="true">bosanski</language>
 		</languages>
 		<scripts>
-			<script type="Latn" draft="true" alt="proposed">Latinica</script>
+			<script type="Latn" alt="proposed" draft="true">Latinica</script>
 		</scripts>
 		<territories>
-			<territory type="BA" draft="true" alt="proposed">Bosna i Hercegovina</territory>
+			<territory type="BA" alt="proposed" draft="true">Bosna i Hercegovina</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
@@ -109,6 +109,36 @@
 						<era type="1" draft="true">AD</era>
 					</eraAbbr>
 				</eras>
+				<dateTimeFormats>
+					<availableFormats draft="true">
+						<dateFormatItem>d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem>QQQQ yy</dateFormatItem>
+						<dateFormatItem>MMMM</dateFormatItem>
+						<dateFormatItem>MMM dd</dateFormatItem>
+						<dateFormatItem>MM yy</dateFormatItem>
+						<dateFormatItem>EEEE,d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>EEE, d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>EEE, dd. MMM yy</dateFormatItem>
+						<dateFormatItem>EEE, d. MMM yy</dateFormatItem>
+						<dateFormatItem>d. MMM yyyy</dateFormatItem>
+						<dateFormatItem>d. MMM yy</dateFormatItem>
+						<dateFormatItem>dd.MM.yyyy</dateFormatItem>
+						<dateFormatItem>d.M.yyyy</dateFormatItem>
+						<dateFormatItem>EEEE, dd. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>ww</dateFormatItem>
+						<dateFormatItem>yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem>yy-MM-dd</dateFormatItem>
+						<dateFormatItem>MM-dd</dateFormatItem>
+						<dateFormatItem>mm:ss,SS</dateFormatItem>
+						<dateFormatItem>KK:mm:ss a</dateFormatItem>
+						<dateFormatItem>KK:mm a</dateFormatItem>
+						<dateFormatItem>HH:mm:ss</dateFormatItem>
+						<dateFormatItem>HH:mm</dateFormatItem>
+						<dateFormatItem>dd.MM.yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem>dd.MM.yy KK:mm a</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>

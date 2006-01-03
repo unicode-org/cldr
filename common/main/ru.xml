@@ -246,7 +246,7 @@
 			<language type="na">науру</language>
 			<language type="nah">ацтекский</language>
 			<language type="nai">северной Америки индейцев (другие)</language>
-			<language type="nai" draft="true" alt="proposed">Северной Америки индейцев (другие)</language>
+			<language type="nai" alt="proposed" draft="true">Северной Америки индейцев (другие)</language>
 			<language type="ne">непальский</language>
 			<language type="new">неварский</language>
 			<language type="nic">нигер-кордофанские (другие)</language>
@@ -748,7 +748,7 @@
 	</layout>
 	<characters>
 		<exemplarCharacters>[а-е ё ж-й і к-я]</exemplarCharacters>
-		<exemplarCharacters draft="true" alt="proposed">[а-е ё ж-й к-я]</exemplarCharacters>
+		<exemplarCharacters alt="proposed" draft="true">[а-е ё ж-й к-я]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="true">«</quotationStart>
@@ -952,6 +952,38 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats draft="true">
+						<dateFormatItem>MM-dd</dateFormatItem>
+						<dateFormatItem>d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem>EEEE,d MMMM, yyyy</dateFormatItem>
+						<dateFormatItem>EEE, d MMMM, yyyy</dateFormatItem>
+						<dateFormatItem>EEE, d MMM, yy</dateFormatItem>
+						<dateFormatItem>d MMMM, yyyy</dateFormatItem>
+						<dateFormatItem>d MMM, yyyy</dateFormatItem>
+						<dateFormatItem>d MMM, yy</dateFormatItem>
+						<dateFormatItem>EEEE,dd MMMM, yyyy</dateFormatItem>
+						<dateFormatItem>dd.MM.yy</dateFormatItem>
+						<dateFormatItem>dd.MM.yyyy</dateFormatItem>
+						<dateFormatItem>QQQQ yy</dateFormatItem>
+						<dateFormatItem>MMMM</dateFormatItem>
+						<dateFormatItem>dd.MMM</dateFormatItem>
+						<dateFormatItem>MM.yy</dateFormatItem>
+						<dateFormatItem>EEE dd.MMM yy</dateFormatItem>
+						<dateFormatItem>d.M.yy</dateFormatItem>
+						<dateFormatItem>ww</dateFormatItem>
+						<dateFormatItem>yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem>yy-MM-dd</dateFormatItem>
+						<dateFormatItem>mm:ss,SS</dateFormatItem>
+						<dateFormatItem>KK:mm:ss a</dateFormatItem>
+						<dateFormatItem>KK:mm a</dateFormatItem>
+						<dateFormatItem>HH:mm:ss</dateFormatItem>
+						<dateFormatItem>HH:mm</dateFormatItem>
+						<dateFormatItem>dd.MM.yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem>dd.MM.yy HH:mm</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

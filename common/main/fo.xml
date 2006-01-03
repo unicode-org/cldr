@@ -137,8 +137,8 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a á b-d ð e-i í j-o ó p-u ú v-y ý z æ ø]</exemplarCharacters>
-		<exemplarCharacters alt="proposed" draft="true">[a á b d ð e-i í j-o ó p r-u ú v x y ý æ ø]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" alt="proposed" draft="true">[cqwz]</exemplarCharacters>
+		<exemplarCharacters alt="proposed" draft="true">[a á b d ð e-i í j-o ó p r-u ú v x y ý æ ø]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -235,6 +235,35 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats draft="true">
+						<dateFormatItem>MM-dd</dateFormatItem>
+						<dateFormatItem>d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem>EEEE,d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>EEE d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>EEE d. MMM yy</dateFormatItem>
+						<dateFormatItem>d. MMM yyyy</dateFormatItem>
+						<dateFormatItem>d. MMM yy</dateFormatItem>
+						<dateFormatItem>dd-MM-yy</dateFormatItem>
+						<dateFormatItem>dd-MM-yyyy</dateFormatItem>
+						<dateFormatItem>QQQQ yy</dateFormatItem>
+						<dateFormatItem>MMMM</dateFormatItem>
+						<dateFormatItem>dd-MMM</dateFormatItem>
+						<dateFormatItem>MM-yy</dateFormatItem>
+						<dateFormatItem>EEE dd-MMM yy</dateFormatItem>
+						<dateFormatItem>ww</dateFormatItem>
+						<dateFormatItem>yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem>yy-MM-dd</dateFormatItem>
+						<dateFormatItem>mm:ss,SS</dateFormatItem>
+						<dateFormatItem>KK:mm:ss a</dateFormatItem>
+						<dateFormatItem>KK:mm a</dateFormatItem>
+						<dateFormatItem>HH:mm:ss</dateFormatItem>
+						<dateFormatItem>HH:mm</dateFormatItem>
+						<dateFormatItem>dd-MM-yyyy HH:mm:ss</dateFormatItem>
+						<dateFormatItem>dd-MM-yy HH:mm</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>

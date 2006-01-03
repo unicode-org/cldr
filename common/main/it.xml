@@ -307,7 +307,7 @@
 			<language type="nic">niger - cordofan (altra lingua)</language>
 			<language type="niu">niue</language>
 			<language type="nl">olandese</language>
-			<language type="nl" draft="true" alt="proposed">neerlandese</language>
+			<language type="nl" alt="proposed" draft="true">neerlandese</language>
 			<language type="nn">norvegese nynorsk</language>
 			<language type="no">norvegese</language>
 			<language type="nog">nogai</language>
@@ -939,6 +939,37 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats draft="true">
+						<dateFormatItem>MM-dd</dateFormatItem>
+						<dateFormatItem>d. MMMM yyyy</dateFormatItem>
+						<dateFormatItem>d. MMM. yyyy</dateFormatItem>
+						<dateFormatItem>EEEE,d MMMM yyyy</dateFormatItem>
+						<dateFormatItem>EEE d MMMM yyyy</dateFormatItem>
+						<dateFormatItem>EEE d MMM yy</dateFormatItem>
+						<dateFormatItem>d MMMM yyyy</dateFormatItem>
+						<dateFormatItem>d MMM yyyy</dateFormatItem>
+						<dateFormatItem>d MMM yy</dateFormatItem>
+						<dateFormatItem>EEEE,dd MMMM yyyy</dateFormatItem>
+						<dateFormatItem>dd/MM/yy</dateFormatItem>
+						<dateFormatItem>dd/MM/yyyy</dateFormatItem>
+						<dateFormatItem>QQQQ yy</dateFormatItem>
+						<dateFormatItem>MMMM</dateFormatItem>
+						<dateFormatItem>dd/MMM</dateFormatItem>
+						<dateFormatItem>MM/yy</dateFormatItem>
+						<dateFormatItem>EEE dd/MMM yy</dateFormatItem>
+						<dateFormatItem>ww</dateFormatItem>
+						<dateFormatItem>yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem>yy-MM-dd</dateFormatItem>
+						<dateFormatItem>mm.ss,SS</dateFormatItem>
+						<dateFormatItem>KK.mm.ss a</dateFormatItem>
+						<dateFormatItem>KK.mm a</dateFormatItem>
+						<dateFormatItem>HH.mm.ss</dateFormatItem>
+						<dateFormatItem>HH.mm</dateFormatItem>
+						<dateFormatItem>dd/MM/yyyy HH.mm.ss</dateFormatItem>
+						<dateFormatItem>dd/MM/yy HH.mm</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

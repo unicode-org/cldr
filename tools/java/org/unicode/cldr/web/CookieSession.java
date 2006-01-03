@@ -235,9 +235,9 @@ public class CookieSession {
 //    static final int USER_TO =  30000; // soon.
 //    static final int REAP_TO = 1000; //often.
 // production:
-    static final int GUEST_TO =  3 * 60 * MILLIS_IN_MIN; // Expire Guest sessions after three hours
-    static final int USER_TO =  7 * 24 * 60 * MILLIS_IN_MIN; // Expire non-guest sessions after a week
-    static final int REAP_TO = 30 * MILLIS_IN_MIN; // Only once every half hour.
+    public static final int GUEST_TO =  3 * 60 * MILLIS_IN_MIN; // Expire Guest sessions after three hours
+    public static final int USER_TO =  7 * 24 * 60 * MILLIS_IN_MIN; // Expire non-guest sessions after a week
+    public static final int REAP_TO = 30 * MILLIS_IN_MIN; // Only once every half hour.
 
     static long lastReap = System.currentTimeMillis();
     

@@ -203,12 +203,24 @@ public class UserRegistry {
      * info = name/email/org
      * immutable info, keep it in a separate list for quick lookup.
      */
-    ArrayList infoArray = new ArrayList();
+//    ArrayList infoArray = new ArrayList(2000);
+    UserRegistry.User infoArray[] = new UserRegistry.User[1024];
     
     public UserRegistry.User getInfo(int id) {
+//    System.err.println("Fetching info for id " + id);
         synchronized(infoArray) {
-            User ret = (User)infoArray.get(id);
+            User ret = null;
+            try {
+//    System.err.println("attempting array lookup for id " + id);
+                //ret = (User)infoArray.get(id);
+                ret = infoArray[id];
+            } catch(IndexOutOfBoundsException ioob) {
+//    System.err.println("Index out of bounds for id " + id + " - " + ioob);
+                ret = null; // not found
+            }
+            
             if(ret == null) synchronized(conn) {
+//    System.err.println("go fish for id " + id);
 //          queryIdStmt = conn.prepareStatement("SELECT name,org,email from " + CLDR_USERS +" where id=?");
                 ResultSet rs = null;
                 try{ 
@@ -218,7 +230,7 @@ public class UserRegistry {
                     // First, try to query it back from the DB.
                     rs = pstmt.executeQuery();                
                     if(!rs.next()) {
-                        logger.severe("Unknown user#:" + id);
+                        System.err.println("Unknown user#:" + id);
                         return null;
                     }
                     User u = new UserRegistry.User();                    
@@ -227,20 +239,28 @@ public class UserRegistry {
                     u.name = rs.getString(1);
                     u.org = rs.getString(2);
                     u.email = rs.getString(3);
-                    infoArray.add(id,u);
-                    logger.info("Loaded info for U#"+u.id + " - "+u.name +"/"+u.org+"/"+u.email);
+                    System.err.println("SQL Loaded info for U#"+u.id + " - "+u.name +"/"+u.org+"/"+u.email);
+                    ret = u; // let it finish..
+                    /*
+                    infoArray.ensureCapacity(id);
+                    // ?!!
+                    for(int qq=infoArray.size();qq<=id;qq++) {
+                        System.err.print("[" +qq+"]");
+                        infoArray.add(id,null);
+                    }
+                    infoArray.set(id,u);*/
+                    infoArray[id]=u;
                     // good so far..
                     if(rs.next()) {
                         // dup returned!
                         throw new InternalError("Dup user id # " + id);
                     }
-                    ret = u; // let it finish..
                 } catch (SQLException se) {
                     logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to get #" + id + " - " + SurveyMain.unchainSqlException(se),se);
-                    return null;
+                    return ret;
                 } catch (Throwable t) {
                     logger.log(java.util.logging.Level.SEVERE, "UserRegistry: some error trying to get #" + id,t);
-                    return null;
+                    return ret;
                 } finally {
                     // close out the RS
                     try {
@@ -248,12 +268,13 @@ public class UserRegistry {
                             rs.close();
                         }
                     } catch(SQLException se) {
-                        logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to close resultset for: #" + id + " - " + SurveyMain.unchainSqlException(se),se);
+                        /*logger.severe*/System.err.println(/*java.util.logging.Level.SEVERE,*/ "UserRegistry: SQL error trying to close resultset for: #" + id + " - " + SurveyMain.unchainSqlException(se)/*,se*/);
                     }
                 } // end try
             }
+///*srl*/    if(ret==null) { System.err.println("returning NULL for " + id); } else  { User u = ret; System.err.println("Returned info for U#"+u.id + " - "+u.name +"/"+u.org+"/"+u.email); }
             return ret;
-        }
+        } // end synch array
     }
     
     public  UserRegistry.User get(String pass, String email) {
@@ -586,19 +607,19 @@ public class UserRegistry {
     
     // * user types
     static final boolean userIsAdmin(User u) {
-        return (u.userlevel <= UserRegistry.ADMIN);
+        return (u!=null)&&(u.userlevel <= UserRegistry.ADMIN);
     }
     static final boolean userIsTC(User u) {
-        return (u.userlevel <= UserRegistry.TC);
+        return (u!=null)&&(u.userlevel <= UserRegistry.TC);
     }
     static final boolean userIsVetter(User u) {
-        return (u.userlevel <= UserRegistry.VETTER);
+        return (u!=null)&&(u.userlevel <= UserRegistry.VETTER);
     }
     static final boolean userIsStreet(User u) {
-        return (u.userlevel <= UserRegistry.STREET);
+        return (u!=null)&&(u.userlevel <= UserRegistry.STREET);
     }
     static final boolean userIsLocked(User u) {
-        return (u.userlevel == UserRegistry.LOCKED);
+        return (u!=null)&&(u.userlevel == UserRegistry.LOCKED);
     }
     // * user rights
     /** can create a user in a different organization? */

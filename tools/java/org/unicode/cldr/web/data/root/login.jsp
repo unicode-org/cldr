@@ -7,7 +7,7 @@
 		<h1>Survey Tool Login</h1>
 		<form action="<%= request.getParameter("a") %>" method="POST">
 			<label>Email: <input name="email" /></label><br/>
-			<label>Password: <input name="uid" /></label><br/>
+			<label>Password: <input type="password" name="pw" /></label><br/>
 			<input type="submit" value="Login" />
 		</form>
 		<hr/>

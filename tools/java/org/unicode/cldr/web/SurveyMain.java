@@ -78,7 +78,7 @@ public class SurveyMain extends HttpServlet {
     public static final String CHANGETO = "change to";
     public static final String PROPOSED_DRAFT = "proposed-draft";
 
-    public static final String MODIFY_THING = "<span title='You are allowed to modify this locale.'>\uF802</span>";            
+    public static final String MODIFY_THING = "<span title='You are allowed to modify this locale.'>\u270D</span>";             // was: F802
 
     // SYSTEM PROPERTIES
     public static  String vap = System.getProperty("CLDR_VAP"); // Vet Access Password
@@ -98,6 +98,11 @@ public class SurveyMain extends HttpServlet {
     public static final String LOGFILE = "cldr.log";        // log file of all changes
     public static final ULocale inLocale = new ULocale("en"); // locale to use to 'localize' things
 
+    static final String QUERY_PASSWORD = "pw";
+    static final String QUERY_PASSWORD_ALT = "uid";
+    static final String QUERY_EMAIL = "email";
+    static final String SURVEYTOOL_COOKIE_SESSION = "com.org.unicode.cldr.web.CookieSession.id";
+    static final String SURVEYTOOL_COOKIE_NONE = "0";
     static final String PREF_SHOWCODES = "p_codes";
     static final String PREF_SORTMODE = "p_sort";
     static final String PREF_SORTMODE_CODE = "code";
@@ -491,11 +496,21 @@ public class SurveyMain extends HttpServlet {
         String myNum = ctx.field("s");
         
         // get the uid
-        String uid = ctx.field("uid");
-        String email = ctx.field("email");
+        String password = ctx.field(QUERY_PASSWORD);
+        if(password.length()==0) {
+            password = ctx.field(QUERY_PASSWORD_ALT);
+        }
+        String email = ctx.field(QUERY_EMAIL);
         UserRegistry.User user;
-        user = reg.get(uid,email);
-        
+        user = reg.get(password,email);
+        boolean doSetCookie = false; // Should a Cookie be set?
+        boolean ignoreCookie = false; // should the cookie be ignored?
+        boolean removeCookie = false; // should the cookie be removedd?
+        if(myNum.equals(SURVEYTOOL_COOKIE_NONE)) {
+            ignoreCookie = true;
+            doSetCookie=false;
+            removeCookie= true;
+        }
         if(user != null) {
             //  ctx.println("Got user: " + user.toString() + ", u.email = '" + user.email + "', meail= '" + email + "', ...<br />");
             mySession = CookieSession.retrieveUser(user.email);
@@ -503,25 +518,79 @@ public class SurveyMain extends HttpServlet {
                 //  ctx.println("<i>reconnectiong..</i>");
                 //    message = "Reconnecting your session: " + myNum;
                 message = "<i>Reconnecting to your previous session.</i>";
+                doSetCookie = true;
+                myNum = mySession.id;
+            }
+        }
+        Cookie myCookies[] = ctx.request.getCookies();
+        Cookie aCookie = null;
+        if(myCookies != null) {
+            for(int i=0;i<myCookies.length;i++) {
+                if(myCookies[i].getName().equals(SURVEYTOOL_COOKIE_SESSION)) {
+                    aCookie = myCookies[i];
+          //          ctx.println("<b>Cookie: " + myCookies[i].getName() + "=" + myCookies[i].getValue() + "</b><br />");
+                    if(CookieSession.retrieve(aCookie.getValue())==null) {
+                        aCookie.setMaxAge(0);
+         //               ctx.response.addCookie(aCookie);
+        //                ctx.println(" <i>expiring " + aCookie.getValue() + "</i>  <br />");
+                        aCookie = null; // get a new one
+                    }
+                }
+            }
+        }
+        if(!ignoreCookie && (mySession == null) && ((myNum == null) || (myNum.length()==0))) {
+            if(aCookie != null) {                
+     //           myNum = aCookie.getValue();
+       //         doSetCookie = true;
             }
         }
         if((mySession == null) && (myNum != null) && (myNum.length()>0)) {
             mySession = CookieSession.retrieve(myNum);
-            if(mySession == null) {
-                message = "<i>(Sorry, This session has expired. You may have to log in again.)</i><br />";
+            if((mySession == null)&&(!myNum.equals(SURVEYTOOL_COOKIE_NONE))) {
+                message = "<i>(Sorry, This session has expired. ";
+                if(user == null) {
+                    message = message + "You may have to log in again. ";
+                }
+                    message = message + ")</i><br />";
+                doSetCookie = true;
+                // TODO: unset cookie
+                if(aCookie != null) {
+                }
             }
         }
         if(mySession == null) {
             mySession = new CookieSession(user==null);
-            ctx.println("New session: " + mySession.id + "<br />");
+            if(!myNum.equals(SURVEYTOOL_COOKIE_NONE)) {
+                ctx.println("New session: " + mySession.id + "<br />");
+            }
+            doSetCookie = true;
         }
         ctx.session = mySession;
         ctx.addQuery("s", mySession.id);
+
+        // cookie stuff
+        if(removeCookie || doSetCookie) {
+            String id = SURVEYTOOL_COOKIE_NONE;
+            if(!removeCookie) {
+                id = mySession.id;
+            }
+            if(aCookie == null) {
+                aCookie = new Cookie(SURVEYTOOL_COOKIE_SESSION, id);
+            }
+            if(removeCookie) {
+                aCookie.setMaxAge(0);
+            } else {
+                aCookie.setComment("http://cldr.info");
+                aCookie.setMaxAge(CookieSession.USER_TO / 1000);  // don't last longer than longest session time
+            }
+       //     ctx.response.addCookie(aCookie);
+        }
+        
         if(user != null) {
             ctx.session.setUser(user); // this will replace any existing session by this user.
         } else {
             if( (email !=null) && (email.length()>0)) {
-                ctx.println("<strong>login failed.</strong><br />");
+                message = ("<strong>login failed.</strong><br />");
             }
         }
         CookieSession.reap();
@@ -533,7 +602,7 @@ public class SurveyMain extends HttpServlet {
      */
     public void printUserMenu(WebContext ctx) {
         ctx.println("<b>Welcome " + ctx.session.user.name + " (" + ctx.session.user.org + ") !</b>");
-        ctx.println("<a href=\"" + ctx.base() + "\">[Sign Out]</a><br/>");
+        ctx.println("<a href=\"" + ctx.base() + "?s="+SURVEYTOOL_COOKIE_NONE+"\">[Sign Out (Session remains active)]</a><br/>");
         if(UserRegistry.userIsAdmin(ctx.session.user)) {
             ctx.println("<b>You are an Admin:</b> ");
             ctx.println("<a href='" + ctx.base() + "?dump=" + vap + "'>[Stats]</a>");
@@ -1087,7 +1156,7 @@ public class SurveyMain extends HttpServlet {
                   n);
         boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,localeName);
         if(canModify) {
-            ctx.print("<span title='You are allowed to submit changes for this locale.'>\uF802</span>");
+            ctx.print(MODIFY_THING);
         }
         ctx.print("</a>");
         ctx.print(hasDraft?"</b>":"") ;
@@ -1188,7 +1257,7 @@ public class SurveyMain extends HttpServlet {
         String requester = ctx.session.user.name + " <" + ctx.session.user.email + ">";
         String body = requester +  " is notifying you of the CLDR vetting account for you.\n" +
         "To access it, visit: \n" +
-        "   http://" + ctx.serverName() + ctx.base() + "?uid=" + pass + "&email=" + theirEmail + "\n" +
+        "   http://" + ctx.serverName() + ctx.base() + "?"+QUERY_PASSWORD+"=" + pass + "&"+QUERY_EMAIL+"=" + theirEmail + "\n" +
         "\n" +
         " Please keep this link to yourself. Thanks.\n" +
         " \n";
@@ -2458,7 +2527,7 @@ void processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir
         String fullPathFull = pod.xpath(p);
         String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
         String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, fullPathMinusAlt, p.altType, 
-            "proposed-u"+ctx.session.user.id+"-", ctx.session.user.id, choice_v);
+            XPathTable.altProposedPrefix(ctx.session.user.id), ctx.session.user.id, choice_v);
         ctx.println("<tt class='codebox'>" + p.displayName + "</tt> <b>change: " + choice_v + " : " + newProp + "<br />");
         lcr.invalidateLocale(pod.locale); // throw out this pod next time.
     } else if(!choice.equals(DONTCARE)) {
@@ -2517,7 +2586,35 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         } 
         ctx.print("<tr><td colspan='2'></td><td nowrap "+pClass+" colspan='1' valign='top' align='right'>");
         if(item.altProposed != null) {
-            ctx.print("<span class='actionbox'>" + item.altProposed + "</span>");
+            int uid = XPathTable.altProposedToUserid(item.altProposed);
+            UserRegistry.User theU = null;
+            if(uid != -1) {
+                theU = reg.getInfo(uid);
+            }
+            if((theU!=null)&& 
+                    ((uid==ctx.session.user.id) ||   //if it's us or..
+                    (UserRegistry.userIsTC(ctx.session.user) ||  //or  TC..
+                    (UserRegistry.userIsVetter(ctx.session.user) && (canModify ||  // approved vetter or ..
+                                                    ctx.session.user.org.equals(theU.org)))))) { // vetter&same org
+                if((ctx.session.user==null)||(ctx.session.user.org == null)) {
+                    throw new InternalError("null: c.s.u.o");
+                }
+                if((theU!=null)&&(theU.org == null)) {
+                    throw new InternalError("null: theU.o");
+                }
+                boolean sameOrg = (ctx.session.user.org.equals(theU.org));
+                if(sameOrg) {
+                    ctx.print("<b>");
+                }
+                ctx.print("<span class='actionbox'>" + item.altProposed + "<br />");
+                ctx.print("<a href='mailto:"+theU.email+"'>" + theU.name + "</a> (" + theU.org + ")");
+                ctx.print("</span>");
+                if(sameOrg) {
+                    ctx.print("</b>");
+                }
+            } else {
+                ctx.print("<span class='actionbox'>" + item.altProposed + "</span>");
+            }
         } else {
             if(p.inheritFrom != null) {
                 ctx.print("<span class='actionbox'>inherited " + p.inheritFrom + "</span>");

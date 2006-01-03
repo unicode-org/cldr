@@ -274,5 +274,38 @@ public class XPathTable {
         }
         return type;
     }
+    
+    // proposed-u4-1
+    public static final String PROPOSED_U = LDMLConstants.PROPOSED+"-u";
+    public static final String PROPOSED_SEP = "-";
+    public static final String altProposedPrefix(int userid) {
+        return PROPOSED_U + userid + PROPOSED_SEP;
+    }
+    /**
+     * parse an alt-proposed, such as "proposed-u4-1" into a userid (4, in this case).  
+     * returns -1 if altProposed is null or in any way malformed.
+     */
+    public static final int altProposedToUserid(String altProposed) {
+//        System.err.println("AP: " + altProposed);
+        if((altProposed==null) || !altProposed.startsWith(PROPOSED_U)) {
+//        System.err.println("AP: null");
+            return -1;
+        }
+        String idStr = altProposed.substring(PROPOSED_U.length());
+//        System.err.println("AP: idStr = " + idStr);
+        int dash;
+        if(-1 != (dash=idStr.indexOf(PROPOSED_SEP))) {
+//        System.err.println("AP: dash = " + dash);
+            idStr = idStr.substring(0,dash);
+//        System.err.println("AP: idStr2 = " + idStr);
+        }
+        try {
+            return Integer.parseInt(idStr);
+        } catch(Throwable t) {
+//        System.err.println("err on parse = " + t.toString());
+//        t.printStackTrace();
+            return -1;
+        }
+    }
 
 }

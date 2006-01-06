@@ -747,34 +747,35 @@ public class CLDRDBSource extends XMLSource {
         for(int slot=1;slot<100;slot++) {
             String altProposed = altProposedPrefix+slot; // proposed-u123-4 
             String alt = LDMLUtilities.formatAlt(altType, altProposed);
+            //            String rawXpath = fullXpathMinusAlt + "[@alt='" + alt + "']";
             String rawXpath = fullXpathMinusAlt + "[@alt='" + alt + "']";
             logger.info("addDataToNextSlot:  rawXpath = " + rawXpath);
             String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);
             if(!xpath.equals(rawXpath)) {
                 logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
             }
-            String oxpath = xpath;
+            String oxpath = xpath+"[@draft='true']";
             int xpid = xpt.getByXpath(xpath);
             
-        // Check to see if this slot is in use.
-        synchronized(conn) {
-            try {
-                stmts.queryValue.setString(1,locale);
-                stmts.queryValue.setInt(2,xpid);
-                ResultSet rs = stmts.queryValue.executeQuery();
-                if(rs.next()) {
-                    // already taken..
-                    logger.info("Taken: " + altProposed);
+            // Check to see if this slot is in use.
+            synchronized(conn) {
+                try {
+                    stmts.queryValue.setString(1,locale);
+                    stmts.queryValue.setInt(2,xpid);
+                    ResultSet rs = stmts.queryValue.executeQuery();
+                    if(rs.next()) {
+                        // already taken..
+                        logger.info("Taken: " + altProposed);
+                        rs.close();
+                        continue;
+                    }
                     rs.close();
-                    continue;
+                } catch(SQLException se) {
+                    String complaint = "CLDRDBSource: Couldn't search for empty slot " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+                    logger.severe(complaint);
+                    throw new InternalError(complaint);
                 }
-                rs.close();
-            } catch(SQLException se) {
-                String complaint = "CLDRDBSource: Couldn't search for empty slot " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
-                logger.severe(complaint);
-                throw new InternalError(complaint);
             }
-        }
             
             
             
@@ -798,35 +799,35 @@ public class CLDRDBSource extends XMLSource {
             //                System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" + eDraft);
             //                System.out.println(" => "+txpid+"#" + tinyXpath);
             
-        synchronized(conn) {
-            try {
-                stmts.insert.setInt(1,xpid); // full
-                stmts.insert.setString(2,locale);
-                stmts.insert.setInt(3,srcId); // assumes homogenous srcId
-                stmts.insert.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
-                stmts.insert.setString(5,value);
-                stmts.insert.setString(6,eType);
-                stmts.insert.setString(7,eAlt);
-                stmts.insert.setInt(8,txpid); // tiny
-                stmts.insert.setInt(9,submitterId); // submitter
-                stmts.insert.execute();
+            synchronized(conn) {
+                try {
+                    stmts.insert.setInt(1,xpid); // full
+                    stmts.insert.setString(2,locale);
+                    stmts.insert.setInt(3,srcId); // assumes homogenous srcId
+                    stmts.insert.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
+                    stmts.insert.setString(5,value);
+                    stmts.insert.setString(6,eType);
+                    stmts.insert.setString(7,eAlt);
+                    stmts.insert.setInt(8,txpid); // tiny
+                    stmts.insert.setInt(9,submitterId); // submitter
+                    stmts.insert.execute();
+                    
+                } catch(SQLException se) {
+                    String complaint = "CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+                    logger.severe(complaint);
+                    throw new InternalError(complaint);
+                }
                 
-            } catch(SQLException se) {
-                String complaint = "CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
-                logger.severe(complaint);
-                throw new InternalError(complaint);
-            }
-
-            try{
+                try{
                     conn.commit();
                     return altProposed; // success
-            } catch(SQLException se) {
+                } catch(SQLException se) {
                     String complaint = "CLDRDBSource: Couldn't commit " + locale + ":" + SurveyMain.unchainSqlException(se);
                     logger.severe(complaint);
                     throw new InternalError(complaint);
+                }
             }
-         }
-
+            
         } // end for
         return null; // couldn't find a slot..
     }

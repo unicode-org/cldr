@@ -189,6 +189,10 @@ public class WebContext {
             return base() + "?" + outQuery;
         }
     }
+
+    final String urlConnector() {
+        return (url().indexOf('?')!=-1)?"&":"?";
+    }
     
     String base() { 
         return request.getContextPath() + request.getServletPath();

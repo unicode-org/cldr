@@ -101,6 +101,7 @@ public class SurveyMain extends HttpServlet {
     static final String QUERY_PASSWORD = "pw";
     static final String QUERY_PASSWORD_ALT = "uid";
     static final String QUERY_EMAIL = "email";
+    static final String QUERY_SESSION = "s";
     static final String SURVEYTOOL_COOKIE_SESSION = "com.org.unicode.cldr.web.CookieSession.id";
     static final String SURVEYTOOL_COOKIE_NONE = "0";
     static final String PREF_SHOWCODES = "p_codes";
@@ -191,7 +192,10 @@ public class SurveyMain extends HttpServlet {
         com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
         
         response.setContentType("text/html; charset=utf-8");
-        
+        response.setHeader("Cache-Control", "no-cache");
+        response.setDateHeader("Expires",0);
+        response.setHeader("Pragma","no-cache");
+        response.setDateHeader("Max-Age",0);
         pages++;
         
         if(isBusted != null) {
@@ -493,8 +497,7 @@ public class SurveyMain extends HttpServlet {
         String message = null;
         // get the context
         CookieSession mySession = null;
-        String myNum = ctx.field("s");
-        
+        String myNum = ctx.field(QUERY_SESSION);
         // get the uid
         String password = ctx.field(QUERY_PASSWORD);
         if(password.length()==0) {
@@ -503,87 +506,67 @@ public class SurveyMain extends HttpServlet {
         String email = ctx.field(QUERY_EMAIL);
         UserRegistry.User user;
         user = reg.get(password,email);
-        boolean doSetCookie = false; // Should a Cookie be set?
-        boolean ignoreCookie = false; // should the cookie be ignored?
-        boolean removeCookie = false; // should the cookie be removedd?
+        HttpSession httpSession = ctx.request.getSession(true);
+        boolean idFromSession = false;
         if(myNum.equals(SURVEYTOOL_COOKIE_NONE)) {
-            ignoreCookie = true;
-            doSetCookie=false;
-            removeCookie= true;
+            httpSession.removeAttribute(SURVEYTOOL_COOKIE_SESSION);
         }
         if(user != null) {
-            //  ctx.println("Got user: " + user.toString() + ", u.email = '" + user.email + "', meail= '" + email + "', ...<br />");
             mySession = CookieSession.retrieveUser(user.email);
             if(mySession != null) {
-                //  ctx.println("<i>reconnectiong..</i>");
-                //    message = "Reconnecting your session: " + myNum;
                 message = "<i>Reconnecting to your previous session.</i>";
-                doSetCookie = true;
                 myNum = mySession.id;
             }
         }
-        Cookie myCookies[] = ctx.request.getCookies();
-        Cookie aCookie = null;
-        if(myCookies != null) {
-            for(int i=0;i<myCookies.length;i++) {
-                if(myCookies[i].getName().equals(SURVEYTOOL_COOKIE_SESSION)) {
-                    aCookie = myCookies[i];
-          //          ctx.println("<b>Cookie: " + myCookies[i].getName() + "=" + myCookies[i].getValue() + "</b><br />");
-                    if(CookieSession.retrieve(aCookie.getValue())==null) {
-                        aCookie.setMaxAge(0);
-         //               ctx.response.addCookie(aCookie);
-        //                ctx.println(" <i>expiring " + aCookie.getValue() + "</i>  <br />");
-                        aCookie = null; // get a new one
-                    }
-                }
+
+        // Retreive a number from the httpSession if present
+        if((httpSession != null) && (mySession == null) && ((myNum == null) || (myNum.length()==0))) {
+            String aNum = (String)httpSession.getAttribute(SURVEYTOOL_COOKIE_SESSION);
+            if((aNum != null) && (aNum.length()>0)) {
+                myNum = aNum;
+                idFromSession = true;
             }
-        }
-        if(!ignoreCookie && (mySession == null) && ((myNum == null) || (myNum.length()==0))) {
-            if(aCookie != null) {                
-     //           myNum = aCookie.getValue();
-       //         doSetCookie = true;
-            }
-        }
+        } 
+        
         if((mySession == null) && (myNum != null) && (myNum.length()>0)) {
             mySession = CookieSession.retrieve(myNum);
+            if(mySession == null) {
+                idFromSession = false;
+            }
             if((mySession == null)&&(!myNum.equals(SURVEYTOOL_COOKIE_NONE))) {
                 message = "<i>(Sorry, This session has expired. ";
                 if(user == null) {
                     message = message + "You may have to log in again. ";
                 }
                     message = message + ")</i><br />";
-                doSetCookie = true;
-                // TODO: unset cookie
-                if(aCookie != null) {
-                }
+            }
+        }
+        if((idFromSession==false) && (httpSession!=null) && (mySession!=null)) { // can we elide the 's'?
+            String aNum = (String)httpSession.getAttribute(SURVEYTOOL_COOKIE_SESSION);
+            if((aNum != null) && (mySession.id.equals(aNum))) {
+                idFromSession = true; // it would have matched.
+            } else {
+       //         ctx.println("[Confused? cs="+aNum +", s=" + mySession.id + "]");
             }
         }
         if(mySession == null) {
             mySession = new CookieSession(user==null);
             if(!myNum.equals(SURVEYTOOL_COOKIE_NONE)) {
-                ctx.println("New session: " + mySession.id + "<br />");
+//                ctx.println("New session: " + mySession.id + "<br />");
             }
-            doSetCookie = true;
+            idFromSession = false;
         }
         ctx.session = mySession;
-        ctx.addQuery("s", mySession.id);
+        
+        if(!idFromSession) { // suppress 's' if cookie was valid
+            ctx.addQuery(QUERY_SESSION, mySession.id);
+        } else {
+      //      ctx.println("['s' suppressed]");
+        }
 
-        // cookie stuff
-        if(removeCookie || doSetCookie) {
-            String id = SURVEYTOOL_COOKIE_NONE;
-            if(!removeCookie) {
-                id = mySession.id;
-            }
-            if(aCookie == null) {
-                aCookie = new Cookie(SURVEYTOOL_COOKIE_SESSION, id);
-            }
-            if(removeCookie) {
-                aCookie.setMaxAge(0);
-            } else {
-                aCookie.setComment("http://cldr.info");
-                aCookie.setMaxAge(CookieSession.USER_TO / 1000);  // don't last longer than longest session time
-            }
-       //     ctx.response.addCookie(aCookie);
+        if(httpSession != null) {
+            httpSession.setAttribute(SURVEYTOOL_COOKIE_SESSION, mySession.id);
+            httpSession.setMaxInactiveInterval(CookieSession.USER_TO / 1000);
         }
         
         if(user != null) {
@@ -614,12 +597,12 @@ public class SurveyMain extends HttpServlet {
         if(UserRegistry.userIsTC(ctx.session.user)) {
             ctx.println("You are: <b>A CLDR TC Member:</b> ");
             ctx.println("<a href='" + ctx.jspLink("adduser.jsp") +"'>[Add User]</a> | ");
-            ctx.println("<a href='" + ctx.url() + "&do=list'>[Manage " + ctx.session.user.org + " Users]</a>");
+            ctx.println("<a href='" + ctx.url() + ctx.urlConnector() +"do=list'>[Manage " + ctx.session.user.org + " Users]</a>");
             ctx.println("<br/>");
         } else {
             if(UserRegistry.userIsVetter(ctx.session.user)) {
                 ctx.println("You are a: <b>Vetter:</b> ");
-                ctx.println("<a href='" + ctx.url() + "&do=list'>[List " + ctx.session.user.org + " Users]</a>");
+                ctx.println("<a href='" + ctx.url() + ctx.urlConnector() +"do=list'>[List " + ctx.session.user.org + " Users]</a>");
                 ctx.println("<br/>");
             } else if(UserRegistry.userIsStreet(ctx.session.user)) {
                 ctx.println("You are a: <b>Guest Contributor</b> ");
@@ -999,7 +982,8 @@ public class SurveyMain extends HttpServlet {
                 }
                 printUserMenu(ctx);
             } else {
-                ctx.println("<a href='" + ctx.jspLink("login.jsp") +"'>Login</a>");
+                ctx.println("You are a <b>Visitor</b>. <a href='" + ctx.jspLink("login.jsp") +"'>Login</a>");
+                ctx.println("<br />");
             }
             ctx.println(" &nbsp; <span style='font-size:large;'>");
             ctx.printHelpLink("","Instructions"); // base help
@@ -1019,7 +1003,7 @@ public class SurveyMain extends HttpServlet {
                     for(;e.hasMoreElements();) {
                         String k = e.nextElement().toString();
                         boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,k);
-                        ctx.print("<a href=\"" + baseContext.url() + "&_=" + k + "\">" + 
+                        ctx.print("<a href=\"" + baseContext.url() + ctx.urlConnector() +"_=" + k + "\">" + 
                                     new ULocale(k).getDisplayName());
                         if(canModify) {
                             ctx.print(MODIFY_THING);
@@ -1148,11 +1132,12 @@ public class SurveyMain extends HttpServlet {
         if(n == null) {
             n = new ULocale(localeName).getDisplayName() ;
         }
+        String connector = ctx.urlConnector();
         boolean hasDraft = draftSet.contains(localeName);
         ctx.print(hasDraft?"<b>":"") ;
         ctx.print("<a " + (hasDraft?"class='draftl'":"class='nodraft'") 
                   +" title='" + localeName + "' href=\"" + ctx.url() 
-                  + "&" + "_=" + localeName + "\">" +
+                  + connector + "_=" + localeName + "\">" +
                   n);
         boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,localeName);
         if(canModify) {
@@ -1238,7 +1223,7 @@ public class SurveyMain extends HttpServlet {
         if(menu.equals(which)) {
             ctx.print("<b class='selected'>");
         } else {
-            ctx.print("<a class='notselected' href=\"" + ctx.url() +  "&x=" + menu +
+            ctx.print("<a class='notselected' href=\"" + ctx.url() + ctx.urlConnector() + "x=" + menu +
                       "\">");
         }
         if(menu.endsWith("/")) {
@@ -1336,7 +1321,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("<H3>" + 
                             displayName+ "</h3>");
                 if(!post) {
-                    ctx.println("<a class='pager' style='float: right;' href='" + ctx.url() + "&_=" + k + "&x=" + xREMOVE + "'>[Cancel This Edit]</a>");
+                    ctx.println("<a class='pager' style='float: right;' href='" + ctx.url() + ctx.urlConnector() + "_=" + k + "&x=" + xREMOVE + "'>[Cancel This Edit]</a>");
                 }
                 CLDRFile f = createCLDRFile(ctx, k, (Hashtable)lh.get(k));
                 
@@ -1726,7 +1711,7 @@ subtype = subtype.substring(0,subtype.length()-1);
                     ctx.print("&nbsp;&nbsp;");
                 }
                 boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
-                ctx.println("\u2517&nbsp;<a href=\"" + ctx.url() + "&_=" + ctx.docLocale[i] + 
+                ctx.println("\u2517&nbsp;<a href=\"" + ctx.url() + ctx.urlConnector() +"_=" + ctx.docLocale[i] + 
                     "\">" + ctx.docLocale[i] + "</a> " + new ULocale(ctx.docLocale[i]).getDisplayName() );
                 if(canModify) {
                     ctx.print(MODIFY_THING);
@@ -1880,25 +1865,13 @@ public void doRaw(WebContext ctx) {
 * Show the 'main info about this locale' panel.
  */
 public void doMain(WebContext ctx) {
-    //        String ver = (String)docVersions.get(ctx.locale.toString());
-    String ver="0.0";
+    String ver = LDMLUtilities.getCVSVersion(fileBase, ctx.locale.toString() + ".xml"); // just get ver of the latest file.
     ctx.println("<hr/><p><p>");
     ctx.println("<h3>Basic information about the Locale</h3>");
     
     if(ver != null) {
         ctx.println( LDMLUtilities.getCVSLink(ctx.locale.toString(), ver) + "CVS version #" + ver + "</a><br/>");
-    }
-    
-    /*        // print some basic stuff
-        ver = getAttributeValue(ctx.doc[0], "//ldml/identity/version", "number");
-        if(ver != null) {
-            ctx.println("XML Version number: " + ver + "<br/>");
-        }
-    ver = getAttributeValue(ctx.doc[0], "//ldml/identity/generation", "date");
-        if(ver != null) {
-            ctx.println("Generation date: " + ver + "<br/>");
-        }
-    */
+    }    
 }
 
 public static String getAttributeValue(Document doc, String xpath, String attribute) {
@@ -2354,7 +2327,6 @@ public void showZoneList(WebContext ctx) {
         
         ctx.println("</table>");
         // skip =
-        //showSkipBox(ctx, total, sortedMap, tx);
         if(ctx.session.user != null) {
             ctx.println("<div style='margin-top: 1em;' align=right><input type=submit value='" + xSAVE + " for " + 
                         ctx.locale.getDisplayName() +"'></div>");
@@ -2432,28 +2404,14 @@ public void showZoneList(WebContext ctx) {
 * This is the main function for showing lists of items (pods).
  */
 public void showPathList(WebContext ctx, String xpath, String lastElement) {
-    int count = 0;
-    int dispCount = 0;
-    int total = 0;
-    int skip = 0;
+    CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
+    CLDRFile cf = getUserFile(ctx, ctx.session.user, ctx.locale);
     String fullThing = xpath + "/" + lastElement;
     boolean isTz = xpath.equals("timeZoneNames");
     if(lastElement == null) {
         fullThing = xpath;
     }
-    //       total = mySet.count();
-    String sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
-    //        boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
-    CLDRFile cf = getUserFile(ctx, ctx.session.user, ctx.locale);
-//    CLDRFile engf = getEnglishFile();
-    CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
-    CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
-    XPathParts pathParts = new XPathParts(null, null);
-    XPathParts fullPathParts = new XPathParts(null, null);
-    List checkCldrResult = new ArrayList();
-    Iterator theIterator = null;
     
-    String ourDir = getDirectionFor(ctx.locale);
     boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString()));
     
     synchronized(ourSrc) { // because it has a connection..
@@ -2461,53 +2419,96 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
         // first, do submissions.
         if(canModify) {
             DataPod oldPod = ctx.getExistingPod(fullThing);
-            if(oldPod != null) {
-                for(Iterator i = oldPod.getAll().iterator();i.hasNext();) {
-                    DataPod.Pea p = (DataPod.Pea)i.next();
-                    processPeaChanges(ctx, oldPod, p, ourDir, cf, ourSrc);
-                    if(p.subPeas != null) {
-                        for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
-                            DataPod.Pea subPea = (DataPod.Pea)e.next();
-                            processPeaChanges(ctx, oldPod, subPea, ourDir, cf, ourSrc);
-                        }
-                    }
-                }            
-            }
+            processPeaChanges(ctx, oldPod, cf, ourSrc);
         }
 //        System.out.println("Pod's full thing: " + fullThing);
         DataPod pod = ctx.getPod(fullThing);
-        List peas = pod.getList(sortMode);
-        ctx.println("<hr />");
-        // -----
-        skip = showSkipBox(ctx, peas.size(), pod.getDisplayList(sortMode));
         
-        ctx.printUrlAsHiddenFields();   
-        ctx.println("<input type='hidden' name='skip' value='"+ctx.field("skip")+"' />");
-        ctx.println("<table class='list' border='0'>");
+        showPeas(ctx, pod, canModify);
+    }
+}
 
-        ctx.println("<tr class='heading'>\n"+
-                    " <th colspan=2>\n"+
-                    " </th>\n"+
-                    "<th> action</th>\n"+
-                    "<th> data</th>\n"+
-                    "<th> alerts</th>\n"+
-                    "</tr>");
-                    
-        for(ListIterator i = peas.listIterator(skip);(count<CODES_PER_PAGE)&&i.hasNext();count++) {
-            DataPod.Pea p = (DataPod.Pea)i.next();
-            showPea(ctx, pod, p, ourDir, cf, ourSrc, canModify);
-            if(p.subPeas != null) {
-                for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
-                    DataPod.Pea subPea = (DataPod.Pea)e.next();
-                    showPea(ctx, pod, subPea, ourDir, cf, ourSrc, canModify);
+void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
+    int count = 0;
+    int dispCount = 0;
+    int total = 0;
+    int skip = 0;
+    
+    //       total = mySet.count();
+    //        boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
+    CLDRFile cf = getUserFile(ctx, ctx.session.user, ctx.locale);
+    //    CLDRFile engf = getEnglishFile();
+    CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
+    CheckCLDR checkCldr = (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
+    XPathParts pathParts = new XPathParts(null, null);
+    XPathParts fullPathParts = new XPathParts(null, null);
+    List checkCldrResult = new ArrayList();
+    Iterator theIterator = null;
+    String sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
+    List peas = pod.getList(sortMode);
+    String ourDir = getDirectionFor(ctx.locale);
+    ctx.println("<hr />");
+    
+    DataPod.DisplaySet dSet = pod.getDisplaySet(sortMode);  // contains 'peas' and display list
+    boolean checkPartitions = dSet.partitions.length > 1; // only check if more than one partition    
+    // -----
+    skip = showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode));
+    
+    ctx.printUrlAsHiddenFields();   
+    ctx.println("<input type='hidden' name='skip' value='"+ctx.field("skip")+"' />");
+    ctx.println("<table class='list' border='0'>");
+    
+    ctx.println("<tr class='heading'>\n"+
+                " <th colspan=2>\n"+
+                " </th>\n"+
+                "<th> action</th>\n"+
+                "<th> data</th>\n"+
+                "<th> alerts</th>\n"+
+                "</tr>");
+    
+    for(ListIterator i = peas.listIterator(skip);(count<CODES_PER_PAGE)&&i.hasNext();count++) {
+        DataPod.Pea p = (DataPod.Pea)i.next();
+        
+        if(checkPartitions) {
+            for(int j = 0;j<dSet.partitions.length;j++) {
+                if((dSet.partitions[j].name != null) && (count+skip) == dSet.partitions[j].start) {
+                    ctx.println("<tr style='font-size: 200%' class='heading'><th colspan='2'><i>" +
+                        "<a name='" + dSet.partitions[j].name + "'>" +
+                        dSet.partitions[j].name + "</a>" +
+                        "</i></th></tr>");
                 }
             }
         }
         
-        ctx.println("</table>");
+        showPea(ctx, pod, p, ourDir, cf, ourSrc, canModify);
+        if(p.subPeas != null) {
+            for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
+                DataPod.Pea subPea = (DataPod.Pea)e.next();
+                showPea(ctx, pod, subPea, ourDir, cf, ourSrc, canModify);
+            }
+        }
     }
+    
+    ctx.println("</table>");
+    /*skip = */ showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), false);
     if(!canModify) {
         ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
+    }
+}
+
+void processPeaChanges(WebContext ctx, DataPod oldPod, CLDRFile cf, CLDRDBSource ourSrc) {
+    String ourDir = getDirectionFor(ctx.locale);
+    if(oldPod != null) {
+        for(Iterator i = oldPod.getAll().iterator();i.hasNext();) {
+            DataPod.Pea p = (DataPod.Pea)i.next();
+            processPeaChanges(ctx, oldPod, p, ourDir, cf, ourSrc);
+            if(p.subPeas != null) {
+                for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
+                    DataPod.Pea subPea = (DataPod.Pea)e.next();
+                    processPeaChanges(ctx, oldPod, subPea, ourDir, cf, ourSrc);
+                }
+            }
+        }            
     }
 }
 
@@ -2526,6 +2527,15 @@ void processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir
         choice_v.length()>0) {
         String fullPathFull = pod.xpath(p);
         String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
+        for(Iterator j = p.items.iterator();j.hasNext();) {
+            DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+            if(choice_v.equals(item.value)  && 
+                !((item.altProposed==null) && (p.inheritFrom!=null) &&  XMLSource.CODE_FALLBACK_ID.equals(p.inheritFrom))) { // OK to override code fallbacks
+                ctx.println("<tt class='codebox'>" + p.displayName + "</tt>  - Not accepting value, as it is already present under " + 
+                    ((item.altProposed==null)?" non-draft item ":(" <tt>"+item.altProposed+"</tt> ")));
+                return;
+            }
+        }
         String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, fullPathMinusAlt, p.altType, 
             XPathTable.altProposedPrefix(ctx.session.user.id), ctx.session.user.id, choice_v);
         ctx.println("<tt class='codebox'>" + p.displayName + "</tt> <b>change: " + choice_v + " : " + newProp + "<br />");
@@ -2568,6 +2578,8 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         ctx.print("<span class='actionbox'>missing</span>");
         if(canModify) {
             ctx.print("<input name='"+fieldHash+"' value='"+"0"+"' type='radio' />");
+        } else {
+            ctx.print("<input type='radio' disabled>");
         }
         ctx.print("<tt>");
         ctx.println("</td>");
@@ -2579,7 +2591,9 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     for(Iterator j = p.items.iterator();j.hasNext();) {
         DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
         String pClass ="";
-        if(item.altProposed != null) {
+        if((item.inheritFrom != null)&&(p.inheritFrom==null)) {
+            pClass = "class='fallback'";
+        } else if(item.altProposed != null) {
             pClass = "class='proposed'";
         } else if(p.inheritFrom != null) {
             pClass = "class='missing'";
@@ -2615,6 +2629,9 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
             } else {
                 ctx.print("<span class='actionbox'>" + item.altProposed + "</span>");
             }
+            if(item.inheritFrom != null) {
+                ctx.println("<br /><span class='fallback'>Inherited from: " + item.inheritFrom+"</span>");
+            }
         } else {
             if(p.inheritFrom != null) {
                 ctx.print("<span class='actionbox'>inherited " + p.inheritFrom + "</span>");
@@ -2624,6 +2641,8 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         }
         if(canModify) {
             ctx.print("<input name='"+fieldHash+"'  value='"+((item.altProposed!=null)?item.altProposed:"0")+"' type='radio' />");
+        } else {
+            ctx.print("<input type='radio' disabled />");
         }
         ctx.println("</td>");
         ctx.println("<td valign='top' nowrap dir='" + ourDir +"'>");
@@ -2660,6 +2679,9 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         if(canModify) {
             ctx.print("<span class='actionbox'>" + CHANGETO + "</span>");
             ctx.print("<input name='"+fieldHash+"' value='"+CHANGETO+"' type='radio'  />");
+        } else {
+            ctx.print("<span class='disabledbox'>" + CHANGETO + "</span>");
+            ctx.print("<input type='radio' disabled />");
         }
         ctx.println("</td>");
         if(canModify) {
@@ -2693,19 +2715,28 @@ int showSkipBox(WebContext ctx, int total, Map m, NodeSet.NodeSetTexter tx) {
 int showSkipBox(WebContext ctx, int total) {
     return showSkipBox(ctx, total, null);
 }
-int showSkipBox(WebContext ctx, int total, List displayList) {
+int showSkipBox(WebContext ctx, int total, DataPod.DisplaySet displaySet) {
+    return showSkipBox(ctx, total, displaySet, true);
+}
+int showSkipBox(WebContext ctx, int total, DataPod.DisplaySet displaySet, boolean showSearchMode) {
+    List displayList = null;
+    if(displaySet != null) {
+        displayList = displaySet.displayPeas;
+    }
     int skip;
     ctx.println("<div class='pager' style='margin: 2px'>");
-    ctx.println(/*"<p style='float: right; margin-left: 3em;'> " + */
-        "Sorted ");
-    {
-        String sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
-        boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
-        
-        //          showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
-        showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
-        showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Priority");
-        showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, "Name");
+    if(showSearchMode) {
+        ctx.println(/*"<p style='float: right; margin-left: 3em;'> " + */
+            "<b>Sorted:</b>  ");
+        {
+            String sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
+            boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
+            
+            //          showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
+            showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
+            showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Priority");
+            showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, "Name");
+        }
     }
 
     // TODO: replace with ctx.fieldValue("skip",-1)
@@ -2727,70 +2758,122 @@ int showSkipBox(WebContext ctx, int total, List displayList) {
     }
 
     // Print navigation
-    ctx.println("Displaying items " + from + " to " + to + " of " + total);        
+    if(showSearchMode) {
+        ctx.println("Displaying items " + from + " to " + to + " of " + total);        
 
-    if(total>=(CODES_PER_PAGE)) {
-        ctx.println("<br/>");
-    }
-
-    if(skip>0) {
-        int prevSkip = skip - CODES_PER_PAGE;
-        if(prevSkip<0) {
-            prevSkip = 0;
-        }
-        ctx.println("<a href=\"" + ctx.url() + 
-                    "&skip=" + new Integer(prevSkip) + "\">" +
-                    "&lt;&lt;&lt; prev " + CODES_PER_PAGE + "");
-        ctx.println("</a> &nbsp;");
-        if(skip>=total) {
-            skip = 0;
-        }
-    } else if(total>=(CODES_PER_PAGE)) {
-        ctx.println("<span>&lt;&lt;&lt; prev " + CODES_PER_PAGE + "" +
-                    "</span> &nbsp;");        
-    }
-
-    if(total>=(CODES_PER_PAGE)) {
-        for(int i=0;i<total;i+= CODES_PER_PAGE) {
-            int end = i + CODES_PER_PAGE-1;
-            if(end>=total) {
-                end = total-1;
-            }
-            boolean isus = (i == skip);
-            if(isus) {
-                ctx.println(" <b class='selected'>");
-            } else {
-                ctx.println(" <a class='notselected' href=\"" + ctx.url() + 
-                            "&skip=" + new Integer(i) + "\">");
-            }
-            if(displayList != null) {
-                ctx.print("" +displayList.get(i).toString() + "");
-                ctx.print("\u2026"); // ...
-                ctx.print("" +displayList.get(end).toString() + "");
-            } else {
-                ctx.print( ""+(i+1) );
-                ctx.print( "-" + (end+1));
-            }
-            if(isus) {
-                ctx.println("</b> ");
-            } else {
-                ctx.println("</a> ");
-            }
-        }
-    }
-    int nextSkip = skip + CODES_PER_PAGE; 
-    if(nextSkip >= total) {
-        nextSkip = -1;
         if(total>=(CODES_PER_PAGE)) {
-            ctx.println(" <span >" +
-                        "next " + CODES_PER_PAGE + "&gt;&gt;&gt;" +
-                        "</span>");
+            ctx.println("<br/>");
         }
-    } else {
-        ctx.println(" <a href=\"" + ctx.url() + 
-                    "&skip=" + new Integer(nextSkip) + "\">" +
-                    "next " + CODES_PER_PAGE + "&gt;&gt;&gt;" +
-                    "</a>");
+    }
+
+    if(total>=(CODES_PER_PAGE)) {
+        if(displaySet.partitions.length > 1) {
+            ctx.println("<table border='0'><tr><td>");
+        }
+        if(skip>0) {
+            int prevSkip = skip - CODES_PER_PAGE;
+            if(prevSkip<0) {
+                prevSkip = 0;
+            }
+            ctx.println("<a href=\"" + ctx.url() + 
+                        ctx.urlConnector() + "skip=" + new Integer(prevSkip) + "\">" +
+                        "\u2190 prev " + CODES_PER_PAGE + "");
+            ctx.println("</a> &nbsp;");
+            if(skip>=total) {
+                skip = 0;
+            }
+        } else if(total>=(CODES_PER_PAGE)) {
+            ctx.println("<span>\u2190 prev " + CODES_PER_PAGE + "" +
+                        "</span> &nbsp;");        
+        }
+        if(displaySet.partitions.length > 1) {
+            ctx.println("</td>");
+        }
+        for(int j=0;j<displaySet.partitions.length;j++) {
+            if(j>0) { 
+                ctx.println("<tr><td></td>");
+            }
+            if(displaySet.partitions[j].name != null) {
+                ctx.print("<td align='right'><b>" + displaySet.partitions[j].name + ":</b></td><td>");
+            }
+            int ourStart = displaySet.partitions[j].start;
+            int ourLimit = displaySet.partitions[j].limit;
+            for(int i=ourStart;i<ourLimit;i = (i - (i%CODES_PER_PAGE)) + CODES_PER_PAGE) {
+                int pageStart = i - (i%CODES_PER_PAGE); // pageStart is the skip at the top of this page. should be == ourStart unless on a boundary.
+                int end = pageStart + CODES_PER_PAGE-1;
+                if(end>=ourLimit) {
+                    end = ourLimit-1;
+                }
+                boolean isus = (pageStart == skip);
+                if(isus) {
+                    if(((i!=pageStart) || (i==0)) && (displaySet.partitions[j].name != null)) {
+                        ctx.print("<b><a class='selected' style='text-decoration:none' href='#"+displaySet.partitions[j].name+"'>");
+                    } else {
+                        ctx.println(" <b class='selected'>");
+                    }
+                } else {
+                    ctx.print(" <a class='notselected' href=\"" + ctx.url() + 
+                                ctx.urlConnector() +"skip=" + pageStart);
+                    if((i!=pageStart) && (displaySet.partitions[j].name != null)) {
+                        ctx.println("#"+displaySet.partitions[j].name);
+                    }
+                    ctx.println("\">"); // skip to the pageStart
+                }
+                if(displayList != null) {
+                    ctx.print("" +displayList.get(i).toString() + "");
+                    ctx.print("\u2026"); // ...
+                    ctx.print("" +displayList.get(end).toString() + "");
+                } else {
+                    ctx.print( ""+(i+1) );
+                    ctx.print( "-" + (end+1));
+                }
+                if(isus) {
+                    if((i!=pageStart) && (displaySet.partitions[j].name != null)) {
+                        ctx.print("</a></b> ");
+                    } else {
+                        ctx.println("</b> ");
+                    }
+                } else {
+                    ctx.println("</a> ");
+                }
+            }
+            // Next>> stuff
+            if(j==0) {
+                if(displaySet.partitions.length > 1) {
+                    ctx.println("</td><td>");
+                }
+                int nextSkip = skip + CODES_PER_PAGE; 
+                if(nextSkip >= total) {
+                    nextSkip = -1;
+                    if(total>=(CODES_PER_PAGE)) {
+                        ctx.println(" <span >" +
+                                    "next " + CODES_PER_PAGE + "\u2192" +
+                                    "</span>");
+                    }
+                } else {
+                    ctx.println(" <a href=\"" + ctx.url() + 
+                                ctx.urlConnector() +"skip=" + new Integer(nextSkip) + "\">" +
+                                "next " + CODES_PER_PAGE + "\u2192" +
+                                "</a>");
+                }
+            }
+            if(displaySet.partitions.length > 1) {
+                ctx.println("</td></tr>");
+            }
+        }
+        if(displaySet.partitions.length > 1) {
+            ctx.println("</table>");
+        }
+    } // no multiple pages
+    else {
+        if(displaySet.partitions.length > 1) {
+            ctx.println("<br /><b>Items:</b> ");
+            for(int j=0;j<displaySet.partitions.length;j++) {
+                    ctx.print("<b><a class='selected' style='text-decoration:none' href='#"+displaySet.partitions[j].name+"'>");
+                    ctx.print(displaySet.partitions[j].name + "</a></b> ");
+            }
+            ctx.println("<br />");
+        }
     }
     //        ctx.println("</p>");
     ctx.println("</div>");

@@ -21,6 +21,12 @@ import com.ibm.icu.text.RuleBasedCollator;
  **/
 
 public class DataPod {
+    // UI strings
+    public static final String DATAPOD_MISSING = "Missing";
+    public static final String DATAPOD_NORMAL = "Normal";
+    public static final String DATAPOD_PRIORITY = "Priority";
+    public static final String DATAPOD_PROPOSED = "Proposed";
+
     public String locale = null;
     public String xpathPrefix = null;
     
@@ -92,6 +98,7 @@ public class DataPod {
         boolean hasInherited = false;
         String inheritFrom = null;
         public class Item {
+            String inheritFrom = null;
             public String altProposed = null; // proposed part of the name (or NULL for nondraft)
             public String value = null; // actual value
             public int id = -1; // id of CLDR_DATA table row
@@ -112,13 +119,14 @@ public class DataPod {
                         return myCollator.compare(p1.altProposed, p2.altProposed);
                     }
                 });
-        void addItem(String value, String altProposed, List tests) {
+        Item addItem(String value, String altProposed, List tests) {
             Item pi = new Item();
             pi.value = value;
             pi.altProposed = altProposed;
             pi.tests = tests;
             items.add(pi);
 //            System.out.println("  v: " + pi.value);
+            return pi;
         }
         
         String myFieldHash = null;
@@ -170,6 +178,129 @@ public class DataPod {
     public Collection getAll() {
         synchronized(peasHash) {
             return peasHash.values();
+        }
+    }
+    
+    /** 
+     * A class representing a list of peas, in sorted and divided order.
+     */
+    public class DisplaySet {
+        public List peas; // list of peas in sorted order
+        public List displayPeas; // list of Strings suitable for display
+        public class Partition {
+            public String name; // name of this partition
+            public int start; // first item
+            public int limit; // after last item
+            public Partition(String n, int f, int t) {
+                name = n;
+                start = f;
+                limit = t;
+            }
+        };
+        public Partition partitions[];  // display group partitions.  May only contain one entry:  {null, 0, <end>}.  Otherwise, contains a list of entries to be named separately
+        
+        public DisplaySet(List myPeas, List myDisplayPeas, String sortMode) {
+            peas = myPeas;
+            displayPeas = myDisplayPeas;
+            
+            // fetch partitions..
+            Vector v = new Vector();
+            if(sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
+                // fish for it
+                int priorityStart = -1; // things with warnings or proposed
+                int proposedStart = -1; // things with warnings or proposed
+                int normalStart = -1; // normal things
+                int missingStart = -1; // missing things
+                
+                Pea peasArray[] = (Pea[])peas.toArray(new Pea[0]);
+                for(int i=0;i<peasArray.length;i++) {
+                    Pea p = peasArray[i];
+                    // Vegetable, Animal, Mineral?
+                    if(priorityStart == -1) {
+                        if(p.hasTests) {
+                            priorityStart = i;
+                        }
+                    }
+                    if(proposedStart == -1) {
+                        if(p.hasProps && !p.hasTests) {
+                            proposedStart = i;
+                        }
+                    }
+                    if(normalStart == -1) {
+                        if(!p.hasProps && !p.hasTests && !p.hasInherited) {
+                            normalStart = i;
+                        }
+                    }
+                    if(missingStart == -1) {
+                        if(p.hasInherited && !p.hasProps && !p.hasTests) {
+                            missingStart = i;
+                        }
+                    }
+                }
+                int end = peasArray.length;
+                if(end>0) {
+                    // fixup
+                    Partition priority = null;
+                    Partition proposed = null;
+                    Partition normal = null;
+                    Partition missing = null;
+                    
+                    // from last to first
+                    if(missingStart != -1) {
+                        missing = new Partition(DATAPOD_MISSING,missingStart,end);
+                        end = missingStart;
+                    }
+                    
+                    if(normalStart != -1) {
+                        normal = new Partition(DATAPOD_NORMAL,normalStart,end);
+                        end = normalStart;
+                    }
+
+                    if(proposedStart != -1) {
+                        proposed = new Partition(DATAPOD_PROPOSED,proposedStart,end);
+                        end = proposedStart;
+                    }
+
+                    if(priorityStart != -1) {
+                        priority = new Partition(DATAPOD_PRIORITY,priorityStart,end);
+                        end = priorityStart;
+                    }
+                    
+                    if(end != 0) {
+                        throw new InternalError("Partitions do not cover entire set- end is " + end);
+                    }
+                    
+                    if(priority != null) {
+                        v.add(priority);
+                    }
+                    if(proposed != null) {
+                        v.add(proposed);
+                    }
+                    if(normal != null) {
+                        v.add(normal);
+                    }
+                    if(missing != null) {
+                        v.add(missing);
+                    }
+                }
+                
+            } else {
+                // default partition
+                v.add(new Partition(null, 0, peas.size()));
+            }
+            partitions = (Partition[])v.toArray(new Partition[0]);
+        }
+    }
+    
+    private DisplaySet oldDisplaySet = null;
+    String oldSortMode2 = "";
+    public DisplaySet getDisplaySet(String sortMode) {
+        synchronized(peasHash) {
+            if(!oldSortMode2.equals(sortMode)) {
+                oldSortMode2 = sortMode;
+                oldDisplaySet = new DisplaySet(getList(sortMode), getDisplayList(sortMode), sortMode);
+            }
+            return oldDisplaySet;
         }
     }
     
@@ -366,7 +497,7 @@ public class DataPod {
             String xpath = (String)it.next();
             if(-1!=xpath.indexOf("001")) {
                 System.err.println("001:: " + xpath + aFile.getSourceLocaleID(xpath));
-//                if(aFile.getSourceLocaleID(xpath).equals("code-fallback")) {
+//                if(aFile.getSourceLocaleID(xpath).equals(XMLSource.CODE_FALLBACK_ID)) {
 //                    throw new InternalError("No err!");
 //                }
             }
@@ -423,7 +554,7 @@ public class DataPod {
             
 /*srl*/            if(-1!=xpath.indexOf("ain")) {
                 System.err.println("ain:: " + xpath + aFile.getSourceLocaleID(xpath) + " - AP:" + altProposed + " - AT: " + altType );
-//                if(aFile.getSourceLocaleID(xpath).equals("code-fallback")) {
+//                if(aFile.getSourceLocaleID(xpath).equals(XMLSource.CODE_FALLBACK_ID)) {
 //                    throw new InternalError("No err!");
 //                }
             }
@@ -447,7 +578,10 @@ public class DataPod {
                 p.hasProps = true;
                 superP.hasProps = true;
             }
-
+            
+            String setInheritFrom = (isInherited)?sourceLocale:null; // no inherit if it's current.
+            boolean isCodeFallback = (setInheritFrom!=null)&&
+                (setInheritFrom.equals(XMLSource.CODE_FALLBACK_ID)); // don't flag errors from code fallback.
             if((checkCldr != null)&&(altProposed == null)) {
                 checkCldr.check(xpath, fullPath, value, options, checkCldrResult);
             }
@@ -455,14 +589,14 @@ public class DataPod {
                 System.err.println("ain+- was have " + p.items.size() + " Items ");
             }
             if(checkCldrResult.isEmpty()) {
-                p.addItem( value, altProposed, null);
+                p.addItem( value, altProposed, null).inheritFrom=setInheritFrom;
             } else {
-                p.addItem( value, altProposed, checkCldrResult);
+                p.addItem( value, altProposed, checkCldrResult).inheritFrom=setInheritFrom;
                 // only consider non-example tests as notable.
                 boolean weHaveTests = false;
                 for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                    if(!status.getType().equals(status.exampleType)) {
+                    if(!status.getType().equals(status.exampleType) && !isCodeFallback) {
                         weHaveTests = true;
                     }
                 }

@@ -742,6 +742,9 @@ public class CLDRDBSource extends XMLSource {
      */
     public String addDataToNextSlot(CLDRFile file, String locale, String fullXpathMinusAlt, 
                                     String altType, String altProposedPrefix, int submitterId, String value) {
+                                    if(1==1) {
+throw new InternalError("Sorry, adding data is temporarily disabled whilst some xpath bugs are ironed out..<p> please click Back in your browser to continue. ");
+}
         XPathParts xpp = new XPathParts(null,null);
         // prepare for slot check
         for(int slot=1;slot<100;slot++) {

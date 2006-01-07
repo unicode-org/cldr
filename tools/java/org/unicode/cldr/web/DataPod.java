@@ -6,11 +6,16 @@
 //  Copyright 2005 IBM. All rights reserved.
 //
 
+//  TODO: this class now has lots of knowledge about specific data types.. so does SurveyMain
+//  Probably, it should be concentrated in one side or another- perhaps SurveyMain should call this
+//  class to get a list of displayable items?
+
 package org.unicode.cldr.web;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.*;
 import java.util.*;
+import java.util.regex.*;
 
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -32,10 +37,10 @@ public class DataPod {
     
     private String fieldHash; // prefix string used for calculating html fields
 
-    DataPod(SurveyMain sm, String loc, String pref) {
+    DataPod(SurveyMain sm, String loc, String prefix) {
         locale = loc;
-        xpathPrefix = pref;
-        fieldHash =  CookieSession.cheapEncode(sm.xpt.getByXpath(pref));
+        xpathPrefix = prefix;
+        fieldHash =  CookieSession.cheapEncode(sm.xpt.getByXpath(prefix));
     }
     
     /* get a short key for use in fields */
@@ -56,7 +61,11 @@ public class DataPod {
                 path = path + "[@alt='" + p.altType +"']";
             }
         } else {
-            throw new InternalError("Can't handle mixed peas with no suffix");
+            if(p.xpathSuffix.startsWith("[")) {
+                return xpathPrefix + p.xpathSuffix;
+            } else {
+                return xpathPrefix+"/"+p.xpathSuffix;
+            }
         }
         
         return path;
@@ -89,6 +98,7 @@ public class DataPod {
     final Collator myCollator = getOurCollator();
     
     public class Pea {
+        public boolean confirmOnly = false; // if true: don't accept new data, this pea is something strange.
         public String type = null;
 		public String xpathSuffix = null; // if null:  prefix+type is sufficient (simple list).  If non-null: mixed Pod, prefix+suffix is required and type is informative only.
         public String displayName = null;
@@ -187,6 +197,11 @@ public class DataPod {
     public class DisplaySet {
         public List peas; // list of peas in sorted order
         public List displayPeas; // list of Strings suitable for display
+        /**
+         * Partitions divide up the peas into sets, such as 'proposed', 'normal', etc.
+         * The 'limit' is one more than the index number of the last item.
+         * In some cases, there is only one partition, and its name is null.
+         */
         public class Partition {
             public String name; // name of this partition
             public int start; // first item
@@ -426,7 +441,7 @@ public class DataPod {
             public int size() { return p.size(); }
         };
     }
-    
+
 	/**
 	 * @param ctx context to use (contains CLDRDBSource, etc.)
 	 * @param locale locale
@@ -485,6 +500,66 @@ public class DataPod {
         Map options = new TreeMap();
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
+
+        // todo: move this to static
+//        Pattern typeReplacementPattern = Pattern.compile("@type=");
+        Pattern typeReplacementPattern = Pattern.compile("\\[@(?:type|key)=['\"]([^'\"]*)['\"]\\]");
+        Pattern keyTypeSwapPattern = Pattern.compile("([^/]*)/(.*)");
+        Pattern noisePattern = Pattern.compile( // 'noise' to be removed
+                                                    "^/|"+
+                                                    "Formats/currencyFormatLength/currencyFormat|"+
+                                                    "Formats/currencySpacing|"+
+                                                    "Formats/percentFormatLength/percentFormat|"+
+                                                    "Formats/decimalFormatLength/decimalFormat|"+
+                                                    "Formats/scientificFormatLength/scientificFormat|"+
+                                                    "dateTimes/dateTimeLength/|"+
+                                                    "/timeFormats/timeFormatLength|"+
+                                                    "s/quarterContext|"+
+                                                    "/dateFormats/dateFormatLength|"+
+                                                    "/pattern|"+
+                                                    "/monthContext|"+
+                                                    "/dayContext|"+
+                                                    "/dayWidth|"+
+                                                    "day/|"+
+                                                    "Format|"+
+                                                    "s/field|"+
+                                                    "\\[@draft=\"true\"\\]|"+ // ???
+                                                    "\\[@alt=\"[^\"]*\"\\]|"+ // ???
+                                                    "/standard"    );
+
+        /**  TODO: this needs to be generalized.. **/
+        String exclude = null;
+        boolean excludeCurrencies = false;
+        boolean excludeCalendars = false;
+        boolean excludeTimeZones = false;
+        boolean useShorten = false; // 'shorten' xpaths instead of extracting type
+        boolean confirmOnly = false;
+        boolean keyTypeSwap = false;
+        String removePrefix = null;
+        if(xpathPrefix.startsWith("//ldml/numbers")) {
+            if(!xpathPrefix.endsWith("/currencies")) {
+                excludeCurrencies=true; // = "//ldml/numbers/currencies";
+                removePrefix = "//ldml/numbers/";
+                useShorten = true;
+            }
+        } else if(xpathPrefix.startsWith("//ldml/dates")) {
+            useShorten = true;
+            removePrefix = "//ldml/dates/";
+            if(!xpathPrefix.endsWith("/calendars")) {
+                excludeCalendars = true;
+            } else {
+                removePrefix = "//ldml/dates/calendars/calendar";
+            }
+            if(!xpathPrefix.startsWith("//ldml/dates/timeZoneNames")) {
+                excludeTimeZones = true;
+            } else {
+                removePrefix = "//ldml/dates/timeZoneNames/";
+            }
+        } else if(xpathPrefix.startsWith("//ldml/localeDisplayNames/types")) {
+            useShorten = true;
+            removePrefix = "//ldml/localeDisplayNames/types/type";
+            keyTypeSwap = true; //these come in reverse order  (type/key) i.e. buddhist/celander, pinyin/collation.  Reverse this for sorting...
+        }
 /*
                 checkCldr.check(path, fullPath, value, pathParts, fullPathParts, checkCldrResult);
                 for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
@@ -495,19 +570,73 @@ public class DataPod {
         List checkCldrResult = new ArrayList();
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
             String xpath = (String)it.next();
+            if(excludeCurrencies && (xpath.startsWith("//ldml/numbers/currencies"))) {
+                continue;
+            } else if(excludeCalendars && (xpath.startsWith("//ldml/dates/calendars"))) {
+                continue;
+            } else if(excludeTimeZones && (xpath.startsWith("//ldml/dates/timeZoneNames"))) {
+                continue;
+            }
+
             if(-1!=xpath.indexOf("001")) {
                 System.err.println("001:: " + xpath + aFile.getSourceLocaleID(xpath));
 //                if(aFile.getSourceLocaleID(xpath).equals(XMLSource.CODE_FALLBACK_ID)) {
 //                    throw new InternalError("No err!");
 //                }
             }
-            String type = src.xpt.typeFromPathToTinyXpath(xpath, xpp);
+
             boolean mixedType = false;
-            if(type == null) {
-                type = xpath.substring(xpathPrefix.length(),xpath.length());
-                mixedType = true;
+            String type;
+            String lastType = src.xpt.typeFromPathToTinyXpath(xpath, xpp);  // last type in the list
+            String displaySuffixXpath;
+            String peaSuffixXpath = null; // if non null:  write to suffixXpath
+            String fullSuffixXpath = xpath.substring(xpathPrefix.length()-1,xpath.length());
+            if(removePrefix == null) {
+                displaySuffixXpath = fullSuffixXpath;
+            } else {
+                displaySuffixXpath = xpath.substring(removePrefix.length(),xpath.length());
             }
+            if(useShorten == false) {
+                type = lastType;
+                if(type == null) {
+                    peaSuffixXpath = displaySuffixXpath; // Mixed pea
+                    if(xpath.startsWith("//ldml/characters")) {
+                        type = "standard";
+                    } else {
+                        type = displaySuffixXpath;
+                        mixedType = true;
+                    }
+                }
+            } else {
+                // shorten
+                peaSuffixXpath = displaySuffixXpath; // always mixed pea if we get here
+                    
+                Matcher m = typeReplacementPattern.matcher(displaySuffixXpath);
+                type = m.replaceAll("/$1");
+                Matcher n = noisePattern.matcher(type);
+                type = n.replaceAll("");
+                if(keyTypeSwap) { // see above
+                    Matcher o = keyTypeSwapPattern.matcher(type);
+                    type = o.replaceAll("$2/$1");
+                }
+//                type = suffixXpath; // just see where this gets us
+            }
+            
             String value = aFile.getStringValue(xpath);
+
+            if(xpath.indexOf("default[@type")!=-1) {
+                peaSuffixXpath = displaySuffixXpath;
+//                type = type.substring(0,type.indexOf('@')) + " (default)";
+                int n = type.lastIndexOf('/');
+                if(n==-1) {
+                    type = "(default type)";
+                } else {
+                    type = type.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)
+                }
+                value = lastType;
+                confirmOnly = true; // can't acccept new data for this.
+            }
+            
             if(value == null) {
 //                throw new InternalError("Value of " + xpath + " is null.");
                   System.err.println("Value of " + xpath + " is null.");
@@ -529,20 +658,30 @@ public class DataPod {
             String altType = typeAndProposed[0];
             Pea p = getPea(type, altType);
             Pea superP = getPea(type);
-            
+            if(peaSuffixXpath!=null) {
+                p.xpathSuffix = peaSuffixXpath;
+                superP.xpathSuffix = peaSuffixXpath;
+            }
+            p.confirmOnly = superP.confirmOnly = confirmOnly;
+
             if(altProposed == null) {
                 // just work on the supers
                 if(superP.displayName == null) {
                     if(xpathPrefix.startsWith("//ldml/localeDisplayNames/")) {
+                        superP.displayName = engFile.getStringValue(xpath(superP)); // isn't this what it's for?
+                        /*
                         if(mixedType == false) {
                             superP.displayName = engFile.getStringValue(xpathPrefix+"[@type=\""+type+"\"]");
                         } else {
                             superP.displayName = engFile.getStringValue(xpathPrefix);
                         }
+                        */
                     }
                 }
                 if(superP.displayName == null) {
-                    superP.displayName = "'"+type+"'";
+                    if(!xpath.startsWith("//ldml/characters") && !useShorten) {
+                        superP.displayName = "'"+type+"'";
+                    }
                 }
             }
             

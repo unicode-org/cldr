@@ -2568,7 +2568,9 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         ctx.println(p.displayName);
     } else {
         ctx.println("<tt>"+p.type+"</tt>");
+
     }
+///*srl*/        String fullPathFull = pod.xpath(p); ctx.println("<br />"+fullPathFull);
     ctx.println("</th> </tr>");
     
     
@@ -2676,7 +2678,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         ctx.println("<td bgcolor='gray'></td>");
         // change
         ctx.print("<td nowrap valign='top' align='right'>");
-        if(canModify) {
+        if(canModify && !p.confirmOnly) {
             ctx.print("<span class='actionbox'>" + CHANGETO + "</span>");
             ctx.print("<input name='"+fieldHash+"' value='"+CHANGETO+"' type='radio'  />");
         } else {
@@ -2820,15 +2822,24 @@ int showSkipBox(WebContext ctx, int total, DataPod.DisplaySet displaySet, boolea
                     ctx.println("\">"); // skip to the pageStart
                 }
                 if(displayList != null) {
-                    ctx.print("" +displayList.get(i).toString() + "");
-                    ctx.print("\u2026"); // ...
-                    ctx.print("" +displayList.get(end).toString() + "");
+                    String iString = displayList.get(i).toString();
+                    String endString = displayList.get(end).toString();
+                    
+                    if(iString.length() > 20) {
+                        iString = iString.substring(0,20);
+                        endString="";
+                    }
+                    if(endString.length()>20) {
+                        endString = endString.substring(0,20);
+                    }
+                    
+                    ctx.print(iString+"\u2026"+endString);
                 } else {
                     ctx.print( ""+(i+1) );
                     ctx.print( "-" + (end+1));
                 }
                 if(isus) {
-                    if((i!=pageStart) && (displaySet.partitions[j].name != null)) {
+                    if(((i!=pageStart) || (i==0)) && (displaySet.partitions[j].name != null)) {
                         ctx.print("</a></b> ");
                     } else {
                         ctx.println("</b> ");

@@ -2570,7 +2570,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         ctx.println("<tt>"+p.type+"</tt>");
 
     }
-///*srl*/        String fullPathFull = pod.xpath(p); ctx.println("<br />"+fullPathFull);
+///*srl*/    String fullPathFull = pod.xpath(p); ctx.println("<br />"+fullPathFull);
     ctx.println("</th> </tr>");
     
     

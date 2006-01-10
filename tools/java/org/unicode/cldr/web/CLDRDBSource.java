@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2005, International Business Machines Corporation and        *
+ * Copyright (C) 2005-2006, International Business Machines Corporation and        *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -170,7 +170,7 @@ public class CLDRDBSource extends XMLSource {
 
 
             keySet = prepareStatement("keySet",
-                "SELECT " + "origxpath FROM " + CLDR_DATA +
+                "SELECT " + "xpath FROM " + CLDR_DATA + // was origxpath
                         " WHERE locale=?"); // TODO: 1 need to be more specific!
 
             querySource = prepareStatement("querySource",
@@ -526,16 +526,17 @@ public class CLDRDBSource extends XMLSource {
                 
                 // TODO: is there a better way to map a ResultSet into a Set?
                 Set s = new HashSet();
-//                System.err.println("@001: " + "BEGIN");
+                System.err.println("@tlh: " + "BEGIN");
                 while(rs.next()) {
                     String xpath = (xpt.getById(rs.getInt(1)));
-//                    if(-1!=xpath.indexOf("001")) {
-//                        System.err.println("@001: " + xpath);
-//                    }
+                    if(-1!=xpath.indexOf("tlh")) {
+                        xpath = xpath.replaceAll("\\[@draft=\"true\"\\]","");
+                        System.err.println("@tlh: " + xpath);
+                    }
                     s.add(xpath); // xpath
                     //rs.getString(2); // origXpath
                 }
-//                System.err.println("@001: " + "END");
+                System.err.println("@tlh: " + "END");
                 return Collections.unmodifiableSet(s);
                 // TODO: 0
                 // TODO: ???
@@ -555,16 +556,17 @@ public class CLDRDBSource extends XMLSource {
                 
                 // TODO: is there a better way to map a ResultSet into a Set?
                 Set s = new HashSet();
-//                System.err.println("@001: " + "BEGIN");
+                System.err.println("@tlh: " + "BEGIN");
                 while(rs.next()) {
                     String xpath = (xpt.getById(rs.getInt(1)));
-//                    if(-1!=xpath.indexOf("001")) {
-//                        System.err.println("@001: " + xpath);
-//                    }
+                    if(-1!=xpath.indexOf("tlh")) {
+                        xpath = xpath.replaceAll("\\[@draft=\"true\"\\]","");
+                        System.err.println("@tlh: " + xpath);
+                    }
                     s.add(xpath); // xpath
                     //rs.getString(2); // origXpath
                 }
-//                System.err.println("@001: " + "END");
+                System.err.println("@tlh: " + "END");
                 return Collections.unmodifiableSet(s);
                 // TODO: 0
                 // TODO: ???
@@ -742,9 +744,7 @@ public class CLDRDBSource extends XMLSource {
      */
     public String addDataToNextSlot(CLDRFile file, String locale, String fullXpathMinusAlt, 
                                     String altType, String altProposedPrefix, int submitterId, String value) {
-                                    if(1==1) {
-throw new InternalError("Sorry, adding data is temporarily disabled whilst some xpath bugs are ironed out..<p> please click Back in your browser to continue. ");
-}
+//                                    if(1==1) {throw new InternalError("Sorry, adding data is temporarily disabled whilst some xpath bugs are ironed out..<p> please click Back in your browser to continue. ");}
         XPathParts xpp = new XPathParts(null,null);
         // prepare for slot check
         for(int slot=1;slot<100;slot++) {

@@ -61,11 +61,11 @@ public class DataPod {
                 path = path + "[@alt='" + p.altType +"']";
             }
         } else {
-            if(p.xpathSuffix.startsWith("[")) {
-                return xpathPrefix + p.xpathSuffix;
-            } else {
-                return xpathPrefix+"/"+p.xpathSuffix;
-            }
+//            if(p.xpathSuffix.startsWith("[")) {
+                return xpathPrefix +  p.xpathSuffix;
+//            } else {
+//                return xpathPrefix+"/"+p.xpathSuffix;
+//            }
         }
         
         return path;
@@ -466,32 +466,6 @@ public class DataPod {
 		}
 		return pod;
 	}
-    /*
-    private void loadStandard(CLDRFile engf)
-    {
-        XPathParts xpp = new XPathParts(null,null);
-        System.out.println("Loading with prefix: '" + xpathPrefix + "'");
-        xpp.initialize(xpathPrefix);
-        String subtype = xpp.getElement(-1);
-        StandardCodes standardCodes = StandardCodes.make();
-        Set defaultSet = standardCodes.getAvailableCodes(subtype);
-        if(defaultSet != null) {
-            for(Iterator i = defaultSet.iterator();i.hasNext();)
-            {
-                String code = (String)i.next();
-                Pea p = getPea(code);
-                if(p == null) {
-                    p = new Pea();
-                    p.type = code;
-                    // p.altType, etc..
-                    addPea(p);
-                }
-                p.hasInherited=true;
-                p.displayName = engf.get
-//                p.displayName = standardCodes.getData(subtype, code); // Hack - should use English. 
-            }
-        }
-    }*/
     
     private void populateFrom(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile engFile) {
         XPathParts xpp = new XPathParts(null,null);
@@ -590,8 +564,8 @@ public class DataPod {
             String lastType = src.xpt.typeFromPathToTinyXpath(xpath, xpp);  // last type in the list
             String displaySuffixXpath;
             String peaSuffixXpath = null; // if non null:  write to suffixXpath
-            String fullSuffixXpath = xpath.substring(xpathPrefix.length()-1,xpath.length());
-            if(removePrefix == null) {
+            String fullSuffixXpath = xpath.substring(xpathPrefix.length(),xpath.length());
+            if((removePrefix == null)||!xpath.startsWith(removePrefix)) {
                 displaySuffixXpath = fullSuffixXpath;
             } else {
                 displaySuffixXpath = xpath.substring(removePrefix.length(),xpath.length());
@@ -658,6 +632,7 @@ public class DataPod {
             String altType = typeAndProposed[0];
             Pea p = getPea(type, altType);
             Pea superP = getPea(type);
+            peaSuffixXpath = fullSuffixXpath; // for now...
             if(peaSuffixXpath!=null) {
                 p.xpathSuffix = peaSuffixXpath;
                 superP.xpathSuffix = peaSuffixXpath;

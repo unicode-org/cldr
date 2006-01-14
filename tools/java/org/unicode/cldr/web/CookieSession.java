@@ -138,9 +138,12 @@ public class CookieSession {
     }
 
     boolean prefGetBool(String key) { 
+        return prefGetBool(key,false);
+    }
+    boolean prefGetBool(String key, boolean defVal) { 
         Boolean b = (Boolean)prefs.get(key);
         if(b == null) {
-            return false;
+            return defVal;
         } else {
             return b.booleanValue();
         }

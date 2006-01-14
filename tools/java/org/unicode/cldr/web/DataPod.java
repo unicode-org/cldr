@@ -27,6 +27,7 @@ import com.ibm.icu.text.RuleBasedCollator;
 
 public class DataPod {
     // UI strings
+    boolean canName = true;
     public static final String DATAPOD_MISSING = "Missing";
     public static final String DATAPOD_NORMAL = "Normal";
     public static final String DATAPOD_PRIORITY = "Priority";
@@ -195,6 +196,7 @@ public class DataPod {
      * A class representing a list of peas, in sorted and divided order.
      */
     public class DisplaySet {
+        public boolean canName = true; // can use the 'name' view?
         public List peas; // list of peas in sorted order
         public List displayPeas; // list of Strings suitable for display
         /**
@@ -314,6 +316,7 @@ public class DataPod {
             if(!oldSortMode2.equals(sortMode)) {
                 oldSortMode2 = sortMode;
                 oldDisplaySet = new DisplaySet(getList(sortMode), getDisplayList(sortMode), sortMode);
+                oldDisplaySet.canName = canName;
             }
             return oldDisplaySet;
         }
@@ -472,6 +475,7 @@ public class DataPod {
         System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
         CLDRFile aFile = new CLDRFile(src, true);
         Map options = new TreeMap();
+//        options.put("CheckCoverage.requiredLevel","modern"); // TODO: fix
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
 
@@ -499,35 +503,54 @@ public class DataPod {
                                                     "s/field|"+
                                                     "\\[@draft=\"true\"\\]|"+ // ???
                                                     "\\[@alt=\"[^\"]*\"\\]|"+ // ???
+                                                    "/displayName$|" + // for currency
                                                     "/standard"    );
-
+        Pattern mostPattern = Pattern.compile("^//ldml/localeDisplayNames.*|"+
+                                              "^//ldml/characters/exemplarCharacters.*|"+
+                                              "^//ldml/numbers.*|"+
+                                              "^//ldml/dates.*|"+
+                                              "^//ldml/identity.*");
         /**  TODO: this needs to be generalized.. **/
         String exclude = null;
         boolean excludeCurrencies = false;
         boolean excludeCalendars = false;
+        boolean excludeLDN = false;
+        boolean excludeGrego = false;
         boolean excludeTimeZones = false;
         boolean useShorten = false; // 'shorten' xpaths instead of extracting type
         boolean confirmOnly = false;
         boolean keyTypeSwap = false;
+        boolean hackCurrencyDisplay = false;
+        boolean excludeMost = false;
         String removePrefix = null;
-        if(xpathPrefix.startsWith("//ldml/numbers")) {
-            if(!xpathPrefix.endsWith("/currencies")) {
+        if(xpathPrefix.equals("//ldml")) {
+            excludeMost = true;
+            useShorten = true;
+            removePrefix="//ldml/";
+        }else if(xpathPrefix.startsWith("//ldml/numbers")) {
+            if(-1 == xpathPrefix.indexOf("currencies")) {
                 excludeCurrencies=true; // = "//ldml/numbers/currencies";
                 removePrefix = "//ldml/numbers/";
                 useShorten = true;
+            } else {
+                removePrefix = "//ldml/numbers/currencies/currency";
+                useShorten = true;
+                hackCurrencyDisplay = true;
             }
         } else if(xpathPrefix.startsWith("//ldml/dates")) {
             useShorten = true;
-            removePrefix = "//ldml/dates/";
-            if(!xpathPrefix.endsWith("/calendars")) {
-                excludeCalendars = true;
+            if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames")) {
+                removePrefix = "//ldml/dates/timeZoneNames/zone";
+                excludeTimeZones = false;
             } else {
                 removePrefix = "//ldml/dates/calendars/calendar";
-            }
-            if(!xpathPrefix.startsWith("//ldml/dates/timeZoneNames")) {
                 excludeTimeZones = true;
-            } else {
-                removePrefix = "//ldml/dates/timeZoneNames/";
+                if(xpathPrefix.indexOf("gregorian")==-1) {
+                    excludeGrego = true; 
+                    // nongreg
+                } else {
+                    removePrefix = "//ldml/dates/calendars/calendar/gregorian/";
+                }
             }
         } else if(xpathPrefix.startsWith("//ldml/localeDisplayNames/types")) {
             useShorten = true;
@@ -544,19 +567,16 @@ public class DataPod {
         List checkCldrResult = new ArrayList();
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
             String xpath = (String)it.next();
-            if(excludeCurrencies && (xpath.startsWith("//ldml/numbers/currencies"))) {
+            if(excludeMost && mostPattern.matcher(xpath).matches()) {
+                continue;
+            } else if(excludeCurrencies && (xpath.startsWith("//ldml/numbers/currencies/currency"))) {
                 continue;
             } else if(excludeCalendars && (xpath.startsWith("//ldml/dates/calendars"))) {
                 continue;
             } else if(excludeTimeZones && (xpath.startsWith("//ldml/dates/timeZoneNames"))) {
                 continue;
-            }
-
-            if(-1!=xpath.indexOf("001")) {
-                System.err.println("001:: " + xpath + aFile.getSourceLocaleID(xpath));
-//                if(aFile.getSourceLocaleID(xpath).equals(XMLSource.CODE_FALLBACK_ID)) {
-//                    throw new InternalError("No err!");
-//                }
+            } else if(!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
+                continue;
             }
 
             boolean mixedType = false;
@@ -658,6 +678,20 @@ public class DataPod {
                         superP.displayName = "'"+type+"'";
                     }
                 }
+                if((superP.displayName == null)&& hackCurrencyDisplay) {
+                    int slashDex = type.indexOf('/');
+                    String cType = type;
+                    if(slashDex!=-1) {
+                        cType = type.substring(0,slashDex);
+                    }
+                    superP.displayName = engFile.getStringValue(SurveyMain.CURRENCYTYPE+cType+"']/displayName");
+                    if((superP.displayName != null)&&(type.indexOf("symbol")!=-1)) {
+                        superP.displayName = superP.displayName + " (symbol)";
+                    }
+                }
+                if(superP.displayName == null) {
+                    canName = false; // disable 'view by name' if not all have names.
+                }
             }
             
             // If it is draft and not proposed.. make it proposed-draft 
@@ -666,12 +700,6 @@ public class DataPod {
                 altProposed = SurveyMain.PROPOSED_DRAFT;
             }
             
-/*srl*/            if(-1!=xpath.indexOf("ain")) {
-                System.err.println("ain:: " + xpath + aFile.getSourceLocaleID(xpath) + " - AP:" + altProposed + " - AT: " + altType );
-//                if(aFile.getSourceLocaleID(xpath).equals(XMLSource.CODE_FALLBACK_ID)) {
-//                    throw new InternalError("No err!");
-//                }
-            }
 
             // Inherit display names.
             if((superP != p) && (p.displayName == null)) {
@@ -710,7 +738,8 @@ public class DataPod {
                 boolean weHaveTests = false;
                 for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                    if(!status.getType().equals(status.exampleType) && !isCodeFallback) {
+                    if(!status.getType().equals(status.exampleType) && 
+                        !(isCodeFallback && (status.getCause() instanceof org.unicode.cldr.test.CheckForExemplars))) { // skip codefallback exemplar complaints (i.e. 'JPY' isn't in exemplars).. they'll show up in missing
                         weHaveTests = true;
                     }
                 }

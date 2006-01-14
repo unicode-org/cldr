@@ -68,15 +68,20 @@ A.nodraft:visited {
 }
 
 .selected {
-	background-color: #444fd2;
+	font-size:  120%;
+	font-weight:  bold;
+	color: #313998;
+}
+
+/*	background-color: #444fd2;
 	color: #fff;
 	foreground-color: #fff;
 	margin: 1px;
 	text-weight: bold;
 	padding: 1px;
 	text-decoration: none;
-	border: 1px solid black
-}
+	border: 1px solid black */
+
 
 a.selected :link {
 	color: #fff
@@ -86,6 +91,11 @@ a.selected :link {
 	margin: 2px;
 	padding: 1px;
 	text-decoration: none;
+}
+
+a.notselected {
+	color : #358cc3;
+	text-decoration : none;
 }
 
 .sep {
@@ -120,6 +130,19 @@ tr.warnrow {
 	background-color: #FFEECC;
 	padding: 1em 1em 1em 1em;
 	font-size: smaller;
+}
+
+.pagerln {
+	border-bottom: 1px solid #aaa;
+	border-top: 1px solid #aaa;
+}
+
+.pagerl_active {
+	text-decoration: none;
+}
+
+.pagerl_inactive {
+	color: gray;
 }
 
 .localenav {

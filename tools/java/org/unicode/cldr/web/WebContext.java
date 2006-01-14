@@ -108,9 +108,12 @@ public class WebContext {
         }
     }
     
-    boolean prefBool(String x)
+    boolean prefBool(String x) {
+        return prefBool(x,false);
+    }
+    boolean prefBool(String x, boolean defVal)
     {
-        boolean ret = fieldBool(x, session.prefGetBool(x));
+        boolean ret = fieldBool(x, session.prefGetBool(x, defVal));
         session.prefPut(x, ret);
         return ret;
     }
@@ -359,7 +362,7 @@ public class WebContext {
 
 // Internal Utils
 
-    // from BagFormatter
+    // from BagFormatter
     private static PrintWriter openUTF8Writer(OutputStream out) throws IOException {
         return openWriter(out,"UTF-8");
     }
@@ -379,6 +382,11 @@ public class WebContext {
     
     public void printHelpLink(String what, String title)
     {
-        println("(<a href=\"" + SurveyMain.CLDR_HELP_LINK + what + "\">" + title +"</a>)");
+        boolean doEdit = UserRegistry.userIsTC(session.user);
+        printHelpLink(what, title, doEdit);
+    }
+    public void printHelpLink(String what, String title, boolean doEdit)
+    {
+        println("(<a href=\"" + (doEdit?SurveyMain.CLDR_HELP_LINK_EDIT:SurveyMain.CLDR_HELP_LINK) + what + "\">" + title +"</a>)");
     }
 }

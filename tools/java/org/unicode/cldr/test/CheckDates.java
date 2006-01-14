@@ -35,7 +35,7 @@ public class CheckDates extends CheckCLDR {
 		"BC 4004-10-23T07:00:00Z", // try a BC date: creation according to Ussher & Lightfoot. Assuming garden of eden 2 hours ahead of UTC
 		"AD 2005-12-02T12:15:16Z",
 		"AD 2100-07-11T10:15:16Z",}; // keep aligned with following
-	static String SampleList = "Samples:\r\n\t{0}\r\n\t{1}\r\n\t{2}\r\n\t{3}"; // keep aligned with previous
+	static String SampleList = "Samples:\r\n\t\\u200E{0}\\u200E\r\n\t\\u200E{1}\\u200E\r\n\t\\u200E{2}\\u200E\r\n\t\\u200E{3}\\u200E"; // keep aligned with previous
 	
 	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
 		if (cldrFileToCheck == null) return this;
@@ -55,7 +55,7 @@ public class CheckDates extends CheckCLDR {
 					result.add(new CheckStatus()
                             .setCause(this).setType(CheckStatus.errorType)
 								.setMessage(
-										"Illegal narrow value. Must be only one grapheme cluster {0}~{1}",
+										"Illegal narrow value. Must be only one grapheme cluster \\u200E{0}\\u200E~\\u200E{1}\\u200E",
 										new Object[]{value.substring(0,end), value.substring(end)}));
 				}
 			}
@@ -64,7 +64,7 @@ public class CheckDates extends CheckCLDR {
 			}
 		} catch (Exception e) {
 			CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
-			.setMessage("Error in creating date format", new Object[]{e});    	
+			.setMessage("Error in creating date format {0}", new Object[]{e});    	
 			result.add(item);
 		}
 		return this;
@@ -97,7 +97,7 @@ public class CheckDates extends CheckCLDR {
 			String isoBackAgain = isoBC.format(backAgain);
 			if (false && path.indexOf("/dateFormat") >= 0 && year != backAgain.getYear()) {
 				CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
-				.setMessage("Need Era (G) in full format: {0} => {1}", new Object[]{trial, isoBackAgain});			
+				.setMessage("Need Era (G) in full format: \\u200E{0}\\u200E => \\u200E{1}\\u200E", new Object[]{trial, isoBackAgain});			
 				result.add(item);			
 			}
 			// TODO fix this up.
@@ -119,7 +119,7 @@ public class CheckDates extends CheckCLDR {
 			String formatted = x.format(dateSource);
 			Date parsed = x.parse(formatted);
 			String resource = isoBC.format(parsed);
-			arguments[i] = source + " => " + formatted + " => " + resource;
+			arguments[i] = source + " => \\u200E" + formatted + "\\u200E => " + resource;
 			htmlMessage.append("<tr><td>")
 			.append(TransliteratorUtilities.toXML.transliterate(source))
 			.append("</td><td>")

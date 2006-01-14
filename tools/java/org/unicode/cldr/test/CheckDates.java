@@ -53,7 +53,7 @@ public class CheckDates extends CheckCLDR {
 				int end = getFirstGraphemeClusterBoundary(value);
 				if (end != value.length()) {
 					result.add(new CheckStatus()
-								.setType(CheckStatus.errorType)
+                            .setCause(this).setType(CheckStatus.errorType)
 								.setMessage(
 										"Illegal narrow value. Must be only one grapheme cluster {0}~{1}",
 										new Object[]{value.substring(0,end), value.substring(end)}));
@@ -63,7 +63,7 @@ public class CheckDates extends CheckCLDR {
 				checkPattern(path, fullPath, value, result);
 			}
 		} catch (Exception e) {
-			CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
+			CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
 			.setMessage("Error in creating date format", new Object[]{e});    	
 			result.add(item);
 		}
@@ -96,7 +96,7 @@ public class CheckDates extends CheckCLDR {
 			Date backAgain = y.parse(result2);
 			String isoBackAgain = isoBC.format(backAgain);
 			if (false && path.indexOf("/dateFormat") >= 0 && year != backAgain.getYear()) {
-				CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
+				CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
 				.setMessage("Need Era (G) in full format: {0} => {1}", new Object[]{trial, isoBackAgain});			
 				result.add(item);			
 			}
@@ -129,7 +129,7 @@ public class CheckDates extends CheckCLDR {
 			.append("</td></tr>");
 		}
 		htmlMessage.append("</table>");
-		CheckStatus item = new CheckStatus().setType(CheckStatus.exampleType)
+		CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.exampleType)
 		.setMessage(SampleList, arguments)
 		.setHTMLMessage(htmlMessage.toString());
 		

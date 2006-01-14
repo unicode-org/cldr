@@ -42,7 +42,7 @@ public class CheckForExemplars extends CheckCLDR {
 		CLDRFile resolvedFile = cldrFile.getResolved();
 		exemplars = resolvedFile.getExemplarSet("");
 		if (exemplars == null) {
-			CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
+			CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
 			.setMessage("No Exemplar Characters: {0}", new Object[]{this.getClass().getName()});
 			possibleErrors.add(item);
 			return this;
@@ -73,7 +73,7 @@ public class CheckForExemplars extends CheckCLDR {
 		if (exemplars.containsAll(value)) return this;
 		UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
 		String fixedMissing = CollectionUtilities.prettyPrint(missing, true, null, null, col, col);
-		CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
+		CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
 			.setMessage("Not in exemplars: {0}", new Object[]{fixedMissing});
 		result.add(item);
 		return this;

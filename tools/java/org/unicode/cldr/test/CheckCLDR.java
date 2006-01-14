@@ -226,6 +226,7 @@ abstract public class CheckCLDR {
 		private String messageFormat;
 		private Object[] parameters;
 		private String htmlMessage;
+        private CheckCLDR cause;
 		
 		public String getType() {
 			return type;
@@ -269,12 +270,20 @@ abstract public class CheckCLDR {
 		/**
 		 * Warning: don't change the contents of the parameters after passing in.
 		 */
-		public void setParameters(Object[] parameters) {
+		public CheckStatus setParameters(Object[] parameters) {
 			this.parameters = parameters;
+            return this;
 		}
 		public SimpleDemo getDemo() {
 			return null;
 		}
+        public CheckCLDR getCause() {
+            return cause;
+        }
+        public CheckStatus setCause(CheckCLDR cause) {
+            this.cause = cause;
+            return this;
+        }
 	}
 	
 	public static class SimpleDemo {

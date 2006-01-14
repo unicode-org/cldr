@@ -49,13 +49,13 @@ public class CheckNumbers extends CheckCLDR {
 				String pattern = getCanonicalPattern(value, type, isPOSIX);
 				if (!pattern.equals(value)) {
 					result.add(new CheckStatus()
-							.setType(CheckStatus.errorType)
+                            .setCause(this).setType(CheckStatus.errorType)
 							.setMessage("Value should be {0}", new Object[]{pattern}));				
 				}
 			}
 
 		} catch (Exception e) {
-			CheckStatus item = new CheckStatus().setType(CheckStatus.errorType)
+			CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
 			.setMessage("Error in creating number format {0}; {1}", new Object[]{e.getClass().getName(), e});    	
 			result.add(item);
 		}
@@ -90,7 +90,7 @@ public class CheckNumbers extends CheckCLDR {
 		.append(pattern4);
 		result.add(new MyCheckStatus()
 				.setFormat(x)
-				.setType(CheckStatus.exampleType)
+				.setCause(this).setType(CheckStatus.exampleType)
 				.setMessage(SampleList, arguments)
 				.setHTMLMessage(htmlMessage.toString()));
 	}

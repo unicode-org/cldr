@@ -42,7 +42,7 @@ public class CheckExemplars extends CheckCLDR {
             // check for auxiliary anyway
            	UnicodeSet auxiliarySet = getResolvedCldrFileToCheck().getExemplarSet("auxiliary");
        		if (auxiliarySet == null) {
-       			result.add(new CheckStatus().setType(CheckStatus.errorType)
+       			result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
        					.setMessage("Missing Auxiliary Set")
        					.setHTMLMessage("Missing Auxiliary Set:" +
        					" see <a href='http://www.unicode.org/cldr/data_formats.html#Exemplar'>Exemplars</a>"));   			
@@ -54,7 +54,7 @@ public class CheckExemplars extends CheckCLDR {
    				UnicodeSet overlap = new UnicodeSet(mainSet).retainAll(auxiliarySet).removeAll(HangulSyllables);
    				if (overlap.size() != 0) {
    					String fixedExemplar1 = CollectionUtilities.prettyPrint(overlap, true, null, null, col, col);
-   					result.add(new CheckStatus().setType(CheckStatus.warningType)
+   					result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
    							.setMessage("Auxilliary overlaps with main {0}", new Object[]{fixedExemplar1}));   			
    				}
    			}
@@ -68,23 +68,23 @@ public class CheckExemplars extends CheckCLDR {
     	String fixedExemplar1 = CollectionUtilities.prettyPrint(exemplar1, true, null, null, col, col);
     	UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar1);
     	if (!doubleCheck.equals(exemplar1)) {
-	    	result.add(new CheckStatus().setType(CheckStatus.errorType)
+	    	result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
 	    	    	.setMessage("Internal Error: formatting not working for {0}", new Object[]{exemplar1}));
 
     	} else if (!v.equals(fixedExemplar1)) {
-	    	result.add(new CheckStatus().setType(CheckStatus.warningType)
+	    	result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
 	    	.setMessage("Better formatting would be {0}", new Object[]{fixedExemplar1}));
     	}
     	if (!AllowedInExemplars.containsAll(exemplar1)) {
     		exemplar1 = CollectionUtilities.flatten(exemplar1).removeAll(AllowedInExemplars);
     		if (exemplar1.size() != 0) {
     		fixedExemplar1 = CollectionUtilities.prettyPrint(exemplar1, true, null, null, col, col);
-	    	result.add(new CheckStatus().setType(CheckStatus.warningType)
+	    	result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
 	    	.setMessage("Should be limited to (specific-script - uppercase - invisibles + \u0130); thus not contain: {0}",
 	    			new Object[]{fixedExemplar1}));
     		}
     	} else if (!isRoot && exemplar1.size() == 0) {
-   			result.add(new CheckStatus().setType(CheckStatus.errorType)
+   			result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
    					.setMessage("Exemplar set must not be empty.")
    					.setHTMLMessage("Exemplar set must not be empty:" +
    					" see <a href='http://www.unicode.org/cldr/data_formats.html#Exemplar'>Exemplars</a>"));   			

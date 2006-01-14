@@ -74,18 +74,18 @@ public class CheckAttributeValues extends CheckCLDR {
             if (isEnglish) return; // don't flag English
             if (replacement.length() == 0) {
                 result.add(new CheckStatus()
-                        .setType(CheckStatus.warningType)
+                        .setCause(this).setType(CheckStatus.warningType)
                         .setMessage("Deprecated Attribute Value {0}={1}. Consider removing.", 
                                 new Object[]{attribute, attributeValue}));
             } else {
                 result.add(new CheckStatus()
-                        .setType(CheckStatus.warningType)
+                        .setCause(this).setType(CheckStatus.warningType)
                         .setMessage("Deprecated Attribute Value {0}={1}. Consider removing, and possibly modifying the related value for {2}.", 
                                 new Object[]{attribute, attributeValue, replacement}));
             }
         } else {
             result.add(new CheckStatus()
-                    .setType(CheckStatus.errorType)
+                    .setCause(this).setType(CheckStatus.errorType)
                     .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}", 
                             new Object[]{attribute, attributeValue, matcherPattern.pattern}));
         }
@@ -124,7 +124,7 @@ public class CheckAttributeValues extends CheckCLDR {
         }
         if (!localeMatcher.matches(cldrFileToCheck.getLocaleID())) {
             possibleErrors.add(new CheckStatus()
-                    .setType(CheckStatus.errorType)
+                    .setCause(this).setType(CheckStatus.errorType)
                     .setMessage("Invalid Locale {0}", 
                             new Object[]{cldrFileToCheck.getLocaleID()}));
             

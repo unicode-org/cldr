@@ -49,7 +49,7 @@ public class CheckCoverage extends CheckCLDR {
             if (optionLevel != null) requiredLevel = CoverageLevel.Level.get(optionLevel);
         }
         if (requiredLevel.compareTo(level) >= 0) {
-            result.add(new CheckStatus().setType(CheckStatus.errorType)
+            result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
                     .setMessage("Needed to meet {0} coverage level.", new Object[] { level }));
         } else if (DEBUG) {
             System.out.println(level + "\t" + path);
@@ -66,7 +66,7 @@ public class CheckCoverage extends CheckCLDR {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 
         if (cldrFileToCheck.getLocaleID().equals("root")) return this;
-        coverageLevel.setFile(cldrFileToCheck, options, possibleErrors);
+        coverageLevel.setFile(cldrFileToCheck, options, this, possibleErrors);
         requiredLevel = coverageLevel.getRequiredLevel(cldrFileToCheck.getLocaleID(), options);
         skip = false;
         return this;

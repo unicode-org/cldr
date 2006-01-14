@@ -128,9 +128,10 @@ public class CoverageLevel {
      * Used by the coverage & survey tools.
      * @param file only used to get at the supplemental data, since from any CLDRFile you can get to siblings
      * @param options optional parameters
+     * @param cause TODO
      * @param possibleErrors if there are errors or warnings, those are added (as CheckStatus objects) to this list.
      */
-    public void setFile(CLDRFile file, Map options, List possibleErrors) {
+    public void setFile(CLDRFile file, Map options, CheckCLDR cause, List possibleErrors) {
         synchronized (sync) {
             if (!initialized) {
                 CLDRFile supplementalMetadata = file.make("supplementalMetadata", false);
@@ -146,7 +147,7 @@ public class CoverageLevel {
             if (auxexemplars != null) exemplars.addAll(auxexemplars);
             exemplarsContainA_Z = exemplars.contains('A','Z');
         }
-        setFile(file.getLocaleID(), exemplarsContainA_Z, options, possibleErrors);
+        setFile(file.getLocaleID(), exemplarsContainA_Z, options, cause, possibleErrors);
     }
     
     /**
@@ -170,9 +171,10 @@ public class CoverageLevel {
      * @param localeID the localeID for the file
      * @param exemplarsContainA_Z true if the union of the exemplar sets contains A-Z
      * @param options optional parameters
+     * @param cause TODO
      * @param possibleErrors if there are errors or warnings, those are added (as CheckStatus objects) to this list.
      */
-    public void setFile(String localeID, boolean exemplarsContainA_Z, Map options, List possibleErrors) {
+    public void setFile(String localeID, boolean exemplarsContainA_Z, Map options, CheckCLDR cause, List possibleErrors) {
         latinScript = exemplarsContainA_Z;
         
         parser.set(localeID);
@@ -222,7 +224,7 @@ public class CoverageLevel {
         Set territories = ((Set)language_territories.get(language));
         if (territories == null) {
             possibleErrors.add(new CheckStatus()
-                    .setType(CheckStatus.errorType)
+                    .setCause(cause).setType(CheckStatus.errorType)
                     .setMessage("Missing language->territory information in supplemental data!"));
         } else for (Iterator it = territories.iterator(); it.hasNext();) {
             String territory = (String) it.next();

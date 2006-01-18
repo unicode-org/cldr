@@ -1271,6 +1271,32 @@ XXX	Code for transations where no currency is involved
 		<calendar type="persian" territories="AF IR"/>
 		<calendar type="ethiopic" territories="ET"/>
 	</calendarData>
+    <weekData>
+          <minDays count="1" territories="001" />
+          <minDays count="4" territories="AT BE CA CH DE DK FI FR IT LI LT LU MC MT NO SE SK" />
+        
+          <firstDay day="mon"  territories="001" />
+          <firstDay day="fri"  territories="MV" />
+          <firstDay day="sat"  territories="AE AF BH DJ DZ EG ER ET IQ IR JO KE KW LB LY MA OM QA SA SD SO TN YE" />
+          <firstDay day="sun"  territories="AS AU AZ BW CA CN FO GE GL GU HK IE IL IS JM JP KG KR LA MH MN MO MP MT NL NZ PH PK SG TH TT TW UM US UZ VI ZA ZW" />
+          <firstDay day="thu"  territories="SY" />
+        
+          <weekendStart day="sat"  territories="001"/>
+          <weekendStart day="fri"  territories="EG IL SY"/>
+          <weekendStart day="sun"  territories="IN"/>
+          <weekendStart day="thu"  territories="AE BH DZ IQ JO KW LB LY MA OM QA SA SD TN YE"/>
+        
+          <weekendEnd day="sun"  territories="001"/>
+          <weekendEnd day="fri"  territories="AE BH DZ IQ JO KW LB LY MA OM QA SA SD TN YE AF IR"/>
+          <weekendEnd day="sat"  territories="EG IL SY"/>
+    </weekData>
+
+    <measurementData>
+          <measurementSystem type="metric"  territories="001"/>
+          <measurementSystem type="US"  territories="US"/>
+          <paperSize type="A4"  territories="001"/>
+          <paperSize type="US-Letter"  territories="US"/>
+    </measurementData>
 	<timezoneData>
 		<mapTimezones type="windows">
 			<mapZone other="Dateline" type="Etc/GMT+12"/> <!-- S (GMT-12:00) International Date Line West-->

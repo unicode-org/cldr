@@ -58,6 +58,11 @@ public class CheckForExemplars extends CheckCLDR {
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
 			Map options, List result) {
 		if (skip) return this;
+/*srl*/ if(path == null) { 
+            throw new InternalError("Empty path!");
+        } else if(getCldrFileToCheck() == null) {
+            throw new InternalError("no file to check!");
+        }
         String sourceLocale = getCldrFileToCheck().getSourceLocaleID(path);
         if (XMLSource.CODE_FALLBACK_ID.equals(sourceLocale)) {
             return this;

@@ -18,7 +18,7 @@
 			<language type="af">Afrikaans</language>
 			<language type="afa">Afro-Asiatic (Other)</language>
 			<language type="afh">Afrihili</language>
-			<language type="ain" draft="true">Ainu</language>
+			<language type="ain">Ainu</language>
 			<language type="ak">Akan</language>
 			<language type="akk">Akkadian</language>
 			<language type="ale">Aleut</language>
@@ -158,8 +158,8 @@
 			<language type="gem">Germanic (Other)</language>
 			<language type="gez">Geez</language>
 			<language type="gil">Gilbertese</language>
-			<language type="gl">Gallegan</language>
-			<language type="gl" alt="proposed" draft="true">Galician</language>
+			<language type="gl" alt="variant">Gallegan</language>
+			<language type="gl">Galician</language>
 			<language type="gmh">Middle High German</language>
 			<language type="gn">Guarani</language>
 			<language type="goh">Old High German</language>
@@ -302,7 +302,7 @@
 			<language type="mwr">Marwari</language>
 			<language type="my">Burmese</language>
 			<language type="myn">Mayan</language>
-			<language type="myn" alt="proposed" draft="true">Mayan languages</language>
+			<language type="myn">Mayan languages</language>
 			<language type="myv">Erzya</language>
 			<language type="na">Nauru</language>
 			<language type="nah">Nahuatl</language>
@@ -368,7 +368,7 @@
 			<language type="rom">Romany</language>
 			<language type="root">Root</language>
 			<language type="ru">Russian</language>
-			<language type="rup" draft="true">Aromanian</language>
+			<language type="rup">Aromanian</language>
 			<language type="rw">Kinyarwanda</language>
 			<language type="sa">Sanskrit</language>
 			<language type="sad">Sandawe</language>
@@ -503,6 +503,7 @@
 			<script type="Buhd">Buhid</script>
 			<script type="Cans">Unified Canadian Aboriginal Symbols</script>
 			<script type="Cher">Cherokee</script>
+			<script type="Cham" references="R1">Cham</script>
 			<script type="Cirt">Cirth</script>
 			<script type="Copt">Coptic</script>
 			<script type="Cprt">Cypriot</script>
@@ -582,6 +583,7 @@
 			<script type="Tfng">Tifinagh (Berber)</script>
 			<script type="Tglg">Tagalog</script>
 			<script type="Thaa">Thaana</script>
+			<script type="Thai" references="R1">Thai</script>
 			<script type="Tibt">Tibetan</script>
 			<script type="Ugar">Ugaritic</script>
 			<script type="Vaii">Vai</script>
@@ -822,7 +824,7 @@
 			<territory type="PY">Paraguay</territory>
 			<territory type="PZ">Panama Canal Zone</territory>
 			<territory type="QA">Qatar</territory>
-			<territory type="QE">European Union</territory>
+			<territory type="QU">European Union</territory>
 			<territory type="QO">Outlying Oceania</territory>
 			<territory type="RE">Reunion</territory>
 			<territory type="RO">Romania</territory>
@@ -900,7 +902,9 @@
 			<variant type="POSIX">Computer</variant>
 			<variant type="REVISED">Revised Orthography</variant>
 			<variant type="ROZAJ">Resian</variant>
+			<variant type="POLYTONI">Polytonic</variant>
 			<variant type="SCOUSE">Scouse</variant>
+			<variant type="SAAHO">Saho</variant>
 			<variant type="XIANG">Xiang or Hunanese</variant>
 		</variants>
 		<keys>
@@ -1022,10 +1026,16 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="wide">
-							<quarter type="1" draft="true">1st quarter</quarter>
-							<quarter type="2" draft="true">2nd quarter</quarter>
-							<quarter type="3" draft="true">3rd quarter</quarter>
-							<quarter type="4" draft="true">4th quarter</quarter>
+							<quarter type="1">1st quarter</quarter>
+							<quarter type="2">2nd quarter</quarter>
+							<quarter type="3">3rd quarter</quarter>
+							<quarter type="4">4th quarter</quarter>
+						</quarterWidth>
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Q1</quarter>
+							<quarter type="2">Q2</quarter>
+							<quarter type="3">Q3</quarter>
+							<quarter type="4">Q4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1064,7 +1074,7 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
+							<pattern>h:mm:ss a v</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
@@ -1206,10 +1216,6 @@
 					<standard>China Standard Time</standard>
 					<daylight>China Daylight Time</daylight>
 				</long>
-				<short>
-					<standard>CST</standard>
-					<daylight>CDT</daylight>
-				</short>
 			</zone>
 			<zone type="Europe/Paris">
 				<long>
@@ -1251,10 +1257,6 @@
 					<standard>Israel Standard Time</standard>
 					<daylight>Israel Daylight Time</daylight>
 				</long>
-				<short>
-					<standard>IST</standard>
-					<daylight>IDT</daylight>
-				</short>
 				<exemplarCity>Jerusalem</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
@@ -1316,18 +1318,6 @@
 					<daylight>PDT</daylight>
 				</short>
 			</zone>
-			<zone type="America/Phoenix">
-				<long>
-					<generic>Mountain Time</generic>
-					<standard>Mountain Standard Time</standard>
-					<daylight>Mountain Daylight Time</daylight>
-				</long>
-				<short>
-					<generic>MT</generic>
-					<standard>MST</standard>
-					<daylight>MDT</daylight>
-				</short>
-			</zone>
 			<zone type="America/Denver">
 				<long>
 					<generic>Mountain Time</generic>
@@ -1350,18 +1340,6 @@
 					<generic>CT</generic>
 					<standard>CST</standard>
 					<daylight>CDT</daylight>
-				</short>
-			</zone>
-			<zone type="America/Indianapolis">
-				<long>
-					<generic>Eastern Time</generic>
-					<standard>Eastern Standard Time</standard>
-					<daylight>Eastern Daylight Time</daylight>
-				</long>
-				<short>
-					<generic>ET</generic>
-					<standard>EST</standard>
-					<daylight>EDT</daylight>
 				</short>
 			</zone>
 			<zone type="America/New_York">
@@ -2013,12 +1991,9 @@
 				<displayName>Rhodesian Dollar</displayName>
 			</currency>
 			<currency type="ROL">
-				<displayName>Romanian Leu</displayName>
+				<displayName>Old Romanian Leu</displayName>
 				<!-- FYI Lei is the plural form of Leu. The currency symbol should be considered for change too. -->
-				<displayName alt="proposed" draft="true">Romanian Lei</displayName>
-				<displayName alt="proposed1" draft="true">Romanian Old Leu</displayName>
-				<symbol>leu</symbol>
-				<symbol alt="proposed" draft="true">=0#Old lei|1#Old leu|1&lt;Old lei</symbol>
+				<symbol>=0#Old lei|1#Old leu|1&lt;Old lei</symbol>
 			</currency>
 			<currency type="RON">
 				<!-- See the National Bank of Romania for details http://www.bnro.ro/def_en.htm -->
@@ -2287,6 +2262,9 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<references>
+		<reference type="R1">Reference used only to prevent minimalization.</reference>
+	</references>
 </ldml>
 <!-- Old Comments. See root.xml for more info.
 URL: http://oss.software.ibm.com/cvs/icu/icu/source/data/locales/en.txt?only_with_tag=final-update-LDML

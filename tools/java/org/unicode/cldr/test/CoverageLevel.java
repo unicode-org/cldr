@@ -535,7 +535,7 @@ public class CoverageLevel {
                 if (!type.equals("172")) {
                     territoryContainment.add(type);
                 }
-                if (type.equals("QE")) {
+                if (type.equals("QU")) {
                     euroCountries = new TreeSet(Arrays.asList(((String)attributes.get("contains")).split("\\s+")));
                 }
             }

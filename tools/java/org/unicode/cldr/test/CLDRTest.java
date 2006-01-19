@@ -1043,7 +1043,7 @@ public class CLDRTest extends TestFmwk {
 			for (Iterator it = failures.keySet().iterator(); it.hasNext();) {
 				String type = (String) it.next();
 				Set s = (Set) failures.get(type);
-				warnln("Currency info -- Missing Currencies: " + type + "\t => " + EnglishCurrencyName.transform(s));
+				warnln("Currency info -- Missing Currencies: " + type + "\t \u2192 " + EnglishCurrencyName.transform(s));
 			}
 		}
         logln("Missing English currency names");
@@ -1157,7 +1157,7 @@ public class CLDRTest extends TestFmwk {
 			String newItem = (String) old_new.get(oldItem);
 			Set oldItems = (Set) new_old.get(newItem);
 			if (oldItems == null) { // try recursing
-				logln("!!!!Skipping " + oldItem + " => " + newItem);
+				logln("!!!!Skipping " + oldItem + " \u2192 " + newItem);
 				continue;
 				// new_old.put(oldOne, oldItems = new TreeSet());
 			} 

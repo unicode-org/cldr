@@ -23,7 +23,7 @@ public class CheckNumbers extends CheckCLDR {
 	}
 	private Random random = new Random();
 	
-	static String SampleList = "{0} => \\u200E{1}\\u200E => {2}";
+	static String SampleList = "{0} \u2192 \u200E{1}\u200E \u2192 {2}";
 	
 	boolean isPOSIX;
 	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
@@ -50,7 +50,7 @@ public class CheckNumbers extends CheckCLDR {
 				if (!pattern.equals(value)) {
 					result.add(new CheckStatus()
                             .setCause(this).setType(CheckStatus.errorType)
-							.setMessage("Value should be \\u200E{0}\\u200E", new Object[]{pattern}));				
+							.setMessage("Value should be \u200E{0}\u200E", new Object[]{pattern}));				
 				}
 			}
 

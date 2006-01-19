@@ -32,6 +32,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import com.ibm.icu.dev.test.util.ArrayComparator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.FileUtilities;
+import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -64,8 +65,7 @@ public class ShowLanguages {
 		StringWriter sw = new StringWriter();
 		PrintWriter pw = new PrintWriter(sw);
 		
-		linfo.printAliases(pw);
-		linfo.printDeprecatedItems(pw);
+		//linfo.printDeprecatedItems(pw);
 		linfo.printCurrency(pw);
 
 		pw.println("<div align='center'><table><tr><td>");
@@ -89,13 +89,17 @@ public class ShowLanguages {
 		pw.println("</td></tr></table></div>");
 		
 		linfo.showCorrespondances();
+        
+        linfo.showCalendarData(pw);
 		
 		linfo.printContains(pw);
-		
+        
 		linfo.printWindows_Tzid(pw);
 		
-		
+        linfo.printAliases(pw);
+
 		pw.close();
+        
 		String contents = "<ul>";
 		for (Iterator it = anchors.keySet().iterator(); it.hasNext();) {
 			String title = (String) it.next();
@@ -126,6 +130,8 @@ public class ShowLanguages {
 		Map territory_currency = new TreeMap(col);
 		Set territoriesWithCurrencies = new TreeSet();
 		Set currenciesWithTerritories = new TreeSet();
+        Map territoryData = new TreeMap();
+        Set territoryTypes = new TreeSet();
 
 		String defaultDigits = null;
 
@@ -142,21 +148,23 @@ public class ShowLanguages {
 					continue;
 				}
 				
-				if (path.indexOf("/alias") >= 0) {
-					String element = parts.getElement(parts.size() - 1);
-					Map attributes = parts.getAttributes(parts.size() - 1);
-					String type = (String) attributes.get("type");
-					if (!element.endsWith("Alias")) throw new IllegalArgumentException("Unexpected alias element: " + element);
-					element = element.substring(0,element.length() - 5);
-					String replacement = (String) attributes.get("replacement");
-					if (element.equals("language")) {
-						aliases.add(new String[] {type, getName(replacement, false)});
-					} else {
-						int typeCode = CLDRFile.typeNameToCode(element);
-						aliases.add(new String[] {type, getName(typeCode, replacement, false)});
-					}
-					continue;
-				}
+                // <zoneItem type="America/Adak" territory="US" aliases="America/Atka US/Aleutian"/>
+                if (path.indexOf("/zoneItem") >= 0) {
+                    Map attributes = parts.getAttributes(parts.size() - 1);
+                    String type = (String) attributes.get("type");
+                    String territory = (String) attributes.get("territory");
+                    String aliasAttributes = (String) attributes.get("aliases");
+                    if (aliasAttributes != null) {
+                        String[] aliasesList = aliasAttributes.split("\\s+");
+                        
+                        for (int i = 0; i < aliasesList.length; ++i) {
+                            String alias = aliasesList[i];
+                            aliases.add(new String[] {"timezone", alias, type});
+                        }
+                    }
+                    // TODO territory, multizone
+                    continue;
+                }
 
 				if (path.indexOf("/currencyData") >= 0) {
 					if (path.indexOf("/fractions") >= 0) {
@@ -222,14 +230,131 @@ public class ShowLanguages {
 					deprecatedItems.add(parts.findAttributes("deprecatedItems"));
 					continue;
 				}
+                if (path.indexOf("/calendarData") >= 0) {
+                    Map attributes = parts.findAttributes("calendar");
+                    String type = (String) attributes.get("type");
+                    String territories = (String) attributes.get("territories");
+                    addTerritoryInfo(territories, "calendar", type);
+                }
+                if (path.indexOf("/weekData") >= 0 || path.indexOf("measurementData") >= 0) {
+                    String element = parts.getElement(parts.size() - 1);
+                    Map attributes = parts.getAttributes(parts.size() - 1);
+                    // later, make this a table
+                    String key = "count";
+                    String display = "days in week (min)";
+                    if (element.equals("firstDay")) {
+                        key = "day";
+                        display = "first day of week";
+                    } else if (element.equals("weekendStart")) {
+                        key = "day";
+                        display = "first day of weekend";
+                    } else if (element.equals("weekendEnd")) {
+                        key = "day";
+                        display = "last day of weekend";
+                    } else if (element.equals("measurementSystem")) {
+                        key = "type";
+                        display = "measurement system";
+                    } else if (element.equals("paperSize")) {
+                        key = "type";
+                        display = "paper size";
+                    }
+                    String type = (String) attributes.get(key);
+                    String territories = (String) attributes.get("territories");
+                    addTerritoryInfo(territories, display, type);
+                }
 				if (path.indexOf("/generation") >= 0 || path.indexOf("/version") >= 0) continue;
-				System.out.println("Unknown Element: " + path);
+				System.out.println("Skipped Element: " + path);
 			}
 			territory_languages = getInverse(language_territories);
 			script_languages = getInverse(language_scripts);
+            
+            // now get some metadata
+            
+            CLDRFile supp2 = cldrFactory.make(CLDRFile.SUPPLEMENTAL_METADATA, false);
+            for (Iterator it = supp2.iterator(); it.hasNext();) {
+                String path = (String) it.next();
+                parts.set(supp2.getFullXPath(path));
+                if (path.indexOf("/alias") >= 0) {
+                    String element = parts.getElement(parts.size() - 1);
+                    Map attributes = parts.getAttributes(parts.size() - 1);
+                    String type = (String) attributes.get("type");
+                    if (!element.endsWith("Alias")) throw new IllegalArgumentException("Unexpected alias element: " + element);
+                    element = element.substring(0,element.length() - 5);
+                    String replacement = (String) attributes.get("replacement");
+                    String name = "";
+                    if (replacement == null) {
+                        name = "(none)";
+                    } else if (element.equals("language")) {
+                        name = getName(replacement, false);
+                    } else {
+                        int typeCode = CLDRFile.typeNameToCode(element);
+                        name = getName(typeCode, replacement, false);
+                    }
+                    aliases.add(new String[] {element, type, name});
+                    continue;
+                }
+                if (path.indexOf("/generation") >= 0 || path.indexOf("/version") >= 0) continue;
+                System.out.println("Skipped Element: " + path);                
+           }
 		}
+
+        private void addTerritoryInfo(String territoriesList, String type, String info) {
+            String[] territories = territoriesList.split("\\s+");
+            territoryTypes.add(type);
+            for (int i = 0; i < territories.length; ++i) {
+                String territory = getName(CLDRFile.TERRITORY_NAME, territories[i], false);
+                Map s = (Map) territoryData.get(territory);
+                if (s == null) territoryData.put(territory, s = new TreeMap());
+                Set ss = (Set) s.get(type);
+                if (ss == null) s.put(type, ss = new TreeSet());
+                ss.add(info);
+            }
+        }
 		
-		public void showCorrespondances() {
+		public void showCalendarData(PrintWriter pw) {
+            doTitle(pw, "Other Territory Data");
+            pw.println("<tr><th class='source'>Territory</th>");
+            for (Iterator it = territoryTypes.iterator(); it.hasNext();) {
+                pw.println("<th class='target'>" + it.next() + "</th>");
+            }
+            pw.println("</tr>");
+            
+            String worldName = getName(CLDRFile.TERRITORY_NAME, "001", false);
+            Map worldData = (Map) territoryData.get(worldName);
+            for (Iterator it = territoryData.keySet().iterator(); it.hasNext();) {
+                String country = (String) it.next();
+                if (country.equals(worldName)) continue;
+                showCountry(pw, country, country, worldData);
+            }
+            showCountry(pw, worldName, "Other", worldData);
+            pw.println("</table></div>");
+        }
+
+        private void showCountry(PrintWriter pw, String country, String countryTitle, Map worldData) {
+            pw.println("<tr><td class='source'>" + countryTitle + "</td>");
+            Map data = (Map) territoryData.get(country);
+            for (Iterator it2 = territoryTypes.iterator(); it2.hasNext();) {
+                String type = (String) it2.next();
+                String target = "target";
+                Set results = (Set) data.get(type);
+                Set worldResults = (Set) worldData.get(type);
+                if (results == null) {
+                    results = worldResults;
+                    target = "target2";
+                } else if (results.equals(worldResults)) {
+                    target = "target2";                    
+                }
+                String out = "";
+                if (results != null) {
+                    out = results+"";
+                    out = out.substring(1,out.length()-1); // remove [ and ]
+                }
+                pw.println("<td class='"+ target + "'>" + out + "</td>");
+            }
+            pw.println("</tr>");
+        }
+
+        public void showCorrespondances() {
 			// show correspondances between language and script
 			Map name_script = new TreeMap();
 			for (Iterator it = sc.getAvailableCodes("script").iterator(); it.hasNext();) {
@@ -366,7 +491,7 @@ public class ShowLanguages {
 			doTitle(pw, "Aliases");
 			for (Iterator it = aliases.iterator(); it.hasNext();) {
 				String[] items = (String[])it.next();
-				pw.println("<tr><td class='source'>" + items[0] + "</td><td class='target'>" + items[1] + "</td></tr>");
+				pw.println("<tr><td class='source'>" + items[0] + "</td><td class='source'>" + items[1] + "</td><td class='target'>" + items[2] + "</td></tr>");
 			}
 			pw.println("</table></div>");
 		}
@@ -493,7 +618,7 @@ public class ShowLanguages {
 				List data = sc.getFullData(type, item);
 				if (data.get(0).equals("PRIVATE USE")) continue;
 				if (data.size() < 3) continue;
-				if (!data.get(2).equals("")) continue;
+				if (!"".equals(data.get(2))) continue;
 
 				String itemName = getName(source, item, true);
 				missingItemsNamed.add(itemName);
@@ -548,13 +673,15 @@ public class ShowLanguages {
 			int pos = oldcode.indexOf('*');
 			String code = pos < 0 ? oldcode : oldcode.substring(0,pos);
 			String ename = english.getName(type, code, false);
-			return codeFirst ? "[" + oldcode +"]\t" + (ename == null ? code : ename)
+			return codeFirst
+                    ? "[" + oldcode +"]\t" + (ename == null ? code : ename)
 					: (ename == null ? code : ename) + "\t[" + oldcode +"]";
 		}
 		
 		private String getName(String locale, boolean codeFirst) {
 			String ename = english.getName(locale, false);
-			return codeFirst ? "[" + locale +"]\t" + (ename == null ? locale : ename)
+			return codeFirst 
+                    ? "[" + locale +"]\t" + (ename == null ? locale : ename)
 					: (ename == null ? locale : ename) + "\t[" + locale +"]";
 		}
 		

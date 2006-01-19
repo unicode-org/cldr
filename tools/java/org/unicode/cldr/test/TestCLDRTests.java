@@ -121,7 +121,7 @@ public class TestCLDRTests extends TestFmwk {
         	this.name = name;
         }
         void set(String attributeName, String attributeValue) {
-            //if (DEBUG) System.out.println(attributeName + " => " + attributeValue);
+            //if (DEBUG) System.out.println(attributeName + " \u2192 " + attributeValue);
             settings.put(attributeName, attributeValue);
         }
         void checkResult(String value) {

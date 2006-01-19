@@ -274,7 +274,7 @@ public class CoverageLevel {
             Object script = it2.next();
             CoverageLevel.Level old = (CoverageLevel.Level) targetMap.get(script);
             if (old == null || level.compareTo(old) < 0) {
-                if (CheckCoverage.DEBUG_SET && show) System.out.println("\t" + script + "\t(" + old + " => " + level + ")");
+                if (CheckCoverage.DEBUG_SET && show) System.out.println("\t" + script + "\t(" + old + " \u2192 " + level + ")");
                 targetMap.put(script, level);
             }
         }
@@ -401,7 +401,7 @@ public class CoverageLevel {
                         System.out.print(ULocale.getDisplayCountry("und_"
                                 + territory, ULocale.ENGLISH)
                                 + "\t" + territory
-                                + "\t=>\t");
+                                + "\t\u2192\t");
                         Collection languages = (Collection) territory_languages.get(territory);
                         if (languages == null || languages.size() == 0) {
                             System.out.print("-NONE-");

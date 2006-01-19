@@ -93,7 +93,7 @@ public class FlexibleDateTime {
             ULocale uTargetLocale = new ULocale(targetLocale);
             log.println();
             log.println(uTargetLocale.getDisplayName(ULocale.ENGLISH) + " (" + uTargetLocale + ")");
-            System.out.println(sourceLocale + "\t=>" + uTargetLocale.getDisplayName(ULocale.ENGLISH) + " (" + uTargetLocale + ")");
+            System.out.println(sourceLocale + "\t\u2192" + uTargetLocale.getDisplayName(ULocale.ENGLISH) + " (" + uTargetLocale + ")");
             if (!sourceLocale.equals(targetLocale)) {
             	log.println("[oo: " + uSourceLocale.getDisplayName(ULocale.ENGLISH) + " (" + sourceLocale + ")]");
             }
@@ -270,7 +270,7 @@ public class FlexibleDateTime {
 	    			break;
 	    		}
 	    	}
-	    	//if (!oldLocale.equals(locale)) System.out.println(oldLocale + " => " + locale);
+	    	//if (!oldLocale.equals(locale)) System.out.println(oldLocale + " \u2192 " + locale);
 	    	return locale;
 	    }
 	}

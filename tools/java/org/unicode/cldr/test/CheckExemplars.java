@@ -55,7 +55,7 @@ public class CheckExemplars extends CheckCLDR {
    				if (overlap.size() != 0) {
    					String fixedExemplar1 = CollectionUtilities.prettyPrint(overlap, true, null, null, col, col);
    					result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-   							.setMessage("Auxilliary overlaps with main \\u200E{0}\\u200E", new Object[]{fixedExemplar1}));   			
+   							.setMessage("Auxilliary overlaps with main \u200E{0}\u200E", new Object[]{fixedExemplar1}));   			
    				}
    			}
         }
@@ -73,14 +73,14 @@ public class CheckExemplars extends CheckCLDR {
 
     	} else if (!v.equals(fixedExemplar1)) {
 	    	result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-	    	.setMessage("Better formatting would be \\u200E{0}\\u200E", new Object[]{fixedExemplar1}));
+	    	.setMessage("Better formatting would be \u200E{0}\u200E", new Object[]{fixedExemplar1}));
     	}
     	if (!AllowedInExemplars.containsAll(exemplar1)) {
     		exemplar1 = CollectionUtilities.flatten(exemplar1).removeAll(AllowedInExemplars);
     		if (exemplar1.size() != 0) {
     		fixedExemplar1 = CollectionUtilities.prettyPrint(exemplar1, true, null, null, col, col);
 	    	result.add(new CheckStatus().setCause(this).setType(CheckStatus.warningType)
-	    	.setMessage("Should be limited to (specific-script - uppercase - invisibles + \u0130); thus not contain: \\u200E{0}\\u200E",
+	    	.setMessage("Should be limited to (specific-script - uppercase - invisibles + \u0130); thus not contain: \u200E{0}\u200E",
 	    			new Object[]{fixedExemplar1}));
     		}
     	} else if (!isRoot && exemplar1.size() == 0) {

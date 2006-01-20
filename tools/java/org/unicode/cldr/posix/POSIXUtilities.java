@@ -8,16 +8,32 @@
 */
 package org.unicode.cldr.posix;
 
+import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.NamedNodeMap;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 
 import org.unicode.cldr.util.LDMLUtilities;
 
 public class POSIXUtilities {
+
+   private static UnicodeSet repertoire = new UnicodeSet(0x0000,0x10FFFF);
+   private static Document char_fallbk;
+
+   public static void setRepertoire ( UnicodeSet rep )
+   {
+      repertoire = rep;
+   }
+
+   public static void setCharFallback ( Document fallbk )
+   {
+      char_fallbk = fallbk;
+   }
+
 
    public static String POSIXContraction ( String s )
    {
@@ -70,6 +86,31 @@ public class POSIXUtilities {
            result.setLength(i);
 
         result.append(">");
+
+        if ( !repertoire.contains(cp) )
+        {
+           System.out.println("WARNING: character "+result.toString()+" is not in the target codeset.");
+
+           String substituteString = "";
+           boolean SubFound = false;
+           Node n;
+           String SearchLocation = "//supplementalData/characters/character-fallback/character[@value='"+UCharacter.toString(cp)+"']/substitute";
+
+           while ( !SubFound && ( (n = LDMLUtilities.getNode(char_fallbk, SearchLocation)) != null ))
+           {
+              substituteString = LDMLUtilities.getNodeValue(n);
+              if ( repertoire.containsAll(substituteString) )
+                 SubFound = true;
+           }
+ 
+           if ( SubFound )
+           {
+              System.out.println("	Substituted: "+POSIXUtilities.POSIXCharName(substituteString));
+              result = new StringBuffer(POSIXUtilities.POSIXCharName(substituteString));
+           }
+           else
+              System.out.println("	No acceptable substitute found. The resulting locale source may not compile.");
+        }
 
         return result.toString();
    }    

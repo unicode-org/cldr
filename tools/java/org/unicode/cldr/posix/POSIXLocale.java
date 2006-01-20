@@ -36,6 +36,7 @@ public class POSIXLocale {
    Document doc;
    Document supp;
    Document collrules;
+   Document char_fallbk;
    POSIX_LCCtype lc_ctype;
    POSIX_LCCollate lc_collate;
    POSIX_LCNumeric lc_numeric;
@@ -51,6 +52,7 @@ public class POSIXLocale {
       boolean ignoreDraft = true;
       doc = LDMLUtilities.getFullyResolvedLDML ( cldr_data_location+File.separator+"main", locale_name, false, false, false, ignoreDraft);
       supp = LDMLUtilities.parse ( cldr_data_location+File.separator+"supplemental"+File.separator+"supplementalData.xml",  true );
+      char_fallbk = LDMLUtilities.parse ( cldr_data_location+File.separator+"supplemental"+File.separator+"characters.xml",  true );
       collrules = LDMLUtilities.getFullyResolvedLDML ( cldr_data_location+File.separator+"collation", locale_name, true, true, true, ignoreDraft );
 
 
@@ -89,7 +91,10 @@ public class POSIXLocale {
      {
         UnicodeSet csset = new SimpleConverter(cs).getCharset();
         repertoire = new UnicodeSet(UnicodeSet.MIN_VALUE,UnicodeSet.MAX_VALUE).retainAll(csset);
+        POSIXUtilities.setRepertoire(repertoire);
      }
+
+     POSIXUtilities.setCharFallback(char_fallbk);
 
       lc_collate = new POSIX_LCCollate( doc, repertoire, collrules , collateset , codeset , variant );
 

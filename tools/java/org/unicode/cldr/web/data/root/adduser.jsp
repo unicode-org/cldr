@@ -18,6 +18,6 @@
 		<hr/>
 		<a href="<%= request.getParameter("a") %>?s=<%= request.getParameter("s") %>">Cancel, return to Survey Tool</a> |
 		<a href="./index.jsp">Return to CLDR Applications</a> |
-		<a target="_new" href="http://dev.icu-project.org/cgi-bin/cldrwiki.pl?SurveyTool/AddModifyUser">Help on this page (in a new window)</a>
+		<a target="_new" href="http://dev.icu-project.org/cgi-bin/cldrwiki.pl?SurveyToolHelp/AddModifyUser">Help on this page (in a new window)</a>
 	</body>
 </html>

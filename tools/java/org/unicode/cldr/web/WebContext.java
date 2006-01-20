@@ -210,7 +210,10 @@ public class WebContext {
     }
     
     public String jspLink(String s) {
-        return context(s)+"?a=" + base() + "&" + outQuery;
+        return context(s)+"?a=" + base() +
+            ((outQuery!=null)?("&" + outQuery):
+                ((session!=null)?("&s="+session.id):"")
+            );
      }
     
     void printUrlAsHiddenFields() {
@@ -385,8 +388,16 @@ public class WebContext {
         boolean doEdit = UserRegistry.userIsTC(session.user);
         printHelpLink(what, title, doEdit);
     }
+    public static final String MOD_MSG = ("Visit help as Editable (may require login)");
     public void printHelpLink(String what, String title, boolean doEdit)
     {
-        println("(<a href=\"" + (doEdit?SurveyMain.CLDR_HELP_LINK_EDIT:SurveyMain.CLDR_HELP_LINK) + what + "\">" + title +"</a>)");
+        print("(<a href=\"" + (SurveyMain.CLDR_HELP_LINK) + what + "\">" + title +"</a>");
+//        if(doEdit) {
+//            print(" <a title='"+MOD_MSG+"' href=\"" + (SurveyMain.CLDR_HELP_LINK_EDIT) + what + "\">" + modifyThing(MOD_MSG) +"</a>");
+//        }
+        println(")");
+    }
+    public String modifyThing(String message) {
+        return "<img border='0' style='width: 1em; height: 1em;' src='"+context("hand.gif")+"' title='"+message+"' />";
     }
 }

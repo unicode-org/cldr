@@ -78,7 +78,8 @@ public class CLDRDBSource extends XMLSource {
                                                     "locale varchar(20), " +
                                                     "tree varchar(20) NOT NULL, " +
                                                     "rev varchar(20), " +
-                                                    "modtime TIMESTAMP )";
+                                                    "modtime TIMESTAMP, "+
+                                                    "inactive INT)";
 //            System.out.println(sql);
             s.execute(sql);
 //            s.execute("CREATE UNIQUE INDEX unique_xpath on " + CLDR_DATA +"(xpath)");
@@ -109,6 +110,8 @@ public class CLDRDBSource extends XMLSource {
         public PreparedStatement keyASet = null;
         public PreparedStatement queryIdStmt = null;
         public PreparedStatement querySource = null;
+        public PreparedStatement querySourceInfo = null;
+        public PreparedStatement querySourceActives = null;
         public PreparedStatement insertSource = null;
         public PreparedStatement oxpathFromXpath = null;
     
@@ -174,10 +177,16 @@ public class CLDRDBSource extends XMLSource {
                         " WHERE locale=?"); // TODO: 1 need to be more specific!
 
             querySource = prepareStatement("querySource",
-                "SELECT id,rev FROM " + CLDR_SRC + " where locale=? AND tree=?");
+                "SELECT id,rev FROM " + CLDR_SRC + " where locale=? AND tree=? AND inactive IS NULL");
 
+            querySourceInfo = prepareStatement("querySourceInfo",
+                "SELECT rev FROM " + CLDR_SRC + " where id=?");
+                
+            querySourceActives = prepareStatement("querySourceActives",
+                "SELECT id,locale,rev FROM " + CLDR_SRC + " where inactive IS NULL");
+                
             insertSource = prepareStatement("insertSource",
-                "INSERT INTO " + CLDR_SRC + " (locale,tree,rev) VALUES (?,?,?)");
+                "INSERT INTO " + CLDR_SRC + " (locale,tree,rev,inactive) VALUES (?,?,?,null)");
         }
                 
     }
@@ -306,7 +315,7 @@ public class CLDRDBSource extends XMLSource {
     
     Hashtable srcHash = new Hashtable(); 
     
-    int getSourceId(String tree, String locale) {
+    public int getSourceId(String tree, String locale) {
         String key = tree + "_" + locale;
             synchronized (srcHash) {
                 Integer r = null;
@@ -325,7 +334,8 @@ public class CLDRDBSource extends XMLSource {
                         int result = rs.getInt(1);
                         if(rs.next()) {
                             logger.severe("Source returns two results: " + tree + "/" + locale);
-                            return -1;
+                            throw new InternalError("Issue with this Source: " + tree + "/" + locale);
+                 //           return -1;
                         }
                         rs.close();
                         
@@ -360,6 +370,73 @@ public class CLDRDBSource extends XMLSource {
                 } catch(SQLException se) {
                     logger.severe("CLDRDBSource: Failed to set source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
                     return -1;
+                }
+            }
+        }
+    }
+
+    private void manageSourceUpdates_locale(WebContext ctx, SurveyMain sm, int id, String loc)
+        throws SQLException
+    {
+        String mySql = ("DELETE from CLDR_DATA where source="+id+" AND submitter IS NULL");
+        logger.severe("srcupdate: "+loc+" - "+ mySql);
+        Statement s = conn.createStatement();
+        int r = s.executeUpdate(mySql);
+        ctx.println("<br>Deleting data from src " + id + " ... " + r + " rows.<br />");
+        mySql = "UPDATE CLDR_SRC set inactive=1 WHERE id="+id;
+        logger.severe("srcupdate:  "+loc+" - " + mySql);
+        int j = s.executeUpdate(mySql);
+        ctx.println(" Deactivating src: " + j + " rows<br />");
+        logger.severe("srcupdate: " +loc + " - deleted " + r + " rows of data, and deactivated " + j + " rows of src ( id " + id +"). committing.. ");
+        conn.commit();
+        sm.lcr.invalidateLocale(loc); // force a reload.
+    }
+    
+    public void manageSourceUpdates(WebContext ctx, SurveyMain sm) {
+     //       querySourceActives = prepareStatement("querySourceActives",
+     //           "SELECT id,locale,rev FROM " + CLDR_SRC + " where inactive IS NULL");
+        String what = ctx.field("src_update");
+        boolean updAll = what.equals("all_locs");
+        ctx.println("<h4>Source Update Manager</h4>");
+        synchronized (conn) {
+            synchronized(xpt) {
+                try {
+                    boolean hadDiffs = false;
+                    ResultSet rs = stmts.querySourceActives.executeQuery();
+                    ctx.println("<ul>");
+                    while(rs.next()) {
+                        int id = rs.getInt(1);
+                        String loc = rs.getString(2);
+                        String rev = rs.getString(3);
+                        String disk = LDMLUtilities.getCVSVersion(dir, loc+".xml");
+                        ctx.println("<li> <tt>[#"+id+"]" +loc + "</tt>:  db="+rev+" ");
+                        if(rev.equals(disk)) {
+                            ctx.println(" - latest");
+                        } else {
+                            hadDiffs = true;
+                            ctx.println("<span class='dashbox'> != disk="+disk+ " </span> ");
+                            WebContext subCtx = new WebContext(ctx);
+                            subCtx.addQuery("src_update",loc);
+                            // ...
+                            if(updAll || what.equals(loc)) {
+                                manageSourceUpdates_locale(ctx,sm,id,loc);
+                            } else {
+                                ctx.println("<a href='"+subCtx.url()+"'>Update "+loc+"</a>");
+                            }
+                        }
+                        ctx.println("</li>");
+                    }
+                    if(hadDiffs) {
+                            WebContext subCtx = new WebContext(ctx);
+                            subCtx.addQuery("src_update","all_locs");
+                            ctx.println("<li><b><a href='"+subCtx.url()+"'>Update ALL</b></li>");
+                    }
+                    ctx.println("</ul>");
+                } catch(SQLException se) {
+                    String complaint = ("CLDRDBSource: err in manageSourceUpdates["+what+"] ("+tree + "/" + "*" +"): " + SurveyMain.unchainSqlException(se));
+                    logger.severe(complaint);
+                    ctx.println("<hr /><pre>" + complaint + "</pre><br />");
+                    return;
                 }
             }
         }
@@ -526,17 +603,18 @@ public class CLDRDBSource extends XMLSource {
                 
                 // TODO: is there a better way to map a ResultSet into a Set?
                 Set s = new HashSet();
-                System.err.println("@tlh: " + "BEGIN");
+//                System.err.println("@tlh: " + "BEGIN");
                 while(rs.next()) {
                     String xpath = (xpt.getById(rs.getInt(1)));
-                    if(-1!=xpath.indexOf("tlh")) {
+/*                    if(-1!=xpath.indexOf("tlh")) {
                         xpath = xpath.replaceAll("\\[@draft=\"true\"\\]","");
                         System.err.println("@tlh: " + xpath);
                     }
+                    */
                     s.add(xpath); // xpath
                     //rs.getString(2); // origXpath
                 }
-                System.err.println("@tlh: " + "END");
+//                System.err.println("@tlh: " + "END");
                 return Collections.unmodifiableSet(s);
                 // TODO: 0
                 // TODO: ???

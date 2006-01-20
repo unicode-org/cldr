@@ -28,7 +28,7 @@ import com.ibm.icu.text.RuleBasedCollator;
 public class DataPod {
     // UI strings
     boolean canName = true;
-    public static final String DATAPOD_MISSING = "Missing";
+    public static final String DATAPOD_MISSING = "Inherited";
     public static final String DATAPOD_NORMAL = "Normal";
     public static final String DATAPOD_PRIORITY = "Priority";
     public static final String DATAPOD_PROPOSED = "Proposed";
@@ -463,7 +463,7 @@ public class DataPod {
             com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
             System.err.println("DP: Starting populate of " + locale + " // " + prefix);
             pod.populateFrom(ourSrc, checkCldr, ctx.sm.getEnglishFile());
-            System.err.println("DP: Time to populate " + locale + " // " + prefix + " = " + et);
+            System.err.println("DP: Time taken to populate " + locale + " // " + prefix + " = " + et);
 		} else {
 			throw new InternalError("non-simple pods not supported");
 		}
@@ -700,12 +700,12 @@ public class DataPod {
                 altProposed = SurveyMain.PROPOSED_DRAFT;
             }
             
-
             // Inherit display names.
             if((superP != p) && (p.displayName == null)) {
                 p.displayName = superP.displayName;
             }
             String sourceLocale = aFile.getSourceLocaleID(xpath);
+
             boolean isInherited = !(sourceLocale.equals(locale));
             
             if(altProposed == null) {
@@ -727,9 +727,6 @@ public class DataPod {
             if((checkCldr != null)&&(altProposed == null)) {
                 checkCldr.check(xpath, fullPath, value, options, checkCldrResult);
             }
-/*srl*/     if(-1!=xpath.indexOf("ain")) {
-                System.err.println("ain+- was have " + p.items.size() + " Items ");
-            }
             if(checkCldrResult.isEmpty()) {
                 p.addItem( value, altProposed, null).inheritFrom=setInheritFrom;
             } else {
@@ -739,7 +736,8 @@ public class DataPod {
                 for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
                     if(!status.getType().equals(status.exampleType) && 
-                        !(isCodeFallback && (status.getCause() instanceof org.unicode.cldr.test.CheckForExemplars))) { // skip codefallback exemplar complaints (i.e. 'JPY' isn't in exemplars).. they'll show up in missing
+                        !(isCodeFallback &&
+                            (status.getCause() instanceof org.unicode.cldr.test.CheckForExemplars))) { // skip codefallback exemplar complaints (i.e. 'JPY' isn't in exemplars).. they'll show up in missing
                         weHaveTests = true;
                     }
                 }
@@ -749,9 +747,6 @@ public class DataPod {
                 }
                 // set the parent
                 checkCldrResult = new ArrayList(); // can't reuse it if nonempty
-            }
-/*srl*/     if(-1!=xpath.indexOf("ain")) {
-                System.err.println("ain+: now have " + p.items.size() + " Items ");
             }
         }
         

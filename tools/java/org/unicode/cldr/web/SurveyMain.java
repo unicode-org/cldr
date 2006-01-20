@@ -54,9 +54,10 @@ public class SurveyMain extends HttpServlet {
     /**
     * URL prefix for  help
     */
-    public static final String CLDR_HELP_LINK = "http://bugs.icu-project.org/cgibin/cldrwiki.pl?SurveyToolHelp";
-    public static final String CLDR_HELP_LINK_EDIT = "http://bugs.icu-project.org/cgibin/cldr/cldrwiki.pl?SurveyToolHelp";
-    
+    public static final String CLDR_HELP_LINK = "http://www.unicode.org/cldr/wiki?SurveyToolHelp";
+//   public static final String CLDR_HELP_LINK_EDIT = "http://bugs.icu-project.org/cgibin/cldr/cldrwiki.pl?SurveyToolHelp";
+    public static final String CLDR_HELP_LINK_EDIT = CLDR_HELP_LINK;
+     
     public static final String SLOW_PAGE_NOTICE = ("<i>Note: The first time a page is loaded it may take some time, please be patient.</i>");    
     /** 
     * icon for help
@@ -81,8 +82,12 @@ public class SurveyMain extends HttpServlet {
     public static final String CHANGETO = "change to";
     public static final String PROPOSED_DRAFT = "proposed-draft";
 
-    public static final String MODIFY_THING = "<span title='You are allowed to modify this locale.'>\u270D</span>";             // was: F802
-
+//    public static final String MODIFY_THING = "<span title='You are allowed to modify this locale.'>\u270D</span>";             // was: F802
+    //public static final String MODIFY_THING = "<img src='' title='You are allowed to modify this locale.' />";             // was: F802
+    static String modifyThing(WebContext ctx) {
+        return "&nbsp;"+ctx.modifyThing("You are allowed to modify this locale.");
+    }
+    
     // SYSTEM PROPERTIES
     public static  String vap = System.getProperty("CLDR_VAP"); // Vet Access Password
     public static  String vetdata = System.getProperty("CLDR_VET_DATA"); // dir for vetted data
@@ -406,6 +411,19 @@ public class SurveyMain extends HttpServlet {
         }
         ctx.println("</table>");
 
+
+        if(ctx.field("src_update").length() > 0) {
+            WebContext subCtx = new WebContext(ctx);
+            subCtx.addQuery("dump",vap);
+            ctx.println("<br />");
+            CLDRDBSource mySrc = makeDBSource(null, new ULocale("root"));
+            mySrc.manageSourceUpdates(subCtx, this); // What does this button do?
+            ctx.println("<br />");
+        } else {
+            ctx.println("<br />[<a href='" + ctx.base() + "?dump=" + vap + "&src_update=none'>Manage Sources (update from disk)</a>]<br />");
+        }
+        
+
         if(ctx.field("loadAll").equals("all")) {
             com.ibm.icu.dev.test.util.ElapsedTimer allTime = new com.ibm.icu.dev.test.util.ElapsedTimer("Time to load all: {0}");
             logger.info("Loading all..");            
@@ -436,7 +454,7 @@ public class SurveyMain extends HttpServlet {
             logger.info("Loaded all. " + allTime);
             ctx.println("Loaded all." + allTime + "<br />");
         } else {
-            ctx.println("<br />[<a href='" + ctx.base() + "?dump=" + vap + "&loadAll=all'>Load All (S L O W)</a>]<br />");
+            ctx.println("<br />[<a href='" + ctx.base() + "?dump=" + vap + "&loadAll=all'>Load All (SLOW)</a>]<br />");
         }
         
         printFooter(ctx);
@@ -688,6 +706,7 @@ public class SurveyMain extends HttpServlet {
             } else {
                 ctx.println("<i>user added.</i>");
                 registeredUser.printPasswordLink(ctx);
+                ctx.println("<p>The password wasn't emailed to this user. You can do so in the 'manage users' page.</p>");
             }
         }
         
@@ -1072,7 +1091,7 @@ public class SurveyMain extends HttpServlet {
                         ctx.print("<a href=\"" + baseContext.url() + ctx.urlConnector() +"_=" + k + "\">" + 
                                     new ULocale(k).getDisplayName());
                         if(canModify) {
-                            ctx.print(MODIFY_THING);
+                            ctx.print(modifyThing(ctx));
                         }
                         ctx.println("</a> ");
                     }
@@ -1207,7 +1226,7 @@ public class SurveyMain extends HttpServlet {
                   n);
         boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,localeName);
         if(canModify) {
-            ctx.print(MODIFY_THING);
+            ctx.print(modifyThing(ctx));
         }
         ctx.print("</a>");
         ctx.print(hasDraft?"</b>":"") ;
@@ -1237,18 +1256,16 @@ public class SurveyMain extends HttpServlet {
             String ln = (String)li.next();
             String aLocale = (String)lm.get(ln);
             ctx.print("<tr class='row" + (n%2) + "'>");
-            ctx.print(" <td>");
+            ctx.print(" <td nowrap valign='top'>");
             printLocaleLink(baseContext, aLocale, ln);
-            ctx.println(" </td>");
             if(showCodes) {
-                ctx.print(" <td>");
-                ctx.println("<tt>" + aLocale + "</tt>");
-                ctx.println(" </td>");
+                ctx.println("<br /><tt>" + aLocale + "</tt>");
             }
+            ctx.println(" </td>");
             
             TreeMap sm = (TreeMap)subLocales.get(aLocale);
             
-            ctx.println("<td>");
+            ctx.println("<td valign='top'>");
             int j = 0;
             for(Iterator si = sm.keySet().iterator();si.hasNext();) {
                 if(j>0) { 
@@ -1311,7 +1328,10 @@ public class SurveyMain extends HttpServlet {
         "To access it, visit: \n" +
         "   http://" + ctx.serverName() + ctx.base() + "?"+QUERY_PASSWORD+"=" + pass + "&"+QUERY_EMAIL+"=" + theirEmail + "\n" +
         "\n" +
+        "Or you can visit\n   http://" + ctx.serverName() + ctx.base() + "\n    username: " + theirEmail + "\n    password: " + pass + "\n" +
+        "\n" +
         " Please keep this link to yourself. Thanks.\n" +
+        " Follow the 'Instructions' link on the main page for more help.\n" +
         " \n";
         
         String from = survprops.getProperty("CLDR_FROM","nobody@example.com");
@@ -1742,7 +1762,7 @@ subtype = subtype.substring(0,subtype.length()-1);
                 ctx.println("\u2517&nbsp;<a class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +"_=" + ctx.docLocale[i] + 
                     "\">" + ctx.docLocale[i] + "</a> " + new ULocale(ctx.docLocale[i]).getDisplayName() );
                 if(canModify) {
-                    ctx.print(MODIFY_THING);
+                    ctx.print(modifyThing(ctx));
                 }
                 ctx.println("<br/>");
             }
@@ -1752,7 +1772,7 @@ subtype = subtype.substring(0,subtype.length()-1);
             boolean canModifyL = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString());
             ctx.print("\u2517&nbsp;<font size=+2><b class='selected'>" + ctx.locale + "</b>");
             if(canModifyL) {
-                ctx.print(MODIFY_THING);
+                ctx.print(modifyThing(ctx));
             }
             ctx.println("</font> <span class='selected'>" + 
                 ctx.locale.getDisplayName() + "</span><br/>");
@@ -2510,21 +2530,25 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                 if(sameOrg) {
                     ctx.print("<b>");
                 }
-                ctx.print("<span class='actionbox'>" + item.altProposed + "<br />");
+                ctx.print("<span class='actionbox'>"+CONFIRM + item.altProposed + "<br />");
                 ctx.print("<a href='mailto:"+theU.email+"'>" + theU.name + "</a> (" + theU.org + ")");
                 ctx.print("</span>");
                 if(sameOrg) {
                     ctx.print("</b>");
                 }
             } else {
-                ctx.print("<span class='actionbox'>" + item.altProposed + "</span>");
+                ctx.print("<span class='actionbox'>"+CONFIRM+" " + item.altProposed + "</span>");
             }
             if(item.inheritFrom != null) {
                 ctx.println("<br /><span class='fallback'>Inherited from: " + item.inheritFrom+"</span>");
             }
         } else {
             if(p.inheritFrom != null) {
-                ctx.print("<span class='actionbox'>inherited " + p.inheritFrom + "</span>");
+                if(p.inheritFrom.equals(XMLSource.CODE_FALLBACK_ID)) {
+                    ctx.print("<span class='actionbox'>"+CONFIRM+" " + p.inheritFrom + "</span>");
+                } else {
+                    ctx.print("<span class='actionbox'>"+CONFIRM+" inherited [" + p.inheritFrom + "]</span>");
+                }
             } else {
                 ctx.print("<span class='actionbox'>" + CONFIRM + "</span>");
             }

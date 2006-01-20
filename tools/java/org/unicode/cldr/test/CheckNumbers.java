@@ -13,6 +13,7 @@ import org.unicode.cldr.util.ICUServiceBuilder;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class CheckNumbers extends CheckCLDR {
@@ -35,7 +36,17 @@ public class CheckNumbers extends CheckCLDR {
 	}
 
 	public CheckCLDR handleCheck(String path, String fullPath, String value, Map options, List result) {
-		if (path.indexOf("/numbers") < 0) return this;
+        if (path.indexOf("/currencyMatch") >= 0) {
+            try {
+                UnicodeSet s = new UnicodeSet(value);
+            } catch (Exception e) {
+                CheckStatus item = new CheckStatus().setCause(this).setType(CheckStatus.errorType)
+                .setMessage("Error in creating UnicodeSet {0}; {1}; {2}", new Object[]{value, e.getClass().getName(), e});       
+                result.add(item);
+            }
+            return this;
+        }
+        if (path.indexOf("/numbers") < 0) return this;
 		try {
 			if (path.indexOf("/pattern") >= 0 && path.indexOf("/patternDigit") < 0) {
 				checkPattern(path, fullPath, value, result);
@@ -144,7 +155,7 @@ public class CheckNumbers extends CheckCLDR {
 		+ "<td nowrap width='1%'>Input:</td>"
 		+ "<td><input type='text' name='T1' size='50' style='width: 100%' value='";
 	static String pattern2 = "'></td>"
-		+ "<td nowrap width='1%'><input type='submit' value='Go' name='B1'></td>"
+		+ "<td nowrap width='1%'><input type='submit' value='Test' name='B1'></td>"
 		+ "<td nowrap width='1%'>Formatted:</td>"
 		+ "<td><input type='text' name='T2' size='50' style='width: 100%' value='";
 	static String pattern3 = "'></td>"

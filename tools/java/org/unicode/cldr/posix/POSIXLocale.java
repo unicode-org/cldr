@@ -15,6 +15,7 @@ import java.nio.charset.Charset;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
@@ -94,9 +95,16 @@ public class POSIXLocale {
         POSIXUtilities.setRepertoire(repertoire);
      }
 
+     UnicodeSetIterator rep = new UnicodeSetIterator(repertoire);
+     while ( rep.next() )
+     {
+        if ( !UCharacter.isDefined(rep.codepoint))
+           repertoire.remove(rep.codepoint);
+     }
+
      POSIXUtilities.setCharFallback(char_fallbk);
 
-      lc_collate = new POSIX_LCCollate( doc, repertoire, collrules , collateset , codeset , variant );
+     lc_collate = new POSIX_LCCollate( doc, repertoire, collrules , collateset , codeset , variant );
 
       if ( codeset.equals("UTF-8") )
       {

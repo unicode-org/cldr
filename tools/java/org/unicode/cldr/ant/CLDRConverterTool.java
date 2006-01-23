@@ -11,6 +11,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CoverageLevel;
 import org.w3c.dom.Node;
 
@@ -171,7 +172,7 @@ public abstract class CLDRConverterTool {
             coverageLevel = new CoverageLevel();
             coverageLevel.init(sd, smd);
             ArrayList errors = new ArrayList();
-            coverageLevel.setFile(localeName, exemplarsContainA_Z, null, 0, errors);
+            coverageLevel.setFile(localeName, exemplarsContainA_Z, null, null, errors);
         }
     }
     /**

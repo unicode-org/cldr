@@ -332,6 +332,7 @@ public class StandardCodes {
 				}
 				lstreg.close();
 			} catch (Exception e) {
+                System.err.println("WARNING: " + files[fileIndex]+ " may be a corrupted UTF-8 file. Please check." );
 				throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + files[fileIndex] + "\t" + originalLine).initCause(e);
 			}
 			Utility.protectCollection(country_modernCurrency);

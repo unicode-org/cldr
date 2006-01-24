@@ -184,6 +184,22 @@ public class WebContext {
     void addQuery(String k, boolean v) {
         addQuery(k,v?"t":"f");
     }
+    
+    void setQuery(String k, String v) {
+        if(outQueryMap.get(k)==null) { // if it wasn't there..
+            addQuery(k,v); // then do a simple append
+        } else {
+            // rebuild query string:
+            outQuery=null;
+            TreeMap oldMap = outQueryMap;
+            oldMap.put(k,v); // replace
+            outQueryMap=new TreeMap();
+            for(Iterator i=oldMap.keySet().iterator();i.hasNext();) {
+                String somek = (String)i.next();
+                addQuery(somek,(String)oldMap.get(somek));
+            }
+        }
+    }
 
     String url() {
         if(outQuery == null) {

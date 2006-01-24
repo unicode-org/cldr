@@ -114,6 +114,7 @@ public class DataPod {
             public String value = null; // actual value
             public int id = -1; // id of CLDR_DATA table row
             public List tests = null;
+            String references = null;
             // anything else? userID? 
         }
         
@@ -418,7 +419,17 @@ public class DataPod {
                             if(p1==p2) { 
                                 return 0;
                             }
-                            return myCollator.compare(p1.displayName, p2.displayName);
+                            String p1d = p1.displayName;
+                            if(p1.displayName == null ) {
+                                    p1d = p1.type;
+//                                throw new InternalError("item p1 w/ null display: " + p1.type);
+                            }
+                            String p2d = p2.displayName;
+                            if(p2.displayName == null ) {
+                                    p2d = p2.type;
+//                                throw new InternalError("item p2 w/ null display: " + p2.type);
+                            }
+                            return myCollator.compare(p1d, p2d);
                         }
                     });
                 } else {
@@ -438,11 +449,29 @@ public class DataPod {
     (Alternate idea: just make toString() do so on Pea.. advantage here is we can adjust for sort mode.) **/
     public List getDisplayList(String sortMode) {
         final List myPeas = getList(sortMode);
-        return new AbstractList() {
-            private List p = myPeas;
-            public Object get(int n) { return ((Pea)p.get(n)).type; }
-            public int size() { return p.size(); }
-        };
+        if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
+            return new AbstractList() {
+                private List ps = myPeas;
+                public Object get(int n) {
+                  return ((Pea)ps.get(n)).type; // always code
+                }
+                public int size() { return ps.size(); }
+            };
+        } else {
+            return new AbstractList() {
+                private List ps = myPeas;
+                public Object get(int n) {
+                  Pea p = (Pea)ps.get(n);
+                  if(p.displayName != null) {
+                    return p.displayName;
+                  } else {
+                    return p.type;
+                  } 
+                  //return ((Pea)ps.get(n)).type;
+                }
+                public int size() { return ps.size(); }
+            };
+        }
     }
 
 	/**
@@ -505,11 +534,45 @@ public class DataPod {
                                                     "\\[@alt=\"[^\"]*\"\\]|"+ // ???
                                                     "/displayName$|" + // for currency
                                                     "/standard"    );
+        // what to exclude under 'misc'
         Pattern mostPattern = Pattern.compile("^//ldml/localeDisplayNames.*|"+
                                               "^//ldml/characters/exemplarCharacters.*|"+
                                               "^//ldml/numbers.*|"+
                                               "^//ldml/dates.*|"+
                                               "^//ldml/identity.*");
+        // what to exclude under 'misc' and calendars
+        Pattern excludeAlways = Pattern.compile("^//ldml/segmentations.*|"+
+                                                "^//ldml/measurement.*|"+
+                                                ".*weekendEnd.*|"+
+                                                ".*weekendStart.*|" +
+                                                "^//ldml/dates/.*default");// no defaults
+                                                
+        String fromto[] = {   "^days/(.*)/(sun)$",  "days/1-$2/$1",
+                              "^days/(.*)/(mon)$",  "days/2-$2/$1",
+                              "^days/(.*)/(tue)$",  "days/3-$2/$1",
+                              "^days/(.*)/(wed)$",  "days/4-$2/$1",
+                              "^days/(.*)/(thu)$",  "days/5-$2/$1",
+                              "^days/(.*)/(fri)$",  "days/6-$2/$1",
+                              "^days/(.*)/(sat)$",  "days/7-$2/$1",
+                              "^months/(.*)/month/([0-9]*)$", "months/$2/$1",
+                              "^([^/]*)/months/(.*)/month/([0-9]*)$", "$1/months/$3/$2",
+                              "^eras/(.*)/era/([0-9]*)$", "eras/$2/$1",
+                              "^([^/]*)/eras/(.*)/era/([0-9]*)$", "$1/eras/$3/$2",
+                              "^([ap]m)$","ampm/$1",
+                              "^quarter/(.*)/quarter/([0-9]*)$", "quarter/$2/$1",
+                              "^([^/]*)/([^/]*)/time$", "$1/time/$2",
+                              "^([^/]*)/([^/]*)/date", "$1/date/$2",
+                              "/alias$", ""
+                            };
+                            
+        Pattern fromto_p[] = new Pattern[fromto.length/2];
+        
+            int pn;
+            for(pn=0;pn<fromto.length/2;pn++) {
+                fromto_p[pn]= Pattern.compile(fromto[pn*2]);
+            }
+            
+
         /**  TODO: this needs to be generalized.. **/
         String exclude = null;
         boolean excludeCurrencies = false;
@@ -567,6 +630,9 @@ public class DataPod {
         List checkCldrResult = new ArrayList();
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
             String xpath = (String)it.next();
+            if(excludeAlways.matcher(xpath).matches()) {
+                continue;
+            }
             if(excludeMost && mostPattern.matcher(xpath).matches()) {
                 continue;
             } else if(excludeCurrencies && (xpath.startsWith("//ldml/numbers/currencies/currency"))) {
@@ -614,6 +680,11 @@ public class DataPod {
                     type = o.replaceAll("$2/$1");
                 }
 //                type = suffixXpath; // just see where this gets us
+
+                for(pn=0;pn<fromto.length/2;pn++) {
+                    type = fromto_p[pn].matcher(type).replaceAll(fromto[(pn*2)+1]);
+                }
+
             }
             
             String value = aFile.getStringValue(xpath);
@@ -646,7 +717,14 @@ public class DataPod {
             /* all of these are always at the end */
             String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
             String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
-
+            
+            /* FULL path processing (references..) */
+            xpp.clear();
+            xpp.initialize(fullPath);
+            lelement = xpp.getElement(-1);
+            String eRefs = xpp.findAttributeValue(lelement, LDMLConstants.REFERENCES);
+            
+            
             String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
             String altProposed = typeAndProposed[1];
             String altType = typeAndProposed[0];
@@ -727,10 +805,11 @@ public class DataPod {
             if((checkCldr != null)&&(altProposed == null)) {
                 checkCldr.check(xpath, fullPath, value, options, checkCldrResult);
             }
+            DataPod.Pea.Item myItem;
             if(checkCldrResult.isEmpty()) {
-                p.addItem( value, altProposed, null).inheritFrom=setInheritFrom;
+               myItem = p.addItem( value, altProposed, null);
             } else {
-                p.addItem( value, altProposed, checkCldrResult).inheritFrom=setInheritFrom;
+               myItem = p.addItem( value, altProposed, checkCldrResult);
                 // only consider non-example tests as notable.
                 boolean weHaveTests = false;
                 for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
@@ -747,6 +826,10 @@ public class DataPod {
                 }
                 // set the parent
                 checkCldrResult = new ArrayList(); // can't reuse it if nonempty
+            }
+            myItem.inheritFrom=setInheritFrom;
+            if((eRefs != null) && (!isInherited)) {
+                myItem.references = eRefs;
             }
         }
         

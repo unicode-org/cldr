@@ -352,6 +352,37 @@ public class CLDRDBSource extends XMLSource {
         }
     }
     
+    public String getSourceRevision() {
+        return getSourceRevision(srcId);
+    }
+    
+    public String getSourceRevision(int id) {
+        if(id==-1) {
+            return null;
+        }
+        String rev = null;
+        synchronized (conn) {
+            synchronized (xpt) {
+                try {
+                    stmts.querySourceInfo.setInt(1, id);
+                    ResultSet rs = stmts.querySourceInfo.executeQuery();
+                    if(rs.next()) {
+                        rev = rs.getString(1); // rev
+                        if(rs.next()) {
+                            throw new InternalError("Duplicate source info for source " + id);
+                        }
+                    } 
+                    // auto close
+                    return rev;
+                } catch (SQLException se) {
+                    String what = ("CLDRDBSource: Failed to find source info ("+id +"): " + SurveyMain.unchainSqlException(se));
+                    logger.severe(what);
+                    throw new InternalError(what);
+                }
+            }
+        }
+    }
+    
     int setSourceId(String tree, String locale, String rev) {
         synchronized (conn) {
             synchronized(xpt) {

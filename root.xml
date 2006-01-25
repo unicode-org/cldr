@@ -317,6 +317,37 @@
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
+					<appendItems>
+						<appendItem request="G">{0} {1}</appendItem>
+						<appendItem request="y">{0} {1}</appendItem>
+						<appendItem request="Y">{0} ({2}: {1})</appendItem>
+						<appendItem request="u">{0} ({2}: {1})</appendItem>
+						<appendItem request="Q">{0} ({2}: {1})</appendItem>
+						<appendItem request="q">{0} ({2}: {1})</appendItem>
+						<appendItem request="M">{0} ({2}: {1})</appendItem>
+						<appendItem request="L">{0} ({2}: {1})</appendItem>
+						<appendItem request="w">{0} ({2}: {1})</appendItem>
+						<appendItem request="W">{0} ({2}: {1})</appendItem>
+						<appendItem request="d">{0} ({2}: {1})</appendItem>
+						<appendItem request="D">{0} ({2}: {1})</appendItem>
+						<appendItem request="F">{0} ({2}: {1})</appendItem>
+						<appendItem request="g">{0} ({2}: {1})</appendItem>
+						<appendItem request="E">{0} {1}</appendItem>
+						<appendItem request="e">{0} {1}</appendItem>
+						<appendItem request="c">{0} {1}</appendItem>
+						<appendItem request="a">{0} {1}</appendItem>
+						<appendItem request="h">{0} ({2}: {1})</appendItem>
+						<appendItem request="H">{0} ({2}: {1})</appendItem>
+						<appendItem request="K">{0} ({2}: {1})</appendItem>
+						<appendItem request="k">{0} ({2}: {1})</appendItem>
+						<appendItem request="m">{0} ({2}: {1})</appendItem>
+						<appendItem request="s">{0} ({2}: {1})</appendItem>
+						<appendItem request="S">{0} ({2}: {1})</appendItem>
+						<appendItem request="A">{0} ({2}: {1})</appendItem>
+						<appendItem request="z">{0} {1}</appendItem>
+						<appendItem request="Z">{0} {1}</appendItem>
+						<appendItem request="v">{0} {1}</appendItem>
+					</appendItems>
 				</dateTimeFormats>
 				<fields>
 					<field type="era">

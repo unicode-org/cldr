@@ -1336,7 +1336,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         }
         
         //temp for merge
-  /*      String file = OOLocaleReader.m_LangId;
+   /*     String file = OOLocaleReader.m_LangId;
         if (OOLocaleReader.m_Country_CountryID != null) file = file + "_" + OOLocaleReader.m_Country_CountryID;
         file += ".xml";
         try
@@ -1361,6 +1361,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         }
         catch (IOException e)
         {}  */
+        //end temp
             
         //OO.o formats belong to different calendar types so make sure to write to appropriate places
         // look for [~hijri]  ][~jewish]  >[~hanja]  [~buddhist]
@@ -1383,12 +1384,16 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
                 System.err.println ("INFO: Skipping duplicate pattern : " + pattern + " for availableFormats");
         }
         
+        int index=0;
         for (int i=0; i < patterns_no_dups.size(); i++)
         {
             String pattern = (String) patterns_no_dups.elementAt(i);
             if ((pattern != null) && (pattern.indexOf('[') == -1))  // no [] => gregorian
             {
-                print(LDMLConstants.DATE_FMT_ITEM_O);
+                index++;
+          //      print(LDMLConstants.DATE_FMT_ITEM_O);
+                //id is 1 indexed (just like months)
+                print("<" + LDMLConstants.DATE_FMT_ITEM + " " + LDMLConstants.ID + "=\"" + Integer.toString(index) + "\">");
                 print(pattern);
                 println(LDMLConstants.DATE_FMT_ITEM_C);
                 
@@ -1396,11 +1401,12 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
          /*       try
                 {
                     BufferedWriter out = new BufferedWriter(new FileWriter("./ldml2/"+file,true));
-                    out.write("                       <dateFormatItem>" + pattern + "</dateFormatItem>\n");
+                    out.write("                        <" + LDMLConstants.DATE_FMT_ITEM + " " + LDMLConstants.ID + "=\"" + Integer.toString(index) + "\">" + pattern + LDMLConstants.DATE_FMT_ITEM_C + "\n");
                     out.close ();
                 }
                 catch (IOException e)
                 {}*/
+                //end temp
             }
         }
         
@@ -1408,7 +1414,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         println(LDMLConstants.AVAIL_FMTS_C);
         
         //temp for merge to cLDR 1.4
-    /*    try
+   /*     try
         {
             BufferedWriter out = new BufferedWriter(new FileWriter("./ldml2/"+file,true));
             out.write ("                    </availableFormats>\n");
@@ -1421,6 +1427,7 @@ public class LDMLLocaleWriterForOO extends LDMLLocaleWriter
         }
         catch (IOException e)
         {}  */
+        //end temp
     }
     
     

@@ -629,8 +629,6 @@ public class DataPod {
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
 
-        // todo: move this to static
-//        Pattern typeReplacementPattern = Pattern.compile("@type=");
         // what to exclude under 'misc'
             
         int pn;
@@ -682,13 +680,6 @@ public class DataPod {
             removePrefix = "//ldml/localeDisplayNames/types/type";
             keyTypeSwap = true; //these come in reverse order  (type/key) i.e. buddhist/celander, pinyin/collation.  Reverse this for sorting...
         }
-/*
-                checkCldr.check(path, fullPath, value, pathParts, fullPathParts, checkCldrResult);
-                for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
-                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                    if (!status.getType().equals(status.exampleType)) {
-                        ctx.println(status.toString() + "\t" + value + "\t" + fullPath);
-*/
         List checkCldrResult = new ArrayList();
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
             String xpath = (String)it.next();
@@ -740,7 +731,6 @@ public class DataPod {
                     Matcher o = keyTypeSwapPattern.matcher(type);
                     type = o.replaceAll("$2/$1");
                 }
-//                type = suffixXpath; // just see where this gets us
 
                 for(pn=0;pn<fromto.length/2;pn++) {
                     type = fromto_p[pn].matcher(type).replaceAll(fromto[(pn*2)+1]);
@@ -752,7 +742,6 @@ public class DataPod {
 
             if(xpath.indexOf("default[@type")!=-1) {
                 peaSuffixXpath = displaySuffixXpath;
-//                type = type.substring(0,type.indexOf('@')) + " (default)";
                 int n = type.lastIndexOf('/');
                 if(n==-1) {
                     type = "(default type)";
@@ -898,7 +887,6 @@ public class DataPod {
                 myItem.references = eRefs;
             }
         }
-        
 //        aFile.close();
     }
     private Pea getPea(String type) {

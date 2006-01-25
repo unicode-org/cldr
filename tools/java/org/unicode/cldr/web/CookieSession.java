@@ -214,6 +214,7 @@ public class CookieSession {
     public static String cheapEncode(long l) {
         String out = "";
         if(l < 0) {
+            out = out+"-";
             l = 0 - l;
         } else if (l == 0) {
             return "0";

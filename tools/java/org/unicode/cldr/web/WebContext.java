@@ -339,6 +339,33 @@ public class WebContext {
 		return getByLocale(key, locale.toString());
 	}
     
+    // Static data
+    static Hashtable staticStuff = new Hashtable();
+    
+    public final void putByLocaleStatic(String key, Object value) {
+        putByLocaleStatic(key, locale, value);
+    }
+    public final Object getByLocaleStatic(String key) {
+		return getByLocaleStatic(key, locale);
+	}
+    // bottlenecks for static access
+    public static synchronized final Object getByLocaleStatic(String key, ULocale aLocale) {
+        Hashtable subHash = (Hashtable)staticStuff.get(aLocale);
+        if(subHash == null) {
+            return null;
+        }
+        return subHash.get(key);
+    }
+    public static final synchronized void putByLocaleStatic(String key, ULocale locale, Object value) {
+        Hashtable subHash = (Hashtable)staticStuff.get(locale);
+        if(subHash == null) {
+            subHash = new Hashtable();
+            
+            staticStuff.put(locale, subHash);
+        }
+        subHash.put(key,value);
+    }
+    
 // DataPod functions
     private static final String DATA_POD = "DataPod_";
     
@@ -348,7 +375,7 @@ public class WebContext {
      */
     DataPod getExistingPod(String prefix) {
         synchronized(this) {
-            return (DataPod)getByLocale(DATA_POD+prefix);
+            return (DataPod)getByLocaleStatic(DATA_POD+prefix);
         }
     }
     
@@ -372,9 +399,12 @@ public class WebContext {
                 if((System.currentTimeMillis()-t0) > 10 * 1000) {
                     println("<i><b>" + podTimer + "</b></i><br/>");
                 }
-                pod.register(sm.lcr);
-                putByLocale(DATA_POD+prefix, pod);
+                synchronized (staticStuff) {
+                    pod.register(sm.lcr);
+                    putByLocaleStatic(DATA_POD+prefix, pod);
+                }
             }
+            pod.touch();
             return pod;
         }
     }

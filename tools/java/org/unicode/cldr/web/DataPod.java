@@ -1,9 +1,8 @@
 //
 //  DataPod.java
-//  all the good names were .. ??
 //
 //  Created by Steven R. Loomis on 18/11/2005.
-//  Copyright 2005 IBM. All rights reserved.
+//  Copyright 2005-2006 IBM. All rights reserved.
 //
 
 //  TODO: this class now has lots of knowledge about specific data types.. so does SurveyMain
@@ -26,6 +25,13 @@ import com.ibm.icu.text.RuleBasedCollator;
  **/
 
 public class DataPod {
+    long touchTime = -1;
+    public void touch() {
+        touchTime = System.currentTimeMillis();
+    }
+    public long age() {
+        return System.currentTimeMillis() - touchTime;
+    }
     // UI strings
     boolean canName = true;
     public static final String DATAPOD_MISSING = "Inherited";
@@ -42,6 +48,41 @@ public class DataPod {
         locale = loc;
         xpathPrefix = prefix;
         fieldHash =  CookieSession.cheapEncode(sm.xpt.getByXpath(prefix));
+    }
+    private static int n =0;
+    protected static synchronized int getN() { return ++n; }
+
+    // This class represents an Example box, so that it can be popped out.
+    public class ExampleEntry {
+
+        public String hash = null;
+
+        public DataPod pod;
+        public DataPod.Pea pea;
+        public Pea.Item item;
+        public CheckCLDR.CheckStatus status;
+        
+        public ExampleEntry(DataPod pod, Pea p, Pea.Item item, CheckCLDR.CheckStatus status) {
+            this.pod = pod;
+            this.pea = p;
+            this.item = item;
+            this.status = status;
+
+            hash = CookieSession.cheapEncode(DataPod.getN()) +  // unique serial #- covers item, status..
+                this.pod.fieldHash(p);   /* fieldHash ensures that we don't get the wrong field.. */
+        }
+    }
+    Hashtable exampleHash = new Hashtable();
+    ExampleEntry addExampleEntry(ExampleEntry e) {
+        synchronized(exampleHash) {
+            exampleHash.put(e.hash,e);
+        }
+        return e; // for the hash.
+    }
+    ExampleEntry getExampleEntry(String hash) {
+        synchronized(exampleHash) {
+            return (DataPod.ExampleEntry)exampleHash.get(hash);
+        }
     }
     
     /* get a short key for use in fields */
@@ -114,6 +155,7 @@ public class DataPod {
             public String value = null; // actual value
             public int id = -1; // id of CLDR_DATA table row
             public List tests = null;
+            public Vector examples = null; 
             String references = null;
             // anything else? userID? 
         }
@@ -146,13 +188,13 @@ public class DataPod {
             if(myFieldHash == null) {
                 String ret = "";
                 if(type != null) {
-                    ret = ret + ":" + type;
+                    ret = ret + ":" + CookieSession.cheapEncode(type.hashCode());
                 }
                 if(xpathSuffix != null) {
-                    ret = ret + ":" + xpathSuffix;
+                    ret = ret + ":" + CookieSession.cheapEncode(xpathSuffix.hashCode());
                 }
                 if(altType != null) {
-                    ret = ret + ":" + altType;
+                    ret = ret + ":" + CookieSession.cheapEncode(altType.hashCode());
                 }
                 myFieldHash = ret;
             }
@@ -499,20 +541,40 @@ public class DataPod {
 		return pod;
 	}
     
-    private void populateFrom(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile engFile) {
-        XPathParts xpp = new XPathParts(null,null);
-        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
-        CLDRFile aFile = new CLDRFile(src, true);
-        Map options = new TreeMap();
-//        options.put("CheckCoverage.requiredLevel","modern"); // TODO: fix
-        XPathParts pathParts = new XPathParts(null, null);
-        XPathParts fullPathParts = new XPathParts(null, null);
+    private static boolean isInitted = false;
+    
+    private static Pattern typeReplacementPattern;
+    private static Pattern keyTypeSwapPattern;
+    private static Pattern noisePattern;
+    private static Pattern mostPattern;
+    private static Pattern excludeAlways;
+    private static final         String fromto[] = {   "^days/(.*)/(sun)$",  "days/1-$2/$1",
+                              "^days/(.*)/(mon)$",  "days/2-$2/$1",
+                              "^days/(.*)/(tue)$",  "days/3-$2/$1",
+                              "^days/(.*)/(wed)$",  "days/4-$2/$1",
+                              "^days/(.*)/(thu)$",  "days/5-$2/$1",
+                              "^days/(.*)/(fri)$",  "days/6-$2/$1",
+                              "^days/(.*)/(sat)$",  "days/7-$2/$1",
+                              "^months/(.*)/month/([0-9]*)$", "months/$2/$1",
+                              "^([^/]*)/months/(.*)/month/([0-9]*)$", "$1/months/$3/$2",
+                              "^eras/(.*)/era/([0-9]*)$", "eras/$2/$1",
+                              "^([^/]*)/eras/(.*)/era/([0-9]*)$", "$1/eras/$3/$2",
+                              "^([ap]m)$","ampm/$1",
+                              "^quarter/(.*)/quarter/([0-9]*)$", "quarter/$2/$1",
+                              "^([^/]*)/([^/]*)/time$", "$1/time/$2",
+                              "^([^/]*)/([^/]*)/date", "$1/date/$2",
+                              "/alias$", "",
+                              "/date/availablesItem.*@_q=\"([0-9]*)\"\\]","/availableDateFormats/$1"
+//                              "/date/availablesItem.*@_q=\"[0-9]*\"\\]","/availableDateFormats"
+                            };
+    private static Pattern fromto_p[] = new Pattern[fromto.length/2];
+                            
 
-        // todo: move this to static
-//        Pattern typeReplacementPattern = Pattern.compile("@type=");
-        Pattern typeReplacementPattern = Pattern.compile("\\[@(?:type|key)=['\"]([^'\"]*)['\"]\\]");
-        Pattern keyTypeSwapPattern = Pattern.compile("([^/]*)/(.*)");
-        Pattern noisePattern = Pattern.compile( // 'noise' to be removed
+    private static synchronized void init() {
+        if(!isInitted) {
+         typeReplacementPattern = Pattern.compile("\\[@(?:type|key)=['\"]([^'\"]*)['\"]\\]");
+         keyTypeSwapPattern = Pattern.compile("([^/]*)/(.*)");
+         noisePattern = Pattern.compile( // 'noise' to be removed
                                                     "^/|"+
                                                     "Formats/currencyFormatLength/currencyFormat|"+
                                                     "Formats/currencySpacing|"+
@@ -534,46 +596,44 @@ public class DataPod {
                                                     "\\[@alt=\"[^\"]*\"\\]|"+ // ???
                                                     "/displayName$|" + // for currency
                                                     "/standard"    );
-        // what to exclude under 'misc'
-        Pattern mostPattern = Pattern.compile("^//ldml/localeDisplayNames.*|"+
+         mostPattern = Pattern.compile("^//ldml/localeDisplayNames.*|"+
                                               "^//ldml/characters/exemplarCharacters.*|"+
                                               "^//ldml/numbers.*|"+
                                               "^//ldml/dates.*|"+
                                               "^//ldml/identity.*");
         // what to exclude under 'misc' and calendars
-        Pattern excludeAlways = Pattern.compile("^//ldml/segmentations.*|"+
+         excludeAlways = Pattern.compile("^//ldml/segmentations.*|"+
                                                 "^//ldml/measurement.*|"+
                                                 ".*weekendEnd.*|"+
                                                 ".*weekendStart.*|" +
+                                                "^//ldml/dates/timeZoneNames/.*/GMT.*exemplarCity$|" +
                                                 "^//ldml/dates/.*default");// no defaults
                                                 
-        String fromto[] = {   "^days/(.*)/(sun)$",  "days/1-$2/$1",
-                              "^days/(.*)/(mon)$",  "days/2-$2/$1",
-                              "^days/(.*)/(tue)$",  "days/3-$2/$1",
-                              "^days/(.*)/(wed)$",  "days/4-$2/$1",
-                              "^days/(.*)/(thu)$",  "days/5-$2/$1",
-                              "^days/(.*)/(fri)$",  "days/6-$2/$1",
-                              "^days/(.*)/(sat)$",  "days/7-$2/$1",
-                              "^months/(.*)/month/([0-9]*)$", "months/$2/$1",
-                              "^([^/]*)/months/(.*)/month/([0-9]*)$", "$1/months/$3/$2",
-                              "^eras/(.*)/era/([0-9]*)$", "eras/$2/$1",
-                              "^([^/]*)/eras/(.*)/era/([0-9]*)$", "$1/eras/$3/$2",
-                              "^([ap]m)$","ampm/$1",
-                              "^quarter/(.*)/quarter/([0-9]*)$", "quarter/$2/$1",
-                              "^([^/]*)/([^/]*)/time$", "$1/time/$2",
-                              "^([^/]*)/([^/]*)/date", "$1/date/$2",
-                              "/alias$", ""
-                            };
-                            
-        Pattern fromto_p[] = new Pattern[fromto.length/2];
         
             int pn;
             for(pn=0;pn<fromto.length/2;pn++) {
                 fromto_p[pn]= Pattern.compile(fromto[pn*2]);
             }
-            
 
-        /**  TODO: this needs to be generalized.. **/
+        }
+        isInitted = true;
+    }
+    
+    private void populateFrom(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile engFile) {
+        init();
+        XPathParts xpp = new XPathParts(null,null);
+        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
+        CLDRFile aFile = new CLDRFile(src, true);
+        Map options = new TreeMap();
+//        options.put("CheckCoverage.requiredLevel","modern"); // TODO: fix
+        XPathParts pathParts = new XPathParts(null, null);
+        XPathParts fullPathParts = new XPathParts(null, null);
+
+        // todo: move this to static
+//        Pattern typeReplacementPattern = Pattern.compile("@type=");
+        // what to exclude under 'misc'
+            
+        int pn;
         String exclude = null;
         boolean excludeCurrencies = false;
         boolean excludeCalendars = false;
@@ -809,14 +869,19 @@ public class DataPod {
             if(checkCldrResult.isEmpty()) {
                myItem = p.addItem( value, altProposed, null);
             } else {
-               myItem = p.addItem( value, altProposed, checkCldrResult);
+                myItem = p.addItem( value, altProposed, checkCldrResult);
                 // only consider non-example tests as notable.
                 boolean weHaveTests = false;
                 for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                    if(!status.getType().equals(status.exampleType) && 
-                        !(isCodeFallback &&
-                            (status.getCause() instanceof org.unicode.cldr.test.CheckForExemplars))) { // skip codefallback exemplar complaints (i.e. 'JPY' isn't in exemplars).. they'll show up in missing
+                    if(status.getType().equals(status.exampleType)) {
+                        if(myItem.examples == null) {
+                            myItem.examples = new Vector();
+                        }
+                        myItem.examples.add(addExampleEntry(new ExampleEntry(this,p,myItem,status)));
+                    } else if (!(isCodeFallback &&
+                        (status.getCause() instanceof org.unicode.cldr.test.CheckForExemplars))) { 
+                        // skip codefallback exemplar complaints (i.e. 'JPY' isn't in exemplars).. they'll show up in missing
                         weHaveTests = true;
                     }
                 }

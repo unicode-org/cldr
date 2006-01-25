@@ -78,6 +78,7 @@ public class SurveyMain extends HttpServlet {
     public static final String DRAFT = "draft";
     public static final String UNKNOWNCHANGE = "Click to suggest replacement";
     public static final String DONTCARE = "abstain";
+    public static final String REMOVE = "remove";
     public static final String CONFIRM = "confirm";
     public static final String CHANGETO = "change to";
     public static final String PROPOSED_DRAFT = "proposed-draft";
@@ -110,6 +111,7 @@ public class SurveyMain extends HttpServlet {
     static final String QUERY_PASSWORD_ALT = "uid";
     static final String QUERY_EMAIL = "email";
     static final String QUERY_SESSION = "s";
+    static final String QUERY_EXAMPLE = "e";
     static final String SURVEYTOOL_COOKIE_SESSION = "com.org.unicode.cldr.web.CookieSession.id";
     static final String SURVEYTOOL_COOKIE_NONE = "0";
     static final String PREF_SHOWCODES = "p_codes";
@@ -478,6 +480,7 @@ public class SurveyMain extends HttpServlet {
     {
         ctx.println("<html>");
         ctx.println("<head>");
+        ctx.println("<meta name='robots' content='noindex,nofollow'>");
         ctx.println("<link rel='stylesheet' type='text/css' href='" + ctx.context("surveytool.css") + "' />");
         // + "http://www.unicode.org/webscripts/standard_styles.css'>"
         ctx.println("<title>CLDR Vetting | ");
@@ -1029,36 +1032,22 @@ public class SurveyMain extends HttpServlet {
             }
             return;
         } else { // non-user options
-            String doWhat = ctx.field("do");
-            if(doWhat.equals("options")) {
-                doOptions(ctx);
-                return;
-            }
+            //
         }
         
-        String title = " - " + which;
-        if(ctx.field("submit").length()<=0) {
-            printHeader(ctx, title);
-        } else {
-            if(ctx.field("submit").equals("preview")) {
-                printHeader(ctx, "Review changes");
-            } else {
-                printHeader(ctx, "Submitted changes");
-            }
+        String title = " " + which;
+        if(ctx.field(QUERY_EXAMPLE).length()!=0)  {
+            title = title + " Example"; 
         }
+        printHeader(ctx, title);
         if(sessionMessage != null) {
             ctx.println(sessionMessage);
         }
-        // Not doing vetting admin --------
         
         WebContext baseContext = new WebContext(ctx);
-        if((ctx.locale != null) /* && (ctx.field("submit").length()<=0)*/ ) {
-            // unless we are submitting - process any pending form data.
-            processChanges(ctx, which);
-        }
         
         // print 'shopping cart'
-        {
+        if(ctx.field(QUERY_EXAMPLE).length()==0)  {
             if(ctx.session.user != null) {
                 ctx.println("<form method=POST action='" + ctx.base() + "'>");
             }
@@ -1077,38 +1066,39 @@ public class SurveyMain extends HttpServlet {
                 printUserMenu(ctx);
             ctx.println("</td></tr></table>");
 
-            if(ctx.field("submit").length()==0) {
-                Hashtable lh = ctx.session.getLocales();
-                Enumeration e = lh.keys();
-                if(e.hasMoreElements()) { 
-                    ctx.println("<p align='center'><B>Visited locales: </B> ");
-                    for(;e.hasMoreElements();) {
-                        String k = e.nextElement().toString();
-                        boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,k);
-                        ctx.print("<a href=\"" + baseContext.url() + ctx.urlConnector() +"_=" + k + "\">" + 
-                                    new ULocale(k).getDisplayName());
-                        if(canModify) {
-                            ctx.print(modifyThing(ctx));
-                        }
-                        ctx.println("</a> ");
+            
+            Hashtable lh = ctx.session.getLocales();
+            Enumeration e = lh.keys();
+            if(e.hasMoreElements()) { 
+                ctx.println("<p align='center'><B>Visited locales: </B> ");
+                for(;e.hasMoreElements();) {
+                    String k = e.nextElement().toString();
+                    boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,k);
+                    ctx.print("<a href=\"" + baseContext.url() + ctx.urlConnector() +"_=" + k + "\">" + 
+                                new ULocale(k).getDisplayName());
+                    if(canModify) {
+                        ctx.print(modifyThing(ctx));
                     }
-                    
-                /*   if(  UserRegistry.userCanSubmit(ctx.session.user) ) {
-                        ctx.println("<div>");
-                        ctx.println("Your changes are <b><font color=red>not</font></b> permanently saved until you: ");
-                        ctx.println("<input name=submit type=submit value='" + xREVIEW +"'>");
-                        ctx.println("</div>");
-                    }*/
-                    ctx.println("</p>");
+                    ctx.println("</a> ");
                 }
-            } else {
-                ctx.println("<a href='" + ctx.url() + "'><b>List of Locales</b></a>");
+                
+            /*   if(  UserRegistry.userCanSubmit(ctx.session.user) ) {
+                    ctx.println("<div>");
+                    ctx.println("Your changes are <b><font color=red>not</font></b> permanently saved until you: ");
+                    ctx.println("<input name=submit type=submit value='" + xREVIEW +"'>");
+                    ctx.println("</div>");
+                }*/
+                ctx.println("</p>");
             }
             ctx.println("<hr/>");
         }
         
-        
-        doLocale(ctx, baseContext, which);
+        String doWhat = ctx.field("do");
+        if(doWhat.equals("options")) {
+            doOptions(ctx);
+        } else {
+            doLocale(ctx, baseContext, which);
+        }
     }
     
      //TODO: object
@@ -1589,14 +1579,6 @@ subtype = subtype.substring(0,subtype.length()-1);
     }
     
     /**
-        * process (convert user field -> hashtable entries) any form items needed.
-     * @param ctx context
-     * @param which value of 'x' parameter.
-     */
-    public void processChanges(WebContext ctx, String which)
-    {}
-    
-    /**
         * Parse query fields, update hashes, etc.
      * later, we'll see if we can generalize this function.
      */
@@ -1765,60 +1747,64 @@ subtype = subtype.substring(0,subtype.length()-1);
             WebContext subCtx = new WebContext(ctx);
             subCtx.addQuery("_",ctx.locale.toString());
 
-            ctx.println("<table width='95%' border=0><tr><td width='25%'>");
-            ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
-            for(i=(n-1);i>0;i--) {
-                for(j=0;j<(n-i);j++) {
+            if(ctx.field(QUERY_EXAMPLE).length()==0) {
+                ctx.println("<table width='95%' border=0><tr><td width='25%'>");
+                ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
+                for(i=(n-1);i>0;i--) {
+                    for(j=0;j<(n-i);j++) {
+                        ctx.print("&nbsp;&nbsp;");
+                    }
+                    boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
+                    ctx.println("\u2517&nbsp;<a class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +"_=" + ctx.docLocale[i] + 
+                        "\">" +  new ULocale(ctx.docLocale[i]).getDisplayName() + " <tt  style='font-size: 60%' class='codebox'>"+ctx.docLocale[i]+"</tt>" + "</a> ");
+                    if(canModify) {
+                        ctx.print(modifyThing(ctx));
+                    }
+                    ctx.println("<br/>");
+                }
+                for(j=0;j<n;j++) {
                     ctx.print("&nbsp;&nbsp;");
                 }
-                boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
-                ctx.println("\u2517&nbsp;<a class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +"_=" + ctx.docLocale[i] + 
-                    "\">" +  new ULocale(ctx.docLocale[i]).getDisplayName() + " <tt  style='font-size: 60%' class='codebox'>"+ctx.docLocale[i]+"</tt>" + "</a> ");
-                if(canModify) {
+                boolean canModifyL = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString());
+                ctx.print("\u2517&nbsp;");
+                ctx.print("<span style='font-size: 120%'>");
+                printMenu(subCtx, which, xMAIN, ctx.locale.getDisplayName() +" <tt style='font-size: 60%' class='codebox'>"+ctx.locale+"</tt>");
+                if(canModifyL) {
                     ctx.print(modifyThing(ctx));
                 }
+                ctx.print("</span>");
                 ctx.println("<br/>");
-            }
-            for(j=0;j<n;j++) {
-                ctx.print("&nbsp;&nbsp;");
-            }
-            boolean canModifyL = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.locale.toString());
-            ctx.print("\u2517&nbsp;");
-            ctx.print("<span style='font-size: 120%'>");
-            printMenu(subCtx, which, xMAIN, ctx.locale.getDisplayName() +" <tt style='font-size: 60%' class='codebox'>"+ctx.locale+"</tt>");
-            if(canModifyL) {
-                ctx.print(modifyThing(ctx));
-            }
-            ctx.print("</span>");
-            ctx.println("<br/>");
-            ctx.println("</td><td>");
-            
-            subCtx.println("<p class='hang'> Code Lists: ");
-            for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
-                if(n>0) {
-                    ctx.print(" | ");
+                ctx.println("</td><td>");
+                
+                subCtx.println("<p class='hang'> Code Lists: ");
+                for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+                    if(n>0) {
+                        ctx.print(" | ");
+                    }
+                    printMenu(subCtx, which, LOCALEDISPLAYNAMES_ITEMS[n]);
                 }
-                printMenu(subCtx, which, LOCALEDISPLAYNAMES_ITEMS[n]);
-            }
-            subCtx.println("</p> <p class='hang'>Other Items: ");
-            
-            for(n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
-                if(n>0) {
-                    ctx.print(" | ");
+                subCtx.println("</p> <p class='hang'>Other Items: ");
+                
+                for(n =0 ; n < OTHERROOTS_ITEMS.length; n++) {        
+                    if(n>0) {
+                        ctx.print(" | ");
+                    }
+                    printMenu(subCtx, which, OTHERROOTS_ITEMS[n]);
+                    ctx.print(" ");
                 }
-                printMenu(subCtx, which, OTHERROOTS_ITEMS[n]);
-                ctx.print(" ");
-            }
-//            ctx.print(" ");
-//            printMenu(subCtx, which, xOTHER);
-            subCtx.println("</p>");
-            if(ctx.prefBool(PREF_ADV)) {
-                subCtx.println("<p class='hang'>Advanced Items: ");
-//                printMenu(subCtx, which, TEST_MENU_ITEM);
-                printMenu(subCtx, which, RAW_MENU_ITEM);
+    //            ctx.print(" ");
+    //            printMenu(subCtx, which, xOTHER);
                 subCtx.println("</p>");
+                if(ctx.prefBool(PREF_ADV)) {
+                    subCtx.println("<p class='hang'>Advanced Items: ");
+    //                printMenu(subCtx, which, TEST_MENU_ITEM);
+                    printMenu(subCtx, which, RAW_MENU_ITEM);
+                    subCtx.println("</p>");
+                }
+                subCtx.println("</td></tr></table>");
+            } else { // end in-locale nav
+                ctx.println("<h3>"+ctx.locale+" "+ctx.locale.getDisplayName()+" / " + which + " Example</h3>");
             }
-            subCtx.println("</td></tr></table>");
             
             if( (!checkCldrResult.isEmpty()) && 
                 (/* true || */ (checkCldr != null) && (xMAIN.equals(which))) ) {
@@ -2346,15 +2332,38 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
     
     synchronized(ourSrc) { // because it has a connection..
                            // Podder
-        // first, do submissions.
-        if(canModify) {
-            DataPod oldPod = ctx.getExistingPod(fullThing);
-            processPeaChanges(ctx, oldPod, cf, ourSrc);
+        String e = ctx.field(QUERY_EXAMPLE);
+        if(e.length() > 0) {
+            DataPod oldPod =  ctx.getExistingPod(fullThing);
+            DataPod.ExampleEntry ee = null;
+            if(oldPod != null) {
+                ee = oldPod.getExampleEntry(e);
+            }
+            if(ee != null) {
+                ctx.addQuery(QUERY_EXAMPLE,e);
+                ctx.println("<input type='hidden' name='"+QUERY_EXAMPLE+"' value='"+e+"'>");
+                ctx.println(ee.status.getHTMLMessage());
+                CheckCLDR.SimpleDemo d = ee.status.getDemo();
+                Map m = new TreeMap();
+                if(d != null) {
+                    if(d.processPost(m)) {
+                        ctx.println("<hr />"+m);
+                    }
+                }
+            } else {
+                ctx.println("<P><P><P><blockquote><i>Sorry.. we couldn't find that example.  Perhaps the underlying data has changed? Try reloading the parent page, and clicking the Example link again.</i></blockquote>");
+            }
+        } else {
+            // first, do submissions.
+            if(canModify) {
+                DataPod oldPod = ctx.getExistingPod(fullThing);
+                processPeaChanges(ctx, oldPod, cf, ourSrc);
+            }
+    //        System.out.println("Pod's full thing: " + fullThing);
+            DataPod pod = ctx.getPod(fullThing);
+            
+            showPeas(ctx, pod, canModify);
         }
-//        System.out.println("Pod's full thing: " + fullThing);
-        DataPod pod = ctx.getPod(fullThing);
-        
-        showPeas(ctx, pod, canModify);
     }
 }
 
@@ -2477,14 +2486,18 @@ void processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir
     // do modification here. 
     String choice = ctx.field(fieldHash); // checkmark choice
     String choice_v = ctx.field(fieldHash+"_v"); // choice + value
+
+    if(!choice.equals(CHANGETO)) {
+        choice_v=""; // so that it is ignored
+    }
     
     // TODO: load.. 
     if(choice.length()==0) {
         return; // nothing to see..
     }
     
-    if(choice.equals(CHANGETO) &&
-        choice_v.length()>0) {
+    if( (choice.equals(CHANGETO) && choice_v.length()>0) ||
+         choice.equals(REMOVE) ) {
         String fullPathFull = pod.xpath(p);
         String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
         for(Iterator j = p.items.iterator();j.hasNext();) {
@@ -2498,8 +2511,14 @@ void processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir
         }
         String newProp = ourSrc.addDataToNextSlot(cf, pod.locale, fullPathMinusAlt, p.altType, 
             XPathTable.altProposedPrefix(ctx.session.user.id), ctx.session.user.id, choice_v);
-        ctx.println("<tt class='codebox'>" + p.displayName + "</tt> <b>change: " + choice_v + " : " + newProp + "<br />");
+        ctx.print("<tt class='codebox'>" + p.displayName + "</tt> <b>change: " + choice_v + " : " + newProp);
+        if(choice.equals(REMOVE)) {
+            ctx.print(" <i>(removal)</i>");
+        }
+        ctx.println("<br />");
         lcr.invalidateLocale(pod.locale); // throw out this pod next time.
+    } else if(choice.equals(CONFIRM)) {
+        ctx.println("<tt class='codebox'>" + p.displayName + "</tt> Note: confirming not supported yet. <br />");        
     } else if(!choice.equals(DONTCARE)) {
         ctx.println("<tt class='codebox'>" + p.displayName + "</tt> Note: <i>" + choice + "</i> not supported yet. <br />");
     }
@@ -2537,12 +2556,16 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     if(showFullXpaths) {
         ctx.println("<br />"+fullPathFull);
     }
+    if(true==false) {
+        ctx.println("<br />"+"hasTests:"+p.hasTests+", props:"+p.hasProps+", hasInh:"+p.hasInherited);
+    }
     ctx.println("</th> </tr>");
     
     
     if((p.hasInherited == true) && (p.type != null) && (p.inheritFrom == null)) { // by code
         String pClass = "class='warnrow'";
-        ctx.print("<tr " + pClass + "><td nowrap colspan='3' valign='top' align='right'>");
+        ctx.print("<tr " + pClass + ">");
+        ctx.print("<td nowrap colspan='3' valign='top' align='right'>");
         ctx.print("<span class='actionbox'>missing</span>");
         if(canModify) {
             ctx.print("<input name='"+fieldHash+"' value='"+"0"+"' type='radio' />");
@@ -2570,7 +2593,14 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         } else if(p.inheritFrom != null) {
             pClass = "class='missing'";
         } 
-        ctx.print("<tr><td colspan='2'></td><td nowrap "+" colspan='1' valign='top' align='right'><span " + pClass + " >");
+        ctx.print("<tr><td colspan='1' align='right' valign='top'>"+REMOVE+"");
+        if(canModify) {
+            ctx.print("<input name='"+fieldHash+"' value='"+REMOVE+"' type='radio' />");
+        } else {
+            ctx.print("<input type='radio' disabled>");
+        }
+        ctx.print("</td>");
+        ctx.print("<td nowrap "+" colspan='2' valign='top' align='right'><span " + pClass + " >");
         if(item.altProposed != null) {
             int uid = XPathTable.altProposedToUserid(item.altProposed);
             UserRegistry.User theU = null;
@@ -2618,13 +2648,18 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         }
         ctx.print("</span>");
         if(canModify) {
-            ctx.print("<input name='"+fieldHash+"'  value='"+((item.altProposed!=null)?item.altProposed:"0")+"' type='radio' />");
+            ctx.print("<input name='"+fieldHash+"'  value='"+((item.altProposed!=null)?item.altProposed:CONFIRM)+"' type='radio' />");
         } else {
             ctx.print("<input type='radio' disabled />");
         }
         ctx.println("</td>");
-        ctx.println("<td valign='top' dir='" + ourDir +"'>");
-        ctx.println(item.value + "</td>");
+        ctx.print("<td  class='botgray' valign='top' dir='" + ourDir +"'>");
+        if(item.value.length()!=0) {
+            ctx.print(item.value);
+        } else {
+            ctx.print("<i>(empty)</i>");
+        }
+        ctx.print("</td>");
         if(item.tests != null) {
             ctx.println("<td class='warncell'>");
             for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
@@ -2634,10 +2669,28 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                     ctx.println("<span class='warning'>");
                     printShortened(ctx,status.toString());
                     ctx.println("</span><br />");
-                } else {
-                    ctx.println(status.getHTMLMessage()+"<br />");
                 }
-            }                                                                            
+            }
+            if(item.examples != null) {
+                ctx.println("Examples: ");
+                boolean first = true;
+                for(Iterator it4 = item.examples.iterator(); it4.hasNext();) {
+                    DataPod.ExampleEntry e = (DataPod.ExampleEntry)it4.next();
+                    if(first==false) {
+                        ctx.print(", ");
+                    }
+                    ctx.print("<a target='_blank' href='"+ctx.url()+ctx.urlConnector()+"e="+e.hash+"'>");
+                    String cls = e.status.getCause().getClass().toString();
+                    int io = cls.lastIndexOf(".");
+                    if(io!=-1) {
+                        cls = cls.substring(io+1,cls.length());
+                    }
+                    ctx.print(cls);
+                    ctx.print("</a>");
+                    first = false;
+                }
+//                    ctx.println(status.getHTMLMessage()+"<br />");
+            }
             ctx.println("</td>");
         }
         
@@ -2645,11 +2698,14 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
         if(item.references != null) {
            String references[] = UserRegistry.tokenizeLocale(item.references); // I had this function laying around..
            if(references != null) {
-                ctx.println("<td style='border-left: 1px solid gray;margin: 3px;padding: 2px;'>(Ref: ");           
+                ctx.print("<td style='border-left: 1px solid gray;margin: 3px;padding: 2px;'>(Ref:");           
                 for(int i=0;i<references.length;i++) {
-                    ctx.println("<b><a href='#REF_" + references[i] + "'>"+references[i]+"</a></b> ");
+                    if(i!=0) {
+                        ctx.print(", ");
+                    }
+                    ctx.print("<b><a target='ref_"+ctx.locale+"' href='"+refCtx.url()+"#REF_" + references[i] + "'>"+references[i]+"</a></b>");
                 }
-                ctx.println(")</td>");
+                ctx.print(")</td>");
             }
         }
         
@@ -2659,7 +2715,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
     if(true && !isAlias) {
         String pClass = "";
          // dont care
-        ctx.print("<tr " + pClass + "><td nowrap colspan>");
+        ctx.print("<tr " + pClass + "><td nowrap valign='top' align='right'>");
         if(canModify) {
             ctx.print("<span class='actionbox'>" + DONTCARE + "</span>");
             ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' CHECKED />");

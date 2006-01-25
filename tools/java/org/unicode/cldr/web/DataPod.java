@@ -645,6 +645,7 @@ public class DataPod {
         boolean keyTypeSwap = false;
         boolean hackCurrencyDisplay = false;
         boolean excludeMost = false;
+        boolean doExcludeAlways = true;
         String removePrefix = null;
         if(xpathPrefix.equals("//ldml")) {
             excludeMost = true;
@@ -652,6 +653,7 @@ public class DataPod {
             removePrefix="//ldml/";
         }else if(xpathPrefix.startsWith("//ldml/numbers")) {
             if(-1 == xpathPrefix.indexOf("currencies")) {
+                doExcludeAlways=false;
                 excludeCurrencies=true; // = "//ldml/numbers/currencies";
                 removePrefix = "//ldml/numbers/";
                 useShorten = true;
@@ -690,10 +692,9 @@ public class DataPod {
         List checkCldrResult = new ArrayList();
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
             String xpath = (String)it.next();
-            if(excludeAlways.matcher(xpath).matches()) {
+            if(doExcludeAlways && excludeAlways.matcher(xpath).matches()) {
                 continue;
-            }
-            if(excludeMost && mostPattern.matcher(xpath).matches()) {
+            } else if(excludeMost && mostPattern.matcher(xpath).matches()) {
                 continue;
             } else if(excludeCurrencies && (xpath.startsWith("//ldml/numbers/currencies/currency"))) {
                 continue;

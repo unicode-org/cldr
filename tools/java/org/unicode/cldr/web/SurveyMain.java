@@ -261,6 +261,7 @@ public class SurveyMain extends HttpServlet {
     {
         printHeader(ctx, "SQL Console");
         String q = ctx.field("q");
+        ctx.println("<div align='right'<a href='" + ctx.base() + "'><b>[SurveyTool main]</b></a></div><br />");
         ctx.println("<h1>SQL Console</h1>");
         ctx.printHelpLink("/AdminSql","Help with this SQL page", true);
         ctx.println("<form method=POST action='" + ctx.base() + "'>");
@@ -353,6 +354,7 @@ public class SurveyMain extends HttpServlet {
     private void doDump(WebContext ctx)
     {
         printHeader(ctx, "Dump System Info");
+        ctx.println("<div align='right'<a href='" + ctx.base() + "'><b>[SurveyTool main]</b></a></div><br />");
         ctx.println("<h1>System info</h1>");
         ctx.printHelpLink("/AdminDump", "Help with this Admin page", true);
         ctx.println("<div class='pager'>");
@@ -452,6 +454,27 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<br />[<a href='" + ctx.base() + "?dump=" + vap + "&loadAll=all'>Load All (SLOW)</a>]<br />");
         }
         
+        ctx.println("<hr />");
+        
+        // OGM---
+        ctx.println("<h4>Set outgoing message (leave blank to unset)</h4>");
+        if(ctx.field("setogm").equals("1")) {
+            specialHeader=ctx.field("ogm");
+        }
+        if((specialHeader != null) && (specialHeader.length()>0)) {
+            ctx.println("<div style='border: 2px solid gray; margin: 0.5 em; padding: 0.5 em;'>" + specialHeader + "</div><br />");
+        } else {
+            ctx.println("<i>none</i><br />");
+        }
+        ctx.print("<form action='"+ctx.base()+"'>");
+        ctx.print("<input type='hidden' name='dump' value='"+vap+"' />");
+        ctx.print("<input type='hidden' name='setogm' value='"+"1"+"' />");
+        ctx.print("<input name='ogm' value='"+((specialHeader==null)?"":specialHeader.replaceAll("'","\"").replaceAll(">","&gt;"))+
+                "' size='80' />");
+        ctx.print("<input type='submit' value='set' />");
+        ctx.print("</form>");
+        // OGM---
+        
         printFooter(ctx);
     }
     
@@ -512,6 +535,26 @@ public class SurveyMain extends HttpServlet {
         if(locale != null) {  // knock out some bad cases
             if((locale.indexOf('.') != -1) ||
                (locale.indexOf('/') != -1)) {
+                locale = null;
+            }
+        }
+        // knock out nonexistent cases.
+        if(locale != null) {
+            File inFiles[] = getInFiles();
+            int nrInFiles = inFiles.length;
+            boolean found = false;
+            
+            for(int i=0;(!found) && (i<nrInFiles);i++) {
+                String localeName = inFiles[i].getName();
+                int dot = localeName.indexOf('.');
+                if(dot !=  -1) {
+                    localeName = localeName.substring(0,dot);
+                }
+                if(localeName.equals(locale)) {
+                    found = true;
+                }
+            }
+            if(!found) {
                 locale = null;
             }
         }
@@ -634,7 +677,6 @@ public class SurveyMain extends HttpServlet {
             }
             if(UserRegistry.userIsTC(ctx.session.user)) {
                 ctx.println("You are: <b>A CLDR TC Member:</b> ");
-                ctx.println("<a href='" + ctx.jspLink("adduser.jsp") +"'>[Add User]</a> | ");
                 ctx.println("<a href='" + ctx.url() + ctx.urlConnector() +"do=list'>[Manage " + ctx.session.user.org + " Users]</a>");
                 ctx.println("<br/>");
             } else {
@@ -709,8 +751,190 @@ public class SurveyMain extends HttpServlet {
         printFooter(ctx);
     }
     
+    public void doCoverage(WebContext ctx) {
+        boolean showCodes = false; //ctx.prefBool(PREF_SHOWCODES);
+        printHeader(ctx, "Locale Coverage");
+        printUserMenu(ctx);
+        ctx.println("<a href='" + ctx.jspLink("adduser.jsp") +"'>[Add User]</a> |");
+        ctx.println("<a href='" + ctx.url()+ctx.urlConnector()+"do=list'>[List Users]</a>");
+        ctx.print("<br />");
+        ctx.printHelpLink("/LocaleCoverage");
+        ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool main</b></a><hr />");
+        String org = ctx.session.user.org;
+        if(UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
+            org = null; // all
+        }
+        File inFiles[] = getInFiles();
+        int nrInFiles = inFiles.length;
+        String localeList[] = new String[nrInFiles];
+        
+        for(int i=0;i<nrInFiles;i++) {
+            String localeName = inFiles[i].getName();
+            int dot = localeName.indexOf('.');
+            if(dot !=  -1) {
+                localeName = localeName.substring(0,dot);
+            }
+            localeList[i]=localeName;
+        }
+
+        int totalUsers = 0;
+        int allUsers = 0; // users with all
+        Set s = new TreeSet();
+        Set badSet = new TreeSet();
+        try { synchronized(reg) {
+            java.sql.ResultSet rs = reg.list(org);
+            if(rs == null) {
+                ctx.println("<i>No results...</i>");
+                return;
+            }
+            if(UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
+                org = "ALL"; // all
+            }
+            ctx.println("<h4>Showing users for: " + org + "</h4>");
+            while(rs.next()) {
+              //  n++;
+                int theirId = rs.getInt(1);
+                int theirLevel = rs.getInt(2);
+                String theirName = rs.getString(3);
+                String theirEmail = rs.getString(4);
+                String theirOrg = rs.getString(5);
+                String theirLocaleList = rs.getString(6);
+
+                if(theirLevel > 10) {
+                    continue;
+                }
+                totalUsers++;
+
+//                CookieSession theUser = CookieSession.retrieveUserWithoutTouch(theirEmail);
+//                    ctx.println("   <td>" + UserRegistry.prettyPrintLocale(null) + "</td> ");
+//                    ctx.println("    <td>" + UserRegistry.prettyPrintLocale(theirLocales) + "</td>");
+                if((theirLocaleList == null) || 
+                    theirLocaleList.length()==0) {
+                    allUsers++;
+                    continue;
+                }
+                String theirLocales[] = UserRegistry.tokenizeLocale(theirLocaleList);
+                if((theirLocales==null)||(theirLocales.length==0)) {
+                    // all.
+                    allUsers++;
+                } else {
+                    int hitList[] = new int[theirLocales.length]; // # of times each is used
+                    for (int i=0;i<nrInFiles;i++) {
+                        for(int j=0;j<theirLocales.length;j++) {
+                            if((theirLocales[j]==null)||(theirLocales[j].length()==0)) {
+                                continue;  // all
+                            }
+                            if(UserRegistry.userCanModifyLocale(theirLocales[j],localeList[i])) {
+                                s.add(localeList[i]);
+                                hitList[j]++;
+                               // ctx.println("user " + theirEmail + " with " + theirLocales[j] + " covers " + localeList[i] + "<br />");
+                            }
+                        }
+                    }
+                    for(int j=0;j<theirLocales.length;j++) {
+                        if(hitList[j]==0) {
+                            badSet.add(theirLocales[j]);
+                        }
+                    }
+                }
+            }
+            // #level $name $email $org
+            rs.close();
+        }/*end synchronized(reg)*/ } catch(SQLException se) {
+            logger.log(Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
+            ctx.println("<i>Failure: " + unchainSqlException(se) + "</i><br />");
+        }
+
+        TreeMap lm = getLocaleListMap();
+        if(lm == null) {
+            busted("Can't load CLDR data files from " + fileBase);
+            throw new RuntimeException("Can't load CLDR data files from " + fileBase);
+        }
+        
+        if(!badSet.isEmpty()) {
+            ctx.println("<B>Warning: locale designations not matching any real locales:</b> ");
+            boolean first=true;
+            for(Iterator li = badSet.iterator();li.hasNext();) {
+                if(first==false) {
+                    ctx.print(", ");
+                } else {
+                    first = false;
+                }
+                ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>"+li.next().toString()+"</tt>" );
+            }
+            ctx.println("<br />");
+        }
+
+        ctx.println("<table border=1 class='list'>");
+        int n=0;
+        for(Iterator li = lm.keySet().iterator();li.hasNext();) {
+            n++;
+            String ln = (String)li.next();
+            String aLocale = (String)lm.get(ln);
+            ctx.print("<tr class='row" + (n%2) + "'>");
+            ctx.print(" <td nowrap valign='top'>");
+            boolean has = (s.contains(aLocale));
+            if(has) {
+                ctx.print("<span class='selected'>");
+            } else {
+                ctx.print("<span class='disabledbox' style='color:#888'>");
+            }
+            ctx.print(aLocale);            
+            ctx.print("<br /><font size='-1'>"+new ULocale(aLocale).getDisplayName()+"</font>");
+//            //printLocaleLink(baseContext, aLocale, ln);
+            ctx.print("</span>");
+
+            if(showCodes) {
+                ctx.println("<br /><tt>" + aLocale + "</tt>");
+            }
+            ctx.println(" </td>");
+            
+            TreeMap sm = (TreeMap)subLocales.get(aLocale);
+            
+            ctx.println("<td valign='top'>");
+            int j = 0;
+            for(Iterator si = sm.keySet().iterator();si.hasNext();) {
+                if(j>0) { 
+                    ctx.println(", ");
+                }
+                String sn = (String)si.next();
+                String subLocale = (String)sm.get(sn);
+                if(subLocale.length()>0) {
+
+                     has = (s.contains(subLocale));
+                    if(has) {
+                        ctx.print("<span class='selected'>");
+                    } else {
+                        ctx.print("<span class='disabledbox' style='color:#888'>");
+                    }
+                    ctx.print(subLocale);           
+                    ctx.print("&nbsp;<font size='-1'>("+new ULocale(subLocale).getDisplayName()+")</font>");
+    
+        //            //printLocaleLink(baseContext, aLocale, ln);
+                    if(has) {
+                        ctx.print("</span>");
+                    }
+
+
+//                    printLocaleLink(baseContext, subLocale, sn);
+                    if(showCodes) {
+                        ctx.println("&nbsp;-&nbsp;<tt>" + subLocale + "</tt>");
+                    }
+                }
+                j++;
+            }
+            ctx.println("</td");
+            ctx.println("</tr>");
+        }
+        ctx.println("</table> ");
+        ctx.println(totalUsers + "  users, including " + allUsers + " with 'all' privs (not counted against the locale list)");
+
+
+        printFooter(ctx);
+    }
+    
     /**
-    * User list manamgement
+    * User list management
     */
     static final String LIST_ACTION_SETLEVEL = "set_userlevel_";
     static final String LIST_ACTION_NONE = "-";
@@ -724,6 +948,9 @@ public class SurveyMain extends HttpServlet {
         int n=0;
         printHeader(ctx, "List Users");
         printUserMenu(ctx);
+        ctx.println("<a href='" + ctx.jspLink("adduser.jsp") +"'>[Add User]</a> |");
+        ctx.println("<a href='" + ctx.url()+ctx.urlConnector()+"do=coverage'>[Locale Coverage Reports]</a>");
+        ctx.print("<br />");
         ctx.printHelpLink("/AddModifyUser");
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool main</b></a><hr />");
         String org = ctx.session.user.org;
@@ -1011,6 +1238,8 @@ public class SurveyMain extends HttpServlet {
             String doWhat = ctx.field("do");
             if(doWhat.equals("list")  && (UserRegistry.userCanDoList(ctx.session.user))  ) {
                 doList(ctx);
+            } else if(doWhat.equals("coverage")  && (UserRegistry.userCanDoList(ctx.session.user))  ) {
+                doCoverage(ctx);
             } else if(doWhat.equals("new") && (UserRegistry.userCanCreateUsers(ctx.session.user)) ) {
                 doNew(ctx);
             } else if(doWhat.equals("options")) {
@@ -1485,7 +1714,7 @@ public class SurveyMain extends HttpServlet {
             if( (!checkCldrResult.isEmpty()) && 
                 (/* true || */ (checkCldr != null) && (xMAIN.equals(which))) ) {
                 ctx.println("<hr /><h4>Possible problems with locale:</h4>");
-                ctx.println("<pre style='border: 1px dashed olive; padding: 1em; background-color: cream; overflow: auto;'>");
+                ctx.println("<div style='border: 1px dashed olive; padding: 1em; background-color: cream; overflow: auto;'>");
                 for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
                     CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
                     if (!status.getType().equals(status.exampleType)) {
@@ -1494,7 +1723,7 @@ public class SurveyMain extends HttpServlet {
                         ctx.println("<i>example available</i><br />");
                     }
                 }
-                ctx.println("</pre><hr />");
+                ctx.println("</div><hr />");
             }
             subCtx.addQuery("x",which);
             for(n =0 ; n < LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
@@ -1737,15 +1966,18 @@ public void showPathList(WebContext ctx, String xpath, String lastElement) {
                 ee = oldPod.getExampleEntry(e);
             }
             if(ee != null) {
+                String cls = shortClassName(ee.status.getCause());
+                ctx.printHelpLink("/"+cls+"-example","Help with this "+cls+" example", true);
                 ctx.addQuery(QUERY_EXAMPLE,e);
                 ctx.println("<input type='hidden' name='"+QUERY_EXAMPLE+"' value='"+e+"'>");
                 ctx.println(ee.status.getHTMLMessage());
                 CheckCLDR.SimpleDemo d = ee.status.getDemo();
                 Map m = new TreeMap();
                 if(d != null) {
-                    if(d.processPost(m)) {
-                        ctx.println("<hr />"+m);
-                    }
+                    ctx.println("<i>Note: interaction with this demo is not working yet.</i><br />");
+//                    if(d.processPost(m)) {
+//                        ctx.println("<hr />"+m);
+//                    }
                 }
             } else {
                 ctx.println("<P><P><P><blockquote><i>Sorry.. we couldn't find that example.  Perhaps the underlying data has changed? Try reloading the parent page, and clicking the Example link again.</i></blockquote>");
@@ -1817,11 +2049,23 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
             }
         }
         
-        showPea(ctx, pod, p, ourDir, cf, ourSrc, canModify,showFullXpaths);
+        try {
+            showPea(ctx, pod, p, ourDir, cf, ourSrc, canModify,showFullXpaths);
+        } catch(Throwable t) {
+            ctx.println("<tr class='topbar'><td colspan='8'><b>"+pod.xpath(p)+"</b><br />");
+            ctx.print(t);
+            ctx.print("</td></tr>");
+        }
         if(p.subPeas != null) {
             for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
                 DataPod.Pea subPea = (DataPod.Pea)e.next();
-                showPea(ctx, pod, subPea, ourDir, cf, ourSrc, canModify, showFullXpaths);
+                try {
+                    showPea(ctx, pod, subPea, ourDir, cf, ourSrc, canModify, showFullXpaths);
+                } catch(Throwable t) {
+                    ctx.println("<tr class='topbar'><td colspan='8'>sub pea: <b>"+pod.xpath(subPea)+"."+subPea.altType+"</b><br />");
+                    ctx.print(t);
+                    ctx.print("</td></tr>");
+                }
             }
         }
     }
@@ -2064,6 +2308,10 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                 if (!status.getType().equals(status.exampleType)) {
                     
                     ctx.println("<span class='warning'>");
+                    String cls = shortClassName(status.getCause());
+                    if(cls != null) {
+                        ctx.printHelpLink("/"+cls+"","?", true);
+                    }
                     printShortened(ctx,status.toString());
                     ctx.println("</span><br />");
                 }
@@ -2077,11 +2325,7 @@ void showPea(WebContext ctx, DataPod pod, DataPod.Pea p, String ourDir, CLDRFile
                         ctx.print(", ");
                     }
                     ctx.print("<a target='_blank' href='"+ctx.url()+ctx.urlConnector()+"e="+e.hash+"'>");
-                    String cls = e.status.getCause().getClass().toString();
-                    int io = cls.lastIndexOf(".");
-                    if(io!=-1) {
-                        cls = cls.substring(io+1,cls.length());
-                    }
+                    String cls = shortClassName(e.status.getCause());
                     ctx.print(cls);
                     ctx.print("</a>");
                     first = false;
@@ -2976,6 +3220,18 @@ public static final String unchainSqlException(SQLException e) {
     
     public static final String timeDiff(long a, long b) {
         return ElapsedTimer.elapsedTime(a,b);
+    }
+   public static     String shortClassName(Object o) {
+        try {
+            String cls = o.getClass().toString();
+            int io = cls.lastIndexOf(".");
+            if(io!=-1) {
+                cls = cls.substring(io+1,cls.length());
+            }  
+            return cls;
+        } catch (NullPointerException n) {
+            return null;
+        }
     }
 
 }

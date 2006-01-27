@@ -22,7 +22,7 @@ public class MailSender {
                 "\n----------\n"+
                 "This email was generated automatically as part of the CLDR survey process\n"+
                 "http://www.unicode.org/cldr\n"+                
-                "If you have any questions about it, please do not hesitate to contact:   srl@icu-project.org\n";
+                "If you have any questions about it, please do not hesitate to contact:   surveytool@unicode.org\n";
                 
     public static void sendMail(String to, String subject, String body) {
         String from = System.getProperty("CLDR_FROM");

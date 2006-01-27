@@ -263,6 +263,15 @@ public class WebContext {
         out.print(s);
     }
     
+    void print(Throwable t) {
+        print("<pre style='border: 2px dashed red; margin: 1em; padding: 1'>" +                        
+                t.toString() + "<br />");
+        StringWriter asString = new StringWriter();
+        t.printStackTrace(new PrintWriter(asString));
+        print(asString.toString());
+        print("</pre>");
+    }
+    
     void close() {
         if(!dontCloseMe) {
             out.close();

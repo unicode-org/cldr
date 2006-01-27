@@ -564,7 +564,7 @@ public class DataPod {
                               "^([^/]*)/([^/]*)/time$", "$1/time/$2",
                               "^([^/]*)/([^/]*)/date", "$1/date/$2",
                               "/alias$", "",
-                              "/date/availablesItem.*@_q=\"([0-9]*)\"\\]","/availableDateFormats/$1"
+                              "/date/availablesItem.*@_q=\"[0-9]*\"\\]\\[@id=\"([0-9]*)\"\\]","/availableDateFormats/$1"
 //                              "/date/availablesItem.*@_q=\"[0-9]*\"\\]","/availableDateFormats"
                             };
     private static Pattern fromto_p[] = new Pattern[fromto.length/2];

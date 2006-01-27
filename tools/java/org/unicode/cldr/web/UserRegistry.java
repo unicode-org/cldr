@@ -667,22 +667,43 @@ public class UserRegistry {
         return((u!=null) && userIsStreet(u));
     }
     
+    static final boolean userCanModifyLocale(String uLocale, String locale) {
+        if(locale.startsWith(uLocale)) {
+            int llen = locale.length();
+            int ulen = uLocale.length();
+            
+            if(llen==ulen) {
+                return true;  // exact match.   'ro' matches 'ro'
+            } else if(!java.lang.Character.isLetter(locale.charAt(ulen))) {
+                return true; // next char is NOT a letter. 'ro' matches 'ro_...'
+            } else {
+                return false; // next char IS a letter.  'ro' DOES NOT MATCH 'root'
+            }
+        } else {
+            return false; // no substring (common case)
+        }
+    }
+    
+    static final boolean userCanModifyLocale(String localeArray[], String locale) {
+        if(localeArray.length == 0) {
+            return true; // all 
+        }
+        
+        for(int i=0;i<localeArray.length;i++) {
+            if(userCanModifyLocale(localeArray[i],locale)) {
+                return true;
+            }
+        }
+        return false; // no match
+    }
+    
     static final boolean userCanModifyLocale(User u, String locale) {
         if(u==null) return false; // no user, no dice
         if(userIsTC(u)) return true; // TC can modify all
         
         if(u.locales == null) return true; // empty = ALL
         String localeArray[] = tokenizeLocale(u.locales);
-        if(localeArray.length == 0) {
-            return true; // all 
-        }
-        
-        for(int i=0;i<localeArray.length;i++) {
-            if(locale.startsWith(localeArray[i])) { // prefix match
-                return true;
-            }
-        }
-        return false; // no match
+        return userCanModifyLocale(localeArray,locale);
     }
     
     static final String LOCALE_PATTERN = "[, ]+"; // whitespace

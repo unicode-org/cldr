@@ -261,6 +261,7 @@ public class XPathTable {
         lastAtts.remove(LDMLConstants.ALT);
         lastAtts.remove(LDMLConstants.TYPE);
         lastAtts.remove(LDMLConstants.DRAFT);
+        lastAtts.remove(LDMLConstants.REFERENCES);
         if((type == null) && (path.indexOf(what)>=0)) try {
             // less common case - type isn't the last
             for(int n=-2;(type==null);n--) {

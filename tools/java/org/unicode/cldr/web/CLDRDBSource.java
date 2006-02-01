@@ -83,12 +83,17 @@ public class CLDRDBSource extends XMLSource {
 //            System.out.println(sql);
             s.execute(sql);
 //            s.execute("CREATE UNIQUE INDEX unique_xpath on " + CLDR_DATA +"(xpath)");
+            s.execute("CREATE INDEX "+CLDR_DATA+"_qxpath on " + CLDR_DATA + "(locale,xpath)");
+
+    /*
+        superfluous indices.
             s.execute("CREATE INDEX "+CLDR_DATA+"_xpath on " + CLDR_DATA + "(xpath)");
             s.execute("CREATE INDEX "+CLDR_DATA+"_txpath on " + CLDR_DATA + "(txpath)");
             s.execute("CREATE INDEX "+CLDR_DATA+"_locale on " + CLDR_DATA + "(locale)");
             s.execute("CREATE INDEX "+CLDR_DATA+"_origxpath on " + CLDR_DATA + "(origxpath)");
             s.execute("CREATE INDEX "+CLDR_DATA+"_type on " + CLDR_DATA + "(type)");
             s.execute("CREATE INDEX "+CLDR_DATA+"_submitter on " + CLDR_DATA + "(submitter)");
+        */
 
             s.execute("CREATE INDEX "+CLDR_SRC+"_src on " + CLDR_SRC + "(locale,tree)");
             s.execute("CREATE INDEX "+CLDR_SRC+"_src_id on " + CLDR_SRC + "(id)");
@@ -483,6 +488,33 @@ public class CLDRDBSource extends XMLSource {
         // TODO: 0
     }
     
+    public boolean hasValueAtDPath(String path) // d path
+    {
+        if(conn == null) {
+            throw new InternalError("No DB connection!");
+        }
+    
+        String locale = getLocaleID();
+//logger.info(locale + ":" + path);
+//        synchronized (conn) {
+            try {
+                stmts.queryValue.setString(1,locale);
+                stmts.queryValue.setInt(2,xpt.getByXpath(path)); // TODO: 2 more specificity
+                ResultSet rs = stmts.queryValue.executeQuery();
+                if(rs.next()) {
+                    return true;
+                } else {
+                    return false;
+                }
+//                rs.close();
+//logger.info(locale + ":" + path+" -> " + rv);
+            } catch(SQLException se) {
+                logger.severe("CLDRDBSource: Failed to check data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));
+                return false;
+            }
+//        }
+    }
+    
     public String getValueAtDPath(String path) // D path
     {
         if(conn == null) {
@@ -852,7 +884,7 @@ public class CLDRDBSource extends XMLSource {
      * returns: the entire altProposed which succeeded or NULL/throw for failure.
      */
     public String addDataToNextSlot(CLDRFile file, String locale, String fullXpathMinusAlt, 
-                                    String altType, String altProposedPrefix, int submitterId, String value) {
+                                    String altType, String altProposedPrefix, int submitterId, String value, String refs) {
 //                                    if(1==1) {throw new InternalError("Sorry, adding data is temporarily disabled whilst some xpath bugs are ironed out..<p> please click Back in your browser to continue. ");}
         XPathParts xpp = new XPathParts(null,null);
         // prepare for slot check
@@ -860,13 +892,17 @@ public class CLDRDBSource extends XMLSource {
             String altProposed = altProposedPrefix+slot; // proposed-u123-4 
             String alt = LDMLUtilities.formatAlt(altType, altProposed);
             //            String rawXpath = fullXpathMinusAlt + "[@alt='" + alt + "']";
-            String rawXpath = fullXpathMinusAlt + "[@alt='" + alt + "']";
+            String refStr = "";
+            if(refs.length()!=0) {
+                refStr = "[@references='"+refs+"']";
+            }
+            String rawXpath = fullXpathMinusAlt + "[@alt='" + alt + "']" + refStr; // refstr will get removed
             logger.info("addDataToNextSlot:  rawXpath = " + rawXpath);
             String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);
             if(!xpath.equals(rawXpath)) {
                 logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
             }
-            String oxpath = xpath+"[@draft='true']";
+            String oxpath = xpath+refStr+"[@draft='true']";
             int xpid = xpt.getByXpath(xpath);
             
             // Check to see if this slot is in use.
@@ -916,7 +952,7 @@ public class CLDRDBSource extends XMLSource {
                     stmts.insert.setInt(1,xpid); // full
                     stmts.insert.setString(2,locale);
                     stmts.insert.setInt(3,srcId); // assumes homogenous srcId
-                    stmts.insert.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
+                    stmts.insert.setInt(4,oxpid);
                     stmts.insert.setString(5,value);
                     stmts.insert.setString(6,eType);
                     stmts.insert.setString(7,eAlt);

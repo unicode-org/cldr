@@ -548,6 +548,8 @@ public class DataPod {
     private static Pattern noisePattern;
     private static Pattern mostPattern;
     private static Pattern excludeAlways;
+    private static Pattern needFullPathPattern; // items that need getFullXpath 
+    
     private static final         String fromto[] = {   "^days/(.*)/(sun)$",  "days/1-$2/$1",
                               "^days/(.*)/(mon)$",  "days/2-$2/$1",
                               "^days/(.*)/(tue)$",  "days/3-$2/$1",
@@ -604,11 +606,16 @@ public class DataPod {
         // what to exclude under 'misc' and calendars
          excludeAlways = Pattern.compile("^//ldml/segmentations.*|"+
                                                 "^//ldml/measurement.*|"+
-                                                ".*weekendEnd.*|"+
-                                                ".*weekendStart.*|" +
+                                                ".*week/minDays.*|"+
+                                                ".*week/firstDay.*|"+
+                                                ".*week/weekendEnd.*|"+
+                                                ".*week/weekendStart.*|" +
+                                                "^//ldml/posix/messages/.*expr$|" +
                                                 "^//ldml/dates/timeZoneNames/.*/GMT.*exemplarCity$|" +
                                                 "^//ldml/dates/.*default");// no defaults
                                                 
+        needFullPathPattern = Pattern.compile("^//ldml/layout/orientation$|" +
+                                              ".*/alias");
         
             int pn;
             for(pn=0;pn<fromto.length/2;pn++) {
@@ -628,8 +635,17 @@ public class DataPod {
 //        options.put("CheckCoverage.requiredLevel","modern"); // TODO: fix
         XPathParts pathParts = new XPathParts(null, null);
         XPathParts fullPathParts = new XPathParts(null, null);
-
+        
+        /*srl*/
+        boolean ndebug = false;
+        long lastTime = -1;
+        long longestTime = -1;
+        String longestPath = "NONE";
+        long nextTime = -1;
+        int count=0;
+        long countStart = System.currentTimeMillis();
         // what to exclude under 'misc'
+        int t = 10;
             
         int pn;
         String exclude = null;
@@ -639,7 +655,6 @@ public class DataPod {
         boolean excludeGrego = false;
         boolean excludeTimeZones = false;
         boolean useShorten = false; // 'shorten' xpaths instead of extracting type
-        boolean confirmOnly = false;
         boolean keyTypeSwap = false;
         boolean hackCurrencyDisplay = false;
         boolean excludeMost = false;
@@ -682,21 +697,46 @@ public class DataPod {
         }
         List checkCldrResult = new ArrayList();
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
+            boolean confirmOnly = false;
             String xpath = (String)it.next();
+
+            count++;
+            if((count%250)==0) {
+                System.err.println("[] " + locale + ":"+xpathPrefix +" #"+count+", or "+
+                    (((double)(System.currentTimeMillis()-countStart))/count)+"ms per.");
+            }
+
+///*srl*/      nextTime=System.currentTimeMillis();
+            
             if(doExcludeAlways && excludeAlways.matcher(xpath).matches()) {
+ //if(ndebug)    System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(excludeMost && mostPattern.matcher(xpath).matches()) {
+//if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(excludeCurrencies && (xpath.startsWith("//ldml/numbers/currencies/currency"))) {
+//if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(excludeCalendars && (xpath.startsWith("//ldml/dates/calendars"))) {
+//if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(excludeTimeZones && (xpath.startsWith("//ldml/dates/timeZoneNames"))) {
+//if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             } else if(!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
+//if(ndebug)     System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);
                 continue;
             }
 
+            String fullPath = aFile.getFullXPath(xpath);
+
+            if(needFullPathPattern.matcher(xpath).matches()) {
+                xpath = fullPath; // draft and alt will be removed by the noisePattern .. 
+                // but just in case, we are going to turn on shorten, in case a non-shortened xpath is added someday.
+                useShorten = true;
+            }            
+
+//if(ndebug)    System.err.println("ns0  "+(System.currentTimeMillis()-nextTime));
             boolean mixedType = false;
             String type;
             String lastType = src.xpt.typeFromPathToTinyXpath(xpath, xpp);  // last type in the list
@@ -738,7 +778,11 @@ public class DataPod {
 
             }
             
+ //if(ndebug)    System.err.println("n00  "+(System.currentTimeMillis()-nextTime));
+            
             String value = aFile.getStringValue(xpath);
+
+//if(ndebug)     System.err.println("n01  "+(System.currentTimeMillis()-nextTime));
 
             if(xpath.indexOf("default[@type")!=-1) {
                 peaSuffixXpath = displaySuffixXpath;
@@ -752,15 +796,36 @@ public class DataPod {
                 confirmOnly = true; // can't acccept new data for this.
             }
             
+            if(useShorten) {
+                if((xpath.indexOf("/orientation")!=-1)||
+                   (xpath.indexOf("/alias")!=-1)||
+                   (xpath.indexOf("/inList")!=-1)) {
+                    if((value !=null)&&(value.length()>0)) {
+                        throw new InternalError("Shouldn't have a value for " + xpath + " but have '"+value+"'.");
+                    }
+                    peaSuffixXpath = displaySuffixXpath;
+                    int n = type.indexOf('[');
+                    if(n!=-1) {
+                        value = type.substring(n,type.length());
+                        type = type.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)                        
+                        //value = lastType;
+                        confirmOnly = true; // can't acccept new data for this.
+                    }
+                }
+            }
+            
             if(value == null) {
 //                throw new InternalError("Value of " + xpath + " is null.");
                   System.err.println("Value of " + xpath + " is null.");
                  value = "(NOTHING)";
             }
-            String fullPath = aFile.getFullXPath(xpath);
+            
+//if(ndebug)    System.err.println("n02  "+(System.currentTimeMillis()-nextTime));
 //            System.out.println("* T=" + type + ", X= " + xpath);
             String alt = src.xpt.altFromPathToTinyXpath(xpath, xpp);
 
+//    System.err.println("n03  "+(System.currentTimeMillis()-nextTime));
+    
             xpp.clear();
             xpp.initialize(xpath);
             String lelement = xpp.getElement(-1);
@@ -773,6 +838,8 @@ public class DataPod {
             xpp.initialize(fullPath);
             lelement = xpp.getElement(-1);
             String eRefs = xpp.findAttributeValue(lelement, LDMLConstants.REFERENCES);
+
+//if(ndebug) System.err.println("n04  "+(System.currentTimeMillis()-nextTime));
             
             
             String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
@@ -787,6 +854,7 @@ public class DataPod {
             }
             p.confirmOnly = superP.confirmOnly = confirmOnly;
 
+//if(ndebug)     System.err.println("n05  "+(System.currentTimeMillis()-nextTime));
             if(altProposed == null) {
                 // just work on the supers
                 if(superP.displayName == null) {
@@ -821,6 +889,7 @@ public class DataPod {
                     canName = false; // disable 'view by name' if not all have names.
                 }
             }
+//    System.err.println("n06  "+(System.currentTimeMillis()-nextTime));
             
             // If it is draft and not proposed.. make it proposed-draft 
             if( ((eDraft!=null)&&(!eDraft.equals("false"))) &&
@@ -836,6 +905,8 @@ public class DataPod {
 
             boolean isInherited = !(sourceLocale.equals(locale));
             
+//    System.err.println("n07  "+(System.currentTimeMillis()-nextTime));
+    
             if(altProposed == null) {
                 if(!isInherited) {
                     superP.hasInherited=false;
@@ -856,6 +927,7 @@ public class DataPod {
                 checkCldr.check(xpath, fullPath, value, options, checkCldrResult);
             }
             DataPod.Pea.Item myItem;
+ //if(ndebug)   System.err.println("n08  "+(System.currentTimeMillis()-nextTime));
             if(checkCldrResult.isEmpty()) {
                myItem = p.addItem( value, altProposed, null);
             } else {
@@ -886,6 +958,30 @@ public class DataPod {
             if((eRefs != null) && (!isInherited)) {
                 myItem.references = eRefs;
             }
+
+//if(ndebug)    System.err.println("n09  "+(System.currentTimeMillis()-nextTime));
+            /*srl*/
+    /*
+            nextTime=System.currentTimeMillis();
+            if(lastTime>0) {
+                long thisTime = nextTime-lastTime;
+                if(thisTime>longestTime) {
+                    longestPath=xpath;
+                    longestTime=thisTime;
+                    System.err.println("Longest: " + longestTime+"ms, " +xpath);
+                }
+            }            
+            if(lastTime>0) {
+                t--;
+     //if(ndebug)           if(t==0) {
+                    return;
+                }
+            }
+            lastTime=nextTime;
+    */
+            /*end srl*/
+            
+
         }
 //        aFile.close();
     }

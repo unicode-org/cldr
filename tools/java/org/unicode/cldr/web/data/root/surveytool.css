@@ -1,8 +1,10 @@
+
+
 hr {
 	border: 1px dashed #ccd
 }
 
-tr.row0 {
+tr.row0 {	
 	background-color: #fff
 }
 
@@ -90,12 +92,12 @@ a.selected :link {
 .notselected {
 	margin: 2px;
 	padding: 1px;
-//	text-decoration: none;
+/*	text-decoration: none; */
 }
 
 a.notselected {
 	color : #358cc3;
-//	text-decoration : none;
+/*	text-decoration : none; */
 }
 
 .sep {
@@ -110,17 +112,18 @@ a.notselected {
 
 .warning {
 	font-size: smaller;
-	font-color: #F22;
+/*	font-color: #F22;*/
 	color: #F22;
 	background-color: #fee;
 }
+
 
 td.warncell {
     border-left: 1px solid #ddd;
 }
 
 tr.warnrow {
-    font-color: #f22;
+/*    font-color: #f22;*/
     color: #f22;
     background-color: #fee;
 }
@@ -138,7 +141,7 @@ tr.warnrow {
 }
 
 .pagerl_active {
-//	text-decoration: none;
+/*	text-decoration: none; */
 }
 
 .pagerl_inactive {
@@ -149,7 +152,7 @@ tr.warnrow {
 	border: 1px solid gray;
 	background-color: #fff;
 	margin: 5px;
-	align: left;
+/*	align: left;*/
 }
 
 .inputbox {
@@ -171,8 +174,6 @@ tr.warnrow {
 	padding-bottom: 4px;
 }
 
-/*<group=user levels>*/
-
 table.userlist th {
 	color: navy;
 	font-size: 92%;
@@ -183,7 +184,6 @@ table.userlist td {
 }
 
 .user0 {
-	/* admin*/;
 	border-color: maroon;
 	border-color: maroon;
 	color: maroon;
@@ -221,12 +221,12 @@ table.userlist {
 	background: #5d3cff;
 }
 
-tr.topbar {
-    border-top: 3px solid #040
+.topbar th {
+    border-top: 3px solid #040;
 }
 
 th.botgray {
-    border-bottom: 1px solid #ddd
+    border-bottom: 1px solid #ddd;
 }
 
 tr.heading {
@@ -235,31 +235,39 @@ tr.heading {
 
 tt.codebox {
  border: 1px solid gray; 
-// padding: 1px; 
-// margin-top:0px
+/* padding: 1px; 
+  margin-top:0px;
+  */
 }
 
 .dashbox {
     color: #000;
     background: #ddd;
-    font-size: 80%; border: 1px dashed gray; padding: 1px; margin-top:0px
+    font-size: 80%; border: 1px dashed gray; padding: 1px; margin-top:0px;
 }
 
 .actionbox {
-//    color: #000;
-//    background: #ddd;
+/*    color: #000;
+    background: #ddd; */
     font-size: 80%;
-//    border: 1px
-//    dashed gray;
-//    padding: 1px;
-//    margin-top: 0px;
+/*    border: 1px
+    dashed gray;
+    padding: 1px;
+    margin-top: 0px; */
 }
 
 .disabledbox {
     font-size: 80%;
-    color: #888;
+    color: #555;
 }
 
+.deactivated {
+    color: #555;
+}
 
-/*</group>*/
+td.framecell {
+	border: ridge #ffb000 4px;
+	background: #f6ffe8;
+	color: black;
+}
 

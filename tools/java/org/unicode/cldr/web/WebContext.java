@@ -177,7 +177,7 @@ public class WebContext {
         if(outQuery == null) {
             outQuery = k + "=" + v;
         } else {
-            outQuery = outQuery + "&" + k + "=" + v;
+            outQuery = outQuery + "&amp;" + k + "=" + v;
         }
     }
     
@@ -210,7 +210,7 @@ public class WebContext {
     }
 
     final String urlConnector() {
-        return (url().indexOf('?')!=-1)?"&":"?";
+        return (url().indexOf('?')!=-1)?"&amp;":"?";
     }
     
     String base() { 
@@ -227,8 +227,8 @@ public class WebContext {
     
     public String jspLink(String s) {
         return context(s)+"?a=" + base() +
-            ((outQuery!=null)?("&" + outQuery):
-                ((session!=null)?("&s="+session.id):"")
+            ((outQuery!=null)?("&amp;" + outQuery):
+                ((session!=null)?("&amp;s="+session.id):"")
             );
      }
     
@@ -252,6 +252,15 @@ public class WebContext {
      */
     String serverName() {
         return request.getServerName();
+    }
+    
+    String serverHostport() {
+        int port = request.getServerPort();
+        if(port == 80) {
+            return serverName();
+        } else {
+            return serverName() + ":"+port;
+        }
     }
     
 // print api
@@ -440,8 +449,9 @@ public class WebContext {
     
     public void printHelpLink(String what, String title)
     {
-        boolean doEdit = UserRegistry.userIsTC(session.user);
-        printHelpLink(what, title, doEdit);
+//        boolean doEdit = UserRegistry.userIsTC(session.user);
+    
+        printHelpLink(what, title, true);
     }
     public static final String MOD_MSG = ("Visit help as Editable (may require login)");
     public void printHelpLink(String what, String title, boolean doEdit)

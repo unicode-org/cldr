@@ -659,6 +659,7 @@ public class DataPod {
         boolean hackCurrencyDisplay = false;
         boolean excludeMost = false;
         boolean doExcludeAlways = true;
+        boolean isReferences = false;
         String removePrefix = null;
         if(xpathPrefix.equals("//ldml")) {
             excludeMost = true;
@@ -694,6 +695,9 @@ public class DataPod {
             useShorten = true;
             removePrefix = "//ldml/localeDisplayNames/types/type";
             keyTypeSwap = true; //these come in reverse order  (type/key) i.e. buddhist/celander, pinyin/collation.  Reverse this for sorting...
+        } else if(xpathPrefix.equals("//ldml/references")) {
+            isReferences = true;
+            canName = false; // disable 'view by name'  for references
         }
         List checkCldrResult = new ArrayList();
         for(Iterator it = aFile.iterator(xpathPrefix);it.hasNext();) {
@@ -838,7 +842,6 @@ public class DataPod {
             xpp.initialize(fullPath);
             lelement = xpp.getElement(-1);
             String eRefs = xpp.findAttributeValue(lelement, LDMLConstants.REFERENCES);
-
 //if(ndebug) System.err.println("n04  "+(System.currentTimeMillis()-nextTime));
             
             
@@ -870,7 +873,14 @@ public class DataPod {
                     }
                 }
                 if(superP.displayName == null) {
-                    if(!xpath.startsWith("//ldml/characters") && !useShorten) {
+                    if(isReferences) {
+                        String eUri = xpp.findAttributeValue(lelement,"uri");
+                       if((eUri!=null)&&eUri.length()>0) {
+                            superP.displayName = /*type + " - "+*/ "<a href='"+eUri+"'>"+eUri+"</a>";
+                        } else {
+                            superP.displayName = null;
+                        }
+                    } else if(!xpath.startsWith("//ldml/characters") && !useShorten) {
                         superP.displayName = "'"+type+"'";
                     }
                 }

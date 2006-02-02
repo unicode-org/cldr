@@ -894,15 +894,15 @@ public class CLDRDBSource extends XMLSource {
             //            String rawXpath = fullXpathMinusAlt + "[@alt='" + alt + "']";
             String refStr = "";
             if(refs.length()!=0) {
-                refStr = "[@references='"+refs+"']";
+                refStr = "[@references=\""+refs+"\"]";
             }
-            String rawXpath = fullXpathMinusAlt + "[@alt='" + alt + "']" + refStr; // refstr will get removed
+            String rawXpath = fullXpathMinusAlt + "[@alt=\"" + alt + "\"]" + refStr; // refstr will get removed
             logger.info("addDataToNextSlot:  rawXpath = " + rawXpath);
             String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);
             if(!xpath.equals(rawXpath)) {
                 logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
             }
-            String oxpath = xpath+refStr+"[@draft='true']";
+            String oxpath = xpath+refStr+"[@draft=\"true\"]";
             int xpid = xpt.getByXpath(xpath);
             
             // Check to see if this slot is in use.
@@ -979,4 +979,106 @@ public class CLDRDBSource extends XMLSource {
         } // end for
         return null; // couldn't find a slot..
     }
+
+
+    /**
+     * Add new data to the next sequentially available slot. 
+     * This does perform a linear search, however it is only active when we are adding data, so should not
+     * be an issue. 
+     * returns: the entire altProposed which succeeded or NULL/throw for failure.
+     */
+    public String addReferenceToNextSlot(CLDRFile file, String locale, int submitterId, String value, String uri) {
+        XPathParts xpp = new XPathParts(null,null);
+        String uristr  ="";
+        if(uri.length()>0) {
+            uristr =  "[@uri=\""+uri+"\"]";
+        }
+        // prepare for slot check
+        for(int slot=1;slot<100;slot++) {
+            String type = "R0"+slot; // proposed-u123-4 
+//            String alt = LDMLUtilities.formatAlt(altType, altProposed);
+            //            String rawXpath = fullXpathMinusAlt + "[@type='" + alt + "'][@draft='true']";
+            String rawXpath = "//ldml/references/reference[@type=\""+type+"\"]"+uristr+"[@draft=\"true\"]";
+            logger.info("addDataToNextSlot:  rawXpath = " + rawXpath);
+            String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null, false);
+            if(!xpath.equals(rawXpath)) {
+                logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
+            }
+            String oxpath = xpath+uristr+"[@draft=\"true\"]";
+            int xpid = xpt.getByXpath(xpath);
+            
+            // Check to see if this slot is in use.
+            synchronized(conn) {
+                try {
+                    stmts.queryValue.setString(1,locale);
+                    stmts.queryValue.setInt(2,xpid);
+                    ResultSet rs = stmts.queryValue.executeQuery();
+                    if(rs.next()) {
+                        // already taken..
+                        logger.info("Ref Taken: " + type);
+                        rs.close();
+                        continue;
+                    }
+                    rs.close();
+                } catch(SQLException se) {
+                    String complaint = "CLDRDBSource: Couldn't search for empty slot " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+                    logger.severe(complaint);
+                    throw new InternalError(complaint);
+                }
+            }
+            
+            // some of the following may not need to be dynamic, however going to leave it alone for consistency
+            int oxpid = xpt.getByXpath(oxpath);
+            xpp.clear();
+            xpp.initialize(oxpath);
+            String lelement = xpp.getElement(-1);
+            /* all of these are always at the end */
+            String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
+            String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
+            
+            /* special func to find this */
+            String eType = type;
+            String tinyXpath = xpp.toString();
+            
+            int txpid = xpt.getByXpath(tinyXpath);
+            
+            /*SRL*/ 
+            //                System.out.println(xpath + " l: " + locale);
+            //                System.out.println(" <- " + oxpath);
+            //                System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" + eDraft);
+            //                System.out.println(" => "+txpid+"#" + tinyXpath);
+            
+            synchronized(conn) {
+                try {
+                    stmts.insert.setInt(1,xpid); // full
+                    stmts.insert.setString(2,locale);
+                    stmts.insert.setInt(3,srcId); // assumes homogenous srcId
+                    stmts.insert.setInt(4,oxpid);
+                    stmts.insert.setString(5,value);
+                    stmts.insert.setString(6,eType);
+                    stmts.insert.setString(7,eAlt);
+                    stmts.insert.setInt(8,txpid); // tiny
+                    stmts.insert.setInt(9,submitterId); // submitter
+                    stmts.insert.execute();
+                    
+                } catch(SQLException se) {
+                    String complaint = "CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+                    logger.severe(complaint);
+                    throw new InternalError(complaint);
+                }
+                
+                try{
+                    conn.commit();
+                    return type; // success
+                } catch(SQLException se) {
+                    String complaint = "CLDRDBSource: Couldn't commit " + locale + ":" + SurveyMain.unchainSqlException(se);
+                    logger.severe(complaint);
+                    throw new InternalError(complaint);
+                }
+            }
+            
+        } // end for
+        return null; // couldn't find a slot..
+    }
+
 }

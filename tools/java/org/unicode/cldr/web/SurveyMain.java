@@ -82,6 +82,7 @@ public class SurveyMain extends HttpServlet {
     public static final String CONFIRM = "confirm";
     public static final String CHANGETO = "change to";
     public static final String PROPOSED_DRAFT = "proposed-draft";
+    public static final String MKREFERENCE = "enter-reference";
 
 //    public static final String MODIFY_THING = "<span title='You are allowed to modify this locale.'>\u270D</span>";             // was: F802
     //public static final String MODIFY_THING = "<img src='' title='You are allowed to modify this locale.'>";             // was: F802
@@ -1321,13 +1322,13 @@ public class SurveyMain extends HttpServlet {
             ctx.println("<table summary='header' border='0' cellpadding='0' cellspacing='0' style='border-collapse: collapse' "+
                         " width='100%' bgcolor='#EEEEEE'>"); //bordercolor='#111111'
             ctx.println("<tr><td>");
-                ctx.printHelpLink("","General Instructions"); // base help
+                ctx.printHelpLink("","General&nbsp;Instructions"); // base help
                 if((which.length()==0) && (ctx.locale!=null)) {
                     which = xMAIN;
                 }
                 if(which.length()>0) {
                     ctx.println(" | ");
-                    ctx.printHelpLink("/"+which.replaceAll(" ","_"),"Page Instructions"); // base help
+                    ctx.printHelpLink("/"+which.replaceAll(" ","_"),"Page&nbsp;Instructions"); // base help
                 }
             ctx.println("</td><td align='right'>");
                 printUserMenu(ctx);
@@ -1880,7 +1881,7 @@ public void doMain(WebContext ctx) {
                 "</font></i></li>    <li><i><font size='4'>Be sure to read </font>    "+
 //                "<a href='http://www.unicode.org/cldr/wiki?SurveyToolHelp'>"
                 "<font size='4'>");
-    ctx.printHelpLink("","General Instructions");
+    ctx.printHelpLink("","General&nbsp;Instructions");
     ctx.print("</font>"+
                 "<font size='4'>     once before going further.</font></i></li>   "+
                 " <li><font size='4'><i>Consult the Page Instructions if you have questions on any page.</i></font>"+
@@ -2139,8 +2140,17 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
     }
     
     ctx.println("</table>");
-    /*skip = */ showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), false);
     
+    if(canModify && 
+        pod.xpathPrefix.indexOf("references")!=-1) {
+        ctx.println("<hr>");
+        ctx.println("<h4>Add New Reference</h4>");
+        ctx.println("<label>Reference: <input size='80' name='"+MKREFERENCE+"_v'></label><br>");
+        ctx.println("<label>URI: <input size='80' name='"+MKREFERENCE+"_u'></label><br>");
+    }
+    
+    
+    /*skip = */ showSkipBox(ctx, peas.size(), pod.getDisplaySet(sortMode), false);
     
     if(!canModify) {
         ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
@@ -2161,7 +2171,25 @@ boolean processPeaChanges(WebContext ctx, DataPod oldPod, CLDRFile cf, CLDRDBSou
                 }
             }
         }            
+        if(oldPod.xpathPrefix.indexOf("references")!=-1) {
+            String newRef = ctx.field(MKREFERENCE+"_v");
+            String uri = ctx.field(MKREFERENCE+"_u");
+            if(newRef.length()>0) {
+                ctx.print("<b>Adding new reference...</b> ");
+                String newType =  ourSrc.addReferenceToNextSlot(cf, ctx.locale.toString(), ctx.session.user.id, newRef, uri);
+                if(newType == null) {
+                    ctx.print("<i>Error.</i>");
+                } else {
+                    ctx.print("<tt class='codebox'>"+newType+"</tt>");
+                    ctx.print(" added.. " + newRef +" @ " +uri);
+                    someDidChange=true;
+                    lcr.invalidateLocale(oldPod.locale); // throw out this pod next time. TODO: move this to caller
+                }
+                ctx.println("<br>");
+            }
+        }
     }
+    
     return someDidChange;
 }
 
@@ -2182,8 +2210,9 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
     if(!choice.equals(CHANGETO)) {
         choice_v=""; // so that it is ignored
     }
-    
-    if( (choice.equals(CHANGETO) && choice_v.length()>0) ||
+    if(choice.equals(CHANGETO)&& choice_v.length()==0) {
+        ctx.println("<tt class='codebox'>"+ p.displayName +"</tt> - value was left empty. Use 'remove' to request removal.<br>");
+    } else if( (choice.equals(CHANGETO) && choice_v.length()>0) ||
          choice.equals(REMOVE) ) {
         String fullPathFull = pod.xpath(p);
         String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
@@ -2211,7 +2240,7 @@ boolean processPeaChanges(WebContext ctx, DataPod pod, DataPod.Pea p, String our
             ctx.print(" <i>(removal)</i>");
         }
         ctx.println("<br>");
-        lcr.invalidateLocale(pod.locale); // throw out this pod next time.
+        lcr.invalidateLocale(pod.locale); // throw out this pod next time. TODO move this to caller.
         return true;
     } else if(choice.equals(CONFIRM)) {
         ctx.println("<tt class='codebox'>" + p.displayName + "</tt> Note: confirming not supported yet. <br>");        

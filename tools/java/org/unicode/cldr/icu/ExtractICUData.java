@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Utility;
 
-import com.ibm.icu.dev.demo.translit.CaseIterator;
+import com.ibm.icu.dev.test.util.CaseIterator;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.impl.ICUResourceBundle;

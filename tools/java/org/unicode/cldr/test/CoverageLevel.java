@@ -38,6 +38,7 @@ import com.ibm.icu.util.ULocale;
  *
  */
 public class CoverageLevel {
+    public static final String EUROPEAN_UNION = "QU";
     
     /**
      * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in the future.
@@ -123,6 +124,8 @@ public class CoverageLevel {
     StandardCodes sc = StandardCodes.make();
     
     boolean latinScript = false;
+    
+    private static boolean euroCountriesMissing = false; // Set to TRUE if eurocountries weren't produced by init.
 
     /**
      * Used by the coverage & survey tools.
@@ -176,7 +179,7 @@ public class CoverageLevel {
      */
     public void setFile(String localeID, boolean exemplarsContainA_Z, Map options, CheckCLDR cause, List possibleErrors) {
         latinScript = exemplarsContainA_Z;
-        
+                
         parser.set(localeID);
         String language = parser.getLanguage();
         
@@ -241,6 +244,13 @@ public class CoverageLevel {
             System.out.println("euroLanguages: " + euroLanguages);
             System.out.println("file-specific info set");
             System.out.flush();
+        }
+
+        // A complaint.
+        if(euroCountriesMissing) {
+            possibleErrors.add(new CheckStatus()
+                    .setCause(cause).setType(CheckStatus.errorType)
+                    .setMessage("Missing euro country information- '" + EUROPEAN_UNION + "' missing in territory codes?"));
         }
     }
 
@@ -388,11 +398,13 @@ public class CoverageLevel {
                     }
                 }
                 
-                for (Iterator it = euroCountries.iterator(); it.hasNext();) {
-                    String territory = (String) it.next();
-                    Collection languages = (Collection)territory_languages.get(territory);
-                    euroLanguages.addAll(languages);
-                }
+                //if(euroCountries != null) {
+                    for (Iterator it = euroCountries.iterator(); it.hasNext();) {
+                        String territory = (String) it.next();
+                        Collection languages = (Collection)territory_languages.get(territory);
+                        euroLanguages.addAll(languages);
+                    }
+                //}
                 
                 if (false) {
                     for (Iterator it = territory_currency.keySet().iterator(); it
@@ -535,10 +547,14 @@ public class CoverageLevel {
                 if (!type.equals("172")) {
                     territoryContainment.add(type);
                 }
-                if (type.equals("QU")) {
+                if (type.equals(EUROPEAN_UNION)) {
                     euroCountries = new TreeSet(Arrays.asList(((String)attributes.get("contains")).split("\\s+")));
                 }
             }
         }
+        if(euroCountries == null) {
+            euroCountries = new TreeSet(); // placate other parts of the code
+            euroCountriesMissing = true;
+        }    
     }
 }

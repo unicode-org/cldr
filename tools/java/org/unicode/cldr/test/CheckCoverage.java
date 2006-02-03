@@ -36,13 +36,20 @@ public class CheckCoverage extends CheckCLDR {
         // for now, skip all but localeDisplayNames
         if (skip) return this;
         if (path.indexOf("localeDisplayNames") < 0 && path.indexOf("currencies") < 0 && path.indexOf("exemplarCity") < 0) return this;
-
+        
         // skip all items that are in anything but raw codes
-        String source = getCldrFileToCheck().getSourceLocaleID(path);
+        String source = getResolvedCldrFileToCheck().getSourceLocaleID(path);
         if (!source.equals(XMLSource.CODE_FALLBACK_ID)) return this;
         
+        if(path == null) { 
+            throw new InternalError("Empty path!");
+        } else if(getCldrFileToCheck() == null) {
+            throw new InternalError("no file to check!");
+        }
+
         // check to see if the level is good enough
         CoverageLevel.Level level = coverageLevel.getCoverageLevel(fullPath);
+        
         if (level == CoverageLevel.Level.UNDETERMINED) return this; // continue if we don't know what the status is
         if (options != null) {
             String optionLevel = (String) options.get("CheckCoverage.requiredLevel");
@@ -61,10 +68,8 @@ public class CheckCoverage extends CheckCLDR {
             Map options, List possibleErrors) {
         if (cldrFileToCheck == null) return this;
         skip = true;
-        if (options != null && options.get("CheckCoverage.skip") != null) return this;
-        
+        if (options != null && options.get("CheckCoverage.skip") != null) return this;   
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-
         if (cldrFileToCheck.getLocaleID().equals("root")) return this;
         coverageLevel.setFile(cldrFileToCheck, options, this, possibleErrors);
         requiredLevel = coverageLevel.getRequiredLevel(cldrFileToCheck.getLocaleID(), options);

@@ -29,6 +29,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.dev.test.util.ElapsedTimer;
 
 /**
  * This class provides a foundation for both console-driven CLDR tests, and Survey Tool Tests.
@@ -48,7 +49,8 @@ abstract public class CheckCLDR {
 	
 	static boolean SHOW_LOCALE = true;
     static boolean SHOW_EXAMPLES = false;
-	
+    public static boolean SHOW_TIMES = false;
+    
 	/**
 	 * Here is where the list of all checks is found. 
 	 * @param nameMatcher Regex pattern that determines which checks are run,
@@ -311,14 +313,17 @@ abstract public class CheckCLDR {
 	 * @param result
 	 */
 	public final CheckCLDR check(String path, String fullPath, String value, Map options, List result) {
+        if(cldrFileToCheck == null) {
+            throw new InternalError("CheckCLDR problem: cldrFileToCheck must not be null");
+        }
 		if (path == null) {
-			throw new InternalError("XMLSource problem: path must not be null");
+			throw new InternalError("CheckCLDR problem: path must not be null");
 		}
 		if (fullPath == null) {
-			throw new InternalError("XMLSource problem: fullPath must not be null");
+			throw new InternalError("CheckCLDR problem: fullPath must not be null");
 		}
 		if (value == null) {
-			throw new InternalError("XMLSource problem: value must not be null");
+			throw new InternalError("CheckCLDR problem: value must not be null");
 		}
 		result.clear();
 		return handleCheck(path, fullPath, value, options, result);
@@ -353,10 +358,10 @@ abstract public class CheckCLDR {
 		private CLDRFile cldrFileToCheck;
 		
 		public CompoundCheckCLDR add(CheckCLDR item) {
+            item.setCldrFileToCheck(cldrFileToCheck, null, null);
 			checkList.add(item);
 			if (filter == null || filter.reset(item.getClass().getName()).matches()) {
 				filteredCheckList.add(item);
-				item.setCldrFileToCheck(cldrFileToCheck, null, null);
 			}
 			return this;
 		}
@@ -381,16 +386,22 @@ abstract public class CheckCLDR {
                                 Arrays.asList(e.getStackTrace())}));
         }
 		public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map options, List possibleErrors) {
+            ElapsedTimer testTime = null;
+	  		if (cldrFileToCheck == null) return this;
+	  		super.setCldrFileToCheck(cldrFileToCheck,options,possibleErrors);
 			possibleErrors.clear();
 			for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
 				CheckCLDR item = (CheckCLDR) it.next();
+                if(SHOW_TIMES) testTime = new ElapsedTimer("Test setup time for " + item.getClass().toString() + " {0}");
 				try {
 					item.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+                    if(SHOW_TIMES) System.err.println("OK : " + testTime);
 				} catch (RuntimeException e) {
                     addError(possibleErrors, item, e);
+                    if(SHOW_TIMES) System.err.println("ERR: " + testTime);
 			    	return this;
 				}
-			}
+            }
 			return this;
 		}
 		public Matcher getFilter() {

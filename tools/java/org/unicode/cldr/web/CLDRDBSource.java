@@ -697,17 +697,17 @@ public class CLDRDBSource extends XMLSource {
                 
                 // TODO: is there a better way to map a ResultSet into a Set?
                 Set s = new HashSet();
-                System.err.println("@tlh: " + "BEGIN");
+//                System.err.println("@tlh: " + "BEGIN");
                 while(rs.next()) {
                     String xpath = (xpt.getById(rs.getInt(1)));
                     if(-1!=xpath.indexOf("tlh")) {
                         xpath = xpath.replaceAll("\\[@draft=\"true\"\\]","");
-                        System.err.println("@tlh: " + xpath);
+//                        System.err.println("@tlh: " + xpath);
                     }
                     s.add(xpath); // xpath
                     //rs.getString(2); // origXpath
                 }
-                System.err.println("@tlh: " + "END");
+//                System.err.println("@tlh: " + "END");
                 return Collections.unmodifiableSet(s);
                 // TODO: 0
                 // TODO: ???
@@ -772,7 +772,7 @@ public class CLDRDBSource extends XMLSource {
         if(localeID == null) return null; // ???
         if(localeID.startsWith(CLDRFile.SUPPLEMENTAL_PREFIX)) {
             XMLSource msource = new CLDRFile.SimpleXMLSource(factory, localeID).make(localeID);
-            System.err.println("Getting simpleXMLSource for " + localeID);
+//            System.err.println("Getting simpleXMLSource for " + localeID);
             return msource; 
         }
         
@@ -995,7 +995,7 @@ public class CLDRDBSource extends XMLSource {
         }
         // prepare for slot check
         for(int slot=1;slot<100;slot++) {
-            String type = "R0"+slot; // proposed-u123-4 
+            String type = "RP"+slot; // proposed-u123-4 
 //            String alt = LDMLUtilities.formatAlt(altType, altProposed);
             //            String rawXpath = fullXpathMinusAlt + "[@type='" + alt + "'][@draft='true']";
             String rawXpath = "//ldml/references/reference[@type=\""+type+"\"]"+uristr+"[@draft=\"true\"]";

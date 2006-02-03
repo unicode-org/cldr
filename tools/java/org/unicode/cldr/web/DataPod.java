@@ -531,10 +531,15 @@ public class DataPod {
             if(checkCldr == null) {
                 throw new InternalError("checkCldr == null");
             }
-            com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
-            System.err.println("DP: Starting populate of " + locale + " // " + prefix);
+            com.ibm.icu.dev.test.util.ElapsedTimer et;
+            if(SHOW_TIME) {
+                et= new com.ibm.icu.dev.test.util.ElapsedTimer();
+                System.err.println("DP: Starting populate of " + locale + " // " + prefix);
+            }
             pod.populateFrom(ourSrc, checkCldr, ctx.sm.getEnglishFile());
-            System.err.println("DP: Time taken to populate " + locale + " // " + prefix + " = " + et);
+            if(SHOW_TIME) {
+                System.err.println("DP: Time taken to populate " + locale + " // " + prefix + " = " + et);
+            }
 		} else {
 			throw new InternalError("non-simple pods not supported");
 		}
@@ -626,10 +631,12 @@ public class DataPod {
         isInitted = true;
     }
     
+    private static final boolean SHOW_TIME=false;
+    
     private void populateFrom(CLDRDBSource src, CheckCLDR checkCldr, CLDRFile engFile) {
         init();
         XPathParts xpp = new XPathParts(null,null);
-        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
+//        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
         CLDRFile aFile = new CLDRFile(src, true);
         Map options = new TreeMap();
 //        options.put("CheckCoverage.requiredLevel","modern"); // TODO: fix
@@ -643,7 +650,10 @@ public class DataPod {
         String longestPath = "NONE";
         long nextTime = -1;
         int count=0;
-        long countStart = System.currentTimeMillis();
+        long countStart = 0;
+        if(SHOW_TIME) {
+            countStart = System.currentTimeMillis();
+        }
         // what to exclude under 'misc'
         int t = 10;
             
@@ -704,13 +714,13 @@ public class DataPod {
             boolean confirmOnly = false;
             String xpath = (String)it.next();
 
-            count++;
-            if((count%250)==0) {
-                System.err.println("[] " + locale + ":"+xpathPrefix +" #"+count+", or "+
-                    (((double)(System.currentTimeMillis()-countStart))/count)+"ms per.");
+            if(SHOW_TIME) {
+                count++;
+                if((count%250)==0) {
+                    System.err.println("[] " + locale + ":"+xpathPrefix +" #"+count+", or "+
+                        (((double)(System.currentTimeMillis()-countStart))/count)+"ms per.");
+                }
             }
-
-///*srl*/      nextTime=System.currentTimeMillis();
             
             if(doExcludeAlways && excludeAlways.matcher(xpath).matches()) {
  //if(ndebug)    System.err.println("ns1  "+(System.currentTimeMillis()-nextTime) + " " + xpath);

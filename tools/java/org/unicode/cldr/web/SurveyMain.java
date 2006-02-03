@@ -209,10 +209,10 @@ public class SurveyMain extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException
     {
-        String startupMsg = null;
         if(startupTime != null) {
+            String startupMsg = null;
             startupMsg = (startupTime.toString());
-            logger.info(startupMsg);
+//            logger.info(startupMsg);
             startupTime = null;
         }
         com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
@@ -1667,7 +1667,7 @@ public class SurveyMain extends HttpServlet {
             CheckCLDR checkCldr =  (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR);
             List checkCldrResult = new ArrayList();
             if (checkCldr == null)  {
-                logger.info("Initting tests . . .");
+                //logger.info("Initting tests . . .");
                 long t0 = System.currentTimeMillis();
                 checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
                 
@@ -1688,7 +1688,7 @@ public class SurveyMain extends HttpServlet {
                     ctx.putByLocale(USER_FILE + CHECKCLDR_RES, checkCldrResult); // don't bother if empty . . .
                 }
                 long t2 = System.currentTimeMillis();
-                logger.info("Time to init tests: " + (t2-t0));
+                //logger.info("Time to init tests: " + (t2-t0));
             }
             
             // Locale menu
@@ -2144,9 +2144,11 @@ void showPeas(WebContext ctx, DataPod pod, boolean canModify) {
     if(canModify && 
         pod.xpathPrefix.indexOf("references")!=-1) {
         ctx.println("<hr>");
-        ctx.println("<h4>Add New Reference</h4>");
-        ctx.println("<label>Reference: <input size='80' name='"+MKREFERENCE+"_v'></label><br>");
-        ctx.println("<label>URI: <input size='80' name='"+MKREFERENCE+"_u'></label><br>");
+        ctx.println("<table style='border: 1px solid black' class='list' summary='New Reference Box'>");
+        ctx.println("<tr><th colspan=2 >Add New Reference ( click '"+xSAVE+"' after filling in the fields.)</th></tr>");
+        ctx.println("<tr><td align='right'>Reference: </th><td><input size='80' name='"+MKREFERENCE+"_v'></td></tr>");
+        ctx.println("<tr><td align='right'>URI: </th><td><input size='80' name='"+MKREFERENCE+"_u'></td></tr>");
+        ctx.println("</table>");
     }
     
     
@@ -2175,17 +2177,41 @@ boolean processPeaChanges(WebContext ctx, DataPod oldPod, CLDRFile cf, CLDRDBSou
             String newRef = ctx.field(MKREFERENCE+"_v");
             String uri = ctx.field(MKREFERENCE+"_u");
             if(newRef.length()>0) {
+                String dup = null;
+                for(Iterator i = oldPod.getAll().iterator();i.hasNext();) {
+                    DataPod.Pea p = (DataPod.Pea)i.next();
+                    /*
+                    someDidChange = processPeaChanges(ctx, oldPod, p, ourDir, cf, ourSrc) || someDidChange;
+                    if(p.subPeas != null) {
+                        for(Iterator e = p.subPeas.values().iterator();e.hasNext();) {
+                            DataPod.Pea subPea = (DataPod.Pea)e.next();
+                            */
+                            DataPod.Pea subPea = p;
+                            for(Iterator j = p.items.iterator();j.hasNext();) {
+                                DataPod.Pea.Item item = (DataPod.Pea.Item)j.next();
+                                if(item.value.equals(newRef)) {
+                                    dup = p.type;
+                                } else {
+                                }
+                            }
+                            /*
+                        }
+                    }*/
+                }            
                 ctx.print("<b>Adding new reference...</b> ");
-                String newType =  ourSrc.addReferenceToNextSlot(cf, ctx.locale.toString(), ctx.session.user.id, newRef, uri);
-                if(newType == null) {
-                    ctx.print("<i>Error.</i>");
+                if(dup != null) {
+                    ctx.println("Ref already exists, not adding: <tt class='codebox'>"+dup+"</tt> " + newRef + "<br>");
                 } else {
-                    ctx.print("<tt class='codebox'>"+newType+"</tt>");
-                    ctx.print(" added.. " + newRef +" @ " +uri);
-                    someDidChange=true;
-                    lcr.invalidateLocale(oldPod.locale); // throw out this pod next time. TODO: move this to caller
+                    String newType =  ourSrc.addReferenceToNextSlot(cf, ctx.locale.toString(), ctx.session.user.id, newRef, uri);
+                    if(newType == null) {
+                        ctx.print("<i>Error.</i>");
+                    } else {
+                        ctx.print("<tt class='codebox'>"+newType+"</tt>");
+                        ctx.print(" added.. " + newRef +" @ " +uri);
+                        someDidChange=true;
+                        lcr.invalidateLocale(oldPod.locale); // throw out this pod next time. TODO: move this to caller
+                    }
                 }
-                ctx.println("<br>");
             }
         }
     }
@@ -2723,10 +2749,12 @@ public static int pages=0;
  */
 static  boolean isSetup = false;
 public synchronized void doStartup() throws ServletException {
-    
     if(isSetup == true) {
         return;
     }
+    
+    // set up CheckCLDR
+    //CheckCLDR.SHOW_TIMES=true;
     
     survprops = new java.util.Properties(); 
     if(cldrHome == null) {

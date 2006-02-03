@@ -1657,7 +1657,7 @@ public class LDMLUtilities {
     public static final String getCVSLink(String locale, String version)
     {
         return "<a href=\"http://www.unicode.org/repository/cldr/common/main/" + locale + ".xml?rev=" +
-            version + "&content-type=text/x-cvsweb-markup\">";
+            version + "&amp;content-type=text/x-cvsweb-markup\">";
     }
     static public String getCVSVersion(String fileName)
     {

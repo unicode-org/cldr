@@ -270,6 +270,10 @@ public abstract class XMLSource implements Freezable {
 	 * SUBCLASSING: must be overridden
 	 */
 	abstract public String getValueAtDPath(String path);
+    
+    public boolean hasValueAtDPath(String path) {
+        return (getValueAtDPath(path)!=null);
+    }
 
 	/**
 	 * Get the full path at the given distinguishing path
@@ -475,17 +479,19 @@ public abstract class XMLSource implements Freezable {
 		public String getSourceLocaleID(String xpath) {
 			xpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
 			XMLSource currentSource = mySource;
-	    	String result = currentSource.getValueAtDPath(xpath);
-	    	if (result != null) return mySource.getLocaleID();
+            boolean result = currentSource.hasValueAtDPath(xpath);
+	    	//String result = currentSource.getValueAtDPath(xpath);
+	    	if (result != false) return mySource.getLocaleID(); // was: null
 	    	parentAndPath.set(xpath, currentSource, getLocaleID()).next();
 	    	while (true) {
 	    		if (parentAndPath.parentID == null) {
 	    			return CODE_FALLBACK_ID;
 	    		}
 	    		currentSource = make(parentAndPath.parentID);
-	    		result = currentSource.getValueAtDPath(parentAndPath.path);
-	    		if (result != null) {
-	    			result = currentSource.getFullPathAtDPath(parentAndPath.path);
+	    		result = currentSource.hasValueAtDPath(parentAndPath.path);
+	    		//result = currentSource.getValueAtDPath(parentAndPath.path);
+	    		if(result != false) { // was: null
+	    			/*result = */ currentSource.getFullPathAtDPath(parentAndPath.path); // what does this do?
 	    			return currentSource.getLocaleID();
 	    		}
 	    		parentAndPath.next();

@@ -64,7 +64,7 @@ public class UserRegistry {
         public String name;     // full name
         public Date last_connect;
         public String locales;
-
+        public String ip;
         public void printPasswordLink(WebContext ctx) {
             UserRegistry.printPasswordLink(ctx, email, password);
         }
@@ -239,7 +239,7 @@ public class UserRegistry {
                     u.name = rs.getString(1);
                     u.org = rs.getString(2);
                     u.email = rs.getString(3);
-                    System.err.println("SQL Loaded info for U#"+u.id + " - "+u.name +"/"+u.org+"/"+u.email);
+//                    System.err.println("SQL Loaded info for U#"+u.id + " - "+u.name +"/"+u.org+"/"+u.email);
                     ret = u; // let it finish..
                     /*
                     infoArray.ensureCapacity(id);
@@ -277,7 +277,7 @@ public class UserRegistry {
         } // end synch array
     }
     
-    public  UserRegistry.User get(String pass, String email) {
+    public  UserRegistry.User get(String pass, String email, String ip) {
         if((email == null)||(email.length()<=0)) {
             return null; // nothing to do
         }
@@ -301,7 +301,7 @@ public class UserRegistry {
                 // First, try to query it back from the DB.
                 rs = pstmt.executeQuery();                
                 if(!rs.next()) {
-                    logger.info("Unknown user or bad login: " + email);
+                    logger.info("Unknown user or bad login: " + email + " @ " + ip);
                     return null;
                 }
                 User u = new UserRegistry.User();
@@ -323,7 +323,7 @@ public class UserRegistry {
                     logger.severe("Duplicate user for " + email + " - ids " + u.id + " and " + rs.getInt(1));
                     return null;
                 }
-                logger.info("Login: " + email);
+                logger.info("Login: " + email + " @ " + ip);
                 return u;
             } catch (SQLException se) {
                 logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to get " + email + " - " + SurveyMain.unchainSqlException(se),se);
@@ -345,7 +345,7 @@ public class UserRegistry {
     } // end get
 
     public UserRegistry.User get(String email) {
-        return get(null,email);
+        return get(null,email,"(lookup)");
     }
     public UserRegistry.User getEmptyUser() {
         User u = new User();
@@ -574,7 +574,7 @@ public class UserRegistry {
 
         synchronized(conn) {
             try {
-                logger.info("UR: Attempt newuser by " + ctx.session.user.email + ": of " + u.email);
+                logger.info("UR: Attempt newuser by " + ctx.session.user.email + ": of " + u.email + " @ " + ctx.userIP());
                 insertStmt.setInt(1, u.userlevel);
                 insertStmt.setString(2, u.name);
                 insertStmt.setString(3, u.org);
@@ -585,7 +585,7 @@ public class UserRegistry {
                     logger.info("Added.");
                     conn.commit();
                     ctx.println("<p>Added user.<p>");
-                    return get(u.password, u.email); // throw away old user
+                    return get(u.password, u.email,"(for adding)"); // throw away old user
                 } else {
                     ctx.println("Couldn't add user.");
                     conn.commit();

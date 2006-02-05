@@ -215,14 +215,21 @@ public class SurveyMain extends HttpServlet {
 //            logger.info(startupMsg);
             startupTime = null;
         }
-        com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
-        
-        response.setContentType("text/html; charset=utf-8");
         response.setHeader("Cache-Control", "no-cache");
         response.setDateHeader("Expires",0);
         response.setHeader("Pragma","no-cache");
         response.setDateHeader("Max-Age",0);
+        
+        // handle raw xml
+        if(doRawXml(request,response)) {
+            // not counted.
+            return; 
+        }
         pages++;
+        
+        com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
+        
+        response.setContentType("text/html; charset=utf-8");
         
         if(isBusted != null) {
             PrintWriter out = response.getWriter();
@@ -263,7 +270,8 @@ public class SurveyMain extends HttpServlet {
     {
         printHeader(ctx, "SQL Console");
         String q = ctx.field("q");
-        ctx.println("<div align='right'<a href='" + ctx.base() + "'><b>[SurveyTool main]</b></a></div><br>");
+        ctx.println("<div align='right'><a href='" + ctx.base() + "'><b>[SurveyTool main]</b></a> | "+
+        "<b><a href='" + ctx.base() + "?dump="+vap+"'>Stats</a></b></div><br>");
         ctx.println("<h1>SQL Console</h1>");
         ctx.printHelpLink("/AdminSql","Help with this SQL page", true);
         ctx.println("<form method=POST action='" + ctx.base() + "'>");
@@ -356,7 +364,8 @@ public class SurveyMain extends HttpServlet {
     private void doDump(WebContext ctx)
     {
         printHeader(ctx, "Dump System Info");
-        ctx.println("<div align='right'<a href='" + ctx.base() + "'><b>[SurveyTool main]</b></a></div><br>");
+        ctx.println("<div align='right'><a href='" + ctx.base() + "'><b>[SurveyTool main]</b></a> | "+
+        "<b><a href='" + ctx.base() + "?sql="+vap+"'>SQL</a></b></div><br>");
         ctx.println("<h1>System info</h1>");
         ctx.printHelpLink("/AdminDump", "Help with this Admin page", true);
         ctx.println("<div class='pager'>");
@@ -416,10 +425,11 @@ public class SurveyMain extends HttpServlet {
             subCtx.addQuery("dump",vap);
             ctx.println("<br>");
             CLDRDBSource mySrc = makeDBSource(null, new ULocale("root"));
+            localeListMap = null;
             mySrc.manageSourceUpdates(subCtx, this); // What does this button do?
             ctx.println("<br>");
         } else {
-            ctx.println("<br>[<a href='" + ctx.base() + "?dump=" + vap + "&amp;src_update=none'>Manage Sources (update from disk)</a>]<br>");
+            ctx.println("<br>[<a href='" + ctx.base() + "?dump=" + vap + "&amp;src_update=none'>Manage Sources (update from disk).. also zaps the localeListMap</a>]<br>");
         }
         
 
@@ -527,7 +537,7 @@ public class SurveyMain extends HttpServlet {
         ctx.println("<html>");
         ctx.println("<head>");
         ctx.println("<meta name='robots' content='noindex,nofollow'>");
-        ctx.println("<link rel='stylesheet' type='text/css' href='http://" + ctx.serverHostport()  + ctx.context("surveytool.css") + "'>");
+        ctx.println("<link rel='stylesheet' type='text/css' href='"+ ctx.schemeHostPort()  + ctx.context("surveytool.css") + "'>");
         // + "http://www.unicode.org/webscripts/standard_styles.css'>"
         ctx.println("<title>CLDR Vetting | ");
         if(ctx.locale != null) {
@@ -626,7 +636,7 @@ public class SurveyMain extends HttpServlet {
         }
         String email = ctx.field(QUERY_EMAIL);
         UserRegistry.User user;
-        user = reg.get(password,email);
+        user = reg.get(password,email,ctx.userIP());
         HttpSession httpSession = ctx.request.getSession(true);
         boolean idFromSession = false;
         if(myNum.equals(SURVEYTOOL_COOKIE_NONE)) {
@@ -635,8 +645,12 @@ public class SurveyMain extends HttpServlet {
         if(user != null) {
             mySession = CookieSession.retrieveUser(user.email);
             if(mySession != null) {
-                message = "<i>Reconnecting to your previous session.</i>";
-                myNum = mySession.id;
+                if(null == CookieSession.retrieve(mySession.id)) {
+                    mySession = null; // don't allow dead sessions to show up via the user list.
+                } else {
+                    message = "<i>Reconnecting to your previous session.</i>";
+                    myNum = mySession.id;
+                }
             }
         }
 
@@ -692,6 +706,7 @@ public class SurveyMain extends HttpServlet {
         
         if(user != null) {
             ctx.session.setUser(user); // this will replace any existing session by this user.
+            ctx.session.user.ip = ctx.userIP();
         } else {
             if( (email !=null) && (email.length()>0)) {
                 message = ("<strong>login failed.</strong><br>");
@@ -1865,6 +1880,72 @@ public void doRaw(WebContext ctx) {
     ctx.println("</pre>");
 }
 
+public static final String XML_PREFIX="/xml/main";
+
+public boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
+    throws IOException, ServletException {
+    String s = request.getPathInfo();
+    if((s==null)||(!s.startsWith(XML_PREFIX))) {
+        return false;
+    }
+
+    
+    if(s.equals(XML_PREFIX)) {
+        WebContext ctx = new WebContext(request,response);
+        response.sendRedirect(ctx.schemeHostPort()+ctx.base()+XML_PREFIX+"/");
+        return true;
+    }
+    s = s.substring(XML_PREFIX.length()+1,s.length()); //   "foo.xml"
+    
+    if(s.length() == 0) {
+        WebContext ctx = new WebContext(request,response);
+        response.setContentType("text/html; charset=utf-8");
+        ctx.println("<title>CLDR Data | All Locales</title>");
+        ctx.println("<a href='"+ctx.base()+"'>Return to SurveyTool</a><p>");
+        ctx.println("<h4>Locales</h4>");
+        ctx.println("<ul>");
+        File inFiles[] = getInFiles();
+        int nrInFiles = inFiles.length;
+        for(int i=0;i<nrInFiles;i++) {
+            String fileName = inFiles[i].getName();
+            int dot = fileName.indexOf('.');
+            String localeName = fileName.substring(0,dot);
+            ctx.println("<li><a href='"+fileName+"'>"+fileName+"</a> " + new ULocale(localeName).getDisplayName() +
+                "</li>");
+        }
+        ctx.println("</ul>");
+        ctx.println("<hr>");
+        ctx.println("<a href='"+ctx.base()+"'>Return to SurveyTool</a><p>");
+        ctx.close();
+    } else if(!s.endsWith(".xml")) {
+        WebContext ctx = new WebContext(request,response);
+        response.sendRedirect(ctx.schemeHostPort()+ctx.base()+XML_PREFIX+"/");
+    } else {
+        File inFiles[] = getInFiles();
+        int nrInFiles = inFiles.length;
+        boolean found = false;
+        String theLocale = null;
+        for(int i=0;(!found) && (i<nrInFiles);i++) {
+            String localeName = inFiles[i].getName();
+            if(s.equals(localeName)) {
+                found=true;
+                int dot = localeName.indexOf('.');
+                theLocale = localeName.substring(0,dot);
+            }
+        }
+        if(!found) {
+            throw new InternalError("No such locale: " + s);
+        } else {
+            response.setContentType("application/xml; charset=utf-8");
+            CLDRDBSource dbSource = makeDBSource(null, new ULocale(theLocale));
+            CLDRFile file = makeCLDRFile(dbSource);
+//            file.write(WebContext.openUTF8Writer(response.getOutputStream()));
+            file.write(response.getWriter());
+        }
+    }
+    return true;
+}
+
 /**
 * Show the 'main info about this locale' (General) panel.
  */
@@ -2923,6 +3004,7 @@ static protected File[] getInFiles() {
             String n = f.getName();
             return(!f.isDirectory()
                    &&n.endsWith(".xml")
+                   &&!n.startsWith(".")
                    &&!n.startsWith("supplementalData") // not a locale
                    /*&&!n.startsWith("root")*/); // root is implied, will be included elsewhere.
         }
@@ -3001,7 +3083,7 @@ static int usedK() {
 
 
 private void busted(String what) {
-    System.err.println("SurveyTool busted: " + what);
+    System.err.println("SurveyTool busted: " + what + " ( after " +pages +" pages served, uptime " + uptime.toString()  + ")");
     isBusted = what;
     logger.severe(what);
 }

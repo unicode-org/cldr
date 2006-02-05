@@ -10,6 +10,8 @@
 			<label>Password: <input type="password" name="pw" /></label><br/>
 			<input type="submit" value="Login" />
 		</form>
+        <hr/>
+        <p><b>Note</b>, you need an account to be able to submit data. See <a href='http://www.unicode.org/cldr/wiki?SurveyToolHelp'>this page</a> for more details.</p>
 		<hr/>
 		<a href="./index.jsp">Return to CLDR Applications</a>
 	</body>

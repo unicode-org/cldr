@@ -43,7 +43,7 @@ public class WebContext {
 
     HttpServletRequest request;
     HttpServletResponse response;
-
+    
     // New constructor
     public WebContext(HttpServletRequest irq, HttpServletResponse irs) throws IOException {
          request = irq;
@@ -262,6 +262,9 @@ public class WebContext {
             return serverName() + ":"+port;
         }
     }
+    String schemeHostPort() {
+        return request.getScheme()+"://" + serverHostport();
+    }
     
 // print api
     final void println(String s) {
@@ -430,7 +433,7 @@ public class WebContext {
 // Internal Utils
 
     // from BagFormatter
-    private static PrintWriter openUTF8Writer(OutputStream out) throws IOException {
+    public static PrintWriter openUTF8Writer(OutputStream out) throws IOException {
         return openWriter(out,"UTF-8");
     }
     

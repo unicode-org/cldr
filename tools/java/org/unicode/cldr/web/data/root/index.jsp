@@ -9,7 +9,7 @@
 	<body style='padding: 1em'>
 		<h1>CLDR Web Applications</h1>
 		<ul>
-			<li><a href="survey/">CLDR Survey Tool</a> - <a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp">(Help)</a><br /></li>
+			<li><strong><a href="survey/">CLDR Survey Tool</a></strong> - <a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp">(Help)</a><br /></li>
 		</ul>
         
         <hr />

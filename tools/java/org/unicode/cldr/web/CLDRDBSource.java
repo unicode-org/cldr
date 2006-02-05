@@ -446,6 +446,12 @@ public class CLDRDBSource extends XMLSource {
                         String rev = rs.getString(3);
                         String disk = LDMLUtilities.getCVSVersion(dir, loc+".xml");
                         ctx.println("<li> <tt>[#"+id+"]" +loc + "</tt>:  db="+rev+" ");
+                        if(rev == null )  {
+                            rev = "null";
+                        }
+                        if(disk == null) {
+                            disk = "null";
+                        }
                         if(rev.equals(disk)) {
                             ctx.println(" - latest");
                         } else {

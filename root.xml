@@ -766,6 +766,88 @@
 					</dateTimeFormatLength>
 				</dateTimeFormats>
 			</calendar>
+			<calendar draft="true" type="coptic">
+				<months>
+					<default type="format" draft="true"/>
+					<monthContext type="format">
+						<default type="wide" draft="true"/>
+						<monthWidth type="abbreviated">
+							<alias source="locale" path="../monthWidth[@type='wide']" draft="true"/>
+						</monthWidth>
+						<monthWidth draft="true" type="wide">
+                <month type="1" draft="true">Tout</month> <!-- from ICU data -->
+                <month type="2" draft="true">Baba</month>
+                <month type="3" draft="true">Hator</month>
+                <month type="4" draft="true">Kiahk</month>
+                <month type="5" draft="true">Toba</month>
+                <month type="6" draft="true">Amshir</month>
+                <month type="7" draft="true">Baramhat</month>
+                <month type="8" draft="true">Baramouda</month>
+                <month type="9" draft="true">Bashans</month>
+                <month type="10" draft="true">Paona</month>
+                <month type="11" draft="true">Epep</month>
+                <month type="12" draft="true">Mesra</month>
+                <month type="13" draft="true">Nasie</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraAbbr>
+						<era type="0" draft="true">ERA0</era> <!-- to be replaced -->
+						<era type="1" draft="true">ERA1</era>
+					</eraAbbr>
+				</eras>
+                <dateFormats>
+                    <alias source="locale" path="../../calendar[@type='gregorian']/dateFormats"/>
+                </dateFormats>
+                <timeFormats>
+                    <alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+                </timeFormats>
+                <dateTimeFormats>
+                    <alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats"/>
+                </dateTimeFormats>
+			</calendar>
+			<calendar type="ethiopic">
+				<months>
+					<default type="format" draft="true"/>
+					<monthContext type="format">
+						<default type="wide" draft="true"/>
+						<monthWidth type="abbreviated">
+							<alias source="locale" path="../monthWidth[@type='wide']" draft="true"/>
+						</monthWidth>
+						<monthWidth type="wide">
+                <month type="1" draft="true">Meskerem</month> <!-- from ICU data -->
+                <month type="2" draft="true">Tekemt</month>
+                <month type="3" draft="true">Hedar</month>
+                <month type="4" draft="true">Tahsas</month>
+                <month type="5" draft="true">Ter</month>
+                <month type="6" draft="true">Yekatit</month>
+                <month type="7" draft="true">Megabit</month>
+                <month type="8" draft="true">Miazia</month>
+                <month type="9" draft="true">Genbot</month>
+                <month type="10" draft="true">Sene</month>
+                <month type="11" draft="true">Hamle</month>
+                <month type="12" draft="true">Nehasse</month>
+                <month type="13" draft="true">Pagumen</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraAbbr>
+						<era type="0" draft="true">ERA0</era> <!-- to be replaced -->
+						<era type="1" draft="true">ERA1</era>
+					</eraAbbr>
+				</eras>
+                <dateFormats>
+                    <alias source="locale" path="../../calendar[@type='gregorian']/dateFormats"/>
+                </dateFormats>
+                <timeFormats>
+                    <alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
+                </timeFormats>
+                <dateTimeFormats>
+                    <alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats"/>
+                </dateTimeFormats>
+			</calendar>
 			<calendar type="persian">
 				<months>
 					<default type="format" draft="true"/>

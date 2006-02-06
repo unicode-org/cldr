@@ -40,7 +40,7 @@
 	
 			<variable id="$alt" type="choice">proposed proposed1 proposed2 variant</variable>
 			<variable id="$append" type="notDoneYet"/>
-			<variable id="$calendar" type="choice">buddhist chinese gregorian hebrew islamic islamic-civil japanese arabic civil-arabic thai-buddhist persian</variable>
+			<variable id="$calendar" type="choice">buddhist coptic ethiopic chinese gregorian hebrew islamic islamic-civil japanese arabic civil-arabic thai-buddhist persian</variable>
 			<variable id="$collationType" type="choice">big5han digits-after direct gb2312han phonebook pinyin reformed standard stroke traditional</variable>
 			<variable id="$date" type="regex">200[0-9]-([0-9]|1[0-2])-([12][0-9]|3[01])</variable>
 			<variable id="$double" type="regex">[0-9]+(\.[0-9]+)?</variable>

@@ -10,5 +10,43 @@
 			<collation type="standard" >
 				<settings normalization="on"  />
 			</collation  >
+<collation type="standard" draft="true" alt="proposed">
+<settings normalization="on"/>
+<rules>
+
+<!--
+The following tailoring is an adjustment of the
+DUCET collation order for ANUSVARA, CANDRABINDU,
+and VISARGA. Instead of being sorted with secondary
+weights, they are collated on primary level before
+the independent vowels. CANDRABINDU is secondary
+different from ANUSVARA. This gives a sort order
+similar to Hindi.
+-->
+<reset>ॐ</reset>
+<p>ं</p>
+<s>ँ</s>
+<p>ः</p>
+
+<!--
+The following tailoring is an adjustment of the
+DUCET collation order for LLA. Instead of being
+sorted after LA, LLA is sorted after HA.
+-->
+<reset>ह</reset>
+<p>ळ</p>
+
+<!--
+KSSA is sorted after LLA.
+-->
+<p>क्ष</p>
+
+<!--
+JNYA is sorted after KSSA.
+-->
+<p>ज्ञ</p>
+
+</rules>
+</collation>
 		</collations>
 </ldml>

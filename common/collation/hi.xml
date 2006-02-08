@@ -24,5 +24,39 @@
 					<p>्</p>
 				</rules>
 			</collation  >
+<collation type="standard"
+references="McGregor: Oxford Hindi-English Dictionary ISBN:019864339X Gatzlaff-Hälsig: Handwörterbuch Hindi-Deutsch ISBN:3875481771 http://www.eki.ee/wgrs/rom1_hi.pdf"
+draft="true" alt="proposed">
+<settings normalization="on"/>
+<rules>
+
+<!--
+The following tailoring is an adjustment of the
+DUCET collation order for ANUSVARA, CANDRABINDU,
+and VISARGA. Instead of being sorted with secondary
+weights, they are collated on primary level before
+the independent vowels. CANDRABINDU is secondary
+different from ANUSVARA. This gives a sort order
+very close to the referenced dictionaries. The sort
+order in the dictionaries, which by the way are not
+the same, require quite extensive tailoring.
+-->
+<reset>ॐ</reset>
+<p>ं</p>
+<s>ँ</s>
+<p>ः</p>
+
+<!--
+The following tailoring is an adjustment of the
+DUCET collation order for LLA. Instead of being
+sorted after LA, LLA is sorted after HA. Note that
+LLA is not used in Hindi, but has this collation
+order in Konkani, Marathi, and Sanskrit.
+-->
+<reset>ह</reset>
+<p>ळ</p>
+
+</rules>
+</collation>
 		</collations>
 </ldml>

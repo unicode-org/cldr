@@ -9,6 +9,7 @@ package org.unicode.cldr.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -30,6 +31,7 @@ import com.ibm.icu.impl.CollectionUtilities;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 
 /**
  * This class provides a foundation for both console-driven CLDR tests, and Survey Tool Tests.
@@ -59,7 +61,7 @@ abstract public class CheckCLDR {
 	 */
 	public static CompoundCheckCLDR getCheckAll(String nameMatcher) {
 		return new CompoundCheckCLDR()
-			.setFilter(Pattern.compile(nameMatcher).matcher(""))
+			.setFilter(Pattern.compile(nameMatcher,Pattern.CASE_INSENSITIVE).matcher(""))
 			.add(new CheckForExemplars())
 			.add(new CheckDisplayCollisions())
 			.add(new CheckExemplars())
@@ -95,6 +97,7 @@ abstract public class CheckCLDR {
         double deltaTime = System.currentTimeMillis();
         String factoryFilter = args.length <= 0 ? ".*" : args[0]; // eg de.*
         String checkFilter = args.length <= 1 ? ".*" : args[1]; // eg .*Collision.* 
+        SHOW_EXAMPLES = args.length <= 2 ? false : true; // eg .*Collision.* 
         System.out.println("factoryFilter: " + factoryFilter);
         System.out.println("checkFilter: " + checkFilter);
         
@@ -145,10 +148,11 @@ abstract public class CheckCLDR {
 						System.out.print("Locale:\t" + getLocaleAndName(localeID) + "\t");
 						System.out.println(status.getHTMLMessage());
 						SimpleDemo d = status.getDemo();
-						if (d != null) {
+						if (d != null && d instanceof FormatDemo) {
+                            FormatDemo fd = (FormatDemo)d;
 							m.clear();
-							// for now, assume CheckNumber
-							m.put("T1", String.valueOf(testNumber += Math.PI));
+                            m.put("pattern", fd.getPattern());
+                            m.put("input", fd.getRandomInput());
 							if (d.processPost(m)) System.out.println(m);
 						}
 						continue;
@@ -305,6 +309,49 @@ abstract public class CheckCLDR {
 			return !value.equals(oldValue);
 		}
 	}
+    
+    public static abstract class FormatDemo extends SimpleDemo {
+        abstract String getPattern(); // just for testing
+        abstract String getRandomInput(); // just for testing
+        /**
+         * @param htmlMessage
+         * @param pattern
+         * @param input
+         * @param formatted
+         * @param reparsed
+         */
+        public static void appendLine(StringBuffer htmlMessage, String pattern, String context, String input, String formatted, String reparsed) {
+            htmlMessage.append("<tr><td><input type='text' name='pattern' readonly='true' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(pattern))
+            .append("'></td><td><input type='text' name='context' readonly='true' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(context))
+            .append("'></td><td><input type='text' name='input' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(input))
+            .append("'></td><td>")
+            .append("<input type='button' value='Test' name='Test'>")
+            .append("</td><td>" + "<input type='text' name='formatted' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(formatted))
+            .append("'></td><td>" + "<input type='text' name='reparsed' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(reparsed))
+            .append("'></td></tr>");
+        }
+
+        /**
+         * @param htmlMessage
+         */
+        public static void appendTitle(StringBuffer htmlMessage) {
+            htmlMessage.append("<table border='1' cellspacing='0' cellpadding='2'" +
+                    //" style='border-collapse: collapse' style='width: 100%'" +
+                    "><tr>" +
+                    "<th>Pattern</th>" +
+                    "<th>Context</th>" +
+                    "<th>Unlocalized Input</th>" +
+                    "<th></th>" +
+                    "<th>Localized Format</th>" +
+                    "<th>Re-Parsed</th>" +
+                    "</tr>");
+        }
+    }
 
 	/**
 	 * Checks the path/value in the cldrFileToCheck for correctness, according to some criterion.

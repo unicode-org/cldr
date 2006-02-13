@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Random;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.FormatDemo;
 import org.unicode.cldr.test.CheckCLDR.SimpleDemo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -20,9 +21,9 @@ public class CheckNumbers extends CheckCLDR {
 	private ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
 	private static NumberFormat english = NumberFormat.getNumberInstance(ULocale.ENGLISH);
 	static {
-		english.setMaximumFractionDigits(19);
+		english.setMaximumFractionDigits(5);
 	}
-	private Random random = new Random();
+	private static Random random = new Random();
 	
 	static String SampleList = "{0} \u2192 \u200E{1}\u200E \u2192 {2}";
 	
@@ -75,30 +76,32 @@ public class CheckNumbers extends CheckCLDR {
 	
 	private void checkPattern(String path, String fullPath, String value, List result) throws ParseException {
 		DecimalFormat x = icuServiceBuilder.getNumberFormat(value);
-		addSamples(x, result);
+		addSamples(x, value, "", result);
 	}
 	
 	private void checkCurrencyFormats(String path, String fullPath, String value, List result) throws ParseException {
 		DecimalFormat x = icuServiceBuilder.getCurrencyFormat(CLDRFile.getCode(path));
-		addSamples(x, result);
+		addSamples(x, x.toPattern(), value, result);
 	}
 
-	private void addSamples(DecimalFormat x, List result) throws ParseException {
+	private void addSamples(DecimalFormat x, String pattern, String context, List result) throws ParseException {
 		Object[] arguments = new Object[3];
 		StringBuffer htmlMessage = new StringBuffer();
-		double sample = Math.pow(2, 40*random.nextDouble()-20) ;
+        FormatDemo.appendTitle(htmlMessage);
+        double sample = getRandomNumber();
 		String formatted = x.format(sample);
 		double parsed = x.parse(formatted).doubleValue();
-		arguments[0] = english.format(sample);
+		arguments[0] = String.valueOf(sample);
 		arguments[1] = formatted;
-		arguments[2] = english.format(parsed);
-		htmlMessage.append(pattern1)
-		.append(TransliteratorUtilities.toXML.transliterate(String.valueOf(sample)))
-		.append(pattern2)
-		.append(TransliteratorUtilities.toXML.transliterate(formatted))
-		.append(pattern3)
-		.append(TransliteratorUtilities.toXML.transliterate(String.valueOf(parsed)))
-		.append(pattern4);
+		arguments[2] = String.valueOf(parsed);
+//		htmlMessage.append(pattern1)
+//		.append(TransliteratorUtilities.toXML.transliterate(String.valueOf(sample)))
+//		.append(pattern2)
+//		.append(TransliteratorUtilities.toXML.transliterate(formatted))
+//		.append(pattern3)
+//		.append(TransliteratorUtilities.toXML.transliterate(String.valueOf(parsed)))
+//		.append(pattern4);
+        FormatDemo.appendLine(htmlMessage, pattern, context, arguments[0].toString(), formatted, arguments[2].toString());
 		result.add(new MyCheckStatus()
 				.setFormat(x)
 				.setCause(this).setType(CheckStatus.exampleType)
@@ -106,50 +109,17 @@ public class CheckNumbers extends CheckCLDR {
 				.setHTMLMessage(htmlMessage.toString()));
 	}
 
-	static public class MyCheckStatus extends CheckStatus {
-		private DecimalFormat df;
-		public MyCheckStatus setFormat(DecimalFormat df) {
-			this.df = df;
-			return this;
-		}
-		public SimpleDemo getDemo() {
-			return new MyDemo().setFormat(df);
-		}
-	}
-	
-	static class MyDemo extends SimpleDemo {
-		private DecimalFormat df;
-		public MyDemo setFormat(DecimalFormat df) {
-			this.df = df;
-			return this;
-		}
-		public boolean processPost(Map inout) {
-			boolean result = false;
-			double d;
-			try {
-				String s = (String) inout.get("T1");
-				d = Double.parseDouble(s);
-			} catch (Exception e) {
-				result |= putIfDifferent(inout, "T2", "Use format: 1234.56");
-				return true;
-			}
-			String formatted;
-			try {
-				formatted = df.format(d);
-				result |= putIfDifferent(inout, "T2", formatted);
-			} catch (Exception e) {
-				result |= putIfDifferent(inout, "T2", "Can't format: " + e.getMessage());
-				return true;
-			}
-			try {
-				Number n = df.parse(formatted);
-				result |= putIfDifferent(inout, "T3", english.format(n));
-			} catch (Exception e) {
-				result |= putIfDifferent(inout, "T3", "Can't parse: " + e.getMessage());
-			}
-			return result;
-		}
-	}
+    /**
+     * @return
+     */
+    private static double getRandomNumber() {
+        double rand = random.nextDouble();
+        //System.out.println(rand);
+        double sample = Math.round(Math.pow(10,rand*8))/1000.0;
+        if (random.nextBoolean()) sample = -sample;
+        return sample;
+    }
+
 	static String pattern1 = "<table border='1' cellpadding='2' cellspacing='0' style='border-collapse: collapse' style='width: 100%'>"
 		+ "<tr>"
 		+ "<td nowrap width='1%'>Input:</td>"
@@ -201,4 +171,61 @@ public class CheckNumbers extends CheckCLDR {
 		}
 	}
 
+    static public class MyCheckStatus extends CheckStatus {
+        private DecimalFormat df;
+        public MyCheckStatus setFormat(DecimalFormat df) {
+            this.df = df;
+            return this;
+        }
+        public SimpleDemo getDemo() {
+            return new MyDemo().setFormat(df);
+        }
+    }
+
+    static class MyDemo extends FormatDemo {
+        private DecimalFormat df;
+        String getPattern() {
+            return df.toPattern();
+        }
+        String getRandomInput() {
+            return String.valueOf(getRandomNumber());
+        }
+        public MyDemo setFormat(DecimalFormat df) {
+            this.df = df;
+            return this;
+        }
+        public boolean processPost(Map inout) {
+            boolean result = false;
+            double d;
+            try {
+                String pattern = (String) inout.get("pattern");
+                df.applyPattern(pattern);
+            } catch (Exception e) {
+                result |= putIfDifferent(inout, "pattern", "Use format like: ##,###.##");
+                return true;
+            }
+            try {
+                String s = (String) inout.get("input");
+                d = Double.parseDouble(s);
+            } catch (Exception e) {
+                result |= putIfDifferent(inout, "input", "Use English format: 1234.56");
+                return true;
+            }
+            String formatted;
+            try {
+                formatted = df.format(d);
+                result |= putIfDifferent(inout, "formatted", formatted);
+            } catch (Exception e) {
+                result |= putIfDifferent(inout, "formatted", "Can't format: " + e.getMessage());
+                return true;
+            }
+            try {
+                Number n = df.parse(formatted);
+                result |= putIfDifferent(inout, "reparsed", n.toString());
+            } catch (Exception e) {
+                result |= putIfDifferent(inout, "reparsed", "Can't parse: " + e.getMessage());
+            }
+            return result;
+        }
+    }
 }

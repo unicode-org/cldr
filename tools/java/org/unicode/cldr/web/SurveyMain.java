@@ -372,9 +372,9 @@ public class SurveyMain extends HttpServlet {
         ctx.println(uptime + ", " + pages + " pages served.<br/>");
         Runtime r = Runtime.getRuntime();
         double total = r.totalMemory();
-        total = total / 1024;
+        total = total / 1024000.0;
         double free = r.freeMemory();
-        free = free / 1024;
+        free = free / 1024000.0;
         ctx.println("Free memory: " + free + "M / " + total + "M.<br/>");
         r.gc();
         ctx.println("Ran gc();<br/>");
@@ -548,7 +548,10 @@ public class SurveyMain extends HttpServlet {
         ctx.println("</head>");
         ctx.println("<body>");
         if((specialHeader != null) && (specialHeader.length()>0)) {
-            ctx.println("<div style='border: 2px solid gray; margin: 0.5em; padding: 0.5em;'>" + specialHeader);
+            ctx.println("<div style='border: 2px solid gray; margin: 0.5em; padding: 0.5em;'>");
+            ctx.printHelpLink("/BannerMessage","News",true,false);
+            ctx.println(": &nbsp; ");
+            ctx.println(specialHeader);
             if(specialTimer != 0) {
                 long t0 = System.currentTimeMillis();
                 ctx.print("<br><b>Timer:</b> ");
@@ -559,7 +562,6 @@ public class SurveyMain extends HttpServlet {
                 }
             }
             ctx.print("<br>");
-            ctx.printHelpLink("/BannerMessage","What does this mean?");
             ctx.println("</div><br>");
         }
         ctx.println("<script type='text/javascript'><!-- \n" +
@@ -807,7 +809,10 @@ public class SurveyMain extends HttpServlet {
             } else {
                 ctx.println("<i>user added.</i>");
                 registeredUser.printPasswordLink(ctx);
-                ctx.println("<p>The password wasn't emailed to this user. You can do so in the 'manage users' page.</p>");
+                WebContext nuCtx = new WebContext(ctx);
+                nuCtx.addQuery("do","list");
+                
+                ctx.println("<p>The password wasn't emailed to this user. You can do so in the '<a href='"+nuCtx.url()+"#u_"+u.email+"'>manage users</a>' page.</p>");
             }
         }
         
@@ -853,7 +858,7 @@ public class SurveyMain extends HttpServlet {
             if(UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
                 org = "ALL"; // all
             }
-            ctx.println("<h4>Showing users for: " + org + "</h4>");
+            ctx.println("<h4>Showing coverage for: " + org + "</h4>");
             while(rs.next()) {
               //  n++;
                 int theirId = rs.getInt(1);
@@ -1086,7 +1091,7 @@ public class SurveyMain extends HttpServlet {
                 ctx.println("<input type='submit' name='doBtn' value='Change'>");
             }
             ctx.println("<table summary='User List' class='userlist' border='2'>");
-            ctx.println(" <tr><th>Level</th><th>Name/Email</th><th>Organization</th><th>Locales</th><th>Actions</th></tr>");
+            ctx.println(" <tr><th></th><th>Organization / Level</th><th>Name/Email</th><th>Locales</th></tr>");
             while(rs.next()) {
                 n++;
                 int theirId = rs.getInt(1);
@@ -1095,85 +1100,30 @@ public class SurveyMain extends HttpServlet {
                 String theirEmail = rs.getString(4);
                 String theirOrg = rs.getString(5);
                 String theirLocales = rs.getString(6);
-                CookieSession theUser = CookieSession.retrieveUserWithoutTouch(theirEmail);
-                ctx.println("  <tr class='user" + theirLevel + "'>");
-                ctx.println("    <td align='right'>" + UserRegistry.levelToStr(ctx,theirLevel) + "</td>");
-                ctx.println("    <td><font size='-1'>#" + theirId + " </font>" +  theirName + "<br>");
-                ctx.println("    " + "<a href='mailto:" + theirEmail + "'>" + theirEmail + "</a>" + "</td>");
-                ctx.println("    <td>" + theirOrg + "</td>");
-                if(theirLevel <= UserRegistry.TC) {
-                    ctx.println("   <td>" + UserRegistry.prettyPrintLocale(null) + "</td> ");
-                } else {
-                    ctx.println("    <td>" + UserRegistry.prettyPrintLocale(theirLocales) + "</td>");
-                }
-                
                 boolean havePermToChange = UserRegistry.userCanModifyUser(ctx.session.user, theirId, theirLevel);
+                String theirTag = theirId + "_" + theirEmail; // ID+email - prevents stale data. (i.e. delete of user 3 if the rows change..)
+                String action = ctx.field(theirTag);
+                CookieSession theUser = CookieSession.retrieveUserWithoutTouch(theirEmail);
                 
-                if(havePermToChange) {
-                    // Was something requested?
-                    String theirTag = theirId + "_" + theirEmail; // ID+email - prevents stale data. (i.e. delete of user 3 if the rows change..)
-                    String action = ctx.field(theirTag);
-                    ctx.println("    <td><select name='" + theirTag + "'>");
-                    // set user to VETTER
-                    ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-                    for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
-                        int lev = UserRegistry.ALL_LEVELS[i];
-                        doChangeUserOption(ctx, lev, theirLevel,
-                                           (preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SETLEVEL + lev) );
-                    }
-                    ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-                    
-                    
-                    
-                    ctx.println("   <option ");
-                    if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SHOW_PASSWORD)) {
-                        ctx.println(" SELECTED ");
-                    }
-                    ctx.println(" value='" + LIST_ACTION_SHOW_PASSWORD + "'>Show password...</option>");
-                    
-                    
-                    
-                    ctx.println("   <option ");
-                    if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SEND_PASSWORD)) {
-                        ctx.println(" SELECTED ");
-                    }
-                    ctx.println(" value='" + LIST_ACTION_SEND_PASSWORD + "'>Send password...</option>");
-                    
-                    if(theirLevel > UserRegistry.TC) {
-                        ctx.println("   <option ");
-                        if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SETLOCALES)) {
-                            ctx.println(" SELECTED ");
-                        }
-                        ctx.println(" value='" + LIST_ACTION_SETLOCALES + "'>Set locales...</option>");
-                    }
-                    if(UserRegistry.userCanDeleteUser(ctx.session.user,theirId,theirLevel)) {
-                        ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-                        if((action!=null) && action.equals(LIST_ACTION_DELETE0)) {
-                            ctx.println("   <option value='" + LIST_ACTION_DELETE1 +"' SELECTED>Confirm delete</option>");
-                        } else {
-                            ctx.println("   <option ");
-                            if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_DELETE0)) {
-                                ctx.println(" SELECTED ");
-                            }
-                            ctx.println(" value='" + LIST_ACTION_DELETE0 +"'>Delete user..</option>");
-                        }
-                    }
-                    ctx.println("    </select>");
-                    ctx.println(      "</td>");
-                    
+                ctx.println("  <tr class='user" + theirLevel + "'>");
+                
+                // first:  DO.
+                
+                if(havePermToChange) {  // do stuff
                     
                     String msg = null;
                     if(ctx.field(LIST_ACTION_SETLOCALES + theirTag).length()>0) {
-                        ctx.println("<td>");
+                        ctx.println("<td class='framecell' >");
                         String newLocales = ctx.field(LIST_ACTION_SETLOCALES + theirTag);
                         msg = reg.setLocales(ctx, theirId, theirEmail, newLocales);
                         ctx.println(msg);
+                        theirLocales = newLocales; // MODIFY
                         if(theUser != null) {
                             ctx.println("<br/><i>Logging out user session " + theUser.id + " and deleting all unsaved changes</i>");
                             theUser.remove();
                         }
                         ctx.println("</td>");
-                    } else if((action!=null)&&(action.length()>0)&&(!action.equals(LIST_ACTION_NONE))) {
+                    } else if((action!=null)&&(action.length()>0)&&(!action.equals(LIST_ACTION_NONE))) { // other actions
                         ctx.println("<td class='framecell'>");
                         
                         // check an explicit list. Don't allow random levels to be set.
@@ -1182,6 +1132,7 @@ public class SurveyMain extends HttpServlet {
                                 msg = reg.setUserLevel(ctx, theirId, theirEmail, UserRegistry.ALL_LEVELS[i]);
                                 ctx.println("Setting to level " + UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i]));
                                 ctx.println(": " + msg);
+                                theirLevel = UserRegistry.ALL_LEVELS[i];
                                 if(theUser != null) {
                                     ctx.println("<br/><i>Logging out user session " + theUser.id + "</i>");
                                     theUser.remove();
@@ -1201,7 +1152,7 @@ public class SurveyMain extends HttpServlet {
                                 notifyUser(ctx, theirEmail, pass);                                
                             }                            
                         } else if(action.equals(LIST_ACTION_DELETE0)) {
-                            ctx.println("Ensure that 'confirm delete' is chosen at left and click Change again to delete..");
+                            ctx.println("Ensure that 'confirm delete' is chosen at right and click Change again to delete..");
                         } else if((UserRegistry.userCanDeleteUser(ctx.session.user,theirId,theirLevel)) && (action.equals(LIST_ACTION_DELETE1))) {
                             msg = reg.delete(ctx, theirId, theirEmail);
                             ctx.println("<strong style='font-color: red'>Deleting...</strong><br>");
@@ -1214,16 +1165,75 @@ public class SurveyMain extends HttpServlet {
                         }
                         // ctx.println("Change to " + action);
                         ctx.println("</td>");
+                    } else {
+                        ctx.println("<td></td>");
                     }
+                } else {
+                    ctx.println("<td></td>");
+                }              
+                
+                // org, level
+                ctx.println("    <td>" + theirOrg + "<br>" +
+                    "&nbsp; <span style='font-size: 80%' align='right'>" + UserRegistry.levelToStr(ctx,theirLevel).replaceAll(" ","&nbsp;") + "</span></td>");
+
+                ctx.println("    <td valign='top'><font size='-1'>#" + theirId + " </font> <a name='u_"+theirEmail+"'>" +  theirName + "</a>");                
+                ctx.println("    <a href='mailto:" + theirEmail + "'>" + theirEmail + "</a>");
+                if(havePermToChange) {
+                    // Was something requested?
+                    ctx.println("<br>");
                     
-                    
+                    { // PRINT MENU
+                        ctx.print("<select name='" + theirTag + "'>");
+                        // set user to VETTER
+                        ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
+                        for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
+                            int lev = UserRegistry.ALL_LEVELS[i];
+                            doChangeUserOption(ctx, lev, theirLevel,
+                                               (preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SETLEVEL + lev) );
+                        }
+                        ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");                                                            
+                        ctx.println("   <option ");
+                        if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SHOW_PASSWORD)) {
+                            ctx.println(" SELECTED ");
+                        }
+                        ctx.println(" value='" + LIST_ACTION_SHOW_PASSWORD + "'>Show password...</option>");
+                        ctx.println("   <option ");
+                        if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SEND_PASSWORD)) {
+                            ctx.println(" SELECTED ");
+                        }
+                        ctx.println(" value='" + LIST_ACTION_SEND_PASSWORD + "'>Send password...</option>");
+                        if(theirLevel > UserRegistry.TC) {
+                            ctx.println("   <option ");
+                            if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SETLOCALES)) {
+                                ctx.println(" SELECTED ");
+                            }
+                            ctx.println(" value='" + LIST_ACTION_SETLOCALES + "'>Set locales...</option>");
+                        }
+                        if(UserRegistry.userCanDeleteUser(ctx.session.user,theirId,theirLevel)) {
+                            ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
+                            if((action!=null) && action.equals(LIST_ACTION_DELETE0)) {
+                                ctx.println("   <option value='" + LIST_ACTION_DELETE1 +"' SELECTED>Confirm delete</option>");
+                            } else {
+                                ctx.println("   <option ");
+                                if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_DELETE0)) {
+                                    ctx.println(" SELECTED ");
+                                }
+                                ctx.println(" value='" + LIST_ACTION_DELETE0 +"'>Delete user..</option>");
+                            }
+                        }
+                        ctx.println("    </select>");
+                    } // end menu
+                }
+                ctx.println("</td>");
+                
+                if(theirLevel <= UserRegistry.TC) {
+                    ctx.println("   <td>" + UserRegistry.prettyPrintLocale(null) + "</td> ");
+                } else {
+                    ctx.println("    <td>" + UserRegistry.prettyPrintLocale(theirLocales) + "</td>");
                 }
                 
                 // are they logged in?
                 if((theUser != null) && UserRegistry.userCanModifyUsers(ctx.session.user)) {
-                    if(!havePermToChange) {
-                        ctx.println("<td></td>");
-                    }
                     ctx.println("<td>");
                     ctx.println("<b>Active " + timeDiff(theUser.last) + " ago</b>");
                     if(UserRegistry.userIsAdmin(ctx.session.user)) {

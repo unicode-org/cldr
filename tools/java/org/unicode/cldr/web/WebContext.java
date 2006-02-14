@@ -457,13 +457,21 @@ public class WebContext {
         printHelpLink(what, title, true);
     }
     public static final String MOD_MSG = ("Visit help as Editable (may require login)");
-    public void printHelpLink(String what, String title, boolean doEdit)
+    public void printHelpLink(String heresWhere, String defaultArgs, boolean areNice) {
+        printHelpLink(heresWhere,defaultArgs,areNice,true);
+    }
+    public void printHelpLink(String what, String title, boolean doEdit, boolean parens)
     {
-        print("(<a href=\"" + (SurveyMain.CLDR_HELP_LINK) + what + "\">" + title +"</a>");
+        if(parens) {
+            print("(");
+        }
+        print("<a href=\"" + (SurveyMain.CLDR_HELP_LINK) + what + "\">" + title +"</a>");
 //        if(doEdit) {
 //            print(" <a title='"+MOD_MSG+"' href=\"" + (SurveyMain.CLDR_HELP_LINK_EDIT) + what + "\">" + modifyThing(MOD_MSG) +"</a>");
 //        }
-        println(")");
+        if(parens) {
+            println(")");
+        }
     }
     public String modifyThing(String message) {
         return "<img border='0' style='width: 1em; height: 1em;' src='"+context("hand.gif")+"' title='"+message+"' />";

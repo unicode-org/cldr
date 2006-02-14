@@ -1,7 +1,9 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <html>
 	<head>
 		<title>CLDR Web Applications : Add a user</title>
 		<link rel='stylesheet' type='text/css' href='./surveytool.css' />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
 		<h1>Add a Survey Tool user</h1>

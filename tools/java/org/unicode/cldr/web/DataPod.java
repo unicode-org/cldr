@@ -845,13 +845,13 @@ public class DataPod {
             String lelement = xpp.getElement(-1);
             /* all of these are always at the end */
             String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
-            String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
             
             /* FULL path processing (references..) */
             xpp.clear();
             xpp.initialize(fullPath);
             lelement = xpp.getElement(-1);
             String eRefs = xpp.findAttributeValue(lelement, LDMLConstants.REFERENCES);
+            String eDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
 //if(ndebug) System.err.println("n04  "+(System.currentTimeMillis()-nextTime));
             
             

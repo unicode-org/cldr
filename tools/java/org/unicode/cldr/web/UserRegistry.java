@@ -17,6 +17,8 @@ import java.sql.Statement;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
+import com.ibm.icu.util.ULocale;
+
 
 public class UserRegistry {
     private static java.util.logging.Logger logger;
@@ -425,7 +427,7 @@ public class UserRegistry {
                     msg = msg + " [Error in updating users!] ";
                     logger.severe("Error: " + n + " records updated!");
                 } else {
-                    msg = msg + " [completed OK]";
+                    msg = msg + " [user level set]";
                 }
             } catch (SQLException se) {
                 msg = msg + " exception: " + SurveyMain.unchainSqlException(se);
@@ -467,7 +469,7 @@ public class UserRegistry {
                     msg = msg + " [Error in updating users!] ";
                     logger.severe("Error: " + n + " records updated!");
                 } else {
-                    msg = msg + " [completed OK]";
+                    msg = msg + " [locales set]";
                 }
             } catch (SQLException se) {
                 msg = msg + " exception: " + SurveyMain.unchainSqlException(se);
@@ -728,7 +730,7 @@ public class UserRegistry {
             ret = ("<i>all locales</i>");
         } else {
             for(int i=0;i<localeArray.length;i++) {
-                ret = ret + " <tt class='codebox'>"+localeArray[i]+"</tt> ";
+                ret = ret + " <tt class='codebox' title='"+new ULocale(localeArray[i]).getDisplayName()+"'>"+localeArray[i]+"</tt> ";
             }
         }
 //        return ret + " [" + localeList + "]";
